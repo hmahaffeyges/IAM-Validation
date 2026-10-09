@@ -559,3 +559,19 @@ sites (max 10,889) and GSE224807 at up to 28,006: laboratory differences swamp a
 was chosen on these 12 arrays, so it is a development value: it must hold on a laboratory not used to choose it (false-trigger rate on
 its healthy arrays, then a constructed signature), before any disease is read with it. Synthetic signatures are random sites; real
 disease signatures cluster in regions, which the C-score reads.
+
+### 2026-10-09 · SAM and one-species temperature candidates (search + simulation, no download)
+**SAM lever: GSE77079** (mouse liver RRBS, one laboratory, raw reads public SRX1539708-…): Mat1a knockout, liver SAMe depleted, placebo
+(6); knockout given SAMe (5); wild type (8). Reference-free reader (rrbs_iama.py) applies. Simulation (restore ∝ SAM/(K_m+SAM),
+K_m 4.4 µM, read by the chain's rule): IAM-A rises 1.025 / 1.05 / 1.10 for a 1.5 / 2 / 3-fold SAM drop at 60 µM, 1.13-1.25 at 20 µM.
+Power, knockout vs wild type with the within-species spread of the 580-species liver reads (SD of ln ε 0.136): 0.42 at IAM-A 1.10,
+0.97 at 1.25. **Decision rule before download:** the paper's measured liver SAMe fold drop and the wild-type within-laboratory spread
+must give power ≥ 0.8; the SAMe-treated knockouts are the built-in reversal (they must move back toward wild type). Confounds: the
+knockout develops steatohepatitis (cell mix, proliferation).
+**Temperature, one species: GSE199815** (Syrian hamster liver WGBS, 3 euthermic, 3 late torpor, 3 early arousal). The two pictures of
+the bit predict opposite outcomes: a passive bit held at the current body temperature would lower ε by ~30 % in torpor (≈ 30 K colder;
+power 3 v 3 = 0.67); a driven bit renewed at copying predicts almost no change during a torpor bout, because liver cells barely divide
+in it (power to see the small residual 0.06-0.07, i.e. a null). A clear fall in torpor would favour the passive picture; no change is
+what the driven-bit derivation (DEV-FLOOR-HEIGHT-02) predicts. Labelled PREDICTION (driven bit: no torpor change; change only after
+renewal). Needs a hamster read pipeline and conversion control; 9 WGBS runs.
+**Not useful:** GSE152444 (sea bass; 4 K during development, read three years later: a memory test, and 4 K is below detection).
