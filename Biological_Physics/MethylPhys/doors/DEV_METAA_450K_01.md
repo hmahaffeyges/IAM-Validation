@@ -17,3 +17,8 @@ of 10, leave-one-out on the 8. Noise sites = the EPIC noise sites present on 450
 **Disease readings (after 1–3 are met; one-sided, written now).** Lupus neutrophils (GSE65097, 15) and antiphospholipid-syndrome
 neutrophils (GSE124565, 10), each tared against the healthy neutrophils of the same series: more read above Normal than the healthy
 (Fisher one-sided p < 0.05), and the median A_rel is higher (Mann-Whitney one-sided). Lupus low-density granulocytes recorded only.
+
+**Expectation added after simulation (DEV-SYNTH-LEVERS-01 §3), before reading.** Met-A detects a disease only if it shifts ≥ ~5 % of the
+neutrophil identity sites by ≥ 10 % (power 0.89 at 15 vs 15). The published lupus-neutrophil signature (interferon genes, a few hundred
+CpGs) would not do that, so a null in lupus neutrophils is the expected outcome and is not evidence against Met-A; lupus low-density
+granulocytes (immature cells) are the likelier positive. A null here is recorded as "below what Met-A is built to see".

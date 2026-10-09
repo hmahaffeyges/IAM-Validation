@@ -15,3 +15,7 @@ cell, so no state is given).
 **Prediction (from DEV-LINK-IAMA-METAA-01, nothing fitted).** At each dose, measured Met-A_rel lies between curve A and curve B at the
 measured IAM-A_rel (allowance: the two vehicle arrays' spread). Below A: Met-A does not see the copy error. Above B: something beyond
 copy error moves Met-A (cells switching state). IAM-A_rel above the reverse limit from Met-A falsifies the relation.
+
+**Reading rules added after simulation (DEV-SYNTH-LEVERS-01 §2), before any dose-series data are read.** At each dose report the share of
+molecules IAM-A can read and the identity-site mean β. The derivation is tested only at doses where that share is ≥ 0.70 and the
+identity sites stay on their own side of β = 0.5; a dose outside that range is recorded as outside the relation's range, not as a result.
