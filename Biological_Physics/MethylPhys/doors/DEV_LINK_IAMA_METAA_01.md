@@ -4,7 +4,7 @@
 CALCULATED from frozen inputs; nothing is fitted. The tests are open.
 
 ## Definitions (both frozen in the chain)
-- IAM-A = H(ε) ÷ (P · H(ε₀)), ε = isolated copy errors per opportunity on methylated molecules; H(ε₀) = 0.2043 bits (thermal floor);
+- IAM-A = H(ε) ÷ (P · H(ε₀)), ε = isolated copy errors per opportunity on methylated molecules; H(ε₀) = 0.2043 bits (H_ref, the healthy reference height);
   healthy neutrophils read 1 at ε_h, where H(ε_h) = P · H(ε₀) (ε_h ≈ 0.0385, P = 1.1492).
 - Met-A = mean over 6,000 identity sites of H(β_i) ÷ the healthy mean (floor 0.33026), H(b) = −b log₂ b − (1−b) log₂(1−b);
   3,000 methylated sites (healthy β 0.75–0.95) and 3,000 unmethylated (0.05–0.25), healthy β_i = μ_i (`metA_floors_v1_3.json`).
