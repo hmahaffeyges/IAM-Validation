@@ -120,3 +120,18 @@ same cells, Met-A departs further than IAM-A (fingerprint). Limits written now: 
 PrEC arrays are fewer than the three same-run references the tare needs, so Met-A can only be read as LNCaP ÷ PrEC (development);
 IAM-A has no measured P for prostate epithelium, so it too is read as LNCaP ÷ PrEC (the 4 PrEC WGBS runs give the same-run reference).
 Cell lines, not patients.
+
+## Candidates found 2026-10-09 (evening; search only, nothing downloaded)
+**Atlas composition, second-group truth sets: bronchoalveolar lavage with differential cell counts** (cytospin % lymphocytes,
+neutrophils, eosinophils per sample): GSE133062 (EPIC, 70, Karolinska; healthy smokers/non-smokers), GSE151017 (EPIC, 78, Karolinska;
+MS), GSE206709/GSE206719 (EPIC, 72, National Jewish; chronic beryllium disease). Atlas v2 holds every cell these need: lung alveolar
+macrophages (2) and interstitial macrophages (3), lymphocytes, neutrophils, eosinophils. Two groups, neither behind the atlas's
+references. Simulate first: atlas mixtures at the counted fractions plus the per-site healthy spread, with the counting error of a
+~400-cell differential (± 2–3 points), to set whether the composition bars can be met on them.
+**Cancer both ways (GSE86833) — reference upgrade:** prostate epithelium is IN atlas v2 (4 Loyfer WGBS), so Met-A has prostate identity
+sites, and the 4 Loyfer prostate .pat files can measure IAM-A's own position P for prostate epithelium (box job). Simulated resolving
+power of the both-ways test (2 arrays and 4 runs per side; Met-A held-out spread 0.020, IAM-A repeat 0.009; curve B slope 1.17):
+an excess of Met-A above curve B of 0.04 is detected 59 %, 0.06 88 %, 0.10 100 %; false call 5 %.
+**EPIC Met-A repeatability, new laboratory: GSE247198** EPIC neutrophils, 2 people × 24 arrays across one day with technical repeats,
+6 slides (its 450K half is neutrophil-depleted blood, not usable for DEV-METAA-450K-01). Healthy only; a further-laboratory check of the
+commissioned EPIC Met-A (Normal, repeat spread), and a time-of-day reading.
