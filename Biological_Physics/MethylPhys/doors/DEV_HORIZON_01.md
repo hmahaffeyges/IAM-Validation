@@ -47,3 +47,21 @@ healthy-like cells return fully. The deficit (0.07–0.25 in β) is far above me
 and slow DNMT1 recovery (need ≥ 3 late time points showing a plateau, not a slope).
 **Data to look for.** Decitabine/azacytidine washout time courses with ≥ 3 post-washout time points over ≥ 20 divisions, sequenced
 (single-molecule), ideally in one cancer line and one non-cancer line.
+
+## Data search and a confound found by simulation (2026-10-09)
+**Washout data.** None found with methylation read after washout: Scelfo et al. 2024 (DLD1/HCT116 and RPE-1 DNMT1 degron with 4-day
+washout) deposited Hi-C and ChIP only (GSE251932/4/5); the HCT116 DNMT1/UHRF1 degron series (GSE236026, WGBS days 0–12 in triplicate;
+GSE278681) stop at depletion. Searches: GEO (washout/withdrawal/recovery/remethylation terms) and the literature.
+**Can a depletion series test memory instead? No.** Simulated dispersion of each molecule's methylated count against the
+independent-site expectation (1 = independent) over a DNMT1-off time course:
+| day | independent sites, site-wise loss | domain memory (c = 20) | independent sites, **whole-strand** maintenance failure (30 % / 60 % per division) |
+|---|---|---|---|
+| 0 | 1.00 | 1.31 | 0.99 / 1.02 |
+| 2 | 0.99 | 1.89 | 4.25 / 4.48 |
+| 6 | 1.01 | 3.95 | 3.16 / 2.97 |
+| 12 | 1.00 | 5.21 | 3.07 / 2.93 |
+When DNMT1 is absent during a cell's S phase, the whole new strand goes unmethylated, so all-or-none molecules appear with no domain
+memory at all. A depletion series cannot separate memory from strand-level failure; **only recovery after restoring the enzyme can**
+(strand failure recovers; memory does not). The GSE236026 download was not made.
+**Kept as the test.** A degron or non-toxic inhibitor (e.g. GSK-3484862) washout with single-molecule methylation at ≥ 3 late time points,
+cancer line and non-cancer line. Not found public; the design is recorded for collaborators.
