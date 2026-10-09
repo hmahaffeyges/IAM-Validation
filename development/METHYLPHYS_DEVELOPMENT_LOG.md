@@ -606,3 +606,23 @@ an excess of Met-A above curve B of 0.04 is detected 59 %, 0.06 88 %, 0.10 100 %
 **EPIC Met-A repeatability, new laboratory: GSE247198** EPIC neutrophils, 2 people × 24 arrays across one day with technical repeats,
 6 slides (its 450K half is neutrophil-depleted blood, not usable for DEV-METAA-450K-01). Healthy only; a further-laboratory check of the
 commissioned EPIC Met-A (Normal, repeat spread), and a time-of-day reading.
+
+### 2026-10-09 · Lavage truth sets simulated against the atlas composition bars (reachable; download next)
+Atlas v2 posterior draws, 60 random blocks (66,954 loci; the 8,000 most cell-informative used), an 11-cell lavage panel (alveolar and
+interstitial macrophages, monocytes, CD4, CD8, B, NK, neutrophils, eosinophils, alveolar and bronchus epithelium). Truth: macrophages
+~70–95 %, lymphocytes 4–20 %, neutrophils 0.5–12 %, eosinophils 0–2 %; each 'person' one posterior draw plus spread; counted fraction
+from a 400-cell differential. Solver: non-negative least squares on posterior means (a stand-in; the real reading uses atlas_e).
+| conditions | neutrophil MAE vs truth | MAE vs the count | within 0.05 of the count |
+|---|---|---|---|
+| array SD 0.02 | 0.004 | 0.010 | 299/300 |
+| array 0.04, person 0.02 | 0.005 | 0.011 | 300/300 |
+| array 0.06, person 0.04 | 0.006 | 0.010 | 300/300 |
+| + random per-site lab offset SD 0.02–0.06 | — | 0.010–0.012 | 300/300 |
+| + methylated-channel shift 3–10 % | — | 0.010–0.011 | 300/300 |
+The count's own error (binomial, 400 cells) is most of the 0.010; bar 1 (MAE ≤ 0.02, every sample within 0.05) is reachable. Simulation is
+optimistic: EPIC probe overlap with the atlas loci, atlas_e's own solver, and cell states in disease (MS, beryllium disease) not modelled.
+**How it counts (most defensible):** lavage is lung, not blood. A pass is independent-laboratory evidence that atlas v2 measures
+neutrophil fraction against a macrophage background; it does not by itself commission the whole-blood composition step, which still
+needs a whole-blood truth set from another laboratory (GSE122126). **Decision:** download GSE133062 first (healthy; Karolinska), then
+GSE206709 (National Jewish), read with atlas_e unchanged, bars 1–2 as written. Differential cell count method and cells counted to be
+taken from each paper before scoring.
