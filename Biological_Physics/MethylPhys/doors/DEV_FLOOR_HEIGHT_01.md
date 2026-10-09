@@ -23,3 +23,15 @@ give the instrument's false-methylation rate per run; subtract it from the de no
 after correction: the enzyme-physics height fails for that channel.
 **Status.** Standard enzyme physics, not specific to IAM; what IAM adds is the claim that every held bit sits at its Boltzmann gap, with
 the same reading at every scale. The methylated-channel height remains open.
+
+---
+## First test (2026-10-09; nothing above the line changed)
+Laboratory-G neutrophil libraries carry an unmethylated lambda spike-in (≈ 300,000 reads per run). Instrument false-methylation
+(lambda C read as C): **TruSeq 1.05 %, Swift 1.63 %** (CpG and non-CpG alike). De novo error on the same runs (isolated methylated call on
+molecules ≤ 20 % methylated, ≥ 6 calls): TruSeq 0.0135 (uncorrected, 4.29 kT) → **0.0030 corrected (5.8 kT)**; Swift 0.0152 →
+**−0.0011 corrected** (the instrument accounts for all of it).
+\measured After correction the de novo error is at or below 0.003, under the predicted 0.0055–0.011: **not met** for the enzyme's
+single-step gap. Healthy cells hold their unmethylated sites better than DNMT1's in-vitro selectivity alone allows, consistent with
+the further steps that act in cells (CXXC binding, UHRF1 targeting, TET removal) — a multi-step (proofread) gap, whose height would have
+to be derived from those steps. Two runs, one donor; lambda conversion may differ from genomic conversion. The methylated-channel height
+remains open.

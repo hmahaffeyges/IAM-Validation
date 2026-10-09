@@ -499,3 +499,8 @@ A proposed test ("no healthy cell type reads below ε₀ = 0.032") is not valid:
 calibrated reference height, not a lower bound. A physics-only height (e.g. from DNMT1's discrimination energy) is open, and would make the
 floor a prediction. `chain/pat_eps_fast.py`: Stage Q's whole-file ε streamed, identical to Stage Q on GSM5652279 (4,995,597 / 129,539,188;
 52 s vs ~20 min).
+
+### 2026-10-09 · DEV-FLOOR-HEIGHT-01: enzyme-physics height for the de novo channel, first test — not met
+\measured Lambda spike-in non-conversion TruSeq 1.05 %, Swift 1.63 %; corrected de novo error 0.0030 and −0.0011 vs predicted
+0.0055-0.011 from DNMT1's single-step HM/UM gap (87-180x). Cells exceed the enzyme's single-step fidelity (multi-step in cells).
+Methylated-channel (3.41 kT) height: still no physics-only derivation.
