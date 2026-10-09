@@ -1,5 +1,12 @@
 # Chain changelog
 
+## 2026-10-09 - Met-A on neutrophils COMMISSIONED (author approval)
+
+- `conductor_v3.py`: `BUILD` names Met-A on neutrophils (EPIC v1) commissioned 2026-10-09 and every other stage development;
+  `METAA_COMMISSIONING` record (scope, stages, detection limits 2 % / 5 %, what is not commissioned) attached to `met_a` when A is read.
+- `report_v3.py`: green commissioning box in the Stage 5 section with both detection limits; `run_sample.py`: ledger label follows.
+- Note: `doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md`. No number, frozen input or locked result changed.
+
 ## 2026-10-08 - chain v3 development round 3 (DEVELOPMENT - not commissioned)
 
 Records: `development/METHYLPHYS_DEVELOPMENT_LOG.md` (2026-10-08 entries), `doors/DEV_IAMA_P_WHOLE_01.md`, `doors/DEV_IAMA_INTAKE_01.md`. No locked result changed.

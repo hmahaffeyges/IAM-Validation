@@ -558,7 +558,7 @@ def main():
         _json.dump(o, open(bundle_path, "w"), default=str)
         row = {"run_id": o["run_id"], "engine": "v3", "sample_id": hid, "utc": _dt.datetime.utcnow().isoformat(timespec="seconds"),
                "report": _redact(os.path.abspath(a.out), typed, hid), "bundle": _redact(os.path.abspath(bundle_path), typed, hid), "specimen": a.specimen,
-               "label": "DEVELOPMENT - not commissioned", "refusal_code": o.get("refusal_code"),
+               "label": ("Met-A COMMISSIONED 2026-10-09 (neutrophils, EPIC v1); other stages DEVELOPMENT" if (o.get("met_a") or {}).get("commissioning") else "DEVELOPMENT - not commissioned"), "refusal_code": o.get("refusal_code"),
                "platform": o.get("platform"), "array_type": o.get("array_type"), "refusal": o.get("refusal"),
                "floors_version": o.get("floors_version"), "reference_version": o.get("reference_version"),
                "stage0_verdict": it.get("stage0_verdict"), "call_rate_status": it.get("call_rate_status"),

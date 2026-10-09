@@ -1,4 +1,9 @@
-# Chain v3 commissioning — stage by stage (development)
+# Chain v3 commissioning — stage by stage
+
+**Commissioned:** Met-A on neutrophils, EPIC v1 (isolated neutrophils; whole blood with neutrophil fraction ≥ 0.20), stages 0, 1, 2, 5, 6,
+8, 9, 13 — **2026-10-09**, by the author (`COMMISSIONING_NOTE_METAA_NEUTROPHILS.md`). Detection limits 2 % (purified) / 5 % (whole blood)
+loss of pattern, printed on every report. Everything else below is development.
+
 
 **DEVELOPMENT - not commissioned.** Development mode (author ruling O): no sealed pre-registrations; each check was written in a dated `doors/DEV_*.md`
 note before the data were read and the outcome is under the line in the same note.

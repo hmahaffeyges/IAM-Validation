@@ -42,6 +42,7 @@ Manual: `python manual/build_manual_v3.py` rebuilds the PDF.
 |---|---|
 | Refused (specimen) | `SPECIMEN_REFUSED`: the specimen has no reference in chain v3; the refusal names it. No reading, Stage 1 does not run |
 | Refused | the platform check: not an EPIC v1 vector (array type, EPIC v2 probe names, or 700,000 probes or fewer); an EPIC v2 IDAT pair is refused at intake, before Stage 1. No reading |
+| Commissioning box (Stage 5) | green box: Met-A COMMISSIONED 2026-10-09; the detection limits (2 % purified, 5 % whole blood: the smallest loss that reliably reads outside Normal) and this run's own statistical limit (2 × reference spread). Present only when Met-A was read |
 | Stage 0 intake | verdict PROCEED / PROCEED_WITH_PENALTY / QUARANTINE (QUARANTINE produces no report), call rate, flags; `not run` for `--betas`, `--pat`, `--site-table` or `--no-intake` |
 | Stage 1 | poobah detection, call rate and controls: recorded, not gated |
 | Stage A composition | the 8 blood groups (groups at 1 % or more are listed). Whole blood is read when neutrophils are ≥ 20 % and ≥ 867 of the 963 markers are measured |

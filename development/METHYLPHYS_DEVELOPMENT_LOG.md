@@ -373,3 +373,9 @@ This is the first adult EPIC mixture truth set (round 2 found none and used 450K
   ≥ 6 calls on every file, and session 2 measures it per kit.
 - Box resized to m7a.32xlarge for session 2 (8 runs × 25M read pairs). First start stopped at the Sambamba version check (sambamba exits 1
   when printing its version, which `pipefail` treated as a failure); fixed and relaunched within 12 minutes.
+
+## 2026-10-09 · Met-A on neutrophils (EPIC v1) COMMISSIONED
+The author approved commissioning with the detection limits printed on every report (2 % loss of the neutrophil pattern in purified
+neutrophils, 5 % in whole blood). From today Met-A readings in that scope are results; every other stage stays development. Note:
+`doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md`; chain build label, report box, SOP, OM, changelog and commissioning record updated.
+End-to-end check: one healthy purified-neutrophil array (A_rel 0.998) and one healthy whole blood (1.007) read Normal with the box shown.

@@ -18,7 +18,7 @@ every output to S3, and stops the box at the end or on a crash.
 
 ## 1. Now: commission the neutrophil chain (updated 2026-10-09)
 
-**Met-A (arrays): draft commissioning note ready for the author** — [`COMMISSIONING_NOTE_METAA_NEUTROPHILS_DRAFT.md`](COMMISSIONING_NOTE_METAA_NEUTROPHILS_DRAFT.md):
+**Met-A (arrays): COMMISSIONED 2026-10-09** (author approval; detection limits 2 % purified / 5 % whole blood printed on every report) — [`COMMISSIONING_NOTE_METAA_NEUTROPHILS.md`](COMMISSIONING_NOTE_METAA_NEUTROPHILS.md):
 9 of 11 bars met, 1 not met (a 1 % loss of pattern; detection limits 2 % purified, 5 % whole blood), 1 not met (C-score band on a new
 laboratory, 23/26). Box Run 1 complete:
 

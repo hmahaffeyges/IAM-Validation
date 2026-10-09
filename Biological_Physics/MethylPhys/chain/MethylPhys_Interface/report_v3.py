@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Report for conductor v3 (DEVELOPMENT - not commissioned; neutrophils only). One self-contained HTML page from the v3 bundle.
+"""Report for conductor v3 (Met-A on neutrophils commissioned 2026-10-09; other stages development; neutrophils only). One self-contained HTML page from the v3 bundle.
 The gauge marker is the tared reading (tare.A_rel) whenever Stage T produced one, for whole blood and isolated neutrophils alike.
 Untared isolated neutrophils: the A against the healthy reference, labelled untared. Untared whole blood: no gauge position (the number is printed).
 
@@ -193,7 +193,13 @@ def build(o, out, sid):
          f"<h2 id='sec-reading-intake'>Stage 0 intake</h2><p>verdict: <b>{e(str(intake.get('stage0_verdict','not run')))}</b> | call rate: {e(str(intake.get('call_rate_status','-')))} {e(str(intake.get('call_rate','')))} | flags: {e(', '.join(map(str,intake.get('flags',[])))[:300])}</p>"
          + (f"<p>Stage 1 (recorded, not gated): poobah detection {e(str(s1.get('detection_qc')))} {e(str(s1.get('pct_probes_detected','')))} | call rate {e(str(s1.get('call_rate_status', s1.get('call_rate_note','-'))))} {e(str(s1.get('call_rate','')))} | controls {e(str(s1.get('ctrl_qc')))}</p>" if s1 else (f"<p>Stage 1 (recorded, not gated): not run - {e(str(o.get('refusal') or 'no Stage 1 record on this specimen'))}</p>" if intake else "")),
          "<h2 id='sec-composition'>Stage 2 composition (8 blood groups)</h2>" + (f"<table>{rows}</table>" if rows else f"<p>{e(str(a.get('note', a.get('reason',''))))}</p>"),
-         f"<h2 id='sec-met-a'>Stage 5 Met-A - neutrophils</h2>{_gauge(gA, label=glabel)}<p>A = <b>{m.get('A')}</b> ({e(str(m.get('state', m.get('reason',''))))}); "
+         f"<h2 id='sec-met-a'>Stage 5 Met-A - neutrophils</h2>"
+         + ((lambda c: f"<p style='background:#e6f4ea;padding:6px;border:1px solid #7cb98a'><b>COMMISSIONED {e(c['date'])}</b> (Met-A, neutrophils, {e(c['platform'])}). "
+             f"Detection limit: a loss of <b>{c['detection_limit_pct_loss']['isolated neutrophils']:g} %</b> of the neutrophil pattern in purified neutrophils, "
+             f"<b>{c['detection_limit_pct_loss']['whole blood']:g} %</b> in whole blood is the smallest loss that reliably reads outside Normal (measured); "
+             f"smaller losses may read Normal. Separately, this run's references are tight enough to tell a {e(str(t.get('detection_limit_pct_loss')))} % loss "
+             f"from them (2 × their spread), which shows as A_rel moving within the band.</p>")(m["commissioning"]) if m.get("commissioning") else "")
+         + f"{_gauge(gA, label=glabel)}<p>A = <b>{m.get('A')}</b> ({e(str(m.get('state', m.get('reason',''))))}); "
          f"neutrophil fraction {m.get('fraction')}; sites {m.get('n_sites')}; {e(str(m.get('expectation') or ('composition-matched healthy expectation (not computed: A withheld)' if m.get('specimen') == 'whole blood' else 'healthy reference')))}; shift per 1 % loss {m.get('shift_per_1pct_loss')}</p>"
          f"<p>Methylated sites mean beta {m.get('methylated_sites_mean_beta')}" + (" - <b>past the entropy ceiling: A falls as loss continues; read beta, not A</b>" if m.get('past_entropy_ceiling') else "") + "</p>",
          f"<h2 id='sec-tare'>Stage 8 same-run tare</h2><p>A_rel = <b>{t.get('A_rel')}</b> {e(str(t.get('state', t.get('reason',''))))}"

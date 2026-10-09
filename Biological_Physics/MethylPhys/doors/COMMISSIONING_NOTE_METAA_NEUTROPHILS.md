@@ -1,6 +1,10 @@
-# Met-A on neutrophils (EPIC v1) — commissioning note, DRAFT for the author (2026-10-09)
+# Met-A on neutrophils (EPIC v1) — commissioning note (COMMISSIONED 2026-10-09)
 
-**Status: DRAFT. Not commissioned until the author blesses it.** Every row cites the record it comes from; no number here is new.
+**Status: COMMISSIONED 2026-10-09 by the author** ("I agree with commissioning Met-A with the detection limits printed on every report").
+Every row cites the record it comes from; no number here is new. From this date Met-A readings in this scope are results, not development readings.
+
+**Detection limits printed on every report:** a loss of 2 % of the neutrophil pattern (purified neutrophils) or 5 % (whole blood) is the
+smallest that reliably reads outside Normal (DEV-METAA-SENS-01). Code: `conductor_v3.METAA_COMMISSIONING`; report: Stage 5 section.
 
 ## Scope
 Met-A for neutrophils, on EPIC v1 arrays, from isolated neutrophils or whole blood (neutrophil fraction ≥ 0.20), stages 0, 1, 2, 5, 6, 8
@@ -23,9 +27,6 @@ trace/foreign cells (3b/3c), other cell types, EPIC v2, IAM-A.
 | 10 | C-score healthy band (0.751-1.409, tared) holds on laboratories not used to set it (≥ 95 %) | 23 / 26 healthy granulocytes of a new laboratory (GSE226298) inside, 88.5 %; all three outside are low (0.63-0.74) (DEV-NEWLAB-GRAN-01) | **no** |
 | 11 | A new laboratory's healthy cells read Normal on tared Met-A (≥ 95 %) | 26 / 26 healthy granulocytes, GSE226298 (DEV-NEWLAB-GRAN-01) | yes |
 
-## Decisions for the author
-1. **Bar 9.** The bar was set on the band edge (a 1 % loss moves A by 5.2 %). Options: (a) commission with the measured detection limits
-   stated (2 % loss in purified neutrophils, 5 % in whole blood); (b) hold commissioning for a stricter test. Recommendation: (a), with the
-   limits printed on every report, because the test shows the gauge works and says exactly how small a change it can see.
-2. **Bar 10.** The C-score band misses on a new laboratory (88.5 %, all misses on the low side). Recommendation: commission Met-A without the
-   C-score; keep the C-score printed as development until a band holds on new laboratories.
+## Author decisions (2026-10-09)
+1. **Bar 9:** commissioned with the measured detection limits printed on every report (option a).
+2. **Bar 10:** the C-score is not part of this commissioning; the author asked for a plan to commission it (`doors/CSCORE_COMMISSIONING_PLAN.md`).

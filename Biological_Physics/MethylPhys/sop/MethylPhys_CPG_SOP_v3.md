@@ -92,6 +92,13 @@ Added stages: **3b trace-cell detection** (`--dev-trace`, rebuilt on the array's
 2026-10-03: per-address difference of two draws of one person and the same-person check, DEV-TOOLKIT-ADDED-01; the difference drawn as a sky is not built).
 Commissioning record (stage, check, result, wired): `doors/CHAIN_COMMISSIONING.md`.
 
+### Commissioned stages
+
+- **Met-A on neutrophils, EPIC v1, commissioned 2026-10-09** (`doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md`): stages 0, 1, 2, 5, 6, 8
+  (self-tare II then the median tare), 9, 13; isolated neutrophils and whole blood (neutrophil fraction ≥ 0.20). Every report prints the
+  detection limits: 2 % loss of the neutrophil pattern in purified neutrophils, 5 % in whole blood (DEV-METAA-SENS-01). Readings in this scope
+  are results. The Met-A C-score, IAM-A and every other stage remain development.
+
 ### Commissioning order (author approved 2026-10-03)
 
 Each step: pre-register the check in `doors/` before reading data, run it on v3, record the outcome, then wire the stage in.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cellular Performance Gauge — conductor v3. DEVELOPMENT - not commissioned. Scope: neutrophils, EPIC v1 arrays.
+"""Cellular Performance Gauge — conductor v3. Met-A on neutrophils (EPIC v1) commissioned 2026-10-09; other stages development. Scope: neutrophils, EPIC v1 arrays.
 
 Runs after Stage 0 (intake) and Stage 1 (IDAT calibration), both driven by MethylPhys_Interface/run_sample.py:
   platform  EPIC v1 only: refused when Stage 0 reports another array type, when probe names carry the EPIC v2 design suffix,
@@ -32,7 +32,15 @@ import json, os
 import numpy as np, pandas as pd
 import stage_m_met_a as SM
 HERE = os.path.dirname(os.path.abspath(__file__)); RM = os.path.join(HERE, "Runtime Matrices", "Met_A_Floors")
-BUILD = "DEVELOPMENT - not commissioned (chain v3, neutrophils only)"
+BUILD = "chain v3: Met-A on neutrophils (EPIC v1) COMMISSIONED 2026-10-09; every other stage DEVELOPMENT - not commissioned"
+METAA_COMMISSIONING = {   # doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md (author approved 2026-10-09)
+    "status": "COMMISSIONED", "date": "2026-10-09", "reading": "Met-A", "cell": "neutrophils", "platform": "EPIC v1",
+    "specimens": ["isolated neutrophils", "whole blood (neutrophil fraction >= 0.20)"],
+    "stages": "0, 1, 2, 5, 6, 8 (self-tare II then the median tare), 9, 13",
+    "detection_limit_pct_loss": {"isolated neutrophils": 2.0, "whole blood": 5.0},
+    "detection_basis": "DEV-METAA-SENS-01: every healthy array left Normal at these losses of the neutrophil pattern, through the whole chain",
+    "not_commissioned": "Met-A C-score, IAM-A, sky (11/12), direction (10), trace/foreign cells (3b/3c), other cell types",
+    "note": "doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md"}
 MIN_READ_FRACTION = 0.20      # below this the 1 % shift is under 0.01 and too few sites carry the cell (DEV-LOWFRAC-01: 5 healthy arrays under 0.40)
 MIN_MARKER_FRACTION = 0.9     # Stage A needs >= 90 % of blood_composition_EPIC_v1.json "markers" measured (867 of 963)
 MIN_REFS = 3                  # Stage T needs >= 3 same-run reference arrays (median tare)
@@ -265,6 +273,7 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
                       f"array's signal (Stage 1 detection line).")
     elif N is not None and N > g["N_max"] and t.get("A_rel") is None and m.get("A") is not None:   # no A -> its own reason stands (2026-10-03)
         m["state"] = f"withheld: noise index {N} > {g['N_max']} and no same-run tare; A printed as a number only"
+    if m.get("A") is not None: m["commissioning"] = METAA_COMMISSIONING
     out["met_a"] = m; out["met_a_cscore"] = stage_t_cscore(stage_mc_cscore(z), ref_A, sample_id); out["tare"] = t
     out["withheld"] = ["tier lines beyond Normal (not yet measured on this scale)", "other cell types (outside commissioning scope)"]
     return out
