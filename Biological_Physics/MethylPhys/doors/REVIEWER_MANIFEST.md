@@ -84,7 +84,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - sop_repoint.py (archived privately) — regenerates the SOP and resolves paths from earlier layouts
 - [`CHAIN_SEQUENCE.md`](CHAIN_SEQUENCE.md) — the live step order, generated - if a document disagrees with it, the document is wrong
 - [`RUNBOOK.md`](RUNBOOK.md) — how to run one sample
-- [`CHAIN_COMMISSIONING.md`](CHAIN_COMMISSIONING.md) — the register: every row, its status, and what is still open
+- [`STATUS.md`](../STATUS.md) (section 8, commissioning record) — the register: every row, its status, and what is still open
 - [`link_check.py`](../kit/link_check.py) — every relative path in every live document resolves
 - [`add_doc_links.py`](../kit/add_doc_links.py) — turns filenames written in prose into links, once per section
 - [`release_check.py`](../kit/release_check.py) — the guards, each with its result; a guard that could not run prints NOT RUN

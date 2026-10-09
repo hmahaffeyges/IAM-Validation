@@ -372,6 +372,24 @@ def E11(tmp):
     rec("E11", ok, "; ".join(f"{k}: {v or 'proceeds'}" for k, v in got.items()))
 
 
+def D1():
+    """Documents (STATUS.md rules, 2026-10-09): every frozen input the chain reads is named in the SOP; the frozen-input list matches the files."""
+    F = json.load(open(os.path.join(HERE, "FROZEN_INPUTS_v3.json")))["files"]
+    sop = open(os.path.join(HERE, "..", "sop", "MethylPhys_CPG_SOP_v3.md"), encoding="utf-8").read()
+    miss = [os.path.basename(f) for f in F if os.path.basename(f) not in sop]
+    rec("D1", not miss, f"{len(F) - len(miss)} of {len(F)} frozen inputs named in the SOP" + (f"; missing: {miss}" if miss else ""))
+
+
+def D2():
+    """Documents: every frozen input is named in the LOG (its introduction or change is a dated entry), and STATUS.md exists."""
+    F = json.load(open(os.path.join(HERE, "FROZEN_INPUTS_v3.json")))["files"]
+    lp = os.path.join(HERE, "..", "..", "..", "development", "METHYLPHYS_DEVELOPMENT_LOG.md")
+    if not os.path.exists(lp): rec("D2", False, "LOG not found: development/METHYLPHYS_DEVELOPMENT_LOG.md"); return
+    log = open(lp, encoding="utf-8").read(); miss = [os.path.basename(f) for f in F if os.path.basename(f) not in log]
+    st = os.path.exists(os.path.join(HERE, "..", "STATUS.md"))
+    rec("D2", not miss and st, f"{len(F) - len(miss)} of {len(F)} frozen inputs named in the LOG; STATUS.md {'present' if st else 'MISSING'}" + (f"; missing: {miss}" if miss else ""))
+
+
 def M1(tmp):
     out = os.path.join(tmp, "manual.pdf")
     code, log = run([PY, os.path.join(MP, "manual", "build_manual_v3.py"), out], cwd=os.path.join(MP, "manual"))
@@ -384,7 +402,7 @@ def main():
     files = tracked()
     tmp = tempfile.mkdtemp(prefix="rc_v3_")
     for name, fn, args in (("F1", F1, ()), ("S1", S1, (files,)), ("S2", S2, (files,)), ("S3", S3, ()), ("S4", S4, ()),
-                           ("E1", E1, (tmp,)), ("E2", E2, (tmp,)), ("E3", E3, (tmp,)), ("E4", E4, (tmp,)), ("E5", E5, (tmp,)), ("E6", E6, (tmp,)), ("E7", E7, (tmp,)), ("E8", E8, (tmp,)), ("E9", E9, (tmp,)), ("E10", E10, (tmp,)), ("E11", E11, (tmp,)), ("M1", M1, (tmp,))):
+                           ("E1", E1, (tmp,)), ("E2", E2, (tmp,)), ("E3", E3, (tmp,)), ("E4", E4, (tmp,)), ("E5", E5, (tmp,)), ("E6", E6, (tmp,)), ("E7", E7, (tmp,)), ("E8", E8, (tmp,)), ("E9", E9, (tmp,)), ("E10", E10, (tmp,)), ("E11", E11, (tmp,)), ("D1", D1, ()), ("D2", D2, ()), ("M1", M1, (tmp,))):
         try: fn(*args)
         except Exception as e: rec(name, False, f"could not run: {type(e).__name__}: {str(e)[:200]}")
     n_fail = sum(r["result"] != "PASS" for r in R)

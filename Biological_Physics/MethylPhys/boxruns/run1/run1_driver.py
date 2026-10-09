@@ -8,7 +8,7 @@ Inputs are in s3://methylphys-data-945451304272-us-west-2-an/ (prefixes in INPUT
 results/BOXRUN1/<job>/ in the same bucket, with a progress log at results/BOXRUN1/log.txt. Every job works from the calibrated
 betas of DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01/betas) where they exist and calibrates only the arrays that lack them.
 
-  A  Commissioning check: self-tare II, then the median tare, on purified neutrophils. Bars from doors/CHAIN_COMMISSIONING.md
+  A  Commissioning check: self-tare II, then the median tare, on purified neutrophils. Bars from STATUS.md section 8
      (stage 5 and stage 8, DEV-SELFTARE-02): same-person replicates (GSE250556) within-person SD <= 0.020 and >= 95 % Normal;
      purified neutrophils from other laboratories Normal on tared A; floor arrays 6/6 Normal. Set: the 68-array set plus the 2
      GSE128733 arrays. Output: one table per bar and one row per array.
@@ -115,7 +115,7 @@ JOB_TITLES = {
 REQUIRED_OUTPUTS = {"A": ["A_arrays.csv"], "B": ["B_all.csv"], "C": ["C_arrays.csv", "C_spread_by_lab.csv", "C_spread_by_set.csv"],
                     "D": ["D_sky.csv"], "E": ["E_arrays.csv"]}
 
-# bars (carried from doors/CHAIN_COMMISSIONING.md / DEV-SELFTARE-02 / DEV-SKY-02; none is set here)
+# bars (carried from STATUS.md section 8 / DEV-SELFTARE-02 / DEV-SKY-02; none is set here)
 NORMAL = (0.95, 1.05)                         # Normal range of tared Met-A (DEV-SELFTARE-02 readings)
 BAR_REPL_SD = 0.020
 BAR_REPL_NORMAL_FRAC = 0.95
@@ -381,7 +381,7 @@ def write_csv(path, rows, cols=None):
 
 # ------------------------------------------------------------------------------------------------ commissioning bars
 def bars_A(out_dir):
-    """Job A bars (CHAIN_COMMISSIONING.md stages 5 and 8 / DEV-SELFTARE-02) from A_arrays.csv; writes one table per bar and bars.json.
+    """Job A bars (STATUS.md section 8 stages 5 and 8 / DEV-SELFTARE-02) from A_arrays.csv; writes one table per bar and bars.json.
     Columns used: role (replicate | other_lab | floor), person, A_st (self-tare II), A_st_tared (self-tare II then median tare)."""
     rows = read_csv(os.path.join(out_dir, "A_arrays.csv"))
     rep = [r for r in rows if r.get("role") == "replicate"]
@@ -412,7 +412,7 @@ def bars_A(out_dir):
               ["gsm", "series", "slide", "A", "A_st", "A_st_tared", "in_normal", "status"])
     bars.append({"name": "floor arrays in Normal", "measured": f"{fn}/{len(fv)}", "bar": f"{BAR_FLOOR_N}/{BAR_FLOOR_N}",
                  "met": len(fv) == BAR_FLOOR_N and fn == BAR_FLOOR_N, "n": len(fv)})
-    res = {"job": "A", "source": "doors/CHAIN_COMMISSIONING.md stage 5 and stage 8 (DEV-SELFTARE-02)", "normal": list(NORMAL),
+    res = {"job": "A", "source": "STATUS.md section 8 stage 5 and stage 8 (DEV-SELFTARE-02)", "normal": list(NORMAL),
            "bars": bars, "all_met": all(b["met"] for b in bars)}
     atomic_write_json(os.path.join(out_dir, "bars.json"), res)
     return res
@@ -432,7 +432,7 @@ def bars_D(out_dir):
                      "bar": f"{BAR_SKY_RATIO[0]}-{BAR_SKY_RATIO[1]} in every band", "met": ok, "n": len(rb), "band1": meds[0]})
         bars.append({"name": f"{mask} mask: look-elsewhere rate", "measured": rate, "bar": f"<= {BAR_SKY_LEE_RATE}",
                      "met": rate is not None and rate <= BAR_SKY_LEE_RATE, "n": len(rs)})
-    res = {"job": "D", "source": "doors/CHAIN_COMMISSIONING.md (DEV-SKY-02)", "bars": bars, "all_met": bool(bars) and all(b["met"] for b in bars)}
+    res = {"job": "D", "source": "STATUS.md section 8 (DEV-SKY-02)", "bars": bars, "all_met": bool(bars) and all(b["met"] for b in bars)}
     atomic_write_json(os.path.join(out_dir, "bars.json"), res)
     return res
 
@@ -849,7 +849,7 @@ def run_job(j, cfg, state, store, log):
                 for b in res["bars"]:
                     log(f"[{j}] bar {'MET' if b['met'] else 'NOT MET'}: {b['name']}: {b['measured']} (bar {b['bar']})")
                 if not res["all_met"]:
-                    contrib = EXIT_BARS; log(f"[{j}] commissioning bars NOT all met (JOBS.md / CHAIN_COMMISSIONING.md)")
+                    contrib = EXIT_BARS; log(f"[{j}] commissioning bars NOT all met (JOBS.md / STATUS.md section 8)")
             except Exception as e:
                 js.update(status="failed", finished=utcnow(), reason=f"bar check failed: {type(e).__name__}: {e}")
                 log(f"[{j}] FAILED: bar check could not be read: {e}"); contrib = EXIT_CRASH

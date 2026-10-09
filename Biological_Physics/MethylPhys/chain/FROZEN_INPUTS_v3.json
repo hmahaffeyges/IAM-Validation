@@ -1,5 +1,5 @@
 {
- "_what": "sha256 of every frozen input chain v3 reads at run time. release_check_v3.py fails if any file differs. Change a frozen input only with a new version name and a dated entry in chain/CHANGELOG.md; then update this file in the same commit.",
+ "_what": "sha256 of every frozen input chain v3 reads at run time. release_check_v3.py fails if any file differs. Change a frozen input only with a new version name and a dated CHAIN CHANGE entry in development/METHYLPHYS_DEVELOPMENT_LOG.md; regenerate this file with kit/build_frozen_inputs.py in the same commit.",
  "_recorded": "2026-10-03, from main at dfbfcf0 (unchanged since the PROC-REPL-V3-01 run at 87cfa65 for the five files that run recorded in doors/data/DEV_REPL_V3_01_run/COMMANDS.md); 2026-10-08 iama_positions_v2",
  "files": {
   "Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json": "2f64f8846f8a4b0d5d66964347807dde03067130f17d9ce97a8e4dc7efe7c9ae",

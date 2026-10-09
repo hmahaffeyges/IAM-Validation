@@ -26,7 +26,7 @@ in the code it is in this order (wired 2026-10-04, `stage_t_selftare_ii`, called
 | 1 Calibration | IDAT → noob β; probes at background (poobah p > 0.05) removed | `chain/stage_1_idat_calibration.py` | Illumina manifest (methylprep downloads it on first use) |
 | A Composition (whole blood only) | 8 blood groups by NNLS on 963 markers, sum 1; the markers exclude the neutrophil sites; ≥ 867 of 963 measured (`MIN_MARKER_FRACTION` 0.9), else not solved and A withheld | `chain/conductor_v3.py: stage_a_composition` | `chain/Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json` |
 | M Met-A | isolated neutrophils: H̄ / healthy reference. Whole blood: H̄ / H̄(e), where e = Σ f_g μ_g from the purified EPIC profiles, read when f_NEU ≥ 0.20 (`MIN_READ_FRACTION`). Both: ≥ 5400 of the 6000 identity sites measured (`SITE_COVERAGE_MIN` 0.9). Records the shift per 1 % loss of the neutrophil pattern (A recomputed on β + 0.01 × (0.5 − μ_NEU), times f_NEU in whole blood) and the entropy-ceiling flag | `chain/stage_m_met_a.py`, `chain/conductor_v3.py: stage_m_isolated, stage_m_blood` | `chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`; whole blood: `blood_composition_EPIC_v1.json` (`profiles_at_neutrophil_sites`) |
-| MC C-score | residual z_i = (H(β_i) − H(ref_i)) / s_i in genomic order (ref_i: healthy neutrophil mean H, or H(e_i) in whole blood; s_i: shrunk healthy SD); C = variance of the 50-site block means × 50 ÷ variance of z ÷ healthy median 1.1104; ≥ 10 blocks, else no C | `chain/conductor_v3.py: stage_mc_cscore` | `chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json` |
+| MC C-score | residual z_i = (H(β_i) − H(ref_i)) / s_i in genomic order (ref_i: healthy neutrophil mean H, or H(e_i) in whole blood; s_i: shrunk healthy SD); C = variance of the 10-site block means × 10 ÷ variance of z ÷ healthy median 1.0103 (blocks of 10 since 2026-10-09; was 50, median 1.1104); ≥ 10 blocks, else no C | `chain/conductor_v3.py: stage_mc_cscore` | `chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json` |
 | T Tare | **self-tare II, then the median tare** (adopted by the author 2026-10-04; DEV-SELFTARE-02 reading (iv), author decision G; DEV-PAIRED-01). Step 1, self-tare II, on this array's own β: for each probe design (type I, type II) the anchors L, U = mean β over the array's low and high fixed sites of that design; β′ = Lr + (β − L)(Ur − Lr)/(U − L), with Lr, Ur the same anchors averaged over the six reference arrays; Met-A is then formed from β′ as rows A and M form it; no references needed; nothing is fitted; a design whose anchors are missing or with U − L ≤ 0.1 is left unmapped (code). Step 2, the median tare: same-run healthy references of the same specimen type (same slide, else same batch), whole blood and isolated alike, ≥ 3 (`MIN_REFS`): A_rel = A ÷ median(reference A); spread = SD (ddof 1) of reference A ÷ median; detection limit = 2 × spread ÷ shift per 1 % loss; nothing is fitted; < 3 references → step 2 does not run; a reference row carrying the specimen's own id is left out. **In the code** (wired 2026-10-04) step 1 is `stage_t_selftare_ii`, before A and M, recorded as `tare.selftare_ii`; the noise index and the noise gate read β before step 1; step 2 is `stage_t_tare` on the self-tared A; `--dev-selftare-ii` is a no-op alias. Earlier Stage T, kept as history: the median tare alone (2026-10-02 to 2026-10-04, DEV-TARE-02); before that the noise-corrected tare (removed 2026-10-02, DEV-TARE-02) | `chain/conductor_v3.py: stage_t_tare`; step 1: `chain/conductor_v3.py: stage_t_selftare_ii` (`chain/dev_stages.py: anchors, selftare_map`) | step 1: `chain/Runtime Matrices/Development/dev_selftare_typeII_EPIC_v1.json` (development file: fixed sites by design and state, reference anchors) |
 | Noise | noise index N = mean H(β) over the 48,528 noise sites measured on the array (≥ 90 %, `MIN_NOISE_FRACTION`); fewer → N not computed and the gauge state is withheld, tared or not, with the counts and the reason in plain words (author decision A, 2026-10-04); N > N_max 0.149 on an untared reading → gauge state withheld, A printed as a number | `chain/conductor_v3.py: noise_index, noise_gate, run_neutrophil` | `chain/Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json`, `chain/Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json` (N_max = top of the 6 reference arrays' N range 0.1223–0.1489, DEV-NOISE-01) |
 | Q0 IAM-A intake (sequencing) | the .pat file decompresses to its end with 4 fields per line; every CpG index inside its chromosome's hg19 range (`hg19_cpg_chrom_ranges.json`); molecules on all 22 autosomes; specimen = purified neutrophils (or blood granulocytes). Conversion, share of molecules with ≥ 6 calls and duplicate fraction recorded; their limits are set from healthy files before any test file (development) | `chain/stage_q0_intake.py` | QUARANTINE_UNREADABLE_PAT, GENOME_BUILD_MISMATCH, QUARANTINE_NOT_WHOLE_GENOME, SPECIMEN_REFUSED |
@@ -37,7 +37,8 @@ Frozen values (read from the files, never typed):
 - EPIC neutrophil healthy reference 0.330263 bits (6 physical arrays, Salas GSE110554; GSE167998 re-deposits the same 6; 6000 sites; our Stage 1).
 - Healthy clustering median 1.1104 (6 physical arrays, leave-one-out, block 50).
 - Noise gate N_max 0.149 (`noise_gate_EPIC_v1.json`); IAM-A ε₀ 0.032 and neutrophil P 1.1492, measured on whole files (`iama_positions_v2.json`, 2026-10-08; v1, P 1.099 on the first 60 MB of each file, is superseded).
-- Met-A C-score tare: C_rel = C ÷ median C of ≥ 3 same-run healthy references; development band 0.751–1.409 (DEV-CSCORE-TARE-01).
+- Met-A C-score tare: C_rel = C ÷ median C of ≥ 3 same-run healthy references. Band: being re-set for blocks of 10 (`doors/CSCORE_COMMISSIONING_PLAN.md`; the block-50 band 0.751–1.409 no longer applies).
+- IAM-A tare (2026-10-09, development): A_rel = IAM-A ÷ median IAM-A of ≥ 3 same-run healthy references of the same cell, laboratory, library kit and pipeline (`stage_q_iam_a.tare`, `run_sample.py --iama-ref-table`); fewer than 3 → untared, read against P only. Reason: library kit and laboratory shift IAM-A by up to 0.16 on healthy cells (DEV-IAMA-KIT-01).
 
 ## 2b. The full chain, and what runs today
 
@@ -90,7 +91,7 @@ item when the chain work starts.
 Added stages: **3b trace-cell detection** (`--dev-trace`, rebuilt on the array's own noise, DEV-TOOLKIT-ADDED-02), **3c foreign-cell detection** (`--dev-foreign`, same),
 **11b surface brightness** (`--dev-brightness`, same), **12b difference map** (**running** with `--prior-betas` / `--prior-bundle` since
 2026-10-03: per-address difference of two draws of one person and the same-person check, DEV-TOOLKIT-ADDED-01; the difference drawn as a sky is not built).
-Commissioning record (stage, check, result, wired): `doors/CHAIN_COMMISSIONING.md`.
+Commissioning record (stage, check, result, wired): `STATUS.md` (section 8, commissioning record).
 
 ### Commissioned stages
 
@@ -124,7 +125,7 @@ Each step: pre-register the check in `doors/` before reading data, run it on v3,
 Order actually run on 2026-10-03: base chain with 7 -> 4 -> 3 -> 5 (B cells) -> 10 (not assessable) -> 11 -> 12 (not run) -> 3b, 3c, 11b (not run) -> 12b.
 Development round 2 (2026-10-04, author decisions A-O, test-only mode): intake (F, A, B, L, EPIC v2 refusal) -> detection statistic (E) -> self-tare II (G)
 -> composition truth search (H) -> direction (I) -> sky and sky statistics (J) -> 3b, 3c, 11b on own noise (K) -> IAM-A C-score (C) -> new-cell rule on
-monocytes (D) -> development flags (N) -> EPIC v2 (M) -> Stage Q on real single-molecule data. Summary: `doors/DEV_ROUND2_REPORT.md`; table: `doors/CHAIN_COMMISSIONING.md`.
+monocytes (D) -> development flags (N) -> EPIC v2 (M) -> Stage Q on real single-molecule data. Summary: `doors/DEV_ROUND2_REPORT.md`; table: `STATUS.md` (section 8, commissioning record).
 
 ### New-cell rule (author decision D, 2026-10-04)
 
@@ -271,7 +272,7 @@ The book states each step and why; the exact values, records, files and developm
 | M Met-A | whole blood read when f_NEU ≥ 0.20 (`MIN_READ_FRACTION`); ≥ 5400 of 6000 identity sites measured (both cases) | `conductor_v3.py`, `stage_m_met_a.py` (`SITE_COVERAGE_MIN` 0.9) | [0.20 in v3 §3 as 20 %; 5400 in full §5] |
 | M Met-A | identity-site rule (also kept in book; EPIC v1 neutrophils, 6 physical arrays): across-array SD of β ≤ 0.05; mean β 0.75–0.95 (methylated channel) or 0.05–0.25 (unmethylated channel); ≤ 3,000 per channel by smallest SD; result 6000 sites, 3000 per channel | `chain_tests/freeze_v13.py`, `stage_m_met_a.py`; `metA_floors_v1_3.json` `n_sites` | **[new]** (rule; the count is in full §3). The rule also stays in the book, Ch. "Identity sites" |
 | M Met-A | ceiling flag `past_entropy_ceiling` = (mean β at sites with μ_NEU > 0.5) < 0.5; report: "read beta, not A" | `conductor_v3.py:127-133` (`_ceiling`) | [in full §1, §6] |
-| MC C-score | blocks of 50 sites; ≥ 10 blocks; healthy baseline 1.1104 | `neutrophil_reference_v1_1.json` | [in full §3, §5] |
+| MC C-score | blocks of 10 sites; ≥ 10 blocks; healthy baseline 1.0103 | `neutrophil_reference_v1_2.json` | [in full §3, §5] |
 | Q IAM-A | pipeline `loyfer_pat_v1` only; P = 1.099; ε₀ = 0.032; ≥ 100,000 opportunities; halves A/B with > 50,000 each; molecule qualifies with ≥ 6 calls and ≥ 80 % methylated | `chain/stage_q_iam_a.py`, `chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json` | [in full §3, §5; Stage Q row added to v3 §2 on 2026-10-03] |
 
 **Stage Q row (added to v3 §2 on 2026-10-03):**
@@ -364,7 +365,7 @@ T4: 570 whole bloods, tared healthy SD 0.052, untared ≈ 1.22; T4a passed as wr
 | `PROC_V5_HELDOUT_OUTCOME.md`; `atlas/v2/postbuild/README.md` (check V12) | atlas v2 held-out coverage (V5); identity sites of later cell types (V12) **[new]** |
 | `PROC_LINES_02_channels/imr90_channels.csv` | IMR90 channel readings **[new]** |
 | `DEV_STOOL_01_OUTCOME.md` | 29 regions / 227 CpGs for lower-gut epithelium **[new]** |
-| `PLAN.md` (incl. item 22) | order of work; E-MTAB-7309: 738 of 1,056 below 0.93, median call rate 0.894; no canine purified reference found **[new]** |
+| `STATUS.md` (was PLAN.md; incl. item 22) | order of work; E-MTAB-7309: 738 of 1,056 below 0.93, median call rate 0.894; no canine purified reference found **[new]** |
 | `CMB_TO_METHYLOME_MAP.md` | the 79-row map **[new]** |
 | `PROC_TUMOUR_01_OUTCOME.md`, `PROC_PREDX_SLIDE_01_OUTCOME.md` | examples of an error recorded in the outcome, pre-registration unchanged **[new]** |
 | salmonid records PROC-SALMON-01, PROC-CHARR-01, PROC-RIMOUSKI-01, DEV-COHO-CC-01; `doors/data/salmon_readings.csv`, `charr_readings.csv`, `rimouski_readings.csv`, `coho_cc_fish.csv` | fish chapters; these records sit under `../Salmonid/` (e.g. `../Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`), not under `doors/`; they are not chain v3 records and may not belong in this SOP **[new]** |

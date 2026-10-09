@@ -155,7 +155,7 @@ Breast read 0.000 in breast tissue. Four causes found and fixed by measurement -
 
 **PROC-MF-01 outcome (2026-09-26): NOT COMMISSIONED.** The full-covariance matched filter cannot be estimated from 36 arrays x 1,506 markers and ties NNLS; per-locus inverse-variance weighting (the diagonal control) lowers the detection limit 2-10x on all four cells but detects without estimating (constant -0.03 offset = the structured misfit on the template). **Next: PROC-MF-02** - inverse-variance detection with the null median subtracted and sigma from the null spread, same six bars applied to it. See [`PROC_MF_01_OUTCOME.md`](PROC_MF_01_OUTCOME.md).
 
-> **The clean ordered list is [`PLAN.md`](PLAN.md).** This file is the ledger — what was found, what was decided, what was closed and why. Read PLAN.md for what comes next.
+> **The clean ordered list is [`STATUS.md`](../STATUS.md).** This file is the ledger — what was found, what was decided, what was closed and why. Read PLAN.md for what comes next.
 
 ## Standing to-do, 2026-09-26 — the author: "I dont want to forget something"
 

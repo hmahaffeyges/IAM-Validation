@@ -30,7 +30,7 @@ Install these exact versions on the box; Stage Q refuses any file whose pipeline
 3. **Session 3 (later, ~1 day, about $40–50):** the other 6 runs, to measure how IAM-A depends on library kit and sequencer.
 
 ## After each session
-Log in the development log; update `doors/PLAN.md` and `doors/DATA_REGISTER.csv`; delete the scratch disk; confirm the box is stopped.
+Log in the development log; update `STATUS.md` and `doors/DATA_REGISTER.csv`; delete the scratch disk; confirm the box is stopped.
 
 ## Update 2026-10-08 (before session 2)
 - **Pipeline pin, completed from Loyfer 2023 Methods:** bwa-meth 0.2.0 (Python 3.6 environment) → SAMtools 1.9 → **Sambamba 0.6.5 markdup**

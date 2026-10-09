@@ -1,3 +1,5 @@
+> **Archived 2026-10-09.** Merged into [`STATUS.md`](../../STATUS.md) (plan, commissioning record) or the LOG [`development/METHYLPHYS_DEVELOPMENT_LOG.md`](../../../../development/METHYLPHYS_DEVELOPMENT_LOG.md) (chain changes). Kept as a record; not updated.
+
 # PLAN: the master plan for every test, and the data behind it
 
 This is the one living plan for MethylPhys: what we test, in what order, and which data in S3 each test uses.

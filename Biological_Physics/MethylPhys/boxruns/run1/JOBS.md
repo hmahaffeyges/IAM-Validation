@@ -1,7 +1,7 @@
 # Box Run 1: job list (arrays only)
 
 Prepared 2026-10-04. Development mode: readings are logged in `development/METHYLPHYS_DEVELOPMENT_LOG.md`. The one commissioning
-check (job A) uses the bars already written in `doors/CHAIN_COMMISSIONING.md`; no new bars are set here.
+check (job A) uses the bars already written in `STATUS.md` (section 8, commissioning record); no new bars are set here.
 
 All inputs are already in `s3://methylphys-data-945451304272-us-west-2-an/`. All outputs go to `results/BOXRUN1/<job>/`, with a
 progress log at `results/BOXRUN1/log.txt`. The driver's last step stops the instance, and it stops the instance on a crash as well.
@@ -30,7 +30,7 @@ About 151 GB is read in total (sum of the table; the atlas size is not recorded 
 
 **A. Commissioning check: self-tare II, then the median tare, on purified neutrophils.**
 The author adopted self-tare II on 2026-10-04: each array is tared on its own type II fixed sites, then by the same-run median, with
-nothing fitted. The bars are the ones already in `CHAIN_COMMISSIONING.md` for stage 5 and stage 8:
+nothing fitted. The bars are the ones already in `STATUS.md` (section 8) for stage 5 and stage 8:
 - same-person replicates (GSE250556): within-person SD ≤ 0.020 and ≥ 95 % Normal;
 - purified neutrophils from other laboratories: Normal on tared A;
 - floor arrays: 6/6 Normal.
@@ -47,7 +47,7 @@ and composition, one row per array, per set.
 is set here; the author sets it after reading the spread.
 
 **D. Sky statistics with the apodised mask.** The same test that withheld the sky, on healthy replicates against the block-shuffle
-null. It is run with the hard mask and the apodised mask side by side. The bars come from `CHAIN_COMMISSIONING.md` (DEV-SKY-02): band
+null. It is run with the hard mask and the apodised mask side by side. The bars come from `STATUS.md` (section 8) (DEV-SKY-02): band
 power ratios 0.9–1.1, and a look-elsewhere rate at the stated 8.4 %. The question is whether band 1 (1.84 with the hard mask) comes down.
 Needs: the apodised-mask code (GitHub session task 1) and the atlas v2.
 
@@ -127,5 +127,5 @@ behind `blood_composition_EPIC_v1` (GSE110554).
    scipy, healpy, methylprep'` with numpy 1.26.4, pandas 1.5.3, scipy 1.17.1, healpy 1.17.3. Never `pip install` without pinning numpy < 2.
 4. **Run:** `run1_driver.py --work /mnt/scratch/boxrun1 --only B,E --force B --force E --workers 8
    --job-e-prefix downloads/G_chain_tests/healthy_repeat/GSE182379/` (B plus E on the 12 GSE182379 mixtures).
-5. **After:** add the results to `development/METHYLPHYS_DEVELOPMENT_LOG.md`, update `doors/CHAIN_COMMISSIONING.md`, `doors/PLAN.md`,
+5. **After:** add the results to `development/METHYLPHYS_DEVELOPMENT_LOG.md`, update `STATUS.md` (section 8, commissioning record), `STATUS.md`,
    `doors/DATA_REGISTER.csv`, then detach and delete the scratch disk and confirm the box is stopped.

@@ -1,4 +1,110 @@
-# Chain v3 commissioning — stage by stage
+# STATUS — MethylPhys: what is commissioned, what is in development, what is next, and the data behind it
+
+**One of three documents updated by hand** (consolidated 2026-10-09, author approved):
+1. **This file (STATUS)** — the plan and the commissioning record. Updated when a stage's status, a bar's result or the order changes.
+2. **The LOG** — [`development/METHYLPHYS_DEVELOPMENT_LOG.md`](../../development/METHYLPHYS_DEVELOPMENT_LOG.md): every result and every chain
+   change, dated (chain changes tagged **CHAIN CHANGE**; the old chain changelog is archived).
+3. **SOP / OM** — [`sop/MethylPhys_CPG_SOP_v3.md`](sop/MethylPhys_CPG_SOP_v3.md), [`manual/OM_v3_neutrophil_chain.md`](manual/OM_v3_neutrophil_chain.md):
+   changed only when the chain's behaviour changes.
+
+**Generated, never edited by hand:** the chain map (`chain/build_chain_sequence.py`), the frozen-input list (`kit/build_frozen_inputs.py`),
+the data register (`kit/build_data_register.py`, from the S3 listing and the LOG). **Written once, before a test or a run:** test notes
+(`doors/DEV_*.md`) and box-run job sheets (`boxruns/*/JOBS.md`); their results go in the LOG. **Signed by the author:** commissioning notes
+(`doors/COMMISSIONING_NOTE_*.md`). The release check (D1, D2) fails when a frozen input is missing from the SOP or the LOG.
+
+---
+
+
+## 1. Now: commission the neutrophil chain (updated 2026-10-09)
+
+**Met-A (arrays): COMMISSIONED 2026-10-09** (author approval; detection limits 2 % purified / 5 % whole blood printed on every report) — [`COMMISSIONING_NOTE_METAA_NEUTROPHILS.md`](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md):
+9 of 11 bars met, 1 not met (a 1 % loss of pattern; detection limits 2 % purified, 5 % whole blood), 1 not met (C-score band on a new
+laboratory, 23/26). Box Run 1 complete:
+
+| Job | What | Status |
+|---|---|---|
+| A | Self-tare II, then the median tare | **done, every bar met** (replicate SD 0.0164; 62/63; 68/68; 6/6) |
+| B | Every test set re-read with the adopted tare | **done 2026-10-08**: healthy 525/541 Normal, 18 series |
+| C | C-score spread on healthy arrays | done; tared band 0.751-1.409 (DEV-CSCORE-TARE-01) |
+| D | Sky statistics, apodised mask | done; bars not met; sky stays withheld |
+| E | Composition truth | **done**: FACS bloods and 12 EPIC mixtures; neutrophil fraction within 0.02 |
+
+Also done (no box): constructed sensitivity test (DEV-METAA-SENS-01); new-laboratory granulocytes 26/26 Normal (DEV-NEWLAB-GRAN-01).
+
+**IAM-A (sequencing):** Stage Q0 intake wired and tested on real files (DEV-Q0-HEALTHY-01); P re-measured on whole files, v2 = 1.1492
+(DEV-IAMA-P-WHOLE-01); pinned Loyfer pipeline built and format-checked (Box Run 2 session 1).
+
+## 2. IAM-A: Box Run 2 session 2 done (2026-10-09)
+
+Another laboratory's healthy neutrophils (GSE128731), 2 donors × 4 kits. TruSeq 1.047 / 1.042 (Normal); Swift 1.16 (both donors, both
+sequencers); QIAseq stopped by Q0 (conversion). IAM-A is repeatable (≤ 0.009 between donors and sequencers) but carries a laboratory-and-kit
+offset up to ~0.16 (DEV-IAMA-KIT-01). **Author decision needed:** how IAM-A handles that offset (same-run tare / per-kit P / wider band).
+Then: IAM-A healthy band, IAM-A C-score, Met-A against IAM-A on the same donors (GSE128733).
+
+## 2b. IAM-Atlas v2 as the composition step (added 2026-10-09, author: "if it works better than what we are currently using we should use it")
+
+Whole-blood Met-A depends on the composition step (how much of the blood is neutrophils). Today that step uses the 8-group EPIC purified
+reference (`blood_composition_EPIC_v1.json`); atlas v2 runs only behind development flags (atlas_e, NILC, per-cell, sky). On the 12 EPIC
+mixtures atlas_e was already more accurate for neutrophils (RMSE 0.014 vs 0.019) and met 6 of 8 groups against 5 of 8.
+1. Write atlas_e's commissioning bars before reading (truth sets: GSE112618 FACS bloods, GSE182379 mixtures, the 450K mixtures; every group).
+2. Commission atlas_e as the composition step (STATUS row, commissioning note for the author).
+3. Swap it in for `blood_composition_EPIC_v1.json`, rerun the whole-blood Met-A bars, re-commission Met-A on it.
+4. Then: composition for the other cell types (per-cell readings beyond neutrophils need it).
+
+## 3. Win candidates (development runs on the commissioned stages)
+
+1. Treated samples moving toward disorder (12/12 so far).
+2. Myeloid disease arrays.
+3. One person over time (the difference map; serial mode).
+4. Cross-species IAM-A with the body-temperature prediction: the same cell type at a different body or water temperature sits at a
+   different distance from its k_B T ln 2 floor (Box Run 3, from the 1.3 TB of 580-species reads already in S3).
+
+## 4. After commissioning: the author's order (2026-09-30)
+
+1. **Human blood diseases** (track A), blood cancers first: the leukocyte as the diseased cell, per-cell Met-A on the affected lineage.
+2. **Plasma cfDNA** (track B).
+3. **Tissue specimens** (track C), read against the cell atlas; biopsy scoring.
+4. **Stool:** can a stool specimen be scored (its shed cells)?
+5. **Dogs and other mammals** (track E): no animal cell atlas exists, so build or derive one first; the Mammalian Methylation
+   Consortium array (348 species) for species ageing.
+6. **Fish** (track F): Methow steelhead and coho, hatchery against wild. Fish blood is nucleated red cells, nearly one cell type.
+   IAM-A reads the molecules directly. Possible collaboration with Chelan PUD fish scientists.
+7. **Ageing** (track D): serial and cross-sectional blood.
+8. **Quantum computing:** check which predictions have come due.
+
+## 5. Chain work still open
+
+1. CD4/CD8 separation and the finer blood subsets (need loci the current block lacks).
+2. EPIC v2 intake (calibrated through SeSAMe; needs a v2 floor and v2 replicates).
+3. Atlas deconvolution and NILC (both failed their truth bars in development; job E and GSE182379 test them again).
+4. Directional decomposition (physics only) and the chip term.
+5. Open human data beyond GEO (controlled-access serial studies), once a method is published.
+
+## 6. Still to download
+
+| Data | Size | For |
+|---|---|---|
+| GSE128731 neutrophil WGBS (Samples 6, 7) | 414 GB (8 runs) | Box Run 2, IAM-A with Met-A on the same cells |
+| GSE186458 WGBS atlas, 39 cell types | to size | IAM-A floors per cell type |
+| GSE104700 monocyte bisulfite sequencing | to size | IAM-A on monocytes (donor match to GSE56046 not confirmed) |
+
+## 7. Candidates for deletion
+
+None yet. A dataset moves here only when every test it serves is done.
+
+## S3 now (2026-10-05)
+
+2,681 GB in total: 2,570 GB of downloaded data in 80 datasets (the register), plus results, atlas files and private archives.
+Largest: 580-species reads 1,321 GB; stool 312 GB; coho RRBS 227 GB; salmonid reads 162 GB. The bucket is on Intelligent-Tiering, so data
+nobody reads moves to cheaper storage on its own.
+
+## Records the book checks read
+
+- (2026-09-27: SATSA Stage 1 on AWS: 1,056 of 1,072 arrays calibrated, 0 errors, 16 with no IDAT pair; box reproduces the laptop exactly. **Call rate median 0.894; 738 of 1,056 below the 0.93 intake line**, worst on chip batch 9721 (853 arrays, 73 % below); call rate also falls with age decade (0.911 in the 50s to 0.878 in the 90s), so later draws are lower-quality input - the serial trajectories must carry intake status per draw and cannot treat a below-line draw as a reading. 286 people have >= 2 calibrated draws, 195 >= 3.)
+
+---
+
+## 8. Commissioning record (stage by stage)
 
 **Commissioned:** Met-A on neutrophils, EPIC v1 (isolated neutrophils; whole blood with neutrophil fraction ≥ 0.20), stages 0, 1, 2, 5, 6,
 8, 9, 13 — **2026-10-09**, by the author (`COMMISSIONING_NOTE_METAA_NEUTROPHILS.md`). Detection limits 2 % (purified) / 5 % (whole blood)
@@ -8,7 +114,7 @@ loss of pattern, printed on every report. Everything else below is development.
 **DEVELOPMENT - not commissioned.** Development mode (author ruling O): no sealed pre-registrations; each check was written in a dated `doors/DEV_*.md`
 note before the data were read and the outcome is under the line in the same note.
 
-## Round 4 (Box Run 1 completion and constructed checks, 2026-10-08/09)
+### Round 4 (Box Run 1 completion and constructed checks, 2026-10-08/09)
 
 | Stage | Check | Result | Bar met |
 |---|---|---|---|
@@ -20,7 +126,7 @@ note before the data were read and the outcome is under the line in the same not
 | Met-A C-score band on held-out laboratories | job B | not assessable: the healthy series in job B that were not used to set the band are sorted non-neutrophil cells, bone marrow or PBMC, all refused before Met-A | not assessable |
 | Stage Q0 IAM-A intake | DEV-Q0-HEALTHY-01 | three healthy hg19 files proceed; the real hg38 copy stops (GENOME_BUILD_MISMATCH) | yes |
 
-## Round 3 (Box Run 1, 2026-10-05)
+### Round 3 (Box Run 1, 2026-10-05)
 
 | stage / item | check (note) | result | wired |
 |---|---|---|---|
@@ -30,7 +136,7 @@ note before the data were read and the outcome is under the line in the same not
 | 3 / 4 Composition against FACS (GSE112618, 6 bloods) | Box Run 1 job E, scored locally | mean abs error atlas_e 0.005-0.044, chain composition 0.007-0.031 by group; donor overlap with the references still to check | no (flags) |
 | All test sets re-read with the adopted tare | Box Run 1 job B | not complete: segfault after the first set (902/902 ok) | - |
 
-## Round 2 (2026-10-04)
+### Round 2 (2026-10-04)
 
 | stage / item | check (note) | result | wired |
 |---|---|---|---|
@@ -51,7 +157,7 @@ note before the data were read and the outcome is under the line in the same not
 
 Release check: `kit/release_check.py` on a fresh git copy on the box (public clone at `185f609` plus the four round-2 commits applied as patches, box commit `edc6ae6`, `doors/` included): **17 of 17 checks PASS** (F1, F1b, S1-S4, E1-E10, M1; 258 s); `kit/results/release_check.json`. E10 ran with the atlas v2 parquet; the sky block was NOT_RUN there (healpy not in that environment).
 
-## Round 1 (2026-10-03)
+### Round 1 (2026-10-03)
 
 The class-era (v2) commissioning table that stood here before round 1 is kept in the private archive with the retired v2 chain.
 
@@ -84,7 +190,7 @@ only if its check passed. Data: 56 GEO series in the project bucket, 5,069 physi
 Release check: `kit/release_check.py` on the box copy (git repository, commit 9593d66 = main 058b646 + these changes, `doors/` included): **PASS, 12 of 12** (F1, F1b, S1-S4, E1-E5, M1); `kit/results/release_check.json`.
 
 
-## IAM-A, round 1 (2026-10-09, development)
+### IAM-A, round 1 (2026-10-09, development)
 | Check | Result | Record |
 |---|---|---|
 | Intake stops bad files (wrong build, cut file, low conversion) | real hg38 file and two low-conversion runs stopped; healthy Loyfer files proceed | DEV-Q0-HEALTHY-01, session 2 |

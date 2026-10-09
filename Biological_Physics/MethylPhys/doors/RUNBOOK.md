@@ -1,3 +1,5 @@
+> **2026-10-09:** the document rules below ("the document set is CLOSED", sealing, registers) predate chain v3. The rules in force are at the top of [`STATUS.md`](../STATUS.md): three hand-updated documents (LOG, STATUS, SOP/OM), the rest generated. The environment notes (§1) still apply.
+
 # CPG / the methylation report [[Issue 003](../manual/MethylPhys_CPG_Operations_Manual.pdf)](../manual/MethylPhys_CPG_Operations_Manual.pdf) — Reproduction Kit
 
 > **Record from the class-floor engine (chain v2, retired 2026-10-03, archived privately).** The current procedure is [`../sop/MethylPhys_CPG_SOP_v3.md`](../sop/MethylPhys_CPG_SOP_v3.md); the chain as it runs is [`CHAIN_SEQUENCE.md`](CHAIN_SEQUENCE.md); the toolkit is [`../chain/TOOLKIT.md`](../chain/TOOLKIT.md).

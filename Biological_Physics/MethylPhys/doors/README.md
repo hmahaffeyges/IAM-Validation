@@ -11,9 +11,9 @@ the physics; the tier scale is the tolerance. Nothing about any other person ent
 
 | | file |
 |---|---|
-| **What is next** | [`PLAN.md`](PLAN.md) — one line per item, done items come off |
+| **What is next** | [`STATUS.md`](../STATUS.md) — one line per item, done items come off |
 | **The ledger** | [`ENHANCEMENTS.md`](ENHANCEMENTS.md) — what was found, decided, closed and why |
-| **The register** | [`CHAIN_COMMISSIONING.md`](CHAIN_COMMISSIONING.md) — every row of the chain and the procedure that commissioned, sealed or removed it |
+| **The register** | [`STATUS.md`](../STATUS.md) (section 8, commissioning record) — every row of the chain and the procedure that commissioned, sealed or removed it |
 | **Run one specimen** | [`RUNBOOK.md`](RUNBOOK.md) |
 | **The step order, as the code calls it** | [`CHAIN_SEQUENCE.md`](CHAIN_SEQUENCE.md) (generated) |
 | **Where every file lives and what reads it** | [`COMPONENT_MAP.md`](COMPONENT_MAP.md), [`REPO_INVENTORY.md`](REPO_INVENTORY.md) (generated) |

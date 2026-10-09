@@ -1,5 +1,7 @@
 # Met-A, IAM-A and C-score development log
 
+> **The one LOG (since 2026-10-09).** Every result and every chain change, dated. Chain changes are tagged **CHAIN CHANGE**. Plan and commissioning record: [`STATUS.md`](../Biological_Physics/MethylPhys/STATUS.md). Chain changes before 2026-10-09: [archived chain changelog](../Biological_Physics/MethylPhys/archive/docs_consolidated_2026-10-09/CHAIN_CHANGELOG.md).
+
 Status: **open** (development stage). Every development finding of this project is logged here, whether it passes, fails or is
 inconclusive, with a link to the full record. Nothing here is a commissioned result; results become book material only after
 the chain passes commissioning.
@@ -123,7 +125,7 @@ the method and commissioned results. Their full text, as it stood in the book, i
 | 2026-10-02 | [DEV_TARE_02_OUTCOME.md](../Biological_Physics/MethylPhys/doors/DEV_TARE_02_OUTCOME.md) | DEV-TARE-02 — Stage T without a fitted term (development, 2026-10-02) |
 | 2026-10-02 | [PROC_DNMT_01_PARTB_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md) | DNMT-01 Part B — IAM-A on single molecules under a known DNMT1 block (scored 2026-10-02) |
 | 2026-10-03 | [ATLAS_SOURCES_SURVEY.md](../Biological_Physics/MethylPhys/doors/ATLAS_SOURCES_SURVEY.md) | Atlas sources survey — what exists for the cells we are missing (2026-09-27) |
-| 2026-10-03 | [CHAIN_COMMISSIONING.md](../Biological_Physics/MethylPhys/doors/CHAIN_COMMISSIONING.md) | Chain v3 commissioning — stage by stage (development) |
+| 2026-10-03 | [CHAIN_COMMISSIONING.md](../Biological_Physics/MethylPhys/archive/docs_consolidated_2026-10-09/CHAIN_COMMISSIONING.md) | Chain v3 commissioning — stage by stage (development) |
 | 2026-10-03 | [CHAIN_SEQUENCE.md](../Biological_Physics/MethylPhys/doors/CHAIN_SEQUENCE.md) | The chain, step by step - derived from the code |
 | 2026-10-03 | [CLASS_ASSIGNMENT_RULE_DRAFT.md](../Biological_Physics/MethylPhys/doors/CLASS_ASSIGNMENT_RULE_DRAFT.md) | Architecture-class assignment — a written rule, tested against the existing classes (DRAFT, 2026-09-28) |
 | 2026-10-03 | [CLASS_HISTORY.md](../Biological_Physics/MethylPhys/doors/CLASS_HISTORY.md) | How the eight architecture classes came to be — the record |
@@ -163,7 +165,7 @@ the method and commissioned results. Their full text, as it stood in the book, i
 | 2026-10-03 | [PER_CELL_SCORING.md](../Biological_Physics/MethylPhys/doors/PER_CELL_SCORING.md) | The per-cell reading already exists — what is missing is a healthy band |
 | 2026-10-03 | [PHASE1_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md) | OUTCOME — PHASE 1: identity-loci healthy bands from GSE87571 |
 | 2026-10-03 | [PHASE1c_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PHASE1c_OUTCOME.md) | OUTCOME — PHASE 1c: scale-map and band transfer to GSE42861 controls |
-| 2026-10-03 | [PLAN.md](../Biological_Physics/MethylPhys/doors/PLAN.md) | PLAN — what we do next, in order |
+| 2026-10-03 | [PLAN.md](../Biological_Physics/MethylPhys/archive/docs_consolidated_2026-10-09/PLAN.md) | PLAN — what we do next, in order |
 | 2026-10-03 | [PROC_BAND_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_BAND_01_OUTCOME.md) | PROC-BAND-01 — outcome: NOT COMMISSIONED. The joint component fails reproducibility on one laboratory in four. |
 | 2026-10-03 | [PROC_BRAIN_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_BRAIN_01_OUTCOME.md) | PROC-BRAIN-01 — outcome: brain-derived cells ARE found in cerebrospinal fluid, in every patient. Whether they can be SCO |
 | 2026-10-03 | [PROC_BRAIN_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_BRAIN_01_PREREG.md) | PROC-BRAIN-01 — can the instrument find terminal-class cells in a liquid specimen from a CNS tumour patient? |
@@ -344,7 +346,7 @@ range). Limits decided before any test file: conversion ≥ 98 % (ENCODE); read 
 healthy arrays that reach a tared Met-A, 525 read Normal (97.0 %), median 1.0001; all 18 series have medians 0.994-1.005. 242 healthy
 arrays are refused before reading, each with its reason (cells without a reference, bone marrow, PBMC, EPIC v2). No in-scope real positive
 control exists in the test sets, and the C-score band cannot be checked on new laboratories yet (every held-out healthy series is refused
-before Met-A). Table: `doors/CHAIN_COMMISSIONING.md` round 4.
+before Met-A). Table: `STATUS.md` section 8, round 4.
 
 ### 2026-10-09 · DEV-METAA-SENS-01: Met-A responds to a constructed loss of pattern
 \measured A known loss of the neutrophil pattern, put into real healthy arrays and run through the whole chain, moves tared Met-A by what the
@@ -441,3 +443,16 @@ as designed. Duplicate fractions now recorded (0.11-0.19). The box stopped itsel
   is refused. \observed No public set yet gives >= 3 healthy neutrophil donors per laboratory and kit at read level (GEO search 2026-10-09:
   GSE128731 has 2 donors per kit; Loyfer 3 granulocytes, Swift; BLUEPRINT is controlled access), so the tare cannot yet be tested on
   independent people. That is the data the IAM-A commissioning needs.
+
+### 2026-10-09 · CHAIN CHANGE · Documents consolidated (author approved)
+- Hand-updated documents are now three: this LOG, [`STATUS.md`](../Biological_Physics/MethylPhys/STATUS.md) (plan + commissioning record,
+  merged from `doors/PLAN.md` and `doors/CHAIN_COMMISSIONING.md`), and the SOP/OM (chain behaviour only). The chain changelog is merged into
+  this LOG. The three merged files are archived with pointers in `Biological_Physics/MethylPhys/archive/docs_consolidated_2026-10-09/`.
+- Generated, never hand-edited: chain map (`chain/build_chain_sequence.py`), frozen-input list (`kit/build_frozen_inputs.py`), data
+  register (`kit/build_data_register.py`: S3 sizes; tests from this LOG's headings; notes written before today kept as `earlier_tests`).
+  From now on every LOG entry names its datasets by accession so the register finds them.
+- Release check D1 (every frozen input named in the SOP) and D2 (every frozen input named in this LOG; STATUS.md present).
+- Frozen inputs in force today (introductions are in the archived changelog): `metA_floors_v1_3.json`, `metA_floors_v1_3_loo.csv`, `blood_composition_EPIC_v1.json`, `noise_sites_EPIC_v1.json`, `noise_gate_EPIC_v1.json`, `intake_thresholds_v1.json`, `iama_positions_v2.json`, `hg19_cpg_chrom_ranges.json`, `neutrophil_reference_v1_2.json`.
+- STATUS.md section 2b: IAM-Atlas v2 commissioning as the composition step (author: "if it works better than what we are currently using we
+  should use it").
+- SOP/OM: C-score blocks of 10 (`neutrophil_reference_v1_2.json`) and the IAM-A same-run tare added.

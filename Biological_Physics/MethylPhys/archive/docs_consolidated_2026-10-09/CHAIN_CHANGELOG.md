@@ -1,3 +1,5 @@
+> **Archived 2026-10-09.** Merged into [`STATUS.md`](../../STATUS.md) (plan, commissioning record) or the LOG [`development/METHYLPHYS_DEVELOPMENT_LOG.md`](../../../../development/METHYLPHYS_DEVELOPMENT_LOG.md) (chain changes). Kept as a record; not updated.
+
 # Chain changelog
 
 ## 2026-10-09 - IAM-A same-run tare (author decision, option a; DEVELOPMENT - not commissioned)
