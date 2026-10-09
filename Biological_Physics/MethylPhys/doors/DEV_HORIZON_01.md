@@ -30,3 +30,20 @@ independent-site expectation. (2) Hysteresis: after a demethylating drug is with
 with domain-wide feedback leaves some domains permanently demethylated. Tumour bulk tissue cannot test (1): a mixture of normal and
 tumour cells also gives all-or-none molecules. Pure cells (cell lines, sorted cells) and drug-washout time series can.
 **Next (simulate first).** The washout design: doses, time points and molecule counts needed to separate full return from memory.
+
+## Simulation — drug washout (memory test), before any data
+Cell held 60 divisions at its own loss rate (1× healthy, 8×, 14× = cancer-like), drug raises loss 5–10× for 8–16 divisions, then 32
+divisions without drug. Same reading rules as above.
+| holding | cell's loss | drug | before | end of drug | 32 div after | lasting deficit | molecules stuck < 25 % methylated |
+|---|---|---|---|---|---|---|---|
+| independent | 1×, 8×, 14× | any | — | — | back to start | 0.000–0.004 | ≤ 0.6 % |
+| domain memory | 1× (healthy) | 10× / 16 div | 0.998 | 0.968 | 0.997 | 0.000 | 0 |
+| domain memory | 8× | 10× / 8 div | 0.976 | 0.098 | 0.902 | **0.074** | **5.1 %** |
+| domain memory | 14× | 10× / 8 div | 0.934 | 0.046 | 0.679 | **0.255** | **22.9 %** |
+**Prediction (CONJECTURE).** With independent holding every cell returns fully within a few divisions of washout. With domain-wide
+memory, cells whose own loss rate is raised (cancer lines) keep a lasting deficit carried by all-or-none molecules stuck unmethylated, while
+healthy-like cells return fully. The deficit (0.07–0.25 in β) is far above measurement noise; power is not the limit.
+**Confounds to design out.** Drug toxicity and clonal selection (a surviving subclone can look like memory: need cell counts/clonality),
+and slow DNMT1 recovery (need ≥ 3 late time points showing a plateau, not a slope).
+**Data to look for.** Decitabine/azacytidine washout time courses with ≥ 3 post-washout time points over ≥ 20 divisions, sequenced
+(single-molecule), ideally in one cancer line and one non-cancer line.
