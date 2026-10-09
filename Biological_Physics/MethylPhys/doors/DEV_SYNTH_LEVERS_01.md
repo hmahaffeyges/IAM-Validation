@@ -74,3 +74,20 @@ chain's.)
 | 4× | 1.258 | 1.00 | 1.00 | 1.00 |
 The lever weakens if nuclear SAM sits far above DNMT1's Km (halving from 60 µM: 1.037; from 200 µM: 1.005). **Design:** ≥ 3 per group,
 a ≥ 1.5× measured SAM drop, measured SAM/SAH reported with the sequencing; the prediction is computed from the measured SAM change.
+
+## Simulation 7 — the deviation load on REAL healthy arrays (450K neutrophils, 390,939 sites; 2026-10-09)
+Reading: number of sites where a self-tared array departs from the healthy mean by |z| > cut, z on a shrunk per-site healthy SD, after
+removing the array's own offset and contrast. Disease = a signature of k sites moved by Δβ added to a real healthy array.
+**Against another laboratory's reference (GSE88824, 8 arrays): unusable.** Healthy arrays of GSE124565 already depart at a median 6,990
+sites (max 10,889) and GSE224807 at up to 28,006: laboratory differences swamp any focal disease (caught 1/12 even at 3,000 sites).
+**Against same-run healthy references (leave-one-out within GSE124565, 12 arrays):**
+| cut | healthy load | 300 sites, Δβ 0.2 | 300 sites, Δβ 0.1 | 1,000 sites, Δβ 0.1 |
+|---|---|---|---|---|
+| 5 | 360–1,208 | 2/12 | — | — |
+| 6 | 245–672 | 3/12 | — | — |
+| 8 | 150–302 | 12/12 | 10/12 | 12/12 |
+| 10 | 113–186 | 12/12 | 10/12 | 12/12 |
+**What it sets.** The reading works only against same-run healthy references (the Stage T rule again), with a strict cut. The cut (8)
+was chosen on these 12 arrays, so it is a development value: it must hold on a laboratory not used to choose it (false-trigger rate on
+its healthy arrays, then a constructed signature), before any disease is read with it. Synthetic signatures are random sites; real
+disease signatures cluster in regions, which the C-score reads.
