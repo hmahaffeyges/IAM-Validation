@@ -22,3 +22,19 @@ neutrophils (GSE124565, 10), each tared against the healthy neutrophils of the s
 neutrophil identity sites by ≥ 10 % (power 0.89 at 15 vs 15). The published lupus-neutrophil signature (interferon genes, a few hundred
 CpGs) would not do that, so a null in lupus neutrophils is the expected outcome and is not evidence against Met-A; lupus low-density
 granulocytes (immature cells) are the likelier positive. A null here is recorded as "below what Met-A is built to see".
+
+---
+## Results so far (2026-10-09; nothing above the line changed)
+**Data change.** GSE65097 (lupus) and GSE35069 deposited no IDATs (processed intensity tables only), so Stage 1 cannot read them: the lupus
+reading is dropped from this route. Second other laboratory: GSE224807 (sorted blood cells, smokers and non-smokers), 65 non-smoker CD15
+neutrophils on 450K with IDATs (replaces GSE318669, whose 54 arrays read 894,182 probes — platform to be checked before use).
+**Build.** 6,000 identity sites on the 8 GSE88824 control neutrophils (122 shared with the EPIC set); floor 0.32581. Self-tare II rebuilt by
+the EPIC rule on GSE88824's six purified groups: I_low 51,884, I_high 20,166, II_low 43,329, II_high 45,320 fixed sites
+(Runtime Matrices/Development/dev_metA_450K_neutrophils_v0.json, dev_selftare_450K_v0.json).
+| bar | result | met |
+|---|---|---|
+| 1. held-out precision | raw SD 0.0336; after self-tare II **0.0177** (0.976–1.028) | **yes** (after self-tare, as EPIC) |
+| 2a. other lab GSE124565, 12 healthy | untared A 0.943–0.980 (lab ~4 % low); tared A_rel 0.983–1.028 — **12/12 Normal** | yes (one lab) |
+| 2b. other lab GSE224807, 65 healthy | downloading | pending |
+| 3. detection limit | constructed 2 % loss: 12/12 outside Normal (A_rel 1.106–1.151); 1 %: 10/12 | **yes** |
+Noise gate not yet rebuilt for 450K (applied in commissioning). APS patients not read until bar 2b is met.

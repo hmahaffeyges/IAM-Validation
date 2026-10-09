@@ -508,3 +508,9 @@ Methylated-channel (3.41 kT) height: still no physics-only derivation.
 ### 2026-10-09 · Fish water-temperature reading (development)
 \measured 56 fish species, 0.2-28 °C: gills +0.45 %/K (−0.38 to 1.28), muscle +0.39 (−0.60 to 1.39), heart +0.45, liver −0.65; all CIs
 include +1 %/K except none excludes 0. Undecided. A decisive design needs one species over ≥ 20 K (≈ 40 animals).
+
+### 2026-10-09 · DEV-METAA-450K-01: Met-A on 450K purified neutrophils — bars 1, 2a, 3 met
+\measured Reference: 8 GSE88824 healthy neutrophils, 6,000 sites by the canon rule; held-out SD 0.0336 raw, 0.0177 after the rebuilt
+450K self-tare (bar 0.020). Other lab GSE124565: 12/12 healthy Normal after the same-run tare. Detection limit: 2 % loss 12/12 outside
+Normal. Lupus set has no IDATs (dropped). Second lab (GSE224807, 65 healthy) downloading; APS read only after it.
+Box: first Swift whole-blood run stopped by Q0 conversion (0.97984 vs ENCODE limit 0.98), rule kept.
