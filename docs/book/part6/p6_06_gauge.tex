@@ -8,8 +8,8 @@ reading, on the same instrument,
   A=\frac{\text{reading}}{\text{healthy reference}} .
   \label{eq:A}
 \end{equation}
-$A=1$ is the cell working as itself and sits in the middle. Below it lies $\Hmin$, the floor: the least error the cell's
-energy budget can hold against thermal kicks; nothing reads below it. Above 1 the cell makes more error than when healthy
+$A=1$ is the cell working as itself and sits in the middle. Far below it lies $\Hmin$, the floor: where thermal kicks win against everything one ATP can buy
+(Chapter~\ref{ch:iama}); nothing reads below it. Above 1 the cell makes more error than when healthy
 (Figure~\ref{fig:gauge}). The ratio is dimensionless and independent of laboratory, array and person, provided the reading
 and the reference are made on the same platform through the same calibration (Chapter~\ref{ch:instrument}). The same
 construction reads qubits and chips in Part~\ref{part:3}; for a cell the healthy reference is the right standard,
@@ -20,8 +20,8 @@ because the question is whether this cell is still the cell it should be.
 \caption{One gauge, four readings, for neutrophils: Met-A (EPIC arrays), IAM-A (single molecules), the Met-A C-score and the IAM-A
 C-score (not built). On every row 1 is the healthy reference, in the middle; the left half runs from the floor to 1 and the right half from 1 to
 the far end on a log scale, so the two halves are not on one scale. Normal (green) is $0.95$--$1.05$. Bars are measured readings: held-out
-healthy arrays, and the same arrays with known damage (Chapter~\ref{ch:skytools}). $\Hmin$ (IAM-A, $0.910$) is the floor where thermal kicks win. Breach and the cancer region lie to the right of Normal and are
-to be measured on this scale. The surface is full when every identity site sits at a coin flip: $3.03$ (Met-A), $4.45$ (IAM-A).
+healthy arrays, and the same arrays with known damage (Chapter~\ref{ch:skytools}). $\Hmin$, the floor where thermal kicks win against one ATP, is at $1\times10^{-7}$ on both rows, off the left edge. Breach and the cancer region lie to the right of Normal and are
+to be measured on this scale. The surface is full when every identity site sits at a coin flip: $3.03$ (Met-A), $4.26$ (IAM-A).
 The Met-A C-score sits on the same gauge: 1 is the healthy baseline, and its far end, every 50-site block moving as one, is 45. \calc}
 \label{fig:gauge}
 \end{figure}
@@ -31,11 +31,12 @@ The Met-A C-score sits on the same gauge: 1 is the healthy baseline, and its far
 \begin{center}\small
 \begin{tabular}{@{}p{0.2\textwidth}p{0.2\textwidth}p{0.5\textwidth}@{}}\toprule
 point & value (neutrophils) & status \\\midrule
-$\Hmin$ & IAM-A $0.910$; Met-A not yet defined & IAM-A: form \derived, height \measured{} (Ch.~\ref{ch:iama}); Met-A \openprob \\
+$\Hmin$ & $1\times10^{-7}$ (IAM-A and Met-A) & \calc{} from $M$ alone: copy error $1/(1+e^{M})$ (Ch.~\ref{ch:iama}) \\
+healthy reference & 1 (IAM-A $0.2348$ bits; Met-A $0.330263$ bits) & IAM-A \measured; Met-A \calibrated \\
 Normal & $0.95$--$1.05$ & a design tolerance: healthy is $A=1\pm5$~\%; no group of people sets it \\
 breach & to be measured & placed from per-person data: tumor/normal pairs, the DNMT1-inhibitor series, blood cancers \\
 cancer region & beyond breach & to be measured the same way \\
-full surface & Met-A $3.03$; IAM-A $4.45$ & \calc{} from the healthy reference alone \\
+full surface & Met-A $3.03$; IAM-A $4.26$ & \calc{} from the healthy reference alone \\
 C-score far end & Met-A C-score $45$ & \calc{} block size 50 over the healthy baseline 1.1104; the IAM-A C-score is not built \\\bottomrule
 \end{tabular}
 \end{center}
@@ -71,7 +72,7 @@ error rate against specification & $A$ & $A$ per channel \\\bottomrule
 \paragraph{One gauge, not one scale.} The gauge has the same shape everywhere: the system as built, or the cell when healthy, reads 1 in the
 middle, its physical floor lies to the left and its full surface to the right. The distances do not carry from one system to another. $A=2$
 for a neutrophil and $A=2$ for a qubit are both twice their reference, but the room between 1 and the full surface is different for each
-(4.45 for a neutrophil on IAM-A), so equal readings do not mean equal damage, and the gauge does not rank systems against each other. Each
+(4.26 for a neutrophil on IAM-A), so equal readings do not mean equal damage, and the gauge does not rank systems against each other. Each
 system is read against itself. \derived
 
 Two cautions keep the mapping exact. First, Met-A measures \emph{state} error, the fraction of copies holding the wrong mark at one moment;

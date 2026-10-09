@@ -36,7 +36,8 @@ in the code it is in this order (wired 2026-10-04, `stage_t_selftare_ii`, called
 Frozen values (read from the files, never typed):
 - EPIC neutrophil healthy reference 0.330263 bits (6 physical arrays, Salas GSE110554; GSE167998 re-deposits the same 6; 6000 sites; our Stage 1).
 - Healthy clustering median 1.1104 (6 physical arrays, leave-one-out, block 50).
-- Noise gate N_max 0.149 (`noise_gate_EPIC_v1.json`); IAM-A ε₀ 0.032 and neutrophil P 1.1492, measured on whole files (`iama_positions_v2.json`, 2026-10-08; v1, P 1.099 on the first 60 MB of each file, is superseded).
+- Noise gate N_max 0.149 (`noise_gate_EPIC_v1.json`); IAM-A ε₀ 0.032 (the healthy reference copy error, H_ref = H(ε₀) = 0.2043 bits, the holding energy 3.41 kT measured across 56 healthy cell types; not a lower limit) and neutrophil P 1.1492, measured on whole files (`iama_positions_v2.json`, 2026-10-08).
+- Gauge marks (author ruling 2026-10-09): the floor H_min is where thermal kicks win against one ATP per site, copy error 1/(1+e^M) = 8.1×10⁻¹⁰, 2.5×10⁻⁸ bits (1×10⁻⁷ on the neutrophil IAM-A gauge); A = 1 is the healthy reference; the full surface is 1 bit per site (neutrophils: Met-A 3.03, IAM-A 4.26). No reading is refused for lying below H_ref.
 - Met-A C-score tare: C_rel = C ÷ median C of ≥ 3 same-run healthy references. Development band 0.877–1.152 (blocks of 10; 2.5–97.5 % of tared C on 641 healthy arrays from 19 laboratories; `doors/CSCORE_COMMISSIONING_PLAN.md`).
 - IAM-A tare (2026-10-09, development): A_rel = IAM-A ÷ median IAM-A of ≥ 3 same-run healthy references of the same cell, laboratory, library kit and pipeline (`stage_q_iam_a.tare`, `run_sample.py --iama-ref-table`); fewer than 3 → untared, read against P only. Reason: library kit and laboratory shift IAM-A by up to 0.16 on healthy cells (DEV-IAMA-KIT-01).
 
@@ -279,7 +280,7 @@ The book states each step and why; the exact values, records, files and developm
 | M Met-A | identity-site rule (also kept in book; EPIC v1 neutrophils, 6 physical arrays): across-array SD of β ≤ 0.05; mean β 0.75–0.95 (methylated channel) or 0.05–0.25 (unmethylated channel); ≤ 3,000 per channel by smallest SD; result 6000 sites, 3000 per channel | `chain_tests/freeze_v13.py`, `stage_m_met_a.py`; `metA_floors_v1_3.json` `n_sites` | **[new]** (rule; the count is in full §3). The rule also stays in the book, Ch. "Identity sites" |
 | M Met-A | ceiling flag `past_entropy_ceiling` = (mean β at sites with μ_NEU > 0.5) < 0.5; report: "read beta, not A" | `conductor_v3.py:127-133` (`_ceiling`) | [in full §1, §6] |
 | MC C-score | blocks of 10 sites; ≥ 10 blocks; healthy baseline 1.0103 | `neutrophil_reference_v1_2.json` | [in full §3, §5] |
-| Q IAM-A | pipeline `loyfer_pat_v1` only; P = 1.099; ε₀ = 0.032; ≥ 100,000 opportunities; halves A/B with > 50,000 each; molecule qualifies with ≥ 6 calls and ≥ 80 % methylated | `chain/stage_q_iam_a.py`, `chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json` | [in full §3, §5; Stage Q row added to v3 §2 on 2026-10-03] |
+| Q IAM-A | pipeline `loyfer_pat_v1` only; P = 1.1492 (whole files); ε₀ = 0.032 (healthy reference); ≥ 100,000 opportunities; halves A/B with > 50,000 each; molecule qualifies with ≥ 6 calls and ≥ 80 % methylated | `chain/stage_q_iam_a.py`, `chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json` | [in full §3, §5; Stage Q row added to v3 §2 on 2026-10-03] |
 
 **Stage Q row (added to v3 §2 on 2026-10-03):**
 

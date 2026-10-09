@@ -20,40 +20,50 @@ computed on the methylated channel only. The unmethylated channel is not used: t
 the isolated calls. The chain requires at least 100,000 opportunities and reports the reading separately on odd and even
 molecules as a repeat check. \derived{} for the form; the selection rules are \calibrated.
 
-\section{The floor}
+\section{The floor, the healthy reference and the ceiling}
 
-If the cell holds each site with an energy $E$ against thermal kicks, a two-state Boltzmann factor gives the least error that
-energy allows:
+If the cell holds each site with an energy $E$ against thermal kicks, a two-state Boltzmann factor gives the error that energy allows,
+$\varepsilon=1/(1+e^{E/\kB T})$. \derived{} Three energies mark the gauge:
 \begin{equation}
-  \varepsilon_0=\frac{1}{1+e^{\phi M}},\qquad \Hmin=H(\varepsilon_0).
+  \varepsilon_{\min}=\frac{1}{1+e^{M}},\qquad \varepsilon_0=\frac{1}{1+e^{\phi M}},\qquad \Hmin=H(\varepsilon_{\min}),\qquad \Href=H(\varepsilon_0).
   \label{eq:eps0}
 \end{equation}
-\derived{} for the form. With $M=20.94$ and the holding energy measured across 56 healthy cell types, $\phi=0.1628$
-(Chapter~\ref{ch:landauer}), $\varepsilon_0=0.032$ and $\Hmin=0.2043$ bits. \measured{} for the height. The form is the cost of holding a record at
-the chromatin, one of the places in IAM; the height is still taken from healthy molecules, and deriving $\phi$ from the chemistry of
-maintenance is the central open problem of the cellular rung (Chapter~\ref{ch:open}).
+\begin{center}\small
+\begin{tabular}{@{}llllll@{}}\toprule
+mark & where & energy holding each site & thermal kicks win & entropy per site & set by \\\midrule
+floor $\Hmin$ & left & one full ATP, $M=20.94\,\kB T$ & 1 in $1.24\times10^{9}$ & $2.5\times10^{-8}$ bits & $M$ alone \calc \\
+healthy reference $\Href$ & middle & $3.41\,\kB T$ & 1 in 31 ($\varepsilon_0=0.032$) & $0.2043$ bits & healthy cells \measured \\
+ceiling & right & none & every other time ($\varepsilon=\tfrac12$) & 1 bit & physics \derived \\\bottomrule
+\end{tabular}\end{center}
+The floor is where thermal kicks win against everything one ATP can buy, and no cell comes near it. The healthy reference is where healthy
+cells actually hold their sites: the holding energy measured across 56 healthy cell types, $3.41\,\kB T$, gives $\phi=0.1628$ of one ATP
+(Chapter~\ref{ch:landauer}), $\varepsilon_0=0.032$ and $\Href=0.2043$ bits. Healthy cell types spread around it (copy error 0.024--0.042),
+so about half hold their sites better than $\Href$; none approaches $\Hmin$. The distance between floor and reference is the cell's
+efficiency, $\phi$. Thermodynamics bounds the holding energy by the free energy spent per renewal (one ATP sets the floor); the height
+the cell actually holds is set by the kinetics of maintenance, the balance of restore and loss, $E_{\rm hold}=\kB T\ln(g/f)$
+(Chapter~\ref{ch:landauer}). Deriving $\phi$ from that kinetics is the central open problem of the cellular rung (Chapter~\ref{ch:open}). \openprob
 
 \section{The healthy position, and the reading}
 
-A healthy cell does not sit exactly on the floor. Its position above the floor, $P$, is measured once per cell type and per
+Each healthy cell type sits at its own position $P$ relative to the healthy reference, measured once per cell type and per
 read pipeline, and frozen:
 \begin{equation}
-  \text{IAM-A}=\frac{H(\varepsilon)}{P_{\rm cell}\,H(\varepsilon_0)},\qquad P_{\rm neutrophil}=1.099 .
+  \text{IAM-A}=\frac{H(\varepsilon)}{P_{\rm cell}\,H(\varepsilon_0)},\qquad P_{\rm neutrophil}=1.149 .
   \label{eq:iama}
 \end{equation}
-\measured{} $P$ was measured on three healthy granulocyte donors (range 1.084--1.108, coefficient of variation 1.2~\%), on
-the read-level files of one public atlas~\cite{Loyfer2023}, with one named read-level pipeline. The floor then
-sits at $A=1/P=0.910$, below Normal. A reading below it is not a cell doing better than physics allows; it is an instrument
-fault, and the chain treats it as one.
+\measured{} $P$ was measured on three healthy granulocyte donors (range 1.140--1.155, coefficient of variation 0.74~\%), on
+whole read-level files of one public atlas~\cite{Loyfer2023}, with one named read-level pipeline. The average healthy cell type, $\Href$, then
+sits at $A=1/P=0.870$ on the neutrophil's gauge, and the floor $\Hmin$ at $1\times10^{-7}$. \calc
 
 \begin{center}\small
 \begin{tabular}{@{}lll@{}}\toprule
 test & result & \\\midrule
-healthy donors on $\varepsilon_0$ alone & 1.084--1.127 & \measured \\
-healthy donors with $P$, leave-one-donor-out & 0.978--1.040 & \measured \\
+healthy donors on $\Href$ alone & 1.137--1.168 & \measured \\
+healthy donors with $P$, leave-one-donor-out & 0.984--1.025 & \measured \\
 odd/even molecule halves & differ by $\le0.002$ & \measured \\
-simulated 2~\% rise in copy error & 1.285--1.346 & \measured \\
-same cells on a second read pipeline, bare floor & 0.70--0.79 & \measured \\\bottomrule
+2~\% of methylated calls removed: rise in $\varepsilon$ & $+0.0154$ to $+0.0155$ & \measured \\
+the same rise read at each donor's held-out position & 1.273--1.313 & \calc \\
+same cells on a second read pipeline, on $\Href$ alone & 0.70--0.79 & \measured \\\bottomrule
 \end{tabular}
 \end{center}
 The last line is why $P$ is locked to a pipeline: the same cells read through a different alignment and extraction show a
@@ -71,7 +81,7 @@ with 2~\% copy error added. The line is the floor $1/P$. \measured}
 \end{figure}
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.6\textwidth]{figures/part6/fig_p4_08_curve.pdf}
-\caption{$H(\varepsilon)/(P\,H(\varepsilon_0))$ against copy error, with $P=1.099$ and $\varepsilon_0=1/(1+e^{3.41})$. Square: the floor. Circles and
+\caption{$H(\varepsilon)/(P\,H(\varepsilon_0))$ against copy error, with $P=1.149$ and $\varepsilon_0=1/(1+e^{3.41})$. Square: the healthy reference $\Href$. Circles and
 triangles: the donors' copy error and the same molecules with 2~\% added. A 2~\% rise moves the reading by about 0.3. \calc{} curve;
 \measured{} points.}
 \label{fig:p4_iamacurve}

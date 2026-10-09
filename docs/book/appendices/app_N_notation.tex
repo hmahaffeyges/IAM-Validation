@@ -108,14 +108,16 @@ $\mathcal M/\ln2$ & the same in Landauer units (bits one ATP can pay for) & 30.2
 $E_{\rm hold}$ & holding energy per methylated site & $3.41\,\kB T$ & $\ln[(1-\varepsilon)/\varepsilon]$ on single molecules; \measured \\\iamrowrule
 $E_{\rm hold}/\ln2$ & the same in Landauer units & 4.9 & conversion \\\iamrowrule
 $\varphi$ (also $\phi$) & fraction of one ATP spent per held bit & 0.1628 & $E_{\rm hold}/\mathcal M$; \measured \\\iamrowrule
-$\varepsilon_0$ & thermal floor of the copy error & 0.032 & $1/(1+e^{\varphi\mathcal M})$: form \derived, height \measured \\\iamrowrule
-$H(\varepsilon_0)$ & the floor's entropy, $\Hmin$ for IAM-A & 0.2043 bits & \calc \\\iamrowrule
-$P_{\rm cell}$ & healthy cell type's position above the floor (neutrophils) & 1.099 & 3 donors, 1.084--1.108; pipeline \texttt{loyfer\_pat\_v1}; \measured \\\iamrowrule
-$P_{\rm cell}H(\varepsilon_0)$ & IAM-A healthy reference (neutrophils) & 0.2246 bits & \calc \\\iamrowrule
-$1/P_{\rm cell}$ & position of $\Hmin$ on the IAM-A gauge & 0.910 & \calc \\\iamrowrule
-$H_{\rm ref}$ & Met-A healthy reference, EPIC v1 neutrophils & 0.330263 bits & 6 purified arrays, 6,000 sites; \calibrated \\\iamrowrule
+$\varepsilon_{\min}$ & the floor's copy error: one ATP per site, $1/(1+e^{\mathcal M})$ & $8.1\times10^{-10}$ & \calc \\\iamrowrule
+$\Hmin$ & the floor, $H(\varepsilon_{\min})$ & $2.5\times10^{-8}$ bits & \calc; on the gauge $1\times10^{-7}$ (IAM-A), $8\times10^{-8}$ (Met-A) \\\iamrowrule
+$\varepsilon_0$ & healthy reference copy error & 0.032 & $1/(1+e^{\varphi\mathcal M})$: form \derived, height \measured \\\iamrowrule
+$\Href=H(\varepsilon_0)$ & healthy reference height, 56 healthy cell types & 0.2043 bits & \calc \\\iamrowrule
+$P_{\rm cell}$ & healthy cell type's position relative to $\Href$ (neutrophils) & 1.149 & 3 donors, whole files, 1.140--1.155; pipeline \texttt{loyfer\_pat\_v1}; \measured \\\iamrowrule
+$P_{\rm cell}\Href$ & IAM-A healthy reference (neutrophils) & 0.2348 bits & \calc \\\iamrowrule
+$1/P_{\rm cell}$ & position of $\Href$ on the neutrophil IAM-A gauge & 0.870 & \calc \\\iamrowrule
+Met-A reference & Met-A healthy reference, EPIC v1 neutrophils & 0.330263 bits & 6 purified arrays, 6,000 sites; \calibrated \\\iamrowrule
 Normal & the healthy band of every reading & $0.95$--$1.05$ & design tolerance, $A=1\pm5\,\%$ \\\iamrowrule
-$A_{\max}$ & full surface: every identity site at a coin flip & 3.03 (Met-A); 4.45 (IAM-A) & $1/0.330263$; $1/(1.099\times0.2043)$; \calc \\\iamrowrule
+$A_{\max}$ & full surface: every identity site at a coin flip & 3.03 (Met-A); 4.26 (IAM-A) & $1/0.330263$; $1/(1.149\times0.2043)$; \calc \\\iamrowrule
 $c_{\rm healthy}$ & healthy clustering baseline of the Met-A C-score & 1.1104 & median of six held-out arrays; \calibrated \\\iamrowrule
 $N$ (noise index) & mean $H(\beta)$ over the fixed noise sites & 48,528 sites & measured on every array \\
 \bottomrule\end{longtable}}
@@ -269,7 +271,7 @@ $\kappa$ (Dennard) & linear scaling factor of the 1974 Dennard rules & --- & Ch.
 $\beta$, $\beta_i$ & methylated fraction of the copies at a CpG (site $i$) & --- & Ch.~\ref{ch:surface}\\\iamrowrule
 $\bbar$, $\overline H$ & mean $\beta$ over a set of sites; mean of the per-site entropies & ---; bit & Ch.~\ref{ch:surface}\\\iamrowrule
 $\varepsilon$ (cell) & per-molecule copy error: isolated unmethylated calls over opportunities & --- & Ch.~\ref{ch:iama}\\\iamrowrule
-$\varepsilon_0$ (cell) & thermal floor of the copy error, $1/(1+e^{\varphi\mathcal M})=0.032$ & --- & Ch.~\ref{ch:iama}\\\iamrowrule
+$\varepsilon_0$ (cell) & healthy reference copy error, $1/(1+e^{\varphi\mathcal M})=0.032$ & --- & Ch.~\ref{ch:iama}\\\iamrowrule
 $E_{\rm hold}$ & holding energy per site, $\kB T\ln[(1-\varepsilon)/\varepsilon]$ & J ($\kB T$) & Ch.~\ref{ch:landauer}\\\iamrowrule
 $\varphi$, $\phi$ (cell) & fraction of one ATP per held bit, $E_{\rm hold}/\mathcal M\kB T$ & --- & Ch.~\ref{ch:landauer}\\\iamrowrule
 $\Delta\Delta G$ & discrimination free energy of a copying step & J ($\kB T$) & Ch.~\ref{ch:landauer}\\\iamrowrule
@@ -277,7 +279,7 @@ $u$, $d$, $\beta_{\rm ss}$ & per-division loss and gain probabilities; steady-st
 $A$ & informational fidelity ratio: reading over the healthy reference & --- & Ch.~\ref{ch:gauge}\\\iamrowrule
 $A_{\rm rel}$ & tared reading $A/\mathrm{median}(A_{\rm ref})$ & --- & Ch.~\ref{ch:chain}\\\iamrowrule
 $\Hmin$ & the floor: lowest error a system can hold before thermal kicks win & bit (cells) & Ch.~\ref{ch:gauge}\\\iamrowrule
-$H_{\rm ref}$ & Met-A healthy reference, mean $H(\beta)$ on purified healthy cells & bit & Ch.~\ref{ch:meta}\\\iamrowrule
+$\Href$ & healthy reference height, $H(\varepsilon_0)$; Met-A uses its own reference, mean $H(\beta)$ on purified healthy cells & bit & Chs.~\ref{ch:iama}, \ref{ch:meta}\\\iamrowrule
 $P_{\rm cell}$ & healthy cell type's position above the IAM-A floor & --- & Ch.~\ref{ch:iama}\\\iamrowrule
 $\mathcal I$ & set of a cell's identity sites (loci) & --- & Ch.~\ref{ch:meta}\\\iamrowrule
 $f_g$, $f_{\rm neu}$ & fraction of the specimen's DNA from blood group $g$; neutrophil fraction & --- & Ch.~\ref{ch:separation}\\\iamrowrule

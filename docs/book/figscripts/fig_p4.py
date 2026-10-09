@@ -54,7 +54,7 @@ def comp():
 
 
 def iama():
-    return json.load(open(RM / "IAM_A_Positions" / "iama_positions_v1.json"))
+    return json.load(open(RM / "IAM_A_Positions" / "iama_positions_v2.json"))
 
 
 def md_table(path, first_col_startswith=None):
@@ -163,12 +163,12 @@ def fig_fullsurface():
     a2.plot(e, iam, color=S.IAM); normal_band(a2, alpha=0.35)
     a2.text(0.6 * 0.97, 1.07, "Normal", ha="right", va="bottom", fontsize=6, color=NCOL)
     a2.plot(eh, 1.0, "o", color=S.DATA, ms=4, zorder=3); a2.annotate(f"healthy cell: $\\varepsilon$ = {eh:.4f}", (eh, 1.0), xytext=(6, 8), textcoords="offset points", fontsize=6.5)
-    a2.plot(EPS0, 1 / P_NEU, "s", color="k", ms=4); a2.annotate(f"floor $H_{{\\min}}$: 1/P = {1/P_NEU:.3f}", (EPS0, 1 / P_NEU), xytext=(8, -12), textcoords="offset points", fontsize=6.5)
+    a2.plot(EPS0, 1 / P_NEU, "s", color="k", ms=4); a2.annotate(f"healthy reference $H_{{\\rm ref}}$: 1/P = {1/P_NEU:.3f}", (EPS0, 1 / P_NEU), xytext=(8, -12), textcoords="offset points", fontsize=6.5)
     a2.plot(0.5, Amax2, "o", color=S.IAM, ms=4); a2.annotate(f"surface full: {Amax2:.2f}", (0.5, Amax2), xytext=(-64, -2), textcoords="offset points", fontsize=7)
     a2.set_xscale("log"); a2.set_xlim(0.01, 0.6); a2.set_ylim(0.4, 4.9)
     a2.set_xticks([0.01, 0.03, 0.1, 0.3, 0.5], ["0.01", "0.03", "0.1", "0.3", "0.5"]); a2.xaxis.set_minor_formatter(plt.NullFormatter())
     a2.set_xlabel(r"copy error $\varepsilon$ on the methylated channel"); a2.set_ylabel("IAM-A")
-    a2.set_title("Molecules: IAM-A from the floor to 4.45"); S.panel_letter(a2, "b")
+    a2.set_title(f"Molecules: IAM-A up to the full surface, {Amax2:.2f}"); S.panel_letter(a2, "b")
     S.save(fig, "part6", "fig_p4_05_fullsurface")
     return dict(Amax_meta=Amax, Amax_iama=Amax2, floor=1 / P_NEU, eps_healthy=eh, Hmean=float(h.mean()))
 
@@ -268,15 +268,24 @@ def fig_heldout():
 
 # ============================== p4_08 =================================
 def fig_iama():
-    g = pd.read_csv(MP / "chain_tests" / "iama_floor_granulocytes.csv")
+    # Whole-file counts from the frozen position file (iama_positions_v2.json). The 2 % test: the rise in eps when 2 % of methylated calls
+    # are removed was measured on the molecules of chain_tests/iama_floor_granulocytes.csv (first 60 MB of each file: +0.0154 to +0.0155,
+    # MEASURED); it is added to each donor's whole-file eps and read at the whole-file position (CALCULATED).
+    g0 = pd.read_csv(MP / "chain_tests" / "iama_floor_granulocytes.csv").set_index("gsm")
+    cnt = iama()["cells"]["neutrophils"]["counts"]
+    g = pd.DataFrame({"gsm": list(cnt), "eps": [cnt[k]["errors"] / cnt[k]["opportunities"] for k in cnt]})
+    g["shift"] = [float(g0.loc[k, "eps_damaged"] - g0.loc[k, "eps"]) for k in g.gsm]
+    g["eps_damaged"] = g.eps + g["shift"]
+    g["eps_ref_loo"] = [g.eps.drop(i).mean() for i in g.index]
+    g["P_position"] = H(g.eps_ref_loo) / H(EPS0)
+    g["A_phys"] = H(g.eps) / H(EPS0); g["A_own"] = H(g.eps) / (g.P_position * H(EPS0)); g["A_own_damaged"] = H(g.eps_damaged) / (g.P_position * H(EPS0))
     fig, ax = plt.subplots(figsize=(0.6 * S.TEXTW, 2.4))
-    normal_band(ax); ax.axhline(1 / P_NEU, color="k", lw=0.9); ax.text(2.45, 1 / P_NEU - 0.035, f"floor $H_{{\\min}}$ = 1/P = {1/P_NEU:.3f}", fontsize=6.5, ha="right")
+    normal_band(ax)
     x = np.arange(len(g))
-    for dx, col, mk, lab, l2 in ((-0.2, S.GR, "o", "A_phys", "bare floor $\\varepsilon_0$ only"), (0.0, S.IAM, "s", "A_own", "with frozen position $P$ (held out)"),
+    for dx, col, mk, lab, l2 in ((-0.2, S.GR, "o", "A_phys", "on $H_{\\rm ref}$ alone"), (0.0, S.IAM, "s", "A_own", "with frozen position $P$ (held out)"),
                                  (0.2, S.DATA, "^", "A_own_damaged", "2 % copy error added")):
         ax.plot(x + dx, g[lab], mk, color=col, ms=5, label=l2)
-    ax.vlines(x, g.A_own_odd, g.A_own_even, color=S.IAM, lw=2.5, alpha=0.35)
-    ax.set_xticks(x, g.gsm, fontsize=6.5); ax.set_ylabel("IAM-A"); ax.set_ylim(0.85, 1.42); ax.set_xlim(-0.5, 2.5)
+    ax.set_xticks(x, g.gsm, fontsize=6.5); ax.set_ylabel("IAM-A"); ax.set_ylim(0.9, 1.5); ax.set_xlim(-0.5, 2.5)
     ax.legend(loc="upper left", fontsize=6); ax.set_title("Three granulocyte donors on single molecules")
     S.save(fig, "part6", "fig_p4_08_donors")
     e = np.logspace(np.log10(0.015), np.log10(0.08), 300); iam = H(e) / (P_NEU * H(EPS0))
@@ -286,7 +295,7 @@ def fig_iama():
     ax.plot(g.eps, H(g.eps) / (P_NEU * H(EPS0)), "o", color=S.GR, ms=4, label="donor copy error (own reading on this curve)")
     ax.plot(g.eps_damaged, H(g.eps_damaged) / (P_NEU * H(EPS0)), "^", color=S.DATA, ms=4, label="same molecules with 2 % added")
     ax.set_xscale("log"); ax.set_xlabel(r"copy error $\varepsilon$"); ax.set_ylabel(r"$H(\varepsilon)/(P\,H(\varepsilon_0))$")
-    ax.legend(loc="upper left", fontsize=6); ax.set_title("IAM-A is steep near the floor")
+    ax.legend(loc="upper left", fontsize=6); ax.set_title("IAM-A is steep near the healthy reference")
     S.save(fig, "part6", "fig_p4_08_curve")
     return dict(g=g)
 

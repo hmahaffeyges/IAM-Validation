@@ -1865,12 +1865,12 @@ def _b09_noise_rho(gse):
 def _b09_dnmt(sel, col='A'):
     return [float(r[col]) for r in load_csv_rows(_B09_DN) if sel(r)]
 DATA_FILES['Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md'] = 'IAM-A floor comparison record (three floors; second read pipeline)'
-DATA_FILES['Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json'] = 'chain v3 frozen IAM-A positions (P per cell type, frozen eps0)'
+DATA_FILES['Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json'] = 'chain v3 frozen IAM-A positions (P per cell type, frozen eps0)'
 
 # helpers of the part6/p6_08_iama checks
 _B09_IG = 'Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv'
 _B09_IFC = 'Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md'
-_B09_POS = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json'
+_B09_POS = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json'
 _B09_PC = 'Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md'
 
 def _b09_Hb(e):
@@ -1884,14 +1884,17 @@ def _b09_md_line(path, start):
 def _b09_nums(s):
     return [float(x) for x in re.findall(r"\d+\.\d+", s)]
 def _b09_gran():
-    """The three Loyfer granulocyte donors: copy error eps = iso/opp, the pooled copy error of the other two donors, the damaged eps,
-    the floor eps0 = 1/(1+e^E_hold) with E_hold the canon holding energy, and per donor P_i = H(eps_others)/H(eps0)."""
-    rows = load_csv_rows(_B09_IG)
-    iso = np.array([float(r['iso']) for r in rows]); opp = np.array([float(r['opp']) for r in rows])
-    eps = iso / opp
-    ed = np.array([float(r['eps_damaged']) for r in rows])
-    oth = np.array([(iso.sum() - iso[i]) / (opp.sum() - opp[i]) for i in range(len(rows))])
-    e0 = 1 / (1 + math.exp(E_hold))
+    """The three Loyfer granulocyte donors on WHOLE files (iama_positions_v2.json counts): copy error eps = errors/opportunities, the mean
+    copy error of the other two donors (the position file's definition of P), eps0 = 1/(1+e^E_hold) with the canon holding energy, per donor
+    P_i = H(eps_others)/H(eps0), and the damaged eps: eps plus the rise measured on the same donors' molecules when 2 % of methylated calls
+    are removed (eps_damaged - eps in iama_floor_granulocytes.csv, first 60 MB of each file)."""
+    c = load_json(_B09_POS)['cells']['neutrophils']['counts']
+    rows = {r['gsm']: r for r in load_csv_rows(_B09_IG)}
+    g = list(c)
+    eps = np.array([c[k]['errors'] / c[k]['opportunities'] for k in g])
+    ed = eps + np.array([float(rows[k]['eps_damaged']) - float(rows[k]['eps']) for k in g])
+    oth = np.array([np.mean([eps[j] for j in range(len(g)) if j != i]) for i in range(len(g))])
+    e0 = load_json(_B09_POS)['eps0']   # the frozen eps0 the chain and P use (0.032)
     P = np.array([_b09_Hb(x) / _b09_Hb(e0) for x in oth])
     return eps, ed, oth, e0, P
 
@@ -2365,7 +2368,7 @@ def _b12_crc_ratios(clean_only=False):
 _B12_FLOORS = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json'
 _B12_LOO = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv'
 _B12_NREF = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json'
-_B12_POS = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json'
+_B12_POS = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json'
 _B12_CHAN = 'Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md'
 _B12_V5 = 'Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md'
 _B12_LOWF = 'Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv'
@@ -23906,9 +23909,9 @@ def check_3060():
     return locals()
 
 @check(label='ch:saturation:L66', chapter='ch:saturation', part=3, title='P_neutrophil from the canon record',
-       file='part3/p3_07_saturation', line=66, status='measured', kind='file', printed='1.099', tol=0, source='CANON/iam_canon.json')
+       file='part3/p3_07_saturation', line=66, status='measured', kind='file', printed='1.149', tol=0, source='CANON/iam_canon.json')
 def check_1941():
-    'P_neutrophil from the canon record. Book line 66, printed 1.099.'
+    'P_neutrophil from the canon record. Book line 66, printed 1.149.'
     value=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     return locals()
 
@@ -23926,34 +23929,34 @@ def check_1943():
     value=load_json('CANON/iam_canon.json')['constants']['E_hold_meth']['value']
     return locals()
 
-@check(label='ch:saturation:L66:0.910', chapter='ch:saturation', part=3, title='1/P',
-       file='part3/p3_07_saturation', line=66, status='derived', kind='file', printed='0.910', tol=0, source='CANON/iam_canon.json')
+@check(label='ch:saturation:L66:0.870', chapter='ch:saturation', part=3, title='1/P',
+       file='part3/p3_07_saturation', line=66, status='derived', kind='file', printed='0.870', tol=0, source='CANON/iam_canon.json')
 def check_1944():
-    '1/P. Book line 66, printed 0.910.'
+    '1/P. Book line 66, printed 0.870.'
     value=1/load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     return locals()
 
-@check(label='ch:saturation:L66:0.0362', chapter='ch:saturation', part=3, title='eps where IAM-A = H(eps)/(P H(eps0)) = 1',
-       file='part3/p3_07_saturation', line=66, status='derived', kind='file', printed='0.0362', tol=0, source='CANON/iam_canon.json')
+@check(label='ch:saturation:L66:0.0384', chapter='ch:saturation', part=3, title='eps where IAM-A = H(eps)/(P H(eps0)) = 1',
+       file='part3/p3_07_saturation', line=66, status='derived', kind='file', printed='0.0384', tol=0, source='CANON/iam_canon.json')
 def check_1945():
-    'eps where IAM-A = H(eps)/(P H(eps0)) = 1. Book line 66, printed 0.0362.'
+    'eps where IAM-A = H(eps)/(P H(eps0)) = 1. Book line 66, printed 0.0384.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     value=brentq(lambda e: Hb(e)-P_*Hb(eps0), 1e-4, 0.5)
     return locals()
 
-@check(label='ch:saturation:L66:4.45', chapter='ch:saturation', part=3, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_07_saturation', line=66, status='derived', kind='num', printed='4.45', tol=0.0)
+@check(label='ch:saturation:L66:4.26', chapter='ch:saturation', part=3, title='drafted check, screened (runs; negative control fails)',
+       file='part3/p3_07_saturation', line=66, status='derived', kind='num', printed='4.26', tol=0.0)
 def check_1946():
-    'drafted check, screened (runs; negative control fails). Book line 66, printed 4.45.'
+    'drafted check, screened (runs; negative control fails). Book line 66, printed 4.26.'
     # Line 66: "the full surface, every identity site at ε=1/2, reads 4.45"
-    # Given: P = 1.099, epsilon_0 = 0.032, E_hold = 3.41 kT
+    # Given: P = CANON['P_neutrophil_IAM_A']['value'], epsilon_0 = 0.032, E_hold = 3.41 kT
     # IAM-A = H(ε) / (P * H(ε_0))
     # H(ε) = -ε ln(ε) - (1-ε) ln(1-ε)  (binary entropy)
 
     eps_full = 0.5
     eps_0 = 0.032
-    P = 1.099
+    P = CANON['P_neutrophil_IAM_A']['value']
 
     H_full = -eps_full * np.log(eps_full) - (1 - eps_full) * np.log(1 - eps_full)
     H_eps0 = -eps_0 * np.log(eps_0) - (1 - eps_0) * np.log(1 - eps_0)
@@ -30008,10 +30011,10 @@ def check_2433():
     value=1/load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
     return locals()
 
-@check(label='ch:astrogenetics:L63:4.45', chapter='ch:astrogenetics', part=6, title='IAM-A at a coin flip: 1/(P H(eps0))',
-       file='part6/p6_00b_astrogenetics', line=63, status='calc', kind='file', printed='4.45', tol=0, source='CANON/iam_canon.json')
+@check(label='ch:astrogenetics:L63:4.26', chapter='ch:astrogenetics', part=6, title='IAM-A at a coin flip: 1/(P H(eps0))',
+       file='part6/p6_00b_astrogenetics', line=63, status='calc', kind='file', printed='4.26', tol=0, source='CANON/iam_canon.json')
 def check_2434():
-    'IAM-A at a coin flip: 1/(P H(eps0)). Book line 63, printed 4.45.'
+    'IAM-A at a coin flip: 1/(P H(eps0)). Book line 63, printed 4.26.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     value=1/(P_*Hb(eps0))
@@ -30026,13 +30029,14 @@ def check_2435():
     return locals()
 
 
-@check(label='ch:astrogenetics:L88', chapter='ch:astrogenetics', part=6, title='1/P',
-       file='part6/p6_00b_astrogenetics', line=88, status='derived', kind='file', printed='0.910', tol=0, source='CANON/iam_canon.json')
+@check(label='ch:astrogenetics:L88:Hmin', chapter='ch:astrogenetics', part=6, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
+       file='part6/p6_00b_astrogenetics', line=85, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_2437():
-    '1/P. Book line 88, printed 0.910.'
+    'The floor: thermal kicks win against one ATP per site, copy error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 85, printed 1x10^-7.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
-    P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    value=1/P_
+    K=load_json('CANON/iam_canon.json')['constants']
+    M_=K['M_cell']['value']; P_=K['P_neutrophil_IAM_A']['value']; e0=K['eps0_meth']['value']
+    value=Hb(1/(1+math.exp(M_)))/(P_*Hb(e0))
     return locals()
 
 @check(label='ch:astrogenetics:L88:310', chapter='ch:astrogenetics', part=6, title='the floor is set at 310 K (cell temperature)',
@@ -30058,10 +30062,10 @@ def check_2439():
     value=1/load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
     return locals()
 
-@check(label='ch:astrogenetics:L90:4.45', chapter='ch:astrogenetics', part=6, title='IAM-A at a coin flip',
-       file='part6/p6_00b_astrogenetics', line=90, status='calc', kind='file', printed='4.45', tol=0, source='CANON/iam_canon.json')
+@check(label='ch:astrogenetics:L90:4.26', chapter='ch:astrogenetics', part=6, title='IAM-A at a coin flip',
+       file='part6/p6_00b_astrogenetics', line=87, status='calc', kind='file', printed='4.26', tol=0, source='CANON/iam_canon.json')
 def check_2440():
-    'IAM-A at a coin flip. Book line 90, printed 4.45.'
+    'IAM-A at a coin flip. Book line 87, printed 4.26.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     value=1/(P_*Hb(eps0))
@@ -30995,9 +30999,9 @@ def check_2517():
     return locals()
 
 @check(label='ch:floorbreach:L63', chapter='ch:floorbreach', part=6, title='IAM-A full surface',
-       file='part6/p6_05_floorbreach', line=63, status='calc', kind='file', printed='4.45', tol=0, source='CANON/iam_canon.json')
+       file='part6/p6_05_floorbreach', line=63, status='calc', kind='file', printed='4.26', tol=0, source='CANON/iam_canon.json')
 def check_2518():
-    'IAM-A full surface. Book line 63, printed 4.45.'
+    'IAM-A full surface. Book line 63, printed 4.26.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
@@ -31014,28 +31018,28 @@ def check_2519():
     value=1/F0
     return locals()
 
-@check(label='ch:floorbreach:L72:1.099', chapter='ch:floorbreach', part=6, title='P = 1.099 of IAM-A (figure caption)',
-       file='part6/p6_05_floorbreach', line=72, status='calc', kind='file', printed='1.099', tol=0.0, source='CANON/iam_canon.json')
+@check(label='ch:floorbreach:L72:1.149', chapter='ch:floorbreach', part=6, title='P = 1.099 of IAM-A (figure caption)',
+       file='part6/p6_05_floorbreach', line=72, status='calc', kind='file', printed='1.149', tol=0.0, source='CANON/iam_canon.json')
 def check_3828():
-    'Calibration P = H(eps_healthy)/H(eps0) of IAM-A for neutrophils in Figure fig:p4_fullsurface (b). Book line 72, printed 1.099. Source: '\
+    'Calibration P = H(eps_healthy)/H(eps0) of IAM-A for neutrophils in Figure fig:p4_fullsurface (b). Book line 72, printed 1.149. Source: '\
     'CANON P_neutrophil_IAM_A (mean over three granulocyte donors, frozen in iama_positions_v1.json).'
     value = load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     return locals()
 
 @check(label='ch:floorbreach:L73', chapter='ch:floorbreach', part=6, title='1/P',
-       file='part6/p6_05_floorbreach', line=73, status='calc', kind='file', printed='0.910', tol=0, source='CANON/iam_canon.json')
+       file='part6/p6_05_floorbreach', line=73, status='calc', kind='file', printed='0.870', tol=0, source='CANON/iam_canon.json')
 def check_2520():
-    '1/P. Book line 73, printed 0.910.'
+    '1/P. Book line 73, printed 0.870.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
     value=1/P_
     return locals()
 
-@check(label='ch:floorbreach:L73:0.0362', chapter='ch:floorbreach', part=6, title='eps at IAM-A = 1',
-       file='part6/p6_05_floorbreach', line=73, status='calc', kind='file', printed='0.0362', tol=0, source='CANON/iam_canon.json')
+@check(label='ch:floorbreach:L73:0.0384', chapter='ch:floorbreach', part=6, title='eps at IAM-A = 1',
+       file='part6/p6_05_floorbreach', line=73, status='calc', kind='file', printed='0.0384', tol=0, source='CANON/iam_canon.json')
 def check_2521():
-    'eps at IAM-A = 1. Book line 73, printed 0.0362.'
+    'eps at IAM-A = 1. Book line 73, printed 0.0384.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
@@ -31051,9 +31055,9 @@ def check_3829():
     return locals()
 
 @check(label='ch:floorbreach:L74', chapter='ch:floorbreach', part=6, title='IAM-A at eps = 1/2',
-       file='part6/p6_05_floorbreach', line=74, status='calc', kind='file', printed='4.45', tol=0, source='CANON/iam_canon.json')
+       file='part6/p6_05_floorbreach', line=74, status='calc', kind='file', printed='4.26', tol=0, source='CANON/iam_canon.json')
 def check_2522():
-    'IAM-A at eps = 1/2. Book line 74, printed 4.45.'
+    'IAM-A at eps = 1/2. Book line 74, printed 4.26.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
@@ -31080,14 +31084,14 @@ def check_3831():
 
 
 # ======== Part 6 | ch:gauge | docs/book/part6/p6_06_gauge.tex
-@check(label='ch:gauge:L23', chapter='ch:gauge', part=6, title='H_min for IAM-A, 1/P',
-       file='part6/p6_06_gauge', line=23, status='calc', kind='file', printed='0.910', tol=0, source='CANON/iam_canon.json')
+@check(label='ch:gauge:L23:Hmin', chapter='ch:gauge', part=6, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
+       file='part6/p6_06_gauge', line=23, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_2523():
-    'H_min for IAM-A, 1/P. Book line 23, printed 0.910.'
+    'The floor: thermal kicks win against one ATP per site, copy error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 23, printed 1x10^-7.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
-    P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
-    value=1/P_
+    K=load_json('CANON/iam_canon.json')['constants']
+    M_=K['M_cell']['value']; P_=K['P_neutrophil_IAM_A']['value']; e0=K['eps0_meth']['value']
+    value=Hb(1/(1+math.exp(M_)))/(P_*Hb(e0))
     return locals()
 
 @check(label='ch:gauge:L24', chapter='ch:gauge', part=6, title='Met-A full surface',
@@ -31100,24 +31104,24 @@ def check_2524():
     value=1/F0
     return locals()
 
-@check(label='ch:gauge:L24:4.45', chapter='ch:gauge', part=6, title='IAM-A full surface',
-       file='part6/p6_06_gauge', line=24, status='calc', kind='file', printed='4.45', tol=0, source='CANON/iam_canon.json')
+@check(label='ch:gauge:L24:4.26', chapter='ch:gauge', part=6, title='IAM-A full surface',
+       file='part6/p6_06_gauge', line=24, status='calc', kind='file', printed='4.26', tol=0, source='CANON/iam_canon.json')
 def check_2525():
-    'IAM-A full surface. Book line 24, printed 4.45.'
+    'IAM-A full surface. Book line 24, printed 4.26.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
     value=1/(P_*Hb(eps0))
     return locals()
 
-@check(label='ch:gauge:L34', chapter='ch:gauge', part=6, title='H_min for IAM-A, 1/P',
-       file='part6/p6_06_gauge', line=34, status='derived', kind='file', printed='0.910', tol=0, source='CANON/iam_canon.json')
+@check(label='ch:gauge:L34:Hmin', chapter='ch:gauge', part=6, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
+       file='part6/p6_06_gauge', line=34, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_2526():
-    'H_min for IAM-A, 1/P. Book line 34, printed 0.910.'
+    'The floor: thermal kicks win against one ATP per site, copy error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 34, printed 1x10^-7.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
-    P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
-    value=1/P_
+    K=load_json('CANON/iam_canon.json')['constants']
+    M_=K['M_cell']['value']; P_=K['P_neutrophil_IAM_A']['value']; e0=K['eps0_meth']['value']
+    value=Hb(1/(1+math.exp(M_)))/(P_*Hb(e0))
     return locals()
 
 @check(label='ch:gauge:L38', chapter='ch:gauge', part=6, title='Met-A full surface',
@@ -31130,10 +31134,10 @@ def check_2527():
     value=1/F0
     return locals()
 
-@check(label='ch:gauge:L38:4.45', chapter='ch:gauge', part=6, title='IAM-A full surface',
-       file='part6/p6_06_gauge', line=38, status='calc', kind='file', printed='4.45', tol=0, source='CANON/iam_canon.json')
+@check(label='ch:gauge:L38:4.26', chapter='ch:gauge', part=6, title='IAM-A full surface',
+       file='part6/p6_06_gauge', line=39, status='calc', kind='file', printed='4.26', tol=0, source='CANON/iam_canon.json')
 def check_2528():
-    'IAM-A full surface. Book line 38, printed 4.45.'
+    'IAM-A full surface. Book line 39, printed 4.26.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
@@ -31758,89 +31762,149 @@ def check_3916():
     return locals()
 
 @check(label='eq:iama', chapter='ch:iama', part=6, title='P of neutrophils from the three granulocyte donors',
-       file='part6/p6_08_iama', line=40, status='measured', kind='file', printed='1.099', tol=0.0, source=_B09_IG)
+       file='part6/p6_08_iama', line=51, status='measured', kind='file', printed='1.149', tol=0.0, source=_B09_IG)
 def check_3917():
-    'Eq. iama: P_neutrophil, the mean over the three Loyfer granulocyte donors of H(pooled copy error of the other two)/H(eps0), eps0 = 1/(1+e^3.41), recomputed from the isolated-error and opportunity counts. Book line 40, printed 1.099. Inputs: iso, opp of iama_floor_granulocytes.csv; E_hold (CANON).'
+    'Eq. iama: P_neutrophil, the mean over the three Loyfer granulocyte donors of H(pooled copy error of the other two)/H(eps0), eps0 = 1/(1+e^3.41), recomputed from the isolated-error and opportunity counts. Book line 51, printed 1.149. Inputs: iso, opp of iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
     value = float(P.mean())
     return locals()
 
 @check(label='ch:iama:L44', chapter='ch:iama', part=6, title='P range over the donors, lowest',
-       file='part6/p6_08_iama', line=44, status='measured', kind='file', printed='1.084', tol=0.0, source=_B09_IG)
+       file='part6/p6_08_iama', line=54, status='measured', kind='file', printed='1.140', tol=0.0, source=_B09_IG)
 def check_3918():
-    'Per-donor P = H(pooled copy error of the other two)/H(eps0): lowest. Book line 44, printed 1.084. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    'Per-donor P = H(pooled copy error of the other two)/H(eps0): lowest. Book line 54, printed 1.140. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
-    value = float(P.min())
+    value = float(min(P))
     return locals()
 
-@check(label='ch:iama:L44:1.108', chapter='ch:iama', part=6, title='P range over the donors, highest',
-       file='part6/p6_08_iama', line=44, status='measured', kind='file', printed='1.108', tol=0.0, source=_B09_IG)
+@check(label='ch:iama:L44:1.155', chapter='ch:iama', part=6, title='P range over the donors, highest',
+       file='part6/p6_08_iama', line=54, status='measured', kind='file', printed='1.155', tol=0.0, source=_B09_IG)
 def check_3919():
-    'Per-donor P: highest. Book line 44, printed 1.108. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    'Per-donor P: highest. Book line 54, printed 1.155. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
-    value = float(P.max())
+    value = float(max(P))
     return locals()
 
-@check(label='ch:iama:L44:1.2', chapter='ch:iama', part=6, title='coefficient of variation of P across donors, per cent',
-       file='part6/p6_08_iama', line=44, status='measured', kind='file', printed='1.2', tol=0.0, source=_B09_IG)
+@check(label='ch:iama:L54:0.74', chapter='ch:iama', part=6, title='coefficient of variation of P across donors, per cent',
+       file='part6/p6_08_iama', line=54, status='measured', kind='file', printed='0.74', tol=0.0, source=_B09_IG)
 def check_3920():
-    'Coefficient of variation (SD with n - 1 over the mean) of the per-donor P, in per cent (frozen file: 0.0118). Book line 44, printed 1.2 %. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    'Coefficient of variation (SD with n - 1 over the mean) of the per-donor P, in per cent Book line 54, printed 0.74 %. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
     value = float(100 * P.std(ddof=1) / P.mean())
     return locals()
 
-@check(label='ch:iama:L46', chapter='ch:iama', part=6, title='the floor at A = 1/P',
-       file='part6/p6_08_iama', line=46, status='measured', kind='file', printed='0.910', tol=0.0, source=_B09_IG)
+@check(label='ch:iama:floor_kicks', chapter='ch:iama', part=6, title='1/eps_min: thermal kicks win once per this many copies at one ATP per site',
+       file='part6/p6_08_iama', line=34, status='calc', kind='file', printed='1.24e9', tol=0.005, source='CANON/iam_canon.json')
+def check_floor_0():
+    '1/eps_min: thermal kicks win once per this many copies at one ATP per site; M and eps0 from the canon. Book line 34, printed 1.24e9.'
+    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
+    K=load_json('CANON/iam_canon.json')['constants']
+    M_=K['M_cell']['value']; e0=K['eps0_meth']['value']
+    value=float(1 + math.exp(M_))
+    return locals()
+
+@check(label='ch:iama:floor_Hmin', chapter='ch:iama', part=6, title='H_min = H(1/(1+e^M)) in bits',
+       file='part6/p6_08_iama', line=34, status='calc', kind='file', printed='2.5e-8', tol=5e-10, source='CANON/iam_canon.json')
+def check_floor_1():
+    'H_min = H(1/(1+e^M)) in bits; M and eps0 from the canon. Book line 34, printed 2.5e-8.'
+    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
+    K=load_json('CANON/iam_canon.json')['constants']
+    M_=K['M_cell']['value']; e0=K['eps0_meth']['value']
+    value=float(Hb(1/(1+math.exp(M_))))
+    return locals()
+
+@check(label='ch:iama:ref_kicks', chapter='ch:iama', part=6, title='1/eps0 at the healthy reference',
+       file='part6/p6_08_iama', line=35, status='calc', kind='file', printed='31', tol=0.02, source='CANON/iam_canon.json')
+def check_floor_2():
+    '1/eps0 at the healthy reference; M and eps0 from the canon. Book line 35, printed 31.'
+    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
+    K=load_json('CANON/iam_canon.json')['constants']
+    M_=K['M_cell']['value']; e0=K['eps0_meth']['value']
+    value=float(1/e0)
+    return locals()
+
+@check(label='app:notation:eps_min', chapter='app:notation', part=8, title='floor copy error 1/(1+e^M)',
+       file='appendices/app_N_notation', line=111, status='calc', kind='file', printed='8.1e-10', tol=5e-12, source='CANON/iam_canon.json')
+def check_floor_3():
+    'floor copy error 1/(1+e^M); M and eps0 from the canon. Book line 111, printed 8.1e-10.'
+    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
+    K=load_json('CANON/iam_canon.json')['constants']
+    M_=K['M_cell']['value']; e0=K['eps0_meth']['value']
+    value=float(1/(1+math.exp(M_)))
+    return locals()
+
+@check(label='app:notation:Hmin', chapter='app:notation', part=8, title='H_min = H(1/(1+e^M))',
+       file='appendices/app_N_notation', line=112, status='calc', kind='file', printed='2.5e-8', tol=5e-10, source='CANON/iam_canon.json')
+def check_floor_4():
+    'H_min = H(1/(1+e^M)); M and eps0 from the canon. Book line 112, printed 2.5e-8.'
+    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
+    K=load_json('CANON/iam_canon.json')['constants']
+    M_=K['M_cell']['value']; e0=K['eps0_meth']['value']
+    value=float(Hb(1/(1+math.exp(M_))))
+    return locals()
+
+@check(label='ch:astrogenetics:floor_eps', chapter='ch:astrogenetics', part=6, title='floor copy error 1/(1+e^M)',
+       file='part6/p6_00b_astrogenetics', line=85, status='calc', kind='file', printed='8e-10', tol=5e-11, source='CANON/iam_canon.json')
+def check_floor_5():
+    'floor copy error 1/(1+e^M); M and eps0 from the canon. Book line 85, printed 8e-10.'
+    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
+    K=load_json('CANON/iam_canon.json')['constants']
+    M_=K['M_cell']['value']; e0=K['eps0_meth']['value']
+    value=float(1/(1+math.exp(M_)))
+    return locals()
+
+@check(label='ch:iama:L46', chapter='ch:iama', part=6, title='H_ref (average healthy cell type) at A = 1/P on the neutrophil gauge',
+       file='part6/p6_08_iama', line=56, status='measured', kind='file', printed='0.870', tol=0.0, source=_B09_IG)
 def check_3921():
-    'Where the floor sits on the IAM-A gauge, 1/P, with P recomputed from the three donors. Book line 46, printed 0.910. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    'Where the floor sits on the IAM-A gauge, 1/P, with P recomputed from the three donors. Book line 56, printed 0.870. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
     value = float(1 / P.mean())
     return locals()
 
-@check(label='ch:iama:L52', chapter='ch:iama', part=6, title='healthy donors on eps0 alone, lowest',
-       file='part6/p6_08_iama', line=52, status='measured', kind='file', printed='1.084', tol=0.0, source=_B09_IG)
+@check(label='ch:iama:L61', chapter='ch:iama', part=6, title='healthy donors on H_ref alone, lowest',
+       file='part6/p6_08_iama', line=61, status='measured', kind='file', printed='1.137', tol=0.0, source=_B09_IG)
 def check_3922():
-    'Healthy granulocyte donors on the bare floor, H(eps)/H(eps0): lowest. Book line 52, printed 1.084. Inputs: iso, opp of iama_floor_granulocytes.csv; E_hold (CANON).'
+    'Healthy granulocyte donors on the bare floor, H(eps)/H(eps0): lowest. Book line 61, printed 1.137.137. Inputs: iso, opp of iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
     value = float(min(_b09_Hb(x) / _b09_Hb(e0) for x in eps))
     return locals()
 
-@check(label='ch:iama:L52:1.127', chapter='ch:iama', part=6, title='healthy donors on eps0 alone, highest',
-       file='part6/p6_08_iama', line=52, status='measured', kind='file', printed='1.127', tol=0.0, source=_B09_IG)
+@check(label='ch:iama:L61:1.168', chapter='ch:iama', part=6, title='healthy donors on H_ref alone, highest',
+       file='part6/p6_08_iama', line=61, status='measured', kind='file', printed='1.168', tol=0.0, source=_B09_IG)
 def check_3923():
-    'Healthy donors on the bare floor: highest (the inventory read the range "1.084--1.127" as -1.127; the number is the upper end, 1.127). Book line 52, printed 1.127. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    'Healthy donors on the bare floor: highest (the inventory read the range "1.084--1.127" as -1.127; the number is the upper end, 1.127). Book line 61, printed 1.168.169. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
     value = float(max(_b09_Hb(x) / _b09_Hb(e0) for x in eps))
     return locals()
 
 @check(label='ch:iama:L53', chapter='ch:iama', part=6, title='healthy donors with P, leave-one-donor-out, lowest',
-       file='part6/p6_08_iama', line=53, status='measured', kind='file', printed='0.978', tol=0.0, source=_B09_IG)
+       file='part6/p6_08_iama', line=62, status='measured', kind='file', printed='0.984', tol=0.0, source=_B09_IG)
 def check_3924():
-    'Each donor read with its own leave-one-donor-out P: H(eps_i)/(P_i H(eps0)): lowest. Book line 53, printed 0.978. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    'Each donor read with its own leave-one-donor-out P: H(eps_i)/(P_i H(eps0)): lowest. Book line 62, printed 0.984.978. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
     value = float(min(_b09_Hb(eps[i]) / (P[i] * _b09_Hb(e0)) for i in range(len(eps))))
     return locals()
 
-@check(label='ch:iama:L53:1.040', chapter='ch:iama', part=6, title='healthy donors with P, leave-one-donor-out, highest',
-       file='part6/p6_08_iama', line=53, status='measured', kind='file', printed='1.040', tol=0.0, source=_B09_IG)
+@check(label='ch:iama:L53:1.025', chapter='ch:iama', part=6, title='healthy donors with P, leave-one-donor-out, highest',
+       file='part6/p6_08_iama', line=62, status='measured', kind='file', printed='1.025', tol=0.0, source=_B09_IG)
 def check_3925():
-    'Each donor with its own leave-one-donor-out P: highest (inventory printed -1.040 from the range dash). Book line 53, printed 1.040. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    'Each donor with its own leave-one-donor-out P: highest (inventory printed -1.040 from the range dash). Book line 62, printed 1.025.040. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
     value = float(max(_b09_Hb(eps[i]) / (P[i] * _b09_Hb(e0)) for i in range(len(eps))))
     return locals()
 
-@check(label='ch:iama:L55', chapter='ch:iama', part=6, title='simulated 2 % rise in copy error, lowest',
-       file='part6/p6_08_iama', line=55, status='measured', kind='file', printed='1.285', tol=0.0, source=_B09_IG)
+@check(label='ch:iama:L55', chapter='ch:iama', part=6, title='the 2 % rise read at each donor held-out position, lowest',
+       file='part6/p6_08_iama', line=65, status='measured', kind='file', printed='1.273', tol=0.0, source=_B09_IG)
 def check_3926():
-    'The same molecules with 2 % copy error added, each donor with its leave-one-donor-out P: lowest. Book line 55, printed 1.285. Inputs: eps_damaged, iso, opp of iama_floor_granulocytes.csv; E_hold (CANON).'
+    'The same molecules with 2 % copy error added, each donor with its leave-one-donor-out P: lowest. Book line 65, printed 1.273.285. Inputs: eps_damaged, iso, opp of iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
     value = float(min(_b09_Hb(ed[i]) / (P[i] * _b09_Hb(e0)) for i in range(len(eps))))
     return locals()
 
-@check(label='ch:iama:L55:1.346', chapter='ch:iama', part=6, title='simulated 2 % rise in copy error, highest',
-       file='part6/p6_08_iama', line=55, status='measured', kind='file', printed='1.346', tol=0.0, source=_B09_IG)
+@check(label='ch:iama:L55:1.313', chapter='ch:iama', part=6, title='the 2 % rise read at each donor held-out position, highest',
+       file='part6/p6_08_iama', line=65, status='measured', kind='file', printed='1.313', tol=0.0, source=_B09_IG)
 def check_3927():
-    'The same molecules with 2 % copy error added: highest (inventory printed -1.346 from the range dash). Book line 55, printed 1.346. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    'The same molecules with 2 % copy error added: highest (inventory printed -1.346 from the range dash). Book line 65, printed 1.313.346. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
     value = float(max(_b09_Hb(ed[i]) / (P[i] * _b09_Hb(e0)) for i in range(len(eps))))
     return locals()
@@ -31860,9 +31924,9 @@ def check_3929():
     return locals()
 
 @check(label='ch:iama:L74', chapter='ch:iama', part=6, title='P in the curve of the figure',
-       file='part6/p6_08_iama', line=74, status='calc', kind='file', printed='1.099', tol=0.0, source=_B09_IG)
+       file='part6/p6_08_iama', line=84, status='calc', kind='file', printed='1.149', tol=0.0, source=_B09_IG)
 def check_3930():
-    'P used for the curve H(eps)/(P H(eps0)) in the figure: the same P, recomputed from the three donors (see eq:iama). Book line 74, printed 1.099. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    'P used for the curve H(eps)/(P H(eps0)) in the figure: the same P, recomputed from the three donors (see eq:iama). Book line 84, printed 1.149. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
     value = float(P.mean())
     return locals()
@@ -33470,11 +33534,11 @@ def check_4122():
     return locals()
 
 @check(label='ch:chain:L25', chapter='ch:chain', part=6, title='Stage Q neutrophil position P',
-       file='part6/p6_19_chain', line=25, status='calibrated', kind='file', printed='1.099', tol=0.0,
-       source='Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json')
+       file='part6/p6_19_chain', line=25, status='calibrated', kind='file', printed='1.149', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json')
 def check_4123():
-    'Table tab:p4_gates, Stage Q: neutrophil position P = H(eps_healthy)/H(eps0), frozen in iama_positions_v1.json (mean of 3 Loyfer granulocyte donors, range 1.0841-1.1079; per-donor values not committed); also checked to agree with CANON P_neutrophil_IAM_A and to lie inside the stored per-donor range. Book line 25, printed 1.099. Inputs: iama_positions_v1.json.'
-    neu = load_json('Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json')['cells']['neutrophils']
+    'Table tab:p4_gates, Stage Q: neutrophil position P = H(eps_healthy)/H(eps0), frozen in iama_positions_v1.json (mean of 3 Loyfer granulocyte donors, range 1.0841-1.1079; per-donor values not committed); also checked to agree with CANON P_neutrophil_IAM_A and to lie inside the stored per-donor range. Book line 25, printed 1.149. Inputs: iama_positions_v1.json.'
+    neu = load_json('Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json')['cells']['neutrophils']
     P = float(neu['P']); lo, hi = neu['P_range']
     value = P if (lo <= P <= hi and abs(P - _cv('P_neutrophil_IAM_A')) < 1e-12) else float('nan')
     return locals()
@@ -34288,20 +34352,20 @@ def check_4333():
     return locals()
 
 @check(label='ch:status:L23', chapter='ch:status', part=6, title='neutrophil position P',
-       file='part6/p6_24_status', line=23, status='measured', kind='file', printed='1.099', tol=0.0, source=_B12_POS,
+       file='part6/p6_24_status', line=23, status='measured', kind='file', printed='1.149', tol=0.0, source=_B12_POS,
        heavy=True, rerun='IAM-A positions from Loyfer 2023 granulocyte .pat files (3 donors); the record is iama_positions_v1.json')
 def check_4334():
-    'Neutrophil position P of IAM-A, mean over 3 donors, from the frozen positions file iama_positions_v1.json (also CANON P_neutrophil_IAM_A). Book line 23, printed 1.099.'
+    'Neutrophil position P of IAM-A, mean over 3 donors, from the frozen positions file iama_positions_v1.json (also CANON P_neutrophil_IAM_A). Book line 23, printed 1.149.'
     d = load_json(_B12_POS)['cells']['neutrophils']
     n_donors = d['n_donors']
     value = d['P']
     return locals()
 
-@check(label='ch:status:L23:1.084', chapter='ch:status', part=6, title='neutrophil position P, lowest donor',
-       file='part6/p6_24_status', line=23, status='calc', kind='file', printed='1.084', tol=0.0, source=_B12_POS,
+@check(label='ch:status:L23:1.140', chapter='ch:status', part=6, title='neutrophil position P, lowest donor',
+       file='part6/p6_24_status', line=23, status='calc', kind='file', printed='1.140', tol=0.0, source=_B12_POS,
        heavy=True, rerun='IAM-A positions from Loyfer 2023 granulocyte .pat files (3 donors); the record is iama_positions_v1.json')
 def check_4335():
-    'Neutrophil position P: lower end of the range over the 3 donors (1.084-1.108), iama_positions_v1.json P_range. Book line 23, printed 1.084.'
+    'Neutrophil position P: lower end of the range over the 3 donors (1.084-1.108), iama_positions_v1.json P_range. Book line 23, printed 1.140.'
     value = load_json(_B12_POS)['cells']['neutrophils']['P_range'][0]
     return locals()
 
@@ -34332,11 +34396,14 @@ def check_4338():
     value = float(loo.max() / med)
     return locals()
 
-@check(label='ch:status:L26', chapter='ch:status', part=6, title='IAM-A floor 1/P',
-       file='part6/p6_24_status', line=26, status='calc', kind='file', printed='0.910', tol=0.0, source=_B12_POS)
+@check(label='ch:status:L26:Hmin', chapter='ch:status', part=6, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
+       file='part6/p6_24_status', line=26, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_4339():
-    'IAM-A floor H_min = 1/P with the neutrophil P of iama_positions_v1.json. Book line 26, printed 0.910.'
-    value = 1 / load_json(_B12_POS)['cells']['neutrophils']['P']
+    'The floor: thermal kicks win against one ATP per site, copy error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 26, printed 1x10^-7.'
+    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
+    K=load_json('CANON/iam_canon.json')['constants']
+    M_=K['M_cell']['value']; P_=K['P_neutrophil_IAM_A']['value']; e0=K['eps0_meth']['value']
+    value=Hb(1/(1+math.exp(M_)))/(P_*Hb(e0))
     return locals()
 
 @check(label='ch:status:L26:3.03', chapter='ch:status', part=6, title='Met-A at the full surface',
@@ -34346,10 +34413,10 @@ def check_4340():
     value = _b12_Hb(0.5) / load_json(_B12_FLOORS)['platforms']['EPIC']['neutrophils']['floor']
     return locals()
 
-@check(label='ch:status:L26:4.45', chapter='ch:status', part=6, title='IAM-A at the full surface',
-       file='part6/p6_24_status', line=26, status='calc', kind='file', printed='4.45', tol=0.0, source=_B12_POS)
+@check(label='ch:status:L26:4.26', chapter='ch:status', part=6, title='IAM-A at the full surface',
+       file='part6/p6_24_status', line=26, status='calc', kind='file', printed='4.26', tol=0.0, source=_B12_POS)
 def check_4341():
-    'IAM-A when the copy error reaches one half: H(1/2)/(P H(eps0)), eps0 = 1/(1+e^E_hold) (CANON), P from iama_positions_v1.json. Book line 26, printed 4.45.'
+    'IAM-A when the copy error reaches one half: H(1/2)/(P H(eps0)), eps0 = 1/(1+e^E_hold) (CANON), P from iama_positions_v1.json. Book line 26, printed 4.26.'
     P_ = load_json(_B12_POS)['cells']['neutrophils']['P']
     value = _b12_Hb(0.5) / (P_ * _b12_Hb(1 / (1 + math.exp(E_hold))))
     return locals()
@@ -34947,10 +35014,10 @@ def check_4406():
     value = 1.0 / _cv('Met_A_floor_EPIC_neutrophil')
     return locals()
 
-@check(label='ch:onegauge:L42:4.45', chapter='ch:onegauge', part=7, title='full surface on IAM-A: 1/(P H(eps0)), neutrophils',
-       file='part7/p7_08_one_gauge', line=42, status='calc', kind='num', printed='4.45', tol=0.0)
+@check(label='ch:onegauge:L42:4.26', chapter='ch:onegauge', part=7, title='full surface on IAM-A: 1/(P H(eps0)), neutrophils',
+       file='part7/p7_08_one_gauge', line=43, status='calc', kind='num', printed='4.26', tol=0.0)
 def check_4407():
-    'Full surface on IAM-A for neutrophils: 1/(P_cell H(eps0)), P_cell = 1.099 (CANON P_neutrophil_IAM_A), H the binary entropy in bits at eps0 (CANON eps0_meth). Book line 42, printed 4.45.'
+    'Full surface on IAM-A for neutrophils: 1/(P_cell H(eps0)), P_cell = 1.099 (CANON P_neutrophil_IAM_A), H the binary entropy in bits at eps0 (CANON eps0_meth). Book line 43, printed 4.26.'
     value = 1.0 / (_cv('P_neutrophil_IAM_A') * _b13_Hbits(eps0))
     return locals()
 
@@ -35183,11 +35250,14 @@ def check_4429():
     value = 1 / (1 + math.exp(phi_hold * dG_ATP / (R_gas * T_cell)))
     return locals()
 
-@check(label='ch:synthesis:L33:0.910', chapter='ch:synthesis', part=7, title='IAM-A floor of neutrophils, 1/P_cell',
-       file='part7/p7_08_synthesis', line=33, status='derived', kind='num', printed='0.910', tol=0.0)
+@check(label='ch:synthesis:L33:Hmin', chapter='ch:synthesis', part=7, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
+       file='part7/p7_08_synthesis', line=33, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_4430():
-    'IAM-A at the physics floor (eps = eps0) is 1/P_cell, P_cell = 1.099 the neutrophils\' frozen position (CANON P_neutrophil_IAM_A). Book line 33, printed 0.910.'
-    value = 1.0 / _cv('P_neutrophil_IAM_A')
+    'The floor: thermal kicks win against one ATP per site, copy error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 33, printed 1x10^-7.'
+    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
+    K=load_json('CANON/iam_canon.json')['constants']
+    M_=K['M_cell']['value']; P_=K['P_neutrophil_IAM_A']['value']; e0=K['eps0_meth']['value']
+    value=Hb(1/(1+math.exp(M_)))/(P_*Hb(e0))
     return locals()
 
 @check(label='ch:synthesis:L33:3.03', chapter='ch:synthesis', part=7, title='full surface on Met-A, 1/(healthy reference)',
@@ -35197,10 +35267,10 @@ def check_4431():
     value = _b13_Hb2(0.5) / _cv('Met_A_floor_EPIC_neutrophil')
     return locals()
 
-@check(label='ch:synthesis:L33:4.45', chapter='ch:synthesis', part=7, title='full surface on IAM-A, 1/(P H(eps0))',
-       file='part7/p7_08_synthesis', line=33, status='derived', kind='num', printed='4.45', tol=0.0)
+@check(label='ch:synthesis:L33:4.26', chapter='ch:synthesis', part=7, title='full surface on IAM-A, 1/(P H(eps0))',
+       file='part7/p7_08_synthesis', line=33, status='derived', kind='num', printed='4.26', tol=0.0)
 def check_4432():
-    'H(1/2) = 1 bit over P_cell H(eps0), P_cell = 1.099 and eps0 from CANON. Book line 33, printed 4.45.'
+    'H(1/2) = 1 bit over P_cell H(eps0), P_cell = 1.099 and eps0 from CANON. Book line 33, printed 4.26.'
     value = _b13_Hb2(0.5) / (_cv('P_neutrophil_IAM_A') * _b13_Hb2(eps0))
     return locals()
 
@@ -37209,20 +37279,20 @@ def check_4609():
     value = _b00_hold_energy() / (dG_ATP / (R_gas * T_cell))
     return locals()
 
-_B15_IAMA = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json'
+_B15_IAMA = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json'
 _B15_METAF = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json'
 
 @check(label='ch:statusall:L93', chapter='ch:statusall', part=7, title='neutrophil position P on IAM-A',
-       file='part7/p7_11_status_all', line=92, status='measured', kind='file', printed='1.099', tol=0.0, source=_B15_IAMA, heavy=True, rerun=_B15_METH_RERUN)
+       file='part7/p7_11_status_all', line=92, status='measured', kind='file', printed='1.149', tol=0.0, source=_B15_IAMA, heavy=True, rerun=_B15_METH_RERUN)
 def check_4610():
-    'P of neutrophils in the frozen IAM-A positions (3 Loyfer granulocyte donors). Book line 92, printed 1.099.'
+    'P of neutrophils in the frozen IAM-A positions (3 Loyfer granulocyte donors). Book line 92, printed 1.149.'
     value = load_json(_B15_IAMA)['cells']['neutrophils']['P']
     return locals()
 
-@check(label='ch:statusall:L93:1.084', chapter='ch:statusall', part=7, title='lowest donor P',
-       file='part7/p7_11_status_all', line=92, status='calc', kind='file', printed='1.084', tol=0.0, source=_B15_IAMA, heavy=True, rerun=_B15_METH_RERUN)
+@check(label='ch:statusall:L93:1.140', chapter='ch:statusall', part=7, title='lowest donor P',
+       file='part7/p7_11_status_all', line=92, status='calc', kind='file', printed='1.140', tol=0.0, source=_B15_IAMA, heavy=True, rerun=_B15_METH_RERUN)
 def check_4611():
-    'Lower end of the donor range P_range of neutrophils in the frozen IAM-A positions. Book line 92, printed 1.084.'
+    'Lower end of the donor range P_range of neutrophils in the frozen IAM-A positions. Book line 92, printed 1.140.'
     value = load_json(_B15_IAMA)['cells']['neutrophils']['P_range'][0]
     return locals()
 
@@ -37252,14 +37322,14 @@ def check_4614():
 
 # ---------------------------------------------------------------- lines 99-102: readings
 
-@check(label='ch:statusall:L96', chapter='ch:statusall', part=7, title='1/P',
-       file='part7/p7_11_status_all', line=95, status='calc', kind='file', printed='0.910', tol=0, source='CANON/iam_canon.json')
+@check(label='ch:statusall:L96:Hmin', chapter='ch:statusall', part=7, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
+       file='part7/p7_11_status_all', line=95, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_2674():
-    '1/P. Book line 95, printed 0.910.'
+    'The floor: thermal kicks win against one ATP per site, copy error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 95, printed 1x10^-7.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
-    P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
-    value=1/P_
+    K=load_json('CANON/iam_canon.json')['constants']
+    M_=K['M_cell']['value']; P_=K['P_neutrophil_IAM_A']['value']; e0=K['eps0_meth']['value']
+    value=Hb(1/(1+math.exp(M_)))/(P_*Hb(e0))
     return locals()
 
 @check(label='ch:statusall:L96:3.03', chapter='ch:statusall', part=7, title='Met-A full',
@@ -37272,10 +37342,10 @@ def check_2675():
     value=1/F0
     return locals()
 
-@check(label='ch:statusall:L96:4.45', chapter='ch:statusall', part=7, title='IAM-A full',
-       file='part7/p7_11_status_all', line=95, status='calc', kind='file', printed='4.45', tol=0, source='CANON/iam_canon.json')
+@check(label='ch:statusall:L96:4.26', chapter='ch:statusall', part=7, title='IAM-A full',
+       file='part7/p7_11_status_all', line=95, status='calc', kind='file', printed='4.26', tol=0, source='CANON/iam_canon.json')
 def check_2676():
-    'IAM-A full. Book line 95, printed 4.45.'
+    'IAM-A full. Book line 95, printed 4.26.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
@@ -37594,17 +37664,17 @@ def check_4643():
     return locals()
 
 @check(label='app:constants:L18', chapter='app:constants', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='appendices/app_A2_frozen_values', line=18, status='measured', kind='file', printed='1.099', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_A2_frozen_values', line=18, status='measured', kind='file', printed='1.149', tol=0.0, source='CANON/iam_canon.json')
 def check_2692():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 18, printed 1.099.'
+    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 18, printed 1.149.'
     ok = file_has('CANON/iam_canon.json', '1.099')
     return locals()
 
-@check(label='app:constants:L18:1.084', chapter='app:constants', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='appendices/app_A2_frozen_values', line=18, status='measured', kind='file', printed='1.084', tol=0.0, source='CANON/iam_canon.json')
+@check(label='app:constants:L18:1.140', chapter='app:constants', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
+       file='appendices/app_A2_frozen_values', line=18, status='measured', kind='file', printed='1.140', tol=0.0, source='CANON/iam_canon.json')
 def check_2693():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 18, printed 1.084.'
-    ok = file_has('CANON/iam_canon.json', '1.084')
+    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 18, printed 1.140.'
+    ok = file_has('CANON/iam_canon.json', '1.1396')
     return locals()
 
 @check(label='app:constants:L19', chapter='app:constants', part=8, title='C-score healthy clustering baseline',
@@ -37711,40 +37781,40 @@ def check_2702():
     return locals()
 
 @check(label='app:notation:L113', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='appendices/app_N_notation', line=113, status='measured', kind='file', printed='1.099', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_N_notation', line=115, status='measured', kind='file', printed='1.149', tol=0.0, source='CANON/iam_canon.json')
 def check_2703():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 113, printed 1.099.'
+    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 115, printed 1.149.'
     ok = file_has('CANON/iam_canon.json', '1.099')
     return locals()
 
-@check(label='app:notation:L113:1.084', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='appendices/app_N_notation', line=113, status='measured', kind='file', printed='1.084', tol=0.0, source='CANON/iam_canon.json')
+@check(label='app:notation:L113:1.140', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
+       file='appendices/app_N_notation', line=115, status='measured', kind='file', printed='1.140', tol=0.0, source='CANON/iam_canon.json')
 def check_2704():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 113, printed 1.084.'
-    ok = file_has('CANON/iam_canon.json', '1.084')
+    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 115, printed 1.140.'
+    ok = file_has('CANON/iam_canon.json', '1.1396')
     return locals()
 
-@check(label='app:notation:L113:-1.108', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='appendices/app_N_notation', line=113, status='measured', kind='file', printed='-1.108', tol=0.0, source='CANON/iam_canon.json')
+@check(label='app:notation:L113:-1.155', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
+       file='appendices/app_N_notation', line=115, status='measured', kind='file', printed='-1.155', tol=0.0, source='CANON/iam_canon.json')
 def check_2705():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 113, printed -1.108.'
-    ok = file_has('CANON/iam_canon.json', '-1.108')
+    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 115, printed -1.155.'
+    ok = file_has('CANON/iam_canon.json', '1.1554')
     return locals()
 
 @check(label='app:notation:L114', chapter='app:notation', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_N_notation', line=114, status='calc', kind='num', printed='0.2246', tol=0.0)
+       file='appendices/app_N_notation', line=116, status='calc', kind='num', printed='0.2348', tol=0.0)
 def check_2706():
-    'drafted check, screened (runs; negative control fails). Book line 114, printed 0.2246.'
+    'drafted check, screened (runs; negative control fails). Book line 116, printed 0.2348.'
     H_floor = -eps0 * np.log2(eps0) - (1 - eps0) * np.log2(1 - eps0)
-    value = 1.099 * H_floor
+    value = CANON['P_neutrophil_IAM_A']['value'] * H_floor
     return locals()
 
 @check(label='app:notation:L115', chapter='app:notation', part=8, title='1/P, position of H_min on the IAM-A gauge',
-       file='appendices/app_N_notation', line=115, status='calc', kind='file', printed='0.910', tol=0.0,
-       source=_B15N_RM + 'IAM_A_Positions/iama_positions_v1.json', heavy=True, rerun=_B15N_METH_RERUN)
+       file='appendices/app_N_notation', line=117, status='calc', kind='file', printed='0.870', tol=0.0,
+       source=_B15N_RM + 'IAM_A_Positions/iama_positions_v2.json', heavy=True, rerun=_B15N_METH_RERUN)
 def check_4649():
-    'Position of H_min on the IAM-A gauge, 1/P, with P of neutrophils read from the frozen iama_positions_v1.json. Book line 115, printed 0.910.'
-    P = load_json(_B15N_RM + 'IAM_A_Positions/iama_positions_v1.json')['cells']['neutrophils']['P']
+    'Position of H_min on the IAM-A gauge, 1/P, with P of neutrophils read from the frozen iama_positions_v1.json. Book line 117, printed 0.870.'
+    P = load_json(_B15N_RM + 'IAM_A_Positions/iama_positions_v2.json')['cells']['neutrophils']['P']
     value = 1 / P
     return locals()
 
@@ -37787,12 +37857,12 @@ def check_4652():
     value = _b15n_Hb(0.5) / H_ref
     return locals()
 
-@check(label='app:notation:L118:4.45', chapter='app:notation', part=8, title='full surface on IAM-A',
-       file='appendices/app_N_notation', line=118, status='calc', kind='file', printed='4.45', tol=0.0,
-       source=_B15N_RM + 'IAM_A_Positions/iama_positions_v1.json', heavy=True, rerun=_B15N_METH_RERUN)
+@check(label='app:notation:L118:4.26', chapter='app:notation', part=8, title='full surface on IAM-A',
+       file='appendices/app_N_notation', line=120, status='calc', kind='file', printed='4.26', tol=0.0,
+       source=_B15N_RM + 'IAM_A_Positions/iama_positions_v2.json', heavy=True, rerun=_B15N_METH_RERUN)
 def check_4653():
-    'A_max on IAM-A: H(1/2) = 1 bit over P H(eps0), P and eps0 read from iama_positions_v1.json. Book line 118, printed 4.45.'
-    d = load_json(_B15N_RM + 'IAM_A_Positions/iama_positions_v1.json')
+    'A_max on IAM-A: H(1/2) = 1 bit over P H(eps0), P and eps0 read from iama_positions_v1.json. Book line 120, printed 4.26.'
+    d = load_json(_B15N_RM + 'IAM_A_Positions/iama_positions_v2.json')
     value = _b15n_Hb(0.5) / (d['cells']['neutrophils']['P'] * _b15n_Hb(d['eps0']))
     return locals()
 
@@ -38299,11 +38369,11 @@ def check_4688():
     return locals()
 
 @check(label='app:formulas:L643', chapter='app:formulas', part=8, title='neutrophil position P',
-       file='appendices/app_E_formulas', line=634, status='measured', kind='file', printed='1.099', tol=0.0,
-       source=_B15E_RM + 'IAM_A_Positions/iama_positions_v1.json', heavy=True, rerun=_B15E_METH_RERUN)
+       file='appendices/app_E_formulas', line=634, status='measured', kind='file', printed='1.149', tol=0.0,
+       source=_B15E_RM + 'IAM_A_Positions/iama_positions_v2.json', heavy=True, rerun=_B15E_METH_RERUN)
 def check_4689():
-    'P of neutrophils in the frozen IAM-A positions (3 donors), checked to lie inside its donor range. Book line 634, printed 1.099.'
-    d = load_json(_B15E_RM + 'IAM_A_Positions/iama_positions_v1.json')['cells']['neutrophils']
+    'P of neutrophils in the frozen IAM-A positions (3 donors), checked to lie inside its donor range. Book line 634, printed 1.149.'
+    d = load_json(_B15E_RM + 'IAM_A_Positions/iama_positions_v2.json')['cells']['neutrophils']
     value = d['P'] if d['P_range'][0] <= d['P'] <= d['P_range'][1] else float('nan')
     return locals()
 
@@ -40449,10 +40519,10 @@ def check_4779():
     value = _b17_Hb(0.5) / F0
     return locals()
 
-@check(label='app:glossary:L46:4.45', title='IAM-A at the full surface, neutrophils', line=46, status='observed', kind='file', printed='4.45', tol=0.0,
+@check(label='app:glossary:L46:4.26', title='IAM-A at the full surface, neutrophils', line=46, status='observed', kind='file', printed='4.26', tol=0.0,
        source='CANON/iam_canon.json', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4780():
-    'A_max on IAM-A: H(1/2)/(P H(eps0)), P = canon P_neutrophil_IAM_A, eps0 = 1/(1 + e^E_hold) with the canon holding energy. Book line 46, printed 4.45.'
+    'A_max on IAM-A: H(1/2)/(P H(eps0)), P = canon P_neutrophil_IAM_A, eps0 = 1/(1 + e^E_hold) with the canon holding energy. Book line 46, printed 4.26.'
     P_ = CANON['P_neutrophil_IAM_A']['value']
     e0 = 1 / (1 + math.exp(E_hold))
     value = _b17_Hb(0.5) / (P_ * _b17_Hb(e0))
@@ -40483,17 +40553,17 @@ def check_4783():
     return locals()
 
 @check(label='app:glossary:L58', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=58, status='observed', kind='file', printed='1.099', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=58, status='observed', kind='file', printed='1.149', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2853():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 58, printed 1.099.'
+    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 58, printed 1.149.'
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.099')
     return locals()
 
-@check(label='app:glossary:L58:1.084', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=58, status='observed', kind='file', printed='1.084', tol=0.0, source='CANON/GLOSSARY.md')
+@check(label='app:glossary:L58:1.140', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
+       file='appendices/app_F_glossary', line=58, status='observed', kind='file', printed='1.140', tol=0.0, source='CANON/GLOSSARY.md')
 def check_2854():
-    'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 58, printed 1.084.'
-    ok = file_has('CANON/GLOSSARY.md', '1.084')
+    'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 58, printed 1.140.'
+    ok = file_has('CANON/GLOSSARY.md', '1.1396')
     return locals()
 
 @check(label='app:glossary:L60', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
@@ -41141,11 +41211,11 @@ def check_2880():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '0.330263')
     return locals()
 
-@check(label='app:glossary:L336:0.2246', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=328, status='observed', kind='file', printed='0.2246', tol=0.0, source='CANON/GLOSSARY.md')
+@check(label='app:glossary:L336:0.2348', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
+       file='appendices/app_F_glossary', line=328, status='observed', kind='file', printed='0.2348', tol=0.0, source='CANON/GLOSSARY.md')
 def check_2881():
-    'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 335, printed 0.2246.'
-    ok = file_has('CANON/GLOSSARY.md', '0.2246')
+    'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 328, printed 0.2348.'
+    ok = file_has('CANON/GLOSSARY.md', '0.2348')
     return locals()
 
 @check(label='app:glossary:L338', chapter='app:glossary', part=8, title='held-out neutrophil reference arrays, lowest Met-A',
@@ -41206,11 +41276,14 @@ def check_2885():
     ok = file_has('CANON/GLOSSARY.md', '0.2043')
     return locals()
 
-@check(label='app:glossary:L348:0.910', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=340, status='observed', kind='file', printed='0.910', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+@check(label='app:glossary:L348:Hmin', chapter='app:glossary', part=8, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
+       file='appendices/app_F_glossary', line=340, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_2886():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 347, printed 0.910.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '0.910')
+    'The floor: thermal kicks win against one ATP per site, copy error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 340, printed 1x10^-7.'
+    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
+    K=load_json('CANON/iam_canon.json')['constants']
+    M_=K['M_cell']['value']; P_=K['P_neutrophil_IAM_A']['value']; e0=K['eps0_meth']['value']
+    value=Hb(1/(1+math.exp(M_)))/(P_*Hb(e0))
     return locals()
 
 @check(label='app:glossary:L354:2.9e78', title='horizon capacity at T = 150 MeV, nats', line=346, status='calc', kind='num', printed='2.9\\times10^{78}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
@@ -41249,7 +41322,7 @@ def check_4865():
     return locals()
 
 @check(label='app:glossary:L368', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=360, status='observed', kind='file', printed='1.099', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=361, status='observed', kind='file', printed='1.149', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2887():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 367, printed 1.099.'
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.099')

@@ -15,6 +15,7 @@ symbol & meaning & in every domain\\\midrule
 $A$ & reading $/$ healthy reference & dimensionless; $A=1$ is the system working as itself, the middle of the gauge\\
 healthy reference & the denominator & the same system's healthy reading, on the same instrument\\
 $H_{\min}$ & the floor & the lowest error the system can hold before thermal kicks win; it sits below 1, and nothing reads below it\\
+$H_{\rm ref}$ & cells: the healthy reference height & where healthy cells actually hold their sites, $H(\varepsilon_0)=0.2043$ bits; measured, not a limit\\
 $M$ & $E/k_BT$ & drive energy over the thermal noise quantum; $M/\ln2$ in Landauer units\\
 $T$ & the temperature the record sees & the bath that writes on the record: the chip junction, the qubit's own mode, the cell; every floor is computed there\\\bottomrule
 \end{tabular}\end{center}
@@ -31,15 +32,15 @@ trapped ion, Rydberg decay in a neutral atom, two-level fluctuators in a transmo
 replication), and each field writes its thresholds in its own units.
 \begin{center}\small\begin{tabular}{p{0.11\textwidth}p{0.24\textwidth}p{0.22\textwidth}p{0.29\textwidth}}\toprule
 score & reading & healthy reference ($A=1$) & $H_{\min}$ (on the gauge)\\\midrule
-IAM-A & copy error, $H(\varepsilon)$ & $P_{\rm cell}H(\varepsilon_0)$ & $H(\varepsilon_0)$; neutrophils at $1/P=0.910$\\
-Met-A & $\langle H(\beta)\rangle$ at identity sites & purified healthy cells, same platform & an open problem for arrays\\
+IAM-A & copy error, $H(\varepsilon)$ & $P_{\rm cell}H(\varepsilon_0)$ & $H(1/(1+e^{M}))=2.5\times10^{-8}$ bits; neutrophils at $1\times10^{-7}$\\
+Met-A & $\langle H(\beta)\rangle$ at identity sites & purified healthy cells, same platform & the same floor; neutrophils at $8\times10^{-8}$\\
 C-score & clustering of the residual map & healthy median clustering & ---\\
 qubit gauge & $\varepsilon=-\ln(1-p_{2Q})$ & the device as built & thermal floor $p_{\rm eq}t_g/T_1$ (transmon reading: $6\times10^{-4}$)\\
 chip gauge & $E_{\rm sw}=\mathrm{TDP}/(Nf)$ & the chip as built & Landauer floor $k_BT_j\ln2$ (9950X: $0.0017$)\\\bottomrule
 \end{tabular}\end{center}
 Some systems also have a point on the high side where they stop working: for a qubit, the gate error at which error correction fails ($p\approx1\,\%$;
 the transmon worked example at $A=10$). For cells the high side is the cancer direction. Breach and the cancer region beyond it lie to the right of Normal and are to be measured on this scale from per-person data; the far end, a full
-surface, is known: $1/0.330263=3.03$ on Met-A and $1/(P\,H(\varepsilon_0))=1/(1.099\times0.2043)=4.45$ on IAM-A for neutrophils ($H(\varepsilon_0)=0.2043$ bits at $\varepsilon_0=0.032$) \calc. For a compact star the far-right line is a
+surface, is known: $1/0.330263=3.03$ on Met-A and $1/(P\,H(\varepsilon_0))=1/(1.149\times0.2043)=4.26$ on IAM-A for neutrophils ($H_{\rm ref}=H(\varepsilon_0)=0.2043$ bits at $\varepsilon_0=0.032$) \calc. For a compact star the far-right line is a
 limiting mass: the Chandrasekhar mass for a white dwarf and the maximum (TOV) mass for a neutron star (Chapter~\ref{ch:blackholes}, Fig.~\ref{fig:stargauge}). The region between $H_{\min}$ and the healthy
 band is less error than healthy; for cells what it means biologically is the next thing to measure.
 
@@ -53,8 +54,8 @@ read by one instrument. The predictive novelty is on the biological side, where 
 
 \begin{figure}[htbp]\centering\includegraphics[width=\textwidth]{figures/part7/one_gauge.pdf}
 \caption{One gauge for every score. $A=1$ is the healthy reading of that same system (green); $H_{\min}$ (gray line) is the lowest error it can hold
-before thermal kicks win, and nothing reads below it (gray zone). Cell: neutrophil IAM-A (healthy granulocytes from three donors at 1), $H_{\min}=H(\varepsilon_0)$ at $1/P_{\rm cell}=0.910$, Normal
-band 0.95--1.05; breach to be measured; surface full at 4.45. Qubit: a transmon at 5\,GHz and its own 35\,mK~\cite{Jin2015}, $T_1=68\,\mu$s~\cite{GoogleWillow2025}, an
+before thermal kicks win, and nothing reads below it (gray zone). Cell: neutrophil IAM-A (healthy granulocytes from three donors at 1), $H_{\min}$ far off the left edge ($1\times10^{-7}$), Normal
+band 0.95--1.05; breach to be measured; surface full at 4.26. Qubit: a transmon at 5\,GHz and its own 35\,mK~\cite{Jin2015}, $T_1=68\,\mu$s~\cite{GoogleWillow2025}, an
 illustrative 40\,ns gate and two-qubit error $10^{-3}$, against its thermal floor $p_{\rm eq}t_g/T_1=6.2\times10^{-7}$ (at $6.2\times10^{-4}$); error correction fails near
 $p=1\,\%$. Chip: AMD Ryzen 9 9950X (170\,W, $(20.0\text{--}20.6)\times10^9$ transistors, 4.3\,GHz, $T_j=75\,^\circ$C) against the Landauer floor.
 Each row has its own log scale, centred on 1.}\label{fig:onegauge}\end{figure}
@@ -92,7 +93,7 @@ $A_{\rm rel}$, and each reading states the smallest loss of the cell's pattern t
 \paragraph{IAM-A} (single molecules) reads the copy error directly: $\varepsilon$ is the rate of an isolated unmethylated call between two
 methylated calls, on molecules with at least 6 CpGs and at least 80\,\% methylated, on the methylated channel only. $P_{\rm cell}$ is valid only for the read-level pipeline it was measured on; a different pipeline needs its own healthy measurement first.
 \begin{equation}\text{IAM-A}=\frac{H(\varepsilon)}{P_{\rm cell}\,H(\varepsilon_0)},\qquad \varepsilon_0=\frac{1}{1+e^{\varphi M}}=0.032,\end{equation}
-with $M=20.94$, $\varphi=0.1628$ and $P_{\rm cell}$ the healthy cell's frozen position on the physics floor (neutrophils $1.099$).
+with $M=20.94$, $\varphi=0.1628$ and $P_{\rm cell}$ the healthy cell's frozen position relative to the healthy reference $H_{\rm ref}=H(\varepsilon_0)$ (neutrophils $1.149$).
 \begin{itemize}
 \item $A=1$: errors at the rate the healthy cell carries; Normal is $0.95$--$1.05$.
 \item $A>1$: more error; the pattern is blurring.

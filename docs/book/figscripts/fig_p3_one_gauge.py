@@ -22,11 +22,11 @@ _peq = 1 / (1 + math.exp(_h * 5e9 / (_k * 0.035)))
 QF = _peq * 40e-9 / 68e-6 / e(1e-3)          # thermal floor of the transmon reading on its own gauge (6.2e-4)
 
 G = [
-    dict(title="Cell · neutrophil · IAM-A", sub="copy error at each CpG, read on single molecules", lim=(1/5.6, 5.6), hmin=1/1.099, cmap=cm_cell,
-         band=(0.95, 1.05), hmin_lab="H$_{\\min}$ 0.910\nphysics floor ε$_0$", fail=4.452, fail_lab="surface full 4.45",
-         zones=[(1/5.6, 1/1.099, "thermal\nkicks win"), (1.35, 4.0, "more error · breach, cancer: to be measured →")],
-         marks=[(1.0, "healthy granulocytes, 3 donors", "#1d7a46")],
-         ticks=[0.3, 0.5, 1, 2, 4.45]),
+    dict(title="Cell · neutrophil · IAM-A", sub="copy error at each CpG, read on single molecules", lim=(1/5.6, 5.6), hmin=1/5.6, cmap=cm_cell,
+         band=(0.95, 1.05), hmin_lab="H$_{\\min}$ 1×10⁻⁷, off the left edge\n(thermal kicks win against one ATP)", fail=1/(1.1492*0.20433), fail_lab=f"surface full {1/(1.1492*0.20433):.2f}",
+         zones=[(1.35, 4.0, "more error · breach, cancer: to be measured →")],
+         marks=[(1.0, "healthy granulocytes, 3 donors", "#1d7a46"), (1/1.1492, "   H$_{\\rm ref}$ 0.870, average healthy cell type", "#555555")],
+         ticks=[0.3, 0.5, 1, 2, 4.26]),
     # Qubit: transmon reading of Chapter ch:ascoreqc (5 GHz, own 35 mK, T1 68 us, 40 ns gate, p = 1e-3, illustrative);
     # thermal floor p_eq t_g / T1 with p_eq = 1/(1+exp(hf/kT)) (Chapter ch:qplatforms).
     dict(title="Qubit · transmon reading · two-qubit gate", sub="ε = −ln(1 − p); 5 GHz at its own 35 mK, T1 68 µs, 40 ns gate, p = 10⁻³",

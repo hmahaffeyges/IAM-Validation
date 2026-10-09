@@ -25,8 +25,8 @@ Appendix~\ref{app:glossary}.
 Every surface in this appendix has two ends, and they are kept apart throughout. On the one gauge of Chapter~\ref{ch:gauge} the cell's floor
 is at the left, its healthy reference $A=1$ in the middle and its ceiling at the right.
 \begin{itemize}
-\item \textbf{The floor} is $\Hmin$, the physics floor, at the left of the gauge. For the cell it is the single-molecule thermal floor,
-      $H(\varepsilon_0)=0.2043$ bits (Step~6, Section~\ref{app:sat:step6}). A horizon has no floor.
+\item \textbf{The floor} is $\Hmin$, the physics floor, at the left of the gauge. For the cell it is where thermal kicks win against one full ATP per site,
+      $\Hmin=2.5\times10^{-8}$ bits (Step~6, Section~\ref{app:sat:step6}). A horizon has no floor.
 \item \textbf{The healthy reference}, $A=1$, is in the middle. It is measured on purified healthy cells.
 \item \textbf{The ceiling} is the surface saturated at its full capacity, at the right of the gauge. The black hole is this end: a horizon written to the
       Bekenstein--Hawking bound. A collapsing star approaches its ceiling. For the cell the ceiling is the full disorder of its record, every
@@ -149,9 +149,10 @@ $N$ is the number of CpG sites in the record. Counting every CpG of the hg19 CpG
 (Chapter~\ref{ch:landauer}, Eq.~\eqref{eq:efloor}). \calc{} The cost of the whole record is Eq.~\eqref{eq:sat_EN} at $T=\Tb$: the same
 equation as at the horizon.
 
-\paragraph{The floor.} The floor is $\Hmin$, the physics floor, at the left of the gauge: the single-molecule thermal floor of the copy
-error, $\Hmin=H(\varepsilon_0)=0.2043$ bits, the least error the holding energy measured on healthy molecules allows against thermal kicks
-(Chapter~\ref{ch:iama}, Eq.~\eqref{eq:eps0}). \derived{} for the form, \measured{} for the height.
+\paragraph{The floor.} The floor is $\Hmin$, the physics floor, at the left of the gauge: the copy error at which thermal kicks win against
+one full ATP per site, $1/(1+e^{M})=8\times10^{-10}$, $\Hmin=2.5\times10^{-8}$ bits (Chapter~\ref{ch:iama}, Eq.~\eqref{eq:eps0}). \calc{} Healthy
+cells hold their sites far above it, at the healthy reference height $\Href=0.2043$ bits, the holding energy $3.41\,\kB T$ measured on
+healthy molecules. \measured
 
 \paragraph{The healthy reference and the reading.} $A=1$ is the healthy reference, in the middle of the gauge. It is measured on purified
 healthy cells of the same type, through chain v3, with nothing fitted (Chapters~\ref{ch:meta} and~\ref{ch:chain}). Met-A on arrays
@@ -182,7 +183,7 @@ encoding surface & the horizon & the methylation record (CpG sites on chromatin)
 temperature & $T_{\rm BH}=\hbar c^3/8\pi GM\kB\approx6.17\times10^{-8}$\,K & $\Tb=310.15$\,K \\\rowrule
 bit count & $A/4\lP^2\approx1.05\times10^{77}$ nats, $1.51\times10^{77}$ bits & $N$ sites, $2.82\times10^{7}$; a nucleus-sized area (sphere of radius 3\,$\mu$m) could hold $1.6\times10^{59}$ bits, 52 orders of magnitude more \\\rowrule
 cost per bit & $\kB T_{\rm BH}\ln2\approx5.90\times10^{-31}$\,J & $\kB\Tb\ln2=2.97\times10^{-21}$\,J \\\rowrule
-floor & none & $\Hmin=H(\varepsilon_0)=0.2043$ bits, the single-molecule thermal floor \\\rowrule
+floor & none & $\Hmin=2.5\times10^{-8}$ bits, thermal kicks against one ATP per site (healthy reference $\Href=0.2043$ bits) \\\rowrule
 ceiling & horizon saturation, $S=S_{\rm BH}$ & full disorder of the record, every site at $\beta=\tfrac12$ \\\rowrule
 what is read & the horizon & Met-A (arrays), IAM-A (single molecules) \\\bottomrule
 \end{tabularx}

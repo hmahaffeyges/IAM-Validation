@@ -3,8 +3,8 @@
 One gauge, four readings, for neutrophils. Each row: the healthy reference 1 in the middle; the left half runs linearly from the floor to 1,
 the right half on a log scale from 1 to the far end. Values:
   * Normal 0.95-1.05 (CANON Normal_band, Met-A and IAM-A);
-  * IAM-A floor H_min = 1/P_neutrophil (CANON P_neutrophil_IAM_A); full surface 1/(P H(eps0)) with eps0 = CANON eps0_meth;
-  * Met-A floor not yet defined; full surface 1/H_ref with H_ref = CANON Met_A_floor_EPIC_neutrophil (every identity site at a coin flip);
+  * floor H_min = H(1/(1+e^M)) (CANON H_min_cell), the same for both readings; full surface 1/(P H(eps0)) with eps0 = CANON eps0_meth;
+  * Met-A floor H_min / 0.330263; full surface 1/H_ref with H_ref = CANON Met_A_floor_EPIC_neutrophil (every identity site at a coin flip);
   * Met-A C-score: floor 0, far end = block size / healthy baseline (neutrophil_reference_v1_1.json: 50 / 1.1104);
   * bars: measured ranges over six held-out healthy arrays and the same arrays with known damage, read from the chain's sky run
     Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv (Chapter ch:skytools);
@@ -28,7 +28,9 @@ P = CANON["P_neutrophil_IAM_A"]["value"]; eps0 = CANON["eps0_meth"]["value"]; Hr
 lo_n, hi_n = CANON["Normal_band"]["value"]
 ref = json.load(open(S.REPO / "Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json"))
 C_far = ref["clustering_block"] / ref["healthy_clustering_median"]
-iama_floor, iama_full, meta_full = 1 / P, 1 / (P * H(eps0)), 1 / Href
+Hmin = CANON["H_min_cell"]["value"]
+iama_floor, iama_full, meta_full = Hmin / (P * H(eps0)), 1 / (P * H(eps0)), 1 / Href
+meta_floor = Hmin / Href
 st = list(csv.DictReader(open(S.REPO / "Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv")))
 rng = lambda m, col: (min(float(r[col]) for r in st if r["map"] == m), max(float(r[col]) for r in st if r["map"] == m))
 print(f"IAM-A floor {iama_floor:.3f}, IAM-A full {iama_full:.2f}, Met-A full {meta_full:.2f}, C-score far end {C_far:.1f}")
@@ -63,11 +65,11 @@ def bar(xf, y, r, col, lab, dy, ha="center"):
     ax.annotate(lab, ((a + b) / 2, y + (h / 2 if dy > 0 else -h / 2)), xytext=(0, dy), textcoords="offset points", fontsize=6, color=col, ha=ha,
                 va="bottom" if dy > 0 else "top", arrowprops=dict(arrowstyle="-", lw=0.5, color=col))
 
-y = 3.3; xf = row(y, "Met-A", 0.9, meta_full, r"$H_{\rm min}$ not yet defined", f"surface full {meta_full:.2f}", floor_known=False)
+y = 3.3; xf = row(y, "Met-A", meta_floor, meta_full, rf"$H_{{\rm min}}$ {meta_floor:.0e}", f"surface full {meta_full:.2f}")
 ax.text(0.98, y + h * 0.7, "breach and cancer region: to be measured", ha="right", va="bottom", fontsize=6, color=S.DATA)
 r = rng("healthy", "MetA_6000"); bar(xf, y, r, S.IAM, f"healthy held-out\n{r[0]:.3f}\u2013{r[1]:.3f}", -14, "right")
 r = rng("blur2pct", "MetA_6000"); bar(xf, y, r, S.DATA, f"2 % blur {r[0]:.3f}\u2013{r[1]:.3f}", -14, "left")
-y = 2.2; xf = row(y, "IAM-A", iama_floor, iama_full, rf"$H_{{\rm min}}$ {iama_floor:.3f}", f"surface full {iama_full:.2f}")
+y = 2.2; xf = row(y, "IAM-A", iama_floor, iama_full, rf"$H_{{\rm min}}$ {iama_floor:.0e}", f"surface full {iama_full:.2f}")
 ax.text(0.98, y + h * 0.7, "breach and cancer region: to be measured", ha="right", va="bottom", fontsize=6, color=S.DATA)
 y = 1.1; xf = row(y, "Met-A C-score", 0.0, C_far, "0", f"every block as one {C_far:.0f}", normal=False)
 r = rng("healthy", "C_6000"); bar(xf, y, r, S.IAM, f"healthy {r[0]:.2f}\u2013{r[1]:.2f}", 7, "right")

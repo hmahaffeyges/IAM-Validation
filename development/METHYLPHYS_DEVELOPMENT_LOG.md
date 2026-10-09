@@ -516,3 +516,17 @@ Normal. Lupus set has no IDATs (dropped). Second lab (GSE224807, 65 healthy) dow
 Box: first Swift whole-blood run stopped by Q0 conversion (0.97984 vs ENCODE limit 0.98), rule kept.
 - 450K bar 2b NOT met: GSE224807 64 healthy CD15 neutrophils 43/64 Normal (arrays on 47 slides, no same-slide references; noise gate built,
   withholds none). 450K stays development; APS not read. Next: test slide contrast and CD15 sort purity.
+
+### 2026-10-09 · Book sync: the floor and the healthy reference (author ruling)
+The gauge has three marks. **Floor H_min**: thermal kicks win against one full ATP per site, copy error 1/(1+e^M) = 8.1×10⁻¹⁰,
+H_min = 2.5×10⁻⁸ bits (1×10⁻⁷ on the neutrophil IAM-A gauge, 8×10⁻⁸ on Met-A); calculated from M alone. **Healthy reference H_ref**:
+H(ε₀) = 0.2043 bits, ε₀ = 0.032, the holding energy 3.41 kT measured across 56 healthy cell types; about half of healthy cell types hold
+better than it, so it is a reference height, not a limit (formerly mislabelled "the floor"). **Ceiling**: 1 bit per site. φ = 0.16 is
+the distance from floor to reference in energy. Each instrument has its own healthy reference per cell type: IAM-A neutrophils
+P·H_ref = 1.1492 × 0.2043 = 0.2348 bits, CD4 T 1.167 × 0.2043; Met-A EPIC neutrophils 0.330263 bits. Values from the whole-file position
+(P 1.1492): full surface IAM-A 4.26 (was 4.45), H_ref at 1/P = 0.870 (was 0.910 and called the floor), healthy neutrophil ε 0.0384,
+donors on H_ref alone 1.137–1.168, leave-one-out 0.984–1.025, CV of P 0.74 % (the book's 1.2 % did not match the three whole-file
+donors; iama_positions_v2.json carries cv_across_donors 0.012, metadata only, not read by the chain), 2 % test 1.273–1.313 at
+whole-file positions (shift measured on the first 60 MB). Book: Part III, VI, VII, appendices A (regenerated from CANON), B, C, D, F,
+H, saturation; CANON iam_canon.json (H_min_cell, H_ref_cell added; P 1.1492) and GLOSSARY.md; five figure scripts; verify_book.py
+checks moved to whole-file counts, 13 new floor checks, every control fails as it should. SOP: gauge marks and P. No chain change.

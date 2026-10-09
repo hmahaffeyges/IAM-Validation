@@ -74,8 +74,8 @@
   "eps0_meth": {
    "value": 0.032,
    "units": "error per methylated site per copy",
-   "derivation": "1/(1+exp(phi*M_cell)) with phi*M_cell = E_hold_meth = 3.41 kT MEASURED from cells' copy error: the form is physics (Boltzmann), the height is measured",
-   "source": "PROC-CHANNEL-01; a physics-only height (DNMT1 discrimination energy or derived phi) is open",
+   "derivation": "1/(1+exp(phi*M_cell)) with phi*M_cell = E_hold_meth = 3.41 kT MEASURED from cells' copy error: the HEALTHY REFERENCE copy error (not the floor). The form is physics (Boltzmann), the height is measured; about half of healthy cell types hold better than it",
+   "source": "PROC-CHANNEL-01; a physics-only height (a derived phi from the kinetics of maintenance) is open",
    "accept": [
     0.032,
     0.032
@@ -126,11 +126,23 @@
    "source": "Met-A reference floors v1.2"
   },
   "P_neutrophil_IAM_A": {
-   "value": 1.099,
-   "units": "dimensionless (H(eps_healthy) / H(eps0))",
-   "derivation": "mean over 3 Loyfer granulocyte donors of H(eps of the other donors)/H(eps0) (1.084-1.108, CV 1.2 %)",
-   "source": "chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json (frozen 2026-10-01); valid for the loyfer_pat_v1 pipeline only",
+   "value": 1.1492,
+   "units": "dimensionless (H(eps_healthy) / H_ref)",
+   "derivation": "mean over 3 Loyfer granulocyte donors of H(eps of the other donors)/H(eps0), WHOLE files (1.1396-1.1554, CV 1.2 %)",
+   "source": "chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json (frozen 2026-10-08, whole files); valid for the loyfer_pat_v1 pipeline only",
    "status": "development"
+  },
+  "H_ref_cell": {
+   "value": 0.2043,
+   "units": "bits",
+   "derivation": "H(eps0_meth): the healthy reference height, where healthy cells actually hold their methylated sites (56 healthy cell types)",
+   "source": "PROC-CHANNEL-01; author ruling 2026-10-09"
+  },
+  "H_min_cell": {
+   "value": 2.5e-08,
+   "units": "bits",
+   "derivation": "H(1/(1+exp(M_cell))): the floor, where thermal kicks win against one full ATP per site (copy error 8.1e-10)",
+   "source": "calculated from M_cell = 20.94; author ruling 2026-10-09"
   }
  },
  "names": {
@@ -175,7 +187,7 @@
   },
   "IAM-A": {
    "status": "current",
-   "definition": "Error reading: the per-molecule copy error eps of a cell's held methylation pattern on single-molecule sequencing (isolated unmethylated call between two methylated calls on a qualifying molecule), read against the physics floor at the cell's architecture position: IAM-A = H(eps) / (P_cell * H(eps0)), eps0 = 1/(1+exp(phi*M)) = 0.032 (form derived, height measured), P_cell = H(eps_healthy)/H(eps0), the healthy cell type's position on the floor, measured once on healthy cells with the same read-level pipeline and frozen (chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json; neutrophils P = 1.099). Instrument effects cancel because reference and reading share the pipeline. Methylated (copy) channel only: the unmethylated (de novo) channel is dominated by bisulfite conversion failure. Holding energy E = ln((1-eps)/eps) kT. Normal 0.95-1.05. Chain v3 Stage Q: P is valid only for the read-level pipeline it was measured on (neutrophils: loyfer_pat_v1, first 60 MB of each granulocyte .pat file); any other pipeline is refused until P is measured on healthy cells with it. A reading needs >= 100,000 opportunities; the two run-halves are printed separately above 50,000 each."
+   "definition": "Error reading: the per-molecule copy error eps of a cell's held methylation pattern on single-molecule sequencing (isolated unmethylated call between two methylated calls on a qualifying molecule), read against the cell type's healthy reference (its position P_cell relative to H_ref): IAM-A = H(eps) / (P_cell * H(eps0)), eps0 = 1/(1+exp(phi*M)) = 0.032 (form derived, height measured), P_cell = H(eps_healthy)/H(eps0), the healthy cell type's position on the floor, measured once on healthy cells with the same read-level pipeline and frozen (chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json; neutrophils P = 1.149). Instrument effects cancel because reference and reading share the pipeline. Methylated (copy) channel only: the unmethylated (de novo) channel is dominated by bisulfite conversion failure. Holding energy E = ln((1-eps)/eps) kT. Normal 0.95-1.05. Chain v3 Stage Q: P is valid only for the read-level pipeline it was measured on (neutrophils: loyfer_pat_v1, first 60 MB of each granulocyte .pat file); any other pipeline is refused until P is measured on healthy cells with it. A reading needs >= 100,000 opportunities; the two run-halves are printed separately above 50,000 each."
   },
   "Salmon-A": {
    "status": "informal",
@@ -208,7 +220,7 @@
   },
   "H_min (the floor)": {
    "status": "current",
-   "definition": "The absolute lowest error a system can hold before thermal kicks win; below it the system no longer exists as itself. It is NOT the denominator of A and NOT 1: it sits below 1 at H_min / healthy reference. Cells (IAM-A): H(eps0) = 0.2043 bits, neutrophils at A = 1/P = 0.910. Cells (Met-A, arrays): not yet derived. Qubits: the thermal floor p_eq t_g/T1, p_eq = 1/(1+exp(hf/(k_B T))) at the temperature the qubit's record sees. Chips: the Landauer floor k_B T_j ln 2.",
+   "definition": "The absolute lowest error a system can hold before thermal kicks win; below it the system no longer exists as itself. It is NOT the denominator of A and NOT 1: it sits below 1 at H_min / healthy reference. Cells: thermal kicks win against one full ATP per site, copy error 1/(1+e^M) = 8.1e-10, H_min = 2.5e-8 bits (1e-7 on the IAM-A gauge, 8e-8 on Met-A, neutrophils). It is NOT the healthy reference height H_ref = H(eps0) = 0.2043 bits. Qubits: the thermal floor p_eq t_g/T1, p_eq = 1/(1+exp(hf/(k_B T))) at the temperature the qubit's record sees. Chips: the Landauer floor k_B T_j ln 2.",
    "note": "The absolute lowest point a system can operate at before thermal kicks win."
   },
   "eps (gate error in nats)": {
@@ -224,11 +236,15 @@
   },
   "Healthy reference": {
    "status": "current",
-   "definition": "The denominator of A: the same system's healthy reading on the same instrument. Cells: Met-A, the purified healthy cells of that type on that platform (EPIC neutrophils 0.330263 bits; constant name Met_A_floor_* kept for the chain until the SOP rename); IAM-A, P_cell H(eps0) (neutrophils 0.2246 bits). Devices: the device as built."
+   "definition": "The denominator of A: the same system's healthy reading on the same instrument. Cells: Met-A, the purified healthy cells of that type on that platform (EPIC neutrophils 0.330263 bits; constant name Met_A_floor_* kept for the chain until the SOP rename); IAM-A, P_cell H_ref = P_cell H(eps0) (neutrophils 0.2348 bits). Devices: the device as built."
   },
   "Thermal floor (qubit)": {
    "status": "current",
    "definition": "The qubit H_min and the left-hand mark of the qubit gauge: IAM's Law at the temperature the record sees. p_eq = 1/(1+exp(hf/(k_B T))) for the held record; p_eq t_g/T1 for one gate of duration t_g (detailed balance)."
+  },
+  "H_ref (healthy reference height)": {
+   "status": "current",
+   "definition": "Cells: where healthy cells actually hold their methylated sites, H(eps0) = 0.2043 bits (E_hold 3.41 kT, measured across 56 healthy cell types; about half hold better than it). Each cell type's own IAM-A healthy reference is P_cell H_ref (neutrophils 0.2348 bits). Measured, not a limit; the floor is H_min. The distance from H_min to H_ref in energy is phi = 0.16 of one ATP."
   }
  },
  "retired": {

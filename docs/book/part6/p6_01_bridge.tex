@@ -120,8 +120,8 @@ Chapters~\ref{ch:ascoreqc} and~\ref{ch:cmos}; IAM-A and Met-A in Chapters~\ref{c
  & qubit & chip & cell, IAM-A & cell, Met-A\\\midrule
 what is read & error per gate & energy per switch & copy error per CpG & blur of the stored pattern\\ \iamrowrule
 scale & one operation & one switch & one molecule & the whole specimen\\ \iamrowrule
-floor & thermal floor at its own temperature & $\kB T_j\ln2$ & $\varepsilon_0=0.032$ from the holding energy at 310\,K & the cell type's healthy floor, same platform\\ \iamrowrule
-status of the floor & \derived & \derived & \derived; healthy position \calibrated & \calibrated\\ \iamrowrule
+floor & thermal floor at its own temperature & $\kB T_j\ln2$ & one ATP per site, $1/(1+e^{M})$ at 310\,K & the same, on site averages\\ \iamrowrule
+status of the floor & \derived & \derived & \calc{} from $M$; healthy reference \measured & \calc; healthy reference \calibrated\\ \iamrowrule
 reads 1 & as built & as built & healthy cell & healthy cell\\\bottomrule
 \end{tabularx}
 \end{table}
@@ -199,9 +199,9 @@ It is worth being exact at the outset, because the bridge is easy to overstate.
       holds $1.5\times10^{77}$ bits at $6.2\times10^{-8}$~K; a cell's methylome holds about
       $2.8\times10^7$ at 310~K (Figure~\ref{fig:scaleladder}). The bit counts differ by 70 orders
       of magnitude and the temperatures by ten. The equation is shared; the parameters are not.
-\item It does not yet derive the height of the cell's floor $\Hmin$ from first principles. Its form is a Boltzmann
-      factor; its height comes from the holding energy measured on healthy molecules. Deriving that energy from the
-      chemistry of maintenance is the framework's central open problem at cellular scale (Chapter~\ref{ch:open}).
+\item It does not yet derive the healthy reference $\Href$ from first principles. The floor $\Hmin$ follows from $M$ alone; the healthy
+      reference is where healthy cells actually hold their sites, 3.41~$\kB T$, measured on healthy molecules. Deriving that energy, the
+      cell's efficiency $\phi=0.16$, from the kinetics of maintenance is the framework's central open problem at cellular scale (Chapter~\ref{ch:open}).
 \item It does not use any group of people to define what a cell should read.
 \end{enumerate}
 \end{keybox}

@@ -1,6 +1,6 @@
 """Part 3 figures and tables added for TODO 9.2 (at least two figures and one table per chapter).
 Every number is computed here from physical constants (scipy.constants) or from repository files:
-  CANON/iam_canon.json                                  (E_hold_meth = 3.41 kT, P_neutrophil_IAM_A = 1.099)
+  CANON/iam_canon.json                                  (E_hold_meth = 3.41 kT, P_neutrophil_IAM_A = 1.1492, whole files)
   Hughes et al. arXiv:2510.17286 and Ransford et al. arXiv:2511.05465 (abstract values, typed with the sentence quoted)
   Jin et al. PRL 114, 240501 (2015) (transmon effective temperature 35 mK); Google Quantum AI, Nature 638, 920 (2025) (mean T1 = 68 us)
   Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md (per-patient copy errors, parsed)
@@ -166,16 +166,16 @@ from scipy.optimize import brentq
 e_h = brentq(lambda e: H2(e) - P * Hf, e0m, 0.5)
 fig, ax = plt.subplots(figsize=(0.62 * S.TEXTW, 2.7))
 ax.plot(eh, A, color=S.IAM)
-for e, a_, lab_ in ((e0m, 1 / P, f"floor: $\\varepsilon_0$ = {e0m:.3f}, A = {1/P:.3f}"),
+for e, a_, lab_ in ((e0m, 1 / P, f"healthy reference $H_{{\\rm ref}}$: $\\varepsilon_0$ = {e0m:.3f}, A = {1/P:.3f}"),
                     (e_h, 1.0, f"healthy neutrophil: $\\varepsilon$ = {e_h:.4f}, A = 1"),
                     (0.5, 1 / (P * Hf), f"full surface: $\\varepsilon$ = 1/2, A = {1/(P*Hf):.2f}")):
     ax.plot(e, a_, "o", color=S.DATA, ms=4)
     ax.annotate(lab_, (e, a_), xytext={0: (10, -12), 1: (10, 10), 2: (-150, 4)}[[e0m, e_h, 0.5].index(e)], textcoords="offset points", fontsize=6.5)
-print(f"healthy eps {e_h:.4f}; floor A {1/P:.3f}; full A {1/(P*Hf):.3f}")
+print(f"healthy eps {e_h:.4f}; H_ref A {1/P:.3f}; full A {1/(P*Hf):.3f}")
 ax.axhspan(0.95, 1.05, color=S.ALT, alpha=0.15, lw=0)
 ax.set_xlabel(r"copy error per site per copy $\varepsilon$"); ax.set_ylabel(r"IAM-A $=H(\varepsilon)/(P\,H(\varepsilon_0))$")
 ax.set_xlim(0, 0.52); ax.set_ylim(0, 4.9)
-ax.set_title("The cell gauge: floor left, healthy at 1, full surface right")
+ax.set_title("The cell gauge: healthy at 1, full surface right; the floor is off the left edge")
 fig.tight_layout(); S.save(fig, "part3", "fig_cell_gauge")
 
 # p3_09 fig_reach_cell retired 2026-10-04 (development readings; author ruling)

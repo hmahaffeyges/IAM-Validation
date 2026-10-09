@@ -46,7 +46,7 @@ mixtures atlas_e was already more accurate for neutrophils (RMSE 0.014 vs 0.019)
 
 ## 2c. Linking IAM-A and Met-A (added 2026-10-09, author discussion)
 
-Why: Met-A is commissioned as a measurement; IAM-A (copy error against the 0.2043-bit thermal floor) is what can explain what it reads.
+Why: Met-A is commissioned as a measurement; IAM-A (copy error against the healthy reference height H_ref = 0.2043 bits; the floor, where thermal kicks win against one ATP, is 2.5×10⁻⁸ bits) is what can explain what it reads.
 1. **IAM-A → Met-A (forward, one answer).** From a measured copy error ε, the shift of each site's mean methylation toward 0.5 follows,
    and with the healthy neutrophil pattern the expected Met-A (the same model as `shift_per_1pct_loss`). Derive and write it down first.
 2. **Met-A → IAM-A (reverse, an upper limit).** Met-A cannot tell copy error from a fraction of cells that switched state, so it gives the
