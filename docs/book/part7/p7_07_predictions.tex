@@ -192,6 +192,37 @@ prediction & test and date & falsified if \\\midrule\endhead
 \bottomrule
 \end{longtable}}
 
+\section{The cell: a point of no return}\label{sec:pred_noreturn}
+The saturation appendix identifies the cell's approach to its ceiling with the black hole's approach to its own
+(Appendix~\ref{app:sat:step6}). \conjecture{} A horizon is a boundary that what falls in does not come back across. The cell has a
+measurable version of that question: after its copying machine is switched off and switched back on, does every methylated domain return?
+
+The methylation bit is a driven bit: each division a held site is lost with probability $f$ and restored with probability $g$, so the
+held state is set by the balance of the two, $E_{\rm hold}=\kB T\ln(g/f)$ (Chapter~\ref{ch:landauer}). \derived{} If each site is held on
+its own, a domain returns to its state once the machine returns, whatever was done to it. If a domain holds itself as a whole, its
+sites restoring better the more of the domain is still methylated, then a domain pushed far enough into disorder stays there: the same
+rates now hold two states, and the one the cell ends in depends on its history. Simulation of both cases, read molecule by molecule,
+shows the lasting loss only in the second, and only when the cell's own loss rate is already raised, as it is in cancer; a cell with
+healthy rates returns in either case. \calc
+
+{\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.40\textwidth}>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}@{}}
+\toprule
+prediction & test & falsified if \\\midrule\endhead
+\textbf{N1.} After the methylation machine is switched off for several divisions and restored, a cancer cell keeps a lasting loss of
+ methylation carried by whole molecules left unmethylated, while a non-cancer cell returns to its starting state. \prediction
+ & a reversible DNMT1 switch (a degron) or a non-toxic DNMT1 inhibitor in one cancer and one non-cancer line, single-molecule
+ sequencing before, at the end of depletion and at three or more late time points, with cell counts to exclude selection of a subclone
+ & both lines return fully; or the cancer line's deficit keeps shrinking with each late time point instead of reaching a plateau \\
+\textbf{N2.} The lasting loss is all-or-none: its molecules are unmethylated across the whole domain, not scattered losses. \prediction
+ & the same data, the spread of each molecule's methylated count against the spread expected for independent sites, at the late
+ time points
+ & the late-time molecules show the independent-site spread \\
+\bottomrule
+\end{longtable}}
+\noindent During depletion itself the test cannot be made: a new strand copied while the machine is absent comes out unmethylated as a
+whole, which gives all-or-none molecules with or without a domain-wide memory. Only the return separates the two. The experiment needs
+no new technology, one cancer line and one non-cancer line, and it is open to any laboratory that holds a DNMT1 degron. \openprob
+
 \section{Where the data already stand}
 What the data in hand already say, and what each result means.
 
