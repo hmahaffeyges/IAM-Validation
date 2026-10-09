@@ -407,3 +407,7 @@ the library kit does. Swift libraries carry a known artificial loss of methylati
 isolated "errors" at real methylated sites. Test planned (development): the same Swift and TruSeq BAMs through bam2pat with 0, 10 and 15 bp
 clipped from read ends — if clipping brings Swift down and leaves TruSeq unchanged, the kit effect is the read-end artefact.
 \measured Q0 stopped the QIAseq run on conversion (0.920), as designed.
+
+### 2026-10-09 · DEV-IAMA-KIT-01: Swift vs TruSeq, read-end clipping
+\measured Clipping 10-15 bp from read ends lowers both kits (Swift 1.167→1.155, TruSeq 1.047→1.021); the 0.12 kit gap stays. Not a
+read-end artefact. Swift's extra errors cluster along the genome (IAM-A C 306 vs 45). Next: compare both kits on the regions both cover.
