@@ -571,7 +571,7 @@ knockout develops steatohepatitis (cell mix, proliferation).
 **Temperature, one species: GSE199815** (Syrian hamster liver WGBS, 3 euthermic, 3 late torpor, 3 early arousal). The two pictures of
 the bit predict opposite outcomes: a passive bit held at the current body temperature would lower ε by ~30 % in torpor (≈ 30 K colder;
 power 3 v 3 = 0.67); a driven bit renewed at copying predicts almost no change during a torpor bout, because liver cells barely divide
-in it (power to see the small residual 0.06-0.07, i.e. a null). A clear fall in torpor would favour the passive picture; no change is
+in it (power to see the small residual 0.05-0.08, i.e. a null; `development/sims/hibernation_01.py`). A clear fall in torpor would favour the passive picture; no change is
 what the driven-bit derivation (DEV-FLOOR-HEIGHT-02) predicts. Labelled PREDICTION (driven bit: no torpor change; change only after
 renewal). Needs a hamster read pipeline and conversion control; 9 WGBS runs.
 **Not useful:** GSE152444 (sea bass; 4 K during development, read three years later: a memory test, and 4 K is below detection).
@@ -646,3 +646,6 @@ Repo checkout clean (no uncommitted or unpushed changes). 25 working scripts com
 all 17 committed next to their notes. The full working code record of the sessions 2026-09-18 to 10-09 (8,629 cells) is archived privately
 (S3 archive/session_code/, sha256 5cf3bd35157fd7bd…; key IDs redacted; private names present, so not public). Rule added to the SOP.
 Next: each analysis run only in a notebook gets a committed script that reruns to the logged value (development/sims/).
+
+### 2026-10-09 · Lever simulations as committed scripts
+`development/sims/sam_lever_01.py` and `hibernation_01.py` rerun from the repo alone. Two logged ranges corrected to the scripts: SAM power at twice the same-lab spread 0.31–1.00 (was 0.52–0.98, taken from 5 of the 9 cases); torpor residual power 0.05–0.08 (was 0.06–0.07, simulation noise). No decision changes.

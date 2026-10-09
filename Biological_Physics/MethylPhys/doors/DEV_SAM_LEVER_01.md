@@ -17,9 +17,11 @@ ln of the restore ratio and so raises ε. Only cells renewed since SAM fell carr
 (IAM-A of knockout ÷ wild type, same laboratory and pipeline.)
 
 **Power** (one-sided Mann–Whitney, 6 vs 8): with the within-laboratory donor spread measured on human neutrophils (IAM-A SD 0.02,
-SD of ln ε 0.026) ≥ 0.96 in every cell of the table except 90 µM/30 % renewed; with twice that spread 0.52–0.98; with the cross-
+SD of ln ε 0.026) ≥ 0.96 in every cell of the table except 90 µM/30 % renewed; with twice that spread 0.31–1.00 (0.31 at 90 µM, 30 % renewed); with the cross-
 laboratory species spread (0.136) 0.10–0.97. The 8 wild-type mice measure the actual spread: if it gives power < 0.8 at the table's
 middle value (60 µM, 60 % renewed, 1.085), the outcome is recorded as UNDECIDED, not as a fail.
+
+Reproduce: `development/sims/sam_lever_01.py` (inputs: this repo only).
 
 **Bars (fixed now):**
 1. Knockout-vehicle IAM-A ÷ wild-type median > 1, one-sided p < 0.05 (6 vs 8).

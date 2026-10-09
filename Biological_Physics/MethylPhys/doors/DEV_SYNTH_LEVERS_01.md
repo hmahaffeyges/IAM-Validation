@@ -103,7 +103,7 @@ knockout develops steatohepatitis (cell mix, proliferation).
 **Temperature, one species: GSE199815** (Syrian hamster liver WGBS, 3 euthermic, 3 late torpor, 3 early arousal). The two pictures of
 the bit predict opposite outcomes: a passive bit held at the current body temperature would lower ε by ~30 % in torpor (≈ 30 K colder;
 power 3 v 3 = 0.67); a driven bit renewed at copying predicts almost no change during a torpor bout, because liver cells barely divide
-in it (power to see the small residual 0.06-0.07, i.e. a null). A clear fall in torpor would favour the passive picture; no change is
+in it (power to see the small residual 0.05-0.08, i.e. a null; `development/sims/hibernation_01.py`). A clear fall in torpor would favour the passive picture; no change is
 what the driven-bit derivation (DEV-FLOOR-HEIGHT-02) predicts. Labelled PREDICTION (driven bit: no torpor change; change only after
 renewal). Needs a hamster read pipeline and conversion control; 9 WGBS runs.
 **Not useful:** GSE152444 (sea bass; 4 K during development, read three years later: a memory test, and 4 K is below detection).
