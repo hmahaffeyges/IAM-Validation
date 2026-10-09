@@ -462,3 +462,9 @@ as designed. Duplicate fractions now recorded (0.11-0.19). The box stopped itsel
 GSE166503, GSE200376, GSE222927, GSE225544, GSE226298, GSE235717, GSE247193, GSE247195, GSE250556, GSE276323, GSE286313). Band 0.877-1.152
 (was 0.750-1.409). Step 1 94.5 % (bar 95 %; GSE110530 and GSE226298 below 85 %); step 2 clustered 100 % above, scattered 94.2 % inside
 (bar 95 %); step 3 within ÷ healthy 0.85 (bar 0.5). Not commissioned. Two definition questions for the author in the plan.
+
+### 2026-10-09 · Box Run 3, test 1: commissioned Met-A on clonal haematopoiesis (GSE315366)
+\measured 64 EPIC v1 peripheral bloods of a new laboratory. CH-negative 34/35 Normal (bar met). CH-positive vs negative: medians 1.0013 vs
+1.0011, p = 0.41 (prediction not met; clones likely below the 5 % whole-blood detection limit, stated before reading). C-score test (a)
+on a new laboratory: 34/35 not above 1.152 (met). Session 3 pUC19: 0-4 reads per neutrophil BAM: the libraries carry no methylated spike,
+so no internal technical standard there (DEV-IAMA-XCELL-01 check 4: recorded null). Details: `boxruns/run3/JOBS.md`.

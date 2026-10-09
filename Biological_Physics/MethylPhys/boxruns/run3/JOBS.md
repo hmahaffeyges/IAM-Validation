@@ -36,3 +36,17 @@ relapse − remission. Arrays below the 0.20 neutrophil fraction (blast-rich blo
 ## Run
 `run3.py` on the box (m7a.8xlarge, root disk), IDATs from S3 `downloads/A_blood_immune/<GSE>/`, results to `results/BOXRUN3/`, box shuts
 down at the end. Results go in the LOG; STATUS updated.
+
+---
+## Results, Test 1 — GSE315366 (2026-10-09; nothing above the line changed)
+64 peripheral bloods read, 0 errors, 0 refused (median neutrophil fraction 0.65, none withheld by the noise gate).
+| check | bar | result | met |
+|---|---|---|---|
+| 1. CH-negative bloods Normal (tared on the other CH-negative bloods) | ≥ 95 % | **34 / 35 (97.1 %)**, median A_rel 1.001 | yes |
+| 2. CH-positive A_rel > CH-negative, one-sided Mann-Whitney | p < 0.05 | medians 1.0013 vs 1.0011, **p = 0.41** | no |
+| 3. share above Normal | recorded | CH-negative 1 / 35; CH-positive 0 / 29 (DNMT3A 0 / 21, TET2 0 / 12) | – |
+\measured Commissioned Met-A reads this new laboratory's bloods Normal and does not separate clonal haematopoiesis carriers. As written
+before reading, this is expected if the clones are below the whole-blood detection limit (a 5 % loss of pattern); the deposit has no
+variant allele fractions, so which explanation holds cannot be decided from these data.
+**C-score test (a), first new laboratory:** CH-negative bloods not above 1.152: **34 / 35 (97.1 %; bar ≥ 95 %) — met.** CH-positive
+above the band: 0 / 29.
