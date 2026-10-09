@@ -1,0 +1,14 @@
+{
+ "bam": "bam2/SRR9888331.bam",
+ "context": "CHH",
+ "strand_tag": "YD (bwa-meth)",
+ "source": "lambda spike-in",
+ "chh_converted": 1602994,
+ "chh_unconverted": 138461,
+ "reads_scanned": 125708,
+ "conversion_rate": 0.92049,
+ "duplicates": 2164165,
+ "primary_mapped": 20212467,
+ "duplicate_fraction": 0.10707,
+ "marked_by": "Sambamba 0.6.5 markdup (Loyfer 2023 parameters)"
+}

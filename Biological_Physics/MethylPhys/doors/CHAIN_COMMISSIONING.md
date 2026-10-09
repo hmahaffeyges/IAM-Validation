@@ -82,3 +82,12 @@ only if its check passed. Data: 56 GEO series in the project bucket, 5,069 physi
 | 12b Difference map | same-person check; same-person differences below other-person differences >= 95 % (DEV-TOOLKIT-ADDED-01) | **PASS** (348/348; q99 0.060 vs 0.174) | **yes** (`--prior-betas`, release check E5) |
 
 Release check: `kit/release_check.py` on the box copy (git repository, commit 9593d66 = main 058b646 + these changes, `doors/` included): **PASS, 12 of 12** (F1, F1b, S1-S4, E1-E5, M1); `kit/results/release_check.json`.
+
+
+## IAM-A, round 1 (2026-10-09, development)
+| Check | Result | Record |
+|---|---|---|
+| Intake stops bad files (wrong build, cut file, low conversion) | real hg38 file and two low-conversion runs stopped; healthy Loyfer files proceed | DEV-Q0-HEALTHY-01, session 2 |
+| Repeatability (halves; donors; sequencers) | within 0.004; 0.008; 0.008 | session 2 |
+| Another laboratory's healthy neutrophils read Normal | TruSeq yes (1.047, 1.042); Swift no (1.16) | session 2, DEV-IAMA-KIT-01 |
+| Kit independence | not met: 0.12 between kits on the same cells; not a read-end or coverage artefact | DEV-IAMA-KIT-01 |

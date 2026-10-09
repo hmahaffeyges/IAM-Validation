@@ -35,11 +35,12 @@ Also done (no box): constructed sensitivity test (DEV-METAA-SENS-01); new-labora
 **IAM-A (sequencing):** Stage Q0 intake wired and tested on real files (DEV-Q0-HEALTHY-01); P re-measured on whole files, v2 = 1.1492
 (DEV-IAMA-P-WHOLE-01); pinned Loyfer pipeline built and format-checked (Box Run 2 session 1).
 
-## 2. Running: Box Run 2 session 2 (started 2026-10-09 01:52 UTC, m7a.32xlarge, shuts itself down)
+## 2. IAM-A: Box Run 2 session 2 done (2026-10-09)
 
-GSE128731: another laboratory's healthy purified neutrophils, 2 donors × 4 library kits / sequencers, 25M read pairs each, through the pinned
-pipeline, Stage Q0 and Stage Q. This is the test of IAM-A: does it read healthy on another laboratory's neutrophils, and the same across kits?
-Then: IAM-A healthy band and C-score band; Met-A against IAM-A on the same donors (GSE128733 arrays, DEV-PAIRED-01).
+Another laboratory's healthy neutrophils (GSE128731), 2 donors × 4 kits. TruSeq 1.047 / 1.042 (Normal); Swift 1.16 (both donors, both
+sequencers); QIAseq stopped by Q0 (conversion). IAM-A is repeatable (≤ 0.008 between donors and sequencers) but carries a laboratory-and-kit
+offset up to ~0.16 (DEV-IAMA-KIT-01). **Author decision needed:** how IAM-A handles that offset (same-run tare / per-kit P / wider band).
+Then: IAM-A healthy band, IAM-A C-score, Met-A against IAM-A on the same donors (GSE128733).
 
 ## 3. Win candidates (development runs on the commissioned stages)
 

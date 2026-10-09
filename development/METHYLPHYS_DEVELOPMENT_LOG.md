@@ -416,3 +416,18 @@ read-end artefact. Swift's extra errors cluster along the genome (IAM-A C 306 vs
 \measured On the same 2.25 M positions Swift reads 1.159 and TruSeq 0.994; the gap is in the molecules, not in where reads land. Lower
 conversion explains at most a quarter of it. \observed Loyfer (where P comes from) also used Swift, so this is a laboratory-and-kit offset
 on IAM-A, like Met-A's before the tare. Options (tare / per-kit P / wider band) go to the author.
+
+### 2026-10-09 · Box Run 2 session 2 complete: IAM-A on another laboratory's healthy neutrophils, 2 donors × 4 kits
+25M read pairs per run; pinned Loyfer pipeline; Stage Q0; Stage Q with P v2. Table: `doors/data/BOXRUN2_SESSION2/session2_table.csv`.
+
+| kit / sequencer | donor 6 IAM-A (halves) | donor 7 IAM-A (halves) | conversion |
+|---|---|---|---|
+| Swift / NovaSeq | 1.159 (1.160 / 1.157) | 1.160 (1.162 / 1.158) | 0.983 |
+| Swift / HiSeq X | 1.167 (1.168 / 1.167) | 1.159 (1.159 / 1.158) | 0.983 |
+| TruSeq / HiSeq X | **1.047 Normal** (1.046 / 1.048) | **1.042 Normal** (1.043 / 1.041) | 0.992 |
+| QIAseq / HiSeq X | stopped at Q0 (conversion 0.920) | stopped at Q0 (conversion 0.909) | – |
+
+\measured IAM-A is highly repeatable: halves of a run agree within 0.004; the two donors agree within 0.008 for each kit; the sequencer
+makes ≤ 0.008 difference. \measured The library kit makes a 0.12 difference on the same cells (Swift 1.16 vs TruSeq 1.04-1.05), and this
+laboratory's Swift reads 0.16 above the Loyfer Swift libraries P was measured on (DEV-IAMA-KIT-01). Q0 stopped both low-conversion runs,
+as designed. Duplicate fractions now recorded (0.11-0.19). The box stopped itself at 06:30 UTC; the scratch disk is deleted.
