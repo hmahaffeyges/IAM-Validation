@@ -101,7 +101,7 @@ Commissioning record (stage, check, result, wired): `STATUS.md` (section 8, comm
   detection limits: 2 % loss of the neutrophil pattern in purified neutrophils, 5 % in whole blood (DEV-METAA-SENS-01). Readings in this scope
   are results. The Met-A C-score, IAM-A and every other stage remain development.
 
-### Commissioning order (author approved 2026-10-03)
+### Commissioning order (set 2026-10-03)
 
 Each step: pre-register the check in `doors/` before reading data, run it on v3, record the outcome, then wire the stage in.
 
