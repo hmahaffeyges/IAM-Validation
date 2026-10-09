@@ -15,6 +15,11 @@ the data register (`kit/build_data_register.py`, from the S3 listing and the LOG
 ---
 
 
+**Simulate first (standing rule, 2026-10-09).** Before any new test downloads data or starts the box: build a synthetic version read by
+the chain's exact rule; confirm the lever moves the reading as predicted (through the rule's own mapping, not a plain formula), that
+instrument error is handled, and that the planned design has power ≥ 0.8. Only then download, and only data that can decide the question
+(example: doors/DEV_SYNTH_LEVERS_01.md; the cross-species design, power 0.11, would have been caught).
+
 ## 1. Now (updated 2026-10-09 afternoon)
 
 | reading | status | what is left |

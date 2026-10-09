@@ -205,6 +205,12 @@ measures the low and high anchors on the slide itself and the channel-gain term 
 
 ## 4. Running it (operator)
 
+**Simulate first (standing rule, 2026-10-09).** Before any new test downloads data or starts the box: build a synthetic version read by
+the chain's exact rule; confirm the lever moves the reading as predicted (through the rule's own mapping, not a plain formula), that
+instrument error is handled, and that the planned design has power ≥ 0.8. Only then download, and only data that can decide the question
+(example: doors/DEV_SYNTH_LEVERS_01.md; the cross-species design, power 0.11, would have been caught).
+
+
 One specimen:
 ```
 cd Biological_Physics/MethylPhys/chain/MethylPhys_Interface
