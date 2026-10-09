@@ -200,7 +200,7 @@ def stage_t_tare(A, ref_A, shift_1pct=None, sample_id=None):
             "detection_note": "smallest loss of the cell's pattern (percent) this specimen could show: 2 x reference spread / shift per 1 % loss",
             "state": _state(Ar)}
 
-CSCORE_DEV_BAND = None   # block 10 since 2026-10-09 (neutrophil_reference_v1_2); the block-50 band 0.751-1.409 no longer applies. Re-set by step 1 of doors/CSCORE_COMMISSIONING_PLAN.md
+CSCORE_DEV_BAND = (0.877, 1.152)   # blocks of 10 (2026-10-09): 2.5-97.5 % of tared C on 641 healthy arrays, 19 laboratories; development, not commissioned (CSCORE_COMMISSIONING_PLAN)
 
 def stage_t_cscore(cs, ref_A, sample_id=None):
     """Same-run tare of the Met-A C-score, the same rule as the median tare of A (DEV-CSCORE-TARE-01): C_rel = C / median(C of >= MIN_REFS
@@ -216,7 +216,7 @@ def stage_t_cscore(cs, ref_A, sample_id=None):
     else:
         lo, hi = CSCORE_DEV_BAND
         cs["C_rel_band_dev"] = [lo, hi]; cs["C_rel_in_band_dev"] = bool(lo <= cs["C_rel"] <= hi)
-    cs["status"] = "development: tared C_rel against a development band (DEV-CSCORE-TARE-01); not commissioned"
+    cs["status"] = "development: tared C_rel against the development band (blocks of 10, CSCORE_COMMISSIONING_PLAN); not commissioned"
     return cs
 
 def stage_t_selftare_ii(beta):

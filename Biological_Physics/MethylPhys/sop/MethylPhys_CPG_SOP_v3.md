@@ -37,7 +37,7 @@ Frozen values (read from the files, never typed):
 - EPIC neutrophil healthy reference 0.330263 bits (6 physical arrays, Salas GSE110554; GSE167998 re-deposits the same 6; 6000 sites; our Stage 1).
 - Healthy clustering median 1.1104 (6 physical arrays, leave-one-out, block 50).
 - Noise gate N_max 0.149 (`noise_gate_EPIC_v1.json`); IAM-A ε₀ 0.032 and neutrophil P 1.1492, measured on whole files (`iama_positions_v2.json`, 2026-10-08; v1, P 1.099 on the first 60 MB of each file, is superseded).
-- Met-A C-score tare: C_rel = C ÷ median C of ≥ 3 same-run healthy references. Band: being re-set for blocks of 10 (`doors/CSCORE_COMMISSIONING_PLAN.md`; the block-50 band 0.751–1.409 no longer applies).
+- Met-A C-score tare: C_rel = C ÷ median C of ≥ 3 same-run healthy references. Development band 0.877–1.152 (blocks of 10; 2.5–97.5 % of tared C on 641 healthy arrays from 19 laboratories; `doors/CSCORE_COMMISSIONING_PLAN.md`).
 - IAM-A tare (2026-10-09, development): A_rel = IAM-A ÷ median IAM-A of ≥ 3 same-run healthy references of the same cell, laboratory, library kit and pipeline (`stage_q_iam_a.tare`, `run_sample.py --iama-ref-table`); fewer than 3 → untared, read against P only. Reason: library kit and laboratory shift IAM-A by up to 0.16 on healthy cells (DEV-IAMA-KIT-01).
 
 ## 2b. The full chain, and what runs today

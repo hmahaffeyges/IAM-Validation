@@ -456,3 +456,9 @@ as designed. Duplicate fractions now recorded (0.11-0.19). The box stopped itsel
 - STATUS.md section 2b: IAM-Atlas v2 commissioning as the composition step (author: "if it works better than what we are currently using we
   should use it").
 - SOP/OM: C-score blocks of 10 (`neutrophil_reference_v1_2.json`) and the IAM-A same-run tare added.
+
+### 2026-10-09 · C-score with blocks of 10: steps 1-3 rerun (CHAIN CHANGE: development band 0.877-1.152)
+\measured 641 healthy arrays, 19 laboratories (GSE110530, GSE112618, GSE118144, GSE122244, GSE123914, GSE141682, GSE142512, GSE161678,
+GSE166503, GSE200376, GSE222927, GSE225544, GSE226298, GSE235717, GSE247193, GSE247195, GSE250556, GSE276323, GSE286313). Band 0.877-1.152
+(was 0.750-1.409). Step 1 94.5 % (bar 95 %; GSE110530 and GSE226298 below 85 %); step 2 clustered 100 % above, scattered 94.2 % inside
+(bar 95 %); step 3 within ÷ healthy 0.85 (bar 0.5). Not commissioned. Two definition questions for the author in the plan.

@@ -75,3 +75,29 @@ readings per cell of the table, 12 healthy purified-neutrophil arrays). Files: `
 2. Rerun steps 1-3 with blocks of 10 on every healthy array (one short box job: job C again with the new block), with the same bars.
 3. If the tare still adds noise there, read the C-score against the healthy baseline directly (untared) where the tare's references are
    fewer than 6; this is tested in the same run.
+
+---
+## Results with blocks of 10 (2026-10-09, author approved the change; bars unchanged)
+Chain: `neutrophil_reference_v1_2.json`; every healthy array re-read from its stored betas (641 arrays, 19 laboratories incl. GSE226298
+re-read on the box). Met-A unchanged (GSE226298 26/26 Normal, identical values).
+
+| step | bar | blocks of 50 | **blocks of 10** | met |
+|---|---|---|---|---|
+| band (all laboratories, 2.5-97.5 %) | – | 0.750-1.409 | **0.877-1.152** (2.4× narrower) | – |
+| 1. leave one laboratory out | pooled ≥ 95 %, none < 85 % | 94.2 %; one lab 84 % | **94.5 %**; GSE110530 8/12, GSE226298 20/26 | no |
+| 2. clustered loss (F 10 %, loss 10 %) above the band | ≥ 95 % | 100 % | **100 %** (median C_rel 4.0-4.1) | yes |
+| 2. scattered loss inside the band (purified, 120 readings) | ≥ 95 % | 97.5 % | **94.2 %** (misses all below the band) | no |
+| 3. within-person SD ÷ healthy SD | ≤ 0.5 | 0.79 | **0.85** (0.062 ÷ 0.073) | no |
+
+\measured Blocks of 10 make the C-score 2.4× more precise and it still detects clustered change every time. The three misses are all near
+the bars and all on the low side or in the ratio.
+\calculated Why step 3 fails even though the noise fell: within-person SD (0.062) is nearly the whole healthy SD (0.073), i.e. healthy
+people do not differ from each other in C; the healthy spread *is* the repeat noise. A ratio bar (≤ 0.5) assumes real between-person
+differences, which a healthy reference built to read 1 for everyone does not have. Recorded as not met; not changed.
+
+## For the author (no change made)
+1. **One-sided reading.** Clustering is the signal; a C below the band means *less* clustered than healthy, which has no known meaning.
+   Counting only C above the band as a departure, the held-out laboratories read 624 of 641 not above (97.3 %) and scattered loss never
+   rises above it (0 of 120). This changes the definition, so it needs your approval and then a test on laboratories not used to decide it.
+2. **Repeatability bar.** Replace "within ÷ between ≤ 0.5" by an absolute bar tied to detection: within-person SD ≤ one-quarter of the
+   smallest clustered change to be detected (here C_rel ≥ 1.5 at F 5 %). Needs your approval; tested on new same-person replicates.
