@@ -110,3 +110,7 @@ Each healthy cell type hidden in turn; its floor predicted from the other member
 - Old-A quantity H(mean β) (Loyfer): class-median floor 0.55; G-002's most-methylated-cell rule 0.22; one floor 0.60.
 **Reading.** Class floors carry real information (classes explain 51 % of error on common bits) but do not yet read an unseen cell type to ±5 %.
 On common bits immune is the weakest class (0.27): it splits by activation state (resting vs effector), so one immune floor cannot serve both. On all-site copy error terminal is weakest (0/4; only 4 cell types), then immune (0.33).
+
+**Reproducibility (2026-10-09).** The per-sample table and summary of this run were never committed and are no longer on the box. The job
+is rebuilt from the session record in `doors/data/PROC_CHANNEL_01/` (channel.py as run, the window generator, the run script); every input
+is in the repo or regenerated exactly. Status: **to be rerun**; the values above stand until the rerun reproduces or replaces them.

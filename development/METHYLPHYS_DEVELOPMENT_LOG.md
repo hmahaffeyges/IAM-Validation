@@ -656,3 +656,6 @@ Next: each analysis run only in a notebook gets a committed script that reruns t
 
 ### 2026-10-09 · 450K analysis as a committed script
 `doors/data/DEV_METAA_450K_01/metaa_450k_01.py`, inputs pinned by sha256 (GSE224807 CD15 betas and the 450K manifest uploaded to S3 for this). Reproduced exactly: identity sites 6,000, healthy reference 0.32581, held-out 0.0336 raw and 0.0177 tared, 12/12 Normal (0.983–1.028), detection 1/2/3 %, 43 of 64 on GSE224807, slide pairs 0.013 vs 0.051, PC1 r 0.89, deviation loads 6,990/10,889/28,006, z>8 12/12 and 10/12. Two edge cells of the deviation table move by one array with the fixed seed (z>5 3/12, z>10 at Δβ 0.1 9/12); no decision changes.
+
+### 2026-10-09 · PROC-CHANNEL-01 not reproducible from the repo; job rebuilt
+Outputs (channel_samples.csv, channel_summary.json) were never committed and are gone from the box. E_hold 3.41 kT here is the source of eps0_meth 0.032 (CANON). channel.py rebuilt by replaying its creation and four patches from the session record; windows regenerated (seed 20260930, 399 windows); roster in atlas/v2/inputs. To rerun on the box after the current sessions (about 1 h, 64 cores); outputs to be committed with the note.
