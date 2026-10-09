@@ -40,3 +40,37 @@ fall below the ≥ 80 %-methylated rule (it then reads only surviving molecules)
 | all | 1 % | +0.055 | 1.00 |
 **Lesson.** Met-A reads the neutrophil's identity pattern. It detects disease that shifts ≥ ~5 % of those sites by ≥ 10 %; a disease
 signature confined to a few hundred genes elsewhere (e.g. interferon genes) is invisible to it by design.
+
+## Simulation 4 — a genome-wide reading for diseases outside the identity pattern (400,000 sites, 15 vs 15, heavy-tailed noise,
+whole-array contrast/offset sized to the commissioned 2–2.5 % array spread)
+| disease sites changed (Δβ 0.2) | power, mean entropy over all sites (same-run tared) | power, deviation load* |
+|---|---|---|
+| 0 | 0.00 | 0.00 |
+| 300 | 0.00 | 1.00 |
+| 1,000 | 0.17 | 1.00 |
+| 3,000 | 0.33 | 1.00 |
+*Deviation load = number of sites where the array (after self-taring its contrast and offset to the reference means) departs from the
+healthy cell's frozen per-site mean by > 5 healthy SD: the sites carrying information the healthy cell does not. Averaging entropy over the
+genome dilutes a focal disease to nothing; counting departures does not. A new reading: must be simulated on real healthy arrays (false-load
+rate), then commissioned. (Epimutation-load counts exist in the literature; the per-cell frozen healthy reference and same-run tare are the
+chain's.)
+
+## Simulation 5 — the two instruments tell mechanisms apart
+| disease mechanism | IAM-A | Met-A |
+|---|---|---|
+| healthy | 1.00 | 1.00 |
+| copier 1.5× worse (loss rate up) | 1.26 | 1.33 |
+| copier 2× worse | 1.42 | 1.61 |
+| 10 % of cells switched state | 1.00 | 2.36 |
+| 25 % of cells switched state | 1.01 | 3.52 |
+**A copying failure moves both; a change of cell state moves Met-A only.** The pair reads the mechanism, not only that something changed.
+
+## Simulation 6 — the SAM (energy-supply) test design (repeatability SD 0.009; baseline SAM 20 µM, Km 4.4 µM)
+| SAM drop | IAM-A | power n = 2 | n = 3 | n = 5 |
+|---|---|---|---|---|
+| 1.25× | 1.024 | 0.55 | 0.85 | 0.99 |
+| 1.5× | 1.042 | 0.90 | 1.00 | 1.00 |
+| 2× | 1.087 | 1.00 | 1.00 | 1.00 |
+| 4× | 1.258 | 1.00 | 1.00 | 1.00 |
+The lever weakens if nuclear SAM sits far above DNMT1's Km (halving from 60 µM: 1.037; from 200 µM: 1.005). **Design:** ≥ 3 per group,
+a ≥ 1.5× measured SAM drop, measured SAM/SAH reported with the sequencing; the prediction is computed from the measured SAM change.
