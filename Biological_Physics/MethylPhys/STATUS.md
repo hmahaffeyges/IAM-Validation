@@ -46,7 +46,7 @@ Then: IAM-A healthy band, IAM-A C-score, Met-A against IAM-A on the same donors 
 Whole-blood Met-A depends on the composition step (how much of the blood is neutrophils). Today that step uses the 8-group EPIC purified
 reference (`blood_composition_EPIC_v1.json`); atlas v2 runs only behind development flags (atlas_e, NILC, per-cell, sky). On the 12 EPIC
 mixtures atlas_e was already more accurate for neutrophils (RMSE 0.014 vs 0.019) and met 6 of 8 groups against 5 of 8.
-1. Write atlas_e's commissioning bars before reading (truth sets: GSE112618 FACS bloods, GSE182379 mixtures, the 450K mixtures; every group).
+1. ✔ Bars written 2026-10-09: [`doors/DEV_ATLAS_COMMISSION_01.md`](doors/DEV_ATLAS_COMMISSION_01.md) (neutrophils: atlas_e already better on both seen sets; GSE182379 found not independent; independent truth sets to obtain). Earlier wording: write atlas_e's commissioning bars before reading (truth sets: GSE112618 FACS bloods, GSE182379 mixtures, the 450K mixtures; every group).
 2. Commission atlas_e as the composition step (STATUS row, commissioning note for the author).
 3. Swap it in for `blood_composition_EPIC_v1.json`, rerun the whole-blood Met-A bars, re-commission Met-A on it.
 4. Then: composition for the other cell types (per-cell readings beyond neutrophils need it).
