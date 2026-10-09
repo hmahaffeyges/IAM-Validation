@@ -1,0 +1,116 @@
+{
+ "atlas_e": {
+  "mae_by_group": {
+   "NEU": 0.012,
+   "EOS": 0.032,
+   "BASO": 0.015,
+   "MONO": 0.025,
+   "B": 0.011,
+   "NK": 0.023,
+   "CD4T": 0.023,
+   "CD8T": 0.055
+  },
+  "mae_all": 0.0245,
+  "r_by_group": {
+   "NEU": 0.994,
+   "EOS": 0.995,
+   "BASO": 0.98,
+   "MONO": 0.986,
+   "B": 0.977,
+   "NK": 0.994,
+   "CD4T": 0.997,
+   "CD8T": 0.99
+  },
+  "bias_by_group": {
+   "NEU": -0.004,
+   "EOS": -0.032,
+   "BASO": 0.013,
+   "MONO": -0.025,
+   "B": -0.008,
+   "NK": 0.023,
+   "CD4T": -0.023,
+   "CD8T": 0.055
+  }
+ },
+ "chain composition": {
+  "mae_by_group": {
+   "NEU": 0.015,
+   "EOS": 0.012,
+   "BASO": 0.026,
+   "MONO": 0.009,
+   "B": 0.029,
+   "NK": 0.017,
+   "CD4T": 0.028,
+   "CD8T": 0.027
+  },
+  "mae_all": 0.0204,
+  "r_by_group": {
+   "NEU": 0.976,
+   "EOS": 0.976,
+   "BASO": 0.96,
+   "MONO": 0.954,
+   "B": 0.96,
+   "NK": 0.994,
+   "CD4T": 0.992,
+   "CD8T": 0.967
+  },
+  "bias_by_group": {
+   "NEU": -0.005,
+   "EOS": -0.011,
+   "BASO": 0.026,
+   "MONO": 0.002,
+   "B": -0.029,
+   "NK": 0.016,
+   "CD4T": 0.028,
+   "CD8T": -0.027
+  }
+ },
+ "rmse_vs_DEV_NILC_01_bars": {
+  "atlas_e": {
+   "rmse": {
+    "NEU": 0.0142,
+    "EOS": 0.034,
+    "BASO": 0.0188,
+    "MONO": 0.0273,
+    "B": 0.0133,
+    "NK": 0.0253,
+    "CD4T": 0.0238,
+    "CD8T": 0.0563
+   },
+   "met": {
+    "NEU": true,
+    "EOS": false,
+    "BASO": true,
+    "MONO": true,
+    "B": true,
+    "NK": true,
+    "CD4T": true,
+    "CD8T": false
+   },
+   "n_met": 6
+  },
+  "chain composition": {
+   "rmse": {
+    "NEU": 0.0188,
+    "EOS": 0.0154,
+    "BASO": 0.0304,
+    "MONO": 0.0119,
+    "B": 0.032,
+    "NK": 0.018,
+    "CD4T": 0.0293,
+    "CD8T": 0.0304
+   },
+   "met": {
+    "NEU": true,
+    "EOS": true,
+    "BASO": false,
+    "MONO": true,
+    "B": false,
+    "NK": true,
+    "CD4T": true,
+    "CD8T": false
+   },
+   "n_met": 5
+  }
+ }
+}

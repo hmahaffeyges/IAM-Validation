@@ -351,3 +351,9 @@ before Met-A). Table: `doors/CHAIN_COMMISSIONING.md` round 4.
 chain's own model predicts (ratio 0.998 purified neutrophils; 1.043 whole blood). Every array leaves Normal at a 2 % loss (neutrophils) and a
 5 % loss (whole blood). The written bar for a 1 % loss (≥ 95 % leave Normal) is not met (0.875 and 0.083); it was set at the band edge and
 stays recorded as not met.
+
+### 2026-10-09 · Composition on 12 constructed EPIC mixtures from another laboratory (GSE182379)
+\measured Scored against the depositors' known fractions with the existing DEV-NILC-01 bars. The neutrophil fraction, the one Met-A uses in
+whole blood, is recovered within 0.02 by both methods (RMSE atlas_e 0.014, chain composition 0.019). atlas_e meets 6 of 8 groups
+(eosinophils 0.034, CD8 T 0.056 outside); the chain's 8-group composition meets 5 of 8 (basophils, B, CD8 T just outside, 0.030-0.032).
+This is the first adult EPIC mixture truth set (round 2 found none and used 450K). Files: `doors/data/DEV_METAA_SENS_01/jobE_*`.
