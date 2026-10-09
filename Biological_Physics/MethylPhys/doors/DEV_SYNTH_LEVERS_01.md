@@ -107,3 +107,16 @@ in it (power to see the small residual 0.06-0.07, i.e. a null). A clear fall in 
 what the driven-bit derivation (DEV-FLOOR-HEIGHT-02) predicts. Labelled PREDICTION (driven bit: no torpor change; change only after
 renewal). Needs a hamster read pipeline and conversion control; 9 WGBS runs.
 **Not useful:** GSE152444 (sea bass; 4 K during development, read three years later: a memory test, and 4 K is below detection).
+
+## Search: atlas composition truth sets and tumour read both ways (2026-10-09; nothing downloaded)
+**Atlas truth sets.** Every EPIC set with known cell fractions found (GSE112618 FACS bloods, GSE182379 and GSE180970 constructed
+mixtures, GSE77797 450K reconstructed mixtures) comes from one research group (Dartmouth), which also built the reference arrays
+GSE110554/GSE167998 behind several atlas cells. A truth set from that group cannot show the atlas holds on a laboratory it has not seen.
+Still needed: blood with laboratory cell counts or constructed mixtures from a second group. Not found in GEO by title; next: search
+by characteristics fields (e.g. 'neutrophil %', 'lymphocyte count') on EPIC whole-blood series.
+**Cancer fingerprint (both instruments on the same cells): GSE86833.** Prostate cancer line LNCaP and normal prostate epithelium PrEC on
+EPIC and 450K (2 replicates each) and WGBS (LNCaP 5, PrEC 4), one laboratory. Prediction to be simulated before download: on the
+same cells, Met-A departs further than IAM-A (fingerprint). Limits written now: Met-A has no prostate-epithelium reference, and two
+PrEC arrays are fewer than the three same-run references the tare needs, so Met-A can only be read as LNCaP ÷ PrEC (development);
+IAM-A has no measured P for prostate epithelium, so it too is read as LNCaP ÷ PrEC (the 4 PrEC WGBS runs give the same-run reference).
+Cell lines, not patients.
