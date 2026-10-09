@@ -5,9 +5,9 @@
 # Needs session 1's environments and index on /mnt/scratch/run2 (or restores the index and references from S3).
 # Usage: N_PAIRS=50000000 THREADS=120 bash session2.sh      Outputs: s3://<bucket>/results/BOXRUN2/session2/
 set -uo pipefail
-B=methylphys-data-945451304272-us-west-2-an; P=results/BOXRUN2/session2
+B=methylphys-data-945451304272-us-west-2-an; P=${OUTP:-results/BOXRUN2/session2}   # session 3 reuses this script with RUNS, OUTP, OUTD, SKIP_FORMAT
 N_PAIRS=${N_PAIRS:-50000000}; T=${THREADS:-$(nproc)}
-S=/mnt/scratch/run2; O=$S/out2; mkdir -p $O $S/reads2 $S/bam2 $S/pat2; cd $S
+S=/mnt/scratch/run2; O=$S/${OUTD:-out2}; mkdir -p $O $S/reads2 $S/bam2 $S/pat2; cd $S
 PYB=/home/ubuntu/env/bin/python; REPO=~/IAM-Validation; HERE=$REPO/Biological_Physics/MethylPhys/boxruns/run2
 export PATH=$S/e_st19/bin:$S/e_wgbs/bin:$S/e_bm/bin:$S/e_sra/bin:$S/e_sbb/bin:$S/wgbs_tools:$PATH
 log(){ echo "$(date -u +%FT%TZ) $*" | tee -a $O/session2.log; }
@@ -23,6 +23,7 @@ SBV=$(sambamba 2>&1 || true); echo "$SBV" | grep -q "sambamba 0\.6\.5" || fin FA
 { bwameth.py --version 2>&1 | head -1; samtools --version | head -1; echo "$SBV" | grep -m1 sambamba; echo "wgbstools $(git -C $S/wgbs_tools describe --tags)"; } > $O/versions.txt
 cd $REPO && git pull -q origin main && git log --oneline -1 > $O/repo_commit.txt; cd $S
 
+if [ -z "${SKIP_FORMAT:-}" ]; then
 log "STEP format check first (session 1's 1M-pair BAM of SRR9888333; session 1 could not run it: output folder and script path)"
 mkdir -p $S/pat1; [ -s $S/test.sorted.bam ] || fin FAIL_no_session1_bam
 wgbstools bam2pat $S/test.sorted.bam -o $S/pat1 --genome hg19 -f >> $O/format_bam2pat.log 2>&1 || fin FAIL_format_bam2pat
@@ -31,8 +32,9 @@ curl -s https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652313/suppl/GSM
 python3 $HERE/format_check.py $O/SRR9888333_1M.pat.gz $S/loyfer_head.pat $S/wgbs_tools/references/hg19/CpG.bed.gz $O/format_check.json >> $O/session2.log 2>&1
 grep -q '"pass": true' $O/format_check.json || fin FAIL_FORMAT_CHECK
 log "format check passed"
+fi
 
-RUNS="SRR9888330 SRR9888331 SRR9888332 SRR9888333 SRR9888334 SRR9888335 SRR9888336 SRR9888337"
+RUNS=${RUNS:-"SRR9888330 SRR9888331 SRR9888332 SRR9888333 SRR9888334 SRR9888335 SRR9888336 SRR9888337"}
 log "STEP reads: first $N_PAIRS pairs of each run, 8 downloads in parallel"
 for r in $RUNS; do ( [ -s reads2/${r}_2.fastq.gz ] || fastq-dump -X $N_PAIRS --split-files --gzip -O reads2 $r > $O/${r}_fastq.log 2>&1; echo "$r $?" >> $O/fastq_done.txt ) & done
 
