@@ -15,31 +15,19 @@ the data register (`kit/build_data_register.py`, from the S3 listing and the LOG
 ---
 
 
-## 1. Now: commission the neutrophil chain (updated 2026-10-09)
+## 1. Now (updated 2026-10-09 afternoon)
 
-**Met-A (arrays): COMMISSIONED 2026-10-09** (author approval; detection limits 2 % purified / 5 % whole blood printed on every report) — [`COMMISSIONING_NOTE_METAA_NEUTROPHILS.md`](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md):
-9 of 11 bars met, 1 not met (a 1 % loss of pattern; detection limits 2 % purified, 5 % whole blood), 1 not met (C-score band on a new
-laboratory, 23/26). Box Run 1 complete:
-
-| Job | What | Status |
+| reading | status | what is left |
 |---|---|---|
-| A | Self-tare II, then the median tare | **done, every bar met** (replicate SD 0.0164; 62/63; 68/68; 6/6) |
-| B | Every test set re-read with the adopted tare | **done 2026-10-08**: healthy 525/541 Normal, 18 series |
-| C | C-score spread on healthy arrays | done; tared band 0.751-1.409 (DEV-CSCORE-TARE-01) |
-| D | Sky statistics, apodised mask | done; bars not met; sky stays withheld |
-| E | Composition truth | **done**: FACS bloods and 12 EPIC mixtures; neutrophil fraction within 0.02 |
+| **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)); detection limits 2 % purified / 5 % whole blood | testing (Box Run 3 under way) |
+| Met-A C-score | development; blocks of 10 (band 0.877-1.152); one-sided reading and repeat bar tied to detection (author decision) | test (a) new laboratories ≥ 95 % not above 1.152: GSE315366 34/35 met, more laboratories to read; test (b) new same-person replicates |
+| IAM-A, neutrophils | development; whole-file P v2; Q0 intake; same-run tare wired | the tare tested on independent people: cross-cell test (DEV-IAMA-XCELL-01, session 3 running); BLUEPRINT 6 neutrophils (access request drafted for the author) |
+| Composition (atlas v2) | development; bars written ([DEV-ATLAS-COMMISSION-01](doors/DEV_ATLAS_COMMISSION_01.md)) | independent truth sets |
 
-Also done (no box): constructed sensitivity test (DEV-METAA-SENS-01); new-laboratory granulocytes 26/26 Normal (DEV-NEWLAB-GRAN-01).
-
-**IAM-A (sequencing):** Stage Q0 intake wired and tested on real files (DEV-Q0-HEALTHY-01); P re-measured on whole files, v2 = 1.1492
-(DEV-IAMA-P-WHOLE-01); pinned Loyfer pipeline built and format-checked (Box Run 2 session 1).
-
-## 2. IAM-A: Box Run 2 session 2 done (2026-10-09)
-
-Another laboratory's healthy neutrophils (GSE128731), 2 donors × 4 kits. TruSeq 1.047 / 1.042 (Normal); Swift 1.16 (both donors, both
-sequencers); QIAseq stopped by Q0 (conversion). IAM-A is repeatable (≤ 0.009 between donors and sequencers) but carries a laboratory-and-kit
-offset up to ~0.16 (DEV-IAMA-KIT-01). **Author decision needed:** how IAM-A handles that offset (same-run tare / per-kit P / wider band).
-Then: IAM-A healthy band, IAM-A C-score, Met-A against IAM-A on the same donors (GSE128733).
+**Testing on commissioned Met-A ([Box Run 3](boxruns/run3/JOBS.md)).** Clonal haematopoiesis (GSE315366): new laboratory 34/35 Normal;
+carriers not separated (p = 0.41; clones likely below the 5 % detection limit, stated before reading). Leukaemia serial bloods
+(GSE315367): diagnosis bloods below the neutrophil scope (not read, as designed). Scope of S3 for commissioned Met-A: most array sets are
+450K, EPIC v2, marrow or sorted non-neutrophil cells (list in the job sheet); they wait on those commissionings.
 
 ## 2b. IAM-Atlas v2 as the composition step (added 2026-10-09, author: "if it works better than what we are currently using we should use it")
 
