@@ -54,3 +54,14 @@ Simulated with a true +1 %/K: today's design (44 species over 5.2 K) detects it 
 One species, same tissue: 2 groups × 10 animals 10 K apart 0.43; 4 temperatures × 6 over 20 K 0.65; **40 animals over 20 K 0.85**;
 torpid vs active, 8 + 8, 30 K 0.99 (caveat: copy errors arise at cell division, which slows in torpor). Requirement for the next data:
 one species, one tissue, ≥ 20 K and ≥ 40 animals (or a torpor contrast with dividing cells).
+
+## Development reading — fish, water temperature (2026-10-09; not a test, ~50 % power)
+342 runs of 56 fish species with a FishBase water temperature (preferred 50th percentile, else midpoint of min–max; 0.2–28 °C), same reader.
+| tissue | species | ρ | one-sided p | slope %/K (95 % CI) |
+|---|---|---|---|---|
+| gills | 34 | +0.19 | 0.14 | +0.45 (−0.38 to +1.28) |
+| muscle | 33 | +0.07 | 0.36 | +0.39 (−0.60 to +1.39) |
+| heart | 15 | +0.20 | 0.24 | +0.45 (−1.33 to +2.23) |
+| liver | 16 | −0.27 | 0.84 | −0.65 (−2.17 to +0.87) |
+\measured Over a ~28 K range the three larger tissues lean positive and their intervals hold the predicted +1 %/K and exclude the
++6 %/K of the mammal liver reading; liver leans negative. Undecided; habitat temperature is a species average, not the animals' own.

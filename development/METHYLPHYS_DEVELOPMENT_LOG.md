@@ -504,3 +504,7 @@ floor a prediction. `chain/pat_eps_fast.py`: Stage Q's whole-file ε streamed, i
 \measured Lambda spike-in non-conversion TruSeq 1.05 %, Swift 1.63 %; corrected de novo error 0.0030 and −0.0011 vs predicted
 0.0055-0.011 from DNMT1's single-step HM/UM gap (87-180x). Cells exceed the enzyme's single-step fidelity (multi-step in cells).
 Methylated-channel (3.41 kT) height: still no physics-only derivation.
+
+### 2026-10-09 · Fish water-temperature reading (development)
+\measured 56 fish species, 0.2-28 °C: gills +0.45 %/K (−0.38 to 1.28), muscle +0.39 (−0.60 to 1.39), heart +0.45, liver −0.65; all CIs
+include +1 %/K except none excludes 0. Undecided. A decisive design needs one species over ≥ 20 K (≈ 40 animals).
