@@ -130,7 +130,7 @@ def _versions(chain_dir):
         out["chain_commit"] = "unknown"
     files = {}
     for pat in ("Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json", "Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv",
-                "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json", "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json",
+                "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json", "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json",
                 "Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json", "Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json",
                 "Runtime Matrices/IAM_A_Positions/iama_positions_v1.json", "Runtime Matrices/Intake/intake_thresholds_v1.json",
                 "conductor_v3.py", "stage_m_met_a.py", "stage_q_iam_a.py", "stage_q0_intake.py", "stage_0_intake.py", "stage_0_1_qc_handoff.py",

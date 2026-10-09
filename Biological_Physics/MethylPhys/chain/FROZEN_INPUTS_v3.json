@@ -4,13 +4,13 @@
  "files": {
   "Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json": "2f64f8846f8a4b0d5d66964347807dde03067130f17d9ce97a8e4dc7efe7c9ae",
   "Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv": "73f090a7004bc7c79b0d761000eb49c86f61e0865fa1823458feaa095ec1eda0",
-  "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json": "a03531f07369d90bc96ce32ebc723bc59abb060ff9bc7b93042a28df47d9c023",
   "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json": "6ad3dfb0e01a70eed0e71df28c0b62170f7730d261f1d51aa4691758027fc0ab",
   "Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json": "3531561783261c577e436a0ac6b83799adbb791fe4ed40be7d0a48ec83f7aeb0",
   "Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json": "825f64f7b6c7077a6ff17ce44c28b5470ad55d4347d64edb57055b793f808480",
   "Runtime Matrices/Intake/intake_thresholds_v1.json": "58f7e6073e8f2a5c249c921c325e8b1f1478151bfbd5fd0bedbbd7638c2a58e2",
   "Runtime Matrices/IAM_A_Positions/iama_positions_v2.json": "9cfec8167c4aee744a546d1d03c86619a6c28e5117567d97384c4310e5257ef7",
-  "Runtime Matrices/IAM_A_Positions/hg19_cpg_chrom_ranges.json": "fb08d2fbfd159304ae684e99662828d3d9ff20c6914148aaa11cecfcff9d2062"
+  "Runtime Matrices/IAM_A_Positions/hg19_cpg_chrom_ranges.json": "fb08d2fbfd159304ae684e99662828d3d9ff20c6914148aaa11cecfcff9d2062",
+  "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json": "820c9b1ecf82456169dfea20a943620bf060e845b520d460779790c50dee48b1"
  },
  "superseded": {
   "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json": {
@@ -24,6 +24,13 @@
    "superseded_by": "Runtime Matrices/IAM_A_Positions/iama_positions_v2.json",
    "date": "2026-10-08",
    "why": "P re-frozen on whole files (DEV-IAMA-P-WHOLE-01); v1 was measured on the first 60 MB of each file"
+  },
+  "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json": {
+   "file": "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json",
+   "sha256": "a03531f07369d90bc96ce32ebc723bc59abb060ff9bc7b93042a28df47d9c023",
+   "superseded_by": "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json",
+   "date": "2026-10-09",
+   "why": "C-score block 50 -> 10 (CSCORE_COMMISSIONING_PLAN)"
   }
  }
 }

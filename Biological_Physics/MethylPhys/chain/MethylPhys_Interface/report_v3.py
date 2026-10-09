@@ -111,7 +111,7 @@ def safeguards(o, prose):
         import stage_m_met_a as SM
         anc.append(f"Normal {SM.NORMAL[0]}-{SM.NORMAL[1]}"); (bad.append("Normal band") if tuple(SM.NORMAL) != (0.95, 1.05) else None)
     except Exception as e: bad.append(f"stage_m_met_a not importable ({type(e).__name__})")
-    R = _load("Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json"); G = _load("Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json")
+    R = _load("Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json"); G = _load("Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json")
     if R is not None and c.get("healthy_baseline") is not None:
         anc.append(f"C-score baseline {R['healthy_clustering_median']}"); (bad.append("C baseline") if R["healthy_clustering_median"] != c["healthy_baseline"] else None)
     if G is not None and m.get("noise_gate_N_max") is not None:

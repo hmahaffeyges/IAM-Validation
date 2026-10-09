@@ -18,8 +18,8 @@ Runs after Stage 0 (intake) and Stage 1 (IDAT calibration), both driven by Methy
             the reference arrays' range) the gauge state is withheld unless the reading is tared (DEV-NOISE-01 rule). If fewer than 90 % of
             the noise sites are measured, N cannot be formed and the gauge state is withheld with the reason (author decision A, 2026-10-04).
   Specimen  whole blood and isolated / sorted / purified neutrophils only (stage_0_intake.specimen_refusal, author decision L, 2026-10-04).
-Frozen inputs (Runtime Matrices/Met_A_Floors): metA_floors_v1_3.json, metA_floors_v1_3_loo.csv, neutrophil_reference_v1_1.json,
-blood_composition_EPIC_v1.json, noise_sites_EPIC_v1.json, noise_gate_EPIC_v1.json. neutrophil_reference_v1_1.json keys profiles_mean_beta and profile_map are record only (not read).
+Frozen inputs (Runtime Matrices/Met_A_Floors): metA_floors_v1_3.json, metA_floors_v1_3_loo.csv, neutrophil_reference_v1_2.json,
+blood_composition_EPIC_v1.json, noise_sites_EPIC_v1.json, noise_gate_EPIC_v1.json. neutrophil_reference_v1_2.json keys profiles_mean_beta and profile_map are record only (not read).
 IAM-A (sequencing) is Stage Q, stage_q_iam_a.py, called by run_sample.py with --pat or --site-table.
 Formulas (canon: Met-A, C-score):
   H(b) = -b log2 b - (1-b) log2(1-b)
@@ -49,7 +49,7 @@ ACCEPTED_ARRAY_TYPES = ("EPIC_v1",)
 _REF = None
 def ref():
     global _REF
-    if _REF is None: _REF = json.load(open(os.path.join(RM, "neutrophil_reference_v1_1.json")))
+    if _REF is None: _REF = json.load(open(os.path.join(RM, "neutrophil_reference_v1_2.json")))
     return _REF
 H = SM._H
 ISOLATED = ("isolated neutrophils", "sorted neutrophils", "purified neutrophils", "neutrophils")
@@ -160,7 +160,7 @@ def stage_m_isolated(beta):
 
 def stage_mc_cscore(z):
     """Met-A C-score (stage 6): clustering of the residual z map in genomic order - variance of the means of blocks of clustering_block
-    consecutive sites (x sqrt(block)) over the site variance, divided by the healthy median clustering of neutrophil_reference_v1_1.json.
+    consecutive sites (x sqrt(block)) over the site variance, divided by the healthy median clustering of neutrophil_reference_v1_2.json.
     Healthy = 1; development (band not set). No residual map -> C None with the reason."""
     R = ref(); c = _clustering(z) if z is not None else None
     if c is None: return {"stage": "MC", "reading": "Met-A C-score", "C": None, "reason": "no residual map"}
@@ -200,7 +200,7 @@ def stage_t_tare(A, ref_A, shift_1pct=None, sample_id=None):
             "detection_note": "smallest loss of the cell's pattern (percent) this specimen could show: 2 x reference spread / shift per 1 % loss",
             "state": _state(Ar)}
 
-CSCORE_DEV_BAND = (0.751, 1.409)   # DEV-CSCORE-TARE-01: 2.5-97.5 % of tared C on 615 healthy arrays, 19 series; development, not commissioned
+CSCORE_DEV_BAND = None   # block 10 since 2026-10-09 (neutrophil_reference_v1_2); the block-50 band 0.751-1.409 no longer applies. Re-set by step 1 of doors/CSCORE_COMMISSIONING_PLAN.md
 
 def stage_t_cscore(cs, ref_A, sample_id=None):
     """Same-run tare of the Met-A C-score, the same rule as the median tare of A (DEV-CSCORE-TARE-01): C_rel = C / median(C of >= MIN_REFS
@@ -211,8 +211,11 @@ def stage_t_cscore(cs, ref_A, sample_id=None):
     if len(cs_ref) < MIN_REFS:
         cs["C_rel"] = None; cs["C_rel_reason"] = f"untared: {len(cs_ref)} same-run references carry a C-score (>= {MIN_REFS} required)"; return cs
     m = float(np.median(cs_ref)); cs["C_rel"] = round(cs["C"] / m, 4); cs["C_reference_median"] = round(m, 4); cs["C_n_refs"] = len(cs_ref)
-    lo, hi = CSCORE_DEV_BAND
-    cs["C_rel_band_dev"] = [lo, hi]; cs["C_rel_in_band_dev"] = bool(lo <= cs["C_rel"] <= hi)
+    if CSCORE_DEV_BAND is None:
+        cs["C_rel_band_dev"] = None; cs["C_rel_band_note"] = "band being re-set for blocks of 10 (CSCORE_COMMISSIONING_PLAN step 1)"
+    else:
+        lo, hi = CSCORE_DEV_BAND
+        cs["C_rel_band_dev"] = [lo, hi]; cs["C_rel_in_band_dev"] = bool(lo <= cs["C_rel"] <= hi)
     cs["status"] = "development: tared C_rel against a development band (DEV-CSCORE-TARE-01); not commissioned"
     return cs
 

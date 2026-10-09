@@ -1,5 +1,11 @@
 # Chain changelog
 
+## 2026-10-09 - C-score blocks of 10 (author approved; DEVELOPMENT - not commissioned)
+
+- `neutrophil_reference_v1_2.json` (supersedes v1_1): `clustering_block` 50 -> 10; healthy baseline re-measured the v1_1 way on the same 6
+  GSE110554 arrays (block-50 baseline reproduced first, median 1.1104): block-10 leave-one-out 0.9635-1.0563, median 1.0103. Every other key
+  unchanged, so Met-A is unchanged (checked: A identical to job B on 6 arrays). `CSCORE_DEV_BAND` set to None until step 1 re-sets it.
+
 ## 2026-10-09 - Met-A on neutrophils COMMISSIONED (author approval)
 
 - `conductor_v3.py`: `BUILD` names Met-A on neutrophils (EPIC v1) commissioned 2026-10-09 and every other stage development;
