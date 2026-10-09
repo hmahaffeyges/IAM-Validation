@@ -63,7 +63,11 @@ def main():
                conversion_rate=(round(c / (c + u), 5) if c + u >= MIN_CALLS else None))
     fs = subprocess.run(["samtools", "flagstat", bam], capture_output=True, text=True).stdout
     g = lambda pat: int(re.search(pat, fs).group(1)) if re.search(pat, fs) else None
-    dup, prim = g(r"(\d+) \+ \d+ duplicates"), g(r"(\d+) \+ \d+ primary mapped")
+    dup = g(r"(\d+) \+ \d+ duplicates")
+    prim = g(r"(\d+) \+ \d+ primary mapped")          # SAMtools >= 1.13
+    if prim is None:                                     # SAMtools 1.9 (the pinned version): mapped minus secondary and supplementary
+        mp, sec, sup = g(r"(\d+) \+ \d+ mapped \("), g(r"(\d+) \+ \d+ secondary"), g(r"(\d+) \+ \d+ supplementary")
+        prim = mp - (sec or 0) - (sup or 0) if mp is not None else None
     rec.update(duplicates=dup, primary_mapped=prim, duplicate_fraction=(round(dup / prim, 5) if dup is not None and prim else None),
                marked_by="Sambamba 0.6.5 markdup (Loyfer 2023 parameters)")
     json.dump(rec, open(out, "w"), indent=1); print(json.dumps(rec))
