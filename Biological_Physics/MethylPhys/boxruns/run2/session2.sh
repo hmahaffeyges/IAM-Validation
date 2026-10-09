@@ -39,13 +39,13 @@ log "STEP reads: first $N_PAIRS pairs of each run, 8 downloads in parallel"
 # Reads: first from the AWS-hosted copy of SRA (public bucket sra-pub-run-odp, unsigned; much faster than NCBI), one run at a time onto the
 # scratch disk, then fastq-dump -X from the local file; falls back to NCBI streaming if the AWS copy is missing (2026-10-09).
 getrun(){ r=$1; mkdir -p sra
-  if [ -s reads2/${r}_2.fastq.gz ]; then echo "$r 0" >> $O/fastq_done.txt; return; fi
+  if [ -s reads2/${r}_2.fastq.gz ] && [ -f reads2/${r}.complete ]; then echo "$r 0" >> $O/fastq_done.txt; return; fi
   if $PYB -c "import boto3,sys;from botocore import UNSIGNED;from botocore.config import Config;boto3.client('s3',region_name='us-east-1',config=Config(signature_version=UNSIGNED)).download_file('sra-pub-run-odp','sra/'+sys.argv[1]+'/'+sys.argv[1],'sra/'+sys.argv[1]+'.sra')" $r >> $O/${r}_fastq.log 2>&1; then
     fastq-dump -X $N_PAIRS --split-files --gzip -O reads2 sra/$r.sra > $O/${r}_fastq.log 2>&1; rc=$?; rm -f sra/$r.sra
   else
     fastq-dump -X $N_PAIRS --split-files --gzip -O reads2 $r > $O/${r}_fastq.log 2>&1; rc=$?; fi
-  [ -s reads2/${r}_1.fastq.gz ] && ( zcat reads2/${r}_1.fastq.gz | head -400 | awk 'NR%4==1' | head -1 | grep -q . ) || rc=1
-  echo "$r $rc" >> $O/fastq_done.txt; }
+  [ -s reads2/${r}_1.fastq.gz ] && ( set +o pipefail; zcat reads2/${r}_1.fastq.gz 2>/dev/null | head -400 | awk 'NR%4==1' | head -1 | grep -q . ) || rc=1   # +pipefail: zcat stops on SIGPIPE when head exits
+  [ "$rc" = 0 ] && touch reads2/${r}.complete; echo "$r $rc" >> $O/fastq_done.txt; }
 ( for r in $RUNS; do getrun $r; done ) &
 
 for r in $RUNS; do
