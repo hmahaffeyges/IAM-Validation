@@ -55,7 +55,7 @@ SEC=$(( $(date +%s)-T0 ))
 echo "{\"run\": \"SRR9888333\", \"read_pairs\": 1000000, \"read_length\": $RL, \"threads\": 24, \"vcpus\": $(nproc), \"align_seconds\": $SEC}" > $O/align_timing.json
 log "aligned 1M pairs (read length $RL) in $SEC s on 24 threads"
 samtools sort -@ 8 -o test.sorted.bam test.bam && samtools index test.sorted.bam && samtools flagstat test.sorted.bam > $O/flagstat.txt
-wgbstools bam2pat test.sorted.bam -o $S/pat --genome hg19 >> $O/bam2pat.log 2>&1 || fin FAIL_bam2pat
+mkdir -p $S/pat; wgbstools bam2pat test.sorted.bam -o $S/pat --genome hg19 >> $O/bam2pat.log 2>&1 || fin FAIL_bam2pat
 PAT=$(ls $S/pat/*.pat.gz | head -1); cp "$PAT" $O/SRR9888333_1M.pat.gz
 
 log "STEP format check against Loyfer GSM5652313 Blood-Granulocytes"
