@@ -379,3 +379,10 @@ The author approved commissioning with the detection limits printed on every rep
 neutrophils, 5 % in whole blood). From today Met-A readings in that scope are results; every other stage stays development. Note:
 `doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md`; chain build label, report box, SOP, OM, changelog and commissioning record updated.
 End-to-end check: one healthy purified-neutrophil array (A_rel 0.998) and one healthy whole blood (1.007) read Normal with the box shown.
+
+### 2026-10-09 · C-score commissioning plan, steps 1-3 run
+Plan written first (`doors/CSCORE_COMMISSIONING_PLAN.md`). \measured Leave-one-laboratory-out band: 94.2 % pooled (bar 95 %), one
+laboratory 84 % (bar 85 %). Positive control: clustered loss reads above the band 100 % of the time down to 5 % of sites × 5 % loss;
+scattered loss stays inside 97.5 % (neutrophils) / 88.3 % (whole blood). Same-person replicate spread 0.138 vs healthy 0.175 (bar ≤ half).
+\calculated The replicate spread equals the sampling error of a variance over 120 blocks, √(2/119) = 0.130: the band is the statistic's own
+counting noise. Proposed (author's decision): read the C-score over the 48,528 noise sites (≈ 970 blocks, expected error 0.045), then rerun.
