@@ -466,8 +466,9 @@ GSE166503, GSE200376, GSE222927, GSE225544, GSE226298, GSE235717, GSE247193, GSE
 ### 2026-10-09 · Box Run 3, test 1: commissioned Met-A on clonal haematopoiesis (GSE315366)
 \measured 64 EPIC v1 peripheral bloods of a new laboratory. CH-negative 34/35 Normal (bar met). CH-positive vs negative: medians 1.0013 vs
 1.0011, p = 0.41 (prediction not met; clones likely below the 5 % whole-blood detection limit, stated before reading). C-score test (a)
-on a new laboratory: 34/35 not above 1.152 (met). Session 3 pUC19: 0-4 reads per neutrophil BAM: the libraries carry no methylated spike,
-so no internal technical standard there (DEV-IAMA-XCELL-01 check 4: recorded null). Details: `boxruns/run3/JOBS.md`.
+on a new laboratory: 34/35 not above 1.152 (met). Session 3 pUC19 (six neutrophil BAMs, 25 M pairs each): 0, 0, 29, 0, 0 and 4 reads
+(SRR9888330, 332, 333, 334, 336, 337); the 29 reads of SRR9888333 are 2.5 % methylated (6 of 238 CpG calls), so the pUC19 present is
+unmethylated, not a methylated spike: no internal technical standard there (DEV-IAMA-XCELL-01 check 4: recorded null). Details: `boxruns/run3/JOBS.md`.
 
 ### 2026-10-09 · Box Run 3, reading 2: leukaemia serial bloods (GSE315367, development)
 \measured 30 peripheral bloods, 0 errors. **Diagnosis bloods: 10 of 10 not read** — neutrophil fraction
