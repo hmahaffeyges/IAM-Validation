@@ -530,3 +530,15 @@ donors; iama_positions_v2.json carries cv_across_donors 0.012, metadata only, no
 whole-file positions (shift measured on the first 60 MB). Book: Part III, VI, VII, appendices A (regenerated from CANON), B, C, D, F,
 H, saturation; CANON iam_canon.json (H_min_cell, H_ref_cell added; P 1.1492) and GLOSSARY.md; five figure scripts; verify_book.py
 checks moved to whole-file counts, 13 new floor checks, every control fails as it should. SOP: gauge marks and P. No chain change.
+
+### 2026-10-09 · DEV-METAA-450K-01 bar 2b diagnosis: slide/processing batch
+**Cause: slide / processing batch, not a mixed-in cell type.** The 17 slides holding two of these neutrophil arrays hold two different
+people (consecutive sample numbers, e.g. F186/F187, F102/F103). Their tared readings agree to a median |difference| of **0.013**; two
+arrays from different slides differ by **0.051** (one-sided p < 0.001). A second cell type mixed in at varying amounts would differ
+person by person, not slide by slide. One direction carries the spread: the first component of the identity-site residuals holds 17 %
+of the variance and tracks the reading (r = 0.89), and it lowers the methylated identity sites while leaving the unmethylated ones
+(a shift of the methylated channel, as a processing offset gives). The self-tare on invariant sites does not remove it.
+**What it means for 450K.** Where same-slide healthy references exist (GSE124565), 12/12 read Normal; where they do not (this series,
+1–2 neutrophil arrays per slide), the series-level tare cannot remove a slide offset. 450K Met-A stays development. Rule to test before
+use: a 450K reading needs ≥ 3 same-cell-type healthy references on its own slide (the EPIC Stage T rule). Next: a third laboratory with
+same-slide healthy neutrophils, scored by bars 1–3 as written; APS and the disease readings wait on it.
