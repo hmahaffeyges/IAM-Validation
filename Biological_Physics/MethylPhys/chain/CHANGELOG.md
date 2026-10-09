@@ -1,5 +1,11 @@
 # Chain changelog
 
+## 2026-10-09 - IAM-A same-run tare (author decision, option a; DEVELOPMENT - not commissioned)
+
+- `stage_q_iam_a.tare()`: A_rel = A / median A of >= 3 same-run healthy references of the same cell (same laboratory, kit, pipeline); self
+  excluded; a reference read with another pipeline is refused; fewer than 3 -> untared with the reason. `run_sample.py --iama-ref-table`.
+- Why: DEV-IAMA-KIT-01 (Swift vs TruSeq 0.12 on the same cells; this laboratory's Swift 0.16 above Loyfer's Swift).
+
 ## 2026-10-09 - C-score blocks of 10 (author approved; DEVELOPMENT - not commissioned)
 
 - `neutrophil_reference_v1_2.json` (supersedes v1_1): `clustering_block` 50 -> 10; healthy baseline re-measured the v1_1 way on the same 6

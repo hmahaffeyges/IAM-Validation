@@ -227,6 +227,7 @@ def main():
     ap.add_argument("--pat", default=None, help="v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table)")
     ap.add_argument("--pat-max-bytes", type=int, default=None, help="development: read only the first N bytes of --pat; IAM-A is then refused (P is measured on whole files) unless --dev-allow-partial")
     ap.add_argument("--alignment-qc", default=None, help="Stage Q0: JSON from the alignment step with conversion_rate and/or duplicate_fraction")
+    ap.add_argument("--iama-ref-table", default=None, help="CSV of same-run healthy references for IAM-A (column A, optional id, pipeline): same laboratory, kit and pipeline; >= 3 rows -> IAM-A median tare")
     ap.add_argument("--dev-allow-partial", action="store_true", help="development only: read IAM-A on a --pat-max-bytes cut (e.g. to reproduce position v1)")
     ap.add_argument("--site-table", default=None, help="v3 Stage Q: a per-site CSV with columns pos,opp_A,err_A,opp_B,err_B; needs --seq-pipeline")
     ap.add_argument("--seq-pipeline", default=None, help="the read-level pipeline that produced --site-table (required with it); IAM-A is refused unless a position P was frozen for it")
@@ -513,6 +514,11 @@ def main():
                           "refusal": f"Stage Q0 stopped the file: {qi['refusal']}", "input": src}
         else:
             o["iam_a"] = Q.read(T, cell=a.seq_cell, pipeline=pipe, allow_partial=bool(getattr(a, "dev_allow_partial", False))); o["iam_a"]["input"] = src
+            if getattr(a, "iama_ref_table", None):
+                _rt = _pd.read_csv(a.iama_ref_table)
+                if "A" not in _rt.columns: sys.exit(f"--iama-ref-table {a.iama_ref_table}: needs a column A")
+                _rr = [{k: (None if _pd.isna(r.get(k)) else r.get(k)) for k in ("A", "id", "pipeline") if k in _rt.columns} for r in _rt.to_dict("records")]
+                o["iam_a"]["tare"] = Q.tare(o["iam_a"], _rr, sample_id=a.id)
             if not a.pat: o["iam_a"]["intake"] = "Stage Q0 not run: a site table carries no molecules to check"
     # what stage 12b needs from every draw (recorded on every run so a later draw can be compared): the identifier hash and the pipeline
     if a.betas: o["pipeline"] = "chain Stage 1 (beta table)"

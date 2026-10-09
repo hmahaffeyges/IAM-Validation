@@ -140,3 +140,29 @@ def read(site_table, cell, pipeline, mask=None, allow_partial=False):
                opportunities=int(o["A"] + o["B"]), n_sites=int(len(D)))
     rec["cscore"] = {"label": "DEVELOPMENT - not commissioned", **cscore(D)}   # one C per A (DEV-IAMA-CSCORE-01); band not set
     return rec
+
+MIN_REFS = 3   # same rule as Met-A's median tare (conductor_v3.stage_t_tare)
+
+
+def tare(rec, refs, sample_id=None):
+    """IAM-A same-run tare (author decision 2026-10-09, option a; DEVELOPMENT - not commissioned; doors/DEV_IAMA_KIT_01.md).
+    A_rel = A / median(A of >= MIN_REFS healthy references of the same cell read the same way: same laboratory, same library kit, same
+    pipeline). refs: plain A values, or records {A, id[, pipeline]}; a record whose id equals sample_id is excluded; a record with a different
+    pipeline is refused. Removes the laboratory-and-kit offset (Swift vs TruSeq 0.12 on the same cells), as the median tare does for Met-A."""
+    out = {"stage": "QT", "method": "IAM-A median tare (same-run healthy references)", "A_rel": None}
+    if rec.get("A") is None: out["reason"] = "no IAM-A to tare"; return out
+    vals, n_self = [], 0
+    for r in (refs or []):
+        if isinstance(r, dict):
+            if sample_id is not None and str(r.get("id", "")) == str(sample_id): n_self += 1; continue
+            if r.get("pipeline") and r["pipeline"] != rec.get("pipeline"):
+                out["reason"] = f"reference {r.get('id')} read with {r['pipeline']}, not {rec.get('pipeline')}"; return out
+            if r.get("A") is not None: vals.append(float(r["A"]))
+        elif r is not None: vals.append(float(r))
+    out["n_self_excluded"] = n_self
+    if len(vals) < MIN_REFS:
+        out["reason"] = f"untared: {len(vals)} same-run healthy references (>= {MIN_REFS} required); read A against P only"; return out
+    v = np.array(vals); m = float(np.median(v)); Ar = rec["A"] / m
+    out.update(n_refs=len(vals), reference_median=round(m, 4), A_rel=round(Ar, 4), reference_spread_sd=round(float(np.std(v / m, ddof=1)), 4),
+               state="Normal" if SM.NORMAL[0] <= Ar <= SM.NORMAL[1] else ("above Normal" if Ar > SM.NORMAL[1] else "below Normal"))
+    return out

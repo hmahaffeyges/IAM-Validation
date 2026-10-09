@@ -431,3 +431,13 @@ on IAM-A, like Met-A's before the tare. Options (tare / per-kit P / wider band) 
 sequencer makes ≤ 0.009 difference (largest 0.0087). \measured The library kit makes a 0.12 difference on the same cells (Swift 1.16 vs TruSeq 1.04-1.05), and this
 laboratory's Swift reads 0.16 above the Loyfer Swift libraries P was measured on (DEV-IAMA-KIT-01). Q0 stopped both low-conversion runs,
 as designed. Duplicate fractions now recorded (0.11-0.19). The box stopped itself at 06:30 UTC; the scratch disk is deleted.
+
+### 2026-10-09 · Author decisions; C-score blocks of 10; IAM-A same-run tare wired
+- Author approved (1) C-score blocks of 10 and (2) option (a), IAM-A read against same-run healthy references.
+- C-score: `neutrophil_reference_v1_2.json` (block 10; baseline re-measured the v1_1 way, median 1.0103, leave-one-out 0.964-1.056; block-50
+  baseline reproduced first). Met-A unchanged (6 arrays identical to job B). Band unset until step 1 reruns (running).
+- IAM-A: `stage_q_iam_a.tare()` and `run_sample.py --iama-ref-table`, same rule as Met-A (>= 3 references). Constructed checks: a Swift run
+  against three other Swift runs reads A_rel 1.007 Normal; one reference only -> untared with the reason; a reference from another pipeline
+  is refused. \observed No public set yet gives >= 3 healthy neutrophil donors per laboratory and kit at read level (GEO search 2026-10-09:
+  GSE128731 has 2 donors per kit; Loyfer 3 granulocytes, Swift; BLUEPRINT is controlled access), so the tare cannot yet be tested on
+  independent people. That is the data the IAM-A commissioning needs.
