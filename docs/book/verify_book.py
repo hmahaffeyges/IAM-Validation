@@ -37667,7 +37667,7 @@ def check_4643():
        file='appendices/app_A2_frozen_values', line=18, status='measured', kind='file', printed='1.149', tol=0.0, source='CANON/iam_canon.json')
 def check_2692():
     'measured: printed value found in iam_canon.json, a file the chapter names. Book line 18, printed 1.149.'
-    ok = file_has('CANON/iam_canon.json', '1.099')
+    ok = file_has('CANON/iam_canon.json', '1.1492')
     return locals()
 
 @check(label='app:constants:L18:1.140', chapter='app:constants', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
@@ -37784,7 +37784,7 @@ def check_2702():
        file='appendices/app_N_notation', line=115, status='measured', kind='file', printed='1.149', tol=0.0, source='CANON/iam_canon.json')
 def check_2703():
     'measured: printed value found in iam_canon.json, a file the chapter names. Book line 115, printed 1.149.'
-    ok = file_has('CANON/iam_canon.json', '1.099')
+    ok = file_has('CANON/iam_canon.json', '1.1492')
     return locals()
 
 @check(label='app:notation:L113:1.140', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
