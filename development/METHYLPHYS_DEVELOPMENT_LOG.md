@@ -514,3 +514,5 @@ include +1 %/K except none excludes 0. Undecided. A decisive design needs one sp
 450K self-tare (bar 0.020). Other lab GSE124565: 12/12 healthy Normal after the same-run tare. Detection limit: 2 % loss 12/12 outside
 Normal. Lupus set has no IDATs (dropped). Second lab (GSE224807, 65 healthy) downloading; APS read only after it.
 Box: first Swift whole-blood run stopped by Q0 conversion (0.97984 vs ENCODE limit 0.98), rule kept.
+- 450K bar 2b NOT met: GSE224807 64 healthy CD15 neutrophils 43/64 Normal (arrays on 47 slides, no same-slide references; noise gate built,
+  withholds none). 450K stays development; APS not read. Next: test slide contrast and CD15 sort purity.

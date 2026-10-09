@@ -38,3 +38,15 @@ the EPIC rule on GSE88824's six purified groups: I_low 51,884, I_high 20,166, II
 | 2b. other lab GSE224807, 65 healthy | downloading | pending |
 | 3. detection limit | constructed 2 % loss: 12/12 outside Normal (A_rel 1.106–1.151); 1 %: 10/12 | **yes** |
 Noise gate not yet rebuilt for 450K (applied in commissioning). APS patients not read until bar 2b is met.
+
+## Bar 2b — GSE224807, 64 healthy non-smoker CD15 neutrophils (2026-10-09)
+64 of 65 arrays calibrated (one IDAT missing). **43 of 64 Normal (67 %) — bar (≥ 95 %) NOT MET.** Tared A_rel 2.5–97.5 % 0.936–1.119.
+- Design: the 64 arrays sit on **47 slides** (30 alone, 17 in pairs), so no array has ≥ 3 same-slide healthy references and every tare fell
+  back to the series median; the same-run tare cannot remove slide effects here.
+- Coverage: 62 of 64 pass the 90 % site gate; excluding the two does not change the result (45 of 62).
+- Noise gate built by the EPIC rule (N_max = top of the 8 reference arrays = 0.1622; 40,228 of 48,528 EPIC noise sites on 450K):
+  withholds none of the 64 and does not track A_rel (r = 0.14). (It would withhold all 12 GSE124565 healthy arrays, N 0.168–0.179, which
+  were read through the same-run tare as the EPIC rule allows.)
+- Candidate causes, not tested: slide-to-slide contrast left after self-tare II; CD15 sort purity (CD15 also marks eosinophils).
+**Consequence.** 450K Met-A stays development. Nothing was changed after seeing these numbers. The APS reading is not run (the note
+requires bars 1–3 first). Next: test the two causes on this series (eosinophil-marker sites; pairs on one slide vs across slides).
