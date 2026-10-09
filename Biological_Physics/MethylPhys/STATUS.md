@@ -39,6 +39,19 @@ mixtures atlas_e was already more accurate for neutrophils (RMSE 0.014 vs 0.019)
 3. Swap it in for `blood_composition_EPIC_v1.json`, rerun the whole-blood Met-A bars, re-commission Met-A on it.
 4. Then: composition for the other cell types (per-cell readings beyond neutrophils need it).
 
+## 2c. Linking IAM-A and Met-A (added 2026-10-09, author discussion)
+
+Why: Met-A is commissioned as a measurement; IAM-A (copy error against the 0.2043-bit thermal floor) is what can explain what it reads.
+1. **IAM-A → Met-A (forward, one answer).** From a measured copy error ε, the shift of each site's mean methylation toward 0.5 follows,
+   and with the healthy neutrophil pattern the expected Met-A (the same model as `shift_per_1pct_loss`). Derive and write it down first.
+2. **Met-A → IAM-A (reverse, an upper limit).** Met-A cannot tell copy error from a fraction of cells that switched state, so it gives the
+   IAM-A expected *if all drift is copy error*. Measured IAM-A at the limit: drift is copy error; below: part is cells switching state (the
+   gap measures how much); above: the model is wrong (falsified).
+3. **Same-file test first:** one sequencing file gives IAM-A (molecules) and a Met-A-style reading (site means), with no array and no
+   laboratory or kit difference between them. Needs a healthy sequencing-mean reference (Loyfer files) and its own commissioning.
+4. **Then paired sets:** the same cells on EPIC arrays and WGBS with known, different amounts of change (search after the IAM-A tare passes).
+Order: after the IAM-A tare tests (CD4 cross-cell, then laboratory-G whole blood: 4 donors × Swift and TruSeq, bars written before running).
+
 ## 3. Win candidates (development runs on the commissioned stages)
 
 1. Treated samples moving toward disorder (12/12 so far).
