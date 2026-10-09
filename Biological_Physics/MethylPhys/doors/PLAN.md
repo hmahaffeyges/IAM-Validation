@@ -16,28 +16,30 @@ every output to S3, and stops the box at the end or on a crash.
 
 ---
 
-## 1. Now: commission the neutrophil chain (Box Run 1, running since 2026-10-05)
+## 1. Now: commission the neutrophil chain (updated 2026-10-09)
 
-Job list: [`boxruns/run1/JOBS.md`](../boxruns/run1/JOBS.md).
+**Met-A (arrays): draft commissioning note ready for the author** — [`COMMISSIONING_NOTE_METAA_NEUTROPHILS_DRAFT.md`](COMMISSIONING_NOTE_METAA_NEUTROPHILS_DRAFT.md):
+9 of 11 bars met, 1 not met (a 1 % loss of pattern; detection limits 2 % purified, 5 % whole blood), 1 not met (C-score band on a new
+laboratory, 23/26). Box Run 1 complete:
 
 | Job | What | Status |
 |---|---|---|
-| A | Self-tare II, then the median tare: commissioning check | **done, every bar met:** replicate SD 0.0164 (≤ 0.020), 62/63 Normal, other laboratories 68/68, floor 6/6 |
-| B | Every chain test set read again with the adopted tare | running |
-| C | Met-A C-score spread on every healthy array (the author sets the band) | queued |
-| D | Sky statistics, hard mask against apodised mask | queued |
-| E | Atlas composition on GSE112618 (FACS-counted bloods) | queued |
+| A | Self-tare II, then the median tare | **done, every bar met** (replicate SD 0.0164; 62/63; 68/68; 6/6) |
+| B | Every test set re-read with the adopted tare | **done 2026-10-08**: healthy 525/541 Normal, 18 series |
+| C | C-score spread on healthy arrays | done; tared band 0.751-1.409 (DEV-CSCORE-TARE-01) |
+| D | Sky statistics, apodised mask | done; bars not met; sky stays withheld |
+| E | Composition truth | **done**: FACS bloods and 12 EPIC mixtures; neutrophil fraction within 0.02 |
 
-After Run 1 (no box): score job E against the FACS fractions; the author sets the C-score band; record each outcome in the log.
+Also done (no box): constructed sensitivity test (DEV-METAA-SENS-01); new-laboratory granulocytes 26/26 Normal (DEV-NEWLAB-GRAN-01).
 
-## 2. Next: IAM-A at scale, and Met-A with IAM-A on the same cells (Box Run 2)
+**IAM-A (sequencing):** Stage Q0 intake wired and tested on real files (DEV-Q0-HEALTHY-01); P re-measured on whole files, v2 = 1.1492
+(DEV-IAMA-P-WHOLE-01); pinned Loyfer pipeline built and format-checked (Box Run 2 session 1).
 
-1. **GSE128733 + GSE128731:** the same purified neutrophils on arrays and deep WGBS. Met-A is read (DEV-PAIRED-01). IAM-A on the same
-   two specimens needs the neutrophil WGBS runs, 8 runs, 414 GB (one run per donor, about 100 GB, is enough for a first reading).
-   **To download.**
-2. IAM-A healthy band on purified neutrophils; IAM-A C-score.
-3. Met-A against IAM-A on the same cell (the cross-spectrum).
-4. Job E on GSE182379 (constructed mixtures; already in S3).
+## 2. Running: Box Run 2 session 2 (started 2026-10-09 01:52 UTC, m7a.32xlarge, shuts itself down)
+
+GSE128731: another laboratory's healthy purified neutrophils, 2 donors × 4 library kits / sequencers, 25M read pairs each, through the pinned
+pipeline, Stage Q0 and Stage Q. This is the test of IAM-A: does it read healthy on another laboratory's neutrophils, and the same across kits?
+Then: IAM-A healthy band and C-score band; Met-A against IAM-A on the same donors (GSE128733 arrays, DEV-PAIRED-01).
 
 ## 3. Win candidates (development runs on the commissioned stages)
 
