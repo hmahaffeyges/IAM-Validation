@@ -626,3 +626,14 @@ neutrophil fraction against a macrophage background; it does not by itself commi
 needs a whole-blood truth set from another laboratory (GSE122126). **Decision:** download GSE133062 first (healthy; Karolinska), then
 GSE206709 (National Jewish), read with atlas_e unchanged, bars 1–2 as written. Differential cell count method and cells counted to be
 taken from each paper before scoring.
+
+### 2026-10-09 · Atlas truth sets: lavage needs a lung panel (not atlas_e); GSE122126 is not a neutrophil truth set
+1. **atlas_e holds the 12 circulating blood cells only** (chain/dev_stages.py ATLAS_E_CELLS: no macrophages, no epithelium). Lavage samples
+   (~85 % macrophages) cannot be read by atlas_e unchanged; the lavage simulation above used an 11-cell lung panel, a different method.
+   Lavage sets therefore test atlas v2's templates in the lung, not atlas_e, and do not count toward bars 1–2.
+2. **GSE122126 (Moss 2018) is not a neutrophil truth set.** Its 9 genomic-DNA mixes put liver, lung, neuron or colon DNA at 0–10 % into one
+   healthy donor's leukocyte DNA (paper, Fig. 3; Supplementary Data 1): the known quantity is the tissue fraction; the leukocytes' own
+   neutrophil share is not given, and atlas_e has no tissue cells. Removed from the list of independent sets for bars 1–2.
+**Still needed for bars 1–2:** EPIC whole bloods with flow or differential counts, or physical mixes of purified blood cells, from a
+laboratory other than Salas (Dartmouth). Sample-field search of GEO (986 EPIC/450K samples with count fields) found none outside that
+group. Next: the same search on ArrayExpress and on EPIC v2 (GPL33022) series, and published papers' supplements.
