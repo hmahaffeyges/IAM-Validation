@@ -639,3 +639,10 @@ laboratory other than Salas (Dartmouth). Sample-field search of GEO (986 EPIC/45
 group. Next: the same search on ArrayExpress and on EPIC v2 (GPL33022) series, and published papers' supplements.
 
 ### 2026-10-09 · DEV-COMPOSITION-TRUTH-03 written before download (GSE224807 paired blood + sorted cells, lab-template truth)
+
+### 2026-10-09 · Reproducibility audit
+Repo checkout clean (no uncommitted or unpushed changes). 25 working scripts compared with the repo by content: 8 identical, 17 missing
+(launchers, the 450K calibration, the non-conversion estimate, Q0 healthy controls, cross-species run scripts, the paired-blood calibration):
+all 17 committed next to their notes. The full working code record of the sessions 2026-09-18 to 10-09 (8,629 cells) is archived privately
+(S3 archive/session_code/, sha256 5cf3bd35157fd7bd…; key IDs redacted; private names present, so not public). Rule added to the SOP.
+Next: each analysis run only in a notebook gets a committed script that reruns to the logged value (development/sims/).

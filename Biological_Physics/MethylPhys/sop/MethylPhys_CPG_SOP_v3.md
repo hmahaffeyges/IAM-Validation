@@ -101,6 +101,13 @@ Commissioning record (stage, check, result, wired): `STATUS.md` (section 8, comm
   detection limits: 2 % loss of the neutrophil pattern in purified neutrophils, 5 % in whole blood (DEV-METAA-SENS-01). Readings in this scope
   are results. The Met-A C-score, IAM-A and every other stage remain development.
 
+### Reproducibility rule (2026-10-09)
+Every number in the book, a note in `doors/`, STATUS or the development log must be reproducible from this repository alone:
+the script that produced it is committed in the same push as the number, next to its note (`doors/data/<NOTE>/`, `boxruns/<run>/`, or
+`development/sims/`), with its inputs named (repo path, S3 key with sha256, or public accession) and any random seed fixed.
+Box jobs run only committed scripts from a fresh pull. Analysis typed into a notebook does not count until it is a committed script
+that reruns to the same value. Raw working records are kept privately (S3 `archive/session_code/`) but are not a substitute.
+
 ### Commissioning order (set 2026-10-03)
 
 Each step: pre-register the check in `doors/` before reading data, run it on v3, record the outcome, then wire the stage in.
