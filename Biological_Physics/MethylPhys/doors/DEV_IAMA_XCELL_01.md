@@ -25,3 +25,22 @@ technical error on methylated DNA, run by run.
 4. Spike-in (recorded, no bar): pUC19 methylated-call fraction and technical error per run; whether Swift − TruSeq technical error
    accounts for the ε gap.
 If 1 fails, the offset is cell-dependent and cross-cell references are not used; the BLUEPRINT route remains.
+
+---
+## Results (2026-10-09; nothing above the line changed)
+P_CD4 = **1.167** (Loyfer Blood-T-CD4, 3 whole files; ε 0.0386 / 0.0398 / 0.0392; each donor reads 0.99 / 1.01 / 1.00 against the other two).
+Laboratory-G CD4 (ε; A on P_CD4): Sample5 Swift/NovaSeq 0.0514, 1.226; Swift/HiSeqX 0.0517, 1.232; TruSeq/HiSeqX 0.0450, 1.110.
+Sample8 0.0518, 1.233; 0.0521, 1.238; 0.0450, 1.110. (SRR9888326's conversion first failed on a missing genome link; redone from its BAM.)
+
+| check | bar | result | met |
+|---|---|---|---|
+| 1. shared kit offset: CD4 Swift ÷ TruSeq vs neutrophils | within 0.03 | CD4 1.109 / 1.116; neutrophils 1.115 / 1.112 — **difference 0.001** | **yes** |
+| 2. cross-cell tare: 6 neutrophil runs Normal | 6 / 6 | A_rel 0.939–0.948 — **0 / 6** | **no** |
+| 3. kit gap removed after the tare | ≤ 0.02 | 0.004 and 0.002 | **yes** |
+| 4. pUC19 spike | recorded | no methylated spike (0–29 reads, unmethylated) | – |
+
+\measured The laboratory-and-kit offset is the same for two cell types to 0.001: it is a property of the library chemistry, not of the
+cell, and a same-run tare removes it completely (gap 0.002–0.004). But a reference of another cell type does not carry the absolute level:
+relative to Loyfer, laboratory G's CD4 sit ~6 % higher than its neutrophils, so neutrophils tared on CD4 read 0.94. Cross-cell references
+need the CD4-to-neutrophil ratio measured in the same laboratory; same-cell references do not. Next: same-cell-type references
+(DEV-IAMA-WBTARE-01, whole blood, running).

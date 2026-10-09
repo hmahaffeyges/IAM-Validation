@@ -487,3 +487,8 @@ range within one lineage (fish water temperature; hibernation). Reader matches a
 is one copy error; measured on real healthy molecules by Stage Q's rule only 0.53 of it is. Corrected table: Met-A moves 0.55-1.1 x as far
 from 1 as IAM-A; synthetic Met-A matches the curves within 0.001. (2) Temperature design: today's 44 species over 5 K had power 0.11 for
 +1 %/K; one species over >= 20 K with >= 40 animals gives 0.85.
+
+### 2026-10-09 · DEV-IAMA-XCELL-01: IAM-A kit offset is the same for CD4 T cells and neutrophils
+\measured P_CD4 = 1.167 (Loyfer). Swift/TruSeq ratio CD4 1.109-1.116 vs neutrophils 1.112-1.115 (difference 0.001, bar 0.03, met); after
+the tare the kit gap is 0.002-0.004 (met). Cross-cell tare reads neutrophils 0.94 (0/6 Normal, not met): the CD4-to-neutrophil level differs
+~6 % between laboratories. Conclusion: same-run references must be of the same cell type. Whole-blood test (same-type) next.
