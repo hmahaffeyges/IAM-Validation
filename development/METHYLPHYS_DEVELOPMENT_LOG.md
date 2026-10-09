@@ -411,3 +411,8 @@ clipped from read ends — if clipping brings Swift down and leaves TruSeq uncha
 ### 2026-10-09 · DEV-IAMA-KIT-01: Swift vs TruSeq, read-end clipping
 \measured Clipping 10-15 bp from read ends lowers both kits (Swift 1.167→1.155, TruSeq 1.047→1.021); the 0.12 kit gap stays. Not a
 read-end artefact. Swift's extra errors cluster along the genome (IAM-A C 306 vs 45). Next: compare both kits on the regions both cover.
+
+### 2026-10-09 · DEV-IAMA-KIT-01 parts 2-3
+\measured On the same 2.25 M positions Swift reads 1.159 and TruSeq 0.994; the gap is in the molecules, not in where reads land. Lower
+conversion explains at most a quarter of it. \observed Loyfer (where P comes from) also used Swift, so this is a laboratory-and-kit offset
+on IAM-A, like Met-A's before the tare. Options (tare / per-kit P / wider band) go to the author.

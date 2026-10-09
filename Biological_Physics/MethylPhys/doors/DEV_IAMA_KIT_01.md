@@ -34,3 +34,21 @@ summary above is the job's own output).
 
 **Next (development):** read both kits over the same molecules' regions only — restrict each PAT to the CpG blocks covered ≥ 1× in both
 runs — to test whether the difference is where the reads fall.
+
+## Part 2 — same CpG positions (2026-10-09)
+On the 2,249,976 positions both runs cover: **Swift 1.159, TruSeq 0.994** (ε 0.04667 vs 0.03806). With each position weighted the same in
+both runs: ε 0.0440 vs 0.0390. Swift is higher in every depth quintile. \measured **The gap is not where the reads land**: at the same
+positions, the Swift molecules carry more discordant calls.
+
+## Part 3 — which molecules carry the extra calls
+Molecules with ≥ 6 calls split by their majority state (a rougher error count than Stage Q's; used only to compare the two runs):
+methylated-background discordance 0.100 (Swift) vs 0.085 (TruSeq), +18 %; unmethylated-background 0.103 vs 0.069, +50 %. Share of
+unmethylated-background molecules 13 % vs 19 %. \calculated Swift's lower conversion (0.983 vs 0.992, lambda CHH) can add at most ≈ 0.009 to
+the unmethylated-background rate: about a quarter of that excess, and none of the methylated-background excess.
+
+## What this means (observed; no chain change)
+\observed **Loyfer 2023 also made their libraries with the Swift Accel-NGS kit** (Methods: Zymo EZ-96 conversion, Swift Accel-NGS
+Methyl-Seq libraries). So P was measured on Swift libraries, yet this laboratory's Swift libraries read 1.16 and its TruSeq library 1.05
+(0.99 on shared positions). The difference is therefore a **laboratory-and-kit effect on IAM-A of up to ~16 % on healthy cells** — the same
+kind of offset Met-A had before the same-run tare. Options for the author (in the morning list): (a) IAM-A read against same-run healthy
+references, as Met-A is (a tare); (b) P measured per kit and laboratory; (c) a wider healthy band. Donor 7 (four more runs) is being read.
