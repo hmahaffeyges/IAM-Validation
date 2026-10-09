@@ -101,3 +101,14 @@ differences, which a healthy reference built to read 1 for everyone does not hav
    rises above it (0 of 120). This changes the definition, so it needs your approval and then a test on laboratories not used to decide it.
 2. **Repeatability bar.** Replace "within ÷ between ≤ 0.5" by an absolute bar tied to detection: within-person SD ≤ one-quarter of the
    smallest clustered change to be detected (here C_rel ≥ 1.5 at F 5 %). Needs your approval; tested on new same-person replicates.
+
+## Author decision 2026-10-09 and the definitions now in force (development until tested)
+The author: "do whatever is best for IAM and is the most defensible." Adopted, both written before any new data are read:
+1. **One-sided reading.** Clustering is the signal: a C-score *above* the band is a departure; below the band is recorded as "less
+   clustered than healthy" and is not a departure. Upper limit 1.152 (blocks of 10).
+2. **Repeat bar tied to detection.** Same-person within-SD of C_rel ≤ one-quarter of the smallest clustered change to be detected
+   (C_rel 1.5 at 5 % of sites clustered → ≤ 0.125). On the existing replicates: 0.062 (met).
+**Test on laboratories not used to decide (bars):** (a) healthy arrays from new laboratories: ≥ 95 % not above 1.152 — first set:
+GSE315366's 35 clonal-haematopoiesis-negative bloods (Box Run 3), then each further healthy EPIC v1 laboratory read; (b) new same-person
+replicates when a set is found: within-SD ≤ 0.125. Clustered detection (step 2) already met at 100 %. If (a) and (b) are met, the C-score
+is proposed for commissioning with its band and detection limit printed.

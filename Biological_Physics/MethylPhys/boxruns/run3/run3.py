@@ -42,6 +42,15 @@ def tare(r, healthy):
             if len(ref) >= 3: res = (float(x.A / ref.A.median()), scope, len(ref)); break
         out.append(res or (None, None, 0))
     r["A_rel"], r["ref_scope"], r["n_refs"] = zip(*out)
+    cr = []
+    for _, x in r.iterrows():
+        v = None
+        if pd.notna(x.C):
+            for scope in ("slide", "series"):
+                ref = hh[(hh.gsm != x.gsm) & ((hh.slide == x.slide) if scope == "slide" else True)].C.dropna()
+                if len(ref) >= 3: v = float(x.C / ref.median()); break
+        cr.append(v)
+    r["C_rel"] = cr
     r["state"] = r.A_rel.map(lambda a: None if pd.isna(a) else ("Normal" if 0.95 <= a <= 1.05 else ("above Normal" if a > 1.05 else "below Normal")))
     return r
 
