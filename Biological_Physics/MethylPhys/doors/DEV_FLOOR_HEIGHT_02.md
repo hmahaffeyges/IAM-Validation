@@ -29,3 +29,14 @@ ln(restore/loss) — the instrument's physical meaning — rather than an IAM-sp
 bit sitting at a thermal floor. The holding energy E_hold = kT ln(g/f) is a real, measurable physical quantity and IAM-A reads it; the
 "0.2043-bit floor" is the reference height of healthy cells, not a thermal limit. An IAM-specific prediction would have to fix φ (the
 efficiency) from first principles; none exists yet.
+
+## 5. The half-law conjecture and the Mahaffey number (author's question, 2026-10-09)
+\conjecture If the copying machine runs at its maximum-rate point, it holds half of its driving free energy per renewal:
+E_hold = Δμ/2, i.e. Δμ = 2 E_hold = 6.8 kT per site per division (0.33 of one ATP, M = ΔG_ATP/kT = 20.94 at 310 K). M sets the ceiling
+(E_hold ≤ M kT at one ATP per bit, ε ≥ 8 × 10⁻¹⁰), the efficiency φ = E_hold/M = 0.163, and the temperature dependence (E_hold = φM ∝ 1/T).
+**First check (calculated, order of magnitude).** Every maintained site takes one methyl group per division from one SAM. Methyl transfer
+potential from a sulfonium donor at pH 7: −7.5 kcal/mol (amine acceptor, Wolfenden et al. bioRxiv 2021.03.17.435195; the C5-cytosine
+value is not sourced) → 12.2 kT; with SAM/SAH = 4–10 in cells, **Δμ ≈ 13.6–14.5 kT per transfer**: E_hold/Δμ = 0.24–0.25, not 0.5.
+Counting the full cost of making each SAM (≥ one ATP), E_hold/cost = 0.163. **Not met** at face value: the cell spends about 2× (per
+transfer) to 3× (per SAM) what the half-law needs. Open: the C5 methyl-transfer free energy, and whether part of each transfer's free
+energy is not available to the discriminating step.
