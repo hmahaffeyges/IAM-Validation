@@ -468,3 +468,10 @@ GSE166503, GSE200376, GSE222927, GSE225544, GSE226298, GSE235717, GSE247193, GSE
 1.0011, p = 0.41 (prediction not met; clones likely below the 5 % whole-blood detection limit, stated before reading). C-score test (a)
 on a new laboratory: 34/35 not above 1.152 (met). Session 3 pUC19: 0-4 reads per neutrophil BAM: the libraries carry no methylated spike,
 so no internal technical standard there (DEV-IAMA-XCELL-01 check 4: recorded null). Details: `boxruns/run3/JOBS.md`.
+
+### 2026-10-09 · Box Run 3, reading 2: leukaemia serial bloods (GSE315367, development)
+\measured 30 peripheral bloods, 0 errors. **Diagnosis bloods: 10 of 10 not read** — neutrophil fraction
+0.00-0.16 (blast-rich blood), below the 0.20 scope rule, so Met-A correctly gives no reading. Remission bloods: 19 of
+20 read, untared A 0.933-1.066 (median 1.014); one remission blood (Patient 7, Rm2, fraction 0.06)
+not read. Without healthy references from this run no state is given, and diagnosis cannot be compared with remission on neutrophils.
+The record field `refusal` was empty for the unread arrays (the reason sits in Met-A's state text); the script will copy the state next time.

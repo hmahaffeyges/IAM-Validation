@@ -50,3 +50,10 @@ before reading, this is expected if the clones are below the whole-blood detecti
 variant allele fractions, so which explanation holds cannot be decided from these data.
 **C-score test (a), first new laboratory:** CH-negative bloods not above 1.152: **34 / 35 (97.1 %; bar ≥ 95 %) — met.** CH-positive
 above the band: 0 / 29.
+
+## Results, Reading 2 — GSE315367 (development; no healthy references, untared)
+\measured 30 peripheral bloods, 0 errors. **Diagnosis bloods: 10 of 10 not read** — neutrophil fraction
+0.00-0.16 (blast-rich blood), below the 0.20 scope rule, so Met-A correctly gives no reading. Remission bloods: 19 of
+20 read, untared A 0.933-1.066 (median 1.014); one remission blood (Patient 7, Rm2, fraction 0.06)
+not read. Without healthy references from this run no state is given, and diagnosis cannot be compared with remission on neutrophils.
+The record field `refusal` was empty for the unread arrays (the reason sits in Met-A's state text); the script will copy the state next time.
