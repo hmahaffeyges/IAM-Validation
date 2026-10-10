@@ -707,3 +707,6 @@ Dividing eps by conversion shrinks the TruSeq repeat gap 3/3 (direction predicte
 
 ### 2026-10-10 · RRBS reference-free reader fails; DEV-XSPECIES-TEMP-01 withdrawn; SAM test moves to aligned reads
 On wild-type GSE77079: eps 0.307 raw, 0.117 trimmed, 0.085-0.015 as the CpG-calling threshold goes 1-5 reads: fake CpGs from sequencing errors. 18.6 % adapter reads. The cross-species result (liver rho 0.29) used this reader and is withdrawn as a reading. SAM test: Trim Galore --rrbs, bwa-meth mm10, bam2pat, Stage Q.
+
+### 2026-10-10 · DEV-RUNLOSS-01 defined and simulated; prediction sealed
+Run-loss reading (excess of fully lost molecules over what the same scattered loss gives) recovers planted run loss (0.099/0.213 for 0.10/0.22) and reads ~0 for scattered loss. Prediction for decitabine: d_eff = array loss (0.22, 0.39) +-0.05; excess L >= 0.5 d_eff.
