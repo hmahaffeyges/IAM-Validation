@@ -701,3 +701,6 @@ conductor_v3.stage_m_blood reads A at any neutrophil fraction > 0; each reading 
 
 ### 2026-10-10 · DEV-IAMA-CONVERSION-01 written before reading
 Derivation: eps_meas = c*eps; IAM-A bias ~0.75*(c-c_ref)/c_ref; absolute 0.98 limit does not follow from physics, a conversion difference or the correction eps/c does. Prediction on TruSeq repeat libraries (eps ratio 0.980-0.983).
+
+### 2026-10-10 · DEV-IAMA-CONVERSION-01 read
+Dividing eps by conversion shrinks the TruSeq repeat gap 3/3 (direction predicted), within 0.02 in 1/3 (not met). Repeat libraries carry a further ~1-1.5 % library effect (seen in Swift with equal conversion). Chain unchanged.

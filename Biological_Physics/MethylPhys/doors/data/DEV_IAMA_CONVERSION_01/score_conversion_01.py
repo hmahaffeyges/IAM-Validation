@@ -6,7 +6,9 @@ B = "methylphys-data-945451304272-us-west-2-an"; s3 = boto3.client("s3"); HERE =
 RR = pd.read_csv(os.path.join(HERE, "../../../boxruns/run2/GSE128731_runs.csv")).set_index("Run")
 def H(e): return -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
 rows = []
-for run in [r for r in RR.index if re.match(r"Sample\d_(Swift|TruSeq)_HiSeqX", RR.loc[r, "title"])]:
+SESSION4 = [o["Key"].split("/")[-1][:10] for pg in s3.get_paginator("list_objects_v2").paginate(Bucket=B, Prefix="results/BOXRUN2/session4/")
+            for o in pg.get("Contents", []) if o["Key"].endswith(".pat.gz")]   # the 14 runs of DEV-IAMA-WBTARE-01
+for run in SESSION4:
     p = os.path.join(W, run + ".pat.gz")
     if not os.path.exists(p): s3.download_file(B, f"results/BOXRUN2/session4/{run}.pat.gz", p)
     c = json.loads(s3.get_object(Bucket=B, Key=f"results/BOXRUN2/session4/{run}_alignment_qc.json")["Body"].read())["conversion_rate"]
