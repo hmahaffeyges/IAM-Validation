@@ -14,23 +14,23 @@ bars set in advance; they are checked for any computed number (power, simulated 
 | 1 | DEV_NOISE_01_OUTCOME | result | 1 | 0 | 4 | REPRODUCED 2026-10-10 (doors/data/DEV_NOISE_02/build_noise_sites_01.py, build_noise_gate_01.py) |
 | 1 | DEV_NOISE_02_OUTCOME | result | 1 | 2 | 3 | REPRODUCED 2026-10-10 (doors/data/DEV_NOISE_02/build_noise_sites_01.py, build_noise_gate_01.py) |
 | 1 | PROC_CHANNEL_01_OUTCOME | result | REPRODUCED 2026-10-10: rerun from the repo matches the 09-30 table exactly (153 samples, all columns) |
-| 1 | PROC_CHARR_01_OUTCOME | result | 0 | 1 | 1 | open |
-| 1 | PROC_CHARR_01_PREREG | pre-registration (bars) | 0 | 1 | 1 | open |
-| 1 | PROC_G002_TRACE_OUTCOME | result | 0 | 1 | 0 | open |
-| 1 | PROC_HISTORY_01_OUTCOME | result | 0 | 1 | 0 | open |
-| 1 | PROC_MATCH_01_OUTCOME | result | 0 | 1 | 0 | open |
+| 1 | PROC_CHARR_01_OUTCOME | result | 0 | 1 | 1 | CODE RECOVERED 2026-10-10 (doors/data/PROC_CHARR_01/RECOVERED_CELLS; rerun pending) |
+| 1 | PROC_CHARR_01_PREREG | pre-registration (bars) | 0 | 1 | 1 | CODE RECOVERED 2026-10-10 (doors/data/PROC_CHARR_01/RECOVERED_CELLS; rerun pending) |
+| 1 | PROC_G002_TRACE_OUTCOME | result | 0 | 1 | 0 | CODE RECOVERED 2026-10-10 (doors/data/PROC_G002_TRACE/RECOVERED_CELLS; rerun pending) |
+| 1 | PROC_HISTORY_01_OUTCOME | result | 0 | 1 | 0 | CODE RECOVERED 2026-10-10 (doors/data/PROC_HISTORY_01/RECOVERED_CELLS; rerun pending) |
+| 1 | PROC_MATCH_01_OUTCOME | result | 0 | 1 | 0 | CODE RECOVERED 2026-10-10 (doors/data/PROC_MATCH_01/RECOVERED_CELLS; rerun pending) |
 | 1 | PROC_OUTSPAN_01_PREREG | pre-registration (bars) | 1 | 0 | 1 | open |
 | 1 | PROC_PARTIAL_01_PREREG | pre-registration (bars) | 0 | 1 | 0 | open |
-| 1 | PROC_PREDX_NEUT_01_OUTCOME | result | 0 | 1 | 2 | open |
-| 1 | PROC_PREDX_NEUT_01_PREREG | pre-registration (bars) | 0 | 1 | 2 | open |
+| 1 | PROC_PREDX_NEUT_01_OUTCOME | result | 0 | 1 | 2 | CODE RECOVERED 2026-10-10 (doors/data/PROC_PREDX_NEUT_01/RECOVERED_CELLS; rerun pending) |
+| 1 | PROC_PREDX_NEUT_01_PREREG | pre-registration (bars) | 0 | 1 | 2 | CODE RECOVERED 2026-10-10 (doors/data/PROC_PREDX_NEUT_01/RECOVERED_CELLS; rerun pending) |
 | 1 | PROC_PREDX_SEQUENCE_01_PREREG | pre-registration (bars) | 0 | 1 | 0 | open |
-| 1 | PROC_TARE_01_OUTCOME | result | 2 | 0 | 1 | open |
-| 1 | PROC_TARE_01_PREREG | pre-registration (bars) | 2 | 0 | 1 | open |
+| 1 | PROC_TARE_01_OUTCOME | result | 2 | 0 | 1 | CODE RECOVERED 2026-10-10 (doors/data/PROC_TARE_01/RECOVERED_CELLS; rerun pending) |
+| 1 | PROC_TARE_01_PREREG | pre-registration (bars) | 2 | 0 | 1 | CODE RECOVERED 2026-10-10 (doors/data/PROC_TARE_01/RECOVERED_CELLS; rerun pending) |
 | 1 | PROC_TISSUE_01_PREREG | pre-registration (bars) | 0 | 1 | 0 | open |
-| 1 | PROC_TUMOUR_01_OUTCOME | result | 0 | 1 | 1 | open |
-| 1 | PROC_TUMOUR_01_PREREG | pre-registration (bars) | 0 | 1 | 1 | open |
-| 1 | PROC_WB_NEUT_01_OUTCOME | result | 1 | 2 | 2 | open |
-| 1 | PROC_WB_NEUT_01_PREREG | pre-registration (bars) | 1 | 2 | 2 | open |
+| 1 | PROC_TUMOUR_01_OUTCOME | result | 0 | 1 | 1 | CODE RECOVERED 2026-10-10 (doors/data/PROC_TUMOUR_01/RECOVERED_CELLS; rerun pending) |
+| 1 | PROC_TUMOUR_01_PREREG | pre-registration (bars) | 0 | 1 | 1 | CODE RECOVERED 2026-10-10 (doors/data/PROC_TUMOUR_01/RECOVERED_CELLS; rerun pending) |
+| 1 | PROC_WB_NEUT_01_OUTCOME | result | 1 | 2 | 2 | CODE RECOVERED 2026-10-10 (doors/data/PROC_WB_NEUT_01/RECOVERED_CELLS; rerun pending) |
+| 1 | PROC_WB_NEUT_01_PREREG | pre-registration (bars) | 1 | 2 | 2 | CODE RECOVERED 2026-10-10 (doors/data/PROC_WB_NEUT_01/RECOVERED_CELLS; rerun pending) |
 | 2 | COMMISSIONING_NOTE_METAA_NEUTROPHILS | result | 0 | 0 | 2 | open |
 | 2 | DEV_COMPOSITION_TRUTH_02 | result | 0 | 0 | 1 | open |
 | 2 | DEV_CSCORE_TARE_01 | result | 0 | 0 | 1 | open |

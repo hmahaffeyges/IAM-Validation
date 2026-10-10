@@ -719,3 +719,6 @@ Loyfer GSE186458, 4 donors, whole hg19 .pat files (build_position_01.py): eps 0.
 
 ### 2026-10-10 · DEV-ATLAS-LAVAGE-01 read: not met
 Neutrophil mean error 0.053 (bar 0.02), bias +0.049; macrophages -0.070; lymphocytes r 0.90 (error 0.041). Only 4,722/8,000 atlas loci on EPIC; lavage macrophages differ from the atlas template (not in the simulation). The lung myeloid templates do not separate neutrophils from macrophages on real arrays.
+
+### 2026-10-10 · Code of 8 tier-1 results recovered from the session record
+PROC-TARE-01, CHARR-01, G002-TRACE, HISTORY-01, MATCH-01, PREDX-NEUT-01, TUMOUR-01, WB-NEUT-01: the exact cells (41) as run, committed under doors/data/<name>/RECOVERED_CELLS with a README each. Reruns from the repo pending.
