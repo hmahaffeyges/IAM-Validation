@@ -1,0 +1,3 @@
+check vs PROC-CHANNEL-01: samples 153, matched 153, max |diff| copy_err 9.71e-17, denovo 9.89e-17
+samples 153 | copy-error slope median -0.240 | control slope median 0.437 | difference median -0.688 (IQR -0.761--0.587) -> NOT MET
+k (reported only): median 2.598 (IQR 2.401-2.729)

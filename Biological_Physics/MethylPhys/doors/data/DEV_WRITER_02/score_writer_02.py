@@ -7,7 +7,8 @@ First, the built-in check: per-sample sums must reproduce PROC-CHANNEL-01's copy
 Usage: python3 score_writer_02.py context_counts.csv"""
 import os, sys, numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__))
-C = pd.read_csv(sys.argv[1]); Z = pd.read_csv(os.path.join(HERE, "enzyme_D_256.csv")).set_index("ctx")
+C = pd.read_csv(sys.argv[1], keep_default_na=False);   # "NA" is the no-clean-context bucket, not a missing value (fix 2026-10-10, I/O only)
+Z = pd.read_csv(os.path.join(HERE, "enzyme_D_256.csv")).set_index("ctx")
 ref = pd.read_csv(os.path.join(HERE, "../PROC_CHANNEL_01/rerun_2026-10-10_channel_samples.csv")).set_index("sample")
 S = C.groupby("sample")[["meth_err", "meth_opp", "ctrl_err", "ctrl_opp"]].sum()
 chk = pd.DataFrame({"copy_err": S.meth_err / S.meth_opp, "ref_copy": ref.copy_err.reindex(S.index), "denovo": S.ctrl_err / S.ctrl_opp, "ref_denovo": ref.denovo.reindex(S.index)})
