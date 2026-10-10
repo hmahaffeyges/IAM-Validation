@@ -17,4 +17,19 @@ Here the same bound is the ruler.
 | [`Salmonid/`](Salmonid/) | the fish work: copy error at water temperature (in development) |
 | RETIRED_2026-09/ (archived privately), RETIRED_2026-10/ (archived privately) | earlier chain versions, reports, manuals and pages, kept unchanged with an index |
 
-The instrument is not commissioned and is not a diagnostic test. It gives no medical advice.
+## Advancements
+
+Dated milestones. Every test listed was written down, with its pass bar, before its data were read; each links to its record. Every result,
+including those that failed or were undecided, is in the development log, day by day:
+[`development/METHYLPHYS_DEVELOPMENT_LOG.md`](../development/METHYLPHYS_DEVELOPMENT_LOG.md).
+
+| date | advancement | record |
+|---|---|---|
+| 2026-10-10 | **IAM-A, first physics lever.** Cutting the liver's methyl supply (Mat1a knockout mice) raises copy error by the amount IAM's Law predicts: window 1.016–1.135 sealed on a healthy mouse, knockout read 1.124 against 8 healthy mice (p = 0.0003); restoring SAMe moves it back (1.098). Development; the knockout livers also carry steatohepatitis, a second route not yet separated | [`DEV_SAM_LEVER_01_OUTCOME.md`](MethylPhys/doors/DEV_SAM_LEVER_01_OUTCOME.md) |
+| 2026-10-10 | **Met-A reproduces across laboratories.** Identical DNA (seven reference cell lines, SEQC2 EpiQC) reads the same at three laboratories within 1 %, before any tare; technical repeats within 0.012 | [`DEV_EPIQC_ARRAY_01_OUTCOME.md`](MethylPhys/doors/DEV_EPIQC_ARRAY_01_OUTCOME.md) |
+| 2026-10-10 | **Met-A raises no false alarm** when 4–15 % liver, lung, colon or neuron DNA is mixed into blood DNA (9 of 9 Normal) | [`DEV_CSCORE_MOSS_01_OUTCOME.md`](MethylPhys/doors/DEV_CSCORE_MOSS_01_OUTCOME.md) |
+| 2026-10-10 | **Everything the commissioned chain reads rebuilds from public data**, identical: the holding energy 3.41 k_BT and ε₀ = 0.032 (153 public samples), the Met-A floor and its 6,000 sites, the C-score baseline, whole-blood composition, the IAM-A neutrophil position | [`PROC_CHANNEL_01_OUTCOME.md`](MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md), [`MET_A_FLOOR_V13_REPRO`](MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/README.md) |
+| 2026-10-09 | **Met-A on neutrophils (EPIC v1) commissioned**, with its detection limits printed on every report | [`COMMISSIONING_NOTE_METAA_NEUTROPHILS.md`](MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md) |
+| 2026-10-05 | **The book, IAM's Law and Order, v1.0** published (DOI [10.5281/zenodo.23151068](https://doi.org/10.5281/zenodo.23151068)); every derivation checked by one command, `docs/book/verify_book.py`. It includes the 74-cell reference atlas built as one Bayesian posterior, with an interval at every locus for every cell | [`docs/book`](../docs/book) |
+
+Met-A on neutrophils (EPIC v1) is commissioned; everything else here is in development. The instrument is not a diagnostic test and gives no medical advice.

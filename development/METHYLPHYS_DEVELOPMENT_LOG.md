@@ -755,3 +755,11 @@ Met-A repeats <= 0.0114 (10/10), tared across labs <= 0.006, raw across labs <= 
 
 ### 2026-10-10 · SAM lever (Mat1a knockout) PASS by the sealed rule
 KO vehicle / WT IAM-A 1.124 (window 1.016-1.135), p 0.0003; SAMe lowers it to 1.098 (p 0.089). No sequencing batch or depth effect found. Open: steatohepatitis is a second route downstream of SAMe loss.
+
+### 2026-10-10 · Day summary
+Passed (sealed before reading): IAM-A SAM lever in mice (1.124 in window 1.016-1.135, p 0.0003); Met-A on identical DNA at three laboratories
+(all four bars); Met-A specificity on the Moss mixes (9/9). Reproduced from public data: every matrix the commissioned chain reads.
+Not met or undecided: whole-blood kit/repeat bars (incomplete), decitabine dose series (no result: run-type loss), lavage atlas (not met, lung),
+run-loss bars (not met), untared C-score on Moss (6/9). Withdrawn: the reference-free RRBS reader and the cross-species reading made with it.
+Parked: methionine depletion (PRJDB12471; too few copies made in 48-72 h). Running: cancer fingerprint (LNCaP vs PrEC, both instruments).
+Milestones are also listed in Biological_Physics/README.md, section Advancements.
