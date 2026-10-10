@@ -1,0 +1,19 @@
+file,experiment,cell,rep,read_length,md5,url,GB
+ENCFF000MHB,ENCSR000DEV,MCF 10A,1,36,d81e8a87359806b0dc77b199892eef6d,https://www.encodeproject.org/files/ENCFF000MHB/@@download/ENCFF000MHB.fastq.gz,1.32
+ENCFF000MHJ,ENCSR000DEV,MCF 10A,2,36,efa1eff3f4d411b37f1def3900036535,https://www.encodeproject.org/files/ENCFF000MHJ/@@download/ENCFF000MHJ.fastq.gz,1.31
+ENCFF000MHK,ENCSR000DEV,MCF 10A,3,36,b713c329d002c47a38053e2e401df045,https://www.encodeproject.org/files/ENCFF000MHK/@@download/ENCFF000MHK.fastq.gz,1.31
+ENCFF000MGV,ENCSR000DEW,MCF 10A,1,35,68a16d0a63a8b23ddaf92996f272fb74,https://www.encodeproject.org/files/ENCFF000MGV/@@download/ENCFF000MGV.fastq.gz,1.3
+ENCFF000MGZ,ENCSR000DEW,MCF 10A,2,35,70c756fcb307ad16336e157d22cb0afe,https://www.encodeproject.org/files/ENCFF000MGZ/@@download/ENCFF000MGZ.fastq.gz,1.91
+ENCFF000MHA,ENCSR000DEW,MCF 10A,3,35,6996460233179b67c8961e81b53257ba,https://www.encodeproject.org/files/ENCFF000MHA/@@download/ENCFF000MHA.fastq.gz,1.89
+ENCFF000MME,ENCSR000DFF,bronchial epithelial cell,1,36,a653af11ff3c96ae5c9d555257917e0e,https://www.encodeproject.org/files/ENCFF000MME/@@download/ENCFF000MME.fastq.gz,2.3
+ENCFF000MMO,ENCSR000DFF,bronchial epithelial cell,2,36,b62fd6f5c998b47e58a52105f49735d0,https://www.encodeproject.org/files/ENCFF000MMO/@@download/ENCFF000MMO.fastq.gz,1.3
+ENCFF000MJV,ENCSR000DFV,bronchial epithelial cell,1,36,4f8371798fb2195604cb0d63b25599a0,https://www.encodeproject.org/files/ENCFF000MJV/@@download/ENCFF000MJV.fastq.gz,0.75
+ENCFF000MJW,ENCSR000DFV,bronchial epithelial cell,2,36,44ea6d737823d1fccb1e70668d38b1a7,https://www.encodeproject.org/files/ENCFF000MJW/@@download/ENCFF000MJW.fastq.gz,0.74
+ENCFF000MDS,ENCSR000DFI,epithelial cell of alveolus of lung,1,36,747506e6e6e2b95c42820d869d02aa27,https://www.encodeproject.org/files/ENCFF000MDS/@@download/ENCFF000MDS.fastq.gz,1.15
+ENCFF000MDT,ENCSR000DFI,epithelial cell of alveolus of lung,2,36,685aabd5c0e07a3b08329f2f45bd8001,https://www.encodeproject.org/files/ENCFF000MDT/@@download/ENCFF000MDT.fastq.gz,0.91
+ENCFF000MLV,ENCSR000DDU,epithelial cell of prostate,1,36,fc2050b7c2735421eb6776f191274a7c,https://www.encodeproject.org/files/ENCFF000MLV/@@download/ENCFF000MLV.fastq.gz,0.74
+ENCFF000MLS,ENCSR000DDU,epithelial cell of prostate,2,36,dd5d1a6ba8fd4237dca24238f959a5c7,https://www.encodeproject.org/files/ENCFF000MLS/@@download/ENCFF000MLS.fastq.gz,0.67
+ENCFF000MBY,ENCSR000DDX,hepatocyte,1,36,26de8d877e441ebc910daa78927ab4f0,https://www.encodeproject.org/files/ENCFF000MBY/@@download/ENCFF000MBY.fastq.gz,0.73
+ENCFF000MCD,ENCSR000DDX,hepatocyte,2,36,e74037ffe3bc91d9abbe0db52848e2ce,https://www.encodeproject.org/files/ENCFF000MCD/@@download/ENCFF000MCD.fastq.gz,0.9
+ENCFF000MDB,ENCSR000DGA,mammary epithelial cell,1,36,d8718dc8465e88da95036fc898194567,https://www.encodeproject.org/files/ENCFF000MDB/@@download/ENCFF000MDB.fastq.gz,0.7
+ENCFF000MDH,ENCSR000DGA,mammary epithelial cell,2,36,de17b3e4ad77b8aab4283a91aa56624e,https://www.encodeproject.org/files/ENCFF000MDH/@@download/ENCFF000MDH.fastq.gz,0.76
