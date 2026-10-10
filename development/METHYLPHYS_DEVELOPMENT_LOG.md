@@ -756,6 +756,9 @@ Met-A repeats <= 0.0114 (10/10), tared across labs <= 0.006, raw across labs <= 
 ### 2026-10-10 · SAM lever (Mat1a knockout) PASS by the sealed rule
 KO vehicle / WT IAM-A 1.124 (window 1.016-1.135), p 0.0003; SAMe lowers it to 1.098 (p 0.089). No sequencing batch or depth effect found. Open: steatohepatitis is a second route downstream of SAMe loss.
 
+### 2026-10-10 · Record rule added to the push gate
+CANON/repro_check.py now refuses a push when an outcome note is not named in this log, a **Milestone:** note is not in the Biological_Physics README Advancements table, or a day lacks its Day summary once the next day has begun (Pacific time). Milestone lines added to DEV-SAM-LEVER-01, DEV-EPIQC-ARRAY-01, DEV-CSCORE-MOSS-01, PROC-CHANNEL-01 and the Met-A commissioning note.
+
 ### 2026-10-10 · Day summary
 Passed (sealed before reading): IAM-A SAM lever in mice (1.124 in window 1.016-1.135, p 0.0003); Met-A on identical DNA at three laboratories
 (all four bars); Met-A specificity on the Moss mixes (9/9). Reproduced from public data: every matrix the commissioned chain reads.

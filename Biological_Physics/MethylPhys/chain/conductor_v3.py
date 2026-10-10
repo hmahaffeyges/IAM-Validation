@@ -35,7 +35,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); RM = os.path.join(HERE, "Runt
 BUILD = "chain v3: Met-A on neutrophils (EPIC v1) COMMISSIONED 2026-10-09; every other stage DEVELOPMENT - not commissioned"
 METAA_COMMISSIONING = {   # doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md (author approved 2026-10-09)
     "status": "COMMISSIONED", "date": "2026-10-09", "reading": "Met-A", "cell": "neutrophils", "platform": "EPIC v1",
-    "specimens": ["isolated neutrophils", "whole blood (neutrophil fraction >= 0.20)"],
+    "specimens": ["isolated neutrophils", "whole blood (any neutrophil fraction, each reading with its own detection limit)"],
     "stages": "0, 1, 2, 5, 6, 8 (self-tare II then the median tare), 9, 13",
     "detection_limit_pct_loss": {"isolated neutrophils": 2.0, "whole blood": 5.0},
     "detection_basis": "DEV-METAA-SENS-01: every healthy array left Normal at these losses of the neutrophil pattern, through the whole chain",

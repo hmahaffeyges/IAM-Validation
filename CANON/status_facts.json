@@ -1,0 +1,22 @@
+{
+ "_rule": "One place for every status fact that is repeated across the repo. When a fact changes, change it here first; CANON/status_check.py then refuses any push while a living document (READMEs, SOP, STATUS, OM, book, chain code, website) still says the old thing. Dated records (development log, DEV/PROC notes and outcomes, job sheets, archive) are history and are not checked.",
+ "exclude": ["^archive/", "/archive/", "RETIRED", "^development/", "_OUTCOME\\.md$", "/doors/(DEV|PROC|CANDIDATE|DATA_ACCESS)", "/doors/data/", "RECOVERED", "canon_report\\.json$", "verify_book_output", "VERIFY_BOOK_INVENTORY", "VERIFY_BOOK_CHANGES", "/boxruns/", "CANON/status_facts\\.json$", "CANON/repro_check\\.py$", "/chain_tests/", "dev_stages\\.py$"],
+ "facts": [
+  {"id": "metA_commissioned", "since": "2026-10-09",
+   "fact": "Met-A on neutrophils (EPIC v1), isolated or in whole blood, is commissioned; every other stage is development",
+   "forbid": ["(?i)no cell is commissioned", "(?i)not yet commissioned\\)", "(?i)(instrument|chain v3|the chain)( is)? (a development build, )?not commissioned", "(?i)it is not commissioned and not a diagnostic", "DEVELOPMENT - not commissioned; neutrophils"],
+   "require": [["Biological_Physics/README.md", "Met-A on neutrophils \\(EPIC v1\\) is commissioned"],
+               ["Biological_Physics/MethylPhys/chain/conductor_v3.py", "\"status\": \"COMMISSIONED\", \"date\": \"2026-10-09\""],
+               ["Biological_Physics/MethylPhys/STATUS.md", "Commissioned:\\*\\* Met-A on neutrophils, EPIC v1"]]},
+  {"id": "fraction_cut_dropped", "since": "2026-10-10",
+   "fact": "whole-blood Met-A is read at any neutrophil fraction, each reading with its own detection limit (the 0.20 cut is dropped)",
+   "forbid": ["(?i)fraction\\s*(≥|>=|\\\\geq)\\s*0\\.20", "MIN_READ_FRACTION\\s*="]},
+  {"id": "atlas_v2_74_cells", "since": "2026-10-05", "fact": "atlas v2 holds 74 cell types",
+   "forbid": ["(?i)\\b70[- ]cell (atlas|reference)"]},
+  {"id": "public_data_only", "since": "2026-10-10", "fact": "public data only; no controlled-access requests",
+   "forbid": ["DATA_ACCESS_BLUEPRINT", "EGAD00001001201"]},
+  {"id": "xspecies_reading_withdrawn", "since": "2026-10-10", "fact": "the reference-free RRBS cross-species reading is withdrawn",
+   "forbid": ["(?i)liver\\s*(ρ|rho)\\s*=?\\s*0\\.29"]}
+ ],
+ "book_check_count": {"output": "docs/book/verification/verify_book_output.txt", "places": ["README.md"]}
+}

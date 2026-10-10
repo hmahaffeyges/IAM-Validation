@@ -4,7 +4,13 @@
   2. a development/outcome note in Biological_Physics/MethylPhys/doors/ that is new or changed in this push carries computed numbers but
      has no committed script: one under doors/data/<NOTE>/ (or <NOTE> without _OUTCOME), or a script the note names that exists in the repo.
 Notes still listed as 'open' in development/REPRODUCIBILITY_BACKLOG.md are reported but not refused (the backlog is being closed).
-Pre-registrations (*_PREREG.md) are exempt: their numbers are bars set in advance."""
+Pre-registrations (*_PREREG.md) are exempt: their numbers are bars set in advance.
+Record rule (2026-10-10). Also refuses a push when
+  3. an outcome note (doors/*_OUTCOME.md) new or changed in this push is not named in development/METHYLPHYS_DEVELOPMENT_LOG.md,
+     or the log did not change in the same push;
+  4. a note that carries a "**Milestone:**" line is not linked from the Advancements table of Biological_Physics/README.md,
+     or a link in that table points at a file that does not exist;
+  5. a day with log entries (from 2026-10-10) has no "### <date> · Day summary" once a later day has begun (Pacific time)."""
 import re, subprocess, sys
 def git(*a): return subprocess.run(["git", *a], capture_output=True, text=True).stdout
 fail = []
@@ -27,6 +33,30 @@ for f in changed:
     if near or named: continue
     if re.search(rf"\| {re.escape(stem)} \|[^\n]*\| open \|", backlog): print(f"repro_check: {stem} is still on the backlog (no script yet)"); continue
     fail.append(f"{f}: numbers but no committed script (doors/data/{k}/ or a script the note names)")
+# ---- record rule (checks 3-5)
+import os, datetime
+from zoneinfo import ZoneInfo
+LOGF = "development/METHYLPHYS_DEVELOPMENT_LOG.md"; README = "Biological_Physics/README.md"
+alld = git("diff", "--name-only", base, "HEAD").split("\n")
+log = open(LOGF, encoding="utf-8").read() if os.path.exists(LOGF) else ""
+for f in changed:
+    stem = f.rsplit("/", 1)[1][:-3]
+    if not stem.endswith("_OUTCOME"): continue
+    k = stem[:-8]; ids = {stem, k, k.replace("_", "-"), stem + ".md"}
+    if LOGF not in alld: fail.append(f"{f}: outcome changed but the development log was not updated in this push"); continue
+    if not any(i in log for i in ids): fail.append(f"{f}: outcome not named in {LOGF} (name {k.replace('_', '-')} or {stem}.md)")
+rd = open(README, encoding="utf-8").read() if os.path.exists(README) else ""
+adv = rd.split("## Advancements", 1)[1].split("\n## ", 1)[0] if "## Advancements" in rd else ""
+for t in re.findall(r"\]\(([^)#]+)\)", adv):
+    if not t.startswith("http") and not os.path.exists(os.path.normpath(os.path.join("Biological_Physics", t))): fail.append(f"{README} Advancements: broken link {t}")
+for f in [t for t in tree if re.match(r"Biological_Physics/MethylPhys/doors/[^/]+\.md$", t)]:
+    try: txt = open(f, encoding="utf-8").read()
+    except FileNotFoundError: continue
+    if "**Milestone:**" in txt and f.rsplit("/", 1)[1] not in adv: fail.append(f"{f}: marked **Milestone:** but not linked in {README} Advancements")
+days = sorted({d for d in re.findall(r"^### (\d{4}-\d{2}-\d{2})", log, re.M) if d >= "2026-10-10"})
+today = datetime.datetime.now(ZoneInfo("America/Los_Angeles")).date().isoformat()
+for d in days:
+    if (d < today or d < days[-1]) and not re.search(rf"^### {d} · Day summary", log, re.M): fail.append(f"{LOGF}: no '### {d} · Day summary' (a later day has begun)")
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
 print(f"repro_check: ok ({len(changed)} note(s) changed in this push)")

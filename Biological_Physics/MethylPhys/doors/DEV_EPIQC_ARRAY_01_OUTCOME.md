@@ -16,3 +16,5 @@ Recorded, no bar: raw A across laboratories, per line, spread 0.0044–0.0084 (t
 spread 0.028–0.131; the same-run tare lowers C's spread for HG007 (0.131 → 0.085) and raises it slightly for HG005 and HG006.
 Met-A's reading of the same DNA is reproducible within 1 % across three laboratories on EPIC v1. The C-score repeats within 0.10 in 9 of 10 pairs
 here; in the Moss series (DEV-CSCORE-MOSS-01) its untared array-to-array spread was larger.
+
+**Milestone:** listed in `Biological_Physics/README.md`, Advancements.

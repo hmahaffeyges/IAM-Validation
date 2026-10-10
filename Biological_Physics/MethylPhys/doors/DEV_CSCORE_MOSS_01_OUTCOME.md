@@ -20,3 +20,5 @@ and `conductor_v3.run_neutrophil(specimen="constructed DNA mixture")`, untared.
 **Bar 2 (C-score specificity): not met, 6/9** (3 above 1.10). The rise does not follow the tissue dose (6 % colon 1.137; 15 % colon plus neurons
 1.032) and the in-silico builds of the same mixes stay near 1, so it is array-to-array variation of the untared C, the same open problem as the
 C-score repeat bar. The C-score's same-run tare (DEV-CSCORE-TARE-01) needs >= 3 same-run healthy references; this series has one.
+
+**Milestone:** listed in `Biological_Physics/README.md`, Advancements.

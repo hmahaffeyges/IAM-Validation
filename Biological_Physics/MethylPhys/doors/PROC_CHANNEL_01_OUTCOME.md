@@ -116,3 +116,5 @@ seed 20260930, the committed rosters, the GEO hg19 .pat files) rerun on the box 
 table is identical in every column to the 2026-09-30 table (`channel_cells_genomewide.csv`), and every grouping number above is reproduced
 (`rerun_2026-10-10_channel.log`). `derive_constants.py` gives the CANON constants E_hold_meth 3.41, phi 0.1628 and eps0_meth 0.032 from the table.
 Per-sample table: `rerun_2026-10-10_channel_samples.csv`.
+
+**Milestone:** listed in `Biological_Physics/README.md`, Advancements.

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """run_sample.py - one command: IDAT pair (or a beta table, or single-molecule reads) to a MethylPhys report.
 
-Chain v3 (DEVELOPMENT - not commissioned; neutrophils, EPIC v1) - the only engine: Stage 0 intake -> Stage 1 IDAT calibration -> conductor_v3
+Chain v3 (Met-A on neutrophils, EPIC v1, COMMISSIONED 2026-10-09; every other stage DEVELOPMENT) - the only engine: Stage 0 intake -> Stage 1 IDAT calibration -> conductor_v3
 (platform check, Stage A composition, Stage M Met-A, Stage MC C-score, Stage T same-run tare) -> report_v3, plus Stage Q IAM-A
 when single-molecule input is given.
 
