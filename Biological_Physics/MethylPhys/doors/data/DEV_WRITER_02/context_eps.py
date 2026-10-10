@@ -6,14 +6,16 @@ covered neighbours T (channel.py: denovo = iso_C / nC_u). Context = hg19 bases -
 wgbstools references/hg19 CpG.bed.gz (chr, position of the C, CpG index) and genome.fa.gz.
 Check built in: summed over contexts, each sample's copy_err and denovo must equal PROC-CHANNEL-01's (rerun_2026-10-10_channel_samples.csv).
 Inputs: the 153 cached window files of PROC-CHANNEL-01 (399 windows, windows_hg19_cpgidx.bed). Output: context_counts.csv.
-Usage: python3 context_eps.py WINDOWS.bed CACHE_DIR WGBS_HG19_REF_DIR OUT.csv [NPROC]"""
+Usage: python3 context_eps.py WINDOWS.bed CACHE_DIR WGBS_HG19_REF_DIR OUT.csv [NPROC] [HG19_FASTA]
+(HG19_FASTA defaults to REF/genome.fa.gz; any indexed UCSC hg19 FASTA gives the same contexts, checked by the CG test below.)"""
 import sys, os, gzip, collections, multiprocessing as mp, pandas as pd, pysam
 WINB, CACHE, REF, OUT = sys.argv[1:5]; NP = int(sys.argv[5]) if len(sys.argv) > 5 else 16
+FASTA = sys.argv[6] if len(sys.argv) > 6 else os.path.join(REF, "genome.fa.gz")
 WIN = [l.split() for l in open(WINB)]
 def ctx_map():
     want = set()
     for c, st, en in WIN: want.update(range(int(st), int(en)))
-    fa = pysam.FastaFile(os.path.join(REF, "genome.fa.gz")); M = {}; bad = 0
+    fa = pysam.FastaFile(FASTA); M = {}; bad = 0
     for l in gzip.open(os.path.join(REF, "CpG.bed.gz"), "rt"):
         ch, pos, idx = l.split()[:3]; idx = int(idx)
         if idx not in want: continue
@@ -21,6 +23,7 @@ def ctx_map():
         s = fa.fetch(ch, p - 2, p + 4).upper()
         if s[2:4] != "CG" or len(s) != 6 or any(b not in "ACGT" for b in s): bad += 1; continue
         M[idx] = s
+    assert bad < 0.001 * (len(M) + bad), f"{bad} of {len(M) + bad} window CpGs are not CG in this FASTA: wrong genome or coordinates"
     return M, bad
 def one(args):
     g, M = args; E = collections.Counter(); O = collections.Counter(); EC = collections.Counter(); OC = collections.Counter()
