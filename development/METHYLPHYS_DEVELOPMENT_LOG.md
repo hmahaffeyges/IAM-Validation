@@ -710,3 +710,6 @@ On wild-type GSE77079: eps 0.307 raw, 0.117 trimmed, 0.085-0.015 as the CpG-call
 
 ### 2026-10-10 · DEV-RUNLOSS-01 defined and simulated; prediction sealed
 Run-loss reading (excess of fully lost molecules over what the same scattered loss gives) recovers planted run loss (0.099/0.213 for 0.10/0.22) and reads ~0 for scattered loss. Prediction for decitabine: d_eff = array loss (0.22, 0.39) +-0.05; excess L >= 0.5 d_eff.
+
+### 2026-10-10 · DEV-RUNLOSS-01 read: both bars not met; run loss present
+Excess run loss 0.12 (30 nM), 0.28 (300 nM), vehicle -0.0001; 39-46 % of total loss (bar: >= 50 %). EM-seq loss 0.30/0.62 vs array 0.22/0.39 (bar +-0.05). Development instrument; needs a second experiment.

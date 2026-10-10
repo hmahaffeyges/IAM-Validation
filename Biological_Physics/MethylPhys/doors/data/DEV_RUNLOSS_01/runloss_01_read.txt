@@ -1,0 +1,6 @@
+vehicle 1: {'molecules': 493784, 'K': 0.8674, 'L': 0.0028, 'beta_T': 0.9044}
+SRR25322251 {'molecules': 478805, 'K': 0.8649, 'L': 0.0028, 'beta_T': 0.9036} d_eff 0.0008 L_scat 0.0029 excess -0.0001
+SRR25322250 {'molecules': 400274, 'K': 0.4032, 'L': 0.1418, 'beta_T': 0.6282} d_eff 0.3054 L_scat 0.0203 excess +0.1215
+SRR25322249 {'molecules': 416060, 'K': 0.4137, 'L': 0.134, 'beta_T': 0.638} d_eff 0.2945 L_scat 0.0184 excess +0.1156
+SRR25322248 {'molecules': 431937, 'K': 0.2127, 'L': 0.5339, 'beta_T': 0.3339} d_eff 0.6308 L_scat 0.2589 excess +0.2750
+SRR25322247 {'molecules': 427491, 'K': 0.2275, 'L': 0.5166, 'beta_T': 0.3487} d_eff 0.6145 L_scat 0.2331 excess +0.2835
