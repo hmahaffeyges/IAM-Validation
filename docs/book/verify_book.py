@@ -31289,6 +31289,62 @@ def check_3848():
 
 
 # ======== Part 6 | ch:meta | docs/book/part6/p6_07_meta.tex
+
+_DONORS = 'Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/reference_donors.csv'
+DATA_FILES[_DONORS] = 'the six Met-A neutrophil reference arrays: sex, age, FACS purity, smoker (GEO GSE110554; reference_donors.py)'
+def _donors():
+    """The six physical arrays of the Met-A neutrophil healthy reference, from reference_donors.csv (GEO GSE110554, reference_donors.py)."""
+    R = load_csv_rows(_DONORS); assert len(R) == 6, len(R)
+    return [int(r['age']) for r in R], [int(r['purity_pct']) for r in R], [r['sex'] for r in R]
+
+@check(label='ch:meta:L22:20', chapter='ch:meta', part=6, title='Met-A healthy reference: youngest reference donor',
+       file='part6/p6_07_meta', line=22, status='observed', kind='file', printed='20', tol=0.0, source=_DONORS)
+def check_meta_donor_22_20():
+    'youngest reference donor of the six reference arrays, from reference_donors.csv (GEO sample characteristics). Book line 22, printed 20.'
+    ages, pur, sex = _donors()
+    value = min(ages)
+    return locals()
+
+@check(label='ch:meta:L22:39', chapter='ch:meta', part=6, title='Met-A healthy reference: oldest reference donor',
+       file='part6/p6_07_meta', line=22, status='observed', kind='file', printed='39', tol=0.0, source=_DONORS)
+def check_meta_donor_22_39():
+    'oldest reference donor of the six reference arrays, from reference_donors.csv (GEO sample characteristics). Book line 22, printed 39.'
+    ages, pur, sex = _donors()
+    value = max(ages)
+    return locals()
+
+@check(label='ch:meta:L22:94', chapter='ch:meta', part=6, title='Met-A healthy reference: lowest FACS purity',
+       file='part6/p6_07_meta', line=22, status='observed', kind='file', printed='94', tol=0.0, source=_DONORS)
+def check_meta_donor_22_94():
+    'lowest FACS purity of the six reference arrays, from reference_donors.csv (GEO sample characteristics). Book line 22, printed 94.'
+    ages, pur, sex = _donors()
+    value = min(pur)
+    return locals()
+
+@check(label='ch:meta:L22:97', chapter='ch:meta', part=6, title='Met-A healthy reference: highest FACS purity',
+       file='part6/p6_07_meta', line=22, status='observed', kind='file', printed='97', tol=0.0, source=_DONORS)
+def check_meta_donor_22_97():
+    'highest FACS purity of the six reference arrays, from reference_donors.csv (GEO sample characteristics). Book line 22, printed 97.'
+    ages, pur, sex = _donors()
+    value = max(pur)
+    return locals()
+
+@check(label='ch:meta:L33:20:def', chapter='ch:meta', part=6, title='Met-A healthy reference: youngest reference donor (healthy, defined)',
+       file='part6/p6_07_meta', line=33, status='observed', kind='file', printed='20', tol=0.0, source=_DONORS)
+def check_meta_donor_33_20():
+    'youngest reference donor (healthy, defined) of the six reference arrays, from reference_donors.csv (GEO sample characteristics). Book line 33, printed 20.'
+    ages, pur, sex = _donors()
+    value = min(ages)
+    return locals()
+
+@check(label='ch:meta:L33:39:def', chapter='ch:meta', part=6, title='Met-A healthy reference: oldest reference donor (healthy, defined)',
+       file='part6/p6_07_meta', line=33, status='observed', kind='file', printed='39', tol=0.0, source=_DONORS)
+def check_meta_donor_33_39():
+    'oldest reference donor (healthy, defined) of the six reference arrays, from reference_donors.csv (GEO sample characteristics). Book line 33, printed 39.'
+    ages, pur, sex = _donors()
+    value = max(ages)
+    return locals()
+
 @check(label='eq:meta', chapter='ch:meta', part=6, title='H_ref of EPIC neutrophils: mean of the six arrays\' mean H on the identity sites',
        file='part6/p6_07_meta', line=8, status='calibrated', kind='file', printed='0.330263', tol=0.0, source=_B09_NR)
 def check_3849():

@@ -220,6 +220,14 @@ turned this into a method, the MethylIT package: an information divergence (Hell
 individuals, a per-sample Weibull or gamma fit yielding a critical value, and a classifier-derived optimal cutoff separating disease-induced
 from background differentially methylated positions. \observed
 
+Measuring methylation as entropy is not new either. Xie and co-workers measured the entropy of methylation patterns on sequencing reads
+across the genome~\cite{Xie2011}; Landan and co-workers measured epipolymorphism, the diversity of patterns on single molecules, in normal
+and cancer tissue~\cite{Landan2012}; Hannum and co-workers tracked the Shannon entropy of the methylome with age~\cite{Hannum2013};
+Jenkinson and co-workers built an information-theoretic model of the epigenome in which methylation entropy is read from a potential-energy
+landscape~\cite{Jenkinson2017}. \observed{} The entropy itself is therefore not what IAM adds. What it adds is the gauge the entropy is read
+on: a floor and a ceiling fixed by physics, the identity sites of one cell type as the place it is read, and that cell type's healthy
+reference as the fixed origin (Chapters~\ref{ch:gauge} and~\ref{ch:meta}).
+
 Three things are taken from that work as established and built on. (i) $\kB T\ln2$ is the correct physical anchor for methylation as an
 information-writing process. (ii) Thermal fluctuations produce a genuine statistical background in methylation level that any analysis must
 account for. (iii) In Sanchez and co-workers' terms, proper measurement of the methylation signal needs a reference from which divergence is
