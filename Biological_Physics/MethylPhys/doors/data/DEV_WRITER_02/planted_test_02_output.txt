@@ -1,0 +1,2 @@
+classes 136 | copy-error slope 0.992 (expect 1) | control slope 0.026 (expect 0) | k 1.49 (planted 2.0)
+PLANTED TEST PASSED

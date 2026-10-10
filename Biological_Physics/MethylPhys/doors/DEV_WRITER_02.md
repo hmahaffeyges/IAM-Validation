@@ -41,3 +41,11 @@ both strands at each CpG; the opposite strand reads the reverse-complement conte
 prediction per top-strand context is therefore the strand average, **eps_c = k x ½[1/(1+D_c) + 1/(1+D_rc(c))]**, fitted as log eps_c on log of
 that bracket, slope 1. Contexts and their reverse complements carry the same prediction, so the fit has 136 independent points (120 pairs, 16
 palindromes); slopes are computed on those 136. The bars are unchanged.
+
+**Reader, scorer and planted test, committed before any cell file is read.** `data/DEV_WRITER_02/context_eps.py` (box; channel.py's copy-error
+and de novo definitions split by hg19 NNCGNN context, with a built-in check that the context sums reproduce PROC-CHANNEL-01 per sample exactly),
+`score_writer_02.py` (the sealed statistic), `planted_test_02.py` (output `planted_test_02_output.txt`): synthetic molecules with errors planted at
+eps_c = 2 x bracket_c → copy-error slope 0.992, control slope 0.026: PASSED. **The same test shows this reader returns k about 25 % low**
+(1.49 for a planted 2.0), because it counts only isolated errors on molecules >= 80 % methylated. The slope, the sealed statistic, is unaffected.
+k is therefore reported twice: as read, and divided by the planted recovery (1.49/2.0 at these rates). The canon eps0 = 0.032 comes from this same
+reader, so the "about twice the writer's error" of DEV-WRITER-01 is read through the same bias.
