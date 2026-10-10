@@ -778,3 +778,5 @@ Not met or undecided: whole-blood kit/repeat bars (incomplete), decitabine dose 
 run-loss bars (not met), untared C-score on Moss (6/9). Withdrawn: the reference-free RRBS reader and the cross-species reading made with it.
 Parked: methionine depletion (PRJDB12471; too few copies made in 48-72 h). Running: cancer fingerprint (LNCaP vs PrEC, both instruments).
 Milestones are also listed in Biological_Physics/README.md, section Advancements.
+
+**Afternoon (added 15:00 PDT).** Passed against sealed rules: DEV-FINGERPRINT-01, a cancer fingerprint on both instruments (arm B decides; planted test of the scorer passed first). Push gate extended: record rule, status rule (CANON/status_facts.json), results register (book Ch. Development results and README Advancements generated). Book review: prior art credited, the gauge's physics ends, what healthy means for each instrument side by side, donors of both references (Met-A 20-39; IAM-A 50-56); 4,691 checks, 0 failures. Searches: no public GNMT-knockout methylome; NASH and copier-kinetics sets recorded (Hammer-seq GSE131098). Box stopped.
