@@ -680,3 +680,6 @@ Stage Q reading rises about half as fast as the simple copy-error form (delta 0.
 
 ### 2026-10-10 · PROC-CHANNEL-01 reproduced from the repo
 Rerun of the rebuilt job (153/153 samples after re-fetching 2) matches the 09-30 per-cell table exactly in every column; clustering numbers reproduced (2 groups silhouette 0.531; held-out 4-5 groups ARI 0.505/0.516; eight groups vs classes 0.234, null 0.045). E_hold 3.41, phi 0.1628, eps0 0.032 now fully reproducible from public data. Closed on the backlog.
+
+### 2026-10-10 · DEV-IAMA-WBTARE-01 read: incomplete
+9/14 runs refused at conversion 0.98 (all Swift at 0.979-0.980, Sample3 Swift rep2 passing at 0.98001; TruSeq rep2 0.970-0.974). Bar 1: 4/4 TruSeq rep1 within 0.95-1.05 after the tare (1.024, 0.972, 0.979, 1.022). Bars 2-3 not assessable, bar 4 not run. Correction to the 10-09 status messages: not all Swift libraries failed intake (one passed), and the TruSeq repeat libraries failed it.
