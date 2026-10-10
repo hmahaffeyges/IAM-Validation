@@ -26,3 +26,17 @@ sealed → LNCaP (5 runs) and the arrays read → scored as sealed.
 against the simple-form IAM-A. In Stage Q's units (prostate response) its slope is 2.06, not 1.17, so IAM-A's own repeat error weighs about twice as
 much. Detection of Met-A above curve B (2 arrays, 4 runs a side; false call 5 %): excess 0.04 → 0.50 (was 0.58), 0.06 → 0.79 (was 0.87),
 0.10 → 0.99. Arm A of the window will be sealed on this curve, rebuilt on PrEC's own molecules.
+
+**Both arms sealed 2026-10-10T18:57Z, before any LNCaP run or LNCaP array is read** (`data/DEV_FINGERPRINT_01/score_fingerprint_01.py`,
+definitions and decision rules in its header; nothing changes after this commit).
+- **PrEC, Box Run 8 stage 1:** 4 libraries (PreC_1–4), all pass intake (conversion 0.992–0.994); Stage Q ε 0.0476 / 0.0471 / 0.0467 / 0.0505.
+- **Stage Q's response on PrEC's own molecules** (`insilico_prec_SRR4238614.csv`): IAM-A_rel 1.07 / 1.14 / 1.26 / 1.35 / 1.50 at δ 0.01 / 0.02 / 0.04 / 0.06 / 0.10;
+  readable (>= 70 %) to δ ≈ 0.11. Curve B in these units has slope 2.06 (Arm A).
+- **Run-loss reading on PrEC** (`runloss_sim_prec.txt`): planted run loss 0.10 / 0.22 read +0.0985 / +0.2155; scattered loss reads <= 0.0004.
+  Read across the 4 healthy libraries (territory from libraries 1–2, `runloss_prec_read_4runs_territory_614_615.txt`): excess 0.000 / 0.000 / 0.009 / 0.039.
+  Healthy libraries differ in run loss by up to ~0.04, so Arm B calls a fingerprint only if EVERY LNCaP run exceeds the LARGEST PrEC run (territory
+  from all four PrEC). A dry run with libraries 3–4 standing in for LNCaP called Arm B "fingerprint" against libraries 1–2 alone: the reason the
+  bar is the largest of all four healthy libraries.
+- **Met-A:** 6,000 prostate identity sites from the atlas v2 posterior (`prostate_identity_sites_v1.json`), EPIC arrays GSM2309170–73 (2 per cell).
+  Dry run (PrEC arrays on both sides): Met-A_rel 1.0000, Arm A z -1.65, no fingerprint.
+- **Decision:** share_read >= 0.70 → Arm A decides (z > 1.645 = fingerprint); else Arm B decides. The other arm is recorded.
