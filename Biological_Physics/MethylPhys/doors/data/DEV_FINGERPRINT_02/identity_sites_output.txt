@@ -1,0 +1,7 @@
+prostate epithelium          sites 6000 (methylated 3000, unmethylated 3000)
+hepatocyte                   sites 6000 (methylated 3000, unmethylated 3000)
+lung alveolar epithelium     sites 6000 (methylated 3000, unmethylated 3000)
+lung bronchus epithelium     sites 6000 (methylated 3000, unmethylated 3000)
+breast luminal epithelium    sites 6000 (methylated 3000, unmethylated 3000)
+breast basal epithelium      sites 6000 (methylated 3000, unmethylated 3000)
+prostate identical to DEV-FINGERPRINT-01: yes

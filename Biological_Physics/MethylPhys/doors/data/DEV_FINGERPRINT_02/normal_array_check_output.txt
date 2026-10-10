@@ -1,0 +1,11 @@
+        exp                   tissue  sites  mae_vs_atlas  H_array  H_atlas
+ENCSR000ACD      prostate_epithelium   3413         0.046    0.324    0.364
+ENCSR955LKF               hepatocyte   5954         0.061    0.382    0.347
+ENCSR000ABW               hepatocyte   3153         0.041    0.356    0.352
+ENCSR422EPB lung_alveolar_epithelium   5933         0.054    0.405    0.353
+ENCSR000ABH lung_alveolar_epithelium   3423         0.054    0.395    0.358
+ENCSR000ACA lung_bronchus_epithelium   3366         0.045    0.318    0.367
+ENCSR000ACY lung_bronchus_epithelium   3363         0.045    0.326    0.366
+ENCSR148KKY  breast_basal_epithelium   5650         0.065    0.357    0.347
+ENCSR583ILE  breast_basal_epithelium   5150         0.058    0.361    0.347
+ENCSR000ABL  breast_basal_epithelium   3494         0.061    0.329    0.354
