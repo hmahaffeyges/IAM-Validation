@@ -771,6 +771,9 @@ Ch. Landauer: methylation entropy credited as prior art (Xie 2011, Landan 2012, 
 ### 2026-10-10 · DEV-FINGERPRINT-01 read as sealed: FINGERPRINT
 Planted test first (scorer byte-identical: fingerprint called when planted, z 4.00; not called on curve B; Arm B silent on scattered loss). Then LNCaP vs PrEC: IAM-A_rel 1.0673, share read 0.618 (Arm B decides), excess run loss +0.1105 to +0.1130 on every LNCaP run vs +0.0043 largest PrEC: FINGERPRINT. Arm A recorded: Met-A_rel 1.2265 vs curve B 1.1672, z 2.37: also fingerprint. One line, one lab; LNCaP is a cultured line.
 
+### 2026-10-10 · DEV-HAMMER-01 step 1: kinetics in the same cells cannot predict eps0
+Simulation of Hammer-seq's measurement (parent = more methylated strand): f and g recovered 6-20x wrong at every time point. Algebra: at steady state g/f = (1-eps)/eps identically, so rates measured in steady-state cells reproduce eps by construction. Closed as a prediction before download; D1 restated as deriving eps0 from the writer's discrimination measured outside the cell. Script development/sims/hammer_01.py.
+
 ### 2026-10-10 · Day summary
 Passed (sealed before reading): IAM-A SAM lever in mice (1.124 in window 1.016-1.135, p 0.0003); Met-A on identical DNA at three laboratories
 (all four bars); Met-A specificity on the Moss mixes (9/9). Reproduced from public data: every matrix the commissioned chain reads.
