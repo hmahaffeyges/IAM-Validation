@@ -30,3 +30,6 @@ Reproduce: `development/sims/sam_lever_01.py` (inputs: this repo only).
 4. Instrument checks: conversion and coverage per sample; same pipeline for all 19; no reference from another laboratory.
 **Confounds written now:** steatohepatitis changes the cell mix and proliferation; the knockout's raised methionine; 'global DNA
 methylation unchanged' in the knockout (Lu 2001) — expected, since the predicted ε shift is under 1 % of sites.
+
+
+**Reader change before any knockout is read (2026-10-10).** The reference-free reader fails its check on the wild-type file (`data/DEV_SAM_LEVER_01/reader_check_01.md`). Replaced by: adapter and RRBS fill-in trimming (Trim Galore --rrbs), bwa-meth on mm10, wgbstools bam2pat (mm10), Stage Q's rule (pat_site_table). Then the in-silico response on the wild-type molecules and the window sealed through it, before any knockout ε is computed. Bars 1-4 unchanged.

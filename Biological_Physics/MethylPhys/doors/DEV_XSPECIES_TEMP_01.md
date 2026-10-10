@@ -31,6 +31,8 @@ qualifying molecules; a run with < 20,000 qualifying molecules is not read. Per 
 **Not done here:** fish (no body or water temperatures in AnAge yet; FishBase later).
 
 ---
+**Status 2026-10-10: reading withdrawn.** The reference-free reader used here does not measure copy error (doors/data/DEV_SAM_LEVER_01/reader_check_01.md: ε depends on the CpG-calling threshold; fake CpGs from sequencing errors grow with reads per fragment). The results below are kept as run, but are not readings; a reread needs alignment to each species' genome.
+
 ## Results (2026-10-09; nothing above the line changed)
 1,001 liver/heart runs read (mammals and birds), 1,000 with ≥ 20,000 qualifying molecules (median 792,614). Per-species table:
 `data/DEV_XSPECIES_TEMP_01/species_tissue_eps.csv`; figure `fig_xspecies_temp.png`. Median ε 0.041 in mammal liver and heart.
