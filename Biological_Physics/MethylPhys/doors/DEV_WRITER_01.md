@@ -17,3 +17,13 @@ the median is scored. Truncated catalytic domains without the replication-foci a
 better than the writer alone can, so the extra comes from the partners (UHRF1 recruitment) and costs energy; Model A is not enough. Median D
 above 60: the writer alone would hold better than cells do; cells lose more than the writer's errors (loss by other routes). Either outcome is
 recorded; neither changes a constant.
+
+**Lookup in progress (2026-10-10, after sealing; nothing scored).** Primary in-vitro measurements found so far, each to be classified by the
+rule above before the median is taken:
+| source | enzyme | measure | D (hemi ÷ unmethylated) | classified? |
+|---|---|---|---|---|
+| Adam et al. 2023, Nucleic Acids Res (PMC10359454; full text read) | full-length murine DNMT1 | competitive rates, 256 flanks | ~80 on average (87 in their Fig. 2B; range 29 to >300) | yes, qualifies |
+| Yokochi & Robertson 2002, J Biol Chem 277:11735 (doi 10.1074/jbc.m106590200) | DNMT1, form not yet read | k_cat/K_M 19.9 vs 0.42 (their table) | 47 | no: methods not readable (publisher refuses automated access) |
+| Bashtrykov et al. 2012, Chem Biol 19:572 (doi 10.1016/j.chembiol.2012.03.010) | Dnmt1, form not yet read | ~10-fold "under our conditions" | ~10 | no: same |
+Not scored by the rule: reviews (Jeltsch: 30-40), truncated constructs (CXXC-containing fragment ~17, without CXXC 2.2), and in-vivo estimates
+(statistical inference from double-stranded patterns, 15-628). Scoring waits on the two methods sections.
