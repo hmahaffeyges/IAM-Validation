@@ -674,3 +674,6 @@ Placed beside their notes (11 notes) or in doors/data/RECOVERED_2026-09-30/ with
 
 ### 2026-10-10 · Dose series Met-A side read and committed before IAM-A
 Met-A_rel vehicle 1.000 (0.9986/1.0014), DAC30 1.43, DAC300 1.67; methylated identity mean beta 0.898 -> 0.704 -> 0.549. Script metaa_dose_02.py.
+
+### 2026-10-10 · Dose-series window corrected before data: Stage Q response measured in silico
+Stage Q reading rises about half as fast as the simple copy-error form (delta 0.10: IAM-A_rel 1.55 vs 2.21; 74 % read). 30 nM window now IAM-A_rel 1.44-1.55 with >= 70 % read (stand-in response; final on the vehicle molecules); 300 nM outside the readable range. Scripts insilico_loss_02.py, predict_iama_window_02.py.

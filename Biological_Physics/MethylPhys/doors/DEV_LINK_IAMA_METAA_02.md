@@ -32,15 +32,20 @@ metaa_dose_02.py`, committed 792d7dd before running; rows `metaa_dose_02_rows.cs
 Both doses keep the identity sites on their own side of β = 0.5 (300 nM narrowly). The IAM-A side and curves A and B come from the box EM-seq
 runs and are compared with these readings as they stand.
 
-**IAM-A window, sealed 2026-10-10 before any EM-seq reading** (`predict_iama_window_02.py`; inputs the Met-A rows and the vehicle identity-site
-means above; nothing fitted). Each curve is inverted at the measured Met-A_rel for the loss δ it needs; ε = ε_v + δ(1 − ε_v); the predicted
-IAM-A_rel lies between the curve-B and curve-A values. ε_v (vehicle EM-seq copy error, Stage Q) is the one input still to be measured:
+**IAM-A window, sealed 2026-10-10 02:00 UTC before any EM-seq reading** (`predict_iama_window_02.py`, nothing fitted). Each curve is
+inverted at the measured Met-A_rel for the loss δ it needs. The step δ → IAM-A_rel is **Stage Q's measured response** to that loss
+(`insilico_loss_02.py`: every methylated call lost with probability δ on real molecules, read by Stage Q's own code), as this note requires.
+An earlier version at 01:50 used the simple form ε = ε_v + δ(1 − ε_v). Stage Q reads only molecules ≥ 80 % methylated and only isolated errors,
+so its reading rises about half as fast (δ 0.10: 1.55 measured against 2.21 simple, 74 % of molecules read). That version was replaced
+before any data, because it would have failed on the instrument, not on the physics.
 
-| dose | Met-A_rel | δ_B | δ_A | IAM-A_rel window at ε_v = 0.03 | 0.04 | 0.05 |
-|---|---|---|---|---|---|---|
-| 30 nM | 1.4255 | 0.0732 | 0.1879 | 2.43–3.84 | 2.07–3.14 | 1.84–2.71 |
-| 300 nM | 1.6710 | 0.1291 | — | ≥ IAM-A(δ_B), no upper limit | | |
+Response so far on a stand-in (healthy neutrophil EM-seq-free WGBS, SRR9888330, ε_v 0.045; `insilico_standin_neutrophil_SRR9888330.csv`);
+the final window is the same script on the HCT116 vehicle molecules when they land:
 
-At 300 nM Met-A (1.67) is above curve A's maximum (1.606): loss on methylated molecules alone cannot produce it, and the unmethylated
-identity sites have risen (0.091 → 0.121). Curve A gives no upper limit there, and the methylated sites are near β = 0.5, where the
-curves flatten. **30 nM is the decisive dose.** The window at the measured ε_v is computed by the same script and compared as it stands.
+| dose | Met-A_rel | δ_B | δ_A | IAM-A_rel window | status |
+|---|---|---|---|---|---|
+| 30 nM | 1.4255 | 0.073 | 0.188 | ≥ 1.44; δ_A is beyond the readable range (≥ 70 % read to δ 0.10, IAM-A_rel 1.55) | **the test** |
+| 300 nM | 1.6710 | 0.129 | — | δ_B already beyond the readable range | outside the relation's range; recorded, not scored |
+
+**Prediction at 30 nM:** IAM-A_rel 1.44–1.55, with ≥ 70 % of molecules read. Below 1.44 with ≥ 70 % read: Met-A moved more than copy
+error allows (curve B), so something beyond copy error moves it. Fewer than 70 % read: outside the range, no result.
