@@ -121,6 +121,13 @@ The same gate also refuses a push when the record or a status falls behind:
   required statement is missing, or the printed check count differs from a full `verify_book.py` run. When a status changes, change
   `status_facts.json` first; the checker then lists every place still to update. Dated records (development log, DEV/PROC notes and
   outcomes, job sheets, archive) are history and are not checked.
+- **Results register:** every dated result and milestone is held once, in `CANON/results_register.json` (status development,
+  commissioned or withdrawn; its record; its sealed prediction). `CANON/results_to_tex.py` writes the book's development chapter
+  (`docs/book/part6/p6_25_development.tex`, Chapter "Development results") and the Advancements table of `Biological_Physics/README.md`
+  from it, recomputing every number from the committed record files. The gate refuses a push when either differs from what the register
+  generates; when a note says COMMISSIONED and is not registered, or register and record disagree; when a commissioning entry does not list
+  in `covers` the development results it closes, or a covered result is still marked development; when a result listed as passed no longer
+  meets its sealed rule. Moving a result from development to commissioned is one change in the register; the book and README follow.
 
 ### Commissioning order (set 2026-10-03)
 

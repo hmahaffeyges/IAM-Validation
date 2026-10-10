@@ -51,7 +51,7 @@ tested on its own; it is the next reviewer question and needs healthy purified n
 | test | result | record |
 |---|---|---|
 | Identical DNA at three laboratories (SEQC2 EpiQC, 30 EPIC arrays, 7 cell lines) | technical repeats within 0.0114 (10/10); same DNA across three laboratories within 0.0084 untared, 0.006 tared | DEV_EPIQC_ARRAY_01_OUTCOME.md |
-| Specificity: 4–15 % liver, lung, colon or neuron DNA in blood DNA (Moss 2018, 9 arrays) | all Normal, within 0.010 of the unmixed blood (9/9) | DEV_CSCORE_MOSS_01_OUTCOME.md |
+| Specificity: 4–15 % liver, lung, colon or neuron DNA in blood DNA (Moss 2018, 9 arrays) | all Normal and within 0.03 of the unmixed blood, the sealed bar (9/9); largest shift 0.0094 | DEV_CSCORE_MOSS_01_OUTCOME.md |
 
 ## Reproduce from public data
 Every matrix the commissioned path reads rebuilds from GEO with committed code (identical; `data/MET_A_FLOOR_V13_REPRO/README.md`):

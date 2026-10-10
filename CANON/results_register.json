@@ -1,0 +1,76 @@
+{
+ "_rule": "Every dated result and milestone, once. CANON/results_to_tex.py writes the book's development chapter (docs/book/part6/p6_25_development.tex) and the Advancements table of Biological_Physics/README.md from this file; numbers are recomputed from the committed records, never typed. status: development | commissioned | withdrawn. A result moves out of the development chapter only by changing its status here; CANON/status_check.py refuses a push while the book or README differs from what this file generates, or while a record and this file disagree about commissioning. Every kind=commissioning entry lists in 'covers' the development results its commissioning closes; the gate refuses while any covered result is still status development.",
+ "entries": [
+  {
+   "id": "DEV-SAM-LEVER-01",
+   "date": "2026-10-10",
+   "kind": "result",
+   "instrument": "IAM-A",
+   "status": "development",
+   "book": true,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_SAM_LEVER_01_OUTCOME.md",
+   "compute": "sam",
+   "prediction": {
+    "low": 1.016,
+    "high": 1.135,
+    "sealed_commit": "49ab1e6"
+   },
+   "title": "IAM-A, first physics lever: cutting the methyl supply"
+  },
+  {
+   "id": "DEV-EPIQC-ARRAY-01",
+   "date": "2026-10-10",
+   "kind": "result",
+   "instrument": "Met-A",
+   "status": "development",
+   "book": true,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_EPIQC_ARRAY_01_OUTCOME.md",
+   "compute": "epiqc",
+   "title": "Met-A reproduces across laboratories on identical DNA"
+  },
+  {
+   "id": "DEV-CSCORE-MOSS-01",
+   "date": "2026-10-10",
+   "kind": "result",
+   "instrument": "Met-A",
+   "status": "development",
+   "book": true,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_MOSS_01_OUTCOME.md",
+   "compute": "moss",
+   "title": "Met-A raises no false alarm when foreign DNA is mixed in"
+  },
+  {
+   "id": "REPRO-PUBLIC-2026-10-10",
+   "date": "2026-10-10",
+   "kind": "milestone",
+   "status": "commissioned",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md",
+   "also": [
+    "Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/README.md"
+   ],
+   "headline": "**Everything the commissioned chain reads rebuilds from public data**, identical: the holding energy 3.41 k_BT and ε₀ = 0.032 (153 public samples), the Met-A floor and its 6,000 sites, the C-score baseline, whole-blood composition, the IAM-A neutrophil position"
+  },
+  {
+   "id": "COMMISSIONING-METAA-NEUTROPHILS",
+   "date": "2026-10-09",
+   "kind": "commissioning",
+   "instrument": "Met-A",
+   "status": "commissioned",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md",
+   "headline": "**Met-A on neutrophils (EPIC v1) commissioned**, with its detection limits printed on every report",
+   "covers": []
+  },
+  {
+   "id": "BOOK-V1.0",
+   "date": "2026-10-05",
+   "kind": "milestone",
+   "status": "commissioned",
+   "book": false,
+   "record": "docs/book",
+   "link_text": "docs/book",
+   "headline": "**The book, IAM's Law and Order, v1.0** published (DOI [10.5281/zenodo.23151068](https://doi.org/10.5281/zenodo.23151068)); every derivation checked by one command, `docs/book/verify_book.py`. It includes the 74-cell reference atlas built as one Bayesian posterior, with an interval at every locus for every cell"
+  }
+ ]
+}

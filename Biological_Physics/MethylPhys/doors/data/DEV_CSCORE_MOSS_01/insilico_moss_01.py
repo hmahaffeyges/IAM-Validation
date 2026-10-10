@@ -40,8 +40,11 @@ if STEP == "readmix":   # the 9 real mix arrays (sealed prediction in doors/DEV_
         o = C3.run_neutrophil(beta, specimen="constructed DNA mixture"); m, cs = o.get("met_a", {}), o.get("met_a_cscore", {})
         rows.append(dict(gsm=g, mix="Mix" + ti.rsplit("_", 1)[-1], A=m.get("A"), C=cs.get("C"), reason=m.get("reason"), f_neu=((o.get("composition") or {}).get("fractions") or {}).get("NEU")))
         print(rows[-1], flush=True)
-    R = pd.DataFrame(rows).sort_values("mix"); R.to_csv(os.path.join(HERE, "moss_mixes_01_rows.csv"), index=False)
-    L = pd.read_parquet(os.path.join(W, "betas", "GSM3455862.parquet")).beta; L.index = L.index.astype(str); AL = C3.run_neutrophil(L, specimen="constructed DNA mixture")["met_a"]["A"]
+    R = pd.DataFrame(rows).sort_values("mix")
+    L = pd.read_parquet(os.path.join(W, "betas", "GSM3455862.parquet")).beta; L.index = L.index.astype(str); oL = C3.run_neutrophil(L, specimen="constructed DNA mixture"); AL = oL["met_a"]["A"]
+    # the unmixed leukocyte array is written into the rows so every number of this outcome reproduces from the committed file (2026-10-10)
+    pd.concat([R, pd.DataFrame([dict(gsm="GSM3455862", mix="unmixed leukocytes", A=AL, C=(oL.get("met_a_cscore") or {}).get("C"), reason=oL["met_a"].get("reason"),
+               f_neu=((oL.get("composition") or {}).get("fractions") or {}).get("NEU"))])]).to_csv(os.path.join(HERE, "moss_mixes_01_rows.csv"), index=False)
     ok1 = R.A.between(0.95, 1.05) & ((R.A - AL).abs() <= 0.03); ok2 = R.C.between(0.90, 1.10)
     print(f"leukocytes A {AL:.4f} | bar 1 met {int(ok1.sum())}/{len(R)} | bar 2 met {int(ok2.sum())}/{len(R)}")
     sys.exit(0)

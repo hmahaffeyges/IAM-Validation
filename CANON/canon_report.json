@@ -1,5 +1,50 @@
 [
 {
+"file": "docs/verification/PAPER_ERRATA.md",
+"line": 285,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "LIVE",
+"text": "| TR9 | | \u00a72.1, \u00a75.11 | class H_min A-score | Met-A / IAM-A (CANON) | confirmed | `theory/TECH_REFERENCE_CHECK.md` #10 |"
+},
+{
+"file": "docs/verification/PAPER_ERRATA.md",
+"line": 285,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| TR9 | | \u00a72.1, \u00a75.11 | class H_min A-score | Met-A / IAM-A (CANON) | confirmed | `theory/TECH_REFERENCE_CHECK.md` #10 |"
+},
+{
+"file": "docs/verification/theory/TECH_REFERENCE_CHECK.md",
+"line": 14,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "RECORD",
+"text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
+},
+{
+"file": "docs/verification/theory/TECH_REFERENCE_CHECK.md",
+"line": 14,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "RECORD",
+"text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
+},
+{
+"file": "docs/verification/theory/TECH_REFERENCE_CHECK.md",
+"line": 14,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
+},
+{
 "file": "docs/book/part6/p6_09_cscore.tex",
 "line": 31,
 "pattern": "\\bA[- ]score",
@@ -727,5 +772,23 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "**Question.** With one lab, one kit, one sequencer and every fish prepared the same way, is the gate-error reading a property of each fish"
+},
+{
+"file": "Biological_Physics/MethylPhys/atlas/v2/scripts/stage_1_idat_calibration.py",
+"line": 11,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "compressed (~0.85 instead of ~0.95) and inflates every downstream A-score. The"
+},
+{
+"file": "Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md",
+"line": 3,
+"pattern": "gate-error reading",
+"use": "IAM-A",
+"severity": "warn",
+"status": "LIVE",
+"text": "**Question.** Can the gate-error reading \u2014 how faithfully a cell holds its methylation pattern, counted on single DNA molecules \u2014 be read for each"
 }
 ]

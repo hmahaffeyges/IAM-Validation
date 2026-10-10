@@ -16,7 +16,7 @@ and `conductor_v3.run_neutrophil(specimen="constructed DNA mixture")`, untared.
 | Mix10 | 5 % liver, 10 % neurons | 1.0039 | 1.1080 | 1.0165 |
 | Mix12 | 10 % colon, 5 % neurons | 1.0058 | 1.0320 | 1.0078 |
 
-**Bar 1 (Met-A specificity): met, 9/9.** Every mix Normal and within 0.010 of the leukocyte array.
+**Bar 1 (Met-A specificity): met, 9/9.** Every mix Normal and within 0.03 of the leukocyte array (the sealed bar); largest shift 0.0094.
 **Bar 2 (C-score specificity): not met, 6/9** (3 above 1.10). The rise does not follow the tissue dose (6 % colon 1.137; 15 % colon plus neurons
 1.032) and the in-silico builds of the same mixes stay near 1, so it is array-to-array variation of the untared C, the same open problem as the
 C-score repeat bar. The C-score's same-run tare (DEV-CSCORE-TARE-01) needs >= 3 same-run healthy references; this series has one.

@@ -29,6 +29,36 @@ if bc and os.path.isfile(bc["output"]):
     if os.path.isfile("docs/book/verify_book.py"):
         n_def = len(re.findall(r"^@check\(", open("docs/book/verify_book.py", encoding="utf-8").read(), re.M))
         if n_def != n_out: fail.append(f"[book_check_count] verify_book.py defines {n_def} checks but {bc['output']} counts {n_out}: regenerate the output")
+# ---- results register (2026-10-10): book development chapter and README Advancements are generated from CANON/results_register.json
+import importlib.util as _u
+_s = _u.spec_from_file_location("r2t", "CANON/results_to_tex.py"); _m = _u.module_from_spec(_s); _s.loader.exec_module(_m)
+try:
+    tex, rd, REG, _V = _m.build()
+    if not os.path.isfile(_m.TEX) or open(_m.TEX, encoding="utf-8").read() != tex: fail.append(f"[results_register] {os.path.relpath(_m.TEX)} differs from the register: run python3 CANON/results_to_tex.py")
+    rs = open(_m.README, encoding="utf-8").read()
+    if _m.B not in rs or _m.E not in rs or rs[rs.index(_m.B) + len(_m.B):rs.index(_m.E)].strip() != rd.strip(): fail.append("[results_register] Biological_Physics/README.md Advancements differs from the register: run python3 CANON/results_to_tex.py")
+    if "\\input{part6/p6_25_development}" not in open("docs/book/main.tex", encoding="utf-8").read(): fail.append("[results_register] docs/book/main.tex does not input the development chapter")
+    recs = {e["record"]: e for e in REG}
+    for e in REG:
+        if not os.path.exists(e["record"]): fail.append(f"[results_register] {e['id']}: record {e['record']} does not exist"); continue
+        if os.path.isfile(e["record"]):
+            said = re.search(r"\*\*Status: COMMISSIONED", open(e["record"], encoding="utf-8").read()) is not None
+            if e["kind"] == "commissioning" and (e["status"] == "commissioned") != said: fail.append(f"[results_register] {e['id']}: register says {e['status']}, record says {'COMMISSIONED' if said else 'not commissioned'}")
+            if e["status"] == "development" and said: fail.append(f"[results_register] {e['id']}: record says COMMISSIONED, register still says development")
+        for x in e.get("compute") and [k for k, v in _V[e["id"]].items() if k == "inside" and v is False] or []: fail.append(f"[results_register] {e['id']}: listed as a passed result but its sealed rule is not met")
+    ids = {e["id"]: e for e in REG}
+    for e in REG:
+        if e["kind"] == "commissioning":
+            if "covers" not in e: fail.append(f"[results_register] {e['id']}: a commissioning entry must list 'covers' (the development results it closes; [] if none)")
+            for c in e.get("covers", []):
+                if c not in ids: fail.append(f"[results_register] {e['id']} covers {c}, which is not in the register")
+                elif ids[c]["status"] == "development": fail.append(f"[results_register] {c} is covered by commissioning {e['id']} but is still status development: change its status and rerun results_to_tex.py")
+    for f in [t for t in subprocess.run(["git", "ls-files", "Biological_Physics/MethylPhys/doors/*.md"], capture_output=True, text=True).stdout.split("\n") if t]:
+        if not os.path.isfile(f): continue
+        txt = open(f, encoding="utf-8").read()
+        if re.search(r"\*\*Status: COMMISSIONED", txt) and f not in recs: fail.append(f"[results_register] {f} says COMMISSIONED but is not in the register")
+        if "**Milestone:**" in txt and f not in recs and not any(f in e.get("also", []) for e in REG): fail.append(f"[results_register] {f} is marked **Milestone:** but is not in the register")
+except Exception as ex: fail.append(f"[results_register] generator failed: {ex}")
 if fail:
     print(f"status_check: REFUSED ({len(fail)})\n  " + "\n  ".join(fail[:40])); sys.exit(1)
 print(f"status_check: ok ({len(F['facts'])} facts, {len(files)} documents)")
