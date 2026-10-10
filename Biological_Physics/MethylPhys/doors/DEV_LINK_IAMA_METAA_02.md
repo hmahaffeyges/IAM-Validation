@@ -49,3 +49,16 @@ the final window is the same script on the HCT116 vehicle molecules when they la
 
 **Prediction at 30 nM:** IAM-A_rel 1.44–1.55, with ≥ 70 % of molecules read. Below 1.44 with ≥ 70 % read: Met-A moved more than copy
 error allows (curve B), so something beyond copy error moves it. Fewer than 70 % read: outside the range, no result.
+
+**Final window, sealed 2026-10-10 03:30 UTC, after the vehicle run Veh_EM_1 (SRR25322252, ε 0.0508 by the box, finished 03:16) and before any
+treated run is read.** Stage Q's response measured on its molecules (`insilico_vehicle_SRR25322252.csv`, first 1,500,000 lines as for the
+stand-in; ε_v 0.0500 on that slice). Readable (≥ 70 % of molecules read) to δ 0.10, where IAM-A_rel is 1.438.
+
+| dose | δ_B | IAM-A_rel at δ_B | readable ceiling | **prediction** |
+|---|---|---|---|---|
+| 30 nM (mean of 2 arrays) | 0.0732 | 1.351 | 1.438 at δ 0.10 | **IAM-A_rel 1.35–1.44, ≥ 70 % read** |
+| 30 nM, per array | 0.0670 / 0.0796 | 1.328 / 1.374 | | |
+| 300 nM | 0.129 | beyond the readable range | | recorded, not scored |
+
+Read: below 1.35 with ≥ 70 % read: Met-A moved more than copy error allows, so something beyond copy error moves it. Above 1.44 with ≥ 70 % read:
+not possible on this instrument, so it would point to a fault. Fewer than 70 % read: outside the range, no result.
