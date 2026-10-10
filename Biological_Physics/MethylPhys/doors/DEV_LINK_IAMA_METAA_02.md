@@ -19,3 +19,15 @@ copy error moves Met-A (cells switching state). IAM-A_rel above the reverse limi
 **Reading rules added after simulation (DEV-SYNTH-LEVERS-01 §2), before any dose-series data are read.** At each dose report the share of
 molecules IAM-A can read and the identity-site mean β. The derivation is tested only at doses where that share is ≥ 0.70 and the
 identity sites stay on their own side of β = 0.5; a dose outside that range is recorded as outside the relation's range, not as a result.
+
+**Met-A side, read 2026-10-10 01:40 UTC, before any EM-seq (IAM-A) reading of this series exists** (`doors/data/DEV_LINK_IAMA_METAA_02/
+metaa_dose_02.py`, committed 792d7dd before running; rows `metaa_dose_02_rows.csv`; 3,000 high + 3,000 low identity sites from the vehicles).
+
+| arrays | Met-A_rel | methylated identity sites, mean β | unmethylated, mean β |
+|---|---|---|---|
+| vehicle (2) | 0.9986, 1.0014 | 0.898 | 0.091 |
+| DAC 30 nM (2) | 1.3944, 1.4565 | 0.704 | 0.090 |
+| DAC 300 nM (2) | 1.6425, 1.6995 | 0.549 | 0.121 |
+
+Both doses keep the identity sites on their own side of β = 0.5 (300 nM narrowly). The IAM-A side and curves A and B come from the box EM-seq
+runs and are compared with these readings as they stand.

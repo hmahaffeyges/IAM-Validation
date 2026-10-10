@@ -671,3 +671,6 @@ atlas_e vs the GSE224807 lab-template truth: 450K MAE 0.041 (23/30 within 0.05),
 
 ### 2026-10-10 · 39 outputs from the author's 09-30 copy committed
 Placed beside their notes (11 notes) or in doors/data/RECOVERED_2026-09-30/ with a README of producing time and sha256. Outputs only: backlog rows stay open until each script is recovered and reproduces its file.
+
+### 2026-10-10 · Dose series Met-A side read and committed before IAM-A
+Met-A_rel vehicle 1.000 (0.9986/1.0014), DAC30 1.43, DAC300 1.67; methylated identity mean beta 0.898 -> 0.704 -> 0.549. Script metaa_dose_02.py.
