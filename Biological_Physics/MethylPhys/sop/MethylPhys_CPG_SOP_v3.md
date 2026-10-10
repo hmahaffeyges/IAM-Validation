@@ -110,6 +110,18 @@ that reruns to the same value. Raw working records are kept privately (S3 `archi
 Every push goes through `CANON/checked_push.sh`, which runs `CANON/repro_check.py`: it refuses untracked files and any changed note in
 `doors/` with computed numbers but no committed script (backlog items are reported until closed). A plain `git push` skips the gate.
 
+### Record rule and status rule (2026-10-10)
+The same gate also refuses a push when the record or a status falls behind:
+- **Record:** an outcome note (`doors/*_OUTCOME.md`) new or changed in the push is not named in `development/METHYLPHYS_DEVELOPMENT_LOG.md`
+  in the same push; a note marked `**Milestone:**` is not linked from the Advancements table of `Biological_Physics/README.md`, or a link
+  there is broken; a day with log entries has no `### <date> · Day summary` once the next day has begun (Pacific time).
+- **Status:** every status fact repeated across the repo is held once, in `CANON/status_facts.json` (what is commissioned, the
+  whole-blood fraction rule, the atlas cell count, public data only, withdrawn readings, the book's check count). `CANON/status_check.py`
+  refuses the push while any living document (READMEs, SOP, STATUS, OM, book, chain code, website) still carries the old wording, a
+  required statement is missing, or the printed check count differs from a full `verify_book.py` run. When a status changes, change
+  `status_facts.json` first; the checker then lists every place still to update. Dated records (development log, DEV/PROC notes and
+  outcomes, job sheets, archive) are history and are not checked.
+
 ### Commissioning order (set 2026-10-03)
 
 Each step: pre-register the check in `doors/` before reading data, run it on v3, record the outcome, then wire the stage in.

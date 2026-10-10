@@ -759,6 +759,9 @@ KO vehicle / WT IAM-A 1.124 (window 1.016-1.135), p 0.0003; SAMe lowers it to 1.
 ### 2026-10-10 · Record rule added to the push gate
 CANON/repro_check.py now refuses a push when an outcome note is not named in this log, a **Milestone:** note is not in the Biological_Physics README Advancements table, or a day lacks its Day summary once the next day has begun (Pacific time). Milestone lines added to DEV-SAM-LEVER-01, DEV-EPIQC-ARRAY-01, DEV-CSCORE-MOSS-01, PROC-CHANNEL-01 and the Met-A commissioning note.
 
+### 2026-10-10 · Status rule added to the push gate
+CANON/status_facts.json holds each repeated status fact once; CANON/status_check.py (in checked_push.sh) refuses a push while a living document carries the old wording. First run found six stale statements, all fixed: 'not commissioned' in book p6_18, p6_19 and three glossary entries, and the run_sample header; the 0.20 fraction cut in the commissioning scope printed on every report (conductor_v3). Book check record regenerated on a full checkout: 4,674 checks, 0 failures. Negative controls: an old phrase put back, a required statement removed, a wrong printed count: each refused.
+
 ### 2026-10-10 · Day summary
 Passed (sealed before reading): IAM-A SAM lever in mice (1.124 in window 1.016-1.135, p 0.0003); Met-A on identical DNA at three laboratories
 (all four bars); Met-A specificity on the Moss mixes (9/9). Reproduced from public data: every matrix the commissioned chain reads.
