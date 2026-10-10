@@ -31,8 +31,8 @@ PASS  ch:giants:L133                     ch:giants:p0_giants:133  printed 3.3  r
 PASS  ch:giants:L135                     ch:giants:p0_giants:135  printed 3.5  recomputed 3.5  tol 0.05  [observed] Penzias-Wilson excess antenna temperature (published)
 PASS  ch:giants:L140                     ch:giants:p0_giants:140  printed 10^5  recomputed 90849.3  tol 2.162278e+05  [observed] COBE DMR anisotropy, about one part in 10^5
 PASS  ch:giants:L140:2.7255              ch:giants:p0_giants:140  printed 2.7255  recomputed 2.72548  tol 5.000005e-05  [observed] CMB temperature (Fixsen 2009, published)
-PASS  ch:giants:L176                     ch:giants:p0_giants:176  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] holding energy from the PROC-CHANNEL-01 record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:giants:L176                     ch:giants:p0_giants:176  printed 3.41  recomputed 3.41052  tol 0.00500001  [measured] holding energy from the PROC-CHANNEL-01 record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
 PASS  ch:giants:L177                     ch:giants:p0_giants:177  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [derived] Boltzmann floor computed from holding energy input
 
 == Part 0: Front matter | ch:p0_how_to_read (front/p0_how_to_read.tex)
@@ -3257,12 +3257,12 @@ PASS  ch:saturation:L44:3.41             ch:saturation:p3_07_saturation:44  prin
 PASS  ch:saturation:L44:59.5             ch:saturation:p3_07_saturation:44  printed 59.5  recomputed 59.5264  tol 0.05  [derived] drafted check, screened (runs; negative control fails)
 PASS  ch:saturation:L44:69.1             ch:saturation:p3_07_saturation:44  printed 69.1  recomputed 69.0507  tol 0.05  [derived] drafted check, screened (runs; negative control fails)
 PASS  ch:saturation:L44:0.032            ch:saturation:p3_07_saturation:44  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [derived] copy-error floor 1/(1+exp(E_hold/k_BT)) at E_hold = 3.41 k_BT
-PASS  ch:saturation:L66                  ch:saturation:p3_07_saturation:66  printed 1.099  recomputed 1.099  tol 5.000005e-04  [measured] P_neutrophil from the canon record  file CANON/iam_canon.json
+PASS  ch:saturation:L66                  ch:saturation:p3_07_saturation:66  printed 1.149  recomputed 1.1492  tol 5.000005e-04  [measured] P_neutrophil from the canon record  file CANON/iam_canon.json
 PASS  ch:saturation:L66:0.032            ch:saturation:p3_07_saturation:66  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [measured] eps0 = 1/(1+e^E_hold), E_hold = 3.41 kT (canon, measured)
 PASS  ch:saturation:L66:3.41             ch:saturation:p3_07_saturation:66  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] E_hold from the canon record  file CANON/iam_canon.json
-PASS  ch:saturation:L66:0.910            ch:saturation:p3_07_saturation:66  printed 0.910  recomputed 0.909918  tol 5.000005e-04  [derived] 1/P  file CANON/iam_canon.json
-PASS  ch:saturation:L66:0.0362           ch:saturation:p3_07_saturation:66  printed 0.0362  recomputed 0.0361923  tol 5.000005e-05  [derived] eps where IAM-A = H(eps)/(P H(eps0)) = 1  file CANON/iam_canon.json
-PASS  ch:saturation:L66:4.45             ch:saturation:p3_07_saturation:66  printed 4.45  recomputed 4.4533  tol 0.00500001  [derived] drafted check, screened (runs; negative control fails)
+PASS  ch:saturation:L66:0.870            ch:saturation:p3_07_saturation:66  printed 0.870  recomputed 0.870171  tol 5.000005e-04  [derived] 1/P  file CANON/iam_canon.json
+PASS  ch:saturation:L66:0.0384           ch:saturation:p3_07_saturation:66  printed 0.0384  recomputed 0.038379  tol 5.000005e-05  [derived] eps where IAM-A = H(eps)/(P H(eps0)) = 1  file CANON/iam_canon.json
+PASS  ch:saturation:L66:4.26             ch:saturation:p3_07_saturation:66  printed 4.26  recomputed 4.25876  tol 0.00500001  [derived] drafted check, screened (runs; negative control fails)
 PASS  ch:saturation:L71                  ch:saturation:p3_07_saturation:71  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] E_hold from the canon record  file CANON/iam_canon.json
 
 == Part 4: Particles and Quantum Records | ch:quantumrecords (part4/p4_14_quantum_records.tex)
@@ -3650,7 +3650,7 @@ PASS  ch:koide:L277:0.0396               ch:koide:p4_15a_lepton_koide:277  print
 PASS  ch:koide:L278                      ch:koide:p4_15a_lepton_koide:278  printed 0.222222047  recomputed 0.222222  tol 5.000005e-10  [calc] delta fixed by m_e, m_mu at Q = 2/3
 PASS  ch:koide:L279                      ch:koide:p4_15a_lepton_koide:279  printed 1.75\times10^{-7}  recomputed 1.751244e-07  tol 5.000005e-10  [calc] 2/9 - delta at Q = 2/3
 PASS  ch:koide:L283                      ch:koide:p4_15a_lepton_koide:283  printed 0.222222047  recomputed 0.222222  tol 5.000005e-10  [calc] delta fixed by m_e, m_mu at Q = 2/3
-PASS  ch:koide:L284                      ch:koide:p4_15a_lepton_koide:284  printed 4\times10^{-10}  recomputed 3.918518e-10  tol 5.000005e-11  [calc] uncertainty of delta from m_mu
+PASS  ch:koide:L284                      ch:koide:p4_15a_lepton_koide:284  printed 4\times10^{-10}  recomputed 3.918519e-10  tol 5.000005e-11  [calc] uncertainty of delta from m_mu
 PASS  ch:koide:L284:1.75\times10^{-7}    ch:koide:p4_15a_lepton_koide:284  printed 1.75\times10^{-7}  recomputed 1.751244e-07  tol 5.000005e-10  [calc] 2/9 - delta at Q = 2/3
 PASS  ch:koide:L285                      ch:koide:p4_15a_lepton_koide:285  printed 0.4  recomputed 0.405655  tol 0.05  [calc] delta - 2/9 in sigma
 PASS  ch:koide:L295                      ch:koide:p4_15a_lepton_koide:295  printed 1776.9690  recomputed 1776.97  tol 5.000005e-05  [calc] m_tau fixed by Q = 2/3, MeV
@@ -3961,8 +3961,8 @@ PASS  ch:chipgen:L72                     ch:chipgen:p5_11_chip_generations:72  p
 PASS  ch:chipgen:L72:18.5                ch:chipgen:p5_11_chip_generations:72  printed 18.5  recomputed 18.4576  tol 0.05  [calc] R = 600, fixed-voltage rate
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:bridge (part6/p6_01_bridge.tex)
-PASS  ch:bridge:L26                      ch:bridge:p6_01_bridge:26  printed 3.41  recomputed found in file  [measured] holding energy per maintained site  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:bridge:L26                      ch:bridge:p6_01_bridge:26  printed 3.41  recomputed 3.41052  tol 0.00500001  [measured] holding energy per maintained site  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
 PASS  eq:landauer                        ch:bridge:p6_01_bridge:52  printed (algebra)  recomputed lhs-rhs=0  [observed] E_bit = k_B T ln 2 from erasing one bit
 PASS  ch:bridge:L60                      ch:bridge:p6_01_bridge:60  printed 310.15  recomputed 310.15  tol 0.00500001  [observed] cell nucleus temperature 310.15 K  file CANON/iam_canon.json
 PASS  ch:bridge:L175                     ch:bridge:p6_01_bridge:175  printed 310  recomputed 310.15  tol 0.5  [conjecture] cell surface temperature, 310 K  file CANON/iam_canon.json
@@ -3984,18 +3984,18 @@ PASS  ch:bridge:L238:8.4\times10^{-14}   ch:bridge:p6_01_bridge:238  printed 8.4
 PASS  ch:bridge:L238:310.15              ch:bridge:p6_01_bridge:238  printed 310.15  recomputed 310.15  tol 0.00500001  [calc] cell nucleus row, T = 310.15 K  file CANON/iam_canon.json
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:astrogenetics (part6/p6_00b_astrogenetics.tex)
-PASS  ch:astrogenetics:L40               ch:astrogenetics:p6_00b_astrogenetics:40  printed 3.41  recomputed found in file  [measured] holding energy  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:astrogenetics:L40               ch:astrogenetics:p6_00b_astrogenetics:40  printed 3.41  recomputed 3.41052  tol 0.00500001  [measured] holding energy  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
 PASS  ch:astrogenetics:L40:4.9           ch:astrogenetics:p6_00b_astrogenetics:40  printed 4.9  recomputed 4.91959  tol 0.05  [measured] Landauer units
 PASS  ch:astrogenetics:L63               ch:astrogenetics:p6_00b_astrogenetics:63  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] Met-A at a coin flip: 1/0.330263 (canon floor)  file CANON/iam_canon.json
-PASS  ch:astrogenetics:L63:4.45          ch:astrogenetics:p6_00b_astrogenetics:63  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] IAM-A at a coin flip: 1/(P H(eps0))  file CANON/iam_canon.json
+PASS  ch:astrogenetics:L63:4.26          ch:astrogenetics:p6_00b_astrogenetics:63  printed 4.26  recomputed 4.25876  tol 0.00500001  [calc] IAM-A at a coin flip: 1/(P H(eps0))  file CANON/iam_canon.json
 PASS  ch:astrogenetics:L63:0.2043        ch:astrogenetics:p6_00b_astrogenetics:63  printed 0.2043  recomputed 0.204325  tol 5.000005e-05  [calc] H(eps0), bits
-PASS  ch:astrogenetics:L88               ch:astrogenetics:p6_00b_astrogenetics:88  printed 0.910  recomputed 0.909918  tol 5.000005e-04  [derived] 1/P  file CANON/iam_canon.json
+PASS  ch:astrogenetics:L88:Hmin          ch:astrogenetics:p6_00b_astrogenetics:85  printed 1e-7  recomputed 1.085346e-07  tol 5.000005e-08  [calc] the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))  file CANON/iam_canon.json
 PASS  ch:astrogenetics:L88:310           ch:astrogenetics:p6_00b_astrogenetics:88  printed 310  recomputed 310.15  tol 0.5  [derived] the floor is set at 310 K (cell temperature)  file CANON/iam_canon.json
 PASS  ch:astrogenetics:L89               ch:astrogenetics:p6_00b_astrogenetics:89  printed 0.330263  recomputed found in file  [calibrated] measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_astrogenetics_book_output.txt
       heavy: python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt
 PASS  ch:astrogenetics:L90               ch:astrogenetics:p6_00b_astrogenetics:90  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] Met-A at a coin flip  file CANON/iam_canon.json
-PASS  ch:astrogenetics:L90:4.45          ch:astrogenetics:p6_00b_astrogenetics:90  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] IAM-A at a coin flip  file CANON/iam_canon.json
+PASS  ch:astrogenetics:L90:4.26          ch:astrogenetics:p6_00b_astrogenetics:87  printed 4.26  recomputed 4.25876  tol 0.00500001  [calc] IAM-A at a coin flip  file CANON/iam_canon.json
 PASS  ch:astrogenetics:L98               ch:astrogenetics:p6_00b_astrogenetics:98  printed (algebra)  recomputed lhs-rhs=0  [derived] H(beta) is symmetric: H(beta) = H(1 - beta)
 PASS  ch:astrogenetics:L116              ch:astrogenetics:p6_00b_astrogenetics:116  printed 2.40  recomputed 2.4  tol 0.00500001  [calc] white-dwarf gauge full at the Chandrasekhar mass, A = 1.44/0.6
 PASS  ch:astrogenetics:L139              ch:astrogenetics:p6_00b_astrogenetics:139  printed 1.016  recomputed 1.01558  tol 5.000005e-04  [measured] IMR90 senescent cultures, methylated-channel Met-A, highest  file Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv
@@ -4023,10 +4023,10 @@ PASS  eq:ebit                            ch:landauer:p6_02_landauer:12  printed 
 PASS  ch:landauer:L17                    ch:landauer:p6_02_landauer:17  printed 1.787  recomputed 1.78744  tol 5.000005e-04  [calc] per mole of bits, kJ
 PASS  eq:M                               ch:landauer:p6_02_landauer:27  printed 20.94  recomputed 20.9405  tol 0.00500001  [calc] M = dG_ATP/(R T_body)
 PASS  eq:bitsperATP                      ch:landauer:p6_02_landauer:48  printed 30.21  recomputed 30.2108  tol 0.00500001  [calc] M/ln2
-PASS  ch:landauer:L65                    ch:landauer:p6_02_landauer:65  printed 0.024  recomputed found in file  [measured] healthy copy error, lowest of 56 cell types  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-PASS  ch:landauer:L65:0.042              ch:landauer:p6_02_landauer:65  printed 0.042  recomputed found in file  [measured] highest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:landauer:L65                    ch:landauer:p6_02_landauer:65  printed 0.024  recomputed 0.0237847  tol 5.000005e-04  [measured] healthy copy error, lowest of 56 cell types  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
+PASS  ch:landauer:L65:0.042              ch:landauer:p6_02_landauer:65  printed 0.042  recomputed 0.0417364  tol 5.000005e-04  [measured] highest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
 PASS  ch:landauer:L70                    ch:landauer:p6_02_landauer:70  printed 0.69  recomputed 0.693147  tol 0.00500001  [calc] ln 2
 PASS  ch:landauer:L71                    ch:landauer:p6_02_landauer:71  printed 3.41  recomputed 3.41  tol 0.00500001  [calc] holding energy per site 3.41 k_B T (figure caption)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
       heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
@@ -4058,15 +4058,15 @@ PASS  ch:landauer:L158                   ch:landauer:p6_02_landauer:158  printed
 PASS  ch:landauer:L176                   ch:landauer:p6_02_landauer:176  printed 2.3  recomputed 2.30259  tol 0.05  [calc] ln(1/0.10)
 PASS  ch:landauer:L176:3.9               ch:landauer:p6_02_landauer:176  printed 3.9  recomputed 3.91202  tol 0.05  [calc] ln(1/0.02)
 PASS  ch:landauer:L178                   ch:landauer:p6_02_landauer:178  printed 21  recomputed 20.9405  tol 0.5  [calc] kT per ATP
-PASS  ch:landauer:L186                   ch:landauer:p6_02_landauer:186  printed 3.41  recomputed found in file  [measured] holding energy across 56 cell types (Loyfer read-level)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-PASS  ch:landauer:L186:3.13              ch:landauer:p6_02_landauer:186  printed 3.13  recomputed found in file  [measured] holding energy across 56 cell types (Loyfer read-level)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-PASS  ch:landauer:L186:3.72              ch:landauer:p6_02_landauer:186  printed 3.72  recomputed found in file  [measured] holding energy across 56 cell types (Loyfer read-level)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:landauer:L186                   ch:landauer:p6_02_landauer:186  printed 3.41  recomputed 3.41052  tol 0.00500001  [measured] holding energy across 56 cell types (Loyfer read-level)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
+PASS  ch:landauer:L186:3.13              ch:landauer:p6_02_landauer:186  printed 3.13  recomputed 3.13375  tol 0.00500001  [measured] holding energy across 56 cell types (Loyfer read-level)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
+PASS  ch:landauer:L186:3.71              ch:landauer:p6_02_landauer:186  printed 3.71  recomputed 3.71464  tol 0.00500001  [measured] holding energy across 56 cell types (Loyfer read-level)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
 PASS  ch:landauer:L187                   ch:landauer:p6_02_landauer:187  printed 4.92  recomputed 4.91959  tol 0.00500001  [calc] 3.41/ln2
-PASS  eq:phi                             ch:landauer:p6_02_landauer:188  printed 0.163  recomputed found in file  [measured] phi = E_hold/(M k T): committed record and E_hold/M (canon)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  eq:phi                             ch:landauer:p6_02_landauer:188  printed 0.163  recomputed 0.162867  tol 5.000005e-04  [measured] phi = E_hold/(M k T): committed record and E_hold/M (canon)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
 PASS  ch:landauer:L194                   ch:landauer:p6_02_landauer:194  printed 1.9  recomputed 1.94591  tol 0.05  [calc] Hopfield discrimination ln(7) from the enzyme selectivity
 PASS  ch:landauer:L194:4.4               ch:landauer:p6_02_landauer:194  printed 4.4  recomputed 4.38203  tol 0.05  [calc] Hopfield discrimination ln(80) from the enzyme selectivity
 PASS  eq:sanchezER                       ch:landauer:p6_02_landauer:211  printed (algebra)  recomputed lhs-rhs=0  [derived] E_R = I_R k_B T ln2 from Landauer, with H in bits
@@ -4079,12 +4079,12 @@ PASS  ch:landauer:L263                   ch:landauer:p6_02_landauer:263  printed
 PASS  ch:landauer:L263:411               ch:landauer:p6_02_landauer:263  printed 411  recomputed 411.245  tol 0.5  [calc] M, lower count
 PASS  ch:landauer:L264                   ch:landauer:p6_02_landauer:264  printed 8.38\times10^{-14}  recomputed 8.375259e-14  tol 5.000005e-17  [calc] floor for all CpGs, J
 PASS  ch:landauer:L264:9.3\times10^5     ch:landauer:p6_02_landauer:264  printed 9.3\times10^5  recomputed 9.340183e+05  tol 5000  [calc] floor in ATP at 54 kJ/mol
-PASS  ch:landauer:L267                   ch:landauer:p6_02_landauer:267  printed 3.41  recomputed found in file  [measured] holding energy, 56 cell types  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:landauer:L267                   ch:landauer:p6_02_landauer:267  printed 3.41  recomputed 3.41052  tol 0.00500001  [measured] holding energy, 56 cell types  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
 PASS  ch:landauer:L267:56                ch:landauer:p6_02_landauer:267  printed 56  recomputed 56  tol 0.5  [calc] holding energy read in 56 cell types  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
       heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-PASS  ch:landauer:L268                   ch:landauer:p6_02_landauer:268  printed 0.163  recomputed found in file  [measured] phi, committed record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:landauer:L268                   ch:landauer:p6_02_landauer:268  printed 0.163  recomputed 0.162867  tol 5.000005e-04  [measured] phi, committed record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:surface (part6/p6_03_surface.tex)
 PASS  eq:H                               ch:surface:p6_03_surface:13  printed (algebra)  recomputed True  [derived] binary entropy: 1 bit at 1/2, symmetric
@@ -4142,28 +4142,28 @@ PASS  ch:ledgers:L126:310.15             ch:ledgers:p6_04_ledgers:126  printed 3
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:floorbreach (part6/p6_05_floorbreach.tex)
 PASS  ch:floorbreach:L25                 ch:floorbreach:p6_05_floorbreach:25  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] holding energy 3.41 k_B T per site on molecules  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
 PASS  ch:floorbreach:L42                 ch:floorbreach:p6_05_floorbreach:42  printed 5.4\times10^{69}  recomputed 5.363072e+69  tol 5.000005e+67  [calc] bits of 1 M_sun horizon over CpG bits
 PASS  ch:floorbreach:L50                 ch:floorbreach:p6_05_floorbreach:50  printed 310.15  recomputed 310.15  tol 0.00500001  [calc] cell methylome at 310.15 K (figure caption)  file CANON/iam_canon.json
 PASS  eq:Amax                            ch:floorbreach:p6_05_floorbreach:59  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] Met-A full surface 1/0.330263 (canon floor)  file CANON/iam_canon.json
-PASS  ch:floorbreach:L63                 ch:floorbreach:p6_05_floorbreach:63  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] IAM-A full surface  file CANON/iam_canon.json
+PASS  ch:floorbreach:L63                 ch:floorbreach:p6_05_floorbreach:63  printed 4.26  recomputed 4.25876  tol 0.00500001  [calc] IAM-A full surface  file CANON/iam_canon.json
 PASS  ch:floorbreach:L72                 ch:floorbreach:p6_05_floorbreach:72  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] Met-A full surface  file CANON/iam_canon.json
-PASS  ch:floorbreach:L72:1.099           ch:floorbreach:p6_05_floorbreach:72  printed 1.099  recomputed 1.099  tol 5.000005e-04  [calc] P = 1.099 of IAM-A (figure caption)  file CANON/iam_canon.json
-PASS  ch:floorbreach:L73                 ch:floorbreach:p6_05_floorbreach:73  printed 0.910  recomputed 0.909918  tol 5.000005e-04  [calc] 1/P  file CANON/iam_canon.json
-PASS  ch:floorbreach:L73:0.0362          ch:floorbreach:p6_05_floorbreach:73  printed 0.0362  recomputed 0.0361923  tol 5.000005e-05  [calc] eps at IAM-A = 1  file CANON/iam_canon.json
+PASS  ch:floorbreach:L72:1.149           ch:floorbreach:p6_05_floorbreach:72  printed 1.149  recomputed 1.1492  tol 5.000005e-04  [calc] P = 1.099 of IAM-A (figure caption)  file CANON/iam_canon.json
+PASS  ch:floorbreach:L73                 ch:floorbreach:p6_05_floorbreach:73  printed 0.870  recomputed 0.870171  tol 5.000005e-04  [calc] 1/P  file CANON/iam_canon.json
+PASS  ch:floorbreach:L73:0.0384          ch:floorbreach:p6_05_floorbreach:73  printed 0.0384  recomputed 0.038379  tol 5.000005e-05  [calc] eps at IAM-A = 1  file CANON/iam_canon.json
 PASS  ch:floorbreach:L73:0.032           ch:floorbreach:p6_05_floorbreach:73  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [calc] eps0 = 1/(1 + e^(E_hold/k_B T))
-PASS  ch:floorbreach:L74                 ch:floorbreach:p6_05_floorbreach:74  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] IAM-A at eps = 1/2  file CANON/iam_canon.json
+PASS  ch:floorbreach:L74                 ch:floorbreach:p6_05_floorbreach:74  printed 4.26  recomputed 4.25876  tol 0.00500001  [calc] IAM-A at eps = 1/2  file CANON/iam_canon.json
 PASS  ch:floorbreach:L80                 ch:floorbreach:p6_05_floorbreach:80  printed 10^{-7}  recomputed 2.286136e-07  tol 2.162278e-07  [conjecture] methylation maintenance share of the cell ATP, order 1e-7
 PASS  ch:floorbreach:L96                 ch:floorbreach:p6_05_floorbreach:96  printed 0.695  recomputed 0.695321  tol 5.000005e-04  [measured] senescent IMR90 unmethylated channel, upper end  file Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv
       heavy: python3 Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.py (needs the cached GSE48580 WGBS parquets of PROC-LINES-02)
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:gauge (part6/p6_06_gauge.tex)
-PASS  ch:gauge:L23                       ch:gauge:p6_06_gauge:23  printed 0.910  recomputed 0.909918  tol 5.000005e-04  [calc] H_min for IAM-A, 1/P  file CANON/iam_canon.json
+PASS  ch:gauge:L23:Hmin                  ch:gauge:p6_06_gauge:23  printed 1e-7  recomputed 1.085346e-07  tol 5.000005e-08  [calc] the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))  file CANON/iam_canon.json
 PASS  ch:gauge:L24                       ch:gauge:p6_06_gauge:24  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] Met-A full surface  file CANON/iam_canon.json
-PASS  ch:gauge:L24:4.45                  ch:gauge:p6_06_gauge:24  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] IAM-A full surface  file CANON/iam_canon.json
-PASS  ch:gauge:L34                       ch:gauge:p6_06_gauge:34  printed 0.910  recomputed 0.909918  tol 5.000005e-04  [derived] H_min for IAM-A, 1/P  file CANON/iam_canon.json
+PASS  ch:gauge:L24:4.26                  ch:gauge:p6_06_gauge:24  printed 4.26  recomputed 4.25876  tol 0.00500001  [calc] IAM-A full surface  file CANON/iam_canon.json
+PASS  ch:gauge:L34:Hmin                  ch:gauge:p6_06_gauge:34  printed 1e-7  recomputed 1.085346e-07  tol 5.000005e-08  [calc] the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))  file CANON/iam_canon.json
 PASS  ch:gauge:L38                       ch:gauge:p6_06_gauge:38  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] Met-A full surface  file CANON/iam_canon.json
-PASS  ch:gauge:L38:4.45                  ch:gauge:p6_06_gauge:38  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] IAM-A full surface  file CANON/iam_canon.json
+PASS  ch:gauge:L38:4.26                  ch:gauge:p6_06_gauge:39  printed 4.26  recomputed 4.25876  tol 0.00500001  [calc] IAM-A full surface  file CANON/iam_canon.json
 PASS  ch:gauge:L39                       ch:gauge:p6_06_gauge:39  printed 45  recomputed 45.0288  tol 0.5  [calc] C-score far end: var ratio 50 over the baseline
 PASS  ch:gauge:L39:50                    ch:gauge:p6_06_gauge:39  printed 50  recomputed 50  tol 0.5  [derived] C-score block size, read from the frozen reference  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
 PASS  ch:gauge:L39:1.1104                ch:gauge:p6_06_gauge:39  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [derived] C-score healthy baseline: median of the six leave-one-out clustering values  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
@@ -4250,25 +4250,37 @@ PASS  eq:eps0                            ch:iama:p6_08_iama:27  printed (algebra
 PASS  ch:iama:L31                        ch:iama:p6_08_iama:31  printed 20.94  recomputed 20.9405  tol 0.00500001  [derived] M
 PASS  ch:iama:L31:0.1628                 ch:iama:p6_08_iama:31  printed 0.1628  recomputed 0.162842  tol 5.000005e-05  [derived] phi = E_hold/M
 PASS  ch:iama:L32                        ch:iama:p6_08_iama:32  printed 0.032  recomputed 0.0320117  tol 5.000005e-04  [measured] eps0 = 1/(1+e^(phi M))
-PASS  ch:iama:L32:0.2043                 ch:iama:p6_08_iama:32  printed 0.2043  recomputed 0.204325  tol 5.000005e-05  [measured] H_min = H(eps0) at the frozen eps0  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
-PASS  eq:iama                            ch:iama:p6_08_iama:40  printed 1.099  recomputed 1.099  tol 5.000005e-04  [measured] P of neutrophils from the three granulocyte donors  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L44                        ch:iama:p6_08_iama:44  printed 1.084  recomputed 1.0841  tol 5.000005e-04  [measured] P range over the donors, lowest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L44:1.108                  ch:iama:p6_08_iama:44  printed 1.108  recomputed 1.10789  tol 5.000005e-04  [measured] P range over the donors, highest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L44:1.2                    ch:iama:p6_08_iama:44  printed 1.2  recomputed 1.18158  tol 0.05  [measured] coefficient of variation of P across donors, per cent  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L46                        ch:iama:p6_08_iama:46  printed 0.910  recomputed 0.909919  tol 5.000005e-04  [measured] the floor at A = 1/P  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L52                        ch:iama:p6_08_iama:52  printed 1.084  recomputed 1.08356  tol 5.000005e-04  [measured] healthy donors on eps0 alone, lowest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L52:1.127                  ch:iama:p6_08_iama:52  printed 1.127  recomputed 1.12703  tol 5.000005e-04  [measured] healthy donors on eps0 alone, highest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L53                        ch:iama:p6_08_iama:53  printed 0.978  recomputed 0.978039  tol 5.000005e-04  [measured] healthy donors with P, leave-one-donor-out, lowest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L53:1.040                  ch:iama:p6_08_iama:53  printed 1.040  recomputed 1.0396  tol 5.000005e-04  [measured] healthy donors with P, leave-one-donor-out, highest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L55                        ch:iama:p6_08_iama:55  printed 1.285  recomputed 1.28541  tol 5.000005e-04  [measured] simulated 2 % rise in copy error, lowest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L55:1.346                  ch:iama:p6_08_iama:55  printed 1.346  recomputed 1.34594  tol 5.000005e-04  [measured] simulated 2 % rise in copy error, highest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L32:0.2043                 ch:iama:p6_08_iama:32  printed 0.2043  recomputed 0.204325  tol 5.000005e-05  [measured] H_min = H(eps0) at the frozen eps0  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json
+PASS  eq:iama                            ch:iama:p6_08_iama:51  printed 1.149  recomputed 1.14921  tol 5.000005e-04  [measured] P of neutrophils from the three granulocyte donors  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L44                        ch:iama:p6_08_iama:54  printed 1.140  recomputed 1.13955  tol 5.000005e-04  [measured] P range over the donors, lowest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L44:1.155                  ch:iama:p6_08_iama:54  printed 1.155  recomputed 1.15543  tol 5.000005e-04  [measured] P range over the donors, highest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L54:0.74                   ch:iama:p6_08_iama:54  printed 0.74  recomputed 0.737767  tol 0.00500001  [measured] coefficient of variation of P across donors, per cent  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:floor_kicks                ch:iama:p6_08_iama:34  printed 1.24e9  recomputed 1.242014e+09  tol 6.200006e+06  [calc] 1/eps_min: thermal kicks win once per this many copies at one ATP per site  file CANON/iam_canon.json
+PASS  ch:iama:floor_Hmin                 ch:iama:p6_08_iama:34  printed 2.5e-8  recomputed 2.548500e-08  tol 5.000005e-10  [calc] H_min = H(1/(1+e^M)) in bits  file CANON/iam_canon.json
+PASS  ch:iama:ref_kicks                  ch:iama:p6_08_iama:35  printed 31  recomputed 31.25  tol 0.620001  [calc] 1/eps0 at the healthy reference  file CANON/iam_canon.json
+
+== Part 8: Appendices | app:notation (appendices/app_N_notation.tex)
+PASS  app:notation:eps_min               app:notation:app_N_notation:111  printed 8.1e-10  recomputed 8.051440e-10  tol 5.000005e-12  [calc] floor copy error 1/(1+e^M)  file CANON/iam_canon.json
+PASS  app:notation:Hmin                  app:notation:app_N_notation:112  printed 2.5e-8  recomputed 2.548500e-08  tol 5.000005e-10  [calc] H_min = H(1/(1+e^M))  file CANON/iam_canon.json
+
+== Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:astrogenetics (part6/p6_00b_astrogenetics.tex)
+PASS  ch:astrogenetics:floor_eps         ch:astrogenetics:p6_00b_astrogenetics:85  printed 8e-10  recomputed 8.051440e-10  tol 5.000005e-11  [calc] floor copy error 1/(1+e^M)  file CANON/iam_canon.json
+
+== Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:iama (part6/p6_08_iama.tex)
+PASS  ch:iama:L46                        ch:iama:p6_08_iama:56  printed 0.870  recomputed 0.870162  tol 5.000005e-04  [measured] H_ref (average healthy cell type) at A = 1/P on the neutrophil gauge  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L61                        ch:iama:p6_08_iama:61  printed 1.137  recomputed 1.13676  tol 5.000005e-04  [measured] healthy donors on H_ref alone, lowest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L61:1.168                  ch:iama:p6_08_iama:61  printed 1.168  recomputed 1.16845  tol 5.000005e-04  [measured] healthy donors on H_ref alone, highest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L53                        ch:iama:p6_08_iama:62  printed 0.984  recomputed 0.983844  tol 5.000005e-04  [measured] healthy donors with P, leave-one-donor-out, lowest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L53:1.025                  ch:iama:p6_08_iama:62  printed 1.025  recomputed 1.02536  tol 5.000005e-04  [measured] healthy donors with P, leave-one-donor-out, highest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L55                        ch:iama:p6_08_iama:65  printed 1.273  recomputed 1.27321  tol 5.000005e-04  [measured] the 2 % rise read at each donor held-out position, lowest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L55:1.313                  ch:iama:p6_08_iama:65  printed 1.313  recomputed 1.31265  tol 5.000005e-04  [measured] the 2 % rise read at each donor held-out position, highest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
 PASS  ch:iama:L56                        ch:iama:p6_08_iama:56  printed 0.70  recomputed 0.7  tol 0.00500001  [measured] same cells on a second read pipeline, bare floor, lowest  file Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md
 PASS  ch:iama:L56:0.79                   ch:iama:p6_08_iama:56  printed 0.79  recomputed 0.79  tol 0.00500001  [measured] same cells on a second read pipeline, bare floor, highest  file Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md
-PASS  ch:iama:L74                        ch:iama:p6_08_iama:74  printed 1.099  recomputed 1.099  tol 5.000005e-04  [calc] P in the curve of the figure  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L75                        ch:iama:p6_08_iama:75  printed 0.3  recomputed 0.307115  tol 0.05  [calc] a 2 % rise in copy error moves the reading by about 0.3  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L90                        ch:iama:p6_08_iama:90  printed 0.024  recomputed 0.024  tol 5.000005e-04  [measured] copy error across 56 healthy cell types, lowest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-PASS  ch:iama:L90:0.042                  ch:iama:p6_08_iama:90  printed 0.042  recomputed 0.042  tol 5.000005e-04  [measured] copy error across 56 healthy cell types, highest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-PASS  ch:iama:L90:3.41                   ch:iama:p6_08_iama:90  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] holding energy across 56 cell types, mean  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  ch:iama:L74                        ch:iama:p6_08_iama:84  printed 1.149  recomputed 1.14921  tol 5.000005e-04  [calc] P in the curve of the figure  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L75                        ch:iama:p6_08_iama:75  printed 0.3  recomputed 0.288599  tol 0.05  [calc] a 2 % rise in copy error moves the reading by about 0.3  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L90                        ch:iama:p6_08_iama:90  printed 0.024  recomputed 0.0237847  tol 5.000005e-04  [measured] copy error across 56 healthy cell types, lowest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  ch:iama:L90:0.042                  ch:iama:p6_08_iama:90  printed 0.042  recomputed 0.0417364  tol 5.000005e-04  [measured] copy error across 56 healthy cell types, highest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  ch:iama:L90:3.41                   ch:iama:p6_08_iama:90  printed 3.41  recomputed 3.41052  tol 0.00500001  [measured] holding energy across 56 cell types, mean  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
 PASS  ch:iama:L91                        ch:iama:p6_08_iama:91  printed 0.79  recomputed 0.794  tol 0.00500001  [measured] healthy cell types on one physics floor, lowest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
 PASS  ch:iama:L91:1.23                   ch:iama:p6_08_iama:91  printed 1.23  recomputed 1.225  tol 0.00500001  [measured] healthy cell types on one physics floor, highest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
 PASS  ch:iama:L91:1.01                   ch:iama:p6_08_iama:91  printed 1.01  recomputed 1.009  tol 0.00500001  [measured] healthy cell types on one physics floor, median  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
@@ -4306,7 +4318,7 @@ PASS  eq:eps0T                           ch:temperature:p6_10_temperature:12  pr
 PASS  ch:temperature:L16                 ch:temperature:p6_10_temperature:16  printed 0.0233  recomputed 0.0233128  tol 5.000005e-05  [derived] eps0 at 10 C
 PASS  ch:temperature:L17                 ch:temperature:p6_10_temperature:17  printed 0.78  recomputed 0.781684  tol 0.00500001  [calc] floor H(eps0) at 10 C over the human
 PASS  ch:temperature:L17:1.012           ch:temperature:p6_10_temperature:17  printed 1.012  recomputed 1.0123  tol 5.000005e-04  [calc] floor at 38.5 C
-PASS  ch:temperature:L23                 ch:temperature:p6_10_temperature:23  printed 3.41  recomputed 3.41  tol 0.00500001  [calc] holding energy of human cells at 37 C  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  ch:temperature:L23                 ch:temperature:p6_10_temperature:23  printed 3.41  recomputed 3.41052  tol 0.00500001  [calc] holding energy of human cells at 37 C  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
 PASS  ch:temperature:L30                 ch:temperature:p6_10_temperature:30  printed 1.025  recomputed 1.02462  tol 5.000005e-04  [calc] floor at 40 C
 PASS  ch:temperature:L30:1.041           ch:temperature:p6_10_temperature:30  printed 1.041  recomputed 1.04105  tol 5.000005e-04  [calc] floor at 42 C
 PASS  ch:temperature:L31                 ch:temperature:p6_10_temperature:31  printed 0.902  recomputed 0.902077  tol 5.000005e-04  [calc] floor at 25 C
@@ -4314,7 +4326,7 @@ PASS  ch:temperature:L31:0.959           ch:temperature:p6_10_temperature:31  pr
 PASS  ch:temperature:L32                 ch:temperature:p6_10_temperature:32  printed 0.821  recomputed 0.821493  tol 5.000005e-04  [calc] floor at 15 C
 PASS  ch:temperature:L36                 ch:temperature:p6_10_temperature:36  printed 8.1  recomputed 8.12121  tol 0.05  [calc] 7-fold selectivity at 15 C
 PASS  ch:temperature:L36:6.8             ch:temperature:p6_10_temperature:36  printed 6.8  recomputed 6.78719  tol 0.05  [calc] at 42 C
-PASS  ch:temperature:L76                 ch:temperature:p6_10_temperature:76  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] human cells at 37 C (dashed line)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  ch:temperature:L76                 ch:temperature:p6_10_temperature:76  printed 3.41  recomputed 3.41052  tol 0.00500001  [measured] human cells at 37 C (dashed line)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
 PASS  ch:temperature:L111                ch:temperature:p6_10_temperature:87  printed 20.84  recomputed 20.8397  tol 0.00500001  [prediction] M for a dog at 38.5 C
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:translation (part6/p6_11_translation.tex)
@@ -4445,7 +4457,7 @@ PASS  eq:outspan                         ch:sky:p6_16_sky:90  printed (algebra) 
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:serial (part6/p6_17_serial.tex)
 PASS  ch:serial:L31                      ch:serial:p6_17_serial:31  printed 0.045  recomputed 0.0453166  tol 5.000005e-04  [measured] within-person SD, donor 1 (GSE247195), untared isolated neutrophils  file Biological_Physics/MethylPhys/doors/data/t2_diag.csv
-PASS  ch:serial:L71                      ch:serial:p6_17_serial:35  printed 0.894  recomputed 0.894  tol 5.000005e-04  [measured] E-MTAB-7309 Stage 1: median call rate  file Biological_Physics/MethylPhys/doors/PLAN.md
+PASS  ch:serial:L71                      ch:serial:p6_17_serial:35  printed 0.894  recomputed 0.894  tol 5.000005e-04  [measured] E-MTAB-7309 Stage 1: median call rate  file Biological_Physics/MethylPhys/STATUS.md
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:discipline (part6/p6_18_discipline.tex)
 PASS  ch:discipline:L24                  ch:discipline:p6_18_discipline:24  printed 0.015  recomputed 0.0146176  tol 5.000005e-04  [measured] severe vs healthy above Normal: one-sided Fisher p  file Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv
@@ -4462,7 +4474,7 @@ PASS  ch:discipline:L68:0.056            ch:discipline:p6_18_discipline:68  prin
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:chain (part6/p6_19_chain.tex)
 PASS  ch:chain:L23                       ch:chain:p6_19_chain:23  printed 50  recomputed 50  tol 0.5  [calibrated] Stage MC block size  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
 PASS  ch:chain:L23:1.1104                ch:chain:p6_19_chain:23  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [calibrated] Stage MC healthy C-score baseline (median of leave-one-out)  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
-PASS  ch:chain:L25                       ch:chain:p6_19_chain:25  printed 1.099  recomputed 1.099  tol 5.000005e-04  [calibrated] Stage Q neutrophil position P  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  ch:chain:L25                       ch:chain:p6_19_chain:25  printed 1.149  recomputed 1.1492  tol 5.000005e-04  [calibrated] Stage Q neutrophil position P  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json
 PASS  ch:chain:L72                       ch:chain:p6_19_chain:72  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [openprob] C-score healthy baseline (Stage MC text)  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:leukocyte (part6/p6_22_leukocyte.tex)
@@ -4594,13 +4606,13 @@ PASS  ch:status:L19                      ch:status:p6_24_status:19  printed 0.33
       heavy: Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices
 PASS  ch:status:L20                      ch:status:p6_24_status:20  printed 0.020  recomputed 0.0197562  tol 5.000005e-04  [calc] held-out Met-A of the six reference arrays, SD  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv
       heavy: Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices
-PASS  ch:status:L22                      ch:status:p6_24_status:22  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] holding energy E_hold  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  ch:status:L22                      ch:status:p6_24_status:22  printed 3.41  recomputed 3.41052  tol 0.00500001  [measured] holding energy E_hold  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
       heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the record is the PROC-CHANNEL-01 outcome
 PASS  ch:status:L22:0.032                ch:status:p6_24_status:22  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [measured] eps0 = 1/(1+e^(E_hold/k_B T))
 PASS  ch:status:L22:0.163                ch:status:p6_24_status:22  printed 0.163  recomputed 0.162842  tol 5.000005e-04  [measured] phi = E_hold/M
-PASS  ch:status:L23                      ch:status:p6_24_status:23  printed 1.099  recomputed 1.099  tol 5.000005e-04  [measured] neutrophil position P  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  ch:status:L23                      ch:status:p6_24_status:23  printed 1.149  recomputed 1.1492  tol 5.000005e-04  [measured] neutrophil position P  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json
       heavy: IAM-A positions from Loyfer 2023 granulocyte .pat files (3 donors); the record is iama_positions_v1.json
-PASS  ch:status:L23:1.084                ch:status:p6_24_status:23  printed 1.084  recomputed 1.0841  tol 5.000005e-04  [calc] neutrophil position P, lowest donor  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  ch:status:L23:1.140                ch:status:p6_24_status:23  printed 1.140  recomputed 1.1396  tol 5.000005e-04  [calc] neutrophil position P, lowest donor  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json
       heavy: IAM-A positions from Loyfer 2023 granulocyte .pat files (3 donors); the record is iama_positions_v1.json
 PASS  ch:status:L24                      ch:status:p6_24_status:24  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [calc] C-score healthy baseline  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
       heavy: Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices
@@ -4608,9 +4620,9 @@ PASS  ch:status:L24:0.70                 ch:status:p6_24_status:24  printed 0.70
       heavy: Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices
 PASS  ch:status:L24:1.23                 ch:status:p6_24_status:24  printed 1.23  recomputed 1.22767  tol 0.00500001  [calc] C-score of the healthy arrays, highest  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
       heavy: Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices
-PASS  ch:status:L26                      ch:status:p6_24_status:26  printed 0.910  recomputed 0.909918  tol 5.000005e-04  [calc] IAM-A floor 1/P  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  ch:status:L26:Hmin                 ch:status:p6_24_status:26  printed 1e-7  recomputed 1.085346e-07  tol 5.000005e-08  [calc] the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))  file CANON/iam_canon.json
 PASS  ch:status:L26:3.03                 ch:status:p6_24_status:26  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] Met-A at the full surface  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
-PASS  ch:status:L26:4.45                 ch:status:p6_24_status:26  printed 4.45  recomputed 4.45497  tol 0.00500001  [calc] IAM-A at the full surface  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  ch:status:L26:4.26                 ch:status:p6_24_status:26  printed 4.26  recomputed 4.26036  tol 0.00500001  [calc] IAM-A at the full surface  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json
 PASS  ch:status:L26:45                   ch:status:p6_24_status:26  printed 45  recomputed 45.0288  tol 0.5  [calc] C-score far end  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
 PASS  ch:status:L29                      ch:status:p6_24_status:29  printed 0.78  recomputed 0.781684  tol 0.00500001  [calc] copy-error floor at 10 C, fixed holding energy
 PASS  ch:status:L29:1.012                ch:status:p6_24_status:29  printed 1.012  recomputed 1.0123  tol 5.000005e-04  [calc] copy-error floor at 38.5 C, fixed holding energy
@@ -4700,12 +4712,12 @@ PASS  ch:onegauge:L22:0.0017             ch:onegauge:p7_08_one_gauge:22  printed
 PASS  ch:onegauge:L41                    ch:onegauge:p7_08_one_gauge:41  printed 10  recomputed 10.0453  tol 0.5  [calc] transmon worked example: error-correction threshold at A = 10
 PASS  ch:onegauge:L42                    ch:onegauge:p7_08_one_gauge:42  printed 0.2043  recomputed 0.204325  tol 5.000005e-05  [calc] same value as p6_00b_astrogenetics:63 (H(eps0), bits)
 PASS  ch:onegauge:L42:3.03               ch:onegauge:p7_08_one_gauge:42  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] full surface on Met-A: 1/(healthy reference)
-PASS  ch:onegauge:L42:4.45               ch:onegauge:p7_08_one_gauge:42  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] full surface on IAM-A: 1/(P H(eps0)), neutrophils
+PASS  ch:onegauge:L42:4.26               ch:onegauge:p7_08_one_gauge:43  printed 4.26  recomputed 4.25876  tol 0.00500001  [calc] full surface on IAM-A: 1/(P H(eps0)), neutrophils
 PASS  ch:onegauge:L42:0.032              ch:onegauge:p7_08_one_gauge:42  printed 0.032  recomputed 0.0320117  tol 5.000005e-04  [calc] eps0 = 1/(1 + exp(phi M))
-PASS  ch:onegauge:L63                    ch:onegauge:p7_08_one_gauge:63  printed 3.41  recomputed 3.41  tol 0.00500001  [openprob] holding energy E_hold from the PROC-CHANNEL-01 record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-PASS  ch:onegauge:L64                    ch:onegauge:p7_08_one_gauge:64  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [openprob] eps0 from the measured holding energy  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:onegauge:L63                    ch:onegauge:p7_08_one_gauge:63  printed 3.41  recomputed 3.41052  tol 0.00500001  [openprob] holding energy E_hold from the PROC-CHANNEL-01 record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
+PASS  ch:onegauge:L64                    ch:onegauge:p7_08_one_gauge:64  printed 0.032  recomputed 0.0319684  tol 5.000005e-04  [openprob] eps0 from the measured holding energy  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
 PASS  ch:onegauge:L66                    ch:onegauge:p7_08_one_gauge:66  printed 1.9  recomputed 1.94591  tol 0.05  [openprob] Hopfield energy gap ln 7 (low end)
 PASS  ch:onegauge:L66:4.4                ch:onegauge:p7_08_one_gauge:66  printed 4.4  recomputed 4.38203  tol 0.05  [openprob] Hopfield energy gap ln 80 (high end)
 PASS  ch:onegauge:L67                    ch:onegauge:p7_08_one_gauge:67  printed 20.94  recomputed 20.9405  tol 0.00500001  [openprob] Mahaffey number M = dG_ATP/(R T_cell)
@@ -4739,16 +4751,16 @@ PASS  ch:synthesis:L30                   ch:synthesis:p7_08_synthesis:30  printe
 PASS  ch:synthesis:L32                   ch:synthesis:p7_08_synthesis:32  printed 576  recomputed 576.021  tol 0.5  [calc] 9950X switching energy over the Landauer floor, lower end
 PASS  ch:synthesis:L32:593               ch:synthesis:p7_08_synthesis:32  printed 593  recomputed 593.301  tol 0.5  [calc] 9950X switching energy over the Landauer floor, upper end
 PASS  ch:synthesis:L33                   ch:synthesis:p7_08_synthesis:33  printed 0.032  recomputed 0.0320117  tol 5.000005e-04  [derived] cell floor eps0 = 1/(1 + exp(phi M))
-PASS  ch:synthesis:L33:0.910             ch:synthesis:p7_08_synthesis:33  printed 0.910  recomputed 0.909918  tol 5.000005e-04  [derived] IAM-A floor of neutrophils, 1/P_cell
+PASS  ch:synthesis:L33:Hmin              ch:synthesis:p7_08_synthesis:33  printed 1e-7  recomputed 1.085346e-07  tol 5.000005e-08  [calc] the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))  file CANON/iam_canon.json
 PASS  ch:synthesis:L33:3.03              ch:synthesis:p7_08_synthesis:33  printed 3.03  recomputed 3.02789  tol 0.00500001  [derived] full surface on Met-A, 1/(healthy reference)
-PASS  ch:synthesis:L33:4.45              ch:synthesis:p7_08_synthesis:33  printed 4.45  recomputed 4.4533  tol 0.00500001  [derived] full surface on IAM-A, 1/(P H(eps0))
+PASS  ch:synthesis:L33:4.26              ch:synthesis:p7_08_synthesis:33  printed 4.26  recomputed 4.25876  tol 0.00500001  [derived] full surface on IAM-A, 1/(P H(eps0))
 PASS  ch:synthesis:L51                   ch:synthesis:p7_08_synthesis:51  printed 2.112  recomputed 2.11202  tol 5.068805e-04  [derived] Al superconducting gap expressed as temperature
 PASS  ch:synthesis:L51:310.15            ch:synthesis:p7_08_synthesis:51  printed 310.15  recomputed 310.15  tol 0.00500001  [derived] body temperature 37 C in kelvin
 PASS  ch:synthesis:L53                   ch:synthesis:p7_08_synthesis:53  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [derived] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
-PASS  ch:synthesis:L53:0.032             ch:synthesis:p7_08_synthesis:53  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [measured] eps0 from the measured holding energy  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-PASS  ch:synthesis:L53:3.41              ch:synthesis:p7_08_synthesis:53  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] holding energy E_hold, PROC-CHANNEL-01  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:synthesis:L53:0.032             ch:synthesis:p7_08_synthesis:53  printed 0.032  recomputed 0.0319684  tol 5.000005e-04  [measured] eps0 from the measured holding energy  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
+PASS  ch:synthesis:L53:3.41              ch:synthesis:p7_08_synthesis:53  printed 3.41  recomputed 3.41052  tol 0.00500001  [measured] holding energy E_hold, PROC-CHANNEL-01  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
 PASS  ch:synthesis:L54                   ch:synthesis:p7_08_synthesis:54  printed -0.136  recomputed -0.136181  tol 5.000005e-04  [calc] mu0 = mu(a=1) - 1 (slot table)
 PASS  ch:synthesis:L54:0.7998            ch:synthesis:p7_08_synthesis:54  printed 0.7998  recomputed 0.799751  tol 5.000005e-05  [measured] sigma8 IAM Level 2 chain  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
@@ -5002,20 +5014,20 @@ PASS  ch:statusall:L86                   ch:statusall:p7_11_status_all:85  print
 PASS  ch:statusall:L86:8.6               ch:statusall:p7_11_status_all:85  printed 8.6  recomputed 8.61698  tol 0.05  [calc] 105 C vs 75 C
 PASS  ch:statusall:L88:1.9               ch:statusall:p7_11_status_all:87  printed 1.9  recomputed 1.94591  tol 0.05  [calc] Hopfield gap, lowest published DNMT1 preference
 PASS  ch:statusall:L88:4.4               ch:statusall:p7_11_status_all:87  printed 4.4  recomputed 4.38203  tol 0.05  [calc] Hopfield gap, highest published DNMT1 preference
-PASS  ch:statusall:L88:3.41              ch:statusall:p7_11_status_all:87  printed 3.41  recomputed 3.41  tol 0.00500001  [calc] measured holding energy, k_B T  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:statusall:L88:3.41              ch:statusall:p7_11_status_all:87  printed 3.41  recomputed 3.41052  tol 0.00500001  [calc] measured holding energy, k_B T  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
 PASS  ch:statusall:L90                   ch:statusall:p7_11_status_all:89  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.045605e-25  [calc] Landauer bit-cost energy at body temperature
 PASS  ch:statusall:L91                   ch:statusall:p7_11_status_all:90  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)
 PASS  ch:statusall:L91:30.2              ch:statusall:p7_11_status_all:90  printed 30.2  recomputed 30.2108  tol 0.05  [calc] M/ln2
-PASS  ch:statusall:L92                   ch:statusall:p7_11_status_all:91  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] holding energy of a methylated site  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-PASS  ch:statusall:L92:0.032             ch:statusall:p7_11_status_all:91  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [measured] copy-error floor eps0  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-PASS  ch:statusall:L92:0.163             ch:statusall:p7_11_status_all:91  printed 0.163  recomputed 0.162842  tol 5.000005e-04  [measured] phi = E_hold / M  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-PASS  ch:statusall:L93                   ch:statusall:p7_11_status_all:92  printed 1.099  recomputed 1.099  tol 5.000005e-04  [measured] neutrophil position P on IAM-A  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  ch:statusall:L92                   ch:statusall:p7_11_status_all:91  printed 3.41  recomputed 3.41052  tol 0.00500001  [measured] holding energy of a methylated site  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
+PASS  ch:statusall:L92:0.032             ch:statusall:p7_11_status_all:91  printed 0.032  recomputed 0.0319684  tol 5.000005e-04  [measured] copy-error floor eps0  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
+PASS  ch:statusall:L92:0.163             ch:statusall:p7_11_status_all:91  printed 0.163  recomputed 0.162867  tol 5.000005e-04  [measured] phi = E_hold / M  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
+PASS  ch:statusall:L93                   ch:statusall:p7_11_status_all:92  printed 1.149  recomputed 1.1492  tol 5.000005e-04  [measured] neutrophil position P on IAM-A  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the record named in source is the committed output
-PASS  ch:statusall:L93:1.084             ch:statusall:p7_11_status_all:92  printed 1.084  recomputed 1.0841  tol 5.000005e-04  [calc] lowest donor P  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  ch:statusall:L93:1.140             ch:statusall:p7_11_status_all:92  printed 1.140  recomputed 1.1396  tol 5.000005e-04  [calc] lowest donor P  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the record named in source is the committed output
 PASS  ch:statusall:L94                   ch:statusall:p7_11_status_all:93  printed 0.330263  recomputed 0.330263  tol 5.000005e-07  [calibrated] Met-A neutrophil reference floor, bits  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the record named in source is the committed output
@@ -5023,9 +5035,9 @@ PASS  ch:statusall:L94:6000              ch:statusall:p7_11_status_all:93  print
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the record named in source is the committed output
 PASS  ch:statusall:L95                   ch:statusall:p7_11_status_all:94  printed 0.020  recomputed 0.0197562  tol 5.000005e-04  [measured] held-out SD of the six reference arrays  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the record named in source is the committed output
-PASS  ch:statusall:L96                   ch:statusall:p7_11_status_all:95  printed 0.910  recomputed 0.909918  tol 5.000005e-04  [calc] 1/P  file CANON/iam_canon.json
+PASS  ch:statusall:L96:Hmin              ch:statusall:p7_11_status_all:95  printed 1e-7  recomputed 1.085346e-07  tol 5.000005e-08  [calc] the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))  file CANON/iam_canon.json
 PASS  ch:statusall:L96:3.03              ch:statusall:p7_11_status_all:95  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] Met-A full  file CANON/iam_canon.json
-PASS  ch:statusall:L96:4.45              ch:statusall:p7_11_status_all:95  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] IAM-A full  file CANON/iam_canon.json
+PASS  ch:statusall:L96:4.26              ch:statusall:p7_11_status_all:95  printed 4.26  recomputed 4.25876  tol 0.00500001  [calc] IAM-A full  file CANON/iam_canon.json
 PASS  ch:statusall:L98                   ch:statusall:p7_11_status_all:97  printed 0.78  recomputed 0.781684  tol 0.00500001  [calc] floor at 10 C
 PASS  ch:statusall:L98:1.012             ch:statusall:p7_11_status_all:97  printed 1.012  recomputed 1.0123  tol 5.000005e-04  [calc] same value as p6_10_temperature:17 (floor at 38.5 C)
 PASS  ch:statusall:L98:1.012'            ch:statusall:p7_11_status_all:97  printed 1.012  recomputed 1.0123  tol 5.000005e-04  [calc] floor at 38.5 C
@@ -5071,8 +5083,8 @@ PASS  app:constants:L16:0.032            app:constants:app_A2_frozen_values:16  
 PASS  app:constants:L17                  app:constants:app_A2_frozen_values:17  printed 0.330263  recomputed found in file  [calibrated] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
 PASS  app:constants:L17:6000             app:constants:app_A2_frozen_values:17  printed 6000  recomputed 6000  tol 0.5  [calibrated] identity sites of the Met-A neutrophil reference  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs); the frozen file named in source is the committed output
-PASS  app:constants:L18                  app:constants:app_A2_frozen_values:18  printed 1.099  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
-PASS  app:constants:L18:1.084            app:constants:app_A2_frozen_values:18  printed 1.084  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  app:constants:L18                  app:constants:app_A2_frozen_values:18  printed 1.149  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  app:constants:L18:1.140            app:constants:app_A2_frozen_values:18  printed 1.140  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
 PASS  app:constants:L19                  app:constants:app_A2_frozen_values:19  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [calibrated] C-score healthy clustering baseline  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs); the frozen file named in source is the committed output
 PASS  app:constants:L20                  app:constants:app_A2_frozen_values:20  printed 0.93  recomputed 0.93  tol 0.00500001  [calibrated] intake quarantine call-rate line  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Intake/intake_thresholds_v1.json
@@ -5090,11 +5102,11 @@ PASS  app:notation:L109                  app:notation:app_N_notation:109  printe
 PASS  app:notation:L110                  app:notation:app_N_notation:110  printed 0.1628  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
 PASS  app:notation:L111                  app:notation:app_N_notation:111  printed 0.032  recomputed 0.0320144  tol 5.000005e-04  [derived] drafted check, screened (runs; negative control fails)
 PASS  app:notation:L112                  app:notation:app_N_notation:112  printed 0.2043  recomputed 0.204325  tol 5.000005e-05  [calc] same value as p6_00b_astrogenetics:63 (H(eps0), bits)
-PASS  app:notation:L113                  app:notation:app_N_notation:113  printed 1.099  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
-PASS  app:notation:L113:1.084            app:notation:app_N_notation:113  printed 1.084  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
-PASS  app:notation:L113:-1.108           app:notation:app_N_notation:113  printed -1.108  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
-PASS  app:notation:L114                  app:notation:app_N_notation:114  printed 0.2246  recomputed 0.224553  tol 5.000005e-05  [calc] drafted check, screened (runs; negative control fails)
-PASS  app:notation:L115                  app:notation:app_N_notation:115  printed 0.910  recomputed 0.909918  tol 5.000005e-04  [calc] 1/P, position of H_min on the IAM-A gauge  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  app:notation:L113                  app:notation:app_N_notation:115  printed 1.149  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  app:notation:L113:1.140            app:notation:app_N_notation:115  printed 1.140  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  app:notation:L113:-1.155           app:notation:app_N_notation:115  printed -1.155  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  app:notation:L114                  app:notation:app_N_notation:116  printed 0.2348  recomputed 0.23481  tol 5.000005e-05  [calc] drafted check, screened (runs; negative control fails)
+PASS  app:notation:L115                  app:notation:app_N_notation:117  printed 0.870  recomputed 0.870171  tol 5.000005e-04  [calc] 1/P, position of H_min on the IAM-A gauge  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
 PASS  app:notation:L116                  app:notation:app_N_notation:116  printed 0.330263  recomputed found in file  [calibrated] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
 PASS  app:notation:L116:6000             app:notation:app_N_notation:116  printed 6000  recomputed 6000  tol 0.5  [calibrated] identity sites of the Met-A neutrophil reference  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
@@ -5103,7 +5115,7 @@ PASS  app:notation:L117                  app:notation:app_N_notation:117  printe
 PASS  app:notation:L117:0.95             app:notation:app_N_notation:117  printed 0.95  recomputed 0.95  tol 0.00500001  [observed] lower edge of the Normal band  file CANON/iam_canon.json
 PASS  app:notation:L118                  app:notation:app_N_notation:118  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] full surface on Met-A  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
-PASS  app:notation:L118:4.45             app:notation:app_N_notation:118  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] full surface on IAM-A  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  app:notation:L118:4.26             app:notation:app_N_notation:120  printed 4.26  recomputed 4.25876  tol 0.00500001  [calc] full surface on IAM-A  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
 PASS  app:notation:L119                  app:notation:app_N_notation:119  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [calibrated] C-score healthy clustering baseline  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
@@ -5165,16 +5177,16 @@ PASS  app:formulas:L616                  app:formulas:app_E_formulas:607  printe
 PASS  app:formulas:L617                  app:formulas:app_E_formulas:608  printed 8.38\times10^{-14}  recomputed 8.375259e-14  tol 5.000005e-17  [calc] Landauer floor of one copy of the methylome  file Biological_Physics/MethylPhys/atlas/v2/README.md
 PASS  app:formulas:L618:2.3              app:formulas:app_E_formulas:609  printed 2.3  recomputed 2.30259  tol 0.05  [calc] discrimination energy at 10 % maintenance error
 PASS  app:formulas:L618:3.9              app:formulas:app_E_formulas:609  printed 3.9  recomputed 3.91202  tol 0.05  [calc] discrimination energy at 2 % maintenance error
-PASS  app:formulas:L619                  app:formulas:app_E_formulas:610  printed 0.163  recomputed 0.162842  tol 5.000005e-04  [measured] phi = E_hold / M  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  app:formulas:L619                  app:formulas:app_E_formulas:610  printed 0.163  recomputed 0.162867  tol 5.000005e-04  [measured] phi = E_hold / M  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
 PASS  app:formulas:L631                  app:formulas:app_E_formulas:622  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] full surface on Met-A  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
 PASS  app:formulas:L637                  app:formulas:app_E_formulas:628  printed 0.330263  recomputed 0.330263  tol 5.000005e-07  [calibrated] frozen EPIC neutrophil reference, bits  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
-PASS  app:formulas:L642                  app:formulas:app_E_formulas:633  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [measured] copy-error floor eps0  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  app:formulas:L642                  app:formulas:app_E_formulas:633  printed 0.032  recomputed 0.0319684  tol 5.000005e-04  [measured] copy-error floor eps0  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
 PASS  app:formulas:L642:0.2043           app:formulas:app_E_formulas:633  printed 0.2043  recomputed 0.204325  tol 5.000005e-05  [measured] H_min = H(eps0), bits  file CANON/iam_canon.json
-PASS  app:formulas:L643                  app:formulas:app_E_formulas:634  printed 1.099  recomputed 1.099  tol 5.000005e-04  [measured] neutrophil position P  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  app:formulas:L643                  app:formulas:app_E_formulas:634  printed 1.149  recomputed 1.1492  tol 5.000005e-04  [measured] neutrophil position P  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
 PASS  app:formulas:L647                  app:formulas:app_E_formulas:638  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [calibrated] C-score healthy baseline  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
@@ -5395,7 +5407,7 @@ PASS  app:derivations:L363:-0.67         app:derivations:app_C3_derivations:363 
 PASS  app:derivations:L363:-1.87         app:derivations:app_C3_derivations:363  printed -1.87  recomputed -1.87329  tol 0.00500001  [openprob] Delta D/D today, form (iii), restated
 
 == Part 8: Appendices | app:saturation (appendices/app_S_saturation.tex)
-PASS  app:saturation:L29:0.2043          app:saturation:app_S_saturation:29  printed 0.2043  recomputed 0.204325  tol 5.000005e-05  [measured] H_min = H(eps0) at the frozen eps0  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  app:saturation:L29:0.2043          app:saturation:app_S_saturation:29  printed 0.2043  recomputed 0.204325  tol 5.000005e-05  [measured] H_min = H(eps0) at the frozen eps0  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json
 PASS  app:saturation:L43                 app:saturation:app_S_saturation:45  printed 2.77  recomputed 2.77259  tol 0.00500001  [derived] one bit per 4 ln2 l_P^2, in Planck areas
 PASS  eq:sat_eta                         app:saturation:app_S_saturation:47  printed (algebra)  recomputed True  [derived] 1/4 = 2 pi / 8 pi and eta = c^3/(4 hbar G) = 1/(4 l_P^2)
 PASS  app:saturation:L117                app:saturation:app_S_saturation:119  printed 0.15765  recomputed 0.15765  tol 5.000005e-06  [prediction] beta_m = Omega_m/2 with Omega_m = 0.3153
@@ -5403,7 +5415,7 @@ PASS  app:saturation:L120                app:saturation:app_S_saturation:122  pr
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  eq:sat_ebit                        app:saturation:app_S_saturation:144  printed 2.97\times10^{-21}  recomputed 2.968114e-21  tol 5.000005e-24  [calc] k_B T ln2 at T_body = 310.15 K
 PASS  app:saturation:L146                app:saturation:app_S_saturation:148  printed 28{,}217{,}448  recomputed 2.821745e+07  tol 0.5  [calc] CpG sites of the hg19 index  file Biological_Physics/MethylPhys/atlas/v2/README.md
-PASS  app:saturation:L153:0.2043         app:saturation:app_S_saturation:153  printed 0.2043  recomputed 0.204325  tol 5.000005e-05  [measured] H_min = H(eps0) at the frozen eps0  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  app:saturation:L153:0.2043         app:saturation:app_S_saturation:153  printed 0.2043  recomputed 0.204325  tol 5.000005e-05  [measured] H_min = H(eps0) at the frozen eps0  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json
 PASS  app:saturation:L169                app:saturation:app_S_saturation:171  printed 5.0\times10^{9}  recomputed 5.026682e+09  tol 5.000005e+07  [calc] T_body / T_BH, 1 M_sun
 PASS  app:saturation:L169:5.4\times10^{69} app:saturation:app_S_saturation:171  printed 5.4\times10^{69}  recomputed 5.363072e+69  tol 5.000005e+67  [calc] N_BH / N_CpG, 1 M_sun  file Biological_Physics/MethylPhys/atlas/v2/README.md
 PASS  app:saturation:L177                app:saturation:app_S_saturation:179  printed 6.17\times10^{-8}  recomputed 6.170074e-08  tol 5.000005e-11  [calc] T_BH, 1 M_sun
@@ -5414,7 +5426,7 @@ PASS  app:saturation:L180:1.6\times10^{59} app:saturation:app_S_saturation:180  
 PASS  app:saturation:L180:52             app:saturation:app_S_saturation:180  printed 52  recomputed 51.743  tol 0.5  [calc] orders of magnitude between the capacity and the CpG sites  file Biological_Physics/MethylPhys/atlas/v2/README.md
 PASS  app:saturation:L179                app:saturation:app_S_saturation:181  printed 5.90\times10^{-31}  recomputed 5.904717e-31  tol 5.000005e-34  [calc] k_B T_BH ln2, 1 M_sun
 PASS  app:saturation:L179:2.97\times10^{-21} app:saturation:app_S_saturation:181  printed 2.97\times10^{-21}  recomputed 2.968114e-21  tol 5.000005e-24  [calc] k_B T_body ln2 in the table
-PASS  app:saturation:L182:0.2043         app:saturation:app_S_saturation:182  printed 0.2043  recomputed 0.204325  tol 5.000005e-05  [measured] H_min = H(eps0) at the frozen eps0  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  app:saturation:L182:0.2043         app:saturation:app_S_saturation:182  printed 0.2043  recomputed 0.204325  tol 5.000005e-05  [measured] H_min = H(eps0) at the frozen eps0  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json
 
 == Part 8: Appendices | app:glossary (appendices/app_F_glossary.tex)
 PASS  app:glossary:L18:0.067             app:glossary:app_F_glossary:18  printed 0.067  recomputed 0.067  tol 5.000005e-04  [observed] 6dFGS f sigma8 redshift  file docs/verification/scripts/verify_sector_tension_output.txt
@@ -5425,12 +5437,12 @@ PASS  app:glossary:L24:0.0052            app:glossary:app_F_glossary:24  printed
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
 PASS  app:glossary:L28:0.02              app:glossary:app_F_glossary:28  printed 0.02  recomputed 0.02  tol 0.00500001  [observed] ACT + WMAP + SDSS + SN mu0 (Andrade et al. 2024)  file docs/verification/chains/LATE_TIME_GROWTH_CHECK.md
 PASS  app:glossary:L46:3.03              app:glossary:app_F_glossary:46  printed 3.03  recomputed 3.02789  tol 0.00500001  [observed] Met-A at the full surface, neutrophils  file CANON/iam_canon.json
-PASS  app:glossary:L46:4.45              app:glossary:app_F_glossary:46  printed 4.45  recomputed 4.45497  tol 0.00500001  [observed] IAM-A at the full surface, neutrophils  file CANON/iam_canon.json
+PASS  app:glossary:L46:4.26              app:glossary:app_F_glossary:46  printed 4.26  recomputed 4.26036  tol 0.00500001  [observed] IAM-A at the full surface, neutrophils  file CANON/iam_canon.json
 PASS  app:glossary:L48:576               app:glossary:app_F_glossary:48  printed 576  recomputed 576.021  tol 0.5  [observed] 9950X switching energy over k_B T_j ln 2, upper transistor count
 PASS  app:glossary:L48:593               app:glossary:app_F_glossary:48  printed 593  recomputed 593.301  tol 0.5  [observed] 9950X switching energy over k_B T_j ln 2, lower transistor count
 PASS  app:glossary:L50:10                app:glossary:app_F_glossary:48  printed 10  recomputed 10  tol 0.5  [observed] AML diagnosis blood: patients read  file Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md
-PASS  app:glossary:L58                   app:glossary:app_F_glossary:58  printed 1.099  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
-PASS  app:glossary:L58:1.084             app:glossary:app_F_glossary:58  printed 1.084  recomputed found in file  [observed] measured: printed value found in GLOSSARY.md, a file the chapter names  file CANON/GLOSSARY.md
+PASS  app:glossary:L58                   app:glossary:app_F_glossary:58  printed 1.149  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
+PASS  app:glossary:L58:1.140             app:glossary:app_F_glossary:58  printed 1.140  recomputed found in file  [observed] measured: printed value found in GLOSSARY.md, a file the chapter names  file CANON/GLOSSARY.md
 PASS  app:glossary:L60                   app:glossary:app_F_glossary:60  printed 450  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L68                   app:glossary:app_F_glossary:68  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
@@ -5470,8 +5482,8 @@ PASS  app:glossary:L138:+0.54            app:glossary:app_F_glossary:137  printe
 PASS  app:glossary:L144:2.7255           app:glossary:app_F_glossary:143  printed 2.7255  recomputed 2.72548  tol 5.000005e-05  [observed] CMB temperature today (Fixsen 2009)
 PASS  app:glossary:L149:1.2              app:glossary:app_F_glossary:148  printed 1.2  recomputed 1.18158  tol 0.05  [observed] coefficient of variation of P across three donors, per cent  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
 PASS  app:glossary:L153:1.68             app:glossary:app_F_glossary:152  printed 1.68  recomputed 1.68  tol 0.00500001  [observed] best 2D transmon T1 (Bland et al. 2025)
-PASS  app:glossary:L171:0.024            app:glossary:app_F_glossary:169  printed 0.024  recomputed 0.024  tol 5.000005e-04  [observed] healthy copy error, lowest of 56 cell types  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-PASS  app:glossary:L171:0.042            app:glossary:app_F_glossary:169  printed 0.042  recomputed 0.042  tol 5.000005e-04  [observed] healthy copy error, highest of 56 cell types  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  app:glossary:L171:0.024            app:glossary:app_F_glossary:169  printed 0.024  recomputed 0.0237847  tol 5.000005e-04  [observed] healthy copy error, lowest of 56 cell types  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  app:glossary:L171:0.042            app:glossary:app_F_glossary:169  printed 0.042  recomputed 0.0417364  tol 5.000005e-04  [observed] healthy copy error, highest of 56 cell types  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
 PASS  app:glossary:L178:0.7              app:glossary:app_F_glossary:176  printed 0.7  recomputed 0.676471  tol 0.05  [observed] Omega_b/Omega_m against (3/16) sqrt(Omega_Lambda), in sigma  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: Cosmological_Physics/mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)
 PASS  app:glossary:L183:2.8e7            app:glossary:app_F_glossary:181  printed 2.8\times10^7  recomputed 2.821745e+07  tol 5.000005e+05  [observed] CpGs per haploid human genome  file Biological_Physics/MethylPhys/atlas/v2/README.md
@@ -5500,7 +5512,7 @@ PASS  app:glossary:L246                  app:glossary:app_F_glossary:243  printe
 PASS  app:glossary:L246:159.5            app:glossary:app_F_glossary:243  printed 159.5  recomputed 159.5  tol 0.05  [observed] electroweak crossover temperature (lattice), restated
 PASS  app:glossary:L251                  app:glossary:app_F_glossary:248  printed 7309  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L251:738              app:glossary:app_F_glossary:248  printed 738  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
-PASS  app:glossary:L251:1056             app:glossary:app_F_glossary:251  printed 1{,}056  recomputed 1056  tol 0.5  [observed] E-MTAB-7309 arrays calibrated  file Biological_Physics/MethylPhys/doors/PLAN.md
+PASS  app:glossary:L251:1056             app:glossary:app_F_glossary:251  printed 1{,}056  recomputed 1056  tol 0.5  [observed] E-MTAB-7309 arrays calibrated  file Biological_Physics/MethylPhys/STATUS.md
 PASS  app:glossary:L254                  app:glossary:app_F_glossary:251  printed 152.5  recomputed 152.549  tol 0.0503251  [calc] same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass)
 PASS  app:glossary:L262                  app:glossary:app_F_glossary:259  printed 3.41  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L262:0.032            app:glossary:app_F_glossary:259  printed 0.032  recomputed 0.0320144  tol 5.000005e-04  [observed] copy-error floor eps0
@@ -5534,7 +5546,7 @@ PASS  app:glossary:L327:67.36            app:glossary:app_F_glossary:320  printe
 PASS  app:glossary:L327:73.04            app:glossary:app_F_glossary:320  printed 73.04  recomputed 73.04  tol 0.00500001  [observed] SH0ES H0
 PASS  app:glossary:L334:6.17e-8          app:glossary:app_F_glossary:326  printed 6.17\times10^{-8}  recomputed 6.170074e-08  tol 5.000005e-11  [observed] Hawking temperature of one solar mass
 PASS  app:glossary:L336                  app:glossary:app_F_glossary:328  printed 0.330263  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
-PASS  app:glossary:L336:0.2246           app:glossary:app_F_glossary:328  printed 0.2246  recomputed found in file  [observed] measured: printed value found in GLOSSARY.md, a file the chapter names  file CANON/GLOSSARY.md
+PASS  app:glossary:L336:0.2348           app:glossary:app_F_glossary:328  printed 0.2348  recomputed found in file  [observed] measured: printed value found in GLOSSARY.md, a file the chapter names  file CANON/GLOSSARY.md
 PASS  app:glossary:L338                  app:glossary:app_F_glossary:330  printed 0.983  recomputed 0.982642  tol 5.000005e-04  [observed] held-out neutrophil reference arrays, lowest Met-A  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv
 PASS  app:glossary:L338:-1.045           app:glossary:app_F_glossary:330  printed -1.045  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L341:28217448         app:glossary:app_F_glossary:333  printed 28{,}217{,}448  recomputed 2.821745e+07  tol 0.5  [observed] CpGs of the hg19 index  file Biological_Physics/MethylPhys/atlas/v2/README.md
@@ -5543,7 +5555,7 @@ PASS  app:glossary:L344                  app:glossary:app_F_glossary:336  printe
 PASS  app:glossary:L344:125.20           app:glossary:app_F_glossary:336  printed 125.20  recomputed 125.2  tol 0.00500001  [observed] Higgs boson mass (PDG 2024)
 PASS  app:glossary:L344:0.129            app:glossary:app_F_glossary:336  printed 0.129  recomputed 0.129281  tol 5.000005e-04  [observed] Higgs self-coupling m_H^2/(2 v^2)
 PASS  app:glossary:L348                  app:glossary:app_F_glossary:340  printed 0.2043  recomputed found in file  [observed] measured: printed value found in GLOSSARY.md, a file the chapter names  file CANON/GLOSSARY.md
-PASS  app:glossary:L348:0.910            app:glossary:app_F_glossary:340  printed 0.910  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
+PASS  app:glossary:L348:Hmin             app:glossary:app_F_glossary:340  printed 1e-7  recomputed 1.085346e-07  tol 5.000005e-08  [calc] the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))  file CANON/iam_canon.json
 PASS  app:glossary:L354:2.9e78           app:glossary:app_F_glossary:346  printed 2.9\times10^{78}  recomputed 2.900586e+78  tol 5.000005e+76  [calc] horizon capacity at T = 150 MeV, nats
 PASS  app:glossary:L355:123              app:glossary:app_F_glossary:347  printed 123  recomputed 122.949  tol 0.5  [observed] orders of magnitude of the cosmological-constant problem
 PASS  app:glossary:L359:0.776            app:glossary:app_F_glossary:351  printed 0.776  recomputed 0.776  tol 5.000005e-04  [observed] HSC Y3 S8  file docs/verification/scripts/verify_sector_tension_output.txt
@@ -5551,7 +5563,7 @@ PASS  app:glossary:L359:0.776            app:glossary:app_F_glossary:351  printe
 PASS  app:glossary:L360:1588             app:glossary:app_F_glossary:352  printed 1588  recomputed 1588  tol 0.5  [observed] Pantheon+ supernovae in the Hubble flow  file docs/verification/scripts/verify_dual_sector_chapters_data.json
       heavy: python3 docs/verification/scripts/verify_dual_sector_chapters.py > docs/verification/scripts/verify_dual_sector_chapters_output.txt (downloads the public Pantheon+ release; writes verify_dual_sector_chapters_data.json)
 PASS  app:glossary:L361:1.4e26           app:glossary:app_F_glossary:353  printed 1.4\times10^{26}  recomputed 1.377402e+26  tol 5.000005e+24  [observed] Hubble radius c/H0, m
-PASS  app:glossary:L368                  app:glossary:app_F_glossary:360  printed 1.099  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
+PASS  app:glossary:L368                  app:glossary:app_F_glossary:361  printed 1.149  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L368:100              app:glossary:app_F_glossary:360  printed 100  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L368:-1.05            app:glossary:app_F_glossary:360  printed 1.05  recomputed 1.05  tol 0.00500001  [observed] IAM-A: Normal band, upper edge (canon Normal_band)  file CANON/iam_canon.json
 PASS  app:glossary:L368:0.032            app:glossary:app_F_glossary:360  printed 0.032  recomputed 0.0320144  tol 5.000005e-04  [observed] copy-error floor eps0 (IAM-A entry)
@@ -5818,4 +5830,4 @@ PASS  app:register:L73:1.55 \%           app:register:app_G_predictions_register
 PASS  app:register:L73:0.78 \%           app:register:app_G_predictions_register:73  printed 0.78 \%  recomputed 0.776789  tol 0.00500001  [openprob] COS-357: D lowered at z = 0, per cent
 PASS  app:register:L74:1.03              app:register:app_G_predictions_register:74  printed 1.03  recomputed 1.03045  tol 0.00500001  [openprob] COS-365: ISW amplitude ratio A_ISW
 
-SUMMARY  PASS 4668  FAIL 0  (heavy, read from committed outputs: 967)  inventoried-not-run 1342  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4674  FAIL 0  (heavy, read from committed outputs: 967)  inventoried-not-run 1342  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
