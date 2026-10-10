@@ -34,3 +34,10 @@ The difference holds at 1.0 whatever the artefact does.
 - **between: undecided.**
 Reported whatever the outcome; no constant changes either way. The 256 simulated D values are replaced by Adam's measured ratios at scoring;
 if those are not in the supplementary file in usable form, the test is parked before any cell file is read.
+
+**Amendment, before any cell file is read (2026-10-10 evening).** (1) Enzyme side in hand: Adam 2023 Data Set 1 (`data/DEV_WRITER_02/`,
+`enzyme_table.py`), D = HM/UM per NNCGNN, 28.9 (ACCGGA) to 317.5 (GGCGAC), mean 87.3: the paper's printed values. (2) Strands. A .pat file merges
+both strands at each CpG; the opposite strand reads the reverse-complement context, and DNMT1 discriminates on the strand it methylates. The
+prediction per top-strand context is therefore the strand average, **eps_c = k x ½[1/(1+D_c) + 1/(1+D_rc(c))]**, fitted as log eps_c on log of
+that bracket, slope 1. Contexts and their reverse complements carry the same prediction, so the fit has 136 independent points (120 pairs, 16
+palindromes); slopes are computed on those 136. The bars are unchanged.

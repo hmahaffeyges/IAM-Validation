@@ -1,0 +1,1 @@
+256 contexts | D 28.9 - 317.5 mean 87.3 | strand pairs 120 + palindromes 16
