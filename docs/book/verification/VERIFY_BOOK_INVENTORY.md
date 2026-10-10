@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4680 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4691 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/front/p0_preface.tex`
@@ -4468,6 +4468,17 @@ Totals: 4680 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 114 | ch:gauge:L114:1.29 | measured | `1.29` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: IAM-A after a simulated 2 % rise in copy error, lowest donor | PASS |
 | 114 | ch:gauge:L114:1.35 | measured | `1.35` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: IAM-A after a simulated 2 % rise in copy error, highest donor | PASS |
 | 120 | ch:gauge:L120 | measured | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: SD of the six held-out reference arrays | PASS |
+| 123 | ch:gauge:L123:0.330263 | measured | `0.330263` | file `CANON/iam_canon.json`: Met-A healthy height for neutrophils on EPIC, from the canon record. | PASS |
+| 123 | ch:gauge:L123:3.41 | measured | `3.41` | file `CANON/iam_canon.json`: Holding energy shared by healthy cell types, from the canon record. | PASS |
+| 123 | ch:gauge:L123:0.032 | derived | `0.032` | numeric: eps0 = 1/(1+e^E_hold), E_hold = 3.41 kT (canon). | PASS |
+| 123 | ch:gauge:L123:1.149 | measured | `1.149` | file `CANON/iam_canon.json`: Neutrophil IAM-A position P, from the canon record. | PASS |
+| 125 | ch:gauge:L125:20 | observed | `20` | file `Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/reference_donors.csv`: Youngest Met-A reference donor. | PASS |
+| 125 | ch:gauge:L125:39 | observed | `39` | file `Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/reference_donors.csv`: Oldest Met-A reference donor. | PASS |
+| 125 | ch:gauge:L125:153 | measured | `153` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: Samples in which the holding energy was read (PROC-CHANNEL-01 header). | PASS |
+| 125 | ch:gauge:L125:56:types | measured | `56` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: Cell types in which the holding energy was read (PROC-CHANNEL-01 header). | PASS |
+| 125 | ch:gauge:L125:50 | observed | `50` | file `Biological_Physics/MethylPhys/doors/data/DEV_IAMA_P_WHOLE_01/reference_donors_iama.csv`: Youngest IAM-A granulocyte donor. | PASS |
+| 125 | ch:gauge:L125:56:age | observed | `56` | file `Biological_Physics/MethylPhys/doors/data/DEV_IAMA_P_WHOLE_01/reference_donors_iama.csv`: Oldest IAM-A granulocyte donor. | PASS |
+| 131 | ch:gauge:L131:3.41 | measured | `3.41` | file `CANON/iam_canon.json`: Holding energy (open problem sentence), from the canon record. | PASS |
 
 ## Part 6 - ch:meta - `docs/book/part6/p6_07_meta.tex`
 
