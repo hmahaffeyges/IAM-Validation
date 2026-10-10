@@ -698,3 +698,6 @@ shift_vs_fraction_01.py (chain reader and matrices only): a 1 % loss shifts whol
 
 ### 2026-10-10 · Whole-blood fraction cut dropped (author decision)
 conductor_v3.stage_m_blood reads A at any neutrophil fraction > 0; each reading carries shift_per_1pct_loss at its own fraction and Stage T prints the detection limit. The 0.20 cut did not follow from its basis (0.27 by shift_vs_fraction_01.py). SOP, canon, GLOSSARY, Appendix A updated. Reader check: A read at f 0.05/0.15/0.60 with shifts 0.0015/0.0048/0.023, withheld at 0. Release check: same 14/20 before and after on the laptop (6 environment failures: manifest folder blocked by the sandbox, files outside the partial checkout); book checks: no new failures.
+
+### 2026-10-10 · DEV-IAMA-CONVERSION-01 written before reading
+Derivation: eps_meas = c*eps; IAM-A bias ~0.75*(c-c_ref)/c_ref; absolute 0.98 limit does not follow from physics, a conversion difference or the correction eps/c does. Prediction on TruSeq repeat libraries (eps ratio 0.980-0.983).
