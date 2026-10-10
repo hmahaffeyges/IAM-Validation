@@ -33,3 +33,18 @@ methylation unchanged' in the knockout (Lu 2001) — expected, since the predict
 
 
 **Reader change before any knockout is read (2026-10-10).** The reference-free reader fails its check on the wild-type file (`data/DEV_SAM_LEVER_01/reader_check_01.md`). Replaced by: adapter and RRBS fill-in trimming (Trim Galore --rrbs), bwa-meth on mm10, wgbstools bam2pat (mm10), Stage Q's rule (pat_site_table). Then the in-silico response on the wild-type molecules and the window sealed through it, before any knockout ε is computed. Bars 1-4 unchanged.
+
+**Power through Stage Q (2026-10-10, before any knockout is read; `development/sims/sam_lever_02.py`, output `sam_lever_02_output.txt`).**
+The earlier power compared the calculated rise in true copy error with a spread converted by the simple form, and its cross-lab column used
+the withdrawn reference-free table. Through Stage Q's measured response (two stand-ins), the middle case (60 µM, 60 % of cells renewed) reads
+IAM-A_rel 1.037–1.047, not 1.085. Power for 6 knockout against 8 wild type (one-sided Mann-Whitney, α 0.05):
+
+| spread between mice (IAM-A SD) | middle case power | weakest case (90 µM, 30 %) | strongest (30 µM, 100 %) |
+|---|---|---|---|
+| 0.01 | 1.00 | 0.65–0.82 | 1.00 |
+| 0.02 | 0.90–0.98 | 0.24–0.35 | 1.00 |
+| 0.04 | 0.42–0.59 | 0.11–0.14 | 1.00 |
+
+**Rule, fixed now.** The spread among the 8 wild-type mice is measured first (wild types are the reference arm). Then, before any knockout is
+read, the window is sealed on Stage Q's response on the wild-type molecules and the power at the middle case is stated with it. If that power is
+below 0.80, a reading inside the null range is recorded as **undecided**, not as a failure of the derivation.

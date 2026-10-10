@@ -728,3 +728,6 @@ GSE206709 (DEV-ATLAS-LAVAGE-02) paused before scoring. Stage 1 support for this 
 
 ### 2026-10-10 · DEV-FINGERPRINT-01 step 1 (stand-in prostate molecules)
 Stage Q response on prostate: about half the simple rise, readable to delta ~0.12. Run-loss reading on prostate recovers planted runs (0.0997/0.2163) and reads 0 for scattered. Two-arm design (IAM-A arm; run-loss arm if < 70 % read), to be sealed on PrEC molecules before LNCaP is read.
+
+### 2026-10-10 · SAM power redone through Stage Q
+Middle case reads 1.037-1.047 through Stage Q (not 1.085). Power 0.90-0.98 if mice spread SD 0.02, 0.42-0.59 at 0.04. Rule: measure wild-type spread first, state power with the sealed window; power < 0.80 makes a null reading undecided. Cross-lab column of sam_lever_01 dropped (withdrawn reader).
