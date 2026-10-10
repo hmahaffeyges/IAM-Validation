@@ -789,6 +789,9 @@ Per-context test of whether the writer sets the copy error: log eps_c against lo
 ### 2026-10-10 · DEV-WRITER-02 read as sealed: NOT MET
 Per-context copy error on the 153 healthy window files (reader reproduces PROC-CHANNEL-01 to 1e-16) against Adam 2023's 256 per-context DNMT1 discriminations: copy-error slope -0.240, control +0.437, difference -0.688 (bar 0.5-1.5), negative in 153/153. The copy error does not follow the writer's discrimination; the DEV-WRITER-01 factor of 2 was a coincidence of the genome mean. D1 stays open. Rows and counts committed.
 
+### 2026-10-10 · Evening reproducibility audit (author request)
+DEV-FINGERPRINT-02: array list and readability bound moved from notebook cells to committed scripts (make_array_list.py, readability_check.py; both reproduce the notebook outputs exactly); inventory sort made deterministic; REPRODUCE.md gives the run order. atlas/tools/extract_posterior.py replaces the uncommitted builder of the DEV-FINGERPRINT-01 prostate posterior (reproduces it to 4e-8). DEV-WRITER-02: the descriptive Spearman numbers now come from describe_contexts.py.
+
 ### 2026-10-10 · Day summary
 Passed (sealed before reading): IAM-A SAM lever in mice (1.124 in window 1.016-1.135, p 0.0003); Met-A on identical DNA at three laboratories
 (all four bars); Met-A specificity on the Moss mixes (9/9). Reproduced from public data: every matrix the commissioned chain reads.

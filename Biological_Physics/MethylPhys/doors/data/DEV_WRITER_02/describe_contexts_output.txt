@@ -1,0 +1,2 @@
+classes 136 | min opportunities 357377 | min errors 14831
+Spearman: copy error vs D_eff 0.213 | de novo vs D_eff -0.380 | copy error vs de novo -0.816

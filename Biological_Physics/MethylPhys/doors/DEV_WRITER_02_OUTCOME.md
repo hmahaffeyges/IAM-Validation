@@ -17,7 +17,7 @@ Every one of the 153 samples has a negative difference and a negative copy-error
 goes slightly the other way (contexts the writer discriminates best carry no less copy error). Model A' is rejected. The agreement of the genome
 average with twice the writer's single-step error (DEV-WRITER-01) is therefore not evidence for a writer-set copy error; at the genome mean it is
 a coincidence of size. k from the forced fit (2.60) has no meaning once the slope fails and is not reported further.
-**Recorded, not tested:** across contexts the copy error and the de novo rate are strongly anti-correlated (Spearman −0.82): a context-wide factor
+**Recorded, not tested:** across contexts the copy error and the de novo rate are strongly anti-correlated (Spearman −0.82; `data/DEV_WRITER_02/describe_contexts.py`): a context-wide factor
 moves the two channels in opposite directions, which this design cannot separate further.
 **Consequence for D1.** The holding energy is not the writer's single-step discrimination. D1 stays open: whatever sets 3.41 k_BT acts after or
 beside the writer's choice. No constant changes.
