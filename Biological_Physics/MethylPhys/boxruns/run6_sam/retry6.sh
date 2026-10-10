@@ -12,7 +12,9 @@ tail -n +2 $HERE/GSE77079_runs.csv | while IFS=, read -r r rc bc url rest; do
   [ -s $R6/trim/${r}_trimmed.fq.gz ] && continue
   for t in 1 2 3; do [ -s $f ] && [ "$(md5sum $f | cut -d' ' -f1)" = "$md5" ] && break; curl -s -o $f "https://$url"; done
   [ "$(md5sum $f | cut -d' ' -f1)" = "$md5" ] || { log "$r MD5_FAIL again"; continue; }
-  trim_galore --rrbs --cores 4 -o $R6/trim $f > $O/${r}_trim.log 2>&1 && cp $R6/trim/${r}.fastq.gz_trimming_report.txt $O/ 2>/dev/null; rm -f $f; log "$r trimmed"
+  mkdir -p $R6/trim_tmp; trim_galore --rrbs --cores 4 -o $R6/trim_tmp $f > $O/${r}_trim.log 2>&1 && cp $R6/trim_tmp/${r}.fastq.gz_trimming_report.txt $O/ 2>/dev/null && \
+    mv $R6/trim_tmp/${r}_trimmed.fq.gz $R6/trim/   # complete files only: session 6 may be aligning meanwhile
+  rm -f $f; log "$r trimmed"
 done
 for i in $(seq 1 1000); do [ -f $O/status.json ] && break; sleep 30; done
 REF=$S/ref/mm10.fa
