@@ -1,0 +1,3 @@
+sites 6000 | H_mean max diff 0.0e+00 | H_sd_shrunk max diff 0.0e+00
+clustering LOO rebuilt [0.9661, 1.0364, 1.0563, 0.9956, 0.9635, 1.025] | chain [1.0364, 1.025, 0.9661, 1.0563, 0.9956, 0.9635]
+median rebuilt 1.0103 | chain 1.0103

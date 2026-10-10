@@ -1,0 +1,22 @@
+arrays listed 12 physical 6 ['GSM2998021', 'GSM2998057', 'GSM2998116', 'GSM2998023', 'GSM2998143', 'GSM2998030']
+floor v1.3 0.330263 (v1.2 0.330263)
+       ref  A_heldout_sites_reselected  A_heldout_frozen_sites  n_sites
+GSM2998021                      1.0108                  1.0038     6000
+GSM2998057                      1.0101                  0.9934     6000
+GSM2998116                      1.0123                  0.9986     6000
+GSM2998023                      0.9826                  0.9930     6000
+GSM2998143                      1.0158                  1.0034     6000
+GSM2998030                      1.0445                  1.0077     6000
+held-out (sites re-chosen on the other 5): SD 0.0197 range 0.9826-1.0445 | frozen sites: SD 0.0060
+clustering LOO [0.9232, 1.0459, 1.3632, 1.1749, 0.7763, 1.202] median 1.1104 (v1 1.0103)
+DONE
+
+floor rebuilt 0.33026280 | chain 0.33026280 | diff 0.00e+00
+sites same: True | refs same: True | precision: {'sd': 0.019692, 'min': 0.982591, 'max': 1.044514} chain {'sd': 0.019756, 'min': 0.982642, 'max': 1.04472}
+       ref  A_heldout_sites_reselected  A_heldout_frozen_sites  n_sites platform        cell    A_loo  A_loo_frozen_sites
+GSM2998021                    1.010816                1.003829     6000     EPIC neutrophils 1.010755            1.003829
+GSM2998057                    1.010121                0.993429     6000     EPIC neutrophils 1.009698            0.993429
+GSM2998116                    1.012313                0.998630     6000     EPIC neutrophils 1.012358            0.998630
+GSM2998023                    0.982591                0.993014     6000     EPIC neutrophils 0.982642            0.993014
+GSM2998143                    1.015837                1.003383     6000     EPIC neutrophils 1.015837            1.003383
+GSM2998030                    1.044514                1.007745     6000     EPIC neutrophils 1.044720            1.007745

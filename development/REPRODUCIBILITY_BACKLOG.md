@@ -133,3 +133,6 @@ Closed on 2026-10-09: DEV_METAA_450K_01 (`doors/data/DEV_METAA_450K_01/metaa_450
 DEV_ATLAS_COMMISSION_01 lavage, DEV_COMPOSITION_TRUTH_03 (`development/sims/`).
 
 | — | noise_sites_EPIC_v1.json (DEV-NOISE-01/02) | chain runtime matrix | REPRODUCED 2026-10-10: doors/data/DEV_NOISE_02/build_noise_sites_01.py from the GEO IDATs (91 Salas arrays, chain Stage 1) gives the same 48,528 sites; build_noise_gate_01.py gives N_max 0.149 (12 Salas neutrophil arrays, N 0.1223-0.1489), same as the chain |
+
+| — | metA_floors_v1_3.json, metA_floors_v1_3_loo.csv, neutrophil_reference_v1_2.json (commissioned Met-A) | chain runtime matrices | REPRODUCED 2026-10-10: doors/data/MET_A_FLOOR_V13_REPRO (floor and reference identical; held-out precision within 0.0006) |
+| — | run_sample.py provenance | report record | FIXED 2026-10-10: recorded iama_positions_v1 while Stage Q reads v2 |

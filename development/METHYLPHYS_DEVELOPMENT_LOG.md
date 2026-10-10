@@ -734,3 +734,6 @@ Middle case reads 1.037-1.047 through Stage Q (not 1.085). Power 0.90-0.98 if mi
 
 ### 2026-10-10 · Report provenance fixed
 run_sample.py recorded the checksum of iama_positions_v1.json in every report while Stage Q reads iama_positions_v2.json; now v2 (and the hg19 chromosome ranges Stage Q0 reads). Readings unchanged; only the provenance record was wrong.
+
+### 2026-10-10 · Commissioned Met-A matrices rebuilt from GEO
+freeze_v13.py rerun on the 6 GSE110554 arrays (chain Stage 1): floor identical, sites identical; reference H mean/SD and clustering baseline identical; LOO precision within 0.0006. Author rule: only values the current chain uses are rerun.
