@@ -20,3 +20,9 @@ specimen: report A when the known-change shift at this specimen's own fraction i
 
 **Limits.** One lab for the healthy spread; the (fraction, N) expectation was fitted after looking and needs a held-out lab with ≥ 20 healthy references.
 Simulated damage only.
+
+**Basis of MIN_READ_FRACTION 0.20, computed (2026-10-10; `doors/data/DEV_LOWFRAC_01/shift_vs_fraction_01.py`, the chain's own reader and
+profiles, no data).** The chain states that below 0.20 a 1 % loss shifts Met-A by under 0.01. Computed: the 1 % shift is 0.0073 at 0.20 and
+reaches 0.01 at 0.27. The same computation reproduces the measured 2 % shifts above (0.031 at 0.40, 0.040 at 0.50; measured 0.033 at 0.40–0.50).
+So 0.20 does not follow from its stated basis. Either the cut moves to 0.27 (its stated basis), or the fixed cut gives way to this note's own
+rule, the per-specimen detection limit the chain already prints. Recorded for decision; the chain is unchanged.
