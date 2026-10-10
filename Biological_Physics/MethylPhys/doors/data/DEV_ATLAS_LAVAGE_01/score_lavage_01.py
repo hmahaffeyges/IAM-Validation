@@ -42,6 +42,7 @@ else:
     cpg = np.concatenate([np.load(p, allow_pickle=True)["cpg"] for p in ps]); cells = np.load(ps[0], allow_pickle=True)["cells"].tolist()
     ix = [cells.index(c) for c in A.LUNG]; Mu = D[:, ix, :].mean(0); ok = np.isfinite(Mu).all(0); inf = np.argsort(-Mu[:, ok].std(0))[:8000]
     Mu = Mu[:, ok][:, inf]; loci = cpg[ok][inf]
+    num = lambda x: float(x) / 100 if str(x).strip().lower() not in ("na", "nan", "", "none") else np.nan   # missing counts stay missing (2026-10-10, before scoring)
     rows = []
     for _, r in S.iterrows():
         f = os.path.join(W, "betas", r.gsm + ".parquet")
@@ -49,9 +50,9 @@ else:
         b = pd.read_parquet(f).beta.reindex(loci).values; m = np.isfinite(b); w, _ = nnls(Mu[:, m].T, b[m]); w = w / w.sum()
         leu = w[:9] / w[:9].sum()
         rows.append(dict(gsm=r.gsm, smoking=r.smoking_status, loci=int(m.sum()), epithelium=float(w[9] + w[10]),
-                         neu_atlas=leu[7], neu_count=float(r.percent_neutrophils) / 100, lym_atlas=leu[3:7].sum(), lym_count=float(r.percent_lymphocytes) / 100,
-                         mac_atlas=leu[0:3].sum(), mac_count=float(r.percent_macrophages) / 100, eos_atlas=leu[8], eos_count=float(r.percent_eosinophils) / 100))
+                         neu_atlas=leu[7], neu_count=num(r.percent_neutrophils), lym_atlas=leu[3:7].sum(), lym_count=num(r.percent_lymphocytes),
+                         mac_atlas=leu[0:3].sum(), mac_count=num(r.percent_macrophages), eos_atlas=leu[8], eos_count=num(r.percent_eosinophils)))
     R = pd.DataFrame(rows); R.to_csv(sys.argv[3], index=False)
     for c in ("neu", "lym", "mac", "eos"):
-        e = R[f"{c}_atlas"] - R[f"{c}_count"]; print(f"{c}: n {len(R)} | mean |error| {e.abs().mean():.4f} | bias {e.mean():+.4f} | within 0.05 {int((e.abs() <= 0.05).sum())}/{len(R)} | r {np.corrcoef(R[f'{c}_atlas'], R[f'{c}_count'])[0, 1]:.3f}")
-    e = (R.neu_atlas - R.neu_count).abs(); print(f"BARS neutrophils: mean |error| {e.mean():.4f} (<= 0.02: {e.mean() <= 0.02}); every sample within 0.05: {bool((e <= 0.05).all())}; median loci {int(R.loci.median())}")
+        Q = R[R[f"{c}_count"].notna()]; e = Q[f"{c}_atlas"] - Q[f"{c}_count"]; print(f"{c}: n {len(Q)} | mean |error| {e.abs().mean():.4f} | bias {e.mean():+.4f} | within 0.05 {int((e.abs() <= 0.05).sum())}/{len(Q)} | r {np.corrcoef(Q[f'{c}_atlas'], Q[f'{c}_count'])[0, 1]:.3f}")
+    e = (R.neu_atlas - R.neu_count).dropna().abs(); print(f"n with a neutrophil count {len(e)}"); print(f"BARS neutrophils: mean |error| {e.mean():.4f} (<= 0.02: {e.mean() <= 0.02}); every sample within 0.05: {bool((e <= 0.05).all())}; median loci {int(R.loci.median())}")

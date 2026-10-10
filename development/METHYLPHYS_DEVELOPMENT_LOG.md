@@ -716,3 +716,6 @@ Excess run loss 0.12 (30 nM), 0.28 (300 nM), vehicle -0.0001; 39-46 % of total l
 
 ### 2026-10-10 · IAM-A position of prostate epithelium measured
 Loyfer GSE186458, 4 donors, whole hg19 .pat files (build_position_01.py): eps 0.0426/0.0452/0.0401/0.0365; P = 1.2102 (1.1798-1.2443), CV 2.3 % (neutrophils 1.2 %). Development: not added to iama_positions_v2.json until the cancer both-ways test uses it.
+
+### 2026-10-10 · DEV-ATLAS-LAVAGE-01 read: not met
+Neutrophil mean error 0.053 (bar 0.02), bias +0.049; macrophages -0.070; lymphocytes r 0.90 (error 0.041). Only 4,722/8,000 atlas loci on EPIC; lavage macrophages differ from the atlas template (not in the simulation). The lung myeloid templates do not separate neutrophils from macrophages on real arrays.
