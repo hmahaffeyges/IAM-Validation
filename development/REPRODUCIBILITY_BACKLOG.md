@@ -137,3 +137,4 @@ DEV_ATLAS_COMMISSION_01 lavage, DEV_COMPOSITION_TRUTH_03 (`development/sims/`).
 | — | metA_floors_v1_3.json, metA_floors_v1_3_loo.csv, neutrophil_reference_v1_2.json (commissioned Met-A) | chain runtime matrices | REPRODUCED 2026-10-10: doors/data/MET_A_FLOOR_V13_REPRO (floor and reference identical; held-out precision within 0.0006) |
 | — | run_sample.py provenance | report record | FIXED 2026-10-10: recorded iama_positions_v1 while Stage Q reads v2 |
 | — | iama_positions_v2.json (IAM-A neutrophil position P) | chain runtime matrix | REPRODUCED 2026-10-10 from GEO: doors/data/IAMA_POSITION_PROSTATE/build_position_01.py, counts identical, P 1.1492; recorded CV corrected 0.012 -> 0.0074 (record field, not read) |
+| — | blood_composition_EPIC_v1.json (whole-blood composition) | chain runtime matrix | REPRODUCED 2026-10-10 from GEO: doors/data/MET_A_FLOOR_V13_REPRO/reproduce_blood_composition.py, every key identical |

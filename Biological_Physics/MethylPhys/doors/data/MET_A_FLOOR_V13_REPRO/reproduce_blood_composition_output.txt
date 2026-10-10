@@ -1,0 +1,7 @@
+groups identical: True
+neutrophil_sites identical: True
+group_of_cell identical: True
+rule identical: True
+markers identical: True | per group: (963, 963)
+mu_markers max abs diff 0.0
+profiles_at_neutrophil_sites max abs diff 0.0

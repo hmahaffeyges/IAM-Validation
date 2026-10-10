@@ -6,6 +6,7 @@ Inputs: the 6 physical GSE110554 neutrophil arrays (GEO IDATs) through chain Sta
 |---|---|---|---|
 | `metA_floors_v1_3.json` | the neutrophil floor and its 6,000 identity sites (every Met-A reading) | `reproduce_floor_v13.py` (runs `chain_tests/freeze_v13.py` unchanged, paths only) | floor identical (difference 0); sites and references identical |
 | `metA_floors_v1_3_loo.csv` | held-out precision printed with each reading (not used to compute A) | same | frozen-site readings identical to 6 decimals; re-chosen-site readings within 0.0006 (precision SD 0.01969 vs 0.01976) |
+| `blood_composition_EPIC_v1.json` | whole-blood composition markers (963) and group profiles at the neutrophil sites | `reproduce_blood_composition.py` (runs `chain_tests/blood_comp.py`, paths only; its 24-mixture test is skipped) | every key identical (markers, marker means and profiles: difference 0) |
 | `neutrophil_reference_v1_2.json` | per-site healthy mean and spread, C-score baseline (block 10) | `reproduce_reference_v12.py` (freeze_v13.py's formulas, block 10) | H mean and shrunk SD identical; clustering values identical (median 1.0103) |
 
 The re-chosen-site difference: readings on the frozen sites match exactly, so the betas there are identical. Re-choosing sites ranks every

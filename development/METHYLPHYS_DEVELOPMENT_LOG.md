@@ -740,3 +740,6 @@ freeze_v13.py rerun on the 6 GSE110554 arrays (chain Stage 1): floor identical, 
 
 ### 2026-10-10 · IAM-A position P reproduced from GEO
 build_position_01.py on the 3 public Loyfer granulocyte files: every error and opportunity count identical to iama_positions_v2.json; P 1.1492. The file recorded CV 0.012 (partial-file value); corrected to 0.0074 as the book prints. The chain does not read that field.
+
+### 2026-10-10 · Whole-blood composition matrix reproduced from GEO
+chain_tests/blood_comp.py (paths only, mixture test skipped) on the 91 Salas arrays: markers, marker means and profiles identical. Every value the commissioned chain reads now rebuilds from public data with committed code (intake thresholds are author-set lines with their measured basis in PROC-INTAKE-01).
