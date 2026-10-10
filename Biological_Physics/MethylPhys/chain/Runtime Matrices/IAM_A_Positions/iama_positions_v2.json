@@ -11,7 +11,7 @@
     1.1396,
     1.1554
    ],
-   "cv_across_donors": 0.012,
+   "cv_across_donors": 0.0074,
    "source": "Loyfer 2023 blood granulocytes GSM5652313/14/15 (GEO GSE186458), hg19 .pat files, WHOLE files; isolated errors and opportunities from doors/data/DEV_IAMA_REAL_01/*_whole_bundle.json",
    "counts": {
     "GSM5652313": {

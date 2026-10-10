@@ -1,0 +1,45 @@
+{
+ "cell": "neutrophils",
+ "P": 1.1492,
+ "P_range": [
+  1.1396,
+  1.1554
+ ],
+ "cv_across_donors": 0.0074,
+ "eps0": 0.032,
+ "eps": {
+  "GSM5652313": 0.038078,
+  "GSM5652314": 0.039228,
+  "GSM5652315": 0.037833
+ },
+ "counts": {
+  "GSM5652313": {
+   "molecules": 319081751,
+   "qualifying": 14925799,
+   "opportunities": 85929614,
+   "errors": 3272019,
+   "eps": 0.038077897103087184,
+   "file": "GSM5652313_Blood-Granulocytes-Z000000TZ.pat.gz"
+  },
+  "GSM5652314": {
+   "molecules": 444565323,
+   "qualifying": 20848674,
+   "opportunities": 119593574,
+   "errors": 4691473,
+   "eps": 0.03922847058655509,
+   "file": "GSM5652314_Blood-Granulocytes-Z000000UD.pat.gz"
+  },
+  "GSM5652315": {
+   "molecules": 408493559,
+   "qualifying": 20753358,
+   "opportunities": 120241827,
+   "errors": 4549151,
+   "eps": 0.037833348956016775,
+   "file": "GSM5652315_Blood-Granulocytes-Z000000UT.pat.gz"
+  }
+ },
+ "n_donors": 3,
+ "pipeline": "loyfer_pat_v1",
+ "genome": "hg19",
+ "coverage": "whole file"
+}

@@ -737,3 +737,6 @@ run_sample.py recorded the checksum of iama_positions_v1.json in every report wh
 
 ### 2026-10-10 · Commissioned Met-A matrices rebuilt from GEO
 freeze_v13.py rerun on the 6 GSE110554 arrays (chain Stage 1): floor identical, sites identical; reference H mean/SD and clustering baseline identical; LOO precision within 0.0006. Author rule: only values the current chain uses are rerun.
+
+### 2026-10-10 · IAM-A position P reproduced from GEO
+build_position_01.py on the 3 public Loyfer granulocyte files: every error and opportunity count identical to iama_positions_v2.json; P 1.1492. The file recorded CV 0.012 (partial-file value); corrected to 0.0074 as the book prints. The chain does not read that field.
