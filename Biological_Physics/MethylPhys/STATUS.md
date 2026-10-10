@@ -112,7 +112,7 @@ nobody reads moves to cheaper storage on its own.
 
 ## 8. Commissioning record (stage by stage)
 
-**Commissioned:** Met-A on neutrophils, EPIC v1 (isolated neutrophils; whole blood with neutrophil fraction ≥ 0.20), stages 0, 1, 2, 5, 6,
+**Commissioned:** Met-A on neutrophils, EPIC v1 (isolated neutrophils; whole blood at any neutrophil fraction, each reading with its own detection limit), stages 0, 1, 2, 5, 6,
 8, 9, 13 — **2026-10-09**, by the author (`COMMISSIONING_NOTE_METAA_NEUTROPHILS.md`). Detection limits 2 % (purified) / 5 % (whole blood)
 loss of pattern, printed on every report. Everything else below is development.
 

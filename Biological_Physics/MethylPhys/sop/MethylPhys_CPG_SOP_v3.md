@@ -97,7 +97,7 @@ Commissioning record (stage, check, result, wired): `STATUS.md` (section 8, comm
 ### Commissioned stages
 
 - **Met-A on neutrophils, EPIC v1, commissioned 2026-10-09** (`doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md`): stages 0, 1, 2, 5, 6, 8
-  (self-tare II then the median tare), 9, 13; isolated neutrophils and whole blood (neutrophil fraction ≥ 0.20). Every report prints the
+  (self-tare II then the median tare), 9, 13; isolated neutrophils and whole blood (any neutrophil fraction, each reading with its own detection limit). Every report prints the
   detection limits: 2 % loss of the neutrophil pattern in purified neutrophils, 5 % in whole blood (DEV-METAA-SENS-01). Readings in this scope
   are results. The Met-A C-score, IAM-A and every other stage remain development.
 
