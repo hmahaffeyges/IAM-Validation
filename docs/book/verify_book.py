@@ -768,15 +768,20 @@ def _b00_tau_iam_dp(m, T, rho=2200.0):
     EG = G * m * m / R
     return hbar * (kB * T) ** 2 * LN2 / EG ** 3, hbar / EG
 
+DATA_FILES['Biological_Physics/MethylPhys/doors/data/PROC_CHANNEL_01/channel_cells_genomewide.csv'] = 'PROC-CHANNEL-01 per-cell genome-wide table (56 cell types, 153 samples, 399 windows); derive_constants.py beside it'
+def _chan():
+    """PROC-CHANNEL-01 per-cell table: copy error eps per cell type; E = ln((1-eps)/eps) kT recomputed here."""
+    import csv as _csv
+    rows = list(_csv.DictReader(file_text('Biological_Physics/MethylPhys/doors/data/PROC_CHANNEL_01/channel_cells_genomewide.csv').splitlines()))
+    e = [float(r['copy_err']) for r in rows]; E = [math.log((1 - x) / x) for x in e]
+    return {'n': len(rows), 'eps_min': min(e), 'eps_max': max(e), 'E_mean': sum(E) / len(E), 'E_min': min(E), 'E_max': max(E)}
+
 def _b00_hold_energy():
-    """E_hold (kT) of the copy channel, from the table row 'methylated sites (copy error)' of PROC_CHANNEL_01_OUTCOME.md."""
-    for ln in file_text('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md').splitlines():
-        if ln.startswith('| methylated sites (copy error)'):
-            return float(re.match(r'\s*([\d.]+)', ln.split('|')[3]).group(1))
-    raise KeyError('copy-channel row not found')
+    """E_hold (kT) of the copy channel: mean over the 56 cell types of ln((1-eps)/eps), from the committed PROC-CHANNEL-01 table."""
+    return _chan()['E_mean']
 DATA_FILES['Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv'] = 'Met-A held-out (leave-one-out) readings of the 6 purified healthy EPIC neutrophil reference arrays'
 
-_B00_HOLD_RERUN = 'methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file'
+_B00_HOLD_RERUN = 'methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending'
 
 # helpers of the part1/p1_02_iams_law checks
 _B00_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; '
@@ -3108,11 +3113,11 @@ def check_3134():
     return locals()
 
 @check(label='ch:giants:L176', chapter='ch:giants', part=0, title='holding energy from the PROC-CHANNEL-01 record',
-       file='front/p0_giants', line=176, status='measured', kind='file', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+       file='front/p0_giants', line=176, status='measured', kind='num', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_3135():
     'Holding energy per maintained site, E_hold = ln((1-eps)/eps) kT across 56 healthy cell types, read from the table row of the copy channel. Book line 176, printed 3.41.'
-    value = _b00_hold_energy()
+    value=_b00_hold_energy()
     return locals()
 
 @check(label='ch:giants:L177', chapter='ch:giants', part=0, title='Boltzmann floor computed from holding energy input',
@@ -29804,11 +29809,11 @@ def check_2414():
 
 # ======== Part 6 | ch:bridge | docs/book/part6/p6_01_bridge.tex
 @check(label='ch:bridge:L26', chapter='ch:bridge', part=6, title='holding energy per maintained site',
-       file='part6/p6_01_bridge', line=26, status='measured', kind='file', printed='3.41', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+       file='part6/p6_01_bridge', line=26, status='measured', kind='num', printed='3.41', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_2415():
     'holding energy per maintained site. Book line 26, printed 3.41.'
-    ok=file_has('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md','3.41')
+    value=_b00_hold_energy()
     return locals()
 
 @check(label='eq:landauer', chapter='ch:bridge', part=6, title='E_bit = k_B T ln 2 from erasing one bit',
@@ -29990,11 +29995,11 @@ def check_3788():
 
 # ======== Part 6 | ch:astrogenetics | docs/book/part6/p6_00b_astrogenetics.tex
 @check(label='ch:astrogenetics:L40', chapter='ch:astrogenetics', part=6, title='holding energy',
-       file='part6/p6_00b_astrogenetics', line=40, status='measured', kind='file', printed='3.41', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+       file='part6/p6_00b_astrogenetics', line=40, status='measured', kind='num', printed='3.41', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_2431():
     'holding energy. Book line 40, printed 3.41.'
-    ok=file_has('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md','3.41')
+    value=_b00_hold_energy()
     return locals()
 
 @check(label='ch:astrogenetics:L40:4.9', chapter='ch:astrogenetics', part=6, title='Landauer units',
@@ -30238,19 +30243,19 @@ def check_2454():
     return locals()
 
 @check(label='ch:landauer:L65', chapter='ch:landauer', part=6, title='healthy copy error, lowest of 56 cell types',
-       file='part6/p6_02_landauer', line=65, status='measured', kind='file', printed='0.024', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+       file='part6/p6_02_landauer', line=65, status='measured', kind='num', printed='0.024', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_2455():
     'healthy copy error, lowest of 56 cell types. Book line 65, printed 0.024.'
-    ok=file_has('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md','0.024')
+    value=_chan()['eps_min']
     return locals()
 
 @check(label='ch:landauer:L65:0.042', chapter='ch:landauer', part=6, title='highest',
-       file='part6/p6_02_landauer', line=65, status='measured', kind='file', printed='0.042', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+       file='part6/p6_02_landauer', line=65, status='measured', kind='num', printed='0.042', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_2456():
     'highest. Book line 65, printed 0.042.'
-    ok=file_has('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md','0.042')
+    value=_chan()['eps_max']
     return locals()
 
 @check(label='ch:landauer:L70', chapter='ch:landauer', part=6, title='ln 2',
@@ -30478,27 +30483,27 @@ def check_2480():
     return locals()
 
 @check(label='ch:landauer:L186', chapter='ch:landauer', part=6, title='holding energy across 56 cell types (Loyfer read-level)',
-       file='part6/p6_02_landauer', line=186, status='measured', kind='file', printed='3.41', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+       file='part6/p6_02_landauer', line=186, status='measured', kind='num', printed='3.41', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_2481():
     'holding energy across 56 cell types (Loyfer read-level). Book line 186, printed 3.41.'
-    ok=file_has('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md','3.41')
+    value=_b00_hold_energy()
     return locals()
 
 @check(label='ch:landauer:L186:3.13', chapter='ch:landauer', part=6, title='holding energy across 56 cell types (Loyfer read-level)',
-       file='part6/p6_02_landauer', line=186, status='measured', kind='file', printed='3.13', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+       file='part6/p6_02_landauer', line=186, status='measured', kind='num', printed='3.13', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_2482():
     'holding energy across 56 cell types (Loyfer read-level). Book line 186, printed 3.13.'
-    ok=file_has('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md','3.13')
+    value=_chan()['E_min']
     return locals()
 
-@check(label='ch:landauer:L186:3.72', chapter='ch:landauer', part=6, title='holding energy across 56 cell types (Loyfer read-level)',
-       file='part6/p6_02_landauer', line=186, status='measured', kind='file', printed='3.72', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+@check(label='ch:landauer:L186:3.71', chapter='ch:landauer', part=6, title='holding energy across 56 cell types (Loyfer read-level)',
+       file='part6/p6_02_landauer', line=186, status='measured', kind='num', printed='3.71', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_2483():
-    'holding energy across 56 cell types (Loyfer read-level). Book line 186, printed 3.72.'
-    ok=file_has('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md','3.72')
+    'holding energy across 56 cell types (Loyfer read-level). Book line 186, printed 3.71.'
+    value=_chan()['E_max']
     return locals()
 
 @check(label='ch:landauer:L187', chapter='ch:landauer', part=6, title='3.41/ln2',
@@ -30509,11 +30514,11 @@ def check_2484():
     return locals()
 
 @check(label='eq:phi', chapter='ch:landauer', part=6, title='phi = E_hold/(M k T): committed record and E_hold/M (canon)',
-       file='part6/p6_02_landauer', line=188, status='measured', kind='file', printed='0.163', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+       file='part6/p6_02_landauer', line=188, status='measured', kind='num', printed='0.163', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_2485():
     'phi = E_hold/(M k T): committed record and E_hold/M (canon) (Eq. eq:phi). Book line 188, printed 0.163.'
-    ok=file_has('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md','0.163') and abs(E_hold/M_cell-0.163)<5e-4
+    value=_b00_hold_energy() / (dG_ATP / (R_gas * T_cell))
     return locals()
 
 @check(label='ch:landauer:L194', chapter='ch:landauer', part=6, title='Hopfield discrimination ln(7) from the enzyme selectivity',
@@ -30621,11 +30626,11 @@ def check_2493():
     return locals()
 
 @check(label='ch:landauer:L267', chapter='ch:landauer', part=6, title='holding energy, 56 cell types',
-       file='part6/p6_02_landauer', line=267, status='measured', kind='file', printed='3.41', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+       file='part6/p6_02_landauer', line=267, status='measured', kind='num', printed='3.41', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_2494():
     'holding energy, 56 cell types. Book line 267, printed 3.41.'
-    ok=file_has('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md','3.41')
+    value=_b00_hold_energy()
     return locals()
 
 @check(label='ch:landauer:L267:56', chapter='ch:landauer', part=6, title='holding energy read in 56 cell types',
@@ -30638,11 +30643,11 @@ def check_3808():
     return locals()
 
 @check(label='ch:landauer:L268', chapter='ch:landauer', part=6, title='phi, committed record',
-       file='part6/p6_02_landauer', line=268, status='measured', kind='file', printed='0.163', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+       file='part6/p6_02_landauer', line=268, status='measured', kind='num', printed='0.163', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_2495():
     'phi, committed record. Book line 268, printed 0.163.'
-    ok=file_has('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md','0.163')
+    value=_b00_hold_energy() / (dG_ATP / (R_gas * T_cell))
     return locals()
 
 
@@ -30966,7 +30971,7 @@ def check_3825():
 # ======== Part 6 | ch:floorbreach | docs/book/part6/p6_05_floorbreach.tex
 @check(label='ch:floorbreach:L25', chapter='ch:floorbreach', part=6, title='holding energy 3.41 k_B T per site on molecules',
        file='part6/p6_05_floorbreach', line=25, status='measured', kind='file', printed='3.41', tol=0.0, source=_B08_PC5,
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_3826():
     'Holding energy per maintained site measured on single molecules, k_B T. Book line 25, printed 3.41. Source: the copy-error row of '\
     'the PROC-CHANNEL-01 record table (E_hold column).'
@@ -31941,24 +31946,24 @@ def check_3931():
     return locals()
 
 @check(label='ch:iama:L90', chapter='ch:iama', part=6, title='copy error across 56 healthy cell types, lowest',
-       file='part6/p6_08_iama', line=90, status='measured', kind='file', printed='0.024', tol=0.0, source=_B09_PC)
+       file='part6/p6_08_iama', line=90, status='measured', kind='num', printed='0.024', tol=0.0, source=_B09_PC)
 def check_3932():
     'Copy error across the 56 healthy cell types (Loyfer 2023, 399 windows): lower end, from the methylated-sites row of the record. Book line 90, printed 0.024. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
-    value = _b09_nums(_b09_md_line(_B09_PC, '| methylated sites (copy error)'))[0]
+    value=_chan()['eps_min']
     return locals()
 
 @check(label='ch:iama:L90:0.042', chapter='ch:iama', part=6, title='copy error across 56 healthy cell types, highest',
-       file='part6/p6_08_iama', line=90, status='measured', kind='file', printed='0.042', tol=0.0, source=_B09_PC)
+       file='part6/p6_08_iama', line=90, status='measured', kind='num', printed='0.042', tol=0.0, source=_B09_PC)
 def check_3933():
     'Copy error across the 56 healthy cell types: upper end. Book line 90, printed 0.042. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
-    value = _b09_nums(_b09_md_line(_B09_PC, '| methylated sites (copy error)'))[1]
+    value=_chan()['eps_max']
     return locals()
 
 @check(label='ch:iama:L90:3.41', chapter='ch:iama', part=6, title='holding energy across 56 cell types, mean',
-       file='part6/p6_08_iama', line=90, status='measured', kind='file', printed='3.41', tol=0.0, source=_B09_PC)
+       file='part6/p6_08_iama', line=90, status='measured', kind='num', printed='3.41', tol=0.0, source=_B09_PC)
 def check_3934():
     'Holding energy per methylated site across the 56 cell types, mean (in kT), from the methylated-sites row of the record. Book line 90, printed 3.41. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
-    value = _b09_nums(_b09_md_line(_B09_PC, '| methylated sites (copy error)'))[2]
+    value=_b00_hold_energy()
     return locals()
 
 @check(label='ch:iama:L91', chapter='ch:iama', part=6, title='healthy cell types on one physics floor, lowest',
@@ -32247,10 +32252,10 @@ def check_2541():
     return locals()
 
 @check(label='ch:temperature:L23', chapter='ch:temperature', part=6, title='holding energy of human cells at 37 C',
-       file='part6/p6_10_temperature', line=23, status='calc', kind='file', printed='3.41', tol=0.0, source=_B09_PC)
+       file='part6/p6_10_temperature', line=23, status='calc', kind='num', printed='3.41', tol=0.0, source=_B09_PC)
 def check_3959():
     'The fixed holding energy the solid curve carries, measured at 37 C across the 56 healthy cell types (mean, kT), from the methylated-sites row of the record. Book line 23, printed 3.41. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
-    value = _b09_nums(_b09_md_line(_B09_PC, '| methylated sites (copy error)'))[2]
+    value=_b00_hold_energy()
     return locals()
 
 @check(label='ch:temperature:L30', chapter='ch:temperature', part=6, title='floor at 40 C',
@@ -32333,10 +32338,10 @@ def check_2548():
 
 
 @check(label='ch:temperature:L76', chapter='ch:temperature', part=6, title='human cells at 37 C (dashed line)',
-       file='part6/p6_10_temperature', line=76, status='measured', kind='file', printed='3.41', tol=0.0, source=_B09_PC)
+       file='part6/p6_10_temperature', line=76, status='measured', kind='num', printed='3.41', tol=0.0, source=_B09_PC)
 def check_3965():
     'Holding energy of human cells at 37 C, the dashed line of the figure: mean over the 56 healthy cell types, from the record. Book line 76, printed 3.41. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
-    value = _b09_nums(_b09_md_line(_B09_PC, '| methylated sites (copy error)'))[2]
+    value=_b00_hold_energy()
     return locals()
 
 
@@ -34329,12 +34334,11 @@ def check_4330():
     return locals()
 
 @check(label='ch:status:L22', chapter='ch:status', part=6, title='holding energy E_hold',
-       file='part6/p6_24_status', line=22, status='measured', kind='file', printed='3.41', tol=0.0, source=_B12_CHAN,
+       file='part6/p6_24_status', line=22, status='measured', kind='num', printed='3.41', tol=0.0, source=_B12_CHAN,
        heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the record is the PROC-CHANNEL-01 outcome')
 def check_4331():
     'Holding energy per methylated site on single molecules, k_B T: the copy-error row of the PROC-CHANNEL-01 record table (also CANON E_hold_meth). Book line 22, printed 3.41.'
-    m = re.search(r'methylated sites \(copy error\)\s*\|[^|]*\|\s*([\d.]+)\s*\u00b1', file_text(_B12_CHAN))
-    value = float(m.group(1))
+    value=_b00_hold_energy()
     return locals()
 
 @check(label='ch:status:L22:0.032', chapter='ch:status', part=6, title='eps0 = 1/(1+e^(E_hold/k_B T))',
@@ -35030,19 +35034,19 @@ def check_4408():
     return locals()
 
 @check(label='ch:onegauge:L63', chapter='ch:onegauge', part=7, title='holding energy E_hold from the PROC-CHANNEL-01 record',
-       file='part7/p7_08_one_gauge', line=63, status='openprob', kind='file', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+       file='part7/p7_08_one_gauge', line=63, status='openprob', kind='num', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_4409():
     'E_hold = ln((1-eps)/eps) kT of the copy channel, read from the table row "methylated sites (copy error)" of PROC_CHANNEL_01_OUTCOME.md. Book line 63, printed 3.41.'
-    value = _b00_hold_energy()
+    value=_b00_hold_energy()
     return locals()
 
 @check(label='ch:onegauge:L64', chapter='ch:onegauge', part=7, title='eps0 from the measured holding energy',
-       file='part7/p7_08_one_gauge', line=64, status='openprob', kind='file', printed='0.032', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+       file='part7/p7_08_one_gauge', line=64, status='openprob', kind='num', printed='0.032', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_4410():
     'eps0 = 1/(1 + exp(E_hold/kT)) with E_hold read from PROC_CHANNEL_01_OUTCOME.md (copy channel). Book line 64, printed 0.032.'
-    value = 1 / (1 + math.exp(_b00_hold_energy()))
+    value=1 / (1 + math.exp(_b00_hold_energy()))
     return locals()
 
 @check(label='ch:onegauge:L66', chapter='ch:onegauge', part=7, title='Hopfield energy gap ln 7 (low end)',
@@ -35297,19 +35301,19 @@ def check_2607():
     return locals()
 
 @check(label='ch:synthesis:L53:0.032', chapter='ch:synthesis', part=7, title='eps0 from the measured holding energy',
-       file='part7/p7_08_synthesis', line=53, status='measured', kind='file', printed='0.032', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+       file='part7/p7_08_synthesis', line=53, status='measured', kind='num', printed='0.032', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_4434():
     'eps0 = 1/(1 + exp(E_hold/kT)) with E_hold read from the copy-channel row of PROC_CHANNEL_01_OUTCOME.md. Book line 53, printed 0.032.'
-    value = 1 / (1 + math.exp(_b00_hold_energy()))
+    value=1 / (1 + math.exp(_b00_hold_energy()))
     return locals()
 
 @check(label='ch:synthesis:L53:3.41', chapter='ch:synthesis', part=7, title='holding energy E_hold, PROC-CHANNEL-01',
-       file='part7/p7_08_synthesis', line=53, status='measured', kind='file', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+       file='part7/p7_08_synthesis', line=53, status='measured', kind='num', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_4435():
     'E_hold = ln((1-eps)/eps) kT of the copy channel, from PROC_CHANNEL_01_OUTCOME.md. Book line 53, printed 3.41.'
-    value = _b00_hold_energy()
+    value=_b00_hold_energy()
     return locals()
 
 @check(label='ch:synthesis:L54', chapter='ch:synthesis', part=7, title='mu0 = mu(a=1) - 1 (slot table)',
@@ -37225,11 +37229,11 @@ def check_4605():
     return locals()
 
 @check(label='ch:statusall:L88:3.41', chapter='ch:statusall', part=7, title='measured holding energy, k_B T',
-       file='part7/p7_11_status_all', line=87, status='calc', kind='file', printed='3.41', tol=0.0,
+       file='part7/p7_11_status_all', line=87, status='calc', kind='num', printed='3.41', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
 def check_4606():
     'E_hold of the copy channel, row methylated sites (copy error) of the PROC-CHANNEL-01 record. Book line 87, printed 3.41.'
-    value = _b00_hold_energy()
+    value=_b00_hold_energy()
     return locals()
 
 # ---------------------------------------------------------------- lines 92-95: the cell gauge
@@ -37256,27 +37260,27 @@ def check_2673():
     return locals()
 
 @check(label='ch:statusall:L92', chapter='ch:statusall', part=7, title='holding energy of a methylated site',
-       file='part7/p7_11_status_all', line=91, status='measured', kind='file', printed='3.41', tol=0.0,
+       file='part7/p7_11_status_all', line=91, status='measured', kind='num', printed='3.41', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
 def check_4607():
     'E_hold of the copy channel, row methylated sites (copy error) of the PROC-CHANNEL-01 record. Book line 91, printed 3.41.'
-    value = _b00_hold_energy()
+    value=_b00_hold_energy()
     return locals()
 
 @check(label='ch:statusall:L92:0.032', chapter='ch:statusall', part=7, title='copy-error floor eps0',
-       file='part7/p7_11_status_all', line=91, status='measured', kind='file', printed='0.032', tol=0.0,
+       file='part7/p7_11_status_all', line=91, status='measured', kind='num', printed='0.032', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
 def check_4608():
     'eps0 = 1/(1 + exp(E_hold)) with E_hold read from the PROC-CHANNEL-01 record. Book line 91, printed 0.032.'
-    value = 1 / (1 + math.exp(_b00_hold_energy()))
+    value=1 / (1 + math.exp(_b00_hold_energy()))
     return locals()
 
 @check(label='ch:statusall:L92:0.163', chapter='ch:statusall', part=7, title='phi = E_hold / M',
-       file='part7/p7_11_status_all', line=91, status='measured', kind='file', printed='0.163', tol=0.0,
+       file='part7/p7_11_status_all', line=91, status='measured', kind='num', printed='0.163', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
 def check_4609():
     'phi = E_hold / M_cell, E_hold from the PROC-CHANNEL-01 record and M = dG_ATP/(R T_cell) from the canon inputs. Book line 91, printed 0.163.'
-    value = _b00_hold_energy() / (dG_ATP / (R_gas * T_cell))
+    value=_b00_hold_energy() / (dG_ATP / (R_gas * T_cell))
     return locals()
 
 _B15_IAMA = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json'
@@ -38328,11 +38332,11 @@ def check_4683():
     return locals()
 
 @check(label='app:formulas:L619', chapter='app:formulas', part=8, title='phi = E_hold / M',
-       file='appendices/app_E_formulas', line=610, status='measured', kind='file', printed='0.163', tol=0.0,
+       file='appendices/app_E_formulas', line=610, status='measured', kind='num', printed='0.163', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
 def check_4684():
     'E_hold of the copy channel (PROC-CHANNEL-01 record) over M = dG_ATP/(R T_cell). Book line 610, printed 0.163.'
-    value = _b00_hold_energy() / (dG_ATP / (R_gas * T_cell))
+    value=_b00_hold_energy() / (dG_ATP / (R_gas * T_cell))
     return locals()
 
 # ---------------------------------------------------------------- lines 622-673: the gauges
@@ -38354,11 +38358,11 @@ def check_4686():
     return locals()
 
 @check(label='app:formulas:L642', chapter='app:formulas', part=8, title='copy-error floor eps0',
-       file='appendices/app_E_formulas', line=633, status='measured', kind='file', printed='0.032', tol=0.0,
+       file='appendices/app_E_formulas', line=633, status='measured', kind='num', printed='0.032', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
 def check_4687():
     'eps0 = 1/(1 + exp(E_hold)), E_hold read from the PROC-CHANNEL-01 record. Book line 633, printed 0.032.'
-    value = 1 / (1 + math.exp(_b00_hold_energy()))
+    value=1 / (1 + math.exp(_b00_hold_energy()))
     return locals()
 
 @check(label='app:formulas:L642:0.2043', chapter='app:formulas', part=8, title='H_min = H(eps0), bits',
@@ -40792,16 +40796,16 @@ def check_4806():
 
 # ---------------------------------------------------------------- L171-L198
 
-@check(label='app:glossary:L171:0.024', title='healthy copy error, lowest of 56 cell types', line=169, status='observed', kind='file', printed='0.024', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L171:0.024', title='healthy copy error, lowest of 56 cell types', line=169, status='observed', kind='num', printed='0.024', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4807():
     'Copy error of the 56 healthy cell types (Loyfer 2023), lower end, from the methylated-sites row of the PROC-CHANNEL-01 record. Book line 171, printed 0.024.'
-    value = _b17_pc_row()[0]
+    value=_chan()['eps_min']
     return locals()
 
-@check(label='app:glossary:L171:0.042', title='healthy copy error, highest of 56 cell types', line=169, status='observed', kind='file', printed='0.042', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L171:0.042', title='healthy copy error, highest of 56 cell types', line=169, status='observed', kind='num', printed='0.042', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4808():
     'Copy error of the 56 healthy cell types, upper end, from the methylated-sites row of the PROC-CHANNEL-01 record. Book line 171, printed 0.042.'
-    value = _b17_pc_row()[1]
+    value=_chan()['eps_max']
     return locals()
 
 @check(label='app:glossary:L178:0.7', title='Omega_b/Omega_m against (3/16) sqrt(Omega_Lambda), in sigma', line=176, status='observed', kind='file', printed='0.7', tol=0.0,
@@ -41499,11 +41503,11 @@ def check_4882():
     return locals()
 
 @check(label='app:glossary:L430', chapter='app:glossary', part=8, title='cell types of the Loyfer atlas read for the holding energy',
-       file='appendices/app_F_glossary', line=422, status='observed', kind='file', printed='56', tol=0.0, source=_B18_PC,
+       file='appendices/app_F_glossary', line=422, status='observed', kind='num', printed='56', tol=0.0, source=_B18_PC,
        heavy=True, rerun=_B18_PC_RERUN)
 def check_4883():
     'Number of healthy cell types of the Loyfer 2023 read-level data in which the holding energy was read (GSE186458). Book line 429, printed 56. Source: the header of the PROC-CHANNEL-01 record (cell types, samples).'
-    value = int(re.search(r'(\d+) cell types, (\d+) samples', file_text(_B18_PC)).group(1))
+    value=_chan()['n']
     return locals()
 
 @check(label='app:glossary:L434', chapter='app:glossary', part=8, title='M_lens/M_dyn = 1/mu(z) at z = 0.5 (Level 1)',
@@ -41790,11 +41794,11 @@ def check_4910():
     return locals()
 
 @check(label='app:glossary:L544:56', chapter='app:glossary', part=8, title='cell types of PROC-CHANNEL-01',
-       file='appendices/app_F_glossary', line=534, status='observed', kind='file', printed='56', tol=0.0, source=_B18_PC,
+       file='appendices/app_F_glossary', line=534, status='observed', kind='num', printed='56', tol=0.0, source=_B18_PC,
        heavy=True, rerun=_B18_PC_RERUN)
 def check_4911():
     'Number of cell types across which PROC-CHANNEL-01 read the holding energy, from the header of its record. Book line 543, printed 56.'
-    value = int(re.search(r'(\d+) cell types, (\d+) samples', file_text(_B18_PC)).group(1))
+    value=_chan()['n']
     return locals()
 
 @check(label='app:glossary:L553', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',

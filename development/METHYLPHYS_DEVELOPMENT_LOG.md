@@ -662,3 +662,6 @@ Outputs (channel_samples.csv, channel_summary.json) were never committed and are
 
 ### 2026-10-09 · Reproducibility gate on every push
 CANON/repro_check.py, called by CANON/checked_push.sh: refuses untracked files and changed doors/ notes with numbers but no committed script. Tested: refused an unbacked test note and a stray file. Cause of the gaps found tonight: scripts and outputs kept in the working area instead of the repo, the 10-01 catch-up push did not check notes written before it, and tonight's pushes used plain git push, which skipped the canon gate.
+
+### 2026-10-09 · PROC-CHANNEL-01 per-cell table recovered and committed
+The author's 09-30 copy holds channel_cells_genomewide.csv; committed to doors/data/PROC_CHANNEL_01/ with derive_constants.py, which reproduces E_hold 3.41 ± 0.12 kT, phi 0.163 (CANON 0.1628 = 3.41/M), de novo 4.37 ± 0.13, eps0 0.032 (1/(1+e^3.4105) = 0.03197). The range top was printed 3.72; the table gives 3.7146, so 3.71 (note and book p6_02 corrected). 31 book checks that read the note now compute from the table; all pass, controls fail as they should, no new failures. The chr1 first-pass table is committed beside it, labelled. Open: rerun channel.py to show the rebuilt job makes this table and to regenerate the per-sample table (needed for section 2 clustering).
