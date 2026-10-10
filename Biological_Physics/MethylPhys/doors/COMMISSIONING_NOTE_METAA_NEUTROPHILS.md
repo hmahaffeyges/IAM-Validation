@@ -31,6 +31,21 @@ trace/foreign cells (3b/3c), other cell types, EPIC v2, IAM-A.
 1. **Bar 9:** commissioned with the measured detection limits printed on every report (option a).
 2. **Bar 10:** the C-score is not part of this commissioning; the author asked for a plan to commission it (`doors/CSCORE_COMMISSIONING_PLAN.md`).
 
+## What "healthy" is: the reference donors
+**Definition.** The healthy reference is the state the cell type holds in donors without known disease, measured, not assumed. Physics fixes
+the ends of the gauge (the floor where thermal kicks beat one ATP per site; saturation at 1 bit per site); the healthy height between them is
+measured on purified cells and then tested on healthy cells that played no part in setting it.
+**Donors** (Salas et al. 2018, Genome Biology 19:64, Methods; cells purchased from AllCells and STEMCELL Technologies): anonymous healthy donors,
+negative for HIV and hepatitis B and C, not pregnant, no history of heart, lung or kidney disease, asthma, blood disorders, autoimmune disorders,
+cancer or diabetes; written informed consent. Neutrophils by density gradient and negative immunomagnetic selection, purity verified by FACS.
+**The six reference arrays** (`data/MET_A_FLOOR_V13_REPRO/reference_donors.py`, `reference_donors.csv`, from GEO GSE110554): 5 male, 1 female
+(matching the arrays' own X and Y probes, book Ch. Sky tools); age 20–39; FACS purity 94–97 %; 1 smoker.
+**What has been tested against it:** each reference array against the other five (6/6 Normal, SD 0.020); other laboratories' purified
+neutrophils 68/68 Normal; a new laboratory's 26/26; 525/541 healthy arrays across 18 series (97.0 %); identical DNA at three laboratories
+within 1 % (EpiQC).
+**Open (stated, not hidden):** six donors from one supplier pool, all aged 20–39. Whether healthy Met-A moves with donor age has not been
+tested on its own; it is the next reviewer question and needs healthy purified neutrophils across ages from another laboratory.
+
 ## Evidence since commissioning (sealed before reading)
 
 | test | result | record |
