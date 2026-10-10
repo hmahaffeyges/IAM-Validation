@@ -1,0 +1,2 @@
+IAM-A_rel 1.0673 (eps PrEC 0.04797, LNCaP 0.05237) | share_read 0.618 | Met-A_rel 1.2265 on 5531 sites (arrays {"GSM2309170": 0.46717, "GSM2309171": 0.47137, "GSM2309172": 0.38224, "GSM2309173": 0.38299})
+ARM B decides | Arm A: curve B at IAM-A_rel 1.1672, excess +0.0593, se 0.0250, z 2.37 -> FINGERPRINT | Arm B: LNCaP min excess +0.1105 vs PrEC max +0.0043 -> FINGERPRINT

@@ -768,6 +768,9 @@ CANON/results_register.json + results_to_tex.py write docs/book/part6/p6_25_deve
 ### 2026-10-10 · Book review against the record (author list)
 Ch. Landauer: methylation entropy credited as prior art (Xie 2011, Landan 2012, Hannum 2013, Jenkinson 2017; references from CrossRef) and what IAM adds stated: the gauge, the identity sites, the fixed healthy reference. Ch. gauge: the two ends fixed by physics, only the healthy middle measured. Ch. Met-A: the reference donors (screening from Salas 2018; 5 men, 1 woman, aged 20-39, purity 94-97 %, from GEO) and the definition of healthy; age dependence open. Ch. IAM-A: the 3.41 kT holding energy is rebuilt from public files by one committed script. 6 new checks; full run 4,680 checks, 0 failures. GNMT knockout (high SAM): no public methylome exists (GEO, SRA, web searched); alternatives listed for the author.
 
+### 2026-10-10 · DEV-FINGERPRINT-01 read as sealed: FINGERPRINT
+Planted test first (scorer byte-identical: fingerprint called when planted, z 4.00; not called on curve B; Arm B silent on scattered loss). Then LNCaP vs PrEC: IAM-A_rel 1.0673, share read 0.618 (Arm B decides), excess run loss +0.1105 to +0.1130 on every LNCaP run vs +0.0043 largest PrEC: FINGERPRINT. Arm A recorded: Met-A_rel 1.2265 vs curve B 1.1672, z 2.37: also fingerprint. One line, one lab; LNCaP is a cultured line.
+
 ### 2026-10-10 · Day summary
 Passed (sealed before reading): IAM-A SAM lever in mice (1.124 in window 1.016-1.135, p 0.0003); Met-A on identical DNA at three laboratories
 (all four bars); Met-A specificity on the Moss mixes (9/9). Reproduced from public data: every matrix the commissioned chain reads.

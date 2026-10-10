@@ -2,6 +2,17 @@
  "_rule": "Every dated result and milestone, once. CANON/results_to_tex.py writes the book's development chapter (docs/book/part6/p6_25_development.tex) and the Advancements table of Biological_Physics/README.md from this file; numbers are recomputed from the committed records, never typed. status: development | commissioned | withdrawn. A result moves out of the development chapter only by changing its status here; CANON/status_check.py refuses a push while the book or README differs from what this file generates, or while a record and this file disagree about commissioning. Every kind=commissioning entry lists in 'covers' the development results its commissioning closes; the gate refuses while any covered result is still status development.",
  "entries": [
   {
+   "id": "DEV-FINGERPRINT-01",
+   "date": "2026-10-10",
+   "kind": "result",
+   "instrument": "IAM-A and Met-A",
+   "status": "development",
+   "book": true,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_01_OUTCOME.md",
+   "compute": "fingerprint",
+   "title": "A cancer fingerprint: both instruments on the same cells"
+  },
+  {
    "id": "DEV-SAM-LEVER-01",
    "date": "2026-10-10",
    "kind": "result",
