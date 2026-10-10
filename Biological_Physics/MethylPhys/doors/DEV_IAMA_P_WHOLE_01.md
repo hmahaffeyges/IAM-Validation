@@ -22,3 +22,16 @@ readings are in-sample; the test of P is another laboratory's healthy neutrophil
 
 **Consequences.** `iama_positions_v2.json` is the frozen input; v1 is kept under `superseded` in `FROZEN_INPUTS_v3.json`. Stage Q refuses a
 reading of part of a file (`--pat-max-bytes`) unless `--dev-allow-partial` is given for development. The book's Part VI does not print P.
+
+
+## Who the healthy donors are (added 2026-10-10)
+**IAM-A's healthy reference has two parts.** (1) The anchor, ε₀ = 0.032, from the holding energy 3.41 k_BT measured on 153 public
+single-molecule files of 56 healthy cell types (PROC-CHANNEL-01, rebuilt from public data). (2) The neutrophil position P, measured on
+three healthy granulocyte donors on whole files (this note).
+**Source** (Loyfer et al. 2023, Nature 613:355, Methods): 205 samples sorted from healthy tissue; normal tissue remnants from 135
+individuals aged 3-83 (60 male, 74 female), IRB approval (Helsinki Committee, Hadassah Medical Center), written informed consent. The
+paper's main text does not give a separate screening list for blood donors (its Supplementary Table 1 is not yet read).
+**The three donors** (`data/DEV_IAMA_P_WHOLE_01/reference_donors_iama.py`, `reference_donors_iama.csv`, from GEO GSE186458): granulocytes
+(mostly neutrophils), one laboratory (Had-HU); 2 female, 1 male; aged 50-56.
+**Open:** three donors from one laboratory; granulocytes are mostly but not only neutrophils; the blood-donor screening is to be read
+from the source's supplementary table.
