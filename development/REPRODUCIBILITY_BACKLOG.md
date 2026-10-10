@@ -11,8 +11,8 @@ bars set in advance; they are checked for any computed number (power, simulated 
 | tier | note | kind | book files | canon files | chain/SOP files | status |
 |---|---|---|---|---|---|---|
 | 1 | DEV_LOWFRAC_01_OUTCOME | result | basis computed (doors/data/DEV_LOWFRAC_01/shift_vs_fraction_01.py): 1 % shift reaches 0.01 at f 0.27, not 0.20; decision open. Healthy-spread table still needs its 656-array script |
-| 1 | DEV_NOISE_01_OUTCOME | result | 1 | 0 | 4 | open |
-| 1 | DEV_NOISE_02_OUTCOME | result | 1 | 2 | 3 | open |
+| 1 | DEV_NOISE_01_OUTCOME | result | 1 | 0 | 4 | REPRODUCED 2026-10-10 (doors/data/DEV_NOISE_02/build_noise_sites_01.py, build_noise_gate_01.py) |
+| 1 | DEV_NOISE_02_OUTCOME | result | 1 | 2 | 3 | REPRODUCED 2026-10-10 (doors/data/DEV_NOISE_02/build_noise_sites_01.py, build_noise_gate_01.py) |
 | 1 | PROC_CHANNEL_01_OUTCOME | result | REPRODUCED 2026-10-10: rerun from the repo matches the 09-30 table exactly (153 samples, all columns) |
 | 1 | PROC_CHARR_01_OUTCOME | result | 0 | 1 | 1 | open |
 | 1 | PROC_CHARR_01_PREREG | pre-registration (bars) | 0 | 1 | 1 | open |
