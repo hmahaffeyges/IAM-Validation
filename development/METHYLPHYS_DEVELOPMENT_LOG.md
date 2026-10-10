@@ -783,6 +783,9 @@ Model A (single discriminating selection): E_hold = ln D, so 3.41 k_BT needs DNM
 ### 2026-10-10 · DEV-WRITER-01 scored as sealed: above the band (Model A not confirmed)
 Full texts supplied by the author. Qualifying in-vitro DNMT1 discrimination: Adam 2023 ~80, Yokochi 2002 Table II 47.4 (Bashtrykov 2012 excluded: k_cat ratio). Median 63.7 > 60: the writer's single-step limit (eps 0.0155, 4.15 kT) lies below the copy error cells hold (0.032, 3.41 kT); cells lose about twice the writer's errors. DEV_WRITER_01_OUTCOME.md; script data/DEV_WRITER_01/score_writer_01.py.
 
+### 2026-10-10 · DEV-WRITER-02 sealed before reading
+Per-context test of whether the writer sets the copy error: log eps_c against log(1/(1+D_c)) over the 256 NNCGNN contexts, slope 1 predicted. Simulation: counting noise negligible (slope sd 0.004), but a D-correlated artefact can fake slope 1; the DIFFERENCE between methylated and unmethylated-territory slopes holds at 1.0 regardless, so that is the statistic. Bar: median difference 0.5-1.5 met, below 0.2 not met. Script development/sims/writer_context_01.py.
+
 ### 2026-10-10 · Day summary
 Passed (sealed before reading): IAM-A SAM lever in mice (1.124 in window 1.016-1.135, p 0.0003); Met-A on identical DNA at three laboratories
 (all four bars); Met-A specificity on the Moss mixes (9/9). Reproduced from public data: every matrix the commissioned chain reads.

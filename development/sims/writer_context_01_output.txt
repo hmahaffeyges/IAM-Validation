@@ -1,0 +1,33 @@
+truth            sigma_ctx  rho   slope mean   sd across samples   95 % band
+writer sets eps        0.0   0.0       1.001            0.0036   0.994-1.007
+writer sets eps        0.3   0.0       0.974            0.0038   0.966-0.982
+writer sets eps        0.3   0.5       1.186            0.0038   1.179-1.194
+writer sets eps        0.6   0.0       0.998            0.0044   0.990-1.007
+writer sets eps        0.6   0.5       1.374            0.0044   1.366-1.382
+writer sets eps        0.6   0.9       1.801            0.0054   1.790-1.810
+no dependence         0.0   0.0      -0.000            0.0032   -0.006-0.007
+no dependence         0.3   0.0      -0.021            0.0032   -0.027--0.015
+no dependence         0.3   0.5       0.179            0.0031   0.173-0.185
+no dependence         0.6   0.0       0.096            0.0032   0.090-0.102
+no dependence         0.6   0.5       0.510            0.0035   0.504-0.517
+no dependence         0.6   0.9       0.776            0.0032   0.770-0.782
+
+how big a D-correlated nuisance must be to fake slope 1 when the writer sets nothing:
+  rho 0.9 sigma_ctx 0.50 -> slope 0.668
+  rho 0.9 sigma_ctx 1.00 -> slope 1.360
+  rho 0.9 sigma_ctx 1.50 -> slope 1.987
+  rho 0.9 sigma_ctx 2.00 -> slope 2.556
+  rho 0.9 sigma_ctx 2.34 -> slope 2.910
+  rho 1.0 sigma_ctx 0.50 -> slope 0.736
+  rho 1.0 sigma_ctx 1.00 -> slope 1.470
+  rho 1.0 sigma_ctx 1.50 -> slope 2.207
+  rho 1.0 sigma_ctx 2.00 -> slope 2.919
+  rho 1.0 sigma_ctx 2.34 -> slope 3.329
+
+control arm (unmethylated territory), same nuisance, writer absent there:
+  sigma_ctx 0.3 rho 0.0 -> methylated slope 1.038, control slope 0.010, difference 1.028
+  sigma_ctx 0.6 rho 0.5 -> methylated slope 1.424, control slope 0.465, difference 0.959
+  sigma_ctx 0.6 rho 0.9 -> methylated slope 1.784, control slope 0.781, difference 1.003
+  sigma_ctx 1.0 rho 0.9 -> methylated slope 2.395, control slope 1.328, difference 1.067
+
+predicted spread of eps across contexts (k=2): 0.0664 0.0354 0.0207 0.0111 0.0061
