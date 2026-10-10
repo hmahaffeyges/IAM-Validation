@@ -686,3 +686,6 @@ Rerun of the rebuilt job (153/153 samples after re-fetching 2) matches the 09-30
 
 ### 2026-10-10 · noise_sites_EPIC_v1 reproduced from public data
 build_noise_sites_01.py: 91 Salas purified arrays (GSE110554, GSE167998) from GEO IDATs through chain Stage 1, the 10-01 rule -> 48,528 sites, identical to the chain runtime matrix (low 40,882, high 7,646). Gate N_max 0.149 still to be rebuilt.
+
+### 2026-10-10 · noise gate N_max reproduced
+build_noise_gate_01.py: N over the 12 Salas purified neutrophil arrays 0.1223-0.1489 (as DEV-NOISE-01 recorded); N_max 0.149, same as noise_gate_EPIC_v1.json. Both noise matrices now rebuild from GEO IDATs.
