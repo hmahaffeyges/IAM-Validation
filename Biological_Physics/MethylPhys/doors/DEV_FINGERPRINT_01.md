@@ -21,3 +21,8 @@ below 70 % read and give no IAM-A reading, as decitabine did. The design therefo
 
 **Still to do, in order:** PrEC WGBS (4 runs) through the pinned pipeline → Stage Q's response on PrEC's own molecules → windows for both arms
 sealed → LNCaP (5 runs) and the arrays read → scored as sealed.
+
+**Power through Stage Q (2026-10-10; `development/sims/fingerprint_power_02.py`, output `fingerprint_power_02_output.txt`).** Curve B was written
+against the simple-form IAM-A. In Stage Q's units (prostate response) its slope is 2.06, not 1.17, so IAM-A's own repeat error weighs about twice as
+much. Detection of Met-A above curve B (2 arrays, 4 runs a side; false call 5 %): excess 0.04 → 0.50 (was 0.58), 0.06 → 0.79 (was 0.87),
+0.10 → 0.99. Arm A of the window will be sealed on this curve, rebuilt on PrEC's own molecules.

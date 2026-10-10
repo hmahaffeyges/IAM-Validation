@@ -1,0 +1,7 @@
+curve B points in Stage Q IAM-A: [1.0, 1.0114, 1.0285, 1.0569, 1.0911] | slope 2.063 (simple form 1.17) | design point 1.15 -> 1.0854
+excess  2arr/4runs(design)  2arr/2runs  3arr/5runs
+ 0.00         0.05        0.05        0.05
+ 0.02         0.21        0.19        0.26
+ 0.04         0.50        0.46        0.63
+ 0.06         0.79        0.74        0.91
+ 0.10         0.99        0.99        1.00
