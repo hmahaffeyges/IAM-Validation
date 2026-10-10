@@ -1,0 +1,72 @@
+fetched {'cached': 151, 'ok': 2} 106s
+samples 153 errors 0 125s
+             agree  phi_mid  phi_hi  phi_lo  copy_err  erasure  denovo  coherent_gain     pdr
+klass                                                                                        
+cycling     0.8336   0.1764  0.0814  0.3142    0.0319   0.0001  0.0116         0.0005  0.3986
+immune      0.8502   0.1817  0.1067  0.3008    0.0279   0.0001  0.0137         0.0007  0.3636
+progenitor  0.7586   0.3264  0.3271  0.2102    0.0395   0.0004  0.0148         0.0004  0.6052
+secretory   0.8282   0.1566  0.0950  0.2776    0.0321   0.0001  0.0119         0.0004  0.4057
+stromal     0.8241   0.2242  0.0973  0.3320    0.0336   0.0001  0.0126         0.0004  0.4194
+terminal    0.8496   0.2237  0.0861  0.3760    0.0304   0.0000  0.0119         0.0003  0.3699
+fingerprint features used: ['agree', 'phi_mid', 'phi_hi', 'phi_lo', 'copy_err', 'erasure', 'denovo', 'coherent_gain', 'pdr']
+{"cells": 56, "best_k": 2, "ARI": 0.0286, "ARI_null_p95": 0.018, "p": 0.017} {2: 0.531, 3: 0.307, 4: 0.204, 5: 0.226, 6: 0.234, 7: 0.222, 8: 0.206, 9: 0.219, 10: 0.227}
+                          cell      klass  cluster  copy_err  erasure  phi_hi  phi_mid    pdr
+             heart fibroblasts    stromal        1    0.0395   0.0001  0.1078   0.1722 0.5441
+       erythrocyte progenitors progenitor        1    0.0395   0.0004  0.3271   0.3264 0.6052
+                 smooth muscle    stromal        1    0.0417   0.0002  0.1591   0.2010 0.5834
+                    adipocytes    stromal        2    0.0348   0.0001  0.0939   0.2776 0.4239
+       breast basal epithelium    cycling        2    0.0284   0.0001  0.1250   0.2071 0.3382
+     breast luminal epithelium  secretory        2    0.0293   0.0001  0.1067   0.2486 0.3689
+                       b cells     immune        2    0.0275   0.0001  0.1382   0.2886 0.3636
+             aorta endothelium    stromal        2    0.0339   0.0001  0.1154   0.2046 0.4399
+                   cd8 t cells     immune        2    0.0333   0.0001  0.1204   0.2315 0.4634
+         colon enteroendocrine  secretory        2    0.0304   0.0001  0.1032   0.1809 0.3827
+              colon epithelium    cycling        2    0.0312   0.0001  0.1113   0.1790 0.3924
+             colon fibroblasts    stromal        2    0.0345   0.0001  0.1766   0.3049 0.4476
+             colon macrophages     immune        2    0.0279   0.0001  0.2270   0.2813 0.3655
+              cortical neurons   terminal        2    0.0241   0.0000  0.1722   0.4128 0.2878
+                 cardiomyocyte   terminal        2    0.0314   0.0001  0.0729   0.1438 0.3845
+            bladder epithelium    cycling        2    0.0344   0.0001  0.0891   0.1692 0.4400
+        endometrium epithelium    cycling        2    0.0312   0.0001  0.0624   0.1649 0.4015
+   effector memory cd8 t cells     immune        2    0.0368   0.0001  0.1067   0.1570 0.5119
+     gastric antrum epithelium  secretory        2    0.0329   0.0001  0.0894   0.1566 0.4057
+    fallopien tubes epithelium    cycling        2    0.0303   0.0001  0.0647   0.1764 0.3772
+       gastric body epithelium  secretory        2    0.0337   0.0001  0.1004   0.1555 0.4281
+     gastric fundus epithelium  secretory        2    0.0339   0.0001  0.0950   0.1492 0.4352
+                    hepatocyte  secretory        2    0.0311   0.0001  0.0874   0.1463 0.4080
+ kidney glomerular endothelium    stromal        2    0.0327   0.0001  0.0700   0.2334 0.4007
+  kidney glomerular epithelium    cycling        2    0.0314   0.0000  0.0914   0.2370 0.3820
+    kidney tubular endothelium    stromal        2    0.0326   0.0001  0.0742   0.1919 0.3979
+     kidney tubular epithelium    cycling        2    0.0319   0.0001  0.0740   0.2106 0.3876
+     lung alveolar endothelium    stromal        2    0.0324   0.0001  0.0910   0.2149 0.4149
+      lung alveolar epithelium    cycling        2    0.0316   0.0001  0.0679   0.1846 0.3963
+     lung alveolar macrophages     immune        2    0.0262   0.0001  0.1238   0.2000 0.3280
+      lung bronchus epithelium    cycling        2    0.0338   0.0001  0.0494   0.1612 0.4100
+                   cd4 t cells     immune        2    0.0282   0.0001  0.1077   0.2148 0.3560
+ lung interstitial macrophages     immune        2    0.0261   0.0000  0.1015   0.1817 0.3297
+                memory b cells     immune        2    0.0352   0.0001  0.1006   0.2083 0.4707
+             naive cd4 t cells     immune        2    0.0248   0.0000  0.0478   0.1770 0.2967
+                     monocytes     immune        2    0.0276   0.0000  0.1102   0.1740 0.3313
+                      nk cells     immune        2    0.0275   0.0001  0.1259   0.1903 0.3427
+              oligodendrocytes   terminal        2    0.0293   0.0000  0.0627   0.1625 0.3554
+          pancreas endothelium    stromal        2    0.0334   0.0001  0.1008   0.2639 0.4099
+             naive cd8 t cells     immune        2    0.0238   0.0000  0.0446   0.1783 0.2854
+             pancreatic acinar  secretory        2    0.0379   0.0001  0.0779   0.1524 0.5187
+              pancreatic alpha  secretory        2    0.0334   0.0001  0.0979   0.1615 0.4219
+              pancreatic delta  secretory        2    0.0344   0.0001  0.1040   0.1652 0.4272
+               pancreatic beta  secretory        2    0.0321   0.0001  0.0956   0.1750 0.3957
+               pancreatic duct  secretory        2    0.0304   0.0000  0.0620   0.1524 0.3737
+           prostate epithelium  secretory        2    0.0311   0.0001  0.0868   0.2567 0.3792
+    small intestine epithelium    cycling        2    0.0323   0.0001  0.0805   0.1710 0.3986
+               striated muscle   terminal        2    0.0345   0.0001  0.0992   0.2850 0.4364
+          t central memory cd4     immune        2    0.0330   0.0001  0.0794   0.1582 0.4270
+           t effector cell cd8     immune        2    0.0347   0.0001  0.0999   0.1648 0.4746
+         t effector memory cd4     immune        2    0.0364   0.0001  0.1018   0.1541 0.5007
+            thyroid epithelium  secretory        2    0.0311   0.0000  0.0421   0.1380 0.3749
+             tongue epithelium    cycling        2    0.0341   0.0001  0.0814   0.1501 0.4206
+    tonsil palatine epithelium    cycling        2    0.0374   0.0001  0.0982   0.1775 0.4540
+  tonsil pharyngeal epithelium    cycling        2    0.0370   0.0001  0.0979   0.1656 0.4630
+vascular saphenous endothelium    stromal        2    0.0322   0.0001  0.0930   0.2373 0.3937
+held-out stability ARI by k: {2: 0.387, 3: 0.094, 4: 0.505, 5: 0.516, 6: 0.277, 8: 0.222, 10: 0.241}
+k=8 vs draft classes ARI 0.234 (null p95 0.045)
+DONE 131s

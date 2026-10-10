@@ -13,7 +13,7 @@ bars set in advance; they are checked for any computed number (power, simulated 
 | 1 | DEV_LOWFRAC_01_OUTCOME | result | 1 | 2 | 3 | open |
 | 1 | DEV_NOISE_01_OUTCOME | result | 1 | 0 | 4 | open |
 | 1 | DEV_NOISE_02_OUTCOME | result | 1 | 2 | 3 | open |
-| 1 | PROC_CHANNEL_01_OUTCOME | result | 2 | 2 | 1 | per-cell table committed (author's 09-30 copy) + derive_constants.py reproduce E_hold 3.41, phi, eps0; 31 book checks compute from it; per-sample rerun pending (section 2 clustering, 7 checks) |
+| 1 | PROC_CHANNEL_01_OUTCOME | result | REPRODUCED 2026-10-10: rerun from the repo matches the 09-30 table exactly (153 samples, all columns) |
 | 1 | PROC_CHARR_01_OUTCOME | result | 0 | 1 | 1 | open |
 | 1 | PROC_CHARR_01_PREREG | pre-registration (bars) | 0 | 1 | 1 | open |
 | 1 | PROC_G002_TRACE_OUTCOME | result | 0 | 1 | 0 | open |

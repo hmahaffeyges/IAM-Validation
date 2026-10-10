@@ -677,3 +677,6 @@ Met-A_rel vehicle 1.000 (0.9986/1.0014), DAC30 1.43, DAC300 1.67; methylated ide
 
 ### 2026-10-10 · Dose-series window corrected before data: Stage Q response measured in silico
 Stage Q reading rises about half as fast as the simple copy-error form (delta 0.10: IAM-A_rel 1.55 vs 2.21; 74 % read). 30 nM window now IAM-A_rel 1.44-1.55 with >= 70 % read (stand-in response; final on the vehicle molecules); 300 nM outside the readable range. Scripts insilico_loss_02.py, predict_iama_window_02.py.
+
+### 2026-10-10 · PROC-CHANNEL-01 reproduced from the repo
+Rerun of the rebuilt job (153/153 samples after re-fetching 2) matches the 09-30 per-cell table exactly in every column; clustering numbers reproduced (2 groups silhouette 0.531; held-out 4-5 groups ARI 0.505/0.516; eight groups vs classes 0.234, null 0.045). E_hold 3.41, phi 0.1628, eps0 0.032 now fully reproducible from public data. Closed on the backlog.
