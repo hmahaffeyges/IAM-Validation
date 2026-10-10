@@ -27,5 +27,6 @@ hi = pick((sd <= 0.05) & mu.between(0.75, 0.95)); lo = pick((sd <= 0.05) & mu.be
 ref = float(np.mean([H(X.loc[S, v]).mean() for v in V.columns]))
 rows = [dict(array=a, treatment=t, MetA_rel=float(H(X.loc[S, a]).mean() / ref), hi_mean_beta=float(X.loc[hi, a].mean()),
              lo_mean_beta=float(X.loc[lo, a].mean()), n_hi=len(hi), n_lo=len(lo)) for a, t in ARR.items()]
-R = pd.DataFrame(rows); R.to_csv(OUT, index=False); print(R.round(4).to_string(index=False))
+R = pd.DataFrame(rows); R.to_csv(OUT, index=False)
+pd.DataFrame({"site": S, "set": ["hi"] * len(hi) + ["lo"] * len(lo), "mu_vehicle": mu[S].values}).to_csv(os.path.join(os.path.dirname(os.path.abspath(OUT)), "identity_sites_vehicle_mu.csv"), index=False); print(R.round(4).to_string(index=False))
 print(R.groupby("treatment", sort=False)[["MetA_rel", "hi_mean_beta", "lo_mean_beta"]].mean().round(4).to_string())

@@ -31,3 +31,16 @@ metaa_dose_02.py`, committed 792d7dd before running; rows `metaa_dose_02_rows.cs
 
 Both doses keep the identity sites on their own side of β = 0.5 (300 nM narrowly). The IAM-A side and curves A and B come from the box EM-seq
 runs and are compared with these readings as they stand.
+
+**IAM-A window, sealed 2026-10-10 before any EM-seq reading** (`predict_iama_window_02.py`; inputs the Met-A rows and the vehicle identity-site
+means above; nothing fitted). Each curve is inverted at the measured Met-A_rel for the loss δ it needs; ε = ε_v + δ(1 − ε_v); the predicted
+IAM-A_rel lies between the curve-B and curve-A values. ε_v (vehicle EM-seq copy error, Stage Q) is the one input still to be measured:
+
+| dose | Met-A_rel | δ_B | δ_A | IAM-A_rel window at ε_v = 0.03 | 0.04 | 0.05 |
+|---|---|---|---|---|---|---|
+| 30 nM | 1.4255 | 0.0732 | 0.1879 | 2.43–3.84 | 2.07–3.14 | 1.84–2.71 |
+| 300 nM | 1.6710 | 0.1291 | — | ≥ IAM-A(δ_B), no upper limit | | |
+
+At 300 nM Met-A (1.67) is above curve A's maximum (1.606): loss on methylated molecules alone cannot produce it, and the unmethylated
+identity sites have risen (0.091 → 0.121). Curve A gives no upper limit there, and the methylated sites are near β = 0.5, where the
+curves flatten. **30 nM is the decisive dose.** The window at the measured ε_v is computed by the same script and compared as it stands.
