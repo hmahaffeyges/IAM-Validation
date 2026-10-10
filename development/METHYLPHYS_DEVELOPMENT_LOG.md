@@ -659,3 +659,6 @@ Next: each analysis run only in a notebook gets a committed script that reruns t
 
 ### 2026-10-09 · PROC-CHANNEL-01 not reproducible from the repo; job rebuilt
 Outputs (channel_samples.csv, channel_summary.json) were never committed and are gone from the box. E_hold 3.41 kT here is the source of eps0_meth 0.032 (CANON). channel.py rebuilt by replaying its creation and four patches from the session record; windows regenerated (seed 20260930, 399 windows); roster in atlas/v2/inputs. To rerun on the box after the current sessions (about 1 h, 64 cores); outputs to be committed with the note.
+
+### 2026-10-09 · Reproducibility gate on every push
+CANON/repro_check.py, called by CANON/checked_push.sh: refuses untracked files and changed doors/ notes with numbers but no committed script. Tested: refused an unbacked test note and a stray file. Cause of the gaps found tonight: scripts and outputs kept in the working area instead of the repo, the 10-01 catch-up push did not check notes written before it, and tonight's pushes used plain git push, which skipped the canon gate.

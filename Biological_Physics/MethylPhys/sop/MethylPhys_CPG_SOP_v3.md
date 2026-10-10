@@ -107,6 +107,8 @@ the script that produced it is committed in the same push as the number, next to
 `development/sims/`), with its inputs named (repo path, S3 key with sha256, or public accession) and any random seed fixed.
 Box jobs run only committed scripts from a fresh pull. Analysis typed into a notebook does not count until it is a committed script
 that reruns to the same value. Raw working records are kept privately (S3 `archive/session_code/`) but are not a substitute.
+Every push goes through `CANON/checked_push.sh`, which runs `CANON/repro_check.py`: it refuses untracked files and any changed note in
+`doors/` with computed numbers but no committed script (backlog items are reported until closed). A plain `git push` skips the gate.
 
 ### Commissioning order (set 2026-10-03)
 
