@@ -4,8 +4,7 @@
 **Problem.** IAM-A carries a laboratory-and-kit offset (DEV-IAMA-KIT-01: same neutrophils, Swift 1.16 vs TruSeq 1.05). The author chose the
 same-run tare (≥ 3 healthy references read the same way). Search for open read-level neutrophil WGBS with ≥ 3 healthy donors per laboratory
 and kit (2026-10-09; SRA, GEO, ENCODE): none besides Loyfer 2023 (3 granulocytes, the files P is measured on). RRBS sets exist but are not
-whole-genome (P is measured on whole files). The only such set is controlled access: **BLUEPRINT EGAD00001001201, 6 mature neutrophils, one
-laboratory (CNAG), DAC EGAC00001000135** — application drafted for the author.
+whole-genome (P is measured on whole files). No public set has them (searched 2026-10-09); controlled-access sets are not used (public data only, 2026-10-10).
 
 **Another way, tested now.** The offset is a property of the laboratory and kit, not of the cell, if it comes from library chemistry. Then
 healthy **other cell types read in the same run** can be the references, each read against its own healthy position P_cell.
@@ -24,7 +23,7 @@ technical error on methylated DNA, run by run.
 3. Kit gap removed: per neutrophil donor, |tared Swift − tared TruSeq| ≤ 0.02 (twice the measured repeatability 0.009).
 4. Spike-in (recorded, no bar): pUC19 methylated-call fraction and technical error per run; whether Swift − TruSeq technical error
    accounts for the ε gap.
-If 1 fails, the offset is cell-dependent and cross-cell references are not used; the BLUEPRINT route remains.
+If 1 fails, the offset is cell-dependent and cross-cell references are not used; the route is public same-DNA data (EpiQC, CANDIDATE_EPIQC.md).
 
 ---
 ## Results (2026-10-09; nothing above the line changed)

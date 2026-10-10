@@ -743,3 +743,6 @@ build_position_01.py on the 3 public Loyfer granulocyte files: every error and o
 
 ### 2026-10-10 · Whole-blood composition matrix reproduced from GEO
 chain_tests/blood_comp.py (paths only, mixture test skipped) on the 91 Salas arrays: markers, marker means and profiles identical. Every value the commissioned chain reads now rebuilds from public data with committed code (intake thresholds are author-set lines with their measured basis in PROC-INTAKE-01).
+
+### 2026-10-10 · Public data only
+Author rule: no controlled-access requests (no PhD or institutional backing). BLUEPRINT draft moved to archive/retired_2026-10-10; DEV-IAMA-XCELL-01 now points at public same-DNA data (EpiQC).
