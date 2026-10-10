@@ -18,7 +18,7 @@ This file is the single source of truth for constants and names. To change a val
 | E_hold_meth | 3.41 | kT per methylated site | ln((1-eps)/eps) of the measured copy error on single molecules (Loyfer read-level, uncorrected) — PROC-CHANNEL-01 |
 | E_hold_meth_Landauer | 4.9 | Landauer units | E_hold_meth / ln 2  |
 | phi | 0.1628 | fraction of one ATP per held bit | E_hold_meth / M_cell — PROC-CHANNEL-01 |
-| eps0_meth | 0.032 | error per methylated site per copy | 1/(1+exp(phi*M_cell)) with phi*M_cell = E_hold_meth = 3.41 kT MEASURED from cells' copy error: the HEALTHY REFERENCE copy error (not the floor). The form is physics (Boltzmann), the height is measured; about half of healthy cell types hold better than it — PROC-CHANNEL-01; a physics-only height (a derived phi from the kinetics of maintenance) is open |
+| eps0_meth | 0.032 | error per methylated site per copy | 1/(1+exp(phi*M_cell)) with phi*M_cell = E_hold_meth = 3.41 kT MEASURED from cells' copy error: the HEALTHY REFERENCE copy error (not the floor). The form is physics (Boltzmann), the height is measured; about half of healthy cell types hold better than it — PROC-CHANNEL-01; a physics-only height (phi derived from the writer's discrimination measured outside the cell) is open |
 | Normal_band | [0.95, 1.05] | A |  — healthy is A = 1 within 5 % |
 | beta_m | 0.15765 | dimensionless | beta_m = Omega_m/2 with Omega_m = 0.3153 (Planck 2018 TT,TE,EE+lowE+lensing 68 % limits, Aghanim et al. 2020 Table 2; the best fit is 0.3158); value used in every Level 2 chain — Cosmological_Physics/camb_validation/equations_iam_level2.f90; IAM's Law paper (cosmological expression) |
 | E_of_a | exp(1 - 1/a) | activation function |  — IAM's Law paper |

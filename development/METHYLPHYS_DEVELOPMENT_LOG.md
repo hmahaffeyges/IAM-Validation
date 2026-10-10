@@ -774,6 +774,9 @@ Planted test first (scorer byte-identical: fingerprint called when planted, z 4.
 ### 2026-10-10 · DEV-HAMMER-01 step 1: kinetics in the same cells cannot predict eps0
 Simulation of Hammer-seq's measurement (parent = more methylated strand): f and g recovered 6-20x wrong at every time point. Algebra: at steady state g/f = (1-eps)/eps identically, so rates measured in steady-state cells reproduce eps by construction. Closed as a prediction before download; D1 restated as deriving eps0 from the writer's discrimination measured outside the cell. Script development/sims/hammer_01.py.
 
+### 2026-10-10 · Open item D1 restated (author approved)
+Book p7_09 (D1), p6_06, p6_08, p6_01 and the canon eps0 source: eps0 is to be derived from the writer's discrimination (hemimethylated against unmethylated sites) measured outside the cell; rates measured in the same cells return g/f = (1-eps)/eps by construction (DEV-HAMMER-01). Appendix A and GLOSSARY regenerated.
+
 ### 2026-10-10 · Day summary
 Passed (sealed before reading): IAM-A SAM lever in mice (1.124 in window 1.016-1.135, p 0.0003); Met-A on identical DNA at three laboratories
 (all four bars); Met-A specificity on the Moss mixes (9/9). Reproduced from public data: every matrix the commissioned chain reads.
