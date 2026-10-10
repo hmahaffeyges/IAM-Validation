@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4674 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4680 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/front/p0_preface.tex`
@@ -4474,6 +4474,10 @@ Totals: 4674 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 8 | eq:meta | calibrated | `0.330263` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: H_ref of EPIC neutrophils: mean of the six arrays' mean H on the identity sites | PASS |
+| 22 | ch:meta:L22:20 | observed | `20` | file `Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/reference_donors.csv`: Met-A healthy reference: youngest reference donor | PASS |
+| 22 | ch:meta:L22:39 | observed | `39` | file `Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/reference_donors.csv`: Met-A healthy reference: oldest reference donor | PASS |
+| 22 | ch:meta:L22:94 | observed | `94` | file `Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/reference_donors.csv`: Met-A healthy reference: lowest FACS purity | PASS |
+| 22 | ch:meta:L22:97 | observed | `97` | file `Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/reference_donors.csv`: Met-A healthy reference: highest FACS purity | PASS |
 | 23 |  | measured | `0.75` | not run: definition: identity-site selection band, methylated channel beta 0.75-0.95 (a rule of the chain) | - |
 | 23 |  | measured | `0.95` | not run: definition: identity-site selection band, methylated channel beta 0.75-0.95 (a rule of the chain) | - |
 | 23 |  | measured | `0.05` | not run: definition: identity-site selection band, unmethylated channel beta 0.05-0.25 (a rule of the chain) | - |
@@ -4484,6 +4488,8 @@ Totals: 4674 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 27 | ch:meta:L27:0.020 | measured | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out Met-A of the six reference arrays, SD | PASS |
 | 28 | ch:meta:L28 | measured | `0.993` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out Met-A on the frozen sites, lowest | PASS |
 | 28 | ch:meta:L28:1.008 | measured | `1.008` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out Met-A on the frozen sites, highest | PASS |
+| 33 | ch:meta:L33:20:def | observed | `20` | file `Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/reference_donors.csv`: Met-A healthy reference: youngest reference donor (healthy, defined) | PASS |
+| 33 | ch:meta:L33:39:def | observed | `39` | file `Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/reference_donors.csv`: Met-A healthy reference: oldest reference donor (healthy, defined) | PASS |
 | 41 | ch:meta:L41 | measured | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: SD of the held-out readings (figure caption) | PASS |
 | 50 | ch:meta:L50 | measured | `201868500150` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: Sentrix chip of reference array GSM2998021 | PASS |
 | 50 | ch:meta:L50:1.0032 | measured | `1.0032` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: GSM2998021 read in the floor (acceptance run) | PASS |

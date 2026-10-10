@@ -4184,6 +4184,12 @@ PASS  ch:gauge:L114:1.35                 ch:gauge:p6_06_gauge:114  printed 1.35 
 PASS  ch:gauge:L120                      ch:gauge:p6_06_gauge:120  printed 0.020  recomputed 0.0197562  tol 5.000005e-04  [measured] SD of the six held-out reference arrays  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:meta (part6/p6_07_meta.tex)
+PASS  ch:meta:L22:20                     ch:meta:p6_07_meta:22  printed 20  recomputed 20  tol 0.5  [observed] Met-A healthy reference: youngest reference donor  file Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/reference_donors.csv
+PASS  ch:meta:L22:39                     ch:meta:p6_07_meta:22  printed 39  recomputed 39  tol 0.5  [observed] Met-A healthy reference: oldest reference donor  file Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/reference_donors.csv
+PASS  ch:meta:L22:94                     ch:meta:p6_07_meta:22  printed 94  recomputed 94  tol 0.5  [observed] Met-A healthy reference: lowest FACS purity  file Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/reference_donors.csv
+PASS  ch:meta:L22:97                     ch:meta:p6_07_meta:22  printed 97  recomputed 97  tol 0.5  [observed] Met-A healthy reference: highest FACS purity  file Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/reference_donors.csv
+PASS  ch:meta:L33:20:def                 ch:meta:p6_07_meta:33  printed 20  recomputed 20  tol 0.5  [observed] Met-A healthy reference: youngest reference donor (healthy, defined)  file Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/reference_donors.csv
+PASS  ch:meta:L33:39:def                 ch:meta:p6_07_meta:33  printed 39  recomputed 39  tol 0.5  [observed] Met-A healthy reference: oldest reference donor (healthy, defined)  file Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/reference_donors.csv
 PASS  eq:meta                            ch:meta:p6_07_meta:8  printed 0.330263  recomputed 0.330263  tol 5.000005e-07  [calibrated] H_ref of EPIC neutrophils: mean of the six arrays' mean H on the identity sites  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
 PASS  ch:meta:L25                        ch:meta:p6_07_meta:25  printed 0.330263  recomputed 0.330263  tol 5.000005e-07  [measured] the frozen Met-A floor of EPIC neutrophils  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
 PASS  ch:meta:L27                        ch:meta:p6_07_meta:27  printed 0.983  recomputed 0.982642  tol 5.000005e-04  [measured] held-out Met-A of the six reference arrays, lowest  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv
@@ -5830,4 +5836,4 @@ PASS  app:register:L73:1.55 \%           app:register:app_G_predictions_register
 PASS  app:register:L73:0.78 \%           app:register:app_G_predictions_register:73  printed 0.78 \%  recomputed 0.776789  tol 0.00500001  [openprob] COS-357: D lowered at z = 0, per cent
 PASS  app:register:L74:1.03              app:register:app_G_predictions_register:74  printed 1.03  recomputed 1.03045  tol 0.00500001  [openprob] COS-365: ISW amplitude ratio A_ISW
 
-SUMMARY  PASS 4674  FAIL 0  (heavy, read from committed outputs: 967)  inventoried-not-run 1342  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4680  FAIL 0  (heavy, read from committed outputs: 967)  inventoried-not-run 1342  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

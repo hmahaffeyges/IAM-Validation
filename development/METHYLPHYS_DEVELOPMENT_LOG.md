@@ -765,6 +765,9 @@ CANON/status_facts.json holds each repeated status fact once; CANON/status_check
 ### 2026-10-10 · Results register: book development chapter and README Advancements generated
 CANON/results_register.json + results_to_tex.py write docs/book/part6/p6_25_development.tex (new chapter 'Development results': DEV-SAM-LEVER-01, DEV-EPIQC-ARRAY-01, DEV-CSCORE-MOSS-01) and the README table, every number recomputed from committed records. Building it exposed two errors, both fixed: the unmixed-blood reading of DEV-CSCORE-MOSS-01 (1.0035) was not in its rows file (scoring script now writes it), and 0.010 had been quoted as the Moss bar (the sealed bar is 0.03; measured largest shift 0.0094). Negative controls refused: hand edit of the chapter, unregistered commissioning note, covered result still in development, passed result failing its sealed rule.
 
+### 2026-10-10 · Book review against the record (author list)
+Ch. Landauer: methylation entropy credited as prior art (Xie 2011, Landan 2012, Hannum 2013, Jenkinson 2017; references from CrossRef) and what IAM adds stated: the gauge, the identity sites, the fixed healthy reference. Ch. gauge: the two ends fixed by physics, only the healthy middle measured. Ch. Met-A: the reference donors (screening from Salas 2018; 5 men, 1 woman, aged 20-39, purity 94-97 %, from GEO) and the definition of healthy; age dependence open. Ch. IAM-A: the 3.41 kT holding energy is rebuilt from public files by one committed script. 6 new checks; full run 4,680 checks, 0 failures. GNMT knockout (high SAM): no public methylome exists (GEO, SRA, web searched); alternatives listed for the author.
+
 ### 2026-10-10 · Day summary
 Passed (sealed before reading): IAM-A SAM lever in mice (1.124 in window 1.016-1.135, p 0.0003); Met-A on identical DNA at three laboratories
 (all four bars); Met-A specificity on the Moss mixes (9/9). Reproduced from public data: every matrix the commissioned chain reads.
