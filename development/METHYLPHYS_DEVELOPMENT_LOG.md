@@ -665,3 +665,6 @@ CANON/repro_check.py, called by CANON/checked_push.sh: refuses untracked files a
 
 ### 2026-10-09 · PROC-CHANNEL-01 per-cell table recovered and committed
 The author's 09-30 copy holds channel_cells_genomewide.csv; committed to doors/data/PROC_CHANNEL_01/ with derive_constants.py, which reproduces E_hold 3.41 ± 0.12 kT, phi 0.163 (CANON 0.1628 = 3.41/M), de novo 4.37 ± 0.13, eps0 0.032 (1/(1+e^3.4105) = 0.03197). The range top was printed 3.72; the table gives 3.7146, so 3.71 (note and book p6_02 corrected). 31 book checks that read the note now compute from the table; all pass, controls fail as they should, no new failures. The chr1 first-pass table is committed beside it, labelled. Open: rerun channel.py to show the rebuilt job makes this table and to regenerate the per-sample table (needed for section 2 clustering).
+
+### 2026-10-10 · DEV-COMPOSITION-TRUTH-03 read: undecided (truth not precise enough)
+atlas_e vs the GSE224807 lab-template truth: 450K MAE 0.041 (23/30 within 0.05), EPIC 0.076 (Stage A 0.071, agreeing with atlas_e). Truth unstable to site choice (up to 0.048), whole blood fits the six templates with RMS 0.064, sorted CD14 carries 0.175 granulocyte signal. Neither passes nor fails bars 1-2; counted-cell truth still needed. Scripts doors/data/DEV_COMPOSITION_TRUTH_03.
