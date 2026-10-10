@@ -1,0 +1,44 @@
+acc,term,cls,gb,url,donor,age,lab,dataset
+ENCFF415JWE,H1,cell line,0.1,https://encode-public.s3.amazonaws.com/2017/03/07/15c6cab6-4b27-428b-8182-6b918bc6592a/ENCFF415JWE.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR482VHG/
+ENCFF605YXD,H1,cell line,0.3,https://encode-public.s3.amazonaws.com/2017/03/07/ed78cd86-e48b-462d-b469-ac7997e76cce/ENCFF605YXD.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR482VHG/
+ENCFF824KLG,IMR-90,cell line,0.6,https://encode-public.s3.amazonaws.com/2017/10/05/6da4c079-15b7-4c5c-b5eb-122630b280ad/ENCFF824KLG.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR467QPI/
+ENCFF160GCY,IMR-90,cell line,0.8,https://encode-public.s3.amazonaws.com/2017/10/05/befdb928-4778-4efc-80b2-b070f5e9e11c/ENCFF160GCY.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR467QPI/
+ENCFF980VWO,H9,cell line,9.7,https://encode-public.s3.amazonaws.com/2017/11/01/7ecb4e71-3e31-4992-8be1-a71649d401b8/ENCFF980VWO.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR744UGB/
+ENCFF528PEM,H9,cell line,11.9,https://encode-public.s3.amazonaws.com/2017/11/01/33979a1f-2b5f-418d-8ed0-dcae3a7bccd6/ENCFF528PEM.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR744UGB/
+ENCFF380WSK,HepG2,cell line,35.3,https://encode-public.s3.amazonaws.com/2021/07/17/3d016db5-2e74-4e82-91b3-981103f191fd/ENCFF380WSK.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR881XOU/
+ENCFF285UKJ,K562,cell line,38.4,https://encode-public.s3.amazonaws.com/2021/07/17/9693ab27-f44f-463d-b5fe-37accbe598d0/ENCFF285UKJ.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR765JPC/
+ENCFF315WJT,HepG2,cell line,39.5,https://encode-public.s3.amazonaws.com/2021/07/17/92ca396e-acfd-4ad3-b374-b765f54aa99f/ENCFF315WJT.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR881XOU/
+ENCFF205TUV,GM12878,cell line,39.6,https://encode-public.s3.amazonaws.com/2021/07/17/ccec7cd5-95b5-4da0-8ec9-d0574e14651f/ENCFF205TUV.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR890UQO/
+ENCFF072CRF,GM12878,cell line,42.9,https://encode-public.s3.amazonaws.com/2021/07/17/726915d3-527f-444f-9df0-5585a53155a0/ENCFF072CRF.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR890UQO/
+ENCFF006NTG,HeLa-S3,cell line,54.9,https://encode-public.s3.amazonaws.com/2021/07/17/5efff157-e481-4c4a-a9d8-c4855c86eb0b/ENCFF006NTG.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR550RTN/
+ENCFF510HPR,SK-N-SH,cell line,61.7,https://encode-public.s3.amazonaws.com/2021/07/18/03fd1c5e-0ee7-4c3f-aa7d-6392106d58c6/ENCFF510HPR.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR145HNT/
+ENCFF453WSH,HeLa-S3,cell line,63.9,https://encode-public.s3.amazonaws.com/2021/07/17/8aa8bfe2-d20c-4824-ac88-24ef6ae1a233/ENCFF453WSH.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR550RTN/
+ENCFF179TRY,SK-N-SH,cell line,65.8,https://encode-public.s3.amazonaws.com/2021/07/18/16224032-50e1-4f9a-9aa8-1b0e2b7bb074/ENCFF179TRY.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR145HNT/
+ENCFF289VXZ,A549,cell line,68.0,https://encode-public.s3.amazonaws.com/2021/07/18/ee165298-6f01-4308-94a9-85dbaeb5b6ff/ENCFF289VXZ.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR481JIW/
+ENCFF749XBN,A549,cell line,69.8,https://encode-public.s3.amazonaws.com/2021/07/18/76fecec7-8732-48ee-9db2-6a91e80da1c2/ENCFF749XBN.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR481JIW/
+ENCFF781JMU,K562,cell line,70.1,https://encode-public.s3.amazonaws.com/2021/07/17/6939515d-cf54-45b6-8eff-e0a02d703dc2/ENCFF781JMU.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR765JPC/
+ENCFF554JYM,HUES64,cell line,74.1,https://encode-public.s3.amazonaws.com/2022/01/19/c6096b45-7c1a-4ed5-afc9-03ee5b50ee9a/ENCFF554JYM.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR354DMU/
+ENCFF938NXT,HUES64,cell line,93.1,https://encode-public.s3.amazonaws.com/2017/12/07/a763172b-5052-417d-86fb-ea82f02e598e/ENCFF938NXT.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR354DMU/
+ENCFF439FXX,OCI-LY7,cell line,213.3,https://encode-public.s3.amazonaws.com/2017/12/03/d840cea7-bc3f-46c5-9a57-07cf0ef2bd3a/ENCFF439FXX.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR999CXD/
+ENCFF779ZPY,OCI-LY7,cell line,215.2,https://encode-public.s3.amazonaws.com/2017/12/03/5a669e61-bd57-4ef7-9bc4-dd5d85af526d/ENCFF779ZPY.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR999CXD/
+ENCFF605NRU,T-cell,primary cell,16.0,https://encode-public.s3.amazonaws.com/2021/03/09/b8ff46e4-5ddf-4bc4-8ca7-1d334b65d34b/ENCFF605NRU.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR663MXB/
+ENCFF704SCQ,CD14-positive monocyte,primary cell,16.2,https://encode-public.s3.amazonaws.com/2021/03/09/d1edb680-babe-4172-ace3-3ab6abbf8c59/ENCFF704SCQ.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR017BUL/
+ENCFF092SBB,B cell,primary cell,19.3,https://encode-public.s3.amazonaws.com/2021/03/09/188383d0-82b5-4a2b-bab0-5bae8d621fa4/ENCFF092SBB.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR284TCU/
+ENCFF111MKI,stomach,tissue,23.8,https://encode-public.s3.amazonaws.com/2021/03/09/d9e7904b-8fea-4b02-b7bd-c10288ae62bc/ENCFF111MKI.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR129YRJ/
+ENCFF501IFY,heart left ventricle,tissue,23.9,https://encode-public.s3.amazonaws.com/2017/02/24/3ed7dfd9-69a4-4a9c-825b-1993970e91ea/ENCFF501IFY.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR012TGL/
+ENCFF272PBZ,adipose tissue,tissue,26.7,https://encode-public.s3.amazonaws.com/2017/10/13/a9c50f9a-1aa9-465c-95e9-e92104eaded5/ENCFF272PBZ.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR539UBP/
+ENCFF969NGH,"common myeloid progenitor, CD34-positive",primary cell,27.6,https://encode-public.s3.amazonaws.com/2021/03/09/9597ae2a-f7d2-401e-ab06-db5343d798b5/ENCFF969NGH.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR388RMS/
+ENCFF348VHM,aorta,tissue,28.6,https://encode-public.s3.amazonaws.com/2018/02/02/2c8f34bb-e4b9-4593-aa2f-a3cb6a7b5462/ENCFF348VHM.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR482HXU/
+ENCFF373AAM,right lobe of liver,tissue,34.1,https://encode-public.s3.amazonaws.com/2021/07/18/3bfc24d8-9750-4f9b-afee-60d1c2a11d43/ENCFF373AAM.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR108ESU/
+ENCFF504OJG,transverse colon,tissue,35.3,https://encode-public.s3.amazonaws.com/2021/03/03/9271f151-140f-4c42-ac17-fa3e1cc8bd31/ENCFF504OJG.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR156JXJ/
+ENCFF570HVV,sigmoid colon,tissue,45.8,https://encode-public.s3.amazonaws.com/2017/02/23/09e04193-114a-4394-acf0-de2e89162218/ENCFF570HVV.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR331PWE/
+ENCFF133QNK,natural killer cell,primary cell,54.4,https://encode-public.s3.amazonaws.com/2022/01/18/4d97b352-219a-435e-a5ce-de5db4e74e94/ENCFF133QNK.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR334LSM/
+ENCFF848BIV,mammary epithelial cell,primary cell,63.4,https://encode-public.s3.amazonaws.com/2021/07/17/fb3dc466-3b1c-49d8-a35c-25ca798e1ff3/ENCFF848BIV.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR656TQD/
+ENCFF720OMN,skeletal muscle myoblast,primary cell,66.8,https://encode-public.s3.amazonaws.com/2021/07/18/0863877a-7e7d-49f7-95eb-615aac0c0bed/ENCFF720OMN.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR328TBS/
+ENCFF581MVM,lung,tissue,73.4,https://encode-public.s3.amazonaws.com/2017/02/23/4e9973fe-1161-4a52-9b79-01c637486c7b/ENCFF581MVM.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR797TEV/
+ENCFF165QNS,psoas muscle,tissue,76.2,https://encode-public.s3.amazonaws.com/2017/02/23/44e7122e-a68a-442f-9ecc-512579bb458c/ENCFF165QNS.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR414XEF/
+ENCFF566ITI,pancreas,tissue,78.2,https://encode-public.s3.amazonaws.com/2017/02/23/e492ad15-ab9f-45e6-a956-26289da6f398/ENCFF566ITI.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR405XVT/
+ENCFF076KAT,spleen,tissue,84.0,https://encode-public.s3.amazonaws.com/2017/02/23/68b46b83-1437-4420-90bf-0482cc086d54/ENCFF076KAT.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR317JGM/
+ENCFF041MJS,upper lobe of left lung,tissue,123.0,https://encode-public.s3.amazonaws.com/2021/03/03/9fa5bb78-4abe-4b6c-bf28-4ae02ff25824/ENCFF041MJS.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR224CTR/
+ENCFF915GDI,thyroid gland,tissue,126.0,https://encode-public.s3.amazonaws.com/2021/03/09/f8ba4a4e-e463-4a2a-9836-70381c4daa76/ENCFF915GDI.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR601MHU/
+ENCFF387JMV,liver,tissue,212.9,https://encode-public.s3.amazonaws.com/2021/09/14/1fc7224a-93ea-412a-b0ee-cbf3e9858df2/ENCFF387JMV.bam,,,ENCODE Processing Pipeline,/experiments/ENCSR713WYJ/

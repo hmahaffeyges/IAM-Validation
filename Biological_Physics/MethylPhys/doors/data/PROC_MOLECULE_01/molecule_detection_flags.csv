@@ -1,0 +1,13 @@
+cancer,normal,N,frac,detected_of_20,bg_mean,bg_sd
+K562,"common myeloid progenitor, CD34-positive",496344,0.1,5,225.0,14.3
+K562,"common myeloid progenitor, CD34-positive",496344,0.01,0,225.0,14.3
+K562,"common myeloid progenitor, CD34-positive",496344,0.001,1,225.0,14.3
+K562,"common myeloid progenitor, CD34-positive",496344,0.0001,0,225.0,14.3
+GM12878,B cell,533834,0.1,12,275.0,14.1
+GM12878,B cell,533834,0.01,0,275.0,14.1
+GM12878,B cell,533834,0.001,0,275.0,14.1
+GM12878,B cell,533834,0.0001,0,275.0,14.1
+HepG2,liver,1527723,0.1,19,727.9,23.4
+HepG2,liver,1527723,0.01,0,727.9,23.4
+HepG2,liver,1527723,0.001,0,727.9,23.4
+HepG2,liver,1527723,0.0001,0,727.9,23.4

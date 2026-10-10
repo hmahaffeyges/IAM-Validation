@@ -1,0 +1,16 @@
+published,klass,beta_pub,loyfer_cell,beta_meas,frac_meth,frac_unmeth,H_pub,H_meas,d_beta
+Cortical neuron mature,terminal,0.78,cortical neurons,0.812,0.812,0.1,0.76,0.698,0.03200000000000003
+Cardiomyocyte adult,terminal,0.768,cardiomyocyte,0.774,0.777,0.137,0.781,0.772,0.006000000000000005
+Skeletal muscle type I,terminal,0.76,striated muscle,0.749,0.723,0.113,0.795,0.813,-0.01100000000000001
+Colon epithelial normal,cycling,0.73,colon epithelium,0.753,0.745,0.148,0.841,0.806,0.02300000000000002
+Small intestine epith,cycling,0.725,small intestine epithelium,0.751,0.74,0.149,0.849,0.81,0.026000000000000023
+Bronchial epithelial,cycling,0.728,lung bronchus epithelium,0.749,0.74,0.149,0.844,0.813,0.02100000000000002
+CD4+ T naive,immune,0.73,naive cd4 t cells,0.842,0.851,0.093,0.841,0.631,0.11199999999999999
+CD8+ T memory,immune,0.74,effector memory cd8 t cells,0.72,0.673,0.139,0.827,0.856,-0.020000000000000018
+CD4+ T effector,immune,0.7,t effector memory cd4,0.72,0.681,0.14,0.881,0.855,0.020000000000000018
+NK cell,immune,0.735,nk cells,0.788,0.804,0.113,0.834,0.744,0.05300000000000005
+Hepatocyte primary,secretory,0.74,hepatocyte,0.754,0.731,0.129,0.827,0.804,0.014000000000000012
+Pancreatic beta cell,secretory,0.735,pancreatic beta,0.776,0.782,0.121,0.834,0.767,0.041000000000000036
+Acinar cell pancreas,secretory,0.73,pancreatic acinar,0.685,0.626,0.171,0.841,0.898,-0.04499999999999993
+Aortic endothelial,stromal,0.728,aorta endothelium,0.738,0.709,0.125,0.844,0.83,0.010000000000000009
+Erythroid progenitor,progenitor,0.725,erythrocyte progenitors,0.554,0.319,0.159,0.849,0.991,-0.17099999999999993

@@ -1,0 +1,6 @@
+cancer,normal,copy_cancer,copy_normal,A_cancer,A_normal,E_cancer,E_normal,higher
+HepG2,liver,0.0263,0.0234,1.1244,1.026,3.6115,3.7313,True
+A549,lung,0.0248,0.0212,1.0739,0.9491,3.6718,3.8323,True
+K562,"common myeloid progenitor, CD34-positive",0.0294,0.0182,1.2262,0.8407,3.4969,3.988,True
+GM12878,B cell,0.0295,0.0193,1.2294,0.881,3.4934,3.9282,True
+OCI-LY7,B cell,0.0269,0.0193,1.1443,0.881,3.5884,3.9282,True

@@ -1,0 +1,166 @@
+test,cell,n,median_A,frac_normal,loci
+T1_array_to_array,CMP (bone marrow),3,0.9983414852591735,1.0,13395.0
+T1_array_to_array,GMP (bone marrow),4,0.9890262436957841,1.0,5804.5
+T1_array_to_array,HSC (bone marrow),3,0.9928721358910184,1.0,12229.0
+T1_array_to_array,L-MPP (bone marrow),3,0.9907178769703078,1.0,11578.0
+T1_array_to_array,MEP (bone marrow),3,0.9152012565716323,0.0,14538.0
+T1_array_to_array,MPP (bone marrow),2,0.9903209472607208,1.0,13210.0
+T1_array_to_array,adipocytes,3,1.0019065455699079,1.0,28425.0
+T1_array_to_array,b cells,6,0.986319356030336,0.6666666666666666,8622.0
+T1_array_to_array,basophils,6,1.0028173384446317,0.8333333333333334,10305.5
+T1_array_to_array,cd4 t cells,5,0.9993217257253619,0.8,20284.0
+T1_array_to_array,cd8 t cells,6,1.0026843874178486,0.6666666666666666,9121.0
+T1_array_to_array,colon epithelium,3,1.0063577029137343,0.3333333333333333,31878.0
+T1_array_to_array,effector memory cd8 t cells,4,1.0019200368936232,0.75,41466.5
+T1_array_to_array,eosinophils,4,0.9935105237563477,1.0,21300.0
+T1_array_to_array,hepatocyte,2,0.9684484354390657,0.0,33561.5
+T1_array_to_array,lung alveolar epithelium,3,1.0130214577984153,1.0,48736.0
+T1_array_to_array,memory b cells,6,1.0014828498232313,0.8333333333333334,17212.0
+T1_array_to_array,memory cd4 t cells,4,0.9926045197806425,1.0,38397.0
+T1_array_to_array,monocytes,11,0.9962641475418405,1.0,10185.0
+T1_array_to_array,naive b cells,4,0.9865212767084052,1.0,15358.0
+T1_array_to_array,naive cd4 t cells,5,0.9887992257679115,1.0,20362.0
+T1_array_to_array,naive cd8 t cells,5,0.9945241190618284,1.0,21552.0
+T1_array_to_array,neutrophils,12,0.9959341180661695,1.0,8199.0
+T1_array_to_array,nk cells,10,0.996495843210038,1.0,8912.5
+T1_array_to_array,pancreatic acinar,2,0.996317451765663,1.0,38518.0
+T1_array_to_array,pancreatic beta,4,0.9909255006274985,1.0,15124.5
+T1_array_to_array,pancreatic duct,2,0.9811065018657577,0.5,28220.5
+T1_array_to_array,regulatory t cells,3,1.000068524790301,1.0,66913.0
+T1_array_to_array,vascular endothelium,2,0.9912127572839649,1.0,57628.5
+T2_loyfer_linear_to_array,adipocytes,3,0.9285456936257078,0.0,9654.0
+T2_loyfer_linear_to_array,b cells,6,0.8881717927567689,0.3333333333333333,4711.0
+T2_loyfer_linear_to_array,cd4 t cells,5,1.006985896560108,0.4,5505.0
+T2_loyfer_linear_to_array,cd8 t cells,6,0.8649476581959525,0.16666666666666666,3918.0
+T2_loyfer_linear_to_array,colon epithelium,3,0.8457042827411626,0.3333333333333333,537.0
+T2_loyfer_linear_to_array,cortical neurons,1,,0.0,8.0
+T2_loyfer_linear_to_array,effector memory cd8 t cells,4,0.8703625059883116,0.0,68270.0
+T2_loyfer_linear_to_array,hepatocyte,2,0.9210179317028322,0.0,223.0
+T2_loyfer_linear_to_array,lung alveolar epithelium,3,0.8744068027204411,0.0,6317.0
+T2_loyfer_linear_to_array,memory b cells,6,0.9580225854204211,0.5,17219.0
+T2_loyfer_linear_to_array,monocytes,11,0.9316321121073973,0.09090909090909091,3086.0
+T2_loyfer_linear_to_array,naive cd4 t cells,5,0.925531270715127,0.0,28559.0
+T2_loyfer_linear_to_array,naive cd8 t cells,5,0.9530552473745896,0.6,26404.0
+T2_loyfer_linear_to_array,nk cells,10,0.9375579389823472,0.3,2835.0
+T2_loyfer_linear_to_array,pancreatic acinar,2,0.8959717026477154,0.0,2802.0
+T2_loyfer_linear_to_array,pancreatic beta,4,1.0454372120155393,0.5,5235.0
+T2_loyfer_linear_to_array,pancreatic duct,2,0.88860421193269,0.0,1552.0
+T3_loyfer_perlocus_to_array,adipocytes,3,0.924047897015221,0.0,11573.0
+T3_loyfer_perlocus_to_array,b cells,6,0.968880065160632,0.5,6726.0
+T3_loyfer_perlocus_to_array,cd4 t cells,5,1.0586541214455767,0.4,7658.0
+T3_loyfer_perlocus_to_array,cd8 t cells,6,0.9350318052726716,0.5,5947.0
+T3_loyfer_perlocus_to_array,colon epithelium,3,0.9983242247324887,0.6666666666666666,1896.0
+T3_loyfer_perlocus_to_array,cortical neurons,1,0.8242237199383782,0.0,1111.0
+T3_loyfer_perlocus_to_array,effector memory cd8 t cells,4,0.8909285859518907,0.0,75715.0
+T3_loyfer_perlocus_to_array,hepatocyte,2,1.0071010318274456,1.0,1472.0
+T3_loyfer_perlocus_to_array,lung alveolar epithelium,3,0.9309013450802497,0.3333333333333333,8541.0
+T3_loyfer_perlocus_to_array,memory b cells,6,0.9885760880359395,0.8333333333333334,19926.0
+T3_loyfer_perlocus_to_array,monocytes,11,0.99262183098161,1.0,5318.0
+T3_loyfer_perlocus_to_array,naive cd4 t cells,5,0.9809569666531447,1.0,33853.0
+T3_loyfer_perlocus_to_array,naive cd8 t cells,5,1.0106094756183637,1.0,31408.0
+T3_loyfer_perlocus_to_array,nk cells,10,1.014158094562257,1.0,5016.0
+T3_loyfer_perlocus_to_array,pancreatic acinar,2,0.9515654432028822,0.5,4142.0
+T3_loyfer_perlocus_to_array,pancreatic beta,4,1.0487024594591219,0.5,7526.0
+T3_loyfer_perlocus_to_array,pancreatic duct,2,0.9583676590327559,0.5,3363.0
+T4_regress_lam0.02,adipocytes,3,0.9887564650175598,1.0,19064.0
+T4_regress_lam0.02,b cells,6,0.9776178753634461,0.5,11319.0
+T4_regress_lam0.02,cd4 t cells,5,1.0564466298985924,0.4,12627.0
+T4_regress_lam0.02,cd8 t cells,6,0.9586579795293839,0.5,9955.0
+T4_regress_lam0.02,colon epithelium,3,1.0185935982919265,0.6666666666666666,6865.0
+T4_regress_lam0.02,cortical neurons,1,0.765340926642394,0.0,4079.0
+T4_regress_lam0.02,effector memory cd8 t cells,4,0.9580068435203952,0.5,72246.0
+T4_regress_lam0.02,hepatocyte,2,1.019249027801508,1.0,5022.0
+T4_regress_lam0.02,lung alveolar epithelium,3,0.9780557043224413,0.6666666666666666,15417.0
+T4_regress_lam0.02,memory b cells,6,1.0470087520970823,0.5,26851.0
+T4_regress_lam0.02,monocytes,11,1.003036105123442,1.0,10465.0
+T4_regress_lam0.02,naive cd4 t cells,5,0.961682178443303,1.0,39064.0
+T4_regress_lam0.02,naive cd8 t cells,5,0.9918498222819522,1.0,36470.0
+T4_regress_lam0.02,nk cells,10,1.0163801287987888,1.0,9183.0
+T4_regress_lam0.02,pancreatic acinar,2,1.0342005941743375,1.0,11577.0
+T4_regress_lam0.02,pancreatic beta,4,1.063167492073655,0.0,14079.0
+T4_regress_lam0.02,pancreatic duct,2,0.9639975369899126,1.0,8880.0
+T4_regress_lam0.1,adipocytes,3,0.9661495550832132,0.6666666666666666,16842.0
+T4_regress_lam0.1,b cells,6,0.9750241717253996,0.5,9705.0
+T4_regress_lam0.1,cd4 t cells,5,1.059714778804566,0.4,10996.0
+T4_regress_lam0.1,cd8 t cells,6,0.9502474893476895,0.5,8417.0
+T4_regress_lam0.1,colon epithelium,3,0.9940443658492124,1.0,4008.0
+T4_regress_lam0.1,cortical neurons,1,0.7757924707573024,0.0,2499.0
+T4_regress_lam0.1,effector memory cd8 t cells,4,0.9275116283294547,0.25,78572.0
+T4_regress_lam0.1,hepatocyte,2,1.0121749318635174,1.0,3007.0
+T4_regress_lam0.1,lung alveolar epithelium,3,0.9538804251826981,0.6666666666666666,12555.0
+T4_regress_lam0.1,memory b cells,6,1.0294250760019996,0.6666666666666666,25462.0
+T4_regress_lam0.1,monocytes,11,0.9895639108126327,1.0,8358.0
+T4_regress_lam0.1,naive cd4 t cells,5,0.9652434859098129,1.0,38238.0
+T4_regress_lam0.1,naive cd8 t cells,5,0.9954102910030473,1.0,35719.0
+T4_regress_lam0.1,nk cells,10,1.0123037437056452,1.0,7630.0
+T4_regress_lam0.1,pancreatic acinar,2,0.992436228204832,1.0,8096.0
+T4_regress_lam0.1,pancreatic beta,4,1.0634800376237508,0.0,11294.0
+T4_regress_lam0.1,pancreatic duct,2,0.9605190693201406,1.0,6217.0
+T4_regress_lam0.5,adipocytes,3,0.9450755099902574,0.3333333333333333,13710.0
+T4_regress_lam0.5,b cells,6,0.9759645663194285,0.5,7979.0
+T4_regress_lam0.5,cd4 t cells,5,1.0643814013966102,0.4,9094.0
+T4_regress_lam0.5,cd8 t cells,6,0.9462064741231,0.5,6956.0
+T4_regress_lam0.5,colon epithelium,3,1.004848499044881,1.0,2471.0
+T4_regress_lam0.5,cortical neurons,1,0.8072297738503571,0.0,1575.0
+T4_regress_lam0.5,effector memory cd8 t cells,4,0.9056263445797442,0.0,77414.0
+T4_regress_lam0.5,hepatocyte,2,1.0183858443285605,1.0,1827.0
+T4_regress_lam0.5,lung alveolar epithelium,3,0.9444592067950832,0.3333333333333333,10052.0
+T4_regress_lam0.5,memory b cells,6,1.0091459524956237,0.5,22229.0
+T4_regress_lam0.5,monocytes,11,0.9958658597506855,1.0,6500.0
+T4_regress_lam0.5,naive cd4 t cells,5,0.9728769906245294,1.0,36612.0
+T4_regress_lam0.5,naive cd8 t cells,5,1.0015924424176836,1.0,34074.0
+T4_regress_lam0.5,nk cells,10,1.0155326468079484,1.0,6032.0
+T4_regress_lam0.5,pancreatic acinar,2,0.9710221485689685,1.0,5386.0
+T4_regress_lam0.5,pancreatic beta,4,1.061323709283013,0.25,8921.0
+T4_regress_lam0.5,pancreatic duct,2,0.9705664391294668,1.0,4315.0
+T5_kernel_bw0.05,adipocytes,3,0.9834861547271051,0.6666666666666666,16659.0
+T5_kernel_bw0.05,b cells,6,0.9823828379989457,0.5,11649.0
+T5_kernel_bw0.05,cd4 t cells,5,1.062890384268299,0.4,13070.0
+T5_kernel_bw0.05,cd8 t cells,6,0.9556485090309254,0.5,10731.0
+T5_kernel_bw0.05,colon epithelium,3,0.9798463426161396,0.6666666666666666,4658.0
+T5_kernel_bw0.05,cortical neurons,1,0.7474999023636951,0.0,3028.0
+T5_kernel_bw0.05,effector memory cd8 t cells,4,0.9661047411007134,0.75,69788.0
+T5_kernel_bw0.05,hepatocyte,2,1.009816861240213,1.0,3818.0
+T5_kernel_bw0.05,lung alveolar epithelium,3,0.9683843876420475,0.6666666666666666,12674.0
+T5_kernel_bw0.05,memory b cells,6,1.053939065583596,0.5,24987.0
+T5_kernel_bw0.05,monocytes,11,0.9869904941402237,1.0,9826.0
+T5_kernel_bw0.05,naive cd4 t cells,5,0.9600482008204215,1.0,38134.0
+T5_kernel_bw0.05,naive cd8 t cells,5,0.9887358973009736,1.0,35607.0
+T5_kernel_bw0.05,nk cells,10,1.0151334201452396,1.0,9507.0
+T5_kernel_bw0.05,pancreatic acinar,2,1.0134278521671012,1.0,8359.0
+T5_kernel_bw0.05,pancreatic beta,4,1.0761542703333653,0.0,11385.0
+T5_kernel_bw0.05,pancreatic duct,2,0.9612662048751166,1.0,7150.0
+T5_kernel_bw0.1,adipocytes,3,0.9775826014291368,0.6666666666666666,17313.0
+T5_kernel_bw0.1,b cells,6,0.9734847516771,0.5,10144.0
+T5_kernel_bw0.1,cd4 t cells,5,1.0640473004895783,0.4,11289.0
+T5_kernel_bw0.1,cd8 t cells,6,0.9365262355842907,0.3333333333333333,9203.0
+T5_kernel_bw0.1,colon epithelium,3,0.9834488098773986,0.6666666666666666,3653.0
+T5_kernel_bw0.1,cortical neurons,1,0.7748284151033414,0.0,1952.0
+T5_kernel_bw0.1,effector memory cd8 t cells,4,0.9338727960251705,0.25,78876.0
+T5_kernel_bw0.1,hepatocyte,2,1.0131722193198685,1.0,2851.0
+T5_kernel_bw0.1,lung alveolar epithelium,3,0.9515752224300564,0.6666666666666666,12556.0
+T5_kernel_bw0.1,memory b cells,6,1.0367842767234947,0.5,26327.0
+T5_kernel_bw0.1,monocytes,11,0.9883234565470626,1.0,8192.0
+T5_kernel_bw0.1,naive cd4 t cells,5,0.9650090878588706,1.0,38378.0
+T5_kernel_bw0.1,naive cd8 t cells,5,0.9935711232798029,1.0,35523.0
+T5_kernel_bw0.1,nk cells,10,1.0132676300613905,1.0,7676.0
+T5_kernel_bw0.1,pancreatic acinar,2,0.9909598233786867,1.0,8318.0
+T5_kernel_bw0.1,pancreatic beta,4,1.0708833954705597,0.0,11003.0
+T5_kernel_bw0.1,pancreatic duct,2,0.9593380215729024,0.5,6030.0
+T5_kernel_bw0.2,adipocytes,3,0.9398633572501073,0.0,15329.0
+T5_kernel_bw0.2,b cells,6,0.9620392538327982,0.3333333333333333,8532.0
+T5_kernel_bw0.2,cd4 t cells,5,1.0607216444472127,0.4,9569.0
+T5_kernel_bw0.2,cd8 t cells,6,0.9300938530663614,0.3333333333333333,7257.0
+T5_kernel_bw0.2,colon epithelium,3,0.9942461487841094,0.6666666666666666,2719.0
+T5_kernel_bw0.2,cortical neurons,1,0.8064617110544345,0.0,1428.0
+T5_kernel_bw0.2,effector memory cd8 t cells,4,0.9001271917912534,0.0,80131.0
+T5_kernel_bw0.2,hepatocyte,2,1.0118120975711002,1.0,1926.0
+T5_kernel_bw0.2,lung alveolar epithelium,3,0.9305333888772439,0.3333333333333333,10963.0
+T5_kernel_bw0.2,memory b cells,6,1.0009149910713628,0.5,23798.0
+T5_kernel_bw0.2,monocytes,11,0.9878405554939741,1.0,6651.0
+T5_kernel_bw0.2,naive cd4 t cells,5,0.9682098845882877,1.0,37630.0
+T5_kernel_bw0.2,naive cd8 t cells,5,0.9978542716833891,1.0,34766.0
+T5_kernel_bw0.2,nk cells,10,1.0073102584860778,1.0,6203.0
+T5_kernel_bw0.2,pancreatic acinar,2,0.9540063516906472,0.5,6103.0
+T5_kernel_bw0.2,pancreatic beta,4,1.055622545729593,0.5,9650.0
+T5_kernel_bw0.2,pancreatic duct,2,0.9553967716212659,1.0,4739.0

@@ -668,3 +668,6 @@ The author's 09-30 copy holds channel_cells_genomewide.csv; committed to doors/d
 
 ### 2026-10-10 · DEV-COMPOSITION-TRUTH-03 read: undecided (truth not precise enough)
 atlas_e vs the GSE224807 lab-template truth: 450K MAE 0.041 (23/30 within 0.05), EPIC 0.076 (Stage A 0.071, agreeing with atlas_e). Truth unstable to site choice (up to 0.048), whole blood fits the six templates with RMS 0.064, sorted CD14 carries 0.175 granulocyte signal. Neither passes nor fails bars 1-2; counted-cell truth still needed. Scripts doors/data/DEV_COMPOSITION_TRUTH_03.
+
+### 2026-10-10 · 39 outputs from the author's 09-30 copy committed
+Placed beside their notes (11 notes) or in doors/data/RECOVERED_2026-09-30/ with a README of producing time and sha256. Outputs only: backlog rows stay open until each script is recovered and reproduces its file.

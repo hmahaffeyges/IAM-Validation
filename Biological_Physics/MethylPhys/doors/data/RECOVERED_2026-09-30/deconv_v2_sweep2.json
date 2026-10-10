@@ -1,0 +1,812 @@
+[
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "pairwise",
+   "margin": 0.2,
+   "pair_margin": 0.15,
+   "per_pair": 80,
+   "k_near": 6,
+   "top": 200,
+   "sigma": 0.02
+  },
+  "n_markers": 13036,
+  "mae": {
+   "CD4": 0.0131,
+   "CD8": 0.0124,
+   "NK": 0.01,
+   "B": 0.0079,
+   "Mono": 0.0077,
+   "Neu": 0.0249,
+   "Eos": 0.0487,
+   "Baso": 0.0136
+  },
+  "bias": {
+   "CD4": 0.0022,
+   "CD8": -0.007,
+   "Neu": -0.0057
+  },
+  "non_blood_med": 0.025,
+  "s": 75
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "pairwise",
+   "margin": 0.2,
+   "pair_margin": 0.15,
+   "per_pair": 40,
+   "k_near": 10,
+   "top": 200,
+   "sigma": 0.02
+  },
+  "n_markers": 9522,
+  "mae": {
+   "CD4": 0.0126,
+   "CD8": 0.0131,
+   "NK": 0.0114,
+   "B": 0.0082,
+   "Mono": 0.0091,
+   "Neu": 0.0254,
+   "Eos": 0.0469,
+   "Baso": 0.0108
+  },
+  "bias": {
+   "CD4": 0.0036,
+   "CD8": -0.0091,
+   "Neu": -0.0049
+  },
+  "non_blood_med": 0.0249,
+  "s": 82
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "pairwise",
+   "margin": 0.2,
+   "pair_margin": 0.15,
+   "per_pair": 80,
+   "k_near": 10,
+   "top": 200,
+   "sigma": 0.02
+  },
+  "n_markers": 16464,
+  "mae": {
+   "CD4": 0.0135,
+   "CD8": 0.0125,
+   "NK": 0.0117,
+   "B": 0.0083,
+   "Mono": 0.0081,
+   "Neu": 0.0241,
+   "Eos": 0.0452,
+   "Baso": 0.012
+  },
+  "bias": {
+   "CD4": 0.0018,
+   "CD8": -0.0078,
+   "Neu": -0.0062
+  },
+  "non_blood_med": 0.0238,
+  "s": 32
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "hybrid",
+   "margin": 0.1,
+   "pair_margin": 0.15,
+   "per_pair": 80,
+   "k_near": 6,
+   "top": 400,
+   "sigma": 0.05
+  },
+  "n_markers": 31003,
+  "mae": {
+   "CD4": 0.014,
+   "CD8": 0.0133,
+   "NK": 0.0074,
+   "B": 0.0084,
+   "Mono": 0.0137,
+   "Neu": 0.0267,
+   "Eos": 0.0431,
+   "Baso": 0.0096
+  },
+  "bias": {
+   "CD4": -0.0027,
+   "CD8": 0.0019,
+   "Neu": 0.005
+  },
+  "non_blood_med": 0.0179,
+  "s": 52
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "hybrid",
+   "margin": 0.1,
+   "pair_margin": 0.15,
+   "per_pair": 60,
+   "k_near": 8,
+   "top": 600,
+   "sigma": 0.02
+  },
+  "n_markers": 36710,
+  "mae": {
+   "CD4": 0.014,
+   "CD8": 0.012,
+   "NK": 0.0087,
+   "B": 0.0083,
+   "Mono": 0.0116,
+   "Neu": 0.023,
+   "Eos": 0.0388,
+   "Baso": 0.0084
+  },
+  "bias": {
+   "CD4": -0.0013,
+   "CD8": 0.0019,
+   "Neu": 0.0015
+  },
+  "non_blood_med": 0.0166,
+  "s": 139
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "hybrid",
+   "margin": 0.1,
+   "pair_margin": 0.15,
+   "per_pair": 60,
+   "k_near": 8,
+   "top": 600,
+   "sigma": 0.05
+  },
+  "n_markers": 36710,
+  "mae": {
+   "CD4": 0.014,
+   "CD8": 0.013,
+   "NK": 0.0076,
+   "B": 0.009,
+   "Mono": 0.0139,
+   "Neu": 0.025,
+   "Eos": 0.0397,
+   "Baso": 0.0088
+  },
+  "bias": {
+   "CD4": -0.0021,
+   "CD8": 0.0016,
+   "Neu": 0.0046
+  },
+  "non_blood_med": 0.0167,
+  "s": 139
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "hybrid",
+   "margin": 0.1,
+   "pair_margin": 0.15,
+   "per_pair": 80,
+   "k_near": 6,
+   "top": 400,
+   "sigma": 0.02
+  },
+  "n_markers": 31003,
+  "mae": {
+   "CD4": 0.0141,
+   "CD8": 0.012,
+   "NK": 0.0083,
+   "B": 0.0078,
+   "Mono": 0.0113,
+   "Neu": 0.0245,
+   "Eos": 0.0422,
+   "Baso": 0.0092
+  },
+  "bias": {
+   "CD4": -0.0025,
+   "CD8": 0.0025,
+   "Neu": 0.0018
+  },
+  "non_blood_med": 0.018,
+  "s": 67
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "hybrid",
+   "margin": 0.1,
+   "pair_margin": 0.15,
+   "per_pair": 40,
+   "k_near": 6,
+   "top": 400,
+   "sigma": 0.02
+  },
+  "n_markers": 25896,
+  "mae": {
+   "CD4": 0.0142,
+   "CD8": 0.0128,
+   "NK": 0.0085,
+   "B": 0.0076,
+   "Mono": 0.0114,
+   "Neu": 0.0245,
+   "Eos": 0.0392,
+   "Baso": 0.008
+  },
+  "bias": {
+   "CD4": -0.003,
+   "CD8": 0.0024,
+   "Neu": 0.0038
+  },
+  "non_blood_med": 0.0172,
+  "s": 95
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "hybrid",
+   "margin": 0.1,
+   "pair_margin": 0.15,
+   "per_pair": 80,
+   "k_near": 6,
+   "top": 400,
+   "sigma": 0.035
+  },
+  "n_markers": 31003,
+  "mae": {
+   "CD4": 0.0143,
+   "CD8": 0.0127,
+   "NK": 0.0077,
+   "B": 0.0081,
+   "Mono": 0.0127,
+   "Neu": 0.0258,
+   "Eos": 0.0429,
+   "Baso": 0.0095
+  },
+  "bias": {
+   "CD4": -0.0029,
+   "CD8": 0.0024,
+   "Neu": 0.0039
+  },
+  "non_blood_med": 0.0182,
+  "s": 134
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "hybrid",
+   "margin": 0.1,
+   "pair_margin": 0.15,
+   "per_pair": 60,
+   "k_near": 8,
+   "top": 600,
+   "sigma": 0.035
+  },
+  "n_markers": 36710,
+  "mae": {
+   "CD4": 0.0143,
+   "CD8": 0.0126,
+   "NK": 0.0079,
+   "B": 0.0088,
+   "Mono": 0.013,
+   "Neu": 0.0243,
+   "Eos": 0.0395,
+   "Baso": 0.0087
+  },
+  "bias": {
+   "CD4": -0.0021,
+   "CD8": 0.0019,
+   "Neu": 0.0035
+  },
+  "non_blood_med": 0.0166,
+  "s": 139
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "hybrid",
+   "margin": 0.1,
+   "pair_margin": 0.15,
+   "per_pair": 40,
+   "k_near": 6,
+   "top": 400,
+   "sigma": 0.05
+  },
+  "n_markers": 25896,
+  "mae": {
+   "CD4": 0.0144,
+   "CD8": 0.0139,
+   "NK": 0.0072,
+   "B": 0.0082,
+   "Mono": 0.0141,
+   "Neu": 0.0268,
+   "Eos": 0.0398,
+   "Baso": 0.0085
+  },
+  "bias": {
+   "CD4": -0.0029,
+   "CD8": 0.0015,
+   "Neu": 0.007
+  },
+  "non_blood_med": 0.0175,
+  "s": 94
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "hybrid",
+   "margin": 0.1,
+   "pair_margin": 0.15,
+   "per_pair": 40,
+   "k_near": 10,
+   "top": 400,
+   "sigma": 0.05
+  },
+  "n_markers": 27928,
+  "mae": {
+   "CD4": 0.0144,
+   "CD8": 0.0127,
+   "NK": 0.0078,
+   "B": 0.0089,
+   "Mono": 0.0152,
+   "Neu": 0.0273,
+   "Eos": 0.0413,
+   "Baso": 0.0091
+  },
+  "bias": {
+   "CD4": -0.0033,
+   "CD8": 0.0018,
+   "Neu": 0.0067
+  },
+  "non_blood_med": 0.0177,
+  "s": 71
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "pairwise",
+   "margin": 0.2,
+   "pair_margin": 0.15,
+   "per_pair": 80,
+   "k_near": 6,
+   "top": 200,
+   "sigma": 0.035
+  },
+  "n_markers": 13036,
+  "mae": {
+   "CD4": 0.013,
+   "CD8": 0.0144,
+   "NK": 0.0097,
+   "B": 0.0082,
+   "Mono": 0.0096,
+   "Neu": 0.0261,
+   "Eos": 0.0494,
+   "Baso": 0.0136
+  },
+  "bias": {
+   "CD4": 0.0019,
+   "CD8": -0.0072,
+   "Neu": -0.0033
+  },
+  "non_blood_med": 0.025,
+  "s": 53
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "pairwise",
+   "margin": 0.2,
+   "pair_margin": 0.15,
+   "per_pair": 80,
+   "k_near": 10,
+   "top": 200,
+   "sigma": 0.035
+  },
+  "n_markers": 16464,
+  "mae": {
+   "CD4": 0.0134,
+   "CD8": 0.0144,
+   "NK": 0.0113,
+   "B": 0.0087,
+   "Mono": 0.0097,
+   "Neu": 0.0252,
+   "Eos": 0.0459,
+   "Baso": 0.0122
+  },
+  "bias": {
+   "CD4": 0.0018,
+   "CD8": -0.0084,
+   "Neu": -0.0039
+  },
+  "non_blood_med": 0.0246,
+  "s": 40
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "hybrid",
+   "margin": 0.1,
+   "pair_margin": 0.15,
+   "per_pair": 40,
+   "k_near": 10,
+   "top": 400,
+   "sigma": 0.02
+  },
+  "n_markers": 27928,
+  "mae": {
+   "CD4": 0.0145,
+   "CD8": 0.0118,
+   "NK": 0.0088,
+   "B": 0.0083,
+   "Mono": 0.0126,
+   "Neu": 0.0249,
+   "Eos": 0.0404,
+   "Baso": 0.0084
+  },
+  "bias": {
+   "CD4": -0.0038,
+   "CD8": 0.0034,
+   "Neu": 0.0033
+  },
+  "non_blood_med": 0.0172,
+  "s": 55
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "hybrid",
+   "margin": 0.1,
+   "pair_margin": 0.15,
+   "per_pair": 40,
+   "k_near": 6,
+   "top": 400,
+   "sigma": 0.035
+  },
+  "n_markers": 25896,
+  "mae": {
+   "CD4": 0.0146,
+   "CD8": 0.0134,
+   "NK": 0.0076,
+   "B": 0.0079,
+   "Mono": 0.013,
+   "Neu": 0.026,
+   "Eos": 0.0397,
+   "Baso": 0.0084
+  },
+  "bias": {
+   "CD4": -0.0033,
+   "CD8": 0.0021,
+   "Neu": 0.0059
+  },
+  "non_blood_med": 0.0178,
+  "s": 95
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "hybrid",
+   "margin": 0.1,
+   "pair_margin": 0.15,
+   "per_pair": 40,
+   "k_near": 10,
+   "top": 400,
+   "sigma": 0.035
+  },
+  "n_markers": 27928,
+  "mae": {
+   "CD4": 0.0147,
+   "CD8": 0.0122,
+   "NK": 0.0081,
+   "B": 0.0087,
+   "Mono": 0.0142,
+   "Neu": 0.0264,
+   "Eos": 0.0411,
+   "Baso": 0.0089
+  },
+  "bias": {
+   "CD4": -0.0038,
+   "CD8": 0.0026,
+   "Neu": 0.0055
+  },
+  "non_blood_med": 0.0176,
+  "s": 99
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "pairwise",
+   "margin": 0.2,
+   "pair_margin": 0.15,
+   "per_pair": 40,
+   "k_near": 10,
+   "top": 200,
+   "sigma": 0.035
+  },
+  "n_markers": 9522,
+  "mae": {
+   "CD4": 0.0124,
+   "CD8": 0.015,
+   "NK": 0.0111,
+   "B": 0.0085,
+   "Mono": 0.0108,
+   "Neu": 0.0264,
+   "Eos": 0.0476,
+   "Baso": 0.0112
+  },
+  "bias": {
+   "CD4": 0.004,
+   "CD8": -0.0101,
+   "Neu": -0.0024
+  },
+  "non_blood_med": 0.0254,
+  "s": 31
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "pairwise",
+   "margin": 0.2,
+   "pair_margin": 0.15,
+   "per_pair": 80,
+   "k_near": 6,
+   "top": 200,
+   "sigma": 0.05
+  },
+  "n_markers": 13036,
+  "mae": {
+   "CD4": 0.0132,
+   "CD8": 0.0159,
+   "NK": 0.0096,
+   "B": 0.0085,
+   "Mono": 0.0111,
+   "Neu": 0.027,
+   "Eos": 0.0499,
+   "Baso": 0.0135
+  },
+  "bias": {
+   "CD4": 0.0022,
+   "CD8": -0.0075,
+   "Neu": -0.0016
+  },
+  "non_blood_med": 0.0252,
+  "s": 75
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "pairwise",
+   "margin": 0.2,
+   "pair_margin": 0.15,
+   "per_pair": 80,
+   "k_near": 10,
+   "top": 200,
+   "sigma": 0.05
+  },
+  "n_markers": 16464,
+  "mae": {
+   "CD4": 0.0135,
+   "CD8": 0.016,
+   "NK": 0.0111,
+   "B": 0.009,
+   "Mono": 0.0111,
+   "Neu": 0.026,
+   "Eos": 0.0462,
+   "Baso": 0.0122
+  },
+  "bias": {
+   "CD4": 0.0022,
+   "CD8": -0.009,
+   "Neu": -0.0024
+  },
+  "non_blood_med": 0.0244,
+  "s": 40
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "pairwise",
+   "margin": 0.2,
+   "pair_margin": 0.15,
+   "per_pair": 40,
+   "k_near": 10,
+   "top": 200,
+   "sigma": 0.05
+  },
+  "n_markers": 9522,
+  "mae": {
+   "CD4": 0.0124,
+   "CD8": 0.0167,
+   "NK": 0.0111,
+   "B": 0.0088,
+   "Mono": 0.0122,
+   "Neu": 0.0273,
+   "Eos": 0.0482,
+   "Baso": 0.0115
+  },
+  "bias": {
+   "CD4": 0.0047,
+   "CD8": -0.0109,
+   "Neu": -0.0006
+  },
+  "non_blood_med": 0.0253,
+  "s": 55
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "nearest",
+   "margin": 0.1,
+   "pair_margin": 0.15,
+   "per_pair": 40,
+   "k_near": 6,
+   "top": 600,
+   "sigma": 0.05
+  },
+  "n_markers": 26500,
+  "mae": {
+   "CD4": 0.0168,
+   "CD8": 0.0166,
+   "NK": 0.0053,
+   "B": 0.0084,
+   "Mono": 0.0074,
+   "Neu": 0.0201,
+   "Eos": 0.0306,
+   "Baso": 0.0065
+  },
+  "bias": {
+   "CD4": -0.0094,
+   "CD8": 0.0092,
+   "Neu": 0.0029
+  },
+  "non_blood_med": 0.0108,
+  "s": 58
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "nearest",
+   "margin": 0.1,
+   "pair_margin": 0.15,
+   "per_pair": 40,
+   "k_near": 6,
+   "top": 600,
+   "sigma": 0.035
+  },
+  "n_markers": 26500,
+  "mae": {
+   "CD4": 0.0175,
+   "CD8": 0.0167,
+   "NK": 0.0055,
+   "B": 0.0085,
+   "Mono": 0.007,
+   "Neu": 0.0199,
+   "Eos": 0.0306,
+   "Baso": 0.0066
+  },
+  "bias": {
+   "CD4": -0.0091,
+   "CD8": 0.0091,
+   "Neu": 0.0026
+  },
+  "non_blood_med": 0.0098,
+  "s": 61
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "nearest",
+   "margin": 0.1,
+   "pair_margin": 0.15,
+   "per_pair": 40,
+   "k_near": 6,
+   "top": 600,
+   "sigma": 0.02
+  },
+  "n_markers": 26500,
+  "mae": {
+   "CD4": 0.018,
+   "CD8": 0.0164,
+   "NK": 0.0061,
+   "B": 0.0085,
+   "Mono": 0.006,
+   "Neu": 0.019,
+   "Eos": 0.0301,
+   "Baso": 0.0063
+  },
+  "bias": {
+   "CD4": -0.0078,
+   "CD8": 0.0082,
+   "Neu": 0.0016
+  },
+  "non_blood_med": 0.0092,
+  "s": 61
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "nearest",
+   "margin": 0.08,
+   "pair_margin": 0.15,
+   "per_pair": 40,
+   "k_near": 6,
+   "top": 600,
+   "sigma": 0.02
+  },
+  "n_markers": 29858,
+  "mae": {
+   "CD4": 0.018,
+   "CD8": 0.0158,
+   "NK": 0.0063,
+   "B": 0.0074,
+   "Mono": 0.0072,
+   "Neu": 0.0224,
+   "Eos": 0.0321,
+   "Baso": 0.0061
+  },
+  "bias": {
+   "CD4": -0.008,
+   "CD8": 0.0093,
+   "Neu": 0.0037
+  },
+  "non_blood_med": 0.0111,
+  "s": 25
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "nearest",
+   "margin": 0.08,
+   "pair_margin": 0.15,
+   "per_pair": 40,
+   "k_near": 6,
+   "top": 600,
+   "sigma": 0.05
+  },
+  "n_markers": 29858,
+  "mae": {
+   "CD4": 0.0182,
+   "CD8": 0.0163,
+   "NK": 0.0056,
+   "B": 0.0077,
+   "Mono": 0.0086,
+   "Neu": 0.0234,
+   "Eos": 0.0326,
+   "Baso": 0.0064
+  },
+  "bias": {
+   "CD4": -0.0107,
+   "CD8": 0.0108,
+   "Neu": 0.0052
+  },
+  "non_blood_med": 0.0132,
+  "s": 27
+ },
+ {
+  "cfg": {
+   "drop": [],
+   "markers": "nearest",
+   "margin": 0.08,
+   "pair_margin": 0.15,
+   "per_pair": 40,
+   "k_near": 6,
+   "top": 600,
+   "sigma": 0.035
+  },
+  "n_markers": 29858,
+  "mae": {
+   "CD4": 0.0184,
+   "CD8": 0.0162,
+   "NK": 0.0057,
+   "B": 0.0075,
+   "Mono": 0.0081,
+   "Neu": 0.0233,
+   "Eos": 0.0326,
+   "Baso": 0.0064
+  },
+  "bias": {
+   "CD4": -0.0098,
+   "CD8": 0.0103,
+   "Neu": 0.0048
+  },
+  "non_blood_med": 0.0125,
+  "s": 25
+ }
+]

@@ -1,0 +1,59 @@
+track,accession,source,gb,raw_idat,use
+A_blood_immune,GSE42861,GEO,12.33,yes,"RA whole blood 450K - immune disease, 689 arrays"
+A_blood_immune,GSE111629,GEO,10.2,yes,Parkinson's whole blood 450K
+A_blood_immune,GSE51032,GEO,14.52,yes,"EPIC-Italy pre-diagnosis cancer, 845 arrays (PREDX-SEQUENCE, breast shedding)"
+A_blood_immune,GSE125105,GEO,12.2,yes,"Munich depression 450K (low-signal lab, intake)"
+A_blood_immune,GSE51057,GEO,5.98,yes,EPIC-Italy/NOWAC 450K
+A_blood_immune,GSE87640,GEO,4.45,yes,IBD whole blood 450K
+A_blood_immune,GSE167202,GEO,15.8,yes,"COVID-19 whole blood EPIC, infection + outcome"
+A_blood_immune,GSE159907,GEO,9.76,yes,AML EPIC (BLOODCANCER-01)
+A_blood_immune,GSE136724,GEO,1.63,yes,CLL 450K
+A_blood_immune,GSE237299,GEO,26.33,yes,"hematolymphoid neoplasm classifier, 989 arrays"
+A_blood_immune,GSE315451,GEO,4.08,yes,MDS / CML blood EPIC
+A_blood_immune,GSE315367,GEO,1.68,yes,longitudinal AML blood EPIC (serial mode)
+A_blood_immune,GSE315366,GEO,2.2,yes,cardiogenic shock blood EPIC
+A_blood_immune,GSE295456,GEO,7.34,yes,"CLL EPIC, 245"
+A_blood_immune,GSE175758,GEO,2.66,yes,AML sorted blasts before/after treatment (serial)
+A_blood_immune,GSE289742,GEO,4.1,yes,COPD / respiratory blood EPIC
+A_blood_immune,GSE287261,GEO,2.35,yes,PTSD longitudinal ketamine EPICv2 (serial)
+A_blood_immune,GSE304107,GEO,0.93,yes,"prior TB in HIV, EPICv2"
+B_cfDNA_plasma,GSE122126,GEO,3.55,yes,Moss cfDNA arrays (plasma + cells)
+B_cfDNA_plasma,GSE292312,GEO,2.96,yes,pediatric brain tumour cfDNA EPIC
+B_cfDNA_plasma,GSE119260,GEO,0.8,yes,prostate cancer liquid biopsy EPIC
+B_cfDNA_plasma,GSE298812,GEO,7.53,yes,"HCC cfDNA EPIC, 245"
+B_cfDNA_plasma,GSE277078,GEO,5.59,yes,"NSCLC plasma cfDNA EPIC, 185"
+B_cfDNA_plasma,GSE311578,GEO,2.42,yes,Alzheimer's liquid biopsy EPIC
+B_cfDNA_plasma,GSE287137,GEO,1.3,yes,pediatric ARDS cfDNA tissue injury
+B_cfDNA_plasma,GSE207998,GEO,3.74,yes,TNBC liquid biopsy
+B_cfDNA_plasma,GSE282216,GEO,1.12,yes,MPNST plasma cfDNA 450K
+B_cfDNA_plasma,GSE325660,GEO,0.51,yes,"plasma cfDNA vs blood gDNA, same patients"
+B_cfDNA_plasma,GSE303824,GEO,2.15,yes,germ cell tumour liquid biopsy EPIC
+B_cfDNA_plasma,GSE303825,GEO,1.31,yes,germ cell tumour 450K
+B_cfDNA_plasma,GSE303826,GEO,0.84,yes,germ cell tumour EPIC validation
+B_cfDNA_plasma,GSE262273,GEO,23.06,no,liver-transplant plasma cfDNA WGBS (Loyfer .beta format)
+B_cfDNA_plasma,GSE262274,GEO,3.38,no,liver-transplant cfDNA (Loyfer format)
+B_cfDNA_plasma,GSE302507,GEO,18.02,no,endothelial/erythropoiesis cfDNA WGBS (.beta)
+B_cfDNA_plasma,GSE275017,GEO,2.4,no,kidney-transplant plasma cfDNA
+C_tissue_tests,GSE131013,GEO,4.49,yes,colon healthy / adjacent / tumour cells 450K
+C_tissue_tests,GSE132804,GEO,8.96,yes,normal colon ageing + CRC risk
+C_tissue_tests,GSE199057,GEO,7.16,yes,normal mucosa of CRC patients EPIC
+C_tissue_tests,GSE142257,GEO,3.66,yes,aspirin + colon drift
+C_tissue_tests,GSE288652,GEO,1.28,yes,colon adenoma low/high grade
+C_tissue_tests,GSE166212,GEO,1.74,yes,CRC EPIC
+C_tissue_tests,GSE69914,GEO,4.84,no,breast normal / adjacent / cancer (processed)
+C_tissue_tests,GSE304513,GEO,1.06,yes,liver tissue MASLD 450K
+C_tissue_tests,GSE154946,GEO,1.01,yes,muscle tissue + myoblasts 450K
+D_ageing,GSE280465,GEO,3.5,yes,cross-tissue ageing EPICv2 IDATs
+D_ageing,GSE55763,GEO,15.58,yes,"LOLIPOP 2,711 whole blood (intensities + 36 replicate pairs)"
+D_ageing,GSE40279,GEO,7.48,yes,Hannum ageing 656 (processed)
+D_ageing,GSE157131,GEO,8.87,yes,"GENOA ageing 1,218 (raw intensities)"
+E_dog_animal,GSE307447,GEO,0.09,yes,Korean dogs mammalian array IDATs
+E_dog_animal,GSE316492,GEO,0.49,yes,dog mammary tumour blood EPICv2 IDATs
+E_dog_animal,GSE146920,GEO,0.05,no,"dog-to-human ageing (Labrador, capture)"
+E_dog_animal,GSE173330,GEO,0.85,yes,toothed whale / dolphin mammalian array IDATs
+E_dog_animal,GSE223748,GEO,23.59,yes,"Mammalian Methylation Consortium, 15,043 arrays, 348 species"
+F_salmonid,GSE145887,GEO,0.94,no,Methow steelhead hatchery vs wild RBC + sperm (MeDIP results)
+F_salmonid,GSE62195,GEO,0.01,no,rainbow trout migration methylation
+F_salmonid,GSE269087,GEO,0.07,no,rainbow trout offspring
+F_salmonid,GSE153343,GEO,0.0,no,Atlantic salmon heat/hypoxia
+F_salmonid,PRJNA325786,ENA/SRA,117.2,no,"Methow River steelhead RRBS, RBC + sperm, hatchery vs wild, 109 runs (raw FASTQ)"

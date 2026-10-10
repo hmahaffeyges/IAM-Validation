@@ -1,0 +1,38 @@
+cell,klass,beta_deposit,source,roadmap_id,roadmap_is,roadmap_type,roadmap_wgbs_mean,diff
+H1 ESC,stem_pluri,0.42,Lister 2009 Science,E003 (same cell line),H1 Cells,ESC,0.7862,-0.3662
+H9 ESC,stem_pluri,0.41,Lister 2009 Science,,,,,
+iPSC Yamanaka P3-5,stem_pluri,0.435,Prigione 2010 / Lister 2011,,,,,
+iPSC sendai P10,stem_pluri,0.428,Lister 2011 Nature,,,,,
+HSC CD34+ young,stem_adult,0.71,Roadmap E035,E035,Primary hematopoietic stem cells,PrimaryCell,,
+HSC CD34+ old,stem_adult,0.685,Adelman 2019 Cell Stem Cell,,,,,
+Neural stem cell NSC,stem_adult,0.72,Zheng 2016 / Roadmap E007,E007,H1 Derived Neuronal Progenitor Cultured Cells,ESCDerived,0.8262,-0.1062
+Intestinal stem LGR5+,stem_adult,0.7,Hata 2020 Nat Genet,,,,,
+Muscle satellite cell,stem_adult,0.715,Bigot 2015 Cell Reports,,,,,
+CMP myeloid progenitor,progenitor,0.72,Roadmap E029,E029,Primary monocytes from peripheral blood,PrimaryCell,,
+GMP granulocyte prog,progenitor,0.73,Roadmap E030,E030,Primary neutrophils from peripheral blood,PrimaryCell,,
+Neural progenitor NPC,progenitor,0.715,ENCODE / Lister 2013,,,,,
+Erythroid progenitor,progenitor,0.725,Roadmap E034,E034,Primary T cells from peripheral blood,PrimaryCell,,
+Cortical neuron mature,terminal,0.78,Kozlenkov 2014 Hum Mol Genet,,,,,
+Frontal cortex neuron,terminal,0.782,Lister 2013 Science,,,,,
+Cerebellum neuron,terminal,0.775,Roadmap E068,E068,Brain Anterior Caudate,PrimaryTissue,,
+Cardiomyocyte adult,terminal,0.768,Movassagh 2011 NEJM,,,,,
+Skeletal muscle type I,terminal,0.76,Roadmap E100,E100,Psoas Muscle,PrimaryTissue,0.7435,0.0165
+Colon epithelial normal,cycling,0.73,TCGA COAD matched normal / Roadmap E075,E075,Colonic Mucosa,PrimaryTissue,,
+Small intestine epith,cycling,0.725,Roadmap E085,E085,Fetal Intestine Small,PrimaryTissue,0.8423,-0.1173
+Keratinocyte basal,cycling,0.72,Roadmap E058,E058,Foreskin Keratinocyte Primary Cells skin03,PrimaryCulture,0.7242,-0.0042
+Bronchial epithelial,cycling,0.728,Roadmap E096 / ENCODE NHBE,E096,Lung,PrimaryTissue,0.7741,-0.0461
+Colon epithelial inflam,cycling,0.695,Hahn 2008 IBD methylation,,,,,
+CD4+ T naive,immune,0.73,Roadmap E043,E043,Primary T helper cells from peripheral blood,PrimaryCell,,
+CD8+ T memory,immune,0.74,Roadmap E048,E048,Primary T CD8+ memory cells from peripheral blood,PrimaryCell,,
+CD4+ T effector,immune,0.7,Roadmap E044,E044,Primary T regulatory cells from peripheral blood,PrimaryCell,,
+NK cell,immune,0.735,Roadmap E046,E046,Primary Natural Killer cells from peripheral blood,PrimaryCell,,
+B cell naive,immune,0.725,Roadmap E031,E031,Primary B cells from cord blood,PrimaryCell,,
+Neutrophil,immune,0.76,Roadmap E034,E034,Primary T cells from peripheral blood,PrimaryCell,,
+Hepatocyte primary,secretory,0.74,Roadmap E066,E066,Liver,PrimaryTissue,0.7572,-0.0172
+Hepatocyte NAFLD,secretory,0.71,Ahrens 2013 Nat Commun,,,,,
+Pancreatic beta cell,secretory,0.735,Volkmar 2012 EMBO J,,,,,
+Acinar cell pancreas,secretory,0.73,Roadmap E098,E098,Pancreas,PrimaryTissue,0.6975,0.0325
+Fibroblast IMR90 P4,stromal,0.72,Lister 2009 Science,,,,,
+Fibroblast IMR90 P16,stromal,0.695,Cruickshanks 2013 Nat Genet,,,,,
+Aortic endothelial,stromal,0.728,Roadmap E065,E065,Aorta,PrimaryTissue,0.762,-0.034
+Lung fibroblast normal,stromal,0.715,Edelman 2018 / Roadmap E056,E056,Foreskin Fibroblast Primary Cells skin02,PrimaryCulture,,

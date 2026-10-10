@@ -1,0 +1,75 @@
+cell,klass,n_loci,A_self_fitted,pooled_one_sample
+MEP (bone marrow),progenitor,11478,0.9938838672331242,False
+HSC (bone marrow),stem_adult,11591,0.9956317286958505,False
+L-MPP (bone marrow),progenitor,12079,0.9941447661533391,False
+GMP (bone marrow),progenitor,12337,0.9941009209066711,False
+MPP (bone marrow),progenitor,12798,0.994484608437071,False
+CMP (bone marrow),progenitor,13540,0.9935459463176444,False
+embryonic stem cells,stem_pluri,19317,0.9986754255244136,False
+naive b cells,immune,31794,0.9918052620227602,False
+naive cd4 t cells,immune,33030,0.9928312445988452,False
+naive cd8 t cells,immune,35368,0.9927975240992222,False
+lung interstitial macrophages,immune,37271,0.9916633269293271,False
+lung alveolar macrophages,immune,37318,0.9913773867406804,False
+eosinophils,immune,37993,0.9916177944440222,False
+monocytes,immune,38350,0.9926004938354667,False
+neutrophils,immune,39343,0.9928739945937207,False
+breast basal epithelium,cycling,39649,0.9941614776206708,False
+oligodendrocyte precursors,progenitor,40583,0.9932873188017738,True
+basophils,immune,40991,0.9911224602355655,False
+thyroid epithelium,secretory,41968,0.9926744006222334,False
+colon epithelium,cycling,42004,0.9940281558057946,False
+colon enteroendocrine,secretory,43641,0.9930015169148533,False
+fallopien tubes epithelium,cycling,43785,0.9947767947200882,False
+pancreatic duct,secretory,44281,0.9929679756802379,False
+kidney glomerular epithelium,cycling,45209,0.9945584032749124,False
+small intestine epithelium,cycling,45296,0.9941641781958682,False
+endometrium epithelium,cycling,46374,0.9945485778250645,False
+nk cells,immune,47966,0.9917155977213643,False
+astrocytes,terminal,49727,0.9867625485304415,True
+vascular leptomeningeal cells,stromal,49864,0.993618357324184,True
+bladder epithelium,cycling,49991,0.9943843890210218,False
+lung bronchus epithelium,cycling,50469,0.9946151343490734,False
+kidney tubular epithelium,cycling,50479,0.9954220177059963,False
+breast luminal epithelium,secretory,50742,0.995371660808387,False
+tongue epithelium,cycling,51228,0.9947249069743699,False
+hepatocyte,secretory,51842,0.9933576117438685,False
+gastric antrum epithelium,secretory,51994,0.9933457924491248,False
+kidney tubular endothelium,stromal,52184,0.9939002819666003,False
+microglia,immune,52691,0.9919316594301087,True
+gastric body epithelium,secretory,52967,0.9941716398691157,False
+prostate epithelium,secretory,53607,0.994473964966696,False
+lung alveolar epithelium,cycling,53870,0.994454449672802,False
+vascular endothelium,stromal,54016,0.9957138911740049,False
+gastric fundus epithelium,secretory,54154,0.9940481727412961,False
+oligodendrocytes,terminal,54591,0.9894579743339237,False
+pancreatic alpha,secretory,55813,0.992977544528283,False
+tonsil palatine epithelium,cycling,55896,0.9947435837121426,False
+b cells,immune,57364,0.993033814524729,False
+pancreatic delta,secretory,58016,0.9928314102870552,False
+tonsil pharyngeal epithelium,cycling,58307,0.9951545720298508,False
+kidney glomerular endothelium,stromal,58375,0.9951546229696858,False
+t central memory cd4,immune,58728,0.9935087488143913,False
+colon macrophages,immune,59182,0.9894811005376128,False
+cd4 t cells,immune,61055,0.992358336837074,False
+cardiomyocyte,terminal,61291,0.987293075253006,False
+pancreas endothelium,stromal,61998,0.9956938660944346,False
+t effector cell cd8,immune,62196,0.9935352724248014,False
+vascular saphenous endothelium,stromal,62311,0.9950057882847781,False
+pancreatic acinar,secretory,63094,0.995358072494921,False
+memory b cells,immune,63819,0.9946987548810796,False
+lung alveolar endothelium,stromal,64139,0.9954827780467371,False
+memory cd4 t cells,immune,64617,0.9943670706562936,False
+regulatory t cells,immune,64892,0.9944781201996312,False
+cd8 t cells,immune,64894,0.994355252567755,False
+aorta endothelium,stromal,65109,0.9948691509575381,False
+pancreatic beta,secretory,66996,0.9917172973805376,False
+t effector memory cd4,immune,67088,0.9943715676998126,False
+cortical neurons,terminal,68176,0.9899443775037005,False
+effector memory cd8 t cells,immune,68461,0.9946415976793513,False
+adipocytes,stromal,68552,0.9963158588267405,False
+heart fibroblasts,stromal,69273,0.9958775635027469,False
+smooth muscle,stromal,80755,0.9962479447134488,False
+colon fibroblasts,stromal,82022,0.996063275614702,False
+striated muscle,terminal,86294,0.992553326322239,False
+erythrocyte progenitors,progenitor,120966,1.0011795124006253,False

@@ -1,0 +1,7 @@
+{
+ "neutrophils": {
+  "H_min_450K": 0.7840571177375,
+  "source": "GSE88824 purified neutrophils, 8 donors, our Stage 1; = H_min_v2 x mean purified A",
+  "n": 8
+ }
+}
