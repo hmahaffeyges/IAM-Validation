@@ -692,3 +692,6 @@ build_noise_gate_01.py: N over the 12 Salas purified neutrophil arrays 0.1223-0.
 
 ### 2026-10-10 · MIN_READ_FRACTION 0.20 does not follow from its stated basis
 shift_vs_fraction_01.py (chain reader and matrices only): a 1 % loss shifts whole-blood Met-A by 0.0073 at f 0.20; 0.01 is reached at f 0.27. Reproduces the measured 2 % shifts. Chain unchanged; decision recorded in DEV_LOWFRAC_01_OUTCOME.
+
+### 2026-10-10 · Dose series scored: no result (outside the readable range)
+30 nM IAM-A_rel 1.118/1.121 with 60-62 % of molecules read; 300 nM 1.065/1.035 with 34-36 % (rule: >= 70 %). Vehicles 1.005/0.995. Development observation: decitabine strips whole molecules/stretches (run-type loss), not scattered errors; the derivation needs scattered damage (SAM lever). Outcome DEV_LINK_IAMA_METAA_02_OUTCOME.md.
