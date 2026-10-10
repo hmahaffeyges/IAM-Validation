@@ -746,3 +746,6 @@ chain_tests/blood_comp.py (paths only, mixture test skipped) on the 91 Salas arr
 
 ### 2026-10-10 · Public data only
 Author rule: no controlled-access requests (no PhD or institutional backing). BLUEPRINT draft moved to archive/retired_2026-10-10; DEV-IAMA-XCELL-01 now points at public same-DNA data (EpiQC).
+
+### 2026-10-10 · Moss mixes: Met-A specific, untared C-score not
+In silico from pure arrays: 4-15 % tissue invisible to A and C at identity sites (an earlier build gap artefact withdrawn). Sealed specificity on 9 real mixes: Met-A Normal 9/9 (bar met); C above 1.10 in 3/9 (bar not met), not dose-ordered: array-to-array spread of untared C.
