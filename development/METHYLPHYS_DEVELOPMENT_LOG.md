@@ -725,3 +725,6 @@ PROC-TARE-01, CHARR-01, G002-TRACE, HISTORY-01, MATCH-01, PREDX-NEUT-01, TUMOUR-
 
 ### 2026-10-10 · Chain Stage 1 limit found: later EPIC revision IDATs (1,052,641 addresses) fail in methylprep 1.7.1
 GSE206709 (DEV-ATLAS-LAVAGE-02) paused before scoring. Stage 1 support for this revision is a separate development item with its own test.
+
+### 2026-10-10 · DEV-FINGERPRINT-01 step 1 (stand-in prostate molecules)
+Stage Q response on prostate: about half the simple rise, readable to delta ~0.12. Run-loss reading on prostate recovers planted runs (0.0997/0.2163) and reads 0 for scattered. Two-arm design (IAM-A arm; run-loss arm if < 70 % read), to be sealed on PrEC molecules before LNCaP is read.
