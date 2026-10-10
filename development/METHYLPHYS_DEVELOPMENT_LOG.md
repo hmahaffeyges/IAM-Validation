@@ -695,3 +695,6 @@ shift_vs_fraction_01.py (chain reader and matrices only): a 1 % loss shifts whol
 
 ### 2026-10-10 · Dose series scored: no result (outside the readable range)
 30 nM IAM-A_rel 1.118/1.121 with 60-62 % of molecules read; 300 nM 1.065/1.035 with 34-36 % (rule: >= 70 %). Vehicles 1.005/0.995. Development observation: decitabine strips whole molecules/stretches (run-type loss), not scattered errors; the derivation needs scattered damage (SAM lever). Outcome DEV_LINK_IAMA_METAA_02_OUTCOME.md.
+
+### 2026-10-10 · Whole-blood fraction cut dropped (author decision)
+conductor_v3.stage_m_blood reads A at any neutrophil fraction > 0; each reading carries shift_per_1pct_loss at its own fraction and Stage T prints the detection limit. The 0.20 cut did not follow from its basis (0.27 by shift_vs_fraction_01.py). SOP, canon, GLOSSARY, Appendix A updated. Reader check: A read at f 0.05/0.15/0.60 with shifts 0.0015/0.0048/0.023, withheld at 0. Release check: same 14/20 before and after on the laptop (6 environment failures: manifest folder blocked by the sandbox, files outside the partial checkout); book checks: no new failures.

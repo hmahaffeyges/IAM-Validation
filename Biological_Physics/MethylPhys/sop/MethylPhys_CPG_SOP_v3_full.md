@@ -93,7 +93,7 @@ All under `chain/Runtime Matrices/`.
 | | `bead.pass_fraction` | 0.995 | `stage_0_intake.py:649` |
 | | `bisulfite_conversion.min` | 0.95 (provisional: recorded, not refused) | `stage_0_intake.py:490` |
 
-Code constants (not in a frozen file): `MIN_READ_FRACTION` 0.20, `MIN_MARKER_FRACTION` 0.9, `MIN_REFS` 3, `MIN_REFS_NOISE` 20, `MIN_NOISE_FRACTION` 0.9 (`conductor_v3.py:30-34`), `ACCEPTED_ARRAY_TYPES` (EPIC_v1) (`:35`); `SITE_COVERAGE_MIN` 0.9 (`stage_m_met_a.py:24`); C-score ≥ 10 blocks (`conductor_v3.py:87`); IAM-A ≥ 100,000 opportunities, half-readings above 50,000 (`stage_q_iam_a.py:17-18`); hybridisation ratio ≥ 2.0, extension ratio 0.2–5.0, detection p ≤ 0.01, ≥ 3 beads, sex cut −2.0, 450K coverage ≥ 0.80 (`stage_0_intake.py`).
+Code constants (not in a frozen file): `MIN_MARKER_FRACTION` 0.9, `MIN_REFS` 3, `MIN_REFS_NOISE` 20, `MIN_NOISE_FRACTION` 0.9 (`conductor_v3.py:30-34`), `ACCEPTED_ARRAY_TYPES` (EPIC_v1) (`:35`); `SITE_COVERAGE_MIN` 0.9 (`stage_m_met_a.py:24`); C-score ≥ 10 blocks (`conductor_v3.py:87`); IAM-A ≥ 100,000 opportunities, half-readings above 50,000 (`stage_q_iam_a.py:17-18`); hybridisation ratio ≥ 2.0, extension ratio 0.2–5.0, detection p ≤ 0.01, ≥ 3 beads, sex cut −2.0, 450K coverage ≥ 0.80 (`stage_0_intake.py`).
 
 ---
 

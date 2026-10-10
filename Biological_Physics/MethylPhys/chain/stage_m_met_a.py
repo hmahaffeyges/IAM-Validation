@@ -13,8 +13,8 @@ metA_floors_v1_2_ALLCELLS_development.json and are not read here. Site rule: acr
 arrays) is in metA_floors_v1_3_loo.csv and is printed with each reading.
 
 One ruler: Normal = 0.95-1.05. This module reads a purified / sorted specimen of one cell type. In a mixture (whole blood) the reading is
-made by conductor_v3.stage_m_blood against the composition-matched expectation, and the fraction line is the conductor's
-MIN_READ_FRACTION. Tier lines beyond Normal are withheld until measured on this scale."""
+made by conductor_v3.stage_m_blood against the composition-matched expectation, and each reading carries its own detection limit at its
+fraction (no fixed fraction cut). Tier lines beyond Normal are withheld until measured on this scale."""
 import json, os, math
 import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__))

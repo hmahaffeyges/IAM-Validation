@@ -7,7 +7,7 @@ Runs after Stage 0 (intake) and Stage 1 (IDAT calibration), both driven by Methy
   Stage A   composition (whole blood): NNLS on the 963 markers of blood_composition_EPIC_v1.json (8 groups from purified EPIC
             cells; no marker is a neutrophil identity site), sum 1; >= 90 % of the markers must be measured
   Stage M   Met-A: isolated / sorted neutrophils -> healthy reference (stage_m_met_a.read); whole blood -> composition-matched healthy
-            expectation, read when the neutrophil fraction is >= MIN_READ_FRACTION and >= 90 % of the 6000 sites are measured
+            expectation, read at any neutrophil fraction above 0 with its own detection limit, when >= 90 % of the 6000 sites are measured
   Stage MC  Met-A C-score: clustering of the neutrophil residual map over the healthy baseline (development: band not set)
   Stage T   step 1, self-tare II (adopted by the author 2026-10-04, DEV-SELFTARE-02; wired here 2026-10-04): each probe design mapped
             onto the reference arrays' scale by this array's own low and high fixed-site anchors (dev_stages.selftare_map), before
@@ -41,7 +41,9 @@ METAA_COMMISSIONING = {   # doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md (autho
     "detection_basis": "DEV-METAA-SENS-01: every healthy array left Normal at these losses of the neutrophil pattern, through the whole chain",
     "not_commissioned": "Met-A C-score, IAM-A, sky (11/12), direction (10), trace/foreign cells (3b/3c), other cell types",
     "note": "doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md"}
-MIN_READ_FRACTION = 0.20      # below this the 1 % shift is under 0.01 and too few sites carry the cell (DEV-LOWFRAC-01: 5 healthy arrays under 0.40)
+# No fixed fraction cut (author decision 2026-10-10, DEV-LOWFRAC-01): every whole-blood reading carries shift_per_1pct_loss at its own
+# fraction, and Stage T prints the detection limit (smallest loss of the pattern the specimen could show). The former 0.20 cut did not
+# follow from its stated basis (doors/data/DEV_LOWFRAC_01/shift_vs_fraction_01.py: the 1 % shift reaches 0.01 at 0.27).
 MIN_MARKER_FRACTION = 0.9     # Stage A needs >= 90 % of blood_composition_EPIC_v1.json "markers" measured (867 of 963)
 MIN_REFS = 3                  # Stage T needs >= 3 same-run reference arrays (median tare)
 MIN_NOISE_FRACTION = 0.9      # noise index N needs >= 90 % of the 48,528 noise sites measured
@@ -121,8 +123,8 @@ def stage_m_blood(beta, comp):
     if fractions is None:
         rec["reason"] = f"{comp.get('reason')}: A withheld"; return rec, None
     fn = fractions.get("NEU", 0.0); rec["fraction"] = round(fn, 4)
-    if fn < MIN_READ_FRACTION:
-        rec["reason"] = f"neutrophil fraction {fn:.3f} < {MIN_READ_FRACTION}: fraction reported, A withheld"; return rec, None
+    if fn <= 0:
+        rec["reason"] = "no neutrophils in the composition: fraction reported, A withheld"; return rec, None
     x = beta.reindex(S); e = sum(v * P[g] for g, v in fractions.items() if g in P); ok = x.notna() & e.notna()
     need = int(np.ceil(SM.SITE_COVERAGE_MIN * len(S)))
     if ok.sum() < need:
