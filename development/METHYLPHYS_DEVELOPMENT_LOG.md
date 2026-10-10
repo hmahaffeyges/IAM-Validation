@@ -777,6 +777,9 @@ Simulation of Hammer-seq's measurement (parent = more methylated strand): f and 
 ### 2026-10-10 · Open item D1 restated (author approved)
 Book p7_09 (D1), p6_06, p6_08, p6_01 and the canon eps0 source: eps0 is to be derived from the writer's discrimination (hemimethylated against unmethylated sites) measured outside the cell; rates measured in the same cells return g/f = (1-eps)/eps by construction (DEV-HAMMER-01). Appendix A and GLOSSARY regenerated.
 
+### 2026-10-10 · DEV-WRITER-01 sealed before lookup
+Model A (single discriminating selection): E_hold = ln D, so 3.41 k_BT needs DNMT1 in-vitro discrimination D = 30.3; bar: median of qualifying measurements in 15-60. Simulation: an independent-site writer has one steady state for all territories, so territories are held by neighbour coupling. Script development/sims/writer_01.py.
+
 ### 2026-10-10 · Day summary
 Passed (sealed before reading): IAM-A SAM lever in mice (1.124 in window 1.016-1.135, p 0.0003); Met-A on identical DNA at three laboratories
 (all four bars); Met-A specificity on the Moss mixes (9/9). Reproduced from public data: every matrix the commissioned chain reads.

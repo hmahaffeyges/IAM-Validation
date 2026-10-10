@@ -1,0 +1,17 @@
+Model A:   D     eps      E_hold (k_BT)
+            3   0.2500   1.10
+           10   0.0909   2.30
+           20   0.0476   3.00
+           30   0.0323   3.40
+           40   0.0244   3.69
+           60   0.0164   4.09
+          100   0.0099   4.61
+          300   0.0033   5.70
+Model A: E_hold = 3.41 k_BT (canon) needs D = 30.3; factor-2 band D 15.1-60.5 = E_hold 2.72-4.10
+Model B (independent sites): D=30; window x -> pi_M (same in methylated and unmethylated territory)
+   x 0.001  f 0.9704  g 0.0010  pi_M 0.0010
+   x 0.010  f 0.7408  g 0.0100  pi_M 0.0133
+   x 0.050  f 0.2231  g 0.0488  pi_M 0.1794
+   x 0.100  f 0.0498  g 0.0952  pi_M 0.6565
+   x 0.300  f 0.0001  g 0.2592  pi_M 0.9995
+   x 1.000  f 0.0000  g 0.6321  pi_M 1.0000
