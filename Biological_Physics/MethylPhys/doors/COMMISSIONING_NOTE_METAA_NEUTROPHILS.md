@@ -7,7 +7,7 @@ Every row cites the record it comes from; no number here is new. From this date 
 smallest that reliably reads outside Normal (DEV-METAA-SENS-01). Code: `conductor_v3.METAA_COMMISSIONING`; report: Stage 5 section.
 
 ## Scope
-Met-A for neutrophils, on EPIC v1 arrays, from isolated neutrophils or whole blood (neutrophil fraction ≥ 0.20), stages 0, 1, 2, 5, 6, 8
+Met-A for neutrophils, on EPIC v1 arrays, from isolated neutrophils or whole blood (any neutrophil fraction, each reading with its own detection limit; DEV-LOWFRAC-01), stages 0, 1, 2, 5, 6, 8
 (self-tare II then the median tare), 9 (noise gate), 13. Everything else in the chain stays development: sky (11/12), direction (10),
 trace/foreign cells (3b/3c), other cell types, EPIC v2, IAM-A.
 
@@ -30,3 +30,18 @@ trace/foreign cells (3b/3c), other cell types, EPIC v2, IAM-A.
 ## Author decisions (2026-10-09)
 1. **Bar 9:** commissioned with the measured detection limits printed on every report (option a).
 2. **Bar 10:** the C-score is not part of this commissioning; the author asked for a plan to commission it (`doors/CSCORE_COMMISSIONING_PLAN.md`).
+
+## Evidence since commissioning (sealed before reading)
+
+| test | result | record |
+|---|---|---|
+| Identical DNA at three laboratories (SEQC2 EpiQC, 30 EPIC arrays, 7 cell lines) | technical repeats within 0.0114 (10/10); same DNA across three laboratories within 0.0084 untared, 0.006 tared | DEV_EPIQC_ARRAY_01_OUTCOME.md |
+| Specificity: 4–15 % liver, lung, colon or neuron DNA in blood DNA (Moss 2018, 9 arrays) | all Normal, within 0.010 of the unmixed blood (9/9) | DEV_CSCORE_MOSS_01_OUTCOME.md |
+
+## Reproduce from public data
+Every matrix the commissioned path reads rebuilds from GEO with committed code (identical; `data/MET_A_FLOOR_V13_REPRO/README.md`):
+1. `python3 doors/data/DEV_NOISE_02/build_noise_sites_01.py WORK calib 0 1` (91 Salas purified arrays through chain Stage 1), then
+   `build_noise_sites_01.py WORK build` and `build_noise_gate_01.py WORK` (noise sites and gate).
+2. `python3 doors/data/MET_A_FLOOR_V13_REPRO/reproduce_floor_v13.py WORK/betas WORK2` (floor, 6,000 identity sites, held-out precision).
+3. `python3 doors/data/MET_A_FLOOR_V13_REPRO/reproduce_reference_v12.py WORK/betas` (per-site healthy spread, C-score baseline).
+4. `python3 doors/data/MET_A_FLOOR_V13_REPRO/reproduce_blood_composition.py WORK/betas WORK3` (whole-blood composition).
