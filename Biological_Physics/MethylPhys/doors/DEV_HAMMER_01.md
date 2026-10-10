@@ -3,7 +3,7 @@
 **Question (book open item D1).** On a held molecule a site opposite a methylated parent fails with probability f per copy; a site opposite
 an unmethylated parent is gained with probability g. At steady state ε = f/(f+g), E_hold = k_BT ln(g/f). Can f and g measured on newly copied
 DNA predict the ε the cells hold, with nothing taken from ε?
-**Data checked (nothing scored):** Hammer-seq, GSE131098 (Ming et al. 2020, Cell Res 30:980; HeLa, EdU pulse, hairpin bisulfite of parent and
+**Data checked (nothing scored):** Hammer-seq, GSE131098 (Ming et al. 2020, Cell Research 30:980-996, doi 10.1038/s41422-020-0359-9, verified against CrossRef; HeLa, EdU pulse, hairpin bisulfite of parent and
 daughter strands, chase 4 min-24 h; per-CpG MM/MU/UU/UM event files, 64-106 MB each); same lab, same cells, deep WGBS SRR9328506 (270 M pairs),
 from which Stage Q could read HeLa's held ε.
 
