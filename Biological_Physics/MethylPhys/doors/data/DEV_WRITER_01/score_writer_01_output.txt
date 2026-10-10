@@ -1,0 +1,2 @@
+Adam value 80: D = [80.0, 47.4], median 63.7, E_hold = ln D = 4.15 k_BT, eps = 0.0155 | cells 3.41 k_BT, eps 0.032 | above: cells lose more than the writer's errors
+Adam value 87: D = [87.0, 47.4], median 67.2, E_hold = ln D = 4.21 k_BT, eps = 0.0147 | cells 3.41 k_BT, eps 0.032 | above: cells lose more than the writer's errors

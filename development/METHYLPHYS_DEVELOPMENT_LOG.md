@@ -780,6 +780,9 @@ Book p7_09 (D1), p6_06, p6_08, p6_01 and the canon eps0 source: eps0 is to be de
 ### 2026-10-10 · DEV-WRITER-01 sealed before lookup
 Model A (single discriminating selection): E_hold = ln D, so 3.41 k_BT needs DNMT1 in-vitro discrimination D = 30.3; bar: median of qualifying measurements in 15-60. Simulation: an independent-site writer has one steady state for all territories, so territories are held by neighbour coupling. Script development/sims/writer_01.py.
 
+### 2026-10-10 · DEV-WRITER-01 scored as sealed: above the band (Model A not confirmed)
+Full texts supplied by the author. Qualifying in-vitro DNMT1 discrimination: Adam 2023 ~80, Yokochi 2002 Table II 47.4 (Bashtrykov 2012 excluded: k_cat ratio). Median 63.7 > 60: the writer's single-step limit (eps 0.0155, 4.15 kT) lies below the copy error cells hold (0.032, 3.41 kT); cells lose about twice the writer's errors. DEV_WRITER_01_OUTCOME.md; script data/DEV_WRITER_01/score_writer_01.py.
+
 ### 2026-10-10 · Day summary
 Passed (sealed before reading): IAM-A SAM lever in mice (1.124 in window 1.016-1.135, p 0.0003); Met-A on identical DNA at three laboratories
 (all four bars); Met-A specificity on the Moss mixes (9/9). Reproduced from public data: every matrix the commissioned chain reads.
