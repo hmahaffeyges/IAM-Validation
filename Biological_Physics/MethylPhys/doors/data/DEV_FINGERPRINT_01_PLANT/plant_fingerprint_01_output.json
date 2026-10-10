@@ -1,0 +1,29 @@
+{
+ "delta": 0.04,
+ "IAMA_rel": 1.2363357544428466,
+ "curveB": 1.5890298152354214,
+ "scorer_sha256": "2f6fdde13dafa344f5bb074a81e9cf822e34b11985840700b4d4648b0a42af93",
+ "cases": {
+  "PLANTED": {
+   "target_MetA_rel": 1.689,
+   "t": 0.21014,
+   "scorer": [
+    "IAM-A_rel 1.2363 (eps PrEC 0.04797, LNCaP 0.06405) | share_read 0.891 | Met-A_rel 1.6890 on 5644 sites (arrays {\"GSM2309170\": 0.64905, \"GSM2309171\": 0.64946, \"GSM2309172\": 0.38398, \"GSM2309173\": 0.3848})",
+    "ARM A decides | Arm A: curve B at IAM-A_rel 1.5890, excess +0.1000, se 0.0250, z 4.00 -> FINGERPRINT | Arm B: LNCaP min excess +0.0000 vs PrEC max +0.0043 -> no fingerprint"
+   ],
+   "rc": 0,
+   "err": ""
+  },
+  "ONLINE": {
+   "target_MetA_rel": 1.589,
+   "t": 0.17288,
+   "scorer": [
+    "IAM-A_rel 1.2363 (eps PrEC 0.04797, LNCaP 0.06405) | share_read 0.891 | Met-A_rel 1.5890 on 5644 sites (arrays {\"GSM2309170\": 0.61058, \"GSM2309171\": 0.61104, \"GSM2309172\": 0.38398, \"GSM2309173\": 0.3848})",
+    "ARM A decides | Arm A: curve B at IAM-A_rel 1.5890, excess -0.0000, se 0.0250, z -0.00 -> no fingerprint | Arm B: LNCaP min excess +0.0000 vs PrEC max +0.0043 -> no fingerprint"
+   ],
+   "rc": 0,
+   "err": ""
+  }
+ },
+ "all_as_expected": true
+}

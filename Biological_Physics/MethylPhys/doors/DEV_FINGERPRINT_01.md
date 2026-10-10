@@ -40,3 +40,15 @@ definitions and decision rules in its header; nothing changes after this commit)
 - **Met-A:** 6,000 prostate identity sites from the atlas v2 posterior (`prostate_identity_sites_v1.json`), EPIC arrays GSM2309170–73 (2 per cell).
   Dry run (PrEC arrays on both sides): Met-A_rel 1.0000, Arm A z -1.65, no fingerprint.
 - **Decision:** share_read >= 0.70 → Arm A decides (z > 1.645 = fingerprint); else Arm B decides. The other arm is recorded.
+
+**Planted test of the sealed scorer (2026-10-10T21:44Z, before any LNCaP file is read; `data/DEV_FINGERPRINT_01_PLANT/plant_fingerprint_01.py`,
+output `plant_fingerprint_01_output.json`).** Five fake LNCaP runs = PrEC runs with copy error planted (δ = 0.04, seeded); fake arrays = PrEC
+arrays with the prostate identity sites moved toward β 0.5. Scorer byte-identical (sha256 recorded), run in a scratch copy.
+| case | built | scorer | expected |
+|---|---|---|---|
+| PLANTED | IAM-A_rel 1.2363, share read 0.891 (Arm A); Met-A_rel 1.6890 = curve B + 0.10 | z 4.00 → FINGERPRINT | yes |
+| ONLINE | same runs; Met-A_rel 1.5890 = curve B | z 0.00 → no fingerprint | yes |
+| Arm B, both | scattered planted loss: LNCaP min excess +0.0000 vs PrEC max +0.0043 | no fingerprint | yes |
+The fake cancer reuses libraries that are also in the healthy reference, so this tests the code path, not the statistics (the power
+simulation covers those). At IAM-A_rel above 1.10 (simple form) curve B is extended linearly at slope 2.06, as sealed; the planted case
+used that extension.
