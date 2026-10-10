@@ -1,0 +1,1 @@
+reads 2309224 | read length 36 | share with >= 6 methylated CG 0.01168

@@ -14,4 +14,4 @@ for assay in ("RRBS", "DNAme array"):
         inv.append(dict(assay=assay, acc=x["accession"], cell=x["biosample_ontology"]["term_name"], reps=len({r.get("biological_replicate_number") for r in x.get("replicates", [])}),
                         fastq=len(fq), GB=round(sum(f.get("file_size", 0) for f in fq) / 1e9, 1), readlen=sorted({f.get("read_length") for f in fq if f.get("read_length")}),
                         idat=len([f for f in fs if f.get("file_format") == "idat"])))
-pd.DataFrame(inv).sort_values(["cell", "assay"]).to_csv(os.path.join(HERE, "encode_inventory.csv"), index=False); print(len(inv))
+pd.DataFrame(inv).sort_values(["cell", "assay", "acc"]).to_csv(os.path.join(HERE, "encode_inventory.csv"), index=False); print(len(inv))

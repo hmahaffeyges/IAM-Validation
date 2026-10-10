@@ -18,3 +18,8 @@ replicate, more than the mouse RRBS runs of DEV-SAM-LEVER-01 (150,000 opportunit
 3. Seal both arms per pair, with the arm choice, before any cancer RRBS or array is read.
 4. Box: cancer RRBS; laptop: cancer arrays; score as sealed.
 **Prediction (to be sealed in step 3):** a fingerprint in every lineage-matched pair.
+
+**Same test as DEV-FINGERPRINT-01, with four stated differences** (to be carried into the sealed rule): (1) RRBS, 36-base single reads, not WGBS
+202-base pairs: fewer readable molecules, mostly in CpG-dense regions; (2) one array per side, not two; (3) prostate on 450K, the other pairs on
+EPIC (platform matched within each pair); (4) normal sides are ENCODE primary cultures. Hepatocyte 450K array (ENCSR000ABW) kept 332,213 probes
+against ~480,000 on the others: liver is read on EPIC (ENCSR955LKF vs HepG2 ENCSR291NYD). Run order and every script: `data/DEV_FINGERPRINT_02/REPRODUCE.md`.
