@@ -31297,6 +31297,93 @@ def _donors():
     R = load_csv_rows(_DONORS); assert len(R) == 6, len(R)
     return [int(r['age']) for r in R], [int(r['purity_pct']) for r in R], [r['sex'] for r in R]
 
+_DONORS_IAMA = 'Biological_Physics/MethylPhys/doors/data/DEV_IAMA_P_WHOLE_01/reference_donors_iama.csv'
+DATA_FILES[_DONORS_IAMA] = 'the three granulocyte donors behind IAM-A P_neutrophil: sex, age, laboratory (GEO GSE186458; reference_donors_iama.py)'
+def _donors_iama():
+    R = load_csv_rows(_DONORS_IAMA); assert len(R) == 3, len(R)
+    return [int(r['age']) for r in R]
+def _pc_counts():
+    m = re.search(r"(\d+) cell types, (\d+) samples", file_text(_B08_PC)); return int(m.group(1)), int(m.group(2))
+
+@check(label='ch:gauge:L123:0.330263', chapter='ch:gauge', part=6, title='Met-A healthy height for neutrophils on EPIC, from the canon record.',
+       file='part6/p6_06_gauge', line=123, status='measured', kind='file', printed='0.330263', tol=0.0, source='CANON/iam_canon.json')
+def check_gauge_healthy_L123_0p330263():
+    'Met-A healthy height for neutrophils on EPIC, from the canon record. Book line 123, printed 0.330263.'
+    value = load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
+    return locals()
+
+@check(label='ch:gauge:L123:3.41', chapter='ch:gauge', part=6, title='Holding energy shared by healthy cell types, from the canon record.',
+       file='part6/p6_06_gauge', line=123, status='measured', kind='file', printed='3.41', tol=0.0, source='CANON/iam_canon.json')
+def check_gauge_healthy_L123_3p41():
+    'Holding energy shared by healthy cell types, from the canon record. Book line 123, printed 3.41.'
+    value = load_json('CANON/iam_canon.json')['constants']['E_hold_meth']['value']
+    return locals()
+
+@check(label='ch:gauge:L123:0.032', chapter='ch:gauge', part=6, title='eps0 = 1/(1+e^E_hold), E_hold = 3.41 kT (canon).',
+       file='part6/p6_06_gauge', line=123, status='derived', kind='num', printed='0.032', tol=0.0)
+def check_gauge_healthy_L123_0p032():
+    'eps0 = 1/(1+e^E_hold), E_hold = 3.41 kT (canon). Book line 123, printed 0.032.'
+    value = 1 / (1 + math.exp(E_hold))
+    return locals()
+
+@check(label='ch:gauge:L123:1.149', chapter='ch:gauge', part=6, title='Neutrophil IAM-A position P, from the canon record.',
+       file='part6/p6_06_gauge', line=123, status='measured', kind='file', printed='1.149', tol=0.0, source='CANON/iam_canon.json')
+def check_gauge_healthy_L123_1p149():
+    'Neutrophil IAM-A position P, from the canon record. Book line 123, printed 1.149.'
+    value = load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
+    return locals()
+
+@check(label='ch:gauge:L125:20', chapter='ch:gauge', part=6, title='Youngest Met-A reference donor.',
+       file='part6/p6_06_gauge', line=125, status='observed', kind='file', printed='20', tol=0.0, source=_DONORS)
+def check_gauge_healthy_L125_20():
+    'Youngest Met-A reference donor. Book line 125, printed 20.'
+    ages, pur, sex = _donors()
+    value = min(ages)
+    return locals()
+
+@check(label='ch:gauge:L125:39', chapter='ch:gauge', part=6, title='Oldest Met-A reference donor.',
+       file='part6/p6_06_gauge', line=125, status='observed', kind='file', printed='39', tol=0.0, source=_DONORS)
+def check_gauge_healthy_L125_39():
+    'Oldest Met-A reference donor. Book line 125, printed 39.'
+    ages, pur, sex = _donors()
+    value = max(ages)
+    return locals()
+
+@check(label='ch:gauge:L125:153', chapter='ch:gauge', part=6, title='Samples in which the holding energy was read (PROC-CHANNEL-01 header).',
+       file='part6/p6_06_gauge', line=125, status='measured', kind='file', printed='153', tol=0.0, source=_B08_PC)
+def check_gauge_healthy_L125_153():
+    'Samples in which the holding energy was read (PROC-CHANNEL-01 header). Book line 125, printed 153.'
+    value = _pc_counts()[1]
+    return locals()
+
+@check(label='ch:gauge:L125:56:types', chapter='ch:gauge', part=6, title='Cell types in which the holding energy was read (PROC-CHANNEL-01 header).',
+       file='part6/p6_06_gauge', line=125, status='measured', kind='file', printed='56', tol=0.0, source=_B08_PC)
+def check_gauge_healthy_L125_56_types():
+    'Cell types in which the holding energy was read (PROC-CHANNEL-01 header). Book line 125, printed 56.'
+    value = _pc_counts()[0]
+    return locals()
+
+@check(label='ch:gauge:L125:50', chapter='ch:gauge', part=6, title='Youngest IAM-A granulocyte donor.',
+       file='part6/p6_06_gauge', line=125, status='observed', kind='file', printed='50', tol=0.0, source=_DONORS_IAMA)
+def check_gauge_healthy_L125_50():
+    'Youngest IAM-A granulocyte donor. Book line 125, printed 50.'
+    value = min(_donors_iama())
+    return locals()
+
+@check(label='ch:gauge:L125:56:age', chapter='ch:gauge', part=6, title='Oldest IAM-A granulocyte donor.',
+       file='part6/p6_06_gauge', line=125, status='observed', kind='file', printed='56', tol=0.0, source=_DONORS_IAMA)
+def check_gauge_healthy_L125_56_age():
+    'Oldest IAM-A granulocyte donor. Book line 125, printed 56.'
+    value = max(_donors_iama())
+    return locals()
+
+@check(label='ch:gauge:L131:3.41', chapter='ch:gauge', part=6, title='Holding energy (open problem sentence), from the canon record.',
+       file='part6/p6_06_gauge', line=131, status='measured', kind='file', printed='3.41', tol=0.0, source='CANON/iam_canon.json')
+def check_gauge_healthy_L131_3p41():
+    'Holding energy (open problem sentence), from the canon record. Book line 131, printed 3.41.'
+    value = load_json('CANON/iam_canon.json')['constants']['E_hold_meth']['value']
+    return locals()
+
 @check(label='ch:meta:L22:20', chapter='ch:meta', part=6, title='Met-A healthy reference: youngest reference donor',
        file='part6/p6_07_meta', line=22, status='observed', kind='file', printed='20', tol=0.0, source=_DONORS)
 def check_meta_donor_22_20():

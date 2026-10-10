@@ -109,6 +109,29 @@ unmethylated channel; SV40-immortalized cultures read 1.077--1.120 on the methyl
 Channels are reported apart. Not yet checked: whether a difference in bisulfite conversion between the cultures contributes to the
 unmethylated channel, where conversion failure reads as methylation (Chapter~\ref{ch:iama}). \openprob
 
+\section{What healthy means, for each instrument}\label{sec:healthy}
+
+Both instruments read a cell against its own healthy reference, but the two references are set differently. For Met-A the healthy
+height is measured for each cell type. For IAM-A it starts from one physical number shared by all cell types, the holding energy, and one
+measured correction places each cell type relative to it.
+
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+ & Met-A & IAM-A \\\midrule
+what is read & entropy $H(\beta)$ on the cell's identity sites, on arrays & copy error $\varepsilon$ on single molecules, by sequencing \\ \rowrule
+what healthy is tied to & a measured height: $0.330263$ bits, the mean over six purified neutrophil arrays \measured & an energy shared by all cell types, $3.41\,\kB T$, which gives $\varepsilon_0=0.032$ \measured; then the cell type's position, $P_{\rm neutrophil}=1.149$ \measured \\ \rowrule
+role of physics & fixes the two ends of the gauge \derived & fixes the two ends, and sets where healthy sits from one measured energy \derived \\ \rowrule
+donors behind it & six (Salas~\cite{Salas2018}), screened healthy, aged 20--39 \observed & 153 public files of 56 healthy cell types for the energy; three granulocyte donors (Loyfer~\cite{Loyfer2023}), aged 50--56, for $P$ \observed \\ \rowrule
+tested on cells that set nothing & other laboratories' healthy arrays read Normal (Chapter~\ref{ch:meta}) \measured & each donor against the other two; a new laboratory's runs after the same-run tare (Chapter~\ref{ch:development}) \\ \bottomrule
+\end{tabularx}
+\end{center}
+
+Because the IAM-A reference is anchored on an energy, IAM-A is the instrument that tests the law itself: a lever on the energy supply must
+move it by the amount the law gives (Chapter~\ref{ch:development}). The energy $3.41\,\kB T$ is measured, not yet derived; deriving it from
+the measured rates at which the copier restores and loses marks is the central open problem of the cellular rung (Chapter~\ref{ch:open}).
+\openprob
+
 \section{How far a reading moves}
 
 What a reading can show depends on how far a real change moves it. On arrays, a simulated loss of 2~\% of the neutrophil
