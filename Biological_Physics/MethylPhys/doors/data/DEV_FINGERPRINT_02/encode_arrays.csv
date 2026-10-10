@@ -1,0 +1,45 @@
+file,experiment,cell,channel,platform,md5,url
+ENCFF001RIK,ENCSR000ACO,MCF 10A,idat red channel,Illumina - Methylation 450K BeadChip,e24aec11a0007e6e5a3cf015c2d5511f,https://www.encodeproject.org/files/ENCFF001RIK/@@download/ENCFF001RIK.idat
+ENCFF001RIL,ENCSR000ACO,MCF 10A,idat green channel,Illumina - Methylation 450K BeadChip,ee600096f6354c0a071ead51a69b709b,https://www.encodeproject.org/files/ENCFF001RIL/@@download/ENCFF001RIL.idat
+ENCFF001RII,ENCSR000ABG,MCF 10A,idat red channel,Illumina - Methylation 450K BeadChip,9dd3ca832afc4a284a66c6c499116ea1,https://www.encodeproject.org/files/ENCFF001RII/@@download/ENCFF001RII.idat
+ENCFF001RIJ,ENCSR000ABG,MCF 10A,idat green channel,Illumina - Methylation 450K BeadChip,519fc26dd59fd6d97312b793ad817f38,https://www.encodeproject.org/files/ENCFF001RIJ/@@download/ENCFF001RIJ.idat
+ENCFF001RIG,ENCSR000AAY,MCF-7,idat red channel,Illumina - Methylation 450K BeadChip,fe3ec17205ccee1cfcfe88416dab1a37,https://www.encodeproject.org/files/ENCFF001RIG/@@download/ENCFF001RIG.idat
+ENCFF001RIH,ENCSR000AAY,MCF-7,idat green channel,Illumina - Methylation 450K BeadChip,e17de55c31d0a3a813bfede84751992c,https://www.encodeproject.org/files/ENCFF001RIH/@@download/ENCFF001RIH.idat
+ENCFF001RJD,ENCSR000ABH,epithelial cell of alveolus of lung,idat green channel,Illumina - Methylation 450K BeadChip,8f6a901895a06faa416df96213c3120f,https://www.encodeproject.org/files/ENCFF001RJD/@@download/ENCFF001RJD.idat
+ENCFF001RJC,ENCSR000ABH,epithelial cell of alveolus of lung,idat red channel,Illumina - Methylation 450K BeadChip,58585e56a9dabb86ac60a7f35c627db7,https://www.encodeproject.org/files/ENCFF001RJC/@@download/ENCFF001RJC.idat
+ENCFF001RHJ,ENCSR000ACY,bronchial epithelial cell,idat green channel,Illumina - Methylation 450K BeadChip,4557ebe4f0092c9bc9a3fd0b3d355ca6,https://www.encodeproject.org/files/ENCFF001RHJ/@@download/ENCFF001RHJ.idat
+ENCFF001RHI,ENCSR000ACY,bronchial epithelial cell,idat red channel,Illumina - Methylation 450K BeadChip,9844b1504cc9412af982c3fd69602f4a,https://www.encodeproject.org/files/ENCFF001RHI/@@download/ENCFF001RHI.idat
+ENCFF001RIN,ENCSR000ADA,LNCaP clone FGC,idat green channel,Illumina - Methylation 450K BeadChip,e59314c9f39b48d2b4a387bdd045e0cc,https://www.encodeproject.org/files/ENCFF001RIN/@@download/ENCFF001RIN.idat
+ENCFF001RIM,ENCSR000ADA,LNCaP clone FGC,idat red channel,Illumina - Methylation 450K BeadChip,335afff803f0ecb4cc7dc108a869a015,https://www.encodeproject.org/files/ENCFF001RIM/@@download/ENCFF001RIM.idat
+ENCFF001RJG,ENCSR000ABL,mammary epithelial cell,idat red channel,Illumina - Methylation 450K BeadChip,3c36cbf427b03a1a479c2f14d3ad0802,https://www.encodeproject.org/files/ENCFF001RJG/@@download/ENCFF001RJG.idat
+ENCFF001RJH,ENCSR000ABL,mammary epithelial cell,idat green channel,Illumina - Methylation 450K BeadChip,af20f265779841dce601def954b522f2,https://www.encodeproject.org/files/ENCFF001RJH/@@download/ENCFF001RJH.idat
+ENCFF139SEK,ENCSR889ZLL,MCF-7,idat red channel,Illumina Infinium Methylation EPIC BeadChip,882a2add68bba4f5db4b639795675650,https://www.encodeproject.org/files/ENCFF139SEK/@@download/ENCFF139SEK.idat
+ENCFF619AZY,ENCSR889ZLL,MCF-7,idat green channel,Illumina Infinium Methylation EPIC BeadChip,360234197dd327f41b35d902af9a0d97,https://www.encodeproject.org/files/ENCFF619AZY/@@download/ENCFF619AZY.idat
+ENCFF250PNC,ENCSR329HJR,MCF 10A,idat red channel,Illumina Infinium Methylation EPIC BeadChip,1eb8578a08c3cd770b651ac5a2a63f39,https://www.encodeproject.org/files/ENCFF250PNC/@@download/ENCFF250PNC.idat
+ENCFF216CRH,ENCSR329HJR,MCF 10A,idat green channel,Illumina Infinium Methylation EPIC BeadChip,728d6fbff959356161a50addbe6b62b7,https://www.encodeproject.org/files/ENCFF216CRH/@@download/ENCFF216CRH.idat
+ENCFF649GOO,ENCSR422EPB,epithelial cell of alveolus of lung,idat green channel,Illumina Infinium Methylation EPIC BeadChip,89b7b492dce0ceb9254b72e22bd51532,https://www.encodeproject.org/files/ENCFF649GOO/@@download/ENCFF649GOO.idat
+ENCFF127VOY,ENCSR422EPB,epithelial cell of alveolus of lung,idat red channel,Illumina Infinium Methylation EPIC BeadChip,a8f8e4c5494577d45b975e0cde22cb4b,https://www.encodeproject.org/files/ENCFF127VOY/@@download/ENCFF127VOY.idat
+ENCFF627XLU,ENCSR291NYD,HepG2,idat green channel,Illumina Infinium Methylation EPIC BeadChip,66a7d304c63101f48ccf13084e5f0549,https://www.encodeproject.org/files/ENCFF627XLU/@@download/ENCFF627XLU.idat
+ENCFF251XRO,ENCSR291NYD,HepG2,idat red channel,Illumina Infinium Methylation EPIC BeadChip,101315b0e5ed6fd0f9956099c713808b,https://www.encodeproject.org/files/ENCFF251XRO/@@download/ENCFF251XRO.idat
+ENCFF228GHP,ENCSR104MWD,LNCaP clone FGC,idat green channel,Illumina Infinium Methylation EPIC BeadChip,aad6329e31e76cd4deff9687e4ac9a4b,https://www.encodeproject.org/files/ENCFF228GHP/@@download/ENCFF228GHP.idat
+ENCFF498RIQ,ENCSR104MWD,LNCaP clone FGC,idat red channel,Illumina Infinium Methylation EPIC BeadChip,a26e1c075f5e97a516995d153655556e,https://www.encodeproject.org/files/ENCFF498RIQ/@@download/ENCFF498RIQ.idat
+ENCFF001RJO,ENCSR000ABW,hepatocyte,idat red channel,Illumina - Methylation 450K BeadChip,65c8e7cded4d9d2c34180aa159b175ea,https://www.encodeproject.org/files/ENCFF001RJO/@@download/ENCFF001RJO.idat
+ENCFF001RJP,ENCSR000ABW,hepatocyte,idat green channel,Illumina - Methylation 450K BeadChip,baef9395c7d1fcfeeb872b631ca5a299,https://www.encodeproject.org/files/ENCFF001RJP/@@download/ENCFF001RJP.idat
+ENCFF001RHP,ENCSR000ACD,epithelial cell of prostate,idat green channel,Illumina - Methylation 450K BeadChip,d5c8afeb1e4c094bf00b7a5bb4ec190c,https://www.encodeproject.org/files/ENCFF001RHP/@@download/ENCFF001RHP.idat
+ENCFF001RHO,ENCSR000ACD,epithelial cell of prostate,idat red channel,Illumina - Methylation 450K BeadChip,d9d2e9173f202be0bec773f507305b15,https://www.encodeproject.org/files/ENCFF001RHO/@@download/ENCFF001RHO.idat
+ENCFF001RGZ,ENCSR000ADC,T47D,idat green channel,Illumina - Methylation 450K BeadChip,5eb55d579e7610e35b7116c5c8e23199,https://www.encodeproject.org/files/ENCFF001RGZ/@@download/ENCFF001RGZ.idat
+ENCFF001RGY,ENCSR000ADC,T47D,idat red channel,Illumina - Methylation 450K BeadChip,ffaacc8b6a4fdd79dd5060f98a9fb545,https://www.encodeproject.org/files/ENCFF001RGY/@@download/ENCFF001RGY.idat
+ENCFF001RJM,ENCSR000ABF,HepG2,idat red channel,Illumina - Methylation 450K BeadChip,923a0682c0bd27678fc5c5697f12ebea,https://www.encodeproject.org/files/ENCFF001RJM/@@download/ENCFF001RJM.idat
+ENCFF001RJN,ENCSR000ABF,HepG2,idat green channel,Illumina - Methylation 450K BeadChip,b701991fb34aafe31e8f0fe7e2c05c23,https://www.encodeproject.org/files/ENCFF001RJN/@@download/ENCFF001RJN.idat
+ENCFF001RIB,ENCSR000ACA,bronchial epithelial cell,idat green channel,Illumina - Methylation 450K BeadChip,776eb12f688ba18e42912f679810c397,https://www.encodeproject.org/files/ENCFF001RIB/@@download/ENCFF001RIB.idat
+ENCFF001RIA,ENCSR000ACA,bronchial epithelial cell,idat red channel,Illumina - Methylation 450K BeadChip,94c4cb950872c839c8c163edc0a8d48e,https://www.encodeproject.org/files/ENCFF001RIA/@@download/ENCFF001RIA.idat
+ENCFF001RLQ,ENCSR000ABU,A549,idat red channel,Illumina - Methylation 450K BeadChip,2955fc35875e611abe03ad474ded342e,https://www.encodeproject.org/files/ENCFF001RLQ/@@download/ENCFF001RLQ.idat
+ENCFF001RLR,ENCSR000ABU,A549,idat green channel,Illumina - Methylation 450K BeadChip,13d1dff51d397e10c9f52f78d1fcb7ae,https://www.encodeproject.org/files/ENCFF001RLR/@@download/ENCFF001RLR.idat
+ENCFF114PDK,ENCSR583ILE,mammary epithelial cell,idat green channel,Illumina Infinium Methylation EPIC BeadChip,ba9ce48e6461eaf861bda16dacd419d5,https://www.encodeproject.org/files/ENCFF114PDK/@@download/ENCFF114PDK.idat
+ENCFF154UFZ,ENCSR583ILE,mammary epithelial cell,idat red channel,Illumina Infinium Methylation EPIC BeadChip,9b091cec00f5e1e804c9fc0f8366705a,https://www.encodeproject.org/files/ENCFF154UFZ/@@download/ENCFF154UFZ.idat
+ENCFF309EIY,ENCSR955LKF,hepatocyte,idat green channel,Illumina Infinium Methylation EPIC BeadChip,b01098ed6d73aad4a27e76371736a10d,https://www.encodeproject.org/files/ENCFF309EIY/@@download/ENCFF309EIY.idat
+ENCFF788TOI,ENCSR955LKF,hepatocyte,idat red channel,Illumina Infinium Methylation EPIC BeadChip,bc628587a9ee6b5d5f1d76d22ed040cd,https://www.encodeproject.org/files/ENCFF788TOI/@@download/ENCFF788TOI.idat
+ENCFF880ICV,ENCSR408IKV,A549,idat green channel,Illumina Infinium Methylation EPIC BeadChip,9b6cd34040fc7b2916ff11414503d84b,https://www.encodeproject.org/files/ENCFF880ICV/@@download/ENCFF880ICV.idat
+ENCFF487MLG,ENCSR408IKV,A549,idat red channel,Illumina Infinium Methylation EPIC BeadChip,27c4b90c7b65efc2741365eb01453184,https://www.encodeproject.org/files/ENCFF487MLG/@@download/ENCFF487MLG.idat
+ENCFF187ISZ,ENCSR148KKY,mammary epithelial cell,idat red channel,Illumina Infinium Methylation EPIC BeadChip,60ecc040baace63e85ac3875dc1f4eda,https://www.encodeproject.org/files/ENCFF187ISZ/@@download/ENCFF187ISZ.idat
+ENCFF719AUU,ENCSR148KKY,mammary epithelial cell,idat green channel,Illumina Infinium Methylation EPIC BeadChip,adaca1b159fdf20aa2998cd2dd320af7,https://www.encodeproject.org/files/ENCFF719AUU/@@download/ENCFF719AUU.idat
