@@ -683,3 +683,6 @@ Rerun of the rebuilt job (153/153 samples after re-fetching 2) matches the 09-30
 
 ### 2026-10-10 · DEV-IAMA-WBTARE-01 read: incomplete
 9/14 runs refused at conversion 0.98 (all Swift at 0.979-0.980, Sample3 Swift rep2 passing at 0.98001; TruSeq rep2 0.970-0.974). Bar 1: 4/4 TruSeq rep1 within 0.95-1.05 after the tare (1.024, 0.972, 0.979, 1.022). Bars 2-3 not assessable, bar 4 not run. Correction to the 10-09 status messages: not all Swift libraries failed intake (one passed), and the TruSeq repeat libraries failed it.
+
+### 2026-10-10 · noise_sites_EPIC_v1 reproduced from public data
+build_noise_sites_01.py: 91 Salas purified arrays (GSE110554, GSE167998) from GEO IDATs through chain Stage 1, the 10-01 rule -> 48,528 sites, identical to the chain runtime matrix (low 40,882, high 7,646). Gate N_max 0.149 still to be rebuilt.

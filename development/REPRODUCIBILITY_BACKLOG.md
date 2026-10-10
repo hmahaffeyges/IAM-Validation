@@ -131,3 +131,5 @@ bars set in advance; they are checked for any computed number (power, simulated 
 
 Closed on 2026-10-09: DEV_METAA_450K_01 (`doors/data/DEV_METAA_450K_01/metaa_450k_01.py`), DEV_SAM_LEVER_01, DEV_SYNTH_LEVERS_01 simulations,
 DEV_ATLAS_COMMISSION_01 lavage, DEV_COMPOSITION_TRUTH_03 (`development/sims/`).
+
+| — | noise_sites_EPIC_v1.json (DEV-NOISE-01/02) | chain runtime matrix | REPRODUCED 2026-10-10: doors/data/DEV_NOISE_02/build_noise_sites_01.py from the GEO IDATs (91 Salas arrays, chain Stage 1) gives the same 48,528 sites; the gate N_max 0.149 (noise_gate_EPIC_v1.json) still to be rebuilt |
