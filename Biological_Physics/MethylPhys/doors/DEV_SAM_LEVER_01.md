@@ -65,3 +65,9 @@ Aligned pipeline (Box Run 6: Trim Galore --rrbs, bwa-meth 0.2.0 on mm10, wgbstoo
 and the knockout mice given SAMe read lower than the knockout vehicle mice. Below 1.016: no rise of the size the calculation gives (undecided if the
 power stated below is < 0.80, else not met). Above 1.135: a rise larger than the calculation allows.
 Power at the middle cell is stated from the 8 wild-type mice's spread before any knockout is read.
+
+**Power stated 2026-10-10T19:20Z, from the 8 wild-type mice, before any knockout file is downloaded or read**
+(`data/DEV_SAM_LEVER_01/wildtype_mice_8.csv`, `wildtype_eps_8mice.csv`). Wild-type IAM-A (each mouse's two runs pooled, ÷ the wild-type median):
+0.952–1.096, between-mouse SD **0.047** (counting noise alone ~0.009). Power, 6 knockout vehicle against 8 wild type, one-sided Mann-Whitney,
+α 0.05: weakest cell (1.016) 0.11, **middle cell (1.046) 0.46**, strongest (1.135) 1.00. The middle-cell power is below 0.80, so by the rule above
+a knockout reading below the window is **undecided**, not a failure. A reading inside the window, with p < 0.05 against the wild type, is a pass.
