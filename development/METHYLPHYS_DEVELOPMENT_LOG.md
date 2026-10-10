@@ -713,3 +713,6 @@ Run-loss reading (excess of fully lost molecules over what the same scattered lo
 
 ### 2026-10-10 · DEV-RUNLOSS-01 read: both bars not met; run loss present
 Excess run loss 0.12 (30 nM), 0.28 (300 nM), vehicle -0.0001; 39-46 % of total loss (bar: >= 50 %). EM-seq loss 0.30/0.62 vs array 0.22/0.39 (bar +-0.05). Development instrument; needs a second experiment.
+
+### 2026-10-10 · IAM-A position of prostate epithelium measured
+Loyfer GSE186458, 4 donors, whole hg19 .pat files (build_position_01.py): eps 0.0426/0.0452/0.0401/0.0365; P = 1.2102 (1.1798-1.2443), CV 2.3 % (neutrophils 1.2 %). Development: not added to iama_positions_v2.json until the cancer both-ways test uses it.

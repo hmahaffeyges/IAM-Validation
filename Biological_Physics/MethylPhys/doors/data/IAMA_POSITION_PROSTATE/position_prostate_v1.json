@@ -1,0 +1,54 @@
+{
+ "cell": "prostate epithelium",
+ "P": 1.2102,
+ "P_range": [
+  1.1798,
+  1.2443
+ ],
+ "cv_across_donors": 0.0227,
+ "eps0": 0.032,
+ "eps": {
+  "GSM5652338": 0.042617,
+  "GSM5652339": 0.045184,
+  "GSM5652340": 0.040101,
+  "GSM5652341": 0.036477
+ },
+ "counts": {
+  "GSM5652338": {
+   "molecules": 354936442,
+   "qualifying": 16663934,
+   "opportunities": 95943521,
+   "errors": 4088820,
+   "eps": 0.04261694752686844,
+   "file": "GSM5652338_Prostate-Epithelial-Z000000RV.pat.gz"
+  },
+  "GSM5652339": {
+   "molecules": 378407775,
+   "qualifying": 16173535,
+   "opportunities": 92926601,
+   "errors": 4198758,
+   "eps": 0.04518359602973104,
+   "file": "GSM5652339_Prostate-Epithelial-Z000000S3.pat.gz"
+  },
+  "GSM5652340": {
+   "molecules": 386490464,
+   "qualifying": 19970972,
+   "opportunities": 116367848,
+   "errors": 4666493,
+   "eps": 0.0401012228051171,
+   "file": "GSM5652340_Prostate-Epithelial-Z0000045F.pat.gz"
+  },
+  "GSM5652341": {
+   "molecules": 406000543,
+   "qualifying": 22305652,
+   "opportunities": 130213948,
+   "errors": 4749839,
+   "eps": 0.03647719060019592,
+   "file": "GSM5652341_Prostate-Epithelial-Z0000045G.pat.gz"
+  }
+ },
+ "n_donors": 4,
+ "pipeline": "loyfer_pat_v1",
+ "genome": "hg19",
+ "coverage": "whole file"
+}
