@@ -921,3 +921,6 @@ Normal side, planted test (NULL, RUN05, RUN01, SCAT) and seal by pair_pipeline_0
 
 ### 2026-10-11 · T47D pairs sealed, loss (02b2) and gain (02c) arms, before any T47D file is read
 score_fingerprint_02b2.py = 02b with two T47D pairs (450K, platform-matched); 02b unchanged for its five seals. Planted tests passed on both arms. Scored only after MCF-7 is scored and reviewed.
+
+### 2026-10-11 · GSE69914 (breast tissue): format check and a blinding breach
+S3 downloads/C_tissue_tests/GSE69914 holds the submitters' beta tables (<GSM>_Raw.txt.gz, columns IlmnID, Beta), not IDATs: chain Stage 1 cannot run on it, and no patient IDs are given (tumour and adjacent normal cannot be paired). BREACH: to check the format the lead opened the first sample file in the tar, GSM1712367 (BCFD1, status 2 = breast cancer), and printed three probe betas. No reading was computed. GSM1712367 is excluded from any sealed test of this series. Rule kept for the future: a format check opens a healthy sample only, chosen from the GEO characteristics first.
