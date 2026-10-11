@@ -24,3 +24,12 @@ Segmented neutrophil % has median 73.0 (10th-90th percentile 51.9-86.7), a wider
 
 **Next.** The Stage 1 read check, then synthetic tests on the chain (composition recovery on constructed mixtures with truth error added), then the test
 written and sealed, then the arrays read once. Search candidates and reasons for rejection: the 2026-10-11 search table (to be committed with the test).
+
+**Stage 1 read check, 2026-10-11** (`data/DEV_COMPOSITION_TRUTH_04/stage1_read_check.py`, output `stage1_read_check_output.txt`). The chain reads an
+array by bead address through the standard EPIC v1 manifest, so the deciding test is address identity, not probe names. The platform check
+above compared names only, and is kept as a record, not as the test. Every one of the 865,918 probes this chip shares with the EPIC v1 manifest
+has the same bead address in the submitters' custom manifest. Every chain site's beads are on the chip. Chain Stage 1 calibrates one array of the
+series (GSM5098953, which has no neutrophil count and is excluded from the bar-7 scoring set; only probe names and addresses were used, no value
+read). On that array, 6 Met-A sites, 1 composition marker and 49 noise sites fall to the array's own quality check, as on any EPIC array.
+**Passed.** Next: synthetic tests of bar 7 on this design, then the seal.
+

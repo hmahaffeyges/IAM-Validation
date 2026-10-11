@@ -1,0 +1,7 @@
+1. address identity: 865,918 probes shared with the EPIC v1 manifest; identical 865,918; different 0
+2-3. Met-A floor sites: 6,000 sites; beads absent from the chip 0; not calibrated on GSM5098953 (its own quality check) 6
+2-3. composition markers: 963 sites; beads absent from the chip 0; not calibrated on GSM5098953 (its own quality check) 1
+2-3. composition neutrophil sites: 6,000 sites; beads absent from the chip 0; not calibrated on GSM5098953 (its own quality check) 6
+2-3. noise sites: 48,528 sites; beads absent from the chip 0; not calibrated on GSM5098953 (its own quality check) 49
+Stage 1 on GSM5098953: 855,976 probes calibrated
+STAGE 1 READ CHECK PASSED: every chain site is on the chip at the standard EPIC v1 address; per-array losses as on any EPIC array

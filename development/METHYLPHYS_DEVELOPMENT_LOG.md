@@ -1033,3 +1033,6 @@ Planted incomplete conversion lowers Stage Q's copy error about half as much as 
 
 ### 2026-10-11 · DEV-IAMA-COMMISSION-01 SEALED before any EpiQC read; Box Run 10 Stage A prepared
 Scorer, 9-case planted test and guard tested both ways; reading rules fixed (one NEB run per library, first 10M pairs from ENA, human chr1 CHH conversion, Q0.1-Q0.6), staged with a stop rule (Stage B only if C1 met on Stage A's 7 TruSeq libraries; kits whose 1M-pair format check maps < 70 % are not run). Cost approved by the author: Stage A on the existing box (about 1 h), Stage B on a spot instance after Stage A, with its numbers shown first.
+
+### 2026-10-11 · DEV-COMPOSITION-TRUTH-04 Stage 1 read check passed (and the earlier platform check corrected)
+The earlier name-only platform check would have missed a custom chip whose probes sit at different bead addresses. The deciding check now compares addresses: all 865,918 shared probes have identical addresses to EPIC v1, every chain site's beads are on the chip, and chain Stage 1 reads one excluded array (GSM5098953; names only, no values). Per-array quality-check losses there: 6 Met-A sites, 1 marker, 49 noise sites, as on any EPIC array.
