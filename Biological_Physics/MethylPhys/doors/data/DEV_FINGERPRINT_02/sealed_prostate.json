@@ -1,0 +1,80 @@
+{
+ "pair": "prostate",
+ "normal_cell": "epithelial cell of prostate",
+ "cancer_cell": "LNCaP clone FGC",
+ "identity_cell": "prostate_epithelium",
+ "normal_files": [
+  {
+   "file": "ENCFF000MLS",
+   "sha256": "70452d4c1546f54de1fe24d99c9c529992711ec1298f6d4f977a7c9196d28743",
+   "errors": 7688.0,
+   "opportunities": 175453.0,
+   "m6": 1522609,
+   "read": 39789,
+   "eps": 0.0438180025419913
+  },
+  {
+   "file": "ENCFF000MLV",
+   "sha256": "9bfb0a779c03b9978b0bb72cc1486cc8a8d18561320997e666184c73ac3e846a",
+   "errors": 4144.0,
+   "opportunities": 85581.0,
+   "m6": 817134,
+   "read": 19714,
+   "eps": 0.04842196281884998
+  }
+ ],
+ "eps_normal": 0.045327428610832304,
+ "share_read_normal": 0.02543142558819494,
+ "sd_rep": 0.05345313147387922,
+ "sd_rep_own_spread": 0.05345313147387922,
+ "response_file": "normal_epithelial_cell_of_prostate/insilico_ENCFF000MLV.csv",
+ "response_sha256": "a479e93c7a71e026ef20274d6f062190ea75bdafb0989f307dd292010758cc25",
+ "curveB_XQ": [
+  1.0,
+  1.0099919420568315,
+  1.0249798551420786,
+  1.0499597102841571,
+  1.0798794260240372
+ ],
+ "curveB_YB": [
+  1.0,
+  1.023,
+  1.056,
+  1.115,
+  1.188
+ ],
+ "slope": 2.351207571179827,
+ "normal_arrays": [
+  "ENCSR000ACD"
+ ],
+ "cancer_arrays": [
+  "ENCSR000ADA"
+ ],
+ "normal_arrays_metA_H": {
+  "ENCSR000ACD": 0.3239286783896161
+ },
+ "normal_arrays_sites": {
+  "ENCSR000ACD": 3413
+ },
+ "armB_normal_excess": {
+  "ENCFF000MLS": 0.0,
+  "ENCFF000MLV": 0.0014081761217252112
+ },
+ "armB_bar_libraries": 0.0014081761217252112,
+ "armB_donor_excess": 0.021145789090027865,
+ "donor_null_sha256": "ffe9cd9eeea0e7a96a3bbfad96d9a849b6a48deb9b304c610ba4a85f2c8db223",
+ "armB_bar": 0.021145789090027865,
+ "armB_sensitivity_run010": 0.0933,
+ "scorer_sha256": "e82356dcdc64757233a590315f9985f8b149af5db4eca553d0f4b7f959776997",
+ "cancer_files_listed": [
+  "ENCFF000MGK",
+  "ENCFF000MGL",
+  "ENCFF000MGO",
+  "ENCFF000MGR",
+  "ENCFF000MGS",
+  "ENCFF000MGT"
+ ],
+ "se_A": 0.10644345431765657,
+ "rule": "02b: Arm B decides; bar = max(normal-library excess, healthy donor-to-donor excess); FINGERPRINT if every cancer file > bar, no fingerprint if every file <= bar, else UNDECIDED; Arm A reported only",
+ "power_A06": 0.1397773001776237
+}

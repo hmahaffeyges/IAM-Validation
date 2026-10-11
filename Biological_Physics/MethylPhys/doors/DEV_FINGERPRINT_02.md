@@ -76,3 +76,13 @@ Run-loss sensitivity on these molecules (planted 0.10): 0.0804. Planted test of 
 FINGERPRINT if every one of the 2 A549 files listed in the seal reads above the bar; no fingerprint if every file reads at or below
 it; otherwise UNDECIDED. Arm A (Met-A against curve B) is computed and reported, not deciding.
 **Synthetic test:** DEV_FINGERPRINT_02/plant_fingerprint_02b.py, DEV_FINGERPRINT_02/plant02b_lung_alveolar_output.json, DEV_FINGERPRINT_02/donor_null_02.py, DEV_FINGERPRINT_02/donor_null_02_output.json, DEV_FINGERPRINT_02/prep_normal.sh, DEV_FINGERPRINT_02/normal_epithelial_cell_of_alveolus_of_lung/runloss_sim.txt, Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align.py, Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align_result.csv
+
+## Pair prostate (LNCaP clone FGC against epithelial cell of prostate), rule 02b: sealed before any cancer file is aligned or read
+
+**Sealed:** `data/DEV_FINGERPRINT_02/sealed_prostate.json` (scorer `score_fingerprint_02b.py`, sha256 in the seal; the score step refuses unless the seal is
+committed unchanged). Normal: 2 RRBS files, Stage Q copy error 0.0438-0.0484; arrays ENCSR000ACD. The normal is one donor; the donor term in the bar comes from the bronchial donor null.
+**Arm B decides.** Bar 0.0211 = max(normal-library excess 0.0014, healthy donor-to-donor excess 0.0211).
+Run-loss sensitivity on these molecules (planted 0.10): 0.0933. Planted test of the sealed scorer (`plant02b_prostate_output.json`): NULL no fingerprint (excess 0.0000 to 0.0014); RUN05 FINGERPRINT (excess 0.0486 to 0.0513); RUN01 no fingerprint (excess 0.0107 to 0.0119); SCAT no fingerprint (excess 0.0001 to 0.0016).
+FINGERPRINT if every one of the 6 LNCaP clone FGC files listed in the seal reads above the bar; no fingerprint if every file reads at or below
+it; otherwise UNDECIDED. Arm A (Met-A against curve B) is computed and reported, not deciding.
+**Synthetic test:** DEV_FINGERPRINT_02/plant_fingerprint_02b.py, DEV_FINGERPRINT_02/plant02b_prostate_output.json, DEV_FINGERPRINT_02/donor_null_02.py, DEV_FINGERPRINT_02/donor_null_02_output.json, DEV_FINGERPRINT_02/prep_normal.sh, DEV_FINGERPRINT_02/normal_epithelial_cell_of_prostate/runloss_sim.txt, Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align.py, Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align_result.csv

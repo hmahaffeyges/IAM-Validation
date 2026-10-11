@@ -1,0 +1,134 @@
+{
+ "NULL": {
+  "pair": "prostate",
+  "IAMA_rel": 1.0,
+  "eps_cancer": 0.045327428610832304,
+  "eps_normal": 0.045327428610832304,
+  "share_read": 1.0,
+  "MetA_rel": 1.0,
+  "sites_all_arrays": 3413,
+  "arrays_H": {
+   "ENCSR000ACD": 0.3239286783896161,
+   "ENCSR000ADA": 0.3239286783896161
+  },
+  "curveB": 1.0,
+  "curveB_extended": false,
+  "se": 0.12882279864454335,
+  "z": 0.0,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.0,
+   "FAKE1": 0.0014081761217252112
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "no fingerprint",
+  "deciding_arm": "B",
+  "power_A06": 0.11915052831610007,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": 0.0,
+  "VERDICT": "no fingerprint",
+  "case": "NULL",
+  "expected": "no fingerprint",
+  "PASS": true
+ },
+ "RUN05": {
+  "pair": "prostate",
+  "IAMA_rel": 0.9996064933345875,
+  "eps_cancer": 0.045303604356053725,
+  "eps_normal": 0.045327428610832304,
+  "share_read": 0.9494311211199435,
+  "MetA_rel": 1.0,
+  "sites_all_arrays": 3413,
+  "arrays_H": {
+   "ENCSR000ACD": 0.3239286783896161,
+   "ENCSR000ADA": 0.3239286783896161
+  },
+  "curveB": 1.0,
+  "curveB_extended": false,
+  "se": 0.12882279864454335,
+  "z": 0.0,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.048585908124897825,
+   "FAKE1": 0.05130556395464971
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "FINGERPRINT",
+  "deciding_arm": "B",
+  "power_A06": 0.11915052831610007,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": 2.2976635167429356,
+  "VERDICT": "FINGERPRINT",
+  "case": "RUN05",
+  "expected": "FINGERPRINT",
+  "PASS": true
+ },
+ "RUN01": {
+  "pair": "prostate",
+  "IAMA_rel": 1.0006019846845027,
+  "eps_cancer": 0.04536388317628514,
+  "eps_normal": 0.045327428610832304,
+  "share_read": 0.9891097927835572,
+  "MetA_rel": 1.0,
+  "sites_all_arrays": 3413,
+  "arrays_H": {
+   "ENCSR000ACD": 0.3239286783896161,
+   "ENCSR000ADA": 0.3239286783896161
+  },
+  "curveB": 1.0013856813485118,
+  "curveB_extended": false,
+  "se": 0.12882279864454335,
+  "z": -0.010756491576737663,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.01065881968285107,
+   "FAKE1": 0.011908169242245099
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "no fingerprint",
+  "deciding_arm": "B",
+  "power_A06": 0.11915052831610007,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": 0.5040634632962295,
+  "VERDICT": "no fingerprint",
+  "case": "RUN01",
+  "expected": "no fingerprint",
+  "PASS": true
+ },
+ "SCAT": {
+  "pair": "prostate",
+  "IAMA_rel": 1.2655996632583355,
+  "eps_cancer": 0.06240292947787108,
+  "eps_normal": 0.045327428610832304,
+  "share_read": 0.912659865889115,
+  "MetA_rel": 1.0,
+  "sites_all_arrays": 3413,
+  "arrays_H": {
+   "ENCSR000ACD": 0.3239286783896161,
+   "ENCSR000ADA": 0.3239286783896161
+  },
+  "curveB": 1.6246668279065957,
+  "curveB_extended": true,
+  "se": 0.12882279864454335,
+  "z": -4.849039412893202,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 6.539153179663248e-05,
+   "FAKE1": 0.0015616449829150584
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "no fingerprint",
+  "deciding_arm": "B",
+  "power_A06": 0.11915052831610007,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": 0.0030924138852529487,
+  "VERDICT": "no fingerprint",
+  "case": "SCAT",
+  "expected": "no fingerprint",
+  "PASS": true
+ }
+}

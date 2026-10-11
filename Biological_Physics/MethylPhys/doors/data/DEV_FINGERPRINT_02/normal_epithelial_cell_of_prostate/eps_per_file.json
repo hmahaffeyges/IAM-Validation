@@ -1,0 +1,12 @@
+{
+ "ENCFF000MLV.pat.gz": {
+  "errors": 4144.0,
+  "opportunities": 85581.0,
+  "eps": 0.04842196281884998
+ },
+ "ENCFF000MLS.pat.gz": {
+  "errors": 7688.0,
+  "opportunities": 175453.0,
+  "eps": 0.0438180025419913
+ }
+}
