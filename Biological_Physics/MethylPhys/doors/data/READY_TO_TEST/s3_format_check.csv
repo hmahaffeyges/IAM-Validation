@@ -1,0 +1,45 @@
+track,series,format,prefix
+C_tissue_tests,GSE131013,IDAT,downloads/C_tissue_tests/GSE131013/
+C_tissue_tests,GSE132804,IDAT,downloads/C_tissue_tests/GSE132804/
+C_tissue_tests,GSE142257,IDAT,downloads/C_tissue_tests/GSE142257/
+C_tissue_tests,GSE154946,IDAT,downloads/C_tissue_tests/GSE154946/
+C_tissue_tests,GSE166212,IDAT,downloads/C_tissue_tests/GSE166212/
+C_tissue_tests,GSE199057,IDAT,downloads/C_tissue_tests/GSE199057/
+C_tissue_tests,GSE288652,IDAT,downloads/C_tissue_tests/GSE288652/
+C_tissue_tests,GSE304513,IDAT,downloads/C_tissue_tests/GSE304513/
+C_tissue_tests,GSE69914,other (txt),downloads/C_tissue_tests/GSE69914/
+B_cfDNA_plasma,GSE119260,IDAT,downloads/B_cfDNA_plasma/GSE119260/
+B_cfDNA_plasma,GSE122126,IDAT,downloads/B_cfDNA_plasma/GSE122126/
+B_cfDNA_plasma,GSE207998,IDAT,downloads/B_cfDNA_plasma/GSE207998/
+B_cfDNA_plasma,GSE262273,"other (beta, csi, pat)",downloads/B_cfDNA_plasma/GSE262273/
+B_cfDNA_plasma,GSE262274,"other (beta, csi, pat)",downloads/B_cfDNA_plasma/GSE262274/
+B_cfDNA_plasma,GSE275017,other (tsv),downloads/B_cfDNA_plasma/GSE275017/
+B_cfDNA_plasma,GSE277078,IDAT,downloads/B_cfDNA_plasma/GSE277078/
+B_cfDNA_plasma,GSE282216,IDAT,downloads/B_cfDNA_plasma/GSE282216/
+B_cfDNA_plasma,GSE287137,IDAT,downloads/B_cfDNA_plasma/GSE287137/
+B_cfDNA_plasma,GSE292312,IDAT,downloads/B_cfDNA_plasma/GSE292312/
+B_cfDNA_plasma,GSE298812,IDAT,downloads/B_cfDNA_plasma/GSE298812/
+B_cfDNA_plasma,GSE302507,"other (beta, bigwig, csi, pat)",downloads/B_cfDNA_plasma/GSE302507/
+B_cfDNA_plasma,GSE303824,IDAT,downloads/B_cfDNA_plasma/GSE303824/
+B_cfDNA_plasma,GSE303825,IDAT,downloads/B_cfDNA_plasma/GSE303825/
+B_cfDNA_plasma,GSE303826,IDAT,downloads/B_cfDNA_plasma/GSE303826/
+B_cfDNA_plasma,GSE311578,IDAT,downloads/B_cfDNA_plasma/GSE311578/
+B_cfDNA_plasma,GSE325660,IDAT,downloads/B_cfDNA_plasma/GSE325660/
+A_blood_immune,GSE111629,IDAT,downloads/A_blood_immune/GSE111629/
+A_blood_immune,GSE125105,IDAT,downloads/A_blood_immune/GSE125105/
+A_blood_immune,GSE136724,IDAT,downloads/A_blood_immune/GSE136724/
+A_blood_immune,GSE159907,IDAT,downloads/A_blood_immune/GSE159907/
+A_blood_immune,GSE167202,IDAT,downloads/A_blood_immune/GSE167202/
+A_blood_immune,GSE175758,IDAT,downloads/A_blood_immune/GSE175758/
+A_blood_immune,GSE237299,IDAT,downloads/A_blood_immune/GSE237299/
+A_blood_immune,GSE287261,IDAT,downloads/A_blood_immune/GSE287261/
+A_blood_immune,GSE289742,IDAT,downloads/A_blood_immune/GSE289742/
+A_blood_immune,GSE295456,IDAT,downloads/A_blood_immune/GSE295456/
+A_blood_immune,GSE304107,IDAT,downloads/A_blood_immune/GSE304107/
+A_blood_immune,GSE315366,IDAT,downloads/A_blood_immune/GSE315366/
+A_blood_immune,GSE315367,IDAT,downloads/A_blood_immune/GSE315367/
+A_blood_immune,GSE315451,IDAT,downloads/A_blood_immune/GSE315451/
+A_blood_immune,GSE42861,IDAT,downloads/A_blood_immune/GSE42861/
+A_blood_immune,GSE51032,IDAT,downloads/A_blood_immune/GSE51032/
+A_blood_immune,GSE51057,IDAT,downloads/A_blood_immune/GSE51057/
+A_blood_immune,GSE87640,IDAT,downloads/A_blood_immune/GSE87640/
