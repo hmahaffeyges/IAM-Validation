@@ -972,3 +972,6 @@ STATUS section 0: commissioning and cancer results run alongside, cancers one at
 
 ### 2026-10-11 · LESSONS T12 (author)
 The 8-class H_min version chased many cancers before each chain link was established; the roadmap, the one-cancer-at-a-time check and gate rule 7 now prevent it.
+
+### 2026-10-11 · DEV-TISSUE-COLON-01 design; DEV-IAMA-COMMISSION-01 draft bars
+Colon (GSE131013): 91 patients with tumour and adjacent normal on one slide, 48 healthy donors' mucosa, 450K. Only mucosa and normal arrays fetched (tumour lock tested both ways first, LESSONS T11); synthetic tests 1-5 written before calibration finishes. IAM-A narrow-scope commissioning: five tests C1-C5 named (intake, repeatability, offset removed on identical DNA from EpiQC, healthy neutrophils from another laboratory, a known change seen); pass values are set only with their synthetic tests (gate rule 7 refused a draft that wrote them first).
