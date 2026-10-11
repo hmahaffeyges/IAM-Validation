@@ -954,3 +954,6 @@ STATUS section 0: trust the physics and instruments first. R1 IAM-A narrow (neut
 
 ### 2026-10-11 · Roadmap: R4 alongside R1-R3; stopping rule; outside lab
 STATUS section 0: Met-A commissioning (R4) runs alongside R1-R3 (only new cancer tests wait); each stage has a stopping rule (no data: recorded and claims stated without it; failed bars: stop until the cause is found); an outside laboratory running the kit is pursued alongside.
+
+### 2026-10-11 · Roadmap: replication goal replaces the outside-lab item (author)
+The author works alone from public data; no laboratory runs anything for this work. STATUS section 0 now states the goal as a researcher who wants to test IAM: sealed predictions met on public data, a one-command replication kit per commissioning, open predictions checkable with data a laboratory already holds, and a preprint after R1 and R2.

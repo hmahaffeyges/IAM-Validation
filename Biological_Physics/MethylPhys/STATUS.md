@@ -29,7 +29,11 @@ A development test never extends a commissioned scope; only a commissioning does
 detection stands on its own bars. What waits behind R1-R3 is new cancer tests only.
 **Stopping rule, every stage:** if the public data for a stage do not exist, that is recorded and the claims are stated without it (what each
 instrument can and cannot say); if a stage fails its bars, the work stops there until the cause is found, never routed around.
-**Alongside all stages:** an outside laboratory running the kit (to-do B9), the strongest single step for credibility.
+**The goal of every stage: a researcher who wants to test IAM.** The work is done from public data only; "another laboratory" in every bar means
+data another laboratory produced and made public. Alongside the stages: (1) every result rests on a prediction sealed in git before its data
+were read; (2) a replication kit rebuilds each commissioned result from public data with one command on a laptop (the Met-A clean-room
+rebuild is the model); (3) open predictions any laboratory can check with data it already holds, listed with each commissioning; (4) a preprint
+with the kit and the open predictions once R1 and R2 are done.
 
 | stage | what | why | next step |
 |---|---|---|---|
