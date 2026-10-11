@@ -933,3 +933,6 @@ MCF-7 against MCF 10A: Arm B 10/10 and Arm G 10/10 above their sealed bars. Gain
 
 ### 2026-10-11 · Book Ch. Landauer: the anchor sentence (author approved)
 After the prior-art credit: because the physics fixes both ends of the gauge, a single sample is read against its own cell's healthy reference with no cohort; that anchor is what makes Met-A possible. Wording only.
+
+### 2026-10-11 · TCGA breast normals: real spread 16x the simulation; no seal
+97 normal-tissue arrays read leave-one-out: composition-aware Met-A SD 0.0651 (simulated 0.0039); fitted fibroblast share 0, endothelium 0.168. The composition panel fits real breast stroma poorly. Simulation to be rebuilt on the real spread before any seal.

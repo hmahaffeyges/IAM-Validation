@@ -1,0 +1,4 @@
+arrays 97 | loci 324964 | identity sites 3000 + 3000
+plain_rel: SD 0.0830, range 0.8316-1.2317, 95th percentile 1.1854
+comp_rel: SD 0.0651, range 0.8968-1.1928, 95th percentile 1.1531
+fitted composition, median: {'f_luminal': 0.19, 'f_basal': 0.24, 'f_adipocytes': 0.265, 'f_fibroblast': 0.0, 'f_endothelium': 0.168, 'f_macrophage': 0.023, 'f_T': 0.04, 'f_B': 0.015}
