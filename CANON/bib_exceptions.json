@@ -1,0 +1,5 @@
+{
+ "Einstein1915": {"skip": ["year", "first page"], "reason": "DOI is the 2005 Wiley-VCH reprint (pp. 88-92), stated in the entry's note; the citation is the 1915 original, pp. 844-847."},
+ "Riggs1975": {"skip": ["year"], "reason": "CrossRef 10.1159/000130315 carries only the 2008-04-30 online date (no print date, no volume); title and pages 9-25 match. Cytogenet. Cell Genet. 14 (1975)."},
+ "Zhirnov2003": {"skip": ["volume"], "reason": "CrossRef 10.1109/JPROC.2003.818324 gives volume '9' with issue 11, November 2003, pp. 1934-1939; Proc. IEEE began at volume 1 in 1913, so 2003 is volume 91. CrossRef metadata error."}
+}

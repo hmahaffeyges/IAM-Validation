@@ -90,6 +90,15 @@
 "text": "ATP at 310\\,K it is about 21 ($\\mathcal M=20.94$). \\calc{} The chip gauge is the efficiency one, how far above $\\kB T\\ln2$ each switch runs; the Mahaffey number"
 },
 {
+"file": "Biological_Physics/MethylPhys/LESSONS.md",
+"line": 11,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "LIVE",
+"text": "| R1 | Constants (the eight class H_min; later the holding-energy job PROC-CHANNEL-01) were made in notebook cells and their scripts never committed; the box co"
+},
+{
 "file": "Biological_Physics/MethylPhys/archive/docs_consolidated_2026-10-09/CHAIN_CHANGELOG.md",
 "line": 140,
 "pattern": "\\bA[- ]score",

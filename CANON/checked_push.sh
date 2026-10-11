@@ -6,6 +6,7 @@ python3 CANON/canon_check.py || { echo "checked_push.sh: CANON CHECK FAILED - pu
 git fetch -q origin main
 python3 CANON/repro_check.py || { echo "checked_push.sh: REPRODUCIBILITY CHECK FAILED - push refused"; exit 1; }
 python3 CANON/status_check.py || { echo "checked_push.sh: STATUS CHECK FAILED - an old status is still printed somewhere - push refused"; exit 1; }
+python3 CANON/bib_check.py > /dev/null || { python3 CANON/bib_check.py | tail -20; echo "checked_push.sh: BIBLIOGRAPHY CHECK FAILED - a citation does not match its CrossRef record - push refused"; exit 1; }
 n=$(grep -rl "COMMISSIONING-RETURN" docs/book --include=*.tex 2>/dev/null | wc -l | tr -d " ")
 [ "$n" -gt 0 ] && echo "REMINDER: $(grep -rh "COMMISSIONING-RETURN" docs/book --include=*.tex | wc -l | tr -d " ") figure(s) wait to go back into the book at commissioning (development/COMMISSIONING_RETURNS.md)."
 git push "$@"
