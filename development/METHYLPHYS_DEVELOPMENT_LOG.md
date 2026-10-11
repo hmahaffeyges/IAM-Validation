@@ -960,3 +960,6 @@ The author works alone from public data; no laboratory runs anything for this wo
 
 ### 2026-10-11 · t47d_hmec scored: FINGERPRINT on both arms (4/4 each)
 T47D against mammary epithelial cells, rules 02b and 02c as sealed. Reviewed in DEV_FINGERPRINT_02_OUTCOME.md. Box Run 9 complete; box stopped (EC2 waiter confirmed).
+
+### 2026-10-11 · t47d_mcf10a scored: FINGERPRINT on both arms; all four breast pairs scored
+Gain meter FINGERPRINT in 4 of 4 breast pairs; loss meter in 3 of 4 (MCF-7 vs mammary epithelial cells undecided). Development, cell lines.

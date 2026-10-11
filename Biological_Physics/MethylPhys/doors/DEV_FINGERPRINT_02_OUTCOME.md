@@ -53,3 +53,19 @@ had liver been reviewed first, A549 would have stayed unread for a sealed gain t
   Met-A_rel 1.2136, IAM-A_rel 0.8287.
 - Both breast cancer lines now read FINGERPRINT on the gain meter against primary mammary epithelial cells; T47D also on the loss meter,
   where MCF-7 was undecided. No sealed rule or scorer problem: scoring may continue (t47d_mcf10a next).
+
+### t47d_mcf10a (T47D against MCF 10A), scored 2026-10-11 as sealed (rule 02b and Arm G, rule 02c)
+**Reviewed:** scored_t47d_mcf10a.json, scored_gain_t47d_mcf10a.json.
+- **Arm B (loss): FINGERPRINT,** all 4 above the bar 0.0211 (excess 0.1888-0.2642).
+- **Arm G (gain): FINGERPRINT,** all 4 above the bar 0.0038 (gain 0.0179-0.0259). Arm A, reported only:
+  Met-A_rel 1.0007, IAM-A_rel 0.9161.
+- As with MCF-7, gain is smaller against MCF 10A than against primary mammary epithelial cells and loss is larger: the same reference pattern.
+
+### Breast, all four sealed pairs scored (2026-10-11)
+| pair | Arm B (loss) | Arm G (gain) |
+|---|---|---|
+| MCF-7 vs mammary epithelial cells | UNDECIDED (3/10) | FINGERPRINT (10/10) |
+| MCF-7 vs MCF 10A | FINGERPRINT (10/10) | FINGERPRINT (10/10) |
+| T47D vs mammary epithelial cells | FINGERPRINT (4/4) | FINGERPRINT (4/4) |
+| T47D vs MCF 10A | FINGERPRINT (4/4) | FINGERPRINT (4/4) |
+Development results on cell lines (one laboratory per line, ENCODE HAIB); they extend no commissioned scope.
