@@ -1,0 +1,31 @@
+GSE107729: units 95; healthy neuron units 25; donors 25; raw GB 2998; lab GaTech-Yi; shares contributors with none
+GSE109559: units 6; healthy neuron units 0; donors 0; raw GB 0; lab Wuerzburg-Haaf (+Munich brain bank: Krau; shares contributors with GSE66351(2)
+GSE110728: units 1; healthy neuron units 0; donors 0; raw GB 0; lab Labrie (VARI); shares contributors with GSE112179(1),GSE112524(1),GSE145153(3)
+GSE112179: units 100; healthy neuron units 33; donors 28; raw GB 0; lab Labrie (Toronto/VARI); shares contributors with GSE112524(2),GSE110728(1),GSE145153(1)
+GSE112524: units 1; healthy neuron units 0; donors 0; raw GB 0; lab Labrie (Toronto/VARI); shares contributors with GSE112179(2),GSE110728(1),GSE145153(1)
+GSE119532: units 34; healthy neuron units 14; donors 7; raw GB 0; lab KI-Jagodic; shares contributors with none
+GSE122126: units 3; healthy neuron units 3; donors 3; raw GB 0; lab HU-Kaplan/Dor; shares contributors with GSE186458(3)
+GSE137364: units 1; healthy neuron units 0; donors 0; raw GB 0; lab McGill-Turecki; shares contributors with none
+GSE145153: units 1; healthy neuron units 0; donors 0; raw GB 0; lab Labrie (VARI); shares contributors with GSE112179(1),GSE112524(1),GSE110728(3)
+GSE156984: units 1; healthy neuron units 0; donors 0; raw GB 0; lab nan; shares contributors with none
+GSE156996: units 1; healthy neuron units 0; donors 0; raw GB 0; lab UIC-Grayson/Pandey; shares contributors with none
+GSE186458: units 14; healthy neuron units 10; donors 10; raw GB 0; lab HU-Kaplan/Dor; shares contributors with GSE122126(3)
+GSE215569..GSE215733: units 1; healthy neuron units 0; donors 0; raw GB 0; lab nan; shares contributors with none
+GSE234520: units 37; healthy neuron units 0; donors 0; raw GB 0; lab Exeter-Mill; shares contributors with GSE279509(2),GSE289184(1)
+GSE235818: units 1; healthy neuron units 0; donors 0; raw GB 0; lab Yale-Montalvo-Ortiz; shares contributors with none
+GSE267937: units 1; healthy neuron units 0; donors 0; raw GB 0; lab nan; shares contributors with none
+GSE279509: units 182; healthy neuron units 0; donors 0; raw GB 0; lab Exeter-Mill; shares contributors with GSE234520(2),GSE289184(4)
+GSE288337 / GSE331022 / GSE218542: units 1; healthy neuron units 0; donors 0; raw GB 0; lab nan; shares contributors with none
+GSE289184: units 1; healthy neuron units 0; donors 0; raw GB 0; lab Exeter-Mill; shares contributors with GSE234520(1),GSE279509(4)
+GSE306226: units 20; healthy neuron units 20; donors 20; raw GB 0; lab Maastricht-Pishva; shares contributors with GSE306227(10)
+GSE306227: units 19; healthy neuron units 19; donors 19; raw GB 0; lab Maastricht-Pishva; shares contributors with GSE306226(10)
+GSE330111: units 1; healthy neuron units 0; donors 0; raw GB 0; lab MSSM-Dracheva/UCSD-Mukamel; shares contributors with GSE50852(2),GSE50798(2),GSE98203(2),GSE339321(9)
+GSE339321: units 1; healthy neuron units 0; donors 0; raw GB 0; lab MSSM-Dracheva/UCSD-Mukamel; shares contributors with GSE50852(2),GSE50798(2),GSE98203(2),GSE330111(9)
+GSE41826: units 1; healthy neuron units 0; donors 0; raw GB 0; lab JHU-Kaminsky; shares contributors with none
+GSE47966: units 4; healthy neuron units 0; donors 0; raw GB 0; lab Salk-Ecker; shares contributors with none
+GSE50798: units 1; healthy neuron units 0; donors 0; raw GB 0; lab MSSM-Dracheva; shares contributors with GSE50852(2),GSE98203(2),GSE330111(2),GSE339321(2)
+GSE50852: units 6; healthy neuron units 3; donors 3; raw GB 18; lab MSSM-Dracheva; shares contributors with GSE50798(2),GSE98203(2),GSE330111(2),GSE339321(2)
+GSE66351: units 31; healthy neuron units 0; donors 0; raw GB 0; lab Saarland-Walter (+Munich: Kraus, Giese); shares contributors with GSE109559(2)
+GSE88716: units 1; healthy neuron units 0; donors 0; raw GB 0; lab nan; shares contributors with none
+GSE96612: units 45; healthy neuron units 23; donors 6; raw GB 680; lab JHU-Feinberg; shares contributors with none
+GSE98203: units 88; healthy neuron units 29; donors 29; raw GB 0; lab MSSM-Dracheva; shares contributors with GSE50852(2),GSE50798(2),GSE330111(2),GSE339321(2)

@@ -999,3 +999,6 @@ The whole-blood truth search found DEV-COMPOSITION-TRUTH-02 calling GSE77797 ano
 
 ### 2026-10-11 · DEV-COMPOSITION-TRUTH-04: author decisions; platform check passed (manifest only)
 Author: GPL29753 counts as EPIC v1 if every site is on it; the ED patient cohort is accepted, stated; bar 7 unchanged, truth error disclosed. platform_check.py on the GEO manifest: every Met-A floor, composition and noise site present as a standard EPIC probe (first run misread the file's description block as the header; fixed, then passed). Next: Stage 1 read check on a GPL29753 IDAT.
+
+### 2026-10-11 · DEV-IAMA-NEURON-01: neurons as a commissioning cell (author); public data checked, metadata only
+IAM-A: Loyfer reference; two independent test laboratories with public raw reads (Feinberg GSE96612, 6 donors; Yi GSE107729, 25 controls). Met-A: two independent EPIC v1 laboratories (Pishva GSE306226/7, 39 healthy; Labrie GSE112179, 33 control). No independent same-donor array plus WGBS (no neuron link test); no neuron-tumour WGBS. Three questions before any bar: what copy error means in a post-mitotic cell, Loyfer donor count, post-mortem interval.

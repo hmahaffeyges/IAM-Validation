@@ -1,0 +1,31 @@
+# DEV-IAMA-NEURON-01 — sorted cortical neurons as a commissioning cell for IAM-A and Met-A (candidate data, 2026-10-11; nothing read, no bars)
+
+**Why (author, 2026-10-11).** No public set of healthy sorted neutrophils from a second laboratory with 3 or more donors exists, so IAM-A test C4
+cannot be met on neutrophils. Neurons have public healthy data from several laboratories, are the most ordered healthy cell measured
+(PROC-CHANNEL-01: copy error 0.024, among the lowest of 56 cell types), and have stopped dividing, which tests whether healthy height depends on
+divisions. Both instruments on the same cell type becomes possible.
+
+**IAM-A (whole-genome bisulfite of sorted NeuN+ neurons).** Counts from `data/DEV_IAMA_NEURON_01/neuron_summary.py` (output `neuron_summary.txt`, table `neuron_check.csv`, search record `neuron_check_search_record.md`).
+- Reference: GSE186458 (Loyfer; Hebrew University). 8 Cortex-Neuron samples, 6-8 donors (to confirm from the paper's supplementary table); public
+  hg19 .pat files; already used to build references, so not a test.
+- Test laboratory 1: GSE96612 (Feinberg laboratory, Johns Hopkins; shares no GEO contributor with Loyfer). 6 donors without neurological or
+  psychiatric disease, 23 NeuN+ libraries across 4 regions, public FASTQ (SRP101887); BA9 alone 6 runs, 188 GB. Donor age, sex and post-mortem
+  interval in the paper supplement only.
+- Test laboratory 2: GSE107729 (Yi laboratory, Georgia Tech). 25 control NeuN+ donors (ages 25-80, post-mortem interval given for 20), public
+  FASTQ; 3.0 TB. Controls of a schizophrenia study.
+- Not usable: GSE330111 (103 donors, raw reads controlled access); GSE47966 (2 donors, hg18).
+
+**Met-A (EPIC v1 arrays of sorted neurons, raw IDATs).**
+- GSE306226 + GSE306227 (Pishva laboratory, Maastricht): 39 neurologically healthy neuron arrays, plus glia from the same donors.
+- GSE112179 (Labrie laboratory): 33 control NeuN+ arrays from 28 donors.
+- Exeter sets GSE234520 / GSE279509: healthy subset not in GEO; possible donor overlap with the Maastricht sets (UK brain banks).
+
+**Missing.** Same-donor arrays and whole-genome bisulfite outside the reference laboratory (only the Moss pair, 2 EPIC donors, already read, the
+reference laboratory's own). So the Met-A to IAM-A link test is not possible on neurons with independent data. No whole-genome bisulfite of
+neuron-derived tumours is public (arrays only: central neurocytoma GSE288337, ganglioglioma GSE218542).
+
+**Questions to answer before any bar is written.**
+1. A post-mitotic cell makes no new copies: what IAM-A's copy error measures in neurons (errors written at the last divisions, plus maintenance
+   since), derived and then tested on synthetic data.
+2. The healthy reference built on Loyfer's 6-8 donors (donor count and depth from the paper's table).
+3. Post-mortem interval: record per sample; test whether copy error follows it in the Yi controls before using them.
