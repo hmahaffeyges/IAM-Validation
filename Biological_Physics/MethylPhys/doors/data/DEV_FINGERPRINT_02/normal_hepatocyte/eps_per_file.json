@@ -1,0 +1,12 @@
+{
+ "ENCFF000MBY.pat.gz": {
+  "errors": 15400.0,
+  "opportunities": 412504.0,
+  "eps": 0.037332971316641775
+ },
+ "ENCFF000MCD.pat.gz": {
+  "errors": 13427.0,
+  "opportunities": 312728.0,
+  "eps": 0.04293507456959402
+ }
+}

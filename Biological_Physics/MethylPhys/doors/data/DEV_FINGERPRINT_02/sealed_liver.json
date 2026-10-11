@@ -1,0 +1,78 @@
+{
+ "pair": "liver",
+ "normal_cell": "hepatocyte",
+ "cancer_cell": "HepG2",
+ "identity_cell": "hepatocyte",
+ "normal_files": [
+  {
+   "file": "ENCFF000MBY",
+   "sha256": "23528bd593cb9c82be5f93378da68d56eee7cb821525f65172a011b81b48afad",
+   "errors": 15400.0,
+   "opportunities": 412504.0,
+   "m6": 2224553,
+   "read": 92781,
+   "eps": 0.037332971316641775
+  },
+  {
+   "file": "ENCFF000MCD",
+   "sha256": "7afa6086e65ec93165cd49e278a807a1919afcf690e1d3cdd0fcc8d56cb6f20f",
+   "errors": 13427.0,
+   "opportunities": 312728.0,
+   "m6": 1814613,
+   "read": 71292,
+   "eps": 0.04293507456959402
+  }
+ ],
+ "eps_normal": 0.039748659739228275,
+ "share_read_normal": 0.04062051423486928,
+ "sd_rep": 0.07525575365004467,
+ "sd_rep_own_spread": 0.07525575365004467,
+ "response_file": "normal_hepatocyte/insilico_ENCFF000MCD.csv",
+ "response_sha256": "e3c99d4c2512468d5bd9a50cfedeb7b53e690207b3676c2ff91ffd7d4c96bb32",
+ "curveB_XQ": [
+  1.0,
+  1.010771526331354,
+  1.0269288158283845,
+  1.0538576316567692,
+  1.0861722106508305
+ ],
+ "curveB_YB": [
+  1.0,
+  1.023,
+  1.056,
+  1.115,
+  1.188
+ ],
+ "slope": 2.179678921749489,
+ "normal_arrays": [
+  "ENCSR955LKF"
+ ],
+ "cancer_arrays": [
+  "ENCSR291NYD"
+ ],
+ "normal_arrays_metA_H": {
+  "ENCSR955LKF": 0.3824383580844938
+ },
+ "normal_arrays_sites": {
+  "ENCSR955LKF": 5954
+ },
+ "armB_normal_excess": {
+  "ENCFF000MBY": 0.0,
+  "ENCFF000MCD": 0.0020319586342575956
+ },
+ "armB_bar_libraries": 0.0020319586342575956,
+ "armB_donor_excess": 0.021145789090027865,
+ "donor_null_sha256": "ffe9cd9eeea0e7a96a3bbfad96d9a849b6a48deb9b304c610ba4a85f2c8db223",
+ "armB_bar": 0.021145789090027865,
+ "armB_sensitivity_run010": 0.1108,
+ "scorer_sha256": "e82356dcdc64757233a590315f9985f8b149af5db4eca553d0f4b7f959776997",
+ "cancer_files_listed": [
+  "ENCFF000MCF",
+  "ENCFF000MCL",
+  "ENCFF000MCN",
+  "ENCFF000MCR"
+ ],
+ "se_A": 0.1448454773495707,
+ "rule": "02b: Arm B decides; bar = max(normal-library excess, healthy donor-to-donor excess); FINGERPRINT if every cancer file > bar, no fingerprint if every file <= bar, else UNDECIDED; Arm A reported only",
+ "power_A06": 0.10920529907690879
+}

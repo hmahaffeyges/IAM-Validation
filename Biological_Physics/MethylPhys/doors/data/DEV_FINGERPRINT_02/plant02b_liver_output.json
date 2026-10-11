@@ -1,0 +1,134 @@
+{
+ "NULL": {
+  "pair": "liver",
+  "IAMA_rel": 1.0,
+  "eps_cancer": 0.039748659739228275,
+  "eps_normal": 0.039748659739228275,
+  "share_read": 1.0,
+  "MetA_rel": 1.0,
+  "sites_all_arrays": 5954,
+  "arrays_H": {
+   "ENCSR955LKF": 0.3824383580844938,
+   "ENCSR291NYD": 0.3824383580844938
+  },
+  "curveB": 1.0,
+  "curveB_extended": false,
+  "se": 0.166454046946397,
+  "z": 0.0,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.0,
+   "FAKE1": 0.0020319586342575956
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "no fingerprint",
+  "deciding_arm": "B",
+  "power_A06": 0.09947651148451209,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": 0.0,
+  "VERDICT": "no fingerprint",
+  "case": "NULL",
+  "expected": "no fingerprint",
+  "PASS": true
+ },
+ "RUN05": {
+  "pair": "liver",
+  "IAMA_rel": 0.9999142928388327,
+  "eps_cancer": 0.039744161486803514,
+  "eps_normal": 0.039748659739228275,
+  "share_read": 0.9491933468638959,
+  "MetA_rel": 1.0,
+  "sites_all_arrays": 5954,
+  "arrays_H": {
+   "ENCSR955LKF": 0.3824383580844938,
+   "ENCSR291NYD": 0.3824383580844938
+  },
+  "curveB": 1.0,
+  "curveB_extended": false,
+  "se": 0.166454046946397,
+  "z": 0.0,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.049738064936218074,
+   "FAKE1": 0.05107361038488395
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "FINGERPRINT",
+  "deciding_arm": "B",
+  "power_A06": 0.09947651148451209,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": 2.3521498641861527,
+  "VERDICT": "FINGERPRINT",
+  "case": "RUN05",
+  "expected": "FINGERPRINT",
+  "PASS": true
+ },
+ "RUN01": {
+  "pair": "liver",
+  "IAMA_rel": 0.9996607494163352,
+  "eps_cancer": 0.03973085549503364,
+  "eps_normal": 0.039748659739228275,
+  "share_read": 0.9897362759259598,
+  "MetA_rel": 1.0,
+  "sites_all_arrays": 5954,
+  "arrays_H": {
+   "ENCSR955LKF": 0.3824383580844938,
+   "ENCSR291NYD": 0.3824383580844938
+  },
+  "curveB": 1.0,
+  "curveB_extended": false,
+  "se": 0.166454046946397,
+  "z": 0.0,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.010373812413058275,
+   "FAKE1": 0.011773274660442801
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "no fingerprint",
+  "deciding_arm": "B",
+  "power_A06": 0.09947651148451209,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": 0.4905852587903876,
+  "VERDICT": "no fingerprint",
+  "case": "RUN01",
+  "expected": "no fingerprint",
+  "PASS": true
+ },
+ "SCAT": {
+  "pair": "liver",
+  "IAMA_rel": 1.3419306074547879,
+  "eps_cancer": 0.05903225324102457,
+  "eps_normal": 0.039748659739228275,
+  "share_read": 0.9244177896424153,
+  "MetA_rel": 1.0,
+  "sites_all_arrays": 5954,
+  "arrays_H": {
+   "ENCSR955LKF": 0.3824383580844938,
+   "ENCSR291NYD": 0.3824383580844938
+  },
+  "curveB": 1.7454711865740278,
+  "curveB_extended": true,
+  "se": 0.166454046946397,
+  "z": -4.478540475582975,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": -0.00016278450291532225,
+   "FAKE1": 0.0019821783072071645
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "no fingerprint",
+  "deciding_arm": "B",
+  "power_A06": 0.09947651148451209,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": -0.007698199495997514,
+  "VERDICT": "no fingerprint",
+  "case": "SCAT",
+  "expected": "no fingerprint",
+  "PASS": true
+ }
+}
