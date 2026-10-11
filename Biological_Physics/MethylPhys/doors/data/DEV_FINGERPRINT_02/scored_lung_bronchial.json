@@ -1,0 +1,31 @@
+{
+ "pair": "lung_bronchial",
+ "IAMA_rel": 0.8403825611853527,
+ "eps_cancer": 0.034898805263414524,
+ "eps_normal": 0.04389490128599891,
+ "share_read": 2.7743241192616592,
+ "MetA_rel": 1.3218860710240152,
+ "sites_all_arrays": 3292,
+ "arrays_H": {
+  "ENCSR000ACA": 0.3157711784870243,
+  "ENCSR000ACY": 0.3232828851201235,
+  "ENCSR000ABU": 0.42237833265679187
+ },
+ "curveB": 1.0,
+ "curveB_extended": false,
+ "se": 0.08371762741467789,
+ "z": 3.8449019754181446,
+ "armA": "FINGERPRINT",
+ "cancer_excess": {
+  "ENCFF000LTD": 0.008724731200897024,
+  "ENCFF000LTE": 0.009190065515685263
+ },
+ "armB_bar": 0.021145789090027865,
+ "armB": "no fingerprint",
+ "deciding_arm": "B",
+ "power_A06": 0.17662467517274405,
+ "armA_role": "reported only",
+ "armB_donor_excess": 0.021145789090027865,
+ "ratio_min_excess_to_donor": 0.41259898903519837,
+ "VERDICT": "no fingerprint"
+}

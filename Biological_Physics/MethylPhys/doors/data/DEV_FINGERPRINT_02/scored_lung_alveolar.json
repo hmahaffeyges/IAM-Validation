@@ -1,0 +1,30 @@
+{
+ "pair": "lung_alveolar",
+ "IAMA_rel": 0.7667145825209203,
+ "eps_cancer": 0.034898805263414524,
+ "eps_normal": 0.049634662492717814,
+ "share_read": 3.2908377112922387,
+ "MetA_rel": 1.0487168583984783,
+ "sites_all_arrays": 5926,
+ "arrays_H": {
+  "ENCSR422EPB": 0.4047412134686753,
+  "ENCSR408IKV": 0.42445893385325706
+ },
+ "curveB": 1.0,
+ "curveB_extended": false,
+ "se": 0.20489415587084364,
+ "z": 0.2377659733213048,
+ "armA": "no fingerprint",
+ "cancer_excess": {
+  "ENCFF000LTD": 0.00669560071079661,
+  "ENCFF000LTE": 0.006823052080831707
+ },
+ "armB_bar": 0.021145789090027865,
+ "armB": "no fingerprint",
+ "deciding_arm": "B",
+ "power_A06": 0.08816112815302568,
+ "armA_role": "reported only",
+ "armB_donor_excess": 0.021145789090027865,
+ "ratio_min_excess_to_donor": 0.3166399079405453,
+ "VERDICT": "no fingerprint"
+}

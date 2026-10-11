@@ -1,0 +1,32 @@
+{
+ "pair": "liver",
+ "IAMA_rel": 0.9613865382839091,
+ "eps_cancer": 0.03773892408538473,
+ "eps_normal": 0.039748659739228275,
+ "share_read": 3.3410556306352652,
+ "MetA_rel": 1.0371367615097427,
+ "sites_all_arrays": 5859,
+ "arrays_H": {
+  "ENCSR955LKF": 0.38167508916393955,
+  "ENCSR291NYD": 0.39584926592443054
+ },
+ "curveB": 1.0,
+ "curveB_extended": false,
+ "se": 0.1448454773495707,
+ "z": 0.25638882338118596,
+ "armA": "no fingerprint",
+ "cancer_excess": {
+  "ENCFF000MCF": 0.013837991466749779,
+  "ENCFF000MCL": 0.0165889087401683,
+  "ENCFF000MCN": 0.011295738373887147,
+  "ENCFF000MCR": 0.014580460299442433
+ },
+ "armB_bar": 0.021145789090027865,
+ "armB": "no fingerprint",
+ "deciding_arm": "B",
+ "power_A06": 0.10920529907690879,
+ "armA_role": "reported only",
+ "armB_donor_excess": 0.021145789090027865,
+ "ratio_min_excess_to_donor": 0.5341838190949374,
+ "VERDICT": "no fingerprint"
+}

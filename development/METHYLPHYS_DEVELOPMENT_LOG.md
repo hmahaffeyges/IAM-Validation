@@ -857,3 +857,6 @@ A fresh clone with an empty home folder could not calibrate: methylprep fetches 
 
 ### 2026-10-10 · Rule 6 extended: a number may come from a test cited on its own line
 Editing the Met-A commissioning note (Stage 1 pins) re-checked its numbers: 8 lived in other tests' folders. Rule 6 now accepts a number found, at printed precision, in the data folder of a DEV-/PROC- test cited on the same line (by tag or note file name), and still refuses it otherwise. That traced 6; 2 were real gaps: the Moss largest shift 0.0094 was computed from rows but never written (moss_summary_01.py now writes it), and atlas_e 0.014 cited the bar's test, not its data (now cites DEV-ATLAS-EPIC-01 metrics_by_set.csv).
+
+### 2026-10-11 · DEV-FINGERPRINT-02 scored: liver, lung_alveolar, lung_bronchial (DEV_FINGERPRINT_02_OUTCOME.md)
+By rule 02b, all three no fingerprint: HepG2 and A549 Arm B excess within the healthy donor-to-donor range. Arm A (reported) FINGERPRINT in lung_bronchial only. Prostate (LNCaP) pending; breast pairs held.
