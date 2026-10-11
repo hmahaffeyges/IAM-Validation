@@ -16,15 +16,16 @@ export PATH=$S/e_st19/bin:$S/e_wgbs/bin:$S/e_bm/bin:$S/e_tg/bin:$S/wgbs_tools:$P
 REF=$S/ref/hg19_lambda_puc19.fa; [ -s $REF.bwameth.c2t.sa ] || fin FAIL_no_hg19_index
 { bwameth.py --version 2>&1 | head -1; samtools --version | head -1; trim_galore --version | grep -m1 version; cutadapt --version; echo "wgbstools $(git -C $S/wgbs_tools describe --tags)"; echo "bwa mem -T30 (synth_align_result.csv)"; } > $O/versions.txt
 grep -q "0\.2\.0" $O/versions.txt || fin FAIL_bwameth_not_0.2.0
-cp $HERE/${SET}_rrbs_files.csv $O/files.csv; log "START set=$SET threads=$T $(tr '\n' ' ' < $O/versions.txt)"
+SKIP=${SKIP_CELLS:-T47D}   # cells with no pair in DEV_FINGERPRINT_02 are not aligned
+awk -F, -v sk="$SKIP" 'NR==1 || index(","sk",", ","$3",")==0' $HERE/${SET}_rrbs_files.csv > $O/files.csv; log "START set=$SET threads=$T $(tr '\n' ' ' < $O/versions.txt)"
 one_read(){ IFS=, read -r file exp cell rep rl md5 url gb <<< "$1"; f=$W/fq/$file.fastq.gz
   [ -s $W/trim/${file}_trimmed.fq.gz ] && [ -s $W/trim/${file}.fastq.gz_trimming_report.txt ] && { log "$file trimmed reads present"; return; }
   for t in 1 2 3; do [ -s $f ] && [ "$(md5sum $f | cut -d' ' -f1)" = "$md5" ] && break; curl -sL -o $f "$url"; done
   [ "$(md5sum $f | cut -d' ' -f1)" = "$md5" ] || { log "$file MD5_FAIL"; return; }
   trim_galore --rrbs --cores 2 -o $W/trim $f > $O/${file}_trim.log 2>&1 && cp $W/trim/${file}.fastq.gz_trimming_report.txt $O/ 2>/dev/null; rm -f $f; log "$file trimmed"; }
 export -f one_read log; export W O
-tail -n +2 $HERE/${SET}_rrbs_files.csv | xargs -P 8 -d '\n' -I{} bash -c 'one_read "{}"'
-for file in $(tail -n +2 $HERE/${SET}_rrbs_files.csv | cut -d, -f1); do
+tail -n +2 $O/files.csv | xargs -P 8 -d '\n' -I{} bash -c 'one_read "{}"'
+for file in $(tail -n +2 $O/files.csv | cut -d, -f1); do
   $PYB -c "import boto3,sys;boto3.client('s3',region_name='us-west-2').head_object(Bucket='$B',Key=sys.argv[1])" "$P/$file.pat.gz" 2>/dev/null && { log "$file already in S3, skipped"; continue; }
   t=$W/trim/${file}_trimmed.fq.gz; [ -s $t ] || { log "$file no trimmed reads"; continue; }
   # bwa mem -T30: chosen by synth_align.sh under its pre-set rule (synth_align_result.csv; bwa-meth default -T 40 aligns no 36-base read).
