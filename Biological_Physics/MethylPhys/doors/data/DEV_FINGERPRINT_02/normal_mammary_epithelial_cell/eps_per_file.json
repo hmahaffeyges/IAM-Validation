@@ -1,0 +1,12 @@
+{
+ "ENCFF000MDB.pat.gz": {
+  "errors": 4550.0,
+  "opportunities": 90081.0,
+  "eps": 0.050510096468733695
+ },
+ "ENCFF000MDH.pat.gz": {
+  "errors": 18412.0,
+  "opportunities": 431414.0,
+  "eps": 0.04267826264330782
+ }
+}

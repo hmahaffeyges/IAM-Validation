@@ -1,0 +1,138 @@
+{
+ "NULL": {
+  "pair": "breast_hmec",
+  "IAMA_rel": 1.0,
+  "eps_cancer": 0.04403110288689249,
+  "eps_normal": 0.04403110288689249,
+  "share_read": 1.0,
+  "MetA_rel": 0.9730489540255961,
+  "sites_all_arrays": 5149,
+  "arrays_H": {
+   "ENCSR148KKY": 0.34188963149734564,
+   "ENCSR583ILE": 0.3608286234946888,
+   "ENCSR889ZLL": 0.34188963149734564
+  },
+  "curveB": 1.0,
+  "curveB_extended": false,
+  "se": 0.20127762070072314,
+  "z": -0.13389986368368806,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.0,
+   "FAKE1": -0.0001627986398295136
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "no fingerprint",
+  "deciding_arm": "B",
+  "power_A06": 0.08900553364889541,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": -0.007698868041121613,
+  "VERDICT": "no fingerprint",
+  "case": "NULL",
+  "expected": "no fingerprint",
+  "PASS": true
+ },
+ "RUN05": {
+  "pair": "breast_hmec",
+  "IAMA_rel": 0.9997148390967432,
+  "eps_cancer": 0.04401437599693097,
+  "eps_normal": 0.04403110288689249,
+  "share_read": 0.9498319568999003,
+  "MetA_rel": 0.9730489540255961,
+  "sites_all_arrays": 5149,
+  "arrays_H": {
+   "ENCSR148KKY": 0.34188963149734564,
+   "ENCSR583ILE": 0.3608286234946888,
+   "ENCSR889ZLL": 0.34188963149734564
+  },
+  "curveB": 1.0,
+  "curveB_extended": false,
+  "se": 0.20127762070072314,
+  "z": -0.13389986368368806,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.048881239242685025,
+   "FAKE1": 0.05043004556620537
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "FINGERPRINT",
+  "deciding_arm": "B",
+  "power_A06": 0.08900553364889541,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": 2.311629943653269,
+  "VERDICT": "FINGERPRINT",
+  "case": "RUN05",
+  "expected": "FINGERPRINT",
+  "PASS": true
+ },
+ "RUN01": {
+  "pair": "breast_hmec",
+  "IAMA_rel": 0.9999576319339558,
+  "eps_cancer": 0.044028617535893,
+  "eps_normal": 0.04403110288689249,
+  "share_read": 0.9899174139940212,
+  "MetA_rel": 0.9730489540255961,
+  "sites_all_arrays": 5149,
+  "arrays_H": {
+   "ENCSR148KKY": 0.34188963149734564,
+   "ENCSR583ILE": 0.3608286234946888,
+   "ENCSR889ZLL": 0.34188963149734564
+  },
+  "curveB": 1.0,
+  "curveB_extended": false,
+  "se": 0.20127762070072314,
+  "z": -0.13389986368368806,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.010212277682157201,
+   "FAKE1": 0.010072254653034185
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "no fingerprint",
+  "deciding_arm": "B",
+  "power_A06": 0.08900553364889541,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": 0.47632436936506456,
+  "VERDICT": "no fingerprint",
+  "case": "RUN01",
+  "expected": "no fingerprint",
+  "PASS": true
+ },
+ "SCAT": {
+  "pair": "breast_hmec",
+  "IAMA_rel": 1.283149607010223,
+  "eps_cancer": 0.061719498975518976,
+  "eps_normal": 0.04403110288689249,
+  "share_read": 0.9201837496411139,
+  "MetA_rel": 0.9730489540255961,
+  "sites_all_arrays": 5149,
+  "arrays_H": {
+   "ENCSR148KKY": 0.34188963149734564,
+   "ENCSR583ILE": 0.3608286234946888,
+   "ENCSR889ZLL": 0.34188963149734564
+  },
+  "curveB": 1.6109045332702938,
+  "curveB_extended": true,
+  "se": 0.20127762070072314,
+  "z": -3.1690337804276623,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.00011474469305794606,
+   "FAKE1": -0.00014668481426031868
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "no fingerprint",
+  "deciding_arm": "B",
+  "power_A06": 0.08900553364889541,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": -0.006936833316354873,
+  "VERDICT": "no fingerprint",
+  "case": "SCAT",
+  "expected": "no fingerprint",
+  "PASS": true
+ }
+}

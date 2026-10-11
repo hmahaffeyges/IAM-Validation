@@ -848,3 +848,6 @@ Normal side, planted test (NULL, RUN05, RUN01, SCAT) and seal by pair_pipeline_0
 
 ### 2026-10-10 · DEV-FINGERPRINT-02 cancer stage released (22:37 PDT)
 Seals on origin/main under rule 02b, each with planted test passed (NULL, RUN05, RUN01, SCAT): lung_bronchial (b38f08e), lung_alveolar (22c142c), prostate (5472c55), liver (94afc70). The box aligns LNCaP, HepG2 and A549 only. MCF-7 is held (breast_mcf10a was sealed under rule 02 before the donor null; whether to re-seal it under 02b is the author's decision, and MCF-7 also serves breast_hmec, so no MCF-7 file is aligned until then). T47D has no pair.
+
+### 2026-10-10 · DEV-FINGERPRINT-02 pair breast_hmec sealed under rule 02b
+Normal side, planted test (NULL, RUN05, RUN01, SCAT) and seal by pair_pipeline_02b.sh; section written by note_section_02b.py from the outputs.

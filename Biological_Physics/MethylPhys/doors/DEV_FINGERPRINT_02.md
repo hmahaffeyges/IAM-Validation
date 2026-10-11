@@ -96,3 +96,13 @@ Run-loss sensitivity on these molecules (planted 0.10): 0.1108. Planted test of 
 FINGERPRINT if every one of the 4 HepG2 files listed in the seal reads above the bar; no fingerprint if every file reads at or below
 it; otherwise UNDECIDED. Arm A (Met-A against curve B) is computed and reported, not deciding.
 **Synthetic test:** DEV_FINGERPRINT_02/plant_fingerprint_02b.py, DEV_FINGERPRINT_02/plant02b_liver_output.json, DEV_FINGERPRINT_02/donor_null_02.py, DEV_FINGERPRINT_02/donor_null_02_output.json, DEV_FINGERPRINT_02/prep_normal.sh, DEV_FINGERPRINT_02/normal_hepatocyte/runloss_sim.txt, Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align.py, Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align_result.csv
+
+## Pair breast_hmec (MCF-7 against mammary epithelial cell), rule 02b: sealed before any cancer file is aligned or read
+
+**Sealed:** `data/DEV_FINGERPRINT_02/sealed_breast_hmec.json` (scorer `score_fingerprint_02b.py`, sha256 in the seal; the score step refuses unless the seal is
+committed unchanged). Normal: 2 RRBS files, Stage Q copy error 0.0427-0.0505; arrays ENCSR148KKY, ENCSR583ILE. The normal is one donor; the donor term in the bar comes from the bronchial donor null.
+**Arm B decides.** Bar 0.0211 = max(normal-library excess 0.0000, healthy donor-to-donor excess 0.0211).
+Run-loss sensitivity on these molecules (planted 0.10): 0.0950. Planted test of the sealed scorer (`plant02b_breast_hmec_output.json`): NULL no fingerprint (excess -0.0002 to 0.0000); RUN05 FINGERPRINT (excess 0.0489 to 0.0504); RUN01 no fingerprint (excess 0.0101 to 0.0102); SCAT no fingerprint (excess -0.0001 to 0.0001).
+FINGERPRINT if every one of the 10 MCF-7 files listed in the seal reads above the bar; no fingerprint if every file reads at or below
+it; otherwise UNDECIDED. Arm A (Met-A against curve B) is computed and reported, not deciding. Weaker pair: MCF-7 is luminal, the mammary epithelial cells basal-like.
+**Synthetic test:** DEV_FINGERPRINT_02/plant_fingerprint_02b.py, DEV_FINGERPRINT_02/plant02b_breast_hmec_output.json, DEV_FINGERPRINT_02/donor_null_02.py, DEV_FINGERPRINT_02/donor_null_02_output.json, DEV_FINGERPRINT_02/prep_normal.sh, DEV_FINGERPRINT_02/normal_mammary_epithelial_cell/runloss_sim.txt, Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align.py, Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align_result.csv
