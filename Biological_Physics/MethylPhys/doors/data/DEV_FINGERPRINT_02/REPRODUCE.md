@@ -23,3 +23,14 @@ Paths: `D = Biological_Physics/MethylPhys/doors/data/DEV_FINGERPRINT_02`, `R = B
 
 Checked 2026-10-10: steps 1-4, 6 and 8 rerun and reproduce the committed outputs exactly (step 1 after making its sort deterministic);
 step 5 reproduces the DEV-FINGERPRINT-01 prostate posterior to 4e-8 and its identity sites exactly.
+
+## Rule 02b (2026-10-10, after the donor null; before any cancer file is aligned)
+
+| step | what | command | committed output |
+|---|---|---|---|
+| D1 | donor null: two healthy bronchial donors through the scorer, both ways | `python3 $D/donor_null_02.py $W/pat $W/betas $W/null` | `donor_null_02_output.json`, `donor_null/insilico_donor*_*.csv` |
+| D2 | the donor numbers quoted in the notes | `python3 $D/../DEV_FINGERPRINT_01/donor_check_01.py` (then copied to `donor_null_02_summary.json`) | `../DEV_FINGERPRINT_01/donor_check_01_output.json` |
+| D3 | per pair under 02b: prep, planted test (NULL, RUN05, RUN01, SCAT), seal, note section | `bash $D/pair_pipeline_02b.sh <pair> $W/pat $W/betas $W/plant` | `plant02b_<pair>_output.json`, `sealed_<pair>.json`, note section |
+| D4 | score one pair | `python3 $D/score_fingerprint_02b.py score <pair> $W/pat $W/betas` | `scored_<pair>.json`, `scored_<pair>_cancer_rows.csv` |
+
+`score_fingerprint_02.py` is kept unchanged: the breast_mcf10a seal (`sealed_breast_mcf10a.json`) was made under it before the donor null.
