@@ -81,3 +81,13 @@ the bar the same-run tare met in test 2, and four times the counting floor of te
 | C5 a known change is seen | a planted loss of 1 % of methylated calls on every EpiQC library, read through Stage Q, moves IAM-A by more than 0.03 in every library | Stage Q's measured response on vehicle molecules (insilico_vehicle_SRR25322252.csv) |
 Pass values are written before any EpiQC read; the seal follows the scorer and its planted test.
 
+**Scorer and its planted test, committed before the seal.** `data/DEV_IAMA_COMMISSION_01/score_iama_commission_01.py` fixes every rule: a library
+is kit x laboratory x line x replicate (pooled runs); evaluable means Stage Q0 PROCEED and conversion >= 0.98; C1 holds when the planted-0.98
+bias is >= 0.99 in every checked library, else C2-C5 are not scored; the same-run tare needs >= 3 references; the k-of-n rule passes a group of
+n >= 4 when at least n-1 are within TOL = 0.03 (n < 4 not assessed); a kit enters the commissioned scope only on C2, C3-kits (EMSeq also
+C3-labs), C1 and C5. `planted_scorer_test_01.py` (output `planted_scorer_test_01_output.txt`): nine synthetic library tables, each tripping one
+rule or none, all giving the stated verdict -> PASSED. The seal guard was tested both ways (no seal and uncommitted seal refuse; a committed seal
+with the unchanged scorer opens; a changed scorer refuses).
+
+**Synthetic test:** `data/DEV_IAMA_COMMISSION_01/planted_scorer_test_01.py`, output `data/DEV_IAMA_COMMISSION_01/planted_scorer_test_01_output.txt`.
+

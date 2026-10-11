@@ -1,0 +1,10 @@
+PASS  clean: scope ['EMSeq', 'MethylSeq', 'SPLAT', 'TruSeq', 'TrueMethylBS']
+PASS  kit-wide offset 10 % (tare must remove): scope ['EMSeq', 'MethylSeq', 'SPLAT', 'TruSeq', 'TrueMethylBS']
+PASS  TruSeq repeat gap: scope ['EMSeq', 'MethylSeq', 'SPLAT', 'TrueMethylBS']
+PASS  SPLAT two lines off: scope ['EMSeq', 'MethylSeq', 'TruSeq', 'TrueMethylBS']
+PASS  EMSeq one line off between laboratories: scope ['EMSeq', 'MethylSeq', 'SPLAT', 'TruSeq', 'TrueMethylBS']
+PASS  EMSeq two lines off between laboratories: scope ['MethylSeq', 'SPLAT', 'TruSeq', 'TrueMethylBS']
+PASS  C1 bias too large: scope []
+PASS  one library under the conversion limit: scope ['EMSeq', 'MethylSeq', 'SPLAT', 'TruSeq', 'TrueMethylBS']
+PASS  planted loss not seen in one library: scope []
+PLANTED SCORER TEST PASSED
