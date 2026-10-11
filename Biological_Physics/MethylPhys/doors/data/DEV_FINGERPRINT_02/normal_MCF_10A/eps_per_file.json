@@ -1,0 +1,32 @@
+{
+ "ENCFF000MHB.pat.gz": {
+  "errors": 14465.0,
+  "opportunities": 380308.0,
+  "eps": 0.038034961136762836
+ },
+ "ENCFF000MHJ.pat.gz": {
+  "errors": 7867.0,
+  "opportunities": 202544.0,
+  "eps": 0.03884094320246465
+ },
+ "ENCFF000MHK.pat.gz": {
+  "errors": 8540.0,
+  "opportunities": 217516.0,
+  "eps": 0.039261479615292666
+ },
+ "ENCFF000MGV.pat.gz": {
+  "errors": 9071.0,
+  "opportunities": 234756.0,
+  "eps": 0.03864011995433556
+ },
+ "ENCFF000MGZ.pat.gz": {
+  "errors": 12865.0,
+  "opportunities": 331722.0,
+  "eps": 0.03878247448164427
+ },
+ "ENCFF000MHA.pat.gz": {
+  "errors": 13072.0,
+  "opportunities": 341869.0,
+  "eps": 0.038236868508112754
+ }
+}

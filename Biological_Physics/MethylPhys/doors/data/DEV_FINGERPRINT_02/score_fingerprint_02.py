@@ -12,7 +12,9 @@ Arm A: z = (Met-A_rel - curveB(IAM-A_rel)) / se, se = sqrt(0.020^2 * (1/nA_c + 1
   sd_rep (sealed) = max(0.009, the pair's own normal spread: SD of H(eps_file)/H(eps_pooled) over the normal files); curve B beyond its table is
   extended linearly at its slope and the verdict then says so.
 Arm B: territory and reference from the normal files (DEV_RUNLOSS_01 functions); FINGERPRINT if every cancer file's excess run loss exceeds the
-  largest normal file's. Met-A_rel = mean over cancer arrays of mean H(beta) at the normal cell's identity sites (measured on every array of the
+  largest normal file's.
+POWER RULE (sealed with each pair, as DEV-SAM-LEVER-01): power_A06 = 1 - Phi(1.645 - 0.06/se) at the pair's file and array counts; if Arm A
+  decides and reads no fingerprint while power_A06 < 0.80, the verdict is UNDECIDED (underpowered), not a negative. Met-A_rel = mean over cancer arrays of mean H(beta) at the normal cell's identity sites (measured on every array of the
   pair) / the same over normal arrays.
 Usage: score_fingerprint_02.py seal|score PAIR PATDIR BETADIR"""
 import os, sys, json, math, gzip, hashlib, subprocess, numpy as np, pandas as pd
@@ -66,7 +68,9 @@ if STEP == "seal":
              curveB_XQ=[float(x) for x in XQ], curveB_YB=[float(y) for y in YB], slope=slope,
              normal_arrays=AN, cancer_arrays=AC, normal_arrays_metA_H={k: float(Hb(M[k].dropna()).mean()) for k in AN}, normal_arrays_sites={k: int(M[k].notna().sum()) for k in AN},
              armB_normal_excess=exN, armB_bar=max(exN.values()), scorer_sha256=sha(os.path.abspath(__file__)),
+             cancer_files_listed=files("cancer", CC), se_A=math.sqrt(0.020 ** 2 * (1 / len(AC) + 1 / len(AN)) + slope ** 2 * sd_rep ** 2 * (1 / max(len(files("cancer", CC)), 1) + 1 / len(nf))),
              rule="FINGERPRINT-01 rule; arm by share_read >= 0.70; Arm A z > 1.645; Arm B every cancer file's excess > armB_bar")
+    from scipy.stats import norm; S["power_A06"] = float(1 - norm.cdf(1.645 - 0.06 / S["se_A"]))
     json.dump(S, open(SEAL, "w"), indent=1); print(json.dumps({k: v for k, v in S.items() if k not in ("normal_files",)}, indent=1)[:2500])
 elif STEP == "score":
     rel = os.path.relpath(SEAL, subprocess.run(["git", "rev-parse", "--show-toplevel"], capture_output=True, text=True, cwd=HERE).stdout.strip())
@@ -75,7 +79,7 @@ elif STEP == "score":
     if committed.returncode != 0 or committed.stdout != open(SEAL, "rb").read(): sys.exit(f"REFUSED: {rel} is not committed unchanged in HEAD")
     S = json.load(open(SEAL))
     if S["scorer_sha256"] != sha(os.path.abspath(__file__)): sys.exit("REFUSED: this scorer differs from the one sealed")
-    nf = [r["file"] for r in S["normal_files"]]; cf = files("cancer", CC); assert cf, CC
+    nf = [r["file"] for r in S["normal_files"]]; cf = files("cancer", CC); assert cf == S["cancer_files_listed"], "cancer file list changed since the seal"
     for r in S["normal_files"]: assert sha(os.path.join(PATD, r["file"] + ".pat.gz")) == r["sha256"], r["file"]
     RC = stageq(cf); eC = RC.errors.sum() / RC.opportunities.sum(); IA = H(eC) / H(S["eps_normal"])
     share = (RC.read.sum() / RC.m6.sum()) / S["share_read_normal"]
@@ -93,5 +97,5 @@ elif STEP == "score":
     RC["excess_run_loss"] = RC.file.map(exC); RC.to_csv(os.path.join(HERE, f"scored_{PAIR}_cancer_rows.csv"), index=False)
     out = dict(pair=PAIR, IAMA_rel=IA, eps_cancer=float(eC), eps_normal=S["eps_normal"], share_read=share, MetA_rel=float(MA), sites_all_arrays=len(M),
                arrays_H=mh, curveB=cB, curveB_extended=bool(ext), se=se, z=z, armA=vA, cancer_excess=exC, armB_bar=S["armB_bar"], armB=vB, deciding_arm=arm,
-               VERDICT=vA if arm == "A" else vB)
+               power_A06=S["power_A06"], VERDICT=(vB if arm == "B" else (vA if (vA == "FINGERPRINT" or S["power_A06"] >= 0.80) else f"UNDECIDED (Arm A power {S['power_A06']:.2f} < 0.80)")))
     json.dump(out, open(os.path.join(HERE, f"scored_{PAIR}.json"), "w"), indent=1); print(json.dumps(out, indent=1))

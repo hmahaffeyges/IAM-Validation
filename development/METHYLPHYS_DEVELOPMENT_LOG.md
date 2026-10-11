@@ -819,3 +819,6 @@ The 40 % mapping stop was set without data. The ENCFF000MHJ BAM (first 2,000,000
 
 ### 2026-10-10 · Push gate rule 7: synthetic test before every seal (author)
 CANON/repro_check.py refuses a push in which a note adds a prediction, bar or seal without a '**Synthetic test:**' line naming committed script and output files. Negative controls: a new bar with no line refused; a line naming missing files refused; a valid line passes; outcome notes exempt. SOP and LESSONS T6.
+
+### 2026-10-10 · DEV-FINGERPRINT-02 pair breast_mcf10a sealed
+Normal side: 6 MCF 10A files, Stage Q copy error 0.0381-0.0393 per file; run-loss reader recovers planted run loss; planted test of the scorer PASSED (NULL and ONLINE not called, PLANTED called; Arm B quiet in all three). Power rule added to the scorer before any seal (Arm A no-fingerprint with power at 0.06 under 0.80 is UNDECIDED); planted test rerun on the new scorer and passed. Power at 0.06 for this pair 0.629. Seal committed before any cancer file is aligned. Cancer file list made (names and md5 only): LNCaP 6, HepG2 4, A549 2, MCF-7 10, T47D 4.

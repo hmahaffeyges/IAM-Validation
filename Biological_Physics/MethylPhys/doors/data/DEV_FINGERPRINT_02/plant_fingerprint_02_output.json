@@ -1,0 +1,101 @@
+{
+ "NULL": {
+  "pair": "breast_mcf10a",
+  "IAMA_rel": 0.9997055521319154,
+  "eps_cancer": 0.03854033755822389,
+  "eps_normal": 0.038555288623322206,
+  "share_read": 1.0408496407967838,
+  "MetA_rel": 1.0,
+  "sites_all_arrays": 5467,
+  "arrays_H": {
+   "ENCSR329HJR": 0.42602352185663295,
+   "ENCSR889ZLL": 0.42602352185663295
+  },
+  "curveB": 1.0,
+  "curveB_extended": false,
+  "se": 0.03214478149557373,
+  "z": 0.0,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.0,
+   "FAKE1": -0.0016851610118867946,
+   "FAKE2": -0.0014345768890279761
+  },
+  "armB_bar": 0.0,
+  "armB": "no fingerprint",
+  "deciding_arm": "A",
+  "power_A06": 0.5876698099042852,
+  "VERDICT": "UNDECIDED (Arm A power 0.59 < 0.80)",
+  "planted_IAMA_rel_from_files": 0.9997055521319154,
+  "target_MetA_rel": null,
+  "expected": "no fingerprint",
+  "armB_ok": true,
+  "PASS": true
+ },
+ "PLANTED": {
+  "pair": "breast_mcf10a",
+  "IAMA_rel": 1.3088218327782029,
+  "eps_cancer": 0.05527505752988748,
+  "eps_normal": 0.038555288623322206,
+  "share_read": 0.9417225760756245,
+  "MetA_rel": 1.8413557316113376,
+  "sites_all_arrays": 5467,
+  "arrays_H": {
+   "ENCSR329HJR": 0.42602352185663295,
+   "ENCSR889ZLL": 0.7844608537719591
+  },
+  "curveB": 1.7413557316113377,
+  "curveB_extended": true,
+  "se": 0.03214478149557373,
+  "z": 3.11092486392448,
+  "armA": "FINGERPRINT",
+  "cancer_excess": {
+   "FAKE0": 9.842761878983263e-05,
+   "FAKE1": -0.001788424044868747,
+   "FAKE2": -0.0015635079381332113
+  },
+  "armB_bar": 0.0,
+  "armB": "no fingerprint",
+  "deciding_arm": "A",
+  "power_A06": 0.5876698099042852,
+  "VERDICT": "FINGERPRINT",
+  "planted_IAMA_rel_from_files": 1.3088218327782029,
+  "target_MetA_rel": 1.8413557316113378,
+  "expected": "FINGERPRINT",
+  "armB_ok": true,
+  "PASS": true
+ },
+ "ONLINE": {
+  "pair": "breast_mcf10a",
+  "IAMA_rel": 1.3088218327782029,
+  "eps_cancer": 0.05527505752988748,
+  "eps_normal": 0.038555288623322206,
+  "share_read": 0.9417225760756245,
+  "MetA_rel": 1.7413557316113373,
+  "sites_all_arrays": 5467,
+  "arrays_H": {
+   "ENCSR329HJR": 0.42602352185663295,
+   "ENCSR889ZLL": 0.7418585015862956
+  },
+  "curveB": 1.7413557316113377,
+  "curveB_extended": true,
+  "se": 0.03214478149557373,
+  "z": -1.381528164723138e-14,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 9.842761878983263e-05,
+   "FAKE1": -0.001788424044868747,
+   "FAKE2": -0.0015635079381332113
+  },
+  "armB_bar": 0.0,
+  "armB": "no fingerprint",
+  "deciding_arm": "A",
+  "power_A06": 0.5876698099042852,
+  "VERDICT": "UNDECIDED (Arm A power 0.59 < 0.80)",
+  "planted_IAMA_rel_from_files": 1.3088218327782029,
+  "target_MetA_rel": 1.7413557316113377,
+  "expected": "no fingerprint",
+  "armB_ok": true,
+  "PASS": true
+ }
+}

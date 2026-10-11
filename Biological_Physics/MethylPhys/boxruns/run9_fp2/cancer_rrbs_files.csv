@@ -1,0 +1,27 @@
+file,experiment,cell,rep,read_length,md5,url,GB
+ENCFF000LTD,ENCSR000DDI,A549,1,36,43d2a25e058f07323a33e38b8ad6f157,https://www.encodeproject.org/files/ENCFF000LTD/@@download/ENCFF000LTD.fastq.gz,1.56
+ENCFF000LTE,ENCSR000DDI,A549,2,36,fd16060ffb1a48129cfff6c93af55683,https://www.encodeproject.org/files/ENCFF000LTE/@@download/ENCFF000LTE.fastq.gz,1.59
+ENCFF000MCR,ENCSR530RCY,HepG2,1,36,2c831427cce63cc6371a79f53246d7c6,https://www.encodeproject.org/files/ENCFF000MCR/@@download/ENCFF000MCR.fastq.gz,0.82
+ENCFF000MCL,ENCSR530RCY,HepG2,2,36,7e3c08c683a7825aa363e4307babd387,https://www.encodeproject.org/files/ENCFF000MCL/@@download/ENCFF000MCL.fastq.gz,0.63
+ENCFF000MCF,ENCSR592WWM,HepG2,1,36,0110f75a31c534e4737c8a799a93e695,https://www.encodeproject.org/files/ENCFF000MCF/@@download/ENCFF000MCF.fastq.gz,0.78
+ENCFF000MCN,ENCSR592WWM,HepG2,2,36,c5e079fca727292d7d6f2395051c9b59,https://www.encodeproject.org/files/ENCFF000MCN/@@download/ENCFF000MCN.fastq.gz,0.79
+ENCFF000MGK,ENCSR000DFH,LNCaP clone FGC,1,36,782b01f21eff4dfd2baee46e8ce08593,https://www.encodeproject.org/files/ENCFF000MGK/@@download/ENCFF000MGK.fastq.gz,0.82
+ENCFF000MGL,ENCSR000DFH,LNCaP clone FGC,2,36,86d593684453486bbe879bf4b07a7385,https://www.encodeproject.org/files/ENCFF000MGL/@@download/ENCFF000MGL.fastq.gz,0.89
+ENCFF000MGR,ENCSR439FXM,LNCaP clone FGC,1,36,803c524c3d537ca0a524370f8cd5ed73,https://www.encodeproject.org/files/ENCFF000MGR/@@download/ENCFF000MGR.fastq.gz,1.72
+ENCFF000MGT,ENCSR439FXM,LNCaP clone FGC,2,36,8f496c58261b72f29cde16342c14adfe,https://www.encodeproject.org/files/ENCFF000MGT/@@download/ENCFF000MGT.fastq.gz,0.76
+ENCFF000MGO,ENCSR859PDD,LNCaP clone FGC,1,36,7ff58f6137786a6640fef035fff62df9,https://www.encodeproject.org/files/ENCFF000MGO/@@download/ENCFF000MGO.fastq.gz,1.34
+ENCFF000MGS,ENCSR859PDD,LNCaP clone FGC,2,36,0d9b20948d65fc3d11632d2486e9276b,https://www.encodeproject.org/files/ENCFF000MGS/@@download/ENCFF000MGS.fastq.gz,0.89
+ENCFF000MIA,ENCSR000DDF,MCF-7,1,50,5abd25b724117f59e2794ae44dee9bb0,https://www.encodeproject.org/files/ENCFF000MIA/@@download/ENCFF000MIA.fastq.gz,2.16
+ENCFF000MIK,ENCSR000DDF,MCF-7,2,50,0b20bd4b12ef95c8f4af168d4310b876,https://www.encodeproject.org/files/ENCFF000MIK/@@download/ENCFF000MIK.fastq.gz,2.32
+ENCFF000MHY,ENCSR000DDG,MCF-7,1,50,6455869648709f32f35bd728ca39d206,https://www.encodeproject.org/files/ENCFF000MHY/@@download/ENCFF000MHY.fastq.gz,2.04
+ENCFF000MHX,ENCSR000DDG,MCF-7,2,50,76b2c5e2f17991c93d55f0b02849ea8b,https://www.encodeproject.org/files/ENCFF000MHX/@@download/ENCFF000MHX.fastq.gz,2.48
+ENCFF000MIL,ENCSR605IIO,MCF-7,1,36,8b8cc31ccf7c6b0cb815d759728987c1,https://www.encodeproject.org/files/ENCFF000MIL/@@download/ENCFF000MIL.fastq.gz,0.78
+ENCFF000MIM,ENCSR605IIO,MCF-7,2,36,22932674d0ca9f13c8584e0d85a2cc27,https://www.encodeproject.org/files/ENCFF000MIM/@@download/ENCFF000MIM.fastq.gz,1.42
+ENCFF000MHU,ENCSR939RXT,MCF-7,1,36,af94d97532cd3aaf875677078adf2c48,https://www.encodeproject.org/files/ENCFF000MHU/@@download/ENCFF000MHU.fastq.gz,0.9
+ENCFF000MHT,ENCSR939RXT,MCF-7,2,36,f55b82c7e728bfe8afbc336a0330b41f,https://www.encodeproject.org/files/ENCFF000MHT/@@download/ENCFF000MHT.fastq.gz,0.75
+ENCFF000MIC,ENCSR943EFS,MCF-7,1,36,9890315fe44012e69c310228580b6cac,https://www.encodeproject.org/files/ENCFF000MIC/@@download/ENCFF000MIC.fastq.gz,1.79
+ENCFF000MIJ,ENCSR943EFS,MCF-7,2,36,0d23cec7bdc8e6f3a6e6b404f7720998,https://www.encodeproject.org/files/ENCFF000MIJ/@@download/ENCFF000MIJ.fastq.gz,0.58
+ENCFF000MNO,ENCSR000DDR,T47D,1,36,1653d637fd037217f2fdab30141edf26,https://www.encodeproject.org/files/ENCFF000MNO/@@download/ENCFF000MNO.fastq.gz,1.38
+ENCFF000MNN,ENCSR000DDR,T47D,2,36,108494ec1141a138b548e81a56b7286e,https://www.encodeproject.org/files/ENCFF000MNN/@@download/ENCFF000MNN.fastq.gz,0.7
+ENCFF000MNJ,ENCSR000DDS,T47D,1,36,8f0a266dfd169aae241d1308cdd38e1c,https://www.encodeproject.org/files/ENCFF000MNJ/@@download/ENCFF000MNJ.fastq.gz,1.46
+ENCFF000MNK,ENCSR000DDS,T47D,2,36,65ceb9b33bb05c69c54227420eb263c7,https://www.encodeproject.org/files/ENCFF000MNK/@@download/ENCFF000MNK.fastq.gz,0.68

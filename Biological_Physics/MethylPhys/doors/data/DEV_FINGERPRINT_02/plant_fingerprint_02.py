@@ -68,7 +68,8 @@ if __name__ == "__main__":
     out = {c: run(c) for c in ("NULL", "PLANTED", "ONLINE")}
     exp = {"NULL": "no fingerprint", "PLANTED": "FINGERPRINT", "ONLINE": "no fingerprint"}
     for c, o in out.items():
-        o["expected"] = exp[c]; o["armB_ok"] = o["armB"] == "no fingerprint"; o["PASS"] = (o["VERDICT"] == exp[c]) and o["armB_ok"]
+        o["expected"] = exp[c]; o["armB_ok"] = o["armB"] == "no fingerprint"
+        o["PASS"] = o["armB_ok"] and ((o["VERDICT"] == "FINGERPRINT") == (exp[c] == "FINGERPRINT"))   # UNDECIDED counts as not a fingerprint
         print(f"{c:8s} IAM-A_rel {o['IAMA_rel']:.4f} share {o['share_read']:.3f} arm {o['deciding_arm']} | Met-A_rel {o['MetA_rel']:.4f} curve B {o['curveB']:.4f} z {o['z']:.2f}"
               f" -> {o['VERDICT']} (expected {exp[c]}) | arm B {o['armB']} | {'PASS' if o['PASS'] else 'FAIL'}")
     json.dump(out, open(os.path.join(HERE, "plant_fingerprint_02_output.json"), "w"), indent=1, default=float)

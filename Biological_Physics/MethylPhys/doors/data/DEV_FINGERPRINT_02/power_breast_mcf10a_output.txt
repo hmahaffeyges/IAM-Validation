@@ -1,0 +1,1 @@
+breast_mcf10a   normal files 6 cancer files 10 | arrays 1+1 | sd_rep 0.0090 slope 2.400 se 0.0304 | power at excess 0.04/0.06/0.10: 0.371/0.629/0.95

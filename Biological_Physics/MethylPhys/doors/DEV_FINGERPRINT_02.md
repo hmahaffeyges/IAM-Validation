@@ -23,3 +23,14 @@ replicate, more than the mouse RRBS runs of DEV-SAM-LEVER-01 (150,000 opportunit
 202-base pairs: fewer readable molecules, mostly in CpG-dense regions; (2) one array per side, not two; (3) prostate on 450K, the other pairs on
 EPIC (platform matched within each pair); (4) normal sides are ENCODE primary cultures. Hepatocyte 450K array (ENCSR000ABW) kept 332,213 probes
 against ~480,000 on the others: liver is read on EPIC (ENCSR955LKF vs HepG2 ENCSR291NYD). Run order and every script: `data/DEV_FINGERPRINT_02/REPRODUCE.md`.
+
+## Pair breast_mcf10a (MCF-7 against MCF 10A): sealed 2026-10-10 before any cancer file is aligned or read
+
+**Sealed:** `data/DEV_FINGERPRINT_02/sealed_breast_mcf10a.json` (normal side only; scorer sha256 recorded in it; the score step refuses unless this
+file is committed unchanged). Normal: 6 MCF 10A RRBS files (Box Run 9, bwa mem -T30), Stage Q copy error per file in `normal_MCF_10A/eps_per_file.json`;
+normal array ENCSR329HJR at 5467 breast-basal identity sites. Arm A: slope 2.4 from the MCF 10A planted-loss response, sd_rep 0.009, se 0.0304,
+power at a 0.06 excess 0.629 (`power_breast_mcf10a_output.txt`), so a no-fingerprint reading on Arm A is UNDECIDED. Arm B: the run-loss reader recovers a
+planted 0.10 run loss as +0.0987 on these molecules (`normal_MCF_10A/runloss_sim.txt`); bar = largest normal-file excess, 0.0 (the reference file reads 0
+against itself by construction, the other five read below it). Cancer: the 10 MCF-7 files listed in the seal. Weaker pair: MCF-7 is luminal, MCF 10A
+basal-like and immortalised.
+**Synthetic test:** Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align.py, Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align_result.csv, DEV_FINGERPRINT_02/plant_fingerprint_02.py, DEV_FINGERPRINT_02/plant_fingerprint_02_output.json, DEV_FINGERPRINT_02/power_fingerprint_02.py, DEV_FINGERPRINT_02/power_breast_mcf10a_output.txt, DEV_FINGERPRINT_02/prep_normal.sh, DEV_FINGERPRINT_02/normal_MCF_10A/runloss_sim.txt

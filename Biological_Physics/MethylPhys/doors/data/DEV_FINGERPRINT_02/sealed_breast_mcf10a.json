@@ -1,0 +1,120 @@
+{
+ "pair": "breast_mcf10a",
+ "normal_cell": "MCF 10A",
+ "cancer_cell": "MCF-7",
+ "identity_cell": "breast_basal_epithelium",
+ "normal_files": [
+  {
+   "file": "ENCFF000MGV",
+   "sha256": "f7a00c635638c6946bfd8ffbb355730cf4c51ab83cf5d76b2ebc8e9608f76848",
+   "errors": 9071.0,
+   "opportunities": 234756.0,
+   "m6": 906197,
+   "read": 52333,
+   "eps": 0.03864011995433556
+  },
+  {
+   "file": "ENCFF000MGZ",
+   "sha256": "a65c620e4ce081a91a1a8d5eefd529194b0d85b9085b3508dddfb51343d42c99",
+   "errors": 12865.0,
+   "opportunities": 331722.0,
+   "m6": 898089,
+   "read": 73746,
+   "eps": 0.03878247448164427
+  },
+  {
+   "file": "ENCFF000MHA",
+   "sha256": "dc261b3f7325fc81dd9bdefc3c6abc4d82c67cd6f3271de28d33b82e14c3b8ec",
+   "errors": 13072.0,
+   "opportunities": 341869.0,
+   "m6": 916261,
+   "read": 75881,
+   "eps": 0.038236868508112754
+  },
+  {
+   "file": "ENCFF000MHB",
+   "sha256": "e1272a13f96fa5c3cb65cc98fcb814304e49ae0e5ed5d8c932bcac3b939b9bb8",
+   "errors": 14465.0,
+   "opportunities": 380308.0,
+   "m6": 1162208,
+   "read": 84234,
+   "eps": 0.038034961136762836
+  },
+  {
+   "file": "ENCFF000MHJ",
+   "sha256": "14d28f2b278994de8bca55aa45ab41666311b9ba48083ec50d2e424cd9ea34c5",
+   "errors": 7867.0,
+   "opportunities": 202544.0,
+   "m6": 686136,
+   "read": 45268,
+   "eps": 0.03884094320246465
+  },
+  {
+   "file": "ENCFF000MHK",
+   "sha256": "e31a07f8a907d8a21df25b8c0a3846a3655854af70364b14db5e522c6f1d2a07",
+   "errors": 8540.0,
+   "opportunities": 217516.0,
+   "m6": 760083,
+   "read": 48609,
+   "eps": 0.039261479615292666
+  }
+ ],
+ "eps_normal": 0.038555288623322206,
+ "share_read_normal": 0.07132160900015651,
+ "sd_rep": 0.009,
+ "sd_rep_own_spread": 0.008692002660024511,
+ "response_file": "normal_MCF_10A/insilico_ENCFF000MHA.csv",
+ "response_sha256": "f516d30752d0a8f9389e31db800ed2e440f8d05e670cd397616e467c56583af9",
+ "curveB_XQ": [
+  1.0,
+  1.009782549078012,
+  1.0244563726950298,
+  1.0489127453900597,
+  1.0782603926240955
+ ],
+ "curveB_YB": [
+  1.0,
+  1.023,
+  1.056,
+  1.115,
+  1.188
+ ],
+ "slope": 2.4000358916975646,
+ "normal_arrays": [
+  "ENCSR329HJR"
+ ],
+ "cancer_arrays": [
+  "ENCSR889ZLL"
+ ],
+ "normal_arrays_metA_H": {
+  "ENCSR329HJR": 0.42602352185663295
+ },
+ "normal_arrays_sites": {
+  "ENCSR329HJR": 5467
+ },
+ "armB_normal_excess": {
+  "ENCFF000MGV": 0.0,
+  "ENCFF000MGZ": -0.0016851610118867946,
+  "ENCFF000MHA": -0.0014345768890279761,
+  "ENCFF000MHB": -0.002723472712863169,
+  "ENCFF000MHJ": -0.001639286384329649,
+  "ENCFF000MHK": -0.001508244499473269
+ },
+ "armB_bar": 0.0,
+ "scorer_sha256": "202744a6ae3d2be8610acded927046d90566c35c0851403d27048dd1c751a3fa",
+ "cancer_files_listed": [
+  "ENCFF000MHT",
+  "ENCFF000MHU",
+  "ENCFF000MHX",
+  "ENCFF000MHY",
+  "ENCFF000MIA",
+  "ENCFF000MIC",
+  "ENCFF000MIJ",
+  "ENCFF000MIK",
+  "ENCFF000MIL",
+  "ENCFF000MIM"
+ ],
+ "se_A": 0.03040427143147865,
+ "rule": "FINGERPRINT-01 rule; arm by share_read >= 0.70; Arm A z > 1.645; Arm B every cancer file's excess > armB_bar",
+ "power_A06": 0.6286979987304653
+}
