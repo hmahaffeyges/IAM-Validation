@@ -1,5 +1,14 @@
 [
 {
+"file": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+"line": 974,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "LIVE",
+"text": "The 8-class H_min version chased many cancers before each chain link was established; the roadmap, the one-cancer-at-a-time check and gate rule 7 now prevent it"
+},
+{
 "file": "docs/verification/PAPER_ERRATA.md",
 "line": 285,
 "pattern": "class H_min",
@@ -97,6 +106,15 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "| R1 | Constants (the eight class H_min; later the holding-energy job PROC-CHANNEL-01) were made in notebook cells and their scripts never committed; the box co"
+},
+{
+"file": "Biological_Physics/MethylPhys/LESSONS.md",
+"line": 24,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "LIVE",
+"text": "| T12 | The earlier 8-class H_min version chased detection across many cancers before the physics and the repeatability of each link in the chain were establish"
 },
 {
 "file": "Biological_Physics/MethylPhys/archive/docs_consolidated_2026-10-09/CHAIN_CHANGELOG.md",
