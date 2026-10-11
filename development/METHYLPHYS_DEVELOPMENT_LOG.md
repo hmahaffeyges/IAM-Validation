@@ -969,3 +969,6 @@ Patients' breast tumours against their own same-plate normal tissue, composition
 
 ### 2026-10-11 · Roadmap: cancer results run alongside commissioning (author)
 STATUS section 0: commissioning and cancer results run alongside, cancers one at a time. Breast complete; colorectal tissue (GSE131013) next. Early detection (blood, stool) is claimed only after a sealed detection-limit test.
+
+### 2026-10-11 · LESSONS T12 (author)
+The 8-class H_min version chased many cancers before each chain link was established; the roadmap, the one-cancer-at-a-time check and gate rule 7 now prevent it.
