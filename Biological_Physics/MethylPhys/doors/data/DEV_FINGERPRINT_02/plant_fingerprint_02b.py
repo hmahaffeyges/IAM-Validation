@@ -17,7 +17,8 @@ Fake cancer files: up to 3 normal files (fewer if the pair has fewer); the fake 
 import os, sys, gzip, json, math, shutil, hashlib, subprocess, numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); MP = os.path.abspath(os.path.join(HERE, "../../..")); PATD, BETD, SCR = sys.argv[1:4]
 DELTA = 0.04; PAIR = sys.argv[4] if len(sys.argv) > 4 else "breast_mcf10a"
-_src = open(os.path.join(HERE, "score_fingerprint_02b.py")).read(); PAIRS = eval(_src[_src.index("PAIRS = {") + 8: _src.index("STEP, PAIR")].strip())
+SCORER = os.environ.get("SCORER", "score_fingerprint_02b.py")   # scorer file under test (2026-10-11: T47D pairs use score_fingerprint_02b2.py)
+_src = open(os.path.join(HERE, SCORER)).read(); PAIRS = eval(_src[_src.index("PAIRS = {") + 8: _src.index("STEP, PAIR")].strip())
 NC, _CC, SC, _AN, _AC = PAIRS[PAIR]; AN, AC = _AN[0], _AC[0]
 def sha(p): return hashlib.sha256(open(p, "rb").read()).hexdigest()
 def Hb(b): b = np.clip(b, 1e-6, 1 - 1e-6); return -(b * np.log2(b) + (1 - b) * np.log2(1 - b))
@@ -53,7 +54,7 @@ def run(case):
         if mode is None: shutil.copy(os.path.join(PATD, s + ".pat.gz"), os.path.join(P, k + ".pat.gz"))
         else: plant(os.path.join(PATD, s + ".pat.gz"), os.path.join(P, k + ".pat.gz"), 100 + i, mode, x)
     for a_ in _AN: shutil.copy(os.path.join(BETD, a_ + ".parquet"), os.path.join(B, a_ + ".parquet"))
-    sc = os.path.join(D, "score_fingerprint_02b.py"); assert sha(sc) == sha(os.path.join(HERE, "score_fingerprint_02b.py"))
+    sc = os.path.join(D, SCORER); assert sha(sc) == sha(os.path.join(HERE, SCORER))
     g = lambda *a: subprocess.run(["git", *a], cwd=root, capture_output=True, text=True)
     g("init", "-q"); r = subprocess.run([sys.executable, sc, "seal", PAIR, P, B], capture_output=True, text=True)
     assert r.returncode == 0, r.stderr[-800:]

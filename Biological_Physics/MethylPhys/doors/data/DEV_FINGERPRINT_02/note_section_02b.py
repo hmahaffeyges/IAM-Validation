@@ -8,7 +8,7 @@ cs = "; ".join(f"{c} {o['VERDICT']} (excess {min(o['cancer_excess'].values()):.4
 print(f"""
 ## Pair {P} ({S['cancer_cell']} against {S['normal_cell']}), rule 02b: sealed before any cancer file is aligned or read
 
-**Sealed:** `data/DEV_FINGERPRINT_02/sealed_{P}.json` (scorer `score_fingerprint_02b.py`, sha256 in the seal; the score step refuses unless the seal is
+**Sealed:** `data/DEV_FINGERPRINT_02/sealed_{P}.json` (scorer `{os.environ.get('SCORER', 'score_fingerprint_02b.py')}`, sha256 in the seal; the score step refuses unless the seal is
 committed unchanged). Normal: {len(eps)} RRBS files, Stage Q copy error {min(eps):.4f}-{max(eps):.4f}; arrays {', '.join(S['normal_arrays'])}.{two}
 **Arm B decides.** Bar {S['armB_bar']:.4f} = max(normal-library excess {S['armB_bar_libraries']:.4f}, healthy donor-to-donor excess {S['armB_donor_excess']:.4f}).
 Run-loss sensitivity on these molecules (planted 0.10): {S['armB_sensitivity_run010']:.4f}. Planted test of the sealed scorer (`plant02b_{P}_output.json`): {cs}.

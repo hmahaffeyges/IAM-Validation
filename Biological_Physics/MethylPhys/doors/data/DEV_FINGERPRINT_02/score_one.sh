@@ -6,4 +6,4 @@ set -euo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd); TOP=$(git -C "$HERE" rev-parse --show-toplevel); OUT="$TOP/Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_02_OUTCOME.md"
 for f in "$HERE"/scored_*.json; do [ -e "$f" ] || continue; b=$(basename "$f")
   grep -q "^\*\*Reviewed:\*\*.*$b" "$OUT" 2>/dev/null || { echo "REFUSED: $b is scored but not reviewed in DEV_FINGERPRINT_02_OUTCOME.md (one cancer at a time)"; exit 4; }; done
-case $1 in 02b) python3 "$HERE/score_fingerprint_02b.py" score "$2" "$3" "$4";; gain_02c) python3 "$HERE/score_gain_02c.py" score "$3" "$2";; *) echo "unknown scorer"; exit 2;; esac
+case $1 in 02b) python3 "$HERE/score_fingerprint_02b.py" score "$2" "$3" "$4";; 02b2) python3 "$HERE/score_fingerprint_02b2.py" score "$2" "$3" "$4";; gain_02c) python3 "$HERE/score_gain_02c.py" score "$3" "$2";; *) echo "unknown scorer"; exit 2;; esac

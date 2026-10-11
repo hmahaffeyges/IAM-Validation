@@ -1,0 +1,119 @@
+"""score_fingerprint_02b2.py (2026-10-11): score_fingerprint_02b.py with the two T47D pairs added to PAIRS (450K arrays, platform-matched); rule unchanged.
+score_fingerprint_02b.py is kept unchanged for the five seals made under it.
+DEV-FINGERPRINT-02 scorer (written 2026-10-10 before any cancer file or cancer array is read). Same test and rule as DEV-FINGERPRINT-01
+(score_fingerprint_01.py), per pair, with the differences stated in DEV_FINGERPRINT_02.md (RRBS 36 bp; one array per side; 450K or EPIC within a pair).
+Two steps, in this order:
+  seal PAIR   NORMAL side only. Writes sealed_<PAIR>.json: normal files (sha256), Stage Q copy error and readability, the arm-A curve B in Stage Q
+              units from the normal's own planted-loss response (normal_<cell>/insilico_*.csv), the IAM-A repeat SD, the normal arrays' Met-A,
+              the arm-B territory bar (largest normal-file excess run loss), and the sha256 of this script. Commit it before scoring.
+  score PAIR  Refuses unless sealed_<PAIR>.json is committed unchanged in HEAD and this script's sha256 equals the sealed one. Then reads the cancer
+              files and arrays and applies the sealed rule.
+VERSION 02b (written 2026-10-10 after the donor null, before any cancer file is aligned or read; score_fingerprint_02.py is kept unchanged for the
+breast_mcf10a seal made under it). Changes from 02, and why (DEV_FINGERPRINT_02.md, donor null): Arm B DECIDES in every pair and its bar is
+max(largest normal-library excess, largest healthy donor-to-donor excess measured in this laboratory, donor_null_02_output.json), because two
+healthy donors beat a one-donor bar; Arm A is computed and REPORTED, never deciding, because healthy donors differ off curve B by more than any
+excess Arm A could detect in a one-donor pair. Verdict: every cancer file above the bar -> FINGERPRINT; every file at or below -> no fingerprint;
+mixed -> UNDECIDED. The seal refuses a pair whose run-loss sensitivity (recovered excess for a planted 0.10 run loss, normal_<cell>/runloss_sim.txt)
+does not clear the bar. Each FINGERPRINT is reported with min cancer excess / donor excess.
+RULE (as DEV-FINGERPRINT-01, before 02b). IAM-A_rel = H(eps_cancer)/H(eps_normal), each side's files pooled (errors/opportunities). share_read = cancer read share
+of >= 6-call molecules / normal's. share_read >= 0.70 -> Arm A decides, else Arm B.
+Arm A: z = (Met-A_rel - curveB(IAM-A_rel)) / se, se = sqrt(0.020^2 * (1/nA_c + 1/nA_n) + slope^2 * sd_rep^2 * (1/nW_c + 1/nW_n)); FINGERPRINT if z > 1.645.
+  sd_rep (sealed) = max(0.009, the pair's own normal spread: SD of H(eps_file)/H(eps_pooled) over the normal files); curve B beyond its table is
+  extended linearly at its slope and the verdict then says so.
+Arm B: territory and reference from the normal files (DEV_RUNLOSS_01 functions); FINGERPRINT if every cancer file's excess run loss exceeds the
+  largest normal file's.
+POWER RULE (sealed with each pair, as DEV-SAM-LEVER-01): power_A06 = 1 - Phi(1.645 - 0.06/se) at the pair's file and array counts; if Arm A
+  decides and reads no fingerprint while power_A06 < 0.80, the verdict is UNDECIDED (underpowered), not a negative. Met-A_rel = mean over cancer arrays of mean H(beta) at the normal cell's identity sites (measured on every array of the
+  pair) / the same over normal arrays.
+Usage: score_fingerprint_02.py seal|score PAIR PATDIR BETADIR"""
+import os, sys, re, json, math, gzip, hashlib, subprocess, numpy as np, pandas as pd
+HERE = os.path.dirname(os.path.abspath(__file__)); MP = os.path.abspath(os.path.join(HERE, "../../.."))
+sys.path.insert(0, os.path.join(MP, "chain")); sys.path.insert(0, os.path.join(HERE, "../DEV_RUNLOSS_01"))
+import stage_q_iam_a as Q, runloss_01 as RL
+PAIRS = {  # pair: normal RRBS cell, cancer RRBS cell, identity-site cell, normal arrays, cancer arrays (same platform within a pair)
+    "prostate":      ("epithelial cell of prostate", "LNCaP clone FGC", "prostate_epithelium", ["ENCSR000ACD"], ["ENCSR000ADA"]),
+    "liver":         ("hepatocyte", "HepG2", "hepatocyte", ["ENCSR955LKF"], ["ENCSR291NYD"]),
+    "lung_alveolar": ("epithelial cell of alveolus of lung", "A549", "lung_alveolar_epithelium", ["ENCSR422EPB"], ["ENCSR408IKV"]),
+    "lung_bronchial":("bronchial epithelial cell", "A549", "lung_bronchus_epithelium", ["ENCSR000ACA", "ENCSR000ACY"], ["ENCSR000ABU"]),
+    "breast_hmec":   ("mammary epithelial cell", "MCF-7", "breast_basal_epithelium", ["ENCSR148KKY", "ENCSR583ILE"], ["ENCSR889ZLL"]),
+    "breast_mcf10a": ("MCF 10A", "MCF-7", "breast_basal_epithelium", ["ENCSR329HJR"], ["ENCSR889ZLL"]),
+    "t47d_hmec":     ("mammary epithelial cell", "T47D", "breast_basal_epithelium", ["ENCSR000ABL"], ["ENCSR000ADC"]),
+    "t47d_mcf10a":   ("MCF 10A", "T47D", "breast_basal_epithelium", ["ENCSR000ABG", "ENCSR000ACO"], ["ENCSR000ADC"])}
+STEP, PAIR, PATD, BETD = sys.argv[1:5]; NC, CC, SC, AN, AC = PAIRS[PAIR]; SEAL = os.path.join(HERE, f"sealed_{PAIR}.json")
+R9 = os.path.join(MP, "boxruns/run9_fp2")
+def H(e): return -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
+def Hb(b): b = np.clip(b, 1e-6, 1 - 1e-6); return -(b * np.log2(b) + (1 - b) * np.log2(1 - b))
+def sha(p): return hashlib.sha256(open(p, "rb").read()).hexdigest()
+def files(kind, cell): d = pd.read_csv(os.path.join(R9, f"{kind}_rrbs_files.csv")); return sorted(d[d.cell == cell].file)
+def stageq(fs):
+    rows = []
+    for f in fs:
+        p = os.path.join(PATD, f + ".pat.gz"); T = Q.pat_site_table(p); m6 = rd = 0
+        with gzip.open(p, "rt") as g:
+            for l in g:
+                q = l.split("\t"); n = int(q[3]); c = [x for x in q[2] if x != "."]
+                if len(c) >= 6: m6 += n; rd += n * (c.count("C") >= 0.8 * len(c))
+        rows.append(dict(file=f, sha256=sha(p), errors=float(T.err_A.sum() + T.err_B.sum()), opportunities=float(T.opp_A.sum() + T.opp_B.sum()), m6=m6, read=rd))
+    R = pd.DataFrame(rows); R["eps"] = R.errors / R.opportunities; return R
+def meta(arrs, sites):
+    B = {}
+    for k in arrs:
+        b = pd.read_parquet(os.path.join(BETD, k + ".parquet")).beta; b.index = b.index.astype(str); B[k] = b.reindex(sites)
+    return pd.DataFrame(B)
+SITES = json.load(open(os.path.join(HERE, f"identity_sites_{SC}.json")))["sites"]
+DNF = os.path.join(HERE, "donor_null_02_output.json"); _DN = json.load(open(DNF))
+DONOR = max(v for o in _DN.values() for v in o["cancer_excess"].values())   # largest healthy donor-to-donor Arm B excess, this laboratory
+if STEP == "seal":
+    if os.path.exists(SEAL): sys.exit(f"{SEAL} exists: a seal is written once")
+    nf = files("normal", NC); assert len(nf) >= 2, nf; RN = stageq(nf); eN = RN.errors.sum() / RN.opportunities.sum()
+    spread = float(np.std([H(e) / H(eN) for e in RN.eps], ddof=1)); sd_rep = max(0.009, spread)
+    tag = NC.replace(" ", "_"); ins = sorted(x for x in os.listdir(os.path.join(HERE, f"normal_{tag}")) if x.startswith("insilico_"))[0]
+    RS = pd.read_csv(os.path.join(HERE, f"normal_{tag}", ins))
+    XS = np.array([1.00, 1.02, 1.05, 1.10, 1.16]); YB = np.array([1.000, 1.023, 1.056, 1.115, 1.188]); XQ = np.interp(XS, RS.IAMA_rel_simple, RS.IAMA_rel)
+    slope = float(np.polyfit(XQ, YB, 1)[0])
+    M = meta(AN, SITES)
+    _rl = open(os.path.join(HERE, f"normal_{tag}", "runloss_sim.txt")).read(); _m = re.search(r"^run 0\.10 .*\| ([+-]\d\.\d{4})\s*$", _rl, re.M)
+    SENS = float(_m.group(1)); assert SENS > DONOR, f"run-loss sensitivity {SENS} does not clear the donor excess {DONOR}: pair cannot decide, not sealed"
+    V = [RL.load(os.path.join(PATD, f + ".pat.gz")) for f in nf]; bv = RL.beta_v(V); v0 = RL.read(V[0], bv); exN = {}
+    for f, x in zip(nf, V):
+        r = RL.read(x, bv); de = 1 - r["beta_T"] / v0["beta_T"]; exN[f] = float(r["L"] - RL.read(V[0], bv, RL.scat(V[0], max(de, 0), 7))["L"])
+    S = dict(pair=PAIR, normal_cell=NC, cancer_cell=CC, identity_cell=SC, normal_files=RN.to_dict("records"), eps_normal=float(eN),
+             share_read_normal=float(RN.read.sum() / RN.m6.sum()), sd_rep=sd_rep, sd_rep_own_spread=spread,
+             response_file=f"normal_{tag}/{ins}", response_sha256=sha(os.path.join(HERE, f"normal_{tag}", ins)),
+             curveB_XQ=[float(x) for x in XQ], curveB_YB=[float(y) for y in YB], slope=slope,
+             normal_arrays=AN, cancer_arrays=AC, normal_arrays_metA_H={k: float(Hb(M[k].dropna()).mean()) for k in AN}, normal_arrays_sites={k: int(M[k].notna().sum()) for k in AN},
+             armB_normal_excess=exN, armB_bar_libraries=max(exN.values()), armB_donor_excess=DONOR, donor_null_sha256=sha(DNF),
+             armB_bar=max(max(exN.values()), DONOR), armB_sensitivity_run010=SENS, scorer_sha256=sha(os.path.abspath(__file__)),
+             cancer_files_listed=files("cancer", CC), se_A=math.sqrt(0.020 ** 2 * (1 / len(AC) + 1 / len(AN)) + slope ** 2 * sd_rep ** 2 * (1 / max(len(files("cancer", CC)), 1) + 1 / len(nf))),
+             rule="02b: Arm B decides; bar = max(normal-library excess, healthy donor-to-donor excess); FINGERPRINT if every cancer file > bar, no fingerprint if every file <= bar, else UNDECIDED; Arm A reported only")
+    from scipy.stats import norm; S["power_A06"] = float(1 - norm.cdf(1.645 - 0.06 / S["se_A"]))
+    json.dump(S, open(SEAL, "w"), indent=1); print(json.dumps({k: v for k, v in S.items() if k not in ("normal_files",)}, indent=1)[:2500])
+elif STEP == "score":
+    rel = os.path.relpath(SEAL, subprocess.run(["git", "rev-parse", "--show-toplevel"], capture_output=True, text=True, cwd=HERE).stdout.strip())
+    top = subprocess.run(["git", "rev-parse", "--show-toplevel"], capture_output=True, text=True, cwd=HERE).stdout.strip()
+    committed = subprocess.run(["git", "show", f"HEAD:{rel}"], capture_output=True, cwd=top)
+    if committed.returncode != 0 or committed.stdout != open(SEAL, "rb").read(): sys.exit(f"REFUSED: {rel} is not committed unchanged in HEAD")
+    S = json.load(open(SEAL))
+    if S["scorer_sha256"] != sha(os.path.abspath(__file__)): sys.exit("REFUSED: this scorer differs from the one sealed")
+    nf = [r["file"] for r in S["normal_files"]]; cf = files("cancer", CC); assert cf == S["cancer_files_listed"], "cancer file list changed since the seal"
+    for r in S["normal_files"]: assert sha(os.path.join(PATD, r["file"] + ".pat.gz")) == r["sha256"], r["file"]
+    RC = stageq(cf); eC = RC.errors.sum() / RC.opportunities.sum(); IA = H(eC) / H(S["eps_normal"])
+    share = (RC.read.sum() / RC.m6.sum()) / S["share_read_normal"]
+    M = meta(AN + AC, SITES).dropna(); mh = {k: float(Hb(M[k]).mean()) for k in AN + AC}
+    MA = np.mean([mh[k] for k in AC]) / np.mean([mh[k] for k in AN])
+    XQ, YB, sl = np.array(S["curveB_XQ"]), np.array(S["curveB_YB"]), S["slope"]; ext = IA > XQ[-1]
+    cB = float(np.interp(IA, XQ, YB, right=YB[-1] + sl * (IA - XQ[-1])))
+    se = math.sqrt(0.020 ** 2 * (1 / len(AC) + 1 / len(AN)) + sl ** 2 * S["sd_rep"] ** 2 * (1 / len(cf) + 1 / len(nf))); z = (MA - cB) / se
+    V = [RL.load(os.path.join(PATD, f + ".pat.gz")) for f in nf]; bv = RL.beta_v(V); v0 = RL.read(V[0], bv); exC = {}
+    for f in cf:
+        r = RL.read(RL.load(os.path.join(PATD, f + ".pat.gz")), bv); de = 1 - r["beta_T"] / v0["beta_T"]
+        exC[f] = float(r["L"] - RL.read(V[0], bv, RL.scat(V[0], max(de, 0), 7))["L"])
+    lo, hi = min(exC.values()), max(exC.values()); arm = "B"
+    vB = "FINGERPRINT" if lo > S["armB_bar"] else ("no fingerprint" if hi <= S["armB_bar"] else "UNDECIDED (files on both sides of the bar)")
+    vA = "FINGERPRINT" if z > 1.645 else "no fingerprint"
+    RC["excess_run_loss"] = RC.file.map(exC); RC.to_csv(os.path.join(HERE, f"scored_{PAIR}_cancer_rows.csv"), index=False)
+    out = dict(pair=PAIR, IAMA_rel=IA, eps_cancer=float(eC), eps_normal=S["eps_normal"], share_read=share, MetA_rel=float(MA), sites_all_arrays=len(M),
+               arrays_H=mh, curveB=cB, curveB_extended=bool(ext), se=se, z=z, armA=vA, cancer_excess=exC, armB_bar=S["armB_bar"], armB=vB, deciding_arm=arm,
+               power_A06=S["power_A06"], armA_role="reported only", armB_donor_excess=S["armB_donor_excess"],
+               ratio_min_excess_to_donor=lo / S["armB_donor_excess"], VERDICT=vB)
+    json.dump(out, open(os.path.join(HERE, f"scored_{PAIR}.json"), "w"), indent=1); print(json.dumps(out, indent=1))

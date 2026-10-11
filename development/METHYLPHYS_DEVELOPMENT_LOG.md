@@ -912,3 +912,6 @@ Healthy RRBS C 1.6-41.8 vs null 1; held-only lower but mostly still above 1 or t
 
 ### 2026-10-11 · Two-instrument table added to the book, SOP and OM
 All three conditions met (Met-A planted both ways; per-territory IAM-A reader; C-score RRBS limit). Book: Part VI gauge chapter, section 'What each instrument can and cannot see' (sec:directions). SOP and OM: same table and the rules that follow.
+
+### 2026-10-11 · DEV-FINGERPRINT-02 pair t47d_hmec sealed under rule 02b
+Normal side, planted test (NULL, RUN05, RUN01, SCAT) and seal by pair_pipeline_02b.sh; section written by note_section_02b.py from the outputs.
