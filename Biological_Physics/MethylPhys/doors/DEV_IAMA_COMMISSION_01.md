@@ -37,3 +37,23 @@ Stage Q. Largest |IAM-A ratio - 1| between halves: 0.0024 (whole file), 0.0029 (
 0.0071 (1 %, 1,595,409 molecules per half). Counting noise is below 1 % even at 1 % depth, so
 C2's pass value is set by library preparation and sequencing, not by sampling. This is the floor only; the real repeat spread comes from
 technical replicate libraries (EpiQC), and C2's pass value is set after synthetic tests 2-4.
+
+**Synthetic test 2 result, 2026-10-11 (C3 resolving power)** (`data/DEV_IAMA_COMMISSION_01/offset_tare_02.py`; outputs
+`offset_tare_02_share05_summary.txt`, `offset_tare_02_share20_summary.txt`). Real healthy molecules split into two runs of seven lines (lines differ
+by planted copy error, as the seven EpiQC cell lines do); the second run carries a region-clustered artefact of the kind measured for Swift against
+TruSeq. Bar written before running: every line's tared IAM-A in the two runs within 0.03. Passed at both depths. With about 296,000 opportunities
+per library the untared run offset was 1.0143-1.0519 (artefact 0.02) and 1.0404-1.0806 (0.04), tared difference at most 0.0277 and 0.0272. With four
+times the molecules the untared offset was 1.0321-1.0415 and 1.0574-1.0716 and the tared difference at most 0.0081 and 0.0113. Most of the shallow
+residual is counting noise; the same-run tare itself removes a 3-8 % run offset to about 1 %.
+
+**Synthetic tests 3 and 4, 2026-10-11 (metadata only)** (`data/DEV_IAMA_COMMISSION_01/epiqc_design_03_04.py`; run table `epiqc_runs.csv`;
+output `epiqc_design_03_04_summary.txt`). The EpiQC reads are runs SRR13050956-SRR13051274 (the paper's data statement); a project search on
+PRJNA646948 returns no runs, so the run range is used. Whole-genome libraries Stage Q can read: 78 (TruSeq, MethylSeq, SPLAT, TrueMethyl BS:
+one laboratory, 7 lines x 2 replicates each; EMSeq: two laboratories, 7 lines each, 4 lines with 2 replicates in each). Test 3 (depth) passed:
+every library sits far above the counting-floor depth of test 1, so the box run needs only a sample of reads per library (about 2x), not the
+full depth. Test 4 (conversion, reported from the paper): TruSeq's non-CpG figures put it at Q0's 0.98 limit, so C1 (the conversion rule) is
+decided on identical DNA before C2-C5 are read.
+
+**What the EpiQC design can and cannot test.** C2 (repeatability): every kit, same laboratory. C3 across kits: five kits on identical DNA in one
+laboratory. C3 across laboratories: EMSeq only (two laboratories). The EpiQC lines are lymphoblastoid cell lines, not neutrophils, as stated above.
+

@@ -1,0 +1,9 @@
+whole-genome libraries 78 (('EMSeq', 'LAB01') 11, ('EMSeq', 'LAB02') 11, ('MethylSeq', 'LAB01') 14, ('SPLAT', 'LAB01') 14, ('TruSeq', 'LAB01') 14, ('TrueMethylBS', 'LAB01') 14)
+EMSeq LAB01: lines 7, lines with 2 reps 4, depth 14.3-58.3x, CpG coverage assumed 7.2-29.1x (floor 0.26x), test 3 pass 11/11
+EMSeq LAB02: lines 7, lines with 2 reps 4, depth 18.6-79.4x, CpG coverage assumed 9.3-39.7x (floor 0.26x), test 3 pass 11/11
+MethylSeq LAB01: lines 7, lines with 2 reps 7, depth 29.7-46.8x, CpG coverage assumed 14.8-23.4x (floor 0.26x), test 3 pass 14/14
+SPLAT LAB01: lines 7, lines with 2 reps 7, depth 16.0-65.9x, CpG coverage assumed 8.0-33.0x (floor 0.26x), test 3 pass 14/14
+TruSeq LAB01: lines 7, lines with 2 reps 7, depth 15.2-49.3x, CpG coverage assumed 7.6-24.6x (floor 0.26x), test 3 pass 14/14
+TrueMethylBS LAB01: lines 7, lines with 2 reps 7, depth 27.9-53.2x, CpG coverage assumed 14.0-26.6x (floor 0.26x), test 3 pass 14/14
+SYNTHETIC TEST 3 PASSED (every whole-genome library above the counting-floor depth)
+TEST 4 (reported): TruSeq sits at the 0.98 limit by the paper's non-CpG figures; C1 must be decided on identical DNA (copy error against conversion across kits) before C2-C5

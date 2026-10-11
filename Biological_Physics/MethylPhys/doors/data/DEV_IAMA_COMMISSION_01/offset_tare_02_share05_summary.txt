@@ -1,0 +1,4 @@
+p 0.02: untared run offset B/A 1.0143-1.0519; tared |A_rel(B) - A_rel(A)| max 0.0277
+p 0.04: untared run offset B/A 1.0404-1.0806; tared |A_rel(B) - A_rel(A)| max 0.0272
+line spread in run A, A 1.0000-1.1262
+SYNTHETIC TEST 2 PASSED

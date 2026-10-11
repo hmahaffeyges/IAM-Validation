@@ -1024,3 +1024,6 @@ the other 10 (three public Loyfer CD4 files, seven synthetic-test files) saved t
 wgbs_tools references and the environment kept on the box's system disk at the same paths; trimmed reads (regenerable from SRA) and the dog, rabbit
 and rat indexes (withdrawn cross-species check only) not kept.
 Milestones are also listed in Biological_Physics/README.md, section Advancements.
+
+### 2026-10-11 · DEV-IAMA-COMMISSION-01 synthetic tests 2-4
+Test 2 (same-run tare removes a clustered run artefact on real healthy molecules): passed; tared difference about 1 % at adequate depth, most of the shallow residual is counting noise. Test 3 (EpiQC depth, metadata): passed with wide margin; the box run can sample about 2x per library. Test 4 (conversion, paper): TruSeq at the 0.98 limit; C1 first. EpiQC structure: only EMSeq was made in two laboratories. Runs are SRR13050956-SRR13051274 (project search returns none). Pass values for C2-C5 still to be written before any EpiQC read.
