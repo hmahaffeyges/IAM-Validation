@@ -963,3 +963,6 @@ T47D against mammary epithelial cells, rules 02b and 02c as sealed. Reviewed in 
 
 ### 2026-10-11 · t47d_mcf10a scored: FINGERPRINT on both arms; all four breast pairs scored
 Gain meter FINGERPRINT in 4 of 4 breast pairs; loss meter in 3 of 4 (MCF-7 vs mammary epithelial cells undecided). Development, cell lines.
+
+### 2026-10-11 · DEV-TISSUE-BREAST-01 scored: FINGERPRINT (23 of 53, 6 needed)
+Patients' breast tumours against their own same-plate normal tissue, composition-blind Met-A, sealed before download. Median R 1.065; 41 of 53 tumours above their normal. Group-level; development (TCGA built the reading). DEV_TISSUE_BREAST_01_OUTCOME.md.
