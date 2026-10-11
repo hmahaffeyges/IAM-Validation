@@ -1005,3 +1005,19 @@ IAM-A: Loyfer reference; two independent test laboratories with public raw reads
 
 ### 2026-10-11 · Reviewer findings of 10-10 cleared (11); two real number errors corrected; rule 7 narrowed to new seals
 Corrected in notes: DEV-LINK-IAMA-METAA-02 outcome 300 nM IAM-A 1.06/1.03 (was 1.05/1.03), and the scattered-loss equivalent 1.53 at 60 % read (was 1.51; recomputed from Stage Q's response on the vehicle molecules, scattered_equivalent_02.py); DEV-WRITER-01 healthy holding energy 3.13-3.71 k_BT (was 3.18; the scorer used 3.41 and is unaffected; healthy_range_01.py); DEV-IAMA-CONVERSION-01 'every Swift library but one' (Sample 3's repeat passes at 0.98001), with its table now computed by conversion_table_01.py; DEV-CSCORE-MOSS-01 C over the 46 committed builds 0.974-1.060 (the earlier 'healthy range 0.954-1.046 in 49 of 51' had no source in the committed data; the Met-A specificity result, A within 0.01, is unaffected); Moss mix numbering wording; DEV-ATLAS-LAVAGE-02 address counts (two pairs, one not isolated); commissioning note chapter reference. Box Run 7 species substitution (cow dropped by a key mismatch, dog and rabbit run without telling the author) disclosed in session7_realign.sh; the cross-species withdrawal rests on reader_check_01 and stands. DEV-WRITER-01's Yokochi 2002 row: finding outdated (Table II was read from the author-supplied full text), contradictory 'form not yet read' removed. Chat-only corrections: the methionine grid has 21 of 27 (not 22) scenarios below the bar; 10x SAM fall with half the cells copying gives 1.06-1.14 (not 1.09-1.14); the breast cell-line healthy arrays were 8 on 450K and 5 on EPIC (not 9/4). Rule 7 now ignores edits to a seal line that already existed (control: a new prediction line is still refused).
+
+### 2026-10-11 · Day summary
+Passed (sealed before reading): DEV-FINGERPRINT-02 prostate (LNCaP, a second laboratory, both instruments); all four breast cell-line pairs on the
+gain arm (MCF-7 and T47D against mammary epithelial cells and MCF 10A), three of four on the loss arm (MCF-7 against mammary epithelial cells
+undecided); DEV-TISSUE-BREAST-01, patients' breast tumours against their own normal tissue (23 of 53, 6 needed); DEV-TISSUE-COLON-01, colorectal
+tumours against their own adjacent normal (28 of 88, 11 needed). Group-level, development; neither extends a commissioned scope.
+Not met or no result: HepG2 and A549 on the loss arm (the meter reads loss only; gain arm built after, a production trial, not evidence); IAM-A
+C-score on RRBS (fails its null); breast tissue composition-aware reading (dropped after failing on real normals).
+Changed: Met-A commissioned scope narrowed to isolated neutrophils (author), because bar 7 had been met only on the reference laboratory's own truth
+sets; whole blood back in scope is top priority (R4a), with one independent candidate (GSE167202; author decisions recorded; platform check passed).
+Roadmap written into STATUS (commissioning and cancer results alongside; one cancer at a time). Push gate: rule 8 (one-line disclosure for data
+analysed earlier), rule 9 (laboratory independence from GEO contributors, widened after it missed GSE77797), rule 7 narrowed to new seals.
+Lessons T12-T14. Reviewer findings of 10-10 cleared, two of them real number errors. Data plan from three inventories; IAM-A test C4 cannot be met on
+neutrophils (no public second-laboratory set with 3 or more donors), so neurons are the candidate commissioning cell (DEV-IAMA-NEURON-01).
+Running: none. Box stopped after the T47D run; restarted briefly to retire the scratch disk.
+Milestones are also listed in Biological_Physics/README.md, section Advancements.
