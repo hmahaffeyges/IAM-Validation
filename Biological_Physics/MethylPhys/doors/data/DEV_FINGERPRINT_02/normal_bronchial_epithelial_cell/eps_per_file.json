@@ -1,0 +1,22 @@
+{
+ "ENCFF000MME.pat.gz": {
+  "errors": 22624.0,
+  "opportunities": 533569.0,
+  "eps": 0.04240126394149585
+ },
+ "ENCFF000MMO.pat.gz": {
+  "errors": 11233.0,
+  "opportunities": 265640.0,
+  "eps": 0.04228655322993525
+ },
+ "ENCFF000MJV.pat.gz": {
+  "errors": 4317.0,
+  "opportunities": 93376.0,
+  "eps": 0.04623243660041124
+ },
+ "ENCFF000MJW.pat.gz": {
+  "errors": 16111.0,
+  "opportunities": 344119.0,
+  "eps": 0.04681810652710254
+ }
+}

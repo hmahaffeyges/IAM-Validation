@@ -22,3 +22,8 @@ instruments together separate "the copier got worse" from "blocks of the pattern
 **Limits.** One cell line against one primary culture from one laboratory; LNCaP is a long-cultured line, so culture as well as cancer may
 contribute. 38 % fewer of LNCaP's molecules qualify for Stage Q, so IAM-A_rel here reads only the molecules still held and understates the
 copier's loss: the reason Arm B, not Arm A, decides.
+
+
+**Later check against donor variation (2026-10-10, DEV-FINGERPRINT-02 donor null; the verdict above is unchanged).** The sealed Arm B bar was the
+largest PrEC run, one culture, so it held no donor-to-donor variation. In ENCODE bronchial cells, two healthy donors read against each other give
+Arm B excesses of up to 0.0211 (`data/DEV_FINGERPRINT_02/donor_null_02_output.json`). Every LNCaP run here (+0.1105 to +0.1130) is 5.2 times that.

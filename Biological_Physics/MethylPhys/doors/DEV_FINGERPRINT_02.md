@@ -34,3 +34,25 @@ planted 0.10 run loss as +0.0987 on these molecules (`normal_MCF_10A/runloss_sim
 against itself by construction, the other five read below it). Cancer: the 10 MCF-7 files listed in the seal. Weaker pair: MCF-7 is luminal, MCF 10A
 basal-like and immortalised.
 **Synthetic test:** Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align.py, Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align_result.csv, DEV_FINGERPRINT_02/plant_fingerprint_02.py, DEV_FINGERPRINT_02/plant_fingerprint_02_output.json, DEV_FINGERPRINT_02/power_fingerprint_02.py, DEV_FINGERPRINT_02/power_breast_mcf10a_output.txt, DEV_FINGERPRINT_02/prep_normal.sh, DEV_FINGERPRINT_02/normal_MCF_10A/runloss_sim.txt
+
+
+## Donor null (2026-10-10, normal data only, before any cancer file): what two healthy donors read against each other
+
+The bronchial normal holds two donors, each with RRBS and an array (ENCODE: donor A ENCDO106AAA = ENCSR000DFF + ENCSR000ACY; donor B ENCDO099AAA =
+ENCSR000DFV + ENCSR000ACA). `data/DEV_FINGERPRINT_02/donor_null_02.py` ran the scorer's code unchanged (only its pair table) with one donor as the
+normal and the other in the cancer slot, both ways (`donor_null_02_output.json`; planted-loss response measured on each reference donor's own molecules,
+`data/DEV_FINGERPRINT_02/donor_null/`). Not a sealed test: both arrays' identity-site entropies had been printed by `normal_array_check.py`.
+
+| reference, tested | IAM-A_rel | Met-A_rel | curve B | Arm A z | Arm B excess per tested file | Arm B bar (reference libraries) | Arm B |
+|---|---|---|---|---|---|---|---|
+| A, B | 1.0757 | 0.9756 | 1.1688 | -5.57 | 0.0211, 0.0145 | 0.0011 | FINGERPRINT |
+| B, A | 0.9296 | 1.0250 | 1.0000 | 0.71 | 0.0041, 0.0058 | 0.0000 | FINGERPRINT |
+
+**What it shows.** (1) Arm B, with a bar from one donor's libraries, calls a fingerprint between two healthy donors, both ways. Any sample that is not
+the reference reads a positive excess, because the territory is chosen on the reference's own molecules; only another donor measures how large that
+baseline is. The largest healthy donor-to-donor excess measured here is 0.0211. (2) Healthy donors differ off curve B in Met-A by up to
+0.1933 (donor B: higher copy error, lower identity-site entropy), far beyond Arm A's se; Arm A cannot decide a pair whose
+normal is one donor. (3) The first fingerprint test (DEV-FINGERPRINT-01) was read against one PrEC culture with a bar of library spread only; its
+deciding Arm B excess (LNCaP +0.1105 to +0.1130) is 5.2 times the largest healthy donor-to-donor excess measured here, so its verdict
+stands clear of donor variation; this check is recorded in its outcome note. One donor pair, one tissue, one laboratory: the donor-to-donor range is a
+lower bound.

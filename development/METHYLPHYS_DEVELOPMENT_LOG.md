@@ -828,3 +828,8 @@ CANON/bib_check.py: all 564 entries of docs/book/iam.bib parsed; 542 with a DOI:
 
 ### 2026-10-10 · Box Run 9: sufficiency guard removed from the box
 The 100,000-opportunity stop halted the run on ENCFF000MJV (bronchial; 0.75 GB library, 62.75 % mapped, 93,376 opportunities; its .pat, flagstat and eps are saved). Decision: the box stops only on broken output (under 20 % mapped or under 10,000 opportunities). Whether a pair has enough to decide is the power check at sealing, which uses each file's counts; a small file there costs power and is stated, it cannot produce a false reading. Bronchial so far: MME 533,569, MMO 265,640, MJV 93,376 opportunities. LESSONS B9.
+
+### 2026-10-10 · DEV-FINGERPRINT-02 donor null: healthy donors beat a one-donor Arm B bar
+lung_bronchial planted test FAILED on power (Arm A se 0.075: its normal is two donors whose copy error differs, 0.0424 vs 0.0465, libraries within a donor agree), so it was not sealed (gate worked).
+Two healthy donors through the scorer, both ways: Arm B FINGERPRINT both ways (excess up to 0.0211 against one-donor bars 0.0011/0.0000); Met-A off curve B by up to 0.1933.
+FINGERPRINT-01's Arm B excess (0.1105) is 5.2x the healthy donor-to-donor excess: verdict stands, check added to its outcome. The FINGERPRINT-02 rule must carry donor variation before any pair is read.
