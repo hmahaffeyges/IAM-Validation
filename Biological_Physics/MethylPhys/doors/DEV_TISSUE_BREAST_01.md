@@ -1,0 +1,15 @@
+# DEV-TISSUE-BREAST-01 — Met-A on breast tumour against the same patient's normal tissue (development; design, 2026-10-11; NOT sealed)
+
+**Data.** TCGA-BRCA open-access 450K IDATs (NCI GDC), listed by `data/DEV_TISSUE_BREAST_01/fetch_tcga_brca.py list`
+(`tcga_brca_450k_files.csv`). Only the 'Solid Tissue Normal' files are fetched; tumour files are fetched only after the seal is committed.
+GSE69914 (breast, healthy donors, adjacent normal, cancer) was set aside: it ships submitter betas, not IDATs, and no patient IDs.
+
+**Synthetic test 1, composition** (`development/sims/breast_tissue_01.py`, output `breast_tissue_01_output.txt`; atlas posterior draws only).
+A tumour holds far more epithelium than its normal tissue. With no methylation change, that alone moves plain Met-A by -0.0756 per pair and hides a
+planted 2 % change (-0.0047, 4.4 % of tumours above the healthy 95th percentile). Met-A read against each sample's own composition-expected pattern
+moves by -0.0067 from composition alone (away from a fingerprint) and finds the 2 % change in every tumour (+0.0716). **The test uses the
+composition-aware reading.**
+
+**Before any seal, still to run (synthetic, normal tissue only):** template mismatch (a tissue cell the panel lacks or misdescribes; the atlas has no
+breast fibroblast); planted change inside a hidden component; null on the real TCGA normals (leave-one-out against the other normals); array
+batch (plate) structure of the normals; power at 91 pairs with the spread measured on the real normals.
