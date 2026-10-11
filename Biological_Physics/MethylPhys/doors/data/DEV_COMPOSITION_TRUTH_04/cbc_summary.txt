@@ -1,0 +1,6 @@
+samples 525
+neutrophil, lymphocyte and monocyte % given: 409
+full six-part differential: 387
+six parts sum to 100 +/- 2: 374
+segmented neutrophil % where given: median 73.0, range 0.0-96.5, 10th-90th percentile 51.9-86.7
+by COVID status (n with neutrophil %): negative 218, positive 141, other infection 50

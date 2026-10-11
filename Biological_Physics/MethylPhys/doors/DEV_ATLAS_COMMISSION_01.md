@@ -7,8 +7,8 @@ Today that is `blood_composition_EPIC_v1.json` (8 purified groups). If atlas v2 
 
 | truth set | neutrophils, atlas_e | neutrophils, current | other groups |
 |---|---|---|---|
-| GSE112618, 6 bloods with FACS counts | mean error **0.016**, max 0.028 | 0.031, max 0.046 | atlas_e better on CD4 T, monocytes; worse on CD8 T, NK |
-| GSE182379, 12 constructed mixtures | RMSE **0.014** | 0.019 | atlas_e 6 of 8 groups ≤ bar, current 5 of 8 |
+| GSE112618, 6 bloods with FACS counts | mean error **0.016**, max 0.028 | 0.031, max 0.046 | atlas_e better on CD4 T, monocytes; worse on CD8 T, NK (DEV-ATLAS-EPIC-01) |
+| GSE182379, 12 constructed mixtures | RMSE **0.014** | 0.019 | atlas_e 6 of 8 groups ≤ bar, current 5 of 8 (DEV-ATLAS-EPIC-01) |
 
 **Independence, checked against the atlas v2 roster.** Atlas v2's blood cells come from Salas 2018 (GSE110554), Salas 2022 (GSE167998) and
 Loyfer 2023. GSE182379's mixtures were built by the Salas 2022 laboratory from purified cells and may share donors with GSE167998, so they
@@ -22,7 +22,7 @@ is independent of the reference cells but small (6).
 Bars 1–2 commission atlas_e as the composition step for whole-blood Met-A; then whole-blood Met-A bars are rerun with it and Met-A is
 re-commissioned on it. Bar 3 is a separate, later commissioning.
 
-**Independent truth sets to read (to obtain):** GSE122126 in-vitro genomic DNA mixes (EPIC, another laboratory; compositions in the
+**Independent truth sets to read (to obtain):** GSE122126 in-vitro genomic DNA mixes (EPIC; the Dor laboratory, which also made the Loyfer atlas that atlas v2 is built on: independent of the Salas reference, not of the atlas (rule 9, 2026-10-11); compositions in the
 paper's supplementary table, to be extracted); EPIC whole bloods with flow counts from other laboratories (GEO search to do).
 
 ## Simulation — lavage truth sets against the composition bars (2026-10-09, before any download)
@@ -42,7 +42,8 @@ The count's own error (binomial, 400 cells) is most of the 0.010; bar 1 (MAE ≤
 optimistic: EPIC probe overlap with the atlas loci, atlas_e's own solver, and cell states in disease (MS, beryllium disease) not modelled.
 **How it counts (most defensible):** lavage is lung, not blood. A pass is independent-laboratory evidence that atlas v2 measures
 neutrophil fraction against a macrophage background; it does not by itself commission the whole-blood composition step, which still
-needs a whole-blood truth set from another laboratory (GSE122126). **Decision:** download GSE133062 first (healthy; Karolinska), then
+needs a whole-blood truth set from a laboratory independent of both the Salas reference and the atlas (the Moss mixes,
+GSE122126, are the atlas laboratory's own; the best public candidate is GSE167202, DEV-COMPOSITION-TRUTH-04). **Decision:** download GSE133062 first (healthy; Karolinska), then
 GSE206709 (National Jewish), read with atlas_e unchanged, bars 1–2 as written. Differential cell count method and cells counted to be
 taken from each paper before scoring.
 
@@ -56,3 +57,5 @@ taken from each paper before scoring.
 **Still needed for bars 1–2:** EPIC whole bloods with flow or differential counts, or physical mixes of purified blood cells, from a
 laboratory other than Salas (Dartmouth). Sample-field search of GEO (986 EPIC/450K samples with count fields) found none outside that
 group. Next: the same search on ArrayExpress and on EPIC v2 (GPL33022) series, and published papers' supplements.
+
+**Prior reading:** GSE110554 and GSE167998 are the composition reference; GSE112618, GSE182379 and GSE122126 were read by development tests of this chain (BOX RUN 1 job E, DEV-ATLAS-EPIC-01, DEV-CSCORE-MOSS-01) and are from the reference or the atlas laboratory.

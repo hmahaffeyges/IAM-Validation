@@ -1,4 +1,4 @@
-# DEV-COMPOSITION-TRUTH-02 - an adult, other-laboratory mixture truth set for composition, NILC and atlas_e (development, 2026-10-04)
+# DEV-COMPOSITION-TRUTH-02 - an adult reconstructed-mixture truth set for composition, NILC and atlas_e (development, 2026-10-04)
 
 **DEVELOPMENT - not commissioned.** Development round 2 of chain v3 (author ruling O: test-only mode; no sealed pre-registration, no verdict words). Checks written 2026-10-04 before any data were read; the outcome goes under the line in this note; nothing above the line changes after reading.
 
@@ -7,7 +7,7 @@ mixture / reconstructed / flow cytometry / FACS / cell count / known proportions
 (GPL13534) for reconstructed / artificial mixtures of leukocytes. Every EPIC mixture or flow-counted series found comes from the laboratory that made
 the purified references the chain uses (GSE110554, GSE112618, GSE110530, GSE167998, GSE182379, GSE181034, GSE180970). No adult EPIC mixture or
 flow-counted set from another laboratory was found on GEO.
-The one adult reconstructed-mixture set from another laboratory is **GSE77797** (450K: reconstructed mixtures of purified leukocytes with known
+The one adult reconstructed-mixture set found is **GSE77797**, from the reference's own group (GEO contributors Koestler, Christensen, Wiencke, Kelsey; rule 9, 2026-10-11): in-sample, not another laboratory (450K: reconstructed mixtures of purified leukocytes with known
 proportions, and whole bloods).
 
 **Check (on GSE77797, 450K).** Stage 1 on its IDATs. Truth = the depositors' proportions in the series record. The three methods held to the
@@ -36,8 +36,8 @@ RMSE on the 12 reconstructed mixtures (bars: granulocytes <= 0.02, every other g
 - \measured atlas_e meets every bar except granulocytes (0.041; bias -0.036). NILC-e: granulocytes 0.061 and CD4T 0.036 outside. NNLS8 at 307 markers:
   granulocytes 0.033 outside.
 - \measured The 6 whole bloods (truth = the depositors' flow counts, which sum to 0.89-0.97): atlas_e 0.023 | 0.012 | 0.014 | 0.033 | 0.020 | 0.032; NNLS8 0.017 | 0.025 | 0.013 | 0.038 | 0.060 | 0.053 (same column order).
-- \observed Every method reads granulocytes low on this other-laboratory set (bias -0.027 to -0.052), as on the cord-blood set (DEV-NILC-01). The rest of the
-  composition is recovered within 0.03 by atlas_e on mixtures of another laboratory's purified cells.
+- \observed Every method reads granulocytes low on this set (the reference's own group) (bias -0.027 to -0.052), as on the cord-blood set (DEV-NILC-01). The rest of the
+  composition is recovered within 0.03 by atlas_e on mixtures of the reference group's purified cells.
 - \openprob An EPIC mixture or flow-counted set from another laboratory still does not exist on GEO; a wet-lab mixture is the clean test.
 
 **Wiring.** atlas_e and NILC-e stay behind `--dev-atlas-e` / `--dev-nilc`. Stage 2 stays NNLS8.

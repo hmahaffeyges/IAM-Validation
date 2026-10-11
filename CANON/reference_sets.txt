@@ -1,0 +1,4 @@
+# Reference sets the chain is built on (rule 9 compares every 'another laboratory' claim against these, in every note).
+GSE110554  Met-A healthy neutrophil reference; composition profiles (Salas, Koestler, Butler)
+GSE167998  composition profiles, extended library (same group)
+GSE186458  Loyfer 2023 atlas: IAM-A healthy position P, holding energy, copy-error channel
