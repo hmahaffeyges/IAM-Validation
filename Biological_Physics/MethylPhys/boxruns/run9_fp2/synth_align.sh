@@ -6,7 +6,8 @@ export PATH=$S/e_st19/bin:$S/e_wgbs/bin:$S/e_bm/bin:$S/wgbs_tools:$PATH; REF=$S/
 $PYB $HERE/synth_align.py gen $REF reads.fq truth.json
 echo "T,unique_share,misplaced,eps_T,eps_ref,ratio" > synth_align_result.csv
 for T in 16 18 20 22 25 28 30 40; do
-  bwameth.py --threads 60 --reference $REF -T $T reads.fq 2> align_T$T.log | samtools view -b -o u.bam -
+  bwameth.py --threads 60 --reference $REF -T$T reads.fq 2> align_T$T.log | samtools view -b -o u.bam -
+  grep -q "running: bwa mem .* -T$T " align_T$T.log && ! grep -q "c2t [0-9]" align_T$T.log || { echo "T$T: bwa-meth did not pass -T$T through"; exit 3; }   # LESSONS B1b
   samtools sort -@ 16 -o T$T.bam u.bam && samtools index T$T.bam && rm -f u.bam
   $PYB $HERE/synth_align.py place T$T.bam place_T$T.json > /dev/null
   rm -f T$T.pat.gz*; wgbstools bam2pat T$T.bam -o . --genome hg19 -@ 16 > bam2pat_T$T.log 2>&1

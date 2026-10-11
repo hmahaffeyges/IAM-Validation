@@ -30,6 +30,8 @@ Older, topic-specific lists stay where they are and are indexed here: chain (`ch
 | # | what happened | rule | enforced by |
 |---|---|---|---|
 | B1 | Box Run 9 (2026-10-10): bwa-meth calls bwa with a minimum alignment score of 40; ENCODE RRBS reads are 36 bases, so nothing aligned. The script logged each file "done", deleted the empty alignment and went on: about 80 box-minutes produced nothing | before a run, check read length against the aligner's minimum score; every pipeline step checks its own output and stops the run on failure (mapping rate, file exists) | `boxruns/run9_fp2/session9.sh` guards (mapping rate, .pat produced); not yet in other box scripts |
+| B1b | Passing `-T 20` (two tokens) to bwa-meth: its parser took `20` as a second read file, ran paired mode and gave bwa a bare `-T`; every BAM was empty | pass bwa options to bwa-meth as one token (`-T20`) and check the logged bwa command | `synth_align.sh` asserts the logged command |
+| B7 | A job ran past its clock because read simulation used one random genome lookup per candidate; the job was killed with nothing written | scan each chromosome once; run long box work detached with a DONE file, and a short waiting job | `synth_align.sh` run detached |
 | B2 | A box left running for days | every box session ends with an armed shutdown watcher; stop the box when idle | not enforced by code |
 | B3 | A `pkill` pattern sent through a remote command matched its own command line, so the kill did nothing | stop remote processes with a kill-file script | not enforced by code |
 | B4 | Installing alignment tools into the chain's environment broke the chain's packages | each tool stack in its own environment | box scripts use separate environments |
