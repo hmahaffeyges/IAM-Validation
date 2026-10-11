@@ -1,12 +1,14 @@
 """DEV-FINGERPRINT-02 arrays: ENCODE HAIB 450K/EPIC IDATs (encode_arrays.csv: file, experiment, cell, channel, platform, md5, url; one array per
 experiment) through the chain's Stage 1 (stage_1_idat_calibration.calibrate_idat_to_beta), unchanged. md5 checked. One parquet per experiment.
-Usage: python3 calib_arrays.py WORKDIR normal|cancer"""
+Usage: [HOLD_CELLS=a,b] python3 calib_arrays.py WORKDIR normal|cancer"""
 import os, sys, gzip, hashlib, requests, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); MP = os.path.abspath(os.path.join(HERE, "../../.."))
 sys.path.insert(0, os.path.join(MP, "chain")); from stage_1_idat_calibration import calibrate_idat_to_beta
 W, SET = sys.argv[1], sys.argv[2]; os.makedirs(os.path.join(W, "idat"), exist_ok=True); os.makedirs(os.path.join(W, "betas"), exist_ok=True)
 NORMAL = ["epithelial cell of prostate", "hepatocyte", "epithelial cell of alveolus of lung", "bronchial epithelial cell", "mammary epithelial cell", "MCF 10A"]
 A = pd.read_csv(os.path.join(HERE, "encode_arrays.csv")); A = A[A.cell.isin(NORMAL) == (SET == "normal")]
+HOLD = [x for x in os.environ.get("HOLD_CELLS", "MCF-7,T47D").split(",") if x]   # cancer cells not read until their pair is sealed (2026-10-10: MCF-7 held for the author)
+A = A[~A.cell.isin(HOLD)]; print("arrays:", sorted(A.experiment.unique()), "| held:", HOLD)
 for exp, d in A.groupby("experiment"):
     out = os.path.join(W, "betas", exp + ".parquet")
     if os.path.exists(out): continue
