@@ -1,0 +1,39 @@
+{
+ "pair": "breast_hmec",
+ "IAMA_rel": 0.6890978833318763,
+ "eps_cancer": 0.02707332306232259,
+ "eps_normal": 0.04403110288689249,
+ "share_read": 5.048511658724375,
+ "MetA_rel": 1.0667259464322565,
+ "sites_all_arrays": 5096,
+ "arrays_H": {
+  "ENCSR148KKY": 0.34142510640657125,
+  "ENCSR583ILE": 0.35948862282244176,
+  "ENCSR889ZLL": 0.3738414305895907
+ },
+ "curveB": 1.0,
+ "curveB_extended": false,
+ "se": 0.15667676393443444,
+ "z": 0.4258828479517214,
+ "armA": "no fingerprint",
+ "cancer_excess": {
+  "ENCFF000MHT": 0.012650943676549325,
+  "ENCFF000MHU": 0.012499934244667608,
+  "ENCFF000MHX": 0.01439805955315781,
+  "ENCFF000MHY": 0.014280716576338936,
+  "ENCFF000MIA": 0.019278074262719807,
+  "ENCFF000MIC": 0.02591238301884905,
+  "ENCFF000MIJ": 0.016291401262351596,
+  "ENCFF000MIK": 0.018691914000439437,
+  "ENCFF000MIL": 0.042880003501075944,
+  "ENCFF000MIM": 0.027112422332265202
+ },
+ "armB_bar": 0.021145789090027865,
+ "armB": "UNDECIDED (files on both sides of the bar)",
+ "deciding_arm": "B",
+ "power_A06": 0.10346612476875228,
+ "armA_role": "reported only",
+ "armB_donor_excess": 0.021145789090027865,
+ "ratio_min_excess_to_donor": 0.5911311321345982,
+ "VERDICT": "UNDECIDED (files on both sides of the bar)"
+}

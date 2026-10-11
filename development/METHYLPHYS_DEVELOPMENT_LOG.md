@@ -924,3 +924,6 @@ score_fingerprint_02b2.py = 02b with two T47D pairs (450K, platform-matched); 02
 
 ### 2026-10-11 · GSE69914 (breast tissue): format check and a blinding breach
 S3 downloads/C_tissue_tests/GSE69914 holds the submitters' beta tables (<GSM>_Raw.txt.gz, columns IlmnID, Beta), not IDATs: chain Stage 1 cannot run on it, and no patient IDs are given (tumour and adjacent normal cannot be paired). BREACH: to check the format the lead opened the first sample file in the tar, GSM1712367 (BCFD1, status 2 = breast cancer), and printed three probe betas. No reading was computed. GSM1712367 is excluded from any sealed test of this series. Rule kept for the future: a format check opens a healthy sample only, chosen from the GEO characteristics first.
+
+### 2026-10-11 · breast_hmec scored: gain meter FINGERPRINT 10/10 (first sealed test on an unseen cancer); loss arm undecided
+MCF-7 against mammary epithelial cells, rules 02b and 02c as sealed. Arm G all 10 files above the bar; Arm B 3 of 10 above. The two lowest-gain, highest-loss files are one UW MCF-7 stock. Reviewed in DEV_FINGERPRINT_02_OUTCOME.md.

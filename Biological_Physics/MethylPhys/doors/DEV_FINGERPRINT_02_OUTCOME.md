@@ -24,3 +24,14 @@ Not read: the breast pairs (MCF-7 held for the author's decision on the breast_m
 **Reviewed:** scored_liver.json, scored_lung_alveolar.json, scored_lung_bronchial.json. Arm B no fingerprint as sealed. Cause found (why/both_directions_*.csv): HepG2 and A549
 change in the GAIN direction (normally unmethylated molecules made methylated), 10-100x the healthy files; Arm B reads loss only. These three were scored in one batch;
 had liver been reviewed first, A549 would have stayed unread for a sealed gain test. HepG2 and A549 are development evidence for gain, not a test of it.
+
+### breast_hmec (MCF-7 against mammary epithelial cells), scored 2026-10-11 as sealed (rule 02b and Arm G, rule 02c)
+**Reviewed:** scored_breast_hmec.json, scored_gain_breast_hmec.json.
+- **Arm G (gain): FINGERPRINT.** All 10 MCF-7 files above the sealed bar 0.0048 (gain 0.0454-0.1559). First sealed test of the gain meter on a
+  cancer it had not seen: it detects.
+- **Arm B (loss): UNDECIDED,** files on both sides of the bar 0.0211 (3 of 10 above). Arm A, reported only: Met-A_rel 1.0667, IAM-A_rel 0.6891
+  (IAM-A below 1, as the direction audit expects when gained molecules enter Stage Q).
+- **Descriptive (not tested; `data/DEV_FINGERPRINT_02/why/mcf7_experiments.py`, output `why/mcf7_experiments_output.csv`):** the 10 files are 5
+  ENCODE experiments, MCF-7 from different stocks (UW, Duke, Stanford; two shRNA lines, one a CTCF knockdown). The two files with the lowest gain
+  and the highest loss are both replicates of ENCSR605IIO (the UW stock, 1 h estradiol): stock differences, not noise. Nothing in this pair breaks
+  a sealed rule or the scorer, so scoring may continue (breast_mcf10a next).
