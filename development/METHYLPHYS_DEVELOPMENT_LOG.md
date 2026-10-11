@@ -906,3 +906,6 @@ Six reference neutrophil arrays, commissioned path: a 2/5/10 % gain or loss at t
 
 ### 2026-10-11 · Per-territory IAM-A reader passes its exact recovery test (direction audit, condition 2)
 territory_eps.py equals Stage Q over all molecules and returns planted gained copy error exactly; healthy liver held territory 0.0269 vs mixed territory 0.0527.
+
+### 2026-10-11 · IAM-A C-score not usable on RRBS (direction audit, condition 3: limit)
+Healthy RRBS C 1.6-41.8 vs null 1; held-only lower but mostly still above 1 or too few blocks. The C-score stays a whole-genome reading. All three conditions for the two-instrument table are now met.

@@ -35,7 +35,7 @@ Why there are two instruments, by what each can and cannot see:
 Conditions before this enters the book (Part VI instruments chapter), the SOP and the OM:
 1. Met-A planted-gain and planted-loss test on healthy arrays: DONE 2026-10-11 (above).
 2. Per-territory IAM-A reader (held vs gained copy error) built and recovering planted values in Stage Q units: DONE 2026-10-11 (below).
-3. The IAM-A C-score re-based on healthy RRBS, or its RRBS limit written into its own row.
+3. The IAM-A C-score re-based on healthy RRBS, or its RRBS limit written into its own row: DONE 2026-10-11, limit stated (below).
 When all three are committed, this table (with the numbers from those outputs) goes into the book, SOP and OM in the same push.
 
 ## Per-territory IAM-A (condition 2, done)
@@ -46,3 +46,10 @@ Built-in check (`territory_eps_liver_MBY_check.txt`): over all qualifying molecu
 gained eps to 1e-12 (0.078602 at r 0.01, 0.089216 at r 0.05) and held eps unchanged (0.026875). Note: donors were drawn per pattern line, not
 per molecule, so the copied patterns carry more error (0.084874-0.09142) than held territory; a plant meant to equal held territory must weight
 donors by count.
+
+## IAM-A C-score on RRBS (condition 3, done: limit)
+`data/DEV_DIRECTION_AUDIT_01/cscore_by_territory.py`, output `cscore_by_territory_healthy.csv` (18 healthy RRBS files, Stage Q's formula and
+block size; all-territory liver ENCFF000MBY equals Stage Q's cscore, 15.3773). Healthy all-territory C 1.6498-41.8264 against a derived null of 1.
+Held territory only: MCF 10A 1.2889-2.3710, liver ENCFF000MCD 14.2257; the other files have under 10 blocks of held sites. Mixing territories of
+different copy error explains part of the inflation, not all of it, and RRBS gives too few held sites. **Limit: the IAM-A C-score is a
+whole-genome reading; it is not read on RRBS.**
