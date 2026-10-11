@@ -876,3 +876,6 @@ By rule 02b: all 6 LNCaP files' Arm B excess above the bar 0.0211; Arm A (report
 - Held for the author: breast_mcf10a (sealed under rule 02 before the donor null); no MCF-7 file or array aligned or read.
 - Commissioned Met-A: rebuilt identical from a fresh clone; Stage 1 inputs (methylprep 1.7.1, manifest sha256) pinned.
 - Box stopped 01:22 PDT (verified); two disks kept.
+
+### 2026-10-11 · breast_mcf10a re-sealed under rule 02b (author decision)
+The pair was sealed under rule 02 (e6aeba5) before the donor null showed a one-donor Arm B bar is beaten by healthy donor variation. Author: re-seal under 02b. The rule-02 seal is kept as RETIRED_sealed_breast_mcf10a_rule02.json. No MCF-7 file or array had been aligned, downloaded or read.
