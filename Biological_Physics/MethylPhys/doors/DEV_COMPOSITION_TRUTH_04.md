@@ -11,13 +11,16 @@ automated differential in each sample's GEO record (`data/DEV_COMPOSITION_TRUTH_
 `cbc_summary.py`): 409 samples give neutrophil, lymphocyte and monocyte %; 387 give the full six-part differential; 374 of those sum to 100 ± 2.
 Segmented neutrophil % has median 73.0 (10th-90th percentile 51.9-86.7), a wider range than healthy blood.
 
-**What has to be decided before any test is written (author):**
-1. Is GPL29753 inside the EPIC v1 scope? Checkable before reading: whether every Met-A identity site and composition site is on it, from the
-   manifest alone.
-2. Is a cohort of emergency-department patients (COVID-positive, COVID-negative, other infection) acceptable for bar 7? Bar 7 tests recovery of the
-   neutrophil fraction, not health; the wide range of neutrophil % tests it across more of the scale.
-3. How to treat error in the truth itself: an automated differential is not exact, and the paper does not state that the count and the DNA came
-   from the same draw. Error in the truth adds to the measured RMSE, so a pass would be conservative and a failure would need reading.
+**Author decisions (2026-10-11), before any array is read:**
+1. **Platform:** GPL29753 counts as EPIC v1 for bar 7 only if every site the commissioned chain reads is on it as a standard EPIC probe.
+   Checked from the manifest alone (`data/DEV_COMPOSITION_TRUTH_04/platform_check.py`, output `platform_check_output.txt`): the 6,000 Met-A floor
+   sites, 963 composition markers, 6,000 composition neutrophil sites and 48,528 noise sites are all present, none from the custom content:
+   PASSED. Still to check: that chain Stage 1 reads a GPL29753 IDAT (its address count differs from the 1,051,815-address EPIC v1 manifest);
+   if it does not, Stage 1 needs a GPL29753 manifest, a chain change recorded before use.
+2. **Cohort:** accepted. Bar 7 tests recovery of the neutrophil fraction, not health; the record of any result states that the truth set is
+   emergency-department patients (COVID-positive, COVID-negative, other infection) with no healthy group.
+3. **Truth error:** bar 7 unchanged (RMSE <= 0.02). Error in the clinical count adds to the measured RMSE: a pass is conservative; a failure is
+   recorded as not met, with no reinterpretation after reading.
 
-**Next.** Answers to 1-3, then synthetic tests on the chain (composition recovery on constructed mixtures with truth error added), then the test
+**Next.** The Stage 1 read check, then synthetic tests on the chain (composition recovery on constructed mixtures with truth error added), then the test
 written and sealed, then the arrays read once. Search candidates and reasons for rejection: the 2026-10-11 search table (to be committed with the test).

@@ -1,0 +1,6 @@
+GPL29753 probes: 875,341; EPIC-source: 867,530
+Met-A floor sites (metA_floors_v1_3): 6,000 sites, missing 0, present but not EPIC-source 0
+composition markers: 963 sites, missing 0, present but not EPIC-source 0
+composition neutrophil sites: 6,000 sites, missing 0, present but not EPIC-source 0
+noise sites: 48,528 sites, missing 0, present but not EPIC-source 0
+PLATFORM CHECK PASSED: every site is on GPL29753
