@@ -11,30 +11,38 @@ Usage: python3 synth_align.py gen REF.fa OUT.fq TRUTH.json | python3 synth_align
 import sys, json, random, gzip
 def rc(s): return s[::-1].translate(str.maketrans("ACGTN", "TGCAN"))
 if sys.argv[1] == "gen":
-    import pysam
-    fa = pysam.FastaFile(sys.argv[2]); rg = random.Random(20261010); EPS = 0.03; ERR = 0.005
-    chroms = [f"chr{i}" for i in range(1, 23)]; L = {c: fa.get_reference_length(c) for c in chroms}; tot = sum(L.values())
+    # Each chromosome is read once; every start whose 30-base window holds >= 6 CpGs (a read of any length 30-36 then holds >= 6) is a candidate;
+    # reads are drawn uniformly over candidates, chromosomes in proportion to their candidate counts. (2026-10-10: replaces rejection sampling,
+    # which spent the job's hour on random lookups; selection rule unchanged.)
+    import pysam, numpy as np
+    fa = pysam.FastaFile(sys.argv[2]); rg = random.Random(20261010); npr = np.random.default_rng(20261010); EPS = 0.03; ERR = 0.005; NREADS = 400000
+    chroms = [f"chr{i}" for i in range(1, 23)]; SEQ = {}; CAND = {}
+    for c in chroms:
+        q = fa.fetch(c).upper(); SEQ[c] = q; a = np.frombuffer(q.encode(), np.uint8)
+        cg = np.zeros(len(a), np.int32); cg[:-1] = (a[:-1] == 67) & (a[1:] == 71)
+        w = np.convolve(cg, np.ones(29, np.int32), "valid")          # CpG starts in [st, st+29) -> a CpG fully inside 30 bases
+        st = np.nonzero(w >= 6)[0]; st = st[(st > 1_000_000) & (st < len(a) - 1_000_000)]; CAND[c] = st
+        print(c, len(st), flush=True)
+    tot = sum(len(v) for v in CAND.values()); pick = npr.choice(len(chroms), NREADS, p=[len(CAND[c]) / tot for c in chroms])
     n = 0; nE = nO = 0
     with open(sys.argv[3], "w") as out:
-        while n < 400000:
-            c = rg.choices(chroms, weights=[L[x] for x in chroms])[0]; st = rg.randrange(1_000_000, L[c] - 1_000_000); ln = rg.randint(30, 36)
-            top = fa.fetch(c, st, st + ln + 1).upper()
-            if "N" in top or top[:ln].count("CG") < 6: continue
-            strand = rg.choice("+-"); s = top if strand == "+" else rc(fa.fetch(c, st - 1, st + ln).upper())
-            r = []; calls = []
+        for ci in pick:
+            c = chroms[ci]; st = int(CAND[c][npr.integers(len(CAND[c]))]); ln = rg.randint(30, 36); top = SEQ[c][st:st + ln + 1]
+            if "N" in top: continue
+            strand = rg.choice("+-"); s = top if strand == "+" else rc(SEQ[c][st - 1:st + ln])
+            r = []
             for i in range(ln):
                 b = s[i]
-                if b == "C" and s[i + 1] == "G":
-                    keep = rg.random() >= EPS; r.append("C" if keep else "T"); calls.append("C" if keep else "T")
+                if b == "C" and s[i + 1] == "G": r.append("C" if rg.random() >= EPS else "T")
                 elif b == "C": r.append("T")
                 else: r.append(b)
             cg = [i for i in range(ln) if s[i] == "C" and s[i + 1] == "G"]
             r = "".join(x if rg.random() >= ERR else rg.choice([y for y in "ACGT" if y != x]) for x in r)
             k = "".join(r[i] for i in cg if r[i] in "CT")     # calls as the final read shows them (sequencing errors included)
             if len(k) >= 6 and k.count("C") >= 0.8 * len(k):
-                nO += sum(1 for i in range(1, len(k) - 1)); nE += sum(1 for i in range(1, len(k) - 1) if k[i] == "T" and k[i - 1] == "C" and k[i + 1] == "C")
+                nO += len(k) - 2; nE += sum(1 for i in range(1, len(k) - 1) if k[i] == "T" and k[i - 1] == "C" and k[i + 1] == "C")
             out.write(f"@{c}:{st}:{strand}:{n}\n{r}\n+\n{'I' * ln}\n"); n += 1
-    json.dump({"reads": n, "eps_ref_stageQ_rule": nE / nO, "planted_eps": EPS}, open(sys.argv[4], "w")); print("eps_ref", round(nE / nO, 5))
+    json.dump({"reads": n, "eps_ref_stageQ_rule": nE / nO, "planted_eps": EPS}, open(sys.argv[4], "w")); print("reads", n, "eps_ref", round(nE / nO, 5))
 elif sys.argv[1] == "place":
     import pysam
     b = pysam.AlignmentFile(sys.argv[2]); tot = q = ok = 0
