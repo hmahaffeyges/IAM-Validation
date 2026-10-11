@@ -1,0 +1,187 @@
+dataset,spent_status,spent_record,source
+GSE111629,partly spent,"Sept-2026 pre-chain-v3 procedures: PROC-CMB-04/05, PROC-MAHA-03, PROC-SKY-01, PROC-TARE-01, PROC-SWITCH-01, LABZERO-02, FINDING_GSE125105_LOW_SIGNAL (doors/)",s3_roadmap_inventory 2026-10-11
+GSE125105,partly spent,"Sept-2026 procedures: BANDv2_OUTCOME, LABZERO-01, PROC-CMB-04/05, PROC-MAHA-03, PROC-SKY-01, PROC-TARE-01, PROC-INTAKE-01, FINDING_GSE125105_LOW_SIGNAL",s3_roadmap_inventory 2026-10-11
+GSE136724,unspent,listed as not-in-scope in boxruns/run3/JOBS.md only; no read,s3_roadmap_inventory 2026-10-11
+GSE159907,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE167202,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE175758,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE237299,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE287261,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE289742,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE295456,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE304107,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE315366,spent,Box Run 3 test 1 (boxruns/run3/JOBS.md; results/BOXRUN3; LOG 2026-10-09),s3_roadmap_inventory 2026-10-11
+GSE315367,spent,Box Run 3 reading 2 (results/BOXRUN3; LOG 2026-10-09),s3_roadmap_inventory 2026-10-11
+GSE315451,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE42861,partly spent,"old VAL record (early_gape_evidence) + Sept-2026 procedures: PHASE1c, BANDv2, LABZERO-01, PROC-CMB-04/05, PROC-MAHA-03, PROC-SKY-01, PROC-TARE-01, PROC-SWITCH-01",s3_roadmap_inventory 2026-10-11
+GSE51032,partly spent,"old VAL-047/048 (early_gape_evidence, CPG VAL package) + Sept-2026 PHASE1, PROC-MF-02/03",s3_roadmap_inventory 2026-10-11
+GSE51057,partly spent,"old VAL-047/048 + PROC-PREDX-NEUT-01 and PROC-PREDX-SLIDE-01 (2026-10-01, pre-chain-v3 rules) + PROC-SWITCH-01",s3_roadmap_inventory 2026-10-11
+GSE87640,unspent,listed not-in-scope in boxruns/run3/JOBS.md only,s3_roadmap_inventory 2026-10-11
+GSE119260,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE122126,spent,"DEV-CSCORE-MOSS-01 (2026-10-10, LOG ""Moss mixes""); also old VAL record",s3_roadmap_inventory 2026-10-11
+GSE207998,partly spent,old VAL record only (early_gape_evidence),s3_roadmap_inventory 2026-10-11
+GSE262273,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE262274,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE275017,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE277078,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE282216,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE287137,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE292312,partly spent,"PROC-BRAIN-01 (Sept 2026, class era) read the 24 CSF arrays",s3_roadmap_inventory 2026-10-11
+GSE298812,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE302507,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE303824,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE303825,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE303826,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE311578,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE325660,unspent,no read record,s3_roadmap_inventory 2026-10-11
+PRJNA878698,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE131013,partly spent,"PROC-TISSUE-01 (sealed 2026-09-26, class-era) scored 238 of 240 arrays INCLUDING tumours from the submitted matrix; chain v3: only normal/mucosa side fetched for DEV-TISSUE-COLON-01",s3_roadmap_inventory 2026-10-11
+GSE132804,unspent,planning mention only (SUBSTRATE_STRATEGY.md),s3_roadmap_inventory 2026-10-11
+GSE142257,unspent,planning mention only (SUBSTRATE_STRATEGY.md),s3_roadmap_inventory 2026-10-11
+GSE154946,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE166212,partly spent,PROC-E2E-01 (2026-09-23) read 2 arrays,s3_roadmap_inventory 2026-10-11
+GSE199057,unspent,planning mention only (SUBSTRATE_STRATEGY.md),s3_roadmap_inventory 2026-10-11
+GSE288652,partly spent,PROC-E2E-01 (2026-09-23) read 2 arrays,s3_roadmap_inventory 2026-10-11
+GSE304513,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE69914,partly spent,"old VAL record (early_gape_evidence); DECONVOLVER_REPAIR 2026-09-26 read tumour/adjacent/normal arrays; 2026-10-11 breach: GSM1712367 (cancer) opened, excluded",s3_roadmap_inventory 2026-10-11
+GSE157131,unspent,not read (boxruns/run3 lists it out of scope),s3_roadmap_inventory 2026-10-11
+GSE280465,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE40279,partly spent,"old VAL/CPG-VAL record (CPG VAL TESTING PACKAGE, early_gape_evidence); PROC-RECORD-02 is a record review, not a read",s3_roadmap_inventory 2026-10-11
+GSE55763,unspent,not read (run3 out of scope),s3_roadmap_inventory 2026-10-11
+GSE146920,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE173330,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE223748,spent,DEV-SPECIES-AGEING-01 (2026-10-03; blood arrays via species_mmc rebuild); also old VAL record,s3_roadmap_inventory 2026-10-11
+GSE307447,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE316492,unspent,no read record,s3_roadmap_inventory 2026-10-11
+PRJNA802599,unspent,none of these runs is in DEV-XSPECIES-TEMP-01 (that test listed Mammalia and Aves only),s3_roadmap_inventory 2026-10-11
+PRJNA802599,spent (subset),DEV-XSPECIES-TEMP-01 listed 1001 of 2327 runs here (536 mammal + 465 bird samples; temp_test_samples.csv); reader withdrawn 2026-10-10; 16 runs realigned in results/BOXRUN7_XSP_REALIGN. Provisional: listed = read is assumed,s3_roadmap_inventory 2026-10-11
+PRJNA389610,spent,DEV-COHO-CC-01 (Salmonid/DEV_COHO_CC_01); outputs in downloads/coho_work/,s3_roadmap_inventory 2026-10-11
+PRJNA937312,unspent,no read record,s3_roadmap_inventory 2026-10-11
+PRJNA641939,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE145887,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE153343,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE269087,unspent,no read record,s3_roadmap_inventory 2026-10-11
+GSE62195,unspent,no read record,s3_roadmap_inventory 2026-10-11
+PRJNA325786,spent,PROC-SALMON-01 (Salmonid/PROC_SALMON_01); outputs in downloads/salmon_work/,s3_roadmap_inventory 2026-10-11
+"GSE112618 (job E copy, 6 IDAT pairs)",spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + COMMISSIONING_NOTE_METAA_NEUTROPHILS, CSCORE_COMMISSIONING, DEV_ATLAS_COMMISSION_01, DEV_ATLAS_EPIC_01, DEV_CHAIN_V3_RUN2, DEV_CHAIN_V3_RUN3, DEV_COMPOSITION_TRUTH_02, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01, DEV_LOWFRAC_01_OUTCOME, DEV_NILC_01, DEV_SYNTH_LEVERS_01, PROC_NEUT_TEST_01_OUTCOME, bo",s3_roadmap_inventory 2026-10-11
+GSE128733,spent,DEV-PAIRED-01 (LOG 2026-10-04); boxruns/run1 and run2,s3_roadmap_inventory 2026-10-11
+GSE250556,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_ATLAS_EPIC_01, DEV_ATLAS_EPIC_02, DEV_CHAIN_V3_RUN2, DEV_CHAIN_V3_RUN3, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01, DEV_DIRECTION_01, DEV_DIRECTION_02, DEV_FLAGS_01, DEV_LOWFRAC_01_OUTCOME, DEV_NEWCELL_01, DEV_NILC_01, DEV_PERCELL_01, DEV_REPL_V3_01, DEV_REPL_V3_01_run, DE",s3_roadmap_inventory 2026-10-11
+GSE118144,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01, DEV_INTAKE_02, DEV_METAA_SENS_01, DEV_NEWCELL_01, DEV_PERCELL_01, DEV_ROUND2_REPORT, DEV_TOOLKIT_01, boxrun_run1",s3_roadmap_inventory 2026-10-11
+GSE161476,spent,DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01,s3_roadmap_inventory 2026-10-11
+GSE176168,spent,DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01,s3_roadmap_inventory 2026-10-11
+GSE179801,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02, DEV_NEWCELL_01, DEV_PERCELL_01, DEV_TOOLKIT_01",s3_roadmap_inventory 2026-10-11
+GSE191297,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE200376,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01",s3_roadmap_inventory 2026-10-11
+GSE103541,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE110530,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_ATLAS_EPIC_01, DEV_COMPOSITION_TRUTH_02, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01, DEV_INTAKE_02, DEV_METAA_SENS_01",s3_roadmap_inventory 2026-10-11
+GSE112618,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + COMMISSIONING_NOTE_METAA_NEUTROPHILS, CSCORE_COMMISSIONING, DEV_ATLAS_COMMISSION_01, DEV_ATLAS_EPIC_01, DEV_CHAIN_V3_RUN2, DEV_CHAIN_V3_RUN3, DEV_COMPOSITION_TRUTH_02, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01, DEV_LOWFRAC_01_OUTCOME, DEV_NILC_01, DEV_SYNTH_LEVERS_01, PROC_NEUT_TEST_01_OUTCOME, bo",s3_roadmap_inventory 2026-10-11
+GSE123914,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE141682,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01",s3_roadmap_inventory 2026-10-11
+GSE166503,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01",s3_roadmap_inventory 2026-10-11
+GSE181034,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_COMPOSITION_TRUTH_02, DEV_DETECTION_01, DEV_NEWCELL_01, DEV_NILC_01, DEV_ROUND2_box, DEV_TOOLKIT_01",s3_roadmap_inventory 2026-10-11
+GSE182379,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + COMMISSIONING_NOTE_METAA_NEUTROPHILS, DEV_ATLAS_COMMISSION_01, DEV_ATLAS_EPIC_01, DEV_COMPOSITION_TRUTH_02, DEV_NILC_01, DEV_SYNTH_LEVERS_01, boxrun_run1",s3_roadmap_inventory 2026-10-11
+GSE201689,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE222927,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01",s3_roadmap_inventory 2026-10-11
+GSE225544,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE235717,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01",s3_roadmap_inventory 2026-10-11
+GSE247193,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_CHAIN_V3_RUN3, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01, DEV_NEWCELL_01, DEV_ROUND2_box, DEV_SELFTARE_01, DEV_SELFTARE_02, PROC_NEUT_TEST_01_T2_OUTCOME, boxrun_run1, chain_v3_dev3_readings, noise_index, t2_diag",s3_roadmap_inventory 2026-10-11
+GSE247195,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01, DEV_METAA_SENS_01, DEV_NEWCELL_01, DEV_ROUND2_box, DEV_SELFTARE_01, DEV_SELFTARE_02, DEV_TOOLKIT_ADDED_02, PROC_NEUT_TEST_01_T2_OUTCOME, boxrun_run1, chain_v3_dev3_readings, noise_index, t2_diag",s3_roadmap_inventory 2026-10-11
+GSE255776,spent,DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01,s3_roadmap_inventory 2026-10-11
+GSE286313,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01, DEV_EPIC_V2_01, DEV_ROUND2_box",s3_roadmap_inventory 2026-10-11
+GSE155952,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE161678,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE174818,spent,DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01,s3_roadmap_inventory 2026-10-11
+GSE179325,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_CHAIN_V3_RUN2, DEV_CHAIN_V3_RUN3, DEV_DETECTION_01, DEV_LOWFRAC_01_OUTCOME, DEV_NOISE_02_OUTCOME, PROC_NEUT_TEST_01_OUTCOME, chain_v3_dev2_readings, chain_v3_dev3_readings, lowfrac, neut_test_T1T3T4_readings",s3_roadmap_inventory 2026-10-11
+GSE180130,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02, DEV_NEWCELL_01, DEV_PERCELL_01",s3_roadmap_inventory 2026-10-11
+GSE184047,spent,DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01,s3_roadmap_inventory 2026-10-11
+GSE217633,spent,DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01,s3_roadmap_inventory 2026-10-11
+GSE230850,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE247524,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE270901,spent,DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01,s3_roadmap_inventory 2026-10-11
+GSE216906,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE237561,spent,DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01,s3_roadmap_inventory 2026-10-11
+GSE270856,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE276323,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE123140,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_DIRECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE124413,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE140038,spent,DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01,s3_roadmap_inventory 2026-10-11
+GSE146502,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE165185,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_DIRECTION_01, DEV_DIRECTION_02, DEV_INTAKE_02, DEV_ROUND2_REPORT",s3_roadmap_inventory 2026-10-11
+GSE187291,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_DIRECTION_01, DEV_DIRECTION_02, DEV_INTAKE_02, DEV_ROUND2_box",s3_roadmap_inventory 2026-10-11
+GSE210430,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE221745,spent,DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01,s3_roadmap_inventory 2026-10-11
+GSE225239,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE110554,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + COMMISSIONING_NOTE_METAA_NEUTROPHILS, DEV_ATLAS_COMMISSION_01, DEV_ATLAS_EPIC_01, DEV_COMPOSITION_TRUTH_02, DEV_DETECTION_01, DEV_DIRECTION_AUDIT_01, DEV_NEWCELL_01, DEV_NILC_01, DEV_NOISE_02, DEV_ROUND2_box, DEV_SELFTARE_01, DEV_SELFTARE_02, DEV_SYNTH_LEVERS_01, DEV_TOOLKIT_01, MET_A_FLOOR_V13_REPR",s3_roadmap_inventory 2026-10-11
+GSE122244,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01, DEV_INTAKE_02, DEV_NEWCELL_01, DEV_NILC_01, DEV_PERCELL_01, DEV_ROUND2_box, DEV_SELFTARE_02, DEV_TOOLKIT_01, DEV_TOOLKIT_ADDED_02, boxrun_run1",s3_roadmap_inventory 2026-10-11
+GSE167998,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_ATLAS_COMMISSION_01, DEV_ATLAS_EPIC_01, DEV_COMPOSITION_TRUTH_02, DEV_DETECTION_01, DEV_DIRECTION_AUDIT_01, DEV_INTAKE_02, DEV_NEWCELL_01, DEV_NILC_01, DEV_NOISE_02, DEV_ROUND2_REPORT, DEV_ROUND2_box, DEV_SYNTH_LEVERS_01, DEV_TOOLKIT_01, MET_A_FLOOR_V13_REPRO, PROC_SCORE_01_OUTCOME, PROC_SCORE_0",s3_roadmap_inventory 2026-10-11
+GSE255057,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE271697,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02, DEV_ROUND2_box, DEV_TOOLKIT_ADDED_02",s3_roadmap_inventory 2026-10-11
+GSE231417,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE273552,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+GSE130748,spent,DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01,s3_roadmap_inventory 2026-10-11
+GSE142512,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + CSCORE_COMMISSIONING, DEV_CSCORE_TARE_01_arrays, DEV_DETECTION_01",s3_roadmap_inventory 2026-10-11
+GSE152245,spent,"DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01 betas) + DEV_DETECTION_01, DEV_INTAKE_02",s3_roadmap_inventory 2026-10-11
+"450K purified-cell sets GSE35069, GSE88824, GSE65097, GSE124565, GSE224807, GSE318669 - calibrated betas",spent,DEV-METAA-450K-01 (LOG 2026-10-09),s3_roadmap_inventory 2026-10-11
+"ENCODE RRBS (A549, HepG2, LNCaP, MCF-7, T47D + normal epithelial lines) - derived",spent,DEV-FINGERPRINT-02 (all pairs scored 2026-10-11),s3_roadmap_inventory 2026-10-11
+"GSE128731 / PRJNA528657 (lab G, 4 kits) - derived reads",spent,"Box Run 2 sessions 1-5; DEV-IAMA-P-WHOLE-01, DEV-IAMA-KIT-01, DEV-IAMA-XCELL-01, DEV-IAMA-WBTARE-01, DEV-RUNLOSS-01",s3_roadmap_inventory 2026-10-11
+GSE237662 / PRJNA996123 (HCT116 decitabine EM-seq) - derived reads,spent,DEV-LINK-IAMA-METAA-02 (dose series; Met-A side GSE237553 read 2026-10-10),s3_roadmap_inventory 2026-10-11
+GSE77079 / PRJNA309409 (Mat1a KO mouse liver) - derived reads,spent,DEV-SAM-LEVER-01 (PASS 2026-10-10),s3_roadmap_inventory 2026-10-11
+"GSE86833 / PRJNA342657 (LNCaP, PrEC WGBS) - derived reads",spent,DEV-FINGERPRINT-01 (doors/data/DEV_FINGERPRINT_01/fingerprint_01_rows.csv),s3_roadmap_inventory 2026-10-11
+G_chain_tests 56 series - Stage 1 betas,spent,DEV-BASE-CHAIN-01,s3_roadmap_inventory 2026-10-11
+PRJNA802599 subset realigned - derived reads,spent,DEV-XSPECIES-TEMP-01 follow-up (withdrawn 2026-10-10),s3_roadmap_inventory 2026-10-11
+"GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876296 (OSCC), DNMT EM-seq - derived",spent,"PROC-TUMOUR-01 (prereg names GSE284325 and GSE212634), DEV-STOOL-01 (b) tumour tiles, PROC-DNMT-01 Part B. Provenance IS in the repo (PROC_TUMOUR_01_PREREG.md), contrary to the earlier note",s3_roadmap_inventory 2026-10-11
+PRJNA325786 (Methow steelhead) - derived,spent,PROC-SALMON-01,s3_roadmap_inventory 2026-10-11
+"PRJNA389610 (coho, Le Luyer) - derived",spent,DEV-COHO-CC-01 (Salmonid/DEV_COHO_CC_01),s3_roadmap_inventory 2026-10-11
+PRJNA892473 (Rimouski River salmonids) - derived,spent,PROC-RIMOUSKI-01 (doors/PROC_RIMOUSKI_01_PREREG.md; FISH_DEVELOPMENT_LOG),s3_roadmap_inventory 2026-10-11
+PRJNA944546 / GSE227271 (brook charr) - derived,spent,PROC-CHARR-01 (doors/PROC_CHARR_01_*),s3_roadmap_inventory 2026-10-11
+GSE153712,spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE243529,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE283951,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE281691,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+TCGA,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE84274,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE84395,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+TCGA-LIHC,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE180683,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE60274,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+TCGA-COAD,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+TCGA-LUAD,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+TCGA-BLCA,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE148663,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE269244,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE74071,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+TCGA-PAAD,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+TCGA-KIRC,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE87650,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE282666,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE256092,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE287994,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE99511,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE49149,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+Roadmap Epigenomics (no accession recorded),partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+TCGA-BRCA,spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+TCGA-READ,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+TCGA-LUSC,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+TCGA-CESC,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+TCGA-STAD,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+TCGA-ESCA,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+TCGA-TGCT,unspent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE144858,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE53740,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE71378,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE50660,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE149268,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE69138,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+ENCODE,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE314261,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE104942,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE89093,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE37965,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE62298,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE143752,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE42752,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE46306,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE68339,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE38266,unspent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE147436,unspent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+Zenodo:6812876,unspent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11

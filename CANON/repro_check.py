@@ -5,13 +5,13 @@
      has no committed script: one under doors/data/<NOTE>/ (or <NOTE> without _OUTCOME), or a script the note names that exists in the repo.
 Notes still listed as 'open' in development/REPRODUCIBILITY_BACKLOG.md are reported but not refused (the backlog is being closed).
 Pre-registrations (*_PREREG.md) are exempt: their numbers are bars set in advance.
-Rule 7 (2026-10-10): a note that adds a prediction, bar or seal must name its committed synthetic test (script + output).\nRule 6 (2026-10-10): a number in a new or changed note that no committed output of its data folder carries (see below).\nRecord rule (2026-10-10). Also refuses a push when
+Rule 8 (2026-10-11): a note that adds a prediction, bar or seal and names a dataset analysed earlier by another record (CANON/data_spent.csv) must\ncarry a one-line '**Prior reading:**' disclosure naming each such dataset (what analysed it, and that it was a different quantity where so).\nDisclosure only: it does not change a result's status.\nRule 7 (2026-10-10): a note that adds a prediction, bar or seal must name its committed synthetic test (script + output).\nRule 6 (2026-10-10): a number in a new or changed note that no committed output of its data folder carries (see below).\nRecord rule (2026-10-10). Also refuses a push when
   3. an outcome note (doors/*_OUTCOME.md) new or changed in this push is not named in development/METHYLPHYS_DEVELOPMENT_LOG.md,
      or the log did not change in the same push;
   4. a note that carries a "**Milestone:**" line is not linked from the Advancements table of Biological_Physics/README.md,
      or a link in that table points at a file that does not exist;
   5. a day with log entries (from 2026-10-10) has no "### <date> · Day summary" once a later day has begun (Pacific time)."""
-import re, subprocess, sys
+import os, re, subprocess, sys
 def git(*a): return subprocess.run(["git", *a], capture_output=True, text=True).stdout
 fail = []
 junk = re.compile(r"(__pycache__|\.pyc$|\.DS_Store|/_data/|/_cache/|/_atlas_cache/)")
@@ -113,6 +113,30 @@ for f in changed:
         else: res.append(hit)
     if res and not any(r.endswith((".py", ".sh")) for r in res): fail.append(f"{f}: Synthetic test names no committed script (rule 7)")
     if res and not any(r.endswith((".txt", ".csv", ".json")) for r in res): fail.append(f"{f}: Synthetic test names no committed output (rule 7)")
+import csv
+SPENT = {r["dataset"].strip(): (r["spent_status"], r.get("spent_record", "")) for r in csv.DictReader(open("CANON/data_spent.csv", encoding="utf-8")) if r["spent_status"].startswith(("spent", "partly"))}
+ACC8 = re.compile(r"\b(GSE\d{4,}|PRJNA\d+|PRJDB\d+|TCGA-[A-Z]{2,5}|ENCSR[0-9A-Z]{6})\b")
+def spent_of(a): return a if a in SPENT else ("TCGA" if a.startswith("TCGA-") and "TCGA" in SPENT else None)
+IDRX = re.compile(r"\b[A-Z][A-Z0-9]+(?:-[A-Z0-9]+){1,4}\b")
+def prior_by_other(f, a):
+    own = os.path.basename(f).replace("_OUTCOME", "").replace("_PREREG", "").replace(".md", "").replace("_", "-")
+    rec = SPENT[spent_of(a)][1]; ids = {i for i in IDRX.findall(rec) if not i.startswith(("GSE", "PRJ", "TCGA", "SRR", "GSM"))}
+    return (not ids) or bool(ids - {own})       # a reading by any other record (or an unnamed one) counts
+def rule8(f, txt):
+    hits = sorted({a for a in ACC8.findall(txt) if spent_of(a) and prior_by_other(f, a)}); m = re.search(r"^\*\*Prior reading:\*\*(.+(?:\n(?!\*\*|#).+)*)", txt, re.M)
+    return [a for a in hits if not (m and a in m.group(1))]
+for f in changed:
+    try: txt = open(f, encoding="utf-8").read()
+    except FileNotFoundError: continue
+    if not SEAL7.search(txt): continue
+    miss = rule8(f, txt)
+    if miss: fail.append(f"{f}: seals on data analysed earlier ({', '.join(miss)}; CANON/data_spent.csv) without a one-line '**Prior reading:**' disclosure (rule 8)")
+if "--audit8" in sys.argv:
+    import glob
+    for f in sorted(glob.glob("Biological_Physics/MethylPhys/doors/*.md")):
+        txt = open(f, encoding="utf-8").read()
+        if SEAL7.search(txt) and rule8(f, txt): print("AUDIT8", f, rule8(f, txt))
+    sys.exit(0)
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
 print(f"repro_check: ok ({len(changed)} note(s) changed in this push)")

@@ -984,3 +984,6 @@ FINGERPRINT if >= 11 of 88 pairs read Met-A(tumour)/Met-A(own adjacent normal, s
 
 ### 2026-10-11 · DEV-IAMA-COMMISSION-01 synthetic test 1: counting floor of repeatability below 1 %
 Split halves of a healthy granulocyte file read within 0.0071 of each other at 1 % depth (0.0024 whole file). C2's limit will be set by library preparation, measured on EpiQC replicates.
+
+### 2026-10-11 · Earlier analyses disclosed: TCGA-BRCA and GSE131013 (LESSONS T13, rule 8)
+The inventories show the retired class-gauge method analysed both sets (VAL-060/VAL-003; PROC-TISSUE-01) from processed betas, a different quantity. Author ruling: the new instrument's measurements on them are first measurements; both results stand as development results, breast stays in Advancements. Each note carries a one-line Prior reading disclosure. CANON/data_spent.csv and push-gate rule 8 (disclosure only). Colorectal replication on unread data next: GSE199057 (DEV-TISSUE-COLON-02). Open: the Met-A neutrophil commissioning note uses GSE112618 and GSE182379, also read by chain-v3 development tests; the order is to be checked.

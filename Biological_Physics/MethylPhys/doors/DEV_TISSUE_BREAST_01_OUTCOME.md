@@ -14,4 +14,6 @@ every plate (1-9 per plate); 12 tumours read below their own normal. A group-lev
 below the per-pair bar. TCGA was used to build the reading, so this extends no commissioned scope; commissioning a breast-tissue Met-A would need
 bars sealed on another laboratory's matched tumour and normal tissue (STATUS section 0, R4).
 
+**Prior reading:** TCGA-BRCA was analysed earlier by the retired class-gauge method (VAL-060, VAL-003; processed betas, a different quantity); this measurement had not been made on these arrays.
+
 **Milestone:** listed in `Biological_Physics/README.md`, Advancements.
