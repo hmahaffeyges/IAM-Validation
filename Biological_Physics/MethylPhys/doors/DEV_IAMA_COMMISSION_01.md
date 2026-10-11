@@ -70,3 +70,14 @@ the limit the measured bias, IAM-A 0.9927, is smaller than the tare residual of 
 landscape from neutrophils, the box run repeats test 5 on one library per line before any C2-C5 value is read; C1 holds only if that bias at
 c 0.98 is within the same bound. Mapping-quality filter required: the lines carry EBV, absent from the hg19 reference.
 
+**Draft pass values for C2-C5 (2026-10-11; for the author before the seal; nothing read).** One tolerance, 0.03, runs through all of them: it is
+the bar the same-run tare met in test 2, and four times the counting floor of test 1 at the depth the box run will read.
+| test | pass value (draft) | why this value |
+|---|---|---|
+| C2 repeatability | in every kit, at least 6 of 7 lines' replicate pairs read IAM-A rep2/rep1 within 0.03 of 1 | a repeat must not move more than the tare is required to hold; the whole-blood TruSeq repeats (DEV-IAMA-CONVERSION-01) differed by more, so TruSeq may fail, and that is recorded if it does |
+| C3 across kits | each line's tared IAM-A in each kit within 0.03 of that line's median over the five kits, in at least 6 of 7 lines | the offset the tare removed to about 1 % in test 2 |
+| C3 across laboratories | EMSeq only (the one kit made in two laboratories): each line's tared IAM-A at the two laboratories within 0.03, in at least 6 of 7 lines | the only two-laboratory comparison EpiQC holds |
+| C4 healthy reads Normal | not testable on neutrophils (no second laboratory with 3 or more donors); recorded untested, GSE126754 a one-donor spot check; met on neurons if DEV-IAMA-NEURON-01 goes ahead | stopping rule |
+| C5 a known change is seen | a planted loss of 1 % of methylated calls on every EpiQC library, read through Stage Q, moves IAM-A by more than 0.03 in every library | Stage Q's measured response on vehicle molecules (insilico_vehicle_SRR25322252.csv) |
+Pass values are written before any EpiQC read; the seal follows the scorer and its planted test.
+
