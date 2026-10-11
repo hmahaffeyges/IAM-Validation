@@ -1,0 +1,3 @@
+cell types 56
+copy error 0.0238-0.0417
+E_hold 3.134-3.715 k_BT

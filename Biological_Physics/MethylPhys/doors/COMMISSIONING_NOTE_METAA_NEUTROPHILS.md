@@ -44,7 +44,7 @@ measured on purified cells and then tested on healthy cells that played no part 
 negative for HIV and hepatitis B and C, not pregnant, no history of heart, lung or kidney disease, asthma, blood disorders, autoimmune disorders,
 cancer or diabetes; written informed consent. Neutrophils by density gradient and negative immunomagnetic selection, purity verified by FACS.
 **The six reference arrays** (`data/MET_A_FLOOR_V13_REPRO/reference_donors.py`, `reference_donors.csv`, from GEO GSE110554): 5 male, 1 female
-(matching the arrays' own X and Y probes, book Ch. Sky tools); age 20–39; FACS purity 94–97 %; 1 smoker.
+(matching the arrays' own X and Y probes; book chapter 'Tools from the sky', section 'The sky found the X chromosome'); age 20–39; FACS purity 94–97 %; 1 smoker.
 **What has been tested against it:** each reference array against the other five (6/6 Normal, SD 0.020); other laboratories' purified
 neutrophils 68/68 Normal; a new laboratory's 26/26; 525/541 healthy arrays across 18 series (97.0 %); identical DNA at three laboratories
 within 1 % (EpiQC).

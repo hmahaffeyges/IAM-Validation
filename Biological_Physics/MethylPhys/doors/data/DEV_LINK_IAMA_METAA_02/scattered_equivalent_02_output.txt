@@ -1,0 +1,4 @@
+30 nM measured: IAM-A_rel 1.1194, share read 0.6127
+scattered loss reaching IAM-A_rel 1.1194: share read 0.9456
+scattered loss at share read 0.6127: IAM-A_rel 1.5189
+scattered loss at share read 0.60: IAM-A_rel 1.5282

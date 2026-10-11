@@ -100,7 +100,11 @@ SYN7 = re.compile(r"^\*\*Synthetic test:\*\*\s*(.+)$", re.M)
 treeset = set(tree)
 for f in changed:
     if not os.path.isfile(f) or f.endswith("_OUTCOME.md") or f.endswith("_PREREG.md"): continue
-    added = "\n".join(l[1:] for l in git("diff", base, "HEAD", "--", f).split("\n") if l.startswith("+") and not l.startswith("+++"))
+    dl = git("diff", base, "HEAD", "--", f).split("\n")
+    removed = [l[1:] for l in dl if l.startswith("-") and not l.startswith("---")]
+    # an edited line that was already a seal/prediction line (same opening) is a correction, not a new seal (2026-10-11)
+    old_heads = {r.strip()[:40] for r in removed if SEAL7.search(r)}
+    added = "\n".join(l[1:] for l in dl if l.startswith("+") and not l.startswith("+++") and not (SEAL7.search(l[1:]) and l[1:].strip()[:40] in old_heads))
     if not SEAL7.search(added): continue
     m = SYN7.search(open(f, encoding="utf-8").read())
     if not m: fail.append(f"{f}: adds a prediction/bar/seal but has no '**Synthetic test:**' line (rule 7)"); continue

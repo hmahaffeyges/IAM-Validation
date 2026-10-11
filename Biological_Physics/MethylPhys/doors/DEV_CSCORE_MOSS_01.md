@@ -1,7 +1,7 @@
 # DEV-CSCORE-MOSS-01 — Moss 2018 in vitro mixes (GSE122126): what the chain reads (development; written 2026-10-10 before any mix array is read)
 
 **Material.** 9 EPIC arrays of one donor's leukocyte DNA with 4–15 % hepatocyte, lung, colon or neuron DNA at known fractions (GEO descriptions
-= paper Supplementary Data 1 Table 6; GEO mix_9..17 = paper Mix1..9). The same series holds the pure components on EPIC (leukocytes 1,
+= paper Supplementary Data 1 Table 6; GEO mix_9..17 are the paper's nine mixes; each mix's makeup is taken from its own GEO description, since the GEO and paper numbering do not run in the same order for every mix). The same series holds the pure components on EPIC (leukocytes 1,
 hepatocytes 2, lung 3, colon 3, neurons 2).
 
 **Step 1, in silico from the pure arrays** (`data/DEV_CSCORE_MOSS_01/insilico_moss_01.py`, output `insilico_moss_01_output.txt`, rows
@@ -10,8 +10,7 @@ hepatocytes 2, lung 3, colon 3, neurons 2).
 line; a missing site takes the other replicates' mean, else the leukocyte value (no tissue difference assumed there, which understates the change).
 An earlier build left those sites missing; its C readings (1.04–1.12) came from the gaps, not the tissue, and are not used.
 
-**Result.** A moves by less than 0.01 (leukocytes alone 1.0035; mixes 0.9998–1.0072). C stays inside the healthy range 0.954–1.046 in 49 of 51
-builds (Mix10 maximum 1.060). Tissue DNA at 4–15 % is not clustered change at the neutrophil identity sites, so this set **cannot test the
+**Result.** A moves by less than 0.01 (leukocytes alone 1.0035; mixes 0.9998–1.0072). C reads 0.974–1.060 over the 46 builds (Mix10 lowest and highest; `insilico_moss_01_output.txt`). Tissue DNA at 4–15 % is not clustered change at the neutrophil identity sites, so this set **cannot test the
 C-score's detection**. It tests specificity: neither instrument should call a change.
 
 **Prediction for the real mix arrays, sealed now** (read by the same call, no tare: one leukocyte array only):

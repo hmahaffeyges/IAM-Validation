@@ -3,6 +3,10 @@
 # heart; realign_4species_runs.csv) aligned to each species' own genome with the pinned pipeline of Box Run 6 (Trim Galore 0.6.10 --rrbs,
 # bwa-meth 0.2.0, SAMtools 1.9, wgbstools 0.1.0 bam2pat), then ε by Stage Q's rule (boxruns/run2/eps_of.py, unchanged). Compared with the
 # reference-free reading of the same runs. Usage: bash session7_realign.sh    Outputs: s3://<bucket>/results/BOXRUN7_XSP_REALIGN/
+# Species disclosed 2026-10-11 (reviewer finding): the author approved mouse, rat, human and cow liver. Human is not in GSE195869. Cow was in it
+# (liver run SRR17852404) but the selection code dropped it on a species-name key mismatch ('Bos' against 'Bos taurus'), and dog and rabbit were
+# run instead without telling the author. The cross-species reading's withdrawal rests on doors/data/DEV_SAM_LEVER_01/reader_check_01.md, not on
+# this check; this check covers mouse, rat, dog and rabbit only.
 set -uo pipefail
 B=methylphys-data-945451304272-us-west-2-an; P=results/BOXRUN7_XSP_REALIGN; S=/mnt/scratch/run2; O=$S/out7xsp; X=$S/r7; mkdir -p $O $X/trim $X/bam $X/pat $S/ref; cd $S
 PYB=/home/ubuntu/env/bin/python; REPO=~/IAM-Validation; HERE=$REPO/Biological_Physics/MethylPhys/boxruns/xspecies

@@ -1,6 +1,6 @@
 """DEV-CSCORE-MOSS-01 step 1 (2026-10-10, before any GSE122126 mix array is downloaded): the chain's own readings on the 9 Moss 2018 in vitro mixes,
 built in silico from the series' PURE component arrays (EPIC, GPL21145): leukocytes (1), hepatocytes, lung epithelial, colon epithelial, cortical
-neurons. Mix makeup from the GEO sample descriptions (= the paper's Supplementary Data 1, Table 6; GEO mix_9..17 = paper Mix1..9).
+neurons. Mix makeup from the GEO sample descriptions (= the paper's Supplementary Data 1, Table 6; GEO mix_9..17 are the paper's nine mixes; each mix's makeup is taken from its own GEO description, since the GEO and paper numbering do not run in the same order for every mix).
 A mix is formed in beta space, beta = (1 - sum f) * beta_leuk + sum_k f_k * beta_k (DNA mass fractions; ignores per-array intensity differences),
 once for every combination of the component replicates, and read by conductor_v3.run_neutrophil(specimen="constructed DNA mixture"):
 Met-A, its composition, and the C-score (untared: only one leukocyte array, so no same-run tare). The pure leukocyte array is read the same way.

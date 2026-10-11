@@ -13,9 +13,9 @@ session 5 runs; rows `iama_dose_02_rows.csv`. Window sealed ec6efcb (03:25 UTC) 
 The test is neither passed nor failed. The two vehicle libraries agree within 0.01 (repeatability as expected).
 
 **What the data show (development observation, after reading).** In silico, a scattered loss that raises IAM-A to 1.12 leaves 95 % of molecules
-readable; measured, 60 %. A loss that removes 40 % of molecules would raise IAM-A to 1.51 if it were scattered; measured, 1.12. So decitabine
+readable; measured, 60 %. A loss that removes 40 % of molecules would raise IAM-A to 1.53 if it were scattered; measured, 1.12 (`data/DEV_LINK_IAMA_METAA_02/scattered_equivalent_02.py`). So decitabine
 does not raise the scattered (isolated) copy error that IAM-A measures. It strips methylation from whole molecules or long stretches, which then
-fall below Stage Q's 80 %-methylated rule and leave the reading. The survivors carry only a small rise. At 300 nM, IAM-A falls back (1.05/1.03)
+fall below Stage Q's 80 %-methylated rule and leave the reading. The survivors carry only a small rise. At 300 nM, IAM-A falls back (1.06/1.03)
 while fewer molecules survive: the survivors are the cells' most faithful copies. That fits how decitabine works: a DNMT1 molecule trapped on the
 DNA leaves the rest of that stretch uncopied, so the loss comes in runs, not as single errors. The derivation (DEV-LINK-IAMA-METAA-01) models
 scattered loss, and decitabine is a different kind of damage.

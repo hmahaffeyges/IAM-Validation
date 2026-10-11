@@ -9,7 +9,7 @@ measured on the enzyme in vitro. Nothing in D comes from any cell's copy error.
 and unmethylated territories at once; the territories are held by neighbour coupling. Model A therefore claims only that the error at a held
 site is set by the writer's single-step discrimination, the territory being held by coupling. A coupled model is the next step if A fails.
 
-**Prediction.** The cells hold E_hold = 3.41 k_BT (canon; healthy cell types 3.18-3.71, copy error 0.024-0.042). Model A requires D = 30.3.
+**Prediction.** The cells hold E_hold = 3.41 k_BT (canon; healthy cell types 3.13-3.71, copy error 0.024-0.042, `data/DEV_WRITER_01/healthy_range_01.py`). Model A requires D = 30.3.
 **What counts (fixed before lookup):** human (or mammalian) DNMT1, in vitro, steady-state specificity k_cat/K_M (or the ratio of initial rates at
 equal, sub-saturating substrate) on hemimethylated against unmethylated CpG of the same sequence. Every qualifying measurement found is listed;
 the median is scored. Truncated catalytic domains without the replication-foci and CXXC regions are listed separately and not scored.
@@ -23,7 +23,7 @@ rule above before the median is taken:
 | source | enzyme | measure | D (hemi ÷ unmethylated) | classified? |
 |---|---|---|---|---|
 | Adam et al. 2023, Nucleic Acids Res 51:6622 (doi 10.1093/nar/gkad465, PMC10359454; full text read) | full-length murine DNMT1 | competitive rates, 256 flanks | ~80 on average (87 in their Fig. 2B; range 29 to >300) | yes, qualifies |
-| Yokochi & Robertson 2002, J Biol Chem 277:11735 (doi 10.1074/jbc.m106590200) | DNMT1 as comparator (the paper's subject is Dnmt3a, which prefers unmethylated DNA ~3-fold); DNMT1 form not yet read | DNMT1 row of their kinetics table, k_cat/K_M^CG 19.9 (hemi) vs 0.42 (unmethylated); their text says a 20-fold preference | 47 by k_cat/K_M; 20 as stated in the text | yes: full text supplied by the author; Table II prints k_cat/K_M^CG 19.9 and 0.42 for full-length human DNMT1 (baculovirus) |
+| Yokochi & Robertson 2002, J Biol Chem 277:11735 (doi 10.1074/jbc.m106590200) | DNMT1 as comparator (the paper's subject is Dnmt3a, which prefers unmethylated DNA ~3-fold) | DNMT1 row of their kinetics table, k_cat/K_M^CG 19.9 (hemi) vs 0.42 (unmethylated); their text says a 20-fold preference | 47 by k_cat/K_M; 20 as stated in the text | yes: full text supplied by the author; Table II prints k_cat/K_M^CG 19.9 and 0.42 for full-length human DNMT1 (baculovirus) |
 | Bashtrykov et al. 2012, Chem Biol 19:572 (doi 10.1016/j.chembiol.2012.03.010) | Dnmt1, form not yet read | ~10-fold "under our conditions" | ~10 | no: full text supplied by the author; full-length murine Dnmt1 at ~1 µM DNA, above K_M, so a k_cat ratio (rule: k_cat/K_M or sub-saturating) |
 Not scored by the rule: reviews (Jeltsch: 30-40), truncated constructs (CXXC-containing fragment ~17, without CXXC 2.2), and in-vivo estimates
 (statistical inference from double-stranded patterns, 15-628). Scoring waits on the two methods sections.
