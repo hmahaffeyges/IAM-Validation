@@ -1,0 +1,30 @@
+{
+ "pair": "lung_bronchial",
+ "rule": "02c Arm G (gain); FINGERPRINT if every listed cancer file > bar",
+ "bar": 0.0032855438746131178,
+ "normal_files": [
+  "ENCFF000MJV",
+  "ENCFF000MJW",
+  "ENCFF000MME",
+  "ENCFF000MMO"
+ ],
+ "normal_sha256": {
+  "ENCFF000MJV": "5ba1e8a331cadbd707f6986870647638e883ac16e6816eabe699868340a6f0c5",
+  "ENCFF000MJW": "e572ca16b004ebbb2895ca793a1b7e89efad916ff4be459a0b9e7c8ec9401e96",
+  "ENCFF000MME": "871c478d31b44e5a690283438f58cf5a1b60b1716180dcda735cfd79b36d6cd8",
+  "ENCFF000MMO": "e54fa345cfe2aa56624889fe8f17ddf2061c3302733a86fb297226737736b94d"
+ },
+ "cancer_files_listed": [
+  "ENCFF000LTD",
+  "ENCFF000LTE"
+ ],
+ "donor_null": {
+  "ENCFF000MME vs donor B": 0.0017140879933991643,
+  "ENCFF000MMO vs donor B": 0.0014598612443982707,
+  "ENCFF000MJV vs donor A": 0.000850182897791074,
+  "ENCFF000MJW vs donor A": 0.003209163836517428,
+  "max": 0.003209163836517428
+ },
+ "plant_sha256": "0ea654cdd28bc3e5c64f9efc9909def98bf1616c59080a32c57605f174367caa",
+ "scorer_sha256": "0465f48d4b434ab7e1df82cb69b181314cf9b8b8f02e29ad0e118924d27fd13a"
+}

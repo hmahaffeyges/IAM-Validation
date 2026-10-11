@@ -1,0 +1,99 @@
+{
+ "pair": "lung_bronchial",
+ "normal_cell": "bronchial epithelial cell",
+ "cancer_cell": "A549",
+ "identity_cell": "lung_bronchus_epithelium",
+ "normal_files": [
+  {
+   "file": "ENCFF000MJV",
+   "sha256": "5ba1e8a331cadbd707f6986870647638e883ac16e6816eabe699868340a6f0c5",
+   "errors": 4317.0,
+   "opportunities": 93376.0,
+   "m6": 1007989,
+   "read": 21440,
+   "eps": 0.04623243660041124
+  },
+  {
+   "file": "ENCFF000MJW",
+   "sha256": "e572ca16b004ebbb2895ca793a1b7e89efad916ff4be459a0b9e7c8ec9401e96",
+   "errors": 16111.0,
+   "opportunities": 344119.0,
+   "m6": 2360970,
+   "read": 77932,
+   "eps": 0.04681810652710254
+  },
+  {
+   "file": "ENCFF000MME",
+   "sha256": "871c478d31b44e5a690283438f58cf5a1b60b1716180dcda735cfd79b36d6cd8",
+   "errors": 22624.0,
+   "opportunities": 533569.0,
+   "m6": 3765410,
+   "read": 120870,
+   "eps": 0.04240126394149585
+  },
+  {
+   "file": "ENCFF000MMO",
+   "sha256": "e54fa345cfe2aa56624889fe8f17ddf2061c3302733a86fb297226737736b94d",
+   "errors": 11233.0,
+   "opportunities": 265640.0,
+   "m6": 1916190,
+   "read": 60389,
+   "eps": 0.04228655322993525
+  }
+ ],
+ "eps_normal": 0.04389490128599891,
+ "share_read_normal": 0.031007035035073523,
+ "sd_rep": 0.04132600518669041,
+ "sd_rep_own_spread": 0.04132600518669041,
+ "response_file": "normal_bronchial_epithelial_cell/insilico_ENCFF000MME.csv",
+ "response_sha256": "bfa8942e672a3b1a197a57aea1f1ce02e7276e2309e129c3c17cc9a626f0f088",
+ "curveB_XQ": [
+  1.0,
+  1.0104964116050272,
+  1.0262410290125683,
+  1.0524820580251366,
+  1.0839712928402185
+ ],
+ "curveB_YB": [
+  1.0,
+  1.023,
+  1.056,
+  1.115,
+  1.188
+ ],
+ "slope": 2.2368090908588516,
+ "normal_arrays": [
+  "ENCSR000ACA",
+  "ENCSR000ACY"
+ ],
+ "cancer_arrays": [
+  "ENCSR000ABU"
+ ],
+ "normal_arrays_metA_H": {
+  "ENCSR000ACA": 0.31810080533251234,
+  "ENCSR000ACY": 0.3258546811661678
+ },
+ "normal_arrays_sites": {
+  "ENCSR000ACA": 3366,
+  "ENCSR000ACY": 3363
+ },
+ "armB_normal_excess": {
+  "ENCFF000MJV": 0.0,
+  "ENCFF000MJW": -0.0003784620121245804,
+  "ENCFF000MME": -0.0026643746240280963,
+  "ENCFF000MMO": -0.0015885334736251812
+ },
+ "armB_bar_libraries": 0.0,
+ "armB_donor_excess": 0.021145789090027865,
+ "donor_null_sha256": "ffe9cd9eeea0e7a96a3bbfad96d9a849b6a48deb9b304c610ba4a85f2c8db223",
+ "armB_bar": 0.021145789090027865,
+ "armB_sensitivity_run010": 0.0898,
+ "scorer_sha256": "e82356dcdc64757233a590315f9985f8b149af5db4eca553d0f4b7f959776997",
+ "cancer_files_listed": [
+  "ENCFF000LTD",
+  "ENCFF000LTE"
+ ],
+ "se_A": 0.08371762741467789,
+ "rule": "02b: Arm B decides; bar = max(normal-library excess, healthy donor-to-donor excess); FINGERPRINT if every cancer file > bar, no fingerprint if every file <= bar, else UNDECIDED; Arm A reported only",
+ "power_A06": 0.17662467517274405
+}

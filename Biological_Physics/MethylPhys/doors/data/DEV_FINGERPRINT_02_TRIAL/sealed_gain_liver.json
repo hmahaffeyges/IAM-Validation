@@ -1,0 +1,28 @@
+{
+ "pair": "liver",
+ "rule": "02c Arm G (gain); FINGERPRINT if every listed cancer file > bar",
+ "bar": 0.0045050538348454985,
+ "normal_files": [
+  "ENCFF000MBY",
+  "ENCFF000MCD"
+ ],
+ "normal_sha256": {
+  "ENCFF000MBY": "23528bd593cb9c82be5f93378da68d56eee7cb821525f65172a011b81b48afad",
+  "ENCFF000MCD": "7afa6086e65ec93165cd49e278a807a1919afcf690e1d3cdd0fcc8d56cb6f20f"
+ },
+ "cancer_files_listed": [
+  "ENCFF000MCF",
+  "ENCFF000MCL",
+  "ENCFF000MCN",
+  "ENCFF000MCR"
+ ],
+ "donor_null": {
+  "ENCFF000MME vs donor B": 0.0017140879933991643,
+  "ENCFF000MMO vs donor B": 0.0014598612443982707,
+  "ENCFF000MJV vs donor A": 0.000850182897791074,
+  "ENCFF000MJW vs donor A": 0.003209163836517428,
+  "max": 0.003209163836517428
+ },
+ "plant_sha256": "4203697cfd56bc5d25a9fece2f0ef277cd670379eaa614228bbba304500249df",
+ "scorer_sha256": "0465f48d4b434ab7e1df82cb69b181314cf9b8b8f02e29ad0e118924d27fd13a"
+}

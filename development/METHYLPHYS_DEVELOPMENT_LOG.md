@@ -891,3 +891,6 @@ The lead scored liver, lung_alveolar and lung_bronchial in one batch; A549 was r
 
 ### 2026-10-11 · Arm G (gain) sealed on both breast pairs before MCF-7 is read
 Synthetic tests on healthy data: v1 bar failed (scattered de novo error lifted the bar-setting file 0.0002 over a zero-margin bar); bar revised to include non-gain disturbances; v2 passed on all 8 healthy files (planted 0.5 % gain caught on every file; loss and scattered error move it < 2 % of a 5 % gain).
+
+### 2026-10-11 · Arm G production trial on HepG2 and A549 (NOT EVIDENCE; author decision)
+Outcome known in advance (why/both_directions.py). Byte-identical gain scorer run end to end in doors/data/DEV_FINGERPRINT_02_TRIAL (README states it is not evidence): planted tests passed on liver, lung_alveolar, lung_bronchial; trial seals committed, then the commit-gated score step run.
