@@ -5,7 +5,7 @@
      has no committed script: one under doors/data/<NOTE>/ (or <NOTE> without _OUTCOME), or a script the note names that exists in the repo.
 Notes still listed as 'open' in development/REPRODUCIBILITY_BACKLOG.md are reported but not refused (the backlog is being closed).
 Pre-registrations (*_PREREG.md) are exempt: their numbers are bars set in advance.
-Rule 6 (2026-10-10): a number in a new or changed note that no committed output of its data folder carries (see below).\nRecord rule (2026-10-10). Also refuses a push when
+Rule 7 (2026-10-10): a note that adds a prediction, bar or seal must name its committed synthetic test (script + output).\nRule 6 (2026-10-10): a number in a new or changed note that no committed output of its data folder carries (see below).\nRecord rule (2026-10-10). Also refuses a push when
   3. an outcome note (doors/*_OUTCOME.md) new or changed in this push is not named in development/METHYLPHYS_DEVELOPMENT_LOG.md,
      or the log did not change in the same push;
   4. a note that carries a "**Milestone:**" line is not linked from the Advancements table of Biological_Physics/README.md,
@@ -78,6 +78,30 @@ for f in changed:
     P = _pool6([f"Biological_Physics/MethylPhys/doors/data/{stem}/", f"Biological_Physics/MethylPhys/doors/data/{stem}_PLANT/", "development/sims/"])
     miss = sorted(n for n in N if not any(abs(round(v, len(n.split(".")[1])) - float(n)) < 1e-12 or abs(round(-v, len(n.split(".")[1])) - float(n)) < 1e-12 for v in P))
     if miss: fail.append(f"{f}: {len(miss)} number(s) not found in any committed output of doors/data/{stem}/: {', '.join(miss[:10])}")
+# 7. Synthetic test before sealing (author 2026-10-10: "EVERY test with a sealed prediction MUST be first tested thoroughly with synthetic
+# data so we dont waste the few tests available to us"). A doors/*.md note whose lines ADDED in this push carry a prediction, bar or seal
+# (**Prediction..., **Bar..., **Bars..., **Pass bar..., **Sealed..., "sealed" with a date) must carry a line
+#   **Synthetic test:** path, path, ...
+# naming committed files (repo-relative, or relative to doors/data/), at least one script (.py/.sh) and one output (.txt/.csv/.json),
+# every one present in HEAD. Outcome notes are exempt (they read a seal, they do not make one).
+SEAL7 = re.compile(r"\*\*(Prediction|Bars?\b|Pass bar|Sealed|Window sealed|Rule sealed)|\bsealed (on |before |\d{4}-\d\d-\d\d)", re.I)
+SYN7 = re.compile(r"^\*\*Synthetic test:\*\*\s*(.+)$", re.M)
+treeset = set(tree)
+for f in changed:
+    if not os.path.isfile(f) or f.endswith("_OUTCOME.md") or f.endswith("_PREREG.md"): continue
+    added = "\n".join(l[1:] for l in git("diff", base, "HEAD", "--", f).split("\n") if l.startswith("+") and not l.startswith("+++"))
+    if not SEAL7.search(added): continue
+    m = SYN7.search(open(f, encoding="utf-8").read())
+    if not m: fail.append(f"{f}: adds a prediction/bar/seal but has no '**Synthetic test:**' line (rule 7)"); continue
+    paths = [x.strip().strip("`") for x in re.split(r"[,;]", m.group(1)) if x.strip()]
+    res = []
+    for x in paths:
+        cands = [x, "Biological_Physics/MethylPhys/doors/data/" + x, "Biological_Physics/MethylPhys/" + x]
+        hit = next((c for c in cands if c in treeset), None)
+        if hit is None: fail.append(f"{f}: Synthetic test file not committed: {x} (rule 7)")
+        else: res.append(hit)
+    if res and not any(r.endswith((".py", ".sh")) for r in res): fail.append(f"{f}: Synthetic test names no committed script (rule 7)")
+    if res and not any(r.endswith((".txt", ".csv", ".json")) for r in res): fail.append(f"{f}: Synthetic test names no committed output (rule 7)")
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
 print(f"repro_check: ok ({len(changed)} note(s) changed in this push)")

@@ -816,3 +816,6 @@ ENCFF000MHB (MCF 10A): 46.23 % of reads mapped (synthetic reads 0.8184 unique). 
 
 ### 2026-10-10 · Box Run 9 guard stopped on ENCFF000MHJ (36.98 % mapped)
 The 40 % mapping stop was set without data. The ENCFF000MHJ BAM (first 2,000,000 coordinate-sorted reads): MAPQ < 10 among mapped 0.557; edit distance 0 for 0.589, 1 for 0.214, 2 for 0.127; unmapped reads are ordinary directional bisulfite reads (G-rich, C-poor), 84 % of them 35 bases. bwa-meth converts C to T in read and reference, so a copy error never makes a mismatch: the loss is depth, not bias. Guard replaced by what it protects: stop under 20 % mapped, or under 100,000 Stage Q opportunities per file; per-file MAPQ share and opportunities recorded. Files already in S3 are skipped. No verdict depends on this guard. LESSONS B8.
+
+### 2026-10-10 · Push gate rule 7: synthetic test before every seal (author)
+CANON/repro_check.py refuses a push in which a note adds a prediction, bar or seal without a '**Synthetic test:**' line naming committed script and output files. Negative controls: a new bar with no line refused; a line naming missing files refused; a valid line passes; outcome notes exempt. SOP and LESSONS T6.
