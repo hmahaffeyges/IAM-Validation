@@ -810,3 +810,6 @@ Milestones are also listed in Biological_Physics/README.md, section Advancements
 
 ### 2026-10-10 · Box Run 9 alignment setting chosen by synthetic test
 synth_align.py/.sh (rule fixed before running: largest bwa mem -T with unique share >= 0.80, misplaced <= 0.01, Stage Q eps within 5 % of truth): 400,000 simulated 30-36-base directional RRBS reads from hg19, planted copy error. T 16-28: unique 0.84, misplaced <= 0.0013; T 30: unique 0.8184, misplaced 0.0004, Stage Q eps 0.02656 against truth 0.02664 (ratio 0.9971); T 40 (bwa-meth default): nothing aligns, reproducing the failed run. Chosen: T 30. session9.sh now passes -T30 and asserts it in the logged bwa command. Two earlier attempts of the test failed on the job clock (slow read generation) and on bwa-meth parsing '-T 20' as a read file (LESSONS B1b, B7). Correction: commit 4eb508c says smoke-tested locally; that test did not run (no pysam on the laptop).
+
+### 2026-10-10 · Box Run 9 rerun at -T30: first file
+ENCFF000MHB (MCF 10A): 46.23 % of reads mapped (synthetic reads 0.8184 unique). Not short reads (0.000446 of trimmed reads under 30 bases). Its .pat: 7,957,709 molecules, 0.146 with >= 6 calls, 84,234 read by Stage Q; Stage Q eps 0.0380 on 380,308 opportunities, in the healthy range. Both sides of every pair go through the identical pipeline; each file's mapping rate is recorded with its score.
