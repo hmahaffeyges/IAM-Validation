@@ -5,7 +5,7 @@
 #   b) Stage Q readability per file: molecules with >= 6 calls, and the share Stage Q reads    -> normal_<tag>/readability.csv
 #   c) Stage Q's measured response to a planted loss on the largest file (insilico_loss_02.py)  -> normal_<tag>/insilico_<file>.csv
 #   d) run-loss simulation on the two largest files (runloss_01.py sim)                        -> normal_<tag>/runloss_sim.txt
-# Usage: bash prep_normal.sh "<ENCODE cell name>" WORKDIR        (needs AWS read access; python with pandas, numpy)
+# Usage: bash prep_normal.sh "<ENCODE cell name>" WORKDIR        (needs AWS read access; python with boto3, pandas, numpy)
 set -euo pipefail
 CELL="$1"; W="$2"; HERE=$(cd "$(dirname "$0")" && pwd); MP=$(cd "$HERE/../../.." && pwd); B=methylphys-data-945451304272-us-west-2-an
 TAG=$(echo "$CELL" | tr -c 'A-Za-z0-9\n' '_' | sed 's/__*/_/g; s/_$//'); O="$HERE/normal_$TAG"; mkdir -p "$O" "$W/pat"
@@ -13,7 +13,7 @@ FILES=$(python3 -c "import pandas as pd,sys;d=pd.read_csv('$MP/boxruns/run9_fp2/
 [ -n "$FILES" ] || { echo "no files for $CELL"; exit 2; }
 : > "$O/pat_sha256.txt"
 for f in $FILES; do
-  [ -s "$W/pat/$f.pat.gz" ] || aws s3 cp --quiet "s3://$B/results/BOXRUN9_FP2/normal/$f.pat.gz" "$W/pat/$f.pat.gz"
+  [ -s "$W/pat/$f.pat.gz" ] || python3 -c "import boto3,sys;boto3.client('s3').download_file(sys.argv[1],sys.argv[2],sys.argv[3])" "$B" "results/BOXRUN9_FP2/normal/$f.pat.gz" "$W/pat/$f.pat.gz"
   (cd "$W/pat" && shasum -a 256 "$f.pat.gz") >> "$O/pat_sha256.txt"
 done
 python3 "$MP/boxruns/run2/eps_of.py" "$MP/chain" "$O/eps_per_file.json" $(for f in $FILES; do echo "$W/pat/$f.pat.gz"; done) > /dev/null
