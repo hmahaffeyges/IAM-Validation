@@ -930,3 +930,6 @@ MCF-7 against mammary epithelial cells, rules 02b and 02c as sealed. Arm G all 1
 
 ### 2026-10-11 · breast_mcf10a scored: FINGERPRINT on both arms
 MCF-7 against MCF 10A: Arm B 10/10 and Arm G 10/10 above their sealed bars. Gain exceeds that of an immortalised non-cancer line; loss depends strongly on the reference. Reviewed.
+
+### 2026-10-11 · Book Ch. Landauer: the anchor sentence (author approved)
+After the prior-art credit: because the physics fixes both ends of the gauge, a single sample is read against its own cell's healthy reference with no cohort; that anchor is what makes Met-A possible. Wording only.
