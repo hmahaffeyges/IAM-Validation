@@ -24,3 +24,13 @@ endothelium, CD4 and CD8 T cells, B cells, neutrophils, adipocytes). Each tumour
 3. Blind reading independent of each normal's fitted composition (|Spearman| < 0.2, p > 0.05).
 4. Planted change found: 5 % change in the epithelial part found in >= 0.80 of stand-in pairs.
 5. Power and false group calls on stand-in pairs (two different normals on one slide).
+
+**Synthetic tests 1-5, run 2026-10-11 on 94 adjacent normal and 48 healthy mucosa arrays (QC OK; no tumour array read)**
+(`colon_synthetic.py`; outputs `colon_synthetic_output.csv`, `colon_synthetic_summary.txt`). Stand-in pairs: 324 on 22 slides; pair bar 1.0921.
+Plate moves Met-A (Kruskal-Wallis p 1.92e-03), slide within plate does not (p 0.24): same-slide pairs remove the plate.
+Composition shift with another donor's mucosa: 0.037 of pairs above the bar; atlas epithelium template 0.046. Blind reading against fitted
+epithelial share (0.081-0.567): Spearman -0.046 (p 0.67). Planted 5 %: 0.985 of pairs; planted 2 %: group call 1.000.
+**Version 1 failed test 5:** group rule at binomial p < 0.05 gave a no-change group call of 0.053 (limit 0.05; stand-in pairs reuse arrays, so
+they are not independent). Kept as `colon_synthetic_v1_FAILED_*`. **Version 2** uses p < 0.01 (pass criteria unchanged): no-change group
+call 0.007, composition 0.000, planted 2 % 1.000. All five passed.
+**Synthetic test:** DEV_TISSUE_COLON_01/colon_synthetic.py, DEV_TISSUE_COLON_01/colon_synthetic_output.csv, DEV_TISSUE_COLON_01/colon_synthetic_summary.txt

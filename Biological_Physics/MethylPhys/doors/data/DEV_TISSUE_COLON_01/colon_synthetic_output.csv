@@ -1,0 +1,7 @@
+case,pairs,mean_R,share_above_bar,group_call,bar,crit_of_91
+NULL,324,1.0013,0.052,0.007,1.0921,11
+SHIFT mucosa,324,1.0063,0.037,0.0,1.0921,11
+SHIFT atlas epithelium,324,1.0205,0.046,0.003,1.0921,11
+d0.02 mucosa,324,1.1011,0.559,1.0,1.0921,11
+d0.05 mucosa,324,1.241,0.985,1.0,1.0921,11
+d0.10 mucosa,324,1.4401,1.0,1.0,1.0921,11

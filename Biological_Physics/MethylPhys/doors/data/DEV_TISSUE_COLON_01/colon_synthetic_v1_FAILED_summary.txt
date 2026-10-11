@@ -1,0 +1,17 @@
+arrays: normal 94, mucosa 48 (QC OK) | loci 314892 | blind sites 3000 + 3000 | stand-in pairs 324 on 22 slides
+1 spread: stand-in R SD 0.0502, 95th percentile (pair bar) 1.0921
+  normals' Met-A by plate: Kruskal-Wallis p 1.92e-03 (3 groups with >= 3)
+  normals' Met-A by id_sentrix: Kruskal-Wallis p 2.37e-01 (21 groups with >= 3)
+  Met-A median: normal 0.3401, mucosa 0.3482 (descriptive)
+2-5 cases (pairs; group rule >= 9 of 91):
+  NULL: mean R 1.0013, share above bar 0.052, group call 0.053
+  SHIFT mucosa: mean R 1.0063, share above bar 0.037, group call 0.006
+  SHIFT atlas epithelium: mean R 1.0205, share above bar 0.046, group call 0.023
+  d0.02 mucosa: mean R 1.1011, share above bar 0.559, group call 1.000
+  d0.05 mucosa: mean R 1.2410, share above bar 0.985, group call 1.000
+  d0.10 mucosa: mean R 1.4401, share above bar 1.000, group call 1.000
+3 independence: tared Met-A vs fitted epithelial share (0.081-0.567), n 92: Spearman -0.046 (p 0.67)
+2 composition (mucosa blend) <= 0.10: PASSED
+3 independence: PASSED
+4 planted 5 % >= 0.80: PASSED
+5 power: FAILED

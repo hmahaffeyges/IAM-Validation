@@ -975,3 +975,6 @@ The 8-class H_min version chased many cancers before each chain link was establi
 
 ### 2026-10-11 · DEV-TISSUE-COLON-01 design; DEV-IAMA-COMMISSION-01 draft bars
 Colon (GSE131013): 91 patients with tumour and adjacent normal on one slide, 48 healthy donors' mucosa, 450K. Only mucosa and normal arrays fetched (tumour lock tested both ways first, LESSONS T11); synthetic tests 1-5 written before calibration finishes. IAM-A narrow-scope commissioning: five tests C1-C5 named (intake, repeatability, offset removed on identical DNA from EpiQC, healthy neutrophils from another laboratory, a known change seen); pass values are set only with their synthetic tests (gate rule 7 refused a draft that wrote them first).
+
+### 2026-10-11 · DEV-TISSUE-COLON-01 synthetic tests: v1 failed power (null group call 0.053), v2 at p < 0.01 passes all five
+On real colon normals and healthy mucosa only. Composition shift 0.037 above the bar, independence Spearman -0.046, planted 5 % found 0.985; v2 null group call 0.007. Scorer committed before the seal.

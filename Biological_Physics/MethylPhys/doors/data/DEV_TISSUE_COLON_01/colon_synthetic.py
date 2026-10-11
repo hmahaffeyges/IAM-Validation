@@ -9,7 +9,7 @@ R = Met-A(test) / Met-A(reference) for two arrays on one slide. Stand-in pairs: 
   cell-variable sites). PASS: |Spearman| < 0.2 and p > 0.05 for the epithelial share.
 4 planted change d in the blended mucosa part (methylated sites lose a share d, unmethylated gain d(1-beta)), d = 0.02, 0.05, 0.10.
   PASS: d = 0.05 above the bar in >= 0.80 of pairs.
-5 power: group rule over 91 pairs, FINGERPRINT if >= CRIT pairs above the bar (CRIT: binomial p < 0.05 at 0.05 per pair); detection share over
+5 power: group rule over 91 pairs, FINGERPRINT if >= CRIT pairs above the bar (CRIT: binomial p < 0.01 at 0.05 per pair; v1 used p < 0.05 and failed); detection share over
   2,000 draws of 91 pairs. PASS: NULL and mucosa-shift group false calls <= 0.05; d = 0.05 group detection >= 0.80.
 Writes colon_synthetic_output.csv and colon_synthetic_summary.txt. Usage: python3 colon_synthetic.py POSTDIR BETADIR"""
 import os, sys, itertools, numpy as np, pandas as pd
@@ -52,13 +52,15 @@ def blend(j, d, tpl):
     a = rg.uniform(.3, .6); T = tpl.copy(); T[lo_] = T[lo_] + d * (1 - T[lo_]); T[hi_] = T[hi_] * (1 - d)
     return np.clip((1 - a) * X[j] + a * T, 0, 1)
 epi_t = Mu["epithelium"].values; rows = []
-crit = int(binom.ppf(0.95, 91, 0.05)) + 1
+# v2 (2026-10-11): v1 used binomial p < 0.05 and its NULL group call read 0.053 (> 0.05; stand-in pairs reuse arrays, so they are not
+# independent). v2 uses the conventional p < 0.01; the pass criteria are unchanged. v1 outputs kept as colon_synthetic_v1_FAILED_*.
+crit = int(binom.ppf(0.99, 91, 0.05)) + 1
 def case(name, f):
     v = np.array([f(j, k) for j, k in pairs]); above = v > bar
     det = float(np.mean([above[rg.integers(len(v), size=91)].sum() >= crit for _ in range(2000)]))
     rows.append(dict(case=name, pairs=len(v), mean_R=round(float(v.mean()), 4), share_above_bar=round(float(above.mean()), 3), group_call=round(det, 3), bar=round(bar, 4), crit_of_91=crit))
     out.append(f"  {name}: mean R {v.mean():.4f}, share above bar {above.mean():.3f}, group call {det:.3f}")
-out.append("2-5 cases (pairs; group rule >= %d of 91):" % crit)
+out.append("2-5 cases (pairs; group rule >= %d of 91, binomial p < 0.01):" % crit)
 case("NULL", lambda j, k: base[j] / base[k])
 case("SHIFT mucosa", lambda j, k: H(blend(j, 0, X[rg.choice(mpl[Nm.plate[j]])])[Sx]).mean() / base[k])
 case("SHIFT atlas epithelium", lambda j, k: H(blend(j, 0, epi_t)[Sx]).mean() / base[k])
