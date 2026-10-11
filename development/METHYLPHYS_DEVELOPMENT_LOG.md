@@ -909,3 +909,6 @@ territory_eps.py equals Stage Q over all molecules and returns planted gained co
 
 ### 2026-10-11 · IAM-A C-score not usable on RRBS (direction audit, condition 3: limit)
 Healthy RRBS C 1.6-41.8 vs null 1; held-only lower but mostly still above 1 or too few blocks. The C-score stays a whole-genome reading. All three conditions for the two-instrument table are now met.
+
+### 2026-10-11 · Two-instrument table added to the book, SOP and OM
+All three conditions met (Met-A planted both ways; per-territory IAM-A reader; C-score RRBS limit). Book: Part VI gauge chapter, section 'What each instrument can and cannot see' (sec:directions). SOP and OM: same table and the rules that follow.

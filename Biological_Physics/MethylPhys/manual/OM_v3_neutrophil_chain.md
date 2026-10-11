@@ -79,3 +79,18 @@ Manual: `python manual/build_manual_v3.py` rebuilds the PDF.
 | Stage Q0 `QUARANTINE_UNREADABLE_PAT` / `GENOME_BUILD_MISMATCH` / `QUARANTINE_NOT_WHOLE_GENOME` / `SPECIMEN_REFUSED` | a cut or corrupt file; a file on another genome build (e.g. hg38); a targeted or partial file; whole blood or another cell | download the file again; convert with the loyfer_pat_v1 pipeline on hg19; read a whole-genome file; IAM-A reads purified neutrophils only |
 | IAM-A refusal `partial file` | the reading was cut with `--pat-max-bytes` | read the whole file (P is measured on whole files) |
 | IAM-A refusal `position for neutrophils was measured on loyfer_pat_v1, not <pipeline>` / `too few opportunities` | another read-level pipeline, or fewer than 100,000 opportunities | none: P is valid only for its own pipeline |
+
+## What each instrument can and cannot see (2026-10-11; record: doors/DEV_DIRECTION_AUDIT_01.md)
+
+| | Met-A (arrays) | IAM-A (sequencing) |
+|---|---|---|
+| What it reads | fixed identity sites, both kinds: sites that should be methylated and sites that should not | the cost of holding marks: copy error on the molecules a cell keeps methylated |
+| Sees loss | yes (methylated identity sites) | yes (loss is copy error) |
+| Sees gain | yes (unmethylated identity sites), about as strongly as loss | only as a mixture: gained molecules enter Stage Q and move IAM-A either way |
+| Blind spot | only the sites it was built on; nothing about copy fidelity | which direction moved, unless held and gained territory are read separately |
+
+Rules that follow:
+- Every new instrument, meter or sealed test is shown BOTH directions in its synthetic test (a planted loss and a planted gain), and its record states which it cannot see.
+- A fingerprint is read in both directions: Arm B (loss) and Arm G (gain).
+- The IAM-A C-score is a whole-genome reading. It is not read on RRBS: healthy RRBS files read 1.6 to 42 against its derived null of 1.
+- Before any statistic is read on a new platform, its derived null is checked on healthy files of that platform.

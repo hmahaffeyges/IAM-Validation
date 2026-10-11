@@ -132,6 +132,28 @@ move it by the amount the law gives (Chapter~\ref{ch:development}). The energy $
 the writer's discrimination measured outside the cell is the central open problem of the cellular rung (Chapter~\ref{ch:open}).
 \openprob
 
+\section{What each instrument can and cannot see}\label{sec:directions}
+
+A methylation pattern can change in two directions: a mark the healthy cell holds is lost, or a mark is written where the healthy pattern
+has none. Cancer does both: islands of loss and islands of gain, depending on the cancer. Each instrument was shown both directions, planted
+on healthy data, before it was asked about a cancer.
+
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+ & Met-A & IAM-A \\\midrule
+what it reads & fixed identity sites, both kinds: sites that should be methylated and sites that should not, on arrays & the cost of holding marks: copy error on the molecules a cell keeps methylated, by sequencing \\ \rowrule
+sees loss & yes, at the methylated identity sites \measured & yes: loss is copy error \measured \\ \rowrule
+sees gain & yes, at the unmethylated identity sites, about as strongly as loss \measured & only as a mixture: gained molecules enter the reading and move it either way, by how faithfully the new marks are copied \measured \\ \rowrule
+blind spot & only the sites it was built on, and nothing about how faithfully marks are copied & which direction moved, unless held and gained territory are read separately \\
+\end{tabularx}
+\end{center}
+
+This is why there are two instruments. Met-A says that the pattern moved and where; IAM-A says what holding it costs. Where the two agree
+on the same cells, the reading is stronger than either alone; where they disagree, the disagreement is information about the physics. Reading
+IAM-A on held and gained territory separately asks whether a newly written mark is held as tightly as an old one; that reading is in
+development (Chapter~\ref{ch:development}). \openprob
+
 \section{How far a reading moves}
 
 What a reading can show depends on how far a real change moves it. On arrays, a simulated loss of 2~\% of the neutrophil

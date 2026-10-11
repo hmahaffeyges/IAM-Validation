@@ -22,7 +22,7 @@ molecules gaining the mark at the unmethylated identity sites, or losing it at t
 d 0.05 gain 1.2163-1.2644, loss 1.2188-1.2685; d 0.10 gain 1.4136-1.4551, loss 1.4178-1.4620. Met-A sees both directions with nearly equal
 sensitivity; it does not say which direction moved (a direction reading would split the two site sets). Fingerprint: Arm B = loss, Arm G = gain.
 
-## Draft for the book, SOP and OM (author, 2026-10-11): goes in only when the conditions below are met
+## Table for the book, SOP and OM (author, 2026-10-11): conditions met; added to the book (sec:directions), SOP and OM 2026-10-11
 Why there are two instruments, by what each can and cannot see:
 
 | | Met-A (arrays) | IAM-A (sequencing) |
