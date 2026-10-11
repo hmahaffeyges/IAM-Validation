@@ -20,6 +20,27 @@ the chain's exact rule; confirm the lever moves the reading as predicted (throug
 instrument error is handled, and that the planned design has power ≥ 0.8. Only then download, and only data that can decide the question
 (example: doors/DEV_SYNTH_LEVERS_01.md; the cross-species design, power 0.11, would have been caught).
 
+## 0. Commissioning roadmap (author, 2026-10-11): trust the physics and the instruments first, then take them to other cancers
+
+**Rule.** No new cancer test starts until stages R1-R3 have earned credibility. Cancer tests already sealed finish as sealed
+(DEV-FINGERPRINT-02, T47D pairs; DEV-TISSUE-BREAST-01). Colorectal (GSE131013 onward), cell-free DNA and blood-cancer tests wait behind R1-R3.
+A development test never extends a commissioned scope; only a commissioning does.
+
+| stage | what | why | next step |
+|---|---|---|---|
+| **R1** | **IAM-A, narrow scope:** sorted neutrophils, WGBS, pinned pipeline, same-run healthy reference | the physics measured on molecules, by a commissioned instrument | bars written first; repeatability and lab/kit offset on identical DNA (EpiQC sequencing, PRJNA646948); healthy neutrophils from another lab |
+| **R2** | **Link Met-A → IAM-A** as a sealed window on every dataset both instruments read (section 2c) | the falsifiable bridge: makes Met-A's gauge ends measured, not only derived | first window sealed on EpiQC (the same DNA on arrays and sequencing), with R1's box run |
+| **R3** | **IAM-A on a second, very different cell type** | one law, not one cell | search: read-level healthy files of another lineage from two labs |
+| **R4** | **Met-A, one cell type or tissue reading at a time** (neutrophils on EPIC commissioned 10-09) | the clinical instrument, broad | blood cells first (whole blood needs the atlas commissioned as the composition step, section 2b); then the tissue readings the cancer tracks need |
+| **R5** | **Cancers beyond those sealed**, in the order of section 4 | only after R1-R3 | — |
+
+**Every commissioning, any unit (cell type or tissue reading, platform):** its own healthy reference; bars written before reading
+(repeatability, false calls on healthy, detection of a planted known change, healthy from another lab reads Normal); data from a laboratory not
+used to build it; a signed commissioning note (doors/COMMISSIONING_NOTE_*.md); its row in section 1.
+
+**What IAM-A adds to Met-A.** Not Met-A's detection performance, which stands on Met-A's own bars. It measures, on molecules, the physics that
+fixes Met-A's floor and ceiling (copy error, holding energy); the R2 link test turns those ends from derived into measured.
+
 ## 1. Now (updated 2026-10-09 afternoon)
 
 | reading | status | what is left |

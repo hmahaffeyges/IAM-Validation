@@ -948,3 +948,6 @@ FINGERPRINT if >= 6 of 53 pairs read Met-A(tumour)/Met-A(own normal) above 1.094
 
 ### 2026-10-11 · DEV-TISSUE-BREAST-01 re-sealed after a guard fix (rule unchanged)
 The score step's committed-seal check could never pass (path bug). Fixed before any tumour array was downloaded; first seal retired; re-seal identical in sites, bar, rule and pairs.
+
+### 2026-10-11 · Commissioning roadmap in STATUS (author)
+STATUS section 0: trust the physics and instruments first. R1 IAM-A narrow (neutrophils, EpiQC sequencing), R2 sealed Met-A to IAM-A link windows, R3 IAM-A on a second very different cell type, R4 Met-A cell by cell, R5 further cancers. Sealed cancer tests finish; colorectal, cfDNA and blood-cancer tests wait behind R1-R3.
