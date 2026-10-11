@@ -3,3 +3,4 @@
 | liver | HepG2 vs hepatocyte | 0.0113 to 0.0166 | 0.0211 | 0.53 | **no fingerprint** | IAM-A_rel 0.9614, Met-A_rel 1.0371, curve B 1.0000, z 0.26 (no fingerprint) | share read 3.34 |
 | lung_alveolar | A549 vs epithelial cell of alveolus of lung | 0.0067 to 0.0068 | 0.0211 | 0.32 | **no fingerprint** | IAM-A_rel 0.7667, Met-A_rel 1.0487, curve B 1.0000, z 0.24 (no fingerprint) | share read 3.29 |
 | lung_bronchial | A549 vs bronchial epithelial cell | 0.0087 to 0.0092 | 0.0211 | 0.41 | **no fingerprint** | IAM-A_rel 0.8404, Met-A_rel 1.3219, curve B 1.0000, z 3.84 (FINGERPRINT) | share read 2.77 |
+| prostate | LNCaP clone FGC vs epithelial cell of prostate | 0.0488 to 0.0803 | 0.0211 | 2.31 | **FINGERPRINT** | IAM-A_rel 0.8596, Met-A_rel 1.3287, curve B 1.0000, z 3.09 (FINGERPRINT) | share read 4.34 |

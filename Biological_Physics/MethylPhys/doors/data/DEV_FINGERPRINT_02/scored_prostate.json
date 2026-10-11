@@ -1,0 +1,34 @@
+{
+ "pair": "prostate",
+ "IAMA_rel": 0.8595567977057791,
+ "eps_cancer": 0.0370969108468512,
+ "eps_normal": 0.045327428610832304,
+ "share_read": 4.335754393603311,
+ "MetA_rel": 1.3286666884555642,
+ "sites_all_arrays": 3333,
+ "arrays_H": {
+  "ENCSR000ACD": 0.3215667730325946,
+  "ENCSR000ADA": 0.42725505944255954
+ },
+ "curveB": 1.0,
+ "curveB_extended": false,
+ "se": 0.10644345431765657,
+ "z": 3.0877115982607286,
+ "armA": "FINGERPRINT",
+ "cancer_excess": {
+  "ENCFF000MGK": 0.05175175316182294,
+  "ENCFF000MGL": 0.04881294784520734,
+  "ENCFF000MGO": 0.08026900599017055,
+  "ENCFF000MGR": 0.05750545700772723,
+  "ENCFF000MGS": 0.06615488105976478,
+  "ENCFF000MGT": 0.07741178600820793
+ },
+ "armB_bar": 0.021145789090027865,
+ "armB": "FINGERPRINT",
+ "deciding_arm": "B",
+ "power_A06": 0.1397773001776237,
+ "armA_role": "reported only",
+ "armB_donor_excess": 0.021145789090027865,
+ "ratio_min_excess_to_donor": 2.3084003929759715,
+ "VERDICT": "FINGERPRINT"
+}

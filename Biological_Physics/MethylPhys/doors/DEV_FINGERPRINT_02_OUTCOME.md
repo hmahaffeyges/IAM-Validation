@@ -8,10 +8,12 @@ its own sha256 matched the seal. Table written by `outcome_02.py` from the commi
 | liver | HepG2 vs hepatocyte | 0.0113 to 0.0166 | 0.0211 | 0.53 | **no fingerprint** | IAM-A_rel 0.9614, Met-A_rel 1.0371, curve B 1.0000, z 0.26 (no fingerprint) | share read 3.34 |
 | lung_alveolar | A549 vs epithelial cell of alveolus of lung | 0.0067 to 0.0068 | 0.0211 | 0.32 | **no fingerprint** | IAM-A_rel 0.7667, Met-A_rel 1.0487, curve B 1.0000, z 0.24 (no fingerprint) | share read 3.29 |
 | lung_bronchial | A549 vs bronchial epithelial cell | 0.0087 to 0.0092 | 0.0211 | 0.41 | **no fingerprint** | IAM-A_rel 0.8404, Met-A_rel 1.3219, curve B 1.0000, z 3.84 (FINGERPRINT) | share read 2.77 |
+| prostate | LNCaP clone FGC vs epithelial cell of prostate | 0.0488 to 0.0803 | 0.0211 | 2.31 | **FINGERPRINT** | IAM-A_rel 0.8596, Met-A_rel 1.3287, curve B 1.0000, z 3.09 (FINGERPRINT) | share read 4.34 |
 
-
-**Reading.** Arm B, the arm that decided DEV-FINGERPRINT-01 (LNCaP against PrEC, excess +0.1105 to +0.1130), reads no fingerprint in the pairs
-above: their cancer excess lies inside the range two healthy donors reach against each other. The run-loss meter detects about 0.023 of
+**Reading.** Arm B, the arm that decided DEV-FINGERPRINT-01 (LNCaP against PrEC, excess +0.1105 to +0.1130), reads **FINGERPRINT for LNCaP
+again, in a second laboratory** (ENCODE HAIB, its own normal prostate epithelium): every one of 6 LNCaP files above the bar, the smallest 2.31 times the
+healthy donor-to-donor excess. It reads no fingerprint for HepG2 and A549: their cancer excess lies inside the range two healthy donors reach
+against each other. The donor range comes from one donor pair and is a lower bound. The run-loss meter detects about 0.023 of
 molecules losing every methylated call (planted tests), so these cancer lines show at most that much run loss beyond donor variation.
 Arm A is not a verdict (donor null: healthy donors sit up to 0.19 off curve B). The cancer lines read more fully methylated multi-CpG molecules
 than their normals (readable share above 2.7 times), recorded without interpretation.

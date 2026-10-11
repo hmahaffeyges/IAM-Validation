@@ -863,3 +863,6 @@ By rule 02b, all three no fingerprint: HepG2 and A549 Arm B excess within the he
 
 ### 2026-10-11 · Commissioned Met-A record rebuilt from a fresh clone (clean room)
 Fresh clone, empty home, 91 public arrays from GEO, the four listed commands: every commissioned matrix identical, no repo file changed (doors/data/MET_A_FLOOR_V13_REPRO/cleanroom_2026-10-11.md). The rebuild found the unpinned Stage 1 inputs (now pinned).
+
+### 2026-10-11 · DEV-FINGERPRINT-02 prostate: FINGERPRINT (LNCaP replicates in a second laboratory)
+By rule 02b: all 6 LNCaP files' Arm B excess above the bar 0.0211; Arm A (reported) also FINGERPRINT. HepG2 and A549 no fingerprint. Breast pairs held for the author.
