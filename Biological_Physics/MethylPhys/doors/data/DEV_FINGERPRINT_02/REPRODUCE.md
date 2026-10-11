@@ -15,7 +15,8 @@ Paths: `D = Biological_Physics/MethylPhys/doors/data/DEV_FINGERPRINT_02`, `R = B
 | 7 | arrays through Stage 1 (methylprep env) | `python3 $D/calib_arrays.py $W normal` (later `cancer`) | none (betas regenerated) |
 | 8 | normal arrays vs atlas | `python3 $D/normal_array_check.py $W` | `normal_array_check_output.txt` |
 | 9 | normal RRBS -> .pat (box) | `SET=normal THREADS=60 bash $R/session9.sh` | .pat in S3 `results/BOXRUN9_FP2/normal/`; sha256 list committed when it lands |
-| 10+ | readability, in-silico response, run-loss sim, power, sealing, scoring | added here as each script is committed, before it is run |
+| 10 | normal side per cell: Stage Q copy error, readability, planted-loss response, run-loss simulation (AWS read) | `bash $D/prep_normal.sh "<ENCODE cell name>" $W` | `normal_<cell>/`: pat_sha256.txt, eps_per_file.json, readability.csv, insilico_<file>.csv, runloss_sim.txt |
+| 11+ | power, sealing, scoring | added here as each script is committed, before it is run |
 
 Checked 2026-10-10: steps 1-4, 6 and 8 rerun and reproduce the committed outputs exactly (step 1 after making its sort deterministic);
 step 5 reproduces the DEV-FINGERPRINT-01 prostate posterior to 4e-8 and its identity sites exactly.
