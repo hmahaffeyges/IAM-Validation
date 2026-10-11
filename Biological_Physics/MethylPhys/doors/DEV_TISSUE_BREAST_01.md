@@ -32,5 +32,15 @@ fitted endothelium 0.168) or an atlas template mixed into a 450K array does not 
 form.** Designs to evaluate next (synthetic first): a reading on sites whose healthy value is the same in every breast tissue cell type
 (composition-blind by construction); within-patient same-plate pairs only; normals with a measured epithelial share to replace the template plant.
 
+**Synthetic test 5, composition-blind sites** (`blind_sites_test.py`; sites whose atlas value is within 0.05 of the luminal value in every panel
+cell; plate tare). Composition shift alone crosses the healthy bar at 0.266 with the atlas template (`blind_sites_test_output.csv`), 0.032 with
+a real 450K primary mammary epithelial array as template (ENCSR000ABL, `blind_sites_test_ENCSR000ABL_output.csv`; planted 5 % found 0.915), and
+0.638 / 0.681 with the two MCF 10A 450K arrays (`..._ENCSR000ABG_output.csv`, `..._ENCSR000ACO_output.csv`). MCF 10A is an immortalised line
+with its own culture-acquired gain (DEV-FINGERPRINT-02 breast_mcf10a), so blending it adds abnormal methylation: not a clean null. The
+composition-aware reading fails with the real template too (0.245, `plant_real_normals_hmec450k_output.csv`) and is dropped.
+**Synthetic test 6, no plant** (`blind_vs_composition.py`, `blind_vs_composition_output.txt`): across 94 real normals (epithelial share
+0.002-0.737) the plate-tared blind reading does not follow composition (Spearman -0.142, p 0.17): passed. The shares come from the same
+imperfect panel, so this is supporting, not decisive.
+
 **Before any seal, still to run (synthetic, normal tissue only):** planted change inside a hidden component; null on the real TCGA normals (leave-one-out against the other normals); array
 batch (plate) structure of the normals; power at 91 pairs with the spread measured on the real normals.

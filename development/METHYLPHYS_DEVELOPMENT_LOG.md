@@ -939,3 +939,6 @@ After the prior-art credit: because the physics fixes both ends of the gauge, a 
 
 ### 2026-10-11 · Breast tissue design fails its synthetic test on real normals; not sealed
 Plate is the main source of normal spread (tare: SD 0.0286). But real normals shifted toward epithelium with no methylation change read 1.061 and cross the healthy bar 62 % of the time: the composition-aware reading is not composition-proof on real tissue. Caught before any tumour array was read.
+
+### 2026-10-11 · Breast tissue: composition-blind sites pass with a real primary-epithelium plant and without a plant; composition-aware reading dropped
+Blind-site Met-A (plate tare): composition-only false alarms 0.032 with the ENCODE primary mammary 450K template, independent of the real normals' epithelial share (Spearman -0.142). Fails with MCF 10A templates (an immortalised line carrying its own gain). Not sealed yet: power at 56 same-plate pairs next.

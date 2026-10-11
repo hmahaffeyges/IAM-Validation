@@ -1,0 +1,6 @@
+normals 94 | epithelial share 0.002-0.737
+blind_tared vs epi: Spearman -0.142 (p 1.7e-01)
+blind_tared vs f_adipocytes: Spearman +0.126 (p 2.3e-01)
+comp_tared vs epi: Spearman -0.007 (p 9.5e-01)
+comp_tared vs f_adipocytes: Spearman -0.018 (p 8.6e-01)
+SYNTHETIC TEST 6 PASSED
