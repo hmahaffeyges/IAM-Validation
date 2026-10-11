@@ -35,3 +35,13 @@ had liver been reviewed first, A549 would have stayed unread for a sealed gain t
   ENCODE experiments, MCF-7 from different stocks (UW, Duke, Stanford; two shRNA lines, one a CTCF knockdown). The two files with the lowest gain
   and the highest loss are both replicates of ENCSR605IIO (the UW stock, 1 h estradiol): stock differences, not noise. Nothing in this pair breaks
   a sealed rule or the scorer, so scoring may continue (breast_mcf10a next).
+
+### breast_mcf10a (MCF-7 against MCF 10A), scored 2026-10-11 as sealed (rule 02b and Arm G, rule 02c)
+**Reviewed:** scored_breast_mcf10a.json, scored_gain_breast_mcf10a.json.
+- **Arm B (loss): FINGERPRINT,** all 10 MCF-7 files above the bar 0.0211 (excess 0.1038-0.2982).
+- **Arm G (gain): FINGERPRINT,** all 10 above the bar 0.0038 (gain 0.0126-0.0536). Arm A, reported only: Met-A_rel 0.8964, IAM-A_rel 0.7618.
+- **Descriptive (`why/breast_two_refs.py`, output `why/breast_two_refs_output.csv`):** against the immortalised non-cancer line MCF 10A, MCF-7's
+  gain is smaller than against primary mammary epithelial cells (0.0454-0.1559) but still above the bar in every file: culture adds some gain, not
+  all of it. Loss depends strongly on the reference (0.0125-0.0429 against mammary epithelial cells, 0.1038-0.2982 against MCF 10A): the choice of
+  healthy reference matters for the loss arm. The UW stock (ENCSR605IIO) again reads the most loss and the least gain. No sealed rule or scorer
+  problem: scoring may continue (T47D pairs next, when aligned).

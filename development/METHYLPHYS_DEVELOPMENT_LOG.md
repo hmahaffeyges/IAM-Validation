@@ -927,3 +927,6 @@ S3 downloads/C_tissue_tests/GSE69914 holds the submitters' beta tables (<GSM>_Ra
 
 ### 2026-10-11 · breast_hmec scored: gain meter FINGERPRINT 10/10 (first sealed test on an unseen cancer); loss arm undecided
 MCF-7 against mammary epithelial cells, rules 02b and 02c as sealed. Arm G all 10 files above the bar; Arm B 3 of 10 above. The two lowest-gain, highest-loss files are one UW MCF-7 stock. Reviewed in DEV_FINGERPRINT_02_OUTCOME.md.
+
+### 2026-10-11 · breast_mcf10a scored: FINGERPRINT on both arms
+MCF-7 against MCF 10A: Arm B 10/10 and Arm G 10/10 above their sealed bars. Gain exceeds that of an immortalised non-cancer line; loss depends strongly on the reference. Reviewed.
