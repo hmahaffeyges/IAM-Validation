@@ -28,6 +28,25 @@ from pathlib import Path
 import pandas as pd
 
 
+# Pinned inputs of Stage 1 (2026-10-10, LESSONS R10). The commissioned numbers were made with methylprep 1.7.1 and these Illumina manifests, which
+# methylprep fetches once into ~/.methylprep_manifest_files. A different version or manifest can move every beta, so Stage 1 refuses to run on
+# anything else. To use other inputs on purpose (development only), set IAM_ALLOW_UNPINNED_STAGE1=1; results are then not the commissioned chain's.
+METHYLPREP_VERSION = "1.7.1"
+MANIFEST_SHA256 = {
+    "HumanMethylation450k_15017482_v3.csv.gz": "b40e210bc4bdfd5cfcc8dd2a3a0119fd297079a9b77092703edafb32534ffd9c",
+    "MethylationEPIC_v-1-0_B4.CoreColumns.csv.gz": "855064a2846d3d98e6e2fb36ae1d8f96a4b7e672646f835ed3ebb5fc40ed5adf",
+    "HumanMethylationEPIC_manifest_v2.csv.gz": "697a46f26154ac285fcc98253a3ed7682f51c9011dfeb765c0e82f6ba2e1bee2"}
+def _check_pins():
+    import importlib.metadata, hashlib
+    if os.environ.get("IAM_ALLOW_UNPINNED_STAGE1") == "1": return
+    v = importlib.metadata.version("methylprep")
+    if v != METHYLPREP_VERSION:
+        raise RuntimeError(f"Stage 1 needs methylprep {METHYLPREP_VERSION} (found {v}): pip install methylprep=={METHYLPREP_VERSION}")
+    d = Path.home() / ".methylprep_manifest_files"
+    for f, h in MANIFEST_SHA256.items():
+        p = d / f
+        if p.exists() and hashlib.sha256(p.read_bytes()).hexdigest() != h:
+            raise RuntimeError(f"Stage 1: manifest {p} differs from the one the commissioned chain used (sha256 {h[:16]}...); remove it so methylprep refetches, or restore it.")
 def _ensure_methylprep():
     """Make sure methylprep is importable; pip-install it once if it isn't.
 
@@ -44,12 +63,12 @@ def _ensure_methylprep():
     import importlib
     print("      methylprep not found - installing it now (one-time setup) ...")
     try:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "methylprep"])
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "methylprep==" + METHYLPREP_VERSION])
     except Exception as e:
         raise RuntimeError(
             "Stage 1 calibration needs the 'methylprep' package, and the automatic "
             "install failed (often no internet on the run machine). Install it once "
-            "by hand and re-run:\n\n    pip install methylprep\n\n"
+            "by hand and re-run:\n\n    pip install methylprep==" + METHYLPREP_VERSION + "\n\n"
             f"(auto-install error: {e})")
     importlib.invalidate_caches()
     try:
@@ -94,6 +113,7 @@ def calibrate_idat_to_beta(grn_path, red_path, array_type=None, verbose=True, ma
     """
     grn_path, red_path = str(grn_path), str(red_path)
     _ensure_methylprep()
+    _check_pins()
     at, at_str, barcode, n_addr = _detect_array_type(grn_path)
     if array_type is not None:
         at_str = array_type
@@ -129,6 +149,7 @@ def calibrate_idat_to_beta(grn_path, red_path, array_type=None, verbose=True, ma
         methylprep.run_pipeline(
             workdir, array_type=at_token, betas=True, export=True, save_control=True, poobah=True,
             sample_sheet_filepath=sheet)
+        _check_pins()   # again, now that methylprep has fetched any missing manifest
         proc = _glob.glob(os.path.join(workdir, "**", "*_processed.csv"), recursive=True)[0]
         df = _pd.read_csv(proc, index_col=0)
         bcol = "beta_value" if "beta_value" in df.columns else [c for c in df.columns if "beta" in c.lower()][0]

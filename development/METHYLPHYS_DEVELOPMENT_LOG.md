@@ -851,3 +851,6 @@ Seals on origin/main under rule 02b, each with planted test passed (NULL, RUN05,
 
 ### 2026-10-10 · DEV-FINGERPRINT-02 pair breast_hmec sealed under rule 02b
 Normal side, planted test (NULL, RUN05, RUN01, SCAT) and seal by pair_pipeline_02b.sh; section written by note_section_02b.py from the outputs.
+
+### 2026-10-10 · Stage 1 inputs pinned (fresh-clone rebuild of the commissioned record)
+A fresh clone with an empty home folder could not calibrate: methylprep fetches the Illumina manifest at run time (blocked in this sandbox; a reviewer's machine would fetch it). That exposed two unpinned inputs of every commissioned number: the methylprep version (Stage 1 auto-installed the latest) and the manifest. Stage 1 now installs methylprep 1.7.1 and refuses any other version or a manifest whose sha256 differs from the three the commissioned chain used; negative control: an altered EPIC manifest refused. No value changes. LESSONS R10.

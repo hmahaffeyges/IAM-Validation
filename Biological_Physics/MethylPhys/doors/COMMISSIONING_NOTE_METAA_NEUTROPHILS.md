@@ -54,6 +54,7 @@ tested on its own; it is the next reviewer question and needs healthy purified n
 | Specificity: 4–15 % liver, lung, colon or neuron DNA in blood DNA (Moss 2018, 9 arrays) | all Normal and within 0.03 of the unmixed blood, the sealed bar (9/9); largest shift 0.0094 | DEV_CSCORE_MOSS_01_OUTCOME.md |
 
 ## Reproduce from public data
+Pinned inputs (2026-10-10): methylprep 1.7.1 and the Illumina manifests by sha256 (`chain/stage_1_idat_calibration.py`, `MANIFEST_SHA256`); Stage 1 refuses other versions.
 Every matrix the commissioned path reads rebuilds from GEO with committed code (identical; `data/MET_A_FLOOR_V13_REPRO/README.md`):
 1. `python3 doors/data/DEV_NOISE_02/build_noise_sites_01.py WORK calib 0 1` (91 Salas purified arrays through chain Stage 1), then
    `build_noise_sites_01.py WORK build` and `build_noise_gate_01.py WORK` (noise sites and gate).
