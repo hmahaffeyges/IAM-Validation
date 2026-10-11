@@ -6,7 +6,7 @@ the source: the lambda spike-in when it carries >= MIN_CALLS CHH calls, otherwis
 zero in blood cells, so this reads slightly low if any is present). CHH (not CHG) so that dcm sites (CCWGG) in lambda grown in dcm+ E. coli cannot count. Strand from
 bwa-meth's YD tag: f = C->T strand (reference C, read T converted / C not), r = G->A strand (reference G, read A converted / G not).
 duplicate_fraction = duplicates / mapped primary reads, from samtools flagstat on the Sambamba-marked BAM.
-Usage: alignment_qc.py MARKED.bam REF.fa OUT.json [--max-reads N]"""
+Usage: alignment_qc.py MARKED.bam REF.fa OUT.json [--max-reads N] [--both]"""
 import sys, json, subprocess, re
 
 MIN_CALLS = 1000
@@ -61,6 +61,12 @@ def main():
         c, u, n = chh_calls(bam, "chr1", R["chr1"], mx)
     rec.update(source=src, chh_converted=c, chh_unconverted=u, reads_scanned=n,
                conversion_rate=(round(c / (c + u), 5) if c + u >= MIN_CALLS else None))
+    if "--both" in sys.argv:   # DEV-IAMA-COMMISSION-01 (2026-10-11): human chr1 CHH for every library, lambda as a cross-check; default unchanged
+        hc, hu, _ = chh_calls(bam, "chr1", R["chr1"], mx)
+        rec["conversion_rate_human_chr1"] = round(hc / (hc + hu), 5) if hc + hu >= MIN_CALLS else None
+        if "lambda" in R:
+            lc, lu, _ = chh_calls(bam, "lambda", R["lambda"], mx)
+            rec["conversion_rate_lambda"] = round(lc / (lc + lu), 5) if lc + lu >= MIN_CALLS else None
     fs = subprocess.run(["samtools", "flagstat", bam], capture_output=True, text=True).stdout
     g = lambda pat: int(re.search(pat, fs).group(1)) if re.search(pat, fs) else None
     dup = g(r"(\d+) \+ \d+ duplicates")

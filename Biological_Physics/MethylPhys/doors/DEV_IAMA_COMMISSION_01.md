@@ -91,3 +91,18 @@ with the unchanged scorer opens; a changed scorer refuses).
 
 **Synthetic test:** `data/DEV_IAMA_COMMISSION_01/planted_scorer_test_01.py`, output `data/DEV_IAMA_COMMISSION_01/planted_scorer_test_01_output.txt`.
 
+**How the libraries are read (fixed before the seal, 2026-10-11).**
+1. Runs: `epiqc_libraries_runs.csv`. One sequencer per tare group (kit x laboratory x replicate); NEB covers every group, so every library is
+   read from its largest NEB-sequenced run. The first 10,000,000 read pairs of that run are streamed from ENA FASTQ.
+2. Pipeline: Box Run 10 (`boxruns/run10_epiqc/session_epiqc.sh`), the pinned Box Run 2 pipeline unchanged. Conversion is
+   `conversion_rate_human_chr1` from `alignment_qc.py --both` (human chr1 CHH for every library); lambda is recorded as a cross-check only.
+3. q0 is Stage Q0 checks Q0.1-Q0.6. Q0.7 (specimen) is not applied, because no reading here is made against a healthy position P.
+4. eps_planted: 1 % of methylated calls lost (insilico_loss_02.py rule). c1_iama: conversion_05.py rule at c 0.98. Both are computed on the laptop
+   from each library's .pat file.
+5. Stage A: the 7 TruSeq replicate-1 libraries (`epiqc_stageA_runs.csv`), plus a 1,000,000-pair format check of one library of each other kit
+   (`epiqc_pilot_runs.csv`). Format checks are not scored.
+6. **Stop rule.** Stage B (the other 71 libraries) runs only if C1 is met on Stage A. A kit whose format check maps below 70 % of read pairs
+   (samtools flagstat) is not run in Stage B and is recorded as not readable by the pinned pipeline.
+7. Stage B depth: 10,000,000 pairs. If Stage A's median opportunities are below 2,400,000 (twice the 1,180,000 at which synthetic test 2 held the
+   tare to about 1 %), Stage B uses 10,000,000 x 2,400,000 / median pairs, capped at 25,000,000. The depth is never lowered.
+

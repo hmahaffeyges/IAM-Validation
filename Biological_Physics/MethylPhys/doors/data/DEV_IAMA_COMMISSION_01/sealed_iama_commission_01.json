@@ -1,0 +1,479 @@
+{
+ "test": "DEV-IAMA-COMMISSION-01",
+ "sealed_utc": "2026-10-11T22:14:08Z",
+ "scorer_sha256": "8a176de3bd538a489cb5d2548f8722715eabacac0c2101ee72d030a571bdc414",
+ "TOL": 0.03,
+ "CONV_MIN": 0.98,
+ "C1_MIN": 0.99,
+ "MIN_REFS": 3,
+ "libraries": [
+  {
+   "kit": "EMSeq",
+   "lab": "LAB01",
+   "line": "HG001",
+   "rep": "REP01"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB01",
+   "line": "HG002",
+   "rep": "REP01"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB01",
+   "line": "HG003",
+   "rep": "REP01"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB01",
+   "line": "HG004",
+   "rep": "REP01"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB01",
+   "line": "HG005",
+   "rep": "REP01"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB01",
+   "line": "HG006",
+   "rep": "REP01"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB01",
+   "line": "HG007",
+   "rep": "REP01"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB01",
+   "line": "HG001",
+   "rep": "REP02"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB01",
+   "line": "HG002",
+   "rep": "REP02"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB01",
+   "line": "HG003",
+   "rep": "REP02"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB01",
+   "line": "HG004",
+   "rep": "REP02"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB02",
+   "line": "HG001",
+   "rep": "REP01"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB02",
+   "line": "HG002",
+   "rep": "REP01"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB02",
+   "line": "HG003",
+   "rep": "REP01"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB02",
+   "line": "HG004",
+   "rep": "REP01"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB02",
+   "line": "HG005",
+   "rep": "REP01"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB02",
+   "line": "HG006",
+   "rep": "REP01"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB02",
+   "line": "HG007",
+   "rep": "REP01"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB02",
+   "line": "HG001",
+   "rep": "REP02"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB02",
+   "line": "HG002",
+   "rep": "REP02"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB02",
+   "line": "HG003",
+   "rep": "REP02"
+  },
+  {
+   "kit": "EMSeq",
+   "lab": "LAB02",
+   "line": "HG004",
+   "rep": "REP02"
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG001",
+   "rep": "REP01"
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG002",
+   "rep": "REP01"
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG003",
+   "rep": "REP01"
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG004",
+   "rep": "REP01"
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG005",
+   "rep": "REP01"
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG006",
+   "rep": "REP01"
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG007",
+   "rep": "REP01"
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG001",
+   "rep": "REP02"
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG002",
+   "rep": "REP02"
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG003",
+   "rep": "REP02"
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG004",
+   "rep": "REP02"
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG005",
+   "rep": "REP02"
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG006",
+   "rep": "REP02"
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG007",
+   "rep": "REP02"
+  },
+  {
+   "kit": "SPLAT",
+   "lab": "LAB01",
+   "line": "HG001",
+   "rep": "REP01"
+  },
+  {
+   "kit": "SPLAT",
+   "lab": "LAB01",
+   "line": "HG002",
+   "rep": "REP01"
+  },
+  {
+   "kit": "SPLAT",
+   "lab": "LAB01",
+   "line": "HG003",
+   "rep": "REP01"
+  },
+  {
+   "kit": "SPLAT",
+   "lab": "LAB01",
+   "line": "HG004",
+   "rep": "REP01"
+  },
+  {
+   "kit": "SPLAT",
+   "lab": "LAB01",
+   "line": "HG005",
+   "rep": "REP01"
+  },
+  {
+   "kit": "SPLAT",
+   "lab": "LAB01",
+   "line": "HG006",
+   "rep": "REP01"
+  },
+  {
+   "kit": "SPLAT",
+   "lab": "LAB01",
+   "line": "HG007",
+   "rep": "REP01"
+  },
+  {
+   "kit": "SPLAT",
+   "lab": "LAB01",
+   "line": "HG001",
+   "rep": "REP02"
+  },
+  {
+   "kit": "SPLAT",
+   "lab": "LAB01",
+   "line": "HG002",
+   "rep": "REP02"
+  },
+  {
+   "kit": "SPLAT",
+   "lab": "LAB01",
+   "line": "HG003",
+   "rep": "REP02"
+  },
+  {
+   "kit": "SPLAT",
+   "lab": "LAB01",
+   "line": "HG004",
+   "rep": "REP02"
+  },
+  {
+   "kit": "SPLAT",
+   "lab": "LAB01",
+   "line": "HG005",
+   "rep": "REP02"
+  },
+  {
+   "kit": "SPLAT",
+   "lab": "LAB01",
+   "line": "HG006",
+   "rep": "REP02"
+  },
+  {
+   "kit": "SPLAT",
+   "lab": "LAB01",
+   "line": "HG007",
+   "rep": "REP02"
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG001",
+   "rep": "REP01"
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG002",
+   "rep": "REP01"
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG003",
+   "rep": "REP01"
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG004",
+   "rep": "REP01"
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG005",
+   "rep": "REP01"
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG006",
+   "rep": "REP01"
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG007",
+   "rep": "REP01"
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG001",
+   "rep": "REP02"
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG002",
+   "rep": "REP02"
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG003",
+   "rep": "REP02"
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG004",
+   "rep": "REP02"
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG005",
+   "rep": "REP02"
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG006",
+   "rep": "REP02"
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG007",
+   "rep": "REP02"
+  },
+  {
+   "kit": "TrueMethylBS",
+   "lab": "LAB01",
+   "line": "HG001",
+   "rep": "REP01"
+  },
+  {
+   "kit": "TrueMethylBS",
+   "lab": "LAB01",
+   "line": "HG002",
+   "rep": "REP01"
+  },
+  {
+   "kit": "TrueMethylBS",
+   "lab": "LAB01",
+   "line": "HG003",
+   "rep": "REP01"
+  },
+  {
+   "kit": "TrueMethylBS",
+   "lab": "LAB01",
+   "line": "HG004",
+   "rep": "REP01"
+  },
+  {
+   "kit": "TrueMethylBS",
+   "lab": "LAB01",
+   "line": "HG005",
+   "rep": "REP01"
+  },
+  {
+   "kit": "TrueMethylBS",
+   "lab": "LAB01",
+   "line": "HG006",
+   "rep": "REP01"
+  },
+  {
+   "kit": "TrueMethylBS",
+   "lab": "LAB01",
+   "line": "HG007",
+   "rep": "REP01"
+  },
+  {
+   "kit": "TrueMethylBS",
+   "lab": "LAB01",
+   "line": "HG001",
+   "rep": "REP02"
+  },
+  {
+   "kit": "TrueMethylBS",
+   "lab": "LAB01",
+   "line": "HG002",
+   "rep": "REP02"
+  },
+  {
+   "kit": "TrueMethylBS",
+   "lab": "LAB01",
+   "line": "HG003",
+   "rep": "REP02"
+  },
+  {
+   "kit": "TrueMethylBS",
+   "lab": "LAB01",
+   "line": "HG004",
+   "rep": "REP02"
+  },
+  {
+   "kit": "TrueMethylBS",
+   "lab": "LAB01",
+   "line": "HG005",
+   "rep": "REP02"
+  },
+  {
+   "kit": "TrueMethylBS",
+   "lab": "LAB01",
+   "line": "HG006",
+   "rep": "REP02"
+  },
+  {
+   "kit": "TrueMethylBS",
+   "lab": "LAB01",
+   "line": "HG007",
+   "rep": "REP02"
+  }
+ ]
+}

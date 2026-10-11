@@ -1030,3 +1030,6 @@ Test 2 (same-run tare removes a clustered run artefact on real healthy molecules
 
 ### 2026-10-11 · DEV-IAMA-COMMISSION-01 synthetic test 5: conversion through Stage Q (failed its bar; informative)
 Planted incomplete conversion lowers Stage Q's copy error about half as much as the derived factor c (0.9904 at c 0.98), so eps/c over-corrects. DEV-IAMA-CONVERSION-01 outcome updated: conversion explains about half of the TruSeq repeat gap; the rest is a library effect. C1 drafted: c from human CHH for every library, Stage Q0 limit 0.98 kept, no correction; test 5 repeated on one EpiQC library per line in the box run before C2-C5. The book's eps_corr (substitution error subtracted) is unaffected; the chain applies no conversion correction.
+
+### 2026-10-11 · DEV-IAMA-COMMISSION-01 SEALED before any EpiQC read; Box Run 10 Stage A prepared
+Scorer, 9-case planted test and guard tested both ways; reading rules fixed (one NEB run per library, first 10M pairs from ENA, human chr1 CHH conversion, Q0.1-Q0.6), staged with a stop rule (Stage B only if C1 met on Stage A's 7 TruSeq libraries; kits whose 1M-pair format check maps < 70 % are not run). Cost approved by the author: Stage A on the existing box (about 1 h), Stage B on a spot instance after Stage A, with its numbers shown first.
