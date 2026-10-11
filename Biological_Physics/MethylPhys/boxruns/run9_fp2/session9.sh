@@ -25,6 +25,7 @@ one_read(){ IFS=, read -r file exp cell rep rl md5 url gb <<< "$1"; f=$W/fq/$fil
   trim_galore --rrbs --cores 2 -o $W/trim $f > $O/${file}_trim.log 2>&1 && cp $W/trim/${file}.fastq.gz_trimming_report.txt $O/ 2>/dev/null; rm -f $f; log "$file trimmed"; }
 export -f one_read log; export W O
 tail -n +2 $O/files.csv | xargs -P 8 -d '\n' -I{} bash -c 'one_read "{}"'
+F1=$(tail -n +2 $O/files.csv | head -1 | cut -d, -f1); [ -s $W/trim/${F1}_trimmed.fq.gz ] && { $PYB $HERE/../preflight_readlen.py $W/trim/${F1}_trimmed.fq.gz 30 | tee -a $O/session9.log; [ ${PIPESTATUS[0]} -eq 0 ] || fin FAIL_preflight_read_length; }   # LESSONS B1: read length against bwa -T30 before any alignment
 for file in $(tail -n +2 $O/files.csv | cut -d, -f1); do
   $PYB -c "import boto3,sys;boto3.client('s3',region_name='us-west-2').head_object(Bucket='$B',Key=sys.argv[1])" "$P/$file.pat.gz" 2>/dev/null && { log "$file already in S3, skipped"; continue; }
   t=$W/trim/${file}_trimmed.fq.gz; [ -s $t ] || { log "$file no trimmed reads"; continue; }
