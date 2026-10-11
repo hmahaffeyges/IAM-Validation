@@ -1,0 +1,10 @@
+{
+ "pair": "lung_bronchial",
+ "bar": 0.0032855438746131178,
+ "cancer_gain": {
+  "ENCFF000LTD": 0.04526921167653433,
+  "ENCFF000LTE": 0.04345108311442838
+ },
+ "ratio_min_to_bar": 13.224928587978411,
+ "VERDICT": "FINGERPRINT"
+}

@@ -1,0 +1,10 @@
+{
+ "pair": "lung_alveolar",
+ "bar": 0.003375822230255756,
+ "cancer_gain": {
+  "ENCFF000LTD": 0.05164904237939465,
+  "ENCFF000LTE": 0.04962212525050249
+ },
+ "ratio_min_to_bar": 14.699270834158547,
+ "VERDICT": "FINGERPRINT"
+}
