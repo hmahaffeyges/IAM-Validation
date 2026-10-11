@@ -1,4 +1,4 @@
-# DEV-TISSUE-BREAST-01 — Met-A on breast tumour against the same patient's normal tissue (development; design, 2026-10-11; NOT sealed)
+# DEV-TISSUE-BREAST-01 — Met-A on breast tumour against the same patient's normal tissue (development; SEALED 2026-10-11)
 
 **Data.** TCGA-BRCA open-access 450K IDATs (NCI GDC), listed by `data/DEV_TISSUE_BREAST_01/fetch_tcga_brca.py list`
 (`tcga_brca_450k_files.csv`). Only the 'Solid Tissue Normal' files are fetched; tumour files are fetched only after the seal is committed.
@@ -44,3 +44,12 @@ imperfect panel, so this is supporting, not decisive.
 
 **Before any seal, still to run (synthetic, normal tissue only):** planted change inside a hidden component; null on the real TCGA normals (leave-one-out against the other normals); array
 batch (plate) structure of the normals; power at 91 pairs with the spread measured on the real normals.
+
+## Sealed 2026-10-11T16:53:43Z before any tumour array is downloaded or read
+**Sealed:** `data/DEV_TISSUE_BREAST_01/sealed_breast_tissue.json` (scorer `score_breast_tissue.py`, sha256 in the seal; the score step refuses
+unless the seal is committed unchanged). Reading: Met-A at the composition-blind sites (3,000 + 3,000, listed in the seal), each tumour against
+its own patient's normal on the same 450K plate. Pairs: the 53 patients whose tumour and normal share a plate holding >= 3 normals.
+**Rule:** FINGERPRINT if >= 6 of 53 pairs read Met-A(tumour)/Met-A(own normal) above 1.0943 at the sealed blind sites; else NO FINGERPRINT.
+Power (`power_pairs_output.csv`, stand-in pairs of two different same-plate normals): a planted 2 % change crosses the pair bar in 0.6 of pairs and
+the group call in every draw; no change and composition shift alone give group false calls of 0.017 and 0.004.
+**Synthetic test:** DEV_TISSUE_BREAST_01/power_pairs.py, DEV_TISSUE_BREAST_01/power_pairs_output.csv, DEV_TISSUE_BREAST_01/blind_sites_test_ENCSR000ABL_output.csv, DEV_TISSUE_BREAST_01/blind_vs_composition_output.txt

@@ -942,3 +942,6 @@ Plate is the main source of normal spread (tare: SD 0.0286). But real normals sh
 
 ### 2026-10-11 · Breast tissue: composition-blind sites pass with a real primary-epithelium plant and without a plant; composition-aware reading dropped
 Blind-site Met-A (plate tare): composition-only false alarms 0.032 with the ENCODE primary mammary 450K template, independent of the real normals' epithelial share (Spearman -0.142). Fails with MCF 10A templates (an immortalised line carrying its own gain). Not sealed yet: power at 56 same-plate pairs next.
+
+### 2026-10-11 · DEV-TISSUE-BREAST-01 sealed before any tumour array is downloaded
+FINGERPRINT if >= 6 of 53 pairs read Met-A(tumour)/Met-A(own normal) above 1.0943 at the sealed blind sites; else NO FINGERPRINT. Seven synthetic tests on normals first; two readings dropped on the way (plain; composition-aware).
