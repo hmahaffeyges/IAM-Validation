@@ -903,3 +903,6 @@ Author asked that the 'why two instruments' table go into the book, SOP and OM o
 
 ### 2026-10-11 · Met-A sees planted gain and planted loss nearly equally (direction audit, condition 1)
 Six reference neutrophil arrays, commissioned path: a 2/5/10 % gain or loss at the identity sites raises Met-A by about the same amount in both directions (DEV_DIRECTION_AUDIT_01.md).
+
+### 2026-10-11 · Per-territory IAM-A reader passes its exact recovery test (direction audit, condition 2)
+territory_eps.py equals Stage Q over all molecules and returns planted gained copy error exactly; healthy liver held territory 0.0269 vs mixed territory 0.0527.

@@ -34,6 +34,15 @@ Why there are two instruments, by what each can and cannot see:
 
 Conditions before this enters the book (Part VI instruments chapter), the SOP and the OM:
 1. Met-A planted-gain and planted-loss test on healthy arrays: DONE 2026-10-11 (above).
-2. Per-territory IAM-A reader (held vs gained copy error) built and recovering planted values in Stage Q units.
+2. Per-territory IAM-A reader (held vs gained copy error) built and recovering planted values in Stage Q units: DONE 2026-10-11 (below).
 3. The IAM-A C-score re-based on healthy RRBS, or its RRBS limit written into its own row.
 When all three are committed, this table (with the numbers from those outputs) goes into the book, SOP and OM in the same push.
+
+## Per-territory IAM-A (condition 2, done)
+`data/DEV_DIRECTION_AUDIT_01/territory_eps.py`: Stage Q's rule, qualifying molecules split by healthy beta (held >= 0.8, gained <= 0.2).
+Built-in check (`territory_eps_liver_MBY_check.txt`): over all qualifying molecules it equals Stage Q's eps exactly (0.037332971316641775). Healthy liver
+(reference ENCFF000MCD) already differs by territory: held 0.026875, other 0.052666. Recovery test (`recover_territory.py`,
+`recover_territory_liver_MBY.json`): gained molecules planted with the exact call patterns of held molecules; the reader returns the expected
+gained eps to 1e-12 (0.078602 at r 0.01, 0.089216 at r 0.05) and held eps unchanged (0.026875). Note: donors were drawn per pattern line, not
+per molecule, so the copied patterns carry more error (0.084874-0.09142) than held territory; a plant meant to equal held territory must weight
+donors by count.

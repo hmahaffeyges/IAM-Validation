@@ -1,0 +1,51 @@
+{
+ "base": {
+  "all": {
+   "molecules": 92781,
+   "opportunities": 412504.0,
+   "errors": 15400.0,
+   "eps": 0.037332971316641775
+  },
+  "held": {
+   "molecules": 59678,
+   "opportunities": 261245.0,
+   "errors": 7021.0,
+   "eps": 0.026875155505368523
+  },
+  "gained": {
+   "molecules": 8982,
+   "opportunities": 41453.0,
+   "errors": 2596.0,
+   "eps": 0.0626251417267749
+  },
+  "other": {
+   "molecules": 24121,
+   "opportunities": 109806.0,
+   "errors": 5783.0,
+   "eps": 0.05266561025809154
+  }
+ },
+ "r0.01": {
+  "planted_lines": 2430,
+  "gained_eps": 0.0786017885681254,
+  "gained_expected": 0.0786017885681254,
+  "held_eps": 0.026875155505368523,
+  "held_base": 0.026875155505368523,
+  "planted_pattern_eps": 0.08487385407985454,
+  "all_eps": 0.04702217349680368,
+  "all_base": 0.037332971316641775,
+  "PASS": true
+ },
+ "r0.05": {
+  "planted_lines": 12086,
+  "gained_eps": 0.08921618762611391,
+  "gained_expected": 0.08921618762611391,
+  "held_eps": 0.026875155505368523,
+  "held_base": 0.026875155505368523,
+  "planted_pattern_eps": 0.0914197752988685,
+  "all_eps": 0.06697533975221424,
+  "all_base": 0.037332971316641775,
+  "PASS": true
+ },
+ "PASS": true
+}
