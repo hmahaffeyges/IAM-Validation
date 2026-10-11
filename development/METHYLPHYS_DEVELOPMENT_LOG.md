@@ -792,6 +792,9 @@ Per-context copy error on the 153 healthy window files (reader reproduces PROC-C
 ### 2026-10-10 · Evening reproducibility audit (author request)
 DEV-FINGERPRINT-02: array list and readability bound moved from notebook cells to committed scripts (make_array_list.py, readability_check.py; both reproduce the notebook outputs exactly); inventory sort made deterministic; REPRODUCE.md gives the run order. atlas/tools/extract_posterior.py replaces the uncommitted builder of the DEV-FINGERPRINT-01 prostate posterior (reproduces it to 4e-8). DEV-WRITER-02: the descriptive Spearman numbers now come from describe_contexts.py.
 
+### 2026-10-10 · Push gate rule 6: number traceability
+CANON/repro_check.py now refuses a push when a decimal number in a new or changed note is not carried, at the printed precision, by a committed file of the note's data folder. Run on today's notes before wiring: the only untraced number was a sealed bar constant (1.645), carried by its scorer. Negative control: a typed number in an outcome note refused; the FINGERPRINT-01 and SAM outcomes pass.
+
 ### 2026-10-10 · Day summary
 Passed (sealed before reading): IAM-A SAM lever in mice (1.124 in window 1.016-1.135, p 0.0003); Met-A on identical DNA at three laboratories
 (all four bars); Met-A specificity on the Moss mixes (9/9). Reproduced from public data: every matrix the commissioned chain reads.

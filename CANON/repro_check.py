@@ -5,7 +5,7 @@
      has no committed script: one under doors/data/<NOTE>/ (or <NOTE> without _OUTCOME), or a script the note names that exists in the repo.
 Notes still listed as 'open' in development/REPRODUCIBILITY_BACKLOG.md are reported but not refused (the backlog is being closed).
 Pre-registrations (*_PREREG.md) are exempt: their numbers are bars set in advance.
-Record rule (2026-10-10). Also refuses a push when
+Rule 6 (2026-10-10): a number in a new or changed note that no committed output of its data folder carries (see below).\nRecord rule (2026-10-10). Also refuses a push when
   3. an outcome note (doors/*_OUTCOME.md) new or changed in this push is not named in development/METHYLPHYS_DEVELOPMENT_LOG.md,
      or the log did not change in the same push;
   4. a note that carries a "**Milestone:**" line is not linked from the Advancements table of Biological_Physics/README.md,
@@ -57,6 +57,27 @@ days = sorted({d for d in re.findall(r"^### (\d{4}-\d{2}-\d{2})", log, re.M) if 
 today = datetime.datetime.now(ZoneInfo("America/Los_Angeles")).date().isoformat()
 for d in days:
     if (d < today or d < days[-1]) and not re.search(rf"^### {d} · Day summary", log, re.M): fail.append(f"{LOGF}: no '### {d} · Day summary' (a later day has begun)")
+# 6. Number traceability (2026-10-10, author: "make sure that every bit of code and data necessary for replication makes it to the repo").
+# Every decimal number with >= 2 decimals in a note NEW or CHANGED in this push must appear, at the note's precision, in a committed
+# file of the note's data folder (doors/data/<NOTE>/, <NOTE>_PLANT/, rows/outputs/json/scripts) or in development/sims. DOIs and `code spans`
+# are skipped. Numbers quoted from another record are traced by putting that record's file in the data folder or naming it in a code span.
+NUM6 = re.compile(r"(?<![\w./])[+\u2212-]?\d+\.\d{2,}(?![\w/])")
+def _pool6(dirs):
+    P = []
+    for d in dirs:
+        for t in [x for x in tree if x.startswith(d)]:
+            if t.endswith((".txt", ".csv", ".json", ".py", ".md")) and os.path.isfile(t) and os.path.getsize(t) < 50_000_000:
+                P += [float(x) for x in re.findall(r"-?\d+\.\d+(?:e-?\d+)?", open(t, encoding="utf-8", errors="replace").read())]
+    return P
+for f in changed:
+    if not os.path.isfile(f) or f.endswith("_PREREG.md"): continue
+    k = os.path.basename(f)[:-3]; stem = k.replace("_OUTCOME", "")
+    txt = re.sub(r"(?i)doi[: ]\S+|10\.\d{4,}/\S+|`[^`]*`", "", open(f, encoding="utf-8").read())
+    N = set(m.group(0).lstrip("+").replace("\u2212", "-") for m in NUM6.finditer(txt))
+    if not N: continue
+    P = _pool6([f"Biological_Physics/MethylPhys/doors/data/{stem}/", f"Biological_Physics/MethylPhys/doors/data/{stem}_PLANT/", "development/sims/"])
+    miss = sorted(n for n in N if not any(abs(round(v, len(n.split(".")[1])) - float(n)) < 1e-12 or abs(round(-v, len(n.split(".")[1])) - float(n)) < 1e-12 for v in P))
+    if miss: fail.append(f"{f}: {len(miss)} number(s) not found in any committed output of doors/data/{stem}/: {', '.join(miss[:10])}")
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
 print(f"repro_check: ok ({len(changed)} note(s) changed in this push)")

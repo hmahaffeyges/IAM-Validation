@@ -121,6 +121,10 @@ The same gate also refuses a push when the record or a status falls behind:
   required statement is missing, or the printed check count differs from a full `verify_book.py` run. When a status changes, change
   `status_facts.json` first; the checker then lists every place still to update. Dated records (development log, DEV/PROC notes and
   outcomes, job sheets, archive) are history and are not checked.
+- **Number traceability (rule 6, 2026-10-10):** every decimal number (two or more decimals) in a development or outcome note that is new or
+  changed in a push must appear, at the note's printed precision, in a committed file of that note's data folder (`doors/data/<NOTE>/`, outputs,
+  rows, json or the scoring script, or `development/sims/`). A number typed from a notebook cell, or from memory, refuses the push. DOIs and
+  `code spans` are skipped.
 - **Results register:** every dated result and milestone is held once, in `CANON/results_register.json` (status development,
   commissioned or withdrawn; its record; its sealed prediction). `CANON/results_to_tex.py` writes the book's development chapter
   (`docs/book/part6/p6_25_development.tex`, Chapter "Development results") and the Advancements table of `Biological_Physics/README.md`
