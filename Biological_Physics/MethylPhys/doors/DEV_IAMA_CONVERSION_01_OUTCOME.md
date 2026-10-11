@@ -20,3 +20,9 @@ conversion difference, also read 1–1.5 % lower in 3 of 3, so these repeat libr
 repeat libraries here differ by 0.01–0.05 in IAM-A, wider than the neutrophil repeat spread (0.009). Two things are now on record:
 conversion biases IAM-A in the direction and order the derivation gives, and the absolute 0.98 limit has no physical basis by itself.
 The chain is unchanged: the correction is not adopted until a laboratory with a conversion spread and true repeats tests it.
+
+**Stage Q's measured response to conversion (2026-10-11).** Planted on real healthy molecules, incomplete conversion lowers Stage Q's copy error
+by about half the derived factor c (ratio 0.9904 at c 0.98), so conversion accounts for about half of the 2 % stated above and the TruSeq
+repeat gap is mostly a library effect. The ε/c correction over-corrects and is not adopted. Source:
+DEV-IAMA-COMMISSION-01
+

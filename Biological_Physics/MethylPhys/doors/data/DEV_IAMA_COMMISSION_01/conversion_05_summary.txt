@@ -1,0 +1,6 @@
+c 1.0: eps ratio 1.0000 (derived 1.0), IAM-A raw 1.0000, after eps/c 1.0000, opportunities x1.0000
+c 0.995: eps ratio 0.9978 (derived 0.995), IAM-A raw 0.9983, after eps/c 1.0021, opportunities x1.0010
+c 0.99: eps ratio 0.9956 (derived 0.99), IAM-A raw 0.9966, after eps/c 1.0043, opportunities x1.0020
+c 0.98: eps ratio 0.9904 (derived 0.98), IAM-A raw 0.9927, after eps/c 1.0080, opportunities x1.0040
+c 0.97: eps ratio 0.9855 (derived 0.97), IAM-A raw 0.9889, after eps/c 1.0121, opportunities x1.0060
+SYNTHETIC TEST 5 FAILED: Stage Q's response differs from eps/c; C1 uses the measured response

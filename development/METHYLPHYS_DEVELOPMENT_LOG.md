@@ -1027,3 +1027,6 @@ Milestones are also listed in Biological_Physics/README.md, section Advancements
 
 ### 2026-10-11 · DEV-IAMA-COMMISSION-01 synthetic tests 2-4
 Test 2 (same-run tare removes a clustered run artefact on real healthy molecules): passed; tared difference about 1 % at adequate depth, most of the shallow residual is counting noise. Test 3 (EpiQC depth, metadata): passed with wide margin; the box run can sample about 2x per library. Test 4 (conversion, paper): TruSeq at the 0.98 limit; C1 first. EpiQC structure: only EMSeq was made in two laboratories. Runs are SRR13050956-SRR13051274 (project search returns none). Pass values for C2-C5 still to be written before any EpiQC read.
+
+### 2026-10-11 · DEV-IAMA-COMMISSION-01 synthetic test 5: conversion through Stage Q (failed its bar; informative)
+Planted incomplete conversion lowers Stage Q's copy error about half as much as the derived factor c (0.9904 at c 0.98), so eps/c over-corrects. DEV-IAMA-CONVERSION-01 outcome updated: conversion explains about half of the TruSeq repeat gap; the rest is a library effect. C1 drafted: c from human CHH for every library, Stage Q0 limit 0.98 kept, no correction; test 5 repeated on one EpiQC library per line in the box run before C2-C5. The book's eps_corr (substitution error subtracted) is unaffected; the chain applies no conversion correction.

@@ -57,3 +57,16 @@ decided on identical DNA before C2-C5 are read.
 **What the EpiQC design can and cannot test.** C2 (repeatability): every kit, same laboratory. C3 across kits: five kits on identical DNA in one
 laboratory. C3 across laboratories: EMSeq only (two laboratories). The EpiQC lines are lymphoblastoid cell lines, not neutrophils, as stated above.
 
+**Synthetic test 5, 2026-10-11 (conversion through Stage Q)** (`data/DEV_IAMA_COMMISSION_01/conversion_05.py`; output `conversion_05_output.csv`,
+summary `conversion_05_summary.txt`). Incomplete conversion planted on real healthy molecules (every T call read as C with probability 1 - c),
+read by Stage Q. Bar written before running: copy error falls by the derived factor c within 0.005. **Failed**: copy error falls about half as much
+(ratio 0.9904 at c 0.98, 0.9855 at c 0.97), because Stage Q counts only isolated errors on molecules at least 80 % methylated. Dividing by c
+therefore over-corrects (IAM-A 1.0080 at c 0.98); uncorrected IAM-A reads 0.9927 at c 0.98 and 0.9889 at c 0.97.
+
+**C1, the conversion rule (draft, from tests 2 and 5; not sealed).** Conversion c of every library is measured the same way, from human non-CpG
+(CHH) calls on autosomes, with the lambda spike-in as a cross-check where a kit carries one (the EpiQC kits differ: the paper states lambda for
+EMSeq at one laboratory, MethylSeq and TrueMethyl). Stage Q0 keeps its 0.98 limit (ENCODE WGBS standard); no conversion correction is applied. At
+the limit the measured bias, IAM-A 0.9927, is smaller than the tare residual of test 2. Because the EpiQC lines have a different methylation
+landscape from neutrophils, the box run repeats test 5 on one library per line before any C2-C5 value is read; C1 holds only if that bias at
+c 0.98 is within the same bound. Mapping-quality filter required: the lines carry EBV, absent from the hg19 reference.
+
