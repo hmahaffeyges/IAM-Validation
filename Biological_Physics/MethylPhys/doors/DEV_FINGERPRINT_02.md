@@ -56,3 +56,13 @@ normal is one donor. (3) The first fingerprint test (DEV-FINGERPRINT-01) was rea
 deciding Arm B excess (LNCaP +0.1105 to +0.1130) is 5.2 times the largest healthy donor-to-donor excess measured here, so its verdict
 stands clear of donor variation; this check is recorded in its outcome note. One donor pair, one tissue, one laboratory: the donor-to-donor range is a
 lower bound.
+
+## Pair lung_bronchial (A549 against bronchial epithelial cell), rule 02b: sealed before any cancer file is aligned or read
+
+**Sealed:** `data/DEV_FINGERPRINT_02/sealed_lung_bronchial.json` (scorer `score_fingerprint_02b.py`, sha256 in the seal; the score step refuses unless the seal is
+committed unchanged). Normal: 4 RRBS files, Stage Q copy error 0.0423-0.0468; arrays ENCSR000ACA, ENCSR000ACY. The normal holds two donors (the donor null).
+**Arm B decides.** Bar 0.0211 = max(normal-library excess 0.0000, healthy donor-to-donor excess 0.0211).
+Run-loss sensitivity on these molecules (planted 0.10): 0.0898. Planted test of the sealed scorer (`plant02b_lung_bronchial_output.json`): NULL no fingerprint (excess -0.0027 to 0.0000); RUN05 FINGERPRINT (excess 0.0466 to 0.0484); RUN01 no fingerprint (excess 0.0075 to 0.0099); SCAT no fingerprint (excess -0.0026 to 0.0003).
+FINGERPRINT if every one of the 2 A549 files listed in the seal reads above the bar; no fingerprint if every file reads at or below
+it; otherwise UNDECIDED. Arm A (Met-A against curve B) is computed and reported, not deciding.
+**Synthetic test:** DEV_FINGERPRINT_02/plant_fingerprint_02b.py, DEV_FINGERPRINT_02/plant02b_lung_bronchial_output.json, DEV_FINGERPRINT_02/donor_null_02.py, DEV_FINGERPRINT_02/donor_null_02_output.json, DEV_FINGERPRINT_02/prep_normal.sh, DEV_FINGERPRINT_02/normal_bronchial_epithelial_cell/runloss_sim.txt, Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align.py, Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align_result.csv

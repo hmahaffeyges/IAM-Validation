@@ -1,0 +1,142 @@
+{
+ "NULL": {
+  "pair": "lung_bronchial",
+  "IAMA_rel": 1.007512808836271,
+  "eps_cancer": 0.04433487391150326,
+  "eps_normal": 0.04389490128599891,
+  "share_read": 0.9955987308031353,
+  "MetA_rel": 0.9876371967567728,
+  "sites_all_arrays": 3359,
+  "arrays_H": {
+   "ENCSR000ACA": 0.31765952883938237,
+   "ENCSR000ACY": 0.32561217028762607,
+   "ENCSR000ABU": 0.31765952883938237
+  },
+  "curveB": 1.0164622548863722,
+  "curveB_extended": false,
+  "se": 0.07472950330625767,
+  "z": -0.38572527387835204,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.0,
+   "FAKE1": -0.0003784620121245804,
+   "FAKE2": -0.0026643746240280963
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "no fingerprint",
+  "deciding_arm": "B",
+  "power_A06": 0.1998647990182485,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": -0.12600024584963762,
+  "VERDICT": "no fingerprint",
+  "case": "NULL",
+  "expected": "no fingerprint",
+  "PASS": true
+ },
+ "RUN05": {
+  "pair": "lung_bronchial",
+  "IAMA_rel": 1.0072732617598719,
+  "eps_cancer": 0.04432082227886733,
+  "eps_normal": 0.04389490128599891,
+  "share_read": 0.9461311591720263,
+  "MetA_rel": 0.9876371967567728,
+  "sites_all_arrays": 3359,
+  "arrays_H": {
+   "ENCSR000ACA": 0.31765952883938237,
+   "ENCSR000ACY": 0.32561217028762607,
+   "ENCSR000ABU": 0.31765952883938237
+  },
+  "curveB": 1.0159373533329172,
+  "curveB_extended": false,
+  "se": 0.07472950330625767,
+  "z": -0.37870125350846134,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.04791447404863458,
+   "FAKE1": 0.0484173683121168,
+   "FAKE2": 0.046590074961756774
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "FINGERPRINT",
+  "deciding_arm": "B",
+  "power_A06": 0.1998647990182485,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": 2.2032790908582442,
+  "VERDICT": "FINGERPRINT",
+  "case": "RUN05",
+  "expected": "FINGERPRINT",
+  "PASS": true
+ },
+ "RUN01": {
+  "pair": "lung_bronchial",
+  "IAMA_rel": 1.007621296102308,
+  "eps_cancer": 0.044341238183819506,
+  "eps_normal": 0.04389490128599891,
+  "share_read": 0.9854728639975351,
+  "MetA_rel": 0.9876371967567728,
+  "sites_all_arrays": 3359,
+  "arrays_H": {
+   "ENCSR000ACA": 0.31765952883938237,
+   "ENCSR000ACY": 0.32561217028762607,
+   "ENCSR000ABU": 0.31765952883938237
+  },
+  "curveB": 1.0166999749008634,
+  "curveB_extended": false,
+  "se": 0.07472950330625767,
+  "z": -0.38890634700173354,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.009915249543012242,
+   "FAKE1": 0.009445498945553164,
+   "FAKE2": 0.007495813010085381
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "no fingerprint",
+  "deciding_arm": "B",
+  "power_A06": 0.1998647990182485,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": 0.35448253920305717,
+  "VERDICT": "no fingerprint",
+  "case": "RUN01",
+  "expected": "no fingerprint",
+  "PASS": true
+ },
+ "SCAT": {
+  "pair": "lung_bronchial",
+  "IAMA_rel": 1.287255461262681,
+  "eps_cancer": 0.0617935226089648,
+  "eps_normal": 0.04389490128599891,
+  "share_read": 0.9131090801475129,
+  "MetA_rel": 0.9876371967567728,
+  "sites_all_arrays": 3359,
+  "arrays_H": {
+   "ENCSR000ACA": 0.31765952883938237,
+   "ENCSR000ACY": 0.32561217028762607,
+   "ENCSR000ABU": 0.31765952883938237
+  },
+  "curveB": 1.6427078759550457,
+  "curveB_extended": true,
+  "se": 0.07472950330625767,
+  "z": -8.765890983025159,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.0002769622777377724,
+   "FAKE1": -0.00029871341198345856,
+   "FAKE2": -0.00255658669383546
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "no fingerprint",
+  "deciding_arm": "B",
+  "power_A06": 0.1998647990182485,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": -0.1209028749388747,
+  "VERDICT": "no fingerprint",
+  "case": "SCAT",
+  "expected": "no fingerprint",
+  "PASS": true
+ }
+}

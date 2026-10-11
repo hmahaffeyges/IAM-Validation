@@ -833,3 +833,6 @@ The 100,000-opportunity stop halted the run on ENCFF000MJV (bronchial; 0.75 GB l
 lung_bronchial planted test FAILED on power (Arm A se 0.075: its normal is two donors whose copy error differs, 0.0424 vs 0.0465, libraries within a donor agree), so it was not sealed (gate worked).
 Two healthy donors through the scorer, both ways: Arm B FINGERPRINT both ways (excess up to 0.0211 against one-donor bars 0.0011/0.0000); Met-A off curve B by up to 0.1933.
 FINGERPRINT-01's Arm B excess (0.1105) is 5.2x the healthy donor-to-donor excess: verdict stands, check added to its outcome. The FINGERPRINT-02 rule must carry donor variation before any pair is read.
+
+### 2026-10-10 · DEV-FINGERPRINT-02 pair lung_bronchial sealed under rule 02b
+Normal side, planted test (NULL, RUN05, RUN01, SCAT) and seal by pair_pipeline_02b.sh; section written by note_section_02b.py from the outputs.
