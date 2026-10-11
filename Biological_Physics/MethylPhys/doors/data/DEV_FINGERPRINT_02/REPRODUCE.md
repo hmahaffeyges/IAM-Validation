@@ -17,6 +17,7 @@ Paths: `D = Biological_Physics/MethylPhys/doors/data/DEV_FINGERPRINT_02`, `R = B
 | 9 | normal RRBS -> .pat (box) | `SET=normal THREADS=60 bash $R/session9.sh` | .pat in S3 `results/BOXRUN9_FP2/normal/`; sha256 list committed when it lands |
 | 10 | normal side per cell: Stage Q copy error, readability, planted-loss response, run-loss simulation (AWS read) | `bash $D/prep_normal.sh "<ENCODE cell name>" $W` | `normal_<cell>/`: pat_sha256.txt, eps_per_file.json, readability.csv, insilico_<file>.csv, runloss_sim.txt |
 | 11 | planted test of the scorer (no effect, planted, on the line), normal data only | `python3 $D/plant_fingerprint_02.py ...` (committed before it runs) | `plant_fingerprint_02_output.json` |
+| 11b | per pair, steps 10-12 in order, stopping on a failed planted test; note section written from the outputs | `bash $D/pair_pipeline.sh <pair> $W/pat $W/betas $W/plant` | `normal_<cell>/`, `plant_<pair>_output.json`, `power_<pair>_output.txt`, `sealed_<pair>.json`, note section |
 | 12 | seal one pair, normal side only | `python3 $D/score_fingerprint_02.py seal <pair> $W/pat $W/betas`, then commit | `sealed_<pair>.json` |
 | 13 | score one pair (refuses unless its seal is committed unchanged and the scorer's sha256 matches) | `python3 $D/score_fingerprint_02.py score <pair> $W/pat $W/betas` | `scored_<pair>.json`, `scored_<pair>_cancer_rows.csv` |
 
