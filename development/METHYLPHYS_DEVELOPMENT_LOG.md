@@ -894,3 +894,6 @@ Synthetic tests on healthy data: v1 bar failed (scattered de novo error lifted t
 
 ### 2026-10-11 · Arm G production trial on HepG2 and A549 (NOT EVIDENCE; author decision)
 Outcome known in advance (why/both_directions.py). Byte-identical gain scorer run end to end in doors/data/DEV_FINGERPRINT_02_TRIAL (README states it is not evidence): planted tests passed on liver, lung_alveolar, lung_bronchial; trial seals committed, then the commit-gated score step run.
+
+### 2026-10-11 · Direction audit: IAM-A sees gain only as a mixture; IAM-A C-score fails its null on RRBS
+DEV_DIRECTION_AUDIT_01.md (healthy liver, planted gain): gained molecules enter Stage Q and IAM-A moves either way with the gained territory's copy error; healthy RRBS C-score 15.4 vs null 1. Next: per-territory IAM-A (held vs gained).
