@@ -53,3 +53,8 @@ its own patient's normal on the same 450K plate. Pairs: the 53 patients whose tu
 Power (`power_pairs_output.csv`, stand-in pairs of two different same-plate normals): a planted 2 % change crosses the pair bar in 0.6 of pairs and
 the group call in every draw; no change and composition shift alone give group false calls of 0.017 and 0.004.
 **Synthetic test:** DEV_TISSUE_BREAST_01/power_pairs.py, DEV_TISSUE_BREAST_01/power_pairs_output.csv, DEV_TISSUE_BREAST_01/blind_sites_test_ENCSR000ABL_output.csv, DEV_TISSUE_BREAST_01/blind_vs_composition_output.txt
+
+**Re-sealed 2026-10-11T16:56:09Z** after a guard fix in the scorer (it ran git from the test folder with a top-relative path, so the score step
+would always refuse). No tumour array had been downloaded or read. The first seal is kept as `RETIRED_sealed_breast_tissue_guardbug.json`;
+sites, bar, rule and pairs are identical; only the scorer sha256 and the time differ.
+**Synthetic test:** DEV_TISSUE_BREAST_01/power_pairs.py, DEV_TISSUE_BREAST_01/power_pairs_output.csv

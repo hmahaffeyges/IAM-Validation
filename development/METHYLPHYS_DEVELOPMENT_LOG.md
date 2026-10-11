@@ -945,3 +945,6 @@ Blind-site Met-A (plate tare): composition-only false alarms 0.032 with the ENCO
 
 ### 2026-10-11 · DEV-TISSUE-BREAST-01 sealed before any tumour array is downloaded
 FINGERPRINT if >= 6 of 53 pairs read Met-A(tumour)/Met-A(own normal) above 1.0943 at the sealed blind sites; else NO FINGERPRINT. Seven synthetic tests on normals first; two readings dropped on the way (plain; composition-aware).
+
+### 2026-10-11 · DEV-TISSUE-BREAST-01 re-sealed after a guard fix (rule unchanged)
+The score step's committed-seal check could never pass (path bug). Fixed before any tumour array was downloaded; first seal retired; re-seal identical in sites, bar, rule and pairs.
