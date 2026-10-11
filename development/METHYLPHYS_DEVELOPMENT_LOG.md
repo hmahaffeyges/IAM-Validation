@@ -1019,5 +1019,8 @@ Roadmap written into STATUS (commissioning and cancer results alongside; one can
 analysed earlier), rule 9 (laboratory independence from GEO contributors, widened after it missed GSE77797), rule 7 narrowed to new seals.
 Lessons T12-T14. Reviewer findings of 10-10 cleared, two of them real number errors. Data plan from three inventories; IAM-A test C4 cannot be met on
 neutrophils (no public second-laboratory set with 3 or more donors), so neurons are the candidate commissioning cell (DEV-IAMA-NEURON-01).
-Running: none. Box stopped after the T47D run; restarted briefly to retire the scratch disk.
+Running: none. Box stopped. Scratch disk retired (600 GB EBS deleted, author approved): 133 of its 143 .pat results were already in S3 with matching sizes;
+the other 10 (three public Loyfer CD4 files, seven synthetic-test files) saved to results/SCRATCH_RESCUE_2026-10-11/; hg19 and mm10 bwa-meth indexes,
+wgbs_tools references and the environment kept on the box's system disk at the same paths; trimmed reads (regenerable from SRA) and the dog, rabbit
+and rat indexes (withdrawn cross-species check only) not kept.
 Milestones are also listed in Biological_Physics/README.md, section Advancements.
