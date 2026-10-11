@@ -860,3 +860,6 @@ Editing the Met-A commissioning note (Stage 1 pins) re-checked its numbers: 8 li
 
 ### 2026-10-11 · DEV-FINGERPRINT-02 scored: liver, lung_alveolar, lung_bronchial (DEV_FINGERPRINT_02_OUTCOME.md)
 By rule 02b, all three no fingerprint: HepG2 and A549 Arm B excess within the healthy donor-to-donor range. Arm A (reported) FINGERPRINT in lung_bronchial only. Prostate (LNCaP) pending; breast pairs held.
+
+### 2026-10-11 · Commissioned Met-A record rebuilt from a fresh clone (clean room)
+Fresh clone, empty home, 91 public arrays from GEO, the four listed commands: every commissioned matrix identical, no repo file changed (doors/data/MET_A_FLOOR_V13_REPRO/cleanroom_2026-10-11.md). The rebuild found the unpinned Stage 1 inputs (now pinned).
