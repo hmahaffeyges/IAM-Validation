@@ -5,7 +5,7 @@
      has no committed script: one under doors/data/<NOTE>/ (or <NOTE> without _OUTCOME), or a script the note names that exists in the repo.
 Notes still listed as 'open' in development/REPRODUCIBILITY_BACKLOG.md are reported but not refused (the backlog is being closed).
 Pre-registrations (*_PREREG.md) are exempt: their numbers are bars set in advance.
-Rule 8 (2026-10-11): a note that adds a prediction, bar or seal and names a dataset analysed earlier by another record (CANON/data_spent.csv) must\ncarry a one-line '**Prior reading:**' disclosure naming each such dataset (what analysed it, and that it was a different quantity where so).\nDisclosure only: it does not change a result's status.\nRule 7 (2026-10-10): a note that adds a prediction, bar or seal must name its committed synthetic test (script + output).\nRule 6 (2026-10-10): a number in a new or changed note that no committed output of its data folder carries (see below).\nRecord rule (2026-10-10). Also refuses a push when
+Rule 9 (2026-10-11): laboratory independence from GEO contributors (CANON/independence_check.py).\nRule 8 (2026-10-11): a note that adds a prediction, bar or seal and names a dataset analysed earlier by another record (CANON/data_spent.csv) must\ncarry a one-line '**Prior reading:**' disclosure naming each such dataset (what analysed it, and that it was a different quantity where so).\nDisclosure only: it does not change a result's status.\nRule 7 (2026-10-10): a note that adds a prediction, bar or seal must name its committed synthetic test (script + output).\nRule 6 (2026-10-10): a number in a new or changed note that no committed output of its data folder carries (see below).\nRecord rule (2026-10-10). Also refuses a push when
   3. an outcome note (doors/*_OUTCOME.md) new or changed in this push is not named in development/METHYLPHYS_DEVELOPMENT_LOG.md,
      or the log did not change in the same push;
   4. a note that carries a "**Milestone:**" line is not linked from the Advancements table of Biological_Physics/README.md,
@@ -131,6 +131,15 @@ for f in changed:
     if not SEAL7.search(txt): continue
     miss = rule8(f, txt)
     if miss: fail.append(f"{f}: seals on data analysed earlier ({', '.join(miss)}; CANON/data_spent.csv) without a one-line '**Prior reading:**' disclosure (rule 8)")
+sys.path.insert(0, "CANON"); from independence_check import check as rule9
+for f in changed:
+    try: fail += rule9(f, open(f, encoding="utf-8").read())
+    except FileNotFoundError: pass
+if "--audit9" in sys.argv:
+    import glob
+    for f in sorted(glob.glob("Biological_Physics/MethylPhys/doors/*.md")):
+        for x in rule9(f, open(f, encoding="utf-8").read()): print("AUDIT9", x)
+    sys.exit(0)
 if "--audit8" in sys.argv:
     import glob
     for f in sorted(glob.glob("Biological_Physics/MethylPhys/doors/*.md")):

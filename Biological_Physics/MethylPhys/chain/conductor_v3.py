@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cellular Performance Gauge — conductor v3. Met-A on neutrophils (EPIC v1) commissioned 2026-10-09; other stages development. Scope: neutrophils, EPIC v1 arrays.
+"""Cellular Performance Gauge — conductor v3. Met-A on isolated neutrophils (EPIC v1) commissioned 2026-10-09; whole blood and other stages development. Scope: isolated neutrophils, EPIC v1 arrays.
 
 Runs after Stage 0 (intake) and Stage 1 (IDAT calibration), both driven by MethylPhys_Interface/run_sample.py:
   platform  EPIC v1 only: refused when Stage 0 reports another array type, when probe names carry the EPIC v2 design suffix,
@@ -32,14 +32,14 @@ import json, os
 import numpy as np, pandas as pd
 import stage_m_met_a as SM
 HERE = os.path.dirname(os.path.abspath(__file__)); RM = os.path.join(HERE, "Runtime Matrices", "Met_A_Floors")
-BUILD = "chain v3: Met-A on neutrophils (EPIC v1) COMMISSIONED 2026-10-09; every other stage DEVELOPMENT - not commissioned"
+BUILD = "chain v3: Met-A on isolated neutrophils (EPIC v1) COMMISSIONED 2026-10-09; every other stage DEVELOPMENT - not commissioned"
 METAA_COMMISSIONING = {   # doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md (author approved 2026-10-09)
     "status": "COMMISSIONED", "date": "2026-10-09", "reading": "Met-A", "cell": "neutrophils", "platform": "EPIC v1",
-    "specimens": ["isolated neutrophils", "whole blood (any neutrophil fraction, each reading with its own detection limit)"],
+    "specimens": ["isolated neutrophils"],
     "stages": "0, 1, 2, 5, 6, 8 (self-tare II then the median tare), 9, 13",
-    "detection_limit_pct_loss": {"isolated neutrophils": 2.0, "whole blood": 5.0},
+    "detection_limit_pct_loss": {"isolated neutrophils": 2.0},
     "detection_basis": "DEV-METAA-SENS-01: every healthy array left Normal at these losses of the neutrophil pattern, through the whole chain",
-    "not_commissioned": "Met-A C-score, IAM-A, sky (11/12), direction (10), trace/foreign cells (3b/3c), other cell types",
+    "not_commissioned": "whole blood (bar 7 met only on the reference laboratory's own truth sets; commissioned when met on an independent one), Met-A C-score, IAM-A, sky (11/12), direction (10), trace/foreign cells (3b/3c), other cell types",
     "note": "doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md"}
 # No fixed fraction cut (author decision 2026-10-10, DEV-LOWFRAC-01): every whole-blood reading carries shift_per_1pct_loss at its own
 # fraction, and Stage T prints the detection limit (smallest loss of the pattern the specimen could show). The former 0.20 cut did not
@@ -278,7 +278,8 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
                       f"array's signal (Stage 1 detection line).")
     elif N is not None and N > g["N_max"] and t.get("A_rel") is None and m.get("A") is not None:   # no A -> its own reason stands (2026-10-03)
         m["state"] = f"withheld: noise index {N} > {g['N_max']} and no same-run tare; A printed as a number only"
-    if m.get("A") is not None: m["commissioning"] = METAA_COMMISSIONING
+    if m.get("A") is not None and m.get("specimen") != "whole blood": m["commissioning"] = METAA_COMMISSIONING   # isolated neutrophils only (2026-10-11)
+    elif m.get("A") is not None: m["development"] = ("DEVELOPMENT - not commissioned: whole blood (composition, bar 7, met only on the reference laboratory's own truth sets; commissioned when met on whole bloods of known composition from an independent laboratory). Detection limit at this fraction: 5 % loss (DEV-METAA-SENS-01).")
     out["met_a"] = m; out["met_a_cscore"] = stage_t_cscore(stage_mc_cscore(z), ref_A, sample_id); out["tare"] = t
     out["withheld"] = ["tier lines beyond Normal (not yet measured on this scale)", "other cell types (outside commissioning scope)"]
     return out

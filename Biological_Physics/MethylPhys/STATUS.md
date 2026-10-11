@@ -43,6 +43,7 @@ with the kit and the open predictions once R1 and R2 are done.
 | **R2** | **Link Met-A → IAM-A** as a sealed window on every dataset both instruments read (section 2c) | the falsifiable bridge: makes Met-A's gauge ends measured, not only derived | first window sealed on EpiQC (the same DNA on arrays and sequencing), with R1's box run |
 | **R3** | **IAM-A on a second, very different cell type** | one law, not one cell | search: read-level healthy files of another lineage from two labs |
 | **R4** | **Met-A, one cell type or tissue reading at a time** (neutrophils on EPIC commissioned 10-09) | the clinical instrument, broad | blood cells first (whole blood needs the atlas commissioned as the composition step, section 2b); then the tissue readings the cancer tracks need |
+| **R4a (top priority, author 2026-10-11)** | **Met-A in whole blood back into the commissioned scope** | whole blood is what a blood test reads | bar 7 (neutrophil fraction within RMSE 0.02) on whole bloods of known composition from a laboratory independent of the reference (rule 9 checks it); search, synthetic tests, seal, read once (DEV-COMPOSITION-TRUTH-03) |
 | **R5** | **Cancer results, one at a time, alongside R1-R4**: colorectal tissue next, then the detection-limit test, then blood or stool | results draw researchers; each must survive review | colorectal design and synthetic tests (laptop) |
 
 **Every commissioning, any unit (cell type or tissue reading, platform):** its own healthy reference; bars written before reading
@@ -56,7 +57,7 @@ fixes Met-A's floor and ceiling (copy error, holding energy); the R2 link test t
 
 | reading | status | what is left |
 |---|---|---|
-| **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)); detection limits 2 % purified / 5 % whole blood | testing (Box Run 3 under way) |
+| **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)); detection limit 2 % (isolated); whole blood development | testing (Box Run 3 under way) |
 | Met-A C-score | development; blocks of 10 (band 0.877-1.152); one-sided reading and repeat bar tied to detection (author decision) | test (a) new laboratories ≥ 95 % not above 1.152: GSE315366 34/35 met, more laboratories to read; test (b) new same-person replicates |
 | IAM-A, neutrophils | development; whole-file P v2; Q0 intake; same-run tare wired | the tare tested on independent people: cross-cell test (DEV-IAMA-XCELL-01, session 3 running); BLUEPRINT 6 neutrophils (access request drafted for the author) |
 | Composition (atlas v2) | development; bars written ([DEV-ATLAS-COMMISSION-01](doors/DEV_ATLAS_COMMISSION_01.md)) | independent truth sets |
@@ -144,8 +145,8 @@ nobody reads moves to cheaper storage on its own.
 
 ## 8. Commissioning record (stage by stage)
 
-**Commissioned:** Met-A on neutrophils, EPIC v1 (isolated neutrophils; whole blood at any neutrophil fraction, each reading with its own detection limit), stages 0, 1, 2, 5, 6,
-8, 9, 13 — **2026-10-09**, by the author (`COMMISSIONING_NOTE_METAA_NEUTROPHILS.md`). Detection limits 2 % (purified) / 5 % (whole blood)
+**Commissioned:** Met-A on neutrophils, EPIC v1, isolated neutrophils (whole blood is development until composition is met on an independent truth set), stages 0, 1, 2, 5, 6,
+8, 9, 13 — **2026-10-09**, by the author (`COMMISSIONING_NOTE_METAA_NEUTROPHILS.md`). Detection limit 2 % (isolated)
 loss of pattern, printed on every report. Everything else below is development.
 
 
