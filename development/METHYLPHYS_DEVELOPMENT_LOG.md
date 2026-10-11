@@ -885,3 +885,6 @@ Normal side, planted test (NULL, RUN05, RUN01, SCAT) and seal by pair_pipeline_0
 
 ### 2026-10-11 · Why HepG2 and A549 read no fingerprint: the meter reads loss only (descriptive)
 why/both_directions.py (runloss_01 loader and rules, mirrored): gain = share of normally unmethylated molecules (healthy beta <= 0.2, >= 6 calls) reading >= 80 % methylated. Healthy files (leave-one-out) 0.0007-0.0043; LNCaP 0.058-0.081 (loss also high), HepG2 0.076-0.080, A549 0.044-0.052 (loss in the healthy range). The cancers gain methylation at normally unmethylated regions (what RRBS mostly samples); Arm B looks only at loss. Post hoc: not a result. Next: gain arm simulated, then sealed on the unread MCF-7 pairs.
+
+### 2026-10-11 · One cancer at a time, enforced (author)
+The lead scored liver, lung_alveolar and lung_bronchial in one batch; A549 was read before the liver result was understood, and is lost as a sealed test of the gain meter. score_one.sh now refuses to score while any scored pair lacks a review line. SOP and LESSONS T7. Still unread for a sealed gain test: MCF-7 and T47D.

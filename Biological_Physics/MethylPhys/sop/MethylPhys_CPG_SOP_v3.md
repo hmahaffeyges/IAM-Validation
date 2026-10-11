@@ -121,6 +121,7 @@ The same gate also refuses a push when the record or a status falls behind:
   required statement is missing, or the printed check count differs from a full `verify_book.py` run. When a status changes, change
   `status_facts.json` first; the checker then lists every place still to update. Dated records (development log, DEV/PROC notes and
   outcomes, job sheets, archive) are history and are not checked.
+- **One cancer at a time (author, 2026-10-11).** Score one cancer, explain its result in writing, then read the next. Any unexpected verdict stops all further scoring until it is understood. Public cancer data are few; a batch spends them before the lesson is learned. Synthetic tests must also plant the change the meter is not built for, to show what it cannot see.
 - **Synthetic test before every seal (rule 7, 2026-10-10; mandatory).** Public data are few, so no test may waste one. Before any prediction or bar
   is sealed, its full scoring path runs on synthetic data built from real healthy data: (1) a planted known answer the instrument must recover at
   the right size; (2) a no-effect case the scorer must not call; (3) a case on the decision line; (4) power at the samples the real test will have.

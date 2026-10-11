@@ -18,3 +18,9 @@ molecules losing every methylated call (planted tests), so these cancer lines sh
 Arm A is not a verdict (donor null: healthy donors sit up to 0.19 off curve B). The cancer lines read more fully methylated multi-CpG molecules
 than their normals (readable share above 2.7 times), recorded without interpretation.
 Not read: the breast pairs (MCF-7 held for the author's decision on the breast_mcf10a seal).
+
+## Reviews (one cancer at a time; `score_one.sh` refuses to score while a scored pair has no review)
+**Reviewed:** scored_prostate.json. Arm B FINGERPRINT as sealed; LNCaP also gains methylation in normally unmethylated territory (why/both_directions_prostate.csv).
+**Reviewed:** scored_liver.json, scored_lung_alveolar.json, scored_lung_bronchial.json. Arm B no fingerprint as sealed. Cause found (why/both_directions_*.csv): HepG2 and A549
+change in the GAIN direction (normally unmethylated molecules made methylated), 10-100x the healthy files; Arm B reads loss only. These three were scored in one batch;
+had liver been reviewed first, A549 would have stayed unread for a sealed gain test. HepG2 and A549 are development evidence for gain, not a test of it.
