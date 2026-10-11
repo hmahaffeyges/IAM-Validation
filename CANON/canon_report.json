@@ -603,6 +603,15 @@
 "text": "| **G-series** (H_min calibration, before VAL-001) | Apr 2026 | G-002 (17 chains, 8 methylation floors), G-003b (32 floors), bootstrap of the 32; also G-008, E_"
 },
 {
+"file": "Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_02_OUTCOME.md",
+"line": 22,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "## Reviews (one cancer at a time; `score_one.sh` refuses to score while a scored pair has no review)"
+},
+{
 "file": "Biological_Physics/MethylPhys/doors/COMPLETION_SPRINT_original.txt",
 "line": 33,
 "pattern": "\\bA[- ]score",

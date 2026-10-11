@@ -45,3 +45,11 @@ had liver been reviewed first, A549 would have stayed unread for a sealed gain t
   all of it. Loss depends strongly on the reference (0.0125-0.0429 against mammary epithelial cells, 0.1038-0.2982 against MCF 10A): the choice of
   healthy reference matters for the loss arm. The UW stock (ENCSR605IIO) again reads the most loss and the least gain. No sealed rule or scorer
   problem: scoring may continue (T47D pairs next, when aligned).
+
+### t47d_hmec (T47D against mammary epithelial cells), scored 2026-10-11 as sealed (rule 02b and Arm G, rule 02c)
+**Reviewed:** scored_t47d_hmec.json, scored_gain_t47d_hmec.json.
+- **Arm B (loss): FINGERPRINT,** all 4 T47D files above the bar 0.0211 (excess 0.0725-0.1180).
+- **Arm G (gain): FINGERPRINT,** all 4 above the bar 0.0048 (gain 0.0526-0.0843). Arm A, reported only:
+  Met-A_rel 1.2136, IAM-A_rel 0.8287.
+- Both breast cancer lines now read FINGERPRINT on the gain meter against primary mammary epithelial cells; T47D also on the loss meter,
+  where MCF-7 was undecided. No sealed rule or scorer problem: scoring may continue (t47d_mcf10a next).

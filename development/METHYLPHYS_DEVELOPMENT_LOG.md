@@ -957,3 +957,6 @@ STATUS section 0: Met-A commissioning (R4) runs alongside R1-R3 (only new cancer
 
 ### 2026-10-11 · Roadmap: replication goal replaces the outside-lab item (author)
 The author works alone from public data; no laboratory runs anything for this work. STATUS section 0 now states the goal as a researcher who wants to test IAM: sealed predictions met on public data, a one-command replication kit per commissioning, open predictions checkable with data a laboratory already holds, and a preprint after R1 and R2.
+
+### 2026-10-11 · t47d_hmec scored: FINGERPRINT on both arms (4/4 each)
+T47D against mammary epithelial cells, rules 02b and 02c as sealed. Reviewed in DEV_FINGERPRINT_02_OUTCOME.md. Box Run 9 complete; box stopped (EC2 waiter confirmed).

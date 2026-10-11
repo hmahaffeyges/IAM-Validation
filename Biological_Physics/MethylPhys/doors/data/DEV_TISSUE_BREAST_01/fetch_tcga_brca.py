@@ -6,12 +6,12 @@ Usage: python3 fetch_tcga_brca.py list | fetch WORKDIR normal|tumour"""
 import os, sys, json, hashlib, subprocess, requests, pandas as pd
 import time
 def req(f, *a, **k):
-    for i in range(6):
+    for i in range(10):
         try:
             r = f(*a, **k); r.raise_for_status(); return r
         except Exception as e:
-            if i == 5: raise
-            time.sleep(5 * (i + 1))
+            if i == 9: raise
+            time.sleep(min(120, 10 * 2 ** i))   # gateway errors come in runs; back off up to 2 min
 HERE = os.path.dirname(os.path.abspath(__file__)); LIST = os.path.join(HERE, "tcga_brca_450k_files.csv"); API = "https://api.gdc.cancer.gov"
 if sys.argv[1] == "list":
     flt = {"op": "and", "content": [{"op": "=", "content": {"field": "cases.project.project_id", "value": "TCGA-BRCA"}},

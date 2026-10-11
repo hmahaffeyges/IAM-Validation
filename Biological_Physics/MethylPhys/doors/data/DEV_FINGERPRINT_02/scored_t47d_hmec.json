@@ -1,0 +1,32 @@
+{
+ "pair": "t47d_hmec",
+ "IAMA_rel": 0.8287432455578766,
+ "eps_cancer": 0.034373204078719535,
+ "eps_normal": 0.04403110288689249,
+ "share_read": 3.097171118295054,
+ "MetA_rel": 1.2136068108065698,
+ "sites_all_arrays": 3392,
+ "arrays_H": {
+  "ENCSR000ABL": 0.3258731503946936,
+  "ENCSR000ADC": 0.3954818747779938
+ },
+ "curveB": 1.0,
+ "curveB_extended": false,
+ "se": 0.17531260777881355,
+ "z": 1.2184338223755755,
+ "armA": "no fingerprint",
+ "cancer_excess": {
+  "ENCFF000MNJ": 0.11801596992117369,
+  "ENCFF000MNK": 0.07248316909324287,
+  "ENCFF000MNN": 0.0753994048703859,
+  "ENCFF000MNO": 0.11202295147861586
+ },
+ "armB_bar": 0.021145789090027865,
+ "armB": "FINGERPRINT",
+ "deciding_arm": "B",
+ "power_A06": 0.09632934215257638,
+ "armA_role": "reported only",
+ "armB_donor_excess": 0.021145789090027865,
+ "ratio_min_excess_to_donor": 3.427782656142408,
+ "VERDICT": "FINGERPRINT"
+}
