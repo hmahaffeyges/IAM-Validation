@@ -22,11 +22,13 @@ instrument error is handled, and that the planned design has power ≥ 0.8. Only
 
 ## 0. Commissioning roadmap (author, 2026-10-11): trust the physics and the instruments first, then take them to other cancers
 
-**Rule.** No new cancer test starts until stages R1-R3 have earned credibility. Cancer tests already sealed finish as sealed
-(DEV-FINGERPRINT-02, T47D pairs; DEV-TISSUE-BREAST-01). Colorectal (GSE131013 onward), cell-free DNA and blood-cancer tests wait behind R1-R3.
+**Rule (author, 2026-10-11).** Commissioning (R1-R4) and cancer results run alongside each other: commissioning makes the instruments
+trustworthy, results draw researchers to test them. Cancer tests stay one at a time, synthetic-tested and sealed before reading. Breast
+is complete (DEV-FINGERPRINT-02, DEV-TISSUE-BREAST-01); colorectal tissue (GSE131013) is next. **Early detection** (blood, stool) is claimed
+only after a sealed detection-limit test (known small tumour shares mixed into healthy DNA) shows the tumour share in those samples is within
+reach; until then results are stated as tissue results.
 A development test never extends a commissioned scope; only a commissioning does.
-**R4 runs alongside R1-R3:** commissioning Met-A on a new cell type or tissue reading is credibility work, not expansion, and Met-A's
-detection stands on its own bars. What waits behind R1-R3 is new cancer tests only.
+**R4 runs alongside R1-R3:** Met-A's detection stands on its own bars.
 **Stopping rule, every stage:** if the public data for a stage do not exist, that is recorded and the claims are stated without it (what each
 instrument can and cannot say); if a stage fails its bars, the work stops there until the cause is found, never routed around.
 **The goal of every stage: a researcher who wants to test IAM.** The work is done from public data only; "another laboratory" in every bar means
@@ -41,7 +43,7 @@ with the kit and the open predictions once R1 and R2 are done.
 | **R2** | **Link Met-A → IAM-A** as a sealed window on every dataset both instruments read (section 2c) | the falsifiable bridge: makes Met-A's gauge ends measured, not only derived | first window sealed on EpiQC (the same DNA on arrays and sequencing), with R1's box run |
 | **R3** | **IAM-A on a second, very different cell type** | one law, not one cell | search: read-level healthy files of another lineage from two labs |
 | **R4** | **Met-A, one cell type or tissue reading at a time** (neutrophils on EPIC commissioned 10-09) | the clinical instrument, broad | blood cells first (whole blood needs the atlas commissioned as the composition step, section 2b); then the tissue readings the cancer tracks need |
-| **R5** | **Cancers beyond those sealed**, in the order of section 4 | only after R1-R3 | — |
+| **R5** | **Cancer results, one at a time, alongside R1-R4**: colorectal tissue next, then the detection-limit test, then blood or stool | results draw researchers; each must survive review | colorectal design and synthetic tests (laptop) |
 
 **Every commissioning, any unit (cell type or tissue reading, platform):** its own healthy reference; bars written before reading
 (repeatability, false calls on healthy, detection of a planted known change, healthy from another lab reads Normal); data from a laboratory not

@@ -966,3 +966,6 @@ Gain meter FINGERPRINT in 4 of 4 breast pairs; loss meter in 3 of 4 (MCF-7 vs ma
 
 ### 2026-10-11 · DEV-TISSUE-BREAST-01 scored: FINGERPRINT (23 of 53, 6 needed)
 Patients' breast tumours against their own same-plate normal tissue, composition-blind Met-A, sealed before download. Median R 1.065; 41 of 53 tumours above their normal. Group-level; development (TCGA built the reading). DEV_TISSUE_BREAST_01_OUTCOME.md.
+
+### 2026-10-11 · Roadmap: cancer results run alongside commissioning (author)
+STATUS section 0: commissioning and cancer results run alongside, cancers one at a time. Breast complete; colorectal tissue (GSE131013) next. Early detection (blood, stool) is claimed only after a sealed detection-limit test.
