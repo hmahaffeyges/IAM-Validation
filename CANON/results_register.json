@@ -82,6 +82,17 @@
    "record": "docs/book",
    "link_text": "docs/book",
    "headline": "**The book, IAM's Law and Order, v1.0** published (DOI [10.5281/zenodo.23151068](https://doi.org/10.5281/zenodo.23151068)); every derivation checked by one command, `docs/book/verify_book.py`. It includes the 74-cell reference atlas built as one Bayesian posterior, with an interval at every locus for every cell"
+  },
+  {
+   "id": "DEV-TISSUE-BREAST-01",
+   "date": "2026-10-11",
+   "kind": "result",
+   "instrument": "Met-A",
+   "status": "development",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md",
+   "compute": "breast_tissue",
+   "title": "Met-A on patients' breast tumours against their own normal tissue"
   }
  ]
 }

@@ -48,6 +48,10 @@ def compute(e):
         armB = min(S["LNCaP"]["ex"]) > max(S["PrEC"]["ex"])
         return dict(IA=IA, share=share, MA=MA, nsites=nsites, cB=cB, z=z, exL=(min(S["LNCaP"]["ex"]), max(S["LNCaP"]["ex"])), exP=max(S["PrEC"]["ex"]),
                     nL=S["LNCaP"]["n"], nP=S["PrEC"]["n"], arm="B" if share < 0.70 else "A", inside=(armB if share < 0.70 else z > 1.645))
+    if e["compute"] == "breast_tissue":
+        O = json.load(open(os.path.join(ROOT, D + "DEV_TISSUE_BREAST_01/scored_breast_tissue.json"), encoding="utf-8")); Rr = [r["R"] for r in O["rows"]]
+        from scipy.stats import binom
+        return dict(n=O["pairs"], k=O["above_bar"], crit=O["crit"], bar=O["bar"], med=O["R_median"], up=sum(r > 1 for r in Rr), p=float(binom.sf(O["above_bar"] - 1, O["pairs"], .05)), inside=O["VERDICT"] == "FINGERPRINT")
     if e["compute"] == "moss":
         R = rows(D + "DEV_CSCORE_MOSS_01/moss_mixes_01_rows.csv"); mix = [r for r in R if r["mix"].startswith("Mix")]
         leuk = [float(r["A"]) for r in R if r["mix"] == "unmixed leukocytes"]
@@ -114,6 +118,10 @@ def readme_row(e, v):
         h = (f"**Cancer fingerprint, both instruments on the same cells.** Prostate cancer (LNCaP) against normal prostate epithelium: methylation lost in runs on "
              f"every cancer run ({v['exL'][0]:.3f}–{v['exL'][1]:.3f} vs at most {v['exP']:.4f} in normal), and Met-A {v['MA']:.3f} above the line copy error allows "
              f"({v['cB']:.3f}); fingerprint by the rule sealed before reading. One line, one laboratory")
+    elif e.get("compute") == "breast_tissue":
+        h = (f"**Met-A on patients' breast tumours.** Each of {v['n']} TCGA tumours read against the same patient's normal tissue at sites the tissue mix "
+             f"cannot move, by a rule sealed before any tumour array was downloaded: {v['k']} of {v['n']} above the healthy bar ({v['crit']} needed; "
+             f"p = {v['p']:.1e}); {v['up']} of {v['n']} above their own normal. Group-level; TCGA built the reading")
     elif e.get("compute") == "moss":
         h = f"**Met-A raises no false alarm** when 4–15 % liver, lung, colon or neuron DNA is mixed into blood DNA ({v['ok']} of {v['n']} within the sealed bar; largest shift {v['maxd']:.4f})"
     else: h = e["headline"]
