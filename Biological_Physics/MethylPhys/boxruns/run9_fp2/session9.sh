@@ -18,6 +18,7 @@ REF=$S/ref/hg19_lambda_puc19.fa; [ -s $REF.bwameth.c2t.sa ] || fin FAIL_no_hg19_
 grep -q "0\.2\.0" $O/versions.txt || fin FAIL_bwameth_not_0.2.0
 cp $HERE/${SET}_rrbs_files.csv $O/files.csv; log "START set=$SET threads=$T $(tr '\n' ' ' < $O/versions.txt)"
 one_read(){ IFS=, read -r file exp cell rep rl md5 url gb <<< "$1"; f=$W/fq/$file.fastq.gz
+  [ -s $W/trim/${file}_trimmed.fq.gz ] && [ -s $W/trim/${file}.fastq.gz_trimming_report.txt ] && { log "$file trimmed reads present"; return; }
   for t in 1 2 3; do [ -s $f ] && [ "$(md5sum $f | cut -d' ' -f1)" = "$md5" ] && break; curl -sL -o $f "$url"; done
   [ "$(md5sum $f | cut -d' ' -f1)" = "$md5" ] || { log "$file MD5_FAIL"; return; }
   trim_galore --rrbs --cores 2 -o $W/trim $f > $O/${file}_trim.log 2>&1 && cp $W/trim/${file}.fastq.gz_trimming_report.txt $O/ 2>/dev/null; rm -f $f; log "$file trimmed"; }
