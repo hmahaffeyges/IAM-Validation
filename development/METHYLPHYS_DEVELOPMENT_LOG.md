@@ -1036,3 +1036,6 @@ Scorer, 9-case planted test and guard tested both ways; reading rules fixed (one
 
 ### 2026-10-11 · DEV-COMPOSITION-TRUTH-04 Stage 1 read check passed (and the earlier platform check corrected)
 The earlier name-only platform check would have missed a custom chip whose probes sit at different bead addresses. The deciding check now compares addresses: all 865,918 shared probes have identical addresses to EPIC v1, every chain site's beads are on the chip, and chain Stage 1 reads one excluded array (GSM5098953; names only, no values). Per-array quality-check losses there: 6 Met-A sites, 1 marker, 49 noise sites, as on any EPIC array.
+
+### 2026-10-11 · Box Run 10 format check (1M pairs, one library per kit; not scored)
+Every kit is readable by the pinned pipeline (stop rule: >= 70 % of pairs mapped): EMSeq SRR13051142 2,000,554 reads mapped and QC-passed (+1,752 QC-failed); MethylSeq SRR13051104 1,973,614 (+32,537); SPLAT SRR13051055 1,913,991 (+104,816); TrueMethylBS SRR13051253 1,715,092 (+443,483). The QC-failed reads are those bwa-meth flags as unconverted (0x200); bam2pat's -F 1796 drops them, as in every earlier run. TrueMethylBS loses about 20 % of reads this way, recorded before any reading. All four kits go to Stage B if Stage A meets C1.
