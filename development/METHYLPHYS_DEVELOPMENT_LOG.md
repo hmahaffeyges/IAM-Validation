@@ -978,3 +978,6 @@ Colon (GSE131013): 91 patients with tumour and adjacent normal on one slide, 48 
 
 ### 2026-10-11 · DEV-TISSUE-COLON-01 synthetic tests: v1 failed power (null group call 0.053), v2 at p < 0.01 passes all five
 On real colon normals and healthy mucosa only. Composition shift 0.037 above the bar, independence Spearman -0.046, planted 5 % found 0.985; v2 null group call 0.007. Scorer committed before the seal.
+
+### 2026-10-11 · DEV-TISSUE-COLON-01 sealed before any tumour array is fetched
+FINGERPRINT if >= 11 of 88 pairs read Met-A(tumour)/Met-A(own adjacent normal, same slide) above 1.0921 at the sealed blind sites; else NO FINGERPRINT.

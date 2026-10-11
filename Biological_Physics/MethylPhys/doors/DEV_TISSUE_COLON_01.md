@@ -1,4 +1,4 @@
-# DEV-TISSUE-COLON-01 — Met-A on colorectal tumour against the same patient's normal colon (development; design, 2026-10-11; NOT sealed)
+# DEV-TISSUE-COLON-01 — Met-A on colorectal tumour against the same patient's normal colon (development; SEALED 2026-10-11)
 
 **Data.** GSE131013 (colon, 450K, IDATs in S3 `downloads/C_tissue_tests/GSE131013/`): 48 healthy donors' colon mucosa, 96 adjacent normal, 96
 tumours, all stage II (88 IIA, 8 IIB). Samples, plates and slides: `data/DEV_TISSUE_COLON_01/colon_samples.csv` (GEO annotations and the series'
@@ -33,4 +33,10 @@ epithelial share (0.081-0.567): Spearman -0.046 (p 0.67). Planted 5 %: 0.985 of 
 **Version 1 failed test 5:** group rule at binomial p < 0.05 gave a no-change group call of 0.053 (limit 0.05; stand-in pairs reuse arrays, so
 they are not independent). Kept as `colon_synthetic_v1_FAILED_*`. **Version 2** uses p < 0.01 (pass criteria unchanged): no-change group
 call 0.007, composition 0.000, planted 2 % 1.000. All five passed.
+**Synthetic test:** DEV_TISSUE_COLON_01/colon_synthetic.py, DEV_TISSUE_COLON_01/colon_synthetic_output.csv, DEV_TISSUE_COLON_01/colon_synthetic_summary.txt
+
+## Sealed 2026-10-11T19:12:31Z before any tumour array is fetched or read
+**Sealed:** `data/DEV_TISSUE_COLON_01/sealed_colon_tissue.json` (scorer `score_colon_tissue.py`, sha256 in the seal; lock tested with a committed
+dummy seal before sealing: no seal and an uncommitted seal refuse, a committed seal opens). Pairs: 88 patients with tumour and adjacent
+normal on one slide, both arrays rated OK by the submitters. **Rule:** FINGERPRINT if >= 11 of 88 pairs read Met-A(tumour)/Met-A(own adjacent normal, same slide) above 1.0921 at the sealed blind sites; else NO FINGERPRINT.
 **Synthetic test:** DEV_TISSUE_COLON_01/colon_synthetic.py, DEV_TISSUE_COLON_01/colon_synthetic_output.csv, DEV_TISSUE_COLON_01/colon_synthetic_summary.txt
