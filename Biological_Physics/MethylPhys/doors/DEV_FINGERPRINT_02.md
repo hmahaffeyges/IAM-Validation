@@ -116,3 +116,11 @@ Run-loss sensitivity on these molecules (planted 0.10): 0.0987. Planted test of 
 FINGERPRINT if every one of the 10 MCF-7 files listed in the seal reads above the bar; no fingerprint if every file reads at or below
 it; otherwise UNDECIDED. Arm A (Met-A against curve B) is computed and reported, not deciding.
 **Synthetic test:** DEV_FINGERPRINT_02/plant_fingerprint_02b.py, DEV_FINGERPRINT_02/plant02b_breast_mcf10a_output.json, DEV_FINGERPRINT_02/donor_null_02.py, DEV_FINGERPRINT_02/donor_null_02_output.json, DEV_FINGERPRINT_02/prep_normal.sh, DEV_FINGERPRINT_02/normal_MCF_10A/runloss_sim.txt, Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align.py, Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align_result.csv
+
+## Arm G (gain), rule 02c: sealed 2026-10-11 before any MCF-7 file is read
+
+Why: Arm B reads loss only; HepG2 and A549 changed in the gain direction (why/both_directions_*.csv, development evidence). Arm G is tested only on the unread cancer: MCF-7, one pair at a time (`score_one.sh`), the second pair scored only after the first is reviewed.
+- **breast_mcf10a:** `sealed_gain_breast_mcf10a.json`, bar 0.0038 (healthy files, donor null, loss and scattered disturbances); FINGERPRINT if all 10 MCF-7 files read gain above it, no fingerprint if all at or below, else UNDECIDED.
+- **breast_hmec:** `sealed_gain_breast_hmec.json`, bar 0.0048 (healthy files, donor null, loss and scattered disturbances); FINGERPRINT if all 10 MCF-7 files read gain above it, no fingerprint if all at or below, else UNDECIDED.
+**Synthetic test:** DEV_FINGERPRINT_02/score_gain_02c.py, DEV_FINGERPRINT_02/plant_gain_breast_mcf10a_output.json, DEV_FINGERPRINT_02/plant_gain_breast_hmec_output.json, DEV_FINGERPRINT_02/why/gain_donor_null_02c.json, DEV_FINGERPRINT_02/why/plant_gain_breast_mcf10a_v1_FAILED.json
+Version 1 of the bar failed its planted test (zero margin over scattered de novo error) and was revised before any MCF-7 data existed.

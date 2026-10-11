@@ -1,13 +1,15 @@
 """DEV-FINGERPRINT-02 Arm G (rule 02c, written 2026-10-11 before any MCF-7 file is read). Arm G reads GAIN: molecules of normally unmethylated territory
 (healthy beta <= 0.2 pooled from the pair's normal files, >= 6 calls) that read >= 80 % methylated (why/both_directions.read2; runloss_01 loader).
 Found post hoc on HepG2/A549/LNCaP (why/both_directions_*.csv); tested here only on the unread MCF-7 pairs (breast_mcf10a, breast_hmec).
-BAR = max(every normal file of the pair read against its other normal files; the bronchial donor null both ways, gain of each donor's files against
-the other donor's pool). VERDICT: FINGERPRINT if every MCF-7 file listed in the seal reads gain > BAR; no fingerprint if every file <= BAR; else UNDECIDED.
+BAR = max(every normal file of the pair read against its other normal files; the bronchial donor null both ways; every normal file under the two
+non-gain disturbances LOSS05 and SCAT). Version 1 set BAR from the first two only and failed its planted test (why/plant_gain_*_v1_FAILED.json:
+scattered de novo error lifted the bar-setting file 0.0002 over a zero-margin bar); revised before any MCF-7 file was read. VERDICT: FINGERPRINT if every MCF-7 file listed in the seal reads gain > BAR; no fingerprint if every file <= BAR; else UNDECIDED.
 Steps:  donor PATD | plant PATD PAIR | seal PATD PAIR | score PATD PAIR
 plant (normal data only): each normal file, leave-one-out reference: NULL; GAIN05 (5 % of its unmethylated-territory molecules made fully methylated,
 expect above BAR); LOSS05 (5 % of methylated-territory molecules lose every methylated call, expect at or below BAR: Arm G must not read loss);
 SCAT (each unmethylated call of unmethylated-territory molecules gained with p 0.04, scattered de novo error, expect at or below BAR);
-sensitivity: planted gain 0.25/0.5/1/2 % reported. PASS = all four cases as expected on every normal file."""
+sensitivity: planted gain 0.25/0.5/1/2 % reported. PASS on every normal file: NULL <= BAR; GAIN05 > BAR; planted 0.5 % gain > BAR;
+specificity: |LOSS05 - NULL| and |SCAT - NULL| each < 2 % of (GAIN05 - NULL)."""
 import os, sys, json, hashlib, subprocess, numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.join(HERE, "why")); sys.path.insert(0, os.path.join(HERE, "../DEV_RUNLOSS_01"))
 import runloss_01 as R
@@ -38,14 +40,18 @@ if STEP == "donor":
     out["max"] = max(out.values()); json.dump(out, open(DONOR, "w"), indent=1); print(out)
 elif STEP == "plant":
     S = seal_of(PAIR); nf = [r["file"] for r in S["normal_files"]]; NL = {x: L(x) for x in nf}; D = json.load(open(DONOR))["max"]
-    base = loo(nf, NL); bar = max(max(base.values()), D); res = {"bar": bar, "files": {}}; ok = True
+    base = loo(nf, NL); C = {}
     for i, x in enumerate(nf):
         bv = R.beta_v([NL[y] for y in nf if y != x]); f = NL[x]
         c = dict(NULL=read2(f, bv)["gain_U"], GAIN05=read2(plant_gain(f, bv, 0.05, 11 + i), bv)["gain_U"],
                  LOSS05=read2(plant_loss(f, bv, 0.05, 21 + i), bv)["gain_U"], SCAT=read2(plant_gain(f, bv, 0.04, 31 + i, scat=True), bv)["gain_U"])
         sens = {r: read2(plant_gain(f, bv, r, 41 + i), bv)["gain_U"] for r in (0.0025, 0.005, 0.01, 0.02)}
-        p = (c["NULL"] <= bar) and (c["GAIN05"] > bar) and (c["LOSS05"] <= bar) and (c["SCAT"] <= bar); ok &= p
-        res["files"][x] = dict(c, sensitivity={str(k): v for k, v in sens.items()}, PASS=bool(p))
+        C[x] = (c, sens)
+    bar = max(max(base.values()), D, max(max(c["LOSS05"], c["SCAT"]) for c, _ in C.values())); res = {"bar": bar, "files": {}}; ok = True
+    for x, (c, sens) in C.items():
+        g = c["GAIN05"] - c["NULL"]; spec = abs(c["LOSS05"] - c["NULL"]) < 0.02 * g and abs(c["SCAT"] - c["NULL"]) < 0.02 * g
+        p = (c["NULL"] <= bar) and (c["GAIN05"] > bar) and (sens[0.005] > bar) and spec; ok &= p
+        res["files"][x] = dict(c, sensitivity={str(k): v for k, v in sens.items()}, specificity_ok=bool(spec), PASS=bool(p))
         print(x, {k: round(v, 4) for k, v in c.items()}, "| sens", {k: round(v, 4) for k, v in sens.items()}, "| bar", round(bar, 4), "PASS" if p else "FAIL", flush=True)
     res["PASS"] = bool(ok); json.dump(res, open(os.path.join(HERE, f"plant_gain_{PAIR}_output.json"), "w"), indent=1); print("PLANTED TEST", "PASSED" if ok else "FAILED")
 elif STEP == "seal":

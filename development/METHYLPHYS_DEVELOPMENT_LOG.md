@@ -888,3 +888,6 @@ why/both_directions.py (runloss_01 loader and rules, mirrored): gain = share of 
 
 ### 2026-10-11 · One cancer at a time, enforced (author)
 The lead scored liver, lung_alveolar and lung_bronchial in one batch; A549 was read before the liver result was understood, and is lost as a sealed test of the gain meter. score_one.sh now refuses to score while any scored pair lacks a review line. SOP and LESSONS T7. Still unread for a sealed gain test: MCF-7 and T47D.
+
+### 2026-10-11 · Arm G (gain) sealed on both breast pairs before MCF-7 is read
+Synthetic tests on healthy data: v1 bar failed (scattered de novo error lifted the bar-setting file 0.0002 over a zero-margin bar); bar revised to include non-gain disturbances; v2 passed on all 8 healthy files (planted 0.5 % gain caught on every file; loss and scattered error move it < 2 % of a 5 % gain).
