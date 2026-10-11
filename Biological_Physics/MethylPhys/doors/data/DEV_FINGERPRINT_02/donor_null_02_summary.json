@@ -1,0 +1,7 @@
+{
+ "lncap_excess_min": 0.1105,
+ "lncap_excess_max": 0.113,
+ "donor_excess_max": 0.0211,
+ "donor_metA_minus_curveB_max": 0.1933,
+ "ratio_lncap_min_to_donor_max": 5.2
+}
