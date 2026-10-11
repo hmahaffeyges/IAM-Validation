@@ -990,3 +990,6 @@ The inventories show the retired class-gauge method analysed both sets (VAL-060/
 
 ### 2026-10-11 · CHAIN CHANGE · Met-A commissioned scope narrowed to isolated neutrophils (author); rule 9 (LESSONS T14)
 Bar 7 (whole-blood neutrophil fraction) was met only on the reference laboratory's own truth sets (GSE182379, GSE112618; GEO contributors Salas, Koestler, Butler); the note had called GSE182379 another laboratory. Author chose to narrow: whole blood is development until bar 7 is met on an independent truth set (STATUS R4a, top priority). conductor_v3 attaches the commissioning only to isolated neutrophils; report_v3 shows a development box with the 5 % limit for whole blood. Checked end to end through run_sample.py: GSM2998021 (isolated) green box, A 0.996; GSM3074480 (whole blood) development box, A 0.9609. Rule 9 and CANON/geo_contributors.csv added; tested on the old bar-7 wording (refused) and audited over all notes (no other false laboratory claim).
+
+### 2026-10-11 · DEV-TISSUE-COLON-01 scored: FINGERPRINT (28 of 88, 11 needed)
+Colorectal tumours against their own adjacent normal on the same slide, blind-site Met-A, sealed before any tumour array was fetched. Median R 1.0658; 80 of 88 above their normal. Group-level, one laboratory; replication next on GSE199057. DEV_TISSUE_COLON_01_OUTCOME.md.

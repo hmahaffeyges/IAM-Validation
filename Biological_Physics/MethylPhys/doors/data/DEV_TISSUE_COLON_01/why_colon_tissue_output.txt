@@ -1,0 +1,6 @@
+pairs 88 | above bar 28 (bar 1.0921; needed 11) | binomial p at 0.05 per pair 1.4e-15
+R quantiles {0.0: 0.9433, 0.1: 1.0047, 0.25: 1.0359, 0.5: 1.0658, 0.75: 1.1059, 0.9: 1.138, 1.0: 1.2856}
+tumours above their own normal: 80 of 88; below: 8
+sites read per pair: 5923-6000 of 6000
+R by plate (n, median, above bar): SMET0018 36, 1.081, 14; SMET0019 35, 1.056, 7; SMET0022 17, 1.062, 7
+R by stage (n, median, above bar): IIA 80, 1.070, 26; IIB 8, 1.043, 2

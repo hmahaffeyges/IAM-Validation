@@ -93,6 +93,17 @@
    "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md",
    "compute": "breast_tissue",
    "title": "Met-A on patients' breast tumours against their own normal tissue"
+  },
+  {
+   "id": "DEV-TISSUE-COLON-01",
+   "date": "2026-10-11",
+   "kind": "result",
+   "instrument": "Met-A",
+   "status": "development",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md",
+   "compute": "colon_tissue",
+   "title": "Met-A on patients' colorectal tumours against their own adjacent normal"
   }
  ]
 }
