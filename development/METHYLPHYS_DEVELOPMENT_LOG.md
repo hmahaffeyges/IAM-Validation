@@ -795,6 +795,9 @@ DEV-FINGERPRINT-02: array list and readability bound moved from notebook cells t
 ### 2026-10-10 · Push gate rule 6: number traceability
 CANON/repro_check.py now refuses a push when a decimal number in a new or changed note is not carried, at the printed precision, by a committed file of the note's data folder. Run on today's notes before wiring: the only untraced number was a sealed bar constant (1.645), carried by its scorer. Negative control: a typed number in an outcome note refused; the FINGERPRINT-01 and SAM outcomes pass.
 
+### 2026-10-10 · Box Run 9 mapped nothing; lessons index
+bwa-meth 0.2.0 calls bwa mem with -T 40 (minimum alignment score); ENCODE HAIB RRBS reads are 36 bases, so no read aligned (flagstat 0.00 % mapped). session9.sh logged each file done and deleted the empty BAM: 7 files, about 80 box-minutes, no output. Stopped. session9.sh now stops the run when a file maps under 40 % or yields no .pat. A lower -T is passed through bwa-meth (extra arguments follow its own -T) and will be chosen by a synthetic alignment test before any rerun. New: Biological_Physics/MethylPhys/LESSONS.md, one index of lessons with the rule and the enforcing check, linked from the SOP.
+
 ### 2026-10-10 · Day summary
 Passed (sealed before reading): IAM-A SAM lever in mice (1.124 in window 1.016-1.135, p 0.0003); Met-A on identical DNA at three laboratories
 (all four bars); Met-A specificity on the Moss mixes (9/9). Reproduced from public data: every matrix the commissioned chain reads.

@@ -28,7 +28,10 @@ for file in $(tail -n +2 $HERE/${SET}_rrbs_files.csv | cut -d, -f1); do
   bwameth.py --threads $T --reference $REF $t 2>> $O/${file}_align.log | samtools view -b -o $W/bam/$file.u.bam - || { log "$file align FAILED"; continue; }
   samtools sort -@ 16 -m 2G -T $W/bam/$file.tmp -o $W/bam/$file.bam $W/bam/$file.u.bam && rm -f $W/bam/$file.u.bam && samtools index $W/bam/$file.bam
   samtools flagstat $W/bam/$file.bam > $O/${file}_flagstat.txt
+  MR=$(grep -m1 " mapped (" $O/${file}_flagstat.txt | sed -E 's/.*\(([0-9.]+)%.*/\1/'); log "$file mapped ${MR}%"
+  awk -v m="$MR" 'BEGIN{exit !(m+0 >= 40)}' || fin "FAIL_mapping_${file}_${MR}pct"   # LESSONS B1: stop the run, do not log 'done' on nothing
   wgbstools bam2pat $W/bam/$file.bam -o $W/pat --genome hg19 -@ 16 >> $O/${file}_bam2pat.log 2>&1 || { log "$file bam2pat FAILED"; continue; }
+  [ -s $W/pat/$file.pat.gz ] || fin "FAIL_no_pat_${file}"   # LESSONS B1
   for x in $W/pat/$file.pat.gz $W/pat/$file.pat.gz.csi; do [ -f $x ] && up $x "$P/$(basename $x)"; done; rm -f $W/bam/$file.bam* $t; log "$file done"
 done
 fin DONE
