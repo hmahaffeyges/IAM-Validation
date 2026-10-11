@@ -866,3 +866,13 @@ Fresh clone, empty home, 91 public arrays from GEO, the four listed commands: ev
 
 ### 2026-10-11 · DEV-FINGERPRINT-02 prostate: FINGERPRINT (LNCaP replicates in a second laboratory)
 By rule 02b: all 6 LNCaP files' Arm B excess above the bar 0.0211; Arm A (reported) also FINGERPRINT. HepG2 and A549 no fingerprint. Breast pairs held for the author.
+
+### 2026-10-11 · Overnight summary (author asleep; decisions by the lead under the author's standing rule)
+- Push gate: rule 7 (no prediction, bar or seal without a committed synthetic test); bibliography checked against CrossRef in checked_push.sh (564 entries, no citation error); rule 6 traces numbers to tests cited on their line.
+- Box Run 9 healthy side complete (18 files at bwa -T30; guards now stop only on broken output; preflight read-length check).
+- Donor null: two healthy bronchial donors trip a one-donor Arm B bar both ways (excess to 0.0211) and differ off curve B by up to 0.19 in Met-A. FINGERPRINT-01 still clears it 5.2 times.
+- Rule 02b before any cancer file: Arm B decides, bar includes the donor excess; Arm A reported only. Five pairs sealed with planted tests passed.
+- Scored: prostate FINGERPRINT (LNCaP replicates in a second laboratory); liver (HepG2), lung_alveolar and lung_bronchial (A549) no fingerprint.
+- Held for the author: breast_mcf10a (sealed under rule 02 before the donor null); no MCF-7 file or array aligned or read.
+- Commissioned Met-A: rebuilt identical from a fresh clone; Stage 1 inputs (methylprep 1.7.1, manifest sha256) pinned.
+- Box stopped 01:22 PDT (verified); two disks kept.
