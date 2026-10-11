@@ -24,6 +24,7 @@ one_read(){ IFS=, read -r file exp cell rep rl md5 url gb <<< "$1"; f=$W/fq/$fil
 export -f one_read log; export W O
 tail -n +2 $HERE/${SET}_rrbs_files.csv | xargs -P 8 -d '\n' -I{} bash -c 'one_read "{}"'
 for file in $(tail -n +2 $HERE/${SET}_rrbs_files.csv | cut -d, -f1); do
+  $PYB -c "import boto3,sys;boto3.client('s3',region_name='us-west-2').head_object(Bucket='$B',Key=sys.argv[1])" "$P/$file.pat.gz" 2>/dev/null && { log "$file already in S3, skipped"; continue; }
   t=$W/trim/${file}_trimmed.fq.gz; [ -s $t ] || { log "$file no trimmed reads"; continue; }
   # bwa mem -T30: chosen by synth_align.sh under its pre-set rule (synth_align_result.csv; bwa-meth default -T 40 aligns no 36-base read).
   # Passed as one token, after bwa-meth's own -T 40, so bwa takes 30 (LESSONS B1, B1b).
@@ -32,9 +33,22 @@ for file in $(tail -n +2 $HERE/${SET}_rrbs_files.csv | cut -d, -f1); do
   samtools sort -@ 16 -m 2G -T $W/bam/$file.tmp -o $W/bam/$file.bam $W/bam/$file.u.bam && rm -f $W/bam/$file.u.bam && samtools index $W/bam/$file.bam
   samtools flagstat $W/bam/$file.bam > $O/${file}_flagstat.txt
   MR=$(grep -m1 " mapped (" $O/${file}_flagstat.txt | sed -E 's/.*\(([0-9.]+)%.*/\1/'); log "$file mapped ${MR}%"
-  awk -v m="$MR" 'BEGIN{exit !(m+0 >= 40)}' || fin "FAIL_mapping_${file}_${MR}pct"   # LESSONS B1: stop the run, do not log 'done' on nothing
+  # Guard (LESSONS B1, revised 2026-10-10 after ENCFF000MHJ mapped 36.98 %): mapping under 20 % means a broken alignment; stop. The earlier 40 % bar
+  # was a crash guard set without data; these 36-base reads lose reads to ambiguity and the score floor, independently of methylation.
+  awk -v m="$MR" 'BEGIN{exit !(m+0 >= 20)}' || fin "FAIL_mapping_${file}_${MR}pct"
+  $PYB - $O/${file}_flagstat.txt $W/bam/$file.bam >> $O/${file}_mapq.txt 2>/dev/null <<'PY2' || true
+import sys, pysam
+b = pysam.AlignmentFile(sys.argv[2]); n = q = 0
+for i, a in enumerate(b.fetch(until_eof=True)):
+    if a.is_unmapped or a.is_secondary or a.is_supplementary: continue
+    n += 1; q += a.mapping_quality >= 10
+    if n >= 2000000: break
+print(f"mapped reads sampled {n}, MAPQ >= 10 share {q / max(n, 1):.4f}")
+PY2
   wgbstools bam2pat $W/bam/$file.bam -o $W/pat --genome hg19 -@ 16 >> $O/${file}_bam2pat.log 2>&1 || { log "$file bam2pat FAILED"; continue; }
   [ -s $W/pat/$file.pat.gz ] || fin "FAIL_no_pat_${file}"   # LESSONS B1
+  OPP=$($PYB $HERE/../run2/eps_of.py ~/IAM-Validation/Biological_Physics/MethylPhys/chain $O/${file}_eps.json $W/pat/$file.pat.gz | sed -E "s/.*'opportunities': ([0-9.]+).*/\1/")
+  log "$file Stage Q opportunities $OPP"; awk -v o="$OPP" 'BEGIN{exit !(o+0 >= 100000)}' || fin "FAIL_too_few_opportunities_${file}_${OPP}"
   for x in $W/pat/$file.pat.gz $W/pat/$file.pat.gz.csi; do [ -f $x ] && up $x "$P/$(basename $x)"; done; rm -f $W/bam/$file.bam* $t; log "$file done"
 done
 fin DONE
