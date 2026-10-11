@@ -1,0 +1,4 @@
+share 0.01: molecules per half 1,595,409; largest |ratio - 1| 0.0071
+share 0.05: molecules per half 7,977,044; largest |ratio - 1| 0.0024
+share 0.25: molecules per half 39,885,219; largest |ratio - 1| 0.0029
+share 1.0: molecules per half 159,540,876; largest |ratio - 1| 0.0024

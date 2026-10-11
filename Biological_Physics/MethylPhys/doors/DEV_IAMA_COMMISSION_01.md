@@ -30,3 +30,10 @@ healthy-Normal reading outside the Loyfer laboratory is untested. If any bar fai
    must remove them to within 0.03 with seven lines per run.
 3. Depth: subsample to the EpiQC run depths (from the SRA run table) and confirm Stage Q0 coverage passes.
 4. Conversion: each EpiQC kit's reported conversion against the Q0 limit (C1), from the paper's tables, before download.
+
+**Synthetic test 1 result, 2026-10-11** (`data/DEV_IAMA_COMMISSION_01/split_floor_01.py`, output `split_floor_01_output.csv`; summary `split_floor_01_summary.txt`). One healthy
+granulocyte whole file (GSM5652313) split at random into halves, three seeds, thinned to 100 %, 25 %, 5 % and 1 % of its molecules, read by
+Stage Q. Largest |IAM-A ratio - 1| between halves: 0.0024 (whole file), 0.0029 (25 %), 0.0024 (5 %),
+0.0071 (1 %, 1,595,409 molecules per half). Counting noise is below 1 % even at 1 % depth, so
+C2's pass value is set by library preparation and sequencing, not by sampling. This is the floor only; the real repeat spread comes from
+technical replicate libraries (EpiQC), and C2's pass value is set after synthetic tests 2-4.

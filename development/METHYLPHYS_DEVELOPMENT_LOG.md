@@ -981,3 +981,6 @@ On real colon normals and healthy mucosa only. Composition shift 0.037 above the
 
 ### 2026-10-11 · DEV-TISSUE-COLON-01 sealed before any tumour array is fetched
 FINGERPRINT if >= 11 of 88 pairs read Met-A(tumour)/Met-A(own adjacent normal, same slide) above 1.0921 at the sealed blind sites; else NO FINGERPRINT.
+
+### 2026-10-11 · DEV-IAMA-COMMISSION-01 synthetic test 1: counting floor of repeatability below 1 %
+Split halves of a healthy granulocyte file read within 0.0071 of each other at 1 % depth (0.0024 whole file). C2's limit will be set by library preparation, measured on EpiQC replicates.
