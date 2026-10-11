@@ -1,6 +1,6 @@
 # DEV-IAMA-CONVERSION-01 — outcome (2026-10-10; development)
 
-`doors/data/DEV_IAMA_CONVERSION_01/score_conversion_01.py`, rows `conversion_01_rows.csv` (Stage Q whole files, all 14 session 4 runs; c from
+`doors/data/DEV_IAMA_CONVERSION_01/score_conversion_01.py`, rows `conversion_01_rows.csv`; table `conversion_table_01_output.txt` (Stage Q whole files, all 14 session 4 runs; c from
 each run's lambda CHH record).
 
 | donor, kit | c rep1 / rep2 | ε rep2 ÷ rep1 measured | predicted (c2/c1) | IAM-A rep2 ÷ rep1 raw | after ε/c |
@@ -22,7 +22,7 @@ conversion biases IAM-A in the direction and order the derivation gives, and the
 The chain is unchanged: the correction is not adopted until a laboratory with a conversion spread and true repeats tests it.
 
 **Stage Q's measured response to conversion (2026-10-11).** Planted on real healthy molecules, incomplete conversion lowers Stage Q's copy error
-by about half the derived factor c (ratio 0.9904 at c 0.98), so conversion accounts for about half of the 2 % stated above and the TruSeq
+by about half the derived factor c (values in DEV-IAMA-COMMISSION-01, synthetic test 5), so conversion accounts for about half of the 2 % stated above and the TruSeq
 repeat gap is mostly a library effect. The ε/c correction over-corrects and is not adopted. Source:
 DEV-IAMA-COMMISSION-01
 

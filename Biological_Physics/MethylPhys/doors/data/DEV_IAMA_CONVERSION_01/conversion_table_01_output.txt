@@ -1,4 +1,10 @@
 Sample2: c 0.99016 / 0.97001 | eps ratio predicted 0.9796 | IAM-A ratio predicted 0.9846
 Sample3: c 0.99108 / 0.97383 | eps ratio predicted 0.9826 | IAM-A ratio predicted 0.9869
 Sample4: c 0.99079 / 0.97132 | eps ratio predicted 0.9803 | IAM-A ratio predicted 0.9852
+Sample2 Swift: c 0.9792 / 0.9794 | eps rep2/rep1 measured 0.9915, predicted 1.0002 | IAM-A rep2/rep1 raw 0.9936, after eps/c 0.9934
+Sample2 TruSeq: c 0.9902 / 0.9700 | eps rep2/rep1 measured 0.9591, predicted 0.9796 | IAM-A rep2/rep1 raw 0.9690, after eps/c 0.9841
+Sample3 Swift: c 0.9795 / 0.9800 | eps rep2/rep1 measured 0.9848, predicted 1.0005 | IAM-A rep2/rep1 raw 0.9886, after eps/c 0.9882
+Sample3 TruSeq: c 0.9911 / 0.9738 | eps rep2/rep1 measured 0.9401, predicted 0.9826 | IAM-A rep2/rep1 raw 0.9544, after eps/c 0.9672
+Sample4 Swift: c 0.9795 / 0.9799 | eps rep2/rep1 measured 0.9856, predicted 1.0004 | IAM-A rep2/rep1 raw 0.9892, after eps/c 0.9889
+Sample4 TruSeq: c 0.9908 / 0.9713 | eps rep2/rep1 measured 0.9508, predicted 0.9803 | IAM-A rep2/rep1 raw 0.9627, after eps/c 0.9773
 d ln H / d ln eps at eps 0.043: 0.752
