@@ -1,0 +1,21 @@
+"""DEV-TISSUE-BREAST-01: TCGA-BRCA 450K arrays through the chain's Stage 1 (stage_1_idat_calibration.calibrate_idat_to_beta), unchanged.
+Grn/Red files are paired by sample barcode (tcga_brca_450k_files.csv; GDC names each file by its own UUID). One parquet per sample.
+Normal tissue only, unless the seal is committed (fetch_tcga_brca.py enforces the same for downloads).
+Usage: python3 calib_tcga.py WORKDIR normal|tumour"""
+import os, sys, subprocess, pandas as pd
+HERE = os.path.dirname(os.path.abspath(__file__)); MP = os.path.abspath(os.path.join(HERE, "../../.."))
+sys.path.insert(0, os.path.join(MP, "chain")); from stage_1_idat_calibration import calibrate_idat_to_beta
+W, which = sys.argv[1], sys.argv[2]; os.makedirs(os.path.join(W, "betas"), exist_ok=True)
+T = pd.read_csv(os.path.join(HERE, "tcga_brca_450k_files.csv"))
+if which == "tumour":
+    seal = os.path.join(HERE, "sealed_breast_tissue.json"); rel = os.path.relpath(seal, subprocess.run(["git", "-C", HERE, "rev-parse", "--show-toplevel"], capture_output=True, text=True).stdout.strip())
+    assert os.path.exists(seal) and subprocess.run(["git", "-C", HERE, "ls-files", "--error-unmatch", rel], capture_output=True).returncode == 0, "tumour arrays are read only after the seal is committed"
+    T = T[T.sample_type == "Primary Tumor"]
+else: T = T[T.sample_type == "Solid Tissue Normal"]
+for smp, d in T.groupby("sample"):
+    out = os.path.join(W, "betas", smp + ".parquet")
+    if os.path.exists(out): continue
+    loc = {("Grn" if "_Grn" in f else "Red"): os.path.join(W, "idat", f) for f in d.file_name}
+    if len(loc) != 2 or not all(os.path.exists(v) for v in loc.values()): print(smp, "missing IDAT", flush=True); continue
+    o = calibrate_idat_to_beta(loc["Grn"], loc["Red"], verbose=False); b = o[0] if isinstance(o, tuple) else o
+    pd.DataFrame({"beta": b}).to_parquet(out); print(smp, "probes", int(pd.Series(b).notna().sum()), flush=True)
