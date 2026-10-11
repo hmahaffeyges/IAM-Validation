@@ -879,3 +879,6 @@ By rule 02b: all 6 LNCaP files' Arm B excess above the bar 0.0211; Arm A (report
 
 ### 2026-10-11 · breast_mcf10a re-sealed under rule 02b (author decision)
 The pair was sealed under rule 02 (e6aeba5) before the donor null showed a one-donor Arm B bar is beaten by healthy donor variation. Author: re-seal under 02b. The rule-02 seal is kept as RETIRED_sealed_breast_mcf10a_rule02.json. No MCF-7 file or array had been aligned, downloaded or read.
+
+### 2026-10-11 · DEV-FINGERPRINT-02 pair breast_mcf10a sealed under rule 02b
+Normal side, planted test (NULL, RUN05, RUN01, SCAT) and seal by pair_pipeline_02b.sh; section written by note_section_02b.py from the outputs.
