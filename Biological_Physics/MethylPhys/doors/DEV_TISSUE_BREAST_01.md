@@ -10,6 +10,9 @@ planted 2 % change (-0.0047, 4.4 % of tumours above the healthy 95th percentile)
 moves by -0.0067 from composition alone (away from a fingerprint) and finds the 2 % change in every tumour (+0.0716). **The test uses the
 composition-aware reading.**
 
-**Before any seal, still to run (synthetic, normal tissue only):** template mismatch (a tissue cell the panel lacks or misdescribes; the atlas has no
-breast fibroblast); planted change inside a hidden component; null on the real TCGA normals (leave-one-out against the other normals); array
+**Synthetic test 2, template mismatch** (`development/sims/breast_tissue_02.py`, output `breast_tissue_02_output.txt`). True tissue built with
+heart fibroblasts only and a hidden smooth-muscle component (0-10 %, absent from the panel). Composition-aware Met-A: composition alone -0.0050,
+1.1 % of tumours above the healthy 95th percentile with no change; planted 2 % change +0.0691, found in every tumour. Plain Met-A again hides it.
+
+**Before any seal, still to run (synthetic, normal tissue only):** planted change inside a hidden component; null on the real TCGA normals (leave-one-out against the other normals); array
 batch (plate) structure of the normals; power at 91 pairs with the spread measured on the real normals.

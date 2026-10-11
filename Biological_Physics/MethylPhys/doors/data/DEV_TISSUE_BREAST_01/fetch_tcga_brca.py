@@ -4,12 +4,20 @@ fetch WORKDIR normal -> downloads ONLY sample_type 'Solid Tissue Normal' files i
 fetched, until the test is sealed (fetch WORKDIR tumour refuses unless sealed_breast_tissue.json is committed).
 Usage: python3 fetch_tcga_brca.py list | fetch WORKDIR normal|tumour"""
 import os, sys, json, hashlib, subprocess, requests, pandas as pd
+import time
+def req(f, *a, **k):
+    for i in range(6):
+        try:
+            r = f(*a, **k); r.raise_for_status(); return r
+        except Exception as e:
+            if i == 5: raise
+            time.sleep(5 * (i + 1))
 HERE = os.path.dirname(os.path.abspath(__file__)); LIST = os.path.join(HERE, "tcga_brca_450k_files.csv"); API = "https://api.gdc.cancer.gov"
 if sys.argv[1] == "list":
     flt = {"op": "and", "content": [{"op": "=", "content": {"field": "cases.project.project_id", "value": "TCGA-BRCA"}},
            {"op": "=", "content": {"field": "data_format", "value": "IDAT"}}, {"op": "=", "content": {"field": "access", "value": "open"}},
            {"op": "=", "content": {"field": "platform", "value": "Illumina Human Methylation 450"}}]}
-    H = requests.post(API + "/files", json={"filters": flt, "fields": "file_id,file_name,md5sum,file_size,cases.submitter_id,cases.samples.submitter_id,cases.samples.sample_type", "size": 10000, "format": "JSON"}, timeout=120).json()["data"]["hits"]
+    H = req(requests.post, API + "/files", json={"filters": flt, "fields": "file_id,file_name,md5sum,file_size,cases.submitter_id,cases.samples.submitter_id,cases.samples.sample_type", "size": 10000, "format": "JSON"}, timeout=120).json()["data"]["hits"]
     T = pd.DataFrame([dict(file_id=h["file_id"], file_name=h["file_name"], md5sum=h["md5sum"], size=h["file_size"], case=h["cases"][0]["submitter_id"],
                            sample=h["cases"][0]["samples"][0]["submitter_id"], sample_type=h["cases"][0]["samples"][0]["sample_type"]) for h in H])
     T.sort_values(["sample_type", "case", "file_name"]).to_csv(LIST, index=False); print(T.groupby("sample_type").size().to_dict())
@@ -25,6 +33,6 @@ else:
         p = os.path.join(W, "idat", r.file_name)
         for _ in range(3):
             if os.path.exists(p) and hashlib.md5(open(p, "rb").read()).hexdigest() == r.md5sum: break
-            open(p, "wb").write(requests.get(f"{API}/data/{r.file_id}", timeout=300).content)
+            open(p, "wb").write(req(requests.get, f"{API}/data/{r.file_id}", timeout=300).content)
         else: bad.append(r.file_name)
     print(which, len(T), "files", "all md5 verified" if not bad else f"MD5 FAILED: {bad}")

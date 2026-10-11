@@ -1,0 +1,10 @@
+loci 31218 | identity sites 3000 methylated + 3000 unmethylated | healthy refs: plain SD 0.0129, comp SD 0.0042
+            case reading  mean_tumour_minus_normal  sd_pair     z  tumours_above_healthy_95pct
+composition only   PLAIN                   -0.0749   0.0266 -26.8                        0.000
+composition only    COMP                   -0.0050   0.0072  -6.6                        0.011
+    planted 0.02   PLAIN                   -0.0018   0.0165  -1.0                        0.033
+    planted 0.02    COMP                    0.0691   0.0105  63.1                        1.000
+    planted 0.05   PLAIN                    0.0933   0.0145  61.5                        1.000
+    planted 0.05    COMP                    0.1724   0.0264  62.2                        1.000
+    planted 0.10   PLAIN                    0.2418   0.0245  94.0                        1.000
+    planted 0.10    COMP                    0.3317   0.0504  62.7                        1.000
