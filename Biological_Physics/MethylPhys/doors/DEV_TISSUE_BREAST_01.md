@@ -20,5 +20,17 @@ normal-tissue arrays, Stage 1, full atlas posteriors, each read against the othe
 (no breast fibroblast in the atlas) does not describe real breast stroma. **Synthetic tests 1-2 used a noise model 16x too small; no seal until
 the source of the spread is found and the simulation is rebuilt on it.**
 
+**Spread sources** (`spread_sources.py`, `spread_sources_output.txt`): the 450K processing plate dominates (12 plates, Kruskal-Wallis p 2.50e-11;
+plate medians 0.923-1.155); endothelium share Spearman +0.440. **Same-plate tare** (`plate_tare_check.py`, `plate_tare_check_output.txt`):
+composition-aware SD 0.0286, 95th percentile 1.0563. 56 of 91 patients have tumour and normal on one plate; 212 of 791 tumour aliquots sit on
+plates holding >= 3 normals.
+
+**Synthetic test 4 on the real normals: FAILED** (`plant_real_normals.py`, `plant_real_normals_output.csv`). A real normal blended toward
+epithelium (atlas luminal mean, 30-60 %) with no methylation change reads 1.061 and crosses the healthy bar in 0.617 of cases (no change: 0.053).
+The composition-aware reading does not hold its null on real tissue: either the atlas panel does not describe breast tissue (no breast fibroblast;
+fitted endothelium 0.168) or an atlas template mixed into a 450K array does not behave like real epithelium. **The test is not sealed in this
+form.** Designs to evaluate next (synthetic first): a reading on sites whose healthy value is the same in every breast tissue cell type
+(composition-blind by construction); within-patient same-plate pairs only; normals with a measured epithelial share to replace the template plant.
+
 **Before any seal, still to run (synthetic, normal tissue only):** planted change inside a hidden component; null on the real TCGA normals (leave-one-out against the other normals); array
 batch (plate) structure of the normals; power at 91 pairs with the spread measured on the real normals.

@@ -1,0 +1,4 @@
+plain after same-plate tare: n 94, SD 0.0443, 95th percentile 1.0725
+comp after same-plate tare: n 94, SD 0.0286, 95th percentile 1.0563
+patients with tumour and normal: 91; tumour on the same plate as its normal: 56
+tumour aliquots on plates that also hold >= 3 normals: 212 of 791

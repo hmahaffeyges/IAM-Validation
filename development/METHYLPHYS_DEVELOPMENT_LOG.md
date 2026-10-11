@@ -936,3 +936,6 @@ After the prior-art credit: because the physics fixes both ends of the gauge, a 
 
 ### 2026-10-11 · TCGA breast normals: real spread 16x the simulation; no seal
 97 normal-tissue arrays read leave-one-out: composition-aware Met-A SD 0.0651 (simulated 0.0039); fitted fibroblast share 0, endothelium 0.168. The composition panel fits real breast stroma poorly. Simulation to be rebuilt on the real spread before any seal.
+
+### 2026-10-11 · Breast tissue design fails its synthetic test on real normals; not sealed
+Plate is the main source of normal spread (tare: SD 0.0286). But real normals shifted toward epithelium with no methylation change read 1.061 and cross the healthy bar 62 % of the time: the composition-aware reading is not composition-proof on real tissue. Caught before any tumour array was read.

@@ -1,0 +1,12 @@
+plates 12 (normals per plate: {'A10Q': 19, 'A13T': 17, 'A12R': 16, 'A161': 10, 'A145': 9, 'A138': 8, 'A093': 5, 'A14N': 4, 'A17F': 3, 'A16A': 3, 'A14H': 2, 'A19Z': 1})
+comp_rel by plate (plates with >= 3 normals: 10): Kruskal-Wallis p = 2.50e-11
+plate medians of comp_rel: {'A093': 0.966, 'A10Q': 0.923, 'A12R': 0.988, 'A138': 1.014, 'A13T': 1.004, 'A145': 1.011, 'A14H': 1.005, 'A14N': 0.989, 'A161': 1.155, 'A16A': 1.027, 'A17F': 1.048, 'A19Z': 0.981}
+comp_rel vs probes: Spearman +0.360 (p 2.9e-04)
+comp_rel vs f_luminal: Spearman -0.280 (p 5.4e-03)
+comp_rel vs f_basal: Spearman -0.249 (p 1.4e-02)
+comp_rel vs f_adipocytes: Spearman +0.171 (p 9.3e-02)
+comp_rel vs f_fibroblast: Spearman +0.145 (p 1.6e-01)
+comp_rel vs f_endothelium: Spearman +0.440 (p 6.4e-06)
+comp_rel vs f_macrophage: Spearman +0.161 (p 1.2e-01)
+comp_rel vs f_T: Spearman +0.191 (p 6.1e-02)
+comp_rel vs f_B: Spearman -0.135 (p 1.9e-01)
