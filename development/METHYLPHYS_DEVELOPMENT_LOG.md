@@ -915,3 +915,6 @@ All three conditions met (Met-A planted both ways; per-territory IAM-A reader; C
 
 ### 2026-10-11 · DEV-FINGERPRINT-02 pair t47d_hmec sealed under rule 02b
 Normal side, planted test (NULL, RUN05, RUN01, SCAT) and seal by pair_pipeline_02b.sh; section written by note_section_02b.py from the outputs.
+
+### 2026-10-11 · DEV-FINGERPRINT-02 pair t47d_mcf10a sealed under rule 02b
+Normal side, planted test (NULL, RUN05, RUN01, SCAT) and seal by pair_pipeline_02b.sh; section written by note_section_02b.py from the outputs.
