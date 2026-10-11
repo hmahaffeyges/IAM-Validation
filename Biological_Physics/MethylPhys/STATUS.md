@@ -25,6 +25,11 @@ instrument error is handled, and that the planned design has power ≥ 0.8. Only
 **Rule.** No new cancer test starts until stages R1-R3 have earned credibility. Cancer tests already sealed finish as sealed
 (DEV-FINGERPRINT-02, T47D pairs; DEV-TISSUE-BREAST-01). Colorectal (GSE131013 onward), cell-free DNA and blood-cancer tests wait behind R1-R3.
 A development test never extends a commissioned scope; only a commissioning does.
+**R4 runs alongside R1-R3:** commissioning Met-A on a new cell type or tissue reading is credibility work, not expansion, and Met-A's
+detection stands on its own bars. What waits behind R1-R3 is new cancer tests only.
+**Stopping rule, every stage:** if the public data for a stage do not exist, that is recorded and the claims are stated without it (what each
+instrument can and cannot say); if a stage fails its bars, the work stops there until the cause is found, never routed around.
+**Alongside all stages:** an outside laboratory running the kit (to-do B9), the strongest single step for credibility.
 
 | stage | what | why | next step |
 |---|---|---|---|

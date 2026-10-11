@@ -951,3 +951,6 @@ The score step's committed-seal check could never pass (path bug). Fixed before 
 
 ### 2026-10-11 · Commissioning roadmap in STATUS (author)
 STATUS section 0: trust the physics and instruments first. R1 IAM-A narrow (neutrophils, EpiQC sequencing), R2 sealed Met-A to IAM-A link windows, R3 IAM-A on a second very different cell type, R4 Met-A cell by cell, R5 further cancers. Sealed cancer tests finish; colorectal, cfDNA and blood-cancer tests wait behind R1-R3.
+
+### 2026-10-11 · Roadmap: R4 alongside R1-R3; stopping rule; outside lab
+STATUS section 0: Met-A commissioning (R4) runs alongside R1-R3 (only new cancer tests wait); each stage has a stopping rule (no data: recorded and claims stated without it; failed bars: stop until the cause is found); an outside laboratory running the kit is pursued alongside.
