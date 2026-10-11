@@ -45,7 +45,7 @@ if STEP == "seal":
 elif STEP == "score":
     TB = sys.argv[4]; S_ = json.load(open(SEAL)); assert S_["scorer_sha256"] == ME, "scorer changed since the seal"
     rel = os.path.relpath(SEAL, subprocess.run(["git", "-C", HERE, "rev-parse", "--show-toplevel"], capture_output=True, text=True).stdout.strip())
-    assert subprocess.run(["git", "-C", HERE, "diff", "--quiet", "HEAD", "--", rel]).returncode == 0 and subprocess.run(["git", "-C", HERE, "ls-files", "--error-unmatch", rel], capture_output=True).returncode == 0, "seal not committed unchanged"
+    assert subprocess.run(["git", "-C", os.path.dirname(SEAL), "diff", "--quiet", "HEAD", "--", os.path.basename(rel)]).returncode == 0 and subprocess.run(["git", "-C", os.path.dirname(SEAL if "SEAL" in globals() else seal), "ls-files", "--error-unmatch", os.path.basename(rel)], capture_output=True).returncode == 0, "seal not committed unchanged"
     S = S_["sites_methylated"] + S_["sites_unmethylated"]; rows = []
     for p in S_["pairs"]:
         n = beta(os.path.join(BD, p["normal_sample"] + ".parquet")).reindex(S); t = beta(os.path.join(TB, p["tumour_sample"] + ".parquet")).reindex(S); ok = n.notna() & t.notna()
