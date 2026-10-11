@@ -60,7 +60,7 @@ for d in days:
 # 6. Number traceability (2026-10-10, author: "make sure that every bit of code and data necessary for replication makes it to the repo").
 # Every decimal number with >= 2 decimals in a note NEW or CHANGED in this push must appear, at the note's precision, in a committed
 # file of the note's data folder (doors/data/<NOTE>/, <NOTE>_PLANT/, rows/outputs/json/scripts) or in development/sims. DOIs and `code spans`
-# are skipped. Numbers quoted from another record are traced by putting that record's file in the data folder or naming it in a code span.
+# are skipped. A number may instead sit in the data folder of a test cited on the same line (DEV-X-NN / PROC-X-NN), and must then be in it.
 NUM6 = re.compile(r"(?<![\w./])[+\u2212-]?\d+\.\d{2,}(?![\w/])")
 def _pool6(dirs):
     P = []
@@ -76,7 +76,18 @@ for f in changed:
     N = set(m.group(0).lstrip("+").replace("\u2212", "-") for m in NUM6.finditer(txt))
     if not N: continue
     P = _pool6([f"Biological_Physics/MethylPhys/doors/data/{stem}/", f"Biological_Physics/MethylPhys/doors/data/{stem}_PLANT/", "development/sims/"])
-    miss = sorted(n for n in N if not any(abs(round(v, len(n.split(".")[1])) - float(n)) < 1e-12 or abs(round(-v, len(n.split(".")[1])) - float(n)) < 1e-12 for v in P))
+    def _hit(n, pool): k_ = len(n.split(".")[1]); v0 = float(n); return any(abs(round(v, k_) - v0) < 1e-12 or abs(round(-v, k_) - v0) < 1e-12 for v in pool)
+    # A number may also come from a test CITED ON ITS OWN LINE (DEV-X-NN / PROC-X-NN): it must then be in that test's data folder (2026-10-10).
+    cited = {}
+    for line in txt.split("\n"):
+        tags = {t.replace("-", "_") for t in re.findall(r"\b(?:DEV|PROC)-[A-Z0-9]+(?:-[A-Z0-9]+)*-\d\d\b", line)}
+        tags |= set(re.findall(r"\b((?:DEV|PROC)_[A-Z0-9_]+?_\d\d)(?:_OUTCOME)?\.md\b", line))   # cited by file name
+        for m in NUM6.finditer(line): cited.setdefault(m.group(0).lstrip("+").replace("\u2212", "-"), set()).update(tags)
+    _cache = {}
+    def _pool_of(t):
+        if t not in _cache: _cache[t] = _pool6([f"Biological_Physics/MethylPhys/doors/data/{t}/", f"Biological_Physics/MethylPhys/doors/data/{t}_PLANT/"])
+        return _cache[t]
+    miss = sorted(n for n in N if not _hit(n, P) and not any(_hit(n, _pool_of(t)) for t in cited.get(n, ())))
     if miss: fail.append(f"{f}: {len(miss)} number(s) not found in any committed output of doors/data/{stem}/: {', '.join(miss[:10])}")
 # 7. Synthetic test before sealing (author 2026-10-10: "EVERY test with a sealed prediction MUST be first tested thoroughly with synthetic
 # data so we dont waste the few tests available to us"). A doors/*.md note whose lines ADDED in this push carry a prediction, bar or seal

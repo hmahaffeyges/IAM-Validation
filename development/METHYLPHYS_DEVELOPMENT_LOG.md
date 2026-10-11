@@ -854,3 +854,6 @@ Normal side, planted test (NULL, RUN05, RUN01, SCAT) and seal by pair_pipeline_0
 
 ### 2026-10-10 · Stage 1 inputs pinned (fresh-clone rebuild of the commissioned record)
 A fresh clone with an empty home folder could not calibrate: methylprep fetches the Illumina manifest at run time (blocked in this sandbox; a reviewer's machine would fetch it). That exposed two unpinned inputs of every commissioned number: the methylprep version (Stage 1 auto-installed the latest) and the manifest. Stage 1 now installs methylprep 1.7.1 and refuses any other version or a manifest whose sha256 differs from the three the commissioned chain used; negative control: an altered EPIC manifest refused. No value changes. LESSONS R10.
+
+### 2026-10-10 · Rule 6 extended: a number may come from a test cited on its own line
+Editing the Met-A commissioning note (Stage 1 pins) re-checked its numbers: 8 lived in other tests' folders. Rule 6 now accepts a number found, at printed precision, in the data folder of a DEV-/PROC- test cited on the same line (by tag or note file name), and still refuses it otherwise. That traced 6; 2 were real gaps: the Moss largest shift 0.0094 was computed from rows but never written (moss_summary_01.py now writes it), and atlas_e 0.014 cited the bar's test, not its data (now cites DEV-ATLAS-EPIC-01 metrics_by_set.csv).
