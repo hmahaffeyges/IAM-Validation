@@ -918,3 +918,6 @@ Normal side, planted test (NULL, RUN05, RUN01, SCAT) and seal by pair_pipeline_0
 
 ### 2026-10-11 · DEV-FINGERPRINT-02 pair t47d_mcf10a sealed under rule 02b
 Normal side, planted test (NULL, RUN05, RUN01, SCAT) and seal by pair_pipeline_02b.sh; section written by note_section_02b.py from the outputs.
+
+### 2026-10-11 · T47D pairs sealed, loss (02b2) and gain (02c) arms, before any T47D file is read
+score_fingerprint_02b2.py = 02b with two T47D pairs (450K, platform-matched); 02b unchanged for its five seals. Planted tests passed on both arms. Scored only after MCF-7 is scored and reviewed.

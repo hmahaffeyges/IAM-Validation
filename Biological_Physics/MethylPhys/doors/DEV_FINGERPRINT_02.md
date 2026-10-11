@@ -144,3 +144,8 @@ Run-loss sensitivity on these molecules (planted 0.10): 0.0987. Planted test of 
 FINGERPRINT if every one of the 4 T47D files listed in the seal reads above the bar; no fingerprint if every file reads at or below
 it; otherwise UNDECIDED. Arm A (Met-A against curve B) is computed and reported, not deciding.
 **Synthetic test:** DEV_FINGERPRINT_02/plant_fingerprint_02b.py, DEV_FINGERPRINT_02/plant02b_t47d_mcf10a_output.json, DEV_FINGERPRINT_02/donor_null_02.py, DEV_FINGERPRINT_02/donor_null_02_output.json, DEV_FINGERPRINT_02/prep_normal.sh, DEV_FINGERPRINT_02/normal_MCF_10A/runloss_sim.txt, Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align.py, Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align_result.csv
+
+## Arm G (gain) on the T47D pairs: sealed 2026-10-11 before any T47D file is aligned locally or read
+- **t47d_hmec:** `sealed_gain_t47d_hmec.json`, bar 0.0048; FINGERPRINT if all 4 T47D files read gain above it.
+- **t47d_mcf10a:** `sealed_gain_t47d_mcf10a.json`, bar 0.0038; FINGERPRINT if all 4 T47D files read gain above it.
+**Synthetic test:** DEV_FINGERPRINT_02/score_gain_02c.py, DEV_FINGERPRINT_02/plant_gain_t47d_hmec_output.json, DEV_FINGERPRINT_02/plant_gain_t47d_mcf10a_output.json, DEV_FINGERPRINT_02/why/gain_donor_null_02c.json

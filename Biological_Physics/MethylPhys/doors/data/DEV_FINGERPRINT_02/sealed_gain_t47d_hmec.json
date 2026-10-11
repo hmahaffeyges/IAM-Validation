@@ -1,0 +1,28 @@
+{
+ "pair": "t47d_hmec",
+ "rule": "02c Arm G (gain); FINGERPRINT if every listed cancer file > bar",
+ "bar": 0.004796836535765229,
+ "normal_files": [
+  "ENCFF000MDB",
+  "ENCFF000MDH"
+ ],
+ "normal_sha256": {
+  "ENCFF000MDB": "bee2cfff792714f8c745100a63c1af2b73e6ca4ef78805d994784c2b5dc222f0",
+  "ENCFF000MDH": "25a3de560f35b1a8daeee7a243d81f8ce8d42014ecdef7fb411ca303ecdbdd70"
+ },
+ "cancer_files_listed": [
+  "ENCFF000MNJ",
+  "ENCFF000MNK",
+  "ENCFF000MNN",
+  "ENCFF000MNO"
+ ],
+ "donor_null": {
+  "ENCFF000MME vs donor B": 0.0017140879933991643,
+  "ENCFF000MMO vs donor B": 0.0014598612443982707,
+  "ENCFF000MJV vs donor A": 0.000850182897791074,
+  "ENCFF000MJW vs donor A": 0.003209163836517428,
+  "max": 0.003209163836517428
+ },
+ "plant_sha256": "9ea7267f752588600092f849674e4be5bc0acc3e60fe68cc41b9338c44e07259",
+ "scorer_sha256": "0465f48d4b434ab7e1df82cb69b181314cf9b8b8f02e29ad0e118924d27fd13a"
+}
