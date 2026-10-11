@@ -16,7 +16,7 @@ export PATH=$S/e_st19/bin:$S/e_wgbs/bin:$S/e_bm/bin:$S/e_tg/bin:$S/wgbs_tools:$P
 REF=$S/ref/hg19_lambda_puc19.fa; [ -s $REF.bwameth.c2t.sa ] || fin FAIL_no_hg19_index
 { bwameth.py --version 2>&1 | head -1; samtools --version | head -1; trim_galore --version | grep -m1 version; cutadapt --version; echo "wgbstools $(git -C $S/wgbs_tools describe --tags)"; echo "bwa mem -T30 (synth_align_result.csv)"; } > $O/versions.txt
 grep -q "0\.2\.0" $O/versions.txt || fin FAIL_bwameth_not_0.2.0
-SKIP=${SKIP_CELLS:-T47D}   # cells with no pair in DEV_FINGERPRINT_02 are not aligned
+SKIP=${SKIP_CELLS:-$(cat ~/SKIP_CELLS 2>/dev/null || echo T47D)}   # cells not aligned: T47D (no pair); MCF-7 held 2026-10-10 until the author decides the breast_mcf10a seal
 awk -F, -v sk="$SKIP" 'NR==1 || index(","sk",", ","$3",")==0' $HERE/${SET}_rrbs_files.csv > $O/files.csv; log "START set=$SET threads=$T $(tr '\n' ' ' < $O/versions.txt)"
 one_read(){ IFS=, read -r file exp cell rep rl md5 url gb <<< "$1"; f=$W/fq/$file.fastq.gz
   [ -s $W/trim/${file}_trimmed.fq.gz ] && [ -s $W/trim/${file}.fastq.gz_trimming_report.txt ] && { log "$file trimmed reads present"; return; }
