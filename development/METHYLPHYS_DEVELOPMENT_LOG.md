@@ -897,3 +897,6 @@ Outcome known in advance (why/both_directions.py). Byte-identical gain scorer ru
 
 ### 2026-10-11 · Direction audit: IAM-A sees gain only as a mixture; IAM-A C-score fails its null on RRBS
 DEV_DIRECTION_AUDIT_01.md (healthy liver, planted gain): gained molecules enter Stage Q and IAM-A moves either way with the gained territory's copy error; healthy RRBS C-score 15.4 vs null 1. Next: per-territory IAM-A (held vs gained).
+
+### 2026-10-11 · Two-instrument table drafted for the book, SOP and OM (pending)
+Author asked that the 'why two instruments' table go into the book, SOP and OM once definitive. Draft and its three entry conditions in DEV_DIRECTION_AUDIT_01.md.

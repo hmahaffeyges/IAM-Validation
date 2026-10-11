@@ -16,3 +16,19 @@ pat_site_table and cscore). A share r of the normally unmethylated molecules is 
 3. **Planting calibration.** eps_g = eps per call reads IAM-A 0.9544 / 0.9297, not 1: Stage Q counts isolated errors only. The next plant is set in
    Stage Q units.
 Met-A reads both directions by construction (methylated and unmethylated identity sites); its planted check is pending. Fingerprint: Arm B = loss, Arm G = gain.
+
+## Draft for the book, SOP and OM (author, 2026-10-11): goes in only when the conditions below are met
+Why there are two instruments, by what each can and cannot see:
+
+| | Met-A (arrays) | IAM-A (sequencing) |
+|---|---|---|
+| What it reads | fixed identity sites, both directions: sites that should be methylated and sites that should not | the cost of holding marks: copy error on the molecules a cell keeps methylated |
+| Sees loss | yes | yes |
+| Sees gain | yes, directly, at the unmethylated identity sites | only indirectly, as a mixture it cannot name |
+| Blind spot | only the sites it was built on; nothing about how faithfully marks are copied | which direction moved, unless held and gained territory are read separately |
+
+Conditions before this enters the book (Part VI instruments chapter), the SOP and the OM:
+1. Met-A planted-gain and planted-loss test on healthy arrays (the "yes / yes" column is by construction until then).
+2. Per-territory IAM-A reader (held vs gained copy error) built and recovering planted values in Stage Q units.
+3. The IAM-A C-score re-based on healthy RRBS, or its RRBS limit written into its own row.
+When all three are committed, this table (with the numbers from those outputs) goes into the book, SOP and OM in the same push.
