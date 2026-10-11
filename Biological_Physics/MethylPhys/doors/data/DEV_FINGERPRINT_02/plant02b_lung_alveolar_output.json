@@ -1,0 +1,134 @@
+{
+ "NULL": {
+  "pair": "lung_alveolar",
+  "IAMA_rel": 1.0,
+  "eps_cancer": 0.049634662492717814,
+  "eps_normal": 0.049634662492717814,
+  "share_read": 1.0,
+  "MetA_rel": 1.0,
+  "sites_all_arrays": 5933,
+  "arrays_H": {
+   "ENCSR422EPB": 0.40482515305434225,
+   "ENCSR408IKV": 0.40482515305434225
+  },
+  "curveB": 1.0,
+  "curveB_extended": false,
+  "se": 0.20489415587084364,
+  "z": 0.0,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.0,
+   "FAKE1": -0.0036601394945766684
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "no fingerprint",
+  "deciding_arm": "B",
+  "power_A06": 0.08816112815302568,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": -0.17309070278690863,
+  "VERDICT": "no fingerprint",
+  "case": "NULL",
+  "expected": "no fingerprint",
+  "PASS": true
+ },
+ "RUN05": {
+  "pair": "lung_alveolar",
+  "IAMA_rel": 1.0011957312270747,
+  "eps_cancer": 0.049714655092806356,
+  "eps_normal": 0.049634662492717814,
+  "share_read": 0.950068452060484,
+  "MetA_rel": 1.0,
+  "sites_all_arrays": 5933,
+  "arrays_H": {
+   "ENCSR422EPB": 0.40482515305434225,
+   "ENCSR408IKV": 0.40482515305434225
+  },
+  "curveB": 1.0026208761975732,
+  "curveB_extended": false,
+  "se": 0.20489415587084364,
+  "z": -0.01279136628584622,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.048932199875596105,
+   "FAKE1": 0.045293217903937935
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "FINGERPRINT",
+  "deciding_arm": "B",
+  "power_A06": 0.08816112815302568,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": 2.141949761775395,
+  "VERDICT": "FINGERPRINT",
+  "case": "RUN05",
+  "expected": "FINGERPRINT",
+  "PASS": true
+ },
+ "RUN01": {
+  "pair": "lung_alveolar",
+  "IAMA_rel": 0.9995958110449197,
+  "eps_cancer": 0.04960763325228437,
+  "eps_normal": 0.049634662492717814,
+  "share_read": 0.9900321493946993,
+  "MetA_rel": 1.0,
+  "sites_all_arrays": 5933,
+  "arrays_H": {
+   "ENCSR422EPB": 0.40482515305434225,
+   "ENCSR408IKV": 0.40482515305434225
+  },
+  "curveB": 1.0,
+  "curveB_extended": false,
+  "se": 0.20489415587084364,
+  "z": 0.0,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.008397263114244246,
+   "FAKE1": 0.005919574053204502
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "no fingerprint",
+  "deciding_arm": "B",
+  "power_A06": 0.08816112815302568,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": 0.2799410335552865,
+  "VERDICT": "no fingerprint",
+  "case": "RUN01",
+  "expected": "no fingerprint",
+  "PASS": true
+ },
+ "SCAT": {
+  "pair": "lung_alveolar",
+  "IAMA_rel": 1.2395852887411412,
+  "eps_cancer": 0.06659520351629436,
+  "eps_normal": 0.049634662492717814,
+  "share_read": 0.9157039794489994,
+  "MetA_rel": 1.0,
+  "sites_all_arrays": 5933,
+  "arrays_H": {
+   "ENCSR422EPB": 0.40482515305434225,
+   "ENCSR408IKV": 0.40482515305434225
+  },
+  "curveB": 1.544776096238398,
+  "curveB_extended": true,
+  "se": 0.20489415587084364,
+  "z": -2.6588171532906055,
+  "armA": "no fingerprint",
+  "cancer_excess": {
+   "FAKE0": 0.00031100974497200867,
+   "FAKE1": -0.003746103493586072
+  },
+  "armB_bar": 0.021145789090027865,
+  "armB": "no fingerprint",
+  "deciding_arm": "B",
+  "power_A06": 0.08816112815302568,
+  "armA_role": "reported only",
+  "armB_donor_excess": 0.021145789090027865,
+  "ratio_min_excess_to_donor": -0.17715600385670618,
+  "VERDICT": "no fingerprint",
+  "case": "SCAT",
+  "expected": "no fingerprint",
+  "PASS": true
+ }
+}

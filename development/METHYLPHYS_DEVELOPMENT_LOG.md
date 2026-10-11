@@ -836,3 +836,6 @@ FINGERPRINT-01's Arm B excess (0.1105) is 5.2x the healthy donor-to-donor excess
 
 ### 2026-10-10 · DEV-FINGERPRINT-02 pair lung_bronchial sealed under rule 02b
 Normal side, planted test (NULL, RUN05, RUN01, SCAT) and seal by pair_pipeline_02b.sh; section written by note_section_02b.py from the outputs.
+
+### 2026-10-10 · DEV-FINGERPRINT-02 pair lung_alveolar sealed under rule 02b
+Normal side, planted test (NULL, RUN05, RUN01, SCAT) and seal by pair_pipeline_02b.sh; section written by note_section_02b.py from the outputs.

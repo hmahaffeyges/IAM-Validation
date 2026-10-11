@@ -1,0 +1,76 @@
+{
+ "pair": "lung_alveolar",
+ "normal_cell": "epithelial cell of alveolus of lung",
+ "cancer_cell": "A549",
+ "identity_cell": "lung_alveolar_epithelium",
+ "normal_files": [
+  {
+   "file": "ENCFF000MDS",
+   "sha256": "5afde3536e15c03d7510eded7973341cfca90c6553a7b4746a1446a069caeb71",
+   "errors": 2925.0,
+   "opportunities": 51599.0,
+   "m6": 680659,
+   "read": 11917,
+   "eps": 0.056687145099711234
+  },
+  {
+   "file": "ENCFF000MDT",
+   "sha256": "327b3e6a85f26c99a519e790485882191746f7a42b51a677e43388f82643a655",
+   "errors": 11218.0,
+   "opportunities": 233343.0,
+   "m6": 1806265,
+   "read": 53092,
+   "eps": 0.048075151172308574
+  }
+ ],
+ "eps_normal": 0.049634662492717814,
+ "share_read_normal": 0.02614032435249328,
+ "sd_rep": 0.08933792250180288,
+ "sd_rep_own_spread": 0.08933792250180288,
+ "response_file": "normal_epithelial_cell_of_alveolus_of_lung/insilico_ENCFF000MDT.csv",
+ "response_sha256": "7af7c25c4b6d94e8ee7fe9352c00f3de8583b501a69efe1bdc19965eee213812",
+ "curveB_XQ": [
+  1.0,
+  1.010493367923362,
+  1.0262334198084053,
+  1.0524668396168109,
+  1.0825201108267775
+ ],
+ "curveB_YB": [
+  1.0,
+  1.023,
+  1.056,
+  1.115,
+  1.188
+ ],
+ "slope": 2.2715162009552645,
+ "normal_arrays": [
+  "ENCSR422EPB"
+ ],
+ "cancer_arrays": [
+  "ENCSR408IKV"
+ ],
+ "normal_arrays_metA_H": {
+  "ENCSR422EPB": 0.40482515305434225
+ },
+ "normal_arrays_sites": {
+  "ENCSR422EPB": 5933
+ },
+ "armB_normal_excess": {
+  "ENCFF000MDS": 0.0,
+  "ENCFF000MDT": -0.0036601394945766684
+ },
+ "armB_bar_libraries": 0.0,
+ "armB_donor_excess": 0.021145789090027865,
+ "donor_null_sha256": "ffe9cd9eeea0e7a96a3bbfad96d9a849b6a48deb9b304c610ba4a85f2c8db223",
+ "armB_bar": 0.021145789090027865,
+ "armB_sensitivity_run010": 0.0804,
+ "scorer_sha256": "e82356dcdc64757233a590315f9985f8b149af5db4eca553d0f4b7f959776997",
+ "cancer_files_listed": [
+  "ENCFF000LTD",
+  "ENCFF000LTE"
+ ],
+ "se_A": 0.20489415587084364,
+ "rule": "02b: Arm B decides; bar = max(normal-library excess, healthy donor-to-donor excess); FINGERPRINT if every cancer file > bar, no fingerprint if every file <= bar, else UNDECIDED; Arm A reported only",
+ "power_A06": 0.08816112815302568
+}
