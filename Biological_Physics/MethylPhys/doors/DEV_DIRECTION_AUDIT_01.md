@@ -15,7 +15,12 @@ pat_site_table and cscore). A share r of the normally unmethylated molecules is 
    same-pipeline files. (Developed on whole-genome Loyfer files.)
 3. **Planting calibration.** eps_g = eps per call reads IAM-A 0.9544 / 0.9297, not 1: Stage Q counts isolated errors only. The next plant is set in
    Stage Q units.
-Met-A reads both directions by construction (methylated and unmethylated identity sites); its planted check is pending. Fingerprint: Arm B = loss, Arm G = gain.
+**Met-A under planted gain and loss (condition 1, done).** `data/DEV_DIRECTION_AUDIT_01/plant_meta.py`, output `plant_meta_neutrophils.csv`: the six
+physical Salas neutrophil EPIC arrays (12 GEO records; GSE167998 re-deposits GSE110554's arrays), commissioned path, Met-A before any tare. These
+are the reference arrays, so this measures the direction and size of the response, not accuracy on new data. Baseline 0.9651-1.0235. A share d of
+molecules gaining the mark at the unmethylated identity sites, or losing it at the methylated ones: d 0.02 gain 1.0738-1.1274, loss 1.0749-1.1292;
+d 0.05 gain 1.2163-1.2644, loss 1.2188-1.2685; d 0.10 gain 1.4136-1.4551, loss 1.4178-1.4620. Met-A sees both directions with nearly equal
+sensitivity; it does not say which direction moved (a direction reading would split the two site sets). Fingerprint: Arm B = loss, Arm G = gain.
 
 ## Draft for the book, SOP and OM (author, 2026-10-11): goes in only when the conditions below are met
 Why there are two instruments, by what each can and cannot see:
@@ -28,7 +33,7 @@ Why there are two instruments, by what each can and cannot see:
 | Blind spot | only the sites it was built on; nothing about how faithfully marks are copied | which direction moved, unless held and gained territory are read separately |
 
 Conditions before this enters the book (Part VI instruments chapter), the SOP and the OM:
-1. Met-A planted-gain and planted-loss test on healthy arrays (the "yes / yes" column is by construction until then).
+1. Met-A planted-gain and planted-loss test on healthy arrays: DONE 2026-10-11 (above).
 2. Per-territory IAM-A reader (held vs gained copy error) built and recovering planted values in Stage Q units.
 3. The IAM-A C-score re-based on healthy RRBS, or its RRBS limit written into its own row.
 When all three are committed, this table (with the numbers from those outputs) goes into the book, SOP and OM in the same push.

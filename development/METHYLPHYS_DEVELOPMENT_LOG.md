@@ -900,3 +900,6 @@ DEV_DIRECTION_AUDIT_01.md (healthy liver, planted gain): gained molecules enter 
 
 ### 2026-10-11 · Two-instrument table drafted for the book, SOP and OM (pending)
 Author asked that the 'why two instruments' table go into the book, SOP and OM once definitive. Draft and its three entry conditions in DEV_DIRECTION_AUDIT_01.md.
+
+### 2026-10-11 · Met-A sees planted gain and planted loss nearly equally (direction audit, condition 1)
+Six reference neutrophil arrays, commissioned path: a 2/5/10 % gain or loss at the identity sites raises Met-A by about the same amount in both directions (DEV_DIRECTION_AUDIT_01.md).
