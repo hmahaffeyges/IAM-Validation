@@ -10,7 +10,7 @@ T = pd.read_csv(os.path.join(HERE, "tcga_brca_450k_files.csv"))
 if which == "tumour":
     seal = os.path.join(HERE, "sealed_breast_tissue.json"); rel = os.path.relpath(seal, subprocess.run(["git", "-C", HERE, "rev-parse", "--show-toplevel"], capture_output=True, text=True).stdout.strip())
     assert os.path.exists(seal) and subprocess.run(["git", "-C", HERE, "ls-files", "--error-unmatch", rel], capture_output=True).returncode == 0, "tumour arrays are read only after the seal is committed"
-    T = T[T.sample_type == "Primary Tumor"]
+    import json; ids = {f["file_id"] for q in json.load(open(seal))["pairs"] for f in q["tumour_files"].values()}; T = T[T.file_id.isin(ids)]   # only the sealed pairs
 else: T = T[T.sample_type == "Solid Tissue Normal"]
 for smp, d in T.groupby("sample"):
     out = os.path.join(W, "betas", smp + ".parquet")
