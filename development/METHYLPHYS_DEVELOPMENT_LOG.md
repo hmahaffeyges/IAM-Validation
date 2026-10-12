@@ -1102,3 +1102,6 @@ DEV_LIVER_BLOOD_01.md: no public raw methylation data on recurrence after liver 
 
 ### 2026-10-12 · DEV-TISSUE-LUNG-01 scored: NO FINGERPRINT
 GSE94785, 28 same-slide pairs, scored once under the seal: 4 above the bar, 6 needed. Descriptive: 20 of 28 tumours read above their own normal (median R 1.038); lung normals differ between people more than colon normals (stand-in SD 0.086 against 0.050), so the bar is wider.
+
+### 2026-10-12 · Lesson T15 from the lung result
+The synthetic run was executed as written; it did not cover changes as small as lung showed, its bar came from between-person pairs, and the count rule ignores a small steady lean. Before any tissue seal: measure normal spread first, plant down to 1 %, test an every-pair rule beside the count rule. Applies from liver.
