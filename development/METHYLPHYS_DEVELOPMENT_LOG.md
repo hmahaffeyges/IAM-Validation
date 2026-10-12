@@ -1147,3 +1147,6 @@ The lung 2 lock test ran on after its clean-tree check failed (canon_report.json
 
 ### 2026-10-12 · DEV-TISSUE-LUNG-02: not suitable at 12 pairs; tumors unread
 Synthetic tests on the 12 normals: normal lungs differ between people far more than in lung 1 (SD 0.139 against 0.086), the planted 5 % change crossed the bar in 0.40 of pairs (0.80 required): FAILED. Not sealed; the tumors stay unread. A first run stalled for an hour on a scipy method switch when bootstrap draws repeated a pair; fixed to draw 12 different pairs, as the real test has.
+
+### 2026-10-12 · DEV-TISSUE-LUNG-03 inputs (TCGA-LUSC; author: a decisive lung test today if the data allow)
+40 squamous lung cancer patients, tumor and own normal lung on the same plate (metadata only; Prior reading disclosed). Lung 2 synthetic design applies; tumors locked until sealed.
