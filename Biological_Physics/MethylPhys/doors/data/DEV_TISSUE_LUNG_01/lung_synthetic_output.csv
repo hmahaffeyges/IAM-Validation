@@ -1,0 +1,9 @@
+case,pairs,mean_R,share_above_bar,group_call,bar,crit_of_28
+NULL,132,1.0036,0.053,0.003,1.1436,6
+SHIFT control lung,132,1.0184,0.068,0.006,1.1436,6
+SHIFT atlas alveolar,132,1.0289,0.061,0.011,1.1436,6
+SHIFT atlas bronchial,132,1.0298,0.061,0.01,1.1436,6
+SHIFT immune,132,1.0015,0.015,0.0,1.1436,6
+d0.02 control lung,132,1.1013,0.295,0.859,1.1436,6
+d0.05 control lung,132,1.2416,0.879,1.0,1.1436,6
+d0.10 control lung,132,1.4349,1.0,1.0,1.1436,6

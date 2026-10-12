@@ -1,0 +1,18 @@
+arrays: patient normals 28, control lungs 6 | loci 343084 | blind sites 3000 + 3000 | stand-in pairs 132 on 5 slides
+1 spread: stand-in R SD 0.0860, 95th percentile (pair bar) 1.1436
+  normals' Met-A by slide: Kruskal-Wallis p 5.06e-01 (5 slides with >= 3)
+  Met-A median: patient normal 0.3434, control lung 0.3396 (descriptive)
+2-5 cases (pairs; group rule >= 6 of 28, binomial p < 0.01):
+  NULL: mean R 1.0036, share above bar 0.053, group call 0.003
+  SHIFT control lung: mean R 1.0184, share above bar 0.068, group call 0.006
+  SHIFT atlas alveolar: mean R 1.0289, share above bar 0.061, group call 0.011
+  SHIFT atlas bronchial: mean R 1.0298, share above bar 0.061, group call 0.010
+  SHIFT immune: mean R 1.0015, share above bar 0.015, group call 0.000
+  d0.02 control lung: mean R 1.1013, share above bar 0.295, group call 0.859
+  d0.05 control lung: mean R 1.2416, share above bar 0.879, group call 1.000
+  d0.10 control lung: mean R 1.4349, share above bar 1.000, group call 1.000
+3 independence: tared Met-A vs fitted epithelial share (0.139-0.549), n 28: Spearman -0.050 (p 0.80)
+2 composition (control lung and immune blends) <= 0.10: PASSED
+3 independence: PASSED
+4 planted 5 % >= 0.80: PASSED
+5 power: PASSED
