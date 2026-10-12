@@ -1141,3 +1141,6 @@ The note said most mix changes in test 7 lower R; the output shows mean R slight
 
 ### 2026-10-12 · DEV-TISSUE-LUNG-02 inputs (lung retest, author: lung first)
 GSE83842: 12 early (stage I) lung adenocarcinoma patients, tumor and own normal on the same 450K slide, never read. Sample table, tumor-locked fetch and calibration committed before any array is fetched. Power at 12 pairs decides whether it runs.
+
+### 2026-10-12 · Lesson C6, third occurrence (nothing lost)
+The lung 2 lock test ran on after its clean-tree check failed (canon_report.json, rewritten by every status check), with an empty HEAD marker; its reset only discarded that status file. Redone with set -e and stopping guards: the lock refuses with no seal and with an uncommitted seal, and allows after a committed one.
