@@ -29,5 +29,12 @@ tumors stay unread** and remain available to a design that can hold lung composi
 **Why, and what it needs.** The atlas holds no lung fibroblasts or lung smooth muscle (lung tests use colon and heart fibroblasts as stand-ins), so
 the blind sites cannot be checked against the stroma actually in lung; with normals this alike, that gap decides. A lung design needs purified
 healthy lung stromal cells in the atlas (DEV-ATLAS-COMMISSION-01, use U2) or composition measured per sample.
+
+**Synthetic tests v3, run once, 2026-10-12** (`data/DEV_TISSUE_LUNG_03/lusc_synthetic.py` at ef71030, outputs `lusc_synthetic_output.csv`,
+`lusc_direction_output.csv`, `lusc_synthetic_summary.txt`; v2 kept as `_v2_FAILED_*`). Panel and direction test now include measured lung stroma
+(GSE146376 airway smooth muscle, GSE107226 lung fibroblasts; both cultured, so the direction test covers cultured stroma) and every lung cell
+type in the atlas. Planted 5 % PASSED; composition, power and direction FAILED: an immune blend (with lung macrophages) moves R by about 4 %
+against a pair bar near 5 % at these tightly matched normals. **LUSC is not suitable for a fingerprint call; its 40 tumors stay unread.** Next:
+TCGA-LUAD with the v3 design (DEV-TISSUE-LUNG-04).
 **Not a milestone:** not suitable (development).
 

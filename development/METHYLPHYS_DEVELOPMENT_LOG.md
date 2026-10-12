@@ -1177,3 +1177,6 @@ Independent purified-cell candidates recorded with the search limits. Leads: GSE
 
 ### 2026-10-12 · IAM-Atlas v2 deposited: DOI 10.5281/zenodo.23325865 (author approved)
 Zenodo record 23325865: 7 block archives (all 2,100 files checked against ATLAS_V2_OUTPUT_MANIFEST.json before packing), ARCHIVES_SHA256.txt, the manifest and a README; every upload checked by md5 before publishing; MIT license; creator Heath W. Mahaffey, IAMPerformance Inter-Domain Research Initiative. atlas/tools/fetch_atlas.py tested on the live record (one archive: 300 files verified). DOI written into the atlas README, the book atlas chapter and the main README; status fact atlas_v2 now requires it.
+
+### 2026-10-12 · DEV-TISSUE-LUNG-03 v3 failed; LUSC not suitable, tumors unread
+Measured lung stroma and all atlas lung cell types added; composition, power and direction still failed (immune blend with lung macrophages ~4 % against a ~5 % bar). Next: TCGA-LUAD with the v3 design.

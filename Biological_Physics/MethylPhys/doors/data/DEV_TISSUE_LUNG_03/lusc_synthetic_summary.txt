@@ -1,16 +1,16 @@
-arrays: patient normals 42 on 4 slides | loci 356360 | blind sites 2647 + 3000 | stand-in pairs 680 | N 40, CRIT 7
-1 spread: stand-in R SD 0.0242, 95th percentile (pair bar) 1.0410  [lung 1 SD 0.0860, lung 2 SD 0.1391, colon SD 0.0502]
+arrays: patient normals 42 on 4 slides | loci 356285 | blind sites 1321 + 3000 | stand-in pairs 680 | N 40, CRIT 7
+1 spread: stand-in R SD 0.0302, 95th percentile (pair bar) 1.0530  [lung 1 SD 0.0860, lung 2 SD 0.1391, colon SD 0.0502]
 2, 4, 5 cases:
-  NULL: mean R 1.0003, share above bar 0.050, COUNT 0.003, EVERY-PAIR 0.007
-  SHIFT other normal: mean R 1.0030, share above bar 0.049, COUNT 0.003, EVERY-PAIR 0.038
-  SHIFT immune: mean R 1.0155, share above bar 0.118, COUNT 0.172, EVERY-PAIR 0.990
-  d0.005 other normal: mean R 1.0288, share above bar 0.266, COUNT 0.942, EVERY-PAIR 1.000
-  d0.0075 other normal: mean R 1.0411, share above bar 0.493, COUNT 1.000, EVERY-PAIR 1.000
-  d0.01 other normal: mean R 1.0535, share above bar 0.700, COUNT 1.000, EVERY-PAIR 1.000
-  d0.02 other normal: mean R 1.1036, share above bar 0.990, COUNT 1.000, EVERY-PAIR 1.000
-  d0.05 other normal: mean R 1.2383, share above bar 1.000, COUNT 1.000, EVERY-PAIR 1.000
-5 rules: eligible {'COUNT': False, 'EVERY-PAIR': False}; detection at d 0.0075 {'COUNT': np.float64(1.0), 'EVERY-PAIR': np.float64(1.0)}; CHOSEN RULE: None
-3 independence (reported; replaced by test 7): Spearman -0.110 (p 0.50), n 40
+  NULL: mean R 1.0005, share above bar 0.050, COUNT 0.003, EVERY-PAIR 0.009
+  SHIFT other normal: mean R 1.0028, share above bar 0.056, COUNT 0.004, EVERY-PAIR 0.018
+  SHIFT immune: mean R 1.0376, share above bar 0.222, COUNT 0.819, EVERY-PAIR 1.000
+  d0.005 other normal: mean R 1.0295, share above bar 0.172, COUNT 0.561, EVERY-PAIR 1.000
+  d0.0075 other normal: mean R 1.0421, share above bar 0.313, COUNT 0.981, EVERY-PAIR 1.000
+  d0.01 other normal: mean R 1.0550, share above bar 0.494, COUNT 1.000, EVERY-PAIR 1.000
+  d0.02 other normal: mean R 1.1060, share above bar 0.953, COUNT 1.000, EVERY-PAIR 1.000
+  d0.05 other normal: mean R 1.2446, share above bar 1.000, COUNT 1.000, EVERY-PAIR 1.000
+5 rules: eligible {'COUNT': False, 'EVERY-PAIR': False}; detection at d 0.0075 {'COUNT': np.float64(0.981), 'EVERY-PAIR': np.float64(1.0)}; CHOSEN RULE: None
+3 independence (reported; replaced by test 7): Spearman -0.136 (p 0.40), n 40
 2 composition <= 0.10: FAILED
 4 planted 5 % >= 0.80: PASSED
 5 power (chosen rule detects d 0.05 >= 0.80): FAILED
