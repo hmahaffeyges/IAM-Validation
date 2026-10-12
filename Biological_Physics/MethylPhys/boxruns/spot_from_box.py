@@ -19,7 +19,7 @@ elif mode == "launch":
     run, ami = sys.argv[2], sys.argv[3]; typ = sys.argv[4] if len(sys.argv) > 4 else "m7a.32xlarge"; b = box()
     ud = "#cloud-config\nssh_deletekeys: false\nssh_genkeytypes: []\n"
     i = ec2.run_instances(ImageId=ami, InstanceType=typ, MinCount=1, MaxCount=1, KeyName=b["KeyName"], SubnetId=b["SubnetId"],
-                          SecurityGroupIds=[g["GroupId"] for g in b["SecurityGroups"]], UserData=ud,
+                          SecurityGroupIds=[g["GroupId"] for g in b["SecurityGroups"]], UserData=ud, InstanceInitiatedShutdownBehavior="terminate",
                           InstanceMarketOptions={"MarketType": "spot", "SpotOptions": {"SpotInstanceType": "one-time", "InstanceInterruptionBehavior": "terminate"}},
                           TagSpecifications=[{"ResourceType": "instance", "Tags": [{"Key": "Name", "Value": "methylphys-cpu-01"}, {"Key": "run", "Value": run}]},
                                              {"ResourceType": "volume", "Tags": [{"Key": "run", "Value": run}]}])["Instances"][0]["InstanceId"]
