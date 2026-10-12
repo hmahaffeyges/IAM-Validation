@@ -1,0 +1,6 @@
+truth error t | largest chain error m that can still meet RMSE 0.02 | RMSE if m = 0.019 (in-sample value)
+0.005 | 0.0194 | 0.0196
+0.010 | 0.0173 | 0.0215
+0.015 | 0.0132 | 0.0242
+0.020 | 0.0000 | 0.0276
+immature granulocytes %: given for 394; above 2 % in 17 (4.3%); above 5 % in 5

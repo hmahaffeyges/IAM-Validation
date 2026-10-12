@@ -33,3 +33,10 @@ series (GSM5098953, which has no neutrophil count and is excluded from the bar-7
 read). On that array, 6 Met-A sites, 1 composition marker and 49 noise sites fall to the array's own quality check, as on any EPIC array.
 **Passed.** Next: synthetic tests of bar 7 on this design, then the seal.
 
+**Feasibility of bar 7 on this truth set, 2026-10-11, before any array is read** (`data/DEV_COMPOSITION_TRUTH_04/feasibility_bar7.py`, output
+`feasibility_bar7_output.txt`). Against a clinical count, the measured RMSE combines the chain's error with the count's own error. With the chain at
+its in-sample value (0.019), bar 7 (0.02) is met only if the count's error is below about 0.006; at a count error of 0.010 the expected RMSE is
+0.0215, a failure caused by the truth set, not the instrument. The count is automated, so its error is set by analyser bias and scatter, not
+known for this series. **Held for the author before the synthetic tests:** run bar 7 here as decided (a likely not-met that uses the only independent
+truth set), or fix in advance how the count's error enters the bar, which changes the math.
+
