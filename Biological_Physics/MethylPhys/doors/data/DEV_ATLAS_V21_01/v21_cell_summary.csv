@@ -1,0 +1,41 @@
+cell,new_samples_firm,new_samples_cond,new_sources,v2_sources,v2_samples,v2_status
+HSC (bone marrow),3,0,GSE49618,GSE63409,3.0,IN
+NEW: HSC (cord blood),0,12,GSE273074,-,0.0,NEW
+NEW: cd56bright nk cells,9,0,GSE252045,-,0.0,NEW
+NEW: cd8 central memory t cells,16,0,GSE252045,-,0.0,NEW
+NEW: cd8 temra t cells,6,0,GSE252045,-,0.0,NEW
+NEW: central memory th1 cells,5,0,GSE75405,-,0.0,NEW
+NEW: cytotoxic cd4 t cells (cd28-),5,0,GSE75405,-,0.0,NEW
+NEW: promyelocytes,3,0,GSE49618,-,0.0,NEW
+NEW: sperm,0,12,GSE114753,-,0.0,NEW
+NEW: thymocyte DN1,0,5,GSE269608,-,0.0,NEW
+NEW: thymocyte DN2,0,5,GSE269608,-,0.0,NEW
+NEW: thymocyte DN3,0,5,GSE269608,-,0.0,NEW
+NEW: thymocyte DPE,0,5,GSE269608,-,0.0,NEW
+NEW: thymocyte DPL,0,5,GSE269608,-,0.0,NEW
+NEW: thymocyte ISP,0,5,GSE269608,-,0.0,NEW
+NEW: thymocyte SP4,0,5,GSE269608,-,0.0,NEW
+NEW: thymocyte SP8,0,5,GSE269608,-,0.0,NEW
+adipocytes,0,6,GSE111445,"Loyfer2023,Moss2018",6.0,IN
+astrocytes,10,0,GSE306226,Tian2023,1.0,"IN - pooled, 3 donor"
+b cells,49,0,"GSE103541, GSE118144, GSE122244, GSE224807, GSE88824","Loyfer2023,Salas2018",9.0,IN
+cd4 t cells,43,0,"GSE103541, GSE118144, GSE224807, GSE88824","Loyfer2023,Salas2018",8.0,IN
+cd8 t cells,43,0,"GSE103541, GSE118144, GSE224807, GSE88824","Loyfer2023,Salas2018",9.0,IN
+colon epithelium,8,0,E-MTAB-4957,"Loyfer2023,Moss2018",8.0,IN
+cortical neurons,10,0,GSE306226,"Loyfer2023,Moss2018",11.0,IN
+effector memory cd8 t cells,7,0,GSE252045,"Loyfer2023,Salas2022",5.0,IN
+embryonic stem cells,9,0,GSE116754,ENCODE,2.0,IN
+fallopien tubes epithelium,0,8,GSE146552,Loyfer2023,3.0,IN
+memory b cells,8,0,GSE252045,"Loyfer2023,Salas2022",8.0,IN
+microglia,10,0,GSE306226,Tian2023,1.0,"IN - pooled, 3 donor"
+monocytes,55,0,"GSE103541, GSE122244, GSE224807, GSE226298, GSE252045, GSE88824","Loyfer2023,Salas2018,Salas2022",14.0,IN
+naive b cells,9,0,GSE252045,Salas2022,4.0,IN
+naive cd4 t cells,13,0,"GSE252045, GSE75405","Loyfer2023,Salas2022",6.0,IN
+naive cd8 t cells,20,0,"GSE252045, GSE75405","Loyfer2023,Salas2022",6.0,IN
+neutrophils,37,32,"GSE103541, GSE118144, GSE122244, GSE124565, GSE224807, GSE226298, GSE88824","Salas2018,Salas2022",12.0,IN
+nk cells,19,0,"GSE224807, GSE88824","Loyfer2023,Salas2018,Salas2022",13.0,IN
+oligodendrocytes,10,0,GSE306226,"Loyfer2023,Tian2023",5.0,IN
+ovary epithelium,0,8,GSE146552,,0.0,WAIT - one sample; n
+small intestine epithelium,8,0,E-MTAB-4957,Loyfer2023,3.0,IN
+t central memory cd4,9,0,GSE252045,Loyfer2023,3.0,IN
+t effector cell cd8,4,0,GSE75405,Loyfer2023,3.0,IN

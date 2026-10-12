@@ -186,3 +186,4 @@ GSE38266,unspent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026
 GSE147436,unspent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
 Zenodo:6812876,unspent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
 GSE77797,spent,"DEV-COMPOSITION-TRUTH-02 (box job 5bd710b8, 2026-10-04)",whole-blood truth search 2026-10-11
+GSE226298,spent,"read by the commissioned Met-A neutrophil bars 10-11 (COMMISSIONING_NOTE_METAA_NEUTROPHILS) and C-score plans",atlas v2.1 prep 2026-10-12
