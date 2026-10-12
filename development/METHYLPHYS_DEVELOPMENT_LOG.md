@@ -1081,3 +1081,6 @@ DEV_FINGERPRINT_03.md: array and sequencing sets of liver and lung cancer with m
 
 ### 2026-10-12 · Neuron reference built (Loyfer, whole files)
 DEV-IAMA-NEURON-01: by the sealed rule, 5 cortical donors; four agree closely and one (ND264, age 19) reads high, so only 2 of 5 fall inside Normal leave-one-out. Descriptive: copy error follows Loyfer's "not sorted" comment (both ND264 samples), not region or age. Held for the author: whether one preparation is part of "one cell type" (a rule change after the reading, disclosed if made).
+
+### 2026-10-12 · Stage B spot machine reclaimed by AWS; resumed
+AWS reclaimed the Stage B spot machine at 02:02 Pacific (no spot capacity) after 25 of 71 libraries; all 25 were in S3, and the run script skips them. Resumed on a c6a.32xlarge spot machine (128 cores, 256 GB; peak use about 110 GB; cheaper per hour). The overnight watcher flagged only both machines stopping; it now flags either one stopping before its work is done.

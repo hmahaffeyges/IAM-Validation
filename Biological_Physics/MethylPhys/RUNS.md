@@ -29,15 +29,15 @@ Work done on the laptop is free and is not listed.
 | Box Run 9 | cancer fingerprints: liver, lung, breast lines and normals | `BOXRUN9_FP2/cancer/session9.log` | 2026-10-11 05:46 | 11.4 | 120 | DONE | pending billing access | [doors/DEV_FINGERPRINT_02_OUTCOME.md](doors/DEV_FINGERPRINT_02_OUTCOME.md) |
 | Box Run 10 | IAM-A commissioning on identical DNA (EpiQC): format check, Stage A | `BOXRUN10_EPIQC/pilot/session.log` | 2026-10-11 22:21 | 0.2 | 128 | DONE | pending billing access | [doors/DEV_IAMA_COMMISSION_01.md](doors/DEV_IAMA_COMMISSION_01.md) |
 | Box Run 10 | IAM-A commissioning on identical DNA (EpiQC): format check, Stage A | `BOXRUN10_EPIQC/stageA/session.log` | 2026-10-11 22:31 | 1.6 | 128 | DONE | pending billing access | [doors/DEV_IAMA_COMMISSION_01.md](doors/DEV_IAMA_COMMISSION_01.md) |
-| Work machine 01 | neuron reference (10 Loyfer files read whole) and colon replication normals (152 arrays, Stage 1); small spot machine, unattended | `WORKBOX01/session.log` | 2026-10-12 04:09 | 0.6 | 8 | not recorded | pending billing access | [boxruns/workbox/jobs_01.sh](boxruns/workbox/jobs_01.sh) |
+| Work machine 01 | neuron reference (10 Loyfer files read whole) and colon replication normals (152 arrays, Stage 1); small spot machine, unattended | `WORKBOX01/session.log` | 2026-10-12 04:09 | 3.5 | 8 | 10 rows | pending billing access | [boxruns/workbox/jobs_01.sh](boxruns/workbox/jobs_01.sh) |
 
-Total job hours: 65.3.
+Total job hours: 68.2.
 
 ## Upcoming
 
 | run tag | run | purpose | machine | estimate |
 |---|---|---|---|---|
-| `BOXRUN10_stageB` | Box Run 10, Stage B (Stage A met C1) | IAM-A commissioning on identical DNA: the other 71 libraries, 12.2M read pairs each | spot m7a.32xlarge, 128 cores | about 14 hours, $45-50 |
+| `BOXRUN10_stageB` | Box Run 10, Stage B (Stage A met C1) | IAM-A commissioning on identical DNA: the other 71 libraries, 12.2M read pairs each | spot, 128 cores: m7a.32xlarge until AWS reclaimed it at 25 of 71 libraries (2026-10-12 02:02 Pacific); the rest on c6a.32xlarge | about $35-45 in total |
 | `WORKBOX01` | Work machine 01 | neuron reference (10 Loyfer files) and colon replication: 152 normal arrays calibrated, then synthetic tests | spot r7a.2xlarge, 8 cores, 64 GB | about 5 hours, $1-2 |
 
 ## Actual AWS charges (from AWS billing)
