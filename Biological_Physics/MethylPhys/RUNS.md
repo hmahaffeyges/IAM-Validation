@@ -35,10 +35,10 @@ Total job hours: 64.7.
 
 ## Upcoming
 
-| run | purpose | machine | estimate |
-|---|---|---|---|
-| Box Run 10, Stage B (Stage A met C1) | IAM-A commissioning on identical DNA: the other 71 libraries, 12.2M read pairs each | spot m7a.32xlarge, 128 cores | about 14 hours, $45-50 |
-| Work machine 01 | neuron reference (10 Loyfer files) and colon replication: 152 normal arrays calibrated, then synthetic tests | spot r7a.2xlarge, 8 cores, 64 GB | about 5 hours, $1-2 |
+| run tag | run | purpose | machine | estimate |
+|---|---|---|---|---|
+| `BOXRUN10_stageB` | Box Run 10, Stage B (Stage A met C1) | IAM-A commissioning on identical DNA: the other 71 libraries, 12.2M read pairs each | spot m7a.32xlarge, 128 cores | about 14 hours, $45-50 |
+| `WORKBOX01` | Work machine 01 | neuron reference (10 Loyfer files) and colon replication: 152 normal arrays calibrated, then synthetic tests | spot r7a.2xlarge, 8 cores, 64 GB | about 5 hours, $1-2 |
 
 ## Actual AWS charges (from AWS billing)
 

@@ -2,7 +2,7 @@
 the box image runs ONE committed job list (jobs_*.sh) unattended: no login, results saved to S3 item by item, then it terminates itself. A hard
 time cap (shutdown at MAXMIN minutes) means it cannot run on forever. Uses the box's S3 role (instance profile methylphys-box-s3).
 Usage: python3 workbox.py launch NAME AMI TYPE JOBS.sh MAXMIN   |   python3 workbox.py dryrun NAME AMI TYPE JOBS.sh MAXMIN"""
-import sys, boto3
+import os, sys, boto3
 mode, name, ami, typ, jobs, maxmin = sys.argv[1:7]
 ec2 = boto3.client("ec2", region_name="us-west-2")
 ud = f"""#!/bin/bash
@@ -18,4 +18,5 @@ if mode == "dryrun":
     try: ec2.run_instances(DryRun=True, **kw)
     except Exception as e: print(str(e)[:200])
 else:
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")); import ledger_guard; ledger_guard.require(name)
     i = ec2.run_instances(**kw)["Instances"][0]["InstanceId"]; print(name, i, typ)
