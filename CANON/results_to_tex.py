@@ -48,8 +48,8 @@ def compute(e):
         armB = min(S["LNCaP"]["ex"]) > max(S["PrEC"]["ex"])
         return dict(IA=IA, share=share, MA=MA, nsites=nsites, cB=cB, z=z, exL=(min(S["LNCaP"]["ex"]), max(S["LNCaP"]["ex"])), exP=max(S["PrEC"]["ex"]),
                     nL=S["LNCaP"]["n"], nP=S["PrEC"]["n"], arm="B" if share < 0.70 else "A", inside=(armB if share < 0.70 else z > 1.645))
-    if e["compute"] in ("breast_tissue", "colon_tissue"):
-        O = json.load(open(os.path.join(ROOT, D + {"breast_tissue": "DEV_TISSUE_BREAST_01/scored_breast_tissue.json", "colon_tissue": "DEV_TISSUE_COLON_01/scored_colon_tissue.json"}[e["compute"]]), encoding="utf-8")); Rr = [r["R"] for r in O["rows"]]
+    if e["compute"] in ("breast_tissue", "colon_tissue", "liver_tissue"):
+        O = json.load(open(os.path.join(ROOT, D + {"breast_tissue": "DEV_TISSUE_BREAST_01/scored_breast_tissue.json", "colon_tissue": "DEV_TISSUE_COLON_01/scored_colon_tissue.json", "liver_tissue": "DEV_TISSUE_LIVER_01/scored_liver_tissue.json"}[e["compute"]]), encoding="utf-8")); Rr = [r["R"] for r in O["rows"]]
         from scipy.stats import binom
         return dict(n=O["pairs"], k=O["above_bar"], crit=O["crit"], bar=O["bar"], med=O["R_median"], up=sum(r > 1 for r in Rr), p=float(binom.sf(O["above_bar"] - 1, O["pairs"], .05)), inside=O["VERDICT"] == "FINGERPRINT")
     if e["compute"] == "fingerprint_rep":
@@ -140,6 +140,10 @@ def readme_row(e, v):
         h = (f"**Met-A on patients' colorectal tumors.** Each of {v['n']} tumors read against the same patient's adjacent normal colon on the same "
              f"slide, at sites the tissue mix cannot move, by a rule sealed before any tumor array was read: {v['k']} of {v['n']} above the healthy "
              f"bar ({v['crit']} needed; p = {v['p']:.1e}); {v['up']} of {v['n']} above their own normal. Group-level; one laboratory")
+    elif e.get("compute") == "liver_tissue":
+        h = (f"**Met-A on patients' liver tumors.** Each of {v['n']} TCGA tumors read against the same patient's normal liver on the same plate, at sites "
+             f"the tissue mix cannot move, by a rule sealed before any tumor array was downloaded: {v['k']} of {v['n']} above the healthy bar ({v['crit']} "
+             f"needed; p = {v['p']:.1e}); {v['up']} of {v['n']} above their own normal. Group-level; TCGA built the reading")
     elif e.get("compute") == "breast_tissue":
         h = (f"**Met-A on patients' breast tumors.** Each of {v['n']} TCGA tumors read against the same patient's normal tissue at sites the tissue mix "
              f"cannot move, by a rule sealed before any tumor array was downloaded: {v['k']} of {v['n']} above the healthy bar ({v['crit']} needed; "

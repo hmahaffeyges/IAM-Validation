@@ -1132,3 +1132,6 @@ Spot capacity for 64- and 128-core machines short (scores 1-3 of 10 for large-me
 
 ### 2026-10-12 · How the work is funded: one statement in the README, FOLLOW.md and the book preface (author); push-gate rule 18
 The GoFundMe link and wording are kept once (CANON/funding.json) and written into all three places by CANON/funding_sync.py; the gate refuses a push if any differs. The link is the fundraiser page itself (the short link gofund.me/aa66b647d opens the author profile).
+
+### 2026-10-12 · DEV-TISSUE-LIVER-01 scored: FINGERPRINT
+TCGA-LIHC, 50 same-plate pairs, scored once under the seal: 22 above the bar, 8 needed (binomial p 5.4e-16); 44 of 50 above their own normal liver. Reviewed by plate (5 of 6 plates). Added to the results register.

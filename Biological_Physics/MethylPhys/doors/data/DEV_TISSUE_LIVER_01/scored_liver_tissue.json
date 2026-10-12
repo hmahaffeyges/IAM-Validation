@@ -1,0 +1,311 @@
+{
+ "test": "DEV-TISSUE-LIVER-01",
+ "pairs": 50,
+ "above_bar": 22,
+ "crit": 8,
+ "bar": 1.1245944120553995,
+ "R_median": 1.1039238985281137,
+ "VERDICT": "FINGERPRINT",
+ "rows": [
+  {
+   "case": "TCGA-BC-A10Q",
+   "plate": "A132",
+   "sites": 5683,
+   "R": 1.090257077660749
+  },
+  {
+   "case": "TCGA-BC-A10R",
+   "plate": "A132",
+   "sites": 5679,
+   "R": 1.100023114980621
+  },
+  {
+   "case": "TCGA-BC-A10S",
+   "plate": "A132",
+   "sites": 5682,
+   "R": 0.8277868561153111
+  },
+  {
+   "case": "TCGA-BC-A10T",
+   "plate": "A132",
+   "sites": 5674,
+   "R": 1.3075427693954398
+  },
+  {
+   "case": "TCGA-BC-A10U",
+   "plate": "A132",
+   "sites": 5581,
+   "R": 1.34930231466308
+  },
+  {
+   "case": "TCGA-BC-A10W",
+   "plate": "A132",
+   "sites": 5679,
+   "R": 1.0761739491934814
+  },
+  {
+   "case": "TCGA-BC-A10X",
+   "plate": "A132",
+   "sites": 5683,
+   "R": 0.8950137004119979
+  },
+  {
+   "case": "TCGA-BC-A10Y",
+   "plate": "A132",
+   "sites": 5675,
+   "R": 1.3425146548821925
+  },
+  {
+   "case": "TCGA-BC-A10Z",
+   "plate": "A132",
+   "sites": 5672,
+   "R": 1.3056297915787123
+  },
+  {
+   "case": "TCGA-BC-A110",
+   "plate": "A132",
+   "sites": 5680,
+   "R": 1.0395385072890524
+  },
+  {
+   "case": "TCGA-BC-A112",
+   "plate": "A132",
+   "sites": 5682,
+   "R": 0.9221695579523049
+  },
+  {
+   "case": "TCGA-BC-A216",
+   "plate": "A153",
+   "sites": 5678,
+   "R": 1.31299986553135
+  },
+  {
+   "case": "TCGA-BD-A2L6",
+   "plate": "A20Z",
+   "sites": 5506,
+   "R": 1.1804440687200164
+  },
+  {
+   "case": "TCGA-BD-A3EP",
+   "plate": "A22H",
+   "sites": 5681,
+   "R": 1.2873372842190343
+  },
+  {
+   "case": "TCGA-DD-A113",
+   "plate": "A132",
+   "sites": 5679,
+   "R": 1.0945559658688224
+  },
+  {
+   "case": "TCGA-DD-A114",
+   "plate": "A132",
+   "sites": 5682,
+   "R": 1.0572510839307858
+  },
+  {
+   "case": "TCGA-DD-A115",
+   "plate": "A132",
+   "sites": 5676,
+   "R": 1.2889067865291517
+  },
+  {
+   "case": "TCGA-DD-A116",
+   "plate": "A132",
+   "sites": 5679,
+   "R": 0.9536847940804147
+  },
+  {
+   "case": "TCGA-DD-A118",
+   "plate": "A132",
+   "sites": 5668,
+   "R": 1.0831483840091634
+  },
+  {
+   "case": "TCGA-DD-A119",
+   "plate": "A132",
+   "sites": 5683,
+   "R": 1.0466492020018072
+  },
+  {
+   "case": "TCGA-DD-A11A",
+   "plate": "A132",
+   "sites": 5680,
+   "R": 1.074296456913752
+  },
+  {
+   "case": "TCGA-DD-A11B",
+   "plate": "A132",
+   "sites": 5683,
+   "R": 1.1078246820756064
+  },
+  {
+   "case": "TCGA-DD-A11C",
+   "plate": "A132",
+   "sites": 5663,
+   "R": 1.2100925791977355
+  },
+  {
+   "case": "TCGA-DD-A11D",
+   "plate": "A132",
+   "sites": 5673,
+   "R": 1.3099106648432919
+  },
+  {
+   "case": "TCGA-DD-A1E9",
+   "plate": "A153",
+   "sites": 5683,
+   "R": 1.156123174346049
+  },
+  {
+   "case": "TCGA-DD-A1EB",
+   "plate": "A132",
+   "sites": 5683,
+   "R": 1.0305980508122596
+  },
+  {
+   "case": "TCGA-DD-A1EC",
+   "plate": "A132",
+   "sites": 5478,
+   "R": 1.2773573451820692
+  },
+  {
+   "case": "TCGA-DD-A1ED",
+   "plate": "A153",
+   "sites": 5683,
+   "R": 0.9974592584910764
+  },
+  {
+   "case": "TCGA-DD-A1EE",
+   "plate": "A132",
+   "sites": 5675,
+   "R": 1.1150613818580382
+  },
+  {
+   "case": "TCGA-DD-A1EF",
+   "plate": "A132",
+   "sites": 5683,
+   "R": 0.9922810882229582
+  },
+  {
+   "case": "TCGA-DD-A1EG",
+   "plate": "A20Z",
+   "sites": 5677,
+   "R": 1.1821910941438911
+  },
+  {
+   "case": "TCGA-DD-A1EH",
+   "plate": "A132",
+   "sites": 5673,
+   "R": 1.0263563551954509
+  },
+  {
+   "case": "TCGA-DD-A1EI",
+   "plate": "A132",
+   "sites": 5683,
+   "R": 1.0434958788992743
+  },
+  {
+   "case": "TCGA-DD-A1EJ",
+   "plate": "A153",
+   "sites": 5677,
+   "R": 1.2956219923068129
+  },
+  {
+   "case": "TCGA-DD-A1EL",
+   "plate": "A153",
+   "sites": 5673,
+   "R": 1.335734824638343
+  },
+  {
+   "case": "TCGA-DD-A39V",
+   "plate": "A20Z",
+   "sites": 5652,
+   "R": 1.2588100252844556
+  },
+  {
+   "case": "TCGA-DD-A39W",
+   "plate": "A20Z",
+   "sites": 5676,
+   "R": 1.149759708990308
+  },
+  {
+   "case": "TCGA-DD-A39X",
+   "plate": "A20Z",
+   "sites": 5661,
+   "R": 1.0681413660539185
+  },
+  {
+   "case": "TCGA-DD-A39Z",
+   "plate": "A20Z",
+   "sites": 5671,
+   "R": 1.0968790663177943
+  },
+  {
+   "case": "TCGA-DD-A3A1",
+   "plate": "A20Z",
+   "sites": 5611,
+   "R": 1.2185376326472572
+  },
+  {
+   "case": "TCGA-DD-A3A2",
+   "plate": "A20Z",
+   "sites": 5661,
+   "R": 1.1302298507275457
+  },
+  {
+   "case": "TCGA-DD-A3A3",
+   "plate": "A22H",
+   "sites": 5681,
+   "R": 1.022551885029394
+  },
+  {
+   "case": "TCGA-EP-A12J",
+   "plate": "A132",
+   "sites": 5673,
+   "R": 1.083106992742872
+  },
+  {
+   "case": "TCGA-EP-A26S",
+   "plate": "A16X",
+   "sites": 5598,
+   "R": 1.3115969820688866
+  },
+  {
+   "case": "TCGA-ES-A2HS",
+   "plate": "A17Z",
+   "sites": 5643,
+   "R": 1.0955143223415955
+  },
+  {
+   "case": "TCGA-ES-A2HT",
+   "plate": "A17Z",
+   "sites": 5681,
+   "R": 1.0485248066045167
+  },
+  {
+   "case": "TCGA-FV-A23B",
+   "plate": "A16X",
+   "sites": 5681,
+   "R": 1.1102948136313593
+  },
+  {
+   "case": "TCGA-FV-A2QR",
+   "plate": "A20Z",
+   "sites": 5613,
+   "R": 1.298873452814642
+  },
+  {
+   "case": "TCGA-G3-A25W",
+   "plate": "A16X",
+   "sites": 5683,
+   "R": 1.158916761159561
+  },
+  {
+   "case": "TCGA-G3-A25X",
+   "plate": "A16X",
+   "sites": 5372,
+   "R": 1.0889172654050463
+  }
+ ]
+}

@@ -1,0 +1,6 @@
+verdict FINGERPRINT: 22 of 50 above the bar 1.1246 (needed 8); binomial p at 0.05 per pair 5.4e-16
+R quantiles (min, 25 %, median, 75 %, max) 0.828, 1.051, 1.104, 1.273, 1.349
+pairs with R > 1: 44 of 50; below 1: 6
+sites read per pair: 5372-5683 of 5683
+R by plate (n, median, above bar): A132 28, 1.083, 8; A153 5, 1.296, 4; A16X 4, 1.135, 2; A17Z 2, 1.072, 0; A20Z 9, 1.180, 7; A22H 2, 1.155, 1
+1 spread: stand-in R SD 0.0815, 95th percentile (pair bar) 1.1246  [earlier tissues: colon SD 0.0502, lung SD 0.0860]

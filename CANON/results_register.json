@@ -137,6 +137,18 @@
    "compute": "fingerprint_breast",
    "title": "Cancer fingerprint in breast cancer cell lines",
    "plain": "Two breast cancer cell lines, each compared with two kinds of normal breast cells, one comparison at a time, each sealed before it was read. Cancer can damage the pattern in two directions: switches lost where they should be on, and switches added where they should be off. The meter for added switches found the breast cancer fingerprint in every comparison; the meter for lost switches found it in most, and one was undecided."
+  },
+  {
+   "id": "DEV-TISSUE-LIVER-01",
+   "date": "2026-10-12",
+   "kind": "result",
+   "instrument": "Met-A",
+   "status": "development",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md",
+   "compute": "liver_tissue",
+   "title": "Met-A on patients' liver tumors against their own normal liver",
+   "plain": "Real patients with liver cancer. Each patient's liver tumor was compared with that same patient's healthy liver, processed on the same plate, reading only places on the DNA that a change in the mix of tissue types cannot move. Before any tumor was opened, we also checked that no realistic change in the mix of cells could fake a result. The bar was strict: healthy liver crosses it only about one time in twenty. Far more tumors crossed it than chance could produce, and nearly every tumor read above the patient's own healthy liver. This shows the measurement sees liver cancer in patients as a group; flagging each individual patient reliably, and seeing it in blood, are the next steps."
   }
  ]
 }
