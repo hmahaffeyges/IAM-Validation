@@ -13,3 +13,5 @@ Normal arrays only until `sealed_luad_tissue.json` is committed; the tumor lock 
 **Synthetic tests:** `data/DEV_TISSUE_LUNG_04/luad_synthetic.py` (the lung 3 v3 design, run once on the normals). If it fails any test, LUAD is
 not suitable and its tumors stay unread.
 **Not a milestone:** design (development).
+
+**Test data:** TCGA-LUAD

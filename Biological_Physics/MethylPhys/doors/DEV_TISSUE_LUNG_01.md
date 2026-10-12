@@ -20,3 +20,5 @@ committed one; HEAD restored). Normal and control arrays only until the seal.
 
 **Seal** (`data/DEV_TISSUE_LUNG_01/sealed_lung_01.json`, scorer `score_lung_tissue.py`, guard tested five ways before sealing): FINGERPRINT if >= 6 of 28 pairs read Met-A(tumour)/Met-A(own normal lung, same slide) above 1.1436 at the sealed blind sites; else NO FINGERPRINT.
 **Not a milestone:** design (development).
+
+**Test data:** GSE94785

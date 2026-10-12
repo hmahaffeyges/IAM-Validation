@@ -1,0 +1,16 @@
+{"_rule": "Ranked by impact (commissioning, atlas, public result, physics, research), then cost (laptop before box). Every accession must be in the Master Inventory. Edit this file to add or retire a job; the inventory renders it.",
+ "jobs": [
+  {"job": "Score IAM-A commissioning on EpiQC identical DNA (Stage B), once under the seal", "todo": "A2", "impact": "commissioning", "cost": "box", "accessions": ["PRJNA646948"], "ready": "running"},
+  {"job": "Neutrophil reference from a second laboratory: build GSE124565, test GSE88824, GSE118144, GSE122244", "todo": "M2, AT4", "impact": "commissioning", "cost": "laptop", "accessions": ["GSE124565", "GSE88824", "GSE118144", "GSE122244"], "ready": "verify files (v2.1 prep)"},
+  {"job": "IAM-A on other-lab healthy neutrophils (RRBS) and same DNA on arrays and WGBS", "todo": "A3", "impact": "commissioning", "cost": "box", "accessions": ["GSE59163", "GSE128734"], "ready": "verify files"},
+  {"job": "Whole-blood bar 7 on cord blood with flow counts (assess newborn caveat first)", "todo": "M1", "impact": "commissioning", "cost": "laptop", "accessions": ["GSE127824"], "ready": "assess caveat"},
+  {"job": "Atlas v2.1: rebuild with second-lab and new cell types; split GSE224807 donors half build, half test", "todo": "AT4, AT13", "impact": "atlas", "cost": "box", "accessions": ["GSE224807", "GSE103541", "GSE184269", "GSE252045"], "ready": "v2.1 prep running"},
+  {"job": "Colon epithelium from an independent laboratory into the atlas", "todo": "AT8", "impact": "atlas", "cost": "laptop", "accessions": ["E-MTAB-3709", "E-MTAB-4957"], "ready": "confirm disease status, donor overlap"},
+  {"job": "Lung stroma culture check before atlas entry", "todo": "AT7", "impact": "atlas", "cost": "laptop", "accessions": ["GSE146376", "GSE107226", "GSE197512"], "ready": "calibrated (two sets)"},
+  {"job": "Lung adenocarcinoma tissue test (v3 design)", "todo": "N5, B12", "impact": "public result", "cost": "laptop", "accessions": ["TCGA-LUAD"], "ready": "normals calibrating"},
+  {"job": "Liver fingerprint replication on fresh data", "todo": "B11", "impact": "public result", "cost": "box", "accessions": ["PRJNA762641"], "ready": "metadata only"},
+  {"job": "Colon adenomas: does Met-A rise before cancer?", "todo": "B4, G1", "impact": "public result", "cost": "laptop", "accessions": ["GSE288652"], "ready": "in S3"},
+  {"job": "Neurons: sorted-only reference sealed on two unread laboratories", "todo": "A8", "impact": "physics", "cost": "box", "accessions": ["GSE96612", "GSE107729"], "ready": "metadata only"},
+  {"job": "Neurons on Met-A (both instruments on neurons)", "todo": "A11", "impact": "physics", "cost": "laptop", "accessions": ["GSE306226", "GSE234520"], "ready": "verify files"},
+  {"job": "Sex balance: female donors across blood cell types", "todo": "M3", "impact": "research", "cost": "laptop", "accessions": ["GSE131989"], "ready": "UCSF independence check"}
+ ]}

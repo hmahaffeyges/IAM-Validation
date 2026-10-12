@@ -60,3 +60,5 @@ sites, bar, rule and pairs are identical; only the scorer sha256 and the time di
 **Synthetic test:** DEV_TISSUE_BREAST_01/power_pairs.py, DEV_TISSUE_BREAST_01/power_pairs_output.csv
 
 **Prior reading:** TCGA-BRCA was analysed earlier by the retired class-gauge method (VAL-060, VAL-003; processed betas, group comparison, a different quantity). The quantity sealed here (blind-site Met-A from the IDATs, each tumour against its own same-plate normal) had not been computed on these arrays, and the design was built on normal tissue only. GSE69914 was not used (no IDATs).
+
+**Test data:** TCGA-BRCA

@@ -111,3 +111,4 @@ Box Run 10 read the 7 TruSeq replicate-1 libraries (10,000,000 pairs each). C1 M
 c1_iama 0.9957-0.9991 (bar >= 0.99). Stage Q0 refused 4 of 7 libraries for conversion below 0.98 (TruSeq reads 0.97892 - 0.98135), as sealed.
 Median opportunities 1,972,963 < 2,400,000, so Stage B reads 12,200,000 pairs per library, by the sealed depth rule. **Decision: Stage B runs.**
 
+**Test data:** PRJNA646948

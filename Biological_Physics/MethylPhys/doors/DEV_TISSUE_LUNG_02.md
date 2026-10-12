@@ -22,3 +22,4 @@ With 12 pairs, power is the first question: if the synthetic test says 12 pairs 
 normals that differ less between people.
 **Not a milestone:** not suitable (development).
 
+**Test data:** GSE83842

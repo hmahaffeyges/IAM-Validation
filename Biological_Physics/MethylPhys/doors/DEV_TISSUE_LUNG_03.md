@@ -38,3 +38,4 @@ against a pair bar near 5 % at these tightly matched normals. **LUSC is not suit
 TCGA-LUAD with the v3 design (DEV-TISSUE-LUNG-04).
 **Not a milestone:** not suitable (development).
 
+**Test data:** TCGA-LUSC

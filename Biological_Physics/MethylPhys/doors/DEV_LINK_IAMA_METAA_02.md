@@ -62,3 +62,5 @@ stand-in; ε_v 0.0500 on that slice). Readable (≥ 70 % of molecules read) to �
 
 Read: below 1.35 with ≥ 70 % read: Met-A moved more than copy error allows, so something beyond copy error moves it. Above 1.44 with ≥ 70 % read:
 not possible on this instrument, so it would point to a fault. Fewer than 70 % read: outside the range, no result.
+
+**Test data:** GSE237553, GSE237662, GSE237665

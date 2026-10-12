@@ -19,7 +19,8 @@ Rule 9 (2026-10-11): laboratory independence from GEO contributors (CANON/indepe
   16. donor-facing text (READMEs, FOLLOW.md, fundraiser text, register plain/title/headline) has a British spelling;
   17. a lesson named in the log is not a row of LESSONS.md, a frozen older lessons file changes, or a new lessons file appears;
   18. the funding statement in README.md, FOLLOW.md or the book preface differs from CANON/funding.json;
-  19. the atlas README's last search for new purified cells is more than 6 months old."""
+  19. the atlas README's last search for new purified cells is more than 6 months old;
+  20. a new or changed outcome note's test note has no '**Test data:**' line."""
 import os, re, subprocess, sys
 def git(*a): return subprocess.run(["git", *a], capture_output=True, text=True).stdout
 fail = []
@@ -235,6 +236,15 @@ import datetime as _dt19
 _m19 = re.search(r"Last atlas search for new purified cells: (\d{4}-\d\d-\d\d)", open("Biological_Physics/MethylPhys/atlas/README.md", encoding="utf-8").read())
 if not _m19: fail.append("atlas README has no 'Last atlas search for new purified cells: <date>' line (rule 19)")
 elif (_dt19.date.today() - _dt19.date.fromisoformat(_m19.group(1))).days > 183: fail.append(f"atlas search overdue: last {_m19.group(1)}, more than 6 months ago (rule 19)")
+
+# 20. Master Inventory (author 2026-10-12): a new or changed outcome note's test note names its data on a "**Test data:**" line, so the
+#     inventory (CANON/master_inventory.py, checked by status_check) records which sets each test read.
+for f in changed:
+    if f.startswith("Biological_Physics/MethylPhys/doors/") and f.endswith("_OUTCOME.md"):
+        dn = f[:-len("_OUTCOME.md")] + ".md"
+        try: dt = open(dn, encoding="utf-8").read()
+        except FileNotFoundError: continue
+        if "**Test data:**" not in dt: fail.append(f"{dn}: no '**Test data:** <sets>' line for its outcome (rule 20)")
 
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)

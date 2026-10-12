@@ -39,3 +39,4 @@ cannot fake a fingerprint at this rule.
 uncommitted): FINGERPRINT if >= 8 of 50 pairs read Met-A(tumor)/Met-A(own normal liver, same plate) above 1.1246 at the sealed blind sites; else NO FINGERPRINT.
 **Not a milestone:** design (development).
 
+**Test data:** TCGA-LIHC

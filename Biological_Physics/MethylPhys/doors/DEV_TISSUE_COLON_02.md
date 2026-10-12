@@ -1,4 +1,4 @@
-# DEV-TISSUE-COLON-02 — colorectal replication on GSE199057 (development; layout only, 2026-10-11; NOT sealed, no array opened)
+# DEV-TISSUE-COLON-02 — colorectal replication on GSE199057 (development; NOT SUITABLE by its synthetic tests, 2026-10-12; tumors unread)
 
 **Data.** GSE199057 (Ghosh, Schultz, Chan et al.; EPIC v1, raw IDATs), a laboratory with no shared GEO contributors with GSE131013.
 Layout from GEO metadata and file names only (`data/DEV_TISSUE_COLON_02/layout_02.py`, output `layout_02_output.txt`).
@@ -30,3 +30,4 @@ with no tumour on its own normal's slide, slide and cancer cannot be separated i
 **Decision, by the rule written before any array was read: GSE199057 is not suitable for this design and is not sealed.** Its tumour arrays stay
 unread. **Not a milestone:** a design result (development).
 
+**Test data:** GSE199057

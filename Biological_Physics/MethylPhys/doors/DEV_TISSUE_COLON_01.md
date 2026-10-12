@@ -42,3 +42,5 @@ normal on one slide, both arrays rated OK by the submitters. **Rule:** FINGERPRI
 **Synthetic test:** DEV_TISSUE_COLON_01/colon_synthetic.py, DEV_TISSUE_COLON_01/colon_synthetic_output.csv, DEV_TISSUE_COLON_01/colon_synthetic_summary.txt
 
 **Prior reading:** GSE131013 was analysed earlier by the retired class-gauge method (PROC-TISSUE-01, 2026-09-26, submitters' processed betas, a different quantity). The quantity sealed here (blind-site Met-A from the IDATs, each tumour against its own normal) had not been computed on these arrays, and the design was built on normal and mucosa arrays only. Replication on data no version has analysed: DEV-TISSUE-COLON-02 (GSE199057, another laboratory, EPIC v1).
+
+**Test data:** GSE131013

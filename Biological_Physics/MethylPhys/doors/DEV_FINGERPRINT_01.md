@@ -52,3 +52,5 @@ arrays with the prostate identity sites moved toward β 0.5. Scorer byte-identic
 The fake cancer reuses libraries that are also in the healthy reference, so this tests the code path, not the statistics (the power
 simulation covers those). At IAM-A_rel above 1.10 (simple form) curve B is extended linearly at slope 2.06, as sealed; the planted case
 used that extension.
+
+**Test data:** GSE86833

@@ -17,3 +17,5 @@ C-score's detection**. It tests specificity: neither instrument should call a ch
 1. Met-A A of each of the 9 mixes within Normal 0.95–1.05 and within 0.03 of the leukocyte array read on the same series.
 2. C of each mix within 0.90–1.10 (the healthy LOO range widened by its own width to allow for one-array noise).
 Either failing means the instruments call a change where the known material has none at their sites.
+
+**Test data:** GSE122126
