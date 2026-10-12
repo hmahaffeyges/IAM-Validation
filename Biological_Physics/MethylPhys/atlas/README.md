@@ -39,10 +39,16 @@ cell type, with an honest uncertainty, so a reading can say whether a change is 
 a tissue test reads: sites where every cell type agrees, so a change in the mix of cells in a sample cannot move the reading. Every cancer
 fingerprint result on patients' tissue rests on those sites.
 
-**What is new, as far as we know:** other atlases are larger (a 2025 compendium holds 16,959 healthy array samples) or deeper (Loyfer et al.
-2023 sequenced 39 cell-type groups, and this atlas is built in large part on it). We know of no public atlas that fits arrays and sequencing
-from several laboratories in one model, with each laboratory's offset measured and an uncertainty at every site that held-out data
-confirmed. Literature checked 2026-10-12; a correction is welcome as a GitHub issue.
+**What is new, as far as we know.** Other atlases are larger or deeper, and each is built for a different job:
+- a 2025 compendium of 16,959 healthy 450K samples is built to classify **tissues** (mostly whole tissues, arrays only);
+- Loyfer et al. 2023 sequenced 39 purified cell-type groups (this atlas is built in large part on it);
+- CelFiE-type methods model the reference probabilistically, but **re-estimate it from the sample being read**.
+
+IAM needs the opposite of the last one: a healthy reference **fixed before any sample is read**, so a specimen is measured against it and
+never fitted to it; a reference that bends toward a sick sample hides the very drift being measured. We know of no other public reference
+of purified healthy cells that fits arrays and sequencing from several laboratories in one model, measures each laboratory's offset,
+carries an uncertainty at every site that held-out data confirmed, and is frozen before use. Literature checked 2026-10-12; a correction is
+welcome as a GitHub issue.
 
 ## Get it
 
