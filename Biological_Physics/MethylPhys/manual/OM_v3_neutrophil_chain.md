@@ -89,6 +89,9 @@ Manual: `python manual/build_manual_v3.py` rebuilds the PDF.
 | Sees gain | yes (unmethylated identity sites), about as strongly as loss | only as a mixture: gained molecules enter Stage Q and move IAM-A either way |
 | Blind spot | only the sites it was built on; nothing about copy fidelity | which direction moved, unless held and gained territory are read separately |
 
+What IAM-A's copy error means: an isolated error in the held pattern, set by the balance of restore and loss (ε = f/(f+g)), whether
+the cell divides or not; division sets only how fast the balance is reached (SOP §1; book Sec. "The held state is a balance of restore and loss").
+
 Rules that follow:
 - Every new instrument, meter or sealed test is shown BOTH directions in its synthetic test (a planted loss and a planted gain), and its record states which it cannot see.
 - A fingerprint is read in both directions: Arm B (loss) and Arm G (gain).

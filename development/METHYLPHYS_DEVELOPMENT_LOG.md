@@ -1054,3 +1054,6 @@ The count's own error adds to the measured RMSE; with the chain at its in-sample
 
 ### 2026-10-11 · No public flow-counted independent whole-blood EPIC set found
 Keyword search of GEO, ArrayExpress and the literature (limits in DEV-COMPOSITION-TRUTH-04). Conditional candidate: EPIC-HIPC newborns (GSE272800, GSE273552), flow counts in ImmPort (free registration, not opened); neonatal blood. Adult flow set Milieu Interieur is access-controlled. Whole blood stays development.
+
+### 2026-10-11 · The held state is a balance of restore and loss (book, SOP, OM, glossary)
+Author request: make foundational. New book section sec:balance (Landauer chapter): eps = f/(f+g), E_hold = kT ln(g/f), DERIVED, for any interval, a division or a stretch of upkeep; the copy error is set by the ratio, not by the number of copies; only the time to reach balance (about 1/(f+g) intervals) depends on division. PREDICTION: copy error does not rise with age once upkeep is at balance (neurons; to be sealed on the Yi lab's unread controls, the Loyfer neurons being the reference). The book had cited the Landauer chapter for ln(g/f) in three places without the derivation being there; it now is. Gauge tables, the predictions chapter, D1, glossary, SOP section 1 and the OM updated. Book checks: no new failure.

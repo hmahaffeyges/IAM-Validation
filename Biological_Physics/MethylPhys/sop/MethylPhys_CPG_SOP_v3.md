@@ -12,6 +12,11 @@
   (isolated cells: the cell's healthy reference; whole blood: the composition-matched healthy expectation, §2 row M).
   A healthy cell holds its pattern at its reference, so Met-A = 1. Loss of pattern pulls β toward 0.5, which raises H, so Met-A rises.
 - **Normal = 0.95–1.05.** One gauge for every reading. No other tier is printed until it has been measured on this scale.
+- **Copy error ε (IAM-A)** = an isolated error in the held pattern. It is set by the balance of restore (g) and loss (f) per interval:
+  ε = f/(f+g), E_hold = kT ln(g/f) (DERIVED; book Sec. "The held state is a balance of restore and loss"). The interval can be a division
+  or a stretch of upkeep in a cell that does not divide: ε is set by the ratio, not by the number of copies. Only the time to reach the
+  balance, about 1/(f+g) intervals, depends on division. Prediction (to be tested on neurons): copy error does not rise with age once upkeep
+  is at its balance.
 - **C-score** = how clustered the per-site departures are along the genome, relative to healthy (healthy = 1).
 
 ## 2. Stages and code
