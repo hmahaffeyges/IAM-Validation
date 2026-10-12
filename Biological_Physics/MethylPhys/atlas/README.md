@@ -9,7 +9,7 @@ date is more than 6 months old.
 
 ## How it was made
 
-One joint Bayesian fit (NumPyro, NUTS, 4 chains) over every purified healthy sample we could find in public data: 334 samples from six
+One joint Bayesian fit (NumPyro, NUTS, 4 chains) over the purified healthy samples that met its entry rule in public data: 352 samples from seven
 sources, two kinds of measurement (arrays and bisulfite sequencing), several laboratories.
 
 | source | measurement | samples |
@@ -18,6 +18,7 @@ sources, two kinds of measurement (arrays and bisulfite sequencing), several lab
 | Salas et al. 2022 (GSE167998) | EPIC array | 56 |
 | Salas et al. 2018 (GSE110554) | EPIC array | 35 |
 | Moss et al. 2018 (GSE122126) | 450K/EPIC arrays | 27 |
+| GSE63409 (sorted healthy bone-marrow stem and progenitor cells; the series' leukemia arrays are not used) | EPIC array | 18 |
 | Tian et al. 2023 (GSE215353) | pooled brain sequencing | 7 |
 | ENCODE | whole-genome bisulfite sequencing | 2 |
 
@@ -31,6 +32,21 @@ Three things set the fit apart:
 Every step, script by script, with the machine and package versions: [`v2/README.md`](v2/README.md). Why each choice was made:
 [`v2/DECISIONS.md`](v2/DECISIONS.md). What was run on the finished atlas: [`v2/postbuild/README.md`](v2/postbuild/README.md).
 The model and its acceptance tests, written before the build: [`../doors/ATLAS_V2_SPEC.md`](../doors/ATLAS_V2_SPEC.md).
+
+## What it can do that a tissue atlas cannot
+
+Atlases of whole tissues are built to name the organ a sample came from. Each organ's profile already averages that organ's own mixture of
+cells, so a change in the mixture and a change in how one cell type holds its pattern look alike. This atlas holds each purified cell type
+on its own, which allows three things a tissue profile does not:
+- **telling a change of state from a change of mix:** a test reads only sites where every cell type of the tissue agrees, so a shift in
+  the mixture cannot move the reading (the sealed tissue tests are built this way);
+- **reading one cell type inside a mixture:** whole blood is read for its neutrophils against an expectation built from that person's own
+  cell mixture ([book, atlas chapter](https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs_Law_and_Order.pdf));
+- **saying how far a reading can be trusted,** from the uncertainty at every site.
+
+Naming a sample's organ of origin is a task tissue atlases are built for and this one is not. And the atlas has gaps: 74 cell types, and
+no lung fibroblasts or lung smooth muscle, so lung tissue tests cannot yet be protected against lung stroma
+([`DEV_TISSUE_LUNG_03.md`](../doors/DEV_TISSUE_LUNG_03.md)).
 
 ## Why it matters to IAM, and what is new
 

@@ -17,8 +17,8 @@ reference are on one scale before anything is compared.
 \begin{center}\small
 \begin{tabular}{@{}p{0.33\textwidth}p{0.6\textwidth}@{}}\toprule
 reference & what it holds \\\midrule
-the floor & the neutrophil identity sites and the floor, 0.330263 bits \\
-its held-out precision & the precision of that floor, printed with every reading \\
+the healthy reference & the neutrophil identity sites and the healthy reference, 0.330263 bits \\
+its held-out precision & the precision of that reference, printed with every reading \\
 the residual-map reference & the sites in genome order, the healthy mean and shrunk spread of $H$ at each, and the C-score baseline \\
 the composition profiles & eight blood-group profiles at the composition markers and at the neutrophil sites \\
 the noise sites & the sites behind the noise index \\\bottomrule
@@ -29,7 +29,7 @@ the noise sites & the sites behind the noise index \\\bottomrule
 \section{Counting a reference correctly}
 
 Two public series deposit the same six physical neutrophil arrays under two accessions: each Sentrix identifier appears once in GSE110554 and once in
-GSE167998. The floor file lists the six pairs it removed and counts each physical array once. \measured{} The difference matters for every check of precision. A held-out reading that keeps an array's twin in the
+GSE167998. The reference file lists the six pairs it removed and counts each physical array once. \measured{} The difference matters for every check of precision. A held-out reading that keeps an array's twin in the
 reference reads its own copy; counted correctly, each array read against the other five, with the identity sites re-chosen on those five, gives $A$ =
 0.983--1.045 with standard deviation 0.020. \measured
 
@@ -80,8 +80,9 @@ those series, so the profiles and the mixtures are not independent there; the in
 
 \section{The multi-source atlas}
 
-A posterior atlas assembled from many sources and platforms is held in the repository.
-Chain v3 does not read it. Whether it enters the chain, and on what scale, is decided cell type by cell type as each is commissioned. \openprob
+Atlas v2, described below, is the multi-source reference. The commissioned reading (Met-A on isolated neutrophils) does not read it.
+Development stages of chain v3 read it for blood composition, and the sealed tissue tests use it to choose their composition-blind sites.
+Each use is commissioned on its own, on purified cells from laboratories that did not build it; until then each is development. \openprob
 
 \section{What the reference does not yet do}
 
@@ -95,8 +96,9 @@ The neutrophil reference and the eight composition profiles of chain v3 come fro
 is the reference from which the identity sites and profiles of each further cell type will be drawn as that type is commissioned. It was built
 to the same rule: every cell type measured on purified healthy cells of that type, nothing filled, every value with its uncertainty.
 Its build scripts, records, checksums and commissioning status are in the repository folder
-\href{https://github.com/hmahaffeyges/IAM-Validation/tree/main/Biological_Physics/MethylPhys/atlas}{\texttt{Biological\_Physics/MethylPhys/atlas}};
-the fitted atlas itself is deposited on Zenodo with its own DOI, given there.
+\href{https://github.com/hmahaffeyges/IAM-Validation/tree/main/Biological_Physics/MethylPhys/atlas}{\texttt{Biological\_Physics/MethylPhys/atlas}}.
+The fitted atlas itself is too large for the repository; the folder lists the SHA-256 of every file of it, and a public deposit with its
+own DOI is being prepared.
 
 \section{The model}
 
@@ -188,6 +190,14 @@ cells, entered one at a time through the same script and the same checks.
 
 \section{What this atlas does that a reference panel does not}
 
+Other references are larger or deeper, and each is built for a different task. Sequencing atlases of purified cells such as~\cite{Loyfer2023},
+on which this atlas largely rests, are deeper at each site and read whole molecules; atlases of whole tissues hold far more samples and name
+organs; probabilistic deconvolution methods re-estimate the reference from the sample being read. This atlas is built for a fourth task:
+a healthy reference of purified cells, on the chain's own scale, with an uncertainty at every site, fixed before any sample is read, so a
+specimen is measured against it and never fitted to it. A reference that is re-estimated from a sick sample moves toward it and hides the
+drift being measured.
+
+
 Methylation references in common use are tables: one number per CpG per cell type, at a few hundred to a few thousand marker CpGs chosen
 because they separate cell types, each table built on its own laboratory's arrays and pipeline. They are built to answer one question: how
 much of each cell is in this specimen. The atlas here was built to answer a second one as well, how well each cell is holding its own pattern,
@@ -223,10 +233,16 @@ cell's identity sites; chain v3 does this for blood from the purified EPIC profi
 \item \textbf{It knows what it cannot do.} Pairs of cells the arrays cannot tell apart are named as such rather than given a split; cells whose
 data do not meet the entry rule are absent rather than approximated; every
 value carries the number of observations behind it.
+\item \textbf{It separates a change of state from a change of mix.} Atlases of whole tissues are built to name the organ a sample came
+from; each organ's profile already averages that organ's own mixture of cells, so in it a change in the mixture and a change in how one cell
+type holds its pattern look alike. Because this reference holds each purified cell type on its own, a test can read only sites where every
+cell type of a tissue agrees, and a shift in the mixture cannot move the reading. The sealed tissue tests are built this way. Naming a
+sample's organ of origin is a different task, for which tissue atlases are built and this one is not.
 \item \textbf{Every number can be rebuilt.} Every step is a numbered script with fixed random seeds, every source is public, and every block
 of the fit is stored with its SHA-256, so a rebuild on the same package versions reproduces the posterior draws, not only the means.
 \end{enumerate}
 
 What it does not yet do, stated so that no reader assumes it: it holds 74 cell types, not every cell in the body; it does not store the
 covariance between cell types at a site, so two cells that trade off against each other are each reported with their own uncertainty and
-not with the tighter uncertainty of their sum; the progenitor source term is assumed rather than measured; and chain v3 does not read it yet. \openprob
+not with the tighter uncertainty of their sum; the progenitor source term is assumed rather than measured; it holds no lung fibroblasts or lung smooth muscle, so composition-blind sites
+in lung cannot be checked against lung stroma; and the commissioned reading does not read it yet. \openprob
