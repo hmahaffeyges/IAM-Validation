@@ -1,6 +1,9 @@
-"""DEV-TISSUE-LIVER-01 synthetic tests 1-6 (2026-10-12; TCGA-LIHC normal livers only, no tumor array fetched or read).
+"""DEV-TISSUE-LIVER-01 synthetic tests v2 (2026-10-12; TCGA-LIHC normal livers only, no tumor array fetched or read).
 Derived from DEV-TISSUE-LUNG-01 lung_synthetic.py, with the three changes of LESSONS T15 (from the lung result).
-Reading: Met-A = mean binary entropy H(beta) at composition-blind sites: every panel cell within 0.05 of the atlas hepatocyte value; hepatocyte SD
+v2 (after v1 failed tests 3 and 6 on the normals; v1 kept as liver_synthetic_v1_FAILED_*): blind sites need every panel cell within 0.03
+(v1: 0.05) of the hepatocyte; test 6 removed: each sealed pair's two arrays share a plate, so a plate offset cancels exactly, and v1's test
+squared every pair's ratio instead (it doubled the between-person spread, so it failed by construction). All other bars unchanged.
+Reading: Met-A = mean binary entropy H(beta) at composition-blind sites: every panel cell within 0.03 (v2) of the atlas hepatocyte value; hepatocyte SD
 <= 0.05; 3,000 methylated (0.75-0.95) + 3,000 unmethylated (0.05-0.25), smallest cross-cell spread first. The atlas has no cholangiocyte (bile-duct
 cell), so bile-duct content is not covered by the panel. Pair ratio R = Met-A(test) / Met-A(reference), two arrays on one plate.
 Stand-in pairs: two different patients' normal livers on one plate (j tested, k reference).
@@ -36,7 +39,7 @@ S = S.loc[list(Bt)]; common = idx
 for b in Bt.values(): common = common.intersection(b.index[b.notna().values])
 Mu = pd.DataFrame({k: np.mean([x.loc[common, "mean"].values for x in v], 0) for k, v in P.items()}, index=common); E = P["hepatocyte"][0].loc[common]
 ok = Mu.notna().all(1) & E["mean"].notna() & E["sd"].notna(); Mu, E = Mu[ok], E[ok]; common = Mu.index
-spread = Mu.sub(Mu["hepatocyte"], axis=0).abs().max(1); good = (spread <= 0.05) & (E.sd <= 0.05)
+spread = Mu.sub(Mu["hepatocyte"], axis=0).abs().max(1); good = (spread <= 0.03) & (E.sd <= 0.05)
 hi = E[good & E["mean"].between(.75, .95)].assign(sp=spread).sort_values("sp").index[:3000]; lo = E[good & E["mean"].between(.05, .25)].assign(sp=spread).sort_values("sp").index[:3000]
 Sx = common.get_indexer(hi.union(lo)); hi_ = common.get_indexer(hi); lo_ = common.get_indexer(lo)
 inf_ = common.get_indexer(Mu.std(1).sort_values(ascending=False).index[:8000])
@@ -74,7 +77,6 @@ case("SHIFT atlas hepatocyte", lambda j, k: H(blend(j, 0, Mu["hepatocyte"].value
 case("SHIFT immune", lambda j, k: H(blend(j, 0, imm)[Sx]).mean() / base[k])
 for d in (.01, .02, .05, .10): case(f"d{d:.2f} normal liver", lambda j, k, d=d: H(blend(j, d, other(j))[Sx]).mean() / base[k])
 off = {g: base[g] / np.median([base[x] for x in pl[S.plate[g]]]) for g in S.index}
-case("PLATE x2 NULL", lambda j, k: (base[j] * off[j]) / (base[k] * off[k]))
 tar, hep = [], []
 for g in S.index:
     oth = [base[x] for x in pl[S.plate[g]] if x != g]
@@ -90,7 +92,6 @@ col = {"COUNT": "count_call", "EVERY-PAIR": "every_pair_call"}.get(chosen)
 out.append(f"5 rules: eligible {elig}; detection at d = 0.02 {det2}; CHOSEN RULE: {chosen}")
 verd = {"2 composition (normal-liver and immune blends) <= 0.10": T.loc["SHIFT normal liver", "share_above_bar"] <= 0.10 and T.loc["SHIFT immune", "share_above_bar"] <= 0.10,
         "3 independence": bool(abs(rho) < 0.2 and p > 0.05) if rho == rho else False, "4 planted 5 % >= 0.80": T.loc["d0.05 normal liver", "share_above_bar"] >= 0.80,
-        "5 power (chosen rule detects d = 0.05 >= 0.80)": bool(chosen) and T.loc["d0.05 normal liver", col] >= 0.80,
-        "6 plate offset x2 (chosen rule false calls <= 0.05)": bool(chosen) and T.loc["PLATE x2 NULL", col] <= 0.05}
+        "5 power (chosen rule detects d = 0.05 >= 0.80)": bool(chosen) and T.loc["d0.05 normal liver", col] >= 0.80}
 out += [f"{k}: {'PASSED' if v else 'FAILED'}" for k, v in verd.items()]
 T.to_csv(os.path.join(HERE, "liver_synthetic_output.csv")); open(os.path.join(HERE, "liver_synthetic_summary.txt"), "w").write("\n".join(out) + "\n"); print("\n".join(out))

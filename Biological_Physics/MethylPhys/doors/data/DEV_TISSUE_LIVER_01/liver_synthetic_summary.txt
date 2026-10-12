@@ -1,0 +1,19 @@
+arrays: normal livers 50 on 6 plates | loci 347481 | blind sites 2683 + 3000 | stand-in pairs 864 | sealed pairs N 50
+1 spread: stand-in R SD 0.0815, 95th percentile (pair bar) 1.1246  [earlier tissues: colon SD 0.0502, lung SD 0.0860]
+  normals' Met-A by plate: Kruskal-Wallis p 5.87e-02 (4 plates with >= 3)
+  Met-A median, normal liver: 0.3552
+2-6 cases (N 50 pairs; COUNT >= 8 above the bar; EVERY-PAIR one-sided signed-rank p < 0.01):
+  NULL: mean R 1.0033, share above bar 0.051, COUNT call 0.005, EVERY-PAIR call 0.006
+  SHIFT normal liver: mean R 1.0128, share above bar 0.067, COUNT call 0.023, EVERY-PAIR call 0.119
+  SHIFT atlas hepatocyte: mean R 1.0001, share above bar 0.025, COUNT call 0.000, EVERY-PAIR call 0.016
+  SHIFT immune: mean R 0.9711, share above bar 0.023, COUNT call 0.000, EVERY-PAIR call 0.000
+  d0.01 normal liver: mean R 1.0541, share above bar 0.128, COUNT call 0.305, EVERY-PAIR call 0.998
+  d0.02 normal liver: mean R 1.0983, share above bar 0.333, COUNT call 0.998, EVERY-PAIR call 1.000
+  d0.05 normal liver: mean R 1.2184, share above bar 0.882, COUNT call 1.000, EVERY-PAIR call 1.000
+  d0.10 normal liver: mean R 1.4022, share above bar 0.981, COUNT call 1.000, EVERY-PAIR call 1.000
+3 independence: tared Met-A vs fitted hepatocyte share (0.326-0.725), n 46: Spearman -0.215 (p 0.15)
+5 rules: eligible {'COUNT': True, 'EVERY-PAIR': False}; detection at d = 0.02 {'COUNT': np.float64(0.998), 'EVERY-PAIR': np.float64(1.0)}; CHOSEN RULE: COUNT
+2 composition (normal-liver and immune blends) <= 0.10: PASSED
+3 independence: FAILED
+4 planted 5 % >= 0.80: PASSED
+5 power (chosen rule detects d = 0.05 >= 0.80): PASSED

@@ -1117,3 +1117,6 @@ LESSONS.md is the only lessons file. The gate refuses a push when a lesson the l
 
 ### 2026-10-12 · Lesson C6 recurred
 The uncommitted liver_synthetic.py was lost during the rule-17 controls and rewritten unchanged before any liver array was read (4198385). Rule tightened: a control runs only when nothing is uncommitted (git status --porcelain empty).
+
+### 2026-10-12 · DEV-TISSUE-LIVER-01 synthetic tests: independence failed twice; not sealed
+v1 failed independence and a plate test that was wrong for a same-plate design (it squared each ratio). v2 (tighter blind sites, plate test removed) still fails independence (Spearman -0.215 against the 0.2 bar). Not sealed; held for the author. Normal-liver spread close to lung; the every-pair rule is too sensitive to composition here.
