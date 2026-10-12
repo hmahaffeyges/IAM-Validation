@@ -1,0 +1,2 @@
+files 860; samples by type Primary Tumor 377, Solid Tissue Normal 50, Recurrent Tumor 3
+cases with tumor and normal 50; with exactly one of each 50; same plate 50; plates 20

@@ -1108,3 +1108,6 @@ The synthetic run was executed as written; it did not cover changes as small as 
 
 ### 2026-10-12 · American spelling in all donor-facing text (author); push-gate rule 16
 READMEs, FOLLOW.md, the fundraiser text and the register's plain/title/headline fields converted (CANON/us_spelling.py; code identifiers untouched). Rule 16 refuses a British spelling there. The book and technical notes follow in a separate pass with every book check rerun.
+
+### 2026-10-12 · DEV-TISSUE-LIVER-01 inputs
+TCGA-LIHC: 50 patients, tumor and own normal liver on the same plate (metadata only; Prior reading disclosed). GEO liver sets set aside: slide IDs only inside the array files. Lesson T15 applies before any seal.
