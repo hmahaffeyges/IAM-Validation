@@ -9,7 +9,6 @@ Work done on the laptop is free and is not listed.
 | run | purpose | log | start (UTC) | job hours | vCPUs | end | actual cost | record |
 |---|---|---|---|---|---|---|---|---|
 | Box Run 3 | first tests on the commissioned Met-A (neutrophils, EPIC v1) | `(no log in S3)` |  |  |  | not recorded | pending billing access | [boxruns/run3/JOBS.md](boxruns/run3/JOBS.md) |
-| Work machine 01 | neuron reference (10 Loyfer files read whole) and colon replication normals (152 arrays, Stage 1); small spot machine, unattended | `(no log in S3)` |  |  |  | not recorded | pending billing access | [boxruns/workbox/jobs_01.sh](boxruns/workbox/jobs_01.sh) |
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/A/job_A.log` | 2026-10-05 01:43 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/C/job_C.log` | 2026-10-05 03:30 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/D/job_D.log` | 2026-10-05 08:08 | 0.8 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
@@ -18,8 +17,8 @@ Work done on the laptop is free and is not listed.
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/E/job_E.log` | 2026-10-09 00:11 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
 | Box Run 2, s2 | IAM-A on a second lab's healthy neutrophils (first attempt; stopped on a tool-version check) | `BOXRUN2/session2/session2.log` | 2026-10-09 01:40 | 4.8 | 120 | FAIL_sambamba_not_0.6.5 | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
 | Box Run 2, s3 | IAM-A on a second lab's healthy neutrophils, and CD4 cells | `BOXRUN2/session3/session3.log` | 2026-10-09 14:07 | 4.2 |  | DONE | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
-| Box Run 2, s3 | IAM-A on a second lab's healthy neutrophils, and CD4 cells | `BOXRUN2/session3/session2_cd4.log` | 2026-10-09 15:09 | 3.2 | 112 | DONE | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
 | Box Run 2, s3 | IAM-A on a second lab's healthy neutrophils, and CD4 cells | `BOXRUN2/session3/session2.log` | 2026-10-09 15:09 | 3.3 | 112 | DONE | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
+| Box Run 2, s3 | IAM-A on a second lab's healthy neutrophils, and CD4 cells | `BOXRUN2/session3/session2_cd4.log` | 2026-10-09 15:09 | 3.2 | 112 | DONE | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
 | Box Run 2, s4 | IAM-A on whole blood, two library kits | `BOXRUN2/session4/session2.log` | 2026-10-09 18:29 | 7.9 | 120 | DONE | pending billing access | [doors/DEV_IAMA_CONVERSION_01.md](doors/DEV_IAMA_CONVERSION_01.md) |
 | Box Run 2, s5 | decitabine dose series (IAM-A side) | `BOXRUN2/session5/session2.log` | 2026-10-10 02:25 | 3.1 | 120 | DONE | pending billing access | [doors/DEV_LINK_IAMA_METAA_02_OUTCOME.md](doors/DEV_LINK_IAMA_METAA_02_OUTCOME.md) |
 | Box Run 6 | mouse SAM knockout: IAM-A's first physics lever | `BOXRUN6_SAM/session6.log` | 2026-10-10 14:33 | 4.8 | 60 | DONE | pending billing access | [doors/DEV_SAM_LEVER_01_OUTCOME.md](doors/DEV_SAM_LEVER_01_OUTCOME.md) |
@@ -30,8 +29,9 @@ Work done on the laptop is free and is not listed.
 | Box Run 9 | cancer fingerprints: liver, lung, breast lines and normals | `BOXRUN9_FP2/cancer/session9.log` | 2026-10-11 05:46 | 11.4 | 120 | DONE | pending billing access | [doors/DEV_FINGERPRINT_02_OUTCOME.md](doors/DEV_FINGERPRINT_02_OUTCOME.md) |
 | Box Run 10 | IAM-A commissioning on identical DNA (EpiQC): format check, Stage A | `BOXRUN10_EPIQC/pilot/session.log` | 2026-10-11 22:21 | 0.2 | 128 | DONE | pending billing access | [doors/DEV_IAMA_COMMISSION_01.md](doors/DEV_IAMA_COMMISSION_01.md) |
 | Box Run 10 | IAM-A commissioning on identical DNA (EpiQC): format check, Stage A | `BOXRUN10_EPIQC/stageA/session.log` | 2026-10-11 22:31 | 1.6 | 128 | DONE | pending billing access | [doors/DEV_IAMA_COMMISSION_01.md](doors/DEV_IAMA_COMMISSION_01.md) |
+| Work machine 01 | neuron reference (10 Loyfer files read whole) and colon replication normals (152 arrays, Stage 1); small spot machine, unattended | `WORKBOX01/session.log` | 2026-10-12 04:09 | 0.6 | 8 | not recorded | pending billing access | [boxruns/workbox/jobs_01.sh](boxruns/workbox/jobs_01.sh) |
 
-Total job hours: 64.7.
+Total job hours: 65.3.
 
 ## Upcoming
 
@@ -45,8 +45,8 @@ Total job hours: 64.7.
 | month | total | largest items |
 |---|---|---|
 | 2026-09 | $12.28 | SpotUsage:c7a.8xlarge $6.52; SpotUsage:m7a.32xlarge $2.94; EBS:VolumeUsage.gp3 $1.52; TimedStorage-ByteHrs $0.39 |
-| 2026-10 | $868.37 | BoxUsage:m7a.32xlarge $655.69; SpotUsage:m7a.32xlarge $106.60; BoxUsage:m7a.16xlarge $47.52; EBS:VolumeUsage.gp3 $13.39 |
+| 2026-10 | $899.70 | BoxUsage:m7a.32xlarge $683.90; SpotUsage:m7a.32xlarge $106.60; BoxUsage:m7a.16xlarge $47.52; EBS:VolumeUsage.gp3 $14.12 |
 
-Daily: 09-28 $7, 09-29 $4, 10-01 $147, 10-02 $204, 10-03 $181, 10-04 $74, 10-05 $8, 10-06 $3, 10-07 $3, 10-08 $5, 10-09 $116, 10-10 $77, 10-11 $50
+Daily: 09-28 $7, 09-29 $4, 10-01 $149, 10-02 $204, 10-03 $181, 10-04 $74, 10-05 $8, 10-06 $3, 10-07 $3, 10-08 $5, 10-09 $116, 10-10 $77, 10-11 $79
 
 BoxUsage = on-demand machine hours; SpotUsage = spot machine hours. Runs before 2026-10-12 carry no run tag, so their cost is by day and type only.
