@@ -106,3 +106,8 @@ with the unchanged scorer opens; a changed scorer refuses).
 7. Stage B depth: 10,000,000 pairs. If Stage A's median opportunities are below 2,400,000 (twice the 1,180,000 at which synthetic test 2 held the
    tare to about 1 %), Stage B uses 10,000,000 x 2,400,000 / median pairs, capped at 25,000,000. The depth is never lowered.
 
+**Stage A, read 2026-10-11** (`data/DEV_IAMA_COMMISSION_01/stageA_libraries.csv`, decision `stageA_decision.py`, output `stageA_decision_output.txt`).
+Box Run 10 read the 7 TruSeq replicate-1 libraries (10,000,000 pairs each). C1 MET: at a planted conversion of 0.98, IAM-A relative to none reads
+c1_iama 0.9957-0.9991 (bar >= 0.99). Stage Q0 refused 4 of 7 libraries for conversion below 0.98 (TruSeq reads 0.97892 - 0.98135), as sealed.
+Median opportunities 1,972,963 < 2,400,000, so Stage B reads 12,200,000 pairs per library, by the sealed depth rule. **Decision: Stage B runs.**
+

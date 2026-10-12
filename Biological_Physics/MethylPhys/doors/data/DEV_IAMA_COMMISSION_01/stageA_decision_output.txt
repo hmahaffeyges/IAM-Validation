@@ -1,0 +1,5 @@
+libraries read: 7; refused by Stage Q0 (conversion < 0.98): 4 (HG001, HG004, HG005, HG007)
+conversion (human chr1 CHH): 0.97892 - 0.98135
+C1: c1_iama 0.9957 - 0.9991 (bar >= 0.99) -> MET
+median opportunities 1,972,963 -> Stage B depth 12,200,000 read pairs
+DECISION: Stage B runs (71 libraries)
