@@ -1,0 +1,183 @@
+gsm,title,plat,n_idat,coriell_id,cell_line,donor_age,donor_sex,population_doublings,days_in_culture,batch_date
+GSM5918847,FSF1_1,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,16.62492091,10,10.04.19
+GSM5918848,FSF1_2,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,21.07177991,17,10.04.19
+GSM5918849,FSF1_3,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,21.20086342,17,10.04.19
+GSM5918850,FSF1_4,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,23.59268293,21,10.04.19
+GSM5918851,FSF1_5,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,23.92605059,21,10.04.19
+GSM5918852,FSF1_6,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,27.6761278,26,10.04.19
+GSM5918853,FSF1_7,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,27.81915958,26,10.04.19
+GSM5918854,FSF1_8,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,30.38484823,31,10.04.19
+GSM5918855,FSF1_9,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,30.46565441,31,10.04.19
+GSM5918856,FSF1_10,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,33.77352109,36,10.04.19
+GSM5918857,FSF1_11,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,33.83131998,36,10.04.19
+GSM5918858,FSF1_12,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,38.02019351,42,10.04.19
+GSM5918859,FSF1_13,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,38.11487061,42,10.04.19
+GSM5918860,FSF1_14,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,41.12234254,47,10.04.19
+GSM5918861,FSF1_15,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,41.13690452,47,10.04.19
+GSM5918862,FSF1_16,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,43.71140848,52,10.04.19
+GSM5918863,FSF1_17,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,43.8482802,52,10.04.19
+GSM5918864,FSF1_18,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,47.0820055,58,10.04.19
+GSM5918865,FSF1_19,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,47.18841825,58,10.04.19
+GSM5918866,FSF1_20,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,50.58316798,65,10.04.19
+GSM5918867,FSF1_21,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,50.66151449,65,10.04.19
+GSM5918868,FSF1_22,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,54.80939085,73,10.04.19
+GSM5918869,FSF1_23,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,55.87160482,73,10.04.19
+GSM5918870,FSF1_24,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,56.77348479,79,10.04.19
+GSM5918871,FSF1_25,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,58.27179845,79,10.04.19
+GSM5918872,FSF1_26,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,61.00679773,90,10.04.19
+GSM5918873,FSF1_27,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,61.26698179,86,10.04.19
+GSM5918874,FSF1_28,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,64.00979166,102,10.04.19
+GSM5918875,FSF1_29,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,64.627454,95,10.04.19
+GSM5918876,FSF1_30,GPL23976,2,AG06561,Fetal_skin_fibroblast_1,16 fetal weeks,female,66.19419589,102,10.04.19
+GSM5918877,AVEC1_1,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,8.849131023,10,12.26.18
+GSM5918878,AVEC1_2,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,14.65821318,17,12.26.18
+GSM5918879,AVEC1_3,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,17.40545979,24,12.26.18
+GSM5918880,AVEC1_4,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,17.61668387,24,12.26.18
+GSM5918881,AVEC1_5,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,17.8054769,24,12.26.18
+GSM5918882,AVEC1_6,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,19.81250842,30,12.26.18
+GSM5918883,AVEC1_7,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,20.0062445,30,12.26.18
+GSM5918884,AVEC1_8,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,20.05810343,30,12.26.18
+GSM5918885,AVEC1_9,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,22.5078494,37,12.26.18
+GSM5918886,AVEC1_10,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,23.09924004,37,12.26.18
+GSM5918887,AVEC1_11,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,23.15180225,37,12.26.18
+GSM5918888,AVEC1_12,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,26.71102414,44,12.26.18
+GSM5918889,AVEC1_13,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,26.7313496,44,12.26.18
+GSM5918890,AVEC1_14,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,26.83756418,44,12.26.18
+GSM5918891,AVEC1_15,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,29.46103943,51,12.26.18
+GSM5918892,AVEC1_16,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,29.7423753,51,12.26.18
+GSM5918893,AVEC1_17,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,30.18562457,51,12.26.18
+GSM5918894,AVEC1_18,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,32.28723811,60,12.26.18
+GSM5918895,AVEC1_19,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,32.54130723,60,12.26.18
+GSM5918896,AVEC1_20,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,33.8645553,58,12.26.18
+GSM5918897,AVEC1_21,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,35.01405809,74,05.08.19
+GSM5918898,AVEC1_22,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,36.39981521,74,05.08.19
+GSM5918899,AVEC1_23,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,37.05598781,67,12.26.18
+GSM5918900,AVEC1_24,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,39.36514235,92,05.08.19
+GSM5918901,AVEC1_25,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,39.58254924,92,05.08.19
+GSM5918902,AVEC1_26,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,39.88067249,74,05.08.19
+GSM5918903,AVEC1_27,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,43.41093827,81,05.08.19
+GSM5918904,AVEC1_28,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,43.8660701,105,05.08.19
+GSM5918905,AVEC1_29,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,45.12386483,123,05.08.19
+GSM5918906,AVEC1_30,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,46.7726779,89,05.08.19
+GSM5918907,AVEC1_31,GPL23976,2,AG11182,Adult_vascular_endothelial_cell_1,15 years,male,47.60713404,123,05.08.19
+GSM5918908,AVSMC1_1,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,27.04553459,6,12.26.18
+GSM5918909,AVSMC1_2,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,30.4839073,13,12.26.18
+GSM5918910,AVSMC1_3,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,33.82790851,20,12.26.18
+GSM5918911,AVSMC1_4,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,34.30861599,20,12.26.18
+GSM5918912,AVSMC1_5,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,35.8333837,26,12.26.18
+GSM5918913,AVSMC1_6,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,36.15912023,26,12.26.18
+GSM5918914,AVSMC1_7,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,38.30409782,33,12.26.18
+GSM5918915,AVSMC1_8,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,39.20467033,33,12.26.18
+GSM5918916,AVSMC1_9,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,42.84735225,42,12.26.18
+GSM5918917,AVSMC1_10,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,42.85644798,42,12.26.18
+GSM5918918,AVSMC1_11,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,45.8635886,51,12.26.18
+GSM5918919,AVSMC1_12,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,45.89103994,51,12.26.18
+GSM5918920,AVSMC1_13,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,50.2438851,63,12.26.18
+GSM5918921,AVSMC1_14,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,50.36800408,63,12.26.18
+GSM5918922,AVSMC1_15,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,53.00393483,73,05.08.19
+GSM5918923,AVSMC1_16,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,53.2887872,73,05.08.19
+GSM5918924,AVSMC1_17,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,56.82932853,85,05.08.19
+GSM5918925,AVSMC1_18,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,57.31811072,88,05.08.19
+GSM5918926,AVSMC1_19,GPL23976,2,AG11546,Adult_vascular_smooth_muscle_cell_1,19 years,male,60.46863077,111,05.08.19
+GSM5918927,ASF1_1,GPL23976,2,AG16146,Adult_skin_fibroblast_1,31 years,male,11.65526068,27,12.26.18
+GSM5918928,ASF1_2,GPL23976,2,AG16146,Adult_skin_fibroblast_1,31 years,male,11.66072917,27,12.26.18
+GSM5918929,ASF1_3,GPL23976,2,AG16146,Adult_skin_fibroblast_1,31 years,male,14.56690652,34,12.26.18
+GSM5918930,ASF1_4,GPL23976,2,AG16146,Adult_skin_fibroblast_1,31 years,male,14.84078514,34,12.26.18
+GSM5918931,ASF1_5,GPL23976,2,AG16146,Adult_skin_fibroblast_1,31 years,male,18.50605154,43,12.26.18
+GSM5918932,ASF1_6,GPL23976,2,AG16146,Adult_skin_fibroblast_1,31 years,male,19.14968017,43,12.26.18
+GSM5918933,ASF1_7,GPL23976,2,AG16146,Adult_skin_fibroblast_1,31 years,male,21.36307631,50,12.26.18
+GSM5918934,ASF1_8,GPL23976,2,AG16146,Adult_skin_fibroblast_1,31 years,male,22.04517226,50,12.26.18
+GSM5918935,ASF1_9,GPL23976,2,AG16146,Adult_skin_fibroblast_1,31 years,male,24.69504201,57,12.26.18
+GSM5918936,ASF1_10,GPL23976,2,AG16146,Adult_skin_fibroblast_1,31 years,male,24.93582905,57,12.26.18
+GSM5918937,ASF1_11,GPL23976,2,AG16146,Adult_skin_fibroblast_1,31 years,male,27.76186476,66,12.26.18
+GSM5918938,ASF1_12,GPL23976,2,AG16146,Adult_skin_fibroblast_1,31 years,male,27.85098123,66,12.26.18
+GSM5918939,ASF1_13,GPL23976,2,AG16146,Adult_skin_fibroblast_1,31 years,male,31.04692817,83,05.08.19
+GSM5918940,ASF1_14,GPL23976,2,AG16146,Adult_skin_fibroblast_1,31 years,male,31.80879352,83,05.08.19
+GSM5918941,ASF1_15,GPL23976,2,AG16146,Adult_skin_fibroblast_1,31 years,male,32.93382985,102,05.08.19
+GSM5918942,ASF1_16,GPL23976,2,AG16146,Adult_skin_fibroblast_1,31 years,male,34.19191008,102,05.08.19
+GSM5918943,NFK1_1,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,6.965381832,5,02.20.20
+GSM5918944,NFK1_2,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,9.93264796,9,02.20.20
+GSM5918945,NFK1_3,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,9.94026879,9,02.20.20
+GSM5918946,NFK1_4,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,10.54226831,9,02.20.20
+GSM5918947,NFK1_5,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,15.45156472,14,02.20.20
+GSM5918948,NFK1_6,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,15.47057348,14,02.20.20
+GSM5918949,NFK1_7,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,15.51879683,14,02.20.20
+GSM5918950,NFK1_8,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,17.93021947,19,02.20.20
+GSM5918951,NFK1_9,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,18.02927094,19,02.20.20
+GSM5918952,NFK1_10,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,18.13812786,19,02.20.20
+GSM5918953,NFK1_11,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,19.31916949,23,02.20.20
+GSM5918954,NFK1_12,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,19.59347112,23,02.20.20
+GSM5918955,NFK1_13,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,19.79897779,23,02.20.20
+GSM5918956,NFK1_14,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,22.58710482,27,02.20.20
+GSM5918957,NFK1_15,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,22.83079966,27,02.20.20
+GSM5918958,NFK1_16,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,22.96014017,27,02.20.20
+GSM5918959,NFK1_17,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,26.22170423,34,02.20.20
+GSM5918960,NFK1_18,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,26.24222051,34,02.20.20
+GSM5918961,NFK1_19,GPL23976,2,AG21837,Neonatal_foreskin_keratinocyte_1,0 years,male,26.27425262,34,02.20.20
+GSM5918962,NFF1_1,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,7.24092391,5,12.26.18
+GSM5918963,NFF1_2,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,9.274375062,7,12.26.18
+GSM5918964,NFF1_3,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,13.04862403,11,12.26.18
+GSM5918965,NFF1_4,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,15.63512487,14,12.26.18
+GSM5918966,NFF1_5,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,19.63936326,18,12.26.18
+GSM5918967,NFF1_6,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,24.19827774,24,12.26.18
+GSM5918968,NFF1_7,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,26.75807705,28,12.26.18
+GSM5918969,NFF1_8,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,29.28267969,32,12.26.18
+GSM5918970,NFF1_9,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,33.48512779,36,12.26.18
+GSM5918971,NFF1_10,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,36.29597534,40,12.26.18
+GSM5918972,NFF1_11,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,39.88508541,45,12.26.18
+GSM5918973,NFF1_12,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,42.92984703,48,12.26.18
+GSM5918974,NFF1_13,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,45.92367611,54,12.26.18
+GSM5918975,NFF1_14,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,49.04877332,58,12.26.18
+GSM5918976,NFF1_15,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,54.02066653,65,12.26.18
+GSM5918977,NFF1_16,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,56.53967738,69,12.26.18
+GSM5918978,NFF1_17,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,59.6573593,74,12.26.18
+GSM5918979,NFF1_18,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,62.86534699,79,12.26.18
+GSM5918980,NFF1_19,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,66.61261529,86,12.26.18
+GSM5918981,NFF1_20,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,68.76569303,90,12.26.18
+GSM5918982,NFF1_21,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,73.74979928,98,05.08.19
+GSM5918983,NFF1_22,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,77.09715983,107,05.08.19
+GSM5918984,NFF1_23,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,80.12162236,113,05.08.19
+GSM5918985,NFF1_24,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,84.15531842,122,05.08.19
+GSM5918986,NFF1_25,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,85.2376792,126,05.08.19
+GSM5918987,NFF1_26,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,89.90334812,136,05.08.19
+GSM5918988,NFF1_27,GPL23976,2,AG21839,Neonatal_foreskin_fibroblast_1,0 years,male,91.81929305,149,05.08.19
+GSM5918989,NFF2_1,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,12.62907467,6,05.25.18
+GSM5918990,NFF2_2,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,13.94172894,8,08.31.18
+GSM5918991,NFF2_3,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,14.26468848,8,08.31.18
+GSM5918992,NFF2_4,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,14.29362305,8,08.31.18
+GSM5918993,NFF2_5,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,17.13172089,11,08.31.18
+GSM5918994,NFF2_6,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,17.15656668,11,08.31.18
+GSM5918995,NFF2_7,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,17.22093642,11,08.31.18
+GSM5918996,NFF2_8,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,20.37163324,15,05.25.18
+GSM5918997,NFF2_9,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,20.5130858,15,05.25.18
+GSM5918998,NFF2_10,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,20.914398,15,05.25.18
+GSM5918999,NFF2_11,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,22.91565436,18,08.31.18
+GSM5919000,NFF2_12,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,23.17331425,18,08.31.18
+GSM5919001,NFF2_13,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,23.21549355,18,08.31.18
+GSM5919002,NFF2_14,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,26.69328158,23,08.31.18
+GSM5919003,NFF2_15,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,26.74875151,23,08.31.18
+GSM5919004,NFF2_16,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,26.94143532,23,08.31.18
+GSM5919005,NFF2_17,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,30.10688632,27,05.25.18
+GSM5919006,NFF2_18,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,30.11054741,27,05.25.18
+GSM5919007,NFF2_19,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,30.15549287,27,05.25.18
+GSM5919008,NFF2_20,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,33.23881884,32,08.31.18
+GSM5919009,NFF2_21,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,33.27221,32,08.31.18
+GSM5919010,NFF2_22,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,33.53173714,32,08.31.18
+GSM5919011,NFF2_23,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,36.5737605,37,08.31.18
+GSM5919012,NFF2_24,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,36.7826905,37,08.31.18
+GSM5919013,NFF2_25,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,36.88121416,37,08.31.18
+GSM5919014,NFF2_26,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,39.63201812,42,05.25.18
+GSM5919015,NFF2_27,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,39.68733427,42,05.25.18
+GSM5919016,NFF2_28,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,39.8677979,42,05.25.18
+GSM5919017,NFF2_29,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,42.70376671,48,08.31.18
+GSM5919018,NFF2_30,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,42.8750799,48,08.31.18
+GSM5919019,NFF2_31,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,42.96586006,48,08.31.18
+GSM5919020,NFF2_32,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,46.39465658,54,08.31.18
+GSM5919021,NFF2_33,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,46.61435519,54,08.31.18
+GSM5919022,NFF2_34,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,46.81364153,54,08.31.18
+GSM5919023,NFF2_35,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,49.60515867,59,08.31.18
+GSM5919024,NFF2_36,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,50.04352086,59,08.31.18
+GSM5919025,NFF2_37,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,50.27438145,59,08.31.18
+GSM5919026,NFF2_38,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,52.83566353,65,08.31.18
+GSM5919027,NFF2_39,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,53.36488303,65,08.31.18
+GSM5919028,NFF2_40,GPL23976,2,AG21859,Neonatal_foreskin_fibroblast_2,0 years,male,55.88728255,72,08.31.18
