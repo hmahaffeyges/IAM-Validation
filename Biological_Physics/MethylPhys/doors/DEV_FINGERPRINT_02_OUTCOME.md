@@ -69,3 +69,5 @@ had liver been reviewed first, A549 would have stayed unread for a sealed gain t
 | T47D vs mammary epithelial cells | FINGERPRINT (4/4) | FINGERPRINT (4/4) |
 | T47D vs MCF 10A | FINGERPRINT (4/4) | FINGERPRINT (4/4) |
 Development results on cell lines (one laboratory per line, ENCODE HAIB); they extend no commissioned scope.
+
+**Milestone:** listed in `Biological_Physics/README.md`, Advancements, and in `README.md` and `FOLLOW.md` (all generated from `CANON/results_register.json`).

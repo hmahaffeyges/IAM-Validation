@@ -12,7 +12,9 @@ Rule 9 (2026-10-11): laboratory independence from GEO contributors (CANON/indepe
      or a link in that table points at a file that does not exist;
   5. a day with log entries (from 2026-10-10) has no "### <date> · Day summary" once a later day has begun (Pacific time);
   10. a box-run folder (boxruns/runN*) is not in the run ledger (boxruns/make_runs_ledger.py), or RUNS.md is missing;
-  11. the ledger guard's controls (boxruns/ledger_guard_test.py) fail."""
+  11. the ledger guard's controls (boxruns/ledger_guard_test.py) fail;
+  12. an outcome note new or changed in this push does not declare **Milestone:** or **Not a milestone:** <reason>;
+  13. a **Milestone:** note has no results-register entry, or a register entry's record lacks the line or does not exist."""
 import os, re, subprocess, sys
 def git(*a): return subprocess.run(["git", *a], capture_output=True, text=True).stdout
 fail = []
@@ -171,6 +173,23 @@ _T = "Biological_Physics/MethylPhys/boxruns/ledger_guard_test.py"
 if _os.path.exists(_T):
     _r = _sp.run([sys.executable, _T], capture_output=True, text=True)
     if _r.returncode != 0: fail.append(f"{_T}: ledger guard controls failed: " + (_r.stdout.strip().split(chr(10)) or [""])[-1])
+
+# 12. Every outcome note new or changed in this push declares whether it is a milestone (author 2026-10-12: "the code needs to update these
+#     places so it never gets missed again"): a "**Milestone:**" line, or "**Not a milestone:** <reason>".
+# 13. Milestones and the results register match both ways: a note marked **Milestone:** is the record of a register entry, and every register
+#     entry's record exists and carries the **Milestone:** line. The register generates the READMEs, FOLLOW.md and the book chapter.
+import json as _js, glob
+for f in changed:
+    if not f.endswith("_OUTCOME.md") or not os.path.isfile(f): continue
+    _x = open(f, encoding="utf-8").read()
+    if "**Milestone:**" not in _x and "**Not a milestone:**" not in _x: fail.append(f"{f}: declare '**Milestone:**' or '**Not a milestone:** <reason>' (rule 12)")
+_REG = _js.load(open("CANON/results_register.json", encoding="utf-8"))["entries"]; _recs = {e["record"] for e in _REG if e.get("status") != "withdrawn"}
+for f in sorted(glob.glob("Biological_Physics/MethylPhys/doors/*.md")):
+    if "**Milestone:**" in open(f, encoding="utf-8").read() and f not in _recs: fail.append(f"{f}: marked **Milestone:** but has no entry in CANON/results_register.json (rule 13)")
+for r in sorted(_recs):
+    if not r.startswith("Biological_Physics/MethylPhys/doors/"): continue
+    if not os.path.isfile(r): fail.append(f"CANON/results_register.json: record {r} does not exist (rule 13)")
+    elif "**Milestone:**" not in open(r, encoding="utf-8").read(): fail.append(f"{r}: in the results register but has no **Milestone:** line (rule 13)")
 
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)

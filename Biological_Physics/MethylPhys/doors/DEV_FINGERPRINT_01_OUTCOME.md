@@ -27,3 +27,5 @@ copier's loss: the reason Arm B, not Arm A, decides.
 **Later check against donor variation (2026-10-10, DEV-FINGERPRINT-02 donor null; the verdict above is unchanged).** The sealed Arm B bar was the
 largest PrEC run, one culture, so it held no donor-to-donor variation. In ENCODE bronchial cells, two healthy donors read against each other give
 Arm B excesses of up to 0.0211 (`data/DEV_FINGERPRINT_02/donor_null_02_output.json`). Every LNCaP run here (+0.1105 to +0.1130) is 5.2 times that.
+
+**Milestone:** listed in `Biological_Physics/README.md`, Advancements, and in `README.md` and `FOLLOW.md` (all generated from `CANON/results_register.json`).

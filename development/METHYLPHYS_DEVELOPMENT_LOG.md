@@ -1066,3 +1066,6 @@ The fundraiser page promises every rented-computer run is listed with its cost b
 
 ### 2026-10-12 · Stage B started; S3 role and cold-disk fixes
 Stage B (71 libraries, 12.2M pairs) and work machine 01 started 21:09-21:10 Pacific through the ledger guard. The Stage B spot copy had no S3 role: attached 35 minutes in, before any library finished, so nothing was lost. Its disk restored lazily from the snapshot (about 5.6 MB/s), stalling the aligner on the index; a parallel pre-read raised it to about 34 MB/s. Launchers and run scripts now enforce both (LESSONS C5).
+
+### 2026-10-12 · Fingerprint results put where they belong; push-gate rules 12-13
+The prostate fingerprint replication (second laboratory, different cells: 6 of 6 LNCaP files above the bar) and the breast-line fingerprints were never in the results register, so no README carried them. Both are now register entries. One generator writes the book development chapter, the Biological Physics Advancements table, the main README cell results and the FOLLOW.md results from that register, and status_check refuses a push when any of the four differs. Rule 12: every new or changed outcome note declares **Milestone:** or **Not a milestone:** <reason>. Rule 13: milestone notes and register entries must match both ways; on its first run it caught DEV-FINGERPRINT-01 and -02 missing their milestone lines.

@@ -33,7 +33,11 @@ if bc and os.path.isfile(bc["output"]):
 import importlib.util as _u
 _s = _u.spec_from_file_location("r2t", "CANON/results_to_tex.py"); _m = _u.module_from_spec(_s); _s.loader.exec_module(_m)
 try:
-    tex, rd, REG, _V = _m.build()
+    tex, rd, REG, _V, _rr, _fr = _m.build()
+    _f = open(_m.RFOLLOW, encoding="utf-8").read()
+    if _m.FB not in _f or _m.FE not in _f or _f[_f.index(_m.FB) + len(_m.FB):_f.index(_m.FE)].strip() != _fr.strip(): fail.append("[results_register] FOLLOW.md results differ from the register: run python3 CANON/results_to_tex.py")
+    _t = open(_m.RROOT, encoding="utf-8").read()
+    if _m.RB not in _t or _m.RE not in _t or _t[_t.index(_m.RB) + len(_m.RB):_t.index(_m.RE)].strip() != _rr.strip(): fail.append("[results_register] README.md cell results differ from the register: run python3 CANON/results_to_tex.py")
     if not os.path.isfile(_m.TEX) or open(_m.TEX, encoding="utf-8").read() != tex: fail.append(f"[results_register] {os.path.relpath(_m.TEX)} differs from the register: run python3 CANON/results_to_tex.py")
     rs = open(_m.README, encoding="utf-8").read()
     if _m.B not in rs or _m.E not in rs or rs[rs.index(_m.B) + len(_m.B):rs.index(_m.E)].strip() != rd.strip(): fail.append("[results_register] Biological_Physics/README.md Advancements differs from the register: run python3 CANON/results_to_tex.py")
