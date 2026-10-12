@@ -10,7 +10,8 @@ Rule 9 (2026-10-11): laboratory independence from GEO contributors (CANON/indepe
      or the log did not change in the same push;
   4. a note that carries a "**Milestone:**" line is not linked from the Advancements table of Biological_Physics/README.md,
      or a link in that table points at a file that does not exist;
-  5. a day with log entries (from 2026-10-10) has no "### <date> · Day summary" once a later day has begun (Pacific time)."""
+  5. a day with log entries (from 2026-10-10) has no "### <date> · Day summary" once a later day has begun (Pacific time);
+  10. a box-run folder (boxruns/runN*) is not in the run ledger (boxruns/make_runs_ledger.py), or RUNS.md is missing."""
 import os, re, subprocess, sys
 def git(*a): return subprocess.run(["git", *a], capture_output=True, text=True).stdout
 fail = []
@@ -150,6 +151,19 @@ if "--audit8" in sys.argv:
         txt = open(f, encoding="utf-8").read()
         if SEAL7.search(txt) and rule8(f, txt): print("AUDIT8", f, rule8(f, txt))
     sys.exit(0)
+# 10. Run ledger (author 2026-10-11: donors follow every job and its cost). Every box-run folder must be named in the ledger generator
+#     (boxruns/make_runs_ledger.py, RUNS_PURPOSE or UPCOMING), and RUNS.md must exist.
+import os as _os, re as _re
+_BR = "Biological_Physics/MethylPhys/boxruns"; _LG = _os.path.join(_BR, "make_runs_ledger.py")
+if _os.path.isdir(_BR):
+    if not _os.path.exists("Biological_Physics/MethylPhys/RUNS.md"): fail.append("Biological_Physics/MethylPhys/RUNS.md missing (rule 10)")
+    _src = open(_LG, encoding="utf-8").read() if _os.path.exists(_LG) else ""
+    _named = {m.upper() for m in _re.findall(r"BOXRUN(\d+)", _src)} | {m.upper() for m in _re.findall(r"Box Run (\d+)", _src)}
+    for _d in sorted(_os.listdir(_BR)):
+        _m = _re.match(r"run(\d+)", _d)
+        if _m and _os.path.isdir(_os.path.join(_BR, _d)) and _m.group(1) not in _named:
+            fail.append(f"{_BR}/{_d}: box run not in the run ledger ({_LG}, rule 10)")
+
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
 print(f"repro_check: ok ({len(changed)} note(s) changed in this push)")

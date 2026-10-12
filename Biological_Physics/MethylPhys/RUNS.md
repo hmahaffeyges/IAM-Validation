@@ -8,7 +8,13 @@ Work done on the laptop is free and is not listed.
 
 | run | purpose | log | start (UTC) | job hours | vCPUs | end | actual cost | record |
 |---|---|---|---|---|---|---|---|---|
+| Box Run 3 | first tests on the commissioned Met-A (neutrophils, EPIC v1) | `(no log in S3)` |  |  |  | not recorded | pending billing access | [boxruns/run3/JOBS.md](boxruns/run3/JOBS.md) |
+| Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/A/job_A.log` | 2026-10-05 01:43 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
+| Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/C/job_C.log` | 2026-10-05 03:30 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
+| Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/D/job_D.log` | 2026-10-05 08:08 | 0.8 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
+| Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/B/job_B.log` | 2026-10-08 23:04 | 1.1 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
 | Box Run 2, setup | build the pinned sequencing pipeline and genome index | `BOXRUN2/session1/session1.log` | 2026-10-08 23:11 | 2.4 |  | DONE_FORMAT_FAIL | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
+| Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/E/job_E.log` | 2026-10-09 00:11 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
 | Box Run 2, s2 | IAM-A on a second lab's healthy neutrophils (first attempt; stopped on a tool-version check) | `BOXRUN2/session2/session2.log` | 2026-10-09 01:40 | 4.8 | 120 | FAIL_sambamba_not_0.6.5 | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
 | Box Run 2, s3 | IAM-A on a second lab's healthy neutrophils, and CD4 cells | `BOXRUN2/session3/session3.log` | 2026-10-09 14:07 | 4.2 |  | DONE | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
 | Box Run 2, s3 | IAM-A on a second lab's healthy neutrophils, and CD4 cells | `BOXRUN2/session3/session2.log` | 2026-10-09 15:09 | 3.3 | 112 | DONE | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
@@ -23,7 +29,7 @@ Work done on the laptop is free and is not listed.
 | Box Run 9 | cancer fingerprints: liver, lung, breast lines and normals | `BOXRUN9_FP2/cancer/session9.log` | 2026-10-11 05:46 | 11.4 | 120 | DONE | pending billing access | [doors/DEV_FINGERPRINT_02_OUTCOME.md](doors/DEV_FINGERPRINT_02_OUTCOME.md) |
 | Box Run 10 | IAM-A commissioning on identical DNA (EpiQC): format check, Stage A | `BOXRUN10_EPIQC/pilot/session.log` | 2026-10-11 22:21 | 0.2 | 128 | DONE | pending billing access | [doors/DEV_IAMA_COMMISSION_01.md](doors/DEV_IAMA_COMMISSION_01.md) |
 
-Total job hours: 61.1.
+Total job hours: 63.1.
 
 ## Upcoming
 
