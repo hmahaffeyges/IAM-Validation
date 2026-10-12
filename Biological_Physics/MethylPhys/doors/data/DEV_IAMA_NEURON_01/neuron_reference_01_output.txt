@@ -1,0 +1,13 @@
+samples 10; cortical, >= 0.80 neurons, Q0 PROCEED: 7 from 5 donors
+excluded: Cortex-Neuron-Z000000TF (purity 0.478); Neuron-Z000000TH (not cortex); Cerebellum-Neuron-Z000000TB (not cortex)
+all cortical donors: donors 5, reference eps 0.03429, H_ref 0.2155 bits; leave-one-donor-out IAM-A_rel 0.939-1.204; inside Normal 0.95-1.05: 2 of 5
+   ND264: eps 0.04146 (n 1), age 19, M, -, IAM-A_rel 1.204
+   ND416: eps 0.03224 (n 1), age 39, M, Accident, IAM-A_rel 0.943
+   ND417: eps 0.03208 (n 3), age 25, M, Suicide, IAM-A_rel 0.939
+   ND418: eps 0.03275 (n 1), age 65, F, -, IAM-A_rel 0.957
+   ND419: eps 0.03291 (n 1), age 56, M, -, IAM-A_rel 0.961
+without suicide donors (descriptive): donors 4, reference eps 0.03484, H_ref 0.2181 bits; leave-one-donor-out IAM-A_rel 0.925-1.200; inside Normal 0.95-1.05: 0 of 4
+   ND264: eps 0.04146 (n 1), age 19, M, -, IAM-A_rel 1.200
+   ND416: eps 0.03224 (n 1), age 39, M, Accident, IAM-A_rel 0.925
+   ND418: eps 0.03275 (n 1), age 65, F, -, IAM-A_rel 0.939
+   ND419: eps 0.03291 (n 1), age 56, M, -, IAM-A_rel 0.944

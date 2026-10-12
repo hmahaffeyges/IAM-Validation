@@ -1078,3 +1078,6 @@ DEV-FINGERPRINT-02 outcome said "Cause found" for the gain excess in HepG2 and A
 
 ### 2026-10-12 · Liver and lung candidates for a two-way fingerprint test (metadata only)
 DEV_FINGERPRINT_03.md: array and sequencing sets of liver and lung cancer with matched normals, none read by any version of the instrument (TCGA allowed with disclosure). Counts re-queried by verify_candidates.py; nothing designed or sealed.
+
+### 2026-10-12 · Neuron reference built (Loyfer, whole files)
+DEV-IAMA-NEURON-01: by the sealed rule, 5 cortical donors; four agree closely and one (ND264, age 19) reads high, so only 2 of 5 fall inside Normal leave-one-out. Descriptive: copy error follows Loyfer's "not sorted" comment (both ND264 samples), not region or age. Held for the author: whether one preparation is part of "one cell type" (a rule change after the reading, disclosed if made).

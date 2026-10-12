@@ -49,3 +49,17 @@ seen before the donor table was read. Every other sample is estimated at 0.898 o
 the same set. The unlabelled sample is not placed in cortex by the table and stays out (rule 1). The suicide donors stay in (rule 2); the reference
 is also printed without them, descriptive only (author decision). Script: `neuron_reference_01.py`.
 
+**Reference built, 2026-10-12** (`data/DEV_IAMA_NEURON_01/neuron_reference_01.py` on `neuron_eps_01.csv`, the ten Loyfer files read whole by Stage Q on
+work machine 01; output `neuron_reference_01_output.txt`). By the rule, unchanged: 7 cortical samples from 5 donors; reference eps 0.03429,
+H_ref 0.2155 bits. Leave-one-donor-out IAM-A_rel 0.939-1.204; inside Normal 0.95-1.05: 2 of 5. Four donors read 0.03208-0.03291; donor ND264
+(age 19) reads 0.04146 and sets the spread. No donor is removed for its reading (rule 2).
+
+**Descriptive, after the reference was built; not a test** (`by_sorting_01.py`, output `by_sorting_01_output.txt`). Copy error follows Loyfer's
+"not sorted" comment, not region or age: the 7 sorted samples read 0.0317-0.0333 (cortex and the unlabelled sample alike); the 3 not-sorted samples
+read 0.0362-0.0417. ND264's cortex and cerebellum, both not sorted, read 0.0415 and 0.0417. Because the young donor is also the not-sorted donor,
+these files say nothing about age.
+
+**Consequence for C4 (healthy reads Normal).** A neuron reference whose healthy donors spread this far cannot set a Normal band at 0.05 unless the
+preparation offset is understood first. Decision for the author before any neuron bar is written: whether the reference rule names sorting (one
+preparation) as part of "one cell type", which would be a rule change made after this reading and must be disclosed as such.
+

@@ -1,0 +1,3 @@
+sorted=False: 3 samples, eps 0.0362-0.0417; ND273 Cortex 0.0362 (purity 0.478); ND264 Cerebellum 0.0417 (purity 0.949); ND264 Cortex 0.0415 (purity 0.969)
+sorted=True: 7 samples, eps 0.0317-0.0333; KE41 unlabelled 0.0333 (purity 0.975); ND419 Cortex 0.0329 (purity 0.944); ND418 Cortex 0.0328 (purity 0.931); ND417 Cortex 0.0317 (purity 0.898); ND417 Cortex 0.0320 (purity 0.951); ND416 Cortex 0.0322 (purity 0.951); ND417 Cortex 0.0326 (purity 0.935)
+donor ND264 (age 19): cortex 0.0415, cerebellum 0.0417, both not sorted
