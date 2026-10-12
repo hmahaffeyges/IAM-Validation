@@ -40,3 +40,6 @@ its in-sample value (0.019), bar 7 (0.02) is met only if the count's error is be
 known for this series. **Held for the author before the synthetic tests:** run bar 7 here as decided (a likely not-met that uses the only independent
 truth set), or fix in advance how the count's error enters the bar, which changes the math.
 
+**Author decision (2026-10-11):** GSE167202 is held unread. Bar 7 stays as written. The next step is a search for an independent whole-blood
+EPIC v1 set counted by flow cytometry, where the count's own error is small enough for bar 7 to decide.
+
