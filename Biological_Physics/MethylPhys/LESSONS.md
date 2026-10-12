@@ -57,3 +57,4 @@ Older, topic-specific lists stay where they are and are indexed here: chain (`ch
 |---|---|---|---|
 | C1 | pandas read the string "NA" (a category label) as a missing value | read label columns with `keep_default_na=False` | per script |
 | C2 | The session database truncates long cell sources (~2,000 characters) | read long sources in pieces | — |
+| C3 | A lock test commits a dummy seal and then resets one commit; had the dummy commit failed, the reset would have removed a real commit (2026-10-11, caught, nothing lost) | record HEAD first, reset only if the last commit is the dummy, then confirm HEAD is restored | per script (DEV-TISSUE-COLON-02 lock test) |
