@@ -1,4 +1,4 @@
-# DEV-TISSUE-LUNG-04 — Met-A on lung adenocarcinoma against the same patient's normal lung (development; design, 2026-10-12; NOT sealed)
+# DEV-TISSUE-LUNG-04 — Met-A on lung adenocarcinoma against the same patient's normal lung (development; NOT SUITABLE, 2026-10-12; tumors unread)
 
 **Why.** Lung 1 (GSE94785) read NO FINGERPRINT; lung 2 (GSE83842) and lung 3 (TCGA-LUSC) were not suitable by their synthetic tests (tumors
 unread). This applies the lung 3 v3 design unchanged (measured lung stroma and every atlas lung cell type in the panel and direction test) to a
@@ -12,6 +12,12 @@ Normal arrays only until `sealed_luad_tissue.json` is committed; the tumor lock 
 
 **Synthetic tests:** `data/DEV_TISSUE_LUNG_04/luad_synthetic.py` (the lung 3 v3 design, run once on the normals). If it fails any test, LUAD is
 not suitable and its tumors stay unread.
-**Not a milestone:** design (development).
 
 **Test data:** TCGA-LUAD
+
+**Synthetic tests, run once, 2026-10-12** (`data/DEV_TISSUE_LUNG_04/luad_synthetic.py` at 8ad3bfc; outputs `luad_synthetic_output.csv`,
+`luad_direction_output.csv`, `luad_synthetic_summary.txt`). Composition, planted 5 % and power PASSED, and the every-pair rule was chosen. The
+direction test FAILED: a normal lung blended with lung endothelium (60-90 %) raises R and fakes the chosen rule. **LUAD is not suitable; its
+tumors stay unread.**
+**Not a milestone:** not suitable (development).
+
