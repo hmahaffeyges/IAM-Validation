@@ -1,0 +1,3 @@
+samples 24: normal 12, tumor 12; platform GPL13534
+tumor/normal pairs 12; same slide 12; slides 3; tumor stage 1a 10, 1b 2
+per slide (normal, tumor): 6164655086 5/5; 6222421029 6/6; 9989540068 1/1

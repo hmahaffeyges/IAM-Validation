@@ -1138,3 +1138,6 @@ TCGA-LIHC, 50 same-plate pairs, scored once under the seal: 22 above the bar, 8 
 
 ### 2026-10-12 · DEV-TISSUE-LIVER-01 note corrected
 The note said most mix changes in test 7 lower R; the output shows mean R slightly above 1 in 10 of 16 mixes (at most 1.0128) and below 1 in 6. Corrected; the PASS verdict (no mix change fakes the call) is unchanged. Chat report to the author corrected too.
+
+### 2026-10-12 · DEV-TISSUE-LUNG-02 inputs (lung retest, author: lung first)
+GSE83842: 12 early (stage I) lung adenocarcinoma patients, tumor and own normal on the same 450K slide, never read. Sample table, tumor-locked fetch and calibration committed before any array is fetched. Power at 12 pairs decides whether it runs.

@@ -1,0 +1,25 @@
+gsm,title,patient,kind,platform,slide,pos,stage,smoker,age,sex
+GSM2219551,normal lung_Non-smoker (NS1N),NS1,normal,GPL13534,6164655086,R02C01,1a,Non-smoker,77,M
+GSM2219553,normal lung_Non-smoker (NS3N),NS3,normal,GPL13534,6222421029,R03C02,1a,Non-smoker,57,M
+GSM2219555,normal lung_Non-smoker (NS4N),NS4,normal,GPL13534,6164655086,R06C01,1b,Non-smoker,73,M
+GSM2219557,normal lung_Non-smoker (NS5N),NS5,normal,GPL13534,6222421029,R05C02,1a,Non-smoker,51,M
+GSM2219561,normal lung_Non-smoker (NS549N),NS549,normal,GPL13534,9989540068,R03C02,1a,Non-smoker,65,M
+GSM2219559,normal lung_Non-smoker (NS6N),NS6,normal,GPL13534,6222421029,R01C02,1a,Non-smoker,68,M
+GSM2219539,normal lung_smoker (S1N),S1,normal,GPL13534,6222421029,R02C01,1a,smoker,68,M
+GSM2219541,normal lung_smoker (S2N),S2,normal,GPL13534,6164655086,R01C02,1a,smoker,80,M
+GSM2219543,normal lung_smoker (S3N),S3,normal,GPL13534,6222421029,R04C01,1b,smoker,60,M
+GSM2219545,normal lung_smoker (S4N),S4,normal,GPL13534,6222421029,R06C01,1a,smoker,59,M
+GSM2219547,normal lung_smoker (S5N),S5,normal,GPL13534,6164655086,R05C02,1a,smoker,74,M
+GSM2219549,normal lung_smoker (S6N),S6,normal,GPL13534,6164655086,R03C02,1a,smoker,75,M
+GSM2219550,lung adenocarcinoma_Non-smoker (NS1T),NS1,tumor,GPL13534,6164655086,R02C02,1a,Non-smoker,77,M
+GSM2219552,lung adenocarcinoma_Non-smoker (NS3T),NS3,tumor,GPL13534,6222421029,R03C01,1a,Non-smoker,57,M
+GSM2219554,lung adenocarcinoma_Non-smoker (NS4T),NS4,tumor,GPL13534,6164655086,R06C02,1b,Non-smoker,73,M
+GSM2219556,lung adenocarcinoma_Non-smoker (NS5T),NS5,tumor,GPL13534,6222421029,R05C01,1a,Non-smoker,51,M
+GSM2219560,lung adenocarcinoma_Non-smoker (NS549T),NS549,tumor,GPL13534,9989540068,R03C01,1a,Non-smoker,65,M
+GSM2219558,lung adenocarcinoma_Non-smoker (NS6T),NS6,tumor,GPL13534,6222421029,R01C01,1a,Non-smoker,68,M
+GSM2219538,lung adenocarcinoma_smoker (S1T),S1,tumor,GPL13534,6222421029,R02C02,1a,smoker,68,M
+GSM2219540,lung adenocarcinoma_smoker (S2T),S2,tumor,GPL13534,6164655086,R01C01,1a,smoker,80,M
+GSM2219542,lung adenocarcinoma_smoker (S3T),S3,tumor,GPL13534,6222421029,R04C02,1b,smoker,60,M
+GSM2219544,lung adenocarcinoma_smoker (S4T),S4,tumor,GPL13534,6222421029,R06C02,1a,smoker,59,M
+GSM2219546,lung adenocarcinoma_smoker (S5T),S5,tumor,GPL13534,6164655086,R05C01,1a,smoker,74,M
+GSM2219548,lung adenocarcinoma_smoker (S6T),S6,tumor,GPL13534,6164655086,R03C01,1a,smoker,75,M
