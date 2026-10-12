@@ -16,7 +16,8 @@ Rule 9 (2026-10-11): laboratory independence from GEO contributors (CANON/indepe
   12. an outcome note new or changed in this push does not declare **Milestone:** or **Not a milestone:** <reason>;
   13. a **Milestone:** note has no results-register entry, or a register entry's record lacks the line or does not exist;
   15. a number on the live fundraiser page (fundraiser/GOFUNDME_STORY_LIVE.txt) no longer matches its record;
-  16. donor-facing text (READMEs, FOLLOW.md, fundraiser text, register plain/title/headline) has a British spelling."""
+  16. donor-facing text (READMEs, FOLLOW.md, fundraiser text, register plain/title/headline) has a British spelling;
+  17. a lesson named in the log is not a row of LESSONS.md, a frozen older lessons file changes, or a new lessons file appears."""
 import os, re, subprocess, sys
 def git(*a): return subprocess.run(["git", *a], capture_output=True, text=True).stdout
 fail = []
@@ -208,6 +209,20 @@ if _os.path.exists("fundraiser/check_story.py"):
 # 16. Donor-facing text in American spelling (author 2026-10-12; CANON/us_spelling.py).
 _r = _sp.run([sys.executable, "CANON/us_spelling.py", "check"], capture_output=True, text=True)
 if _r.returncode != 0: fail.append("British spelling in donor-facing text (run python3 CANON/us_spelling.py fix): " + "; ".join(_r.stdout.split(chr(10))[:8]))
+
+# 17. One lessons file (author 2026-10-12). Every lesson the log names (e.g. "LESSONS T15", "Lesson C6") is a row of
+#     Biological_Physics/MethylPhys/LESSONS.md; the older topic lists it indexes are frozen records; no other lessons file may be added.
+_LF = "Biological_Physics/MethylPhys/LESSONS.md"
+_FROZEN = {"Biological_Physics/MethylPhys/atlas/IAMAtlas_FLATNESS_LESSON.md", "Biological_Physics/MethylPhys/atlas/v2/IAMAtlas_FLATNESS_LESSON_v1.md",
+           "Biological_Physics/MethylPhys/atlas/v2/LESSONS.md", "Biological_Physics/MethylPhys/chain/CPG_Lessons_Learned_2026-06-29.md"}
+_rows = set(re.findall(r"^\| ([A-Z]{1,2}\d{1,2}) \|", git("show", "HEAD:" + _LF), re.M))
+_ids = set(re.findall(r"\b(?:LESSONS|[Ll]esson) ([A-Z]{1,2}\d{1,2})\b", git("show", "HEAD:development/METHYLPHYS_DEVELOPMENT_LOG.md")))
+if _ids - _rows: fail.append(f"{_LF}: lessons named in the development log have no row: {sorted(_ids - _rows)} (rule 17)")
+_all = [f for f in git("diff", "--name-only", base, "HEAD").split("\n") if f]
+for _f in _all:
+    if _f in _FROZEN: fail.append(f"{_f}: a frozen lessons record was changed; add the lesson to {_LF} instead (rule 17)")
+    elif re.search(r"lesson", _f.rsplit("/", 1)[-1], re.I) and _f != _LF and _f not in _FROZEN and git("cat-file", "-t", f"HEAD:{_f}").strip():
+        fail.append(f"{_f}: a new lessons file; lessons go in {_LF} only (rule 17)")
 
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)

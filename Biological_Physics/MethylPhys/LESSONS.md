@@ -2,7 +2,8 @@
 
 Every lesson that cost time, a result or trust, once: what happened, the rule, and whether code now enforces it. A lesson that only lives in a
 log entry or in memory gets repeated. **Add a row the day a lesson is learned**; when code starts enforcing it, name the check.
-Older, topic-specific lists stay where they are and are indexed here: chain (`chain/CPG_Lessons_Learned_2026-06-29.md`), atlas
+**This is the only lessons file** (push-gate rule 17: a lesson named in the log must be a row here; no other lessons file may be added).
+Older, topic-specific lists are frozen records (never edited; rule 17), indexed here: chain (`chain/CPG_Lessons_Learned_2026-06-29.md`), atlas
 (`atlas/v2/LESSONS.md`, `atlas/IAMAtlas_FLATNESS_LESSON.md`).
 
 ## Reproducibility and the record

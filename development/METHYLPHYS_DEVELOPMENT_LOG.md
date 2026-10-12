@@ -1111,3 +1111,6 @@ READMEs, FOLLOW.md, the fundraiser text and the register's plain/title/headline 
 
 ### 2026-10-12 · DEV-TISSUE-LIVER-01 inputs
 TCGA-LIHC: 50 patients, tumor and own normal liver on the same plate (metadata only; Prior reading disclosed). GEO liver sets set aside: slide IDs only inside the array files. Lesson T15 applies before any seal.
+
+### 2026-10-12 · One lessons file, enforced (author); push-gate rule 17
+LESSONS.md is the only lessons file. The gate refuses a push when a lesson the log names has no row there, when one of the four older topic lists it indexes (now frozen records) changes, or when a new lessons file appears.
