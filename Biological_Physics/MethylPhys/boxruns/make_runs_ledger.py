@@ -20,7 +20,8 @@ RUNS_PURPOSE = {   # prefix -> (run, purpose, record)
  "results/BOXRUN9_FP2": ("Box Run 9", "cancer fingerprints: liver, lung, breast lines and normals", "doors/DEV_FINGERPRINT_02_OUTCOME.md"),
  "results/BOXRUN10_EPIQC": ("Box Run 10", "IAM-A commissioning on identical DNA (EpiQC): format check, Stage A", "doors/DEV_IAMA_COMMISSION_01.md"),
 }
-UPCOMING = [("Box Run 10, Stage B", "IAM-A commissioning on identical DNA: the other 71 libraries (only if Stage A meets C1)", "spot instance", "estimate given before start")]
+UPCOMING = [("Box Run 10, Stage B (Stage A met C1)", "IAM-A commissioning on identical DNA: the other 71 libraries, 12.2M read pairs each", "spot m7a.32xlarge, 128 cores", "about 14 hours, $45-50"),
+            ("Work machine 01", "neuron reference (10 Loyfer files) and colon replication: 152 normal arrays calibrated, then synthetic tests", "spot r7a.2xlarge, 8 cores, 64 GB", "about 5 hours, $1-2")]
 rows = []
 for pg in s3.get_paginator("list_objects_v2").paginate(Bucket=B, Prefix="results/"):
     for o in pg.get("Contents", []):

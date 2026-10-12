@@ -9,6 +9,7 @@ Work done on the laptop is free and is not listed.
 | run | purpose | log | start (UTC) | job hours | vCPUs | end | actual cost | record |
 |---|---|---|---|---|---|---|---|---|
 | Box Run 3 | first tests on the commissioned Met-A (neutrophils, EPIC v1) | `(no log in S3)` |  |  |  | not recorded | pending billing access | [boxruns/run3/JOBS.md](boxruns/run3/JOBS.md) |
+| Work machine 01 | neuron reference (10 Loyfer files read whole) and colon replication normals (152 arrays, Stage 1); small spot machine, unattended | `(no log in S3)` |  |  |  | not recorded | pending billing access | [boxruns/workbox/jobs_01.sh](boxruns/workbox/jobs_01.sh) |
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/A/job_A.log` | 2026-10-05 01:43 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/C/job_C.log` | 2026-10-05 03:30 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/D/job_D.log` | 2026-10-05 08:08 | 0.8 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
@@ -17,8 +18,8 @@ Work done on the laptop is free and is not listed.
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/E/job_E.log` | 2026-10-09 00:11 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
 | Box Run 2, s2 | IAM-A on a second lab's healthy neutrophils (first attempt; stopped on a tool-version check) | `BOXRUN2/session2/session2.log` | 2026-10-09 01:40 | 4.8 | 120 | FAIL_sambamba_not_0.6.5 | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
 | Box Run 2, s3 | IAM-A on a second lab's healthy neutrophils, and CD4 cells | `BOXRUN2/session3/session3.log` | 2026-10-09 14:07 | 4.2 |  | DONE | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
-| Box Run 2, s3 | IAM-A on a second lab's healthy neutrophils, and CD4 cells | `BOXRUN2/session3/session2.log` | 2026-10-09 15:09 | 3.3 | 112 | DONE | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
 | Box Run 2, s3 | IAM-A on a second lab's healthy neutrophils, and CD4 cells | `BOXRUN2/session3/session2_cd4.log` | 2026-10-09 15:09 | 3.2 | 112 | DONE | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
+| Box Run 2, s3 | IAM-A on a second lab's healthy neutrophils, and CD4 cells | `BOXRUN2/session3/session2.log` | 2026-10-09 15:09 | 3.3 | 112 | DONE | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
 | Box Run 2, s4 | IAM-A on whole blood, two library kits | `BOXRUN2/session4/session2.log` | 2026-10-09 18:29 | 7.9 | 120 | DONE | pending billing access | [doors/DEV_IAMA_CONVERSION_01.md](doors/DEV_IAMA_CONVERSION_01.md) |
 | Box Run 2, s5 | decitabine dose series (IAM-A side) | `BOXRUN2/session5/session2.log` | 2026-10-10 02:25 | 3.1 | 120 | DONE | pending billing access | [doors/DEV_LINK_IAMA_METAA_02_OUTCOME.md](doors/DEV_LINK_IAMA_METAA_02_OUTCOME.md) |
 | Box Run 6 | mouse SAM knockout: IAM-A's first physics lever | `BOXRUN6_SAM/session6.log` | 2026-10-10 14:33 | 4.8 | 60 | DONE | pending billing access | [doors/DEV_SAM_LEVER_01_OUTCOME.md](doors/DEV_SAM_LEVER_01_OUTCOME.md) |
@@ -36,7 +37,8 @@ Total job hours: 64.7.
 
 | run | purpose | machine | estimate |
 |---|---|---|---|
-| Box Run 10, Stage B | IAM-A commissioning on identical DNA: the other 71 libraries (only if Stage A meets C1) | spot instance | estimate given before start |
+| Box Run 10, Stage B (Stage A met C1) | IAM-A commissioning on identical DNA: the other 71 libraries, 12.2M read pairs each | spot m7a.32xlarge, 128 cores | about 14 hours, $45-50 |
+| Work machine 01 | neuron reference (10 Loyfer files) and colon replication: 152 normal arrays calibrated, then synthetic tests | spot r7a.2xlarge, 8 cores, 64 GB | about 5 hours, $1-2 |
 
 ## Actual AWS charges (from AWS billing)
 
