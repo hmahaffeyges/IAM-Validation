@@ -28,11 +28,23 @@ Work done on the laptop is free and is not listed.
 | Box Run 9 | cancer fingerprints: liver, lung, breast lines and normals | `BOXRUN9_FP2/normal/session9.log` | 2026-10-11 01:41 | 4.1 | 60 | FAIL_mapping_ENCFF000MHJ_36.98pct | pending billing access | [doors/DEV_FINGERPRINT_02_OUTCOME.md](doors/DEV_FINGERPRINT_02_OUTCOME.md) |
 | Box Run 9 | cancer fingerprints: liver, lung, breast lines and normals | `BOXRUN9_FP2/cancer/session9.log` | 2026-10-11 05:46 | 11.4 | 120 | DONE | pending billing access | [doors/DEV_FINGERPRINT_02_OUTCOME.md](doors/DEV_FINGERPRINT_02_OUTCOME.md) |
 | Box Run 10 | IAM-A commissioning on identical DNA (EpiQC): format check, Stage A | `BOXRUN10_EPIQC/pilot/session.log` | 2026-10-11 22:21 | 0.2 | 128 | DONE | pending billing access | [doors/DEV_IAMA_COMMISSION_01.md](doors/DEV_IAMA_COMMISSION_01.md) |
+| Box Run 10 | IAM-A commissioning on identical DNA (EpiQC): format check, Stage A | `BOXRUN10_EPIQC/stageA/session.log` | 2026-10-11 22:31 | 1.6 | 128 | DONE | pending billing access | [doors/DEV_IAMA_COMMISSION_01.md](doors/DEV_IAMA_COMMISSION_01.md) |
 
-Total job hours: 63.1.
+Total job hours: 64.7.
 
 ## Upcoming
 
 | run | purpose | machine | estimate |
 |---|---|---|---|
 | Box Run 10, Stage B | IAM-A commissioning on identical DNA: the other 71 libraries (only if Stage A meets C1) | spot instance | estimate given before start |
+
+## Actual AWS charges (from AWS billing)
+
+| month | total | largest items |
+|---|---|---|
+| 2026-09 | $12.28 | SpotUsage:c7a.8xlarge $6.52; SpotUsage:m7a.32xlarge $2.94; EBS:VolumeUsage.gp3 $1.52; TimedStorage-ByteHrs $0.39 |
+| 2026-10 | $868.37 | BoxUsage:m7a.32xlarge $655.69; SpotUsage:m7a.32xlarge $106.60; BoxUsage:m7a.16xlarge $47.52; EBS:VolumeUsage.gp3 $13.39 |
+
+Daily: 09-28 $7, 09-29 $4, 10-01 $147, 10-02 $204, 10-03 $181, 10-04 $74, 10-05 $8, 10-06 $3, 10-07 $3, 10-08 $5, 10-09 $116, 10-10 $77, 10-11 $50
+
+BoxUsage = on-demand machine hours; SpotUsage = spot machine hours. Runs before 2026-10-12 carry no run tag, so their cost is by day and type only.

@@ -46,4 +46,16 @@ for r in R.itertuples():
     L.append(f"| {n} | {p} | `{r.log}` | {r.start[:16].replace('T', ' ')} | {'' if pd.isna(r.hours) else f'{r.hours:.1f}'} | {r.vcpu} | {r.status} | pending billing access | [{rec}]({rec}) |")
 L += ["", f"Total job hours: {R.hours.sum():.1f}.", "", "## Upcoming", "", "| run | purpose | machine | estimate |", "|---|---|---|---|"]
 L += [f"| {a} | {b} | {c} | {d} |" for a, b, c, d in UPCOMING]
+# Actual charges from AWS billing (Cost Explorer), by month and by type, and by day; per-run cost from the "run" tag once active.
+ce = boto3.client("ce", region_name="us-east-1"); import datetime as _dt
+_end = (_dt.date.today() + _dt.timedelta(days=1)).isoformat()
+_m = ce.get_cost_and_usage(TimePeriod={"Start": "2026-09-01", "End": _end}, Granularity="MONTHLY", Metrics=["UnblendedCost"],
+                           GroupBy=[{"Type": "DIMENSION", "Key": "USAGE_TYPE"}])["ResultsByTime"]
+L += ["", "## Actual AWS charges (from AWS billing)", "", "| month | total | largest items |", "|---|---|---|"]
+for x in _m:
+    g = sorted(((y["Keys"][0], float(y["Metrics"]["UnblendedCost"]["Amount"])) for y in x["Groups"]), key=lambda t: -t[1])
+    L.append(f"| {x['TimePeriod']['Start'][:7]} | ${sum(v for _, v in g):,.2f} | " + "; ".join(f"{k.replace('USW2-', '')} ${v:,.2f}" for k, v in g[:4]) + " |")
+_d = ce.get_cost_and_usage(TimePeriod={"Start": "2026-09-25", "End": _end}, Granularity="DAILY", Metrics=["UnblendedCost"])["ResultsByTime"]
+L += ["", "Daily: " + ", ".join(f"{x['TimePeriod']['Start'][5:]} ${float(x['Total']['UnblendedCost']['Amount']):,.0f}" for x in _d if float(x['Total']['UnblendedCost']['Amount']) >= 1),
+      "", "BoxUsage = on-demand machine hours; SpotUsage = spot machine hours. Runs before 2026-10-12 carry no run tag, so their cost is by day and type only."]
 open(os.path.join(HERE, "..", "RUNS.md"), "w").write("\n".join(L) + "\n"); print("\n".join(L[-12:]))
