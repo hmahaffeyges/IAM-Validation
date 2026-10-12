@@ -1,0 +1,11 @@
+Sample name,Source Tissue,Cell type,age,sex,PatientID,Procedure,Diagnosis,Dupli. rate,CC conversion rate,Estimated purity (Table S10),Comments
+Cortex-Neuron-Z000000TF,Brain,Neuronal,38,M,ND273,Autopsy,,0.408,0.989,0.478,not sorted
+Neuron-Z000000TH,Brain,Neuronal,31,M,KE41,Autopsy,Suicide,0.266,0.987,0.975,
+Cortex-Neuron-Z0000042F,Brain,Neuronal,56,M,ND419,Autopsy,,0.123,0.988,0.944,
+Cortex-Neuron-Z0000042H,Brain,Neuronal,65,F,ND418,Autopsy,,0.168,0.989,0.931,
+Cortex-Neuron-Z0000042J,Brain,Neuronal,25,M,ND417,Autopsy,Suicide,0.159,0.988,0.898,
+Cortex-Neuron-Z0000042M,Brain,Neuronal,25,M,ND417,Autopsy,Suicide,0.218,0.988,0.951,
+Cortex-Neuron-Z0000042P,Brain,Neuronal,39,M,ND416,Autopsy,Accident,0.147,0.989,0.951,
+Cortex-Neuron-Z0000042K,Brain,Neuronal,25,M,ND417,Autopsy,Suicide,0.154,0.988,0.935,
+Cerebellum-Neuron-Z000000TB,Brain,Neuronal,19,M,ND264,Autopsy,,0.349,0.991,0.949,not sorted
+Cortex-Neuron-Z000000TD,Brain,Neuronal,19,M,ND264,Autopsy,,0.28,0.991,0.969,not sorted
