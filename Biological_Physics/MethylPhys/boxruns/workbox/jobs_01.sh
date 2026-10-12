@@ -2,11 +2,12 @@
 # Work machine job list 01 (2026-10-12). Each result is saved to S3 as soon as it exists; a restarted machine resumes from S3.
 #  1. DEV-IAMA-NEURON-01: the 10 Loyfer neuron .pat files read whole (neuron_eps_01.py), one file at a time.
 #  2. DEV-TISSUE-COLON-02: the 152 non-cancer GSE199057 arrays fetched (fetch_colon_02.py, tumour lock) and calibrated (calib_colon_02.py).
+#  3. DEV-TISSUE-COLON-02 synthetic tests 1-6 (colon02_synthetic.py) on those normals; atlas v2 posteriors from S3 seed/atlpost.
 # Environments pinned to the laptop's: Stage Q py3.11 numpy 2.4.6 pandas 2.3.3; Stage 1 py3.11 methylprep 1.7.1 numpy 1.26.4 pandas 1.5.3.
 set -u
 NAME=$1; B=methylphys-data-945451304272-us-west-2-an; P=results/$NAME; H=~/IAM-Validation/Biological_Physics/MethylPhys; W=~/wb; mkdir -p $W
 MM="/mnt/scratch/run2/bin/micromamba -r /mnt/scratch/run2/mamba"
-$MM create -y -q -p $W/eq -c conda-forge python=3.11 > $W/env.log 2>&1 && $W/eq/bin/pip -q install numpy==2.4.6 pandas==2.3.3 scipy==1.17.1 boto3 requests >> $W/env.log 2>&1
+$MM create -y -q -p $W/eq -c conda-forge python=3.11 > $W/env.log 2>&1 && $W/eq/bin/pip -q install numpy==2.4.6 pandas==2.3.3 scipy==1.17.1 pyarrow==25.0.1 boto3 requests >> $W/env.log 2>&1
 PY=$W/eq/bin/python
 up(){ $PY -c "import boto3,sys;boto3.client('s3').upload_file(sys.argv[1],'$B',sys.argv[2])" "$1" "$2"; }
 get(){ $PY -c "import boto3,sys;boto3.client('s3').download_file('$B',sys.argv[1],sys.argv[2])" "$1" "$2" 2>/dev/null; }
@@ -37,4 +38,16 @@ PY2
 sync_up(){ for f in $W/colon/betas/*.parquet; do [ -e "$f.up" ] || { up "$f" "$P/colon_betas/$(basename $f)" && touch "$f.up"; }; done; }
 while kill -0 $C 2>/dev/null; do sync_up; sleep 60; done; sync_up; up $W/calib.log $P/calib.log
 log "colon calib END $(ls $W/colon/betas/*.parquet | wc -l) arrays"
+# 3. colon synthetic tests (normals only)
+mkdir -p $W/atlpost
+$PY - "$B" "seed/atlpost/" "$W/atlpost" <<'PY3'
+import boto3, sys, os
+s3 = boto3.client("s3"); b, pre, d = sys.argv[1:4]
+for pg in s3.get_paginator("list_objects_v2").paginate(Bucket=b, Prefix=pre):
+    for o in pg.get("Contents", []): s3.download_file(b, o["Key"], os.path.join(d, os.path.basename(o["Key"])))
+PY3
+D2=$H/doors/data/DEV_TISSUE_COLON_02
+(cd $D2 && $PY colon02_synthetic.py $W/atlpost $W/colon/betas > $W/synth.log 2>&1) || log "SYNTH_FAIL"
+for f in colon02_synthetic_output.csv colon02_synthetic_summary.txt; do [ -f $D2/$f ] && up $D2/$f $P/$f; done; up $W/synth.log $P/synth.log
+log "colon synthetic END"
 log "DONE"

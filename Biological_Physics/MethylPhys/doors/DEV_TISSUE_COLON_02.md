@@ -14,3 +14,10 @@ with slide spread measured from the normals. If no slide-independent reading pas
 **Inputs (2026-10-11).** `data/DEV_TISSUE_COLON_02/fetch_colon_02.py` fetches IDATs per sample from GEO. A tumour array is refused before any
 request until `sealed_colon_02.json` is committed unchanged; the lock was tested three ways before any fetch (tumour refused with no seal and with
 an uncommitted seal; allowed with a committed dummy seal, which was then removed). Only the 152 non-cancer arrays are fetched now.
+
+**Design, written 2026-10-12 before any array of this set is read** (`data/DEV_TISSUE_COLON_02/colon02_synthetic.py`). The reading is COLON-01's
+(blind-site Met-A, tumour against the same patient's normal); only the pairing changes. Because tumour and own normal are never on one slide,
+the per-pair bar is built from pairs of two different patients' normals on DIFFERENT slides, so the slide-to-slide spread is inside the bar.
+Tests 1-5 as COLON-01 (composition blend with a non-CRC normal from another slide), plus test 6: the NULL group call with the slide effect
+doubled, because the tumours sit on slides of their own. If tests 2-6 do not all pass, this set is recorded as not suitable and is not sealed.
+
