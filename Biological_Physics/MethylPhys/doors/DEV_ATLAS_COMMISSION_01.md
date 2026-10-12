@@ -68,7 +68,7 @@ wherever it appears. Bars below are drafts: each is fixed only after a synthetic
 
 | use | what it does in the chain | already measured (atlas's own data) | commissioning test on independent cells (draft bar) |
 |---|---|---|---|
-| U1 reference profiles | each cell type's methylation per CpG with an uncertainty | held-out coverage PASSED: 92.68 % inside the 90 % interval (PROC-V5-HELDOUT; within the six sources) | purified cells from new laboratories fall inside the 90 % interval at 80-97 % of sites, per cell type and platform; reported by cell |
+| U1 reference profiles | each cell type's methylation per CpG with an uncertainty | held-out coverage PASSED (PROC-V5-HELDOUT; within the six sources) | purified cells from new laboratories fall inside the 90 % interval at 80-97 % of sites, per cell type and platform; reported by cell |
 | U2 blind sites for tissue tests | picks sites where every panel cell agrees, so a change in tissue mix cannot move Met-A (breast, colon, liver, lung) | used by four sealed tissue tests; checked only on atlas means | on independent purified cells of every panel type, the blind sites stay within the test's own tolerance of the epithelial value at >= 90 % of sites |
 | U3 composition (atlas_e) | blood cell fractions for whole-blood Met-A | neutrophils better than the current method (DEV-ATLAS-EPIC-01, in-sample); A5 FAILED on CD4 and CD8 (PROC-DECONV-V2-01) | bars 1-2 above (neutrophils), unchanged; CD4/CD8 stay development until A5 is met |
 | U4 identity loci (per-cell Met-A) | the sites each cell type is read on | B1 and B2 FAILED: 71 % of held-out readings NORMAL (PROC-V12-IDENTITY-02) | stays development; not used by any commissioned reading |
@@ -83,5 +83,5 @@ the atlas's stated uncertainty (reported as the share of sites whose difference 
 
 **Updating the atlas (author rule 2026-10-12).** A new search for purified cells at least every 6 months. Before any new set is used, its samples
 are split in writing: held-out test data and build data (a set cannot both build and test the atlas). Each addition is a new atlas version
-with its own DOI; results sealed on a version stay on that version, and a new version is used by the chain only after it re-passes U1-U2.
+with its own DOI; a result scored under one version's seal stays on that version, and a new version is used by the chain only after it re-passes U1-U2.
 
