@@ -1,18 +1,80 @@
-# IAM Atlas — the derived reference
+# IAM-Atlas v2: a reference map of healthy human cells
 
-The canonical atlas: **483,092 CpGs × 115 cell types**, built 2026-05-28 by per-class MCMC (batch 5,000; immune 1,500), with a posterior **mean, sd, and 95 % CI per CpG per class** — 262 columns. This is the surface every specimen is read againstt.
+IAM-Atlas v2 is the reference every IAM instrument reads against. For each of **74 purified healthy human cell types**, at every CpG on the
+Illumina methylation array, it gives the cell's methylation and **how sure we are of it**: a mean, a standard deviation, a 95 % interval and
+20 posterior draws, per site, per cell.
 
-| file | what |
+**Last atlas search for new purified cells: 2026-10-12.** A search is due at least every 6 months; the push gate refuses a push when this
+date is more than 6 months old.
+
+## How it was made
+
+One joint Bayesian fit (NumPyro, NUTS, 4 chains) over every purified healthy sample we could find in public data: 334 samples from six
+sources, two kinds of measurement (arrays and bisulfite sequencing), several laboratories.
+
+| source | measurement | samples |
+|---|---|---|
+| Loyfer et al. 2023, Nature (GSE186458) | whole-genome bisulfite sequencing | 207 |
+| Salas et al. 2022 (GSE167998) | EPIC array | 56 |
+| Salas et al. 2018 (GSE110554) | EPIC array | 35 |
+| Moss et al. 2018 (GSE122126) | 450K/EPIC arrays | 27 |
+| Tian et al. 2023 (GSE215353) | pooled brain sequencing | 7 |
+| ENCODE | whole-genome bisulfite sequencing | 2 |
+
+Three things set the fit apart:
+- **Every laboratory and platform has its own measured offset.** The same cell measured on an array in one laboratory and by sequencing in
+  another is one cell; the model estimates the difference between sources instead of leaving it as noise.
+- **Every site carries an uncertainty, and it was checked.** 5 % of the measurements were hidden, the atlas refitted, and the hidden values
+  predicted: the 90 % intervals held them as often as stated (record: [`PROC_V5_HELDOUT_OUTCOME.md`](../doors/PROC_V5_HELDOUT_OUTCOME.md)).
+- **Nothing is filled in.** A cell never measured at a site is marked NOT MEASURED, never given a guessed value.
+
+Every step, script by script, with the machine and package versions: [`v2/README.md`](v2/README.md). Why each choice was made:
+[`v2/DECISIONS.md`](v2/DECISIONS.md). What was run on the finished atlas: [`v2/postbuild/README.md`](v2/postbuild/README.md).
+The model and its acceptance tests, written before the build: [`../doors/ATLAS_V2_SPEC.md`](../doors/ATLAS_V2_SPEC.md).
+
+## Why it matters to IAM, and what is new
+
+The IAM instruments measure how far a cell's methylation pattern has drifted from healthy. That needs to know what healthy is, for each
+cell type, with an honest uncertainty, so a reading can say whether a change is larger than what is known. The atlas also chooses the sites
+a tissue test reads: sites where every cell type agrees, so a change in the mix of cells in a sample cannot move the reading. Every cancer
+fingerprint result on patients' tissue rests on those sites.
+
+**What is new, as far as we know:** other atlases are larger (a 2025 compendium holds 16,959 healthy array samples) or deeper (Loyfer et al.
+2023 sequenced 39 cell-type groups, and this atlas is built in large part on it). We know of no public atlas that fits arrays and sequencing
+from several laboratories in one model, with each laboratory's offset measured and an uncertainty at every site that held-out data
+confirmed. Literature checked 2026-10-12; a correction is welcome as a GitHub issue.
+
+## Get it
+
+The fitted atlas is 4.67 GB (2,100 files: 700 blocks of sites, each with a summary, 20 posterior draws and its prior). It is too large for
+git. **Zenodo DOI: to be added on deposit.** Every file's SHA-256 is in
+[`v2/postbuild/records/ATLAS_V2_OUTPUT_MANIFEST.json`](v2/postbuild/records/ATLAS_V2_OUTPUT_MANIFEST.json); the fetch script checks each
+one. Per-cell tables for chosen cells are made with [`tools/extract_posterior.py`](tools/extract_posterior.py).
+
+## Commissioning
+
+The atlas is commissioned use by use, on purified cells from laboratories that did not build it:
+[`../doors/DEV_ATLAS_COMMISSION_01.md`](../doors/DEV_ATLAS_COMMISSION_01.md).
+
+| use | status |
 |---|---|
-| [`IAMAtlasREBUILD.csv.xz`](IAMAtlasREBUILD.csv.xz) (100 MB) | the atlas. Decompress in place: `xz -dk IAMAtlasREBUILD.csv.xz` → 605 MB CSV, sha256 `52ff4ccb…6985` |
-| [`IAMAtlasREBUILD_provenance.json`](IAMAtlasREBUILD_provenance.json) | build record — sources, sampler settings, date |
-| [`IAMAtlasREBUILD_celltype_to_class.json`](IAMAtlasREBUILD_celltype_to_class.json) | 115 cell types → 8 architecture classes |
-| `iamatlas_class_archives/` | per-class MCMC archives (`*_v0_1_REBUILD.tar.xz`) |
-| `healpix_mapping/` | CpG → HEALPix pixel (NSIDE 128, 196,608 pixels, atlas row order) used by every plate and by [`stage_4_6_patient_cmb.py`](../chain/stage_4_6_patient_cmb.py) (the sky) |
-| `external_manifests/` | Illumina 450K/EPIC manifests used to annotate the atlas |
-| [`iamatlas_v0_1_mcmc_batched_FIXED.py`](iamatlas_v0_1_mcmc_batched_FIXED.py), [`compact_atlas.py`](compact_atlas.py) | the build scripts |
-| [`IAMAtlas_FLATNESS_LESSON.md`](IAMAtlas_FLATNESS_LESSON.md) | why the pre-build atlas was flat and what the rebuild changed |
+| U1 reference profiles | held-out check passed on the atlas's own sources; independent laboratories to come |
+| U2 sites for tissue tests | development; first to be commissioned |
+| U3 blood composition | development; CD4 and CD8 fractions not yet within the bar |
+| U4 per-cell identity sites | development |
 
-The eight class floors `H_min` were fitted by the G-002 MCMC on 37 published reference cell methylomes (April 2026) and are frozen; this atlas's per-locus posteriors are what a specimen's composition is predicted from and were printed with their provenance in the Edition 003 operations manual (retired with chain v2 on 2026-10-03, archived privately). The identity loci the gauge reads (MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json (archived privately)) and the discriminative markers the separation surface reads (`…/Celltype_Marker/`) are both selected from this atlas.
+## In this folder
 
-Code that loads the atlas resolves it as Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv (decompressed from IAMAtlasREBUILD.csv.xz at run time) relative to `MethylPhys/chain/`.
+| folder | what |
+|---|---|
+| [`v2/`](v2/) | the build: scripts in run order, inputs, records, environments |
+| [`v2/postbuild/`](v2/postbuild/) | tests run on the finished atlas, with scripts and records |
+| [`tools/`](tools/) | reading the published atlas |
+| [`sources/`](sources/) | source notes |
+| [`healpix_mapping/`](healpix_mapping/), [`external_manifests/`](external_manifests/) | site-to-sky map and array manifests the chain uses |
+
+## Removed
+
+The class-era atlas (IAMAtlasREBUILD, v0.1: 115 cells in 8 classes, built 2026-05-28) and its class archives and build scripts were removed
+from the current tree on 2026-10-12 (author decision): no current reading uses them. They remain in git history at commit `70c0e7b`. Its
+lesson file, [`IAMAtlas_FLATNESS_LESSON.md`](IAMAtlas_FLATNESS_LESSON.md), stays as a frozen record.

@@ -1153,3 +1153,6 @@ Synthetic tests on the 12 normals: normal lungs differ between people far more t
 
 ### 2026-10-12 · Atlas commissioning plan, use by use (draft; no test data read)
 DEV-ATLAS-COMMISSION-01 widened: U1 reference profiles, U2 blind sites for tissue tests (first, it backs the fingerprint results), U3 composition (existing bars), U4 identity loci (development). Six-month search rule, held-out split before use, versioned atlas with re-commissioning. Search for independent purified cells running.
+
+### 2026-10-12 · Atlas front page rewritten; class-era atlas removed from the tree (author)
+atlas/README.md now presents IAM-Atlas v2: what it is, how it was built (six sources, 334 samples, one joint fit), what is new as far as we know (literature checked), how to get it (Zenodo DOI to come), commissioning status by use. The class-era IAMAtlasREBUILD, its 8 class archives, the v0.1 build scripts and class-assignment tables (about 265 MB) were removed; in git history at 70c0e7b. Still pointing at the removed files, left unchanged: doors/COMPONENT_MAP.md, REVIEWER_MANIFEST.md and RUNBOOK.md. They describe the whole class-era chain, and 41 of their numbers have no committed output (the push gate refused a partial edit), so they are rewritten as a whole with the replication pages, not patched.
