@@ -29,9 +29,9 @@ count rule, the one with more power at small changes sealed. Normal liver next t
 **Author decision, after v2 (2026-10-12): test the direction first.** Test 7 (`data/DEV_TISSUE_LIVER_01/liver_direction_07.py`) and its bar
 were committed (f232e8e) before it was run: can any change in tissue mix alone, at 30-60 % or 60-90 % of the sample, push the COUNT rule to a false
 FINGERPRINT? Components: stroma, fibroblasts, smooth muscle, endothelium, immune cells, hepatocytes, fat cells, another patient's normal liver.
-**PASSED** (`liver_direction_07_summary.txt`): worst case another patient's normal liver, false call 0.017 against the 0.05 bar; most components
-lower R. **Amendment, disclosed:** for this set test 7 replaces the independence bar (test 3, failed twice): the drift with hepatocyte share
-cannot fake a fingerprint at this rule; it can only make one harder to see.
+**PASSED** (`liver_direction_07_summary.txt`): worst case another patient's normal liver, false call 0.017 against the 0.05 bar. Mean R rises
+slightly in 10 of 16 mixes (at most 1.0128) and falls in 6 (immune cells, fat cells, the larger shares), never enough to cross the bar. **Amendment, disclosed:** for this set test 7 replaces the independence bar (test 3, failed twice): the drift with hepatocyte share
+cannot fake a fingerprint at this rule.
 
 **Synthetic test:** DEV_TISSUE_LIVER_01/liver_synthetic.py, DEV_TISSUE_LIVER_01/liver_synthetic_output.csv, DEV_TISSUE_LIVER_01/liver_synthetic_summary.txt, DEV_TISSUE_LIVER_01/liver_direction_07.py, DEV_TISSUE_LIVER_01/liver_direction_07_output.csv, DEV_TISSUE_LIVER_01/liver_direction_07_summary.txt
 

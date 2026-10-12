@@ -1135,3 +1135,6 @@ The GoFundMe link and wording are kept once (CANON/funding.json) and written int
 
 ### 2026-10-12 · DEV-TISSUE-LIVER-01 scored: FINGERPRINT
 TCGA-LIHC, 50 same-plate pairs, scored once under the seal: 22 above the bar, 8 needed (binomial p 5.4e-16); 44 of 50 above their own normal liver. Reviewed by plate (5 of 6 plates). Added to the results register.
+
+### 2026-10-12 · DEV-TISSUE-LIVER-01 note corrected
+The note said most mix changes in test 7 lower R; the output shows mean R slightly above 1 in 10 of 16 mixes (at most 1.0128) and below 1 in 6. Corrected; the PASS verdict (no mix change fakes the call) is unchanged. Chat report to the author corrected too.
