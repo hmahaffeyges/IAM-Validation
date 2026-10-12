@@ -6,6 +6,7 @@ Upcoming runs are listed with their estimate before they start. Usage: python3 m
 import os, re, boto3, pandas as pd
 B = "methylphys-data-945451304272-us-west-2-an"; HERE = os.path.dirname(os.path.abspath(__file__)); s3 = boto3.client("s3")
 RUNS_PURPOSE = {   # prefix -> (run, purpose, record)
+ "results/WORKBOX01": ("Work machine 01", "neuron reference (10 Loyfer files read whole) and colon replication normals (152 arrays, Stage 1); small spot machine, unattended", "boxruns/workbox/jobs_01.sh"),
  "results/BOXRUN1": ("Box Run 1", "array jobs A-E: commissioning check and blood-set readings (arrays only)", "boxruns/run1/JOBS.md"),
  "results/BOXRUN3": ("Box Run 3", "first tests on the commissioned Met-A (neutrophils, EPIC v1)", "boxruns/run3/JOBS.md"),
  "results/BOXRUN2/session1": ("Box Run 2, setup", "build the pinned sequencing pipeline and genome index", "boxruns/run2/JOBS.md"),
