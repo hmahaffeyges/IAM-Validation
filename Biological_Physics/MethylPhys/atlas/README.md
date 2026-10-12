@@ -115,9 +115,9 @@ its own pattern, with a stated uncertainty.
 ## Get it
 
 The fitted atlas is 4.67 GB (2,100 files: 700 blocks of sites, each with a summary, 20 posterior draws and its prior). It is too large for
-git. **Zenodo DOI: to be added on deposit.** Every file's SHA-256 is in
-[`v2/postbuild/records/ATLAS_V2_OUTPUT_MANIFEST.json`](v2/postbuild/records/ATLAS_V2_OUTPUT_MANIFEST.json); the fetch script checks each
-one. Per-cell tables for chosen cells are made with [`tools/extract_posterior.py`](tools/extract_posterior.py).
+git. **It is deposited on Zenodo: DOI [10.5281/zenodo.23325865](https://doi.org/10.5281/zenodo.23325865)** (record 23325865: 7 archives, their SHA-256 and the manifest). Every file's SHA-256 is in
+[`v2/postbuild/records/ATLAS_V2_OUTPUT_MANIFEST.json`](v2/postbuild/records/ATLAS_V2_OUTPUT_MANIFEST.json); the fetch script ([`tools/fetch_atlas.py`](tools/fetch_atlas.py),
+`python3 tools/fetch_atlas.py OUTDIR 23325865`) checks each one. Per-cell tables for chosen cells are made with [`tools/extract_posterior.py`](tools/extract_posterior.py).
 
 ## Commissioning
 

@@ -59,7 +59,7 @@ every number in the book is recomputed by a script in this repository. The invit
 measured uncertainty, from arrays and sequencing of several laboratories fitted as one model and fixed before any sample is read.
 It was built for IAM's measurement and is independent of IAM's physics: the atlas supplies the healthy end of the gauge and IAM's Law the floor,
 so a reading that lands where the law predicts is evidence, not a reflection of the reference.
-What it is, how it was built, how to get it and what it has passed: [`Biological_Physics/MethylPhys/atlas/`](Biological_Physics/MethylPhys/atlas/).
+What it is, how it was built, how to get it and what it has passed: [`Biological_Physics/MethylPhys/atlas/`](Biological_Physics/MethylPhys/atlas/); the fitted atlas: DOI [10.5281/zenodo.23325865](https://doi.org/10.5281/zenodo.23325865).
 
 ## Support this work
 

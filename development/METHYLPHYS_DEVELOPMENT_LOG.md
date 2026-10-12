@@ -1174,3 +1174,6 @@ Atlas README, book atlas chapter and main README now state what is in the fit (n
 
 ### 2026-10-12 · Atlas search 1 results (metadata only) and the neutrophil reading on the atlas
 Independent purified-cell candidates recorded with the search limits. Leads: GSE224807 granulocytes (141 donors), GSE127824 cord blood with flow counts (bar 7 candidate), GSE123995 hepatocytes. Plan recorded for deriving the neutrophil reference from the atlas (per-sample noise kept), commissioned reference unchanged until it passes.
+
+### 2026-10-12 · IAM-Atlas v2 deposited: DOI 10.5281/zenodo.23325865 (author approved)
+Zenodo record 23325865: 7 block archives (all 2,100 files checked against ATLAS_V2_OUTPUT_MANIFEST.json before packing), ARCHIVES_SHA256.txt, the manifest and a README; every upload checked by md5 before publishing; MIT license; creator Heath W. Mahaffey, IAMPerformance Inter-Domain Research Initiative. atlas/tools/fetch_atlas.py tested on the live record (one archive: 300 files verified). DOI written into the atlas README, the book atlas chapter and the main README; status fact atlas_v2 now requires it.

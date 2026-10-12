@@ -90,16 +90,16 @@
   {
    "id": "atlas_v2",
    "since": "2026-10-12",
-   "fact": "IAM-Atlas v2: 74 purified healthy cell types, 352 samples from seven sources, one joint fit; held-out coverage passed on its own sources; the commissioned reading does not read it; no public deposit or DOI yet (author 2026-10-12: no claim about the atlas that the records do not support)",
+   "fact": "IAM-Atlas v2: 74 purified healthy cell types, 352 samples from seven sources, one joint fit; held-out coverage passed on its own sources; the commissioned reading does not read it; deposited on Zenodo 2026-10-12, DOI 10.5281/zenodo.23325865 (author 2026-10-12: no claim about the atlas that the records do not support)",
    "forbid": [
-    "(?i)atlas[^.\\n]{0,120}(is|was|has been) deposited on Zenodo",
-    "(?i)fitted atlas itself is deposited",
     "(?i)\\bsix sources\\b",
     "(?i)\\b334 samples\\b",
     "(?i)largest (dna )?(methylation |cell[- ]type |cell )?atlas",
     "(?i)the canonical atlas: \\*\\*483,092",
     "(?i)posterior atlas assembled from many sources and platforms is held in the repository",
-    "(?i)atlas v2[^.\\n]{0,60}(is|was) commissioned"
+    "(?i)atlas v2[^.\\n]{0,60}(is|was) commissioned",
+    "(?i)to be added on deposit",
+    "(?i)deposit with its\\s+own DOI is being prepared"
    ],
    "require": [
     [
@@ -111,16 +111,20 @@
      "352 samples from seven\\s+sources"
     ],
     [
-     "Biological_Physics/MethylPhys/atlas/README.md",
-     "Zenodo DOI: to be added on deposit"
-    ],
-    [
-     "docs/book/part6/p6_14_atlas.tex",
-     "a public deposit with its\\s+own DOI is being prepared"
-    ],
-    [
      "docs/book/part6/p6_14_atlas.tex",
      "The commissioned reading \\(Met-A on isolated neutrophils\\) does not read it"
+    ],
+    [
+     "Biological_Physics/MethylPhys/atlas/README.md",
+     "10\\.5281/zenodo\\.23325865"
+    ],
+    [
+     "docs/book/part6/p6_14_atlas.tex",
+     "10\\.5281/zenodo\\.23325865"
+    ],
+    [
+     "README.md",
+     "10\\.5281/zenodo\\.23325865"
     ]
    ]
   }
