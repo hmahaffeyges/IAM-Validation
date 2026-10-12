@@ -1171,3 +1171,6 @@ GSE146376 (airway smooth muscle, primary culture, EPIC) and GSE107226 (lung fibr
 
 ### 2026-10-12 · Atlas: built for IAM, independent of IAM physics (author)
 Atlas README, book atlas chapter and main README now state what is in the fit (no floor, no law), where IAM enters (the design; the gauge, with the atlas the healthy end for each cell type taken from it and the law the floor), and why the physics stays out (no circular test).
+
+### 2026-10-12 · Atlas search 1 results (metadata only) and the neutrophil reading on the atlas
+Independent purified-cell candidates recorded with the search limits. Leads: GSE224807 granulocytes (141 donors), GSE127824 cord blood with flow counts (bar 7 candidate), GSE123995 hepatocytes. Plan recorded for deriving the neutrophil reference from the atlas (per-sample noise kept), commissioned reference unchanged until it passes.

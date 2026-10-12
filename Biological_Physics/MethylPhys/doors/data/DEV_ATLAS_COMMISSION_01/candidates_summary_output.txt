@@ -1,0 +1,8 @@
+array candidates 99 (independent 99); sequencing 27 (independent 22); mixtures/truth sets 6 (independent 3)
+cell types with no independent candidate: 19
+GSE224807: 450K + EPIC custom (GPL29753) | 876 samples from 141 donor IDs (title prefix): CD14 133, CD19 133, CD15 130, CD8 128, CD4 127, CD56 126, WB 99
+GSE127824: 450K | nan
+GSE123995: EPIC v1 (GPL23976) | 56 primary hepatocyte samples (56 donors' hepatocyte lines; ancestry recorded)
+GSE146376: EPIC v1 | 280 samples = 70 donors x 4 treatments; vehicle 70 (asthma 16 / no 54)
+GSE107226: 450K | series 12 samples; GEO cell-type field top classes {'fibroblast': 12}
+declared limits: The search used GEO keyword queries (esearch over ~70 cell-type term sets) and was not an exhaustive census. ArrayExpres | Many Loyfer-only cell types (gastric, tongue, tonsil, thyroid, kidney glomerular, podocyte, cardiomyocyte, sorted pancre | Purification method, healthy status and donor counts come from GEO text and sample characteristics. Papers were read onl | IDAT availability is taken from the GEO esummary supplementary-file type field. RAW.tar contents were not listed (GSE166 | The 2025 compendium's purified-cell series came from its metadata.parquet labels (CL terms plus a few epithelial UBERON  | 'Newer than 2023-06' uses the GEO public date (pdat), not the submission date.

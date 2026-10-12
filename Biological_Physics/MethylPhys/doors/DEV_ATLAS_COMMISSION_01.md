@@ -96,3 +96,19 @@ Neither laboratory built the atlas. Both are cultured cells, and culture moves m
 atlas or protects a tissue test, its profile is compared with the same cell type in uncultured lung, and each set is split into build and
 held-out data before any array is read.
 
+**First search for independent purified cells, 2026-10-12** (metadata only; `data/DEV_ATLAS_COMMISSION_01/candidates_search_2026-10-12.json`,
+summary `candidates_summary.py` -> `candidates_summary_output.txt`, which also lists the search's declared limits: GEO keywords only, a single pass
+for some cell types, donor counts partly provisional). Leads, each to be verified from its files before any use:
+- GSE224807 (NIEHS): six purified blood cell types and whole blood from the same donors, including granulocytes (CD15), on the custom EPIC
+  chip; public 2023, after the atlas was built. Candidate held-out set for U1 and for the neutrophil reading.
+- GSE127824: cord blood with matched flow counts, independent of the reference group. Candidate for whole-blood bar 7 (DEV-COMPOSITION-TRUTH-04),
+  with the cord-blood caveat (nucleated red cells, newborn composition) to be assessed first.
+- GSE123995: primary hepatocytes on EPIC, the only independent hepatocyte set found.
+No independent set was found for adult colon epithelium, lung alveolar epithelium or breast epithelium on arrays.
+
+**The neutrophil reading on the atlas (U4, first case).** The commissioned Met-A reference is six purified EPIC arrays (one laboratory, five
+male and one female). The atlas pools neutrophils from more sources, but holds each cell's mean with array noise removed; Met-A compares a
+specimen's single-array entropy with single-array entropy, so a reference taken from atlas means would read every specimen slightly high. The
+route: derive the neutrophil sites and healthy reference from the atlas's per-sample spread and draws, then pass the same bars the EPIC reference
+passed on held-out arrays (GSE224807 granulocytes a candidate) before re-commissioning. Until then the commissioned reference is unchanged.
+
