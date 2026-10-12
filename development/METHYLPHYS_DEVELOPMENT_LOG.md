@@ -1168,3 +1168,6 @@ Book atlas chapter corrected: the fitted atlas is not yet deposited (the line ad
 
 ### 2026-10-12 · Lung stroma candidates for the atlas (metadata only)
 GSE146376 (airway smooth muscle, primary culture, EPIC) and GSE107226 (lung fibroblasts, 450K): healthy untreated arrays counted by script. Culture check and build/held-out split before use.
+
+### 2026-10-12 · Atlas: built for IAM, independent of IAM physics (author)
+Atlas README, book atlas chapter and main README now state what is in the fit (no floor, no law), where IAM enters (the design; the gauge, with the atlas the healthy end for each cell type taken from it and the law the floor), and why the physics stays out (no circular test).

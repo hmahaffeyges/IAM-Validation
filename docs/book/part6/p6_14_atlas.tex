@@ -100,6 +100,17 @@ Its build scripts, records, checksums and commissioning status are in the reposi
 The fitted atlas itself is too large for the repository; the folder lists the SHA-256 of every file of it, and a public deposit with its
 own DOI is being prepared.
 
+\section{Built for IAM's measurement, independent of IAM's physics}
+
+The fit below is a statistical model of methylation values: each cell type's level at each site, each source's offset, the spread between
+donors and an uncertainty at every site. Neither the Landauer floor nor IAM's Law enters it, and anyone with the published scripts and the same
+data rebuilds it exactly. IAM enters twice, and neither time inside the fit. It set the design: its measurement needs a healthy reference for each
+cell type, an uncertainty at every site, the instrument's own scale, and a reference fixed before any sample is read, never re-fitted to it. And
+it makes the reference a gauge: for each cell type taken from the atlas, the atlas supplies the healthy end of the scale and IAM's Law the
+physical floor at the other end. Keeping the physics out of the reference is what keeps the test of the physics from being circular: a
+reference shaped by the theory would agree with it by construction, whereas a reading against an independent reference that lands where the
+law predicts is evidence for the law.
+
 \section{The model}
 
 The second atlas is one hierarchical fit. For locus $i$, cell $c$ and source $s$ (one published data set on one platform),

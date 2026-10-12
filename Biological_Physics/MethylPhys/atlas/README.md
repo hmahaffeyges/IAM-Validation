@@ -66,6 +66,24 @@ of purified healthy cells that fits arrays and sequencing from several laborator
 carries an uncertainty at every site that held-out data confirmed, and is frozen before use. Literature checked 2026-10-12; a correction is
 welcome as a GitHub issue.
 
+## Built for IAM, independent of IAM's physics
+
+**What is in the fit.** A statistical model of methylation values: each cell type's level at each site, each laboratory's offset, the spread
+between donors, and an uncertainty at every site. Neither the Landauer floor nor IAM's Law enters it; the specification says so, and no
+patient is read ([`../doors/ATLAS_V2_SPEC.md`](../doors/ATLAS_V2_SPEC.md)). Anyone with the published scripts and the same seven data sets can
+rebuild it exactly; that is what the fixed random seeds and the checksums are for.
+
+**Where IAM comes in.**
+- **IAM set the design.** Its measurement needs a healthy reference for each cell type, an uncertainty at every site, the instrument's own
+  scale, and a reference fixed before any sample is read, never re-fitted to it. The atlas was designed to meet those requirements.
+- **IAM makes it a gauge.** For each cell type taken from it, the atlas supplies the healthy end of the scale and IAM's Law supplies the
+  physical floor at the other end; a reading of A needs both. Without IAM the atlas is a careful reference map; with IAM it is the healthy
+  mark on a physical scale.
+
+**Why the physics stays out of it.** A reference built from IAM's physics would make any test of the physics circular: the theory would have
+shaped the ruler it is measured with. Built only from purified healthy cells, the atlas is an independent ruler, and a reading that lands
+where IAM's Law predicts is evidence for the law, not a reflection of the reference.
+
 ## Questions the atlas builders would ask
 
 **What does this add to the sequencing atlas of purified cells (Loyfer et al. 2023)?** That atlas is the deepest public map of purified human

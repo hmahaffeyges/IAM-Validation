@@ -57,6 +57,8 @@ every number in the book is recomputed by a script in this repository. The invit
 
 **IAM-Atlas v2** is the reference every instrument reads against: 74 purified healthy human cell types, every CpG with its value and a
 measured uncertainty, from arrays and sequencing of several laboratories fitted as one model and fixed before any sample is read.
+It was built for IAM's measurement and is independent of IAM's physics: the atlas supplies the healthy end of the gauge and IAM's Law the floor,
+so a reading that lands where the law predicts is evidence, not a reflection of the reference.
 What it is, how it was built, how to get it and what it has passed: [`Biological_Physics/MethylPhys/atlas/`](Biological_Physics/MethylPhys/atlas/).
 
 ## Support this work
