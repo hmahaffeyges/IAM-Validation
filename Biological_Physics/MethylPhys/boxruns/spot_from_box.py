@@ -16,7 +16,7 @@ if mode == "image":
                          TagSpecifications=[{"ResourceType": "image", "Tags": [{"Key": "run", "Value": sys.argv[2]}]}])["ImageId"]
     ec2.get_waiter("image_available").wait(ImageIds=[a], WaiterConfig={"Delay": 20, "MaxAttempts": 90}); print(a)
 elif mode == "launch":
-    import ledger_guard; ledger_guard.require(sys.argv[2])
+    sys.path.insert(0, __import__('os').path.dirname(__import__('os').path.abspath(__file__))); import ledger_guard; ledger_guard.require(sys.argv[2])
     run, ami = sys.argv[2], sys.argv[3]; typ = sys.argv[4] if len(sys.argv) > 4 else "m7a.32xlarge"; b = box()
     ud = "#cloud-config\nssh_deletekeys: false\nssh_genkeytypes: []\n"
     i = ec2.run_instances(ImageId=ami, InstanceType=typ, MinCount=1, MaxCount=1, KeyName=b["KeyName"], SubnetId=b["SubnetId"],
