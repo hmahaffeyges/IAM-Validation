@@ -89,3 +89,10 @@ with its own DOI; a result scored under one version's seal stays on that version
 a tight bar, and the atlas has no lung stromal cells to choose sites against. First priority for new atlas data: purified healthy lung
 fibroblasts and lung smooth muscle.
 
+**Lung stroma candidates, 2026-10-12 (metadata only; `data/DEV_ATLAS_COMMISSION_01/lung_stroma_candidates.py`, output
+`lung_stroma_candidates_output.txt`).** GSE146376 (University of Chicago): primary cultured airway smooth muscle on EPIC v1, raw IDATs; the
+untreated arrays of donors without asthma are one per donor. GSE107226: cultured lung fibroblasts on 450K, raw IDATs, including normal lungs.
+Neither laboratory built the atlas. Both are cultured cells, and culture moves methylation (the MCF 10A lesson); before either enters the
+atlas or protects a tissue test, its profile is compared with the same cell type in uncultured lung, and each set is split into build and
+held-out data before any array is read.
+

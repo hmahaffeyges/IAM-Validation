@@ -1165,3 +1165,6 @@ v2 (blind sites 0.03) failed composition, power and direction. Not sealed; the 4
 
 ### 2026-10-12 · Atlas claims checked against the records (author: no foolish claim about the atlas)
 Book atlas chapter corrected: the fitted atlas is not yet deposited (the line added this morning said it was); chain v3 commissioned reading does not read atlas v2, development stages and the sealed tissue tests do; "floor" wording replaced by "healthy reference" for 0.330263 bits; added what a purified-cell reference does that tissue atlases and probabilistic re-estimation do not, and its gaps (no lung stroma). Atlas README: seven sources and 352 samples (GSE63409 was missing), what it can do that a tissue atlas cannot. CANON/status_facts.json fact atlas_v2 refuses false atlas claims (deposited, six sources, 334 samples, largest, commissioned) in living documents.
+
+### 2026-10-12 · Lung stroma candidates for the atlas (metadata only)
+GSE146376 (airway smooth muscle, primary culture, EPIC) and GSE107226 (lung fibroblasts, 450K): healthy untreated arrays counted by script. Culture check and build/held-out split before use.

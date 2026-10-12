@@ -1,0 +1,2 @@
+GSE146376 airway smooth muscle (primary culture): 280 arrays, 70 donors; untreated (Vehicle) non-asthma arrays 54 from 54 donors; platforms ['GPL21145']; arrays with IDATs 280
+GSE107226 lung fibroblasts (culture): 12 arrays; normal lung 4; platforms ['GPL13534']; arrays with IDATs 12
