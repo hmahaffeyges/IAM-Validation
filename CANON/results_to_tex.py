@@ -137,12 +137,12 @@ def readme_row(e, v):
              f"one pair at a time: the gain meter (methylation added where it should not be) reads a fingerprint in {v['gain']} of {v['n']}; the loss meter in "
              f"{v['loss']} of {v['n']}, with {v['undecided']} undecided")
     elif e.get("compute") == "colon_tissue":
-        h = (f"**Met-A on patients' colorectal tumours.** Each of {v['n']} tumours read against the same patient's adjacent normal colon on the same "
-             f"slide, at sites the tissue mix cannot move, by a rule sealed before any tumour array was read: {v['k']} of {v['n']} above the healthy "
+        h = (f"**Met-A on patients' colorectal tumors.** Each of {v['n']} tumors read against the same patient's adjacent normal colon on the same "
+             f"slide, at sites the tissue mix cannot move, by a rule sealed before any tumor array was read: {v['k']} of {v['n']} above the healthy "
              f"bar ({v['crit']} needed; p = {v['p']:.1e}); {v['up']} of {v['n']} above their own normal. Group-level; one laboratory")
     elif e.get("compute") == "breast_tissue":
-        h = (f"**Met-A on patients' breast tumours.** Each of {v['n']} TCGA tumours read against the same patient's normal tissue at sites the tissue mix "
-             f"cannot move, by a rule sealed before any tumour array was downloaded: {v['k']} of {v['n']} above the healthy bar ({v['crit']} needed; "
+        h = (f"**Met-A on patients' breast tumors.** Each of {v['n']} TCGA tumors read against the same patient's normal tissue at sites the tissue mix "
+             f"cannot move, by a rule sealed before any tumor array was downloaded: {v['k']} of {v['n']} above the healthy bar ({v['crit']} needed; "
              f"p = {v['p']:.1e}); {v['up']} of {v['n']} above their own normal. Group-level; TCGA built the reading")
     elif e.get("compute") == "moss":
         h = f"**Met-A raises no false alarm** when 4–15 % liver, lung, colon or neuron DNA is mixed into blood DNA ({v['ok']} of {v['n']} within the sealed bar; largest shift {v['maxd']:.4f})"

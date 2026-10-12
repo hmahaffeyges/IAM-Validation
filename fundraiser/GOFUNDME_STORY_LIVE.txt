@@ -1,7 +1,3 @@
-IAM: the physics of DNA methylation, built in public
-
-Reading Cancer with the Tools of Cosmology
-
 The goal
 
 A simple blood or stool test that catches cancer years earlier, when it is most curable. This page funds the steps that get there, and lets you watch every one.
@@ -32,8 +28,10 @@ What has worked so far
 
 Every result below came from a test whose rule was written down and sealed before its data were opened, and was scored once. Every record is linked on the follow-along page (address below).
 
-Real patients, real tumours. We compared each patient's tumour with that patient's own healthy tissue, using a strict bar that healthy tissue crosses only about 1 time in 20.
-- Breast cancer, 53 patients: 23 tumours crossed the strict bar, where chance alone would give about 3, and 41 of 53 read above the patient's own healthy tissue.
+Real patients, real tumors. We compared each patient's tumor with that patient's own healthy tissue, using a strict bar that healthy tissue crosses only about 1 time in 20.
+
+- Breast cancer, 53 patients: 23 tumors crossed the strict bar, where chance alone would give about 3, and 41 of 53 read above the patient's own healthy tissue.
+
 - Colorectal cancer, 88 patients (stage II): 28 crossed, where chance would give about 4, and 80 of 88 read above the patient's own healthy tissue.
 
 The measurement sees cancer far beyond chance, in two cancers, in real patients. The next step is showing how reliably it flags each individual patient, and that is one of the first things your support pays for.
@@ -47,13 +45,14 @@ No false alarms: with 4-15 % of liver, lung, colon or neuron DNA mixed into bloo
 The cancer fingerprint, found twice in prostate cancer. Prostate cancer cells carry a distinct "fingerprint": whole stretches of their DNA's switch pattern are wiped out, far beyond the scattered errors healthy cells make. We found it in every prostate cancer sample from one laboratory, then found it again in a second laboratory's data, on different cells: 6 of 6 cancer samples, the weakest still more than twice the difference between two healthy people. Breast cancer cell lines carry their own fingerprint, found in all 4 comparisons with normal breast cells.
 
 What "fingerprint" means, in plain words:
+
 Our two instruments look at DNA's switch pattern in two different ways. One counts scattered single errors, like typos in a book. The other checks whether the pattern as a whole is still intact. If cancer only made a cell sloppier, both readings would rise together, in a proportion physics sets in advance. A fingerprint is when the pattern is damaged far more than the typos can explain: whole passages are gone, not just letters. That is the mark cancer leaves, and it's different from ordinary wear.
 
 One reading commissioned: Met-A on isolated white blood cells (neutrophils) met its tests for repeatability, agreement between laboratories, no false alarms and response to known damage, and reports with its measured detection limit (a 2 % loss of the pattern) printed on every result.
 
 Rebuilt from scratch: everything the commissioned instrument uses rebuilds exactly from public data.
 
-Where this is headed: today this is a research instrument, with one reading commissioned and the rest in development, each labelled clearly. Turning it into a test that helps patients is exactly what this page funds.
+Where this is headed: today this is a research instrument, with one reading commissioned and the rest in development, each labeled clearly. Turning it into a test that helps patients is exactly what this page funds.
 
 Why this is different
 
@@ -70,6 +69,7 @@ There are no guaranteed outcomes in physics or cancer research; if there were, i
 Follow along, any time
 
 Everything is public, and every result on this page has its record, linked, on one page:
+
 github.com/hmahaffeyges/IAM-Validation/blob/main/FOLLOW.md
 
 There you'll find the milestones, the day-by-day log of every result, every rented-computer run with its cost (upcoming runs are listed with their estimate before they start, and the code refuses to start any computer that isn't listed), and every test's sealed rule and outcome.
@@ -81,7 +81,9 @@ Replicate it yourself
 Every test can be rerun from public data, and you don't need to trust us:
 
 - Check every number in the book with one command on any laptop: python3 docs/book/verify_book.py, or in your browser, no install, at hmahaffeyges.github.io/IAM-Validation
+
 - Rerun any test: each outcome note names its sealed rule, its script, the public data it reads, and the command to run. Laptop steps are free; steps that need a rented computer list their script and cost in the run ledger.
+
 - Coming next: a one-command replication kit for each commissioned instrument, so a whole result rebuilds with one command.
 
 The invitation stands: try to break it. If you find a wrong number, open an issue on the repository.
@@ -102,14 +104,19 @@ Where your money goes
 
 All of it goes to research; none of it pays for the researcher's time. The goal is $25,000 for the next 12 months, reached in steps, starting with a first goal of $6,000:
 
-- Computing (AWS): the sequencing runs still ahead. Cancer (colorectal replication, breast and colon in blood, dogs' cancers), the physics (neurons from two independent laboratories, ageing across species, fish), and commissioning both instruments. Run on faster machines when it saves weeks, and shut down after every run; each run is costed in the ledger: about $12,000
+- Computing (AWS): the sequencing runs still ahead. Cancer (colorectal replication, breast and colon in blood, dogs' cancers), the physics (neurons from two independent laboratories, aging across species, fish), and commissioning both instruments. Run on faster machines when it saves weeks, and shut down after every run; each run is costed in the ledger: about $12,000
+
 - The AI research assistant that codes and checks alongside the researcher ($200-500 a month): about $4,200
+
 - A workstation (Mac Studio M5 Ultra, 30-core CPU, 96 GB memory, with external storage) to move everyday work off rented machines: about $6,500
+
 - Platform fees and a margin for runs that must be repeated: about $2,300
 
 - $6,000, our first goal: the next six months of computing and the research assistant.
+
 - $15,000: adds the workstation.
-- $25,000: the full year of runs, including the fish, dog and ageing studies.
+
+- $25,000: the full year of runs, including the fish, dog and aging studies.
 
 Every dollar spent on computing shows up in the public ledger, run by run, with what it was for.
 

@@ -10,7 +10,7 @@ b, c, s, ep, mo, fp, fb = (V[k] for k in ("DEV-TISSUE-BREAST-01", "DEV-TISSUE-CO
                                           "DEV-FINGERPRINT-02-PROSTATE", "DEV-FINGERPRINT-02-BREAST"))
 atlas = open("docs/book/part6/p6_14_atlas.tex", encoding="utf-8").read(); cn = open(D + "COMMISSIONING_NOTE_METAA_NEUTROPHILS.md", encoding="utf-8").read()
 stages = {r.get("stage") for r in json.load(open(D + "data/DEV_TISSUE_COLON_01/scored_colon_tissue.json"))["rows"]}
-C = [(f"Breast cancer, {b['n']} patients: {b['k']} tumours crossed the strict bar, where chance alone would give about {round(.05 * b['n'])}, and {b['up']} of {b['n']}", b["inside"]),
+C = [(f"Breast cancer, {b['n']} patients: {b['k']} tumors crossed the strict bar, where chance alone would give about {round(.05 * b['n'])}, and {b['up']} of {b['n']}", b["inside"]),
      (f"Colorectal cancer, {c['n']} patients (stage II): {c['k']} crossed, where chance would give about {round(.05 * c['n'])}, and {c['up']} of {c['n']}", c["inside"] and all(str(x).startswith("II") for x in stages)),
      (f"(p = {s['p']:.4f})", s["inside"]), (f"within {ep['raw'] * 100:.1f} %, before any correction", True),
      (f"{mo['ok']} of {mo['n']} readings stayed inside the healthy bar", mo["inside"]),

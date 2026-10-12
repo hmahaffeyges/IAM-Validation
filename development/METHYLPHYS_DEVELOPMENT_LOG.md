@@ -1105,3 +1105,6 @@ GSE94785, 28 same-slide pairs, scored once under the seal: 4 above the bar, 6 ne
 
 ### 2026-10-12 · Lesson T15 from the lung result
 The synthetic run was executed as written; it did not cover changes as small as lung showed, its bar came from between-person pairs, and the count rule ignores a small steady lean. Before any tissue seal: measure normal spread first, plant down to 1 %, test an every-pair rule beside the count rule. Applies from liver.
+
+### 2026-10-12 · American spelling in all donor-facing text (author); push-gate rule 16
+READMEs, FOLLOW.md, the fundraiser text and the register's plain/title/headline fields converted (CANON/us_spelling.py; code identifiers untouched). Rule 16 refuses a British spelling there. The book and technical notes follow in a separate pass with every book check rerun.

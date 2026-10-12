@@ -15,7 +15,8 @@ Rule 9 (2026-10-11): laboratory independence from GEO contributors (CANON/indepe
   11. the ledger guard's controls (boxruns/ledger_guard_test.py) fail;
   12. an outcome note new or changed in this push does not declare **Milestone:** or **Not a milestone:** <reason>;
   13. a **Milestone:** note has no results-register entry, or a register entry's record lacks the line or does not exist;
-  15. a number on the live fundraiser page (fundraiser/GOFUNDME_STORY_LIVE.txt) no longer matches its record."""
+  15. a number on the live fundraiser page (fundraiser/GOFUNDME_STORY_LIVE.txt) no longer matches its record;
+  16. donor-facing text (READMEs, FOLLOW.md, fundraiser text, register plain/title/headline) has a British spelling."""
 import os, re, subprocess, sys
 def git(*a): return subprocess.run(["git", *a], capture_output=True, text=True).stdout
 fail = []
@@ -203,6 +204,10 @@ for r in sorted(_recs):
 if _os.path.exists("fundraiser/check_story.py"):
     _r = _sp.run([sys.executable, "fundraiser/check_story.py"], capture_output=True, text=True)
     if _r.returncode != 0: fail.append("fundraiser/check_story.py: the live fundraiser page no longer matches the records: " + "; ".join(l for l in _r.stdout.split(chr(10)) if l.startswith("FAIL")))
+
+# 16. Donor-facing text in American spelling (author 2026-10-12; CANON/us_spelling.py).
+_r = _sp.run([sys.executable, "CANON/us_spelling.py", "check"], capture_output=True, text=True)
+if _r.returncode != 0: fail.append("British spelling in donor-facing text (run python3 CANON/us_spelling.py fix): " + "; ".join(_r.stdout.split(chr(10))[:8]))
 
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
