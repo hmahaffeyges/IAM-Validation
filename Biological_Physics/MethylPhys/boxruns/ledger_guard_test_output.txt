@@ -1,0 +1,7 @@
+PASS listed WORKBOX01 (must pass)
+PASS listed BOXRUN10_stageB (must pass)
+PASS unlisted TEST_UNLISTED (must refuse)
+PASS row without dollar estimate (must refuse)
+PASS prefix of a tag, WORKBOX0 (must refuse)
+PASS no Upcoming section (must refuse)
+LEDGER GUARD CONTROLS PASSED
