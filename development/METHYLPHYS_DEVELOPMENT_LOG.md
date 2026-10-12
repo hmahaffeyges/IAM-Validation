@@ -1144,3 +1144,6 @@ GSE83842: 12 early (stage I) lung adenocarcinoma patients, tumor and own normal 
 
 ### 2026-10-12 · Lesson C6, third occurrence (nothing lost)
 The lung 2 lock test ran on after its clean-tree check failed (canon_report.json, rewritten by every status check), with an empty HEAD marker; its reset only discarded that status file. Redone with set -e and stopping guards: the lock refuses with no seal and with an uncommitted seal, and allows after a committed one.
+
+### 2026-10-12 · DEV-TISSUE-LUNG-02: not suitable at 12 pairs; tumors unread
+Synthetic tests on the 12 normals: normal lungs differ between people far more than in lung 1 (SD 0.139 against 0.086), the planted 5 % change crossed the bar in 0.40 of pairs (0.80 required): FAILED. Not sealed; the tumors stay unread. A first run stalled for an hour on a scipy method switch when bootstrap draws repeated a pair; fixed to draw 12 different pairs, as the real test has.
