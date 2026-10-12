@@ -1087,3 +1087,6 @@ AWS reclaimed the Stage B spot machine at 02:02 Pacific (no spot capacity) after
 
 ### 2026-10-12 · DEV-TISSUE-COLON-02: not suitable, by its own rule
 Synthetic tests on GSE199057's 150 non-cancer arrays (work machine 01): composition, planted 5 % and power passed; independence (Met-A follows epithelial share, Spearman -0.274) and doubled slide offset (null group call 0.072) failed. Set recorded as not suitable and not sealed; tumours unread. The colorectal replication needs a set with tumour and own normal on the same slide.
+
+### 2026-10-12 · Stage B: second spot machine reclaimed; moved zones
+The c6a.32xlarge spot machine in us-west-2a was reclaimed by AWS 46 min after launch, during its startup disk read, before any new library finished (still 25 of 71 in S3). spot_from_box.py takes an optional subnet; Stage B relaunched in us-west-2d (c6a.32xlarge spot, the cheapest zone). Each reclaim costs only the startup read; finished libraries are kept.
