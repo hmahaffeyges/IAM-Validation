@@ -1093,3 +1093,6 @@ The c6a.32xlarge spot machine in us-west-2a was reclaimed by AWS 46 min after la
 
 ### 2026-10-12 · DEV-TISSUE-LUNG-01 inputs (lung first, author)
 GSE94785: 28 lung cancer patients, tumour and own normal lung on the same 450K slide, never read. Sample table, fetch with tumour lock (tested three ways) and calibration committed before any array is fetched.
+
+### 2026-10-12 · DEV-TISSUE-LUNG-01 sealed
+Synthetic tests all passed on the 28 patient normals and 6 control lungs; scorer guard tested five ways; sealed before any tumour array was fetched: FINGERPRINT if >= 6 of 28 same-slide pairs read above the pair bar.
