@@ -1051,3 +1051,6 @@ GSE199057 (independent laboratory, EPIC v1): 77 tumour-normal pairs, none on a s
 
 ### 2026-10-11 · Whole-blood bar 7: clinical counts too coarse; GSE167202 held unread
 The count's own error adds to the measured RMSE; with the chain at its in-sample 0.019, bar 7 is met only if the hospital count is better than about 0.006 (feasibility_bar7.py). Author decision: GSE167202 held unread, bar 7 unchanged, search for an independent flow-counted whole-blood set.
+
+### 2026-10-11 · No public flow-counted independent whole-blood EPIC set found
+Keyword search of GEO, ArrayExpress and the literature (limits in DEV-COMPOSITION-TRUTH-04). Conditional candidate: EPIC-HIPC newborns (GSE272800, GSE273552), flow counts in ImmPort (free registration, not opened); neonatal blood. Adult flow set Milieu Interieur is access-controlled. Whole blood stays development.

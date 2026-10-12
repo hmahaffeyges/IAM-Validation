@@ -43,3 +43,12 @@ truth set), or fix in advance how the count's error enters the bar, which change
 **Author decision (2026-10-11):** GSE167202 is held unread. Bar 7 stays as written. The next step is a search for an independent whole-blood
 EPIC v1 set counted by flow cytometry, where the count's own error is small enough for bar 7 to decide.
 
+**Search for a flow-counted independent set, 2026-10-11 (metadata only).** GEO (series text and sample-characteristic keyword searches on
+GPL21145, GPL23976, GPL29753, GPL13534), ArrayExpress/BioStudies (first 500 hits per query, 5 queries) and the literature. No public adult
+whole-blood EPIC v1 set with per-sample flow counts, public IDATs and a laboratory independent of the reference groups was found at this depth.
+The search was keyword-based and may miss sets that label counts differently. One conditional candidate: the EPIC-HIPC newborn cohort, GSE272800
+and GSE273552 (GPL21145, public IDATs, no reference-group contributors). Its flow counts are in ImmPort SDY1538/SDY2311 (free registration),
+not opened, so how many arrays have a linked flow record, and their precision, is not verified. The blood is neonatal (nucleated red cells,
+immature neutrophils), so it would test bar 7 on newborn blood, not adult blood. The adult flow set (Milieu Interieur, 884 adults, EPIC) is
+access-controlled. Whole blood stays in development.
+
