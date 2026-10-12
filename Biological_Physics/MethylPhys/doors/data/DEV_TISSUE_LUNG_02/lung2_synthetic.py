@@ -15,6 +15,8 @@ Stand-in pairs: two different patients' normal lungs on one slide. Design change
   (Independence, test 3, is reported but replaced by test 7 from the start, the rule DEV-TISSUE-LIVER-01 established.)
 Reported, written now: the chosen rule's detection at d = 0.0075. If it is < 0.50, a NO FINGERPRINT here is reported as 'not decidable at lung 1's
 lean', not as absence.
+Draws: 12 DIFFERENT stand-in pairs per draw (without replacement), as the real test has 12 different patients; exact signed-rank p (fix 2026-10-12
+before any output existed: with replacement, repeated pairs made ties and scipy's default switched to a permutation method about 700x slower).
 Writes lung2_synthetic_output.csv and lung2_synthetic_summary.txt. Usage: python3 lung2_synthetic.py POSTDIR BETADIR"""
 import os, sys, itertools, numpy as np, pandas as pd
 from scipy.optimize import nnls
@@ -58,7 +60,7 @@ imm = Mu[["macrophage", "T", "B", "neutrophil", "monocyte"]].mean(1).values; row
 def calls(v):
     above = v > bar; lr = np.log(v); c, w = [], []
     for _ in range(2000):
-        i = rg.integers(len(v), size=NP); c.append(above[i].sum() >= crit); w.append(wilcoxon(lr[i], alternative="greater").pvalue < 0.01)
+        i = rg.choice(len(v), size=NP, replace=False); c.append(above[i].sum() >= crit); w.append(wilcoxon(lr[i], alternative="greater", method="exact").pvalue < 0.01)
     return float(np.mean(c)), float(np.mean(w)), float(above.mean())
 def case(name, f):
     v = np.array([f(j, k) for j, k in pairs]); cc, ww, sh = calls(v)
