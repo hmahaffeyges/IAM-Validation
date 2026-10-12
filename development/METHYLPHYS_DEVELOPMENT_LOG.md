@@ -1123,3 +1123,6 @@ v1 failed independence and a plate test that was wrong for a same-plate design (
 
 ### 2026-10-12 · DEV-TISSUE-LIVER-01 sealed
 Test 7 (direction of composition) committed before running, then PASSED: no mix change fakes the call (worst false call 0.017). Disclosed amendment: test 7 replaces the independence bar for this set (author decision). Guard tested five ways. Sealed before any tumor array was fetched: FINGERPRINT if >= 8 of 50 same-plate pairs read above the pair bar.
+
+### 2026-10-12 · Stage B spot machine reclaimed a third time (50 of 71 done, all in S3)
+Relaunched on c6a.32xlarge spot in us-west-2d (capacity score 9 of 10); remaining 21 libraries about 4.5 hours, about $8. Ledger updated before launch.
