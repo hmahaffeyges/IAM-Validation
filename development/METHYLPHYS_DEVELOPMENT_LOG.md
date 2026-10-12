@@ -1150,3 +1150,6 @@ Synthetic tests on the 12 normals: normal lungs differ between people far more t
 
 ### 2026-10-12 · DEV-TISSUE-LUNG-03 inputs (TCGA-LUSC; author: a decisive lung test today if the data allow)
 40 squamous lung cancer patients, tumor and own normal lung on the same plate (metadata only; Prior reading disclosed). Lung 2 synthetic design applies; tumors locked until sealed.
+
+### 2026-10-12 · Atlas commissioning plan, use by use (draft; no test data read)
+DEV-ATLAS-COMMISSION-01 widened: U1 reference profiles, U2 blind sites for tissue tests (first, it backs the fingerprint results), U3 composition (existing bars), U4 identity loci (development). Six-month search rule, held-out split before use, versioned atlas with re-commissioning. Search for independent purified cells running.

@@ -1,4 +1,4 @@
-# DEV-ATLAS-COMMISSION-01 — commissioning IAM-Atlas v2 (atlas_e) as the composition step (STATUS 2b). Bars written 2026-10-09.
+# DEV-ATLAS-COMMISSION-01 — commissioning IAM-Atlas v2, use by use (composition bars written 2026-10-09; plan for every use 2026-10-12)
 
 **Why it matters.** Whole-blood Met-A needs the neutrophil fraction first: composition decides how much of the blood signal is neutrophil.
 Today that is `blood_composition_EPIC_v1.json` (8 purified groups). If atlas v2 measures composition better, it replaces it.
@@ -59,3 +59,29 @@ laboratory other than Salas (Dartmouth). Sample-field search of GEO (986 EPIC/45
 group. Next: the same search on ArrayExpress and on EPIC v2 (GPL33022) series, and published papers' supplements.
 
 **Prior reading:** GSE110554 and GSE167998 are the composition reference; GSE112618, GSE182379 and GSE122126 were read by development tests of this chain (BOX RUN 1 job E, DEV-ATLAS-EPIC-01, DEV-CSCORE-MOSS-01) and are from the reference or the atlas laboratory.
+
+## Commissioning plan for every use of the atlas (2026-10-12; DRAFT bars, no test data read)
+
+The chain uses atlas v2 in four ways. Each is commissioned on its own, on purified healthy cells from laboratories that did not build the
+atlas (rule 9: no shared GEO contributors with Loyfer, Salas, Moss, Tian or ENCODE). A use that is not commissioned is labeled development
+wherever it appears. Bars below are drafts: each is fixed only after a synthetic test on the atlas's own posterior shows it can be met and can fail.
+
+| use | what it does in the chain | already measured (atlas's own data) | commissioning test on independent cells (draft bar) |
+|---|---|---|---|
+| U1 reference profiles | each cell type's methylation per CpG with an uncertainty | held-out coverage PASSED: 92.68 % inside the 90 % interval (PROC-V5-HELDOUT; within the six sources) | purified cells from new laboratories fall inside the 90 % interval at 80-97 % of sites, per cell type and platform; reported by cell |
+| U2 blind sites for tissue tests | picks sites where every panel cell agrees, so a change in tissue mix cannot move Met-A (breast, colon, liver, lung) | used by four sealed tissue tests; checked only on atlas means | on independent purified cells of every panel type, the blind sites stay within the test's own tolerance of the epithelial value at >= 90 % of sites |
+| U3 composition (atlas_e) | blood cell fractions for whole-blood Met-A | neutrophils better than the current method (DEV-ATLAS-EPIC-01, in-sample); A5 FAILED on CD4 and CD8 (PROC-DECONV-V2-01) | bars 1-2 above (neutrophils), unchanged; CD4/CD8 stay development until A5 is met |
+| U4 identity loci (per-cell Met-A) | the sites each cell type is read on | B1 and B2 FAILED: 71 % of held-out readings NORMAL (PROC-V12-IDENTITY-02) | stays development; not used by any commissioned reading |
+
+**Order.** U2 first: it is what the cancer fingerprint results rest on, and passing it makes their blind-site property independent evidence,
+not only an atlas property. Then U1, then U3 when an independent whole-blood truth set exists.
+
+**Same cell, different laboratory.** Wherever two or more independent laboratories give the same cell type, their profiles must agree within
+the atlas's stated uncertainty (reported as the share of sites whose difference is inside the combined 90 % interval).
+
+**Test data.** The first search for independent purified cells (2026-10-12) is running; its candidates go into a table here, by use.
+
+**Updating the atlas (author rule 2026-10-12).** A new search for purified cells at least every 6 months. Before any new set is used, its samples
+are split in writing: held-out test data and build data (a set cannot both build and test the atlas). Each addition is a new atlas version
+with its own DOI; results sealed on a version stay on that version, and a new version is used by the chain only after it re-passes U1-U2.
+
