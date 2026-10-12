@@ -4,7 +4,7 @@
            keys, and the box's Elastic IP moved to it, so the same ssh alias and host fingerprint keep working. Tagged Name=methylphys-cpu-01
            and run=<RUN> (cost per run in AWS billing).
   release: terminate the spot instance and move the Elastic IP back to the on-demand box (which stays stopped).
-Usage: python3 spot_from_box.py image RUN | launch RUN AMI [TYPE] | release INSTANCE"""
+Usage: python3 spot_from_box.py image RUN | launch RUN AMI [TYPE] [SUBNET] [--ondemand] | release INSTANCE"""
 import sys, time, boto3
 R = "us-west-2"; BOX = "i-0a040dddcaebdd65d"; ec2 = boto3.client("ec2", region_name=R)
 def box(): return ec2.describe_instances(InstanceIds=[BOX])["Reservations"][0]["Instances"][0]
@@ -18,12 +18,13 @@ if mode == "image":
 elif mode == "launch":
     sys.path.insert(0, __import__('os').path.dirname(__import__('os').path.abspath(__file__))); import ledger_guard; ledger_guard.require(sys.argv[2])
     run, ami = sys.argv[2], sys.argv[3]; typ = sys.argv[4] if len(sys.argv) > 4 else "m7a.32xlarge"; b = box()
-    subnet = sys.argv[5] if len(sys.argv) > 5 else b["SubnetId"]   # optional: another zone of the same VPC when spot capacity in the box's zone is short (2026-10-12)
+    subnet = sys.argv[5] if len(sys.argv) > 5 else b["SubnetId"]
+    ondemand = "--ondemand" in sys.argv   # opt-in regular machine when spot keeps being reclaimed (author decision 2026-10-12); spot is the default   # optional: another zone of the same VPC when spot capacity in the box's zone is short (2026-10-12)
     # The disk is a snapshot copy that AWS restores block by block on first read (about 5 MB/s): read the references in parallel at boot.
     ud = ("#cloud-config\nssh_deletekeys: false\nssh_genkeytypes: []\nruncmd:\n - [bash, -c, \"cd /mnt/scratch/run2 && find ref wgbs_tools/references -type f -size +50M | while read f; do s=$(stat -c %s $f); c=$(( s/16/4194304+1 )); for i in $(seq 0 15); do dd if=$f of=/dev/null bs=4M skip=$((i*c)) count=$c status=none & done; done; wait\"]\n")
     i = ec2.run_instances(ImageId=ami, InstanceType=typ, MinCount=1, MaxCount=1, KeyName=b["KeyName"], SubnetId=subnet,
                           SecurityGroupIds=[g["GroupId"] for g in b["SecurityGroups"]], UserData=ud, IamInstanceProfile={"Arn": b["IamInstanceProfile"]["Arn"]}, InstanceInitiatedShutdownBehavior="terminate",
-                          InstanceMarketOptions={"MarketType": "spot", "SpotOptions": {"SpotInstanceType": "one-time", "InstanceInterruptionBehavior": "terminate"}},
+                          **({} if ondemand else {"InstanceMarketOptions": {"MarketType": "spot", "SpotOptions": {"SpotInstanceType": "one-time", "InstanceInterruptionBehavior": "terminate"}}}),
                           TagSpecifications=[{"ResourceType": "instance", "Tags": [{"Key": "Name", "Value": "methylphys-cpu-01"}, {"Key": "run", "Value": run}]},
                                              {"ResourceType": "volume", "Tags": [{"Key": "run", "Value": run}]}])["Instances"][0]["InstanceId"]
     ec2.get_waiter("instance_running").wait(InstanceIds=[i]); e = eip()

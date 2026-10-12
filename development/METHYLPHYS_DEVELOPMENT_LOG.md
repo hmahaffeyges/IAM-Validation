@@ -1126,3 +1126,6 @@ Test 7 (direction of composition) committed before running, then PASSED: no mix 
 
 ### 2026-10-12 · Stage B spot machine reclaimed a third time (50 of 71 done, all in S3)
 Relaunched on c6a.32xlarge spot in us-west-2d (capacity score 9 of 10); remaining 21 libraries about 4.5 hours, about $8. Ledger updated before launch.
+
+### 2026-10-12 · Stage B: fourth spot reclaim; last 21 libraries on an on-demand machine (author decision)
+Spot capacity for 64- and 128-core machines short (scores 1-3 of 10 for large-memory types). The author chose a regular c6a.32xlarge: about $23 more, about $50 for Stage B against the $35-45 estimate. spot_from_box.py gains an opt-in --ondemand flag; ledger updated before launch.

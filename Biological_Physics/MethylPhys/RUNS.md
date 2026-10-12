@@ -37,7 +37,7 @@ Total job hours: 70.2.
 
 | run tag | run | purpose | machine | estimate |
 |---|---|---|---|---|
-| `BOXRUN10_stageB` | Box Run 10, Stage B (Stage A met C1) | IAM-A commissioning on identical DNA: the other 71 libraries, 12.2M read pairs each | spot, 128 cores: m7a.32xlarge until AWS reclaimed it at 25 of 71 libraries (2026-10-12 02:02 Pacific); then c6a.32xlarge, reclaimed twice (25 and 50 of 71); the rest on c6a.32xlarge | about $35-45 in total |
+| `BOXRUN10_stageB` | Box Run 10, Stage B (Stage A met C1) | IAM-A commissioning on identical DNA: the other 71 libraries, 12.2M read pairs each | spot, 128 cores: m7a.32xlarge until AWS reclaimed it at 25 of 71 libraries (2026-10-12 02:02 Pacific); then c6a.32xlarge spot, reclaimed three times (25, 50 and 50 of 71); the last 21 on an on-demand c6a.32xlarge (author decision, about $23) | about $50 in total |
 | `WORKBOX01` | Work machine 01 | neuron reference (10 Loyfer files) and colon replication: 152 normal arrays calibrated, then synthetic tests | spot r7a.2xlarge, 8 cores, 64 GB | about 5 hours, $1-2 |
 
 ## Actual AWS charges (from AWS billing)
