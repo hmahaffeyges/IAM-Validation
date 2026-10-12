@@ -66,6 +66,34 @@ of purified healthy cells that fits arrays and sequencing from several laborator
 carries an uncertainty at every site that held-out data confirmed, and is frozen before use. Literature checked 2026-10-12; a correction is
 welcome as a GitHub issue.
 
+## Questions the atlas builders would ask
+
+**What does this add to the sequencing atlas of purified cells (Loyfer et al. 2023)?** That atlas is the deepest public map of purified human
+cells, one laboratory and one platform, and most of this atlas's samples come from it. This atlas places it on the same scale as the
+array references of other laboratories (Moss 2018, Salas 2018 and 2022, GSE63409) and the pooled brain sequencing of Tian 2023, in one model,
+and gives every cell type at every site a posterior: a mean, a 95 % interval and 20 draws. As far as we know, no other public purified-cell
+reference publishes an interval at every site, and none has tested its intervals on data held back from the fit: here 90 % intervals covered
+92.7 % of 342,716 hidden values, every one of 20 test blocks between 92.3 % and 93.1 % ([`PROC_V5_HELDOUT_OUTCOME.md`](../doors/PROC_V5_HELDOUT_OUTCOME.md)).
+
+**How can references from different laboratories and platforms be combined at all, when each laboratory's offset is larger than the
+differences being measured?** Each source (one published data set on one platform) gets its own term in the model, what that laboratory's
+chemistry and pipeline add to every cell it measured. The term is measured, not left in the noise: on ten cell types measured both by
+sequencing and by arrays, the transfer between platforms was one line for every cell type (slopes 1.03-1.09), not a per-cell difference
+(book, atlas chapter). So the same cell type from two laboratories is one cell with two source terms, not two entries; a sample-level twin
+test removes look-alikes and sorting impurities; and a cell type never measured at a site is left blank, never filled.
+
+**What does it do that a marker reference does not?** Marker references hold one number per cell type at a few thousand sites chosen to
+tell cell types apart, built to answer how much of each cell is in a sample. This atlas holds every array site with data, about 814,000,
+on the same calibration a patient's array goes through, and answers a second question as well: how faithfully each cell type is holding
+its own pattern, with a stated uncertainty.
+
+**Is it finished?** No. It is version 2 of a reference meant to grow:
+- every 6 months a new search for purified healthy cells (enforced by the push gate; latest above);
+- each new set split before use into data that builds the atlas and data held back to test it;
+- each addition a new version with its own DOI, re-commissioned before the chain uses it;
+- first priorities: purified lung fibroblasts and lung smooth muscle (the lung tissue tests need them), second and third laboratories for
+  cell types that have one, and the cell types waiting for a second donor.
+
 ## Get it
 
 The fitted atlas is 4.67 GB (2,100 files: 700 blocks of sites, each with a summary, 20 posterior draws and its prior). It is too large for
