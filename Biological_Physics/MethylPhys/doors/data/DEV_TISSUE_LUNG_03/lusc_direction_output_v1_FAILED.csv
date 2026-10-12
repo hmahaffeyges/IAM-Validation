@@ -1,0 +1,19 @@
+component,share,mean_R,call
+stroma,0.3-0.6,1.0459,1.0
+stroma,0.6-0.9,1.0707,1.0
+fibroblasts,0.3-0.6,1.0403,1.0
+fibroblasts,0.6-0.9,1.0607,1.0
+smooth muscle,0.3-0.6,1.0436,1.0
+smooth muscle,0.6-0.9,1.0656,1.0
+endothelium,0.3-0.6,1.0504,1.0
+endothelium,0.6-0.9,1.0794,1.0
+immune,0.3-0.6,1.011,0.033
+immune,0.6-0.9,1.0135,0.086
+alveolar,0.3-0.6,1.0426,1.0
+alveolar,0.6-0.9,1.0661,1.0
+bronchial,0.3-0.6,1.0398,1.0
+bronchial,0.6-0.9,1.0592,1.0
+adipocytes,0.3-0.6,1.0278,0.974
+adipocytes,0.6-0.9,1.042,1.0
+other normal lung,0.3-0.6,1.0024,0.003
+other normal lung,0.6-0.9,1.0031,0.001

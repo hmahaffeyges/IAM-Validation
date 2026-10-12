@@ -1,4 +1,7 @@
-"""DEV-TISSUE-LUNG-03 synthetic tests 1-7 (written 2026-10-12 before any array of this set is read; TCGA-LUSC normal lungs only).
+"""DEV-TISSUE-LUNG-03 synthetic tests v2 (written 2026-10-12 before any array of this set is read; TCGA-LUSC normal lungs only).
+v2 (committed before it was run, once; v1 kept as lusc_synthetic_v1_FAILED_*): v1 failed test 7 (a 30-60 % stroma blend
+faked the count call; the normals are so alike that the bar is 1.0383). v2 tightens the blind sites from 0.05 to 0.03, as DEV-TISSUE-LIVER-01 v2
+did; nothing else changes. If v2 fails any test, the set is not suitable and the tumors stay unread.
 Derived from DEV-TISSUE-LUNG-02 lung2_synthetic.py unchanged except the data layout: TCGA samples, pairs share a processing PLATE (GDC aliquot
 barcode) instead of a slide, N = the patients whose tumor shares the plate of their normal (40).
 Reading as DEV-TISSUE-LUNG-01: Met-A = mean binary entropy H(beta) at composition-blind sites (both atlas lung epithelia and every other panel cell
@@ -42,7 +45,7 @@ Mu = pd.DataFrame({k: np.mean([x.loc[common, "mean"].values for x in v], 0) for 
 SDa, SDb = P["alveolar"][0].loc[common, "sd"], P["bronchial"][0].loc[common, "sd"]
 ok = Mu.notna().all(1) & SDa.notna() & SDb.notna(); Mu, SDa, SDb = Mu[ok], SDa[ok], SDb[ok]; common = Mu.index
 Em = (Mu["alveolar"] + Mu["bronchial"]) / 2
-spread = Mu.sub(Em, axis=0).abs().max(1); good = (spread <= 0.05) & (SDa <= 0.05) & (SDb <= 0.05)
+spread = Mu.sub(Em, axis=0).abs().max(1); good = (spread <= 0.03) & (SDa <= 0.05) & (SDb <= 0.05)
 hi = Em[good & Em.between(.75, .95)].to_frame("m").assign(sp=spread).sort_values("sp").index[:3000]
 lo = Em[good & Em.between(.05, .25)].to_frame("m").assign(sp=spread).sort_values("sp").index[:3000]
 Sx = common.get_indexer(hi.union(lo)); hi_ = common.get_indexer(hi); lo_ = common.get_indexer(lo)

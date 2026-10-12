@@ -12,4 +12,13 @@ measurement has not been made on these arrays.
 (normal arrays only until `sealed_lusc_tissue.json` is committed), `calib_tcga_lusc.py`.
 **Before any seal:** the lung 2 synthetic design (LESSONS T15 and the direction test) on the 42 normals; if a planted 5 % change or power fails,
 the set is not sealed and the tumors stay unread.
+
+**Synthetic tests v1 on the 42 real normal lungs, 2026-10-12** (`data/DEV_TISSUE_LUNG_03/lusc_synthetic_v1_FAILED.py`, outputs
+`lusc_synthetic_v1_FAILED_*`, `lusc_direction_v1_FAILED_output.csv`). These normals differ little between people (stand-in SD 0.0230), so the pair
+bar is 1.0383 and the test is very sensitive: a change the size of lung 1's lean is detected in every draw. Composition, planted 5 % and power
+PASSED. **Direction (test 7) FAILED:** blending 30-60 % stroma into a normal lung pushes the count rule to a false call; a tumor with more stroma
+than its normal could read FINGERPRINT from composition alone. **Not sealed.**
+**v2, committed before it is run:** the same tests with blind sites tightened to 0.03 (the DEV-TISSUE-LIVER-01 v2 change), run once. If v2 fails
+any test, the set is not suitable and the 40 tumors stay unread.
 **Not a milestone:** design (development).
+

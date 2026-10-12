@@ -1,0 +1,19 @@
+arrays: patient normals 42 on 4 slides | loci 356360 | blind sites 3000 + 3000 | stand-in pairs 680 | N 40, CRIT 7
+1 spread: stand-in R SD 0.0230, 95th percentile (pair bar) 1.0383  [lung 1 SD 0.0860, lung 2 SD 0.1391, colon SD 0.0502]
+2, 4, 5 cases:
+  NULL: mean R 1.0003, share above bar 0.050, COUNT 0.004, EVERY-PAIR 0.005
+  SHIFT other normal: mean R 1.0030, share above bar 0.047, COUNT 0.002, EVERY-PAIR 0.049
+  SHIFT immune: mean R 1.0110, share above bar 0.079, COUNT 0.035, EVERY-PAIR 0.864
+  d0.005 other normal: mean R 1.0287, share above bar 0.300, COUNT 0.981, EVERY-PAIR 1.000
+  d0.0075 other normal: mean R 1.0409, share above bar 0.546, COUNT 1.000, EVERY-PAIR 1.000
+  d0.01 other normal: mean R 1.0532, share above bar 0.741, COUNT 1.000, EVERY-PAIR 1.000
+  d0.02 other normal: mean R 1.1030, share above bar 0.994, COUNT 1.000, EVERY-PAIR 1.000
+  d0.05 other normal: mean R 1.2370, share above bar 1.000, COUNT 1.000, EVERY-PAIR 1.000
+5 rules: eligible {'COUNT': True, 'EVERY-PAIR': False}; detection at d 0.0075 {'COUNT': np.float64(1.0), 'EVERY-PAIR': np.float64(1.0)}; CHOSEN RULE: COUNT
+7 direction: mean R above 1 in 18 of 18 mixes (max 1.0794); worst stroma 0.3-0.6, chosen-rule false call 1.0
+3 independence (reported; replaced by test 7): Spearman -0.117 (p 0.47), n 40
+2 composition <= 0.10: PASSED
+4 planted 5 % >= 0.80: PASSED
+5 power (chosen rule detects d 0.05 >= 0.80): PASSED
+7 direction (no mix fakes the chosen rule): FAILED
+reported: chosen rule detects lung 1's lean (d 0.0075) in 1.000 of draws

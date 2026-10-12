@@ -1156,3 +1156,6 @@ DEV-ATLAS-COMMISSION-01 widened: U1 reference profiles, U2 blind sites for tissu
 
 ### 2026-10-12 · Atlas front page rewritten; class-era atlas removed from the tree (author)
 atlas/README.md now presents IAM-Atlas v2: what it is, how it was built (six sources, 334 samples, one joint fit), what is new as far as we know (literature checked), how to get it (Zenodo DOI to come), commissioning status by use. The class-era IAMAtlasREBUILD, its 8 class archives, the v0.1 build scripts and class-assignment tables (about 265 MB) were removed; in git history at 70c0e7b. Still pointing at the removed files, left unchanged: doors/COMPONENT_MAP.md, REVIEWER_MANIFEST.md and RUNBOOK.md. They describe the whole class-era chain, and 41 of their numbers have no committed output (the push gate refused a partial edit), so they are rewritten as a whole with the replication pages, not patched.
+
+### 2026-10-12 · DEV-TISSUE-LUNG-03 synthetic v1: direction test failed; v2 committed before running
+TCGA-LUSC normals are tight (SD 0.023, bar 1.0383): very sensitive, but a 30-60 % stroma blend fakes the count call. Not sealed. v2 (blind sites 0.03, the liver v2 change) committed, to be run once; failure means not suitable, tumors unread.
