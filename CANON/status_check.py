@@ -34,6 +34,11 @@ import importlib.util as _u
 _s = _u.spec_from_file_location("r2t", "CANON/results_to_tex.py"); _m = _u.module_from_spec(_s); _s.loader.exec_module(_m)
 try:
     tex, rd, REG, _V, _rr, _fr = _m.build()
+    for _e in REG:   # rule 14 (author 2026-10-12): every result explained in plain words for a donor following along
+        if _e.get("status") != "withdrawn" and not (_e.get("plain") or "").strip(): fail.append(f"[results_register] {_e['id']} has no plain-language explanation ('plain')")
+    for _rec, _txt in _m.plain_blocks(REG).items():
+        _n = open(_rec, encoding="utf-8").read() if os.path.isfile(_rec) else ""
+        if _m.PB not in _n or _n[_n.index(_m.PB) + len(_m.PB):_n.index(_m.PE)].strip() != _txt.strip(): fail.append(f"[results_register] {_rec}: In plain words block differs from the register: run python3 CANON/results_to_tex.py")
     _f = open(_m.RFOLLOW, encoding="utf-8").read()
     if _m.FB not in _f or _m.FE not in _f or _f[_f.index(_m.FB) + len(_m.FB):_f.index(_m.FE)].strip() != _fr.strip(): fail.append("[results_register] FOLLOW.md results differ from the register: run python3 CANON/results_to_tex.py")
     _t = open(_m.RROOT, encoding="utf-8").read()

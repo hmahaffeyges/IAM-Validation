@@ -10,7 +10,8 @@
    "book": true,
    "record": "Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_01_OUTCOME.md",
    "compute": "fingerprint",
-   "title": "Cancer fingerprint: prostate, both instruments on the same cells"
+   "title": "Cancer fingerprint: prostate, both instruments on the same cells",
+   "plain": "Our two instruments look at DNA's switch pattern in two different ways. One counts scattered single errors, like typos in a book. The other checks whether the pattern as a whole is still intact. If cancer only made a cell sloppier, both readings would rise together, in a proportion physics sets in advance. A fingerprint is when the pattern is damaged far more than the typos explain: whole passages are gone, not just letters. Here we compared prostate cancer cells with normal prostate cells, with the rule for calling a fingerprint written down before any cancer data were opened, and every cancer sample carried it."
   },
   {
    "id": "DEV-SAM-LEVER-01",
@@ -26,7 +27,8 @@
     "high": 1.135,
     "sealed_commit": "49ab1e6"
    },
-   "title": "IAM-A, first physics lever: cutting the methyl supply"
+   "title": "IAM-A, first physics lever: cutting the methyl supply",
+   "plain": "A test of the physics itself, in living animals. The cell needs a chemical supply to keep its DNA switches set. In mice that cannot make that supply in the liver, the physics predicts how much faithfulness the liver's DNA pattern should lose. That window was calculated and sealed on a healthy mouse before any of these mice were read, and the mice landed inside it. Giving the supply back moved them back toward healthy."
   },
   {
    "id": "DEV-EPIQC-ARRAY-01",
@@ -37,7 +39,8 @@
    "book": true,
    "record": "Biological_Physics/MethylPhys/doors/DEV_EPIQC_ARRAY_01_OUTCOME.md",
    "compute": "epiqc",
-   "title": "Met-A reproduces across laboratories on identical DNA"
+   "title": "Met-A reproduces across laboratories on identical DNA",
+   "plain": "Can anyone trust the number? Exactly the same DNA was measured in three different laboratories. Our reading came out the same in all three, within a small fraction of a percent, before any correction. A measurement that changes from lab to lab is useless; this one does not."
   },
   {
    "id": "DEV-CSCORE-MOSS-01",
@@ -48,7 +51,8 @@
    "book": true,
    "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_MOSS_01_OUTCOME.md",
    "compute": "moss",
-   "title": "Met-A raises no false alarm when foreign DNA is mixed in"
+   "title": "Met-A raises no false alarm when foreign DNA is mixed in",
+   "plain": "A false-alarm test. Small amounts of DNA from other organs (liver, lung, colon, brain) were mixed into blood DNA in known amounts. Healthy foreign DNA should not look like disease, and it did not: every mixed sample read healthy."
   },
   {
    "id": "REPRO-PUBLIC-2026-10-10",
@@ -60,7 +64,8 @@
    "also": [
     "Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/README.md"
    ],
-   "headline": "**Everything the commissioned chain reads rebuilds from public data**, identical: the holding energy 3.41 k_BT and ε₀ = 0.032 (153 public samples), the Met-A floor and its 6,000 sites, the C-score baseline, whole-blood composition, the IAM-A neutrophil position"
+   "headline": "**Everything the commissioned chain reads rebuilds from public data**, identical: the holding energy 3.41 k_BT and ε₀ = 0.032 (153 public samples), the Met-A floor and its 6,000 sites, the C-score baseline, whole-blood composition, the IAM-A neutrophil position",
+   "plain": "Nothing here depends on trusting us. Every value the instrument uses was rebuilt from scratch from public data by committed code, and came out identical. Anyone can run the same code and get the same numbers."
   },
   {
    "id": "COMMISSIONING-METAA-NEUTROPHILS",
@@ -71,7 +76,8 @@
    "book": false,
    "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md",
    "headline": "**Met-A on isolated neutrophils (EPIC v1) commissioned**, with its detection limit printed on every report",
-   "covers": []
+   "covers": [],
+   "plain": "Commissioned means a reading is allowed to report results, not just development readings. For Met-A on purified white blood cells (neutrophils), the tests for repeatability, agreement between laboratories, no false alarms on healthy samples, refusing what it cannot read, and responding to known damage by the predicted amount were all met. Its sensitivity to the very smallest damage fell short of the bar, so instead of hiding that, every report prints its measured detection limit: the smallest damage it reliably sees."
   },
   {
    "id": "BOOK-V1.0",
@@ -81,7 +87,8 @@
    "book": false,
    "record": "docs/book",
    "link_text": "docs/book",
-   "headline": "**The book, IAM's Law and Order, v1.0** published (DOI [10.5281/zenodo.23151068](https://doi.org/10.5281/zenodo.23151068)); every derivation checked by one command, `docs/book/verify_book.py`. It includes the 74-cell reference atlas built as one Bayesian posterior, with an interval at every locus for every cell"
+   "headline": "**The book, IAM's Law and Order, v1.0** published (DOI [10.5281/zenodo.23151068](https://doi.org/10.5281/zenodo.23151068)); every derivation checked by one command, `docs/book/verify_book.py`. It includes the 74-cell reference atlas built as one Bayesian posterior, with an interval at every locus for every cell",
+   "plain": "The full theory, every derivation and every number, published as a book with a permanent DOI. A script checks every number in it against the code and data, so a wrong digit cannot hide."
   },
   {
    "id": "DEV-TISSUE-BREAST-01",
@@ -92,7 +99,8 @@
    "book": false,
    "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md",
    "compute": "breast_tissue",
-   "title": "Met-A on patients' breast tumours against their own normal tissue"
+   "title": "Met-A on patients' breast tumours against their own normal tissue",
+   "plain": "Real patients, not lab cells. Each woman's breast tumour was compared with her own healthy breast tissue, processed on the same plate, reading only places on the DNA that a change in the mix of tissue types cannot move, so a different mix cannot fake a result. The bar was strict: healthy tissue crosses it only about one time in twenty. Far more tumours crossed it than chance could produce, and most tumours read above the patient's own healthy tissue. This shows the measurement sees breast cancer in patients as a group; flagging each individual patient reliably is the next step."
   },
   {
    "id": "DEV-TISSUE-COLON-01",
@@ -103,7 +111,8 @@
    "book": false,
    "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md",
    "compute": "colon_tissue",
-   "title": "Met-A on patients' colorectal tumours against their own adjacent normal"
+   "title": "Met-A on patients' colorectal tumours against their own adjacent normal",
+   "plain": "The same design as the breast test, in colorectal cancer: each patient's tumour against the same patient's healthy colon from next to it, on the same processing slide, at places the tissue mix cannot move, with a strict bar fixed in advance. Far more tumours crossed it than chance would give, and nearly every tumour read above the patient's own healthy tissue."
   },
   {
    "id": "DEV-FINGERPRINT-02-PROSTATE",
@@ -114,7 +123,8 @@
    "book": false,
    "record": "Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_02_OUTCOME.md",
    "compute": "fingerprint_rep",
-   "title": "Cancer fingerprint replicated: prostate, a second laboratory, different cells"
+   "title": "Cancer fingerprint replicated: prostate, a second laboratory, different cells",
+   "plain": "The same prostate test, repeated on data from a different laboratory, with different normal prostate cells as the comparison. Every cancer sample again carried the fingerprint (whole passages of the switch pattern wiped out), and even the weakest one stood well clear of the difference between two healthy people. A result that repeats in a second laboratory, on different cells, is much harder to explain away."
   },
   {
    "id": "DEV-FINGERPRINT-02-BREAST",
@@ -125,7 +135,8 @@
    "book": false,
    "record": "Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_02_OUTCOME.md",
    "compute": "fingerprint_breast",
-   "title": "Cancer fingerprint in breast cancer cell lines"
+   "title": "Cancer fingerprint in breast cancer cell lines",
+   "plain": "Two breast cancer cell lines, each compared with two kinds of normal breast cells, one comparison at a time, each sealed before it was read. Cancer can damage the pattern in two directions: switches lost where they should be on, and switches added where they should be off. The meter for added switches found the breast cancer fingerprint in every comparison; the meter for lost switches found it in most, and one was undecided."
   }
  ]
 }
