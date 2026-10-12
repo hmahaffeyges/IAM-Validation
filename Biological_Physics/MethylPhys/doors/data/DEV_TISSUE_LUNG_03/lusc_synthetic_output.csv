@@ -1,9 +1,9 @@
 case,mean_R,share_above_bar,count_call,every_pair_call
-NULL,1.0003,0.05,0.004,0.005
-SHIFT other normal,1.003,0.047,0.002,0.049
-SHIFT immune,1.011,0.079,0.035,0.864
-d0.005 other normal,1.0287,0.3,0.981,1.0
-d0.0075 other normal,1.0409,0.546,1.0,1.0
-d0.01 other normal,1.0532,0.741,1.0,1.0
-d0.02 other normal,1.103,0.994,1.0,1.0
-d0.05 other normal,1.237,1.0,1.0,1.0
+NULL,1.0003,0.05,0.003,0.007
+SHIFT other normal,1.003,0.049,0.003,0.038
+SHIFT immune,1.0155,0.118,0.172,0.99
+d0.005 other normal,1.0288,0.266,0.942,1.0
+d0.0075 other normal,1.0411,0.493,1.0,1.0
+d0.01 other normal,1.0535,0.7,1.0,1.0
+d0.02 other normal,1.1036,0.99,1.0,1.0
+d0.05 other normal,1.2383,1.0,1.0,1.0

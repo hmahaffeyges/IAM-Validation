@@ -85,3 +85,7 @@ the atlas's stated uncertainty (reported as the share of sites whose difference 
 are split in writing: held-out test data and build data (a set cannot both build and test the atlas). Each addition is a new atlas version
 with its own DOI; a result scored under one version's seal stays on that version, and a new version is used by the chain only after it re-passes U1-U2.
 
+**U2 in practice, 2026-10-12 (DEV-TISSUE-LUNG-03).** On the squamous-lung normals of that test the blind sites were not blind: stroma and immune blends moved Met-A past
+a tight bar, and the atlas has no lung stromal cells to choose sites against. First priority for new atlas data: purified healthy lung
+fibroblasts and lung smooth muscle.
+

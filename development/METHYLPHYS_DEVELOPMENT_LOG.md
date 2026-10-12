@@ -1159,3 +1159,6 @@ atlas/README.md now presents IAM-Atlas v2: what it is, how it was built (six sou
 
 ### 2026-10-12 · DEV-TISSUE-LUNG-03 synthetic v1: direction test failed; v2 committed before running
 TCGA-LUSC normals are tight (SD 0.023, bar 1.0383): very sensitive, but a 30-60 % stroma blend fakes the count call. Not sealed. v2 (blind sites 0.03, the liver v2 change) committed, to be run once; failure means not suitable, tumors unread.
+
+### 2026-10-12 · DEV-TISSUE-LUNG-03 v2: not suitable; tumors unread. Lesson T16
+v2 (blind sites 0.03) failed composition, power and direction. Not sealed; the 40 tumors stay unread. The atlas has no lung stromal cells, so lung blind sites cannot be checked against lung stroma; recorded as the first U2 finding in DEV-ATLAS-COMMISSION-01, and lung stromal cells made the first priority for new atlas data. LESSONS T16.
