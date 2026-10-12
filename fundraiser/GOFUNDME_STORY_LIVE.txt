@@ -1,0 +1,118 @@
+IAM: the physics of DNA methylation, built in public
+
+Reading Cancer with the Tools of Cosmology
+
+The goal
+
+A simple blood or stool test that catches cancer years earlier, when it is most curable. This page funds the steps that get there, and lets you watch every one.
+
+The idea
+
+Every cell stores information in a pattern of chemical "on/off switches" on its DNA (methylation), telling it what kind of cell to be. Physics sets a limit on how faithfully that information can be held against heat and noise. Healthy cells hold it with high fidelity, close to that limit. Cancer cells lose fidelity: the information degrades.
+
+We measure that informational fidelity, cell by cell, on a fixed physical scale.
+
+We read it with two instruments that are blind in different places. One (Met-A, on standard DNA arrays) reads the state of the pattern at the sites that define a cell type, and sees information both lost and wrongly added. The other (IAM-A, on DNA sequencing) reads the individual errors in the pattern, molecule by molecule. When both read the same cells and agree, the result is stronger than either alone. When they disagree, that tells us something new about the physics.
+
+Where it came from
+
+The IAM fidelity measure began in engineering, not biology. It was built to score how faithfully machines hold information: quantum computers, where every qubit fights to keep its state, and computer chips, where every transistor must hold a 0 or a 1 against heat and noise. In both, physics sets a hard limit on how faithfully information can be held.
+
+A living cell faces the same problem with the pattern on its DNA. So we applied the same measure to cells.
+
+Why "the tools of cosmology"
+
+Cosmologists build a full-sky map of the early universe from sparse, noisy, overlapping telescope scans, with an honest uncertainty at every point. We built our healthy reference the same way: one map of healthy methylation for 74 purified human cell types, from public data produced by many laboratories on different platforms, with a best estimate and its uncertainty at each of about 814,000 sites on the DNA (Bayesian MCMC). To check that those uncertainties are honest, 342,716 measurements were hidden before fitting and then predicted: the atlas's 90 % intervals caught 92.7 % of them. Every cell type is measured on purified cells of that type, never whole tissue. The atlas combines public data from many laboratories, including the 39 cell-type groups of Loyfer et al. 2023 (Nature), the largest single purified-cell atlas we know of. To our knowledge, no other atlas combines this many purified cell types in one Bayesian posterior, with a checked uncertainty at every site, read on a fixed physical scale.
+
+More tools from astrophysics are being added one at a time. The book keeps the full map of them, each marked built, partial or not built.
+
+The book chapters on each of these are linked on the follow-along page (address below).
+
+What has worked so far
+
+Every result below came from a test whose rule was written down and sealed before its data were opened, and was scored once. Every record is linked on the follow-along page (address below).
+
+Real patients, real tumours. We compared each patient's tumour with that patient's own healthy tissue, using a strict bar that healthy tissue crosses only about 1 time in 20.
+- Breast cancer, 53 patients: 23 tumours crossed the strict bar, where chance alone would give about 3, and 41 of 53 read above the patient's own healthy tissue.
+- Colorectal cancer, 88 patients (stage II): 28 crossed, where chance would give about 4, and 80 of 88 read above the patient's own healthy tissue.
+
+The measurement sees cancer far beyond chance, in two cancers, in real patients. The next step is showing how reliably it flags each individual patient, and that is one of the first things your support pays for.
+
+A prediction from physics, met in a living animal. Mice whose livers cannot make their main methyl supply should lose fidelity by an amount the physics sets in advance. The window was sealed on a healthy mouse before any knockout was read, and the knockout livers landed right inside it: a 1-in-3,000 result by chance (p = 0.0003). Physics called the number in advance, and a living animal delivered it.
+
+The same answer from the same DNA, in three laboratories: within 0.8 %, before any correction.
+
+No false alarms: with 4-15 % of liver, lung, colon or neuron DNA mixed into blood DNA, 9 of 9 readings stayed inside the healthy bar.
+
+The cancer fingerprint, found twice in prostate cancer. Prostate cancer cells carry a distinct "fingerprint": whole stretches of their DNA's switch pattern are wiped out, far beyond the scattered errors healthy cells make. We found it in every prostate cancer sample from one laboratory, then found it again in a second laboratory's data, on different cells: 6 of 6 cancer samples, the weakest still more than twice the difference between two healthy people. Breast cancer cell lines carry their own fingerprint, found in all 4 comparisons with normal breast cells.
+
+What "fingerprint" means, in plain words:
+Our two instruments look at DNA's switch pattern in two different ways. One counts scattered single errors, like typos in a book. The other checks whether the pattern as a whole is still intact. If cancer only made a cell sloppier, both readings would rise together, in a proportion physics sets in advance. A fingerprint is when the pattern is damaged far more than the typos can explain: whole passages are gone, not just letters. That is the mark cancer leaves, and it's different from ordinary wear.
+
+One reading commissioned: Met-A on isolated white blood cells (neutrophils) met its tests for repeatability, agreement between laboratories, no false alarms and response to known damage, and reports with its measured detection limit (a 2 % loss of the pattern) printed on every result.
+
+Rebuilt from scratch: everything the commissioned instrument uses rebuilds exactly from public data.
+
+Where this is headed: today this is a research instrument, with one reading commissioned and the rest in development, each labelled clearly. Turning it into a test that helps patients is exactly what this page funds.
+
+Why this is different
+
+Most cancer blood tests in development, such as GRAIL's Galleri, use machine learning: a classifier trained on thousands of samples from people with and without cancer learns which methylation patterns go with cancer. It works, but the yardstick is learned from the data, must be retrained for new situations, and cannot say why a pattern means cancer.
+
+Others have used the thermodynamics of information to describe methylation: Sanchez and Mackenzie applied Landauer's principle to it and measured information loss in cancer, fitting their model to each study's own data. The book credits them and sets out where IAM differs (Chapter 49, Landauer's cost at body temperature). Using physics and using IAM are not the same thing.
+
+IAM is different in kind: a single rule with a fixed yardstick. IAM scores informational fidelity against a limit set by physics and by the healthy cell type itself, the same in every study, every laboratory and every cell type, and the same rule that scores a qubit or a transistor. Nothing is trained on cancer patients and nothing is re-fitted per study. To our knowledge, no one else reads methylation on a scale fixed this way. It makes numerical predictions before any data are seen, so a test can fail. That is also why every test can be sealed in advance: there is nothing to tune afterwards.
+
+We are trying to prove IAM wrong, not just right. Every test is sealed so it can fail, and every result is posted, day by day. So far, not one sealed test has contradicted a prediction of IAM's law.
+
+There are no guaranteed outcomes in physics or cancer research; if there were, it wouldn't be called research. What we can guarantee is that you will watch it happen: every test, every cost and every result, as it comes in.
+
+Follow along, any time
+
+Everything is public, and every result on this page has its record, linked, on one page:
+github.com/hmahaffeyges/IAM-Validation/blob/main/FOLLOW.md
+
+There you'll find the milestones, the day-by-day log of every result, every rented-computer run with its cost (upcoming runs are listed with their estimate before they start, and the code refuses to start any computer that isn't listed), and every test's sealed rule and outcome.
+
+The book, with every derivation and number checked by a script: hmahaffeyges.github.io/IAM-Validation (DOI 10.5281/zenodo.23151068)
+
+Replicate it yourself
+
+Every test can be rerun from public data, and you don't need to trust us:
+
+- Check every number in the book with one command on any laptop: python3 docs/book/verify_book.py, or in your browser, no install, at hmahaffeyges.github.io/IAM-Validation
+- Rerun any test: each outcome note names its sealed rule, its script, the public data it reads, and the command to run. Laptop steps are free; steps that need a rented computer list their script and cost in the run ledger.
+- Coming next: a one-command replication kit for each commissioned instrument, so a whole result rebuilds with one command.
+
+The invitation stands: try to break it. If you find a wrong number, open an issue on the repository.
+
+For researchers
+
+We would welcome working with established researchers: run it on data you already hold, test a prediction, or tell us where it is wrong.
+
+About the researcher
+
+Heath W. Mahaffey, founder of the IAMPerformance Inter-Domain Research Institute and author of IAM's Law and Order. By day he is a senior power-grid operator which includes managing Columbia River hydro operations; before that he was a U.S. Navy air traffic controller. He spent much of his youth in the Faroe Islands and Denmark, speaks nine languages, and lives with his family of six in the Pacific Northwest.
+
+A grid operator watches the whole interconnect at once: the storm in the distance, the imbalance between two regions that no local operator can see. That wide-area view is what he brings to science. He works a full-time job and has paid for every step of this research himself, with no institution, grant or company behind it yet.
+
+He is doing it because cancer is rising in young people, and he believes this measurement can help catch it earlier. Everything is public, so anyone can check it, and so it never depends on one person.
+
+Where your money goes
+
+All of it goes to research; none of it pays for the researcher's time. The goal is $25,000 for the next 12 months, reached in steps, starting with a first goal of $6,000:
+
+- Computing (AWS): the sequencing runs still ahead. Cancer (colorectal replication, breast and colon in blood, dogs' cancers), the physics (neurons from two independent laboratories, ageing across species, fish), and commissioning both instruments. Run on faster machines when it saves weeks, and shut down after every run; each run is costed in the ledger: about $12,000
+- The AI research assistant that codes and checks alongside the researcher ($200-500 a month): about $4,200
+- A workstation (Mac Studio M5 Ultra, 30-core CPU, 96 GB memory, with external storage) to move everyday work off rented machines: about $6,500
+- Platform fees and a margin for runs that must be repeated: about $2,300
+
+- $6,000, our first goal: the next six months of computing and the research assistant.
+- $15,000: adds the workstation.
+- $25,000: the full year of runs, including the fish, dog and ageing studies.
+
+Every dollar spent on computing shows up in the public ledger, run by run, with what it was for.
+
+Say hi
+
+After donating, leave your name and a hello in the Supporters thread: github.com/hmahaffeyges/IAM-Validation/discussions/30

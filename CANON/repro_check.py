@@ -14,7 +14,8 @@ Rule 9 (2026-10-11): laboratory independence from GEO contributors (CANON/indepe
   10. a box-run folder (boxruns/runN*) is not in the run ledger (boxruns/make_runs_ledger.py), or RUNS.md is missing;
   11. the ledger guard's controls (boxruns/ledger_guard_test.py) fail;
   12. an outcome note new or changed in this push does not declare **Milestone:** or **Not a milestone:** <reason>;
-  13. a **Milestone:** note has no results-register entry, or a register entry's record lacks the line or does not exist."""
+  13. a **Milestone:** note has no results-register entry, or a register entry's record lacks the line or does not exist;
+  15. a number on the live fundraiser page (fundraiser/GOFUNDME_STORY_LIVE.txt) no longer matches its record."""
 import os, re, subprocess, sys
 def git(*a): return subprocess.run(["git", *a], capture_output=True, text=True).stdout
 fail = []
@@ -197,6 +198,11 @@ for r in sorted(_recs):
     if not r.startswith("Biological_Physics/MethylPhys/doors/"): continue
     if not os.path.isfile(r): fail.append(f"CANON/results_register.json: record {r} does not exist (rule 13)")
     elif "**Milestone:**" not in open(r, encoding="utf-8").read(): fail.append(f"{r}: in the results register but has no **Milestone:** line (rule 13)")
+
+# 15. The live fundraiser page's numbers match the records (fundraiser/check_story.py; author 2026-10-12).
+if _os.path.exists("fundraiser/check_story.py"):
+    _r = _sp.run([sys.executable, "fundraiser/check_story.py"], capture_output=True, text=True)
+    if _r.returncode != 0: fail.append("fundraiser/check_story.py: the live fundraiser page no longer matches the records: " + "; ".join(l for l in _r.stdout.split(chr(10)) if l.startswith("FAIL")))
 
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
