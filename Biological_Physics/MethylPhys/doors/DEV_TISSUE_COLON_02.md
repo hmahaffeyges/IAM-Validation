@@ -10,3 +10,7 @@ spread on real breast normals (lesson T10). Here that comparison is not availabl
 **Before any seal, still to design and test on synthetic data:** a reading that does not depend on the slide, for example each slide tared on
 its own non-cancer arrays where they exist, and its power on the slides that carry only tumours; or a tumour-against-healthy-donor reading
 with slide spread measured from the normals. If no slide-independent reading passes its synthetic tests, this set is recorded as not suitable.
+
+**Inputs (2026-10-11).** `data/DEV_TISSUE_COLON_02/fetch_colon_02.py` fetches IDATs per sample from GEO. A tumour array is refused before any
+request until `sealed_colon_02.json` is committed unchanged; the lock was tested three ways before any fetch (tumour refused with no seal and with
+an uncommitted seal; allowed with a committed dummy seal, which was then removed). Only the 152 non-cancer arrays are fetched now.
