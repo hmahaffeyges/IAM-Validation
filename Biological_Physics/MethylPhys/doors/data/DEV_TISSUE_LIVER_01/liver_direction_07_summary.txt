@@ -1,0 +1,19 @@
+bar 1.1246 | CRIT 8 of N 50 | stand-in pairs 864
+  stroma at 0.3-0.6: mean R 1.0071, share above bar 0.030, COUNT false call 0.000
+  stroma at 0.6-0.9: mean R 1.0033, share above bar 0.012, COUNT false call 0.000
+  fibroblasts at 0.3-0.6: mean R 1.0011, share above bar 0.030, COUNT false call 0.000
+  fibroblasts at 0.6-0.9: mean R 0.9920, share above bar 0.007, COUNT false call 0.000
+  smooth muscle at 0.3-0.6: mean R 1.0058, share above bar 0.031, COUNT false call 0.000
+  smooth muscle at 0.6-0.9: mean R 1.0003, share above bar 0.013, COUNT false call 0.000
+  endothelium at 0.3-0.6: mean R 1.0128, share above bar 0.035, COUNT false call 0.001
+  endothelium at 0.6-0.9: mean R 1.0124, share above bar 0.012, COUNT false call 0.000
+  immune at 0.3-0.6: mean R 0.9718, share above bar 0.024, COUNT false call 0.000
+  immune at 0.6-0.9: mean R 0.9442, share above bar 0.002, COUNT false call 0.000
+  hepatocyte at 0.3-0.6: mean R 1.0005, share above bar 0.030, COUNT false call 0.000
+  hepatocyte at 0.6-0.9: mean R 0.9925, share above bar 0.009, COUNT false call 0.000
+  adipocytes at 0.3-0.6: mean R 0.9905, share above bar 0.027, COUNT false call 0.000
+  adipocytes at 0.6-0.9: mean R 0.9754, share above bar 0.005, COUNT false call 0.000
+  other normal liver at 0.3-0.6: mean R 1.0119, share above bar 0.065, COUNT false call 0.017
+  other normal liver at 0.6-0.9: mean R 1.0092, share above bar 0.065, COUNT false call 0.013
+worst: other normal liver at 0.3-0.6 (false call 0.017, share above bar 0.065)
+7 direction (no mix change fakes the COUNT call): PASSED

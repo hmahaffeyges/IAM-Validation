@@ -1,0 +1,17 @@
+component,share,mean_R,share_above_bar,count_call
+stroma,0.3-0.6,1.0071,0.03,0.0
+stroma,0.6-0.9,1.0033,0.012,0.0
+fibroblasts,0.3-0.6,1.0011,0.03,0.0
+fibroblasts,0.6-0.9,0.992,0.007,0.0
+smooth muscle,0.3-0.6,1.0058,0.031,0.0
+smooth muscle,0.6-0.9,1.0003,0.013,0.0
+endothelium,0.3-0.6,1.0128,0.035,0.001
+endothelium,0.6-0.9,1.0124,0.012,0.0
+immune,0.3-0.6,0.9718,0.024,0.0
+immune,0.6-0.9,0.9442,0.002,0.0
+hepatocyte,0.3-0.6,1.0005,0.03,0.0
+hepatocyte,0.6-0.9,0.9925,0.009,0.0
+adipocytes,0.3-0.6,0.9905,0.027,0.0
+adipocytes,0.6-0.9,0.9754,0.005,0.0
+other normal liver,0.3-0.6,1.0119,0.065,0.017
+other normal liver,0.6-0.9,1.0092,0.065,0.013
