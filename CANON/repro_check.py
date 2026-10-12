@@ -18,7 +18,8 @@ Rule 9 (2026-10-11): laboratory independence from GEO contributors (CANON/indepe
   15. a number on the live fundraiser page (fundraiser/GOFUNDME_STORY_LIVE.txt) no longer matches its record;
   16. donor-facing text (READMEs, FOLLOW.md, fundraiser text, register plain/title/headline) has a British spelling;
   17. a lesson named in the log is not a row of LESSONS.md, a frozen older lessons file changes, or a new lessons file appears;
-  18. the funding statement in README.md, FOLLOW.md or the book preface differs from CANON/funding.json."""
+  18. the funding statement in README.md, FOLLOW.md or the book preface differs from CANON/funding.json;
+  19. the atlas README's last search for new purified cells is more than 6 months old."""
 import os, re, subprocess, sys
 def git(*a): return subprocess.run(["git", *a], capture_output=True, text=True).stdout
 fail = []
@@ -228,6 +229,12 @@ for _f in _all:
 # 18. One funding statement (author 2026-10-12): README.md, FOLLOW.md and the book preface carry the block written from CANON/funding.json.
 _r = _sp.run([sys.executable, "CANON/funding_sync.py", "check"], capture_output=True, text=True)
 if _r.returncode != 0: fail.append("funding statement out of step (run python3 CANON/funding_sync.py write): " + "; ".join(_r.stdout.split(chr(10))[:4]) + " (rule 18)")
+
+# 19. Atlas search every 6 months (author 2026-10-12): the atlas README's "Last atlas search for new purified cells: YYYY-MM-DD" is <= 183 days old.
+import datetime as _dt19
+_m19 = re.search(r"Last atlas search for new purified cells: (\d{4}-\d\d-\d\d)", open("Biological_Physics/MethylPhys/atlas/README.md", encoding="utf-8").read())
+if not _m19: fail.append("atlas README has no 'Last atlas search for new purified cells: <date>' line (rule 19)")
+elif (_dt19.date.today() - _dt19.date.fromisoformat(_m19.group(1))).days > 183: fail.append(f"atlas search overdue: last {_m19.group(1)}, more than 6 months ago (rule 19)")
 
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)

@@ -15,6 +15,7 @@ Here the same bound is the ruler.
 | folder | contents |
 |---|---|
 | [`MethylPhys/`](MethylPhys/) | **the instrument**, chain v3 (development build, neutrophils on EPIC v1 and on single molecules). Start at [`MethylPhys/README.md`](MethylPhys/README.md); operator procedure [`MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`](MethylPhys/sop/MethylPhys_CPG_SOP_v3.md) |
+| [`MethylPhys/atlas/`](MethylPhys/atlas/) | **IAM-Atlas v2**, the reference of 74 purified healthy cell types every reading is measured against: how it was built, how to get it, what it has passed |
 | [`MethylPhys/doors/`](MethylPhys/doors/) | one pre-registration and one outcome record per procedure, including those that failed |
 | [`Landauer_Metrology/`](Landauer_Metrology/) | the Landauer floor of the cell as a measurement standard: [`verify_landauer_metrology.py`](Landauer_Metrology/verify_landauer_metrology.py) recomputes every number of the book's Landauer metrology chapter, with its output |
 | [`Salmonid/`](Salmonid/) | the fish work: copy error at water temperature (in development) |
