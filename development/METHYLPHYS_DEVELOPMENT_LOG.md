@@ -1096,3 +1096,6 @@ GSE94785: 28 lung cancer patients, tumour and own normal lung on the same 450K s
 
 ### 2026-10-12 · DEV-TISSUE-LUNG-01 sealed
 Synthetic tests all passed on the 28 patient normals and 6 control lungs; scorer guard tested five ways; sealed before any tumour array was fetched: FINGERPRINT if >= 6 of 28 same-slide pairs read above the pair bar.
+
+### 2026-10-12 · Liver cancer in blood, and recurrence after transplant: candidates (metadata only)
+DEV_LIVER_BLOOD_01.md: no public raw methylation data on recurrence after liver transplant (the one set is controlled access); GSE149438 is the best public plasma set of liver cancer against healthy donors for both instruments. No pre-diagnosis plasma found.

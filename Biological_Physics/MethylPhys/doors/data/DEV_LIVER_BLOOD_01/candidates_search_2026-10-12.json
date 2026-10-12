@@ -1,0 +1,263 @@
+{
+ "structured_output": {
+  "transplant_recurrence": [
+   {
+    "rank": 1,
+    "accession": "EGAS50000000450 / EGAD50000000652 (processed: Zenodo 10.5281/zenodo.11251606; code github.com/pughlab/HCC_cfMeDIP)",
+    "title": "Plasma cell-free DNA methylomes for HCC detection and monitoring after liver resection or transplantation (Chen K et al., medRxiv 10.1101/2024.10.01.24314116; Ann Surg 2025, 10.1097/SLA.0000000000007003)",
+    "lab": "Princess Margaret / UHN Toronto (Pugh lab; contact Kui Chen)",
+    "assay": "cfMeDIP-seq, ~101-129M reads/sample (paper)",
+    "groups": "89 HCC patients (57 liver transplant, 32 resection): 89 baseline at surgery + 112 follow-up (every 3 months up to 2 y); 35 healthy controls (living liver donors); 203 HCC + 23 controls in EGA, 12 more controls via Ontario Health Study (paper/README)",
+    "longitudinal": true,
+    "raw_public": false,
+    "raw_access": "EGA controlled (DAC); processed bin counts on Zenodo (public, not raw)",
+    "size": "not queried (EGA metadata not accessed)",
+    "donor_recipient_distinguishable": "Not from methylation; living-donor controls are separate people, not paired donor-recipient samples. Genotype-based donor fraction would need raw reads (controlled).",
+    "source": "web search (paper abstract, GitHub README data-availability statement); counts from paper, not from a repository query",
+    "main_risk": "Controlled access only; the only post-transplant HCC recurrence cfDNA methylation set found. Counts are paper-stated, not repository-verified (provisional)."
+   },
+   {
+    "rank": 2,
+    "accession": "GSE262273 (cfDNA, 130) / GSE262274 (reference cells, 14) / GSE262275 (superseries, 148); raw: dbGaP phs003610 (PRJNA1100632)",
+    "title": "Circulating, cell-free methylated DNA reveals cellular sources of allograft injury after liver transplant (McNamara et al., Nat Commun 2025, PMID 40527875)",
+    "lab": "Georgetown University, Wellstein Lab (contributors McNamara ME, Jain SS, Oza K, Muralidaran V, Kiliti AJ, McDeed AP, ... Kroemer A, Wellstein A; 12 contributors)",
+    "assay": "Hybridization-capture bisulfite sequencing of serum/plasma cfDNA (GPL24676 NovaSeq 6000)",
+    "groups": "GEO cfDNA: 130 samples (121 serum, 9 plasma), 44 liver-transplant recipients; timepoints POD0-PRE 27, POD0-POST 31, POD7 20, POD30 18, for-cause biopsy timepoints 30 (FC-POD*); GSE262275 adds 18 'healthy' and liver/biliary reference cells",
+    "longitudinal": true,
+    "raw_public": false,
+    "raw_access": "GEO states raw data not available (patient privacy); SRA runs under PRJNA1100632 = dbGaP phs003610, consent GRU-IRB-PUB-COL (160 runs, 139 Bisulfite-Seq, ~2,499 GB) - controlled",
+    "size": "GEO RAW.tar (processed) size not queried; dbGaP 2,499 GB",
+    "donor_recipient_distinguishable": "No in GEO (processed tissue-of-origin only); possible from SNPs in controlled raw reads",
+    "source": "GEO gds esearch + GSE/GSM text; SRA runinfo PRJNA1100632",
+    "main_risk": "Not an HCC study: endpoint is allograft injury within ~1 month (to 125 days); HCC indication of recipients not labelled in GEO; no recurrence follow-up; raw controlled."
+   }
+  ],
+  "plasma_hcc_vs_healthy": [
+   {
+    "rank": 1,
+    "accession": "GSE63775 (SRP051242, PRJNA270585)",
+    "title": "MCTA-Seq for profiling hypermethylated CpG islands in plasma of HCC patients (Wen L et al., Cell Res 2015, PMID 26516143)",
+    "lab": "BIOPIC, Peking University (Wen L, Li J, Liu X, Guo H, Tang F, Huang Y; 7 contributors)",
+    "assay": "MCTA-seq (methylated CpG tandem amplification + bisulfite seq), HiSeq 2000, paired 2x101",
+    "groups": "Plasma: HCC 36 (27 discovery + 9 testing), cirrhosis 16, healthy 39 (29 + 10 testing). Tissue: HCC 27, adjacent 27, normal liver 3 (5 by tissue field); plus dilution/control libraries",
+    "longitudinal": false,
+    "raw_public": true,
+    "runs": 183,
+    "size_GB": 138.7,
+    "read_length": "2x101 (runinfo avgLength 202)",
+    "matched_tissue_plasma": "yes - patient IDs shared between tumour, adjacent and plasma (111 distinct patient IDs)",
+    "source": "GEO GSM characteristics + SRA runinfo + ENA filereport (183 runs)",
+    "main_risk": "MCTA-seq reads only hypermethylated CGCGCGG tandem sites (not genome-wide, amplification-biased); small groups; cirrhosis count 16 in GEO vs 17 in abstract."
+   },
+   {
+    "rank": 2,
+    "accession": "GSE93203 (SRP096127, PRJNA360288)",
+    "title": "ctDNA methylation markers in diagnosis and prognosis of HCC (Xu RH et al., Nat Mater 2017, 10.1038/nmat4997)",
+    "lab": "UCSD / Sun Yat-sen (contributors Krawczyk M, Wang W, Flagg K, Zhang K)",
+    "assay": "Targeted padlock-probe bisulfite sequencing of ~401 marker CpGs, HiSeq 2500, paired (runinfo avgLength 189)",
+    "groups": "Serum cfDNA: HCC 1,221, healthy control 970 (all 2,191 have SRA runs)",
+    "longitudinal": "paper reports pre/post-surgery, treatment response and recurrence comparisons, but GEO labels only HCC vs normal - not verifiable from metadata",
+    "raw_public": true,
+    "runs": 2191,
+    "size_GB": 141.7,
+    "source": "GEO GSM + SRA runinfo (SRP096127 esearch count 2191)",
+    "main_risk": "Specimen labelled 'blood serum'; targeted panel only (~hundreds of loci); no cirrhosis/hepatitis controls labelled; no stage/timepoint per sample in GEO."
+   },
+   {
+    "rank": 3,
+    "accession": "GSE149438 (SRP258729, PRJNA628686)",
+    "title": "EpiPanGI Dx: cfDNA methylation fingerprint for early detection of GI cancers (Kandimalla R et al., Clin Cancer Res 2021, PMID 34465601)",
+    "lab": "Baylor College of Medicine / Goel lab (contributors Goel A, Kandimalla R, Li W, Xu J)",
+    "assay": "Bisulfite-Seq of plasma cfDNA, NovaSeq 6000, paired (avgLength 250-259 total)",
+    "groups": "cfDNA: HCC 43, Normal 46, plus PDAC 74, ESCC 48, CRC 40, GC 37, EAC 12 (300 total); stage given for some",
+    "longitudinal": false,
+    "raw_public": true,
+    "runs": 300,
+    "size_GB": 263.4,
+    "source": "GEO GSM + SRA runinfo",
+    "main_risk": "Assay scope (targeted DMR panel vs genome-wide) not verified from metadata; no cirrhosis controls."
+   },
+   {
+    "rank": 4,
+    "accession": "GSE124775 (SRP176482, PRJNA513381)",
+    "title": "Multiplex 5mC Marker Barcode Counting (MMBC-seq) for cfDNA methylation",
+    "lab": "University of Chicago (Chuan He, Ji Nie)",
+    "assay": "MMBC-seq targeted bisulfite barcode counting, NextSeq 500, paired (avgLength 74 total)",
+    "groups": "Plasma: HCC 38 (28 HBV-HCC + 10 HCC), HBV 19, healthy 58, iCCA 2, other cancers 81 (gastric 22, esophageal 17, colon 14, pancreatic 10, lung 9, NPC 9)",
+    "longitudinal": false,
+    "raw_public": true,
+    "runs": 198,
+    "size_GB": 18.7,
+    "source": "GEO GSM + SRA runinfo",
+    "main_risk": "Very short reads and few target loci; no PMID linked in GEO."
+   },
+   {
+    "rank": 5,
+    "accession": "GSE129374 (PRJNA531089; no SRA - array)",
+    "title": "Genome-wide discovery and validation of diagnostic DNA methylation biomarkers for HCC detection in cfDNA (Hlady RA et al., Theranostics 2019, PMID 31695765)",
+    "lab": "Mayo Clinic, Robertson Lab (Hlady RA, Robertson KD)",
+    "assay": "Illumina 450K (GPL13534) on plasma cfDNA; RAW.tar holds 88 IDATs",
+    "groups": "Plasma cfDNA: cirrhosis with HCC 22, cirrhosis alone 22; no healthy",
+    "longitudinal": false,
+    "raw_public": true,
+    "size_GB": 0.56,
+    "source": "GEO GSM + GEO suppl filelist.txt (88 IDAT, RAW.tar 561,920,000 bytes)",
+    "main_risk": "No healthy-donor plasma; 450K on low-input cfDNA (quality); only 44 samples. Only public raw-IDAT plasma HCC set found besides the held GSE298812."
+   },
+   {
+    "rank": 6,
+    "accession": "GSE112679 (SRP137706, PRJNA448890)",
+    "title": "Genome-wide mapping of 5hmC in cfDNA for early detection of HCC (Cai J et al., Gut 2019, PMID 31358576)",
+    "lab": "Northwestern University (Zhang W lab; 35 contributors incl. Cai J, Chen L, Zhang Z)",
+    "assay": "5hmC-Seal (labelled MeDIP-Seq), NextSeq 500, paired 2x~38 (avgLength 75)",
+    "groups": "Plasma 2,554 + 26 HCC tumour + 26 adjacent tissue. Paper: 1,204 HCC, 392 CHB/cirrhosis, 958 controls (benign/healthy). GEO lists only Training 1,120 / Validation-1 1,194 / Validation-2 240 - no per-sample diagnosis",
+    "longitudinal": false,
+    "raw_public": true,
+    "runs": 2606,
+    "size_GB": 1693,
+    "source": "GEO GSM + SRA runinfo + PubMed abstract",
+    "main_risk": "5hmC not 5mC; per-sample diagnosis labels absent from GEO (would need supplementary mapping); 1.7 TB."
+   },
+   {
+    "rank": 7,
+    "accession": "GSE81314 (SRP074577)",
+    "title": "Shotgun sequencing of 5hmC cfDNA distinguishes solid tumour tissues of origin (Song CX et al.)",
+    "lab": "Sichuan University (Xie D, Song CX)",
+    "assay": "5hmC-Seal, NextSeq 500",
+    "groups": "HCC 19 (+5 inputs), HBV 7, healthy 8, lung 15, pancreatic 7, gastric 5, GBM 4, colon 4, breast 4 (titles)",
+    "longitudinal": false,
+    "raw_public": true,
+    "runs": 130,
+    "size_GB": 129.6,
+    "source": "GEO GSM titles + SRA runinfo",
+    "main_risk": "5hmC; small groups."
+   },
+   {
+    "rank": 8,
+    "accession": "GSE89570 (SRP080977)",
+    "title": "5hmC from cfDNA as diagnostic biomarkers for human cancers (Li W et al., Cell Res 2017, PMID 28925386)",
+    "lab": "University of Illinois at Chicago (He C, Liu J, Zhang W)",
+    "assay": "5hmC-Seal, HiSeq 2000",
+    "groups": "Plasma: liver cancer 25, healthy 96, plus colon/stomach/thyroid/pancreas/benign; tumour+adjacent tissue 96 each (not liver)",
+    "longitudinal": false,
+    "raw_public": true,
+    "runs": 626,
+    "size_GB": 1662.6,
+    "source": "GEO GSM + SRA runinfo",
+    "main_risk": "5hmC; only 25 liver-cancer plasma; 1.66 TB."
+   },
+   {
+    "rank": "held",
+    "accession": "GSE298812 (PRJNA1271421)",
+    "status": "held",
+    "title": "Circulating cfDNA methylation biomarkers for HCC risk prediction in HIV-positive Nigerian population",
+    "lab": "Northwestern University (Hou L, Murphy RL, Ogunsola FT, Sagay AS)",
+    "assay": "Illumina EPIC (GPL21145) plasma cfDNA; 490 IDATs, RAW.tar 3.76 GB",
+    "groups": "HIV+ HCC-Pos 31, HIV+ cirrhosis 31, HIV+ fibrosis 68, HIV+ HCC-Neg 115 (245); sites JUTH 131 / LUTH 114",
+    "longitudinal": false,
+    "raw_public": true,
+    "size_GB": 3.76,
+    "source": "GEO GSM + filelist.txt",
+    "main_risk": "All HIV-positive; no HIV-negative healthy donors."
+   }
+  ],
+  "longitudinal": [
+   {
+    "rank": 1,
+    "accession": "EGAS50000000450 / EGAD50000000652",
+    "title": "Toronto HCC cfMeDIP after resection/transplant (Chen K et al., Ann Surg 2025)",
+    "design": "Baseline at surgery + follow-up every 3 months to 2 y; 112 follow-up samples, recurrence vs no recurrence; 57 transplant patients",
+    "raw_public": false,
+    "access": "EGA controlled",
+    "main_risk": "Controlled; paper-stated counts (provisional)."
+   },
+   {
+    "rank": 2,
+    "accession": "GSE93203",
+    "title": "Xu 2017 Nat Mater ctDNA methylation HCC",
+    "design": "Paper figure compares before surgery / after surgery / recurrence and before treatment / response / progression",
+    "raw_public": true,
+    "main_risk": "Serial/timepoint samples are not identified in GEO metadata (labels HCC vs normal only); cannot confirm which runs are follow-up without author supplementary tables - provisional."
+   },
+   {
+    "rank": 3,
+    "accession": "GSE262273 (dbGaP phs003610)",
+    "title": "McNamara 2025 liver-transplant cfDNA",
+    "design": "Serial POD0-PRE, POD0-POST, POD7, POD30 and for-cause biopsy timepoints in 44 recipients",
+    "raw_public": false,
+    "main_risk": "Transplant injury, not HCC recurrence; no pre-diagnosis HCC."
+   },
+   {
+    "rank": "none_found",
+    "category": "Pre-diagnostic HCC plasma cfDNA methylation",
+    "result": "No public or controlled dataset found with plasma drawn before HCC diagnosis. GSE298812 (held) is cross-sectional risk groups; PRJNA564401 ('low-pass WGBS in HCC surveillance', Marshfield Clinic) has 0 runs in SRA and ENA."
+   }
+  ],
+  "near_misses": [
+   {
+    "accession": "PRJNA1034228 (dbGaP phs003462)",
+    "reason": "sscf-MeDIP-seq plasma, liver cancer 174 runs (consent DS-HCC) + brain 97; Columbia; 101.9 GB - controlled access"
+   },
+   {
+    "accession": "PRJNA962995 (epiLiver, HKG Epitherapeutics)",
+    "reason": "555 plasma runs public (6.8 GB, targeted, avgLength 302) but BioSample has no diagnosis field; 505 from icddr,b Bangladesh, 50 'HMN' from Innovative Research (commercial normals?) - groups unknowable from metadata"
+   },
+   {
+    "accession": "PRJNA1248773 (Genetrix)",
+    "reason": "HCC vs cirrhosis blood test: only the 75 tissue runs deposited (43 HCC, 32 adjacent; 409 GB); the 55 HCC/55 cirrhosis/50 healthy plasma set is not in SRA"
+   },
+   {
+    "accession": "PRJNA564401",
+    "reason": "Low-pass WGBS cfDNA HCC surveillance (Marshfield Clinic): 0 runs in SRA and ENA"
+   },
+   {
+    "accession": "GSE118690",
+    "reason": "Plasma/WBC methylation, benign liver disease 13 and healthy 86; no HCC"
+   },
+   {
+    "accession": "GSE54961",
+    "reason": "MBD-seq serum cfDNA, 1 each healthy/HBV/cirrhosis/HCC (n=4), 35 bp, 2 GB - too small"
+   },
+   {
+    "accession": "GSE202988, GSE186575, GSE186007, GSE301266, GSE79277",
+    "reason": "Plasma cfDNA methylation/5hmC series without any liver-cancer group (checked GSM labels)"
+   },
+   {
+    "accession": "GSE113019 / GSE112791 (TMDU) and GSE75041 (SYSUCC)",
+    "reason": "450K HCC tissue with recurrence (primary vs recurrent after resection) - tissue only, not transplant, not plasma"
+   },
+   {
+    "accession": "GSE102759, GSE249913, GSE64989, GSE62743, GSE148355, GSE30297",
+    "reason": "HCC + liver transplantation / recurrence after LT, but expression or miRNA only - no methylation"
+   },
+   {
+    "accession": "PRJNA1338787 (Beppu Hospital)",
+    "reason": "Paired primary (LT) vs graft-recurrence FFPE, 5 patients; spatial multi-omics/RNA-seq (2 OTHER + 2 RNA-seq runs), not methylation"
+   },
+   {
+    "accession": "PRJEB100856, PRJNA972492",
+    "reason": "Post-LT HCC recurrence spatial transcriptomics / LT recipients beyond Milan multi-omics: not methylation (PRJNA972492 has 0 SRA runs)"
+   },
+   {
+    "accession": "GSA-Human HRA004780",
+    "reason": "NEEM-seq HCC cfDNA (Genome Med 2023) - GSA-Human, access by request = controlled (paper statement, not queried)"
+   },
+   {
+    "accession": "PMC13108919 (HBMV amplicon panel)",
+    "reason": "Longitudinal plasma after resection/transplant but 18 HCC + 4 controls; no deposit found in GEO/SRA queries"
+   },
+   {
+    "accession": "PRJNA1067580",
+    "reason": "HCC early-detection methylation markers in PBMC, not cfDNA"
+   }
+  ],
+  "summary": "Category 1 (transplant/recurrence): nothing public with raw data. The only HCC-after-transplant cfDNA methylation set is the Toronto cfMeDIP cohort (57 LT + 32 resection, 112 follow-ups; EGAS50000000450, controlled). The Georgetown liver-transplant cfDNA set (GSE262273, 44 recipients, 130 serial samples) covers allograft injury, not HCC; raw reads sit in dbGaP phs003610 (controlled). Graft-recurrence tumour methylation: none found. Category 2 (public raw, HCC vs healthy plasma): best are GSE63775 (MCTA-seq, HCC 36/cirrhosis 16/healthy 39, 139 GB), GSE93203 (padlock BS, HCC 1,221/healthy 970, 142 GB), GSE149438 (HCC 43/normal 46, 263 GB), GSE124775 (HCC 38/HBV 19/healthy 58, 19 GB). Raw-IDAT plasma arrays: GSE129374 (450K, 22 cirrhosis+HCC vs 22 cirrhosis, no healthy, 0.56 GB) and held GSE298812. 5hmC sets (GSE112679 has no per-sample diagnosis in GEO; GSE81314; GSE89570) are 5hmC, not 5mC. Category 3 (longitudinal): Toronto (controlled) only; GSE93203 has serial samples per the paper but they are not labelled in GEO. No pre-diagnostic HCC plasma set found."
+ },
+ "deviations": [
+  "Toronto cohort (EGAS50000000450) counts come from the paper abstract and GitHub README, not a repository query; EGA metadata and file sizes were not queried, so those counts are provisional.",
+  "GSE93203 longitudinal status comes from the paper figure legend only; GEO metadata cannot confirm which runs are follow-ups (provisional).",
+  "GSA-Human HRA004780 and the HBMV study (PMC13108919) come from web search only; neither was queried in the repository.",
+  "The first SRA runinfo pull for GSE93203 was truncated at 1,691 runs; a re-query by SRP gave 2,191 runs and 141.7 GB, and those are the figures reported.",
+  "GEO free-text searches were capped at 500 hits per query (all queries returned fewer than that); SRA strategy search was capped at 5,000 of 5,069 hits."
+ ]
+}
