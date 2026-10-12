@@ -1090,3 +1090,6 @@ Synthetic tests on GSE199057's 150 non-cancer arrays (work machine 01): composit
 
 ### 2026-10-12 · Stage B: second spot machine reclaimed; moved zones
 The c6a.32xlarge spot machine in us-west-2a was reclaimed by AWS 46 min after launch, during its startup disk read, before any new library finished (still 25 of 71 in S3). spot_from_box.py takes an optional subnet; Stage B relaunched in us-west-2d (c6a.32xlarge spot, the cheapest zone). Each reclaim costs only the startup read; finished libraries are kept.
+
+### 2026-10-12 · DEV-TISSUE-LUNG-01 inputs (lung first, author)
+GSE94785: 28 lung cancer patients, tumour and own normal lung on the same 450K slide, never read. Sample table, fetch with tumour lock (tested three ways) and calibration committed before any array is fetched.

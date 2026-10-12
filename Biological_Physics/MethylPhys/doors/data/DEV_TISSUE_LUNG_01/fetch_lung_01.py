@@ -1,6 +1,6 @@
 """DEV-TISSUE-LUNG-01: fetch GSE94785 IDATs from GEO per sample. Only non-cancer arrays (patients' normal lung and the controls) until
 sealed_lung_01.json is committed; a tumour GSM is refused by the lock below before any request is made. Usage:
-python3 fetch_colon_02.py OUT_DIR normal | tumour"""
+python3 fetch_lung_01.py OUT_DIR normal | tumour"""
 import os, sys, subprocess, time, requests, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); S = pd.read_csv(os.path.join(HERE, "gse94785_samples.csv"))
 TUMOUR = set(S[S.kind == "tumor"].gsm)
