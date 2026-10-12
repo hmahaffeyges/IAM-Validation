@@ -1,10 +1,13 @@
 # Biological physics — the cell as an encoding surface
 
-A cell holds its identity as a methylation pattern, one bit per CpG copy, written and copied at body temperature. IAM's Law prices each
-maintained bit at `k_B T ln 2` (2.97 × 10⁻²¹ J at 310.15 K). The instrument here reads how well a cell is holding its own pattern: its
-copy error against the same cell type when healthy, on one gauge where **A = 1 is healthy**, the thermal floor lies to the left and more
-error lies to the right. Nothing about any other person enters a reading. The physics and every number are in Part 4 of the book
-([`docs/book`](../docs/book)).
+A cell holds its identity as information: a methylation pattern, one bit per CpG copy, held at body temperature. IAM's Law prices each
+maintained bit at `k_B T ln 2` (2.97 × 10⁻²¹ J at 310.15 K). The instruments here read the cell's **informational fidelity**, how faithfully it
+holds its own pattern, against the same cell type when healthy, on one gauge where **A = 1 is healthy**, the thermal floor lies to the left
+and less fidelity lies to the right. Nothing about any other person enters a reading. There are two instruments, blind in different places:
+**Met-A** (arrays) reads the state of the pattern at fixed identity sites, in both directions; **IAM-A** (sequencing) reads the isolated errors
+in the held pattern, the copy error, set by the balance of restore and loss whether the cell divides or not. Where both read the same cells and
+agree, the result is stronger than either; where they disagree, that is information about the physics. The physics and every number are in
+Part VI of the book ([`docs/book`](../docs/book)).
 
 Prior art: Sanchez and Mackenzie (2016) showed that cytosine methylation obeys Landauer's bound and used it to filter thermal background.
 Here the same bound is the ruler.

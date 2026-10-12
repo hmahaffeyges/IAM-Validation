@@ -32,8 +32,8 @@ gravity follows from the thermodynamics of such surfaces.
 The Informational Actualization Model is a testable set of equations inside general relativity, the piece Jacobson's thermodynamic
 derivation of Einstein's equations left open. At the cosmic horizon it fixes a late-time coupling with no free parameter: IAM fits the
 Planck CMB as well as ΛCDM and predicts slower growth of structure with lensing unchanged, a test Euclid and DESI will make. In the
-cell, the same price per bit sets a floor under how faithfully a methylation pattern can be copied, and an instrument in development
-reads each cell against that floor and against its own healthy state. The substrate changes. The noise changes. The measured inputs
+cell, the same price per bit sets a floor under how faithfully a methylation pattern can be held, and two instruments read each
+cell's informational fidelity against that floor and against its own healthy state. The substrate changes. The noise changes. The measured inputs
 change. The thermodynamic accounting does not.
 
 ## Try to break it
