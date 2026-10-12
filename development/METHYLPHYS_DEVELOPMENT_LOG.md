@@ -1120,3 +1120,6 @@ The uncommitted liver_synthetic.py was lost during the rule-17 controls and rewr
 
 ### 2026-10-12 · DEV-TISSUE-LIVER-01 synthetic tests: independence failed twice; not sealed
 v1 failed independence and a plate test that was wrong for a same-plate design (it squared each ratio). v2 (tighter blind sites, plate test removed) still fails independence (Spearman -0.215 against the 0.2 bar). Not sealed; held for the author. Normal-liver spread close to lung; the every-pair rule is too sensitive to composition here.
+
+### 2026-10-12 · DEV-TISSUE-LIVER-01 sealed
+Test 7 (direction of composition) committed before running, then PASSED: no mix change fakes the call (worst false call 0.017). Disclosed amendment: test 7 replaces the independence bar for this set (author decision). Guard tested five ways. Sealed before any tumor array was fetched: FINGERPRINT if >= 8 of 50 same-plate pairs read above the pair bar.

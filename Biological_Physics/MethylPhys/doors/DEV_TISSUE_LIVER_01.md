@@ -1,4 +1,4 @@
-# DEV-TISSUE-LIVER-01 — Met-A on liver tumors against the same patient's normal liver (development; design, 2026-10-12; NOT sealed)
+# DEV-TISSUE-LIVER-01 — Met-A on liver tumors against the same patient's normal liver (development; SEALED 2026-10-12 before any tumor array was fetched)
 
 **Why.** Liver first among the remaining cancers (author, 2026-10-12). The design of DEV-TISSUE-BREAST-01: each patient's tumor against that
 patient's own normal tissue processed on the same plate.
@@ -26,6 +26,16 @@ count rule, the one with more power at small changes sealed. Normal liver next t
 - Lesson T15 applied: normal-liver spread (stand-in SD 0.0815) is close to lung's (0.0860), wider than colon's (0.0502); the every-pair rule
   detects a 1 % change but is not eligible here: mixing in another patient's normal liver alone makes it call a fingerprint in 0.119 of draws.
 
-**Status: not sealed.** By the rule written before running, a failed test means no seal. Held for the author.
+**Author decision, after v2 (2026-10-12): test the direction first.** Test 7 (`data/DEV_TISSUE_LIVER_01/liver_direction_07.py`) and its bar
+were committed (f232e8e) before it was run: can any change in tissue mix alone, at 30-60 % or 60-90 % of the sample, push the COUNT rule to a false
+FINGERPRINT? Components: stroma, fibroblasts, smooth muscle, endothelium, immune cells, hepatocytes, fat cells, another patient's normal liver.
+**PASSED** (`liver_direction_07_summary.txt`): worst case another patient's normal liver, false call 0.017 against the 0.05 bar; most components
+lower R. **Amendment, disclosed:** for this set test 7 replaces the independence bar (test 3, failed twice): the drift with hepatocyte share
+cannot fake a fingerprint at this rule; it can only make one harder to see.
+
+**Synthetic test:** DEV_TISSUE_LIVER_01/liver_synthetic.py, DEV_TISSUE_LIVER_01/liver_synthetic_output.csv, DEV_TISSUE_LIVER_01/liver_synthetic_summary.txt, DEV_TISSUE_LIVER_01/liver_direction_07.py, DEV_TISSUE_LIVER_01/liver_direction_07_output.csv, DEV_TISSUE_LIVER_01/liver_direction_07_summary.txt
+
+**Seal** (`data/DEV_TISSUE_LIVER_01/sealed_liver_tissue.json`, scorer `score_liver_tissue.py`, guard tested five ways before sealing, with nothing
+uncommitted): FINGERPRINT if >= 8 of 50 pairs read Met-A(tumor)/Met-A(own normal liver, same plate) above 1.1246 at the sealed blind sites; else NO FINGERPRINT.
 **Not a milestone:** design (development).
 
