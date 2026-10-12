@@ -1189,3 +1189,6 @@ The lung 3 v3 design on LUAD normals passed composition, planted 5 % and power (
 
 ### 2026-10-12 · Atlas v2.1 roster and split fixed before any data is read (DEV-ATLAS-V21-01)
 Author approved building, fitting and commissioning v2.1 as one project. A metadata-only prep (76 GEO series, 2 ArrayExpress studies, open papers) gave the roster, a donor-level build/held-out split rule with donor lists, a culture check for lung stroma (research-only in v2.1) and a 21-30 h compute estimate. Recommendations adopted under the standing rule. GSE226298 added to data_spent.csv.
+
+### 2026-10-12 · Stage B: one library declared failed by a rerun bug; aligned on rerun. Lesson C7
+SRR13051241 (TrueMethylBS HG005 LAB01 REP02) first failed to download (one read file empty). The retry downloaded it in full, but the script read the first attempt's failure line and declared it failed before the download finished. The files were complete on the machine; the unchanged sealed command was rerun to align it. session_epiqc.sh now clears earlier failure lines of incomplete runs at start (future runs); planted test passed. LESSONS C7.

@@ -67,6 +67,8 @@ finish(){ r=$1; T0=$2; T1=$3
   for f in $O/${r}_*; do up "$f" "$P/$(basename $f)"; done; up "$PAT" "$P/$r.pat.gz"
   rm -f r10/bam/$r.bam* $PAT ${PAT}.csi; log "$r done $(grep -m1 'mapped (' $O/${r}_flagstat.txt | cut -c1-60)"
 }
+# A rerun must not read an earlier attempt's failure: drop fetch.txt lines of every run without a complete download (2026-10-12, LESSONS C7).
+[ -f $O/fetch.txt ] && for r in $RUNS; do [ -f r10/fq/$r.complete ] || sed -i "/^$r pairs/d" $O/fetch.txt; done
 ( for r in $RUNS; do have "$P/$r.pat.gz" && continue; while [ $(jobs -r | wc -l) -ge ${FETCH_PAR:-8} ] || [ $(ls r10/fq/*_1.fq 2>/dev/null | wc -l) -ge ${MAX_WAIT:-8} ]; do sleep 10; done; fetch $r & sleep 2; done; wait ) &
 for r in $RUNS; do
   have "$P/$r.pat.gz" && { log "$r already in S3"; continue; }
