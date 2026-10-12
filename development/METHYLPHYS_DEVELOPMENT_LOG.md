@@ -1114,3 +1114,6 @@ TCGA-LIHC: 50 patients, tumor and own normal liver on the same plate (metadata o
 
 ### 2026-10-12 · One lessons file, enforced (author); push-gate rule 17
 LESSONS.md is the only lessons file. The gate refuses a push when a lesson the log names has no row there, when one of the four older topic lists it indexes (now frozen records) changes, or when a new lessons file appears.
+
+### 2026-10-12 · Lesson C6 recurred
+The uncommitted liver_synthetic.py was lost during the rule-17 controls and rewritten unchanged before any liver array was read (4198385). Rule tightened: a control runs only when nothing is uncommitted (git status --porcelain empty).
