@@ -1,0 +1,6 @@
+{
+ "url": "https://www.gofundme.com/f/help-fund-early-cancer-detection-research-built-in-public",
+ "title": "Help fund early cancer detection research, built in public",
+ "md": "This research is independent, with no institutional or company funding. I fund it myself, together with people who choose to help. Every dollar spent on rented computing is listed, run by run, in the public [run ledger](Biological_Physics/MethylPhys/RUNS.md).\n\nTo help: **[Help fund early cancer detection research, built in public]({url})** (GoFundMe). To follow the work: [FOLLOW.md](FOLLOW.md).",
+ "tex": "\\paragraph{How this work is funded.} This research is independent, with no institutional or company funding. I fund it myself, together with people who choose to help. Every dollar spent on rented computing is listed, run by run, in the public run ledger of the repository (\\texttt{Biological\\_Physics/MethylPhys/RUNS.md}). To help: \\href{{url}}{\\textit{Help fund early cancer detection research, built in public}} (GoFundMe)."
+}

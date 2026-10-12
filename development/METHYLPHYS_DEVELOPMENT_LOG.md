@@ -1129,3 +1129,6 @@ Relaunched on c6a.32xlarge spot in us-west-2d (capacity score 9 of 10); remainin
 
 ### 2026-10-12 · Stage B: fourth spot reclaim; last 21 libraries on an on-demand machine (author decision)
 Spot capacity for 64- and 128-core machines short (scores 1-3 of 10 for large-memory types). The author chose a regular c6a.32xlarge: about $23 more, about $50 for Stage B against the $35-45 estimate. spot_from_box.py gains an opt-in --ondemand flag; ledger updated before launch.
+
+### 2026-10-12 · How the work is funded: one statement in the README, FOLLOW.md and the book preface (author); push-gate rule 18
+The GoFundMe link and wording are kept once (CANON/funding.json) and written into all three places by CANON/funding_sync.py; the gate refuses a push if any differs. The link is the fundraiser page itself (the short link gofund.me/aa66b647d opens the author profile).

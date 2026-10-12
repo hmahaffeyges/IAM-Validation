@@ -17,7 +17,8 @@ Rule 9 (2026-10-11): laboratory independence from GEO contributors (CANON/indepe
   13. a **Milestone:** note has no results-register entry, or a register entry's record lacks the line or does not exist;
   15. a number on the live fundraiser page (fundraiser/GOFUNDME_STORY_LIVE.txt) no longer matches its record;
   16. donor-facing text (READMEs, FOLLOW.md, fundraiser text, register plain/title/headline) has a British spelling;
-  17. a lesson named in the log is not a row of LESSONS.md, a frozen older lessons file changes, or a new lessons file appears."""
+  17. a lesson named in the log is not a row of LESSONS.md, a frozen older lessons file changes, or a new lessons file appears;
+  18. the funding statement in README.md, FOLLOW.md or the book preface differs from CANON/funding.json."""
 import os, re, subprocess, sys
 def git(*a): return subprocess.run(["git", *a], capture_output=True, text=True).stdout
 fail = []
@@ -223,6 +224,10 @@ for _f in _all:
     if _f in _FROZEN: fail.append(f"{_f}: a frozen lessons record was changed; add the lesson to {_LF} instead (rule 17)")
     elif re.search(r"lesson", _f.rsplit("/", 1)[-1], re.I) and _f != _LF and _f not in _FROZEN and git("cat-file", "-t", f"HEAD:{_f}").strip():
         fail.append(f"{_f}: a new lessons file; lessons go in {_LF} only (rule 17)")
+
+# 18. One funding statement (author 2026-10-12): README.md, FOLLOW.md and the book preface carry the block written from CANON/funding.json.
+_r = _sp.run([sys.executable, "CANON/funding_sync.py", "check"], capture_output=True, text=True)
+if _r.returncode != 0: fail.append("funding statement out of step (run python3 CANON/funding_sync.py write): " + "; ".join(_r.stdout.split(chr(10))[:4]) + " (rule 18)")
 
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
