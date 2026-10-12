@@ -1,0 +1,17 @@
+PRJNA762641: 132 runs, layout {'PAIRED': 132}, bases per read pair (median) 293, FASTQ 4.97 TB
+PRJNA984754: 24 runs, layout {'PAIRED': 24}, bases per read pair (median) 200, FASTQ 0.70 TB
+PRJNA287622: 28 runs, layout {'PAIRED': 28}, bases per read pair (median) 200, FASTQ 2.04 TB
+PRJNA1198121: 16 runs, layout {'PAIRED': 16}, bases per read pair (median) 300, FASTQ 0.56 TB
+PRJNA1103867: 12 runs, layout {'SINGLE': 6, 'PAIRED': 6}, bases per read pair (median) 250, FASTQ 0.48 TB
+PRJNA315696: 18 runs, layout {'PAIRED': 18}, bases per read pair (median) 178, FASTQ 0.27 TB
+PRJNA649023: 25 runs, layout {'PAIRED': 25}, bases per read pair (median) 302, FASTQ 0.27 TB
+GSE235414: 130 samples, 260 IDAT links
+GSE158422: 74 samples, 148 IDAT links
+GSE94785: 62 samples, 124 IDAT links
+GSE83842: 24 samples, 48 IDAT links
+GSE114989: 40 samples, 80 IDAT links
+GSE136319: 94 samples, 188 IDAT links
+GSE89852: 74 samples, 148 IDAT links
+GSE136380: 46 samples, 92 IDAT links
+GSE77269: 60 samples, 120 IDAT links
+GSE157341: 274 samples, 548 IDAT links

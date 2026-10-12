@@ -1075,3 +1075,6 @@ Each results-register entry now carries a plain-language explanation for donors 
 
 ### 2026-10-12 · HepG2 and A549: wording corrected (author)
 DEV-FINGERPRINT-02 outcome said "Cause found" for the gain excess in HepG2 and A549. Corrected: the gain excess was measured after the fact (post hoc, not a test); their loss excess sits below Arm B's bar, which is not detected, not absent. Whether a loss fingerprint is absent in liver and lung cancer cells or below what Arm B can detect is open; it needs a sealed test on unread liver and lung data.
+
+### 2026-10-12 · Liver and lung candidates for a two-way fingerprint test (metadata only)
+DEV_FINGERPRINT_03.md: array and sequencing sets of liver and lung cancer with matched normals, none read by any version of the instrument (TCGA allowed with disclosure). Counts re-queried by verify_candidates.py; nothing designed or sealed.
