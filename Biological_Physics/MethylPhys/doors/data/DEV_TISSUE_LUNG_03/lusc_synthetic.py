@@ -2,7 +2,8 @@
 v3 (committed before it was run, once; v1 and v2 kept as lusc_synthetic_v1_FAILED_*, _v2_FAILED_*): v1 and v2 failed because the panel held no
 lung stroma (colon and heart fibroblasts, generic smooth muscle stood in) and no lung macrophages. v3 adds MEASURED lung stroma, healthy untreated
 purified arrays through Stage 1 (GSE146376 airway smooth muscle, 54 donors; GSE107226 normal lung fibroblasts, 4), and the atlas's lung
-interstitial macrophages, to the panel that chooses the blind sites (a site must agree for these too, so sites can only be removed) and to the
+interstitial macrophages, and every lung cell type the atlas holds (interstitial and alveolar macrophages, alveolar endothelium; amended before any run)
+to the panel that chooses the blind sites (a site must agree for these too, so sites can only be removed) and to the
 immune and direction cases. Blind-site spread 0.03 as v2. Nothing else changes. If v3 fails any test, LUSC is not suitable; TCGA-LUAD is next.
 v2: v1 failed test 7 (a 30-60 % stroma blend
 faked the count call; the normals are so alike that the bar is 1.0383). v2 tightens the blind sites from 0.05 to 0.03, as DEV-TISSUE-LIVER-01 v2
@@ -36,7 +37,7 @@ R_ = lambda n: pd.read_parquet(os.path.join(POST, f"atlas_{n.replace(' ', '_')}_
 names = {"alveolar": ["lung alveolar epithelium"], "bronchial": ["lung bronchus epithelium"], "fibroblast": ["colon fibroblasts", "heart fibroblasts"],
          "macrophage": ["colon macrophages"], "smooth_muscle": ["smooth muscle"], "endothelium": ["vascular endothelium"], "T": ["cd4 t cells", "cd8 t cells"],
          "B": ["b cells"], "neutrophil": ["neutrophils"], "monocyte": ["monocytes"], "adipocytes": ["adipocytes"],
-         "lung_macrophage": ["lung interstitial macrophages"]}
+         "lung_macrophage": ["lung interstitial macrophages", "lung alveolar macrophages"], "lung_endothelium": ["lung alveolar endothelium"]}
 P = {k: [R_(n) for n in v] for k, v in names.items()}; idx = P["alveolar"][0].index
 for v in P.values():
     for x in v: idx = idx.intersection(x.index)
@@ -95,7 +96,8 @@ col = {"COUNT": "count_call", "EVERY-PAIR": "every_pair_call"}.get(chosen)
 out.append(f"5 rules: eligible {elig}; detection at d 0.0075 {det}; CHOSEN RULE: {chosen}")
 comp = {"stroma": Mu[["fibroblast", "smooth_muscle", "endothelium"]].mean(1).values, "fibroblasts": Mu["fibroblast"].values, "smooth muscle": Mu["smooth_muscle"].values,
         "endothelium": Mu["endothelium"].values, "immune": imm, "lung smooth muscle": Mu["airway_smooth_muscle"].values,
-        "lung fibroblasts": Mu["lung_fibroblast"].values, "lung stroma": Mu[["airway_smooth_muscle", "lung_fibroblast", "endothelium"]].mean(1).values,
+        "lung fibroblasts": Mu["lung_fibroblast"].values, "lung stroma": Mu[["airway_smooth_muscle", "lung_fibroblast", "lung_endothelium"]].mean(1).values,
+        "lung endothelium": Mu["lung_endothelium"].values,
         "lung macrophages": Mu["lung_macrophage"].values, "alveolar": Mu["alveolar"].values, "bronchial": Mu["bronchial"].values, "adipocytes": Mu["adipocytes"].values, "other normal lung": None}
 D7 = []
 if chosen:
