@@ -82,6 +82,7 @@ def _pool6(dirs):
 def _strip_generated(t):
     """A note's text without the blocks the register generator writes and without its **Milestone:** line (rules 12-14 add these)."""
     t = re.sub(r"<!-- PLAIN:BEGIN.*?<!-- PLAIN:END -->", "", t, flags=re.S)
+    t = re.sub(r"^\*\*Test data:\*\*.*$", "", t, flags=re.M)   # rule 20 line (accessions only)
     return "\n".join(l for l in t.split("\n") if not l.startswith("**Milestone:**")).strip()
 def generated_only(f):
     old = git("show", f"{base}:{f}")
