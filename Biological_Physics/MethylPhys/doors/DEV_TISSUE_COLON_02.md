@@ -21,3 +21,12 @@ the per-pair bar is built from pairs of two different patients' normals on DIFFE
 Tests 1-5 as COLON-01 (composition blend with a non-CRC normal from another slide), plus test 6: the NULL group call with the slide effect
 doubled, because the tumours sit on slides of their own. If tests 2-6 do not all pass, this set is recorded as not suitable and is not sealed.
 
+**Synthetic tests 1-6 run, 2026-10-12** (work machine 01, job 3; `data/DEV_TISSUE_COLON_02/colon02_synthetic.py`, outputs `colon02_synthetic_output.csv`,
+`colon02_synthetic_summary.txt`; 150 non-cancer arrays, no tumour opened). Tests 2 (composition), 4 (planted 5 %) and 5 (power) passed.
+**Test 3 (independence) failed:** the normals' Met-A follows their fitted epithelial share (Spearman -0.274, p 0.02). **Test 6 (doubled slide
+offset) failed:** the group call reaches 0.072 under the null, above 0.05. The normals' Met-A differs by slide (Kruskal-Wallis p 2.42e-03), and
+with no tumour on its own normal's slide, slide and cancer cannot be separated in this set.
+
+**Decision, by the rule written before any array was read: GSE199057 is not suitable for this design and is not sealed.** Its tumour arrays stay
+unread. **Not a milestone:** a design result (development).
+

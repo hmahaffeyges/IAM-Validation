@@ -1,0 +1,18 @@
+arrays: patient normals 78, non-CRC normals 72 | loci 693252 | blind sites 3000 + 3000 | cross-slide stand-in pairs 4000 (sampled) on 23 slides
+1 spread: stand-in R SD 0.0680, 95th percentile (pair bar) 1.1165
+  normals' Met-A by slide: Kruskal-Wallis p 2.42e-03 (16 slides with >= 3)
+  Met-A median: patient normal 0.3501, non-CRC normal 0.3444 (descriptive)
+2-6 cases (pairs; group rule >= 10 of 77, binomial p < 0.01):
+  NULL: mean R 1.0026, share above bar 0.050, group call 0.005
+  SHIFT non-CRC array: mean R 1.0010, share above bar 0.030, group call 0.000
+  SHIFT atlas epithelium: mean R 0.9975, share above bar 0.021, group call 0.000
+  d0.02 non-CRC array: mean R 1.0917, share above bar 0.332, group call 1.000
+  d0.05 non-CRC array: mean R 1.2172, share above bar 0.914, group call 1.000
+  d0.10 non-CRC array: mean R 1.4057, share above bar 0.997, group call 1.000
+  SLIDE x2 NULL: mean R 1.0046, share above bar 0.076, group call 0.072
+3 independence: tared Met-A vs fitted epithelial share (0.011-0.615), n 78: Spearman -0.274 (p 0.02)
+2 composition (array blend) <= 0.10: PASSED
+3 independence: FAILED
+4 planted 5 % >= 0.80: PASSED
+5 power: PASSED
+6 slide offset x2: FAILED

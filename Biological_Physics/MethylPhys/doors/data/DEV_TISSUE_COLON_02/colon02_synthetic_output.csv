@@ -1,0 +1,8 @@
+case,pairs,mean_R,share_above_bar,group_call,bar,crit_of_77
+NULL,4000,1.0026,0.05,0.005,1.1165,10
+SHIFT non-CRC array,4000,1.001,0.03,0.0,1.1165,10
+SHIFT atlas epithelium,4000,0.9975,0.021,0.0,1.1165,10
+d0.02 non-CRC array,4000,1.0917,0.332,1.0,1.1165,10
+d0.05 non-CRC array,4000,1.2172,0.914,1.0,1.1165,10
+d0.10 non-CRC array,4000,1.4057,0.997,1.0,1.1165,10
+SLIDE x2 NULL,4000,1.0046,0.076,0.072,1.1165,10

@@ -1084,3 +1084,6 @@ DEV-IAMA-NEURON-01: by the sealed rule, 5 cortical donors; four agree closely an
 
 ### 2026-10-12 · Stage B spot machine reclaimed by AWS; resumed
 AWS reclaimed the Stage B spot machine at 02:02 Pacific (no spot capacity) after 25 of 71 libraries; all 25 were in S3, and the run script skips them. Resumed on a c6a.32xlarge spot machine (128 cores, 256 GB; peak use about 110 GB; cheaper per hour). The overnight watcher flagged only both machines stopping; it now flags either one stopping before its work is done.
+
+### 2026-10-12 · DEV-TISSUE-COLON-02: not suitable, by its own rule
+Synthetic tests on GSE199057's 150 non-cancer arrays (work machine 01): composition, planted 5 % and power passed; independence (Met-A follows epithelial share, Spearman -0.274) and doubled slide offset (null group call 0.072) failed. Set recorded as not suitable and not sealed; tumours unread. The colorectal replication needs a set with tumour and own normal on the same slide.
