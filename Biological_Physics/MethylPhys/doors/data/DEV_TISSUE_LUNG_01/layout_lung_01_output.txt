@@ -1,0 +1,3 @@
+samples 62: normal 28, tumor 28, control 6; platform GPL13534
+tumour/normal pairs 28; same slide 28; slides 6
+per slide (control, normal, tumor): 8221924028 0/6/6; 8221924035 0/4/4; 8942297130 0/6/6; 8942297142 6/0/0; 8942300018 0/6/6; 8942300020 0/6/6
