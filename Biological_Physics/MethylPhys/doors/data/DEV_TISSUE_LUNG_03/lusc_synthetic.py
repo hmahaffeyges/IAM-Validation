@@ -1,5 +1,10 @@
-"""DEV-TISSUE-LUNG-03 synthetic tests v2 (written 2026-10-12 before any array of this set is read; TCGA-LUSC normal lungs only).
-v2 (committed before it was run, once; v1 kept as lusc_synthetic_v1_FAILED_*): v1 failed test 7 (a 30-60 % stroma blend
+"""DEV-TISSUE-LUNG-03 synthetic tests v3 (written 2026-10-12 before any array of this set is read; TCGA-LUSC normal lungs only).
+v3 (committed before it was run, once; v1 and v2 kept as lusc_synthetic_v1_FAILED_*, _v2_FAILED_*): v1 and v2 failed because the panel held no
+lung stroma (colon and heart fibroblasts, generic smooth muscle stood in) and no lung macrophages. v3 adds MEASURED lung stroma, healthy untreated
+purified arrays through Stage 1 (GSE146376 airway smooth muscle, 54 donors; GSE107226 normal lung fibroblasts, 4), and the atlas's lung
+interstitial macrophages, to the panel that chooses the blind sites (a site must agree for these too, so sites can only be removed) and to the
+immune and direction cases. Blind-site spread 0.03 as v2. Nothing else changes. If v3 fails any test, LUSC is not suitable; TCGA-LUAD is next.
+v2: v1 failed test 7 (a 30-60 % stroma blend
 faked the count call; the normals are so alike that the bar is 1.0383). v2 tightens the blind sites from 0.05 to 0.03, as DEV-TISSUE-LIVER-01 v2
 did; nothing else changes. If v2 fails any test, the set is not suitable and the tumors stay unread.
 Derived from DEV-TISSUE-LUNG-02 lung2_synthetic.py unchanged except the data layout: TCGA samples, pairs share a processing PLATE (GDC aliquot
@@ -22,7 +27,7 @@ Reported, written now: the chosen rule's detection at d = 0.0075. If it is < 0.5
 lean', not as absence.
 Draws: N DIFFERENT stand-in pairs per draw (without replacement), as the real test has N different patients; exact signed-rank p (fix 2026-10-12
 before any output existed: with replacement, repeated pairs made ties and scipy's default switched to a permutation method about 700x slower).
-Writes lusc_synthetic_output.csv, lusc_direction_output.csv and lusc_synthetic_summary.txt. Usage: python3 lusc_synthetic.py POSTDIR BETADIR"""
+Writes lusc_synthetic_output.csv, lusc_direction_output.csv and lusc_synthetic_summary.txt. Usage: python3 lusc_synthetic.py POSTDIR BETADIR STROMA_BETADIR"""
 import os, sys, itertools, numpy as np, pandas as pd
 from scipy.optimize import nnls
 from scipy.stats import spearmanr, binom, wilcoxon
@@ -30,7 +35,8 @@ POST, BD = sys.argv[1], sys.argv[2]; HERE = os.path.dirname(os.path.abspath(__fi
 R_ = lambda n: pd.read_parquet(os.path.join(POST, f"atlas_{n.replace(' ', '_')}_posterior.parquet")).set_index("cpg")
 names = {"alveolar": ["lung alveolar epithelium"], "bronchial": ["lung bronchus epithelium"], "fibroblast": ["colon fibroblasts", "heart fibroblasts"],
          "macrophage": ["colon macrophages"], "smooth_muscle": ["smooth muscle"], "endothelium": ["vascular endothelium"], "T": ["cd4 t cells", "cd8 t cells"],
-         "B": ["b cells"], "neutrophil": ["neutrophils"], "monocyte": ["monocytes"], "adipocytes": ["adipocytes"]}
+         "B": ["b cells"], "neutrophil": ["neutrophils"], "monocyte": ["monocytes"], "adipocytes": ["adipocytes"],
+         "lung_macrophage": ["lung interstitial macrophages"]}
 P = {k: [R_(n) for n in v] for k, v in names.items()}; idx = P["alveolar"][0].index
 for v in P.values():
     for x in v: idx = idx.intersection(x.index)
@@ -42,6 +48,11 @@ for g in S.index:
 S = S.loc[list(Bt)]; common = idx
 for b in Bt.values(): common = common.intersection(b.index[b.notna().values])
 Mu = pd.DataFrame({k: np.mean([x.loc[common, "mean"].values for x in v], 0) for k, v in P.items()}, index=common)
+SD_ = os.path.join(sys.argv[3])   # measured lung stroma: Stage 1 betas, one parquet per array, cell__GSM.parquet
+for cell in ("airway_smooth_muscle", "lung_fibroblast"):
+    fs = sorted(f for f in os.listdir(SD_) if f.startswith(cell + "__")); assert fs, cell
+    M_ = pd.concat([pd.read_parquet(os.path.join(SD_, f)).beta.rename(f) for f in fs], axis=1); M_.index = M_.index.astype(str)
+    Mu[cell] = M_.reindex(common.astype(str)).mean(1).values
 SDa, SDb = P["alveolar"][0].loc[common, "sd"], P["bronchial"][0].loc[common, "sd"]
 ok = Mu.notna().all(1) & SDa.notna() & SDb.notna(); Mu, SDa, SDb = Mu[ok], SDa[ok], SDb[ok]; common = Mu.index
 Em = (Mu["alveolar"] + Mu["bronchial"]) / 2
@@ -61,7 +72,7 @@ def other(j): c = [x for x in pl[S.slide[j]] if x != j]; return X[rg.choice(c)]
 def blend(j, d, tpl, lo_a=.3, hi_a=.6):
     a = rg.uniform(lo_a, hi_a); T = tpl.copy(); T[lo_] = T[lo_] + d * (1 - T[lo_]); T[hi_] = T[hi_] * (1 - d)
     return np.clip((1 - a) * X[j] + a * T, 0, 1)
-imm = Mu[["macrophage", "T", "B", "neutrophil", "monocyte"]].mean(1).values; rows = []
+imm = Mu[["macrophage", "lung_macrophage", "T", "B", "neutrophil", "monocyte"]].mean(1).values; rows = []
 def calls(v):
     above = v > bar; lr = np.log(v); c, w = [], []
     for _ in range(2000):
@@ -83,7 +94,9 @@ ch = [r for r in ("COUNT", "EVERY-PAIR") if elig[r]]; chosen = max(ch, key=lambd
 col = {"COUNT": "count_call", "EVERY-PAIR": "every_pair_call"}.get(chosen)
 out.append(f"5 rules: eligible {elig}; detection at d 0.0075 {det}; CHOSEN RULE: {chosen}")
 comp = {"stroma": Mu[["fibroblast", "smooth_muscle", "endothelium"]].mean(1).values, "fibroblasts": Mu["fibroblast"].values, "smooth muscle": Mu["smooth_muscle"].values,
-        "endothelium": Mu["endothelium"].values, "immune": imm, "alveolar": Mu["alveolar"].values, "bronchial": Mu["bronchial"].values, "adipocytes": Mu["adipocytes"].values, "other normal lung": None}
+        "endothelium": Mu["endothelium"].values, "immune": imm, "lung smooth muscle": Mu["airway_smooth_muscle"].values,
+        "lung fibroblasts": Mu["lung_fibroblast"].values, "lung stroma": Mu[["airway_smooth_muscle", "lung_fibroblast", "endothelium"]].mean(1).values,
+        "lung macrophages": Mu["lung_macrophage"].values, "alveolar": Mu["alveolar"].values, "bronchial": Mu["bronchial"].values, "adipocytes": Mu["adipocytes"].values, "other normal lung": None}
 D7 = []
 if chosen:
     for nm, tpl in comp.items():

@@ -1,5 +1,5 @@
 """DEV-TISSUE-LUNG-03 scorer (written 2026-10-12 before any tumor array is fetched or read). Derived from DEV-TISSUE-LIVER-01 score_liver_tissue.py.
-seal POSTDIR BETADIR: normal arrays + tumor METADATA only. Fixes (i) the composition-blind sites (lusc_synthetic.py rule) as a list;
+seal POSTDIR BETADIR STROMA_BETADIR (v3, 2026-10-12): normal arrays + tumor METADATA only. Fixes (i) the composition-blind sites (lusc_synthetic.py rule) as a list;
 (ii) the per-pair bar = 95th percentile of R = Met-A(normal j) / Met-A(normal k) over same-plate pairs of two different patients' normal lungs;
 (iii) the pairs: every patient whose 'Primary Tumor' 450K aliquot shares a plate with the 'Solid Tissue Normal' (tcga_lusc_450k_files.csv; the
 first such tumor aliquot by barcode), with both file_ids; (iv) the group rule chosen by test 5 of lusc_synthetic.py (read from lusc_synthetic_summary.txt): COUNT = FINGERPRINT if >= CRIT pairs read R above
@@ -16,7 +16,7 @@ H = lambda b: -(np.clip(b, 1e-6, 1 - 1e-6) * np.log2(np.clip(b, 1e-6, 1 - 1e-6))
 def beta(path): b = pd.read_parquet(path).beta; b.index = b.index.astype(str); return b
 if STEP == "seal":
     assert not os.path.exists(SEAL), "a seal already exists; it is never overwritten"
-    src = open(os.path.join(HERE, "lusc_synthetic.py")).read(); sys.argv = [sys.argv[0], POST, BD]; exec(src[:src.index('out.append("2, 4, 5 cases:")')])
+    src = open(os.path.join(HERE, "lusc_synthetic.py")).read(); sys.argv = [sys.argv[0], POST, BD, sys.argv[4]]; exec(src[:src.index('out.append("2, 4, 5 cases:")')])
     RULE = [l.split("CHOSEN RULE: ")[1].strip() for l in open(os.path.join(HERE, "lusc_synthetic_summary.txt")) if "CHOSEN RULE: " in l][0]; assert RULE in ("COUNT", "EVERY-PAIR"), RULE
     F = pd.read_csv(os.path.join(HERE, "tcga_lusc_450k_files.csv")); F["ch"] = F.file_name.str.extract(r"_(Grn|Red)\.idat")[0]
     N = F[F.sample_type == "Solid Tissue Normal"]; Tm = F[F.sample_type == "Primary Tumor"]; P = []
