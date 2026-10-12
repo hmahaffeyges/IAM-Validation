@@ -40,3 +40,12 @@ the neuron reference only and test nothing.
 3. The cortical reference's healthy spread is measured leave-one-donor-out. Whether healthy cortical neurons fit the Normal band
    (0.95-1.05) is a measured property of that spread, reported as found; the band is not changed to fit it.
 
+**Donor table read, 2026-10-12** (Loyfer et al. 2023, Supplementary Table S1, fetched from the journal; `data/DEV_IAMA_NEURON_01/loyfer_neuron_donors.csv`).
+Ten neuron samples from seven donors, all brain autopsies at Karolinska: cortex from five donors (one donor, aged 25, gave three samples), one
+cerebellum, and one sample with no region (GSM5652224). Recorded causes of death: suicide for two donors, accident for one, blank for the rest; no
+brain disease is recorded. Three samples are marked "not sorted". **Disclosure on rule 1 (one cell type):** the rule did not name purity. Loyfer's
+own estimate puts Cortex-Neuron-Z000000TF at 0.478 neurons, so it is not one cell type and is left out of the reference; its copy error had been
+seen before the donor table was read. Every other sample is estimated at 0.898 or more, so any purity cut above 0.478 and up to 0.898 gives
+the same set. The unlabelled sample is not placed in cortex by the table and stays out (rule 1). The suicide donors stay in (rule 2); the reference
+is also printed without them, descriptive only (author decision). Script: `neuron_reference_01.py`.
+
