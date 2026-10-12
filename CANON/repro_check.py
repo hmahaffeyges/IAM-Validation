@@ -73,7 +73,14 @@ def _pool6(dirs):
             if t.endswith((".txt", ".csv", ".json", ".py", ".md")) and os.path.isfile(t) and os.path.getsize(t) < 50_000_000:
                 P += [float(x) for x in re.findall(r"-?\d+\.\d+(?:e-?\d+)?", open(t, encoding="utf-8", errors="replace").read())]
     return P
-for f in changed:
+def _strip_generated(t):
+    """A note's text without the blocks the register generator writes and without its **Milestone:** line (rules 12-14 add these)."""
+    t = re.sub(r"<!-- PLAIN:BEGIN.*?<!-- PLAIN:END -->", "", t, flags=re.S)
+    return "\n".join(l for l in t.split("\n") if not l.startswith("**Milestone:**")).strip()
+def generated_only(f):
+    old = git("show", f"{base}:{f}")
+    return bool(old) and os.path.isfile(f) and _strip_generated(old) == _strip_generated(open(f, encoding="utf-8").read())
+for f in [x for x in changed if not generated_only(x)]:   # a change only inside generated blocks adds no number (2026-10-12)
     if not os.path.isfile(f) or f.endswith("_PREREG.md"): continue
     k = os.path.basename(f)[:-3]; stem = k.replace("_OUTCOME", "")
     txt = re.sub(r"(?i)doi[: ]\S+|10\.\d{4,}/\S+|`[^`]*`", "", open(f, encoding="utf-8").read())
