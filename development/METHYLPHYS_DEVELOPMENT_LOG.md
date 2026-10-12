@@ -1072,3 +1072,6 @@ The prostate fingerprint replication (second laboratory, different cells: 6 of 6
 
 ### 2026-10-12 · Every result in plain words; push-gate rule 14
 Each results-register entry now carries a plain-language explanation for donors following along (what was tested, why, what it means; no numbers, the record has them). The generator writes it into the record note and onto FOLLOW.md; status_check refuses a result without one, or a note whose block differs (2 controls refuse). Writing the commissioning explanation caught an overstatement in the fundraiser text (not in the repo): Met-A on neutrophils did not pass every bar; bar 9 (1 % sensitivity) was not met and its measured detection limit is printed instead. Corrected.
+
+### 2026-10-12 · HepG2 and A549: wording corrected (author)
+DEV-FINGERPRINT-02 outcome said "Cause found" for the gain excess in HepG2 and A549. Corrected: the gain excess was measured after the fact (post hoc, not a test); their loss excess sits below Arm B's bar, which is not detected, not absent. Whether a loss fingerprint is absent in liver and lung cancer cells or below what Arm B can detect is open; it needs a sealed test on unread liver and lung data.
