@@ -1060,3 +1060,6 @@ Author request: make foundational. New book section sec:balance (Landauer chapte
 
 ### 2026-10-11 · READMEs: informational fidelity, both instruments, held not copied
 The Biological Physics README described only copy error (IAM-A) and pointed to "Part 4" (printed Part VI). It now states informational fidelity, both instruments and their blind spots, and the restore-loss balance; the root README says "held", not "copied". The book (sec:directions) and the SOP and OM already carried the two-instrument table, with the Met-A planted-gain result measured.
+
+### 2026-10-12 · Ledger guard and push-gate rule 11
+The fundraiser page promises every rented-computer run is listed with its cost before it starts. boxruns/ledger_guard.py now refuses any launch (spot_from_box, workbox, start_box) whose run tag and dollar estimate are not in the published RUNS.md; its six controls (ledger_guard_test.py) pass and run on every push (rule 11).

@@ -11,7 +11,8 @@ Rule 9 (2026-10-11): laboratory independence from GEO contributors (CANON/indepe
   4. a note that carries a "**Milestone:**" line is not linked from the Advancements table of Biological_Physics/README.md,
      or a link in that table points at a file that does not exist;
   5. a day with log entries (from 2026-10-10) has no "### <date> · Day summary" once a later day has begun (Pacific time);
-  10. a box-run folder (boxruns/runN*) is not in the run ledger (boxruns/make_runs_ledger.py), or RUNS.md is missing."""
+  10. a box-run folder (boxruns/runN*) is not in the run ledger (boxruns/make_runs_ledger.py), or RUNS.md is missing;
+  11. the ledger guard's controls (boxruns/ledger_guard_test.py) fail."""
 import os, re, subprocess, sys
 def git(*a): return subprocess.run(["git", *a], capture_output=True, text=True).stdout
 fail = []
@@ -163,6 +164,13 @@ if _os.path.isdir(_BR):
         _m = _re.match(r"run(\d+)", _d)
         if _m and _os.path.isdir(_os.path.join(_BR, _d)) and _m.group(1) not in _named:
             fail.append(f"{_BR}/{_d}: box run not in the run ledger ({_LG}, rule 10)")
+
+# 11. Ledger guard (author 2026-10-12: code must enforce the page's promise that every run is listed with its cost before it starts).
+import subprocess as _sp
+_T = "Biological_Physics/MethylPhys/boxruns/ledger_guard_test.py"
+if _os.path.exists(_T):
+    _r = _sp.run([sys.executable, _T], capture_output=True, text=True)
+    if _r.returncode != 0: fail.append(f"{_T}: ledger guard controls failed: " + (_r.stdout.strip().split(chr(10)) or [""])[-1])
 
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
