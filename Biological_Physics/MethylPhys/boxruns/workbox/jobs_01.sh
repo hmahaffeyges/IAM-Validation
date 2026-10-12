@@ -12,6 +12,7 @@ PY=$W/eq/bin/python
 up(){ $PY -c "import boto3,sys;boto3.client('s3').upload_file(sys.argv[1],'$B',sys.argv[2])" "$1" "$2"; }
 get(){ $PY -c "import boto3,sys;boto3.client('s3').download_file('$B',sys.argv[1],sys.argv[2])" "$1" "$2" 2>/dev/null; }
 log(){ echo "$(date -u +%FT%TZ) $*" >> $W/session.log; up $W/session.log $P/session.log; }
+echo "$NAME" > $W/s3_check.txt; up $W/s3_check.txt $P/s3_check.txt || { echo "no S3 access" >&2; exit 3; }   # results must be able to leave first
 log "START $NAME vcpus=$(nproc) mem_gb=$(free -g | awk '/Mem/{print $2}')"
 $MM create -y -q -p $W/e1 -c conda-forge python=3.11 >> $W/env.log 2>&1 && $W/e1/bin/pip -q install methylprep==1.7.1 numpy==1.26.4 pandas==1.5.3 scipy==1.17.1 pyarrow==25.0.1 requests >> $W/env.log 2>&1
 up $W/env.log $P/env.log; log "environments ready"

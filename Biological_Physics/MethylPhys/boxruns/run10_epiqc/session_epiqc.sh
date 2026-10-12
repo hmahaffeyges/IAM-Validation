@@ -26,6 +26,9 @@ MM="$S/bin/micromamba -r $S/mamba"
 [ -x $S/e_st19/bin/samtools ] || $MM create -y -q -p $S/e_st19 -c conda-forge -c bioconda samtools=1.9 >> $O/install.log 2>&1 || fin FAIL_install_samtools
 [ -x $S/e_sbb/bin/sambamba ] || $MM create -y -q -p $S/e_sbb -c conda-forge -c bioconda sambamba=0.6.5 >> $O/install.log 2>&1 || fin FAIL_install_sambamba
 log "environments ready"
+# Results must be able to leave the machine before any work is done (2026-10-12: a spot copy started without the S3 role).
+echo "$TAG $(date -u +%FT%TZ)" > $O/s3_check.txt
+$PYB -c "import boto3,sys;boto3.client('s3',region_name='us-west-2').upload_file(sys.argv[1],'$B',sys.argv[2])" $O/s3_check.txt "$P/s3_check.txt" || { echo "no S3 access" >&2; exit 3; }
 [ -s $REF.bwameth.c2t.sa ] || fin FAIL_no_index
 for t in bwameth.py samtools sambamba wgbstools; do command -v $t >/dev/null || fin FAIL_missing_$t; done
 samtools --version | head -1 | grep -q " 1\.9" || fin FAIL_samtools_not_1.9

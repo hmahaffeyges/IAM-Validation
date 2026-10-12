@@ -1063,3 +1063,6 @@ The Biological Physics README described only copy error (IAM-A) and pointed to "
 
 ### 2026-10-12 · Ledger guard and push-gate rule 11
 The fundraiser page promises every rented-computer run is listed with its cost before it starts. boxruns/ledger_guard.py now refuses any launch (spot_from_box, workbox, start_box) whose run tag and dollar estimate are not in the published RUNS.md; its six controls (ledger_guard_test.py) pass and run on every push (rule 11).
+
+### 2026-10-12 · Stage B started; S3 role and cold-disk fixes
+Stage B (71 libraries, 12.2M pairs) and work machine 01 started 21:09-21:10 Pacific through the ledger guard. The Stage B spot copy had no S3 role: attached 35 minutes in, before any library finished, so nothing was lost. Its disk restored lazily from the snapshot (about 5.6 MB/s), stalling the aligner on the index; a parallel pre-read raised it to about 34 MB/s. Launchers and run scripts now enforce both (LESSONS C5).
