@@ -1,0 +1,2 @@
+first bar (0 one-line calls): FAILED, 200/200 found, 9/3600 false, 9/200 one-line (2026-10-12)
+rate bar: drift found 200/200, false calls 9/3600, one-line drift called 9/200 -> PASSED
