@@ -1,0 +1,7 @@
+verdict NO FINGERPRINT: 4 of 28 above the bar 1.1436 (needed 6); binomial p at 0.05 per pair 0.049
+R quantiles (min, 25 %, median, 75 %, max) 0.885, 0.987, 1.038, 1.106, 1.347
+pairs with R > 1: 20 of 28; Wilcoxon signed-rank on log R (two-sided) p 0.0281
+sites read per pair: 5510-6000 of 6000
+R by slide (n, median, above bar): 8221924028 6, 1.082, 1; 8221924035 4, 1.063, 1; 8942297130 6, 1.079, 2; 8942300018 6, 0.992, 0; 8942300020 6, 0.993, 0
+R by asbestos exposure (n, median, above bar): no 14, 1.014, 2; yes 14, 1.049, 2
+1 spread: stand-in R SD 0.0860, 95th percentile (pair bar) 1.1436
