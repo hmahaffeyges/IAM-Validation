@@ -29,3 +29,14 @@ neuron-derived tumours is public (arrays only: central neurocytoma GSE288337, ga
    since), derived and then tested on synthetic data.
 2. The healthy reference built on Loyfer's 6-8 donors (donor count and depth from the paper's table).
 3. Post-mortem interval: record per sample; test whether copy error follows it in the Yi controls before using them.
+
+**Reference rule, written 2026-10-11 before the Loyfer donor table (Supplementary Table 1) is read.** The Loyfer neuron files are being read
+whole by Stage Q (copy error and Stage Q0, `neuron_eps.csv` to be committed with its script); their readings have been seen, so they serve as
+the neuron reference only and test nothing.
+1. A reference is one cell type. Cortical neurons ("Cortex-Neuron") and cerebellar neurons ("Cerebellum-Neuron") are separate cell types and
+   are not pooled. The sample titled "Neuron" with no region joins the cortical reference only if the donor table places it in cortex.
+2. No donor is removed for its reading. A donor is excluded only for a reason recorded by the depositors: a diagnosed brain or psychiatric
+   disease, or a Stage Q0 refusal. Age, sex, cause of death and post-mortem interval are recorded beside each reading, not used to adjust it.
+3. The cortical reference's healthy spread is measured leave-one-donor-out. Whether healthy cortical neurons fit the Normal band
+   (0.95-1.05) is a measured property of that spread, reported as found; the band is not changed to fit it.
+
