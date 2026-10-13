@@ -60,9 +60,13 @@ neurons decide it, because they are the only cells in which the interval is upke
 raises the held error by a derived amount with nothing fitted, whether or not the cell divides - so the old objection (that
 inhibitors also change the division rate) loses most of its force, since division only sets the time to balance.
 
-**Test 4 (designed, not run): the balance, not an accumulation.** Simulate an age series in a non-dividing cell type with the
-balance fixed and with the ratio drifting, and ask what size of drift in `g/f` a real age span and donor spread can detect.
-The bar: refuse to claim a drift when none was planted, and recover a planted drift to within a stated factor.
+**Test 4 outcome (run once, 2026-10-13; `levers_synth_04.py`, output `levers_synth_04_output.csv`, summary
+`levers_synth_04_summary.txt`). BAR MET.** With ages spanning 20-90 and the reader a plain slope of logit(eps) against age, a
+drift in ln(g/f) across a lifetime is detectable at 5 % with 20 donors when donors differ by 5 %, and at 10 % with 20 donors
+when they differ by 10 %; 10 donors reach 10 % and 20 % respectively. The reader's false-positive rate at no drift is 0.050
+in every case, so it does not invent a drift. **What this licenses:** a brain series of about 20 donors can say whether the
+balance holds with age to within 5-10 %, which is the prediction the foundation makes for cells that never divide. It says
+nothing about whether the balance does hold; that is what reading the two laboratories answers.
 
 ## Two signatures that separate mechanism
 

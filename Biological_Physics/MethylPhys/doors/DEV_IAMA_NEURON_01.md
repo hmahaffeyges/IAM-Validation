@@ -80,3 +80,7 @@ is written down, dated and sealed before either of the two independent laborator
 Reading those two laboratories against this reference. Brain cells also carry the sharpest test of the physics: they stop
 dividing, so their held error is kept by upkeep alone, and the derivation says it should not rise with age once the balance
 is reached. If it does rise, the balance itself moved, and that is what we would have to explain.
+
+**Synthetic test:** DEV_LEVERS_01/levers_synth_04.py, DEV_LEVERS_01/levers_synth_04_output.csv, DEV_LEVERS_01/levers_synth_04_summary.txt
+
+The age prediction for cells that never divide is exercised on simulated donors first: about 20 donors can detect a drift in the balance of 5-10 % across a lifetime, and the reader does not invent a drift when there is none (false-positive rate 0.050).

@@ -1,0 +1,15 @@
+DEV-LEVERS-01 synthetic test 4: detecting a drift in the balance with an age series in non-dividing cells
+eps_0 0.032 at age 55 | ages 20-90 | 200 draws per cell
+
+donor spread 0.05, 10 donors: smallest detectable drift in ln(g/f) over 70 years 0.1 | false-positive rate at no drift 0.050
+donor spread 0.05, 20 donors: smallest detectable drift in ln(g/f) over 70 years 0.05 | false-positive rate at no drift 0.050
+donor spread 0.05, 40 donors: smallest detectable drift in ln(g/f) over 70 years 0.05 | false-positive rate at no drift 0.050
+donor spread 0.05, 80 donors: smallest detectable drift in ln(g/f) over 70 years 0.05 | false-positive rate at no drift 0.050
+donor spread 0.10, 10 donors: smallest detectable drift in ln(g/f) over 70 years 0.2 | false-positive rate at no drift 0.050
+donor spread 0.10, 20 donors: smallest detectable drift in ln(g/f) over 70 years 0.1 | false-positive rate at no drift 0.050
+donor spread 0.10, 40 donors: smallest detectable drift in ln(g/f) over 70 years 0.1 | false-positive rate at no drift 0.050
+donor spread 0.10, 80 donors: smallest detectable drift in ln(g/f) over 70 years 0.05 | false-positive rate at no drift 0.050
+
+reader accepted: yes
+BAR: MET - some feasible age series detects a drift, and the reader does not invent one
+Read as the design requirement for the brain series, not as a result about the world.
