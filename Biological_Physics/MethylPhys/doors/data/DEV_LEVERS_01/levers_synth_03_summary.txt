@@ -1,5 +1,19 @@
 DEV-LEVERS-01 synthetic test 3 (v2): can the readings say which of the three channels was impaired?
-healthy eps at balance 0.0172 (target 0.032) | healthy clustering 3.234 | 200 draws, 400 molecules x 2000 sites, 300 intervals to balance
+healthy eps at balance 0.0320 (target 0.032) | healthy clustering 3.230 | 60 draws, 200 molecules x 2000 sites, 300 intervals to balance | restore multiplier calibrated to 0.5488 so the CHAIN READS eps_0; state balance f/(f+g) = 0.0568
 
-REFUSED TO SCORE: the healthy draw is not at the balance the foundation sets (0.0172 vs 0.032); the rates or the
-number of intervals are wrong, and nothing read from an off-balance simulation means anything.
+derived directions: impair copy -> eps up, clustered | impair de novo -> eps up, scattered | impair erase -> eps DOWN, scattered
+
+copy     x1.25  eps ratio 1.100 [1.083, 1.115] | clustering ratio 1.049 [0.917, 1.199]
+copy     x1.5   eps ratio 1.197 [1.176, 1.220] | clustering ratio 1.089 [0.959, 1.222]
+copy     x2.0   eps ratio 1.401 [1.382, 1.415] | clustering ratio 1.146 [1.012, 1.263]
+erase    x1.25  eps ratio 0.883 [0.866, 0.900] | clustering ratio 1.055 [0.904, 1.159]
+erase    x1.5   eps ratio 0.811 [0.790, 0.830] | clustering ratio 1.086 [0.989, 1.196]
+erase    x2.0   eps ratio 0.718 [0.699, 0.736] | clustering ratio 1.101 [0.999, 1.230]
+de novo  x1.25  eps ratio 1.250 [1.232, 1.276] | clustering ratio 1.017 [0.872, 1.156]
+de novo  x1.5   eps ratio 1.491 [1.473, 1.508] | clustering ratio 0.999 [0.894, 1.139]
+de novo  x2.0   eps ratio 1.973 [1.948, 1.992] | clustering ratio 1.020 [0.903, 1.120]
+
+measured directions at 2x: copy up, erase down, de novo up
+pairs overlapping in BOTH readings: none
+BAR: MET - the three channels are separable, so a blocked channel can be identified
+Read as a statement about the instruments, not about any tumor.

@@ -31,6 +31,7 @@ def one(d, path):
     blob = json.dumps(d)
     h = NR.HYPE.search(blob)
     if h: P.append(f"[daylog] {os.path.basename(path)}: hype word '{h.group(0)}'")
+    if d.get("check_completeness"): P += completeness(d)
     for sec in d.get("sections", []):
         for e in sec.get("entries", []):
             if sec.get("kind") in ("win", "loss", "ran") and e.get("status") not in STATUS:
@@ -51,6 +52,11 @@ def render(d):
     for sec in d["sections"]:
         L += [f"## {sec['heading']}", ""]
         if sec.get("lead"): L += [sec["lead"], ""]
+        if sec.get("table"):
+            t = sec["table"]
+            L += ["| " + " | ".join(t["columns"]) + " |", "|" + "---|" * len(t["columns"])]
+            for r in t["rows"]: L.append("| " + " | ".join(str(x) for x in r) + " |")
+            L.append("")
         for e in sec.get("entries", []):
             head = f"**{e['title']}**" + (f" — _{e['status']}_" if e.get("status") else "")
             L.append(f"- {head}  ")
@@ -64,6 +70,22 @@ def render(d):
 
 STOP = set("the a an and or of for in on at to is was with by from that this it its as not no into our we us "
                "day push rule author before after every each one two three now still open".split())
+
+def completeness(d):
+    """Every lever in CANON/levers.json and every instrument in CANON/instruments.json must appear in the day log.
+
+    The author's requirement: nothing forgotten. A day log that leaves one out is refused rather than trusted.
+    """
+    out, txt = [], render(d)
+    for f, key, label in (("levers.json", "levers", "lever"), ("instruments.json", "instruments", "instrument")):
+        fp = os.path.join(HERE, f)
+        if not os.path.isfile(fp): continue
+        for x in json.load(open(fp, encoding="utf-8"))[key]:
+            name = x.get("name") or x.get("id") or ""
+            short = name.split(":")[0].split("(")[0].strip()
+            if short and short.lower() not in txt.lower() and (x.get("id", "").lower() not in txt.lower()):
+                out.append(f"[daylog] {d['date']}: {label} '{short}' has no row in the day log")
+    return out
 
 def coverage(d):
     """Committed development-log headings for this day whose content words do not appear in the rendered day log.
