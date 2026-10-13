@@ -70,8 +70,7 @@ GSE122244 also by DEV-BASE-CHAIN-01). Under the committed split rule a spent ser
 - **Build (unchanged):** GSE124565 (Sawalha and Coit, University of Pittsburgh; 12 healthy donors, 7 women and 5 men, ages 26-67, both IDATs,
 450K) and GSE88824 (Florey Institute of Neuroscience; 8 healthy control donors, 450K). Neither shares a GEO contributor with the reference
 groups (`CANON/independence_check.py`). GSE124565 alone ends the all-male reference.
-- **Not valid as held-out tests:** GSE118144 (spent; its 13 controls are all female) and GSE122244 (spent; contains no neutrophil samples at
-all, and is on the EPIC chip Stage 1 cannot yet read). GSE122244 is removed from the neutrophil plan.
+- **Not valid as held-out tests:** GSE118144 (spent; its 13 controls are all female) and GSE122244 (spent). *Corrected 2026-10-13, the same day: an earlier line here said it holds no neutrophil samples and is on a chip Stage 1 cannot read; both were wrong. GEO lists 10 sorted neutrophil arrays with IDATs (5 healthy controls, C6-C10, and 5 Parkinson's patients) on GPL23976, and the chain already read this series' monocytes in DEV-NEWCELL-01. Being spent, its 5 healthy neutrophils build only, as the roster already lists them.*
 - **Unread candidates for the held-out test, metadata only:** GSE72338 (Charite Berlin, 450K, 18 neutrophil arrays of healthy household
 contacts, both sexes, ages 22-49, Sentrix positions published), GSE68456 (University of British Columbia, 450K, 7 granulocyte arrays sorted by
 stringent FACS with erythroid exclusion, 5 women and 2 men) and GSE49618 (USC Norris, 450K, 6 granulocyte arrays, no donor fields). Each needs
