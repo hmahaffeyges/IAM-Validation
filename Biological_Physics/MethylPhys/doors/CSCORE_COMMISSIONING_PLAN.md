@@ -112,3 +112,29 @@ The author: "do whatever is best for IAM and is the most defensible." Adopted, b
 GSE315366's 35 clonal-haematopoiesis-negative bloods (Box Run 3), then each further healthy EPIC v1 laboratory read; (b) new same-person
 replicates when a set is found: within-SD ≤ 0.125. Clustered detection (step 2) already met at 100 %. If (a) and (b) are met, the C-score
 is proposed for commissioning with its band and detection limit printed.
+
+## Test (a) on the first laboratory not used to decide: MET (2026-10-13)
+
+**Read from** `results/BOXRUN3/GSE315366_rows.csv` (Box Run 3, read once on 2026-10-09); rows and the scored summary copied into
+`data/CSCORE_COMMISSIONING/band_test_GSE315366_rows.csv` and `band_test_GSE315366.json`.
+
+**Bar, fixed before these readings existed:** at least 95 % of healthy arrays not above the band's upper limit 1.152 (one-sided
+reading, blocks of 10). **Result: 34 of 35 not above, 97.1 %. MET.** The one above reads C_rel 1.195; median 0.988, range
+0.853-1.195. Tare scope: 31 arrays tared against their series, 4 against their slide (3-34 references each).
+
+**Independence.** The band was decided on 617 arrays from 19 series (`data/DEV_CSCORE_TARE_01_arrays.csv`); GSE315366 is not
+among them. **Order, by commit timestamp on 2026-10-09:** the blocks-of-10 band 06:48 (b6c03e0c), the one-sided reading and the
+repeat bar tied to detection 07:04 (642818bd), these readings 07:14 (b77610ed). The definitions were fixed before the data were
+read, and the timestamps are the evidence.
+
+**Scope, stated plainly.** These are peripheral whole bloods. That matches the band's own population (555 whole blood, 62
+isolated neutrophils of the 617) and extends no commissioned scope: Met-A's commissioned scope remains isolated neutrophils.
+
+**What is still open for the C-score.** (a) each further healthy EPIC v1 laboratory, since the plan asks for more than the first;
+(b) new same-person replicates from a set that had no part in deciding the repeat bar (it is met at 0.062 against <= 0.125 on the
+existing replicates). Candidate for (b) from the gold-mine map: GSE318669 (NIEHS, 54 arrays, repeat measures, 450K - platform has
+to be checked against the band before it can serve).
+
+**Not a milestone:** one bar of a development commissioning met; the C-score is not proposed for commissioning until (a) on
+further laboratories and (b) on new replicates are met.
+

@@ -1,0 +1,15 @@
+{
+ "set": "GSE315366",
+ "specimen": "peripheral whole blood, clonal-haematopoiesis negative",
+ "n": 35,
+ "bar": "at least 95 % of healthy arrays not above the band's upper limit 1.152 (one-sided reading, blocks of 10)",
+ "above_limit": 1,
+ "not_above_fraction": 0.9714,
+ "met": true,
+ "C_rel_median": 0.988,
+ "C_rel_min": 0.8529,
+ "C_rel_max": 1.1947,
+ "band_decided_on": "617 arrays, 19 series (DEV_CSCORE_TARE_01_arrays.csv); GSE315366 is not among them",
+ "order": "band with blocks of 10 committed b6c03e0c 06:48, definitions committed 642818bd 07:04, these readings committed b77610ed 07:14 (2026-10-09)",
+ "source": "results/BOXRUN3/GSE315366_rows.csv (Box Run 3, read once)"
+}
