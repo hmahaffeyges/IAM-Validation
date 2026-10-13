@@ -213,12 +213,6 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 <div class="card"><h3>What the researcher does</h3><ul class="road">{ul(AS["author_does"])}</ul></div>
 </div>
 </details>
-<details class="fold"><summary>What the partner got wrong, and what caught it</summary>
-<p>{E(AS["mistakes_lead"])}</p>
-<ul class="road">{miss}</ul>
-<p class="meta">All of them, with the fix each one now enforces: <a href="{rec(AS["lessons_record"])}">the lessons record</a>.</p>
-</details>
-<p class="sub">{E(AS["closing"])}</p>
 <!-- ASSISTANT:END -->
 </section>
 <section class="wrap"><h2>What it costs</h2><p class="sub">Every dollar, from Amazon's own billing and our storage, as of {E(CO["as_of"])}. Everything is paid by us and by people who choose to help.</p>
