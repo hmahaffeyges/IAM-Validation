@@ -1280,3 +1280,6 @@ The sky section and the method section now link the chapters that explain them i
 
 ### 2026-10-13 · Held-out test set for the second-lab neutrophil reference chosen (metadata only)
 GSE72338 (Charite, 18 granulocyte arrays from tuberculosis household contacts, both sexes, slide positions published) is the held-out test, with two caveats to print with any result: contacts are not screened healthy donors, and the fraction is granulocytes rather than sorted CD16+ neutrophils. GSE68456 is cord blood and moves to the newborn track; GSE49618 is bone marrow with no donor fields and is a weaker second check.
+
+### 2026-10-13 · Front page: tracks and ideas now shown, what support pays for, what the results are not, how to cite
+The long-range tracks and the ideas list existed only in ROADMAP.md and never reached the page; both now render there. Added from the two-visitor audit: "What support pays for" (every rented-computer job with its pre-written estimate, the $25,000 goal), "What these results are not" (not per-patient, no sensitivity, no specificity, no detection limit, no early-detection claim before the dilution test), the two DOIs with the MIT license, and an invitation to open an issue or discussion.
