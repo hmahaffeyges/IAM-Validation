@@ -1247,3 +1247,6 @@ website/art/make_atlas_sky.py redraws CPG Plates 1 and 3 from atlas v2 (NSIDE 25
 
 ### 2026-10-12 · Lesson C9: real work first
 The cause test was held for spot availability and not rechecked for about four hours; it was launched on spot (c6a.32xlarge, us-west-2d, score 3 of 10) with a reclaim watcher once checked. LESSONS C9.
+
+### 2026-10-12 · Front page art: the measured Planck sky
+website/art/fetch_planck.py downloads the Planck 2018 SMICA map (2,013,312,960 bytes, SHA-256 recorded), reduces it to NSIDE 256 and records provenance; make_atlas_sky.py now uses it with the Planck colormap (Planck_Parchment_RGB.txt, from the Planck paper-plot code) and draws two globes; the simulated sky is not used on the public page. The sky is smoothed 0.5 degree; the atlas is not.

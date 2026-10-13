@@ -1,0 +1,12 @@
+{
+ "source": "https://irsa.ipac.caltech.edu/data/Planck/release_3/all-sky-maps/maps/component-maps/cmb/COM_CMB_IQU-smica_2048_R3.00_full.fits",
+ "bytes": 2013312960,
+ "sha256": "60952c645eb33d151905ddf5837477e15ca02a3261feca4ceca3c3feece4f9ac",
+ "field": "I_STOKES",
+ "unit_in": "K_CMB",
+ "ordering_in": "NESTED",
+ "nside_in": 2048,
+ "reduced_to": "NSIDE 256, ring, mean of child pixels, microkelvin",
+ "credit": "ESA and the Planck Collaboration; Planck 2018 results IV, A&A 641, A4 (2020)",
+ "rms_uK": 101.04
+}

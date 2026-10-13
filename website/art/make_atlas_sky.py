@@ -1,15 +1,16 @@
 """IAM-Atlas v2 on the sky (art for the front page; author 2026-10-12: "a real HEALPix skymap of the atlas ... next to the CMB itself").
 Redraws CPG Plates 1 and 3 ("The Cosmic Microwave Methylome", "Grandaddy" plate; class-era atlas, retired) from atlas v2. Every CpG in genome
 order (chr1..chr22, chrX, chrY, then position) goes to pixel floor(i * npix / n) at HEALPix NSIDE 256 in NESTED order: 786,432 pixels for
-784,950 placed sites, so one site per pixel (a few pixels hold two, averaged), at the resolution of the simulated sky beside it. Nested order
+784,950 placed sites, so one site per pixel (a few pixels hold two, averaged), at the resolution of the measured sky beside it. Nested order
 keeps genome neighbors together in small patches of the sphere (as Plate 3 did); the chain's grid contract (NSIDE 128, ring order,
 atlas/healpix_mapping/) is for the development stage and is not used here. Mollweide projection; zooms are gnomonic, 15 degrees across. Coordinates from the Illumina EPIC v1 B4 and 450K
 manifests (hg19). Values: the atlas v2 posterior mean beta (and its posterior SD) of each cell type, read from the files that
 atlas/tools/extract_posterior.py writes from the published atlas (DOI 10.5281/zenodo.23325865).
-The microwave sky beside it is SIMULATED: CAMB lensed TT spectrum at the Planck 2018 best fit, healpy synfast NSIDE 256, seed 42, the same map
-the book's sky figures use (docs/book/figscripts/fig_p4_sky.py builds it). It is labeled as such.
+The microwave sky beside it is the MEASURED Planck 2018 SMICA map, reduced to NSIDE 256 by website/art/fetch_planck.py
+(website/art/data/planck_smica_pr3_nside256.npz; credit ESA and the Planck Collaboration). If that file is absent the script stops: the
+simulated sky the book uses is not substituted on the public page.
 This is a PICTURE of the atlas. No reading, fit or statistic uses the sky map (book tool board row 15: built, not in the chain; atlas plan U5).
-Writes website/art/out/sky_atlas_hero.jpg (simulated sky | neutrophils), sky_atlas_plate.jpg (both skies and a zoom of each) and sky_atlas_cells.jpg (six cell types, mean; neutrophils' SD).
+Writes website/art/out/sky_atlas_hero.jpg (measured sky | neutrophils), sky_atlas_plate.jpg (both skies and a zoom of each), sky_atlas_globes.jpg (both as globes) and sky_atlas_cells.jpg (six cell types, mean; neutrophils' SD).
 Usage: python3 website/art/make_atlas_sky.py POSTDIR MANIFEST_DIR"""
 import os, sys, numpy as np, pandas as pd
 os.environ.setdefault("ASTROPY_CONFIGDIR", os.path.join(os.getcwd(), ".astro")); os.makedirs(os.environ["ASTROPY_CONFIGDIR"], exist_ok=True)
@@ -35,20 +36,22 @@ def sky(cell, col="mean"):
     pix = (np.arange(n) * NPIX // n).astype(np.int64); s = np.bincount(pix, v, NPIX); k = np.bincount(pix, minlength=NPIX)
     m = np.full(NPIX, hp.UNSEEN); m[k > 0] = s[k > 0] / k[k > 0]; return m, n
 def cmb():
-    f = os.path.join(REPO, "docs", "book", "figscripts", "_data", "cmb_planck2018_nside256.npz")
-    if not os.path.exists(f):
-        import importlib.util; spec = importlib.util.spec_from_file_location("fs", os.path.join(REPO, "docs", "book", "figscripts", "fig_p4_sky.py"))
-        fs = importlib.util.module_from_spec(spec); spec.loader.exec_module(fs); fs.build_cmb()
-    return np.load(f)["map"]
+    f = os.path.join(HERE, "data", "planck_smica_pr3_nside256.npz")
+    if not os.path.exists(f): raise SystemExit("no measured Planck map: run python3 website/art/fetch_planck.py WORKDIR first")
+    m = np.load(f)["map"].astype(np.float64)
+    return hp.smoothing(m, fwhm=np.radians(0.5))   # the sky only: smoothed 0.5 degree (as ESA's released image is smoothed); the atlas is not smoothed
 def panel(fig, sub, m, title, cmap, lo, hi, unit, ticks=None, nest=True, zoom=None):
     if zoom is None: hp.mollview(m, fig=fig.number, sub=sub, title="", cmap=cmap, min=lo, max=hi, cbar=False, badcolor=BG, bgcolor=BG, nest=nest)
     else: hp.gnomview(m, fig=fig.number, sub=sub, title="", cmap=cmap, min=lo, max=hi, cbar=False, badcolor=BG, bgcolor=BG, nest=nest, rot=zoom, xsize=600, reso=1.5, notext=True)
     ax = plt.gca(); ax.set_title(title, color=FG, fontsize=13, pad=8)
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(lo, hi)); cb = fig.colorbar(sm, ax=ax, orientation="horizontal", fraction=0.04, pad=0.03, aspect=40, shrink=0.8, ticks=ticks)
     cb.set_label(unit, color=FG, fontsize=10); cb.ax.tick_params(colors=FG, labelsize=9); cb.outline.set_edgecolor("#444")
-os.makedirs(OUT, exist_ok=True); CM = "RdYlBu_r"
+os.makedirs(OUT, exist_ok=True)
+from matplotlib.colors import ListedColormap
+# The Planck Collaboration's colormap (Planck_Parchment_RGB.txt, from github.com/zonca/paperplots, the Planck paper-plot code), used on both maps.
+CM = ListedColormap(np.loadtxt(os.path.join(HERE, "data", "Planck_Parchment_RGB.txt")) / 255.0, name="planck")
 fig = plt.figure(figsize=(16, 5.2), facecolor=BG)
-C0 = cmb(); panel(fig, (1, 2, 1), C0, "The microwave sky (simulated from Planck's measured spectrum)", CM, -300, 300, "temperature minus its mean (\u03bcK)", [-300, -150, 0, 150, 300], nest=False)
+C0 = cmb(); panel(fig, (1, 2, 1), C0, "The microwave sky, measured by Planck (2018)", CM, -300, 300, "temperature minus its mean (\u03bcK)", [-300, -150, 0, 150, 300], nest=False)
 m, n = sky("neutrophils"); panel(fig, (1, 2, 2), m, f"IAM-Atlas v2: healthy neutrophils, {n:,} CpGs in genome order", CM, 0, 1, "methylation (posterior mean)", [0, 0.25, 0.5, 0.75, 1])
 fig.savefig(os.path.join(OUT, "sky_atlas_hero.jpg"), dpi=150, facecolor=BG, bbox_inches="tight", pil_kwargs={"quality": 88}); plt.close(fig)
 # Plate: both skies, then a 15-degree zoom of each (same patch on the sphere)
@@ -70,7 +73,7 @@ def sheet(specs, out, cols=2):
     S.save(os.path.join(OUT, out), quality=88, optimize=True)
     for t in ts: os.remove(t)
 TU = ("temperature minus its mean (\u03bcK)", [-300, -150, 0, 150, 300]); MU = ("methylation (posterior mean)", [0, 0.25, 0.5, 0.75, 1])
-sheet([(C0, "The microwave sky (simulated from Planck's measured spectrum)", CM, -300, 300, *TU, False, None),
+sheet([(C0, "The microwave sky, measured by Planck (2018)", CM, -300, 300, *TU, False, None),
        (NM, "IAM-Atlas v2: healthy neutrophils, one CpG per pixel", CM, 0, 1, *MU, True, None),
        (C0, "Zoom, 15 degrees across", CM, -300, 300, *TU, False, Z),
        (NM, "Zoom, 15 degrees across: about 4,300 neighboring sites", CM, 0, 1, *MU, True, Z)], "sky_atlas_plate.jpg")
@@ -86,4 +89,10 @@ sheet = Image.new("RGB", (2 * w + g, 4 * h + 3 * g), BG)
 for k, im in enumerate(ims): sheet.paste(im, ((k % 2) * (w + g) + (w - im.width) // 2, (k // 2) * (h + g)))
 sheet.save(os.path.join(OUT, "sky_atlas_cells.jpg"), quality=86, optimize=True)
 for t in tiles: os.remove(t)
+# Two globes: the measured sky and healthy neutrophils, drawn as balls (orthographic, one hemisphere each)
+fig = plt.figure(figsize=(16, 8.2), facecolor=BG)
+for k, (m, t, lo, hi, nest) in enumerate([(C0, "The microwave sky, measured by Planck (2018)", -300, 300, False), (NM, "IAM-Atlas v2: healthy neutrophils", 0, 1, True)]):
+    hp.orthview(m, fig=fig.number, sub=(1, 2, k + 1), half_sky=True, rot=(0, 20), title="", cmap=CM, min=lo, max=hi, cbar=False, nest=nest, badcolor=BG, bgcolor=BG)
+    plt.gca().set_title(t, color=FG, fontsize=15, pad=6)
+fig.savefig(os.path.join(OUT, "sky_atlas_globes.jpg"), dpi=130, facecolor=BG, bbox_inches="tight", pil_kwargs={"quality": 88}); plt.close(fig)
 print("wrote sky_atlas_hero.jpg, sky_atlas_cells.jpg | CpGs placed:", n)
