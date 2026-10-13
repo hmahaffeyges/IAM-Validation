@@ -104,7 +104,7 @@ def _detect_array_type(grn_path):
     return at, str(at), barcode, n
 
 
-def calibrate_idat_to_beta(grn_path, red_path, array_type=None, verbose=True, mask_detection=True, return_mask=False):
+def calibrate_idat_to_beta(grn_path, red_path, array_type=None, verbose=True, mask_detection=True, return_mask=False, return_snp=False):
     """Calibrate one IDAT pair to noob-normalized beta.
 
     Returns (beta_series, meta). beta_series is a pd.Series indexed by IlmnID
@@ -205,6 +205,8 @@ def calibrate_idat_to_beta(grn_path, red_path, array_type=None, verbose=True, ma
     }
     if return_mask:   # per cg probe poobah detection (bool Series), for run_sample's Stage-1 call rate; off by default so callers that dump meta are unchanged
         meta["_detected_mask"] = detected_mask
+    if return_snp:    # the rs (SNP) probe betas themselves, for the same-donor genotype check (atlas v2.1, 2026-10-13); off by default, beta unchanged
+        meta["_rs_beta"] = rs
     if verbose:
         print(f"      calibrated: {len(beta):,} CpGs (noob, per-sample dye-bias + probe-type norm)")
     return beta, meta

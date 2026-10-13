@@ -9,7 +9,7 @@ when its files are in the repository and their checks pass. The box run refuses 
 |---|---|---|---|---|
 | L1 | The 15 open decisions adopted, each with its condition | MET | `DEV_ATLAS_V21_01.md` | ATL-006 |
 | L2 | Build sample list with the decisions applied (one row per array: series, GSM, cell, donor, platform, IDAT names, flags) | MET | `build_samples_v21.py`, `atlas_v21_build_samples.csv` | ATL-006, ATL-014 |
-| L3 | Build / held-out split sealed: checksums of both lists committed before any array is downloaded | MET | `sealed_split_v21.json` | ATL-006 |
+| L3 | Build / held-out split sealed: checksums of both lists committed before any array is downloaded | MET | `sealed_split_v21_02.json` | ATL-006 |
 | L4 | Every build array through the chain's Stage 1, each beta file listed with its checksum | MET | `stage1_v21_manifest.csv` | ATL-013 |
 | L5 | Sex inferred from X/Y probes for every build array and recorded | open - missing: sex_v21.csv | `sex_v21.csv` | ATL-013 |
 | L6 | Twin test (sample level) for every new source, results committed; failures excluded by the rule, not by eye | open - missing: twin_v21.csv | `twin_v21.csv` | ATL-013 |

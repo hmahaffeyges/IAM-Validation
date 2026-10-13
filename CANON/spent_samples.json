@@ -1,0 +1,8 @@
+{
+ "_rule": "For a series marked 'partly spent' in CANON/data_spent.csv: the committed file listing exactly which arrays were read, and its sample column. A roster row from such a series is spent only if one of its own arrays is on that list; a partly spent series with no list here counts as wholly spent.",
+ "GSE184269": {
+  "file": "Biological_Physics/MethylPhys/doors/data/CSCORE_COMMISSIONING/band_test_GSE184269_samples.csv",
+  "column": "gsm",
+  "read": "2026-10-13, C-score band test (a), second laboratory"
+ }
+}

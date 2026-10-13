@@ -1,0 +1,25 @@
+{
+ "sealed": "2026-10-13",
+ "seal_number": 2,
+ "supersedes": "sealed_split_v21.json",
+ "reason": "GSE184269's 10 FACS granulocytes were read on 2026-10-13 for the C-score band test, after the roster listed them as a v2.1 held-out test and before seal 1; CANON/data_spent.csv did not record it, so seal 1 missed it. They leave the held-out list (now research, spent); the series' 109 sorted arrays that were never read stay. No build array changed (build list checksum identical). The held-out array list (atlas_v21_heldout_samples.csv) is sealed from this seal on. The commissioning check now reads spent status per array for a partly spent series (CANON/spent_samples.json).",
+ "commit_at_seal": "87cd73f4c1a83ad3c5c88add8fc8bead86a884d1",
+ "sha256": {
+  "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_build_samples.csv": "cc6399b826eb76997c041f0242a39bb548ae9b00c21bf1a1b973f555352f2da2",
+  "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/commissioning_sets_v21.csv": "b00307419a73fc38a181f182779047a24deabece0a7781e3b30ddc41600ae2f4",
+  "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_roster.csv": "3883aecd97a47d3364fdb70cfd97e7a805cde46baee4e122017518fb8b0679d5",
+  "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/same_source_v21.json": "8a1c1503d8e25feb3e964eba0ab5ee7706e0531a8260d8b6ad949d186c006a47",
+  "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_heldout_samples.csv": "d890ee5029dcd4959aa4f3cbe83c84cdd2fa28067b600e59e9914a40d8727094",
+  "CANON/spent_samples.json": "ada6acfaf2920e628e8a2f0018b01ea74e97a026641e3e198a495f7bb1f6070d"
+ },
+ "build_list_unchanged": true,
+ "same_series_split_by_donor": {
+  "series": [
+   "E-MTAB-4957",
+   "GSE224807",
+   "GSE306226"
+  ],
+  "rule": "these series build from some arrays and hold out others; no sample is on both sides (checked above). Donor IDs are not in their metadata, so donor separation is checked at Stage 1 from the SNP probes: a held-out array whose genotype matches any build array is excluded from testing, by rule. Their held-out rows test new donors in the same laboratory and never count as an independent laboratory (commissioning_sets_v21.csv, counts_as_independent_laboratory)."
+ },
+ "rule": "Build arrays may be downloaded and calibrated; held-out and truth-set arrays are not scored until the atlas they judge is built and its commissioning bars are sealed (L15)."
+}

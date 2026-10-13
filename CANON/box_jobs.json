@@ -1,0 +1,25 @@
+{
+ "_rule": "Every box job: its S3 code prefix, the repo commit its code came from, each code file's repo path. Checked by CANON/box_code_check.py.",
+ "jobs": [
+  {
+   "job_id": "e89bcd1c-29ac-4166-8f5e-09acae95e100",
+   "name": "Atlas v2.1 Stage 1 (L4)",
+   "date": "2026-10-13",
+   "commit": "3e7ab915",
+   "s3_code_prefix": "results/ATLAS_V21/stage1/code/",
+   "backfilled": true,
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_stage1_box.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/s3_tars.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/sealed_build_sha256.txt",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/code_checksums_stage1.txt",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_build_samples.csv",
+    "Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py"
+   ]
+  }
+ ],
+ "not_jobs": {
+  "Biological_Physics/MethylPhys/boxruns/start_box.py": "launcher: starts the machine from the laptop; runs no work on the box",
+  "Biological_Physics/MethylPhys/boxruns/spot_from_box.py": "launcher: requests a spot copy of the machine; runs no work on the box"
+ }
+}

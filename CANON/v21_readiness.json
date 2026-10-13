@@ -39,11 +39,11 @@
    "stage": "before_launch",
    "what": "Build / held-out split sealed: checksums of both lists committed before any array is downloaded",
    "files": [
-    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sealed_split_v21.json"
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sealed_split_v21_02.json"
    ],
    "checks": {
     "sha_of": [
-     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sealed_split_v21.json"
+     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sealed_split_v21_02.json"
     ]
    },
    "manifest": [

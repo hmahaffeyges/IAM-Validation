@@ -162,6 +162,10 @@ if _vr.returncode: fail.append("[v21_readiness] " + ((_vr.stdout + _vr.stderr).s
 _cn = subprocess.run([sys.executable, "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/cell_names_v21.py", "check"], capture_output=True, text=True)
 if _cn.returncode: fail.append("[cell_names] " + ((_cn.stdout + _cn.stderr).strip().split("\n")[-1] or "the check could not run"))
 
+# Box jobs' code is in S3 and matches the repo (author, 2026-10-13); a check that cannot run is a failure
+_bc = subprocess.run([sys.executable, "CANON/box_code_check.py"], capture_output=True, text=True)
+if _bc.returncode: fail += ["[box_code] " + l.strip() for l in (_bc.stdout + _bc.stderr).split("\n") if l.strip() and not l.startswith("box_code_check:")] or ["[box_code] the check could not run"]
+
 if fail:
     print(f"status_check: REFUSED ({len(fail)})\n  " + "\n  ".join(fail[:40])); sys.exit(1)
 print(f"status_check: ok ({len(F['facts'])} facts, {len(files)} documents)")

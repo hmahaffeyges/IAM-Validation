@@ -8,7 +8,18 @@ R = pd.read_csv(os.path.join(HERE, "atlas_v21_roster.csv"))
 SP = {r["dataset"]: r["spent_status"] for r in csv.DictReader(open(os.path.join(ROOT, "CANON", "data_spent.csv"), encoding="utf-8"))}
 H = R[R.role.str.startswith("held-out") | (R.role == "truth set")].copy()
 H["spent_status_now"] = H.series.map(lambda s: SP.get(s, "not listed"))
-H["spent"] = ~H.spent_status_now.isin(["unspent", "not listed"])
+import json as _json
+_SS = _json.load(open(os.path.join(ROOT, "CANON", "spent_samples.json"), encoding="utf-8"))
+def _row_spent(r):
+    st = r.spent_status_now
+    if st in ("unspent", "not listed"): return False
+    if st == "partly spent" and r.series in _SS:
+        L = set(pd.read_csv(os.path.join(ROOT, _SS[r.series]["file"]))[_SS[r.series]["column"]].astype(str))
+        own = {x for x in str(r.get("samples", "")).replace(" ", "").split(";") if x}
+        if not own: return True                     # no array list for this row: cannot show it unread
+        return bool(own & L)
+    return True
+H["spent"] = H.apply(_row_spent, axis=1)
 H["raw_idat"] = H.raw_files.astype(str).str.contains("IDAT pair", case=False)
 H["sequencing"] = H.platform.astype(str).str.contains("bisulfite|RRBS|seq", case=False)
 H["epic_v2"] = H.platform.astype(str).str.contains("EPIC v2", case=False)
