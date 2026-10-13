@@ -101,7 +101,10 @@ def page(art):
                 f'<br><span class="meta">Breaks: <b>{E(x.get("falsifier_scope", "?"))}</b>. {E(x.get("falsifier", ""))}</span>'
                 + (f'<br><span class="meta">Simulated: {done}</span>' if done else "") + '</li>')
     levers_list = "\n".join(lever_row(x) for x in LV["levers"])
-    results = "\n".join(card(e) for e in regs)
+    results = "\n".join(card(e) for e in regs[:3])
+    if len(regs) > 3:
+        results += ('\n<details><summary>' + str(len(regs) - 3) + ' more results, oldest and newest alike</summary>\n'
+                    + "\n".join(card(e) for e in regs[3:]) + '\n</details>')
     decisions = "\n".join(f'<li><b>{E(x["date"])}</b> {E(x["plain"])} <a href="{rec(x["record"])}">the record</a></li>' for x in REG.get("decisions", []))
     losses = "\n".join(f'<li><b>{E(x["date"])}</b> {E(x["plain"])} <a href="{rec(x["record"])}">the record</a></li>' for x in REG["losses"])
     mouse = next(e for e in REG["entries"] if e["id"] == "DEV-SAM-LEVER-01"); mv = vals(mouse)
@@ -118,6 +121,8 @@ def page(art):
     buys = "\n".join(f'<li><b>{E(j["estimate"])}</b> {E(j["plain"].split(".")[0])}.</li>' for j in NJ["jobs"] if j.get("cost") == "box")
     A = json.load(open(os.path.join(REPO, "CANON", "author.json"), encoding="utf-8"))
     apar = "\n".join(f"<p>{E(x)}</p>" for x in A["paragraphs"])
+    _ap = [x for x in re.findall(r"<p[^>]*>.*?</p>", apar, re.S)] or [apar]
+    apar_first, apar_rest = _ap[0], "\n".join(_ap[1:])
     amaybe = "\n".join(f'<li>{E(x)}</li>' for x in A["maybes"])
     helpw = "\n".join(f'<li><b>{E(h["ask"])}</b> {E(h["why"])} <a href="{rec(h["record"])}">record</a></li>' for h in NJ["help_wanted"])
     tools = "\n".join(f"<tr><td>{E(a)}</td><td>{E(b)}</td><td>{E(c)}</td></tr>" for a, b, c in TOOLS)
@@ -237,10 +242,13 @@ mistakes in the lessons record.</p>
 <section class="wrap" id="author"><h2>Who is doing this, and why</h2>
 <!-- AUTHOR:BEGIN (the author's own words, from CANON/author.json; the only first-person block on the site) -->
 <p class="sub">{E(A["name"])} &mdash; {E(A["role"])}</p>
-{apar}
+{apar_first}
+<details><summary>The rest, in his words &mdash; and the list of maybes this is for</summary>
+{apar_rest}
 <p class="sub">{E(A["maybes_intro"])}</p>
 <ul class="road maybe">{amaybe}</ul>
 <p class="closer">{E(A["closer"])}</p>
+</details>
 <!-- AUTHOR:END -->
 </section>
 <section class="wrap" id="assistant">
