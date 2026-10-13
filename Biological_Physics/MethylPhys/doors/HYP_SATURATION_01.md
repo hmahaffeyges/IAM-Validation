@@ -57,9 +57,26 @@ field cancerization. Tumors carry sites at the full surface where healthy refere
    one quantity, or disorder appears before the program, the two-phase picture is wrong. Prior result in the same direction (not ours):
    locally disordered methylation varies within tumors and tracks outcome in a leukemia (Landau et al. 2014, Cancer Cell).
 
+8. **What spreads is instability, not only tumors (author, 2026-10-13: "I envision what is spreading is not tumors, but
+   instability... informational instability, the opposite of fidelity. Once the local signal is corrupted the saturated areas need new
+   writing surfaces... being they are already running at their max the tumor is quick to form").** The power-grid picture he brought:
+   a cascade follows the network and only trips buses with thin margin, and voltage collapse shows as a sag across remote buses BEFORE
+   the outage reaches them. In cancer the network is lymph and blood, and "seed and soil" says only receptive organs take a seed; the
+   pre-metastatic niche says distant organs are prepared before any cell arrives. To leave and to settle, a cell switches its program
+   and switches back, largely epigenetically - the program phase (falsifier 7) running twice. Predictions, each breakable:
+   (a) metastases carry the primary's concordant program, plus more disorder (more discordance, more late-block loss) than the primary;
+   (b) tissue in a common metastatic destination reads right of healthy before it is seeded (the sag);
+   (c) the instability is systemic: in people with cancer, tissue away from the tumor and blood cells read right of healthy donors,
+       and further in spread disease than in localized disease, compared within one series (DEV-GROUP-01 rule).
+   If metastases share none of the primary's program, or distant tissue and blood read like healthy donors once series and composition
+   are controlled, the picture of spreading instability is wrong. Data to find, metadata only: paired primary and metastasis methylation
+   sets; distant-organ tissue before seeding; blood or cell-free DNA from localized against spread disease, in one series.
+   **The hope, stated as a hope:** if fidelity can be read across the whole body, the signal that the system is running at its limit
+   might one day guide how to turn it down. Nothing here supports a treatment claim.
+
 **In plain words.** The idea is that a whole organ can be under strain before any tumor exists, its cells writing at their limit, and
 that the tumor appears at the weakest spot as new room to keep writing - the way a black hole grows its surface. It is an idea, not a
-result. Seven tests are written down that could each prove it wrong.
+result. Eight tests are written down that could each prove it wrong.
 
 **What it would take to finish:** falsifier 2 first (DEV-FIELD-01), then 1 and 4 on an ordered lesion series, then 3 on TCGA stage, 5 on TCGA expression, and 6 on the 219 tumors already read.
 
