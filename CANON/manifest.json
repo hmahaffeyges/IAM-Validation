@@ -24863,6 +24863,29 @@
    "sources_of_row": [
     "author request 2026-10-13"
    ]
+  },
+  {
+   "id": "ATL-060",
+   "title": "Head to head: atlas v2.1 against the source atlases' own references, on their own job",
+   "purpose": "Before any gift goes out: on mixtures of KNOWN proportions that no atlas was built from, estimate the proportions with atlas v2.1 and with the published Moss 2018 reference and Loyfer 2023 markers, same mixtures, same scoring (error against the known proportions, per cell and overall), bars and the mixture list sealed before any atlas reads them. Also: cell coverage, cross-laboratory agreement, and calibrated error bars (does the 95 percent interval hold the truth about 95 percent of the time). Published whether we win, tie or lose. If v2.1 is not better on their own job, the gift is offered as what it is, not as an improvement.",
+   "instrument_or_term": "atlas v2.1, deconvolution",
+   "sources": [],
+   "data_status": "mixtures to be chosen (independent of every atlas source)",
+   "status": "planned",
+   "runs": [],
+   "next_step": "find known-proportion mixture sets made from DNA no atlas uses; seal the list, the scoring and the bars before the fit finishes",
+   "cost": "laptop",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "legacy_ids": [],
+   "depends_on": [
+    "ATL-045",
+    "ATL-055"
+   ],
+   "notes": "result file when run: doors/data/DEV_ATLAS_V21_01/head_to_head_v21_summary.txt (readiness G10)",
+   "sources_of_row": [
+    "author 2026-10-13: if they do not find it better than what they have, they will not care"
+   ]
   }
  ],
  "not_tests": {

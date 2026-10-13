@@ -448,6 +448,25 @@
    "manifest": [
     "ATL-040"
    ]
+  },
+  {
+   "id": "G10",
+   "stage": "after_fit",
+   "what": "Head to head on their own job: v2.1 against the published Moss reference and Loyfer markers on sealed, independent known-proportion mixtures; result published either way; no gift is described as better unless this says so",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/head_to_head_v21_summary.txt"
+   ],
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/head_to_head_v21_summary.txt",
+      "RESULT"
+     ]
+    ]
+   },
+   "manifest": [
+    "ATL-060"
+   ]
   }
  ]
 }

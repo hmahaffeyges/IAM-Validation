@@ -32,7 +32,7 @@ when its files are in the repository and their checks pass. The box run refuses 
 | B2 | Held-out arrays downloaded and through Stage 1, checksummed (after the split is sealed, before any scoring) | open - missing: held_out_stage1_v21_manifest.csv | `held_out_stage1_v21_manifest.csv` | ATL-004 |
 | B3 | Sequencing commissioning sets aligned with the pinned pipeline (separate job; needed only for the sequencing uses) | open - missing: held_out_sequencing_v21_manifest.csv | `held_out_sequencing_v21_manifest.csv` | ATL-035 |
 
-## After the fit: the gift package: 0 of 10 met
+## After the fit: the gift package: 0 of 11 met
 
 | # | Item | State | Proof (files) | Manifest |
 |---|---|---|---|---|
@@ -46,4 +46,5 @@ when its files are in the repository and their checks pass. The box run refuses 
 | G7 | ATL-055 deconvolution tool commissioned on known-proportion mixtures it had no part in building (sealed bars first) | open - missing: sealed_deconv_commission.json, deconv_commission_summary.txt | `sealed_deconv_commission.json`, `deconv_commission_summary.txt` | ATL-009, ATL-055 |
 | G8 | ATL-056 release: Zenodo DOI, methods note, credit to GSE186458 and the Moss 2018 arrays, letter | open - missing: release.json | `release.json` | ATL-056 |
 | G9 | Frozen-base add-on test: a cell fitted against the fixed v2.1 cells reproduces what a full refit gives (planted test with a held-back cell), so later cells (placenta GSE271697, flagged with its 80-85 percent purity; cultured lung, as a labeled cultured layer) need only their own commissioning, not a refit | open - missing: addon_test_v21_summary.txt | `addon_test_v21_summary.txt` | ATL-040 |
+| G10 | Head to head on their own job: v2.1 against the published Moss reference and Loyfer markers on sealed, independent known-proportion mixtures; result published either way; no gift is described as better unless this says so | open - missing: head_to_head_v21_summary.txt | `head_to_head_v21_summary.txt` | ATL-060 |
 
