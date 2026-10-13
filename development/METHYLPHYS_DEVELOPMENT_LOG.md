@@ -1482,3 +1482,6 @@ DEV-CEILING-02 step 3: every sample against the healthy reference of the cell of
 
 ### 2026-10-13 · Front page trimmed (author)
 The daily-log section is the heading and the log links only; the status line and its explanation are gone, and build.sh no longer requires them. The "Why a researcher should look" section is removed. "What we have accomplished" is now "Recent Accomplishments". Folds show the arrow beside their text, without "Click to open" and without rules above and below.
+
+### 2026-10-13 · Every fold starts closed; the book art runs the length of the page (author)
+The four folds that opened by default now start closed, and build.sh refuses a page with any fold set to open. Five book banners not used on the page before (the CMB sky, the quantum lattice, the chip, the genome sky, the four-skies mosaic) now sit between the sections below the black hole.

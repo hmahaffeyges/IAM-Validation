@@ -179,9 +179,10 @@ def page(art):
 <dt>What is established and what is not?</dt><dd>One instrument is commissioned on isolated white blood cells; everything else is development. The book has a table of every claim with its status. {ch("established")}</dd>
 <dt>Where do the departures sit along the genome?</dt><dd>The clustering reading asks whether the leftover disorder clumps or scatters, which separates scattered wear from the block losses cancer leaves. {ch("cscore")}</dd>
 </dl></details></section>
+<div class="art-band" style="background-image:url({art("cmb_banner.jpg")})" role="img" aria-label="Art from the book"></div>
 <section class="wrap" id="howtest"><h2>How we test the physics</h2>
 <p class="sub">{E(MT["lead"])}</p>
-<details class="fold" open><summary>What the instruments read, and what a lever is</summary>
+<details class="fold"><summary>What the instruments read, and what a lever is</summary>
 {method_secs}
 </details>
 <details class="fold"><summary>The levers: every handle we can pull, and the reading that would break us</summary>
@@ -192,13 +193,15 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 </details>
 <p class="sub">{E(MT["closing"])}</p>
 </section>
+<div class="art-band" style="background-image:url({art("lattice_banner.jpg")})" role="img" aria-label="Art from the book"></div>
 <section class="wrap" id="trace"><h2>{E(TR["title"])}</h2>
 <p class="sub">{E(TR["lead"])}</p>
-<details class="fold" open><summary>{E(TR["case"])}</summary>
+<details class="fold"><summary>{E(TR["case"])}</summary>
 <ol class="road trace">{steps}</ol>
 <p class="meta">{E(TR["closing"])}</p>
 </details>
 </section>
+<div class="art-band" style="background-image:url({art("chip_banner.jpg")})" role="img" aria-label="Art from the book"></div>
 <section class="wrap" id="lost"><h2>Decisions that shape every reading</h2>
 <p class="sub">Choices that change what every result means, in plain words, each with its record. A decision made after seeing data says so.</p>
 <ul class="plain">{decisions}</ul>
@@ -208,11 +211,12 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 <details><summary>What these results are not</summary><p class="more"> Each sealed cancer test asked whether tumors leave the healthy range more often than chance across a group of patients. None is a per-patient test and none is a diagnostic: there is no sensitivity, no specificity and no detection limit yet. That test is on the road ahead, and no early-detection claim is made before it.</p>
 </details>
 <p class="more">Every result, good or bad, day by day: <a href="{rec("Biological_Physics/MethylPhys/daylogs/README.md")}">the daily logs</a>, or the <a href="{rec("development/METHYLPHYS_DEVELOPMENT_LOG.md")}">development log</a> for the technical version.</p></section>
+<div class="art-band" style="background-image:url({art("genome_banner.jpg")})" role="img" aria-label="Art from the book"></div>
 <section class="wrap" id="whoweare"><h2>{E(AS["section_title"])}</h2>
 <p class="sub">Two very different roles, stated plainly, because the easiest wrong assumption to make about this work is that
 one of us did all of it. Both halves are dated and public: the founder's corrections in the development log, the partner's
 mistakes in the lessons record.</p>
-<details class="fold" open><summary>{E(AS["founder_title"])}</summary>
+<details class="fold"><summary>{E(AS["founder_title"])}</summary>
 <ul class="road">{ul(AS["founder_role"])}</ul>
 </details>
 <details class="fold"><summary>{E(OR["title"])}</summary>
@@ -224,6 +228,7 @@ mistakes in the lessons record.</p>
 <ul class="road">{tog}</ul>
 </details>
 </section>
+<div class="art-band" style="background-image:url({art("mosaic_banner.jpg")})" role="img" aria-label="Art from the book"></div>
 <section class="wrap" id="author"><h2>Who is doing this, and why</h2>
 <!-- AUTHOR:BEGIN (the author's own words, from CANON/author.json; the only first-person block on the site) -->
 <p class="sub">{E(A["name"])} &mdash; {E(A["role"])}</p>
@@ -241,7 +246,7 @@ mistakes in the lessons record.</p>
 <h2>{E(AS["title"])}</h2>
 <p class="sub">{E(AS["intro"])}</p>
 <p class="meta">{E(AS["note"])}</p>
-<details class="fold" open><summary>What it does, what it does not decide, and what the researcher does</summary>
+<details class="fold"><summary>What it does, what it does not decide, and what the researcher does</summary>
 <div class="grid">
 <div class="card"><h3>What the partner does</h3><ul class="road">{ul(AS["does"])}</ul></div>
 <div class="card"><h3>What it does not decide</h3><ul class="road">{ul(AS["does_not"])}</ul></div>

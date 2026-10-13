@@ -37,6 +37,7 @@ python3 "$REPO/website/build/build_home.py" "$SITE"
 test -s "$SITE/index.html" && test -s "$SITE/read/index.html" || { echo "Build failed: the front page or the book page is missing."; exit 1; }
 # The front page's status comes from the newest daily log (author, 2026-10-13: one stop shop). It must be present, must link a day
 # log, and must carry its "As of" status line - a page that publishes without them would look current while saying nothing.
+grep -q '<details[^>]* open' "$SITE/index.html" && { echo "Build failed: a fold set to open by default; every fold starts closed."; exit 1; }
 grep -q 'id="daylogs"' "$SITE/index.html" || { echo "Build failed: the front page has no daily-log section."; exit 1; }
 grep -q 'daylogs/20' "$SITE/index.html" || { echo "Build failed: the front page links no daily log."; exit 1; }
 

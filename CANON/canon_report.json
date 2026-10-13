@@ -27,15 +27,6 @@
 "text": "The author: describing cancer as identity loss is wrong - identity that cannot be held is the left side, below H_min, where identity can no longer be held. To t"
 },
 {
-"file": "website/build/build_home.py",
-"line": 151,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "<li><b>Scored once, and the code refuses otherwise.</b> Every test has a committed sealed rule and a scorer whose fingerprint is checked before scoring. The pus"
-},
-{
 "file": "docs/verification/PAPER_ERRATA.md",
 "line": 285,
 "pattern": "class H_min",
