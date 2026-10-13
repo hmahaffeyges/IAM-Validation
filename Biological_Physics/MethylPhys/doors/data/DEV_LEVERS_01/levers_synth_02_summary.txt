@@ -1,0 +1,10 @@
+DEV-LEVERS-01 synthetic test 2: telling the Landauer floor from thermal damage in a species temperature series
+donor spread sigma 0.06 | draws 100 per truth | temperatures available 277-313 K
+
+Ea    60 kJ/mol: smallest design that works = 3 temperatures x 3 donors (floor right 100/100, damage right 100/100)
+Ea    75 kJ/mol: smallest design that works = 3 temperatures x 3 donors (floor right 100/100, damage right 100/100)
+Ea    90 kJ/mol: smallest design that works = 3 temperatures x 3 donors (floor right 100/100, damage right 100/100)
+Ea   110 kJ/mol: smallest design that works = 3 temperatures x 3 donors (floor right 100/100, damage right 100/100)
+
+designs that work: 120 of 120
+BAR: MET - a feasible series separates the two clocks
