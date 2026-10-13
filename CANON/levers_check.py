@@ -23,6 +23,7 @@ def section():
     if L.get("chapter_opening"):                      # the author's framing, kept verbatim as the chapter's opening
         out += ["## How to read this chapter (the author's framing, kept in his words)", ""]
         out += [("> " + x if x.strip() else ">") for x in L["chapter_opening"].split("\n")] + [""]
+    if L.get("_reading_scope"): out += ["**What the reading is, and is not.** " + L["_reading_scope"], ""]
     out += ["## The levers, one record each (generated from `CANON/levers.json`)", ""]
     for x in L["levers"]:
         out += [f"### {x['name']}", "",
@@ -42,6 +43,8 @@ def section():
 def problems():
     P = []
     for x in L["levers"]:
+        if not x.get("reading_scope"):
+            P.append(f"lever {x['id']}: no reading_scope - state what the gauge actually reads for this lever (foundation entry what_is_read)")
         if not x.get("falsifier"): P.append(f"lever {x['id']}: no falsifier - a lever without one is a demonstration, not a test")
         for m in x.get("moves", []):
             if m not in IDS: P.append(f"lever {x['id']}: moves '{m}', which is not an entry in CANON/foundation.json")

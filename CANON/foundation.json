@@ -104,6 +104,14 @@
    "derived_in": "docs/book/part6/p6_07_meta.tex",
    "anchor": "Met-A rises with loss only while those sites stay above $\\beta=\\tfrac12$",
    "commit": "d2f66a76"
+  },
+  {
+   "id": "what_is_read",
+   "statement": "WHAT THE READING IS ABOUT (the author, 2026-10-13): informational fidelity - order against disorder in the held pattern, as errors in INDIVIDUAL MOLECULES. It is not a reading of hardware. The gauge never sees an enzyme, a machine or a mechanism; it sees whether the pattern is still held, how far it has drifted, and whether the errors are isolated or run together. Naming a mechanism for a pattern of disorder is an INFERENCE MADE OUTSIDE THE PHYSICS and must be labelled as one wherever it appears. A lever is the handle pulled in an experiment; the reading is still only order against disorder, so no result may be stated as 'the gauge identified which machine failed' - only as 'these patterns of disorder are distinguishable at this depth, and a mechanism producing that pattern would be visible'.",
+   "status": "DERIVED from what the entropy reading is (a statement about the pattern, not its cause)",
+   "derived_in": "docs/book/part6/p6_02_landauer.tex",
+   "anchor": "\\section{Margin per write, and fidelity per write}",
+   "commit": "2c737a57"
   }
  ],
  "retired_phrasings": [
@@ -141,6 +149,16 @@
    "why": "Same reason: this is eps_min, the thermal floor on error, not a copying error (author, 2026-10-13).",
    "phrase": "copy error $1/(1+e^{M})$",
    "instead": "\\varepsilon_{\\min}=1/(1+e^{M})"
+  },
+  {
+   "phrase": "the copy machine",
+   "why": "The reading is of informational fidelity in individual molecules, not of hardware (entry what_is_read).",
+   "instead": "the held pattern, and whether its errors are isolated or run together"
+  },
+  {
+   "phrase": "identify which channel",
+   "why": "The gauge reads order against disorder; attributing a pattern to a mechanism is an inference outside the physics (entry what_is_read).",
+   "instead": "tell these patterns of disorder apart"
   }
  ],
  "retired_foundations": [

@@ -21,7 +21,8 @@
    "data": "hibernator tissue at warm and cold body temperature, same animals; birds (40-42 C) as a second line; fish as a third",
    "status": "designed, hibernation first",
    "falsifier": "the same animal's cells at 5 C and at 37 C read the SAME holding energy within the measurement error, or move in the opposite direction to the temperature ratio. That breaks the floor's temperature dependence, which is IAM's law applied to the cell.",
-   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md"
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "reading_scope": "The gauge reads order against disorder; the handle is the experiment, not the reading."
   },
   {
    "id": "division_rate",
@@ -40,7 +41,8 @@
    "data": "sorted neurons from two independent laboratories across an age span (DEV-IAMA-NEURON-01)",
    "status": "reference rule sealed; laboratories unread",
    "falsifier": "sorted neurons show the held error rising with age beyond 10 % across a lifetime while their restore and loss rates are unchanged. At balance it must not rise; a rise with unchanged rates contradicts the derivation.",
-   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md"
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
+   "reading_scope": "The gauge reads order against disorder; the handle is the experiment, not the reading."
   },
   {
    "id": "methyl_supply",
@@ -58,7 +60,8 @@
    "data": "methionine restriction series (DEV-METHIONINE-01, parked); folate and B12 intervention arrays",
    "status": "parked, awaiting a design",
    "falsifier": "restricting the methyl supply enough to lower the restore rate measurably leaves the held error unchanged, or lowers it. Either contradicts eps = f/(f+g).",
-   "record": "Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md"
+   "record": "Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md",
+   "reading_scope": "The gauge reads order against disorder; the handle is the experiment, not the reading."
   },
   {
    "id": "write_enzymes",
@@ -75,7 +78,8 @@
    "data": "decitabine series (no result at the decisive dose); IDH-mutant tumors as an erase-channel block that already exists in patients with public data",
    "status": "test 3 designed",
    "falsifier": "a tumor whose erase channel is chemically blocked reads the SAME balance as a matched tumor with the channel intact, with everything else equal. If blocking one side of the balance does not move it, the balance is not what sets the held error.",
-   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md"
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "reading_scope": "The gauge reads order against disorder; the handle is the experiment, not the reading."
   },
   {
    "id": "mechanism_clustering",
@@ -94,8 +98,10 @@
    "data": "already in hand: every scored cancer cohort carries the clustering reading",
    "status": "met in simulation; the boundary is stated",
    "falsifier": "a cancer whose loss is known to be processive reads scattered, or a known chemical exposure reads clustered. That would mean the reading does not measure mechanism at all.",
-   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md"
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "reading_scope": "The reading separates ISOLATED errors from errors that RUN TOGETHER. That is a property of the pattern, not of a machine. Calling a run-together pattern 'processive enzymatic failure' is an inference outside the physics and is labelled as such wherever stated."
   }
  ],
- "chapter_opening": "The author's framing of what the gauge is, and the opening the lever chapter should keep (2026-10-13, his words):\n\nFeeling the foreheads of fifty people with the back of your hand tells you who is hottest IN THAT ROOM. There is no ruler and no physics in it, the answer changes with the room, and it can never be brought down to one person. A calibrated thermometer on one forehead reads 104.1 for that person, who came in alone: a definite fever, with a cause the thermometer does not claim to name. It reads 100.1 as something to ask a doctor about, and 98.6 as ordinary for someone of that age. It also reads a freezer, because the freezing point of water is fixed whatever else is in the room, and the same construction says how far a quantum computer's cooler sits from absolute zero, because the physics behind it is known and the instrument is calibrated to it.\n\nEvery lever in this chapter is a handle on one of those fixed points or on the measured middle. A lever that moves the drive moves the FLOOR; a lever that pushes a specimen toward beta = 1/2 runs it at the CEILING, past which the reading is no longer monotone; a lever that changes the balance of restore and loss moves the MIDDLE, which is the only mark that was ever measured. The class era (retired) was the back of a hand across a room; this chapter is the thermometer, and its job is to say what would prove the calibration wrong."
+ "chapter_opening": "The author's framing of what the gauge is, and the opening the lever chapter should keep (2026-10-13, his words):\n\nFeeling the foreheads of fifty people with the back of your hand tells you who is hottest IN THAT ROOM. There is no ruler and no physics in it, the answer changes with the room, and it can never be brought down to one person. A calibrated thermometer on one forehead reads 104.1 for that person, who came in alone: a definite fever, with a cause the thermometer does not claim to name. It reads 100.1 as something to ask a doctor about, and 98.6 as ordinary for someone of that age. It also reads a freezer, because the freezing point of water is fixed whatever else is in the room, and the same construction says how far a quantum computer's cooler sits from absolute zero, because the physics behind it is known and the instrument is calibrated to it.\n\nEvery lever in this chapter is a handle on one of those fixed points or on the measured middle. A lever that moves the drive moves the FLOOR; a lever that pushes a specimen toward beta = 1/2 runs it at the CEILING, past which the reading is no longer monotone; a lever that changes the balance of restore and loss moves the MIDDLE, which is the only mark that was ever measured. The class era (retired) was the back of a hand across a room; this chapter is the thermometer, and its job is to say what would prove the calibration wrong.\n\nAnd what the chapter does NOT claim: the gauge never sees an enzyme. It reads informational fidelity - whether the pattern is still held, how far it has drifted, and whether its errors are isolated or run together. Every mechanism named below is a handle pulled in an experiment or an inference drawn afterwards, labelled as one.",
+ "_reading_scope": "Every lever below is a HANDLE PULLED IN AN EXPERIMENT. The reading is not of the handle: it is informational fidelity, order against disorder in the held pattern, as errors in individual molecules (CANON/foundation.json, entry what_is_read). So no row here may be read as 'the gauge identified which machine failed'. What a lever earns is narrower and stronger: pull this handle and the held error, or the clustering of its errors, must move the derived way - and if it does not, the law is wrong there."
 }
