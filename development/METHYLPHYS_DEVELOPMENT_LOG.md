@@ -1244,3 +1244,6 @@ Columbia GSE179847: 92 control arrays (plate explains 10-14 % of the doubling sp
 
 ### 2026-10-12 · Front page preview: atlas sky plate, full costs, the long road (author)
 website/art/make_atlas_sky.py redraws CPG Plates 1 and 3 from atlas v2 (NSIDE 256, nested, one CpG per pixel, beside the simulated Planck-spectrum sky, with 15-degree zooms; labeled a picture, not used by any reading). CANON/costs_snapshot.py writes AWS costs by category from Cost Explorer and the S3 stored size; CANON/costs_fixed.json holds the AI research and coding subscription, $200 a month, as stated. Roadmap: one-command replication job, and the long-range tracks (blood diseases, plasma, biopsies, stool, aging, dogs and mammals, fish) with their data in hand. ROADMAP.md and the page are held for the author.
+
+### 2026-10-12 · Lesson C9: real work first
+The cause test was held for spot availability and not rechecked for about four hours; it was launched on spot (c6a.32xlarge, us-west-2d, score 3 of 10) with a reclaim watcher once checked. LESSONS C9.
