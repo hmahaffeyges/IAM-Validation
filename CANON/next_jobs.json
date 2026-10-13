@@ -1,5 +1,5 @@
 {
- "_rule": "Ranked by impact (commissioning, atlas, public result, physics, research), then cost (laptop before box). Every accession must be in the Master Inventory. Edit this file to add or retire a job; the inventory renders it.",
+ "_rule": "Ranked by impact (commissioning, atlas, public result, physics, research), then cost (laptop before box). Every accession must be in the Master Inventory. Edit this file to add or retire a job; the inventory renders it. Each job carries plain, needs, estimate and record (written for followers); help_wanted lists the gaps public data cannot close. CANON/roadmap.py writes ROADMAP.md from this file.",
  "jobs": [
   {
    "job": "IAM-A commissioning: find the cause of the across-labs failure (three deep EMSeq LAB02 runs read low), development read of other file parts",
@@ -9,7 +9,12 @@
    "accessions": [
     "PRJNA646948"
    ],
-   "ready": "scored; held under the stopping rule"
+   "ready": "scored; held under the stopping rule",
+   "plain": "Find out why three files from one laboratory read low in the IAM-A instrument test, so the test can be finished honestly.",
+   "needs": "a rented computer for about 3 hours",
+   "estimate": "$5-10",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md",
+   "stands": "the test is written and its rules are fixed; waiting for a rented computer to be available at a fair price"
   },
   {
    "job": "Neutrophil reference from a second laboratory: build GSE124565, test GSE88824, GSE118144, GSE122244",
@@ -22,7 +27,12 @@
     "GSE118144",
     "GSE122244"
    ],
-   "ready": "verify files (v2.1 prep)"
+   "ready": "verify files (v2.1 prep)",
+   "plain": "Build the healthy white-blood-cell reference from a second laboratory, so Met-A no longer leans on one lab's donors.",
+   "needs": "the laptop",
+   "estimate": "no cost",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "stands": "the data are found; their files are being checked"
   },
   {
    "job": "IAM-A on other-lab healthy neutrophils (RRBS) and same DNA on arrays and WGBS",
@@ -33,7 +43,12 @@
     "GSE59163",
     "GSE128734"
    ],
-   "ready": "verify files"
+   "ready": "verify files",
+   "plain": "Read healthy white blood cells from other laboratories with IAM-A, and the same DNA on two kinds of measurement.",
+   "needs": "a rented computer",
+   "estimate": "priced in the ledger before it starts",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01.md",
+   "stands": "the data are found; their files are to be checked"
   },
   {
    "job": "Whole-blood bar 7 on cord blood with flow counts (assess newborn caveat first)",
@@ -43,7 +58,12 @@
    "accessions": [
     "GSE127824"
    ],
-   "ready": "assess caveat"
+   "ready": "assess caveat",
+   "plain": "Test Met-A's blood-cell counting against counts made by a cell counter, using newborn cord blood, after checking that newborn blood is a fair stand-in.",
+   "needs": "the laptop",
+   "estimate": "no cost",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_COMPOSITION_TRUTH_04.md",
+   "stands": "the data are found; first we check whether newborn blood is a fair stand-in"
   },
   {
    "job": "Atlas v2.1: rebuild with second-lab and new cell types; split GSE224807 donors half build, half test",
@@ -56,7 +76,12 @@
     "GSE184269",
     "GSE252045"
    ],
-   "ready": "v2.1 prep running"
+   "ready": "v2.1 prep running",
+   "plain": "Rebuild the atlas as version 2.1, with second and third laboratories and new cell types, then check it on data it never saw.",
+   "needs": "a rented computer for about a day",
+   "estimate": "about $40-100, priced in the ledger before it starts",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "stands": "the plan is locked: which samples build the map and which are kept back to test it"
   },
   {
    "job": "Colon epithelium from an independent laboratory into the atlas",
@@ -67,7 +92,12 @@
     "E-MTAB-3709",
     "E-MTAB-4957"
    ],
-   "ready": "confirm disease status, donor overlap"
+   "ready": "confirm disease status, donor overlap",
+   "plain": "Add colon lining cells from a laboratory independent of the atlas sources.",
+   "needs": "the laptop",
+   "estimate": "no cost",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "stands": "the data are found; we are confirming the donors were healthy and are not already in the atlas"
   },
   {
    "job": "Lung stroma culture check before atlas entry",
@@ -79,7 +109,12 @@
     "GSE107226",
     "GSE197512"
    ],
-   "ready": "calibrated (two sets)"
+   "ready": "calibrated (two sets)",
+   "plain": "Measure how much growing cells in a dish changes them, before dish-grown lung cells go anywhere near the atlas.",
+   "needs": "the laptop",
+   "estimate": "no cost",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "stands": "first lab done (about 1 in 9 sites drift in a dish); two more labs' data are downloading"
   },
   {
    "job": "Lung tissue test: four lung sets tested (1 scored, 3 not suitable); next lung test waits for atlas v2.1 and the culture check",
@@ -89,7 +124,12 @@
    "accessions": [
     "TCGA-LUAD"
    ],
-   "ready": "waiting on atlas v2.1"
+   "ready": "waiting on atlas v2.1",
+   "plain": "Try lung cancer again once the atlas describes the lung's support cells well enough.",
+   "needs": "the laptop",
+   "estimate": "no cost",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_04.md",
+   "stands": "on hold until the atlas has better lung support cells"
   },
   {
    "job": "Liver fingerprint replication on fresh data",
@@ -99,7 +139,12 @@
    "accessions": [
     "PRJNA762641"
    ],
-   "ready": "metadata only"
+   "ready": "metadata only",
+   "plain": "Repeat the liver cancer result on fresh data from different patients.",
+   "needs": "a rented computer (about 5 terabytes of sequencing)",
+   "estimate": "about $30-50, priced in the ledger before it starts",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md",
+   "stands": "the data are found; not yet downloaded"
   },
   {
    "job": "Colon adenomas: does Met-A rise before cancer?",
@@ -109,7 +154,12 @@
    "accessions": [
     "GSE288652"
    ],
-   "ready": "in S3"
+   "ready": "in S3",
+   "plain": "Colon polyps, the step before cancer: does the reading already rise there?",
+   "needs": "the laptop",
+   "estimate": "no cost",
+   "record": "Biological_Physics/MethylPhys/MASTER_INVENTORY.md",
+   "stands": "the data are on our storage; the test is not yet designed"
   },
   {
    "job": "Neurons: sorted-only reference sealed on two unread laboratories",
@@ -120,7 +170,12 @@
     "GSE96612",
     "GSE107729"
    ],
-   "ready": "metadata only"
+   "ready": "metadata only",
+   "plain": "Brain cells that stopped dividing decades ago: a test of the physics on two laboratories' data nobody has read with our instruments.",
+   "needs": "a rented computer",
+   "estimate": "priced in the ledger before it starts",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
+   "stands": "the data are found; the healthy reference is built"
   },
   {
    "job": "Neurons on Met-A (both instruments on neurons)",
@@ -131,7 +186,12 @@
     "GSE306226",
     "GSE234520"
    ],
-   "ready": "verify files"
+   "ready": "verify files",
+   "plain": "Read brain cells with Met-A too, so both instruments look at the same cell type.",
+   "needs": "the laptop",
+   "estimate": "no cost",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
+   "stands": "the data are found; their files are to be checked"
   },
   {
    "job": "Sex balance: female donors across blood cell types",
@@ -141,7 +201,12 @@
    "accessions": [
     "GSE131989"
    ],
-   "ready": "UCSF independence check"
+   "ready": "UCSF independence check",
+   "plain": "Add more female donors across blood cell types, so the healthy reference is not mostly men.",
+   "needs": "the laptop",
+   "estimate": "no cost",
+   "record": "Biological_Physics/MethylPhys/MASTER_INVENTORY.md",
+   "stands": "one candidate data set; checking that its laboratory is independent"
   },
   {
    "job": "EPIC v2 read check for Stage 1 (opens thymocytes for the atlas and EPIC v2 sets in S3)",
@@ -151,7 +216,34 @@
    "accessions": [
     "GSE269608"
    ],
-   "ready": "metadata only"
+   "ready": "metadata only",
+   "plain": "Teach the first stage of the chain to read the newest chip, which opens thymus cells, where one kind of leukemia starts, for the atlas.",
+   "needs": "the laptop",
+   "estimate": "no cost",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "stands": "not started"
+  }
+ ],
+ "help_wanted": [
+  {
+   "ask": "Healthy neutrophils sequenced whole-genome (bisulfite or enzymatic) in a laboratory other than the Loyfer group, three or more donors.",
+   "why": "An open test of the IAM-A instrument: does a healthy person from another laboratory read as healthy?",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01.md"
+  },
+  {
+   "ask": "Methylation of fresh, never dish-grown lung fibroblasts or lung smooth muscle (sorted cells; arrays or sequencing).",
+   "why": "Every public sample of these cells was grown in a dish first; fresh ones would let lung cancer be tested fairly.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+  },
+  {
+   "ask": "Whole-blood EPIC arrays with cell counts from flow cytometry, from a laboratory independent of the reference groups.",
+   "why": "Met-A is commissioned on isolated neutrophils; whole blood, the real blood test, needs counted cells to check against.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_COMPOSITION_TRUTH_04.md"
+  },
+  {
+   "ask": "Methylation after weeks of methionine restriction (cells or animals).",
+   "why": "A second, independent way to test the physics: cutting the methyl supply should move the IAM-A reading by an amount the physics predicts in advance.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md"
   }
  ]
 }

@@ -47,6 +47,9 @@ def page(art):
     regs = sorted(regs, key=lambda e: e["date"], reverse=True); regs = [e for e in regs if e["status"] == "commissioned"] + [e for e in regs if e["status"] != "commissioned"]
     results = "\n".join(f'''<article class="res"><span class="chip {"st-g" if e["status"] == "commissioned" else "st-b"}">{"Commissioned" if e["status"] == "commissioned" else "In development"}</span>
 <h3>{E(e.get("title") or e["id"])}</h3><p>{E(e.get("plain", ""))}</p><p class="more"><span>{E(e["date"])}</span> · <a href="{rec(e["record"])}">record</a></p></article>''' for e in regs)
+    NJ = J("CANON/next_jobs.json")
+    road = "\n".join(f'<li><b>{E(j["plain"])}</b><br><span class="meta">Needs {E(j["needs"])} · {E(j["estimate"])} · {E(j["stands"])} · <a href="{rec(j["record"])}">record</a></span></li>' for j in NJ["jobs"])
+    helpw = "\n".join(f'<li><b>{E(h["ask"])}</b> {E(h["why"])} <a href="{rec(h["record"])}">record</a></li>' for h in NJ["help_wanted"])
     tools = "\n".join(f"<tr><td>{E(a)}</td><td>{E(b)}</td><td>{E(c)}</td></tr>" for a, b, c in TOOLS)
     cur = months[-1]
     body = f'''<header class="hero" style="background-image:linear-gradient(rgba(10,12,16,.55),rgba(10,12,16,.85)),url({art("web_banner.jpg")})">
@@ -63,6 +66,11 @@ def page(art):
 <p>Met-A and IAM-A are the two instruments; each is commissioned once, on its own tests. The atlas, a map of what healthy human cells look like, is the sky map they read against. Like each release of the microwave-sky maps, every atlas version is refitted whole, gets its own DOI and is checked again by the same tests on data it never saw. This is not a metaphor: it is the same mathematics applied to a different signal. Each tool, with where it stands today:</p>
 <table class="tools"><thead><tr><th>The cosmology tool</th><th>What it does here</th><th>Where it stands</th></tr></thead><tbody>{tools}</tbody></table>
 <p class="more">Every tool, built or not yet built: the <a href="../book/">book's sky-tools chapter</a>. The atlas itself, free to download: <a href="https://doi.org/10.5281/zenodo.23325865">DOI 10.5281/zenodo.23325865</a>.</p></section>
+<section class="wrap" id="road"><h2>The road ahead</h2><p class="sub">Every job still in front of us, in order: what it needs and what it is expected to cost. This is why support matters.</p>
+<ol class="road">{road}</ol>
+<h3 class="help">Where a researcher could help</h3><p class="sub">The gaps public data cannot close. If you hold data like this, or can point to it, open an issue or a discussion on the repository. You do not need to introduce yourself to follow along.</p>
+<ul class="road help">{helpw}</ul>
+<p class="more">The same list on GitHub: <a href="{rec("ROADMAP.md")}">ROADMAP.md</a>.</p></section>
 <div class="art-band" style="background-image:url({art("bh_banner.jpg")})" role="img" aria-label="Art from the book"></div>
 <section class="wrap"><h2>Results so far</h2><p class="sub">Each in plain words, with its record. "Commissioned" means it passed every test written for it before its data was read.</p><div class="grid">{results}</div></section>
 <section class="wrap"><h2>What it costs</h2>
@@ -103,6 +111,7 @@ table.tools{width:100%;border-collapse:collapse;margin:14px 0}.tools th,.tools t
 .big{font-size:34px;font-weight:800;margin:0;font-variant-numeric:tabular-nums}.small{color:var(--muted);font-size:13px}
 .links .tile{display:block;background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:18px 20px;text-decoration:none;color:var(--fg);font-weight:600}
 .links .tile:hover,.card:hover{border-color:var(--link)}
+ol.road,ul.road{padding-left:22px}.road li{margin:0 0 14px}.road .meta{color:var(--muted);font-size:14px}h3.help{margin:30px 0 4px;font-size:22px}
 footer{padding:50px 22px 60px;color:var(--muted);font-size:14px}
 """
 
