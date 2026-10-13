@@ -20,12 +20,13 @@ Candidate instruments: every reading we could build on the methylation channel, 
 
 - **Reads:** WHERE the loss happens first - a sustained energy shortfall should take the late-replicating, solo-WCGW territory before it touches housekeeping promoters
 - **Substrate:** arrays (works today, no new data) · **Cost:** free (design, synthetic test, then existing arrays)
-- **Where it stands:** not written
-- **Still open:** everything: derivation of the expected ordering, site classes fixed before any read, synthetic test, then real arrays
+- **Where it stands:** RUN ONCE 2026-10-13 (DEV-TERRITORY-01): the balance equation's parameter-free prediction of the response ratio, 4.158 from healthy baselines alone, was met to 1 % (measured 4.12-4.20 at shortfalls of 2-20 %), and the declared blind spot was confirmed - but the NUISANCE bar FAILED
+- **Still open:** v2: report both the difference and the normalized difference (one cancels each nuisance type), measure the beta-ceiling effect from fully held sites and subtract it, and leave composition to the mixture-predicted denominator the chain already uses
 - **Advantage:** SELF-TARING - a ratio inside one array, so plate, batch and much of the composition effect cancel because numerator and denominator see the same cell mixture. Attacks the exact spread problem that blocked the blood answer tonight
-- **Blind spot:** says nothing about absolute fidelity; a loss that is uniform across territories is invisible to it
+- **Blind spot:** says nothing about absolute fidelity; a loss uniform across territories is invisible (confirmed, 0.1 % of the signal). And the practical failure: a difference cancels an ADDITIVE plate offset exactly but cannot cancel a MULTIPLICATIVE one - a 10 % composition change moves it about 5x what a 2 % shortfall does - while the beta = 1 ceiling makes offsets and noise one-sided
 - **What would break it:** the ordering reversing - stable territory losing before fragile territory in a condition known to cost the cell energy
-- **Next step:** write the design with its falsifier and the site-class rule BEFORE touching an array
+- **Next step:** write DEV-TERRITORY-02 with the two-number signature and the measured ceiling floor, bars first
+- **Record:** [DEV_TERRITORY_01.md](doors/DEV_TERRITORY_01.md)
 
 ## 3. Met-A on whole blood: measure the real healthy spread
 
@@ -56,12 +57,12 @@ Candidate instruments: every reading we could build on the methylation channel, 
 - **Reads:** the SHAPE of clustering - exponential against heavy-tailed, which separates a processive mechanism from independent point losses
 - **Substrate:** sequencing only (needs several sites on one molecule) · **Cost:** laptop work on reads already in storage; no new sequencing
 - **Where it stands:** not written
-- **Still open:** the derivation of the expected shape under each mechanism, then a synthetic test
+- **Still open:** the derivation of the expected shape under each mechanism, then a synthetic test. Gated: the sequencing instrument is held, though its trim rule now has six planted bars met (DEV-IAMA-TRIM-01) and needs one cheap box read to calibrate
 - **Advantage:** same data as the clustering meter, different question; distinguishes mechanism rather than only size
 - **Blind spot:** impossible on arrays; needs depth, so shallow libraries are out
 - **What would break it:** the measured shape matching neither mechanism's prediction in a case where the mechanism is known
 - **Next step:** after the sequencing instrument is released from hold
-- **Record:** [DEV_IAMA_CAUSE_01.md](doors/DEV_IAMA_CAUSE_01.md)
+- **Record:** [DEV_IAMA_TRIM_01.md](doors/DEV_IAMA_TRIM_01.md)
 
 ## 6. Tail of fragments in plasma (the early-detection instrument)
 
@@ -73,10 +74,10 @@ Candidate instruments: every reading we could build on the methylation channel, 
 - **Blind spot:** needs depth and fragment length; a shallow or heavily fragmented sample has no tail to read. Composition of plasma is itself a question
 - **What would break it:** the tail in healthy plasma being as heavy as in known cancer plasma
 - **Next step:** blocked behind the sequencing instrument's trim rule and the atlas; do not spend box money on it yet
-- **Record:** [DEV_IAMA_READACROSS_01.md](doors/DEV_IAMA_READACROSS_01.md)
+- **Record:** [DEV_IAMA_TRIM_01.md](doors/DEV_IAMA_TRIM_01.md)
 
 ## Not an instrument, but it releases two of them: the trim rule
 
-The sequencing instrument is held because the same kit read differently in two laboratories, and the cause is largely where in each file we read. Reading more places failed its planted test (pooling dilutes a bias, it cannot remove one). The remedy is to exclude the unsettled head of each run, decided by the sequencer's own per-cycle quality rather than by whether our answer improves. Instruments 5 and 6 are both behind it.
+The sequencing instrument is held because the same kit read differently in two laboratories, and the cause is where in each file we read: at the head the failing libraries read 11-14 % below the controls read at the SAME position, and Stage B had read the head (part 0 reproduces each sealed value to 0.0 %). Reading more places failed its planted test - pooling divides a bias rather than removing it. The remedy, DEV-IAMA-TRIM-01, excludes the unsettled head and decides how much from the raw reads' own chemistry (the non-CpG C-to-T fraction in windows, no alignment and no IAM-A): six planted bars, all met, including blindness to the direction of the error and the declared limit that it must not act without independent evidence. Nothing real has been trimmed yet; calibration is one cheap box read, and the laboratory check must then be rerun on the WHOLE stage because the five diagnostic libraries are spent. Instruments 5 and 6 are both behind it.
 
 _Several instruments, each with a different blind spot, reading the same sample and agreeing - that is worth far more than one instrument we trust. Disagreement is also informative: a sample that reads normal on total disorder and abnormal on clustering is telling us which channel failed._

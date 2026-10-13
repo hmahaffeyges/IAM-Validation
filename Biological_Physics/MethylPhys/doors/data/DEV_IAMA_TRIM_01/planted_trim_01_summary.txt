@@ -20,4 +20,8 @@ BAR 5 - the declared limit: the head's chemistry is NORMAL but its reading is bi
   This is the rule's honest limit, declared rather than hidden: it removes anomalies the chemistry can see, and a bias with no
   independent signature survives it. Such a library is caught by the commissioning check, not by the trim.
 
-ALL FIVE BARS MET: the rule recovers a planted head bias, leaves a clean library alone, refuses a library that is anomalous throughout, is blind to the direction of the reading's error, and does not act without independent evidence.
+BAR 6 - the real configuration: the reading taken from the HEAD ALONE, as Stage B took it
+  head-only read 0.04212 (-12.25% off truth - outside the sealed 3 % tolerance, which is the failure we saw)
+  after the rule: TRIM, skipped 4 windows, read 0.04790 (-0.21% off truth) -> PASS (bar: within 1 %, from a starting error above 3 %)
+
+ALL SIX BARS MET: the rule recovers a planted head bias, leaves a clean library alone, refuses a library that is anomalous throughout, is blind to the direction of the reading's error, and does not act without independent evidence.

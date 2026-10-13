@@ -1,6 +1,7 @@
-case,decision,skipped,eps_read,eps_true,rel_error,eps_untrimmed,passed,rel_move,trimmed_fraction
-1_recovery,TRIM,4,0.04806949229814015,0.048,0.0014477562112531484,0.04750818695382477,True,,
-2_no_harm,READ ALL,0,0.047920205515124804,,,,True,0.0,
-3_refusal,REFUSE,20,,,,,True,,0.5
-4_sign_blind,TRIM/TRIM,4/4,,,,,True,,
-5_declared_limit,READ ALL,0,0.04743968555337253,,,,True,,
+case,decision,skipped,eps_read,eps_true,rel_error,eps_untrimmed,passed,rel_move,trimmed_fraction,eps_head_only,rel_error_before,rel_error_after
+1_recovery,TRIM,4,0.04806949229814015,0.048,0.0014477562112531484,0.04750818695382477,True,,,,,
+2_no_harm,READ ALL,0,0.047920205515124804,,,,True,0.0,,,,
+3_refusal,REFUSE,20,,,,,True,,0.5,,,
+4_sign_blind,TRIM/TRIM,4/4,,,,,True,,,,,
+5_declared_limit,READ ALL,0,0.04743968555337253,,,,True,,,,,
+6_real_configuration,TRIM,4,0.04790137961724262,,,,True,,,0.042118577448165065,-0.12252963649656112,-0.0020545913074454525

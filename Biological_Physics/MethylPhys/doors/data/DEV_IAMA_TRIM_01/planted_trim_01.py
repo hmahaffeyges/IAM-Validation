@@ -103,7 +103,7 @@ L += ["BAR 6 - the real configuration: the reading taken from the HEAD ALONE, as
       f"  after the rule: {o['decision']}, skipped {o['skip_windows']} windows, read {e:.5f} ({err_after:+.2%} off truth) -> "
       f"{'PASS' if bar6 else 'FAIL'} (bar: within 1 %, from a starting error above 3 %)", ""]
 allok = all(r["passed"] for r in rows)
-L += [("ALL FIVE BARS MET: the rule recovers a planted head bias, leaves a clean library alone, refuses a library that is anomalous "
+L += [("ALL SIX BARS MET: the rule recovers a planted head bias, leaves a clean library alone, refuses a library that is anomalous "
        "throughout, is blind to the direction of the reading's error, and does not act without independent evidence."
        if allok else "NOT ALL BARS MET: the failing bar is above, and the rule is not used on any real file until it is fixed.")]
 pd.DataFrame(rows).to_csv(os.path.join(OUT, "planted_trim_01_output.csv"), index=False)
