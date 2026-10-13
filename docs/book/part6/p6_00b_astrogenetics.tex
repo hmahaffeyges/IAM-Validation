@@ -1,6 +1,6 @@
 % Plain-language chapter for geneticists and clinicians: the cosmology toolkit applied to the methylome, and the cell read as a thermometer.
 % Placed directly after the Part 4 opening chapter (ch:bridge). Numbers recomputed by docs/verification/scripts/verify_astrogenetics_book.py.
-\chapter{Astro-Genetics and the Cosmic Methylome: the cell read as a thermometer}\label{ch:astrogenetics}
+\chapter{AstroGenetics and the Cosmic Methylome: the cell read as a thermometer}\label{ch:astrogenetics}
 
 \section{Who this chapter is for}\label{sec:ag_who}
 
@@ -13,12 +13,25 @@ checked by the field that owns them. What is new is the use of those same checke
 
 \section{The one-sentence version}\label{sec:ag_one}
 
-Biology has a measurement problem that cosmology solved the tooling for more than twenty years ago, and Astro-Genetics is what happens
+Biology has a measurement problem that cosmology solved the tooling for more than twenty years ago, and AstroGenetics is what happens
 when you hand biology that tooling. Cosmologists were forced, by the data, to build a precise toolkit for reading the state of a system
 against a calibrated reference and saying how far it sits from where it should be. They built it to measure the universe; it turns out to
-be what reading a cell requires. Astro-Genetics points that toolkit at the cell. The tools transfer because the underlying accounting is
+be what reading a cell requires. AstroGenetics points that toolkit at the cell. The tools transfer because the underlying accounting is
 the same: one bit of record costs $\kB T\ln2$, whatever the bit is made of (Chapter~\ref{ch:bridge}). \derived{} That is the whole idea.
 \interp
+
+\section{What the two names mean}\label{sec:ag_names}
+
+\textbf{AstroGenetics} is the use of cosmology's measurement toolkit on DNA methylation. The tools are imported from the field that built
+them and translated to a methylation array (Chapter~\ref{ch:translation}): decomposition of a specimen onto a basis of reference
+components, calibration against a reference measured in the same run, data cuts, split samples and held-out references, end-to-end
+simulations with known answers, null tests, and blind analysis, in which the rule is fixed before the data is opened.
+Chapter~\ref{ch:skytools} lists every tool, which ones are in use, and what each one does for a methylation array.
+\textbf{The Cosmic Methylome} is the methylome read the way the microwave background is read: each specimen separated into the healthy
+components it is made of, and what that healthy reference cannot explain kept as a residual sky, site by site (Chapter~\ref{ch:sky}).
+Laying the whole genome on a sphere, as a sky map is pixelized, is built and not yet part of the chain. Neither name is a claim that
+cells and the cosmos are the same thing. Both say that a calibrated way of reading a noisy record against a reference already exists,
+has been tested hard by the field that built it, and works on cells.
 
 \section{Two correspondences}\label{sec:ag_two}
 
@@ -73,7 +86,7 @@ sits, and where breach lies, is to be measured on this scale. \openprob
 
 \section{One instrument, one gauge}\label{sec:ag_gauge}
 
-Both Astro-Genetics and cosmology reduce their central question to a single dimensionless number. We call it $A$. It is a ratio: the
+Both AstroGenetics and cosmology reduce their central question to a single dimensionless number. We call it $A$. It is a ratio: the
 reading of a system over the same system's healthy reading, on the same instrument (Eq.~\eqref{eq:A}). At $A=1$ the cell works as itself,
 the healthy, sustainable state, and it sits in the middle of the gauge. Above 1 the cell carries more error than when healthy; below 1 it
 carries less. Both directions are real signals. \derived{} for the construction (Chapter~\ref{ch:gauge}).
@@ -262,7 +275,7 @@ There is a precedent for what precision recovers from data that was always there
 1948~\cite{AlpherHerman1948}, but for years it went unseen; it was first found as an excess in a noise budget, and recognized for what it
 was in 1965~\cite{PenziasWilson1965,Dicke1965} (Chapter~\ref{ch:skytools}). \observed{} The signal had been present the whole time. What
 was missing was a precise enough instrument and knowing what to look for. The dominant approach in the methylation field has answered the
-question of signal with statistics and scale, training large models on labeled groups. Astro-Genetics answers it with precision and
+question of signal with statistics and scale, training large models on labeled groups. AstroGenetics answers it with precision and
 physics: a reference with its uncertainty stated, read against a floor whose form is derived in advance. What remains to be shown is the
 prospective case at the level of one person: that person's serial readings showing a departure ahead of a diagnosis whose outcome was
 unknown when the readings were taken. That is the test still ahead, and the standard for it is the one cosmology holds to: the signal
@@ -270,7 +283,7 @@ counts when it holds on data the reference never saw, with the test registered f
 
 \section{The same toolkit on both scales}\label{sec:ag_both}
 
-Astro-Genetics is a verifiable claim, not an analogy. The strongest way to see it is a check made in the right order: write down what the
+AstroGenetics is a verifiable claim, not an analogy. The strongest way to see it is a check made in the right order: write down what the
 framework says a quantity should be, and the condition it must meet, before looking; then read the independently measured value. This is
 the discipline cosmology has used for two decades, and it is the discipline the cell instrument applies to every test: the pass conditions
 are written and hashed before the data are read (Chapter~\ref{ch:discipline}).
@@ -296,11 +309,11 @@ What these do not show: why. The far end is exact and the floor's form is derive
 measured. \openprob
 
 \begin{table}[htbp]\centering\small
-\caption{One toolkit, two scales: each row is one tool doing the same job in cosmology and in Astro-Genetics. The instruments were built by
-cosmology; Astro-Genetics points them at the cell. \analogy{} of structure; each tool's status in the chain is in Chapter~\ref{ch:skytools}.}
+\caption{One toolkit, two scales: each row is one tool doing the same job in cosmology and in AstroGenetics. The instruments were built by
+cosmology; AstroGenetics points them at the cell. \analogy{} of structure; each tool's status in the chain is in Chapter~\ref{ch:skytools}.}
 \label{tab:ag_toolkit}
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}\toprule
-shared tool & in cosmology & in Astro-Genetics \\\midrule
+shared tool & in cosmology & in AstroGenetics \\\midrule
 the reference map & the microwave background: a frozen snapshot of the early universe & the methylation pattern of purified healthy cells: a frozen snapshot of the cell, in fixed files \\
 sharpening the map & Bayesian inference fills and sharpens the sparse, noisy sky map & a hierarchical fit sharpens every measured value and states its interval; unmeasured values stay blank \\
 fitting the model & Markov-chain Monte Carlo against the Planck likelihood & Markov-chain Monte Carlo to build atlas v2 \\
@@ -309,10 +322,10 @@ the single number & a remnant's mass over the typical remnant of its kind & $A$:
 \end{tabularx}
 \end{table}
 
-\section{Why it is called Astro-Genetics}\label{sec:ag_name}
+\section{Why it is called AstroGenetics}\label{sec:ag_name}
 
 Cosmology can tell you, with a stated uncertainty, how far a system is from a transition it cannot return from, and most of biology cannot
-yet do this for a cell (Chapter~\ref{ch:skytools}). Astro-Genetics is the transfer of that toolkit. It uses Markov-chain Monte Carlo to
+yet do this for a cell (Chapter~\ref{ch:skytools}). AstroGenetics is the transfer of that toolkit. It uses Markov-chain Monte Carlo to
 build and calibrate its reference, uses that reference the way cosmology uses the microwave background, as a frozen baseline to measure
 departures from, uses the same convergence diagnostics, and writes every test's pass conditions down, with a hash, before the data are
 touched. It does not read a specimen against any published atlas in its published form, because those references, as published, are on
@@ -339,7 +352,7 @@ measured on healthy molecules, and deriving that energy from the chemistry of ma
 
 \section{What the instrument is for}\label{sec:ag_for}
 
-The simplest way to describe the instrument is as a cellular thermometer built with Astro-Genetics. A thermometer does not diagnose and
+The simplest way to describe the instrument is as a cellular thermometer built with AstroGenetics. A thermometer does not diagnose and
 does not treat; it reads a state, on a calibrated scale, and you read it again later to see which way it is moving. What the gauge does,
 before anything else, is read where a person's cells stand today against their own healthy state. Two readings apart in time would give a
 trajectory: whether a cell type is holding steady, moving away from 1, or settling back toward it. That continuous reading of cellular
