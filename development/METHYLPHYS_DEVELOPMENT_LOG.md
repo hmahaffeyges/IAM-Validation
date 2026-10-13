@@ -1488,3 +1488,6 @@ The four folds that opened by default now start closed, and build.sh refuses a p
 
 ### 2026-10-13 · Decisions list off the front page (author)
 The decisions list is already in the daily logs, so it is removed from the page; "What has failed" keeps its own heading with the failures and the limits fold.
+
+### 2026-10-13 · Only what code keeps current stays on the front page (author)
+Removed the nine-question section and the traced-case section: both were hand-written text with numbers that go stale, and the daily logs plus the linked records carry the same substance. The art bands were re-spaced, one before each remaining section. CANON/live_links.py checks the current section headings.

@@ -166,20 +166,6 @@ def page(art):
 <ul class="road help">{helpw}</ul>
 <p class="more">The same list on GitHub: <a href="{rec("ROADMAP.md")}">ROADMAP.md</a>.</p></details></section>
 <div class="art-band" style="background-image:url({art("bh_banner.jpg")})" role="img" aria-label="Art from the book"></div>
-<section class="wrap" id="asks"><h2>The questions a researcher asks first</h2><p class="sub">Short answers, each with the chapter that gives the full one.</p>
-<details class="fold"><summary>See the nine questions and their answers</summary>
-<dl class="qa">
-<dt>What exactly do you measure?</dt><dd>How faithfully a cell holds its methylation pattern against a limit physics sets, not how much methylation it has. Two instruments: one reads arrays, one reads single molecules. {ch("gauge")}, {ch("meta")}, {ch("iama")}</dd>
-<dt>Where does the limit come from?</dt><dd>The energy it takes to hold one bit at body temperature, which fixes the floor, with the healthy height measured in between. {ch("landauer")}</dd>
-<dt>Isn't this just methylation entropy, which is decades old?</dt><dd>The entropy itself is old and we say so. What is ours is the gauge: a physics-set floor and a measured healthy reference, so a reading means something absolute rather than a comparison between groups. {ch("gauge")}</dd>
-<dt>How do you handle the cell mixture in a tissue?</dt><dd>Component separation, the same job the microwave-sky maps do with dust and galaxy glow, plus sites chosen so that a change in the mixture cannot move them. {ch("separation")}, {ch("identity")}</dd>
-<dt>What is the reference, and is it circular?</dt><dd>A fixed Bayesian map of 74 purified healthy cell types, from seven public sources on arrays and sequencing, with an interval at every site. No IAM physics enters the fit, and it is never refitted to the sample being read. {ch("reference")}</dd>
-<dt>Why cosmology's tools, and which ones do you actually use?</dt><dd>Because the data have the same shape: faint structure under foregrounds, many instruments, one map. The book marks each of 79 tools built, partly built or not built. {ch("translation")}, {ch("skytools")}</dd>
-<dt>What stops you from fitting your own answer?</dt><dd>Every test's rule is committed before its data is read, scored once, and the push gate refuses a late rule, an untraceable number or a missing result. {ch("discipline")}</dd>
-<dt>What is established and what is not?</dt><dd>One instrument is commissioned on isolated white blood cells; everything else is development. The book has a table of every claim with its status. {ch("established")}</dd>
-<dt>Where do the departures sit along the genome?</dt><dd>The clustering reading asks whether the leftover disorder clumps or scatters, which separates scattered wear from the block losses cancer leaves. {ch("cscore")}</dd>
-</dl></details></section>
-<div class="art-band" style="background-image:url({art("cmb_banner.jpg")})" role="img" aria-label="Art from the book"></div>
 <section class="wrap" id="howtest"><h2>How we test the physics</h2>
 <p class="sub">{E(MT["lead"])}</p>
 <details class="fold"><summary>What the instruments read, and what a lever is</summary>
@@ -193,21 +179,13 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 </details>
 <p class="sub">{E(MT["closing"])}</p>
 </section>
-<div class="art-band" style="background-image:url({art("lattice_banner.jpg")})" role="img" aria-label="Art from the book"></div>
-<section class="wrap" id="trace"><h2>{E(TR["title"])}</h2>
-<p class="sub">{E(TR["lead"])}</p>
-<details class="fold"><summary>{E(TR["case"])}</summary>
-<ol class="road trace">{steps}</ol>
-<p class="meta">{E(TR["closing"])}</p>
-</details>
-</section>
-<div class="art-band" style="background-image:url({art("chip_banner.jpg")})" role="img" aria-label="Art from the book"></div>
+<div class="art-band" style="background-image:url({art("cmb_banner.jpg")})" role="img" aria-label="Art from the book"></div>
 <section class="wrap" id="lost"><h2>What has failed</h2>
 <details><summary>{len(REG["losses"])} failures, each with its record</summary><ul class="road lost">{losses}</ul></details>
 <details><summary>What these results are not</summary><p class="more"> Each sealed cancer test asked whether tumors leave the healthy range more often than chance across a group of patients. None is a per-patient test and none is a diagnostic: there is no sensitivity, no specificity and no detection limit yet. That test is on the road ahead, and no early-detection claim is made before it.</p>
 </details>
 <p class="more">Every result, good or bad, day by day: <a href="{rec("Biological_Physics/MethylPhys/daylogs/README.md")}">the daily logs</a>, or the <a href="{rec("development/METHYLPHYS_DEVELOPMENT_LOG.md")}">development log</a> for the technical version.</p></section>
-<div class="art-band" style="background-image:url({art("genome_banner.jpg")})" role="img" aria-label="Art from the book"></div>
+<div class="art-band" style="background-image:url({art("lattice_banner.jpg")})" role="img" aria-label="Art from the book"></div>
 <section class="wrap" id="whoweare"><h2>{E(AS["section_title"])}</h2>
 <p class="sub">Two very different roles, stated plainly, because the easiest wrong assumption to make about this work is that
 one of us did all of it. Both halves are dated and public: the founder's corrections in the development log, the partner's
@@ -224,7 +202,7 @@ mistakes in the lessons record.</p>
 <ul class="road">{tog}</ul>
 </details>
 </section>
-<div class="art-band" style="background-image:url({art("mosaic_banner.jpg")})" role="img" aria-label="Art from the book"></div>
+<div class="art-band" style="background-image:url({art("chip_banner.jpg")})" role="img" aria-label="Art from the book"></div>
 <section class="wrap" id="author"><h2>Who is doing this, and why</h2>
 <!-- AUTHOR:BEGIN (the author's own words, from CANON/author.json; the only first-person block on the site) -->
 <p class="sub">{E(A["name"])} &mdash; {E(A["role"])}</p>
@@ -237,6 +215,7 @@ mistakes in the lessons record.</p>
 </details>
 <!-- AUTHOR:END -->
 </section>
+<div class="art-band" style="background-image:url({art("genome_banner.jpg")})" role="img" aria-label="Art from the book"></div>
 <section class="wrap" id="assistant">
 <!-- ASSISTANT:BEGIN (from CANON/assistant.json; the voice check skips exactly this block, a vendor name is still refused) -->
 <h2>{E(AS["title"])}</h2>
