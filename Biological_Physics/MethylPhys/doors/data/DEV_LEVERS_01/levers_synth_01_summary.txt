@@ -1,0 +1,42 @@
+DEV-LEVERS-01 synthetic test 1: processive vs scattered at matched total error (the chain's own clustering reading)
+sites 20000 | block 10 | draws 200 each | healthy C: median 0.9913, range 0.9293-1.1012
+
+moved   200 shift 2.0 run   5: processive C 1.107 [1.010-1.232] | scattered C 0.989 [0.928-1.089] | no overlap False | processive above healthy False
+moved   200 shift 2.0 run  10: processive C 1.203 [1.121-1.347] | scattered C 0.989 [0.923-1.064] | no overlap True | processive above healthy True
+moved   200 shift 2.0 run  25: processive C 1.277 [1.189-1.433] | scattered C 0.990 [0.919-1.072] | no overlap True | processive above healthy True
+moved   200 shift 2.0 run  50: processive C 1.303 [1.191-1.489] | scattered C 0.985 [0.911-1.056] | no overlap True | processive above healthy True
+moved   200 shift 3.0 run   5: processive C 1.257 [1.128-1.359] | scattered C 0.990 [0.917-1.089] | no overlap True | processive above healthy True
+moved   200 shift 3.0 run  10: processive C 1.452 [1.359-1.582] | scattered C 0.988 [0.904-1.062] | no overlap True | processive above healthy True
+moved   200 shift 3.0 run  25: processive C 1.611 [1.451-1.802] | scattered C 0.990 [0.929-1.063] | no overlap True | processive above healthy True
+moved   200 shift 3.0 run  50: processive C 1.675 [1.528-1.985] | scattered C 0.989 [0.914-1.074] | no overlap True | processive above healthy True
+moved   200 shift 4.0 run   5: processive C 1.419 [1.325-1.556] | scattered C 0.992 [0.913-1.066] | no overlap True | processive above healthy True
+moved   200 shift 4.0 run  10: processive C 1.767 [1.604-1.999] | scattered C 0.986 [0.911-1.087] | no overlap True | processive above healthy True
+moved   200 shift 4.0 run  25: processive C 2.034 [1.906-2.261] | scattered C 0.989 [0.926-1.078] | no overlap True | processive above healthy True
+moved   200 shift 4.0 run  50: processive C 2.117 [1.983-2.459] | scattered C 0.993 [0.914-1.087] | no overlap True | processive above healthy True
+moved   500 shift 2.0 run   5: processive C 1.287 [1.134-1.406] | scattered C 0.988 [0.905-1.065] | no overlap True | processive above healthy True
+moved   500 shift 2.0 run  10: processive C 1.504 [1.374-1.638] | scattered C 0.990 [0.909-1.058] | no overlap True | processive above healthy True
+moved   500 shift 2.0 run  25: processive C 1.678 [1.557-1.827] | scattered C 0.993 [0.886-1.077] | no overlap True | processive above healthy True
+moved   500 shift 2.0 run  50: processive C 1.724 [1.587-1.988] | scattered C 0.991 [0.908-1.070] | no overlap True | processive above healthy True
+moved   500 shift 3.0 run   5: processive C 1.574 [1.440-1.696] | scattered C 0.989 [0.902-1.074] | no overlap True | processive above healthy True
+moved   500 shift 3.0 run  10: processive C 2.036 [1.840-2.194] | scattered C 0.986 [0.913-1.078] | no overlap True | processive above healthy True
+moved   500 shift 3.0 run  25: processive C 2.365 [2.195-2.574] | scattered C 0.992 [0.915-1.079] | no overlap True | processive above healthy True
+moved   500 shift 3.0 run  50: processive C 2.482 [2.357-2.851] | scattered C 0.995 [0.930-1.080] | no overlap True | processive above healthy True
+moved   500 shift 4.0 run   5: processive C 1.894 [1.725-2.040] | scattered C 0.992 [0.898-1.059] | no overlap True | processive above healthy True
+moved   500 shift 4.0 run  10: processive C 2.599 [2.362-2.832] | scattered C 0.991 [0.897-1.061] | no overlap True | processive above healthy True
+moved   500 shift 4.0 run  25: processive C 3.132 [2.984-3.451] | scattered C 0.988 [0.907-1.050] | no overlap True | processive above healthy True
+moved   500 shift 4.0 run  50: processive C 3.332 [3.132-3.831] | scattered C 0.988 [0.923-1.085] | no overlap True | processive above healthy True
+moved  1000 shift 2.0 run   5: processive C 1.519 [1.397-1.704] | scattered C 0.990 [0.920-1.059] | no overlap True | processive above healthy True
+moved  1000 shift 2.0 run  10: processive C 1.933 [1.758-2.057] | scattered C 0.991 [0.900-1.072] | no overlap True | processive above healthy True
+moved  1000 shift 2.0 run  25: processive C 2.260 [2.108-2.470] | scattered C 0.991 [0.914-1.069] | no overlap True | processive above healthy True
+moved  1000 shift 2.0 run  50: processive C 2.342 [2.180-2.690] | scattered C 0.987 [0.923-1.070] | no overlap True | processive above healthy True
+moved  1000 shift 3.0 run   5: processive C 1.966 [1.816-2.096] | scattered C 0.989 [0.927-1.072] | no overlap True | processive above healthy True
+moved  1000 shift 3.0 run  10: processive C 2.744 [2.470-2.969] | scattered C 0.992 [0.915-1.070] | no overlap True | processive above healthy True
+moved  1000 shift 3.0 run  25: processive C 3.341 [3.151-3.616] | scattered C 0.991 [0.908-1.080] | no overlap True | processive above healthy True
+moved  1000 shift 3.0 run  50: processive C 3.538 [3.296-4.018] | scattered C 0.989 [0.905-1.099] | no overlap True | processive above healthy True
+moved  1000 shift 4.0 run   5: processive C 2.384 [2.232-2.631] | scattered C 0.986 [0.918-1.069] | no overlap True | processive above healthy True
+moved  1000 shift 4.0 run  10: processive C 3.490 [3.275-3.763] | scattered C 0.993 [0.925-1.084] | no overlap True | processive above healthy True
+moved  1000 shift 4.0 run  25: processive C 4.348 [4.116-4.722] | scattered C 0.992 [0.891-1.063] | no overlap True | processive above healthy True
+moved  1000 shift 4.0 run  50: processive C 4.612 [4.387-5.094] | scattered C 0.991 [0.912-1.075] | no overlap True | processive above healthy True
+
+SEPARATING CONDITIONS (no overlap, processive above the healthy range, run length <= 25): [(np.int64(200), np.float64(2.0), np.int64(10)), (np.int64(200), np.float64(2.0), np.int64(25)), (np.int64(200), np.float64(3.0), np.int64(5)), (np.int64(200), np.float64(3.0), np.int64(10)), (np.int64(200), np.float64(3.0), np.int64(25)), (np.int64(200), np.float64(4.0), np.int64(5)), (np.int64(200), np.float64(4.0), np.int64(10)), (np.int64(200), np.float64(4.0), np.int64(25)), (np.int64(500), np.float64(2.0), np.int64(5)), (np.int64(500), np.float64(2.0), np.int64(10)), (np.int64(500), np.float64(2.0), np.int64(25)), (np.int64(500), np.float64(3.0), np.int64(5)), (np.int64(500), np.float64(3.0), np.int64(10)), (np.int64(500), np.float64(3.0), np.int64(25)), (np.int64(500), np.float64(4.0), np.int64(5)), (np.int64(500), np.float64(4.0), np.int64(10)), (np.int64(500), np.float64(4.0), np.int64(25)), (np.int64(1000), np.float64(2.0), np.int64(5)), (np.int64(1000), np.float64(2.0), np.int64(10)), (np.int64(1000), np.float64(2.0), np.int64(25)), (np.int64(1000), np.float64(3.0), np.int64(5)), (np.int64(1000), np.float64(3.0), np.int64(10)), (np.int64(1000), np.float64(3.0), np.int64(25)), (np.int64(1000), np.float64(4.0), np.int64(5)), (np.int64(1000), np.float64(4.0), np.int64(10)), (np.int64(1000), np.float64(4.0), np.int64(25))]
+BAR: MET - the clustering reading separates mechanism

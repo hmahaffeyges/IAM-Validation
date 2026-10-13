@@ -63,6 +63,17 @@ chain's own clustering reading, 200 draws each. Bar written first: the two must 
 processive case above the healthy range, at a run length of 25 sites or fewer. Otherwise the clustering reading cannot
 separate mechanism at this depth and this note says so.
 
+**Test 1 outcome (run once, 2026-10-13; output `levers_synth_01_output.csv`, summary `levers_synth_01_summary.txt`).
+BAR MET, with one boundary worth stating.** Scattered damage leaves the clustering reading at the healthy value at every
+error amount tried, while processive runs raise it well outside the healthy range, and 35 of the 36 conditions show no
+overlap at all across 200 draws each. The one condition that fails is the weakest: 200 sites moved in runs of 5 at 2
+healthy units, where the processive case overlaps the top of the healthy range. So the reading separates mechanism as
+soon as a failure runs over about ten consecutive sites, and below that it cannot.
+
+**What this does and does not license.** It says the clustering reading can carry a mechanism argument on real arrays:
+enzymatic error must clump and show up, chemical damage must not. It says nothing about which mechanism any real sample
+has; that needs the levers themselves.
+
 **Test 2, two clocks (planned).** An enzymatic floor scaling with kT against a damage rate scaling exponentially with it:
 how many temperatures and donors per temperature are needed to tell a line from an exponential against real donor spread.
 
