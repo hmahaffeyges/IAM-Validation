@@ -205,3 +205,47 @@ most 1 of 24. The 10 granulocyte arrays are reported with their refusal and excl
 pre-registration already required for refusals. Their calibrated betas are kept, so they can be read the day granulocytes have
 a reference - which is now a job on the road ahead, not a relabelling.
 
+## Test (a) on the second laboratory not used to decide: MET, on series-tared readings, by one array (2026-10-13)
+
+**Read from** the raw IDATs of GSE184269 (NIA-IRP, NIH; GESTALT healthy donors; EPIC v1), fetched after the bar was committed and
+calibrated by the chain's Stage 1 unchanged, then read by `conductor_v3.run_neutrophil` and the C-score with the tare copied verbatim
+from the first laboratory's driver (`read_band_test.py` refuses to run if that copy has drifted). Scripts and outputs:
+`data/CSCORE_COMMISSIONING/fetch_band_test.py`, `score_band_test.py`, `read_band_test.py`, `band_test_GSE184269_rows.csv`,
+`band_test_GSE184269.json`.
+
+| | |
+|---|---|
+| bar, committed before the arrays were fetched | at least 95 % of the whole bloods not above 1.152, pooled, one-sided |
+| whole bloods listed | 24 |
+| withheld by the chain | 1 (GSM5583025: only 5325 of 6000 neutrophil sites measured, 5400 required - the coverage rule of 2026-10-04) |
+| scored | 23 |
+| above 1.152 | 1 |
+| not above | 22 of 23 = **0.9565**, so the bar is **MET** |
+| spread | C_rel median 0.9992, range 0.871 to 1.1815 |
+| granulocytes | 10 refused at intake, as the amendment said they would be; not relabelled |
+
+**Three things that must travel with this result.**
+
+1. **It is met by one array.** Had the withheld array read above the limit, the proportion would be 22 of 24 = 0.9167 and the bar would
+   **not** be met. The scorer now computes and prints that sensitivity (`verdict_if_every_withheld_array_were_above`) so it cannot be
+   left out of a summary.
+2. **Series-tared, not same-run.** GESTALT ran one array per slide (24 slides for 24 arrays), so a same-run tare was impossible: every
+   reading is tared to the series. The first laboratory's repeat bar is likewise met on series-tared readings only, so this test does not
+   settle the slide-scope question - it inherits it.
+3. **Whole blood, not the commissioned specimen.** These are whole bloods, consistent with the band's own majority population (555 of 617)
+   and not an extension of Met-A's commissioned neutrophil scope.
+
+**What it would take to finish test (a).** Each further healthy EPIC v1 laboratory gets read as the plan says, not only the first two;
+and at least one of them must have several arrays per slide, so the slide-scope tare can be tested rather than inherited.
+
+**In plain words.** Our second meter says how a cell's drift is arranged - in clumps, which is what cancer leaves, or scattered, which is
+ordinary wear. Before trusting it on a patient we have to know it does not cry wolf on healthy people it has never seen. We set the pass
+mark first - at most 1 in 20 healthy samples may read outside the healthy range - and then read 24 healthy blood samples from a second
+laboratory, the National Institute on Aging, that had no hand in setting that range. One sample the instrument refused to read, because too
+few of its sites came through; of the 23 it did read, 22 read inside the range. That clears the mark, but only just: if the refused sample
+had read high, it would have failed. **What it would take to be convincing:** more healthy laboratories, and one where several samples share
+a chip, so we can check the stricter chip-level comparison instead of inheriting it.
+
+**Not a milestone:** one of several healthy laboratories; test (a) is not complete until the further laboratories in the plan are read and
+the slide-scope tare is tested rather than inherited.
+

@@ -1,0 +1,27 @@
+{
+ "set": "GSE184269",
+ "laboratory": "NIA-IRP, NIH (GESTALT healthy donors)",
+ "platform": "EPIC v1",
+ "bar": "at least 95% of the whole bloods not above 1.152",
+ "n_whole_blood_scored": 23,
+ "above_limit": 1,
+ "not_above_fraction": 0.9565,
+ "met": true,
+ "C_rel_median": 0.9992,
+ "C_rel_min": 0.871,
+ "C_rel_max": 1.1815,
+ "granulocytes_refused": 10,
+ "other_refusals": [
+  "only 5325 of 6000 neutrophil sites measured (>= 5400 required): A withheld"
+ ],
+ "tare_notes": [
+  "no A",
+  "untared: 0 same-run reference arrays (>= 3 required)"
+ ],
+ "whole_bloods_listed": 24,
+ "whole_bloods_withheld": 1,
+ "verdict_if_every_withheld_array_were_above": "would NOT be met (0.9167)",
+ "tare_scopes": {
+  "series": 23
+ }
+}

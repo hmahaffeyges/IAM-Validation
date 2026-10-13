@@ -6,6 +6,11 @@ and gse250556_person_map.csv (GEO titles for GSE250556: subject A-D, pooled repl
 Also reads band_test_GSE315366_rows.csv, the held-out band test.
 Usage: python3 plan_numbers.py  ->  plan_numbers_output.txt
 """
+# NO CHAIN: this script computes no physics. It recomputes the spread and repeatability figures the plan quotes by taking
+# standard deviations and medians over readings the CHAIN already produced and that are committed
+# (DEV_CSCORE_TARE_01_arrays.csv, gse250556_person_map.csv). There is no reading, no entropy and no clustering to re-derive
+# here, so there is nothing for the chain to do; every physical quantity it touches came out of the chain upstream.
+
 import os
 import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__))

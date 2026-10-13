@@ -66,7 +66,8 @@ for r in S.itertuples():
                               # withheld array look like a silent hole in the table (2026-10-13)
                               or (m.get("reason") if m.get("A") is None else None)
                               or ((o.get("met_a_cscore") or {}).get("reason") if (o.get("met_a_cscore") or {}).get("C") is None else None)
-                              or ((o.get("tare") or {}).get("reason") if (o.get("tare") or {}).get("A_rel") is None else None)),
+                              ),
+                     note=((o.get("tare") or {}).get("reason") if (o.get("tare") or {}).get("A_rel") is None else None),
                      status=("ok" if m.get("A") is not None else "withheld by the chain")))
     print(r.gsm, r.src, "A", rows[-1]["A"], "C", rows[-1]["C"], "|", str(rows[-1]["refusal"])[:60], flush=True)
 T = pd.DataFrame(rows)
@@ -86,7 +87,8 @@ res = {"set": "GSE184269", "laboratory": "NIA-IRP, NIH (GESTALT healthy donors)"
        "C_rel_min": None if not len(scored) else round(float(scored.C_rel.min()), 4),
        "C_rel_max": None if not len(scored) else round(float(scored.C_rel.max()), 4),
        "granulocytes_refused": int((T.specimen.str.contains("ranulocyt", case=False) & T.refusal.notna()).sum()),
-       "other_refusals": T[T.specimen.str.contains("blood", case=False) & T.refusal.notna()].refusal.astype(str).tolist(),
+       "other_refusals": sorted(set(T[T.specimen.str.contains("blood", case=False) & T.refusal.notna()].refusal.astype(str))),
+       "tare_notes": sorted(set(T[T.specimen.str.contains("blood", case=False) & T.note.notna()].note.astype(str))),
        "whole_bloods_listed": int(T.specimen.str.contains("blood", case=False).sum()),
        "whole_bloods_withheld": int((T.specimen.str.contains("blood", case=False) & T.C_rel.isna()).sum()),
        "verdict_if_every_withheld_array_were_above": (
