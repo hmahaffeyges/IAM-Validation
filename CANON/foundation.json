@@ -59,7 +59,7 @@
   },
   {
    "id": "h_min",
-   "statement": "H_min, the floor, is the lowest error a system can hold before thermal kicks win. It is NOT the denominator of A and not 1: it sits below 1 at H_min/healthy reference.",
+   "statement": "H_min = H(eps_min), the floor set by M and temperature alone (no dependence on copying or division), is the lowest error a system can hold before thermal kicks win. It is NOT the denominator of A and not 1: it sits below 1 at H_min/healthy reference.",
    "status": "DERIVED (the floor; M alone fixes it)",
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
    "anchor": "It is not the denominator of $A$ and not 1",
@@ -91,7 +91,7 @@
   },
   {
    "id": "three_energies",
-   "statement": "eps_min = 1/(1+e^M) with M alone (the floor, a calculation); eps_0 = 1/(1+e^{phi M}) with phi M = 3.41 kT measured across 56 healthy cell types (the middle, measured, phi = 0.1628 of one ATP); H_min = H(eps_min); H_ref = H(eps_0). Ceiling: no energy holding the site, error 1/2, one bit per site, set by physics.",
+   "statement": "eps_min = 1/(1+e^M) from M and temperature ALONE - the error one ATP of holding energy still allows against thermal kicks, NOT a copying error, and the same whether the cell divides or not (the floor, a calculation); eps_0 = 1/(1+e^{phi M}) with phi M = 3.41 kT measured across 56 healthy cell types (the middle, measured, phi = 0.1628 of one ATP); H_min = H(eps_min); H_ref = H(eps_0). Ceiling: no energy holding the site, error 1/2, one bit per site, set by physics.",
    "status": "DERIVED from the holding energies; only eps_0's energy is measured",
    "derived_in": "docs/book/part6/p6_08_iama.tex",
    "anchor": "\\varepsilon_{\\min}=\\frac{1}{1+e^{M}},\\qquad \\varepsilon_0=\\frac{1}{1+e^{\\phi M}}",
@@ -131,6 +131,16 @@
    "phrase": "error accumulates with age",
    "why": "at balance it does not; a rise with age means the ratio g/f moved",
    "use_instead": "a rise with age means the balance itself moved"
+  },
+  {
+   "why": "The floor is set by M and temperature alone - the error one ATP of holding energy still allows against thermal kicks - and is the same whether the cell divides or not. Calling eps_min a copy error implies the floor inherits from the copying operation, which is backwards: the read error can approach the floor, never the reverse (author, 2026-10-13).",
+   "phrase": "floor's copy error",
+   "instead": "the error one ATP of holding energy allows against thermal kicks, eps_min = 1/(1+e^M)"
+  },
+  {
+   "why": "Same reason: this is eps_min, the thermal floor on error, not a copying error (author, 2026-10-13).",
+   "phrase": "copy error $1/(1+e^{M})$",
+   "instead": "\\varepsilon_{\\min}=1/(1+e^{M})"
   }
  ],
  "retired_foundations": [
@@ -149,10 +159,20 @@
   }
  ],
  "retired_numbers": {
-  "_rule": "Class-era floor values. These were never derived and never measured: ten classes were suggested, eight were picked from the quantum and semiconductor lines, and an MCMC was then run on the eight, which returned numbers for them. Nothing in the current foundation uses or descends from them. foundation_check refuses any of these values in a file changed by a push, unless the line is marked '[retired wording kept for the record]' - so a class floor cannot come back by copy-paste.",
-  "values": [
+  "_rule": "Class-era floor values. These were never derived and never measured: ten classes were suggested, eight were picked from the quantum and semiconductor lines, and an MCMC was then run on the eight, which returned numbers for them. Nothing in the current foundation uses or descends from them. foundation_check refuses any of these values in a file changed by a push, unless the line is marked '[retired wording kept for the record]' - so a class floor cannot come back by copy-paste. Scope (narrowed 2026-10-13): four-decimal values collide across a book that spans 37 orders of magnitude - 0.7998 is sigma_8 in the cosmology chains and 0.9050 a cluster-table value - so the check applies only to the cell's own files (Biological_Physics/MethylPhys/**, docs/book/part6, docs/book/part7) and, for the shorter values, only on a line that also mentions a floor, H_min, hmin or a class. The two six-decimal class floors are refused anywhere in those paths.",
+  "exempt_files": [
+   "CLASS_HISTORY.md",
+   "LESSONS.md",
+   "METHYLPHYS_DEVELOPMENT_LOG.md",
+   "CHAIN_MANIFEST.md",
+   "foundation.json",
+   "foundation_check.py"
+  ],
+  "values_exact": [
    "0.772837",
-   "0.838889",
+   "0.838889"
+  ],
+  "values_in_context": [
    "0.9822",
    "0.7998",
    "0.9629",
@@ -163,13 +183,17 @@
    "0.9890",
    "0.8413"
   ],
-  "exempt_files": [
-   "CLASS_HISTORY.md",
-   "LESSONS.md",
-   "METHYLPHYS_DEVELOPMENT_LOG.md",
-   "CHAIN_MANIFEST.md",
-   "foundation.json",
-   "foundation_check.py"
+  "context_words": [
+   "floor",
+   "H_min",
+   "Hmin",
+   "hmin",
+   "class"
+  ],
+  "scope_paths": [
+   "Biological_Physics/MethylPhys/",
+   "docs/book/part6",
+   "docs/book/part7"
   ]
  }
 }

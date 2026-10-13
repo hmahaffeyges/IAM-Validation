@@ -36,8 +36,9 @@ def problems(changed=None):
         for n, line in enumerate(open(p, encoding="utf-8", errors="replace").read().split("\n"), 1):
             if "[retired wording kept for the record]" in line: continue
             RN = F.get("retired_numbers") or {}
-            if not any(x in f for x in RN.get("exempt_files", [])):
-                for v in RN.get("values", []):
+            if any(x in f for x in RN.get("scope_paths", [])) and not any(x in f for x in RN.get("exempt_files", [])):
+                ctx = any(w.lower() in line.lower() for w in RN.get("context_words", []))
+                for v in RN.get("values_exact", []) + (RN.get("values_in_context", []) if ctx else []):
                     if v in line:
                         P.append(f"{f}:{n}: class-era floor value {v} - never derived, never measured; nothing current uses it "
                                  f"(CANON/foundation.json, retired_numbers)")
