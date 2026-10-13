@@ -128,10 +128,6 @@ Each result says what was tested and what it means; the record behind it has eve
 
 Our second meter, the clustering meter, reads the shape of the damage: whether errors clump together, as they do when a whole region is wiped, or stay scattered, as ordinary errors do. Its healthy range was set on other laboratories' arrays and committed before two new laboratories' healthy blood was read. In both, at least 95 percent of healthy people had to read inside the range, and they did. The second laboratory passed by a single array, and both are whole blood rather than the purified cells the meter is being commissioned on, so this is development, not commissioning.
 
-**2026-10-13 · Breast tumors seen again, in a second laboratory's patients** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_FIELD_01.md)
-
-A new group of women with breast cancer, from a different laboratory. Each tumor was read against the tissue of the same breast on the same slide, by a rule written and sealed before any array was opened, and the reading saw the tumor in more of them than the rule required. The study also asked a harder question: whether the healthy-looking tissue next to a tumor already differs from the woman's other breast. It fell one woman short of the bar, so that question stays open.
-
 **2026-10-12 · Met-A on patients' liver tumors against their own normal liver** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md)
 
 Real patients with liver cancer. Each patient's liver tumor was compared with that same patient's healthy liver, processed on the same plate, reading only places on the DNA that a change in the mix of tissue types cannot move. Before any tumor was opened, we also checked that no realistic change in the mix of cells could fake a result. The bar was strict: healthy liver crosses it only about one time in twenty. Far more tumors crossed it than chance could produce, and nearly every tumor read above the patient's own healthy liver. This shows the measurement sees liver cancer in patients as a group; flagging each individual patient reliably, and seeing it in blood, are the next steps.

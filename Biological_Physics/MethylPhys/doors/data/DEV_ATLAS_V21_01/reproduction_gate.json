@@ -1,0 +1,23 @@
+[
+ {
+  "array": "GSM3455765_7990895122_R01C01",
+  "probes_v2": 477987,
+  "probes_now": 477987,
+  "common": 477987,
+  "max_abs_diff": 0.0
+ },
+ {
+  "array": "GSM3455766_7990895122_R01C02",
+  "probes_v2": 474990,
+  "probes_now": 474990,
+  "common": 474990,
+  "max_abs_diff": 0.0
+ },
+ {
+  "array": "GSM3455767_7990895122_R04C01",
+  "probes_v2": 476920,
+  "probes_now": 476920,
+  "common": 476920,
+  "max_abs_diff": 0.0
+ }
+]

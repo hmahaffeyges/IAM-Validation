@@ -275,24 +275,6 @@
     "head": "Rebuilt from scratch on a clean machine",
     "sub": "A fresh copy of the repository and public data only: every number the commissioned instrument uses came out identical."
    }
-  },
-  {
-   "id": "DEV-FIELD-01-F2",
-   "date": "2026-10-13",
-   "kind": "result",
-   "instrument": "Met-A",
-   "status": "development",
-   "book": false,
-   "record": "Biological_Physics/MethylPhys/doors/DEV_FIELD_01.md",
-   "compute": "field_f2",
-   "title": "Breast tumors seen again, in a second laboratory's patients",
-   "plain": "A new group of women with breast cancer, from a different laboratory. Each tumor was read against the tissue of the same breast on the same slide, by a rule written and sealed before any array was opened, and the reading saw the tumor in more of them than the rule required. The study also asked a harder question: whether the healthy-looking tissue next to a tumor already differs from the woman's other breast. It fell one woman short of the bar, so that question stays open.",
-   "win": {
-    "rank": 16,
-    "stat": "{k} of {n}",
-    "head": "Breast tumors seen again, in a second laboratory's patients",
-    "sub": "Each tumor read against the same breast's tissue on the same slide, by a rule sealed first; {crit} were needed. Whether the tissue beside a tumor already differs from the other breast fell one short ({f1k} of {f1n})."
-   }
   }
  ],
  "losses": [

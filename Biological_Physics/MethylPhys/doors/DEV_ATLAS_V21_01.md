@@ -155,3 +155,12 @@ already v2's source for eosinophils, basophils and regulatory T cells and are sp
 usable: GSE140295 / GSE140078 (cultured commercial endothelial lots), GSE74877 (cultured primary cells), GSE71244 (no raw files), GSE50386
 (histone marks, not DNA methylation). Decision: nothing else to add before the seal; the next search is due before the next build.
 
+**Stage 1 on the box, run once (2026-10-13; readiness L4; `box/v21_stage1_box.py`, committed before it ran).** Reproduction gate first:
+three of atlas v2's own Moss arrays recalibrated today matched v2's stored shards at every probe, maximum difference 0.0
+(`reproduction_gate.json`), so v2.1's arrays and v2's are one Stage 1. Atlas v2's 292 calibrated shards, until now only on the box's
+disk, were copied to S3 (`atlas_v2/stage1_shards/`). All 472 sealed build arrays then calibrated with no errors (211 on 450K, 261 on EPIC
+v1); every shard, its metadata and the run manifest with IDAT and shard checksums are in S3 (`results/ATLAS_V21/stage1/`) and the manifest
+is committed here (`stage1_v21_manifest.csv`). 37 arrays read below v2's quality rule (call rate 0.93) and leave the build by that rule,
+as v2's did. The job's exit code 127 came from a log-copy step after the work (the box has no `aws` command); the work itself completed
+and wrote its DONE marker. Next: sex (L5), genotype across build and held-out arrays (the same-donor check), twin tests (L6), source terms (L7).
+
