@@ -18,13 +18,13 @@ Candidates found by search are metadata only and their counts are provisional un
 |---|---|---|---|---|---|---|
 | 1 | Neutrophil reference from a second laboratory: build GSE124565, test GSE88824, GSE118144, GSE122244 | M2, AT4 | commissioning | laptop | GSE124565, GSE88824, GSE118144, GSE122244 | verify files (v2.1 prep) |
 | 2 | Whole-blood bar 7 on cord blood with flow counts (assess newborn caveat first) | M1 | commissioning | laptop | GSE127824 | assess caveat |
-| 3 | IAM-A on other-lab healthy neutrophils (RRBS) and same DNA on arrays and WGBS | A3 | commissioning | box | GSE59163, GSE128734 | verify files |
-| 4 | Score IAM-A commissioning on EpiQC identical DNA (Stage B), once under the seal | A2 | commissioning | box | PRJNA646948 | running |
+| 3 | IAM-A commissioning: find the cause of the across-labs failure (three deep EMSeq LAB02 runs read low), development read of other file parts | A2 | commissioning | box | PRJNA646948 | scored; held under the stopping rule |
+| 4 | IAM-A on other-lab healthy neutrophils (RRBS) and same DNA on arrays and WGBS | A3 | commissioning | box | GSE59163, GSE128734 | verify files |
 | 5 | Colon epithelium from an independent laboratory into the atlas | AT8 | atlas | laptop | E-MTAB-3709, E-MTAB-4957 | confirm disease status, donor overlap |
 | 6 | Lung stroma culture check before atlas entry | AT7 | atlas | laptop | GSE146376, GSE107226, GSE197512 | calibrated (two sets) |
 | 7 | Atlas v2.1: rebuild with second-lab and new cell types; split GSE224807 donors half build, half test | AT4, AT13 | atlas | box | GSE224807, GSE103541, GSE184269, GSE252045 | v2.1 prep running |
 | 8 | Colon adenomas: does Met-A rise before cancer? | B4, G1 | public result | laptop | GSE288652 | in S3 |
-| 9 | Lung adenocarcinoma tissue test (v3 design) | N5, B12 | public result | laptop | TCGA-LUAD | normals calibrating |
+| 9 | Lung tissue test: four lung sets tested (1 scored, 3 not suitable); next lung test waits for atlas v2.1 and the culture check | N5, B12 | public result | laptop | TCGA-LUAD | waiting on atlas v2.1 |
 | 10 | Liver fingerprint replication on fresh data | B11 | public result | box | PRJNA762641 | metadata only |
 | 11 | Neurons on Met-A (both instruments on neurons) | A11 | physics | laptop | GSE306226, GSE234520 | verify files |
 | 12 | Neurons: sorted-only reference sealed on two unread laboratories | A8 | physics | box | GSE96612, GSE107729 | metadata only |

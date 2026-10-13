@@ -1195,3 +1195,16 @@ SRR13051241 (TrueMethylBS HG005 LAB01 REP02) first failed to download (one read 
 
 ### 2026-10-12 · DEV-IAMA-COMMISSION-01 scored once: C1, C2, C3-kits, C5 met; C3-labs NOT MET; commissioning held
 All 78 sealed EpiQC libraries read (25 excluded by the intake rules). SPLAT and TrueMethylBS meet every bar they are held to, but the stopping rule holds commissioning because C3 across labs failed. Review: three EMSeq LAB02 libraries read copy error about 15 % low; they are the three most deeply sequenced runs (first 12.2M pairs read). Next: cause test. DEV_IAMA_COMMISSION_01_OUTCOME.md.
+
+### 2026-10-12 · Day summary
+**Passed / scored:** DEV-TISSUE-LIVER-01 FINGERPRINT (22 of 50 patients); fingerprint results put in every place they belong from one register;
+IAM-Atlas v2 deposited (DOI 10.5281/zenodo.23325865) and its fetch script tested on the live record; IAM-A commissioning scored once: C1, C2,
+C3 across kits and C5 met.
+**Not met / not suitable:** IAM-A C3 across laboratories not met, so commissioning is held under the stopping rule (cause test next);
+DEV-TISSUE-LUNG-01 NO FINGERPRINT; lung 2, lung 3 (three versions) and lung 4 not suitable by their synthetic tests, tumors unread;
+DEV-TISSUE-COLON-02 not suitable.
+**Built:** neuron reference; Master Inventory (444 sets, generated, checked); gold-mine map (169 series classified); atlas v2.1 roster and split
+fixed before any data is read; culture check step 1 with planted test; the iam-data-scout skill; push-gate rules 11-20; funding statement;
+plain-language explanations for every milestone.
+**Lessons:** T15, T16, C5, C6 (three times), C7.
+**Running:** culture-check calibration (laptop). Nothing running on AWS; the box is stopped and the on-demand machine terminated.
