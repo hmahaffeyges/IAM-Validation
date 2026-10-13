@@ -33,6 +33,14 @@ Every step, script by script, with the machine and package versions: [`v2/README
 [`v2/DECISIONS.md`](v2/DECISIONS.md). What was run on the finished atlas: [`v2/postbuild/README.md`](v2/postbuild/README.md).
 The model and its acceptance tests, written before the build: [`../doors/ATLAS_V2_SPEC.md`](../doors/ATLAS_V2_SPEC.md).
 
+## Two telescopes and one sky map
+
+The two instruments, Met-A and IAM-A, are the telescopes: each is commissioned once. The atlas is the sky map they read against, built the
+way cosmologists build maps of the microwave sky. As with each release of those maps, every atlas version is refitted whole, gets its own
+DOI and is revalidated by the same held-out tests before the chain reads it. The map is used only where the sky has foregrounds: the
+commissioned Met-A reading on isolated neutrophils does not read the atlas, so a new atlas version does not touch it; tissues and the
+composition of whole blood do. Book: "Two telescopes and one sky map", in the atlas chapter.
+
 ## What it can do that a tissue atlas cannot
 
 Atlases of whole tissues are built to name the organ a sample came from. Each organ's profile already averages that organ's own mixture of

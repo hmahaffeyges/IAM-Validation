@@ -1217,3 +1217,6 @@ A first wrapper had a race (the pipeline's own download step could reach a part 
 
 ### 2026-10-12 · Now running board on the main README and FOLLOW.md (author)
 For followers who are not scientists: each live experiment with why it matters, what we hope, what could go wrong, dated updates linked to records, and the result win or lose. Generated from CANON/now_running.json by CANON/now_running.py; status_check refuses a board that differs, links a missing record, has a story with no update for 7 days, or uses hype words (two controls refused). First stories: atlas v2.1, IAM-A commissioning on hold.
+
+### 2026-10-12 · Book and atlas README: two telescopes and one sky map (author)
+New atlas-chapter section (sec:atlas:skymap) and atlas README section: the instruments are the telescopes, commissioned once; the atlas is the sky map, refitted whole and revalidated by the same held-out tests at every version, as microwave-sky maps are at every release; the map is used only where the cell-type mix matters. No new book-check failures.
