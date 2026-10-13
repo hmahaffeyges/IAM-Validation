@@ -249,3 +249,33 @@ a chip, so we can check the stricter chip-level comparison instead of inheriting
 **Not a milestone:** one of several healthy laboratories; test (a) is not complete until the further laboratories in the plan are read and
 the slide-scope tare is tested rather than inherited.
 
+## Search for the last open check: same-person replicate arrays (metadata only, 2026-10-13)
+
+What is still open for the C-score is the repeatability bar on a set that had no part in building the band. Searched GEO
+(E-utilities, `gds`) with four query families: technical replicates on EPIC v1; blood with reproducibility, repeatability,
+test-retest or intraclass wording; blood with same-individual or repeated-measurement wording; and blood, longitudinal or
+two-time-point, healthy or control, on EPIC v1 and 450K. Every accession already in `CANON/data_spent.csv` (164 of them) was
+excluded automatically. Nothing was downloaded.
+
+**The obvious set is already spent.** GSE250556 ("Measuring variability in Illumina MethylationEPIC microarrays") is exactly the
+right design, and it is the set the band's repeatability estimate was built on. GSE123914 (blood over a one-year period) is also
+spent. Neither can serve as the held-out test.
+
+**Candidates found, each with the caveat that decides it:**
+
+| set | n | platform | design | caveat |
+|---|---|---|---|---|
+| GSE112611 | 402 | EPIC v1 | Crohn's disease and controls, longitudinal | the control subset must be checked for same-person pairs; disease cohort, so healthy status needs reading per sample |
+| GSE184202 | 24 | EPIC v1 | healthy volunteers, blood before and after an intervention | 12 pairs at most, and an intervention sits between the two draws |
+| GSE61151 | 188 | 450K | white blood cells, temporal stability - the ideal design | wrong platform for the band, which is EPIC v1; usable only when the 450K band is commissioned |
+| GSE182919 | 112 | EPIC v1 | true technical replicate pairs with IDATs | cultured cells with a drug treatment, not donor blood: specimen mismatch |
+
+**Next step, in order.** Read GSE112611's sample metadata and count healthy-control donors with two or more arrays. If that yields at
+least seven pairs, it is the held-out test set and gets written into this plan before any array is fetched. If it does not,
+GSE184202 is the fallback and its intervention is declared in advance as a caveat, not discovered afterwards. GSE61151 is reserved
+for the 450K band.
+
+**Note on what a "replicate" buys here.** A technical replicate (same DNA, two arrays) tests the instrument alone. Two draws from the
+same healthy person weeks apart is a STRICTER test, since it includes real biological variation, and passing it would be the stronger
+claim. Whichever is used, which kind it is gets stated with the result.
+
