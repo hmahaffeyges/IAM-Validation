@@ -65,6 +65,16 @@ def page(art):
         w, v = e["win"], vals(e); f = lambda t: E(t.format(**v))
         chip = '<span class="chip st-g">Commissioned</span>' if e["status"] == "commissioned" else '<span class="chip st-b">Passed its sealed test</span>'
         return f'''<article class="res win">{chip}<p class="stat">{f(w["stat"])}</p><h3>{f(w["head"])}</h3><p>{f(w["sub"])}</p><p class="more"><span>{E(e["date"])}</span> · <a href="{rec(e["record"])}">the record</a></p></article>'''
+    MT = J("CANON/method.json")
+    LV = J("CANON/levers.json")
+    method_secs = "\n".join(f'<h3>{E(x["title"])}</h3><p>{E(x["body"])}</p>' for x in MT["sections"])
+    def lever_row(x):
+        st = x.get("synthetic") or {}
+        done = "; ".join(f'{k}: {E(str(v))}' for k, v in st.items()) if isinstance(st, dict) else E(str(st))
+        return (f'<li><b>{E(x.get("name") or x["id"])}</b> &mdash; moves <i>{E(x.get("term", "") if isinstance(x.get("term"), str) else ", ".join(x.get("term", [])))}</i>. '
+                f'<br><span class="meta">Breaks: <b>{E(x.get("falsifier_scope", "?"))}</b>. {E(x.get("falsifier", ""))}</span>'
+                + (f'<br><span class="meta">Simulated: {done}</span>' if done else "") + '</li>')
+    levers_list = "\n".join(lever_row(x) for x in LV["levers"])
     results = "\n".join(card(e) for e in regs)
     decisions = "\n".join(f'<li><b>{E(x["date"])}</b> {E(x["plain"])} <a href="{rec(x["record"])}">the record</a></li>' for x in REG.get("decisions", []))
     losses = "\n".join(f'<li><b>{E(x["date"])}</b> {E(x["plain"])} <a href="{rec(x["record"])}">the record</a></li>' for x in REG["losses"])
@@ -144,6 +154,19 @@ def page(art):
 <dt>What is established and what is not?</dt><dd>One instrument is commissioned on isolated white blood cells; everything else is development. The book has a table of every claim with its status. {ch("established")}</dd>
 <dt>Where do the departures sit along the genome?</dt><dd>The clustering reading asks whether the leftover disorder clumps or scatters, which separates scattered wear from the block losses cancer leaves. {ch("cscore")}</dd>
 </dl></details></section>
+<section class="wrap" id="howtest"><h2>How we test the physics</h2>
+<p class="sub">{E(MT["lead"])}</p>
+<details class="fold" open><summary>What the instruments read, and what a lever is</summary>
+{method_secs}
+</details>
+<details class="fold"><summary>The levers: every handle we can pull, and the reading that would break us</summary>
+<p>{E(LV.get("_layer", ""))}</p>
+<ul class="levers">{levers_list}</ul>
+<p class="meta">Generated from the lever register, so a lever cannot appear here without a record and none can be left out.
+Full records, including the simulated tests that failed: <a href="{rec("Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md")}">DEV-LEVERS-01</a>.</p>
+</details>
+<p class="sub">{E(MT["closing"])}</p>
+</section>
 <section class="wrap" id="lost"><h2>Decisions that shape every reading</h2>
 <p class="sub">Choices that change what every result means, in plain words, each with its record. A decision made after seeing data says so.</p>
 <ul class="plain">{decisions}</ul>

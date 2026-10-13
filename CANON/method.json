@@ -1,0 +1,42 @@
+{
+ "_rule": "How we test the physics: the public explainer, and the single source for that section of the front page. Every claim here must be true of what the repository actually does, and every lever shown on the page is generated from CANON/levers.json - no lever can appear here without a record, and none can be left out. Written 2026-10-13 from our own framing.",
+ "lead": "We are not trying to establish this law. We are trying to break it, in public, with the rules written down before we look. What follows is how, and why each step is there.",
+ "sections": [
+  {
+   "id": "what_is_read",
+   "title": "What the instruments actually read",
+   "body": "Informational fidelity: whether a cell's switch pattern is still the pattern it should be, measured as order against disorder in individual molecules. Not hardware. The gauge never sees an enzyme or a machine - it sees whether the pattern is held, how far it has drifted, and whether the damage is scattered single errors or whole passages wiped out. Naming a biological cause for a pattern is an inference we make afterwards, and we label it as one every time."
+  },
+  {
+   "id": "layers",
+   "title": "The law, and the medium it runs in",
+   "body": "The law is substrate-free: fidelity against a floor and a ceiling fixed by physics, and a balance between restoring a mark and losing it. The same construction reads a quantum processor and a semiconductor chip, where no enzyme exists. The medium is how a handle reaches the law's terms in one substrate - in a cell, body temperature, the methyl supply, the writing and erasing operations, oxygen. A lever that moves fidelity is a real lever, but it is the handle, not the force. That distinction protects both sides: getting the biology wrong says nothing about the law, and a failure of the law cannot afterwards be excused as a biology error."
+  },
+  {
+   "id": "gauge",
+   "title": "Why this is not another cohort score",
+   "body": "Feeling the foreheads of fifty people with the back of your hand tells you who is hottest in that room. There is no ruler in it, the answer changes with the room, and it can never be brought down to one person. A calibrated thermometer reads 104.1 for one person who came in alone, because the scale is fixed outside the room. Both ends of our gauge are fixed by physics - the floor where thermal kicks beat everything one unit of cellular energy can buy, the ceiling where a site is a coin flip. Only the middle, the healthy reference, is measured, once, on purified healthy cells. A reading is of one specimen, not of its rank among the others on the plate."
+  },
+  {
+   "id": "ladder",
+   "title": "The four rungs every test climbs",
+   "body": "1. DERIVE. The prediction comes out of the law with nothing fitted, written down with the file that derives it. 2. SIMULATE. Plant a known answer in made-up data and see whether the instrument recovers it. Simulation is free and endlessly repeatable, so every mistake we can make here is a mistake we do not pay for with data - and we make them. 3. SEAL. The pass mark and the judging rule are committed to a public repository with a timestamp, before any real file is opened. 4. READ, ONCE. Then report what it says, win or lose."
+  },
+  {
+   "id": "sealing",
+   "title": "What sealing is, and where it comes from",
+   "body": "Physics learned long ago that someone who already knows the answer will unconsciously tune the analysis toward it. The remedy is blind analysis: fix the cuts, hide the values, freeze the method, and only then unblind. Particle physics and cosmology both work this way. Our version is the commit clock: the bar and the rule are pushed to a public repository, so the timestamp shows the standard was set before the answer was known. Anyone can check that order from outside, which is why it is worth more than our word. One example: the window for a mouse experiment was committed before any knockout mouse was read, and the mice landed inside it."
+  },
+  {
+   "id": "spend",
+   "title": "Why we spend data like money",
+   "body": "A public dataset is a held-out test exactly once. Read it while developing and it can still help build an instrument, but it can never again judge one - we would be testing on what we trained on. So we keep a register of every set we have read, and a push to the repository is REFUSED if a note names an already-read set as its held-out test. It is also why the simulated rungs matter: they are unlimited, and the real files are not."
+  },
+  {
+   "id": "disprove",
+   "title": "Every lever carries the reading that would break us",
+   "body": "For each lever we write, before any data is opened, the reading that would show the law is wrong there - and what exactly it would break: the law itself, or only our account of the biology. A lever with no such reading is a demonstration, not a test, and the repository refuses to publish it as one. The failures are posted beside the wins, because a record with no failures in it is not a record."
+  }
+ ],
+ "closing": "None of this makes the work right. It makes it checkable - by a stranger, from outside, without taking anything on trust. That is the only kind of claim worth making about somebody else's cells."
+}

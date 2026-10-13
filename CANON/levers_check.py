@@ -41,8 +41,22 @@ def section():
     out += [E]
     return "\n".join(out)
 
-def problems():
+def page_shows_every_lever():
+    """The front page's 'How we test the physics' section is generated from this register, so a lever cannot be shown without a
+    record and none can be left out. Checked here rather than in the page builder so one failure names the register."""
+    import re
     P = []
+    M = os.path.join(ROOT, "CANON", "method.json")
+    if not os.path.isfile(M): P.append("CANON/method.json is missing: the public explainer of how we test is generated from it")
+    b = os.path.join(ROOT, "website", "build", "build_home.py")
+    if os.path.isfile(b):
+        t = open(b, encoding="utf-8").read()
+        if "CANON/levers.json" not in t or "CANON/method.json" not in t:
+            P.append("website/build/build_home.py no longer reads the lever register and the method file: the page would drift")
+    return P
+
+def problems():
+    P = page_shows_every_lever()
     for x in L["levers"]:
         if x.get("falsifier_scope") not in ("law", "medium"):
             P.append(f"lever {x['id']}: falsifier_scope must be 'law' (the handle reaches the term with nothing fitted in between) or "

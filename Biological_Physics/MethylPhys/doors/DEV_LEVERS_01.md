@@ -156,7 +156,7 @@ strong one. That changed which study we plan to run, before we spent a month on 
 
 **What the reading is, and is not.** Every lever below is a HANDLE PULLED IN AN EXPERIMENT. The reading is not of the handle: it is informational fidelity, order against disorder in the held pattern, as errors in individual molecules (CANON/foundation.json, entry what_is_read). So no row here may be read as 'the gauge identified which machine failed'. What a lever earns is narrower and stronger: pull this handle and the held error, or the clustering of its errors, must move the derived way - and if it does not, the law is wrong there.
 
-**Core or medium.** Every lever is MEDIUM, not core (CANON/foundation.json, _layers). The law is substrate-free; a lever is how a handle reaches one of its terms in a cell. So each lever's falsifier must declare its SCOPE: 'law' only where the handle reaches the term with nothing fitted in between, 'medium' where biology sits in the way. Getting the medium wrong says nothing about the law; and a law-scope failure may not be excused as a medium error afterwards.
+**Core or medium.** Every lever is MEDIUM, not core (see the foundation record). The law is substrate-free; a lever is how a handle reaches one of its terms in a cell. So each lever's falsifier must declare its SCOPE: 'law' only where the handle reaches the term with nothing fitted in between, 'medium' where biology sits in the way. Getting the medium wrong says nothing about the law; and a law-scope failure may not be excused as a medium error afterwards.
 
 ## The levers, one record each (generated from `CANON/levers.json`)
 
