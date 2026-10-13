@@ -1,0 +1,9 @@
+breach edges from 219 tumor / adjacent-normal pairs on the cell gauge (development use of spent sets)
+
+liver: tumors above 1.05 / 1.07 / 1.10 = 96% / 96% / 94%; tumor min 1.022, 5th pct 1.095; adjacent normal 95th pct 1.249, max 1.306; tumors with a surface share above every adjacent normal: 62%
+breast: tumors above 1.05 / 1.07 / 1.10 = 85% / 79% / 66%; tumor min 1.003, 5th pct 1.037; adjacent normal 95th pct 1.233, max 1.282; tumors with a surface share above every adjacent normal: 91%
+colorectal: tumors above 1.05 / 1.07 / 1.10 = 99% / 97% / 92%; tumor min 1.014, 5th pct 1.091; adjacent normal 95th pct 1.157, max 1.247; tumors with a surface share above every adjacent normal: 58%
+lung: tumors above 1.05 / 1.07 / 1.10 = 86% / 79% / 71%; tumor min 0.940, 5th pct 1.009; adjacent normal 95th pct 1.309, max 1.330; tumors with a surface share above every adjacent normal: 14%
+
+all four: adjacent normal 95th pct 1.231, max 1.330; tumor 5th pct 1.040, min 0.940
+tumors at or below A 1.10: 36 of 219; of these, already carrying a surface share above every normal in their cancer: 14
