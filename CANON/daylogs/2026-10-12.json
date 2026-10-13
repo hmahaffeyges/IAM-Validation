@@ -1,0 +1,208 @@
+{
+ "date": "2026-10-12",
+ "title": "Liver read as cancer, lung refused three times, the second instrument's first commissioning run, and the atlas on the sky",
+ "set_out": "One cancer at a time, with the synthetic test before any tumor is opened. Lung first at the author's direction, then liver. The second instrument's commissioning sequencing had to finish on rented machines. The atlas needed a version with its roster and its build-and-test split fixed before any array was read. And the front page had to stop being a preview.",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "lead": "Bars were committed before each run. Three lung attempts and one colorectal set were refused by their own designs BEFORE any tumor was opened, which is the part worth reading.",
+   "entries": [
+    {
+     "title": "Liver: the cancer fingerprint found",
+     "status": "sealed",
+     "what": "Patients' liver tumors against the same patients' own liver tissue. The pre-registered rule asked whether tumors leave the healthy range more often than chance allows: chance puts about 2 of 50 outside it, 22 were, and 44 of 50 read above the patient's own tissue. Inputs were listed and committed first - patient tumor and matched normal arrays, fetched and calibrated by the chain's own first stage. Synthetic tests followed, including two that failed on independence and forced the design to be rewritten.",
+     "why": "The third tissue to show the fingerprint under a sealed rule, after breast and colorectal.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01.md"
+    },
+    {
+     "title": "Lung, three designs, all refused before a tumor was opened",
+     "status": "failed",
+     "what": "The first lung set was sealed and scored and read NO FINGERPRINT. The second was refused at 12 pairs. The third, on a different lung cancer type, failed its own synthetic direction test twice - a healthy lung whose cell mixture leans one way can counterfeit the signal - and a fourth attempt on another lung set was refused the same way. In every case the tumors stayed unread.",
+     "why": "Four attempts, one cause: lung's cell mixture is the hardest of any tissue we have tried, and the atlas has no measured lung stroma. Recorded as lessons T15 and T16 rather than retried blindly.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md"
+    },
+    {
+     "title": "Colorectal, a second set: not suitable by its own rule",
+     "status": "failed",
+     "what": "The set was refused by the design's own criteria before any tumor was opened.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_02.md"
+    },
+    {
+     "title": "The second instrument's commissioning sequencing finished, on four reclaimed machines",
+     "status": "development",
+     "what": "Starting the run also needed two storage fixes - the machine's access role and a cold disk that had to be warmed before it could be read at speed. Seventy-one libraries of identical reference DNA, sequenced by several kits in two laboratories, had to be aligned and read. The rented spot machine was reclaimed by the provider four times mid-run; each time the completed libraries were already in object storage and were skipped on resume, zones were moved, and the last 21 libraries were finished on an on-demand machine at the author's decision. One library was declared failed by a rerun bug reading an earlier attempt's record - fixed at script start with a planted test, recorded as lesson C7.",
+     "why": "Finishing a long run across four reclaims without re-reading anything is what the resume discipline is for.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01.md"
+    },
+    {
+     "title": "The second instrument scored once: four checks of five met, and it is HELD",
+     "status": "development",
+     "what": "Scored under its seal: the conversion rule, repeatability, agreement across kits and the planted-change check all met. Agreement across LABORATORIES, on the one kit made in two laboratories, did not - 4 of 7 cell lines agreed within tolerance. The note's own stopping rule holds the whole instrument until the cause is known, and the tolerance was not loosened after seeing the numbers.",
+     "why": "A commissioning that stops itself is worth more than one that passes by adjustment.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01_OUTCOME.md"
+    },
+    {
+     "title": "A neuron reference built from whole files",
+     "status": "development",
+     "what": "The healthy reference for neurons was built from published whole files rather than summaries, which is what lets the same code read it as reads it everything else.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md"
+    },
+    {
+     "title": "The atlas published with a DOI, and a version 2.1 planned with its split fixed first",
+     "status": "development",
+     "what": "Atlas v2 was deposited and has a permanent identifier. Then v2.1's roster and its build-versus-test split were fixed and committed BEFORE any array was read, so no set can later be moved from build to test to make a result work.",
+     "why": "The split rule is what makes a held-out test honest, and it only counts if it is written first.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The culture check: how much a cell's pattern drifts in a dish",
+     "status": "development",
+     "what": "Run once under its fixed rule on a passage series: 44.8 % of sites flagged as drifting. A review afterwards found that measurement date tracked passage in most lines, so part of that is instrument batch rather than dish effect - the single-date lines give a batch-free core of 11.1 %. The larger fixed set was kept as the mask, on the stated reasoning that a mask can only remove sites, and both numbers are reported. Step 1b then showed the drift reappears above chance in two more laboratories and two more cell types.",
+     "why": "Cultured cells are most of what any atlas is built from, so knowing what the dish does to the pattern bounds every atlas claim.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The atlas on the sky, beside the measured microwave sky",
+     "status": "structure",
+     "what": "The author asked for a real equal-area sky map of the atlas next to the microwave sky itself. Every CpG in genome order goes to one pixel of a 786,432-pixel sphere - one site per pixel at the resolution of the sky beside it - and neighboring sites stay in small patches. The microwave map beside it is the MEASURED Planck 2018 map reduced to the same resolution, not the simulated sky the book uses; the script stops rather than substitute it. The neutrophil panel is the atlas's own posterior.",
+     "why": "It is a picture, and the record says so explicitly: no reading, fit or statistic uses the sky map. What carries over from the microwave work is splitting a map by scale and equal-area pixels; the acoustic peaks do not carry over.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md"
+    },
+    {
+     "title": "Every result put where it belongs, generated from one list",
+     "status": "structure",
+     "what": "The fingerprint results, the plain-words summaries and the funding statement are now written from single source files into every place they appear - the book chapter, two READMEs, the follow-along page and the front page - with the push gate refusing any copy that differs. Five new gate rules were added the same day (11 through 18), each with controls that refuse.",
+     "why": "The author's rule: if the code updates every place a thing appears, it can never be missed again.",
+     "record": "CANON/results_register.json"
+    },
+    {
+     "title": "The front page became a page",
+     "status": "structure",
+     "what": "Accomplishments first, collapsible sections, the atlas sky plate, the full costs, the long road, and - after the author's correction - headlines that lead with how many times chance rather than a bare count, computed from the scored records.",
+     "why": "A bare count reads as a detection rate and looked like a loss. The sealed rule asked whether cancer leaves the healthy range more often than chance, so that is what the headline says.",
+     "record": "CANON/results_register.json"
+    },
+    {
+     "title": "The record-keeping machinery built the same day",
+     "status": "structure",
+     "what": "A run ledger with a guard and its own controls, so no rented-machine run can exist without a ledger entry (gate rule 11). A Master Inventory of every dataset held, at the author's request. A now-running board on the main README and the follow-along page, generated rather than typed. Field notes: the plain-words story of every experiment, never edited afterwards, with its own voice check. And a funding statement written once and propagated to the README, the follow-along page and the book preface (gate rule 18).",
+     "why": "Five of the day's gate rules exist because something was nearly missed: a result in the wrong place, a run with no ledger entry, a result with no plain words, a page number that no longer matched its record.",
+     "record": "CANON/next_jobs.json"
+    },
+    {
+     "title": "Two cell-line results re-worded after the author read them",
+     "status": "development",
+     "what": "The wording for the liver and lung cell lines overstated what had been read. Corrected the same day, from the records rather than from the summary.",
+     "why": "The author reads the output as a reviewer would, which is why it is worth him reading everything.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_02_OUTCOME.md"
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": [
+    {
+     "title": "Lung is the hardest tissue we have, and we can say why",
+     "what": "Across four attempts the failure is the same: a healthy lung whose cell mixture leans one way produces the same reading as a tumor, and there is no measured lung stroma in the atlas to separate them.",
+     "why": "It converts four separate disappointments into one stated cause with a fix (measure lung stroma) rather than four retries.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md"
+    },
+    {
+     "title": "A dish changes the pattern, and the change is partly our own instrument",
+     "what": "Measurement date tracked passage in most of the lines, so the first drift number mixed dish effect with batch. The batch-free core is about a quarter of it.",
+     "why": "Any atlas built from cultured cells inherits this, so the honest version is to report both numbers and mask on the larger set.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "A long rented run survives being interrupted if nothing is ever re-read",
+     "what": "Four reclaims in one run cost no completed work, because every finished library was already in storage and was skipped on resume.",
+     "why": "It is the difference between a day of compute lost and an hour.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "loss",
+   "heading": "Our own mistakes, and what caught each",
+   "entries": [
+    {
+     "title": "A control that wipes finished work, three times",
+     "status": "structure",
+     "what": "A test control that commits and hard-resets the tree destroyed uncommitted edits on three separate occasions, once taking a whole roadmap expansion that was only noticed later while auditing the page.",
+     "why": "Fixed by a guard that refuses to run a control while anything is uncommitted and verifies the tree afterwards - after which it correctly refused to start twice.",
+     "record": "Biological_Physics/MethylPhys/LESSONS.md"
+    },
+    {
+     "title": "A rerun that trusted an earlier attempt's failure record",
+     "status": "development",
+     "what": "One library was declared failed by a stale record from a previous attempt; it aligned normally on rerun.",
+     "why": "Fixed at script start with a planted test, recorded as lesson C7.",
+     "record": "Biological_Physics/MethylPhys/LESSONS.md"
+    },
+    {
+     "title": "Claims about the atlas that the records did not support",
+     "status": "structure",
+     "what": "The author asked for no foolish claim about the atlas. Checking the wording against the records forced several corrections, including how the atlas relates to the physics: it is built FOR this work but is independent of its physics.",
+     "why": "It is the kind of overstatement a reviewer finds in ten minutes.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_COMMISSION_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "thinking",
+   "heading": "Coffee and a whiteboard: how the day's ideas actually arrived",
+   "lead": "The back-and-forth that produced the day's work, bad ideas included - a whiteboard with only the good ideas left on it is a sales deck. The questions and the physical intuition come from the author; the derivations, the code, the refereeing and the historical context come from the research partner, usually within the same minute, which is why a thread rarely dies of lost momentum.",
+   "entries": [
+    {
+     "title": "\"Two telescopes and one sky map\"",
+     "what": "The author's framing for what the two instruments and the atlas are: two instruments reading the same sky by the same mathematics, on a different signal. It went into the book and the atlas README in those words, and it is also what fixed the limit - the sky map is a picture, and the records say so, because no reading uses it.",
+     "why": "It is the clearest short statement of why the cosmology methods transfer at all.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md"
+    },
+    {
+     "title": "\"Lung first\"",
+     "what": "The author chose lung over easier tissues deliberately, three times in one day. Every attempt failed and every attempt failed cheaply, before a tumor was opened.",
+     "why": "Choosing the hardest tissue first is what produced a stated cause instead of a backlog of untried sets - and it is why the failures section of the public page has four lung entries in it.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md"
+    },
+    {
+     "title": "\"Its easy to misunderstand that as a win, it looks like a big loss\"",
+     "what": "On seeing a headline that led with a count, the author said it reads as a detection rate. The headlines were rebuilt to lead with how many times chance the result is, computed from the scored record so it cannot drift.",
+     "why": "The sealed rule was never about a detection rate, so a headline that implies one is wrong even when the number is right.",
+     "record": "CANON/results_register.json"
+    },
+    {
+     "title": "The voice: \"we\", and American spelling everywhere",
+     "what": "Two author rules applied the same day and then enforced in code: the public voice is “we”, never the first person singular, with a check that refuses it outside one marked block; and American spelling throughout, checked on every push.",
+     "why": "British spellings had to be fixed by hand on a public page once; now they cannot reach one.",
+     "record": "CANON/us_spelling.py"
+    }
+   ]
+  },
+  {
+   "kind": "changed",
+   "heading": "What changed in the plan",
+   "entries": [
+    {
+     "title": "Lung is parked with a named prerequisite",
+     "what": "No further lung attempt until measured lung stroma exists in the atlas.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md"
+    },
+    {
+     "title": "The second instrument is held, and the next step is a cause test",
+     "what": "Rather than rerun the failed check, the day ended with a designed diagnosis: read several positions of the suspect libraries and both controls, with the decision rule committed before anything was read.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md"
+    },
+    {
+     "title": "The atlas gets a version with its split fixed in advance",
+     "what": "Roster and build-versus-test split committed before any array is read, with the culture mask applied.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    }
+   ]
+  }
+ ],
+ "open_at_turnover": "The second instrument is HELD with four of five commissioning checks met. The cause test is designed and committed, nothing read. Liver is sealed and scored; lung is parked; the atlas has a DOI and a v2.1 plan. The front page carries the results, the failures and the reviewer's list, and it is still a preview at this point - it goes live the next day. Hours covered: roughly 06:00 Pacific on 10-12 through midnight.",
+ "closing": "The day's best results were refusals: four lung attempts and one colorectal set stopped by their own designs before a single tumor was opened, and a commissioning run that stopped itself when one check of five failed."
+}

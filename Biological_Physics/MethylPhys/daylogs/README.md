@@ -4,4 +4,5 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
-| [2026-10-13](2026-10-13.md) | Six results on the laptop, four corrections to our own work, and the blood question answered |
+| [2026-10-13](2026-10-13.md) | The instrument diagnosed and its fix planted-tested, the blood question answered, the front page gone live, and the physics corrected four times by the author |
+| [2026-10-12](2026-10-12.md) | Liver read as cancer, lung refused three times, the second instrument's first commissioning run, and the atlas on the sky |

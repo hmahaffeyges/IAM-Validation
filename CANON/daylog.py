@@ -62,6 +62,26 @@ def render(d):
     if d.get("closing"): L += ["---", "", f"_{d['closing']}_", ""]
     return "\n".join(L)
 
+STOP = set("the a an and or of for in on at to is was with by from that this it its as not no into our we us "
+               "day push rule author before after every each one two three now still open".split())
+
+def coverage(d):
+    """Committed development-log headings for this day whose content words do not appear in the rendered day log.
+
+    Mechanical, not clever: it reports what to look at, so a day log cannot silently omit a thread that was committed that day.
+    """
+    import re
+    lp = os.path.join(ROOT, "development", "METHYLPHYS_DEVELOPMENT_LOG.md")
+    if not os.path.isfile(lp): return []
+    heads = [h.strip() for h in re.findall(rf"^### {d['date']} . (.+)$", open(lp, encoding="utf-8").read(), re.M)
+             if "Day summary" not in h]
+    blob = set(re.findall(r"[a-z0-9-]+", render(d).lower()))
+    out = []
+    for h in heads:
+        w = {x for x in re.findall(r"[a-z0-9-]+", h.lower()) if x not in STOP and len(x) > 3}
+        if w and not (w & blob): out.append(h)
+    return out
+
 def build():
     P, days = [], []
     for p in sorted(glob.glob(os.path.join(SRC, "*.json"))):
@@ -76,6 +96,12 @@ def build():
 
 if __name__ == "__main__":
     days, P, idx = build()
+    if "--coverage" in sys.argv:
+        for d in days:
+            m = coverage(d)
+            print(f"{d['date']}: {len(m)} committed log heading(s) with no overlap in the day log")
+            for x in m: print("   -", x[:90])
+        sys.exit(0)
     files = {os.path.join(OUT, d["date"] + ".md"): render(d) for d in days}
     files[os.path.join(OUT, "README.md")] = idx
     if "--check" in sys.argv:

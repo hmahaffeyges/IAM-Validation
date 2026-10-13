@@ -837,6 +837,15 @@
 "text": "compressed (~0.85 instead of ~0.95) and inflates every downstream A-score. The"
 },
 {
+"file": "Biological_Physics/MethylPhys/daylogs/2026-10-13.md",
+"line": 94,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "RECORD",
+"text": "- **\"Can the atlas not help us sort the whole blood enough... or is that old IAM's class h_min illusion?\"**"
+},
+{
 "file": "Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md",
 "line": 3,
 "pattern": "gate-error reading",
