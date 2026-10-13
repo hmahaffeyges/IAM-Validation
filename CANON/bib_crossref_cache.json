@@ -111,6 +111,14 @@
 "volume": null,
 "year": 2001
 },
+"10.1007/978-4-431-55978-8": {
+"first_family": "Amari",
+"journal": "Applied Mathematical Sciences",
+"page": null,
+"title": "Information Geometry and Its Applications",
+"volume": null,
+"year": 2016
+},
 "10.1007/bf00417500": {
 "first_family": "Cirel'son",
 "journal": "Letters in Mathematical Physics",
@@ -1158,6 +1166,14 @@
 "title": "The distribution of cellular turnover in the human body",
 "volume": "27",
 "year": 2021
+},
+"10.1038/s41598-023-35166-9": {
+"first_family": "Sanchez",
+"journal": "Scientific Reports",
+"page": null,
+"title": "On the thermodynamics of DNA methylation process",
+"volume": "13",
+"year": 2023
 },
 "10.1038/s43018-021-00249-x": {
 "first_family": "Pappalardi",

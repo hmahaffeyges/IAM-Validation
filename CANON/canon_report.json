@@ -1,5 +1,23 @@
 [
 {
+"file": "MANIFEST.md",
+"line": 288,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| **TIS-007** | DEV-TISSUE-BREAST-01: breast tumors against the same patient's normal tissue, same 450K plate (TCGA-BRCA) | Tests whether patients' breast tumor"
+},
+{
+"file": "MANIFEST.md",
+"line": 347,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| **FLD-004** | Class-era adjacent-normal elevation across 28 cancer types (VAL-003), as summarized | Historical: in the class era, tissue next to tumors read h"
+},
+{
 "file": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
 "line": 974,
 "pattern": "class H_min",
