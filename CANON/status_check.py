@@ -158,6 +158,10 @@ if _mf.returncode:
 _vr = subprocess.run([sys.executable, "CANON/v21_readiness.py", "--check"], capture_output=True, text=True)
 if _vr.returncode: fail.append("[v21_readiness] " + ((_vr.stdout + _vr.stderr).strip().split("\n")[-1] or "the check could not run"))
 
+# Cell names exactly as the source atlases recorded them (2026-10-13): GEO snapshot unchanged, every atlas sample found, outputs rebuild
+_cn = subprocess.run([sys.executable, "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/cell_names_v21.py", "check"], capture_output=True, text=True)
+if _cn.returncode: fail.append("[cell_names] " + ((_cn.stdout + _cn.stderr).strip().split("\n")[-1] or "the check could not run"))
+
 if fail:
     print(f"status_check: REFUSED ({len(fail)})\n  " + "\n  ".join(fail[:40])); sys.exit(1)
 print(f"status_check: ok ({len(F['facts'])} facts, {len(files)} documents)")

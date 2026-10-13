@@ -328,6 +328,84 @@
    "manifest": [
     "ATL-056"
    ]
+  },
+  {
+   "id": "L13",
+   "stage": "before_launch",
+   "what": "Cell names exactly as Loyfer (GSE186458) and Moss (GSE122126) recorded them, from a committed GEO snapshot; every output carries them",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/cell_names_v21.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/cell_names_v21.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/cell_names_v21_by_cell.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/cell_names_v21_snapshot.json"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-049"
+   ]
+  },
+  {
+   "id": "L14",
+   "stage": "before_launch",
+   "what": "Every commissioning set listed with its readiness computed (none spent; arrays ready after download and Stage 1; sequencing sets flagged as a separate alignment job)",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/commissioning_sets_v21.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/commissioning_sets_v21.csv"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-001",
+    "ATL-004"
+   ]
+  },
+  {
+   "id": "L15",
+   "stage": "before_launch",
+   "what": "Commissioning bars sealed for every atlas use (U1 profiles, U2 composition-blind sites, U3 blood composition, U4) and each scorer planted-tested, before the atlas they judge exists",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sealed_commission_v21.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/planted_commission_v21_summary.txt"
+   ],
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/planted_commission_v21_summary.txt",
+      "PASSED"
+     ]
+    ]
+   },
+   "manifest": [
+    "ATL-001",
+    "ATL-004",
+    "ATL-008",
+    "ATL-009",
+    "ATL-034",
+    "ATL-035"
+   ]
+  },
+  {
+   "id": "B2",
+   "stage": "box_first",
+   "what": "Held-out arrays downloaded and through Stage 1, checksummed (after the split is sealed, before any scoring)",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/held_out_stage1_v21_manifest.csv"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-004"
+   ]
+  },
+  {
+   "id": "B3",
+   "stage": "box_first",
+   "what": "Sequencing commissioning sets aligned with the pinned pipeline (separate job; needed only for the sequencing uses)",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/held_out_sequencing_v21_manifest.csv"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-035"
+   ]
   }
  ]
 }
