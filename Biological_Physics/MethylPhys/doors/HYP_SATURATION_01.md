@@ -74,6 +74,34 @@ field cancerization. Tumors carry sites at the full surface where healthy refere
    **The hope, stated as a hope:** if fidelity can be read across the whole body, the signal that the system is running at its limit
    might one day guide how to turn it down. Nothing here supports a treatment claim.
 
+## Falsifier 6, run once (2026-10-13): NOT BROKEN, gains NOT at promoters, and the test is weaker than it looks
+
+`data/HYP_SATURATION_01/recurrence_06.py`, committed with its bars and planted check before it ran; output `recurrence_06_output.csv`,
+`recurrence_06_summary.txt`. Planted check passed (random calls read as null; 477 of 500 planted recurrent sites found).
+
+| cancer | pairs | recurrent gains (null max) | recurrent losses (null max) | promoter share of recurrent gains vs all sites |
+|---|---|---|---|---|
+| breast | 53 | 13,506 (0) | 7,421 (0) | 25.1 % vs 29.7 % |
+| colorectal | 88 | 12,510 (0) | 8,349 (0) | 33.0 % vs 30.5 % |
+| liver | 50 | 7,303 (0) | 38,479 (0) | 27.9 % vs 28.4 % |
+| lung | 28 | 830 (0) | 208 (0) | 18.0 % vs 29.9 % |
+
+**B1 and B2 met in every cancer: the moves recur across patients, and a shuffle gives none.** **B3 not met in any cancer:** by the
+fixed definition (TSS200 or TSS1500), recurrent gains are no more promoter-heavy than the array itself. That part of the claim, as
+written, does not hold on these data.
+
+**Two weaknesses, stated so nobody has to find them for us.**
+1. **The null is weak.** A within-tumor shuffle produces no site recurring in half the patients, so almost any shared structure beats
+   it. Passing B1 and B2 shows the moves are shared, not that they are a program.
+2. **Composition is recurrent by construction.** Each difference is tumor minus adjacent tissue, and every tumor is richer in its cell
+   of origin than the tissue beside it. Sites that differ between cell types will recur in every patient for that reason alone. A
+   hard test needs the recurrence measured after the composition is removed (the composition-aware reading), or on purified cells.
+
+The next version, written before it is run, needs those two fixes and a fresh set: all four sets here are spent.
+
+**Prior reading:** DEV-TISSUE-BREAST-01, DEV-TISSUE-COLON-01, DEV-TISSUE-LIVER-01 and DEV-TISSUE-LUNG-01 are already read, sealed and
+scored; this is development use and none of them may later serve as a held-out test of this hypothesis.
+
 **In plain words.** The idea is that a whole organ can be under strain before any tumor exists, its cells writing at their limit, and
 that the tumor appears at the weakest spot as new room to keep writing - the way a black hole grows its surface. It is an idea, not a
 result. Eight tests are written down that could each prove it wrong.

@@ -1,0 +1,7 @@
+PLANTED P1 random only: recurrent gains 0 (null max 0), losses 0 (null max 0) -> PASS
+PLANTED P2 500 planted at 60 %: recurrent gains 477 (need >= 400) -> PASS
+breast      n  53 | sites 386375 | recurrent gains  13506 vs null max   0 | recurrent losses   7421 vs null max   0 | promoter share of recurrent gains 25.1% vs 29.7% all (0.85x) | B1 True B2 True B3 False
+colorectal  n  88 | sites 385647 | recurrent gains  12510 vs null max   0 | recurrent losses   8349 vs null max   0 | promoter share of recurrent gains 33.0% vs 30.5% all (1.08x) | B1 True B2 True B3 False
+liver       n  50 | sites 379213 | recurrent gains   7303 vs null max   0 | recurrent losses  38479 vs null max   0 | promoter share of recurrent gains 27.9% vs 28.4% all (0.98x) | B1 True B2 True B3 False
+lung        n  28 | sites 368542 | recurrent gains    830 vs null max   0 | recurrent losses    208 vs null max   0 | promoter share of recurrent gains 18.0% vs 29.9% all (0.60x) | B1 True B2 True B3 False
+FALSIFIER 6: NOT BROKEN (B1 all True, B2 all True); gains at promoters (B3) all False
