@@ -254,5 +254,27 @@
    "plain": "A second physics lever was parked before we downloaded anything. Starving cells of methionine should raise the reading, but in the only public experiment the cells had nearly stopped dividing, so the calculation showed it could not decide the question.",
    "record": "Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md"
   }
+ ],
+ "decisions": [
+  {
+   "date": "2026-10-12",
+   "plain": "Some healthy reference cells exist only as cells grown in a dish, and growing in a dish changes their switch pattern. We measured which sites drift and we ignore them. That list is the mask. We kept the larger version on purpose: ignoring sites can only cost us sensitivity, never manufacture a result.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+  },
+  {
+   "date": "2026-10-13",
+   "plain": "Brain cells: our healthy reference uses cleanly sorted cells only. How a sample was prepared moved the numbers more than the donor's age or the part of the brain did, so mixed preparations are out. This rule was changed after seeing that, which is why it is written down and sealed before either independent laboratory is opened.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md"
+  },
+  {
+   "date": "2026-10-11",
+   "plain": "When a sample's cell mixture cannot be verified, the chain withholds the reading instead of printing it. A number we cannot stand behind is worse than no number.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_COMPOSITION_TRUTH_04.md"
+  },
+  {
+   "date": "2026-10-13",
+   "plain": "A data set we have already read cannot serve as the test of something new. Four of our planned test sets turned out to have been read before, so the rule is now enforced by code: a push is refused if a record names an already-read set as its held-out test.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+  }
  ]
 }

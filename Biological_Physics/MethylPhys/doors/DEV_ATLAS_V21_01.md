@@ -92,3 +92,11 @@ polymorphonuclear arrays, no donor fields. Marrow granulocytes are at a differen
 GSE49618 is a second, weaker check (marrow, no donor fields); GSE68456 moves to the newborn track. If GSE72338's readings sit outside the
 sealed band, the caveats are reported as the likely cause and the test is not counted as passed either way.
 
+**In plain words: what the culture mask is.** Every reading compares a sample against healthy cells. Some healthy cell types
+exist only as cells grown in a plastic dish, because nobody has published fresh ones. Growing in a dish changes a cell's
+switch pattern, so those sites would make a healthy person look damaged. We measured which sites drift, using cells grown
+for different lengths of time, and we ignore those sites. That list is the mask. Checked afterwards, part of what it flags
+is the machine's measurement day rather than the dish, which is why we keep the larger list: a mask can only remove sites,
+never add them, so being generous with it costs us sensitivity and never buys us a result. The drift reappeared in two more
+laboratories and two more cell types, above chance but not completely, so the mask stays.
+

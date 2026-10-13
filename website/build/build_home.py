@@ -66,6 +66,7 @@ def page(art):
         chip = '<span class="chip st-g">Commissioned</span>' if e["status"] == "commissioned" else '<span class="chip st-b">Passed its sealed test</span>'
         return f'''<article class="res win">{chip}<p class="stat">{f(w["stat"])}</p><h3>{f(w["head"])}</h3><p>{f(w["sub"])}</p><p class="more"><span>{E(e["date"])}</span> · <a href="{rec(e["record"])}">the record</a></p></article>'''
     results = "\n".join(card(e) for e in regs)
+    decisions = "\n".join(f'<li><b>{E(x["date"])}</b> {E(x["plain"])} <a href="{rec(x["record"])}">the record</a></li>' for x in REG.get("decisions", []))
     losses = "\n".join(f'<li><b>{E(x["date"])}</b> {E(x["plain"])} <a href="{rec(x["record"])}">the record</a></li>' for x in REG["losses"])
     mouse = next(e for e in REG["entries"] if e["id"] == "DEV-SAM-LEVER-01"); mv = vals(mouse)
     going = "; ".join(E(s_["headline"]) for s_ in NRJ["stories"] if s_["status"] != "result")
@@ -143,7 +144,11 @@ def page(art):
 <dt>What is established and what is not?</dt><dd>One instrument is commissioned on isolated white blood cells; everything else is development. The book has a table of every claim with its status. {ch("established")}</dd>
 <dt>Where do the departures sit along the genome?</dt><dd>The clustering reading asks whether the leftover disorder clumps or scatters, which separates scattered wear from the block losses cancer leaves. {ch("cscore")}</dd>
 </dl></details></section>
-<section class="wrap" id="lost"><h2>What has failed</h2><p class="sub">Every one was written down in advance and reported on ourselves. This is why the results above mean something.</p>
+<section class="wrap" id="lost"><h2>Decisions that shape every reading</h2>
+<p class="sub">Choices that change what every result means, in plain words, each with its record. A decision made after seeing data says so.</p>
+<ul class="plain">{decisions}</ul>
+
+<h2>What has failed</h2><p class="sub">Every one was written down in advance and reported on ourselves. This is why the results above mean something.</p>
 <ul class="road lost">{losses}</ul>
 <p class="more"><b>What these results are not.</b> Each sealed cancer test asked whether tumors leave the healthy range more often than chance across a group of patients. None is a per-patient test and none is a diagnostic: there is no sensitivity, no specificity and no detection limit yet. That test is on the road ahead, and no early-detection claim is made before it.</p>
 <p class="more">Every result, good or bad, day by day: <a href="{rec("development/METHYLPHYS_DEVELOPMENT_LOG.md")}">the development log</a>.</p></section>

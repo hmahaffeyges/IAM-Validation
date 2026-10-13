@@ -28,6 +28,8 @@ offset) failed:** the group call reaches 0.072 under the null, above 0.05. The n
 with no tumour on its own normal's slide, slide and cancer cannot be separated in this set.
 
 **Decision, by the rule written before any array was read: GSE199057 is not suitable for this design and is not sealed.** Its tumour arrays stay
-unread. **Not a milestone:** a design result (development).
+unread. **In plain words.** This was our attempt to repeat the colorectal result in a second laboratory's patients. It could not be done honestly: in that study the tumors were measured on their own slides, separate from the healthy samples, so any difference we found could have come from the slides rather than the cancer. We ruled the set unsuitable before opening a single tumor and are looking for a cohort whose tumors and healthy tissue were measured together.
+
+**Not a milestone:** a design result (development).
 
 **Test data:** GSE199057

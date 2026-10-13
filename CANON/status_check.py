@@ -5,7 +5,7 @@
   3. the book's check count printed in README.md differs from the committed verify_book output, or that output no longer counts every
      check verify_book.py defines (new checks added without regenerating the output).
 Run: python3 CANON/status_check.py   (called by CANON/checked_push.sh)"""
-import subprocess, glob, json, os, re, subprocess, sys
+import subprocess, json as _js, glob, json, os, re, subprocess, sys
 F = json.load(open("CANON/status_facts.json", encoding="utf-8")); ex = re.compile("|".join(F["exclude"]))
 files = [f for f in subprocess.run(["git", "ls-files", "*.md", "*.tex", "*.py", "*.json", "*.html", "*.yml"], capture_output=True, text=True).stdout.split("\n")
          if f and not ex.search(f) and os.path.isfile(f) and os.path.getsize(f) < 3_000_000]
@@ -84,6 +84,13 @@ for _w in sorted(glob.glob(".github/workflows/*.yml")):
 # Every item of the author's to-do list must be a job, a track, an idea, housekeeping or closed (2026-10-13)
 _tc = subprocess.run([sys.executable, "CANON/todo_coverage.py", "--check"], capture_output=True, text=True)
 if _tc.returncode: fail.append("[todo_coverage] " + (_tc.stdout or _tc.stderr).strip().split("\n")[-1])
+
+# Every losses and decisions entry must point at a record that exists and carries plain words (2026-10-13)
+_R = _js.load(open("CANON/results_register.json", encoding="utf-8")) if os.path.exists("CANON/results_register.json") else {}
+for _k in ("losses", "decisions"):
+    for _x in _R.get(_k, []):
+        if not os.path.exists(_x.get("record", "")): fail.append(f"[results_register] {_k} entry {_x.get('date')} names a record that does not exist: {_x.get('record')}")
+        elif not _x.get("plain"): fail.append(f"[results_register] {_k} entry {_x.get('date')} has no plain-words text")
 
 if fail:
     print(f"status_check: REFUSED ({len(fail)})\n  " + "\n  ".join(fail[:40])); sys.exit(1)
