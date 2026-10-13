@@ -151,9 +151,9 @@ def page(art):
     assert sum(1 for r in BT if any(r[3] in sts for _, sts in GROUPS)) == len(BT), "a tool status the page does not group"
     cur = months[-1]
     body = f'''<header class="hero" style="background-image:linear-gradient(rgba(10,12,16,.55),rgba(10,12,16,.85)),url({art("web_banner.jpg")})">
-<div class="wrap"><p class="kicker">IAMPerformance · research built in public</p>
+<div class="wrap"><p class="kicker">IAMPerformance · AstroGenetics and the Cosmic Methylome</p>
 <h1>Two telescopes.<br>One sky map.</h1>
-<p class="lead">We read the methylation of human DNA with the same mathematics cosmologists use to map the sky, to measure how faithfully a cell holds its information. The goal is early cancer detection from a blood or stool sample. Every test is written down before its data is read, and every result is posted here, win or lose.</p>
+<p class="lead">We read the methylation of human DNA with the same mathematics cosmologists use to map the sky, to measure how faithfully a cell holds its information. The goal is early cancer detection from a blood or stool sample. Every test is written down before its data is read, and every result is recorded in the open, win or lose: <a href="#daylogs">the daily log</a>.</p>
 <p class="cta"><a class="btn" href="#daylogs">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
 <main>
 <section class="wrap" id="daylogs"><h2>Start here: the daily log</h2>
