@@ -26,12 +26,23 @@ J = lambda p: json.load(open(os.path.join(REPO, p), encoding="utf-8"))
 spec = importlib.util.spec_from_file_location("nr", os.path.join(REPO, "CANON", "now_running.py")); NR = importlib.util.module_from_spec(spec); spec.loader.exec_module(NR)
 E = html.escape
 STCLS = {"getting ready": "st-b", "running": "st-a", "on hold": "st-m", "result": "st-g"}
-TOOLS = [  # (cosmology tool, what it does here, tool-board status), from docs/book/part6/16a_skytools_map79.tex
-    ("One hierarchical fit with an offset per source, sampled by MCMC", "combines many laboratories' healthy cells into one atlas, each lab's offset measured", "partial: the atlas is a posterior; readings carry none yet"),
-    ("Component separation", "reads past the mix of cell types to the signal underneath", "in use, one solver; a second is built, not in the chain"),
-    ("Split maps and null tests", "checks the map on data it never saw", "in use"),
-    ("HEALPix pixelization", "lays the genome out the way the sky is laid out", "built, not in the chain; its statistics are withheld until their null test passes"),
-]
+def book_tools():
+    """The cosmology tools, read from the rows the book's 79-row map is generated from (docs/book/figscripts/make_skytools_tables.py),
+    so the page and the book cannot disagree. The 'next' order is read from the chapter's own list of what is left to employ."""
+    import ast
+    src = open(os.path.join(REPO, "docs", "book", "figscripts", "make_skytools_tables.py"), encoding="utf-8").read()
+    node = next(n for n in ast.parse(src).body if isinstance(n, ast.Assign) and getattr(n.targets[0], "id", "") == "ROWS")
+    rows = ast.literal_eval(node.value)
+    ch = open(os.path.join(REPO, "docs", "book", "part6", "p6_16a_skytools.tex"), encoding="utf-8").read()
+    nxt = ch[ch.index("What is left to employ"):ch.index("The same tools elsewhere")]
+    order = {}
+    for k, m in enumerate(re.finditer(r"\\item \\textbf\{[^}]*\}[^\n]*?\(rows? ([0-9, ]+)", nxt)):
+        for r in re.findall(r"\d+", m.group(1)): order.setdefault(int(r), k + 1)
+    def tex(t):
+        t = t.replace("\\%", "%").replace("\\,", " ").replace("~", " ").replace("\\_", "_").replace("--", "-").replace("``", '"').replace("''", '"')
+        t = re.sub(r"\$([^$]*)\$", r"\1", t); t = re.sub(r"\\[a-zA-Z]+\{([^}]*)\}", r"\1", t)
+        return re.sub(r"\s+", " ", t).strip()
+    return [(n, tex(a), tex(b), st, tex(w), order.get(n)) for n, a, b, st, w in rows]
 
 def rec(p): return GH + p
 def costs():
@@ -125,7 +136,19 @@ def page(art):
     apar_first, apar_rest = _ap[0], "\n".join(_ap[1:])
     amaybe = "\n".join(f'<li>{E(x)}</li>' for x in A["maybes"])
     helpw = "\n".join(f'<li><b>{E(h["ask"])}</b> {E(h["why"])} <a href="{rec(h["record"])}">record</a></li>' for h in NJ["help_wanted"])
-    tools = "\n".join(f"<tr><td>{E(a)}</td><td>{E(b)}</td><td>{E(c)}</td></tr>" for a, b, c in TOOLS)
+    BT = book_tools()
+    GROUPS = [("In use in the chain", ("in use",)),
+              ("Built or partly in use", ("built, not in chain", "partial", "calculated", "measured")),
+              ("In the pipeline", ("not built", "reserved", "open")),
+              ("Considered and set aside", ("analogy", "refused", "out", "does not translate"))]
+    def trow(r):
+        n, a, b, st, w, o = r
+        tag = f' <span class="chip st-b">next #{o}</span>' if o else ""
+        return f"<tr><td>{n}</td><td>{E(a)}{tag}</td><td>{E(b)}</td><td>{E(st)}</td><td>{E(w)}</td></tr>"
+    tools = "".join(f'<tr class="grp"><th colspan="5">{E(g)} ({sum(1 for r in BT if r[3] in sts)})</th></tr>'
+                    + "".join(trow(r) for r in sorted([r for r in BT if r[3] in sts], key=lambda r: (r[5] or 999, r[0])))
+                    for g, sts in GROUPS)
+    assert sum(1 for r in BT if any(r[3] in sts for _, sts in GROUPS)) == len(BT), "a tool status the page does not group"
     cur = months[-1]
     body = f'''<header class="hero" style="background-image:linear-gradient(rgba(10,12,16,.55),rgba(10,12,16,.85)),url({art("web_banner.jpg")})">
 <div class="wrap"><p class="kicker">IAMPerformance · research built in public</p>
@@ -148,23 +171,16 @@ def page(art):
 <p class="more"><b>All of this, in full, in the book:</b> {ch("skytools")} lists every cosmology tool and what each does here; {ch("sky")} is the sky reading itself and why its statistics stay withheld; {ch("reference")} is what the atlas is and how it is built; {ch("translation")} is why the tools carry over at all; {ch("astro")} is the idea in one chapter.</p>
 </details></section>
 <section class="wrap"><h2>Our instruments are the telescopes. The atlas is the sky map.</h2>
-<details class="fold"><summary>How it works, and every cosmology tool we use</summary>
+<details class="fold"><summary>How it works, and all {len(BT)} cosmology tools, in use and in the pipeline</summary>
 <p>Met-A and IAM-A are the two instruments; each is commissioned once, on its own tests. The atlas, a map of what healthy human cells look like, is the sky map they read against. Like each release of the microwave-sky maps, every atlas version is refitted whole, gets its own DOI and is checked again by the same tests on data it never saw. This is not a metaphor: it is the same mathematics applied to a different signal. Each tool, with where it stands today:</p>
-<table class="tools"><thead><tr><th>The cosmology tool</th><th>What it does here</th><th>Where it stands</th></tr></thead><tbody>{tools}</tbody></table>
+<p>All {len(BT)} cosmology tools mapped onto the cell, from the table in {ch("skytools")}, grouped by where each stands. <b>next</b> marks the chapter's order for what to employ next.</p>
+<table class="tools"><thead><tr><th>#</th><th>The cosmology tool</th><th>Its counterpart in the cell</th><th>Status</th><th>Where</th></tr></thead><tbody>{tools}</tbody></table>
 <p class="more">Read it in full in the book: {ch("astro")} and {ch("landauer")} are the physics, {ch("translation")} is why cosmology's tools apply, {ch("skytools")} is the tool list. Sky data: Planck 2018 SMICA map from the Planck Legacy Archive (ESA and the Planck Collaboration, Planck 2018 results IV, A&A 641, A4, 2020), colors from the Planck Collaboration's own color scale. Every tool, built or not yet built: the <a href="read/">book's sky-tools chapter</a>. The atlas itself, free to download: <a href="https://doi.org/{E(AT["doi"])}">DOI {E(AT["doi"])}</a> ({AT["total_bytes"] / 1e9:.2f} GB in {AT["files"]} files, every file checked against its fingerprint).</p></details></section>
-<section class="wrap" id="road"><h2>The road ahead</h2><p class="sub">Every job still in front of us, in order: what it needs and what it is expected to cost. This is why support matters.</p>
-<details class="fold"><summary>See the {len(NJ["jobs"])} jobs ahead, and where a researcher could help</summary>
-<ol class="road">{road}</ol>
-<h3>Further down the road</h3><p class="sub">Whole areas we mean to reach, each needing the steps above first.</p>
-<ul class="road">{later}</ul>
-<h3>Ideas we want to test</h3><p class="sub">Not designed yet, written down so they are not lost. Each becomes a test with its rule fixed in advance, or it is dropped.</p>
-<ul class="road">{ideas}</ul>
+<section class="wrap" id="road"><h2>The road ahead</h2>
+<p class="cta"><a class="btn" href="{rec("TODO.md")}">The to-do list</a><a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/INSTRUMENTS.md")}">Candidate instruments</a><a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md")}">The levers</a></p>
 <h3>What support pays for</h3>
-<p class="sub"><b>No company, no charity, nothing for sale.</b> This is one person's work: there is no LLC, no nonprofit and no institution behind it, so support through the fundraiser is a personal gift and is <b>not tax-deductible</b>.</p><p class="sub">The jobs above that need a rented computer, each with the estimate written before it starts; everything else runs on one laptop at no cost. The fundraiser's goal is $25,000, all of it research: rented computing, the data work, and a workstation to replace rented hours.</p>
-<ul class="road">{buys}</ul>
-<h3 class="help">Where a researcher could help</h3><p class="sub">The gaps public data cannot close. If you hold data like this, or can point to it, open an issue or a discussion on the repository. You do not need to introduce yourself to follow along.</p>
-<ul class="road help">{helpw}</ul>
-<p class="more">The same list on GitHub: <a href="{rec("ROADMAP.md")}">ROADMAP.md</a>.</p></details></section>
+<p class="sub"><b>No company, no charity, nothing for sale.</b> This is one person's work: there is no LLC, no nonprofit and no institution behind it, so support through the fundraiser is a personal gift and is <b>not tax-deductible</b>.</p><p class="sub">Work that needs a rented computer carries its estimate before it starts; everything else runs on one laptop at no cost. The fundraiser's goal is $25,000, all of it research: rented computing, the data work, and a workstation to replace rented hours.</p>
+</section>
 <div class="art-band" style="background-image:url({art("bh_banner.jpg")})" role="img" aria-label="Art from the book"></div>
 <section class="wrap" id="howtest"><h2>How we test the physics</h2>
 <p class="sub">{E(MT["lead"])}</p>
@@ -257,7 +273,7 @@ table.tools{width:100%;border-collapse:collapse;margin:14px 0}.tools th,.tools t
 .big{font-size:34px;font-weight:800;margin:0;font-variant-numeric:tabular-nums}.small{color:var(--muted);font-size:13px}
 .links .tile{display:block;background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:18px 20px;text-decoration:none;color:var(--fg);font-weight:600}
 .links .tile:hover,.card:hover{border-color:var(--link)}
-ol.road,ul.road,ol.why{padding-left:22px}dl.qa dt{font-weight:700;margin:16px 0 4px}#author p{max-width:62ch}.maybe li{margin:0 0 8px}p.closer{max-width:62ch;font-style:italic;margin-top:18px}dl.qa dd{margin:0;color:var(--muted)}ol.why li{margin:0 0 14px}.lost li{margin:0 0 14px}code{background:var(--panel);padding:2px 6px;border-radius:4px;font-size:14px}.road li{margin:0 0 14px}.road .meta{color:var(--muted);font-size:14px}h3.help{margin:30px 0 4px;font-size:22px}
+table.tools tr.grp th{text-align:left;padding-top:18px;font-size:15px;border-bottom:1px solid var(--rule)}ol.road,ul.road,ol.why{padding-left:22px}dl.qa dt{font-weight:700;margin:16px 0 4px}#author p{max-width:62ch}.maybe li{margin:0 0 8px}p.closer{max-width:62ch;font-style:italic;margin-top:18px}dl.qa dd{margin:0;color:var(--muted)}ol.why li{margin:0 0 14px}.lost li{margin:0 0 14px}code{background:var(--panel);padding:2px 6px;border-radius:4px;font-size:14px}.road li{margin:0 0 14px}.road .meta{color:var(--muted);font-size:14px}h3.help{margin:30px 0 4px;font-size:22px}
 details.fold{margin:6px 0 10px}details.fold>summary{cursor:pointer;display:flex;align-items:center;gap:10px;list-style:none;padding:6px 0;border:0;color:var(--link);font-weight:600;font-size:16px;transition:color .15s}summary::-webkit-details-marker{display:none}summary::before{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .18s;flex:none;margin-left:2px}details[open]>summary::before{transform:rotate(45deg)}summary:hover{color:var(--link);text-decoration:underline;text-underline-offset:3px}details{margin:14px 0}details[open]>summary{margin-bottom:10px}
 details.fold[open]>summary{margin-bottom:20px}
 .win .stat{font-size:38px;font-weight:800;margin:10px 0 0;line-height:1.05;font-variant-numeric:tabular-nums;color:var(--fg)}.win h3{font-size:20px}

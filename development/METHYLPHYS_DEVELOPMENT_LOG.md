@@ -1496,3 +1496,6 @@ Removed the nine-question section and the traced-case section: both were hand-wr
 The failures and the limits fold are in the daily logs and the records, so the section is removed from the page; the losses list stays in the results register.
 
 ### 2026-10-13 · Founder fold off the front page (author)
+
+### 2026-10-13 · The to-do list lives in the repository; the tool table comes from the book (author)
+TODO.md at the repository root is now the canonical to-do list (it was kept outside the repository), with two new tracks for today: L, levers and candidate instruments, and H, hypotheses and new designs. The front page road section is the link to it plus the candidate-instruments and lever boards; the generated job list, which had fallen behind, is removed. The cosmology-tool table on the page is read from the rows the book 79-row map is generated from, grouped by status, with the chapter next-to-employ order marked, so the page and the book cannot disagree.
