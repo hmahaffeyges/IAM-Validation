@@ -13,3 +13,19 @@ copying in the window; with half the cells copying once and a 4-fold fall, IAM-A
 **Decision: parked.** With three pairs and one library each, a rise of 1.03-1.05 cannot be told from library-to-library spread (0.02-0.04).
 The set is underpowered for the reason the physics gives: too few copies were made during the depletion. A decisive second lever needs restriction
 long enough for many divisions (weeks in culture, or diet in vivo); none is public as of this date.
+
+**In plain words.** We wanted to see whether starving cells of the raw material for methyl marks makes them hold their pattern
+less well. Before downloading anything we worked out whether the only public experiment could show it, and it cannot: the cells were
+starved for just two or three days and nearly stopped dividing, so too little could change to see over the normal spread between
+samples. The test is parked until a longer starvation experiment is public.
+
+**Correction note (2026-10-13).** Step 1 says copy error "is written only when DNA is copied." That wording predates the balance
+derivation (CANON/foundation.json `balance_equation`, book section on the held state): the held error is the balance of restore and loss
+over ANY interval, and non-dividing cells hold it too. What copying adds is a third loss route, missed restores on newly copied strands
+(HYP-SATURATION-01, falsifier 7). The calculation's conclusion for this data set stands, because the starved cells nearly stop dividing
+and so lose the copying route: a decisive methyl-supply test still needs weeks of restriction. The step 1 text is kept as written, as a
+dated record.
+
+**What it would take to finish:** a public methylation sequencing set from cells or animals kept on restricted methionine for weeks.
+
+**Not a milestone:** parked before any data was read.

@@ -45,9 +45,21 @@ field cancerization. Tumors carry sites at the full surface where healthy refere
    gains concentrate at gene promoters. If gains and losses scatter - no more recurrence than the permutation gives - the moves are
    drift, and the picture of a patterned, selected program is wrong. Wording rule: "non-random" and "selected", never "intentional".
 
+7. **Two phases: the program, then the disorder (author, 2026-10-13: "The tumor and the not un-intentional gene writing and
+   erasing are creating the extra writing surface but the divisions bring in the disorder").** Three culprits act on the loss side:
+   writer mistakes and erasure (in every cell) and missed restores at copying (only where cells divide, growing with division rate).
+   Phase 1, the PROGRAM: writer and eraser, non-random, switch specific genes; on single molecules it is CONCORDANT (whole molecules
+   switched together), on arrays recurrent promoter gains. Phase 2, the DISORDER: division-driven missed restores, random per event and
+   patterned only by replication timing; on single molecules it is DISCORDANT (mixed patterns within a molecule, molecules from one
+   locus disagreeing), on arrays loss at isolated sites in late-replicating blocks. Predictions: the program appears first, already in
+   precancer, and disorder grows later with how far the tumor has gone; across the 219 tumors the promoter program and the late-block
+   loss are only weakly related; and the breach is where discordance starts to climb. If the program and the disorder rise together as
+   one quantity, or disorder appears before the program, the two-phase picture is wrong. Prior result in the same direction (not ours):
+   locally disordered methylation varies within tumors and tracks outcome in a leukemia (Landau et al. 2014, Cancer Cell).
+
 **In plain words.** The idea is that a whole organ can be under strain before any tumor exists, its cells writing at their limit, and
 that the tumor appears at the weakest spot as new room to keep writing - the way a black hole grows its surface. It is an idea, not a
-result. Six tests are written down that could each prove it wrong.
+result. Seven tests are written down that could each prove it wrong.
 
 **What it would take to finish:** falsifier 2 first (DEV-FIELD-01), then 1 and 4 on an ordered lesion series, then 3 on TCGA stage, 5 on TCGA expression, and 6 on the 219 tumors already read.
 
