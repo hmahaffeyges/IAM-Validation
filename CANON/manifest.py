@@ -29,16 +29,16 @@ def render(J):
          f"**{len(R)} tests** · {sum(1 for r in R if r['runs'])} with at least one run · {sum(1 for r in R if r['status'] not in CLOSED)} open · "
          f"sections: " + ", ".join(f"[{c}](#{c.lower()})" for c in S), "",
          "Columns: **#** the test number · **Test** · **What it is for, and why it matters** · **Instrument / term** · **Data** (sources, and whether we "
-         "have them) · **Status** · **Runs** (date, result) · **Next** · **Cost** (laptop, box, search) · **Impact** (5 = most) · **Record**.", ""]
+         "have them) · **Status** · **Runs** (date, result) · **Next** · **Cost** (laptop, box, search) · **Impact** (5 = most) · **Record** · **Notes** (possible duplicates, undated reads, records not found).", ""]
     for c, s in S.items():
         rows = [r for r in R if r["id"].startswith(c + "-")]
         L += [f"## {c}", "", f"**{s['title']}.** {s['about']}", "",
-              "| # | Test | What it is for, and why it matters | Instrument / term | Data | Status | Runs | Next | Cost | Impact | Record |",
-              "|---|---|---|---|---|---|---|---|---|---|---|"]
+              "| # | Test | What it is for, and why it matters | Instrument / term | Data | Status | Runs | Next | Cost | Impact | Record | Notes |",
+              "|---|---|---|---|---|---|---|---|---|---|---|---|"]
         for r in rows:
             data = esc(", ".join(r.get("sources", [])) or "-") + f" · *{esc(r.get('data_status'))}*"
             L.append(f"| **{r['id']}** | {esc(r['title'])} | {esc(r['purpose'])} | {esc(r.get('instrument_or_term'))} | {data} | {esc(r['status'])} | "
-                     f"{runs_txt(r)} | {esc(r.get('next_step'))} | {esc(r.get('cost'))} | {r.get('impact', '')} | {link(r.get('record'))} |")
+                     f"{runs_txt(r)} | {esc(r.get('next_step'))} | {esc(r.get('cost'))} | {r.get('impact', '')} | {link(r.get('record'))} | {esc(r.get('notes'))} |")
         L.append("")
     return "\n".join(L) + "\n"
 def render_todo(J):
