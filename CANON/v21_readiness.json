@@ -406,6 +406,25 @@
    "manifest": [
     "ATL-035"
    ]
+  },
+  {
+   "id": "G9",
+   "stage": "after_fit",
+   "what": "Frozen-base add-on test: a cell fitted against the fixed v2.1 cells reproduces what a full refit gives (planted test with a held-back cell), so later cells (placenta GSE271697, flagged with its 80-85 percent purity; cultured lung, as a labeled cultured layer) need only their own commissioning, not a refit",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/addon_test_v21_summary.txt"
+   ],
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/addon_test_v21_summary.txt",
+      "PASSED"
+     ]
+    ]
+   },
+   "manifest": [
+    "ATL-040"
+   ]
   }
  ]
 }
