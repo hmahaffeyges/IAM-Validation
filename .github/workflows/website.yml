@@ -4,6 +4,9 @@ name: website
 # Pushes to main that touch the book (or the site's own build files) build and deploy; pull requests build only and attach the
 # site as an artifact for preview.
 on:
+  schedule:            # daily, so the live page and its checks cannot go stale between pushes (2026-10-13)
+    - cron: "23 11 * * *"
+  workflow_dispatch:
   push:
     branches: [main]
     paths: ["docs/book/**", "website/**", "CANON/**", ".github/workflows/website.yml"]
