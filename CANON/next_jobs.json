@@ -125,7 +125,7 @@
    "cost": "laptop",
    "accessions": [],
    "ready": "queued",
-   "plain": "The division-rate lever: brain cells on both instruments, post-mortem time checked first, and the passage series. Landauer's cost is paid per copy, and neurons never divide.",
+   "plain": "The per-operation lever: brain cells on both instruments, post-mortem time checked first, and the passage series. A neuron never divides, yet its writing and erasing go on, so the cost is paid per operation; the neurons are the only cells that separate the per-time term from the per-division term.",
    "needs": "the laptop",
    "estimate": "2-3 weeks",
    "stands": "neuron rule sealed; both test laboratories unread",

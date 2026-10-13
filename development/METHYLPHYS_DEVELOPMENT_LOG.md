@@ -1304,3 +1304,6 @@ CANON/next_jobs.json now holds 23 jobs in the order of PRIORITY_2026-10-13.md, e
 
 ### 2026-10-13 · The roadmap is one ordered list, and every to-do item is provably placed
 CANON/roadmap.py now prints one list in the order CANON/next_jobs.json holds (the author priority order), not groups. CANON/todo_coverage.py checks that every id of the 2026-10-12 to-do list (76 items) is a numbered job, a long-range track, an idea, housekeeping or in CANON/todo_closed.json with its date; status_check refuses otherwise, and the control (dropping the adenomas from job 6) refuses. The whole-genome sky build and the lever series are jobs 12 and 5.
+
+### 2026-10-13 · The cost is paid per operation, not per division (author correction)
+The lever audit said Landauer cost is paid per copy, which assumes replication supplies the only operations. A neuron never divides and its writing and erasing continue, so the cost splits into a per-copy term and a per-time turnover term. DEV-LEVERS-01 now carries the split, the prediction (a post-mitotic cell must still rise with age at a rate set by turnover) and what would falsify it, plus test 4 designed. The write-enzyme caveat weakens under a per-operation cost. Roadmap job 10 renamed the per-operation lever.

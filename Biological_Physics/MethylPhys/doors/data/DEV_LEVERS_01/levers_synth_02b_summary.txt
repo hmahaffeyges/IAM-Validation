@@ -1,0 +1,33 @@
+DEV-LEVERS-01 synthetic test 2b: smallest share of thermal damage a real temperature series can detect
+activation energy fitted (truth 75 kJ/mol) | donor spread 0.06 | 100 draws per cell
+
+4 temperatures x 5 donors, species spread 0.03: smallest detectable damage share 0.25 | null threshold on fitted f 0.108
+4 temperatures x 5 donors, species spread 0.06: smallest detectable damage share none in this grid | null threshold on fitted f 0.248
+4 temperatures x 5 donors, species spread 0.10: smallest detectable damage share none in this grid | null threshold on fitted f 0.299
+4 temperatures x 10 donors, species spread 0.03: smallest detectable damage share 0.25 | null threshold on fitted f 0.114
+4 temperatures x 10 donors, species spread 0.06: smallest detectable damage share none in this grid | null threshold on fitted f 0.198
+4 temperatures x 10 donors, species spread 0.10: smallest detectable damage share none in this grid | null threshold on fitted f 0.285
+4 temperatures x 20 donors, species spread 0.03: smallest detectable damage share 0.25 | null threshold on fitted f 0.092
+4 temperatures x 20 donors, species spread 0.06: smallest detectable damage share none in this grid | null threshold on fitted f 0.184
+4 temperatures x 20 donors, species spread 0.10: smallest detectable damage share none in this grid | null threshold on fitted f 0.303
+6 temperatures x 5 donors, species spread 0.03: smallest detectable damage share 0.25 | null threshold on fitted f 0.082
+6 temperatures x 5 donors, species spread 0.06: smallest detectable damage share 0.25 | null threshold on fitted f 0.135
+6 temperatures x 5 donors, species spread 0.10: smallest detectable damage share none in this grid | null threshold on fitted f 0.243
+6 temperatures x 10 donors, species spread 0.03: smallest detectable damage share 0.25 | null threshold on fitted f 0.077
+6 temperatures x 10 donors, species spread 0.06: smallest detectable damage share 0.25 | null threshold on fitted f 0.120
+6 temperatures x 10 donors, species spread 0.10: smallest detectable damage share none in this grid | null threshold on fitted f 0.183
+6 temperatures x 20 donors, species spread 0.03: smallest detectable damage share 0.25 | null threshold on fitted f 0.062
+6 temperatures x 20 donors, species spread 0.06: smallest detectable damage share 0.25 | null threshold on fitted f 0.086
+6 temperatures x 20 donors, species spread 0.10: smallest detectable damage share none in this grid | null threshold on fitted f 0.203
+8 temperatures x 5 donors, species spread 0.03: smallest detectable damage share 0.25 | null threshold on fitted f 0.073
+8 temperatures x 5 donors, species spread 0.06: smallest detectable damage share 0.25 | null threshold on fitted f 0.099
+8 temperatures x 5 donors, species spread 0.10: smallest detectable damage share none in this grid | null threshold on fitted f 0.162
+8 temperatures x 10 donors, species spread 0.03: smallest detectable damage share 0.10 | null threshold on fitted f 0.050
+8 temperatures x 10 donors, species spread 0.06: smallest detectable damage share 0.25 | null threshold on fitted f 0.106
+8 temperatures x 10 donors, species spread 0.10: smallest detectable damage share none in this grid | null threshold on fitted f 0.150
+8 temperatures x 20 donors, species spread 0.03: smallest detectable damage share 0.10 | null threshold on fitted f 0.048
+8 temperatures x 20 donors, species spread 0.06: smallest detectable damage share 0.25 | null threshold on fitted f 0.112
+8 temperatures x 20 donors, species spread 0.10: smallest detectable damage share 0.25 | null threshold on fitted f 0.144
+
+BAR: MET - some feasible series detects a damage share
+Read this as the design requirement, not as a result about the world.

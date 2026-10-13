@@ -33,6 +33,36 @@ whole triphosphate plus a methionine; the copy head does not hydrolyze ATP per s
 nicks the strand and religates it, which costs ATP and transiently breaks DNA. The asymmetry is by mechanism, not by
 direction.
 
+## The cost is paid per operation, not per division (the author's correction, 2026-10-13)
+
+The lever table above wrote "Landauer's cost is paid per copy", which quietly assumes the only operations are replication's.
+That is wrong and the author caught it: **a neuron never divides, and its writing and erasing go on anyway.** Maintenance
+writing and the erase channel both cycle in post-mitotic cells, so the cost is paid per *operation*, and replication is only
+the operation that happens to come in a burst.
+
+This splits the cost in two, and the split is testable:
+
+| term | paid when | expected to scale with |
+|---|---|---|
+| per-copy | a cell divides | number of divisions since the reference |
+| per-time (turnover) | always, dividing or not | time, at a rate set by how fast writing and erasing cycle in that cell type |
+
+**The prediction, and what would falsify it.** A post-mitotic cell's reading must still rise with age, at a rate set by its
+turnover and not by divisions it never had. If a neuron series shows no rise with age, the per-time term is absent and the
+law's reach is narrower than claimed - which is worth knowing. If it rises at the same rate as a dividing tissue of the same
+age, then divisions contribute nothing measurable, and the per-copy term we have been assuming is the part that is wrong.
+Either way the neurons answer it, which makes them a stronger lever than the division-rate framing allowed: **they are the
+only cells that isolate one term from the other.**
+
+This also re-reads an old caveat. The write-enzyme lever was set aside partly because inhibitors change the division rate
+too; under a per-operation cost that objection weakens, because the inhibitor is reducing operations whether or not the cell
+divides.
+
+**Test 4 (designed, not run): per-time against per-copy.** Simulate an age series in a non-dividing cell type and in a
+dividing one, with a per-time rate and a per-copy rate that are separately set, and ask which combinations a real age span
+and a real donor spread can tell apart. The bar: recover the per-time rate to within a stated factor when the per-copy term
+is zero, and refuse to claim a per-copy term when none was planted.
+
 ## Two signatures that separate mechanism
 
 The copy head is processive: when it fails it fails over a run of sites. Thermal damage is independent site to site.
