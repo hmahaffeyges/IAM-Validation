@@ -7,7 +7,7 @@ Nothing on the page is typed here except headings and the fixed explanation of t
 tool-board status. The page text is checked with the field-notes voice and hype rules (CANON/now_running.py) and every repository link must
 exist; --check runs those checks without writing. --standalone OUT.html writes one self-contained file (CSS and images inlined) for review.
 Usage: python3 website/build/build_home.py SITE_DIR | --check | --standalone OUT.html"""
-import os, re, sys, json, html, base64, datetime, importlib.util
+import glob, os, re, sys, json, html, base64, datetime, importlib.util
 
 HERE = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.abspath(os.path.join(HERE, "..", ".."))
 GH = "https://github.com/hmahaffeyges/IAM-Validation/blob/main/"
@@ -72,6 +72,15 @@ def page(art):
     tog = "".join(f'<li><b>{E(x["q"])}</b><br>{E(x["a"])}</li>' for x in AS["together"])
     OR = J("CANON/origin.json")
     TR = J("CANON/trace.json")
+    # the day logs: shift turnover, newest first, read straight off the generated files so the page cannot list a day that does not exist
+    _dld = os.path.join(REPO, "Biological_Physics/MethylPhys/daylogs")
+    _dl = []
+    for _f in sorted(glob.glob(os.path.join(_dld, "20*.md")), reverse=True):
+        _t = open(_f, encoding="utf-8").read().split("\n")[0].lstrip("# ").strip()
+        _d = os.path.basename(_f)[:-3]
+        _dl.append((_d, _t.split("\u2014", 1)[1].strip() if "\u2014" in _t else _t))
+    daylogs = "".join(f'<li><a href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}"><b>{E(d)}</b></a> &mdash; {E(t)}</li>'
+                      for d, t in _dl)
     steps = "".join(f'<li><b>{E(x["n"])}. {E(x["t"])}</b><br>{E(x["d"])}<br>'
                     f'<span class="meta"><a href="{rec(x["rec"])}">the record</a>'
                     + (f' &middot; commit {E(x["c"])}' if x["c"] and x["c"] != "open" else
@@ -178,6 +187,15 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 </details>
 <p class="sub">{E(MT["closing"])}</p>
 </section>
+<section class="wrap" id="daylogs"><h2>Shift turnover: what happened, day by day</h2>
+<p>One log per day, written at the end of the day and generated from a single committed file, so it cannot drift from the records.
+Each one states the hours it covers and carries the same sections: what we set out to do, what ran and how each came out, what we
+learned that we did not know yesterday, our own mistakes and what caught each, the back-and-forth that produced the day's work with
+the bad ideas left in, what changed in the plan, and what was open at turnover. Tables list every test and every instrument, and the
+generator refuses a log that leaves one out.</p>
+<details><summary>Read the days</summary><ul class="plain">{daylogs}</ul>
+<p class="meta">A day log never states an unsealed result as established: every entry carries its status &mdash; sealed, development,
+synthetic only, audit, failed, diagnosis, metadata only &mdash; and the words are checked on every push.</p></details></section>
 <section class="wrap" id="trace"><h2>{E(TR["title"])}</h2>
 <p class="sub">{E(TR["lead"])}</p>
 <details class="fold" open><summary>{E(TR["case"])}</summary>

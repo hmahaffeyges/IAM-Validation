@@ -87,6 +87,14 @@ def completeness(d):
                 out.append(f"[daylog] {d['date']}: {label} '{short}' has no row in the day log")
     return out
 
+def page_lists_every_day(days):
+    """The front page's day-log section must list every generated day log, so a day cannot exist and be invisible."""
+    b = os.path.join(ROOT, "website", "build", "build_home.py")
+    if not os.path.isfile(b) or "id=\"daylogs\"" not in open(b, encoding="utf-8").read(): return []
+    # the section is generated from the daylogs directory itself, so the only failure mode is a day log that was never rendered
+    return [f"[daylog] {d['date']}: no rendered day log for the page to list"
+            for d in days if not os.path.isfile(os.path.join(OUT, d["date"] + ".md"))]
+
 def coverage(d):
     """Committed development-log headings for this day whose content words do not appear in the rendered day log.
 
@@ -126,6 +134,7 @@ if __name__ == "__main__":
         sys.exit(0)
     files = {os.path.join(OUT, d["date"] + ".md"): render(d) for d in days}
     files[os.path.join(OUT, "README.md")] = idx
+    P += page_lists_every_day(days)
     if "--check" in sys.argv:
         for f, t in files.items():
             cur = open(f, encoding="utf-8").read() if os.path.isfile(f) else ""
