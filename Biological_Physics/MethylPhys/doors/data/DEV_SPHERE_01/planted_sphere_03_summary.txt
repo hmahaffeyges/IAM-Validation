@@ -1,0 +1,8 @@
+continuous methylome: 60000 sites, 13622 variable, island-like 8164, held 14703; NSIDE 64
+P1 planted group R 0.851 | 99th percentile of 500 random groups 0.213 -> MET
+P3 island-like vs held-methylated mean directions 171.0 deg -> MET
+P4 pixels holding a site 100.0% (bar 90 %) -> MET
+reported: rank agreement globe vs full-space angle rho 0.418 (test 2: 0.313)
+reported: EDGE RATIO 21.78 (cross-face neighbor jump / same-face neighbor jump; about 1 = no edges)
+P2 nothing planted: exceeded in 0 of 20 maps (bar at most 1) -> MET
+PLANTED TEST 3 PASSED (bars P1-P4); edge ratio 21.78, distance agreement 0.418 reported

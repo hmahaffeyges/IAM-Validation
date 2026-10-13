@@ -95,6 +95,19 @@ real data yet.** Next, before any real map: a synthetic methylome with continuou
 and a measure of how much of each band's power the construction itself makes, from maps with nothing planted (the noise maps of
 ATL-046 do exactly this). A band whose power the empty maps already show is not read.
 
+## Planted test 3, run once (2026-10-13; synthetic only): construction v2 is NOT used on real data
+
+`data/DEV_SPHERE_01/planted_sphere_03.py`, committed before running (`49d865ab`); output `planted_sphere_03_summary.txt`. A continuous
+synthetic methylome (6 lineage programs, graded levels and loadings) instead of three clean classes. Bars P1-P4 met (planted group R 0.851
+against 0.213; 0 of 20 empty maps; classes 171 degrees apart; globe full). But the two reported numbers decide it: the **edge ratio is
+21.78** - neighboring pixels on different base faces differ about 22 times more than neighbors on the same face - and distance agreement
+is 0.418. With continuous data the edges remain, so they are made by the construction (the split tree hands each subset its own face, and
+sites on either side of a face boundary are not neighbors in information). A map whose largest features are the grid's own faces would
+mislead every sky statistic run on it.
+**Next (v3, written before it runs):** keep v1's continuous projection, which kept distances (rho 0.89), and fill the globe with a
+monotone, equal-area re-spacing of the projected points (each site's latitude and longitude replaced by its rank), which keeps every site's
+neighbors. Bars P1-P4 again, plus two new ones written now: edge ratio below 1.5, and distance agreement at least 0.7.
+
 ## Open questions this note exists to keep
 
 - Does the healthy information sphere have a stable shape across people, or is its shape mostly cell type?
