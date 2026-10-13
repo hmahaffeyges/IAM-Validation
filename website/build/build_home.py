@@ -79,6 +79,9 @@ def page(art):
     later = "\n".join(f'<li>{E(x["plain"])}</li>' for x in NJ.get("later", []))
     ideas = "\n".join(f'<li>{E(x["plain"])}<br><span class="meta">Needs {E(x["needs"])} · {E(x["stands"])}</span></li>' for x in NJ.get("ideas", []))
     buys = "\n".join(f'<li><b>{E(j["estimate"])}</b> {E(j["plain"].split(".")[0])}.</li>' for j in NJ["jobs"] if j.get("cost") == "box")
+    A = json.load(open(os.path.join(REPO, "CANON", "author.json"), encoding="utf-8"))
+    apar = "\n".join(f"<p>{E(x)}</p>" for x in A["paragraphs"])
+    amaybe = "\n".join(f'<li>{E(x)}</li>' for x in A["maybes"])
     helpw = "\n".join(f'<li><b>{E(h["ask"])}</b> {E(h["why"])} <a href="{rec(h["record"])}">record</a></li>' for h in NJ["help_wanted"])
     tools = "\n".join(f"<tr><td>{E(a)}</td><td>{E(b)}</td><td>{E(c)}</td></tr>" for a, b, c in TOOLS)
     cur = months[-1]
@@ -143,6 +146,15 @@ def page(art):
 <ul class="road lost">{losses}</ul>
 <p class="more"><b>What these results are not.</b> Each sealed cancer test asked whether tumors leave the healthy range more often than chance across a group of patients. None is a per-patient test and none is a diagnostic: there is no sensitivity, no specificity and no detection limit yet. That test is on the road ahead, and no early-detection claim is made before it.</p>
 <p class="more">Every result, good or bad, day by day: <a href="{rec("development/METHYLPHYS_DEVELOPMENT_LOG.md")}">the development log</a>.</p></section>
+<section class="wrap" id="author"><h2>Who is doing this, and why</h2>
+<!-- AUTHOR:BEGIN (the author's own words, from CANON/author.json; the only first-person block on the site) -->
+<p class="sub">{E(A["name"])} &mdash; {E(A["role"])}</p>
+{apar}
+<p class="sub">{E(A["maybes_intro"])}</p>
+<ul class="road maybe">{amaybe}</ul>
+<p class="closer">{E(A["closer"])}</p>
+<!-- AUTHOR:END -->
+</section>
 <section class="wrap"><h2>What it costs</h2><p class="sub">Every dollar, from Amazon's own billing and our storage, as of {E(CO["as_of"])}. Everything is paid by us and by people who choose to help.</p>
 <details class="fold"><summary>See every cost: this month ${mtot:,.2f} so far</summary>
 <div class="grid costs"><div class="card"><p class="big">${mtot:,.2f}</p><p>this month so far ({E(mkey)}), all costs</p><p class="small">{E(mlines)}</p></div>
@@ -185,7 +197,7 @@ table.tools{width:100%;border-collapse:collapse;margin:14px 0}.tools th,.tools t
 .big{font-size:34px;font-weight:800;margin:0;font-variant-numeric:tabular-nums}.small{color:var(--muted);font-size:13px}
 .links .tile{display:block;background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:18px 20px;text-decoration:none;color:var(--fg);font-weight:600}
 .links .tile:hover,.card:hover{border-color:var(--link)}
-ol.road,ul.road,ol.why{padding-left:22px}dl.qa dt{font-weight:700;margin:16px 0 4px}dl.qa dd{margin:0;color:var(--muted)}ol.why li{margin:0 0 14px}.lost li{margin:0 0 14px}code{background:var(--panel);padding:2px 6px;border-radius:4px;font-size:14px}.road li{margin:0 0 14px}.road .meta{color:var(--muted);font-size:14px}h3.help{margin:30px 0 4px;font-size:22px}
+ol.road,ul.road,ol.why{padding-left:22px}dl.qa dt{font-weight:700;margin:16px 0 4px}#author p{max-width:62ch}.maybe li{margin:0 0 8px}p.closer{max-width:62ch;font-style:italic;margin-top:18px}dl.qa dd{margin:0;color:var(--muted)}ol.why li{margin:0 0 14px}.lost li{margin:0 0 14px}code{background:var(--panel);padding:2px 6px;border-radius:4px;font-size:14px}.road li{margin:0 0 14px}.road .meta{color:var(--muted);font-size:14px}h3.help{margin:30px 0 4px;font-size:22px}
 details.fold{margin:6px 0 10px}details.fold>summary{cursor:pointer;display:inline-block;list-style:none;padding:12px 20px;border:1px solid var(--link);border-radius:8px;color:var(--link);font-weight:700;font-size:16px}
 details.fold>summary::-webkit-details-marker{display:none}details.fold>summary::before{content:"\25B8  Click to open: "}details.fold[open]>summary::before{content:"\25BE  Close: "}details.fold[open]>summary{margin-bottom:20px}
 .win .stat{font-size:38px;font-weight:800;margin:10px 0 0;line-height:1.05;font-variant-numeric:tabular-nums;color:var(--fg)}.win h3{font-size:20px}
@@ -194,7 +206,7 @@ footer{padding:50px 22px 60px;color:var(--muted);font-size:14px}
 """
 
 def problems(body):
-    txt = re.sub(r"<[^>]+>", " ", body); P = []
+    txt = re.sub(r"<[^>]+>", " ", re.sub(r"<!-- AUTHOR:BEGIN.*?<!-- AUTHOR:END -->", "", body, flags=re.S)); P = []
     for rx, why in ((NR.VOICE, "voice"), (NR.HYPE, "hype word")):
         m = rx.search(txt)
         if m: P.append(f"{why} '{m.group(0)}'")

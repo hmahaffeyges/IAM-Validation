@@ -1,0 +1,26 @@
+{
+ "_rule": "The author's corner: the one block on the site written in the first person, by the author, for the author to edit. The page's 'we' voice check skips this block (website/build/build_home.py) and nothing else. No claim here may go beyond the records: every 'maybe' is written as a hope, not a result. American English. Edited only by the author.",
+ "name": "Heath W. Mahaffey",
+ "role": "Power system operator, 15 years on the grid. NERC-certified reliability operator. No laboratory, no institution, no funding.",
+ "paragraphs": [
+  "I am a father of six, the sole provider, with college to pay for. I work full time keeping the power grid up, and I do this research on my own time, on one laptop, with the computer running around the clock.",
+  "I started in cosmology, and if this were only cosmology I would not work this hard. What keeps me at it is my stepbrother. He was a father of three young children and a husband, and he never saw it coming. Something made his doctor order bloodwork, and by then it was already too late. He died without being able to say goodbye. I do not know whether anything in his blood could have shown it sooner. That is exactly the point: I do not know, but maybe I can find out.",
+  "I lost my own father when I was 23 and he was 47, to an aortic aneurysm. I am 50 now. I am dreading the colonoscopy that is coming. A friend of mine died of breast cancer. Each of those is a reason to keep pulling the thread."
+ ],
+ "maybes_intro": "None of this is proven. Every one of these is a hope that has to survive a test written before its data is read, and the results and the failures on this page are where that stands today.",
+ "maybes": [
+  "Maybe a cell's loss of order can be seen in ordinary bloodwork, alongside an annual physical or a lipid panel.",
+  "Maybe a cancer can be caught early enough to save someone who would otherwise be diagnosed too late.",
+  "Maybe knowing where the ceiling of the gauge is, how far from it a tumor arrives, and what the body was saying three years earlier, saves lives.",
+  "Maybe someone already diagnosed can learn whether to spend their last months in treatment or at home with the people they love. Maybe the three months they were given is really two years. Maybe the year they were given is really three months.",
+  "Maybe a stool sample can find the flat lesions a colonoscopy looks for, and maybe the procedure, which carries its own risks, is not always necessary.",
+  "Maybe the millions of women with dense breast tissue can find a tumor before a mammogram can.",
+  "Maybe the false alarms in breast and prostate screening are cut down, or end.",
+  "Maybe pancreatic cancer stops meaning a death sentence.",
+  "Maybe drug trials get shorter, participants get chosen better, and a drug's effect is known before its harm shows up.",
+  "Maybe the tools built for the cosmic microwave background turn out to be useful across genetics and biology.",
+  "Maybe hatchery fish can be raised as resilient as wild ones.",
+  "Maybe the same reading works for our pets."
+ ],
+ "closer": "I have been trying to break this law and find a reason to stop working seven days a week. Maybe I get to learn something new, or get back to my fitness, because I gave it everything and the data simply did not support it. Until that day, here I am."
+}
