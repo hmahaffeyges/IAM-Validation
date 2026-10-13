@@ -1,0 +1,333 @@
+{
+ "_rule": "Readiness of the atlas v2.1 run and its gift package (author, 2026-10-13: 'ready to run, nothing missed, everything sealed before, fully replicable at every value'). Each item is met only when its files exist in the repository and their stated checks pass; nothing here is ticked by hand. CANON/v21_readiness.py writes V21_READINESS.md from this file; --launch refuses unless every before_launch item is met, and run_v21.sh calls it first.",
+ "items": [
+  {
+   "id": "L1",
+   "stage": "before_launch",
+   "what": "The 15 open decisions adopted, each with its condition",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+   ],
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+      "The 15 open decisions, adopted"
+     ]
+    ]
+   },
+   "manifest": [
+    "ATL-006"
+   ]
+  },
+  {
+   "id": "L2",
+   "stage": "before_launch",
+   "what": "Build sample list with the decisions applied (one row per array: series, GSM, cell, donor, platform, IDAT names, flags)",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/build_samples_v21.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_build_samples.csv"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-006",
+    "ATL-014"
+   ]
+  },
+  {
+   "id": "L3",
+   "stage": "before_launch",
+   "what": "Build / held-out split sealed: checksums of both lists committed before any array is downloaded",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sealed_split_v21.json"
+   ],
+   "checks": {
+    "sha_of": [
+     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sealed_split_v21.json"
+    ]
+   },
+   "manifest": [
+    "ATL-006"
+   ]
+  },
+  {
+   "id": "L4",
+   "stage": "before_launch",
+   "what": "Every build array through the chain's Stage 1, each beta file listed with its checksum",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/stage1_v21_manifest.csv"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-013"
+   ]
+  },
+  {
+   "id": "L5",
+   "stage": "before_launch",
+   "what": "Sex inferred from X/Y probes for every build array and recorded",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sex_v21.csv"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-013"
+   ]
+  },
+  {
+   "id": "L6",
+   "stage": "before_launch",
+   "what": "Twin test (sample level) for every new source, results committed; failures excluded by the rule, not by eye",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/twin_v21.csv"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-013"
+   ]
+  },
+  {
+   "id": "L7",
+   "stage": "before_launch",
+   "what": "Source terms for every new source (measured, or marked ASSUMED with the reason)",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/source_terms_v21.json"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-013"
+   ]
+  },
+  {
+   "id": "L8",
+   "stage": "before_launch",
+   "what": "Conditions of decisions 1, 7, 9, 10, 13, 14 each resolved and recorded",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/conditions_v21.json"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-006"
+   ]
+  },
+  {
+   "id": "L9",
+   "stage": "before_launch",
+   "what": "Run script and its declared outputs (draws ~100 per site, R-hat/ESS per site, lab terms per site, posterior-predictive arrays, cell-type names verbatim, seeds)",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/run_v21.sh",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/outputs_v21.json"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-005",
+    "ATL-045"
+   ]
+  },
+  {
+   "id": "L10",
+   "stage": "before_launch",
+   "what": "Planted test of the run script on a small synthetic block: every declared output written, shapes right, a planted cell mean recovered",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/planted_run_v21_summary.txt"
+   ],
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/planted_run_v21_summary.txt",
+      "PASSED"
+     ]
+    ]
+   },
+   "manifest": [
+    "ATL-045"
+   ]
+  },
+  {
+   "id": "L11",
+   "stage": "before_launch",
+   "what": "Cost and time written down before launch, from the measured v2 timing",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/cost_v21.txt"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-005"
+   ]
+  },
+  {
+   "id": "L12",
+   "stage": "before_launch",
+   "what": "Code checksums of every script the box will run, committed",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/code_checksums_v21.txt"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-054"
+   ]
+  },
+  {
+   "id": "B1",
+   "stage": "box_first",
+   "what": "One v2.1 block measured alone (time, peak memory), and the number of parallel processes chosen from it",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/block_measure_v21.json"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-005"
+   ]
+  },
+  {
+   "id": "G0",
+   "stage": "after_fit",
+   "what": "Fit converged: R-hat and ESS bars from the v2 spec met on every block, divergences recorded",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/fit_check_v21.json"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-004",
+    "ATL-040"
+   ]
+  },
+  {
+   "id": "G1",
+   "stage": "after_fit",
+   "what": "ATL-049 reference with error bars: spec, planted test, export in the source atlases' exact cell names",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/spec_ATL-049.md",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/planted_ATL-049_summary.txt"
+   ],
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/planted_ATL-049_summary.txt",
+      "PASSED"
+     ]
+    ]
+   },
+   "manifest": [
+    "ATL-049"
+   ]
+  },
+  {
+   "id": "G2",
+   "stage": "after_fit",
+   "what": "ATL-050 array-to-sequencing bridge per site",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/spec_ATL-050.md",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/planted_ATL-050_summary.txt"
+   ],
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/planted_ATL-050_summary.txt",
+      "PASSED"
+     ]
+    ]
+   },
+   "manifest": [
+    "ATL-050"
+   ]
+  },
+  {
+   "id": "G3",
+   "stage": "after_fit",
+   "what": "ATL-051 healthy person-to-person spread",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/spec_ATL-051.md",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/planted_ATL-051_summary.txt"
+   ],
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/planted_ATL-051_summary.txt",
+      "PASSED"
+     ]
+    ]
+   },
+   "manifest": [
+    "ATL-051"
+   ]
+  },
+  {
+   "id": "G4",
+   "stage": "after_fit",
+   "what": "ATL-052 marker-set check (internal; release only by the author's decision)",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/spec_ATL-052.md"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-052"
+   ]
+  },
+  {
+   "id": "G5",
+   "stage": "after_fit",
+   "what": "ATL-053 the 3D sphere with noise maps: a construction adopted on planted tests, noise maps of what it makes by itself",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_SPHERE_01/sphere_adopted.json"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-046",
+    "ATL-053"
+   ]
+  },
+  {
+   "id": "G6",
+   "stage": "after_fit",
+   "what": "ATL-054 build package with a one-command rebuild that reproduces the published checksums",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/rebuild_check_summary.txt"
+   ],
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/rebuild_check_summary.txt",
+      "PASSED"
+     ]
+    ]
+   },
+   "manifest": [
+    "ATL-054"
+   ]
+  },
+  {
+   "id": "G7",
+   "stage": "after_fit",
+   "what": "ATL-055 deconvolution tool commissioned on known-proportion mixtures it had no part in building (sealed bars first)",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/sealed_deconv_commission.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/deconv_commission_summary.txt"
+   ],
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/deconv_commission_summary.txt",
+      "MET"
+     ]
+    ]
+   },
+   "manifest": [
+    "ATL-009",
+    "ATL-055"
+   ]
+  },
+  {
+   "id": "G8",
+   "stage": "after_fit",
+   "what": "ATL-056 release: Zenodo DOI, methods note, credit to GSE186458 and the Moss 2018 arrays, letter",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/release.json"
+   ],
+   "checks": {},
+   "manifest": [
+    "ATL-056"
+   ]
+  }
+ ]
+}

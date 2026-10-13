@@ -3762,7 +3762,7 @@
     "Atlas v2.1 compute dry run and ledger entry",
     "Atlas v2.1 culture drift mask (steps 1, 1b, 2)"
    ],
-   "notes": "Sources identified from metadata; not downloaded unless stated.",
+   "notes": "Sources identified from metadata; not downloaded unless stated. | readiness board: Biological_Physics/MethylPhys/V21_READINESS.md (the run refuses to launch until every before-launch item is met)",
    "legacy_ids": [],
    "id": "ATL-005",
    "sources_of_row": [
@@ -24501,7 +24501,7 @@
    "sources": [],
    "runs": [],
    "legacy_ids": [],
-   "notes": "",
+   "notes": "readiness board: Biological_Physics/MethylPhys/V21_READINESS.md (the run refuses to launch until every before-launch item is met)",
    "sources_of_row": [
     "author request 2026-10-13"
    ]

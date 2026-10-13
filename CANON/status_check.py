@@ -154,6 +154,10 @@ if _mf.returncode:
     _ml = [l.strip() for l in (_mf.stdout + _mf.stderr).split("\n") if l.strip() and not l.strip().startswith("manifest:")]
     fail += ["[manifest] " + l for l in _ml] or ["[manifest] the check could not run"]
 
+# Atlas v2.1 readiness board (2026-10-13): computed from the repository, never ticked by hand; the box run's launch guard is the same code
+_vr = subprocess.run([sys.executable, "CANON/v21_readiness.py", "--check"], capture_output=True, text=True)
+if _vr.returncode: fail.append("[v21_readiness] " + ((_vr.stdout + _vr.stderr).strip().split("\n")[-1] or "the check could not run"))
+
 if fail:
     print(f"status_check: REFUSED ({len(fail)})\n  " + "\n  ".join(fail[:40])); sys.exit(1)
 print(f"status_check: ok ({len(F['facts'])} facts, {len(files)} documents)")
