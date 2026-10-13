@@ -247,6 +247,18 @@ for f in changed:
         except FileNotFoundError: continue
         if "**Test data:**" not in dt: fail.append(f"{dn}: no '**Test data:** <sets>' line for its outcome (rule 20)")
 
+# 21. A held-out test set must never be one we have already read (2026-10-13, LESSONS C11): in a note new or changed in this push, a line
+# naming a set as the test / held-out set is refused when that accession is in CANON/data_spent.csv. Build-only use is unaffected.
+_SPENT = set()
+for _l in open("CANON/data_spent.csv", encoding="utf-8", errors="replace").read().split("\n")[1:]:
+    _SPENT.update(re.findall(r"\b(?:GSE\d{4,6}|E-MTAB-\d{3,5}|PRJ[A-Z]{2}\d{3,8}|TCGA-[A-Z]{2,4})\b", _l.split(",")[0]))
+for f in [x for x in changed if os.path.isfile(x)]:
+    for _l in open(f, encoding="utf-8", errors="replace").read().split("\n"):
+        if not re.search(r"(?i)\b(held[- ]out|test set|as the test|test data)\b", _l): continue
+        if re.search(r"(?i)builds only|build set|build only|not valid as|not a valid|removed|spent|already read|unread", _l): continue
+        for _a in re.findall(r"\b(?:GSE\d{4,6}|E-MTAB-\d{3,5}|PRJ[A-Z]{2}\d{3,8}|TCGA-[A-Z]{2,4})\b", _l):
+            if _a in _SPENT: fail.append(f"{f}: {_a} is named as a held-out test set but is in CANON/data_spent.csv (rule 21)")
+
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
 print(f"repro_check: ok ({len(changed)} note(s) changed in this push)")

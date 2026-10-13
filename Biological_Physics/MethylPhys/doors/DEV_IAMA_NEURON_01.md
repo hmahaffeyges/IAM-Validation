@@ -63,3 +63,13 @@ these files say nothing about age.
 preparation offset is understood first. Decision for the author before any neuron bar is written: whether the reference rule names sorting (one
 preparation) as part of "one cell type", which would be a rule change made after this reading and must be disclosed as such.
 
+**Decision on the reference rule (2026-10-13; the author ceded this one, asking for whatever is most defensible).** The rule now names
+preparation: **a sample enters the healthy cortical-neuron reference only if its donor table marks it sorted.** Reasons, all from what is
+already measured and recorded above: the 7 sorted samples read 0.0317-0.0333 while the 3 not-sorted read 0.0362-0.0417, and the split follows
+sorting rather than region or age; one donor's cortex and cerebellum, both not sorted, read alike and high; and both independent neuron
+laboratories (Feinberg GSE96612, Yi GSE107729) sorted their neurons, so a sorted-only reference is the one that can be tested on them at all.
+**This is a rule change made after seeing Loyfer's spread, and it is labeled as one.** Seeing that spread cannot help it pass: the reference
+built under it is sealed, with its Normal band, before any array or read of either independent laboratory is opened, and it must read their
+healthy donors as Normal. If it does not, the change does not hold. The reference as first built (all 5 donors) stays on record unchanged, and
+both are reported side by side in every neuron result.
+

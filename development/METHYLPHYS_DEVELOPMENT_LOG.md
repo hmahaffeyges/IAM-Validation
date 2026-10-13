@@ -1268,3 +1268,6 @@ All four series the prep named are spent (DEV-METAA-450K-01, 2026-10-09). The sp
 
 ### 2026-10-13 · Cause test stopped itself after part 1: SHUTDOWN leaked into the pipeline
 SHUTDOWN=1 passed to cause_01.sh was exported into session_epiqc.sh, which stops the machine when it sees it; the spot machine terminated after part 1 of 15 (about 35 min, ~$1). Part 1 is complete in S3 and is skipped on the rerun. The inner call now clears the variable; both controls pass. LESSONS C10.
+
+### 2026-10-13 · Neuron reference rule sealed on sorted cells; push-gate rule 21; LESSONS C11
+The cortical-neuron reference rule now requires the donor table to mark a sample sorted (7 sorted read 0.0317-0.0333 against 3 not-sorted at 0.0362-0.0417; both independent neuron labs sorted theirs). Labeled as a rule change made after seeing the spread; the sealed band must read both unread labs as Normal or the change does not hold; the first reference stays on record. Rule 21: a note changed in a push may not name an already-read set as its held-out test set. C11: a control reset wiped uncommitted edits a second time; controls now run through CANON/control_run.sh, which refuses on a dirty tree.
