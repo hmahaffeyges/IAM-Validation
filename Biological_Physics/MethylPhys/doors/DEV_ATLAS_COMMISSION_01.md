@@ -112,3 +112,9 @@ specimen's single-array entropy with single-array entropy, so a reference taken 
 route: derive the neutrophil sites and healthy reference from the atlas's per-sample spread and draws, then pass the same bars the EPIC reference
 passed on held-out arrays (GSE224807 granulocytes a candidate) before re-commissioning. Until then the commissioned reference is unchanged.
 
+**U5, the atlas on the sky map (author, 2026-10-12).** HEALPix pixelization of the genome is built and is not in the chain (book tool board,
+row 15). Rule: nothing computed on the sky map reaches a reading, a report or a public claim until its null test passes on held-out healthy
+cells; it is then commissioned like U1-U4, with its bars written before its data is read. Until then every document says "built; statistics
+withheld until the null test passes". Checked 2026-10-12: the Met-A C-score reads the residuals in genome order (conductor_v3.stage_mc_cscore,
+blocks of consecutive sites) and does not read the sky map; status fact healpix_not_in_chain refuses a claim that the chain uses HEALPix.
+

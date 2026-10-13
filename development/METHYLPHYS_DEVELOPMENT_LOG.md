@@ -1223,3 +1223,6 @@ New atlas-chapter section (sec:atlas:skymap) and atlas README section: the instr
 
 ### 2026-10-12 · Atlas chapter and README: the same mathematics, a different signal (author)
 Each cosmology tool named with its tool-board status (hierarchical fit and MCMC posterior partial; component separation in use, one solver; split maps and null tests in use; HEALPix built, not in the chain). The author draft and an earlier assistant line both said the chain uses HEALPix; corrected from the board. New status fact healpix_not_in_chain refuses that claim anywhere (control refused).
+
+### 2026-10-12 · Atlas commissioning plan: U5, the sky map (author)
+Nothing computed on the HEALPix map reaches a reading or a public claim until its null test passes on held-out healthy cells; then it is commissioned like U1-U4. Confirmed in code that the C-score reads genome order and not the sky map.
