@@ -1,7 +1,7 @@
 # DEV-GROUP-01 — whole blood on arrays as a GROUP instrument: does it stay null when nothing is there? (design, 2026-10-13; NOT sealed)
 
-**The author's question.** Per-person detection in blood on arrays is out: healthy people differ by 6.36 % while a tissue-sized
-signal is 2-7 % (DEV-BLOOD-SENSITIVITY-01). But a group comparison faces the spread divided by the square root of the group size, so
+**The author's question.** Per-person detection in blood on arrays is out: healthy people differ by more than a tissue-sized
+signal does (DEV-BLOOD-SENSITIVITY-01) (DEV-BLOOD-SENSITIVITY-01). But a group comparison faces the spread divided by the square root of the group size, so
 with 50 people a side a mean loss under 1 % separates. If the gauge can be shown to find a difference where cancer is present AND to
 find nothing where it is absent, across many public cohorts, that is evidence for IAM that costs nothing and spends no new data type.
 
@@ -63,8 +63,8 @@ laboratory with healthy donors in another is measuring the laboratories.
 **What the tare passing does and does not establish.** It is partly BY CONSTRUCTION: the tared reading divides each array by healthy
 references from its own series, so a healthy group is expected to land near 1. The sham cannot therefore be read as "the tare removes
 laboratory effects in general". What it does establish is narrower and still useful: after taring, the two laboratories agree to
-0.16 % AND the spread within each is preserved (SD 0.023 and 0.020, against the 6.36 % between-person spread measured on the untared
-reading) - so taring does not inflate the noise it removes the offset from, and the residual laboratory offset is an order of
+0.16 % AND the spread within each is preserved (SD 0.023 and 0.020, against the between-person spread measured in
+DEV-BLOOD-SENSITIVITY-01) - so taring does not inflate the noise it removes the offset from, and the residual laboratory offset is an order of
 magnitude below the smallest tissue-sized signal.
 
 **The design rule this forces, written before any cancer cohort is opened.** A group comparison is only admissible when the patient

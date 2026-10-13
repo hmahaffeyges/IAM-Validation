@@ -19,7 +19,7 @@ Candidates found by search are metadata only and their counts are provisional un
 | 1 | Finish Met-A's last two checks: the clustering reading's bars, which were narrowly unmet, and healthy readings across do | M5, M6 |  | laptop |  | queued |
 | 2 | Commission the atlas one use at a time: the sites a tissue test reads, the blood-composition step, and the per-cell iden | AT3, AT5, AT6 |  | laptop |  | queued |
 | 3 | A granulocyte reference, so sorted-granulocyte arrays can be read at all | AT6 |  | laptop |  | queued |
-| 4 | Atlas v2 | M2, M3, M4, AT4, AT7, AT9, AT11 |  | laptop |  | queued |
+| 4 | Atlas v2 | M2, M3, M4, AT4, AT7, AT9, AT11 |  | box (the fit needs 128 vCPU and ~246 GB; atlas v2 was built on a c7a.32xlarge, not reproducible on the laptop) |  | queued |
 | 5 | Close out the IAM-A across-laboratory failure: find whether the gap came from where in the files we sampled or is real,  | A1, A2 |  | box |  | ready to write (laptop work first, then one box run for the stage) |
 | 6 | The lever series in simulation first: can the instruments separate a sliding copy head from chemical damage, tell a temp | levers |  | laptop |  | queued |
 | 7 | Colon: epithelium from an independent laboratory into the atlas, then the adenomas, which are pre-cancer | AT8, B4, G1 |  | laptop |  | queued |

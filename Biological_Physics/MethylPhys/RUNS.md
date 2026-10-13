@@ -38,6 +38,7 @@ Total job hours: 76.3.
 
 | run tag | run | purpose | machine | estimate |
 |---|---|---|---|---|
+| ATLAS-V2 | atlas v2 fit (historical, added 2026-10-13) | the joint Bayesian fit behind IAM-Atlas v2 (NumPyro NUTS, 4 chains, ~814k loci in 700 blocks) | AWS EC2 c7a.32xlarge, 128 vCPU, 246 GB (atlas/v2/README.md); outputs written to s3 atlas_v2/ 2026-09-29 to 2026-09-30, 11.91 GB | cost not recorded; the run predates the ledger rule |
 | `BOXRUN10_stageB` | Box Run 10, Stage B (Stage A met C1) | IAM-A commissioning on identical DNA: the other 71 libraries, 12.2M read pairs each | spot, 128 cores: m7a.32xlarge until AWS reclaimed it at 25 of 71 libraries (2026-10-12 02:02 Pacific); then c6a.32xlarge spot, reclaimed three times (25, 50 and 50 of 71); the last 21 on an on-demand c6a.32xlarge (author decision, about $23) | about $50 in total |
 | `BOXRUN10_cause01` | Box Run 10, cause test (DEV-IAMA-CAUSE-01) | why three EMSeq LAB02 libraries read low: 5 runs read from 3 parts each, 12.2M read pairs per part | spot c6a.32xlarge, 128 cores; shuts down at the end | about 3 hours, $5-10 |
 | `WORKBOX01` | Work machine 01 | neuron reference (10 Loyfer files) and colon replication: 152 normal arrays calibrated, then synthetic tests | spot r7a.2xlarge, 8 cores, 64 GB | about 5 hours, $1-2 |
