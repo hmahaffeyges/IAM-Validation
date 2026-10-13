@@ -1238,3 +1238,6 @@ The notes are ours, written as "we": now_running --check refuses "the author", a
 
 ### 2026-10-12 · Voice: we (IAMPerformance), everywhere (author)
 Funding statement (README, FOLLOW.md, book preface, from CANON/funding.json) and the preface story line changed from I to we. The preface epigraph is a quotation of the author's own words; held for his decision.
+
+### 2026-10-12 · Atlas v2.1 culture check, step 1b written before any array is read
+Columbia GSE179847: 92 control arrays (plate explains 10-14 % of the doubling spread in the two large lines); three lines meet the 8-array minimum, all fibroblasts. Aachen GSE82234: 6 arrays, below the minimum, descriptive only. culture_drift_02.py measures replication of the batch-free core; the step-1 mask is unchanged. Planted test passed.

@@ -1,10 +1,11 @@
 """DEV-ATLAS-V21-01 culture check inputs: GSE197512 'Baseline profiling' arrays (182, EPIC v1; seven Coriell lines followed to replicative
-senescence, population doublings per array), listed in culture_gse197512_baseline.csv from GEO metadata (2026-10-12). Reference data for the
+senescence, population doublings per array), listed in culture_gse197512_baseline.csv from GEO metadata (2026-10-12), or the arrays of
+another list given as LIST (culture_gse179847_controls.csv, culture_gse82234.csv). Reference data for the
 division-drift CpG set, not a test. Fetches each GSM's two IDATs from GEO (8 at a time; retries). Usage: python3 fetch_culture_check.py OUT_DIR"""
 import os, sys, gzip, shutil, time, re, urllib.request, pandas as pd
 from concurrent.futures import ThreadPoolExecutor
 HERE = os.path.dirname(os.path.abspath(__file__)); OUT = sys.argv[1]; os.makedirs(OUT, exist_ok=True)
-L = pd.read_csv(os.path.join(HERE, "culture_gse197512_baseline.csv"))
+L = pd.read_csv(os.path.join(HERE, sys.argv[2] if len(sys.argv) > 2 else "culture_gse197512_baseline.csv"))   # LIST (gsm column), 2026-10-12
 def urls(g):
     t = urllib.request.urlopen(f"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc={g}&targ=self&form=text&view=brief", timeout=120).read().decode()
     return [l.split("=", 1)[1].strip().replace("ftp://", "https://") for l in t.split("\n") if l.startswith("!Sample_supplementary_file") and ".idat" in l.lower()]
