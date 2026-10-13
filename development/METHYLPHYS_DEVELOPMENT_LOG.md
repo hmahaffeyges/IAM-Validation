@@ -1494,3 +1494,5 @@ Removed the nine-question section and the traced-case section: both were hand-wr
 
 ### 2026-10-13 · Failures section off the front page (author)
 The failures and the limits fold are in the daily logs and the records, so the section is removed from the page; the losses list stays in the results register.
+
+### 2026-10-13 · Founder fold off the front page (author)

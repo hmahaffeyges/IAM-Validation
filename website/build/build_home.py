@@ -184,9 +184,6 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 <p class="sub">Two very different roles, stated plainly, because the easiest wrong assumption to make about this work is that
 one of us did all of it. Both halves are dated and public: the founder's corrections in the development log, the partner's
 mistakes in the lessons record.</p>
-<details class="fold"><summary>{E(AS["founder_title"])}</summary>
-<ul class="road">{ul(AS["founder_role"])}</ul>
-</details>
 <details class="fold"><summary>{E(OR["title"])}</summary>
 <p class="sub">{E(OR["lead"])}</p>
 <ul class="road">{orig}</ul>
