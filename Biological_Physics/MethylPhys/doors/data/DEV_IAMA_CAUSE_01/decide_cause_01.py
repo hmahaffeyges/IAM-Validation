@@ -6,6 +6,11 @@ error of that part, stage_q_iam_a.pat_site_table: (err_A+err_B)/(opp_A+opp_B)), 
   disclosed. All three LIBRARY -> "library": across laboratories stays NOT MET for EMSeq. Anything else -> "mixed", reported as it is.
   Check (reported): each run's part 0 reproduces its Stage B copy error (stageB_libraries.csv) within 2 % relative.
 Usage: python3 decide_cause_01.py PARTS.csv [STAGEB.csv]   |   python3 decide_cause_01.py --planted"""
+# NO CHAIN: this script computes no physics. The copy error of every part is produced by the CHAIN
+# (read_parts_01.py calls stage_q_iam_a.pat_site_table, which is where the reading is defined); this file only takes the
+# binary entropy of those readings, divides by the control mean at the same part, and applies the thresholds sealed on
+# 2026-10-12. Nothing here re-derives a reading, so there is nothing for the chain to do.
+
 def whole(path):
     """Refuse a truncated or doubly written .pat.gz before it is read (2026-10-13, LESSONS C12): read the whole member and
     return its line count, so a part written by two runs at once cannot reach the decision."""

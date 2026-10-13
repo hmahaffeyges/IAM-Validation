@@ -13,7 +13,9 @@ per part. Box script `data/DEV_IAMA_CAUSE_01/cause_01.sh` (each part written wit
 script unchanged, one part per call); decision `decide_cause_01.py`, rule in its header, fixed before any part is read: per part, IAM-A of each
 low run over the mean of the two normal runs; LIBRARY if below 0.97 at all three parts, FILE-PART if below 0.97 at the start only and within
 0.97-1.03 at the other two, otherwise MIXED. Check: the start part reproduces each run's Stage B reading within 2 %.
-**Synthetic test:** `decide_cause_01.py --planted` (output `decide_cause_01_planted_output.txt`, four tables with known answers: PASSED); the
+**Synthetic test:** DEV_IAMA_CAUSE_01/decide_cause_01.py, DEV_IAMA_CAUSE_01/decide_cause_01_planted_output.txt, DEV_IAMA_CAUSE_01/cause_01_orchestration_test_output.txt, DEV_IAMA_CAUSE_01/cause_01_shutdown_control_output.txt
+
+The decision rule was exercised on four planted tables with known answers (PASSED) before any part was read; the orchestration and shutdown controls are the other two outputs. `decide_cause_01.py --planted` (output `decide_cause_01_planted_output.txt`, four tables with known answers: PASSED); the
 orchestration with stand-ins for SRA and the pipeline (output `cause_01_orchestration_test_output.txt`: every part staged before its call: PASSED).
 The run is entered in the ledger before launch.
 **Not a milestone:** design (development).
