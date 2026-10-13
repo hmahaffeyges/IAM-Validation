@@ -26,6 +26,9 @@ def problems(changed=None):
         if not os.path.isfile(p): P.append(f"{e['id']}: its source {e['derived_in']} is gone"); continue
         if e["anchor"] not in open(p, encoding="utf-8", errors="replace").read():
             P.append(f"{e['id']}: the anchor is no longer in {e['derived_in']} - the foundation moved and CANON/foundation.json did not")
+    for r in F.get("retired_foundations", []):
+        if r.get("origin_record") and not os.path.isfile(os.path.join(ROOT, r["origin_record"])):
+            P.append(f"retired {r['id']}: its origin record {r['origin_record']} is gone - a retired foundation must keep its history")
     for f in (changed if changed is not None else changed_files()):
         if any(s in f for s in SKIP) or not f.endswith((".md", ".tex", ".py", ".sh", ".json")): continue
         p = os.path.join(ROOT, f)
@@ -39,6 +42,7 @@ def problems(changed=None):
 if __name__ == "__main__":
     if "--print" in sys.argv:
         print(F["_read_this_first"], "\n")
+        for r in F.get("retired_foundations", []): print(f"[{r['status']}] {r['id']}: {r['statement']}\n   origin: {r['origin_record']}\n")
         for e in F["entries"]: print(f"[{e['status']}] {e['id']}: {e['statement']}\n   source: {e['derived_in']} ({e.get('commit','')})\n")
         sys.exit(0)
     ch = sys.argv[sys.argv.index("--changed") + 1:] if "--changed" in sys.argv else None
