@@ -1,0 +1,1 @@
+duplicate_fraction: head shift suspects -0.00147, +0.02222, -0.00452 | controls +0.04489, +0.04068 -> SEPARATES (a lead only: 2/10 by luck)

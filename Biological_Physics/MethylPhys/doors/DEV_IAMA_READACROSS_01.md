@@ -32,6 +32,15 @@ test showed is least settled.
 
 **Synthetic test:** DEV_IAMA_READACROSS_01/planted_readacross_01.py, DEV_IAMA_READACROSS_01/planted_readacross_01_output.txt
 
+## Diagnostic 2, run once (2026-10-13): duplicates at the head separate suspects from controls - a lead, not a finding
+
+After the chemistry fingerprint failed to separate them (DEV-IAMA-TRIM-01), `head_quality_02.py` (bar committed first) compared the
+head's duplicate fraction with deeper in the same file, from the cause run's committed quality files (`head_quality_02_output.txt`).
+**Both controls carry about 4 points more duplicates at the head (+0.045, +0.041); the three suspects do not (-0.001, +0.022, -0.005).**
+By the bar, that separates them. But with 3 suspects and 2 controls a meaningless measure does this 1 time in 5, so it is a lead to
+test on libraries we have not used, not an explanation. A second measure (mapped reads per read scanned) was dropped as malformed
+after its first run: the denominator counts only the reads sampled for the conversion check.
+
 **In plain words.** A sequencing machine's first cycles are its least settled, so the beginning of a data file is not quite like the
 rest. We had been reading each file from its beginning, which made one laboratory's libraries look better than they were. The fix is
 to read three places in every file and add the counts together. Before we trust that fix we plant a known answer in made-up runs,

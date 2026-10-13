@@ -1505,3 +1505,6 @@ Recurrence of gains and losses (tumor minus own normal, |delta| >= 0.20, recurre
 
 ### 2026-10-13 · Trim rule calibrated on all 71 libraries: it does not explain the failed laboratory check
 One box pass (no alignment), 1,420 windows, none failed. The rule trims 6 TrueMethylBS libraries and refuses 1; it trims no EMSeq library. The three suspect EMSeq heads have normal chemistry (head z +2.9, +1.8, +0.7; controls +0.8, -1.7; trim needs > 5). Declared bar-5 limit: the bias is not in the conversion chemistry, so the trim cannot release IAM-A; the lab check stays NOT MET. Next: an independent diagnostic from the saved quality files, bar first. Box stopped after the run.
+
+### 2026-10-13 · A lead on the EpiQC head bias: duplicates (not a finding)
+head_quality_02.py, bar first: both control libraries have about 4 points more duplicates at the head of the file than deeper in; the three suspects do not. That separates them, but 3 against 2 does so by luck 1 time in 5, so it is a lead to test on unused libraries. A malformed second measure was dropped and said so.
