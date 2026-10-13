@@ -5,11 +5,13 @@ conversion deeper in:   mean 0.99040 | median standard error 0.000224 | CHH call
 difference 0.0076 = 34 standard errors of a deeper part
 
 the reading at the head against deeper in, per library:
-  SRR13051128 (    low): head 0.04561 | deeper 0.04831, 0.04465 | head reads LOW
-  SRR13051136 ( normal): head 0.05600 | deeper 0.05058, 0.04837 | head reads HIGH
-  SRR13051256 (    low): head 0.04676 | deeper 0.04821, 0.04493 | head reads HIGH
-  SRR13051263 ( normal): head 0.05619 | deeper 0.04884, 0.04607 | head reads HIGH
-  SRR13051268 (    low): head 0.04800 | deeper 0.04884, 0.04641 | head reads HIGH
+  SRR13051128 (    low): head 0.04561 | deeper 0.04831, 0.04465 | deeper mean 0.04648 | head reads LOW
+  SRR13051136 ( normal): head 0.05600 | deeper 0.05058, 0.04837 | deeper mean 0.04948 | head reads HIGH
+  SRR13051256 (    low): head 0.04676 | deeper 0.04821, 0.04493 | deeper mean 0.04657 | head reads HIGH
+  SRR13051263 ( normal): head 0.05619 | deeper 0.04884, 0.04607 | deeper mean 0.04745 | head reads HIGH
+  SRR13051268 (    low): head 0.04800 | deeper 0.04884, 0.04641 | deeper mean 0.04762 | head reads HIGH
+
+absolute framing: head higher than the deeper mean in 4 of 5 libraries; lower in SRR13051128
 
 the sealed quantity r = A / (mean A of the two normal runs at the same part) - the position effect is cancelled in r:
   SRR13051128 (    low): p0 0.8578 | p40 0.9791 | p80 0.9591
