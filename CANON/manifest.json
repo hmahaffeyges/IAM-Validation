@@ -24776,18 +24776,18 @@
    "sources": [
     "GSE222147"
    ],
-   "data_status": "partial",
+   "data_status": "public raw reads (SRA PRJNA918374, 301 GB)",
    "status": "idea",
    "runs": [],
-   "next_step": "design after atlas v2.1: bars and a planted test first; note the values are smoothed and processed, and 'normal' is patients' adjacent tissue",
-   "cost": "laptop",
+   "next_step": "design after atlas v2.1, bars and a planted test first; align the raw reads with the pinned box pipeline (about 2.4 Tbases, a box job) so IAM-A and Met-A read single molecules; lesions from one patient counted as one; 'normal' is adjacent tissue",
+   "cost": "box: alignment of 301 GB of reads",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
    "legacy_ids": [],
    "depends_on": [
     "ATL-005"
    ],
-   "notes": "",
+   "notes": "prior work: the same paper (Feinberg lab, informME) already reads methylation entropy and an energy landscape in PanIN - cite it for exactly that, and state what differs (a derived floor and ceiling, read against a healthy reference)",
    "sources_of_row": [
     "author request 2026-10-13"
    ]
