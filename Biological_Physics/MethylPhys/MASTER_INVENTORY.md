@@ -16,21 +16,32 @@ Candidates found by search are metadata only and their counts are provisional un
 
 | # | job | to-do | impact | cost | data | ready |
 |---|---|---|---|---|---|---|
-| 1 | Neutrophil reference from a second laboratory: build GSE124565, test GSE88824, GSE118144, GSE122244 | M2, AT4 | commissioning | laptop | GSE124565, GSE88824, GSE72338, GSE49618 | build sets confirmed; held-out test set chosen (GSE72338, with its caveats); next the files themselves |
-| 2 | One-command replication with a report, per significant result | R3 | replication | laptop |  | Met-A neutrophils rebuilt exactly in a clean copy 2026-10-10 |
-| 3 | Whole-blood bar 7 on cord blood with flow counts (assess newborn caveat first) | M1 | commissioning | laptop | GSE127824 | assess caveat |
-| 4 | IAM-A commissioning: find the cause of the across-labs failure (three deep EMSeq LAB02 runs read low), development read of other file parts | A2 | commissioning | box | PRJNA646948 | scored; held under the stopping rule |
-| 5 | IAM-A on other-lab healthy neutrophils (RRBS) and same DNA on arrays and WGBS | A3 | commissioning | box | GSE59163, GSE128734 | verify files |
-| 6 | Colon epithelium from an independent laboratory into the atlas | AT8 | atlas | laptop | E-MTAB-3709, E-MTAB-4957 | confirm disease status, donor overlap |
-| 7 | EPIC v2 read check for Stage 1 (opens thymocytes for the atlas and EPIC v2 sets in S3) | AT14 | atlas | laptop | GSE269608 | metadata only |
-| 8 | Lung stroma culture check before atlas entry | AT7 | atlas | laptop | GSE146376, GSE107226, GSE197512 | calibrated (two sets) |
-| 9 | Atlas v2.1: rebuild with second-lab and new cell types; split GSE224807 donors half build, half test | AT4, AT13 | atlas | box | GSE224807, GSE103541, GSE184269, GSE252045 | v2.1 prep running |
-| 10 | Colon adenomas: does Met-A rise before cancer? | B4, G1 | public result | laptop | GSE288652 | in S3 |
-| 11 | Lung tissue test: four lung sets tested (1 scored, 3 not suitable); next lung test waits for atlas v2.1 and the culture check | N5, B12 | public result | laptop | TCGA-LUAD | waiting on atlas v2.1 |
-| 12 | Liver fingerprint replication on fresh data | B11 | public result | box | PRJNA762641 | metadata only |
-| 13 | Neurons on Met-A (both instruments on neurons) | A11 | physics | laptop | GSE306226, GSE234520 | verify files |
-| 14 | Neurons: sorted-only reference sealed on two unread laboratories | A8 | physics | box | GSE96612, GSE107729 | metadata only |
-| 15 | Sex balance: female donors across blood cell types | M3 | research | laptop | GSE131989 | UCSF independence check |
+| 1 | Finish the two Met-A checks that remain: the clustering reading's bars, narrowly unmet, and healthy readings across dono | M5, M6 | commissioning | laptop |  | queued |
+| 2 | Move the cancer scorers inside the chain so every tissue result prints the chain's own report, then rebuild each result  | R1, R2, R4 | replication | laptop |  | queued |
+| 3 | Neutrophil reference from a second laboratory: build GSE124565, test GSE88824, GSE118144, GSE122244 | M2, AT4 | commissioning | laptop | GSE124565, GSE88824, GSE72338, GSE49618 | build sets confirmed; held-out test set chosen (GSE72338, with its caveats); next the files themselves |
+| 4 | One-command replication with a report, per significant result | R3 | replication | laptop |  | Met-A neutrophils rebuilt exactly in a clean copy 2026-10-10 |
+| 5 | The replication package: a one-command kit per commissioned instrument, a list of open predictions a laboratory can chec | B9 | replication | laptop |  | queued |
+| 6 | Whole-blood bar 7 on cord blood with flow counts (assess newborn caveat first) | M1 | commissioning | laptop | GSE127824 | assess caveat |
+| 7 | IAM-A commissioning: find the cause of the across-labs failure (three deep EMSeq LAB02 runs read low), development read of other file parts | A2 | commissioning | box | PRJNA646948 | scored; held under the stopping rule |
+| 8 | IAM-A on other-lab healthy neutrophils (RRBS) and same DNA on arrays and WGBS | A3 | commissioning | box | GSE59163, GSE128734 | verify files |
+| 9 | Colon epithelium from an independent laboratory into the atlas | AT8 | atlas | laptop | E-MTAB-3709, E-MTAB-4957 | confirm disease status, donor overlap |
+| 10 | Commission the atlas one use at a time: the sites a tissue test reads, the profiles each cell type is described by, the  | AT3-AT6 | atlas | laptop |  | queued |
+| 11 | EPIC v2 read check for Stage 1 (opens thymocytes for the atlas and EPIC v2 sets in S3) | AT14 | atlas | laptop | GSE269608 | metadata only |
+| 12 | Lung stroma culture check before atlas entry | AT7 | atlas | laptop | GSE146376, GSE107226, GSE197512 | calibrated (two sets) |
+| 13 | Atlas v2.1: rebuild with second-lab and new cell types; split GSE224807 donors half build, half test | AT4, AT13 | atlas | box | GSE224807, GSE103541, GSE184269, GSE252045 | v2.1 prep running |
+| 14 | Blood cancers, one at a time: leukemias and lymphomas, where the diseased cells are the blood cells themselves | B7 | public result | laptop |  | queued |
+| 15 | Colon adenomas: does Met-A rise before cancer? | B4, G1 | public result | laptop | GSE288652 | in S3 |
+| 16 | Detection limit: mix tumor DNA into healthy DNA in known amounts and find the smallest share we can still see | B8 | public result | laptop |  | queued |
+| 17 | Lung tissue test: four lung sets tested (1 scored, 3 not suitable); next lung test waits for atlas v2.1 and the culture check | N5, B12 | public result | laptop | TCGA-LUAD | waiting on atlas v2.1 |
+| 18 | Liver fingerprint replication on fresh data | B11 | public result | box | PRJNA762641 | metadata only |
+| 19 | Oral cancer in sequencing: four patients with tumor and their own normal tissue, read by the sequencing instrument rathe | A7 | public result | box |  | queued |
+| 20 | The blood test itself: read cancer DNA floating in blood against healthy blood, starting with liver | B6, B13 | public result | box |  | queued |
+| 21 | Brain cells, both instruments: seal the healthy brain-cell range and test it on two laboratories whose neurons we have n | A8-A11 | physics | laptop |  | queued |
+| 22 | Neurons on Met-A (both instruments on neurons) | A11 | physics | laptop | GSE306226, GSE234520 | verify files |
+| 23 | A second physics lever, so the law does not rest on one mouse experiment: another way to change a cell's methyl supply b | A4 | physics | box |  | queued |
+| 24 | Make the link between the two instruments a standing prediction: before each new sample is read, one instrument's readin | A5, A6 | physics | box |  | queued |
+| 25 | Neurons: sorted-only reference sealed on two unread laboratories | A8 | physics | box | GSE96612, GSE107729 | metadata only |
+| 26 | Sex balance: female donors across blood cell types | M3 | research | laptop | GSE131989 | UCSF independence check |
 
 ## Sets tested (from each test note's Test data line)
 
