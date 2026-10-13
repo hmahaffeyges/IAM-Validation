@@ -283,6 +283,23 @@ for f in [x for x in changed if x.startswith("Biological_Physics/MethylPhys/door
     elif "What it would take" not in _t:
         fail.append(f"{f}: has plain words but does not say what it would take to succeed or finish (rule 22)")
 
+# 23. A synthetic test must read through the CHAIN, not through a second implementation of the same physics (2026-10-13).
+# DEV-LEVERS-01 test 3 v1 reimplemented the held error and the clustering reading in the test script, got the erase channel's
+# direction backwards, and contradicted the derivation it was testing. A script named on a **Synthetic test:** line must either
+# import from Biological_Physics/MethylPhys/chain, or carry a line beginning "# NO CHAIN:" saying why it cannot.
+for f in [x for x in changed if x.startswith("Biological_Physics/MethylPhys/doors/") and x.endswith(".md") and os.path.isfile(x)]:
+    for _l in open(f, encoding="utf-8", errors="replace").read().split("\n"):
+        if not _l.startswith("**Synthetic test:**"): continue
+        for _x in re.findall(r"[A-Za-z0-9_/]+\.(?:py|sh)", _l):
+            _p = "Biological_Physics/MethylPhys/doors/data/" + _x
+            if not os.path.isfile(_p): continue
+            _src = open(_p, encoding="utf-8", errors="replace").read()
+            if "chain" in _src and re.search(r"(?m)^\s*(import|from)\s", _src) and re.search(r"chain|conductor|stage_", _src):
+                if re.search(r"(?m)^\s*(from|import)\s+(conductor_v3|stage_\w+|dev_stages|sky_map|cmb_tools)", _src) or "sys.path.insert" in _src and "chain" in _src:
+                    continue
+            if "# NO CHAIN:" in _src: continue
+            fail.append(f"{f}: synthetic test {_x} neither imports the chain nor declares '# NO CHAIN: <why>' (rule 23)")
+
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
 print(f"repro_check: ok ({len(changed)} note(s) changed in this push)")
