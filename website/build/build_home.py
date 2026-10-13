@@ -47,7 +47,7 @@ def page(art):
     regs = sorted(regs, key=lambda e: e["date"], reverse=True); regs = [e for e in regs if e["status"] == "commissioned"] + [e for e in regs if e["status"] != "commissioned"]
     results = "\n".join(f'''<article class="res"><span class="chip {"st-g" if e["status"] == "commissioned" else "st-b"}">{"Commissioned" if e["status"] == "commissioned" else "In development"}</span>
 <h3>{E(e.get("title") or e["id"])}</h3><p>{E(e.get("plain", ""))}</p><p class="more"><span>{E(e["date"])}</span> · <a href="{rec(e["record"])}">record</a></p></article>''' for e in regs)
-    NJ = J("CANON/next_jobs.json")
+    NJ = J("CANON/next_jobs.json"); AT = J("CANON/atlas_release.json")
     road = "\n".join(f'<li><b>{E(j["plain"])}</b><br><span class="meta">Needs {E(j["needs"])} · {E(j["estimate"])} · {E(j["stands"])} · <a href="{rec(j["record"])}">record</a></span></li>' for j in NJ["jobs"])
     helpw = "\n".join(f'<li><b>{E(h["ask"])}</b> {E(h["why"])} <a href="{rec(h["record"])}">record</a></li>' for h in NJ["help_wanted"])
     tools = "\n".join(f"<tr><td>{E(a)}</td><td>{E(b)}</td><td>{E(c)}</td></tr>" for a, b, c in TOOLS)
@@ -65,7 +65,7 @@ def page(art):
 <section class="wrap"><h2>Our instruments are the telescopes. The atlas is the sky map.</h2>
 <p>Met-A and IAM-A are the two instruments; each is commissioned once, on its own tests. The atlas, a map of what healthy human cells look like, is the sky map they read against. Like each release of the microwave-sky maps, every atlas version is refitted whole, gets its own DOI and is checked again by the same tests on data it never saw. This is not a metaphor: it is the same mathematics applied to a different signal. Each tool, with where it stands today:</p>
 <table class="tools"><thead><tr><th>The cosmology tool</th><th>What it does here</th><th>Where it stands</th></tr></thead><tbody>{tools}</tbody></table>
-<p class="more">Every tool, built or not yet built: the <a href="../book/">book's sky-tools chapter</a>. The atlas itself, free to download: <a href="https://doi.org/10.5281/zenodo.23325865">DOI 10.5281/zenodo.23325865</a>.</p></section>
+<p class="more">Every tool, built or not yet built: the <a href="../book/">book's sky-tools chapter</a>. The atlas itself, free to download: <a href="https://doi.org/{E(AT["doi"])}">DOI {E(AT["doi"])}</a> ({AT["total_bytes"] / 1e9:.2f} GB in {AT["files"]} files, every file checked against its fingerprint).</p></section>
 <section class="wrap" id="road"><h2>The road ahead</h2><p class="sub">Every job still in front of us, in order: what it needs and what it is expected to cost. This is why support matters.</p>
 <ol class="road">{road}</ol>
 <h3 class="help">Where a researcher could help</h3><p class="sub">The gaps public data cannot close. If you hold data like this, or can point to it, open an issue or a discussion on the repository. You do not need to introduce yourself to follow along.</p>
@@ -80,7 +80,8 @@ def page(art):
 <section class="wrap"><h2>Check it yourself</h2><div class="grid links">
 <a class="tile" href="../">The book, every number checked by a script</a><a class="tile" href="../book/">Run every check in your browser</a>
 <a class="tile" href="{rec("FIELD_NOTES.md")}">Field notes: every experiment's story</a><a class="tile" href="{rec("development/METHYLPHYS_DEVELOPMENT_LOG.md")}">The development log, every result good or bad</a>
-<a class="tile" href="https://github.com/hmahaffeyges/IAM-Validation">The repository: every script and record</a><a class="tile" href="{E(FUND["url"])}">The fundraiser</a></div></section>
+<a class="tile" href="https://github.com/hmahaffeyges/IAM-Validation">The repository: every script and record</a><a class="tile" href="{E(FUND["url"])}">The fundraiser</a></div>
+<p class="more"><b>For researchers:</b> everything for the methylation work, the chain, every test's sealed rule and outcome, the atlas and the operating manual, is in the <a href="https://github.com/hmahaffeyges/IAM-Validation/tree/main/Biological_Physics">Biological Physics folder</a>; start with its <a href="{rec("Biological_Physics/README.md")}">README</a>. The status of every instrument, stage by stage: <a href="{rec("Biological_Physics/MethylPhys/STATUS.md")}">STATUS</a>.</p></section>
 </main>
 <footer class="wrap"><p>IAMPerformance. Independent research. Generated from the repository's records on {datetime.date.today().isoformat()}; nothing on this page is typed by hand except its headings and the method description above.</p></footer>'''
     return body
