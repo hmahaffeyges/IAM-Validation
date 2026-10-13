@@ -81,8 +81,8 @@ tumour-versus-adjacent-normal comparison is *within one patient, one laboratory,
 laboratory zero, the age term and the donor all cancel exactly, the same way they cancelled in PROC-EPIC-01.
 No new calibration panel is needed to run it.
 
-**The physical claim being tested is the one the whole framework rests on:** a tumour has lost identity
-fidelity relative to the tissue it came from, so its A-score should be higher than its own matched normal.
+**The physical claim being tested is the one the whole framework rests on:** a tumor has departed from the healthy
+pattern of the tissue it came from, toward the full surface, so its A-score should be higher than its own matched normal.
 If that does not hold in tissue, where the measurement is cleanest, the framework has a problem; if it holds,
 it holds without any of the caveats that attach to a blood result.
 
