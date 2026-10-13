@@ -1,0 +1,27 @@
+{
+ "_rule": "The cell gauge's marks, the single source the chain's report draws from (2026-10-13, author: 'placing it back in the report will help you remember'). Every value must match the book's gauge table, docs/book/part6/p6_06_gauge.tex, where the full surface is computed by verify_book.py; CANON/status_check.py refuses a mismatch. The DIRECTION is CANON/foundation.json entry gauge_direction, remembered by the black hole: right is over-writing toward the full surface; left of Normal is more order than healthy; below the floor identity can no longer be held.",
+ "book": "docs/book/part6/p6_06_gauge.tex",
+ "floor": {
+  "A": 1e-07,
+  "book_anchor": "is at $1\\times10^{-7}$ on both rows, off the left edge",
+  "label": "floor H_min: thermal kicks win against one ATP. Below it identity can no longer be held"
+ },
+ "normal": {
+  "lo": 0.95,
+  "hi": 1.05,
+  "label": "Normal: the cell working as itself"
+ },
+ "breach": {
+  "A": null,
+  "label": "breach: to be measured, from tumor/normal pairs, the DNMT1-inhibitor series and blood cancers"
+ },
+ "full_surface": {
+  "Met-A": 3.03,
+  "IAM-A": 4.26,
+  "book_anchor": "full surface & Met-A $3.03$; IAM-A $4.26$",
+  "label": "full surface: every identity site at a coin flip - the 2D surface is full and past it the reading turns over"
+ },
+ "left_region": "writes less than healthy: more order (senescence reads here)",
+ "right_region": "over-writing toward the full surface: the black hole side, where cancer sits",
+ "direction_entry": "gauge_direction"
+}

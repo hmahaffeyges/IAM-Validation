@@ -18,6 +18,15 @@
 "text": "Retired foundations: the eight-class H_min floors are recorded as RETIRED with their origin record (doors/CLASS_HISTORY.md), so the lever chapter cannot re-impo"
 },
 {
+"file": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+"line": 1475,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The author: describing cancer as identity loss is wrong - identity that cannot be held is the left side, below H_min, where identity can no longer be held. To t"
+},
+{
 "file": "website/build/build_home.py",
 "line": 151,
 "pattern": "\\bA[- ]score",
@@ -613,16 +622,16 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/SUBSTRATE_STRATEGY.md",
-"line": 88,
+"line": 85,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "pattern of the tissue it came from, toward the full surface, so its A-score should be higher than its own matched normal."
+"text": "fidelity relative to the tissue it came from, so its A-score should be higher than its own matched normal."
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/SUBSTRATE_STRATEGY.md",
-"line": 132,
+"line": 129,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",

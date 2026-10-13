@@ -46,14 +46,37 @@ NOT_BUILT = ["apodised mask", "beam smoothing", "cell-type covariance in the sep
 CLAIM_SCAN = r"\b(cancer|tumou?r|leuka?emia|lymphoma|carcinoma|malignan\w*|diagnos(?!tic test)\w*|disease|cohort|population|percentile|age-matched|risk|prognos\w*|patient)\b"
 
 
-def _gauge(A, lo=0.80, hi=1.30, w=520, label=""):
-    if A is None: return f"<p><i>{html.escape(label) or 'A not reported'}</i></p>"
-    x = lambda v: int((min(max(v, lo), hi) - lo) / (hi - lo) * w)
-    return (f'<p style="margin:2px 0"><b>{html.escape(label)}</b></p><svg width="{w+20}" height="46"><rect x="10" y="14" width="{w}" height="14" fill="#eee"/>'
-            f'<rect x="{10+x(0.95)}" y="14" width="{x(1.05)-x(0.95)}" height="14" fill="#9fd39f"/>'
-            f'<line x1="{10+x(A)}" y1="6" x2="{10+x(A)}" y2="36" stroke="#c0392b" stroke-width="3"/>'
-            f'<text x="{10+x(0.95)}" y="44" font-size="10">0.95</text><text x="{10+x(1.05)}" y="44" font-size="10">1.05</text></svg>')
-
+def _gauge(A, lo=None, hi=None, w=640, label="", instrument="Met-A"):
+    """The whole cell gauge, drawn from Runtime Matrices/Gauge/cell_gauge_marks_v1.json (the book's marks) - never a bare band.
+    Left to right: the floor (off the left edge), more order than healthy, Normal, over-writing, the full surface. The direction is
+    CANON/foundation.json gauge_direction, remembered by the black hole: right is over-writing toward the full surface."""
+    G = _load("Runtime Matrices/Gauge/cell_gauge_marks_v1.json")
+    top = G["full_surface"][instrument]; nl, nh = G["normal"]["lo"], G["normal"]["hi"]
+    x = lambda v: 30 + int(min(max(v, 0.0), top * 1.04) / (top * 1.04) * w)
+    E = html.escape
+    arrow = lambda x0, y, d: f'<path d="M{x0},{y} l{-6*d},-4 l0,8 z" fill="currentColor"/>'   # apex at x0, pointing d (-1 left, +1 right)
+    xm = (x(nl) + x(nh)) // 2
+    out = [f'<p style="margin:2px 0"><b>{E(label)}</b></p>', f'<svg width="{w + 60}" height="150" font-family="sans-serif" style="color:#333">',
+           f'<text x="{xm}" y="26" font-size="10" text-anchor="middle" fill="#2e7d32">Normal {nl:g}&#8211;{nh:g}</text>',
+           f'<rect x="30" y="34" width="{x(top) - 30}" height="18" fill="#f2f2f2"/>',
+           f'<rect x="{x(nh)}" y="34" width="{x(top) - x(nh)}" height="18" fill="#f6d5d1"/>',
+           f'<rect x="30" y="34" width="{x(nl) - 30}" height="18" fill="#d6e4f5"/>',
+           f'<rect x="{x(nl)}" y="34" width="{max(2, x(nh) - x(nl))}" height="18" fill="#9fd39f"/>',
+           f'<line x1="30" y1="28" x2="30" y2="58" stroke="#333" stroke-width="2"/>',
+           f'<text x="30" y="14" font-size="10">floor {G["floor"]["A"]:g} (off scale, to the left)</text>',
+           f'<line x1="{x(top)}" y1="28" x2="{x(top)}" y2="58" stroke="#111" stroke-width="3"/>',
+           f'<text x="{x(top)}" y="14" font-size="10" text-anchor="end">full surface {top:g}</text>',
+           f'<g style="color:#3a5f8f">{arrow(30, 80, -1)}<text x="40" y="84" font-size="10" fill="#3a5f8f">{E(G["left_region"])}</text></g>',
+           f'<g style="color:#9b3a2e"><text x="{x(top) - 10}" y="100" font-size="10" fill="#9b3a2e" text-anchor="end">{E(G["right_region"])}</text>{arrow(x(top), 96, 1)}</g>',
+           f'<text x="30" y="122" font-size="9" fill="#555">{E(G["floor"]["label"])}.</text>',
+           f'<text x="30" y="136" font-size="9" fill="#555">{E(G["breach"]["label"])}.</text>']
+    if A is not None:
+        past = A > top
+        out.append(f'<line x1="{x(A)}" y1="30" x2="{x(A)}" y2="56" stroke="#c0392b" stroke-width="3"/>')
+        out.append(f'<text x="{x(A)}" y="68" font-size="11" font-weight="bold" fill="#c0392b" text-anchor="middle">{A:.3f}{" past the full surface" if past else ""}</text>')
+    out.append("</svg>")
+    if A is None: out.insert(1, f"<p><i>{E(label) or 'A not reported'}</i> - the gauge is shown without a position.</p>")
+    return "".join(out)
 
 def _H(b):
     b = np.clip(np.asarray(b, dtype="float64"), 1e-6, 1 - 1e-6)
@@ -208,7 +231,7 @@ def build(o, out, sid):
          f"<p>Tare method: step 1 self-tare II ({e(str((t.get('selftare_ii') or {}).get('status', 'not run')))}), then step 2 {e(str(t.get('method', 'median tare: not run')))}</p>",
          f"<h2 id='sec-noise-gate'>Stage 9 noise gate</h2><p>noise index N {m.get('noise_index')} ({m.get('noise_sites_measured')} of {m.get('noise_sites_total')} noise sites) | N_max {m.get('noise_gate_N_max')} | gate: {e(str(m.get('noise_gate')))}</p>",
          f"<h2 id='sec-cscore'>Stage 6 Met-A C-score</h2><p>C = <b>{c.get('C')}</b> (healthy = 1; healthy held-out range {c.get('healthy_range')}); {e(str(c.get('status', c.get('reason',''))))}</p>",
-         (f"<h2 id='sec-iam-a'>Stage 7 IAM-A - {e(str(q.get('cell')))}</h2>{_gauge(q.get('A'), label=('IAM-A ' + str(q.get('A'))) if q.get('A') is not None else '')}"
+         (f"<h2 id='sec-iam-a'>Stage 7 IAM-A - {e(str(q.get('cell')))}</h2>{_gauge(q.get('A'), instrument='IAM-A', label=('IAM-A ' + str(q.get('A'))) if q.get('A') is not None else '')}"
           f"<p>IAM-A = <b>{q.get('A')}</b> ({e(str(q.get('state', q.get('refusal',''))))}); pipeline {e(str(q.get('pipeline')))}; copy error eps {q.get('eps')}; position P {q.get('P')}; "
           f"eps0 {q.get('eps0')}; halves {e(str(q.get('halves')))}; opportunities {q.get('opportunities')}; E = {q.get('E_kT')} kT</p>"
           + (f"<p id='sec-iam-a-cscore'>IAM-A C-score (DEVELOPMENT - not commissioned): C = <b>{(q.get('cscore') or {}).get('C')}</b> over {(q.get('cscore') or {}).get('n_blocks')} blocks of "

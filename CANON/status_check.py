@@ -132,6 +132,22 @@ if _dl.returncode:
     _dll = [l.strip() for l in _dl.stdout.split("\n") if l.strip().startswith("[daylog]")]
     fail += _dll or ["[daylog] daylog.py failed to run: " + (_dl.stderr.strip().split("\n")[-1] if _dl.stderr.strip() else "no output")]
 
+# The cell gauge in the chain's report (2026-10-13): its marks come from one file and must match the book's gauge table, the report
+# must draw the whole gauge from that file, and the direction must be the foundation's (remember the black hole).
+try:
+    _G = json.load(open("Biological_Physics/MethylPhys/chain/Runtime Matrices/Gauge/cell_gauge_marks_v1.json", encoding="utf-8"))
+    _bk = open(_G["book"], encoding="utf-8").read()
+    for _k in ("floor", "full_surface"):
+        if _G[_k]["book_anchor"] not in _bk: fail.append(f"[gauge] cell_gauge_marks_v1.json {_k} no longer matches {_G['book']}")
+    _rp = open("Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v3.py", encoding="utf-8").read()
+    if "cell_gauge_marks_v1.json" not in _rp: fail.append("[gauge] report_v3.py does not draw the gauge from cell_gauge_marks_v1.json")
+    if "black hole" not in _G["right_region"] or "full surface" not in _G["right_region"]:
+        fail.append("[gauge] the right side of the gauge must read as over-writing toward the full surface (gauge_direction)")
+    _fd = json.load(open("CANON/foundation.json", encoding="utf-8"))
+    if not any(e["id"] == _G["direction_entry"] for e in _fd["entries"]): fail.append("[gauge] the gauge's direction entry is not in the foundation")
+except Exception as _e:
+    fail.append(f"[gauge] the gauge check could not run: {type(_e).__name__} {_e}")
+
 if fail:
     print(f"status_check: REFUSED ({len(fail)})\n  " + "\n  ".join(fail[:40])); sys.exit(1)
 print(f"status_check: ok ({len(F['facts'])} facts, {len(files)} documents)")
