@@ -1,0 +1,11 @@
+arrays 446 | platforms ['GPL21145'] | arrays with both IDATs 446
+tissue counts: HDB 182, TU 69, CUB 68, OQ 67, AN 60
+slides 63 | slides holding one tissue only: 35 | holding HDB and any patient tissue: 0
+  AN: 60 arrays on 11 slides; 0 of those slides also carry another tissue
+  CUB: 68 arrays on 26 slides; 26 of those slides also carry another tissue
+  HDB: 182 arrays on 24 slides; 0 of those slides also carry another tissue
+  OQ: 67 arrays on 27 slides; 27 of those slides also carry another tissue
+  TU: 69 arrays on 26 slides; 26 of those slides also carry another tissue
+patient ids parsed from titles: 446 of 446 | example titles: ['HDB_K105022', 'HDB_K107274', 'HDB_K105903', 'HDB_K106028']
+patients with CUB+OQ+TU: 66 | with AN too: 58 | of CUB+OQ+TU patients, all three on ONE slide: 31
+other sample fields: title, source, patient

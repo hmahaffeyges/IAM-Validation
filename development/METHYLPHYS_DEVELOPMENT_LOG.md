@@ -1511,3 +1511,5 @@ head_quality_02.py, bar first: both control libraries have about 4 points more d
 
 ### 2026-10-13 · Data found for the field, breach, erasure and spread tests; DEV-FIELD-01 designed
 A metadata-only search (70 candidates, GEO-centric, declared limits) found, verified against GEO: GSE287331 (breast, EPIC v1, 446 arrays with IDATs, one series: healthy donors 182, contralateral 68, other quadrant 67, adjacent 60, tumor 69) for DEV-FIELD-01; GSE281307 (DCIS 93 progressed / 92 not, 450K IDATs) and GSE108123 (lung precancer 36 progressed / 18 regressed / 33 controls) for the breach line. DEV-FIELD-01 written as a design with draft bars (sham, field, gradient, positive control) on the sealed composition-blind breast sites; nothing read.
+
+DEV-FIELD-01 slide check (metadata only): healthy donors and adjacent tissue each sit on slides of their own, so they cannot be compared without slide confounding; 31 patients have contralateral, other-quadrant and tumor on one slide, so the primary bar is now within the woman and the slide (other quadrant vs contralateral breast).
