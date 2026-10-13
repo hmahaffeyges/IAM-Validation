@@ -1235,3 +1235,6 @@ FIELD_NOTES.md is generated from CANON/now_running.json with the board; each upd
 
 ### 2026-10-12 · Field notes voice check; lesson C8
 The notes are ours, written as "we": now_running --check refuses "the author", assistant names and first-person singular. The first version matched lowercase only and was pushed together with its controls, one of which failed; fixed in the next commit with five controls. LESSONS C8: controls gate the push.
+
+### 2026-10-12 · Voice: we (IAMPerformance), everywhere (author)
+Funding statement (README, FOLLOW.md, book preface, from CANON/funding.json) and the preface story line changed from I to we. The preface epigraph is a quotation of the author's own words; held for his decision.
