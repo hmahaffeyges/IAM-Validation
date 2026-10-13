@@ -24845,10 +24845,16 @@
    "instrument_or_term": "atlas fit",
    "sources": [],
    "data_status": "in hand",
-   "status": "idea",
-   "runs": [],
-   "next_step": "author's decision; if yes, amend the site rule before the split is sealed and price the extra box time",
-   "cost": "box: about +9 percent of the v2.1 fit",
+   "status": "parked",
+   "runs": [
+    {
+     "date": "2026-10-13",
+     "outcome": "progressed",
+     "note": "decided with the author: NOT in v2.1. The noise in tissue and blood comes from cell mixture and person-to-person biology, not missing sites; the sites are missing because they are hard to read, so lower quality on average; at them there is no sequencing, so no array-to-sequencing bridge, which would dilute the gift; changing the site rule now moves the seal and the cost. v2.1 decision 3 stands."
+    }
+   ],
+   "next_step": "for v2.2: measure first, on the laptop with v2's array sources - do these sites separate cell types better than the atlas's own sites (same separation measure, both site sets, the same cells)? Include in v2.2 only if they do.",
+   "cost": "laptop (the measurement); box +9 percent only if v2.2 includes them",
    "impact": 4,
    "record": "CANON/site_exclusions/register.json",
    "legacy_ids": [],

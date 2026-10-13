@@ -55,7 +55,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **ATL-050** (impact 4, laptop (from the v2.1 box outputs)) Gift 2: the array-to-sequencing bridge: save the bridge terms per site in the v2.1 run, not only as summaries
 - [ ] **ATL-051** (impact 4, laptop (from the v2.1 box outputs)) Gift 3: healthy person-to-person spread: from the v2.1 fit's between-donor terms; planted test first
 - [ ] **ATL-054** (impact 4, laptop (from the v2.1 box outputs)) Gift 6: build files and code: package with the v2.1 release; one-command rebuild check
-- [ ] **ATL-059** (impact 4, box: about +9 percent of the v2.1 fit) Array-only sites in the fit: posteriors where only arrays measured a site (decision needed): author's decision; if yes, amend the site rule before the split is sealed and price the extra box time
+- [ ] **ATL-059** (impact 4, laptop (the measurement); box +9 percent only if v2.2 includes them) Array-only sites in the fit: posteriors where only arrays measured a site (decision needed): for v2.2: measure first, on the laptop with v2's array sources - do these sites separate cell types better than the atlas's own sites (same separation measure, both site sets, the same cells)? Include in v2.2 only if they do.
 - [ ] **CAN-003** (impact 4, laptop) Ceiling position in sequenced pure cancer cell lines (the other bracket): Write the rule first, run once; if positions converge, write the claim as a seal and test once on unopened cancers.
 - [ ] **CAN-004** (impact 4, laptop) Commission the C-score band on 450K arrays (to unlock GSE61151 and the 450K archive): Fix the 450K slide-batch problem first (C8), then set a 450K band by the same leave-one-lab-out rule.
 - [ ] **CAN-005** (impact 4, free (arithmetic on readings we already have)) Distance to the ceiling: compute it for every sealed cancer reading already in the records and check none is past the turnover
@@ -814,3 +814,4 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **OTH-036** Record rules of 2026-10-12 (rules 14-19) and lessons T15, T16, C6: last run 2026-10-12, success
 - [x] **OTH-040** BOOK-V1.0: last run 2026-10-05, success
 - [x] **ATL-057** Site exclusion register, layer 1: probes with no atlas site, and the chain refusing them: last run 2026-10-13, progressed
+- [x] **ATL-059** Array-only sites in the fit: posteriors where only arrays measured a site (decision needed): last run 2026-10-13, progressed
