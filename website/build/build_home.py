@@ -126,9 +126,18 @@ def page(art):
 <div class="wrap"><p class="kicker">IAMPerformance · research built in public</p>
 <h1>Two telescopes.<br>One sky map.</h1>
 <p class="lead">We read the methylation of human DNA with the same mathematics cosmologists use to map the sky, to measure how faithfully a cell holds its information. The goal is early cancer detection from a blood or stool sample. Every test is written down before its data is read, and every result is posted here, win or lose.</p>
-<p class="cta"><a class="btn" href="#now">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
+<p class="cta"><a class="btn" href="#daylogs">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
 <main>
-<section id="now" class="wrap"><h2>Now running</h2><p class="sub">Live experiments, in plain words. Each links to its full story and its record.</p><div class="grid">{"".join(stories)}</div></section>
+<section class="wrap" id="daylogs"><h2>Start here: the daily log</h2>
+<p class="lead">At the end of each working day we write one log: what we set out to do, what ran, what passed, what failed, what we
+learned, the back-and-forth that produced it with the bad ideas left in, and what changed in the plan. It is the whole day in one
+place, written for a reader rather than for us, and generated from a single committed file so it cannot drift from the records.
+<b>If you read one thing here, read the most recent day.</b></p>
+<p class="cta">{"".join(f'<a class="btn" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[:1])}{"".join(f'<a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[1:4])}</p>
+<p><b>As of {E(_newest[0]) if _newest else "&mdash;"}:</b> {E(_stand)}</p>
+<p class="meta">That status line is the close of the most recent day log, not a separate board anyone has to remember to update.
+Everything below links into the repository, where the records, the code and the data live.</p>
+</section>
 <section class="wrap" id="why"><h2>Why a researcher should look</h2><p class="sub">Five things anyone can check in ten minutes. None of them asks you to trust us.</p>
 <ol class="why">
 <li><b>A prediction committed before the data existed, then met.</b> We wrote the window the reading had to fall in ({mv["low"]:.3f} to {mv["high"]:.3f}) into a dated file before any knockout mouse was read. The mice read {mv["ratio"]:.3f}. The commit is older than the measurement, and anyone can check that. <a href="{rec(mouse["record"])}">the record</a></li>
@@ -193,18 +202,6 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 </details>
 <p class="sub">{E(MT["closing"])}</p>
 </section>
-<section class="wrap" id="daylogs"><h2>Where things stand, and what happened day by day</h2>
-<p class="lead"><b>As of {E(_newest[0]) if _newest else "&mdash;"}:</b> {E(_stand)}</p>
-<p class="meta">That paragraph is the close of the most recent day log, not a separate status anyone has to remember to update:
-one file per day is written at the end of the day, and everything else on this page links into the repository where it lives.</p>
-<p>One log per day, written at the end of the day and generated from a single committed file, so it cannot drift from the records.
-Each one states the hours it covers and carries the same sections: what we set out to do, what ran and how each came out, what we
-learned that we did not know yesterday, our own mistakes and what caught each, the back-and-forth that produced the day's work with
-the bad ideas left in, what changed in the plan, and what was open at turnover. Tables list every test and every instrument, and the
-generator refuses a log that leaves one out.</p>
-<details><summary>Read the days</summary><ul class="plain">{daylogs}</ul>
-<p class="meta">A day log never states an unsealed result as established: every entry carries its status &mdash; sealed, development,
-synthetic only, audit, failed, diagnosis, metadata only &mdash; and the words are checked on every push.</p></details></section>
 <section class="wrap" id="trace"><h2>{E(TR["title"])}</h2>
 <p class="sub">{E(TR["lead"])}</p>
 <details class="fold" open><summary>{E(TR["case"])}</summary>
@@ -217,9 +214,10 @@ synthetic only, audit, failed, diagnosis, metadata only &mdash; and the words ar
 <ul class="plain">{decisions}</ul>
 
 <h2>What has failed</h2><p class="sub">Every one was written down in advance and reported on ourselves. This is why the results above mean something.</p>
-<ul class="road lost">{losses}</ul>
-<p class="more"><b>What these results are not.</b> Each sealed cancer test asked whether tumors leave the healthy range more often than chance across a group of patients. None is a per-patient test and none is a diagnostic: there is no sensitivity, no specificity and no detection limit yet. That test is on the road ahead, and no early-detection claim is made before it.</p>
-<p class="more">Every result, good or bad, day by day: <a href="{rec("development/METHYLPHYS_DEVELOPMENT_LOG.md")}">the development log</a>.</p></section>
+<details><summary>{len(REG["losses"])} failures, each with its record</summary><ul class="road lost">{losses}</ul></details>
+<details><summary>What these results are not</summary><p class="more"> Each sealed cancer test asked whether tumors leave the healthy range more often than chance across a group of patients. None is a per-patient test and none is a diagnostic: there is no sensitivity, no specificity and no detection limit yet. That test is on the road ahead, and no early-detection claim is made before it.</p>
+</details>
+<p class="more">Every result, good or bad, day by day: <a href="{rec("Biological_Physics/MethylPhys/daylogs/README.md")}">the daily logs</a>, or the <a href="{rec("development/METHYLPHYS_DEVELOPMENT_LOG.md")}">development log</a> for the technical version.</p></section>
 <section class="wrap" id="whoweare"><h2>{E(AS["section_title"])}</h2>
 <p class="sub">Two very different roles, stated plainly, because the easiest wrong assumption to make about this work is that
 one of us did all of it. Both halves are dated and public: the founder's corrections in the development log, the partner's
@@ -308,7 +306,7 @@ table.tools{width:100%;border-collapse:collapse;margin:14px 0}.tools th,.tools t
 .links .tile{display:block;background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:18px 20px;text-decoration:none;color:var(--fg);font-weight:600}
 .links .tile:hover,.card:hover{border-color:var(--link)}
 ol.road,ul.road,ol.why{padding-left:22px}dl.qa dt{font-weight:700;margin:16px 0 4px}#author p{max-width:62ch}.maybe li{margin:0 0 8px}p.closer{max-width:62ch;font-style:italic;margin-top:18px}dl.qa dd{margin:0;color:var(--muted)}ol.why li{margin:0 0 14px}.lost li{margin:0 0 14px}code{background:var(--panel);padding:2px 6px;border-radius:4px;font-size:14px}.road li{margin:0 0 14px}.road .meta{color:var(--muted);font-size:14px}h3.help{margin:30px 0 4px;font-size:22px}
-details.fold{margin:6px 0 10px}details.fold>summary{cursor:pointer;display:inline-block;list-style:none;padding:12px 20px;border:1px solid var(--link);border-radius:8px;color:var(--link);font-weight:700;font-size:16px}
+details.fold{margin:6px 0 10px}details.fold>summary{cursor:pointer;display:flex;align-items:center;gap:10px;list-style:none;padding:10px 2px;border:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);color:var(--link);font-weight:600;font-size:16px;transition:color .15s}summary::-webkit-details-marker{display:none}summary::before{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .18s;flex:none;margin-left:2px}details[open]>summary::before{transform:rotate(45deg)}summary:hover{color:var(--link);text-decoration:underline;text-underline-offset:3px}details{margin:14px 0}details[open]>summary{margin-bottom:10px}
 details.fold>summary::-webkit-details-marker{display:none}details.fold>summary::before{content:"\25B8  Click to open: "}details.fold[open]>summary::before{content:"\25BE  Close: "}details.fold[open]>summary{margin-bottom:20px}
 .win .stat{font-size:38px;font-weight:800;margin:10px 0 0;line-height:1.05;font-variant-numeric:tabular-nums;color:var(--fg)}.win h3{font-size:20px}
 .continues{color:var(--muted);font-size:14px;margin:22px 0 0}
