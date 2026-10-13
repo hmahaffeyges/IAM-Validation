@@ -97,6 +97,12 @@ _fc = subprocess.run([sys.executable, "CANON/foundation_check.py"], capture_outp
 if _fc.returncode:
     for _l in (_fc.stdout or _fc.stderr).strip().split("\n")[1:]: fail.append("[foundation] " + _l.strip())
 
+# The lever register is the single source for the lever chapter: falsifiers present, terms known to the foundation,
+# records and synthetic tests committed, generated section in step (2026-10-13)
+_lv = subprocess.run([sys.executable, "CANON/levers_check.py"], capture_output=True, text=True)
+if _lv.returncode:
+    for _l in (_lv.stdout or _lv.stderr).strip().split("\n")[1:]: fail.append("[levers] " + _l.strip())
+
 if fail:
     print(f"status_check: REFUSED ({len(fail)})\n  " + "\n  ".join(fail[:40])); sys.exit(1)
 print(f"status_check: ok ({len(F['facts'])} facts, {len(files)} documents)")

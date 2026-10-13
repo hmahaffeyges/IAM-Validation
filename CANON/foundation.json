@@ -64,6 +64,22 @@
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
    "anchor": "It is not the denominator of $A$ and not 1",
    "commit": "2c737a57"
+  },
+  {
+   "id": "mahaffey_number",
+   "statement": "M = E_drive / kT, the drive ratio: the energy a substrate spends per irreversible write in units of the thermal noise quantum at its operating temperature, with NO ln2. Dimensionless, fixed by the physics of the drive, not a reading of a person: every human cell at 37 C has the same M. For the cell, ATP's cytosolic free energy of hydrolysis 54 kJ/mol at 310.15 K gives M = 54000/(8.314462618 x 310.15) = 20.94. Present CMOS logic runs a few hundred kT per switch. It sets the operating regime and, with the architecture, the IAM floor. The only quantity named Mahaffey.",
+   "status": "DERIVED from the drive energy (a calculation, not a fit)",
+   "derived_in": "docs/book/part6/p6_02_landauer.tex",
+   "anchor": "M=\\frac{\\dGATP}{R\\Tb}=\\frac{54\\,000}{8.314462618\\times310.15}=20.94",
+   "commit": "2c737a57"
+  },
+  {
+   "id": "drive_fraction_phi",
+   "statement": "phi is the fraction of the drive that ends up holding one site: phi x M = E_hold. With M = 20.94 and E_hold = 3.41 kT, phi M = 3.41 and eps_0 = 1/(1 + e^{phi M}) = 0.032. A lever that changes the drive changes M; a lever that changes how much of the drive reaches the site changes phi; both act on the holding energy through this product.",
+   "status": "definition in force (phi M is the measured holding energy)",
+   "derived_in": "docs/book/appendices/app_F_glossary.tex",
+   "anchor": "\\varepsilon_0=1/(1+e^{\\varphi\\mathcal M})=0.032",
+   "commit": "2c737a57"
   }
  ],
  "retired_phrasings": [
