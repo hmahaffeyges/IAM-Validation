@@ -193,12 +193,12 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 <p class="sub">{E(AS["intro"])}</p>
 <details class="fold" open><summary>What it does, what it does not decide, and what the researcher does</summary>
 <div class="grid">
-<div class="card"><h3>What the assistant does</h3><ul class="road">{ul(AS["does"])}</ul></div>
+<div class="card"><h3>What the partner does</h3><ul class="road">{ul(AS["does"])}</ul></div>
 <div class="card"><h3>What it does not decide</h3><ul class="road">{ul(AS["does_not"])}</ul></div>
 <div class="card"><h3>What the researcher does</h3><ul class="road">{ul(AS["author_does"])}</ul></div>
 </div>
 </details>
-<details class="fold"><summary>What the assistant got wrong, and what caught it</summary>
+<details class="fold"><summary>What the partner got wrong, and what caught it</summary>
 <p>{E(AS["mistakes_lead"])}</p>
 <ul class="road">{miss}</ul>
 <p class="meta">All of them, with the fix each one now enforces: <a href="{rec(AS["lessons_record"])}">the lessons record</a>.</p>
@@ -258,7 +258,8 @@ footer{padding:50px 22px 60px;color:var(--muted);font-size:14px}
 
 def problems(body):
     # The voice check skips exactly two marked blocks: the author's own words, and the block that describes the research
-    # assistant (the author asked for it, 2026-10-13; the word "assistant" stays refused everywhere else, and a vendor or
+    # research partner (the author asked for it, 2026-10-13; the words "assistant"/"partner" in that sense stay refused everywhere
+    # else, and a vendor or
     # model name stays refused even inside it - see the brand check below).
     _b = re.sub(r"<!-- AUTHOR:BEGIN.*?<!-- AUTHOR:END -->", "", body, flags=re.S)
     _b = re.sub(r"<!-- ASSISTANT:BEGIN.*?<!-- ASSISTANT:END -->", "", _b, flags=re.S)

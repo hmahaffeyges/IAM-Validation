@@ -1,7 +1,7 @@
 {
- "_rule": "The research-assistant corner: what the AI assistant does on this project, what it does not decide, and what it got wrong. Kept in one file so the page cannot drift from it. Standing editorial choice (2026-10-13): describe the ROLE, not the brand - no vendor or model name - because naming a product invites the dismissal 'an AI did it' and implies an endorsement nobody gave. The author may overrule this; it is his page.",
- "title": "The research assistant",
- "intro": "An AI research assistant does the mathematics, the code and the refereeing on this project. It runs locally, on this researcher's own hardware, inside a scientific-computing application that keeps a persistent record of the work - so the project is continuous rather than restarted from nothing in every conversation. We say so here, up front, because anyone reading the repository would work it out in five minutes, and because what it does and does not decide is a fair question to ask.",
+ "_rule": "The research-partner corner: what the AI assistant does on this project, what it does not decide, and what it got wrong. Kept in one file so the page cannot drift from it. Standing editorial choice (2026-10-13): describe the ROLE, not the brand - no vendor or model name - because naming a product invites the dismissal 'an AI did it' and implies an endorsement nobody gave. The author may overrule this; it is his page. Named a PARTNER rather than an assistant at the author's direction (2026-10-13), which is accurate about the arrangement: his ideas, questions and direction; the partner's mathematics, code, literature and refereeing. 'Super intelligence' was declined and added to the page's hype words instead: the section's strength is the list of mistakes below it, and a capability claim we cannot put a check behind would undercut exactly the trust the section is for.",
+ "title": "The research partner",
+ "intro": "An AI research partner does the mathematics, the code and the refereeing on this project. It runs locally, on this researcher's own hardware, inside a scientific-computing application that keeps a persistent record of the work - so the project is continuous rather than restarted from nothing in every conversation. We say so here, up front, because anyone reading the repository would work it out in five minutes, and because what it does and does not decide is a fair question to ask.",
  "does": [
   "Writes and runs every script: the readings, the simulated tests, the scorers, the checks that refuse a push.",
   "Finds and reads the public data - which laboratory produced it, who contributed to it, whether we have already spent it.",
@@ -21,7 +21,7 @@
   "The questions - relentlessly - which is what actually moves the work: several of this week's corrections to the physics records came from them.",
   "The calls that cannot be delegated: what gets sealed, what gets published, what gets retired."
  ],
- "mistakes_lead": "The most useful thing we can show a reviewer is what the assistant gets wrong and what catches it. Fourteen such lessons are recorded in the repository so far, each with the fix that now enforces it in code. Three from a single day:",
+ "mistakes_lead": "The most useful thing we can show a reviewer is what the partner gets wrong and what catches it. Fourteen such lessons are recorded in the repository so far, each with the fix that now enforces it in code. Three from a single day:",
  "mistakes": [
   {
    "what": "A simulated test modeled an impaired channel backwards, so its own result contradicted the derivation it was testing.",
@@ -36,6 +36,6 @@
    "caught": "The researcher caught it - in a sentence quoted word for word from his own book, where the wrong phrasing had been sitting. Four lines of the book were corrected and the phrasing is now refused by a check."
   }
  ],
- "closing": "None of that is a reason to trust the assistant. It is a reason to trust the record, which is the only thing we are asking anyone to look at.",
+ "closing": "None of that is a reason to trust the partner. It is a reason to trust the record, which is the only thing we are asking anyone to look at.",
  "lessons_record": "Biological_Physics/MethylPhys/LESSONS.md"
 }
