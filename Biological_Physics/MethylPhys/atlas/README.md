@@ -41,6 +41,11 @@ DOI and is revalidated by the same held-out tests before the chain reads it. The
 commissioned Met-A reading on isolated neutrophils does not read the atlas, so a new atlas version does not touch it; tissues and the
 composition of whole blood do. Book: "Two telescopes and one sky map", in the atlas chapter.
 
+**The same mathematics, a different signal.** The fit is one hierarchical model with an offset for each source, sampled by MCMC (the atlas is
+a posterior; readings carry none yet). Reading past the cell mix is component separation (in use, one solver; a second is built, not in the
+chain). The atlas is checked on held-out data with split maps and null tests (in use). HEALPix pixelization is built, not in the chain. Each
+tool's status: the tool board in the book's sky-tools chapter.
+
 ## What it can do that a tissue atlas cannot
 
 Atlases of whole tissues are built to name the organ a sample came from. Each organ's profile already averages that organ's own mixture of

@@ -127,6 +127,21 @@
      "10\\.5281/zenodo\\.23325865"
     ]
    ]
+  },
+  {
+   "id": "healpix_not_in_chain",
+   "since": "2026-10-12",
+   "fact": "HEALPix pixelization is built, not in the chain (tool board row 15, 2026-10-12).",
+   "forbid": [
+    "(?i)(the chain|chain v3|the instruments?) (uses|reads|runs on) (the )?HEALPix",
+    "(?i)HEALPix (grid|map|pixelization) (that )?the chain uses"
+   ],
+   "require": [
+    [
+     "Biological_Physics/MethylPhys/atlas/README.md",
+     "HEALPix pixelization is built, not in the chain"
+    ]
+   ]
   }
  ],
  "book_check_count": {

@@ -1220,3 +1220,6 @@ For followers who are not scientists: each live experiment with why it matters, 
 
 ### 2026-10-12 · Book and atlas README: two telescopes and one sky map (author)
 New atlas-chapter section (sec:atlas:skymap) and atlas README section: the instruments are the telescopes, commissioned once; the atlas is the sky map, refitted whole and revalidated by the same held-out tests at every version, as microwave-sky maps are at every release; the map is used only where the cell-type mix matters. No new book-check failures.
+
+### 2026-10-12 · Atlas chapter and README: the same mathematics, a different signal (author)
+Each cosmology tool named with its tool-board status (hierarchical fit and MCMC posterior partial; component separation in use, one solver; split maps and null tests in use; HEALPix built, not in the chain). The author draft and an earlier assistant line both said the chain uses HEALPix; corrected from the board. New status fact healpix_not_in_chain refuses that claim anywhere (control refused).
