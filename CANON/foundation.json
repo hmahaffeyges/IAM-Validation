@@ -127,7 +127,8 @@
    "derived_in": "docs/book/part6/p6_02_landauer.tex",
    "anchor": "\\section{Margin per write, and fidelity per write}",
    "commit": "2c737a57",
-   "layer": "core"
+   "layer": "core",
+   "applies_at_every_scale": "The author, 2026-10-13: 'The DNA is hardware, the sphere is the outcome, the patterns of order and disorder... the information.' So a genome-wide map must be built on the pattern, not on DNA addresses: a map whose coordinates are chromosome and position maps our filing system. See Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md."
   }
  ],
  "retired_phrasings": [

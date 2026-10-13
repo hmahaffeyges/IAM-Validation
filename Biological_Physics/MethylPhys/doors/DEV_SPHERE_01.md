@@ -83,3 +83,32 @@ test where the answer is planted and known, and a null test on healthy people's 
 All of it is laptop work and spends no data, which is why it is on the road ahead rather than waiting for funding.
 
 **Not a milestone:** a design record and an open hypothesis; nothing read, nothing predicted, nothing sealed.
+
+## The strand is hardware; the sphere is the outcome (the author, 2026-10-13)
+
+This record is governed by `CANON/foundation.json`, entry **`what_is_read`** (core): what the law reads is informational fidelity - order
+against disorder in the held pattern, as errors in individual molecules - and never hardware. The author's framing of the map is the same
+statement one scale up:
+
+> The DNA is hardware, the sphere is the outcome, the patterns of order and disorder... the information.
+
+That settles a choice the sky build would otherwise have to make twice:
+
+| version | coordinates | what it maps | status |
+|---|---|---|---|
+| the DNA address wrapped on a ball | chromosome and position | the hardware - our filing system | **weak, named as weak**; its curvature is an artifact of how we index, not a property of the cell |
+| the information sphere | properties of the pattern itself (two cells near each other when their order is alike) | the outcome - what the law reads | the version to build |
+| the nucleus | measured physical positions of the sites | the hardware's real geometry, which the pattern lives on | a separate, later question; it asks where in space the disorder sits, not what the disorder is |
+
+So the first build uses pattern coordinates, not addresses, and the sky tools are borrowed only where they act on a field of information:
+the angular spectrum of a pattern is meaningful; a spectrum over base-pair position is bookkeeping. The nucleus version stays on the list
+because "where does the disorder sit in the folded genome" is a real question - but it is a question about the medium (CANON/foundation.json,
+`_layers`), and an answer there cannot confirm or break the law.
+
+**In plain words.** Think of a page of text. The paper, the ink and the order of the letters on the line are the hardware. Whether the page
+still says what it is supposed to say - and whether the damage is one smudged letter or a whole wiped passage - is the information. We are
+mapping the second thing. A map drawn by paper position would be a map of the book's binding.
+
+**What it would take to finish.** A built map whose construction was committed before any map was drawn, a planted test that recovers a known
+blur, and a null test on healthy cells that had no part in building it. All three are laptop work and spend no data.
+

@@ -60,7 +60,14 @@ for r in S.itertuples():
     m = o.get("met_a") or {}
     rows.append(dict(gsm=r.gsm, specimen=r.src, slide=str(r.title).split()[-1], A=m.get("A"), f_neu=m.get("fraction"),
                      N=m.get("noise_index"), C=(o.get("met_a_cscore") or {}).get("C"),
-                     refusal=o.get("refusal") or o.get("refusal_code") or m.get("refusal"), status="ok"))
+                     refusal=(o.get("refusal") or o.get("refusal_code") or m.get("refusal")
+                              # the chain states WHY it withholds a reading (coverage rule, noise gate, no tare); the first
+                              # version of this script dropped those reasons and logged status "ok" with a blank, which made a
+                              # withheld array look like a silent hole in the table (2026-10-13)
+                              or (m.get("reason") if m.get("A") is None else None)
+                              or ((o.get("met_a_cscore") or {}).get("reason") if (o.get("met_a_cscore") or {}).get("C") is None else None)
+                              or ((o.get("tare") or {}).get("reason") if (o.get("tare") or {}).get("A_rel") is None else None)),
+                     status=("ok" if m.get("A") is not None else "withheld by the chain")))
     print(r.gsm, r.src, "A", rows[-1]["A"], "C", rows[-1]["C"], "|", str(rows[-1]["refusal"])[:60], flush=True)
 T = pd.DataFrame(rows)
 WB = T[T.specimen.str.contains("blood", case=False)].copy()
@@ -80,6 +87,12 @@ res = {"set": "GSE184269", "laboratory": "NIA-IRP, NIH (GESTALT healthy donors)"
        "C_rel_max": None if not len(scored) else round(float(scored.C_rel.max()), 4),
        "granulocytes_refused": int((T.specimen.str.contains("ranulocyt", case=False) & T.refusal.notna()).sum()),
        "other_refusals": T[T.specimen.str.contains("blood", case=False) & T.refusal.notna()].refusal.astype(str).tolist(),
+       "whole_bloods_listed": int(T.specimen.str.contains("blood", case=False).sum()),
+       "whole_bloods_withheld": int((T.specimen.str.contains("blood", case=False) & T.C_rel.isna()).sum()),
+       "verdict_if_every_withheld_array_were_above": (
+           lambda n_all, n_ab: ("would still be met" if (n_all - n_ab) / n_all >= 0.95 else f"would NOT be met ({(n_all - n_ab) / n_all:.4f})")
+       )(int(T.specimen.str.contains("blood", case=False).sum()),
+         int(((T.specimen.str.contains("blood", case=False)) & ((T.C_rel > 1.152) | (T.C_rel.isna()))).sum())),
        "tare_scopes": (scored.ref_scope.value_counts().to_dict() if len(scored) else {})}
 json.dump(res, open(os.path.join(out, "band_test_GSE184269.json"), "w"), indent=1)
 print(json.dumps(res, indent=1))

@@ -164,7 +164,7 @@
    "cost": "box",
    "accessions": [],
    "ready": "queued",
-   "plain": "The whole-genome sky build: read every site of the genome with the microwave-sky tools against same-run healthy references, with the bars written first, then the version built on where the DNA actually sits inside the nucleus rather than its order along the strand.",
+   "plain": "The whole-genome sky build: read every site of the genome with the microwave-sky tools against same-run healthy references, with the bars written first, then the version built on where the DNA actually sits inside the nucleus rather than its order along the strand. Built on the PATTERN, not on DNA addresses: the strand is hardware, the map is of the information (CANON/foundation.json, what_is_read; DEV_SPHERE_01).",
    "needs": "a rented computer",
    "estimate": "3-4 weeks",
    "stands": "bars to be written; the 3D version is still an idea",
@@ -374,14 +374,14 @@
  "ideas": [
   {
    "date": "2026-10-12",
-   "plain": "The information sphere: the geometry of healthy order. Place every site by how it behaves, not by where it sits on the DNA. Under the square-root map each methylation state lies on a sphere and the Fisher-Rao angle is its information distance; sites held in order together cluster, and disorder shows as that shape blurring. Read it with the microwave-sky tools after a written design, a synthetic test and a null test on held-out healthy cells. This is an application question - whether our meter predicts which hatchery fish come back - and is separate from the temperature test of the law, where hibernation is the stronger design (DEV-LEVERS-01 test 2b).",
+   "plain": "The information sphere: the geometry of healthy order. Place every site by how it behaves, not by where it sits on the DNA. Under the square-root map each methylation state lies on a sphere and the Fisher-Rao angle is its information distance; sites held in order together cluster, and disorder shows as that shape blurring. Read it with the microwave-sky tools after a written design, a synthetic test and a null test on held-out healthy cells. This is an application question - whether our meter predicts which hatchery fish come back - and is separate from the temperature test of the law, where hibernation is the stronger design (DEV-LEVERS-01 test 2b). Built on the PATTERN, not on DNA addresses: the strand is hardware, the map is of the information (CANON/foundation.json, what_is_read; DEV_SPHERE_01).",
    "needs": "the laptop",
    "stands": "design record written 2026-10-13 (DEV-SPHERE-01): the author's framing, the Fisher-Rao mathematics, the nucleus version, and the three steps before anything is claimed",
    "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md"
   },
   {
    "date": "2026-10-12",
-   "plain": "The whole-genome sky map. Draw every site of the genome on the sphere and read it with the microwave-sky tools. The honest catch: the genome's own shape is a line, so patch sizes on a sphere partly measure our own wrapping. Two versions earn their keep. First, the information sphere above. Second, the nucleus itself: DNA is folded inside a ball, the stretches pressed against the nuclear wall are mostly switched off and are exactly where cancers lose large blocks of methylation, and biologists already measure which stretches touch the wall. A sphere built from where DNA actually sits would have real curvature, and then the sky tools would be measuring biology rather than our filing order.",
+   "plain": "The whole-genome sky map. Draw every site of the genome on the sphere and read it with the microwave-sky tools. The honest catch: the genome's own shape is a line, so patch sizes on a sphere partly measure our own wrapping. Two versions earn their keep. First, the information sphere above. Second, the nucleus itself: DNA is folded inside a ball, the stretches pressed against the nuclear wall are mostly switched off and are exactly where cancers lose large blocks of methylation, and biologists already measure which stretches touch the wall. A sphere built from where DNA actually sits would have real curvature, and then the sky tools would be measuring biology rather than our filing order. Built on the PATTERN, not on DNA addresses: the strand is hardware, the map is of the information (CANON/foundation.json, what_is_read; DEV_SPHERE_01).",
    "needs": "the laptop",
    "stands": "design record written 2026-10-13 (DEV-SPHERE-01): the author's framing, the Fisher-Rao mathematics, the nucleus version, and the three steps before anything is claimed",
    "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md"
