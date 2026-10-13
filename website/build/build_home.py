@@ -186,9 +186,6 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 <ul class="road">{orig}</ul>
 <p class="meta">{E(OR["closing"])}</p>
 </details>
-<details class="fold"><summary>{E(AS["together_title"])}</summary>
-<ul class="road">{tog}</ul>
-</details>
 </section>
 <div class="art-band" style="background-image:url({art("chip_banner.jpg")})" role="img" aria-label="Art from the book"></div>
 <section class="wrap" id="author"><h2>Who is doing this, and why</h2>
