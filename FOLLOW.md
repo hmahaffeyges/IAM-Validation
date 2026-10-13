@@ -171,7 +171,7 @@ Commissioned means a reading is allowed to report results, not just development 
 
 | | |
 |---|---|
-| The idea in full | [Chapter 48, Astro-Genetics: the cell read as a thermometer](https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs_Law_and_Order.pdf#page=437) |
+| The idea in full | [Chapter 48, Astro-Genetics and the Cosmic Methylome: the cell read as a thermometer](https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs_Law_and_Order.pdf#page=437) |
 | Landauer's cost, and where IAM differs from earlier physics of methylation | [Chapter 49](https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs_Law_and_Order.pdf#page=446) |
 | How each tool from cosmology becomes a step | [Chapter 58, The translation principle](https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs_Law_and_Order.pdf#page=484) · [Chapter 63, Tools from the sky](https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs_Law_and_Order.pdf#page=505) |
 | How the atlas of 74 purified cell types was built and checked | [Chapter 61](https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs_Law_and_Order.pdf#page=495) |

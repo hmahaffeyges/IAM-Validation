@@ -12,7 +12,7 @@ import glob, os, re, sys, json, html, base64, datetime, importlib.util
 HERE = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.abspath(os.path.join(HERE, "..", ".."))
 GH = "https://github.com/hmahaffeyges/IAM-Validation/blob/main/"
 PDF = "pdf/IAMs_Law_and_Order.pdf"   # the live PDF; page numbers below verified against it 2026-10-13
-CH = {"astro": (48, 437, "Astro-Genetics: the cell read as a thermometer"), "landauer": (49, 446, "Landauer's cost at body temperature"),
+CH = {"astro": (48, 437, "Astro-Genetics and the Cosmic Methylome: the cell read as a thermometer"), "landauer": (49, 446, "Landauer's cost at body temperature"),
       "gauge": (53, 464, "One gauge for a cell"), "meta": (54, 470, "Met-A: the cell's own reference on arrays"),
       "iama": (55, 474, "IAM-A: copy error on single molecules"), "cscore": (56, 478, "The C-score: where the departures sit"),
       "translation": (58, 484, "The translation principle"), "separation": (60, 492, "Component separation: finding the cells"),
@@ -153,6 +153,7 @@ def page(art):
     body = f'''<header class="hero" style="background-image:linear-gradient(rgba(10,12,16,.55),rgba(10,12,16,.85)),url({art("web_banner.jpg")})">
 <div class="wrap"><p class="kicker">IAMPerformance · AstroGenetics and the Cosmic Methylome</p>
 <h1>Two telescopes.<br>One sky map.</h1>
+<p class="lead"><a href="{PDF}#page={CH['astro'][1]}">Read the chapter: Astro-Genetics and the Cosmic Methylome &rarr;</a></p>
 <p class="lead">We read the methylation of human DNA with the same mathematics cosmologists use to map the sky, to measure how faithfully a cell holds its information. The goal is early cancer detection from a blood or stool sample. Every test is written down before its data is read, and every result is recorded in the open, win or lose: <a href="#daylogs">the daily log</a>.</p>
 <p class="cta"><a class="btn" href="#daylogs">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
 <main>
