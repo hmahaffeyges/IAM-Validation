@@ -100,6 +100,300 @@
    ]
   },
   {
+   "kind": "table",
+   "heading": "Every tissue cancer test: the bar, the outcome, and whether a tumor was ever opened",
+   "lead": "One cancer at a time, and the synthetic test before any tumor is read. The right-hand column is the one that matters: a design refused on simulated tissue costs nothing and spends no patient data.",
+   "table": {
+    "columns": [
+     "tissue / set",
+     "the sealed question",
+     "outcome",
+     "tumors opened?",
+     "what it leaves"
+    ],
+    "rows": [
+     [
+      "**Liver** (DEV-TISSUE-LIVER-01)",
+      "do patients' tumors leave the healthy range more often than chance allows, against the same patients' own liver",
+      "**FINGERPRINT.** Chance puts about 2 of 50 outside; 22 were, and 44 of 50 read above the patient's own tissue",
+      "yes, after two synthetic tests failed on independence and forced a rewrite",
+      "the third tissue with the fingerprint under a sealed rule, after breast and colorectal"
+     ],
+     [
+      "**Lung, first attempt** (DEV-TISSUE-LUNG-01)",
+      "the same question on a lung set",
+      "**NO FINGERPRINT** - sealed, scored, and reported as read",
+      "yes",
+      "a published negative, and lesson T15"
+     ],
+     [
+      "**Lung, second attempt** (DEV-TISSUE-LUNG-02)",
+      "the same, on a larger pairing",
+      "**NOT SUITABLE** at 12 pairs, refused by the design",
+      "no",
+      "tumors unread; nothing spent"
+     ],
+     [
+      "**Lung, third attempt** (DEV-TISSUE-LUNG-03)",
+      "a different lung cancer type, with a direction test on simulated lungs",
+      "**NOT SUITABLE.** The synthetic direction test failed in v1, v2 and v3 - a healthy lung whose cell mixture leans one way counterfeits the signal",
+      "no",
+      "40 tumors unread, and lesson T16"
+     ],
+     [
+      "**Lung, fourth attempt** (DEV-TISSUE-LUNG-04)",
+      "the same on another lung set",
+      "**NOT SUITABLE**, refused the same way",
+      "no",
+      "the four attempts written up as one cause: lung's mixture is the hardest we have tried and the atlas has no measured lung stroma"
+     ],
+     [
+      "**Colorectal, second set** (DEV-TISSUE-COLON-02)",
+      "the same question on a second colorectal set",
+      "**NOT SUITABLE** by the design's own criteria",
+      "no",
+      "the first colorectal result stands on its own set"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "table",
+   "heading": "The second instrument's commissioning, check by check",
+   "lead": "Seventy-one libraries of IDENTICAL reference DNA, sequenced by several kits in two laboratories - so any disagreement is the instrument, not the donor. Scored once, under a seal written days earlier.",
+   "table": {
+    "columns": [
+     "check",
+     "what it asks",
+     "bar",
+     "outcome"
+    ],
+    "rows": [
+     [
+      "**C1 conversion**",
+      "does incomplete bisulfite conversion distort the reading",
+      "keep the 0.98 intake limit, apply no correction, measure conversion the same way for every library",
+      "**MET** - and the rule itself was corrected first: synthetic test 5 showed the response is about half the derived factor, so dividing by it over-corrects"
+     ],
+     [
+      "**C2 repeatability**",
+      "do two libraries of the same DNA read the same",
+      "in every kit, at least 6 of 7 cell lines' replicate pairs within 0.03",
+      "**MET**"
+     ],
+     [
+      "**C3 across kits**",
+      "do different library kits agree",
+      "each line within 0.03 of its median across the five kits, in at least 6 of 7 lines",
+      "**MET**"
+     ],
+     [
+      "**C3 across laboratories**",
+      "does the one kit made in two laboratories agree between them",
+      "within 0.03, in at least 6 of 7 lines",
+      "**NOT MET** - 4 of 7. The tolerance was not loosened after seeing the numbers"
+     ],
+     [
+      "**C4 healthy reads normal**",
+      "does a healthy specimen read as healthy",
+      "cannot be tested on this specimen type",
+      "**UNTESTED**, recorded as untested, to be met on neurons"
+     ],
+     [
+      "**C5 planted change**",
+      "does a known planted loss move the reading",
+      "a planted 1 % loss must move the reading by more than 0.03 in every library",
+      "**MET**"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "table",
+   "heading": "The box run that would not stay up",
+   "lead": "The provider reclaimed the rented machine four times mid-run. Nothing finished was ever re-read, which is the whole point of the resume discipline.",
+   "table": {
+    "columns": [
+     "event",
+     "what was already safe",
+     "what was done"
+    ],
+    "rows": [
+     [
+      "Run started",
+      "-",
+      "two storage fixes first: the machine's access role, and a cold disk warmed before it could be read at speed"
+     ],
+     [
+      "First reclaim",
+      "every finished library in object storage",
+      "resumed, finished libraries skipped"
+     ],
+     [
+      "Second reclaim",
+      "same",
+      "moved availability zones and resumed"
+     ],
+     [
+      "Third reclaim",
+      "50 of 71 done, all in storage",
+      "resumed"
+     ],
+     [
+      "Fourth reclaim",
+      "-",
+      "the author's decision: finish the last 21 libraries on an on-demand machine rather than lose more time"
+     ],
+     [
+      "One library declared failed",
+      "-",
+      "a rerun bug reading an earlier attempt's record; fixed at script start with a planted test, recorded as lesson C7, and the library aligned normally"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "table",
+   "heading": "Atlas decisions taken that day",
+   "table": {
+    "columns": [
+     "decision",
+     "what was decided",
+     "what it binds"
+    ],
+    "rows": [
+     [
+      "**v2 published**",
+      "deposited with a permanent identifier (DOI 10.5281/zenodo.23325865)",
+      "every reading that uses v2 is reproducible against the published object"
+     ],
+     [
+      "**Claims checked against the records**",
+      "the author asked for no foolish claim about the atlas; several descriptions were corrected, including that it is built FOR this work but independent of its physics",
+      "how the atlas may be described in the book, the README and the page"
+     ],
+     [
+      "**Class-era atlas removed from the tree**",
+      "the retired framework's atlas is out, with its origin preserved",
+      "no current reading can reach the retired construction"
+     ],
+     [
+      "**v2.1 roster and split fixed first**",
+      "which sets build and which test, committed before any array is read",
+      "every v2.1 test"
+     ],
+     [
+      "**Culture check, step 1**",
+      "44.8 % of sites flagged as drifting in a dish; measurement date tracked passage in most lines, so the batch-free core is 11.1 %. The larger set is kept as the mask",
+      "every atlas built from cultured cells; both numbers are reported wherever the mask is used"
+     ],
+     [
+      "**Culture check, step 1b**",
+      "written before any array was read, then run: the drift reappears above chance in two more laboratories and two more cell types",
+      "the mask stands rather than being an artifact of one laboratory"
+     ],
+     [
+      "**Commissioning plan, use by use**",
+      "a draft plan for what the atlas may be used for, written with no test data read; the sky map is listed as built but not in the chain",
+      "what the atlas may be claimed to support"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "table",
+   "heading": "Gate rules added that day, and the near-miss behind each",
+   "lead": "The author's rule: if the code updates every place a thing appears, it can never be missed again.",
+   "table": {
+    "columns": [
+     "rule",
+     "what it refuses",
+     "the near-miss that caused it"
+    ],
+    "rows": [
+     [
+      "11",
+      "a rented-machine run with no entry in the run ledger, or a ledger whose own controls fail",
+      "a run that existed only in a conversation"
+     ],
+     [
+      "12",
+      "an outcome note that does not declare itself a milestone or state why it is not",
+      "a result that reached no index"
+     ],
+     [
+      "13",
+      "a milestone with no entry in the results register, or a register entry whose record is missing",
+      "a fingerprint result that was in the book but not the front page"
+     ],
+     [
+      "14",
+      "a result with no plain-words summary a donor could read",
+      "several results explained only in conversation"
+     ],
+     [
+      "16",
+      "British spelling anywhere in donor-facing text",
+      "spellings the author had to fix by hand on a public page"
+     ],
+     [
+      "17",
+      "lessons recorded anywhere but the single lessons file",
+      "the same lesson written in two places and lost from both"
+     ],
+     [
+      "18",
+      "a funding statement that differs between the README, the follow-along page and the book preface",
+      "three copies of one statement drifting apart"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "table",
+   "heading": "The road ahead as it stood at midnight",
+   "lead": "Kept so a reader can compare it with the next day's and see which plans survived twenty-four hours. Three of these changed by the following midnight.",
+   "table": {
+    "columns": [
+     "next",
+     "what it was",
+     "what happened to it the next day"
+    ],
+    "rows": [
+     [
+      "Diagnose the failed laboratory check",
+      "read several positions of the suspect libraries and both controls, rule committed in advance",
+      "**done** - verdict MIXED, and the cause identified: the original reading had been taken from the head of each file"
+     ],
+     [
+      "Rerun the failed check",
+      "after the cause is known",
+      "**changed** - the first proposed fix failed its planted test; a trim rule replaced it and passed six bars"
+     ],
+     [
+      "Finish the clustering meter's checks",
+      "the band test on a laboratory that had no part in setting it",
+      "**done** - met in a second laboratory, 22 of 23"
+     ],
+     [
+      "Build atlas v2.1",
+      "roster and split already fixed",
+      "**corrected** - all four planned neutrophil test sources turned out to have been read before"
+     ],
+     [
+      "Lung, a fifth attempt",
+      "find a set whose mixture can be handled",
+      "**parked** with a named prerequisite: measured lung stroma in the atlas"
+     ],
+     [
+      "Take the front page live",
+      "it was still a preview",
+      "**done** the next morning, with 49 links tested on the live site"
+     ]
+    ]
+   }
+  },
+  {
    "kind": "learned",
    "heading": "What we learned that we did not know yesterday",
    "entries": [

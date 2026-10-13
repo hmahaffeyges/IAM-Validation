@@ -127,6 +127,46 @@ worth of temperatures, twenty donors each, and species that differ by no more th
 is not what species are like. **Hibernation is the design to run**, because the same animal is warm and cold, so the species
 offset is removed by construction rather than fitted. The fish series stays useful as a second line, not as the first.
 
+## Test 3 outcome, run once on v3 (2026-10-13): BAR MET, with one honest limit
+
+`levers_synth_03.py`, outputs `levers_synth_03_output.csv` and `levers_synth_03_summary.txt`; v1 kept as `*_v1_INVALID.*` and v2 as
+`*_v2_REFUSED.*`. 60 draws per condition, 200 molecules x 2000 sites, 300 intervals to each balance. The guard was satisfied: the
+healthy draw reads **0.0320** against its target of 0.032, with the restore rate calibrated to 0.5488 of its nominal value.
+
+**A documented instrument property, not a fudge.** At that calibration the STATE balance is `f/(f+g) = 0.0568` while the chain READS
+0.0320. The gap is the blindness established earlier the same day: the chain's held-error reading matches only ISOLATED losses, so a
+run of two or more consecutive losses contributes nothing to it. Both numbers are printed in the summary.
+
+**Derived directions, written before the run:** impair copying -> held error up and more clustered; impair de novo writing -> held
+error up and scattered; impair erasing -> held error **DOWN** and scattered.
+
+| channel impaired | held-error ratio at 2x | clustering ratio at 2x | direction |
+|---|---|---|---|
+| copy | **1.401** [1.382, 1.415] | 1.146 [1.012, 1.263] | up |
+| de novo | **1.973** [1.948, 1.992] | 1.020 [0.903, 1.120] | up |
+| erase | **0.718** [0.699, 0.736] | 1.101 [0.999, 1.230] | **down** |
+
+**Bar as written: MET.** No pair of channels overlaps in BOTH readings at a matched impairment, so a blocked channel can be
+identified. The erase channel is separated by DIRECTION alone - it is the only one that moves the held error down - which is the
+sharpest result here, because it is also the channel a reviewer would say must dissipate.
+
+**The limit, stated rather than buried.** Copy and de novo are separated by the SIZE of the held-error move (1.401 against 1.973 at
+the same 2x impairment), not by the clustering reading. The clustering intervals overlap between those two channels at this precision,
+so with an UNKNOWN impairment magnitude they are not distinguishable by these two readings alone - a copy channel impaired twice over
+reads much like a de novo channel impaired a quarter over. The derivation predicted clustering would separate them; at 60 draws it
+does not, directionally correct but too weak. That is a limit on the instruments, not evidence against the derivation, and it is what
+the third reading (run-length spectrum, candidate instrument 5) exists to fix.
+
+**In plain words.** A cell has three different jobs at a methylation site: copy the pattern when the DNA is copied, write a new mark
+where there was none, and remove a mark. We asked whether our two readings can tell which of the three has been damaged. They can:
+damaging the removal job is the only one that makes the reading go DOWN instead of up, so that one is identifiable on its own. The
+other two both push the reading up, and we can only tell them apart if we already know how badly the job was damaged - which in a real
+patient we would not. So two of three are distinguishable in principle and one is distinguishable immediately. **What it would take:**
+a third reading that measures the SHAPE of the damage rather than its size, and the natural next experiment is tumors that carry a
+mutation which blocks the removal job - a block that already exists in patients, with public data.
+
+**Synthetic test:** DEV_LEVERS_01/levers_synth_03.py, DEV_LEVERS_01/levers_synth_03_summary.txt
+
 **Test 3, three channels (planned).** Impair copy, de novo and erase separately and ask whether the gauge and the
 clustering reading identify which one was hit. This is the prerequisite for reading IDH-mutant tumors as an erase-channel
 knockout: no distinguishable signature in simulation means those patients cannot answer the question.
@@ -206,9 +246,9 @@ strong one. That changed which study we plan to run, before we spent a month on 
 - **Derivation:** DERIVED in direction and in ratio: halving g must move the balance to eps = f/(f+g/2), with no free parameter if g/f is read from the healthy balance first.
 - **Parameter-free prediction:** yes - the new balance follows from the old one and the factor the enzyme was impaired by
 - **Caveat:** the drugs used to impair writing are toxic and stop division too; dose and exposure are rarely known in public data
-- **Synthetic test:** none yet - test 3 designed (three channels: copy, de novo, erase), not yet run
+- **Synthetic test:** DEV_LEVERS_01/levers_synth_03.py - test 3 designed (three channels: copy, de novo, erase), not yet run
 - **Data it needs:** decitabine series (no result at the decisive dose); IDH-mutant tumors as an erase-channel block that already exists in patients with public data
-- **Status:** test 3 designed
+- **Status:** test 3 MET in simulation (2026-10-13): the erase channel is separated by direction alone - it is the only one that moves the held error down - and no pair overlaps in both readings at a matched impairment. Limit: copy and de novo separate only by the SIZE of the move, so with an unknown impairment magnitude they are not distinguishable by these two readings
 - **FALSIFIER (written before any data is read):** a tumor whose erase channel is chemically blocked reads the SAME balance as a matched tumor with the channel intact, with everything else equal. If blocking one side of the balance does not move it, the balance is not what sets the held error.
 - **Record:** [DEV_LEVERS_01.md](DEV_LEVERS_01.md)
 

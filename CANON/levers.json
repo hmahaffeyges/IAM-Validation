@@ -82,16 +82,19 @@
    "derivation": "DERIVED in direction and in ratio: halving g must move the balance to eps = f/(f+g/2), with no free parameter if g/f is read from the healthy balance first.",
    "parameter_free": "yes - the new balance follows from the old one and the factor the enzyme was impaired by",
    "caveat": "the drugs used to impair writing are toxic and stop division too; dose and exposure are rarely known in public data",
-   "synthetic": [],
+   "synthetic": [
+    "DEV_LEVERS_01/levers_synth_03.py"
+   ],
    "synthetic_outcome": "test 3 designed (three channels: copy, de novo, erase), not yet run",
    "data": "decitabine series (no result at the decisive dose); IDH-mutant tumors as an erase-channel block that already exists in patients with public data",
-   "status": "test 3 designed",
+   "status": "test 3 MET in simulation (2026-10-13): the erase channel is separated by direction alone - it is the only one that moves the held error down - and no pair overlaps in both readings at a matched impairment. Limit: copy and de novo separate only by the SIZE of the move, so with an unknown impairment magnitude they are not distinguishable by these two readings",
    "falsifier": "a tumor whose erase channel is chemically blocked reads the SAME balance as a matched tumor with the channel intact, with everything else equal. If blocking one side of the balance does not move it, the balance is not what sets the held error.",
    "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
    "reading_scope": "The gauge reads order against disorder; the handle is the experiment, not the reading.",
    "layer": "medium",
    "falsifier_scope": "medium",
-   "falsifier_scope_why": "which operation an enzyme serves, and how far a chemical block reaches it, is biology in the way of the term"
+   "falsifier_scope_why": "which operation an enzyme serves, and how far a chemical block reaches it, is biology in the way of the term",
+   "next": "IDH-mutant tumors, where the erase channel is chemically blocked in patients with public data; and the run-length spectrum as a third reading to separate copy from de novo by shape rather than size"
   },
   {
    "id": "mechanism_clustering",
