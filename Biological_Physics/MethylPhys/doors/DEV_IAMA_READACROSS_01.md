@@ -85,9 +85,11 @@ quality step scanning fewer reads deeper in (2,000,001 reads at the head against
 the same way, 0.2201 at the head against 0.1998 deeper. This holds in **all five libraries, controls included**, so it is a position
 effect common to the platform and not something that distinguishes the suspect laboratory.
 
-**2. Two different framings, and only one of them answers the question.** In ABSOLUTE copy error, every library reads higher at the
-head than deeper in - that is the common position effect of finding 1, and it is why an earlier draft of this section had the
-per-library signs wrong. The sealed decision does not compare a part against other parts of the same library; its quantity is
+**2. Two different framings, and only one of them answers the question.** In ABSOLUTE copy error the head is higher than the mean
+of the deeper parts in **four of the five libraries**; the fifth, SRR13051128, reads LOW at the head (0.04561 against a deeper mean of
+0.04648), and the per-library signs are listed in `head_summary_01_output.txt`. So the absolute framing is not even consistent in
+sign across libraries - which is exactly why an earlier draft of this section, written from the absolute values, had the per-library
+pattern wrong. The sealed decision does not compare a part against other parts of the same library; its quantity is
 **r = A / (mean A of the two normal runs AT THAT PART)**, which cancels the common position effect by construction.
 
 | library | role | r at the head | r at p40 | r at p80 |
