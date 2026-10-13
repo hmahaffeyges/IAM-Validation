@@ -39,5 +39,36 @@
  "closing": "None of that is a reason to trust the partner. It is a reason to trust the record, which is the only thing we are asking anyone to look at.",
  "lessons_record": "Biological_Physics/MethylPhys/LESSONS.md",
  "_naming": "Why this section says 'research partner' and not 'super intelligence research partner'. Federal agencies have used 'super intelligence' (SI) for this category since an executive order of 29 September 2026, so the term is official nomenclature, not marketing - an earlier note here had that wrong and the page's hype-word block on it has been reversed. The page still describes the ROLE because the audience is academic: in the AI literature 'superintelligence' names a system exceeding human capability across domains, so a reviewer reads it as a capability claim, and it would sit directly above this section's list of the partner's own mistakes. Use the federal term in federal paperwork (agency correspondence, NIH and NSF applications), where it is the expected usage. Author's call either way.",
- "note": "Terminology: federal agencies have used 'super intelligence' (SI) for this category since September 2026. This page describes the role rather than the category, because what matters here is which jobs are done by whom."
+ "note": "Terminology: federal agencies have used 'super intelligence' (SI) for this category since September 2026. This page describes the role rather than the category, because what matters here is which jobs are done by whom.",
+ "section_title": "IAMPerformance Inter-Domain Research: who we are",
+ "founder_title": "The founder and author",
+ "founder_role": [
+  "Heath W. Mahaffey. The ideas and the law: that structure drives expansion, that light and matter separate and do not experience gravity and time alike, and that the same accounting should read a cell.",
+  "The decision to carry the law from cosmology into particle physics, then quantum processors and chips, and finally into methylation - and the judgement of where it could be tested when a door closed.",
+  "The questions, relentlessly. Several of this week's corrections to the physics records came from them, each dated in the development log.",
+  "The calls that cannot be delegated: what gets sealed, what gets published, what gets retired, and what is not yet honest enough to show."
+ ],
+ "together_title": "How we work, and why this is not a project handed to a bot",
+ "together": [
+  {
+   "q": "Could the law have been written by asking an AI?",
+   "a": "No, and the honest reason is structural. A model trained on the literature reproduces the literature's center of mass. Asked to establish a claim, it either affirms it with plausible reasoning or dismisses it with the consensus - and neither is research. Asked cold whether structure formation drives the cosmic acceleration, the partner's answer would have been a competent review concluding the effect is far too small, and that would have been the end of it."
+  },
+  {
+   "q": "So what does the partner add?",
+   "a": "Breadth across domains, the mathematics, code that runs and can be run by anyone else, the literature on demand, and an adversary that argues against each result and writes down the reading that would break it. That is a great deal of capability with no direction attached."
+  },
+  {
+   "q": "And what does that leave to the founder?",
+   "a": "The scarce half. A specific physical intuition held through months of dead ends; the judgement of which objection is fatal and which is merely unfamiliar; the decision of what is worth testing with data that can be spent only once; and the continuity - the partner does not remember between sessions, so without the written record the work would restart from nothing every day."
+  },
+  {
+   "q": "A worked example, from one day of this project.",
+   "a": "The founder: a lever affects fidelity, but it belongs to the medium, not the core physics. That one distinction restructured a chapter, split every lever's falsifier into what would break the law and what would only break our account of the biology, and reclassified one instrument as an instrument rather than a law. The partner implemented it in twenty minutes and encoded it so it cannot drift - and would never have produced it."
+  },
+  {
+   "q": "How can a reader check any of this?",
+   "a": "Both halves are dated and public. The founder's corrections are in the development log; the partner's mistakes are in the lessons record, with the check each one now enforces. A reader who suspects the division of labor is the other way round can read both and see."
+  }
+ ]
 }

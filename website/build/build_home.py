@@ -69,6 +69,7 @@ def page(art):
     AS = J("CANON/assistant.json")
     ul = lambda xs: "".join(f"<li>{E(x)}</li>" for x in xs)
     miss = "".join(f'<li><b>{E(m["what"])}</b><br><span class="meta">What caught it: {E(m["caught"])}</span></li>' for m in AS["mistakes"])
+    tog = "".join(f'<li><b>{E(x["q"])}</b><br>{E(x["a"])}</li>' for x in AS["together"])
     LV = J("CANON/levers.json")
     method_secs = "\n".join(f'<h3>{E(x["title"])}</h3><p>{E(x["body"])}</p>' for x in MT["sections"])
     def lever_row(x):
@@ -178,6 +179,17 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 <ul class="road lost">{losses}</ul>
 <p class="more"><b>What these results are not.</b> Each sealed cancer test asked whether tumors leave the healthy range more often than chance across a group of patients. None is a per-patient test and none is a diagnostic: there is no sensitivity, no specificity and no detection limit yet. That test is on the road ahead, and no early-detection claim is made before it.</p>
 <p class="more">Every result, good or bad, day by day: <a href="{rec("development/METHYLPHYS_DEVELOPMENT_LOG.md")}">the development log</a>.</p></section>
+<section class="wrap" id="whoweare"><h2>{E(AS["section_title"])}</h2>
+<p class="sub">Two very different roles, stated plainly, because the easiest wrong assumption to make about this work is that
+one of us did all of it. Both halves are dated and public: the founder's corrections in the development log, the partner's
+mistakes in the lessons record.</p>
+<details class="fold" open><summary>{E(AS["founder_title"])}</summary>
+<ul class="road">{ul(AS["founder_role"])}</ul>
+</details>
+<details class="fold"><summary>{E(AS["together_title"])}</summary>
+<ul class="road">{tog}</ul>
+</details>
+</section>
 <section class="wrap" id="author"><h2>Who is doing this, and why</h2>
 <!-- AUTHOR:BEGIN (the author's own words, from CANON/author.json; the only first-person block on the site) -->
 <p class="sub">{E(A["name"])} &mdash; {E(A["role"])}</p>
