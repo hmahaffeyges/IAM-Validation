@@ -117,8 +117,8 @@ blur, and a null test on healthy cells that had no part in building it. All thre
 The per-site square-root geometry is already used on methylation, so it is not ours to claim:
 - Sanchez and Mackenzie, Information Thermodynamics of Cytosine DNA Methylation, PLOS ONE 11, e0150427 (2016), and On the thermodynamics
   of DNA methylation process, Scientific Reports 13, 8914 (2023): the Hellinger divergence between methylation levels (the chord on the
-  same circle), with background fluctuation framed as minimum energy dissipated per bit. Their R package is MethylIT. This is also close
-  prior work to the framework's Landauer framing as a whole, and the book now cites it (chapter 48).
+  same circle), with background fluctuation framed as minimum energy dissipated per bit. Their R package is MethylIT. The book already credits them as the first to put Landauer's bound on methylation (the Giants
+  chapter and the Landauer chapter); chapter 48 now cites them for the geometry too.
 - Jenkinson, Pujadas, Goutsias and Feinberg, Nature Genetics 49, 719-729 (2017): methylation as a potential-energy landscape, entropy
   read along the genome (informME).
 - Amari, Information Geometry and Its Applications (Springer, 2016): the Fisher-Rao geometry itself.
