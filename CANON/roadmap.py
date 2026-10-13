@@ -18,7 +18,7 @@ def problems(J):
         if n_ == 0: P.append(f"later: no data-register entry matches '{x['match']}'")
     for h in J.get("help_wanted", []):
         if not os.path.exists(os.path.join(ROOT, h["record"])): P.append(f"help: record not found {h['record']}")
-    txt = " ".join([j.get("plain", "") + " " + j.get("needs", "") + " " + j.get("stands", "") for j in J["jobs"]] + [h["ask"] + " " + h["why"] for h in J.get("help_wanted", [])] + [x["plain"] for x in J.get("later", [])])
+    txt = " ".join([j.get("plain", "") + " " + j.get("needs", "") + " " + j.get("stands", "") for j in J["jobs"]] + [h["ask"] + " " + h["why"] for h in J.get("help_wanted", [])] + [x["plain"] for x in J.get("later", [])] + [x["plain"] for x in J.get("ideas", [])])
     for rx, w in ((NR.VOICE, "voice"), (NR.HYPE, "hype word")):
         m = rx.search(txt)
         if m: P.append(f"{w} '{m.group(0)}'")
@@ -47,6 +47,10 @@ def render(J):
     L += ["## Further down the road", "", "*Planned, not yet designed. The data for each is already on our storage (sizes from the data register).*", ""]
     for x, (n_, gb) in later(J): L += [f"- **{x['plain']}** {n_} data sets, {gb:,.0f} GB in hand."]
     L += [""]
+    if J.get("ideas"):
+        L += ["## Ideas we want to test", "", "*Not designed yet. Each goes through a written design, a synthetic test and, where it reads data, a null test before anything it shows is claimed.*", ""]
+        L += [f"- **{x['plain'].split('. ')[0]}.** {'. '.join(x['plain'].split('. ')[1:])} Needs {x['needs']}; {x['stands']}." for x in J["ideas"]]
+        L += [""]
     L += ["## Where a researcher could help", "", "*These are the gaps public data cannot close. If you hold data like this, or can point to it, open an issue or",
           "a discussion on the repository. You do not need to introduce yourself to follow along.*", ""]
     L += [f"- **{h['ask']}** {h['why']} [Record]({h['record']})" for h in J.get("help_wanted", [])]
