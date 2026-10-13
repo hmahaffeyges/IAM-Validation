@@ -157,6 +157,13 @@ Registers: `CANON/levers.json` (board in `Biological_Physics/MethylPhys/doors/DE
 | H7 | Loss side of phi outside the cell: TET rates, maintenance lag | to search | literature, metadata only (S) |
 | H8 | **Spread as cascade** (falsifier 8): paired primary/metastasis, distant tissue before seeding, blood or cfDNA localized vs spread | search not started | search, declare spent, bars first (S) |
 
+## V. Later, after current testing is exhausted (author, 2026-10-13)
+
+| id | item | rule | next |
+|---|---|---|---|
+| V1 | Compare today's results with the class-era VAL results (e.g. the whole-system elevations) | **BLINDED: no class-era VAL result is opened until current testing is done**, so nothing we design is influenced by them | when the author calls it |
+| V2 | Re-test selected old VAL sets with the current group method, sealed first | only sets not already spent under the current chain | after V1 |
+
 ## Closed today (2026-10-12)
 Liver FINGERPRINT (B11). Lung 1 NO FINGERPRINT; lung 2, lung 3 and colorectal replication not suitable (tumors unread). Neuron reference built.
 Fingerprint results in one register written to four places; plain-language explanation for every result (rule 14); live fundraiser text held to
