@@ -52,4 +52,22 @@ statistics explains that away.
 
 Each becomes its own door with its rule fixed in advance, or it is dropped.
 
+## Synthetic tests of the levers (the author's rule: simulate first, one question at a time)
+
+Each lever costs data we spend once, so each is first asked of simulated molecules: **is the effect detectable at the depth
+and sample size we can actually get?** A synthetic result says nothing about the world, only about our instruments.
+
+**Test 1, clustered versus scattered** (`data/DEV_LEVERS_01/levers_synth_01.py`, committed before it ran). Processive
+copy-head failure (runs of consecutive sites) against independent chemical damage, at matched total error, read by the
+chain's own clustering reading, 200 draws each. Bar written first: the two must not overlap across draws, with the
+processive case above the healthy range, at a run length of 25 sites or fewer. Otherwise the clustering reading cannot
+separate mechanism at this depth and this note says so.
+
+**Test 2, two clocks (planned).** An enzymatic floor scaling with kT against a damage rate scaling exponentially with it:
+how many temperatures and donors per temperature are needed to tell a line from an exponential against real donor spread.
+
+**Test 3, three channels (planned).** Impair copy, de novo and erase separately and ask whether the gauge and the
+clustering reading identify which one was hit. This is the prerequisite for reading IDH-mutant tumors as an erase-channel
+knockout: no distinguishable signature in simulation means those patients cannot answer the question.
+
 **Not a milestone:** an audit of levers and caveats; no data read and no pass value written.
