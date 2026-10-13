@@ -30,7 +30,7 @@ def section():
                 f"- **Synthetic test:** {', '.join(x['synthetic']) if x['synthetic'] else 'none yet'} - {x['synthetic_outcome']}",
                 f"- **Data it needs:** {x['data']}",
                 f"- **Status:** {x['status']}",
-                f"- **FALSIFIER (written before any data is read):** {x['falsifier']}",
+                f"- **FALSIFIER (written before any data is read):** {x.get('falsifier') or 'MISSING - this lever is not a test yet'}",
                 f"- **Record:** [{os.path.basename(x['record'])}]({os.path.relpath(x['record'], 'Biological_Physics/MethylPhys/doors')})", ""]
     out += [E]
     return "\n".join(out)
@@ -44,6 +44,7 @@ def problems():
         if not os.path.isfile(os.path.join(ROOT, x["record"])): P.append(f"lever {x['id']}: its record {x['record']} does not exist")
         for s in x.get("synthetic", []):
             if not os.path.isfile(os.path.join(ROOT, DATA + s)): P.append(f"lever {x['id']}: synthetic test {s} is not committed")
+    if P: return P          # a malformed register cannot be compared against the note; report it first
     t = open(NOTE, encoding="utf-8").read()
     if B not in t or E not in t: P.append("DEV_LEVERS_01.md has no generated lever section: run python3 CANON/levers_check.py --write")
     elif t[t.index(B):t.index(E) + len(E)].strip() != section().strip():
