@@ -37,6 +37,34 @@ unmethylated arm barely moves in any of them. The lung set, whose sealed test re
 reading back toward u = 0, so a cancer whose samples are less pure will read lower even if its tumor cells sit at the same place. The
 ordering above could be a purity ordering. That is the first thing to rule in or out, and it is measurable.
 
+## Step 2, purity, run once: purity does NOT account for the difference
+
+`data/DEV_CEILING_02/ceiling_purity_03.py`, committed before it ran, with published ABSOLUTE purity (`tcga_absolute_purity.txt`,
+GDC PanCanAtlas) for the two TCGA cancers; output `ceiling_purity_03_summary.txt`. Colorectal and lung have no published purity and
+were NOT ASSESSED.
+
+| | breast | liver |
+|---|---|---|
+| does the bulk position rise with purity? (Spearman) | rho +0.004, p = 0.98: no | rho +0.450, p = 0.0012: yes |
+| pairs used after the rules (purity of at least 0.30, a purity call) | 45 of 53 | 46 of 50 |
+| median u, bulk -> corrected for purity | +0.0769 -> +0.0657 | +0.1286 -> +0.1317 |
+| corrected 95 % interval | [+0.0402, +0.1234] | [+0.0662, +0.1764] |
+
+The intervals now overlap, but the medians differ by 66.9 % of their mean against the 25 % written first: **not consistent**. In liver
+the position behaves like a diluted tumor-cell signal; in breast it does not track tumor content at all, so whatever sets breast's
+position is not simply how much tumor is in the sample.
+
+**A property of the correction a reviewer will ask about.** The breast median went DOWN after correction, which looks impossible -
+dividing by purity enlarges every site's departure from normal. It is not: the correction enlarges departures in both directions,
+sites that rose toward full methylation are pushed to the beta = 1 end and read MORE ordered, and the median over pairs also moved
+because eight pairs were excluded. A per-site purity correction of an entropy reading amplifies noise both ways, and its result is an
+estimate of the tumor cells' position, not a measurement of it.
+
+**Where that leaves the question.** At this depth, distance from the ceiling is a property of each cancer, not one constant: every
+cancer moved the same direction and none reached the ceiling, but they stopped in different places, and purity does not close the
+gap. The remaining bracket is pure tumor cells read molecule by molecule - the sequenced prostate and breast cancer lines - where no
+correction is needed. If those also land in different places, the distance is cancer-specific and the record says so.
+
 **In plain words.** We asked how far each tumor has moved from healthy toward the point where its DNA pattern would be a coin flip.
 Nearly every tumor in four cancers moved that way, none reached the end, and they used between a twentieth and an eighth of the room.
 But the four cancers did not land in the same place, so there is no single distance yet. Tumor samples are diluted by healthy cells,
@@ -48,6 +76,6 @@ corrected for it, and the sequenced cancer cell lines - pure tumor cells read mo
 corrected positions converge, the claim is written as a seal and tested once on cancers nobody has opened. If they do not, the
 distance is a property of each cancer, not a law, and the record says so.
 
-**Synthetic test:** DEV_CEILING_02/ceiling_position_02.py, DEV_CEILING_02/ceiling_position_02_summary.txt
+**Synthetic test:** DEV_CEILING_02/ceiling_position_02.py, DEV_CEILING_02/ceiling_position_02_summary.txt, DEV_CEILING_02/ceiling_purity_03_summary.txt
 
 **Not a milestone:** a first descriptive look on spent data, and its own consistency rule was not met.

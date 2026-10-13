@@ -1,0 +1,13 @@
+DEV-CEILING-02 step 2: purity
+
+TEST A - does the bulk position rise with purity, within each cancer?
+  breast  50 pairs with a purity call (median purity 0.53) | Spearman rho +0.004, p = 0.98
+  liver   49 pairs with a purity call (median purity 0.73) | Spearman rho +0.450, p = 0.0012
+
+TEST B - the tumor cells' own position, corrected for purity
+  breast  used 45 of 53 (excluded: no ABSOLUTE call x3, purity 0.23 x1, purity 0.19 x1, purity 0.25 x1, purity 0.17 x1, purity 0.24 x1) | bulk median +0.0769 -> corrected median +0.0657 [+0.0402, +0.1234] | past the ceiling after correction: 0 | sites clipped 2.2%
+  liver   used 46 of 50 (excluded: purity 0.22 x2, purity 0.26 x1, no ABSOLUTE call x1) | bulk median +0.1286 -> corrected median +0.1317 [+0.0662, +0.1764] | past the ceiling after correction: 0 | sites clipped 0.3%
+
+the rule: intervals overlap yes | medians differ by 66.9% of their mean (rule: under 25 %)
+NOT CONSISTENT after correction: purity does not account for the difference between these two cancers
+Colorectal and lung: NOT ASSESSED (no published purity for their series).
