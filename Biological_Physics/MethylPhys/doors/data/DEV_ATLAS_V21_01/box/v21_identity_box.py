@@ -8,6 +8,9 @@
  2. HELD-OUT arrays (atlas_v21_heldout_samples.csv, sealed in seal 2): fetched once per series (GEO RAW.tar, per-sample files if the tar is
     missing, ArrayExpress per file), calibrated, shard + meta + rs saved and copied to S3 (results/ATLAS_V21/heldout/). NOT SCORED: no
     reading of any held-out array is computed here.
+ RAW FILES: every IDAT (as deposited, compressed) is copied to S3 (results/ATLAS_V21/raw/{build,heldout}/) and its disk copy freed; the
+    chain's Stage 1 decompresses on its own, so no uncompressed copy is written (an earlier draft wrote one per file and would have filled
+    the disk; it was cancelled while queued). Uncompressed copies left by the Stage 1 job are removed where the compressed file exists.
  3. Per array: chrY probes detected / chrY probes on the chip, chrX probes' median beta (for sex), rs probe betas.
  Writes identity_v21_arrays.csv and identity_v21_rs.parquet (array x rs probe), uploaded to S3. Usage: ~/env/bin/python v21_identity_box.py
 """
@@ -44,13 +47,15 @@ def pair(fs, base_dir):
     fs = [f for f in str(fs).split(";") if f]
     g = next(f for f in fs if re.search(r"(?i)_grn\.idat", f)); r = next(f for f in fs if re.search(r"(?i)_red\.idat", f))
     return f"{base_dir}/{g}", f"{base_dir}/{r}", re.sub(r"(?i)_grn\.idat(\.gz)?$", "", g)
-def unz(p):
-    if p.endswith(".gz"):
-        o = p[:-3]
-        if not os.path.exists(o):
-            with gzip.open(p) as a, open(o, "wb") as b: b.write(a.read())
-        return o
-    return p
+def unz(p): return p   # Stage 1 stages and decompresses each IDAT itself; no copies on this disk
+RAWP = "results/ATLAS_V21/raw/"
+def to_s3_raw(path, kind):
+    k = f"{RAWP}{kind}/{os.path.basename(path)}"
+    try: s3.head_object(Bucket=BUCKET, Key=k)
+    except Exception: s3.upload_file(path, BUCKET, k)
+    return k
+for f in glob.glob(f"{BID}/*.idat"):
+    if os.path.exists(f + ".gz"): os.remove(f)
 def as_series(b): return b.iloc[:, 0] if hasattr(b, "columns") else b
 
 def build_one(i):
@@ -61,6 +66,7 @@ def build_one(i):
         same_idx = old.index.equals(beta.index)
         d = float(np.nanmax(np.abs(old.values - beta.reindex(old.index).values))) if len(old) else float("nan")
         rs = meta["_rs_beta"]; rs.to_frame(base).to_parquet(f"{RS}/{base}.parquet")
+        for f in (g, rd): to_s3_raw(f, "build")
         out.update(sexinfo(beta, meta.get("array_type")), array_type=meta.get("array_type"), n_rs=int(rs.notna().sum()),
                    same_probes=bool(same_idx), max_abs_diff_vs_stage1=d, status="ok")
     except Exception as e: out["status"] = f"error: {type(e).__name__}: {str(e)[:160]}"
@@ -99,6 +105,7 @@ def held_one(i):
         out.update(sexinfo(beta, meta.get("array_type")), array_type=meta.get("array_type"), n_rs=int(rs.notna().sum()),
                    call_rate=round(d.get("n_detected", 0) / max(d.get("n_probes", 1), 1), 5), idat_grn_sha256=sha(g), idat_red_sha256=sha(rd),
                    shard_sha256=sha(f"{HSH}/{base}.parquet"), status="ok")
+        for f in (g, rd): to_s3_raw(f, "heldout"); os.remove(f)
     except Exception as e: out["status"] = f"error: {type(e).__name__}: {str(e)[:160]}"
     return out
 
