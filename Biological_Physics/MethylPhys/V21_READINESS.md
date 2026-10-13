@@ -40,7 +40,7 @@ when its files are in the repository and their checks pass. The box run refuses 
 | G1 | ATL-049 reference with error bars: spec, planted test, export in the source atlases' exact cell names | open - missing: spec_ATL-049.md, planted_ATL-049_summary.txt | `spec_ATL-049.md`, `planted_ATL-049_summary.txt` | ATL-049 |
 | G2 | ATL-050 array-to-sequencing bridge per site | open - missing: spec_ATL-050.md, planted_ATL-050_summary.txt | `spec_ATL-050.md`, `planted_ATL-050_summary.txt` | ATL-050 |
 | G3 | ATL-051 healthy person-to-person spread | open - missing: spec_ATL-051.md, planted_ATL-051_summary.txt | `spec_ATL-051.md`, `planted_ATL-051_summary.txt` | ATL-051 |
-| G4 | ATL-052 marker-set check (internal; release only by the author's decision) | open - missing: spec_ATL-052.md | `spec_ATL-052.md` | ATL-052 |
+| G4 | ATL-052 marker-set check (internal; shared only if we decide to) | open - missing: spec_ATL-052.md | `spec_ATL-052.md` | ATL-052 |
 | G5 | ATL-053 the 3D sphere with noise maps: a construction adopted on planted tests, noise maps of what it makes by itself | open - missing: sphere_adopted.json | `sphere_adopted.json` | ATL-046, ATL-053 |
 | G6 | ATL-054 build package with a one-command rebuild that reproduces the published checksums | open - missing: rebuild_check_summary.txt | `rebuild_check_summary.txt` | ATL-054 |
 | G7 | ATL-055 deconvolution tool commissioned on known-proportion mixtures it had no part in building (sealed bars first) | open - missing: sealed_deconv_commission.json, deconv_commission_summary.txt | `sealed_deconv_commission.json`, `deconv_commission_summary.txt` | ATL-009, ATL-055 |

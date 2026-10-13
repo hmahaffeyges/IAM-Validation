@@ -255,7 +255,7 @@
   {
    "id": "G4",
    "stage": "after_fit",
-   "what": "ATL-052 marker-set check (internal; release only by the author's decision)",
+   "what": "ATL-052 marker-set check (internal; shared only if we decide to)",
    "files": [
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/gifts/spec_ATL-052.md"
    ],

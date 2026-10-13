@@ -62,6 +62,20 @@ def compute(e):
         loss = [ld(f"scored_{q}.json") for q in P]; gain = [ld(f"scored_gain_{q}.json") for q in P]
         return dict(n=len(P), loss=sum(v == "FINGERPRINT" for v in loss), gain=sum(v == "FINGERPRINT" for v in gain),
                     undecided=sum(v.startswith("UNDECIDED") for v in loss), inside=all(v == "FINGERPRINT" for v in gain))
+    if e["compute"] == "cscore_band":
+        A = json.load(open(os.path.join(ROOT, D + "CSCORE_COMMISSIONING/band_test_GSE315366.json"), encoding="utf-8"))
+        B = json.load(open(os.path.join(ROOT, D + "CSCORE_COMMISSIONING/band_test_GSE184269.json"), encoding="utf-8"))
+        assert A["met"] and B["met"], "both band tests must be met to be listed as a result"
+        lim = float(re.search(r"(\d\.\d{3})", A["bar"]).group(1)); m = re.match(r"(\d+) arrays, (\d+) series", A["band_decided_on"])
+        return dict(n1=A["n"], in1=A["n"] - A["above_limit"], n2=B["n_whole_blood_scored"], in2=B["n_whole_blood_scored"] - B["above_limit"],
+                    lim=lim, setn=int(m.group(1)), setlabs=int(m.group(2)), withheld=B["whole_bloods_withheld"])
+    if e["compute"] == "field_f2":
+        F = json.load(open(os.path.join(ROOT, D + "DEV_FIELD_01/scored_field_01.json"), encoding="utf-8"))
+        assert F["F2"]["verdict"] == "MET", "listed only while the sealed positive control is met"
+        return dict(k=F["F2"]["k"], n=F["F2"]["n"], crit=F["F2"]["crit"], f1k=F["F1"]["k"], f1n=F["F1"]["n"], f1crit=F["F1"]["crit"], f1=F["F1"]["verdict"])
+    if e["compute"] == "atlas_release":
+        A = json.load(open(os.path.join(ROOT, "CANON/atlas_release.json"), encoding="utf-8"))
+        return dict(doi=A["doi"], gb=round(A["total_bytes"] / 1e9, 1), files=A["files"], cells=int(re.search(r"(\d+) purified", A["title"]).group(1)))
     if e["compute"] == "moss":
         R = rows(D + "DEV_CSCORE_MOSS_01/moss_mixes_01_rows.csv"); mix = [r for r in R if r["mix"].startswith("Mix")]
         leuk = [float(r["A"]) for r in R if r["mix"] == "unmixed leukocytes"]
@@ -148,6 +162,16 @@ def readme_row(e, v):
         h = (f"**Met-A on patients' breast tumors.** Each of {v['n']} TCGA tumors read against the same patient's normal tissue at sites the tissue mix "
              f"cannot move, by a rule sealed before any tumor array was downloaded: {v['k']} of {v['n']} above the healthy bar ({v['crit']} needed; "
              f"p = {v['p']:.1e}); {v['up']} of {v['n']} above their own normal. Group-level; TCGA built the reading")
+    elif e.get("compute") == "cscore_band":
+        h = (f"**The clustering meter's healthy range holds in two laboratories that never helped set it.** Set on {v['setn']} arrays from "
+             f"{v['setlabs']} series and committed first; then {v['in1']} of {v['n1']} and {v['in2']} of {v['n2']} healthy bloods read inside it "
+             f"(bar 95 %). The second passed by one array, with {v['withheld']} withheld for coverage; whole blood, not yet the commissioned cell type")
+    elif e.get("compute") == "field_f2":
+        h = (f"**Breast tumors seen again, in a second laboratory's patients.** {v['k']} of {v['n']} tumors read above the same breast's tissue on the "
+             f"same slide ({v['crit']} needed), by a rule sealed before any array was read. The study's main question - does the tissue beside a tumor "
+             f"already differ from the woman's other breast - was {v['f1']} ({v['f1k']} of {v['f1n']}, {v['f1crit']} needed)")
+    elif e.get("compute") == "atlas_release":
+        h = f"**IAM-Atlas v2 is public.** {v['cells']} healthy human cell types with full uncertainty, {v['gb']} GB in {v['files']} files, every file checked; DOI {v['doi']}"
     elif e.get("compute") == "moss":
         h = f"**Met-A raises no false alarm** when 4–15 % liver, lung, colon or neuron DNA is mixed into blood DNA ({v['ok']} of {v['n']} within the sealed bar; largest shift {v['maxd']:.4f})"
     else: h = e["headline"]

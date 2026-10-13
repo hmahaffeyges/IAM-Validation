@@ -221,6 +221,78 @@
     "head": "Liver cancer: a third cancer, the same result",
     "sub": "Chance alone puts about {exp} of {n} outside the healthy range; {k} were, and {up} of {n} tumors read above the patient's own healthy liver."
    }
+  },
+  {
+   "id": "DEV-CSCORE-BAND-01",
+   "date": "2026-10-13",
+   "kind": "result",
+   "instrument": "C-score",
+   "status": "development",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",
+   "compute": "cscore_band",
+   "title": "The clustering meter's healthy range holds in two new laboratories",
+   "plain": "Our second meter, the clustering meter, reads the shape of the damage: whether errors clump together, as they do when a whole region is wiped, or stay scattered, as ordinary errors do. Its healthy range was set on other laboratories' arrays and committed before two new laboratories' healthy blood was read. In both, at least 95 percent of healthy people had to read inside the range, and they did. The second laboratory passed by a single array, and both are whole blood rather than the purified cells the meter is being commissioned on, so this is development, not commissioning.",
+   "win": {
+    "rank": 13,
+    "stat": "2 of 2 labs",
+    "head": "Our second meter's healthy range holds in new laboratories",
+    "sub": "{in1} of {n1} and {in2} of {n2} healthy people inside a range set before either laboratory was read (bar: 95 percent). The second passed by one array."
+   }
+  },
+  {
+   "id": "ATLAS-V2-PUBLIC",
+   "date": "2026-10-12",
+   "kind": "milestone",
+   "instrument": "atlas",
+   "status": "published",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/atlas/v2/README.md",
+   "compute": "atlas_release",
+   "title": "IAM-Atlas v2 is public, with a DOI",
+   "plain": "Our reference of healthy human cell types, built from two leading public atlases and fitted with full uncertainty, is deposited on Zenodo with a permanent DOI and an open license. Every file was checked after upload, one script downloads and verifies it, and the build files in the repository rebuild it.",
+   "win": {
+    "rank": 14,
+    "stat": "DOI",
+    "head": "IAM-Atlas v2 is public",
+    "sub": "{cells} healthy cell types with full uncertainty, every file checked. DOI {doi}."
+   }
+  },
+  {
+   "id": "REPRO-CLEANROOM-2026-10-11",
+   "date": "2026-10-11",
+   "kind": "milestone",
+   "instrument": "Met-A",
+   "status": "reproduced",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/cleanroom_2026-10-11.md",
+   "title": "The commissioned instrument rebuilt from scratch on a clean machine",
+   "headline": "**The commissioned instrument rebuilt from scratch.** A fresh copy of the repository, an empty folder, and only public arrays the scripts fetched themselves: every commissioned number came out identical, and nothing in the repository changed",
+   "plain": "We started from nothing, the way a stranger would: a fresh copy of the repository on a clean folder, public data only, and the four commands the commissioning note lists. Every number our commissioned instrument uses came out identical. The rebuild also found two hidden inputs (an unpinned software version and the chip maker's files), which are now pinned and checked on every run.",
+   "win": {
+    "rank": 15,
+    "stat": "Identical",
+    "head": "Rebuilt from scratch on a clean machine",
+    "sub": "A fresh copy of the repository and public data only: every number the commissioned instrument uses came out identical."
+   }
+  },
+  {
+   "id": "DEV-FIELD-01-F2",
+   "date": "2026-10-13",
+   "kind": "result",
+   "instrument": "Met-A",
+   "status": "development",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_FIELD_01.md",
+   "compute": "field_f2",
+   "title": "Breast tumors seen again, in a second laboratory's patients",
+   "plain": "A new group of women with breast cancer, from a different laboratory. Each tumor was read against the tissue of the same breast on the same slide, by a rule written and sealed before any array was opened, and the reading saw the tumor in more of them than the rule required. The study also asked a harder question: whether the healthy-looking tissue next to a tumor already differs from the woman's other breast. It fell one woman short of the bar, so that question stays open.",
+   "win": {
+    "rank": 16,
+    "stat": "{k} of {n}",
+    "head": "Breast tumors seen again, in a second laboratory's patients",
+    "sub": "Each tumor read against the same breast's tissue on the same slide, by a rule sealed first; {crit} were needed. Whether the tissue beside a tumor already differs from the other breast fell one short ({f1k} of {f1n})."
+   }
   }
  ],
  "losses": [

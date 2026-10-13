@@ -55,3 +55,5 @@ pooled (Tian brain cells).
 `doors/ATLAS_V2_SPEC.md` (model, acceptance tests), `doors/ATLAS_SOURCES_SURVEY.md` (every source considered),
 `doors/CLASS_HISTORY.md` and `doors/CLASS_ASSIGNMENT_RULE_DRAFT.md` (the eight classes), `doors/CLASS_USE_INVENTORY.md`,
 `doors/PROC_OUTSPAN_01_PREREG.md` (the clean map built from this atlas), `doors/PROC_PARTIALCOV_01_PREREG.md` (not adopted, D9).
+
+**Milestone:** the public deposit with a DOI (2026-10-12); listed on the front page and in `CANON/results_register.json`.

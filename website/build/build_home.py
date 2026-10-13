@@ -80,7 +80,8 @@ def page(art):
     regs = sorted([e for e in REG["entries"] if e.get("status") != "withdrawn"], key=lambda e: e["win"]["rank"])
     def card(e):
         w, v = e["win"], vals(e); f = lambda t: E(t.format(**v))
-        chip = '<span class="chip st-g">Commissioned</span>' if e["status"] == "commissioned" else '<span class="chip st-b">Passed its sealed test</span>'
+        chip = {"commissioned": '<span class="chip st-g">Commissioned</span>', "published": '<span class="chip st-g">Published</span>',
+                "reproduced": '<span class="chip st-g">Reproduced</span>'}.get(e["status"], '<span class="chip st-b">Passed its sealed test</span>')
         return f'''<article class="res win">{chip}<p class="stat">{f(w["stat"])}</p><h3>{f(w["head"])}</h3><p>{f(w["sub"])}</p><p class="more"><span>{E(e["date"])}</span> · <a href="{rec(e["record"])}">the record</a></p></article>'''
     MT = J("CANON/method.json")
     AS = J("CANON/assistant.json")
@@ -120,13 +121,29 @@ def page(art):
     levers_list = "\n".join(lever_row(x) for x in LV["levers"])
     results = "\n".join(card(e) for e in regs[:3])
     if len(regs) > 3:
-        results += ('\n<details><summary>' + str(len(regs) - 3) + ' more results, oldest and newest alike</summary>\n'
-                    + "\n".join(card(e) for e in regs[3:]) + '\n</details>')
+        # the fold spans the whole grid and holds its own grid, so folded cards lay out side by side (they stacked in one cell before)
+        _more = sorted(regs[3:], key=lambda e: e["date"], reverse=True)
+        results += ('\n<details class="span"><summary>' + str(len(_more)) + ' more results, newest first</summary>\n<div class="grid">'
+                    + "\n".join(card(e) for e in _more) + '</div>\n</details>')
     decisions = "\n".join(f'<li><b>{E(x["date"])}</b> {E(x["plain"])} <a href="{rec(x["record"])}">the record</a></li>' for x in REG.get("decisions", []))
     losses = "\n".join(f'<li><b>{E(x["date"])}</b> {E(x["plain"])} <a href="{rec(x["record"])}">the record</a></li>' for x in REG["losses"])
     mouse = next(e for e in REG["entries"] if e["id"] == "DEV-SAM-LEVER-01"); mv = vals(mouse)
     going = "; ".join(E(s_["headline"]) for s_ in NRJ["stories"] if s_["status"] != "result")
     AT = J("CANON/atlas_release.json")
+    import importlib.util as _ilu
+    _sp = _ilu.spec_from_file_location("v21r", os.path.join(REPO, "CANON", "v21_readiness.py")); _v21 = _ilu.module_from_spec(_sp); _sp.loader.exec_module(_v21)
+    _VR = J("CANON/v21_readiness.json")
+    def _cnt(st):
+        xs = [x for x in _VR["items"] if x["stage"] == st]; return sum(_v21.state(x)[0] for x in xs), len(xs)
+    _bl, _bx, _af = _cnt("before_launch"), _cnt("box_first"), _cnt("after_fit")
+    _gnames = [(_v21.state(x)[0], re.sub(r"^ATL-0[0-9][0-9] ", "", x["what"]).split(":")[0]) for x in _VR["items"] if x["stage"] == "after_fit"]
+    _gifts = "".join("<li>" + ("<b>Done:</b> " if d else "") + E(n) + "</li>" for d, n in _gnames)
+    v21_banner = (f'<section class="wrap" id="v21"><div class="banner"><p class="kicker">Now building</p><h2>IAM-Atlas v2.1</h2>'
+        f'<p>The next version of our healthy-cell reference, built from Loyfer\'s and Moss\'s atlases plus sorted cells from new laboratories, '
+        f'fitted with full uncertainty, and checked against their own references on their own job before anything is called better. '
+        f'Before launch: <b>{_bl[0]} of {_bl[1]}</b> items met &middot; on the box: <b>{_bx[0]} of {_bx[1]}</b> &middot; after the fit: <b>{_af[0]} of {_af[1]}</b>. '
+        f'Counted by code from <a href="{rec("Biological_Physics/MethylPhys/V21_READINESS.md")}">the readiness board</a>.</p>'
+        f'<details><summary>What v2.1 will carry</summary><ul class="road">{_gifts}</ul></details></div></section>')
     MF = J("CANON/manifest.json"); _CLOSED = {"run", "retired"}
     mf_total = len(MF["rows"]); mf_run = sum(1 for r in MF["rows"] if r["runs"]); mf_open = sum(1 for r in MF["rows"] if r["status"] not in _CLOSED)
     mf_rows = "\n".join(
@@ -165,6 +182,7 @@ def page(art):
 <p class="lead">We read the methylation of human DNA with the same mathematics cosmologists use to map the sky, to measure how faithfully a cell holds its information. The goal is early cancer detection from a blood or stool sample. Every test is written down before its data is read, and every result is recorded in the open, win or lose: <a href="#daylogs">the daily log</a>.</p>
 <p class="cta"><a class="btn" href="#daylogs">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
 <main>
+{v21_banner}
 <section class="wrap" id="daylogs"><h2>Start here: the daily log</h2>
 <p class="cta">{"".join(f'<a class="btn" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[:1])}{"".join(f'<a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[1:4])}</p>
 </section>
@@ -276,7 +294,7 @@ a{color:var(--link)}
 .cta{margin-top:26px}.btn{display:inline-block;padding:11px 20px;margin:0 10px 10px 0;border-radius:6px;background:#8DB8F2;color:#10141a;text-decoration:none;font-weight:600}
 .btn.ghost{background:transparent;color:#F2F0EA;border:1px solid rgba(242,240,234,.6)}
 section{padding:56px 0 8px} h2{font-size:30px;margin:0 0 6px;letter-spacing:-.01em} .sub{color:var(--muted);margin:0 0 22px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}.banner{border:1px solid rgba(127,127,127,.35);border-radius:14px;padding:18px 22px}details.span{grid-column:1/-1}details.span>.grid{margin-top:18px}
 .card,.res{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:20px 22px}
 .card h3,.res h3{margin:10px 0 8px;font-size:19px;line-height:1.3}
 .chip{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:999px;color:var(--st-fg)}

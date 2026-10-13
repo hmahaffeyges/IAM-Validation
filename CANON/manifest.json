@@ -486,7 +486,7 @@
    "next_step": "none",
    "cost": "none",
    "impact": 4,
-   "notes": "Record path is the reproduction README cited by the commissioning note; the clean-room file is doors/data/MET_A_FLOOR_V13_REPRO/cleanroom_2026-10-11.md.",
+   "notes": "Record path is the reproduction README cited by the commissioning note; the clean-room file is doors/data/MET_A_FLOOR_V13_REPRO/cleanroom_2026-10-11.md. | front page: REPRO-CLEANROOM-2026-10-11",
    "depends_on": [],
    "legacy_ids": [],
    "id": "COM-METAA-010",

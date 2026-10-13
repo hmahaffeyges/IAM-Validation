@@ -49,6 +49,7 @@ def render_todo(J):
     done = [r for r in J["rows"] if r["runs"]]
     L += ["", "## Run at least once", ""] + [f"- [x] **{r['id']}** {esc(r['title'])}: last run {r['runs'][-1]['date']}, {r['runs'][-1]['outcome']}" for r in done]
     return "\n".join(L) + "\n"
+_REG_IDS = {e["id"] for e in json.load(open(os.path.join(ROOT, "CANON", "results_register.json"), encoding="utf-8"))["entries"]}
 def problems(J):
     P = []; ids = [r["id"] for r in J["rows"]]; codes = {s["code"] for s in J["sections"]}
     for i in sorted({i for i in ids if ids.count(i) > 1}): P.append(f"duplicate id {i}")
@@ -59,6 +60,16 @@ def problems(J):
             if x.get("outcome") not in OUTCOMES or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", x.get("date", "")): P.append(f"{r['id']}: run {x}")
         if r.get("record") and not os.path.exists(os.path.join(ROOT, r["record"])): P.append(f"{r['id']}: record {r['record']} does not exist")
         if not r.get("purpose"): P.append(f"{r['id']}: no purpose")
+        # FRONT PAGE RULE (author, 2026-10-13: the accomplishments must not fall behind). From 2026-10-14 on, every SUCCESS run on a row of
+        # impact 4 or 5 must say whether it goes on the front page: page = "headline: <results_register id>" (that entry must exist), or
+        # page = "not headline: <reason>". An undecided big win refuses the push, so the page cannot quietly fall behind the manifest.
+        for x in r.get("runs", []):
+            if x.get("outcome") == "success" and x.get("date", "") >= "2026-10-14" and int(r.get("impact") or 0) >= 4:
+                pg = str(x.get("page", ""))
+                if pg.startswith("headline:"):
+                    if pg.split(":", 1)[1].strip() not in _REG_IDS: P.append(f"{r['id']}: run {x['date']} names front-page entry {pg.split(':', 1)[1].strip()!r}, which is not in CANON/results_register.json")
+                elif not (pg.startswith("not headline:") and len(pg) > 20):
+                    P.append(f"{r['id']}: success on {x['date']} (impact {r.get('impact')}) has no front-page decision (run field page = 'headline: <id>' or 'not headline: <reason>')")
     try:
         old = json.loads(subprocess.run(["git", "show", "HEAD:CANON/manifest.json"], cwd=ROOT, capture_output=True, text=True, check=True).stdout)
         gone = sorted({r["id"] for r in old["rows"]} - set(ids)); P += [f"{i} was removed (a test is never removed; give it a run or status retired)" for i in gone]
