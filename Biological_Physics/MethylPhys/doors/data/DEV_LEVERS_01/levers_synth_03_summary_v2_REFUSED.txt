@@ -1,0 +1,5 @@
+DEV-LEVERS-01 synthetic test 3 (v2): can the readings say which of the three channels was impaired?
+healthy eps at balance 0.0172 (target 0.032) | healthy clustering 3.234 | 200 draws, 400 molecules x 2000 sites, 300 intervals to balance
+
+REFUSED TO SCORE: the healthy draw is not at the balance the foundation sets (0.0172 vs 0.032); the rates or the
+number of intervals are wrong, and nothing read from an off-balance simulation means anything.

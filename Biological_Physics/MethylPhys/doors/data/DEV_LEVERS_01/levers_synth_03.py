@@ -1,4 +1,4 @@
-"""DEV-LEVERS-01 synthetic test 3, version 2 (rates calibrated 2026-10-13 so the CHAIN READS eps_0; see the note below) (written 2026-10-13, before it was run; v1 kept as levers_synth_03_v1_INVALID.*).
+"""DEV-LEVERS-01 synthetic test 3, version 3 (2026-10-13: the healthy balance is set with the RESTORE rate; see the note below) (written 2026-10-13, before it was run; v1 kept as levers_synth_03_v1_INVALID.*).
 
 Why v1 was thrown away, before its verdict was read: it ran ONE interval from a perfectly methylated start, so the held error
 never reached its balance - the healthy draw read eps 0.0009 against its own target of 0.032, a factor of 35 - and it scaled
@@ -43,11 +43,14 @@ NMOL, NSITE, NDRAW, RUN, EPS0, BLOCK, NSTEP = 400, 2000, 200, 15, 0.032, 50, 300
 rg = np.random.default_rng(20261013)
 F_COPY, F_ERASE = 0.0020, 0.0010                     # per site per interval, healthy (scaled below)
 G_DENOVO = (F_COPY + F_ERASE) * (1 - EPS0) / EPS0    # the restore rate that puts the STATE balance at eps_0
-# The state balance and the chain's READING are not the same number, and the difference is the point of this test: the chain
-# counts isolated unmethylated calls between two methylated calls, so a run of 15 lost sites contributes only its two ends.
-# A simulation whose STATE sits at eps_0 therefore READS below eps_0 (0.0172 on the first attempt). The rates are calibrated
-# here so the chain READS eps_0 = 0.032 on healthy draws, because eps_0 is defined as a reading, not as a state. The
-# calibration is on the loss side with the restore rate fixed, and the factor it lands on is reported in the summary.
+# WHY v3 CHANGES THE CALIBRATION (v2 kept as *_v2_REFUSED.*). The chain's held-error reading matches an ISOLATED loss: a
+# methylated call on BOTH sides of an unmethylated one. A run of two or more consecutive losses therefore contributes EXACTLY
+# ZERO to it - not even its ends. That is a real property of the instrument, read out of the code, and it is why the held-error
+# meter and the clustering meter are complementary rather than redundant: the first is blind to clustered loss, the second is
+# built for it. Consequence here: most loss in this test is planted in runs of 15, so raising the LOSS rate cannot raise the
+# reading - v2's bisection ran to the top of its bracket and still read 0.0172 against the 0.032 target, and refused to score,
+# correctly. v3 sets the healthy balance with the RESTORE rate instead: it is the rate that defines the balance and it moves
+# the reading monotonically. Both the state balance and the chain's reading are reported, so the gap is documented.
 
 def evolve(M, steps, fc=1.0, fe=1.0, gd=1.0):
     for _ in range(steps):
@@ -56,7 +59,7 @@ def evolve(M, steps, fc=1.0, fe=1.0, gd=1.0):
             for s in rg.integers(0, NSITE - RUN, kk): M[i, s:s + RUN] = False
         M &= rg.random((NMOL, NSITE)) > F_ERASE * LOSS * fe                 # erase: scattered loss
         lost = ~M
-        M |= lost & (rg.random((NMOL, NSITE)) < G_DENOVO * gd)       # de novo: scattered restore
+        M |= lost & (rg.random((NMOL, NSITE)) < G_DENOVO * GD * gd)       # de novo: scattered restore
     return M
 
 def read(M):
@@ -76,20 +79,24 @@ def draw(**kw):
     return read(M)
 
 LOSS = 1.0
+GD = 1.0
 def _healthy_read(k, n=24):
-    global LOSS; LOSS = k
+    global GD; GD = k
     return float(np.median([draw()[0] for _ in range(n)]))
-lo, hi = 1.0, 6.0                                     # bisect the loss multiplier so the chain READS eps_0
-for _ in range(9):
+# bisect the RESTORE multiplier so the chain READS eps_0; a LOWER restore rate raises the reading, so the bracket is inverted
+lo, hi = 0.02, 2.0
+_rl, _rh = _healthy_read(lo), _healthy_read(hi)
+assert _rh < EPS0 < _rl, f"the bracket does not contain eps_0: reading {_rl:.4f} at restore x{lo} and {_rh:.4f} at x{hi}"
+for _ in range(10):
     mid = (lo + hi) / 2
-    if _healthy_read(mid) < EPS0: lo = mid
+    if _healthy_read(mid) > EPS0: lo = mid
     else: hi = mid
-LOSS = (lo + hi) / 2
+GD = (lo + hi) / 2
 base = np.array([draw() for _ in range(NDRAW)])      # columns: eps, chain clustering, chain entropy H(eps)
 hm = float(np.median(base[:, 0]))
 L = ["DEV-LEVERS-01 synthetic test 3 (v2): can the readings say which of the three channels was impaired?",
      f"healthy eps at balance {hm:.4f} (target {EPS0}) | healthy clustering {np.median(base[:,1]):.3f} | "
-     f"{NDRAW} draws, {NMOL} molecules x {NSITE} sites, {NSTEP} intervals to balance | loss multiplier calibrated to {LOSS:.3f} so the CHAIN READS eps_0 (the state balance sits above it, because a run of {RUN} lost sites contributes only its two ends)", ""]
+     f"{NDRAW} draws, {NMOL} molecules x {NSITE} sites, {NSTEP} intervals to balance | restore multiplier calibrated to {GD:.4f} so the CHAIN READS eps_0; state balance f/(f+g) = {(F_COPY + F_ERASE) / (F_COPY + F_ERASE + G_DENOVO * GD):.4f}", ""]
 if not (0.9 * EPS0 <= hm <= 1.1 * EPS0):
     L += [f"REFUSED TO SCORE: the healthy draw is not at the balance the foundation sets ({hm:.4f} vs {EPS0}); the rates or the",
           "number of intervals are wrong, and nothing read from an off-balance simulation means anything."]
