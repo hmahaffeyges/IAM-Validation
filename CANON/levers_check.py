@@ -24,6 +24,7 @@ def section():
         out += ["## How to read this chapter (the author's framing, kept in his words)", ""]
         out += [("> " + x if x.strip() else ">") for x in L["chapter_opening"].split("\n")] + [""]
     if L.get("_reading_scope"): out += ["**What the reading is, and is not.** " + L["_reading_scope"], ""]
+    if L.get("_layer"): out += ["**Core or medium.** " + L["_layer"], ""]
     out += ["## The levers, one record each (generated from `CANON/levers.json`)", ""]
     for x in L["levers"]:
         out += [f"### {x['name']}", "",
@@ -43,6 +44,9 @@ def section():
 def problems():
     P = []
     for x in L["levers"]:
+        if x.get("falsifier_scope") not in ("law", "medium"):
+            P.append(f"lever {x['id']}: falsifier_scope must be 'law' (the handle reaches the term with nothing fitted in between) or "
+                     f"'medium' (biology sits in the way) - see CANON/foundation.json, _layers")
         if not x.get("reading_scope"):
             P.append(f"lever {x['id']}: no reading_scope - state what the gauge actually reads for this lever (foundation entry what_is_read)")
         if not x.get("falsifier"): P.append(f"lever {x['id']}: no falsifier - a lever without one is a demonstration, not a test")

@@ -7,7 +7,8 @@
    "status": "the law",
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
    "anchor": "Every irreversible transition from quantum superposition to classical record pays $\\kB T\\ln2$ per bit",
-   "commit": "2c737a57"
+   "commit": "2c737a57",
+   "layer": "core"
   },
   {
    "id": "balance",
@@ -15,7 +16,9 @@
    "status": "DERIVED",
    "derived_in": "docs/book/part6/p6_02_landauer.tex",
    "anchor": "\\section{The held state is a balance of restore and loss}",
-   "commit": "2c737a57"
+   "commit": "2c737a57",
+   "layer": "core",
+   "layer_note": "the kinetics of the core, stated substrate-free: any interval, dividing or not"
   },
   {
    "id": "balance_equation",
@@ -23,7 +26,8 @@
    "status": "DERIVED",
    "derived_in": "docs/book/part6/p6_02_landauer.tex",
    "anchor": "\\varepsilon=\\frac{f}{f+g}",
-   "commit": "2c737a57"
+   "commit": "2c737a57",
+   "layer": "core"
   },
   {
    "id": "copy_error_term",
@@ -31,7 +35,8 @@
    "status": "definition in force",
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
    "anchor": "Set by the balance of restore and loss, whether the error was written when the DNA was copied or",
-   "commit": "2c737a57"
+   "commit": "2c737a57",
+   "layer": "core"
   },
   {
    "id": "e_hold",
@@ -39,7 +44,8 @@
    "status": "measured",
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
    "anchor": "read from the copy error as $\\kB T\\ln[(1-\\varepsilon)/\\varepsilon]$",
-   "commit": "2c737a57"
+   "commit": "2c737a57",
+   "layer": "core"
   },
   {
    "id": "eps0",
@@ -47,7 +53,8 @@
    "status": "derived from the measured holding energy",
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
    "anchor": "\\varepsilon_0=1/(1+e^{\\varphi\\mathcal M})=0.032",
-   "commit": "2c737a57"
+   "commit": "2c737a57",
+   "layer": "core"
   },
   {
    "id": "iam_a",
@@ -55,7 +62,9 @@
    "status": "definition in force",
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
    "anchor": "IAM-A $=H(\\varepsilon)/(P_{\\rm cell}H(\\varepsilon_0))$",
-   "commit": "2c737a57"
+   "commit": "2c737a57",
+   "layer": "medium",
+   "layer_note": "an instrument, not a law: it reads the core's terms in one substrate through one named pipeline"
   },
   {
    "id": "h_min",
@@ -63,7 +72,8 @@
    "status": "DERIVED (the floor; M alone fixes it)",
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
    "anchor": "It is not the denominator of $A$ and not 1",
-   "commit": "2c737a57"
+   "commit": "2c737a57",
+   "layer": "core"
   },
   {
    "id": "mahaffey_number",
@@ -71,7 +81,8 @@
    "status": "DERIVED from the drive energy (a calculation, not a fit)",
    "derived_in": "docs/book/part6/p6_02_landauer.tex",
    "anchor": "M=\\frac{\\dGATP}{R\\Tb}=\\frac{54\\,000}{8.314462618\\times310.15}=20.94",
-   "commit": "2c737a57"
+   "commit": "2c737a57",
+   "layer": "core"
   },
   {
    "id": "drive_fraction_phi",
@@ -79,7 +90,8 @@
    "status": "definition in force (phi M is the measured holding energy)",
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
    "anchor": "\\varepsilon_0=1/(1+e^{\\varphi\\mathcal M})=0.032",
-   "commit": "2c737a57"
+   "commit": "2c737a57",
+   "layer": "core"
   },
   {
    "id": "gauge_three_marks",
@@ -87,7 +99,8 @@
    "status": "DERIVED (both ends) and MEASURED (the middle only)",
    "derived_in": "docs/book/part6/p6_06_gauge.tex",
    "anchor": "The two ends of the gauge are fixed by physics: the floor by thermal kicks against one ATP,",
-   "commit": "2c737a57"
+   "commit": "2c737a57",
+   "layer": "core"
   },
   {
    "id": "three_energies",
@@ -95,7 +108,8 @@
    "status": "DERIVED from the holding energies; only eps_0's energy is measured",
    "derived_in": "docs/book/part6/p6_08_iama.tex",
    "anchor": "\\varepsilon_{\\min}=\\frac{1}{1+e^{M}},\\qquad \\varepsilon_0=\\frac{1}{1+e^{\\phi M}}",
-   "commit": "2c737a57"
+   "commit": "2c737a57",
+   "layer": "core"
   },
   {
    "id": "entropy_ceiling",
@@ -103,7 +117,8 @@
    "status": "DERIVED",
    "derived_in": "docs/book/part6/p6_07_meta.tex",
    "anchor": "Met-A rises with loss only while those sites stay above $\\beta=\\tfrac12$",
-   "commit": "d2f66a76"
+   "commit": "d2f66a76",
+   "layer": "core"
   },
   {
    "id": "what_is_read",
@@ -111,7 +126,8 @@
    "status": "DERIVED from what the entropy reading is (a statement about the pattern, not its cause)",
    "derived_in": "docs/book/part6/p6_02_landauer.tex",
    "anchor": "\\section{Margin per write, and fidelity per write}",
-   "commit": "2c737a57"
+   "commit": "2c737a57",
+   "layer": "core"
   }
  ],
  "retired_phrasings": [
@@ -213,5 +229,6 @@
    "docs/book/part6",
    "docs/book/part7"
   ]
- }
+ },
+ "_layers": "Every statement here is CORE or MEDIUM (the author, 2026-10-13). CORE is the law itself and is substrate-free: fidelity against a floor and a ceiling fixed by physics, the balance of restore and loss, M, phi, and what the reading is. The same core reads a qubit and a chip. MEDIUM is how a handle reaches the core's terms in one substrate - in a cell, enzymes, methyl supply, body temperature, oxygen. A lever that moves fidelity is a real lever, but it belongs to the medium, not to the core: change substrate and the levers change while the law does not. Consequence: a medium statement being wrong does not touch the law, and the law being wrong cannot be excused as a medium error. Each lever's falsifier must therefore say WHICH it would break."
 }

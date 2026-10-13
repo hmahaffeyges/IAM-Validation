@@ -22,7 +22,10 @@
    "status": "designed, hibernation first",
    "falsifier": "the same animal's cells at 5 C and at 37 C read the SAME holding energy within the measurement error, or move in the opposite direction to the temperature ratio. That breaks the floor's temperature dependence, which is IAM's law applied to the cell.",
    "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
-   "reading_scope": "The gauge reads order against disorder; the handle is the experiment, not the reading."
+   "reading_scope": "The gauge reads order against disorder; the handle is the experiment, not the reading.",
+   "layer": "medium",
+   "falsifier_scope": "law",
+   "falsifier_scope_why": "kT sits in the floor and in the holding energy directly; a within-animal warm/cold reading needs no biology in between, so a null there is a failure of the law"
   },
   {
    "id": "division_rate",
@@ -42,7 +45,10 @@
    "status": "reference rule sealed; laboratories unread",
    "falsifier": "sorted neurons show the held error rising with age beyond 10 % across a lifetime while their restore and loss rates are unchanged. At balance it must not rise; a rise with unchanged rates contradicts the derivation.",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
-   "reading_scope": "The gauge reads order against disorder; the handle is the experiment, not the reading."
+   "reading_scope": "The gauge reads order against disorder; the handle is the experiment, not the reading.",
+   "layer": "medium",
+   "falsifier_scope": "law",
+   "falsifier_scope_why": "the balance says the held error is set by the ratio of restore to loss and NOT by the number of divisions; a non-dividing cell whose held error climbs with age contradicts the balance itself"
   },
   {
    "id": "methyl_supply",
@@ -61,7 +67,10 @@
    "status": "parked, awaiting a design",
    "falsifier": "restricting the methyl supply enough to lower the restore rate measurably leaves the held error unchanged, or lowers it. Either contradicts eps = f/(f+g).",
    "record": "Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md",
-   "reading_scope": "The gauge reads order against disorder; the handle is the experiment, not the reading."
+   "reading_scope": "The gauge reads order against disorder; the handle is the experiment, not the reading.",
+   "layer": "medium",
+   "falsifier_scope": "medium",
+   "falsifier_scope_why": "the dose-to-rate relation between supply and the restore rate is not derived; a null means our account of the medium is wrong, not that the law is"
   },
   {
    "id": "write_enzymes",
@@ -79,7 +88,10 @@
    "status": "test 3 designed",
    "falsifier": "a tumor whose erase channel is chemically blocked reads the SAME balance as a matched tumor with the channel intact, with everything else equal. If blocking one side of the balance does not move it, the balance is not what sets the held error.",
    "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
-   "reading_scope": "The gauge reads order against disorder; the handle is the experiment, not the reading."
+   "reading_scope": "The gauge reads order against disorder; the handle is the experiment, not the reading.",
+   "layer": "medium",
+   "falsifier_scope": "medium",
+   "falsifier_scope_why": "which operation an enzyme serves, and how far a chemical block reaches it, is biology in the way of the term"
   },
   {
    "id": "mechanism_clustering",
@@ -99,9 +111,13 @@
    "status": "met in simulation; the boundary is stated",
    "falsifier": "a cancer whose loss is known to be processive reads scattered, or a known chemical exposure reads clustered. That would mean the reading does not measure mechanism at all.",
    "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
-   "reading_scope": "The reading separates ISOLATED errors from errors that RUN TOGETHER. That is a property of the pattern, not of a machine. Calling a run-together pattern 'processive enzymatic failure' is an inference outside the physics and is labelled as such wherever stated."
+   "reading_scope": "The reading separates ISOLATED errors from errors that RUN TOGETHER. That is a property of the pattern, not of a machine. Calling a run-together pattern 'processive enzymatic failure' is an inference outside the physics and is labelled as such wherever stated.",
+   "layer": "medium",
+   "falsifier_scope": "medium",
+   "falsifier_scope_why": "that a given failure runs along the strand is an assumption about the medium; what the law owns is only that isolated and run-together disorder are different patterns"
   }
  ],
  "chapter_opening": "The author's framing of what the gauge is, and the opening the lever chapter should keep (2026-10-13, his words):\n\nFeeling the foreheads of fifty people with the back of your hand tells you who is hottest IN THAT ROOM. There is no ruler and no physics in it, the answer changes with the room, and it can never be brought down to one person. A calibrated thermometer on one forehead reads 104.1 for that person, who came in alone: a definite fever, with a cause the thermometer does not claim to name. It reads 100.1 as something to ask a doctor about, and 98.6 as ordinary for someone of that age. It also reads a freezer, because the freezing point of water is fixed whatever else is in the room, and the same construction says how far a quantum computer's cooler sits from absolute zero, because the physics behind it is known and the instrument is calibrated to it.\n\nEvery lever in this chapter is a handle on one of those fixed points or on the measured middle. A lever that moves the drive moves the FLOOR; a lever that pushes a specimen toward beta = 1/2 runs it at the CEILING, past which the reading is no longer monotone; a lever that changes the balance of restore and loss moves the MIDDLE, which is the only mark that was ever measured. The class era (retired) was the back of a hand across a room; this chapter is the thermometer, and its job is to say what would prove the calibration wrong.\n\nAnd what the chapter does NOT claim: the gauge never sees an enzyme. It reads informational fidelity - whether the pattern is still held, how far it has drifted, and whether its errors are isolated or run together. Every mechanism named below is a handle pulled in an experiment or an inference drawn afterwards, labelled as one.",
- "_reading_scope": "Every lever below is a HANDLE PULLED IN AN EXPERIMENT. The reading is not of the handle: it is informational fidelity, order against disorder in the held pattern, as errors in individual molecules (CANON/foundation.json, entry what_is_read). So no row here may be read as 'the gauge identified which machine failed'. What a lever earns is narrower and stronger: pull this handle and the held error, or the clustering of its errors, must move the derived way - and if it does not, the law is wrong there."
+ "_reading_scope": "Every lever below is a HANDLE PULLED IN AN EXPERIMENT. The reading is not of the handle: it is informational fidelity, order against disorder in the held pattern, as errors in individual molecules (CANON/foundation.json, entry what_is_read). So no row here may be read as 'the gauge identified which machine failed'. What a lever earns is narrower and stronger: pull this handle and the held error, or the clustering of its errors, must move the derived way - and if it does not, the law is wrong there.",
+ "_layer": "Every lever is MEDIUM, not core (CANON/foundation.json, _layers). The law is substrate-free; a lever is how a handle reaches one of its terms in a cell. So each lever's falsifier must declare its SCOPE: 'law' only where the handle reaches the term with nothing fitted in between, 'medium' where biology sits in the way. Getting the medium wrong says nothing about the law; and a law-scope failure may not be excused as a medium error afterwards."
 }
