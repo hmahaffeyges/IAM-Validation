@@ -202,11 +202,7 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 </details>
 </section>
 <div class="art-band" style="background-image:url({art("chip_banner.jpg")})" role="img" aria-label="Art from the book"></div>
-<section class="wrap" id="lost"><h2>Decisions that shape every reading</h2>
-<p class="sub">Choices that change what every result means, in plain words, each with its record. A decision made after seeing data says so.</p>
-<ul class="plain">{decisions}</ul>
-
-<h2>What has failed</h2><p class="sub">Every one was written down in advance and reported on ourselves. This is why the results above mean something.</p>
+<section class="wrap" id="lost"><h2>What has failed</h2>
 <details><summary>{len(REG["losses"])} failures, each with its record</summary><ul class="road lost">{losses}</ul></details>
 <details><summary>What these results are not</summary><p class="more"> Each sealed cancer test asked whether tumors leave the healthy range more often than chance across a group of patients. None is a per-patient test and none is a diagnostic: there is no sensitivity, no specificity and no detection limit yet. That test is on the road ahead, and no early-detection claim is made before it.</p>
 </details>

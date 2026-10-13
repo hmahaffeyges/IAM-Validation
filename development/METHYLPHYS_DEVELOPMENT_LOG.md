@@ -1485,3 +1485,6 @@ The daily-log section is the heading and the log links only; the status line and
 
 ### 2026-10-13 · Every fold starts closed; the book art runs the length of the page (author)
 The four folds that opened by default now start closed, and build.sh refuses a page with any fold set to open. Five book banners not used on the page before (the CMB sky, the quantum lattice, the chip, the genome sky, the four-skies mosaic) now sit between the sections below the black hole.
+
+### 2026-10-13 · Decisions list off the front page (author)
+The decisions list is already in the daily logs, so it is removed from the page; "What has failed" keeps its own heading with the failures and the limits fold.
