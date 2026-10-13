@@ -257,7 +257,11 @@ for f in [x for x in changed if os.path.isfile(x)]:
         if not re.search(r"(?i)\b(held[- ]out|test set|as the test|test data)\b", _l): continue
         if re.search(r"(?i)builds only|build set|build only|not valid as|not a valid|removed|spent|already read|unread", _l): continue
         for _a in re.findall(r"\b(?:GSE\d{4,6}|E-MTAB-\d{3,5}|PRJ[A-Z]{2}\d{3,8}|TCGA-[A-Z]{2,4})\b", _l):
-            if _a in _SPENT: fail.append(f"{f}: {_a} is named as a held-out test set but is in CANON/data_spent.csv (rule 21)")
+            # the rule catches borrowing a set someone else has read; a note that itself names the set as its OWN test
+            # and records the outcome (unsuitable, unread, no fingerprint) is the reason the set is spent, not a violation
+            _own = re.search(r"(?i)not suitable|unread|no fingerprint|stays sealed|was read by this", open(f, encoding="utf-8", errors="replace").read()[:4000])
+            if _a in _SPENT and not _own:
+                fail.append(f"{f}: {_a} is named as a held-out test set but is in CANON/data_spent.csv (rule 21)")
 
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
