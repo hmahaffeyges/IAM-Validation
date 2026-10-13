@@ -70,6 +70,8 @@ def page(art):
     ul = lambda xs: "".join(f"<li>{E(x)}</li>" for x in xs)
     miss = "".join(f'<li><b>{E(m["what"])}</b><br><span class="meta">What caught it: {E(m["caught"])}</span></li>' for m in AS["mistakes"])
     tog = "".join(f'<li><b>{E(x["q"])}</b><br>{E(x["a"])}</li>' for x in AS["together"])
+    OR = J("CANON/origin.json")
+    orig = "".join(f'<li><b>{E(x["q"])}</b><br>{E(x["a"])}</li>' for x in OR["items"])
     LV = J("CANON/levers.json")
     method_secs = "\n".join(f'<h3>{E(x["title"])}</h3><p>{E(x["body"])}</p>' for x in MT["sections"])
     def lever_row(x):
@@ -185,6 +187,11 @@ one of us did all of it. Both halves are dated and public: the founder's correct
 mistakes in the lessons record.</p>
 <details class="fold" open><summary>{E(AS["founder_title"])}</summary>
 <ul class="road">{ul(AS["founder_role"])}</ul>
+</details>
+<details class="fold"><summary>{E(OR["title"])}</summary>
+<p class="sub">{E(OR["lead"])}</p>
+<ul class="road">{orig}</ul>
+<p class="meta">{E(OR["closing"])}</p>
 </details>
 <details class="fold"><summary>{E(AS["together_title"])}</summary>
 <ul class="road">{tog}</ul>

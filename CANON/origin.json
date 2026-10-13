@@ -1,0 +1,32 @@
+{
+ "_rule": "Where IAM came from: the early story, rendered as a fold in the 'who we are' section. Not a credentials list - it is here to answer why the instruments have the shape they have, and it includes the restart, which is the part that matters most. Professional facts only.",
+ "title": "Where IAM came from",
+ "lead": "Every question below is one a reader will have anyway. The short answer to all of them: this framework was not built by someone reading the methylation literature. It was built by someone who spends his working life keeping a physical system inside its limits.",
+ "items": [
+  {
+   "q": "Who built it, and what does he do for a living?",
+   "a": "Heath W. Mahaffey, a senior power-grid system operator. NERC Reliability Operator certified since 2011 (self-funded), PJM generation operator since 2011 and transmission operator since 2012, qualified across all three North American interconnections. He has controlled about 34,000 MW from a Houston trade floor, run balancing authorities from wind-only to load-only, operated transmission in the Four Corners, and for nine years has been a senior operator at a public utility coordinating three hydroelectric dams, lake levels and regional transmission up to 345 kV. Before the grid: building wind farms, drilling rigs and refineries, the North Slope, commercial fishing in the North Atlantic, and air traffic control in the US Navy."
+  },
+  {
+   "q": "Why does that matter for a physics framework?",
+   "a": "Because grid operation and air traffic control are the same discipline: real-time estimation of a networked system's state, with conservation laws that must balance, reserve margins, hard limits that are not crossed, and immediate consequences for fooling yourself. That is the shape of what is built here. The gauge has a floor set by physics, a healthy band measured once, and a ceiling past which the reading stops being monotone - an operator's instrument, which tells you where a system sits relative to its limits."
+  },
+  {
+   "q": "How is that different from the methylation scores already published?",
+   "a": "Most read a cohort: they rank a sample against the other samples in the study, which is useful and is not a measurement. An operator does not ask whether this generator is hotter than the other forty-nine; he asks what temperature it is and how far that is from the limit. The whole framework follows from insisting on the second question."
+  },
+  {
+   "q": "Why go from cosmology to the cell at all?",
+   "a": "Because the same accounting kept working. The idea began in cosmology - that structure drives expansion, and that light and matter separate and do not experience gravity and time alike - and the question each time was whether the same balance of information against a physical floor reads the next system down. Particle masses, then quantum processors, then semiconductors, then a cell's switch pattern. The span from a lepton's mass to the cosmic horizon is about 37 orders of magnitude, and the claim under test is that one accounting covers it."
+  },
+  {
+   "q": "Why methylation specifically, and not a laboratory?",
+   "a": "Partly because the physics suggested it: a cell spends energy to hold a pattern against noise, which is the same problem a processor has. Partly because the door was open. There is no laboratory here and no institutional access - one person, a laptop, rented computers by the hour, and public data that other laboratories measured and published. Which is also why every result on this site can be re-run by anyone."
+  },
+  {
+   "q": "Has any of it been wrong?",
+   "a": "Yes, and the most important case is the first version of this work. An early build set the gauge's floor per 'architecture class': eight classes, borrowed from the quantum and semiconductor work, with their floors fitted by a sampler. The classes were never derived and never defended, the sampler returned numbers for them because a sampler always does, and the movement it found in groups of people could never be brought down to one person. Rather than publish it, the whole thing was retired and rebuilt from derivations, with the floor now set by energy and temperature alone. That era is kept on record, marked retired, with the values a check refuses to let back in."
+  }
+ ],
+ "closing": "None of that is an argument that the framework is right. It is the answer to how it got its shape, and why the records are kept the way they are: the first version failed because nothing underneath it was written down well enough to check."
+}
