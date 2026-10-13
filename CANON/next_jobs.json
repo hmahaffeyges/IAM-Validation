@@ -354,7 +354,8 @@
   },
   {
    "match": "dogs",
-   "plain": "Dogs' cancers. Dogs get many of the same cancers we do, live in our homes and age faster, so they are both a medical case of their own and a faster clock for the same physics."
+   "plain": "Dogs' cancers. Dogs get many of the same cancers we do, live in our homes and age faster, so they are both a medical case of their own and a faster clock for the same physics.",
+   "todo": "B14"
   }
  ],
  "ideas": [
@@ -397,7 +398,7 @@
  ],
  "housekeeping": [
   {
-   "todo": "O1-O5",
+   "todo": "O1, O2, O3, O4, O5",
    "plain": "Operations: terminate rather than stop on-demand machines, multi-type spot launches, per-run cost in the ledger, the fundraiser page, and the workstation decision once funded."
   }
  ]

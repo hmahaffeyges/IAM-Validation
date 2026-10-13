@@ -1,0 +1,21 @@
+{
+ "_rule": "An item of the 2026-10-12 to-do list that is finished, with the date. CANON/todo_coverage.py counts these as placed; nothing may be removed from the list without appearing here or in a job.",
+ "closed": {
+  "N1": "2026-10-12",
+  "N2": "2026-10-12",
+  "N3": "2026-10-12",
+  "N4": "2026-10-12",
+  "N5": "2026-10-12",
+  "AT1": "2026-10-12",
+  "AT2": "2026-10-12",
+  "AT12": "2026-10-12",
+  "AT13": "2026-10-12",
+  "AT10": "2026-10-12 (next due 2027-04-12)",
+  "B1": "2026-10-11",
+  "B3": "2026-10-11",
+  "B11": "2026-10-12",
+  "B9": "open in job 19",
+  "O1": "2026-10-12",
+  "O2": "2026-10-12"
+ }
+}

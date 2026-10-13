@@ -5,7 +5,9 @@ stands. Generated from CANON/next_jobs.json by CANON/roadmap.py; do not edit by 
 on the [main page](README.md); every experiment's story: the [field notes](FIELD_NOTES.md); every machine run and its cost: the
 [run ledger](Biological_Physics/MethylPhys/RUNS.md).*
 
-## 
+## The order of work
+
+*In priority order: each job is what most strengthens the two instruments and the law at that point.*
 
 1. **Finish Met-A's last two checks: the clustering reading's bars, which were narrowly unmet, and healthy readings across donor ages.** Needs the laptop; 3-5 sessions. Where it stands: queued, data in hand for the first. [Record](Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md)
 2. **Commission the atlas one use at a time: the sites a tissue test reads, the blood-composition step, and the per-cell identity sites, each checked on purified healthy cells from laboratories that did not build the atlas.** Needs the laptop; 1-2 weeks. Where it stands: the order is written; the first use is being commissioned. [Record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_COMMISSION_01.md)

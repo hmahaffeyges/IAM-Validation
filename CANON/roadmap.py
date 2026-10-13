@@ -35,15 +35,11 @@ def render(J):
          "stands. Generated from CANON/next_jobs.json by CANON/roadmap.py; do not edit by hand. What is running right now: the Now running board",
          "on the [main page](README.md); every experiment's story: the [field notes](FIELD_NOTES.md); every machine run and its cost: the",
          "[run ledger](Biological_Physics/MethylPhys/RUNS.md).*", ""]
-    seen = []
-    for j in J["jobs"]:
-        if j["impact"] not in seen: seen.append(j["impact"])
-    n = 0
-    for k in seen:
-        L += [f"## {KIND.get(k, k)}", ""]
-        for j in [x for x in J["jobs"] if x["impact"] == k]:
-            n += 1; L += [f"{n}. **{j['plain']}** Needs {j['needs']}; {j['estimate']}. Where it stands: {j['stands']}. [Record]({j['record']})"]
-        L += [""]
+    # One list, in the author's priority order (CANON/next_jobs.json is ordered; PRIORITY_2026-10-13.md says why)
+    L += ["## The order of work", "", "*In priority order: each job is what most strengthens the two instruments and the law at that point.*", ""]
+    for n, j in enumerate(J["jobs"], 1):
+        L += [f"{n}. **{j['plain']}** Needs {j['needs']}; {j['estimate']}. Where it stands: {j['stands']}. [Record]({j['record']})"]
+    L += [""]
     L += ["## Further down the road", "", "*Planned, not yet designed. The data for each is already on our storage (sizes from the data register).*", ""]
     for x, (n_, gb) in later(J): L += [f"- **{x['plain']}** {n_} data sets, {gb:,.0f} GB in hand."]
     L += [""]
