@@ -80,4 +80,59 @@ reading of real arrays.
 
 **Synthetic test:** DEV_TERRITORY_01/territory_synth_01.py, DEV_TERRITORY_01/territory_synth_01_summary.txt
 
-**Not a milestone:** a design with a derived prediction and three unwritten tests; nothing read, nothing sealed.
+## Outcome of the three tests, run once (2026-10-13): 1 and 3 MET, 2 NOT MET
+
+`territory_synth_01.py`, outputs `territory_synth_01_output.csv` and `territory_synth_01_summary.txt`. Baselines stable 0.0120,
+fragile 0.0520; 200 people per condition.
+
+**Test 1, the parameter-free prediction: MET, and closely.** Predicted response ratio from the baselines alone: **4.158**.
+Measured 4.171 / 4.199 / 4.126 / 4.122 at shortfalls of 2 / 5 / 10 / 20 % - within **1 %** of prediction at every shortfall, with
+nothing fitted. The balance equation's `D eps ~ eps(1-eps) d` holds in the regime the instrument would work in.
+
+**Test 3, the declared blind spot: MET.** A uniform absolute loss in both territories moves the contrast by 0.001 x10^-3, which is
+nothing. The instrument is blind exactly where the design says it is.
+
+**Test 2, nuisance cancellation: NOT MET**, and the two causes are real rather than coding errors. A 2 % shortfall moves the contrast
+by 0.772 x10^-3; the bar asked every nuisance to move it by less than a third of that.
+
+| nuisance | contrast moves | verdict |
+|---|---|---|
+| plate offset +0.02 | 0.006 x10^-3 | cancels, as designed |
+| plate offset -0.02 | 8.121 x10^-3 | FAILS |
+| composition +10 % | 3.999 x10^-3 | FAILS |
+| composition -10 % | 4.005 x10^-3 | FAILS |
+| measurement noise x3 | 1.022 x10^-3 | FAILS |
+
+**Cause 1: the ceiling at beta = 1 makes an offset and noise one-sided.** A held site sits near beta = 1, so an offset or a noise
+excursion that would push it above 1 is truncated. The positive offset cancels exactly (0.006 x10^-3, as the derivation says it
+should); the NEGATIVE offset, which pushes toward the boundary, does not. The same truncation is why tripling the noise moves the
+contrast at all: at nearly-fully-methylated sites, measurement error is effectively one-sided, and the stable territory - which sits
+closest to the boundary - has the most of its apparent error contributed by that floor. This is a property of the measurement, not of
+the simulation: real array beta values are bounded in exactly the same way.
+
+**Cause 2: a difference cancels an ADDITIVE nuisance and cannot cancel a MULTIPLICATIVE one.** A composition change scales the
+apparent error in both territories, so it scales their difference: the move is `comp x (eps_f - eps_s)` = 0.1 x 0.04 = 4 x10^-3,
+which is what was measured, and about five times what a 2 % shortfall produces. No choice of site classes fixes this; the arithmetic
+of a difference is the problem. The normalized form `(eps_f - eps_s) / (eps_f + eps_s)` cancels a multiplicative nuisance exactly and
+reintroduces sensitivity to an additive one - so no single statistic cancels both.
+
+**What this rules out and what it leaves.** The territory contrast is not usable as a stand-alone reading on raw array betas. What
+survives is stronger than it sounds: test 1 established a parameter-free prediction that held to 1 %, so the quantity is real; the
+problem is entirely in how the two nuisances enter. The next design (DEV-TERRITORY-02, not written) must therefore:
+1. report BOTH the difference and the normalized difference, since one cancels each nuisance type, and require the predicted pattern
+   in both - a two-number signature is harder to counterfeit than either number alone;
+2. estimate the measurement floor from the data (the apparent error at sites known to be fully held) and subtract it before the
+   contrast is formed, so the boundary effect is measured rather than inherited;
+3. keep composition handled where it already is - by the mixture-predicted denominator the chain's reading uses - rather than hoping
+   a difference removes it.
+
+**In plain words.** The physics part worked, and better than expected: we predicted in advance, from healthy samples alone and with
+nothing fitted, how much more the hard-to-maintain parts of the genome should degrade than the easy parts, and the simulation matched
+that to within one percent. What failed was the practical claim. We hoped comparing two places inside one sample would cancel the
+usual nuisances. It cancels one kind - an offset that adds the same amount everywhere - and cannot cancel the other kind, one that
+scales everything proportionally, like a change in which cells are present. There is also a ceiling effect: these sites sit so close
+to fully switched-on that noise can only push them one way, which inflates the quieter territory. **What it would take:** report two
+versions of the comparison instead of one, measure the ceiling effect from the data rather than ignoring it, and keep handling the
+cell mixture the way the main reading already does.
+
+**Not a milestone:** a design whose physics bar was met and whose nuisance bar was not; nothing read on real arrays, nothing sealed.

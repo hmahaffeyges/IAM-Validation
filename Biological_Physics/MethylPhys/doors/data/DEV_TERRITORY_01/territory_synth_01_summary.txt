@@ -1,0 +1,22 @@
+DEV-TERRITORY-01 synthetic tests 1-3
+
+baselines: stable 0.0120, fragile 0.0520 | healthy contrast 0.04000 (SD 0.00010) | 200 people per condition
+
+TEST 1 - predicted response ratio from the baselines alone: 4.158 (nothing fitted)
+  shortfall    2 % | measured ratio   4.171 | off prediction  0.32 % | contrast moves +0.772 x10^-3 ok
+  shortfall    5 % | measured ratio   4.199 | off prediction  0.99 % | contrast moves +1.970 x10^-3 ok
+  shortfall   10 % | measured ratio   4.126 | off prediction  0.77 % | contrast moves +4.125 x10^-3 ok
+  shortfall   20 % | measured ratio   4.122 | off prediction  0.86 % | contrast moves +9.211 x10^-3 ok
+
+TEST 2 - nuisance cancellation, measured against the move a 2 % shortfall makes (0.772 x10^-3)
+  plate offset +0.02   moves the contrast   0.006 x10^-3 | a third of the 2 % signal is 0.257 ok
+  plate offset -0.02   moves the contrast   8.121 x10^-3 | a third of the 2 % signal is 0.257 FAIL
+  composition +10 %    moves the contrast   3.999 x10^-3 | a third of the 2 % signal is 0.257 FAIL
+  composition -10 %    moves the contrast   4.005 x10^-3 | a third of the 2 % signal is 0.257 FAIL
+  noise x3             moves the contrast   1.022 x10^-3 | a third of the 2 % signal is 0.257 FAIL
+
+TEST 3 - the declared blind spot: a uniform absolute loss in BOTH territories
+  moves the contrast   0.001 x10^-3 | blind as declared: yes
+
+TEST 1 PASSED | TEST 2 FAILED | TEST 3 PASSED
+NOT ALL BARS MET: the instrument is not ready for a real array; the failing bar is above.
