@@ -1,0 +1,41 @@
+{
+ "_rule": "Site exclusion register (2026-10-13): every array probe a reading may NOT use, and why. A list that only removes sites.",
+ "atlas_sites": 813951,
+ "inputs": {
+  "atlas_posterior": {
+   "file": "atlas_adipocytes_posterior.parquet",
+   "sha256": "5f89a99574ecd1bbcc48ff96d6e45103cdcf7bc84f15490502c0457a5ab98414"
+  },
+  "450K": {
+   "file": "HumanMethylation450k_15017482_v3.csv.gz",
+   "sha256": "b40e210bc4bdfd5cfcc8dd2a3a0119fd297079a9b77092703edafb32534ffd9c"
+  },
+  "EPIC_v1": {
+   "file": "MethylationEPIC_v-1-0_B4.CoreColumns.csv.gz",
+   "sha256": "855064a2846d3d98e6e2fb36ae1d8f96a4b7e672646f835ed3ebb5fc40ed5adf"
+  }
+ },
+ "chips": {
+  "450K": {
+   "probes": 485577,
+   "cpg_probes": 482421,
+   "cpg_in_atlas": 415713,
+   "cpg_not_in_atlas": 66708,
+   "non_cpg_ch": 3091,
+   "snp_rs": 65,
+   "excluded_total": 69864
+  },
+  "EPIC_v1": {
+   "probes": 865918,
+   "cpg_probes": 862927,
+   "cpg_in_atlas": 786905,
+   "cpg_not_in_atlas": 76022,
+   "non_cpg_ch": 2932,
+   "snp_rs": 59,
+   "excluded_total": 79013
+  }
+ },
+ "chips_not_on_hand": {
+  "EPIC_v2": "the EPIC v2 manifest (about 937,000 probes) is not on hand; the file named HumanMethylationEPIC_manifest_v2 reads identical to EPIC v1"
+ }
+}

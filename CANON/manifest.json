@@ -24791,6 +24791,72 @@
    "sources_of_row": [
     "author request 2026-10-13"
    ]
+  },
+  {
+   "id": "ATL-057",
+   "title": "Site exclusion register, layer 1: probes with no atlas site, and the chain refusing them",
+   "purpose": "Every 450K and EPIC v1 probe a reading may not use (66,708 and 76,022 CpG probes with no atlas site, plus non-CpG and SNP probes), listed with its reason and rebuilt by code; the chain should refuse a reading that touches one, so 'effectively off' becomes enforced.",
+   "instrument_or_term": "all array readings",
+   "sources": [],
+   "data_status": "in hand",
+   "status": "designed",
+   "runs": [
+    {
+     "date": "2026-10-13",
+     "outcome": "progressed",
+     "note": "layer 1 list built and rebuild-checked (CANON/site_exclusions); the chain refusal is not yet wired"
+    }
+   ],
+   "next_step": "wire a check into the chain's reading stages that refuses any excluded probe, with a planted control; add EPIC v2 when its manifest is on hand",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "CANON/site_exclusions/register.json",
+   "legacy_ids": [],
+   "depends_on": [],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
+  },
+  {
+   "id": "ATL-058",
+   "title": "Site exclusion register, layer 2: nuisance-cell masks (lung first)",
+   "purpose": "Sites that mark a confounding cell (lung fibroblasts, smooth muscle, endothelium, macrophages; minor blood cells), taken from the source atlases' published marker tables. A mask only removes sites, so imperfect sources such as cultured stroma can be used for it. Each test declares the cells it guards against before its data is read. Planted test, two bars: a healthy sample with a shifted cell mix stays normal, and a planted cancer change still shows. The route to opening the 40 unread lung tumors.",
+   "instrument_or_term": "Met-A (arrays), composition-aware reading",
+   "sources": [],
+   "data_status": "in hand",
+   "status": "idea",
+   "runs": [],
+   "next_step": "fetch the published marker tables (Loyfer 2023, Moss 2018) with checksums; write the mask rule and the planted test before any tumor is read",
+   "cost": "laptop",
+   "impact": 5,
+   "record": "CANON/site_exclusions/register.json",
+   "legacy_ids": [],
+   "depends_on": [],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
+  },
+  {
+   "id": "ATL-059",
+   "title": "Array-only sites in the fit: posteriors where only arrays measured a site (decision needed)",
+   "purpose": "The 66,708 / 76,022 array probes outside the atlas have no sequencing depth, but the array sources (Moss, Salas, the v2.1 array sets) did measure them. A fit that includes them gives a real posterior for every cell with array data and an honest 'not measured' (posterior equal to the prior) for cells measured only by sequencing. Filling those from neighboring sites would be imputation and is not proposed. Changes the site rule and v2.1 decision 3, so it is the author's call; about 9 percent more sites, so about 9 percent more box time.",
+   "instrument_or_term": "atlas fit",
+   "sources": [],
+   "data_status": "in hand",
+   "status": "idea",
+   "runs": [],
+   "next_step": "author's decision; if yes, amend the site rule before the split is sealed and price the extra box time",
+   "cost": "box: about +9 percent of the v2.1 fit",
+   "impact": 4,
+   "record": "CANON/site_exclusions/register.json",
+   "legacy_ids": [],
+   "depends_on": [],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
   }
  ],
  "not_tests": {

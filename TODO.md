@@ -13,6 +13,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **ATL-045** (impact 5, box (part of ATL-005)) Atlas v2.1 run outputs: what the box session must save: write the run script's output list and its check before ATL-005 launches
 - [ ] **ATL-055** (impact 5, laptop (from the v2.1 box outputs)) Gift 7: a deconvolution tool, offered only once commissioned: design the commissioning on known mixtures, bars first; builds on COM-METAA-009, COM-METAA-022, ATL-003
 - [ ] **ATL-056** (impact 5, laptop (from the v2.1 box outputs)) Gift package: release and letter: after the v2.1 release is commissioned
+- [ ] **ATL-058** (impact 5, laptop) Site exclusion register, layer 2: nuisance-cell masks (lung first): fetch the published marker tables (Loyfer 2023, Moss 2018) with checksums; write the mask rule and the planted test before any tumor is read
 - [ ] **COM-CSCORE-003** (impact 5, none) C-score commissioning proposal (band and detection limit printed on every report): Write the commissioning note after (a) on further labs and (b) are met; reconcile the whole-blood versus sorted-cell scope gap first.
 - [ ] **COM-CSCORE-005** (impact 5, search) C-score test (b): repeatability on new same-person replicate arrays (last open check): In order: read sample sheets of healthy EPIC v1 blood series for unlabeled repeats; or commission the 450K band (GSE61151); or a technical-replicate set with a declared specimen caveat (GSE182919).
 - [ ] **COM-CSCORE-012** (impact 5, search) C-score last check: same-person repeatability on unspent replicate arrays: Read sample sheets of healthy EPIC v1 blood series directly for unlabeled repeats, excluding every spent set; or commission the 450K band (unlocks GSE61151).
@@ -54,6 +55,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **ATL-050** (impact 4, laptop (from the v2.1 box outputs)) Gift 2: the array-to-sequencing bridge: save the bridge terms per site in the v2.1 run, not only as summaries
 - [ ] **ATL-051** (impact 4, laptop (from the v2.1 box outputs)) Gift 3: healthy person-to-person spread: from the v2.1 fit's between-donor terms; planted test first
 - [ ] **ATL-054** (impact 4, laptop (from the v2.1 box outputs)) Gift 6: build files and code: package with the v2.1 release; one-command rebuild check
+- [ ] **ATL-059** (impact 4, box: about +9 percent of the v2.1 fit) Array-only sites in the fit: posteriors where only arrays measured a site (decision needed): author's decision; if yes, amend the site rule before the split is sealed and price the extra box time
 - [ ] **CAN-003** (impact 4, laptop) Ceiling position in sequenced pure cancer cell lines (the other bracket): Write the rule first, run once; if positions converge, write the claim as a seal and test once on unopened cancers.
 - [ ] **CAN-004** (impact 4, laptop) Commission the C-score band on 450K arrays (to unlock GSE61151 and the 450K archive): Fix the 450K slide-batch problem first (C8), then set a 450K band by the same leave-one-lab-out rule.
 - [ ] **CAN-005** (impact 4, free (arithmetic on readings we already have)) Distance to the ceiling: compute it for every sealed cancer reading already in the records and check none is past the turnover
@@ -127,6 +129,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **ATL-041** (impact 3, laptop) New atlas cell types: HSPC, cord-blood HSC, adipocytes: After AT7.
 - [ ] **ATL-052** (impact 3, laptop (from the v2.1 box outputs)) Gift 4 (held back by choice): independent check of published marker sets: after v2.1; shared only privately and only by the author's decision
 - [ ] **ATL-053** (impact 3, laptop (from the v2.1 box outputs)) Gift 5: the 3D information sphere from the atlas: after ATL-046 and ATL-048
+- [ ] **ATL-057** (impact 3, laptop) Site exclusion register, layer 1: probes with no atlas site, and the chain refusing them: wire a check into the chain's reading stages that refuses any excluded probe, with a planted control; add EPIC v2 when its manifest is on hand
 - [ ] **BRE-001** (impact 3, laptop) Breach test 2: lung precancer with known progression (GSE108123): Verify layout from GEO metadata only (slides, groups, IDATs); design with bars and planted test before any array is read.
 - [ ] **BRE-002** (impact 3, laptop) Colon adenomas, pre-cancer (GSE288652): does Met-A rise before cancer?: Colon epithelium from an independent laboratory into the atlas first; then design, synthetic tests, seal, read.
 - [ ] **BRE-004** (impact 3, laptop) Next breach reading: per-site surface share, clustering meter, or single-molecule discordance on lesions: Choose the reading, write bars and a planted test, find a fresh lesion series with known outcome (or healthy tissue and earlier lesions), seal first.
@@ -810,3 +813,4 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **OTH-024** Day summary 2026-10-12 in the development log (gate rule 5): last run 2026-10-12, success
 - [x] **OTH-036** Record rules of 2026-10-12 (rules 14-19) and lessons T15, T16, C6: last run 2026-10-12, success
 - [x] **OTH-040** BOOK-V1.0: last run 2026-10-05, success
+- [x] **ATL-057** Site exclusion register, layer 1: probes with no atlas site, and the chain refusing them: last run 2026-10-13, progressed
