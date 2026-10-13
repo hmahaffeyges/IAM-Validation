@@ -28,6 +28,19 @@
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_COMMISSION_01.md"
   },
   {
+   "job": "A granulocyte reference, so sorted-granulocyte arrays can be read at all",
+   "todo": "AT6",
+   "impact": "",
+   "cost": "laptop",
+   "accessions": [],
+   "ready": "queued",
+   "plain": "A reference for granulocytes. Many public series sort 'granulocytes' rather than neutrophils, and our chain refuses them because granulocytes also contain two other cell types, so their healthy pattern differs. Without this, those arrays cannot be read at all - we met this today with a healthy series we wanted as a test.",
+   "needs": "the laptop",
+   "estimate": "1-2 weeks",
+   "stands": "met as a blocker 2026-10-13; purified granulocyte series exist in the gold-mine map",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+  },
+  {
    "job": "Atlas v2",
    "todo": "M2, M3, M4, AT4, AT7, AT9, AT11",
    "impact": "",

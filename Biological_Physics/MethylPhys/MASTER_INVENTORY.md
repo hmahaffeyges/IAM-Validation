@@ -18,27 +18,28 @@ Candidates found by search are metadata only and their counts are provisional un
 |---|---|---|---|---|---|---|
 | 1 | Finish Met-A's last two checks: the clustering reading's bars, which were narrowly unmet, and healthy readings across do | M5, M6 |  | laptop |  | queued |
 | 2 | Commission the atlas one use at a time: the sites a tissue test reads, the blood-composition step, and the per-cell iden | AT3, AT5, AT6 |  | laptop |  | queued |
-| 3 | Atlas v2 | M2, M3, M4, AT4, AT7, AT9, AT11 |  | laptop |  | queued |
-| 4 | Close out the IAM-A across-laboratory failure: find whether the gap came from where in the files we sampled or is real,  | A1, A2 |  | box |  | queued |
-| 5 | The lever series in simulation first: can the instruments separate a sliding copy head from chemical damage, tell a temp | levers |  | laptop |  | queued |
-| 6 | Colon: epithelium from an independent laboratory into the atlas, then the adenomas, which are pre-cancer | AT8, B4, G1 |  | laptop |  | queued |
-| 7 | Hepatocytes into the atlas, then liver on a second cohort, rebuilt in a clean copy of the repository | B5, B11, R4 |  | laptop |  | queued |
-| 8 | Breast epithelium on arrays, then breast on a second patient cohort, and the cell lines read both ways | B2, B10 |  | laptop |  | queued |
-| 9 | The temperature lever: hibernation, then the fish, then aging across species | C2, C9, C3 |  | box |  | queued |
-| 10 | The division-rate lever: brain cells on both instruments, post-mortem time checked first, and the passage series | A8, A9, A10, A11, G4, C4 |  | laptop |  | queued |
-| 11 | The erase channel on its own, through tumors whose reverse channel is chemically blocked | levers-erase |  | laptop |  | queued |
-| 12 | The whole-genome sky build: read every site of the genome with the microwave-sky tools against same-run healthy referenc | C6, sky |  | box |  | queued |
-| 13 | The one-floor write-up: the same floor for cells, chips and qubits with no per-system fitting, and the link between the  | A6, floor |  | laptop |  | queued |
-| 14 | Lung, once the atlas can describe lung's support cells: redesign, and the tumors that are still unread | B12 |  | laptop |  | queued |
-| 15 | The detection limit by dilution, then cancer DNA in blood, starting with liver | B8, B6, B13 |  | box |  | queued |
-| 16 | Blood cancers, one at a time, where the diseased cells are the blood cells themselves | B7 |  | laptop |  | queued |
-| 17 | Whole blood back in scope: the composition bar, using a set with measured cell counts | M1 |  | laptop |  | queued |
-| 18 | IAM-A beyond one cell type: healthy white cells from another laboratory, the per-territory reading as a sealed predictio | A3, A5, A7 |  | box |  | queued |
-| 19 | Replication: one Met-A function inside the chain that every scorer calls, a chain report for each result, a replication  | R1, R2, R3, R4 |  | laptop |  | queued |
-| 20 | A second energy-supply lever, so the law does not rest on one mouse experiment: a diet or enzyme experiment with enough  | A4, C1, C10, C11 |  | laptop |  | queued |
-| 21 | Instrument backlog: the newer array revision in intake, the blocked 450K disease readings, and the reproducibility tier  | C5, C7, C8 |  | laptop |  | queued |
-| 22 | Two gauge questions: is there a line cells cross rather than a gradual slide, and what reads better than healthy, which  | G2, G3 |  | laptop |  | queued |
-| 23 | Records hygiene: rewrite the guides that still describe the old chain, the spelling pass through the book, and the publi | R5, R6, R7 |  | laptop |  | queued |
+| 3 | A granulocyte reference, so sorted-granulocyte arrays can be read at all | AT6 |  | laptop |  | queued |
+| 4 | Atlas v2 | M2, M3, M4, AT4, AT7, AT9, AT11 |  | laptop |  | queued |
+| 5 | Close out the IAM-A across-laboratory failure: find whether the gap came from where in the files we sampled or is real,  | A1, A2 |  | box |  | queued |
+| 6 | The lever series in simulation first: can the instruments separate a sliding copy head from chemical damage, tell a temp | levers |  | laptop |  | queued |
+| 7 | Colon: epithelium from an independent laboratory into the atlas, then the adenomas, which are pre-cancer | AT8, B4, G1 |  | laptop |  | queued |
+| 8 | Hepatocytes into the atlas, then liver on a second cohort, rebuilt in a clean copy of the repository | B5, B11, R4 |  | laptop |  | queued |
+| 9 | Breast epithelium on arrays, then breast on a second patient cohort, and the cell lines read both ways | B2, B10 |  | laptop |  | queued |
+| 10 | The temperature lever: hibernation, then the fish, then aging across species | C2, C9, C3 |  | box |  | queued |
+| 11 | The division-rate lever: brain cells on both instruments, post-mortem time checked first, and the passage series | A8, A9, A10, A11, G4, C4 |  | laptop |  | queued |
+| 12 | The erase channel on its own, through tumors whose reverse channel is chemically blocked | levers-erase |  | laptop |  | queued |
+| 13 | The whole-genome sky build: read every site of the genome with the microwave-sky tools against same-run healthy referenc | C6, sky |  | box |  | queued |
+| 14 | The one-floor write-up: the same floor for cells, chips and qubits with no per-system fitting, and the link between the  | A6, floor |  | laptop |  | queued |
+| 15 | Lung, once the atlas can describe lung's support cells: redesign, and the tumors that are still unread | B12 |  | laptop |  | queued |
+| 16 | The detection limit by dilution, then cancer DNA in blood, starting with liver | B8, B6, B13 |  | box |  | queued |
+| 17 | Blood cancers, one at a time, where the diseased cells are the blood cells themselves | B7 |  | laptop |  | queued |
+| 18 | Whole blood back in scope: the composition bar, using a set with measured cell counts | M1 |  | laptop |  | queued |
+| 19 | IAM-A beyond one cell type: healthy white cells from another laboratory, the per-territory reading as a sealed predictio | A3, A5, A7 |  | box |  | queued |
+| 20 | Replication: one Met-A function inside the chain that every scorer calls, a chain report for each result, a replication  | R1, R2, R3, R4 |  | laptop |  | queued |
+| 21 | A second energy-supply lever, so the law does not rest on one mouse experiment: a diet or enzyme experiment with enough  | A4, C1, C10, C11 |  | laptop |  | queued |
+| 22 | Instrument backlog: the newer array revision in intake, the blocked 450K disease readings, and the reproducibility tier  | C5, C7, C8 |  | laptop |  | queued |
+| 23 | Two gauge questions: is there a line cells cross rather than a gradual slide, and what reads better than healthy, which  | G2, G3 |  | laptop |  | queued |
+| 24 | Records hygiene: rewrite the guides that still describe the old chain, the spelling pass through the book, and the publi | R5, R6, R7 |  | laptop |  | queued |
 
 ## Sets tested (from each test note's Test data line)
 

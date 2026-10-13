@@ -190,3 +190,18 @@ check on more healthy laboratories, and a set where one person was measured seve
 the same person differ by less than a quarter of the smallest change we want to catch. On the samples we have, that holds
 when a person is compared with others measured in the same batch and does not hold when the comparison is only within one
 chip, so a report has to say which comparison it used.
+
+### Amendment to that pre-registration, written before any array was scored (2026-10-13)
+
+The chain refuses **granulocytes** at intake: its accepted blood specimens are whole blood and isolated, sorted or purified
+neutrophils, and granulocytes - which also contain eosinophils and basophils - have no reference of their own
+(`chain/stage_0_intake.py`, `ACCEPTED_SPECIMENS`). GEO labels this series' sorted fraction "Granulocytes", so those 10 arrays
+will be refused, and **relabelling them as neutrophils to get a number would be routing around a scope rule, which we do not
+do.** I should have checked the accepted list before naming that stratum; the refusal was predictable from the chain's own
+code rather than discovered.
+
+**The bar therefore rests on the 24 whole bloods** (the band's majority population): at least 95 % not above 1.152, so at
+most 1 of 24. The 10 granulocyte arrays are reported with their refusal and excluded from the proportion, as the
+pre-registration already required for refusals. Their calibrated betas are kept, so they can be read the day granulocytes have
+a reference - which is now a job on the road ahead, not a relabelling.
+
