@@ -1,4 +1,4 @@
-# DEV-FIELD-01 — is the tissue beside a tumor already off the healthy middle? (design, 2026-10-13; NOT sealed, nothing read)
+# DEV-FIELD-01 — is the tissue beside a tumor already off the healthy middle? (SEALED 2026-10-13 before any array was read)
 
 **The question (author, 2026-10-13).** In the cohort era, tissue next to tumors read high: "What looked healthy under the microscope,
 was actually not healthy... the sign of the disorder in the system, and in the entire organ." HYP-SATURATION-01 falsifier 2 makes it
@@ -40,8 +40,18 @@ breast (OQ) and the tumor (TU) DO share slides: 66 patients have all three, and 
 without it on a mix-proof reading, and the adjacent-normal signal of the cohort era was cell mix or batch. Note that a field reaching
 the OTHER breast too (a whole-body field, falsifier 8) would weaken F1; F4 is the only view of that, and it is confounded.
 
-**Before the seal, still to do:** (1) a planted test on spent arrays (TCGA breast normals, paired by plate): a 1 % fidelity loss planted
-in one member of each pair must meet F1 at n = 31, and no loss must not; (2) the author's word on the bars.
+**Planted test, run once before the seal** (`data/DEV_FIELD_01/planted_field_01.py`, bars committed first; output
+`planted_field_01_summary.txt`). The sealed blind-site reading and planting rule on the spent TCGA breast normals, two women on one plate
+standing in for one woman on one slide (conservative), 1,000 draws of 31 pairs per case: with nothing planted F1 is met in 3.6 % of
+draws (bar: at most 10 %); a 1 % fidelity loss is found in 100 % (bar: at least 80 %); 0.5 % is also found in every draw.
+
+**Slide position, checked because the reading is that sensitive** (`field_positions_01.py`, output `field_positions_01_output.txt`):
+in the 31 one-slide patients the other-quadrant array sits above the other-breast array in 15 and below in 16, so array position cannot
+produce F1.
+
+**The seal** (`score_field_01.py seal`, metadata only; `sealed_field_01.json`, with the scorer's sha256): all 6,000 sealed breast sites
+exist on EPIC v1; F1 and F2 on 31 patients, met at 21 or more; F3 on the other 35, met at 23 or more; F4 descriptive. The scorer refuses
+to score unless the seal is committed unchanged and its own hash matches.
 
 **Prior reading:** GSE287331 has not been read. The sealed site list comes from DEV-TISSUE-BREAST-01, whose arrays are spent; only the
 atlas-derived list is reused, no array.
@@ -51,8 +61,8 @@ faithful than a healthy woman's breast, using only sites that do not change when
 be an artifact of what the sample contained. This series is unusually good for it: healthy donors, the patient's other breast,
 another part of the same breast, the tissue right next to the tumor, and the tumor, all measured together. If the reading climbs
 step by step toward the tumor, the disorder spreads through the organ before the tumor. If the tissue next to the tumor reads
-healthy, the old signal was cell mix. The slide check showed the cleanest comparison is inside one woman: the breast with the cancer against her other breast, on the same slide. **What it would take:** the planted test, the seal, then one download and read.
+healthy, the old signal was cell mix. The slide check showed the cleanest comparison is inside one woman: the breast with the cancer against her other breast, on the same slide. **What it would take:** the rule is sealed; one download and one read remain.
 
-**Synthetic test:** planned (TCGA breast normals, planted 1 % loss); not written yet.
+**Synthetic test:** DEV_FIELD_01/planted_field_01.py, DEV_FIELD_01/planted_field_01_summary.txt
 
-**Not a milestone:** a design; nothing read, nothing sealed.
+**Not a milestone:** sealed, not yet read.

@@ -1,0 +1,7 @@
+sites used: 3000 methylated + 3000 unmethylated of the 6,000 sealed | normals 97 | same-plate pairs available per draw: up to 45 | F1 needs >= 21 of 31
+  NULL    meets F1 in 3.6% of draws (median 15 of 31 pairs read R > 1)
+  d0.005  meets F1 in 100.0% of draws (median 28 of 31 pairs read R > 1)
+  d0.01   meets F1 in 100.0% of draws (median 30 of 31 pairs read R > 1)
+  d0.02   meets F1 in 100.0% of draws (median 30 of 31 pairs read R > 1)
+  d0.05   meets F1 in 100.0% of draws (median 31 of 31 pairs read R > 1)
+P1 null honest (<= 10 %): MET | P2 1 % loss found (>= 80 %): MET | smallest planted d reaching 80 %: 0.005
