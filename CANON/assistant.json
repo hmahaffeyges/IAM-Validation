@@ -37,5 +37,7 @@
   }
  ],
  "closing": "None of that is a reason to trust the partner. It is a reason to trust the record, which is the only thing we are asking anyone to look at.",
- "lessons_record": "Biological_Physics/MethylPhys/LESSONS.md"
+ "lessons_record": "Biological_Physics/MethylPhys/LESSONS.md",
+ "_naming": "Why this section says 'research partner' and not 'super intelligence research partner'. Federal agencies have used 'super intelligence' (SI) for this category since an executive order of 29 September 2026, so the term is official nomenclature, not marketing - an earlier note here had that wrong and the page's hype-word block on it has been reversed. The page still describes the ROLE because the audience is academic: in the AI literature 'superintelligence' names a system exceeding human capability across domains, so a reviewer reads it as a capability claim, and it would sit directly above this section's list of the partner's own mistakes. Use the federal term in federal paperwork (agency correspondence, NIH and NSF applications), where it is the expected usage. Author's call either way.",
+ "note": "Terminology: federal agencies have used 'super intelligence' (SI) for this category since September 2026. This page describes the role rather than the category, because what matters here is which jobs are done by whom."
 }

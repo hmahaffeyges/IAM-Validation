@@ -191,6 +191,7 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 <!-- ASSISTANT:BEGIN (from CANON/assistant.json; the voice check skips exactly this block, a vendor name is still refused) -->
 <h2>{E(AS["title"])}</h2>
 <p class="sub">{E(AS["intro"])}</p>
+<p class="meta">{E(AS["note"])}</p>
 <details class="fold" open><summary>What it does, what it does not decide, and what the researcher does</summary>
 <div class="grid">
 <div class="card"><h3>What the partner does</h3><ul class="road">{ul(AS["does"])}</ul></div>
@@ -266,9 +267,16 @@ def problems(body):
     txt = re.sub(r"<[^>]+>", " ", _b); P = []
     _brand = re.search(r"(?i:\bclaude\b|\bgpt\b|\bopenai\b|\banthropic\b|\bgemini\b|\bllama\b)", re.sub(r"<[^>]+>", " ", body))
     if _brand: P.append(f"vendor or model name '{_brand.group(0)}' on the page: describe the role, not the brand")
-    for rx, why in ((NR.VOICE, "voice"), (NR.HYPE, "hype word")):
-        m = rx.search(txt)
-        if m: P.append(f"{why} '{m.group(0)}'")
+    # the marked blocks are exempt from the VOICE rule only. Hype words are refused everywhere, the author's corner and the
+    # research-partner block included: a claim we cannot put a check behind does not become acceptable by being in a quote
+    # (the first version of this exemption hid hype words in those blocks too, 2026-10-13).
+    _all = re.sub(r"<[^>]+>", " ", body)
+    _neg = re.compile(r"(?i)\b(?:not|none|never|nothing|no|cannot|can't|isn't|aren't|without)\b[^.]{0,30}$")
+    for rx, why, scope in ((NR.VOICE, "voice", txt), (NR.HYPE, "hype word", _all)):
+        for m in rx.finditer(scope):
+            # a NEGATED hype word is honest, not hype: "None of this is proven" must pass while "this is proven" must not
+            if why == "hype word" and _neg.search(scope[max(0, m.start() - 60):m.start()]): continue
+            P.append(f"{why} '{m.group(0)}'"); break
     for p in re.findall(re.escape(GH) + r"([^\"#]+)", body):
         if not os.path.exists(os.path.join(REPO, p)): P.append(f"record not found: {p}")
     return P
