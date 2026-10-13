@@ -1,0 +1,20 @@
+DEV-LEVERS-01 synthetic test 3: can the readings say which of the three channels was impaired?
+healthy eps 0.0009 (target 0.032) | healthy clustering 8.219 | 200 draws per condition, 400 molecules x 2000 sites
+
+derived directions: impair copy -> eps up, clustered | impair de novo -> eps up, scattered | impair erase -> eps DOWN, scattered
+
+copy     x1.25  eps ratio 1.006 [0.953, 1.064] | clustering ratio 1.074 [0.757, 1.381]
+copy     x1.5   eps ratio 1.023 [0.971, 1.075] | clustering ratio 1.122 [0.803, 1.489]
+copy     x2.0   eps ratio 1.034 [0.973, 1.099] | clustering ratio 1.170 [0.766, 1.601]
+erase    x1.25  eps ratio 1.243 [1.181, 1.307] | clustering ratio 0.938 [0.627, 1.276]
+erase    x1.5   eps ratio 1.482 [1.404, 1.563] | clustering ratio 0.882 [0.574, 1.159]
+erase    x2.0   eps ratio 1.967 [1.888, 2.051] | clustering ratio 0.779 [0.545, 1.066]
+de novo  x1.25  eps ratio 1.013 [0.952, 1.071] | clustering ratio 0.999 [0.727, 1.345]
+de novo  x1.5   eps ratio 1.019 [0.965, 1.073] | clustering ratio 1.046 [0.723, 1.398]
+de novo  x2.0   eps ratio 1.027 [0.958, 1.093] | clustering ratio 1.057 [0.738, 1.424]
+
+at the 2x impairment, pairs overlapping in BOTH readings: copy vs de novo
+BAR: NOT MET - copy vs de novo cannot be told apart at this depth
+
+Also derived and checked above: the eps direction alone separates erase from the other two, and the clustering
+reading separates copy from de novo. Read as a statement about the instruments, not about any tumor.
