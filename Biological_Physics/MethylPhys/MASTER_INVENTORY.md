@@ -16,32 +16,29 @@ Candidates found by search are metadata only and their counts are provisional un
 
 | # | job | to-do | impact | cost | data | ready |
 |---|---|---|---|---|---|---|
-| 1 | Finish the two Met-A checks that remain: the clustering reading's bars, narrowly unmet, and healthy readings across dono | M5, M6 | commissioning | laptop |  | queued |
-| 2 | Move the cancer scorers inside the chain so every tissue result prints the chain's own report, then rebuild each result  | R1, R2, R4 | replication | laptop |  | queued |
-| 3 | Neutrophil reference from a second laboratory: build GSE124565, test GSE88824, GSE118144, GSE122244 | M2, AT4 | commissioning | laptop | GSE124565, GSE88824, GSE72338, GSE49618 | build sets confirmed; held-out test set chosen (GSE72338, with its caveats); next the files themselves |
-| 4 | One-command replication with a report, per significant result | R3 | replication | laptop |  | Met-A neutrophils rebuilt exactly in a clean copy 2026-10-10 |
-| 5 | The replication package: a one-command kit per commissioned instrument, a list of open predictions a laboratory can chec | B9 | replication | laptop |  | queued |
-| 6 | Whole-blood bar 7 on cord blood with flow counts (assess newborn caveat first) | M1 | commissioning | laptop | GSE127824 | assess caveat |
-| 7 | IAM-A commissioning: find the cause of the across-labs failure (three deep EMSeq LAB02 runs read low), development read of other file parts | A2 | commissioning | box | PRJNA646948 | scored; held under the stopping rule |
-| 8 | IAM-A on other-lab healthy neutrophils (RRBS) and same DNA on arrays and WGBS | A3 | commissioning | box | GSE59163, GSE128734 | verify files |
-| 9 | Colon epithelium from an independent laboratory into the atlas | AT8 | atlas | laptop | E-MTAB-3709, E-MTAB-4957 | confirm disease status, donor overlap |
-| 10 | Commission the atlas one use at a time: the sites a tissue test reads, the profiles each cell type is described by, the  | AT3-AT6 | atlas | laptop |  | queued |
-| 11 | EPIC v2 read check for Stage 1 (opens thymocytes for the atlas and EPIC v2 sets in S3) | AT14 | atlas | laptop | GSE269608 | metadata only |
-| 12 | Lung stroma culture check before atlas entry | AT7 | atlas | laptop | GSE146376, GSE107226, GSE197512 | calibrated (two sets) |
-| 13 | Atlas v2.1: rebuild with second-lab and new cell types; split GSE224807 donors half build, half test | AT4, AT13 | atlas | box | GSE224807, GSE103541, GSE184269, GSE252045 | v2.1 prep running |
-| 14 | Blood cancers, one at a time: leukemias and lymphomas, where the diseased cells are the blood cells themselves | B7 | public result | laptop |  | queued |
-| 15 | Colon adenomas: does Met-A rise before cancer? | B4, G1 | public result | laptop | GSE288652 | in S3 |
-| 16 | Detection limit: mix tumor DNA into healthy DNA in known amounts and find the smallest share we can still see | B8 | public result | laptop |  | queued |
-| 17 | Lung tissue test: four lung sets tested (1 scored, 3 not suitable); next lung test waits for atlas v2.1 and the culture check | N5, B12 | public result | laptop | TCGA-LUAD | waiting on atlas v2.1 |
-| 18 | Liver fingerprint replication on fresh data | B11 | public result | box | PRJNA762641 | metadata only |
-| 19 | Oral cancer in sequencing: four patients with tumor and their own normal tissue, read by the sequencing instrument rathe | A7 | public result | box |  | queued |
-| 20 | The blood test itself: read cancer DNA floating in blood against healthy blood, starting with liver | B6, B13 | public result | box |  | queued |
-| 21 | Brain cells, both instruments: seal the healthy brain-cell range and test it on two laboratories whose neurons we have n | A8-A11 | physics | laptop |  | queued |
-| 22 | Neurons on Met-A (both instruments on neurons) | A11 | physics | laptop | GSE306226, GSE234520 | verify files |
-| 23 | A second physics lever, so the law does not rest on one mouse experiment: another way to change a cell's methyl supply b | A4 | physics | box |  | queued |
-| 24 | Make the link between the two instruments a standing prediction: before each new sample is read, one instrument's readin | A5, A6 | physics | box |  | queued |
-| 25 | Neurons: sorted-only reference sealed on two unread laboratories | A8 | physics | box | GSE96612, GSE107729 | metadata only |
-| 26 | Sex balance: female donors across blood cell types | M3 | research | laptop | GSE131989 | UCSF independence check |
+| 1 | Finish Met-A's last two checks: the clustering reading's bars, which were narrowly unmet, and healthy readings across do | M5, M6 |  | laptop |  | queued |
+| 2 | Commission the atlas one use at a time: the sites a tissue test reads, the blood-composition step, and the per-cell iden | AT3, AT5, AT6 |  | laptop |  | queued |
+| 3 | Atlas v2 | M2, M3, M4, AT4, AT7, AT9, AT11 |  | laptop |  | queued |
+| 4 | Close out the IAM-A across-laboratory failure: find whether the gap came from where in the files we sampled or is real,  | A1, A2 |  | box |  | queued |
+| 5 | The lever series in simulation first: can the instruments separate a sliding copy head from chemical damage, tell a temp | levers |  | laptop |  | queued |
+| 6 | Colon: epithelium from an independent laboratory into the atlas, then the adenomas, which are pre-cancer | AT8, B4, G1 |  | laptop |  | queued |
+| 7 | Hepatocytes into the atlas, then liver on a second cohort, rebuilt in a clean copy of the repository | B5, B11, R4 |  | laptop |  | queued |
+| 8 | Breast epithelium on arrays, then breast on a second patient cohort, and the cell lines read both ways | B2, B10 |  | laptop |  | queued |
+| 9 | The temperature lever: hibernation, then the fish, then aging across species | C2, C9, C3 |  | box |  | queued |
+| 10 | The division-rate lever: brain cells on both instruments, post-mortem time checked first, and the passage series | A8, A9, A10, A11, G4, C4 |  | laptop |  | queued |
+| 11 | The erase channel on its own, through tumors whose reverse channel is chemically blocked | levers-erase |  | laptop |  | queued |
+| 12 | The whole-genome sky build: read every site of the genome with the microwave-sky tools against same-run healthy referenc | C6, sky |  | box |  | queued |
+| 13 | The one-floor write-up: the same floor for cells, chips and qubits with no per-system fitting, and the link between the  | A6, floor |  | laptop |  | queued |
+| 14 | Lung, once the atlas can describe lung's support cells: redesign, and the tumors that are still unread | B12 |  | laptop |  | queued |
+| 15 | The detection limit by dilution, then cancer DNA in blood, starting with liver | B8, B6, B13 |  | box |  | queued |
+| 16 | Blood cancers, one at a time, where the diseased cells are the blood cells themselves | B7 |  | laptop |  | queued |
+| 17 | Whole blood back in scope: the composition bar, using a set with measured cell counts | M1 |  | laptop |  | queued |
+| 18 | IAM-A beyond one cell type: healthy white cells from another laboratory, the per-territory reading as a sealed predictio | A3, A5, A7 |  | box |  | queued |
+| 19 | Replication: one Met-A function inside the chain that every scorer calls, a chain report for each result, a replication  | R1, R2, R3, R4 |  | laptop |  | queued |
+| 20 | A second energy-supply lever, so the law does not rest on one mouse experiment: a diet or enzyme experiment with enough  | A4, C1, C10, C11 |  | laptop |  | queued |
+| 21 | Instrument backlog: the newer array revision in intake, the blocked 450K disease readings, and the reproducibility tier  | C5, C7, C8 |  | laptop |  | queued |
+| 22 | Two gauge questions: is there a line cells cross rather than a gradual slide, and what reads better than healthy, which  | G2, G3 |  | laptop |  | queued |
+| 23 | Records hygiene: rewrite the guides that still describe the old chain, the spelling pass through the book, and the publi | R5, R6, R7 |  | laptop |  | queued |
 
 ## Sets tested (from each test note's Test data line)
 

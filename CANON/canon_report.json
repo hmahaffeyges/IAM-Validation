@@ -9,6 +9,15 @@
 "text": "The 8-class H_min version chased many cancers before each chain link was established; the roadmap, the one-cancer-at-a-time check and gate rule 7 now prevent it"
 },
 {
+"file": "website/build/build_home.py",
+"line": 100,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "<li><b>Scored once, and the code refuses otherwise.</b> Every test has a committed sealed rule and a scorer whose fingerprint is checked before scoring. The pus"
+},
+{
 "file": "docs/verification/PAPER_ERRATA.md",
 "line": 285,
 "pattern": "class H_min",
@@ -100,7 +109,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/LESSONS.md",
-"line": 11,
+"line": 12,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
@@ -109,7 +118,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/LESSONS.md",
-"line": 24,
+"line": 25,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",

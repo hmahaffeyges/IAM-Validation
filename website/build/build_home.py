@@ -123,7 +123,8 @@ def page(art):
 <ul class="road">{later}</ul>
 <h3>Ideas we want to test</h3><p class="sub">Not designed yet, written down so they are not lost. Each becomes a test with its rule fixed in advance, or it is dropped.</p>
 <ul class="road">{ideas}</ul>
-<h3>What support pays for</h3><p class="sub">The jobs above that need a rented computer, each with the estimate written before it starts; everything else runs on one laptop at no cost. The fundraiser's goal is $25,000, all of it research: rented computing, the data work, and a workstation to replace rented hours.</p>
+<h3>What support pays for</h3>
+<p class="sub"><b>No company, no charity, nothing for sale.</b> This is one person's work: there is no LLC, no nonprofit and no institution behind it, so support through the fundraiser is a personal gift and is <b>not tax-deductible</b>.</p><p class="sub">The jobs above that need a rented computer, each with the estimate written before it starts; everything else runs on one laptop at no cost. The fundraiser's goal is $25,000, all of it research: rented computing, the data work, and a workstation to replace rented hours.</p>
 <ul class="road">{buys}</ul>
 <h3 class="help">Where a researcher could help</h3><p class="sub">The gaps public data cannot close. If you hold data like this, or can point to it, open an issue or a discussion on the repository. You do not need to introduce yourself to follow along.</p>
 <ul class="road help">{helpw}</ul>
