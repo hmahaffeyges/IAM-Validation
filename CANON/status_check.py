@@ -45,6 +45,8 @@ try:
     if _m.RB not in _t or _m.RE not in _t or _t[_t.index(_m.RB) + len(_m.RB):_t.index(_m.RE)].strip() != _rr.strip(): fail.append("[results_register] README.md cell results differ from the register: run python3 CANON/results_to_tex.py")
     _mi = __import__("subprocess").run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "master_inventory.py"), "--check"], capture_output=True, text=True)
     if _mi.returncode != 0: fail.append("[master_inventory] " + (_mi.stdout.strip() or _mi.stderr.strip()[-200:]))
+    _nr = __import__("subprocess").run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "now_running.py"), "--check"], capture_output=True, text=True)
+    if _nr.returncode != 0: fail.append("[now_running] " + (_nr.stdout.strip() or _nr.stderr.strip()[-200:]))
     if not os.path.isfile(_m.TEX) or open(_m.TEX, encoding="utf-8").read() != tex: fail.append(f"[results_register] {os.path.relpath(_m.TEX)} differs from the register: run python3 CANON/results_to_tex.py")
     rs = open(_m.README, encoding="utf-8").read()
     if _m.B not in rs or _m.E not in rs or rs[rs.index(_m.B) + len(_m.B):rs.index(_m.E)].strip() != rd.strip(): fail.append("[results_register] Biological_Physics/README.md Advancements differs from the register: run python3 CANON/results_to_tex.py")

@@ -1214,3 +1214,6 @@ Cause test for the IAM-A across-labs failure: the three low EMSeq LAB02 runs and
 
 ### 2026-10-12 · DEV-IAMA-CAUSE-01: script, decision rule and planted tests committed before any read
 A first wrapper had a race (the pipeline's own download step could reach a part before it was staged, the C7 pattern); caught on review before commit and replaced by one part per pipeline call, staged first. Orchestration tested with stand-ins: 15 of 15 staged before their call.
+
+### 2026-10-12 · Now running board on the main README and FOLLOW.md (author)
+For followers who are not scientists: each live experiment with why it matters, what we hope, what could go wrong, dated updates linked to records, and the result win or lose. Generated from CANON/now_running.json by CANON/now_running.py; status_check refuses a board that differs, links a missing record, has a story with no update for 7 days, or uses hype words (two controls refused). First stories: atlas v2.1, IAM-A commissioning on hold.
