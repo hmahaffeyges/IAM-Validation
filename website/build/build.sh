@@ -35,7 +35,11 @@ python3 "$REPO/CANON/costs_snapshot.py" > /dev/null 2>&1 || echo "costs_snapshot
 python3 "$REPO/website/build/build_home.py" --check
 python3 "$REPO/website/build/build_home.py" "$SITE"
 test -s "$SITE/index.html" && test -s "$SITE/read/index.html" || { echo "Build failed: the front page or the book page is missing."; exit 1; }
-grep -q "Now running" "$SITE/index.html" || { echo "Build failed: the front page has no Now running section."; exit 1; }
+# The front page's status comes from the newest daily log (author, 2026-10-13: one stop shop). It must be present, must link a day
+# log, and must carry its "As of" status line - a page that publishes without them would look current while saying nothing.
+grep -q 'id="daylogs"' "$SITE/index.html" || { echo "Build failed: the front page has no daily-log section."; exit 1; }
+grep -q 'daylogs/20' "$SITE/index.html" || { echo "Build failed: the front page links no daily log."; exit 1; }
+grep -q '<b>As of 20' "$SITE/index.html" || { echo "Build failed: the front page carries no 'As of' status line from the newest daily log."; exit 1; }
 
 # 4b. EPUB edition (Apple Books and other e-readers) from the same LaTeXML XML: LaTeXML's EPUB 3 pages (math as MathML, figures as
 #     the build's PNGs), packaged with the four-skies cover by make_epub.py, then checked with epubcheck: any epubcheck error fails
