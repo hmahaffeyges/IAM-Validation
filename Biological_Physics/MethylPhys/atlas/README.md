@@ -152,7 +152,7 @@ The atlas is commissioned use by use, on purified cells from laboratories that d
 | [`v2/postbuild/`](v2/postbuild/) | tests run on the finished atlas, with scripts and records |
 | [`tools/`](tools/) | reading the published atlas |
 | [`sources/`](sources/) | source notes |
-| [`healpix_mapping/`](healpix_mapping/), [`external_manifests/`](external_manifests/) | site-to-sky map and array manifests the chain uses |
+| [`healpix_mapping/`](healpix_mapping/), [`external_manifests/`](external_manifests/) | the site-to-sky map (built, not in the chain: it draws the atlas the way the sky is drawn; its statistics are withheld until their null test passes) and the array manifests the chain uses |
 
 ## Removed
 
