@@ -27,7 +27,9 @@ detection claim: this is a method check on the instrument.
 3. **A group study design follows only if bar 1 is met**, and it must then be run one cancer at a time, with the healthy comparison
    group drawn from a laboratory that did not produce the cancer arrays - the harder configuration, deliberately.
 
-**Prior reading (data spending).** GSE184269 is already read and spent (the C-score band's held-out test); GSE315366 is already read and spent (the first band test). Both are in `CANON/data_spent.csv`. This step is DEVELOPMENT use of readings already taken - no new array is opened and no bar for either
+**Prior reading:** GSE184269 was read earlier as the C-score band's held-out test, and GSE315366 was read earlier as the first band test; both are spent and in `CANON/data_spent.csv`. This step reuses those readings, opens no new array, and neither set may later serve as a held-out test for a blood group reading.
+
+**Data spending.** GSE184269 is already read and spent (the C-score band's held-out test); GSE315366 is already read and spent (the first band test). Both are in `CANON/data_spent.csv`. This step is DEVELOPMENT use of readings already taken - no new array is opened and no bar for either
 of those tests is affected. Neither set may later serve as a held-out test for a blood group reading.
 
 **Known confound, stated before the run.** The two sets were read in different chain runs. If bar 1 fails, a chain-version difference

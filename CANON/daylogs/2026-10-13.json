@@ -335,7 +335,7 @@
      [
       "**v2.1's roster and split are fixed first**",
       "which sets build and which test, committed before any array is read",
-      "a set moved from build to test after the fact makes a held-out test meaningless",
+      "**box** - the fit needs 128 vCPU and ~246 GB; v2 was built on a c7a.32xlarge",
       "every v2.1 test; a note naming an already-read set as its held-out test is refused"
      ],
      [
@@ -347,7 +347,7 @@
      [
       "**Neutrophil test sources corrected**",
       "all four planned sources had been read by earlier work, so under the split rule they may build but not test; one had no neutrophils at all and was removed; an all-female control set was labelled invalid as a test; one unread set chosen as the held-out test with two caveats stated in advance",
-      "the author's instruction after that discovery: re-check everything, because reusing read data is dangerous",
+      "**box** - the fit needs 128 vCPU and ~246 GB; v2 was built on a c7a.32xlarge",
       "the v2.1 held-out test, and a new gate rule enforcing it"
      ],
      [
@@ -424,7 +424,7 @@
      [
       "8",
       "Atlas v2.1 build, with the mask and the fixed split",
-      "laptop, days",
+      "**box** - the fit needs 128 vCPU and ~246 GB; v2 was built on a c7a.32xlarge",
       "after the roster work",
       "every composition-aware reading, and the cell-free DNA track"
      ],

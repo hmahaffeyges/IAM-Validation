@@ -44,11 +44,11 @@
    "job": "Atlas v2",
    "todo": "M2, M3, M4, AT4, AT7, AT9, AT11",
    "impact": "",
-   "cost": "laptop",
+   "cost": "box (the fit needs 128 vCPU and ~246 GB; atlas v2 was built on a c7a.32xlarge, not reproducible on the laptop)",
    "accessions": [],
    "ready": "queued",
    "plain": "Atlas v2.1: the second-laboratory neutrophil reference (which also ends the all-male reference), lung stroma and the new cell types, then re-commission before the chain switches to it.",
-   "needs": "the laptop",
+   "needs": "a rented machine for the fit itself; the roster, the split, the mask and every input check are laptop work and come first",
    "estimate": "1-2 weeks",
    "stands": "build sets confirmed; held-out test chosen",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
