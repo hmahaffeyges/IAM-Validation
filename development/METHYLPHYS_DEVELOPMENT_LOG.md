@@ -1265,3 +1265,6 @@ Two new open sections, both generated: the five checkable things (the committed-
 
 ### 2026-10-13 · Atlas v2.1 neutrophil sources: test plan corrected before any array was read
 All four series the prep named are spent (DEV-METAA-450K-01, 2026-10-09). The split rule allows them to build only: GSE124565 (12 healthy, 7F/5M, Pittsburgh) and GSE88824 (8 healthy, Florey) stay as build sources and end the all-male reference. GSE118144 (all-female controls) and GSE122244 (no neutrophils, unreadable chip) are not valid held-out tests; GSE122244 removed. Unread candidates for the test set: GSE72338 (18 healthy neutrophil arrays, both sexes, Charite), GSE68456 (7 stringent-FACS granulocytes, UBC), GSE49618 (6, USC). Metadata only.
+
+### 2026-10-13 · Cause test stopped itself after part 1: SHUTDOWN leaked into the pipeline
+SHUTDOWN=1 passed to cause_01.sh was exported into session_epiqc.sh, which stops the machine when it sees it; the spot machine terminated after part 1 of 15 (about 35 min, ~$1). Part 1 is complete in S3 and is skipped on the rerun. The inner call now clears the variable; both controls pass. LESSONS C10.

@@ -17,3 +17,11 @@ low run over the mean of the two normal runs; LIBRARY if below 0.97 at all three
 orchestration with stand-ins for SRA and the pipeline (output `cause_01_orchestration_test_output.txt`: every part staged before its call: PASSED).
 The run is entered in the ledger before launch.
 **Not a milestone:** design (development).
+
+**First run stopped itself after part 1 (2026-10-13, fixed).** The job passed `SHUTDOWN=1` to `cause_01.sh`, and the shell exported it to the
+pipeline this script calls; `session_epiqc.sh` stops the machine when it sees that variable, so the spot machine shut down after the first of
+15 parts. Part 1 is complete and in S3 (`results/BOXRUN10_EPIQC/cause01/SRR13051256p0.pat.gz`, 24.5 M reads, 99.99 % mapped, conversion
+0.99777) and is skipped on the rerun. Fix: the inner call now clears the variable, so only this script stops the machine, after the last part.
+Both controls are in `data/DEV_IAMA_CAUSE_01/cause_01_shutdown_control_output.txt`: with the fix the pipeline sees it unset; with the old line
+it saw 1. Machine time lost: about 35 minutes, roughly $1.
+

@@ -1,7 +1,8 @@
 #!/bin/bash
 # DEV-IAMA-CAUSE-01 (box). For each run in cause_runs.csv, three parts of N_PAIRS read pairs, starting at spot 1, at 40 % and at 80 % of the run's
 # spots (SRA run info), are written with fastq-dump -N/-X (SRA random access) as r10/fq/<run>p<k>_{1,2}.fq with the .complete marker, then read
-# by boxruns/run10_epiqc/session_epiqc.sh UNCHANGED (TAG=cause01), one part per call, through the pinned pipeline. Part p0 must reproduce
+# by boxruns/run10_epiqc/session_epiqc.sh UNCHANGED (TAG=cause01), one part per call, through the pinned pipeline. SHUTDOWN is cleared for that call, so only this
+# script stops the machine, after the last part. Part p0 must reproduce
 # Stage B's own reading of the run (check in decide_cause_01.py). At most 2 parts are on disk at once. Usage: N_PAIRS=12200000 [SHUTDOWN=1] bash cause_01.sh
 set -uo pipefail
 S=/mnt/scratch/run2; H=~/IAM-Validation/Biological_Physics/MethylPhys; D=$H/doors/data/DEV_IAMA_CAUSE_01; N=${N_PAIRS:-12200000}
@@ -31,7 +32,8 @@ while [ $# -gt 0 ]; do
   if [ $# -gt 0 ]; then IFS=, read k2 l2 n2 r2 s2 run2 kk2 a2 <<< "$1"; stage $run2 $kk2 $a2 & BG=$!; else BG=""; fi
   if [ -f r10/fq/${run}p$k.complete ]; then
     printf "kit,lab,line,rep,seq,run\n$kit,$lab,$line,$rep,$seq,${run}p$k\n" > /tmp/cause01_list.csv
-    LIST=/tmp/cause01_list.csv N_PAIRS=$N TAG=cause01 FETCH_PAR=1 MAX_WAIT=99 bash $H/boxruns/run10_epiqc/session_epiqc.sh > /tmp/cause01_${run}p$k.out 2>&1
+    # SHUTDOWN must NOT reach the pipeline: it stops the machine at the end of EVERY part (2026-10-13; it did, after part 1 of 15).
+    LIST=/tmp/cause01_list.csv N_PAIRS=$N TAG=cause01 FETCH_PAR=1 MAX_WAIT=99 SHUTDOWN= bash $H/boxruns/run10_epiqc/session_epiqc.sh > /tmp/cause01_${run}p$k.out 2>&1
   else echo "${run}p$k not staged; skipped" >> /tmp/cause_stage.txt; fi
   [ -n "$BG" ] && wait $BG
 done
