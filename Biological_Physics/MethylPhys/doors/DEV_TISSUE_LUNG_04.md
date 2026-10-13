@@ -19,6 +19,6 @@ not suitable and its tumors stay unread.
 `luad_direction_output.csv`, `luad_synthetic_summary.txt`). Composition, planted 5 % and power PASSED, and the every-pair rule was chosen. The
 direction test FAILED: a normal lung blended with lung endothelium (60-90 %) raises R and fakes the chosen rule. **LUAD is not suitable; its
 tumors stay unread.**
-**In plain words.** The same attempt on the other common kind of lung cancer, with the same plan, and the same honest ending: a healthy lung blended with one of its own cell types counterfeits the signal, so the tumors stay unopened. Four lung attempts are now on the record, all of them negative or stopped, and none of them hidden.
+**In plain words.** The same attempt on the other common kind of lung cancer, with the same plan, and the same honest ending: a healthy lung blended with one of its own cell types counterfeits the signal, so the tumors stay unopened. Four lung attempts are now on the record, all of them negative or stopped, and none of them hidden. **What it would take to succeed.** The same prerequisite as the squamous attempt - healthy lung reference cells, including the blood-vessel lining that counterfeited the signal here - or reading lung only where the cell mixture can be measured in the same sample.
 
 **Not a milestone:** not suitable (development).

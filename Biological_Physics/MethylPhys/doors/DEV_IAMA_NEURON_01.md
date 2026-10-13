@@ -73,3 +73,10 @@ built under it is sealed, with its Normal band, before any array or read of eith
 healthy donors as Normal. If it does not, the change does not hold. The reference as first built (all 5 donors) stays on record unchanged, and
 both are reported side by side in every neuron result.
 
+**In plain words.** To read brain cells we need to know what healthy brain cells look like. In the public data, how a sample
+was prepared moved the numbers more than the donor's age or which part of the brain it came from - so our healthy reference
+uses cleanly sorted cells only, and mixed preparations are out. We changed that rule after seeing the spread, which is why it
+is written down, dated and sealed before either of the two independent laboratories is opened. **What it would take.**
+Reading those two laboratories against this reference. Brain cells also carry the sharpest test of the physics: they stop
+dividing, so their held error is kept by upkeep alone, and the derivation says it should not rise with age once the balance
+is reached. If it does rise, the balance itself moved, and that is what we would have to explain.

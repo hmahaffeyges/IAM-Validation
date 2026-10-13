@@ -269,6 +269,20 @@ for f in [x for x in changed if os.path.isfile(x)]:
             if _a in _SPENT and not _own:
                 fail.append(f"{f}: {_a} is named as a held-out test set but is in CANON/data_spent.csv (rule 21)")
 
+# 22. Plain words follow VISIBILITY, not milestone status (2026-10-13). The rule used to apply only to notes declaring a
+# **Milestone:**, so the lung notes, the colorectal replication and the atlas plan - all reachable from the public page -
+# carried none and the author had to ask. A note changed in this push that records an outcome, or is named by the results
+# register (result, loss or decision), must carry an "In plain words" paragraph AND a "What it would take" sentence.
+_REGJ = _js.load(open("CANON/results_register.json", encoding="utf-8"))
+_pub = {e.get("record") for e in _REGJ.get("entries", [])} | {x.get("record") for x in _REGJ.get("losses", [])} | {x.get("record") for x in _REGJ.get("decisions", [])}
+for f in [x for x in changed if x.startswith("Biological_Physics/MethylPhys/doors/") and x.endswith(".md") and os.path.isfile(x)]:
+    _t = open(f, encoding="utf-8", errors="replace").read()
+    if not (re.search(r"(?i)\b(not suitable|no fingerprint|NOT MET|BAR MET|: MET\b|FINGERPRINT\b)", _t) or f in _pub): continue
+    if "In plain words" not in _t:
+        fail.append(f"{f}: records an outcome or is shown on the page but has no 'In plain words' paragraph (rule 22)")
+    elif "What it would take" not in _t:
+        fail.append(f"{f}: has plain words but does not say what it would take to succeed or finish (rule 22)")
+
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
 print(f"repro_check: ok ({len(changed)} note(s) changed in this push)")

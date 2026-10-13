@@ -98,5 +98,5 @@ switch pattern, so those sites would make a healthy person look damaged. We meas
 for different lengths of time, and we ignore those sites. That list is the mask. Checked afterwards, part of what it flags
 is the machine's measurement day rather than the dish, which is why we keep the larger list: a mask can only remove sites,
 never add them, so being generous with it costs us sensitivity and never buys us a result. The drift reappeared in two more
-laboratories and two more cell types, above chance but not completely, so the mask stays.
+laboratories and two more cell types, above chance but not completely, so the mask stays. **What it would take to do better.** Fresh, uncultured cells for the types we only have from a dish, which removes the guessing; and arrays measured on more than one day per cell line, which separates the dish's effect from the machine's measurement day. Both are searches we can run.
 

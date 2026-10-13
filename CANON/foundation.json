@@ -1,0 +1,96 @@
+{
+ "_read_this_first": "The foundation: every statement the rest of the work rests on, each with the file that derives it and a text anchor that must still be present. Before writing physics in a note, a chapter or a script, read this file - not a memory of a conversation. CANON/foundation_check.py refuses a push when an anchor has moved (the foundation changed and this file did not) or when a retired phrasing reappears. Adding or changing an entry is deliberate: change the book, then this file, then say so in the development log.",
+ "entries": [
+  {
+   "id": "iams_law",
+   "statement": "Every irreversible transition from quantum superposition to classical record pays kT ln2 per bit to the nearest encoding surface at the local temperature.",
+   "status": "the law",
+   "derived_in": "docs/book/appendices/app_F_glossary.tex",
+   "anchor": "Every irreversible transition from quantum superposition to classical record pays $\\kB T\\ln2$ per bit",
+   "commit": "2c737a57"
+  },
+  {
+   "id": "balance",
+   "statement": "The held state is a balance of restore and loss. Over any interval a held site is lost with probability f and a lost one restored with probability g, so eps = f/(f+g) and E_hold = kT ln(g/f). The interval need not be a division: in a dividing cell much of the loss happens as the DNA is copied, in a cell that has stopped dividing loss and restore are upkeep. The held error is set by the RATIO, not by the number of copies. Division sets only how fast the balance is reached, about 1/(f+g) intervals.",
+   "status": "DERIVED",
+   "derived_in": "docs/book/part6/p6_02_landauer.tex",
+   "anchor": "\\section{The held state is a balance of restore and loss}",
+   "commit": "2c737a57"
+  },
+  {
+   "id": "balance_equation",
+   "statement": "eps = f/(f+g); (1-eps)/eps = g/f; E_hold = kT ln(g/f).",
+   "status": "DERIVED",
+   "derived_in": "docs/book/part6/p6_02_landauer.tex",
+   "anchor": "\\varepsilon=\\frac{f}{f+g}",
+   "commit": "2c737a57"
+  },
+  {
+   "id": "copy_error_term",
+   "statement": "'Copy error' is kept as the name of WHAT IS READ - an isolated error in the held pattern - and says nothing about how the error was written. It is set by the balance of restore and loss whether the cell divides or not.",
+   "status": "definition in force",
+   "derived_in": "docs/book/appendices/app_F_glossary.tex",
+   "anchor": "Set by the balance of restore and loss, whether the error was written when the DNA was copied or",
+   "commit": "2c737a57"
+  },
+  {
+   "id": "e_hold",
+   "statement": "E_hold = kT ln[(1-eps)/eps], read from the copy error; 3.41 kT at Loyfer read level (3.41-3.77 across data sets).",
+   "status": "measured",
+   "derived_in": "docs/book/appendices/app_F_glossary.tex",
+   "anchor": "read from the copy error as $\\kB T\\ln[(1-\\varepsilon)/\\varepsilon]$",
+   "commit": "2c737a57"
+  },
+  {
+   "id": "eps0",
+   "statement": "eps_0 = 1/(1+e^{phi M}) = 0.032 with phi M = E_hold = 3.41 kT, the holding energy measured across 56 healthy cell types.",
+   "status": "derived from the measured holding energy",
+   "derived_in": "docs/book/appendices/app_F_glossary.tex",
+   "anchor": "\\varepsilon_0=1/(1+e^{\\varphi\\mathcal M})=0.032",
+   "commit": "2c737a57"
+  },
+  {
+   "id": "iam_a",
+   "statement": "IAM-A = H(eps) / (P_cell H(eps_0)): the copy error read against the cell type's healthy reference.",
+   "status": "definition in force",
+   "derived_in": "docs/book/appendices/app_F_glossary.tex",
+   "anchor": "IAM-A $=H(\\varepsilon)/(P_{\\rm cell}H(\\varepsilon_0))$",
+   "commit": "2c737a57"
+  },
+  {
+   "id": "h_min",
+   "statement": "H_min, the floor, is the lowest error a system can hold before thermal kicks win. It is NOT the denominator of A and not 1: it sits below 1 at H_min/healthy reference.",
+   "status": "definition in force",
+   "derived_in": "docs/book/appendices/app_F_glossary.tex",
+   "anchor": "It is not the denominator of $A$ and not 1",
+   "commit": "2c737a57"
+  }
+ ],
+ "retired_phrasings": [
+  {
+   "phrase": "paid per copy",
+   "why": "the cost is paid per operation and the held error is a balance, not a tally of copies (entry 'balance')",
+   "use_instead": "set by the balance of restore and loss"
+  },
+  {
+   "phrase": "per-copy cost",
+   "why": "same",
+   "use_instead": "the balance of restore and loss"
+  },
+  {
+   "phrase": "paid per division",
+   "why": "same",
+   "use_instead": "paid per operation; division sets only the time to balance"
+  },
+  {
+   "phrase": "accumulates with divisions",
+   "why": "at balance the held error does not accumulate; only the time to reach balance depends on division",
+   "use_instead": "reaches its balance in about 1/(f+g) intervals"
+  },
+  {
+   "phrase": "error accumulates with age",
+   "why": "at balance it does not; a rise with age means the ratio g/f moved",
+   "use_instead": "a rise with age means the balance itself moved"
+  }
+ ]
+}

@@ -25,3 +25,10 @@ pipeline this script calls; `session_epiqc.sh` stops the machine when it sees th
 Both controls are in `data/DEV_IAMA_CAUSE_01/cause_01_shutdown_control_output.txt`: with the fix the pipeline sees it unset; with the old line
 it saw 1. Machine time lost: about 35 minutes, roughly $1.
 
+**In plain words.** Our second instrument reads single DNA molecules from sequencing. In its commissioning four of five
+checks passed; the fifth failed, where the same kit was run in two laboratories on identical reference DNA. Rather than
+adjust anything, our own rule puts the whole commissioning on hold until we know why. This test is that search: we read the
+suspect libraries from several positions in each file, with controls that passed, to find whether the gap came from where in
+the file we sampled or is real. **What it would take to finish.** The 15 readings now running answer it. If sampling explains
+the gap, the check is rerun properly and commissioning can finish; if not, the failure stands, that kit is recorded as not
+trustworthy across laboratories, and the instrument's scope shrinks to what passed.

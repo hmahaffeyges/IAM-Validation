@@ -182,3 +182,11 @@ with the count stated.
 **If it is met** together with the first laboratory, what remains for the C-score is new same-person replicates for the repeat
 bar, which the recomputation above shows is met on series-tared readings only.
 
+**In plain words.** We have two meters. The first says how far a cell has drifted from healthy. This one, the C-score, says
+*how* it drifted: in clumps, or scattered. Clumps are what cancer leaves. To trust it we measured the healthy range on 617
+blood samples from 19 studies, then asked whether that range holds on healthy people from a laboratory that had no hand in
+setting it. It did: 34 of 35 read inside, where we allowed up to 1 in 20 outside. **What it would take to finish.** The same
+check on more healthy laboratories, and a set where one person was measured several times, to confirm that two readings of
+the same person differ by less than a quarter of the smallest change we want to catch. On the samples we have, that holds
+when a person is compared with others measured in the same batch and does not hold when the comparison is only within one
+chip, so a report has to say which comparison it used.

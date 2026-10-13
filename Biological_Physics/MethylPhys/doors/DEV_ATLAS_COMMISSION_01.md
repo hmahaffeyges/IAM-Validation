@@ -118,3 +118,8 @@ cells; it is then commissioned like U1-U4, with its bars written before its data
 withheld until the null test passes". Checked 2026-10-12: the Met-A C-score reads the residuals in genome order (conductor_v3.stage_mc_cscore,
 blocks of consecutive sites) and does not read the sky map; status fact healpix_not_in_chain refuses a claim that the chain uses HEALPix.
 
+**In plain words.** Our map of healthy cell types gets used for several different jobs: choosing which sites to read, working
+out what mixture of cells a blood sample holds, and naming the cell a sample came from. A map can be good enough for one job
+and not another, so we commission the uses one at a time instead of blessing the map as a whole. **What it would take.** For
+each use, purified healthy cells from laboratories that did not build the map, with the bar written before we look. The first
+use being commissioned is the choice of sites a cancer test reads.

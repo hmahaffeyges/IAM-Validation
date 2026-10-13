@@ -10,8 +10,8 @@ prediction is possible, since that is the only kind of test a physicist cannot d
 | Lever | What it changes in the physics | Caveat | Parameter-free prediction possible? | Status |
 |---|---|---|---|---|
 | Temperature | kT sets the floor | mammals are all 36-39 C, so this needs birds (40-42), fish (ambient), hibernators (5-37), fever, or culture at 33/37/39 | **yes** - a derived ratio between two temperatures | designed, never run (`DEV_FLOOR_HEIGHT_02`) |
-| Methyl supply (SAM, methionine, folate, B12) | the driving energy behind each write | starvation stops division, removing the per-copy term being measured; this is why methionine parked | partly - the direction is derived, the size needs the division rate | one mouse result met its committed window (`DEV_SAM_LEVER_01`); `DEV_METHIONINE_01` parked |
-| Division rate | Landauer's cost is paid per copy | division rate travels with age, tissue and culture | **yes** - zero divisions must read differently in a derived way | neuron rule sealed (`DEV_IAMA_NEURON_01`); passage series in hand (GSE268145) |
+| Methyl supply (SAM, methionine, folate, B12) | the restore rate g, and so the balance directly | starvation also stops division, which only changes how fast the balance is reached; this is why methionine parked | partly - the direction is derived, the size needs the division rate | one mouse result met its committed window (`DEV_SAM_LEVER_01`); `DEV_METHIONINE_01` parked |
+| Division rate | how fast the balance is reached, about 1/(f+g) intervals - not the balance itself (`CANON/foundation.json`, entry `balance`) | division rate travels with age, tissue and culture | **yes** - cells that never divide hold the balance by upkeep alone, which is a derived way | neuron rule sealed (`DEV_IAMA_NEURON_01`); passage series in hand (GSE268145) |
 | Write-enzyme level | fewer write heads, more copy error | inhibitors are toxic and change division rate | no - dose response is empirical | decitabine gave no result at the decisive dose (`DEV_LINK_IAMA_METAA_02_OUTCOME`) |
 | **Erase machinery (TET)** | the reverse channel, on its own | needs oxygen and alpha-ketoglutarate, so it is tangled with metabolism | **yes, if the three-channel split below is right** | **never tested** |
 | **Oxygen and redox** | TET activity depends on O2; tumors are hypoxic | hypoxia changes much else at the same time | no | **never considered** |
@@ -35,7 +35,7 @@ direction.
 
 ## Corrected against the balance derivation (2026-10-13; the author caught this twice)
 
-The lever table first said "Landauer's cost is paid per copy", which assumes replication supplies the only operations. The
+The lever table first said the cost was paid per copy [retired wording kept for the record], which assumes replication supplies the only operations. The
 author's objection - a neuron never divides and its writing and erasing go on anyway - is already settled in the book, and
 the settled answer is stronger than the per-operation patch written here earlier today. From the book's section *The held
 state is a balance of restore and loss* (2026-10-11, DERIVED): over any interval, a held site is lost with probability `f`
@@ -128,3 +128,12 @@ clustering reading identify which one was hit. This is the prerequisite for read
 knockout: no distinguishable signature in simulation means those patients cannot answer the question.
 
 **Not a milestone:** an audit of levers and caveats; no data read and no pass value written.
+
+**In plain words.** A law is only believable if you can change something in the physics and have it move the way the law
+says, with nothing adjusted afterwards. This note lists every such handle we can reach - body temperature, the cell's supply
+of methyl groups, how often it divides, the enzymes that write and erase, oxygen, tumors that block erasing, and plain
+chemical damage - with what is wrong with each one. Three of them we had never considered. **What it would take.** Each
+handle is first tried on simulated data, to find whether the effect is even visible at the amount of data we can get. Two
+are done: the meters can tell clumped damage from scattered damage once a failure runs over about ten sites in a row, and
+comparing different species' temperatures is a weak test while hibernating animals - the same animal warm and cold - is a
+strong one. That changed which study we plan to run, before we spent a month on the weaker one.

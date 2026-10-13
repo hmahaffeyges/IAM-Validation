@@ -92,6 +92,11 @@ for _k in ("losses", "decisions"):
         if not os.path.exists(_x.get("record", "")): fail.append(f"[results_register] {_k} entry {_x.get('date')} names a record that does not exist: {_x.get('record')}")
         elif not _x.get("plain"): fail.append(f"[results_register] {_k} entry {_x.get('date')} has no plain-words text")
 
+# The foundation must stay sound: anchors present, no retired phrasing in a file this push changed (2026-10-13)
+_fc = subprocess.run([sys.executable, "CANON/foundation_check.py"], capture_output=True, text=True)
+if _fc.returncode:
+    for _l in (_fc.stdout or _fc.stderr).strip().split("\n")[1:]: fail.append("[foundation] " + _l.strip())
+
 if fail:
     print(f"status_check: REFUSED ({len(fail)})\n  " + "\n  ".join(fail[:40])); sys.exit(1)
 print(f"status_check: ok ({len(F['facts'])} facts, {len(files)} documents)")

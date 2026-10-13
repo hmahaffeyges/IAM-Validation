@@ -36,7 +36,7 @@ healthy lung stromal cells in the atlas (DEV-ATLAS-COMMISSION-01, use U2) or com
 type in the atlas. Planted 5 % PASSED; composition, power and direction FAILED: an immune blend (with lung macrophages) moves R by about 4 %
 against a pair bar near 5 % at these tightly matched normals. **LUSC is not suitable for a fingerprint call; its 40 tumors stay unread.** Next:
 TCGA-LUAD with the v3 design (DEV-TISSUE-LUNG-04).
-**In plain words.** We tried to read lung cancer against each patient's own healthy lung. Before opening a single tumor we tested the plan on simulated lungs, and it failed: a healthy lung whose mixture of cells leans one way can fake the very signal we were looking for. So we stopped, left all 40 tumors unopened, and wrote down why. Lung comes back when our reference can describe lung's support cells properly.
+**In plain words.** We tried to read lung cancer against each patient's own healthy lung. Before opening a single tumor we tested the plan on simulated lungs, and it failed: a healthy lung whose mixture of cells leans one way can fake the very signal we were looking for. So we stopped, left all 40 tumors unopened, and wrote down why. Lung comes back when our reference can describe lung's support cells properly. **What it would take to succeed.** Lung needs reference cells our map does not hold yet: alveolar cells, airway lining and the lung's own blood-vessel lining, each measured in healthy lungs by a laboratory that did not build our map. With those, the same test runs again on these 40 tumors, which stay sealed until then.
 
 **Not a milestone:** not suitable (development).
 
