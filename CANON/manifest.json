@@ -1,5 +1,5 @@
 {
- "provenance": "Built 2026-10-13 from five sub-agents combing the repository and the author's pasted notes (a sixth, on a second pasted file, folds in when it finishes). Their declared limits apply to every row: the development log from 2026-10-08 was read by heading and keyword, not in full; door notes were read selectively; data-set run outcomes were built mechanically from the registers and are provisional; some numbers in notes come from the pasted notes and are labeled there; class-era VAL results were not opened (author's blinding rule). Rows were merged only when they name the same test id; other likely duplicates are flagged 'possible duplicate of'.",
+ "provenance": "Built 2026-10-13 from six sub-agents combing the repository and the author's two pasted files. Their declared limits apply to every row: the development log from 2026-10-08 was read by heading and keyword, not in full; door notes were read selectively; data-set run outcomes were built mechanically from the registers and are provisional; some numbers in notes come from the pasted notes and are labeled there; class-era VAL results were not opened (author's blinding rule). Rows were merged only when they name the same test id; other likely duplicates are flagged 'possible duplicate of'.",
  "sections": [
   {
    "code": "COM-METAA",
@@ -1133,6 +1133,217 @@
    ]
   },
   {
+   "id": "COM-METAA-031",
+   "title": "Met-A on neurons: neuron Met-A reference by the SOP new-cell rule",
+   "purpose": "Builds a Met-A array reference for neurons so both instruments read the same cell type. Two instruments agreeing on one cell is stronger evidence than either alone.",
+   "instrument_or_term": "Met-A",
+   "sources": [
+    "Pishva (Maastricht, 39 donors)",
+    "Labrie (33 arrays)",
+    "GSE306226 (20 donors, 4 brain cell types, 2025)",
+    "GSE234520 (43 donors)"
+   ],
+   "data_status": "to_scout",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Build a neuron Met-A reference by the SOP new-cell rule; split build and held-out before reading.",
+   "cost": "laptop",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
+   "notes": "Pasted A11. Accessions for Pishva and Labrie not given in the notes. repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md lists the array sets.",
+   "legacy_ids": [
+    "A11",
+    "G4"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-METAA-032",
+   "title": "Whole blood back into Met-A scope (bar 7) with an independent counted-cell truth set",
+   "purpose": "Checks Met-A on whole blood against cell counts measured by flow cytometry in an independent group. Whole blood is the real blood test, but Met-A is commissioned only on isolated neutrophils.",
+   "instrument_or_term": "Met-A composition step",
+   "sources": [
+    "GSE167202 (held unread; clinical counts too noisy)",
+    "GSE127824 (cord blood, matched flow counts)"
+   ],
+   "data_status": "in_hand",
+   "status": "designed",
+   "runs": [],
+   "next_step": "Assess the cord-blood caveat (nucleated red cells, newborn mix); if usable, synthetic tests, seal, read.",
+   "cost": "laptop",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_COMPOSITION_TRUTH_04.md",
+   "notes": "Pasted M1. data_spent.csv lists GSE167202 'unspent'. GSE127824 not in data_spent.csv; in-S3 status of GSE127824 not confirmed. help_wanted asks for whole-blood EPIC with flow counts. repo: Biological_Physics/MethylPhys/doors/DEV_COMPOSITION_TRUTH_04.md. | possible duplicate of COM-METAA-009",
+   "legacy_ids": [
+    "M1"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-METAA-033",
+   "title": "Second-laboratory neutrophil reference from the atlas (U4 first case)",
+   "purpose": "Derives Met-A's neutrophil sites and healthy reference from the atlas, keeping per-sample noise, and re-commissions it on held-out arrays. It also ends the one-lab, mostly-male reference.",
+   "instrument_or_term": "Met-A neutrophil reference",
+   "sources": [
+    "GSE124565 (12 healthy, build)",
+    "GSE88824 (8 healthy, build)",
+    "GSE72338 (18 granulocyte arrays, held-out test)",
+    "GSE224807 (granulocytes; named in notes, now spent)"
+   ],
+   "data_status": "partial",
+   "status": "designed",
+   "runs": [],
+   "next_step": "Derive the sites and reference; pass the same bars on GSE72338 with its two caveats (household contacts, granulocytes); re-commission.",
+   "cost": "laptop",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "notes": "Pasted M2 names GSE224807 granulocytes as held-out; repo log 2026-10-13 corrects this: all four prep series were spent (DEV-METAA-450K-01) so GSE72338 was chosen as the held-out test with two caveats (pasted summary: 'The neutrophil held-out test is chosen, with two caveats written in advance'). repo: Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md. | possible duplicate of COM-METAA-008",
+   "legacy_ids": [
+    "M2",
+    "AT6"
+   ],
+   "depends_on": [
+    "Atlas v2.1 build and fit"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-METAA-034",
+   "title": "Met-A reference balance: 6 arrays, one lab, 5 male / 1 female",
+   "purpose": "Records the open problem that the commissioned neutrophil reference comes from six arrays in one laboratory with one female donor. A reviewer will raise it first.",
+   "instrument_or_term": "Met-A neutrophil reference",
+   "sources": [
+    "GSE226298 (commissioning reference)"
+   ],
+   "data_status": "spent",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Solved by M2 if it passes (GSE124565 7F/5M and GSE88824 as build sources).",
+   "cost": "none",
+   "impact": 4,
+   "record": "TODO.md",
+   "notes": "Pasted M3 'open problem in book'. Reference series id GSE226298 taken from data_spent.csv (read by the commissioned Met-A neutrophil bars 10-11).",
+   "legacy_ids": [
+    "M3"
+   ],
+   "depends_on": [
+    "Second-laboratory neutrophil reference from the atlas (U4 first case)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-METAA-035",
+   "title": "450K neutrophil reference (GSE88824, 8 donors)",
+   "purpose": "Builds and freezes a Met-A neutrophil reference on the older 450K array platform. It would open the much larger 450K public archive.",
+   "instrument_or_term": "Met-A on 450K",
+   "sources": [
+    "GSE88824"
+   ],
+   "data_status": "spent",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Build and freeze.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_450K_01.md",
+   "notes": "Pasted M4 'pending'. data_spent.csv: GSE88824 calibrated betas spent under DEV-METAA-450K-01 (2026-10-09).",
+   "legacy_ids": [
+    "M4"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-METAA-036",
+   "title": "Healthy Met-A across donor ages (donors 20-39 and beyond)",
+   "purpose": "Measures whether the healthy Met-A reading holds across ages. A reading that drifts with age in healthy people would be mistaken for disease.",
+   "instrument_or_term": "Met-A",
+   "sources": [
+    "purified neutrophil arrays across ages (none found yet)"
+   ],
+   "data_status": "to_scout",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Search purified neutrophil arrays across ages.",
+   "cost": "search",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",
+   "notes": "Pasted M6 (S). next_jobs groups M5, M6 under the C-score plan record. | possible duplicate of COM-METAA-001",
+   "legacy_ids": [
+    "M6"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-METAA-037",
+   "title": "References for blasts and B cells (blood cancers) by the SOP new-cell rule",
+   "purpose": "Builds healthy references for leukemic blasts' cell of origin and B cells so blood cancers can be read. Without the right reference, the chain cannot read these cancers at all.",
+   "instrument_or_term": "Met-A new-cell rule",
+   "sources": [
+    "GSE159907",
+    "GSE175758",
+    "GSE136724",
+    "GSE295456",
+    "GSE237299"
+   ],
+   "data_status": "in_hand",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Build the references first, then read blood cancers one at a time.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/MASTER_INVENTORY.md",
+   "notes": "Pasted B7. data_spent.csv lists all five as unspent. next_jobs 'later' note (2026-10-13): most public blood-cancer arrays are whole blood or marrow, where the composition guard withholds the reading; sorted patient cells are needed.",
+   "legacy_ids": [
+    "B7"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-METAA-038",
+   "title": "Healthy cell-free DNA reference",
+   "purpose": "Builds a healthy plasma cell-free DNA reference, which does not yet exist. Every cell-free DNA cancer set and the plasma-tail instrument wait on it.",
+   "instrument_or_term": "Met-A / plasma reference",
+   "sources": [
+    "healthy plasma cfDNA (no source named)"
+   ],
+   "data_status": "to_scout",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Find a healthy plasma set; build after the atlas and composition step are commissioned.",
+   "cost": "search",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LIVER_BLOOD_01.md",
+   "notes": "Pasted B6 'needs healthy cfDNA references first' and instrument 6 'a healthy plasma reference does not exist yet'. repo: next_jobs B8/B6/B13 record.",
+   "legacy_ids": [
+    "B6"
+   ],
+   "depends_on": [
+    "Atlas v2.1 build and fit"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
    "title": "C-score (clustering meter) commissioning: band on held-out laboratories and repeatability",
    "purpose": "Commissions the C-score, which says whether a change is clustered in whole stretches or scattered, by setting its healthy band and checking it on laboratories not used to build it. It matters because the shape of a loss separates a broken copying machine from scattered damage.",
    "instrument_or_term": "C-score (Met-A clustering meter)",
@@ -1502,6 +1713,151 @@
    ]
   },
   {
+   "id": "COM-CSCORE-011",
+   "title": "C-score healthy band test (a) on laboratories that did not set the band",
+   "purpose": "Checks that the clustering meter's healthy band, set on 617 blood samples from 19 studies, holds on healthy people from laboratories that had no part in setting it. A meter that only reads correctly on its own build data is worthless.",
+   "instrument_or_term": "C-score (clustering meter)",
+   "sources": [
+    "GSE315366 (35 clonal-hematopoiesis-negative bloods)",
+    "GSE184269 (NIA-IRP GESTALT, 24 whole bloods)"
+   ],
+   "data_status": "spent",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-13",
+     "outcome": "success",
+     "note": "First independent lab GSE315366: 34 of 35 not above 1.152 (97.1 %, bar 95 %); band and definition committed before the readings.",
+     "commit": "9472656"
+    },
+    {
+     "date": "2026-10-13",
+     "outcome": "success",
+     "note": "Second lab GSE184269: 22 of 23 (95.65 %) - met by ONE array; 1 withheld for coverage (22 of 24 would fail); series-tared only; whole bloods, not the commissioned neutrophil scope; 10 granulocyte arrays refused.",
+     "commit": "4153c68"
+    }
+   ],
+   "next_step": "Carry the three caveats; finish the same-person repeatability check.",
+   "cost": "none",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",
+   "notes": "Pasted: 'healthy band met in two independent laboratories (34/35 and 22/23 healthy, 95 % bar)'; '617 blood samples from 19 different studies'. GSE184269 is not listed in data_spent.csv though it was read on 2026-10-13. repo: Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md; log 2026-10-13. | possible duplicate of COM-CSCORE-004",
+   "legacy_ids": [
+    "L5",
+    "M5"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-CSCORE-012",
+   "title": "C-score last check: same-person repeatability on unspent replicate arrays",
+   "purpose": "Confirms the repeatability bar on new same-person repeat arrays from a set that did not help build the band. It is the last check before the clustering meter becomes the second commissioned instrument.",
+   "instrument_or_term": "C-score",
+   "sources": [
+    "healthy EPIC v1 blood series with same-person repeats (none found unspent)",
+    "GSE112611 (no IDATs)",
+    "GSE184202 (burnout cohort)",
+    "GSE291053 (dialysis)",
+    "GSE250556 and GSE123914 (spent)"
+   ],
+   "data_status": "to_scout",
+   "status": "designed",
+   "runs": [
+    {
+     "date": "2026-10-13",
+     "outcome": "fail",
+     "note": "Metadata search: both front-runner replicate sets are out (GSE112611 has no IDATs; GSE184202 is a patient cohort with an intervention between draws); the ideal designs are already spent.",
+     "commit": "028c360"
+    }
+   ],
+   "next_step": "Read sample sheets of healthy EPIC v1 blood series directly for unlabeled repeats, excluding every spent set; or commission the 450K band (unlocks GSE61151).",
+   "cost": "search",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",
+   "notes": "Pasted: 'Clustering meter, last check - blocked: no unspent same-person repeat arrays'; item 3 'either find same-person repeat arrays in an unspent set, or commission the older array platform's band'. 'What would break it: healthy replicate pairs from one person differing by more than the band's own tolerance'. repo: Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md. | possible duplicate of COM-CSCORE-005",
+   "legacy_ids": [
+    "L5",
+    "M5"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-CSCORE-013",
+   "title": "C-score bars narrowly unmet: author decision on one-sided reading and absolute repeatability bar",
+   "purpose": "Records the author decision needed on how the C-score bars are defined (one-sided reading, absolute repeatability bar). The decision must be made and committed before more data are read.",
+   "instrument_or_term": "C-score",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Author decision; commit before reading.",
+   "cost": "none",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",
+   "notes": "Pasted M5 'development'. Log 2026-10-13: commit timestamps show the one-sided definition and repeat bar committed 2026-10-09 07:04, before the test (a) readings - so part of this decision may already be made; confirm with the author.",
+   "legacy_ids": [
+    "M5"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-CSCORE-014",
+   "title": "C-score 450K band commissioning (option to unlock GSE61151 and the 450K archive)",
+   "purpose": "Commissions the clustering meter's healthy band on the older 450K platform. That unlocks an ideal temporal-stability set and a much larger archive.",
+   "instrument_or_term": "C-score on 450K",
+   "sources": [
+    "GSE61151 (white blood cells, temporal stability)"
+   ],
+   "data_status": "to_scout",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Decide between this and the EPIC v1 repeat search.",
+   "cost": "laptop",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",
+   "notes": "Pasted item 3: 'commission the older array platform's band, which unlocks an ideal set and a much larger archive'. GSE61151 named in the repo plan, not in the pasted notes.",
+   "legacy_ids": [
+    "L5"
+   ],
+   "depends_on": [
+    "450K neutrophil reference (GSE88824, 8 donors)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-CSCORE-015",
+   "title": "C-score scope gap: whole blood readings vs sorted-cell commissioning",
+   "purpose": "Reconciles that the C-score band was tested on whole blood while the Met-A meter it rides on is commissioned on sorted neutrophils. That gap must close before any detection claim.",
+   "instrument_or_term": "C-score",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Write how the scope gap is reconciled (sorted-cell band or whole-blood commissioning).",
+   "cost": "laptop",
+   "impact": 4,
+   "record": "CANON/instruments.json",
+   "notes": "Pasted instrument board 'Blind spot: whole blood so far... that scope gap must be reconciled before any detection claim'. repo: CANON/instruments.json CSCORE-LAST-CHECK.",
+   "legacy_ids": [
+    "L5"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
    "title": "Cause of the IAM-A across-laboratory failure (where in the file is read)",
    "purpose": "Finds why three EMSeq libraries from one laboratory read copy error about 15 % low, before any rule is changed. It matters because the stopping rule holds IAM-A commissioning until the cause is known.",
    "instrument_or_term": "IAM-A (sampling of a sequencing run)",
@@ -1559,11 +1915,14 @@
    "purpose": "Rather than adjust anything, the failing libraries and two controls were read from three places in each file to learn whether the gap belonged to the library or to where in the file it was read. The answer decides how the instrument can be released.",
    "instrument_or_term": "IAM-A",
    "sources": [
-    "SRR13051256",
+    "EpiQC SRR13051256",
     "SRR13051128",
-    "SRR13051268",
+    "SRR13051136",
+    "SRR13051136 (control)",
+    "SRR13051256",
     "SRR13051263",
-    "SRR13051136"
+    "SRR13051263 (control)",
+    "SRR13051268"
    ],
    "data_status": "spent",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md",
@@ -1589,15 +1948,18 @@
    "cost": "none",
    "impact": 5,
    "legacy_ids": [
-    "N4b",
     "A1",
-    "A2"
+    "A2",
+    "N4b"
    ],
-   "depends_on": [],
-   "notes": "possible duplicate of COM-IAMA-001",
+   "depends_on": [
+    "IAM-A commissioning on EpiQC"
+   ],
+   "notes": "possible duplicate of COM-IAMA-001 | also in the pasted notes as: IAM-A laboratory failure: cause test, head vs whole file (DEV-IAMA-CAUSE-01)",
    "id": "COM-IAMA-002",
    "sources_of_row": [
-    "Commissioning"
+    "Commissioning",
+    "Pasted notes"
    ]
   },
   {
@@ -2044,9 +2406,12 @@
    "purpose": "Commissions IAM-A on a second, very different cell type, neurons, using two independent laboratories as test sets. It matters because one cell type shows the physics can be measured; a second shows it is one law, not one cell.",
    "instrument_or_term": "IAM-A",
    "sources": [
+    "GSE107729",
+    "GSE107729 (Yi controls)",
     "GSE186458",
+    "GSE186458 (Loyfer, reference)",
     "GSE96612",
-    "GSE107729"
+    "GSE96612 (Feinberg)"
    ],
    "data_status": "partial",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
@@ -2063,6 +2428,11 @@
      "note": "Neuron reference built from Loyfer whole files: 2 of 5 cortical donors inside Normal leave-one-out; ND264 (not sorted) reads high."
     },
     {
+     "date": "2026-10-12",
+     "outcome": "fail",
+     "note": "Reference built by the rule on all 5 donors: only 2 of 5 inside Normal; kept on record."
+    },
+    {
      "date": "2026-10-13",
      "outcome": "progressed",
      "note": "Reference rule sealed on sorted cells only (post-reading rule change, disclosed); push-gate rule 21."
@@ -2071,17 +2441,20 @@
    "next_step": "Seal the sorted-only reference's test on the two unread laboratories (Feinberg GSE96612, Yi GSE107729 controls) before opening them (TODO A8).",
    "cost": "box",
    "impact": 5,
-   "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md; TODO.md A8; results_register decisions 2026-10-13. Pasted wording: G4 'Neurons: low end and non-dividing cells; neuron check running (Loyfer, GSE96615, GSE108066; arrays searched); design note DEV-IAMA-NEURON-01 after the check'; R3 'sorted cortical neurons: GSE96615 (6 donors), GSE108066 (25 controls, windows only), Loyfer Cortex-Neuron'. DISCREPANCY: the pasted accessions GSE96615/GSE108066 differ from the repo's GSE96612 (Feinberg, 6 donors) and GSE107729 (Yi, 25 controls); neither pasted accession is in MASTER_INVENTORY.csv. R3 also lists GSE262274 (one laboratory, non-pinned format) - see DAT hold-list row.",
+   "depends_on": [
+    "Neurons: post-mortem time check"
+   ],
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md; TODO.md A8; results_register decisions 2026-10-13. Pasted wording: G4 'Neurons: low end and non-dividing cells; neuron check running (Loyfer, GSE96615, GSE108066; arrays searched); design note DEV-IAMA-NEURON-01 after the check'; R3 'sorted cortical neurons: GSE96615 (6 donors), GSE108066 (25 controls, windows only), Loyfer Cortex-Neuron'. DISCREPANCY: the pasted accessions GSE96615/GSE108066 differ from the repo's GSE96612 (Feinberg, 6 donors) and GSE107729 (Yi, 25 controls); neither pasted accession is in MASTER_INVENTORY.csv. R3 also lists GSE262274 (one laboratory, non-pinned format) - see DAT hold-list row. | also in the pasted notes as: Neurons as IAM-A's second cell type (DEV-IAMA-NEURON-01)",
    "legacy_ids": [
     "A8",
     "G4",
-    "R3",
-    "L2"
+    "L2",
+    "R3"
    ],
    "id": "COM-IAMA-015",
    "sources_of_row": [
-    "Friday notes"
+    "Friday notes",
+    "Pasted notes"
    ]
   },
   {
@@ -2089,7 +2462,9 @@
    "purpose": "Excludes the unsettled start of a sequencing run, with how much to skip decided by the chemistry of the raw reads rather than by the answer. It was meant to release the held instrument, and its declared limit is that it cannot act on a bias the chemistry does not show.",
    "instrument_or_term": "IAM-A trim rule",
    "sources": [
-    "PRJNA646948"
+    "EpiQC Stage B, all 71 libraries",
+    "PRJNA646948",
+    "synthetic planted runs"
    ],
    "data_status": "spent",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_TRIM_01.md",
@@ -2110,13 +2485,17 @@
    "cost": "none",
    "impact": 5,
    "legacy_ids": [
-    "L9"
+    "L9",
+    "N4b"
    ],
-   "notes": "TODO L9 next step ('one short box read, then rerun the held lab check') predates the calibration result. instruments.json gate section describes this rule as releasing RUNLENGTH-SPECTRUM and FRAGMENT-TAIL.",
-   "depends_on": [],
+   "notes": "TODO L9 next step ('one short box read, then rerun the held lab check') predates the calibration result. instruments.json gate section describes this rule as releasing RUNLENGTH-SPECTRUM and FRAGMENT-TAIL. | also in the pasted notes as: IAM-A trim rule: exclude the unsettled file head by the reads' own chemistry (DEV-IAMA-TRIM-01)",
+   "depends_on": [
+    "IAM-A cause test (DEV-IAMA-CAUSE-01)"
+   ],
    "id": "COM-IAMA-016",
    "sources_of_row": [
-    "Commissioning"
+    "Commissioning",
+    "Pasted notes"
    ]
   },
   {
@@ -2352,11 +2731,12 @@
    "purpose": "The first proposed fix read three places in each file and pooled them. Its planted test showed pooling only dilutes a bias, so the fix must exclude the bad part of the file instead.",
    "instrument_or_term": "IAM-A sampling rule",
    "sources": [
-    "SRR13051256",
     "SRR13051128",
-    "SRR13051268",
+    "SRR13051136",
+    "SRR13051256",
     "SRR13051263",
-    "SRR13051136"
+    "SRR13051268",
+    "synthetic planted runs"
    ],
    "data_status": "spent",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_READACROSS_01.md",
@@ -2379,11 +2759,14 @@
    "legacy_ids": [
     "N4b"
    ],
-   "notes": "Results register lists this note under 'losses' (2026-10-13).",
-   "depends_on": [],
+   "notes": "Results register lists this note under 'losses' (2026-10-13). | also in the pasted notes as: IAM-A read-across rule: three pooled blocks per file (DEV-IAMA-READACROSS-01)",
+   "depends_on": [
+    "IAM-A cause test (DEV-IAMA-CAUSE-01)"
+   ],
    "id": "COM-IAMA-024",
    "sources_of_row": [
-    "Commissioning"
+    "Commissioning",
+    "Pasted notes"
    ]
   },
   {
@@ -2639,6 +3022,7 @@
    "purpose": "Incomplete chemical conversion hides some copy errors, and the fixed 0.98 limit alone was deciding which kit could be read. This derived and tested the effect so the intake rule has a physical basis.",
    "instrument_or_term": "IAM-A (Stage Q0.3)",
    "sources": [
+    "EpiQC session 4 runs (14 Stage Q whole files)",
     "GSE128731",
     "GSE186458"
    ],
@@ -2661,11 +3045,14 @@
    "cost": "none",
    "impact": 3,
    "depends_on": [],
-   "notes": "",
-   "legacy_ids": [],
+   "notes": "also in the pasted notes as: IAM-A conversion correction check (DEV-IAMA-CONVERSION-01)",
+   "legacy_ids": [
+    "A1"
+   ],
    "id": "COM-IAMA-032",
    "sources_of_row": [
-    "Commissioning"
+    "Commissioning",
+    "Pasted notes"
    ]
   },
   {
@@ -2997,6 +3384,229 @@
    "id": "COM-IAMA-043",
    "sources_of_row": [
     "Commissioning"
+   ]
+  },
+  {
+   "id": "COM-IAMA-044",
+   "title": "IAM-A commissioning on EpiQC identical DNA (Stage A + Stage B, 7 lines x 5 kits x 2 labs)",
+   "purpose": "Checks whether the sequencing instrument IAM-A gives the same reading on identical DNA across kits and laboratories. IAM-A is the instrument that tests the law directly, so nothing it reads can be trusted until this passes.",
+   "instrument_or_term": "IAM-A (sequencing gauge)",
+   "sources": [
+    "EpiQC (identical reference DNA, 78 sealed libraries; Stage B 71 libraries)"
+   ],
+   "data_status": "spent",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-12",
+     "outcome": "fail",
+     "note": "Scored once under the seal: C1, C2, C3-kits, C5 met; C3 across laboratories NOT MET (three deep EMSeq LAB02 runs read about 15 % low); commissioning HELD under the stopping rule. Stage A had met C1 earlier; Stage B ran on an on-demand c6a.32xlarge after four spot reclaims.",
+     "commit": "17cb81e"
+    }
+   ],
+   "next_step": "Rerun the across-laboratory check on the whole stage once an independent head diagnostic is found and sealed (the 5 diagnosis libraries are spent).",
+   "cost": "box",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01_OUTCOME.md",
+   "notes": "Pasted N1/A2/O1: 'on an on-demand c6a.32xlarge after four spot reclaims; 55 of 71 at about 1 PM Pacific'; 'score once; TruSeq may fail C2, recorded not adjusted'; 'terminate the machine (spot_from_box.py release i-08550fe70a8e58348)'. Pasted summary: 'Held: 4 of 5 commissioning checks passed'. repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01_OUTCOME.md; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-12. | possible duplicate of COM-IAMA-010",
+   "legacy_ids": [
+    "N1",
+    "A2",
+    "O1"
+   ],
+   "depends_on": [
+    "IAM-A cause test (DEV-IAMA-CAUSE-01)",
+    "IAM-A trim rule (DEV-IAMA-TRIM-01)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-IAMA-045",
+   "title": "IAM-A narrow scope, bars first: sorted neutrophils, WGBS, pinned pipeline, same-run references",
+   "purpose": "Fixes the narrow scope in which IAM-A is first commissioned and writes its bars (C1-C5) before any data are read. A narrow scope is what makes a first commissioning claim defensible.",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "EpiQC",
+    "GSE186458 (Loyfer neutrophil reference)"
+   ],
+   "data_status": "spent",
+   "status": "sealed",
+   "runs": [],
+   "next_step": "Score with A2 (done 2026-10-12); scope stays held with commissioning.",
+   "cost": "none",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01.md",
+   "notes": "Pasted A1: 'C1 decided (0.98, no correction); C2-C5 sealed'. repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01.md (record path inferred from the commissioning note; confirm).",
+   "legacy_ids": [
+    "A1"
+   ],
+   "depends_on": [
+    "IAM-A commissioning on EpiQC"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-IAMA-046",
+   "title": "IAM-A across-laboratory check rerun on the whole stage",
+   "purpose": "Reruns the failed across-laboratory check on all Stage B libraries under a sealed sampling rule. Passing it would release IAM-A and the run-length and plasma-tail instruments that depend on it.",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "EpiQC Stage B (whole stage re-read)"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Wait for an independent head diagnostic and its seal; then about one day of box time.",
+   "cost": "box",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md",
+   "notes": "Pasted item 5: 'Rerun the laboratory check on the whole stage - box time, about a day. Releases the sequencing instrument and the two instruments behind it.' repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md (stopping rule requires whole-stage re-read). | possible duplicate of COM-IAMA-014",
+   "legacy_ids": [
+    "N4b",
+    "L9"
+   ],
+   "depends_on": [
+    "IAM-A trim rule (DEV-IAMA-TRIM-01)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-IAMA-047",
+   "title": "IAM-A other-laboratory healthy neutrophils (C4)",
+   "purpose": "Checks whether healthy neutrophils sequenced in a laboratory other than the reference group read as healthy. Without a second laboratory, IAM-A cannot be shown to work outside the data it was built on.",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "GSE59163 (RRBS, 13 healthy)"
+   ],
+   "data_status": "to_scout",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Verify GSE59163 from its files (RRBS, donor count, sorting); design.",
+   "cost": "search",
+   "impact": 5,
+   "record": "TODO.md",
+   "notes": "Pasted A3: 'lead from atlas search: GSE59163 (RRBS, 13 healthy) - verify from files; design'. help_wanted in CANON/next_jobs.json asks for WGBS/EM-seq neutrophils from another lab (record Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01.md). GSE59163 not found in any doors note or data_spent.csv. | possible duplicate of COM-IAMA-022",
+   "legacy_ids": [
+    "A3"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-IAMA-048",
+   "title": "Per-territory IAM-A (held vs gained) as a sealed prediction on MCF-7",
+   "purpose": "Uses the per-territory IAM-A reader to predict, before reading, how held and gained territories move in MCF-7 cells. It turns an existing reader into a falsifiable test.",
+   "instrument_or_term": "IAM-A per-territory reader",
+   "sources": [
+    "MCF-7 sequencing (fingerprint set)"
+   ],
+   "data_status": "partial",
+   "status": "designed",
+   "runs": [],
+   "next_step": "Seal a prediction on MCF-7 territories before reading.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "TODO.md",
+   "notes": "Pasted A5: 'reader built and passed'. No dedicated doors note found for the per-territory prediction; repo: TODO.md A5 only. | possible duplicate of COM-IAMA-040",
+   "legacy_ids": [
+    "A5"
+   ],
+   "depends_on": [
+    "IAM-A commissioning on EpiQC"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-IAMA-049",
+   "title": "Met-A to IAM-A link as a standing sealed prediction (DEV-LINK-IAMA-METAA)",
+   "purpose": "Tests whether the copy error IAM-A measures predicts the array reading Met-A gives on the same DNA. A confirmed link ties the two instruments to one quantity.",
+   "instrument_or_term": "Met-A and IAM-A link",
+   "sources": [
+    "Box Run 2 session 5 decitabine dose series (EM-seq + EPIC, same series)",
+    "EpiQC (same DNA, arrays and sequencing)"
+   ],
+   "data_status": "partial",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-10",
+     "outcome": "inconclusive",
+     "note": "Decitabine dose series: no result at the decisive dose - too few molecules readable (window sealed ec6efcb)."
+    }
+   ],
+   "next_step": "Seal a link window on EpiQC (same DNA on arrays and sequencing).",
+   "cost": "laptop",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LINK_IAMA_METAA_02_OUTCOME.md",
+   "notes": "Pasted A6: 'dose series no result; donors off curve'. Also listed in results_register losses (2026-10-10). Design: Biological_Physics/MethylPhys/doors/DEV_LINK_IAMA_METAA_01.md. 'donors off curve' detail not checked in the repo. | possible duplicate of COM-IAMA-028",
+   "legacy_ids": [
+    "A6"
+   ],
+   "depends_on": [
+    "IAM-A commissioning on EpiQC"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-IAMA-050",
+   "title": "Neurons: post-mortem time check on copy error",
+   "purpose": "Checks whether time between death and tissue collection changes the copy error in neuron samples. Post-mortem neurons cannot be trusted as healthy references until this is known.",
+   "instrument_or_term": "IAM-A copy error",
+   "sources": [
+    "GSE107729 (Yi controls)"
+   ],
+   "data_status": "in_hand",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Check copy error against post-mortem time in the Yi controls before trusting post-mortem neurons.",
+   "cost": "laptop",
+   "impact": 4,
+   "record": "TODO.md",
+   "notes": "Pasted A10: 'not checked'. next_jobs division-rate job says 'post-mortem time checked first' (record Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md). data_status in_hand is from the pasted wording; not confirmed in S3. | possible duplicate of COM-IAMA-023",
+   "legacy_ids": [
+    "A10"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "COM-IAMA-051",
+   "title": "Oral cancer tumor/normal WGBS, 4 patients",
+   "purpose": "Would read IAM-A on paired tumor and normal oral tissue. The source must be traced and read-level files re-fetched first, because only per-site tables are stored.",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "oral cancer tumor/normal WGBS (4 patients; per-site tables in S3; accession not stated)"
+   ],
+   "data_status": "partial",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Trace the source and re-fetch read-level files, after A1.",
+   "cost": "search",
+   "impact": 2,
+   "record": "TODO.md",
+   "notes": "Pasted A7 only names it; no accession given in the notes. repo: TODO.md A7. | possible duplicate of COM-IAMA-043",
+   "legacy_ids": [
+    "A7"
+   ],
+   "depends_on": [
+    "IAM-A commissioning on EpiQC"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
    ]
   },
   {
@@ -4064,6 +4674,378 @@
    ]
   },
   {
+   "id": "ATL-032",
+   "title": "Atlas v2 public deposit with DOI",
+   "purpose": "Publishes the IAM-Atlas v2 reference files with a DOI so anyone can fetch and check them. A public, versioned atlas is a precondition for replication.",
+   "instrument_or_term": "IAM-Atlas v2",
+   "sources": [
+    "Atlas v2 files in S3 (4.67 GB, 2,100 files, 7 archives)"
+   ],
+   "data_status": "none_needed",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-12",
+     "outcome": "success",
+     "note": "Deposited: DOI 10.5281/zenodo.23325865, MIT license; every upload md5-checked; fetch_atlas.py tested on the live record; DOI in atlas README, book chapter, main README; status fact atlas_v2.",
+     "commit": "0b57742"
+    }
+   ],
+   "next_step": "None; done.",
+   "cost": "none",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/atlas/",
+   "notes": "Pasted N2/AT2 (pending in the notes); pasted summary 'v2 published with its DOI'. repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-12. | possible duplicate of ATL-011",
+   "legacy_ids": [
+    "N2",
+    "AT2"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "ATL-033",
+   "title": "Atlas showcase folder, README, book chapter, main README",
+   "purpose": "Presents the atlas as a resource for builders, independent of IAM physics, and removes the class-era REBUILD. It is what outside researchers see first.",
+   "instrument_or_term": "IAM-Atlas v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-12",
+     "outcome": "success",
+     "note": "Done: showcase written; class-era atlas removed; atlas claims checked and locked (status fact atlas_v2)."
+    }
+   ],
+   "next_step": "None.",
+   "cost": "none",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/atlas/",
+   "notes": "Pasted AT1 'done today'. repo: log 2026-10-12. | possible duplicate of ATL-019",
+   "legacy_ids": [
+    "AT1"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "ATL-034",
+   "title": "Atlas commissioning U2: composition-blind sites for tissue tests",
+   "purpose": "Commissions, on independent purified cells, the atlas sites that tissue tests read because a change of cell mix cannot move them. Every tissue result rests on these sites.",
+   "instrument_or_term": "Atlas U2",
+   "sources": [
+    "independent purified cells (per AT4 leads)"
+   ],
+   "data_status": "partial",
+   "status": "designed",
+   "runs": [
+    {
+     "date": "2026-10-12",
+     "outcome": "fail",
+     "note": "First finding: lung blind sites failed (no lung stroma in the atlas)."
+    }
+   ],
+   "next_step": "Bars on independent purified cells.",
+   "cost": "laptop",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_COMMISSION_01.md",
+   "notes": "Pasted AT3 'commission first'. repo: Biological_Physics/MethylPhys/doors/DEV_ATLAS_COMMISSION_01.md (plan use by use). | possible duplicate of ATL-002",
+   "legacy_ids": [
+    "AT3"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "ATL-035",
+   "title": "Atlas commissioning U1: cell profiles on independent laboratories",
+   "purpose": "Tests the atlas cell profiles on purified cells from laboratories that did not build it. The atlas cannot be trusted beyond its build data until this holds.",
+   "instrument_or_term": "Atlas U1",
+   "sources": [
+    "GSE224807 (141 donors, 6 blood types, 2023)",
+    "GSE184269",
+    "GSE103541",
+    "GSE252045",
+    "GSE59065",
+    "GSE123995 (hepatocytes)",
+    "GSE140295 (endothelium)",
+    "GSE52025 (fibroblasts)"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Split each into build and held-out data before reading; verify IDATs and donor counts from files; drop spent sets as tests.",
+   "cost": "laptop",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_COMMISSION_01.md",
+   "notes": "Pasted AT4. data_spent.csv: GSE103541 and GSE224807 spent (cannot be held-out tests); GSE184269 read 2026-10-13 for the C-score. Others not in data_spent.csv. | possible duplicate of ATL-008",
+   "legacy_ids": [
+    "AT4"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "ATL-036",
+   "title": "Atlas commissioning U3: blood composition (CD4/CD8 outside bar)",
+   "purpose": "Finds why the atlas estimates of CD4 and CD8 T cells in blood fall outside their bar. The whole-blood reading depends on getting the cell mix right.",
+   "instrument_or_term": "Atlas U3",
+   "sources": [],
+   "data_status": "spent",
+   "status": "run",
+   "runs": [],
+   "next_step": "Find the source of the CD4/CD8 shortfall.",
+   "cost": "laptop",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_COMMISSION_01.md",
+   "notes": "Pasted AT5. Run date of the failed CD4/CD8 bar not given in the notes. | possible duplicate of ATL-034",
+   "legacy_ids": [
+    "AT5"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "ATL-037",
+   "title": "Atlas commissioning U4: per-cell identity sites",
+   "purpose": "Checks that each cell type's identity sites call held-out purified samples Normal at the 95 % bar. Below the bar, per-cell readings are not reliable.",
+   "instrument_or_term": "Atlas U4",
+   "sources": [],
+   "data_status": "spent",
+   "status": "run",
+   "runs": [],
+   "next_step": "More purified samples per cell on one platform.",
+   "cost": "laptop",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_COMMISSION_01.md",
+   "notes": "Pasted AT6: 'held-out 87.7 % (arrays) and 73.1 % (sequencing) Normal, bar 95 %'. Run date not given. | possible duplicate of ATL-017",
+   "legacy_ids": [
+    "AT6"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "ATL-038",
+   "title": "Lung stroma into the atlas, with a culture check",
+   "purpose": "Adds lung smooth muscle and fibroblasts to the atlas so lung tumors can be tested fairly. Every public sample was dish-grown, so a culture check against uncultured lung comes first.",
+   "instrument_or_term": "Atlas v2.1",
+   "sources": [
+    "GSE146376 (airway smooth muscle, 54 healthy, EPIC)",
+    "GSE107226 (lung fibroblasts, 4 normal, 450K)"
+   ],
+   "data_status": "in_hand",
+   "status": "designed",
+   "runs": [],
+   "next_step": "Culture check against uncultured lung; build/held-out split; v2.1 (research-only in v2.1 per the roster).",
+   "cost": "laptop",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "notes": "Pasted AT7. GSE146376/GSE107226 were used as inputs in DEV-TISSUE-LUNG-03 v3 (log 2026-10-12); not in data_spent.csv. help_wanted: fresh never-cultured lung stroma. | possible duplicate of ATL-016",
+   "legacy_ids": [
+    "AT7"
+   ],
+   "depends_on": [
+    "Atlas v2.1 culture mask"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "ATL-039",
+   "title": "Atlas v2.1 culture mask (step 1, 1b) and step 2 fresh vs dish-grown",
+   "purpose": "Measures which sites drift when cells are grown in a dish and masks them, then checks cells that exist both fresh and cultured. Ignoring drifting sites can only cost sensitivity, never manufacture a result.",
+   "instrument_or_term": "Atlas v2.1 culture mask",
+   "sources": [
+    "GSE197512 (182 arrays, seven Coriell lines)",
+    "GSE179847 (Columbia fibroblasts)",
+    "GSE82234 (Aachen HUVEC)"
+   ],
+   "data_status": "spent",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-12",
+     "outcome": "progressed",
+     "note": "Step 1: 44.8 % of CpGs drift (batch mixed in); batch-free core 11.1 % kept as the mask.",
+     "commit": "2dcc188"
+    },
+    {
+     "date": "2026-10-12",
+     "outcome": "success",
+     "note": "Step 1b: drift replicates above chance in two more labs (Columbia 54.7 % same way vs chance 34.2 %; Aachen 38.1 %).",
+     "commit": "f4675a7"
+    }
+   ],
+   "next_step": "Step 2: cells that exist both fresh and dish-grown.",
+   "cost": "laptop",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "notes": "Pasted summary: 'v2.1: the culture mask is done and replicates in two more labs. Next: step 2'. GSE179847/GSE82234 accessions from the log, not the notes; their spent status not in data_spent.csv. repo: log 2026-10-12. | possible duplicate of ATL-012",
+   "legacy_ids": [
+    "AT11",
+    "AT7"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "ATL-040",
+   "title": "Atlas v2.1 build, joint fit and commissioning",
+   "purpose": "Builds atlas v2.1 with the second-lab neutrophil reference, lung stroma and new cell types, fits it, and re-commissions it before the chain switches. It gates the cell-free DNA track.",
+   "instrument_or_term": "IAM-Atlas v2.1",
+   "sources": [
+    "v2.1 roster (76 GEO series, 2 ArrayExpress studies)"
+   ],
+   "data_status": "partial",
+   "status": "designed",
+   "runs": [],
+   "next_step": "Finish laptop prep (roster, split, mask, input checks); then the fit on a 128-core box (21-30 h estimate); then commissioning.",
+   "cost": "box",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "notes": "Pasted summary: 'The v2.1 fit itself is a box job (the 128-core machine, like v2)'; item 7 'Atlas v2.1 with the mask and the fixed split - laptop, days. Gates the cell-free DNA track.' repo: Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md (author approved 2026-10-12). | possible duplicate of ATL-005",
+   "legacy_ids": [
+    "AT11",
+    "AT7",
+    "AT9",
+    "M2"
+   ],
+   "depends_on": [
+    "Atlas v2.1 culture mask (step 1, 1b) and step 2 fresh vs dish-grown",
+    "Second-laboratory neutrophil reference from the atlas (U4 first case)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "ATL-041",
+   "title": "New atlas cell types: HSPC, cord-blood HSC, adipocytes",
+   "purpose": "Adds blood stem cells and fat cells to the atlas. More cell types let more tissues and blood cancers be read.",
+   "instrument_or_term": "IAM-Atlas",
+   "sources": [
+    "GSE87196 (HSPC sequencing)",
+    "GSE273074 (cord-blood HSC)",
+    "GSE111445 (adipocyte WGBS)"
+   ],
+   "data_status": "to_scout",
+   "status": "planned",
+   "runs": [],
+   "next_step": "After AT7.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "TODO.md",
+   "notes": "Pasted AT9. None of these accessions appears in a doors note or data_spent.csv. | possible duplicate of ATL-025",
+   "legacy_ids": [
+    "AT9"
+   ],
+   "depends_on": [
+    "Lung stroma into the atlas, with a culture check"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "ATL-042",
+   "title": "Gold mine map: classify every atlas candidate by role and cell type",
+   "purpose": "Classifies every candidate data set (build, held-out test, truth set, research, not usable) by cell type with a priority list. It feeds every atlas and commissioning search.",
+   "instrument_or_term": "IAM-Atlas",
+   "sources": [
+    "169 GEO series (metadata only)",
+    "2025 compendium"
+   ],
+   "data_status": "none_needed",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-12",
+     "outcome": "success",
+     "note": "Committed: 169 series classified, metadata only, limits in its search record (doors/data/DEV_ATLAS_COMMISSION_01/).",
+     "commit": "3d59ce7"
+    }
+   ],
+   "next_step": "Feeds AT4, AT7-AT9, M1, A3, A11.",
+   "cost": "search",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_COMMISSION_01.md",
+   "notes": "Pasted AT12 'sub-agent running'. repo: log 2026-10-12 Master Inventory entry.",
+   "legacy_ids": [
+    "AT12"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "ATL-043",
+   "title": "Atlas six-month search rule (gate rule 19)",
+   "purpose": "Requires a fresh public-data search for atlas cell types every six months. New public data appear constantly and would otherwise be missed.",
+   "instrument_or_term": "IAM-Atlas",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "planned",
+   "runs": [
+    {
+     "date": "2026-10-12",
+     "outcome": "success",
+     "note": "Last search 2026-10-12."
+    }
+   ],
+   "next_step": "Next search due by 2027-04-12.",
+   "cost": "search",
+   "impact": 2,
+   "record": "TODO.md",
+   "notes": "Pasted AT10. | possible duplicate of ATL-030",
+   "legacy_ids": [
+    "AT10"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "ATL-044",
+   "title": "Atlas versioning rule: each addition a new version, own DOI, re-commissioned before the chain switches",
+   "purpose": "Keeps every atlas version separately citable and requires re-commissioning before use. Results scored on v2 stay on v2.",
+   "instrument_or_term": "IAM-Atlas",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "designed",
+   "runs": [],
+   "next_step": "First use with v2.1.",
+   "cost": "none",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "notes": "Pasted AT11 'rule written'.",
+   "legacy_ids": [
+    "AT11"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
    "title": "Clustering meter (C-score): finish its commissioning - same-person repeat arrays",
    "purpose": "Finishes the clustering meter, which reads whether losses come in stretches rather than scattered, the most cancer-specific reading we have. The last open check is whether one healthy person read twice stays inside the band.",
    "instrument_or_term": "CSCORE-LAST-CHECK (instrument p1)",
@@ -4249,11 +5231,12 @@
    "purpose": "Places each tumor on the gauge between its healthy tissue and the derived right-hand mark, with no units. It answers how far toward the full surface a cancer has moved and whether that distance is shared across cancers.",
    "instrument_or_term": "CEILING-DISTANCE (instrument p4)",
    "sources": [
-    "TCGA-BRCA (53 pairs)",
+    "219 sealed tumor/normal pairs: liver 50, breast 53, colorectal 88, lung 28",
     "GSE131013 (88 pairs)",
-    "TCGA-LIHC (50 pairs)",
     "GSE94785 (lung 1, 28 pairs)",
-    "TCGA ABSOLUTE purity (GDC PanCanAtlas)"
+    "TCGA ABSOLUTE purity (GDC PanCanAtlas)",
+    "TCGA-BRCA (53 pairs)",
+    "TCGA-LIHC (50 pairs)"
    ],
    "data_status": "spent",
    "record": "Biological_Physics/MethylPhys/doors/DEV_CEILING_02.md",
@@ -4293,10 +5276,11 @@
    "legacy_ids": [
     "L8"
    ],
-   "notes": "Development use of spent sets; cannot change sealed verdicts; none may later be a held-out test of a ceiling claim. Lung accession inferred from TODO B12 ('lung 1 (GSE94785)') = DEV-TISSUE-LUNG-01, the set named in the note; the note itself names the tests, not the accessions. TODO L8 'done on 219 pairs; breach edges committed' -> next DEV-BREACH-01 (H2), scored 2026-10-13 not met (other section).",
+   "notes": "Development use of spent sets; cannot change sealed verdicts; none may later be a held-out test of a ceiling claim. Lung accession inferred from TODO B12 ('lung 1 (GSE94785)') = DEV-TISSUE-LUNG-01, the set named in the note; the note itself names the tests, not the accessions. TODO L8 'done on 219 pairs; breach edges committed' -> next DEV-BREACH-01 (H2), scored 2026-10-13 not met (other section). | also in the pasted notes as: Ceiling position: where a tumor sits between its own normal and the ceiling (DEV-CEILING-02)",
    "id": "CAN-006",
    "sources_of_row": [
-    "Levers and instruments"
+    "Levers and instruments",
+    "Pasted notes"
    ]
   },
   {
@@ -4454,7 +5438,8 @@
    "purpose": "Compares fidelity in hard-to-maintain territory against easy territory inside one sample, so plate, batch and much of the cell mixture cancel. The balance equation predicts the ratio of their responses with nothing fitted.",
    "instrument_or_term": "TERRITORY-CONTRAST (instrument p2)",
    "sources": [
-    "synthetic (DEV_TERRITORY_01, DEV_TERRITORY_02/territory_synth_02.py)"
+    "synthetic (DEV_TERRITORY_01, DEV_TERRITORY_02/territory_synth_02.py)",
+    "synthetic arrays only"
    ],
    "data_status": "none_needed",
    "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORY_01.md",
@@ -4478,16 +5463,18 @@
    "impact": 4,
    "legacy_ids": [
     "L6",
+    "T2",
     "next_jobs:T2"
    ],
-   "notes": "Falsifier: stable territory losing before fragile territory in a condition known to cost the cell energy. Listed in results_register losses (2026-10-13). v2 committed before running in aff23d5; its outcome is in DEV_TERRITORY_02.md. The design had first called the reading a ratio; the derivation forces a difference.",
+   "notes": "Falsifier: stable territory losing before fragile territory in a condition known to cost the cell energy. Listed in results_register losses (2026-10-13). v2 committed before running in aff23d5; its outcome is in DEV_TERRITORY_02.md. The design had first called the reading a ratio; the derivation forces a difference. | also in the pasted notes as: Territory contrast: fragile over stable territory, a self-taring reading (DEV-TERRITORY-01, -02)",
    "depends_on": [],
    "register_ids": [
     "TERRITORY-CONTRAST"
    ],
    "id": "CAN-012",
    "sources_of_row": [
-    "Levers and instruments"
+    "Levers and instruments",
+    "Pasted notes"
    ]
   },
   {
@@ -4728,6 +5715,208 @@
    ]
   },
   {
+   "id": "CAN-020",
+   "title": "Met-A on whole blood: the real healthy spread (DEV-BLOOD-SENSITIVITY-01)",
+   "purpose": "Measures how much healthy people differ in whole-blood Met-A and how far a given loss moves the reading. It decides whether blood on arrays can call one person or only groups.",
+   "instrument_or_term": "Met-A whole blood",
+   "sources": [
+    "GSE184269 (24 healthy whole bloods)",
+    "synthetic whole blood"
+   ],
+   "data_status": "spent",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-13",
+     "outcome": "progressed",
+     "note": "Part 1, synthetic leverage with the chain's own function: a 1 % neutrophil drop moves the reading +2.8 to +4.8 % across neutrophil shares 0.40-0.70; a hand-typed table was corrected the same day.",
+     "commit": "a2a3d0d"
+    },
+    {
+     "date": "2026-10-13",
+     "outcome": "success",
+     "note": "Part 2, real healthy arrays: healthy relative SD 6.36 %; leverage 2.09 % per 1 % loss; about 7.2 % loss needed per person; per group 0.86 % at 50 people.",
+     "commit": "7900618"
+    }
+   ],
+   "next_step": "Per person is out on arrays; measure the tared spread or treat blood as a group instrument.",
+   "cost": "laptop",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_BLOOD_SENSITIVITY_01.md",
+   "notes": "Pasted candidate 3 and L7 'per-person is out; group comparisons work within one series'; 'Blood on arrays is a real group instrument today. With 50 people per side, a mean loss under 1% separates'. These arrays were spent as the C-score test, so this was development use. repo: Biological_Physics/MethylPhys/doors/DEV_BLOOD_SENSITIVITY_01.md.",
+   "legacy_ids": [
+    "L7",
+    "M1"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "CAN-021",
+   "title": "Tared whole-blood spread on a healthy set with several arrays per slide",
+   "purpose": "Measures whether the same-run tare shrinks the 6.36 % healthy spread. The first set had one array per slide, so the tare could not be formed and 6.36 % may be an overestimate.",
+   "instrument_or_term": "Met-A whole blood, tared",
+   "sources": [
+    "healthy whole-blood EPIC set with several arrays per slide (not yet found)"
+   ],
+   "data_status": "to_scout",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Find such a set (excluding spent sets); seal; read.",
+   "cost": "search",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_BLOOD_SENSITIVITY_01.md",
+   "notes": "Pasted item 6: 'The tared blood spread - free, needs a healthy set with several arrays per slide'. next_jobs lists it under todo M1. | possible duplicate of CAN-011",
+   "legacy_ids": [
+    "M1",
+    "L7"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "CAN-022",
+   "title": "Distance to the ceiling: audit of every reading (DEV-CEILING-AUDIT-01)",
+   "purpose": "Checks that no reading has crossed the derived entropy ceiling, past which a badly damaged sample would read low. An unnoticed crossing would under-report damage.",
+   "instrument_or_term": "Entropy ceiling",
+   "sources": [
+    "DEV_BASE_CHAIN_01 readings (7,490)",
+    "replication run readings (191)"
+   ],
+   "data_status": "spent",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-13",
+     "outcome": "success",
+     "note": "Of 7,681 readings that record the flag, none past the ceiling; the composition-aware tissue path never recorded the flag, so breast, colorectal and liver cannot be audited from saved files.",
+     "commit": "584fbb6"
+    }
+   ],
+   "next_step": "Re-read the three sealed tissue sets with the flag recorded.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_CEILING_AUDIT_01.md",
+   "notes": "Pasted candidate 4 and 'Distance to ceiling - audit done - 7,681 readings, none past the ceiling'. repo: Biological_Physics/MethylPhys/doors/DEV_CEILING_AUDIT_01.md. | possible duplicate of CAN-006",
+   "legacy_ids": [
+    "L8"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "CAN-023",
+   "title": "Re-read the three sealed tissue sets with the ceiling flag recorded",
+   "purpose": "Re-reads the breast, colorectal and liver arrays already on disk with the ceiling flag on. It audits our own published results and cannot change their sealed verdicts.",
+   "instrument_or_term": "Entropy ceiling flag",
+   "sources": [
+    "TCGA-BRCA (53 pairs)",
+    "GSE131013 (88 pairs)",
+    "TCGA-LIHC (50 pairs)"
+   ],
+   "data_status": "spent",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Run the three tissue scorers with ceiling_flag on the calibrated arrays; report as an audit.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_CEILING_AUDIT_01.md",
+   "notes": "Pasted item 2: 'Re-read the three sealed tissue sets with the ceiling flag - free. An audit of our own published results that can't change their verdicts.' next_jobs carries it under todo id 'C1' (which clashes with TODO C1 fatty liver).",
+   "legacy_ids": [
+    "C1 (next_jobs)",
+    "L8"
+   ],
+   "depends_on": [
+    "Distance to the ceiling: audit of every reading (DEV-CEILING-AUDIT-01)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "CAN-024",
+   "title": "Run-length spectrum of losses (sequencing)",
+   "purpose": "Reads the shape of clustered losses (exponential vs heavy-tailed), which would separate a processive copy-head failure from independent point losses and tell copy from de novo errors. It is the missing instrument named by lever test 3.",
+   "instrument_or_term": "Run-length spectrum",
+   "sources": [
+    "sequencing reads already in storage"
+   ],
+   "data_status": "partial",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Derive the expected shape under each mechanism, then a synthetic test; gated on IAM-A release.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_TRIM_01.md",
+   "notes": "Pasted candidate 5, L10, 'A third reading is now justified, not optional... Test 3's limit is its argument'. Instrument record points to DEV_IAMA_TRIM_01.md as the gate. | possible duplicate of CAN-008",
+   "legacy_ids": [
+    "L10",
+    "L4"
+   ],
+   "depends_on": [
+    "IAM-A across-laboratory check rerun on the whole stage"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "CAN-025",
+   "title": "Tail of fragments in plasma (the early-detection instrument)",
+   "purpose": "Reads the few badly disordered molecules in a plasma sample instead of the average, because early cancer is a tiny minority of fragments. It is the highest-reward instrument and the most gated.",
+   "instrument_or_term": "Plasma fragment tail",
+   "sources": [
+    "cell-free DNA sequencing (healthy reference does not exist)"
+   ],
+   "data_status": "to_scout",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Blocked behind IAM-A, a commissioned atlas and a healthy plasma reference; do not spend box money yet.",
+   "cost": "box",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_TRIM_01.md",
+   "notes": "Pasted candidate 6, L10, and 'Tail-of-fragments (sequencing, and this is the early-detection one)'. Falsifier: tail in healthy plasma as heavy as in cancer plasma. | possible duplicate of CAN-010",
+   "legacy_ids": [
+    "L10"
+   ],
+   "depends_on": [
+    "IAM-A across-laboratory check rerun on the whole stage",
+    "Atlas v2.1 build, joint fit and commissioning",
+    "Healthy cell-free DNA reference"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "CAN-026",
+   "title": "Instrument disagreement as a channel diagnosis",
+   "purpose": "Uses disagreement between instruments with different blind spots on one sample (normal on total disorder, abnormal on clustering) to name which channel failed. Several instruments that agree are worth more than one trusted instrument.",
+   "instrument_or_term": "Met-A vs C-score vs IAM-A discordance",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Write it as a sealed design once two instruments are commissioned on one cell type.",
+   "cost": "laptop",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/INSTRUMENTS.md",
+   "notes": "Pasted: 'Two instruments disagreeing on one sample is therefore a diagnosis of which channel failed, not a contradiction'; 'the held-error meter is blind to clustered loss because it only matches isolated losses'. repo: INSTRUMENTS.md closing text (generated from CANON/instruments.json).",
+   "legacy_ids": [],
+   "depends_on": [
+    "C-score last check: same-person repeatability on unspent replicate arrays"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
    "title": "Body temperature",
    "purpose": "kT appears twice: in the thermal quantum the drive is measured against (M = E_drive/kT) and in the holding energy E_hold = kT ln(g/f). A different operating temperature moves the floor directly.",
    "instrument_or_term": "iams_law, e_hold, mahaffey_number",
@@ -4807,6 +5996,7 @@
    "instrument_or_term": "IAM-A",
    "sources": [
     "GSE77079",
+    "GSE77079 (mouse liver RRBS, 19 mice)",
     "PRJNA309409"
    ],
    "data_status": "spent",
@@ -4834,14 +6024,16 @@
    "cost": "none",
    "impact": 4,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_SAM_LEVER_01_OUTCOME.md; results_register DEV-SAM-LEVER-01. Pasted wording: 'First IAM Physics WIN!! Mice!'; 'SAM mouse lever passed (development)'; 10-10 plan item 1; 10-09 schedule item 6; B2 (10-09 list). Pasted '46 % odds' of detection not checked here.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_SAM_LEVER_01_OUTCOME.md; results_register DEV-SAM-LEVER-01. Pasted wording: 'First IAM Physics WIN!! Mice!'; 'SAM mouse lever passed (development)'; 10-10 plan item 1; 10-09 schedule item 6; B2 (10-09 list). Pasted '46 % odds' of detection not checked here. | also in the pasted notes as: Methyl-supply lever: SAM in mouse liver (DEV-SAM-LEVER-01)",
    "legacy_ids": [
+    "6 (10-09 schedule)",
     "B2 (10-09 list)",
-    "6 (10-09 schedule)"
+    "L3"
    ],
    "id": "LEV-004",
    "sources_of_row": [
-    "Friday notes"
+    "Friday notes",
+    "Pasted notes"
    ]
   },
   {
@@ -5538,6 +6730,7 @@
     "AnAge",
     "AnAge Build body temperatures",
     "GSE195869 / PRJNA802599 (Klughammer 580-species RRBS)",
+    "GSE195869 / PRJNA802599 (Klughammer, 580 species, RRBS, in S3)",
     "genomics.senescence.info species RRBS"
    ],
    "data_status": "spent",
@@ -5561,14 +6754,16 @@
    "cost": "box",
    "impact": 2,
    "legacy_ids": [
+    "C3",
     "C3 (TODO, aging across species)"
    ],
-   "notes": "data_spent.csv: PRJNA802599 spent (subset), 1,001 of 2,327 runs listed, reader withdrawn. Falsifier scope: law (temperature). | also listed as: Cross-species temperature reading (DEV-XSPECIES-TEMP-01)",
+   "notes": "data_spent.csv: PRJNA802599 spent (subset), 1,001 of 2,327 runs listed, reader withdrawn. Falsifier scope: law (temperature). | also listed as: Cross-species temperature reading (DEV-XSPECIES-TEMP-01) | also in the pasted notes as: Aging across species with the reference-free reader (DEV-XSPECIES-TEMP-01 redo)",
    "depends_on": [],
    "id": "LEV-028",
    "sources_of_row": [
     "Friday notes",
-    "Levers and instruments"
+    "Levers and instruments",
+    "Pasted notes"
    ]
   },
   {
@@ -5674,6 +6869,498 @@
    "id": "LEV-032",
    "sources_of_row": [
     "Levers and instruments"
+   ]
+  },
+  {
+   "id": "LEV-033",
+   "title": "Lever audit and lever register (DEV-LEVERS-01, CANON/levers.json)",
+   "purpose": "Lays every cell lever side by side, the way QAPE enumerated quantum platforms, each with the term it moves, its caveat, whether it gives a parameter-free prediction, and a falsifier written before data. The lever chapter will be the most attacked part of the book, so it must be checkable.",
+   "instrument_or_term": "levers (temperature, methyl supply, division rate, write/erase, clustering)",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-13",
+     "outcome": "success",
+     "note": "Audit written: ten levers; three-channel split; two mechanism signatures. Corrected the same day to the balance derivation (division sets time to balance, not the balance); register with a required falsifier and three refusing controls.",
+     "commit": "eedb54c"
+    }
+   ],
+   "next_step": "Keep the register current; every new lever needs a falsifier.",
+   "cost": "none",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "notes": "Pasted lines 150-264 ('Writing the full lever audit into the repo now'; 'Three controls refuse'). repo: Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md; CANON/levers.json.",
+   "legacy_ids": [
+    "levers"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-034",
+   "title": "Temperature lever, synthetic two-clocks tests (tests 2 and 2b)",
+   "purpose": "Asks in simulation whether a temperature series can separate the derived thermal floor (scales with kT) from chemical damage (scales exponentially). It decides which real temperature design is worth spending data on.",
+   "instrument_or_term": "E_hold = kT ln(g/f); thermal floor",
+   "sources": [
+    "synthetic"
+   ],
+   "data_status": "none_needed",
+   "status": "synthetic_done",
+   "runs": [
+    {
+     "date": "2026-10-13",
+     "outcome": "progressed",
+     "note": "Test 2: pure floor vs pure damage separated 100 of 100 (nearly worthless as a test).",
+     "commit": "727ab7d"
+    },
+    {
+     "date": "2026-10-13",
+     "outcome": "success",
+     "note": "Test 2b: realistic cross-species design is weak - 18 of 108 designs detect anything; hibernation (same animal warm and cold) chosen as the design.",
+     "commit": "cf017cb"
+    }
+   ],
+   "next_step": "Hibernation first, fish second.",
+   "cost": "laptop",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "notes": "Pasted: 'a temperature series can separate the derived thermal floor... needs only three temperatures and three donors. Across species it's much weaker - of 108 designs only 18'. Outcome 'success' means the bar answered the design question; it says nothing about the world. repo: Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md. | possible duplicate of LEV-018",
+   "legacy_ids": [
+    "L1"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-035",
+   "title": "Temperature lever: hamster hibernation, warm and cold, same animals",
+   "purpose": "Reads the same animals' cells warm and cold, so species differences cancel by construction. Temperature is one of two levers whose failure would break IAM's law itself.",
+   "instrument_or_term": "kT (holding energy)",
+   "sources": [
+    "hamster hibernation set (designed; accession not stated in the notes)"
+   ],
+   "data_status": "to_scout",
+   "status": "designed",
+   "runs": [],
+   "next_step": "Download and read as designed (box); confirm the data source.",
+   "cost": "box",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "notes": "Pasted C2 'Temperature: hamster hibernation (designed)'; falsifier: 'the same animal's cells at 5 C and 37 C read the same holding energy, or move opposite to the temperature ratio'. Hamster appears in Biological_Physics/MethylPhys/doors/DEV_SYNTH_LEVERS_01.md; design record per levers.json is DEV_FLOOR_HEIGHT_02. | possible duplicate of LEV-005",
+   "legacy_ids": [
+    "C2",
+    "L1"
+   ],
+   "depends_on": [
+    "Temperature lever, synthetic two-clocks tests (tests 2 and 2b)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-036",
+   "title": "Temperature lever: hibernator tissue search (warm and cold, same animals)",
+   "purpose": "Finds public hibernator tissue taken at warm and cold body temperature from the same animals. The data may not be public, so the search comes before any design is costed.",
+   "instrument_or_term": "kT",
+   "sources": [
+    "hibernator tissue (none found)"
+   ],
+   "data_status": "to_scout",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Search ArrayExpress/ENA/GEO; record as spent once read.",
+   "cost": "search",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "notes": "Pasted L1 next 'find hibernator tissue, warm and cold, same animals' and item 8 'needs data that may not be public, so search first. This is the one that could break the law'. | possible duplicate of LEV-035",
+   "legacy_ids": [
+    "L1"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-037",
+   "title": "Temperature lever alternatives: birds (40-42 C), fish (ambient), fever, culture at 33/37/39 C",
+   "purpose": "Lists the other ways to vary temperature because mammals all sit at 36-39 C. They are second and third lines after hibernation.",
+   "instrument_or_term": "kT",
+   "sources": [
+    "birds",
+    "fish",
+    "fever cohorts",
+    "cell culture at 33/37/39 C"
+   ],
+   "data_status": "to_scout",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Scout after hibernation.",
+   "cost": "search",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "notes": "Pasted lever table caveat. levers.json data field: birds second line, fish third. | possible duplicate of LEV-031",
+   "legacy_ids": [
+    "L1"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-038",
+   "title": "Division-rate lever: sorted neurons across age from two independent labs",
+   "purpose": "Tests whether the held error stays flat with age in cells that never divide, as the balance equation predicts. Like temperature, a failure here would break IAM's law itself.",
+   "instrument_or_term": "eps = f/(f+g); division sets time to balance",
+   "sources": [
+    "GSE96612 (Feinberg)",
+    "GSE107729 (Yi controls)"
+   ],
+   "data_status": "partial",
+   "status": "sealed",
+   "runs": [],
+   "next_step": "Read the two unread laboratories (laptop). Also tests erasure vs missed restores.",
+   "cost": "laptop",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
+   "notes": "Pasted L2 and falsifier 'sorted neurons show the held error rising with age by more than 10% across a lifetime while their restore and loss rates are unchanged'. Pasted 'At balance it must not rise'. | possible duplicate of LEV-008",
+   "legacy_ids": [
+    "L2",
+    "A8"
+   ],
+   "depends_on": [
+    "Neurons: post-mortem time check"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-039",
+   "title": "Division-rate lever synthetic test 4: age series in non-dividing cells",
+   "purpose": "Asks in simulation whether an age series of about 20 donors can detect a drift in the balance without inventing one. It sets the sample size the neuron reading needs.",
+   "instrument_or_term": "ln(g/f) drift with age",
+   "sources": [
+    "synthetic"
+   ],
+   "data_status": "none_needed",
+   "status": "synthetic_done",
+   "runs": [
+    {
+     "date": "2026-10-13",
+     "outcome": "success",
+     "note": "BAR MET: 20 donors detect a 5-10 % lifetime drift; false-positive rate 0.050 at no drift.",
+     "commit": "95881ce"
+    }
+   ],
+   "next_step": "None; the real reading is the neuron row.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "notes": "Pasted A9 'derivation note, then synthetic test' and 'an age series in sorted neurons can detect a drift, and the reader doesn't invent one'. Commit 95881ce is the pre-run commit. | possible duplicate of LEV-009",
+   "legacy_ids": [
+    "A9",
+    "L2"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-040",
+   "title": "Division rate: passage series (copy error with divisions)",
+   "purpose": "Reads copy error across cell passages to see how division count affects the balance. It complements the non-dividing neuron test.",
+   "instrument_or_term": "division rate",
+   "sources": [
+    "GSE268145"
+   ],
+   "data_status": "to_scout",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Design and simulate.",
+   "cost": "laptop",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/doors/CANDIDATES_2026-10-10.md",
+   "notes": "Pasted C4. Mentioned in CANDIDATES_2026-10-10.md and DEV_LEVERS_01.md; not in data_spent.csv; whether it is in S3 is not stated ('passage series in hand' in the pasted lever table). | possible duplicate of LEV-016",
+   "legacy_ids": [
+    "C4"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-041",
+   "title": "Methyl-supply lever design from DNMT1's SAM constant (methionine parked)",
+   "purpose": "Writes the methyl-supply design with the predicted shift fixed first, from the enzyme's SAM constant. Methionine restriction parked because starving cells stops division and removes the term being measured.",
+   "instrument_or_term": "restore rate g; drive fraction phi",
+   "sources": [
+    "methionine restriction series (DEV-METHIONINE-01, parked)",
+    "folate and B12 intervention arrays"
+   ],
+   "data_status": "to_scout",
+   "status": "parked",
+   "runs": [
+    {
+     "date": "2026-10-10",
+     "outcome": "inconclusive",
+     "note": "Parked before download: in the only public experiment the cells had nearly stopped dividing, so the calculation showed it could not decide."
+    }
+   ],
+   "next_step": "Write the design from DNMT1's SAM constant; wait for a weeks-long restriction set.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md",
+   "notes": "Pasted L3, C10 'wait for a weeks-long restriction set', falsifier 'restricting it enough to lower the restore rate measurably leaves the held error unchanged - or lowers it'. help_wanted asks for weeks of methionine restriction. | possible duplicate of LEV-014",
+   "legacy_ids": [
+    "L3",
+    "C10"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-042",
+   "title": "Second energy-supply lever: fatty liver without SAM loss, DNMT1-reduced mice, methyl-donor diets",
+   "purpose": "Finds a diet or enzyme experiment with enough cell divisions to read as a second supply lever. It keeps the law from resting on one mouse result.",
+   "instrument_or_term": "restore rate g",
+   "sources": [
+    "GSE233768",
+    "GSE85772",
+    "GSE231727",
+    "DNMT1-reduced mice (none named)",
+    "methyl-donor diets (none named)"
+   ],
+   "data_status": "to_scout",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Check liver SAM in the fatty-liver diet model (C1); search DNMT1-reduced mice.",
+   "cost": "search",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md",
+   "notes": "Pasted A4 'none public found' and C1. The three accessions appear in Biological_Physics/MethylPhys/doors/CANDIDATES_2026-10-10.md; not in data_spent.csv. | possible duplicate of LEV-027",
+   "legacy_ids": [
+    "A4",
+    "C1",
+    "C11"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-043",
+   "title": "Write-enzyme level lever (decitabine)",
+   "purpose": "Tests whether fewer write heads raise copy error by a derived amount. Under the balance derivation this lever is strong because division only sets the time to balance.",
+   "instrument_or_term": "restore rate g (DNMT level)",
+   "sources": [
+    "Box Run 2 session 5 decitabine series"
+   ],
+   "data_status": "spent",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-10",
+     "outcome": "inconclusive",
+     "note": "Decitabine gave no result at the decisive dose (too few molecules readable)."
+    }
+   ],
+   "next_step": "Find a dose series with enough readable molecules.",
+   "cost": "search",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LINK_IAMA_METAA_02_OUTCOME.md",
+   "notes": "Pasted lever table 'decitabine gave no result at the decisive dose'. Shares its run with the Met-A/IAM-A link row.",
+   "legacy_ids": [
+    "A6"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-044",
+   "title": "Write and erase channels: lever test 3 (copy, de novo, erase)",
+   "purpose": "Asks in simulation whether impairing each of the three channels moves the readings differently. It shows which channel failure can be identified from the readings we have.",
+   "instrument_or_term": "three channels (copy, de novo, erase)",
+   "sources": [
+    "synthetic"
+   ],
+   "data_status": "none_needed",
+   "status": "synthetic_done",
+   "runs": [
+    {
+     "date": "2026-10-13",
+     "outcome": "success",
+     "note": "BAR MET (v3, 60 draws): at 2x impairment copy 1.401, de novo 1.973, erase 0.718 - erase separated by direction alone; copy and de novo separate only by size.",
+     "commit": "389c494"
+    }
+   ],
+   "next_step": "The run-length spectrum instrument, after IAM-A.",
+   "cost": "laptop",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "notes": "Pasted L4 and 'impairing the erase channel is the only one that makes the reading go down'; 'copy and de novo writing are told apart only by how big the move is'. Falsifier: a tumor with the erase channel blocked reads the same balance as a matched tumor with it intact. | possible duplicate of LEV-019",
+   "legacy_ids": [
+    "L4"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-045",
+   "title": "Clustered vs scattered failure: lever test 1",
+   "purpose": "Asks in simulation whether the clustering reading separates processive copy-head failure from independent chemical damage. It makes the C-score a mechanism test rather than a description.",
+   "instrument_or_term": "C-score as mechanism discriminator",
+   "sources": [
+    "synthetic"
+   ],
+   "data_status": "none_needed",
+   "status": "synthetic_done",
+   "runs": [
+    {
+     "date": "2026-10-13",
+     "outcome": "success",
+     "note": "BAR MET: 35 of 36 conditions no overlap across 200 draws; fails only for runs of 5 sites (boundary about 10 consecutive sites); processive 4.6 vs scattered 1.0.",
+     "commit": "9363bf6"
+    }
+   ],
+   "next_step": "Apply to real cancer cohorts (every scored cohort carries the clustering reading).",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "notes": "Pasted 'the clustering meter cleanly separates... 4.6 versus 1.0, no overlap'; falsifier 'a cancer whose loss is known to be processive reads scattered'. | possible duplicate of LEV-007",
+   "legacy_ids": [
+    "levers"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-046",
+   "title": "Erase channel alone through IDH-mutant tumors (natural TET block)",
+   "purpose": "Reads tumors in which 2-hydroxyglutarate chemically blocks the erase enzymes, mostly gliomas, with public data. If the reading moves only when erasure is impaired, the three-channel picture is right.",
+   "instrument_or_term": "erase channel (TET)",
+   "sources": [
+    "IDH-mutant tumor data (none named)"
+   ],
+   "data_status": "to_scout",
+   "status": "designed",
+   "runs": [],
+   "next_step": "Synthetic test first, then find IDH-mutant sets with matched IDH-wild-type controls.",
+   "cost": "laptop",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "notes": "Pasted lever table 'never considered, and it is a brain tumor' and test 2 of 'the three tests this produces'. next_jobs 'levers-erase': designed in the lever audit; needs its synthetic test first. | possible duplicate of LEV-011",
+   "legacy_ids": [
+    "levers-erase"
+   ],
+   "depends_on": [
+    "Write and erase channels: lever test 3 (copy, de novo, erase)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-047",
+   "title": "Oxygen and redox lever",
+   "purpose": "Considers oxygen as a lever because erase-enzyme activity depends on oxygen and tumors are hypoxic. Hypoxia changes much else at the same time, so no parameter-free prediction is expected.",
+   "instrument_or_term": "erase channel via O2",
+   "sources": [],
+   "data_status": "to_scout",
+   "status": "idea",
+   "runs": [],
+   "next_step": "None scheduled.",
+   "cost": "search",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "notes": "Pasted lever table 'never considered'.",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-048",
+   "title": "Spontaneous chemical damage: 5-methylcytosine deamination separated from enzymatic error",
+   "purpose": "Separates a thermally activated chemical rate from enzymatic error, which has never been done in this work. It is the key to the temperature test, since the two scale differently with temperature.",
+   "instrument_or_term": "thermal deamination rate",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Fold into the two-clocks temperature design.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "notes": "Pasted lever table 'never separated from enzymatic error' and test 1 'Two clocks, one temperature'. | possible duplicate of LEV-017",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-049",
+   "title": "Imprinted regions as a built-in control",
+   "purpose": "Uses imprinted regions, where two alleles in one cell at one temperature must hold different states, as an internal control. Coverage on arrays is patchy and the regions are few.",
+   "instrument_or_term": "control, not a lever",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "idea",
+   "runs": [],
+   "next_step": "None scheduled.",
+   "cost": "laptop",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "notes": "Pasted lever table 'never used as a control'. | possible duplicate of LEV-024",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "LEV-050",
+   "title": "Washout memory: DNMT1 degron (does the pattern come back?)",
+   "purpose": "Tests whether a cell's pattern returns when the writing enzyme is switched off and restored. It is the cleanest test of whether order is recoverable.",
+   "instrument_or_term": "restore rate g",
+   "sources": [
+    "DNMT1 degron public set (none found)"
+   ],
+   "data_status": "to_scout",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Needs a lab-produced public set.",
+   "cost": "search",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_HORIZON_01.md",
+   "notes": "Pasted C11. next_jobs ideas 2026-10-12 'Memory of damage'.",
+   "legacy_ids": [
+    "C11"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
    ]
   },
   {
@@ -6731,6 +8418,134 @@
    ]
   },
   {
+   "id": "PHY-035",
+   "title": "The information sphere: geometry of healthy order (DEV-SPHERE-01)",
+   "purpose": "Places every site by how it behaves, on the sphere given by the square-root map, so the distance between states is an information distance and disorder shows as the shape blurring. It separates the author's idea from the weak 'strand on a ball' version and from the nucleus sphere.",
+   "instrument_or_term": "Fisher-Rao information sphere",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "designed",
+   "runs": [
+    {
+     "date": "2026-10-13",
+     "outcome": "progressed",
+     "note": "Design record written; nothing read, no prediction sealed.",
+     "commit": "fb62a74"
+    }
+   ],
+   "next_step": "Step one: literature check; then construction committed, synthetic test with the answer planted, null test on held-out healthy cells.",
+   "cost": "laptop",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md",
+   "notes": "Pasted lines 197-204. Four open questions: does healthy order have a stable shape across people; is cancer's blurring at one scale or all; which version shows the fingerprint more sharply; has anyone published this.",
+   "legacy_ids": [
+    "sky"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "PHY-036",
+   "title": "Whole-genome sky build and the nucleus sphere (genome-wide reading, same-run references)",
+   "purpose": "Reads every site of the genome with microwave-sky tools against same-run healthy references, then a version built on where DNA sits in the nucleus. Wall-side stretches are where cancers lose large blocks, so that version has real curvature.",
+   "instrument_or_term": "sky map statistics",
+   "sources": [
+    "whole-genome data (not named)",
+    "lamina/3D contact maps from other laboratories"
+   ],
+   "data_status": "to_scout",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Write the bars first (C6); then the nucleus version.",
+   "cost": "box",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_SKY_02.md",
+   "notes": "Pasted C6 'Genome-wide reading, same-run references - write bars' and sphere version 3; lever table '3D position... partly in the sky work'. next_jobs 'C6, sky'.",
+   "legacy_ids": [
+    "C6",
+    "sky"
+   ],
+   "depends_on": [
+    "The information sphere: geometry of healthy order (DEV-SPHERE-01)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "PHY-037",
+   "title": "Gauge marks anchored: Mahaffey number M = 20.94, drive fraction phi, floor and ceiling derived",
+   "purpose": "Writes into the foundation that both ends of the gauge are derived and only the middle is measured, with M = E_drive/kT from ATP's 54 kJ/mol at 310.15 K. Every lever must state which of these terms it moves.",
+   "instrument_or_term": "M, phi, eps_min, H_min, entropy ceiling",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-13",
+     "outcome": "success",
+     "note": "Foundation entries gauge_three_marks, three_energies, entropy_ceiling anchored; M = 20.94 and phi (phi M = 3.41 kT, eps_0 = 0.032) read from the book; rule 23."
+    }
+   ],
+   "next_step": "None.",
+   "cost": "none",
+   "impact": 2,
+   "record": "CANON/foundation.json",
+   "notes": "Pasted lines 226-231. repo: log 2026-10-13 'The gauge marks anchored, rule 23'.",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "PHY-038",
+   "title": "Origins audit: trace from M to H_min plus the measured middle",
+   "purpose": "Traces the chain from ATP's free energy to the floor with nothing fitted, and records that no quantity in the current foundation derives from the class era. It answers where every number comes from.",
+   "instrument_or_term": "M -> eps_min -> H_min",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Confirm whether the audit is written (CANON/origin.json or the 'retired class floor recorded' log entry).",
+   "cost": "none",
+   "impact": 2,
+   "record": "CANON/origin.json",
+   "notes": "Pasted 'The origins audit I owe you is a trace of that chain - plus the measured middle - and its result for the class era is one line'. Repo record not confirmed; CANON/origin.json exists but was not read.",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "PHY-039",
+   "title": "Fish (Salmonid) and other animals on the S3 data",
+   "purpose": "Reads salmonid and other animal methylation already in S3 after commissioning, as a cold-blooded line for the temperature physics and an application question (which hatchery fish return).",
+   "instrument_or_term": "kT; application",
+   "sources": [
+    "PRJNA389610 (coho, spent)",
+    "PRJNA325786 (salmon, spent)"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "After commissioning.",
+   "cost": "box",
+   "impact": 1,
+   "record": "development/FISH_DEVELOPMENT_LOG.md",
+   "notes": "Pasted C9. data_spent.csv lists PRJNA389610 and PRJNA325786 as spent. next_jobs 'later': fish.",
+   "legacy_ids": [
+    "C9"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
    "title": "Breast cancer in blood, 256 patients / 268 controls (GSE243529)",
    "purpose": "Compares blood from breast cancer patients with controls as a group reading once whole blood is commissioned. It matters because whole blood can show group differences even when single people cannot be called.",
    "instrument_or_term": "Met-A (whole blood, group)",
@@ -6794,7 +8609,9 @@
    "instrument_or_term": "Met-A on whole blood, tared (A_rel) and untared (A)",
    "sources": [
     "GSE184269",
-    "GSE315366"
+    "GSE184269 (23 whole bloods)",
+    "GSE315366",
+    "GSE315366 (35 CHIP-negative whole bloods)"
    ],
    "data_status": "spent",
    "record": "Biological_Physics/MethylPhys/doors/DEV_GROUP_01.md",
@@ -6813,10 +8630,11 @@
    "legacy_ids": [
     "L7"
    ],
-   "notes": "Development use of readings already taken; neither set may later serve as a held-out test for a blood group reading. Tare passing is partly by construction. Known confound stated before the run: the two sets were read in different chain runs.",
+   "notes": "Development use of readings already taken; neither set may later serve as a held-out test for a blood group reading. Tare passing is partly by construction. Known confound stated before the run: the two sets were read in different chain runs. | also in the pasted notes as: Whole blood as a group instrument, step 1: sham arm of two healthy laboratories (DEV-GROUP-01)",
    "depends_on": [],
    "id": "GRP-003",
    "sources_of_row": [
+    "Pasted notes",
     "Tissue and theory"
    ]
   },
@@ -7001,6 +8819,60 @@
    "id": "GRP-010",
    "sources_of_row": [
     "Tissue and theory"
+   ]
+  },
+  {
+   "id": "GRP-011",
+   "title": "Whole blood group comparison, step 2: cancer patients vs same-series healthy controls",
+   "purpose": "Compares cancer patients with healthy donors measured in the same series, one cancer at a time. It is a publishable group design that needs no new instrument.",
+   "instrument_or_term": "Met-A group comparison (tared)",
+   "sources": [
+    "cancer cohorts with same-series healthy controls (none chosen)"
+   ],
+   "data_status": "to_scout",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Search for cancer cohorts with in-series healthy controls; seal; one cancer at a time.",
+   "cost": "search",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_GROUP_01.md",
+   "notes": "Pasted L7 next and 'Cohorts without their own in-series controls are unusable here no matter how large'. repo: CANON/instruments.json BLOOD-METAA-LIMIT next step.",
+   "legacy_ids": [
+    "L7"
+   ],
+   "depends_on": [
+    "Whole blood as a group instrument, step 1: sham arm of two healthy laboratories (DEV-GROUP-01)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "GRP-012",
+   "title": "Liver cancer in blood, the systemic question (DEV-LIVER-BLOOD-01)",
+   "purpose": "Tests commissioned Met-A on neutrophils of cancer patients against healthy donors, then liver cell-free DNA. It asks whether a solid cancer leaves a mark on blood cells.",
+   "instrument_or_term": "Met-A on neutrophils; cfDNA later",
+   "sources": [
+    "HCC plasma vs healthy candidates",
+    "GSE298812 (liver cfDNA)",
+    "transplant recurrence data (controlled access only)"
+   ],
+   "data_status": "partial",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Sealed test of Met-A on neutrophils of cancer patients vs healthy donors; liver cfDNA after the dilution series (B8).",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LIVER_BLOOD_01.md",
+   "notes": "Pasted B13. DEV_LIVER_BLOOD_01.md: candidates, metadata only, NOT designed. GSE298812 unspent per data_spent.csv.",
+   "legacy_ids": [
+    "B13"
+   ],
+   "depends_on": [
+    "Tumor dilution series (detection limit)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
    ]
   },
   {
@@ -7280,11 +9152,12 @@
     "B2",
     "DEV-TISSUE-BREAST-01"
    ],
-   "notes": "Group-level result, not a per-patient test. Prior reading disclosed: TCGA-BRCA was analyzed by the retired class-gauge method (VAL-060, VAL-003), a different quantity. GSE69914 set aside (submitter betas, no IDATs, no patient IDs). | also listed as: TCGA-BRCA: 53 patients' tumor vs own normal tissue on one plate (DEV-TISSUE-BREAST-01)",
+   "notes": "Group-level result, not a per-patient test. Prior reading disclosed: TCGA-BRCA was analyzed by the retired class-gauge method (VAL-060, VAL-003), a different quantity. GSE69914 set aside (submitter betas, no IDATs, no patient IDs). | also listed as: TCGA-BRCA: 53 patients' tumor vs own normal tissue on one plate (DEV-TISSUE-BREAST-01) | also in the pasted notes as: TCGA-BRCA: Met-A on breast tumors against own normal, 53 patients (DEV-TISSUE-BREAST-01)",
    "depends_on": [],
    "id": "TIS-007",
    "sources_of_row": [
     "Friday notes",
+    "Pasted notes",
     "Tissue and theory"
    ]
   },
@@ -7323,11 +9196,12 @@
     "B3",
     "DEV-TISSUE-COLON-01"
    ],
-   "notes": "Prior reading disclosed: GSE131013 read by the retired class-gauge method (PROC-TISSUE-01, processed betas, 238 of 240 arrays including tumors). One laboratory; extends no commissioned scope. | also listed as: Colorectal GSE131013: 88 patients' tumor vs own adjacent normal (DEV-TISSUE-COLON-01)",
+   "notes": "Prior reading disclosed: GSE131013 read by the retired class-gauge method (PROC-TISSUE-01, processed betas, 238 of 240 arrays including tumors). One laboratory; extends no commissioned scope. | also listed as: Colorectal GSE131013: 88 patients' tumor vs own adjacent normal (DEV-TISSUE-COLON-01) | also in the pasted notes as: Colorectal GSE131013: Met-A on 88 patients against adjacent normal (DEV-TISSUE-COLON-01)",
    "depends_on": [],
    "id": "TIS-008",
    "sources_of_row": [
     "Friday notes",
+    "Pasted notes",
     "Tissue and theory"
    ]
   },
@@ -7365,10 +9239,11 @@
    "legacy_ids": [
     "B11"
    ],
-   "notes": "Prior reading disclosed: TCGA-LIHC analyzed by the retired class method only. Group result on surgical tumors; not a per-patient or blood test.",
+   "notes": "Prior reading disclosed: TCGA-LIHC analyzed by the retired class method only. Group result on surgical tumors; not a per-patient or blood test. | also in the pasted notes as: Liver TCGA-LIHC: Met-A on 50 patients against own normal liver (DEV-TISSUE-LIVER-01)",
    "depends_on": [],
    "id": "TIS-009",
    "sources_of_row": [
+    "Pasted notes",
     "Tissue and theory"
    ]
   },
@@ -7762,18 +9637,20 @@
    "purpose": "Decides whether liver and lung cancer cells carry the fingerprint, using both directions of the meter on data no version of the instrument has read. HepG2 and A549 were read by the loss arm only, so this question is still open.",
    "instrument_or_term": "IAM-A loss and gain arms; Met-A tumor against own normal",
    "sources": [
+    "A549",
+    "GSE136319",
+    "GSE136380",
+    "GSE158422",
+    "GSE235414",
+    "GSE70090",
+    "GSE77269",
+    "GSE79799",
+    "GSE83842",
+    "GSE89852",
+    "GSE94785",
+    "HepG2",
     "PRJNA762641",
     "PRJNA984754",
-    "GSE70090",
-    "GSE79799",
-    "GSE235414",
-    "GSE158422",
-    "GSE94785",
-    "GSE83842",
-    "GSE136319",
-    "GSE89852",
-    "GSE136380",
-    "GSE77269",
     "TCGA-LIHC",
     "TCGA-LUAD",
     "TCGA-LUSC"
@@ -7792,9 +9669,10 @@
     "DEV-FINGERPRINT-02 liver/lung",
     "IAM-A commissioning (sequencing route)"
    ],
-   "notes": "Candidates from a metadata-only search 2026-10-12 (candidates_search_2026-10-12.json, re-queried by verify_candidates.py; PRJNA762641 132 runs, 4.97 TB). GSE94785, GSE83842, TCGA-LUSC/LUAD/LIHC have since been used or set aside by the tissue tests. next_jobs pairs this with breast replication (todo 'B2, B10').",
+   "notes": "Candidates from a metadata-only search 2026-10-12 (candidates_search_2026-10-12.json, re-queried by verify_candidates.py; PRJNA762641 132 runs, 4.97 TB). GSE94785, GSE83842, TCGA-LUSC/LUAD/LIHC have since been used or set aside by the tissue tests. next_jobs pairs this with breast replication (todo 'B2, B10'). | also in the pasted notes as: HepG2 and A549 read both ways (DEV-FINGERPRINT-03)",
    "id": "TIS-023",
    "sources_of_row": [
+    "Pasted notes",
     "Tissue and theory"
    ]
   },
@@ -7857,10 +9735,11 @@
     "B12",
     "N5"
    ],
-   "notes": "Not evidence that lung tumors have no disorder; the bar from between-person pairs is wide for a within-person comparison (stand-in SD 0.0860 vs colon 0.0502).",
+   "notes": "Not evidence that lung tumors have no disorder; the bar from between-person pairs is wide for a within-person comparison (stand-in SD 0.0860 vs colon 0.0502). | also in the pasted notes as: Lung 1: GSE94785 same-slide arrays (DEV-TISSUE-LUNG-01)",
    "depends_on": [],
    "id": "TIS-025",
    "sources_of_row": [
+    "Pasted notes",
     "Tissue and theory"
    ]
   },
@@ -8108,6 +9987,11 @@
      "outcome": "fail",
      "note": "Synthetic tests 1-6 on 150 non-cancer arrays (work machine 01): test 3 independence failed (Spearman -0.274, p 0.02) and test 6 doubled slide offset failed (null group call 0.072). Not suitable, not sealed; tumors unread.",
      "commit": "8cf2dae"
+    },
+    {
+     "date": "2026-10-12",
+     "outcome": "invalid",
+     "note": "NOT SUITABLE by its synthetic tests; tumors unread."
     }
    ],
    "next_step": "None on this set for this design; tumors stay unread and available to a slide-independent design.",
@@ -8117,11 +10001,12 @@
     "B3",
     "R5"
    ],
-   "notes": "Non-cancer arrays read (data_spent.csv still lists GSE199057 as unspent: planning mention only); tumor arrays unread. In the results register losses list. | also listed as: Colorectal replication on GSE199057 (DEV-TISSUE-COLON-02)",
+   "notes": "Non-cancer arrays read (data_spent.csv still lists GSE199057 as unspent: planning mention only); tumor arrays unread. In the results register losses list. | also listed as: Colorectal replication on GSE199057 (DEV-TISSUE-COLON-02) | also in the pasted notes as: Colorectal replication: GSE199057 (DEV-TISSUE-COLON-02)",
    "depends_on": [],
    "id": "TIS-034",
    "sources_of_row": [
     "Friday notes",
+    "Pasted notes",
     "Tissue and theory"
    ]
   },
@@ -8141,6 +10026,11 @@
      "outcome": "fail",
      "note": "Synthetic tests on 12 real normals: normal spread SD 0.1391, pair bar 1.2928; planted 5 % FAILED (0.400 of pairs, 0.80 required). Not suitable, not sealed; 12 tumors unread.",
      "commit": "a516884"
+    },
+    {
+     "date": "2026-10-12",
+     "outcome": "invalid",
+     "note": "NOT SUITABLE at 12 pairs; tumors unread."
     }
    ],
    "next_step": "None; needs many more patients or normals that differ less.",
@@ -8150,9 +10040,10 @@
     "B12"
    ],
    "depends_on": [],
-   "notes": "",
+   "notes": "also in the pasted notes as: Lung 2: GSE83842 early lung tumors (DEV-TISSUE-LUNG-02)",
    "id": "TIS-035",
    "sources_of_row": [
+    "Pasted notes",
     "Tissue and theory"
    ]
   },
@@ -8161,9 +10052,9 @@
    "purpose": "Tried lung again on a larger set with very alike normals. All three designs failed their synthetic tests because a shift in lung cell mix could fake the signal, so the 40 tumors stay unopened.",
    "instrument_or_term": "Met-A at composition-blind sites (0.05, then 0.03, then with measured lung stroma)",
    "sources": [
-    "TCGA-LUSC",
+    "GSE107226",
     "GSE146376",
-    "GSE107226"
+    "TCGA-LUSC"
    ],
    "data_status": "partial",
    "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md",
@@ -8185,6 +10076,22 @@
      "outcome": "fail",
      "note": "v3 with measured (cultured) lung stroma and every atlas lung cell type: planted 5 % passed; composition, power and direction FAILED (immune blend with lung macrophages moves R about 4 % against a bar near 5 %).",
      "commit": "ebd3ffa"
+    },
+    {
+     "date": "2026-10-12",
+     "outcome": "invalid",
+     "note": "v1: direction test failed (stroma; no lung stroma in atlas)."
+    },
+    {
+     "date": "2026-10-12",
+     "outcome": "invalid",
+     "note": "v2: not suitable; tumors unread (lesson T16)."
+    },
+    {
+     "date": "2026-10-12",
+     "outcome": "invalid",
+     "note": "v3 with measured lung stroma and lung macrophages: composition, power and direction still failed (immune blend about 4 % against a 5 % bar); 40 tumors unread.",
+     "commit": "ebd3ffa"
     }
    ],
    "next_step": "Rerun the design on these 40 tumors once the atlas holds healthy lung reference cells (see lung redesign row).",
@@ -8194,10 +10101,13 @@
     "B12",
     "N5"
    ],
-   "notes": "Prior reading disclosed: TCGA-LUSC analyzed earlier by the retired class method only. GSE146376 and GSE107226 are cultured; the gold-mine map classes them 'not usable' for the atlas build.",
-   "depends_on": [],
+   "notes": "Prior reading disclosed: TCGA-LUSC analyzed earlier by the retired class method only. GSE146376 and GSE107226 are cultured; the gold-mine map classes them 'not usable' for the atlas build. | also in the pasted notes as: Lung 3: TCGA-LUSC squamous lung tumors (DEV-TISSUE-LUNG-03, v1-v3)",
+   "depends_on": [
+    "Lung stroma into the atlas, with a culture check"
+   ],
    "id": "TIS-036",
    "sources_of_row": [
+    "Pasted notes",
     "Tissue and theory"
    ]
   },
@@ -8206,7 +10116,8 @@
    "purpose": "Applied the lung 3 v3 design unchanged to the other common lung cancer type. A healthy lung blended with its own vessel lining counterfeited the signal, so the tumors stay unopened.",
    "instrument_or_term": "Met-A at composition-blind sites; every-pair rule",
    "sources": [
-    "TCGA-LUAD"
+    "TCGA-LUAD",
+    "TCGA-LUAD (23 same-plate pairs)"
    ],
    "data_status": "partial",
    "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_04.md",
@@ -8217,6 +10128,12 @@
      "outcome": "fail",
      "note": "Synthetic tests on 23 patients' normals: composition, planted 5 % and power passed (every-pair rule chosen); direction FAILED (lung endothelium blend 60-90 % fakes the rule). Not suitable; tumors unread.",
      "commit": "1ade95b"
+    },
+    {
+     "date": "2026-10-12",
+     "outcome": "invalid",
+     "note": "NOT SUITABLE: direction failed; tumors unread.",
+     "commit": "1ade95b"
     }
    ],
    "next_step": "Same prerequisite as LUSC: healthy lung reference cells including endothelium, or composition measured in the same sample.",
@@ -8226,10 +10143,13 @@
     "B12",
     "N5"
    ],
-   "notes": "In the results register losses list. Four lung attempts recorded: one scored (no fingerprint), three not suitable.",
-   "depends_on": [],
+   "notes": "In the results register losses list. Four lung attempts recorded: one scored (no fingerprint), three not suitable. | also in the pasted notes as: Lung 4: TCGA-LUAD adenocarcinoma (DEV-TISSUE-LUNG-04)",
+   "depends_on": [
+    "Lung stroma into the atlas, with a culture check"
+   ],
    "id": "TIS-037",
    "sources_of_row": [
+    "Pasted notes",
     "Tissue and theory"
    ]
   },
@@ -8400,6 +10320,254 @@
    ]
   },
   {
+   "id": "TIS-043",
+   "title": "Breast cancer cell lines MCF-7 and T47D vs breast normals (fingerprint)",
+   "purpose": "Reads the cancer fingerprint on breast cancer cell lines against breast normals with both instruments. It was the first breast fingerprint.",
+   "instrument_or_term": "IAM-A and Met-A fingerprint",
+   "sources": [
+    "MCF-7",
+    "T47D",
+    "breast normals"
+   ],
+   "data_status": "spent",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-11",
+     "outcome": "success",
+     "note": "FINGERPRINT: gain 4/4, loss 3/4 (rule 02b)."
+    }
+   ],
+   "next_step": "Done.",
+   "cost": "none",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_02_OUTCOME.md",
+   "notes": "Pasted B1. | possible duplicate of TIS-015",
+   "legacy_ids": [
+    "B1"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "TIS-044",
+   "title": "Colorectal replication candidates: TCGA colon and rectal (same plate) and GSE166212 slide check",
+   "purpose": "Finds a colorectal set that pairs each tumor with its own normal on the same processing plate. A replication on fresh data is what turns a fingerprint into a finding.",
+   "instrument_or_term": "Met-A",
+   "sources": [
+    "TCGA-COAD",
+    "TCGA-READ",
+    "GSE166212 (EPIC, in S3)"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Metadata check first: TCGA same-plate pairs (one-line disclosure of the retired-method reading); check whether GSE166212 pairs share slides.",
+   "cost": "laptop",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_02.md",
+   "notes": "Pasted commencement notes item 2 (pasted only for TCGA-COAD/READ as candidates). data_spent.csv: TCGA-COAD/READ partly spent (old VAL / H_min); GSE166212 partly spent (PROC-E2E-01 read 2 arrays).",
+   "legacy_ids": [
+    "B3",
+    "B5"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "TIS-045",
+   "title": "Liver replication: GEO liver arrays and PRJNA762641 sequencing (about $30-50 box job)",
+   "purpose": "Replicates the liver fingerprint on fresh data, first on GEO liver arrays (laptop, once slide pairing is checked), then on a 5 TB sequencing set. Hepatocytes go into the atlas first.",
+   "instrument_or_term": "Met-A; IAM-A for sequencing",
+   "sources": [
+    "GEO liver arrays (not named)",
+    "GSE304513 (liver tissue, in hand)",
+    "PRJNA762641 (sequencing, about 5 TB)"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Check slide pairing on the liver arrays; size and cost the sequencing job in the ledger before starting.",
+   "cost": "box",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_03.md",
+   "notes": "Pasted B11 next and commencement notes 'The 5 TB sequencing set would be a spot-box job of roughly $30-50'. GSE304513 unspent per data_spent.csv. next_jobs: 'Hepatocytes into the atlas, then liver on a second cohort' (B5, B11, R4). | possible duplicate of TIS-028",
+   "legacy_ids": [
+    "B11",
+    "B5",
+    "R4"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "TIS-046",
+   "title": "Lung redesign after lung stroma enters the atlas",
+   "purpose": "Redesigns the lung test once the atlas can describe lung's support cells, and reads the LUSC and LUAD tumors that are still unread.",
+   "instrument_or_term": "Met-A",
+   "sources": [
+    "TCGA-LUSC",
+    "TCGA-LUAD",
+    "GSE83842"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Redesign after AT7 / atlas v2.1.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md",
+   "notes": "Pasted B12 next.",
+   "legacy_ids": [
+    "B12"
+   ],
+   "depends_on": [
+    "Atlas v2.1 build, joint fit and commissioning"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "TIS-047",
+   "title": "Colorectal GSE166212 (EPIC) and liver tissue GSE304513: read the designs",
+   "purpose": "Reads the designs of two in-hand sets to decide whether they can carry a sealed test.",
+   "instrument_or_term": "Met-A",
+   "sources": [
+    "GSE166212",
+    "GSE304513"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Read the designs (metadata, slide pairing).",
+   "cost": "laptop",
+   "impact": 2,
+   "record": "CANON/data_spent.csv",
+   "notes": "Pasted B5. GSE166212 partly spent (2 arrays); GSE304513 unspent. | possible duplicate of TIS-021",
+   "legacy_ids": [
+    "B5"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "TIS-048",
+   "title": "Cell-free DNA cancer sets (liver, lung, TNBC, prostate)",
+   "purpose": "Would read cancer DNA in plasma, the blood test itself. Each needs a healthy cell-free DNA reference and the dilution series first; per a 2026-10-13 note this is an array job limited by the specimen.",
+   "instrument_or_term": "Met-A on cfDNA",
+   "sources": [
+    "GSE298812 (liver)",
+    "GSE277078 (lung)",
+    "GSE207998 (TNBC)",
+    "GSE119260 (prostate)"
+   ],
+   "data_status": "in_hand",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Healthy cfDNA reference and B8 first.",
+   "cost": "box",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LIVER_BLOOD_01.md",
+   "notes": "Pasted B6 ('others' not named). data_spent.csv: GSE207998 partly spent (old VAL record only); others unspent. | possible duplicate of TIS-017",
+   "legacy_ids": [
+    "B6"
+   ],
+   "depends_on": [
+    "Healthy cell-free DNA reference",
+    "Tumor dilution series (detection limit)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "TIS-049",
+   "title": "Blood cancers, one at a time (AML, CLL)",
+   "purpose": "Reads cancers in which the diseased cells are the blood cells themselves. References for blasts and B cells come first.",
+   "instrument_or_term": "Met-A",
+   "sources": [
+    "GSE159907",
+    "GSE175758",
+    "GSE136724",
+    "GSE295456",
+    "GSE237299"
+   ],
+   "data_status": "in_hand",
+   "status": "planned",
+   "runs": [],
+   "next_step": "After the blast and B-cell references.",
+   "cost": "laptop",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/MASTER_INVENTORY.md",
+   "notes": "Pasted B7. | possible duplicate of TIS-013",
+   "legacy_ids": [
+    "B7"
+   ],
+   "depends_on": [
+    "References for blasts and B cells (blood cancers) by the SOP new-cell rule"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "TIS-050",
+   "title": "Tumor dilution series (detection limit)",
+   "purpose": "Sets the smallest tumor fraction the gauge can detect. No early-detection claim is made before it.",
+   "instrument_or_term": "Met-A detection limit",
+   "sources": [
+    "tumor dilution series (search first)"
+   ],
+   "data_status": "to_scout",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Search for a public dilution series.",
+   "cost": "search",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LIVER_BLOOD_01.md",
+   "notes": "Pasted B8 (S). | possible duplicate of TIS-011",
+   "legacy_ids": [
+    "B8"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "TIS-051",
+   "title": "Dogs' cancers",
+   "purpose": "Reads cancers in dogs, which get many of the same cancers as people and age faster. The fundraiser page names them.",
+   "instrument_or_term": "Met-A",
+   "sources": [
+    "canine methylation data (not searched)"
+   ],
+   "data_status": "to_scout",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Search after the human tracks.",
+   "cost": "search",
+   "impact": 1,
+   "record": "CANON/next_jobs.json",
+   "notes": "Pasted B14 'not started'. | possible duplicate of TIS-038",
+   "legacy_ids": [
+    "B14"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
    "title": "Breach test 2: lung precancer with known progression (GSE108123)",
    "purpose": "A second place to look for the breach line: lung precancer lesions with recorded progression or regression. It would show whether a warning point can be seen before invasive lung cancer.",
    "instrument_or_term": "to be chosen (surface share or clustering preferred after DEV-BREACH-01)",
@@ -8458,7 +10626,8 @@
    "purpose": "Asks whether early breast lesions that later became invasive cancer already read differently from lesions that did not. That point past Normal is where watching should turn into acting.",
    "instrument_or_term": "Met-A at the sealed composition-blind breast sites, slide-tared",
    "sources": [
-    "GSE281307"
+    "GSE281307",
+    "GSE281307 (DCIS, 450K, 196 arrays; 40 vs 46 untreated)"
    ],
    "data_status": "spent",
    "record": "Biological_Physics/MethylPhys/doors/DEV_BREACH_01.md",
@@ -8483,10 +10652,11 @@
    "legacy_ids": [
     "H2"
    ],
-   "notes": "Treatment confound handled by using only lesions untreated by radiation and hormones. Tests only the average disorder at blind sites; does not test per-site surface share, clustering or single-molecule discordance. GSE281307 now spent.",
+   "notes": "Treatment confound handled by using only lesions untreated by radiation and hormones. Tests only the average disorder at blind sites; does not test per-site surface share, clustering or single-molecule discordance. GSE281307 now spent. | also in the pasted notes as: DEV-BREACH-01: the breach line from DCIS with known outcome (GSE281307)",
    "depends_on": [],
    "id": "BRE-003",
    "sources_of_row": [
+    "Pasted notes",
     "Tissue and theory"
    ]
   },
@@ -8576,11 +10746,87 @@
    ]
   },
   {
+   "id": "BRE-007",
+   "title": "Breach line, second set: lung precancer with known outcome (GSE108123)",
+   "purpose": "Tests the breach question on lung precancer lesions that progressed or regressed. A second organ checks whether a breach line is general.",
+   "instrument_or_term": "Met-A",
+   "sources": [
+    "GSE108123 (36 progressed, 18 regressed, 33 controls)"
+   ],
+   "data_status": "to_scout",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Metadata and slide check; design; seal.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_BREACH_01.md",
+   "notes": "Found by the 2026-10-13 metadata search (log). Not in data_spent.csv. Lung on arrays also depends on lung stroma in the atlas. | possible duplicate of BRE-001",
+   "legacy_ids": [
+    "H2"
+   ],
+   "depends_on": [
+    "DEV-BREACH-01: the breach line from DCIS with known outcome (GSE281307)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "BRE-008",
+   "title": "Where on the gauge does cancer begin? (healthy mucosa, adenoma, adjacent normal, tumor)",
+   "purpose": "Asks, with sealed readings across pre-cancer, early and late disease, whether cells cross a line rather than slide gradually.",
+   "instrument_or_term": "Met-A",
+   "sources": [
+    "GSE288652 (colon adenomas)",
+    "GSE131013"
+   ],
+   "data_status": "partial",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Sealed test across healthy mucosa, adenoma, adjacent normal and tumor; colon epithelium into the atlas first.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_HORIZON_01.md",
+   "notes": "Pasted G1. next_jobs links AT8, B4, G1 to the colon record. | possible duplicate of BRE-005",
+   "legacy_ids": [
+    "G1"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "BRE-009",
+   "title": "Colon adenomas GSE288652: does Met-A rise before cancer?",
+   "purpose": "Reads Met-A on colon adenomas, which are pre-cancer. A rise before cancer is the early-detection question.",
+   "instrument_or_term": "Met-A",
+   "sources": [
+    "GSE288652"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Colon epithelium from an independent laboratory into the atlas, then the adenomas.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md",
+   "notes": "Pasted B4 'in hand'. data_spent.csv: partly spent (PROC-E2E-01 read 2 arrays). | possible duplicate of BRE-002",
+   "legacy_ids": [
+    "B4"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
    "title": "DEV-FIELD-01: is the tissue beside a tumor already off the healthy middle? (GSE287331, breast gradient)",
    "purpose": "Tests whether breast tissue that looks normal already reads less faithful than healthy tissue, on sites a change of cell mix cannot move. It is the first test of the field step of the saturation hypothesis.",
    "instrument_or_term": "Met-A at the sealed composition-blind breast sites (EPIC v1)",
    "sources": [
-    "GSE287331"
+    "GSE287331",
+    "GSE287331 (breast, EPIC v1, 446 arrays, one series)"
    ],
    "data_status": "spent",
    "record": "Biological_Physics/MethylPhys/doors/DEV_FIELD_01.md",
@@ -8617,10 +10863,11 @@
    "legacy_ids": [
     "H1"
    ],
-   "notes": "Verdict under the amended seal: no difference between a woman's two breasts; a body-wide field is not ruled out. GSE287331 now spent.",
+   "notes": "Verdict under the amended seal: no difference between a woman's two breasts; a body-wide field is not ruled out. GSE287331 now spent. | also in the pasted notes as: DEV-FIELD-01: healthy donor, other breast, other quadrant, adjacent, tumor (GSE287331)",
    "depends_on": [],
    "id": "FLD-001",
    "sources_of_row": [
+    "Pasted notes",
     "Tissue and theory"
    ]
   },
@@ -8725,6 +10972,32 @@
    ]
   },
   {
+   "id": "FLD-006",
+   "title": "Field test 2: healthy donors and patients on shared slides, ages known",
+   "purpose": "Repeats the field question on a series where healthy donors and patients share slides, so the 18 % offset can be separated from slide and age.",
+   "instrument_or_term": "Met-A",
+   "sources": [
+    "series with donors and patients on shared slides (not found)"
+   ],
+   "data_status": "to_scout",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Search; declare spent; bars first.",
+   "cost": "search",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_FIELD_01.md",
+   "notes": "TODO H1 next step; the pasted notes name only DEV-FIELD-01 itself. | possible duplicate of FLD-002",
+   "legacy_ids": [
+    "H1"
+   ],
+   "depends_on": [
+    "DEV-FIELD-01: healthy donor, other breast, other quadrant, adjacent, tumor (GSE287331)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
    "title": "A Warburg line on the gauge? (conjecture)",
    "purpose": "Asks whether a line on the gauge corresponds to the tumor's metabolic switch; the holding energy is a share of one ATP per site, but no derivation links it to the switch. It matters because it would tie the gauge to tumor metabolism, but it is a conjecture until derived.",
    "instrument_or_term": "Met-A gauge",
@@ -8752,7 +11025,9 @@
    "title": "DEV-ERASE-01: the 0.74 kT gap - erasure or missed restores (TET knockout; neurons; field vs tumor)",
    "purpose": "Asks whether the gap between the measured holding energy and the derived value comes from erasure or from restores missed at copying. TET-knockout data would separate the two.",
    "instrument_or_term": "IAM-A / Met-A; erase channel",
-   "sources": [],
+   "sources": [
+    "TET-knockout sets (search pending)"
+   ],
    "data_status": "to_scout",
    "record": "TODO.md",
    "status": "idea",
@@ -8763,13 +11038,14 @@
     "H3"
    ],
    "depends_on": [
-    "lever test 3 (erase channel separable by direction)",
-    "IDH-mutant tumor erase-channel test (levers)"
+    "IDH-mutant tumor erase-channel test (levers)",
+    "lever test 3 (erase channel separable by direction)"
    ],
-   "notes": "No doors note DEV_ERASE_01.md exists yet. Related lever work: DEV-LEVERS-01 test 3 v3 (2026-10-13) separated the erase channel by direction alone; next named step there is IDH-mutant tumors.",
+   "notes": "No doors note DEV_ERASE_01.md exists yet. Related lever work: DEV-LEVERS-01 test 3 v3 (2026-10-13) separated the erase channel by direction alone; next named step there is IDH-mutant tumors. | also in the pasted notes as: DEV-ERASE-01: the 0.74 kT gap - erasure or missed restores (TET-knockout data)",
    "runs": [],
    "id": "HYP-002",
    "sources_of_row": [
+    "Pasted notes",
     "Tissue and theory"
    ]
   },
@@ -8777,22 +11053,39 @@
    "title": "HYP-SATURATION-01 falsifier 1: the weakest point fails first (fragile territory saturates before stable)",
    "purpose": "Tests whether, on the way to cancer, the territory with the least holding headroom reaches the surface before stable territory. If stable territory saturates first or both together, the picture is wrong.",
    "instrument_or_term": "territory contrast (DEV-TERRITORY-01/02) on an ordered lesion series",
-   "sources": [],
+   "sources": [
+    "219 sealed tumor/normal pairs",
+    "ordered lesion series (not found)",
+    "paired primary/metastasis sets (search not started)"
+   ],
    "data_status": "to_scout",
    "record": "Biological_Physics/MethylPhys/doors/HYP_SATURATION_01.md",
    "status": "idea",
    "next_step": "Territory contrast v3 or retire (TODO L6), then an ordered lesion series, bars first.",
    "cost": "search",
    "impact": 2,
-   "legacy_ids": [],
-   "depends_on": [
-    "territory contrast v3 (TODO L6)",
-    "ordered lesion series"
+   "legacy_ids": [
+    "H4",
+    "H5",
+    "H8"
    ],
-   "notes": "Written 2026-10-13 before any test. Territory contrast v2 met 3 of 6 bars (2026-10-13). What it would take: falsifiers 1 and 4 on an ordered lesion series after falsifier 2.",
-   "runs": [],
+   "depends_on": [
+    "IAM-A across-laboratory check rerun on the whole stage",
+    "ordered lesion series",
+    "territory contrast v3 (TODO L6)"
+   ],
+   "notes": "Written 2026-10-13 before any test. Territory contrast v2 met 3 of 6 bars (2026-10-13). What it would take: falsifiers 1 and 4 on an ordered lesion series after falsifier 2. | also in the pasted notes as: HYP-SATURATION-01: a saturated field and a tumor as new surface (the author's hypothesis) | also in the pasted notes as: HYP-SATURATION-01 falsifier 5: new surface needs new supply (vessel and metabolic signatures) | also in the pasted notes as: HYP-SATURATION-01 falsifier 6: gains and losses recur against a shuffle | also in the pasted notes as: HYP-SATURATION-01 falsifier 7: two phases, the program then the disorder | also in the pasted notes as: HYP-SATURATION-01 falsifier 8: spread as cascade (paired primary/metastasis) | also in the pasted notes as: HYP-SATURATION-01 falsifiers 1, 3 and 4 (weakest point first; saturation per cell; least headroom first)",
+   "runs": [
+    {
+     "date": "2026-10-13",
+     "outcome": "progressed",
+     "note": "Recorded as a hypothesis with its falsifiers.",
+     "commit": "959de41"
+    }
+   ],
    "id": "HYP-003",
    "sources_of_row": [
+    "Pasted notes",
     "Tissue and theory"
    ]
   },
@@ -9152,6 +11445,146 @@
    "id": "HYP-016",
    "sources_of_row": [
     "Tissue and theory"
+   ]
+  },
+  {
+   "id": "HYP-017",
+   "title": "TCGA split: which cancers explore, which stay sealed",
+   "purpose": "Writes, before opening any more cancers, which TCGA cancers are used for exploration and which are held sealed for confirmation. It protects future tests from being spent by looking.",
+   "instrument_or_term": "data discipline",
+   "sources": [
+    "TCGA (all cancers)"
+   ],
+   "data_status": "none_needed",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Commit before opening any.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "TODO.md",
+   "notes": "Pasted H1-H8 item 3 'TCGA split: written before we open more cancers'.",
+   "legacy_ids": [
+    "H6"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "HYP-018",
+   "title": "Erase direction carries the kT ln 2 cost, the copy direction does not",
+   "purpose": "States the prediction that the Landauer floor applies to erasure, which resets a site to a known state, but not to copying. It is a claim a physicist will argue with.",
+   "instrument_or_term": "three channels; Landauer erasure",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Turn into a sealed design once an erase-channel data set exists.",
+   "cost": "laptop",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "notes": "Pasted 'A prediction that the erase direction carries the kT ln2 cost while the copy direction does not is testable'. repo: Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md 'Three channels, not one'.",
+   "legacy_ids": [],
+   "depends_on": [
+    "Erase channel alone through IDH-mutant tumors (natural TET block)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "HYP-019",
+   "title": "Autocatalysis: disorder builds on disorder (heavy tails, super-linear growth)",
+   "purpose": "Predicts that because a half-copied site is the copy head's own substrate, disorder should be heavy-tailed and grow faster than a random walk. It is checkable with run-length and per-site data.",
+   "instrument_or_term": "disorder distribution",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Design with the run-length spectrum.",
+   "cost": "laptop",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
+   "notes": "Pasted 'it predicts something specific: the distribution of disorder should be heavy-tailed and its growth super-linear'.",
+   "legacy_ids": [],
+   "depends_on": [
+    "Run-length spectrum of losses (sequencing)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "HYP-020",
+   "title": "A Warburg line? (conjecture)",
+   "purpose": "Asks whether there is a metabolic line on the gauge associated with the Warburg shift. The author derives it before any test.",
+   "instrument_or_term": "gauge",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Author derivation first.",
+   "cost": "none",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_HORIZON_01.md",
+   "notes": "Pasted G2. Class-era PROC_WARBURG_01 notes exist but are class-era and were not opened. | possible duplicate of HYP-001",
+   "legacy_ids": [
+    "G2"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "HYP-021",
+   "title": "What reads below Normal? (senescence)",
+   "purpose": "Tests a sample that should read better than healthy, which tests the instrument as much as the sample. Senescent cells are the candidate.",
+   "instrument_or_term": "gauge left side",
+   "sources": [
+    "public senescence set with raw IDATs (not found)"
+   ],
+   "data_status": "to_scout",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Search a public senescence set with raw IDATs.",
+   "cost": "search",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_HORIZON_01.md",
+   "notes": "Pasted G3. | possible duplicate of HYP-016",
+   "legacy_ids": [
+    "G3"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "HYP-022",
+   "title": "Neurons: the low end of the gauge",
+   "purpose": "Uses neurons, the most ordered healthy cell measured, to read the low end of the gauge with both instruments.",
+   "instrument_or_term": "gauge low end",
+   "sources": [
+    "neuron sets (A8-A11)"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Via A8-A11.",
+   "cost": "laptop",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
+   "notes": "Pasted G4. | possible duplicate of HYP-015",
+   "legacy_ids": [
+    "G4"
+   ],
+   "depends_on": [
+    "Neurons as IAM-A's second cell type (DEV-IAMA-NEURON-01)"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
    ]
   },
   {
@@ -17363,6 +19796,67 @@
    ]
   },
   {
+   "id": "DAT-260",
+   "title": "Master Inventory of every data set",
+   "purpose": "One generated document of every data set (in S3, public not downloaded, status, use, value) with ranked next jobs. A test note naming a set not in the inventory is refused.",
+   "instrument_or_term": "data inventory",
+   "sources": [
+    "444 data sets (89 in S3, 39 chain-readable; 187 public not downloaded)"
+   ],
+   "data_status": "none_needed",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-12",
+     "outcome": "success",
+     "note": "Generated by CANON/master_inventory.py: 444 sets; test status only from each note's Test data line (a first version mislabeled sets, caught before commit); push-gate rule 20.",
+     "commit": "3d59ce7"
+    }
+   ],
+   "next_step": "Keep regenerated by status_check.",
+   "cost": "none",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/MASTER_INVENTORY.md",
+   "notes": "Pasted AT13 (author 2026-10-12) 'after AT12'.",
+   "legacy_ids": [
+    "AT13"
+   ],
+   "depends_on": [
+    "Gold mine map: classify every atlas candidate by role and cell type"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "DAT-261",
+   "title": "Spent-data rule: an already-read set cannot be a held-out test (push-gate rule 21)",
+   "purpose": "Refuses any push whose record names an already-read data set as its held-out test. Four planned test sets had turned out to be read before.",
+   "instrument_or_term": "data discipline",
+   "sources": [
+    "CANON/data_spent.csv"
+   ],
+   "data_status": "none_needed",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-13",
+     "outcome": "success",
+     "note": "Rule enforced by code (results register decision 2026-10-13)."
+    }
+   ],
+   "next_step": "None.",
+   "cost": "none",
+   "impact": 3,
+   "record": "CANON/results_register.json",
+   "notes": "Pasted notes imply it ('a test note naming a set not in the inventory is refused'; 'excluding every set in the spent register'). repo: CANON/results_register.json decisions; log 2026-10-13.",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
    "title": "Composition truth set from another laboratory (flow-counted or constructed whole bloods)",
    "purpose": "Searches for whole bloods of known cell make-up - flow-counted or constructed mixtures, EPIC v1 IDATs - from a laboratory independent of the Salas/Koestler/Butler group. It matters because both whole-blood Met-A and the atlas composition step are blocked without one.",
    "instrument_or_term": "composition step",
@@ -19720,6 +22214,128 @@
    ]
   },
   {
+   "id": "SCO-073",
+   "title": "Metadata search for field, breach, erasure and spread data (2026-10-13)",
+   "purpose": "Searches public metadata only for sets that can test the field, the breach line, the erase channel and spread. Data are spent once, so the search is declared before any download.",
+   "instrument_or_term": "search",
+   "sources": [
+    "GSE287331",
+    "GSE281307",
+    "GSE108123",
+    "TET-knockout sets",
+    "paired primary/metastasis sets"
+   ],
+   "data_status": "partial",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-13",
+     "outcome": "progressed",
+     "note": "70 candidates, GEO-centric, limits declared; field (GSE287331) and breach (GSE281307, GSE108123) sets found and verified. Erasure and spread results not listed in the log body."
+    }
+   ],
+   "next_step": "Finish the TET-knockout and primary/metastasis parts; declare spent before reading.",
+   "cost": "search",
+   "impact": 2,
+   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "notes": "Pasted 'Searches, metadata only: precancer lesions with known outcome (the breach line), TET-knockout data (erasure), paired primary/metastasis sets (spread)' and 'Searches, run as one sub-agent in parallel'.",
+   "legacy_ids": [
+    "H2",
+    "H3",
+    "H8"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "SCO-074",
+   "title": "Deeper atlas search for 19 cell types with no independent candidate",
+   "purpose": "Searches ArrayExpress, ENA and controlled-access archives for cell types with no independent candidate, including adult colon epithelium and lung alveolar and breast epithelium on arrays. The 'none' found so far rests on GEO keywords only.",
+   "instrument_or_term": "IAM-Atlas",
+   "sources": [
+    "ArrayExpress",
+    "ENA",
+    "BLUEPRINT",
+    "DEEP",
+    "IHEC"
+   ],
+   "data_status": "to_scout",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Deeper search beyond GEO keywords.",
+   "cost": "search",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_COMMISSION_01.md",
+   "notes": "Pasted AT8 ('\"none\" is provisional').",
+   "legacy_ids": [
+    "AT8"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "SCO-075",
+   "title": "Atlas search 1 and lung stroma candidates (2026-10-12)",
+   "purpose": "First public search for independent atlas candidates and lung stroma, metadata only. It produced the leads used across atlas commissioning.",
+   "instrument_or_term": "IAM-Atlas",
+   "sources": [
+    "GSE146376",
+    "GSE107226",
+    "AT4 leads"
+   ],
+   "data_status": "none_needed",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-12",
+     "outcome": "success",
+     "note": "Candidates recorded with limits declared; neutrophil reading on the atlas planned (U4).",
+     "commit": "40f539e"
+    }
+   ],
+   "next_step": "Next search by 2027-04-12 (rule 19).",
+   "cost": "search",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_COMMISSION_01.md",
+   "notes": "Pasted 'Closed today: First atlas search and lung stroma candidates recorded'.",
+   "legacy_ids": [
+    "AT10",
+    "AT12"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "SCO-076",
+   "title": "Second independent breast cancer set for replication",
+   "purpose": "Finds a second breast patient cohort with tumor and own normal on shared slides to replicate the TCGA-BRCA fingerprint.",
+   "instrument_or_term": "Met-A",
+   "sources": [
+    "not found"
+   ],
+   "data_status": "to_scout",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Search; breast epithelium on arrays into the atlas first.",
+   "cost": "search",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md",
+   "notes": "Pasted B2 next. | possible duplicate of SCO-062",
+   "legacy_ids": [
+    "B2"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
    "title": "Laboratory-independence gate check (rule 9, lesson T14)",
    "purpose": "Fetches the GEO contributor list for every dataset a commissioning or seal note cites and refuses a push if a set called 'another laboratory' shares authors with the reference. It matters because the whole-blood backtracking came from an unchecked 'another laboratory' claim.",
    "instrument_or_term": "push gate (CANON/independence_check.py)",
@@ -20351,6 +22967,307 @@
    "id": "OTH-023",
    "sources_of_row": [
     "Friday notes"
+   ]
+  },
+  {
+   "id": "OTH-024",
+   "title": "Day summary 2026-10-12 in the development log (gate rule 5)",
+   "purpose": "Writes the day summary before the next day's first push. It keeps the dated record complete.",
+   "instrument_or_term": "records",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-12",
+     "outcome": "success",
+     "note": "Day summary written (log entry '2026-10-12 · Day summary')."
+    }
+   ],
+   "next_step": "None.",
+   "cost": "none",
+   "impact": 1,
+   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "notes": "Pasted N3. | possible duplicate of OTH-006",
+   "legacy_ids": [
+    "N3"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "OTH-025",
+   "title": "Live book PDF carries the funding paragraph",
+   "purpose": "Confirms the published book PDF shows the one funding statement after the website rebuild.",
+   "instrument_or_term": "records",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Confirm in the live PDF.",
+   "cost": "none",
+   "impact": 1,
+   "record": "TODO.md",
+   "notes": "Pasted N4 'website rebuild was pending'. | possible duplicate of OTH-009",
+   "legacy_ids": [
+    "N4"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "OTH-026",
+   "title": "Tissue scorers call the chain's single Met-A step",
+   "purpose": "Replaces the copies of the Met-A math inside each tissue scorer with one function in the chain. One copy of the math is what replication checks.",
+   "instrument_or_term": "chain",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "planned",
+   "runs": [],
+   "next_step": "One Met-A function in the chain; scorers call it.",
+   "cost": "laptop",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/STATUS.md",
+   "notes": "Pasted R1.",
+   "legacy_ids": [
+    "R1"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "OTH-027",
+   "title": "Tissue tests print a chain report",
+   "purpose": "Makes every scored tissue pair set print a chain report, not only an outcome note and scored file.",
+   "instrument_or_term": "chain report",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Report per scored pair set.",
+   "cost": "laptop",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/STATUS.md",
+   "notes": "Pasted R2.",
+   "legacy_ids": [
+    "R2"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "OTH-028",
+   "title": "Replication page per public result (milestones only)",
+   "purpose": "Generates a replication page for each public milestone from the results register, and refuses a milestone without one.",
+   "instrument_or_term": "replication",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Generate from the results register; add the push rule.",
+   "cost": "laptop",
+   "impact": 2,
+   "record": "CANON/results_register.json",
+   "notes": "Pasted R3 'none yet'.",
+   "legacy_ids": [
+    "R3"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "OTH-029",
+   "title": "Clean-room rerun of each result",
+   "purpose": "Rebuilds each result in a clean copy of the repository: liver pilot first, then breast, colon. The page says 'not yet rerun' until each passes.",
+   "instrument_or_term": "replication",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Liver pilot (after the atlas deposit, now done), then breast, colon.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/STATUS.md",
+   "notes": "Pasted R4 'Met-A neutrophil rebuild done earlier' (REPRO-PUBLIC-2026-10-10 in the results register).",
+   "legacy_ids": [
+    "R4"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "OTH-030",
+   "title": "Rewrite class-era guides (COMPONENT_MAP, REVIEWER_MANIFEST, RUNBOOK)",
+   "purpose": "Rewrites three guides that still describe the old chain and atlas, so reviewers are not misled.",
+   "instrument_or_term": "records",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Rewrite whole, with R3.",
+   "cost": "laptop",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/doors/COMPONENT_MAP.md",
+   "notes": "Pasted R5.",
+   "legacy_ids": [
+    "R5"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "OTH-031",
+   "title": "American spelling pass through the book and technical notes",
+   "purpose": "Converts the book and technical notes to American spelling with every book check rerun. Donor-facing text is already done (rule 16).",
+   "instrument_or_term": "records",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Separate pass with every book check rerun.",
+   "cost": "laptop",
+   "impact": 1,
+   "record": "TODO.md",
+   "notes": "Pasted R6. | possible duplicate of OTH-004",
+   "legacy_ids": [
+    "R6"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "OTH-032",
+   "title": "Social media wording held to the record",
+   "purpose": "Keeps public wording to what is true now (code, seals and records public) and adds the one-command rerun only after it exists.",
+   "instrument_or_term": "public record",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Update after R4.",
+   "cost": "none",
+   "impact": 1,
+   "record": "TODO.md",
+   "notes": "Pasted R7. | possible duplicate of OTH-013",
+   "legacy_ids": [
+    "R7"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "OTH-033",
+   "title": "Replication package (kit, open predictions, preprint)",
+   "purpose": "Bundles the kit, open predictions and a preprint so others can replicate. It follows the replication pages and clean-room reruns.",
+   "instrument_or_term": "replication",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "planned",
+   "runs": [],
+   "next_step": "After R3-R4.",
+   "cost": "laptop",
+   "impact": 3,
+   "record": "TODO.md",
+   "notes": "Pasted B9. | possible duplicate of OTH-002",
+   "legacy_ids": [
+    "B9"
+   ],
+   "depends_on": [
+    "Clean-room rerun of each result"
+   ],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "OTH-034",
+   "title": "Operations: terminate on-demand machines, spot reclaims, per-run cost tag",
+   "purpose": "Terminates rather than stops on-demand machines, plans multi-type spot launches after four reclaims, and tags per-run cost in the ledger.",
+   "instrument_or_term": "operations",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Activate the 'run' cost-allocation tag once AWS lists it; consider multi-type launch.",
+   "cost": "none",
+   "impact": 1,
+   "record": "TODO.md",
+   "notes": "Pasted O1, O2, O3. The trim calibration log says 'Box stopped after the run'.",
+   "legacy_ids": [
+    "O1",
+    "O2",
+    "O3"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "OTH-035",
+   "title": "GoFundMe page and workstation decision",
+   "purpose": "Keeps the fundraiser text in American spelling and held to the records, and decides on a workstation to replace rented hours once funded.",
+   "instrument_or_term": "fundraiser",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "planned",
+   "runs": [],
+   "next_step": "Paste the 5 American-spelling lines if not done; decide the workstation when funded.",
+   "cost": "none",
+   "impact": 1,
+   "record": "TODO.md",
+   "notes": "Pasted O4, O5.",
+   "legacy_ids": [
+    "O4",
+    "O5"
+   ],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
+   ]
+  },
+  {
+   "id": "OTH-036",
+   "title": "Record rules of 2026-10-12 (rules 14-19) and lessons T15, T16, C6",
+   "purpose": "Writes the record rules closed on 2026-10-12: one fingerprint register in four places, plain-language explanation per result, fundraiser held to records, American spelling, one lessons file, one funding statement, six-month atlas search.",
+   "instrument_or_term": "records",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-12",
+     "outcome": "success",
+     "note": "Rules 14-19 written; lessons T15, T16, C6 (third occurrence)."
+    }
+   ],
+   "next_step": "None.",
+   "cost": "none",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/LESSONS.md",
+   "notes": "Pasted 'Closed today (2026-10-12)'.",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "Pasted notes"
    ]
   }
  ]
