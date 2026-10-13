@@ -1525,3 +1525,6 @@ Planted test met (null 5.0 percent; 1 percent loss B1 100 percent, B2 96 percent
 
 ### 2026-10-13 · DEV-FIELD-01 amended before any reading (author): a field over both breasts is not a break
 F1 compares two breasts of one woman, so a field covering both would read flat; the label for F1 not met is changed from BROKEN to "no difference between her two breasts; a whole-organ or body-wide field not ruled out", and a descriptive F5 places her other breast against the healthy-donor slide medians (slide-confounded). Bars, pairs, sites and critical counts unchanged (checked); first seal kept as superseded; resealed.
+
+### 2026-10-13 · DEV-FIELD-01 scored once: no difference between a woman's two breasts; a body-wide field not ruled out
+F1 not met (20 of 31, needed 21, median ratio 1.0024); F2 met (tumor above the same breast, 24 of 31); F3 not met (17 of 35). Descriptive: every patient tissue reads about 18 percent above the healthy donors, all 68 other-breast arrays above every healthy-donor slide median, the tumor only about 3 percent above the other breast - confounded by slide, collection and unknown age. GSE287331 is now spent. Next: a series with donors and patients on shared slides, ages known.

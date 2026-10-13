@@ -1,4 +1,4 @@
-# DEV-FIELD-01 — is the tissue beside a tumor already off the healthy middle? (SEALED 2026-10-13 before any array was read)
+# DEV-FIELD-01 — is the tissue beside a tumor already off the healthy middle? (sealed before any array was read; SCORED ONCE 2026-10-13)
 
 **The question (author, 2026-10-13).** In the cohort era, tissue next to tumors read high: "What looked healthy under the microscope,
 was actually not healthy... the sign of the disorder in the system, and in the entire organ." HYP-SATURATION-01 falsifier 2 makes it
@@ -66,6 +66,37 @@ medians, which is the only view this series gives of a whole-body field, and it 
 fix is serialization only (`default=int` on the two JSON calls; the diff is those two lines), so the scorer was resealed with its new
 hash; the seal is otherwise identical (pairs, sites, critical counts, rule, amendment).
 
+## Outcome, scored once (2026-10-13)
+
+`score_field_01.py score` on all 446 arrays (Stage 1 unchanged, box run; checksums in the job record); outputs `scored_field_01.json`,
+`scored_field_01_F1F2.csv`, `scored_field_01_F3.csv`, `scored_field_01_arrays.csv`.
+
+| | result | bar | verdict |
+|---|---|---|---|
+| F1 the breast with the cancer vs her other breast, one slide | 20 of 31 read higher, median ratio 1.0024 | 21 of 31 | **NOT MET** |
+| F2 tumor vs the same breast, one slide | 24 of 31, median 1.031 | 21 of 31 | MET |
+| F3 the same as F1, other 35 women, slide-tared | 17 of 35, median 1.000 | 23 of 35 | NOT MET |
+
+**Verdict under the amended seal: no difference between a woman's two breasts.** Inside one woman, on one slide, the breast with the
+cancer reads like her other breast, while the reading still sees the tumor. That is not a break of the field picture: a field covering
+both breasts reads exactly like this.
+
+**What F4 and F5 show, descriptive and NOT decided** (median entropy at the blind sites):
+| healthy donors | her other breast | same breast, other quadrant | adjacent | tumor |
+|---|---|---|---|---|
+| 0.329 | 0.389 | 0.391 | 0.375 | 0.399 |
+
+All 68 of the women's other-breast arrays read above every one of the 24 healthy-donor slide medians (0.314 to 0.340). Every patient
+tissue sits about 18 % above the healthy donors, and the tumor only about 3 % above the women's other breasts. **This cannot be read as
+a body-wide field yet**, for three reasons that all point the same way: the healthy donors sit on slides of their own; healthy donor
+tissue is usually collected differently from surgical tissue; and the series lists no age, while disorder in methylation rises with age.
+It is the strongest hint we have of a field covering both breasts, and it needs a series where healthy donors and patients share slides
+and ages are known.
+
+**In plain words, the result.** Inside each woman, the breast with the cancer did not read different from her other breast. Both
+breasts of every patient read well above the healthy donors, by far more than the tumor stands above them - but the healthy donors were
+measured on separate slides, probably collected differently and of unknown age, so that gap is a lead, not a result.
+
 **Prior reading:** GSE287331 has not been read. The sealed site list comes from DEV-TISSUE-BREAST-01, whose arrays are spent; only the
 atlas-derived list is reused, no array.
 
@@ -74,8 +105,8 @@ faithful than a healthy woman's breast, using only sites that do not change when
 be an artifact of what the sample contained. This series is unusually good for it: healthy donors, the patient's other breast,
 another part of the same breast, the tissue right next to the tumor, and the tumor, all measured together. If the reading climbs
 step by step toward the tumor, the disorder spreads through the organ before the tumor. If the tissue next to the tumor reads
-healthy, the old signal was cell mix. The slide check showed the cleanest comparison is inside one woman: the breast with the cancer against her other breast, on the same slide. **What it would take:** the rule is sealed; one download and one read remain.
+healthy, the old signal was cell mix. The slide check showed the cleanest comparison is inside one woman: the breast with the cancer against her other breast, on the same slide. **What it would take** to settle the body-wide question: a series with healthy donors and patients on shared slides, with ages, sealed first.
 
 **Synthetic test:** DEV_FIELD_01/planted_field_01.py, DEV_FIELD_01/planted_field_01_summary.txt
 
-**Not a milestone:** sealed, not yet read.
+**Not a milestone:** scored once; F1 not met, a body-wide field not ruled out, the hint confounded.

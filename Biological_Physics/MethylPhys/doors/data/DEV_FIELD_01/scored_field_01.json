@@ -1,0 +1,55 @@
+{
+ "F1": {
+  "k": 20,
+  "n": 31,
+  "crit": 21,
+  "verdict": "NOT MET",
+  "R_median": 1.002443654172284
+ },
+ "F2": {
+  "k": 24,
+  "n": 31,
+  "crit": 21,
+  "verdict": "MET",
+  "R_median": 1.0307034250122824
+ },
+ "F3": {
+  "k": 17,
+  "n": 35,
+  "crit": 23,
+  "verdict": "NOT MET",
+  "R_median": 1.0
+ },
+ "F4": {
+  "median_M": {
+   "AN": 0.37513578971853134,
+   "CUB": 0.3891926144020656,
+   "HDB": 0.32923188117946217,
+   "OQ": 0.39084922083397716,
+   "TU": 0.39916749005486046
+  },
+  "n": {
+   "AN": 60,
+   "CUB": 68,
+   "HDB": 182,
+   "OQ": 67,
+   "TU": 69
+  },
+  "hdb_slide_medians": {
+   "n": 24,
+   "min": 0.3143538229404424,
+   "max": 0.33954639779867146
+  }
+ },
+ "arrays_read": 446,
+ "scored_utc": "2026-10-13T18:17:24Z",
+ "F5_descriptive": {
+  "cub_median": 0.3891926144020656,
+  "hdb_slide_median_min": 0.3143538229404424,
+  "hdb_slide_median_max": 0.33954639779867146,
+  "cub_arrays_above_every_hdb_slide_median": 68,
+  "cub_arrays": 68,
+  "note": "slide-confounded: healthy donors sit on slides of their own; a hint only"
+ },
+ "picture": "no difference between a woman's two breasts; a field covering both breasts or the whole body is NOT ruled out (see F5)"
+}
