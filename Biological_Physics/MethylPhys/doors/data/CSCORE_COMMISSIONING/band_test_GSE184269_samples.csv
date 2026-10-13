@@ -1,0 +1,35 @@
+gsm,title,src,donor id,age,sex
+GSM5583004,WB_Gestalt_Expt_4_phase1 Gt001,Whole Blood,GT001,28,M
+GSM5583005,WB_Gestalt_Expt_4_phase1 Gt002,Whole Blood,GT002,67,M
+GSM5583006,WB_Gestalt_Expt_4_phase1 Gt003,Whole Blood,GT003,61,F
+GSM5583007,WB_Gestalt_Expt_4_phase1 Gt004,Whole Blood,GT004,57,M
+GSM5583008,WB_Gestalt_Expt_4_phase1 Gt005,Whole Blood,GT005,31,M
+GSM5583009,WB_Gestalt_Expt_1_phase1 Gt007,Whole Blood,GT007,52,M
+GSM5583010,WB_Gestalt_Expt_1_phase1 Gt011,Whole Blood,GT011,58,F
+GSM5583011,WB_Gestalt_Expt_1_phase1 Gt013,Whole Blood,GT013,60,M
+GSM5583012,WB_Gestalt_Expt_1_phase1 Gt014,Whole Blood,GT014,72,M
+GSM5583013,WB_Gestalt_Expt_1_phase1 Gt015,Whole Blood,GT015,51,M
+GSM5583014,WB_Gestalt_Expt_1_phase1 Gt016,Whole Blood,GT016,38,M
+GSM5583015,WB_Gestalt_Expt_1_phase1 Gt017,Whole Blood,GT017,45,M
+GSM5583016,WB_Gestalt_Expt_1_phase1 Gt018,Whole Blood,GT018,73,F
+GSM5583017,WB_Gestalt_Expt_4_phase1 Gt020,Whole Blood,GT020,26,M
+GSM5583018,WB_Gestalt_Expt_4_phase1 Gt022,Whole Blood,GT022,23,M
+GSM5583019,WB_Gestalt_Expt_4_phase1 Gt024,Whole Blood,GT024,42,M
+GSM5583020,WB_Gestalt_Expt_4_phase1 Gt025,Whole Blood,GT025,31,M
+GSM5583021,WB_Gestalt_Expt_4_phase1 Gt026,Whole Blood,GT026,83,M
+GSM5583022,WB_Gestalt_Expt_5_phase1 Gt027,Whole Blood,GT027,52,F
+GSM5583023,WB_Gestalt_Expt_5_phase1 Gt029,Whole Blood,GT029,81,M
+GSM5583024,WB_Gestalt_Expt_5_phase1 Gt030,Whole Blood,GT030,45,M
+GSM5583025,WB_Gestalt_Expt_5_phase1 Gt032,Whole Blood,GT032,80,F
+GSM5583026,WB_Gestalt_Expt_4_phase1 Gt033,Whole Blood,GT033,65,F
+GSM5583027,WB_Gestalt_Expt_4_phase1 Gt035,Whole Blood,GT035,78,F
+GSM5583049,Granulo_Gestalt_Expt_3_phase1 Gt020,Granulocytes,GT020,26,M
+GSM5583056,Granulo_Gestalt_Expt_3_phase1 Gt025,Granulocytes,GT025,31,M
+GSM5583064,Granulo_Gestalt_Expt_3_phase1 Gt018,Granulocytes,GT018,73,F
+GSM5583071,Granulo_Gestalt_Expt_3_phase1 Gt022,Granulocytes,GT022,23,M
+GSM5583079,Granulo_Gestalt_Expt_3_phase1 Gt024,Granulocytes,GT024,42,M
+GSM5583085,Granulo_Gestalt_Expt_3_phase1 Gt027,Granulocytes,GT027,52,F
+GSM5583099,Granulo_Gestalt_Expt_4_phase1 Gt029,Granulocytes,GT029,81,M
+GSM5583106,Granulo_Gestalt_Expt_4_phase1 Gt032,Granulocytes,GT032,80,F
+GSM5583111,Granulo_Gestalt_Expt_4_phase1 Gt035,Granulocytes,GT035,78,F
+GSM5583122,Granulo_Gestalt_Expt_4_phase1 Gt026,Granulocytes,GT026,83,M

@@ -161,3 +161,24 @@ scattered loss of the same size must read inside it.
 GSE250556) built and decided the band and are not tests of it; GSE315366 was read once in Box Run 3 for clonal haematopoiesis
 (a different question) and is used here only as the held-out test of the band, which it had no part in deciding.
 
+## Test (a) on a second laboratory: pre-registered 2026-10-13, before any array is fetched
+
+**Set.** GSE184269 (NIA-IRP, NIH; the GESTALT healthy-donor series; EPIC v1, raw IDATs for every sample). Two strata, listed in
+`data/CSCORE_COMMISSIONING/band_test_GSE184269_samples.csv`: **granulocytes (10 arrays)**, which is Met-A's commissioned
+specimen scope, and **whole blood (24 arrays)**, which matches the band's majority population (555 of 617). Healthy donors,
+ages and sexes recorded in that file.
+
+**Independence.** None of its eight authors appears on any of the 19 series that decided the band (`CANON/geo_contributors.csv`,
+completed for all 19 today). The set has never been read by any version of this work (`CANON/data_spent.csv`).
+
+**Bar, fixed now.** Pooled across the two strata (34 arrays): at least 95 % not above the band's upper limit 1.152, one-sided
+reading, blocks of 10 - so at most 1 array above. Each stratum is also reported on its own, and the granulocyte stratum is
+labelled indicative rather than decisive, because with 10 arrays the proportion can only move in steps of 10 %.
+
+**Reading.** The chain unchanged: Stage 1 from the IDATs, then the C-score with the same-run tare (references of the same
+specimen type within this series). Any array the chain refuses is reported with its refusal and excluded from the proportion,
+with the count stated.
+
+**If it is met** together with the first laboratory, what remains for the C-score is new same-person replicates for the repeat
+bar, which the recomputation above shows is met on series-tared readings only.
+
