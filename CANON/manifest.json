@@ -24567,6 +24567,206 @@
    "sources_of_row": [
     "author request 2026-10-13"
    ]
+  },
+  {
+   "id": "ATL-049",
+   "title": "Gift 1: the reference with error bars",
+   "purpose": "For every site and cell type, the posterior spread from the v2.1 draws, in the source atlases' own cell-type names, so a tissue-of-origin reading of cell-free DNA can carry an honest uncertainty.",
+   "instrument_or_term": "atlas",
+   "sources": [
+    "GSE186458",
+    "Moss 2018 arrays"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "ATL-045 saves the draws; export per-site, per-cell mean and spread with Loyfer and Moss names kept exactly",
+   "cost": "laptop (from the v2.1 box outputs)",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_plan.md",
+   "legacy_ids": [],
+   "depends_on": [
+    "ATL-045"
+   ],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
+  },
+  {
+   "id": "ATL-050",
+   "title": "Gift 2: the array-to-sequencing bridge",
+   "purpose": "Per site, how an array reading maps to a sequencing reading on the same cell types, with its uncertainty: the measured bridge between Moss's arrays and Loyfer's sequencing.",
+   "instrument_or_term": "atlas",
+   "sources": [
+    "GSE186458",
+    "Moss 2018 arrays"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "save the bridge terms per site in the v2.1 run, not only as summaries",
+   "cost": "laptop (from the v2.1 box outputs)",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_plan.md",
+   "legacy_ids": [],
+   "depends_on": [
+    "ATL-045"
+   ],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
+  },
+  {
+   "id": "ATL-051",
+   "title": "Gift 3: healthy person-to-person spread",
+   "purpose": "Per site and cell type, how much healthy people differ, across many laboratories: what limits telling a real signal from normal variation.",
+   "instrument_or_term": "atlas",
+   "sources": [
+    "GSE186458",
+    "Moss 2018 arrays"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "from the v2.1 fit's between-donor terms; planted test first",
+   "cost": "laptop (from the v2.1 box outputs)",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_plan.md",
+   "legacy_ids": [],
+   "depends_on": [
+    "ATL-045"
+   ],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
+  },
+  {
+   "id": "ATL-052",
+   "title": "Gift 4 (held back by choice): independent check of published marker sets",
+   "purpose": "How often each published cell-type marker holds up in other laboratories' arrays. Ours either way; offered to the source labs privately, at the author's choice, never as a public correction.",
+   "instrument_or_term": "atlas",
+   "sources": [
+    "GSE186458",
+    "Moss 2018 arrays"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "after v2.1; shared only privately and only by the author's decision",
+   "cost": "laptop (from the v2.1 box outputs)",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_plan.md",
+   "legacy_ids": [],
+   "depends_on": [
+    "ATL-045"
+   ],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
+  },
+  {
+   "id": "ATL-053",
+   "title": "Gift 5: the 3D information sphere from the atlas",
+   "purpose": "The spin-and-zoom globe and flat map of the v2.1 atlas, with its noise maps, as a demonstration of the method on their own data.",
+   "instrument_or_term": "atlas",
+   "sources": [
+    "GSE186458",
+    "Moss 2018 arrays"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "after ATL-046 and ATL-048",
+   "cost": "laptop (from the v2.1 box outputs)",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_plan.md",
+   "legacy_ids": [],
+   "depends_on": [
+    "ATL-045"
+   ],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
+  },
+  {
+   "id": "ATL-054",
+   "title": "Gift 6: build files and code",
+   "purpose": "Every script, input list, environment file, seed and checksum of the v2.1 build, so the atlas can be rebuilt without asking us.",
+   "instrument_or_term": "atlas",
+   "sources": [
+    "GSE186458",
+    "Moss 2018 arrays"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "package with the v2.1 release; one-command rebuild check",
+   "cost": "laptop (from the v2.1 box outputs)",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_plan.md",
+   "legacy_ids": [],
+   "depends_on": [
+    "ATL-045"
+   ],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
+  },
+  {
+   "id": "ATL-055",
+   "title": "Gift 7: a deconvolution tool, offered only once commissioned",
+   "purpose": "The chain's blood-composition reader, offered only after it passes commissioning on mixtures of known proportions it had no part in building (e.g. published in-vitro mixtures of sorted cells). Until then it is not called proven.",
+   "instrument_or_term": "atlas",
+   "sources": [
+    "GSE186458",
+    "Moss 2018 arrays"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "design the commissioning on known mixtures, bars first; builds on COM-METAA-009, COM-METAA-022, ATL-003",
+   "cost": "laptop (from the v2.1 box outputs)",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_plan.md",
+   "legacy_ids": [],
+   "depends_on": [
+    "ATL-045"
+   ],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
+  },
+  {
+   "id": "ATL-056",
+   "title": "Gift package: release and letter",
+   "purpose": "One Zenodo record with a DOI and an open license holding gifts 1-3, 5 and 6 (and 7 once commissioned), a short methods note crediting GSE186458 and the Moss 2018 arrays, and a brief letter offering it with no claims attached.",
+   "instrument_or_term": "atlas",
+   "sources": [
+    "GSE186458",
+    "Moss 2018 arrays"
+   ],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "after the v2.1 release is commissioned",
+   "cost": "laptop (from the v2.1 box outputs)",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_plan.md",
+   "legacy_ids": [],
+   "depends_on": [
+    "ATL-045"
+   ],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
   }
  ],
  "not_tests": {
