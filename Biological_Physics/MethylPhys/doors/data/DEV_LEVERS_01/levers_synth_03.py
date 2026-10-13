@@ -39,7 +39,12 @@ HERE = os.path.dirname(os.path.abspath(__file__)); OUT = sys.argv[1] if len(sys.
 sys.path.insert(0, os.path.abspath(os.path.join(HERE, "..", "..", "..", "chain")))
 from stage_q_iam_a import _H                      # the chain's entropy
 from conductor_v3 import _clustering              # the chain's clustering reading (blocks in genomic order)
-NMOL, NSITE, NDRAW, RUN, EPS0, BLOCK, NSTEP = 400, 2000, 200, 15, 0.032, 50, 300
+# COST DECISION 2026-10-13, taken BEFORE any result of this version was seen (the script prints only at the end, and the first
+# attempt at 400 molecules x 200 draws was stopped at 70 minutes with hours still to run): molecules 400 -> 200 and draws per
+# condition 200 -> 60. Nothing about the test's logic, rates, bars or conditions changed. The spread of each reading is reported
+# alongside its median, so a reader can see whether 60 draws was enough to separate the channels; if any pair of channels is
+# closer than its spread, the verdict is 'cannot separate at this precision' and the draws go back up rather than the bar moving.
+NMOL, NSITE, NDRAW, RUN, EPS0, BLOCK, NSTEP = 200, 2000, 60, 15, 0.032, 50, 300
 rg = np.random.default_rng(20261013)
 F_COPY, F_ERASE = 0.0020, 0.0010                     # per site per interval, healthy (scaled below)
 G_DENOVO = (F_COPY + F_ERASE) * (1 - EPS0) / EPS0    # the restore rate that puts the STATE balance at eps_0
