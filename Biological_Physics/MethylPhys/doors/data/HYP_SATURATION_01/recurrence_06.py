@@ -11,7 +11,7 @@ Data (all four already read and spent; development use, declared in the note): t
 colorectal, liver and lung tissue tests, the same pairs and folders as DEV-CEILING-02 step 3 (ceiling_gauge_04.py).
 
 Fixed before running:
-  sites   autosomal probes present in both members of a pair; annotation from the Illumina 450K manifest (EPIC-only probes are
+  sites   autosomal probes present in both members of a pair; annotation from the full Illumina 450K manifest (GEO GPL13534) (EPIC-only probes are
           dropped, declared); promoter = UCSC_RefGene_Group containing TSS200 or TSS1500
   call    gain if tumor - normal >= +0.20, loss if <= -0.20 (one fixed threshold, both directions)
   recur   a site is recurrent if called in >= 50 % of that cancer's patients
@@ -35,7 +35,9 @@ SETS = [("breast", "DEV_TISSUE_BREAST_01/sealed_breast_tissue.json", "tcga_brca/
         ("colorectal", "DEV_TISSUE_COLON_01/sealed_colon_tissue.json", "colon/betas", "colon_t/betas", "normal_gsm", "tumour_gsm"),
         ("liver", "DEV_TISSUE_LIVER_01/sealed_liver_tissue.json", "lihc/betas", "lihc_t/betas", "normal_sample", "tumour_sample"),
         ("lung", "DEV_TISSUE_LUNG_01/sealed_lung_01.json", "lung/betas", "lung_t/betas", "normal_gsm", "tumour_gsm")]
-MAN = os.path.join(W, "mphome", ".methylprep_manifest_files", "HumanMethylation450k_15017482_v3.csv.gz")
+# the full Illumina 450K annotation (GEO platform GPL13534, file GPL13534_HumanMethylation450_15017482_v.1.1.csv.gz);
+# the methylprep manifests carry no gene annotation
+MAN = os.path.join(W, "annot", "GPL13534_450K.csv.gz")
 _hdr = next(i for i, l in enumerate(gzip.open(MAN, "rt")) if l.startswith("IlmnID"))   # this copy may or may not carry the 7-line preamble
 M = pd.read_csv(MAN, skiprows=_hdr, usecols=["IlmnID", "CHR", "UCSC_RefGene_Group"], low_memory=False, dtype=str).dropna(subset=["CHR"])
 M = M[M.IlmnID.str.startswith("cg") & ~M.CHR.isin(["X", "Y"])].set_index("IlmnID")
