@@ -6,7 +6,7 @@ a correction is a new note. Generated from CANON/now_running.json by CANON/now_r
 <a id="atlas-v21"></a>
 ## Building a bigger map of healthy cells: IAM-Atlas v2.1
 
-*Getting ready.* Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
+*Running now.* Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
 
 ### 2026-10-12 · Version 2 published with its own DOI, so anyone can download the map and check it.
 
@@ -37,7 +37,7 @@ Record: [DEV_ATLAS_V21_01.md](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_
 <a id="iama-commission"></a>
 ## Does our second instrument read the same DNA the same way everywhere?
 
-*On hold.* Before anyone trusts an instrument, it has to give the same answer on the same sample. We read identical reference DNA prepared with five different kits in two laboratories.
+*Running now.* Before anyone trusts an instrument, it has to give the same answer on the same sample. We read identical reference DNA prepared with five different kits in two laboratories.
 
 ### 2026-10-12 · Four of five checks passed: repeats agree, kits agree, and a planted change was seen every time. The lab-to-lab check failed on three files, so by our own rule nothing is declared until the cause is found.
 
@@ -50,6 +50,23 @@ Record: [DEV_IAMA_COMMISSION_01_OUTCOME.md](Biological_Physics/MethylPhys/doors/
 The test: read those three large files, and two normal ones, from the start, the middle and the end, and compare. If the low readings come only from the start of the big files, it is how we sample a file, which we can fix and then redo the test under the fixed rule. If they read low everywhere, the difference is real and the lab-to-lab check stays failed for that kit, and the record says so. The rules for deciding were written down and tested on made-up data before any of the files is read.
 
 Record: [DEV_IAMA_CAUSE_01.md](Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md)
+
+### 2026-10-12 · The cause test is running on a rented computer: the three low files and two normal ones, each read from its start, middle and end.
+
+Rented computers came back into reach tonight, so the cause test started. It reads the three files that came out low, and two from the same laboratory that came out normal, each from three places in the file: the start, the middle and the end. If the low reading follows where in the file we read, the fault is in our sampling and we fix the method and run the check again. If it stays low wherever we read, the laboratory really does differ, and the record says so. The rule deciding between the two was written before the first file was read.
+
+Record: [DEV_IAMA_CAUSE_01.md](Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md)
+
+<a id="neurons"></a>
+## Brain cells: does healthy order hold in cells that never divide?
+
+*Getting ready.* Neurons stop dividing for life, so they can never refresh their switch pattern by making a new copy. If they still sit where physics says healthy cells should, that tells us how cells hold their information. We built a healthy brain-cell reference from one laboratory's neurons, using a rule written before we looked.
+
+### 2026-10-12 · Healthy brain-cell reference built by its rule, from seven samples of five donors. Cleanly sorted cells read tightly together; unsorted cells read higher.
+
+We read ten public neuron samples from one laboratory whole, and built the healthy reference from the cortex samples the rule allowed: seven samples from five donors. Then we looked at the spread. The neurons that had been cleanly sorted from the rest of the brain tissue read tightly together; the samples marked unsorted read higher, whatever the donor's age or brain region. So preparation matters more than we expected. We keep the reference exactly as built, and add a second one from sorted cells only, labeled as a change made after looking. Both independent neuron laboratories sorted their cells, and we have opened neither, so that second reference gets a fair test: it has to read their healthy donors as normal, with the rule sealed before we look.
+
+Record: [DEV_IAMA_NEURON_01.md](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md)
 
 <a id="lung"></a>
 ## Lung cancer: waiting for a better map of the lung

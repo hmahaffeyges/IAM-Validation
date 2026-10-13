@@ -1253,3 +1253,6 @@ website/art/fetch_planck.py downloads the Planck 2018 SMICA map (2,013,312,960 b
 
 ### 2026-10-12 · Atlas v2.1 culture check, step 1b: drift replicates above chance in two more labs
 Columbia fibroblasts: 34.2 % of CpGs drift; 54.7 % of the batch-free core drifts the same way there (chance 34.2 %). Aachen HUVEC: 38.1 % of the core moves the same way in all three donors (15.3 % at all CpGs). Shared in part, specific in part; the step-1 mask stands. Step 2 next.
+
+### 2026-10-12 · Front page: accomplishments first, collapsible sections (author)
+The results section became "What we have accomplished", ranked and led by a headline number computed from each scored record (register field "win"); "In development" replaced by "Passed its sealed test" / "Commissioned"; work-in-progress reduced to one small line. Now running corrected: atlas v2.1 and the IAM-A cause test running, neurons getting ready, lung on hold. Neuron story added. Only the two globes and the live experiments are open; more sky maps, the method and tool table, the road ahead and the cost detail sit behind large click-to-open buttons.

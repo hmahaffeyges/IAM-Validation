@@ -15,7 +15,7 @@ SITE_URL = "https://hmahaffeyges.github.io/IAM-Validation/"
 J = lambda p: json.load(open(os.path.join(REPO, p), encoding="utf-8"))
 spec = importlib.util.spec_from_file_location("nr", os.path.join(REPO, "CANON", "now_running.py")); NR = importlib.util.module_from_spec(spec); spec.loader.exec_module(NR)
 E = html.escape
-STCLS = {"getting ready": "st-b", "running": "st-a", "on hold": "st-a", "result": "st-g"}
+STCLS = {"getting ready": "st-b", "running": "st-a", "on hold": "st-m", "result": "st-g"}
 TOOLS = [  # (cosmology tool, what it does here, tool-board status), from docs/book/part6/16a_skytools_map79.tex
     ("One hierarchical fit with an offset per source, sampled by MCMC", "combines many laboratories' healthy cells into one atlas, each lab's offset measured", "partial: the atlas is a posterior; readings carry none yet"),
     ("Component separation", "reads past the mix of cell types to the signal underneath", "in use, one solver; a second is built, not in the chain"),
@@ -43,10 +43,19 @@ def page(art):
 <p class="hr"><b>What we hope:</b> {E(s["hope"])}</p><p class="hr"><b>What could go wrong:</b> {E(s["risk"])}</p>
 <p class="latest"><span>{E(u["date"])}</span> {E(u["text"])}</p>
 <p class="more"><a href="{rec("FIELD_NOTES.md")}#{s["id"].replace("_", "-")}">The full story, in plain words</a> · <a href="{rec(u["record"])}">record</a></p></article>''')
-    regs = sorted([e for e in REG["entries"] if e.get("status") != "withdrawn"], key=lambda e: (e["status"] != "commissioned", e["date"]), reverse=False)
-    regs = sorted(regs, key=lambda e: e["date"], reverse=True); regs = [e for e in regs if e["status"] == "commissioned"] + [e for e in regs if e["status"] != "commissioned"]
-    results = "\n".join(f'''<article class="res"><span class="chip {"st-g" if e["status"] == "commissioned" else "st-b"}">{"Commissioned" if e["status"] == "commissioned" else "In development"}</span>
-<h3>{E(e.get("title") or e["id"])}</h3><p>{E(e.get("plain", ""))}</p><p class="more"><span>{E(e["date"])}</span> · <a href="{rec(e["record"])}">record</a></p></article>''' for e in regs)
+    sys.path.insert(0, os.path.join(REPO, "CANON")); import results_to_tex as RT
+    def vals(e):
+        try: v = dict(RT.compute(e))
+        except Exception: v = {}
+        if "n" in v: v["exp"] = round(0.05 * v["n"])
+        return v
+    regs = sorted([e for e in REG["entries"] if e.get("status") != "withdrawn"], key=lambda e: e["win"]["rank"])
+    def card(e):
+        w, v = e["win"], vals(e); f = lambda t: E(t.format(**v))
+        chip = '<span class="chip st-g">Commissioned</span>' if e["status"] == "commissioned" else '<span class="chip st-b">Passed its sealed test</span>'
+        return f'''<article class="res win">{chip}<p class="stat">{f(w["stat"])}</p><h3>{f(w["head"])}</h3><p>{f(w["sub"])}</p><p class="more"><span>{E(e["date"])}</span> · <a href="{rec(e["record"])}">the record</a></p></article>'''
+    results = "\n".join(card(e) for e in regs)
+    going = "; ".join(E(s_["headline"]) for s_ in NRJ["stories"] if s_["status"] != "result")
     NJ = J("CANON/next_jobs.json"); AT = J("CANON/atlas_release.json")
     CO = J("CANON/costs_snapshot.json"); mkey = max(CO["aws_by_month"]); A = CO["aws_by_month"][mkey]
     s3c = f"${A.get('S3 storage', 0):,.2f}"
@@ -64,27 +73,33 @@ def page(art):
 <p class="cta"><a class="btn" href="#now">Follow the work</a><a class="btn ghost" href="../">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
 <main>
 <section id="now" class="wrap"><h2>Now running</h2><p class="sub">Live experiments, in plain words. Each links to its full story and its record.</p><div class="grid">{"".join(stories)}</div></section>
+<section class="wrap" id="wins"><h2>What we have accomplished</h2><p class="sub">Every one was a test written down before its data was read, and scored once. Each links to its record.</p><div class="grid">{results}</div>
+<p class="continues">Work continues: {going}. <a href="#road">The road ahead</a>.</p></section>
 <section class="wrap pic"><h2>The sky and the cell</h2>
 <figure><img src="{art("sky_atlas_globes.jpg")}" alt="Two globes: the microwave sky measured by Planck, and healthy neutrophil methylation from the atlas drawn the same way."><figcaption>Two skies, drawn the same way. Left, the microwave sky as the Planck satellite measured it (ESA and the Planck Collaboration, 2018); the pale band is the plane of our own galaxy, where Planck's processing fills in what dust and gas hide. Right, healthy neutrophils from our atlas, every site in genome order on the same kind of sphere.</figcaption></figure>
+<details class="fold"><summary>See more sky maps: the flat maps and zooms, six cell types, and planted damage (4 maps)</summary>
 <figure><img src="{art("sky_atlas_plate.jpg")}" alt="Top: the microwave sky measured by Planck, and the atlas's healthy neutrophils with one CpG per pixel. Bottom: a 15-degree zoom of each."><figcaption>Top left, the same measured sky laid flat, smoothed half a degree as ESA's own image is. Top right, the atlas itself: healthy neutrophils, all 784,950 sites in genome order, one site per pixel on the same kind of sphere (HEALPix, the sky's grid) and at the same resolution. Genome neighbors sit next to each other, so the patches are stretches of DNA methylated alike. The atlas is mostly dark red and blue because DNA methylation comes in two sharp levels: most sites are almost fully methylated (switched off) or almost unmethylated (gene switches), while the microwave sky clusters smoothly around its average. Below, a zoom of each: the sky is soft because it is smoothed; every square of the atlas is one real site, unsmoothed, and the few black specks are pixels with no site. This is a picture of the map: no reading uses the sphere yet, and its statistics are withheld until they pass their own test.</figcaption></figure>
 <figure><img src="{art("sky_atlas_cells.jpg")}" alt="Six healthy cell types from the atlas drawn on the sphere, and the atlas's uncertainty for neutrophils."><figcaption>Six of the atlas's 74 healthy cell types, each its own sky. The last map is how sure the atlas is about neutrophils at every site: dark is very sure. The brighter band at the bottom is the Y chromosome, where the atlas has the fewest donors.</figcaption></figure>
 <figure><img src="{art("sky_pair.jpg")}" alt="Left: the microwave sky, temperature minus its mean. Right: one healthy neutrophil's methylation read against five others, drawn on the same kind of map."><figcaption>Left, the microwave sky. Right, one healthy white blood cell read against five others, drawn the same way. Healthy cells look like noise: nothing stands out.</figcaption></figure>
-<figure><img src="{art("sky_damage.jpg")}" alt="Four maps: a healthy array; known damage spread everywhere; known damage in ten genome regions; a female array read against male arrays."><figcaption>Known damage, planted on purpose. Spread everywhere, it warms the whole map. Packed into ten regions, it shows as stripes, which the clustering reading catches when the average barely moves. A female sample read against male ones lights up the X chromosome at the bottom, as it should.</figcaption></figure></section>
+<figure><img src="{art("sky_damage.jpg")}" alt="Four maps: a healthy array; known damage spread everywhere; known damage in ten genome regions; a female array read against male arrays."><figcaption>Known damage, planted on purpose. Spread everywhere, it warms the whole map. Packed into ten regions, it shows as stripes, which the clustering reading catches when the average barely moves. A female sample read against male ones lights up the X chromosome at the bottom, as it should.</figcaption></figure>
+</details></section>
 <section class="wrap"><h2>Our instruments are the telescopes. The atlas is the sky map.</h2>
+<details class="fold"><summary>How it works, and every cosmology tool we use</summary>
 <p>Met-A and IAM-A are the two instruments; each is commissioned once, on its own tests. The atlas, a map of what healthy human cells look like, is the sky map they read against. Like each release of the microwave-sky maps, every atlas version is refitted whole, gets its own DOI and is checked again by the same tests on data it never saw. This is not a metaphor: it is the same mathematics applied to a different signal. Each tool, with where it stands today:</p>
 <table class="tools"><thead><tr><th>The cosmology tool</th><th>What it does here</th><th>Where it stands</th></tr></thead><tbody>{tools}</tbody></table>
-<p class="more">Sky data: Planck 2018 SMICA map from the Planck Legacy Archive (ESA and the Planck Collaboration, Planck 2018 results IV, A&A 641, A4, 2020), colors from the Planck Collaboration's own color scale. Every tool, built or not yet built: the <a href="../book/">book's sky-tools chapter</a>. The atlas itself, free to download: <a href="https://doi.org/{E(AT["doi"])}">DOI {E(AT["doi"])}</a> ({AT["total_bytes"] / 1e9:.2f} GB in {AT["files"]} files, every file checked against its fingerprint).</p></section>
+<p class="more">Sky data: Planck 2018 SMICA map from the Planck Legacy Archive (ESA and the Planck Collaboration, Planck 2018 results IV, A&A 641, A4, 2020), colors from the Planck Collaboration's own color scale. Every tool, built or not yet built: the <a href="../book/">book's sky-tools chapter</a>. The atlas itself, free to download: <a href="https://doi.org/{E(AT["doi"])}">DOI {E(AT["doi"])}</a> ({AT["total_bytes"] / 1e9:.2f} GB in {AT["files"]} files, every file checked against its fingerprint).</p></details></section>
 <section class="wrap" id="road"><h2>The road ahead</h2><p class="sub">Every job still in front of us, in order: what it needs and what it is expected to cost. This is why support matters.</p>
+<details class="fold"><summary>See the {len(NJ["jobs"])} jobs ahead, and where a researcher could help</summary>
 <ol class="road">{road}</ol>
 <h3 class="help">Where a researcher could help</h3><p class="sub">The gaps public data cannot close. If you hold data like this, or can point to it, open an issue or a discussion on the repository. You do not need to introduce yourself to follow along.</p>
 <ul class="road help">{helpw}</ul>
-<p class="more">The same list on GitHub: <a href="{rec("ROADMAP.md")}">ROADMAP.md</a>.</p></section>
+<p class="more">The same list on GitHub: <a href="{rec("ROADMAP.md")}">ROADMAP.md</a>.</p></details></section>
 <div class="art-band" style="background-image:url({art("bh_banner.jpg")})" role="img" aria-label="Art from the book"></div>
-<section class="wrap"><h2>Results so far</h2><p class="sub">Each in plain words, with its record. "Commissioned" means it passed every test written for it before its data was read.</p><div class="grid">{results}</div></section>
 <section class="wrap"><h2>What it costs</h2><p class="sub">Every dollar, from Amazon's own billing and our storage, as of {E(CO["as_of"])}. Everything is paid by us and by people who choose to help.</p>
+<details class="fold"><summary>See every cost: this month ${mtot:,.2f} so far</summary>
 <div class="grid costs"><div class="card"><p class="big">${mtot:,.2f}</p><p>this month so far ({E(mkey)}), all costs</p><p class="small">{E(mlines)}</p></div>
 <div class="card"><p class="big">{CO["s3"]["bytes"] / 1e12:.2f} TB</p><p>of public data stored for our tests ({CO["s3"]["objects"]:,} files), {E(s3c)} this month</p><p class="small">Amazon moves files we have not touched to cheaper storage on its own.</p></div>
-<div class="card"><p class="big">${wsum:,.2f}</p><p>rented computing, last 7 billed days ({E(week[0][0])} to {E(week[-1][0])})</p><p class="small">Every run, its purpose, its estimate before it starts and its actual cost: <a href="{rec("Biological_Physics/MethylPhys/RUNS.md")}">the run ledger</a>.</p></div></div></section>
+<div class="card"><p class="big">${wsum:,.2f}</p><p>rented computing, last 7 billed days ({E(week[0][0])} to {E(week[-1][0])})</p><p class="small">Every run, its purpose, its estimate before it starts and its actual cost: <a href="{rec("Biological_Physics/MethylPhys/RUNS.md")}">the run ledger</a>.</p></div></div></details></section>
 <section class="wrap"><h2>Check it yourself</h2><div class="grid links">
 <a class="tile" href="../">The book, every number checked by a script</a><a class="tile" href="../book/">Run every check in your browser</a>
 <a class="tile" href="{rec("FIELD_NOTES.md")}">Field notes: every experiment's story</a><a class="tile" href="{rec("development/METHYLPHYS_DEVELOPMENT_LOG.md")}">The development log, every result good or bad</a>
@@ -110,7 +125,7 @@ section{padding:56px 0 8px} h2{font-size:30px;margin:0 0 6px;letter-spacing:-.01
 .card,.res{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:20px 22px}
 .card h3,.res h3{margin:10px 0 8px;font-size:19px;line-height:1.3}
 .chip{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:999px;color:var(--st-fg)}
-.st-g{background:var(--st-g)}.st-b{background:var(--st-b)}.st-a{background:var(--st-a)}.st-r{background:var(--st-r)}
+.st-g{background:var(--st-g)}.st-b{background:var(--st-b)}.st-a{background:var(--st-a)}.st-r{background:var(--st-r)}.st-m{background:transparent;color:var(--muted);border:1px solid var(--muted)}
 .hr{margin:6px 0;font-size:15px}.latest{border-left:3px solid var(--link);padding-left:10px;margin:14px 0 8px;font-size:15px}
 .latest span,.more span{color:var(--muted);font-variant-numeric:tabular-nums}.more{font-size:14px;margin:6px 0 0}
 .pic figure{margin:0 0 28px}.pic img{width:100%;border-radius:8px;background:#fff}figcaption{color:var(--muted);font-size:15px;margin-top:8px}
@@ -121,6 +136,10 @@ table.tools{width:100%;border-collapse:collapse;margin:14px 0}.tools th,.tools t
 .links .tile{display:block;background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:18px 20px;text-decoration:none;color:var(--fg);font-weight:600}
 .links .tile:hover,.card:hover{border-color:var(--link)}
 ol.road,ul.road{padding-left:22px}.road li{margin:0 0 14px}.road .meta{color:var(--muted);font-size:14px}h3.help{margin:30px 0 4px;font-size:22px}
+details.fold{margin:6px 0 10px}details.fold>summary{cursor:pointer;display:inline-block;list-style:none;padding:12px 20px;border:1px solid var(--link);border-radius:8px;color:var(--link);font-weight:700;font-size:16px}
+details.fold>summary::-webkit-details-marker{display:none}details.fold>summary::before{content:"\25B8  Click to open: "}details.fold[open]>summary::before{content:"\25BE  Close: "}details.fold[open]>summary{margin-bottom:20px}
+.win .stat{font-size:38px;font-weight:800;margin:10px 0 0;line-height:1.05;font-variant-numeric:tabular-nums;color:var(--fg)}.win h3{font-size:20px}
+.continues{color:var(--muted);font-size:14px;margin:22px 0 0}
 footer{padding:50px 22px 60px;color:var(--muted);font-size:14px}
 """
 

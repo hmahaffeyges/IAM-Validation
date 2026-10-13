@@ -11,7 +11,7 @@ built in public*. Each line links to the record it comes from.
 
 ### Building a bigger map of healthy cells: IAM-Atlas v2.1
 
-**Getting ready.** Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
+**Running now.** Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
 
 - **What we hope:** The new laboratories agree with the old ones, the map gets steadier, and tests that were too close to call, like lung, get a fair chance.
 - **What could go wrong:** Cells grown in a dish may have drifted too far to use; a new laboratory may disagree with the old ones; the fit may need more computing time than planned.
@@ -26,17 +26,31 @@ built in public*. Each line links to the record it comes from.
 
 ### Does our second instrument read the same DNA the same way everywhere?
 
-**On hold.** Before anyone trusts an instrument, it has to give the same answer on the same sample. We read identical reference DNA prepared with five different kits in two laboratories.
+**Running now.** Before anyone trusts an instrument, it has to give the same answer on the same sample. We read identical reference DNA prepared with five different kits in two laboratories.
 
 - **What we hope:** The one check that failed turns out to come from how we sampled three very large files, not from the laboratories.
 - **What could go wrong:** If the difference is real, that kit's lab-to-lab check stays failed and the record says so.
 
 | date | update |
 |---|---|
+| 2026-10-12 | The cause test is running on a rented computer: the three low files and two normal ones, each read from its start, middle and end. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md) |
 | 2026-10-12 | The cause test is written and listed in the run ledger. It starts when rented-computer prices and availability allow. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md) |
 | 2026-10-12 | Four of five checks passed: repeats agree, kits agree, and a planted change was seen every time. The lab-to-lab check failed on three files, so by our own rule nothing is declared until the cause is found. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01_OUTCOME.md) |
 
 *The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#iama-commission).*
+
+### Brain cells: does healthy order hold in cells that never divide?
+
+**Getting ready.** Neurons stop dividing for life, so they can never refresh their switch pattern by making a new copy. If they still sit where physics says healthy cells should, that tells us how cells hold their information. We built a healthy brain-cell reference from one laboratory's neurons, using a rule written before we looked.
+
+- **What we hope:** Healthy neurons from two other laboratories, which we have never opened, read inside the healthy range we set in advance.
+- **What could go wrong:** How the cells were prepared moved our first readings more than age or brain region did, so the reference may first need a rule about preparation before the test is fair.
+
+| date | update |
+|---|---|
+| 2026-10-12 | Healthy brain-cell reference built by its rule, from seven samples of five donors. Cleanly sorted cells read tightly together; unsorted cells read higher. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md) |
+
+*The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#neurons).*
 
 ### Lung cancer: waiting for a better map of the lung
 
