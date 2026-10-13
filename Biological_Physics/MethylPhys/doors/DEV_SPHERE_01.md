@@ -80,6 +80,21 @@ is filled, with one fixed rule and no tuning, then re-run planted test 1 unchang
 sphere. Candidates, chosen before any real data: an equal-area re-spacing of the projected points (a monotone change of latitude,
 which keeps every site's neighbors), or building the globe from each site's departure from the healthy reference (version B above).
 
+## Construction v2 and planted test 2, run once (2026-10-13; synthetic only)
+
+`data/DEV_SPHERE_01/sphere_construction_02.py` and `planted_sphere_02.py`, committed before running (`80b18189`); output
+`planted_sphere_02_summary.txt`. All four bars met: the planted group is found (R 0.978 against a 99th percentile of 0.698; the
+weaker plant also found), nothing is found when nothing is planted (2 of 50 maps, bar at most 3), the two big classes sit 145 degrees
+apart, and every pixel holds a site (P4).
+
+**Two costs, recorded with the pass.** (1) Distances on the v2 globe agree with the full-space Fisher-Rao angles at only rho 0.31
+(v1: 0.89): filling the globe stretched it. (2) The picture (`synthetic_sphere_v2_flat.png`) shows the twelve HEALPix base faces as
+hard-edged regions, because the synthetic methylome has three discrete classes and the first splits put each class on whole faces.
+So v2 is a correct finder and a full map, but its large-scale shapes are partly the construction's own. **Not adopted for reading
+real data yet.** Next, before any real map: a synthetic methylome with continuous variation across cell types (as real ones have),
+and a measure of how much of each band's power the construction itself makes, from maps with nothing planted (the noise maps of
+ATL-046 do exactly this). A band whose power the empty maps already show is not read.
+
 ## Open questions this note exists to keep
 
 - Does the healthy information sphere have a stable shape across people, or is its shape mostly cell type?

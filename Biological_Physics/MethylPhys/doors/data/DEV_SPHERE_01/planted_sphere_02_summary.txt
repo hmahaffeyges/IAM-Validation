@@ -1,0 +1,9 @@
+NSIDE 64 (49152 pixels for 60000 sites)
+P1 planted group R 0.978 | 99th percentile of 500 random groups 0.698 -> MET
+P3 island-like vs held-methylated mean directions 145.4 deg -> MET
+P4 pixels holding a site 100.0% (bar 90 %) -> MET
+reported: rank agreement globe vs full-space angle rho 0.313 (v1: 0.892)
+reported: weaker plant (sd 0.15) R 0.952 | 99th percentile 0.630 -> found
+P2 nothing planted: exceeded in 2 of 50 maps (bar at most 3) -> MET
+reported: band power of the mean-methylation map, planted / not planted: l 2-8: 0.98, l 9-24: 0.92, l 25-64: 0.92, l 65-128: 0.90, l 129-191: 0.88, l 192-255: 0.97
+PLANTED TEST 2 PASSED: v2 keeps everything v1 found and fills the globe
