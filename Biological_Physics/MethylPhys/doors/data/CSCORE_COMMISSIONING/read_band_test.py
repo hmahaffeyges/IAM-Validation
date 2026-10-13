@@ -52,11 +52,10 @@ S = pd.read_csv(os.path.join(HERE, "band_test_GSE184269_samples.csv"))
 import conductor_v3 as C
 rows = []
 for r in S.itertuples():
-    p = os.path.join(beta_dir, r.gsm + "_beta.npy")
+    p = os.path.join(beta_dir, r.gsm + "_beta.parquet")
     if not os.path.isfile(p): rows.append(dict(gsm=r.gsm, specimen=r.src, status="no beta")); continue
-    b = pd.Series(np.load(p))
-    man = pd.read_parquet(os.path.join(beta_dir, "probe_index.parquet")).probe if os.path.isfile(os.path.join(beta_dir, "probe_index.parquet")) else None
-    if man is not None: b.index = man.astype(str)
+    _d = pd.read_parquet(p); b = _d.beta.astype(float); b.index = _d.index.astype(str)
+    assert b.index.str.startswith("cg").any(), f"{r.gsm}: beta table has no probe names"
     o = C.run_neutrophil(b, specimen=r.src, sample_id=r.gsm)
     m = o.get("met_a") or {}
     rows.append(dict(gsm=r.gsm, specimen=r.src, slide=str(r.title).split()[-1], A=m.get("A"), f_neu=m.get("fraction"),
