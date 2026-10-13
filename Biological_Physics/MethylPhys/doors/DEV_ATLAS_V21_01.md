@@ -127,3 +127,12 @@ each, because 32 at once ran out of memory on 2026-09-28. The 0.829 s per locus 
 measured alone, so v2's real run was the 16-process case (about 11.7 h), and v2.1's estimate is the 16-process column: **21-26 h**
 for the firm roster. Halving the block size halves the memory per block; whether that allows 32 processes is measured on one v2.1
 block on the box before the full run starts, not assumed.
+
+**Lung and epithelium search, 2026-10-13 (before the split is sealed; metadata only).** GEO searched for sorted or enriched, uncultured
+lung, airway and other epithelia on 450K / EPIC with raw files (`data/DEV_ATLAS_V21_01/search_lung_epithelia_2026-10-13.csv`, the query
+and every hit). New and usable: **GSE137716** (Clifford, Nottingham), fresh airway epithelial cells by brush or pronase, entered as a
+conditional builder for lung bronchus epithelium under the decision-10 rule, healthy never-smokers only. Not usable: GSE185556 (every
+sorted sample from children with cystic fibrosis), GSE178808 (an HIV and COPD cohort), GSE161485 and GSE52074 (asthma cohorts, nasal),
+GSE102726 and GSE40699 (cultured or cell lines), GSE134217 (pancreatic cancer). The lung tumor tests' blocker is lung stroma, not
+epithelium: every public lung stroma set is cultured, so it waits for the frozen-base add-on test (readiness G9) and a labeled cultured
+layer, not for v2.1.
