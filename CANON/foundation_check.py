@@ -35,6 +35,12 @@ def problems(changed=None):
         if not os.path.isfile(p): continue
         for n, line in enumerate(open(p, encoding="utf-8", errors="replace").read().split("\n"), 1):
             if "[retired wording kept for the record]" in line: continue
+            RN = F.get("retired_numbers") or {}
+            if not any(x in f for x in RN.get("exempt_files", [])):
+                for v in RN.get("values", []):
+                    if v in line:
+                        P.append(f"{f}:{n}: class-era floor value {v} - never derived, never measured; nothing current uses it "
+                                 f"(CANON/foundation.json, retired_numbers)")
             for r in F["retired_phrasings"]:
                 if re.search(re.escape(r["phrase"]), line, re.I):
                     P.append(f"{f}:{n}: retired wording \"{r['phrase']}\" - {r['why']}; say instead: {r['use_instead']}")

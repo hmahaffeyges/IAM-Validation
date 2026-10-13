@@ -9,6 +9,15 @@
 "text": "The 8-class H_min version chased many cancers before each chain link was established; the roadmap, the one-cancer-at-a-time check and gate rule 7 now prevent it"
 },
 {
+"file": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+"line": 1332,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "RECORD",
+"text": "Retired foundations: the eight-class H_min floors are recorded as RETIRED with their origin record (doors/CLASS_HISTORY.md), so the lever chapter cannot re-impo"
+},
+{
 "file": "website/build/build_home.py",
 "line": 101,
 "pattern": "\\bA[- ]score",

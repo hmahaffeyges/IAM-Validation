@@ -103,6 +103,11 @@ _lv = subprocess.run([sys.executable, "CANON/levers_check.py"], capture_output=T
 if _lv.returncode:
     for _l in (_lv.stdout or _lv.stderr).strip().split("\n")[1:]: fail.append("[levers] " + _l.strip())
 
+# The chain manifest: every chain file is live, a tool, or class-era, and the computed live set matches (2026-10-13)
+_cm = subprocess.run([sys.executable, "CANON/chain_manifest.py"], capture_output=True, text=True)
+if _cm.returncode:
+    for _l in (_cm.stdout or _cm.stderr).strip().split("\n")[1:]: fail.append("[chain] " + _l.strip())
+
 if fail:
     print(f"status_check: REFUSED ({len(fail)})\n  " + "\n  ".join(fail[:40])); sys.exit(1)
 print(f"status_check: ok ({len(F['facts'])} facts, {len(files)} documents)")

@@ -147,5 +147,29 @@
    ],
    "commit": "d45cf99a"
   }
- ]
+ ],
+ "retired_numbers": {
+  "_rule": "Class-era floor values. These were never derived and never measured: ten classes were suggested, eight were picked from the quantum and semiconductor lines, and an MCMC was then run on the eight, which returned numbers for them. Nothing in the current foundation uses or descends from them. foundation_check refuses any of these values in a file changed by a push, unless the line is marked '[retired wording kept for the record]' - so a class floor cannot come back by copy-paste.",
+  "values": [
+   "0.772837",
+   "0.838889",
+   "0.9822",
+   "0.7998",
+   "0.9629",
+   "0.9050",
+   "0.9736",
+   "0.8737",
+   "0.9808",
+   "0.9890",
+   "0.8413"
+  ],
+  "exempt_files": [
+   "CLASS_HISTORY.md",
+   "LESSONS.md",
+   "METHYLPHYS_DEVELOPMENT_LOG.md",
+   "CHAIN_MANIFEST.md",
+   "foundation.json",
+   "foundation_check.py"
+  ]
+ }
 }
