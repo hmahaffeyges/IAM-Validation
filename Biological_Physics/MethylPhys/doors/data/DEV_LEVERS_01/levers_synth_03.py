@@ -1,4 +1,4 @@
-"""DEV-LEVERS-01 synthetic test 3, version 2 (written 2026-10-13, before it was run; v1 kept as levers_synth_03_v1_INVALID.*).
+"""DEV-LEVERS-01 synthetic test 3, version 2 (rates calibrated 2026-10-13 so the CHAIN READS eps_0; see the note below) (written 2026-10-13, before it was run; v1 kept as levers_synth_03_v1_INVALID.*).
 
 Why v1 was thrown away, before its verdict was read: it ran ONE interval from a perfectly methylated start, so the held error
 never reached its balance - the healthy draw read eps 0.0009 against its own target of 0.032, a factor of 35 - and it scaled
@@ -41,15 +41,20 @@ from stage_q_iam_a import _H                      # the chain's entropy
 from conductor_v3 import _clustering              # the chain's clustering reading (blocks in genomic order)
 NMOL, NSITE, NDRAW, RUN, EPS0, BLOCK, NSTEP = 400, 2000, 200, 15, 0.032, 50, 300
 rg = np.random.default_rng(20261013)
-F_COPY, F_ERASE = 0.0020, 0.0010                     # per site per interval, healthy
-G_DENOVO = (F_COPY + F_ERASE) * (1 - EPS0) / EPS0    # the restore rate that puts the balance at eps_0
+F_COPY, F_ERASE = 0.0020, 0.0010                     # per site per interval, healthy (scaled below)
+G_DENOVO = (F_COPY + F_ERASE) * (1 - EPS0) / EPS0    # the restore rate that puts the STATE balance at eps_0
+# The state balance and the chain's READING are not the same number, and the difference is the point of this test: the chain
+# counts isolated unmethylated calls between two methylated calls, so a run of 15 lost sites contributes only its two ends.
+# A simulation whose STATE sits at eps_0 therefore READS below eps_0 (0.0172 on the first attempt). The rates are calibrated
+# here so the chain READS eps_0 = 0.032 on healthy draws, because eps_0 is defined as a reading, not as a state. The
+# calibration is on the loss side with the restore rate fixed, and the factor it lands on is reported in the summary.
 
 def evolve(M, steps, fc=1.0, fe=1.0, gd=1.0):
     for _ in range(steps):
-        k = rg.poisson(F_COPY * fc * NSITE / RUN, NMOL)              # copy failures, in runs
+        k = rg.poisson(F_COPY * LOSS * fc * NSITE / RUN, NMOL)       # copy failures, in runs
         for i, kk in enumerate(k):
             for s in rg.integers(0, NSITE - RUN, kk): M[i, s:s + RUN] = False
-        M &= rg.random((NMOL, NSITE)) > F_ERASE * fe                 # erase: scattered loss
+        M &= rg.random((NMOL, NSITE)) > F_ERASE * LOSS * fe                 # erase: scattered loss
         lost = ~M
         M |= lost & (rg.random((NMOL, NSITE)) < G_DENOVO * gd)       # de novo: scattered restore
     return M
@@ -70,11 +75,21 @@ def draw(**kw):
     if kw: M = evolve(M, NSTEP, **kw)                                # then to the impaired balance
     return read(M)
 
+LOSS = 1.0
+def _healthy_read(k, n=24):
+    global LOSS; LOSS = k
+    return float(np.median([draw()[0] for _ in range(n)]))
+lo, hi = 1.0, 6.0                                     # bisect the loss multiplier so the chain READS eps_0
+for _ in range(9):
+    mid = (lo + hi) / 2
+    if _healthy_read(mid) < EPS0: lo = mid
+    else: hi = mid
+LOSS = (lo + hi) / 2
 base = np.array([draw() for _ in range(NDRAW)])      # columns: eps, chain clustering, chain entropy H(eps)
 hm = float(np.median(base[:, 0]))
 L = ["DEV-LEVERS-01 synthetic test 3 (v2): can the readings say which of the three channels was impaired?",
      f"healthy eps at balance {hm:.4f} (target {EPS0}) | healthy clustering {np.median(base[:,1]):.3f} | "
-     f"{NDRAW} draws, {NMOL} molecules x {NSITE} sites, {NSTEP} intervals to balance", ""]
+     f"{NDRAW} draws, {NMOL} molecules x {NSITE} sites, {NSTEP} intervals to balance | loss multiplier calibrated to {LOSS:.3f} so the CHAIN READS eps_0 (the state balance sits above it, because a run of {RUN} lost sites contributes only its two ends)", ""]
 if not (0.9 * EPS0 <= hm <= 1.1 * EPS0):
     L += [f"REFUSED TO SCORE: the healthy draw is not at the balance the foundation sets ({hm:.4f} vs {EPS0}); the rates or the",
           "number of intervals are wrong, and nothing read from an off-balance simulation means anything."]
