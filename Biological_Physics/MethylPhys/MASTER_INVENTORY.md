@@ -20,7 +20,7 @@ Candidates found by search are metadata only and their counts are provisional un
 | 2 | Commission the atlas one use at a time: the sites a tissue test reads, the blood-composition step, and the per-cell iden | AT3, AT5, AT6 |  | laptop |  | queued |
 | 3 | A granulocyte reference, so sorted-granulocyte arrays can be read at all | AT6 |  | laptop |  | queued |
 | 4 | Atlas v2 | M2, M3, M4, AT4, AT7, AT9, AT11 |  | laptop |  | queued |
-| 5 | Close out the IAM-A across-laboratory failure: find whether the gap came from where in the files we sampled or is real,  | A1, A2 |  | box |  | queued |
+| 5 | Close out the IAM-A across-laboratory failure: find whether the gap came from where in the files we sampled or is real,  | A1, A2 |  | box |  | ready to write (laptop work first, then one box run for the stage) |
 | 6 | The lever series in simulation first: can the instruments separate a sliding copy head from chemical damage, tell a temp | levers |  | laptop |  | queued |
 | 7 | Colon: epithelium from an independent laboratory into the atlas, then the adenomas, which are pre-cancer | AT8, B4, G1 |  | laptop |  | queued |
 | 8 | Hepatocytes into the atlas, then liver on a second cohort, rebuilt in a clean copy of the repository | B5, B11, R4 |  | laptop |  | queued |
@@ -34,7 +34,7 @@ Candidates found by search are metadata only and their counts are provisional un
 | 16 | The detection limit by dilution, then cancer DNA in blood, starting with liver | B8, B6, B13 |  | box |  | queued |
 | 17 | Blood cancers, one at a time, where the diseased cells are the blood cells themselves | B7 |  | laptop |  | queued |
 | 18 | Whole blood back in scope: the composition bar, using a set with measured cell counts | M1 |  | laptop |  | queued |
-| 19 | IAM-A beyond one cell type: healthy white cells from another laboratory, the per-territory reading as a sealed predictio | A3, A5, A7 |  | box |  | queued |
+| 19 | IAM-A beyond one cell type: healthy white cells from another laboratory, the per-territory reading as a sealed predictio | A3, A5, A7 |  | box |  | ready to write (laptop work first, then one box run for the stage) |
 | 20 | Replication: one Met-A function inside the chain that every scorer calls, a chain report for each result, a replication  | R1, R2, R3, R4 |  | laptop |  | queued |
 | 21 | A second energy-supply lever, so the law does not rest on one mouse experiment: a diet or enzyme experiment with enough  | A4, C1, C10, C11 |  | laptop |  | queued |
 | 22 | Instrument backlog: the newer array revision in intake, the blocked 450K disease readings, and the reproducibility tier  | C5, C7, C8 |  | laptop |  | queued |

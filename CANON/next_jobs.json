@@ -59,11 +59,11 @@
    "impact": "",
    "cost": "box",
    "accessions": [],
-   "ready": "queued",
-   "plain": "Close out the IAM-A across-laboratory failure: find whether the gap came from where in the files we sampled or is real, then either finish commissioning or hold it with a stated cause.",
+   "ready": "ready to write (laptop work first, then one box run for the stage)",
+   "plain": "Close out the second instrument's laboratory failure. The cause is now known (DEV-IAMA-CAUSE-01, scored 2026-10-13): the three disagreeing libraries read 11 to 14 percent low at the very start of their data files and nearly normal deeper in, while two controls read the same everywhere. Next, in this order: write the rule that reads spread across the whole file, exercise it on planted data, seal it, then re-read the whole stage on it - the five libraries used for the diagnosis are spent. Until that is done the instrument stays held and the failed check stays failed.",
    "needs": "a rented computer",
    "estimate": "1-2 sessions",
-   "stands": "the cause test is reading now",
+   "stands": "cause diagnosed 2026-10-13 (MIXED: largely file position); the read-across rule is unwritten",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md"
   },
   {
@@ -241,11 +241,11 @@
    "impact": "",
    "cost": "box",
    "accessions": [],
-   "ready": "queued",
-   "plain": "IAM-A beyond one cell type: healthy white cells from another laboratory, the per-territory reading as a sealed prediction, and oral cancer in sequencing.",
+   "ready": "ready to write (laptop work first, then one box run for the stage)",
+   "plain": "Close out the second instrument's laboratory failure. The cause is now known (DEV-IAMA-CAUSE-01, scored 2026-10-13): the three disagreeing libraries read 11 to 14 percent low at the very start of their data files and nearly normal deeper in, while two controls read the same everywhere. Next, in this order: write the rule that reads spread across the whole file, exercise it on planted data, seal it, then re-read the whole stage on it - the five libraries used for the diagnosis are spent. Until that is done the instrument stays held and the failed check stays failed.",
    "needs": "a rented computer",
    "estimate": "3-4 weeks",
-   "stands": "after the commissioning close-out",
+   "stands": "cause diagnosed 2026-10-13 (MIXED: largely file position); the read-across rule is unwritten",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_P_WHOLE_01.md"
   },
   {
