@@ -1,0 +1,10 @@
+DEV-IAMA-READACROSS-01 planted test: can pooling three blocks recover a copy error when the head of the run is biased?
+
+head biased 0.110 in A | HEAD-ONLY estimate -14.39 % off the truth | POOLED -4.857 % off, 95th percentile of |error| 6.593 %
+head biased 0.125 in A | HEAD-ONLY estimate -16.33 % off the truth | POOLED -5.391 % off, 95th percentile of |error| 7.396 %
+head biased 0.140 in A | HEAD-ONLY estimate -18.20 % off the truth | POOLED -6.052 % off, 95th percentile of |error| 8.241 %
+
+BAR: pooled within 1 % at every bias: NO | head-only outside 5 % at the largest bias: yes
+PLANTED TEST FAILED - the pooled rule is not a remedy for this bias
+
+This is a statement about the sampling rule, not about any library or any laboratory.

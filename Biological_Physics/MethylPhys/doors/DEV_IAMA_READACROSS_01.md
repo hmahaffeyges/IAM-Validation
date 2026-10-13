@@ -39,4 +39,37 @@ bend the beginning of each one the way the real files were bent, and check that 
 while the old head-only way does not. **What it would take to finish:** that test, one real file read end to end as a check, a seal,
 and then the whole stage read again on the new rule.
 
-**Not a milestone:** a proposed sampling rule with its test unwritten; nothing is sealed and no reading has changed.
+## Outcome of the planted test: the pooled rule FAILED its bar, and the arithmetic says why (2026-10-13)
+
+Run once, bar unchanged (`planted_readacross_01.py`, output `planted_readacross_01_output.txt`):
+
+| head bias planted in A | head-only estimate | pooled three-block estimate | 95th percentile of pooled error |
+|---|---|---|---|
+| 0.110 | -14.39 % off the truth | **-4.86 %** | 6.59 % |
+| 0.125 | -16.33 % | **-5.39 %** | 7.40 % |
+| 0.140 | -18.20 % | **-6.05 %** | 8.24 % |
+
+**Why it failed, and it is not a tuning problem.** Pooling counts over three blocks still COUNTS the biased block. With three blocks
+of similar weight it divides the bias by about three and no more: a 15 % error becomes a 5 % error. The commissioning tolerance is
+3 %, so a diluted bias is still a failing bias. No choice of positions or weights fixes this, because the quantity being averaged is
+contaminated rather than noisy. **Adding more samples cannot remove a bias.**
+
+**What this rules out, and what it leaves.** Reading more places in the run is not the remedy. The remedy must EXCLUDE the part of
+the run that is not settled, and the exclusion must be decided by something measured INDEPENDENTLY of IAM-A - otherwise we would be
+discarding the data whose answer we dislike, which is the one thing a reviewer should refuse to accept. The per-cycle base quality
+and the conversion rate reported by `alignment_qc.py` are such independent diagnostics: they are properties of the sequencing run,
+not of the reading.
+
+**The revised rule to design and test next (DEV-IAMA-TRIM-01, not yet written).** Decide, from per-cycle quality and conversion
+alone, how many leading cycles of a run are unsettled; trim those cycles for EVERY library by the same measured rule; then read.
+Its planted test must show that the trim recovers a planted head bias to within 1 %, that it changes an unbiased library's reading
+by less than the 3 % tolerance (so trimming is not itself a new bias), and that the trim length is chosen by the quality diagnostic
+rather than by the reading it feeds.
+
+**In plain words, corrected.** Our first idea was to read three places in each file instead of one and add them up. We tested that
+idea on made-up runs with a known answer and bent beginnings, and it failed: averaging in a bad measurement makes it smaller, not
+absent - a 15 % error became a 5 % error, where our tolerance is 3 %. So the fix cannot be to read more of the file; it has to be to
+stop reading the part of the file that is not trustworthy, with the decision made from the machine's own quality numbers rather than
+from our result. That is the next thing to design, and this idea is recorded as tried and failed.
+
+**Not a milestone:** a proposed sampling rule that failed its own planted test, with the next rule named but unwritten; nothing is sealed and no reading has changed.

@@ -253,6 +253,11 @@
    "date": "2026-10-10",
    "plain": "A second physics lever was parked before we downloaded anything. Starving cells of methionine should raise the reading, but in the only public experiment the cells had nearly stopped dividing, so the calculation showed it could not decide the question.",
    "record": "Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md"
+  },
+  {
+   "date": "2026-10-13",
+   "plain": "Our first proposed fix for the instrument's laboratory failure did not work, and we found out on made-up data before spending any real files. The idea was to read three places in each sequencing file instead of one and add them together. Tested against runs with a known answer and a bent beginning, it cut the error from about 15 percent to about 5 percent - but our tolerance is 3 percent, because averaging in a bad measurement makes it smaller, not absent. The fix has to exclude the untrustworthy part of the file, decided from the machine's own quality numbers rather than from our result. Recorded as tried and failed.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_READACROSS_01.md"
   }
  ],
  "decisions": [
