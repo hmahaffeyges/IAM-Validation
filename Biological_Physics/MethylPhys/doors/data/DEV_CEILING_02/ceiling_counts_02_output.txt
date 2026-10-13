@@ -1,0 +1,5 @@
+breast: methylated arm moved toward the ceiling in 50 of 53; u_m quartiles +0.037 to +0.146; largest +0.325; unmethylated arm toward it in 15 of 53
+colorectal: methylated arm moved toward the ceiling in 80 of 88; u_m quartiles +0.031 to +0.091; largest +0.265; unmethylated arm toward it in 62 of 88
+liver: methylated arm moved toward the ceiling in 42 of 50; u_m quartiles +0.044 to +0.280; largest +0.393; unmethylated arm toward it in 34 of 50
+lung: methylated arm moved toward the ceiling in 21 of 28; u_m quartiles +0.004 to +0.104; largest +0.249; unmethylated arm toward it in 14 of 28
+all four cancers: methylated arm toward the ceiling in 193 of 219; past the ceiling: 0

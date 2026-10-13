@@ -161,6 +161,18 @@
      "what": "Run once on the third version, 60 draws per condition through the chain's own reading functions. Impairing the copy channel moves the held error up (1.401 at a 2x impairment), impairing de novo writing moves it up more (1.973), and impairing erasure moves it DOWN (0.718) - the only channel that does. No pair overlaps in both readings at a matched impairment, so the bar is met.",
      "why": "The erase channel is identifiable on direction alone, which is the sharpest part: it is also the channel a reviewer would say must dissipate energy. The limit is stated in the record - copy and de novo separate only by the size of the move, so with an unknown impairment magnitude those two are not distinguishable by these two readings, which is what the third reading exists for.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md"
+    },
+    {
+     "title": "Where a tumor sits between healthy and the ceiling",
+     "status": "development",
+     "what": "On the sealed sites of 219 tumor/normal pairs in four cancers, the methylated arm moved toward the derived ceiling in 193, none reached it, and the median tumor used 4 to 13 percent of its headroom. By the rule written first the four cancers are NOT consistent with one another; bulk tissue is a lower bound, so tumor purity is the next thing to correct for.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_CEILING_02.md"
+    },
+    {
+     "title": "Territory contrast, version 2",
+     "status": "synthetic only",
+     "what": "Three of six bars met: the physics, the additive offset and the blind spot. The composition-proof second reading is too faint to resolve a small shortfall over its own noise; at shortfalls of 10 percent and more the two-number signature matches its parameter-free prediction. A group or large-effect instrument, not an early single-person one.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORY_02.md"
     }
    ]
   },
@@ -624,7 +636,7 @@
    ]
   }
  ],
- "open_at_turnover": "Nothing is running. The sequencing instrument remains HELD - four of five commissioning checks passed and the fifth is still not met, and the note's own stopping rule keeps the whole instrument held until it is; its fix now has six planted bars met and needs one cheap reading pass on a rented machine to calibrate, after which the laboratory check must be rerun on the whole set because the five diagnostic libraries are spent. Both rented machines are terminated, so that pass needs one to be started. The array instrument is unaffected and is what scored the tissue results; the clustering meter now reads healthy blood correctly in two laboratories that had no part in setting its range, and needs one more check. Free work waiting, in order: the second version of the territory contrast, re-reading the three sealed tissue sets with the ceiling check recorded, and the search for same-person repeat arrays. Nothing is waiting on a decision.",
+ "open_at_turnover": "Nothing is running. The sequencing instrument remains HELD - four of five commissioning checks passed and the fifth is still not met, and the note's own stopping rule keeps the whole instrument held until it is; its fix now has six planted bars met and needs one cheap reading pass on a rented machine to calibrate, after which the laboratory check must be rerun on the whole set because the five diagnostic libraries are spent. Both rented machines are terminated, so that pass needs one to be started. The array instrument is unaffected and is what scored the tissue results; the clustering meter now reads healthy blood correctly in two laboratories that had no part in setting its range, and needs one more check. Free work waiting, in order: tumor purity for the ceiling position, re-reading the three sealed tissue sets with the ceiling check recorded, and the search for same-person repeat arrays. Nothing is waiting on a decision.",
  "closing": "No rented-machine money was spent today. Six results, four of our own errors found and recorded, and one question from the author that turned into a measured limit. The instrument is still held, which is the correct state for it to be in.",
  "_convention": "Section names are fixed so a reader can compare one day with another: What we set out to do; What ran, and how each came out; What we learned that we did not know yesterday; Our own mistakes today, and what caught each; Coffee and a whiteboard (the back-and-forth that produced the day's work, bad ideas included); What changed in the plan; Open at turnover.",
  "check_completeness": true
