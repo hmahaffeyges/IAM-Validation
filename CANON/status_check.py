@@ -120,7 +120,10 @@ for _s in _tr.get("steps", []):
 # The candidate-instrument board is generated from CANON/instruments.json (2026-10-13): every entry keeps a falsifier and a
 # next step, every record named exists, and the board does not drift from the register.
 _ib = subprocess.run([sys.executable, "CANON/instruments_board.py", "--check"], capture_output=True, text=True)
-if _ib.returncode: fail += [l.strip() for l in _ib.stdout.split("\n") if l.strip().startswith("[instruments]")]
+if _ib.returncode:
+    _lines = [l.strip() for l in _ib.stdout.split("\n") if l.strip().startswith("[instruments]")]
+    # a checker that CRASHES must not pass silently (the levers checker had this same bug, 2026-10-13)
+    fail += _lines or ["[instruments] instruments_board failed to run: " + (_ib.stderr.strip().split("\n")[-1] if _ib.stderr.strip() else "no output")]
 
 if fail:
     print(f"status_check: REFUSED ({len(fail)})\n  " + "\n  ".join(fail[:40])); sys.exit(1)

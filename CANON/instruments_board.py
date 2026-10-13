@@ -19,14 +19,14 @@ def build():
          J["_rule"].split(". Written")[0] + ".", ""]
     for x in sorted(J["instruments"], key=lambda y: y["p"]):
         L += [f"## {x['p']}. {x['name']}", "",
-              f"- **Reads:** {x['reads']}",
-              f"- **Substrate:** {x['substrate']} · **Cost:** {x['cost']}",
-              f"- **Where it stands:** {x['status']}",
-              f"- **Still open:** {x['open']}",
-              f"- **Advantage:** {x['advantage']}",
-              f"- **Blind spot:** {x['blind']}",
-              f"- **What would break it:** {x['breaks']}",
-              f"- **Next step:** {x['next']}"]
+              f"- **Reads:** {x.get('reads', 'MISSING')}",
+              f"- **Substrate:** {x.get('substrate', 'MISSING')} · **Cost:** {x.get('cost', 'MISSING')}",
+              f"- **Where it stands:** {x.get('status', 'MISSING')}",
+              f"- **Still open:** {x.get('open', 'MISSING')}",
+              f"- **Advantage:** {x.get('advantage', 'MISSING')}",
+              f"- **Blind spot:** {x.get('blind', 'MISSING')}",
+              f"- **What would break it:** {x.get('breaks') or 'MISSING - this is a demonstration, not a test'}",
+              f"- **Next step:** {x.get('next') or 'MISSING'}"]
         if x.get("rec"): L.append(f"- **Record:** [{os.path.basename(x['rec'])}]({os.path.relpath(os.path.join(ROOT, x['rec']), os.path.dirname(OUT))})")
         L.append("")
     L += [f"## {J['gate']['name']}", "", J["gate"]["text"], "", f"_{J['closing']}_", ""]
