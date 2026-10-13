@@ -72,7 +72,13 @@ for d in days:
 # file of the note's data folder (doors/data/<NOTE>/, <NOTE>_PLANT/, rows/outputs/json/scripts) or in development/sims. DOIs and `code spans`
 # are skipped. A number may instead sit in the data folder of a test cited on the same line (DEV-X-NN / PROC-X-NN), and must then be in it.
 NUM6 = re.compile(r"(?<![\w./])[+\u2212-]?\d+\.\d{2,}(?![\w/])")
-def _pool6(dirs):
+def _pool6(dirs, note=None):
+    """Outputs of the named folders, plus every doors/data/<DIR>/ the note itself points at (2026-10-13: a note's data folder
+    need not be named after the note - the C-score plan's folder is doors/data/CSCORE_COMMISSIONING/)."""
+    dirs = list(dirs)
+    if note and os.path.isfile(note):
+        for d in set(re.findall(r"data/([A-Za-z0-9_]+)/", open(note, encoding="utf-8", errors="replace").read())):
+            dirs.append(f"Biological_Physics/MethylPhys/doors/data/{d}/")
     P = []
     for d in dirs:
         for t in [x for x in tree if x.startswith(d)]:
@@ -93,7 +99,7 @@ for f in [x for x in changed if not generated_only(x)]:   # a change only inside
     txt = re.sub(r"(?i)doi[: ]\S+|10\.\d{4,}/\S+|`[^`]*`", "", open(f, encoding="utf-8").read())
     N = set(m.group(0).lstrip("+").replace("\u2212", "-") for m in NUM6.finditer(txt))
     if not N: continue
-    P = _pool6([f"Biological_Physics/MethylPhys/doors/data/{stem}/", f"Biological_Physics/MethylPhys/doors/data/{stem}_PLANT/", "development/sims/"])
+    P = _pool6([f"Biological_Physics/MethylPhys/doors/data/{stem}/", f"Biological_Physics/MethylPhys/doors/data/{stem}_PLANT/", "development/sims/"], note=f)
     def _hit(n, pool): k_ = len(n.split(".")[1]); v0 = float(n); return any(abs(round(v, k_) - v0) < 1e-12 or abs(round(-v, k_) - v0) < 1e-12 for v in pool)
     # A number may also come from a test CITED ON ITS OWN LINE (DEV-X-NN / PROC-X-NN): it must then be in that test's data folder (2026-10-10).
     cited = {}
@@ -103,7 +109,7 @@ for f in [x for x in changed if not generated_only(x)]:   # a change only inside
         for m in NUM6.finditer(line): cited.setdefault(m.group(0).lstrip("+").replace("\u2212", "-"), set()).update(tags)
     _cache = {}
     def _pool_of(t):
-        if t not in _cache: _cache[t] = _pool6([f"Biological_Physics/MethylPhys/doors/data/{t}/", f"Biological_Physics/MethylPhys/doors/data/{t}_PLANT/"])
+        if t not in _cache: _cache[t] = _pool6([f"Biological_Physics/MethylPhys/doors/data/{t}/", f"Biological_Physics/MethylPhys/doors/data/{t}_PLANT/"], note=f)
         return _cache[t]
     miss = sorted(n for n in N if not _hit(n, P) and not any(_hit(n, _pool_of(t)) for t in cited.get(n, ())))
     if miss: fail.append(f"{f}: {len(miss)} number(s) not found in any committed output of doors/data/{stem}/: {', '.join(miss[:10])}")

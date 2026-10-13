@@ -1,0 +1,12 @@
+value,what,run,status
+0.138,within-person SD of tared C,step 3 on 641 healthy arrays with blocks of 50 (2026-10-08),superseded by the blocks-of-10 run
+0.175,healthy SD of tared C across laboratories,step 3 on 641 healthy arrays with blocks of 50 (2026-10-08),superseded by the blocks-of-10 run
+0.176,healthy SD tared to slide,tare-scope check on 641 arrays (2026-10-08),superseded by the blocks-of-10 run
+0.172,healthy SD tared to series,tare-scope check on 641 arrays (2026-10-08),superseded by the blocks-of-10 run
+0.062,within-person SD of C_rel,blocks of 10 on GSE250556 as reported 2026-10-09,reported; recomputed here as 0.0891 tared to series and 0.1294 tared to slide
+0.125,repeat bar: one quarter of the smallest clustered change to detect,author decision 2026-10-09,"in force (a definition, not a measurement)"
+-0.046,lowest constructed response recorded,step 2 constructed control (2026-10-08),recorded
+0.043,replicate spread with blocks of 10,step 2 table (2026-10-08),recorded
+0.058,block-count sampling error with 600 blocks,derived sqrt(2/600),recomputed here as 0.0577
+0.089,replicate spread with blocks of 50,step 2 table (2026-10-08),recomputed here as 0.0891 tared to series
+0.130,block-count sampling error with 120 blocks,derived sqrt(2/120),recomputed here as 0.1291

@@ -138,3 +138,26 @@ to be checked against the band before it can serve).
 **Not a milestone:** one bar of a development commissioning met; the C-score is not proposed for commissioning until (a) on
 further laboratories and (b) on new replicates are met.
 
+## Every number in this note recomputed from committed inputs (2026-10-13)
+
+`data/CSCORE_COMMISSIONING/plan_numbers.py` (output `plan_numbers_output.txt`) recomputes the spread and repeatability
+figures from the committed arrays file and a committed person map for GSE250556, and prints the earlier runs' figures with
+their run and status from `historical_numbers.csv`. Three agree to the digit: the replicate spread 0.089 (0.0891, C tared to
+series), and the derived block-count sampling errors 0.130 and 0.058 (0.1291, 0.0577). Two do not: **the committed arrays file
+holds 617 arrays where step 3 says 641**, and step 3's spread figures (within-person 0.138, healthy 0.175) belong to that
+larger blocks-of-50 set, which the blocks-of-10 run superseded. Recomputed on the committed file: healthy SD 0.1707 tared to
+series and 0.1764 to slide; same-person within-SD 0.0891 tared to series, 0.1294 to slide, 0.0742 untared.
+
+**Consequence for the repeat bar.** The bar in force is an absolute one, same-person within-SD of C_rel <= 0.125. On the
+committed file that reads 0.0891 tared to series (met) and 0.1294 tared to slide (not met). Which tare a report uses is
+therefore load-bearing, and the bar is recorded as **met on series-tared readings only**, pending the new replicates.
+
+**Synthetic test:** DEV_CSCORE_MOSS_01/insilico_moss_01.py, DEV_CSCORE_MOSS_01/insilico_moss_01_output.txt, DEV_CSCORE_MOSS_01/insilico_moss_01_rows.csv, CSCORE_COMMISSIONING/plan_numbers.py, CSCORE_COMMISSIONING/plan_numbers_output.txt
+
+Step 2's constructed positive control is the synthetic test: clustered loss planted at a known size must read above the band,
+scattered loss of the same size must read inside it.
+
+**Prior reading:** the band's own 617 arrays (19 series, including GSE110530, GSE142512, GSE225544, GSE226298, GSE247195,
+GSE250556) built and decided the band and are not tests of it; GSE315366 was read once in Box Run 3 for clonal haematopoiesis
+(a different question) and is used here only as the held-out test of the band, which it had no part in deciding.
+
