@@ -1229,3 +1229,6 @@ Nothing computed on the HEALPix map reaches a reading or a public claim until it
 
 ### 2026-10-12 · Atlas v2.1 culture check, step 1: 44.8 % of CpGs drift in culture (batch mixed in); batch-free core 11.1 %
 GSE197512 182 arrays read once by the fixed rule. Review found array batch date follows passage in five lines; the two single-date lines give 92,603 CpGs (11.1 %) drifting in both. The fixed set is kept as the mask (a mask only removes sites); step 2 reports both masks. GSE179847 and GSE82234 still to read for step 1.
+
+### 2026-10-12 · Field notes (author): the plain-words story of every experiment, never edited
+FIELD_NOTES.md is generated from CANON/now_running.json with the board; each update carries a longer note; the board shows the newest three per story. now_running --check refuses any published update that is edited or removed (a correction is a new update). The book and canonical documents stay current-only; the field notes are the journal. First notes: atlas culture check, IAM-A commissioning, lung.

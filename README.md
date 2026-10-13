@@ -35,10 +35,11 @@ Heath W. Mahaffey, IAMPerformance (independent research).
 
 | date | update |
 |---|---|
-| 2026-10-12 | Version 2 published with its own DOI, so anyone can download the map and check it. [record](Biological_Physics/MethylPhys/atlas/README.md) |
-| 2026-10-12 | The plan is locked before any new data is opened: which samples build the map and which are kept back to test it. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
-| 2026-10-12 | First step running: measuring how much growing cells in a dish changes them. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
 | 2026-10-12 | Culture check, first result: growing cells in a dish changes them a lot. In the cleanest comparison, about 1 in 9 of the sites we read moves steadily as the cells keep dividing. Those sites will be set aside before any dish-grown cell is compared with the atlas. Two more laboratories' data are next. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
+| 2026-10-12 | First step running: measuring how much growing cells in a dish changes them. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
+| 2026-10-12 | The plan is locked before any new data is opened: which samples build the map and which are kept back to test it. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
+
+*The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#atlas-v21).*
 
 ### Does our second instrument read the same DNA the same way everywhere?
 
@@ -49,8 +50,23 @@ Heath W. Mahaffey, IAMPerformance (independent research).
 
 | date | update |
 |---|---|
-| 2026-10-12 | Four of five checks passed: repeats agree, kits agree, and a planted change was seen every time. The lab-to-lab check failed on three files, so by our own rule nothing is declared until the cause is found. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01_OUTCOME.md) |
 | 2026-10-12 | The cause test is written and listed in the run ledger. It starts when rented-computer prices and availability allow. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md) |
+| 2026-10-12 | Four of five checks passed: repeats agree, kits agree, and a planted change was seen every time. The lab-to-lab check failed on three files, so by our own rule nothing is declared until the cause is found. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01_OUTCOME.md) |
+
+*The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#iama-commission).*
+
+### Lung cancer: waiting for a better map of the lung
+
+**On hold.** We compare each patient's tumor with the same patient's normal lung. Before any tumor is opened, made-up tests on normal lungs must show that ordinary differences between people's lungs cannot fake a cancer signal.
+
+- **What we hope:** With dish-grown lung support cells checked and added to the atlas, the made-up tests pass and the real tumors can finally be read.
+- **What could go wrong:** The dish may have changed those cells too much to use, in which case lung waits for fresh, undish-grown samples that nobody has made public yet.
+
+| date | update |
+|---|---|
+| 2026-10-12 | Four lung sets tried: one read with no clear cancer signal; three stopped by their made-up tests before any tumor was opened, so none was wasted. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_04.md) |
+
+*The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#lung).*
 
 <!-- NOW_RUNNING:END -->
 

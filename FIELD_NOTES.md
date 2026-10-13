@@ -1,0 +1,57 @@
+# Field notes
+
+*Every update to every experiment on the Now running board, in plain words, oldest first. Notes are never edited or removed;
+a correction is a new note. Generated from CANON/now_running.json by CANON/now_running.py; do not edit by hand.*
+
+<a id="atlas-v21"></a>
+## Building a bigger map of healthy cells: IAM-Atlas v2.1
+
+*Getting ready.* Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
+
+### 2026-10-12 · Version 2 published with its own DOI, so anyone can download the map and check it.
+
+Record: [README.md](Biological_Physics/MethylPhys/atlas/README.md)
+
+### 2026-10-12 · The plan is locked before any new data is opened: which samples build the map and which are kept back to test it.
+
+Record: [DEV_ATLAS_V21_01.md](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md)
+
+### 2026-10-12 · First step running: measuring how much growing cells in a dish changes them.
+
+Why the dish matters: every public sample of lung support cells (the fibers and muscle that hold the lung together) was grown in a dish first. Growing in a dish slowly changes a cell's methylation, a little more with each division, because the cell has lost its neighbors, its blood supply and the signals of the body around it. If we put those samples straight into the atlas, we would be describing "lung cells after weeks in a dish", not lung cells in a person. So we first measure how much the dish changes cells, using cells a laboratory grew until they stopped dividing.
+
+Record: [DEV_ATLAS_V21_01.md](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md)
+
+### 2026-10-12 · Culture check, first result: growing cells in a dish changes them a lot. In the cleanest comparison, about 1 in 9 of the sites we read moves steadily as the cells keep dividing. Those sites will be set aside before any dish-grown cell is compared with the atlas. Two more laboratories' data are next.
+
+A laboratory grew seven kinds of human cells in dishes until they stopped dividing, and measured them along the way. We looked for the switches that move steadily the longer cells grow. By the rule we wrote down first, 44.8 % of the sites we read move with time in the dish. Part of that turned out to be a lab artifact, not the dish: in five of the seven lines the early samples were measured on one date and the late ones on another, so "later in the dish" and "later on the machine" were mixed together. We found that on review and wrote it into the record. In the two cleanest lines, measured on a single date, about 1 in 9 sites (11.1 %) drifts in both, mostly in the same direction. That is the real dish effect as best we can measure it today. Before any dish-grown cell, such as lung support cells, is compared with the atlas, those sites are set aside. We keep the larger set as the official mask, as the rule said: a mask can only remove sites, so an oversized one keeps the test honest and only costs coverage. Next, two more laboratories' dish-growth series, to see whether the drift looks the same elsewhere.
+
+Record: [DEV_ATLAS_V21_01.md](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md)
+
+<a id="iama-commission"></a>
+## Does our second instrument read the same DNA the same way everywhere?
+
+*On hold.* Before anyone trusts an instrument, it has to give the same answer on the same sample. We read identical reference DNA prepared with five different kits in two laboratories.
+
+### 2026-10-12 · Four of five checks passed: repeats agree, kits agree, and a planted change was seen every time. The lab-to-lab check failed on three files, so by our own rule nothing is declared until the cause is found.
+
+The goal: before anyone trusts an instrument, it must give the same answer on the same DNA. A public project sent identical reference DNA from 7 people to be prepared with 5 different kits, in 2 laboratories, each twice. We downloaded 78 of those sequencing files, lined each up against the human genome on a rented computer, and read them with IAM-A. The rented machines kept being taken back by Amazon when demand rose, which is why it took so long; every finished file was saved, so nothing was lost. Results: the same sample prepared twice agrees, mostly within about 1 %. Different kits agree. A planted 1 % change was seen every time. The intake check refused two kits whose chemistry did not convert the DNA well enough, which is the instrument protecting itself, as designed. One check failed: the same kit in two laboratories. Four of seven samples agreed; three files from the second laboratory read about 15 % low, and those three are the most heavily sequenced files in the set. Our own rule says that when any check fails, we stop and find the cause before declaring anything. So the instrument is on hold, not failed.
+
+Record: [DEV_IAMA_COMMISSION_01_OUTCOME.md](Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01_OUTCOME.md)
+
+### 2026-10-12 · The cause test is written and listed in the run ledger. It starts when rented-computer prices and availability allow.
+
+The test: read those three large files, and two normal ones, from the start, the middle and the end, and compare. If the low readings come only from the start of the big files, it is how we sample a file, which we can fix and then redo the test under the fixed rule. If they read low everywhere, the difference is real and the lab-to-lab check stays failed for that kit, and the record says so. The rules for deciding were written down and tested on made-up data before any of the files is read.
+
+Record: [DEV_IAMA_CAUSE_01.md](Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md)
+
+<a id="lung"></a>
+## Lung cancer: waiting for a better map of the lung
+
+*On hold.* We compare each patient's tumor with the same patient's normal lung. Before any tumor is opened, made-up tests on normal lungs must show that ordinary differences between people's lungs cannot fake a cancer signal.
+
+### 2026-10-12 · Four lung sets tried: one read with no clear cancer signal; three stopped by their made-up tests before any tumor was opened, so none was wasted.
+
+A normal lung is a mix of many cell types: air-sac cells, airway cells, blood-vessel lining, immune cells, and the support tissue that holds it together. How much of each varies a lot from person to person. Our reading only counts if a change in that mix cannot fake a cancer signal, so before any tumor is opened we build made-up lungs from the healthy ones and check. The first lung set was read and showed no clear signal. The next three failed those made-up tests: in the last one, a lung with more blood-vessel lining than usual could fake a result, even at the sites where all known lung cells look alike, because healthy lungs match each other so closely that the bar is very tight. The tests refused, which is their job, and no tumor was read. The fix is a better picture of the lung's support cells in the atlas, which is why the dish check comes first.
+
+Record: [DEV_TISSUE_LUNG_04.md](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_04.md)
