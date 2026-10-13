@@ -1292,3 +1292,6 @@ The audit found the page named nobody, which was the single biggest gap for a do
 
 ### 2026-10-13 · Two box runs of the same script at once; both guards added
 A stalled cause attempt (efbe0efa) whose job had been reported failed kept its child alive; its retry loop finished and it started the run four minutes after the live job (839cb502), so two runs wrote the same parts into /mnt/scratch/run2/out10_cause01 and the same S3 prefix. The orphan process group was stopped and only the live run remains. Both parts already uploaded were read whole and are intact (SRR13051256p0 4,477,315 lines; p40 4,110,045 lines). Guards: session_epiqc.sh refuses to start while another run of itself is alive on the machine, and decide_cause_01.py reads every .pat.gz whole and refuses a truncated one before scoring. LESSONS C12.
+
+### 2026-10-13 · The daily-rebuild edit broke the website workflow (fixed in 10 minutes)
+Adding the cron left website.yml with workflow_dispatch twice. PyYAML accepts a duplicate key silently, which is why my check passed; GitHub rejects the file, so three pushes (f2e5e7c, 8fc6e59, 37c73d9) built nothing and the live page stayed at 2660a96. The duplicate is removed and the workflow checker now refuses a repeated trigger key.

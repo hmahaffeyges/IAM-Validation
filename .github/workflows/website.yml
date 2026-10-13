@@ -12,7 +12,6 @@ on:
     paths: ["docs/book/**", "website/**", "CANON/**", ".github/workflows/website.yml"]
   pull_request:
     paths: ["docs/book/**", "website/**", "CANON/**", ".github/workflows/website.yml"]
-  workflow_dispatch:
 
 permissions:
   contents: read
