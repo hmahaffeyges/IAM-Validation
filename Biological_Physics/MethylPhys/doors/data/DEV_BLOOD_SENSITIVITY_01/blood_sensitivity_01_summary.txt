@@ -1,24 +1,24 @@
-DEV-BLOOD-SENSITIVITY-01: smallest neutrophil fidelity drop the chain's whole-blood Met-A can see (3000 neutrophil sites)
+DEV-BLOOD-SENSITIVITY-01 v2 (people differ): smallest neutrophil fidelity drop the chain's whole-blood Met-A can see (3000 neutrophil sites)
 
-neutrophils 0.40 | planted drop    1 % | median reading 1.0269 (healthy median 1.0013, 95th 1.0061) | above the healthy 95th: 100.0 % DETECTED
-neutrophils 0.40 | planted drop    2 % | median reading 1.0528 (healthy median 1.0013, 95th 1.0061) | above the healthy 95th: 100.0 % DETECTED
-neutrophils 0.40 | planted drop    5 % | median reading 1.1271 (healthy median 1.0013, 95th 1.0061) | above the healthy 95th: 100.0 % DETECTED
-neutrophils 0.40 | planted drop   10 % | median reading 1.2444 (healthy median 1.0013, 95th 1.0061) | above the healthy 95th: 100.0 % DETECTED
-neutrophils 0.40 | planted drop   20 % | median reading 1.4597 (healthy median 1.0013, 95th 1.0061) | above the healthy 95th: 100.0 % DETECTED
+neutrophils 0.40 | planted drop    1 % | median reading 1.0277 (healthy median 1.0013, 95th 1.0055) | above the healthy 95th: 100.0 % DETECTED
+neutrophils 0.40 | planted drop    2 % | median reading 1.0529 (healthy median 1.0013, 95th 1.0055) | above the healthy 95th: 100.0 % DETECTED
+neutrophils 0.40 | planted drop    5 % | median reading 1.1274 (healthy median 1.0013, 95th 1.0055) | above the healthy 95th: 100.0 % DETECTED
+neutrophils 0.40 | planted drop   10 % | median reading 1.2443 (healthy median 1.0013, 95th 1.0055) | above the healthy 95th: 100.0 % DETECTED
+neutrophils 0.40 | planted drop   20 % | median reading 1.4598 (healthy median 1.0013, 95th 1.0055) | above the healthy 95th: 100.0 % DETECTED
   -> smallest detected at neutrophils 0.40: 1 %
 
-neutrophils 0.55 | planted drop    1 % | median reading 1.0372 (healthy median 0.9993, 95th 1.0043) | above the healthy 95th: 100.0 % DETECTED
-neutrophils 0.55 | planted drop    2 % | median reading 1.0745 (healthy median 0.9993, 95th 1.0043) | above the healthy 95th: 100.0 % DETECTED
-neutrophils 0.55 | planted drop    5 % | median reading 1.1802 (healthy median 0.9993, 95th 1.0043) | above the healthy 95th: 100.0 % DETECTED
-neutrophils 0.55 | planted drop   10 % | median reading 1.3447 (healthy median 0.9993, 95th 1.0043) | above the healthy 95th: 100.0 % DETECTED
-neutrophils 0.55 | planted drop   20 % | median reading 1.6381 (healthy median 0.9993, 95th 1.0043) | above the healthy 95th: 100.0 % DETECTED
+neutrophils 0.55 | planted drop    1 % | median reading 1.0383 (healthy median 1.0004, 95th 1.0050) | above the healthy 95th: 100.0 % DETECTED
+neutrophils 0.55 | planted drop    2 % | median reading 1.0749 (healthy median 1.0004, 95th 1.0050) | above the healthy 95th: 100.0 % DETECTED
+neutrophils 0.55 | planted drop    5 % | median reading 1.1803 (healthy median 1.0004, 95th 1.0050) | above the healthy 95th: 100.0 % DETECTED
+neutrophils 0.55 | planted drop   10 % | median reading 1.3452 (healthy median 1.0004, 95th 1.0050) | above the healthy 95th: 100.0 % DETECTED
+neutrophils 0.55 | planted drop   20 % | median reading 1.6384 (healthy median 1.0004, 95th 1.0050) | above the healthy 95th: 100.0 % DETECTED
   -> smallest detected at neutrophils 0.55: 1 %
 
-neutrophils 0.70 | planted drop    1 % | median reading 1.0478 (healthy median 0.9963, 95th 1.0035) | above the healthy 95th: 100.0 % DETECTED
-neutrophils 0.70 | planted drop    2 % | median reading 1.0970 (healthy median 0.9963, 95th 1.0035) | above the healthy 95th: 100.0 % DETECTED
-neutrophils 0.70 | planted drop    5 % | median reading 1.2388 (healthy median 0.9963, 95th 1.0035) | above the healthy 95th: 100.0 % DETECTED
-neutrophils 0.70 | planted drop   10 % | median reading 1.4533 (healthy median 0.9963, 95th 1.0035) | above the healthy 95th: 100.0 % DETECTED
-neutrophils 0.70 | planted drop   20 % | median reading 1.8269 (healthy median 0.9963, 95th 1.0035) | above the healthy 95th: 100.0 % DETECTED
+neutrophils 0.70 | planted drop    1 % | median reading 1.0479 (healthy median 0.9968, 95th 1.0028) | above the healthy 95th: 100.0 % DETECTED
+neutrophils 0.70 | planted drop    2 % | median reading 1.0974 (healthy median 0.9968, 95th 1.0028) | above the healthy 95th: 100.0 % DETECTED
+neutrophils 0.70 | planted drop    5 % | median reading 1.2386 (healthy median 0.9968, 95th 1.0028) | above the healthy 95th: 100.0 % DETECTED
+neutrophils 0.70 | planted drop   10 % | median reading 1.4531 (healthy median 0.9968, 95th 1.0028) | above the healthy 95th: 100.0 % DETECTED
+neutrophils 0.70 | planted drop   20 % | median reading 1.8282 (healthy median 0.9968, 95th 1.0028) | above the healthy 95th: 100.0 % DETECTED
   -> smallest detected at neutrophils 0.70: 1 %
 
 ARRAYS CAN CARRY IT: the smallest detectable drop at a realistic neutrophil share is 1 %, within the 2-7 % range the tissue cancers show
