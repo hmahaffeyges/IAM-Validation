@@ -1,0 +1,31 @@
+{
+ "as_of": "2026-10-12",
+ "aws_by_month": {
+  "2026-09": {
+   "machines": 9.46,
+   "machine disks and snapshots": 1.81,
+   "other": 0.58,
+   "S3 storage": 0.42,
+   "data transfer": 0.0
+  },
+  "2026-10": {
+   "machines": 903.11,
+   "machine disks and snapshots": 18.96,
+   "S3 storage": 18.62,
+   "other": 2.12,
+   "data transfer": 0.13
+  }
+ },
+ "s3": {
+  "bytes": 2950665706625,
+  "objects": 14850
+ },
+ "fixed": [
+  {
+   "item": "AI research and coding subscription",
+   "monthly_usd": 200,
+   "note": "a fixed monthly plan; some heavy months cost more",
+   "stated": "2026-10-12"
+  }
+ ]
+}

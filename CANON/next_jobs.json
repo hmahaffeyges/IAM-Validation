@@ -17,6 +17,19 @@
    "stands": "the test is written and its rules are fixed; waiting for a rented computer to be available at a fair price"
   },
   {
+   "job": "One-command replication with a report, per significant result",
+   "todo": "R3",
+   "impact": "replication",
+   "cost": "laptop",
+   "accessions": [],
+   "ready": "Met-A neutrophils rebuilt exactly in a clean copy 2026-10-10",
+   "plain": "Replicate it yourself: one command per significant result that downloads the public data, runs the chain, checks every number against our record and writes a report.",
+   "needs": "the laptop",
+   "estimate": "no cost",
+   "stands": "first, the commissioned Met-A result: it already rebuilds exactly in a clean copy, the command and report come next (about one or two sessions); then the cancer results, whose scorers move into the chain first (about a week of sessions)",
+   "record": "Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md"
+  },
+  {
    "job": "Neutrophil reference from a second laboratory: build GSE124565, test GSE88824, GSE118144, GSE122244",
    "todo": "M2, AT4",
    "impact": "commissioning",
@@ -244,6 +257,36 @@
    "ask": "Methylation after weeks of methionine restriction (cells or animals).",
    "why": "A second, independent way to test the physics: cutting the methyl supply should move the IAM-A reading by an amount the physics predicts in advance.",
    "record": "Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md"
+  }
+ ],
+ "later": [
+  {
+   "plain": "Blood diseases, cell by cell: Met-A on each blood cell type in people with blood disorders.",
+   "match": "Track A"
+  },
+  {
+   "plain": "The blood test itself: cell-free DNA in plasma, once the atlas and the composition step are commissioned.",
+   "match": "Track B"
+  },
+  {
+   "plain": "Tissue biopsies read against the atlas.",
+   "match": "Track C"
+  },
+  {
+   "plain": "Stool: can shed cells in a stool sample be scored?",
+   "match": "stool"
+  },
+  {
+   "plain": "Aging: the same people over years, and people of many ages.",
+   "match": "ageing"
+  },
+  {
+   "plain": "Dogs and other mammals: does the physics hold across species and body temperatures?",
+   "match": "Track E|Cross-species"
+  },
+  {
+   "plain": "Fish: wild against hatchery-raised salmon and steelhead, and a cold-blooded test of the physics' prediction about body temperature.",
+   "match": "Track F|fish log"
   }
  ]
 }

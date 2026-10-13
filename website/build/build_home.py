@@ -48,6 +48,11 @@ def page(art):
     results = "\n".join(f'''<article class="res"><span class="chip {"st-g" if e["status"] == "commissioned" else "st-b"}">{"Commissioned" if e["status"] == "commissioned" else "In development"}</span>
 <h3>{E(e.get("title") or e["id"])}</h3><p>{E(e.get("plain", ""))}</p><p class="more"><span>{E(e["date"])}</span> · <a href="{rec(e["record"])}">record</a></p></article>''' for e in regs)
     NJ = J("CANON/next_jobs.json"); AT = J("CANON/atlas_release.json")
+    CO = J("CANON/costs_snapshot.json"); mkey = max(CO["aws_by_month"]); A = CO["aws_by_month"][mkey]
+    s3c = f"${A.get('S3 storage', 0):,.2f}"
+    names = {"machines": "rented computers", "machine disks and snapshots": "their disks", "S3 storage": "data storage", "data transfer": "data transfer", "other": "other Amazon services"}
+    mlines = "; ".join([f"{names.get(k, k)} ${v:,.2f}" for k, v in A.items() if v >= 0.01] + [f"{f['item']} ${f['monthly_usd']:,.0f} a month ({f['note']})" for f in CO["fixed"]])
+    mtot = sum(A.values()) + sum(f["monthly_usd"] for f in CO["fixed"])
     road = "\n".join(f'<li><b>{E(j["plain"])}</b><br><span class="meta">Needs {E(j["needs"])} · {E(j["estimate"])} · {E(j["stands"])} · <a href="{rec(j["record"])}">record</a></span></li>' for j in NJ["jobs"])
     helpw = "\n".join(f'<li><b>{E(h["ask"])}</b> {E(h["why"])} <a href="{rec(h["record"])}">record</a></li>' for h in NJ["help_wanted"])
     tools = "\n".join(f"<tr><td>{E(a)}</td><td>{E(b)}</td><td>{E(c)}</td></tr>" for a, b, c in TOOLS)
@@ -60,6 +65,8 @@ def page(art):
 <main>
 <section id="now" class="wrap"><h2>Now running</h2><p class="sub">Live experiments, in plain words. Each links to its full story and its record.</p><div class="grid">{"".join(stories)}</div></section>
 <section class="wrap pic"><h2>The sky and the cell</h2>
+<figure><img src="{art("sky_atlas_plate.jpg")}" alt="Top: a microwave sky simulated from Planck's measured spectrum, and the atlas's healthy neutrophils with one CpG per pixel. Bottom: a 15-degree zoom of each."><figcaption>Top left, the microwave sky, simulated from the spectrum the Planck satellite measured. Top right, the atlas itself: healthy neutrophils, all 784,950 sites in genome order, one site per pixel on the same kind of sphere (HEALPix, the sky's grid) and at the same resolution. Genome neighbors sit next to each other, so the patches are stretches of DNA methylated alike. Below, a zoom of each; the few black specks are pixels with no site. This is a picture of the map: no reading uses the sphere yet, and its statistics are withheld until they pass their own test.</figcaption></figure>
+<figure><img src="{art("sky_atlas_cells.jpg")}" alt="Six healthy cell types from the atlas drawn on the sphere, and the atlas's uncertainty for neutrophils."><figcaption>Six of the atlas's 74 healthy cell types, each its own sky. The last map is how sure the atlas is about neutrophils at every site: dark is very sure. The brighter band at the bottom is the Y chromosome, where the atlas has the fewest donors.</figcaption></figure>
 <figure><img src="{art("sky_pair.jpg")}" alt="Left: the microwave sky, temperature minus its mean. Right: one healthy neutrophil's methylation read against five others, drawn on the same kind of map."><figcaption>Left, the microwave sky. Right, one healthy white blood cell read against five others, drawn the same way. Healthy cells look like noise: nothing stands out.</figcaption></figure>
 <figure><img src="{art("sky_damage.jpg")}" alt="Four maps: a healthy array; known damage spread everywhere; known damage in ten genome regions; a female array read against male arrays."><figcaption>Known damage, planted on purpose. Spread everywhere, it warms the whole map. Packed into ten regions, it shows as stripes, which the clustering reading catches when the average barely moves. A female sample read against male ones lights up the X chromosome at the bottom, as it should.</figcaption></figure></section>
 <section class="wrap"><h2>Our instruments are the telescopes. The atlas is the sky map.</h2>
@@ -73,10 +80,10 @@ def page(art):
 <p class="more">The same list on GitHub: <a href="{rec("ROADMAP.md")}">ROADMAP.md</a>.</p></section>
 <div class="art-band" style="background-image:url({art("bh_banner.jpg")})" role="img" aria-label="Art from the book"></div>
 <section class="wrap"><h2>Results so far</h2><p class="sub">Each in plain words, with its record. "Commissioned" means it passed every test written for it before its data was read.</p><div class="grid">{results}</div></section>
-<section class="wrap"><h2>What it costs</h2>
-<div class="grid costs"><div class="card"><p class="big">${E(f"{wsum:,.2f}")}</p><p>rented computing, last 7 billed days ({E(week[0][0])} to {E(week[-1][0])})</p></div>
-<div class="card"><p class="big">${E(cur[1])}</p><p>rented computing, {E(cur[0])} so far</p><p class="small">{E(cur[2])}</p></div>
-<div class="card"><p>Every run, its purpose, its estimate before it starts and its actual cost: <a href="{rec("Biological_Physics/MethylPhys/RUNS.md")}">the run ledger</a>. Figures come from Amazon's billing, by type.</p></div></div></section>
+<section class="wrap"><h2>What it costs</h2><p class="sub">Every dollar, from Amazon's own billing and our storage, as of {E(CO["as_of"])}. Everything is paid by us and by people who choose to help.</p>
+<div class="grid costs"><div class="card"><p class="big">${mtot:,.2f}</p><p>this month so far ({E(mkey)}), all costs</p><p class="small">{E(mlines)}</p></div>
+<div class="card"><p class="big">{CO["s3"]["bytes"] / 1e12:.2f} TB</p><p>of public data stored for our tests ({CO["s3"]["objects"]:,} files), {E(s3c)} this month</p><p class="small">Amazon moves files we have not touched to cheaper storage on its own.</p></div>
+<div class="card"><p class="big">${wsum:,.2f}</p><p>rented computing, last 7 billed days ({E(week[0][0])} to {E(week[-1][0])})</p><p class="small">Every run, its purpose, its estimate before it starts and its actual cost: <a href="{rec("Biological_Physics/MethylPhys/RUNS.md")}">the run ledger</a>.</p></div></div></section>
 <section class="wrap"><h2>Check it yourself</h2><div class="grid links">
 <a class="tile" href="../">The book, every number checked by a script</a><a class="tile" href="../book/">Run every check in your browser</a>
 <a class="tile" href="{rec("FIELD_NOTES.md")}">Field notes: every experiment's story</a><a class="tile" href="{rec("development/METHYLPHYS_DEVELOPMENT_LOG.md")}">The development log, every result good or bad</a>

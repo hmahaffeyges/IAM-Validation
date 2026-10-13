@@ -72,7 +72,7 @@ def render(T):
     J = json.load(open(os.path.join(ROOT, "CANON", "next_jobs.json"), encoding="utf-8"))
     miss = [a for j in J["jobs"] for a in j["accessions"] if a not in set(T.accession)]
     if miss: raise SystemExit(f"next_jobs.json names sets not in the inventory: {miss}")
-    IMP = {"commissioning": 0, "atlas": 1, "public result": 2, "physics": 3, "research": 4}; COST = {"laptop": 0, "box": 1}
+    IMP = {"replication": 0, "commissioning": 0, "atlas": 1, "public result": 2, "physics": 3, "research": 4}; COST = {"laptop": 0, "box": 1}
     jobs = sorted(J["jobs"], key=lambda j: (IMP[j["impact"]], COST[j["cost"]], j["job"]))
     n = lambda m: int(m.sum())
     L = ["# Master Inventory: every data set, where it is, what it has been used for, and what it is for", "",
