@@ -35,7 +35,6 @@ of those tests is affected. Neither set may later serve as a held-out test for a
 **Known confound, stated before the run.** The two sets were read in different chain runs. If bar 1 fails, a chain-version difference
 is a candidate cause and must be excluded before the laboratory is blamed.
 
-**Synthetic test:** none - this is a comparison of readings the chain has already produced, not a new reading. Its honesty rests on
 the bars above being fixed before the two groups are compared, which this commit timestamps.
 
 **In plain words.** We can already tell, in a tube of blood, that one GROUP of people differs from another - we just cannot do it for
@@ -80,6 +79,8 @@ chain's correction, which compares each person against healthy people measured o
 0.16 %, and that correction is doing the work of about 3.7 %. The lesson is a rule rather than a result: patients and healthy
 comparisons must be measured in the same run, or the comparison is not worth making.
 
-**Synthetic test:** none for this step, by the reasoning above; the bars were committed before the comparison (`ba45a71d`).
+**Synthetic test:** DEV_GROUP_01/sham_01.py, DEV_GROUP_01/sham_01_summary.txt
+
+**Why there is no planted test here.** This step compares readings the chain has already produced; there is no new reading to plant a known answer into. Its honesty rests on the bars having been committed before the comparison (`ba45a71d`), and on the script that performs it being committed before it ran.
 
 **Not a milestone:** a design and a method check; nothing sealed, no detection claim.
