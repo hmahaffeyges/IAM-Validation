@@ -222,5 +222,37 @@
     "sub": "Chance alone puts about {exp} of {n} outside the healthy range; {k} were, and {up} of {n} tumors read above the patient's own healthy liver."
    }
   }
+ ],
+ "losses": [
+  {
+   "date": "2026-10-12",
+   "plain": "Our second instrument's commissioning is on hold. Reading identical reference DNA, four of its five checks passed; the fifth, agreement between two laboratories on one kit, did not. By our own stopping rule that holds the whole commissioning until we find out why. The test that is running tonight is that search.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01_OUTCOME.md"
+  },
+  {
+   "date": "2026-10-12",
+   "plain": "Lung cancer, four times. One set of patients read no clear cancer signal. Three more were stopped by our own made-up tests before a single tumor was opened, because ordinary differences between people's lungs could have faked a result. No tumor data was spent.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_04.md"
+  },
+  {
+   "date": "2026-10-12",
+   "plain": "A colorectal replication set was ruled unsuitable. Its patients' normal tissue varied too much for the test to decide anything, and we said so instead of running it.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_02.md"
+  },
+  {
+   "date": "2026-10-10",
+   "plain": "A drug experiment gave no result. Decitabine lowers methylation by a known amount, so it should have been a clean check of the link between our two instruments. At the dose that could decide it, too few molecules were readable.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_LINK_IAMA_METAA_02_OUTCOME.md"
+  },
+  {
+   "date": "2026-10-11",
+   "plain": "Two tests of how the copying enzyme chooses its targets: one not confirmed, one not met. Both were written down in advance and both are in the record.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_WRITER_02.md"
+  },
+  {
+   "date": "2026-10-10",
+   "plain": "A second physics lever was parked before we downloaded anything. Starving cells of methionine should raise the reading, but in the only public experiment the cells had nearly stopped dividing, so the calculation showed it could not decide the question.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md"
+  }
  ]
 }

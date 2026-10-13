@@ -56,6 +56,8 @@ def page(art):
         chip = '<span class="chip st-g">Commissioned</span>' if e["status"] == "commissioned" else '<span class="chip st-b">Passed its sealed test</span>'
         return f'''<article class="res win">{chip}<p class="stat">{f(w["stat"])}</p><h3>{f(w["head"])}</h3><p>{f(w["sub"])}</p><p class="more"><span>{E(e["date"])}</span> · <a href="{rec(e["record"])}">the record</a></p></article>'''
     results = "\n".join(card(e) for e in regs)
+    losses = "\n".join(f'<li><b>{E(x["date"])}</b> {E(x["plain"])} <a href="{rec(x["record"])}">the record</a></li>' for x in REG["losses"])
+    mouse = next(e for e in REG["entries"] if e["id"] == "DEV-SAM-LEVER-01"); mv = vals(mouse)
     going = "; ".join(E(s_["headline"]) for s_ in NRJ["stories"] if s_["status"] != "result")
     NJ = J("CANON/next_jobs.json"); AT = J("CANON/atlas_release.json")
     CO = J("CANON/costs_snapshot.json"); mkey = max(CO["aws_by_month"]); A = CO["aws_by_month"][mkey]
@@ -74,6 +76,14 @@ def page(art):
 <p class="cta"><a class="btn" href="#now">Follow the work</a><a class="btn ghost" href="../">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
 <main>
 <section id="now" class="wrap"><h2>Now running</h2><p class="sub">Live experiments, in plain words. Each links to its full story and its record.</p><div class="grid">{"".join(stories)}</div></section>
+<section class="wrap" id="why"><h2>Why a researcher should look</h2><p class="sub">Five things anyone can check in ten minutes. None of them asks you to trust us.</p>
+<ol class="why">
+<li><b>A prediction committed before the data existed, then met.</b> We wrote the window the reading had to fall in ({mv["low"]:.3f} to {mv["high"]:.3f}) into a dated file before any knockout mouse was read. The mice read {mv["ratio"]:.3f}. The commit is older than the measurement, and anyone can check that. <a href="{rec(mouse["record"])}">the record</a></li>
+<li><b>Our failures are listed below, not buried.</b> Four lung attempts, one instrument's commissioning on hold tonight, tests not met, a drug experiment with no result.</li>
+<li><b>One command on your own laptop</b> recomputes every number in the book from the data: <code>python3 docs/book/verify_book.py</code>. <a href="../book/">Or run it in your browser.</a></li>
+<li><b>Scored once, and the code refuses otherwise.</b> Every test has a committed sealed rule and a scorer whose fingerprint is checked before scoring. The push gate refuses a rule written after the data was read, a number with no script behind it, or a result missing from the record. <a href="{rec("CANON/repro_check.py")}">read the gate</a></li>
+<li><b>Built with an AI, and that is exactly why nothing rests on anyone's word.</b> An AI wrote most of this code and makes mistakes; ours are logged by date in <a href="{rec("Biological_Physics/MethylPhys/LESSONS.md")}">the lessons file</a>, each with the rule or check added so it cannot happen again.</li>
+</ol></section>
 <section class="wrap" id="wins"><h2>What we have accomplished</h2><p class="sub">Every one was a test written down before its data was read, and scored once. Each links to its record.</p><div class="grid">{results}</div>
 <p class="continues">Work continues: {going}. <a href="#road">The road ahead</a>.</p></section>
 <section class="wrap pic"><h2>The sky and the cell</h2>
@@ -96,6 +106,9 @@ def page(art):
 <ul class="road help">{helpw}</ul>
 <p class="more">The same list on GitHub: <a href="{rec("ROADMAP.md")}">ROADMAP.md</a>.</p></details></section>
 <div class="art-band" style="background-image:url({art("bh_banner.jpg")})" role="img" aria-label="Art from the book"></div>
+<section class="wrap" id="lost"><h2>What has failed</h2><p class="sub">Every one was written down in advance and reported on ourselves. This is why the results above mean something.</p>
+<ul class="road lost">{losses}</ul>
+<p class="more">Every result, good or bad, day by day: <a href="{rec("development/METHYLPHYS_DEVELOPMENT_LOG.md")}">the development log</a>.</p></section>
 <section class="wrap"><h2>What it costs</h2><p class="sub">Every dollar, from Amazon's own billing and our storage, as of {E(CO["as_of"])}. Everything is paid by us and by people who choose to help.</p>
 <details class="fold"><summary>See every cost: this month ${mtot:,.2f} so far</summary>
 <div class="grid costs"><div class="card"><p class="big">${mtot:,.2f}</p><p>this month so far ({E(mkey)}), all costs</p><p class="small">{E(mlines)}</p></div>
@@ -136,7 +149,7 @@ table.tools{width:100%;border-collapse:collapse;margin:14px 0}.tools th,.tools t
 .big{font-size:34px;font-weight:800;margin:0;font-variant-numeric:tabular-nums}.small{color:var(--muted);font-size:13px}
 .links .tile{display:block;background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:18px 20px;text-decoration:none;color:var(--fg);font-weight:600}
 .links .tile:hover,.card:hover{border-color:var(--link)}
-ol.road,ul.road{padding-left:22px}.road li{margin:0 0 14px}.road .meta{color:var(--muted);font-size:14px}h3.help{margin:30px 0 4px;font-size:22px}
+ol.road,ul.road,ol.why{padding-left:22px}ol.why li{margin:0 0 14px}.lost li{margin:0 0 14px}code{background:var(--panel);padding:2px 6px;border-radius:4px;font-size:14px}.road li{margin:0 0 14px}.road .meta{color:var(--muted);font-size:14px}h3.help{margin:30px 0 4px;font-size:22px}
 details.fold{margin:6px 0 10px}details.fold>summary{cursor:pointer;display:inline-block;list-style:none;padding:12px 20px;border:1px solid var(--link);border-radius:8px;color:var(--link);font-weight:700;font-size:16px}
 details.fold>summary::-webkit-details-marker{display:none}details.fold>summary::before{content:"\25B8  Click to open: "}details.fold[open]>summary::before{content:"\25BE  Close: "}details.fold[open]>summary{margin-bottom:20px}
 .win .stat{font-size:38px;font-weight:800;margin:10px 0 0;line-height:1.05;font-variant-numeric:tabular-nums;color:var(--fg)}.win h3{font-size:20px}

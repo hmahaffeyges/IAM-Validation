@@ -1259,3 +1259,6 @@ The results section became "What we have accomplished", ranked and led by a head
 
 ### 2026-10-12 · Front page headlines: against chance, not a bare count (author)
 "23 of 53" read as a detection rate and looked like a loss; the sealed rule asked whether cancer leaves the healthy range more often than chance. The three tissue cards now lead with how many times chance it is (computed as k / 0.05n from each scored record: breast 9x, colon 6x, liver 9x) and give the count, the chance expectation and the share above the patient own tissue in the text.
+
+### 2026-10-12 · Front page: why a researcher should look, and what has failed (author)
+Two new open sections, both generated: the five checkable things (the committed-before-the-data mouse window with its numbers from the scored record, the failures, the one-command recheck, the scored-once gate, and the AI caveat with the lessons file), and "What has failed" from a new losses list in CANON/results_register.json (IAM-A commissioning held, four lung attempts, a colorectal set ruled unsuitable, decitabine no result, two writer tests, methionine parked), each with its record checked to exist.
