@@ -1,0 +1,4 @@
+Columbia lines used: ['HC1', 'HC2', 'HC3']; CpGs measured 826716; Columbia drift 282723 (34.20 %)
+overlap with step-1 set: 184647 (65.3 % of Columbia drift)
+batch-free core CpGs measured in Columbia: 91549; Columbia drift with the same sign: 54.7 % (chance level, share of all measured CpGs that drift: 34.2 %)
+Aachen (descriptive): core CpGs on 450K 39312; all 3 donors move in the core's direction at 38.1 % (all-3-agree in one given direction at all CpGs: 15.3 %)

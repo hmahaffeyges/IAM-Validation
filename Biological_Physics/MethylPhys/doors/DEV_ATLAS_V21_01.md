@@ -52,6 +52,14 @@ both with the same sign. The step-1 set is used as the mask, as fixed: a mask ca
 check valid and costs coverage. Step 2 reports every result with both masks (the step-1 set; the batch-free set, descriptive).
 Step 1 also names GSE179847 and GSE82234; they are read before step 2, and the drift set they give is reported beside this one.
 
-**Next:** the culture check (step 1 on GSE179847 and GSE82234, then step 2) and the conditional checks (laptop); ledger entry; then the build run.
+**Culture check, step 1b, run once 2026-10-12** (`data/DEV_ATLAS_V21_01/culture_drift_02.py`, unchanged since its commit; output
+`culture_drift_02_output.txt`). Columbia, GSE179847, 92 control arrays, three fibroblast lines: 282,723 of 826,716 CpGs (34.20 %) drift with
+population doublings; 65.3 % of them are in the step-1 set. Of the batch-free core CpGs measured there, 54.7 % drift with the same sign in
+Columbia, against 34.2 % of all CpGs (1.6 times chance). Aachen, GSE82234, three HUVEC donors (descriptive): at 38.1 % of the core CpGs all
+three donors move in the core's direction, against 15.3 % at all CpGs (2.5 times). **Reading:** culture drift replicates in two more
+laboratories and two more cell types, well above chance and far from completely: part of it is shared by dividing cells in a dish, part is
+specific to a cell type or a laboratory. The step-1 mask stands as fixed; step 2 reports every result with it and with the batch-free core.
+
+**Next:** the culture check, step 2 and the conditional checks (laptop); ledger entry; then the build run.
 
 **Test data:** none (design)

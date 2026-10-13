@@ -28,6 +28,12 @@ A laboratory grew seven kinds of human cells in dishes until they stopped dividi
 
 Record: [DEV_ATLAS_V21_01.md](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md)
 
+### 2026-10-12 · Culture check, second and third laboratories: much of the dish effect shows up again, in different cells grown in different labs.
+
+We checked whether the sites that drift in a dish at the first laboratory drift the same way elsewhere. At Columbia, skin and breast support cells grown for months: about half of those sites drift the same way there, against about a third if it were chance. At Aachen, blood-vessel cells from three newborns grown from early to late passage: those sites move the same way in all three donors more than twice as often as sites in general. So the dish leaves a shared mark on dividing cells, and also a mark that differs by cell type and by laboratory. Our mask, the larger set we fixed before looking, stays as it is: it removes the shared part and more. Next we measure the dish effect directly, on cells that exist both fresh and dish-grown.
+
+Record: [DEV_ATLAS_V21_01.md](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md)
+
 <a id="iama-commission"></a>
 ## Does our second instrument read the same DNA the same way everywhere?
 

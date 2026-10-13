@@ -30,6 +30,12 @@
      "text": "Culture check, first result: growing cells in a dish changes them a lot. In the cleanest comparison, about 1 in 9 of the sites we read moves steadily as the cells keep dividing. Those sites will be set aside before any dish-grown cell is compared with the atlas. Two more laboratories' data are next.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
      "note": "A laboratory grew seven kinds of human cells in dishes until they stopped dividing, and measured them along the way. We looked for the switches that move steadily the longer cells grow. By the rule we wrote down first, 44.8 % of the sites we read move with time in the dish. Part of that turned out to be a lab artifact, not the dish: in five of the seven lines the early samples were measured on one date and the late ones on another, so \"later in the dish\" and \"later on the machine\" were mixed together. We found that on review and wrote it into the record. In the two cleanest lines, measured on a single date, about 1 in 9 sites (11.1 %) drifts in both, mostly in the same direction. That is the real dish effect as best we can measure it today. Before any dish-grown cell, such as lung support cells, is compared with the atlas, those sites are set aside. We keep the larger set as the official mask, as the rule said: a mask can only remove sites, so an oversized one keeps the test honest and only costs coverage. Next, two more laboratories' dish-growth series, to see whether the drift looks the same elsewhere."
+    },
+    {
+     "date": "2026-10-12",
+     "text": "Culture check, second and third laboratories: much of the dish effect shows up again, in different cells grown in different labs.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "note": "We checked whether the sites that drift in a dish at the first laboratory drift the same way elsewhere. At Columbia, skin and breast support cells grown for months: about half of those sites drift the same way there, against about a third if it were chance. At Aachen, blood-vessel cells from three newborns grown from early to late passage: those sites move the same way in all three donors more than twice as often as sites in general. So the dish leaves a shared mark on dividing cells, and also a mark that differs by cell type and by laboratory. Our mask, the larger set we fixed before looking, stays as it is: it removes the shared part and more. Next we measure the dish effect directly, on cells that exist both fresh and dish-grown."
     }
    ]
   },

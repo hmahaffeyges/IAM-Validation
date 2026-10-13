@@ -1250,3 +1250,6 @@ The cause test was held for spot availability and not rechecked for about four h
 
 ### 2026-10-12 · Front page art: the measured Planck sky
 website/art/fetch_planck.py downloads the Planck 2018 SMICA map (2,013,312,960 bytes, SHA-256 recorded), reduces it to NSIDE 256 and records provenance; make_atlas_sky.py now uses it with the Planck colormap (Planck_Parchment_RGB.txt, from the Planck paper-plot code) and draws two globes; the simulated sky is not used on the public page. The sky is smoothed 0.5 degree; the atlas is not.
+
+### 2026-10-12 · Atlas v2.1 culture check, step 1b: drift replicates above chance in two more labs
+Columbia fibroblasts: 34.2 % of CpGs drift; 54.7 % of the batch-free core drifts the same way there (chance 34.2 %). Aachen HUVEC: 38.1 % of the core moves the same way in all three donors (15.3 % at all CpGs). Shared in part, specific in part; the step-1 mask stands. Step 2 next.
