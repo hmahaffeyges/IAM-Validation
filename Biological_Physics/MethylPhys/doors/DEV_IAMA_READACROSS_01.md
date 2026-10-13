@@ -72,4 +72,44 @@ absent - a 15 % error became a 5 % error, where our tolerance is 3 %. So the fix
 stop reading the part of the file that is not trustworthy, with the decision made from the machine's own quality numbers rather than
 from our result. That is the next thing to design, and this idea is recorded as tried and failed.
 
+## What the independent diagnostics say, from the 15 committed quality files (2026-10-13)
+
+`DEV_IAMA_READACROSS_01/head_diagnostics_01.csv` holds every part's conversion rate with its binomial standard error, duplicate
+fraction, mapped reads and the number of reads the quality step scanned. Two findings, and the second changes the plan.
+
+**1. The head of a file really is different, and it is measurable without IAM-A.** Conversion at the head averages 0.99803
+(median SE 0.000006, from about 50 million CHH calls) against 0.99040 deeper in (median SE 0.00022, from 85,000 to 330,000 calls).
+The difference, 0.0076, is **34 standard errors of a deeper part** - real, and not an artifact of the quality step scanning fewer
+reads deeper in. So a position-resolved diagnostic measured independently of our reading CAN detect that the head of a run is
+anomalous.
+
+**2. But the head effect runs in OPPOSITE directions in the two groups, so no correction can fix it.** All five libraries show the
+conversion difference, controls included, so conversion does not distinguish the suspects. And in the reading itself:
+
+| library | role | eps at the head | eps deeper | head effect |
+|---|---|---|---|---|
+| SRR13051128 | suspect | 0.04561 | 0.04831, 0.04465 | reads LOW |
+| SRR13051256 | suspect | 0.04676 | 0.04821, 0.04493 | reads LOW |
+| SRR13051268 | suspect | 0.04800 | 0.04884, 0.04641 | reads LOW |
+| SRR13051136 | control | 0.05600 | 0.05058, 0.04837 | reads HIGH |
+| SRR13051263 | control | 0.05619 | 0.04884, 0.04607 | reads HIGH |
+
+The three suspects read low at the head and both controls read high. So "the head of a file is unreliable" is the right conclusion
+and "the head is biased by amount X" is the wrong one: the sign depends on the library. That is why the sealed decision returned
+MIXED rather than a clean file-position verdict, and it rules out any approach that estimates the head's bias and corrects for it.
+**The head has to be excluded, not corrected** - which is what the revised rule above already requires, now with a measured reason.
+
+**What this settles about the next rule (DEV-IAMA-TRIM-01).** How much to exclude must be decided by a position-resolved diagnostic
+that needs neither our reading nor an alignment, so it can be computed cheaply for every library and audited by anyone: the per-cycle
+base composition and the apparent C-to-T fraction of the RAW READS, in windows along the file. Alignment-based conversion would also
+work but costs a full alignment per window, and the cause run's BAMs went with the machine, so position-resolved conversion cannot be
+recomputed from what was kept - only the per-part values in this file survive.
+
+**In plain words.** We checked whether the sequencing machine's own quality numbers, which have nothing to do with our reading, can
+tell that the beginning of a data file is untrustworthy. They can: the conversion rate at the start differs from the rest by
+thirty-four times its own uncertainty. But the beginning does not push every library the same way - three read too low there and two
+read too high - so there is no correction to apply, only a part to leave out. The next rule therefore decides how much of the start to
+leave out using a measurement taken straight from the raw reads, before any alignment: cheap enough to do for every library, and
+simple enough for anyone to check.
+
 **Not a milestone:** a proposed sampling rule that failed its own planted test, with the next rule named but unwritten; nothing is sealed and no reading has changed.
