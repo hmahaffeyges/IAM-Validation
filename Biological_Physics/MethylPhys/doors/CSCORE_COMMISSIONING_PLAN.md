@@ -257,6 +257,10 @@ test-retest or intraclass wording; blood with same-individual or repeated-measur
 two-time-point, healthy or control, on EPIC v1 and 450K. Every accession already in `CANON/data_spent.csv` (164 of them) was
 excluded automatically. Nothing was downloaded.
 
+**Prior reading:** GSE250556 and GSE123914 are named below only as sets this plan CANNOT use. Both are in
+`CANON/data_spent.csv`: GSE250556 is the set the band's repeatability estimate was built on, and GSE123914 was read earlier. Neither
+is read again here, and no reading or seal in this plan rests on either.
+
 **The obvious set is already spent.** GSE250556 ("Measuring variability in Illumina MethylationEPIC microarrays") is exactly the
 right design, and it is the set the band's repeatability estimate was built on. GSE123914 (blood over a one-year period) is also
 spent. Neither can serve as the held-out test.
@@ -278,4 +282,27 @@ for the 450K band.
 **Note on what a "replicate" buys here.** A technical replicate (same DNA, two arrays) tests the instrument alone. Two draws from the
 same healthy person weeks apart is a STRICTER test, since it includes real biological variation, and passing it would be the stronger
 claim. Whichever is used, which kind it is gets stated with the result.
+
+### Checked from sample metadata, 2026-10-13 (nothing fetched): both front-runners are out
+
+- **GSE112611 is unusable at any priority: it has NO raw arrays.** 402 samples, zero IDAT files - submitter beta tables only. The
+  chain's Stage 1 calibrates from IDATs, so this set cannot be read by our instrument at all. (Its design was otherwise right:
+  74 non-IBD controls, with baseline and follow-up arrays.)
+- **GSE184202 has the right shape and the wrong donors.** 24 arrays, all with IDATs, EPIC v1, blood DNA, exactly 12 subjects with
+  2 arrays each - but the diagnosis field reads **Burnout for 22 of 24 and control for 2**. So it is a patient cohort with an
+  intervention between draws, and only one control donor has a pair. Not a healthy-donor replicate set.
+- **GSE291053** (32 arrays, IDATs, EPIC v1) is dialysis patients' mononuclear cells. Not healthy, and not the commissioned fraction.
+
+**Where that leaves the last open check.** No healthy-donor, EPIC v1, raw-array, same-person replicate set has been found yet. Three
+honest options, in the order they should be tried:
+1. **Widen the search terms rather than the standards** - plate-level designs often carry unlabelled repeat arrays (the same donor
+   appearing twice in a sample sheet), which no summary-level query will find. That means reading sample sheets of healthy EPIC v1
+   blood series directly, which is free but slower.
+2. **Commission the 450K band**, which makes GSE61151 (188 arrays, white blood cells, temporal stability - the ideal design) usable.
+   This is the option that buys the most, since it also opens the larger 450K archive to the C-score.
+3. **Accept a technical-replicate set with a declared specimen caveat** (e.g. GSE182919, cultured cells with treatments). Weakest,
+   and only worth doing if the first two fail, with the caveat stated in advance.
+
+Until one of these yields a set, the C-score's repeatability bar remains MET ONLY on data that helped build the band, and that is
+how it is reported.
 
