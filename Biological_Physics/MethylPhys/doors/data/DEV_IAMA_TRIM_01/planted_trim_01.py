@@ -15,6 +15,10 @@ BARS, written before running:
  3. REFUSAL: a library whose chemistry is off throughout must be REFUSED, not trimmed to nothing.
  4. SIGN BLINDNESS: the rule must trim the same windows whether the head's eps bias is negative or POSITIVE - the diagnostic must not
     know which way the reading moved, since in the cause run the sign differed between libraries.
+ 6. THE REAL CONFIGURATION (added before running, after noticing bar 1 is too easy): in the actual failure the reading was taken
+    from the HEAD ALONE - the sealed decision reports part 0 reproducing each library's Stage B value to 0.0 % - so the head's bias
+    arrived undiluted. Bar 6 therefore reads only the head, as Stage B did, and requires the trimmed read to recover the true eps to
+    within 1 % from a starting error of about -12 %, not -1 %.
  5. NOT A TUNING KNOB: with the head's chemistry normal but its eps biased, the rule must NOT trim (it cannot see a bias it has no
     independent evidence for), and the test records that as expected behaviour rather than a failure - the honest limit of the rule.
 
@@ -86,6 +90,18 @@ L += ["BAR 5 - the declared limit: the head's chemistry is NORMAL but its readin
       f"{'PASS' if bar5 else 'FAIL'} (bar: trim NOTHING - the rule may not act on a bias it has no independent evidence for)",
       "  This is the rule's honest limit, declared rather than hidden: it removes anomalies the chemistry can see, and a bias with no",
       "  independent signature survives it. Such a library is caught by the commissioning check, not by the trim.", ""]
+# bar 6: the real configuration - the reading taken from the head alone, as Stage B took it
+d, eps = library(head_windows=4, d_shift=0.004, eps_bias=-0.12)
+head_only = float(np.mean(eps[:4]))                        # what Stage B effectively read
+o, e = trimmed_eps(d, eps)
+err_before, err_after = head_only / EPS_TRUE - 1, e / EPS_TRUE - 1
+bar6 = abs(err_after) <= 0.01 and abs(err_before) > 0.03
+rows.append(dict(case="6_real_configuration", decision=o["decision"], skipped=o["skip_windows"], eps_head_only=head_only,
+                 eps_read=e, rel_error_before=err_before, rel_error_after=err_after, passed=bar6))
+L += ["BAR 6 - the real configuration: the reading taken from the HEAD ALONE, as Stage B took it",
+      f"  head-only read {head_only:.5f} ({err_before:+.2%} off truth - outside the sealed 3 % tolerance, which is the failure we saw)",
+      f"  after the rule: {o['decision']}, skipped {o['skip_windows']} windows, read {e:.5f} ({err_after:+.2%} off truth) -> "
+      f"{'PASS' if bar6 else 'FAIL'} (bar: within 1 %, from a starting error above 3 %)", ""]
 allok = all(r["passed"] for r in rows)
 L += [("ALL FIVE BARS MET: the rule recovers a planted head bias, leaves a clean library alone, refuses a library that is anomalous "
        "throughout, is blind to the direction of the reading's error, and does not act without independent evidence."

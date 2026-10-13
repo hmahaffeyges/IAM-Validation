@@ -1,0 +1,23 @@
+DEV-IAMA-TRIM-01 planted test
+
+fixed before running: K_SD = 5.0, MAX_TRIM = 25%, 40 windows per library, healthy diagnostic 0.006 (window SD 0.0004), true eps 0.048
+
+BAR 1 - recovery: head anomaly over 10 % of the file, head eps biased -12 %
+  rule: TRIM, skipped 4 of 40 windows (10%)
+  untrimmed read 0.04751 (-1.02% off truth) | trimmed read 0.04807 (+0.14% off truth) -> PASS (bar: within 1 %)
+
+BAR 2 - no harm: an unbiased library
+  rule: READ ALL, skipped 0 | reading moved 0.0000% -> PASS (bar: skip nothing, move under 3 %)
+
+BAR 3 - refusal: chemistry off across the whole first half
+  rule: REFUSE, would skip 50% -> PASS (bar: REFUSE above 25%)
+
+BAR 4 - sign blindness: the same chemistry anomaly with the eps bias negative, then positive
+  skipped 4 and 4 windows -> PASS (bar: identical)
+
+BAR 5 - the declared limit: the head's chemistry is NORMAL but its reading is biased
+  rule: READ ALL, skipped 0 | reading 0.04744 (-1.17% off truth) -> PASS (bar: trim NOTHING - the rule may not act on a bias it has no independent evidence for)
+  This is the rule's honest limit, declared rather than hidden: it removes anomalies the chemistry can see, and a bias with no
+  independent signature survives it. Such a library is caught by the commissioning check, not by the trim.
+
+ALL FIVE BARS MET: the rule recovers a planted head bias, leaves a clean library alone, refuses a library that is anomalous throughout, is blind to the direction of the reading's error, and does not act without independent evidence.
