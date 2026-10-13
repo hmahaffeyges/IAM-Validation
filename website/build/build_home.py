@@ -48,6 +48,7 @@ def page(art):
         try: v = dict(RT.compute(e))
         except Exception: v = {}
         if "n" in v: v["exp"] = round(0.05 * v["n"])
+        if "k" in v and v.get("exp"): v["xchance"] = round(v["k"] / (0.05 * v["n"]))
         return v
     regs = sorted([e for e in REG["entries"] if e.get("status") != "withdrawn"], key=lambda e: e["win"]["rank"])
     def card(e):

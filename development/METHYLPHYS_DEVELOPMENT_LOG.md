@@ -1256,3 +1256,6 @@ Columbia fibroblasts: 34.2 % of CpGs drift; 54.7 % of the batch-free core drifts
 
 ### 2026-10-12 · Front page: accomplishments first, collapsible sections (author)
 The results section became "What we have accomplished", ranked and led by a headline number computed from each scored record (register field "win"); "In development" replaced by "Passed its sealed test" / "Commissioned"; work-in-progress reduced to one small line. Now running corrected: atlas v2.1 and the IAM-A cause test running, neurons getting ready, lung on hold. Neuron story added. Only the two globes and the live experiments are open; more sky maps, the method and tool table, the road ahead and the cost detail sit behind large click-to-open buttons.
+
+### 2026-10-12 · Front page headlines: against chance, not a bare count (author)
+"23 of 53" read as a detection rate and looked like a loss; the sealed rule asked whether cancer leaves the healthy range more often than chance. The three tissue cards now lead with how many times chance it is (computed as k / 0.05n from each scored record: breast 9x, colon 6x, liver 9x) and give the count, the chance expectation and the share above the patient own tissue in the text.
