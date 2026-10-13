@@ -32,14 +32,14 @@ for _, r in wb.iterrows():
     b = pd.read_parquet(p[0]).iloc[:, 0].astype("float64"); b.index = b.index.astype(str)
     a = C.stage_a_composition(b)
     if not a.get("fractions"): rows.append(dict(gsm=r.gsm, A=np.nan, reason=a.get("reason", "composition refused"))); continue
-    m = C.stage_m_blood(b, a)
-    A = m.get("A") if isinstance(m, dict) else (m[0] if isinstance(m, tuple) else None)
-    if isinstance(m, dict) and A is None:
-        for k in ("A_untared", "met_a", "value", "A_abs"):
-            if m.get(k) is not None: A = m[k]; break
+    m, _resid = C.stage_m_blood(b, a)                        # the chain returns (record, residual map)
+    A = m.get("A")
     rows.append(dict(gsm=r.gsm, A=(float(A) if A is not None else np.nan),
-                     neutrophil_fraction=a["fractions"].get("Neu", a["fractions"].get("neutrophils", np.nan)),
-                     reason=(None if A is not None else str(m.get("reason", "no A"))[:80])))
+                     neutrophil_fraction=m.get("fraction"), n_sites=m.get("n_sites"),
+                     shift_per_1pct_loss=m.get("shift_per_1pct_loss"),           # the CHAIN's own leverage, per sample
+                     methylated_sites_mean_beta=m.get("methylated_sites_mean_beta"),
+                     past_entropy_ceiling=m.get("past_entropy_ceiling"),
+                     reason=(None if A is not None else str(m.get("reason", "no A"))[:90])))
 T = pd.DataFrame(rows); T.to_csv(os.path.join(OUT, "blood_spread_01_output.csv"), index=False)
 ok = T.A.dropna()
 L = ["DEV-BLOOD-SENSITIVITY-01 part 2: the spread of the chain's whole-blood reading between real healthy people", "",
@@ -52,10 +52,18 @@ if len(ok) >= 5:
     L += ["", f"median {med:.4f} | SD {sd:.4f} | relative SD {cv * 100:.2f} % | range {rng[0]:.4f} to {rng[1]:.4f} "
               f"| 5th-95th {p5:.4f} to {p95:.4f}",
           f"the 95th percentile sits {(p95 / med - 1) * 100:+.2f} % above the median", ""]
-    for share, lev in ((0.40, 0.0264), (0.55, 0.0379), (0.70, 0.0513)):
-        need = (p95 / med - 1) / lev
-        L.append(f"  at a neutrophil share of {share:.2f} (leverage {lev * 100:.2f} % per 1 % drop): a drop of about "
-                 f"{need:.2f} % clears the healthy 95th percentile")
+    # the chain reports its own leverage per sample (shift_per_1pct_loss), so the limit uses the measured value, not the simulated one
+    lev = T.shift_per_1pct_loss.dropna()
+    if len(lev):
+        lv = float(lev.median())
+        L.append(f"the chain's own leverage, median over these arrays: {lv:.5f} in A per 1 % pattern loss "
+                 f"({lv / med * 100:.2f} % of the median reading)")
+        L.append(f"  so a loss of about {(p95 - med) / lv:.2f} % clears the healthy 95th percentile, and about "
+                 f"{(ok.max() - med) / lv:.2f} % clears the highest healthy array read here")
+        L.append(f"  (neutrophil share in these arrays: median {T.neutrophil_fraction.median():.3f}, "
+                 f"range {T.neutrophil_fraction.min():.3f} to {T.neutrophil_fraction.max():.3f})")
+    pc = T.past_entropy_ceiling.dropna()
+    if len(pc): L.append(f"entropy-ceiling flag recorded on {len(pc)} arrays | past the ceiling: {int(pc.astype(str).str.lower().eq('true').sum())}")
     L += ["", "This is the WITHIN-laboratory spread of untared readings in one healthy set; a tared reading faces this, not the",
           "between-laboratory spread. It is a descriptive development measurement on arrays already spent as the C-score band's",
           "held-out test, so it sets no bar and disqualifies these arrays as a held-out test for a blood reading later."]
