@@ -1208,3 +1208,6 @@ fixed before any data is read; culture check step 1 with planted test; the iam-d
 plain-language explanations for every milestone.
 **Lessons:** T15, T16, C5, C6 (three times), C7.
 **Running:** culture-check calibration (laptop). Nothing running on AWS; the box is stopped and the on-demand machine terminated.
+
+### 2026-10-12 · DEV-IAMA-CAUSE-01 designed (nothing read)
+Cause test for the IAM-A across-labs failure: the three low EMSeq LAB02 runs and two normal ones read from three parts of each run; the outcomes and what each would mean written before reading.
