@@ -1,4 +1,4 @@
-<p align="center"><a href="https://hmahaffeyges.github.io/IAM-Validation/"><img src="website/art/out/web_banner.jpg" alt="IAM's Law and Order" width="100%"></a></p>
+<p align="center"><a href="https://hmahaffeyges.github.io/IAM-Validation/"><img src="website/art/out/web_banner.jpg" alt="IAM: research built in public" width="100%"></a></p>
 
 # IAM's Law and Order
 
@@ -7,11 +7,11 @@
 **One law of physics from the qubit to the genome to the cosmic horizon.**
 
 <p align="center">
-  <a href="https://hmahaffeyges.github.io/IAM-Validation/"><img src="https://img.shields.io/badge/Read_the_book-online-2b5cad?style=for-the-badge" alt="Read the book online"></a>
+  <a href="https://hmahaffeyges.github.io/IAM-Validation/read/"><img src="https://img.shields.io/badge/Read_the_book-online-2b5cad?style=for-the-badge" alt="Read the book online"></a>
   <a href="https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs_Law_and_Order.pdf"><img src="https://img.shields.io/badge/Download-the_PDF-2b5cad?style=for-the-badge" alt="Download the PDF"></a>
   <a href="https://hmahaffeyges.github.io/IAM-Validation/epub/IAMs_Law_and_Order.epub"><img src="https://img.shields.io/badge/Apple_Books-EPUB-2b5cad?style=for-the-badge" alt="Download for Apple Books (EPUB)"></a>
   <a href="https://github.com/hmahaffeyges/IAM-Validation/releases/download/v1.0.0/IAMs_Law_and_Order_LaTeX_source_v1.0.0.zip"><img src="https://img.shields.io/badge/LaTeX_source-Overleaf-2b5cad?style=for-the-badge" alt="LaTeX source (Overleaf)"></a>
-  <a href="https://hmahaffeyges.github.io/IAM-Validation/"><img src="https://img.shields.io/badge/Run_every_check-in_your_browser-2e7d32?style=for-the-badge" alt="Run every check in your browser"></a>
+  <a href="https://hmahaffeyges.github.io/IAM-Validation/read/"><img src="https://img.shields.io/badge/Run_every_check-in_your_browser-2e7d32?style=for-the-badge" alt="Run every check in your browser"></a>
 </p>
 
 Heath W. Mahaffey, IAMPerformance (independent research).

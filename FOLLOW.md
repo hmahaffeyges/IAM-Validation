@@ -84,7 +84,7 @@ To help: **[Help fund early cancer detection research, built in public](https://
 | Every result, good or bad, day by day | [the development log](development/METHYLPHYS_DEVELOPMENT_LOG.md) |
 | Every rented-computer run and what it cost, upcoming runs listed with their estimate before they start | [the run ledger](Biological_Physics/MethylPhys/RUNS.md) |
 | Every test's sealed rule and outcome | [the test records](Biological_Physics/MethylPhys/doors) |
-| The book, every number checked by a script | [read online](https://hmahaffeyges.github.io/IAM-Validation/) · [PDF](https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs_Law_and_Order.pdf) · DOI [10.5281/zenodo.23151068](https://doi.org/10.5281/zenodo.23151068) |
+| The book, every number checked by a script | [read online](https://hmahaffeyges.github.io/IAM-Validation/read/) · [PDF](https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs_Law_and_Order.pdf) · DOI [10.5281/zenodo.23151068](https://doi.org/10.5281/zenodo.23151068) |
 | Say hi | [Supporters thread](https://github.com/hmahaffeyges/IAM-Validation/discussions/30) |
 
 ## Every result, by date, in plain words
@@ -148,6 +148,6 @@ Commissioned means a reading is allowed to report results, not just development 
 
 ## Replicate it yourself
 
-Check every number in the book with `python3 docs/book/verify_book.py`, or [in your browser](https://hmahaffeyges.github.io/IAM-Validation/).
+Check every number in the book with `python3 docs/book/verify_book.py`, or [in your browser](https://hmahaffeyges.github.io/IAM-Validation/read/).
 Each test record names its sealed rule, its script, the public data it reads and the command to run. Found a wrong number?
 [Open an issue](https://github.com/hmahaffeyges/IAM-Validation/issues). Researchers: hmahaffeyges@gmail.com

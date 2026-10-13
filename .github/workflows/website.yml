@@ -51,7 +51,7 @@ jobs:
         run: bash website/build/build.sh
       - name: Check the PDFs and the EPUB are in the site
         run: |
-          for f in pdf/IAMs_Law_and_Order.pdf pdf/part-1.pdf pdf/part-2.pdf pdf/part-3.pdf pdf/part-4.pdf pdf/part-5.pdf pdf/part-6.pdf \
+          for f in index.html read/index.html pdf/IAMs_Law_and_Order.pdf pdf/part-1.pdf pdf/part-2.pdf pdf/part-3.pdf pdf/part-4.pdf pdf/part-5.pdf pdf/part-6.pdf \
                    pdf/part-7.pdf epub/IAMs_Law_and_Order.epub; do
             test -s "website/_site/$f" || { echo "::error::website/_site/$f is missing"; exit 1; }
           done

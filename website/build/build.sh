@@ -29,6 +29,13 @@ python3 "$REPO/website/build/themes.py"
 
 # 4. site: front page, Part pages, chapter chrome, check buttons, verify_book.py + data for the browser
 python3 "$REPO/website/build/build_site.py" "$B" "$SITE"
+# The project front page at the site root (author approved 2026-10-13). It reads only committed records; its own checks
+# (voice, hype words, every record link) must pass or the build fails.
+python3 "$REPO/CANON/costs_snapshot.py" > /dev/null 2>&1 || echo "costs_snapshot: not refreshed (no AWS credentials in this build); the page keeps the committed figures"
+python3 "$REPO/website/build/build_home.py" --check
+python3 "$REPO/website/build/build_home.py" "$SITE"
+test -s "$SITE/index.html" && test -s "$SITE/read/index.html" || { echo "Build failed: the front page or the book page is missing."; exit 1; }
+grep -q "Now running" "$SITE/index.html" || { echo "Build failed: the front page has no Now running section."; exit 1; }
 
 # 4b. EPUB edition (Apple Books and other e-readers) from the same LaTeXML XML: LaTeXML's EPUB 3 pages (math as MathML, figures as
 #     the build's PNGs), packaged with the four-skies cover by make_epub.py, then checked with epubcheck: any epubcheck error fails

@@ -73,14 +73,14 @@ def page(art):
 <div class="wrap"><p class="kicker">IAMPerformance · research built in public</p>
 <h1>Two telescopes.<br>One sky map.</h1>
 <p class="lead">We read the methylation of human DNA with the same mathematics cosmologists use to map the sky, to measure how faithfully a cell holds its information. The goal is early cancer detection from a blood or stool sample. Every test is written down before its data is read, and every result is posted here, win or lose.</p>
-<p class="cta"><a class="btn" href="#now">Follow the work</a><a class="btn ghost" href="../">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
+<p class="cta"><a class="btn" href="#now">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
 <main>
 <section id="now" class="wrap"><h2>Now running</h2><p class="sub">Live experiments, in plain words. Each links to its full story and its record.</p><div class="grid">{"".join(stories)}</div></section>
 <section class="wrap" id="why"><h2>Why a researcher should look</h2><p class="sub">Five things anyone can check in ten minutes. None of them asks you to trust us.</p>
 <ol class="why">
 <li><b>A prediction committed before the data existed, then met.</b> We wrote the window the reading had to fall in ({mv["low"]:.3f} to {mv["high"]:.3f}) into a dated file before any knockout mouse was read. The mice read {mv["ratio"]:.3f}. The commit is older than the measurement, and anyone can check that. <a href="{rec(mouse["record"])}">the record</a></li>
 <li><b>Our failures are listed below, not buried.</b> Four lung attempts, one instrument's commissioning on hold tonight, tests not met, a drug experiment with no result.</li>
-<li><b>One command on your own laptop</b> recomputes every number in the book from the data: <code>python3 docs/book/verify_book.py</code>. <a href="../book/">Or run it in your browser.</a></li>
+<li><b>One command on your own laptop</b> recomputes every number in the book from the data: <code>python3 docs/book/verify_book.py</code>. <a href="book/">Or run it in your browser.</a></li>
 <li><b>Scored once, and the code refuses otherwise.</b> Every test has a committed sealed rule and a scorer whose fingerprint is checked before scoring. The push gate refuses a rule written after the data was read, a number with no script behind it, or a result missing from the record. <a href="{rec("CANON/repro_check.py")}">read the gate</a></li>
 <li><b>Built with an AI, and that is exactly why nothing rests on anyone's word.</b> An AI wrote most of this code and makes mistakes; ours are logged by date in <a href="{rec("Biological_Physics/MethylPhys/LESSONS.md")}">the lessons file</a>, each with the rule or check added so it cannot happen again.</li>
 </ol></section>
@@ -98,7 +98,7 @@ def page(art):
 <details class="fold"><summary>How it works, and every cosmology tool we use</summary>
 <p>Met-A and IAM-A are the two instruments; each is commissioned once, on its own tests. The atlas, a map of what healthy human cells look like, is the sky map they read against. Like each release of the microwave-sky maps, every atlas version is refitted whole, gets its own DOI and is checked again by the same tests on data it never saw. This is not a metaphor: it is the same mathematics applied to a different signal. Each tool, with where it stands today:</p>
 <table class="tools"><thead><tr><th>The cosmology tool</th><th>What it does here</th><th>Where it stands</th></tr></thead><tbody>{tools}</tbody></table>
-<p class="more">Sky data: Planck 2018 SMICA map from the Planck Legacy Archive (ESA and the Planck Collaboration, Planck 2018 results IV, A&A 641, A4, 2020), colors from the Planck Collaboration's own color scale. Every tool, built or not yet built: the <a href="../book/">book's sky-tools chapter</a>. The atlas itself, free to download: <a href="https://doi.org/{E(AT["doi"])}">DOI {E(AT["doi"])}</a> ({AT["total_bytes"] / 1e9:.2f} GB in {AT["files"]} files, every file checked against its fingerprint).</p></details></section>
+<p class="more">Sky data: Planck 2018 SMICA map from the Planck Legacy Archive (ESA and the Planck Collaboration, Planck 2018 results IV, A&A 641, A4, 2020), colors from the Planck Collaboration's own color scale. Every tool, built or not yet built: the <a href="read/">book's sky-tools chapter</a>. The atlas itself, free to download: <a href="https://doi.org/{E(AT["doi"])}">DOI {E(AT["doi"])}</a> ({AT["total_bytes"] / 1e9:.2f} GB in {AT["files"]} files, every file checked against its fingerprint).</p></details></section>
 <section class="wrap" id="road"><h2>The road ahead</h2><p class="sub">Every job still in front of us, in order: what it needs and what it is expected to cost. This is why support matters.</p>
 <details class="fold"><summary>See the {len(NJ["jobs"])} jobs ahead, and where a researcher could help</summary>
 <ol class="road">{road}</ol>
@@ -115,7 +115,7 @@ def page(art):
 <div class="card"><p class="big">{CO["s3"]["bytes"] / 1e12:.2f} TB</p><p>of public data stored for our tests ({CO["s3"]["objects"]:,} files), {E(s3c)} this month</p><p class="small">Amazon moves files we have not touched to cheaper storage on its own.</p></div>
 <div class="card"><p class="big">${wsum:,.2f}</p><p>rented computing, last 7 billed days ({E(week[0][0])} to {E(week[-1][0])})</p><p class="small">Every run, its purpose, its estimate before it starts and its actual cost: <a href="{rec("Biological_Physics/MethylPhys/RUNS.md")}">the run ledger</a>.</p></div></div></details></section>
 <section class="wrap"><h2>Check it yourself</h2><div class="grid links">
-<a class="tile" href="../">The book, every number checked by a script</a><a class="tile" href="../book/">Run every check in your browser</a>
+<a class="tile" href="read/">The book, every number checked by a script</a><a class="tile" href="book/">Run every check in your browser</a>
 <a class="tile" href="{rec("FIELD_NOTES.md")}">Field notes: every experiment's story</a><a class="tile" href="{rec("development/METHYLPHYS_DEVELOPMENT_LOG.md")}">The development log, every result good or bad</a>
 <a class="tile" href="https://github.com/hmahaffeyges/IAM-Validation">The repository: every script and record</a><a class="tile" href="{E(FUND["url"])}">The fundraiser</a></div>
 <p class="more"><b>For researchers:</b> everything for the methylation work, the chain, every test's sealed rule and outcome, the atlas and the operating manual, is in the <a href="https://github.com/hmahaffeyges/IAM-Validation/tree/main/Biological_Physics">Biological Physics folder</a>; start with its <a href="{rec("Biological_Physics/README.md")}">README</a>. The status of every instrument, stage by stage: <a href="{rec("Biological_Physics/MethylPhys/STATUS.md")}">STATUS</a>.</p></section>
@@ -183,7 +183,10 @@ if __name__ == "__main__":
         doc, b = full(b64, f"<style>{themes}</style>"); P = problems(b)
         if P: raise SystemExit("build_home: " + "; ".join(P))
         open(sys.argv[2], "w", encoding="utf-8").write(doc); print("build_home: standalone written", sys.argv[2]); sys.exit(0)
-    site = sys.argv[1]; os.makedirs(os.path.join(site, "preview"), exist_ok=True)
-    doc, b = full(lambda n: "../art/" + n, '<link rel="stylesheet" href="../static/themes.css">'); P = problems(b)
+    site = sys.argv[1]
+    live = "--preview" not in sys.argv              # live since 2026-10-13 (author approved): the project front page IS the site root
+    out = site if live else os.path.join(site, "preview"); os.makedirs(out, exist_ok=True)
+    pre = "" if live else "../"
+    doc, b = full(lambda n: pre + "art/" + n, f'<link rel="stylesheet" href="{pre}static/themes.css">'); P = problems(b)
     if P: raise SystemExit("build_home: " + "; ".join(P))
-    open(os.path.join(site, "preview", "index.html"), "w", encoding="utf-8").write(doc); print("build_home: preview/index.html written")
+    open(os.path.join(out, "index.html"), "w", encoding="utf-8").write(doc); print("build_home: " + ("index.html" if live else "preview/index.html") + " written")

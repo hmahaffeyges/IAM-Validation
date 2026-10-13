@@ -77,17 +77,20 @@ def topbar(root, parts):
             f'<button type="button" data-theme="sepia" aria-pressed="false">Sepia</button></div></header>')
 
 
-def front_page(site, parts):
+def front_page(site, parts, sub="read"):
+    """The book's own front page. Since 2026-10-13 it lives at SITE/read/ (the site root is the project front page,
+    website/build/build_home.py); every link here is written relative to that folder."""
+    R = "../" if sub else ""
     tiles = "\n".join(
-        f'<a class="iam-tile" href="part-{p["n"]}/"><div class="art" style="background-image:url(art/{p["opening"]})" role="img" '
+        f'<a class="iam-tile" href="{R}part-{p["n"]}/"><div class="art" style="background-image:url({R}art/{p["opening"]})" role="img" '
         f'aria-label="Part {p["roman"]} art"></div><div class="t"><b>PART {p["roman"]}</b>{html.escape(p["title"])}</div></a>' for p in parts)
     cite = (f"{AUTHOR}. {TITLE}: {SUBTITLE}. {SUBSUB}. Version 1.0, October 2026.\n"
             f"DOI: https://doi.org/10.5281/zenodo.23151068\n{SITE_URL}")
     bib = ("@book{Mahaffey2026IAM,\n  author = {Mahaffey, Heath W.},\n  title  = {IAM's Law and Order: The Actualization of Reality},\n"
            "  year   = {2026},\n  doi    = {10.5281/zenodo.23151068},\n  version = {1.0},\n  url    = {" + SITE_URL + "}\n}")
     body = f"""<body class="front">
-{topbar('', parts)}
-<div class="iam-banner" style="background-image:url(art/web_banner.jpg)" role="img" aria-label="The four skies of the book joined">
+{topbar(R, parts)}
+<div class="iam-banner" style="background-image:url({R}art/web_banner.jpg)" role="img" aria-label="The four skies of the book joined">
 <div class="cap"><h1>{TITLE}</h1><p>{SUBTITLE} &mdash; {SUBSUB}</p></div></div>
 <main class="iam-main iam-front" id="content">
 <p><b>{AUTHOR}</b></p>
@@ -95,7 +98,7 @@ def front_page(site, parts):
 <div class="iam-runall-front"><p><button class="iam-run iam-btn" type="button" data-part="all">Run every check</button></p>
 <p class="iam-local">Or on your own machine: <code>python3 docs/book/verify_book.py</code></p></div>
 <p>IAM, the Informational Actualization Model</p>
-<p><a class="iam-btn" href="pdf/IAMs_Law_and_Order.pdf">Download the PDF</a><a class="iam-btn" href="epub/IAMs_Law_and_Order.epub" type="application/epub+zip">Download for Apple Books (EPUB)</a><a class="iam-btn" href="https://github.com/hmahaffeyges/IAM-Validation/releases/download/v1.0.0/IAMs_Law_and_Order_LaTeX_source_v1.0.0.zip">LaTeX source (Overleaf)</a><a class="iam-btn secondary" href="book/">Read online</a></p>
+<p><a class="iam-btn" href="{R}pdf/IAMs_Law_and_Order.pdf">Download the PDF</a><a class="iam-btn" href="{R}epub/IAMs_Law_and_Order.epub" type="application/epub+zip">Download for Apple Books (EPUB)</a><a class="iam-btn" href="https://github.com/hmahaffeyges/IAM-Validation/releases/download/v1.0.0/IAMs_Law_and_Order_LaTeX_source_v1.0.0.zip">LaTeX source (Overleaf)</a><a class="iam-btn secondary" href="book/">Read online</a></p>
 <p class=\"iam-claim\">Part VI includes a 74-cell reference atlas built as one Bayesian posterior across seven public sources on arrays and sequencing, with an interval at every locus for every cell, tested on held-out data (92.7&nbsp;% inside the stated 90&nbsp;%). To our knowledge, the first cell-type methylation reference built this way.</p>
 <h2>The seven Parts</h2>
 <div class="iam-tiles">{tiles}</div>
@@ -103,7 +106,9 @@ def front_page(site, parts):
 <div class="iam-cite">{html.escape(cite)}</div>
 <div class="iam-cite">{html.escape(bib)}</div>
 </main></body></html>"""
-    (site / "index.html").write_text(head_html("", "dark", TITLE) + body)
+    d = (site / sub) if sub else site
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "index.html").write_text(head_html(R, "dark", TITLE) + body)
 
 
 def part_page(site, p, parts, chapters):
