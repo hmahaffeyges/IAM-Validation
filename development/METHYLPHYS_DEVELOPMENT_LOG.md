@@ -1211,3 +1211,6 @@ plain-language explanations for every milestone.
 
 ### 2026-10-12 · DEV-IAMA-CAUSE-01 designed (nothing read)
 Cause test for the IAM-A across-labs failure: the three low EMSeq LAB02 runs and two normal ones read from three parts of each run; the outcomes and what each would mean written before reading.
+
+### 2026-10-12 · DEV-IAMA-CAUSE-01: script, decision rule and planted tests committed before any read
+A first wrapper had a race (the pipeline's own download step could reach a part before it was staged, the C7 pattern); caught on review before commit and replaced by one part per pipeline call, staged first. Orchestration tested with stand-ins: 15 of 15 staged before their call.
