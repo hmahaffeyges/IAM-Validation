@@ -142,6 +142,16 @@
     "GSE131989"
    ],
    "ready": "UCSF independence check"
+  },
+  {
+   "job": "EPIC v2 read check for Stage 1 (opens thymocytes for the atlas and EPIC v2 sets in S3)",
+   "todo": "AT14",
+   "impact": "atlas",
+   "cost": "laptop",
+   "accessions": [
+    "GSE269608"
+   ],
+   "ready": "metadata only"
   }
  ]
 }

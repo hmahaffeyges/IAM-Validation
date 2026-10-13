@@ -21,14 +21,15 @@ Candidates found by search are metadata only and their counts are provisional un
 | 3 | IAM-A commissioning: find the cause of the across-labs failure (three deep EMSeq LAB02 runs read low), development read of other file parts | A2 | commissioning | box | PRJNA646948 | scored; held under the stopping rule |
 | 4 | IAM-A on other-lab healthy neutrophils (RRBS) and same DNA on arrays and WGBS | A3 | commissioning | box | GSE59163, GSE128734 | verify files |
 | 5 | Colon epithelium from an independent laboratory into the atlas | AT8 | atlas | laptop | E-MTAB-3709, E-MTAB-4957 | confirm disease status, donor overlap |
-| 6 | Lung stroma culture check before atlas entry | AT7 | atlas | laptop | GSE146376, GSE107226, GSE197512 | calibrated (two sets) |
-| 7 | Atlas v2.1: rebuild with second-lab and new cell types; split GSE224807 donors half build, half test | AT4, AT13 | atlas | box | GSE224807, GSE103541, GSE184269, GSE252045 | v2.1 prep running |
-| 8 | Colon adenomas: does Met-A rise before cancer? | B4, G1 | public result | laptop | GSE288652 | in S3 |
-| 9 | Lung tissue test: four lung sets tested (1 scored, 3 not suitable); next lung test waits for atlas v2.1 and the culture check | N5, B12 | public result | laptop | TCGA-LUAD | waiting on atlas v2.1 |
-| 10 | Liver fingerprint replication on fresh data | B11 | public result | box | PRJNA762641 | metadata only |
-| 11 | Neurons on Met-A (both instruments on neurons) | A11 | physics | laptop | GSE306226, GSE234520 | verify files |
-| 12 | Neurons: sorted-only reference sealed on two unread laboratories | A8 | physics | box | GSE96612, GSE107729 | metadata only |
-| 13 | Sex balance: female donors across blood cell types | M3 | research | laptop | GSE131989 | UCSF independence check |
+| 6 | EPIC v2 read check for Stage 1 (opens thymocytes for the atlas and EPIC v2 sets in S3) | AT14 | atlas | laptop | GSE269608 | metadata only |
+| 7 | Lung stroma culture check before atlas entry | AT7 | atlas | laptop | GSE146376, GSE107226, GSE197512 | calibrated (two sets) |
+| 8 | Atlas v2.1: rebuild with second-lab and new cell types; split GSE224807 donors half build, half test | AT4, AT13 | atlas | box | GSE224807, GSE103541, GSE184269, GSE252045 | v2.1 prep running |
+| 9 | Colon adenomas: does Met-A rise before cancer? | B4, G1 | public result | laptop | GSE288652 | in S3 |
+| 10 | Lung tissue test: four lung sets tested (1 scored, 3 not suitable); next lung test waits for atlas v2.1 and the culture check | N5, B12 | public result | laptop | TCGA-LUAD | waiting on atlas v2.1 |
+| 11 | Liver fingerprint replication on fresh data | B11 | public result | box | PRJNA762641 | metadata only |
+| 12 | Neurons on Met-A (both instruments on neurons) | A11 | physics | laptop | GSE306226, GSE234520 | verify files |
+| 13 | Neurons: sorted-only reference sealed on two unread laboratories | A8 | physics | box | GSE96612, GSE107729 | metadata only |
+| 14 | Sex balance: female donors across blood cell types | M3 | research | laptop | GSE131989 | UCSF independence check |
 
 ## Sets tested (from each test note's Test data line)
 
