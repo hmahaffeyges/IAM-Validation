@@ -33,35 +33,36 @@ whole triphosphate plus a methionine; the copy head does not hydrolyze ATP per s
 nicks the strand and religates it, which costs ATP and transiently breaks DNA. The asymmetry is by mechanism, not by
 direction.
 
-## The cost is paid per operation, not per division (the author's correction, 2026-10-13)
+## Corrected against the balance derivation (2026-10-13; the author caught this twice)
 
-The lever table above wrote "Landauer's cost is paid per copy", which quietly assumes the only operations are replication's.
-That is wrong and the author caught it: **a neuron never divides, and its writing and erasing go on anyway.** Maintenance
-writing and the erase channel both cycle in post-mitotic cells, so the cost is paid per *operation*, and replication is only
-the operation that happens to come in a burst.
+The lever table first said "Landauer's cost is paid per copy", which assumes replication supplies the only operations. The
+author's objection - a neuron never divides and its writing and erasing go on anyway - is already settled in the book, and
+the settled answer is stronger than the per-operation patch written here earlier today. From the book's section *The held
+state is a balance of restore and loss* (2026-10-11, DERIVED): over any interval, a held site is lost with probability `f`
+and a lost one restored with probability `g`, so the held error settles where losses equal restores,
 
-This splits the cost in two, and the split is testable:
+  **eps = f / (f + g)**, with **E_hold = kT ln(g/f)**.
 
-| term | paid when | expected to scale with |
-|---|---|---|
-| per-copy | a cell divides | number of divisions since the reference |
-| per-time (turnover) | always, dividing or not | time, at a rate set by how fast writing and erasing cycle in that cell type |
+**The interval need not be a division.** In a dividing cell much of the loss happens as the DNA is copied; in a cell that
+has stopped dividing, loss and restore are upkeep - marks removed and written again in place. The equation is the same in
+both. The held error is set by the *ratio* of restore to loss, not by how many copies have been made. What division sets is
+only how fast the balance is reached: about `1/(f+g)` intervals.
 
-**The prediction, and what would falsify it.** A post-mitotic cell's reading must still rise with age, at a rate set by its
-turnover and not by divisions it never had. If a neuron series shows no rise with age, the per-time term is absent and the
-law's reach is narrower than claimed - which is worth knowing. If it rises at the same rate as a dividing tissue of the same
-age, then divisions contribute nothing measurable, and the per-copy term we have been assuming is the part that is wrong.
-Either way the neurons answer it, which makes them a stronger lever than the division-rate framing allowed: **they are the
-only cells that isolate one term from the other.**
+So the division-rate row in the table above is wrong as written, and is corrected here: **division rate sets the time to
+reach the balance, not the balance itself.**
 
-This also re-reads an old caveat. The write-enzyme lever was set aside partly because inhibitors change the division rate
-too; under a per-operation cost that objection weakens, because the inhibitor is reducing operations whether or not the cell
-divides.
+**The prediction, from the book, and what would falsify it.** Once upkeep is at its balance, the held error does **not** rise
+with age. A neuron series that shows no rise with age confirms the balance. A series that *does* rise says the ratio `g/f`
+itself moved with age - which is a finding, not an accumulation, and it is then the ratio we have to explain. Either way the
+neurons decide it, because they are the only cells in which the interval is upkeep alone.
 
-**Test 4 (designed, not run): per-time against per-copy.** Simulate an age series in a non-dividing cell type and in a
-dividing one, with a per-time rate and a per-copy rate that are separately set, and ask which combinations a real age span
-and a real donor spread can tell apart. The bar: recover the per-time rate to within a stated factor when the per-copy term
-is zero, and refuse to claim a per-copy term when none was planted.
+**This re-reads the write-enzyme lever as one of the strongest, not one of the weakest.** Lowering the restore rate `g`
+raises the held error by a derived amount with nothing fitted, whether or not the cell divides - so the old objection (that
+inhibitors also change the division rate) loses most of its force, since division only sets the time to balance.
+
+**Test 4 (designed, not run): the balance, not an accumulation.** Simulate an age series in a non-dividing cell type with the
+balance fixed and with the ratio drifting, and ask what size of drift in `g/f` a real age span and donor spread can detect.
+The bar: refuse to claim a drift when none was planted, and recover a planted drift to within a stated factor.
 
 ## Two signatures that separate mechanism
 
@@ -106,6 +107,21 @@ has; that needs the levers themselves.
 
 **Test 2, two clocks (planned).** An enzymatic floor scaling with kT against a damage rate scaling exponentially with it:
 how many temperatures and donors per temperature are needed to tell a line from an exponential against real donor spread.
+
+**Test 2 outcome (run once, 2026-10-13; `levers_synth_02_output.csv`, `levers_synth_02b_output.csv` and their summaries).**
+The first version asked whether a *pure* floor can be told from *pure* thermal damage and separated them 100 of 100 in every
+design, which is nearly worthless: over 277-313 K the damage term changes by tens of times while the floor term changes by
+about 13 %. Test 2b asked the real question - both terms present, the activation energy fitted rather than given, and a
+per-species offset, since each temperature in a cross-species series is a different animal. **18 of 108 designs detect
+anything.** The smallest detectable thermal-damage share, by how much species differ for reasons unrelated to temperature:
+3 % spread -> 10 % share (8 temperatures x 10 or 20 donors); 6 % spread -> 25 %; 10 % spread -> 25 %, and at that spread
+only one design in the grid reaches it, 8 temperatures x 20 donors. Below those, the fitted share cannot be told from the
+no-damage draws.
+
+**What that says about the order of work.** A cross-species temperature series is a weak lever: it needs eight species'
+worth of temperatures, twenty donors each, and species that differ by no more than a few percent for other reasons - which
+is not what species are like. **Hibernation is the design to run**, because the same animal is warm and cold, so the species
+offset is removed by construction rather than fitted. The fish series stays useful as a second line, not as the first.
 
 **Test 3, three channels (planned).** Impair copy, de novo and erase separately and ask whether the gauge and the
 clustering reading identify which one was hit. This is the prerequisite for reading IDH-mutant tumors as an erase-channel
