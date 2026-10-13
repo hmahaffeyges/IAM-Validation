@@ -16,7 +16,7 @@ Candidates found by search are metadata only and their counts are provisional un
 
 | # | job | to-do | impact | cost | data | ready |
 |---|---|---|---|---|---|---|
-| 1 | Neutrophil reference from a second laboratory: build GSE124565, test GSE88824, GSE118144, GSE122244 | M2, AT4 | commissioning | laptop | GSE124565, GSE88824, GSE72338, GSE68456, GSE49618 | build sets confirmed (GSE124565, GSE88824); the planned test sets were already read, so an unread test set is being chosen |
+| 1 | Neutrophil reference from a second laboratory: build GSE124565, test GSE88824, GSE118144, GSE122244 | M2, AT4 | commissioning | laptop | GSE124565, GSE88824, GSE72338, GSE49618 | build sets confirmed; held-out test set chosen (GSE72338, with its caveats); next the files themselves |
 | 2 | One-command replication with a report, per significant result | R3 | replication | laptop |  | Met-A neutrophils rebuilt exactly in a clean copy 2026-10-10 |
 | 3 | Whole-blood bar 7 on cord blood with flow counts (assess newborn caveat first) | M1 | commissioning | laptop | GSE127824 | assess caveat |
 | 4 | IAM-A commissioning: find the cause of the across-labs failure (three deep EMSeq LAB02 runs read low), development read of other file parts | A2 | commissioning | box | PRJNA646948 | scored; held under the stopping rule |

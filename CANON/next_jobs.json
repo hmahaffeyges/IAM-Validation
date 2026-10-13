@@ -38,10 +38,9 @@
     "GSE124565",
     "GSE88824",
     "GSE72338",
-    "GSE68456",
     "GSE49618"
    ],
-   "ready": "build sets confirmed (GSE124565, GSE88824); the planned test sets were already read, so an unread test set is being chosen",
+   "ready": "build sets confirmed; held-out test set chosen (GSE72338, with its caveats); next the files themselves",
    "plain": "Build the healthy white-blood-cell reference from a second laboratory, so Met-A no longer rests on one group's samples, and so the reference is no longer all male. Then check it against a laboratory whose data we have never opened.",
    "needs": "the laptop",
    "estimate": "no cost",

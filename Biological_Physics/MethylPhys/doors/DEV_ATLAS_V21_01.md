@@ -77,3 +77,18 @@ contacts, both sexes, ages 22-49, Sentrix positions published), GSE68456 (Univer
 stringent FACS with erythroid exclusion, 5 women and 2 men) and GSE49618 (USC Norris, 450K, 6 granulocyte arrays, no donor fields). Each needs
 its healthy status, donor overlap and purity confirmed before it is fixed as the test set.
 
+**The three unread candidates read in detail (GEO series records, 2026-10-13; no array opened).**
+- **GSE72338** (Charite Berlin, PMID 26374119): monocytes and granulocytes isolated from the blood of tuberculosis patients and their
+household contacts, matched by age and sex; 18 arrays are labeled Neutrophil, all from household contacts, both sexes, ages 22-49, with the
+Sentrix slide and position published. **Caveat to state in any result:** household contacts of tuberculosis patients are not screened healthy
+donors; latent infection is possible, and the fraction read is granulocytes rather than sorted CD16+ neutrophils.
+- **GSE68456** (University of British Columbia, PMID 26366232): **cord blood**, not adult blood; the series exists to show how red-cell
+contamination distorts sorted cord-blood populations. The 7 stringent-FACS granulocyte arrays are clean of that problem but newborn, so they
+cannot test an adult neutrophil reference. Kept for the newborn work instead.
+- **GSE49618** (USC Norris, PMID 23634996): sorted **bone-marrow** cells from healthy volunteers, run as controls for a leukemia paper; 6
+polymorphonuclear arrays, no donor fields. Marrow granulocytes are at a different stage of maturation than blood neutrophils.
+
+**Choice:** GSE72338 is the held-out test set for the second-laboratory neutrophil reference, with both caveats above printed with the result;
+GSE49618 is a second, weaker check (marrow, no donor fields); GSE68456 moves to the newborn track. If GSE72338's readings sit outside the
+sealed band, the caveats are reported as the likely cause and the test is not counted as passed either way.
+
