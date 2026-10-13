@@ -1192,3 +1192,6 @@ Author approved building, fitting and commissioning v2.1 as one project. A metad
 
 ### 2026-10-12 · Stage B: one library declared failed by a rerun bug; aligned on rerun. Lesson C7
 SRR13051241 (TrueMethylBS HG005 LAB01 REP02) first failed to download (one read file empty). The retry downloaded it in full, but the script read the first attempt's failure line and declared it failed before the download finished. The files were complete on the machine; the unchanged sealed command was rerun to align it. session_epiqc.sh now clears earlier failure lines of incomplete runs at start (future runs); planted test passed. LESSONS C7.
+
+### 2026-10-12 · DEV-IAMA-COMMISSION-01 scored once: C1, C2, C3-kits, C5 met; C3-labs NOT MET; commissioning held
+All 78 sealed EpiQC libraries read (25 excluded by the intake rules). SPLAT and TrueMethylBS meet every bar they are held to, but the stopping rule holds commissioning because C3 across labs failed. Review: three EMSeq LAB02 libraries read copy error about 15 % low; they are the three most deeply sequenced runs (first 12.2M pairs read). Next: cause test. DEV_IAMA_COMMISSION_01_OUTCOME.md.

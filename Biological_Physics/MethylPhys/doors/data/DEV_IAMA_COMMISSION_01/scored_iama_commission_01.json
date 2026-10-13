@@ -1,0 +1,343 @@
+{
+ "libraries": 78,
+ "excluded": [
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG001",
+   "rep": "REP01",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97994
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG004",
+   "rep": "REP01",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97903
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG005",
+   "rep": "REP01",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97892
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG007",
+   "rep": "REP01",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.9797
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG001",
+   "rep": "REP01",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97557
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG002",
+   "rep": "REP01",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97607
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG003",
+   "rep": "REP01",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.9763
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG004",
+   "rep": "REP01",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97495
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG005",
+   "rep": "REP01",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97601
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG006",
+   "rep": "REP01",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.9758
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG007",
+   "rep": "REP01",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97595
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG001",
+   "rep": "REP02",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97616
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG002",
+   "rep": "REP02",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97627
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG003",
+   "rep": "REP02",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.976
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG004",
+   "rep": "REP02",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97588
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG005",
+   "rep": "REP02",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.84935
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG006",
+   "rep": "REP02",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97683
+  },
+  {
+   "kit": "MethylSeq",
+   "lab": "LAB01",
+   "line": "HG007",
+   "rep": "REP02",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97494
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG001",
+   "rep": "REP02",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97923
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG002",
+   "rep": "REP02",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97668
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG003",
+   "rep": "REP02",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97904
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG004",
+   "rep": "REP02",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97896
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG005",
+   "rep": "REP02",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97962
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG006",
+   "rep": "REP02",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97839
+  },
+  {
+   "kit": "TruSeq",
+   "lab": "LAB01",
+   "line": "HG007",
+   "rep": "REP02",
+   "q0": "Q0.3 conversion",
+   "conversion": 0.97881
+  }
+ ],
+ "C1": {
+  "values": [
+   0.9991,
+   0.9957,
+   0.998,
+   0.9967,
+   0.9966,
+   0.9964,
+   0.9967
+  ],
+  "verdict": "MET"
+ },
+ "C2": {
+  "EMSeq LAB01": {
+   "n": 4,
+   "within": 4,
+   "verdict": "MET",
+   "values": [
+    0.0026,
+    0.0059,
+    0.0014,
+    -0.0019
+   ]
+  },
+  "EMSeq LAB02": {
+   "n": 4,
+   "within": 3,
+   "verdict": "MET",
+   "values": [
+    -0.0199,
+    0.0016,
+    0.0046,
+    -0.1113
+   ]
+  },
+  "SPLAT LAB01": {
+   "n": 7,
+   "within": 7,
+   "verdict": "MET",
+   "values": [
+    0.0024,
+    -0.0116,
+    -0.0041,
+    -0.0041,
+    -0.0047,
+    -0.0129,
+    -0.0016
+   ]
+  },
+  "TruSeq LAB01": {
+   "n": 0,
+   "within": 0,
+   "verdict": "NOT ASSESSED",
+   "values": []
+  },
+  "TrueMethylBS LAB01": {
+   "n": 7,
+   "within": 7,
+   "verdict": "MET",
+   "values": [
+    -0.0146,
+    -0.0131,
+    0.0028,
+    -0.0147,
+    -0.0133,
+    -0.0066,
+    -0.011
+   ]
+  }
+ },
+ "C3_kits": {
+  "EMSeq": {
+   "n": 7,
+   "within": 6,
+   "verdict": "MET",
+   "values": [
+    -0.0347,
+    -0.0031,
+    0.0,
+    -0.0187,
+    0.0161,
+    -0.0029,
+    0.0296
+   ]
+  },
+  "SPLAT": {
+   "n": 7,
+   "within": 7,
+   "verdict": "MET",
+   "values": [
+    0.0,
+    0.0035,
+    0.0006,
+    0.0002,
+    -0.0019,
+    0.0115,
+    0.0
+   ]
+  },
+  "TrueMethylBS": {
+   "n": 7,
+   "within": 7,
+   "verdict": "MET",
+   "values": [
+    0.0096,
+    0.0,
+    -0.0188,
+    0.0,
+    0.0,
+    0.0,
+    -0.0058
+   ]
+  }
+ },
+ "C3_labs": {
+  "n": 7,
+  "within": 4,
+  "verdict": "NOT MET",
+  "values": [
+   0.0164,
+   0.022,
+   -0.0161,
+   0.0306,
+   0.0032,
+   -0.1092,
+   -0.1617
+  ]
+ },
+ "C5": {
+  "n": 53,
+  "min_move": 0.045,
+  "verdict": "MET"
+ },
+ "C4": "NOT ASSESSED (lymphoblastoid cell lines, not neutrophils; stopping rule)",
+ "scope": [
+  "SPLAT",
+  "TrueMethylBS"
+ ]
+}

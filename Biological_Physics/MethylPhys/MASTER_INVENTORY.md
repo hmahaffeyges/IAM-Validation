@@ -9,7 +9,7 @@ Candidates found by search are metadata only and their counts are provisional un
 - data sets: 444; in S3: 89; chain-readable in S3 (IDAT): 39
 - public, not downloaded: 187
 - read before (spent or partly spent): 187
-- by test status: scored 10, sealed 0, not suitable 4, designed 1, candidate 0
+- by test status: scored 11, sealed 0, not suitable 4, designed 0, candidate 0
 - by use (gold-mine map): atlas build 28, held-out test 35, truth set 2, research 17, not usable 87
 
 ## Next jobs, ranked by impact, then cost
@@ -34,7 +34,6 @@ Candidates found by search are metadata only and their counts are provisional un
 
 | set | status | test | in S3 | use |
 |---|---|---|---|---|
-| PRJNA646948 | designed | DEV_IAMA_COMMISSION_01 | no |  |
 | GSE199057 | not suitable | DEV_TISSUE_COLON_02 | yes |  |
 | GSE83842 | not suitable | DEV_TISSUE_LUNG_02 | no |  |
 | TCGA-LUAD | not suitable | DEV_TISSUE_LUNG_04 | no |  |
@@ -47,5 +46,6 @@ Candidates found by search are metadata only and their counts are provisional un
 | GSE77079 | scored | DEV_SAM_LEVER_01 | no |  |
 | GSE86833 | scored | DEV_FINGERPRINT_01 | no |  |
 | GSE94785 | scored | DEV_TISSUE_LUNG_01 | no |  |
+| PRJNA646948 | scored | DEV_IAMA_COMMISSION_01 | no |  |
 | TCGA-BRCA | scored | DEV_TISSUE_BREAST_01 | no |  |
 | TCGA-LIHC | scored | DEV_TISSUE_LIVER_01 | no |  |

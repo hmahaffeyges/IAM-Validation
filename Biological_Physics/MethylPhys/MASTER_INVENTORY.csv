@@ -390,7 +390,7 @@ PRJNA389610,downloads/F_coho_leluyer/PRJNA389610/,54.34,,,spent,,,,,,,,Coho hatc
 "PRJNA389610 (coho, Le Luyer) - derived",,,,,spent,,,,,,,,,
 PRJNA564401,,,,,,,,,,,,,,candidates DEV_LIVER_BLOOD_01
 PRJNA641939,downloads/F_coho_wgbs/PRJNA641939/,32.76,,,unspent,,,,,,,,Coho WGBS reads,S3 register
-PRJNA646948,,,,,,designed,DEV_IAMA_COMMISSION_01,DEV_IAMA_COMMISSION_01,,,,,,
+PRJNA646948,,,,,,scored,DEV_IAMA_COMMISSION_01,DEV_IAMA_COMMISSION_01,,,,,,
 PRJNA762641,,,,,,,,DEV_FINGERPRINT_03,,,,,,
 PRJNA802599,downloads/F_atlas580_fish/PRJNA802599/; downloads/F_atlas580_other/PRJNA802599/,291.4; 1029.16,,,unspent; spent (subset),,,DEV_XSPECIES_TEMP_01,,,,,580-species reads: fish; 580-species reads: other vertebrates,S3 register
 PRJNA802599 subset realigned - derived reads,,,,,spent,,,,,,,,,
