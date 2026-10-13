@@ -29,10 +29,18 @@ field cancerization. Tumors carry sites at the full surface where healthy refere
    must breach first. If breach order is unrelated to headroom, the picture is wrong. (The author's class-min intuition, restated as
    headroom on the current gauge rather than as classes.)
 
+5. **New surface needs new supply (author, 2026-10-13: the tumor's structure and blood vessels).** Every write costs energy, so a
+   growing writing surface needs a growing supply: the angiogenic switch (a tumor past a millimeter or two recruits its own vessels)
+   and the metabolic switch are that supply. Malignant tumors are complex but DISORDERED - chaotic, leaky vessels and broken
+   architecture - while benign tumors stay organized and recognizably their tissue; on the gauge that is disorder on the right and a
+   held pattern near the middle. Prediction: tumors with a larger share of sites at the full surface carry stronger angiogenesis and
+   metabolic-switch expression signatures, and benign lesions read near 1 without them. If surface share and those signatures are
+   unrelated, the energy-supply step is wrong. Data: TCGA expression for the same tumors already read.
+
 **In plain words.** The idea is that a whole organ can be under strain before any tumor exists, its cells writing at their limit, and
 that the tumor appears at the weakest spot as new room to keep writing - the way a black hole grows its surface. It is an idea, not a
-result. Four tests are written down that could each prove it wrong.
+result. Five tests are written down that could each prove it wrong.
 
-**What it would take to finish:** falsifier 2 first (DEV-FIELD-01), then 1 and 4 on an ordered lesion series, then 3 on TCGA stage.
+**What it would take to finish:** falsifier 2 first (DEV-FIELD-01), then 1 and 4 on an ordered lesion series, then 3 on TCGA stage and 5 on TCGA expression.
 
 **Not a milestone:** a hypothesis with no test run.
