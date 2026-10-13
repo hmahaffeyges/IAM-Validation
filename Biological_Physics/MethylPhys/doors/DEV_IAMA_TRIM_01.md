@@ -55,6 +55,29 @@ Nothing real has been trimmed. Calibrating this on the EpiQC libraries needs the
 one cheap box read (no alignment), and the across-laboratory check then has to be rerun on the WHOLE stage, not only the five
 libraries used for the diagnosis - those five are spent.
 
+## Calibration on all 71 libraries, run once (2026-10-13): the rule works, and it does NOT explain the failed laboratory check
+
+`calib_trim_all_01.sh` (committed before it ran; box run 2026-10-13, the code's checksums in `calib_trim_all_01_code_checksums.txt`
+match the commit), merged by `merge_trim_all_01.py`; outputs `calib_trim_all_01_windows.csv`, `calib_trim_all_01_decisions.csv`,
+`calib_trim_all_01_summary.txt`. 1,420 windows read, none failed; K_SD and MAX_TRIM unchanged.
+
+- **Where the rule acts:** only in TrueMethylBS (laboratory 1): 6 libraries trimmed, 1 refused as anomalous through half its file.
+  No EMSeq, MethylSeq, SPLAT or TruSeq library is trimmed.
+- **The three suspect EMSeq libraries are not trimmed.** Their head chemistry sits within 3 robust SD of the rest of the same file
+  (bar 5 needs more than 5), the same as the two controls. Whatever made their heads read 11-14 % low, it is not the conversion
+  chemistry this rule measures.
+
+**What it means.** This is bar 5, the limit we declared before the run: the rule will not act on a bias it has no independent evidence
+for. So the trim rule cannot release the instrument. The across-laboratory check stays NOT MET and IAM-A stays held. The trims it
+does make in TrueMethylBS are recorded, but none of those libraries was part of the failed check.
+
+**Next, before any more box money:** look for an independent diagnostic that does separate the suspects from the controls at the
+head, using the quality files the cause run already saved (read quality, duplicates, insert size by position), with its bar written
+first. If none separates them, the laboratory gap is treated as real and EMSeq's cross-laboratory scope is reported as failed.
+
+**Prior reading:** the 71 EpiQC Stage B libraries are already read by DEV-IAMA-COMMISSION-01 and DEV-IAMA-CAUSE-01; this pass reads
+only their raw-read chemistry, not the physics, and none of them may later serve as a held-out test of IAM-A.
+
 **In plain words.** The beginning of a sequencing file read wrong, and that is where our original reading had been taken. We cannot
 just average more of the file, because averaging in a bad measurement only shrinks the error instead of removing it. So we skip the
 bad beginning - and to keep that honest, how much to skip is decided by the sequencing chemistry's own fingerprint in the raw reads,
@@ -67,4 +90,4 @@ failed laboratory check on the whole set of libraries rather than the five we al
 
 **Synthetic test:** DEV_IAMA_TRIM_01/planted_trim_01.py, DEV_IAMA_TRIM_01/planted_trim_01_summary.txt
 
-**Not a milestone:** a rule and its planted test; nothing real trimmed, nothing sealed, the instrument still held.
+**Not a milestone:** a rule, its planted test and its calibration; the failed check is not explained by it and the instrument stays held.

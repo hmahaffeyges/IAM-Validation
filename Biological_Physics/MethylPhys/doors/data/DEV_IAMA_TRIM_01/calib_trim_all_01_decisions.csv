@@ -1,0 +1,72 @@
+run,decision,skip_windows,trimmed_fraction,reason,d_head,d_later,kit,lab,line,rep
+SRR13050956,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.06246880531471383,0.058856143469674375,TrueMethylBS,LAB01,HG001,REP02
+SRR13050958,TRIM,2,0.1,the first 2 window(s) sit further than 5.0 robust SD from the file's own later level,0.06234792923712737,0.05922120903625169,TrueMethylBS,LAB01,HG001,REP01
+SRR13050959,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.1223343258340383,0.12341496441891853,TruSeq,LAB01,HG007,REP02
+SRR13050966,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.1208501519964826,0.12072300951313591,TruSeq,LAB01,HG006,REP02
+SRR13050972,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.11641163478255029,0.115869273666946,TruSeq,LAB01,HG005,REP02
+SRR13050979,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.12181752040149638,0.12219056772444536,TruSeq,LAB01,HG004,REP02
+SRR13050985,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.11976249913180695,0.12135279650131847,TruSeq,LAB01,HG003,REP02
+SRR13050992,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.1263978300021835,0.12564175688215956,TruSeq,LAB01,HG002,REP02
+SRR13050999,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.11512369690951567,0.11445651142149597,TruSeq,LAB01,HG001,REP02
+SRR13051005,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.02899124131682271,0.0293894942737053,SPLAT,LAB01,HG007,REP02
+SRR13051010,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.02721710537733746,0.028544601026306113,SPLAT,LAB01,HG007,REP01
+SRR13051014,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.03951185544500702,0.039000946788732664,SPLAT,LAB01,HG006,REP02
+SRR13051018,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.028565339850087388,0.02905046519172512,SPLAT,LAB01,HG006,REP01
+SRR13051023,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.044303152676944554,0.04456072338009735,SPLAT,LAB01,HG005,REP02
+SRR13051027,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.040211082815857314,0.040991880569659495,SPLAT,LAB01,HG005,REP01
+SRR13051032,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.03613425357263329,0.03708016288663128,SPLAT,LAB01,HG004,REP02
+SRR13051036,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.03268549013999081,0.032736390255323225,SPLAT,LAB01,HG004,REP01
+SRR13051040,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.04222820935387469,0.0427812404158959,SPLAT,LAB01,HG003,REP02
+SRR13051046,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.031064297350555714,0.03133757903179156,SPLAT,LAB01,HG003,REP01
+SRR13051050,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.049736678795606455,0.049894049095350085,SPLAT,LAB01,HG002,REP02
+SRR13051055,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.04210741002960487,0.04146905552481181,SPLAT,LAB01,HG002,REP01
+SRR13051059,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.045055568511997796,0.046239613103335436,SPLAT,LAB01,HG001,REP02
+SRR13051063,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.054034947321213375,0.055068600126400614,SPLAT,LAB01,HG001,REP01
+SRR13051068,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.01609783524187574,0.015935544465527293,MethylSeq,LAB01,HG007,REP02
+SRR13051071,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.01482778687336032,0.01424862605188923,MethylSeq,LAB01,HG007,REP01
+SRR13051074,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.013326235550942991,0.012864733782366918,MethylSeq,LAB01,HG006,REP02
+SRR13051078,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.01511865341278822,0.014538481831211533,MethylSeq,LAB01,HG006,REP01
+SRR13051081,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.0710173542488355,0.07384217805743865,MethylSeq,LAB01,HG005,REP02
+SRR13051084,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.015023514174480172,0.014098780434446807,MethylSeq,LAB01,HG005,REP01
+SRR13051088,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.019343007179052164,0.018810219462639333,MethylSeq,LAB01,HG004,REP02
+SRR13051091,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.0194416367546542,0.018480011861593947,MethylSeq,LAB01,HG004,REP01
+SRR13051094,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.016358032182122662,0.015858645234653232,MethylSeq,LAB01,HG003,REP02
+SRR13051098,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.013262476138926362,0.01276406982395023,MethylSeq,LAB01,HG003,REP01
+SRR13051101,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.015491941887034894,0.015378872855142105,MethylSeq,LAB01,HG002,REP02
+SRR13051104,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.01476397560486596,0.013959174464687179,MethylSeq,LAB01,HG002,REP01
+SRR13051107,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.01766941554740048,0.016776972830816562,MethylSeq,LAB01,HG001,REP02
+SRR13051111,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.016626683406126105,0.016037106931695674,MethylSeq,LAB01,HG001,REP01
+SRR13051128,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.001798853477293312,0.0017111621973791196,EMSeq,LAB02,HG007,REP01
+SRR13051132,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.004320033947129589,0.004318764690846279,EMSeq,LAB01,HG007,REP01
+SRR13051134,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.003069340419790515,0.0030315494106854645,EMSeq,LAB01,HG004,REP01
+SRR13051135,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.001282088933393585,0.0013849844280292495,EMSeq,LAB02,HG003,REP02
+SRR13051136,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.0013510009818284367,0.0015618351368920957,EMSeq,LAB02,HG003,REP01
+SRR13051137,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.0029501463042305633,0.0031931545933086627,EMSeq,LAB01,HG003,REP02
+SRR13051138,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.002837823096223252,0.0030444753305065124,EMSeq,LAB01,HG003,REP01
+SRR13051139,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.0015172163083330115,0.0016355748557046299,EMSeq,LAB02,HG002,REP02
+SRR13051140,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.001409107093081831,0.0015593992198155667,EMSeq,LAB02,HG002,REP01
+SRR13051141,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.003548904798518729,0.003388246437785571,EMSeq,LAB01,HG002,REP02
+SRR13051142,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.003215271288322005,0.0032740639377497336,EMSeq,LAB01,HG002,REP01
+SRR13051144,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.001503225605345707,0.0015243213235072743,EMSeq,LAB02,HG001,REP01
+SRR13051145,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.0035003900461476286,0.0033239274699598488,EMSeq,LAB01,HG001,REP02
+SRR13051146,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.0012329456393990108,0.0011479396095053444,EMSeq,LAB02,HG001,REP02
+SRR13051147,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.00331828137826596,0.003462928840667394,EMSeq,LAB01,HG001,REP01
+SRR13051236,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.05986663947008755,0.060283560982846277,TrueMethylBS,LAB01,HG007,REP02
+SRR13051237,TRIM,1,0.05,the first 1 window(s) sit further than 5.0 robust SD from the file's own later level,0.0750002151906026,0.07064570475752548,TrueMethylBS,LAB01,HG007,REP01
+SRR13051238,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.0625220383820961,0.05947524806893363,TrueMethylBS,LAB01,HG006,REP02
+SRR13051239,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.06702762383732495,0.06293013283958405,TrueMethylBS,LAB01,HG006,REP01
+SRR13051241,TRIM,1,0.05,the first 1 window(s) sit further than 5.0 robust SD from the file's own later level,0.0720575854492736,0.06605759834016928,TrueMethylBS,LAB01,HG005,REP02
+SRR13051243,TRIM,1,0.05,the first 1 window(s) sit further than 5.0 robust SD from the file's own later level,0.06353064305501326,0.05840182517466453,TrueMethylBS,LAB01,HG005,REP01
+SRR13051244,REFUSE,10,0.5,"the rule would skip 50% of the file, more than the 25% limit: the library is anomalous throughout, which is not a trimming problem",0.06689384465333915,0.060889857504226895,TrueMethylBS,LAB01,HG004,REP02
+SRR13051246,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.052969900319126566,0.049661460464899235,TrueMethylBS,LAB01,HG004,REP01
+SRR13051247,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.051684028382551206,0.04872669213916798,TrueMethylBS,LAB01,HG003,REP02
+SRR13051249,TRIM,1,0.05,the first 1 window(s) sit further than 5.0 robust SD from the file's own later level,0.07770143072289157,0.07213433850346404,TrueMethylBS,LAB01,HG003,REP01
+SRR13051250,TRIM,2,0.1,the first 2 window(s) sit further than 5.0 robust SD from the file's own later level,0.0783832071655006,0.07131324633650638,TrueMethylBS,LAB01,HG002,REP02
+SRR13051253,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.07739792551583384,0.07321399382164101,TrueMethylBS,LAB01,HG002,REP01
+SRR13051256,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.0019674477416931515,0.0016658844216522683,EMSeq,LAB02,HG006,REP01
+SRR13051259,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.004977464065836321,0.0050738432842116505,EMSeq,LAB01,HG006,REP01
+SRR13051263,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.001657208890747694,0.001544388196308805,EMSeq,LAB02,HG005,REP01
+SRR13051264,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.003428604293303985,0.003406134427396532,EMSeq,LAB01,HG005,REP01
+SRR13051268,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.0015541533582569282,0.0014131962071855086,EMSeq,LAB02,HG004,REP02
+SRR13051269,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.0016186273435620758,0.0014873246236883843,EMSeq,LAB02,HG004,REP01
+SRR13051271,READ ALL,0,0.0,no window at the head departs from the file's own later level,0.0036098452029814615,0.003608221524383476,EMSeq,LAB01,HG004,REP02

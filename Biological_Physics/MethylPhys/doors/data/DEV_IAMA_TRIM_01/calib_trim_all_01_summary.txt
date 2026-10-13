@@ -1,0 +1,15 @@
+K_SD 5.0, MAX_TRIM 0.25, 20 windows of 50000 read pairs per run (all fixed before this ran)
+runs expected 71 | windows read 1420 | failed windows 0 | runs decided 71
+decisions: READ ALL 64, REFUSE 1, TRIM 6
+runs with a trim: SRR13050958 (TrueMethylBS LAB01 HG001 REP01) skip 2, SRR13051237 (TrueMethylBS LAB01 HG007 REP01) skip 1, SRR13051241 (TrueMethylBS LAB01 HG005 REP02) skip 1, SRR13051243 (TrueMethylBS LAB01 HG005 REP01) skip 1, SRR13051244 (TrueMethylBS LAB01 HG004 REP02) skip 10, SRR13051249 (TrueMethylBS LAB01 HG003 REP01) skip 1, SRR13051250 (TrueMethylBS LAB01 HG002 REP02) skip 2
+  EMSeq: 0 of 22 runs trimmed
+  MethylSeq: 0 of 14 runs trimmed
+  SPLAT: 0 of 14 runs trimmed
+  TruSeq: 0 of 7 runs trimmed
+  TrueMethylBS: 7 of 14 runs trimmed
+the five cause-test libraries (EMSeq LAB02): head chemistry against the rest of the same file
+  SRR13051256 suspect: d head 0.00197, later median 0.00167, head z +2.9 (trim needs > 5.0) -> READ ALL
+  SRR13051268 suspect: d head 0.00155, later median 0.00141, head z +1.8 (trim needs > 5.0) -> READ ALL
+  SRR13051128 suspect: d head 0.00180, later median 0.00171, head z +0.7 (trim needs > 5.0) -> READ ALL
+  SRR13051263 control: d head 0.00166, later median 0.00154, head z +0.8 (trim needs > 5.0) -> READ ALL
+  SRR13051136 control: d head 0.00135, later median 0.00156, head z -1.7 (trim needs > 5.0) -> READ ALL
