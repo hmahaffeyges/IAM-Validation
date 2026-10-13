@@ -10,6 +10,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **ATL-034** (impact 5, laptop) Atlas commissioning U2: composition-blind sites for tissue tests: Bars on independent purified cells.
 - [ ] **ATL-035** (impact 5, laptop) Atlas commissioning U1: cell profiles on independent laboratories: Split each into build and held-out data before reading; verify IDATs and donor counts from files; drop spent sets as tests.
 - [ ] **ATL-040** (impact 5, box) Atlas v2.1 build, joint fit and commissioning: Finish laptop prep (roster, split, mask, input checks); then the fit on a 128-core box (21-30 h estimate); then commissioning.
+- [ ] **ATL-045** (impact 5, box (part of ATL-005)) Atlas v2.1 run outputs: what the box session must save: write the run script's output list and its check before ATL-005 launches
 - [ ] **COM-CSCORE-003** (impact 5, none) C-score commissioning proposal (band and detection limit printed on every report): Write the commissioning note after (a) on further labs and (b) are met; reconcile the whole-blood versus sorted-cell scope gap first.
 - [ ] **COM-CSCORE-005** (impact 5, search) C-score test (b): repeatability on new same-person replicate arrays (last open check): In order: read sample sheets of healthy EPIC v1 blood series for unlabeled repeats; or commission the 450K band (GSE61151); or a technical-replicate set with a declared specimen caveat (GSE182919).
 - [ ] **COM-CSCORE-012** (impact 5, search) C-score last check: same-person repeatability on unspent replicate arrays: Read sample sheets of healthy EPIC v1 blood series directly for unlabeled repeats, excluding every spent set; or commission the 450K band (unlocks GSE61151).
@@ -43,6 +44,9 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **ATL-014** (impact 4, laptop) Atlas v2.1 neutrophil build and held-out sets: Confirm GSE72338 healthy status, donor overlap and purity, then seal its band with the v2.1 reference.
 - [ ] **ATL-016** (impact 4, laptop) Lung stroma into the atlas (research-only in v2.1): After the mask, compare GSE111396 fibroblasts and GSE146376 smooth muscle with Loyfer stromal samples (culture status from Loyfer Supplementary Table 1 first).
 - [ ] **ATL-038** (impact 4, laptop) Lung stroma into the atlas, with a culture check: Culture check against uncultured lung; build/held-out split; v2.1 (research-only in v2.1 per the roster).
+- [ ] **ATL-046** (impact 4, laptop) Noise maps for the information sphere from the posterior draws: after sphere construction v2 passes its planted test
+- [ ] **ATL-047** (impact 4, laptop) Reference uncertainty carried into Met-A readings: design with a planted test, after the noise maps
+- [ ] **ATL-048** (impact 4, laptop and box) Three spheres compared: atlas v2, atlas v2.1 and the whole genome (Loyfer): after the noise maps; Loyfer sphere in the v2.1 box session
 - [ ] **CAN-003** (impact 4, laptop) Ceiling position in sequenced pure cancer cell lines (the other bracket): Write the rule first, run once; if positions converge, write the claim as a seal and test once on unopened cancers.
 - [ ] **CAN-004** (impact 4, laptop) Commission the C-score band on 450K arrays (to unlock GSE61151 and the 450K archive): Fix the 450K slide-batch problem first (C8), then set a 450K band by the same leave-one-lab-out rule.
 - [ ] **CAN-005** (impact 4, free (arithmetic on readings we already have)) Distance to the ceiling: compute it for every sealed cancer reading already in the records and check none is past the turnover

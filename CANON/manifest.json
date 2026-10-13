@@ -24483,6 +24483,90 @@
     "coverage rule"
    ],
    "notes": "records: PROC_WB_NEUT_01_PREREG.md; first committed 2026-10-01"
+  },
+  {
+   "title": "Atlas v2.1 run outputs: what the box session must save",
+   "purpose": "Fixes before launch what the v2.1 fit writes, so the run is paid for once: thinned posterior draws (about 100 per site), per-site convergence (R-hat, effective sample size), the laboratory offset terms with their uncertainty, simulated arrays from the fit for the held-out comparison, fixed seeds, and the code checksums. The information sphere is built from the draws as the last step of the same session.",
+   "instrument_or_term": "atlas",
+   "data_status": "partial",
+   "status": "planned",
+   "next_step": "write the run script's output list and its check before ATL-005 launches",
+   "cost": "box (part of ATL-005)",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_plan.md",
+   "depends_on": [
+    "ATL-005"
+   ],
+   "id": "ATL-045",
+   "sources": [],
+   "runs": [],
+   "legacy_ids": [],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
+  },
+  {
+   "title": "Noise maps for the information sphere from the posterior draws",
+   "purpose": "Builds the sphere from every posterior draw, the way CMB teams use simulated skies: per-pixel and per-band error bars, the covariance between bands so a whole spectrum is tested in one score, and a planted-signal recovery check (transfer function). v2's saved draws allow it on the laptop now; v2.1 repeats it.",
+   "instrument_or_term": "information sphere",
+   "data_status": "have",
+   "status": "planned",
+   "next_step": "after sphere construction v2 passes its planted test",
+   "cost": "laptop",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md",
+   "depends_on": [
+    "construction v2"
+   ],
+   "id": "ATL-046",
+   "sources": [],
+   "runs": [],
+   "legacy_ids": [],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
+  },
+  {
+   "title": "Reference uncertainty carried into Met-A readings",
+   "purpose": "Today a patient's reading treats the healthy reference as exact. Reading each sample against every posterior draw gives its reading an honest error bar, and the detection limits with it.",
+   "instrument_or_term": "Met-A",
+   "data_status": "have",
+   "status": "idea",
+   "next_step": "design with a planted test, after the noise maps",
+   "cost": "laptop",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md",
+   "depends_on": [],
+   "id": "ATL-047",
+   "sources": [],
+   "runs": [],
+   "legacy_ids": [],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
+  },
+  {
+   "title": "Three spheres compared: atlas v2, atlas v2.1 and the whole genome (Loyfer)",
+   "purpose": "The same construction on three maps, read with the chain's sky statistics and their noise maps: what our atlas sees, what more cells add, and what the whole genome adds beyond the array sites.",
+   "instrument_or_term": "information sphere",
+   "data_status": "partial",
+   "status": "planned",
+   "next_step": "after the noise maps; Loyfer sphere in the v2.1 box session",
+   "cost": "laptop and box",
+   "impact": 4,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md",
+   "depends_on": [],
+   "id": "ATL-048",
+   "sources": [],
+   "runs": [],
+   "legacy_ids": [],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
   }
  ],
  "not_tests": {
