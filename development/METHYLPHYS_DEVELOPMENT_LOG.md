@@ -1232,3 +1232,6 @@ GSE197512 182 arrays read once by the fixed rule. Review found array batch date 
 
 ### 2026-10-12 · Field notes (author): the plain-words story of every experiment, never edited
 FIELD_NOTES.md is generated from CANON/now_running.json with the board; each update carries a longer note; the board shows the newest three per story. now_running --check refuses any published update that is edited or removed (a correction is a new update). The book and canonical documents stay current-only; the field notes are the journal. First notes: atlas culture check, IAM-A commissioning, lung.
+
+### 2026-10-12 · Field notes voice check; lesson C8
+The notes are ours, written as "we": now_running --check refuses "the author", assistant names and first-person singular. The first version matched lowercase only and was pushed together with its controls, one of which failed; fixed in the next commit with five controls. LESSONS C8: controls gate the push.
