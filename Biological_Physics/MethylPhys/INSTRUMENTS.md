@@ -31,12 +31,12 @@ Candidate instruments: every reading we could build on the methylation channel, 
 
 - **Reads:** total disorder above what the estimated cell mixture explains - the existing composition-aware reading, in a tube of blood
 - **Substrate:** arrays · **Cost:** free (one laptop read of arrays already on disk)
-- **Where it stands:** leverage measured on synthetic blood: a 1 % neutrophil drop moves the reading +2.64 % at a 0.40 share, +3.79 % at 0.55, +5.13 % at 0.70
-- **Still open:** the detection limit - the spread between REAL healthy people, which the simulation cannot supply
-- **Advantage:** dilution costs much less than expected, and the function already exists in the chain
-- **Blind spot:** an array averages molecules before anyone reads them, so one cell type can never be isolated - only the one-directional question is available. And the healthy whole bloods in hand are spent as the clustering meter's test, so this is development use
+- **Where it stands:** MEASURED 2026-10-13 on real healthy arrays with the chain's own stages: healthy people differ by 6.36 % (relative SD), the chain's own leverage is 2.09 % of the median per 1 % pattern loss, so about a 7.2 % loss clears the healthy 95th percentile
+- **Still open:** the TARED spread - these readings are untared and that laboratory ran one array per slide, so no same-run tare could be formed; a healthy set with several arrays per slide would show whether the tare shrinks the 6.36 %
+- **Advantage:** group comparisons are within reach NOW: with 50 people a mean loss under 1 % separates the group from healthy, and the function already exists in the chain
+- **Blind spot:** per-person detection in blood: the spread between healthy people (6.4 %) is larger than the tissue-sized signal (2-7 %), so one person cannot be called. An array also averages molecules before anyone reads them, so one cell type can never be isolated. And these arrays are spent as the C-score test, so this was development use
 - **What would break it:** healthy people differing by more than the leverage of the signal we are looking for (then arrays cannot carry blood and sequencing is required)
-- **Next step:** run the chain's whole-blood function on the real healthy arrays already calibrated on disk and report the spread
+- **Next step:** either measure the tared spread on a healthy set with several arrays per slide, or treat blood as a GROUP instrument on arrays and leave per-person detection to the sequencing route
 - **Record:** [DEV_BLOOD_SENSITIVITY_01.md](doors/DEV_BLOOD_SENSITIVITY_01.md)
 
 ## 4. Distance to the ceiling

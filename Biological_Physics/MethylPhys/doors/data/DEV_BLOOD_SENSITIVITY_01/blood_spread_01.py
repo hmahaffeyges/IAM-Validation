@@ -62,6 +62,11 @@ if len(ok) >= 5:
                  f"{(ok.max() - med) / lv:.2f} % clears the highest healthy array read here")
         L.append(f"  (neutrophil share in these arrays: median {T.neutrophil_fraction.median():.3f}, "
                  f"range {T.neutrophil_fraction.min():.3f} to {T.neutrophil_fraction.max():.3f})")
+        # a GROUP comparison faces the spread divided by sqrt(n), not the spread itself
+        for n in (20, 50, 100):
+            sem = sd / np.sqrt(n)
+            L.append(f"  a group of {n:>3} people: two standard errors is {2 * sem / med * 100:.2f} % of the median, so a mean "
+                     f"loss of about {2 * sem / lv:.2f} % would separate that group from healthy")
     pc = T.past_entropy_ceiling.dropna()
     if len(pc): L.append(f"entropy-ceiling flag recorded on {len(pc)} arrays | past the ceiling: {int(pc.astype(str).str.lower().eq('true').sum())}")
     L += ["", "This is the WITHIN-laboratory spread of untared readings in one healthy set; a tared reading faces this, not the",

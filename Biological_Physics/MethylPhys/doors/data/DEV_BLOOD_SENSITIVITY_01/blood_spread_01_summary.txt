@@ -1,0 +1,19 @@
+DEV-BLOOD-SENSITIVITY-01 part 2: the spread of the chain's whole-blood reading between real healthy people
+
+arrays attempted 24 | read 23 | withheld 1
+  withheld GSM5583025: only 5325 of 6000 neutrophil sites measured (>= 5400 required): A withheld
+
+median 0.9463 | SD 0.0601 | relative SD 6.36 % | range 0.8674 to 1.1022 | 5th-95th 0.8863 to 1.0884
+the 95th percentile sits +15.02 % above the median
+
+the chain's own leverage, median over these arrays: 0.01978 in A per 1 % pattern loss (2.09 % of the median reading)
+  so a loss of about 7.19 % clears the healthy 95th percentile, and about 7.88 % clears the highest healthy array read here
+  (neutrophil share in these arrays: median 0.469, range 0.263 to 0.665)
+  a group of  20 people: two standard errors is 2.84 % of the median, so a mean loss of about 1.36 % would separate that group from healthy
+  a group of  50 people: two standard errors is 1.80 % of the median, so a mean loss of about 0.86 % would separate that group from healthy
+  a group of 100 people: two standard errors is 1.27 % of the median, so a mean loss of about 0.61 % would separate that group from healthy
+entropy-ceiling flag recorded on 23 arrays | past the ceiling: 0
+
+This is the WITHIN-laboratory spread of untared readings in one healthy set; a tared reading faces this, not the
+between-laboratory spread. It is a descriptive development measurement on arrays already spent as the C-score band's
+held-out test, so it sets no bar and disqualifies these arrays as a held-out test for a blood reading later.

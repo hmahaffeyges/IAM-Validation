@@ -44,6 +44,55 @@ better than expected - a 1 % change in a cell type making up half the blood move
 whether that is bigger than the ordinary differences between healthy people, because our made-up people were too alike. **What it
 would take:** read real healthy blood samples with the same function and measure how much healthy people actually differ.
 
+## Part 2, the real healthy spread, measured (2026-10-13): per person NO, per group YES
+
+**Prior reading:** GSE184269 was read once as the C-score band's held-out test and is in `CANON/data_spent.csv`. This part is
+DEVELOPMENT use - a descriptive spread with no bar and no verdict - and it disqualifies those arrays as a held-out test for any blood
+reading later.
+
+Read with the chain's own stages, unchanged (`blood_spread_01.py`; `conductor_v3.stage_a_composition` then
+`conductor_v3.stage_m_blood`), on the 24 healthy whole bloods of that laboratory. 23 read; **1 withheld by the chain** for site
+coverage (5,325 of 6,000 neutrophil sites, 5,400 required) - the chain refusing, not us dropping it.
+
+| | |
+|---|---|
+| median reading (untared) | 0.9463 |
+| spread between healthy people | SD 0.0601, **relative SD 6.36 %** |
+| range / 5th-95th | 0.8674 to 1.1022 / 0.8863 to 1.0884 |
+| 95th percentile above the median | **+15.02 %** |
+| the chain's own leverage | **0.01978 in A per 1 % pattern loss** = 2.09 % of the median |
+| neutrophil share in these arrays | median 0.469 (0.263 to 0.665) |
+| entropy-ceiling flag | recorded on all 23; **none past the ceiling** |
+
+**Per person: about a 7.2 % pattern loss is needed to clear the healthy 95th percentile** (7.9 % to clear the highest healthy array
+read here). The tissue cancers we have read show changes of roughly 2 to 7 %. So a tissue-sized change in blood does NOT separate one
+person from healthy on arrays - the spread between healthy people is simply larger than the signal.
+
+**Per group it does, and comfortably.** A group comparison faces the spread divided by the square root of the number of people:
+
+| group size | two standard errors | mean loss that separates the group from healthy |
+|---|---|---|
+| 20 | 2.84 % of the median | **1.36 %** |
+| 50 | 1.80 % | **0.86 %** |
+| 100 | 1.27 % | **0.61 %** |
+
+**Correction to part 1.** The simulation's leverage (3.79 % per 1 % drop at a 0.55 neutrophil share) is about 1.8 times the chain's
+own measured leverage (2.09 % of the median at a 0.469 share). The simulation used 3,000 atlas-selected sites and atlas posterior
+profiles; the chain uses its own 6,000 neutrophil sites and the Salas purified EPIC profiles. **The chain's number is the one to
+quote**, and part 1's leverage figures should be read as an approximation with different sites and profiles.
+
+**One scope limit on this spread.** These readings are UNTARED, and that laboratory ran one array per slide, so a same-run tare could
+not be formed - only a series-level tare, which removes a global offset and not a per-plate one. A properly tared reading may face a
+smaller spread than 6.36 %, and measuring that needs a healthy set with several arrays per slide. Until that is measured, 7.2 % is the
+honest per-person figure.
+
+**In plain words.** We measured how much healthy people differ from one another on this blood reading, using real arrays and the same
+code a researcher would run. They differ by about 6 % - which is larger than the changes we see in tumor tissue. So this reading
+cannot tell one healthy person from one early-cancer person in a tube of blood: the ordinary variation between people is bigger than
+the signal. But comparing GROUPS works well: with fifty people on each side, a change of under 1 % would show. That is a real result
+and a real limit at once - it says group studies in blood are within reach now, and that per-person blood detection needs either a
+tighter reading (the tare, or a self-taring contrast) or the molecule-by-molecule route, which is sequencing.
+
 **Synthetic test:** DEV_BLOOD_SENSITIVITY_01/blood_sensitivity_01.py, DEV_BLOOD_SENSITIVITY_01/blood_sensitivity_01_summary.txt
 
 **Not a milestone:** a measured property of the reading, with its detection limit not yet established.
