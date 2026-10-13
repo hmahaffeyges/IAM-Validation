@@ -21,6 +21,12 @@ neutrophils 0.70 | planted drop   10 % | median reading 1.4531 (healthy median 0
 neutrophils 0.70 | planted drop   20 % | median reading 1.8282 (healthy median 0.9968, 95th 1.0028) | above the healthy 95th: 100.0 % DETECTED
   -> smallest detected at neutrophils 0.70: 1 %
 
+
+LEVERAGE, computed (median planted reading / median healthy reading - 1), so the note's table has a source:
+  neutrophils 0.40: 1 % drop -> +2.64 % | 2 % drop -> +5.15 % | 5 % drop -> +12.59 % | 10 % drop -> +24.27 % | 20 % drop -> +45.79 %
+  neutrophils 0.55: 1 % drop -> +3.79 % | 2 % drop -> +7.45 % | 5 % drop -> +17.99 % | 10 % drop -> +34.47 % | 20 % drop -> +63.78 %
+  neutrophils 0.70: 1 % drop -> +5.13 % | 2 % drop -> +10.10 % | 5 % drop -> +24.26 % | 10 % drop -> +45.78 % | 20 % drop -> +83.41 %
+
 ARRAYS CAN CARRY IT: the smallest detectable drop at a realistic neutrophil share is 1 %, within the 2-7 % range the tissue cancers show
 
 Read with the TRUE fractions, which is the best case: with estimated composition the reading can only do worse.

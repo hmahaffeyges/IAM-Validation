@@ -77,21 +77,25 @@ for f_neu in (0.40, 0.55, 0.70):
         frac = float(np.mean(np.array(H1) > thr)); med = float(np.median(H1))
         hit = frac >= 0.95
         if hit and smallest is None: smallest = d
-        rows.append((f_neu, d, med, frac, hit))
+        rows.append((f_neu, d, med, float(np.median(H0)), med / float(np.median(H0)) - 1, frac, hit))
         L.append(f"neutrophils {f_neu:.2f} | planted drop {d * 100:4.0f} % | median reading {med:.4f} "
                  f"(healthy median {np.median(H0):.4f}, 95th {thr:.4f}) | above the healthy 95th: {frac * 100:5.1f} % "
                  f"{'DETECTED' if hit else ''}")
     L.append(f"  -> smallest detected at neutrophils {f_neu:.2f}: {'none of those tested' if smallest is None else f'{smallest * 100:.0f} %'}")
     L.append("")
-real = [r for r in rows if r[0] >= 0.55 and r[4]]
+real = [r for r in rows if r[0] >= 0.55 and r[6]]
 sm = min((r[1] for r in real), default=None)
 verdict = ("ARRAYS CAN CARRY IT: the smallest detectable drop at a realistic neutrophil share is "
            f"{sm * 100:.0f} %, within the 2-7 % range the tissue cancers show" if sm is not None and sm <= 0.02 else
            "ARRAYS CANNOT CARRY A TISSUE-SIZED SIGNAL IN WHOLE BLOOD: the smallest detectable drop at a realistic neutrophil share is "
            + (f"{sm * 100:.0f} %" if sm is not None else "larger than 20 %") + ", above the 2 % the tissue cancers show. Blood needs "
              "sequencing, where molecules stay intact and can be assigned to a cell type.")
-L += [verdict, "", "Read with the TRUE fractions, which is the best case: with estimated composition the reading can only do worse."]
-pd.DataFrame(rows, columns=["f_neutrophils", "planted_drop", "median_reading", "frac_above_healthy_95th", "detected"]).to_csv(
+L += ["", "LEVERAGE, computed (median planted reading / median healthy reading - 1), so the note's table has a source:"]
+for f_neu in (0.40, 0.55, 0.70):
+    L.append(f"  neutrophils {f_neu:.2f}: " + " | ".join(f"{r[1] * 100:.0f} % drop -> {r[4] * 100:+.2f} %"
+             for r in rows if r[0] == f_neu))
+L += ["", verdict, "", "Read with the TRUE fractions, which is the best case: with estimated composition the reading can only do worse."]
+pd.DataFrame(rows, columns=["f_neutrophils", "planted_drop", "median_reading", "healthy_median", "leverage", "frac_above_healthy_95th", "detected"]).to_csv(
     os.path.join(OUT, "blood_sensitivity_01_output.csv"), index=False)
 open(os.path.join(OUT, "blood_sensitivity_01_summary.txt"), "w").write("\n".join(L) + "\n")
 print("\n".join(L))

@@ -16,11 +16,13 @@ neutrophil component ONLY, read by the chain's own function with the TRUE fracti
 
 | neutrophil share | planted 1 % drop moves the reading by | planted 2 % |
 |---|---|---|
-| 0.40 | +2.8 % | +5.3 % |
-| 0.55 | +3.8 % | +7.5 % |
-| 0.70 | +4.8 % | +9.7 % |
+| 0.40 | +2.64 % | +5.15 % |
+| 0.55 | +3.79 % | +7.45 % |
+| 0.70 | +5.13 % | +10.10 % |
 
-**Dilution costs much less than expected.** A 1 % change confined to a 40 % component still moves the whole-blood reading by 2.8 %,
+(Computed in `blood_sensitivity_01_output.csv`, column `leverage` = median planted reading / median healthy reading - 1. An earlier version of this table was typed by hand from the printed medians and was wrong by 0.2 to 0.4 points at the 0.40 and 0.70 shares; the table is now generated from that column.)
+
+**Dilution costs much less than expected.** A 1 % change confined to a 40 % component still moves the whole-blood reading by 2.6 %,
 because the predicted-mixture denominator absorbs the mixing and what remains is close to the component's own change. The reading has
 leverage.
 
