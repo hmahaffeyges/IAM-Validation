@@ -53,7 +53,7 @@ the order the methyl marks hold, not the strand they sit on.
 That order already lives on a sphere, and this is established mathematics rather than analogy. For a site with methylation level
 $\beta$, the pair $(\sqrt{\beta},\sqrt{1-\beta})$ lies on a circle of radius one for every $\beta$, because $\beta+(1-\beta)=1$. The
 natural distance between two states of that site, how distinguishable they are as information, is the angle between them on that
-circle: the Fisher--Rao distance of information geometry. Applied to every site at once, the same square-root step places a whole
+circle: the Fisher--Rao distance of information geometry~\cite{Amari2016}. Applied to every site at once, the same square-root step places a whole
 methylome on a sphere of very many dimensions, and the entropy $H(\beta)$ that both instruments read is defined on that same space.
 \derived
 
@@ -67,6 +67,13 @@ acoustic peaks come from sound waves in the young universe, and nothing says a m
 A third sphere is physical: the genome is folded inside a nucleus that is roughly a ball. Stretches pressed against the nuclear wall are
 mostly switched off, stretches near the center mostly active, and many cancers lose their largest blocks of methylation at the wall.
 That curvature is the cell's own and can be measured today from where the DNA actually sits.
+
+This geometry is not new to methylation, and the book owes its readers the neighbors. Sanchez and Mackenzie measure the
+difference between two methylation levels with the Hellinger divergence, which is the chord between the two points on this same
+square-root circle, and they frame the methylome's background fluctuations in terms of the energy dissipated per bit, which is close to
+this book's own use of Landauer's cost~\cite{SanchezMackenzie2016,SanchezMackenzie2023}. Jenkinson, Feinberg and colleagues read the
+methylome as a potential-energy landscape and measure its entropy along the genome~\cite{Jenkinson2017}. What this design adds, if it
+survives its tests, is the placement of sites by how they behave together, and the reading of that map with the sky's scale statistics.
 
 None of this is a reading yet. The construction will be written down and committed first: which sites, how behavior is measured, the
 Fisher--Rao angle, how points are placed, and the statistic read from the map. It must then separate a planted group of sites held in

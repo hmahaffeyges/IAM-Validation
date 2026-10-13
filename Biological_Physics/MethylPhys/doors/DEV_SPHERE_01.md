@@ -112,3 +112,16 @@ mapping the second thing. A map drawn by paper position would be a map of the bo
 **What it would take to finish.** A built map whose construction was committed before any map was drawn, a planted test that recovers a known
 blur, and a null test on healthy cells that had no part in building it. All three are laptop work and spend no data.
 
+## Step 0, the literature check (2026-10-13, three searches; metadata only)
+
+The per-site square-root geometry is already used on methylation, so it is not ours to claim:
+- Sanchez and Mackenzie, Information Thermodynamics of Cytosine DNA Methylation, PLOS ONE 11, e0150427 (2016), and On the thermodynamics
+  of DNA methylation process, Scientific Reports 13, 8914 (2023): the Hellinger divergence between methylation levels (the chord on the
+  same circle), with background fluctuation framed as minimum energy dissipated per bit. Their R package is MethylIT. This is also close
+  prior work to the framework's Landauer framing as a whole, and the book now cites it (chapter 48).
+- Jenkinson, Pujadas, Goutsias and Feinberg, Nature Genetics 49, 719-729 (2017): methylation as a potential-energy landscape, entropy
+  read along the genome (informME).
+- Amari, Information Geometry and Its Applications (Springer, 2016): the Fisher-Rao geometry itself.
+Not found in these searches: methylation sites PLACED on a sphere by how they behave together, or methylation read with sky-map scale
+statistics. Three searches is not a review; the check continues before step 1, and any paper found later is added here.
+
