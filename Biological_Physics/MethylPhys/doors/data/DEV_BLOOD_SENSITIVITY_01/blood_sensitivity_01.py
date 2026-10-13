@@ -1,5 +1,12 @@
-"""DEV-BLOOD-SENSITIVITY-01 (written 2026-10-13, before it was run): how small a fidelity drop in the neutrophil component can the
-chain's whole-blood Met-A see, when neutrophils are only part of the sample?
+"""DEV-BLOOD-SENSITIVITY-01 v2 (written 2026-10-13, before it was run): how small a fidelity drop in the neutrophil component can the
+chain's whole-blood Met-A see, when neutrophils are only part of the sample AND healthy people differ from one another?
+
+Why v2. v1 (kept as *_v1_DILUTION_ONLY.*) gave every simulated person the SAME cell-type profiles, so the only spread among healthy
+draws was measurement noise and the healthy band came out at +-0.6 %, far tighter than real arrays. Its result still stands for the
+narrower question it actually answered: dilution alone does not destroy the signal - a 1 % drop inside a 40 % component still moves
+the reading by 2.7 %, because the mixture-predicted denominator absorbs the mixing. v2 adds the spread that sets a real detection
+limit: each person gets their own profile for every cell type, drawn from the atlas posterior's own uncertainty (mean, sd), while the
+reading is given the POPULATION MEAN profiles - which is the situation in life.
 
 The question. An array averages all the cells in a tube together, so a mixture's disorder already contains the mixing itself. The
 chain answers that by dividing by the disorder the estimated mixture predicts (dev_comp_methods.met_a: mean H(beta) / mean H(e),
@@ -9,7 +16,8 @@ Design, fixed before running:
   - Profiles: the atlas posteriors for the six cell types of whole blood (neutrophils, monocytes, CD4 T, CD8 T, B, NK).
   - Sites: the neutrophil sites, chosen by a rule written before any planting - neutrophil mean >= 0.90 or <= 0.10 with sd <= 0.05,
     the 3,000 with the smallest sd. Site choice never sees a planted array.
-  - A person: each cell type's component drawn as its profile plus noise (SD 0.02); the tube is the fraction-weighted sum.
+  - A person: each cell type has its OWN profile for that person, drawn from the atlas posterior (mean, sd) once per person, plus
+    measurement noise (SD 0.02); the tube is the fraction-weighted sum. The reading is given the population means, not the person's.
     Fractions drawn around healthy whole blood, with the neutrophil share set per condition.
   - The plant: pattern LOSS in the neutrophil component only - its beta moved toward 0.5 by a factor d (d = 0.01 to 0.20).
     Nothing else changes, so the only difference between healthy and planted draws is the neutrophils' own fidelity.
@@ -39,7 +47,8 @@ for c in CELLS: cpg = cpg.intersection(P[c].index)
 N = P["neutrophils"].loc[cpg]
 pick = N[((N["mean"] >= 0.90) | (N["mean"] <= 0.10)) & (N["sd"] <= 0.05)].nsmallest(3000, "sd")
 ns = list(pick.index)
-MU = {c: P[c].loc[ns, "mean"] for c in CELLS}            # profiles the reading is given
+MU = {c: P[c].loc[ns, "mean"] for c in CELLS}            # profiles the reading is given (population means)
+SD = {c: P[c].loc[ns, "sd"] for c in CELLS}              # the atlas's own uncertainty: how much people differ at each site
 rg = np.random.default_rng(20261013)
 OTHER = dict(monocytes=(0.05, 0.10), cd4_t_cells=(0.10, 0.18), cd8_t_cells=(0.05, 0.10), b_cells=(0.03, 0.07), nk_cells=(0.03, 0.08))
 
@@ -48,12 +57,13 @@ def person(f_neu, d):
     s = sum(f.values()); f = {c: v * (1 - f_neu) / s for c, v in f.items()}; f["neutrophils"] = f_neu
     beta = pd.Series(0.0, index=ns)
     for c in CELLS:
-        x = np.clip(MU[c].values + rg.normal(0, 0.02, len(ns)), 1e-4, 1 - 1e-4)
+        own = np.clip(MU[c].values + rg.normal(0, 1, len(ns)) * SD[c].values, 1e-4, 1 - 1e-4)   # this person's own profile
+        x = np.clip(own + rg.normal(0, 0.02, len(ns)), 1e-4, 1 - 1e-4)
         if c == "neutrophils" and d > 0: x = 0.5 + (x - 0.5) * (1 - d)       # pattern loss in neutrophils only
         beta += f[c] * x
     return beta, f
 
-L = [f"DEV-BLOOD-SENSITIVITY-01: smallest neutrophil fidelity drop the chain's whole-blood Met-A can see ({len(ns)} neutrophil sites)", ""]
+L = [f"DEV-BLOOD-SENSITIVITY-01 v2 (people differ): smallest neutrophil fidelity drop the chain's whole-blood Met-A can see ({len(ns)} neutrophil sites)", ""]
 rows = []
 for f_neu in (0.40, 0.55, 0.70):
     H0 = []
