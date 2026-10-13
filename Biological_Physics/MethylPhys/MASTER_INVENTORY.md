@@ -33,13 +33,15 @@ Candidates found by search are metadata only and their counts are provisional un
 | 15 | Lung, once the atlas can describe lung's support cells: redesign, and the tumors that are still unread | B12 |  | laptop |  | queued |
 | 16 | The detection limit by dilution, then cancer DNA in blood, starting with liver | B8, B6, B13 |  | box |  | queued |
 | 17 | Blood cancers, one at a time, where the diseased cells are the blood cells themselves | B7 |  | laptop |  | queued |
-| 18 | Whole blood back in scope: the composition bar, using a set with measured cell counts | M1 |  | laptop |  | queued |
+| 18 | measure the TARED spread on a healthy set with several arrays per slide - that laboratory ran one array per slide, so the tare could not be formed and 6.36 % may be an overestimate | M1 |  | free |  | yes |
 | 19 | IAM-A beyond one cell type: healthy white cells from another laboratory, the per-territory reading as a sealed predictio | A3, A5, A7 |  | box |  | ready to write (laptop work first, then one box run for the stage) |
 | 20 | Replication: one Met-A function inside the chain that every scorer calls, a chain report for each result, a replication  | R1, R2, R3, R4 |  | laptop |  | queued |
 | 21 | A second energy-supply lever, so the law does not rest on one mouse experiment: a diet or enzyme experiment with enough  | A4, C1, C10, C11 |  | laptop |  | queued |
 | 22 | Instrument backlog: the newer array revision in intake, the blocked 450K disease readings, and the reproducibility tier  | C5, C7, C8 |  | laptop |  | queued |
 | 23 | Two gauge questions: is there a line cells cross rather than a gradual slide, and what reads better than healthy, which  | G2, G3 |  | laptop |  | queued |
 | 24 | Records hygiene: rewrite the guides that still describe the old chain, the spelling pass through the book, and the publi | R5, R6, R7 |  | laptop |  | queued |
+| 25 | run the three tissue scorers with ceiling_flag on the calibrated arrays already on disk | C1 | audits three sealed results | free |  | yes |
+| 26 | write v2 of the territory contrast with its three bars first | T2 | a self-taring reading that attacks the healthy-spread problem | free |  | yes |
 
 ## Sets tested (from each test note's Test data line)
 

@@ -223,16 +223,16 @@
    "record": "Biological_Physics/MethylPhys/MASTER_INVENTORY.md"
   },
   {
-   "job": "Whole blood back in scope: the composition bar, using a set with measured cell counts",
+   "job": "measure the TARED spread on a healthy set with several arrays per slide - that laboratory ran one array per slide, so the tare could not be formed and 6.36 % may be an overestimate",
    "todo": "M1",
    "impact": "",
-   "cost": "laptop",
+   "cost": "free",
    "accessions": [],
-   "ready": "queued",
+   "ready": "yes",
    "plain": "Whole blood back in scope: the composition bar, using a set with measured cell counts.",
    "needs": "the laptop",
    "estimate": "1-2 weeks",
-   "stands": "the newborn caveat is being assessed",
+   "stands": "ANSWERED 2026-10-13 on real healthy arrays: healthy people differ by 6.36 % and the chain's own leverage is 2.09 % per 1 % loss, so per-person needs ~7.2 % (tissue cancers show 2-7 %). Group comparisons separate at 0.86 % with 50 people.",
    "record": "Biological_Physics/MethylPhys/doors/DEV_COMPOSITION_TRUTH_04.md"
   },
   {
@@ -312,6 +312,34 @@
    "estimate": "1 week",
    "stands": "queued",
    "record": "Biological_Physics/MethylPhys/STATUS.md"
+  },
+  {
+   "todo": "C1",
+   "plain": "re-read the three sealed tissue sets with the entropy-ceiling flag recorded, now that the composition-aware path records it - an audit that cannot change their sealed verdicts",
+   "job": "run the three tissue scorers with ceiling_flag on the calibrated arrays already on disk",
+   "cost": "free",
+   "ready": "yes",
+   "stands": "DEV-CEILING-AUDIT-01: 7,681 readings with the flag, none past the ceiling; the tissue path was not recording it",
+   "needs": "the laptop",
+   "estimate": "1 session",
+   "impact": "audits three sealed results",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_CEILING_AUDIT_01.md",
+   "accessions": [],
+   "date": "2026-10-13"
+  },
+  {
+   "todo": "T2",
+   "plain": "DEV-TERRITORY-02: report both the difference and the normalized difference, measure the beta-ceiling effect from fully held sites, leave composition to the mixture-predicted denominator",
+   "job": "write v2 of the territory contrast with its three bars first",
+   "cost": "free",
+   "ready": "yes",
+   "stands": "v1: the parameter-free prediction held to 1 % (4.158 predicted, 4.12-4.20 measured) but the nuisance bar failed",
+   "needs": "the laptop",
+   "estimate": "1-2 sessions",
+   "impact": "a self-taring reading that attacks the healthy-spread problem",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORY_01.md",
+   "accessions": [],
+   "date": "2026-10-13"
   }
  ],
  "help_wanted": [
@@ -343,7 +371,11 @@
   },
   {
    "plain": "The blood test itself: cell-free DNA in plasma, once the atlas and the composition step are commissioned. Note (2026-10-13): this is an ARRAY job, not a sequencing one. The limit is the specimen, not the instrument - the array meter is commissioned on sorted single cell types, and most public blood-cancer arrays are whole blood or marrow, where the cell mixture is itself abnormal and the composition guard withholds the reading. What it needs is sorted cells from patients.",
-   "match": "Track B"
+   "match": "Track B",
+   "stands": "ANSWERED 2026-10-13 on real healthy arrays: healthy people differ by 6.36 % and the chain's own leverage is 2.09 % per 1 % loss, so per-person needs ~7.2 % (tissue cancers show 2-7 %). Group comparisons separate at 0.86 % with 50 people.",
+   "job": "measure the TARED spread on a healthy set with several arrays per slide - that laboratory ran one array per slide, so the tare could not be formed and 6.36 % may be an overestimate",
+   "cost": "free",
+   "ready": "yes"
   },
   {
    "plain": "Tissue biopsies read against the atlas.",
