@@ -35,42 +35,45 @@ def reference(X, var, rng, k=500):
     return np.array([C.concentration(X, rng.choice(var, M, replace=False)) for _ in range(k)])
 def density(X):
     cnt, _, _ = C.maps(X, np.zeros((len(X), 1))); d = cnt / cnt.mean() - 1.0; return d
-L, rows = [], []
-rng = np.random.default_rng(20261013)
-# planted, strong
-B, cls, var, grp = methylome(1, plant_sd=0.05); U = C.info_vectors(B); X, keep = C.globe(U)
-R = C.concentration(X, grp); ref = reference(X, var, rng); q99 = float(np.quantile(ref, 0.99))
-P1 = R > q99
-L.append(f"P1 planted group R {R:.3f} | 99th percentile of 500 random groups {q99:.3f} -> {'MET' if P1 else 'NOT MET'}")
-rows.append(dict(case="planted sd 0.05", R=R, q99=q99))
-# P3
-a = X[cls == 1].mean(0); b = X[cls == 0].mean(0)
-ang = float(np.degrees(np.arccos(np.clip(a @ b / np.linalg.norm(a) / np.linalg.norm(b), -1, 1)))); P3 = ang >= 90
-L.append(f"P3 angle between island-like and held-methylated mean directions {ang:.1f} deg -> {'MET' if P3 else 'NOT MET'}")
-# reported: variance kept, rank agreement
-i, j = rng.integers(0, N, 5000), rng.integers(0, N, 5000)
-fr = C.fr_angle(U, i, j); gl = np.arccos(np.clip(np.einsum("ij,ij->i", X[i], X[j]), -1, 1)); rho = float(spearmanr(fr, gl).correlation)
-L.append(f"reported: the globe keeps {keep:.1%} of the full-space variance; rank agreement full-space vs globe angle rho {rho:.3f} (5,000 pairs)")
-# reported: weak plant
-Bw, _, varw, grpw = methylome(1, plant_sd=0.15); Xw, _ = C.globe(C.info_vectors(Bw)); Rw = C.concentration(Xw, grpw); qw = float(np.quantile(reference(Xw, varw, rng), 0.99))
-L.append(f"reported: weaker plant (sd 0.15) R {Rw:.3f} | 99th percentile {qw:.3f} -> {'found' if Rw > qw else 'not found'}")
-rows.append(dict(case="planted sd 0.15", R=Rw, q99=qw))
-# P2: 50 null maps
-hits = 0
-for k in range(50):
-    Bn, _, varn, grpn = methylome(1000 + k, plant_sd=None); Xn, _ = C.globe(C.info_vectors(Bn))
-    Rn = C.concentration(Xn, grpn); qn = float(np.quantile(reference(Xn, varn, rng, 200), 0.99)); hits += Rn > qn
-    rows.append(dict(case=f"null {k}", R=Rn, q99=qn))
-P2 = hits <= 3
-L.append(f"P2 nothing planted: the same 1,200 sites exceed their map's 99th percentile in {hits} of 50 maps (bar: at most 3) -> {'MET' if P2 else 'NOT MET'}")
-# reported: the chain's power spectrum of the site-density map, planted vs not
-Bn, _, _, _ = methylome(1000, plant_sd=None); Xn, _ = C.globe(C.info_vectors(Bn))
-bp = {}
-for name, XX in (("planted", X), ("not planted", Xn)):
-    cl, fsky, _ = C.SS.masked_spectrum(density(XX)); bp[name] = C.SS.bandpowers(cl)
-L.append("reported: band power of the site-density map, planted / not planted, by band " +
-         ", ".join(f"l {a}-{b}: {p / q:.2f}" for (a, b), p, q in zip(C.SS.BANDS, bp["planted"], bp["not planted"])))
-ok = P1 and P2 and P3
-L.append("PLANTED TEST " + ("PASSED: the construction finds a planted group of sites held in order together, finds nothing when nothing is planted, and separates the two big classes" if ok else "FAILED"))
-pd.DataFrame(rows).to_csv(os.path.join(HERE, "planted_sphere_01_output.csv"), index=False)
-open(os.path.join(HERE, "planted_sphere_01_summary.txt"), "w").write("\n".join(L) + "\n"); print("\n".join(L))
+def main():
+    L, rows = [], []
+    rng = np.random.default_rng(20261013)
+    # planted, strong
+    B, cls, var, grp = methylome(1, plant_sd=0.05); U = C.info_vectors(B); X, keep = C.globe(U)
+    R = C.concentration(X, grp); ref = reference(X, var, rng); q99 = float(np.quantile(ref, 0.99))
+    P1 = R > q99
+    L.append(f"P1 planted group R {R:.3f} | 99th percentile of 500 random groups {q99:.3f} -> {'MET' if P1 else 'NOT MET'}")
+    rows.append(dict(case="planted sd 0.05", R=R, q99=q99))
+    # P3
+    a = X[cls == 1].mean(0); b = X[cls == 0].mean(0)
+    ang = float(np.degrees(np.arccos(np.clip(a @ b / np.linalg.norm(a) / np.linalg.norm(b), -1, 1)))); P3 = ang >= 90
+    L.append(f"P3 angle between island-like and held-methylated mean directions {ang:.1f} deg -> {'MET' if P3 else 'NOT MET'}")
+    # reported: variance kept, rank agreement
+    i, j = rng.integers(0, N, 5000), rng.integers(0, N, 5000)
+    fr = C.fr_angle(U, i, j); gl = np.arccos(np.clip(np.einsum("ij,ij->i", X[i], X[j]), -1, 1)); rho = float(spearmanr(fr, gl).correlation)
+    L.append(f"reported: the globe keeps {keep:.1%} of the full-space variance; rank agreement full-space vs globe angle rho {rho:.3f} (5,000 pairs)")
+    # reported: weak plant
+    Bw, _, varw, grpw = methylome(1, plant_sd=0.15); Xw, _ = C.globe(C.info_vectors(Bw)); Rw = C.concentration(Xw, grpw); qw = float(np.quantile(reference(Xw, varw, rng), 0.99))
+    L.append(f"reported: weaker plant (sd 0.15) R {Rw:.3f} | 99th percentile {qw:.3f} -> {'found' if Rw > qw else 'not found'}")
+    rows.append(dict(case="planted sd 0.15", R=Rw, q99=qw))
+    # P2: 50 null maps
+    hits = 0
+    for k in range(50):
+        Bn, _, varn, grpn = methylome(1000 + k, plant_sd=None); Xn, _ = C.globe(C.info_vectors(Bn))
+        Rn = C.concentration(Xn, grpn); qn = float(np.quantile(reference(Xn, varn, rng, 200), 0.99)); hits += Rn > qn
+        rows.append(dict(case=f"null {k}", R=Rn, q99=qn))
+    P2 = hits <= 3
+    L.append(f"P2 nothing planted: the same 1,200 sites exceed their map's 99th percentile in {hits} of 50 maps (bar: at most 3) -> {'MET' if P2 else 'NOT MET'}")
+    # reported: the chain's power spectrum of the site-density map, planted vs not
+    Bn, _, _, _ = methylome(1000, plant_sd=None); Xn, _ = C.globe(C.info_vectors(Bn))
+    bp = {}
+    for name, XX in (("planted", X), ("not planted", Xn)):
+        cl, fsky, _ = C.SS.masked_spectrum(density(XX)); bp[name] = C.SS.bandpowers(cl)
+    L.append("reported: band power of the site-density map, planted / not planted, by band " +
+             ", ".join(f"l {a}-{b}: {p / q:.2f}" for (a, b), p, q in zip(C.SS.BANDS, bp["planted"], bp["not planted"])))
+    ok = P1 and P2 and P3
+    L.append("PLANTED TEST " + ("PASSED: the construction finds a planted group of sites held in order together, finds nothing when nothing is planted, and separates the two big classes" if ok else "FAILED"))
+    pd.DataFrame(rows).to_csv(os.path.join(HERE, "planted_sphere_01_output.csv"), index=False)
+    open(os.path.join(HERE, "planted_sphere_01_summary.txt"), "w").write("\n".join(L) + "\n"); print("\n".join(L))
+if __name__ == "__main__":
+    main()
