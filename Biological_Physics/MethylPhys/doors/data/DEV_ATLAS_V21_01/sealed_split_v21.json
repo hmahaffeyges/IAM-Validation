@@ -1,0 +1,29 @@
+{
+ "sealed": "2026-10-13",
+ "reason": "Split sealed before any v2.1 array is downloaded (author, 2026-10-13: everything sealed before, fully replicable).",
+ "commit_at_seal": "8644dd8678c8d0dfe1675d08db4f12a87b89b5ac",
+ "sha256": {
+  "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_build_samples.csv": "cc6399b826eb76997c041f0242a39bb548ae9b00c21bf1a1b973f555352f2da2",
+  "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/commissioning_sets_v21.csv": "3f680aa4b383deeaa62817c95f4d1325d527cb5c6f0b401303d951bad6c238cc",
+  "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_roster.csv": "80c9a0eb1788c4e8f6853c9c988e21180d46cde06e77254829460553d164d2d7",
+  "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/same_source_v21.json": "8a1c1503d8e25feb3e964eba0ab5ee7706e0531a8260d8b6ad949d186c006a47"
+ },
+ "counts": {
+  "build_arrays": {
+   "IN": 365,
+   "CONDITIONAL": 107,
+   "OUT": 89
+  },
+  "commissioning_rows": 80,
+  "commissioning_series": 45
+ },
+ "same_series_split_by_donor": {
+  "series": [
+   "E-MTAB-4957",
+   "GSE224807",
+   "GSE306226"
+  ],
+  "rule": "these series build from some arrays and hold out others; no sample is on both sides (checked above). Donor IDs are not in their metadata, so donor separation is checked at Stage 1 from the SNP probes: a held-out array whose genotype matches any build array is excluded from testing, by rule. Their held-out rows test new donors in the same laboratory and never count as an independent laboratory (commissioning_sets_v21.csv, counts_as_independent_laboratory)."
+ },
+ "rule": "Build arrays may be downloaded and calibrated; held-out and truth-set arrays are not scored until the atlas they judge is built and its commissioning bars are sealed (L15)."
+}

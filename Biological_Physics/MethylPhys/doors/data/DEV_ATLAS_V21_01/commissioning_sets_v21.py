@@ -20,7 +20,12 @@ def need(r):
     return "download and Stage 1 after the split is sealed; then ready"
 H["needs"] = H.apply(need, axis=1)
 H["ready_after_build"] = H.needs.str.startswith("download")
-cols = ["cell_type", "series", "role", "use", "arrays_or_libraries", "platform", "laboratory_independence", "prior_reading", "spent_status_now", "raw_idat", "sequencing", "needs", "ready_after_build"]
+# held-out rows from a series that also builds (split by donor inside one laboratory): they test new donors, never a new laboratory
+_Bs = os.path.join(HERE, "atlas_v21_build_samples.csv")
+_build_series = set(pd.read_csv(_Bs).query("state != 'OUT'").series) if os.path.exists(_Bs) else set()
+H["same_series_as_build"] = H.series.isin(_build_series)
+H["counts_as_independent_laboratory"] = ~H.same_series_as_build
+cols = ["cell_type", "series", "role", "use", "arrays_or_libraries", "platform", "laboratory_independence", "prior_reading", "spent_status_now", "raw_idat", "sequencing", "needs", "ready_after_build", "same_series_as_build", "counts_as_independent_laboratory"]
 H[cols].to_csv(os.path.join(HERE, "commissioning_sets_v21.csv"), index=False)
-print(f"commissioning sets: {len(H)} rows, {H.series.nunique()} series | ready after build {int(H.ready_after_build.sum())} | sequencing {int(H.sequencing.sum())} | spent {int(H.spent.sum())}")
+print(f"commissioning sets: {len(H)} rows, {H.series.nunique()} series | same series as a builder {int(H.same_series_as_build.sum())} rows | ready after build {int(H.ready_after_build.sum())} | sequencing {int(H.sequencing.sum())} | spent {int(H.spent.sum())}")
 sys.exit(1 if H.spent.any() else 0)
