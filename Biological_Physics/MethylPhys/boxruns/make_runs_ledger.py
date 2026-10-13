@@ -6,6 +6,7 @@ Upcoming runs are listed with their estimate before they start. Usage: python3 m
 import os, re, boto3, pandas as pd
 B = "methylphys-data-945451304272-us-west-2-an"; HERE = os.path.dirname(os.path.abspath(__file__)); s3 = boto3.client("s3")
 RUNS_PURPOSE = {   # prefix -> (run, purpose, record)
+ "results/BOXRUN10_EPIQC/cause01": ("Box Run 10, cause test", "IAM-A: why three EMSeq LAB02 libraries read low (three parts of each run)", "doors/DEV_IAMA_CAUSE_01.md"),
  "results/WORKBOX01": ("Work machine 01", "neuron reference (10 Loyfer files read whole) and colon replication normals (152 arrays, Stage 1); small spot machine, unattended", "boxruns/workbox/jobs_01.sh"),
  "results/BOXRUN1": ("Box Run 1", "array jobs A-E: commissioning check and blood-set readings (arrays only)", "boxruns/run1/JOBS.md"),
  "results/BOXRUN3": ("Box Run 3", "first tests on the commissioned Met-A (neutrophils, EPIC v1)", "boxruns/run3/JOBS.md"),
@@ -22,6 +23,7 @@ RUNS_PURPOSE = {   # prefix -> (run, purpose, record)
 }
 UPCOMING = [   # (run tag used by the launcher, run, purpose, machine, estimate); ledger_guard.require(tag) refuses any launch not listed here
     ("BOXRUN10_stageB", "Box Run 10, Stage B (Stage A met C1)", "IAM-A commissioning on identical DNA: the other 71 libraries, 12.2M read pairs each", "spot, 128 cores: m7a.32xlarge until AWS reclaimed it at 25 of 71 libraries (2026-10-12 02:02 Pacific); then c6a.32xlarge spot, reclaimed three times (25, 50 and 50 of 71); the last 21 on an on-demand c6a.32xlarge (author decision, about $23)", "about $50 in total"),
+    ("BOXRUN10_cause01", "Box Run 10, cause test (DEV-IAMA-CAUSE-01)", "why three EMSeq LAB02 libraries read low: 5 runs read from 3 parts each, 12.2M read pairs per part", "spot c6a.32xlarge, 128 cores; shuts down at the end", "about 3 hours, $5-10"),
     ("WORKBOX01", "Work machine 01", "neuron reference (10 Loyfer files) and colon replication: 152 normal arrays calibrated, then synthetic tests", "spot r7a.2xlarge, 8 cores, 64 GB", "about 5 hours, $1-2"),
 ]
 rows = []

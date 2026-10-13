@@ -30,14 +30,16 @@ Work done on the laptop is free and is not listed.
 | Box Run 10 | IAM-A commissioning on identical DNA (EpiQC): format check, Stage A | `BOXRUN10_EPIQC/pilot/session.log` | 2026-10-11 22:21 | 0.2 | 128 | DONE | pending billing access | [doors/DEV_IAMA_COMMISSION_01.md](doors/DEV_IAMA_COMMISSION_01.md) |
 | Box Run 10 | IAM-A commissioning on identical DNA (EpiQC): format check, Stage A | `BOXRUN10_EPIQC/stageA/session.log` | 2026-10-11 22:31 | 1.6 | 128 | DONE | pending billing access | [doors/DEV_IAMA_COMMISSION_01.md](doors/DEV_IAMA_COMMISSION_01.md) |
 | Work machine 01 | neuron reference (10 Loyfer files read whole) and colon replication normals (152 arrays, Stage 1); small spot machine, unattended | `WORKBOX01/session.log` | 2026-10-12 04:09 | 5.5 | 8 | 10 rows | pending billing access | [boxruns/workbox/jobs_01.sh](boxruns/workbox/jobs_01.sh) |
+| Box Run 10 | IAM-A commissioning on identical DNA (EpiQC): format check, Stage A | `BOXRUN10_EPIQC/stageB/session.log` | 2026-10-12 18:09 | 6.1 | 128 | DONE | pending billing access | [doors/DEV_IAMA_COMMISSION_01.md](doors/DEV_IAMA_COMMISSION_01.md) |
 
-Total job hours: 70.2.
+Total job hours: 76.3.
 
 ## Upcoming
 
 | run tag | run | purpose | machine | estimate |
 |---|---|---|---|---|
 | `BOXRUN10_stageB` | Box Run 10, Stage B (Stage A met C1) | IAM-A commissioning on identical DNA: the other 71 libraries, 12.2M read pairs each | spot, 128 cores: m7a.32xlarge until AWS reclaimed it at 25 of 71 libraries (2026-10-12 02:02 Pacific); then c6a.32xlarge spot, reclaimed three times (25, 50 and 50 of 71); the last 21 on an on-demand c6a.32xlarge (author decision, about $23) | about $50 in total |
+| `BOXRUN10_cause01` | Box Run 10, cause test (DEV-IAMA-CAUSE-01) | why three EMSeq LAB02 libraries read low: 5 runs read from 3 parts each, 12.2M read pairs per part | spot c6a.32xlarge, 128 cores; shuts down at the end | about 3 hours, $5-10 |
 | `WORKBOX01` | Work machine 01 | neuron reference (10 Loyfer files) and colon replication: 152 normal arrays calibrated, then synthetic tests | spot r7a.2xlarge, 8 cores, 64 GB | about 5 hours, $1-2 |
 
 ## Actual AWS charges (from AWS billing)
@@ -45,8 +47,8 @@ Total job hours: 70.2.
 | month | total | largest items |
 |---|---|---|
 | 2026-09 | $12.28 | SpotUsage:c7a.8xlarge $6.52; SpotUsage:m7a.32xlarge $2.94; EBS:VolumeUsage.gp3 $1.52; TimedStorage-ByteHrs $0.39 |
-| 2026-10 | $916.97 | BoxUsage:m7a.32xlarge $700.38; SpotUsage:m7a.32xlarge $106.60; BoxUsage:m7a.16xlarge $47.52; EBS:VolumeUsage.gp3 $14.55 |
+| 2026-10 | $942.96 | BoxUsage:m7a.32xlarge $700.38; SpotUsage:m7a.32xlarge $123.38; BoxUsage:m7a.16xlarge $47.52; EBS:VolumeUsage.gp3 $15.35 |
 
-Daily: 09-28 $7, 09-29 $4, 10-01 $151, 10-02 $204, 10-03 $181, 10-04 $74, 10-05 $8, 10-06 $3, 10-07 $3, 10-08 $5, 10-09 $116, 10-10 $77, 10-11 $94, 10-12 $1
+Daily: 09-28 $7, 09-29 $4, 10-01 $152, 10-02 $204, 10-03 $181, 10-04 $74, 10-05 $8, 10-06 $3, 10-07 $3, 10-08 $5, 10-09 $116, 10-10 $77, 10-11 $94, 10-12 $26
 
 BoxUsage = on-demand machine hours; SpotUsage = spot machine hours. Runs before 2026-10-12 carry no run tag, so their cost is by day and type only.
