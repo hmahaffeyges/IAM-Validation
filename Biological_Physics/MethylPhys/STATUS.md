@@ -39,7 +39,7 @@ with the kit and the open predictions once R1 and R2 are done.
 
 | stage | what | why | next step |
 |---|---|---|---|
-| **R1** | **IAM-A, narrow scope:** sorted neutrophils, WGBS, pinned pipeline, same-run healthy reference | the physics measured on molecules, by a commissioned instrument | bars written first; repeatability and lab/kit offset on identical DNA (EpiQC sequencing, PRJNA646948); healthy neutrophils from another lab |
+| **R1** | **IAM-A, narrow scope:** sorted neutrophils, WGBS, pinned pipeline, same-run healthy reference | the physics measured on molecules, by a commissioned instrument | EpiQC identical DNA scored once 2026-10-12 ([outcome](doors/DEV_IAMA_COMMISSION_01_OUTCOME.md)): conversion, repeatability, across kits and the planted change met; across laboratories not met; commissioning held under the stopping rule while the cause is found ([DEV-IAMA-CAUSE-01](doors/DEV_IAMA_CAUSE_01.md)); healthy neutrophils from another lab still needed |
 | **R2** | **Link Met-A → IAM-A** as a sealed window on every dataset both instruments read (section 2c) | the falsifiable bridge: makes Met-A's gauge ends measured, not only derived | first window sealed on EpiQC (the same DNA on arrays and sequencing), with R1's box run |
 | **R3** | **IAM-A on a second, very different cell type** | one law, not one cell | search: read-level healthy files of another lineage from two labs |
 | **R4** | **Met-A, one cell type or tissue reading at a time** (neutrophils on EPIC commissioned 10-09) | the clinical instrument, broad | blood cells first (whole blood needs the atlas commissioned as the composition step, section 2b); then the tissue readings the cancer tracks need |
@@ -59,8 +59,8 @@ fixes Met-A's floor and ceiling (copy error, holding energy); the R2 link test t
 |---|---|---|
 | **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)); detection limit 2 % (isolated); whole blood development | testing (Box Run 3 under way) |
 | Met-A C-score | development; blocks of 10 (band 0.877-1.152); one-sided reading and repeat bar tied to detection (author decision) | test (a) new laboratories ≥ 95 % not above 1.152: GSE315366 34/35 met, more laboratories to read; test (b) new same-person replicates |
-| IAM-A, neutrophils | development; whole-file P v2; Q0 intake; same-run tare wired | the tare tested on independent people: cross-cell test (DEV-IAMA-XCELL-01, session 3 running); BLUEPRINT 6 neutrophils (access request drafted for the author) |
-| Composition (atlas v2) | development; bars written ([DEV-ATLAS-COMMISSION-01](doors/DEV_ATLAS_COMMISSION_01.md)) | independent truth sets |
+| IAM-A, neutrophils | development; whole-file P v2; Q0 intake; same-run tare wired; EpiQC commissioning scored, held (R1) | the tare tested on independent people: cross-cell test (DEV-IAMA-XCELL-01, session 3 running); BLUEPRINT 6 neutrophils (access request drafted for the author) |
+| Composition (atlas v2) | development; bars written ([DEV-ATLAS-COMMISSION-01](doors/DEV_ATLAS_COMMISSION_01.md)); atlas v2 public, DOI 10.5281/zenodo.23325865; v2.1 roster and split fixed ([DEV-ATLAS-V21-01](doors/DEV_ATLAS_V21_01.md)) | culture check, then the v2.1 build; independent truth sets |
 
 **Testing on commissioned Met-A ([Box Run 3](boxruns/run3/JOBS.md)).** Clonal haematopoiesis (GSE315366): new laboratory 34/35 Normal;
 carriers not separated (p = 0.41; clones likely below the 5 % detection limit, stated before reading). Leukaemia serial bloods
