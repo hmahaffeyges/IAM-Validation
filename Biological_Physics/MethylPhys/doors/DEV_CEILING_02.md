@@ -65,6 +65,37 @@ cancer moved the same direction and none reached the ceiling, but they stopped i
 gap. The remaining bracket is pure tumor cells read molecule by molecule - the sequenced prostate and breast cancer lines - where no
 correction is needed. If those also land in different places, the distance is cancer-specific and the record says so.
 
+## Step 3, on the cell gauge, run once: still NOT shared, and two things step 1 could not see
+
+`data/DEV_CEILING_02/ceiling_gauge_04.py`, committed before it ran; output `ceiling_gauge_04_summary.txt`. Every normal and every
+tumor read against the healthy reference of the cancer's cell of origin (the gauge's middle, A = 1), not against adjacent tissue;
+full surface A_full = 1 / mean H of the reference over the sealed sites.
+
+| cancer (reference) | adjacent normal, A | tumor, A | tumor f (way to the full surface) | sites at the surface: normal -> tumor |
+|---|---|---|---|---|
+| liver (hepatocyte) | 1.1459 | 1.4030 | +0.1906 [+0.1373, +0.2597] | 0.06 % -> 8.62 % |
+| breast (luminal epithelium) | 1.0060 | 1.2323 | +0.1141 [+0.0509, +0.1358] | 0.03 % -> 3.34 % |
+| colorectal (colon epithelium) | 1.0792 | 1.1950 | +0.0947 [+0.0831, +0.1071] | 0.03 % -> 1.95 % |
+| lung (alveolar epithelium) | 1.0330 | 1.1531 | +0.0729 [+0.0481, +0.0969] | 0.05 % -> 0.58 % |
+
+The full surface sits at 3.04-3.11 for all four references. By the rule written first the tumor positions are **not shared** (intervals
+do not overlap; spread 0.433), and neither is the share of sites at the surface (spread 0.970).
+
+**First thing step 1 could not see: adjacent normal tissue is already off the middle.** In colorectal, liver and lung the normal's
+interval excludes the middle - it already sits right of 1 - and only breast's normal reads at the middle. Measuring each tumor from
+its own normal therefore discarded part of each tumor's distance, by a different amount in each cancer. On the gauge the ordering of the
+four is unchanged (liver, breast, colorectal, lung).
+
+**Second: the average hides where the sites actually are.** The healthy references have no sites at the surface (at a coin flip,
+H of at least 0.9 bit), adjacent normals have about 0.03-0.06 %, and tumors have 0.6-8.6 % - tens to hundreds of times more. So while
+the average tumor has used a tenth to a fifth of its room, a few percent of its sites have already reached the full surface. That
+is the shape the author asked about: pooling over sites does hide sites that are at the surface, and the per-site count is now
+reported alongside the average for every sample.
+
+**What it does not establish.** Breast reads higher against the basal reference (tumor A 1.4815) than against the luminal one, so the
+choice of reference moves the number; for lung the two references agree at these sites. These are bulk samples, so tumor positions
+are lower bounds, and all four sets are spent.
+
 **In plain words.** We asked how far each tumor has moved from healthy toward the point where its DNA pattern would be a coin flip.
 Nearly every tumor in four cancers moved that way, none reached the end, and they used between a twentieth and an eighth of the room.
 But the four cancers did not land in the same place, so there is no single distance yet. Tumor samples are diluted by healthy cells,
@@ -76,6 +107,6 @@ corrected for it, and the sequenced cancer cell lines - pure tumor cells read mo
 corrected positions converge, the claim is written as a seal and tested once on cancers nobody has opened. If they do not, the
 distance is a property of each cancer, not a law, and the record says so.
 
-**Synthetic test:** DEV_CEILING_02/ceiling_position_02.py, DEV_CEILING_02/ceiling_position_02_summary.txt, DEV_CEILING_02/ceiling_purity_03_summary.txt
+**Synthetic test:** DEV_CEILING_02/ceiling_position_02.py, DEV_CEILING_02/ceiling_position_02_summary.txt, DEV_CEILING_02/ceiling_purity_03_summary.txt, DEV_CEILING_02/ceiling_gauge_04_summary.txt
 
 **Not a milestone:** a first descriptive look on spent data, and its own consistency rule was not met.

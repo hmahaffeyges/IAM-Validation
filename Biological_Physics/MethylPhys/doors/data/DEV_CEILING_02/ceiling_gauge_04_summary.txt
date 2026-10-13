@@ -1,0 +1,24 @@
+DEV-CEILING-02 step 3: every sample on the cell gauge (middle = the healthy reference of the cell of origin, A = 1)
+
+cancer     kind      n   A median   A_full  f median [95 % CI]         sites at surface
+breast     normal   53     1.0060    3.037  +0.0029 [-0.0032, +0.0219]     0.03% (ref 0.00%)
+                  adjacent normal includes f = 0 (at the middle)
+breast     tumor    53     1.2323    3.037  +0.1141 [+0.0509, +0.1358]     3.34% (ref 0.00%)
+           normal      against breast_basal_epithelium: A 1.2098, f +0.0791
+           tumor       against breast_basal_epithelium: A 1.4815, f +0.1816
+colorectal normal   88     1.0792    3.058  +0.0385 [+0.0335, +0.0447]     0.03% (ref 0.00%)
+                  adjacent normal EXCLUDES f = 0 (it already sits right of the middle)
+colorectal tumor    88     1.1950    3.058  +0.0947 [+0.0831, +0.1071]     1.95% (ref 0.00%)
+liver      normal   50     1.1459    3.114  +0.0690 [+0.0613, +0.0746]     0.06% (ref 0.00%)
+                  adjacent normal EXCLUDES f = 0 (it already sits right of the middle)
+liver      tumor    50     1.4030    3.114  +0.1906 [+0.1373, +0.2597]     8.62% (ref 0.00%)
+lung       normal   28     1.0330    3.100  +0.0157 [+0.0084, +0.0440]     0.05% (ref 0.00%)
+                  adjacent normal EXCLUDES f = 0 (it already sits right of the middle)
+lung       tumor    28     1.1531    3.100  +0.0729 [+0.0481, +0.0969]     0.58% (ref 0.00%)
+           normal      against lung_bronchus_epithelium: A 1.0329, f +0.0157
+           tumor       against lung_bronchus_epithelium: A 1.1531, f +0.0729
+
+tumor position f: intervals overlap no | spread 0.433 (rule: under 0.25) -> NOT shared across the four cancers at this depth
+tumor share of sites at the surface: intervals overlap no | spread 0.970 (rule: under 0.25) -> NOT shared across the four cancers at this depth
+
+Development use of spent sets; bulk tumors are diluted by normal cells, so tumor positions are lower bounds.
