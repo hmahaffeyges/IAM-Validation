@@ -160,6 +160,8 @@ scattered loss of the same size must read inside it.
 **Prior reading:** the band's own 617 arrays (19 series, including GSE110530, GSE142512, GSE225544, GSE226298, GSE247195,
 GSE250556) built and decided the band and are not tests of it; GSE315366 was read once in Box Run 3 for clonal haematopoiesis
 (a different question) and is used here only as the held-out test of the band, which it had no part in deciding.
+GSE123914 (blood over a one-year period) was read earlier and is named in this note only as a set the search CANNOT use; it is not
+read again here and no reading or seal rests on it.
 
 ## Test (a) on a second laboratory: pre-registered 2026-10-13, before any array is fetched
 
@@ -256,10 +258,6 @@ What is still open for the C-score is the repeatability bar on a set that had no
 test-retest or intraclass wording; blood with same-individual or repeated-measurement wording; and blood, longitudinal or
 two-time-point, healthy or control, on EPIC v1 and 450K. Every accession already in `CANON/data_spent.csv` (164 of them) was
 excluded automatically. Nothing was downloaded.
-
-**Prior reading:** GSE250556 and GSE123914 are named below only as sets this plan CANNOT use. Both are in
-`CANON/data_spent.csv`: GSE250556 is the set the band's repeatability estimate was built on, and GSE123914 was read earlier. Neither
-is read again here, and no reading or seal in this plan rests on either.
 
 **The obvious set is already spent.** GSE250556 ("Measuring variability in Illumina MethylationEPIC microarrays") is exactly the
 right design, and it is the set the band's repeatability estimate was built on. GSE123914 (blood over a one-year period) is also
