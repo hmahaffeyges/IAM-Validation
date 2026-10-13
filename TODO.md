@@ -149,7 +149,7 @@ Registers: `CANON/levers.json` (board in `Biological_Physics/MethylPhys/doors/DE
 | id | item | stands | next |
 |---|---|---|---|
 | H1 | **DEV-FIELD-01**: healthy donor, other breast, other quadrant, adjacent, tumor (GSE287331, EPIC v1, 446 arrays, one series) | SCORED once 2026-10-13: F1 not met (20 of 31, needed 21), F2 met; both breasts of every patient ~18 % above healthy donors (slide- and age-confounded) | find a series with healthy donors and patients on shared slides, with ages (S) |
-| H2 | **DEV-BREACH-01**: the breach line from lesions caught before cancer with known outcome | DESIGNED on GSE281307 (untreated: 40 progressed, 46 not; slides shared); SEALED 2026-10-13; GSE108123 (lung precancer) second | download, calibrate, score once (B) |
+| H2 | **DEV-BREACH-01**: the breach line from lesions caught before cancer with known outcome | DESIGNED on GSE281307 (untreated: 40 progressed, 46 not; slides shared); SCORED once 2026-10-13: B1 not met (p 0.52), no line; GSE108123 (lung precancer) second | next breach reading: surface share or clustering, sealed first (L) |
 | H3 | **DEV-ERASE-01**: the 0.74 kT gap - erasure or missed restores (TET knockout; neurons; field vs tumor) | to design | search TET-knockout sets, declare spent (S) |
 | H4 | **HYP-SATURATION-01** falsifiers 5 and 6 on the 219 tumors (vessel/metabolic signatures; recurrence vs shuffle) | written | run both (L) |
 | H5 | HYP-SATURATION-01 falsifier 7 (program then disorder) | written | needs IAM-A discordance, then an ordered lesion series |

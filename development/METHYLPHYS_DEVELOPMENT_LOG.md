@@ -1528,3 +1528,6 @@ F1 compares two breasts of one woman, so a field covering both would read flat; 
 
 ### 2026-10-13 · DEV-FIELD-01 scored once: no difference between a woman's two breasts; a body-wide field not ruled out
 F1 not met (20 of 31, needed 21, median ratio 1.0024); F2 met (tumor above the same breast, 24 of 31); F3 not met (17 of 35). Descriptive: every patient tissue reads about 18 percent above the healthy donors, all 68 other-breast arrays above every healthy-donor slide median, the tumor only about 3 percent above the other breast - confounded by slide, collection and unknown age. GSE287331 is now spent. Next: a series with donors and patients on shared slides, ages known.
+
+### 2026-10-13 · DEV-BREACH-01 scored once: the breach is not visible at DCIS on the blind-site average
+B1 not met (progressors 1.0058 vs non-progressors 1.000, p 0.52); B2 not met; no line. The planted test found a 1 percent loss every time, so the answer is real for this stage and this reading. Not tested: per-site surface share, clustering, single-molecule discordance. GSE281307 now spent. Box stopped.

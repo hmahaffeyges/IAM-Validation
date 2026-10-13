@@ -1,0 +1,29 @@
+{
+ "B1": {
+  "p": 0.5207312786382654,
+  "median_r_progressor": 1.0057679907792616,
+  "median_r_non": 1.0,
+  "verdict": "NOT MET"
+ },
+ "B2": {
+  "p": 0.517878501200474,
+  "table_B": [
+   [
+    11,
+    12
+   ],
+   [
+    12,
+    15
+   ]
+  ],
+  "verdict": "NOT MET"
+ },
+ "line": null,
+ "breach": "NOT VISIBLE at DCIS on this reading",
+ "n": {
+  "Non-progressor": 46,
+  "Progressor": 40
+ },
+ "scored_utc": "2026-10-13T18:25:09Z"
+}

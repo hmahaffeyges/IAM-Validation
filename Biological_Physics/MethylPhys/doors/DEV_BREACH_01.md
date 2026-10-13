@@ -1,4 +1,4 @@
-# DEV-BREACH-01 — where past Normal does a lesion become dangerous? (SEALED 2026-10-13 before any array was read)
+# DEV-BREACH-01 — where past Normal does a lesion become dangerous? (sealed before any array was read; SCORED ONCE 2026-10-13)
 
 **The question (author, 2026-10-13).** "We need a number all cancers do not go below... Its not about detecting advanced cancer, its about
 detecting it early enough to act... I want to deliver a warning that can stop it before it crosses the point of no return...that is the
@@ -35,14 +35,37 @@ meets B1 in 100 % and B2 in 96 %. All three bars met.
 **The seal** (`score_breach_01.py seal`, metadata only; `sealed_breach_01.json`, with the scorer's sha256): the 86 untreated lesions, the
 6,000 blind sites, and the slide halves for B2. The scorer refuses to score unless the seal is committed unchanged.
 
-**Prior reading:** GSE281307 has not been read. Only the atlas-derived site list of DEV-TISSUE-BREAST-01 is reused, no array.
+## Outcome, scored once (2026-10-13): the breach is NOT visible at DCIS on this reading
+
+`score_breach_01.py score` on the 86 sealed untreated lesions (196 arrays calibrated, Stage 1 unchanged, box run); outputs
+`scored_breach_01.json`, `scored_breach_01_arrays.csv`.
+
+| | result | bar | verdict |
+|---|---|---|---|
+| B1 progressors above non-progressors | median slide-tared reading 1.0058 against 1.000, p = 0.52 | p < 0.05 | **NOT MET** |
+| B2 a line from half the slides holds on the other half | 11 of 23 progressors above it, 12 of 27 non-progressors, p = 0.52 | p < 0.05 | NOT MET |
+
+No line is reported. The planted test showed the design finds a 1 % fidelity loss every time, so this is not a weak test: at the DCIS
+stage, on the composition-blind average, lesions that later became invasive cancer read the same as lesions that did not.
+
+**What this does and does not say.** It is one cancer, one series, one stage and one reading: the AVERAGE disorder at sites no cell mix
+can move. It does not test the per-site surface share, the clustering meter, or single-molecule discordance, which is where the
+two-phase picture (HYP-SATURATION-01, falsifier 7) puts the breach. Every lesion here is already a lesion, so all of them may sit past
+the point this reading can separate. The next breach test should read one of those other quantities, or a series with healthy tissue
+and earlier lesions in it.
+
+**In plain words, the result.** We asked whether early breast lesions that later turned into cancer already read different from ones
+that never did. On this reading, they don't: the two groups are the same. The test was strong enough to see a small difference, so this
+is a real answer, for this kind of lesion and this one measurement.
+
+**Prior reading:** GSE281307 was read once, by this test. GSE287331 is named only for its slide layout (spent by DEV-FIELD-01); no array of it is used here. Only the atlas-derived site list of DEV-TISSUE-BREAST-01 is reused, no array.
 
 **In plain words.** Early breast lesions are watched or treated, and nobody can yet say which ones will turn into cancer. This series
 followed women for years and recorded which lesions did. If our reading of the lesion's DNA is higher in the ones that later became
 cancer, that is the first measured sight of the breach line: the point past Normal where watching should turn into acting. We exclude
 women who were treated, because treatment changes the outcome, and we compare arrays only against others on the same slide.
-**What it would take:** the rule is sealed; one download and one read remain.
+**What it would take** next: a breach test on the per-site surface share or the clustering meter, or a series with earlier lesions and healthy tissue, sealed first.
 
 **Synthetic test:** DEV_BREACH_01/planted_breach_01.py, DEV_BREACH_01/planted_breach_01_summary.txt
 
-**Not a milestone:** sealed, not yet read.
+**Not a milestone:** scored once; B1 and B2 not met.
