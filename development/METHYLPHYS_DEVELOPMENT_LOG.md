@@ -1522,3 +1522,6 @@ GSE281307 metadata: 196 arrays, 93 progressed, 92 not, both groups on all 19 sli
 
 ### 2026-10-13 · DEV-BREACH-01 sealed before any array is read
 Planted test met (null 5.0 percent; 1 percent loss B1 100 percent, B2 96 percent). Sealed: 86 untreated DCIS lesions (40 progressed, 46 not), 6,000 blind sites, slide halves for B2.
+
+### 2026-10-13 · DEV-FIELD-01 amended before any reading (author): a field over both breasts is not a break
+F1 compares two breasts of one woman, so a field covering both would read flat; the label for F1 not met is changed from BROKEN to "no difference between her two breasts; a whole-organ or body-wide field not ruled out", and a descriptive F5 places her other breast against the healthy-donor slide medians (slide-confounded). Bars, pairs, sites and critical counts unchanged (checked); first seal kept as superseded; resealed.

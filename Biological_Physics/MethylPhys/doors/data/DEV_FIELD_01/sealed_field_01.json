@@ -1,7 +1,7 @@
 {
  "test": "DEV-FIELD-01",
- "sealed_utc": "2026-10-13T17:43:23Z",
- "scorer_sha256": "573597222cf140e10737d657254f13aa63cd63bf7241cf4f06568c822df84df0",
+ "sealed_utc": "2026-10-13T17:58:04Z",
+ "scorer_sha256": "a686f1eb7cda65623c0d8181b6e48bf192d505d324f270521592ee61a5e1ef6a",
  "series": "GSE287331",
  "sites": [
   "cg12844997",
@@ -6607,5 +6607,6 @@
  "crit_F1": 21,
  "crit_F3": 23,
  "tare_F3": "median M of all CUB and OQ arrays on the array's own slide",
- "rule": "F1 MET if M(OQ)/M(CUB) > 1 in >= crit_F1 of the F1 patients; F2 MET if M(TU)/M(OQ) > 1 in >= crit_F1 of them; F3 MET if the slide-tared OQ/CUB ratio > 1 in >= crit_F3 of the F3 patients; F4 descriptive only. The field picture is BROKEN for this tissue if F1 is not met while F2 is met."
+ "amended": "2026-10-13, after calibration began and before any reading: verdict label for F1-not-met changed from BROKEN to not-ruled-out; F5 descriptive added; bars unchanged (author)",
+ "rule": "F1 MET if M(OQ)/M(CUB) > 1 in >= crit_F1 of the F1 patients; F2 MET if M(TU)/M(OQ) > 1 in >= crit_F1 of them; F3 MET if the slide-tared OQ/CUB ratio > 1 in >= crit_F3 of the F3 patients; F4 and F5 descriptive only. F1 not met with F2 met means no difference between a woman's two breasts; it does NOT rule out a field covering both breasts or the whole body."
 }

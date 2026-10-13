@@ -13,6 +13,9 @@ Reading: M = mean binary entropy at the sealed sites present in both arrays comp
   F3  per F3 patient, each array's M divided by the median M of all CUB and OQ arrays on its own slide, then R = OQ / CUB;
       MET if R > 1 in >= crit_F3 patients.
   F4  descriptive, not decided: median M of every tissue, and the spread of slide medians over the healthy-donor (HDB) slides.
+  F5  descriptive, not decided (amendment 2026-10-13, before any reading): each woman's other breast against the healthy-donor slide medians.
+  Verdict labels (amended before any reading): F1 not met with F2 met reads "no difference between a woman's two breasts", NOT a break -
+  a field over both breasts would give exactly that.
 Planted test: planted_field_01.py (P1 null 3.6 %, P2 a 1 % loss found in 100 % of draws); slide positions: field_positions_01.py.
 """
 import gzip, hashlib, json, os, subprocess, sys, time
@@ -40,10 +43,10 @@ if mode == "seal":
         (f1 if g.slide.nunique() == 1 else f3).append(rec)
     J = dict(test="DEV-FIELD-01", sealed_utc=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), scorer_sha256=ME, series="GSE287331",
              sites=sites, n_sites=len(sites), pairs_F1=f1, pairs_F3=f3, crit_F1=crit(len(f1)), crit_F3=crit(len(f3)),
-             tare_F3="median M of all CUB and OQ arrays on the array's own slide",
+             tare_F3="median M of all CUB and OQ arrays on the array's own slide", amended="2026-10-13, after calibration began and before any reading: verdict label for F1-not-met changed from BROKEN to not-ruled-out; F5 descriptive added; bars unchanged (author)",
              rule=("F1 MET if M(OQ)/M(CUB) > 1 in >= crit_F1 of the F1 patients; F2 MET if M(TU)/M(OQ) > 1 in >= crit_F1 of them; F3 MET if the "
-                   "slide-tared OQ/CUB ratio > 1 in >= crit_F3 of the F3 patients; F4 descriptive only. The field picture is BROKEN for this "
-                   "tissue if F1 is not met while F2 is met."))
+                   "slide-tared OQ/CUB ratio > 1 in >= crit_F3 of the F3 patients; F4 and F5 descriptive only. F1 not met with F2 met means no "
+                   "difference between a woman's two breasts; it does NOT rule out a field covering both breasts or the whole body."))
     json.dump(J, open(SEAL, "w"), indent=1); print(f"sealed: {len(sites)} sites, F1 {len(f1)} patients (crit {J['crit_F1']}), F3 {len(f3)} (crit {J['crit_F3']})")
 elif mode == "score":
     BD = sys.argv[2]; J = json.load(open(SEAL))
@@ -68,7 +71,16 @@ elif mode == "score":
              F4=dict(median_M={t: float(g.M.median()) for t, g in T.groupby("tissue")}, n={t: int(len(g)) for t, g in T.groupby("tissue")},
                      hdb_slide_medians=dict(n=int(len(hdb)), min=float(hdb.min()), max=float(hdb.max()))),
              arrays_read=int(len(T)), scored_utc=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()))
-    O["picture"] = "BROKEN for breast" if O["F1"]["verdict"] == "NOT MET" and O["F2"]["verdict"] == "MET" else ("NOT BROKEN" if O["F1"]["verdict"] == "MET" else "UNDECIDED (positive control not met)")
+    # AMENDED 2026-10-13 before any reading (author: both breasts are one system and may both read high). F1 compares a woman's two
+    # breasts, so a field reaching BOTH breasts makes F1 flat; F1 not met is therefore NOT a break of the picture. F5 places each
+    # woman's other breast (CUB) against the spread of healthy-donor slide medians - descriptive, slide-confounded, never decided.
+    cub = T[T.tissue == "CUB"].M
+    O["F5_descriptive"] = dict(cub_median=float(cub.median()), hdb_slide_median_min=float(hdb.min()), hdb_slide_median_max=float(hdb.max()),
+                               cub_arrays_above_every_hdb_slide_median=int((cub > hdb.max()).sum()), cub_arrays=int(len(cub)),
+                               note="slide-confounded: healthy donors sit on slides of their own; a hint only")
+    if O["F2"]["verdict"] != "MET": O["picture"] = "UNDECIDED (positive control not met)"
+    elif O["F1"]["verdict"] == "MET": O["picture"] = "a field inside the breast with the cancer, beyond her other breast"
+    else: O["picture"] = "no difference between a woman's two breasts; a field covering both breasts or the whole body is NOT ruled out (see F5)"
     pd.DataFrame(dict(patient=[p["patient"] for p in J["pairs_F1"]], R_F1=r1, R_F2=r2)).to_csv(os.path.join(HERE, "scored_field_01_F1F2.csv"), index=False)
     pd.DataFrame(dict(patient=[p["patient"] for p in J["pairs_F3"]], R_F3=r3)).to_csv(os.path.join(HERE, "scored_field_01_F3.csv"), index=False)
     T.to_csv(os.path.join(HERE, "scored_field_01_arrays.csv"), index=False)

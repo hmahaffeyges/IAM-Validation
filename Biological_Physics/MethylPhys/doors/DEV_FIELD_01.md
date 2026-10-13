@@ -53,6 +53,14 @@ produce F1.
 exist on EPIC v1; F1 and F2 on 31 patients, met at 21 or more; F3 on the other 35, met at 23 or more; F4 descriptive. The scorer refuses
 to score unless the seal is committed unchanged and its own hash matches.
 
+**Amendment, 2026-10-13, after calibration began and before any reading (author).** "There is still a chance both breasts could read
+higher, they are both the same organs and the same system." Correct: F1 compares a woman's two breasts, so a field reaching both makes F1
+flat, and the sealed label would have called that a break of the picture. Changed, with the bars, pairs, sites and critical counts
+unchanged: F1 not met with F2 met now reads **no difference between a woman's two breasts; a field covering both breasts or the whole
+body is not ruled out**. Added F5, descriptive and never decided: each woman's other breast against the spread of the healthy-donor slide
+medians, which is the only view this series gives of a whole-body field, and it is slide-confounded. The first seal is kept as
+`sealed_field_01_v1_SUPERSEDED.json`; the resealed scorer carries a new hash.
+
 **Prior reading:** GSE287331 has not been read. The sealed site list comes from DEV-TISSUE-BREAST-01, whose arrays are spent; only the
 atlas-derived list is reused, no array.
 
