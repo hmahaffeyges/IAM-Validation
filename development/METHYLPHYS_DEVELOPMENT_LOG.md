@@ -1519,3 +1519,6 @@ Planted test on spent TCGA breast normals (conservative stand-in): null 3.6 perc
 
 ### 2026-10-13 · DEV-BREACH-01 designed on DCIS with known outcome
 GSE281307 metadata: 196 arrays, 93 progressed, 92 not, both groups on all 19 slides. Treatment confound found before design: only lesions untreated by both radiation and hormones are used (40 vs 46). Draft bars B1 (progressors read higher, slide-tared, blind sites) and B2 (a line set on half the slides holds on the other half). Nothing read.
+
+### 2026-10-13 · DEV-BREACH-01 sealed before any array is read
+Planted test met (null 5.0 percent; 1 percent loss B1 100 percent, B2 96 percent). Sealed: 86 untreated DCIS lesions (40 progressed, 46 not), 6,000 blind sites, slide halves for B2.

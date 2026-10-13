@@ -1,4 +1,4 @@
-# DEV-BREACH-01 — where past Normal does a lesion become dangerous? (design, 2026-10-13; NOT sealed, nothing read)
+# DEV-BREACH-01 — where past Normal does a lesion become dangerous? (SEALED 2026-10-13 before any array was read)
 
 **The question (author, 2026-10-13).** "We need a number all cancers do not go below... Its not about detecting advanced cancer, its about
 detecting it early enough to act... I want to deliver a warning that can stop it before it crosses the point of no return...that is the
@@ -28,8 +28,12 @@ The line itself is reported as a position on the gauge only if B2 is met, with i
 **What breaks it:** B1 not met - at this stage, on this reading, lesions that will become cancer read like lesions that will not, and
 the breach is not visible at DCIS in breast.
 
-**Before the seal, still to do:** (1) a planted test on spent arrays (TCGA breast normals, plate-tared): a planted shift of a stated
-size in half of them must meet B1 at 40 against 46, and none must not; (2) the split, written into the seal.
+**Planted test, run once before the seal** (`data/DEV_BREACH_01/planted_breach_01.py`, bars first; output `planted_breach_01_summary.txt`):
+on spent TCGA breast normals, plate-tared, 40 against 46, 1,000 draws: nothing planted meets B1 in 5.0 % and B2 in 2.1 %; a 1 % loss
+meets B1 in 100 % and B2 in 96 %. All three bars met.
+
+**The seal** (`score_breach_01.py seal`, metadata only; `sealed_breach_01.json`, with the scorer's sha256): the 86 untreated lesions, the
+6,000 blind sites, and the slide halves for B2. The scorer refuses to score unless the seal is committed unchanged.
 
 **Prior reading:** GSE281307 has not been read. Only the atlas-derived site list of DEV-TISSUE-BREAST-01 is reused, no array.
 
@@ -37,8 +41,8 @@ size in half of them must meet B1 at 40 against 46, and none must not; (2) the s
 followed women for years and recorded which lesions did. If our reading of the lesion's DNA is higher in the ones that later became
 cancer, that is the first measured sight of the breach line: the point past Normal where watching should turn into acting. We exclude
 women who were treated, because treatment changes the outcome, and we compare arrays only against others on the same slide.
-**What it would take:** the planted test, the seal, then one download and read.
+**What it would take:** the rule is sealed; one download and one read remain.
 
-**Synthetic test:** planned (TCGA breast normals, planted shift); not written yet.
+**Synthetic test:** DEV_BREACH_01/planted_breach_01.py, DEV_BREACH_01/planted_breach_01_summary.txt
 
-**Not a milestone:** a design; nothing read, nothing sealed.
+**Not a milestone:** sealed, not yet read.
