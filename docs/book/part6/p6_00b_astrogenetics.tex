@@ -29,7 +29,13 @@ simulations with known answers, null tests, and blind analysis, in which the rul
 Chapter~\ref{ch:skytools} lists every tool, which ones are in use, and what each one does for a methylation array.
 \textbf{The Cosmic Methylome} is the methylome read the way the microwave background is read: each specimen separated into the healthy
 components it is made of, and what that healthy reference cannot explain kept as a residual sky, site by site (Chapter~\ref{ch:sky}).
-Laying the whole genome on a sphere, as a sky map is pixelized, is built and not yet part of the chain. Neither name is a claim that
+The genome can also be laid on a sphere, every site in genome order on the same equal-area grid (HEALPix) a sky map uses
+(Chapter~\ref{ch:skytools}). The sphere is built and has these uses: shown so far, the healthy reference of each cell type drawn as its own
+sky; one cell read against healthy cells of its type, where a healthy cell reads as noise; planted damage packed into a few regions, which
+shows as stripes, the clusters the C-score measures along the genome; and a check that cells of one sex read against the other light up
+the X chromosome. Planned: a patient's blood draws in sequence, the earlier one subtracted so that only the change remains, the way two
+sky maps are differenced; and the full set of sky statistics on the whole genome. No reading uses the sphere yet: its statistics enter the
+chain only after they pass their own test. Neither name is a claim that
 cells and the cosmos are the same thing. Both say that a calibrated way of reading a noisy record against a reference already exists,
 has been tested hard by the field that built it, and works on cells.
 
