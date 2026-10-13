@@ -1479,3 +1479,6 @@ The author: we had the gauge in the old report interface and replaced it with a 
 
 ### 2026-10-13 · The ceiling question on the calibrated gauge
 DEV-CEILING-02 step 3: every sample against the healthy reference of the cell of origin. Adjacent normal already sits right of the middle in colorectal (1.0792), liver (1.1459) and lung (1.0330); breast normal at the middle (1.0060). Tumors A 1.1531-1.4030, f 0.0729-0.1906, not shared (spread 0.433). Per site: references 0 percent of sites at the surface, normals about 0.05 percent, tumors 0.58-8.62 percent - the average hides the sites that reached the surface.
+
+### 2026-10-13 · Front page trimmed (author)
+The daily-log section is the heading and the log links only; the status line and its explanation are gone, and build.sh no longer requires them. The "Why a researcher should look" section is removed. "What we have accomplished" is now "Recent Accomplishments". Folds show the arrow beside their text, without "Click to open" and without rules above and below.

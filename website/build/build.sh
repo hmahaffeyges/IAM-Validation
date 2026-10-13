@@ -39,7 +39,6 @@ test -s "$SITE/index.html" && test -s "$SITE/read/index.html" || { echo "Build f
 # log, and must carry its "As of" status line - a page that publishes without them would look current while saying nothing.
 grep -q 'id="daylogs"' "$SITE/index.html" || { echo "Build failed: the front page has no daily-log section."; exit 1; }
 grep -q 'daylogs/20' "$SITE/index.html" || { echo "Build failed: the front page links no daily log."; exit 1; }
-grep -q '<b>As of 20' "$SITE/index.html" || { echo "Build failed: the front page carries no 'As of' status line from the newest daily log."; exit 1; }
 
 # 4b. EPUB edition (Apple Books and other e-readers) from the same LaTeXML XML: LaTeXML's EPUB 3 pages (math as MathML, figures as
 #     the build's PNGs), packaged with the four-skies cover by make_epub.py, then checked with epubcheck: any epubcheck error fails
@@ -88,3 +87,4 @@ if [ -z "${SKIP_PDF:-}" ]; then
   echo "pdfs: all 8 present in $SITE/pdf"
 fi
 echo "built: $SITE"
+

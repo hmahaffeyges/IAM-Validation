@@ -134,24 +134,9 @@ def page(art):
 <p class="cta"><a class="btn" href="#daylogs">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
 <main>
 <section class="wrap" id="daylogs"><h2>Start here: the daily log</h2>
-<p class="lead">At the end of each working day we write one log: what we set out to do, what ran, what passed, what failed, what we
-learned, the back-and-forth that produced it with the bad ideas left in, and what changed in the plan. It is the whole day in one
-place, written for a reader rather than for us, and generated from a single committed file so it cannot drift from the records.
-<b>If you read one thing here, read the most recent day.</b></p>
 <p class="cta">{"".join(f'<a class="btn" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[:1])}{"".join(f'<a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[1:4])}</p>
-<p><b>As of {E(_newest[0]) if _newest else "&mdash;"}:</b> {E(_stand)}</p>
-<p class="meta">That status line is the close of the most recent day log, not a separate board anyone has to remember to update.
-Everything below links into the repository, where the records, the code and the data live.</p>
 </section>
-<section class="wrap" id="why"><h2>Why a researcher should look</h2><p class="sub">Five things anyone can check in ten minutes. None of them asks you to trust us.</p>
-<ol class="why">
-<li><b>A prediction committed before the data existed, then met.</b> We wrote the window the reading had to fall in ({mv["low"]:.3f} to {mv["high"]:.3f}) into a dated file before any knockout mouse was read. The mice read {mv["ratio"]:.3f}. The commit is older than the measurement, and anyone can check that. <a href="{rec(mouse["record"])}">the record</a></li>
-<li><b>Our failures are listed below, not buried.</b> Four lung attempts, one instrument's commissioning on hold tonight, tests not met, a drug experiment with no result.</li>
-<li><b>One command on your own laptop</b> recomputes every number in the book from the data: <code>python3 docs/book/verify_book.py</code>. <a href="book/">Or run it in your browser.</a></li>
-<li><b>Scored once, and the code refuses otherwise.</b> Every test has a committed sealed rule and a scorer whose fingerprint is checked before scoring. The push gate refuses a rule written after the data was read, a number with no script behind it, or a result missing from the record. <a href="{rec("CANON/repro_check.py")}">read the gate</a></li>
-<li><b>Built with an AI, and that is exactly why nothing rests on anyone's word.</b> An AI wrote most of this code and makes mistakes; ours are logged by date in <a href="{rec("Biological_Physics/MethylPhys/LESSONS.md")}">the lessons file</a>, each with the rule or check added so it cannot happen again.</li>
-</ol></section>
-<section class="wrap" id="wins"><h2>What we have accomplished</h2><p class="sub">Every one was a test written down before its data was read, and scored once. Each links to its record.</p><div class="grid">{results}</div>
+<section class="wrap" id="wins"><h2>Recent Accomplishments</h2><p class="sub">Each links to its record.</p><div class="grid">{results}</div>
 <p class="continues">Work continues: {going}. <a href="#road">The road ahead</a>.</p></section>
 <section class="wrap pic"><h2>The sky and the cell</h2>
 <figure><img src="{art("sky_atlas_globes.jpg")}" alt="Two globes: the microwave sky measured by Planck, and healthy neutrophil methylation from the atlas drawn the same way."><figcaption>Two skies, drawn the same way. Left, the microwave sky as the Planck satellite measured it (ESA and the Planck Collaboration, 2018); the pale band is the plane of our own galaxy, where Planck's processing fills in what dust and gas hide. Right, healthy neutrophils from our atlas, every site in genome order on the same kind of sphere.</figcaption></figure>
@@ -314,8 +299,8 @@ table.tools{width:100%;border-collapse:collapse;margin:14px 0}.tools th,.tools t
 .links .tile{display:block;background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:18px 20px;text-decoration:none;color:var(--fg);font-weight:600}
 .links .tile:hover,.card:hover{border-color:var(--link)}
 ol.road,ul.road,ol.why{padding-left:22px}dl.qa dt{font-weight:700;margin:16px 0 4px}#author p{max-width:62ch}.maybe li{margin:0 0 8px}p.closer{max-width:62ch;font-style:italic;margin-top:18px}dl.qa dd{margin:0;color:var(--muted)}ol.why li{margin:0 0 14px}.lost li{margin:0 0 14px}code{background:var(--panel);padding:2px 6px;border-radius:4px;font-size:14px}.road li{margin:0 0 14px}.road .meta{color:var(--muted);font-size:14px}h3.help{margin:30px 0 4px;font-size:22px}
-details.fold{margin:6px 0 10px}details.fold>summary{cursor:pointer;display:flex;align-items:center;gap:10px;list-style:none;padding:10px 2px;border:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);color:var(--link);font-weight:600;font-size:16px;transition:color .15s}summary::-webkit-details-marker{display:none}summary::before{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .18s;flex:none;margin-left:2px}details[open]>summary::before{transform:rotate(45deg)}summary:hover{color:var(--link);text-decoration:underline;text-underline-offset:3px}details{margin:14px 0}details[open]>summary{margin-bottom:10px}
-details.fold>summary::-webkit-details-marker{display:none}details.fold>summary::before{content:"\25B8  Click to open: "}details.fold[open]>summary::before{content:"\25BE  Close: "}details.fold[open]>summary{margin-bottom:20px}
+details.fold{margin:6px 0 10px}details.fold>summary{cursor:pointer;display:flex;align-items:center;gap:10px;list-style:none;padding:6px 0;border:0;color:var(--link);font-weight:600;font-size:16px;transition:color .15s}summary::-webkit-details-marker{display:none}summary::before{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .18s;flex:none;margin-left:2px}details[open]>summary::before{transform:rotate(45deg)}summary:hover{color:var(--link);text-decoration:underline;text-underline-offset:3px}details{margin:14px 0}details[open]>summary{margin-bottom:10px}
+details.fold[open]>summary{margin-bottom:20px}
 .win .stat{font-size:38px;font-weight:800;margin:10px 0 0;line-height:1.05;font-variant-numeric:tabular-nums;color:var(--fg)}.win h3{font-size:20px}
 .continues{color:var(--muted);font-size:14px;margin:22px 0 0}
 footer{padding:50px 22px 60px;color:var(--muted);font-size:14px}
