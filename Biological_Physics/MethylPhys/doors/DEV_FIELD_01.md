@@ -61,6 +61,11 @@ body is not ruled out**. Added F5, descriptive and never decided: each woman's o
 medians, which is the only view this series gives of a whole-body field, and it is slide-confounded. The first seal is kept as
 `sealed_field_01_v1_SUPERSEDED.json`; the resealed scorer carries a new hash.
 
+**Scoring crash, 2026-10-13, recorded before the rerun.** The first `score` run computed the readings and crashed writing its JSON
+(numpy integers are not serializable), after writing three result tables. Those tables were deleted unopened; no result was seen. The
+fix is serialization only (`default=int` on the two JSON calls; the diff is those two lines), so the scorer was resealed with its new
+hash; the seal is otherwise identical (pairs, sites, critical counts, rule, amendment).
+
 **Prior reading:** GSE287331 has not been read. The sealed site list comes from DEV-TISSUE-BREAST-01, whose arrays are spent; only the
 atlas-derived list is reused, no array.
 

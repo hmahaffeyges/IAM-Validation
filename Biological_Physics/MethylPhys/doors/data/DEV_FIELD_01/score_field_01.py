@@ -84,4 +84,4 @@ elif mode == "score":
     pd.DataFrame(dict(patient=[p["patient"] for p in J["pairs_F1"]], R_F1=r1, R_F2=r2)).to_csv(os.path.join(HERE, "scored_field_01_F1F2.csv"), index=False)
     pd.DataFrame(dict(patient=[p["patient"] for p in J["pairs_F3"]], R_F3=r3)).to_csv(os.path.join(HERE, "scored_field_01_F3.csv"), index=False)
     T.to_csv(os.path.join(HERE, "scored_field_01_arrays.csv"), index=False)
-    json.dump(O, open(os.path.join(HERE, "scored_field_01.json"), "w"), indent=1); print(json.dumps(O, indent=1))
+    json.dump(O, open(os.path.join(HERE, "scored_field_01.json"), "w"), indent=1, default=int); print(json.dumps(O, indent=1, default=int))
