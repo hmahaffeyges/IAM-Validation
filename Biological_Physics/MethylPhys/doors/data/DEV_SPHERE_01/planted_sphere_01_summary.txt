@@ -1,0 +1,7 @@
+P1 planted group R 0.999 | 99th percentile of 500 random groups 0.575 -> MET
+P3 angle between island-like and held-methylated mean directions 177.9 deg -> MET
+reported: the globe keeps 83.3% of the full-space variance; rank agreement full-space vs globe angle rho 0.892 (5,000 pairs)
+reported: weaker plant (sd 0.15) R 0.994 | 99th percentile 0.579 -> found
+P2 nothing planted: the same 1,200 sites exceed their map's 99th percentile in 0 of 50 maps (bar: at most 3) -> MET
+reported: band power of the site-density map, planted / not planted, by band l 2-8: 1.00, l 9-24: 0.99, l 25-64: 1.00, l 65-128: 1.10, l 129-191: 1.25, l 192-255: 1.32
+PLANTED TEST PASSED: the construction finds a planted group of sites held in order together, finds nothing when nothing is planted, and separates the two big classes

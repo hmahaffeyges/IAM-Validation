@@ -63,6 +63,23 @@ the pattern stay alike - and the chain's clustering reading already works that w
    building the map, before any number it gives is claimed.
 4. Only then read aging or cancer, one question at a time.
 
+## Step 1, construction v1 and planted test 1, run once (2026-10-13; synthetic only)
+
+`data/DEV_SPHERE_01/sphere_construction_01.py` and `planted_sphere_01.py`, both committed before running (`e01694cf`); output
+`planted_sphere_01_summary.txt`. All three bars met: a planted group of 1,200 sites held in order together is found (P1), nothing is
+found in 50 maps with nothing planted (P2), and island-like and held-methylated sites sit on opposite sides of the globe (P3). The
+globe keeps 83 % of the full-space spread, and its distances rank-agree with the full-space Fisher-Rao angles at rho 0.89.
+
+**What the picture showed that the bars did not.** Drawn with `globe_view_01.py`, the synthetic globe is almost empty: the held
+sites form one small spot, the island-like sites another on the far side, and only 6 % of pixels hold any site. A real sky covers the
+whole sphere, and the CMB tools assume it. So v1 is a correct ruler but a poor map: a straight projection puts every site that
+behaves the same way in the same place. That is a design result, not a failure of any bar, and it is recorded before v2 is written.
+
+**v2, to be committed before it is run.** Keep the full-space Fisher-Rao angles for every measurement, and change only how the globe
+is filled, with one fixed rule and no tuning, then re-run planted test 1 unchanged plus one new bar: the globe must cover most of the
+sphere. Candidates, chosen before any real data: an equal-area re-spacing of the projected points (a monotone change of latitude,
+which keeps every site's neighbors), or building the globe from each site's departure from the healthy reference (version B above).
+
 ## Open questions this note exists to keep
 
 - Does the healthy information sphere have a stable shape across people, or is its shape mostly cell type?
