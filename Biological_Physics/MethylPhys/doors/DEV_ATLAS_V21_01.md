@@ -43,6 +43,15 @@ contributor with any build source of the cell it tests. Donor lists are in the r
   until a pregnancy-relevant blood test is designed.
 - Sperm, dura fibroblasts, nasal epithelium, myoblasts, tonsil NK intermediates: no planned test needs them.
 
-**Next:** the culture check and the conditional checks (laptop); ledger entry; then the build run.
+**Culture check, step 1, run once 2026-10-12** (`data/DEV_ATLAS_V21_01/culture_drift_01.py` unchanged since its commit; outputs
+`culture_drift_01_summary.txt`, `culture_drift_01_cpgs.csv`). GSE197512, 182 arrays, 7 lines: by the fixed rule, 385,407 of 860,381 CpGs
+(44.8 %) drift with population doublings. **Disclosure, found on review:** in five lines the arrays were run on two dates and the later date
+holds most of the later passages, so array batch is mixed into the trend there. **Review (descriptive, `culture_drift_01_batch_review.py`, output
+`culture_drift_01_batch_review_output.txt`):** on the two lines run on one date (a fibroblast and a keratinocyte), 92,603 CpGs (11.1 %) drift in
+both with the same sign. The step-1 set is used as the mask, as fixed: a mask can only remove sites, so a set enlarged by batch keeps the
+check valid and costs coverage. Step 2 reports every result with both masks (the step-1 set; the batch-free set, descriptive).
+Step 1 also names GSE179847 and GSE82234; they are read before step 2, and the drift set they give is reported beside this one.
+
+**Next:** the culture check (step 1 on GSE179847 and GSE82234, then step 2) and the conditional checks (laptop); ledger entry; then the build run.
 
 **Test data:** none (design)

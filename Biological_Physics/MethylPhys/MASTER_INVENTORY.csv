@@ -151,7 +151,7 @@ GSE176168,,,,,spent,,,,,,,,,
 GSE178212,,,,,,,,,not usable (not purified (adjacent non-tumor esophageal tissue)),,yes,IDAT listed for 40/40 samples,DNA methylation analysis of esophageal squamous cell carcinoma,gold-mine map
 GSE179325,,,,,spent,,,DEV_CHAIN_V3_RUN2; DEV_CHAIN_V3_RUN3; DEV_LOWFRAC_01_OUTCOME; DEV_NOISE_02_OUTCOME; PROC_NEUT_TEST_01_OUTCOME; PROC_NEUT_TEST_01_PREREG,,,,,,
 GSE179801,,,,,spent,,,DEV_NEWCELL_01; DEV_PERCELL_01,,,,,,
-GSE179847,,,,,,,,PROC_WARBURG_01_OUTCOME; PROC_WARBURG_01_PREREG,research,ad-dermal fibroblasts,yes,IDAT listed for 479/479 samples,"A longitudinal DNA methylation dataset in primary human fibroblasts with mitochondrial genetic, metabolic, and endocrine perturbations",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE179847,,,,,,,,DEV_ATLAS_V21_01; PROC_WARBURG_01_OUTCOME; PROC_WARBURG_01_PREREG,research,ad-dermal fibroblasts,yes,IDAT listed for 479/479 samples,"A longitudinal DNA methylation dataset in primary human fibroblasts with mitochondrial genetic, metabolic, and endocrine perturbations",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE180130,,,,,spent,,,DEV_NEWCELL_01; DEV_PERCELL_01,,,,,,
 GSE180683,,,,,partly spent,,,,,,,,,
 GSE180970,,,,,,,,DEV_COMPOSITION_TRUTH_02; DEV_SYNTH_LEVERS_01,not usable (same group as the atlas (Salas/Koestler)),,no,IDAT listed for 12/12 samples,Umbilical cord blood artificial mixtures validation dataset: An Enhanced DNA Methylation Library for Deconvoluting Peripheral Blood,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
@@ -170,7 +170,7 @@ GSE191200,,,,,,,,,held-out test,microglia,yes,IDAT listed for 56/56 samples,"Con
 GSE191297,,,,,spent,,,DEV_INTAKE_02,,,,,,
 GSE195869,,,,,,,,DEV_XSPECIES_TEMP_01,,,,,,
 GSE196148,,,,,,,,,not usable (too few donors),ad-dermal fibroblasts,yes,IDAT listed for 7/7 samples,DNA methylation of fibroblasts from one HGPS patient,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE197512,,,,,,,,,research,ad-dermal fibroblasts | vascular endothelium | smooth muscle | keratinocyte,yes,IDAT listed for 372/372 samples,Cell division drives DNA methylation loss in late-replicating domains in primary human cells [methylation array],gold-mine map
+GSE197512,,,,,,,,DEV_ATLAS_V21_01,research,ad-dermal fibroblasts | vascular endothelium | smooth muscle | keratinocyte,yes,IDAT listed for 372/372 samples,Cell division drives DNA methylation loss in late-replicating domains in primary human cells [methylation array],gold-mine map
 GSE198972,,,,,,,,,not usable (cultured with no uncultured comparison (likely)),keratinocyte,yes,IDAT listed for 12/12 samples,Hippo pathway component WWC1 is a key regulator of apoptosis and photosensitivity in lupus keratinocytes,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE199057,downloads/C_tissue_tests/GSE199057/,5.79,IDAT,yes,unspent,not suitable,DEV_TISSUE_COLON_02,DEV_TISSUE_COLON_01; DEV_TISSUE_COLON_01_OUTCOME; DEV_TISSUE_COLON_02,,,,,Solid-tissue arrays,S3 register
 GSE199815,,,,,,,,DEV_SYNTH_LEVERS_01,,,,,,
@@ -347,7 +347,7 @@ GSE79799,,,,,,,,DEV_FINGERPRINT_03,,,,,,
 GSE81224,,,,,,,,,held-out test,ovary epithelium | fallopien tubes epithelium,yes,IDAT listed for 20/20 samples,DNA methylome analyses implicate fallopian tube as the tissue of origin for high grade serous ovarian cancer [array],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE82045,,,,,,,,PROC_DERIVE_01_PREREG,,,,,,
 GSE82084,,,,,,,,DEV_ATLAS_V21_01,held-out test,t cells cd3 | monocytes | granulocytes,yes,IDAT listed for 36/36 samples,Cord blood hematopoietic cells display altered DNA methylation patterns in preterm birth,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE82234,,,,,,,,,research,vascular endothelium,yes,IDAT listed for 6/6 samples,DNA methylation profiles of human umbilical vein endothelial cells (HUVECs),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE82234,,,,,,,,DEV_ATLAS_V21_01,research,vascular endothelium,yes,IDAT listed for 6/6 samples,DNA methylation profiles of human umbilical vein endothelial cells (HUVECs),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE83691,,,,,,,,,,,,,Genomic and epigenomic architecture of hepatocellular carcinoma,candidates DEV_FINGERPRINT_03
 GSE83842,,,,,,not suitable,DEV_TISSUE_LUNG_02,DEV_FINGERPRINT_03; DEV_TISSUE_LUNG_02; DEV_TISSUE_LUNG_03; DEV_TISSUE_LUNG_04,,,,,lung adenocarcinoma DNA methylation,candidates DEV_FINGERPRINT_03
 GSE83944,,,,,,,,,not usable (too few donors (one)),neutrophils,yes,IDAT listed for 48/48 samples,"Circadian oscillations of cytosine modification in humans contribute to epigenetic variability, aging, and complex disease",gold-mine map; candidates DEV_ATLAS_COMMISSION_01

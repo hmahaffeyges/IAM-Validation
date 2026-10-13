@@ -1226,3 +1226,6 @@ Each cosmology tool named with its tool-board status (hierarchical fit and MCMC 
 
 ### 2026-10-12 · Atlas commissioning plan: U5, the sky map (author)
 Nothing computed on the HEALPix map reaches a reading or a public claim until its null test passes on held-out healthy cells; then it is commissioned like U1-U4. Confirmed in code that the C-score reads genome order and not the sky map.
+
+### 2026-10-12 · Atlas v2.1 culture check, step 1: 44.8 % of CpGs drift in culture (batch mixed in); batch-free core 11.1 %
+GSE197512 182 arrays read once by the fixed rule. Review found array batch date follows passage in five lines; the two single-date lines give 92,603 CpGs (11.1 %) drifting in both. The fixed set is kept as the mask (a mask only removes sites); step 2 reports both masks. GSE179847 and GSE82234 still to read for step 1.

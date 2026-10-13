@@ -21,6 +21,7 @@ built in public*. Each line links to the record it comes from.
 | 2026-10-12 | Version 2 published with its own DOI, so anyone can download the map and check it. [record](Biological_Physics/MethylPhys/atlas/README.md) |
 | 2026-10-12 | The plan is locked before any new data is opened: which samples build the map and which are kept back to test it. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
 | 2026-10-12 | First step running: measuring how much growing cells in a dish changes them. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
+| 2026-10-12 | Culture check, first result: growing cells in a dish changes them a lot. In the cleanest comparison, about 1 in 9 of the sites we read moves steadily as the cells keep dividing. Those sites will be set aside before any dish-grown cell is compared with the atlas. Two more laboratories' data are next. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
 
 ### Does our second instrument read the same DNA the same way everywhere?
 

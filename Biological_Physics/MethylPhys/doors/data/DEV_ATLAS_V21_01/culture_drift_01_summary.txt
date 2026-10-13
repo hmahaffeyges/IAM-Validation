@@ -1,0 +1,3 @@
+arrays 182 of 182; CpGs 860381; lines scored 7
+division-drift CpGs: 385407 (44.79 %)
+per line, CpGs with |rho| >= 0.5: Adult_skin_fibroblast_1 273574; Adult_vascular_endothelial_cell_1 205357; Adult_vascular_smooth_muscle_cell_1 340110; Fetal_skin_fibroblast_1 410800; Neonatal_foreskin_fibroblast_1 386095; Neonatal_foreskin_fibroblast_2 272433; Neonatal_foreskin_keratinocyte_1 197923

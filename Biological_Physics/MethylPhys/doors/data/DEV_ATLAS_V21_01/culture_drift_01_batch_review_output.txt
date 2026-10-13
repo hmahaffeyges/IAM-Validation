@@ -1,0 +1,4 @@
+CpGs scored in both single-date lines: 833347
+drift in both single-date lines, same sign: 92603 (11.11 %)
+step 1 set: 385407; of the batch-free set, in step 1's set: 92603 (100.0 %)
+sign agreement of the two lines where both |rho| >= 0.5: 74.8 %
