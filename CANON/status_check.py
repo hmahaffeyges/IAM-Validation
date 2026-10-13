@@ -125,6 +125,13 @@ if _ib.returncode:
     # a checker that CRASHES must not pass silently (the levers checker had this same bug, 2026-10-13)
     fail += _lines or ["[instruments] instruments_board failed to run: " + (_ib.stderr.strip().split("\n")[-1] if _ib.stderr.strip() else "no output")]
 
+# Day logs (shift turnover, 2026-10-13): every entry carries a status from the fixed vocabulary, every record named exists,
+# no hype word, the voice stays "we", and the rendered day log does not drift from its source.
+_dl = subprocess.run([sys.executable, "CANON/daylog.py", "--check"], capture_output=True, text=True)
+if _dl.returncode:
+    _dll = [l.strip() for l in _dl.stdout.split("\n") if l.strip().startswith("[daylog]")]
+    fail += _dll or ["[daylog] daylog.py failed to run: " + (_dl.stderr.strip().split("\n")[-1] if _dl.stderr.strip() else "no output")]
+
 if fail:
     print(f"status_check: REFUSED ({len(fail)})\n  " + "\n  ".join(fail[:40])); sys.exit(1)
 print(f"status_check: ok ({len(F['facts'])} facts, {len(files)} documents)")

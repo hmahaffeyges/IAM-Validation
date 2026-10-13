@@ -1,0 +1,201 @@
+{
+ "date": "2026-10-13",
+ "title": "Six results on the laptop, four corrections to our own work, and the blood question answered",
+ "set_out": "The sequencing instrument was held after one of its five commissioning checks failed, and the queue was deliberately all free work: finish the diagnosis of that failure, exercise the ideas from the day's conversations on made-up data first, and spend no rented-machine money until a rule had already passed a planted test. The day also carried an open question from the author - whether a tube of whole blood on an array can carry a cancer-sized signal at all.",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "lead": "Every test below had its bar written and committed before it ran. Status words mean exactly what they say: *synthetic only* is made-up data, *development* is real data without a seal, *audit* is a check of records we already have, and *sealed* appears nowhere today.",
+   "entries": [
+    {
+     "title": "Territory contrast: a parameter-free prediction, met to 1 %",
+     "status": "synthetic only",
+     "what": "The balance equation says a common shortfall in maintenance should move the hard-to-maintain parts of the genome more than the easy parts, by a factor fixed by healthy baselines alone. Predicted 4.158, measured 4.12 to 4.20 across shortfalls of 2 to 20 %, with nothing fitted. The declared blind spot was confirmed: a loss hitting both territories equally moves the reading by 0.1 % of the signal.",
+     "why": "This is the first lever-grade prediction on arrays rather than sequencing - a number calculated in advance, then matched.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORY_01.md"
+    },
+    {
+     "title": "Territory contrast: the practical bar failed",
+     "status": "failed",
+     "what": "The same test asked whether comparing two kinds of site inside one sample cancels the usual nuisances. It cancels an additive plate offset exactly, and cannot cancel a multiplicative one: a 10 % change in which cells are present moves the reading about five times as much as a 2 % maintenance shortfall. There is also a ceiling effect - these sites sit so close to fully switched on that noise can only push them one way.",
+     "why": "The quantity is real but the instrument is not usable yet. The next version reports two forms of the comparison, because one cancels each kind of nuisance, and measures the ceiling effect from the data instead of ignoring it.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORY_01.md"
+    },
+    {
+     "title": "The ceiling audit: 7,681 readings, none past the ceiling",
+     "status": "audit",
+     "what": "The gauge's top end is fixed by physics: past a certain damage the needle stops climbing and comes back down, so a very damaged sample can read deceptively low. Every reading we hold that records this was checked - 7,681 of them - and not one is past that point. The composition-aware path behind the tissue results never recorded the check, so those three cannot be audited from their saved files.",
+     "why": "The direction of that gap is the safe one: a past-ceiling tumor reads lower than its damage warrants, so it could only have made us miss tumors, never invent one. The check is now recorded for every future reading of that kind.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_CEILING_AUDIT_01.md"
+    },
+    {
+     "title": "Whole blood on arrays: per person no, per group yes",
+     "status": "development",
+     "what": "Read with the chain's own stages on 24 healthy whole bloods - 23 read, one withheld by the chain for site coverage. Healthy people differ by 6.4 %, and the chain's own leverage is 2.09 % of the reading per 1 % of pattern loss, so one person would need about a 7.2 % loss to leave the healthy range. Tumor tissue shows 2 to 7 %. Comparing groups is a different story: with 50 people on each side, a mean loss under 1 % separates them.",
+     "why": "This is a real result and a real limit at once. Group studies in blood are within reach now; per-person blood detection needs either a tighter reading or the molecule-by-molecule route, which is sequencing.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_BLOOD_SENSITIVITY_01.md"
+    },
+    {
+     "title": "The sequencing failure diagnosed: the reading had been taken from the worst place in the file",
+     "status": "diagnosis",
+     "what": "At the head of each run the chemistry's conversion rate differs from the rest of the file by 34 times its own uncertainty, in every library including both controls. On top of that common effect, the three libraries that failed read 11 to 14 % below the controls read at the same position, recovering to within a few percent deeper in. And the original reading reproduces the head to 0.0 % - so the commissioning check had inherited exactly the place where those libraries are depressed.",
+     "why": "The sign of the head effect differs between libraries, which rules out estimating its bias and correcting for it. The head has to be excluded, not corrected.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_READACROSS_01.md"
+    },
+    {
+     "title": "The first proposed fix failed its own planted test",
+     "status": "failed",
+     "what": "Reading several places in each file and pooling the counts turns a 15 % error into a 5 % error against a 3 % tolerance - better and still failing. The reason is arithmetic rather than tuning: pooling still counts the bad block, so it divides a bias instead of removing it. Adding more data removes noise, never bias.",
+     "why": "It cost an afternoon of compute-free work and no data, which is what planting tests first is for.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_READACROSS_01.md"
+    },
+    {
+     "title": "The trim rule: six planted bars, all met",
+     "status": "synthetic only",
+     "what": "The replacement skips the unsettled head of a file, and how much to skip is decided by the raw reads' own chemistry - the fraction of C among C and T outside a CpG, which needs no alignment and knows nothing about our physics. On made-up files it recovered a planted 12 % error to within a fifth of a percent, left a clean file untouched, refused a file bad throughout, behaved identically whether the planted error pushed up or down, and did nothing at all when the chemistry looked fine.",
+     "why": "That last bar is the honest limit, declared rather than hidden: the rule may not act on a bias it has no independent evidence for. Trimming until the answer improves would be tuning, and a reviewer should refuse it.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_TRIM_01.md"
+    },
+    {
+     "title": "The clustering meter's last check: both front-runners eliminated",
+     "status": "metadata only",
+     "what": "Searched for healthy donors with repeat arrays, on the platform the band was built on, excluding all 164 sets already spent. The ideal designs are among the spent ones. Of the candidates, one has no raw arrays at all - submitter tables only, which our calibration cannot read - and the other is a patient cohort with an intervention between the two draws.",
+     "why": "Commissioning the older array platform's band is now the option that buys most, because it makes an ideal set usable and opens a much larger archive to this meter.",
+     "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md"
+    },
+    {
+     "title": "Candidate instruments: six readings, each with its blind spot",
+     "status": "structure",
+     "what": "Every reading we could build on this channel is now one register entry: the term of the law it reads, its substrate, its cost, its advantage, its blind spot, what would break it, and the next step - with the gate that releases the two sequencing ones. Four of the six cost nothing to pursue.",
+     "why": "Several instruments with different blind spots, agreeing on one sample, is worth more than one instrument trusted alone - and disagreement is itself a diagnosis. A sample reading normal on total disorder and abnormal on clustering is telling us which channel failed.",
+     "record": "Biological_Physics/MethylPhys/INSTRUMENTS.md"
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": [
+    {
+     "title": "The two meters are blind in opposite ways, and it is derived from the code",
+     "what": "The held-error meter matches an isolated loss - a methylated call on both sides of an unmethylated one - so a run of two or more consecutive losses contributes exactly zero to it. The clustering meter is built for precisely that case.",
+     "why": "This is the clearest example of why more than one instrument is needed, and it came out of a simulation refusing to score itself rather than out of an argument.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md"
+    },
+    {
+     "title": "Pooling divides a bias; it never removes one",
+     "what": "Averaging in a contaminated measurement reduces the contamination by the number of measurements and leaves it there. No choice of positions or weights fixes that.",
+     "why": "It is the reason the trim rule excludes rather than corrects, and it generalizes well beyond this instrument.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_READACROSS_01.md"
+    },
+    {
+     "title": "An array averages molecules before anyone reads them",
+     "what": "That is why a tube of blood cannot be read per person on this platform: part of the disorder in the tube is the mixing itself, and what remains is smaller than the spread between healthy people.",
+     "why": "It separates a genuine identifiability limit from the retired framework's class assumption, which is a different thing.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_BLOOD_SENSITIVITY_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "loss",
+   "heading": "Our own mistakes today, and what caught each",
+   "lead": "Four, and none was caught by re-reading our own work. This section exists because a record that only contains successes is not a record.",
+   "entries": [
+    {
+     "title": "A simulated leverage 1.8 times too high",
+     "status": "development",
+     "what": "The blood simulation reported 3.79 % of the reading per 1 % of loss; the chain's own per-sample measurement on real arrays is 2.09 %. The simulation used different sites and different profiles. The chain's number is the one quoted from now on.",
+     "why": "Caught by running the chain itself instead of trusting a stand-in for it.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_BLOOD_SENSITIVITY_01.md"
+    },
+    {
+     "title": "A design that said ratio where the derivation forces difference",
+     "status": "synthetic only",
+     "what": "The territory note described the reading as a ratio. Because the relative rise is larger at the low-error sites, a ratio moves the wrong way and weakly; the difference is what the derivation gives, and it also cancels an additive offset exactly.",
+     "why": "Caught while writing the test, before any data was touched.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORY_01.md"
+    },
+    {
+     "title": "A table of head effects with the signs wrong",
+     "status": "diagnosis",
+     "what": "The first draft compared each library's head against the mean of two small deeper parts, which mixes in the position effect every library shares. The sealed comparison is against the control libraries read at the same position, and the absolute framing is not even consistent in sign across libraries.",
+     "why": "Caught by a script written to compute the note's numbers, which disagreed with what had been typed.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_READACROSS_01.md"
+    },
+    {
+     "title": "A board exported before it was regenerated",
+     "status": "structure",
+     "what": "The instrument register was updated but the copy saved for the author was the earlier one, so three entries looked unstarted when they had been run that same night.",
+     "why": "Caught by an independent review of the saved file. Fixed at the source - the register entry that had never been updated - rather than in the copy.",
+     "record": "Biological_Physics/MethylPhys/INSTRUMENTS.md"
+    }
+   ]
+  },
+  {
+   "kind": "thinking",
+   "heading": "Coffee and a whiteboard: how the day's ideas actually arrived",
+   "lead": "The back-and-forth that produced the day's work, bad ideas included - a whiteboard with only the good ideas left on it is a sales deck. The questions and the physical intuition come from the author; the derivations, the code, the refereeing and the historical context come from the research partner, usually within the same minute, which is why a thread rarely dies of lost momentum. Both halves are dated in the repository, so a reader can check who contributed what and when.",
+   "entries": [
+    {
+     "title": "\"Doesnt physics move the levers as much as the levers move the physics?\"",
+     "what": "That question turned a list of planned experiments into a register of candidate INSTRUMENTS. If a handle moves fidelity, the same handle can be read backwards as a measurement - so each lever is also a possible reading, with its own blind spot.",
+     "why": "It is the reason today ended with six instruments rather than one long queue of tests.",
+     "record": "Biological_Physics/MethylPhys/INSTRUMENTS.md"
+    },
+    {
+     "title": "\"Can the atlas not help us sort the whole blood enough... or is that old IAM's class h_min illusion?\"",
+     "what": "The answer split: it is not the retired framework's assumption, it is an identifiability limit - fractions can be estimated, individual molecules cannot be separated on an array. That distinction is what made the measurement worth running, and the measurement then gave a limit and an opening in the same table.",
+     "why": "A question that could have been answered with an opinion was answered with a number instead.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_BLOOD_SENSITIVITY_01.md"
+    },
+    {
+     "title": "\"The lever chapter will be the most attacked part of the book\"",
+     "what": "That judgement is why every lever now carries a falsifier written before any data is opened, and why each falsifier states whether it would break the law itself or only our account of the biology. Two are law-scope; three are medium-scope.",
+     "why": "A chapter that states what would break it is harder to attack than one that argues it is right.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md"
+    },
+    {
+     "title": "The sphere, carried forward",
+     "what": "The question of how the whole genome could be represented and measured as one object stays open with three versions on record: an address-on-a-ball version, named weak; an information version, named as the one to build; and a nucleus version, kept as a separate question about the medium rather than the information.",
+     "why": "The reading is of order against disorder in the information, not of the strand, so the map has to be of the information - which is also what decides how the cosmology methods would transfer.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md"
+    },
+    {
+     "title": "What this section is for",
+     "what": "A reader can see that the ideas arrived in conversation rather than from a plan. Several of the day's results exist because a question was asked in passing and could be turned into a derivation, a cost estimate and a committed test before the thread cooled - and several were discarded in the same conversation for reasons recorded here rather than forgotten.",
+     "why": "It is the part of a research program that papers never show, and it is the part a potential collaborator is actually evaluating."
+    }
+   ]
+  },
+  {
+   "kind": "changed",
+   "heading": "What changed in the plan",
+   "entries": [
+    {
+     "title": "Blood on arrays is a group instrument",
+     "what": "Per-person detection moves to the sequencing route. The remaining array work on blood is measuring the spread after the tare, which could lower the 7.2 % figure and has not been measured because that laboratory ran one array per slide.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_BLOOD_SENSITIVITY_01.md"
+    },
+    {
+     "title": "Commissioning the older array platform's band moved up",
+     "what": "It unlocks the one ideal repeat-array set and a much larger archive for the clustering meter, which is the most specific reading we have.",
+     "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md"
+    },
+    {
+     "title": "Two new free jobs, both audits of ourselves",
+     "what": "Re-read the three sealed tissue sets with the ceiling check recorded - an audit that cannot change their verdicts - and write the second version of the territory contrast.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_CEILING_AUDIT_01.md"
+    },
+    {
+     "title": "The rented machine's next job is defined and small",
+     "what": "One cheap reading pass with no alignment, to calibrate the trim on the real libraries. The laboratory check then has to be rerun on the whole set, because the five libraries used for the diagnosis are spent.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_TRIM_01.md"
+    }
+   ]
+  }
+ ],
+ "open_at_turnover": "The sequencing instrument remains HELD: four of five commissioning checks passed, the fifth is still not met, and the note's own stopping rule keeps the whole instrument held until it is. The array instrument is unaffected and is what scored the tissue results. Still running at turnover: the three-channel lever test, which asks whether the readings can say WHICH of copy, writing or erasing was impaired - its draw count was reduced earlier for cost, before any result of that version existed, and if two channels land closer than their own spread the verdict is 'cannot separate at this precision' rather than a moved bar. Waiting on the author: nothing blocking.",
+ "closing": "No rented-machine money was spent today. Six results, four of our own errors found and recorded, and one question from the author that turned into a measured limit. The instrument is still held, which is the correct state for it to be in.",
+ "_convention": "Section names are fixed so a reader can compare one day with another: What we set out to do; What ran, and how each came out; What we learned that we did not know yesterday; Our own mistakes today, and what caught each; Coffee and a whiteboard (the back-and-forth that produced the day's work, bad ideas included); What changed in the plan; Open at turnover."
+}
