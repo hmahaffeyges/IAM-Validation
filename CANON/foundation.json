@@ -129,6 +129,15 @@
    "commit": "2c737a57",
    "layer": "core",
    "applies_at_every_scale": "The author, 2026-10-13: 'The DNA is hardware, the sphere is the outcome, the patterns of order and disorder... the information.' So a genome-wide map must be built on the pattern, not on DNA addresses: a map whose coordinates are chromosome and position maps our filing system. See Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md."
+  },
+  {
+   "id": "gauge_direction",
+   "status": "DEFINITION (the author, 2026-10-13)",
+   "layer": "core",
+   "statement": "WHICH WAY A FAILING CELL MOVES. Left of the healthy middle is MORE order than healthy; below the floor, H_min, identity can no longer be held - thermal kicks win. Senescent cells read on the left, below Normal (measured: they clean the unmethylated channel). RIGHT of the middle is the cell writing MORE error than healthy, toward the full surface - the 2D surface running out of room, the same side of the gauge as the supernova and the black hole. A CANCER CELL IS ON THE RIGHT: it has not lost its identity, it is over-writing. Identity loss is a left-side statement and must not be used for cancer.",
+   "derived_in": "docs/book/part6/p6_00b_astrogenetics.tex",
+   "anchor": "toward the full surface: the cell writing more",
+   "commit": "fc90214f"
   }
  ],
  "retired_phrasings": [
@@ -176,6 +185,31 @@
    "phrase": "identify which channel",
    "why": "The gauge reads order against disorder; attributing a pattern to a mechanism is an inference outside the physics (entry what_is_read).",
    "instead": "tell these patterns of disorder apart"
+  },
+  {
+   "phrase": "lost identity",
+   "why": "a cancer cell has not lost its identity; it is over-writing toward the full surface (entry 'gauge_direction'). Identity that cannot be held is the LEFT side, below the floor",
+   "use_instead": "departs from its healthy pattern toward the full surface (for cancer); identity can no longer be held (for the left side, below the floor)"
+  },
+  {
+   "phrase": "lose identity",
+   "why": "a cancer cell has not lost its identity; it is over-writing toward the full surface (entry 'gauge_direction'). Identity that cannot be held is the LEFT side, below the floor",
+   "use_instead": "departs from its healthy pattern toward the full surface (for cancer); identity can no longer be held (for the left side, below the floor)"
+  },
+  {
+   "phrase": "loss of identity",
+   "why": "a cancer cell has not lost its identity; it is over-writing toward the full surface (entry 'gauge_direction'). Identity that cannot be held is the LEFT side, below the floor",
+   "use_instead": "departs from its healthy pattern toward the full surface (for cancer); identity can no longer be held (for the left side, below the floor)"
+  },
+  {
+   "phrase": "losing its identity",
+   "why": "a cancer cell has not lost its identity; it is over-writing toward the full surface (entry 'gauge_direction'). Identity that cannot be held is the LEFT side, below the floor",
+   "use_instead": "departs from its healthy pattern toward the full surface (for cancer); identity can no longer be held (for the left side, below the floor)"
+  },
+  {
+   "phrase": "loses its identity",
+   "why": "a cancer cell has not lost its identity; it is over-writing toward the full surface (entry 'gauge_direction'). Identity that cannot be held is the LEFT side, below the floor",
+   "use_instead": "departs from its healthy pattern toward the full surface (for cancer); identity can no longer be held (for the left side, below the floor)"
   }
  ],
  "retired_foundations": [

@@ -613,16 +613,16 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/SUBSTRATE_STRATEGY.md",
-"line": 85,
+"line": 88,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "fidelity relative to the tissue it came from, so its A-score should be higher than its own matched normal."
+"text": "pattern of the tissue it came from, toward the full surface, so its A-score should be higher than its own matched normal."
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/SUBSTRATE_STRATEGY.md",
-"line": 129,
+"line": 132,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
