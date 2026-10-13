@@ -1,0 +1,18 @@
+arrays 196 | platform ['GPL13534'] | with both IDATs 196
+fields: tissue, classification, nuclear_grade, age, race, dcis.pam50_subtype, pam50, expressioncluster, methylationcluster, hormonetreatment, radiationtreatment
+classification: {'Progressor': 93, 'Non-progressor': 92, 'Adjacent_normal': 7, 'Normal': 4}
+slides 19 | slides with both groups 19 | one group only 0
+  Adjacent_normal: 7 arrays on 7 slides
+  Non-progressor: 92 arrays on 18 slides
+  Normal: 4 arrays on 3 slides
+  Progressor: 93 arrays on 18 slides
+tissue: {'breast': 196}
+nuclear_grade: {'3': 82, '2': 66, '1': 32, 'NA': 16}
+race: {'WHITE': 171, 'BLACK': 11, 'NA': 5, 'HISPANIC WHITE': 5, 'Asian/other': 3, 'asian/other': 1}
+dcis.pam50_subtype: {'NA': 105, 'LumA': 25, 'LumB': 24, 'Normal': 14, 'Her2': 14, 'Basal': 6, 'Lum A': 4, 'Lum B': 3, 'ALs not in DCIS_Splice_PAM50': 1}
+pam50: {'NA': 74, 'LumA': 38, 'Her2': 27, 'LumB': 27, 'Normal': 17, 'Basal': 13}
+expressioncluster: {'NA': 74, '2': 49, '3': 40, '1': 33}
+methylationcluster: {'1': 67, '2': 54, '4': 42, '3': 23, '5': 6, '6': 4}
+hormonetreatment: {'Untreated': 146, 'NA': 25, 'Treated': 25}
+radiationtreatment: {'Untreated': 95, 'Treated': 76, 'NA': 25}
+untreated by both radiation and hormones: {'Non-progressor': 46, 'Progressor': 40} on 19 slides; slides holding both outcome groups 15

@@ -1516,3 +1516,6 @@ DEV-FIELD-01 slide check (metadata only): healthy donors and adjacent tissue eac
 
 ### 2026-10-13 · DEV-FIELD-01 sealed before any array is read
 Planted test on spent TCGA breast normals (conservative stand-in): null 3.6 percent, 1 percent loss found in 100 percent of draws. Slide positions balanced (15 vs 16). Sealed: 6,000 blind sites on EPIC v1, F1 and F2 on 31 one-slide patients (crit 21), F3 on 35 (crit 23), F4 descriptive. Next: download and calibrate GSE287331, score once.
+
+### 2026-10-13 · DEV-BREACH-01 designed on DCIS with known outcome
+GSE281307 metadata: 196 arrays, 93 progressed, 92 not, both groups on all 19 slides. Treatment confound found before design: only lesions untreated by both radiation and hormones are used (40 vs 46). Draft bars B1 (progressors read higher, slide-tared, blind sites) and B2 (a line set on half the slides holds on the other half). Nothing read.

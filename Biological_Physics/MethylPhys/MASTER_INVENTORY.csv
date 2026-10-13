@@ -245,6 +245,7 @@ GSE277573,,,,,,,,DEV_EPIC_V2_01,,,,,,
 GSE278681,,,,,,,,DEV_HORIZON_01,,,,,,
 GSE279509,,,,,,,,DEV_IAMA_NEURON_01,,,,,,
 GSE280465,downloads/D_ageing/GSE280465/,4.06,,,unspent,,,,,,,,Ageing blood arrays,S3 register
+GSE281307,,,,,,,,DEV_BREACH_01,,,,,,
 GSE281691,,,,,partly spent,,,,,,,,,
 GSE282216,downloads/B_cfDNA_plasma/GSE282216/,0.75,IDAT,yes,unspent,,,,,,,,Plasma cell-free DNA arrays,S3 register
 GSE282666,,,,,partly spent,,,,,,,,,
@@ -254,7 +255,7 @@ GSE284325,,,,,,,,PROC_TUMOUR_01_PREREG,,,,,,
 GSE286313,,,,,spent,,,DEV_BASE_CHAIN_01; DEV_EPIC_V2_01,,,,,,
 GSE287137,downloads/B_cfDNA_plasma/GSE287137/,2.16,IDAT,yes,unspent,,,,,,,,Plasma cell-free DNA arrays,S3 register
 GSE287261,downloads/A_blood_immune/GSE287261/,2.32,IDAT,yes,unspent,,,,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
-GSE287331,,,,,,,,DEV_FIELD_01,,,,,,
+GSE287331,,,,,,,,DEV_BREACH_01; DEV_FIELD_01,,,,,,
 GSE287994,,,,,partly spent,,,,,,,,,
 GSE288337,,,,,,,,DEV_IAMA_NEURON_01,,,,,,
 GSE288652,downloads/C_tissue_tests/GSE288652/,1.3,IDAT,yes,partly spent,,,PROC_E2E_01_OUTCOME,,,,,Solid-tissue arrays,S3 register
