@@ -31,7 +31,7 @@ GSE110530,,,,,spent,,,DEV_ATLAS_EPIC_01; DEV_COMPOSITION_TRUTH_02; DEV_METAA_SEN
 GSE110554,,,,,spent,,,COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_COMMISSION_01; DEV_ATLAS_EPIC_01; DEV_BASE_CHAIN_01; DEV_COMPOSITION_TRUTH_02; DEV_DIRECTION_AUDIT_01; DEV_NEWCE,,,,,,
 GSE110607,,,,,,,,,not usable (not healthy-only (co-twins of SLE patients)),monocytes | b cells | cd4 t cells | granulocytes,yes,IDAT listed for 104/104 samples,Twin DNA methylation profiling reveals flare-dependent interferon signature and B-cell promoter hypermethylation in systemic lupus erythematosus,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE111396,,,,,,,,,not usable (cultured with no uncultured comparison),lung fibroblast,yes,IDAT listed for 61/61 samples,DNA methylation in airway and parenchymal fibroblasts from individuals with and wthout COPD,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE111445,,,,,,,,,atlas build,adipocytes,yes,SRA run links for 12/12 samples,Developmental origins define epigenomic differences between subcutaneous and visceral adipocytes [Bisulfite-Seq],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE111445,,,,,,,,DEV_ATLAS_V21_01,atlas build,adipocytes,yes,SRA run links for 12/12 samples,Developmental origins define epigenomic differences between subcutaneous and visceral adipocytes [Bisulfite-Seq],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE111629,downloads/A_blood_immune/GSE111629/,6.38,IDAT,yes,partly spent,,,PROC_BAND_01_PREREG; PROC_CMB_04_OUTCOME; PROC_CMB_05_OUTCOME; PROC_COV_01_PREREG; PROC_MAHA_03_OUTCOME; PROC_MAHA_03_PREREG; PROC_MF_01_PREREG; PROC_SKY_01_OUT,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE111933,,,,,,,,,not usable (not purified (non-cancerous urothelium tissue from carcinoma patients)),,yes,IDAT listed for 92/92 samples,Genome-wide DNA methylation analysis of non-cancerous urothelium obtained from patients with urothelial carcinomas and corresponding cancerous tissue,gold-mine map
 GSE112179,,,,,,,,DEV_IAMA_NEURON_01,held-out test,cortical neurons,yes,IDAT listed for 100/100 samples,DNA methylation in neurons from post-mortem brains in schizophrenia and bipolar disorder (Methylation),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
@@ -196,7 +196,7 @@ GSE224807,,,,,,,,DEV_ATLAS_COMMISSION_01; DEV_COMPOSITION_TRUTH_03; DEV_METAA_45
 GSE225239,,,,,spent,,,,,,,,,
 GSE225544,,,,,spent,,,,,,,,,
 GSE225944,,,,,,,,DEV_METHIONINE_01,,,,,,
-GSE226298,,,,,spent,,,COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_NEWLAB_GRAN_01,held-out test,granulocytes | monocytes,yes,IDAT listed for 106/106 samples,Epigenome analysis of samples from  Alzheimer's disease patients and healthy controls with and without LOY (loss of chromosome Y),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE226298,,,,,spent,,,COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_V21_01; DEV_NEWLAB_GRAN_01,held-out test,granulocytes | monocytes,yes,IDAT listed for 106/106 samples,Epigenome analysis of samples from  Alzheimer's disease patients and healthy controls with and without LOY (loss of chromosome Y),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE227271,,,,,,,,PROC_CHARR_01_PREREG,,,,,,
 GSE230132,,,,,,,,DEV_EPIQC_ARRAY_01,,,,,,
 GSE230850,,,,,spent,,,,not usable (not purified (PBMC)),,yes,IDAT listed for 189/189 samples,Impact of Plasmodium falciparum Infection on DNA Methylation of Circulating Immune Cells,gold-mine map

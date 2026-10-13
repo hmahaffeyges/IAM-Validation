@@ -100,3 +100,31 @@ is the machine's measurement day rather than the dish, which is why we keep the 
 never add them, so being generous with it costs us sensitivity and never buys us a result. The drift reappeared in two more
 laboratories and two more cell types, above chance but not completely, so the mask stays. **What it would take to do better.** Fresh, uncultured cells for the types we only have from a dish, which removes the guessing; and arrays measured on more than one day per cell line, which separates the dish's effect from the machine's measurement day. Both are searches we can run.
 
+## The 15 open decisions, adopted (2026-10-13)
+
+The author's standing instruction is to take whatever is most defensible, so every recommendation in `atlas_v21_plan.md` section 5
+is adopted as written, with its own conditions kept. Decided before any v2.1 array is downloaded or read.
+
+| # | Decision | Condition that still has to be met |
+|---|---|---|
+| 1 | Granulocytes enter as neutrophils only if marker-selected (CD15+ or CD16+) | each passes the sample-level twin test |
+| 2 | At most 12 donors per source per cell | none |
+| 3 | 450K-only new cells allowed; EPIC-only loci recorded NOT MEASURED, never filled | none |
+| 4 | EPIC v2 thymocytes (GSE269608) deferred to v2.2 | unless the Stage 1 EPIC v2 read check is done first |
+| 5 | Sperm, thymus, cord HSC and placenta left out of v2.1 | none |
+| 6 | Spent sets may build, unspent sets test (standing rule) | GSE226298 is already in `CANON/data_spent.csv` |
+| 7 | GSE306226 "astrocytes" enter flagged | kept only if closer to Tian astrocytes than to any other cell, cross-laboratory r at least 0.986; otherwise research |
+| 8 | Nothing built from cord blood GSE68456 / GSE82084 | keeps GSE127824 a clean truth set |
+| 9 | E-MTAB-4957 colon and ileum accepted, flagged pediatric | the "n"-suffix arrays identified before the split is sealed |
+| 10 | GSE146552 OSE/FTE conditional | kept only if non-epithelial content is under the cut fixed in the plan |
+| 11 | Adipocyte WGBS (GSE111445) deferred | none |
+| 12 | Blocks of half the v2 size (NBLOCK 1,400) | see below |
+| 13 | GSE132547 alveolar macrophages held out for U1/U2 | the paper confirms enrichment and that the authors are outside the Christensen/Salas group |
+| 14 | GSE131989 (UCSF) | the paper confirms subjecttype 2 = control and a group separate from Wiencke's |
+| 15 | Sex inferred from X/Y probes at Stage 1 and recorded per reading | after the split is sealed |
+
+**Decision 12, settled from the record.** The README says 32 processes; `15_stageB_run_all.sh` runs 16 processes pinned to 8 cores
+each, because 32 at once ran out of memory on 2026-09-28. The 0.829 s per locus (`records/14_stageB_timing_block.log`) is one block
+measured alone, so v2's real run was the 16-process case (about 11.7 h), and v2.1's estimate is the 16-process column: **21-26 h**
+for the firm roster. Halving the block size halves the memory per block; whether that allows 32 processes is measured on one v2.1
+block on the box before the full run starts, not assumed.
