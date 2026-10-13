@@ -66,6 +66,9 @@ def page(art):
         chip = '<span class="chip st-g">Commissioned</span>' if e["status"] == "commissioned" else '<span class="chip st-b">Passed its sealed test</span>'
         return f'''<article class="res win">{chip}<p class="stat">{f(w["stat"])}</p><h3>{f(w["head"])}</h3><p>{f(w["sub"])}</p><p class="more"><span>{E(e["date"])}</span> · <a href="{rec(e["record"])}">the record</a></p></article>'''
     MT = J("CANON/method.json")
+    AS = J("CANON/assistant.json")
+    ul = lambda xs: "".join(f"<li>{E(x)}</li>" for x in xs)
+    miss = "".join(f'<li><b>{E(m["what"])}</b><br><span class="meta">What caught it: {E(m["caught"])}</span></li>' for m in AS["mistakes"])
     LV = J("CANON/levers.json")
     method_secs = "\n".join(f'<h3>{E(x["title"])}</h3><p>{E(x["body"])}</p>' for x in MT["sections"])
     def lever_row(x):
@@ -184,6 +187,25 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 <p class="closer">{E(A["closer"])}</p>
 <!-- AUTHOR:END -->
 </section>
+<section class="wrap" id="assistant">
+<!-- ASSISTANT:BEGIN (from CANON/assistant.json; the voice check skips exactly this block, a vendor name is still refused) -->
+<h2>{E(AS["title"])}</h2>
+<p class="sub">{E(AS["intro"])}</p>
+<details class="fold" open><summary>What it does, what it does not decide, and what the researcher does</summary>
+<div class="grid">
+<div class="card"><h3>What the assistant does</h3><ul class="road">{ul(AS["does"])}</ul></div>
+<div class="card"><h3>What it does not decide</h3><ul class="road">{ul(AS["does_not"])}</ul></div>
+<div class="card"><h3>What the researcher does</h3><ul class="road">{ul(AS["author_does"])}</ul></div>
+</div>
+</details>
+<details class="fold"><summary>What the assistant got wrong, and what caught it</summary>
+<p>{E(AS["mistakes_lead"])}</p>
+<ul class="road">{miss}</ul>
+<p class="meta">All of them, with the fix each one now enforces: <a href="{rec(AS["lessons_record"])}">the lessons record</a>.</p>
+</details>
+<p class="sub">{E(AS["closing"])}</p>
+<!-- ASSISTANT:END -->
+</section>
 <section class="wrap"><h2>What it costs</h2><p class="sub">Every dollar, from Amazon's own billing and our storage, as of {E(CO["as_of"])}. Everything is paid by us and by people who choose to help.</p>
 <details class="fold"><summary>See every cost: this month ${mtot:,.2f} so far</summary>
 <div class="grid costs"><div class="card"><p class="big">${mtot:,.2f}</p><p>this month so far ({E(mkey)}), all costs</p><p class="small">{E(mlines)}</p></div>
@@ -235,7 +257,14 @@ footer{padding:50px 22px 60px;color:var(--muted);font-size:14px}
 """
 
 def problems(body):
-    txt = re.sub(r"<[^>]+>", " ", re.sub(r"<!-- AUTHOR:BEGIN.*?<!-- AUTHOR:END -->", "", body, flags=re.S)); P = []
+    # The voice check skips exactly two marked blocks: the author's own words, and the block that describes the research
+    # assistant (the author asked for it, 2026-10-13; the word "assistant" stays refused everywhere else, and a vendor or
+    # model name stays refused even inside it - see the brand check below).
+    _b = re.sub(r"<!-- AUTHOR:BEGIN.*?<!-- AUTHOR:END -->", "", body, flags=re.S)
+    _b = re.sub(r"<!-- ASSISTANT:BEGIN.*?<!-- ASSISTANT:END -->", "", _b, flags=re.S)
+    txt = re.sub(r"<[^>]+>", " ", _b); P = []
+    _brand = re.search(r"(?i:\bclaude\b|\bgpt\b|\bopenai\b|\banthropic\b|\bgemini\b|\bllama\b)", re.sub(r"<[^>]+>", " ", body))
+    if _brand: P.append(f"vendor or model name '{_brand.group(0)}' on the page: describe the role, not the brand")
     for rx, why in ((NR.VOICE, "voice"), (NR.HYPE, "hype word")):
         m = rx.search(txt)
         if m: P.append(f"{why} '{m.group(0)}'")

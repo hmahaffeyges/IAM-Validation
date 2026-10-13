@@ -19,7 +19,7 @@
 },
 {
 "file": "website/build/build_home.py",
-"line": 101,
+"line": 111,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",

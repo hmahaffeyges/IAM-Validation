@@ -1,0 +1,41 @@
+{
+ "_rule": "The research-assistant corner: what the AI assistant does on this project, what it does not decide, and what it got wrong. Kept in one file so the page cannot drift from it. Standing editorial choice (2026-10-13): describe the ROLE, not the brand - no vendor or model name - because naming a product invites the dismissal 'an AI did it' and implies an endorsement nobody gave. The author may overrule this; it is his page.",
+ "title": "The research assistant",
+ "intro": "An AI research assistant does the mathematics, the code and the refereeing on this project. It runs locally, on this researcher's own hardware, inside a scientific-computing application that keeps a persistent record of the work - so the project is continuous rather than restarted from nothing in every conversation. We say so here, up front, because anyone reading the repository would work it out in five minutes, and because what it does and does not decide is a fair question to ask.",
+ "does": [
+  "Writes and runs every script: the readings, the simulated tests, the scorers, the checks that refuse a push.",
+  "Finds and reads the public data - which laboratory produced it, who contributed to it, whether we have already spent it.",
+  "Brings the literature and the mathematics: the derivations, the statistics, the methods cosmology and particle physics already use.",
+  "Referees: argues against a result, hunts for the reading that would break it, and says so when a number does not hold.",
+  "Writes the records, including the failures, and keeps every claim tied to the file that produces it."
+ ],
+ "does_not": [
+  "It does not decide what is true. A committed bar, a timestamp, a control that fires and a refused push decide that.",
+  "It does not choose the direction. The ideas, the questions and the priorities are the researcher's.",
+  "It does not remember on its own. What persists is written down - the repository, the records, the foundation file. That is why the documentation discipline exists.",
+  "It is not a co-author of the physics. It is an instrument maker and a referee."
+ ],
+ "author_does": [
+  "The ideas and the law itself, including the claims this work rests on: that structure drives expansion, and that light and matter separate and do not experience gravity and time alike.",
+  "The decision to carry the law from cosmology into particle physics, then quantum processors and chips, and finally into the cell.",
+  "The questions - relentlessly - which is what actually moves the work: several of this week's corrections to the physics records came from them.",
+  "The calls that cannot be delegated: what gets sealed, what gets published, what gets retired."
+ ],
+ "mistakes_lead": "The most useful thing we can show a reviewer is what the assistant gets wrong and what catches it. Fourteen such lessons are recorded in the repository so far, each with the fix that now enforces it in code. Three from a single day:",
+ "mistakes": [
+  {
+   "what": "A simulated test modeled an impaired channel backwards, so its own result contradicted the derivation it was testing.",
+   "caught": "The test printed a healthy value 35 times off its target; an independent review found the same inversion from the committed code. The test now refuses to score at all unless its healthy draw lands on the derived value - and a rule now requires simulated tests to read through the same code the real readings use."
+  },
+  {
+   "what": "Calibrated readings were saved without the names of the sites they belonged to, so 24 healthy arrays came back blank - no value and no error.",
+   "caught": "The result was obviously wrong rather than subtly wrong. The reader now asserts the names are present, so a silent blank fails loudly."
+  },
+  {
+   "what": "The gauge's floor was described as an error of copying, which would mean it inherits from the act of copying. It does not: it is set by energy and temperature alone, the same whether a cell divides or not.",
+   "caught": "The researcher caught it - in a sentence quoted word for word from his own book, where the wrong phrasing had been sitting. Four lines of the book were corrected and the phrasing is now refused by a check."
+  }
+ ],
+ "closing": "None of that is a reason to trust the assistant. It is a reason to trust the record, which is the only thing we are asking anyone to look at.",
+ "lessons_record": "Biological_Physics/MethylPhys/LESSONS.md"
+}
