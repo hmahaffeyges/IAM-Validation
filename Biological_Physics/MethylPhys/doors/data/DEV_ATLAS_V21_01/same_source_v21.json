@@ -1,0 +1,14 @@
+{
+ "_rule": "Series that share physical arrays (same chip barcode and position under two GSMs, found by identity_audit_v21.py) are ONE source: they count as one laboratory for independence and may not serve as two held-out tests. A shared array is a problem only if both of its GSMs are in the roster.",
+ "groups": [
+  {
+   "series": [
+    "GSE85566",
+    "GSE201872"
+   ],
+   "shared_arrays": 112,
+   "found": "2026-10-13, identity_audit_v21.py",
+   "treatment": "one source for lung bronchus epithelium; the roster's 41 + 5 samples are distinct arrays"
+  }
+ ]
+}

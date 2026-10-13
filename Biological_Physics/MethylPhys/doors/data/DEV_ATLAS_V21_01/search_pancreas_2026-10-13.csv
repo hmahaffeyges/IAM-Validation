@@ -1,0 +1,40 @@
+search,acc,known,n,plat,suppl,title
+arrays,GSE299969,False,12,21145,"IDAT, XLSX",DNA methylation microarray analysis of human DNA samples contaminated with mouse DNA.
+arrays,GSE281305,False,40,21145,"IDAT, RDS",Generation of multi-omic datasets using high-throughput molecular profiling of DNA methylation human data
+arrays,GSE281307,False,196,13534,"IDAT, TXT",Multimodal Genome-wide Survey of Progressing and Non-progressing Breast Ductal Carcinoma In-Situ
+arrays,GSE121656,False,6,21145,"IDAT, TXT",Pancreatic cancer cells render metabolic reprogramming of tumor-associated macrophages through a GARP-dependent and
+arrays,GSE171958,False,27,18573;21145,"IDAT, TXT",Multi-omics data integration reveals correlated regulatory features of triple negative breast cancer
+arrays,GSE171956,False,16,21145,"CSV, IDAT",Multi-omics data integration reveals correlated regulatory features of triple negative breast cancer [methylation]
+arrays,GSE178235,False,43,13534,,Genome-wide DNA methylation analysis of HER2-positive breast cancer and stroma
+arrays,GSE134217,False,43,21145,"CSV, IDAT",Aggressive PDACs show hypomethylation of repetitive elements and the execution of an intrinsic IFN program linked t
+arrays,GSE143209,False,64,13534,IDAT,Human pancreatic islets methylation array
+arrays,GSE144213,False,25,21145,"CSV, IDAT",The DNA Methylation Landscape of the Human Cancer Organoids Available at the American Type Culture Collection
+arrays,GSE122126,True,101,13534;21145,IDAT,Comprehensive human cell-type methylation atlas reveals origins of circulating cell-free DNA in health and disease
+arrays,GSE117853,False,112,571;11154;13534,"CEL, IDAT",Gene expression and methylation profile of Human non-functional Pancreatic neuroendocrine tumors (PanNETs)
+arrays,GSE117852,False,32,13534,IDAT,Methylation Heterogeneity within Human non-functional Pancreatic neuroendocrine tumors (PanNETs)
+arrays,GSE80241,False,17,13534,"IDAT, TXT",Epigenome analysis of PDAC cancer stem cells and non-cancer stem cells
+arrays,GSE80368,False,4,13534,"IDAT, TXT",Epigenome analysis of pancreatic adenocarcinoma associated fibroblast cells.
+arrays,GSE66872,False,60,13534,TXT,Epigenetic Inactivation of the Putative DNA/RNA Helicase SLFN11 in Human Cancer Confers Resistance to Platinum-deri
+arrays,GSE52578,False,31,13534;11154,TXT,Genome-wide parent-of-origin DNA methylation analysis
+arrays,GSE52576,False,28,13534,TXT,Genome-wide parent-of-origin DNA methylation analysis [Methylation450 BeadChip]
+arrays,GSE40699,False,62,13534,IDAT,CpG Methylation by Methyl 450K  Bead Arrays from ENCODE/HAIB
+arrays,GSE31848,False,153,13534,TXT,Recurrent Variations in DNA Methylation in Human Pluripotent Stem Cells and their Differentiated Derivatives [Illum
+arrays,GSE30654,False,675,8490;6947;13534,,Recurrent Variations in DNA Methylation in Human Pluripotent Stem Cells and their Differentiated Derivatives
+sequencing,GSE264438,False,676,34394,"CSV, IDAT",MSA: Scalable DNA methylation BeadChip for human trait screening
+sequencing,GSE223153,True,19,24676,"COV, TXT",DNA methylation sequencing of human pancreatic acinar and ductal cells [Bisulfite-seq]
+sequencing,GSE233417,False,521,24676,"BED, CSI, PAT",A comprehensive DNA methylation atlas for noncancer human tissue types
+sequencing,GSE231984,False,791,24676,"BEDGRAPH, TXT",DNA methylation profiling to determine the primary sites of metastatic cancers using formalin-fixed paraffin-embedd
+sequencing,GSE231969,False,215,24676,"BEDGRAPH, TXT",DNA methylation profiling to determine the primary sites of metastatic cancers using formalin-fixed paraffin-embedd
+sequencing,GSE230193,False,498,24676,"BEDGRAPH, TXT",DNA methylation profiling to determine the primary sites of metastatic cancers using formalin-fixed paraffin-embedd
+sequencing,GSE222147,False,35,20301;24676,RDA,Comprehensive sequence-based DNA methylation analysis suggests that PanIN lesions are acinar-derived and epigenetic
+sequencing,GSE186458,True,253,24676,"BED, BETA, BIGWIG, CSI, PAT, TBI",A human DNA methylation atlas reveals principles of cell type-specific methylation and identifies thousands of cell
+sequencing,GSE161956,False,13,11154,BED,Aggressive PDACs show hypomethylation of repetitive elements and the execution of an intrinsic IFN program linked t
+sequencing,GSE144691,False,34,24676;24247,BED,Beta cell-specific CD8+ T cells maintain stem-cell memory-associated epigenetic programs during type 1 diabetes (WG
+sequencing,GSE140501,False,8,20301,BB,Chromatin dynamics reveal circadian control of human in vitro islet maturation [WGBS]
+sequencing,GSE51239,False,48,11002;10999,TXT,DNA methylation dynamics of the human pre-implantation embryo
+sequencing,GSE27584,False,202,9052;10999,"BED, BEDRRBS",DNA Methylation by Reduced Representation Bisulfite Seq from ENCODE/HudsonAlpha
+sequencing,GSE25247,False,55,10999;9115,WIG,BI Human Reference Epigenome Mapping Project: Characterization of DNA methylation by RRBS in human subject
+sequencing,GSE18927,False,758,18952;10999;9115;5188;11154,"BAM, BED, CEL, TXT, WIG",University of Washington Human Reference Epigenome Mapping Project
+sequencing,GSE17312,False,633,11154;570;9115;10999,"BAM, BED, CEL, WIG",BI Human Reference Epigenome Mapping Project
+sequencing,GSE16256,False,878,13393;16791;9115;9052;10999;11154,"BAM, BED, WIG",UCSD Human Reference Epigenome Mapping Project
+sequencing,GSE9015,False,8,570;4091,"CEL, CHP, TIFF, TXT",Genome-Wide Mapping of Hypomethylated Sites in Human Genomes

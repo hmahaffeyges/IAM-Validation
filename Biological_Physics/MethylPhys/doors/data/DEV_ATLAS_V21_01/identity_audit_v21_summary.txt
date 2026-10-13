@@ -1,0 +1,45 @@
+(1) physical arrays deposited under more than one GSM: 112 in the snapshots; 41 touch a sample the roster uses
+    7973201017_R06C02: GSM2277236;GSM6077402 (GSE201872;GSE85566)
+    7973201079_R01C01: GSM2277237;GSM6077403 (GSE201872;GSE85566)
+    7973201079_R02C01: GSM2277239;GSM6077404 (GSE201872;GSE85566)
+    7973201079_R03C01: GSM2277241;GSM6077405 (GSE201872;GSE85566)
+    7973201079_R04C01: GSM2277243;GSM6077406 (GSE201872;GSE85566)
+    7973201079_R05C01: GSM2277245;GSM6077407 (GSE201872;GSE85566)
+    7973201079_R06C01: GSM2277247;GSM6077408 (GSE201872;GSE85566)
+    7973201079_R01C02: GSM2277238;GSM6077409 (GSE201872;GSE85566)
+    7973201079_R02C02: GSM2277240;GSM6077410 (GSE201872;GSE85566)
+    7973201079_R03C02: GSM2277242;GSM6077411 (GSE201872;GSE85566)
+    7973201092_R05C01: GSM2277257;GSM6077418 (GSE201872;GSE85566)
+    7973201092_R03C02: GSM2277254;GSM6077422 (GSE201872;GSE85566)
+    7973201092_R04C02: GSM2277256;GSM6077423 (GSE201872;GSE85566)
+    7973201092_R05C02: GSM2277258;GSM6077424 (GSE201872;GSE85566)
+    7973201092_R06C02: GSM2277260;GSM6077425 (GSE201872;GSE85566)
+    of these, the same physical array used twice in the roster: 0; series sharing arrays not declared one source in same_source_v21.json: none
+    note: sequencing samples keep their raw reads in SRA, not as GEO supplementary files, so 'without raw files' is expected for them
+(2) roster GSMs not on GEO: 0; under the wrong series: 0; without raw files: 29; count mismatches: 0
+    GSM3030949 (GSE111445)
+    GSM3030950 (GSE111445)
+    GSM3030951 (GSE111445)
+    GSM3030952 (GSE111445)
+    GSM3030953 (GSE111445)
+    GSM3030954 (GSE111445)
+    GSM2536542 (GSE96612)
+    GSM2536544 (GSE96612)
+    GSM2536546 (GSE96612)
+    GSM2536548 (GSE96612)
+    GSM2536549 (GSE96612)
+    GSM2536551 (GSE96612)
+    GSM2536553 (GSE96612)
+    GSM2536555 (GSE96612)
+    GSM2536558 (GSE96612)
+    GSM2536560 (GSE96612)
+    GSM2536562 (GSE96612)
+    GSM2536564 (GSE96612)
+    GSM2536566 (GSE96612)
+    GSM2536568 (GSE96612)
+(3) GSMs listed in more than one roster row: 0
+(4) Loyfer2023 GSE186458: GEO samples 253; in the atlas roster 207 (of which QC-excluded 11); not in the roster at all 46; in the roster but not in GSE186458: 0
+    not in the roster, by GEO source name: cell-free DNA 23; White blood cells 23
+(4) Moss2018 GSE122126: GEO samples 101; in the atlas roster 27 (of which QC-excluded 5); not in the roster at all 74; in the roster but not in GSE122126: 0
+    not in the roster, by GEO source name: cfDNA, sepsis 18; in vitro mix of genomic DNA 9; cfDNA, in vitro mix 5; cfDNA, normal 4; cfDNA, lung carcinoma 4; cfDNA, CUP 4; cfDNA, sepsis, 50 ng DNA used 3; cfDNA, colon adenocarcinoma 3; cfDNA, pancreatic islet transplant recipient, pre-transplant 3; cfDNA, pancreatic islet transplant recipient, 1 hour post-transplant 3; cfDNA, pancreatic islet transplant recipient, 2 hours post-transplant 3; cfDNA, breast adenocarcinoma 3
+IDENTITY AUDIT (metadata) PASSED

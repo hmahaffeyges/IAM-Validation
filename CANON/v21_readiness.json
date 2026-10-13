@@ -384,6 +384,29 @@
    ]
   },
   {
+   "id": "L16",
+   "stage": "before_launch",
+   "what": "Sample-identity audit (metadata): no physical array used twice, series sharing arrays declared one source, every roster GSM on GEO under its series, Loyfer and Moss accounted for sample by sample; data layer (genotype and sex from the arrays) runs at Stage 1",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/identity_audit_v21.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/identity_audit_v21_summary.txt",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/same_source_v21.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/geo_snapshots/index.json"
+   ],
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/identity_audit_v21_summary.txt",
+      "PASSED"
+     ]
+    ]
+   },
+   "manifest": [
+    "ATL-006",
+    "ATL-013"
+   ]
+  },
+  {
    "id": "B2",
    "stage": "box_first",
    "what": "Held-out arrays downloaded and through Stage 1, checksummed (after the split is sealed, before any scoring)",

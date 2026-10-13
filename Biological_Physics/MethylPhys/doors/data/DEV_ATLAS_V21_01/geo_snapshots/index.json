@@ -1,0 +1,238 @@
+{
+ "GSE100561": {
+  "sha256_uncompressed": "0bbd811f19969fe2754b076e6424674e4a7f06f9e269bd55be6e9eab70fdd6dc",
+  "samples": 12
+ },
+ "GSE102970": {
+  "sha256_uncompressed": "b40de1cfea92772893592367fe839662e871592cd8a912fe83c204d8b53a5a2f",
+  "samples": 48
+ },
+ "GSE103541": {
+  "sha256_uncompressed": "145942afcdf5f488b7434e5b0246b5ab18ecc2ea76af6deced5e7c632ec1587a",
+  "samples": 145
+ },
+ "GSE104287": {
+  "sha256_uncompressed": "b156ccd11bb0330316bcf59c0c8a1744f4e0883a09c460bc60ab427ac8fedb59",
+  "samples": 48
+ },
+ "GSE104405": {
+  "sha256_uncompressed": "dddbbd44f85977f73b4f61d07a4b0e89e4979e7e233f50c7fb87187971ad2006",
+  "samples": 12
+ },
+ "GSE104471": {
+  "sha256_uncompressed": "2858950cb6f120e663c6ec20cba3c559b8b40d9f6b5e9870d5271146a0c41c14",
+  "samples": 72
+ },
+ "GSE107729": {
+  "sha256_uncompressed": "94b091697facbfb02ac2a369b22c4e2cb8be9d73989f48efd5632f2132bd2e02",
+  "samples": 95
+ },
+ "GSE111445": {
+  "sha256_uncompressed": "1e2425fe7a430b23cb97f1ec3c05dfd822aff6863affa96ed9f63162993b5c46",
+  "samples": 12
+ },
+ "GSE112179": {
+  "sha256_uncompressed": "a68e80e090bb132c2be5e3f0bcb7a0296b72342c05deddc8c5c5436ea7817708",
+  "samples": 100
+ },
+ "GSE112696": {
+  "sha256_uncompressed": "c537f5d049f5836301a9d0cf4e529a3a74558fa299dbb6b2ace76610cf878fe7",
+  "samples": 12
+ },
+ "GSE114753": {
+  "sha256_uncompressed": "60e05f8927f17ee4500df17813b88432424e7e8025355e1978cd53b38c4d8a7f",
+  "samples": 156
+ },
+ "GSE116754": {
+  "sha256_uncompressed": "868d3b9436c80b2c7c06b6e087151c75c8e442706c3046b02d1607085459899f",
+  "samples": 38
+ },
+ "GSE118144": {
+  "sha256_uncompressed": "446d03fe38346277255448f774e7ce2399e2d6f3927cb6e30a75b666ee66c804",
+  "samples": 145
+ },
+ "GSE118255": {
+  "sha256_uncompressed": "11c257fbe0927dbfeca65e9c9cf911dc62ca6d84e7ba067b7699f139019d8ad2",
+  "samples": 92
+ },
+ "GSE121192": {
+  "sha256_uncompressed": "bb30c66bc38561279922973ea8d1b4f49566afbb43b3b4839c1c01ca955bee00",
+  "samples": 46
+ },
+ "GSE122126": {
+  "sha256_uncompressed": "922e71885392e0eead88fba1bde2b216586180cd4de1f44ec2c86753aaa7426a",
+  "samples": 101
+ },
+ "GSE122244": {
+  "sha256_uncompressed": "e6e610343472b3321375615cb93bc1cff562649340e3e24506538e132c430126",
+  "samples": 70
+ },
+ "GSE124565": {
+  "sha256_uncompressed": "15c36fb51047d7c604be45b8b8d9056dc73aeb5f53906ab368069d175b34dc51",
+  "samples": 22
+ },
+ "GSE126017": {
+  "sha256_uncompressed": "76fd86d149b55b841992d7c5c30afff59df41e6f155ac5859967b3a4acc7d0f2",
+  "samples": 54
+ },
+ "GSE127824": {
+  "sha256_uncompressed": "65f3ac3c40dd51d1f6669f62e334395a345edbc184e30c57c5bbd443bb8bd28f",
+  "samples": 24
+ },
+ "GSE128734": {
+  "sha256_uncompressed": "784ba88a5ef8d9e4bef2e4a0b12d0e04fb18dd2a758e5b392cfbdc13e13b2051",
+  "samples": 53
+ },
+ "GSE130029": {
+  "sha256_uncompressed": "2fe6d3cf69fa76e88f43c9a354ed4cd586afe0f46eef4d48b01439d889d7b446",
+  "samples": 31
+ },
+ "GSE130030": {
+  "sha256_uncompressed": "8daa5ce45764372f6551b91280e74be35240891bba7bba3a930480360ad06478",
+  "samples": 28
+ },
+ "GSE131989": {
+  "sha256_uncompressed": "f31a0bc4c087daad7acd1b49f2409003318d46e99013260f32be0555f6d6da37",
+  "samples": 371
+ },
+ "GSE132547": {
+  "sha256_uncompressed": "87c6f67561857e3d2fdd8a4834323cabcb8484c4787b96b58f01b0b8aa1d4092",
+  "samples": 24
+ },
+ "GSE137716": {
+  "sha256_uncompressed": "1c0c83f066ae2446e146be720fe51a687609c356ba84b3e5d4ab5a7e98f96826",
+  "samples": 33
+ },
+ "GSE146552": {
+  "sha256_uncompressed": "a9e2749cece3f3c6111186bcb551b89308e794271015ed81d5f141e496362874",
+  "samples": 38
+ },
+ "GSE153459": {
+  "sha256_uncompressed": "37db791bebe957dfc8c1d82f0584be94ea8e92bea8f61b5223bc29e3be5f031a",
+  "samples": 35
+ },
+ "GSE159474": {
+  "sha256_uncompressed": "e0eca3e9d1a7aa63818db21d3476d2d1208d6bf706a7610881752be7bebd500e",
+  "samples": 72
+ },
+ "GSE167202": {
+  "sha256_uncompressed": "6b481472e4352b80907e575c9ea25d4d23717b4116ae9bf0c2e1e23e6d348629",
+  "samples": 525
+ },
+ "GSE173787": {
+  "sha256_uncompressed": "f098c960427cd666d9901be5a5a735317f9b8266d655f83750c3932a1476b5ed",
+  "samples": 133
+ },
+ "GSE184269": {
+  "sha256_uncompressed": "1a6abdfcbd9ef4613edc9429f2d812384811ee407719a7431b44abc2877acbce",
+  "samples": 167
+ },
+ "GSE186458": {
+  "sha256_uncompressed": "af0ac35a1c1079e907b24898b76c6165051d6508e3111df2eed154704094044f",
+  "samples": 253
+ },
+ "GSE188573": {
+  "sha256_uncompressed": "1b4b7bc1d078527b64e701ee2f8a2c30dd2dc183c1591390a45e314c9754029f",
+  "samples": 59
+ },
+ "GSE189255": {
+  "sha256_uncompressed": "fe6ee4c8f43e01c8a6e7f46b19591c8942e16f0178cfbb52794ee75b2527ed30",
+  "samples": 14
+ },
+ "GSE189256": {
+  "sha256_uncompressed": "e7539201f52cbb15cb43fd1789a1df5b134856089cd754d12af0f78512075a5d",
+  "samples": 14
+ },
+ "GSE191200": {
+  "sha256_uncompressed": "160280fefcc780b09849ba9f7c7db6ab175a4f27d24be5ddc313718bab08f5d4",
+  "samples": 56
+ },
+ "GSE201872": {
+  "sha256_uncompressed": "deaf13e9c6bcc1cec102f90c49d09f7350e2deb45d2cd4e4ad15b41a1f2ff3e6",
+  "samples": 142
+ },
+ "GSE222147": {
+  "sha256_uncompressed": "64d075e58fb0a97f47be0628ed0041b042633b88f0654abe3b91ee722b81881e",
+  "samples": 35
+ },
+ "GSE223153": {
+  "sha256_uncompressed": "16f7717a628512949cdd850b06317efb613b2283590604199851c54b398d053b",
+  "samples": 19
+ },
+ "GSE224807": {
+  "sha256_uncompressed": "3f2a5dbbd29a77eda6e30379e503abb56e34709c46930cb804e8a96087e56aec",
+  "samples": 876
+ },
+ "GSE226298": {
+  "sha256_uncompressed": "3b4be7a9240b77e9c9297a87e6e11b67f8baeb545ed04d8a64f07089be14f95e",
+  "samples": 106
+ },
+ "GSE247198": {
+  "sha256_uncompressed": "1195d1a0bc3d05b4f03b41edc24c16741a9d621df4ec2a44523980500966e1ae",
+  "samples": 96
+ },
+ "GSE252045": {
+  "sha256_uncompressed": "44dc5cc4aa9fac8b3a705c140dc8091da555be3229667461c9c040ad1f72ac4f",
+  "samples": 130
+ },
+ "GSE269608": {
+  "sha256_uncompressed": "39f40f902b71574078ad60192260d04aa6bdcf94bb0cdb36eb54dfffc89b457f",
+  "samples": 56
+ },
+ "GSE273074": {
+  "sha256_uncompressed": "eda3976c8e738850cefe87e8822de3f20a8c23110eb3b3c7c5aa95e3390f9927",
+  "samples": 72
+ },
+ "GSE306226": {
+  "sha256_uncompressed": "d0ec07230ceb7d8e4ec09ad32a0cdc54c1be21bef6a059332b2e5acd35b5cd64",
+  "samples": 80
+ },
+ "GSE49618": {
+  "sha256_uncompressed": "0606073e603c1ff07dbf386407d94b36a3790897be3b4a8bb780564fa6fde45e",
+  "samples": 21
+ },
+ "GSE59065": {
+  "sha256_uncompressed": "c6255624cd882132f6dc6518d231859ee593a2abb8208067793d9eb73ff5bc18",
+  "samples": 296
+ },
+ "GSE59163": {
+  "sha256_uncompressed": "560adbecaeb52b2ee1aad06835d94a06bfb8fe75c26836fa4c544579035ff6cb",
+  "samples": 13
+ },
+ "GSE66351": {
+  "sha256_uncompressed": "635dc01b6fdcaaddcc0eeb544ce208489bc6dd601bf49dc0c9c1e3785c7eda7f",
+  "samples": 190
+ },
+ "GSE75405": {
+  "sha256_uncompressed": "286a4afe2bb69c8cdfdd1997b98121c25b06102b8f0e41932dc1b61456ee197b",
+  "samples": 24
+ },
+ "GSE85566": {
+  "sha256_uncompressed": "a490219e0d609d5d22a18dd70c1aef6bf1073de7dac47d647f0b9c2c800575ff",
+  "samples": 115
+ },
+ "GSE85647": {
+  "sha256_uncompressed": "6b119b7fc7d746b9832864f96ca05009cb5ffa454a412b674ce8d40822d9f9fb",
+  "samples": 23
+ },
+ "GSE87095": {
+  "sha256_uncompressed": "1432c24273e3c8d43b674dcf78bed6d5e10c5d95dd207148a22282362be02819",
+  "samples": 122
+ },
+ "GSE87640": {
+  "sha256_uncompressed": "546771585a960430f86bfb76967e1e38c6c8093a6f7546f5761e17cbfa16889a",
+  "samples": 240
+ },
+ "GSE88824": {
+  "sha256_uncompressed": "52dcf9f918383687e9562b68e3668af71ae5e1fc841deb3f909a32bef3f0acaf",
+  "samples": 83
+ },
+ "GSE96612": {
+  "sha256_uncompressed": "3e86fe3135014d7bb468f9759177e0846fdfb022ffe5b08bf76dac401df4ceb3",
+  "samples": 72
+ },
+ "GSE98203": {
+  "sha256_uncompressed": "e32b45c4f993d4976fa8702e83f9bac857bbc3046386fe362e820c97553614b5",
+  "samples": 88
+ }
+}

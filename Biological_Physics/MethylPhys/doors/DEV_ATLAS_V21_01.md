@@ -136,3 +136,13 @@ sorted sample from children with cystic fibrosis), GSE178808 (an HIV and COPD co
 GSE102726 and GSE40699 (cultured or cell lines), GSE134217 (pancreatic cancer). The lung tumor tests' blocker is lung stroma, not
 epithelium: every public lung stroma set is cultured, so it waits for the frozen-base add-on test (readiness G9) and a labeled cultured
 layer, not for v2.1.
+
+**Pancreas search, 2026-10-13 (author: pancreas is his first priority; before the split is sealed; metadata only).** Pancreas is thin
+in v2: duct 6 samples and acinar 6 (each Loyfer and Moss), beta 7, alpha 3, delta 3, endothelium 4, at most two laboratories each. The
+search (`data/DEV_ATLAS_V21_01/search_pancreas_2026-10-13.csv`, query and every hit) found three unread sets: **GSE223153**, flow-sorted
+fresh acinar (5) and ductal (5) cells by RRBS, entered as an independent held-out check at RRBS loci (RRBS covers too few array sites to
+build under the coverage rule, which is not changed here); **GSE222147**, laser-captured normal acini (8), normal ducts (7), PanIN (14)
+and cancer (6), entered as a flagged second check and as the pancreas precancer series for a breach design (manifest); **GSE143209**,
+64 dispersed islet samples, research (a mixture, not a cell type). The rest were cancers, cultures, organoids or not methylation of
+sorted cells.
+

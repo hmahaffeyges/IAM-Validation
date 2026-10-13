@@ -24767,6 +24767,30 @@
    "sources_of_row": [
     "author request 2026-10-13"
    ]
+  },
+  {
+   "id": "TIS-052",
+   "title": "Pancreatic breach design: normal duct and acini, PanIN precancer, cancer, one laboratory (GSE222147)",
+   "purpose": "Pancreas is the author's first priority for early detection. GSE222147 holds laser-captured normal acini (8), normal ducts (7), PanIN precancer lesions (14) and cancer (6) from 18 patients, all whole-genome sequenced: the pancreas's own precancer-to-cancer series for the breach line.",
+   "instrument_or_term": "Met-A (sequencing), breach line",
+   "sources": [
+    "GSE222147"
+   ],
+   "data_status": "partial",
+   "status": "idea",
+   "runs": [],
+   "next_step": "design after atlas v2.1: bars and a planted test first; note the values are smoothed and processed, and 'normal' is patients' adjacent tissue",
+   "cost": "laptop",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "legacy_ids": [],
+   "depends_on": [
+    "ATL-005"
+   ],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
   }
  ],
  "not_tests": {

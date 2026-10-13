@@ -10,7 +10,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 437,
+"line": 438,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
