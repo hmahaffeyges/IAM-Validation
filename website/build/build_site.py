@@ -69,8 +69,9 @@ def head_html(root, theme_default, title, extra=""):
 
 def topbar(root, parts):
     links = " ".join(f'<a href="{root}part-{p["n"]}/">{p["roman"]}</a>' for p in parts)
-    return (f'<a class="skip" href="#content">Skip to the text</a><header class="iam-top"><a class="home" href="{root}">{TITLE}</a>'
-            f'<nav aria-label="Parts">{links}<a href="{root}book/">Contents</a><a href="{root}pdf/IAMs_Law_and_Order.pdf">PDF</a></nav>'
+    return (f'<a class="skip" href="#content">Skip to the text</a><header class="iam-top"><a class="home" href="{root}read/">{TITLE}</a>'
+            f'<nav aria-label="Parts">{links}<a href="{root}book/">Contents</a><a href="{root}pdf/IAMs_Law_and_Order.pdf">PDF</a>'
+            f'<a href="{root}">The research, live</a></nav>' 
             f'<div class="iam-themes" role="group" aria-label="Reading theme">'
             f'<button type="button" data-theme="paper" aria-pressed="false">Paper</button>'
             f'<button type="button" data-theme="dark" aria-pressed="false">Dark</button>'

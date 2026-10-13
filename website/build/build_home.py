@@ -11,6 +11,16 @@ import os, re, sys, json, html, base64, datetime, importlib.util
 
 HERE = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.abspath(os.path.join(HERE, "..", ".."))
 GH = "https://github.com/hmahaffeyges/IAM-Validation/blob/main/"
+PDF = "pdf/IAMs_Law_and_Order.pdf"   # the live PDF; page numbers below verified against it 2026-10-13
+CH = {"astro": (48, 437, "Astro-Genetics: the cell read as a thermometer"), "landauer": (49, 446, "Landauer's cost at body temperature"),
+      "gauge": (53, 464, "One gauge for a cell"), "meta": (54, 470, "Met-A: the cell's own reference on arrays"),
+      "iama": (55, 474, "IAM-A: copy error on single molecules"), "cscore": (56, 478, "The C-score: where the departures sit"),
+      "translation": (58, 484, "The translation principle"), "separation": (60, 492, "Component separation: finding the cells"),
+      "reference": (61, 495, "The reference: purified healthy cells"), "identity": (62, 503, "Identity sites: where a cell is read"),
+      "skytools": (63, 506, "Tools from the sky"), "sky": (64, 517, "The sky: what the reference cannot explain"),
+      "discipline": (66, 522, "Discipline: nulls, simulations, pre-registration"), "established": (71, 537, "What is established, and what is not")}
+def ch(k, label=None):
+    n, pg, t = CH[k]; return f'<a href="{PDF}#page={pg}">Chapter {n}, {html.escape(label or t)}</a>'
 SITE_URL = "https://hmahaffeyges.github.io/IAM-Validation/"
 J = lambda p: json.load(open(os.path.join(REPO, p), encoding="utf-8"))
 spec = importlib.util.spec_from_file_location("nr", os.path.join(REPO, "CANON", "now_running.py")); NR = importlib.util.module_from_spec(spec); spec.loader.exec_module(NR)
@@ -93,12 +103,13 @@ def page(art):
 <figure><img src="{art("sky_atlas_cells.jpg")}" alt="Six healthy cell types from the atlas drawn on the sphere, and the atlas's uncertainty for neutrophils."><figcaption>Six of the atlas's 74 healthy cell types, each its own sky. The last map is how sure the atlas is about neutrophils at every site: dark is very sure. The brighter band at the bottom is the Y chromosome, where the atlas has the fewest donors.</figcaption></figure>
 <figure><img src="{art("sky_pair.jpg")}" alt="Left: the microwave sky, temperature minus its mean. Right: one healthy neutrophil's methylation read against five others, drawn on the same kind of map."><figcaption>Left, the microwave sky. Right, one healthy white blood cell read against five others, drawn the same way. Healthy cells look like noise: nothing stands out.</figcaption></figure>
 <figure><img src="{art("sky_damage.jpg")}" alt="Four maps: a healthy array; known damage spread everywhere; known damage in ten genome regions; a female array read against male arrays."><figcaption>Known damage, planted on purpose. Spread everywhere, it warms the whole map. Packed into ten regions, it shows as stripes, which the clustering reading catches when the average barely moves. A female sample read against male ones lights up the X chromosome at the bottom, as it should.</figcaption></figure>
+<p class="more"><b>All of this, in full, in the book:</b> {ch("skytools")} lists every cosmology tool and what each does here; {ch("sky")} is the sky reading itself and why its statistics stay withheld; {ch("reference")} is what the atlas is and how it is built; {ch("translation")} is why the tools carry over at all; {ch("astro")} is the idea in one chapter.</p>
 </details></section>
 <section class="wrap"><h2>Our instruments are the telescopes. The atlas is the sky map.</h2>
 <details class="fold"><summary>How it works, and every cosmology tool we use</summary>
 <p>Met-A and IAM-A are the two instruments; each is commissioned once, on its own tests. The atlas, a map of what healthy human cells look like, is the sky map they read against. Like each release of the microwave-sky maps, every atlas version is refitted whole, gets its own DOI and is checked again by the same tests on data it never saw. This is not a metaphor: it is the same mathematics applied to a different signal. Each tool, with where it stands today:</p>
 <table class="tools"><thead><tr><th>The cosmology tool</th><th>What it does here</th><th>Where it stands</th></tr></thead><tbody>{tools}</tbody></table>
-<p class="more">Sky data: Planck 2018 SMICA map from the Planck Legacy Archive (ESA and the Planck Collaboration, Planck 2018 results IV, A&A 641, A4, 2020), colors from the Planck Collaboration's own color scale. Every tool, built or not yet built: the <a href="read/">book's sky-tools chapter</a>. The atlas itself, free to download: <a href="https://doi.org/{E(AT["doi"])}">DOI {E(AT["doi"])}</a> ({AT["total_bytes"] / 1e9:.2f} GB in {AT["files"]} files, every file checked against its fingerprint).</p></details></section>
+<p class="more">Read it in full in the book: {ch("astro")} and {ch("landauer")} are the physics, {ch("translation")} is why cosmology's tools apply, {ch("skytools")} is the tool list. Sky data: Planck 2018 SMICA map from the Planck Legacy Archive (ESA and the Planck Collaboration, Planck 2018 results IV, A&A 641, A4, 2020), colors from the Planck Collaboration's own color scale. Every tool, built or not yet built: the <a href="read/">book's sky-tools chapter</a>. The atlas itself, free to download: <a href="https://doi.org/{E(AT["doi"])}">DOI {E(AT["doi"])}</a> ({AT["total_bytes"] / 1e9:.2f} GB in {AT["files"]} files, every file checked against its fingerprint).</p></details></section>
 <section class="wrap" id="road"><h2>The road ahead</h2><p class="sub">Every job still in front of us, in order: what it needs and what it is expected to cost. This is why support matters.</p>
 <details class="fold"><summary>See the {len(NJ["jobs"])} jobs ahead, and where a researcher could help</summary>
 <ol class="road">{road}</ol>
@@ -106,6 +117,19 @@ def page(art):
 <ul class="road help">{helpw}</ul>
 <p class="more">The same list on GitHub: <a href="{rec("ROADMAP.md")}">ROADMAP.md</a>.</p></details></section>
 <div class="art-band" style="background-image:url({art("bh_banner.jpg")})" role="img" aria-label="Art from the book"></div>
+<section class="wrap" id="asks"><h2>The questions a researcher asks first</h2><p class="sub">Short answers, each with the chapter that gives the full one.</p>
+<details class="fold"><summary>See the nine questions and their answers</summary>
+<dl class="qa">
+<dt>What exactly do you measure?</dt><dd>How faithfully a cell holds its methylation pattern against a limit physics sets, not how much methylation it has. Two instruments: one reads arrays, one reads single molecules. {ch("gauge")}, {ch("meta")}, {ch("iama")}</dd>
+<dt>Where does the limit come from?</dt><dd>The energy it takes to hold one bit at body temperature, which fixes the floor, with the healthy height measured in between. {ch("landauer")}</dd>
+<dt>Isn't this just methylation entropy, which is decades old?</dt><dd>The entropy itself is old and we say so. What is ours is the gauge: a physics-set floor and a measured healthy reference, so a reading means something absolute rather than a comparison between groups. {ch("gauge")}</dd>
+<dt>How do you handle the cell mixture in a tissue?</dt><dd>Component separation, the same job the microwave-sky maps do with dust and galaxy glow, plus sites chosen so that a change in the mixture cannot move them. {ch("separation")}, {ch("identity")}</dd>
+<dt>What is the reference, and is it circular?</dt><dd>A fixed Bayesian map of 74 purified healthy cell types, from seven public sources on arrays and sequencing, with an interval at every site. No IAM physics enters the fit, and it is never refitted to the sample being read. {ch("reference")}</dd>
+<dt>Why cosmology's tools, and which ones do you actually use?</dt><dd>Because the data have the same shape: faint structure under foregrounds, many instruments, one map. The book marks each of 79 tools built, partly built or not built. {ch("translation")}, {ch("skytools")}</dd>
+<dt>What stops you from fitting your own answer?</dt><dd>Every test's rule is committed before its data is read, scored once, and the push gate refuses a late rule, an untraceable number or a missing result. {ch("discipline")}</dd>
+<dt>What is established and what is not?</dt><dd>One instrument is commissioned on isolated white blood cells; everything else is development. The book has a table of every claim with its status. {ch("established")}</dd>
+<dt>Where do the departures sit along the genome?</dt><dd>The clustering reading asks whether the leftover disorder clumps or scatters, which separates scattered wear from the block losses cancer leaves. {ch("cscore")}</dd>
+</dl></details></section>
 <section class="wrap" id="lost"><h2>What has failed</h2><p class="sub">Every one was written down in advance and reported on ourselves. This is why the results above mean something.</p>
 <ul class="road lost">{losses}</ul>
 <p class="more">Every result, good or bad, day by day: <a href="{rec("development/METHYLPHYS_DEVELOPMENT_LOG.md")}">the development log</a>.</p></section>
@@ -149,7 +173,7 @@ table.tools{width:100%;border-collapse:collapse;margin:14px 0}.tools th,.tools t
 .big{font-size:34px;font-weight:800;margin:0;font-variant-numeric:tabular-nums}.small{color:var(--muted);font-size:13px}
 .links .tile{display:block;background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:18px 20px;text-decoration:none;color:var(--fg);font-weight:600}
 .links .tile:hover,.card:hover{border-color:var(--link)}
-ol.road,ul.road,ol.why{padding-left:22px}ol.why li{margin:0 0 14px}.lost li{margin:0 0 14px}code{background:var(--panel);padding:2px 6px;border-radius:4px;font-size:14px}.road li{margin:0 0 14px}.road .meta{color:var(--muted);font-size:14px}h3.help{margin:30px 0 4px;font-size:22px}
+ol.road,ul.road,ol.why{padding-left:22px}dl.qa dt{font-weight:700;margin:16px 0 4px}dl.qa dd{margin:0;color:var(--muted)}ol.why li{margin:0 0 14px}.lost li{margin:0 0 14px}code{background:var(--panel);padding:2px 6px;border-radius:4px;font-size:14px}.road li{margin:0 0 14px}.road .meta{color:var(--muted);font-size:14px}h3.help{margin:30px 0 4px;font-size:22px}
 details.fold{margin:6px 0 10px}details.fold>summary{cursor:pointer;display:inline-block;list-style:none;padding:12px 20px;border:1px solid var(--link);border-radius:8px;color:var(--link);font-weight:700;font-size:16px}
 details.fold>summary::-webkit-details-marker{display:none}details.fold>summary::before{content:"\25B8  Click to open: "}details.fold[open]>summary::before{content:"\25BE  Close: "}details.fold[open]>summary{margin-bottom:20px}
 .win .stat{font-size:38px;font-weight:800;margin:10px 0 0;line-height:1.05;font-variant-numeric:tabular-nums;color:var(--fg)}.win h3{font-size:20px}
