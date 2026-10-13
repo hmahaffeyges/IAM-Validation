@@ -300,6 +300,21 @@ for f in [x for x in changed if x.startswith("Biological_Physics/MethylPhys/door
             if "# NO CHAIN:" in _src: continue
             fail.append(f"{f}: synthetic test {_x} neither imports the chain nor declares '# NO CHAIN: <why>' (rule 23)")
 
+# 24. The day log is the page's live status (2026-10-13, author: one stop shop; the hand-kept "running now" board went stale and
+# advertised a job that had not run for a day). If this push changes an outcome note or a doors/ record, there must be a day log
+# whose date is the newest date in this push, and the page's status line comes from its "Open at turnover".
+_doors = [f for f in changed if f.startswith("Biological_Physics/MethylPhys/doors/") and f.endswith(".md")]
+if _doors:
+    import datetime as _dt, subprocess as _sp
+    _d = _sp.run(["git", "log", "-1", "--format=%ad", "--date=format:%Y-%m-%d"], capture_output=True, text=True).stdout.strip()
+    _p = os.path.join("CANON", "daylogs", _d + ".json")
+    if not os.path.isfile(_p):
+        fail.append(f"{_d}: this push changes {len(_doors)} record(s) but CANON/daylogs/{_d}.json does not exist - the day log is the "
+                    f"page's status, so work without one leaves the page stale (rule 24)")
+    else:
+        _j = _js.load(open(_p, encoding="utf-8"))
+        if not _j.get("open_at_turnover"): fail.append(f"{_p}: no 'open_at_turnover' - that paragraph is what the page shows (rule 24)")
+
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
 print(f"repro_check: ok ({len(changed)} note(s) changed in this push)")

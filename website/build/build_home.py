@@ -79,6 +79,12 @@ def page(art):
         _t = open(_f, encoding="utf-8").read().split("\n")[0].lstrip("# ").strip()
         _d = os.path.basename(_f)[:-3]
         _dl.append((_d, _t.split("\u2014", 1)[1].strip() if "\u2014" in _t else _t))
+    _newest = _dl[0] if _dl else None
+    _stand = ""
+    if _newest:
+        _txt = open(os.path.join(_dld, _newest[0] + ".md"), encoding="utf-8").read()
+        _m = re.search(r"## Open at turnover\n\n(.+?)\n\n", _txt, re.S)
+        _stand = _m.group(1).strip() if _m else ""
     daylogs = "".join(f'<li><a href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}"><b>{E(d)}</b></a> &mdash; {E(t)}</li>'
                       for d, t in _dl)
     steps = "".join(f'<li><b>{E(x["n"])}. {E(x["t"])}</b><br>{E(x["d"])}<br>'
@@ -187,7 +193,10 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 </details>
 <p class="sub">{E(MT["closing"])}</p>
 </section>
-<section class="wrap" id="daylogs"><h2>Shift turnover: what happened, day by day</h2>
+<section class="wrap" id="daylogs"><h2>Where things stand, and what happened day by day</h2>
+<p class="lead"><b>As of {E(_newest[0]) if _newest else "&mdash;"}:</b> {E(_stand)}</p>
+<p class="meta">That paragraph is the close of the most recent day log, not a separate status anyone has to remember to update:
+one file per day is written at the end of the day, and everything else on this page links into the repository where it lives.</p>
 <p>One log per day, written at the end of the day and generated from a single committed file, so it cannot drift from the records.
 Each one states the hours it covers and carries the same sections: what we set out to do, what ran and how each came out, what we
 learned that we did not know yesterday, our own mistakes and what caught each, the back-and-forth that produced the day's work with

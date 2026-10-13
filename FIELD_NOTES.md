@@ -6,7 +6,7 @@ a correction is a new note. Generated from CANON/now_running.json by CANON/now_r
 <a id="atlas-v21"></a>
 ## Building a bigger map of healthy cells: IAM-Atlas v2.1
 
-*Running now.* Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
+*Getting ready.* Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
 
 ### 2026-10-12 · Version 2 published with its own DOI, so anyone can download the map and check it.
 
@@ -34,10 +34,14 @@ We checked whether the sites that drift in a dish at the first laboratory drift 
 
 Record: [DEV_ATLAS_V21_01.md](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md)
 
+### 2026-10-13 · Not running. The fit itself needs a rented 128-core machine with 246 GB of memory - the same kind that built version 2 - so it is queued behind the free work. What moved instead: the four laboratories we had planned to TEST the new map against turned out to have been read already, so they can help build it but cannot judge it. One unread laboratory has been chosen as the test, with its two weaknesses written down first.
+
+Record: [DEV_ATLAS_V21_01.md](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md)
+
 <a id="iama-commission"></a>
 ## Does our second instrument read the same DNA the same way everywhere?
 
-*Running now.* Before anyone trusts an instrument, it has to give the same answer on the same sample. We read identical reference DNA prepared with five different kits in two laboratories.
+*On hold.* Before anyone trusts an instrument, it has to give the same answer on the same sample. We read identical reference DNA prepared with five different kits in two laboratories.
 
 ### 2026-10-12 · Four of five checks passed: repeats agree, kits agree, and a planted change was seen every time. The lab-to-lab check failed on three files, so by our own rule nothing is declared until the cause is found.
 
@@ -57,6 +61,10 @@ Rented computers came back into reach tonight, so the cause test started. It rea
 
 Record: [DEV_IAMA_CAUSE_01.md](Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md)
 
+### 2026-10-13 · The cause of the failed laboratory check is now known, and it was not the laboratories. The reading had been taken from the very beginning of each sequencing file, and the beginning reads differently - the three disagreeing libraries sit 11 to 14 percent below the controls read at the same spot, while both controls read flat. Our first fix, reading several places and averaging, failed its own test on made-up data: averaging shrinks a bad measurement, it does not remove it. The replacement skips the unsettled beginning, and how much to skip is decided by the sequencing chemistry itself rather than by whether our answer improves. It passed six tests on made-up files, including recovering a planted 12 percent error to within a fifth of a percent. Nothing real has been trimmed yet.
+
+Record: [DEV_IAMA_TRIM_01.md](Biological_Physics/MethylPhys/doors/DEV_IAMA_TRIM_01.md)
+
 <a id="neurons"></a>
 ## Brain cells: does healthy order hold in cells that never divide?
 
@@ -65,6 +73,10 @@ Record: [DEV_IAMA_CAUSE_01.md](Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUS
 ### 2026-10-12 · Healthy brain-cell reference built by its rule, from seven samples of five donors. Cleanly sorted cells read tightly together; unsorted cells read higher.
 
 We read ten public neuron samples from one laboratory whole, and built the healthy reference from the cortex samples the rule allowed: seven samples from five donors. Then we looked at the spread. The neurons that had been cleanly sorted from the rest of the brain tissue read tightly together; the samples marked unsorted read higher, whatever the donor's age or brain region. So preparation matters more than we expected. We keep the reference exactly as built, and add a second one from sorted cells only, labeled as a change made after looking. Both independent neuron laboratories sorted their cells, and we have opened neither, so that second reference gets a fair test: it has to read their healthy donors as normal, with the rule sealed before we look.
+
+Record: [DEV_IAMA_NEURON_01.md](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md)
+
+### 2026-10-13 · The rule for what counts as a healthy brain-cell reference is now sealed: cleanly sorted cells only. That was a decision made after looking at the data, so it is labeled as one, and it was sealed before either independent laboratory was opened. Neither has been read.
 
 Record: [DEV_IAMA_NEURON_01.md](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md)
 
@@ -78,3 +90,25 @@ Record: [DEV_IAMA_NEURON_01.md](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEU
 A normal lung is a mix of many cell types: air-sac cells, airway cells, blood-vessel lining, immune cells, and the support tissue that holds it together. How much of each varies a lot from person to person. Our reading only counts if a change in that mix cannot fake a cancer signal, so before any tumor is opened we build made-up lungs from the healthy ones and check. The first lung set was read and showed no clear signal. The next three failed those made-up tests: in the last one, a lung with more blood-vessel lining than usual could fake a result, even at the sites where all known lung cells look alike, because healthy lungs match each other so closely that the bar is very tight. The tests refused, which is their job, and no tumor was read. The fix is a better picture of the lung's support cells in the atlas, which is why the dish check comes first.
 
 Record: [DEV_TISSUE_LUNG_04.md](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_04.md)
+
+### 2026-10-13 · Still on hold, and now with a named condition for coming off hold: measured lung support cells in the map. Four lung attempts failed for one reason - a healthy lung whose cell mixture leans one way can imitate the signal - and in three of the four no tumor was ever opened.
+
+Record: [DEV_TISSUE_LUNG_03.md](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md)
+
+<a id="blood-group"></a>
+## Can a tube of blood tell us about a GROUP of people?
+
+*Running now.* Reading cancer from one person's blood on these arrays is out of reach: healthy people differ from each other by more than a tumor-sized signal. But comparing GROUPS is a different question, and that is within reach today.
+
+### 2026-10-13 · First test done, and it is the honesty test rather than the detection one. Two groups of HEALTHY people, read in two different laboratories: in the raw reading they differ by 3.69 percent - as much as a tumor would - and after the chain's correction, which compares each person against healthy people measured in the same run, they agree to 0.16 percent. The rule this forces, written before any patient data is opened: patients and their healthy comparisons must be measured in the same run, or the comparison is measuring the laboratories.
+
+Record: [DEV_GROUP_01.md](Biological_Physics/MethylPhys/doors/DEV_GROUP_01.md)
+
+<a id="levers"></a>
+## Testing the physics itself: the levers
+
+*Running now.* A lever is a handle that moves one term in the law. If the law is real, turning a handle moves the reading by the amount the equation says - and if it does not, the law is wrong. Every lever carries, in writing and before any data is opened, the reading that would break it.
+
+### 2026-10-13 · The three-channel test came back: a cell has three jobs at a methylation site - copy the pattern, write a new mark, remove a mark - and we asked whether our readings can tell which one has been damaged. Damaging the removal job is the only one that makes the reading go DOWN, so that one is identifiable on its own. The other two both push it up and can only be told apart if the damage size is already known, which in a patient it would not be. That limit is why a third reading is being built. All of this is on made-up data; no lever has yet been read against the world except one mouse result.
+
+Record: [DEV_LEVERS_01.md](Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md)

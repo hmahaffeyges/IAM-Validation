@@ -11,31 +11,31 @@ built in public*. Each line links to the record it comes from.
 
 ### Building a bigger map of healthy cells: IAM-Atlas v2.1
 
-**Running now.** Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
+**Getting ready.** Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
 
 - **What we hope:** The new laboratories agree with the old ones, the map gets steadier, and tests that were too close to call, like lung, get a fair chance.
 - **What could go wrong:** Cells grown in a dish may have drifted too far to use; a new laboratory may disagree with the old ones; the fit may need more computing time than planned.
 
 | date | update |
 |---|---|
+| 2026-10-13 | Not running. The fit itself needs a rented 128-core machine with 246 GB of memory - the same kind that built version 2 - so it is queued behind the free work. What moved instead: the four laboratories we had planned to TEST the new map against turned out to have been read already, so they can help build it but cannot judge it. One unread laboratory has been chosen as the test, with its two weaknesses written down first. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
 | 2026-10-12 | Culture check, second and third laboratories: much of the dish effect shows up again, in different cells grown in different labs. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
 | 2026-10-12 | Culture check, first result: growing cells in a dish changes them a lot. In the cleanest comparison, about 1 in 9 of the sites we read moves steadily as the cells keep dividing. Those sites will be set aside before any dish-grown cell is compared with the atlas. Two more laboratories' data are next. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
-| 2026-10-12 | First step running: measuring how much growing cells in a dish changes them. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
 
 *The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#atlas-v21).*
 
 ### Does our second instrument read the same DNA the same way everywhere?
 
-**Running now.** Before anyone trusts an instrument, it has to give the same answer on the same sample. We read identical reference DNA prepared with five different kits in two laboratories.
+**On hold.** Before anyone trusts an instrument, it has to give the same answer on the same sample. We read identical reference DNA prepared with five different kits in two laboratories.
 
 - **What we hope:** The one check that failed turns out to come from how we sampled three very large files, not from the laboratories.
 - **What could go wrong:** If the difference is real, that kit's lab-to-lab check stays failed and the record says so.
 
 | date | update |
 |---|---|
+| 2026-10-13 | The cause of the failed laboratory check is now known, and it was not the laboratories. The reading had been taken from the very beginning of each sequencing file, and the beginning reads differently - the three disagreeing libraries sit 11 to 14 percent below the controls read at the same spot, while both controls read flat. Our first fix, reading several places and averaging, failed its own test on made-up data: averaging shrinks a bad measurement, it does not remove it. The replacement skips the unsettled beginning, and how much to skip is decided by the sequencing chemistry itself rather than by whether our answer improves. It passed six tests on made-up files, including recovering a planted 12 percent error to within a fifth of a percent. Nothing real has been trimmed yet. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_TRIM_01.md) |
 | 2026-10-12 | The cause test is running on a rented computer: the three low files and two normal ones, each read from its start, middle and end. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md) |
 | 2026-10-12 | The cause test is written and listed in the run ledger. It starts when rented-computer prices and availability allow. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md) |
-| 2026-10-12 | Four of five checks passed: repeats agree, kits agree, and a planted change was seen every time. The lab-to-lab check failed on three files, so by our own rule nothing is declared until the cause is found. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01_OUTCOME.md) |
 
 *The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#iama-commission).*
 
@@ -48,6 +48,7 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| 2026-10-13 | The rule for what counts as a healthy brain-cell reference is now sealed: cleanly sorted cells only. That was a decision made after looking at the data, so it is labeled as one, and it was sealed before either independent laboratory was opened. Neither has been read. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md) |
 | 2026-10-12 | Healthy brain-cell reference built by its rule, from seven samples of five donors. Cleanly sorted cells read tightly together; unsorted cells read higher. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md) |
 
 *The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#neurons).*
@@ -61,9 +62,36 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| 2026-10-13 | Still on hold, and now with a named condition for coming off hold: measured lung support cells in the map. Four lung attempts failed for one reason - a healthy lung whose cell mixture leans one way can imitate the signal - and in three of the four no tumor was ever opened. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md) |
 | 2026-10-12 | Four lung sets tried: one read with no clear cancer signal; three stopped by their made-up tests before any tumor was opened, so none was wasted. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_04.md) |
 
 *The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#lung).*
+
+### Can a tube of blood tell us about a GROUP of people?
+
+**Running now.** Reading cancer from one person's blood on these arrays is out of reach: healthy people differ from each other by more than a tumor-sized signal. But comparing GROUPS is a different question, and that is within reach today.
+
+- **What we hope:** That groups of patients separate from groups of healthy donors, while healthy groups never separate from each other.
+- **What could go wrong:** That a change of laboratory alone moves the reading as much as cancer would - which is exactly what we tested first, and exactly what we found in the raw reading.
+
+| date | update |
+|---|---|
+| 2026-10-13 | First test done, and it is the honesty test rather than the detection one. Two groups of HEALTHY people, read in two different laboratories: in the raw reading they differ by 3.69 percent - as much as a tumor would - and after the chain's correction, which compares each person against healthy people measured in the same run, they agree to 0.16 percent. The rule this forces, written before any patient data is opened: patients and their healthy comparisons must be measured in the same run, or the comparison is measuring the laboratories. [record](Biological_Physics/MethylPhys/doors/DEV_GROUP_01.md) |
+
+*The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#blood-group).*
+
+### Testing the physics itself: the levers
+
+**Running now.** A lever is a handle that moves one term in the law. If the law is real, turning a handle moves the reading by the amount the equation says - and if it does not, the law is wrong. Every lever carries, in writing and before any data is opened, the reading that would break it.
+
+- **What we hope:** That the handles move the readings the way the equation says, in real data and not only in simulation.
+- **What could go wrong:** That they do not - two of the five would break the law itself if they failed, which is the point of running them.
+
+| date | update |
+|---|---|
+| 2026-10-13 | The three-channel test came back: a cell has three jobs at a methylation site - copy the pattern, write a new mark, remove a mark - and we asked whether our readings can tell which one has been damaged. Damaging the removal job is the only one that makes the reading go DOWN, so that one is identifiable on its own. The other two both push it up and can only be told apart if the damage size is already known, which in a patient it would not be. That limit is why a third reading is being built. All of this is on made-up data; no lever has yet been read against the world except one mouse result. [record](Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md) |
+
+*The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#levers).*
 
 <!-- NOW_RUNNING:END -->
 
