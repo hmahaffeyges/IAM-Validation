@@ -32,12 +32,12 @@ Candidate instruments: every reading we could build on the methylation channel, 
 
 - **Reads:** total disorder above what the estimated cell mixture explains - the existing composition-aware reading, in a tube of blood
 - **Substrate:** arrays · **Cost:** free (one laptop read of arrays already on disk)
-- **Where it stands:** MEASURED 2026-10-13 on real healthy arrays with the chain's own stages: healthy people differ by 6.36 % (relative SD), the chain's own leverage is 2.09 % of the median per 1 % pattern loss, so about a 7.2 % loss clears the healthy 95th percentile
+- **Where it stands:** MEASURED 2026-10-13 on real healthy arrays with the chain's own stages: healthy people differ by 6.36 % (relative SD), the chain's own leverage is 2.09 % of the median per 1 % pattern loss, so about a 7.2 % loss clears the healthy 95th percentile GROUP ARM 2026-10-13 (DEV-GROUP-01): the sham passes - two healthy groups from two laboratories agree to 0.16 % after taring - but they differ by 3.69 % UNTARED, at 6.5 standard errors, which is cancer-sized. A group study is admissible only when patients and healthy comparisons are run in the SAME series
 - **Still open:** the TARED spread - these readings are untared and that laboratory ran one array per slide, so no same-run tare could be formed; a healthy set with several arrays per slide would show whether the tare shrinks the 6.36 %
 - **Advantage:** group comparisons are within reach NOW: with 50 people a mean loss under 1 % separates the group from healthy, and the function already exists in the chain
-- **Blind spot:** per-person detection in blood: the spread between healthy people (6.4 %) is larger than the tissue-sized signal (2-7 %), so one person cannot be called. An array also averages molecules before anyone reads them, so one cell type can never be isolated. And these arrays are spent as the C-score test, so this was development use
+- **Blind spot:** per-person detection in blood: the spread between healthy people (6.4 %) is larger than the tissue-sized signal (2-7 %), so one person cannot be called. An array also averages molecules before anyone reads them, so one cell type can never be isolated. And these arrays are spent as the C-score test, so this was development use And across laboratories without a shared series the raw reading carries a 3.7 % offset, which is inside the tumor range
 - **What would break it:** healthy people differing by more than the leverage of the signal we are looking for (then arrays cannot carry blood and sequencing is required)
-- **Next step:** either measure the tared spread on a healthy set with several arrays per slide, or treat blood as a GROUP instrument on arrays and leave per-person detection to the sequencing route
+- **Next step:** find cancer cohorts whose arrays include healthy controls run in the same series, one cancer at a time; the tared spread on a set with several arrays per slide remains the other open measurement
 - **Record:** [DEV_BLOOD_SENSITIVITY_01.md](doors/DEV_BLOOD_SENSITIVITY_01.md)
 
 ## 4. Distance to the ceiling

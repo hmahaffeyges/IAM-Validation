@@ -1,0 +1,14 @@
+DEV-GROUP-01 step 1: the sham arm - two healthy whole-blood groups, two laboratories
+
+UNTARED (raw reading)
+  GSE315366 (lab 1): n  35  mean 1.0088  SD 0.0229
+  GSE184269 (lab 2): n  23  mean 0.9723  SD 0.0196
+  difference +0.0365 (+3.69% of the common mean), standard error 0.0056, that is 6.49 standard errors
+
+TARED (each array against healthy references in its own series)
+  GSE315366 (lab 1): n  35  mean 1.0008  SD 0.0233
+  GSE184269 (lab 2): n  23  mean 0.9992  SD 0.0201
+  difference +0.0016 (+0.16% of the common mean), standard error 0.0058, that is 0.28 standard errors
+
+BAR 1 (tared sham must be null: under 2 % AND under two standard errors): 0.16% and 0.28 SE -> MET
+What the tare does (reported, not barred): the untared difference is 3.69%, the tared difference is 0.16%
