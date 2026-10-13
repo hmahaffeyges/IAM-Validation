@@ -1,0 +1,26 @@
+DEV-IAMA-READACROSS-01: the head of a file against the rest, on quantities measured independently of IAM-A
+
+conversion at the head: mean 0.99803 | median standard error 0.000006 | CHH calls 49,538,666 to 50,091,975
+conversion deeper in:   mean 0.99040 | median standard error 0.000224 | CHH calls 85,385 to 330,518
+difference 0.0076 = 34 standard errors of a deeper part
+
+the reading at the head against deeper in, per library:
+  SRR13051128 (    low): head 0.04561 | deeper 0.04831, 0.04465 | head reads LOW
+  SRR13051136 ( normal): head 0.05600 | deeper 0.05058, 0.04837 | head reads HIGH
+  SRR13051256 (    low): head 0.04676 | deeper 0.04821, 0.04493 | head reads HIGH
+  SRR13051263 ( normal): head 0.05619 | deeper 0.04884, 0.04607 | head reads HIGH
+  SRR13051268 (    low): head 0.04800 | deeper 0.04884, 0.04641 | head reads HIGH
+
+the sealed quantity r = A / (mean A of the two normal runs at the same part) - the position effect is cancelled in r:
+  SRR13051128 (    low): p0 0.8578 | p40 0.9791 | p80 0.9591
+  SRR13051136 ( normal): p0 0.9988 | p40 1.0130 | p80 1.0182
+  SRR13051256 (    low): p0 0.8740 | p40 0.9775 | p80 0.9635
+  SRR13051263 ( normal): p0 1.0012 | p40 0.9870 | p80 0.9818
+  SRR13051268 (    low): p0 0.8912 | p40 0.9870 | p80 0.9872
+  suspects at the head: 0.8578, 0.8740, 0.8912  -> they read 11-14 % below the controls at the SAME position
+  part 0 reproduces each library's Stage B reading within 2 %: PASSED (so Stage B itself read the head: {'SRR13051128': 0.0, 'SRR13051136': 0.0, 'SRR13051256': 0.0, 'SRR13051263': 0.0, 'SRR13051268': 0.0})
+
+conversion difference present in all 5 libraries: True
+head effect sign by role: low: 1 of 3 read LOW at the head, normal: 0 of 2 read LOW at the head
+duplicate fraction: head mean 0.2201 | deeper mean 0.1998
+reads the quality step scanned: head 2,000,001 | deeper 3,925 to 13,836

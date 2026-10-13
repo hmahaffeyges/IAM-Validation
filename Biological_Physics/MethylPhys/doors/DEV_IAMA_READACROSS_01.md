@@ -75,41 +75,53 @@ from our result. That is the next thing to design, and this idea is recorded as 
 ## What the independent diagnostics say, from the 15 committed quality files (2026-10-13)
 
 `DEV_IAMA_READACROSS_01/head_diagnostics_01.csv` holds every part's conversion rate with its binomial standard error, duplicate
-fraction, mapped reads and the number of reads the quality step scanned. Two findings, and the second changes the plan.
+fraction, mapped reads and reads scanned; `head_summary_01.py` computes every number below from it and from the cause run's readings.
+Three findings, and the third is the mechanism.
 
-**1. The head of a file really is different, and it is measurable without IAM-A.** Conversion at the head averages 0.99803
-(median SE 0.000006, from about 50 million CHH calls) against 0.99040 deeper in (median SE 0.00022, from 85,000 to 330,000 calls).
-The difference, 0.0076, is **34 standard errors of a deeper part** - real, and not an artifact of the quality step scanning fewer
-reads deeper in. So a position-resolved diagnostic measured independently of our reading CAN detect that the head of a run is
-anomalous.
+**1. The head of a file is different on a quantity that has nothing to do with our reading.** Conversion at the head averages
+0.99803 (median standard error 0.000006, from about 50 million CHH calls) against 0.99040 deeper in (median standard error 0.000224,
+from 85,000 to 330,000 calls). The difference, 0.0076, is **34 standard errors of a deeper part** - real, and not an artifact of the
+quality step scanning fewer reads deeper in (2,000,001 reads at the head against 3,925 to 13,836 deeper). Duplicate fraction shifts
+the same way, 0.2201 at the head against 0.1998 deeper. This holds in **all five libraries, controls included**, so it is a position
+effect common to the platform and not something that distinguishes the suspect laboratory.
 
-**2. But the head effect runs in OPPOSITE directions in the two groups, so no correction can fix it.** All five libraries show the
-conversion difference, controls included, so conversion does not distinguish the suspects. And in the reading itself:
+**2. Two different framings, and only one of them answers the question.** In ABSOLUTE copy error, every library reads higher at the
+head than deeper in - that is the common position effect of finding 1, and it is why an earlier draft of this section had the
+per-library signs wrong. The sealed decision does not compare a part against other parts of the same library; its quantity is
+**r = A / (mean A of the two normal runs AT THAT PART)**, which cancels the common position effect by construction.
 
-| library | role | eps at the head | eps deeper | head effect |
+| library | role | r at the head | r at p40 | r at p80 |
 |---|---|---|---|---|
-| SRR13051128 | suspect | 0.04561 | 0.04831, 0.04465 | reads LOW |
-| SRR13051256 | suspect | 0.04676 | 0.04821, 0.04493 | reads LOW |
-| SRR13051268 | suspect | 0.04800 | 0.04884, 0.04641 | reads LOW |
-| SRR13051136 | control | 0.05600 | 0.05058, 0.04837 | reads HIGH |
-| SRR13051263 | control | 0.05619 | 0.04884, 0.04607 | reads HIGH |
+| SRR13051128 | suspect | **0.8578** | 0.9791 | 0.9591 |
+| SRR13051256 | suspect | **0.8740** | 0.9775 | 0.9635 |
+| SRR13051268 | suspect | **0.8912** | 0.9870 | 0.9872 |
+| SRR13051136 | control | 0.9988 | 1.0130 | 1.0182 |
+| SRR13051263 | control | 1.0012 | 0.9870 | 0.9818 |
 
-The three suspects read low at the head and both controls read high. So "the head of a file is unreliable" is the right conclusion
-and "the head is biased by amount X" is the wrong one: the sign depends on the library. That is why the sealed decision returned
-MIXED rather than a clean file-position verdict, and it rules out any approach that estimates the head's bias and corrects for it.
-**The head has to be excluded, not corrected** - which is what the revised rule above already requires, now with a measured reason.
+So the finding is sharper than "the head is unreliable": **at the head the suspect libraries read 11 to 14 % below the controls read
+at the same position**, and deeper in they come back to within 1 to 4 %. The deficit is specific to those libraries at that position,
+on top of the position effect everyone shares.
 
-**What this settles about the next rule (DEV-IAMA-TRIM-01).** How much to exclude must be decided by a position-resolved diagnostic
-that needs neither our reading nor an alignment, so it can be computed cheaply for every library and audited by anyone: the per-cycle
-base composition and the apparent C-to-T fraction of the RAW READS, in windows along the file. Alignment-based conversion would also
-work but costs a full alignment per window, and the cause run's BAMs went with the machine, so position-resolved conversion cannot be
-recomputed from what was kept - only the per-part values in this file survive.
+**3. The mechanism, and why the commissioning failed.** The decision script's own check reports that **part 0 reproduces each
+library's sealed Stage B reading to 0.0 % in all five cases** (`p0_check: PASSED`). Stage B therefore read the head of each file - so
+the sealed commissioning values inherited exactly the part of the file where the suspects are depressed. That is the whole chain of
+events: Stage B read the head, the head is where those three libraries are 11 to 14 % low against the controls, and the
+across-laboratory check failed on them.
 
-**In plain words.** We checked whether the sequencing machine's own quality numbers, which have nothing to do with our reading, can
-tell that the beginning of a data file is untrustworthy. They can: the conversion rate at the start differs from the rest by
-thirty-four times its own uncertainty. But the beginning does not push every library the same way - three read too low there and two
-read too high - so there is no correction to apply, only a part to leave out. The next rule therefore decides how much of the start to
-leave out using a measurement taken straight from the raw reads, before any alignment: cheap enough to do for every library, and
-simple enough for anyone to check.
+**What this settles about the next rule (DEV-IAMA-TRIM-01).** Excluding the head is right, and the exclusion cannot be replaced by a
+correction: the common position effect could be corrected, but the suspects' extra deficit at the head is library-specific and there
+is nothing to predict it from. How much to exclude must be decided by a position-resolved diagnostic that needs neither our reading
+nor an alignment - the per-cycle base composition and apparent C-to-T fraction of the RAW READS, in windows along the file.
+Alignment-based conversion would work too, but it costs an alignment per window, and the cause run's BAMs went with the terminated
+machine: only the per-part values in `head_diagnostics_01.csv` survive.
+
+**In plain words.** We asked whether the sequencing machine's own numbers, which know nothing about our physics, can show that the
+beginning of a data file is untrustworthy. They can: at the beginning, the chemistry's conversion rate differs from the rest of the
+file by thirty-four times its own uncertainty, and that is true of every library we looked at, including the two we used as controls.
+Then the sharper question: our failed check compared each library against the two control libraries read at the same place in their
+files - and at the beginning, the three libraries that failed read eleven to fourteen percent lower than the controls, while deeper
+in they came back to within a few percent. And the reason this mattered at all is that our original reading had been taken from the
+beginning of each file: the check inherited the worst place to look. So the fix is to stop reading there, and to decide how much to
+skip from a measurement taken off the raw reads before any alignment - cheap, position by position, and checkable by anyone.
 
 **Not a milestone:** a proposed sampling rule that failed its own planted test, with the next rule named but unwritten; nothing is sealed and no reading has changed.
