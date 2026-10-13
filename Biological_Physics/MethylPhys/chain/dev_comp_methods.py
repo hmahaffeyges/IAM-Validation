@@ -192,6 +192,24 @@ def met_a(beta, fractions, profiles, ns):
     return float(H(x[ok].values).mean() / H(e[ok].values).mean()), int(ok.sum()), float(tot)
 
 
+def ceiling_flag(beta, profiles, fractions, ns):
+    """The entropy-ceiling diagnostic for the composition-aware reading, recorded alongside it (2026-10-13).
+
+    The sorted-cell path has recorded this since conductor_v3._ceiling: Met-A rises with pattern loss ONLY while the specimen's
+    methylated sites stay above beta = 0.5; past that the reading turns over and falls again. The whole-blood / tissue path never
+    recorded it, so readings taken before this date cannot be audited from their saved outputs (see DEV_CEILING_AUDIT_01).
+    Returns the mean beta of the sites the MIXTURE expects to be methylated, and whether that mean has crossed one half.
+    """
+    use = {c: f for c, f in fractions.items() if f >= 1e-4 and c in profiles}
+    if not use: return {}
+    tot = sum(use.values()); e = sum((f / tot) * profiles[c] for c, f in use.items())
+    x = beta.reindex(ns); hi = e.reindex(ns) > 0.5
+    ok = hi & x.notna()
+    if not bool(ok.any()): return {}
+    m = float(x[ok].mean())
+    return {"methylated_sites_mean_beta": round(m, 4), "past_entropy_ceiling": bool(m < 0.5), "n_sites": int(ok.sum())}
+
+
 def read_beta(path):
     p = glob.glob(path); assert len(p) == 1, (path, p)
     b = pd.read_parquet(p[0]).iloc[:, 0].astype("float64"); b.index = b.index.astype(str); return b
