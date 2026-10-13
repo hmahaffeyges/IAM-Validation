@@ -37,11 +37,12 @@
    "accessions": [
     "GSE124565",
     "GSE88824",
-    "GSE118144",
-    "GSE122244"
+    "GSE72338",
+    "GSE68456",
+    "GSE49618"
    ],
-   "ready": "verify files (v2.1 prep)",
-   "plain": "Build the healthy white-blood-cell reference from a second laboratory, so Met-A no longer leans on one lab's donors.",
+   "ready": "build sets confirmed (GSE124565, GSE88824); the planned test sets were already read, so an unread test set is being chosen",
+   "plain": "Build the healthy white-blood-cell reference from a second laboratory, so Met-A no longer rests on one group's samples, and so the reference is no longer all male. Then check it against a laboratory whose data we have never opened.",
    "needs": "the laptop",
    "estimate": "no cost",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",

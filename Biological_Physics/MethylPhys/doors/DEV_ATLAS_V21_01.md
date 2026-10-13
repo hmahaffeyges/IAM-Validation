@@ -63,3 +63,17 @@ specific to a cell type or a laboratory. The step-1 mask stands as fixed; step 2
 **Next:** the culture check, step 2 and the conditional checks (laptop); ledger entry; then the build run.
 
 **Test data:** none (design)
+
+**Neutrophil sources checked from GEO metadata, 2026-10-13 (no array read; a correction to the roster's test plan).**
+All four series the prep named are already read by earlier work (`CANON/data_spent.csv`: DEV-METAA-450K-01, LOG 2026-10-09; GSE118144 and
+GSE122244 also by DEV-BASE-CHAIN-01). Under the committed split rule a spent series builds only, so:
+- **Build (unchanged):** GSE124565 (Sawalha and Coit, University of Pittsburgh; 12 healthy donors, 7 women and 5 men, ages 26-67, both IDATs,
+450K) and GSE88824 (Florey Institute of Neuroscience; 8 healthy control donors, 450K). Neither shares a GEO contributor with the reference
+groups (`CANON/independence_check.py`). GSE124565 alone ends the all-male reference.
+- **Not valid as held-out tests:** GSE118144 (spent; its 13 controls are all female) and GSE122244 (spent; contains no neutrophil samples at
+all, and is on the EPIC chip Stage 1 cannot yet read). GSE122244 is removed from the neutrophil plan.
+- **Unread candidates for the held-out test, metadata only:** GSE72338 (Charite Berlin, 450K, 18 neutrophil arrays of healthy household
+contacts, both sexes, ages 22-49, Sentrix positions published), GSE68456 (University of British Columbia, 450K, 7 granulocyte arrays sorted by
+stringent FACS with erythroid exclusion, 5 women and 2 men) and GSE49618 (USC Norris, 450K, 6 granulocyte arrays, no donor fields). Each needs
+its healthy status, donor overlap and purity confirmed before it is fixed as the test set.
+

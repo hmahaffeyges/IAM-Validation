@@ -1262,3 +1262,6 @@ The results section became "What we have accomplished", ranked and led by a head
 
 ### 2026-10-12 · Front page: why a researcher should look, and what has failed (author)
 Two new open sections, both generated: the five checkable things (the committed-before-the-data mouse window with its numbers from the scored record, the failures, the one-command recheck, the scored-once gate, and the AI caveat with the lessons file), and "What has failed" from a new losses list in CANON/results_register.json (IAM-A commissioning held, four lung attempts, a colorectal set ruled unsuitable, decitabine no result, two writer tests, methionine parked), each with its record checked to exist.
+
+### 2026-10-13 · Atlas v2.1 neutrophil sources: test plan corrected before any array was read
+All four series the prep named are spent (DEV-METAA-450K-01, 2026-10-09). The split rule allows them to build only: GSE124565 (12 healthy, 7F/5M, Pittsburgh) and GSE88824 (8 healthy, Florey) stay as build sources and end the all-male reference. GSE118144 (all-female controls) and GSE122244 (no neutrophils, unreadable chip) are not valid held-out tests; GSE122244 removed. Unread candidates for the test set: GSE72338 (18 healthy neutrophil arrays, both sexes, Charite), GSE68456 (7 stringent-FACS granulocytes, UBC), GSE49618 (6, USC). Metadata only.
