@@ -76,6 +76,10 @@ if [ -z "${SKIP_PDF:-}" ]; then
   for pid in "${pids[@]}"; do wait "$pid" || failed=1; done
   [ "$failed" = 0 ] || { echo "Build failed: a Part PDF did not compile."; exit 1; }
   cp main.pdf "$SITE/pdf/IAMs_Law_and_Order.pdf"
+  # the front page's chapter links, re-made from the book just compiled: a chapter that cannot be found fails the build
+  python3 "$REPO/website/build/chapter_pages.py" main.pdf > "$B/chapter_pages.json" || { echo "Build failed: chapter pages could not be read from the book."; exit 1; }
+  python3 "$REPO/website/build/build_home.py" "$SITE" --pages "$B/chapter_pages.json"
+  echo "chapter pages from the book: $(cat "$B/chapter_pages.json")"
   for n in 1 2 3 4 5 6 7; do cp "part-$n.pdf" "$SITE/pdf/"; done
 fi
 

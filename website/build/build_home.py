@@ -12,13 +12,19 @@ import glob, os, re, sys, json, html, base64, datetime, importlib.util
 HERE = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.abspath(os.path.join(HERE, "..", ".."))
 GH = "https://github.com/hmahaffeyges/IAM-Validation/blob/main/"
 PDF = "pdf/IAMs_Law_and_Order.pdf"   # the live PDF; page numbers below verified against it 2026-10-13
-CH = {"astro": (48, 437, "AstroGenetics and the Cosmic Methylome: the cell read as a thermometer"), "landauer": (49, 446, "Landauer's cost at body temperature"),
-      "gauge": (53, 464, "One gauge for a cell"), "meta": (54, 470, "Met-A: the cell's own reference on arrays"),
-      "iama": (55, 474, "IAM-A: copy error on single molecules"), "cscore": (56, 478, "The C-score: where the departures sit"),
-      "translation": (58, 484, "The translation principle"), "separation": (60, 492, "Component separation: finding the cells"),
-      "reference": (61, 495, "The reference: purified healthy cells"), "identity": (62, 503, "Identity sites: where a cell is read"),
-      "skytools": (63, 506, "Tools from the sky"), "sky": (64, 517, "The sky: what the reference cannot explain"),
-      "discipline": (66, 522, "Discipline: nulls, simulations, pre-registration"), "established": (71, 537, "What is established, and what is not")}
+CH = {"astro": (48, 437, "AstroGenetics and the Cosmic Methylome: the cell read as a thermometer"), "landauer": (49, 448, "Landauer's cost at body temperature"),
+      "gauge": (53, 466, "One gauge for a cell"), "meta": (54, 472, "Met-A: the cell's own reference on arrays"),
+      "iama": (55, 476, "IAM-A: copy error on single molecules"), "cscore": (56, 480, "The C-score: where the departures sit"),
+      "translation": (58, 486, "The translation principle"), "separation": (60, 494, "Component separation: finding the cells"),
+      "reference": (61, 497, "The reference: purified healthy cells"), "identity": (62, 505, "Identity sites: where a cell is read"),
+      "skytools": (63, 508, "Tools from the sky"), "sky": (64, 519, "The sky: what the reference cannot explain"),
+      "discipline": (66, 524, "Discipline: nulls, simulations, pre-registration"), "established": (71, 539, "What is established, and what is not")}
+# Chapter pages come from the compiled book when the build passes them (--pages FILE.json, written by chapter_pages.py from the
+# PDF it just made); the numbers in CH are only the fallback for a local build without a PDF.
+if "--pages" in sys.argv:
+    _pg = json.load(open(sys.argv[sys.argv.index("--pages") + 1], encoding="utf-8"))
+    CH = {k: (v[0], _pg.get(k, v[1]), v[2]) for k, v in CH.items()}
+    del sys.argv[sys.argv.index("--pages"):sys.argv.index("--pages") + 2]
 def ch(k, label=None):
     n, pg, t = CH[k]; return f'<a href="{PDF}#page={pg}">Chapter {n}, {html.escape(label or t)}</a>'
 SITE_URL = "https://hmahaffeyges.github.io/IAM-Validation/"
