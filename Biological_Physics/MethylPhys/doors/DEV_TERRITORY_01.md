@@ -25,6 +25,15 @@ Nothing is fitted: the baselines are measured on healthy arrays, and the predict
 the RELATIVE rise is slightly larger at the stable (low-error) sites, `~ d(1 - eps)`, while the ABSOLUTE rise is larger at the
 fragile sites. The reading must therefore be built on absolute disorder, not on each class's own relative change.
 
+**So the reading is a DIFFERENCE, not a ratio, and the derivation forces that choice.** The contrast is `eps_fragile - eps_stable`,
+whose response to a shortfall is also parameter-free:
+
+    D (eps_f - eps_s)  ~  [eps_f (1 - eps_f) - eps_s (1 - eps_s)] d
+
+A ratio `eps_f / eps_s` would be a worse instrument: because the relative rise is larger at the low-error sites, a shortfall moves
+the ratio the other way and only weakly. The difference also cancels a plate-style additive offset exactly, which is the property the
+whole design is for. (An earlier draft of this note described the reading as a ratio; that was wrong, found while writing the test.)
+
 **What is assumed, and is therefore what gets tested.** That the shortfall is common to all sites - one pool of restore capacity
 serving every territory. If instead each territory has its own supply, the measured response ratio will not match the predicted one.
 That is the interesting outcome either way: it would say the cell budgets maintenance locally rather than globally.
@@ -55,7 +64,8 @@ A reading is taken on real arrays only after all three are met, and the real-arr
 ## FALSIFIER (written before any data is read)
 
 If, under a condition known to cost the cell maintenance energy, the measured response ratio between the two territories differs from
-`[eps_f(1-eps_f)] / [eps_s(1-eps_s)]` by more than 25 %, the balance account of the held error is wrong as applied to the cell.
+`[eps_f(1-eps_f)] / [eps_s(1-eps_s)]` by more than 25 % (equivalently, the contrast's slope departs from the predicted
+`[eps_f(1-eps_f) - eps_s(1-eps_s)]` by more than 25 %), the balance account of the held error is wrong as applied to the cell.
 **Scope: medium** - it would break our account of how maintenance is budgeted in a cell, not the law itself, unless the deviation also
 violates the floor.
 
@@ -68,6 +78,6 @@ would rather find that out than not. **What it would take:** three tests on made
 comparison really cancel plate and mixture effects, and is it properly blind to a loss that hits both places equally), then one
 reading of real arrays.
 
-**Synthetic test:** DEV_TERRITORY_01/territory_synth_01.py (not yet written)
+**Synthetic test:** DEV_TERRITORY_01/territory_synth_01.py, DEV_TERRITORY_01/territory_synth_01_summary.txt
 
 **Not a milestone:** a design with a derived prediction and three unwritten tests; nothing read, nothing sealed.
