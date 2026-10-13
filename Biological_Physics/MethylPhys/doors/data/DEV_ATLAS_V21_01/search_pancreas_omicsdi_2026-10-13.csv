@@ -1,0 +1,513 @@
+q,source,id,title,org
+pancreas methylation,biostudies-arrayexpress,E-GEOD-49149,Genome-wide DNA methylation patterns in pancreatic ductal adenocarcinoma (PDAC),Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-21232,DNA methylation profiling of male human pancreatic islets identifies loci for type 2 diabetes,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-29723,Genome-wide analysis of promoter methylation in pancreatic adenocarcinoma,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-50827,ICGC Pancreas: Genomewide DNA methylation patterns in pancreatic ductal adenocarcinoma (gene expression of 103 samples),Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-52266,Maternal Nutrition Induces Pervasive Gene Expression Changes but no Detectable DNA Methylation Differences in the Liver ,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-52267,Maternal Nutrition Induces Pervasive Gene Expression Changes but no Detectable DNA Methylation Differences in the Liver ,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-39996,Dnmt2-dependent methylomes lack biologically relevant DNA methylation patterns [Drosophila melanogaster],Drosophila melanogaster
+pancreas methylation,biostudies-arrayexpress,E-GEOD-63811,Age-associated DNA methylation increases in mouse pancreatic islets suggest an epigenetic drift toward the exocrine panc,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-MTAB-5008,Methylation profiling by array of pancreatic adenocarcinoma (PDAC) xenografts,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-40099,Pancreatic cancer and non-malignant pancreas cell lines,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-32177,Bisulfite Sequencing Reveals that Aspergillus flavus Holds A Hollow in DNA Methylation,Aspergillus flavus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-67239,Pancreas-specific Sirt1-deficiency in mice compromises beta-cell function without development of hyperglycemia,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-8522,"RNA from 3 d and 2 d old embryos of mibta52b, mibm132 and mibtfi91, and RNA from 3 d, 2d and 1 d old embryos of mibta52b",Danio rerio
+pancreas methylation,biostudies-arrayexpress,E-GEOD-64910,HP1 is involved in regulating the global impact of DNA methylation on alternative splicing,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-24546,"Evaluation of affinity-based genome-wide DNA methylation data: effects of CpG density, amplification bias and copy numbe",Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-67484,Global DNA methylation landscape reveals roles of DNA methylation involved in the regulation of drug metabolizing enzyme,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-28254,Sequential ChIP-bisulfite sequencing enables direct genome-scale investigation of chromatin and DNA methylation cross-ta,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-67477,Global DNA methylation landscape reveals roles of DNA methylation involved in the regulation of drug metabolizing enzyme,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-30558,Bisulphite-sequencing of chromatin immunoprecipitated DNA (BisChiP-seq) directly informs methylation status,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-56515,DNA methylation landscapes of human fetal development,Homo sapiens
+pancreas methylation,project,PRJNA1023943,Methylomic trajectories in the developing human pancreas,
+pancreas methylation,biostudies-arrayexpress,E-GEOD-72492,"Gene expression in the pancreas of healthy control, auto-antibody positive, and type 1 diabetic subjects",Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-60831,DNA methylation profiles in the uterus during subclinical endometritis,Bos taurus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-17981,DNA methylation programming and reprogramming in primate embryonic stem cells,Macaca mulatta
+pancreas methylation,biostudies-arrayexpress,E-GEOD-42044,DNA methylation changes are a late event in Acute Promyelocytic Leukemia and coincide with loss of transcription factor ,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-34060,Expression data of Sox9+ and Ngn3+ mouse pancreas cells at different stages of development,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-48472,Identification and systematic annotation of tissue-specific differentially methylated regions using Illumina 450k chips,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-40097,DNA methylation analysis of pancreatic cancer and non-malignant pancreas cell lines,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-35342,Genome-wide DNA methylation events in TMPRSS2:ERG fusion negative prostate cancers implicate an EZH2 dependent mechanism,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-MTAB-17025,A vegan diet epigenetically modulates inflammatory pathways and biological aging: Genome-wide DNA methylation analysis o,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-53694,Methylation dynamics of mouse neuron by MeDIP-seq and MRE-seq,Mus musculus
+pancreas methylation,geo,GSE63811,Age-associated DNA methylation increases in mouse pancreatic islets suggest an epigenetic drift toward the exocrine panc,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-16839,Genome-wide DNA methylation in normal and IUGR pancreatic islets,Rattus norvegicus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-24787,Promoter methylation in HNSCC tumor cell lines is significantly different from primary tumors and xenografts,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-44173,Sodium arsenite induced DNA methylation changes in A549 human epithelial lung carcinoma cells,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-78231,DNA methylation analysis of bull semen according to peripubertal age (10 months vs. 16 months),Bos taurus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-78232,DNA methylation analysis of bull semen according to peripubertal age (12 months vs. 16 months),Bos taurus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-3654,Pancreatic Cancer 1,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-59285,The G Protein-coupled Receptor P2Y14 Influences Insulin Release and Smooth Muscle Function in Mice,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-59615,Transcriptional and epigenetic program changes of induced beta cells over time [RRBS-seq],Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-15801,Methylation detection Oligonucleotide Microarray Analysis: high resolution method for CpG island methylation detection,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-39068,Comparative genome-wide DNA methylation analysis of colorectal tumor and matched normal tissues,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-MTAB-2807,Bisulfite sequencing of wild type Arabidopsis plants and H1 mutants,Arabidopsis thaliana
+pancreas methylation,geo,GSE244636,Methylomic trajectories in the developing human pancreas,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-15747,Methylation detection Oligonucleotide Microarray Analysis: high resolution method for CpG island methylation detection 2,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-30654,Recurrent Variations in DNA Methylation in Human Pluripotent Stem Cells and their Differentiated Derivatives,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-MTAB-9678,Genome-wide plasma cell-free DNA methylation profiling in pancreatic cancer patients using MeDIP-seq,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-64491,DNA methylation profiles of 30 tissues from a 112 year old woman,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-77083,RNA Seq analysis of e12.5 mouse pancreatic buds from control and Pdxcre; Gata4fl/fl;Gata6fl/fl; Tom mice,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-22026,MicroRNA profiling of human pancreas development.,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-11489,"DNA methylation, H3K4me2, H3K27me3, Pol2 promoter profiling during neuronal differentiation",Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-84018,DNA methylation in CD34 positive cells derived from cord blood at birth following prenatal stress,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-MTAB-4462,DNA methylation profiling of human naive embryonic stem cells,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-37680,Genome-wide analysis of the cytosine methylation profile in Arabidopsis thaliana crown galls,Arabidopsis thaliana
+pancreas methylation,biostudies-arrayexpress,E-GEOD-66347,Rat DNA methylation in the Nucleus Accumbens in Incubation of Cocaine Craving and treatments with DNA methylation modify,Rattus norvegicus
+pancreas methylation,biostudies-arrayexpress,E-MTAB-8327,A CellAge epigenetic clock for expedited discovery of anti-ageing compounds in vitro,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-84024,Early life adversity alters normal sex-dependent developmental dynamics of DNA methylation in rhesus monkeys,Macaca mulatta
+pancreas methylation,biostudies-arrayexpress,E-GEOD-31848,Recurrent Variations in DNA Methylation in Human Pluripotent Stem Cells and their Differentiated Derivatives [Illumina I,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-60657,DNA methylation at transcription start sites blocks TBP binding and transcription onset by RNApolII [ChIPbisSeq],Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-15746,Methylation detection Oligonucleotide Microarray Analysis: high resolution method for CpG island methylation detection 1,Homo sapiens
+pancreas methylation,project,PRJEB74774,Transgenerational epigenetic effects of linuron in Xenopus tropicalis pancreas,
+pancreas methylation,biostudies-arrayexpress,E-GEOD-18178,Methylation status in human sperm,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-51924,Epigenetic regulation of the MEG3-DLK1 microRNA cluster in human Type 2 diabetic islets,Homo sapiens
+pancreas methylation,biostudies-literature,S-EPMC8466738,Maternal Under- and Over-Nutrition during Gestation Causes Islet Hypertrophy and Sex-Specific Changes to Pancreas DNA Me,
+pancreas methylation,biostudies-arrayexpress,E-GEOD-66348,Rat DNA methylation in the Nucleus Accumbens in Incubation of Cocaine Craving,Rattus norvegicus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-84020,DNA methylation signatures of parental deprivation in peripheral tissues of male rhesus macaques,Macaca mulatta
+pancreas methylation,biostudies-arrayexpress,E-GEOD-57413,Genomic profiling of DNA methyltransferases reveals a role for DNMT3B in genic methylation,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-57412,Genomic profiling of DNA methyltransferases reveals a role for DNMT3B in genic methylation,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-67386,An epigenetic memory of pregnancy in the mouse mammary gland,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-59842,Genome wide DNA methylation of Epstein-Barr virus infected immortalized normal oral keratinocytes,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-42944,Genome-Wide Methylation Analysis of Breast Cancer Cell Lines,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-69894,Mapping of variable DNA methylation across multiple cell types defines a dynamic regulatory landscape of the human genom,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-MTAB-11962,Genome-wide methylation profiling of sporadic Pancreatic Neuroendocrine Tumors,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-18126,Methylation status in AG- and PG-derived cells and sperm,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-MTAB-11965,Genome-wide methylation profiling of sporadic Pancreatic Neuroendocrine Tumors,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-MTAB-7997,SPOCD1 is a novel executor of piRNA-directed DNA methylation that links MIWI2 to the de novo DNA methylation machinery,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-MTAB-7924,Genome-wide methylation profiling of sporadic Pancreatic Neuroendocrine Tumors,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-19937,Human embryonic stem cells HELP-tagging cytosine methylation data (Albert Einstein College of Medicine),Homo sapiens
+pancreas methylation,project,PRJNA1246112,Mucinous Cystic Neoplasms of the Pancreas and Liver share a similar DNA methylation profile with mucinous ovarian tumors,
+pancreas methylation,biostudies-arrayexpress,E-GEOD-26974,Sperm DNA methylation,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-TABM-877,"Transcriptional profiling of mouse pancreatic beta-cells, embryonic stem cells and 10 other normal adult tissues.",Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-62640,Analysis of sex differences in DNA methylation in human pancreatic islets,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-MTAB-8956,DNA methylation signature mirrors successful weight-loss during lifestyle interventions in blood,Homo sapiens
+pancreas methylation,project,PRJNA269141,Mus musculus,
+pancreas methylation,biostudies-arrayexpress,E-GEOD-51634,Prenatal stress-induced programming of genome-wide promoter DNA methylation in 5-Htt deficient mice,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-84021,Male Rat DNA methylation in the Prefrontal Cortex at postnatal day 62 following prenatal restraint stress,Rattus norvegicus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-40919,Methylation Analysis of Gastric Cancers,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-46692,Dnmt1-Independent CG Methylation Contributes to Nucleosome Positioning in Diverse Eukaryotes,Fragilariopsis cylindrus
+pancreas methylation,biostudies-literature,S-EPMC4454596,Pancreatic cancer patient survival correlates with DNA methylation of pancreas development genes.,
+pancreas methylation,biostudies-arrayexpress,E-GEOD-58025,Aldh1b1 controlled timing of pancreas specification is important for β cell functionality and glucose homeostasis in the,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-MTAB-11612,C19ORF84 connects piRNA and DNA methylation machineries to defend the mammalian germline,Mus musculus
+pancreas methylation,biostudies-arrayexpress,E-GEOD-28862,Pancreatic cancer vs. paired normal control,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-MTAB-3153,Microarray analysis of DNA methylation in metastatic versus non metastatic breast cancers,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-26784,Identification of a methylome signature of esophageal squamous cell carcinoma,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-26215,Identification of genes upregulated by MeTA-array in human pancreatic cancers,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-60012,Gender-specific post-natal demethylation and establishment of epigenetic memory,Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-MTAB-1447,Glutamine methylation on Histone H2A is an RNA Polymerase I dedicated modification,Saccharomyces cerevisiae
+pancreas methylation,biostudies-other,S-ECPF-GEOD-50827,ICGC Pancreas: Genomewide DNA methylation patterns in pancreatic ductal adenocarcinoma (gene expression of 103 samples),Homo sapiens
+pancreas methylation,biostudies-arrayexpress,E-GEOD-66905,In vivo targeting of de novo DNA methylation by histone modifications in yeast and mouse (Bisulfite-Seq),Saccharomyces cerevisiae
+pancreas methylation,biostudies-arrayexpress,E-GEOD-21068,Estrogen-mediated Epigenetic Repression of Large Chromosomal Regions through DNA Looping,Homo sapiens
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-63020,Dynamic epigenetic regulation by menin during pancreatic islet tumor formation,Mus musculus
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-23784,Global epigenomic analysis of primary human pancreatic islets provides insights into type 2 diabetes susceptibility loci,Homo sapiens
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-73727,Single-cell transcriptomics reveals unique features of human pancreatic islet cell subtypes,Homo sapiens
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-50386,Epigenomic plasticity enables human pancreatic alpha to beta cell reprogramming,Homo sapiens
+pancreatic islet methylation,biostudies-arrayexpress,E-MTAB-3243,Pancreatic beta cell identity is maintained by DNA methylation-mediated repression of Arx,Mus musculus
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-67991,RNA seq of pancreatic islets isolated from free fatty acid receptor 3 knockout (Ffar3 KO) and wildtype (Ffar3 WT) male m,Mus musculus
+pancreatic islet methylation,ega,EGAS00001002592,Integration of human pancreatic islet genomic data refines regulatory mechanisms at Type 2 Diabetes susceptibility loci,
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-30298,Identification and analysis of pancreatic islet specific enhancers,Mus musculus
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-59633,Nova1 is a master regulator of alternative splicing in pancreatic beta cells,Rattus norvegicus
+pancreatic islet methylation,biostudies-arrayexpress,E-TABM-906,Chromatin immunoprecipitation of mouse pancreatic beta-cells.,Mus musculus
+pancreatic islet methylation,project,PRJNA1073578,Pancreatic islet β-cell subtypes are derived from biochemically-distinct and nutritionally-regulated islet progenitors,
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-15582,Over expression of mRNA for multiple genes including insulin in the PLN of NOD is associated with Islet Autoimmunity,Mus musculus
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-68317,Nuclear Factor κB inducing kinase activation as a mechanism of pancreatic beta cell failure in obesity,Mus musculus
+pancreatic islet methylation,biostudies-literature,S-EPMC1253549,Menin regulates pancreatic islet growth by promoting histone methylation and expression of genes encoding p27Kip1 and p1,
+pancreatic islet methylation,project,PRJNA599213,Human pancreatic islets methylation array,
+pancreatic islet methylation,biostudies-literature,S-EPMC5754795,"Islet cells share promoter hypomethylation independently of expression, but exhibit cell-type-specific methylation in en",
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-27432,Genomic distribution and inter-sample variation of non-CG methylation across human cell types,Homo sapiens
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-38360,MicroRNA profiling of human pancreatic alpha and beta cells,Homo sapiens
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-78966,Progenitor Cell Marker Aldehyde Dehydrogenase 1a3 Defines a Subset of Failing Pancreatic Beta Cells in Diabetic Mice,Mus musculus
+pancreatic islet methylation,biostudies-literature,S-EPMC4773896,Identification and analysis of murine pancreatic islet enhancers.,
+pancreatic islet methylation,geo,GSE30298,Identification and analysis of pancreatic islet specific enhancers,Mus musculus
+pancreatic islet methylation,biostudies-literature,S-EPMC5397424,Pancreatic Islet Protein Complexes and Their Dysregulation in Type 2 Diabetes.,
+pancreatic islet methylation,pride,PXD048465,Differential CpG methylation at Nnat in the early establishment of beta cell heterogeneity,Homo sapiens (Human);Mus musculus (Mouse);Rattus norvegicus (Rat)
+pancreatic islet methylation,biostudies-literature,S-EPMC4825718,ISL-1 promotes pancreatic islet cell proliferation by forming an ISL-1/Set7/9/PDX-1 complex.,
+pancreatic islet methylation,biostudies-literature,S-EPMC12217943,Pancreatic islet β-cell subtypes are derived from biochemically-distinct and nutritionally-regulated islet progenitors.,
+pancreatic islet methylation,biostudies-literature,S-EPMC6327977,Neurog3-Independent Methylation Is the Earliest Detectable Mark Distinguishing Pancreatic Progenitor Identity.,
+pancreatic islet methylation,biostudies-literature,S-EPMC5828664,Integration of human pancreatic islet genomic data refines regulatory mechanisms at Type 2 Diabetes susceptibility loci.,
+pancreatic islet methylation,geo,GSE255135,Pancreatic islet β-cell subtypes are derived from biochemically-distinct and nutritionally-regulated islet progenitors,Mus musculus
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-52314,Epigenetic regulation of the MEG3-DLK1 microRNA cluster in human Type 2 diabetic islets,Homo sapiens
+pancreatic islet methylation,project,PRJNA143799,Mus musculus,
+pancreatic islet methylation,biostudies-literature,S-EPMC3945174,Genome-wide DNA methylation analysis of human pancreatic islets from type 2 diabetic and non-diabetic donors identifies ,
+pancreatic islet methylation,project,PRJNA589906,Chromatin dynamics reveal circadian control of human in vitro islet maturation [WGBS],
+pancreatic islet methylation,biostudies-literature,S-EPMC4256841,"Sex differences in the genome-wide DNA methylation pattern and impact on gene expression, microRNA levels and insulin se",
+pancreatic islet methylation,biostudies-literature,S-EPMC4822610,Identification of tissue-specific cell death using methylation patterns of circulating DNA.,
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-66413,Genome-Wide Gene Expression Profiles in the Pancreatic Lymph Nodes of At-Risk Autoantibody Positive Individuals,Homo sapiens
+pancreatic islet methylation,biostudies-literature,S-EPMC7352978,PDX1 DNA Methylation Distinguishes Two Subtypes of Pancreatic Neuroendocrine Neoplasms with a Different Prognosis.,
+pancreatic islet methylation,project,PRJNA589907,Chromatin dynamics reveal circadian control of human in vitro islet maturation [ChIP-seq],
+pancreatic islet methylation,geo,GSE140501,Chromatin dynamics reveal circadian control of human in vitro islet maturation [WGBS],Homo sapiens
+pancreatic islet methylation,biostudies-literature,S-EPMC9801219,Inhibition of stearoyl-CoA desaturase 1 in the mouse impairs pancreatic islet morphogenesis and promotes loss of β-cell ,
+pancreatic islet methylation,biostudies-literature,S-EPMC8237345,Distinct genome-wide methylation patterns in sporadic and hereditary nonfunctioning pancreatic neuroendocrine tumors.,
+pancreatic islet methylation,project,PRJNA589908,Chromatin dynamics reveal circadian control of human in vitro islet maturation [ATAC-seq],
+pancreatic islet methylation,project,PRJNA587101,Chromatin dynamics reveal circadian control of human in vitro islet maturation [RNA-seq],
+pancreatic islet methylation,geo,GSE16839,Genome-wide DNA methylation in normal and IUGR pancreatic islets,Rattus norvegicus
+pancreatic islet methylation,project,PRJNA954782,Mettl3-mediated m6A Methylation Determines the Size of Endocrine Progenitor Pool and Postnatal Islet Mass,
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-5357,NHGRI Menin ChIP-Chip,Homo sapiens
+pancreatic islet methylation,geo,GSE23784,Global epigenomic analysis of primary human pancreatic islets provides insights into type 2 diabetes susceptibility loci,Homo sapiens
+pancreatic islet methylation,geo,GSE143209,Human pancreatic islets methylation array,Homo sapiens
+pancreatic islet methylation,biostudies-literature,S-EPMC2865297,Experimental intrauterine growth restriction induces alterations in DNA methylation and gene expression in pancreatic is,
+pancreatic islet methylation,biostudies-literature,S-EPMC4060701,PHLDA3 is a novel tumor suppressor of pancreatic neuroendocrine tumors.,
+pancreatic islet methylation,project,PRJNA980632,Mettl3-mediated m6A Methylation Determines the Size of Endocrine Progenitor Pool and Postnatal Islet Mass [scRNA-seq],
+pancreatic islet methylation,biostudies-literature,S-EPMC11574190,m&lt;sup&gt;6&lt;/sup&gt;A mRNA methylation by METTL14 regulates early pancreatic cell differentiation.,
+pancreatic islet methylation,geo,GSE139816,Chromatin dynamics reveal circadian control of human in vitro islet maturation [RNA-seq],Homo sapiens
+pancreatic islet methylation,geo,GSE140500,Chromatin dynamics reveal circadian control of human in vitro islet maturation [ChIP-seq],Homo sapiens
+pancreatic islet methylation,geo,GSE140499,Chromatin dynamics reveal circadian control of human in vitro islet maturation [ATAC-seq],Homo sapiens
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-44262,Beta cell 5’-shifted isomiRs are candidate regulatory hubs in type 2 diabetes,Mus musculus
+pancreatic islet methylation,project,PRJNA264618,Homo sapiens,
+pancreatic islet methylation,biostudies-literature,S-EPMC3983232,Tissue-specific methylation of human insulin gene and PCR assay for monitoring beta cell death.,
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-24790,Neonatal beta cells lack the specialized metabolic phenotype of mature beta cells,Rattus norvegicus
+pancreatic islet methylation,project,PRJNA1315169,ALKBH5 Downregulation Links Glucose-Induced m⁶A Remodeling to Impaired Basal Insulin Secretion in Pancreatic β Cells,
+pancreatic islet methylation,biostudies-literature,S-EPMC6735752,Early postnatal overnutrition accelerates aging-associated epigenetic drift in pancreatic islets.,
+pancreatic islet methylation,biostudies-literature,S-EPMC6864278,Islet-specific Prmt5 excision leads to reduced insulin expression and glucose intolerance in mice.,
+pancreatic islet methylation,biostudies-literature,S-EPMC4821875,Blood-based biomarkers of age-associated epigenetic changes in human islets associate with insulin secretion and diabete,
+pancreatic islet methylation,biostudies-literature,S-EPMC7753871,Cask methylation involved in the injury of insulin secretion function caused by interleukin1-β.,
+pancreatic islet methylation,geo,GSE124809,Epigenetic modulation of β-cells by interferon-α via PNPT11-miR-26a-TET2 triggers autoimmune diabetes [methylation array,Homo sapiens
+pancreatic islet methylation,biostudies-literature,S-EPMC3582140,Epigenomic plasticity enables human pancreatic α to β cell reprogramming.,
+pancreatic islet methylation,project,PRJNA117605,Rattus norvegicus,
+pancreatic islet methylation,biostudies-literature,S-EPMC11199577,Predicting type 2 diabetes via machine learning integration of multiple omics from human pancreatic islets.,
+pancreatic islet methylation,biostudies-literature,S-EPMC9022224,Quantification of Unmethylated Insulin DNA Using Methylation Sensitive Restriction Enzyme Digital Polymerase Chain React,
+pancreatic islet methylation,biostudies-literature,S-EPMC11058053,Differential CpG methylation at Nnat in the early establishment of beta cell heterogeneity.,
+pancreatic islet methylation,biostudies-literature,S-EPMC7453897,Multiplexing DNA methylation markers to detect circulating cell-free DNA derived from human pancreatic β cells.,
+pancreatic islet methylation,geo,GSE50386,Epigenomic plasticity enables human pancreatic alpha to beta cell reprogramming,Homo sapiens
+pancreatic islet methylation,biostudies-literature,S-EPMC10705251,Differential CpG methylation at <i>Nnat</i> in the early establishment of beta cell heterogeneity.,
+pancreatic islet methylation,project,PRJNA130725,Homo sapiens,
+pancreatic islet methylation,project,PRJNA396086,The Finland-United States Investigation of NIDDM Genetics (FUSION) Study – Islet Expression and Regulation by RNAseq and,
+pancreatic islet methylation,biostudies-literature,S-EPMC4742511,Ageing is associated with molecular signatures of inflammation and type 2 diabetes in rat pancreatic islets.,
+pancreatic islet methylation,biostudies-literature,S-EPMC3488580,Cancer specific promoter CpG Islands hypermethylation of HOP homeobox (HOPX) gene and its potential tumor suppressive ro,
+pancreatic islet methylation,biostudies-literature,S-EPMC4222689,Genome-wide associations between genetic and epigenetic variation influence mRNA expression and insulin secretion in hum,
+pancreatic islet methylation,biostudies-arrayexpress,E-MTAB-11088,"RRBS (DNA methylation) analysis of CD4+ CD8+ and CD4-CD8- fractions of PBMC cells collected from 7 case children, who we",Homo sapiens
+pancreatic islet methylation,biostudies-literature,S-EPMC9304699,The m<sup>6</sup>A Methyltransferase METTL3 Ameliorates Methylglyoxal-Induced Impairment of Insulin Secretion in Pancrea,
+pancreatic islet methylation,biostudies-arrayexpress,E-GEOD-23752,Induced overexpression of Pdx1 and Ngn3 in a mouse ES cell-derived endoderm population induces pancreatic differentiatio,Mus musculus
+pancreatic islet methylation,geo,GSE249659,Differential CpG methylation at Nnat in the early establishment of beta cell heterogeneity,Mus musculus
+pancreatic islet methylation,project,PRJNA513849,Epigenetic modulation of β-cells by interferon-α via PNPT11-miR-26a-TET2 triggers autoimmune diabetes [methylation array,
+pancreatic islet methylation,project,PRJNA1049900,Differential CpG methylation at Nnat in the early establishment of beta cell heterogeneity,
+pancreatic islet methylation,geo,GSE229502,Mettl3-mediated m6A Methylation Determines the Size of Endocrine Progenitor Pool and Postnatal Islet Mass,Mus musculus
+pancreatic islet methylation,biostudies-literature,S-EPMC3974640,A central role for GRB10 in regulation of islet function in man.,
+pancreatic islet methylation,geo,GSE59615,Transcriptional and epigenetic program changes of induced beta cells over time [RRBS-seq],Mus musculus
+pancreatic islet methylation,massive,MSV000088344,"RyR2/IRBIT regulates insulin gene transcription, insulin content, and secretion in the insulinoma cell line INS-1",Rattus Norvegicus (ncbitaxon:10116)
+pancreatic islet methylation,project,PRJNA217397,Homo sapiens,
+pancreatic islet methylation,geo,GSE234256,Mettl3-mediated m6A Methylation Determines the Size of Endocrine Progenitor Pool and Postnatal Islet Mass [scRNA-seq],Mus musculus
+pancreatic islet methylation,geo,GSE124810,Epigenetic modulation of β-cells by interferon-α via PNPT11-miR-26a-TET2 triggers autoimmune diabetes [RNA-seq],Homo sapiens
+acinar methylation,project,PRJNA925148,DNA methylation sequencing of human pancreatic acinar and ductal cells [Bisulfite-seq],
+acinar methylation,project,PRJNA918374,Comprehensive sequence-based DNA methylation analysis suggests that PanIN lesions are acinar-derived and epigenetically ,
+acinar methylation,geo,GSE222147,Comprehensive sequence-based DNA methylation analysis suggests that PanIN lesions are acinar-derived and epigenetically ,Homo sapiens
+acinar methylation,geo,GSE249140,DNA methylation memory of acinar-ductal transition state altering Kras-downstream Pi3k and Rho GTPase signaling [WGBS],Mus musculus
+acinar methylation,biostudies-literature,S-EPMC10239363,Comprehensive DNA Methylation Analysis Indicates That Pancreatic Intraepithelial Neoplasia Lesions Are Acinar-Derived an,
+acinar methylation,biostudies-arrayexpress,E-GEOD-48684,Global DNA methylation alterations reveal multiple pathways in the initiation and progression of colorectal cancer,Homo sapiens
+acinar methylation,geo,GSE249121,DNA methylation memory of acinar-ductal transition state altering Kras-downstream Pi3k and Rho GTPase signaling [spatial,Mus musculus
+acinar methylation,biostudies-arrayexpress,E-GEOD-21181,Differential methylation profiling of colon tumors,Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-MTAB-815,DNA methylation profiling of human adrenocortical tumors (ACTs),Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-GEOD-60043,Integration of transcriptome and methylome analyses to dissect molecular pathogenesis of primary aldosteronism: comparis,Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-MTAB-10906,Epigenetic profiling of Follicular thyroid adenomas and carcinomas using high content DNA methylation arrays,Homo sapiens
+acinar methylation,geo,GSE223153,DNA methylation sequencing of human pancreatic acinar and ductal cells [Bisulfite-seq],Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-MTAB-16230,Methylation profiling of colorectal cancer tumor samples,Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-GEOD-77954,Global methylation analysis of development and progression of colorectal carcinoma,Homo sapiens
+acinar methylation,project,PRJNA1046656,,
+acinar methylation,ega,EGAS00001002533,Genome-wide genetic and epigenetic dataset of pancreatic acinar cell carcinomas,
+acinar methylation,biostudies-literature,S-EPMC9216338,Aggressive PDACs Show Hypomethylation of Repetitive Elements and the Execution of an Intrinsic IFN Program Linked to a D,
+acinar methylation,biostudies-literature,S-EPMC5673892,Genome-wide genetic and epigenetic analyses of pancreatic acinar cell carcinomas reveal aberrations in genome stability.,
+acinar methylation,project,PRJNA1047540,DNA methylation memory of acinar-ductal transition state altering Kras-downstream Pi3k and Rho GTPase signaling,
+acinar methylation,project,PRJNA1306392,RNA methyltransferase 3 drives pancreatic acinar cell carcinoma growth and is a therapeutic target,
+acinar methylation,project,PRJNA1306397,RNA methyltransferase 3 drives pancreatic acinar cell carcinoma growth and is a therapeutic target,
+acinar methylation,ega,EGAD00010001888,DNA Methylation profiles of colorectal cancer samples,
+acinar methylation,biostudies-arrayexpress,E-GEOD-38983,Genome-wide analysis of mouse intestinal adenoma identifies early steps in the formation of cancer-specific DNA methylat,Mus musculus
+acinar methylation,biostudies-literature,S-EPMC9588032,Acinar ATP8b1/LPC pathway promotes macrophage efferocytosis and clearance of inflammation during chronic pancreatitis de,
+acinar methylation,biostudies-arrayexpress,E-GEOD-29505,Custom Illumina array DNA methylation analysis of 384 CpGs across five cancer types,Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-MTAB-6949,"Bisulphite-seq to investigate the proto CpG island methylator phenotype of sessile serrated adenoma/polyps, dataset 2",Homo sapiens
+acinar methylation,biostudies-literature,S-EPMC4628969,Chronic alcohol exposure affects pancreatic acinar mitochondrial thiamin pyrophosphate uptake: studies with mouse 266-6 ,
+acinar methylation,biostudies-arrayexpress,E-GEOD-57527,Altered epigenetic programming links intestinal inflammation to colon cancer (Bisulfite-seq),Mus musculus
+acinar methylation,biostudies-arrayexpress,E-GEOD-48988,Epigenome analysis of normal colon mucosa samples,Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-GEOD-60044,Integration of transcriptome and methylome analyses to dissect molecular pathogenesis of primary aldosteronism: comparis,Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-MTAB-6952,Bisulphite-seq to investigate the proto CpG island methylator phenotype of sessile serrated adenoma/polyps,Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-GEOD-60042,Integration of transcriptome and methylome analyses to dissect molecular pathogenesis of primary aldosteronism: comparis,Homo sapiens
+acinar methylation,geo,GSE134217,Aggressive PDACs show hypomethylation of repetitive elements and the execution of an intrinsic IFN program linked to a d,Homo sapiens
+acinar methylation,geo,GSE217731,Association of frequent hypermethylation with high grade histological subtype in lung adenocarcinoma. (Infinium Methylat,Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-GEOD-36353,Genome wide DNA Methylation analysis of benign and malignant adrenocortical tumors,Homo sapiens
+acinar methylation,geo,GSE305530,RNA methyltransferase 3 drives pancreatic acinar cell carcinoma growth and is a therapeutic target,Mus musculus
+acinar methylation,geo,GSE305529,RNA methyltransferase 3 drives pancreatic acinar cell carcinoma growth and is a therapeutic target,Mus musculus
+acinar methylation,biostudies-literature,S-EPMC8886788,DNA methylation reveals distinct cells of origin for pancreatic neuroendocrine carcinomas and pancreatic neuroendocrine ,
+acinar methylation,biostudies-literature,S-EPMC9377277,An integrated model of acinar to ductal metaplasia-related N7-methyladenosine regulators predicts prognosis and immunoth,
+acinar methylation,biostudies-arrayexpress,E-GEOD-49011,Expression profile of sweat gland label retaining cells (LRCs),Mus musculus
+acinar methylation,project,PRJNA867583,scNMT-seq of pancreatic organoids - DNA methylation and chromatin accessibility,
+acinar methylation,biostudies-arrayexpress,E-GEOD-57569,Altered epigenetic programming links intestinal inflammation to colon cancer,Mus musculus
+acinar methylation,biostudies-arrayexpress,E-GEOD-43091,Genome-scale methylome profiling of hepatocellular adenomas.,Homo sapiens
+acinar methylation,geo,GSE161956,Aggressive PDACs show hypomethylation of repetitive elements and the execution of an intrinsic IFN program linked to a d,Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-GEOD-61318,Overlapping DNA methylation dynamics in mouse intestinal cell differentiation and early stages of malignant progression,Mus musculus
+acinar methylation,biostudies-arrayexpress,E-GEOD-37211,DPN and Tamoxifen treatments of parathyroid adenoma cells,Homo sapiens
+acinar methylation,project,PRJNA554343,Aggressive PDACs show hypomethylation of repetitive elements and the execution of an intrinsic IFN program linked to a d,
+acinar methylation,geo,GSE290346,An Epigenetetic Signature for Classifying Pancreatic Ductal Adenocarcinoma Based on their Cellular Origin,Mus musculus
+acinar methylation,ega,EGAS00001004660,Aggressive PDACs show hypomethylation of repetitive elements and the execution of an intrinsic IFN program linked to a d,
+acinar methylation,biostudies-literature,S-EPMC10821902,Reconstitution of human PDAC using primary cells reveals oncogenic transcriptomic features at tumor onset.,
+acinar methylation,biostudies-arrayexpress,E-MTAB-7762,Human pituitary adenomas DNA methylation profiling,Homo sapiens
+acinar methylation,biostudies-literature,S-EPMC9668736,In vitro transdifferentiated signatures of goat preadipocytes into mammary epithelial cells revealed by DNA methylation ,
+acinar methylation,biostudies-arrayexpress,E-GEOD-57533,Altered epigenetic programming links intestinal inflammation to colon cancer (RNA-seq),Mus musculus
+acinar methylation,geo,GSE296877,Unexpected combination of increased protein translation and decreased endoplasmic reticulum stress during pancreatic can,Mus musculus
+acinar methylation,geo,GSE134093,Aggressive PDACs show hypomethylation of repetitive elements and the execution of an intrinsic IFN program linked to a d,Homo sapiens
+acinar methylation,geo,GSE134092,Aggressive PDACs show hypomethylation of repetitive elements and the execution of an intrinsic IFN program linked to a d,Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-GEOD-36511,Genetic characterization of large parathyroid adenomas,Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-MTAB-7854,DNA methylation changes in advanced sessile serrated adenomas that precede progression to dysplasia,Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-MTAB-6450,Cell-of-origin epigenetic signatures are maintained during colorectal carcinogenesis,Homo sapiens
+acinar methylation,ega,EGAD00010001691,Colorectal cancer methylation profiling,
+acinar methylation,biostudies-arrayexpress,E-MTAB-6951,RNA-seq to investigate the proto CpG island methylator phenotype of sessile serrated adenoma/polyps,Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-MTAB-9936,Whole-exome sequencing (WES) to assess genomic concordance between an adenoma/adenocarcinoma colonoid culture 14-881 and,Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-GEOD-46821,Prdm5 suppresses ApcMin-driven intestinal adenomas and regulates monoacylglycerol lipase expression,Mus musculus
+acinar methylation,biostudies-literature,S-EPMC3711965,"Epigenetic reprogramming governs EcSOD expression during human mammary epithelial cell differentiation, tumorigenesis an",
+acinar methylation,geo,GSE249143,DNA methylation memory of acinar-ductal transition state altering Kras-downstream Pi3k and Rho GTPase signaling,Mus musculus
+acinar methylation,geo,GSE303714,METTL18 Ensures Pancreatic Function by Maintaining Proper Translation and Proteostasis,Mus musculus
+acinar methylation,biostudies-literature,S-EPMC7691619,The m<sup>6</sup>A reader YTHDC2 inhibits lung adenocarcinoma tumorigenesis by suppressing SLC7A11-dependent antioxidant,
+acinar methylation,project,PRJNA900238,Association of frequent hypermethylation with high grade histological subtype in lung adenocarcinoma. (Infinium Methylat,
+acinar methylation,biostudies-literature,S-EPMC6940850,Epigenetic Modification as a Regulatory Mechanism for Spatiotemporal Dynamics of ANO1 Expression in Salivary Glands.,
+acinar methylation,biostudies-literature,S-EPMC9394397,Comprehensive Genomic Profiling of Neuroendocrine Carcinomas of the Gastrointestinal System.,
+acinar methylation,biostudies-literature,S-EPMC9913221,Identification and Validation of Potentially Clinically Relevant CpG Regions within the Class 2 Tumor Suppressor Gene <i,
+acinar methylation,jpost,PXD065601,LC-MS/MS analysis of pancreatic proteins from WT and Mettl18 KO mice,Mus Musculus (mouse)
+acinar methylation,biostudies-arrayexpress,E-GEOD-40055,Non-CpG island promoter hypomethylation and miR-149 regulate the expression of SRPX2 in colorectal cancer,Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-TABM-36,"Transcription profiling of 57 hepato cellular carcinoma tumoral samples, 3 hepatocellular adenomas, 5 non-tumoral pools",Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-GEOD-49277,Genome-scale methylome profiling of adrenocortical carcinomas (ACC) and adenomas (ACA),Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-GEOD-48303,"Expression data from aldosterone-producing adenomas (APAs) with a somatic mutation in either KCNJ5, CACNA1D, or ATP1A1",Homo sapiens
+acinar methylation,geo,GSE59490,Transcriptional and epigenetic program changes of induced beta cells over time [expression array],Mus musculus
+acinar methylation,biostudies-literature,S-EPMC9277757,Unmasking the mammalian SET domain-containing protein 4.,
+acinar methylation,project,PRJNA1297147,METTL18 Ensures Pancreatic Function by Maintaining Proper Translation and Proteostasis,
+acinar methylation,biostudies-literature,S-EPMC7000300,Sclerosing epithelioid mesenchymal neoplasm of the pancreas - a proposed new entity.,
+acinar methylation,project,PRJNA1261863,Unexpected combination of increased protein translation and decreased endoplasmic reticulum stress during pancreatic can,
+acinar methylation,project,PRJNA553762,Aggressive PDACs show hypomethylation of repetitive elements and the execution of an intrinsic IFN program linked to a d,
+acinar methylation,biostudies-arrayexpress,E-GEOD-43841,Gene expression analysis of microvesicular hyperplastic polyps and sessile serrated polyps/adenomas,Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-GEOD-64412,Loss of MEN1 activates DNMT1 implicating DNA hypermethylation as a driver of MEN1 tumorigenesis,Homo sapiens
+acinar methylation,biostudies-literature,S-EPMC7382836,The decisive role of molecular pathology in presumed somatic metastases of type II testicular germ cell tumors: report o,
+acinar methylation,project,PRJNA553765,Aggressive PDACs show hypomethylation of repetitive elements and the execution of an intrinsic IFN program linked to a d,
+acinar methylation,project,PRJNA1227521,An Epigenetetic Signature for Classifying Pancreatic Ductal Adenocarcinoma Based on their Cellular Origin,
+acinar methylation,biostudies-literature,S-EPMC5384490,Artificial Induction of Native Aquaporin-1 Expression in Human Salivary Cells.,
+acinar methylation,massive,MSV000080872,O-GlcNAcylation of fumarase maintains tumour growth under glucose deficiency,Homo Sapiens (ncbitaxon:9606)
+acinar methylation,biostudies-arrayexpress,E-GEOD-65545,BPTF is required for c-MYC-induced remodelling of target chromatin and transcriptional activation [RNA-Seq],Homo sapiens
+acinar methylation,biostudies-arrayexpress,E-GEOD-65546,BPTF is required for c-MYC-induced remodelling of target chromatin and transcriptional activation,Homo sapiens
+acinar methylation,project,PRJNA255422,Mus musculus,
+pancreatic duct methylation,project,PRJNA981097,DNA methylation profiles of human embryonic stem cells (HUES8) differentiated to pancreatic duct-like organoids.,
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-64558,A combined genomic approach unveils the transcriptional basis of heterogeneity of human pancreatic ductal adenocarcinoma,Homo sapiens
+pancreatic duct methylation,geo,GSE234345,DNA methylation profiles of human embryonic stem cells (HUES8) differentiated to pancreatic duct-like organoids.,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-59761,Transcriptional co-factor Transducin beta-like (TBL) 1 acts as a checkpoint in pancreatic cancer malignancy,Homo sapiens
+pancreatic duct methylation,geo,GSE40097,DNA methylation analysis of pancreatic cancer and non-malignant pancreas cell lines,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-MTAB-10122,"Transcriptome profiling of human pancreatic cancer cell line Panc1, MiaPaCa2, AsPC1 transfected with NFATc1-siRNA agains",Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-MTAB-5006,SNP profiling of pancreatic adenocarcinoma (PDAC) xenografts,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-42365,Genes activated by 5-aza-dC (DAC) in pancreatic cancer (KPC-Brca1) epithelial cells,Mus musculus
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-51656,Antiproliferative effects and mechanisms of liver X receptor ligands in pancreatic ductal adenocarcinoma cells,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-42364,Genes activated by 5-aza-dC (DAC) in pancreatic (KPC-Brca1) cancer-associated fibroblasts (CAFs),Mus musculus
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-25048,Identification of DNA Methylation Markers for Lineage Commitment of in vitro Hepatogenesis,Homo sapiens
+pancreatic duct methylation,biostudies-literature,S-EPMC4058028,Epigenetic silencing of EYA2 in pancreatic adenocarcinomas promotes tumor growth.,
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-25046,Identification of DNA Methylation Markers for Lineage Commitment of in vitro Hepatogenesis [mRNA profiling],Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-MTAB-14910,HNRNPU RNA targets and DNA methylation changes during neural differentiation,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-MTAB-10900,"RRBS of pancreatic cancer cells derived from a genetically engineered mouse model, which harbor the inducible KrasG12D a",Mus musculus
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-45765,Expression Data from pancreatic cancer cell lines and orthotopic tumors grown with and without MEK inhibitor,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-37480,Early Epigenetic Downregulation of Tumor Suppressor WNK2 during Pancreatic Ductal Adenocarcinoma Development,Homo sapiens
+pancreatic duct methylation,project,PRJNA172915,Homo sapiens,
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-64560,A combined genomic approach unveils the transcriptional basis of heterogeneity of human pancreatic ductal adenocarcinoma,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-7221,Comparison of rat thoracic duct to vena cava,Rattus norvegicus
+pancreatic duct methylation,biostudies-arrayexpress,E-MTAB-11367,"Identification of circulating lncRNAs associated with gallbladder cancer risk by tissue-based preselection, cis-eQTL val",Homo sapiens
+pancreatic duct methylation,biostudies-literature,S-EPMC10002968,DNA methylation and miR-92a-3p-mediated repression of HIP1R promotes pancreatic cancer progression by activating the PI3,
+pancreatic duct methylation,biostudies-arrayexpress,E-MTAB-5571,Methylation array profiling of 24 Pancreatic Ductal Adenocarcinoma samples,Homo sapiens
+pancreatic duct methylation,biostudies-literature,S-EPMC5564314,Mass spectrometric analysis reveals O-methylation of pyruvate kinase from pancreatic cancer cells.,
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-71729,Virtual Microdissection of Pancreatic Ductal Adenocarcinoma Reveals Tumor and Stroma Subtypes.,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-59260,DNA methylation profiles in alcohol-associated hepatocellular carcinoma,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-36703,CDK-4 inhibitor P276-00 sensitizes Pancreatic Cancer cells to Gemcitabine induced Apoptosis,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-MTAB-3855,DKFZ_pancreatic cancer _methylation,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-63526,Spontaneous pancreatitis caused by tissue-specific gene ablation of Hhex in mice,Mus musculus
+pancreatic duct methylation,geo,GSE293725,Mucinous Cystic Neoplasms of the Pancreas and Liver share a similar DNA methylation profile with mucinous ovarian tumors,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-46188,Analyses of mIRNA transcript level following exposure to triptolide,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-60601,Gene expression data from CD14++ CD16- classical monocytes from healthy volunteers and patients with pancreatic ductal a,Homo sapiens
+pancreatic duct methylation,biostudies-literature,S-EPMC8748617,Relevance of gene mutations and methylation to the growth of pancreatic intraductal papillary mucinous neoplasms based o,
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-31979,Genome-wide methylation analysis detects genes specific to breast cancer hormone receptor status and risk of recurrence,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-MTAB-1150,DNA methylation profiling of murine neural progenitor cells,Mus musculus
+pancreatic duct methylation,biostudies-literature,S-EPMC12337810,Mucinous cystic neoplasms of the pancreas and liver share a similar DNA methylation profile with mucinous ovarian tumors,
+pancreatic duct methylation,biostudies-literature,S-EPMC10333440,DNA methylation-based classifier differentiates intrahepatic pancreato-biliary tumours.,
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-67485,Global DNA methylation landscape reveals roles of DNA methylation involved in the regulation of drug metabolizing enzyme,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-MTAB-11279,Illumina Infinium HumanMethylationEPIC DNA methylation microarray of human donor whole-blood from patients with and with,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-MEXP-1889,Methylation profiling of different stages of human mammary epithelial cells from pre-statis to cancer,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-34403,Bisulphite-sequencing of chromatin immunoprecipitated DNA directly informs methylation status of histone-modified DNA,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-WMIT-3,Chromatin immunoprecipitation genome wide map of nucleosome acetylation and methylation in Yeast,Saccharomyces cerevisiae
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-70940,Gene expression analyses of SMAD4 knockdown in pancreatic cell line,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-MEXP-881,Methylation profiling of normal and cancerous human breast samples,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-MEXP-3651,EMT,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-26843,oct07-DNA methylation and small RNAs,Arabidopsis thaliana
+pancreatic duct methylation,biostudies-arrayexpress,E-MTAB-5570,SNP array profiling of 24 Pancreatic Ductal Adenocarcinoma samples,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-MEXP-880,Methylation profiling of normal and cancerous breast cells from human patients and cell lines in a 125 kB region of the ,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-53524,Gene Expression Analysis of Cancer-Associated Fibroblast (CAF) compared to Normal Fibroblast (NF) [microarray],Mus musculus
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-26844,wt vs. mutants 09-DNA methylation and small RNAs,Arabidopsis thaliana
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-26982,Integrative DNA methylation and gene expression analyses identify DNA packaging and epigenetic regulatory genes associat,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-29413,"DNA methylation and SETDB1/H3K9me3 regulate predominantly distinct sets of genes, retroelements and chimaeric transcript",Mus musculus
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-32631,Amplification of siRNA in Caenorhabditis elegans generates a transgenerational sequence-targeted histone H3 lysine 9 met,Caenorhabditis elegans
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-54693,Genome wide profiling of MBD2 binding,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-32869,Genome-wide time series analysis of gastrin induced gene expression in AR42J cells with and without protein synthesis,Rattus norvegicus
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-60832,Modulation of the immune system during postpartum uterine inflammation,Bos taurus
+pancreatic duct methylation,biostudies-arrayexpress,E-MTAB-8533,Germ cell epigenetic instability in the Mtrr mouse model of transgenerational epigenetic inheritance,Mus musculus
+pancreatic duct methylation,biostudies-literature,S-EPMC8855834,Liquid biopsy reveals collateral tissue damage in cancer.,
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-66910,In vivo targeting of de novo DNA methylation by histone modifications in yeast and mouse (ChIP-Seq mouse),Mus musculus
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-36114,"Genome-wide analysis of histone modification, protein-DNA binding, cytosine methylation and transcriptome data in mouse ",Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-59191,Epigenomics of rat born to dams fed a diet deficient in methyl group donors (MDD),Rattus norvegicus
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-66907,In vivo targeting of de novo DNA methylation by histone modifications in yeast and mouse (Mnase-Seq),Saccharomyces cerevisiae
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-38930,Patterns of aberrant DNA methylation after toxicant-induced malignant transformation,Homo sapiens
+pancreatic duct methylation,biostudies-literature,S-EPMC4277335,"The novel colorectal cancer biomarkers CDO1, ZSCAN18 and ZNF331 are frequently methylated across gastrointestinal cancer",
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-15113,Distinct DNA methylation profiles between adenocarcinoma and squamous cell carcinoma of human uterine cervix,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-66909,In vivo targeting of de novo DNA methylation by histone modifications in yeast and mouse (ChIP-Seq yeast),Saccharomyces cerevisiae
+pancreatic duct methylation,biostudies-arrayexpress,E-MTAB-3176,Rapid reprogramming of epigenetic and transcriptional profiles in mammalian culture systems,Mus musculus
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-74200,Genome-wide analysis of sperm DNA methylation from monozygotic twin bulls,Bos taurus
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-33219,Hydroxymethyl DNA-IP of genomic DNA for many different normal human tissues,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-41923,Distinct DNA methylomes of 2i and serum mouse ES cells are interconvertible and reflect pre- and post-implantation embry,Mus musculus
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-75597,Identification of DNA methylation-independent epigenetic events underlying clear cell renal cell carcinoma,Homo sapiens
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-41440,"Enhancer-associated H3K4 mono-methylation by Drosophila Trithorax-related, the Drosophila homolog of Mll3/Mll4",Mus musculus
+pancreatic duct methylation,biostudies-arrayexpress,E-GEOD-28374,DNA methylation of miRNA genes in HMEC and HMF,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-23388,DNA methylation and expression profiling study for prostate cancer,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-18458,Genome wide DNA Methylation Study in Cornelia de Lange Syndrome,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-16559,Lung adenocarcinoma and mesothelioma DNA methylation,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-24947,Genome-wide connection between DNA methylation and DNA replication timing,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-MTAB-487,Promoter DNA methylation dynamics of human hematopoietic progenitor cells during differentiation and aging,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-19434,DNA methylation distinguishes pathologically normal human tissues,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-38216,Dynamic changes of DNA methylome and hydroxymethylome during neural differentiation of hES cells (Methylation BeadChip),Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-37362,TET2 loss-of-function mutations associate with a DNA hypermethylation signature in diffuse large B-cell lymphoma (DNA me,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-37816,DNA methylation and expression profiling study for bladder cancer [methylation],Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-33233,DNA methylation differences between Newborns and Nonagenarians [PBMNC],Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-43851,Functional DNA methylation is accompanied by chromatin accessibility [methylation],Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-72230,Comparison of genome-wide DNA methylation in MEFs derived from wildtype or estrogen receptor beta null mice using reduce,Mus musculus
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-38214,Dynamic changes of DNA methylome and hydroxymethylome during neural differentiation of hES cell (hMeDIP-Seq and MBD-Seq),Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-20989,Mesothelioma integrative genomics: DNA methylation,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-69954,DNA methylation adds prognostic value to minimal residual disease status in pediatric T-cell acute lymphoblastic leukemi,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-50456,Genome wide DNA methylation analysis of leukemia and reprogrammed leukemia cells,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-43369,DNA Methylation Biomarkers for Noninvasive Diagnosis of Colorectal Cancer,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-25062,Genome-scale analysis of aberrant DNA methylation in colorectal cancer,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-20395,IDH1 mutation defines methylation class and survival in human glioma,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-27902,Non-small-cell lung tumor and normal lung tissue methylation,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-44638,Global DNA Methylation Remodeling Accompanies CD8 T Cell Effector Function,Mus musculus
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-68027,Small RNA mediated DNA (cytosine-5) methyltransferase 1 inhibition leads to aberrant DNA methylation,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-36580,AcceSssIble: an array-based assay for the study of chromatin accessibility and DNA methylation using the CpG methyltrans,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-25047,Identification of DNA Methylation Markers for Lineage Commitment of in vitro Hepatogenesis [methylation profiling],Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-55569,methylSig: a whole genome DNA methylation analysis pipeline,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-51245,Array-based DNA methylation profiling in male infertility reveals allele-specific DNA methylation in PIWIL1 and PIWIL2,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-48229,The dynamics of DNA methylation fidelity during mouse embryonic stem cell renewal and differentiation,Mus musculus
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-22290,Breast tumor DNA methylation,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-35069,Differential DNA Methylation in Purified Human Blood Cells,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-52588,Identification of a DNA methylation signature in blood from subjects affected by Down syndrome,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-58622,The fat cell epigenetic signature in post-obese women is characterized by global hypomethylation and differential DNA me,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-71039,Increased DNA Methylation of Dnmt3b-Targets Impairs Leukemogenesis (RRBS),Mus musculus
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-72354,DNA methylation signatures triggered by prenatal maternal stress exposure to a natural disaster: Project Ice Storm,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-22891,DNA Methylation Profiling of Glioblastoma: Impact on Gene Expression and Clinical Outcome,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-55888,Matrix Elasticity Does Not Affect Replicative Senescence or DNA Methylation Patterns of Mesenchymal Stem Cells [DNAm pro,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-36832,DNA Methylation Dynamics in Blood after Hematopoietic Cell Transplant,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-42865,Genome-wide DNA methylation profiling of Progeria and Werner syndrome patients,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-44132,Antenatal Blood DNA Methylation Profiles,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-31789,"DNA methylation epigenotype expanding to non-polycomb target genes, induced by Epstein-Barr virus infection in human gas",Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-46327,Genome-wide DNA methylation aberrations in human atherosclerosis (sequencing),Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-20742,Genetic and Epigenetic Somatic Alterations in Head and Neck Squamous Cell Carcinomas Are Globally Coordinated but Not Lo,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-49064,Aging-induced differential methylation in human PBMCs occurs with but often without change in expression of the associat,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-MTAB-5016,DNA methylation in schizophrenia in different patient-derived cell types,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-36064,Methylation Profiling of Blood DNA from Healthy Children (Harvard Age Study),Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-71955,Epigenetic profiling in CD4 and CD8 T cells from Gravesâ disease patients reveals changes in genes associated with T c,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-44038,TET1 is a maintenance DNA demethylase that prevents methylation spreading in adult cells [DREAM],Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-26519,Replicative senescence of mesenchymal stem cells causes DNA methylation changes which correlate with repressive histone ,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-52074,Human rhinovirus infection causes different DNA methylation changes in nasal epithelial cells from healthy and asthmatic,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-27895,Global DNA methylation profiling of CD4+ T cells from patients with systemic lupus erythematosus,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-25688,Cell Type-Specific DNA Methylation at Intragenic CpG Islands in the Immune System (MAP-Seq and ChIP-Seq data),Mus musculus
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-22867,DNA Methylation Profiling of Glioblastoma: Impact on Gene Expression and Clinical Outcome (Illumina),Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-32698,Genome-wide DNA methylation maps in chronic lymphocytic leukemia cells determined by next-generation sequencing,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-22210,Molecular subtypes of breast cancer are associated with characteristic DNA methylation patterns,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-52144,Examination of genome-wide methylation changes in lung cancer cell lines A549 (A) and HTB56 (H) [HumanMethylation27 Bead,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-22281,Epigenetic portraits of human breast cancers (various cell lines methylation data),Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-42079,Genome wide methylation array analysis in T-ALL,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-39446,Comprehensive profiling of DNA methylation in colorectal cancer reveals subgroups with distinct clinicopathological and ,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-44661,DNA methylation analysis of melanoma progression to brain metastasis,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-17448,Methylation Pattern of Human Mesenchymal Stromal Cells,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-34486,DNA methylation regulates lineage-specifying genes in the human vascular system [methylation array].,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-34688,Induced Pluripotent Mesenchymal Stromal Cell Clones Retain Donor-Derived Differences in DNA Methylation Profiles,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-22249,Epigenetic portraits of human breast cancers (methylation data 2),Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-39787,Conserved DNA methylation patterns in healthy blood cells and extensive changes in leukemia measured by a new quantitati,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-28356,DNA Methylation Profiling of Melanoma Cell Lines,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-44970,Genome-wide DNA methylation profiles of human hepatocellular carcinoma,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-40799,DNA methylation profiles of freshly isolated CD34+ cells and upon expansion on either tissue culture plastic (TCP) or me,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-46949,Epigenetic and genetic influences on DNA methylation variation in maize populations,Zea mays
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-44837,Gene methylation profile of breast cancer cells.,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-53924,DNA methylation analysis of the autistic brain reveals dysregulated biological pathways,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-36438,Human lung adenocarcinoma DNA methylation profiling by MSNP,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-42626,Methylation profiling categorizes HIV-associated lymphomas in two distinctive groups,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-54767,Tissue- and Aging-specific DNA-Methylation Patterns are erased in Mesenchymal Stromal Cells derived from Induced Pluripo,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-TABM-476,Chromatin immunoprecipitation to determine DNA methylation of mouse pluripotent and differentiated tissues,Mus musculus
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-73515,DNA methylation data from primary neuroblastoma tumors,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-42308,COHCAP HCT116 Mutant Comparison [methylation],Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-43976,An evaluation of analysis pipelines for DNA methylation profiling using the Illumina Human Methylation 450k platform,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-56621,TGF-beta stimulation in ovarian cancer cells,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-55734,Genome-wide profiling and validation for forensic tissue-specific DNA methylation markers,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-51239,DNA methylation dynamics of the human pre-implantation embryo,Mus musculus
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-40665,Integrative Analyses of Gene Expression and DNA Methylation Profiles in a Breast Cancer Cell Line Model of Tamoxifen-Res,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-57706,Genome-wide maps of DNA methylation state in rice embryo and endosperm,Oryza sativa
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-22595,Methylation Pattern of Human Dermal Fibroblasts,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-65196,Single-cell DNA methylome sequencing and bioinformatic inference of epigenetic cell state dynamics,Mus musculus
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-67733,HDAC inhibition imparts beneficial transgenerational effects in Huntington's disease mice via altered DNA and histone me,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-MTAB-10978,DNA methylation profiling of core glioma stem cells: a novel glioblastoma cell population with diminished antigen presen,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-36216,DNA Methylation Profiling Defines Clinically Relevant Biological Subsets of Non-small Cell Lung Cancer,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-57411,Genomic profiling of DNA methyltransferases reveals a role for DNMT3B in genic methylation,Mus musculus
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-45336,Genome-wide methylation and expression analysis of two breast cancer cell lines [Methyl-MAPS],Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-MTAB-1529,rius_et_al,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-29661,Cellular aging can be monitored by DNA-methylation changes at specific CpG sites,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-39141,Genome-wide DNA methylation profiling predicts relapse in childhood B-cell acute lymphoblastic leukemia,Homo sapiens
+beta cell DNA methylation,biostudies-arrayexpress,E-GEOD-54643,Dietary flavanols modulate the transcription of genes involved in cardiovascular pathology with complex changes of their,Homo sapiens
+pancreas bisulfite,biostudies-arrayexpress,E-MTAB-12535,"Whole Genome Bisulfite Sequencing (WGBS) or zebrafish, medaka, and zebrafish-medaka hybrid embryos",Danio rerio
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-63417,Genome-wide bisulfite sequencing in zygotes identifies demethylation targets and maps the contribution of TET3 oxidation,Mus musculus
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-42836,Tissue-specific methylomes reveal epigenetic memory in adult mouse tissue,Mus musculus
+pancreas bisulfite,biostudies-arrayexpress,E-MTAB-14873,Whole genome bisulfite sequencing from four stages of zebrafish sperm development,Danio rerio
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-46573,Buccals are likely to be a more informative surrogate tissue than blood for epigenome-wide association studies [Illumina,Homo sapiens
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-49700,Bisulfite-Seq and RNA-seq profiling of truffle (Tuber melanosporum),Tuber melanosporum
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-63123,Large-scale epigenetic reprogramming is punctuated late during the evolution of pancreatic cancer progression [BS-Seq],Homo sapiens
+pancreas bisulfite,biostudies-literature,S-EPMC6098023,Characterization of induced tissue-specific stem cells from pancreas by a synthetic self-replicative RNA.,
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-55657,Single base resolution analysis of 5-formyl and 5-carboxyl cytosine reveals the actual promoter DNA methylation dynamics,Mus musculus
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-45529,Buccals are likely to be a more informative surrogate tissue than blood for epigenome-wide association studies,Homo sapiens
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-55660,Single base resolution analysis of 5-formyl and 5-carboxyl cytosine reveals the actual promoter DNA methylation dynamics,Mus musculus
+pancreas bisulfite,biostudies-literature,S-EPMC10067059,Cancer-testis gene STK31 is regulated by methylation and promotes the development of pancreatic cancer.,
+pancreas bisulfite,ega,EGAD00001007884,ena-DATASET-KNIH-21-07-2021-06:47:09:858-429 - samples,
+pancreas bisulfite,ega,EGAD00001007146,ena-DATASET-KNIH-29-03-2021-06:32:46:820-279 - samples,
+pancreas bisulfite,ega,EGAD00001007887,ena-DATASET-KNIH-22-07-2021-06:11:33:510-455 - samples,
+pancreas bisulfite,biostudies-arrayexpress,E-MEXP-1083,Transcription profiling of wild type and mutant fission yeast exposed to different intensities of H202 and two other oxi,Schizosaccharomyces pombe
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-50942,The Histone Variant H2A.W Defines Heterochromatin and Promotes Chromatin Condensation in Arabidopsis,Arabidopsis thaliana
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-42723,Genome wide hydroxymethylation tested using the HELP-GT assay shows redistribution in cancer,Homo sapiens
+pancreas bisulfite,project,PRJNA1020423,Durable and efficient gene silencing in vivo by hit-and-run epigenome editing [Bisulfite-seq],
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-56639,Evolutionary consequences of DNA methylation on the GC content in vertebrate genomes,Gallus gallus
+pancreas bisulfite,biostudies-arrayexpress,E-MTAB-10033,DNA methylation profiles of mouse sperm in response to antibiotic-induced gut microbiota dysbiosis using whole-genome bi,Mus musculus
+pancreas bisulfite,ega,EGAD00001002751,ena-DATASET-KNIH-31-10-2016-08:37:20:725-395 - samples,
+pancreas bisulfite,ega,EGAD00001002750,ena-DATASET-KNIH-31-10-2016-08:36:47:778-394 - samples,
+pancreas bisulfite,ega,EGAD00001002753,ena-DATASET-KNIH-31-10-2016-08:38:34:968-397 - samples,
+pancreas bisulfite,ega,EGAD00001002749,ena-DATASET-KNIH-31-10-2016-08:36:04:580-392 - samples,
+pancreas bisulfite,ega,EGAD00001002752,ena-DATASET-KNIH-31-10-2016-08:37:53:409-396 - samples,
+pancreas bisulfite,biostudies-literature,S-EPMC11307501,Discovery and Validation of Methylated DNA Markers From Pancreatic Neuroendocrine Tumors.,
+pancreas bisulfite,biostudies-literature,S-EPMC4592385,"New DNA Methylation Markers for Pancreatic Cancer: Discovery, Tissue Validation, and Pilot Testing in Pancreatic Juice.",
+pancreas bisulfite,biostudies-literature,S-EPMC4414200,GHSR DNA hypermethylation is a common epigenetic alteration of high diagnostic value in a broad spectrum of cancers.,
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-56572,Quantitative sequencing of 5-formylcytosine in DNA at single-base resolution,Mus musculus
+pancreas bisulfite,project,PRJNA280121,Homo sapiens,
+pancreas bisulfite,ega,EGAD00001003472,ena-DATASET-KNIH-31-07-2017-05:23:18:876-1195 - samples,
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-13126,Characterization of the oxidative stress regulon of Campylobacter jejuni,Campylobacter jejuni subsp. jejuni NCTC 11168
+pancreas bisulfite,biostudies-literature,S-EPMC3776691,Aplasia ras homologous member I gene and development of glial tumors.,
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-43096,Direct ChIP-bisulfite sequencing reveals a role of H3K27me3 mediating aberrant hypermethylation of promoter CpG islands ,Homo sapiens
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-43094,Direct ChIP-bisulfite sequencing reveals a role of H3K27me3 mediating aberrant hypermethylation of promoter CpG islands ,Homo sapiens
+pancreas bisulfite,biostudies-literature,S-EPMC6800980,"Single-base-resolution methylome of giant panda's brain, liver and pancreatic tissue.",
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-71126,Sequence Features Accurately Predict Genome-wide MeCP2 Binding in vivo,Mus musculus
+pancreas bisulfite,project,PRJNA672914,,
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-41232,Adaptive evolution of Corynebacterium glutamicum resistant to oxidative stress and its global gene expression profiling,Corynebacterium glutamicum ATCC 13032
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-49762,Role of Tet1 in genomic imprinting erasure [RRBS-PGC],Mus musculus
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-63126,Large-scale epigenetic reprogramming is punctuated late during the evolution of pancreatic cancer progression,Homo sapiens
+pancreas bisulfite,biostudies-literature,S-EPMC8688516,Clinical response to nivolumab in an INI1-deficient pediatric chordoma correlates with immunogenic recognition of brachy,
+pancreas bisulfite,project,PRJNA629340,Koala methylomes reveal divergent and conserved DNA methylation signatures of X chromosome regulation,
+pancreas bisulfite,biostudies-arrayexpress,E-MTAB-10901,"ChIP-seq of pancreatic cancer cells derived from a genetically engineered mouse model, which harbor the inducible KrasG1",Mus musculus
+pancreas bisulfite,biostudies-arrayexpress,E-MTAB-10909,"ATAC-seq of pancreatic cancer cells derived from a genetically engineered mouse model, which harbor the inducible KrasG1",Mus musculus
+pancreas bisulfite,biostudies-arrayexpress,E-MTAB-10896,"RNA-seq of pancreatic cancer cells derived from a genetically engineered mouse model, which harbor the inducible KrasG12",Mus musculus
+pancreas bisulfite,biostudies-arrayexpress,E-MTAB-10897,"RNA-seq of pancreatic cancer cells (1012 and 9805) derived from a genetically engineered mouse model, which harbor the i",Mus musculus
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-75544,Sperm tsRNAs contribute to intergenerational inheritance of an acquired metabolic disorder,Mus musculus
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-49763,Role of Tet1 in genomic imprinting erasure [RRBS-sperm],Mus musculus
+pancreas bisulfite,biostudies-literature,S-EPMC4367886,Inter-locus as well as intra-locus heterogeneity in LINE-1 promoter methylation in common human cancers suggests selecti,
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-61475,Transcription factor binding dynamics during human ES cell differentiation,Homo sapiens
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-67867,Competition between DNA methylation and transcription factors determines binding of NRF1,Homo sapiens
+pancreas bisulfite,biostudies-literature,S-EPMC8274402,Sensitive and specific multi-cancer detection and localization using methylation signatures in cell-free DNA.,
+pancreas bisulfite,biostudies-arrayexpress,E-MTAB-11700,Bait-capture based single molecule footprinting of different mouse cell lines,Mus musculus
+pancreas bisulfite,biostudies-literature,S-EPMC12728497,The INSPECTOR study: enhanced feasibility for clinical translation of a multi-cancer early detection method based on enz,
+pancreas bisulfite,ega,EGAS00001001774,"Korea Epigenome Project(KEP), Korea National Research Institute of Health(KNIH)",
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-70731,MIWI2 and MILI have differential effects on piRNA biogenesis and DNA methylation,Mus musculus
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-33187,MeDIP-chip from clinical cervical tissues in promoters,Homo sapiens
+pancreas bisulfite,biostudies-arrayexpress,E-MTAB-16607,RNA-seq analysis of co-treatment with gemcitabine and N-Methyl-(5-pyrid-3- ylthien-2-yl)methylamine in PANC-1 cells,Homo sapiens
+pancreas bisulfite,project,PRJNA658342,Multi-omic rejuvenation of naturally aged tissues by a single cycle of transient reprogramming [RRBS],
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-42119,DNA methylation changes are a late event in Acute Promyelocytic Leukemia and coincide with loss of transcription factor ,Homo sapiens
+pancreas bisulfite,biostudies-arrayexpress,E-GEOD-70538,Tissue specific demethylation is required for proper B-cell differentiation and function,Mus musculus
+pancreas bisulfite,biostudies-arrayexpress,E-MTAB-1952,ChIP-Seq for RNA Polymerase II in MCF7 breast cancer cells,Homo sapiens
+pancreas bisulfite,biostudies-arrayexpress,E-MTAB-1958,MNase and HpaII sensitivity assays in MCF7 breast cancer cells,Homo sapiens

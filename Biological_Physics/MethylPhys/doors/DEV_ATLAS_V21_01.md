@@ -146,3 +146,12 @@ and cancer (6), entered as a flagged second check and as the pancreas precancer 
 64 dispersed islet samples, research (a mixture, not a cell type). The rest were cancers, cultures, organoids or not methylation of
 sorted cells.
 
+**Thin-cell search, 2026-10-13 (GEO and ArrayExpress through OmicsDI; tissue stroma, tissue macrophages, minor blood cells; metadata
+only; every hit in `data/DEV_ATLAS_V21_01/search_thin_cells_2026-10-13.csv`, pancreas OmicsDI hits in `search_pancreas_omicsdi_2026-10-13.csv`).**
+682 hits, filtered in code to healthy, uncultured, sorted cells with raw files. One new usable set: **E-MTAB-2145** (Zilbauer, Cambridge;
+ArrayExpress only, so earlier GEO searches could not see it), sorted neutrophils, monocytes, B, CD4 and CD8 cells on 450K, 12 arrays each,
+all male, entered as an unread held-out laboratory (SDRF committed). The Salas extended blood reference (GSE167998) and its mixtures are
+already v2's source for eosinophils, basophils and regulatory T cells and are spent, which is why those cells rest on one source. Not
+usable: GSE140295 / GSE140078 (cultured commercial endothelial lots), GSE74877 (cultured primary cells), GSE71244 (no raw files), GSE50386
+(histone marks, not DNA methylation). Decision: nothing else to add before the seal; the next search is due before the next build.
+
