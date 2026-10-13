@@ -108,6 +108,15 @@ _cm = subprocess.run([sys.executable, "CANON/chain_manifest.py"], capture_output
 if _cm.returncode:
     for _l in (_cm.stdout or _cm.stderr).strip().split("\n")[1:]: fail.append("[chain] " + _l.strip())
 
+# The traced case: every step must point at a record that exists, and every commit it cites must be a real commit (2026-10-13).
+# The whole value of that section is that a reader can check the order from outside, so a dangling reference voids it.
+_tr = _js.load(open("CANON/trace.json", encoding="utf-8"))
+for _s in _tr.get("steps", []):
+    if not os.path.isfile(_s["rec"]): fail.append(f"[trace] step {_s['n']}: record {_s['rec']} does not exist")
+    for _h in re.findall(r"\b[0-9a-f]{8}\b", _s.get("c", "")):
+        if subprocess.run(["git", "cat-file", "-e", _h + "^{commit}"], capture_output=True).returncode:
+            fail.append(f"[trace] step {_s['n']}: commit {_h} is not in this repository")
+
 if fail:
     print(f"status_check: REFUSED ({len(fail)})\n  " + "\n  ".join(fail[:40])); sys.exit(1)
 print(f"status_check: ok ({len(F['facts'])} facts, {len(files)} documents)")

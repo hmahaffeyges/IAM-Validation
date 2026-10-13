@@ -71,6 +71,11 @@ def page(art):
     miss = "".join(f'<li><b>{E(m["what"])}</b><br><span class="meta">What caught it: {E(m["caught"])}</span></li>' for m in AS["mistakes"])
     tog = "".join(f'<li><b>{E(x["q"])}</b><br>{E(x["a"])}</li>' for x in AS["together"])
     OR = J("CANON/origin.json")
+    TR = J("CANON/trace.json")
+    steps = "".join(f'<li><b>{E(x["n"])}. {E(x["t"])}</b><br>{E(x["d"])}<br>'
+                    f'<span class="meta"><a href="{rec(x["rec"])}">the record</a>'
+                    + (f' &middot; commit {E(x["c"])}' if x["c"] and x["c"] != "open" else
+                       ' &middot; still open' if x["c"] == "open" else "") + '</span></li>' for x in TR["steps"])
     orig = "".join(f'<li><b>{E(x["q"])}</b><br>{E(x["a"])}</li>' for x in OR["items"])
     LV = J("CANON/levers.json")
     method_secs = "\n".join(f'<h3>{E(x["title"])}</h3><p>{E(x["body"])}</p>' for x in MT["sections"])
@@ -172,6 +177,13 @@ def page(art):
 Full records, including the simulated tests that failed: <a href="{rec("Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md")}">DEV-LEVERS-01</a>.</p>
 </details>
 <p class="sub">{E(MT["closing"])}</p>
+</section>
+<section class="wrap" id="trace"><h2>{E(TR["title"])}</h2>
+<p class="sub">{E(TR["lead"])}</p>
+<details class="fold" open><summary>{E(TR["case"])}</summary>
+<ol class="road trace">{steps}</ol>
+<p class="meta">{E(TR["closing"])}</p>
+</details>
 </section>
 <section class="wrap" id="lost"><h2>Decisions that shape every reading</h2>
 <p class="sub">Choices that change what every result means, in plain words, each with its record. A decision made after seeing data says so.</p>

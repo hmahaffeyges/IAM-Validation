@@ -1,0 +1,51 @@
+{
+ "_rule": "One problem traced start to finish, including the dead end, so a reader can follow the reasoning rather than only read the result. Every step carries its record and its commit, and the commits are real: the point is that a reader can check each rule's timestamp precedes the reading it judged. Update as the case moves; when it closes, keep it - a closed case with its dead ends intact is worth more than a clean one.",
+ "title": "Follow one problem, start to finish",
+ "lead": "Results tell you what we found. This shows how we work a problem - the one currently open, with the wrong turn left in. Each step links its record, and each commit is dated, so the order can be checked from outside.",
+ "case": "The second instrument disagreed with itself between two laboratories",
+ "steps": [
+  {
+   "n": "1",
+   "t": "A check failed, and the instrument stopped",
+   "d": "Reading identical reference DNA, our second instrument passed four of its five commissioning checks. The fifth asked whether the same library kit, prepared in two different laboratories, reads the same. It did not: four of seven cell lines agreed, two were off by far more than the tolerance. The note's own stopping rule then held the whole commissioning - no partial pass, no narrowing the claim to the kits that worked.",
+   "rec": "Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01_OUTCOME.md",
+   "c": ""
+  },
+  {
+   "n": "2",
+   "t": "We asked why, with the answer's rule written first",
+   "d": "Three suspect libraries plus two that had passed, each read from three places in its data file - the start, 40 % and 80 % through. The decision rule was committed before any part was read: if a library reads low at all three places the libraries really differ; if it reads low only at the start, the disagreement came from where we sampled; anything else is mixed and reported as mixed.",
+   "rec": "Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md",
+   "c": "6a01dbdd, 2026-10-12 18:35"
+  },
+  {
+   "n": "3",
+   "t": "Four attempts to get it running, each failure written down",
+   "d": "A shutdown variable leaked into the pinned pipeline and stopped the rented machine after one of fifteen parts. The machine's own copy of the repository then failed to update, repeatedly, so the three scripts were carried with the job and their checksums printed instead. A stalled attempt later started a second run over the same outputs; it was stopped and every uploaded part was read end to end to confirm none was corrupted. Each of those is a numbered lesson with the check that now prevents it.",
+   "rec": "Biological_Physics/MethylPhys/LESSONS.md",
+   "c": "02d45671, 2026-10-12 22:10"
+  },
+  {
+   "n": "4",
+   "t": "The cause: mostly where we were reading, not the libraries",
+   "d": "All three suspect libraries read 11 to 14 % low at the very start of their files and recovered to within 1 to 4 % deeper in. Both controls read flat throughout. The verdict was MIXED rather than a clean file-position call, because the sealed rule required all three to recover inside 3 % and two landed at 4.1 % and 3.6 %. The tolerance was not loosened after seeing the numbers. One check mattered more than the verdict: every library's start-of-file reading reproduced its sealed value to 0.0 %, so the diagnosis is about the data and not about a changed pipeline.",
+   "rec": "Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md",
+   "c": "a75fdfdb, 2026-10-13 03:46"
+  },
+  {
+   "n": "5",
+   "t": "Our first fix failed its own test, on made-up data, costing no real files",
+   "d": "The proposal: read three places in every file and add the counts. Its bar was committed before it ran. On simulated runs with a planted bias of the size we had just measured, pooling left the estimate 4.9 to 6.1 % off the known truth, against a 3 % tolerance. The reason is arithmetic, not tuning: pooling still counts the bad block, so it divides a bias by about three and never removes it. Adding samples removes noise, not bias.",
+   "rec": "Biological_Physics/MethylPhys/doors/DEV_IAMA_READACROSS_01.md",
+   "c": "268168cc then c742ddf7, 2026-10-13 03:51 and 03:52"
+  },
+  {
+   "n": "6",
+   "t": "What that leaves, and the constraint we put on ourselves",
+   "d": "The remedy has to exclude the unsettled start of a run rather than average it in. And the decision of how much to exclude must come from something measured independently of our reading - the sequencer's own per-cycle quality and conversion numbers. Trimming on those is legitimate; trimming until our answer improves is not, and a reviewer should refuse it. So the next rule must show two things on planted data: that it recovers a planted bias to within 1 %, and that it moves an unbiased library by less than the tolerance, so the trim is not itself a new bias. Until that is done the instrument stays held and the failed check stays failed.",
+   "rec": "Biological_Physics/MethylPhys/doors/DEV_IAMA_READACROSS_01.md",
+   "c": "open"
+  }
+ ],
+ "closing": "Five steps in, the instrument is still held and one of our own ideas is on the failures list. That is what working a problem looks like when the rules are fixed in advance: slower, and checkable at every step."
+}
