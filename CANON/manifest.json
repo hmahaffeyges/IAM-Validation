@@ -58,7 +58,7 @@
   },
   {
    "code": "HYP",
-   "title": "The author's theory tests",
+   "title": "Theory tests: the saturation hypothesis and other ideas",
    "about": "Each falsifier of the saturation hypothesis and other ideas, written so they can fail."
   },
   {
@@ -75,6 +75,11 @@
    "code": "OTH",
    "title": "Other",
    "about": "Items that fit no section above."
+  },
+  {
+   "code": "HIS",
+   "title": "History: the class-era and early-chain process tests",
+   "about": "Every pre-registration and outcome from the class era and chains v1-v2 (PROC records), kept so no test is lost. Their results are not re-read here: the class-era VAL results stay blinded until current testing is done (TODO V1)."
   }
  ],
  "rows": [
@@ -23269,6 +23274,1237 @@
    "sources_of_row": [
     "Pasted notes"
    ]
+  },
+  {
+   "id": "OTH-037",
+   "title": "DEV-REPL-V3-01 — run plan (development, written 2026-10-03 before any array was read)",
+   "purpose": "DEV-REPL-V3-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "",
+   "sources": [],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "confirm status from the record",
+   "cost": "",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPL_V3_01_PLAN.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: DEV_REPL_V3_01_PLAN.md; first committed 2026-10-02; status to be confirmed from the record"
+  },
+  {
+   "id": "OTH-038",
+   "title": "DEV-TOOLKIT-ADDED-01 — stages 3b, 3c, 11b, 12b (development; checks written 2026-10-03 before any data were read)",
+   "purpose": "DEV-TOOLKIT-ADDED-STAGES-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "",
+   "sources": [],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "confirm status from the record",
+   "cost": "",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TOOLKIT_ADDED_STAGES_01.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: DEV_TOOLKIT_ADDED_STAGES_01.md; first committed 2026-10-03; status to be confirmed from the record"
+  },
+  {
+   "id": "OTH-039",
+   "title": "FINDING — the foreign-cell detection panel, held out on 732 healthy blood arrays (2026-09-27)",
+   "purpose": "FINDING-DETECTION-PANEL-HELDOUT: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "",
+   "sources": [],
+   "data_status": "partial",
+   "status": "planned",
+   "runs": [],
+   "next_step": "confirm status from the record",
+   "cost": "",
+   "impact": 2,
+   "record": "Biological_Physics/MethylPhys/doors/FINDING_DETECTION_PANEL_HELDOUT.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: FINDING_DETECTION_PANEL_HELDOUT.md; first committed 2026-09-27; status to be confirmed from the record"
+  },
+  {
+   "id": "OTH-040",
+   "title": "BOOK-V1.0",
+   "purpose": "The book, IAM's Law and Order, v1.0 published (DOI [10.5281/zenodo.23151068](https://doi.org/10.5281/zenodo.23151068)); every derivation checked by one command, `docs/book/verify_book.py`. It includes the 74-cell reference atlas built as one Bayesian posterior, with an interval at every locus for every cell",
+   "instrument_or_term": "",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-05",
+     "outcome": "success",
+     "note": "results register entry BOOK-V1.0"
+    }
+   ],
+   "next_step": "",
+   "cost": "",
+   "impact": 3,
+   "record": "docs/book",
+   "legacy_ids": [],
+   "depends_on": [],
+   "register_ids": [
+    "BOOK-V1.0"
+   ],
+   "sources_of_row": [
+    "results register"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "HIS-001",
+   "title": "OUTCOME — PROC-AGE-01: cellular age on the identity gauge — NOT REPORTABLE at single-array resolution",
+   "purpose": "PROC-AGE-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_AGE_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_AGE_01_OUTCOME.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-002",
+   "title": "PROC-AML-PROG-01 — pre-registration (written 2026-10-01, before any AML array is read on these floors)",
+   "purpose": "PROC-AML-PROG-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_AML_PROG_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_AML_PROG_01_PREREG.md; first committed 2026-10-01"
+  },
+  {
+   "id": "HIS-003",
+   "title": "PROC-AML-SERIAL-01 — pre-registration (written 2026-10-01, before any GSE315367 array is read)",
+   "purpose": "PROC-AML-SERIAL-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_AML_SERIAL_01_PREREG.md; first committed 2026-10-01"
+  },
+  {
+   "id": "HIS-004",
+   "title": "PROC-BAND-01 — can progenitor and stem_adult carry a commissioned healthy band in whole blood?",
+   "purpose": "PROC-BAND-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_BAND_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_BAND_01_PREREG.md; first committed 2026-09-25"
+  },
+  {
+   "id": "HIS-005",
+   "title": "OUTCOME — PROC-BIDIR-01: Stage 4.5 bidirectional detector. B1–B5 PASS — **row 4.5 COMMISSIONED** (`row_4_5_commissioned: True`, the sealed script's verdict).",
+   "purpose": "PROC-BIDIR-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_BIDIR_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_BIDIR_01_OUTCOME.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-006",
+   "title": "PROC-BRAIN-01 — can the instrument find terminal-class cells in a liquid specimen from a CNS tumour patient?",
+   "purpose": "PROC-BRAIN-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_BRAIN_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_BRAIN_01_PREREG.md; first committed 2026-09-25"
+  },
+  {
+   "id": "HIS-007",
+   "title": "OUTCOME - PROC-CEIL-01 (T-CEIL): the ceiling conformance guard. PASS, and it produced three findings the guard itself was not looking for.",
+   "purpose": "PROC-CEIL-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_CEIL_01_OUTCOME.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-008",
+   "title": "PROC-CHARR-01 — pre-registration (written 2026-10-01, before any brook charr read is aligned)",
+   "purpose": "PROC-CHARR-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_CHARR_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_CHARR_01_PREREG.md; first committed 2026-10-01"
+  },
+  {
+   "id": "HIS-009",
+   "title": "PROC-CLASS-COUNT-01 — outcome (2026-09-30)",
+   "purpose": "PROC-CLASS-COUNT-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_CLASS_COUNT_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_CLASS_COUNT_01_OUTCOME.md, PROC_CLASS_COUNT_01_PREREG.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-010",
+   "title": "PROC-CLS-01 — outcome: the residual sky HAS large-scale structure. The reference is NOT COMMISSIONED.",
+   "purpose": "PROC-CLS-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_CLS_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_CLS_01_OUTCOME.md, PROC_CLS_01_PREREG.md; first committed 2026-09-25; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-011",
+   "title": "PROC-COV-01 — is the reference's misfit against real blood a reproducible bias that can be measured and removed?",
+   "purpose": "PROC-COV-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_COV_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_COV_01_PREREG.md; first committed 2026-09-25"
+  },
+  {
+   "id": "HIS-012",
+   "title": "PROC-DECONV-V2-01 — pre-registration: a new composition solver built on atlas v2 alone, tested on real known mixtures",
+   "purpose": "PROC-DECONV-V2-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_DECONV_V2_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_DECONV_V2_01_PREREG.md; first committed 2026-09-30"
+  },
+  {
+   "id": "HIS-013",
+   "title": "PROC-E2E-01 — the commissioned chain, end to end, against the test package's own documented outputs",
+   "purpose": "PROC-E2E-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_E2E_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_E2E_01_PREREG.md; first committed 2026-09-22"
+  },
+  {
+   "id": "HIS-014",
+   "title": "PROC-ENCODE-01 — outcome (2026-09-30). Pre-registration: PROC_ENCODE_01_PREREG.md (sha b0e92114d6367453), written before any read was counted.",
+   "purpose": "PROC-ENCODE-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_ENCODE_01_OUTCOME.md, PROC_ENCODE_01_PREREG.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-015",
+   "title": "PROC-EPIC-01 — does the commissioned chain see a pre-diagnostic immune signal in genuinely held-out EPIC-Italy blood?",
+   "purpose": "PROC-EPIC-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_EPIC_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_EPIC_01_PREREG.md; first committed 2026-09-25"
+  },
+  {
+   "id": "HIS-016",
+   "title": "PROC-FOREIGNSCORE-01 — pre-registration: the scoring floor for a detected foreign cell",
+   "purpose": "PROC-FOREIGNSCORE-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_FOREIGNSCORE_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_FOREIGNSCORE_01_PREREG.md; first committed 2026-09-27"
+  },
+  {
+   "id": "HIS-017",
+   "title": "PROC-FOREIGN-01 — outcome: COMMISSIONED. The immune tier is withheld when a specimen is not whole blood.",
+   "purpose": "PROC-FOREIGN-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_FOREIGN_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_FOREIGN_01_OUTCOME.md, PROC_FOREIGN_01_PREREG.md; first committed 2026-09-25; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-018",
+   "title": "PROC-G002-TRACE — how the eight original floors were made, and what IAM's law says about them (2026-09-30)",
+   "purpose": "PROC-G002-TRACE: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_G002_TRACE_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_G002_TRACE_OUTCOME.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-019",
+   "title": "PROC-HMIN-BOOT-01 — the bootstrap cross-check of the eight methylation H_min values, run for the first time",
+   "purpose": "PROC-HMIN-BOOT-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_HMIN_BOOT_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_HMIN_BOOT_01_OUTCOME.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-020",
+   "title": "PROC-HMIN-PERCELL-01 — outcome (2026-09-30): do cells share one floor?",
+   "purpose": "PROC-HMIN-PERCELL-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_HMIN_PERCELL_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_HMIN_PERCELL_01_OUTCOME.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-021",
+   "title": "PROC-HMIN-REFIT-01 — pre-registration: measuring the methylation floors from sorted cells (option A), before anything moves",
+   "purpose": "PROC-HMIN-REFIT-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_HMIN_REFIT_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_HMIN_REFIT_01_PREREG.md; first committed 2026-09-30"
+  },
+  {
+   "id": "HIS-022",
+   "title": "PROC-INTAKE-01 — pre-registration: the intake gate runs on the array's own numbers, and a deferred check never advances",
+   "purpose": "PROC-INTAKE-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_INTAKE_01_PREREG.md; first committed 2026-09-27"
+  },
+  {
+   "id": "HIS-023",
+   "title": "PROC-LABBAND-01 — outcome: NOT COMMISSIONED. At 80 arrays a laboratory's width cannot be told from noise, and using it makes the reading worse.",
+   "purpose": "PROC-LABBAND-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_LABBAND_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_LABBAND_01_OUTCOME.md, PROC_LABBAND_01_PREREG.md; first committed 2026-09-25; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-024",
+   "title": "OUTCOME — PROC-MAHA-01: Stage 5 re-based on the identity gauge (as sealed)",
+   "purpose": "PROC-MAHA-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_MAHA_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_MAHA_01_OUTCOME.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-025",
+   "title": "OUTCOME — PROC-MAHA-02: row 5 commissioned; row 5b opened",
+   "purpose": "PROC-MAHA-02: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_MAHA_02_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_MAHA_02_OUTCOME.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-026",
+   "title": "PROC-MAHA-03 — the Sentrix-chip term, and which panel protocol recovers it",
+   "purpose": "PROC-MAHA-03: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_MAHA_03_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_MAHA_03_PREREG.md; first committed 2026-09-22"
+  },
+  {
+   "id": "HIS-027",
+   "title": "OUTCOME — PROC-MATCH-01: Stage 8 disease matching. M1, M2, M4 PASS; M3 reported; M5 prediction correct — **row 8 stays OPEN** with its gate named.",
+   "purpose": "PROC-MATCH-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_MATCH_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_MATCH_01_OUTCOME.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-028",
+   "title": "PROC-MF-01 — pre-registration: does a covariance-weighted matched filter lower the minimum detectable fraction of a foreign cell in blood?",
+   "purpose": "PROC-MF-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_MF_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_MF_01_PREREG.md; first committed 2026-09-26"
+  },
+  {
+   "id": "HIS-029",
+   "title": "PROC-MF-02 — pre-registration: inverse-variance weighted detection of a foreign cell in blood, as a stage of the chain",
+   "purpose": "PROC-MF-02: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_MF_02_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_MF_02_PREREG.md; first committed 2026-09-26"
+  },
+  {
+   "id": "HIS-030",
+   "title": "PROC-MF-03 — pre-registration: the inverse-variance detector with a per-laboratory threshold, tested on a fifth laboratory at full marker resolution",
+   "purpose": "PROC-MF-03: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_MF_03_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_MF_03_PREREG.md; first committed 2026-09-26"
+  },
+  {
+   "id": "HIS-031",
+   "title": "PROC-MOLECULE-01 — outcome (2026-10-01). Pre-registration: PROC_MOLECULE_01_PREREG.md (sha eb71b9146a8ed367).",
+   "purpose": "PROC-MOLECULE-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_MOLECULE_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_MOLECULE_01_OUTCOME.md, PROC_MOLECULE_01_PREREG.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-032",
+   "title": "PROC-NEUT-TEST-01 — pre-registration (written 2026-10-01, before any array below is read by chain v3)",
+   "purpose": "PROC-NEUT-TEST-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_NEUT_TEST_01_PREREG.md; first committed 2026-10-01"
+  },
+  {
+   "id": "HIS-033",
+   "title": "OUTCOME — PROC-PANEL-03: the age-referenced lab zero — **LAB ZERO COMMISSIONED**",
+   "purpose": "PROC-PANEL-03: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_PANEL_03_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_PANEL_03_OUTCOME.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-034",
+   "title": "PROC-PARTIALCOV-01 — pre-registration: entering a cell measured on part of the array",
+   "purpose": "PROC-PARTIALCOV-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_PARTIALCOV_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_PARTIALCOV_01_PREREG.md; first committed 2026-09-28"
+  },
+  {
+   "id": "HIS-035",
+   "title": "PROC-PARTIAL-01 — outcome: NOT COMMISSIONED. A non-blood class's fidelity score cannot be recovered from whole blood.",
+   "purpose": "PROC-PARTIAL-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_PARTIAL_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_PARTIAL_01_OUTCOME.md, PROC_PARTIAL_01_PREREG.md; first committed 2026-09-25; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-036",
+   "title": "PROC-PREDX-SLIDE-01 — pre-registration (written 2026-10-01, before the 329 GSE51057 arrays are looked at under this rule)",
+   "purpose": "PROC-PREDX-SLIDE-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_PREDX_SLIDE_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_PREDX_SLIDE_01_PREREG.md; first committed 2026-10-01"
+  },
+  {
+   "id": "HIS-037",
+   "title": "PROC-RECORD-03 — the 80-cell age reference matrix: provenance stated; AD / breast \"cellular age in years\" restated as ΔA",
+   "purpose": "PROC-RECORD-03: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_RECORD_03_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_RECORD_03_OUTCOME.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-038",
+   "title": "PROC-SCORE-03 — per-specimen resolution in blood, in β units (2026-09-30)",
+   "purpose": "PROC-SCORE-03: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_SCORE_03_RESOLUTION.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_SCORE_03_RESOLUTION.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-039",
+   "title": "PROC-SERIAL-01 — pre-registration: serial mode — one person, two or more draws",
+   "purpose": "PROC-SERIAL-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_SERIAL_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_SERIAL_01_PREREG.md; first committed 2026-09-27"
+  },
+  {
+   "id": "HIS-040",
+   "title": "PROC-SKY-01 — follow-up named by the outcome: the same 48 arrays with the intake gate applied (2026-09-27)",
+   "purpose": "PROC-SKY-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_SKY_01_FOLLOWUP.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_SKY_01_FOLLOWUP.md, PROC_SKY_01_PREREG.md; first committed 2026-09-27"
+  },
+  {
+   "id": "HIS-041",
+   "title": "PROC-SMALL-01 — outcome: the trace-class detection limit in whole blood is 2 %, down from 5 %",
+   "purpose": "PROC-SMALL-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_SMALL_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_SMALL_01_OUTCOME.md, PROC_SMALL_01_PREREG.md; first committed 2026-09-22; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-042",
+   "title": "PROC-STAGE0-02 — Stage 0 intake, run retrospectively over the Uppsala cohort",
+   "purpose": "PROC-STAGE0-02: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_STAGE0_02_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_STAGE0_02_PREREG.md; first committed 2026-09-22"
+  },
+  {
+   "id": "HIS-043",
+   "title": "PROC-STAGE0-04 — the bisulfite-conversion threshold, to be set by the author",
+   "purpose": "PROC-STAGE0-04: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_STAGE0_04_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_STAGE0_04_PREREG.md; first committed 2026-09-22"
+  },
+  {
+   "id": "HIS-044",
+   "title": "PROC-STAGE2D-02 — outcome: NOT ADOPTED. The detector's design, not its lines, was the defect.",
+   "purpose": "PROC-STAGE2D-02: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_STAGE2D_02_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_STAGE2D_02_OUTCOME.md, PROC_STAGE2D_02_PREREG.md; first committed 2026-09-27; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-045",
+   "title": "PROC-STAGE2D-03 — outcome: ADOPTED by the author's ruling. B1's unspecific bar failed as written and was superseded, not loosened.",
+   "purpose": "PROC-STAGE2D-03: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_STAGE2D_03_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_STAGE2D_03_OUTCOME.md, PROC_STAGE2D_03_PREREG.md; first committed 2026-09-27; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-046",
+   "title": "OUTCOME — PROC-SWITCH-02: the gauge switch commissioned (CHAIN_COMMISSIONING row B)",
+   "purpose": "PROC-SWITCH-02: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_SWITCH_02_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_SWITCH_02_OUTCOME.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-047",
+   "title": "PROC-SYNTH-01 — outcome: the chain recovers what it is handed. But the per-cell A is confounded with the cell's FRACTION.",
+   "purpose": "PROC-SYNTH-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_SYNTH_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_SYNTH_01_OUTCOME.md; first committed 2026-09-25; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-048",
+   "title": "PROC-TARE-01 — pre-registration: can the array's own known-value probes tare the instrument, so that no healthy panel defines where A = 1.0 sits?",
+   "purpose": "PROC-TARE-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_TARE_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_TARE_01_PREREG.md; first committed 2026-09-26"
+  },
+  {
+   "id": "HIS-049",
+   "title": "OUTCOME — PROC-TIER-01: Stage 7 tiers on the commissioned gauge. T1, T3, T4 PASS — row 7 COMMISSIONED. T2 measured; prediction scored correct; ruling requested.",
+   "purpose": "PROC-TIER-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_TIER_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_TIER_01_OUTCOME.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-050",
+   "title": "OUTCOME — PROC-TIER-02: NORMAL set to the commissioned healthy population. U1, U2, U3 PASS.",
+   "purpose": "PROC-TIER-02: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_TIER_02_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_TIER_02_OUTCOME.md; first committed 2026-10-01; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-051",
+   "title": "PROC-TISSUE-01 — does the gauge place healthy, adjacent-normal and tumour colon in order, without being shown the order?",
+   "purpose": "PROC-TISSUE-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_TISSUE_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_TISSUE_01_PREREG.md; first committed 2026-09-25"
+  },
+  {
+   "id": "HIS-052",
+   "title": "PROC-UNMIX-01 — outcome: NOT ADOPTED. The dilution-line inversion is exact arithmetic the composition solver cannot feed.",
+   "purpose": "PROC-UNMIX-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_UNMIX_01_OUTCOME.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_UNMIX_01_OUTCOME.md, PROC_UNMIX_01_PREREG.md; first committed 2026-09-27; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-053",
+   "title": "PROC-V12-IDENTITY — outcome of the first build (2026-09-29): B3 FAILED; the rule, not the atlas",
+   "purpose": "PROC-V12-IDENTITY: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_V12_IDENTITY_OUTCOME_01.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_V12_IDENTITY_OUTCOME_01.md, PROC_V12_IDENTITY_PREREG.md; first committed 2026-09-30; an outcome record exists and was not re-read here (class-era blinding)"
+  },
+  {
+   "id": "HIS-054",
+   "title": "PROC-V12-IDENTITY-02 — pre-registration: identity loci on atlas v2, point rule; held-out self-read",
+   "purpose": "PROC-V12-IDENTITY-02: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_V12_IDENTITY_02_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_V12_IDENTITY_02_PREREG.md; first committed 2026-09-30"
+  },
+  {
+   "id": "HIS-055",
+   "title": "PROC-V5-HELDOUT — pre-registration: can the atlas v2 posterior predict data it never saw?",
+   "purpose": "PROC-V5-HELDOUT: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_V5_HELDOUT_PREREG.md; first committed 2026-09-30"
+  },
+  {
+   "id": "HIS-056",
+   "title": "PROC-WB-NEUT-01 — pre-registration (written 2026-10-01, before any mixture is read on this reading)",
+   "purpose": "PROC-WB-NEUT-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
+   "instrument_or_term": "class era / chain v1-v2",
+   "sources": [],
+   "data_status": "none_needed",
+   "status": "retired",
+   "runs": [],
+   "next_step": "",
+   "cost": "",
+   "impact": 1,
+   "record": "Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_PREREG.md",
+   "legacy_ids": [],
+   "depends_on": [],
+   "sources_of_row": [
+    "coverage rule"
+   ],
+   "notes": "records: PROC_WB_NEUT_01_PREREG.md; first committed 2026-10-01"
   }
- ]
+ ],
+ "not_tests": {
+  "CHAIN_SEQUENCE.md": "reference document (map, inventory, history or method note), not a test",
+  "CLASS_ASSIGNMENT_RULE_DRAFT.md": "reference document (map, inventory, history or method note), not a test",
+  "CLASS_HISTORY.md": "reference document (map, inventory, history or method note), not a test",
+  "CLASS_USE_INVENTORY.md": "reference document (map, inventory, history or method note), not a test",
+  "CMB_TO_METHYLOME_MAP.md": "reference document (map, inventory, history or method note), not a test",
+  "COMPLETION_SPRINT_scored.md": "reference document (map, inventory, history or method note), not a test",
+  "DECONVOLVER_REPAIR_2026-09-26.md": "reference document (map, inventory, history or method note), not a test",
+  "ENHANCEMENTS.md": "reference document (map, inventory, history or method note), not a test",
+  "FRACTION_AND_A.md": "reference document (map, inventory, history or method note), not a test",
+  "PERCELL_STANDARD_REZERO_2026-09-27.md": "reference document (map, inventory, history or method note), not a test",
+  "PER_CELL_SCORING.md": "reference document (map, inventory, history or method note), not a test",
+  "REFERENCE_AUDIT.md": "reference document (map, inventory, history or method note), not a test",
+  "REPORT_TAB_REFERENCE.md": "reference document (map, inventory, history or method note), not a test",
+  "REPO_INVENTORY.md": "reference document (map, inventory, history or method note), not a test",
+  "TWO_FIT_FINDING.md": "reference document (map, inventory, history or method note), not a test"
+ },
+ "frozen": {
+  "CANON/next_jobs.json": "f89949ec7890afd9c40d944098f7564eb5181247bac1ebf0e671049a4680a6ea",
+  "ROADMAP.md": "a81a9fd51c5e797eb440b3c50ccc748cee7b313e4760fabc348b6c7ab514d9bf",
+  "CANON/todo_closed.json": "34821f1b7a291a9f7c22e9af69d2f0d69a4516832e5aa7de0dbab884e199773e"
+ }
 }

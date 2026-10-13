@@ -39,6 +39,8 @@ test -s "$SITE/index.html" && test -s "$SITE/read/index.html" || { echo "Build f
 # log, and must carry its "As of" status line - a page that publishes without them would look current while saying nothing.
 grep -q '<details[^>]* open' "$SITE/index.html" && { echo "Build failed: a fold set to open by default; every fold starts closed."; exit 1; }
 grep -q 'id="daylogs"' "$SITE/index.html" || { echo "Build failed: the front page has no daily-log section."; exit 1; }
+grep -q 'MANIFEST.md' "$SITE/index.html" || { echo "Build failed: the front page does not link the Master Testing Manifest."; exit 1; }
+! grep -q -E 'TODO\.md|ROADMAP\.md|next_jobs\.json' "$SITE/index.html" || { echo "Build failed: the front page links a retired list; the Master Testing Manifest replaces them."; exit 1; }
 grep -q 'daylogs/20' "$SITE/index.html" || { echo "Build failed: the front page links no daily log."; exit 1; }
 
 # 4b. EPUB edition (Apple Books and other e-readers) from the same LaTeXML XML: LaTeXML's EPUB 3 pages (math as MathML, figures as

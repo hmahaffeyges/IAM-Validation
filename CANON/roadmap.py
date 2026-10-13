@@ -1,3 +1,7 @@
+"""RETIRED 2026-10-13: ROADMAP.md is frozen; the road ahead is CANON/manifest.json (MANIFEST.md, TODO.md). This script no longer writes."""
+import sys
+if __name__ == "__main__":
+    print("roadmap: retired - see CANON/manifest.py"); sys.exit(0)
 """Public roadmap (author 2026-10-12: show followers and researchers the road ahead and why support is needed). Writes ROADMAP.md from
 CANON/next_jobs.json (the ranked job list the Master Inventory renders): each job in plain words, what it needs, its estimate, where it
 stands and its record; then the gaps public data cannot close ("where a researcher could help"). --check (run by status_check) refuses a

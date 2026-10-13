@@ -1,3 +1,5 @@
+> **RETIRED 2026-10-13.** The road ahead is now the Master Testing Manifest: [MANIFEST.md](MANIFEST.md) (every test) and [TODO.md](TODO.md) (every open test, most impactful first). This page is frozen because dated records link here.
+
 # The road ahead
 
 *Every job still in front of us, in order, in plain words: what it is, what it needs, what it is expected to cost and where it

@@ -1,4 +1,5 @@
 {
+ "_retired": "2026-10-13: superseded by CANON/manifest.json (MANIFEST.md, TODO.md). Frozen: kept only because dated records link here; nothing reads it.",
  "_rule": "Ranked by impact (commissioning, atlas, public result, physics, research), then cost (laptop before box). Every accession must be in the Master Inventory. Edit this file to add or retire a job; the inventory renders it. Each job carries plain, needs, estimate and record (written for followers); help_wanted lists the gaps public data cannot close. CANON/roadmap.py writes ROADMAP.md from this file.",
  "jobs": [
   {

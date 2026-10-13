@@ -5,7 +5,7 @@ is retried with a pause and only a link that fails every attempt counts as broke
 """
 import re, sys, time, urllib.request, urllib.error
 U = "https://hmahaffeyges.github.io/IAM-Validation/"
-SECTIONS = ["Start here: the daily log", "Recent Accomplishments", "The road ahead", "How we test the physics", "Who is doing this, and why"]
+SECTIONS = ["Start here: the daily log", "Recent Accomplishments", "Every test, numbered", "The road ahead", "How we test the physics", "Who is doing this, and why"]
 def get(u, tries=4):
     for i in range(tries):
         try:
@@ -21,6 +21,9 @@ def main():
     P = [] if code == 200 else [f"the front page answered {code}"]
     for k in SECTIONS:
         if k not in s: P.append(f"section missing from the live page: {k}")
+    if "MANIFEST.md" not in s: P.append("the live page does not link MANIFEST.md (the Master Testing Manifest)")
+    for k in ("TODO.md", "ROADMAP.md", "next_jobs.json"):
+        if k in s: P.append(f"the live page links the retired list {k}")
     links = sorted({l for l in re.findall(r'(?:href|src)="([^"#]+)"', s) if not l.startswith("mailto:")})
     bad = []
     for l in links:

@@ -82,8 +82,7 @@ for _w in sorted(glob.glob(".github/workflows/*.yml")):
     if _dup: fail.append(f"{_w}: repeated key(s) {', '.join(_dup)} - GitHub will reject this workflow")
 
 # Every item of the author's to-do list must be a job, a track, an idea, housekeeping or closed (2026-10-13)
-_tc = subprocess.run([sys.executable, "CANON/todo_coverage.py", "--check"], capture_output=True, text=True)
-if _tc.returncode: fail.append("[todo_coverage] " + (_tc.stdout or _tc.stderr).strip().split("\n")[-1])
+# todo_coverage retired 2026-10-13: the manifest carries every old to-do id on its rows (legacy_ids) and refuses a removed test
 
 # Every losses and decisions entry must point at a record that exists and carries plain words (2026-10-13)
 _R = _js.load(open("CANON/results_register.json", encoding="utf-8")) if os.path.exists("CANON/results_register.json") else {}
@@ -147,6 +146,13 @@ try:
     if not any(e["id"] == _G["direction_entry"] for e in _fd["entries"]): fail.append("[gauge] the gauge's direction entry is not in the foundation")
 except Exception as _e:
     fail.append(f"[gauge] the gauge check could not run: {type(_e).__name__} {_e}")
+
+# The Master Testing Manifest (2026-10-13): stable ids, no test or run removed, every record/result/failure/spent set covered,
+# retired lists frozen, MANIFEST.md and TODO.md in step with CANON/manifest.json. A check that cannot run is a failure.
+_mf = subprocess.run([sys.executable, "CANON/manifest.py", "--check"], capture_output=True, text=True)
+if _mf.returncode:
+    _ml = [l.strip() for l in (_mf.stdout + _mf.stderr).split("\n") if l.strip() and not l.strip().startswith("manifest:")]
+    fail += ["[manifest] " + l for l in _ml] or ["[manifest] the check could not run"]
 
 if fail:
     print(f"status_check: REFUSED ({len(fail)})\n  " + "\n  ".join(fail[:40])); sys.exit(1)

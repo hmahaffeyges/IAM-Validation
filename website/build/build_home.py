@@ -120,22 +120,24 @@ def page(art):
     losses = "\n".join(f'<li><b>{E(x["date"])}</b> {E(x["plain"])} <a href="{rec(x["record"])}">the record</a></li>' for x in REG["losses"])
     mouse = next(e for e in REG["entries"] if e["id"] == "DEV-SAM-LEVER-01"); mv = vals(mouse)
     going = "; ".join(E(s_["headline"]) for s_ in NRJ["stories"] if s_["status"] != "result")
-    NJ = J("CANON/next_jobs.json"); AT = J("CANON/atlas_release.json")
+    AT = J("CANON/atlas_release.json")
+    MF = J("CANON/manifest.json"); _CLOSED = {"run", "retired"}
+    mf_total = len(MF["rows"]); mf_run = sum(1 for r in MF["rows"] if r["runs"]); mf_open = sum(1 for r in MF["rows"] if r["status"] not in _CLOSED)
+    mf_rows = "\n".join(
+        f'<tr><td><a href="{rec("MANIFEST.md")}#{s_["code"].lower()}">{E(s_["code"])}</a></td><td>{E(s_["title"])}</td>'
+        f'<td>{sum(1 for r in MF["rows"] if r["id"].rsplit("-", 1)[0] == s_["code"])}</td>'
+        f'<td>{sum(1 for r in MF["rows"] if r["id"].rsplit("-", 1)[0] == s_["code"] and r["status"] not in _CLOSED)}</td></tr>'
+        for s_ in MF["sections"])
     CO = J("CANON/costs_snapshot.json"); mkey = max(CO["aws_by_month"]); A = CO["aws_by_month"][mkey]
     s3c = f"${A.get('S3 storage', 0):,.2f}"
     names = {"machines": "rented computers", "machine disks and snapshots": "their disks", "S3 storage": "data storage", "data transfer": "data transfer", "other": "other Amazon services"}
     mlines = "; ".join([f"{names.get(k, k)} ${v:,.2f}" for k, v in A.items() if v >= 0.01] + [f"{f['item']} ${f['monthly_usd']:,.0f} a month ({f['note']})" for f in CO["fixed"]])
     mtot = sum(A.values()) + sum(f["monthly_usd"] for f in CO["fixed"])
-    road = "\n".join(f'<li><b>{E(j["plain"])}</b><br><span class="meta">Needs {E(j["needs"])} · {E(j["estimate"])} · {E(j["stands"])} · <a href="{rec(j["record"])}">record</a></span></li>' for j in NJ["jobs"])
-    later = "\n".join(f'<li>{E(x["plain"])}</li>' for x in NJ.get("later", []))
-    ideas = "\n".join(f'<li>{E(x["plain"])}<br><span class="meta">Needs {E(x["needs"])} · {E(x["stands"])}</span></li>' for x in NJ.get("ideas", []))
-    buys = "\n".join(f'<li><b>{E(j["estimate"])}</b> {E(j["plain"].split(".")[0])}.</li>' for j in NJ["jobs"] if j.get("cost") == "box")
     A = json.load(open(os.path.join(REPO, "CANON", "author.json"), encoding="utf-8"))
     apar = "\n".join(f"<p>{E(x)}</p>" for x in A["paragraphs"])
     _ap = [x for x in re.findall(r"<p[^>]*>.*?</p>", apar, re.S)] or [apar]
     apar_first, apar_rest = _ap[0], "\n".join(_ap[1:])
     amaybe = "\n".join(f'<li>{E(x)}</li>' for x in A["maybes"])
-    helpw = "\n".join(f'<li><b>{E(h["ask"])}</b> {E(h["why"])} <a href="{rec(h["record"])}">record</a></li>' for h in NJ["help_wanted"])
     BT = book_tools()
     GROUPS = [("In use in the chain", ("in use",)),
               ("Built or partly in use", ("built, not in chain", "partial", "calculated", "measured")),
@@ -177,8 +179,16 @@ def page(art):
 <p>All {len(BT)} cosmology tools mapped onto the cell, from the table in {ch("skytools")}, grouped by where each stands. <b>next</b> marks the chapter's order for what to employ next.</p>
 <table class="tools"><thead><tr><th>#</th><th>The cosmology tool</th><th>Its counterpart in the cell</th><th>Status</th><th>Where</th></tr></thead><tbody>{tools}</tbody></table>
 <p class="more">Read it in full in the book: {ch("astro")} and {ch("landauer")} are the physics, {ch("translation")} is why cosmology's tools apply, {ch("skytools")} is the tool list. Sky data: Planck 2018 SMICA map from the Planck Legacy Archive (ESA and the Planck Collaboration, Planck 2018 results IV, A&A 641, A4, 2020), colors from the Planck Collaboration's own color scale. Every tool, built or not yet built: the <a href="read/">book's sky-tools chapter</a>. The atlas itself, free to download: <a href="https://doi.org/{E(AT["doi"])}">DOI {E(AT["doi"])}</a> ({AT["total_bytes"] / 1e9:.2f} GB in {AT["files"]} files, every file checked against its fingerprint).</p></details></section>
+<section class="wrap" id="manifest"><h2>Every test, numbered</h2>
+<p class="sub">The Master Testing Manifest is the one list of every test we have run, are running, or plan: {mf_total} tests, {mf_run} with at least one dated result, {mf_open} still open. A test is never removed; when it runs it gets a dated result, failures included. Ask for any test by its number.</p>
+<p class="cta"><a class="btn" href="{rec("MANIFEST.md")}">The Master Testing Manifest</a></p>
+<details class="fold"><summary>The sections, and how many tests each holds</summary>
+<table class="tools"><tr><th>Section</th><th>What it covers</th><th>Tests</th><th>Open</th></tr>
+{mf_rows}
+</table>
+</details>
+</section>
 <section class="wrap" id="road"><h2>The road ahead</h2>
-<p class="cta"><a class="btn" href="{rec("TODO.md")}">The to-do list</a><a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/INSTRUMENTS.md")}">Candidate instruments</a><a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md")}">The levers</a></p>
 <h3>What support pays for</h3>
 <p class="sub"><b>No company, no charity, nothing for sale.</b> This is one person's work: there is no LLC, no nonprofit and no institution behind it, so support through the fundraiser is a personal gift and is <b>not tax-deductible</b>.</p><p class="sub">Work that needs a rented computer carries its estimate before it starts; everything else runs on one laptop at no cost. The fundraiser's goal is $25,000, all of it research: rented computing, the data work, and a workstation to replace rented hours.</p>
 </section>
