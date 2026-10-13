@@ -39,7 +39,7 @@ on the [main page](README.md); every experiment's story: the [field notes](FIELD
 *Planned, not yet designed. The data for each is already on our storage (sizes from the data register).*
 
 - **Blood diseases, cell by cell: Met-A on each blood cell type in people with blood disorders.** 18 data sets, 157 GB in hand.
-- **The blood test itself: cell-free DNA in plasma, once the atlas and the composition step are commissioned.** 17 data sets, 52 GB in hand.
+- **The blood test itself: cell-free DNA in plasma, once the atlas and the composition step are commissioned. Note (2026-10-13): this is an ARRAY job, not a sequencing one. The limit is the specimen, not the instrument - the array meter is commissioned on sorted single cell types, and most public blood-cancer arrays are whole blood or marrow, where the cell mixture is itself abnormal and the composition guard withholds the reading. What it needs is sorted cells from patients.** 17 data sets, 52 GB in hand.
 - **Tissue biopsies read against the atlas.** 9 data sets, 32 GB in hand.
 - **Stool: can shed cells in a stool sample be scored?** 1 data sets, 312 GB in hand.
 - **Aging: the same people over years, and people of many ages.** 9 data sets, 61 GB in hand.

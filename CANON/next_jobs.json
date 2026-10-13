@@ -342,7 +342,7 @@
    "match": "Track A"
   },
   {
-   "plain": "The blood test itself: cell-free DNA in plasma, once the atlas and the composition step are commissioned.",
+   "plain": "The blood test itself: cell-free DNA in plasma, once the atlas and the composition step are commissioned. Note (2026-10-13): this is an ARRAY job, not a sequencing one. The limit is the specimen, not the instrument - the array meter is commissioned on sorted single cell types, and most public blood-cancer arrays are whole blood or marrow, where the cell mixture is itself abnormal and the composition guard withholds the reading. What it needs is sorted cells from patients.",
    "match": "Track B"
   },
   {
