@@ -228,6 +228,7 @@ GSE256092,,,,,partly spent,,,,,,,,,
 GSE262273,downloads/B_cfDNA_plasma/GSE262273/,11.53,"other (beta, csi, pat)",no,unspent,,,,,,,,Plasma cell-free DNA arrays,S3 register
 GSE262274,downloads/B_cfDNA_plasma/GSE262274/,1.69,"other (beta, csi, pat)",no,unspent,,,,,,,,Plasma cell-free DNA arrays,S3 register
 GSE262275,,,,,,,,PROC_PARTIALCOV_01_PREREG,not usable (same group as the atlas (Dor/Kaplan collaboration); no SRA reads),gallbladder epithelium | liver endothelium | liver macrophages | keratinocyte,no,no per-sample IDAT or SRA link (series files: GSE262275_RAW.tar),"Circulating, cell-free methylated DNA reveals cellular sources of allograft injury after liver transplant",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE268145,,,,,,,,DEV_LEVERS_01,,,,,,
 GSE269087,downloads/F_salmonid/GSE269087/,0.03,,,unspent,,,,,,,,Steelhead and other salmonid sets,S3 register
 GSE269244,,,,,partly spent,,,,,,,,,
 GSE269608,,,,,,,,DEV_ATLAS_V21_01,atlas build,"thymocyte subsets (DN1-3, ISP, DP, SP4, SP8)",yes,IDAT listed for 56/56 samples,DNA methylomes undergo distinct waves of remodeling during thymic T cell development and do not acquire a proliferation-induced imprint.,gold-mine map
