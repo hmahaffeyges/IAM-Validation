@@ -37,10 +37,18 @@ field cancerization. Tumors carry sites at the full surface where healthy refere
    metabolic-switch expression signatures, and benign lesions read near 1 without them. If surface share and those signatures are
    unrelated, the energy-supply step is wrong. Data: TCGA expression for the same tumors already read.
 
+6. **The moves are non-random (author, 2026-10-13: "it is intentional in that its not random erasure of entire blocks of genes or
+   random tagging of entire blocks. I dont mean intentional in a philosophical sense, I just mean that its not random").** Right of
+   Normal is departure from the healthy pattern, not chaos: a tumor removes marks in whole blocks and adds them at specific promoters,
+   and both WHERE it removes and WHERE it adds are patterned. Prediction, on the 219 tumors already read: the sites that gain and the
+   sites that lose recur across patients far more often than chance (a permutation of site labels within each tumor sets chance), and
+   gains concentrate at gene promoters. If gains and losses scatter - no more recurrence than the permutation gives - the moves are
+   drift, and the picture of a patterned, selected program is wrong. Wording rule: "non-random" and "selected", never "intentional".
+
 **In plain words.** The idea is that a whole organ can be under strain before any tumor exists, its cells writing at their limit, and
 that the tumor appears at the weakest spot as new room to keep writing - the way a black hole grows its surface. It is an idea, not a
-result. Five tests are written down that could each prove it wrong.
+result. Six tests are written down that could each prove it wrong.
 
-**What it would take to finish:** falsifier 2 first (DEV-FIELD-01), then 1 and 4 on an ordered lesion series, then 3 on TCGA stage and 5 on TCGA expression.
+**What it would take to finish:** falsifier 2 first (DEV-FIELD-01), then 1 and 4 on an ordered lesion series, then 3 on TCGA stage, 5 on TCGA expression, and 6 on the 219 tumors already read.
 
 **Not a milestone:** a hypothesis with no test run.
