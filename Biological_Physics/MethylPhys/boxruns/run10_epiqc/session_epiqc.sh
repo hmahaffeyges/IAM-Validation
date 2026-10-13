@@ -8,6 +8,12 @@
 # Fetch: first N pairs streamed from ENA, up to 8 libraries at once, with lookup retries (fixed 2026-10-11 after the first start).
 # Usage: LIST=... N_PAIRS=10000000 TAG=stageA [SHUTDOWN=1] bash session_epiqc.sh     Outputs: s3://<bucket>/results/BOXRUN10_EPIQC/$TAG/
 set -uo pipefail
+# One run of this pipeline at a time per machine (2026-10-13, LESSONS C12): two jobs once ran the same parts into the same
+# output folder and the same S3 prefix. Refuse rather than race.
+_others=$(pgrep -f "session_epiqc.sh" | grep -v -w "$$" | grep -v -w "${PPID:-0}" | wc -l)
+if [ "${_others:-0}" -gt 0 ] && [ -z "${ALLOW_PARALLEL:-}" ]; then
+  echo "session_epiqc: REFUSED - another run of this pipeline is alive on this machine (ALLOW_PARALLEL=1 overrides)"; exit 9
+fi
 B=methylphys-data-945451304272-us-west-2-an; P=results/BOXRUN10_EPIQC/${TAG}; N=${N_PAIRS:-10000000}; T=$(nproc)
 S=/mnt/scratch/run2; O=$S/out10_${TAG}; mkdir -p $O $S/r10/fq $S/r10/bam $S/r10/pat; cd $S
 PYB=/home/ubuntu/env/bin/python; REPO=~/IAM-Validation; QC=$REPO/Biological_Physics/MethylPhys/boxruns/run2/alignment_qc.py

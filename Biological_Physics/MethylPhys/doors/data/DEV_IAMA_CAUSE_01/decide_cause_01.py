@@ -6,6 +6,14 @@ error of that part, stage_q_iam_a.pat_site_table: (err_A+err_B)/(opp_A+opp_B)), 
   disclosed. All three LIBRARY -> "library": across laboratories stays NOT MET for EMSeq. Anything else -> "mixed", reported as it is.
   Check (reported): each run's part 0 reproduces its Stage B copy error (stageB_libraries.csv) within 2 % relative.
 Usage: python3 decide_cause_01.py PARTS.csv [STAGEB.csv]   |   python3 decide_cause_01.py --planted"""
+def whole(path):
+    """Refuse a truncated or doubly written .pat.gz before it is read (2026-10-13, LESSONS C12): read the whole member and
+    return its line count, so a part written by two runs at once cannot reach the decision."""
+    import gzip
+    with gzip.open(path, "rt") as g:
+        n = sum(1 for _ in g)
+    if n < 1000: raise SystemExit(f"decide_cause_01: {path} has only {n} lines; rerun that part")
+    return n
 import sys, os, json, numpy as np, pandas as pd
 H = lambda e: -(e * np.log2(e) + (1 - e) * np.log2(1 - e))
 def decide(T):
