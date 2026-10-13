@@ -1491,3 +1491,6 @@ The decisions list is already in the daily logs, so it is removed from the page;
 
 ### 2026-10-13 · Only what code keeps current stays on the front page (author)
 Removed the nine-question section and the traced-case section: both were hand-written text with numbers that go stale, and the daily logs plus the linked records carry the same substance. The art bands were re-spaced, one before each remaining section. CANON/live_links.py checks the current section headings.
+
+### 2026-10-13 · Failures section off the front page (author)
+The failures and the limits fold are in the daily logs and the records, so the section is removed from the page; the losses list stays in the results register.

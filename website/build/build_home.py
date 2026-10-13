@@ -179,12 +179,6 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 </details>
 <p class="sub">{E(MT["closing"])}</p>
 </section>
-<div class="art-band" style="background-image:url({art("cmb_banner.jpg")})" role="img" aria-label="Art from the book"></div>
-<section class="wrap" id="lost"><h2>What has failed</h2>
-<details><summary>{len(REG["losses"])} failures, each with its record</summary><ul class="road lost">{losses}</ul></details>
-<details><summary>What these results are not</summary><p class="more"> Each sealed cancer test asked whether tumors leave the healthy range more often than chance across a group of patients. None is a per-patient test and none is a diagnostic: there is no sensitivity, no specificity and no detection limit yet. That test is on the road ahead, and no early-detection claim is made before it.</p>
-</details>
-<p class="more">Every result, good or bad, day by day: <a href="{rec("Biological_Physics/MethylPhys/daylogs/README.md")}">the daily logs</a>, or the <a href="{rec("development/METHYLPHYS_DEVELOPMENT_LOG.md")}">development log</a> for the technical version.</p></section>
 <div class="art-band" style="background-image:url({art("lattice_banner.jpg")})" role="img" aria-label="Art from the book"></div>
 <section class="wrap" id="whoweare"><h2>{E(AS["section_title"])}</h2>
 <p class="sub">Two very different roles, stated plainly, because the easiest wrong assumption to make about this work is that
