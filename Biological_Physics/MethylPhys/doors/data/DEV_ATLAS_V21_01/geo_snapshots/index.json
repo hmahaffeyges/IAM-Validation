@@ -234,5 +234,17 @@
  "GSE98203": {
   "sha256_uncompressed": "e32b45c4f993d4976fa8702e83f9bac857bbc3046386fe362e820c97553614b5",
   "samples": 88
+ },
+ "GSE110554": {
+  "sha256_uncompressed": "0ce2f5932e426044fa865277bc170b53417f69771068abff905a5d934fc445db",
+  "samples": 49,
+  "fetched_utc": "2026-10-14T02:34:00Z",
+  "why": "donor fields for the half-donor split (decision 17)"
+ },
+ "GSE167998": {
+  "sha256_uncompressed": "75a32c95d93b294c2a9e015b4879728a8b4f57ed80f66d6a03fd8a24b0e376df",
+  "samples": 68,
+  "fetched_utc": "2026-10-14T02:34:05Z",
+  "why": "donor fields for the half-donor split (decision 17)"
  }
 }
