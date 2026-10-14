@@ -1663,3 +1663,6 @@ The L8 outcome said GSE137716 was unaffected by decision 10. That was written wi
 
 ### 2026-10-14 · L8 D10 GSE137716 export submitted
 Box job e82da54c (code 72e8ff13) exports the EpiDISH sites for the 12 conditional GSE137716 arrays; shares computed by the unchanged l8_epidish_v21.R.
+
+### 2026-10-14 · GSE137716 export run 2
+Run 1 (e82da54c) failed before reading any array: the shared loader needs the twin thresholds and roster files, not shipped. Run 2 (3cf4e084, code c5160733) ships them.

@@ -225,8 +225,27 @@
   "s3_inputs_sha": {},
   "matches_repo": true,
   "log_in_s3": false,
+  "outputs_in_s3": {},
+  "state_at_verify": "failed"
+ },
+ "3cf4e084-6855-457d-852a-b9721fe4eca6": {
+  "s3": {
+   "v21_l8b_box.py": "d595600fa32e6ad028c87cc0f0470cc75983eaa09921059a94f61b53de83e8b4",
+   "v21_twin_terms_box.py": "54a215fb1738675a13c0116974819a7670a5889824a844b3561fb529ea7c7499",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20",
+   "v21_samples_all.csv": "f86f645cd41a5dc47509dffa435ba6fdadbecf69db923ed8c9dd8037436772fe",
+   "epidish_sites.txt": "937a6a5e2290be6b0a92f7532d6c1f5f9b23dd9414456d66a7757bfd892f04a7",
+   "atlas_v21_build_samples.csv": "ea6aa44d3636aa98d29ddade020df7bea544fda8f8f0be1ca8e8d6317ecb6be4",
+   "roster_samples.csv": "da11a3c11285bde36dcc866c53c112eec5d8ac63e3ea18a66c24e27c7fc3aa4d",
+   "roster.csv": "d0542f8bda2c7d4dc1c85ecd7958746b089149beb2ea7edaf5f00fbba2d92fd1",
+   "hsc_manifest.csv": "9ee7fb9592d3b0cb2667e38cf00aa5cda7ed712777806a1aa6d7f99c7ee89af6",
+   "twin_family_thresholds_v1.json": "ac7163ee1aaddfa7606e326b1e655016d244be599040216fe9ea0cf7db5da03f"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/ATLAS_V21/l8b/l8b_epidish_betas.csv": false
+   "results/ATLAS_V21/l8b/l8b_epidish_betas.csv": true
   },
   "state_at_verify": "running"
  }
