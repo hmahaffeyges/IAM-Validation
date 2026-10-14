@@ -1759,3 +1759,6 @@ Atlas v2.1: readiness L8, L9, L11, L15, L19, L21 and L22 met (bounded transfer a
 
 ### 2026-10-15 · Overnight whiteboard (development/WHITEBOARD_2026-10-15.md)
 1. The black-hole scaling route to the half fails for the cell: any locally held system grows with degree 1 (closed). 2. On the sites every cell keeps fully methylated, the held error (median 0.0165) sits inside the writer-alone range 1/(1+D) (0.0123-0.0207); candidate: fully held territory reads the writer alone, consistent with U1. 3. Candidate: the genome-wide middle is a mix of held and loosely held territory, not a per-site half. 4. The writer limit as an atlas-free reference.
+
+### 2026-10-15 · DEV-ERASE-01 NOT MET (primary units read once)
+All five primary units complete, read by the committed erase_verdict.py: U1 0.9608, U2 0.7930 (inconclusive), U3 0.8560, U4 0.8938, U5 0.8514; MET 0, NOT MET 4 of 5. The per-site half (r = 1) is not supported where we count; the middle stays measured. In every unit removing the eraser lowered the held error by 4-21 percent, a small share. Side arms still reading; the job writes the full verdict file once. Also fixed: two "held held error" titles made by the term rename (PHY-025).

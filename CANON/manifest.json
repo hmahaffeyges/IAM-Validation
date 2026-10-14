@@ -7550,7 +7550,7 @@
    ],
    "data_status": "declared",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
-   "status": "sealed",
+   "status": "run",
    "next_step": "Planted check on real molecules (box job 091bf539), then read each declared sample once by the rule in DEV_ERASE_01.md (10 M pairs as 20 spread blocks; verdict MET if at least 3 of 5 primary units are MET and none NOT MET).",
    "cost": "search",
    "impact": 3,
@@ -7563,7 +7563,14 @@
     "H3"
    ],
    "notes": "No DEV_ERASE_01.md exists in the repo; the gap is defined in Biological_Physics/MethylPhys/doors/DEV_WRITER_01_OUTCOME.md. The 'missed restores on newly copied strands' route is HYP-SATURATION-01 falsifier 7 (DEV_METHIONINE_01 correction note).; 2026-10-14 sealed as the test of the author's write-half / erase-half reading: ratio 0.40-0.60 MET, >= 0.85 NOT MET; erase-side arms to search with TET knockouts: IDH1/2-mutant, SDH- and FH-deficient tumors, hypoxia (each with same-lab controls)",
-   "runs": [],
+   "runs": [
+    {
+     "date": "2026-10-15",
+     "outcome": "fail",
+     "note": "NOT MET: primary units MET 0, NOT MET 4 of 5 (U2 inconclusive); ratios 0.79-0.96; the eraser carries a small share, not half",
+     "commit": "12806969"
+    }
+   ],
    "id": "PHY-006",
    "sources_of_row": [
     "Levers and instruments"
@@ -8064,7 +8071,7 @@
    "legacy_ids": [
     "1 (10-10)"
    ],
-   "notes": "Data never downloaded (unspent). Citation verified against CrossRef (3bb2aa7). | also listed as: Hammer-seq: can measured copier kinetics predict the held held error? (DEV-HAMMER-01)",
+   "notes": "Data never downloaded (unspent). Citation verified against CrossRef (3bb2aa7). | also listed as: Hammer-seq: can measured copier kinetics predict the healthy held error? (DEV-HAMMER-01)",
    "depends_on": [],
    "id": "PHY-022",
    "sources_of_row": [
@@ -8154,7 +8161,7 @@
    ]
   },
   {
-   "title": "DEV-WRITER-01: is the held held error the writer's single-step error (DNMT1 discrimination)?",
+   "title": "DEV-WRITER-01: is the healthy held error the writer's single-step error (DNMT1 discrimination)?",
    "purpose": "Tested whether DNMT1's measured selectivity outside the cell sets the held error cells hold. It found cells lose about twice the writer's errors, which leaves a 0.74 kT gap to explain.",
    "instrument_or_term": "Model A; E_hold = ln D",
    "sources": [

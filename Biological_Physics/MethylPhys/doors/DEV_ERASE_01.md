@@ -74,3 +74,30 @@ make half as many copy errors as normal cells from the same laboratory. We wrote
 at any such data. What it would take to finish: the planted check on real healthy molecules, at least one eraser-removed set with same-laboratory controls has been found and declared, and its ratio has been read once against the lines above, whatever it says.
 
 Related: PHY-040 (the author's half-law), PHY-006 / HYP-002 / SCO-033 (this test's earlier rows), DEV-WRITER-01/-02, LEV-019/-044, LEV-046.
+
+## Outcome, primary units read once (2026-10-15): NOT MET
+
+All five primary units complete; read by the committed `erase_verdict.py` (`data/DEV_ERASE_01/erase_primary_units.csv`,
+`erase_primary_verdict.txt`). The side arms (A1, A2, S1, S2) are reported only and are still reading; the full verdict file is written once,
+by the job, when they land. They cannot change the primary verdict.
+
+| unit | eraser removed / control | verdict |
+|---|---|---|
+| U1 | 0.9608 | NOT MET |
+| U2 | 0.7930 | INCONCLUSIVE |
+| U3 | 0.8560 | NOT MET |
+| U4 | 0.8938 | NOT MET |
+| U5 | 0.8514 | NOT MET |
+
+Primary units MET 0, NOT MET 4 of 5: **DEV-ERASE-01 NOT MET** by the rule committed before any read.
+
+**What it rules out.** A per-site half: removing the eraser does not halve the held error on the counted molecules. The step
+"the eraser's loss equals the writer's" (r = 1) is not supported where we count. The middle mark stays MEASURED (3.41 kT), as the foundation
+file already says; its derivation is open.
+
+**What it shows.** In all five units the held error falls when the eraser is removed, by 4 to 21 percent. The eraser carries a small share of
+the loss on the counted molecules, not half. This agrees with the overnight whiteboard note (development/WHITEBOARD_2026-10-15.md): on the sites
+every cell keeps fully methylated, the held error sits inside the writer-alone range.
+
+**In plain words.** Switching off the eraser lowered the error a little in every set, never by half, so the half-and-half rule does not hold
+site by site where we count. The middle line itself is unchanged.

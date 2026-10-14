@@ -189,7 +189,6 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **OTH-029** (impact 3, laptop) Clean-room rerun of each result: Liver pilot (after the atlas deposit, now done), then breast, colon.
 - [ ] **OTH-033** (impact 3, laptop) Replication package (kit, open predictions, preprint): After R3-R4.
 - [ ] **PHY-005** (impact 3, search) Copy-channel test with measured per-site rates (Repli-BS in human ES cells): Find the rate files and same-cell whole-genome data.
-- [ ] **PHY-006** (impact 3, search) DEV-ERASE-01: the 0.74 kT gap - erasure or missed restores (TET knockout; neurons; field vs tumor): Planted check on real molecules (box job 091bf539), then read each declared sample once by the rule in DEV_ERASE_01.md (10 M pairs as 20 spread blocks; verdict MET if at least 3 of 5 primary units are MET and none NOT MET).
 - [ ] **PHY-007** (impact 3, search) DEV-METHIONINE-01: methionine depletion as a second SAM lever: Wait for a public set with weeks of restriction (cells or animals); listed in help_wanted.
 - [ ] **PHY-010** (impact 3, none) Met-A to IAM-A reverse direction: an upper-limit prediction any lab can check: Add to the open-prediction list of the replication package.
 - [ ] **PHY-012** (impact 3, laptop) phi and the height of E_hold (open item D1): a physics-only derivation of 3.41 kT: Open after DEV-WRITER-01/-02 and DEV-FLOOR-HEIGHT-01/-02 did not fix it; candidate routes are the multi-step (proofread) gap and the loss side (H7).
@@ -567,6 +566,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **PHY-001** Blood sensitivity: can whole blood on arrays carry a tissue-sized signal? (DEV-BLOOD-SENSITIVITY-01): last run 2026-10-13, success
 - [x] **PHY-002** Ceiling audit: has any reading of ours crossed the derived ceiling? (DEV-CEILING-AUDIT-01): last run 2026-10-13, success
 - [x] **PHY-004** 450K disease readings blocked by slide batch (DEV-METAA-450K-01 bar 2b): last run 2026-10-09, progressed
+- [x] **PHY-006** DEV-ERASE-01: the 0.74 kT gap - erasure or missed restores (TET knockout; neurons; field vs tumor): last run 2026-10-15, fail
 - [x] **PHY-007** DEV-METHIONINE-01: methionine depletion as a second SAM lever: last run 2026-10-13, progressed
 - [x] **PHY-008** Gauge marks: floor and ceiling derived, middle measured, breach still to be measured: last run 2026-10-13, progressed
 - [x] **PHY-009** Holding energy and eps0 rebuilt from public data (153 samples): last run 2026-10-10, success
@@ -581,7 +581,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **PHY-022** DEV-HAMMER-01: can maintenance kinetics in the same cells predict eps0?: last run 2026-10-10, fail
 - [x] **PHY-023** DEV-HORIZON-01: a reader-independent edge of disorder, and washout memory (DNMT1 degron): last run 2026-10-09, inconclusive
 - [x] **PHY-024** DEV-SYNTH-LEVERS-01: synthetic driven-bit molecules read with Stage Q's rule: last run 2026-10-09, progressed
-- [x] **PHY-025** DEV-WRITER-01: is the held held error the writer's single-step error (DNMT1 discrimination)?: last run 2026-10-10, fail
+- [x] **PHY-025** DEV-WRITER-01: is the healthy held error the writer's single-step error (DNMT1 discrimination)?: last run 2026-10-10, fail
 - [x] **PHY-026** DEV-WRITER-02: does held error follow DNMT1 discrimination across 256 flanking contexts?: last run 2026-10-10, fail
 - [x] **PHY-027** Half-law conjecture and the Mahaffey number: driving cost per site: last run 2026-10-09, fail
 - [x] **PHY-028** Lavage set 2: newer EPIC revision in Stage 1 (DEV-ATLAS-LAVAGE-02): last run 2026-10-10, inconclusive
