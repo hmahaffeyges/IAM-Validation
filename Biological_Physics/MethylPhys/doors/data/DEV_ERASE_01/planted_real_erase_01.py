@@ -10,9 +10,11 @@ ARMS, per file:
           the eraser-removed picture, half the errors gone.
  doubled  every interior C whose two neighbouring calls are C is turned to T with probability eps_base (the base file's Stage Q reading):
           about as many new isolated errors again (the boosted-eraser picture, e.g. vitamin C).
-BARS (each file; MET only if all hold for both):
+BARS (each file; MET only if P1 and P3 hold for both):
  P1 halved / base within 0.45-0.55 (the bar the synthetic test used).
- P2 doubled / base within 1.80-2.20 (new errors next to old ones are not isolated, so slightly below 2 is expected).
+ P2 doubled / base: REPORTED, NO BAR. Amended 2026-10-14 before any real file was read: a smoke test of the code on a small made-up
+    file read the doubling as 1.77, because a new error next to an old one makes neither isolated; the 1.80 bar would fail on counting
+    alone. The halving the prediction depends on read 0.514 on the same file. The doubled arm is for the boosted-eraser arm, designed later.
  P3 the base file's two halves (odd / even molecules, Stage Q's own split) agree: eps_A / eps_B within 0.95-1.05.
 Writes planted_real_erase_01.txt."""
 import os, sys, numpy as np

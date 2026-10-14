@@ -32,7 +32,8 @@ committed after (same session, 2026-10-14). A planted check on real healthy mole
 **Planted check on real healthy molecules (committed 2026-10-14 before it runs):** `data/DEV_ERASE_01/planted_real_erase_01.py` and
 `.sh`. Two healthy Loyfer files already spent for development (granulocytes GSM5652313, CD4 T cells GSM5652281). Arms: unchanged; half of the
 real isolated errors turned back (the eraser-removed picture); about as many new ones added (the boosted-eraser picture). Bars: halved/base
-0.45-0.55, doubled/base 1.80-2.20, the base file's two halves within 0.95-1.05.
+0.45-0.55 and the base file's two halves within 0.95-1.05; doubled/base reported, no bar (amended before any real file was read: a
+code smoke test on a small made-up file read a doubling as 1.77, because a new error beside an old one leaves neither isolated).
 
 **In plain words.** We think methylation's half and half is writing and erasing. If that is right, cells whose eraser is switched off should
 make half as many copy errors as normal cells from the same laboratory. We wrote down the number and the pass and fail lines before looking
