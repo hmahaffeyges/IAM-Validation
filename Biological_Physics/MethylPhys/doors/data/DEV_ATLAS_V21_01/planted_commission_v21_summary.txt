@@ -1,0 +1,12 @@
+Atlas v2.1 planted test of the commissioning scorers, run once (planted_commission_v21.py)
+U1-a: COMMISSIONED (planted COMMISSIONED) ok coverage 0.9261
+U1-b: FAILED (planted FAILED) ok coverage 0.7336
+U1-c: FAILED (planted FAILED) ok coverage 0.5730
+U1-d: FAILED (planted FAILED) ok coverage 1.0000
+U1-e: COMMISSIONED (planted COMMISSIONED) ok coverage 0.9155
+U2-a: COMMISSIONED (planted COMMISSIONED) ok min share 0.9993
+U2-b: FAILED (planted FAILED) ok fibroblast share 0.7172
+U2-c: NOT ASSESSED (planted NOT ASSESSED) ok 
+U3-a: True (planted True) ok MAE 0.0106 max 0.0229
+U3-b: False (planted False) ok MAE 0.0400
+PLANTED COMMISSIONING TEST: PASSED

@@ -8,6 +8,7 @@ A synthetic cell: 4,000 sites, truth mu bimodal (Beta(0.5, 0.5) clipped to 0.02-
  U2-b one panel cell planted 0.08 off at 30 % of blind sites -> FAILED       U2-c epithelium not assessed -> NOT ASSESSED
  U3-a estimates with error N(0, 0.01) -> met                    U3-b estimates biased +0.04 -> not met
 PASSED only if every case gives its planted answer. Writes planted_commission_v21_summary.txt."""
+# NO CHAIN: this tests the atlas commissioning scorers (commission_v21.py), which are not chain stages (comment added after the run; no logic changed)
 import os, sys, json, numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import commission_v21 as CM

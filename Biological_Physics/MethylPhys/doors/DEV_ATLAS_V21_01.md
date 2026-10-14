@@ -301,3 +301,11 @@ bin (bar 0.02). Tian (microglia 0.014, oligodendrocytes 0.012) and ENCODE (embry
 leave-one-out spread (95th percentile 0.027) on the same curve, so all three sequencing sources use it with no extra terms. The cell-to-cell
 scatter carried into the error bars: 0.004 below 0.15, 0.020 at 0.15-0.45, 0.039 at 0.45-0.85, 0.015 above 0.85. Every cell stays in.
 Disclosed: the 22 cells had been seen in aggregate before this design was written; the test is leave-one-cell-out, not fresh data.
+
+**Readiness L15, commissioning bars sealed before the atlas exists (`sealed_commission_v21.json`, scorers `commission_v21.py`).** U1: a held-out
+sample's sites inside the 90 % posterior predictive interval at 0.80-0.97, every independent set, per cell and platform. U2a: the exact blind-site
+lists the sealed cancer tests used, and U2b: the same rule on v2.1; each panel cell's held-out set mean within the test's tolerance of the epithelial
+anchor at >= 0.90 of sites. U3: composition bars 1-2 unchanged. U4: development. Planted test of every scorer, run once: PASSED (a correct atlas reads
+0.9261 coverage; intervals too narrow 0.7336, a shifted laboratory 0.5730 and too wide 1.0000 all FAILED as planted; a disagreeing panel cell 0.7172 FAILED).
+**Synthetic test:** DEV_ATLAS_V21_01/planted_commission_v21.py, DEV_ATLAS_V21_01/planted_commission_v21_summary.txt
+**Prior reading:** the spent series named in this record (GSE103541, GSE118144, GSE122244, GSE167998, GSE226298, GSE271697) are BUILD sets of the atlas; none is a commissioning test set. The U1-U3 test sets are the plan's held-out assignments, unopened.
