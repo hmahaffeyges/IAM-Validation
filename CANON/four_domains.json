@@ -1,0 +1,533 @@
+{
+ "_rule": "Four-domain schematic (author, 2026-10-14): one standard name per slot, each domain's native word kept beside it. Status is one of derived, measured, calculated, prediction, conjecture, candidate, open. 'candidate' = proposed and not tested; 'open' = nothing yet. FOUR_DOMAINS.md and its gap map are generated from this file by CANON/four_domains.py; never edit them by hand.",
+ "domains": [
+  "cosmos",
+  "qubits",
+  "chips",
+  "cells"
+ ],
+ "slots": [
+  {
+   "id": "surface",
+   "name": "Encoding surface",
+   "definition": "Where the irreversible record is written.",
+   "cosmos": {
+    "native": "cosmic horizon; for a black hole, its own horizon",
+    "formula": "area A of the apparent horizon, r_A = 1/H",
+    "status": "derived",
+    "source": "App. E #93"
+   },
+   "qubits": {
+    "native": "junction barrier and substrate",
+    "formula": "two-level record held across a gap hf",
+    "status": "derived",
+    "source": "Ch. Each platform on its own gauge: qubits"
+   },
+   "chips": {
+    "native": "gate channel",
+    "formula": "binary switch across a barrier",
+    "status": "derived",
+    "source": "Ch. Landauer at the transistor gate"
+   },
+   "cells": {
+    "native": "chromatin surface (the DNA)",
+    "formula": "methyl mark at each CpG",
+    "status": "derived",
+    "source": "Ch. Four saturation events"
+   }
+  },
+  {
+   "id": "temperature",
+   "name": "Surface temperature T_s",
+   "definition": "The temperature the record actually sees.",
+   "cosmos": {
+    "native": "Gibbons-Hawking temperature",
+    "formula": "T_GH = hbar H / (2 pi k_B)",
+    "status": "derived",
+    "source": "App. E #268, #355"
+   },
+   "qubits": {
+    "native": "the qubit's own effective temperature",
+    "formula": "T_q (e.g. 35 mK, not the 15 mK fridge)",
+    "status": "measured",
+    "source": "Ch. qubits"
+   },
+   "chips": {
+    "native": "junction temperature",
+    "formula": "T_j (75-105 C)",
+    "status": "measured",
+    "source": "Ch. chips"
+   },
+   "cells": {
+    "native": "body temperature",
+    "formula": "T_b = 310.15 K",
+    "status": "measured",
+    "source": "Part VI"
+   }
+  },
+  {
+   "id": "bit_price",
+   "name": "Bit price e_bit",
+   "definition": "IAM's Law: the minimum cost of one classical bit.",
+   "cosmos": {
+    "native": "cost of a bit at the horizon",
+    "formula": "k_B T_GH ln2 = 2.54e-53 J",
+    "status": "derived",
+    "source": "App. E #0, #454"
+   },
+   "qubits": {
+    "native": "Landauer floor at the qubit",
+    "formula": "k_B T_q ln2",
+    "status": "derived",
+    "source": ""
+   },
+   "chips": {
+    "native": "Landauer floor for logic",
+    "formula": "k_B T_j ln2 = 3.33e-21 J at 75 C",
+    "status": "derived",
+    "source": "App. E #478"
+   },
+   "cells": {
+    "native": "Landauer cost per mark",
+    "formula": "k_B T_b ln2 = 2.97e-21 J",
+    "status": "derived",
+    "source": "Ch. Landauer"
+   }
+  },
+  {
+   "id": "drive",
+   "name": "Drive energy E_drive",
+   "definition": "The energy spent per event to write or hold the record.",
+   "cosmos": {
+    "native": "rest energy behind the horizon",
+    "formula": "Mc^2 (black hole: Mc^2 = 2 T_H S, Smarr)",
+    "status": "derived",
+    "source": "App. E #348, #499"
+   },
+   "qubits": {
+    "native": "gap energy",
+    "formula": "hf",
+    "status": "measured",
+    "source": "Ch. qubits"
+   },
+   "chips": {
+    "native": "switching energy",
+    "formula": "E_sw = TDP / (N_trans f)",
+    "status": "measured",
+    "source": "App. E (chip gauge)"
+   },
+   "cells": {
+    "native": "one ATP per site",
+    "formula": "Delta G_ATP = 54 kJ/mol",
+    "status": "measured",
+    "source": "App. E #484"
+   }
+  },
+  {
+   "id": "mahaffey",
+   "name": "Mahaffey number M",
+   "definition": "Drive over the thermal quantum, M = E_drive / k_B T_s (App. E #47, #485).",
+   "cosmos": {
+    "native": "not defined in the book",
+    "formula": "candidate: M = S/k_B for the cosmic horizon (bits cost all its rest energy), about 2.3e122; black hole M = 2S/k_B",
+    "status": "candidate",
+    "source": "computed 2026-10-14"
+   },
+   "qubits": {
+    "native": "Mahaffey number of the record",
+    "formula": "M = hf / k_B T_q = 6.86 (5 GHz, 35 mK)",
+    "status": "calculated",
+    "source": "Ch. qubits"
+   },
+   "chips": {
+    "native": "drive ratio of a switch",
+    "formula": "M = E_sw / k_B T_j = 399-411",
+    "status": "calculated",
+    "source": "Ch. CMOS"
+   },
+   "cells": {
+    "native": "Mahaffey number of the cell",
+    "formula": "M = Delta G_ATP / R T_b = 20.94",
+    "status": "calculated",
+    "source": "App. E #484"
+   }
+  },
+  {
+   "id": "floor",
+   "name": "Floor (left mark)",
+   "definition": "The lowest error a record can hold against thermal kicks at full drive.",
+   "cosmos": {
+    "native": "area bound",
+    "formula": "S = A / 4 l_P^2: one nat per 4 l_P^2",
+    "status": "derived",
+    "source": "App. E #393"
+   },
+   "qubits": {
+    "native": "thermal floor",
+    "formula": "p_eq = 1/(1+e^M)",
+    "status": "derived",
+    "source": "App. E #475"
+   },
+   "chips": {
+    "native": "Landauer and reliability floors; Boltzmann wall",
+    "formula": "k_B T_j ln2; E_min = k_B T ln(1/p); swing (k_B T/q) ln10 = 60 mV/decade",
+    "status": "derived",
+    "source": "Ch. CMOS"
+   },
+   "cells": {
+    "native": "floor",
+    "formula": "eps_min = 1/(1+e^M) = 8e-10",
+    "status": "derived",
+    "source": "Part VI"
+   }
+  },
+  {
+   "id": "balance",
+   "name": "Balance law",
+   "definition": "How the held error is set: restore against loss.",
+   "cosmos": {
+    "native": "not stated in this form",
+    "formula": "open",
+    "status": "open",
+    "source": ""
+   },
+   "qubits": {
+    "native": "detailed balance",
+    "formula": "p_eq = G_up / (G_up + G_down), G_up/G_down = e^-M",
+    "status": "derived",
+    "source": "Ch. qubits"
+   },
+   "chips": {
+    "native": "not stated in this form",
+    "formula": "p ~ e^(-E/k_B T)",
+    "status": "derived",
+    "source": "Ch. CMOS"
+   },
+   "cells": {
+    "native": "restore against loss",
+    "formula": "eps = f/(f+g), E_hold = k_B T ln(g/f)",
+    "status": "derived",
+    "source": "foundation"
+   }
+  },
+  {
+   "id": "reference",
+   "name": "Reference (the 1)",
+   "definition": "The state the gauge is read against.",
+   "cosmos": {
+    "native": "today",
+    "formula": "a = 1: E(1) = 1, R(1) = 2",
+    "status": "derived",
+    "source": "App. E #72"
+   },
+   "qubits": {
+    "native": "as built",
+    "formula": "the benchmarked gate error, A = 1",
+    "status": "measured",
+    "source": "Ch. qubits"
+   },
+   "chips": {
+    "native": "as built",
+    "formula": "the chip on one stated definition",
+    "status": "measured",
+    "source": "Ch. chips"
+   },
+   "cells": {
+    "native": "healthy",
+    "formula": "eps0 = 0.032, E_hold = 3.41 k_B T; candidate derivation ln D - ln 2 (DEV-ERASE-01, sealed)",
+    "status": "measured",
+    "source": "Part VI; DEV_ERASE_01.md"
+   }
+  },
+  {
+   "id": "ceiling",
+   "name": "Ceiling (right mark)",
+   "definition": "Saturation: the surface can no longer hold a record.",
+   "cosmos": {
+    "native": "black hole",
+    "formula": "local area bound filled; the cosmic horizon never saturates on observable timescales",
+    "status": "derived",
+    "source": "Ch. Four saturation events"
+   },
+   "qubits": {
+    "native": "error-correction threshold",
+    "formula": "about 1e-2 per operation (surface code)",
+    "status": "measured",
+    "source": "Ch. qubits"
+   },
+   "chips": {
+    "native": "not defined",
+    "formula": "open in the book",
+    "status": "open",
+    "source": "Ch. chips, Status"
+   },
+   "cells": {
+    "native": "full surface",
+    "formula": "coin flip, eps = 1/2 at every identity site, A = 4.26",
+    "status": "derived",
+    "source": "Ch. Four saturation events"
+   }
+  },
+  {
+   "id": "writer",
+   "name": "Writer (potential half)",
+   "definition": "What adds the record onto the surface.",
+   "cosmos": {
+    "native": "potential half: dark matter",
+    "formula": "geometric deposit, stored in spacetime curvature; |V|/2",
+    "status": "conjecture",
+    "source": "Part VII, virial partners"
+   },
+   "qubits": {
+    "native": "not in the book",
+    "formula": "candidate: gates (drive pulses)",
+    "status": "candidate",
+    "source": "2026-10-14"
+   },
+   "chips": {
+    "native": "not in the book",
+    "formula": "candidate: set operations",
+    "status": "candidate",
+    "source": "2026-10-14"
+   },
+   "cells": {
+    "native": "writer",
+    "formula": "DNMT, on SAM (author, 2026-10-14)",
+    "status": "candidate",
+    "source": "PHY-040"
+   }
+  },
+  {
+   "id": "eraser",
+   "name": "Eraser (kinetic half)",
+   "definition": "What frees the surface; the Landauer step.",
+   "cosmos": {
+    "native": "kinetic half: dark energy",
+    "formula": "informational pressure on the horizon, driving expansion; K = |V|/2",
+    "status": "conjecture",
+    "source": "Part VII, virial partners"
+   },
+   "qubits": {
+    "native": "not in the book",
+    "formula": "candidate: relaxation to |0> (T1) and active reset",
+    "status": "candidate",
+    "source": "2026-10-14"
+   },
+   "chips": {
+    "native": "not in the book",
+    "formula": "candidate: reset of an unknown bit (CMOS erases at almost every gate)",
+    "status": "candidate",
+    "source": "Ch. CMOS"
+   },
+   "cells": {
+    "native": "eraser",
+    "formula": "TET, on O2 and 2-oxoglutarate (author, 2026-10-14)",
+    "status": "candidate",
+    "source": "PHY-040"
+   }
+  },
+  {
+   "id": "virial",
+   "name": "Virial partition",
+   "definition": "The two halves are equal: 2K + V = 0.",
+   "cosmos": {
+    "native": "virial theorem; coupling",
+    "formula": "2K + V = 0; beta_m = Omega_m / 2 = 0.15765",
+    "status": "derived",
+    "source": "App. E #49, #28"
+   },
+   "qubits": {
+    "native": "none",
+    "formula": "open",
+    "status": "open",
+    "source": ""
+   },
+   "chips": {
+    "native": "none",
+    "formula": "open",
+    "status": "open",
+    "source": ""
+   },
+   "cells": {
+    "native": "equal halves of the loss",
+    "formula": "E_hold = ln D - ln 2 (removing the eraser halves the copy error)",
+    "status": "candidate",
+    "source": "DEV_ERASE_01.md"
+   }
+  },
+  {
+   "id": "ratio_R",
+   "name": "Virial ratio R",
+   "definition": "Total against the kinetic half; 2 at equilibrium.",
+   "cosmos": {
+    "native": "R(a)",
+    "formula": "R(a) = Omega_m a^-3 / [beta_m E(a)]: 399 (z 2), 19.8 (z 0.7), 5.9 (z 0.3), 2 today",
+    "status": "derived",
+    "source": "App. E #71, #72"
+   },
+   "qubits": {
+    "native": "none",
+    "formula": "candidate: total gate-error loss / reset loss, from an error budget",
+    "status": "candidate",
+    "source": ""
+   },
+   "chips": {
+    "native": "none",
+    "formula": "open",
+    "status": "open",
+    "source": ""
+   },
+   "cells": {
+    "native": "R",
+    "formula": "(writer + eraser loss) / eraser loss: 1.90 (1.61-2.76 over the writer's range), after the fact",
+    "status": "candidate",
+    "source": "development"
+   }
+  },
+  {
+   "id": "clock",
+   "name": "Clock x",
+   "definition": "The variable the record accumulates against.",
+   "cosmos": {
+    "native": "scale factor",
+    "formula": "a (a = 1 today)",
+    "status": "derived",
+    "source": ""
+   },
+   "qubits": {
+    "native": "none",
+    "formula": "open",
+    "status": "open",
+    "source": ""
+   },
+   "chips": {
+    "native": "generation (node)",
+    "formula": "n",
+    "status": "derived",
+    "source": "App. E #480"
+   },
+   "cells": {
+    "native": "none",
+    "formula": "open",
+    "status": "open",
+    "source": ""
+   }
+  },
+  {
+   "id": "activation",
+   "name": "Activation E(x)",
+   "definition": "How the record builds up against the clock.",
+   "cosmos": {
+    "native": "activation function",
+    "formula": "E(a) = exp(1 - 1/a) = e^-z; E(0)=0, E(1)=1, E(inf)=e",
+    "status": "derived",
+    "source": "App. E #121, #181, #242"
+   },
+   "qubits": {
+    "native": "none",
+    "formula": "open",
+    "status": "open",
+    "source": ""
+   },
+   "chips": {
+    "native": "step series to the floor",
+    "formula": "n_floor = ln R / -ln(1-s); Dennard: 64.6 % per node, 29.3 % at fixed voltage",
+    "status": "derived",
+    "source": "App. E #480"
+   },
+   "cells": {
+    "native": "none",
+    "formula": "open",
+    "status": "open",
+    "source": ""
+   }
+  },
+  {
+   "id": "fidelity",
+   "name": "Fidelity ratio A",
+   "definition": "Reading over reference (App. E #501, #502).",
+   "cosmos": {
+    "native": "not defined in the book",
+    "formula": "candidate: R(a)/2 (1 at equilibrium) or E(a) (1 today)",
+    "status": "candidate",
+    "source": ""
+   },
+   "qubits": {
+    "native": "qubit gauge",
+    "formula": "A = eps / eps_as-built, eps = -ln(1 - p_2Q)",
+    "status": "derived",
+    "source": "App. E #470"
+   },
+   "chips": {
+    "native": "chip gauge",
+    "formula": "A = E_sw / E_sw,as-built",
+    "status": "derived",
+    "source": "Ch. chips"
+   },
+   "cells": {
+    "native": "IAM-A and Met-A",
+    "formula": "IAM-A = H(eps)/(P H(eps0)); Met-A = reading / healthy of the same kind",
+    "status": "derived",
+    "source": "Part VI"
+   }
+  },
+  {
+   "id": "wall",
+   "name": "Saturation event (the wall)",
+   "definition": "Where the regime changes when the surface fills.",
+   "cosmos": {
+    "native": "collapse to a black hole",
+    "formula": "Chandrasekhar 1.44 M_sun, TOV about 2.3 M_sun; M_eq = c^3/4GH = 2.3e22 M_sun",
+    "status": "derived",
+    "source": "App. E #518"
+   },
+   "qubits": {
+    "native": "coherence wall",
+    "formula": "coherence optimum on one material (form only)",
+    "status": "conjecture",
+    "source": "Ch. Coherence walls"
+   },
+   "chips": {
+    "native": "Dennard wall (2004-06)",
+    "formula": "a Boltzmann wall: (k_B T/q) ln10",
+    "status": "derived",
+    "source": "Ch. CMOS"
+   },
+   "cells": {
+    "native": "breach and the cancer region",
+    "formula": "to be measured; a Warburg line is a conjecture (PROC-WARBURG-01 class era: P1, P3 not met)",
+    "status": "open",
+    "source": "Part VI; manifest"
+   }
+  },
+  {
+   "id": "no_return",
+   "name": "Point of no return",
+   "definition": "Past it, the record cannot be restored.",
+   "cosmos": {
+    "native": "event horizon",
+    "formula": "r_s = 2GM/c^2",
+    "status": "derived",
+    "source": ""
+   },
+   "qubits": {
+    "native": "above threshold",
+    "formula": "adding qubits makes errors grow instead of shrink",
+    "status": "derived",
+    "source": "Ch. qubits"
+   },
+   "chips": {
+    "native": "none",
+    "formula": "open",
+    "status": "open",
+    "source": ""
+   },
+   "cells": {
+    "native": "not measured",
+    "formula": "DEV-BREACH-01: not visible at the precancer stage; candidate: writing outruns the eraser on the islands",
+    "status": "candidate",
+    "source": "DEV_BREACH_01.md"
+   }
+  }
+ ]
+}

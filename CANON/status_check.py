@@ -166,6 +166,10 @@ if _cn.returncode: fail.append("[cell_names] " + ((_cn.stdout + _cn.stderr).stri
 _bc = subprocess.run([sys.executable, "CANON/box_code_check.py"], capture_output=True, text=True)
 if _bc.returncode: fail += ["[box_code] " + l.strip() for l in (_bc.stdout + _bc.stderr).split("\n") if l.strip() and not l.startswith("box_code_check:")] or ["[box_code] the check could not run"]
 
+# Four-domain schematic (author, 2026-10-14): FOUR_DOMAINS.md generated from CANON/four_domains.json, never by hand
+_fd = subprocess.run([sys.executable, "CANON/four_domains.py", "--check"], capture_output=True, text=True)
+if _fd.returncode: fail.append("[four_domains] " + ((_fd.stdout + _fd.stderr).strip().split("\n")[-1] or "the check could not run"))
+
 # Atlas v2.1 release checklist (author, 2026-10-14): generated, never by hand; any v2.1 release script must ask --ready before uploading
 _rl = subprocess.run([sys.executable, "CANON/v21_release.py", "--check"], capture_output=True, text=True)
 if _rl.returncode: fail.append("[v21_release] " + ((_rl.stdout + _rl.stderr).strip().split("\n")[-1] or "the check could not run"))
