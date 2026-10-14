@@ -1,0 +1,60 @@
+{
+ "_rule": "Every output the v2.1 fit saves, declared 2026-10-14 before any block is fitted (readiness L9). Written by atlas_block_v21.write_block per block and by run_v21.sh at the end. Nothing else is produced by the fit; anything derived later is computed from these.",
+ "per_block": {
+  "block_NNNNN.parquet": {
+   "rows": "one per (cell, CpG)",
+   "columns": {
+    "cell": "cell-type name verbatim (Loyfer and Moss names; final_samples_v21.csv)",
+    "cpg": "array probe id",
+    "n_obs": "observations entering this cell and CpG; 0 = NOT MEASURED (every other column NaN)",
+    "mu": "posterior mean of the cell's methylation at this CpG",
+    "mu_sd": "posterior sd",
+    "mu_lo": "2.5th percentile",
+    "mu_hi": "97.5th percentile",
+    "donor_sd": "posterior mean of the healthy donor-to-donor spread",
+    "rhat": "split R-hat of mu (4 chains)",
+    "ess": "effective sample size of mu"
+   }
+  },
+  "block_NNNNN_draws.npz": {
+   "draws": "K = 100 thinned posterior draws of mu, float16, shape (K, cells, CpGs); NaN where NOT MEASURED",
+   "sd_draws": "the same 100 draws of the donor spread",
+   "chain": "the chain (0-3) of each saved draw",
+   "cells": "cell names, in the array order",
+   "cpg": "CpG ids, in the array order"
+  },
+  "block_NNNNN_prior.parquet": {
+   "cpg": "CpG id",
+   "nu": "posterior mean of the shared logit mean across cells",
+   "tau": "posterior mean of the across-cell spread"
+  },
+  "block_NNNNN_warnings.json": {
+   "divergences": "total",
+   "divergences_per_chain": "list of 4",
+   "accept_prob_mean": "mean acceptance",
+   "draws_at_max_tree_depth": "count at depth 8",
+   "wall_s": "fit time",
+   "loci": "CpGs",
+   "cells": "cells",
+   "seed": "1000 + block",
+   "mode": "v21",
+   "K": "saved draws",
+   "rhat_p99": "99th percentile R-hat",
+   "ess_p01": "1st percentile ESS"
+  }
+ },
+ "per_run": {
+  "stageB_v21_summary.json": "blocks, loci, divergences, worst R-hat and ESS, per-cell measured fraction, v2's distinctness gate",
+  "distinctness_v21.csv": "every cell pair's mean |difference| and r on shared measured CpGs",
+  "run_v21.log": "start, per-block result lines, end",
+  "logs/block_N.log": "one per block"
+ },
+ "fixed_inputs_saved_with_the_release": {
+  "transfer_v21_final.json": "the bounded transfer (42 knots), its measured cell scatter, every array laboratory's offset d. Laboratory terms are FIXED per source, not per site (decision 16 tested and not adopted, labterms_synthetic_v21.py)",
+  "final_samples_v21.csv": "every sample, its cell and source",
+  "seeds": "1000 + block, blocks = np.array_split of the sorted locus list into 700"
+ },
+ "derived_after_the_fit_not_saved_by_it": {
+  "posterior_predictive": "for any sample, draws of its expected reading follow from the saved mu and donor-spread draws and the fixed terms, so they are computed after the fit from these files rather than stored"
+ }
+}
