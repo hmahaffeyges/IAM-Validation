@@ -1,0 +1,3 @@
+DEV-ERASE-01 synthetic test (synthetic_erase_01.py), run once
+planted 0.032 -> Stage Q eps 0.02904; planted 0.016 -> 0.01519
+ratio 0.5232 (expected from counting 0.517; bar 0.45-0.55): BAR MET

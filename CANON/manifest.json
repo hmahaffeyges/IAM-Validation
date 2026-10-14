@@ -7544,9 +7544,9 @@
     "DEV-FIELD-01 field vs tumor (GSE287331, spent)"
    ],
    "data_status": "to_scout",
-   "record": "TODO.md",
-   "status": "planned",
-   "next_step": "Search TET-knockout sets and declare them spent (TODO H3, S); then write the design with bars first.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
+   "status": "designed",
+   "next_step": "Metadata-only search for TET-loss and IDH-mutant single-molecule sets with same-lab controls; declare them spent; then read once by the sealed rule.",
    "cost": "search",
    "impact": 3,
    "depends_on": [
@@ -7557,7 +7557,7 @@
    "legacy_ids": [
     "H3"
    ],
-   "notes": "No DEV_ERASE_01.md exists in the repo; the gap is defined in Biological_Physics/MethylPhys/doors/DEV_WRITER_01_OUTCOME.md. The 'missed restores on newly copied strands' route is HYP-SATURATION-01 falsifier 7 (DEV_METHIONINE_01 correction note).",
+   "notes": "No DEV_ERASE_01.md exists in the repo; the gap is defined in Biological_Physics/MethylPhys/doors/DEV_WRITER_01_OUTCOME.md. The 'missed restores on newly copied strands' route is HYP-SATURATION-01 falsifier 7 (DEV_METHIONINE_01 correction note).; 2026-10-14 sealed as the test of the author's write-half / erase-half reading: ratio 0.40-0.60 MET, >= 0.85 NOT MET",
    "runs": [],
    "id": "PHY-006",
    "sources_of_row": [
@@ -24962,7 +24962,7 @@
    "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "idea",
    "runs": [],
-   "next_step": "Source both energies per site (C5-cytosine methyl transfer; the TET erase cycle); write the relation and its bar with the author before computing.",
+   "next_step": "Tested by DEV-ERASE-01 (PHY-006, sealed 2026-10-14); a physical reason why writing and erasing are the virial K and Q is still to be derived.",
    "cost": "laptop (literature)",
    "impact": 5,
    "depends_on": [],

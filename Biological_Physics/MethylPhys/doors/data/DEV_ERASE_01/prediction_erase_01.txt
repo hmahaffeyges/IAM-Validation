@@ -1,0 +1,11 @@
+DEV-ERASE-01 prediction (prediction_erase_01.py), computed before any data set is searched
+equal halves (author): ratio 0.508, eps with the eraser removed 0.0163
+virial 2:1 (eraser = 2 x writer): ratio 0.341, eps with the eraser removed 0.0109
+virial 1:2 (eraser = writer / 2): ratio 0.674, eps with the eraser removed 0.0216
+no eraser share: ratio 1.000, eps with the eraser removed 0.0320
+writer alone at D 47.4: eps 0.0207 (ratio to 0.032: 0.646)
+writer alone at D 63.7: eps 0.0155 (ratio to 0.032: 0.483)
+writer alone at D 80.0: eps 0.0123 (ratio to 0.032: 0.386)
+holding with equal halves over the writer's range (ln D - ln 2): 3.17-3.69 kT; measured 3.41 kT
+RULE (fixed now): MET if the eraser-removed / same-lab-control copy-error ratio is within 0.40-0.60 (excludes the virial 2:1 at 0.341
+and 1:2 at 0.674); NOT MET if 0.85 or above (no change: the extra loss is not erasure); anything else INCONCLUSIVE.
