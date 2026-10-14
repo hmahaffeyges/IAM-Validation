@@ -362,7 +362,7 @@
   {
    "id": "halves",
    "name": "The two halves",
-   "definition": "Author's rule (2026-10-14): kinetic does the work, potential fills the space. Kinetic = the writing of the information (informational pressure), which drives expansion and needs new room to keep the balance; potential = what goes into the fabric and fills it. The two are equal (the virial half).",
+   "definition": "Author's rule (2026-10-14): kinetic does the work, potential fills the space. Kinetic = the writing of the information (informational pressure), which drives expansion and needs new room to keep the balance; potential = what goes into the fabric and fills it. The two are equal (the virial half). Both halves exist only AFTER the write (author, 2026-10-14): nothing is paid before the Landauer crossing, and every bit written splits its cost equally between potential (stored, filling the surface) and kinetic (the work), however many zeros are written.",
    "cosmos": {
     "native": "geometric (potential) and informational (kinetic) halves",
     "formula": "potential half: into the fabric of spacetime, filling 'empty' space (S_geo; detected as dark matter). Kinetic half: the writing of the records, the Landauer cost on the horizon (S_info), informational pressure driving expansion (the book's dark energy with the vacuum baseline)",
@@ -370,8 +370,8 @@
     "source": "p7_05b sec:vp_partition; p2_02 sec:vc_coupling; p4_14 sec:qr_virial"
    },
    "qubits": {
-    "native": "superposition (potential) and the decoherence write (kinetic) (author, 2026-10-14)",
-    "formula": "potential: the superposition itself, possibility not yet actualized, carrying the drive, on the far side of the Landauer boundary (author). Kinetic: decoherence crosses the boundary and writes the outcome onto the substrate, 'the environment acquiring records' (p3_07, after Zurek 2003). What is written is binary: at most one bit per qubit (Holevo bound), in the pointer basis set by the coupling (energy for a transmon), copied redundantly into the environment; the amplitudes are never written",
+    "native": "the two halves of each decoherence write (author, 2026-10-14)",
+    "formula": "before decoherence there is no record and no half is paid; the superposition is not a half. At decoherence the qubit writes its outcome onto the substrate ('the environment acquiring records', p3_07, after Zurek 2003), and that bit's cost splits equally: potential, held in the substrate record; kinetic, the work (heat). What is written is binary, at most one bit per qubit (Holevo bound), in the pointer basis the coupling sets, copied redundantly",
     "status": "candidate",
     "source": "p3_07 'Two entries per event'; p5_01 (barrier and substrate as the encoding surface, \\interp); p5_02_xqp"
    },
@@ -563,9 +563,9 @@
     "tag_in_book": "none"
    },
    "cells": {
-    "native": "R",
-    "formula": "(writer + eraser loss) / eraser loss: 1.90 (1.61-2.76 over the writer's range), after the fact",
-    "status": "candidate",
+    "native": "not measured",
+    "formula": "under the halves rule R = potential/kinetic = 2 per bit at every write (if the rule holds); no cell quantity measures it yet. NOT the 1.90 computed earlier: that is the writer-to-eraser loss balance (total loss / eraser loss), DEV-ERASE-01's quantity, a different ratio",
+    "status": "open",
     "source": "development"
    }
   },
