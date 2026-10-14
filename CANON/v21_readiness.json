@@ -67,9 +67,18 @@
    "stage": "before_launch",
    "what": "Sex inferred from X/Y probes for every build array and recorded",
    "files": [
-    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sex_v21.csv"
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/identity_check_v21_sex.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/identity_check_v21_sex_vs_metadata.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/identity_check_v21_summary.txt"
    ],
-   "checks": {},
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/identity_check_v21_summary.txt",
+      "bar holds"
+     ]
+    ]
+   },
    "manifest": [
     "ATL-013"
    ]
@@ -411,7 +420,7 @@
    "stage": "box_first",
    "what": "Held-out arrays downloaded and through Stage 1, checksummed (after the split is sealed, before any scoring)",
    "files": [
-    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/held_out_stage1_v21_manifest.csv"
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/identity_v21_arrays.csv"
    ],
    "checks": {},
    "manifest": [

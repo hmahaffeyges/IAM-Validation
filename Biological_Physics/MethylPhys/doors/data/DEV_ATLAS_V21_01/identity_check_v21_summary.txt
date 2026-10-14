@@ -1,0 +1,6 @@
+arrays 2269 (build 472, held-out 1797) | pairs compared 2,573,046
+sex: {'M': 1125, 'F': 1087, 'UNRESOLVED': 57}
+bar check: 99.9th percentile of pairs not called same person 0.623; gap to 0.90 0.277 -> bar holds
+same-person pairs 46763 | inside one series 46748 | across series 15
+held-out arrays that are the same person as a build array (rule 4a, leave the held-out set): 0
+build pairs across series (rule 4b, counted as one donor): 0

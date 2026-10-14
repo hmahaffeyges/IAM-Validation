@@ -16,6 +16,23 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_build_samples.csv",
     "Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py"
    ]
+  },
+  {
+   "job_id": "0b3c06e8-7928-4ea3-a4a0-ea1b54ac0828",
+   "name": "Atlas v2.1 identity (L5, B2)",
+   "date": "2026-10-13",
+   "commit": "de0d26af",
+   "s3_code_prefix": "results/ATLAS_V21/identity/code/",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_identity_box.py",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py",
+    "Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_build_samples.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_heldout_samples.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sealed_split_v21_02.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/E-MTAB-2145.sdrf.txt",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/E-MTAB-4957.sdrf.txt"
+   ]
   }
  ],
  "not_jobs": {

@@ -164,3 +164,13 @@ is committed here (`stage1_v21_manifest.csv`). 37 arrays read below v2's quality
 as v2's did. The job's exit code 127 came from a log-copy step after the work (the box has no `aws` command); the work itself completed
 and wrote its DONE marker. Next: sex (L5), genotype across build and held-out arrays (the same-donor check), twin tests (L6), source terms (L7).
 
+**Identity job on the box, run once (2026-10-13; `box/v21_identity_box.py`, code published to S3 before any work).** The 472 build arrays
+recalibrated with their SNP-probe values were identical to the Stage 1 shards on every array (the new option changes nothing); the 1,797
+sealed held-out arrays were fetched, calibrated (none failed) and stored with checksums, and every raw IDAT is in S3
+(`results/ATLAS_V21/raw/`); none was scored. The sex and same-donor check (`identity_check_v21.py`, committed before the results were read)
+then gave: the genotype bar holds (different people reach at most 0.623 concordance at the 99.9th percentile, against the 0.90 bar);
+**no held-out array is the same person as any build array**, so seal 2 stands with nothing removed; no build donor appears in two series.
+Sex: 1,125 male, 1,087 female, 57 unresolved (flagged). The metadata comparison that rule c names was added after the run
+(`identity_sex_metadata_v21.py`; rule c only flags): 1,457 of 1,477 agree, 20 disagree and are flagged, one of them a GSE146552 build
+array (a female tissue called male), which is checked under that set's condition (decision 10).
+
