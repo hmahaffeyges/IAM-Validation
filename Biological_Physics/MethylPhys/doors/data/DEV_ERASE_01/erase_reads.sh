@@ -4,6 +4,7 @@
 # files removed. A sample whose JSON is already in S3 is skipped (resume). Same tool versions as the cause test (session_epiqc.sh).
 set -uo pipefail
 B=methylphys-data-945451304272-us-west-2-an; P=results/DEV_ERASE_01/reads; S=/mnt/scratch/run2; W=$S/erase01; mkdir -p $W/fq $W/bam $W/pat; T=$(nproc)
+SRA=/mnt/erase/sra; mkdir -p $SRA
 PYB=/home/ubuntu/env/bin/python; HERE=$PWD
 export PATH=$S/e_st19/bin:$S/e_wgbs/bin:$S/e_bm/bin:$S/e_sra/bin:$S/e_sbb/bin:$S/wgbs_tools:$PATH
 log(){ echo "$(date -u +%FT%TZ) $*" | tee -a $HERE/erase_reads.log; }
@@ -15,8 +16,12 @@ for gsm in $(tail -n +2 erase_samples.csv | cut -d, -f3 | awk '!s[$0]++'); do
   gen=$(grep ",$gsm," erase_samples.csv | head -1 | cut -d, -f5); [ "$gen" = "hg19" ] && REF=$S/ref/hg19_lambda_puc19.fa || REF=$S/ref/mm10.fa
   T0=$(date +%s); rm -f $W/fq/*; i=0
   $PYB erase_blocks.py erase_samples.csv $gsm > $W/${gsm}_blocks.txt
-  while read r a b; do i=$((i+1)); ( fastq-dump --split-files -N $a -X $b -O $W/fq/b$i $r > /dev/null 2>> $W/${gsm}_fetch.err ) &
-    while [ $(jobs -r | wc -l) -ge 6 ]; do sleep 5; done; done < $W/${gsm}_blocks.txt; wait
+  # 2026-10-14 run 2: each run is first copied whole from the AWS open-data copy of SRA (s3://sra-pub-run-odp) to the temporary disk, and
+  # the same blocks are cut from the local file. Run 1 read the blocks remotely from NCBI; deep blocks of large runs took hours. Blocks unchanged.
+  for r in $(cut -d' ' -f1 $W/${gsm}_blocks.txt | awk '!s[$0]++'); do mkdir -p $SRA/$r
+    $PYB -c "import boto3,sys;from botocore import UNSIGNED;from botocore.config import Config;s=boto3.client('s3',region_name='us-east-1',config=Config(signature_version=UNSIGNED,max_pool_connections=32));from boto3.s3.transfer import TransferConfig as T;[s.download_file('sra-pub-run-odp',o['Key'],sys.argv[2]+'/'+o['Key'].split('/')[-1],Config=T(max_concurrency=32,multipart_chunksize=64*2**20)) for o in s.list_objects_v2(Bucket='sra-pub-run-odp',Prefix='sra/'+sys.argv[1]+'/').get('Contents',[])]" $r $SRA/$r 2>> $W/${gsm}_fetch.err || log "$gsm $r download FAILED"; done
+  while read r a b; do i=$((i+1)); ( fastq-dump --split-files -N $a -X $b -O $W/fq/b$i $SRA/$r/$r > /dev/null 2>> $W/${gsm}_fetch.err ) &
+    while [ $(jobs -r | wc -l) -ge 10 ]; do sleep 2; done; done < $W/${gsm}_blocks.txt; wait; rm -rf $SRA/*
   cat $W/fq/b*/*_1.fastq > $W/fq/${gsm}_1.fq; cat $W/fq/b*/*_2.fastq > $W/fq/${gsm}_2.fq; rm -rf $W/fq/b*
   n1=$(awk 'END{print NR/4}' $W/fq/${gsm}_1.fq); n2=$(awk 'END{print NR/4}' $W/fq/${gsm}_2.fq); T1=$(date +%s)
   [ "$n1" = "$n2" ] && [ "$n1" -gt 0 ] || { log "$gsm FETCH FAILED pairs $n1/$n2"; continue; }
@@ -33,3 +38,5 @@ for gsm in $(tail -n +2 erase_samples.csv | cut -d, -f3 | awk '!s[$0]++'); do
   log "$gsm done pairs $n1 $(grep -m1 'mapped (' $W/../erase01/${gsm}_flagstat.txt 2>/dev/null | cut -c1-40)"
 done
 log "ALL DONE"; up erase_reads.log "$P/erase_reads.log"; up versions.txt "$P/versions.txt"
+# the verdict reads every sample's result from S3 (each local copy is removed after upload; fixed in run 2 before any verdict was computed)
+mkdir -p $HERE/results; $PYB -c "import boto3;s=boto3.client('s3',region_name='us-west-2');[s.download_file('$B',o['Key'],'results/'+o['Key'].split('/')[-1]) for p in s.get_paginator('list_objects_v2').paginate(Bucket='$B',Prefix='$P/') for o in p.get('Contents',[]) if o['Key'].endswith('_stageq.json')]"
