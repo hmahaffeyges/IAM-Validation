@@ -54,7 +54,9 @@ but small where we count, which is what item 2 below says (item 2 was written af
 ## Questions for the whiteboard
 
 1. Does "held territory reads the writer alone" match your picture? Where does the eraser live in it: only in the loose territory?
-2. What, in IAM's physics, is a loosely held domain? A region whose surface is close to saturation, or one where the writing is
+2. A fact for this one: the 0.70 threshold I used means a domain already at H = 0.88 bits per site, 88 percent of the ceiling
+   (0.80 would be 0.72 bits, 0.90 would be 0.47 bits). So "loose" is territory near saturation, and the literature has long reported
+   that these domains widen in tumors. What, in IAM's physics, is a loosely held domain? A region whose surface is close to saturation, or one where the writing is
    outrun? Your black hole picture may belong here, not at the single site.
 3. If the middle is a mix of two territories, do we still want the half-and-half as the law, or does the law become
    "the writer's limit, diluted by the design"?
