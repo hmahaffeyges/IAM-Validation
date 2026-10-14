@@ -44,7 +44,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **SCO-003** (impact 5, search) Healthy purified neutrophil arrays across donor ages (Met-A, donors 20-39): Search purified neutrophil arrays across ages, excluding every set in CANON/data_spent.csv (TODO M6).
 - [ ] **SCO-004** (impact 5, search) Held-out test set for the second-laboratory neutrophil reference (450K): Confirm healthy status, donor overlap and purity of GSE72338, then fix it as the test set, seal, read once (TODO M2, M4; CANON/next_jobs.json job 4).
 - [ ] **SCO-005** (impact 5, search) Independent adult whole blood with flow-cytometry cell counts (Met-A bar 7, EPIC v1): Assess the cord-blood caveat for GSE127824 (nucleated red cells, newborn mix); if usable, synthetic tests, seal, read (TODO M1). Ask NIEHS (Bell) for CBC differentials on the 99 GSE224807 whole-blood arrays (gold-mine map action 5).
-- [ ] **SCO-006** (impact 5, box) Neurons as the second commissioning cell: two unread test laboratories and the neuron array sets: Seal the sorted-only reference test on GSE96612 and GSE107729 controls before opening them (TODO A8); check copy error against post-mortem interval in the Yi controls first (A10); build a neuron Met-A reference by the SOP new-cell rule (A11).
+- [ ] **SCO-006** (impact 5, box) Neurons as the second commissioning cell: two unread test laboratories and the neuron array sets: Seal the sorted-only reference test on GSE96612 and GSE107729 controls before opening them (TODO A8); check held error against post-mortem interval in the Yi controls first (A10); build a neuron Met-A reference by the SOP new-cell rule (A11).
 - [ ] **SCO-007** (impact 5, search) Same-person repeat arrays for the C-score repeatability check (unspent, healthy, EPIC v1 blood): In priority order (log 2026-10-13): read sample sheets of healthy EPIC v1 blood series directly; or commission the 450K band, which makes GSE61151 usable; or accept a technical-replicate set with a declared specimen caveat (weakest).
 - [ ] **TIS-052** (impact 5, box: alignment of 301 GB of reads) Pancreatic breach design: normal duct and acini, PanIN precancer, cancer, one laboratory (GSE222147): design after atlas v2.1, bars and a planted test first; align the raw reads with the pinned box pipeline (about 2.4 Tbases, a box job) so IAM-A and Met-A read single molecules; lesions from one patient counted as one; 'normal' is adjacent tissue
 - [ ] **ATL-008** (impact 4, laptop) Atlas use U1: reference profiles on independent laboratories: Split each lead into build and held-out data before reading; verify IDATs and donor counts from files; draft bar 80-97 % of sites inside the 90 % interval.
@@ -73,14 +73,14 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **COM-CSCORE-013** (impact 4, none) C-score bars narrowly unmet: author decision on one-sided reading and absolute repeatability bar: Author decision; commit before reading.
 - [ ] **COM-CSCORE-014** (impact 4, laptop) C-score 450K band commissioning (option to unlock GSE61151 and the 450K archive): Decide between this and the EPIC v1 repeat search.
 - [ ] **COM-CSCORE-015** (impact 4, laptop) C-score scope gap: whole blood readings vs sorted-cell commissioning: Write how the scope gap is reconciled (sorted-cell band or whole-blood commissioning).
-- [ ] **COM-IAMA-019** (impact 4, laptop) IAM-A copy error in non-dividing cells: derivation and age prediction: Write the derivation note (balance section is DERIVED in the book; the age test is a PREDICTION).
+- [ ] **COM-IAMA-019** (impact 4, laptop) IAM-A held error in non-dividing cells: derivation and age prediction: Write the derivation note (balance section is DERIVED in the book; the age test is a PREDICTION).
 - [ ] **COM-IAMA-022** (impact 4, laptop) IAM-A on other-laboratory healthy neutrophils by RRBS (GSE59163): Verify GSE59163 donors and read format from its files; design (TODO A3).
-- [ ] **COM-IAMA-023** (impact 4, box) IAM-A post-mortem time check on neuron copy error: Record post-mortem interval per sample (given for 20 of 25 Yi controls) and test whether copy error follows it.
+- [ ] **COM-IAMA-023** (impact 4, box) IAM-A post-mortem time check on neuron held error: Record post-mortem interval per sample (given for 20 of 25 Yi controls) and test whether held error follows it.
 - [ ] **COM-IAMA-027** (impact 4, laptop) Met-A to IAM-A link as a standing sealed prediction: Seal a link window on EpiQC (same DNA on arrays and sequencing).
 - [ ] **COM-IAMA-028** (impact 4, laptop) Met-A to IAM-A link as a standing sealed prediction (DEV-LINK-IAMA-METAA-01): Seal a link window on EpiQC (same healthy DNA on arrays and sequencing) with A2; then one per cell-line pair using the per-territory reading (TODO A6).
-- [ ] **COM-IAMA-029** (impact 4, laptop) Neurons: copy error against post-mortem time: Check copy error against post-mortem interval in the Yi controls before trusting post-mortem neurons (TODO A10).
+- [ ] **COM-IAMA-029** (impact 4, laptop) Neurons: held error against post-mortem time: Check held error against post-mortem interval in the Yi controls before trusting post-mortem neurons (TODO A10).
 - [ ] **COM-IAMA-030** (impact 4, laptop) Per-territory IAM-A: is a newly written mark held as tightly as an old one?: Seal a prediction on MCF-7 territories before reading (TODO A5).
-- [ ] **COM-IAMA-050** (impact 4, laptop) Neurons: post-mortem time check on copy error: Check copy error against post-mortem time in the Yi controls before trusting post-mortem neurons.
+- [ ] **COM-IAMA-050** (impact 4, laptop) Neurons: post-mortem time check on held error: Check held error against post-mortem time in the Yi controls before trusting post-mortem neurons.
 - [ ] **COM-METAA-011** (impact 4, laptop) Granulocyte reference so sorted-granulocyte arrays can be read: Design the reference by the SOP new-cell rule; v2.1 rule admits granulocyte fractions as neutrophils only if CD15+/CD16+ marker-selected and passing the twin test.
 - [ ] **COM-METAA-012** (impact 4, search) Healthy Met-A across donor ages: Search for purified neutrophil EPIC v1 arrays from healthy donors across ages (independent laboratory, IDATs).
 - [ ] **COM-METAA-013** (impact 4, none) Met-A cell-by-cell commissioning roadmap (blood cells first, then breast, colon, prostate, lung, liver): Place each new cell type against the roadmap; the atlas must be commissioned as a reference source first.
@@ -167,7 +167,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **HYP-017** (impact 3, laptop) TCGA split: which cancers explore, which stay sealed: Commit before opening any.
 - [ ] **LEV-006** (impact 3, search) Clustered versus scattered failure: real-data falsifier check: Find a case where the mechanism is independently known; write bars before reading.
 - [ ] **LEV-007** (impact 3, none) Clustered versus scattered failure: synthetic test 1: Real-data check on a cancer whose mechanism is independently known.
-- [ ] **LEV-008** (impact 3, laptop) Division-rate (balance) lever: sorted neurons across age, two independent laboratories: Seal the sorted-only reference's test with its Normal band and the age bar sized by test 4, then read GSE96612 and GSE107729 once; check copy error against post-mortem time first (A10).
+- [ ] **LEV-008** (impact 3, laptop) Division-rate (balance) lever: sorted neurons across age, two independent laboratories: Seal the sorted-only reference's test with its Normal band and the age bar sized by test 4, then read GSE96612 and GSE107729 once; check held error against post-mortem time first (A10).
 - [ ] **LEV-009** (impact 3, none) Division-rate (balance) lever: synthetic test 4, age series in non-dividing cells: Read the two independent neuron laboratories under the sealed sorted-cell rule.
 - [ ] **LEV-010** (impact 3, search) DNMT1-reduced mice: a direct lever on the copier: Search for public DNMT1-reduced mouse methylomes.
 - [ ] **LEV-011** (impact 3, laptop) Erase channel on its own: IDH-mutant tumors (2-hydroxyglutarate blocks TET): Search public IDH-mutant and IDH-wild-type matched tumor sets, declare spent, write bars from test 3's erase signature, seal before reading.
@@ -175,7 +175,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **LEV-013** (impact 3, search) Methyl-donor diets (betaine or folate up or down): Search for diet studies with read-level methylation data.
 - [ ] **LEV-014** (impact 3, search) Methyl-supply lever: a design from DNMT1's SAM constant, predicted shift fixed first: Write the design from DNMT1's SAM constant with the predicted shift fixed first (TODO L3); search for restriction lasting weeks (help_wanted in next_jobs.json).
 - [ ] **LEV-015** (impact 3, search) One-species temperature test over 20 degrees C (fish water temperature): Find a one-species series over >= 20 C (~40 animals); fish keep their own application question.
-- [ ] **LEV-016** (impact 3, laptop) Passage series: copy error building with divisions (GSE268145): Design and simulate (TODO C4).
+- [ ] **LEV-016** (impact 3, laptop) Passage series: held error building with divisions (GSE268145): Design and simulate (TODO C4).
 - [ ] **LEV-017** (impact 3, none) Spontaneous chemical damage (5-methylcytosine deamination) separated from enzymatic error: Real separation needs the hibernation read.
 - [ ] **LEV-018** (impact 3, none) Temperature lever: synthetic tests 2 and 2b (the two clocks): None in simulation; run the design on hibernator tissue (same animals warm and cold).
 - [ ] **LEV-019** (impact 3, none) Write and erase enzymes: synthetic test 3, three channels (copy, de novo, erase): IDH-mutant tumors as an erase-channel block; run-length spectrum as a third reading to separate copy from de novo by shape.
@@ -194,7 +194,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **PHY-012** (impact 3, laptop) phi and the height of E_hold (open item D1): a physics-only derivation of 3.41 kT: Open after DEV-WRITER-01/-02 and DEV-FLOOR-HEIGHT-01/-02 did not fix it; candidate routes are the multi-step (proofread) gap and the loss side (H7).
 - [ ] **PHY-013** (impact 3, search) Repli-BS genome-wide rates test: does each region's isolated-error rate equal f/(f+g) from its own rates?: Find the Repli-BS and matched single-molecule data; write the prediction and bars before reading.
 - [ ] **SCO-030** (impact 3, search) Cancer cohorts with same-series healthy controls (whole-blood Met-A group comparisons, one cancer at a time): Search cancer cohorts whose arrays include healthy controls run in the same series, one cancer at a time (TODO L7; CANON/instruments.json BLOOD-METAA-LIMIT).
-- [ ] **SCO-031** (impact 3, laptop) Division-rate lever: serial-passage series (copy error with divisions): Design and simulate (TODO C4).
+- [ ] **SCO-031** (impact 3, laptop) Division-rate lever: serial-passage series (held error with divisions): Design and simulate (TODO C4).
 - [ ] **SCO-032** (impact 3, search) Erase channel alone: IDH-mutant tumors (TET chemically blocked in patients): Synthetic test first (CANON/next_jobs.json job 12), then search IDH-mutant tumor sets with matched IDH-wild-type tumors, declaring spent sets.
 - [ ] **SCO-033** (impact 3, search) Erasure or missed restores: TET-loss sequencing sets (DEV-ERASE-01, the 0.74 kT gap): Design DEV-ERASE-01, declare spent sets, bars first (TODO H3).
 - [ ] **SCO-034** (impact 3, search) Fatty liver and inflammation without the Mat1a SAM loss (separating the steatohepatitis route from the SAM route): Check liver SAM in each diet model and group sizes before any design (TODO C1).
@@ -287,7 +287,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **LEV-030** (impact 2, search) Temperature lever: birds at 40-42 C as a second line: No design yet; the 2026-10-09 bird-mammal contrast was a lineage difference (33-37 %), so any bird design needs within-lineage temperature variation.
 - [ ] **LEV-031** (impact 2, search) Temperature lever: fever or cell culture at 33/37/39 C: Search for public methylation data from fever or temperature-shifted cultures.
 - [ ] **LEV-037** (impact 2, search) Temperature lever alternatives: birds (40-42 C), fish (ambient), fever, culture at 33/37/39 C: Scout after hibernation.
-- [ ] **LEV-040** (impact 2, laptop) Division rate: passage series (copy error with divisions): Design and simulate.
+- [ ] **LEV-040** (impact 2, laptop) Division rate: passage series (held error with divisions): Design and simulate.
 - [ ] **LEV-050** (impact 2, search) Washout memory: DNMT1 degron (does the pattern come back?): Needs a lab-produced public set.
 - [ ] **OTH-003** (impact 2, laptop) 450K disease readings (antiphospholipid syndrome, rheumatoid arthritis, Parkinson's, IBD, pre-diagnosis cancer): After a 450K fix (TODO C8).
 - [ ] **OTH-004** (impact 2, ) American spelling in the book and technical notes: separate pass with every book check rerun
@@ -397,7 +397,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **HYP-012** (impact 1, search) DEV-HORIZON-01: is there a reader-independent edge of disorder, or memory? (conjecture, simulated): Degron or non-toxic inhibitor washout with single-molecule methylation at >= 3 late time points, cancer and non-cancer line; recorded for collaborators.
 - [ ] **HYP-013** (impact 1, laptop) Is there a Warburg line on the gauge? (conjecture; PROC-WARBURG-01 history): Author derivation first (TODO G2).
 - [ ] **HYP-014** (impact 1, search) Loss side of phi outside the cell: TET rates and maintenance lag from the literature: Literature search, metadata only (TODO H7, S).
-- [ ] **HYP-015** (impact 1, laptop) Neurons: the low end of the gauge: Via A8-A11 (neuron reference, copy error, post-mortem time, Met-A on neurons).
+- [ ] **HYP-015** (impact 1, laptop) Neurons: the low end of the gauge: Via A8-A11 (neuron reference, held error, post-mortem time, Met-A on neurons).
 - [ ] **HYP-016** (impact 1, search) What reads below Normal? (gauge question): Search a public senescence set with raw IDATs (TODO G3).
 - [ ] **HYP-020** (impact 1, none) A Warburg line? (conjecture): Author derivation first.
 - [ ] **LEV-047** (impact 1, search) Oxygen and redox lever: None scheduled.
@@ -475,8 +475,8 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **COM-IAMA-015** IAM-A second cell type: sorted neurons (DEV-IAMA-NEURON-01): last run 2026-10-13, progressed
 - [x] **COM-IAMA-016** IAM-A sequencing trim rule from raw-read chemistry (DEV-IAMA-TRIM-01): last run 2026-10-13, fail
 - [x] **COM-IAMA-017** IAM-A Box Run 2 session 2: another laboratory's healthy neutrophils, 2 donors x 4 kits: last run 2026-10-09, progressed
-- [x] **COM-IAMA-018** IAM-A conversion limit: how much incomplete conversion biases copy error: last run 2026-10-11, success
-- [x] **COM-IAMA-019** IAM-A copy error in non-dividing cells: derivation and age prediction: last run 2026-10-13, success
+- [x] **COM-IAMA-018** IAM-A conversion limit: how much incomplete conversion biases held error: last run 2026-10-11, success
+- [x] **COM-IAMA-019** IAM-A held error in non-dividing cells: derivation and age prediction: last run 2026-10-13, success
 - [x] **COM-IAMA-020** IAM-A neutrophil position P on whole files (DEV-IAMA-P-WHOLE-01): last run 2026-10-10, success
 - [x] **COM-IAMA-021** IAM-A on another laboratory's healthy neutrophils, and the library-kit offset (GSE128731, DEV-IAMA-KIT-01): last run 2026-10-09, progressed
 - [x] **COM-IAMA-024** IAM-A read-across-the-file sampling rule (DEV-IAMA-READACROSS-01): last run 2026-10-13, progressed
@@ -580,8 +580,8 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **PHY-022** DEV-HAMMER-01: can maintenance kinetics in the same cells predict eps0?: last run 2026-10-10, fail
 - [x] **PHY-023** DEV-HORIZON-01: a reader-independent edge of disorder, and washout memory (DNMT1 degron): last run 2026-10-09, inconclusive
 - [x] **PHY-024** DEV-SYNTH-LEVERS-01: synthetic driven-bit molecules read with Stage Q's rule: last run 2026-10-09, progressed
-- [x] **PHY-025** DEV-WRITER-01: is the held copy error the writer's single-step error (DNMT1 discrimination)?: last run 2026-10-10, fail
-- [x] **PHY-026** DEV-WRITER-02: does copy error follow DNMT1 discrimination across 256 flanking contexts?: last run 2026-10-10, fail
+- [x] **PHY-025** DEV-WRITER-01: is the held held error the writer's single-step error (DNMT1 discrimination)?: last run 2026-10-10, fail
+- [x] **PHY-026** DEV-WRITER-02: does held error follow DNMT1 discrimination across 256 flanking contexts?: last run 2026-10-10, fail
 - [x] **PHY-027** Half-law conjecture and the Mahaffey number: driving cost per site: last run 2026-10-09, fail
 - [x] **PHY-028** Lavage set 2: newer EPIC revision in Stage 1 (DEV-ATLAS-LAVAGE-02): last run 2026-10-10, inconclusive
 - [x] **PHY-035** The information sphere: geometry of healthy order (DEV-SPHERE-01): last run 2026-10-13, progressed
@@ -606,7 +606,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **TIS-036** DEV-TISSUE-LUNG-03: squamous lung tumors against own normal, same plate (TCGA-LUSC), versions 1-3: last run 2026-10-12, invalid
 - [x] **TIS-037** DEV-TISSUE-LUNG-04: lung adenocarcinoma against own normal, same plate (TCGA-LUAD): last run 2026-10-12, invalid
 - [x] **TIS-039** Earlier leukemia readings: AML progenitors (PROC-AML-PROG-01), AML serial bloods (PROC-AML-SERIAL-01, Box Run 3): last run 2026-10-09, inconclusive
-- [x] **TIS-040** PROC-TUMOUR-01: copy error in early-onset colorectal and oral tumors against own adjacent normal (WGBS): last run 2026-10-01, success
+- [x] **TIS-040** PROC-TUMOUR-01: held error in early-onset colorectal and oral tumors against own adjacent normal (WGBS): last run 2026-10-01, success
 - [x] **TIS-041** Stool route: colon-specific marker regions and colon molecules in mixtures (DEV-MOLECULE-COLON-01, DEV-COLON-BLOCKS-02, DEV-STOOL-01): last run 2026-10-02, progressed
 - [x] **TIS-043** Breast cancer cell lines MCF-7 and T47D vs breast normals (fingerprint): last run 2026-10-11, success
 - [x] **BRE-003** DEV-BREACH-01: the breach line from DCIS lesions with known outcome (GSE281307): last run 2026-10-13, fail
@@ -820,4 +820,4 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **OTH-040** BOOK-V1.0: last run 2026-10-05, success
 - [x] **ATL-057** Site exclusion register, layer 1: probes with no atlas site, and the chain refusing them: last run 2026-10-13, progressed
 - [x] **ATL-059** Array-only sites in the fit: posteriors where only arrays measured a site (decision needed): last run 2026-10-13, progressed
-- [x] **PHY-041** Each healthy cell type's copy error from eraser/writer RNA (DEV-POSITION-EXPR-01): last run 2026-10-14, fail
+- [x] **PHY-041** Each healthy cell type's held error from eraser/writer RNA (DEV-POSITION-EXPR-01): last run 2026-10-14, fail

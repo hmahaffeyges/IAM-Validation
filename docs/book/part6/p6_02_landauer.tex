@@ -181,7 +181,7 @@ lives.
 
 \paragraph{The holding energy, measured on molecules.}\label{sec:p4holding} The same quantity can be read directly on single DNA molecules.
 On read-level whole-genome bisulfite data from a public atlas of sorted healthy human cells~\cite{Loyfer2023}, 153 of its 205 samples
-grouped here into 56 cell types (the atlas paper groups its 205 samples into 39), the copy error $\varepsilon$
+grouped here into 56 cell types (the atlas paper groups its 205 samples into 39), the held error $\varepsilon$
 (an unmethylated CpG isolated between methylated neighbors, on molecules that are otherwise methylated) gives, through
 $E_{\rm hold}=\kB T\ln[(1-\varepsilon)/\varepsilon]$, a holding energy of $3.41\pm0.12\,\kB T$ per site, range 3.13--3.71, in
 every cell type. \measured{} In Landauer units that is $3.41/\ln2=4.92$. \calc{} As a fraction of one ATP it is
@@ -206,16 +206,16 @@ sites lost equal the sites restored, $(1-\varepsilon)f=\varepsilon g$:
   \varepsilon=\frac{f}{f+g},\qquad \frac{1-\varepsilon}{\varepsilon}=\frac{g}{f},\qquad E_{\rm hold}=\kB T\ln\frac{g}{f}.
   \label{eq:balance}
 \end{equation}
-\derived{} The interval does not have to be a division. In a dividing cell much of the loss happens when the DNA is copied, as the copying
-enzyme misses a site on the new strand; in a cell that has stopped dividing, loss and restore are the cell's upkeep, marks removed and
-written again in place. Equation~\eqref{eq:balance} is the same in both: the copy error is set by the ratio of restore to loss, not by how
-many times the DNA has been copied. \derived{} ``Copy error'' therefore names what is read, an isolated error in the held pattern, and not
-how it was written.
+\derived{} The interval is not a division. Loss and restore go on in place in every cell, dividing or not: marks are written (DNMT on SAM)
+and erased (TET on oxygen and 2-oxoglutarate) at the held sites, and neurons, which do not divide, hold the same balance.
+Equation~\eqref{eq:balance} is that balance: the held error is set by the ratio of restore to loss, not by how many times the DNA has been
+copied. \derived{} What is read is the \emph{held error}, an isolated error in the held pattern; the older name ``copy error'' is retired
+(Appendix~\ref{app:glossary}).
 
 What the interval does set is how fast a site reaches that balance. From any starting state, the distance from steady state shrinks by a
 factor $1-f-g$ per interval, so the balance is reached in about $1/(f+g)$ intervals. \derived{} In a dividing tissue that is a few divisions;
 in a cell that no longer divides, it is the time its upkeep rates set. One consequence can be tested: in a cell type whose upkeep has reached
-its balance, the copy error does not rise with age, and a rise would mean the rates themselves change with age. \prediction{} Neurons, which
+its balance, the held error does not rise with age, and a rise would mean the rates themselves change with age. \prediction{} Neurons, which
 stop dividing early in life, are where this is tested (Chapter~\ref{ch:open}). What sets $g/f$ in each cell type, and so the measured
 $3.41\,\kB T$, is open. \openprob
 

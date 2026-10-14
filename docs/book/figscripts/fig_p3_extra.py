@@ -3,8 +3,8 @@ Every number is computed here from physical constants (scipy.constants) or from 
   CANON/iam_canon.json                                  (E_hold_meth = 3.41 kT, P_neutrophil_IAM_A = 1.1492, whole files)
   Hughes et al. arXiv:2510.17286 and Ransford et al. arXiv:2511.05465 (abstract values, typed with the sentence quoted)
   Jin et al. PRL 114, 240501 (2015) (transmon effective temperature 35 mK); Google Quantum AI, Nature 638, 920 (2025) (mean T1 = 68 us)
-  Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md (per-patient copy errors, parsed)
-  Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv (per-library copy errors)
+  Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md (per-patient held errors, parsed)
+  Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv (per-library held errors)
 Values typed below are only those printed in the chapter text (Delta_Al = 182 ueV of p3_01; the transmon worked reading of p3_03), each
 with its chapter in a comment.
 p3_01 tab_T1_xqp       : T1^qp from Catelani's rate (Eq. eq:catelani) at 4 and 5 GHz, and the simpler x_qp*omega estimate.
@@ -173,7 +173,7 @@ for e, a_, lab_ in ((e0m, 1 / P, f"healthy reference $H_{{\\rm ref}}$: $\\vareps
     ax.annotate(lab_, (e, a_), xytext={0: (10, -12), 1: (10, 10), 2: (-150, 4)}[[e0m, e_h, 0.5].index(e)], textcoords="offset points", fontsize=6.5)
 print(f"healthy eps {e_h:.4f}; H_ref A {1/P:.3f}; full A {1/(P*Hf):.3f}")
 ax.axhspan(0.95, 1.05, color=S.ALT, alpha=0.15, lw=0)
-ax.set_xlabel(r"copy error per site per copy $\varepsilon$"); ax.set_ylabel(r"IAM-A $=H(\varepsilon)/(P\,H(\varepsilon_0))$")
+ax.set_xlabel(r"held error per site $\varepsilon$"); ax.set_ylabel(r"IAM-A $=H(\varepsilon)/(P\,H(\varepsilon_0))$")
 ax.set_xlim(0, 0.52); ax.set_ylim(0, 4.9)
 ax.set_title("The cell gauge: healthy at 1, full surface right; the floor is off the left edge")
 fig.tight_layout(); S.save(fig, "part3", "fig_cell_gauge")

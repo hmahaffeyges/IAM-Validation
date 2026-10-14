@@ -330,6 +330,16 @@ for f in _all25:
         if l.startswith("+") and not l.startswith("+++") and _DIV25.search(l) and not _OK25.search(l):
             fail.append(f"{f}: makes division a term of the held error ('{_DIV25.search(l).group(0)}'); the balance is independent of division (rule 25): {l[1:120].strip()}")
 
+# 26. "Copy error" is a retired term (author 2026-10-14: "amend the glossary definition of copy error, to say that it is NOT what we measure
+# in IAM or what determines the A score ... so you dont keep forgetting"; glossary 'Copy error (retired term)', foundation copy_error_term).
+# What is read is the HELD error: the error of the write-erase balance at the held sites. A line ADDED in this push may not use the old
+# name, except a line that says it is retired. Dated records already written are not touched.
+_CE26 = re.compile(r"(?i)\bcopy[- ]errors?\b"); _OK26 = re.compile(r"(?i)retired|formerly called|older name")
+for f in _all25:
+    for l in git("diff", base, "HEAD", "--", f).split("\n"):
+        if l.startswith("+") and not l.startswith("+++") and _CE26.search(l) and not _OK26.search(l):
+            fail.append(f"{f}: uses the retired term 'copy error'; write 'held error' (rule 26): {l[1:120].strip()}")
+
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
 print(f"repro_check: ok ({len(changed)} note(s) changed in this push)")

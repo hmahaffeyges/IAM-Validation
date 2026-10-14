@@ -32,7 +32,7 @@ trapped ion, Rydberg decay in a neutral atom, two-level fluctuators in a transmo
 replication), and each field writes its thresholds in its own units.
 \begin{center}\small\begin{tabular}{p{0.11\textwidth}p{0.24\textwidth}p{0.22\textwidth}p{0.29\textwidth}}\toprule
 score & reading & healthy reference ($A=1$) & $H_{\min}$ (on the gauge)\\\midrule
-IAM-A & copy error, $H(\varepsilon)$ & $P_{\rm cell}H(\varepsilon_0)$ & $H(1/(1+e^{M}))=2.5\times10^{-8}$ bits; neutrophils at $1\times10^{-7}$\\
+IAM-A & held error, $H(\varepsilon)$ & $P_{\rm cell}H(\varepsilon_0)$ & $H(1/(1+e^{M}))=2.5\times10^{-8}$ bits; neutrophils at $1\times10^{-7}$\\
 Met-A & $\langle H(\beta)\rangle$ at identity sites & purified healthy cells, same platform & the same floor; neutrophils at $8\times10^{-8}$\\
 C-score & clustering of the residual map & healthy median clustering & ---\\
 qubit gauge & $\varepsilon=-\ln(1-p_{2Q})$ & the device as built & thermal floor $p_{\rm eq}t_g/T_1$ (transmon reading: $6\times10^{-4}$)\\
@@ -62,12 +62,12 @@ Each row has its own log scale, centred on 1.}\label{fig:onegauge}\end{figure}
 
 \paragraph{Where $H_{\min}$ comes from.} For the cell, the form of the floor is IAM's Law: a holding energy $E_{\rm hold}$ against $k_BT$ allows
 an error $\varepsilon_0=1/(1+e^{E_{\rm hold}/k_BT})$. Its height is at present measured: $E_{\rm hold}=\varphi M=3.41\,k_BT$ is read from the cells' own
-copy error, read on the sorted-cell sequencing of the methylation atlas~\cite{Loyfer2023} (Chapter~\ref{ch:iama}), so $\varepsilon_0=0.032$ is the measured error expressed through the Boltzmann form, as a thermometer whose zero was set by a measurement
+held error, read on the sorted-cell sequencing of the methylation atlas~\cite{Loyfer2023} (Chapter~\ref{ch:iama}), so $\varepsilon_0=0.032$ is the measured error expressed through the Boltzmann form, as a thermometer whose zero was set by a measurement
 rather than by absolute zero. Three routes would make it absolute: the copying enzyme's own discrimination energy, $k_BT\ln(\text{selectivity})$ of
 DNMT1 measured precisely in vitro (published values bracket $1.9$--$4.4\,k_BT$~\cite{Pradhan1999,Goyal2006,Adam2023}); a derivation of $\varphi$, the fraction of one ATP spent per held bit,
 from the maintenance chemistry, since $M=20.94$ is already set by ATP; and the temperature test in ectotherms, where a fixed holding energy predicts a
 different error at 10\,$^\circ$C than at 37\,$^\circ$C. That test is the next step: the fish read so far (Section~\ref{sec:og_temperature})
-tracked a library-quality term, and the copy error depends on the read pipeline, so the test needs one species at two recorded temperatures on one
+tracked a library-quality term, and the held error depends on the read pipeline, so the test needs one species at two recorded temperatures on one
 pipeline \openprob. For the
 chip, $H_{\min}$ is the law itself. For the qubit it is the same law at the temperature the qubit itself sees: the occupation
 $1/(1+e^{hf/\kB T})$ of the wrong level, with the same form as the cell's $\varepsilon_0$, and per gate $p_{\rm eq}t_g/T_1$
@@ -90,7 +90,7 @@ purified healthy profiles $\mu_c$; no group of other people enters. The reading 
 $A_{\rm rel}=A/\mathrm{median}(A_{\rm ref})$; nothing is fitted. The array's own noise index $N$, the mean $H(\beta)$ over the sites every
 blood cell holds fixed, is checked against the references' range, and if it falls outside, the gauge state is withheld. The gauge is read on
 $A_{\rm rel}$, and each reading states the smallest loss of the cell's pattern that specimen could have shown.
-\paragraph{IAM-A} (single molecules) reads the copy error directly: $\varepsilon$ is the rate of an isolated unmethylated call between two
+\paragraph{IAM-A} (single molecules) reads the held error directly: $\varepsilon$ is the rate of an isolated unmethylated call between two
 methylated calls, on molecules with at least 6 CpGs and at least 80\,\% methylated, on the methylated channel only. $P_{\rm cell}$ is valid only for the read-level pipeline it was measured on; a different pipeline needs its own healthy measurement first.
 \begin{equation}\text{IAM-A}=\frac{H(\varepsilon)}{P_{\rm cell}\,H(\varepsilon_0)},\qquad \varepsilon_0=\frac{1}{1+e^{\varphi M}}=0.032,\end{equation}
 with $M=20.94$, $\varphi=0.1628$ and $P_{\rm cell}$ the healthy cell's frozen position relative to the healthy reference $H_{\rm ref}=H(\varepsilon_0)$ (neutrophils $1.149$).
@@ -128,7 +128,7 @@ reported apart.
 quantum computer & cell & what is measured\\\midrule
 bit & one CpG site on one DNA copy & methylated or not\\
 intended state & the cell's identity pattern & the cell's own standard\\
-gate error (a write goes wrong) & copy error (a held site lost, at copying or in upkeep) & isolated mismatches on single reads\\
+gate error (a write goes wrong) & held error (a held site lost from the write--erase balance) & isolated mismatches on single reads\\
 $T_1$ decay (a stored bit relaxes) & erasure between divisions & region-wide loss, slow drift with age\\
 leakage / crosstalk & de novo writing where it should not & coherent gains, often at CpG islands\\
 error correction & neighboring sites agreeing & neighbor agreement on single reads\\
@@ -141,12 +141,12 @@ decay leave behind together. $A$ says how much error there is; read-level data s
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part7/fig_holding_energy.pdf}
-\caption{Hopfield's energy gap $k_BT\ln({\rm selectivity})$ for the published in-vitro preferences of DNMT1 for hemimethylated CpG (7--21$\times$, about 30--40$\times$, 80$\times$~\cite{Pradhan1999,Goyal2006,Adam2023}): 1.9--4.4\,$k_BT$ \observed. Lines: the holding energy measured from the cells' copy error, 3.41\,$k_BT$ (copy channel, uncorrected) and 3.77\,$k_BT$ (instrument error removed) \measured. A consistency check: the published range is tenfold.}\label{fig:holding_energy}
+\caption{Hopfield's energy gap $k_BT\ln({\rm selectivity})$ for the published in-vitro preferences of DNMT1 for hemimethylated CpG (7--21$\times$, about 30--40$\times$, 80$\times$~\cite{Pradhan1999,Goyal2006,Adam2023}): 1.9--4.4\,$k_BT$ \observed. Lines: the holding energy measured from the cells' held error, 3.41\,$k_BT$ (copy channel, uncorrected) and 3.77\,$k_BT$ (instrument error removed) \measured. A consistency check: the published range is tenfold.}\label{fig:holding_energy}
 \end{figure}
 Met-A and IAM-A both measure in bits. Only IAM-A prices those bits against thermal noise, and that adds three things a reference standard
 cannot give.
 \paragraph{A physical floor.} $\varepsilon_0=1/(1+e^{\varphi M})$ comes from the energy budget, not from a reference group.
-\paragraph{The holding energy in the law's units.} The measured copy error gives the energy the cell spends holding one methylation bit,
+\paragraph{The holding energy in the law's units.} The measured held error gives the energy the cell spends holding one methylation bit,
 $E_{\rm hold}/k_BT=\ln[(1-\varepsilon)/\varepsilon]=3.41$, which is $4.9$ Landauer units ($k_BT\ln2$). One ATP is $\Delta G_{\rm ATP}/RT=
 54{,}000/(8.314\times310.15)=20.94\,k_BT$ (this is $M$), or $30.2$ Landauer units. The cell spends $\varphi=3.41/20.94=0.163$ of one ATP per held
 bit, the same in either unit.

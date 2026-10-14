@@ -167,7 +167,7 @@ def fig_fullsurface():
     a2.plot(0.5, Amax2, "o", color=S.IAM, ms=4); a2.annotate(f"surface full: {Amax2:.2f}", (0.5, Amax2), xytext=(-64, -2), textcoords="offset points", fontsize=7)
     a2.set_xscale("log"); a2.set_xlim(0.01, 0.6); a2.set_ylim(0.4, 4.9)
     a2.set_xticks([0.01, 0.03, 0.1, 0.3, 0.5], ["0.01", "0.03", "0.1", "0.3", "0.5"]); a2.xaxis.set_minor_formatter(plt.NullFormatter())
-    a2.set_xlabel(r"copy error $\varepsilon$ on the methylated channel"); a2.set_ylabel("IAM-A")
+    a2.set_xlabel(r"held error $\varepsilon$ on the methylated channel"); a2.set_ylabel("IAM-A")
     a2.set_title(f"Molecules: IAM-A up to the full surface, {Amax2:.2f}"); S.panel_letter(a2, "b")
     S.save(fig, "part6", "fig_p4_05_fullsurface")
     return dict(Amax_meta=Amax, Amax_iama=Amax2, floor=1 / P_NEU, eps_healthy=eh, Hmean=float(h.mean()))
@@ -283,7 +283,7 @@ def fig_iama():
     normal_band(ax)
     x = np.arange(len(g))
     for dx, col, mk, lab, l2 in ((-0.2, S.GR, "o", "A_phys", "on $H_{\\rm ref}$ alone"), (0.0, S.IAM, "s", "A_own", "with frozen position $P$ (held out)"),
-                                 (0.2, S.DATA, "^", "A_own_damaged", "2 % copy error added")):
+                                 (0.2, S.DATA, "^", "A_own_damaged", "2 % held error added")):
         ax.plot(x + dx, g[lab], mk, color=col, ms=5, label=l2)
     ax.set_xticks(x, g.gsm, fontsize=6.5); ax.set_ylabel("IAM-A"); ax.set_ylim(0.9, 1.5); ax.set_xlim(-0.5, 2.5)
     ax.legend(loc="upper left", fontsize=6); ax.set_title("Three granulocyte donors on single molecules")
@@ -292,9 +292,9 @@ def fig_iama():
     fig, ax = plt.subplots(figsize=(0.6 * S.TEXTW, 2.4))
     normal_band(ax); ax.plot(e, iam, color=S.IAM)
     ax.plot(EPS0, 1 / P_NEU, "s", color="k", ms=4); ax.annotate(r"$\varepsilon_0$" + f" = {EPS0:.4f}", (EPS0, 1 / P_NEU), xytext=(-48, -12), textcoords="offset points", fontsize=6.5)
-    ax.plot(g.eps, H(g.eps) / (P_NEU * H(EPS0)), "o", color=S.GR, ms=4, label="donor copy error (own reading on this curve)")
+    ax.plot(g.eps, H(g.eps) / (P_NEU * H(EPS0)), "o", color=S.GR, ms=4, label="donor held error (own reading on this curve)")
     ax.plot(g.eps_damaged, H(g.eps_damaged) / (P_NEU * H(EPS0)), "^", color=S.DATA, ms=4, label="same molecules with 2 % added")
-    ax.set_xscale("log"); ax.set_xlabel(r"copy error $\varepsilon$"); ax.set_ylabel(r"$H(\varepsilon)/(P\,H(\varepsilon_0))$")
+    ax.set_xscale("log"); ax.set_xlabel(r"held error $\varepsilon$"); ax.set_ylabel(r"$H(\varepsilon)/(P\,H(\varepsilon_0))$")
     ax.legend(loc="upper left", fontsize=6); ax.set_title("IAM-A is steep near the healthy reference")
     S.save(fig, "part6", "fig_p4_08_curve")
     return dict(g=g)
@@ -722,7 +722,7 @@ def fig_dnmt_molecules():
         for kind, col, dx in (("DMSO", S.GR, -0.12), ("DNMT1i", S.DATA, 0.12)):
             g = rd[(rd.genotype == gname) & (rd.kind == kind)]
             a1.plot(np.full(len(g), i + dx), g.eps_corr, "o", color=col, ms=4, label=("vehicle" if kind == "DMSO" else "DNMT1 inhibitor, 100 nM, 7 days") if i == 0 else None)
-    a1.set_xticks(range(len(gen)), gen, fontsize=6, rotation=90); a1.set_ylabel(r"copy error $\varepsilon$ (sequencing error removed)"); a1.set_ylim(0, 0.06)
+    a1.set_xticks(range(len(gen)), gen, fontsize=6, rotation=90); a1.set_ylabel(r"held error $\varepsilon$ (sequencing error removed)"); a1.set_ylim(0, 0.06)
     a1.legend(loc="lower left", fontsize=6); a1.set_title("EM-seq, one leukaemia line"); S.panel_letter(a1, "a")
     normal_band(a2)
     a2.plot(np.arange(len(pr)), pr.A, "o", color=S.DATA, ms=4.5)
@@ -764,8 +764,8 @@ def fig_tumour():
     lim5 = tp[~tp.instrument_ok]
     ax.plot(lim5.eps_corr_normal, lim5.eps_corr_tumour, "o", mfc="none", mec="k", ms=7, label="conversion diff. > 0.005")
     ax.set_xlim(*lim); ax.set_ylim(*lim); ax.set_aspect("equal")
-    ax.set_xlabel(r"normal tissue, copy error $\varepsilon$"); ax.set_ylabel(r"tumour, same person, $\varepsilon$")
-    ax.legend(loc="center right", bbox_to_anchor=(1.0, 0.33), fontsize=5.8); ax.set_title("Above the diagonal: more copy error")
+    ax.set_xlabel(r"normal tissue, held error $\varepsilon$"); ax.set_ylabel(r"tumour, same person, $\varepsilon$")
+    ax.legend(loc="center right", bbox_to_anchor=(1.0, 0.33), fontsize=5.8); ax.set_title("Above the diagonal: more held error")
     S.save(fig, "part6", "fig_p4_23_tumour")
     return tp
 

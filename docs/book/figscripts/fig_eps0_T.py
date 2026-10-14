@@ -1,4 +1,4 @@
-"""fig_eps0_T: copy-error floor against body temperature (Part 4, temperature chapter).
+"""fig_eps0_T: held-error floor against body temperature (Part 4, temperature chapter).
 E_hold = 3.41 kT at 310.15 K (CANON/iam_canon.json). Solid: fixed holding energy, eps0(T) = 1/(1+exp(E_hold/kT)).
 Dashed: error held fixed in units of kT (eps0 constant). Floor plotted as H(eps0(T))/H(eps0(310.15 K))."""
 import numpy as np, matplotlib as mpl, matplotlib.pyplot as plt

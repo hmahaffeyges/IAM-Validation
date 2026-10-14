@@ -14,7 +14,7 @@ GH = "https://github.com/hmahaffeyges/IAM-Validation/blob/main/"
 PDF = "pdf/IAMs_Law_and_Order.pdf"   # the live PDF; page numbers below verified against it 2026-10-13
 CH = {"astro": (48, 437, "AstroGenetics and the Cosmic Methylome: the cell read as a thermometer"), "landauer": (49, 448, "Landauer's cost at body temperature"),
       "gauge": (53, 466, "One gauge for a cell"), "meta": (54, 472, "Met-A: the cell's own reference on arrays"),
-      "iama": (55, 476, "IAM-A: copy error on single molecules"), "cscore": (56, 480, "The C-score: where the departures sit"),
+      "iama": (55, 476, "IAM-A: held error on single molecules"), "cscore": (56, 480, "The C-score: where the departures sit"),
       "translation": (58, 486, "The translation principle"), "separation": (60, 494, "Component separation: finding the cells"),
       "reference": (61, 497, "The reference: purified healthy cells"), "identity": (62, 505, "Identity sites: where a cell is read"),
       "skytools": (63, 508, "Tools from the sky"), "sky": (64, 519, "The sky: what the reference cannot explain"),

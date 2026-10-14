@@ -150,7 +150,7 @@ The gauge has three fixed points, and each comes from physics or from the cell's
 \begin{center}\small
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.27\linewidth}@{}}\toprule
 point & what it is & neutrophils \\\midrule
-the floor $\Hmin$, on the left & where thermal kicks win against everything one ATP can buy: a copy error of $1/(1+e^{M})=8\times10^{-10}$, $\Hmin=2.5\times10^{-8}$ bits per site; nothing reads below it & $1\times10^{-7}$ on both IAM-A and Met-A (\calc) \\
+the floor $\Hmin$, on the left & where thermal kicks win against everything one ATP can buy: a held error of $1/(1+e^{M})=8\times10^{-10}$, $\Hmin=2.5\times10^{-8}$ bits per site; nothing reads below it & $1\times10^{-7}$ on both IAM-A and Met-A (\calc) \\
 1, in the middle & the healthy reference: the same cell type healthy, on the same platform, through the same calibration; Normal is $1\pm0.05$, a design tolerance & Met-A 0.330263 bits on EPIC (\calibrated); IAM-A $1.149\times0.2043=0.2348$ bits (\measured) \\
 the full surface, on the right & every identity site at a coin flip: the most a pattern can be blurred & Met-A 3.03; IAM-A 4.26 (\calc) \\\bottomrule
 \end{tabularx}
@@ -165,7 +165,7 @@ For a cell, the reading is the Shannon entropy of the methylated fraction $\beta
 \end{equation}
 which at an identity site is the entropy of the cell's error rate, because $H(\beta)=H(1-\beta)$ (Chapter~\ref{ch:gauge}). \derived{} On
 arrays the reading is Met-A, the mean of $H(\beta)$ over the cell's identity sites over the same quantity on purified healthy cells of
-the same type (Chapter~\ref{ch:meta}); on single molecules it is IAM-A, the copy error priced against the floor set by thermal noise
+the same type (Chapter~\ref{ch:meta}); on single molecules it is IAM-A, the held error priced against the floor set by thermal noise
 (Chapter~\ref{ch:iama}). The mathematics underneath is what makes the gauge honest.
 
 \begin{keybox}[title=Measured against the cell's own healthy state]
@@ -354,7 +354,7 @@ against the measured $1.133\times10^{-123}$, $0.79\,\%$ above it, with the facto
 (Chapter~\ref{ch:lambda}). \fitted{} The baryon and cosmological-constant results are one relation, $\Omega_b/\Omega_m=\tfrac3{16}
 \sqrt{\Omega_\Lambda}$, read in two variables; it holds to $0.5\,\%$ on a microwave-background-only chain. \observed
 
-\paragraph{The cell side.} On single molecules the copy-error statistic and the read pipeline were fixed, and each test's pass conditions
+\paragraph{The cell side.} On single molecules the held-error statistic and the read pipeline were fixed, and each test's pass conditions
 were written down before the data below were read; each specimen is read against its own untreated or normal state, never against
 a group.
 \begin{itemize}

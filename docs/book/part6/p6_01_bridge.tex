@@ -81,8 +81,8 @@ quantum hardware, and label each result by how well it holds. This part tests it
 A cell holds its identity as a methylation pattern. The pattern is a record, and the cell copies it at every division. The record can be
 read at two scales: on single molecules, and across the many cells of a specimen. The instrument reads it both ways.
 
-\paragraph{IAM-A: copy errors on single molecules.} Take one molecule from a long read. Where the molecule is methylated along its length,
-an unmethylated call standing alone between methylated neighbors is a copy error: the copy did not carry the mark across. Count the errors
+\paragraph{IAM-A: held errors on single molecules.} Take one molecule from a long read. Where the molecule is methylated along its length,
+an unmethylated call standing alone between methylated neighbors is a held error: a held mark that the write--erase balance has lost. Count the errors
 and the places where one could have happened,
 \begin{equation*}
 \varepsilon=\frac{\text{errors}}{\text{opportunities}} .
@@ -104,7 +104,7 @@ calibrated, not derived. But it is a reference standard, like a calibration weig
 a distribution of people with a percentile. IAM-A is closer to derived: its floor is physics, and only the healthy position is measured. So the
 honest labels are: Met-A, a physics quantity on a calibrated floor; IAM-A, a physics quantity on a derived floor with a calibrated position.
 
-\paragraph{One record, two scales.} The two readings are of one record. Copy errors are what blur the pattern: an error moves the $\beta$ of
+\paragraph{One record, two scales.} The two readings are of one record. Held errors are what blur the pattern: an error moves the $\beta$ of
 its site toward one half, where $H(\beta)$ is largest. \derived{} So IAM-A reads the cause on single molecules and Met-A reads its result
 across the specimen. Each A score carries one C-score beside it, computed from the same sites, which says where along the genome the
 departures sit (Chapter~\ref{ch:cscore}). \calc
@@ -118,7 +118,7 @@ the holding energy (Eq.~\eqref{eq:eps0}). \derived
 Chapters~\ref{ch:ascoreqc} and~\ref{ch:cmos}; IAM-A and Met-A in Chapters~\ref{ch:iama} and~\ref{ch:meta}.}\label{tab:two_readings}
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}\toprule
  & qubit & chip & cell, IAM-A & cell, Met-A\\\midrule
-what is read & error per gate & energy per switch & copy error per CpG & blur of the stored pattern\\ \iamrowrule
+what is read & error per gate & energy per switch & held error per CpG & blur of the stored pattern\\ \iamrowrule
 scale & one operation & one switch & one molecule & the whole specimen\\ \iamrowrule
 floor & thermal floor at its own temperature & $\kB T_j\ln2$ & one ATP per site, $1/(1+e^{M})$ at 310\,K & the same, on site averages\\ \iamrowrule
 status of the floor & \derived & \derived & \calc{} from $M$; healthy reference \measured & \calc; healthy reference \calibrated\\ \iamrowrule
@@ -185,7 +185,7 @@ It is worth being exact at the outset, because the bridge is easy to overstate.
       to any irreversible write. \derived
 \item A cell's methylation pattern is held by a copying process of finite fidelity, and that fidelity can be read: on
       arrays as the entropy of the pattern on the sites that make the cell what it is, against the same cell type's healthy
-      reading (\calibrated, Chapter~\ref{ch:meta}); on single molecules as the copy error, against a floor whose form follows
+      reading (\calibrated, Chapter~\ref{ch:meta}); on single molecules as the held error, against a floor whose form follows
       from a Boltzmann factor (\derived) and whose height is measured (\measured, Chapter~\ref{ch:iama}).
 \item The analysis tools that separate a known foreground from a signal on the sky separate known
       cells from a new signal in a blood draw. \analogy{} of structure; each tool is then tested on

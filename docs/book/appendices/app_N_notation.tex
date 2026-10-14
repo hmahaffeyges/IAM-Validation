@@ -110,7 +110,7 @@ $E_{\rm hold}/\ln2$ & the same in Landauer units & 4.9 & conversion \\\iamrowrul
 $\varphi$ (also $\phi$) & fraction of one ATP spent per held bit & 0.1628 & $E_{\rm hold}/\mathcal M$; \measured \\\iamrowrule
 $\varepsilon_{\min}$ & the error one ATP of holding energy allows against thermal kicks (not a copying error; it is the same whether the cell divides or not), $1/(1+e^{\mathcal M})$ & $8.1\times10^{-10}$ & \calc \\\iamrowrule
 $\Hmin$ & the floor, $H(\varepsilon_{\min})$ & $2.5\times10^{-8}$ bits & \calc; on the gauge $1\times10^{-7}$ (IAM-A), $8\times10^{-8}$ (Met-A) \\\iamrowrule
-$\varepsilon_0$ & healthy reference copy error & 0.032 & $1/(1+e^{\varphi\mathcal M})$: form \derived, height \measured \\\iamrowrule
+$\varepsilon_0$ & healthy reference held error & 0.032 & $1/(1+e^{\varphi\mathcal M})$: form \derived, height \measured \\\iamrowrule
 $\Href=H(\varepsilon_0)$ & healthy reference height, 56 healthy cell types & 0.2043 bits & \calc \\\iamrowrule
 $P_{\rm cell}$ & healthy cell type's position relative to $\Href$ (neutrophils) & 1.149 & 3 donors, whole files, 1.140--1.155; pipeline \texttt{loyfer\_pat\_v1}; \measured \\\iamrowrule
 $P_{\rm cell}\Href$ & IAM-A healthy reference (neutrophils) & 0.2348 bits & \calc \\\iamrowrule
@@ -270,8 +270,8 @@ $\kappa$ (Dennard) & linear scaling factor of the 1974 Dennard rules & --- & Ch.
 \toprule symbol & meaning & units & where\\\midrule\endhead
 $\beta$, $\beta_i$ & methylated fraction of the copies at a CpG (site $i$) & --- & Ch.~\ref{ch:surface}\\\iamrowrule
 $\bbar$, $\overline H$ & mean $\beta$ over a set of sites; mean of the per-site entropies & ---; bit & Ch.~\ref{ch:surface}\\\iamrowrule
-$\varepsilon$ (cell) & per-molecule copy error: isolated unmethylated calls over opportunities & --- & Ch.~\ref{ch:iama}\\\iamrowrule
-$\varepsilon_0$ (cell) & healthy reference copy error, $1/(1+e^{\varphi\mathcal M})=0.032$ & --- & Ch.~\ref{ch:iama}\\\iamrowrule
+$\varepsilon$ (cell) & per-molecule held error: isolated unmethylated calls over opportunities & --- & Ch.~\ref{ch:iama}\\\iamrowrule
+$\varepsilon_0$ (cell) & healthy reference held error, $1/(1+e^{\varphi\mathcal M})=0.032$ & --- & Ch.~\ref{ch:iama}\\\iamrowrule
 $E_{\rm hold}$ & holding energy per site, $\kB T\ln[(1-\varepsilon)/\varepsilon]$ & J ($\kB T$) & Ch.~\ref{ch:landauer}\\\iamrowrule
 $\varphi$, $\phi$ (cell) & fraction of one ATP per held bit, $E_{\rm hold}/\mathcal M\kB T$ & --- & Ch.~\ref{ch:landauer}\\\iamrowrule
 $\Delta\Delta G$ & discrimination free energy of a copying step & J ($\kB T$) & Ch.~\ref{ch:landauer}\\\iamrowrule
@@ -308,7 +308,7 @@ $A$ & horizon area (Part~\ref{part:2}); the informational fidelity ratio, readin
 $M$ & mass; the Mahaffey number (written $\mathcal M$ where a mass is nearby); an array's methylated intensity; the eigenvalue sum of the Horodecki criterion; $M_W$, $M_Z$\\\iamrowrule
 $n$ & the structure exponent in $D^n$, $7/2$ (Part~\ref{part:2}); $n_s$, spectral tilt; number of phases in the Koide construction; number of sites; densities $n_{\rm qp}$, $\ncp$, $n_b$\\\iamrowrule
 $\beta$ & the coupling $\beta_m$ (cosmology); the methylated fraction (cells); the fitted coefficient in $\exp(\alpha-\beta/a)$ (Chapter~\ref{ch:theory})\\\iamrowrule
-$\varepsilon$ & qubit gate error in nats; a cell's copy error; $\varepsilon_{\min}$, the thermal floor on error; $\epsilon_i$, mixture noise\\\iamrowrule
+$\varepsilon$ & qubit gate error in nats; a cell's held error; $\varepsilon_{\min}$, the thermal floor on error; $\epsilon_i$, mixture noise\\\iamrowrule
 $\eta$ & horizon entropy per area; the baryon-to-photon ratio; $\eta_{\rm vir}$, virial efficiency; $\eta=t/\tau_{\rm IAM}$; $\eta=2T/|W|$ in simulation papers; the E\"otv\"os parameter of equivalence-principle tests\\\iamrowrule
 $E$ & energy; the activation function $E(a)$; the environment in decoherence; $E_q$, the assumed coherence ramp; $E_G$, gravitational self-energy and also the lensing statistic (context separates them)\\\iamrowrule
 $H$ & Hubble rate; binary entropy $H(\beta)$; the transmon Hamiltonian; $\Hmin$, the floor\\\iamrowrule

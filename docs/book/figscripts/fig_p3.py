@@ -3,7 +3,7 @@ computed from them here; no curve is typed by hand.
 p3_02 fig_xqp_sites: x_qp = 2 N tau_qp/(tau_TLS n_cp V), n_cp = 4e6 um^-3, tau_TLS = 30 us, tau_qp = 100 us (Eq. eq:xqp; verify_xqp.py).
 p3_02 fig_xqp_thermal: equilibrium x_qp(T) = sqrt(2 pi k_B T/Delta) exp(-Delta/k_B T), Delta_Al = 182 ueV, against the measured background.
 p3_08 fig_imr90_channels: IMR90 Met-A ranges per channel (proliferating held out, senescent, SV40-immortalised; WGBS GSE48580).
-p3_08 fig_holding_energy: E_hold measured from the copy error against the Hopfield range k_B T ln(selectivity) of DNMT1."""
+p3_08 fig_holding_energy: E_hold measured from the held error against the Hopfield range k_B T ln(selectivity) of DNMT1."""
 import sys, pathlib; sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import numpy as np, scipy.constants as C
 import _bookstyle as S

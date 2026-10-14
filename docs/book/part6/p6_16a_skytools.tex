@@ -176,11 +176,11 @@ noise model & a severe-infection signal in neutrophils was array noise and compo
 and 73 of 76 healthy read Normal & noise index $N$ on every array; gauge state withheld outside the reference arrays' range \\
 component separation & DNA mixtures of healthy cells read 1.062--1.118 against the pure-cell reference, 0.982--1.016 against the
 composition-matched expectation & whole blood read against its own composition \\
-instrument characterization & in fish, copy error tracked library duplicates (brook charr) and conversion failure (Atlantic salmon) & fish
+instrument characterization & in fish, held error tracked library duplicates (brook charr) and conversion failure (Atlantic salmon) & fish
 readings withheld until the instrument term is removed \\
 detector saturation & a DNMT1 inhibitor drove methylated sites past $\beta=0.5$, where entropy turns over; dose order was lost at the
 ceiling & entropy-ceiling flag in Met-A \\
-E/B separation & the tumor's excess copy error survived removal of 5hmC in 3 of 4 oral tumor pairs & 5mC-only reads kept as a check \\
+E/B separation & the tumor's excess held error survived removal of 5hmC in 3 of 4 oral tumor pairs & 5mC-only reads kept as a check \\
 residual map & localized damage invisible to Met-A (this chapter) & C-score reported beside every Met-A \\
 isotropy test & a sex foreground in whole-array maps (this chapter) & sex mask required for whole-array maps \\
 reproducibility & numbers typed in by hand drift from the files the chain reads & derivation and calculation checks that read the frozen files
@@ -199,7 +199,7 @@ a quiet reading cannot be told from a filtered one.
 \item \textbf{Cell-count floor in the chain} (row 3). Sets the smallest fraction any plasma or stool reading can see, before a method is chosen.
 \item \textbf{Second, independent component separation} (row 20). Two solvers on different assumptions agreeing is the CMB's standard.
 \item \textbf{Correlated-noise model} (row 12). Array position and scanner drift; the array noise index is the first step.
-\item \textbf{IAM-A sky and IAM-A C-score}. The same map from single-molecule copy error; Met-A and IAM-A of one cell cross-correlated (rows 4,
+\item \textbf{IAM-A sky and IAM-A C-score}. The same map from single-molecule held error; Met-A and IAM-A of one cell cross-correlated (rows 4,
 43, 48).
 \item \textbf{Genome-distance spectrum with masks} (rows 17, 23, 25). First measured in this chapter on arrays; next on single molecules and
 with masked sites handled as in a cut-sky spectrum, and per chromosome arm with a copy-number track.
@@ -232,7 +232,7 @@ null tests and blinding & association studies, clinical biomarkers & results fix
 rare \\
 isotropy tests & any genome-wide map & finds sex, copy number and batch as foregrounds & sex checks in quality control \\
 end-to-end simulation & every pipeline & known input, measured recovery & spike-ins \\
-temperature-set floor & ectotherms: fish, amphibians, reptiles & a copy-error floor that follows body temperature (Chapter~\ref{ch:temperature})
+temperature-set floor & ectotherms: fish, amphibians, reptiles & a held-error floor that follows body temperature (Chapter~\ref{ch:temperature})
 & none \\\bottomrule
 \end{longtable}
 \end{center}

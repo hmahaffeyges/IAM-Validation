@@ -1,16 +1,17 @@
-\chapter{IAM-A: copy error on single molecules}\label{ch:iama}
+\chapter{IAM-A: held error on single molecules}\label{ch:iama}
 
 \section{What a molecule shows that an array cannot}
 
 An array reports, at each site, the fraction of copies that are methylated. A sequencing read reports one molecule: a run of
 CpGs, each methylated or not, on one strand of one cell's DNA. On a molecule that is otherwise methylated, an unmethylated CpG
-between two methylated neighbors is a site the maintenance machinery failed to copy at the last division. That is the
-\emph{copy error}, and it is the most direct reading of the writing process the book's physics is about.
+between two methylated neighbors is a held site that has been lost: the balance between writing (on SAM) and erasing (on oxygen and
+2-oxoglutarate) left it out of its held state. That is the \emph{held error}, and it is the most direct reading of the writing and erasing
+the book's physics is about. It is not a copying error: neurons, which do not divide, hold the same balance.
 
 \section{The statistic}
 
 A molecule qualifies when it carries at least six CpG calls and at least 80~\% of them are methylated. Each interior call is
-an opportunity; an unmethylated interior call with both neighbors methylated is an isolated error. The copy error is
+an opportunity; an unmethylated interior call with both neighbors methylated is an isolated error. The held error is
 \begin{equation}
   \varepsilon=\frac{\sum\text{isolated errors}}{\sum\text{opportunities}},
   \qquad E_{\rm hold}=\kB T\ln\frac{1-\varepsilon}{\varepsilon},
@@ -38,7 +39,7 @@ ceiling & right & none & every other time ($\varepsilon=\tfrac12$) & 1 bit & phy
 The floor is where thermal kicks win against everything one ATP can buy, and no cell comes near it. The healthy reference is where healthy
 cells actually hold their sites: the holding energy measured across 56 healthy cell types, $3.41\,\kB T$ (public single-molecule files, rebuilt from them by one committed
 script), gives $\phi=0.1628$ of one ATP
-(Chapter~\ref{ch:landauer}), $\varepsilon_0=0.032$ and $\Href=0.2043$ bits. Healthy cell types spread around it (copy error 0.024--0.042),
+(Chapter~\ref{ch:landauer}), $\varepsilon_0=0.032$ and $\Href=0.2043$ bits. Healthy cell types spread around it (held error 0.024--0.042),
 so about half hold their sites better than $\Href$; none approaches $\Hmin$. The distance between floor and reference is the cell's
 efficiency, $\phi$. Thermodynamics bounds the holding energy by the free energy spent per renewal (one ATP sets the floor); the height
 the cell actually holds is set by the kinetics of maintenance, the balance of restore and loss, $E_{\rm hold}=\kB T\ln(g/f)$
@@ -79,20 +80,20 @@ IAM-A follows.
 \includegraphics[width=0.62\textwidth]{figures/part6/fig_p4_08_donors.pdf}
 \caption{The three healthy granulocyte donors on single molecules~\cite{Loyfer2023}. Circles: on the bare floor $\varepsilon_0$; squares: with the
 frozen position $P$, each donor held out of its own $P$ (its odd and even molecule halves fall within the square); triangles: the same molecules
-with 2~\% copy error added. The line is the floor $1/P$. \measured}
+with 2~\% held error added. The line is the floor $1/P$. \measured}
 \label{fig:p4_donors}
 \end{figure}
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.6\textwidth]{figures/part6/fig_p4_08_curve.pdf}
-\caption{$H(\varepsilon)/(P\,H(\varepsilon_0))$ against copy error, with $P=1.149$ and $\varepsilon_0=1/(1+e^{3.41})$. Square: the healthy reference $\Href$. Circles and
-triangles: the donors' copy error and the same molecules with 2~\% added. A 2~\% rise moves the reading by about 0.3. \calc{} curve;
+\caption{$H(\varepsilon)/(P\,H(\varepsilon_0))$ against held error, with $P=1.149$ and $\varepsilon_0=1/(1+e^{3.41})$. Square: the healthy reference $\Href$. Circles and
+triangles: the donors' held error and the same molecules with 2~\% added. A 2~\% rise moves the reading by about 0.3. \calc{} curve;
 \measured{} points.}
 \label{fig:p4_iamacurve}
 \end{figure}
 
 \begin{rulebox}
 The floor and the reading must be defined by the same statistic on the same selection of molecules. A floor taken from a
-different statistic (all-site copy error, with no filter on methylated molecules) misplaces healthy molecules several-fold.
+different statistic (all-site held error, with no filter on methylated molecules) misplaces healthy molecules several-fold.
 \measured{} The chain enforces the rule.
 \end{rulebox}
 
@@ -100,19 +101,19 @@ different statistic (all-site copy error, with no filter on methylated molecules
 
 Read on the same 399 genomic windows for 153 samples of 56 healthy cell types, with no labels and no floor:
 \begin{itemize}
-\item the copy error ranges 0.024--0.042 and the holding energy $3.41\pm0.12\,\kB T$: close to one energy in every cell type;
+\item the held error ranges 0.024--0.042 and the holding energy $3.41\pm0.12\,\kB T$: close to one energy in every cell type;
 \item on one physics floor (Eq.~\eqref{eq:eps0}) healthy cell types read 0.79--1.23, median 1.01; 27 of 56 inside Normal. One
       floor is not yet precise enough for an individual reading, which is why each cell type carries its own $P$;
-\item on the 26,800 CpGs that all 56 cell types keep methylated, the same bits in every cell, the copy error still differs
+\item on the 26,800 CpGs that all 56 cell types keep methylated, the same bits in every cell, the held error still differs
       1.66-fold from the lowest (naive CD8 T cells, lung macrophages, B cells) to the highest (smooth muscle, heart
       fibroblasts, erythroid progenitors), and the difference is stable across donors (intraclass correlation 0.80);
 \item cells do not sort by turnover: colon epithelium (a 3.4-day lifespan) and cardiomyocytes (56,000 days)~\cite{Sender2021} carry the same
-      copy error, 0.031.
+      held error, 0.031.
 \end{itemize}
 \measured{} for all four. The architecture of each cell's maintenance, not how often it is replaced, sets its position.
 
 \section{Tumors}
 
 The same statistic reads tumors against the same person's normal tissue with no reference group: in six early-onset
-colorectal pairs the tumor's copy error is higher in all six, by 7--33~\%, and in oral squamous carcinoma in four of four, and in
+colorectal pairs the tumor's held error is higher in all six, by 7--33~\%, and in oral squamous carcinoma in four of four, and in
 three of the four when 5-hydroxymethylcytosine is removed (Chapter~\ref{part4:ch:reach}). \measured

@@ -88,7 +88,7 @@ def section(e, v):
     rec = tex_esc(e["record"].split("MethylPhys/")[-1])
     if e["compute"] == "sam":
         body = (r"Mat1a knockout mice cannot make S-adenosylmethionine (SAM) in the liver, so the methyl supply to the copier falls. "
-                r"IAM's Law, through the restore rate of DNMT1, gives the rise in copy error; mapped through Stage~Q's measured response on one healthy "
+                r"IAM's Law, through the restore rate of DNMT1, gives the rise in held error; mapped through Stage~Q's measured response on one healthy "
                 r"mouse's molecules, the window was committed (" + v["commit"] + r") before any knockout file was read. Liver RRBS, aligned reads, "
                 + str(v["nwt"]) + r" healthy and " + str(v["nko"]) + r" knockout mice.")
         tab = [(r"sealed window, IAM-A knockout $\div$ healthy", f"{v['low']:.3f}--{v['high']:.3f}", r"\prediction"),
@@ -116,7 +116,7 @@ def section(e, v):
                (r"Met-A, cancer $\div$ normal, on " + f"{v['nsites']:,}" + r" prostate identity sites", f"{v['MA']:.4f}", r"\measured"),
                (r"the line at that IAM-A (arm A, recorded)", f"{v['cB']:.4f}", r"\calc"),
                (r"arm A, Met-A above the line, $z$", f"{v['z']:.2f}", r"\measured")]
-        tail = (r"Both arms read a fingerprint: in these cancer cells blocks of the pattern were lost, beyond what copy error explains. One cell line against "
+        tail = (r"Both arms read a fingerprint: in these cancer cells blocks of the pattern were lost, beyond what held error explains. One cell line against "
                 r"one primary culture from one laboratory; LNCaP is a long-cultured line, so culture as well as cancer may contribute.")
     else:
         body = (r"One donor's blood DNA with 4--15~\% liver, lung, colon or neuron DNA mixed in at known fractions (Moss 2018), " + str(v["n"])
@@ -132,7 +132,7 @@ def readme_row(e, v):
     rec = e["record"]; rel = os.path.relpath(os.path.join(ROOT, rec), os.path.join(ROOT, "Biological_Physics")); name = e.get("link_text") or os.path.basename(rec)
     links = f"[`{name}`]({rel})" + "".join(f", [`{os.path.basename(os.path.dirname(a)) if a.endswith('README.md') else os.path.basename(a)}`]({os.path.relpath(os.path.join(ROOT, a), os.path.join(ROOT, 'Biological_Physics'))})" for a in e.get("also", []))
     if e.get("compute") == "sam":
-        h = (f"**IAM-A, first physics lever.** Cutting the liver's methyl supply (Mat1a knockout mice) raises copy error by the amount IAM's Law predicts: "
+        h = (f"**IAM-A, first physics lever.** Cutting the liver's methyl supply (Mat1a knockout mice) raises held error by the amount IAM's Law predicts: "
              f"window {v['low']:.3f}–{v['high']:.3f} sealed on a healthy mouse, knockout read {f3(v['ratio'])} against {v['nwt']} healthy mice (p = {v['p']:.4f}); "
              f"restoring SAMe moves it back ({f3(v['same'])}). The knockout livers also carry steatohepatitis, a second route not yet separated")
     elif e.get("compute") == "epiqc":
@@ -140,12 +140,12 @@ def readme_row(e, v):
              f"within {v['raw']*100:.1f} % before any tare; technical repeats within {v['rep']:.4f}")
     elif e.get("compute") == "fingerprint":
         h = (f"**Cancer fingerprint, both instruments on the same cells.** Prostate cancer (LNCaP) against normal prostate epithelium: methylation lost in runs on "
-             f"every cancer run ({v['exL'][0]:.3f}–{v['exL'][1]:.3f} vs at most {v['exP']:.4f} in normal), and Met-A {v['MA']:.3f} above the line copy error allows "
+             f"every cancer run ({v['exL'][0]:.3f}–{v['exL'][1]:.3f} vs at most {v['exP']:.4f} in normal), and Met-A {v['MA']:.3f} above the line held error allows "
              f"({v['cB']:.3f}); fingerprint by the rule sealed before reading. One line, one laboratory")
     elif e.get("compute") == "fingerprint_rep":
         h = (f"**Cancer fingerprint replicated: prostate, a second laboratory, different cells.** ENCODE (HudsonAlpha): LNCaP clone FGC against its own "
              f"normal prostate epithelial cells: methylation lost in runs in {v['above']} of {v['n']} cancer files, the smallest {v['ratio']:.2f} times the "
-             f"healthy donor-to-donor excess; Met-A also above the copy-error line (z {v['z']:.2f}). Same verdict as the first laboratory, by the rule sealed before reading")
+             f"healthy donor-to-donor excess; Met-A also above the held-error line (z {v['z']:.2f}). Same verdict as the first laboratory, by the rule sealed before reading")
     elif e.get("compute") == "fingerprint_breast":
         h = (f"**Cancer fingerprint in breast cancer cell lines.** MCF-7 and T47D, each against two kinds of normal breast cells ({v['n']} pairs, ENCODE), sealed "
              f"one pair at a time: the gain meter (methylation added where it should not be) reads a fingerprint in {v['gain']} of {v['n']}; the loss meter in "

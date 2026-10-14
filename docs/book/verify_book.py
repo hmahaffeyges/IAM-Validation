@@ -770,7 +770,7 @@ def _b00_tau_iam_dp(m, T, rho=2200.0):
 
 DATA_FILES['Biological_Physics/MethylPhys/doors/data/PROC_CHANNEL_01/channel_cells_genomewide.csv'] = 'PROC-CHANNEL-01 per-cell genome-wide table (56 cell types, 153 samples, 399 windows); derive_constants.py beside it'
 def _chan():
-    """PROC-CHANNEL-01 per-cell table: copy error eps per cell type; E = ln((1-eps)/eps) kT recomputed here."""
+    """PROC-CHANNEL-01 per-cell table: held error eps per cell type; E = ln((1-eps)/eps) kT recomputed here."""
     import csv as _csv
     rows = list(_csv.DictReader(file_text('Biological_Physics/MethylPhys/doors/data/PROC_CHANNEL_01/channel_cells_genomewide.csv').splitlines()))
     e = [float(r['copy_err']) for r in rows]; E = [math.log((1 - x) / x) for x in e]
@@ -1791,7 +1791,7 @@ _B08_PC5 = 'Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md'
 DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv'] = 'IMR90 per-channel Met-A readings, GSE48580 WGBS, 9 cultures (imr90_channels.py)'
 DATA_FILES['Biological_Physics/MethylPhys/doors/data/selfconsist.csv'] = 'Salas DNA mixtures: neutrophil Met-A untared and with a simulated 2 % neutrophil pattern loss (selfconsist.py)'
 DATA_FILES['Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv'] = 'DEV-LOWFRAC-01: neutrophil Met-A of 656 whole bloods, raw and with a simulated 2 % blur (lowfrac.py)'
-DATA_FILES['Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv'] = 'IAM-A floor comparison: 3 Loyfer granulocyte donors, copy-error counts and readings (iama_floor.py)'
+DATA_FILES['Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv'] = 'IAM-A floor comparison: 3 Loyfer granulocyte donors, held-error counts and readings (iama_floor.py)'
 DATA_FILES['Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json'] = 'chain v3 frozen neutrophil reference: sites, profiles, H means, C-score baseline'
 
 # helpers of the part6/p6_06_gauge checks
@@ -1818,7 +1818,7 @@ def _b09_lowfrac_shift(lo, hi):
          if r['group'] == 'NEGATIVE' and r['A_raw'] not in ('', None) and lo <= float(r['f_neu']) < hi]
     return float(np.median(s)), len(s)
 def _b09_iama_own():
-    """IAM-A of each granulocyte donor against the pooled copy error of the other two (H(eps)/H(eps_others)), healthy and with 2 % added."""
+    """IAM-A of each granulocyte donor against the pooled held error of the other two (H(eps)/H(eps_others)), healthy and with 2 % added."""
     rows = load_csv_rows(_B09_IG)
     iso = np.array([float(r['iso']) for r in rows]); opp = np.array([float(r['opp']) for r in rows])
     eps = iso / opp; ed = np.array([float(r['eps_damaged']) for r in rows])
@@ -1889,8 +1889,8 @@ def _b09_md_line(path, start):
 def _b09_nums(s):
     return [float(x) for x in re.findall(r"\d+\.\d+", s)]
 def _b09_gran():
-    """The three Loyfer granulocyte donors on WHOLE files (iama_positions_v2.json counts): copy error eps = errors/opportunities, the mean
-    copy error of the other two donors (the position file's definition of P), eps0 = 1/(1+e^E_hold) with the canon holding energy, per donor
+    """The three Loyfer granulocyte donors on WHOLE files (iama_positions_v2.json counts): held error eps = errors/opportunities, the mean
+    held error of the other two donors (the position file's definition of P), eps0 = 1/(1+e^E_hold) with the canon holding energy, per donor
     P_i = H(eps_others)/H(eps0), and the damaged eps: eps plus the rise measured on the same donors' molecules when 2 % of methylated calls
     are removed (eps_damaged - eps in iama_floor_granulocytes.csv, first 60 MB of each file)."""
     c = load_json(_B09_POS)['cells']['neutrophils']['counts']
@@ -2159,7 +2159,7 @@ def _b11_planted():
 def _b11_neutref():
     return load_json('Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json')
 DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_PREREG.md'] = 'PROC-NEUT-TEST-01 pre-registration (bars T1-T4)'
-DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv'] = 'PROC-DNMT-01 Part B: EM-seq libraries, copy error eps (sequencing error removed) and conversion failure'   # 3 kB
+DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv'] = 'PROC-DNMT-01 Part B: EM-seq libraries, held error eps (sequencing error removed) and conversion failure'   # 3 kB
 DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md'] = 'PROC-PREDX-NEUT-01 outcome: 450K development floor, EPIC-Italy held-out controls, sex split, follow-up on purified neutrophils'   # 3 kB
 DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_PREDX_SLIDE_01_OUTCOME.md'] = 'PROC-PREDX-SLIDE-01 outcome: same-slide tare on GSE51057'   # 2 kB
 
@@ -2266,7 +2266,7 @@ _B12_COHO = 'Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv'
 _B12_ENC = 'Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_OUTCOME.md'
 DATA_FILES[_B12_SALJ] = 'PROC-SALMON-01 scores (score_salmon.py): P0-P4, including the P4 difference-map maxima and thresholds'   # 1 kB
 DATA_FILES[_B12_RUNS] = 'Methow steelhead sequencing runs: specimen, tissue, lane (PRJNA325786)'   # 8 kB
-DATA_FILES[_B12_ENC] = 'PROC-ENCODE-01 outcome: copy error of 39 ENCODE WGBS samples'   # 5 kB
+DATA_FILES[_B12_ENC] = 'PROC-ENCODE-01 outcome: held error of 39 ENCODE WGBS samples'   # 5 kB
 _B12_RR_SAL = 'python3 Biological_Physics/Salmonid/PROC_SALMON_01/score_salmon.py (needs the per-specimen site tables of the methylation chain: Bismark --pbat alignment and extract.py)'
 _B12_RR_CHR = 'python3 Biological_Physics/MethylPhys/doors/data/score_charr.py (needs the per-fish site tables of the methylation chain: WGBS alignment and extract_pe.py)'
 _B12_RR_RIM = 'python3 Biological_Physics/MethylPhys/doors/data/score_rimouski.py (needs the per-fish site tables of the methylation chain: WGBS alignment and extract_pe.py)'
@@ -2341,7 +2341,7 @@ def _b12_coho_lanes(key):
 _B12_TUM = 'Biological_Physics/MethylPhys/doors/data/tumour_readings.csv'
 _B12_TUMPRE = 'Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_PREREG.md'
 _B12_MOL = 'Biological_Physics/MethylPhys/doors/PROC_MOLECULE_01_OUTCOME.md'
-DATA_FILES[_B12_TUM] = 'PROC-TUMOUR-01 per-sample copy error (score_tumour.py): tumour and normal tissue, WGBS and oxWGBS'   # 5 kB
+DATA_FILES[_B12_TUM] = 'PROC-TUMOUR-01 per-sample held error (score_tumour.py): tumour and normal tissue, WGBS and oxWGBS'   # 5 kB
 DATA_FILES[_B12_TUMPRE] = 'PROC-TUMOUR-01 pre-registration: bars P1-P3'   # 2 kB
 DATA_FILES[_B12_MOL] = 'PROC-MOLECULE-01 outcome: constructed cancer-in-healthy DNA mixtures read on single molecules'   # 2 kB
 _B12_RR_TUM = 'python3 Biological_Physics/MethylPhys/doors/data/score_tumour.py (needs the per-sample site tables of the methylation chain: Bismark alignment, GRCh38)'
@@ -2389,7 +2389,7 @@ DATA_FILES[_B12_V5] = 'PROC-V5-HELDOUT outcome: coverage of the atlas v2 90 % in
 DATA_FILES[_B12_LOWF] = 'DEV-LOWFRAC-01 readings: neutrophil fraction and Met-A of 656 whole bloods and 12 known DNA mixtures (lowfrac.py)'   # 77 kB
 DATA_FILES[_B12_T1] = 'chain neutrophil tests T1/T3/T4 readings: T1 = six healthy bloods with flow-cytometry neutrophil counts (GSE112618)'   # 305 kB
 DATA_FILES[_B12_DNMTA] = 'DNMT-01 Part A: Met-A of 51 EPIC arrays of 3 AML lines under DNMT1 inhibitors (dnmt_arrays.py)'   # 7 kB
-DATA_FILES[_B12_DNMTB] = 'DNMT-01 Part B: treated against vehicle copy error per library, single molecules (score_dnmt_b.py)'   # 1 kB
+DATA_FILES[_B12_DNMTB] = 'DNMT-01 Part B: treated against vehicle held error per library, single molecules (score_dnmt_b.py)'   # 1 kB
 DATA_FILES[_B12_WBN] = 'PROC-WB-NEUT-01 outcome, part 1: neutrophil Met-A of six healthy DNA mixtures'   # 2 kB
 
 def _b12_Hb(e):
@@ -2398,7 +2398,7 @@ def _b12_cscore():
     d = load_json(_B12_NREF); loo = np.array(d['healthy_clustering_LOO'])
     return d['clustering_block'], loo, float(np.median(loo))
 def _b12_floor_at(TC):
-    """Copy-error floor at a temperature TC (C) with the holding energy held fixed in joules, as a ratio of H(eps0) to its 37 C value."""
+    """Held-error floor at a temperature TC (C) with the holding energy held fixed in joules, as a ratio of H(eps0) to its 37 C value."""
     EJ = E_hold * kB * T_cell
     e0 = lambda T: 1 / (1 + math.exp(EJ / (kB * (T + 273.15))))
     return _b12_Hb(e0(TC)) / _b12_Hb(e0(37.0))
@@ -2488,7 +2488,7 @@ def _b13_active80(r):
     return r['cmpd'] == 'GSK032' and float(r['dose_nM']) >= 80
 
 def _b13_floor_ratio(TC):
-    """Copy-error floor H(eps0) at TC (deg C) over the human floor at T_cell, holding energy fixed in joules (E_hold kT at T_cell)."""
+    """Held-error floor H(eps0) at TC (deg C) over the human floor at T_cell, holding energy fixed in joules (E_hold kT at T_cell)."""
     EJ = E_hold * kB * T_cell
     e0 = lambda T: 1 / (1 + math.exp(EJ / (kB * T)))
     Hb = lambda e: -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
@@ -2756,8 +2756,8 @@ def _b17_cd(d_lo):
     """C(d) of beta in the distance bin starting at d_lo bp, six reference neutrophil arrays: list of (d_lo, d_hi, C)."""
     return [(int(r['d_lo']), int(r['d_hi']), float(r['C'])) for r in load_csv_rows(_B17_CD) if r['quantity'] == 'beta' and int(r['d_lo']) == d_lo]
 def _b17_pc_row():
-    """The methylated-sites (copy error) row of the PROC-CHANNEL-01 record: copy-error range low, high."""
-    ln = [l for l in file_text(_B17_PC).splitlines() if l.strip().startswith('| methylated sites (copy error)')][0]
+    """The methylated-sites (held error) row of the PROC-CHANNEL-01 record: held-error range low, high."""
+    ln = [l for l in file_text(_B17_PC).splitlines() if re.match(r'\| methylated sites \((?:copy|held) error\)', l.strip())][0]
     return [float(x) for x in re.findall(r'\d+\.\d+', ln)]
 def _b17_icc_halves(a, b):
     """ICC of the two halves (one-way, k = 2), the formula of score_salmon.py / score_charr.py / score_rimouski.py."""
@@ -2880,7 +2880,7 @@ _F01_ST = 'docs/verification/scripts/verify_sector_tension_output.txt'
 _F01_STPY = 'docs/verification/scripts/verify_sector_tension.py'
 _F01_R = sp.Rational(105, 100)        # the 5 % move of the negative controls
 DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv'] = 'PROC-DNMT-01 Part B per-pair IAM-A under a DNMT1 inhibitor (GSE329728 EM-seq, 8 treated libraries)'   # 2 kB
-DATA_FILES['Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md'] = 'PROC-SALMON-01 pre-registration (P2 window, human copy-error range)'
+DATA_FILES['Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md'] = 'PROC-SALMON-01 pre-registration (P2 window, human held-error range)'
 
 # helpers of control fixes (f03)
 _F03_SALMON = 'Biological_Physics/MethylPhys/doors/data/salmon_readings.csv'
@@ -2898,7 +2898,7 @@ def _f03_med(path, col, **where):
     v = [float(r[col]) for r in load_csv_rows(path) if all(r[k] == w for k, w in where.items()) and r[col] != '']
     return float(np.median(v))
 def _f03_human_E_low():
-    """Lower end of the human holding energy, E = ln((1-eps)/eps) at the upper end of the human copy-error range (PROC-SALMON-01 P2)."""
+    """Lower end of the human holding energy, E = ln((1-eps)/eps) at the upper end of the human held-error range (PROC-SALMON-01 P2)."""
     m = re.search(r"Human healthy cells read (0\.\d+)\D(0\.\d+) on this statistic", load_data(_F03_PREREG))
     eps_hi = float(m.group(2))
     return math.log((1 - eps_hi) / eps_hi)
@@ -23906,10 +23906,10 @@ def check_1940():
     value = swing_mV
     return locals()
 
-@check(label='ch:saturation:L44:0.032', chapter='ch:saturation', part=3, title='copy-error floor 1/(1+exp(E_hold/k_BT)) at E_hold = 3.41 k_BT',
+@check(label='ch:saturation:L44:0.032', chapter='ch:saturation', part=3, title='held-error floor 1/(1+exp(E_hold/k_BT)) at E_hold = 3.41 k_BT',
        file='part3/p3_07_saturation', line=44, status='derived', kind='num', printed='0.032', tol=0.0)
 def check_3060():
-    'Copy-error floor eps0 = 1/(1 + exp(E_hold/k_B T)) (figure caption, panel d). Book line 44, printed 0.032. Input: E_hold = 3.41 k_B T, measured '         '(CANON E_hold_meth, PROC-CHANNEL-01).'
+    'Held-error floor eps0 = 1/(1 + exp(E_hold/k_B T)) (figure caption, panel d). Book line 44, printed 0.032. Input: E_hold = 3.41 k_B T, measured '         '(CANON E_hold_meth, PROC-CHANNEL-01).'
     value = 1 / (1 + math.exp(E_hold))
     return locals()
 
@@ -30037,7 +30037,7 @@ def check_2435():
 @check(label='ch:astrogenetics:L88:Hmin', chapter='ch:astrogenetics', part=6, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
        file='part6/p6_00b_astrogenetics', line=85, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_2437():
-    'The floor: thermal kicks win against one ATP per site, copy error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 85, printed 1x10^-7.'
+    'The floor: thermal kicks win against one ATP per site, held error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 85, printed 1x10^-7.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     K=load_json('CANON/iam_canon.json')['constants']
     M_=K['M_cell']['value']; P_=K['P_neutrophil_IAM_A']['value']; e0=K['eps0_meth']['value']
@@ -30242,11 +30242,11 @@ def check_2454():
     value=dG_ATP/(N_A*kB*T_cell*LN2)
     return locals()
 
-@check(label='ch:landauer:L65', chapter='ch:landauer', part=6, title='healthy copy error, lowest of 56 cell types',
+@check(label='ch:landauer:L65', chapter='ch:landauer', part=6, title='healthy held error, lowest of 56 cell types',
        file='part6/p6_02_landauer', line=65, status='measured', kind='num', printed='0.024', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
        heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_2455():
-    'healthy copy error, lowest of 56 cell types. Book line 65, printed 0.024.'
+    'healthy held error, lowest of 56 cell types. Book line 65, printed 0.024.'
     value=_chan()['eps_min']
     return locals()
 
@@ -30270,8 +30270,8 @@ def check_2457():
        heavy=True, rerun=_B08_PC_RERUN)
 def check_3798():
     'Holding energy per methylated site measured on single molecules, in k_B T (Figure fig:budget caption). Book line 71, printed 3.41. '\
-    'Source: the copy-error row of the PROC-CHANNEL-01 record table (E_hold column).'
-    m = re.search(r"methylated sites \(copy error\)\s*\|[^|]*\|\s*([\d.]+)\s*±", file_text(_B08_PC))
+    'Source: the held-error row of the PROC-CHANNEL-01 record table (E_hold column).'
+    m = re.search(r"methylated sites \((?:copy|held) error\)\s*\|[^|]*\|\s*([\d.]+)\s*±", file_text(_B08_PC))
     value = float(m.group(1))
     return locals()
 
@@ -30973,9 +30973,9 @@ def check_3825():
        file='part6/p6_05_floorbreach', line=25, status='measured', kind='file', printed='3.41', tol=0.0, source=_B08_PC5,
        heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_3826():
-    'Holding energy per maintained site measured on single molecules, k_B T. Book line 25, printed 3.41. Source: the copy-error row of '\
+    'Holding energy per maintained site measured on single molecules, k_B T. Book line 25, printed 3.41. Source: the held-error row of '\
     'the PROC-CHANNEL-01 record table (E_hold column).'
-    m = re.search(r"methylated sites \(copy error\)\s*\|[^|]*\|\s*([\d.]+)\s*±", file_text(_B08_PC5))
+    m = re.search(r"methylated sites \((?:copy|held) error\)\s*\|[^|]*\|\s*([\d.]+)\s*±", file_text(_B08_PC5))
     value = float(m.group(1))
     return locals()
 
@@ -31054,7 +31054,7 @@ def check_2521():
 @check(label='ch:floorbreach:L73:0.032', chapter='ch:floorbreach', part=6, title='eps0 = 1/(1 + e^(E_hold/k_B T))',
        file='part6/p6_05_floorbreach', line=73, status='calc', kind='num', printed='0.032', tol=0.0)
 def check_3829():
-    'Copy-error floor eps0 = 1/(1 + exp(E_hold/k_B T)) in Figure fig:p4_fullsurface (b). Book line 73, printed 0.032. Input: E_hold = '\
+    'Held-error floor eps0 = 1/(1 + exp(E_hold/k_B T)) in Figure fig:p4_fullsurface (b). Book line 73, printed 0.032. Input: E_hold = '\
     '3.41 k_B T (CANON E_hold_meth, PROC-CHANNEL-01).'
     value = 1 / (1 + math.exp(E_hold))
     return locals()
@@ -31092,7 +31092,7 @@ def check_3831():
 @check(label='ch:gauge:L23:Hmin', chapter='ch:gauge', part=6, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
        file='part6/p6_06_gauge', line=23, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_2523():
-    'The floor: thermal kicks win against one ATP per site, copy error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 23, printed 1x10^-7.'
+    'The floor: thermal kicks win against one ATP per site, held error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 23, printed 1x10^-7.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     K=load_json('CANON/iam_canon.json')['constants']
     M_=K['M_cell']['value']; P_=K['P_neutrophil_IAM_A']['value']; e0=K['eps0_meth']['value']
@@ -31122,7 +31122,7 @@ def check_2525():
 @check(label='ch:gauge:L34:Hmin', chapter='ch:gauge', part=6, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
        file='part6/p6_06_gauge', line=34, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_2526():
-    'The floor: thermal kicks win against one ATP per site, copy error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 34, printed 1x10^-7.'
+    'The floor: thermal kicks win against one ATP per site, held error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 34, printed 1x10^-7.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     K=load_json('CANON/iam_canon.json')['constants']
     M_=K['M_cell']['value']; P_=K['P_neutrophil_IAM_A']['value']; e0=K['eps0_meth']['value']
@@ -31258,23 +31258,23 @@ def check_3844():
 @check(label='ch:gauge:L114', chapter='ch:gauge', part=6, title='IAM-A of healthy granulocyte donors, mean',
        file='part6/p6_06_gauge', line=114, status='measured', kind='file', printed='1.00', tol=0.0, source=_B09_IG)
 def check_3845():
-    'IAM-A of the three healthy granulocyte donors (Loyfer 2023), each against the pooled copy error of the other two, recomputed from the isolated-error and opportunity counts; mean. Book line 114, printed 1.00 ("about"). Inputs: iso, opp of iama_floor_granulocytes.csv.'
+    'IAM-A of the three healthy granulocyte donors (Loyfer 2023), each against the pooled held error of the other two, recomputed from the isolated-error and opportunity counts; mean. Book line 114, printed 1.00 ("about"). Inputs: iso, opp of iama_floor_granulocytes.csv.'
     a, ad = _b09_iama_own()
     value = float(a.mean())
     return locals()
 
-@check(label='ch:gauge:L114:1.29', chapter='ch:gauge', part=6, title='IAM-A after a simulated 2 % rise in copy error, lowest donor',
+@check(label='ch:gauge:L114:1.29', chapter='ch:gauge', part=6, title='IAM-A after a simulated 2 % rise in held error, lowest donor',
        file='part6/p6_06_gauge', line=114, status='measured', kind='file', printed='1.29', tol=0.0, source=_B09_IG)
 def check_3846():
-    'IAM-A of the same molecules with 2 % copy error added, lowest of the three donors, H(eps_damaged)/H(pooled eps of the other two). Book line 114, printed 1.29. Inputs: iso, opp, eps_damaged of iama_floor_granulocytes.csv.'
+    'IAM-A of the same molecules with 2 % held error added, lowest of the three donors, H(eps_damaged)/H(pooled eps of the other two). Book line 114, printed 1.29. Inputs: iso, opp, eps_damaged of iama_floor_granulocytes.csv.'
     a, ad = _b09_iama_own()
     value = float(ad.min())
     return locals()
 
-@check(label='ch:gauge:L114:1.35', chapter='ch:gauge', part=6, title='IAM-A after a simulated 2 % rise in copy error, highest donor',
+@check(label='ch:gauge:L114:1.35', chapter='ch:gauge', part=6, title='IAM-A after a simulated 2 % rise in held error, highest donor',
        file='part6/p6_06_gauge', line=114, status='measured', kind='file', printed='1.35', tol=0.0, source=_B09_IG)
 def check_3847():
-    'IAM-A of the same molecules with 2 % copy error added, highest of the three donors. Book line 114, printed 1.35. Inputs: iso, opp, eps_damaged of iama_floor_granulocytes.csv.'
+    'IAM-A of the same molecules with 2 % held error added, highest of the three donors. Book line 114, printed 1.35. Inputs: iso, opp, eps_damaged of iama_floor_granulocytes.csv.'
     a, ad = _b09_iama_own()
     value = float(ad.max())
     return locals()
@@ -31896,7 +31896,7 @@ def check_2532():
 @check(label='ch:iama:L32', chapter='ch:iama', part=6, title='eps0 = 1/(1+e^(phi M))',
        file='part6/p6_08_iama', line=32, status='measured', kind='num', printed='0.032', tol=0.0)
 def check_3915():
-    'The floor copy error eps0 = 1/(1+exp(phi M)) with M = dG_ATP/(R T_cell) and phi = 0.1628 (canon, measured holding energy over M). Book line 32, printed 0.032. Inputs: CANON dG_ATP, R, T_cell, phi.'
+    'The floor held error eps0 = 1/(1+exp(phi M)) with M = dG_ATP/(R T_cell) and phi = 0.1628 (canon, measured holding energy over M). Book line 32, printed 0.032. Inputs: CANON dG_ATP, R, T_cell, phi.'
     M = dG_ATP / (R_gas * T_cell)
     value = 1 / (1 + math.exp(phi_hold * M))
     return locals()
@@ -31912,7 +31912,7 @@ def check_3916():
 @check(label='eq:iama', chapter='ch:iama', part=6, title='P of neutrophils from the three granulocyte donors',
        file='part6/p6_08_iama', line=51, status='measured', kind='file', printed='1.149', tol=0.0, source=_B09_IG)
 def check_3917():
-    'Eq. iama: P_neutrophil, the mean over the three Loyfer granulocyte donors of H(pooled copy error of the other two)/H(eps0), eps0 = 1/(1+e^3.41), recomputed from the isolated-error and opportunity counts. Book line 51, printed 1.149. Inputs: iso, opp of iama_floor_granulocytes.csv; E_hold (CANON).'
+    'Eq. iama: P_neutrophil, the mean over the three Loyfer granulocyte donors of H(pooled held error of the other two)/H(eps0), eps0 = 1/(1+e^3.41), recomputed from the isolated-error and opportunity counts. Book line 51, printed 1.149. Inputs: iso, opp of iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
     value = float(P.mean())
     return locals()
@@ -31920,7 +31920,7 @@ def check_3917():
 @check(label='ch:iama:L44', chapter='ch:iama', part=6, title='P range over the donors, lowest',
        file='part6/p6_08_iama', line=54, status='measured', kind='file', printed='1.140', tol=0.0, source=_B09_IG)
 def check_3918():
-    'Per-donor P = H(pooled copy error of the other two)/H(eps0): lowest. Book line 54, printed 1.140. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    'Per-donor P = H(pooled held error of the other two)/H(eps0): lowest. Book line 54, printed 1.140. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
     value = float(min(P))
     return locals()
@@ -31971,10 +31971,10 @@ def check_floor_2():
     value=float(1/e0)
     return locals()
 
-@check(label='app:notation:eps_min', chapter='app:notation', part=8, title='floor copy error 1/(1+e^M)',
+@check(label='app:notation:eps_min', chapter='app:notation', part=8, title='floor held error 1/(1+e^M)',
        file='appendices/app_N_notation', line=111, status='calc', kind='file', printed='8.1e-10', tol=5e-12, source='CANON/iam_canon.json')
 def check_floor_3():
-    'floor copy error 1/(1+e^M); M and eps0 from the canon. Book line 111, printed 8.1e-10.'
+    'floor held error 1/(1+e^M); M and eps0 from the canon. Book line 111, printed 8.1e-10.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     K=load_json('CANON/iam_canon.json')['constants']
     M_=K['M_cell']['value']; e0=K['eps0_meth']['value']
@@ -31991,10 +31991,10 @@ def check_floor_4():
     value=float(Hb(1/(1+math.exp(M_))))
     return locals()
 
-@check(label='ch:astrogenetics:floor_eps', chapter='ch:astrogenetics', part=6, title='floor copy error 1/(1+e^M)',
+@check(label='ch:astrogenetics:floor_eps', chapter='ch:astrogenetics', part=6, title='floor held error 1/(1+e^M)',
        file='part6/p6_00b_astrogenetics', line=85, status='calc', kind='file', printed='8e-10', tol=5e-11, source='CANON/iam_canon.json')
 def check_floor_5():
-    'floor copy error 1/(1+e^M); M and eps0 from the canon. Book line 85, printed 8e-10.'
+    'floor held error 1/(1+e^M); M and eps0 from the canon. Book line 85, printed 8e-10.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     K=load_json('CANON/iam_canon.json')['constants']
     M_=K['M_cell']['value']; e0=K['eps0_meth']['value']
@@ -32044,7 +32044,7 @@ def check_3925():
 @check(label='ch:iama:L55', chapter='ch:iama', part=6, title='the 2 % rise read at each donor held-out position, lowest',
        file='part6/p6_08_iama', line=65, status='measured', kind='file', printed='1.273', tol=0.0, source=_B09_IG)
 def check_3926():
-    'The same molecules with 2 % copy error added, each donor with its leave-one-donor-out P: lowest. Book line 65, printed 1.273.285. Inputs: eps_damaged, iso, opp of iama_floor_granulocytes.csv; E_hold (CANON).'
+    'The same molecules with 2 % held error added, each donor with its leave-one-donor-out P: lowest. Book line 65, printed 1.273.285. Inputs: eps_damaged, iso, opp of iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
     value = float(min(_b09_Hb(ed[i]) / (P[i] * _b09_Hb(e0)) for i in range(len(eps))))
     return locals()
@@ -32052,7 +32052,7 @@ def check_3926():
 @check(label='ch:iama:L55:1.313', chapter='ch:iama', part=6, title='the 2 % rise read at each donor held-out position, highest',
        file='part6/p6_08_iama', line=65, status='measured', kind='file', printed='1.313', tol=0.0, source=_B09_IG)
 def check_3927():
-    'The same molecules with 2 % copy error added: highest (inventory printed -1.346 from the range dash). Book line 65, printed 1.313.346. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    'The same molecules with 2 % held error added: highest (inventory printed -1.346 from the range dash). Book line 65, printed 1.313.346. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
     value = float(max(_b09_Hb(ed[i]) / (P[i] * _b09_Hb(e0)) for i in range(len(eps))))
     return locals()
@@ -32079,7 +32079,7 @@ def check_3930():
     value = float(P.mean())
     return locals()
 
-@check(label='ch:iama:L75', chapter='ch:iama', part=6, title='a 2 % rise in copy error moves the reading by about 0.3',
+@check(label='ch:iama:L75', chapter='ch:iama', part=6, title='a 2 % rise in held error moves the reading by about 0.3',
        file='part6/p6_08_iama', line=75, status='calc', kind='file', printed='0.3', tol=0.0, source=_B09_IG)
 def check_3931():
     'On the curve A = H(eps)/(P H(eps0)), eps0 = 1/(1+e^3.41), P recomputed: the mean over the three donors of A(eps with 2 % added) - A(eps). Book line 75, printed 0.3 ("about"). Inputs: eps (iso/opp) and eps_damaged of iama_floor_granulocytes.csv; E_hold (CANON).'
@@ -32088,17 +32088,17 @@ def check_3931():
     value = float(np.mean([(_b09_Hb(ed[i]) - _b09_Hb(eps[i])) / (Pm * _b09_Hb(e0)) for i in range(len(eps))]))
     return locals()
 
-@check(label='ch:iama:L90', chapter='ch:iama', part=6, title='copy error across 56 healthy cell types, lowest',
+@check(label='ch:iama:L90', chapter='ch:iama', part=6, title='held error across 56 healthy cell types, lowest',
        file='part6/p6_08_iama', line=90, status='measured', kind='num', printed='0.024', tol=0.0, source=_B09_PC)
 def check_3932():
-    'Copy error across the 56 healthy cell types (Loyfer 2023, 399 windows): lower end, from the methylated-sites row of the record. Book line 90, printed 0.024. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
+    'Held error across the 56 healthy cell types (Loyfer 2023, 399 windows): lower end, from the methylated-sites row of the record. Book line 90, printed 0.024. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
     value=_chan()['eps_min']
     return locals()
 
-@check(label='ch:iama:L90:0.042', chapter='ch:iama', part=6, title='copy error across 56 healthy cell types, highest',
+@check(label='ch:iama:L90:0.042', chapter='ch:iama', part=6, title='held error across 56 healthy cell types, highest',
        file='part6/p6_08_iama', line=90, status='measured', kind='num', printed='0.042', tol=0.0, source=_B09_PC)
 def check_3933():
-    'Copy error across the 56 healthy cell types: upper end. Book line 90, printed 0.042. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
+    'Held error across the 56 healthy cell types: upper end. Book line 90, printed 0.042. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
     value=_chan()['eps_max']
     return locals()
 
@@ -32130,18 +32130,18 @@ def check_3937():
     value = _b09_nums(_b09_md_line(_B09_PC, '| methylated |'))[4]
     return locals()
 
-@check(label='ch:iama:L94', chapter='ch:iama', part=6, title='copy error on the common sites, highest over lowest',
+@check(label='ch:iama:L94', chapter='ch:iama', part=6, title='held error on the common sites, highest over lowest',
        file='part6/p6_08_iama', line=94, status='measured', kind='file', printed='1.66', tol=0.0, source=_B09_PC)
 def check_3938():
-    'Fold difference of copy error on the 26,800 CpGs all 56 cell types keep methylated: highest over lowest, recomputed from the range 0.0136-0.0226 in the record. Book line 94, printed 1.66. Inputs: PROC_CHANNEL_01_OUTCOME.md section 7.'
-    lo, hi = _b09_nums(_b09_md_line(_B09_PC, '- Copy error on the common sites'))[1:3]
+    'Fold difference of held error on the 26,800 CpGs all 56 cell types keep methylated: highest over lowest, recomputed from the range 0.0136-0.0226 in the record. Book line 94, printed 1.66. Inputs: PROC_CHANNEL_01_OUTCOME.md section 7.'
+    lo, hi = _b09_nums(_b09_md_line(_B09_PC, '- Copy error on the common sites'))[1:3]  # matches a dated record's wording (retired term)
     value = hi / lo
     return locals()
 
-@check(label='ch:iama:L95', chapter='ch:iama', part=6, title='intraclass correlation of the common-site copy error across donors',
+@check(label='ch:iama:L95', chapter='ch:iama', part=6, title='intraclass correlation of the common-site held error across donors',
        file='part6/p6_08_iama', line=95, status='measured', kind='file', printed='0.80', tol=0.0, source=_B09_PC)
 def check_3939():
-    'Replicate agreement of the common-site copy error, 53 cell types with >= 2 samples from different donors: intraclass correlation. Book line 95, printed 0.80. Inputs: PROC_CHANNEL_01_OUTCOME.md section 7.'
+    'Replicate agreement of the common-site held error, 53 cell types with >= 2 samples from different donors: intraclass correlation. Book line 95, printed 0.80. Inputs: PROC_CHANNEL_01_OUTCOME.md section 7.'
     value = float(re.search(r"intraclass\s+correlation\s+(\d+\.\d+)", file_text(_B09_PC)).group(1))
     return locals()
 
@@ -32152,11 +32152,11 @@ def check_3940():
     value = float(re.search(r"Colon epithelium \((\d+\.\d+)-day lifespan\)", file_text(_B09_PC)).group(1))
     return locals()
 
-@check(label='ch:iama:L97', chapter='ch:iama', part=6, title='copy error of colon epithelium and cardiomyocytes',
+@check(label='ch:iama:L97', chapter='ch:iama', part=6, title='held error of colon epithelium and cardiomyocytes',
        file='part6/p6_08_iama', line=97, status='measured', kind='file', printed='0.031', tol=0.0, source=_B09_PC)
 def check_3941():
-    'Copy error of colon epithelium, the same as that of cardiomyocytes, from the record of the turnover test. Book line 97, printed 0.031. Inputs: PROC_CHANNEL_01_OUTCOME.md section 4.'
-    m = re.search(r"lifespan\) carries copy error (\d+\.\d+), cardiomyocytes \([\d,]+ days\) (\d+\.\d+)", file_text(_B09_PC))
+    'Held error of colon epithelium, the same as that of cardiomyocytes, from the record of the turnover test. Book line 97, printed 0.031. Inputs: PROC_CHANNEL_01_OUTCOME.md section 4.'
+    m = re.search(r"lifespan\) carries (?:copy|held) error (\d+\.\d+), cardiomyocytes \([\d,]+ days\) (\d+\.\d+)", file_text(_B09_PC))
     colon, cardio = float(m.group(1)), float(m.group(2))
     same = colon == cardio
     value = colon
@@ -33933,7 +33933,7 @@ def check_4268():
        file='part6/p6_23_reach', line=59, status='measured', kind='file', printed='0.03514', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4269():
-    'Table tab:p4_tumour, CRC1 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 59, printed 0.03514.'
+    'Table tab:p4_tumour, CRC1 WGBS: held error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 59, printed 0.03514.'
     en, et, ratio, cd = _b12_tum_pair('CRC1', 'WGBS')
     value = en
     return locals()
@@ -33942,7 +33942,7 @@ def check_4269():
        file='part6/p6_23_reach', line=59, status='measured', kind='file', printed='0.04668', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4270():
-    'Table tab:p4_tumour, CRC1 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 59, printed 0.04668.'
+    'Table tab:p4_tumour, CRC1 WGBS: held error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 59, printed 0.04668.'
     en, et, ratio, cd = _b12_tum_pair('CRC1', 'WGBS')
     value = et
     return locals()
@@ -33969,7 +33969,7 @@ def check_4272():
        file='part6/p6_23_reach', line=60, status='measured', kind='file', printed='0.03550', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4273():
-    'Table tab:p4_tumour, CRC2 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 60, printed 0.03550.'
+    'Table tab:p4_tumour, CRC2 WGBS: held error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 60, printed 0.03550.'
     en, et, ratio, cd = _b12_tum_pair('CRC2', 'WGBS')
     value = en
     return locals()
@@ -33978,7 +33978,7 @@ def check_4273():
        file='part6/p6_23_reach', line=60, status='measured', kind='file', printed='0.04269', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4274():
-    'Table tab:p4_tumour, CRC2 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 60, printed 0.04269.'
+    'Table tab:p4_tumour, CRC2 WGBS: held error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 60, printed 0.04269.'
     en, et, ratio, cd = _b12_tum_pair('CRC2', 'WGBS')
     value = et
     return locals()
@@ -34005,7 +34005,7 @@ def check_4276():
        file='part6/p6_23_reach', line=61, status='measured', kind='file', printed='0.03268', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4277():
-    'Table tab:p4_tumour, CRC3 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 61, printed 0.03268.'
+    'Table tab:p4_tumour, CRC3 WGBS: held error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 61, printed 0.03268.'
     en, et, ratio, cd = _b12_tum_pair('CRC3', 'WGBS')
     value = en
     return locals()
@@ -34014,7 +34014,7 @@ def check_4277():
        file='part6/p6_23_reach', line=61, status='measured', kind='file', printed='0.03865', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4278():
-    'Table tab:p4_tumour, CRC3 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 61, printed 0.03865.'
+    'Table tab:p4_tumour, CRC3 WGBS: held error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 61, printed 0.03865.'
     en, et, ratio, cd = _b12_tum_pair('CRC3', 'WGBS')
     value = et
     return locals()
@@ -34041,7 +34041,7 @@ def check_4280():
        file='part6/p6_23_reach', line=62, status='measured', kind='file', printed='0.03275', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4281():
-    'Table tab:p4_tumour, CRC4 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 62, printed 0.03275.'
+    'Table tab:p4_tumour, CRC4 WGBS: held error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 62, printed 0.03275.'
     en, et, ratio, cd = _b12_tum_pair('CRC4', 'WGBS')
     value = en
     return locals()
@@ -34050,7 +34050,7 @@ def check_4281():
        file='part6/p6_23_reach', line=62, status='measured', kind='file', printed='0.03646', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4282():
-    'Table tab:p4_tumour, CRC4 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 62, printed 0.03646.'
+    'Table tab:p4_tumour, CRC4 WGBS: held error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 62, printed 0.03646.'
     en, et, ratio, cd = _b12_tum_pair('CRC4', 'WGBS')
     value = et
     return locals()
@@ -34077,7 +34077,7 @@ def check_4284():
        file='part6/p6_23_reach', line=63, status='measured', kind='file', printed='0.03715', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4285():
-    'Table tab:p4_tumour, CRC5 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 63, printed 0.03715.'
+    'Table tab:p4_tumour, CRC5 WGBS: held error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 63, printed 0.03715.'
     en, et, ratio, cd = _b12_tum_pair('CRC5', 'WGBS')
     value = en
     return locals()
@@ -34086,7 +34086,7 @@ def check_4285():
        file='part6/p6_23_reach', line=63, status='measured', kind='file', printed='0.03963', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4286():
-    'Table tab:p4_tumour, CRC5 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 63, printed 0.03963.'
+    'Table tab:p4_tumour, CRC5 WGBS: held error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 63, printed 0.03963.'
     en, et, ratio, cd = _b12_tum_pair('CRC5', 'WGBS')
     value = et
     return locals()
@@ -34113,7 +34113,7 @@ def check_4288():
        file='part6/p6_23_reach', line=64, status='measured', kind='file', printed='0.03866', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4289():
-    'Table tab:p4_tumour, CRC6 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 64, printed 0.03866.'
+    'Table tab:p4_tumour, CRC6 WGBS: held error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 64, printed 0.03866.'
     en, et, ratio, cd = _b12_tum_pair('CRC6', 'WGBS')
     value = en
     return locals()
@@ -34122,7 +34122,7 @@ def check_4289():
        file='part6/p6_23_reach', line=64, status='measured', kind='file', printed='0.04216', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4290():
-    'Table tab:p4_tumour, CRC6 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 64, printed 0.04216.'
+    'Table tab:p4_tumour, CRC6 WGBS: held error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 64, printed 0.04216.'
     en, et, ratio, cd = _b12_tum_pair('CRC6', 'WGBS')
     value = et
     return locals()
@@ -34149,7 +34149,7 @@ def check_4292():
        file='part6/p6_23_reach', line=65, status='measured', kind='file', printed='0.03692', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4293():
-    'Table tab:p4_tumour, OSCC1 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 65, printed 0.03692.'
+    'Table tab:p4_tumour, OSCC1 WGBS: held error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 65, printed 0.03692.'
     en, et, ratio, cd = _b12_tum_pair('OSCC1', 'WGBS')
     value = en
     return locals()
@@ -34158,7 +34158,7 @@ def check_4293():
        file='part6/p6_23_reach', line=65, status='measured', kind='file', printed='0.04079', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4294():
-    'Table tab:p4_tumour, OSCC1 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 65, printed 0.04079.'
+    'Table tab:p4_tumour, OSCC1 WGBS: held error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 65, printed 0.04079.'
     en, et, ratio, cd = _b12_tum_pair('OSCC1', 'WGBS')
     value = et
     return locals()
@@ -34185,7 +34185,7 @@ def check_4296():
        file='part6/p6_23_reach', line=66, status='measured', kind='file', printed='0.03888', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4297():
-    'Table tab:p4_tumour, OSCC1 oxWGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 66, printed 0.03888.'
+    'Table tab:p4_tumour, OSCC1 oxWGBS: held error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 66, printed 0.03888.'
     en, et, ratio, cd = _b12_tum_pair('OSCC1', 'oxWGBS')
     value = en
     return locals()
@@ -34194,7 +34194,7 @@ def check_4297():
        file='part6/p6_23_reach', line=66, status='measured', kind='file', printed='0.04160', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4298():
-    'Table tab:p4_tumour, OSCC1 oxWGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 66, printed 0.04160.'
+    'Table tab:p4_tumour, OSCC1 oxWGBS: held error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 66, printed 0.04160.'
     en, et, ratio, cd = _b12_tum_pair('OSCC1', 'oxWGBS')
     value = et
     return locals()
@@ -34212,7 +34212,7 @@ def check_4299():
        file='part6/p6_23_reach', line=67, status='measured', kind='file', printed='0.03557', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4300():
-    'Table tab:p4_tumour, OSCC2 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 67, printed 0.03557.'
+    'Table tab:p4_tumour, OSCC2 WGBS: held error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 67, printed 0.03557.'
     en, et, ratio, cd = _b12_tum_pair('OSCC2', 'WGBS')
     value = en
     return locals()
@@ -34221,7 +34221,7 @@ def check_4300():
        file='part6/p6_23_reach', line=67, status='measured', kind='file', printed='0.03668', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4301():
-    'Table tab:p4_tumour, OSCC2 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 67, printed 0.03668.'
+    'Table tab:p4_tumour, OSCC2 WGBS: held error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 67, printed 0.03668.'
     en, et, ratio, cd = _b12_tum_pair('OSCC2', 'WGBS')
     value = et
     return locals()
@@ -34248,7 +34248,7 @@ def check_4303():
        file='part6/p6_23_reach', line=68, status='measured', kind='file', printed='0.03915', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4304():
-    'Table tab:p4_tumour, OSCC2 oxWGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 68, printed 0.03915.'
+    'Table tab:p4_tumour, OSCC2 oxWGBS: held error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 68, printed 0.03915.'
     en, et, ratio, cd = _b12_tum_pair('OSCC2', 'oxWGBS')
     value = en
     return locals()
@@ -34257,7 +34257,7 @@ def check_4304():
        file='part6/p6_23_reach', line=68, status='measured', kind='file', printed='0.03334', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4305():
-    'Table tab:p4_tumour, OSCC2 oxWGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 68, printed 0.03334.'
+    'Table tab:p4_tumour, OSCC2 oxWGBS: held error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 68, printed 0.03334.'
     en, et, ratio, cd = _b12_tum_pair('OSCC2', 'oxWGBS')
     value = et
     return locals()
@@ -34284,7 +34284,7 @@ def check_4307():
        file='part6/p6_23_reach', line=69, status='measured', kind='file', printed='0.03893', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4308():
-    'Table tab:p4_tumour, OSCC3 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 69, printed 0.03893.'
+    'Table tab:p4_tumour, OSCC3 WGBS: held error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 69, printed 0.03893.'
     en, et, ratio, cd = _b12_tum_pair('OSCC3', 'WGBS')
     value = en
     return locals()
@@ -34293,7 +34293,7 @@ def check_4308():
        file='part6/p6_23_reach', line=69, status='measured', kind='file', printed='0.04678', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4309():
-    'Table tab:p4_tumour, OSCC3 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 69, printed 0.04678.'
+    'Table tab:p4_tumour, OSCC3 WGBS: held error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 69, printed 0.04678.'
     en, et, ratio, cd = _b12_tum_pair('OSCC3', 'WGBS')
     value = et
     return locals()
@@ -34320,7 +34320,7 @@ def check_4311():
        file='part6/p6_23_reach', line=70, status='measured', kind='file', printed='0.04064', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4312():
-    'Table tab:p4_tumour, OSCC3 oxWGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 70, printed 0.04064.'
+    'Table tab:p4_tumour, OSCC3 oxWGBS: held error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 70, printed 0.04064.'
     en, et, ratio, cd = _b12_tum_pair('OSCC3', 'oxWGBS')
     value = en
     return locals()
@@ -34329,7 +34329,7 @@ def check_4312():
        file='part6/p6_23_reach', line=70, status='measured', kind='file', printed='0.04567', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4313():
-    'Table tab:p4_tumour, OSCC3 oxWGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 70, printed 0.04567.'
+    'Table tab:p4_tumour, OSCC3 oxWGBS: held error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 70, printed 0.04567.'
     en, et, ratio, cd = _b12_tum_pair('OSCC3', 'oxWGBS')
     value = et
     return locals()
@@ -34356,7 +34356,7 @@ def check_4315():
        file='part6/p6_23_reach', line=71, status='measured', kind='file', printed='0.03623', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4316():
-    'Table tab:p4_tumour, OSCC4 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 71, printed 0.03623.'
+    'Table tab:p4_tumour, OSCC4 WGBS: held error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 71, printed 0.03623.'
     en, et, ratio, cd = _b12_tum_pair('OSCC4', 'WGBS')
     value = en
     return locals()
@@ -34365,7 +34365,7 @@ def check_4316():
        file='part6/p6_23_reach', line=71, status='measured', kind='file', printed='0.03899', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4317():
-    'Table tab:p4_tumour, OSCC4 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 71, printed 0.03899.'
+    'Table tab:p4_tumour, OSCC4 WGBS: held error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 71, printed 0.03899.'
     en, et, ratio, cd = _b12_tum_pair('OSCC4', 'WGBS')
     value = et
     return locals()
@@ -34392,7 +34392,7 @@ def check_4319():
        file='part6/p6_23_reach', line=72, status='measured', kind='file', printed='0.03917', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4320():
-    'Table tab:p4_tumour, OSCC4 oxWGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 72, printed 0.03917.'
+    'Table tab:p4_tumour, OSCC4 oxWGBS: held error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 72, printed 0.03917.'
     en, et, ratio, cd = _b12_tum_pair('OSCC4', 'oxWGBS')
     value = en
     return locals()
@@ -34401,7 +34401,7 @@ def check_4320():
        file='part6/p6_23_reach', line=72, status='measured', kind='file', printed='0.04107', tol=0.0, source=_B12_TUM,
        heavy=True, rerun=_B12_RR_TUM)
 def check_4321():
-    'Table tab:p4_tumour, OSCC4 oxWGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 72, printed 0.04107.'
+    'Table tab:p4_tumour, OSCC4 oxWGBS: held error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 72, printed 0.04107.'
     en, et, ratio, cd = _b12_tum_pair('OSCC4', 'oxWGBS')
     value = et
     return locals()
@@ -34480,14 +34480,14 @@ def check_4330():
        file='part6/p6_24_status', line=22, status='measured', kind='num', printed='3.41', tol=0.0, source=_B12_CHAN,
        heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the record is the PROC-CHANNEL-01 outcome')
 def check_4331():
-    'Holding energy per methylated site on single molecules, k_B T: the copy-error row of the PROC-CHANNEL-01 record table (also CANON E_hold_meth). Book line 22, printed 3.41.'
+    'Holding energy per methylated site on single molecules, k_B T: the held-error row of the PROC-CHANNEL-01 record table (also CANON E_hold_meth). Book line 22, printed 3.41.'
     value=_b00_hold_energy()
     return locals()
 
 @check(label='ch:status:L22:0.032', chapter='ch:status', part=6, title='eps0 = 1/(1+e^(E_hold/k_B T))',
        file='part6/p6_24_status', line=22, status='measured', kind='num', printed='0.032', tol=0.0)
 def check_4332():
-    'Copy-error floor eps0 = 1/(1 + exp(E_hold/k_B T)) with E_hold = 3.41 k_B T (CANON E_hold_meth). Book line 22, printed 0.032.'
+    'Held-error floor eps0 = 1/(1 + exp(E_hold/k_B T)) with E_hold = 3.41 k_B T (CANON E_hold_meth). Book line 22, printed 0.032.'
     value = 1 / (1 + math.exp(E_hold))
     return locals()
 
@@ -34546,7 +34546,7 @@ def check_4338():
 @check(label='ch:status:L26:Hmin', chapter='ch:status', part=6, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
        file='part6/p6_24_status', line=26, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_4339():
-    'The floor: thermal kicks win against one ATP per site, copy error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 26, printed 1x10^-7.'
+    'The floor: thermal kicks win against one ATP per site, held error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 26, printed 1x10^-7.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     K=load_json('CANON/iam_canon.json')['constants']
     M_=K['M_cell']['value']; P_=K['P_neutrophil_IAM_A']['value']; e0=K['eps0_meth']['value']
@@ -34563,7 +34563,7 @@ def check_4340():
 @check(label='ch:status:L26:4.26', chapter='ch:status', part=6, title='IAM-A at the full surface',
        file='part6/p6_24_status', line=26, status='calc', kind='file', printed='4.26', tol=0.0, source=_B12_POS)
 def check_4341():
-    'IAM-A when the copy error reaches one half: H(1/2)/(P H(eps0)), eps0 = 1/(1+e^E_hold) (CANON), P from iama_positions_v1.json. Book line 26, printed 4.26.'
+    'IAM-A when the held error reaches one half: H(1/2)/(P H(eps0)), eps0 = 1/(1+e^E_hold) (CANON), P from iama_positions_v1.json. Book line 26, printed 4.26.'
     P_ = load_json(_B12_POS)['cells']['neutrophils']['P']
     value = _b12_Hb(0.5) / (P_ * _b12_Hb(1 / (1 + math.exp(E_hold))))
     return locals()
@@ -34576,17 +34576,17 @@ def check_4342():
     value = block / med
     return locals()
 
-@check(label='ch:status:L29', chapter='ch:status', part=6, title='copy-error floor at 10 C, fixed holding energy',
+@check(label='ch:status:L29', chapter='ch:status', part=6, title='held-error floor at 10 C, fixed holding energy',
        file='part6/p6_24_status', line=29, status='calc', kind='num', printed='0.78', tol=0.0)
 def check_4343():
-    'Copy-error floor at 10 C with the holding energy held fixed in joules (E_hold = 3.41 k_B T at 310.15 K): H(eps0(10 C))/H(eps0(37 C)), as in Chapter ch:temperature. Book line 29, printed 0.78.'
+    'Held-error floor at 10 C with the holding energy held fixed in joules (E_hold = 3.41 k_B T at 310.15 K): H(eps0(10 C))/H(eps0(37 C)), as in Chapter ch:temperature. Book line 29, printed 0.78.'
     value = _b12_floor_at(10.0)
     return locals()
 
-@check(label='ch:status:L29:1.012', chapter='ch:status', part=6, title='copy-error floor at 38.5 C, fixed holding energy',
+@check(label='ch:status:L29:1.012', chapter='ch:status', part=6, title='held-error floor at 38.5 C, fixed holding energy',
        file='part6/p6_24_status', line=29, status='calc', kind='num', printed='1.012', tol=0.0)
 def check_4344():
-    'Copy-error floor at 38.5 C with the holding energy held fixed in joules: H(eps0(38.5 C))/H(eps0(37 C)). Book line 29, printed 1.012.'
+    'Held-error floor at 38.5 C with the holding energy held fixed in joules: H(eps0(38.5 C))/H(eps0(37 C)). Book line 29, printed 1.012.'
     value = _b12_floor_at(38.5)
     return locals()
 
@@ -35180,7 +35180,7 @@ def check_4408():
        file='part7/p7_08_one_gauge', line=63, status='openprob', kind='num', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
        heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
 def check_4409():
-    'E_hold = ln((1-eps)/eps) kT of the copy channel, read from the table row "methylated sites (copy error)" of PROC_CHANNEL_01_OUTCOME.md. Book line 63, printed 3.41.'
+    'E_hold = ln((1-eps)/eps) kT of the copy channel, read from the table row "methylated sites (copy error)" of PROC_CHANNEL_01_OUTCOME.md. Book line 63, printed 3.41.'  # matches a dated record's wording (retired term)
     value=_b00_hold_energy()
     return locals()
 
@@ -35400,7 +35400,7 @@ def check_4429():
 @check(label='ch:synthesis:L33:Hmin', chapter='ch:synthesis', part=7, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
        file='part7/p7_08_synthesis', line=33, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_4430():
-    'The floor: thermal kicks win against one ATP per site, copy error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 33, printed 1x10^-7.'
+    'The floor: thermal kicks win against one ATP per site, held error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 33, printed 1x10^-7.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     K=load_json('CANON/iam_canon.json')['constants']
     M_=K['M_cell']['value']; P_=K['P_neutrophil_IAM_A']['value']; e0=K['eps0_meth']['value']
@@ -35588,7 +35588,7 @@ def check_2625():
     value=fl(38.5)
     return locals()
 
-@check(label='ch:reach:L68:0.78', chapter='ch:reach', part=7, title='copy-error floor at 10 C relative to 37 C, fixed holding energy',
+@check(label='ch:reach:L68:0.78', chapter='ch:reach', part=7, title='held-error floor at 10 C relative to 37 C, fixed holding energy',
        file='part7/p7_09_reach', line=68, status='calc', kind='num', printed='0.78', tol=0.0)
 def check_4458():
     'H(eps0(T))/H(eps0(T_cell)) with eps0 = 1/(1 + exp(E/k_B T)), E = E_hold k_B T_cell held fixed in joules (CANON E_hold_meth, T_cell), at T = 10 C. Book line 68, printed 0.78.'
@@ -37375,7 +37375,7 @@ def check_4605():
        file='part7/p7_11_status_all', line=87, status='calc', kind='num', printed='3.41', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
 def check_4606():
-    'E_hold of the copy channel, row methylated sites (copy error) of the PROC-CHANNEL-01 record. Book line 87, printed 3.41.'
+    'E_hold of the copy channel, row methylated sites (held error) of the PROC-CHANNEL-01 record. Book line 87, printed 3.41.'
     value=_b00_hold_energy()
     return locals()
 
@@ -37406,11 +37406,11 @@ def check_2673():
        file='part7/p7_11_status_all', line=91, status='measured', kind='num', printed='3.41', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
 def check_4607():
-    'E_hold of the copy channel, row methylated sites (copy error) of the PROC-CHANNEL-01 record. Book line 91, printed 3.41.'
+    'E_hold of the copy channel, row methylated sites (held error) of the PROC-CHANNEL-01 record. Book line 91, printed 3.41.'
     value=_b00_hold_energy()
     return locals()
 
-@check(label='ch:statusall:L92:0.032', chapter='ch:statusall', part=7, title='copy-error floor eps0',
+@check(label='ch:statusall:L92:0.032', chapter='ch:statusall', part=7, title='held-error floor eps0',
        file='part7/p7_11_status_all', line=91, status='measured', kind='num', printed='0.032', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
 def check_4608():
@@ -37472,7 +37472,7 @@ def check_4614():
 @check(label='ch:statusall:L96:Hmin', chapter='ch:statusall', part=7, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
        file='part7/p7_11_status_all', line=95, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_2674():
-    'The floor: thermal kicks win against one ATP per site, copy error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 95, printed 1x10^-7.'
+    'The floor: thermal kicks win against one ATP per site, held error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 95, printed 1x10^-7.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     K=load_json('CANON/iam_canon.json')['constants']
     M_=K['M_cell']['value']; P_=K['P_neutrophil_IAM_A']['value']; e0=K['eps0_meth']['value']
@@ -37787,7 +37787,7 @@ def check_2690():
     ok = file_has('CANON/iam_canon.json', '3.41')
     return locals()
 
-@check(label='app:constants:L16:0.032', chapter='app:constants', part=8, title='copy-error floor eps0 from E_hold',
+@check(label='app:constants:L16:0.032', chapter='app:constants', part=8, title='held-error floor eps0 from E_hold',
        file='appendices/app_A2_frozen_values', line=16, status='observed', kind='file', printed='0.032', tol=0.0, source='CANON/iam_canon.json')
 def check_4642():
     'eps0 = 1/(1 + exp(E_hold)) with E_hold = 3.41 kT read from the canon (Boltzmann form). Book line 16, printed 0.032.'
@@ -38500,7 +38500,7 @@ def check_4686():
     value = load_json(_B15E_RM + 'Met_A_Floors/metA_floors_v1_3.json')['platforms']['EPIC']['neutrophils']['floor']
     return locals()
 
-@check(label='app:formulas:L642', chapter='app:formulas', part=8, title='copy-error floor eps0',
+@check(label='app:formulas:L642', chapter='app:formulas', part=8, title='held-error floor eps0',
        file='appendices/app_E_formulas', line=633, status='measured', kind='num', printed='0.032', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
 def check_4687():
@@ -40939,15 +40939,15 @@ def check_4806():
 
 # ---------------------------------------------------------------- L171-L198
 
-@check(label='app:glossary:L171:0.024', title='healthy copy error, lowest of 56 cell types', line=169, status='observed', kind='num', printed='0.024', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L171:0.024', title='healthy held error, lowest of 56 cell types', line=169, status='observed', kind='num', printed='0.024', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4807():
-    'Copy error of the 56 healthy cell types (Loyfer 2023), lower end, from the methylated-sites row of the PROC-CHANNEL-01 record. Book line 171, printed 0.024.'
+    'Held error of the 56 healthy cell types (Loyfer 2023), lower end, from the methylated-sites row of the PROC-CHANNEL-01 record. Book line 171, printed 0.024.'
     value=_chan()['eps_min']
     return locals()
 
-@check(label='app:glossary:L171:0.042', title='healthy copy error, highest of 56 cell types', line=169, status='observed', kind='num', printed='0.042', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L171:0.042', title='healthy held error, highest of 56 cell types', line=169, status='observed', kind='num', printed='0.042', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4808():
-    'Copy error of the 56 healthy cell types, upper end, from the methylated-sites row of the PROC-CHANNEL-01 record. Book line 171, printed 0.042.'
+    'Held error of the 56 healthy cell types, upper end, from the methylated-sites row of the PROC-CHANNEL-01 record. Book line 171, printed 0.042.'
     value=_chan()['eps_max']
     return locals()
 
@@ -41153,7 +41153,7 @@ def check_2876():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '3.41')
     return locals()
 
-@check(label='app:glossary:L262:0.032', title='copy-error floor eps0', line=259, status='observed', kind='num', printed='0.032', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L262:0.032', title='held-error floor eps0', line=259, status='observed', kind='num', printed='0.032', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4831():
     'eps0 = 1/(1 + e^(phi M)) with phi M = E_hold = 3.41 k_B T; phi and M from the canon. Book line 262, printed 0.032.'
     value = 1 / (1 + math.exp(phi_hold * M_cell))
@@ -41426,7 +41426,7 @@ def check_2885():
 @check(label='app:glossary:L348:Hmin', chapter='app:glossary', part=8, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
        file='appendices/app_F_glossary', line=340, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_2886():
-    'The floor: thermal kicks win against one ATP per site, copy error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 340, printed 1x10^-7.'
+    'The floor: thermal kicks win against one ATP per site, held error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 340, printed 1x10^-7.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     K=load_json('CANON/iam_canon.json')['constants']
     M_=K['M_cell']['value']; P_=K['P_neutrophil_IAM_A']['value']; e0=K['eps0_meth']['value']
@@ -41489,15 +41489,15 @@ def check_2889():
     value = float(_cv('Normal_band')[1])
     return locals()
 
-@check(label='app:glossary:L368:0.032', title='copy-error floor eps0 (IAM-A entry)', line=360, status='observed', kind='num', printed='0.032', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L368:0.032', title='held-error floor eps0 (IAM-A entry)', line=360, status='observed', kind='num', printed='0.032', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4866():
     'eps0 = 1/(1 + e^(phi M)) with phi and M from the canon (phi M = E_hold). Book line 368, printed 0.032.'
     value = 1 / (1 + math.exp(phi_hold * M_cell))
     return locals()
 
-@check(label='app:glossary:L370:0.80', title='ICC of cell-type copy-error differences across donors', line=362, status='observed', kind='file', printed='0.80', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L370:0.80', title='ICC of cell-type held-error differences across donors', line=362, status='observed', kind='file', printed='0.80', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4867():
-    'Intraclass correlation of the common-site copy error across donors (53 cell types with at least two samples), from section 7 of the PROC-CHANNEL-01 record. Book line 370, printed 0.80.'
+    'Intraclass correlation of the common-site held error across donors (53 cell types with at least two samples), from section 7 of the PROC-CHANNEL-01 record. Book line 370, printed 0.80.'
     value = float(re.search(r'intraclass\s+correlation\s+(\d+\.\d+)', file_text(_B17_PC)).group(1))
     return locals()
 
@@ -44264,7 +44264,7 @@ INVENTORY = [
     (8, 'app:glossary', 'appendices/app_F_glossary', 434, '', 'calc', '6.5\\times10^9', 'input: M87* black-hole mass 6.5e9 M_sun, Event Horizon Telescope 2019 (doi 10.3847/2041-8213/ab0ec7); the Smarr share at this mass is checked at ch:blackholes:L143'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 437, '', 'observed', '0.95', 'measured, source not named'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 437, '', 'observed', '-0.98', 'measured, source not named'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 444, '', 'observed', '30', 'definition: masking threshold of the copy-error statistic (more than 30 % of qualifying molecules in error), a chain rule'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 444, '', 'observed', '30', 'definition: masking threshold of the held-error statistic (more than 30 % of qualifying molecules in error), a chain rule'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 456, '', 'observed', '20', 'definition: smallest neutrophil fraction (20 %) at which whole-blood Met-A is read, a chain rule'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 478, '', 'observed', '10', 'measured, source not named'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 479, '', 'observed', '1.4', 'input: canonical neutron-star mass 1.4 M_sun, nothing to recompute'),

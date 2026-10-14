@@ -1864,7 +1864,7 @@
   },
   {
    "title": "Cause of the IAM-A across-laboratory failure (where in the file is read)",
-   "purpose": "Finds why three EMSeq libraries from one laboratory read copy error about 15 % low, before any rule is changed. It matters because the stopping rule holds IAM-A commissioning until the cause is known.",
+   "purpose": "Finds why three EMSeq libraries from one laboratory read held error about 15 % low, before any rule is changed. It matters because the stopping rule holds IAM-A commissioning until the cause is known.",
    "instrument_or_term": "IAM-A (sampling of a sequencing run)",
    "sources": [
     "PRJNA646948"
@@ -2353,7 +2353,7 @@
     {
      "date": "2026-10-12",
      "outcome": "progressed",
-     "note": "Reference built by the rule: 7 cortical samples, 5 donors, eps 0.03429; leave-one-donor-out 0.939-1.204, 2 of 5 inside Normal; copy error follows 'not sorted', not region or age."
+     "note": "Reference built by the rule: 7 cortical samples, 5 donors, eps 0.03429; leave-one-donor-out 0.939-1.204, 2 of 5 inside Normal; held error follows 'not sorted', not region or age."
     },
     {
      "date": "2026-10-13",
@@ -2370,7 +2370,7 @@
     "G4"
    ],
    "depends_on": [
-    "IAM-A post-mortem time check on neuron copy error"
+    "IAM-A post-mortem time check on neuron held error"
    ],
    "notes": "TODO A8 says the sorted-only reference's test is to be sealed; the log calls the rule sealed 2026-10-13. Results register 'decisions' 2026-10-13. Both references are reported side by side.",
    "id": "COM-IAMA-013",
@@ -2537,8 +2537,8 @@
    ]
   },
   {
-   "title": "IAM-A conversion limit: how much incomplete conversion biases copy error",
-   "purpose": "Works out from physics and planted tests how much a conversion of 0.979 biases IAM-A's copy error, so the 0.98 intake limit has a reason. It matters because many kits sit right at that limit.",
+   "title": "IAM-A conversion limit: how much incomplete conversion biases held error",
+   "purpose": "Works out from physics and planted tests how much a conversion of 0.979 biases IAM-A's held error, so the 0.98 intake limit has a reason. It matters because many kits sit right at that limit.",
    "instrument_or_term": "IAM-A Stage Q0 / Stage Q",
    "sources": [
     "GSE128731"
@@ -2567,7 +2567,7 @@
    "cost": "none",
    "impact": 4,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_CONVERSION_01_OUTCOME.md; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10, 2026-10-11. Pasted wording: 10-10 plan item 2 'The conversion limit: work out from physics how much a 0.979 conversion actually biases the copy error'; 'Conversion limit: tested, not met; chain unchanged'; 'R1 C1 intake: conversion limit on identical DNA'.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_CONVERSION_01_OUTCOME.md; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10, 2026-10-11. Pasted wording: 10-10 plan item 2 'The conversion limit: work out from physics how much a 0.979 conversion actually biases the held error'; 'Conversion limit: tested, not met; chain unchanged'; 'R1 C1 intake: conversion limit on identical DNA'.",
    "legacy_ids": [
     "C1 (IAM-A bar)"
    ],
@@ -2577,7 +2577,7 @@
    ]
   },
   {
-   "title": "IAM-A copy error in non-dividing cells: derivation and age prediction",
+   "title": "IAM-A held error in non-dividing cells: derivation and age prediction",
    "purpose": "In cells that no longer divide the held error is kept by upkeep alone, and the derivation says it should not rise with age once balance is reached. A derivation note and a synthetic test come before any neuron data are read.",
    "instrument_or_term": "IAM-A; balance (division-rate lever)",
    "sources": [
@@ -2601,7 +2601,7 @@
     "G4",
     "L2"
    ],
-   "notes": "The division-rate lever (CANON/levers.json id division_rate) carries the falsifier; the lever section group may also list it. | repo: TODO.md A9; CANON/levers.json division_rate (falsifier: held error rising with age beyond 10 % while rates unchanged). Pasted wording: G4 'Neurons: low end and non-dividing cells'. | also listed as: Neurons: copy error in non-dividing cells (derivation and age prediction)",
+   "notes": "The division-rate lever (CANON/levers.json id division_rate) carries the falsifier; the lever section group may also list it. | repo: TODO.md A9; CANON/levers.json division_rate (falsifier: held error rising with age beyond 10 % while rates unchanged). Pasted wording: G4 'Neurons: low end and non-dividing cells'. | also listed as: Neurons: held error in non-dividing cells (derivation and age prediction)",
    "depends_on": [
     "COM-IAMA: IAM-A second cell type: sorted neurons"
    ],
@@ -2708,8 +2708,8 @@
    ]
   },
   {
-   "title": "IAM-A post-mortem time check on neuron copy error",
-   "purpose": "Brain samples are taken after death, and the time before preservation could raise the copy error. This must be checked before post-mortem neurons are trusted as a healthy test.",
+   "title": "IAM-A post-mortem time check on neuron held error",
+   "purpose": "Brain samples are taken after death, and the time before preservation could raise the held error. This must be checked before post-mortem neurons are trusted as a healthy test.",
    "instrument_or_term": "IAM-A",
    "sources": [
     "GSE107729"
@@ -2718,7 +2718,7 @@
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
    "status": "planned",
    "runs": [],
-   "next_step": "Record post-mortem interval per sample (given for 20 of 25 Yi controls) and test whether copy error follows it.",
+   "next_step": "Record post-mortem interval per sample (given for 20 of 25 Yi controls) and test whether held error follows it.",
    "cost": "box",
    "impact": 4,
    "legacy_ids": [
@@ -2813,7 +2813,7 @@
   },
   {
    "title": "IAM-A Stage Q end to end on real files, and the healthy neutrophil position P",
-   "purpose": "The sequencing instrument reads copy errors on single DNA molecules; it first had to run on whole real files and have its healthy reference point measured on the same sites it reads. This fixed the reference that every IAM-A reading is divided by.",
+   "purpose": "The sequencing instrument reads held errors on single DNA molecules; it first had to run on whole real files and have its healthy reference point measured on the same sites it reads. This fixed the reference that every IAM-A reading is divided by.",
    "instrument_or_term": "IAM-A (Stage Q, position P)",
    "sources": [
     "GSE186458"
@@ -2851,7 +2851,7 @@
   },
   {
    "title": "Met-A to IAM-A link as a standing sealed prediction",
-   "purpose": "The physics predicts how far the array meter should move for a given rise in the sequencing meter's copy error. Sealing that window on identical DNA read both ways would test the two instruments against each other.",
+   "purpose": "The physics predicts how far the array meter should move for a given rise in the sequencing meter's held error. Sealing that window on identical DNA read both ways would test the two instruments against each other.",
    "instrument_or_term": "IAM-A and Met-A",
    "sources": [
     "GSE237553",
@@ -2893,7 +2893,7 @@
   },
   {
    "title": "Met-A to IAM-A link as a standing sealed prediction (DEV-LINK-IAMA-METAA-01)",
-   "purpose": "Predicts, before looking, where Met-A must read on the same cells from IAM-A's measured copy error, and checks it on cells with known amounts of change. It matters because each pass turns the gauge ends from derived into measured, and the prediction can fail.",
+   "purpose": "Predicts, before looking, where Met-A must read on the same cells from IAM-A's measured held error, and checks it on cells with known amounts of change. It matters because each pass turns the gauge ends from derived into measured, and the prediction can fail.",
    "instrument_or_term": "Met-A and IAM-A (curves A and B)",
    "sources": [
     "GSE230132",
@@ -2933,8 +2933,8 @@
    ]
   },
   {
-   "title": "Neurons: copy error against post-mortem time",
-   "purpose": "Checks whether copy error in post-mortem neurons depends on how long after death the tissue was taken. It matters because post-mortem decay could fake a reading.",
+   "title": "Neurons: held error against post-mortem time",
+   "purpose": "Checks whether held error in post-mortem neurons depends on how long after death the tissue was taken. It matters because post-mortem decay could fake a reading.",
    "instrument_or_term": "IAM-A",
    "sources": [
     "GSE107729"
@@ -2943,7 +2943,7 @@
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
    "status": "planned",
    "runs": [],
-   "next_step": "Check copy error against post-mortem interval in the Yi controls before trusting post-mortem neurons (TODO A10).",
+   "next_step": "Check held error against post-mortem interval in the Yi controls before trusting post-mortem neurons (TODO A10).",
    "cost": "laptop",
    "impact": 4,
    "depends_on": [],
@@ -2958,7 +2958,7 @@
   },
   {
    "title": "Per-territory IAM-A: is a newly written mark held as tightly as an old one?",
-   "purpose": "Reads copy error separately in territories a cell keeps methylated and in territories a cancer newly methylated. It matters because IAM-A alone cannot name the direction of a change unless territories are read separately.",
+   "purpose": "Reads held error separately in territories a cell keeps methylated and in territories a cancer newly methylated. It matters because IAM-A alone cannot name the direction of a change unless territories are read separately.",
    "instrument_or_term": "IAM-A per-territory reader (territory_eps.py)",
    "sources": [
     "MCF-7 ENCODE files (DEV-FINGERPRINT-02)"
@@ -2988,7 +2988,7 @@
   },
   {
    "title": "Decitabine dose series: IAM-A predicts the Met-A change (DEV-LINK-IAMA-METAA-02)",
-   "purpose": "Reads HCT116 cells untreated and at 30 nM and 300 nM decitabine on both arrays and EM-seq, to test whether IAM-A's copy error predicts the array change. It matters because decitabine lowers methylation by a known amount, a clean check of the link.",
+   "purpose": "Reads HCT116 cells untreated and at 30 nM and 300 nM decitabine on both arrays and EM-seq, to test whether IAM-A's held error predicts the array change. It matters because decitabine lowers methylation by a known amount, a clean check of the link.",
    "instrument_or_term": "Met-A and IAM-A",
    "sources": [
     "GSE237662",
@@ -3024,7 +3024,7 @@
   },
   {
    "title": "IAM-A bisulfite conversion rule (DEV-IAMA-CONVERSION-01; commissioning C1 draft)",
-   "purpose": "Incomplete chemical conversion hides some copy errors, and the fixed 0.98 limit alone was deciding which kit could be read. This derived and tested the effect so the intake rule has a physical basis.",
+   "purpose": "Incomplete chemical conversion hides some held errors, and the fixed 0.98 limit alone was deciding which kit could be read. This derived and tested the effect so the intake rule has a physical basis.",
    "instrument_or_term": "IAM-A (Stage Q0.3)",
    "sources": [
     "EpiQC session 4 runs (14 Stage Q whole files)",
@@ -3043,7 +3043,7 @@
     {
      "date": "2026-10-11",
      "outcome": "fail",
-     "note": "Synthetic test 5: Stage Q's copy error falls about half the derived factor (0.9904 at c 0.98); eps/c over-corrects; correction not adopted; 0.98 limit kept with no correction."
+     "note": "Synthetic test 5: Stage Q's held error falls about half the derived factor (0.9904 at c 0.98); eps/c over-corrects; correction not adopted; 0.98 limit kept with no correction."
     }
    ],
    "next_step": "none (C1 decided on identical DNA)",
@@ -3287,7 +3287,7 @@
     {
      "date": "2026-10-11",
      "outcome": "success",
-     "note": "territory_eps.py equals Stage Q over all molecules and returns planted gained copy error exactly; healthy liver held 0.0269 vs other 0.0527."
+     "note": "territory_eps.py equals Stage Q over all molecules and returns planted gained held error exactly; healthy liver held 0.0269 vs other 0.0527."
     }
    ],
    "next_step": "Seal a prediction on MCF-7 territories before reading.",
@@ -3305,7 +3305,7 @@
   },
   {
    "title": "Second physics lever for IAM-A (energy supply)",
-   "purpose": "The supply-cut result rests on one mouse experiment, so a second independent way to move the copy error by a predicted amount is needed. Public candidates so far are too short or confounded.",
+   "purpose": "The supply-cut result rests on one mouse experiment, so a second independent way to move the held error by a predicted amount is needed. Public candidates so far are too short or confounded.",
    "instrument_or_term": "IAM-A; methyl-supply lever",
    "sources": [
     "GSE233768",
@@ -3338,7 +3338,7 @@
   },
   {
    "title": "IAM-A clustering reading (IAM-A C-score)",
-   "purpose": "The sequencing instrument's own clumping reading asks whether copy errors cluster along the genome. Healthy cells already break its independent-error null, so it stays development until a band is set.",
+   "purpose": "The sequencing instrument's own clumping reading asks whether held errors cluster along the genome. Healthy cells already break its independent-error null, so it stays development until a band is set.",
    "instrument_or_term": "IAM-A C-score",
    "sources": [
     "GSE186458"
@@ -3534,7 +3534,7 @@
   {
    "id": "COM-IAMA-049",
    "title": "Met-A to IAM-A link as a standing sealed prediction (DEV-LINK-IAMA-METAA)",
-   "purpose": "Tests whether the copy error IAM-A measures predicts the array reading Met-A gives on the same DNA. A confirmed link ties the two instruments to one quantity.",
+   "purpose": "Tests whether the held error IAM-A measures predicts the array reading Met-A gives on the same DNA. A confirmed link ties the two instruments to one quantity.",
    "instrument_or_term": "Met-A and IAM-A link",
    "sources": [
     "Box Run 2 session 5 decitabine dose series (EM-seq + EPIC, same series)",
@@ -3566,16 +3566,16 @@
   },
   {
    "id": "COM-IAMA-050",
-   "title": "Neurons: post-mortem time check on copy error",
-   "purpose": "Checks whether time between death and tissue collection changes the copy error in neuron samples. Post-mortem neurons cannot be trusted as healthy references until this is known.",
-   "instrument_or_term": "IAM-A copy error",
+   "title": "Neurons: post-mortem time check on held error",
+   "purpose": "Checks whether time between death and tissue collection changes the held error in neuron samples. Post-mortem neurons cannot be trusted as healthy references until this is known.",
+   "instrument_or_term": "IAM-A held error",
    "sources": [
     "GSE107729 (Yi controls)"
    ],
    "data_status": "in_hand",
    "status": "planned",
    "runs": [],
-   "next_step": "Check copy error against post-mortem time in the Yi controls before trusting post-mortem neurons.",
+   "next_step": "Check held error against post-mortem time in the Yi controls before trusting post-mortem neurons.",
    "cost": "laptop",
    "impact": 4,
    "record": "TODO.md",
@@ -6163,7 +6163,7 @@
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
    "status": "designed",
    "runs": [],
-   "next_step": "Seal the sorted-only reference's test with its Normal band and the age bar sized by test 4, then read GSE96612 and GSE107729 once; check copy error against post-mortem time first (A10).",
+   "next_step": "Seal the sorted-only reference's test with its Normal band and the age bar sized by test 4, then read GSE96612 and GSE107729 once; check held error against post-mortem time first (A10).",
    "cost": "laptop",
    "impact": 3,
    "depends_on": [
@@ -6386,7 +6386,7 @@
    ]
   },
   {
-   "title": "Passage series: copy error building with divisions (GSE268145)",
+   "title": "Passage series: held error building with divisions (GSE268145)",
    "purpose": "Reads BJ fibroblasts over serial passages to see how the pattern changes with each division. It matters because each division is one more copy; under the balance law, division sets the time to reach balance, not the balance itself.",
    "instrument_or_term": "Met-A (fibroblast identity sites, development)",
    "sources": [
@@ -6400,7 +6400,7 @@
    "cost": "laptop",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/CANDIDATES_2026-10-10.md (66 EPIC arrays, hTERT, arrays only: no IAM-A); Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md; TODO.md C4. GSE268145 in MASTER_INVENTORY.csv with no status. Pasted wording: C5 (10-11), 10-10 item 12, B4 (10-09 list) 'tests whether copy error builds the way the law says' - the repo's 2026-10-13 balance correction changes this expectation.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/CANDIDATES_2026-10-10.md (66 EPIC arrays, hTERT, arrays only: no IAM-A); Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md; TODO.md C4. GSE268145 in MASTER_INVENTORY.csv with no status. Pasted wording: C5 (10-11), 10-10 item 12, B4 (10-09 list) 'tests whether held error builds the way the law says' - the repo's 2026-10-13 balance correction changes this expectation.",
    "legacy_ids": [
     "C4",
     "C5 (10-11)",
@@ -6571,7 +6571,7 @@
   },
   {
    "title": "Bisulfite conversion as a handle on the sequencing reading (DEV-IAMA-CONVERSION-01, commissioning test 5)",
-   "purpose": "Checked whether incomplete chemical conversion lowers the sequencing instrument's copy error by exactly the conversion rate. It fixed the intake rule for the instrument that tests the law.",
+   "purpose": "Checked whether incomplete chemical conversion lowers the sequencing instrument's held error by exactly the conversion rate. It fixed the intake rule for the instrument that tests the law.",
    "instrument_or_term": "IAM-A conversion term",
    "sources": [
     "EpiQC / laboratory TruSeq repeat libraries (as in the note)"
@@ -6589,7 +6589,7 @@
     {
      "date": "2026-10-11",
      "outcome": "fail",
-     "note": "Commissioning synthetic test 5: conversion moves Stage Q's copy error about half the derived factor, so eps/c over-corrects; C1 kept at 0.98 with no correction.",
+     "note": "Commissioning synthetic test 5: conversion moves Stage Q's held error about half the derived factor, so eps/c over-corrects; C1 kept at 0.98 with no correction.",
      "commit": "f192563"
     }
    ],
@@ -6606,7 +6606,7 @@
   },
   {
    "title": "Division-rate lever: fibroblast passage series GSE268145",
-   "purpose": "Follows one cell line through many divisions to see whether copy error changes with the number of divisions. Under the balance equation it should settle and stay flat while rates are constant, so a drift would mean the rates themselves changed.",
+   "purpose": "Follows one cell line through many divisions to see whether held error changes with the number of divisions. Under the balance equation it should settle and stay flat while rates are constant, so a drift would mean the rates themselves changed.",
    "instrument_or_term": "Met-A on the fibroblast's own identity sites (development)",
    "sources": [
     "GSE268145 (BJ fibroblasts, hTERT, serial passage, two trajectories, PDL 4-38+, 66 EPIC arrays)"
@@ -6729,7 +6729,7 @@
   },
   {
    "title": "Temperature lever, cross-species: DEV-XSPECIES-TEMP-01 (44 mammal species, liver and heart)",
-   "purpose": "Asked whether copy error rises with body temperature across mammal species, as the kT floor predicts (+1 % per K). It matters as the first temperature reading and as the reason the design moved to one species.",
+   "purpose": "Asked whether held error rises with body temperature across mammal species, as the kT floor predicts (+1 % per K). It matters as the first temperature reading and as the reason the design moved to one species.",
    "instrument_or_term": "temperature lever; reference-free RRBS reader (withdrawn)",
    "sources": [
     "AnAge",
@@ -7082,8 +7082,8 @@
   },
   {
    "id": "LEV-040",
-   "title": "Division rate: passage series (copy error with divisions)",
-   "purpose": "Reads copy error across cell passages to see how division count affects the balance. It complements the non-dividing neuron test.",
+   "title": "Division rate: passage series (held error with divisions)",
+   "purpose": "Reads held error across cell passages to see how division count affects the balance. It complements the non-dividing neuron test.",
    "instrument_or_term": "division rate",
    "sources": [
     "GSE268145"
@@ -7169,7 +7169,7 @@
   {
    "id": "LEV-043",
    "title": "Write-enzyme level lever (decitabine)",
-   "purpose": "Tests whether fewer write heads raise copy error by a derived amount. Under the balance derivation this lever is strong because division only sets the time to balance.",
+   "purpose": "Tests whether fewer write heads raise held error by a derived amount. Under the balance derivation this lever is strong because division only sets the time to balance.",
    "instrument_or_term": "restore rate g (DNMT level)",
    "sources": [
     "Box Run 2 session 5 decitabine series"
@@ -7626,7 +7626,7 @@
     {
      "date": "2026-10-13",
      "outcome": "progressed",
-     "note": "'The floor is not a copy error' and gauge direction (cancer moves right, toward the full surface) recorded; whole gauge restored to the chain report from cell_gauge_marks_v1.json (full surface 3.03 Met-A, 4.26 IAM-A; Normal 0.95-1.05; breach to be measured)."
+     "note": "'The floor is not a held error' and gauge direction (cancer moves right, toward the full surface) recorded; whole gauge restored to the chain report from cell_gauge_marks_v1.json (full surface 3.03 Met-A, 4.26 IAM-A; Normal 0.95-1.05; breach to be measured)."
     }
    ],
    "next_step": "Measure the breach mark (DEV-BREACH-01 scored 2026-10-13: not visible at DCIS on the blind-site average; next breach reading per-site surface share or clustering, sealed first - H2, other section).",
@@ -7679,7 +7679,7 @@
   },
   {
    "title": "Met-A to IAM-A reverse direction: an upper-limit prediction any lab can check",
-   "purpose": "From a measured Met-A, calculates the largest IAM-A copy error it could come from if all drift is copy error; IAM-A above that limit falsifies the model, and a gap below it measures cells switching state. It matters because any researcher with the same cells on arrays and bisulfite sequencing (for example BLUEPRINT) can check it.",
+   "purpose": "From a measured Met-A, calculates the largest IAM-A held error it could come from if all drift is held error; IAM-A above that limit falsifies the model, and a gap below it measures cells switching state. It matters because any researcher with the same cells on arrays and bisulfite sequencing (for example BLUEPRINT) can check it.",
    "instrument_or_term": "Met-A and IAM-A (curve B)",
    "sources": [
     "BLUEPRINT (controlled access)",
@@ -7937,7 +7937,7 @@
   {
    "title": "Book open item D1 restated: derive eps0 from the writer's discrimination measured outside the cell",
    "purpose": "Rewords the book's central open problem after the algebra showed the old wording was circular. It matters because it changes what a successful derivation must look like.",
-   "instrument_or_term": "eps0 (healthy copy error)",
+   "instrument_or_term": "eps0 (healthy held error)",
    "sources": [],
    "data_status": "none_needed",
    "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
@@ -8064,7 +8064,7 @@
    "legacy_ids": [
     "1 (10-10)"
    ],
-   "notes": "Data never downloaded (unspent). Citation verified against CrossRef (3bb2aa7). | also listed as: Hammer-seq: can measured copier kinetics predict the held copy error? (DEV-HAMMER-01)",
+   "notes": "Data never downloaded (unspent). Citation verified against CrossRef (3bb2aa7). | also listed as: Hammer-seq: can measured copier kinetics predict the held held error? (DEV-HAMMER-01)",
    "depends_on": [],
    "id": "PHY-022",
    "sources_of_row": [
@@ -8154,8 +8154,8 @@
    ]
   },
   {
-   "title": "DEV-WRITER-01: is the held copy error the writer's single-step error (DNMT1 discrimination)?",
-   "purpose": "Tested whether DNMT1's measured selectivity outside the cell sets the copy error cells hold. It found cells lose about twice the writer's errors, which leaves a 0.74 kT gap to explain.",
+   "title": "DEV-WRITER-01: is the held held error the writer's single-step error (DNMT1 discrimination)?",
+   "purpose": "Tested whether DNMT1's measured selectivity outside the cell sets the held error cells hold. It found cells lose about twice the writer's errors, which leaves a 0.74 kT gap to explain.",
    "instrument_or_term": "Model A; E_hold = ln D",
    "sources": [
     "Adam 2023",
@@ -8180,7 +8180,7 @@
    "legacy_ids": [
     "Option B (10-10)"
    ],
-   "notes": "Two qualifying measurements on short oligonucleotides. Listed in results_register losses. | also listed as: Writer discrimination test 1: DNMT1 in-vitro discrimination sets the copy error (DEV-WRITER-01)",
+   "notes": "Two qualifying measurements on short oligonucleotides. Listed in results_register losses. | also listed as: Writer discrimination test 1: DNMT1 in-vitro discrimination sets the held error (DEV-WRITER-01)",
    "depends_on": [],
    "id": "PHY-025",
    "sources_of_row": [
@@ -8189,8 +8189,8 @@
    ]
   },
   {
-   "title": "DEV-WRITER-02: does copy error follow DNMT1 discrimination across 256 flanking contexts?",
-   "purpose": "Tested per sequence context whether the copy error follows the writer's selectivity. It showed the genome-wide agreement in DEV-WRITER-01 was a coincidence of size.",
+   "title": "DEV-WRITER-02: does held error follow DNMT1 discrimination across 256 flanking contexts?",
+   "purpose": "Tested per sequence context whether the held error follows the writer's selectivity. It showed the genome-wide agreement in DEV-WRITER-01 was a coincidence of size.",
    "instrument_or_term": "Model A'",
    "sources": [
     "153 healthy Loyfer window files (PROC-CHANNEL-01; GSE186458)",
@@ -8205,7 +8205,7 @@
     {
      "date": "2026-10-10",
      "outcome": "fail",
-     "note": "NOT MET: slope difference -0.688 (bar 0.5-1.5), negative in 153/153; copy error and de novo rate anti-correlated across contexts (Spearman -0.82, recorded not tested).",
+     "note": "NOT MET: slope difference -0.688 (bar 0.5-1.5), negative in 153/153; held error and de novo rate anti-correlated across contexts (Spearman -0.82, recorded not tested).",
      "commit": "8cb9a24"
     }
    ],
@@ -8213,7 +8213,7 @@
    "cost": "none",
    "impact": 2,
    "legacy_ids": [],
-   "notes": "Listed in results_register losses. | also listed as: Writer discrimination test 2: per-context copy error follows DNMT1's discrimination (DEV-WRITER-02)",
+   "notes": "Listed in results_register losses. | also listed as: Writer discrimination test 2: per-context held error follows DNMT1's discrimination (DEV-WRITER-02)",
    "depends_on": [],
    "id": "PHY-026",
    "sources_of_row": [
@@ -8379,7 +8379,7 @@
   },
   {
    "title": "Healthy-cell kinetics for eps0",
-   "purpose": "Would measure copier kinetics in healthy cells to predict healthy copy error. It matters only if same-cell kinetics could predict copy error.",
+   "purpose": "Would measure copier kinetics in healthy cells to predict healthy held error. It matters only if same-cell kinetics could predict held error.",
    "instrument_or_term": "IAM-A (eps0)",
    "sources": [],
    "data_status": "to_scout",
@@ -8403,7 +8403,7 @@
   },
   {
    "title": "Second kinetics set: DNMT1-only cells (GSE116482)",
-   "purpose": "Would repeat the kinetics test in a second system with DNMT1-only cells. It matters only if same-cell kinetics could predict copy error.",
+   "purpose": "Would repeat the kinetics test in a second system with DNMT1-only cells. It matters only if same-cell kinetics could predict held error.",
    "instrument_or_term": "IAM-A (eps0)",
    "sources": [
     "GSE116482"
@@ -9006,7 +9006,7 @@
   },
   {
    "title": "DEV-FINGERPRINT-01: prostate cancer line LNCaP against normal prostate cells PrEC, both instruments on the same cells",
-   "purpose": "Tests whether a prostate cancer line shows more pattern damage than its copy error alone allows, by a rule sealed before any cancer file was read. It was the first cancer result where both instruments read the same cells.",
+   "purpose": "Tests whether a prostate cancer line shows more pattern damage than its held error alone allows, by a rule sealed before any cancer file was read. It was the first cancer result where both instruments read the same cells.",
    "instrument_or_term": "IAM-A (Stage Q, run-loss Arm B) and Met-A (Arm A, against curve B)",
    "sources": [
     "GSE86833",
@@ -10230,9 +10230,9 @@
    ]
   },
   {
-   "title": "PROC-TUMOUR-01: copy error in early-onset colorectal and oral tumors against own adjacent normal (WGBS)",
-   "purpose": "Historical first test of whether single-molecule copy error rises in primary tumors without culture. It rose in every true colorectal pair.",
-   "instrument_or_term": "IAM-A copy error epsilon_corr (pre-commissioning statistic)",
+   "title": "PROC-TUMOUR-01: held error in early-onset colorectal and oral tumors against own adjacent normal (WGBS)",
+   "purpose": "Historical first test of whether single-molecule held error rises in primary tumors without culture. It rose in every true colorectal pair.",
+   "instrument_or_term": "IAM-A held error epsilon_corr (pre-commissioning statistic)",
    "sources": [
     "GSE284325",
     "PRJNA1198593",
@@ -10262,7 +10262,7 @@
   },
   {
    "title": "Stool route: colon-specific marker regions and colon molecules in mixtures (DEV-MOLECULE-COLON-01, DEV-COLON-BLOCKS-02, DEV-STOOL-01)",
-   "purpose": "Asks whether colon-lining DNA shed into stool can be read for copy error without unmixing, by reading only molecules that can come from colon cells. Whole-genome depth gave too few such molecules; targeted capture is the route named.",
+   "purpose": "Asks whether colon-lining DNA shed into stool can be read for held error without unmixing, by reading only molecules that can come from colon cells. Whole-genome depth gave too few such molecules; targeted capture is the route named.",
    "instrument_or_term": "IAM-A on marker blocks; Met-A",
    "sources": [
     "Loyfer 2023 WGBS atlas",
@@ -10276,7 +10276,7 @@
     {
      "date": "2026-10-01",
      "outcome": "inconclusive",
-     "note": "DEV-MOLECULE-COLON-01: 163 strict / 1,030 loose blocks vs blood and stroma; too few molecules per specimen at whole-genome depth (per-specimen error +/-10-100 %); all-molecule copy error reproduced tumor > normal in 6/6 CRC pairs."
+     "note": "DEV-MOLECULE-COLON-01: 163 strict / 1,030 loose blocks vs blood and stroma; too few molecules per specimen at whole-genome depth (per-specimen error +/-10-100 %); all-molecule held error reproduced tumor > normal in 6/6 CRC pairs."
     },
     {
      "date": "2026-10-02",
@@ -10286,7 +10286,7 @@
     {
      "date": "2026-10-02",
      "outcome": "progressed",
-     "note": "DEV-STOOL-01: lower-GI epithelium vs stool-relevant cells gives 29 regions, 227 CpGs; tumor tiles not assessed at this depth (pooled tumor copy error 1.16x normal)."
+     "note": "DEV-STOOL-01: lower-GI epithelium vs stool-relevant cells gives 29 regions, 227 CpGs; tumor tiles not assessed at this depth (pooled tumor held error 1.16x normal)."
     }
    ],
    "next_step": "Score the 29 stool-background regions in the tumor pairs (region-level pooling); look for a public stool or colon-lavage methylome; targeted capture design.",
@@ -11415,7 +11415,7 @@
    "data_status": "partial",
    "record": "TODO.md",
    "status": "planned",
-   "next_step": "Via A8-A11 (neuron reference, copy error, post-mortem time, Met-A on neurons).",
+   "next_step": "Via A8-A11 (neuron reference, held error, post-mortem time, Met-A on neurons).",
    "cost": "laptop",
    "impact": 1,
    "legacy_ids": [
@@ -14024,7 +14024,7 @@
     {
      "date": "2026-10-09",
      "outcome": "progressed",
-     "note": "read by (per CANON/data_spent.csv) DEV-XSPECIES-TEMP-01: DEV-XSPECIES-TEMP-01 — does the copy error of one tissue rise with body temperature across species? (written 2026-10-09, before any read)"
+     "note": "read by (per CANON/data_spent.csv) DEV-XSPECIES-TEMP-01: DEV-XSPECIES-TEMP-01 — does the held error of one tissue rise with body temperature across species? (written 2026-10-09, before any read)"
     },
     {
      "date": "2026-10-10",
@@ -14060,7 +14060,7 @@
     {
      "date": "2026-10-09",
      "outcome": "progressed",
-     "note": "read by (per CANON/data_spent.csv) DEV-XSPECIES-TEMP-01: DEV-XSPECIES-TEMP-01 — does the copy error of one tissue rise with body temperature across species? (written 2026-10-09, before any read)"
+     "note": "read by (per CANON/data_spent.csv) DEV-XSPECIES-TEMP-01: DEV-XSPECIES-TEMP-01 — does the held error of one tissue rise with body temperature across species? (written 2026-10-09, before any read)"
     }
    ],
    "next_step": "None for the data: spent; development or build use only under the split rule.",
@@ -20095,7 +20095,7 @@
      "note": "candidate_datasets_2026-10-13 subline B2 lists NeuN+ WGBS sets for the erasure test (same series)"
     }
    ],
-   "next_step": "Seal the sorted-only reference test on GSE96612 and GSE107729 controls before opening them (TODO A8); check copy error against post-mortem interval in the Yi controls first (A10); build a neuron Met-A reference by the SOP new-cell rule (A11).",
+   "next_step": "Seal the sorted-only reference test on GSE96612 and GSE107729 controls before opening them (TODO A8); check held error against post-mortem interval in the Yi controls first (A10); build a neuron Met-A reference by the SOP new-cell rule (A11).",
    "cost": "box",
    "impact": 5,
    "legacy_ids": [
@@ -20909,7 +20909,7 @@
    ]
   },
   {
-   "title": "Division-rate lever: serial-passage series (copy error with divisions)",
+   "title": "Division-rate lever: serial-passage series (held error with divisions)",
    "purpose": "A fibroblast line read across many passages shows how the reading moves with the number of divisions. The series is public with raw IDATs.",
    "instrument_or_term": "physics lever (division rate); Met-A",
    "sources": [
@@ -21284,7 +21284,7 @@
   },
   {
    "title": "The copier's own kinetics: restore and loss rates measured on newly copied DNA",
-   "purpose": "Measured restore and loss rates could predict the healthy copy error with nothing taken from the copy error itself, which would be the physics-derived number the cellular rung lacks. The published measurement was shown in simulation to misassign events, so a second kinetics set is needed.",
+   "purpose": "Measured restore and loss rates could predict the healthy held error with nothing taken from the held error itself, which would be the physics-derived number the cellular rung lacks. The published measurement was shown in simulation to misassign events, so a second kinetics set is needed.",
    "instrument_or_term": "physics (balance eps = f/(f+g))",
    "sources": [
     "GSE131098",
@@ -24979,11 +24979,11 @@
    ]
   },
   {
-   "title": "Each healthy cell type's copy error from eraser/writer RNA (DEV-POSITION-EXPR-01)",
+   "title": "Each healthy cell type's held error from eraser/writer RNA (DEV-POSITION-EXPR-01)",
    "purpose": "derive a cell type's healthy IAM-A position from public RNA instead of purified single-molecule data",
    "instrument_or_term": "IAM-A",
    "sources": [
-    "Loyfer 2023 (PROC-CHANNEL-01 copy errors)",
+    "Loyfer 2023 (PROC-CHANNEL-01 held errors)",
     "Human Protein Atlas single-cell and immune RNA"
    ],
    "data_status": "spent",
@@ -24993,7 +24993,7 @@
     {
      "date": "2026-10-14",
      "outcome": "fail",
-     "note": "NOT MET: rank correlation +0.101, one-sided p 0.29650 over 30 cell types; predicted copy errors spread 0.017-0.187 against measured 0.024-0.042",
+     "note": "NOT MET: rank correlation +0.101, one-sided p 0.29650 over 30 cell types; predicted held errors spread 0.017-0.187 against measured 0.024-0.042",
      "commit": "e3243ef1"
     }
    ],

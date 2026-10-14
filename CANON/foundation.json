@@ -31,19 +31,19 @@
   },
   {
    "id": "copy_error_term",
-   "statement": "'Copy error' is kept as the name of WHAT IS READ - an isolated error in the held pattern - and says nothing about how the error was written. It is set by the balance of restore and loss whether the cell divides or not.",
-   "status": "definition in force",
+   "statement": "'Held error' is a RETIRED term. It is NOT what IAM measures and NOT what sets A, IAM-A or the gauge. What is read is the held error eps, the error of the balance between writing (on SAM) and erasing (on oxygen and 2-oxoglutarate) at the held sites, independent of division: neurons do not divide and hold the same balance (author, 2026-10-14).",
+   "status": "definition in force (term retired 2026-10-14)",
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
-   "anchor": "Set by the balance of restore and loss, whether the error was written when the DNA was copied or",
+   "anchor": "\\textbf{Not} what IAM measures, and \\textbf{not} what sets $A$, IAM-A or the gauge.",
    "commit": "2c737a57",
    "layer": "core"
   },
   {
    "id": "e_hold",
-   "statement": "E_hold = kT ln[(1-eps)/eps], read from the copy error; 3.41 kT at Loyfer read level (3.41-3.77 across data sets).",
+   "statement": "E_hold = kT ln[(1-eps)/eps], read from the held error; 3.41 kT at Loyfer read level (3.41-3.77 across data sets).",
    "status": "measured",
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
-   "anchor": "read from the copy error as $\\kB T\\ln[(1-\\varepsilon)/\\varepsilon]$",
+   "anchor": "read from the held error as $\\kB T\\ln[(1-\\varepsilon)/\\varepsilon]$",
    "commit": "2c737a57",
    "layer": "core"
   },
@@ -58,7 +58,7 @@
   },
   {
    "id": "iam_a",
-   "statement": "IAM-A = H(eps) / (P_cell H(eps_0)): the copy error read against the cell type's healthy reference.",
+   "statement": "IAM-A = H(eps) / (P_cell H(eps_0)): the held error read against the cell type's healthy reference.",
    "status": "definition in force",
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
    "anchor": "IAM-A $=H(\\varepsilon)/(P_{\\rm cell}H(\\varepsilon_0))$",
@@ -167,13 +167,13 @@
    "use_instead": "a rise with age means the balance itself moved"
   },
   {
-   "why": "The floor is set by M and temperature alone - the error one ATP of holding energy still allows against thermal kicks - and is the same whether the cell divides or not. Calling eps_min a copy error implies the floor inherits from the copying operation, which is backwards: the read error can approach the floor, never the reverse (author, 2026-10-13).",
-   "phrase": "floor's copy error",
+   "why": "The floor is set by M and temperature alone - the error one ATP of holding energy still allows against thermal kicks - and is the same whether the cell divides or not. Calling eps_min a held error implies the floor inherits from the copying operation, which is backwards: the read error can approach the floor, never the reverse (author, 2026-10-13).",
+   "phrase": "floor's held error",
    "instead": "the error one ATP of holding energy allows against thermal kicks, eps_min = 1/(1+e^M)"
   },
   {
    "why": "Same reason: this is eps_min, the thermal floor on error, not a copying error (author, 2026-10-13).",
-   "phrase": "copy error $1/(1+e^{M})$",
+   "phrase": "held error $1/(1+e^{M})$",
    "instead": "\\varepsilon_{\\min}=1/(1+e^{M})"
   },
   {
