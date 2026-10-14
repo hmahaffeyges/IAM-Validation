@@ -3,6 +3,11 @@ beside the held error. Sites inside the 399 windows the held error was counted o
 A1 loosely held share: of 100 kb hg19 bins with >= 5 open-sea sites, the share whose median beta is below 0.70.
 A2 fully methylated share: sites with cell mean beta >= 0.80.  A3 identity sites: sites where |cell mean - median of the other cell types| >= 0.5."""
 import os, sys, json, subprocess, numpy as np, pandas as pd
+sys.path.insert(0, os.getcwd())
+# Run 1 (c9efb60a, commit 8be68b2d) published its code from the job's command line; from run 2 the script publishes itself.
+if os.environ.get("RUN"):
+    from publish_code import publish_code
+    publish_code(f"results/DEV_ARCH_01/code/run{os.environ['RUN']}/", ["arch_box.py", "roster_samples.csv", "windows_hg19_cpgidx.bed", "publish_code.py"], job="DEV-ARCH-01", commit=os.environ.get("REPO_COMMIT"))
 B = pd.read_parquet("/home/ubuntu/data/atlas_sources/loyfer2023/array_beta.parquet").astype("float32")
 S = pd.read_csv("roster_samples.csv"); S = S[S.source.str.contains("oyfer") & S["sample"].isin(B.columns)]
 M = pd.concat({c: B[g["sample"]].mean(axis=1) for c, g in S.groupby("cell")}, axis=1); print("cells", M.shape, flush=True)

@@ -40,6 +40,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **COM-METAA-033** (impact 5, laptop) Second-laboratory neutrophil reference from the atlas (U4 first case): Derive the sites and reference; pass the same bars on GSE72338 with its two caveats (household contacts, granulocytes); re-commission.
 - [ ] **DAT-012** (impact 5, laptop) GSE167202 - Human blood and immune-disease arrays (blood cancers first); Host methylation predicts SAR: Design and seal before reading: Track A: per-cell Met-A on blood diseases; Box Run 1 job B reads the chain-test subset
 - [ ] **PHY-040** (impact 5, laptop (literature)) The author's half-law: half writing, half erasing, two forms of energy (not the copying-only check): Tested by DEV-ERASE-01 (PHY-006, sealed 2026-10-14); a physical reason why writing and erasing are the virial K and Q is still to be derived.
+- [ ] **PHY-042** (impact 5, laptop) Cell architecture against the healthy held error (DEV-ARCH-01): loose share from other laboratories' arrays of the same cell types; per-cell held error on the common fully methylated sites
 - [ ] **SCO-002** (impact 5, search) Healthy neutrophils sequenced in a laboratory other than the Loyfer group (IAM-A, 3 or more donors): Verify GSE59163 from files (healthy status, donors, read-level data), then design (TODO A3); file a BLUEPRINT/EGA access request only if WGBS neutrophils are required (gold-mine map action 3).
 - [ ] **SCO-003** (impact 5, search) Healthy purified neutrophil arrays across donor ages (Met-A, donors 20-39): Search purified neutrophil arrays across ages, excluding every set in CANON/data_spent.csv (TODO M6).
 - [ ] **SCO-004** (impact 5, search) Held-out test set for the second-laboratory neutrophil reference (450K): Confirm healthy status, donor overlap and purity of GSE72338, then fix it as the test set, seal, read once (TODO M2, M4; CANON/next_jobs.json job 4).
@@ -821,3 +822,4 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **ATL-057** Site exclusion register, layer 1: probes with no atlas site, and the chain refusing them: last run 2026-10-13, progressed
 - [x] **ATL-059** Array-only sites in the fit: posteriors where only arrays measured a site (decision needed): last run 2026-10-13, progressed
 - [x] **PHY-041** Each healthy cell type's held error from eraser/writer RNA (DEV-POSITION-EXPR-01): last run 2026-10-14, fail
+- [x] **PHY-042** Cell architecture against the healthy held error (DEV-ARCH-01): last run 2026-10-14, progressed

@@ -25009,6 +25009,38 @@
    "sources_of_row": [
     "session 2026-10-14"
    ]
+  },
+  {
+   "title": "Cell architecture against the healthy held error (DEV-ARCH-01)",
+   "purpose": "find the 'nameplate' that sets each cell type's healthy operating point (P_cell): the author's architecture idea",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 array-site betas",
+    "PROC-CHANNEL-01 held errors"
+   ],
+   "data_status": "development",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ARCH_01.md",
+   "status": "planned",
+   "runs": [
+    {
+     "date": "2026-10-14",
+     "outcome": "progressed",
+     "note": "exploration: loosely held share rank +0.87 with the held error over 56 cell types; same molecules, not yet independent",
+     "commit": "8be68b2d"
+    }
+   ],
+   "next_step": "loose share from other laboratories' arrays of the same cell types; per-cell held error on the common fully methylated sites",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-040"
+   ],
+   "notes": "exploration, no sealed rule",
+   "legacy_ids": [],
+   "id": "PHY-042",
+   "sources_of_row": [
+    "session 2026-10-14"
+   ]
   }
  ],
  "not_tests": {

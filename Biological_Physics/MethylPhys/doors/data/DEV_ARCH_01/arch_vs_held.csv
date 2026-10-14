@@ -1,0 +1,57 @@
+,klass,held_err,loose_share,fully_meth_share,identity_sites,samples
+naive cd8 t cells,immune,0.0238,0.1909,0.6038,39049,2
+cortical neurons,terminal,0.0241,0.2653,0.5177,31736,10
+naive cd4 t cells,immune,0.0248,0.1978,0.5988,36901,1
+lung interstitial macrophages,immune,0.0261,0.2561,0.5459,33560,3
+lung alveolar macrophages,immune,0.0262,0.2598,0.545,36221,2
+nk cells,immune,0.0275,0.2471,0.5286,29582,3
+b cells,immune,0.0275,0.293,0.502,29632,3
+monocytes,immune,0.0276,0.2515,0.5507,38713,3
+colon macrophages,immune,0.0279,0.2856,0.4964,26956,2
+cd4 t cells,immune,0.0282,0.2524,0.5314,28409,3
+breast basal epithelium,cycling,0.0284,0.3054,0.5065,44497,4
+breast luminal epithelium,secretory,0.0293,0.3842,0.4654,27791,3
+oligodendrocytes,terminal,0.0293,0.2877,0.5199,42969,4
+fallopien tubes epithelium,cycling,0.0303,0.3829,0.4672,32191,3
+colon enteroendocrine,secretory,0.0304,0.3785,0.4668,40459,3
+pancreatic duct,secretory,0.0304,0.3144,0.5067,25259,4
+thyroid epithelium,secretory,0.0311,0.2652,0.5312,29814,3
+prostate epithelium,secretory,0.0311,0.4111,0.4499,24871,4
+hepatocyte,secretory,0.0311,0.3779,0.491,36593,6
+endometrium epithelium,cycling,0.0312,0.4503,0.4429,38826,3
+colon epithelium,cycling,0.0312,0.3654,0.4797,40265,5
+kidney glomerular epithelium,cycling,0.0314,0.3505,0.4753,23476,2
+cardiomyocyte,terminal,0.0314,0.3194,0.4897,41611,6
+lung alveolar epithelium,cycling,0.0316,0.4136,0.437,26325,3
+kidney tubular epithelium,cycling,0.0319,0.3455,0.4768,18376,3
+pancreatic beta,secretory,0.0321,0.3135,0.4952,36881,3
+vascular saphenous endothelium,stromal,0.0322,0.3979,0.4376,14737,3
+small intestine epithelium,cycling,0.0323,0.3983,0.4577,42287,3
+lung alveolar endothelium,stromal,0.0324,0.4715,0.4152,12663,3
+kidney tubular endothelium,stromal,0.0326,0.3355,0.4761,19264,3
+kidney glomerular endothelium,stromal,0.0327,0.3749,0.4499,13487,3
+gastric antrum epithelium,secretory,0.0329,0.4416,0.4311,37622,3
+t central memory cd4,immune,0.033,0.343,0.4824,31186,3
+cd8 t cells,immune,0.0333,0.4034,0.4538,29520,3
+pancreas endothelium,stromal,0.0334,0.4201,0.4252,10866,4
+pancreatic alpha,secretory,0.0334,0.3308,0.4831,33086,3
+gastric body epithelium,secretory,0.0337,0.449,0.4268,37110,3
+lung bronchus epithelium,cycling,0.0338,0.4441,0.4241,37923,3
+gastric fundus epithelium,secretory,0.0339,0.4655,0.422,36036,3
+aorta endothelium,stromal,0.0339,0.4748,0.4136,14865,2
+tongue epithelium,cycling,0.0341,0.4671,0.4208,43644,4
+pancreatic delta,secretory,0.0344,0.3385,0.4727,29316,3
+bladder epithelium,cycling,0.0344,0.5012,0.4203,36649,5
+striated muscle,terminal,0.0345,0.4811,0.3849,12274,2
+colon fibroblasts,stromal,0.0345,0.5502,0.3548,3840,2
+t effector cell cd8,immune,0.0347,0.4087,0.4548,36825,3
+adipocytes,stromal,0.0348,0.4811,0.3888,9630,3
+memory b cells,immune,0.0352,0.4669,0.4292,44991,2
+t effector memory cd4,immune,0.0364,0.4778,0.4262,34348,3
+effector memory cd8 t cells,immune,0.0368,0.4631,0.4318,39044,2
+tonsil pharyngeal epithelium,cycling,0.037,0.5522,0.3822,42771,2
+tonsil palatine epithelium,cycling,0.0374,0.5334,0.3878,44025,3
+pancreatic acinar,secretory,0.0379,0.5688,0.3886,37279,4
+erythrocyte progenitors,progenitor,0.0395,0.9269,0.1292,37302,3
+heart fibroblasts,stromal,0.0395,0.726,0.3074,45339,4
+smooth muscle,stromal,0.0417,0.7316,0.2947,27637,5

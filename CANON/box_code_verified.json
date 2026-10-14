@@ -423,5 +423,21 @@
    "results/DEV_ERASE_01/reads/erase_verdict_units.csv": false
   },
   "state_at_verify": "running"
+ },
+ "c9efb60a-11b9-48bb-9871-1915843769be": {
+  "s3": {
+   "arch_box.py": "90aea90251ab2798fd51e4e6e78219f697b42f8d9476c4d957214c9ba1c6ad84",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20",
+   "roster_samples.csv": "da11a3c11285bde36dcc866c53c112eec5d8ac63e3ea18a66c24e27c7fc3aa4d",
+   "windows_hg19_cpgidx.bed": "b7c1d4b55508e7561d8a097a9c92398fef0b952675e97bdcb55bdddd97d522e3"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/DEV_ARCH_01/arch_01.csv": true,
+   "results/DEV_ARCH_01/arch_01_note.txt": true
+  },
+  "state_at_verify": "succeeded"
  }
 }

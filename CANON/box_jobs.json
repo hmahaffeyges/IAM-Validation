@@ -596,6 +596,29 @@
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
    "note": "running; same blocks and rule; samples already in S3 skipped"
+  },
+  {
+   "job_id": "c9efb60a-11b9-48bb-9871-1915843769be",
+   "name": "DEV-ARCH-01 architecture numbers (exploration)",
+   "date": "2026-10-14",
+   "commit": "8be68b2d",
+   "s3_code_prefix": "results/DEV_ARCH_01/code/run1/",
+   "state": "succeeded",
+   "log": "results/DEV_ARCH_01/arch.log",
+   "machine": "methylphys-cpu-01 (32 cores, shared with DEV-ERASE-01 reads)",
+   "purpose": "three architecture numbers per Loyfer cell type: loosely held share, fully methylated share, identity sites",
+   "record": "doors/DEV_ARCH_01.md",
+   "outputs": [
+    "results/DEV_ARCH_01/arch_01.csv",
+    "results/DEV_ARCH_01/arch_01_note.txt"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ARCH_01/arch_box.py",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/roster_samples.csv",
+    "Biological_Physics/MethylPhys/doors/data/PROC_CHANNEL_01/windows_hg19_cpgidx.bed",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py"
+   ],
+   "note": "succeeded; the held-error windows were NOT excluded (wgbstools not on the job PATH), so the numbers share molecules with the held error"
   }
  ],
  "not_jobs": {
