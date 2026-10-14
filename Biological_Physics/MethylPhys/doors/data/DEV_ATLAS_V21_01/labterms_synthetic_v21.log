@@ -1,0 +1,5 @@
+abdt 0 {'rep': 0, 'cov_all': 0.897, 'cov_c8': 0.942, 'frac_mu_rhat_ge_1_01': 0.008, 'max_term_rhat': 1.01, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': True, 'cov_dX': True} 15s
+abdt 1 {'rep': 1, 'cov_all': 0.897, 'cov_c8': 0.842, 'frac_mu_rhat_ge_1_01': 0.007, 'max_term_rhat': 1.008, 'div_frac': 0.0, 'cov_a': False, 'cov_b': True, 'cov_dM': True, 'cov_dX': True} 34s
+abdt 2 {'rep': 2, 'cov_all': 0.917, 'cov_c8': 0.942, 'frac_mu_rhat_ge_1_01': 0.012, 'max_term_rhat': 1.012, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': True, 'cov_dX': True} 50s
+abdt 3 {'rep': 3, 'cov_all': 0.912, 'cov_c8': 0.917, 'frac_mu_rhat_ge_1_01': 0.003, 'max_term_rhat': 1.009, 'div_frac': 0.0, 'cov_a': False, 'cov_b': False, 'cov_dM': False, 'cov_dX': True} 66s
+abdt 4 {'rep': 4, 'cov_all': 0.907, 'cov_c8': 0.9, 'frac_mu_rhat_ge_1_01': 0.007, 'max_term_rhat': 1.013, 'div_frac': 0.0, 'cov_a': True, 'cov_b': False, 'cov_dM': True, 'cov_dX': True} 81s
