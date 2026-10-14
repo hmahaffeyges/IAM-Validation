@@ -24886,6 +24886,28 @@
    "sources_of_row": [
     "author 2026-10-13: if they do not find it better than what they have, they will not care"
    ]
+  },
+  {
+   "title": "Atlas v2.1 decision 16: laboratory terms sampled in the fit, and wider saved outputs",
+   "purpose": "Carry each laboratory's scale and offset uncertainty into the atlas's intervals, and save what 13 of the 79 cosmology tools need (100 draws, spread draws, chain labels, sampler warnings).",
+   "instrument_or_term": "atlas",
+   "data_status": "partial",
+   "status": "designed",
+   "next_step": "Synthetic test with planted laboratory terms, bars written first; then one real block both ways on the box.",
+   "cost": "laptop (synthetic), box (one block)",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "depends_on": [
+    "ATL-005"
+   ],
+   "id": "ATL-061",
+   "sources": [],
+   "runs": [],
+   "legacy_ids": [],
+   "notes": "author approved 2026-10-14",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
   }
  ],
  "not_tests": {

@@ -440,7 +440,7 @@
    ],
    "checks": {},
    "manifest": [
-    "ATL-035"
+    "ATL-061"
    ]
   },
   {
@@ -479,6 +479,44 @@
    },
    "manifest": [
     "ATL-060"
+   ]
+  },
+  {
+   "id": "L17",
+   "stage": "before_launch",
+   "what": "ATL-061 Decision 16 (author, 2026-10-14): lab terms sampled in each block from their measured values and bootstrap uncertainty - synthetic test met (planted lab offsets recovered, intervals cover at their stated rate)",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/labterms_synthetic_v21_summary.txt"
+   ],
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/labterms_synthetic_v21_summary.txt",
+      "ALL BARS MET"
+     ]
+    ]
+   },
+   "manifest": [
+    "ATL-061"
+   ]
+  },
+  {
+   "id": "L18",
+   "stage": "before_launch",
+   "what": "ATL-061 Saved outputs widened (same model and seeds): 100 draws of the cell estimate, draws of the healthy spread, chain labels, sampler warnings per block - checked on one block: the summary columns identical to the 20-draw save",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/outputs_v21_check_summary.txt"
+   ],
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/outputs_v21_check_summary.txt",
+      "IDENTICAL"
+     ]
+    ]
+   },
+   "manifest": [
+    "ATL-061"
    ]
   }
  ],
