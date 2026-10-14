@@ -1720,3 +1720,6 @@ run_v21.sh (v2's runner, PAR and cores from B1), run_v21_block.py (v2's data ass
 
 ### 2026-10-14 · Atlas v2.1 dry run of the data assembly submitted
 Box job 09ef5d2c (code d74af972): blocks 0, 350 and 699 assembled by run_v21_block.py with DRYRUN=1, no fit; checks that every sample of the final table loads and every cell has observations.
+
+### 2026-10-14 · Atlas v2.1 dry run OK; cost sheet (L11) written
+Dry run (09ef5d2c): every cell of the final table has observations in blocks 0, 350 and 699, from all 21 sources. The cost sheet uses those measured observations per locus with v2's measured block time; memory needs the 512 GB machine. The author asked for a bigger box: the 128-core on-demand quota caps us at m7a.32xlarge unless AWS raises it.

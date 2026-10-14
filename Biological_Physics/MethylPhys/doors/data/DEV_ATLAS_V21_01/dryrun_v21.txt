@@ -1,0 +1,3 @@
+{"block": 0, "loci": 1163, "obs": 696027, "cells": 79, "by_kind": {"array": 483426, "wgbs": 206953, "pooled": 5648}, "sources": 21, "cells_without_obs": []}
+{"block": 350, "loci": 1163, "obs": 667228, "cells": 79, "by_kind": {"array": 454604, "wgbs": 206954, "pooled": 5670}, "sources": 21, "cells_without_obs": []}
+{"block": 699, "loci": 1162, "obs": 689449, "cells": 79, "by_kind": {"array": 477011, "wgbs": 206783, "pooled": 5655}, "sources": 21, "cells_without_obs": []}

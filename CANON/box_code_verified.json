@@ -401,10 +401,10 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/ATLAS_V21/dryrun/dryrun.txt": false
+   "results/ATLAS_V21/dryrun/dryrun.txt": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "done"
  }
 }

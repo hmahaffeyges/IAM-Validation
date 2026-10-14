@@ -8,7 +8,7 @@ Work done on the laptop is free and is not listed.
 
 | run | purpose | log | start (UTC) | job hours | vCPUs | end | actual cost | record |
 |---|---|---|---|---|---|---|---|---|
-| Atlas v2.1 data-assembly dry run (L9 check) (job 09ef5d2c) | assemble the observations for blocks 0, 350, 699 with run_v21_block.py DRYRUN=1; no fit | `ATLAS_V21/dryrun/dryrun.txt (not in S3 yet)` |  |  |  | running | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
+| Atlas v2.1 data-assembly dry run (L9 check) (job 09ef5d2c) | assemble the observations for blocks 0, 350, 699 with run_v21_block.py DRYRUN=1; no fit | `ATLAS_V21/dryrun/dryrun.txt` |  |  |  | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | DEV-ERASE-01 planted check on real molecules (job 091bf539) | halved / doubled / base arms on two spent healthy Loyfer files, read by Stage Q's counting; rules in planted_real_erase_01.py | `DEV_ERASE_01/planted_real/erase.log` |  |  |  | done | pending billing access | [doors/DEV_ERASE_01.md](doors/DEV_ERASE_01.md) |
 | Atlas v2.1 L22 second design (one curve, scatter carried) (job 6ea74736) | one bounded transfer on all 22 shared cells; leave-one-cell-out bias; cell scatter by range; Tian/ENCODE against it | `ATLAS_V21/transfer_final/xf.log (not in S3 yet)` |  |  |  | failed | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2.1 L8 D10 GSE137716 export (job e82da54c) | EpiDISH sites for GSE137716's 12 conditional arrays (decision 10 addendum) | `ATLAS_V21/l8b/l8b.log (not in S3 yet)` |  |  |  | failed | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
