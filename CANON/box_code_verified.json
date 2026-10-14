@@ -101,10 +101,10 @@
    "roster_samples.csv": "da11a3c11285bde36dcc866c53c112eec5d8ac63e3ea18a66c24e27c7fc3aa4d"
   },
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/ATLAS_V21/halfsplit/v2_rs_arrays.csv": false,
-   "results/ATLAS_V21/halfsplit/v2_rs.parquet": false
+   "results/ATLAS_V21/halfsplit/v2_rs_arrays.csv": true,
+   "results/ATLAS_V21/halfsplit/v2_rs.parquet": true
   },
   "state_at_verify": "running"
  }
