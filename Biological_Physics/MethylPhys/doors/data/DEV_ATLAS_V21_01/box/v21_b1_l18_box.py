@@ -7,7 +7,7 @@ L18: block 0 fitted again with K = 20 (same model, same seed 1000). The summary 
 import os, sys, json, subprocess, re, glob, time, pandas as pd, numpy as np
 sys.path.insert(0, os.getcwd())
 from publish_code import publish_code
-publish_code("results/ATLAS_V21/b1_l18/code/run1/", ["v21_b1_l18_box.py", "run_v21_block.py", "atlas_block_v21.py", "transfer_v21_final.json", "final_samples_v21.csv", "publish_code.py"],
+publish_code(f"results/ATLAS_V21/b1_l18/code/run{os.environ.get('RUN', '1')}/", ["v21_b1_l18_box.py", "run_v21_block.py", "atlas_block_v21.py", "transfer_v21_final.json", "final_samples_v21.csv", "publish_code.py"],
              job="atlas v2.1 B1 and L18 (one block, K 100 and K 20)", commit=os.environ.get("REPO_COMMIT"))
 CORES = 8; NC = os.cpu_count(); MEM = int(open("/proc/meminfo").read().split()[1]) * 1024
 def run(k, outd):
