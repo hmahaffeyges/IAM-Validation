@@ -24,11 +24,6 @@
   "outcome": "IN, flagged pediatric (16 arrays)",
   "evidence": "SDRF (E-MTAB-4957.sdrf.txt): the 'n'-suffix arrays are 39ACn, 39SCn, 39TIn, cell type 'non-epithelial mucosal cell' (donor 39); none is on the build list. All 16 build arrays are 'intestinal epithelial cell', biosource 'purified cell'. Due before seal 1 by the decision; done before any build array was read for a result."
  },
- "D10_GSE146552_GSE137716": {
-  "status": "resolved",
-  "evidence": "EpiDISH 2.26.0 RPC, centEpiFibIC, 627 sites (l8_epidish_v21.R, committed before it ran; l8_d10_epidish.csv). Caveat for the methods: ovarian surface epithelium is mesothelial in origin and a reference built on other epithelia may read part of it as fibroblast; the cut was fixed before reading, so the outcome stands. The male-called GSE146552 build array leaves with its set.",
-  "outcome": "OUT (research): ovary epithelium 0 of 8 arrays under 0.20 non-epithelial (median 0.62); fallopian tube epithelium 1 of 7 (median 0.59), fewer than 2 remain. GSE137716 is not scraped tissue and is unaffected."
- },
  "D13_GSE132547": {
   "status": "carried to L15",
   "note": "held-out, not build: does not change the fit; paper check before the held-out sets are scored | carried to the commissioning gate (L15) as a precondition for scoring this held-out set, per l8_conditions_v21.md (committed before any read)"
@@ -36,5 +31,16 @@
  "D14_GSE131989": {
   "status": "carried to L15",
   "note": "held-out, not build: does not change the fit; paper check before the held-out sets are scored | carried to the commissioning gate (L15) as a precondition for scoring this held-out set, per l8_conditions_v21.md (committed before any read)"
+ },
+ "D10_GSE146552": {
+  "status": "resolved",
+  "evidence": "EpiDISH 2.26.0 RPC, centEpiFibIC, 627 sites (l8_epidish_v21.R, committed before it ran; l8_d10_epidish.csv). Caveat for the methods: ovarian surface epithelium is mesothelial in origin and a reference built on other epithelia may read part of it as fibroblast; the cut was fixed before reading, so the outcome stands. The male-called GSE146552 build array leaves with its set.",
+  "outcome": "OUT (research): ovary epithelium 0 of 8 arrays under 0.20 non-epithelial (median 0.62); fallopian tube epithelium 1 of 7 (median 0.59), fewer than 2 remain."
+ },
+ "D10_GSE137716": {
+  "status": "pending",
+  "arrays": 12,
+  "evidence": "same rule as GSE146552 (l8_conditions_v21.md addendum); export job v21_l8b_box.py",
+  "correction": "2026-10-14: the first D10 record said GSE137716 was unaffected; it is under D10 ('enriched, not sorted'). Recorded, not erased."
  }
 }

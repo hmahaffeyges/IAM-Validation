@@ -261,3 +261,6 @@ their straight lines (L20 measured Loyfer only; recorded as a limit). Knots: `tr
 - **D13, D14:** held-out only; carried to L15 as preconditions for scoring those two sets.
 37 samples leave the build (781 remain: 401 in half A, 380 in half B). Ovary epithelium leaves v2.1; fallopian tube epithelium stays through
 its other source. The sealed half split stands: the leaving samples drop out of their units, and no other unit changes half.
+
+**Correction, same day.** The L8 record above omitted GSE137716 (lung bronchus epithelium, 12 conditional arrays), which decision 10
+also covers. Its outcome is pending under the identical rule (addendum in `l8_conditions_v21.md`), and L8 is open again until it is read.

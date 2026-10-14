@@ -1657,3 +1657,6 @@ Run 1 (36fc910c) failed before any result: the v2 rows' empty path came back fro
 
 ### 2026-10-14 · Atlas v2.1 L8 settled: three conditional sets go to research
 D1 (GSE224807 CD15+): not a twin of the Salas neutrophils (198 separating sites, limit 30). D7 (GSE306226 astrocytes): r 0.9575 to Tian astrocytes, bar 0.986. D10 (GSE146552): non-epithelial share by EpiDISH far above the 0.20 cut (medians 0.62, 0.59); mesothelial-origin caveat recorded. D13 and D14 carried to L15. 37 samples leave the build; ovary epithelium leaves v2.1. Run 1 of the data step (36fc910c) failed before any result; run 2 (93d94090) is the result.
+
+### 2026-10-14 · Correction: GSE137716 is under decision 10
+The L8 outcome said GSE137716 was unaffected by decision 10. That was written without checking: the build list gives it decision 10 ("enriched, not sorted", 12 conditional arrays). Recorded, not erased; the identical rule is applied by addendum before any of its arrays is read for purity (export job v21_l8b_box.py). L8 is open again. Also corrected: an earlier entry here said `v21_samples_all.csv` was committed; the copy step was in a command that stopped early. It is committed now (sha256 f86f645c...), byte-identical to the S3 output of twin run 2.

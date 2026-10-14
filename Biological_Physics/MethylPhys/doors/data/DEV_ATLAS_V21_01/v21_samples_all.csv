@@ -1,0 +1,807 @@
+cell,source,platform,sample,qc,metric,path,v21_state
+adipocytes,Loyfer2023,WGBS,GSM5652176,True,0.9711,,
+adipocytes,Loyfer2023,WGBS,GSM5652177,True,0.9702,,
+adipocytes,Loyfer2023,WGBS,GSM5652178,True,0.9638,,
+aorta endothelium,Loyfer2023,WGBS,GSM5652179,True,0.9536,,
+aorta endothelium,Loyfer2023,WGBS,GSM5652180,True,0.9552,,
+vascular saphenous endothelium,Loyfer2023,WGBS,GSM5652181,True,0.9564,,
+vascular saphenous endothelium,Loyfer2023,WGBS,GSM5652182,True,0.9742,,
+vascular saphenous endothelium,Loyfer2023,WGBS,GSM5652183,True,0.9711,,
+kidney glomerular endothelium,Loyfer2023,WGBS,GSM5652184,True,0.9656,,
+kidney glomerular endothelium,Loyfer2023,WGBS,GSM5652185,True,0.9709,,
+kidney glomerular endothelium,Loyfer2023,WGBS,GSM5652186,True,0.9631,,
+kidney tubular endothelium,Loyfer2023,WGBS,GSM5652187,True,0.9683,,
+kidney tubular endothelium,Loyfer2023,WGBS,GSM5652188,True,0.9526,,
+kidney tubular endothelium,Loyfer2023,WGBS,GSM5652189,True,0.9279,,
+liver endothelium,Loyfer2023,WGBS,GSM5652190,True,0.9779,,
+lung alveolar endothelium,Loyfer2023,WGBS,GSM5652191,True,0.9526,,
+lung alveolar endothelium,Loyfer2023,WGBS,GSM5652192,True,0.9704,,
+lung alveolar endothelium,Loyfer2023,WGBS,GSM5652193,True,0.9573,,
+pancreas endothelium,Loyfer2023,WGBS,GSM5652194,True,0.9307,,
+pancreas endothelium,Loyfer2023,WGBS,GSM5652195,True,0.9536,,
+pancreas endothelium,Loyfer2023,WGBS,GSM5652196,True,0.9267,,
+pancreas endothelium,Loyfer2023,WGBS,GSM5652197,True,0.9597,,
+colon fibroblasts,Loyfer2023,WGBS,GSM5652198,True,0.9691,,
+colon fibroblasts,Loyfer2023,WGBS,GSM5652199,True,0.9664,,
+heart fibroblasts,Loyfer2023,WGBS,GSM5652200,False,0.8646,,
+heart fibroblasts,Loyfer2023,WGBS,GSM5652201,True,0.9634,,
+heart fibroblasts,Loyfer2023,WGBS,GSM5652202,True,0.9517,,
+heart fibroblasts,Loyfer2023,WGBS,GSM5652203,True,0.9588,,
+ad-dermal fibroblasts,Loyfer2023,WGBS,GSM5652204,True,0.955,,
+striated muscle,Loyfer2023,WGBS,GSM5652205,True,0.9511,,
+striated muscle,Loyfer2023,WGBS,GSM5652206,True,0.9548,,
+smooth muscle,Loyfer2023,WGBS,GSM5652207,True,0.9643,,
+smooth muscle,Loyfer2023,WGBS,GSM5652208,True,0.9628,,
+smooth muscle,Loyfer2023,WGBS,GSM5652209,True,0.9461,,
+smooth muscle,Loyfer2023,WGBS,GSM5652210,True,0.9483,,
+smooth muscle,Loyfer2023,WGBS,GSM5652211,True,0.9465,,
+cardiomyocyte,Loyfer2023,WGBS,GSM5652212,True,0.968,,
+cardiomyocyte,Loyfer2023,WGBS,GSM5652213,True,0.9643,,
+cardiomyocyte,Loyfer2023,WGBS,GSM5652214,False,0.1715,,
+cardiomyocyte,Loyfer2023,WGBS,GSM5652215,False,0.0584,,
+cardiomyocyte,Loyfer2023,WGBS,GSM5652216,True,0.963,,
+cardiomyocyte,Loyfer2023,WGBS,GSM5652217,True,0.962,,
+osteoblasts,Loyfer2023,WGBS,GSM5652218,True,0.966,,
+oligodendrocytes,Loyfer2023,WGBS,GSM5652219,True,0.9511,,
+oligodendrocytes,Loyfer2023,WGBS,GSM5652220,True,0.9622,,
+oligodendrocytes,Loyfer2023,WGBS,GSM5652221,True,0.9603,,
+oligodendrocytes,Loyfer2023,WGBS,GSM5652222,True,0.9605,,
+cortical neurons,Loyfer2023,WGBS,GSM5652223,True,0.9489,,
+cortical neurons,Loyfer2023,WGBS,GSM5652224,True,0.9562,,
+cortical neurons,Loyfer2023,WGBS,GSM5652225,True,0.951,,
+cortical neurons,Loyfer2023,WGBS,GSM5652226,True,0.9653,,
+cortical neurons,Loyfer2023,WGBS,GSM5652227,True,0.9475,,
+cortical neurons,Loyfer2023,WGBS,GSM5652228,True,0.9605,,
+cortical neurons,Loyfer2023,WGBS,GSM5652229,True,0.959,,
+cortical neurons,Loyfer2023,WGBS,GSM5652230,True,0.9548,,
+cortical neurons,Loyfer2023,WGBS,GSM5652231,True,0.9576,,
+cortical neurons,Loyfer2023,WGBS,GSM5652232,True,0.9714,,
+hepatocyte,Loyfer2023,WGBS,GSM5652233,True,0.9683,,
+hepatocyte,Loyfer2023,WGBS,GSM5652234,True,0.9636,,
+hepatocyte,Loyfer2023,WGBS,GSM5652235,True,0.9685,,
+hepatocyte,Loyfer2023,WGBS,GSM5652236,True,0.9771,,
+hepatocyte,Loyfer2023,WGBS,GSM5652237,True,0.9552,,
+hepatocyte,Loyfer2023,WGBS,GSM5652238,True,0.952,,
+pancreatic duct,Loyfer2023,WGBS,GSM5652239,True,0.9605,,
+pancreatic duct,Loyfer2023,WGBS,GSM5652240,True,0.9614,,
+pancreatic duct,Loyfer2023,WGBS,GSM5652241,True,0.921,,
+pancreatic duct,Loyfer2023,WGBS,GSM5652242,True,0.9423,,
+pancreatic acinar,Loyfer2023,WGBS,GSM5652243,True,0.9773,,
+pancreatic acinar,Loyfer2023,WGBS,GSM5652244,True,0.953,,
+pancreatic acinar,Loyfer2023,WGBS,GSM5652245,True,0.9566,,
+pancreatic acinar,Loyfer2023,WGBS,GSM5652246,True,0.9527,,
+pancreatic delta,Loyfer2023,WGBS,GSM5652247,True,0.9328,,
+pancreatic delta,Loyfer2023,WGBS,GSM5652248,True,0.962,,
+pancreatic delta,Loyfer2023,WGBS,GSM5652249,True,0.9204,,
+pancreatic beta,Loyfer2023,WGBS,GSM5652250,True,0.9548,,
+pancreatic beta,Loyfer2023,WGBS,GSM5652251,True,0.9562,,
+pancreatic beta,Loyfer2023,WGBS,GSM5652252,True,0.958,,
+pancreatic alpha,Loyfer2023,WGBS,GSM5652253,True,0.9694,,
+pancreatic alpha,Loyfer2023,WGBS,GSM5652254,True,0.9565,,
+pancreatic alpha,Loyfer2023,WGBS,GSM5652255,True,0.9587,,
+kidney glomerular epithelium,Loyfer2023,WGBS,GSM5652256,True,0.9615,,
+kidney glomerular epithelium,Loyfer2023,WGBS,GSM5652257,True,0.9365,,
+kidney tubular epithelium,Loyfer2023,WGBS,GSM5652258,True,0.97,,
+kidney tubular epithelium,Loyfer2023,WGBS,GSM5652259,True,0.9635,,
+kidney tubular epithelium,Loyfer2023,WGBS,GSM5652260,True,0.9708,,
+podocyte,Loyfer2023,WGBS,GSM5652261,True,0.9351,,
+podocyte,Loyfer2023,WGBS,GSM5652262,True,0.9735,,
+podocyte,Loyfer2023,WGBS,GSM5652263,True,0.9565,,
+thyroid epithelium,Loyfer2023,WGBS,GSM5652264,True,0.9613,,
+thyroid epithelium,Loyfer2023,WGBS,GSM5652265,True,0.9617,,
+thyroid epithelium,Loyfer2023,WGBS,GSM5652266,True,0.9553,,
+fallopien tubes epithelium,Loyfer2023,WGBS,GSM5652267,True,0.9676,,
+fallopien tubes epithelium,Loyfer2023,WGBS,GSM5652268,True,0.938,,
+fallopien tubes epithelium,Loyfer2023,WGBS,GSM5652269,True,0.9509,,
+ovary epithelium,Loyfer2023,WGBS,GSM5652270,False,0.8388,,
+endometrium epithelium,Loyfer2023,WGBS,GSM5652271,True,0.9553,,
+endometrium epithelium,Loyfer2023,WGBS,GSM5652272,True,0.9194,,
+endometrium epithelium,Loyfer2023,WGBS,GSM5652273,True,0.9729,,
+erythrocyte progenitors,Loyfer2023,WGBS,GSM5652274,True,0.9825,,
+erythrocyte progenitors,Loyfer2023,WGBS,GSM5652275,True,0.9775,,
+erythrocyte progenitors,Loyfer2023,WGBS,GSM5652276,True,0.9015,,
+t cells cd3,Loyfer2023,WGBS,GSM5652277,True,0.9553,,
+t cells cd3,Loyfer2023,WGBS,GSM5652278,True,0.9446,,
+cd4 t cells,Loyfer2023,WGBS,GSM5652279,True,0.9506,,
+cd4 t cells,Loyfer2023,WGBS,GSM5652280,True,0.9045,,
+cd4 t cells,Loyfer2023,WGBS,GSM5652281,True,0.9668,,
+cd8 t cells,Loyfer2023,WGBS,GSM5652282,True,0.9263,,
+cd8 t cells,Loyfer2023,WGBS,GSM5652283,True,0.9343,,
+cd8 t cells,Loyfer2023,WGBS,GSM5652284,True,0.9535,,
+t central memory cd4,Loyfer2023,WGBS,GSM5652285,True,0.9612,,
+t central memory cd4,Loyfer2023,WGBS,GSM5652286,True,0.9472,,
+t central memory cd4,Loyfer2023,WGBS,GSM5652287,True,0.9119,,
+t effector cell cd8,Loyfer2023,WGBS,GSM5652288,True,0.9363,,
+t effector cell cd8,Loyfer2023,WGBS,GSM5652289,True,0.9484,,
+t effector cell cd8,Loyfer2023,WGBS,GSM5652290,True,0.9416,,
+t effector memory cd4,Loyfer2023,WGBS,GSM5652291,True,0.9407,,
+t effector memory cd4,Loyfer2023,WGBS,GSM5652292,True,0.948,,
+t effector memory cd4,Loyfer2023,WGBS,GSM5652293,True,0.9447,,
+effector memory cd8 t cells,Loyfer2023,WGBS,GSM5652294,False,0.8883,,
+effector memory cd8 t cells,Loyfer2023,WGBS,GSM5652295,True,0.9547,,
+naive cd4 t cells,Loyfer2023,WGBS,GSM5652296,True,0.949,,
+naive cd8 t cells,Loyfer2023,WGBS,GSM5652297,False,0.6032,,
+naive cd8 t cells,Loyfer2023,WGBS,GSM5652298,True,0.9573,,
+nk cells,Loyfer2023,WGBS,GSM5652299,True,0.966,,
+nk cells,Loyfer2023,WGBS,GSM5652300,True,0.9653,,
+nk cells,Loyfer2023,WGBS,GSM5652301,True,0.9025,,
+monocytes,Loyfer2023,WGBS,GSM5652302,True,0.9021,,
+monocytes,Loyfer2023,WGBS,GSM5652303,True,0.9205,,
+monocytes,Loyfer2023,WGBS,GSM5652304,True,0.9415,,
+colon macrophages,Loyfer2023,WGBS,GSM5652305,True,0.9736,,
+colon macrophages,Loyfer2023,WGBS,GSM5652306,True,0.965,,
+liver macrophages,Loyfer2023,WGBS,GSM5652307,True,0.9702,,
+lung alveolar macrophages,Loyfer2023,WGBS,GSM5652308,True,0.9422,,
+lung alveolar macrophages,Loyfer2023,WGBS,GSM5652309,True,0.9687,,
+lung interstitial macrophages,Loyfer2023,WGBS,GSM5652310,True,0.9619,,
+lung interstitial macrophages,Loyfer2023,WGBS,GSM5652311,True,0.9704,,
+lung interstitial macrophages,Loyfer2023,WGBS,GSM5652312,True,0.9577,,
+granulocytes,Loyfer2023,WGBS,GSM5652313,True,0.9438,,
+granulocytes,Loyfer2023,WGBS,GSM5652314,True,0.9744,,
+granulocytes,Loyfer2023,WGBS,GSM5652315,True,0.9693,,
+b cells,Loyfer2023,WGBS,GSM5652316,True,0.935,,
+b cells,Loyfer2023,WGBS,GSM5652317,True,0.9163,,
+b cells,Loyfer2023,WGBS,GSM5652318,True,0.9711,,
+memory b cells,Loyfer2023,WGBS,GSM5652319,True,0.9063,,
+memory b cells,Loyfer2023,WGBS,GSM5652320,True,0.9229,,
+keratinocyte,Loyfer2023,WGBS,GSM5652321,True,0.9563,,
+tonsil palatine epithelium,Loyfer2023,WGBS,GSM5652322,True,0.9646,,
+tonsil palatine epithelium,Loyfer2023,WGBS,GSM5652323,True,0.971,,
+tonsil palatine epithelium,Loyfer2023,WGBS,GSM5652324,True,0.9625,,
+tonsil pharyngeal epithelium,Loyfer2023,WGBS,GSM5652325,True,0.9668,,
+tonsil pharyngeal epithelium,Loyfer2023,WGBS,GSM5652326,True,0.9528,,
+tongue epithelium,Loyfer2023,WGBS,GSM5652327,True,0.9634,,
+tongue epithelium,Loyfer2023,WGBS,GSM5652328,True,0.9578,,
+tongue epithelium,Loyfer2023,WGBS,GSM5652329,True,0.9718,,
+tongue epithelium,Loyfer2023,WGBS,GSM5652330,True,0.9252,,
+larynx epithelium,Loyfer2023,WGBS,GSM5652331,True,0.9714,,
+esophagus epithelium,Loyfer2023,WGBS,GSM5652332,True,0.956,,
+esophagus epithelium,Loyfer2023,WGBS,GSM5652333,False,0.8341,,
+pharynx epithelium,Loyfer2023,WGBS,GSM5652334,False,0.7913,,
+lung bronchus epithelium,Loyfer2023,WGBS,GSM5652335,True,0.9681,,
+lung bronchus epithelium,Loyfer2023,WGBS,GSM5652336,True,0.9677,,
+lung bronchus epithelium,Loyfer2023,WGBS,GSM5652337,True,0.9807,,
+prostate epithelium,Loyfer2023,WGBS,GSM5652338,True,0.9685,,
+prostate epithelium,Loyfer2023,WGBS,GSM5652339,True,0.936,,
+prostate epithelium,Loyfer2023,WGBS,GSM5652340,True,0.964,,
+prostate epithelium,Loyfer2023,WGBS,GSM5652341,True,0.9684,,
+bladder epithelium,Loyfer2023,WGBS,GSM5652342,True,0.9588,,
+bladder epithelium,Loyfer2023,WGBS,GSM5652343,True,0.9617,,
+bladder epithelium,Loyfer2023,WGBS,GSM5652344,True,0.9369,,
+bladder epithelium,Loyfer2023,WGBS,GSM5652345,True,0.9525,,
+bladder epithelium,Loyfer2023,WGBS,GSM5652346,False,0.8321,,
+breast luminal epithelium,Loyfer2023,WGBS,GSM5652347,True,0.973,,
+breast luminal epithelium,Loyfer2023,WGBS,GSM5652348,True,0.9328,,
+breast luminal epithelium,Loyfer2023,WGBS,GSM5652349,True,0.9692,,
+breast basal epithelium,Loyfer2023,WGBS,GSM5652350,True,0.9496,,
+breast basal epithelium,Loyfer2023,WGBS,GSM5652351,True,0.9502,,
+breast basal epithelium,Loyfer2023,WGBS,GSM5652352,True,0.9431,,
+breast basal epithelium,Loyfer2023,WGBS,GSM5652353,True,0.9472,,
+lung alveolar epithelium,Loyfer2023,WGBS,GSM5652354,True,0.9727,,
+lung alveolar epithelium,Loyfer2023,WGBS,GSM5652355,True,0.9676,,
+lung alveolar epithelium,Loyfer2023,WGBS,GSM5652356,True,0.972,,
+lung pleural epithelium,Loyfer2023,WGBS,GSM5652357,True,0.9548,,
+gallbladder epithelium,Loyfer2023,WGBS,GSM5652358,True,0.9538,,
+gastric fundus epithelium,Loyfer2023,WGBS,GSM5652359,True,0.9545,,
+gastric fundus epithelium,Loyfer2023,WGBS,GSM5652360,True,0.97,,
+gastric fundus epithelium,Loyfer2023,WGBS,GSM5652361,True,0.9664,,
+gastric body epithelium,Loyfer2023,WGBS,GSM5652362,True,0.9627,,
+gastric body epithelium,Loyfer2023,WGBS,GSM5652363,True,0.9528,,
+gastric body epithelium,Loyfer2023,WGBS,GSM5652364,True,0.9707,,
+gastric antrum epithelium,Loyfer2023,WGBS,GSM5652365,True,0.9729,,
+gastric antrum epithelium,Loyfer2023,WGBS,GSM5652366,True,0.9657,,
+gastric antrum epithelium,Loyfer2023,WGBS,GSM5652367,True,0.9547,,
+gastric enteroendocrine,Loyfer2023,WGBS,GSM5652368,False,0.6617,,
+gastric enteroendocrine,Loyfer2023,WGBS,GSM5652369,True,0.9356,,
+colon epithelium,Loyfer2023,WGBS,GSM5652370,True,0.9564,,
+colon epithelium,Loyfer2023,WGBS,GSM5652371,True,0.9665,,
+colon enteroendocrine,Loyfer2023,WGBS,GSM5652372,True,0.9664,,
+colon epithelium,Loyfer2023,WGBS,GSM5652373,True,0.9453,,
+colon enteroendocrine,Loyfer2023,WGBS,GSM5652374,False,0.6642,,
+colon enteroendocrine,Loyfer2023,WGBS,GSM5652375,True,0.954,,
+colon epithelium,Loyfer2023,WGBS,GSM5652376,True,0.9613,,
+colon epithelium,Loyfer2023,WGBS,GSM5652377,True,0.9559,,
+jejunum epithelium,Loyfer2023,WGBS,GSM5652378,True,0.9534,,
+small intestine epithelium,Loyfer2023,WGBS,GSM5652379,True,0.9668,,
+small intestine epithelium,Loyfer2023,WGBS,GSM5652380,True,0.9683,,
+small intestine epithelium,Loyfer2023,WGBS,GSM5652381,True,0.9411,,
+jejunum enteroendocrine,Loyfer2023,WGBS,GSM5652382,True,0.9382,,
+pancreatic beta,Moss2018,array,GSM3455765_7990895122_R01C01,True,0.9908088578233536,,
+adipocytes,Moss2018,array,GSM3455770_101032610022_R01C01,True,0.9911280810744144,,
+cortical neurons,Moss2018,array,GSM3455773_101032610022_R04C01,True,0.9761225153963032,,
+hepatocyte,Moss2018,array,GSM3455774_101032610022_R05C01,True,0.963129714502478,,
+pancreatic duct,Moss2018,array,GSM3455768_7990895088_R06C02,True,0.981288128004378,,
+adipocytes,Moss2018,array,GSM3455771_101032610022_R02C01,True,0.990759108745266,,
+pancreatic beta,Moss2018,array,GSM3455767_7990895122_R04C01,True,0.988597096726718,,
+adipocytes,Moss2018,array,GSM3455772_101032610022_R03C01,True,0.9804237377726094,,
+pancreatic beta,Moss2018,array,GSM3455766_7990895122_R01C02,True,0.98459644169719,,
+pancreatic acinar,Moss2018,array,GSM3455769_9721366130_R04C01,True,0.9873803171918304,,
+vascular endothelium,Moss2018,array,GSM3455806_200687110099_R03C01,True,0.949422141154466,,
+lung alveolar epithelium,Moss2018,array,GSM3455823_201004820143_R06C01,True,0.9710937309876734,,
+pancreatic beta,Moss2018,array,GSM3455821_201004820143_R04C01,True,0.9535974653707672,,
+vascular endothelium,Moss2018,array,GSM3455822_201004820143_R05C01,True,0.967337909232183,,
+pancreatic duct,Moss2018,array,GSM3455826_201502810024_R04C01,False,0.8276609724808703,,
+hepatocyte,Moss2018,array,GSM3455825_201502810014_R05C01,False,0.8800605381451734,,
+lung alveolar epithelium,Moss2018,array,GSM3455824_201004820143_R08C01,True,0.9307021335524326,,
+pancreatic acinar,Moss2018,array,GSM3455829_201502810024_R07C01,True,0.9429407122502832,,
+pancreatic acinar,Moss2018,array,GSM3455827_201502810024_R05C01,False,0.8874180550614362,,
+hepatocyte,Moss2018,array,GSM3455833_202232290146_R02C01,True,0.9505068215503744,,
+pancreatic duct,Moss2018,array,GSM3455828_201502810024_R06C01,True,0.9316917885290412,,
+cortical neurons,Moss2018,array,GSM3455834_202232290160_R05C01,False,0.927139839175272,,
+cortical neurons,Moss2018,array,GSM3455835_202232290160_R06C01,False,0.8763684529514084,,
+colon epithelium,Moss2018,array,GSM3455852_202410280077_R08C01,True,0.949270332252902,,
+colon epithelium,Moss2018,array,GSM3455863_202410280180_R04C01,True,0.9663946081186472,,
+lung alveolar epithelium,Moss2018,array,GSM3455865_202410280180_R08C01,True,0.9670632625934754,,
+colon epithelium,Moss2018,array,GSM3455864_202410280180_R07C01,True,0.9588412461309008,,
+cd4 t cells,Salas2018,array,GSM2998140_201870610111_R04C01,True,0.9907790577882024,,
+regulatory t cells,Salas2022,array,GSM5121394_203496240014_R01C01,True,0.975330474072546,,
+nk cells,Salas2018,array,GSM2998131_201870610111_R01C01,True,0.9914187410986096,,
+b cells,Salas2018,array,GSM2998029_201868590193_R06C01,True,0.9948790569770096,,
+cd8 t cells,Salas2018,array,GSM2998032_201868590206_R04C01,True,0.9944572368230452,,
+cd8 t cells,Salas2018,array,GSM2998075_201868590267_R08C01,True,0.9908462708896582,,
+b cells,Salas2018,array,GSM2998100_201869680030_R02C01,True,0.9910560221200636,,
+monocytes,Salas2018,array,GSM2998072_201868590267_R07C01,True,0.9947284069220224,,
+monocytes,Salas2018,array,GSM2998051_201868590243_R04C01,True,0.991629651175592,,
+cd8 t cells,Salas2018,array,GSM2998054_201868590243_R06C01,True,0.9938094415866,,
+monocytes,Salas2018,array,GSM2998090_201869680009_R07C01,True,0.9930851624760842,,
+monocytes,Salas2018,array,GSM2998128_201870610056_R08C01,True,0.991410629172572,,
+monocytes,Salas2018,array,GSM2998039_201868590206_R06C01,True,0.9942266263542572,,
+nk cells,Salas2018,array,GSM2998149_201870610111_R07C01,True,0.994115377082882,,
+cd8 t cells,Salas2018,array,GSM2998069_201868590267_R06C01,True,0.9953020359775508,,
+neutrophils,Salas2018,array,GSM2998021_201868500150_R01C01,True,0.9914291707178012,,
+neutrophils,Salas2018,array,GSM2998057_201868590243_R07C01,True,0.9944352187380856,,
+neutrophils,Salas2018,array,GSM2998116_201870610056_R02C01,True,0.9940261458964664,,
+monocytes,Salas2018,array,GSM2998060_201868590243_R08C01,True,0.9872492111151928,,
+cd8 t cells,Salas2018,array,GSM2998094_201869680009_R08C01,True,0.9917235177483148,,
+cd4 t cells,Salas2018,array,GSM2998028_201868590193_R03C01,True,0.9938534777565192,,
+b cells,Salas2018,array,GSM2998024_201868500150_R07C01,True,0.9935011883971644,,
+b cells,Salas2018,array,GSM2998087_201869680009_R06C01,True,0.9944630310559294,,
+cd4 t cells,Salas2018,array,GSM2998146_201870610111_R06C01,True,0.9924651795574828,,
+cd8 t cells,Salas2018,array,GSM2998035_201868590206_R05C01,True,0.9930353320732808,,
+b cells,Salas2018,array,GSM2998134_201870610111_R02C01,True,0.9914268530246476,,
+neutrophils,Salas2018,array,GSM2998023_201868500150_R05C01,True,0.9945464680094608,,
+cd4 t cells,Salas2018,array,GSM2998048_201868590243_R03C01,True,0.99056814771122,,
+b cells,Salas2018,array,GSM2998122_201870610056_R04C01,True,0.9920016409267528,,
+nk cells,Salas2018,array,GSM2998126_201870610056_R07C01,True,0.9945348795436926,,
+neutrophils,Salas2018,array,GSM2998143_201870610111_R05C01,True,0.9927201258043844,,
+nk cells,Salas2018,array,GSM2998022_201868500150_R03C01,True,0.9918869151156472,,
+neutrophils,Salas2022,array,GSM5121408_201870610111_R05C01,True,0.9927201258043844,,
+nk cells,Salas2018,array,GSM2998025_201868500150_R08C01,True,0.9945939807191106,,
+nk cells,Salas2018,array,GSM2998027_201868590193_R02C01,True,0.9933887802792124,,
+naive cd4 t cells,Salas2022,array,GSM5121370_204237140014_R06C01,True,0.9871391206903944,,
+cd4 t cells,Salas2018,array,GSM2998042_201868590206_R08C01,True,0.9952858121254752,,
+neutrophils,Salas2018,array,GSM2998030_201868590206_R02C01,True,0.9919054566608764,,
+naive cd4 t cells,Salas2022,array,GSM5121372_204237140014_R03C01,True,0.9861911841905514,,
+naive cd8 t cells,Salas2022,array,GSM5121401_203027390051_R01C01,True,0.9873952257838728,,
+monocytes,Salas2022,array,GSM5121417_201868590267_R07C01,True,0.9947284069220224,,
+neutrophils,Salas2022,array,GSM5121424_201868500150_R01C01,True,0.9914291707178012,,
+neutrophils,Salas2022,array,GSM5121421_201868590206_R02C01,True,0.9919054566608764,,
+nk cells,Salas2022,array,GSM5121423_201868500150_R03C01,True,0.9918869151156472,,
+effector memory cd8 t cells,Salas2022,array,GSM5121400_203027390051_R08C01,True,0.9861564187932468,,
+eosinophils,Salas2022,array,GSM5121406_201870620080_R02C01,True,0.9842802461853668,,
+neutrophils,Salas2022,array,GSM5121419_201868590243_R07C01,True,0.9944352187380856,,
+memory cd4 t cells,Salas2022,array,GSM5121376_204237140011_R02C01,True,0.9831295115345794,,
+memory cd4 t cells,Salas2022,array,GSM5121374_204237140013_R04C01,True,0.9796379067986052,,
+nk cells,Salas2022,array,GSM5121409_201870610111_R01C01,True,0.9914187410986096,,
+nk cells,Salas2022,array,GSM5121407_201870610111_R07C01,True,0.994115377082882,,
+naive cd8 t cells,Salas2022,array,GSM5121398_203027390094_R05C01,True,0.9888426251583274,,
+memory b cells,Salas2022,array,GSM5121389_203991450040_R06C01,True,0.957753089195262,,
+memory b cells,Salas2022,array,GSM5121385_203991450045_R03C01,True,0.9760223054789108,,
+eosinophils,Salas2022,array,GSM5121405_202163530006_R01C01,True,0.978817443422213,,
+memory b cells,Salas2022,array,GSM5121391_203991450040_R01C01,True,0.9488913894222802,,
+nk cells,Salas2022,array,GSM5121411_201870610056_R07C01,True,0.9945348795436926,,
+monocytes,Salas2022,array,GSM5121410_201870610056_R08C01,True,0.991410629172572,,
+naive cd8 t cells,Salas2022,array,GSM5121399_203027390092_R03C01,True,0.9885957908374636,,
+naive cd8 t cells,Salas2022,array,GSM5121397_203027390100_R06C01,True,0.9907419746977438,,
+memory b cells,Salas2022,array,GSM5121387_203991450040_R08C01,True,0.93772590265457,,
+memory b cells,Salas2022,array,GSM5121381_203991450045_R08C01,True,0.966086354929212,,
+eosinophils,Salas2022,array,GSM5121404_202163530006_R05C01,True,0.9862757799906596,,
+effector memory cd8 t cells,Salas2022,array,GSM5121402_203027370053_R05C01,True,0.9865005962265638,,
+monocytes,Salas2022,array,GSM5121416_201869680009_R07C01,True,0.9930851624760842,,
+basophils,Salas2022,array,GSM5121413_201869680198_R06C01,True,0.980566142906642,,
+naive b cells,Salas2022,array,GSM5121388_203991450040_R07C01,True,0.9642403123323294,,
+basophils,Salas2022,array,GSM5121378_204086440139_R07C01,True,0.9866558816678584,,
+basophils,Salas2022,array,GSM5121379_204086440139_R04C01,True,0.9855410712609526,,
+eosinophils,Salas2022,array,GSM5121415_201869680143_R02C01,True,0.988360544982368,,
+basophils,Salas2022,array,GSM5121414_201869680143_R05C01,True,0.988559866593582,,
+basophils,Salas2022,array,GSM5121390_203991450040_R03C01,True,0.97489474775966,,
+effector memory cd8 t cells,Salas2022,array,GSM5121396_203028210043_R01C01,True,0.9836602632667654,,
+monocytes,Salas2022,array,GSM5121420_201868590206_R06C01,True,0.9942266263542572,,
+regulatory t cells,Salas2022,array,GSM5121392_203496240017_R02C01,True,0.980155911218446,,
+naive b cells,Salas2022,array,GSM5121383_203991450045_R06C01,True,0.9785764033342332,,
+naive cd8 t cells,Salas2022,array,GSM5121403_203013220070_R01C01,True,0.9892795103177904,,
+memory cd4 t cells,Salas2022,array,GSM5121371_204237140014_R04C01,True,0.980978692287992,,
+basophils,Salas2022,array,GSM5121373_204237140014_R02C01,True,0.980918432265997,,
+memory cd4 t cells,Salas2022,array,GSM5121380_204086440139_R02C01,True,0.9836057974776544,,
+naive cd4 t cells,Salas2022,array,GSM5121377_204237140011_R01C01,True,0.9853881035128116,,
+naive cd4 t cells,Salas2022,array,GSM5121375_204237140011_R04C01,True,0.9872665938138452,,
+naive b cells,Salas2022,array,GSM5121382_203991450045_R07C01,True,0.9809068438002287,,
+regulatory t cells,Salas2022,array,GSM5121393_203496240014_R07C01,True,0.9766086818467844,,
+monocytes,Salas2022,array,GSM5121418_201868590243_R08C01,True,0.9872492111151928,,
+memory b cells,Salas2022,array,GSM5121384_203991450045_R05C01,True,0.9707483947077794,,
+effector memory cd8 t cells,Salas2022,array,GSM5121395_203028210043_R05C01,True,0.9820274484400188,,
+neutrophils,Salas2022,array,GSM5121422_201868500150_R05C01,True,0.9945464680094608,,
+neutrophils,Salas2022,array,GSM5121412_201870610056_R02C01,True,0.9940261458964664,,
+naive cd4 t cells,Salas2022,array,GSM5121369_204237140015_R08C01,True,0.9855665658856428,,
+naive b cells,Salas2022,array,GSM5121386_203991450045_R01C01,True,0.9722085413945792,,
+astrocytes,Tian2023,WGBS-pooled,ASC,True,0.9912,,
+microglia,Tian2023,WGBS-pooled,MGC,True,0.9916,,
+oligodendrocytes,Tian2023,WGBS-pooled,ODC,True,0.9908,,
+oligodendrocyte precursors,Tian2023,WGBS-pooled,OPC,True,0.9903,,
+vascular leptomeningeal cells,Tian2023,WGBS-pooled,VLMC,True,0.968,,
+pericytes,Tian2023,WGBS-pooled,PC,False,0.6458,,
+brain endothelium,Tian2023,WGBS-pooled,EC,False,0.8591,,
+embryonic stem cells,ENCODE,WGBS,/home/ubuntu/data/atlas_sources/encode_stem/H1_ENCFF918PML_array.parquet,True,,,
+embryonic stem cells,ENCODE,WGBS,/home/ubuntu/data/atlas_sources/encode_stem/HUES64_ENCFF770UYJ_array.parquet,True,,,
+astrocytes,GSE306226,array,GSM9195037_205862290042_R08C01,True,0.98042,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195037_205862290042_R08C01.parquet,CONDITIONAL
+astrocytes,GSE306226,array,GSM9195038_205862290025_R05C01,True,0.98357,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195038_205862290025_R05C01.parquet,CONDITIONAL
+astrocytes,GSE306226,array,GSM9195043_205862290011_R06C01,True,0.98,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195043_205862290011_R06C01.parquet,CONDITIONAL
+astrocytes,GSE306226,array,GSM9195056_205854150069_R07C01,True,0.96417,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195056_205854150069_R07C01.parquet,CONDITIONAL
+astrocytes,GSE306226,array,GSM9195066_205854150142_R05C01,True,0.97961,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195066_205854150142_R05C01.parquet,CONDITIONAL
+astrocytes,GSE306226,array,GSM9195080_205854150051_R07C01,True,0.98157,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195080_205854150051_R07C01.parquet,CONDITIONAL
+astrocytes,GSE306226,array,GSM9195085_205854150049_R04C01,True,0.98408,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195085_205854150049_R04C01.parquet,CONDITIONAL
+astrocytes,GSE306226,array,GSM9195087_205854150093_R02C01,True,0.98391,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195087_205854150093_R02C01.parquet,CONDITIONAL
+astrocytes,GSE306226,array,GSM9195090_205854150154_R05C01,True,0.98683,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195090_205854150154_R05C01.parquet,CONDITIONAL
+astrocytes,GSE306226,array,GSM9195109_206513950148_R04C01,False,0.9085,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195109_206513950148_R04C01.parquet,CONDITIONAL
+b cells,GSE103541,array,GSM2773228_200819570057_R01C01,True,0.94999,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773228_200819570057_R01C01.parquet,IN
+b cells,GSE103541,array,GSM2773233_200819570057_R02C01,True,0.94629,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773233_200819570057_R02C01.parquet,IN
+b cells,GSE103541,array,GSM2773238_200861170025_R01C01,True,0.95135,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773238_200861170025_R01C01.parquet,IN
+b cells,GSE103541,array,GSM2773243_200861170025_R02C01,False,0.92582,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773243_200861170025_R02C01.parquet,IN
+b cells,GSE103541,array,GSM2773248_200861170070_R01C01,True,0.94461,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773248_200861170070_R01C01.parquet,IN
+b cells,GSE103541,array,GSM2773253_200861170070_R02C01,True,0.93519,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773253_200861170070_R02C01.parquet,IN
+b cells,GSE103541,array,GSM2773258_200863670009_R01C01,False,0.79085,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773258_200863670009_R01C01.parquet,IN
+b cells,GSE103541,array,GSM2773263_200863670009_R02C01,True,0.94122,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773263_200863670009_R02C01.parquet,IN
+b cells,GSE103541,array,GSM2773268_200863770084_R01C01,True,0.94927,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773268_200863770084_R01C01.parquet,IN
+b cells,GSE103541,array,GSM2773273_200863770084_R02C01,True,0.95195,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773273_200863770084_R02C01.parquet,IN
+b cells,GSE103541,array,GSM2773278_200819570008_R01C01,True,0.95522,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773278_200819570008_R01C01.parquet,IN
+b cells,GSE103541,array,GSM2773283_200819570008_R02C01,True,0.96778,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773283_200819570008_R02C01.parquet,IN
+b cells,GSE118144,array,GSM3319361_201050360176_R03C01,True,0.98961,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319361_201050360176_R03C01.parquet,IN
+b cells,GSE118144,array,GSM3319362_201050360176_R04C01,True,0.99347,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319362_201050360176_R04C01.parquet,IN
+b cells,GSE118144,array,GSM3319363_201050360176_R05C01,True,0.99165,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319363_201050360176_R05C01.parquet,IN
+b cells,GSE118144,array,GSM3319404_201050360082_R06C01,True,0.98843,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319404_201050360082_R06C01.parquet,IN
+b cells,GSE118144,array,GSM3319422_201046420154_R08C01,True,0.99282,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319422_201046420154_R08C01.parquet,IN
+b cells,GSE118144,array,GSM3319453_201057020049_R07C01,True,0.9906,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319453_201057020049_R07C01.parquet,IN
+b cells,GSE118144,array,GSM3319461_201050360113_R07C01,True,0.98028,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319461_201050360113_R07C01.parquet,IN
+b cells,GSE118144,array,GSM3319462_201050360113_R08C01,True,0.98238,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319462_201050360113_R08C01.parquet,IN
+b cells,GSE118144,array,GSM3319467_201050360053_R05C01,True,0.9833,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319467_201050360053_R05C01.parquet,IN
+b cells,GSE118144,array,GSM3319469_201050360053_R07C01,True,0.98246,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319469_201050360053_R07C01.parquet,IN
+b cells,GSE118144,array,GSM3319478_201050360044_R08C01,True,0.98558,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319478_201050360044_R08C01.parquet,IN
+b cells,GSE118144,array,GSM3319501_201050360068_R07C01,True,0.98584,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319501_201050360068_R07C01.parquet,IN
+b cells,GSE122244,array,GSM3462452_200705360002_R01C01,False,0.92944,/home/ubuntu/data/atlas_sources/v21/shards/GSM3462452_200705360002_R01C01.parquet,IN
+b cells,GSE122244,array,GSM3462456_200514030039_R02C01,True,0.96001,/home/ubuntu/data/atlas_sources/v21/shards/GSM3462456_200514030039_R02C01.parquet,IN
+b cells,GSE122244,array,GSM3462460_200514030089_R01C01,True,0.94406,/home/ubuntu/data/atlas_sources/v21/shards/GSM3462460_200514030089_R01C01.parquet,IN
+b cells,GSE122244,array,GSM3462464_200514030145_R02C01,True,0.97835,/home/ubuntu/data/atlas_sources/v21/shards/GSM3462464_200514030145_R02C01.parquet,IN
+b cells,GSE122244,array,GSM3462468_200693480145_R01C01,True,0.98023,/home/ubuntu/data/atlas_sources/v21/shards/GSM3462468_200693480145_R01C01.parquet,IN
+b cells,GSE224807,array,GSM7033179_3999119085_R05C01,True,0.97649,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033179_3999119085_R05C01.parquet,IN
+b cells,GSE224807,array,GSM7033201_3999119108_R05C02,True,0.98044,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033201_3999119108_R05C02.parquet,IN
+b cells,GSE224807,array,GSM7033220_3999119153_R03C01,True,0.97265,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033220_3999119153_R03C01.parquet,IN
+b cells,GSE224807,array,GSM7033221_3999119153_R03C02,True,0.94834,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033221_3999119153_R03C02.parquet,IN
+b cells,GSE224807,array,GSM7033289_3999120111_R04C01,True,0.98768,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033289_3999120111_R04C01.parquet,IN
+b cells,GSE224807,array,GSM7033313_9374343039_R02C02,True,0.96636,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033313_9374343039_R02C02.parquet,IN
+b cells,GSE224807,array,GSM7033325_9994014061_R06C01,True,0.98199,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033325_9994014061_R06C01.parquet,IN
+b cells,GSE224807,array,GSM7033355_9994014154_R06C01,True,0.9906,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033355_9994014154_R06C01.parquet,IN
+b cells,GSE224807,array,GSM7033378_9994014166_R06C01,True,0.98123,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033378_9994014166_R06C01.parquet,IN
+b cells,GSE224807,array,GSM7033410_9996247003_R04C01,False,0.9088,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033410_9996247003_R04C01.parquet,IN
+b cells,GSE224807,array,GSM7033428_9996247040_R04C02,True,0.94532,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033428_9996247040_R04C02.parquet,IN
+b cells,GSE224807,array,GSM7033476_9996247055_R04C02,True,0.95089,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033476_9996247055_R04C02.parquet,IN
+b cells,GSE88824,array,GSM2349439_8942351141_R05C01,True,0.94861,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349439_8942351141_R05C01.parquet,IN
+b cells,GSE88824,array,GSM2349448_8942351172_R02C01,True,0.96508,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349448_8942351172_R02C01.parquet,IN
+b cells,GSE88824,array,GSM2349457_8942351172_R05C02,True,0.93987,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349457_8942351172_R05C02.parquet,IN
+b cells,GSE88824,array,GSM2349466_8942351227_R02C02,False,0.9046,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349466_8942351227_R02C02.parquet,IN
+b cells,GSE88824,array,GSM2349475_8942351142_R05C01,True,0.97772,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349475_8942351142_R05C01.parquet,IN
+b cells,GSE88824,array,GSM2349483_8942351185_R02C01,True,0.98919,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349483_8942351185_R02C01.parquet,IN
+b cells,GSE88824,array,GSM2349492_8942351185_R05C02,True,0.97863,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349492_8942351185_R05C02.parquet,IN
+b cells,GSE88824,array,GSM2349501_8942351223_R02C02,True,0.98333,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349501_8942351223_R02C02.parquet,IN
+cd4 t cells,GSE103541,array,GSM2773229_200819570057_R03C01,True,0.95936,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773229_200819570057_R03C01.parquet,IN
+cd4 t cells,GSE103541,array,GSM2773234_200819570057_R04C01,True,0.96533,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773234_200819570057_R04C01.parquet,IN
+cd4 t cells,GSE103541,array,GSM2773239_200861170025_R03C01,True,0.96671,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773239_200861170025_R03C01.parquet,IN
+cd4 t cells,GSE103541,array,GSM2773244_200861170025_R04C01,True,0.95766,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773244_200861170025_R04C01.parquet,IN
+cd4 t cells,GSE103541,array,GSM2773249_200861170070_R03C01,True,0.94753,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773249_200861170070_R03C01.parquet,IN
+cd4 t cells,GSE103541,array,GSM2773254_200861170070_R04C01,True,0.95214,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773254_200861170070_R04C01.parquet,IN
+cd4 t cells,GSE103541,array,GSM2773259_200863670009_R03C01,True,0.95838,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773259_200863670009_R03C01.parquet,IN
+cd4 t cells,GSE103541,array,GSM2773264_200863670009_R04C01,True,0.96662,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773264_200863670009_R04C01.parquet,IN
+cd4 t cells,GSE103541,array,GSM2773269_200821610025_R03C01,True,0.95474,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773269_200821610025_R03C01.parquet,IN
+cd4 t cells,GSE103541,array,GSM2773274_200821610025_R04C01,True,0.96059,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773274_200821610025_R04C01.parquet,IN
+cd4 t cells,GSE103541,array,GSM2773279_200819570008_R03C01,True,0.96209,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773279_200819570008_R03C01.parquet,IN
+cd4 t cells,GSE103541,array,GSM2773284_200819570008_R04C01,True,0.96082,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773284_200819570008_R04C01.parquet,IN
+cd4 t cells,GSE118144,array,GSM3319377_201057020023_R03C01,True,0.98732,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319377_201057020023_R03C01.parquet,IN
+cd4 t cells,GSE118144,array,GSM3319382_201057020023_R08C01,True,0.98467,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319382_201057020023_R08C01.parquet,IN
+cd4 t cells,GSE118144,array,GSM3319389_201050360078_R07C01,True,0.99169,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319389_201050360078_R07C01.parquet,IN
+cd4 t cells,GSE118144,array,GSM3319431_201050360062_R01C01,True,0.98891,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319431_201050360062_R01C01.parquet,IN
+cd4 t cells,GSE118144,array,GSM3319432_201050360062_R02C01,True,0.98923,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319432_201050360062_R02C01.parquet,IN
+cd4 t cells,GSE118144,array,GSM3319441_201050360177_R03C01,True,0.98589,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319441_201050360177_R03C01.parquet,IN
+cd4 t cells,GSE118144,array,GSM3319442_201050360177_R04C01,True,0.99106,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319442_201050360177_R04C01.parquet,IN
+cd4 t cells,GSE118144,array,GSM3319449_201057020049_R03C01,True,0.9879,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319449_201057020049_R03C01.parquet,IN
+cd4 t cells,GSE118144,array,GSM3319465_201050360053_R03C01,True,0.98669,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319465_201050360053_R03C01.parquet,IN
+cd4 t cells,GSE118144,array,GSM3319471_201050360044_R01C01,True,0.98294,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319471_201050360044_R01C01.parquet,IN
+cd4 t cells,GSE118144,array,GSM3319477_201050360044_R07C01,True,0.98935,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319477_201050360044_R07C01.parquet,IN
+cd4 t cells,GSE118144,array,GSM3319492_201050360083_R06C01,True,0.97945,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319492_201050360083_R06C01.parquet,IN
+cd4 t cells,GSE224807,array,GSM7033177_3999119085_R03C01,True,0.9692,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033177_3999119085_R03C01.parquet,IN
+cd4 t cells,GSE224807,array,GSM7033197_3999119108_R03C02,True,0.99364,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033197_3999119108_R03C02.parquet,IN
+cd4 t cells,GSE224807,array,GSM7033216_3999119153_R01C01,True,0.96752,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033216_3999119153_R01C01.parquet,IN
+cd4 t cells,GSE224807,array,GSM7033217_3999119153_R01C02,True,0.97395,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033217_3999119153_R01C02.parquet,IN
+cd4 t cells,GSE224807,array,GSM7033285_3999120111_R02C01,True,0.9872,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033285_3999120111_R02C01.parquet,IN
+cd4 t cells,GSE224807,array,GSM7033321_9994014061_R04C01,True,0.99034,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033321_9994014061_R04C01.parquet,IN
+cd4 t cells,GSE224807,array,GSM7033351_9994014154_R04C01,True,0.99156,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033351_9994014154_R04C01.parquet,IN
+cd4 t cells,GSE224807,array,GSM7033374_9994014166_R04C01,True,0.99064,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033374_9994014166_R04C01.parquet,IN
+cd4 t cells,GSE224807,array,GSM7033406_9996247003_R02C01,False,0.90229,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033406_9996247003_R02C01.parquet,IN
+cd4 t cells,GSE224807,array,GSM7033424_9996247040_R02C02,True,0.95035,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033424_9996247040_R02C02.parquet,IN
+cd4 t cells,GSE224807,array,GSM7033472_9996247055_R02C02,True,0.95945,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033472_9996247055_R02C02.parquet,IN
+cd4 t cells,GSE88824,array,GSM2349436_8942351141_R02C01,True,0.98592,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349436_8942351141_R02C01.parquet,IN
+cd4 t cells,GSE88824,array,GSM2349445_8942351141_R05C02,True,0.98037,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349445_8942351141_R05C02.parquet,IN
+cd4 t cells,GSE88824,array,GSM2349454_8942351172_R02C02,True,0.96086,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349454_8942351172_R02C02.parquet,IN
+cd4 t cells,GSE88824,array,GSM2349463_8942351227_R05C01,True,0.95562,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349463_8942351227_R05C01.parquet,IN
+cd4 t cells,GSE88824,array,GSM2349472_8942351142_R02C01,True,0.97901,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349472_8942351142_R02C01.parquet,IN
+cd4 t cells,GSE88824,array,GSM2349480_8942351142_R05C02,True,0.98036,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349480_8942351142_R05C02.parquet,IN
+cd4 t cells,GSE88824,array,GSM2349489_8942351185_R02C02,True,0.98548,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349489_8942351185_R02C02.parquet,IN
+cd4 t cells,GSE88824,array,GSM2349498_8942351223_R05C01,True,0.98682,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349498_8942351223_R05C01.parquet,IN
+cd56bright nk cells,GSE252045,array,GSM7992765_206772660007_R06C01,True,0.96335,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992765_206772660007_R06C01.parquet,IN
+cd56bright nk cells,GSE252045,array,GSM7992774_206772660013_R07C01,True,0.93276,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992774_206772660013_R07C01.parquet,IN
+cd56bright nk cells,GSE252045,array,GSM7992790_206772660023_R02C01,True,0.97298,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992790_206772660023_R02C01.parquet,IN
+cd56bright nk cells,GSE252045,array,GSM7992799_206772660024_R04C01,True,0.95124,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992799_206772660024_R04C01.parquet,IN
+cd56bright nk cells,GSE252045,array,GSM7992809_206772660031_R06C01,True,0.98798,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992809_206772660031_R06C01.parquet,IN
+cd56bright nk cells,GSE252045,array,GSM7992824_206772660049_R08C01,True,0.96435,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992824_206772660049_R08C01.parquet,IN
+cd56bright nk cells,GSE252045,array,GSM7992834_206772660075_R02C01,True,0.96738,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992834_206772660075_R02C01.parquet,IN
+cd56bright nk cells,GSE252045,array,GSM7992848_206772660078_R04C01,True,0.98102,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992848_206772660078_R04C01.parquet,IN
+cd56bright nk cells,GSE252045,array,GSM7992856_206772660082_R04C01,True,0.97685,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992856_206772660082_R04C01.parquet,IN
+cd8 central memory t cells,GSE252045,array,GSM7992740_205828600075_R02C01,True,0.98547,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992740_205828600075_R02C01.parquet,IN
+cd8 central memory t cells,GSE252045,array,GSM7992741_205828600145_R02C01,True,0.97918,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992741_205828600145_R02C01.parquet,IN
+cd8 central memory t cells,GSE252045,array,GSM7992742_205828600147_R02C01,True,0.97975,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992742_205828600147_R02C01.parquet,IN
+cd8 central memory t cells,GSE252045,array,GSM7992743_205828600075_R06C01,True,0.98178,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992743_205828600075_R06C01.parquet,IN
+cd8 central memory t cells,GSE252045,array,GSM7992744_205828600092_R06C01,True,0.98428,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992744_205828600092_R06C01.parquet,IN
+cd8 central memory t cells,GSE252045,array,GSM7992745_205828600145_R06C01,False,0.91286,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992745_205828600145_R06C01.parquet,IN
+cd8 central memory t cells,GSE252045,array,GSM7992746_205828600147_R06C01,True,0.98395,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992746_205828600147_R06C01.parquet,IN
+cd8 central memory t cells,GSE252045,array,GSM7992763_206772660007_R04C01,True,0.97492,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992763_206772660007_R04C01.parquet,IN
+cd8 central memory t cells,GSE252045,array,GSM7992773_206772660013_R06C01,True,0.9711,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992773_206772660013_R06C01.parquet,IN
+cd8 central memory t cells,GSE252045,array,GSM7992792_206772660016_R08C01,False,0.86899,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992792_206772660016_R08C01.parquet,IN
+cd8 central memory t cells,GSE252045,array,GSM7992801_206772660024_R02C01,False,0.92809,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992801_206772660024_R02C01.parquet,IN
+cd8 central memory t cells,GSE252045,array,GSM7992816_206772660031_R04C01,True,0.94666,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992816_206772660031_R04C01.parquet,IN
+cd8 t cells,GSE103541,array,GSM2773230_200819570057_R05C01,True,0.95621,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773230_200819570057_R05C01.parquet,IN
+cd8 t cells,GSE103541,array,GSM2773235_200819570057_R06C01,False,0.91151,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773235_200819570057_R06C01.parquet,IN
+cd8 t cells,GSE103541,array,GSM2773240_200861170025_R05C01,True,0.96021,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773240_200861170025_R05C01.parquet,IN
+cd8 t cells,GSE103541,array,GSM2773245_200861170025_R06C01,True,0.9565,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773245_200861170025_R06C01.parquet,IN
+cd8 t cells,GSE103541,array,GSM2773250_200861170070_R05C01,False,0.91745,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773250_200861170070_R05C01.parquet,IN
+cd8 t cells,GSE103541,array,GSM2773255_200861170070_R06C01,False,0.89096,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773255_200861170070_R06C01.parquet,IN
+cd8 t cells,GSE103541,array,GSM2773260_200863670009_R05C01,True,0.9453,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773260_200863670009_R05C01.parquet,IN
+cd8 t cells,GSE103541,array,GSM2773265_200863670009_R06C01,True,0.95586,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773265_200863670009_R06C01.parquet,IN
+cd8 t cells,GSE103541,array,GSM2773270_200821610025_R05C01,True,0.96499,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773270_200821610025_R05C01.parquet,IN
+cd8 t cells,GSE103541,array,GSM2773275_200821610025_R06C01,True,0.96413,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773275_200821610025_R06C01.parquet,IN
+cd8 t cells,GSE103541,array,GSM2773280_200819570008_R05C01,True,0.96338,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773280_200819570008_R05C01.parquet,IN
+cd8 t cells,GSE103541,array,GSM2773285_200819570008_R06C01,True,0.96623,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773285_200819570008_R06C01.parquet,IN
+cd8 t cells,GSE118144,array,GSM3319367_201057020034_R01C01,True,0.98405,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319367_201057020034_R01C01.parquet,IN
+cd8 t cells,GSE118144,array,GSM3319374_201057020034_R08C01,True,0.98474,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319374_201057020034_R08C01.parquet,IN
+cd8 t cells,GSE118144,array,GSM3319375_201057020023_R01C01,True,0.98702,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319375_201057020023_R01C01.parquet,IN
+cd8 t cells,GSE118144,array,GSM3319378_201057020023_R04C01,True,0.98952,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319378_201057020023_R04C01.parquet,IN
+cd8 t cells,GSE118144,array,GSM3319400_201050360082_R02C01,True,0.99019,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319400_201050360082_R02C01.parquet,IN
+cd8 t cells,GSE118144,array,GSM3319406_201050360082_R08C01,True,0.98639,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319406_201050360082_R08C01.parquet,IN
+cd8 t cells,GSE118144,array,GSM3319411_201057020011_R05C01,True,0.98642,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319411_201057020011_R05C01.parquet,IN
+cd8 t cells,GSE118144,array,GSM3319414_201057020011_R08C01,True,0.98907,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319414_201057020011_R08C01.parquet,IN
+cd8 t cells,GSE118144,array,GSM3319419_201046420154_R05C01,True,0.99324,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319419_201046420154_R05C01.parquet,IN
+cd8 t cells,GSE118144,array,GSM3319439_201050360177_R01C01,True,0.99044,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319439_201050360177_R01C01.parquet,IN
+cd8 t cells,GSE118144,array,GSM3319473_201050360044_R03C01,True,0.98561,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319473_201050360044_R03C01.parquet,IN
+cd8 t cells,GSE118144,array,GSM3319499_201050360068_R05C01,True,0.98805,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319499_201050360068_R05C01.parquet,IN
+cd8 t cells,GSE224807,array,GSM7033178_3999119085_R04C01,True,0.97625,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033178_3999119085_R04C01.parquet,IN
+cd8 t cells,GSE224807,array,GSM7033199_3999119108_R04C02,True,0.98042,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033199_3999119108_R04C02.parquet,IN
+cd8 t cells,GSE224807,array,GSM7033218_3999119153_R02C01,True,0.96945,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033218_3999119153_R02C01.parquet,IN
+cd8 t cells,GSE224807,array,GSM7033219_3999119153_R02C02,True,0.97486,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033219_3999119153_R02C02.parquet,IN
+cd8 t cells,GSE224807,array,GSM7033287_3999120111_R03C01,True,0.99002,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033287_3999120111_R03C01.parquet,IN
+cd8 t cells,GSE224807,array,GSM7033323_9994014061_R05C01,True,0.98441,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033323_9994014061_R05C01.parquet,IN
+cd8 t cells,GSE224807,array,GSM7033353_9994014154_R05C01,True,0.9913,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033353_9994014154_R05C01.parquet,IN
+cd8 t cells,GSE224807,array,GSM7033376_9994014166_R05C01,True,0.99025,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033376_9994014166_R05C01.parquet,IN
+cd8 t cells,GSE224807,array,GSM7033408_9996247003_R03C01,False,0.89059,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033408_9996247003_R03C01.parquet,IN
+cd8 t cells,GSE224807,array,GSM7033426_9996247040_R03C02,True,0.93775,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033426_9996247040_R03C02.parquet,IN
+cd8 t cells,GSE224807,array,GSM7033474_9996247055_R03C02,True,0.95531,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033474_9996247055_R03C02.parquet,IN
+cd8 t cells,GSE88824,array,GSM2349437_8942351141_R03C01,True,0.97201,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349437_8942351141_R03C01.parquet,IN
+cd8 t cells,GSE88824,array,GSM2349446_8942351141_R06C02,True,0.98315,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349446_8942351141_R06C02.parquet,IN
+cd8 t cells,GSE88824,array,GSM2349455_8942351172_R03C02,True,0.97237,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349455_8942351172_R03C02.parquet,IN
+cd8 t cells,GSE88824,array,GSM2349464_8942351227_R06C01,False,0.88784,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349464_8942351227_R06C01.parquet,IN
+cd8 t cells,GSE88824,array,GSM2349473_8942351142_R03C01,True,0.97726,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349473_8942351142_R03C01.parquet,IN
+cd8 t cells,GSE88824,array,GSM2349481_8942351142_R06C02,True,0.97043,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349481_8942351142_R06C02.parquet,IN
+cd8 t cells,GSE88824,array,GSM2349490_8942351185_R03C02,True,0.98786,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349490_8942351185_R03C02.parquet,IN
+cd8 t cells,GSE88824,array,GSM2349499_8942351223_R06C01,True,0.97402,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349499_8942351223_R06C01.parquet,IN
+cd8 temra t cells,GSE252045,array,GSM7992754_205828600075_R04C01,True,0.97494,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992754_205828600075_R04C01.parquet,IN
+cd8 temra t cells,GSE252045,array,GSM7992755_205828600147_R04C01,True,0.97834,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992755_205828600147_R04C01.parquet,IN
+cd8 temra t cells,GSE252045,array,GSM7992756_205828600075_R08C01,True,0.98358,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992756_205828600075_R08C01.parquet,IN
+cd8 temra t cells,GSE252045,array,GSM7992757_205828600092_R08C01,True,0.9855,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992757_205828600092_R08C01.parquet,IN
+cd8 temra t cells,GSE252045,array,GSM7992758_205828600145_R08C01,True,0.97448,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992758_205828600145_R08C01.parquet,IN
+cd8 temra t cells,GSE252045,array,GSM7992759_205828600147_R08C01,True,0.97931,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992759_205828600147_R08C01.parquet,IN
+central memory th1 cells,GSE75405,array,GSM2196075_8963266070_R01C02,True,0.98993,/home/ubuntu/data/atlas_sources/v21/shards/GSM2196075_8963266070_R01C02.parquet,IN
+central memory th1 cells,GSE75405,array,GSM2196076_8963266070_R05C02,True,0.9928,/home/ubuntu/data/atlas_sources/v21/shards/GSM2196076_8963266070_R05C02.parquet,IN
+central memory th1 cells,GSE75405,array,GSM2196077_8963266070_R04C01,True,0.99141,/home/ubuntu/data/atlas_sources/v21/shards/GSM2196077_8963266070_R04C01.parquet,IN
+central memory th1 cells,GSE75405,array,GSM2196078_8769527006_R06C01,True,0.98758,/home/ubuntu/data/atlas_sources/v21/shards/GSM2196078_8769527006_R06C01.parquet,IN
+central memory th1 cells,GSE75405,array,GSM2196079_8769527006_R03C02,True,0.99171,/home/ubuntu/data/atlas_sources/v21/shards/GSM2196079_8769527006_R03C02.parquet,IN
+colon epithelium,E-MTAB-4957,array,3999941126_R04C02,True,0.96751,/home/ubuntu/data/atlas_sources/v21/shards/3999941126_R04C02.parquet,CONDITIONAL
+colon epithelium,E-MTAB-4957,array,9701417049_R03C02,True,0.96983,/home/ubuntu/data/atlas_sources/v21/shards/9701417049_R03C02.parquet,CONDITIONAL
+colon epithelium,E-MTAB-4957,array,3999941140_R04C02,True,0.96025,/home/ubuntu/data/atlas_sources/v21/shards/3999941140_R04C02.parquet,CONDITIONAL
+colon epithelium,E-MTAB-4957,array,3999941140_R06C02,True,0.98345,/home/ubuntu/data/atlas_sources/v21/shards/3999941140_R06C02.parquet,CONDITIONAL
+colon epithelium,E-MTAB-4957,array,3999941115_R04C02,True,0.97512,/home/ubuntu/data/atlas_sources/v21/shards/3999941115_R04C02.parquet,CONDITIONAL
+colon epithelium,E-MTAB-4957,array,3999941115_R06C02,True,0.97249,/home/ubuntu/data/atlas_sources/v21/shards/3999941115_R06C02.parquet,CONDITIONAL
+colon epithelium,E-MTAB-4957,array,3999941150_R06C02,True,0.97617,/home/ubuntu/data/atlas_sources/v21/shards/3999941150_R06C02.parquet,CONDITIONAL
+colon epithelium,E-MTAB-4957,array,8784225042_R06C02,True,0.98877,/home/ubuntu/data/atlas_sources/v21/shards/8784225042_R06C02.parquet,CONDITIONAL
+cortical neurons,GSE306226,array,GSM9195036_205862290042_R07C01,True,0.98337,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195036_205862290042_R07C01.parquet,CONDITIONAL
+cortical neurons,GSE306226,array,GSM9195041_205862290025_R08C01,True,0.97246,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195041_205862290025_R08C01.parquet,CONDITIONAL
+cortical neurons,GSE306226,array,GSM9195042_205862290011_R05C01,True,0.9807,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195042_205862290011_R05C01.parquet,CONDITIONAL
+cortical neurons,GSE306226,array,GSM9195054_205854150069_R05C01,True,0.93521,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195054_205854150069_R05C01.parquet,CONDITIONAL
+cortical neurons,GSE306226,array,GSM9195067_205854150142_R06C01,True,0.97804,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195067_205854150142_R06C01.parquet,CONDITIONAL
+cortical neurons,GSE306226,array,GSM9195079_205854150051_R06C01,True,0.9818,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195079_205854150051_R06C01.parquet,CONDITIONAL
+cortical neurons,GSE306226,array,GSM9195082_205854150049_R01C01,True,0.9782,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195082_205854150049_R01C01.parquet,CONDITIONAL
+cortical neurons,GSE306226,array,GSM9195086_205854150093_R01C01,True,0.97479,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195086_205854150093_R01C01.parquet,CONDITIONAL
+cortical neurons,GSE306226,array,GSM9195091_205854150154_R06C01,True,0.98602,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195091_205854150154_R06C01.parquet,CONDITIONAL
+cortical neurons,GSE306226,array,GSM9195107_206513950148_R02C01,True,0.95276,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195107_206513950148_R02C01.parquet,CONDITIONAL
+cytotoxic cd4 t cells (cd28-),GSE75405,array,GSM1954494_8769527006_R01C01,True,0.98969,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954494_8769527006_R01C01.parquet,IN
+cytotoxic cd4 t cells (cd28-),GSE75405,array,GSM1954502_8963266070_R04C02,True,0.99105,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954502_8963266070_R04C02.parquet,IN
+cytotoxic cd4 t cells (cd28-),GSE75405,array,GSM1954503_8769527006_R06C02,True,0.98274,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954503_8769527006_R06C02.parquet,IN
+cytotoxic cd4 t cells (cd28-),GSE75405,array,GSM1954507_8963266070_R03C01,True,0.99222,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954507_8963266070_R03C01.parquet,IN
+cytotoxic cd4 t cells (cd28-),GSE75405,array,GSM1954510_8769527006_R05C01,True,0.99138,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954510_8769527006_R05C01.parquet,IN
+effector memory cd8 t cells,GSE252045,array,GSM7992747_205828600075_R03C01,True,0.93986,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992747_205828600075_R03C01.parquet,IN
+effector memory cd8 t cells,GSE252045,array,GSM7992748_205828600145_R03C01,False,0.92439,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992748_205828600145_R03C01.parquet,IN
+effector memory cd8 t cells,GSE252045,array,GSM7992749_205828600147_R03C01,True,0.94748,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992749_205828600147_R03C01.parquet,IN
+effector memory cd8 t cells,GSE252045,array,GSM7992750_205828600075_R07C01,True,0.97791,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992750_205828600075_R07C01.parquet,IN
+effector memory cd8 t cells,GSE252045,array,GSM7992751_205828600092_R07C01,True,0.97032,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992751_205828600092_R07C01.parquet,IN
+effector memory cd8 t cells,GSE252045,array,GSM7992752_205828600145_R07C01,True,0.94803,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992752_205828600145_R07C01.parquet,IN
+effector memory cd8 t cells,GSE252045,array,GSM7992753_205828600147_R07C01,True,0.9782,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992753_205828600147_R07C01.parquet,IN
+embryonic stem cells,GSE116754,array,GSM3260097_5822556019_R01C01,True,0.97201,/home/ubuntu/data/atlas_sources/v21/shards/GSM3260097_5822556019_R01C01.parquet,IN
+embryonic stem cells,GSE116754,array,GSM3260098_5822556012_R02C02,True,0.98244,/home/ubuntu/data/atlas_sources/v21/shards/GSM3260098_5822556012_R02C02.parquet,IN
+embryonic stem cells,GSE116754,array,GSM3260099_5822556002_R06C01,True,0.94665,/home/ubuntu/data/atlas_sources/v21/shards/GSM3260099_5822556002_R06C01.parquet,IN
+embryonic stem cells,GSE116754,array,GSM3260100_5822556012_R03C02,True,0.98649,/home/ubuntu/data/atlas_sources/v21/shards/GSM3260100_5822556012_R03C02.parquet,IN
+embryonic stem cells,GSE116754,array,GSM3260101_5822556026_R03C02,True,0.96827,/home/ubuntu/data/atlas_sources/v21/shards/GSM3260101_5822556026_R03C02.parquet,IN
+embryonic stem cells,GSE116754,array,GSM3260102_5822556023_R03C02,True,0.98564,/home/ubuntu/data/atlas_sources/v21/shards/GSM3260102_5822556023_R03C02.parquet,IN
+embryonic stem cells,GSE116754,array,GSM3260103_5815284020_R01C01,True,0.98052,/home/ubuntu/data/atlas_sources/v21/shards/GSM3260103_5815284020_R01C01.parquet,IN
+embryonic stem cells,GSE116754,array,GSM3260104_7507867149_R02C01,True,0.98062,/home/ubuntu/data/atlas_sources/v21/shards/GSM3260104_7507867149_R02C01.parquet,IN
+embryonic stem cells,GSE116754,array,GSM3260105_7512551095_R04C01,True,0.98821,/home/ubuntu/data/atlas_sources/v21/shards/GSM3260105_7512551095_R04C01.parquet,IN
+fallopien tubes epithelium,GSE146552,array,GSM4392132_6229025007_R03C02,True,0.97244,/home/ubuntu/data/atlas_sources/v21/shards/GSM4392132_6229025007_R03C02.parquet,CONDITIONAL
+fallopien tubes epithelium,GSE146552,array,GSM4392133_9992571039_R03C02,True,0.98483,/home/ubuntu/data/atlas_sources/v21/shards/GSM4392133_9992571039_R03C02.parquet,CONDITIONAL
+fallopien tubes epithelium,GSE146552,array,GSM4392134_6229025007_R04C02,True,0.99276,/home/ubuntu/data/atlas_sources/v21/shards/GSM4392134_6229025007_R04C02.parquet,CONDITIONAL
+fallopien tubes epithelium,GSE146552,array,GSM4392135_9992571039_R04C02,True,0.98443,/home/ubuntu/data/atlas_sources/v21/shards/GSM4392135_9992571039_R04C02.parquet,CONDITIONAL
+fallopien tubes epithelium,GSE146552,array,GSM4392136_6229025007_R06C01,True,0.97272,/home/ubuntu/data/atlas_sources/v21/shards/GSM4392136_6229025007_R06C01.parquet,CONDITIONAL
+fallopien tubes epithelium,GSE146552,array,GSM4392137_6229025007_R02C02,False,0.82995,/home/ubuntu/data/atlas_sources/v21/shards/GSM4392137_6229025007_R02C02.parquet,CONDITIONAL
+fallopien tubes epithelium,GSE146552,array,GSM4392138_9992571039_R05C02,True,0.98388,/home/ubuntu/data/atlas_sources/v21/shards/GSM4392138_9992571039_R05C02.parquet,CONDITIONAL
+fallopien tubes epithelium,GSE146552,array,GSM4392139_9992571039_R06C02,True,0.97347,/home/ubuntu/data/atlas_sources/v21/shards/GSM4392139_9992571039_R06C02.parquet,CONDITIONAL
+HSC (bone marrow),GSE49618,array,GSM1185582_6285625091_R01C01,True,0.98918,/home/ubuntu/data/atlas_sources/v21/shards/GSM1185582_6285625091_R01C01.parquet,IN
+HSC (bone marrow),GSE49618,array,GSM1185586_6285625091_R05C01,True,0.98677,/home/ubuntu/data/atlas_sources/v21/shards/GSM1185586_6285625091_R05C01.parquet,IN
+HSC (bone marrow),GSE49618,array,GSM1185590_6285625091_R03C02,True,0.98859,/home/ubuntu/data/atlas_sources/v21/shards/GSM1185590_6285625091_R03C02.parquet,IN
+lung bronchus epithelium,GSE137716,array,GSM4085552_9979858039_R01C01,True,0.95252,/home/ubuntu/data/atlas_sources/v21/shards/GSM4085552_9979858039_R01C01.parquet,CONDITIONAL
+lung bronchus epithelium,GSE137716,array,GSM4085553_9976861137_R03C02,True,0.99365,/home/ubuntu/data/atlas_sources/v21/shards/GSM4085553_9976861137_R03C02.parquet,CONDITIONAL
+lung bronchus epithelium,GSE137716,array,GSM4085555_9977524024_R05C01,True,0.99359,/home/ubuntu/data/atlas_sources/v21/shards/GSM4085555_9977524024_R05C01.parquet,CONDITIONAL
+lung bronchus epithelium,GSE137716,array,GSM4085556_9976861129_R01C01,True,0.99279,/home/ubuntu/data/atlas_sources/v21/shards/GSM4085556_9976861129_R01C01.parquet,CONDITIONAL
+lung bronchus epithelium,GSE137716,array,GSM4085557_9979858062_R05C01,True,0.96909,/home/ubuntu/data/atlas_sources/v21/shards/GSM4085557_9979858062_R05C01.parquet,CONDITIONAL
+lung bronchus epithelium,GSE137716,array,GSM4085558_9979858061_R03C01,True,0.99317,/home/ubuntu/data/atlas_sources/v21/shards/GSM4085558_9979858061_R03C01.parquet,CONDITIONAL
+lung bronchus epithelium,GSE137716,array,GSM4085559_9979858062_R04C01,True,0.99145,/home/ubuntu/data/atlas_sources/v21/shards/GSM4085559_9979858062_R04C01.parquet,CONDITIONAL
+lung bronchus epithelium,GSE137716,array,GSM4085560_9979858067_R01C02,True,0.98336,/home/ubuntu/data/atlas_sources/v21/shards/GSM4085560_9979858067_R01C02.parquet,CONDITIONAL
+lung bronchus epithelium,GSE137716,array,GSM4085561_9976861137_R02C01,True,0.99275,/home/ubuntu/data/atlas_sources/v21/shards/GSM4085561_9976861137_R02C01.parquet,CONDITIONAL
+lung bronchus epithelium,GSE137716,array,GSM4085562_9977524024_R06C01,True,0.99317,/home/ubuntu/data/atlas_sources/v21/shards/GSM4085562_9977524024_R06C01.parquet,CONDITIONAL
+lung bronchus epithelium,GSE137716,array,GSM4085563_9977524024_R02C01,True,0.99099,/home/ubuntu/data/atlas_sources/v21/shards/GSM4085563_9977524024_R02C01.parquet,CONDITIONAL
+lung bronchus epithelium,GSE137716,array,GSM4085564_9976861129_R05C02,True,0.99343,/home/ubuntu/data/atlas_sources/v21/shards/GSM4085564_9976861129_R05C02.parquet,CONDITIONAL
+memory b cells,GSE252045,array,GSM7992768_206772660013_R01C01,True,0.97219,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992768_206772660013_R01C01.parquet,IN
+memory b cells,GSE252045,array,GSM7992777_206772660016_R02C01,True,0.95729,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992777_206772660016_R02C01.parquet,IN
+memory b cells,GSE252045,array,GSM7992788_206772660023_R05C01,True,0.93356,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992788_206772660023_R05C01.parquet,IN
+memory b cells,GSE252045,array,GSM7992807_206772660024_R07C01,True,0.95152,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992807_206772660024_R07C01.parquet,IN
+memory b cells,GSE252045,array,GSM7992812_206772660049_R01C01,True,0.97659,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992812_206772660049_R01C01.parquet,IN
+memory b cells,GSE252045,array,GSM7992822_206772660067_R03C01,True,0.96913,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992822_206772660067_R03C01.parquet,IN
+memory b cells,GSE252045,array,GSM7992841_206772660075_R05C01,True,0.97182,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992841_206772660075_R05C01.parquet,IN
+memory b cells,GSE252045,array,GSM7992859_206772660082_R07C01,True,0.93591,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992859_206772660082_R07C01.parquet,IN
+microglia,GSE306226,array,GSM9195035_205862290042_R06C01,True,0.98384,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195035_205862290042_R06C01.parquet,CONDITIONAL
+microglia,GSE306226,array,GSM9195039_205862290025_R06C01,True,0.97375,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195039_205862290025_R06C01.parquet,CONDITIONAL
+microglia,GSE306226,array,GSM9195045_205862290011_R08C01,True,0.98253,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195045_205862290011_R08C01.parquet,CONDITIONAL
+microglia,GSE306226,array,GSM9195055_205854150069_R06C01,False,0.85722,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195055_205854150069_R06C01.parquet,CONDITIONAL
+microglia,GSE306226,array,GSM9195069_205854150142_R08C01,True,0.98015,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195069_205854150142_R08C01.parquet,CONDITIONAL
+microglia,GSE306226,array,GSM9195078_205854150051_R05C01,True,0.98391,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195078_205854150051_R05C01.parquet,CONDITIONAL
+microglia,GSE306226,array,GSM9195084_205854150049_R03C01,True,0.97221,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195084_205854150049_R03C01.parquet,CONDITIONAL
+microglia,GSE306226,array,GSM9195089_205854150093_R04C01,True,0.98575,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195089_205854150093_R04C01.parquet,CONDITIONAL
+microglia,GSE306226,array,GSM9195092_205854150154_R07C01,True,0.97539,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195092_205854150154_R07C01.parquet,CONDITIONAL
+microglia,GSE306226,array,GSM9195108_206513950148_R03C01,True,0.94739,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195108_206513950148_R03C01.parquet,CONDITIONAL
+monocytes,GSE103541,array,GSM2773232_200819570057_R07C01,True,0.96337,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773232_200819570057_R07C01.parquet,IN
+monocytes,GSE103541,array,GSM2773237_200819570057_R08C01,True,0.94505,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773237_200819570057_R08C01.parquet,IN
+monocytes,GSE103541,array,GSM2773242_200861170025_R07C01,True,0.9448,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773242_200861170025_R07C01.parquet,IN
+monocytes,GSE103541,array,GSM2773247_200861170025_R08C01,False,0.92993,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773247_200861170025_R08C01.parquet,IN
+monocytes,GSE103541,array,GSM2773252_200861170070_R07C01,False,0.9138,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773252_200861170070_R07C01.parquet,IN
+monocytes,GSE103541,array,GSM2773257_200861170070_R08C01,False,0.86526,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773257_200861170070_R08C01.parquet,IN
+monocytes,GSE103541,array,GSM2773262_200863670009_R07C01,True,0.9526,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773262_200863670009_R07C01.parquet,IN
+monocytes,GSE103541,array,GSM2773267_200863670009_R08C01,False,0.92276,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773267_200863670009_R08C01.parquet,IN
+monocytes,GSE103541,array,GSM2773272_200821610025_R07C01,False,0.80684,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773272_200821610025_R07C01.parquet,IN
+monocytes,GSE103541,array,GSM2773277_200821610025_R08C01,True,0.97305,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773277_200821610025_R08C01.parquet,IN
+monocytes,GSE103541,array,GSM2773282_200819570008_R07C01,True,0.96115,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773282_200819570008_R07C01.parquet,IN
+monocytes,GSE103541,array,GSM2773287_200819570008_R08C01,False,0.925,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773287_200819570008_R08C01.parquet,IN
+monocytes,GSE122244,array,GSM3462454_200693480145_R05C01,True,0.97184,/home/ubuntu/data/atlas_sources/v21/shards/GSM3462454_200693480145_R05C01.parquet,IN
+monocytes,GSE122244,array,GSM3462458_200514030001_R05C01,True,0.96786,/home/ubuntu/data/atlas_sources/v21/shards/GSM3462458_200514030001_R05C01.parquet,IN
+monocytes,GSE122244,array,GSM3462462_200514030039_R06C01,True,0.97153,/home/ubuntu/data/atlas_sources/v21/shards/GSM3462462_200514030039_R06C01.parquet,IN
+monocytes,GSE122244,array,GSM3462466_200514030089_R05C01,True,0.97314,/home/ubuntu/data/atlas_sources/v21/shards/GSM3462466_200514030089_R05C01.parquet,IN
+monocytes,GSE122244,array,GSM3462470_200514030145_R06C01,True,0.9764,/home/ubuntu/data/atlas_sources/v21/shards/GSM3462470_200514030145_R06C01.parquet,IN
+monocytes,GSE224807,array,GSM7033176_3999119085_R02C01,True,0.96628,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033176_3999119085_R02C01.parquet,IN
+monocytes,GSE224807,array,GSM7033195_3999119108_R02C02,True,0.98321,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033195_3999119108_R02C02.parquet,IN
+monocytes,GSE224807,array,GSM7033226_3999119153_R06C01,True,0.96764,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033226_3999119153_R06C01.parquet,IN
+monocytes,GSE224807,array,GSM7033276_3999120036_R06C02,True,0.97797,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033276_3999120036_R06C02.parquet,IN
+monocytes,GSE224807,array,GSM7033283_3999120111_R01C01,True,0.98626,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033283_3999120111_R01C01.parquet,IN
+monocytes,GSE224807,array,GSM7033300_9374341084_R03C02,True,0.97842,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033300_9374341084_R03C02.parquet,IN
+monocytes,GSE224807,array,GSM7033319_9994014061_R03C01,True,0.99076,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033319_9994014061_R03C01.parquet,IN
+monocytes,GSE224807,array,GSM7033349_9994014154_R03C01,True,0.99201,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033349_9994014154_R03C01.parquet,IN
+monocytes,GSE224807,array,GSM7033372_9994014166_R03C01,True,0.99215,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033372_9994014166_R03C01.parquet,IN
+monocytes,GSE224807,array,GSM7033404_9996247003_R01C01,False,0.90249,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033404_9996247003_R01C01.parquet,IN
+monocytes,GSE224807,array,GSM7033422_9996247040_R01C02,True,0.93834,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033422_9996247040_R01C02.parquet,IN
+monocytes,GSE224807,array,GSM7033470_9996247055_R01C02,True,0.94244,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033470_9996247055_R01C02.parquet,IN
+monocytes,GSE226298,array,GSM7070888_203219730222_R01C01,True,0.96962,/home/ubuntu/data/atlas_sources/v21/shards/GSM7070888_203219730222_R01C01.parquet,IN
+monocytes,GSE226298,array,GSM7070890_203219730222_R04C01,True,0.9793,/home/ubuntu/data/atlas_sources/v21/shards/GSM7070890_203219730222_R04C01.parquet,IN
+monocytes,GSE226298,array,GSM7070892_203219750076_R07C01,True,0.96318,/home/ubuntu/data/atlas_sources/v21/shards/GSM7070892_203219750076_R07C01.parquet,IN
+monocytes,GSE226298,array,GSM7070894_203219760034_R07C01,True,0.98432,/home/ubuntu/data/atlas_sources/v21/shards/GSM7070894_203219760034_R07C01.parquet,IN
+monocytes,GSE226298,array,GSM7070895_203219760178_R01C01,True,0.97079,/home/ubuntu/data/atlas_sources/v21/shards/GSM7070895_203219760178_R01C01.parquet,IN
+monocytes,GSE226298,array,GSM7070898_203219730222_R06C01,True,0.97386,/home/ubuntu/data/atlas_sources/v21/shards/GSM7070898_203219730222_R06C01.parquet,IN
+monocytes,GSE226298,array,GSM7070900_203219730049_R01C01,True,0.97149,/home/ubuntu/data/atlas_sources/v21/shards/GSM7070900_203219730049_R01C01.parquet,IN
+monocytes,GSE226298,array,GSM7070901_203219760034_R01C01,True,0.96401,/home/ubuntu/data/atlas_sources/v21/shards/GSM7070901_203219760034_R01C01.parquet,IN
+monocytes,GSE226298,array,GSM7070916_203219760034_R04C01,True,0.98428,/home/ubuntu/data/atlas_sources/v21/shards/GSM7070916_203219760034_R04C01.parquet,IN
+monocytes,GSE226298,array,GSM7070922_203219760034_R06C01,True,0.9913,/home/ubuntu/data/atlas_sources/v21/shards/GSM7070922_203219760034_R06C01.parquet,IN
+monocytes,GSE252045,array,GSM7992766_206772660007_R07C01,True,0.96457,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992766_206772660007_R07C01.parquet,IN
+monocytes,GSE252045,array,GSM7992775_206772660013_R08C01,False,0.90545,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992775_206772660013_R08C01.parquet,IN
+monocytes,GSE252045,array,GSM7992791_206772660023_R03C01,True,0.97068,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992791_206772660023_R03C01.parquet,IN
+monocytes,GSE252045,array,GSM7992805_206772660024_R05C01,True,0.97525,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992805_206772660024_R05C01.parquet,IN
+monocytes,GSE252045,array,GSM7992810_206772660031_R07C01,False,0.8964,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992810_206772660031_R07C01.parquet,IN
+monocytes,GSE252045,array,GSM7992825_206772660067_R01C01,True,0.9869,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992825_206772660067_R01C01.parquet,IN
+monocytes,GSE252045,array,GSM7992839_206772660075_R03C01,True,0.95032,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992839_206772660075_R03C01.parquet,IN
+monocytes,GSE252045,array,GSM7992861_206772660082_R05C01,True,0.98299,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992861_206772660082_R05C01.parquet,IN
+monocytes,GSE88824,array,GSM2349440_8942351141_R06C01,True,0.95749,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349440_8942351141_R06C01.parquet,IN
+monocytes,GSE88824,array,GSM2349449_8942351172_R03C01,True,0.93169,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349449_8942351172_R03C01.parquet,IN
+monocytes,GSE88824,array,GSM2349458_8942351172_R06C02,False,0.9184,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349458_8942351172_R06C02.parquet,IN
+monocytes,GSE88824,array,GSM2349467_8942351227_R03C02,True,0.93034,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349467_8942351227_R03C02.parquet,IN
+monocytes,GSE88824,array,GSM2349476_8942351142_R06C01,True,0.97782,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349476_8942351142_R06C01.parquet,IN
+monocytes,GSE88824,array,GSM2349484_8942351185_R03C01,True,0.99018,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349484_8942351185_R03C01.parquet,IN
+monocytes,GSE88824,array,GSM2349493_8942351185_R06C02,True,0.96475,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349493_8942351185_R06C02.parquet,IN
+monocytes,GSE88824,array,GSM2349502_8942351223_R03C02,True,0.98517,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349502_8942351223_R03C02.parquet,IN
+naive b cells,GSE252045,array,GSM7992767_206772660007_R08C01,False,0.88262,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992767_206772660007_R08C01.parquet,IN
+naive b cells,GSE252045,array,GSM7992776_206772660016_R01C01,True,0.95863,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992776_206772660016_R01C01.parquet,IN
+naive b cells,GSE252045,array,GSM7992787_206772660023_R04C01,True,0.94925,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992787_206772660023_R04C01.parquet,IN
+naive b cells,GSE252045,array,GSM7992806_206772660024_R06C01,True,0.96336,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992806_206772660024_R06C01.parquet,IN
+naive b cells,GSE252045,array,GSM7992811_206772660031_R08C01,True,0.95849,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992811_206772660031_R08C01.parquet,IN
+naive b cells,GSE252045,array,GSM7992818_206772660067_R02C01,True,0.98713,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992818_206772660067_R02C01.parquet,IN
+naive b cells,GSE252045,array,GSM7992840_206772660075_R04C01,True,0.95273,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992840_206772660075_R04C01.parquet,IN
+naive b cells,GSE252045,array,GSM7992849_206772660078_R05C01,True,0.97872,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992849_206772660078_R05C01.parquet,IN
+naive b cells,GSE252045,array,GSM7992858_206772660082_R06C01,True,0.98022,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992858_206772660082_R06C01.parquet,IN
+naive cd4 t cells,GSE252045,array,GSM7992760_206772660007_R01C01,True,0.97371,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992760_206772660007_R01C01.parquet,IN
+naive cd4 t cells,GSE252045,array,GSM7992779_206772660013_R03C01,True,0.97259,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992779_206772660013_R03C01.parquet,IN
+naive cd4 t cells,GSE252045,array,GSM7992783_206772660016_R04C01,True,0.97412,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992783_206772660016_R04C01.parquet,IN
+naive cd4 t cells,GSE252045,array,GSM7992796_206772660023_R07C01,True,0.96536,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992796_206772660023_R07C01.parquet,IN
+naive cd4 t cells,GSE252045,array,GSM7992823_206772660049_R03C01,True,0.96168,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992823_206772660049_R03C01.parquet,IN
+naive cd4 t cells,GSE252045,array,GSM7992830_206772660067_R05C01,True,0.98685,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992830_206772660067_R05C01.parquet,IN
+naive cd4 t cells,GSE252045,array,GSM7992843_206772660075_R07C01,True,0.95178,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992843_206772660075_R07C01.parquet,IN
+naive cd4 t cells,GSE252045,array,GSM7992852_206772660078_R07C01,True,0.93521,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992852_206772660078_R07C01.parquet,IN
+naive cd4 t cells,GSE75405,array,GSM1954493_8963266070_R01C01,True,0.99243,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954493_8963266070_R01C01.parquet,IN
+naive cd4 t cells,GSE75405,array,GSM1954497_8963266070_R06C01,True,0.99412,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954497_8963266070_R06C01.parquet,IN
+naive cd4 t cells,GSE75405,array,GSM1954499_8769527006_R02C02,True,0.99286,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954499_8769527006_R02C02.parquet,IN
+naive cd4 t cells,GSE75405,array,GSM1954506_8769527006_R04C01,True,0.99323,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954506_8769527006_R04C01.parquet,IN
+naive cd4 t cells,GSE75405,array,GSM1954511_8963266070_R03C02,True,0.99393,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954511_8963266070_R03C02.parquet,IN
+naive cd8 t cells,GSE252045,array,GSM7992734_205828600075_R01C01,True,0.96769,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992734_205828600075_R01C01.parquet,IN
+naive cd8 t cells,GSE252045,array,GSM7992735_205828600145_R01C01,True,0.98256,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992735_205828600145_R01C01.parquet,IN
+naive cd8 t cells,GSE252045,array,GSM7992736_205828600147_R01C01,True,0.97886,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992736_205828600147_R01C01.parquet,IN
+naive cd8 t cells,GSE252045,array,GSM7992737_205828600075_R05C01,True,0.96687,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992737_205828600075_R05C01.parquet,IN
+naive cd8 t cells,GSE252045,array,GSM7992738_205828600092_R05C01,True,0.98795,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992738_205828600092_R05C01.parquet,IN
+naive cd8 t cells,GSE252045,array,GSM7992739_205828600145_R05C01,True,0.95891,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992739_205828600145_R05C01.parquet,IN
+naive cd8 t cells,GSE252045,array,GSM7992762_206772660007_R03C01,True,0.98166,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992762_206772660007_R03C01.parquet,IN
+naive cd8 t cells,GSE252045,array,GSM7992772_206772660013_R05C01,True,0.95129,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992772_206772660013_R05C01.parquet,IN
+naive cd8 t cells,GSE252045,array,GSM7992786_206772660016_R07C01,False,0.92373,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992786_206772660016_R07C01.parquet,IN
+naive cd8 t cells,GSE252045,array,GSM7992800_206772660024_R01C01,True,0.96162,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992800_206772660024_R01C01.parquet,IN
+naive cd8 t cells,GSE252045,array,GSM7992815_206772660031_R03C01,True,0.97979,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992815_206772660031_R03C01.parquet,IN
+naive cd8 t cells,GSE252045,array,GSM7992821_206772660049_R05C01,True,0.98619,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992821_206772660049_R05C01.parquet,IN
+naive cd8 t cells,GSE75405,array,GSM1954495_8769527006_R01C02,True,0.98416,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954495_8769527006_R01C02.parquet,IN
+naive cd8 t cells,GSE75405,array,GSM1954498_8963266070_R06C02,True,0.99452,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954498_8963266070_R06C02.parquet,IN
+naive cd8 t cells,GSE75405,array,GSM1954501_8769527006_R02C01,True,0.99232,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954501_8769527006_R02C01.parquet,IN
+naive cd8 t cells,GSE75405,array,GSM1954504_8769527006_R04C02,True,0.9936,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954504_8769527006_R04C02.parquet,IN
+naive cd8 t cells,GSE75405,array,GSM1954509_8963266070_R05C01,True,0.9937,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954509_8963266070_R05C01.parquet,IN
+neutrophils,GSE103541,array,GSM2773231_200819570055_R03C01,True,0.95735,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773231_200819570055_R03C01.parquet,CONDITIONAL
+neutrophils,GSE103541,array,GSM2773236_200819570055_R04C01,True,0.96181,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773236_200819570055_R04C01.parquet,CONDITIONAL
+neutrophils,GSE103541,array,GSM2773241_200863670046_R03C01,True,0.96057,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773241_200863670046_R03C01.parquet,CONDITIONAL
+neutrophils,GSE103541,array,GSM2773246_200863670046_R04C01,True,0.95826,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773246_200863670046_R04C01.parquet,CONDITIONAL
+neutrophils,GSE103541,array,GSM2773251_200861170064_R03C01,True,0.95669,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773251_200861170064_R03C01.parquet,CONDITIONAL
+neutrophils,GSE103541,array,GSM2773256_200861170064_R04C01,False,0.92804,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773256_200861170064_R04C01.parquet,CONDITIONAL
+neutrophils,GSE103541,array,GSM2773261_200863670051_R03C01,False,0.90712,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773261_200863670051_R03C01.parquet,CONDITIONAL
+neutrophils,GSE103541,array,GSM2773266_200863670051_R04C01,True,0.95737,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773266_200863670051_R04C01.parquet,CONDITIONAL
+neutrophils,GSE103541,array,GSM2773271_200821610020_R03C01,True,0.94162,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773271_200821610020_R03C01.parquet,CONDITIONAL
+neutrophils,GSE103541,array,GSM2773276_200821610020_R04C01,True,0.9555,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773276_200821610020_R04C01.parquet,CONDITIONAL
+neutrophils,GSE103541,array,GSM2773281_200819570050_R03C01,True,0.93394,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773281_200819570050_R03C01.parquet,CONDITIONAL
+neutrophils,GSE103541,array,GSM2773286_200819570050_R04C01,True,0.94808,/home/ubuntu/data/atlas_sources/v21/shards/GSM2773286_200819570050_R04C01.parquet,CONDITIONAL
+neutrophils,GSE118144,array,GSM3319393_201050360099_R03C01,True,0.99113,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319393_201050360099_R03C01.parquet,IN
+neutrophils,GSE118144,array,GSM3319408_201057020011_R02C01,True,0.98751,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319408_201057020011_R02C01.parquet,IN
+neutrophils,GSE118144,array,GSM3319420_201046420154_R06C01,True,0.99294,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319420_201046420154_R06C01.parquet,IN
+neutrophils,GSE118144,array,GSM3319428_201046290216_R06C01,True,0.98975,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319428_201046290216_R06C01.parquet,IN
+neutrophils,GSE118144,array,GSM3319440_201050360177_R02C01,True,0.98861,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319440_201050360177_R02C01.parquet,IN
+neutrophils,GSE118144,array,GSM3319443_201050360177_R05C01,True,0.99307,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319443_201050360177_R05C01.parquet,IN
+neutrophils,GSE118144,array,GSM3319451_201057020049_R05C01,True,0.9883,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319451_201057020049_R05C01.parquet,IN
+neutrophils,GSE118144,array,GSM3319464_201050360053_R02C01,True,0.98845,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319464_201050360053_R02C01.parquet,IN
+neutrophils,GSE118144,array,GSM3319481_201050360063_R03C01,True,0.98539,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319481_201050360063_R03C01.parquet,IN
+neutrophils,GSE118144,array,GSM3319486_201050360063_R08C01,True,0.99038,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319486_201050360063_R08C01.parquet,IN
+neutrophils,GSE118144,array,GSM3319491_201050360083_R05C01,True,0.98753,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319491_201050360083_R05C01.parquet,IN
+neutrophils,GSE118144,array,GSM3319495_201050360068_R01C01,True,0.97975,/home/ubuntu/data/atlas_sources/v21/shards/GSM3319495_201050360068_R01C01.parquet,IN
+neutrophils,GSE122244,array,GSM3462455_200693480145_R07C01,True,0.98061,/home/ubuntu/data/atlas_sources/v21/shards/GSM3462455_200693480145_R07C01.parquet,IN
+neutrophils,GSE122244,array,GSM3462459_200514030001_R07C01,True,0.96861,/home/ubuntu/data/atlas_sources/v21/shards/GSM3462459_200514030001_R07C01.parquet,IN
+neutrophils,GSE122244,array,GSM3462463_200514030039_R08C01,True,0.97451,/home/ubuntu/data/atlas_sources/v21/shards/GSM3462463_200514030039_R08C01.parquet,IN
+neutrophils,GSE122244,array,GSM3462467_200514030089_R07C01,True,0.98258,/home/ubuntu/data/atlas_sources/v21/shards/GSM3462467_200514030089_R07C01.parquet,IN
+neutrophils,GSE122244,array,GSM3462471_200514030145_R08C01,False,0.9013,/home/ubuntu/data/atlas_sources/v21/shards/GSM3462471_200514030145_R08C01.parquet,IN
+neutrophils,GSE124565,array,GSM3536868_3999543054_R01C01,True,0.99427,/home/ubuntu/data/atlas_sources/v21/shards/GSM3536868_3999543054_R01C01.parquet,IN
+neutrophils,GSE124565,array,GSM3536869_3999543054_R02C01,True,0.99364,/home/ubuntu/data/atlas_sources/v21/shards/GSM3536869_3999543054_R02C01.parquet,IN
+neutrophils,GSE124565,array,GSM3536870_3999543054_R03C01,True,0.99385,/home/ubuntu/data/atlas_sources/v21/shards/GSM3536870_3999543054_R03C01.parquet,IN
+neutrophils,GSE124565,array,GSM3536871_3999543054_R04C01,True,0.99589,/home/ubuntu/data/atlas_sources/v21/shards/GSM3536871_3999543054_R04C01.parquet,IN
+neutrophils,GSE124565,array,GSM3536872_3999543054_R05C01,True,0.99472,/home/ubuntu/data/atlas_sources/v21/shards/GSM3536872_3999543054_R05C01.parquet,IN
+neutrophils,GSE124565,array,GSM3536873_3999543054_R06C01,True,0.99442,/home/ubuntu/data/atlas_sources/v21/shards/GSM3536873_3999543054_R06C01.parquet,IN
+neutrophils,GSE124565,array,GSM3536874_3999543054_R01C02,True,0.99348,/home/ubuntu/data/atlas_sources/v21/shards/GSM3536874_3999543054_R01C02.parquet,IN
+neutrophils,GSE124565,array,GSM3536875_3999543054_R02C02,True,0.99505,/home/ubuntu/data/atlas_sources/v21/shards/GSM3536875_3999543054_R02C02.parquet,IN
+neutrophils,GSE124565,array,GSM3536876_3999543054_R03C02,True,0.99462,/home/ubuntu/data/atlas_sources/v21/shards/GSM3536876_3999543054_R03C02.parquet,IN
+neutrophils,GSE124565,array,GSM3536877_3999543054_R04C02,True,0.99451,/home/ubuntu/data/atlas_sources/v21/shards/GSM3536877_3999543054_R04C02.parquet,IN
+neutrophils,GSE124565,array,GSM3536878_3999543054_R05C02,True,0.99552,/home/ubuntu/data/atlas_sources/v21/shards/GSM3536878_3999543054_R05C02.parquet,IN
+neutrophils,GSE124565,array,GSM3536879_3999543054_R06C02,True,0.99365,/home/ubuntu/data/atlas_sources/v21/shards/GSM3536879_3999543054_R06C02.parquet,IN
+neutrophils,GSE224807,array,GSM7033175_3999119085_R01C01,True,0.97369,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033175_3999119085_R01C01.parquet,CONDITIONAL
+neutrophils,GSE224807,array,GSM7033224_3999119153_R05C01,True,0.97002,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033224_3999119153_R05C01.parquet,CONDITIONAL
+neutrophils,GSE224807,array,GSM7033234_3999119156_R06C02,True,0.98772,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033234_3999119156_R06C02.parquet,CONDITIONAL
+neutrophils,GSE224807,array,GSM7033274_3999120036_R05C02,True,0.97104,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033274_3999120036_R05C02.parquet,CONDITIONAL
+neutrophils,GSE224807,array,GSM7033298_9374341084_R01C02,True,0.97513,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033298_9374341084_R01C02.parquet,CONDITIONAL
+neutrophils,GSE224807,array,GSM7033317_9994014061_R02C01,True,0.99011,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033317_9994014061_R02C01.parquet,CONDITIONAL
+neutrophils,GSE224807,array,GSM7033347_9994014154_R02C01,True,0.99127,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033347_9994014154_R02C01.parquet,CONDITIONAL
+neutrophils,GSE224807,array,GSM7033370_9994014166_R02C01,True,0.99081,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033370_9994014166_R02C01.parquet,CONDITIONAL
+neutrophils,GSE224807,array,GSM7033431_9996247040_R06C01,True,0.93143,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033431_9996247040_R06C01.parquet,CONDITIONAL
+neutrophils,GSE224807,array,GSM7033444_9996247045_R06C02,False,0.86657,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033444_9996247045_R06C02.parquet,CONDITIONAL
+neutrophils,GSE224807,array,GSM7033479_9996247055_R06C01,True,0.94352,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033479_9996247055_R06C01.parquet,CONDITIONAL
+neutrophils,GSE88824,array,GSM2349435_8942351141_R01C01,True,0.97842,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349435_8942351141_R01C01.parquet,IN
+neutrophils,GSE88824,array,GSM2349444_8942351141_R04C02,True,0.99021,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349444_8942351141_R04C02.parquet,IN
+neutrophils,GSE88824,array,GSM2349453_8942351172_R01C02,True,0.98517,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349453_8942351172_R01C02.parquet,IN
+neutrophils,GSE88824,array,GSM2349462_8942351227_R04C01,True,0.98404,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349462_8942351227_R04C01.parquet,IN
+neutrophils,GSE88824,array,GSM2349471_8942351142_R01C01,True,0.98017,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349471_8942351142_R01C01.parquet,IN
+neutrophils,GSE88824,array,GSM2349479_8942351142_R04C02,True,0.98209,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349479_8942351142_R04C02.parquet,IN
+neutrophils,GSE88824,array,GSM2349488_8942351185_R01C02,True,0.98717,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349488_8942351185_R01C02.parquet,IN
+neutrophils,GSE88824,array,GSM2349497_8942351223_R04C01,True,0.98754,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349497_8942351223_R04C01.parquet,IN
+nk cells,GSE224807,array,GSM7033180_3999119085_R06C01,True,0.97861,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033180_3999119085_R06C01.parquet,IN
+nk cells,GSE224807,array,GSM7033203_3999119108_R06C02,True,0.985,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033203_3999119108_R06C02.parquet,IN
+nk cells,GSE224807,array,GSM7033222_3999119153_R04C01,True,0.96848,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033222_3999119153_R04C01.parquet,IN
+nk cells,GSE224807,array,GSM7033223_3999119153_R04C02,True,0.94662,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033223_3999119153_R04C02.parquet,IN
+nk cells,GSE224807,array,GSM7033291_3999120111_R05C01,True,0.98665,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033291_3999120111_R05C01.parquet,IN
+nk cells,GSE224807,array,GSM7033316_9994014061_R01C02,True,0.98656,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033316_9994014061_R01C02.parquet,IN
+nk cells,GSE224807,array,GSM7033346_9994014154_R01C02,True,0.9913,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033346_9994014154_R01C02.parquet,IN
+nk cells,GSE224807,array,GSM7033369_9994014166_R01C02,True,0.98762,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033369_9994014166_R01C02.parquet,IN
+nk cells,GSE224807,array,GSM7033412_9996247003_R05C01,False,0.91485,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033412_9996247003_R05C01.parquet,IN
+nk cells,GSE224807,array,GSM7033430_9996247040_R05C02,True,0.93665,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033430_9996247040_R05C02.parquet,IN
+nk cells,GSE224807,array,GSM7033478_9996247055_R05C02,True,0.94531,/home/ubuntu/data/atlas_sources/v21/shards/GSM7033478_9996247055_R05C02.parquet,IN
+nk cells,GSE88824,array,GSM2349438_8942351141_R04C01,True,0.98173,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349438_8942351141_R04C01.parquet,IN
+nk cells,GSE88824,array,GSM2349447_8942351172_R01C01,True,0.96363,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349447_8942351172_R01C01.parquet,IN
+nk cells,GSE88824,array,GSM2349456_8942351172_R04C02,True,0.96409,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349456_8942351172_R04C02.parquet,IN
+nk cells,GSE88824,array,GSM2349465_8942351227_R01C02,True,0.93858,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349465_8942351227_R01C02.parquet,IN
+nk cells,GSE88824,array,GSM2349474_8942351142_R04C01,True,0.98196,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349474_8942351142_R04C01.parquet,IN
+nk cells,GSE88824,array,GSM2349482_8942351185_R01C01,True,0.98822,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349482_8942351185_R01C01.parquet,IN
+nk cells,GSE88824,array,GSM2349491_8942351185_R04C02,True,0.97746,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349491_8942351185_R04C02.parquet,IN
+nk cells,GSE88824,array,GSM2349500_8942351223_R01C02,True,0.97639,/home/ubuntu/data/atlas_sources/v21/shards/GSM2349500_8942351223_R01C02.parquet,IN
+oligodendrocytes,GSE306226,array,GSM9195034_205862290042_R05C01,True,0.9885,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195034_205862290042_R05C01.parquet,CONDITIONAL
+oligodendrocytes,GSE306226,array,GSM9195040_205862290025_R07C01,True,0.95261,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195040_205862290025_R07C01.parquet,CONDITIONAL
+oligodendrocytes,GSE306226,array,GSM9195044_205862290011_R07C01,True,0.98746,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195044_205862290011_R07C01.parquet,CONDITIONAL
+oligodendrocytes,GSE306226,array,GSM9195057_205854150069_R08C01,True,0.97876,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195057_205854150069_R08C01.parquet,CONDITIONAL
+oligodendrocytes,GSE306226,array,GSM9195068_205854150142_R07C01,True,0.98734,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195068_205854150142_R07C01.parquet,CONDITIONAL
+oligodendrocytes,GSE306226,array,GSM9195081_205854150051_R08C01,True,0.98779,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195081_205854150051_R08C01.parquet,CONDITIONAL
+oligodendrocytes,GSE306226,array,GSM9195083_205854150049_R02C01,True,0.98334,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195083_205854150049_R02C01.parquet,CONDITIONAL
+oligodendrocytes,GSE306226,array,GSM9195088_205854150093_R03C01,True,0.98763,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195088_205854150093_R03C01.parquet,CONDITIONAL
+oligodendrocytes,GSE306226,array,GSM9195093_205854150154_R08C01,True,0.98695,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195093_205854150154_R08C01.parquet,CONDITIONAL
+oligodendrocytes,GSE306226,array,GSM9195106_206513950148_R01C01,True,0.98469,/home/ubuntu/data/atlas_sources/v21/shards/GSM9195106_206513950148_R01C01.parquet,CONDITIONAL
+ovary epithelium,GSE146552,array,GSM4392142_9992571039_R05C01,True,0.9861,/home/ubuntu/data/atlas_sources/v21/shards/GSM4392142_9992571039_R05C01.parquet,CONDITIONAL
+ovary epithelium,GSE146552,array,GSM4392143_9992571039_R06C01,True,0.95748,/home/ubuntu/data/atlas_sources/v21/shards/GSM4392143_9992571039_R06C01.parquet,CONDITIONAL
+ovary epithelium,GSE146552,array,GSM4392144_6229025007_R05C01,True,0.9929,/home/ubuntu/data/atlas_sources/v21/shards/GSM4392144_6229025007_R05C01.parquet,CONDITIONAL
+ovary epithelium,GSE146552,array,GSM4392145_6229025007_R01C02,True,0.99554,/home/ubuntu/data/atlas_sources/v21/shards/GSM4392145_6229025007_R01C02.parquet,CONDITIONAL
+ovary epithelium,GSE146552,array,GSM4392146_9992571039_R01C02,True,0.98631,/home/ubuntu/data/atlas_sources/v21/shards/GSM4392146_9992571039_R01C02.parquet,CONDITIONAL
+ovary epithelium,GSE146552,array,GSM4392147_9992571039_R02C02,True,0.98061,/home/ubuntu/data/atlas_sources/v21/shards/GSM4392147_9992571039_R02C02.parquet,CONDITIONAL
+ovary epithelium,GSE146552,array,GSM4392148_5902871009_R05C01,True,0.98849,/home/ubuntu/data/atlas_sources/v21/shards/GSM4392148_5902871009_R05C01.parquet,CONDITIONAL
+ovary epithelium,GSE146552,array,GSM4392149_5902871009_R06C01,True,0.99017,/home/ubuntu/data/atlas_sources/v21/shards/GSM4392149_5902871009_R06C01.parquet,CONDITIONAL
+promyelocytes,GSE49618,array,GSM1185594_7796806148_R01C01,True,0.98954,/home/ubuntu/data/atlas_sources/v21/shards/GSM1185594_7796806148_R01C01.parquet,IN
+promyelocytes,GSE49618,array,GSM1185597_7796806148_R04C01,True,0.98944,/home/ubuntu/data/atlas_sources/v21/shards/GSM1185597_7796806148_R04C01.parquet,IN
+promyelocytes,GSE49618,array,GSM1185600_7796806148_R01C02,True,0.98946,/home/ubuntu/data/atlas_sources/v21/shards/GSM1185600_7796806148_R01C02.parquet,IN
+small intestine epithelium,E-MTAB-4957,array,3999941126_R03C02,True,0.95722,/home/ubuntu/data/atlas_sources/v21/shards/3999941126_R03C02.parquet,CONDITIONAL
+small intestine epithelium,E-MTAB-4957,array,9701417049_R01C02,True,0.95907,/home/ubuntu/data/atlas_sources/v21/shards/9701417049_R01C02.parquet,CONDITIONAL
+small intestine epithelium,E-MTAB-4957,array,3999941140_R03C02,True,0.97838,/home/ubuntu/data/atlas_sources/v21/shards/3999941140_R03C02.parquet,CONDITIONAL
+small intestine epithelium,E-MTAB-4957,array,3999941140_R05C02,True,0.97741,/home/ubuntu/data/atlas_sources/v21/shards/3999941140_R05C02.parquet,CONDITIONAL
+small intestine epithelium,E-MTAB-4957,array,3999941115_R03C02,True,0.96654,/home/ubuntu/data/atlas_sources/v21/shards/3999941115_R03C02.parquet,CONDITIONAL
+small intestine epithelium,E-MTAB-4957,array,3999941115_R05C02,True,0.96883,/home/ubuntu/data/atlas_sources/v21/shards/3999941115_R05C02.parquet,CONDITIONAL
+small intestine epithelium,E-MTAB-4957,array,3999941150_R05C02,True,0.97058,/home/ubuntu/data/atlas_sources/v21/shards/3999941150_R05C02.parquet,CONDITIONAL
+small intestine epithelium,E-MTAB-4957,array,8784225042_R05C02,True,0.99043,/home/ubuntu/data/atlas_sources/v21/shards/8784225042_R05C02.parquet,CONDITIONAL
+t central memory cd4,GSE252045,array,GSM7992761_206772660007_R02C01,True,0.95968,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992761_206772660007_R02C01.parquet,IN
+t central memory cd4,GSE252045,array,GSM7992780_206772660013_R04C01,True,0.9669,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992780_206772660013_R04C01.parquet,IN
+t central memory cd4,GSE252045,array,GSM7992784_206772660016_R05C01,True,0.96399,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992784_206772660016_R05C01.parquet,IN
+t central memory cd4,GSE252045,array,GSM7992797_206772660023_R08C01,False,0.86119,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992797_206772660023_R08C01.parquet,IN
+t central memory cd4,GSE252045,array,GSM7992813_206772660031_R01C01,True,0.97467,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992813_206772660031_R01C01.parquet,IN
+t central memory cd4,GSE252045,array,GSM7992820_206772660049_R04C01,True,0.97321,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992820_206772660049_R04C01.parquet,IN
+t central memory cd4,GSE252045,array,GSM7992831_206772660067_R06C01,True,0.94249,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992831_206772660067_R06C01.parquet,IN
+t central memory cd4,GSE252045,array,GSM7992844_206772660075_R08C01,False,0.91877,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992844_206772660075_R08C01.parquet,IN
+t central memory cd4,GSE252045,array,GSM7992853_206772660078_R08C01,True,0.94348,/home/ubuntu/data/atlas_sources/v21/shards/GSM7992853_206772660078_R08C01.parquet,IN
+t effector cell cd8,GSE75405,array,GSM1954496_8963266070_R02C01,True,0.99082,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954496_8963266070_R02C01.parquet,IN
+t effector cell cd8,GSE75405,array,GSM1954500_8963266070_R02C02,True,0.99133,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954500_8963266070_R02C02.parquet,IN
+t effector cell cd8,GSE75405,array,GSM1954505_8769527006_R05C02,True,0.99044,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954505_8769527006_R05C02.parquet,IN
+t effector cell cd8,GSE75405,array,GSM1954508_8769527006_R03C01,True,0.99141,/home/ubuntu/data/atlas_sources/v21/shards/GSM1954508_8769527006_R03C01.parquet,IN

@@ -24,3 +24,10 @@ GSE146552 build array called male by the identity check is reported; by L5 rule 
 preconditions for scoring those two sets, and are recorded as deferred there, not dropped.
 
 Code: `box/v21_l8_box.py` (twin test, profiles, export of the 904 EpiDISH sites) and `l8_epidish_v21.R` (the RPC fractions on the laptop).
+
+## Addendum, 2026-10-14 (committed before any GSE137716 array is read for purity)
+
+Decision 10 covers GSE137716 (lung bronchus epithelium, "enriched, not sorted"; 12 conditional build arrays) as well as GSE146552. The rule
+above named only GSE146552, and the first outcome record said GSE137716 was unaffected; that was wrong, written without checking the build
+list's reason column. GSE137716 gets the identical rule: EpiDISH 2.26.0 RPC, centEpiFibIC, fibroblast + immune below 0.20 per array, the
+cell's GSE137716 arrays enter only if at least 2 pass. Export by `box/v21_l8b_box.py`; shares by `l8_epidish_v21.R` unchanged.
