@@ -11,7 +11,8 @@ if (length(n1) > 0) { a <- run(n1, centBloodSub.m)
 d1 <- data.frame(array = colnames(B)[n1], source = grp[n1], eosino = round(a$est[, "Eosino"], 4), neutro = round(a$est[, "Neutro"], 4), sites = a$n)
 d1$passes <- d1$eosino < 0.10
 write.csv(d1, "l8_d1_epidish.csv", row.names = FALSE); print(d1[order(d1$source), ]) }
-o <- which(grp %in% c("GSE146552", "GSE137716"))   # decision 10 covers both (addendum, 2026-10-14); b <- run(o, centEpiFibIC.m)
+# decision 10 covers GSE146552 and GSE137716 (addendum, 2026-10-14)
+o <- which(grp %in% c("GSE146552", "GSE137716")); b <- run(o, centEpiFibIC.m)
 d10 <- data.frame(array = colnames(B)[o], cell = cel[o], epi = round(b$est[, "Epi"], 4), fib = round(b$est[, "Fib"], 4), ic = round(b$est[, "IC"], 4), sites = b$n)
 d10$non_epithelial <- d10$fib + d10$ic; d10$passes <- d10$non_epithelial < 0.20
 write.csv(d10, "l8_d10_epidish.csv", row.names = FALSE); print(d10)
