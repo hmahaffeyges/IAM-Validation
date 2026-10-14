@@ -1,5 +1,5 @@
 {
- "_rule": "Four-domain schematic (author, 2026-10-14): one standard name per slot, each domain's native word kept beside it. Status is one of derived, measured, calculated, prediction, conjecture, candidate, open. 'candidate' = proposed and not tested; 'open' = nothing yet. FOUR_DOMAINS.md and its gap map are generated from this file by CANON/four_domains.py; never edit them by hand.",
+ "_rule": "Four-domain schematic (author, 2026-10-14): one standard name per slot, each domain's native word kept beside it. Status is one of derived, measured, calculated, prediction, conjecture, candidate, interp, definition, open. 'candidate' = proposed and not tested; 'open' = nothing yet. FOUR_DOMAINS.md and its gap map are generated from this file by CANON/four_domains.py; never edit them by hand.",
  "domains": [
   "cosmos",
   "qubits",
@@ -12,22 +12,34 @@
    "name": "Encoding surface",
    "definition": "Where the irreversible record is written.",
    "cosmos": {
-    "native": "cosmic horizon; for a black hole, its own horizon",
-    "formula": "area A of the apparent horizon, r_A = 1/H",
+    "native": "cosmological apparent horizon / cosmic horizon (the nearest encoding surface for distributed structure)",
+    "formula": "r_A = c/H, A_H = 4 pi c^2/H^2, S_geo = k_B c^3 A_H/(4 G hbar)",
     "status": "derived",
-    "source": "App. E #93"
+    "source": "p2_03 sec:th:caikim; p1_02 sec \"The nearest encoding surface\", sec:law_caikim; App. E #93; Cai & Kim (CaiKim2005), Jacobson1995, GibbonsHawking1977 (standard results used, not IAM confirmations)",
+    "tag_in_book": "\\derived"
    },
    "qubits": {
-    "native": "junction barrier and substrate",
-    "formula": "two-level record held across a gap hf",
-    "status": "derived",
-    "source": "Ch. Each platform on its own gauge: qubits"
+    "native": "the barrier is the encoding surface (transmon); 'junction barrier and substrate' (saturation table); record = 'charge--phase states of the junction circuit'",
+    "formula": "no formula; record held in a two-level system with gap E = hf (Table qp_which)",
+    "status": "conjecture",
+    "source": "part5/p5_01_sc_primer.tex §The transmon; part3/p3_07_saturation.tex §Two entries per event and §The four thresholds table; part5/p5_10_qubit_platforms.tex §Which temperature each record sees (Table qp_which), §Superconducting transmons; Koch2007 (transmon Hamiltonian); Arute2019, GoogleWillow2025, K",
+    "tag_in_book": "\\interp (barrier as encoding surface, p5_01); \\conjecture (two-entry ledger paragraph, p3_07)",
+    "mixed_tags": [
+     "conjecture",
+     "interp"
+    ]
    },
    "chips": {
-    "native": "gate channel",
-    "formula": "binary switch across a barrier",
-    "status": "derived",
-    "source": "Ch. Landauer at the transistor gate"
+    "native": "gate channel (also 'transistor junction'; 'for a transistor it is the gate')",
+    "formula": "an encoding surface (the gate channel) at a definite temperature (T_j), with a floor set by k_B T_j",
+    "status": "conjecture",
+    "source": "part5/p5_06_cmos.tex §Dennard scaling and its end, keybox 'The Dennard wall is a Boltzmann wall'; part3/p3_07_saturation.tex §The four thresholds; part6/p6_01_bridge.tex §One cost, many surfaces; part5/p5_11_chip_generations.tex §The place",
+    "tag_in_book": "\\interp (keybox identification); \\conjecture (IAM's Law nearest-surface identification, p6_01); p3_07 table row \\derived",
+    "mixed_tags": [
+     "conjecture",
+     "derived",
+     "interp"
+    ]
    },
    "cells": {
     "native": "chromatin surface (the DNA)",
@@ -41,22 +53,37 @@
    "name": "Surface temperature T_s",
    "definition": "The temperature the record actually sees.",
    "cosmos": {
-    "native": "Gibbons-Hawking temperature",
-    "formula": "T_GH = hbar H / (2 pi k_B)",
-    "status": "derived",
-    "source": "App. E #268, #355"
+    "native": "Gibbons--Hawking temperature",
+    "formula": "T_GH = hbar H/(2 pi k_B); 2.65e-30 K at H0=67.16, 2.66e-30 K at 67.4",
+    "status": "calculated",
+    "source": "p3_01 sec:bh_twohorizons; p1_02 sec \"The nearest encoding surface\"; p2_03 eq th:TH; App. E #268, #355; GibbonsHawking1977 (standard)",
+    "tag_in_book": "\\derived (#268); #355 tagged \\calc",
+    "mixed_tags": [
+     "calculated",
+     "derived"
+    ]
    },
    "qubits": {
-    "native": "the qubit's own effective temperature",
-    "formula": "T_q (e.g. 35 mK, not the 15 mK fridge)",
+    "native": "the qubit's own effective temperature; 'the temperature the record actually sees'; T_q",
+    "formula": "T_q = 35 mK effective (refrigerator 15 mK); per-platform temperatures in Table qp_which (fluxonium 20 mK; ion motion Doppler 0.47 mK; Rydberg radiation field 300 K / 4 K; NV lattice 300 K / 4 K; Si electrons 0.1 K or 1.5 K hot; photon waveguide 300 K)",
     "status": "measured",
-    "source": "Ch. qubits"
+    "source": "part5/p5_01_sc_primer.tex §The qubit is hotter than its refrigerator; part5/p5_10_qubit_platforms.tex §Three marks (worked reading), §Which temperature each record sees; part5/p5_04_thermal_n.tex remark 'Which temperature, in kelvin'; part3/p3_07_saturation.tex common-structure list item 2; Jin2015 ",
+    "tag_in_book": "\\observed (Jin2015 35 mK); per-platform values \\calc",
+    "mixed_tags": [
+     "calculated",
+     "measured"
+    ]
    },
    "chips": {
-    "native": "junction temperature",
-    "formula": "T_j (75-105 C)",
-    "status": "measured",
-    "source": "Ch. chips"
+    "native": "junction temperature T_j",
+    "formula": "T_j = 348.15 K (75 °C); also 105 °C; floor 8.6 % higher at 105 °C than at 75 °C",
+    "status": "calculated",
+    "source": "part5/p5_06_cmos.tex §The floor for logic, §The chip gauge over time item 2; part5/p5_11_chip_generations.tex §The floor at the chip's own junction temperature, §What a fab learns, §Status",
+    "tag_in_book": "no tag on T_j itself (an assumed operating point); 8.6 % shift \\calc; T_j-dependence of the floor \\derived; T_j during m",
+    "mixed_tags": [
+     "calculated",
+     "derived"
+    ]
    },
    "cells": {
     "native": "body temperature",
@@ -70,22 +97,38 @@
    "name": "Bit price e_bit",
    "definition": "IAM's Law: the minimum cost of one classical bit.",
    "cosmos": {
-    "native": "cost of a bit at the horizon",
-    "formula": "k_B T_GH ln2 = 2.54e-53 J",
-    "status": "derived",
-    "source": "App. E #0, #454"
+    "native": "the epoch-dependent cost (cost per bit at the horizon)",
+    "formula": "Delta E_rec(a) = k_B T_H(a) ln2 = hbar H(a) ln2/(2 pi); 2.53e-53 J at H0=67.16 (p1_02), 2.54e-53 J at 67.4 (#454), 2.5e-53 J (p2_03)",
+    "status": "conjecture",
+    "source": "p1_02 sec \"The epoch-dependent cost\" (eq:epochcost); p2_03 eq th:bitcost; App. E #0, #454; Laboratory limit only: Landauer bound approached by Berut2012, Jun2014 (\\observed); nothing external at the horizon",
+    "tag_in_book": "\\conjecture (#0: Assumption 2, horizon as reservoir); value \\calc; #454 \\derived given the choice of cosmic horizon",
+    "mixed_tags": [
+     "calculated",
+     "conjecture",
+     "derived"
+    ]
    },
    "qubits": {
-    "native": "Landauer floor at the qubit",
-    "formula": "k_B T_q ln2",
-    "status": "derived",
-    "source": ""
+    "native": "the Landauer cost per bit (at 15 mK); 'k_BT ln2 per bit at the temperature each record actually sees'",
+    "formula": "k_B T ln2 = 1.44e-25 J at 15 mK (refrigerator, not T_q); Fig qp_floors(a) gives k_BT ln2 per platform from 1e-28 J (atoms at 10 uK) to 3e-21 J (room temperature). Proposal: erasure charged at the gap, Delta ln2 = 126 ueV (Delta/k_B ~ 2.1 K) instead of ~1 ueV at 20 mK phonons",
+    "status": "conjecture",
+    "source": "part5/p5_01_sc_primer.tex §Why the qubit is cold; part5/p5_10_qubit_platforms.tex Fig qp_floors(a); part5/p5_02_xqp.tex §The proposal, 'Which temperature'; part4/p4_21_entanglement_records.tex §Two questions; App. E #481 (E_bit = k_BT ln2, general; not qubit-specific); Landauer1961, Bennett1982 (cos",
+    "tag_in_book": "\\calc (1.44e-25 J; Fig qp_floors); \\conjecture (gap-scale charging, p5_02)",
+    "mixed_tags": [
+     "calculated",
+     "conjecture"
+    ]
    },
    "chips": {
-    "native": "Landauer floor for logic",
-    "formula": "k_B T_j ln2 = 3.33e-21 J at 75 C",
-    "status": "derived",
-    "source": "App. E #478"
+    "native": "Landauer floor for logic ('The Landauer floor')",
+    "formula": "k_B T_j ln2 = 3.33e-21 J = 0.021 eV at T_j = 348.15 K; 3.62e-21 J at 105 °C",
+    "status": "calculated",
+    "source": "part5/p5_06_cmos.tex §The floor for logic; part5/p5_11_chip_generations.tex §The floor at the chip's own junction temperature; part6/p6_01_bridge.tex Table tab:two_readings; App. E 478; Landauer1961 (principle); Landauer bound measured on colloid (Berut2012) and nanomagnets (Hong2016) — cited generi",
+    "tag_in_book": "\\calc in App. E #478 and in Ch. chipgen (floor values); floor's T_j dependence \\derived (chipgen Status); chip floor sta",
+    "mixed_tags": [
+     "calculated",
+     "derived"
+    ]
    },
    "cells": {
     "native": "Landauer cost per mark",
@@ -99,22 +142,29 @@
    "name": "Drive energy E_drive",
    "definition": "The energy spent per event to write or hold the record.",
    "cosmos": {
-    "native": "rest energy behind the horizon",
-    "formula": "Mc^2 (black hole: Mc^2 = 2 T_H S, Smarr)",
+    "native": "gravitational binding energy (cosmological Mahaffey row); energy written = kinetic half of each bound structure",
+    "formula": "E_drive = gravitational binding energy; written share K ~ |W|/2 per halo (bottom-up); identity T_H S = M_H c^2 for the cosmic horizon (App C3)",
     "status": "derived",
-    "source": "App. E #348, #499"
+    "source": "p1_02 sec \"The Mahaffey number\" (Cosmological bullet); p4_14 sec:qr_exponent (bottom-up); app_C3 sec:app:der:horizons \"Cosmic horizon\"; App. E #47",
+    "tag_in_book": "no tag on the Mahaffey bullet; K=|W|/2 \\derived; T_H S = M_H c^2 \\derived (App C3)"
    },
    "qubits": {
-    "native": "gap energy",
-    "formula": "hf",
-    "status": "measured",
-    "source": "Ch. qubits"
+    "native": "the gap of its encoding degree of freedom; 'the energy holding it against the thermal quantum'",
+    "formula": "E = hf (5 GHz transmon illustrative; per-platform gaps in Table qp_which). Note: Ch. Landauer (p6_02, App E #487) instead takes E_drive = Delta_Al ln2 for the transmon",
+    "status": "calculated",
+    "source": "part5/p5_10_qubit_platforms.tex §Three marks (The floor from k_BT), Table qp_which; App. E #475 (E inside M = E/k_BT); contrast #487; none cited for the gap as 'drive'",
+    "tag_in_book": "no tag on hf itself; values \\calc"
    },
    "chips": {
-    "native": "switching energy",
-    "formula": "E_sw = TDP / (N_trans f)",
-    "status": "measured",
-    "source": "App. E (chip gauge)"
+    "native": "E_sw, energy 'per transistor per cycle' (chip gauge reading; 'energy per switch' in tab:two_readings; E_drive in tab:p4operating)",
+    "formula": "E_sw = TDP/(N_trans f); AMD Ryzen 9 9950X: 170 W, 4.3 GHz, N_trans = (20.0–20.6)e9 -> E_sw = (1.92–1.98)e-18 J, 576–593 x k_B T_j ln2",
+    "status": "open",
+    "source": "part5/p5_06_cmos.tex §The floor for logic; part5/p5_11_chip_generations.tex §Three published numbers (Table tab:cg_defs); part6/p6_02_landauer.tex Table tab:p4operating; AMD9950X (maker spec for TDP and clock); transistor counts from 'die-level reports', maker publishes none",
+    "tag_in_book": "\\calc (value); \\openprob (transistor count); no App. E entry",
+    "mixed_tags": [
+     "calculated",
+     "open"
+    ]
    },
    "cells": {
     "native": "one ATP per site",
@@ -128,22 +178,25 @@
    "name": "Mahaffey number M",
    "definition": "Drive over the thermal quantum, M = E_drive / k_B T_s (App. E #47, #485).",
    "cosmos": {
-    "native": "not defined in the book",
-    "formula": "candidate: M = S/k_B for the cosmic horizon (bits cost all its rest energy), about 2.3e122; black hole M = 2S/k_B",
-    "status": "candidate",
-    "source": "computed 2026-10-14"
+    "native": "Mahaffey number, cosmological row (no number given)",
+    "formula": "M = E_drive/(k_B T_H) with E_drive = gravitational binding energy; \"M integrated self-consistently over cosmic time with gravitational feedback is read as the activation function\"",
+    "status": "conjecture",
+    "source": "p1_02 sec \"The Mahaffey number\", cosmological bullet; App. E #47 (definition)",
+    "tag_in_book": "\\conjecture"
    },
    "qubits": {
-    "native": "Mahaffey number of the record",
-    "formula": "M = hf / k_B T_q = 6.86 (5 GHz, 35 mK)",
-    "status": "calculated",
-    "source": "Ch. qubits"
+    "native": "the Mahaffey number of the record",
+    "formula": "M = E/k_BT = hf/k_BT; 6.86 (5 GHz, 35 mK), 16.0 (15 mK); per platform: fluxonium 0.48-2.4; ion spin ~5e-4-2e-3 at 300 K (not thermalized); ion motion 0.10-0.20; Rydberg 0.0016-0.016 (0.12-1.2 at 4 K); NV 4.6e-4 (0.034); Si 7.2 (15 GHz, 0.1 K), 0.11 (3.5 GHz, 1.5 K); photon 30.9",
+    "status": "definition",
+    "source": "part5/p5_10_qubit_platforms.tex §Three marks, Table qp_which; part5/p5_01_sc_primer.tex §The qubit is hotter than its refrigerator; part5/p5_04_thermal_n.tex §Why the slope matters; part3/p3_07_saturation.tex Fig four_floors(c); App. E #475 (M = E/k_BT); #47, #485 (general definition); conflicting #",
+    "tag_in_book": "definition; values \\calc"
    },
    "chips": {
-    "native": "drive ratio of a switch",
-    "formula": "M = E_sw / k_B T_j = 399-411",
+    "native": "Mahaffey number M ('the dimensionless operating ratio M=E_drive/k_B T' in p6_02)",
+    "formula": "M = E_sw/k_B T_j = 399–411; M/ln2 = 576–593 (Landauer units)",
     "status": "calculated",
-    "source": "Ch. CMOS"
+    "source": "part5/p5_06_cmos.tex §The floor for logic; part6/p6_02_landauer.tex §The cell beside a transistor and a qubit, Table tab:p4operating and Summary; part1/p1_02_iams_law.tex §The Mahaffey number, Fig. fig:mahaffey_number (M=399 at 20.6e9); App. E 47, 485 (definition only; no chip-specific entry)",
+    "tag_in_book": "\\calc (value); M itself a definition (App. E #47, #485)"
    },
    "cells": {
     "native": "Mahaffey number of the cell",
@@ -157,22 +210,37 @@
    "name": "Floor (left mark)",
    "definition": "The lowest error a record can hold against thermal kicks at full drive.",
    "cosmos": {
-    "native": "area bound",
-    "formula": "S = A / 4 l_P^2: one nat per 4 l_P^2",
-    "status": "derived",
-    "source": "App. E #393"
+    "native": "one unit of entropy (one nat) per minimum encoding area 4 l_P^2",
+    "formula": "delta A_min = 4 hbar G/c^3 = 4 l_P^2; eta*delta A_min = 1; one bit = 4 ln2 l_P^2 = 2.77 l_P^2",
+    "status": "calculated",
+    "source": "p1_02 sec \"(C) Consistency\" (eq:law_dAmin); p2_03 eq th:dAmin; app_C3 \"One unit of entropy per 4 l_P^2\"; App. E #393; BardeenCarterHawking1973 first law (standard)",
+    "tag_in_book": "\\derived (#393 itself tagged \\calc)",
+    "mixed_tags": [
+     "calculated",
+     "derived"
+    ]
    },
    "qubits": {
-    "native": "thermal floor",
-    "formula": "p_eq = 1/(1+e^M)",
-    "status": "derived",
-    "source": "App. E #475"
+    "native": "thermal floor; 'The floor from k_BT'; 'left-hand mark'; two forms: held-record floor and floor of one gate (per-gate thermal floor)",
+    "formula": "held record: p_eq = 1/(1+e^M); one gate: p_th(t_g) = p_eq t_g/T_1 = 6.2e-7 (5 GHz, 35 mK, T_1 = 68 us, t_g = 40 ns); on the gauge at p_th/eps = 6.2e-4",
+    "status": "calculated",
+    "source": "part5/p5_10_qubit_platforms.tex §Three marks on every qubit gauge; part5/p5_03_a_for_processors.tex §The floor (sec:qubitfloor); part3/p3_07_saturation.tex table and Fig four_floors(c); App. E #475 (p_eq), #476 (p_th); inputs only: Jin2015 (35 mK), GoogleWillow2025 (mean T_1 = 68 us). Floor itself n",
+    "tag_in_book": "\\derived (detailed balance); values \\calc",
+    "mixed_tags": [
+     "calculated",
+     "derived"
+    ]
    },
    "chips": {
-    "native": "Landauer and reliability floors; Boltzmann wall",
-    "formula": "k_B T_j ln2; E_min = k_B T ln(1/p); swing (k_B T/q) ln10 = 60 mV/decade",
-    "status": "derived",
-    "source": "Ch. CMOS"
+    "native": "Landauer floor and 'The reliability floor' (E_min of a binary switch)",
+    "formula": "k_B T_j ln2; E_min = k_B T ln(1/p): p=1/2 -> k_B T ln2; p=1e-15 -> 34.5 k_B T = 49.8 Landauer units; p=1e-25 -> 83.0 units; floor sits at 0.0017 on the chip gauge (0.0018–0.0019 at 105 °C)",
+    "status": "calculated",
+    "source": "part5/p5_06_cmos.tex §Dennard scaling and its end ¶The reliability floor (eq:reliableswitch), Fig. fig:switch_floors; part5/p5_11_chip_generations.tex §The floor at the chip's own junction temperature, Fig. fig:cg_floor_Tj; App. E 478, 479; Zhirnov2003 (E_min = k_B T ln(1/p))",
+    "tag_in_book": "App. E #479 tagged \\calc; numbers \\calc; Fig. fig:switch_floors caption tags the form \\derived; floor position \\calc",
+    "mixed_tags": [
+     "calculated",
+     "derived"
+    ]
    },
    "cells": {
     "native": "floor",
@@ -186,22 +254,31 @@
    "name": "Balance law",
    "definition": "How the held error is set: restore against loss.",
    "cosmos": {
-    "native": "not stated in this form",
-    "formula": "open",
-    "status": "open",
-    "source": ""
+    "native": "the virial theorem as balance sheet; the self-regulating feedback loop",
+    "formula": "rho_info(a=1) = rho_m/2 = (Omega_m/2) rho_crit; feedback: suppressed growth lowers decoherence rate (step 9 -> step 1)",
+    "status": "conjecture",
+    "source": "p1_02 sec:law_coupling \"The virial theorem as balance sheet\" and \"The nine-step causal chain\"; p7_05b sec:vp_partition; p2_03 sec:th:picture; App. E #27, #146",
+    "tag_in_book": "\\prediction (#27) / \\derived (#146); feedback \\conjecture (p1_02 step 9) / \\interp (p2_03 picture)",
+    "mixed_tags": [
+     "conjecture",
+     "derived",
+     "interp",
+     "prediction"
+    ]
    },
    "qubits": {
     "native": "detailed balance",
-    "formula": "p_eq = G_up / (G_up + G_down), G_up/G_down = e^-M",
+    "formula": "Gamma_up/Gamma_down = e^{-E/k_BT}; Gamma_1 = Gamma_up + Gamma_down = 1/T_1; gives p_eq = 1/(1+e^M). Ions/NV: state 'set by optical pumping, not by T'; hot Si: initialization by tunneling",
     "status": "derived",
-    "source": "Ch. qubits"
+    "source": "part5/p5_10_qubit_platforms.tex §Three marks (The floor from k_BT); §Trapped ions with laser-driven gates; §Spin qubits in silicon; App. E #475, #476; none beyond standard theory",
+    "tag_in_book": "\\derived (detailed balance)"
    },
    "chips": {
-    "native": "not stated in this form",
-    "formula": "p ~ e^(-E/k_B T)",
-    "status": "derived",
-    "source": "Ch. CMOS"
+    "native": "not in these chapters (no restore-against-loss law for chips)",
+    "formula": "only the thermal flip probability p ≈ e^{-E/k_B T} for a switch with barrier E",
+    "status": "open",
+    "source": "part5/p5_06_cmos.tex ¶The reliability floor; Zhirnov2003",
+    "tag_in_book": "none attached to the flip-probability sentence (cited to Zhirnov2003)"
    },
    "cells": {
     "native": "restore against loss",
@@ -215,22 +292,25 @@
    "name": "Reference (the 1)",
    "definition": "The state the gauge is read against.",
    "cosmos": {
-    "native": "today",
-    "formula": "a = 1: E(1) = 1, R(1) = 2",
-    "status": "derived",
-    "source": "App. E #72"
+    "native": "normalization today (a = 1 now by definition)",
+    "formula": "E(1)=1; R(1)=Omega_m/(beta_m E(1))=2; mu(1)=1/(1+beta_m)=0.864",
+    "status": "definition",
+    "source": "p1_02 sec:law_activation; p2_02 sec:vc_history (eq:vc_R1); p7_05b sec:vp_ratio; app_C3 sec:app:der:routes item 3; App. E #72, #22",
+    "tag_in_book": "definition/convention; R(1)=2 \\calc \"by construction\""
    },
    "qubits": {
-    "native": "as built",
-    "formula": "the benchmarked gate error, A = 1",
-    "status": "measured",
-    "source": "Ch. qubits"
+    "native": "As built; 'the device as built'; 'its own as-built state'",
+    "formula": "eps = -ln(1 - p_2Q) of the benchmarked device; device reads A = 1",
+    "status": "definition",
+    "source": "part5/p5_10_qubit_platforms.tex §Three marks (As built); part5/p5_03_a_for_processors.tex §Two device gauges, §The published values (Table platforms); App. E #470; Hughes2025 (8.4e-5), Ransford2025 (7.9e-4), DeCross2025 (1.57e-3), Chen2024Forte (4.64e-3), GoogleWillow2025 (Pauli CZ 2.8e-3, 72-qubit ",
+    "tag_in_book": "#470 'definition'; published p_2Q values \\observed"
    },
    "chips": {
-    "native": "as built",
-    "formula": "the chip on one stated definition",
-    "status": "measured",
-    "source": "Ch. chips"
+    "native": "'as built' ('reads 1: as built'); 'its own as-built state and its own history on one definition'",
+    "formula": "the chip on one stated definition of power, count and clock",
+    "status": "interp",
+    "source": "part6/p6_01_bridge.tex Table tab:two_readings; part5/p5_11_chip_generations.tex §Design families, §Three published numbers",
+    "tag_in_book": "no tag on 'reads 1'; reading against own as-built state \\interp"
    },
    "cells": {
     "native": "healthy",
@@ -244,22 +324,33 @@
    "name": "Ceiling (right mark)",
    "definition": "Saturation: the surface can no longer hold a record.",
    "cosmos": {
-    "native": "black hole",
-    "formula": "local area bound filled; the cosmic horizon never saturates on observable timescales",
-    "status": "derived",
-    "source": "Ch. Four saturation events"
+    "native": "asymptotic limit E(inf)=e, never reached; local saturation = black-hole formation",
+    "formula": "E(a) -> e ~ 2.718 as a -> inf; E(a)/e = fraction of cumulative record relative to its asymptote (p2_03)",
+    "status": "interp",
+    "source": "p1_02 sec:law_activation bullets; p2_03 sec \"The encoding transition\"; p7_05c sec:vd_arrow; App. E #242",
+    "tag_in_book": "\\derived (#242); E/e reading \\interp",
+    "mixed_tags": [
+     "derived",
+     "interp"
+    ]
    },
    "qubits": {
-    "native": "error-correction threshold",
-    "formula": "about 1e-2 per operation (surface code)",
+    "native": "Full surface; 'the point where error correction fails'; error-correction threshold; right-hand mark",
+    "formula": "surface code ~1e-2 per operation, at 1e-2/eps on the gauge (10 for the transmon example; fluxonium 12.8; electronic ion 120; Rydberg 2.0; NV 14.3; Si 2.0); color code 0.2 % (five times further left); fault-tolerance target ~1e-3 between as-built and threshold",
     "status": "measured",
-    "source": "Ch. qubits"
+    "source": "part5/p5_10_qubit_platforms.tex §Three marks (Full surface), per-platform sections; part5/p5_03_a_for_processors.tex §The threshold picture, Fig qubit_gauge; Fowler2012 (surface-code threshold); Chamberland2020NJP (color-code storage threshold 0.2 %, estimated); Bluvstein2024 (color code on 40 logic",
+    "tag_in_book": "threshold cited (\\observed as estimated); positions \\calc; 'A threshold belongs to a code, a decoder and a noise model t",
+    "mixed_tags": [
+     "calculated",
+     "measured"
+    ]
    },
    "chips": {
-    "native": "not defined",
-    "formula": "open in the book",
+    "native": "'the right-hand, full-surface mark of the chip gauge'",
+    "formula": "not given (open)",
     "status": "open",
-    "source": "Ch. chips, Status"
+    "source": "part5/p5_11_chip_generations.tex §Status",
+    "tag_in_book": "\\openprob"
    },
    "cells": {
     "native": "full surface",
@@ -269,26 +360,67 @@
    }
   },
   {
-   "id": "writer",
-   "name": "Writer (potential half)",
-   "definition": "What adds the record onto the surface.",
+   "id": "halves",
+   "name": "The two halves",
+   "definition": "What the book says the two halves are in this domain, and which part writes the record.",
    "cosmos": {
-    "native": "potential half: dark matter",
-    "formula": "geometric deposit, stored in spacetime curvature; |V|/2",
+    "native": "geometric (potential) and informational (kinetic) halves",
+    "formula": "potential half deposited into curvature (S_geo, dark matter); kinetic half = the decoherence energy, the Landauer cost of records on the horizon (S_info, dark energy with the vacuum baseline). In the book the KINETIC half writes the records",
     "status": "conjecture",
-    "source": "Part VII, virial partners"
+    "source": "p7_05b sec:vp_partition; p2_02 sec:vc_coupling; p4_14 sec:qr_virial"
    },
    "qubits": {
-    "native": "not in the book",
-    "formula": "candidate: gates (drive pulses)",
-    "status": "candidate",
-    "source": "2026-10-14"
+    "native": "two ledger entries per event",
+    "formula": "local surface plus the cosmic horizon; no kinetic/potential split of the qubit record",
+    "status": "conjecture",
+    "source": "p3_07 Two entries per event"
    },
    "chips": {
-    "native": "not in the book",
-    "formula": "candidate: set operations",
+    "native": "stored half and dissipated half",
+    "formula": "charging C to V from a fixed supply: CV^2 drawn, CV^2/2 stored, CV^2/2 dissipated (derived); whether this half and the virial half are one statement of IAM's Law is open",
+    "status": "derived",
+    "source": "p6_04 'Switching a transistor'"
+   },
+   "cells": {
+    "native": "metabolism and record (book); writing and erasing (author, candidate)",
+    "formula": "book: one half as metabolism, one written into the methylation pattern (conjecture); a partition of the total energy is ruled out (methylation maintenance ~1e-7 of the budget); a narrower partition at the maintenance machinery is left open. Author 2026-10-14: writer (DNMT, SAM) and eraser (TET, O2 and 2-OG) are that narrower partition",
     "status": "candidate",
-    "source": "2026-10-14"
+    "source": "p6_04 keybox 'Status of the two-halves picture for a cell'; PHY-040; DEV_ERASE_01.md"
+   }
+  },
+  {
+   "id": "writer",
+   "name": "Writing process",
+   "definition": "What the domain calls writing a record (which half it belongs to is the 'two halves' row).",
+   "cosmos": {
+    "native": "potential half; geometric channel; \"the geometric reservoir of deposited potential energy\" = dark matter",
+    "formula": "|V|/2 deposited into spacetime curvature (enters S_geo)",
+    "status": "conjecture",
+    "source": "p7_05b sec:vp_partition, sec:vp_question; p2_02 sec:vc_coupling; p7_05c sec:vd_connector; none (book: identification must still face CMB peak heights, merging-cluster lensing offsets, pre-recombination structure)",
+    "tag_in_book": "\\conjecture (p7_05b identification); \\interp (p2_02, p7_05c \"Within IAM the interpretation is precise\")",
+    "mixed_tags": [
+     "conjecture",
+     "interp"
+    ]
+   },
+   "qubits": {
+    "native": "what writes on a cold qubit: substrate/oxide defects and TLS; residual thermal photons; cosmic-ray muons and gamma rays. For measurement: the record is written ",
+    "formula": "no formula; ordered list. Measurement criterion Q >= Q_L = k_B T_D ln2 marks where a record is written irreversibly",
+    "status": "interp",
+    "source": "part5/p5_01_sc_primer.tex §Three loss channels, 'Where each surface sits against the background'; part5/p5_10_qubit_platforms.tex §Superconducting transmons ('the surfaces that write on it'); part3/p3_07_saturation.tex §Two entries per event; part4/p4_04_measurement.tex §The criterion, §The quantum ",
+    "tag_in_book": "\\observed (list of writers, p5_01); \\derived (decoherence as copying, p3_07); \\interp (record in readout chain, p4_04); ",
+    "mixed_tags": [
+     "derived",
+     "interp",
+     "measured"
+    ]
+   },
+   "chips": {
+    "native": "not named as a writer; only 'wherever a bit is irreversibly set or erased'",
+    "formula": "none",
+    "status": "interp",
+    "source": "part5/p5_11_chip_generations.tex §The place",
+    "tag_in_book": "\\interp (the sentence's paragraph ends \\interp)"
    },
    "cells": {
     "native": "writer",
@@ -299,25 +431,37 @@
   },
   {
    "id": "eraser",
-   "name": "Eraser (kinetic half)",
-   "definition": "What frees the surface; the Landauer step.",
+   "name": "Erasing process",
+   "definition": "What the domain calls erasing; erasure is where Landauer's cost is paid.",
    "cosmos": {
-    "native": "kinetic half: dark energy",
-    "formula": "informational pressure on the horizon, driving expansion; K = |V|/2",
+    "native": "kinetic half; decoherence energy; \"kinetic informational half\"; Landauer/informational pressure on the horizon = dark energy together with the vacuum baseline L",
+    "formula": "K = |V|/2 = Landauer cost of converting superpositions to classical outcomes; dynamical part beta_m E(a); Lambda = vacuum baseline",
     "status": "conjecture",
-    "source": "Part VII, virial partners"
+    "source": "p7_05b sec:vp_partition; p2_02 sec:vc_coupling; p7_05c sec:vd_connector; p1_02 \"Two sources of information\"; growth/sector predictions only: sigma8 vs Stolzner2025 (0.12 sigma), S8 vs Wright2025, H0 vs Riess2022/Planck2018VI; decisive test Euclid/DESI Y5 (\\prediction)",
+    "tag_in_book": "\\conjecture (p7_05b); \\interp (p2_02 sec:vc_coupling)",
+    "mixed_tags": [
+     "conjecture",
+     "interp"
+    ]
    },
    "qubits": {
-    "native": "erasure of a discarded TLS flip",
-    "formula": "each discarded flip is an erasure paid in heat; minimum Delta_Al ln2 at the gap scale; above 2 Delta it breaks a Cooper pair into quasiparticles (sets x_qp)",
-    "status": "derived",
-    "source": "Ch. The cost of holding a qubit (p5_02_xqp); IAM_Xqp paper"
+    "native": "erasure: TLS flip undone by condensate phase restoration; a thermal kick undone by correction or lost; reset of the record/apparatus; for photons, loss",
+    "formula": "phase restoration in hbar/Delta = 3.6 ps after each TLS flip (rate 1/tau_TLS); minimum heat Delta ln2 = 126 ueV at gap scale; each erasure breaks one pair (2 quasiparticles) -> x_qp = 2N tau_qp/(tau_TLS n_cp V)",
+    "status": "conjecture",
+    "source": "part5/p5_02_xqp.tex §The proposal, §From events to quasiparticles, §The test; part5/p5_10_qubit_platforms.tex §Three marks (The floor from k_BT); part4/p4_04_measurement.tex §The criterion; part5/p5_10_qubit_platforms.tex §Photons; §Fluxonium (active reset or heralded preparation); App. E #466, #469",
+    "tag_in_book": "\\conjecture (TLS erasure proposal); \\derived within the proposal (#466); \\interp (thermal kick undone = erasure); \\deriv",
+    "mixed_tags": [
+     "conjecture",
+     "derived",
+     "interp"
+    ]
    },
    "chips": {
-    "native": "not in the book",
-    "formula": "candidate: reset of an unknown bit (CMOS erases at almost every gate)",
-    "status": "candidate",
-    "source": "Ch. CMOS"
+    "native": "erasure at the gate ('logically irreversible steps, those that erase information')",
+    "formula": "every logically irreversible step owes k_B T ln2; 'Conventional CMOS erases at almost every gate'; reversible logic can switch for less (Bennett)",
+    "status": "derived",
+    "source": "part5/p5_06_cmos.tex §The floor for logic (first sentence) and ¶Which operations pay the floor; part5/p5_11_chip_generations.tex §The place, §Levers on the chip gauge; Bennett1973, Bennett1982 (reversible computation; theory, not a chip measurement)",
+    "tag_in_book": "no tag on the CMOS-erases sentence; reversible-logic statement \\derived (in the cited theory)"
    },
    "cells": {
     "native": "eraser",
@@ -328,48 +472,48 @@
   },
   {
    "id": "virial",
-   "name": "Virial partition",
-   "definition": "The two halves are equal: 2K + V = 0 for any 1/r binding (Clausius 1870), so K = |V|/2.",
+   "name": "Virial partition (one half at every scale)",
+   "definition": "IAM's Law at the boundary of every 1/r bound state: 2<K> + <V> = 0, <K> = |<V>|/2. It holds for gravity and for the Coulomb binding of every atom, molecule and bond, so it applies inside qubits, chips and cells as well as the cosmos. The virial theorem (Clausius 1870) is its mechanical special case.",
    "cosmos": {
-    "native": "virial theorem; coupling",
-    "formula": "2K + V = 0; beta_m = Omega_m/2 = 0.15765 = Omega_m x f_coll x eta_vir (f_coll 0.62, Tinker 2008)",
+    "native": "the virial partition; the coupling",
+    "formula": "2<K> + <V> = 0 for gravitational binding; beta_m = Omega_m/2 = 0.15765 at the cosmic horizon",
     "status": "derived",
-    "source": "App. E #49, #28; six independent N-body groups (Bryan & Norman 1998, Bett 2007, Neto 2007, Ludlow 2010, Power 2012, Klypin 2016): <eta_vir> = 0.815 +/- 0.025; 17 Planck chains"
+    "source": "p1_03 sec:vl_theorem, sec:vl_cosmic; App. E #49, #28 (beta_m tagged \\prediction there); external: Chandrasekhar limit, Zwicky (Coma), six N-body groups (p2_02 tab:vc_halo; |U|/2T 0.77-0.89, 0.85-0.98 with the surface correction); Smarr (p1_03 sec:vl_bh)"
    },
    "qubits": {
-    "native": "Coulomb binding of the junction's electrons",
-    "formula": "2K + V = 0 for the Coulomb (1/r) binding of electrons and nuclei: 20 atoms H-Xe and 10 molecules at the Hartree-Fock limit, exact (Clementi & Roetti 1974; Bunge 1993). The qubit's own degree of freedom is not 1/r: a transmon is near-harmonic (degree 2, K = V)",
+    "native": "the virial partition (Coulomb binding)",
+    "formula": "2<K> + <V> = 0 for the Coulomb (1/r) binding of electrons and nuclei; exact for 20 atoms H-Xe and 10 molecules at the Hartree-Fock limit; the qubit's own state is a near-harmonic circuit mode, not a 1/r bound state, and no qubit-specific virial reading is in the book yet",
     "status": "derived",
-    "source": "Ch. The virial partition (p1_03); Virial Partition Across Wide Domains, Table 1"
+    "source": "p1_03 sec:vl_theorem ('it holds inside every star, cell and transistor'), sec:vl_atoms; Clementi & Roetti 1974; Bunge 1993"
    },
    "chips": {
-    "native": "Coulomb binding of the electrons in silicon",
-    "formula": "2K + V = 0 for the Coulomb (1/r) binding of electrons and nuclei: 20 atoms H-Xe and 10 molecules at the Hartree-Fock limit, exact (Clementi & Roetti 1974; Bunge 1993). The switch itself is transport over a barrier, not a 1/r bound state",
+    "native": "the virial partition (Coulomb binding)",
+    "formula": "2<K> + <V> = 0 for the Coulomb (1/r) binding of electrons and nuclei; exact for 20 atoms H-Xe and 10 molecules at the Hartree-Fock limit; not evaluated for silicon in the book",
     "status": "derived",
-    "source": "Ch. The virial partition (p1_03)"
+    "source": "p1_03 sec:vl_theorem, sec:vl_atoms"
    },
    "cells": {
-    "native": "Coulomb binding of the molecules (DNA, enzymes)",
-    "formula": "2K + V = 0 for the Coulomb (1/r) binding of electrons and nuclei: 20 atoms H-Xe and 10 molecules at the Hartree-Fock limit, exact (Clementi & Roetti 1974; Bunge 1993). Which process carries which half in methylation is the separate writer/eraser question (DEV-ERASE-01)",
+    "native": "the virial partition (Coulomb binding)",
+    "formula": "2<K> + <V> = 0 for the Coulomb (1/r) binding of electrons and nuclei; exact for 20 atoms H-Xe and 10 molecules at the Hartree-Fock limit; 'the DNA, the enzymes that copy its marks and the ATP that pays for them are all bound this way'. p6_01: for the cell 'the half does not carry over as a number; what carries over is the accounting'",
     "status": "derived",
-    "source": "Ch. The virial partition (p1_03)"
+    "source": "p6_04 'Atoms, molecules and cells'; p1_03 sec:vl_atoms"
    }
   },
   {
    "id": "identity",
-   "name": "Kinetic-half identity",
-   "definition": "When a 1/r system binds from rest, the energy it releases equals its kinetic half, and that is the Landauer cost of the binding: K = Q = T dS_min = E_Landauer.",
+   "name": "Thermodynamic identity (the kinetic half)",
+   "definition": "<K> = Q = T dS = E_Landauer: the kinetic half is the Landauer cost of forming the bound state, paid at the nearest surface (p1_04, \\interp).",
    "cosmos": {
     "native": "Smarr: horizon bits cost half the rest energy; record term at the cosmic horizon",
     "formula": "N k_B T_H ln2 = T_H S = Mc^2/2 (Schwarzschild, exact); Kerr share sqrt(1-chi^2)/2",
     "status": "derived",
-    "source": "App. E #348, #499; Smarr 1973; Bardeen, Carter & Hawking 1973; Thermodynamic Identity paper"
+    "source": "p3_01 (Smarr); App. E #348, #499; Smarr 1973, Bardeen, Carter & Hawking 1973"
    },
    "qubits": {
-    "native": "erasure heat",
-    "formula": "E_erase >= Delta_Al ln2 per discarded flip; N_QP = ln2 per event at the gap scale",
-    "status": "derived",
-    "source": "p5_02_xqp; IAM_Xqp paper"
+    "native": "erasure charged at the gap scale",
+    "formula": "minimum Delta_Al ln2 = 126 ueV per discarded TLS flip, at the gap scale ('the one place IAM departs from standard thermodynamics')",
+    "status": "conjecture",
+    "source": "p5_02_xqp, The proposal"
    },
    "chips": {
     "native": "erasure at every gate",
@@ -381,7 +525,7 @@
     "native": "eraser cost on the holding",
     "formula": "candidate: equal writer and eraser loss lowers the holding by exactly ln2 (one Landauer bit): E_hold = ln D - ln 2",
     "status": "candidate",
-    "source": "DEV_ERASE_01.md; PHY-040"
+    "source": "p6_04 keybox (open problem: a narrower partition at the maintenance machinery); DEV_ERASE_01.md; PHY-040"
    }
   },
   {
@@ -389,22 +533,34 @@
    "name": "Virial ratio R",
    "definition": "Total against the kinetic half; 2 at equilibrium.",
    "cosmos": {
-    "native": "R(a)",
-    "formula": "R(a) = Omega_m a^-3 / [beta_m E(a)]: 399 (z 2), 19.8 (z 0.7), 5.9 (z 0.3), 2 today",
-    "status": "derived",
-    "source": "App. E #71, #72"
+    "native": "the cosmological virial ratio; \"Matter over the record term\"; measures the potential half against the kinetic half",
+    "formula": "R(a) = Omega_m a^-3/[beta_m E(a)]: 399 (z=2), 20 [19.8] (z=0.7), 6 [5.9] (z=0.3), 2 (z=0, by construction)",
+    "status": "interp",
+    "source": "p2_02 sec:vc_history (tab:vc_R); p7_05b sec:vp_ratio, sec:vp_merit; app_C3 \"Record history\"; App. E #71, #72; none",
+    "tag_in_book": "\\calc (#71, #72); \"by construction\"; coincidence reading \\interp",
+    "mixed_tags": [
+     "calculated",
+     "interp"
+    ]
    },
    "qubits": {
-    "native": "none",
-    "formula": "candidate: total gate-error loss / reset loss, from an error budget",
-    "status": "candidate",
-    "source": ""
+    "native": "not in these chapters as a virial ratio; nearest: the ion drive optimum, 'where the two parts are equal and their sum is 2 sqrt(AB)'",
+    "formula": "ion laser gate p_2Q = A/P + BP + p_ctrl; at P* = sqrt(A/B) the two parts are equal, sum 2 sqrt(AB) (so sum/one part = 2; reading added here, not stated by the book as a ratio). Rydberg: p(Omega*) - p_ctrl = 3a/(2 Omega*), i.e. decay part a/Omega* and rising part a/(2 Omega*) (2:1, follows from #477 as written)",
+    "status": "open",
+    "source": "part5/p5_05_coherence_optimum.tex §The same optimum in other classes; part5/p5_10_qubit_platforms.tex §Neutral atoms; App. E #474, #477; Burton2023 (one heating-rate measurement, does not give B)",
+    "tag_in_book": "\\derived within a \\conjecture model; A, B, a, b unmeasured (\\openprob)",
+    "mixed_tags": [
+     "conjecture",
+     "derived",
+     "open"
+    ]
    },
    "chips": {
-    "native": "none",
-    "formula": "open",
+    "native": "not in these chapters for chips",
+    "formula": "none",
     "status": "open",
-    "source": ""
+    "source": "—",
+    "tag_in_book": "none"
    },
    "cells": {
     "native": "R",
@@ -418,22 +574,29 @@
    "name": "Clock x",
    "definition": "The variable the record accumulates against.",
    "cosmos": {
-    "native": "scale factor",
-    "formula": "a (a = 1 today)",
-    "status": "derived",
-    "source": ""
+    "native": "the cosmological scale factor normalized to unity today; also \"accumulated decoherence\" (a third temporal quantity)",
+    "formula": "a (a=1 today), z = 1/a - 1; accumulated decoherence begins at electroweak symmetry breaking",
+    "status": "definition",
+    "source": "p7_05c sec:vd_arrow; p1_02 sec:law_activation",
+    "tag_in_book": "definitional; accumulated-decoherence reading \\interp"
    },
    "qubits": {
-    "native": "none",
-    "formula": "open",
-    "status": "open",
-    "source": ""
+    "native": "not named as a clock; nearest: the hold time t ('held for a time t') and gate duration t_g; for massive superpositions eta = t/tau_IAM",
+    "formula": "p_th(t) = Gamma_up t = p_eq t/T_1 (t << T_1); erasures at rate 1/tau_TLS 'whether or not the qubit is being used'; eta = t/tau_IAM (gravitational channel, not devices)",
+    "status": "conjecture",
+    "source": "part5/p5_10_qubit_platforms.tex §Three marks; part5/p5_02_xqp.tex §The proposal; part4/p4_21_entanglement_records.tex §What dephasing does to a Bell test (time profile); part4/p4_04_measurement.tex §Connection to the cosmology; App. E #476; #424, #426 (eta)",
+    "tag_in_book": "\\derived (#476); \\conjecture (#424, #426)",
+    "mixed_tags": [
+     "conjecture",
+     "derived"
+    ]
    },
    "chips": {
-    "native": "generation (node)",
-    "formula": "n",
+    "native": "generation / node step ('per generation', 'per node')",
+    "formula": "generation count n in n_floor; node step kappa = sqrt2 halves area per transistor",
     "status": "derived",
-    "source": "App. E #480"
+    "source": "part5/p5_11_chip_generations.tex §Generations and nodes (eq:cg_nfloor); part5/p5_06_cmos.tex ¶What Dennard scaling gave per node; App. E 480; Dennard1974 (constant-field scaling rules); Koomey2011, Koomey2016 (efficiency doubling 1.57 yr -> ~2.7 yr, \\observed)",
+    "tag_in_book": "\\derived (n_floor and node-step references)"
    },
    "cells": {
     "native": "none",
@@ -447,22 +610,39 @@
    "name": "Activation E(x)",
    "definition": "How the record builds up against the clock.",
    "cosmos": {
-    "native": "activation function",
-    "formula": "E(a) = exp(1 - 1/a) = e^-z; E(0)=0, E(1)=1, E(inf)=e",
-    "status": "derived",
-    "source": "App. E #121, #181, #242"
+    "native": "the activation function",
+    "formula": "E(a)=exp(1-1/a)=e^-z; E(0)=0, E(1)=1, E(inf)=e; inflection a=1/2; dE/dln a peaks at a=1; 10/50/90% at z=2.30/0.69/0.11; requires rate exponent n=7/2",
+    "status": "conjecture",
+    "source": "p1_02 sec:law_activation; p2_03 sec:th:activation; p2_02 sec:vc_activation; app_C3 sec:app:der:activation; App. E #22, #66, #121, #181, #242, #332, #408 (premise #21, #117); Author numerics (\\calc), not external: D^{7/2} integral fits exp(0.93-1.02/a); bottom-up n_eff from Press-Schechter/Sheth-Torm",
+    "tag_in_book": "\\derived given the record constraint, which is \\conjecture (#21); #332 tagged \\interp",
+    "mixed_tags": [
+     "conjecture",
+     "derived",
+     "interp"
+    ]
    },
    "qubits": {
-    "native": "none",
-    "formula": "open",
-    "status": "open",
-    "source": ""
+    "native": "not in these chapters for qubit devices; for records at quantum scale: 'the time profile E_q(eta) = exp(1-1/eta)' carried over 'by analogy'",
+    "formula": "device: linear accumulation p_th(t) = p_eq t/T_1. Quantum records: c(t) = 1 - E(t/tau_IAM)/e with E(eta) = exp(1-1/eta) (\\analogy) vs derived exponential c = e^{-t/tau_IAM}; eraser F = 1 - exp(-Q_L/Q) 'carries over the activation ramp'; ledger monotone d ln E/da = 1/a^2 > 0",
+    "status": "conjecture",
+    "source": "part5/p5_10_qubit_platforms.tex §Three marks; part4/p4_21_entanglement_records.tex §What dephasing does to a Bell test, §The ledger only grows; part4/p4_04_measurement.tex §The quantum eraser, §Connection to the cosmology; App. E #476; #424, #426, #419; none; the book states the rate integral gives ",
+    "tag_in_book": "\\derived (#476); \\analogy / \\conjecture (E_q profile, #424, #419); \\derived (ledger monotone)",
+    "mixed_tags": [
+     "conjecture",
+     "derived"
+    ]
    },
    "chips": {
-    "native": "step series to the floor",
-    "formula": "n_floor = ln R / -ln(1-s); Dennard: 64.6 % per node, 29.3 % at fixed voltage",
-    "status": "derived",
-    "source": "App. E #480"
+    "native": "step series to the floor ('A step series that would cross the floor must end')",
+    "formula": "n_floor = ln R / -ln(1-s); R=600: 6.2 generations at 64.6 %/node (constant field, CV^2 ~ kappa^-3, kappa=sqrt2), 18.5 at 29.3 %/node (fixed voltage, kappa^-1)",
+    "status": "interp",
+    "source": "part5/p5_11_chip_generations.tex §Generations and nodes; part5/p5_06_cmos.tex ¶What Dennard scaling gave per node, Fig. fig:switch_floors(b); App. E 480; Dennard1974; Koomey2011, Koomey2016 (\\observed slowdown)",
+    "tag_in_book": "\\derived (formula and the two references); \\calc (6.2, 18.5); reading measured steps against the lines \\interp",
+    "mixed_tags": [
+     "calculated",
+     "derived",
+     "interp"
+    ]
    },
    "cells": {
     "native": "none",
@@ -476,22 +656,33 @@
    "name": "Fidelity ratio A",
    "definition": "Reading over reference (App. E #501, #502).",
    "cosmos": {
-    "native": "not defined in the book",
-    "formula": "candidate: R(a)/2 (1 at equilibrium) or E(a) (1 today)",
-    "status": "candidate",
-    "source": ""
+    "native": "not in these chapters (no A for the cosmos)",
+    "formula": "nearest analogs: E(a)/e \"fraction of cumulative informational entropy ... encoded on the cosmic horizon relative to its asymptotic value\" (p2_03); R(a)/2",
+    "status": "interp",
+    "source": "p2_03 sec \"The encoding transition\"",
+    "tag_in_book": "not tagged (\\interp context)"
    },
    "qubits": {
-    "native": "qubit gauge",
-    "formula": "A = eps / eps_as-built, eps = -ln(1 - p_2Q)",
-    "status": "derived",
-    "source": "App. E #470"
+    "native": "the qubit gauge; gate error in nats",
+    "formula": "eps = -ln(1 - p_2Q); A = reading/as-built, as-built reads 1, floor at p_th/eps, threshold at 1e-2/eps",
+    "status": "calculated",
+    "source": "part5/p5_03_a_for_processors.tex §Two device gauges, §From gate error to information cost, §The threshold picture; part5/p5_10_qubit_platforms.tex §Three marks; App. E #470 (eps); as for reference slot",
+    "tag_in_book": "definition (#470); positions \\calc; Fig qubit_gauge(b) \\derived",
+    "mixed_tags": [
+     "calculated",
+     "derived"
+    ]
    },
    "chips": {
-    "native": "chip gauge",
-    "formula": "A = E_sw / E_sw,as-built",
-    "status": "derived",
-    "source": "Ch. chips"
+    "native": "'the chip gauge' (reads 'how many Landauer floors the design spends per transistor per cycle')",
+    "formula": "explicit A ratio not written in these chapters; floor position on the gauge = k_B T_j ln2 / E_sw = 0.0017 (as-built reads 1)",
+    "status": "interp",
+    "source": "part5/p5_06_cmos.tex §The floor for logic, §What the gauge offers a designer; part5/p5_11_chip_generations.tex §The floor at the chip's own junction temperature; gauge itself defined in Ch. ch:ascoreqc (not assigned, not read)",
+    "tag_in_book": "floor position \\calc; reading as a designer's number \\interp",
+    "mixed_tags": [
+     "calculated",
+     "interp"
+    ]
    },
    "cells": {
     "native": "IAM-A and Met-A",
@@ -505,22 +696,35 @@
    "name": "Saturation event (the wall)",
    "definition": "Where the regime changes when the surface fills.",
    "cosmos": {
-    "native": "collapse to a black hole",
-    "formula": "Chandrasekhar 1.44 M_sun, TOV about 2.3 M_sun; M_eq = c^3/4GH = 2.3e22 M_sun",
-    "status": "derived",
-    "source": "App. E #518"
+    "native": "collapse (runaway) regime: a new local horizon forms when local records saturate the surface (\"holographic saturation condition\")",
+    "formula": "S_info(R)/A(R) >= k_B/(4 l_P^2), met exactly at r_s=2GM/c^2 (hoop conjecture). Regimes: cosmological self-regulating vs collapse runaway",
+    "status": "conjecture",
+    "source": "p3_01 sec:bh_formation, sec:bh_regimes; p1_02 sec:law_blackholes; p2_03 sec \"Two regimes\"; p7_05c sec:vd_vault; App. E #38, #39, #162, #359, #360, #525; Thorne1972 hoop conjecture, Bousso2002 bound (standard, not IAM-specific)",
+    "tag_in_book": "criterion \\conjecture (#162, #359, #525) but #38 tagged \\derived; hoop equivalence \\derived (#39, #360)",
+    "mixed_tags": [
+     "conjecture",
+     "derived"
+    ]
    },
    "qubits": {
-    "native": "coherence wall",
-    "formula": "coherence optimum on one material (form only)",
-    "status": "conjecture",
-    "source": "Ch. Coherence walls"
+    "native": "coherence optimum on one material (chapter: 'Coherence walls and the coherence optimum')",
+    "formula": "p = a/T_1 + b/(T_1,free - T_1); T_1*/T_1,free = r/(1+r), r = sqrt(a/b) (0.50, 0.63, 0.76 for a/b = 1, 3, 10)",
+    "status": "open",
+    "source": "part5/p5_05_coherence_optimum.tex §A coherence optimum, §The test; part3/p3_07_saturation.tex §The four thresholds table (quantum computing row, beside 'end of Dennard scaling, 2004--06'); App. E #473 (also #472 decomposition); none: 'No published pair of devices on one material and one coupler topo",
+    "tag_in_book": "\\derived within the model; model \\conjecture; a, b, T_1,free \\openprob; test \\prediction",
+    "mixed_tags": [
+     "conjecture",
+     "derived",
+     "open",
+     "prediction"
+    ]
    },
    "chips": {
-    "native": "Dennard wall (2004-06)",
-    "formula": "a Boltzmann wall: (k_B T/q) ln10",
+    "native": "'The Dennard wall is a Boltzmann wall'; 'end of Dennard scaling, 2004--06'; 'The end of free scaling'",
+    "formula": "subthreshold swing >= (k_B T/q) ln10 = 60 mV/decade at 300 K (59.5 at 300 K, 69.1 at 348 K in Fig. fig:four_floors); at fixed V power density grows as kappa^2",
     "status": "derived",
-    "source": "Ch. CMOS"
+    "source": "part5/p5_06_cmos.tex §Dennard scaling and its end, keybox, Fig. fig:dennard; part5/p5_11_chip_generations.tex ¶The end of free scaling; part3/p3_07_saturation.tex table and Fig. fig:four_floors; Sze2006 (60 mV/decade); Dennard1974; Esmaeilzadeh2011 (dark silicon); Koomey2011, Koomey2016",
+    "tag_in_book": "\\derived (kappa^2 growth; Boltzmann wall in chipgen; p3_07 row and Fig. fig:four_floors(b)); keybox identification \\inte"
    },
    "cells": {
     "native": "breach and the cancer region",
@@ -534,22 +738,35 @@
    "name": "Point of no return",
    "definition": "Past it, the record cannot be restored.",
    "cosmos": {
-    "native": "event horizon",
-    "formula": "r_s = 2GM/c^2",
-    "status": "derived",
-    "source": ""
+    "native": "irreversibility of the record (\"A superposition, once recorded, does not return\"); at local scale the Schwarzschild radius",
+    "formula": "record cost cannot be recovered; dE/da>0; r_s = 2GM/c^2 where the bound is met exactly",
+    "status": "conjecture",
+    "source": "p1_02 sec:law_statement, \"The decoherence event\"; p3_01 sec:bh_formation; App. E #0, #39",
+    "tag_in_book": "IAM Law \\conjecture (#0); irreversibility of decoherence \\derived (p1_02 eq law_rhodiag); r_s identity \\derived",
+    "mixed_tags": [
+     "conjecture",
+     "derived"
+    ]
    },
    "qubits": {
-    "native": "above threshold",
-    "formula": "adding qubits makes errors grow instead of shrink",
-    "status": "derived",
-    "source": "Ch. qubits"
+    "native": "'the point where error correction fails' (gauge); for a record: Q >= Q_L, record 'cannot be recovered by any operation on the marker alone'",
+    "formula": "gauge: p above ~1e-2 (surface code). Record: Q(S,D) >= Q_L = k_B T_D ln2; Stern-Gerlach reversal probability ~2^-111612 ('thermodynamically excluded'). Quasiparticle feedback x_qp = x0/(1-g) settles only for g < 1",
+    "status": "conjecture",
+    "source": "part5/p5_10_qubit_platforms.tex The place, §Three marks (Full surface); part4/p4_04_measurement.tex §The criterion, §The quantum eraser, §Wigner's friend; part5/p5_02_xqp.tex §From events to quasiparticles (feedback); App. E #417, #468; Fowler2012 (threshold); Bennett1982",
+    "tag_in_book": "threshold cited / \\calc (gauge); \\conjecture (Q_L criterion); \\interp (Q >= Q_L irreversible); \\derived within the conje",
+    "mixed_tags": [
+     "calculated",
+     "conjecture",
+     "derived",
+     "interp"
+    ]
    },
    "chips": {
-    "native": "none",
-    "formula": "open",
+    "native": "not in these chapters",
+    "formula": "none",
     "status": "open",
-    "source": ""
+    "source": "—",
+    "tag_in_book": "none"
    },
    "cells": {
     "native": "not measured",
@@ -558,5 +775,8 @@
     "source": "DEV_BREACH_01.md"
    }
   }
- ]
+ ],
+ "_source_rule": "The book (docs/book) is the source; the author's papers are only a guide to find the section. Every entry cites a book section or App. E number.",
+ "preamble": "**The virial part of IAM's Law.** The book's thermodynamic identity, <K> = Q = T dS = E_Landauer, \"is IAM's Law at the boundary of a bound state; the virial theorem is its mechanical special case\" (Ch. What the kinetic half is, p1_04, tagged \\interp). The one half it fixes holds for every 1/r binding: gravity and the Coulomb binding of every atom, molecule and bond. It therefore applies to the electrons and molecules in qubits, chips and cells, not only to the cosmos (Ch. One half at every scale, p1_03, \\derived). The evidence, none of it produced by us: Hartree-Fock tables for 20 atoms and 10 molecules (Clementi & Roetti 1974; Bunge et al. 1993), the Sun and the Chandrasekhar limit, Zwicky's Coma cluster, six independent N-body simulation groups (Bryan & Norman 1998; Bett 2007; Neto 2007; Ludlow 2010; Power 2012; Klypin 2016), and the Smarr relation for black holes (Smarr 1973; Bardeen, Carter & Hawking 1973). What is still open in each domain is not whether the half holds, but which process carries which half (the 'two halves' row).",
+ "_mixed_rule": "Where the book gives one entry more than one status tag, the box takes the weakest and is listed for review against the book by hand."
 }
