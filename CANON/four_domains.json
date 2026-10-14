@@ -10,7 +10,7 @@
   {
    "id": "surface",
    "name": "Encoding surface",
-   "definition": "Where the irreversible record is written.",
+   "definition": "Where the irreversible record is written. In all four domains the record at the surface is binary (horizon bits, a switch's 0/1, a qubit's pointer outcome, a CpG methylated or not), which is why one bit price applies.",
    "cosmos": {
     "native": "cosmological apparent horizon / cosmic horizon (the nearest encoding surface for distributed structure)",
     "formula": "r_A = c/H, A_H = 4 pi c^2/H^2, S_geo = k_B c^3 A_H/(4 G hbar)",
@@ -370,8 +370,8 @@
     "source": "p7_05b sec:vp_partition; p2_02 sec:vc_coupling; p4_14 sec:qr_virial"
    },
    "qubits": {
-    "native": "no record in superposition; decoherence writes onto the substrate (author, 2026-10-14)",
-    "formula": "kinetic: the decoherence event, which writes the qubit's state as a record onto its substrate surface ('the environment acquiring records'; 'a qubit that decoheres has had its state copied into its environment', p3_07, after Zurek 2003). Before decoherence there is no record. Potential: still to identify; candidate, what the write leaves held in the substrate, such as the quasiparticles spread over the island (p5_02)",
+    "native": "superposition (potential) and the decoherence write (kinetic) (author, 2026-10-14)",
+    "formula": "potential: the superposition itself, possibility not yet actualized, carrying the drive, on the far side of the Landauer boundary (author). Kinetic: decoherence crosses the boundary and writes the outcome onto the substrate, 'the environment acquiring records' (p3_07, after Zurek 2003). What is written is binary: at most one bit per qubit (Holevo bound), in the pointer basis set by the coupling (energy for a transmon), copied redundantly into the environment; the amplitudes are never written",
     "status": "candidate",
     "source": "p3_07 'Two entries per event'; p5_01 (barrier and substrate as the encoding surface, \\interp); p5_02_xqp"
    },
@@ -405,7 +405,7 @@
    },
    "qubits": {
     "native": "what writes on a cold qubit: substrate/oxide defects and TLS; residual thermal photons; cosmic-ray muons and gamma rays. For measurement: the record is written ",
-    "formula": "no formula; ordered list. Measurement criterion Q >= Q_L = k_B T_D ln2 marks where a record is written irreversibly",
+    "formula": "decoherence writes the pointer outcome (0 or 1 in the coupled basis) into the substrate, redundantly; gates do not write a record. Book: defects, TLS, residual photons and cosmic rays write on the qubit (\\observed); decoherence copies the state into the environment (\\derived)",
     "status": "interp",
     "source": "part5/p5_01_sc_primer.tex §Three loss channels, 'Where each surface sits against the background'; part5/p5_10_qubit_platforms.tex §Superconducting transmons ('the surfaces that write on it'); part3/p3_07_saturation.tex §Two entries per event; part4/p4_04_measurement.tex §The criterion, §The quantum ",
     "tag_in_book": "\\observed (list of writers, p5_01); \\derived (decoherence as copying, p3_07); \\interp (record in readout chain, p4_04); ",
