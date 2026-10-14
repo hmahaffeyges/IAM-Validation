@@ -1681,3 +1681,6 @@ The bounded transfer did not hold out of sample (worst 0.026 against 0.02, on th
 
 ### 2026-10-14 · Transfer diagnosis submitted
 Box job e28be19b (code d927760d): per-cell residuals of every sequencing source against the bounded transfer, raw and with array-lab offsets removed. Diagnosis only; nothing is adopted from it.
+
+### 2026-10-14 · Transfer diagnosis read
+The out-of-sample miss is cell-to-cell difference between the sequencing and array cohorts, not the laboratories and not the five new cells in particular (cells inside L21 scatter as widely). A redesign is needed and changes the fit, so it goes to the author before it is written.

@@ -281,3 +281,11 @@ so cell-to-cell differences in the transfer were already close to the bar; new c
 Loyfer's shape: not confirmed (worst 0.043, 0.039; their straight lines 0.106, 0.087). **Our design error:** the composed form alpha + beta g(m)
 with a negative alpha predicts readings below 0 (to -0.03), breaking the bound L21 exists to keep; it should not have been committed. Next: a
 diagnosis of the per-cell residuals (labeled as diagnosis), then a redesign committed before it is tested.
+
+**Diagnosis after L22 (job e28be19b; nothing adopted; `transfer_diag_v21_cells.csv`).** Per cell, the mean sequencing reading against the
+bounded transfer differs by cell, not by laboratory: removing the array laboratories' offsets moves no cell by more than about 0.008. The
+spread is as wide among the cells L21 was built on as among the five it had not seen (x 0.45-0.85: cd8 t cells -0.090, lung alveolar
+epithelium -0.035, pancreatic beta +0.052, naive cd8 t cells +0.047). Loyfer's donors and the array donors are different people, and
+intermediate sites differ between people, so a per-cell residual mixes the instrument transfer with real between-cohort difference.
+Pooled over many cells it averages out (L21 cross-halves 0.018 on 8-9 cells); over five it did not (0.026). Tian and ENCODE read against g
+itself, without the alpha, beta layer, sit inside the same spread (cell means -0.012 to +0.003).

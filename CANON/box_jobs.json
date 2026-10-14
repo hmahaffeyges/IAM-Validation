@@ -406,7 +406,7 @@
    "date": "2026-10-14",
    "commit": "d927760d",
    "s3_code_prefix": "results/ATLAS_V21/transfer_diag/code/run1/",
-   "state": "running",
+   "state": "done",
    "log": "results/ATLAS_V21/transfer_diag/diag.log",
    "machine": "methylphys-cpu-01 (32 cores)",
    "purpose": "per-cell residuals against the bounded transfer, raw and lab-offset removed; diagnosis only",
@@ -432,7 +432,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/stage1_v21_manifest.csv",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/terms_final_v21.json"
    ],
-   "note": "running"
+   "note": "diagnosis: per-cell transfer residuals are cell-specific (to -0.09 / +0.05 in x 0.45-0.85, inside and outside L21's cells alike); lab offsets explain little"
   }
  ],
  "not_jobs": {
