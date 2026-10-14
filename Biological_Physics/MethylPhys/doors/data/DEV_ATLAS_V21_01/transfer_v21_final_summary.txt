@@ -1,0 +1,9 @@
+Atlas v2.1 readiness L22 second design, run once 2026-10-14 (v21_transfer_final_box.py)
+g22 on 22 Loyfer-shared cells, 978,886 pairs, 42 knots, range [0.0083, 0.9589]
+T1 leave-one-cell-out pooled bias: 42 bins, worst 0.0064 (bar 0.02) -> met
+T2 bounds and monotone -> met
+cell-to-cell scatter s by range (<0.15, 0.15-0.45, 0.45-0.85, >=0.85): [0.0042, 0.0199, 0.0387, 0.0146]
+T3 Tian2023: MEASURED (cells [('microglia', 0.014247767047456972), ('oligodendrocytes', 0.012323340553041573)]; Loyfer leave-one-out p95 0.0269)
+T3 ENCODE: MEASURED (cells [('embryonic stem cells', 0.015655309048748744)]; Loyfer leave-one-out p95 0.0269)
+array laboratory offsets and the twin recheck: as in L22's first run (terms_final_v21.json), unchanged
+VERDICT: L22 MET

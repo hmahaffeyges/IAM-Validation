@@ -471,7 +471,7 @@
    "date": "2026-10-14",
    "commit": "6dc3aa67",
    "s3_code_prefix": "results/ATLAS_V21/transfer_final/code/run2/",
-   "state": "running",
+   "state": "done",
    "log": "results/ATLAS_V21/transfer_final/xf_run2.log",
    "machine": "methylphys-cpu-01 (32 cores)",
    "purpose": "one bounded transfer on all 22 shared cells; leave-one-cell-out bias; cell scatter by range; Tian/ENCODE against it",
@@ -497,7 +497,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/terms_final_v21.json",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_transfer_final_box.py"
    ],
-   "note": "running"
+   "note": "VERDICT: L22 MET - leave-one-cell-out worst 0.0064; bounded; Tian and ENCODE MEASURED on the one curve; scatter s = 0.004/0.020/0.039/0.015"
   }
  ],
  "not_jobs": {

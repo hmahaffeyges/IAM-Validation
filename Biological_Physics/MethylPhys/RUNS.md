@@ -8,7 +8,6 @@ Work done on the laptop is free and is not listed.
 
 | run | purpose | log | start (UTC) | job hours | vCPUs | end | actual cost | record |
 |---|---|---|---|---|---|---|---|---|
-| Atlas v2.1 L22 second design, run 2 (job 4bb83f4e) | one bounded transfer on all 22 shared cells; leave-one-cell-out bias; cell scatter by range; Tian/ENCODE against it | `ATLAS_V21/transfer_final/xf_run2.log (not in S3 yet)` |  |  |  | running | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2.1 L8 D10 GSE137716 export (job e82da54c) | EpiDISH sites for GSE137716's 12 conditional arrays (decision 10 addendum) | `ATLAS_V21/l8b/l8b.log (not in S3 yet)` |  |  |  | failed | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2.1 L8 conditions data step (job 36fc910c) | D1 twin test (GSE224807 vs Salas neutrophils), D7 astrocyte profile r, export of the 904 EpiDISH sites; rules in l8_conditions_v21.md | `ATLAS_V21/l8/l8.log (not in S3 yet)` |  |  |  | failed | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2.1 transfer shape check (L20) (job 80446c36) | is the array-to-sequencing transfer straight across the whole range (v2's samples, the terms job's own run12) | `ATLAS_V21/transfer/transfer_run1_80446c36.log` |  |  |  | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
@@ -22,8 +21,8 @@ Work done on the laptop is free and is not listed.
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/E/job_E.log` | 2026-10-09 00:11 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
 | Box Run 2, s2 | IAM-A on a second lab's healthy neutrophils (first attempt; stopped on a tool-version check) | `BOXRUN2/session2/session2.log` | 2026-10-09 01:40 | 4.8 | 120 | FAIL_sambamba_not_0.6.5 | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
 | Box Run 2, s3 | IAM-A on a second lab's healthy neutrophils, and CD4 cells | `BOXRUN2/session3/session3.log` | 2026-10-09 14:07 | 4.2 |  | DONE | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
-| Box Run 2, s3 | IAM-A on a second lab's healthy neutrophils, and CD4 cells | `BOXRUN2/session3/session2.log` | 2026-10-09 15:09 | 3.3 | 112 | DONE | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
 | Box Run 2, s3 | IAM-A on a second lab's healthy neutrophils, and CD4 cells | `BOXRUN2/session3/session2_cd4.log` | 2026-10-09 15:09 | 3.2 | 112 | DONE | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
+| Box Run 2, s3 | IAM-A on a second lab's healthy neutrophils, and CD4 cells | `BOXRUN2/session3/session2.log` | 2026-10-09 15:09 | 3.3 | 112 | DONE | pending billing access | [boxruns/run2/JOBS.md](boxruns/run2/JOBS.md) |
 | Box Run 2, s4 | IAM-A on whole blood, two library kits | `BOXRUN2/session4/session2.log` | 2026-10-09 18:29 | 7.9 | 120 | DONE | pending billing access | [doors/DEV_IAMA_CONVERSION_01.md](doors/DEV_IAMA_CONVERSION_01.md) |
 | Box Run 2, s5 | decitabine dose series (IAM-A side) | `BOXRUN2/session5/session2.log` | 2026-10-10 02:25 | 3.1 | 120 | DONE | pending billing access | [doors/DEV_LINK_IAMA_METAA_02_OUTCOME.md](doors/DEV_LINK_IAMA_METAA_02_OUTCOME.md) |
 | Box Run 6 | mouse SAM knockout: IAM-A's first physics lever | `BOXRUN6_SAM/session6.log` | 2026-10-10 14:33 | 4.8 | 60 | DONE | pending billing access | [doors/DEV_SAM_LEVER_01_OUTCOME.md](doors/DEV_SAM_LEVER_01_OUTCOME.md) |
@@ -50,8 +49,9 @@ Work done on the laptop is free and is not listed.
 | Atlas v2.1 L8 D10 GSE137716 export, run 2 (job 3cf4e084) | EpiDISH sites for GSE137716's 12 conditional arrays (decision 10 addendum) | `ATLAS_V21/l8b/l8b_run2.log` | 2026-10-14 07:58 | 0.0 | 32 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2.1 final terms (L22) (job cb57b74b) | lab terms on the final build table and the bounded transfer; twin recheck; out-of-sample transfer test | `ATLAS_V21/terms_final/terms_final.log` | 2026-10-14 08:31 | 0.2 | 32 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2.1 transfer diagnosis (L22 follow-up) (job e28be19b) | per-cell residuals against the bounded transfer, raw and lab-offset removed; diagnosis only | `ATLAS_V21/transfer_diag/diag.log` | 2026-10-14 08:43 | 0.0 | 32 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
+| Atlas v2.1 L22 second design, run 2 (job 4bb83f4e) | one bounded transfer on all 22 shared cells; leave-one-cell-out bias; cell scatter by range; Tian/ENCODE against it | `ATLAS_V21/transfer_final/xf_run2.log` | 2026-10-14 08:56 | 0.0 | 32 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 
-Total job hours: 86.7.
+Total job hours: 86.8.
 
 ## Upcoming
 

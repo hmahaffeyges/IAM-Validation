@@ -294,3 +294,10 @@ itself, without the alpha, beta layer, sit inside the same spread (cell means -0
 median error 0.0112; v2 mode still reproduces v2's code exactly). P6, a planted cell-level transfer bias of 0.03: on the cell seen only by
 sequencing, 95% intervals held the truth in 0.963 of pairs with the scatter carried (bar 0.85), against 0.887 with it set to 0. Run 1's summary
 is kept as `planted_run_v21_summary_run1.txt`.
+
+**Readiness L22, second design, run once (job 4bb83f4e; run 1 6ea74736 failed before any bar): MET.** One bounded transfer on all 22
+Loyfer-shared cells (978,886 pairs, 42 knots, range 0.0083-0.9589). Left one cell out at a time, the pooled bias is at most 0.0064 in every
+bin (bar 0.02). Tian (microglia 0.014, oligodendrocytes 0.012) and ENCODE (embryonic stem cells 0.016) sit inside the Loyfer cells' own
+leave-one-out spread (95th percentile 0.027) on the same curve, so all three sequencing sources use it with no extra terms. The cell-to-cell
+scatter carried into the error bars: 0.004 below 0.15, 0.020 at 0.15-0.45, 0.039 at 0.45-0.85, 0.015 above 0.85. Every cell stays in.
+Disclosed: the 22 cells had been seen in aggregate before this design was written; the test is leave-one-cell-out, not fresh data.

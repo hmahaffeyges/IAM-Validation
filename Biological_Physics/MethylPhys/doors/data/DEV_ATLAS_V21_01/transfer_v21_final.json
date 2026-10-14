@@ -1,0 +1,234 @@
+{
+ "rule": "v21_transfer_final_box.py docstring",
+ "knots_x": [
+  0.017,
+  0.024250000000000004,
+  0.035333333333333335,
+  0.04541666666666667,
+  0.055,
+  0.06498787878787878,
+  0.07490000000000001,
+  0.08498125000000001,
+  0.09491666666666666,
+  0.10475,
+  0.11499999999999999,
+  0.125,
+  0.135,
+  0.145,
+  0.17309999999999998,
+  0.224,
+  0.27470000000000006,
+  0.325,
+  0.37502083333333336,
+  0.4255,
+  0.47555000000000003,
+  0.5257142857142857,
+  0.575875,
+  0.626,
+  0.676,
+  0.7263,
+  0.7766249999999999,
+  0.828,
+  0.8552500000000001,
+  0.8652857142857143,
+  0.8751999999999999,
+  0.8852666666666666,
+  0.8953583333333334,
+  0.9053125000000001,
+  0.9152857142857143,
+  0.9253,
+  0.9353166666666666,
+  0.9452083333333332,
+  0.9547083333333333,
+  0.9636086904761905,
+  0.9742833333333333,
+  0.9837916666666666
+ ],
+ "knots_y": [
+  0.008297132328152657,
+  0.010924302972853184,
+  0.012991423230119538,
+  0.012991423230119538,
+  0.012991423230119538,
+  0.01450452022254467,
+  0.016645198687911034,
+  0.019578881561756134,
+  0.024569353088736534,
+  0.03031470999121666,
+  0.036108989268541336,
+  0.04201225936412811,
+  0.05054273456335068,
+  0.057304080575704575,
+  0.08156122267246246,
+  0.12013237923383713,
+  0.16664202511310577,
+  0.22187379002571106,
+  0.2808760404586792,
+  0.3479765057563782,
+  0.4184521734714508,
+  0.492305189371109,
+  0.5597167015075684,
+  0.6181735396385193,
+  0.6707330346107483,
+  0.7189064621925354,
+  0.7641754746437073,
+  0.810332715511322,
+  0.8423019647598267,
+  0.8531640768051147,
+  0.8643757700920105,
+  0.8772968053817749,
+  0.8882114887237549,
+  0.9016036987304688,
+  0.9128584265708923,
+  0.9248681664466858,
+  0.9353874921798706,
+  0.9466660618782043,
+  0.9566534757614136,
+  0.9588697598355284,
+  0.9588697598355284,
+  0.9588697598355284
+ ],
+ "cells": [
+  "adipocytes",
+  "b cells",
+  "cd4 t cells",
+  "cd8 t cells",
+  "colon epithelium",
+  "cortical neurons",
+  "effector memory cd8 t cells",
+  "hepatocyte",
+  "lung alveolar epithelium",
+  "lung bronchus epithelium",
+  "memory b cells",
+  "monocytes",
+  "naive cd4 t cells",
+  "naive cd8 t cells",
+  "nk cells",
+  "oligodendrocytes",
+  "pancreatic acinar",
+  "pancreatic beta",
+  "pancreatic duct",
+  "small intestine epithelium",
+  "t central memory cd4",
+  "t effector cell cd8"
+ ],
+ "scatter_mid": [
+  0.075,
+  0.3,
+  0.65,
+  0.925
+ ],
+ "scatter_s": [
+  0.0042468837737202475,
+  0.01987385914876904,
+  0.03867856554913102,
+  0.014571252784555492
+ ],
+ "sequencing": {
+  "Loyfer2023": {
+   "form": "bounded",
+   "status": "MEASURED (22 cells; leave-one-cell-out T1)"
+  },
+  "Tian2023": {
+   "form": "bounded",
+   "status": "MEASURED (cells [('microglia', 0.014247767047456972), ('oligodendrocytes', 0.012323340553041573)]; Loyfer leave-one-out p95 0.0269)"
+  },
+  "ENCODE": {
+   "form": "bounded",
+   "status": "MEASURED (cells [('embryonic stem cells', 0.015655309048748744)]; Loyfer leave-one-out p95 0.0269)"
+  }
+ },
+ "array": {
+  "Moss2018": {
+   "d": -0.004421283184201758,
+   "status": "MEASURED (2 shared cells, centered)"
+  },
+  "Salas2018": {
+   "d": -0.004689338739757236,
+   "status": "MEASURED (6 shared cells, centered)"
+  },
+  "Salas2022": {
+   "d": 0.005226633482464847,
+   "status": "MEASURED (8 shared cells, centered)"
+  },
+  "GSE63409": {
+   "d": 0.007182883482464934,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "E-MTAB-4957": {
+   "d": 0.008391216815798304,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "GSE103541": {
+   "d": 0.003377030307861746,
+   "status": "MEASURED (4 shared cells, centered)"
+  },
+  "GSE116754": {
+   "d": 0.0,
+   "status": "ASSUMED 0 (no shared cell with another array laboratory or Loyfer)"
+  },
+  "GSE118144": {
+   "d": 0.011521465733547183,
+   "status": "MEASURED (4 shared cells, centered)"
+  },
+  "GSE122244": {
+   "d": 0.0034606612602427547,
+   "status": "MEASURED (3 shared cells, centered)"
+  },
+  "GSE124565": {
+   "d": -0.011079616517534967,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "GSE137716": {
+   "d": -0.010009169249849001,
+   "status": "MEASURED VIA LOYFER on the bounded transfer (['lung bronchus epithelium']); not centered",
+   "straight_line_d": -0.02893897962570191
+  },
+  "GSE224807": {
+   "d": -0.0050167196921382315,
+   "status": "MEASURED (5 shared cells, centered)"
+  },
+  "GSE226298": {
+   "d": 0.0003198655480186124,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "GSE252045": {
+   "d": -0.008561813487232,
+   "status": "MEASURED (6 shared cells, centered)"
+  },
+  "GSE306226": {
+   "d": 0.0011828834824649354,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "GSE49618": {
+   "d": -0.006817116517535072,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "GSE75405": {
+   "d": 0.0017164062097376552,
+   "status": "MEASURED (2 shared cells, centered)"
+  },
+  "GSE88824": {
+   "d": -0.001793158184201711,
+   "status": "MEASURED (6 shared cells, centered)"
+  }
+ },
+ "final_table_sha256": "68dc06bf4edfaa85f052e977e27cf7a505bbf4475acbdf57570c638820c83601",
+ "fit_rule": "sequencing row: mean g(m); variance (slope^2 x donor var [/3 pooled]) + h(1-h)/cov + n x s(m)^2 + floor; slope (g(m+0.01)-g(m-0.01))/0.02",
+ "checks": {
+  "T1_worst": 0.006403516031961713,
+  "T1": true,
+  "T2": true,
+  "T3": {
+   "Tian2023": [
+    0.014247767047456972,
+    0.012323340553041573
+   ],
+   "ENCODE": [
+    0.015655309048748744
+   ]
+  },
+  "p95": 0.026913091360429676
+ },
+ "L22": "MET"
+}

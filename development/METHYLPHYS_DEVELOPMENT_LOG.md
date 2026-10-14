@@ -1690,3 +1690,6 @@ Asked how to proceed after L22, the author: "Just do what is best. I dont like l
 
 ### 2026-10-14 · Planted test run 2 MET; L22 second design run 2 submitted
 Planted test run 2 on the updated model: P1-P6 met, carrying the cell scatter lifts sequencing-only coverage from 0.887 to 0.963 under a planted 0.03 bias. The L22 second-design job (run 1, 6ea74736) failed before any bar on a pandas argument the box lacks; run 2 is 4bb83f4e (code 6dc3aa67).
+
+### 2026-10-14 · Atlas v2.1 L22 MET (second design)
+One bounded curve for every WGBS source: leave-one-cell-out bias worst 0.0064 against 0.02; Tian and ENCODE inside the Loyfer spread; cell scatter measured and carried. No cell removed.
