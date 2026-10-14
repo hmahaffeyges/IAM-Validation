@@ -1747,3 +1747,6 @@ Author: what sets a cell type's normal operating point is its architecture, as o
 
 ### 2026-10-14 · DEV-ERASE-01 unit U1 read by the sealed rule (first complete unit)
 U1 (human ES cells, TET knockout against wild type; GSE89727, GSE126958; 2 + 2 samples, all read): held error 0.0380 control, 0.0366 eraser removed, ratio 0.961, which is NOT MET for this unit (bar >= 0.85). Read with the committed erase_verdict.py in a scratch folder (erase_U1_interim.csv); the full verdict is still written once, when all units are in. Four of five primary units remain. The test needs 3 of 5 MET and none NOT MET for MET, so U1 already rules out an overall MET; NOT MET overall needs 3 of 5.
+
+### 2026-10-14 · Atlas v2.1 fit machine up; B1 and L18 submitted
+The fit machine methylphys-fit-01 (m7a.48xlarge spot, 192 cores, 740 GB, instance i-0091baa9e8073a637, us-west-2b; us-west-2a had no capacity) was launched from the image of methylphys-cpu-01 and added as a compute host by the author. Box job 5836c3b8 (code cedfae79) fits block 0 with 100 and with 20 saved draws: time, peak memory, the parallel count, disk per block (B1), and whether the summary columns are identical (L18). Disk: 43 GB free before the job.
