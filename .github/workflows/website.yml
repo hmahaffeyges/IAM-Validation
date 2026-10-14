@@ -20,7 +20,7 @@ permissions:
 
 concurrency:
   group: website-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false   # 2026-10-14: frequent pushes cancelled 17 builds in a row and nothing published; a newer push now waits
 
 jobs:
   build:
