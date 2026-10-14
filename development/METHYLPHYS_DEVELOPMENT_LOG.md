@@ -1651,3 +1651,6 @@ Decisions 1 and 10 said their cuts were fixed in the plan, but no number was wri
 
 ### 2026-10-14 · Box code check: data inputs that are another job's S3 output
 The L8 job ships `v21_samples_all.csv`, the output of twin run 2 (178c64ed) stored in S3, so the code check (S3 copy against the repo at the job's commit) refused it. Rather than an exception, the check now accepts `s3_inputs` {filename: S3 key}: the key must be a registered job's output, and the shipped copy must equal that S3 object byte for byte. Checked both ways: the right key passes; a planted wrong key (twins_v21.csv) is refused. The table is also committed to the repository (DEV_ATLAS_V21_01/v21_samples_all.csv) for readers.
+
+### 2026-10-14 · Atlas v2.1 L8 data step run 2
+Run 1 (36fc910c) failed before any result: the v2 rows' empty path came back from CSV as NaN and the loader took it for a path. Run 2 (93d94090, code 8fd4a882) reads the table with empty paths kept as empty strings, its own S3 code folder.

@@ -269,6 +269,33 @@
    "machine": "methylphys-cpu-01 (32 cores)",
    "purpose": "D1 twin test (GSE224807 vs Salas neutrophils), D7 astrocyte profile r, export of the 904 EpiDISH sites; rules in l8_conditions_v21.md",
    "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_l8_box.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_twin_terms_box.py",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/roster_samples.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/roster.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/hsc_manifest.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/twin_family_thresholds_v1.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/epidish_sites.txt"
+   ],
+   "note": "failed before any result: v2 rows' empty path read back from CSV as NaN (TypeError in array_path); fixed in run 2",
+   "s3_inputs": {
+    "v21_samples_all.csv": "results/ATLAS_V21/terms/v21_samples_all.csv"
+   }
+  },
+  {
+   "job_id": "93d94090-2da5-4ff6-8046-3f0a3905831d",
+   "name": "Atlas v2.1 L8 conditions data step, run 2",
+   "date": "2026-10-14",
+   "commit": "8fd4a882",
+   "s3_code_prefix": "results/ATLAS_V21/l8/code/run2/",
+   "state": "running",
+   "log": "results/ATLAS_V21/l8/l8_run2.log",
+   "machine": "methylphys-cpu-01 (32 cores)",
+   "purpose": "D1 twin test (GSE224807 vs Salas neutrophils), D7 astrocyte profile r, export of the 904 EpiDISH sites; rules in l8_conditions_v21.md",
+   "record": "doors/DEV_ATLAS_V21_01.md",
    "outputs": [
     "results/ATLAS_V21/l8/l8_d1_twin.csv",
     "results/ATLAS_V21/l8/l8_d7_profile_r.csv",
@@ -284,7 +311,7 @@
     "Biological_Physics/MethylPhys/atlas/v2/inputs/twin_family_thresholds_v1.json",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/epidish_sites.txt"
    ],
-   "note": "failed before any result: v2 rows' empty path read back from CSV as NaN (TypeError in array_path); fixed in run 2",
+   "note": "running; run 1 failed before any result",
    "s3_inputs": {
     "v21_samples_all.csv": "results/ATLAS_V21/terms/v21_samples_all.csv"
    }
