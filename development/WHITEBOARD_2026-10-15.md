@@ -3,6 +3,10 @@
 Everything here is checked in code; numbers come from our own records (DEV-WRITER-01, PROC-CHANNEL-01 section 7, DEV-ARCH-01).
 Nothing new was fetched. Status of each item is marked.
 
+**News overnight: DEV-ERASE-01 is NOT MET.** All five primary units read: eraser removed over control 0.96, 0.79, 0.86, 0.89, 0.85
+(4 NOT MET, 1 inconclusive). In every set the held error drops a little when the eraser is gone, never by half. So the eraser is real
+but small where we count, which is what item 2 below says (item 2 was written after U1 and before U2-U5 were read; exploration, not a sealed test). The middle line is untouched: it is measured.
+
 ## 1. The black-hole route to the half does not work for the cell (dead end, found on paper)
 
 - Euler's rule, checked: a black hole pays T S = 0.5 M c^2 (its energy grows as the square root of its bits); the cosmic horizon pays
