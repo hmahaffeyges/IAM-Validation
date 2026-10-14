@@ -325,7 +325,7 @@
    "definition": "Saturation: the surface can no longer hold a record.",
    "cosmos": {
     "native": "asymptotic limit E(inf)=e, never reached; local saturation = black-hole formation",
-    "formula": "E(a) -> e ~ 2.718 as a -> inf; E(a)/e = fraction of cumulative record relative to its asymptote (p2_03)",
+    "formula": "E(a) -> e ~ 2.718 as a -> inf; E(a)/e = fraction of cumulative record relative to its asymptote (p2_03). ADDED 2026-10-14, for compact remnants (book p3_01, fig:stargauge): the surface is full at the Chandrasekhar mass, 1.44 Msun (1.456 for mu_e = 2 from the constants), A = 2.40, derived; neutron stars at the TOV limit ~2.3 Msun (2.25 +0.08/-0.07, Fan 2024), A ~ 1.64, observed; beyond, a horizon forms (black holes saturate the Bekenstein bound)",
     "status": "interp",
     "source": "p1_02 sec:law_activation bullets; p2_03 sec \"The encoding transition\"; p7_05c sec:vd_arrow; App. E #242",
     "tag_in_book": "\\derived (#242); E/e reading \\interp",
