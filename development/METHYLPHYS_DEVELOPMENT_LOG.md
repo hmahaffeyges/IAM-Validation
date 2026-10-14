@@ -1699,3 +1699,6 @@ The author recalled we had already computed it. The record confirms it: N k_B T 
 
 ### 2026-10-14 · Cosmos fidelity ratio: none for the whole universe (author)
 The author: there is no A for the cosmos; time plays into its gauge. Recorded as a definition: A needs a reference population of the same kind, and there is one universe, so the whole cosmos is read by its clock position R(a). Halos and black holes, which have populations, can carry an A. The earlier candidates R(a)/2 and E(a)/e are kept beside it.
+
+### 2026-10-14 · The star gauge added to the schematic (author: "I already gave you the bar gauge with the stars on it")
+The cosmos fidelity box said halos and black holes could carry an A; the book already has the author's star gauge (p3_01, fig:stargauge): remnant mass over the typical remnant of its kind, A = 1 in the middle, the surface full at the Chandrasekhar mass (A = 2.40) or the TOV limit (A ~ 1.64). Added beside the box, sourced to the book. Second time tonight a schematic box missed what the book or our record already held.
