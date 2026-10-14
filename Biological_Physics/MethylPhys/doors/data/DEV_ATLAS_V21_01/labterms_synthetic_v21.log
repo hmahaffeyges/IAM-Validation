@@ -36,3 +36,37 @@ abd 14 {'rep': 14, 'cov_all': 0.884, 'cov_c8': 0.85, 'frac_mu_rhat_ge_1_01': 0.0
 abd 15 {'rep': 15, 'cov_all': 0.906, 'cov_c8': 0.917, 'frac_mu_rhat_ge_1_01': 0.007, 'max_term_rhat': 1.004, 'div_frac': 0.0, 'cov_a': False, 'cov_b': False, 'cov_dM': True, 'cov_dX': True} 514s
 abd 16 {'rep': 16, 'cov_all': 0.895, 'cov_c8': 0.867, 'frac_mu_rhat_ge_1_01': 0.019, 'max_term_rhat': 1.002, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': True, 'cov_dX': True} 526s
 abd 17 {'rep': 17, 'cov_all': 0.889, 'cov_c8': 0.867, 'frac_mu_rhat_ge_1_01': 0.025, 'max_term_rhat': 1.008, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': True, 'cov_dX': True} 538s
+abd 18 {'rep': 18, 'cov_all': 0.903, 'cov_c8': 0.925, 'frac_mu_rhat_ge_1_01': 0.016, 'max_term_rhat': 1.01, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': True, 'cov_dX': True} 552s
+abd 19 {'rep': 19, 'cov_all': 0.9, 'cov_c8': 0.867, 'frac_mu_rhat_ge_1_01': 0.014, 'max_term_rhat': 1.009, 'div_frac': 0.0, 'cov_a': False, 'cov_b': False, 'cov_dM': True, 'cov_dX': True} 566s
+fixed 0 {'rep': 0, 'cov_all': 0.908, 'cov_c8': 0.942, 'frac_mu_rhat_ge_1_01': 0.023, 'max_term_rhat': 1.0, 'div_frac': 0.0} 573s
+fixed 1 {'rep': 1, 'cov_all': 0.893, 'cov_c8': 0.875, 'frac_mu_rhat_ge_1_01': 0.019, 'max_term_rhat': 1.0, 'div_frac': 0.0} 578s
+fixed 2 {'rep': 2, 'cov_all': 0.905, 'cov_c8': 0.933, 'frac_mu_rhat_ge_1_01': 0.016, 'max_term_rhat': 1.0, 'div_frac': 0.0} 584s
+fixed 3 {'rep': 3, 'cov_all': 0.917, 'cov_c8': 0.942, 'frac_mu_rhat_ge_1_01': 0.033, 'max_term_rhat': 1.0, 'div_frac': 0.0} 591s
+fixed 4 {'rep': 4, 'cov_all': 0.896, 'cov_c8': 0.9, 'frac_mu_rhat_ge_1_01': 0.013, 'max_term_rhat': 1.0, 'div_frac': 0.0} 597s
+fixed 5 {'rep': 5, 'cov_all': 0.897, 'cov_c8': 0.892, 'frac_mu_rhat_ge_1_01': 0.012, 'max_term_rhat': 1.0, 'div_frac': 0.0} 603s
+fixed 6 {'rep': 6, 'cov_all': 0.91, 'cov_c8': 0.942, 'frac_mu_rhat_ge_1_01': 0.028, 'max_term_rhat': 1.0, 'div_frac': 0.0} 608s
+fixed 7 {'rep': 7, 'cov_all': 0.894, 'cov_c8': 0.867, 'frac_mu_rhat_ge_1_01': 0.033, 'max_term_rhat': 1.0, 'div_frac': 0.0} 615s
+fixed 8 {'rep': 8, 'cov_all': 0.903, 'cov_c8': 0.942, 'frac_mu_rhat_ge_1_01': 0.018, 'max_term_rhat': 1.0, 'div_frac': 0.0} 622s
+fixed 9 {'rep': 9, 'cov_all': 0.901, 'cov_c8': 0.892, 'frac_mu_rhat_ge_1_01': 0.023, 'max_term_rhat': 1.0, 'div_frac': 0.0} 628s
+fixed 10 {'rep': 10, 'cov_all': 0.898, 'cov_c8': 0.908, 'frac_mu_rhat_ge_1_01': 0.028, 'max_term_rhat': 1.0, 'div_frac': 0.0} 633s
+fixed 11 {'rep': 11, 'cov_all': 0.904, 'cov_c8': 0.883, 'frac_mu_rhat_ge_1_01': 0.025, 'max_term_rhat': 1.0, 'div_frac': 0.0} 640s
+fixed 12 {'rep': 12, 'cov_all': 0.889, 'cov_c8': 0.967, 'frac_mu_rhat_ge_1_01': 0.026, 'max_term_rhat': 1.0, 'div_frac': 0.0} 646s
+fixed 13 {'rep': 13, 'cov_all': 0.896, 'cov_c8': 0.908, 'frac_mu_rhat_ge_1_01': 0.027, 'max_term_rhat': 1.0, 'div_frac': 0.0} 651s
+fixed 14 {'rep': 14, 'cov_all': 0.886, 'cov_c8': 0.833, 'frac_mu_rhat_ge_1_01': 0.017, 'max_term_rhat': 1.0, 'div_frac': 0.0} 657s
+fixed 15 {'rep': 15, 'cov_all': 0.904, 'cov_c8': 0.917, 'frac_mu_rhat_ge_1_01': 0.017, 'max_term_rhat': 1.0, 'div_frac': 0.0} 663s
+fixed 16 {'rep': 16, 'cov_all': 0.894, 'cov_c8': 0.883, 'frac_mu_rhat_ge_1_01': 0.018, 'max_term_rhat': 1.0, 'div_frac': 0.0} 668s
+fixed 17 {'rep': 17, 'cov_all': 0.889, 'cov_c8': 0.875, 'frac_mu_rhat_ge_1_01': 0.018, 'max_term_rhat': 1.0, 'div_frac': 0.0} 674s
+fixed 18 {'rep': 18, 'cov_all': 0.902, 'cov_c8': 0.925, 'frac_mu_rhat_ge_1_01': 0.019, 'max_term_rhat': 1.0, 'div_frac': 0.0} 680s
+fixed 19 {'rep': 19, 'cov_all': 0.899, 'cov_c8': 0.858, 'frac_mu_rhat_ge_1_01': 0.039, 'max_term_rhat': 1.0, 'div_frac': 0.0} 686s
+noharm 0 0.0008475333452224731
+noharm 1 0.0005759000778198242
+noharm 2 0.0010859966278076172
+noharm 3 0.0006594359874725342
+noharm 4 0.0006760656833648682
+Atlas v2.1 decision 16, synthetic test (labterms_synthetic_v21.py), run once 2026-10-13
+arm abdt: {"S1": 1.0, "S2": false, "S3": false, "S4": true, "cov_all": 0.8981250000000001, "cov_c8": 0.8975000000000002, "terms_covered_of_20": {"a": 15, "b": 15, "dM": 18, "dX": 19}, "max_frac_mu_rhat": 0.018333333333333333, "max_term_rhat": 1.0232516527175903, "max_div_frac": 0.0}
+arm abd: {"S1": 1.0, "S2": false, "S3": false, "S4": true, "cov_all": 0.9020416666666666, "cov_c8": 0.9037500000000002, "terms_covered_of_20": {"a": 17, "b": 15, "dM": 17, "dX": 19}, "max_frac_mu_rhat": 0.029166666666666667, "max_term_rhat": 1.0211191177368164, "max_div_frac": 0.0}
+fixed terms (reported, not a bar): {"cov_all": 0.8993333333333334, "cov_c8": 0.9041666666666666}
+no-harm medians: [0.00085, 0.00058, 0.00109, 0.00066, 0.00068]
+ADOPTED: NONE - v2.1 keeps v2's fixed terms
+BARS NOT MET

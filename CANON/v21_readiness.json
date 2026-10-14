@@ -484,7 +484,7 @@
   {
    "id": "L17",
    "stage": "before_launch",
-   "what": "ATL-061 Decision 16 (author, 2026-10-14): lab terms sampled in each block from their measured values and bootstrap uncertainty - synthetic test met (planted lab offsets recovered, intervals cover at their stated rate)",
+   "what": "ATL-061 Decision 16 settled by its synthetic test, run once by the committed adoption rule (abdt, abd, or NONE - v2's fixed terms kept). Outcome 2026-10-14: NONE (S2 and S3 not met); v2.1 keeps v2's fixed terms and the release states that their uncertainty is not carried",
    "files": [
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/labterms_synthetic_v21_summary.txt"
    ],
@@ -492,7 +492,7 @@
     "contains": [
      [
       "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/labterms_synthetic_v21_summary.txt",
-      "ALL BARS MET"
+      "ADOPTED: "
      ]
     ]
    },

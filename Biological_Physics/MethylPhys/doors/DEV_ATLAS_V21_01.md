@@ -220,3 +220,13 @@ this error, now measured. By the rule, v2.1 does not launch on the straight line
 tested on synthetic data, before launch. The form is chosen after seeing these residuals, on build (development) cells only; that is
 disclosed, and the held-out arrays remain unopened.
 
+**Decision 16, synthetic test run once (2026-10-14; `labterms_synthetic_v21.py`, bars and adoption rule committed first, amended only after
+a smoke run): NOT ADOPTED. v2.1 keeps v2's fixed laboratory terms.** Both sampled arms met S1 (cell intervals covered 0.898 and 0.902
+against 0.87-0.93; the sequencing-only cell 0.898 and 0.904) and S4 (no harm: median shift 0.0006-0.0011 against 0.002). Both missed S2
+(the sequencing scale b covered in 15 of 20 replicates against at least 16) and S3 (up to 1.8% and 2.9% of cell-locus pairs at R-hat >= 1.01
+against 1%; terms to 1.023 against 1.01). Reported, not a bar: the fixed arm, with the planted terms off its fixed values by their stated
+uncertainty, still covered 0.899 (0.904 for the sequencing-only cell), so at their measured size the laboratory terms' uncertainty does
+not measurably change the atlas's intervals. Readiness L17 was written as "bars met"; it now reads "settled by the committed rule", whose
+third outcome (NONE) is this one. The release states that the terms' uncertainty is not carried, with this test as the measured reason.
+The far larger error found tonight is the transfer's shape (L20, up to 0.08), which L21 addresses.
+
