@@ -1693,3 +1693,6 @@ Planted test run 2 on the updated model: P1-P6 met, carrying the cell scatter li
 
 ### 2026-10-14 · Atlas v2.1 L22 MET (second design)
 One bounded curve for every WGBS source: leave-one-cell-out bias worst 0.0064 against 0.02; Tian and ENCODE inside the Loyfer spread; cell scatter measured and carried. No cell removed.
+
+### 2026-10-14 · Cosmos Mahaffey number filled from our own 2026-10-02 computation
+The author recalled we had already computed it. The record confirms it: N k_B T ln2 / Mc^2 = 0.500000 (black hole) and 1.000000 (cosmic horizon), with errata V17 correcting the (ln2/2) Mc^2 identity. Per bit: black hole M = 2 ln2, cosmic horizon M = ln2. The schematic box had said "no number given" because it was filled from the book's Mahaffey section only. Lesson: search our own record before computing or calling a box empty.

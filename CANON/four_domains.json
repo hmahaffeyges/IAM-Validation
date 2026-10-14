@@ -179,9 +179,9 @@
    "definition": "Drive over the thermal quantum, M = E_drive / k_B T_s (App. E #47, #485).",
    "cosmos": {
     "native": "Mahaffey number, cosmological row (no number given)",
-    "formula": "M = E_drive/(k_B T_H) with E_drive = gravitational binding energy; \"M integrated self-consistently over cosmic time with gravitational feedback is read as the activation function\"",
-    "status": "conjecture",
-    "source": "p1_02 sec \"The Mahaffey number\", cosmological bullet; App. E #47 (definition)",
+    "formula": "M = E_drive/(k_B T_H) with E_drive = gravitational binding energy; \"M integrated self-consistently over cosmic time with gravitational feedback is read as the activation function\". ADDED 2026-10-14 (computed 2026-10-02, errata V17): counting one bit on the surface as the event, the drive per bit is the rest energy over the bits, so M = Mc^2/(N k_B T). Black hole (Smarr, Mc^2 = 2 T_H S): M = 2 ln2 = 1.386 per bit (2 in Landauer units), half of it held. Cosmic horizon (T_GH S = M_H c^2): M = ln2 = 0.693 per bit (1 in Landauer units), all of it held. Checked: N k_B T ln2 / Mc^2 = 0.500000 (1 and 4.3e6 Msun) and 1.000000 (cosmic horizon). The event choice (one bit, not one halo or the whole horizon) matches the qubit, chip and cell rows",
+    "status": "derived",
+    "source": "p1_02 sec \"The Mahaffey number\", cosmological bullet; App. E #47 (definition); p2_12 eq:lam_smarr; App. E #348, #499; docs/verification/PAPER_ERRATA.md V17",
     "tag_in_book": "\\conjecture"
    },
    "qubits": {
