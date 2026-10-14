@@ -498,6 +498,30 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_transfer_final_box.py"
    ],
    "note": "VERDICT: L22 MET - leave-one-cell-out worst 0.0064; bounded; Tian and ENCODE MEASURED on the one curve; scatter s = 0.004/0.020/0.039/0.015"
+  },
+  {
+   "job_id": "091bf539-d60f-4934-bc46-d9740fb5b531",
+   "name": "DEV-ERASE-01 planted check on real molecules",
+   "date": "2026-10-14",
+   "commit": "4d66949d",
+   "s3_code_prefix": "results/DEV_ERASE_01/planted_real/code/run1/",
+   "state": "running",
+   "log": "results/DEV_ERASE_01/planted_real/erase.log",
+   "machine": "methylphys-cpu-01 (32 cores)",
+   "purpose": "halved / doubled / base arms on two spent healthy Loyfer files, read by Stage Q's counting; rules in planted_real_erase_01.py",
+   "record": "doors/DEV_ERASE_01.md",
+   "outputs": [
+    "results/DEV_ERASE_01/planted_real/planted_real_erase_01.txt",
+    "results/DEV_ERASE_01/planted_real/planted_real_erase_01_raw.tsv"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/planted_real_erase_01.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/planted_real_erase_01.sh",
+    "Biological_Physics/MethylPhys/chain/stage_q_iam_a.py",
+    "Biological_Physics/MethylPhys/chain/stage_m_met_a.py",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {

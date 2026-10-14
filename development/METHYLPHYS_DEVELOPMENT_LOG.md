@@ -1702,3 +1702,6 @@ The author: there is no A for the cosmos; time plays into its gauge. Recorded as
 
 ### 2026-10-14 · The star gauge added to the schematic (author: "I already gave you the bar gauge with the stars on it")
 The cosmos fidelity box said halos and black holes could carry an A; the book already has the author's star gauge (p3_01, fig:stargauge): remnant mass over the typical remnant of its kind, A = 1 in the middle, the surface full at the Chandrasekhar mass (A = 2.40) or the TOV limit (A ~ 1.64). Added beside the box, sourced to the book. Second time tonight a schematic box missed what the book or our record already held.
+
+### 2026-10-14 · DEV-ERASE-01: the sealed test begins (author: "I want to actually pursue testing it now")
+Planted check on real healthy molecules committed first (a87e3656, amended 4d66949d before any real file was read: the doubled arm is reported with no bar after a code smoke test on a made-up file showed counting alone reads a doubling as 1.77). Box job 091bf539. Next, in parallel: the metadata-only search for eraser-removed single-molecule sets with same-laboratory controls.

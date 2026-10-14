@@ -353,5 +353,22 @@
    "results/ATLAS_V21/transfer_final/transfer_v21_final_summary.txt": true
   },
   "state_at_verify": "done"
+ },
+ "091bf539-d60f-4934-bc46-d9740fb5b531": {
+  "s3": {
+   "planted_real_erase_01.py": "86b77122d09bae933df1829dd0ff65510b5d2de1651837e7cce13c6c966f85f4",
+   "planted_real_erase_01.sh": "e1b6884765a8bcf9b033d3983b99b3cbeb188e19100878a64f531068fbd39c76",
+   "stage_q_iam_a.py": "e3b92f107dc8006eee48f0ef03c0545a7938ef21969e7a6f6690386c2b73b9bb",
+   "stage_m_met_a.py": "2e8734954dd172df08b28419a102ba2ab7031f2644bd0aae2a053dc7d56e05f7",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/DEV_ERASE_01/planted_real/planted_real_erase_01.txt": false,
+   "results/DEV_ERASE_01/planted_real/planted_real_erase_01_raw.tsv": false
+  },
+  "state_at_verify": "running"
  }
 }
