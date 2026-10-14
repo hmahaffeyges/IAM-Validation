@@ -61,7 +61,7 @@ assert n_fail and int(n_fail.group(1)) == 0 and n_ok > 0, chk[-500:]
 CHECKS = f"derivation and calculation checks {n_ok}/{n_ok} (verify\\_astrogenetics\\_book.py)"
 
 ROWS = [
-    (1, 'Spherical-harmonic decomposition', 'projection of a specimen onto a basis of reference cells', 'in use', 'Stage A solves 8 blood groups; the atlas holds the full basis'),
+    (1, 'Spherical-harmonic decomposition', 'a methylation map laid on the HEALPix sphere, split into patterns of each angular size', 'built, not in chain', 'chain/sky_statistics.py: masked pseudo-spectrum and its shuffled null; residual skies showed large-scale structure (PROC-CLS-01); enters the chain at commissioning'),
     (2, 'Monopole, dipole, low multipoles', 'monopole = Met-A (mean over identity sites); sex shows as a chrX patch', 'in use', 'Fig. sky-what-it-sees d'),
     (3, 'Cosmic variance', 'cell-count floor: finite genome copies in a specimen', 'calculated', 'Ch. sky; not in the chain; needed for plasma'),
     (4, 'Frequency coverage', 'more than one mark or assay per cell (5mC, 5hmC; arrays and single molecules)', 'partial', 'Met-A (arrays) and IAM-A (single molecules) read one cell two ways'),

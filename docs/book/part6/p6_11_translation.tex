@@ -78,7 +78,7 @@ beam modeling (5) & per-probe response from sequence context & not built \\ \row
 masks and apodization (16) & SNP, cross-reactive and undetected probes; sex chromosomes & partial \\ \rowrule
 HEALPix pixelization (15) & genome order laid on HEALPix rings & built, not in chain \\ \rowrule
 cosmic variance (3) & cell-count floor & calculated; Chapter~\ref{ch:sky} \\ \rowrule
-spherical-harmonic decomposition (1) & projection onto purified reference cells & in use: Stage A; atlas v2 holds the basis \\ \rowrule
+spherical-harmonic decomposition (1) & a methylation map on the HEALPix sphere, split into patterns of each angular size & built, not in chain: \texttt{sky\_statistics.py} \\ \rowrule
 second component separation (20) & an independent solver & built, not in chain \\ \rowrule
 transfer function (14) & how much real signal the deconvolver absorbs & measured; Chapter~\ref{ch:separation} \\ \rowrule
 MCMC and posterior geometry (37) & posteriors for the atlas; per-reading intervals & partial: atlas v2 is a posterior \\ \rowrule
