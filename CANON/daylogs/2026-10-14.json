@@ -1,0 +1,123 @@
+{
+ "date": "2026-10-14",
+ "title": "Atlas v2.1 groundwork after midnight: the two donor halves sealed and the bounded transfer adopted (in progress)",
+ "set_out": "Work from midnight Pacific. The goal is the atlas v2.1 launch: every before-launch item on the readiness board met, then the fit on the 128-core machine. The derivations from the whiteboard (the four-domain schematic and the derivation ledger) wait while box jobs run. This log is in progress and will be completed at turnover.",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "lead": "Each rule below was committed before it ran.",
+   "entries": [
+    {
+     "title": "The two donor halves for the half-atlases (readiness L19)",
+     "status": "structure",
+     "what": "818 samples joined into 328 donor units by genotype, metadata donor ids, and, for Loyfer's samples, lab, age and sex together (which can merge two people but never split one). Half A holds 171 units, half B 157. 79 of 97 cells are in both halves; 18 single-unit cells are not measured in one half.",
+     "why": "Two independent halves give map statistics with no noise bias, and half A minus half B is a pure noise map.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The array-to-sequencing transfer, made bounded (readiness L21)",
+     "status": "development",
+     "what": "A 3-parameter logistic missed 3 of 42 bins with a smooth wave and was not used. The adopted transfer is a monotone calibration curve that cannot leave [0, 1]. Built on 9 of the 17 shared cells and checked on the other 8, and the reverse, the worst bin was 0.0179 against a 0.02 bar; the synthetic test was met.",
+     "why": "The straight line v2 used predicts negative readings near 0 and overshoots near 1; the new curve stays inside what sequencing can read.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "heading": "Every lever test: what ran, what it showed, what is left",
+   "lead": "No lever test ran after midnight.",
+   "table": {
+    "columns": [
+     "lever",
+     "today"
+    ],
+    "rows": [
+     [
+      "**Body temperature**",
+      "not worked on today"
+     ],
+     [
+      "**Division rate**",
+      "not worked on today"
+     ],
+     [
+      "**Methyl supply (SAM, methionine, folate, B12)**",
+      "not worked on today"
+     ],
+     [
+      "**Write and erase enzymes (DNMT, TET)**",
+      "not worked on today"
+     ],
+     [
+      "**Clustered versus scattered failure**",
+      "not worked on today"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "table",
+   "heading": "Every candidate instrument: what ran today, what remains",
+   "lead": "No instrument test ran after midnight.",
+   "table": {
+    "columns": [
+     "instrument",
+     "today"
+    ],
+    "rows": [
+     [
+      "**Clustering meter (C-score): finish its commissioning**",
+      "not worked on today"
+     ],
+     [
+      "**Territory contrast: fidelity in fragile territory over fidelity in stable territory**",
+      "not worked on today"
+     ],
+     [
+      "**Met-A on whole blood: measure the real healthy spread**",
+      "not worked on today"
+     ],
+     [
+      "**Distance to the ceiling**",
+      "not worked on today"
+     ],
+     [
+      "**Run-length spectrum of losses**",
+      "not worked on today"
+     ],
+     [
+      "**Tail of fragments in plasma (the early-detection instrument)**",
+      "not worked on today"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "loss",
+   "heading": "Our own mistakes today, and what caught each",
+   "lead": "",
+   "entries": [
+    {
+     "title": "Stem-cell names in the first half-split run",
+     "status": "structure",
+     "what": "The first run used the bare labels (HSC, CMP and so on) instead of v2's names (HSC (bone marrow) and so on).",
+     "why": "Caught by checking every name against the roster before sealing; fixed, no rule changed.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Cuts that were never written",
+     "status": "structure",
+     "what": "Decisions 1 and 10 say their eosinophil and non-epithelial cuts were fixed in the plan; neither number was ever written down.",
+     "why": "Caught while preparing the step that reads those arrays; the cuts will be committed before any of them is read.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    }
+   ]
+  }
+ ],
+ "open_at_turnover": "In progress. Atlas v2.1 readiness: 14 of 21 before-launch items met. Next: the conditional arrays (L8), the run script and its planted test (L9, L10, L18), the cost sheet and code checksums (L11, L12), and the sealed commissioning bars (L15). The machine now runs as a 32-core instance; the fit needs it resized to 128 cores.",
+ "closing": "In progress.",
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": true
+}
