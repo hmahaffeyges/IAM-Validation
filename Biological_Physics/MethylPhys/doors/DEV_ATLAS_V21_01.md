@@ -289,3 +289,8 @@ epithelium -0.035, pancreatic beta +0.052, naive cd8 t cells +0.047). Loyfer's d
 intermediate sites differ between people, so a per-cell residual mixes the instrument transfer with real between-cohort difference.
 Pooled over many cells it averages out (L21 cross-halves 0.018 on 8-9 cells); over five it did not (0.026). Tian and ENCODE read against g
 itself, without the alpha, beta layer, sit inside the same spread (cell means -0.012 to +0.003).
+
+**Readiness L10, planted test run 2 (the model after the L22 second design; committed first): MET.** P1-P5 as before (coverage 0.959,
+median error 0.0112; v2 mode still reproduces v2's code exactly). P6, a planted cell-level transfer bias of 0.03: on the cell seen only by
+sequencing, 95% intervals held the truth in 0.963 of pairs with the scatter carried (bar 0.85), against 0.887 with it set to 0. Run 1's summary
+is kept as `planted_run_v21_summary_run1.txt`.

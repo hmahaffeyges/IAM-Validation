@@ -1687,3 +1687,6 @@ The out-of-sample miss is cell-to-cell difference between the sequencing and arr
 
 ### 2026-10-14 · L22 second design (author): one curve, scatter carried, no cell removed
 Asked how to proceed after L22, the author: "Just do what is best. I dont like losing cells out of my atlas!!" Chosen: one bounded transfer on all 22 shared cells for Loyfer, Tian and ENCODE alike (the alpha, beta layer dropped), tested leave-one-cell-out because no unseen shared cell remains (disclosed), and the measured cell-to-cell scatter carried into every sequencing row so the error bars include it. No cell leaves. Box job 6ea74736 (code 63bd4e0b).
+
+### 2026-10-14 · Planted test run 2 MET; L22 second design run 2 submitted
+Planted test run 2 on the updated model: P1-P6 met, carrying the cell scatter lifts sequencing-only coverage from 0.887 to 0.963 under a planted 0.03 bias. The L22 second-design job (run 1, 6ea74736) failed before any bar on a pandas argument the box lacks; run 2 is 4bb83f4e (code 6dc3aa67).
