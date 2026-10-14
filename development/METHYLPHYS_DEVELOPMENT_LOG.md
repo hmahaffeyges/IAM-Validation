@@ -1750,3 +1750,6 @@ U1 (human ES cells, TET knockout against wild type; GSE89727, GSE126958; 2 + 2 s
 
 ### 2026-10-14 · Atlas v2.1 fit machine up; B1 and L18 submitted
 The fit machine methylphys-fit-01 (m7a.48xlarge spot, 192 cores, 740 GB, instance i-0091baa9e8073a637, us-west-2b; us-west-2a had no capacity) was launched from the image of methylphys-cpu-01 and added as a compute host by the author. Box job 5836c3b8 (code cedfae79) fits block 0 with 100 and with 20 saved draws: time, peak memory, the parallel count, disk per block (B1), and whether the summary columns are identical (L18). Disk: 43 GB free before the job.
+
+### 2026-10-14 · Physics game plan (author): an instrument that needs no atlas
+development/PHYSICS_GAMEPLAN.md: four stages, whiteboard first. 1 the half by scaling (Euler); 2 the cell's main sequence, held error from architecture; 3 the instrument, each sample read against its own line; 4 one clean sealed test, then the hand-over package.
