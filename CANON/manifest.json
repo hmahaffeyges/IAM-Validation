@@ -24908,6 +24908,28 @@
    "sources_of_row": [
     "author request 2026-10-13"
    ]
+  },
+  {
+   "title": "Atlas v2.1 decision 17: two half-atlases (the CMB's half-mission split) for noise-free cross-spectra and half-difference null maps",
+   "purpose": "Fit the atlas twice more on two sealed halves of every cell's donors, so map spectra can be crossed without noise bias and half A minus half B gives a pure noise map.",
+   "instrument_or_term": "atlas",
+   "data_status": "partial",
+   "status": "designed",
+   "next_step": "Write and seal the half-donor split before any fit.",
+   "cost": "box (about one more full fit, after the main fit)",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "depends_on": [
+    "ATL-005"
+   ],
+   "id": "ATL-062",
+   "sources": [],
+   "runs": [],
+   "legacy_ids": [],
+   "notes": "author mandate 2026-10-14: the best atlas and maps, using the CMB's tools",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
   }
  ],
  "not_tests": {

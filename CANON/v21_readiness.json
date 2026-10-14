@@ -530,6 +530,23 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/labterms_oneblock_v21_summary.txt"
    ],
    "checks": {}
+  },
+  {
+   "id": "L19",
+   "stage": "before_launch",
+   "manifest": [
+    "ATL-062"
+   ],
+   "what": "ATL-062 Decision 17: the half-donor split for the two half-atlases sealed before any fit (every cell's donors split by one fixed rule; single-donor cells listed)",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/half_split_v21.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sealed_half_split_v21.json"
+   ],
+   "checks": {
+    "sha_of": [
+     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sealed_half_split_v21.json"
+    ]
+   }
   }
  ],
  "public": {

@@ -203,3 +203,10 @@ terms (L17), and one real block fitted both ways (B4), recorded before the full 
 changing the model or the seeds (L18): 100 thinned draws of each cell's estimate (was 20), draws of the healthy spread, chain labels and
 per-block sampler warnings. These serve 13 of the book's 79 cosmology tools (`atlas_tools79_needs`, development record).
 
+**Decision 17 (2026-10-14, under the author's mandate: the best atlas and maps, using as many of the CMB's tools as hold up).** Besides the
+main fit, the atlas is fitted twice more, each time on one of two sealed halves of every cell's donors: the CMB's half-mission split. Crossing
+the halves gives map spectra with no noise bias, and half A minus half B is a pure noise map (the standard null). The split is sealed before
+any fit (readiness L19); a cell with one donor can sit in only one half and is NOT MEASURED in the other. The halves run after the main fit
+(about one more full fit of box time) so they do not delay it. The maps and their statistics (release checklist M01-M07) are built on the
+fit's output; none is read on real data until the sphere construction passes its synthetic methylome and noise-map check (M01).
+

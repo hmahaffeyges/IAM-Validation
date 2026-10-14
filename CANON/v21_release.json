@@ -418,6 +418,107 @@
    "s3": [],
    "zenodo": "",
    "required": true
+  },
+  {
+   "id": "F07",
+   "group": "The fit",
+   "what": "Two half-atlases (each on half the donors of every cell), same script and seeds rule",
+   "repo": [],
+   "s3": [
+    "atlas_v21/half_A/",
+    "atlas_v21/half_B/"
+   ],
+   "zenodo": "halves/",
+   "required": true
+  },
+  {
+   "id": "F08",
+   "group": "The fit",
+   "what": "Half-split seal and the per-cell donor lists",
+   "repo": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/half_split_v21.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sealed_half_split_v21.json"
+   ],
+   "s3": [],
+   "zenodo": "inputs/half_split/",
+   "required": true
+  },
+  {
+   "id": "M01",
+   "group": "Maps and CMB statistics",
+   "what": "Sphere construction adopted: synthetic methylome and the noise-map check met",
+   "repo": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sphere_adoption_v21_summary.txt"
+   ],
+   "s3": [],
+   "zenodo": "maps/construction/",
+   "required": true
+  },
+  {
+   "id": "M02",
+   "group": "Maps and CMB statistics",
+   "what": "Atlas maps on the sphere, with masks and apodization",
+   "repo": [],
+   "s3": [
+    "atlas_v21/maps/"
+   ],
+   "zenodo": "maps/",
+   "required": true
+  },
+  {
+   "id": "M03",
+   "group": "Maps and CMB statistics",
+   "what": "Noise maps from the posterior draws, and the half-difference null maps",
+   "repo": [],
+   "s3": [
+    "atlas_v21/maps/noise/"
+   ],
+   "zenodo": "maps/noise/",
+   "required": true
+  },
+  {
+   "id": "M04",
+   "group": "Maps and CMB statistics",
+   "what": "Masked power spectra, band powers, shuffled nulls, and the half-cross spectra",
+   "repo": [],
+   "s3": [
+    "atlas_v21/spectra/"
+   ],
+   "zenodo": "spectra/",
+   "required": true
+  },
+  {
+   "id": "M05",
+   "group": "Maps and CMB statistics",
+   "what": "End-to-end simulations through the same pipeline, and the transfer function they measure",
+   "repo": [],
+   "s3": [
+    "atlas_v21/sims/"
+   ],
+   "zenodo": "sims/",
+   "required": true
+  },
+  {
+   "id": "M06",
+   "group": "Maps and CMB statistics",
+   "what": "Higher-order statistics of the residual maps (three-point, Minkowski functionals), each against its simulated null",
+   "repo": [],
+   "s3": [
+    "atlas_v21/higher_order/"
+   ],
+   "zenodo": "higher_order/",
+   "required": false
+  },
+  {
+   "id": "M07",
+   "group": "Maps and CMB statistics",
+   "what": "Cross-site covariance of healthy donors from per-sample residuals",
+   "repo": [],
+   "s3": [
+    "atlas_v21/covariance/"
+   ],
+   "zenodo": "covariance/",
+   "required": true
   }
  ]
 }
