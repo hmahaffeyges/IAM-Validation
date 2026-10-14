@@ -233,7 +233,7 @@ The far larger error found tonight is the transfer's shape (L20, up to 0.08), wh
 **Twin test and source terms, run 2 (job 178c64ed, 2026-10-14): reproduction gate passed, all four parts.** In v2 mode the job reproduced
 v2's twin table, split-half null, sample-level twin test and source terms exactly, then computed v2.1 (`twins_v21.csv`,
 `twin_sample_level_v21.csv`, `twin_v21.csv`, `source_terms_v21.json`). Profile level: 14 pairs above the twin threshold (v2: 7). Sample level,
-2 twins: kidney tubular epithelium and podocyte (7 separating sites; held in v2 already) and **neutrophils and promyelocytes** (new in v2.1,
+2 twins: kidney tubular epithelium and podocyte (9 separating sites; held in v2 already) and **neutrophils and promyelocytes** (new in v2.1,
 GSE49618; 7 separating sites). By v2's own rule a sample-level twin is HELD, so promyelocytes are held, as podocyte was. Source terms are
 measured for every new source except GSE116754 (shares no cell with another array lab or with Loyfer: ASSUMED, offset 0, as v2 did for
 GSE63409). Loyfer's terms with the v2.1 samples: a -0.0968, b 1.1130 (v2: -0.0902, 1.1026); this is still the straight-line transfer that
