@@ -440,15 +440,12 @@
    "date": "2026-10-14",
    "commit": "63bd4e0b",
    "s3_code_prefix": "results/ATLAS_V21/transfer_final/code/run1/",
-   "state": "running",
+   "state": "failed",
    "log": "results/ATLAS_V21/transfer_final/xf.log",
    "machine": "methylphys-cpu-01 (32 cores)",
    "purpose": "one bounded transfer on all 22 shared cells; leave-one-cell-out bias; cell scatter by range; Tian/ENCODE against it",
    "record": "doors/DEV_ATLAS_V21_01.md",
-   "outputs": [
-    "results/ATLAS_V21/transfer_final/transfer_v21_final.json",
-    "results/ATLAS_V21/transfer_final/transfer_v21_final_summary.txt"
-   ],
+   "outputs": [],
    "files": [
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_twin_terms_box.py",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_bounded_v21.py",
@@ -466,7 +463,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/terms_final_v21.json",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_transfer_final_box.py"
    ],
-   "note": "running"
+   "note": "failed before any bar was computed: a pandas argument the box's version lacks; fixed in run 2"
   }
  ],
  "not_jobs": {

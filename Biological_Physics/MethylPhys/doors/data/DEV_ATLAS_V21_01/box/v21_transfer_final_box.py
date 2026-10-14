@@ -22,7 +22,7 @@ from publish_code import publish_code
 FILES = ["v21_transfer_final_box.py", "v21_twin_terms_box.py", "transfer_bounded_v21.py", "final_table_v21.py", "publish_code.py", "terms_final_v21.json",
          "roster_samples.csv", "roster.csv", "hsc_manifest.csv", "twin_family_thresholds_v1.json", "v21_samples_all.csv", "atlas_v21_build_samples.csv",
          "conditions_v21.json", "twin_sample_level_v21.csv", "stage1_v21_manifest.csv"]
-publish_code("results/ATLAS_V21/transfer_final/code/run1/", FILES, job="atlas v2.1 L22 second design (one curve, scatter carried)", commit=os.environ.get("REPO_COMMIT"))
+publish_code("results/ATLAS_V21/transfer_final/code/run2/", FILES, job="atlas v2.1 L22 second design (one curve, scatter carried)", commit=os.environ.get("REPO_COMMIT"))
 src = open("v21_twin_terms_box.py").read()
 exec(src[src.index("import os, sys, json, itertools"):src.index("sys.path.insert(0, os.getcwd())")])
 exec(src[src.index("BUCKET = "):src.index("# ---------------- 09:")])
@@ -44,7 +44,7 @@ for c in cells:
     cellR.append(dict(cell=c, mean_abs=float(np.average(T[T.n >= 200].r.abs(), weights=T[T.n >= 200].n)),
                       **{f"R{i}": float(X[(X.x >= lo) & (X.x < hi)].r.mean()) for i, (lo, hi) in enumerate(RANGES)}))
 L = pd.concat(rows); L["bin"] = L["bin"].astype(str); L.to_csv("transfer_v21_final_loco.csv", index=False)
-pooled = L.groupby("bin").apply(lambda t: pd.Series({"n": t.n.sum(), "r": np.average(t.r, weights=t.n)}), include_groups=False)
+pooled = pd.DataFrame({"n": L.groupby("bin").n.sum(), "r": L.assign(rn=L.r * L.n).groupby("bin").rn.sum() / L.groupby("bin").n.sum()})   # same pair-weighted mean, written for the box pandas
 pooled = pooled[pooled.n >= 500]; T1 = bool((pooled.r.abs() <= 0.02).all()); T1w = float(pooled.r.abs().max())
 CR = pd.DataFrame(cellR); s = [float(CR[f"R{i}"].std(ddof=1)) for i in range(4)]; p95 = float(np.percentile(CR.mean_abs, 95))
 seq = {"Loyfer2023": {"form": "bounded", "status": "MEASURED (22 cells; leave-one-cell-out T1)"}}
