@@ -266,3 +266,9 @@ its other source. The sealed half split stands: the leaving samples drop out of 
 also covers. Its outcome is pending under the identical rule (addendum in `l8_conditions_v21.md`), and L8 is open again until it is read.
 
 **D10, GSE137716, read once by the addendum rule (job 3cf4e084): IN.** 12 of 12 arrays under the 0.20 non-epithelial cut (median 0.000). L8 is settled.
+
+**Readiness L10, planted test of the run script, run once (`planted_run_v21.py`, committed first): MET.** On a 40-locus, 5-cell synthetic
+block laid out like the real sources: every output written with the right shapes; unmeasured pairs NaN; 95% interval coverage 0.947 and median
+error 0.0115 on the planted means; v2 mode reproduces v2's own block code exactly (every summary column and all 20 draws); the 100-draw save
+leaves every summary column identical to the 20-draw save. On the same curved truth v2's straight line misses by 0.0148 at planted values
+below 0.1, against 0.0103 with the bounded transfer. R-hat p99 1.038 on this small block (no bar here; the fit's convergence bars are G0).

@@ -1672,3 +1672,6 @@ The scorer (one-line selection change, committed first) reproduced the GSE146552
 
 ### 2026-10-14 · Atlas v2.1 L22: final terms job submitted
 The final build table (final_table_v21.py) is 702 samples in 79 cells: v2's 314 in 74 cells and 388 new samples, 5 new cell types. The plan expected 428 firm new samples in 6 types; 34 failed quality control and promyelocytes (6) are held as a twin. A first version of the builder dropped E-MTAB-4957 (its arrays are named by chip position in one table and by donor code in the other); fixed with the Stage 1 manifest crosswalk before anything ran. Job cb57b74b (code fc501f01) computes the terms the fit will use; rules in its docstring.
+
+### 2026-10-14 · Atlas v2.1 L10: planted test of the run script MET
+P1-P5 met (planted_run_v21_summary.txt). The board check for L10 looked for "PASSED"; changed to the committed verdict line "PLANTED: MET", with a note; the result file itself was not touched. L18 needs its check on a real block, which runs with B1.

@@ -151,13 +151,14 @@
     "contains": [
      [
       "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/planted_run_v21_summary.txt",
-      "PASSED"
+      "PLANTED: MET"
      ]
     ]
    },
    "manifest": [
     "ATL-045"
-   ]
+   ],
+   "note": "check word changed 2026-10-14 from 'PASSED' to the verdict line the committed test writes ('PLANTED: MET'); the result file was not edited"
   },
   {
    "id": "L11",
@@ -520,7 +521,8 @@
    },
    "manifest": [
     "ATL-061"
-   ]
+   ],
+   "note": "P5 of the planted test met on a synthetic block; the real-block check runs with B1"
   },
   {
    "id": "B4",

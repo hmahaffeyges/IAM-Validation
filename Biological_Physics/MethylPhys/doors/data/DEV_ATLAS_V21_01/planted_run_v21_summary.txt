@@ -1,0 +1,10 @@
+Atlas v2.1 L10/L18 planted test, run once (planted_run_v21.py)
+block: 40 loci x 5 cells, 887 observations, 31 pairs with none
+P1 outputs and shapes -> met
+P2 NOT MEASURED pairs NaN, measured pairs filled -> met
+P3 recovery (v2.1 mode): 95% interval coverage 0.947 (bar 0.90), median |error| 0.0115 (bar 0.03) -> met
+P4 v2 mode equals v2's own code: summary columns and 20 draws identical -> met
+P5 K=100 save leaves every summary column identical to K=20 -> met
+reported: median |error| on the curved truth, v2 straight line 0.0127 vs v2.1 0.0115; at planted mu < 0.1: v2 0.0148 vs v2.1 0.0103
+reported: divergences v2.1 0, v2 0; R-hat p99 v2.1 1.0383; wall v2.1 8.6 s
+PLANTED: MET
