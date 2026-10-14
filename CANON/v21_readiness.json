@@ -566,6 +566,25 @@
      ]
     ]
    }
+  },
+  {
+   "id": "L21",
+   "stage": "before_launch",
+   "manifest": [
+    "ATL-061"
+   ],
+   "what": "ATL-061 L20 found the transfer bends: a transfer that cannot leave [0, 1] adopted - every bin with >= 500 pairs within +/-0.02 on the shared cells, and its synthetic test met",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_bounded_v21_summary.txt"
+   ],
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_bounded_v21_summary.txt",
+      "ADOPTED"
+     ]
+    ]
+   }
   }
  ],
  "public": {
