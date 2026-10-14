@@ -529,6 +529,35 @@
    }
   },
   {
+   "id": "held_share",
+   "name": "Held share of the drive",
+   "definition": "What fraction of the drive per event ends up held as the record: the holding energy over the drive, both in k_B T units (a ratio of Mahaffey-number quantities).",
+   "cosmos": {
+    "native": "Smarr share",
+    "formula": "black hole (no spin): N k_B T_H ln2 = T_H S = Mc^2/2, share 1/2; spinning: sqrt(1-chi^2)/2 (the rest goes into rotation); cosmic horizon: T_GH S = M_H c^2, share 1",
+    "status": "derived",
+    "source": "p1_03 sec:vl_bh; p2_12 eq:lam_smarr; App. E #348, #499"
+   },
+   "qubits": {
+    "native": "not stated",
+    "formula": "the book gives two Mahaffey numbers for the transmon (6.86 at 35 mK; ln2 at the gap temperature, App. E #487); no held share stated",
+    "status": "open",
+    "source": "p5_10; App. E #475, #487 (book inconsistency)"
+   },
+   "chips": {
+    "native": "stored half",
+    "formula": "CV^2/2 stored of the CV^2 drawn per write: share 1/2",
+    "status": "derived",
+    "source": "p6_04 'Switching a transistor'"
+   },
+   "cells": {
+    "native": "phi, the fraction of one ATP spent per held bit",
+    "formula": "phi = E_hold/(M k_B T) = 3.41/20.94 = 0.163 +/- 0.006; why 0.163 (when a black hole holds 1/2) is the open problem D1",
+    "status": "measured",
+    "source": "App. E #491; p7_08; p7_11"
+   }
+  },
+  {
    "id": "ratio_R",
    "name": "Virial ratio R",
    "definition": "Total against the kinetic half; 2 at equilibrium.",
