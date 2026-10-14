@@ -187,15 +187,12 @@
    "date": "2026-10-14",
    "commit": "a1104914",
    "s3_code_prefix": "results/ATLAS_V21/transfer/code/",
-   "state": "running",
+   "state": "done",
    "log": "results/ATLAS_V21/transfer/transfer.log",
    "machine": "methylphys-cpu-01 (128 cores)",
    "purpose": "is the array-to-sequencing transfer straight across the whole range (v2's samples, the terms job's own run12)",
    "record": "doors/DEV_ATLAS_V21_01.md",
-   "outputs": [
-    "results/ATLAS_V21/transfer/transfer_shape_v21.csv",
-    "results/ATLAS_V21/transfer/transfer_shape_v21_summary.txt"
-   ],
+   "outputs": [],
    "files": [
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_transfer_shape_box.py",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_twin_terms_box.py",
@@ -203,7 +200,8 @@
     "Biological_Physics/MethylPhys/atlas/v2/inputs/roster_samples.csv",
     "Biological_Physics/MethylPhys/atlas/v2/inputs/roster.csv",
     "Biological_Physics/MethylPhys/atlas/v2/inputs/hsc_manifest.csv"
-   ]
+   ],
+   "no_outputs_reason": "failed before reading data: twin_family_thresholds_v1.json was not sent with the job"
   }
  ],
  "not_jobs": {

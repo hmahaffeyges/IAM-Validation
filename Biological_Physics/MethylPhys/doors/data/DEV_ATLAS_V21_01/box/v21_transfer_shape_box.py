@@ -11,7 +11,7 @@ cannot leave [0, 1] is designed and tested on synthetic data before launch. Writ
 import os, sys, json, time
 sys.path.insert(0, os.getcwd())
 from publish_code import publish_code
-publish_code("results/ATLAS_V21/transfer/code/", ["v21_transfer_shape_box.py", "v21_twin_terms_box.py", "publish_code.py", "roster_samples.csv", "roster.csv", "hsc_manifest.csv"],
+publish_code("results/ATLAS_V21/transfer/code/", ["v21_transfer_shape_box.py", "v21_twin_terms_box.py", "publish_code.py", "roster_samples.csv", "roster.csv", "hsc_manifest.csv", "twin_family_thresholds_v1.json"],
              job="atlas v2.1 transfer shape check (L20)", commit=os.environ.get("REPO_COMMIT"))
 src = open("v21_twin_terms_box.py").read()
 exec(src[src.index("import os, sys, json, itertools"):src.index("sys.path.insert(0, os.getcwd())")])
