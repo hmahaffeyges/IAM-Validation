@@ -362,10 +362,10 @@
   {
    "id": "halves",
    "name": "The two halves",
-   "definition": "What the book says the two halves are in this domain, and which part writes the record.",
+   "definition": "Author's rule (2026-10-14): kinetic does the work, potential fills the space. Kinetic = the writing of the information (informational pressure), which drives expansion and needs new room to keep the balance; potential = what goes into the fabric and fills it. The two are equal (the virial half).",
    "cosmos": {
     "native": "geometric (potential) and informational (kinetic) halves",
-    "formula": "potential half deposited into curvature (S_geo, dark matter); kinetic half = the decoherence energy, the Landauer cost of records on the horizon (S_info, dark energy with the vacuum baseline). In the book the KINETIC half writes the records",
+    "formula": "potential half: into the fabric of spacetime, filling 'empty' space (S_geo; detected as dark matter). Kinetic half: the writing of the records, the Landauer cost on the horizon (S_info), informational pressure driving expansion (the book's dark energy with the vacuum baseline)",
     "status": "conjecture",
     "source": "p7_05b sec:vp_partition; p2_02 sec:vc_coupling; p4_14 sec:qr_virial"
    },
@@ -377,13 +377,13 @@
    },
    "chips": {
     "native": "stored half and dissipated half",
-    "formula": "charging C to V from a fixed supply: CV^2 drawn, CV^2/2 stored, CV^2/2 dissipated (derived); whether this half and the virial half are one statement of IAM's Law is open",
+    "formula": "writing a bit from a fixed supply draws CV^2: CV^2/2 is stored in the node (potential: fills the space) and CV^2/2 is dissipated (kinetic: the work); erasing dissipates the stored half (derived). Whether this half and the virial half are one statement of IAM's Law is open (conjecture)",
     "status": "derived",
     "source": "p6_04 'Switching a transistor'"
    },
    "cells": {
-    "native": "metabolism and record (book); writing and erasing (author, candidate)",
-    "formula": "book: one half as metabolism, one written into the methylation pattern (conjecture); a partition of the total energy is ruled out (methylation maintenance ~1e-7 of the budget); a narrower partition at the maintenance machinery is left open. Author 2026-10-14: writer (DNMT, SAM) and eraser (TET, O2 and 2-OG) are that narrower partition",
+    "native": "the held pattern (potential) and the work of writing and making room (kinetic)",
+    "formula": "kinetic: the work of writing marks into the record and of making room for new writing (the writer and the eraser, each event >= k_B T ln2 at 310 K); potential: the held methylation pattern filling the DNA surface. Book p6_04: the two-halves picture for a cell is a conjecture; a split of the whole cell's energy is ruled out (maintenance ~1e-7 of the budget); a narrower split at the maintenance machinery is left open, which is where this sits",
     "status": "candidate",
     "source": "p6_04 keybox 'Status of the two-halves picture for a cell'; PHY-040; DEV_ERASE_01.md"
    }
@@ -391,7 +391,7 @@
   {
    "id": "writer",
    "name": "Writing process",
-   "definition": "What the domain calls writing a record (which half it belongs to is the 'two halves' row).",
+   "definition": "What the domain calls writing a record. Under the halves rule, writing is the kinetic half's work.",
    "cosmos": {
     "native": "potential half; geometric channel; \"the geometric reservoir of deposited potential energy\" = dark matter",
     "formula": "|V|/2 deposited into spacetime curvature (enters S_geo)",
@@ -432,7 +432,7 @@
   {
    "id": "eraser",
    "name": "Erasing process",
-   "definition": "What the domain calls erasing; erasure is where Landauer's cost is paid.",
+   "definition": "What the domain calls erasing, where Landauer's cost is paid; it makes room for new writing, the cell's counterpart of expansion.",
    "cosmos": {
     "native": "kinetic half; decoherence energy; \"kinetic informational half\"; Landauer/informational pressure on the horizon = dark energy together with the vacuum baseline L",
     "formula": "K = |V|/2 = Landauer cost of converting superpositions to classical outcomes; dynamical part beta_m E(a); Lambda = vacuum baseline",
