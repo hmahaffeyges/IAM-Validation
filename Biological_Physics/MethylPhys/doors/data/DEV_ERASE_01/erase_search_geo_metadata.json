@@ -1,0 +1,790 @@
+{
+ "TET_TKO": [
+  {
+   "gse": "GSE337139",
+   "title": "Reciprocal, methylation-dependent binding of Zfp57 and Gzf1 safeguards Dlk1-Dio3 imprinting during developmental reprogramming [Bisulfite]",
+   "taxon": "Mus musculus",
+   "n": 30,
+   "gpl": "28599",
+   "pdat": "2026/08/09",
+   "summary": "Genomic imprinting secures parent-specific gene expression through differential DNA methylation at imprinted control regions (ICRs). However, how unmethylated alleles resist de novo methylation remains unclear. Using an allelic Dlk1-Dio3 ICR methylation reporter and genome-wide loss-of-function screening, we identify the zinc finger protein GZF1 that binds the unmethylated maternal ICR and protects it from de novo methylation via a regulatory element containing GZF1 and ZFP57 motifs that mediates mutually exclusive, methylation-dependent binding. Loss of either factor causes reciprocal imprint",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE242461",
+   "title": "TET Proteins Control Early-Stage Stem Cell Differentiation via H3K27me3, Not DNA Demethylation",
+   "taxon": "Mus musculus",
+   "n": 30,
+   "gpl": "30172;21626",
+   "pdat": "2026/08/01",
+   "summary": "TET proteins reportedly have dual functions as mediators of DNA demethylation and H3K27me3 deposition in embryonic stem cells (ESCs) and during differentiation. To further explore the role of TET proteins in early ESC differentiation, we conducted mapping experiments on wild-type and cells lacking all three TET proteins (TET-TKO) at three stages: in ESCs, immediately after exit from pluripotency, and at the early differentiation stage. We observed minimal differences in transcriptional and DNA methylation levels between wild-type and TET-TKO cells during ESCs and after exit from pluripotency. ",
+   "types": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE278195",
+   "title": "Pivotal Role of the NuRD Complex in Remodeling Chromatin Environment and Maintaining Genome Architecture at CTCF Sites [mESC Bisulfite-seq]",
+   "taxon": "Mus musculus",
+   "n": 9,
+   "gpl": "24247",
+   "pdat": "2026/05/04",
+   "summary": "CCCTC-binding factor (CTCF) is an evolutionarily conserved transcription factor with diverse regulatory roles. Around stable CTCF binding sites, nucleosomes are highly ordered and DNA methylation is reduced, yet the mechanisms establishing and maintaining this epigenetic environment remain unclear. Utilizing an innovative eBioID method, we identified that virtually all subunits of the nucleosome remodeling and deacetylase (NuRD) complex are associated with CTCF in cells. Further analyses revealed that the NuRD complex is necessary for the chromatin binding of CTCF, and emerges as a novel regul",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE248933",
+   "title": "Transcriptomic and epigenomic profiling of Tet TKO neural stem cells to study NSC specification and multipotency",
+   "taxon": "Mus musculus",
+   "n": 36,
+   "gpl": "19057;28457;24247",
+   "pdat": "2024/07/23",
+   "summary": "In this study we: (1) identify genes deregulated in wildtype (WT) and Tet triple knockout (TKO) mouse embryonic stem cells (ESC) and neural stem cells (NSC). (2) Profile genome-wide changes in DNA methylation in WT and TKO ESCs and NSCs. (3) Map histone marks H3K4me1 and H3K27ac in WT and TKO ESCs and NSCs. (4) Identify promoter-interacting chromatin loops in WT and TKO NSCs.",
+   "types": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Methylation profiling by high throughput sequencing; Other"
+  },
+  {
+   "gse": "GSE223576",
+   "title": "Dynamic DNA methylation turnover at the exit of pluripotency epigenetically primes gene regulatory elements for hematopoietic lineage specification [WGBS]",
+   "taxon": "Mus musculus",
+   "n": 27,
+   "gpl": "24247",
+   "pdat": "2023/01/24",
+   "summary": "Epigenetic mechanisms govern developmental cell fate decisions, but how DNA methylation coordinates with chromatin structure and three-dimensional DNA folding to enact cell-type specific gene expression programmes remains poorly understood. Here, we use mouse embryonic stem and epiblast-like cells deficient for 5-methyl cytosine or its oxidative derivatives (5-hydroxy-, 5-formyl- and 5-carboxy-cytosine) to dissect the gene regulatory mechanisms that control cell lineage specification at the exit of pluripotency. Genetic ablation of either DNA methyltransferase (Dnmt) or Ten-eleven-translocatio",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE189655",
+   "title": "RNA-seq, WGBS, 5hmC-Seal, and ATAC-seq data about TET proteins and skeletal development [5hmC-Seal]",
+   "taxon": "Mus musculus",
+   "n": 4,
+   "gpl": "21273",
+   "pdat": "2022/07/07",
+   "summary": "The Ten-eleven translocation (TET) family of dioxygenases can mediate cytosine demethylation by catalyzing the oxidation of 5-methylcytosine (5mC). TET-mediated DNA demethylation controls the proper differentiation of embryonic stem cells and TET proteins display functional redundancy during early gastrulation. However, it is unclear if TET proteins have functional significance in mammalian skeletal development. Here, we report that Tet deficiency in mesoderm mesenchymal stem cells results in severe defects of bone development. The existence of any single Tet gene allele can support early bone",
+   "types": "Other"
+  },
+  {
+   "gse": "GSE174048",
+   "title": "RNA-seq, WGBS, 5hmC-Seal, and ATAC-seq data about TET proteins and skeletal development",
+   "taxon": "Mus musculus",
+   "n": 16,
+   "gpl": "21273;17021",
+   "pdat": "2022/07/07",
+   "summary": "This SuperSeries is composed of the SubSeries listed below.",
+   "types": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Methylation profiling by high throughput sequencing; Other"
+  },
+  {
+   "gse": "GSE174047",
+   "title": "RNA-seq, WGBS, 5hmC-Seal, and ATAC-seq data about TET proteins and skeletal development (WGBS)",
+   "taxon": "Mus musculus",
+   "n": 2,
+   "gpl": "17021",
+   "pdat": "2022/07/07",
+   "summary": "The Ten-eleven translocation (TET) family of dioxygenases can mediate cytosine demethylation by catalyzing the oxidation of 5-methylcytosine (5mC). TET-mediated DNA demethylation controls the proper differentiation of embryonic stem cells and TET proteins display functional redundancy during early gastrulation. However, it is unclear if TET proteins have functional significance in mammalian skeletal development. Here, we report that Tet deficiency in mesoderm mesenchymal stem cells results in severe defects of bone development. The existence of any single Tet gene allele can support early bone",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE174046",
+   "title": "RNA-seq, WGBS, 5hmC-Seal, and ATAC-seq data about TET proteins and skeletal development (RNA-Seq)",
+   "taxon": "Mus musculus",
+   "n": 6,
+   "gpl": "21273",
+   "pdat": "2022/07/07",
+   "summary": "The Ten-eleven translocation (TET) family of dioxygenases can mediate cytosine demethylation by catalyzing the oxidation of 5-methylcytosine (5mC). TET-mediated DNA demethylation controls the proper differentiation of embryonic stem cells and TET proteins display functional redundancy during early gastrulation. However, it is unclear if TET proteins have functional significance in mammalian skeletal development. Here, we report that Tet deficiency in mesoderm mesenchymal stem cells results in severe defects of bone development. The existence of any single Tet gene allele can support early bone",
+   "types": "Expression profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE174045",
+   "title": "RNA-seq, WGBS, 5hmC-Seal, and ATAC-seq data about TET proteins and skeletal development (ATAC-Seq)",
+   "taxon": "Mus musculus",
+   "n": 4,
+   "gpl": "21273",
+   "pdat": "2022/07/07",
+   "summary": "The Ten-eleven translocation (TET) family of dioxygenases can mediate cytosine demethylation by catalyzing the oxidation of 5-methylcytosine (5mC). TET-mediated DNA demethylation controls the proper differentiation of embryonic stem cells and TET proteins display functional redundancy during early gastrulation. However, it is unclear if TET proteins have functional significance in mammalian skeletal development. Here, we report that Tet deficiency in mesoderm mesenchymal stem cells results in severe defects of bone development. The existence of any single Tet gene allele can support early bone",
+   "types": "Genome binding/occupancy profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE205917",
+   "title": "The intrinsic and extrinsic effects of Tet proteins during gastrulation",
+   "taxon": "Mus musculus",
+   "n": 222,
+   "gpl": "19057;24247",
+   "pdat": "2022/06/14",
+   "summary": "To isolate cell-autonomous effects of TET loss during gastrulation, we utilized a chimeric embryo platform in which fluorescently tagged Tet-deficient and control mouse embryonic stem cells (mESCs) were either injected into tetraploid (4N) or diploid (2N) blastocysts, and allowed to develop in utero. In 4N complemented embryos, the resulting embryonic compartment is solely comprised of the injected mESCs derivatives (hereinafter denoted as whole-embryo chimera), whereas in chimeras obtained using 2N host blastocysts, the embryonic compartment contains both wild-type (WT) and injected cell deri",
+   "types": "Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE146486",
+   "title": "TET1 dioxygenase is required for FOXA2-associated chromatin remodeling in pancreatic beta-cell differentiation",
+   "taxon": "Homo sapiens",
+   "n": 65,
+   "gpl": "16791;23227;18573",
+   "pdat": "2022/04/13",
+   "summary": "Current knowledge about the role of epigenetic modifiers in pancreas development has been exponentially increased. However, the precise function of TET dioxygenases in pancreas specification remains poorly understood. Using a stepwise human embryonic stem cell (hESC) differentiation system, TET1/TET2/TET3 triple-knockout (TKO) cells displayed severe defects in pancreatic differentiation. Whole-genome analysis revealed TET depletion led to aberrant DNA methylation and chromatin remodeling. In comparison with methylome and hydroxymethylome datasets previously generated from hESCs, we identified ",
+   "types": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE159205",
+   "title": "Pronounced specificity of the TET enzyme catalytic domain guides cellular function",
+   "taxon": "Mus musculus",
+   "n": 127,
+   "gpl": "17021",
+   "pdat": "2022/01/01",
+   "summary": "Epigenetic memory in the form of cytosine methylation is essential for vertebrate development and the formation of cellular identity. Active removal of DNA methylation by the action of the TET hydroxylase family helps enable developmental potency, both in vivo and during creation of induced pluripotent stem cells. Despite this, little is known about how TET proteins are targeted to DNA. We report that mammalian TET enzymes show strong preference (>200 fold) for oxidising certain CG-containing hexamers in vitro, and during global methylation reprogramming in cultured cells and during embryogene",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE144524",
+   "title": "High throughput screening identifies SOX2 as a Super Pioneer Factor that inhibits DNA methylation maintenance at its binding sites",
+   "taxon": "Mus musculus",
+   "n": 24,
+   "gpl": "15907;21103;16417",
+   "pdat": "2021/03/18",
+   "summary": "Access of mammalian transcription factors (TFs) to regulatory regions, an essential event for transcription regulation, is hindered by chromatin compaction involving nucleosome wrapping, repressive histone modifications and DNA methylation. Moreover, methylation of TF binding sites (TBSs) affects TF binding affinity to these sites. Remarkably, a special class of TFs called pioneer transcription factors (PFs) can access nucleosomal DNA, leading to nucleosome remodelling and chromatin opening. However, whether PFs can bind to methylated sites and induce DNA demethylation is largely unknown. Here",
+   "types": "Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE152146",
+   "title": "TNF induced inflammatory transcription dynamics and epigenetic changes",
+   "taxon": "Homo sapiens",
+   "n": 58,
+   "gpl": "24676;23227",
+   "pdat": "2020/11/12",
+   "summary": "TNF can induce inflammatory responses in cells, including transcriptional and epigenetic changes. To investigate the long-term influence of TNF stimulation on epigenetic modifications, we did transcriptomic and epigenomic profiling of TNF-treated cells with various time length or stages.",
+   "types": "Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE142319",
+   "title": "A bisulfite\u2010free approach for base\u2010resolution analysis of genomic 5-carboxylcytosine",
+   "taxon": "Mus musculus",
+   "n": 10,
+   "gpl": "18635",
+   "pdat": "2020/09/15",
+   "summary": "Due to an extreme rarity of 5-carboxylcytosine (5caC) in mammalian genome, investigation of its role brings a considerable challenge. Methods based on bisulfite sequencing have been proposed for genome-wide 5caC analysis. However, bisulfite-based sequencing of scarcely abundant 5caC demands significant experimental/computational resources increasing sequencing cost. Here, we present a bisulfite-free approach, caCLEAR, for high resolution mapping of 5caCGs. The method employs an atypical activity of the methyltransferase eM.SssI to remove a carboxyl group from 5caC generating unmodified CGs whi",
+   "types": "Other"
+  },
+  {
+   "gse": "GSE85356",
+   "title": "DNA methylation repels binding of hypoxia-inducible transcription factors to maintain tumour immunotolerance",
+   "taxon": "Homo sapiens; Mus musculus",
+   "n": 285,
+   "gpl": "21103;17021;13112;11154;16791;20301",
+   "pdat": "2020/06/18",
+   "summary": "This SuperSeries is composed of the SubSeries listed below.",
+   "types": "Genome binding/occupancy profiling by high throughput sequencing; Methylation profiling by high throughput sequencing; Expression profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE85355",
+   "title": "DNA methylation repels binding of hypoxia-inducible transcription factors to maintain tumour immunotolerance [WGBS]",
+   "taxon": "Mus musculus",
+   "n": 10,
+   "gpl": "21103;17021",
+   "pdat": "2020/06/18",
+   "summary": "Background: Hypoxia is pervasive in cancer and other diseases. Cells sense and adapt to hypoxia by activating hypoxia-inducible transcription factors (HIFs), but it is still an outstanding question why cell types differ in their transcriptional response to hypoxia.   Results: Here, we report that HIFs fail to bind CpG dinucleotides that are methylated in their consensus binding sequence, both in in vitro biochemical binding assays and in vivo studies of differentially methylated isogenic cell lines. Based on in silico structural modelling, we show that 5-methylcytosine indeed causes steric hin",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE129470",
+   "title": "A genome-scale map of DNA methylation turnover identifies site-specific dependencies of DNMT and Tet activity",
+   "taxon": "Mus musculus",
+   "n": 102,
+   "gpl": "16417",
+   "pdat": "2020/04/24",
+   "summary": "DNA methylation is considered a stable epigenetic mark, yet methylation patterns can vary during differentiation and in diseases such as cancer. Local levels of DNA methylation result from opposing enzymatic activities, the rates of which remain largely unknown. Here we developed a theoretical and experimental framework enabling us to infer methylation and demethylation rates at 860,404 CpGs in the mouse genome.  Surprisingly, enzymatic rates can vary as much as two orders of magnitude between CpGs with identical steady-state measurements. Unexpectedly, de novo and maintenance methylation acti",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE126958",
+   "title": "Genome-wide methyl-cytosine competition by DNMT and TET",
+   "taxon": "Homo sapiens; Mus musculus",
+   "n": 42,
+   "gpl": "24676;24247;21103;20301",
+   "pdat": "2020/04/21",
+   "summary": "We define distinct methylated elements that recruit both DNMT3A/B and TETs. We also show the genome-wide activity of DNMTs and TETs.",
+   "types": "Methylation profiling by high throughput sequencing; Expression profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE89728",
+   "title": "TET1/2/3",
+   "taxon": "Homo sapiens",
+   "n": 22,
+   "gpl": "16791;18573;11154",
+   "pdat": "2017/12/01",
+   "summary": "This SuperSeries is composed of the SubSeries listed below.",
+   "types": "Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE89727",
+   "title": "Whole Genome Bisulfite Sequencing of HUES8 WT and HUES8 TET1/2/3 TKO hESCs",
+   "taxon": "Homo sapiens",
+   "n": 2,
+   "gpl": "11154",
+   "pdat": "2017/12/01",
+   "summary": "The TET enzymes oxidize 5-methylcytosine to 5-hydroxymethylcytosine, which can lead to DNA demethylation. However, direct connections between TET-mediated DNA demethylation and transcriptional output are difficult to establish due to challenges of distinguishing global versus locus-specific effects. Here we show that TET1/2/3 triple knockout (TKO) human embryonic stem cells (hESCs) exhibit preferential hypermethylation at bivalent promoters without corresponding gene expression changes in undifferentiated hESCs. In the absence of the TET proteins, abnormal accumulation of DNMT3B at bivalent pr",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE89724",
+   "title": "Reduced Representation Bisulfite Sequencing of HUES8 WT and HUES8 TET1/2/3 TKO hESCs",
+   "taxon": "Homo sapiens",
+   "n": 10,
+   "gpl": "11154",
+   "pdat": "2017/12/01",
+   "summary": "The TET enzymes oxidize 5-methylcytosine to 5-hydroxymethylcytosine, which can lead to DNA demethylation. However, direct connections between TET-mediated DNA demethylation and transcriptional output are difficult to establish due to challenges of distinguishing global versus locus-specific effects. Here we show that TET1/2/3 triple knockout (TKO) human embryonic stem cells (hESCs) exhibit preferential hypermethylation at bivalent promoters without corresponding gene expression changes in undifferentiated hESCs. In the absence of the TET proteins, abnormal accumulation of DNMT3B at bivalent pr",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE55049",
+   "title": "Loss of Tet enzymes compromises proper differentiation of embryonic stem cells",
+   "taxon": "Mus musculus",
+   "n": 5,
+   "gpl": "13112",
+   "pdat": "2014/04/17",
+   "summary": "Tet enzymes (Tet1/2/3) catalyze the conversion of 5-methylcytosine (5mC) to 5-hydroxy-methylcytosine (5hmC) and are dynamically expressed in various embryonic and adult cell types. While loss of individual Tet enzymes or combined deficiency of Tet1/2 allows for embryogenesis, the effect of complete loss of Tet activity and 5hmC marks in development has not been established. To define the role of Tet enzymes and 5hmC in development we have generated Tet1, Tet2 and Tet3 triple knockout (TKO) mouse embryonic stem cells (ESCs) and examined their developmental potential in vitro and in vivo. Combin",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE55574",
+   "title": "Loss of Tet enzymes compromises proper differentiation of embryonic stem cells",
+   "taxon": "Mus musculus",
+   "n": 6,
+   "gpl": "10787",
+   "pdat": "2014/04/14",
+   "summary": "Tet enzymes (Tet1/2/3) convert 5-methylcytosine (5mC) to 5-hydroxy-methylcytosine (5hmC) and are dynamically expressed in various embryonic and adult cell types. While loss of individual Tet enzymes or combined deficiency of Tet1/2 allows for embryogenesis, the effect of complete loss of Tet activity and 5hmC marks in development is not established. We have generated Tet1/2/3 triple knockout (TKO) mouse embryonic stem cells (ESCs) and examined their developmental potential. Combined deficiency of all three Tets depleted 5hmC and impaired ESC differentiation as seen in poorly differentiated TKO",
+   "types": "Expression profiling by array"
+  }
+ ],
+ "TET_DKO": [
+  {
+   "gse": "GSE297391",
+   "title": "The TET protein family interactor PROSER1 sustains hematopoietic stem cell function [RNA-Seq]",
+   "taxon": "Mus musculus",
+   "n": 7,
+   "gpl": "24247",
+   "pdat": "2025/06/25",
+   "summary": "Ten-Eleven-Translocation (TET) enzymes are epigenetic regulators important for prevention of hematological malignancies. PROSER1, a known TET protein interactor, has a critical role in modulating TET-mediated DNA demethylation during development. However, the potential involvement of PROSER1 in regulation of hematopoiesis and leukemogenesis remains unknown. Here, we demonstrate that the leukemia suppressive functions of TET2 are preserved in the absence of PROSER1. Nonetheless, we find that loss of PROSER1 partially recapitulates the aberrant enhancer DNA methylation phenotype observed upon TE",
+   "types": "Expression profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE240265",
+   "title": "The TET protein family interactor PROSER1 sustains hematopoietic stem cell function",
+   "taxon": "Mus musculus",
+   "n": 28,
+   "gpl": "24247",
+   "pdat": "2025/06/25",
+   "summary": "This SuperSeries is composed of the SubSeries listed below.",
+   "types": "Genome binding/occupancy profiling by high throughput sequencing; Methylation profiling by high throughput sequencing; Expression profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE240263",
+   "title": "The TET protein family interactor PROSER1 sustains hematopoietic stem cell function [Emseq]",
+   "taxon": "Mus musculus",
+   "n": 6,
+   "gpl": "24247",
+   "pdat": "2025/06/25",
+   "summary": "Ten-Eleven-Translocation (TET) enzymes are epigenetic regulators important for prevention of hematological malignancies. PROSER1, a known TET protein interactor, has a critical role in modulating TET-mediated DNA demethylation during development. However, the potential involvement of PROSER1 in regulation of hematopoiesis and leukemogenesis remains unknown. Here, we demonstrate that the leukemia suppressive functions of TET2 are preserved in the absence of PROSER1. Nonetheless, we find that loss of PROSER1 partially recapitulates the aberrant enhancer DNA methylation phenotype observed upon TE",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE240262",
+   "title": "The TET protein family interactor PROSER1 sustains hematopoietic stem cell function [ChIP-Seq]",
+   "taxon": "Mus musculus",
+   "n": 15,
+   "gpl": "24247",
+   "pdat": "2025/06/25",
+   "summary": "Ten-Eleven-Translocation (TET) enzymes are epigenetic regulators important for prevention of hematological malignancies. PROSER1, a known TET protein interactor, has a critical role in modulating TET-mediated DNA demethylation during development. However, the potential involvement of PROSER1 in regulation of hematopoiesis and leukemogenesis remains unknown. Here, we demonstrate that the leukemia suppressive functions of TET2 are preserved in the absence of PROSER1. Nonetheless, we find that loss of PROSER1 partially recapitulates the aberrant enhancer DNA methylation phenotype observed upon TE",
+   "types": "Genome binding/occupancy profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE288100",
+   "title": "Active DNA demethylation is upstream of rod photoreceptor fate determination and required for retinal development [Bisulfite-Seq]",
+   "taxon": "Mus musculus",
+   "n": 12,
+   "gpl": "34328;34290",
+   "pdat": "2025/03/01",
+   "summary": "The goal of this study is to investigate the role of TET enzyme-mediated DNA demethylation on retinal development and cell fate specification. We utilized an allelic series of TET enzyme retinal conditional mouse mutants using the Chx10-Cre-GFP transgene, removing the TET enzymes from retinal progenitor cells. We observe that inhibition of DNA demethylation results in abnormal retinal development and a loss of visual function. Immunohistological and genomic profiling (RNA-seq, scRNA-seq, WGBS, and bACE-seq) indicate that rod photoreceptor gene regulatory networks are inhibited when DNA demethy",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE288098",
+   "title": "Active DNA demethylation is upstream of rod photoreceptor fate determination and required for retinal development [snRNA-seq]",
+   "taxon": "Mus musculus",
+   "n": 2,
+   "gpl": "34290",
+   "pdat": "2025/03/01",
+   "summary": "The goal of this study is to investigate the role of TET enzyme-mediated DNA demethylation on retinal development and cell fate specification. We utilized an allelic series of TET enzyme retinal conditional mouse mutants using the Chx10-Cre-GFP transgene, removing the TET enzymes from retinal progenitor cells. We observe that inhibition of DNA demethylation results in abnormal retinal development and a loss of visual function. Immunohistological and genomic profiling (RNA-seq, scRNA-seq, WGBS, and bACE-seq) indicate that rod photoreceptor gene regulatory networks are inhibited when DNA demethy",
+   "types": "Expression profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE288096",
+   "title": "Active DNA demethylation is upstream of rod photoreceptor fate determination and required for retinal development [RNA-Seq]",
+   "taxon": "Mus musculus",
+   "n": 9,
+   "gpl": "34290",
+   "pdat": "2025/03/01",
+   "summary": "The goal of this study is to investigate the role of TET enzyme-mediated DNA demethylation on retinal development and cell fate specification. We utilized an allelic series of TET enzyme retinal conditional mouse mutants using the Chx10-Cre-GFP transgene, removing the TET enzymes from retinal progenitor cells. We observe that inhibition of DNA demethylation results in abnormal retinal development and a loss of visual function. Immunohistological and genomic profiling (RNA-seq, scRNA-seq, WGBS, and bACE-seq) indicate that rod photoreceptor gene regulatory networks are inhibited when DNA demethy",
+   "types": "Expression profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE183934",
+   "title": "Perturbation of TET2 condensation induces genome-wide promiscuous DNA hypomethylation and curtails leukemia cell growth",
+   "taxon": "Mus musculus; Homo sapiens",
+   "n": 50,
+   "gpl": "24676;19057;18573;24247",
+   "pdat": "2024/06/16",
+   "summary": "The Ten-Eleven Translocation (TET)-mediated DNA modification pathway is intimately involved in transcriptional regulation. As the major catalytic product of TET enzymes, 5-hydroxymethylcytosine (5hmC) is enriched at selected enhancers in a tissue specific manner, with the underlying mechanism yet to be clarified. Here, we report a low complexity insert (LCI) domain within the TET2 catalytic domain that facilitates TET2 condensation and enables its precise chromatin binding, which leads to DNA demethylation at specific genomic regions. Perturbation of TET2 condensation results in promiscuous DN",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE268886",
+   "title": "CXXC5 stabilizes DNA methylation patterns in mouse embryonic stem cells [Bisulfite-Seq]",
+   "taxon": "Mus musculus",
+   "n": 4,
+   "gpl": "24247",
+   "pdat": "2024/06/04",
+   "summary": "Mammalian genomes encode a family of 12 proteins that contain a CXXC zinc finger domain. These domains are known to bind to unmethylated DNA sequences rich in CpG dinucleotides. Most members of this family are large multi-domain proteins that function in the control of DNA methylation and histone methylation patterns. CXXC5 is a smaller member of the family, along with its closest homologue CXXC4. These two proteins lack known catalytic domains. Here we have characterized CXXC5 in mouse embryonic stem (ES) cells. We show that CXXC5 is a nuclear protein that interacts with 5-methylcytosine oxid",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE210025",
+   "title": "Transcriptional and epigenetic reprogramming mediated by chronic IL1\u03b2 exposure drives self-renewal ability and myeloid priming in TET2 deficient stem and progenitor cells [Bisulfite-Seq]",
+   "taxon": "Mus musculus",
+   "n": 48,
+   "gpl": "24247",
+   "pdat": "2023/10/27",
+   "summary": "Clonal hematopoiesis (CH) increases risk for the development of hematological malignancy and cardiovascular disease. IL1\u03b2 is elevated in patients with CH and its inhibition mitigates cardiovascular risk in murine models with Tet2 loss-of-function. How IL1\u03b2 alters population dynamics of hematopoietic cells upon Tet2 deletion (Tet2-KO) is not well understood. We demonstrated IL1\u03b2 expands Tet2-KO neutrophils, monocytes/macrophages, and long-term hematopoietic stem cells with reduced lymphopoiesis. IL1\u03b2 promotes myeloid bias over other lineages coinciding with failure to demethylate lineage associ",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE183675",
+   "title": "Tet2 deficiency altered hematopoietic stem and progenitor cells ageing process",
+   "taxon": "Mus musculus",
+   "n": 53,
+   "gpl": "19057;24247",
+   "pdat": "2023/08/11",
+   "summary": "we compared self-renewal and lineage specification of WT and Tet2-deficient HSPCs during ageing and demonstrated that Tet2 ablation alters age-dependent HSC functional decline, revealing a disparate ageing process in the Tet2-deficient haemopoietic system.",
+   "types": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Methylation profiling by high throughput sequencing; Other"
+  },
+  {
+   "gse": "GSE208688",
+   "title": "Dysfunction of 5-methylcytosine oxidases and the Polycomb protein RYBP leads to widespread DNA hypermethylation and cell transformation [WGBS]",
+   "taxon": "Homo sapiens",
+   "n": 24,
+   "gpl": "24676;16791",
+   "pdat": "2023/07/06",
+   "summary": "We inactivated RYBP, YAF2, TET1, TET2, and TET3 in bronchial cells, individually and in combination, and observed widespread DNA methylation by performing whole genome bisulfite sequencing.",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE213398",
+   "title": "Tet2 regulates Sin3a recruitment at active enhancers in embryonic stem cells",
+   "taxon": "Mus musculus",
+   "n": 28,
+   "gpl": "21103;24247;19057",
+   "pdat": "2023/06/23",
+   "summary": "In this study: (1) we distinguished Tet2 target genes that are regulated by its catalytic vs. noncatalytic functions in ESCs by transcriptomic profiling of Tet2 wildtype (WT), Tet2 catalytic mutant (Mut), and Tet2 knockout (KO) mouse ESCs by RNA-seq. (2) We mapped genome-wide DNA methylation of Tet2-WT, Tet2-Mut, and Tet2-KO ESCs by WGBS, to establish a critical role for Tet2 in demethylating promoters and enhancers of its catalytic target genes. (3) We determined how the genome-wide occupancy of the epigenetic modifiers Sin3a and Sap30 and the enrichment of H3K27ac, are affected in Tet2-Mut a",
+   "types": "Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing; Other"
+  },
+  {
+   "gse": "GSE222726",
+   "title": "Inducible disruption of Tet genes results in myeloid malignancy, readthrough transcription, and a heterochromatin-to-euchromatin switch",
+   "taxon": "Mus musculus",
+   "n": 36,
+   "gpl": "24247;17021;21103",
+   "pdat": "2023/04/17",
+   "summary": "This SuperSeries is composed of the SubSeries listed below.",
+   "types": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE223576",
+   "title": "Dynamic DNA methylation turnover at the exit of pluripotency epigenetically primes gene regulatory elements for hematopoietic lineage specification [WGBS]",
+   "taxon": "Mus musculus",
+   "n": 27,
+   "gpl": "24247",
+   "pdat": "2023/01/24",
+   "summary": "Epigenetic mechanisms govern developmental cell fate decisions, but how DNA methylation coordinates with chromatin structure and three-dimensional DNA folding to enact cell-type specific gene expression programmes remains poorly understood. Here, we use mouse embryonic stem and epiblast-like cells deficient for 5-methyl cytosine or its oxidative derivatives (5-hydroxy-, 5-formyl- and 5-carboxy-cytosine) to dissect the gene regulatory mechanisms that control cell lineage specification at the exit of pluripotency. Genetic ablation of either DNA methyltransferase (Dnmt) or Ten-eleven-translocatio",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE212715",
+   "title": "Tet2 and Tet3 mediated active cytosine hydroxymethylation in Six2 progenitor cells is critical for nephron progenitor differentiation and nephron endowment",
+   "taxon": "Mus musculus",
+   "n": 4,
+   "gpl": "19057;21273",
+   "pdat": "2022/11/23",
+   "summary": "Nephron endowment is a key determinant of later life hypertension and kidney disease. Here we studied whether epigenetic changes, specifically the ten\u2013eleven translocation (Tet) DNA demethylase family, Tet1, Tet2, and Tet3-mediated active DNA hydroxymethylation is necessary for gene expression regulation and kidney differentiation. We generated mice with deletion of Tet1, Tet2 or Tet3 in Six2 positive nephron progenitors (NP). We did not observe changes in development or kidney function in mice with nephron progenitor-specific deletion of Tet1, Tet2, Tet3 or Tet1/Tet2 or Tet1/Tet3. On the othe",
+   "types": "Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE146486",
+   "title": "TET1 dioxygenase is required for FOXA2-associated chromatin remodeling in pancreatic beta-cell differentiation",
+   "taxon": "Homo sapiens",
+   "n": 65,
+   "gpl": "16791;23227;18573",
+   "pdat": "2022/04/13",
+   "summary": "Current knowledge about the role of epigenetic modifiers in pancreas development has been exponentially increased. However, the precise function of TET dioxygenases in pancreas specification remains poorly understood. Using a stepwise human embryonic stem cell (hESC) differentiation system, TET1/TET2/TET3 triple-knockout (TKO) cells displayed severe defects in pancreatic differentiation. Whole-genome analysis revealed TET depletion led to aberrant DNA methylation and chromatin remodeling. In comparison with methylome and hydroxymethylome datasets previously generated from hESCs, we identified ",
+   "types": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE164040",
+   "title": "Acute lymphoblastic leukemia displays a distinct highly methylated genome",
+   "taxon": "Homo sapiens",
+   "n": 25,
+   "gpl": "24676;11154",
+   "pdat": "2022/03/03",
+   "summary": "DNA methylation is tightly regulated during development and is stably maintained in normal cells. In contrast, the methylome of cancer cells is commonly characterized by a global loss of DNA methylation co-occurring with CpG island hypermethylation. In acute lymphoblastic leukemia (ALL), the commonest childhood cancer, perturbations of CpG methylation have been reported to be associated with genetic disease subtype and outcome, but data examining large cohorts at genome-wide scale are lacking. Here, we performed whole-genome bisulfite sequencing of leukemic cells across multiple subtypes of AL",
+   "types": "Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE156006",
+   "title": "BS-seq of Tet-TKD 2-cell embryos",
+   "taxon": "Mus musculus",
+   "n": 21,
+   "gpl": "19057",
+   "pdat": "2021/11/22",
+   "summary": "whole genome bisulfite sequencing of single control and Tet-TKD 2-cell embryos",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE172145",
+   "title": "The proline and serine rich protein PROSER1 mediates O-GlcNAcylation of TET2 to regulate DNA demethylation on UTX-dependent enhancers and CpG islands.",
+   "taxon": "Homo sapiens",
+   "n": 52,
+   "gpl": "16791;20301;24676",
+   "pdat": "2021/10/13",
+   "summary": "This SuperSeries is composed of the SubSeries listed below.",
+   "types": "Genome binding/occupancy profiling by high throughput sequencing; Methylation profiling by high throughput sequencing; Expression profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE172143",
+   "title": "The proline and serine rich protein PROSER1 mediates O-GlcNAcylation of TET2 to regulate DNA demethylation on UTX-dependent enhancers and CpG islands [WGBS]",
+   "taxon": "Homo sapiens",
+   "n": 4,
+   "gpl": "24676",
+   "pdat": "2021/10/13",
+   "summary": "DNA methylation at enhancers and CpG islands usually leads to gene repression, which is counteracted by DNA demethylation through the TET protein family. However, how TET enzymes are recruited and regulated at these genomic loci is not fully understood. Here, we identify TET2 and a previously undescribed proline and serine rich protein, PROSER1 as interactors of UTX, a component of the enhancer-associated MLL3/4 complexes. Affinity purification of PROSER1 resulted in the identification of OGT and TET1-3. We find that PROSER1 mediates the interaction between OGT and TET2, thus promoting TET2 O-",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE158223",
+   "title": "Foxp3 enhancers synergize to maximize regulatory T cell suppressive capacity",
+   "taxon": "Mus musculus",
+   "n": 60,
+   "gpl": "24247",
+   "pdat": "2021/05/10",
+   "summary": "This SuperSeries is composed of the SubSeries listed below.",
+   "types": "Other; Genome binding/occupancy profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE152146",
+   "title": "TNF induced inflammatory transcription dynamics and epigenetic changes",
+   "taxon": "Homo sapiens",
+   "n": 58,
+   "gpl": "24676;23227",
+   "pdat": "2020/11/12",
+   "summary": "TNF can induce inflammatory responses in cells, including transcriptional and epigenetic changes. To investigate the long-term influence of TNF stimulation on epigenetic modifications, we did transcriptomic and epigenomic profiling of TNF-treated cells with various time length or stages.",
+   "types": "Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE136673",
+   "title": "Regulation of DNA Methylation at Enhancers by TET2 Finetunes Gene Transcription in ER\u03b1-Positive Breast Cancer Cells",
+   "taxon": "Homo sapiens",
+   "n": 36,
+   "gpl": "11154",
+   "pdat": "2020/07/09",
+   "summary": "Background: Aberrant DNA methylation is an epigenetic hallmark of most malignant tumors including breast cancer. However, the exact role of TET2-mediated DNA demethylation in ER\u03b1-positive luminal breast cancer is not well understood. Results: Here we showed by TCGA analyses that lower TET2 mRNA expression level is associated with worse clinical outcomes (i.e., overall survival) in ER\u03b1-positive but not ER\u03b1-negative breast cancer. Moreover, depletion of TET2 by CRISPR/Cas9 results in increased tumorigenesis capability of MCF7 cells in vitro. Whole genome bisulfite sequencing (WGBS) analysis reve",
+   "types": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE126958",
+   "title": "Genome-wide methyl-cytosine competition by DNMT and TET",
+   "taxon": "Homo sapiens; Mus musculus",
+   "n": 42,
+   "gpl": "24676;24247;21103;20301",
+   "pdat": "2020/04/21",
+   "summary": "We define distinct methylated elements that recruit both DNMT3A/B and TETs. We also show the genome-wide activity of DNMTs and TETs.",
+   "types": "Methylation profiling by high throughput sequencing; Expression profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE121671",
+   "title": "Tet inactivation disrupts YY1 binding and long-range chromatin interactions to cause developmental defects in embryonic heart",
+   "taxon": "Mus musculus; Homo sapiens",
+   "n": 23,
+   "gpl": "18573;19057",
+   "pdat": "2019/08/07",
+   "summary": "Tet-mediated DNA methylation oxidation plays an important role in shaping the epigenetic landscapes and chromatin accessibility during gene expression. While several studies demonstrated pivotal roles of Tet proteins in regulating embryonic development, little is known about their functions in heart development. Here we systemetically analyzed DNA methylation and hydroxymethylation dynamics during early cardiac development in both human and mice. We discovered that cardiac-specific deletion of Tet2 and Tet3 in mice (Tet2/3-DKO) led to ventricular non-compaction cardiomyopathy (NCC) with embryo",
+   "types": "Methylation profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing; Other"
+  },
+  {
+   "gse": "GSE121723",
+   "title": "Glioblastoma epigenome profiling identifies SOX10 as a master regulator of molecular tumour subtype",
+   "taxon": "Mus musculus; Homo sapiens",
+   "n": 364,
+   "gpl": "13112;11154;13534;570;23976",
+   "pdat": "2018/11/05",
+   "summary": "This SuperSeries is composed of the SubSeries listed below.",
+   "types": "Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing; Expression profiling by array; Methylation profiling by genome tiling array; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE99607",
+   "title": "Impaired DNA demethylation of C/EBP sites causes premature aging",
+   "taxon": "Mus musculus",
+   "n": 58,
+   "gpl": "10787;19057;13112;17021",
+   "pdat": "2018/06/11",
+   "summary": "Changes in DNA methylation are among the best-documented epigenetic alterations accompanying organismal aging. However, whether and how altered DNA methylation is causally involved in aging have remained elusive. GADD45\u03b1 (growth arrest and DNA damage protein 45A) and ING1 (inhibitor of growth family member 1) are adapter proteins for site-specific demethylation by TET (ten-eleven translocation) methylcytosine dioxygenases. Here we show that Gadd45a/Ing1 double-knockout mice display segmental progeria and phenocopy impaired energy homeostasis and lipodystrophy characteristic of Cebp (CCAAT/enha",
+   "types": "Methylation profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing; Expression profiling by array; Other"
+  },
+  {
+   "gse": "GSE89728",
+   "title": "TET1/2/3",
+   "taxon": "Homo sapiens",
+   "n": 22,
+   "gpl": "16791;18573;11154",
+   "pdat": "2017/12/01",
+   "summary": "This SuperSeries is composed of the SubSeries listed below.",
+   "types": "Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE89727",
+   "title": "Whole Genome Bisulfite Sequencing of HUES8 WT and HUES8 TET1/2/3 TKO hESCs",
+   "taxon": "Homo sapiens",
+   "n": 2,
+   "gpl": "11154",
+   "pdat": "2017/12/01",
+   "summary": "The TET enzymes oxidize 5-methylcytosine to 5-hydroxymethylcytosine, which can lead to DNA demethylation. However, direct connections between TET-mediated DNA demethylation and transcriptional output are difficult to establish due to challenges of distinguishing global versus locus-specific effects. Here we show that TET1/2/3 triple knockout (TKO) human embryonic stem cells (hESCs) exhibit preferential hypermethylation at bivalent promoters without corresponding gene expression changes in undifferentiated hESCs. In the absence of the TET proteins, abnormal accumulation of DNMT3B at bivalent pr",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE72116",
+   "title": "TET proteins regulate lineage specification and TCR-mediated expansion of iNKT cells  (WGBS)",
+   "taxon": "Mus musculus",
+   "n": 4,
+   "gpl": "17021",
+   "pdat": "2016/11/21",
+   "summary": "TET proteins oxidize 5-methylcytosine to 5-hydroxymethylcytosine and further oxidation products in DNA. Here we report that simultaneous deletion of Tet2 and Tet3 in mouse double-positive thymocytes resulted in dysregulated development and proliferation of invariant natural killer T (iNKT) cells. Tet2-Tet3-double-deficient (DKO) iNKT cells displayed pronounced skewing towards the NKT17 lineage, with increased DNA methylation and impaired expression of genes encoding the key lineage-specifying factors T-bet and ThPOK. Transfer of purified Tet2-Tet3 DKO iNKT cells into immunocompetent recipient ",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE66834",
+   "title": "TET proteins regulate lineage specification and TCR-mediated expansion of iNKT cells ",
+   "taxon": "Mus musculus",
+   "n": 54,
+   "gpl": "17021",
+   "pdat": "2016/11/21",
+   "summary": "This SuperSeries is composed of the SubSeries listed below.",
+   "types": "Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE56986",
+   "title": "Tet proteins in DNA demethylation and cell fate restriction",
+   "taxon": "Mus musculus",
+   "n": 4,
+   "gpl": "17021",
+   "pdat": "2014/09/22",
+   "summary": "DNA methylation at 5-position of cytosine (5mC) is one of the best studied epigenetic modifications that plays important roles in diverse biological processes. Iterative oxidation of 5mC by the Ten-eleven translocation (Tet) family of proteins generates 5-hydroxymethylcytosine (5hmC), 5-formylcytosine (5fC), and 5-carboxylcytosine (5caC), which can be further processed by DNA repair proteins leading to DNA demethylation. Functional characterization of the Tet proteins has been complicated by the redundancy between the three Tet proteins. Using the CRISPR/Cas9 technology, we have generated mous",
+   "types": "Methylation profiling by high throughput sequencing; Expression profiling by high throughput sequencing"
+  }
+ ],
+ "IDH": [
+  {
+   "gse": "GSE319448",
+   "title": "DNA methylation stochasticity is linked to transcriptional variability and identifies convergent epigenetic disruption across genetically-defined subtypes of AML [CellCulture_WGBS]",
+   "taxon": "Homo sapiens",
+   "n": 12,
+   "gpl": "34284",
+   "pdat": "2026/03/09",
+   "summary": "Epigenetic regulators are frequently mutated in acute myeloid leukemia (AML). We investigated DNA methylation stochasticity in genetic subtypes of AML using WGBS data and publicly-available ERRBS data, and identified transcriptional dysregulation and altered chromatin accessibility related to methylation entropy using single-cell RNA-seq and single-cell ATAC-seq data. We demonstrated that the hypomethylating drug decitabine (DAC) leads to reduction of DNA methylation entropy specifically in IDH2-mutant AML cells.",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE319447",
+   "title": "DNA methylation stochasticity is linked to transcriptional variability and identifies convergent epigenetic disruption across genetically-defined subtypes of AML [PrimaryAML_scATACseq]",
+   "taxon": "Homo sapiens",
+   "n": 24,
+   "gpl": "24676;20301",
+   "pdat": "2026/03/09",
+   "summary": "Epigenetic regulators are frequently mutated in acute myeloid leukemia (AML). We investigated DNA methylation stochasticity in genetic subtypes of AML using WGBS data and publicly-available ERRBS data, and identified transcriptional dysregulation and altered chromatin accessibility related to methylation entropy using single-cell RNA-seq and single-cell ATAC-seq data.",
+   "types": "Genome binding/occupancy profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE319444",
+   "title": "DNA methylation stochasticity is linked to transcriptional variability and identifies convergent epigenetic disruption across genetically-defined subtypes of AML [PrimaryAML_WGBS]",
+   "taxon": "Homo sapiens",
+   "n": 20,
+   "gpl": "24676;20301",
+   "pdat": "2026/03/09",
+   "summary": "Epigenetic regulators are frequently mutated in acute myeloid leukemia (AML). We investigated DNA methylation stochasticity in genetic subtypes of AML using WGBS data and publicly-available ERRBS data, and identified transcriptional dysregulation and altered chromatin accessibility related to methylation entropy using single-cell RNA-seq and single-cell ATAC-seq data.",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE319461",
+   "title": "DNA methylation stochasticity is linked to transcriptional variability and identifies convergent epigenetic disruption across genetically-defined subtypes of AML",
+   "taxon": "Homo sapiens",
+   "n": 82,
+   "gpl": "24676;34284;20301",
+   "pdat": "2026/03/06",
+   "summary": "This SuperSeries is composed of the SubSeries listed below.",
+   "types": "Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE280581",
+   "title": "Intragenic Epigenetic Deregulation by IDH2 Mutations Synergizes with SRSF2 Mutations Causing Mis-splicing of Key Transcriptional Regulators [RNA-seq]",
+   "taxon": "Homo sapiens",
+   "n": 20,
+   "gpl": "16791",
+   "pdat": "2025/11/26",
+   "summary": "Genes impacting DNA methylation (DNAme), like IDH2, are frequently co-mutated with splicing factors, like SRSF2, in acute myeloid leukemia (AML). These co-occurring mutations are associated with more aggressive phenotypes but the underlying molecular mechanisms remain elusive. To address this gap, we profiled wild-type, IDH2R140Q or SRSF2P95 single-mutants and IDH2R140Q/SRSF2P95 double-mutant AMLs at a deep resolution level. We find a unique set of mis-spliced genes and differentially methylated CpGs in double-mutants. Mis-spliced exons are enriched in CCNG splicing enhancers and in the corres",
+   "types": "Expression profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE280562",
+   "title": "Intragenic Epigenetic Deregulation by IDH2 Mutations Synergizes with SRSF2 Mutations Causing Mis-splicing of Key Transcriptional Regulators [BiSulfite-seq]",
+   "taxon": "Homo sapiens",
+   "n": 25,
+   "gpl": "24676",
+   "pdat": "2025/11/26",
+   "summary": "Genes impacting DNA methylation (DNAme), like IDH2, are frequently co-mutated with splicing factors, like SRSF2, in acute myeloid leukemia (AML). These co-occurring mutations are associated with more aggressive phenotypes but the underlying molecular mechanisms remain elusive. To address this gap, we profiled wild-type, IDH2R140Q or SRSF2P95 single-mutants and IDH2R140Q/SRSF2P95 double-mutant AMLs at a deep resolution level. We find a unique set of mis-spliced genes and differentially methylated CpGs in double-mutants. Mis-spliced exons are enriched in CCNG splicing enhancers and in the corres",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE289246",
+   "title": "crossNN is an explainable framework for cross-platform DNA methylation-based classification of tumors [sequencing-based methylome profiling]",
+   "taxon": "Homo sapiens",
+   "n": 139,
+   "gpl": "24106;26167;24676",
+   "pdat": "2025/02/24",
+   "summary": "DNA methylation-based classification of brain tumors has emerged as a powerful and indispensable diagnostic technique. Initial implementations have used methylation microarrays for data generation, but different sequencing approaches are increasingly used. Most current classifiers, however, rely on a fixed methylation feature space, rendering them incompatible with other platforms, especially different flavors of DNA sequencing. Here, we describe crossNN, a neural network-based machine learning framework which can accurately classify tumor entities using DNA methylation profiles obtained from ",
+   "types": "Methylation profiling by high throughput sequencing; Other"
+  },
+  {
+   "gse": "GSE265854",
+   "title": "Mutant IDH1 inhibition induces dsDNA sensing to activate tumor immunity [human WGBS]",
+   "taxon": "Homo sapiens",
+   "n": 12,
+   "gpl": "24676",
+   "pdat": "2024/04/28",
+   "summary": "Isocitrate Dehydrogenase 1 (IDH1) is the most commonly mutated metabolic gene across human cancers. Mutant IDH1 (mIDH1) generates the oncometabolite (R)-2-hydroxyglutarate, disrupting enzymes involved in epigenetics and other processes. A hallmark of IDH1-mutant solid tumors is T cell exclusion, whereas mIDH1 inhibition in preclinical models restores anti-tumor immunity. Here, we define a cell-autonomous mechanism of mIDH1-driven immune evasion. IDH1-mutant solid tumors show striking, selective hypermethylation and silencing of the cytoplasmic dsDNA sensor, CGAS, compromising innate immune sig",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE265806",
+   "title": "Mutant IDH1 inhibition induces dsDNA sensing to activate tumor immunity [mouse WGBS]",
+   "taxon": "Mus musculus",
+   "n": 16,
+   "gpl": "24247",
+   "pdat": "2024/04/28",
+   "summary": "Isocitrate Dehydrogenase 1 (IDH1) is the most commonly mutated metabolic gene across human cancers. Mutant IDH1 (mIDH1) generates the oncometabolite (R)-2-hydroxyglutarate, disrupting enzymes involved in epigenetics and other processes. A hallmark of IDH1-mutant solid tumors is T cell exclusion, whereas mIDH1 inhibition in preclinical models restores anti-tumor immunity. Here, we define a cell-autonomous mechanism of mIDH1-driven immune evasion. IDH1-mutant solid tumors show striking, selective hypermethylation and silencing of the cytoplasmic dsDNA sensor, CGAS, compromising innate immune sig",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE264730",
+   "title": "Mutant IDH1 inhibition induces dsDNA sensing to activate tumor immunity",
+   "taxon": "Mus musculus; Homo sapiens",
+   "n": 203,
+   "gpl": "24676;24247;18573",
+   "pdat": "2024/04/28",
+   "summary": "This SuperSeries is composed of the SubSeries listed below.",
+   "types": "Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE234147",
+   "title": "HDAC6 deacetylates IDH1 to regulate the homeostasis of hematopoietic stem/progenitor cells [WGBS-seq]",
+   "taxon": "Mus musculus",
+   "n": 4,
+   "gpl": "24247",
+   "pdat": "2023/06/06",
+   "summary": "In order to further explore the mechanism by which increased 5hmC inhibits expansion of LSK cells from Hdac6-/- murine primary BM cells, we performed WGBS-seq and oxWGBS-seq analysis using LSK cells isolated from Hdac6-/- and WT mice.",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE189860",
+   "title": "Transcriptomic and Epigenomic Profiles of CIC-knockout and IDH1 mutant cells [WGBS]",
+   "taxon": "Homo sapiens",
+   "n": 12,
+   "gpl": "20795",
+   "pdat": "2021/12/01",
+   "summary": "Capicua (CIC)\u2019s transcriptional repressor function is implicated in neurodevelopment and in oligodendroglioma (ODG) aetiology. However, CIC\u2019s role in these contexts remains obscure, primarily from our currently limited knowledge regarding its biological functions. Moreover, CIC mutations in ODG invariably co-occur with a neomorphic IDH1/2 mutation, yet the functional relationship between these two genetic events is unknown. Here, we analysed models derived from an E6/E7/hTERT-immortalized (i.e. p53- and RB-deficient) normal human astrocyte cell line. To examine the consequences of CIC loss, we",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE189861",
+   "title": "Transcriptomic and Epigenomic Profiles of CIC-knockout and IDH1 mutant cells",
+   "taxon": "Homo sapiens",
+   "n": 116,
+   "gpl": "16791;20795",
+   "pdat": "2021/11/30",
+   "summary": "This SuperSeries is composed of the SubSeries listed below.",
+   "types": "Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE151787",
+   "title": "2-hydroxyglutarate drives whole-genome hypermethylation in kidney cancer cells with inactivated VHL",
+   "taxon": "Homo sapiens",
+   "n": 9,
+   "gpl": "16791",
+   "pdat": "2021/06/01",
+   "summary": "Hypermethylation of tumor suppressors and other aberrations of DNA methylation in tumors play a significant role in cancer progression. DNA methylation can be affected by various environmental conditions including hypoxia. The response to hypoxia is mainly achieved through activation of the transcription program associated with HIF1a transcription factor. VHL inactivation by genetic or epigenetic events, which also induces aberrant activation of HIF1a, is the most common driver event for renal cancer. With whole-genome bisulfite sequencing and LC-MS, we demonstrated that VHL inactivation induc",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE121723",
+   "title": "Glioblastoma epigenome profiling identifies SOX10 as a master regulator of molecular tumour subtype",
+   "taxon": "Mus musculus; Homo sapiens",
+   "n": 364,
+   "gpl": "13112;11154;13534;570;23976",
+   "pdat": "2018/11/05",
+   "summary": "This SuperSeries is composed of the SubSeries listed below.",
+   "types": "Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing; Expression profiling by array; Methylation profiling by genome tiling array; Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE121721",
+   "title": "Glioblastoma epigenome profiling identifies SOX10 as a master regulator of molecular tumour subtype - tumour methylation (WGBS) data",
+   "taxon": "Homo sapiens",
+   "n": 64,
+   "gpl": "11154",
+   "pdat": "2018/11/05",
+   "summary": "Glioblastomas in adult patients are classified into four subtypes, IDH, MES, RTK I, and RTK II, based on DNA-methylation and RNA-expression data. Tumour subtype transitions are common during treatment, and transitions to the mesenchymal (MES) subtype are associated with therapy resistance and adverse prognosis. Here, we present DNA methylome and histone modification data of glioblastoma primary tumours and find that glioblastoma subtypes differ in their enhancer landscapes. Using Core Regulatory Circuitry analysis of chromatin and orthogonal analysis of RNA-derived gene regulatory networks, we",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE87623",
+   "title": "Vitamin C induced epigenomic remodeling in IDH1 mutant acute myeloid leukemia",
+   "taxon": "Mus musculus",
+   "n": 24,
+   "gpl": "19057;17021",
+   "pdat": "2017/07/01",
+   "summary": "The genomes of myeloid malignancies are characterized by epigenomic abnormalities. Heterozygous, inactivating TET2 mutations and neomorphic IDH mutations are recurrent and mutually exclusive in acute myeloid leukemia (AML) genomes. Ascorbic Acid (vitamin C) has been shown to stimulate the catalytic activity of TET2 in vitro and thus we sought to explore its effect in a leukemic model expressing IDH1R132H. Vitamin C treatment induced an IDH1R132H dependent reduction in cell proliferation and an increase in expression of genes involved in leukocyte differentiation.   Vitamin C induced differenti",
+   "types": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Methylation profiling by high throughput sequencing"
+  }
+ ],
+ "hypoxia": [
+  {
+   "gse": "GSE151787",
+   "title": "2-hydroxyglutarate drives whole-genome hypermethylation in kidney cancer cells with inactivated VHL",
+   "taxon": "Homo sapiens",
+   "n": 9,
+   "gpl": "16791",
+   "pdat": "2021/06/01",
+   "summary": "Hypermethylation of tumor suppressors and other aberrations of DNA methylation in tumors play a significant role in cancer progression. DNA methylation can be affected by various environmental conditions including hypoxia. The response to hypoxia is mainly achieved through activation of the transcription program associated with HIF1a transcription factor. VHL inactivation by genetic or epigenetic events, which also induces aberrant activation of HIF1a, is the most common driver event for renal cancer. With whole-genome bisulfite sequencing and LC-MS, we demonstrated that VHL inactivation induc",
+   "types": "Methylation profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE85356",
+   "title": "DNA methylation repels binding of hypoxia-inducible transcription factors to maintain tumour immunotolerance",
+   "taxon": "Homo sapiens; Mus musculus",
+   "n": 285,
+   "gpl": "21103;17021;13112;11154;16791;20301",
+   "pdat": "2020/06/18",
+   "summary": "This SuperSeries is composed of the SubSeries listed below.",
+   "types": "Genome binding/occupancy profiling by high throughput sequencing; Methylation profiling by high throughput sequencing; Expression profiling by high throughput sequencing"
+  },
+  {
+   "gse": "GSE85355",
+   "title": "DNA methylation repels binding of hypoxia-inducible transcription factors to maintain tumour immunotolerance [WGBS]",
+   "taxon": "Mus musculus",
+   "n": 10,
+   "gpl": "21103;17021",
+   "pdat": "2020/06/18",
+   "summary": "Background: Hypoxia is pervasive in cancer and other diseases. Cells sense and adapt to hypoxia by activating hypoxia-inducible transcription factors (HIFs), but it is still an outstanding question why cell types differ in their transcriptional response to hypoxia.   Results: Here, we report that HIFs fail to bind CpG dinucleotides that are methylated in their consensus binding sequence, both in in vitro biochemical binding assays and in vivo studies of differentially methylated isogenic cell lines. Based on in silico structural modelling, we show that 5-methylcytosine indeed causes steric hin",
+   "types": "Methylation profiling by high throughput sequencing"
+  }
+ ]
+}

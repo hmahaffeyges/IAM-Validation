@@ -190,3 +190,12 @@ GSE226298,spent,"read by the commissioned Met-A neutrophil bars 10-11 (COMMISSIO
 GSE287331,spent,"DEV-FIELD-01 (sealed, scored once 2026-10-13)",DEV_FIELD_01
 GSE281307,spent,"DEV-BREACH-01 (sealed, scored once 2026-10-13)",DEV_BREACH_01
 GSE184269,partly spent,"C-score band test (a), second laboratory, 2026-10-13 (CSCORE_COMMISSIONING_PLAN.md): its 24 whole bloods and 10 FACS granulocytes read; the sorted monocytes, B, CD4, CD8 and NK arrays not read",band_test_GSE184269_samples.csv 2026-10-13
+GSE89727,spent (declared before reading),"DEV-ERASE-01 U1, WT and TET TKO WGBS, 2026-10-14",GEO metadata search 2026-10-14
+GSE126958,partly spent (declared before reading),DEV-ERASE-01 U1: HUES8_WT_WGBS and HUES8_TKO_WGBS only; other knockouts not read,GEO metadata search 2026-10-14
+GSE223576,partly spent (declared before reading),DEV-ERASE-01 U2: TET WT and TET KO ESC day 0 WGBS only,GEO metadata search 2026-10-14
+GSE248933,partly spent (declared before reading),"DEV-ERASE-01 U3 and U4: the four WGBS samples (ESC and NSC, WT and TKO)",GEO metadata search 2026-10-14
+GSE56986,spent (declared before reading),DEV-ERASE-01 U5: WT and TetTKO WGBS,GEO metadata search 2026-10-14
+GSE288100,partly spent (declared before reading),"DEV-ERASE-01 secondary: retina WGBS, 3 WT and 3 tcKO",GEO metadata search 2026-10-14
+GSE174047,spent (declared before reading),DEV-ERASE-01 secondary: WT and TCKO WGBS,GEO metadata search 2026-10-14
+GSE265854,partly spent (declared before reading),DEV-ERASE-01 side arm: DMSO and AG120 WGBS (6 of 12),GEO metadata search 2026-10-14
+GSE87623,partly spent (declared before reading),DEV-ERASE-01 side arm: untreated and vitamin C WGBS,GEO metadata search 2026-10-14

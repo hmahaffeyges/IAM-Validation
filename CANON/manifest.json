@@ -7539,14 +7539,19 @@
    "purpose": "Would decide whether the extra loss cells carry beyond the writer's own errors comes from active erasure or from restores that were missed. It matters because erasure is the operation that must dissipate under Landauer's principle.",
    "instrument_or_term": "erase channel; the 0.74 kT gap",
    "sources": [
-    "TET-knockout methylation sets (to search)",
-    "sorted neurons (DEV-IAMA-NEURON-01 labs)",
-    "DEV-FIELD-01 field vs tumor (GSE287331, spent)"
+    "GSE89727 + GSE126958 (U1, human HUES8 WT / TET TKO)",
+    "GSE223576 (U2, mouse ESC TET WT / KO day 0)",
+    "GSE248933 (U3 ESC, U4 NSC, Tet WT / TKO)",
+    "GSE56986 (U5, mouse E14 WT / TetTKO)",
+    "GSE288100 (secondary, retina tcKO)",
+    "GSE174047 (secondary, skeletal TCKO)",
+    "GSE265854 (side arm, IDH1 inhibitor AG-120 vs DMSO)",
+    "GSE87623 (side arm, vitamin C in IDH1-R132H cells)"
    ],
-   "data_status": "to_scout",
+   "data_status": "declared",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
-   "status": "designed",
-   "next_step": "Metadata-only search for TET-loss and IDH-mutant single-molecule sets with same-lab controls; declare them spent; then read once by the sealed rule.",
+   "status": "sealed",
+   "next_step": "Planted check on real molecules (box job 091bf539), then read each declared sample once by the rule in DEV_ERASE_01.md (10 M pairs as 20 spread blocks; verdict MET if at least 3 of 5 primary units are MET and none NOT MET).",
    "cost": "search",
    "impact": 3,
    "depends_on": [

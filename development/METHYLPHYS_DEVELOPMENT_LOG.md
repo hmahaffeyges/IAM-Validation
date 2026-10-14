@@ -1705,3 +1705,6 @@ The cosmos fidelity box said halos and black holes could carry an A; the book al
 
 ### 2026-10-14 · DEV-ERASE-01: the sealed test begins (author: "I want to actually pursue testing it now")
 Planted check on real healthy molecules committed first (a87e3656, amended 4d66949d before any real file was read: the doubled arm is reported with no bar after a code smoke test on a made-up file showed counting alone reads a doubling as 1.77). Box job 091bf539. Next, in parallel: the metadata-only search for eraser-removed single-molecule sets with same-laboratory controls.
+
+### 2026-10-14 · DEV-ERASE-01: the eraser-removed sets declared, and the verdict rule for several sets fixed, before any read
+Metadata-only search (GEO): 5 primary units of constitutive TET1/2/3 removal with same-laboratory controls (human HUES8; mouse ES cells from three laboratories; mouse neural stem cells), 2 tissue conditional knockouts as secondary, 2 side arms (IDH1 inhibitor, vitamin C). Verdict: MET if at least 3 of 5 primary units are MET and none NOT MET. Reads: 10 million pairs per sample as 20 blocks spread through each run. All nine series entered in CANON/data_spent.csv before reading.

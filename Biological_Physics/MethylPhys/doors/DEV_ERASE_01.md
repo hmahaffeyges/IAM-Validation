@@ -35,6 +35,35 @@ real isolated errors turned back (the eraser-removed picture); about as many new
 0.45-0.55 and the base file's two halves within 0.95-1.05; doubled/base reported, no bar (amended before any real file was read: a
 code smoke test on a small made-up file read a doubling as 1.77, because a new error beside an old one leaves neither isolated).
 
+**The sets, found by a metadata-only search and declared before any is read (2026-10-14).** GEO titles, summaries and sample fields only
+(`data/DEV_ERASE_01/erase_search_geo_metadata.json`, `erase_sets_runs.csv`); no data file opened.
+
+PRIMARY units: constitutive TET1/2/3 removal in cell lines, whole-genome bisulfite reads, wild-type controls from the same laboratory:
+| unit | set | eraser removed | control |
+|---|---|---|---|
+| U1 human ES cells (HUES8) | GSE89727 + GSE126958 (one laboratory; pooled per genotype) | TET1/2/3 knockout | HUES8 wild type |
+| U2 mouse ES cells | GSE223576 day 0, 3 + 3 replicates | TET knockout | TET wild type |
+| U3 mouse ES cells | GSE248933 | Tet triple knockout | Tet wild type |
+| U4 mouse neural stem cells | GSE248933 | Tet triple knockout | Tet wild type |
+| U5 mouse ES cells (E14) | GSE56986 | Tet triple knockout | E14 wild type |
+
+SECONDARY, reported, not counted in the verdict: tissue conditional knockouts, where the deleted fraction of cells is unknown and dilutes
+the ratio toward 1 (GSE288100 retina 3 + 3; GSE174047 skeletal 1 + 1); and the side arms, where the eraser is only turned down or up:
+IDH1-mutant cholangiocarcinoma cells with the IDH1 inhibitor AG-120 against DMSO (GSE265854; prediction: inhibitor/DMSO above 1) and
+IDH1-R132H cells with vitamin C against untreated (GSE87623; prediction: vitamin C/untreated above 1). Not used: GSE85355 (no wild type),
+GSE129470 (targeted capture, not whole genome), GSE55049 / GSE55574 (no bisulfite reads), and every other candidate listed in the metadata file.
+
+READING. Each sample: 10,000,000 read pairs taken as 20 equal blocks spread evenly through the run (not the head of the file: the cause test
+found a head-of-file effect), aligned with bwameth to the box's hg19 or mm10 index, converted to .pat with wgbstools as in the cause test,
+and read by Stage Q's counting (pat_site_table). A unit's ratio is the pooled copy error of its knockout samples (sum of isolated errors over
+sum of opportunities) over that of its wild-type samples.
+
+VERDICT, fixed now. Each primary unit gets the sealed rule's verdict (MET 0.40-0.60; NOT MET 0.85 or above; otherwise INCONCLUSIVE).
+DEV-ERASE-01 is MET if at least 3 of the 5 primary units are MET and none is NOT MET; NOT MET if at least 3 are NOT MET; otherwise
+INCONCLUSIVE. A unit with fewer than 100,000 opportunities per genotype is UNREADABLE and is reported as such, not counted. Caveats, written
+now: cultured stem cells adapt to knockouts over passages; mouse is another species (the ratio form is chosen for this); a knockout can change
+how many sites are methylated, which changes which molecules qualify, so the qualifying share is reported beside every ratio.
+
 **In plain words.** We think methylation's half and half is writing and erasing. If that is right, cells whose eraser is switched off should
 make half as many copy errors as normal cells from the same laboratory. We wrote down the number and the pass and fail lines before looking
 at any such data. What it would take to finish: the planted check on real healthy molecules, at least one eraser-removed set with same-laboratory controls has been found and declared, and its ratio has been read once against the lines above, whatever it says.
