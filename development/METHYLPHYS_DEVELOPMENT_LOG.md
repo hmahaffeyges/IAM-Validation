@@ -1552,3 +1552,6 @@ CANON/v21_release.json lists every deliverable (35: inputs and decisions, raw da
 
 ### 2026-10-14 · Twin gate failure explained and fixed (jobs 5115bd05, 89286db7, f27327c9)
 The diagnostic reproduced all 23 of atlas v2's sample-level twin rows exactly and found one extra row: a cross-platform pair (granulocytes, sequencing; neutrophils, arrays) that v2 marks not testable and skips. A mode switch in our copy had its skip line inverted, so the pair was computed anyway. Fixed to skip in both modes as v2 does; on the diagnostic's own rows the fixed loop matches v2's record. The first diagnostic submission (89286db7) failed before reading anything because its code slice left out the script's import line. The full twin and source-term job reruns with its reproduction gate unchanged.
+
+### 2026-10-14 · Checkpoints, and the twin job rerun (job 178c64ed)
+Author: push code and progress to the repo every so often so nothing is missed. CANON/checkpoint.sh does it in one command, through the gate: verify every box job in S3, regenerate the run ledger, readiness board, release checklist, manifest and day log, commit and push. Run after every atlas step and every 30 minutes while a box job runs. Box job 178c64ed: the twin test and source terms rerun after the skip-line fix, same reproduction gate.

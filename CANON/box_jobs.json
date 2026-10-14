@@ -57,7 +57,7 @@
    "name": "Atlas v2.1 twin test and source terms (L6, L7)",
    "date": "2026-10-14",
    "commit": "ed91a999",
-   "s3_code_prefix": "results/ATLAS_V21/terms/code/",
+   "s3_code_prefix": "",
    "state": "done",
    "log": "results/ATLAS_V21/terms/terms_v21.log",
    "machine": "methylphys-cpu-01 (128 cores)",
@@ -79,7 +79,8 @@
     "Biological_Physics/MethylPhys/atlas/v2/records/12b_source_terms_bridged.json",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/stage1_v21_manifest.csv"
    ],
-   "note": "stopped by its reproduction gate (sample-level twin test did not match v2); no v2.1 output"
+   "note": "stopped by its reproduction gate (sample-level twin test did not match v2); no v2.1 output",
+   "code_in_s3": "none: its code_index was overwritten by run 2 (178c64ed) at the same prefix; its code is the repo at ed91a999"
   },
   {
    "job_id": "89286db7-6a8d-42f3-8817-9f0466da7433",
@@ -125,6 +126,37 @@
     "Biological_Physics/MethylPhys/atlas/v2/records/10_twin_test_sample_level.csv",
     "Biological_Physics/MethylPhys/atlas/v2/inputs/twin_family_thresholds_v1.json"
    ]
+  },
+  {
+   "job_id": "178c64ed-08dd-417a-bb12-dc51bec89351",
+   "name": "Atlas v2.1 twin test and source terms, run 2 (L6, L7)",
+   "date": "2026-10-14",
+   "commit": "1ffd68c1",
+   "s3_code_prefix": "results/ATLAS_V21/terms/code/",
+   "state": "running",
+   "log": "results/ATLAS_V21/terms/terms_v21_run2.log",
+   "machine": "methylphys-cpu-01 (128 cores)",
+   "purpose": "atlas v2.1 twin test and source terms: v2 scripts 09/10/12 reproduced on v2 (gate), then run on v2 + v2.1",
+   "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [
+    "results/ATLAS_V21/terms/reproduction_gate_terms.json",
+    "results/ATLAS_V21/terms/twins_v21.csv",
+    "results/ATLAS_V21/terms/source_terms_v21.json"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_twin_terms_box.py",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/roster_samples.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/roster.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/hsc_manifest.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/twin_family_thresholds_v1.json",
+    "Biological_Physics/MethylPhys/atlas/v2/records/twins.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/records/twin_null_splithalf.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/records/10_twin_test_sample_level.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/records/12b_source_terms_bridged.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/stage1_v21_manifest.csv"
+   ],
+   "note": "rerun after the skip-line fix; same reproduction gate"
   }
  ],
  "not_jobs": {

@@ -138,11 +138,15 @@ def page(art):
     _bl, _bx, _af = _cnt("before_launch"), _cnt("box_first"), _cnt("after_fit")
     _gnames = [(_v21.state(x)[0], re.sub(r"^ATL-0[0-9][0-9] ", "", x["what"]).split(":")[0]) for x in _VR["items"] if x["stage"] == "after_fit"]
     _gifts = "".join("<li>" + ("<b>Done:</b> " if d else "") + E(n) + "</li>" for d, n in _gnames)
+    _pub = _VR.get("public", {})
+    if _pub.get("fit_finished_utc"): _v21_status = "The fit is finished; the checks against the source atlases are under way."
+    elif _pub.get("fit_started_utc"): _v21_status = f"The fit is running, started {E(_pub['fit_started_utc'][:10])}; expected to take {E(_pub['fit_estimate'])}."
+    else: _v21_status = (f"It is being prepared now: the computers are working through the data and the checks that must pass before the fit "
+                         f"can start. The fit itself is expected to take {E(_pub['fit_estimate'])}.")
     v21_banner = (f'<section class="wrap" id="v21"><div class="banner"><p class="kicker">Now building</p><h2>IAM-Atlas v2.1</h2>'
         f'<p>The next version of our healthy-cell reference, built from Loyfer\'s and Moss\'s atlases plus sorted cells from new laboratories, '
         f'fitted with full uncertainty, and checked against their own references on their own job before anything is called better. '
-        f'Before launch: <b>{_bl[0]} of {_bl[1]}</b> items met &middot; on the box: <b>{_bx[0]} of {_bx[1]}</b> &middot; after the fit: <b>{_af[0]} of {_af[1]}</b>. '
-        f'Counted by code from <a href="{rec("Biological_Physics/MethylPhys/V21_READINESS.md")}">the readiness board</a>.</p>'
+        f'{_v21_status}</p>'
         f'<details><summary>What v2.1 will carry</summary><ul class="road">{_gifts}</ul></details></div></section>')
     MF = J("CANON/manifest.json"); _CLOSED = {"run", "retired"}
     mf_total = len(MF["rows"]); mf_run = sum(1 for r in MF["rows"] if r["runs"]); mf_open = sum(1 for r in MF["rows"] if r["status"] not in _CLOSED)

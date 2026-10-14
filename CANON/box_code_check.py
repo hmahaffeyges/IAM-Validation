@@ -18,18 +18,22 @@ def expected(job): return {os.path.basename(p): at_commit(job["commit"], p) for 
 def verify():
     import boto3; s3 = boto3.client("s3"); out = {}
     for j in json.load(open(REG))["jobs"]:
-        if not j.get("s3_code_prefix"):   # allowed only with a written reason (a job whose S3 copy was overwritten, 2026-10-14)
-            out[j["job_id"]] = {"s3": None, "matches_repo": None, "no_s3_code": j.get("code_in_s3", ""), "log_in_s3": None, "outputs_in_s3": {}, "state_at_verify": j.get("state")}; continue
-        idx = json.loads(s3.get_object(Bucket=BUCKET, Key=j["s3_code_prefix"].rstrip("/") + "/code_index.json")["Body"].read())
-        got = idx.get("files", {k: v for k, v in idx.items() if not k.startswith("_")})
         def _has(k):
             try: s3.head_object(Bucket=BUCKET, Key=k); return True
             except Exception: return False
+        if not j.get("s3_code_prefix"):   # allowed only with a written reason (a job whose S3 copy was overwritten, 2026-10-14)
+            out[j["job_id"]] = {"s3": None, "matches_repo": None, "no_s3_code": j.get("code_in_s3", ""), "log_in_s3": _has(j["log"]) if j.get("log") else None,
+                               "outputs_in_s3": {k: _has(k) for k in j.get("outputs", [])}, "state_at_verify": j.get("state")}; continue
+        idx = json.loads(s3.get_object(Bucket=BUCKET, Key=j["s3_code_prefix"].rstrip("/") + "/code_index.json")["Body"].read())
+        got = idx.get("files", {k: v for k, v in idx.items() if not k.startswith("_")})
         out[j["job_id"]] = {"s3": got, "matches_repo": got == expected(j), "log_in_s3": _has(j["log"]) if j.get("log") else None,
                             "outputs_in_s3": {k: _has(k) for k in j.get("outputs", [])}, "state_at_verify": j.get("state")}
     json.dump(out, open(VER, "w"), indent=1); open(VER, "a").write("\n"); return out
 def problems():
     P = []; J = json.load(open(REG))["jobs"]; V = json.load(open(VER)) if os.path.exists(VER) else {}
+    _pf = [j["s3_code_prefix"] for j in J if j.get("s3_code_prefix")]
+    for _x in sorted({x for x in _pf if _pf.count(x) > 1}):   # 2026-10-14: a rerun overwrote the first run's code copy
+        P.append(f"two jobs publish code to the same S3 folder {_x}; give each job its own (for example .../code/<job>/)")
     for j in J:
         e = expected(j)
         for k, h in e.items():
