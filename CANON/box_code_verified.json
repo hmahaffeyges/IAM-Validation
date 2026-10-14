@@ -92,5 +92,20 @@
    "results/ATLAS_V21/terms/source_terms_v21.json": false
   },
   "state_at_verify": "running"
+ },
+ "415c5736-5244-4182-a5d8-373a03bec4ff": {
+  "s3": {
+   "v21_v2rs_box.py": "c274a87a75b441a93e446d0047a80461983fb6ac55214e0d39f4fdf1f13cb7e7",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20",
+   "stage_1_idat_calibration.py": "75da834dfd53e0a29095550c546566ec1f9e6f4f4e8d45c0a87bb2ea48744ed7",
+   "roster_samples.csv": "da11a3c11285bde36dcc866c53c112eec5d8ac63e3ea18a66c24e27c7fc3aa4d"
+  },
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/ATLAS_V21/halfsplit/v2_rs_arrays.csv": false,
+   "results/ATLAS_V21/halfsplit/v2_rs.parquet": false
+  },
+  "state_at_verify": "running"
  }
 }

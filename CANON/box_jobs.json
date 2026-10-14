@@ -157,6 +157,28 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/stage1_v21_manifest.csv"
    ],
    "note": "rerun after the skip-line fix; same reproduction gate"
+  },
+  {
+   "job_id": "415c5736-5244-4182-a5d8-373a03bec4ff",
+   "name": "Atlas v2 arrays: genotype probes for the half split (decision 17)",
+   "date": "2026-10-14",
+   "commit": "14b689f2",
+   "s3_code_prefix": "results/ATLAS_V21/halfsplit/code/v21_v2rs/",
+   "state": "running",
+   "log": "results/ATLAS_V21/halfsplit/v2rs.log",
+   "machine": "methylphys-cpu-01 (128 cores)",
+   "purpose": "genotype (rs) probe values for atlas v2's own arrays, so donors are identified by DNA for the half split",
+   "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [
+    "results/ATLAS_V21/halfsplit/v2_rs_arrays.csv",
+    "results/ATLAS_V21/halfsplit/v2_rs.parquet"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_v2rs_box.py",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py",
+    "Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/roster_samples.csv"
+   ]
   }
  ],
  "not_jobs": {
