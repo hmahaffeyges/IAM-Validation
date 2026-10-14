@@ -1669,3 +1669,6 @@ Run 1 (e82da54c) failed before reading any array: the shared loader needs the tw
 
 ### 2026-10-14 · L8 settled: GSE137716 read by the decision 10 addendum
 The scorer (one-line selection change, committed first) reproduced the GSE146552 and D1 shares exactly before GSE137716 was scored. Outcome in conditions_v21.json and DEV_ATLAS_V21_01.md.
+
+### 2026-10-14 · Atlas v2.1 L22: final terms job submitted
+The final build table (final_table_v21.py) is 702 samples in 79 cells: v2's 314 in 74 cells and 388 new samples, 5 new cell types. The plan expected 428 firm new samples in 6 types; 34 failed quality control and promyelocytes (6) are held as a twin. A first version of the builder dropped E-MTAB-4957 (its arrays are named by chip position in one table and by donor code in the other); fixed with the Stage 1 manifest crosswalk before anything ran. Job cb57b74b (code fc501f01) computes the terms the fit will use; rules in its docstring.
