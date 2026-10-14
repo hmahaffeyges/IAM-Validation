@@ -1660,3 +1660,6 @@ D1 (GSE224807 CD15+): not a twin of the Salas neutrophils (198 separating sites,
 
 ### 2026-10-14 · Correction: GSE137716 is under decision 10
 The L8 outcome said GSE137716 was unaffected by decision 10. That was written without checking: the build list gives it decision 10 ("enriched, not sorted", 12 conditional arrays). Recorded, not erased; the identical rule is applied by addendum before any of its arrays is read for purity (export job v21_l8b_box.py). L8 is open again. Also corrected: an earlier entry here said `v21_samples_all.csv` was committed; the copy step was in a command that stopped early. It is committed now (sha256 f86f645c...), byte-identical to the S3 output of twin run 2.
+
+### 2026-10-14 · L8 D10 GSE137716 export submitted
+Box job e82da54c (code 72e8ff13) exports the EpiDISH sites for the 12 conditional GSE137716 arrays; shares computed by the unchanged l8_epidish_v21.R.

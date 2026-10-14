@@ -212,5 +212,22 @@
    "results/ATLAS_V21/l8/l8_epidish_betas.csv": true
   },
   "state_at_verify": "done"
+ },
+ "e82da54c-7e85-4c44-aab4-94a69978d919": {
+  "s3": {
+   "v21_l8b_box.py": "b527404d7e76e0c6875532e52869a3560e97d7cb14bb382954675902844dd078",
+   "v21_twin_terms_box.py": "54a215fb1738675a13c0116974819a7670a5889824a844b3561fb529ea7c7499",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20",
+   "v21_samples_all.csv": "f86f645cd41a5dc47509dffa435ba6fdadbecf69db923ed8c9dd8037436772fe",
+   "epidish_sites.txt": "937a6a5e2290be6b0a92f7532d6c1f5f9b23dd9414456d66a7757bfd892f04a7",
+   "atlas_v21_build_samples.csv": "ea6aa44d3636aa98d29ddade020df7bea544fda8f8f0be1ca8e8d6317ecb6be4"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/ATLAS_V21/l8b/l8b_epidish_betas.csv": false
+  },
+  "state_at_verify": "running"
  }
 }
