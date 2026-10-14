@@ -11046,7 +11046,7 @@
     "IDH-mutant tumor erase-channel test (levers)",
     "lever test 3 (erase channel separable by direction)"
    ],
-   "notes": "No doors note DEV_ERASE_01.md exists yet. Related lever work: DEV-LEVERS-01 test 3 v3 (2026-10-13) separated the erase channel by direction alone; next named step there is IDH-mutant tumors. | also in the pasted notes as: DEV-ERASE-01: the 0.74 kT gap - erasure or missed restores (TET-knockout data)",
+   "notes": "No doors note DEV_ERASE_01.md exists yet. Related lever work: DEV-LEVERS-01 test 3 v3 (2026-10-13) separated the erase channel by direction alone; next named step there is IDH-mutant tumors. | also in the pasted notes as: DEV-ERASE-01: the 0.74 kT gap - erasure or missed restores (TET-knockout data); possible duplicate of PHY-006 (same test, DEV-ERASE-01)",
    "runs": [],
    "id": "HYP-002",
    "sources_of_row": [
@@ -20984,7 +20984,7 @@
    "legacy_ids": [
     "H3"
    ],
-   "notes": "Candidates from candidate_datasets_2026-10-13.csv subline B1 (13 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). None flagged spent.",
+   "notes": "Candidates from candidate_datasets_2026-10-13.csv subline B1 (13 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). None flagged spent.; possible duplicate of PHY-006 (same test, DEV-ERASE-01)",
    "depends_on": [],
    "cost": "search",
    "id": "SCO-033",
@@ -24951,6 +24951,26 @@
    "notes": "author 2026-10-14",
    "sources_of_row": [
     "author request 2026-10-13"
+   ]
+  },
+  {
+   "title": "The author's half-law: half writing, half erasing, two forms of energy (not the copying-only check)",
+   "purpose": "Test whether the held energy splits between the writing side (SAM methyl transfer onto C5-cytosine) and the erasing side (TET oxidation of 5mC driven by O2 and 2-oxoglutarate, then excision and repair), as the author stated. The PHY-021/-027 check (DEV_FLOOR_HEIGHT_02.md section 5) counted writing only, so its 0.24-0.25 does not test this version.",
+   "instrument_or_term": "Mahaffey number M = dG_ATP/kT; phi = E_hold/M",
+   "sources": [],
+   "data_status": "none_needed",
+   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "Source both energies per site (C5-cytosine methyl transfer; the TET erase cycle); write the relation and its bar with the author before computing.",
+   "cost": "laptop (literature)",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "author 2026-10-14: 'it depends on writing for one half and erasing for one half both different forms of energy. whole blocks are erased while whole blocks are methylated'",
+   "legacy_ids": [],
+   "id": "PHY-040",
+   "sources_of_row": [
+    "Friday notes"
    ]
   }
  ],
