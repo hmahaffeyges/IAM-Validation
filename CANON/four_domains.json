@@ -371,8 +371,8 @@
    },
    "qubits": {
     "native": "two ledger entries per event",
-    "formula": "local surface plus the cosmic horizon; no kinetic/potential split of the qubit record",
-    "status": "conjecture",
+    "formula": "book: two ledger entries per event (local surface plus the cosmic horizon); no kinetic/potential split of the qubit record. OPEN under the halves rule: which part of a qubit fills the space (potential) and which does the writing work (kinetic) is not yet identified",
+    "status": "open",
     "source": "p3_07 Two entries per event"
    },
    "chips": {
@@ -600,7 +600,7 @@
    },
    "cells": {
     "native": "development (fertilization to the differentiated cell)",
-    "formula": "candidate: x runs from the near-total erasure after fertilization (nothing written, potential dominates) through implantation and differentiation to the healthy differentiated state (x = 1, the balance). The steady state itself is reached in about 1/(f+g) intervals and does not rise with age once balanced (p6_02, derived)",
+    "formula": "candidate: x runs from the near-total erasure after fertilization (nothing written, potential dominates) through implantation and differentiation to the healthy differentiated state (x = 1, the balance). The steady state itself is reached in about 1/(f+g) intervals and does not rise with age once balanced (p6_02, derived); RULE for any test: the clock variable (developmental stage, divisions or time) is named before any data is opened, because the peak moves with the clock (cosmos: per e-fold peaks at a = 1, per time at z = 1.26, per scale factor at a = 1/2; p2_20)",
     "status": "candidate",
     "source": "2026-10-14, from the author's R(a) reading; p6_02 'The held state is a balance of restore and loss'"
    }
