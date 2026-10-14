@@ -256,6 +256,34 @@
     "Biological_Physics/MethylPhys/atlas/v2/inputs/twin_family_thresholds_v1.json"
    ],
    "note": "VERDICT: ADOPTED (cross-halves worst 0.0179 both ways, 0 of 42 bins beyond 0.02; synthetic MET; 42 knots, range 0.0089-0.9590)"
+  },
+  {
+   "job_id": "36fc910c-813e-454f-8706-67dd293c5e29",
+   "name": "Atlas v2.1 L8 conditions data step",
+   "date": "2026-10-14",
+   "commit": "f63d897d",
+   "s3_code_prefix": "results/ATLAS_V21/l8/code/run1/",
+   "state": "running",
+   "log": "results/ATLAS_V21/l8/l8.log",
+   "machine": "methylphys-cpu-01 (32 cores)",
+   "purpose": "D1 twin test (GSE224807 vs Salas neutrophils), D7 astrocyte profile r, export of the 904 EpiDISH sites; rules in l8_conditions_v21.md",
+   "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [
+    "results/ATLAS_V21/l8/l8_d1_twin.csv",
+    "results/ATLAS_V21/l8/l8_d7_profile_r.csv",
+    "results/ATLAS_V21/l8/l8_epidish_betas.csv"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_l8_box.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_twin_terms_box.py",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/roster_samples.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/roster.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/hsc_manifest.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/twin_family_thresholds_v1.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/epidish_sites.txt"
+   ],
+   "note": "running; v21_samples_all.csv is the twin run 2 output (S3 results/ATLAS_V21/terms/)"
   }
  ],
  "not_jobs": {
