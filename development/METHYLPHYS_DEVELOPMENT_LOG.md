@@ -1774,3 +1774,4 @@ All 32 samples read (job b8dc568d). The job verdict file matches the recorded pr
 
 ### 2026-10-15 · Second fit machine reclaimed; B1/L18 moves to the box
 The spot m7a.48xlarge launched through spot_from_box.py (i-03bae8cb01c07c341, us-west-2b) was reclaimed by AWS about 30 minutes after boot, before any job ran. One block pinned to 8 cores runs the same on any machine, so B1/L18 run 3 runs on the on-demand box (m7a.8xlarge, 32 cores, 123 GB, cannot be reclaimed), with the parallel count computed for the fit machine (TARGET_CORES 192, TARGET_MEM_GB 768).
+Box job 9cc985d0 (code b3904580) is B1/L18 run 3.
