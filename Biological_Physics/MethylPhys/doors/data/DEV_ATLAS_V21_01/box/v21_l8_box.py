@@ -5,7 +5,7 @@ l8_epidish_betas.csv (the 904 EpiDISH sites for GSE224807, GSE146552 and the Sal
 import os, sys, json, time
 sys.path.insert(0, os.getcwd())
 from publish_code import publish_code
-publish_code("results/ATLAS_V21/l8/code/run1/", ["v21_l8_box.py", "v21_twin_terms_box.py", "publish_code.py", "roster_samples.csv", "roster.csv", "hsc_manifest.csv",
+publish_code("results/ATLAS_V21/l8/code/run2/", ["v21_l8_box.py", "v21_twin_terms_box.py", "publish_code.py", "roster_samples.csv", "roster.csv", "hsc_manifest.csv",
              "twin_family_thresholds_v1.json", "v21_samples_all.csv", "epidish_sites.txt"], job="atlas v2.1 L8 conditions data step", commit=os.environ.get("REPO_COMMIT"))
 src = open("v21_twin_terms_box.py").read()
 exec(src[src.index("import os, sys, json, itertools"):src.index("sys.path.insert(0, os.getcwd())")])
@@ -15,7 +15,8 @@ hook = "    admitted = [c for c in admitted_order if entry_ok(c) and c in prof]"
 PROF = {}
 exec(r09.replace(hook, "    PROF.update(prof); return None\n" + hook), globals())
 r10 = src[src.index("def run10"):src.index("# ---------------- 12:")]; exec(r10, globals())
-S21 = pd.read_csv("v21_samples_all.csv"); ok = S21[S21.qc].copy()
+S21 = pd.read_csv("v21_samples_all.csv", keep_default_na=False, dtype={"path": str}); S21["qc"] = S21.qc.astype(str).eq("True")   # run 2: v2 rows have an empty path, kept as "" (run 1 read it as NaN)
+ok = S21[S21.qc].copy()
 # D7: profiles exactly as run09 builds them, the GSE306226 astrocyte fraction kept out of every profile and read on its own
 ast = ok[(ok.source == "GSE306226") & (ok.cell == "astrocytes")]
 run09(ok.drop(ast.index), [], lambda c: True)
