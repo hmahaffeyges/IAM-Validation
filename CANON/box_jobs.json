@@ -626,15 +626,12 @@
    "date": "2026-10-14",
    "commit": "cedfae79",
    "s3_code_prefix": "results/ATLAS_V21/b1_l18/code/run1/",
-   "state": "running",
+   "state": "failed",
    "log": "results/ATLAS_V21/b1_l18/b1_K100.log",
    "machine": "methylphys-fit-01 (m7a.48xlarge spot, 192 cores, 740 GB; image of methylphys-cpu-01)",
    "purpose": "B1: one block's time and peak memory, the parallel count and disk per block; L18: summary columns identical between 100 and 20 saved draws",
    "record": "doors/DEV_ATLAS_V21_01.md",
-   "outputs": [
-    "results/ATLAS_V21/b1_l18/block_measure_v21.json",
-    "results/ATLAS_V21/b1_l18/outputs_v21_check_summary.txt"
-   ],
+   "outputs": [],
    "files": [
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_b1_l18_box.py",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/run_v21_block.py",
@@ -643,7 +640,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv",
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
-   "note": "running"
+   "note": "spot machine reclaimed by AWS at 2026-10-14 17:05 UTC during the first block; only the code reached S3"
   }
  ],
  "not_jobs": {

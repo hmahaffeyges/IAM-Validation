@@ -24,6 +24,7 @@ RUNS_PURPOSE = {   # prefix -> (run, purpose, record)
 UPCOMING = [   # (run tag used by the launcher, run, purpose, machine, estimate); ledger_guard.require(tag) refuses any launch not listed here
     ("BOXRUN10_stageB", "Box Run 10, Stage B (Stage A met C1)", "IAM-A commissioning on identical DNA: the other 71 libraries, 12.2M read pairs each", "spot, 128 cores: m7a.32xlarge until AWS reclaimed it at 25 of 71 libraries (2026-10-12 02:02 Pacific); then c6a.32xlarge spot, reclaimed three times (25, 50 and 50 of 71); the last 21 on an on-demand c6a.32xlarge (author decision, about $23)", "about $50 in total"),
     ("BOXRUN10_cause01", "Box Run 10, cause test (DEV-IAMA-CAUSE-01)", "why three EMSeq LAB02 libraries read low: 5 runs read from 3 parts each, 12.2M read pairs per part", "spot c6a.32xlarge, 128 cores; shuts down at the end", "about 3 hours, $5-10"),
+    ("ATLAS_V21_FIT", "Atlas v2.1 fit (one-block check, then 700 blocks)", "the v2.1 reference atlas: block 0 measured with 100 and 20 saved draws, then the full Bayesian fit; a first attempt on 2026-10-14 (m7a.48xlarge spot launched without this guard, about 2.5 hours, about $10) was reclaimed by AWS during the one-block check", "spot m7a.48xlarge, 192 cores, 768 GB, from the box image; finished blocks copied to S3 as they land", "about 17-20 hours, $60-90"),
     ("WORKBOX01", "Work machine 01", "neuron reference (10 Loyfer files) and colon replication: 152 normal arrays calibrated, then synthetic tests", "spot r7a.2xlarge, 8 cores, 64 GB", "about 5 hours, $1-2"),
 ]
 rows = []

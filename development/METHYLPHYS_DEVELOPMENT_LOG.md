@@ -1762,3 +1762,6 @@ Atlas v2.1: readiness L8, L9, L11, L15, L19, L21 and L22 met (bounded transfer a
 
 ### 2026-10-15 · DEV-ERASE-01 NOT MET (primary units read once)
 All five primary units complete, read by the committed erase_verdict.py: U1 0.9608, U2 0.7930 (inconclusive), U3 0.8560, U4 0.8938, U5 0.8514; MET 0, NOT MET 4 of 5. The per-site half (r = 1) is not supported where we count; the middle stays measured. In every unit removing the eraser lowered the held error by 4-21 percent, a small share. Side arms still reading; the job writes the full verdict file once. Also fixed: two "held held error" titles made by the term rename (PHY-025).
+
+### 2026-10-15 · Atlas v2.1 fit: first spot machine reclaimed; public ledger row added
+The first fit machine (i-0091baa9e8073a637, us-west-2b) was launched directly, without the ledger guard, and AWS reclaimed it at 10:05 AM Pacific during the one-block check (job 5836c3b8; only its code reached S3). It is now in the public ledger (RUNS.md, ATLAS_V21_FIT) with its cost, and the relaunch goes through spot_from_box.py, which keeps the box SSH identity and fixed address, after the guard.
