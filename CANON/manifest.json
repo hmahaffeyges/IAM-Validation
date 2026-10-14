@@ -24930,6 +24930,28 @@
    "sources_of_row": [
     "author request 2026-10-13"
    ]
+  },
+  {
+   "title": "The guidebook: the CMB toolkit for the methylome, a manual given with the atlas and maps",
+   "purpose": "For each tool: cosmology meaning, history from the original papers, the methylome version shown on the atlas, the methods geneticists use now and the difference, and limits. Opens with IAM's Law as the reason the toolkit transfers; usable by a reader who doubts the law.",
+   "instrument_or_term": "atlas",
+   "data_status": "partial",
+   "status": "designed",
+   "next_step": "Structure and history entries while the atlas is built; worked examples after the fit.",
+   "cost": "laptop",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "depends_on": [
+    "ATL-005"
+   ],
+   "id": "ATL-063",
+   "sources": [],
+   "runs": [],
+   "legacy_ids": [],
+   "notes": "author 2026-10-14",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
   }
  ],
  "not_tests": {

@@ -519,6 +519,18 @@
    ],
    "zenodo": "covariance/",
    "required": true
+  },
+  {
+   "id": "G08",
+   "group": "Gift package",
+   "what": "The guidebook: every method and tool the atlas and maps make possible - what it is in cosmology, its origin and history (cited from the original papers), what it does on the methylome (shown on the atlas, or labeled not yet tested), what geneticists use now and the difference, and its limits",
+   "repo": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/guidebook/guidebook.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/guidebook/build_guidebook.py"
+   ],
+   "s3": [],
+   "zenodo": "guidebook/",
+   "required": true
   }
  ]
 }
