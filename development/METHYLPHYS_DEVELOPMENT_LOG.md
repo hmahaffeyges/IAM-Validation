@@ -1714,3 +1714,6 @@ Halved/base 0.5316 (granulocytes) and 0.5285 (CD4 T cells), bar 0.45-0.55; halve
 
 ### 2026-10-14 · DEV-ERASE-01 reads submitted (the sealed test)
 Box job d4bf0f29 (code 9026c1a2): the 32 declared samples, primary units first, each read once; the verdict script runs at the end.
+
+### 2026-10-14 · Atlas v2.1 L9: run script, block driver and declared outputs committed
+run_v21.sh (v2's runner, PAR and cores from B1), run_v21_block.py (v2's data assembly on the final table; v2's loci, 700 blocks and seeds 1000 + block) and outputs_v21.json (every saved output; lab terms fixed per source; posterior-predictive draws derived after the fit from the saved draws). Checked next by a dry run of the data assembly on the box, then B1 and L18 on one real block.
