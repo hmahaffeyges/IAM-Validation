@@ -228,6 +228,34 @@
     "Biological_Physics/MethylPhys/atlas/v2/inputs/twin_family_thresholds_v1.json"
    ],
    "note": "VERDICT: the straight line BENDS (14 of 42 bins beyond +/-0.02; worst +0.081 at x 0.01-0.02)"
+  },
+  {
+   "job_id": "43e13497-c4a6-4964-bc2e-230105a9cec1",
+   "name": "Atlas v2.1 bounded transfer real check (L21)",
+   "date": "2026-10-14",
+   "commit": "2980d106",
+   "s3_code_prefix": "results/ATLAS_V21/transfer_bounded/code/run1/",
+   "state": "running",
+   "log": "results/ATLAS_V21/transfer_bounded/transfer_bounded.log",
+   "machine": "methylphys-cpu-01 (32 cores, 123 GB at submit)",
+   "purpose": "cross-halves check of the bounded monotone transfer on L20's 767,672 pairs; rule in transfer_bounded_v21.py",
+   "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [
+    "results/ATLAS_V21/transfer_bounded/transfer_bounded_v21.json",
+    "results/ATLAS_V21/transfer_bounded/transfer_bounded_v21_summary.txt"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_transfer_bounded_box.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_bounded_v21.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_bounded_v21_synthetic.txt",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_twin_terms_box.py",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/roster_samples.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/roster.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/hsc_manifest.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/twin_family_thresholds_v1.json"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {

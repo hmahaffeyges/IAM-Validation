@@ -8,8 +8,9 @@ Work done on the laptop is free and is not listed.
 
 | run | purpose | log | start (UTC) | job hours | vCPUs | end | actual cost | record |
 |---|---|---|---|---|---|---|---|---|
-| Box Run 3 | first tests on the commissioned Met-A (neutrophils, EPIC v1) | `(no log in S3)` |  |  |  | not recorded | pending billing access | [boxruns/run3/JOBS.md](boxruns/run3/JOBS.md) |
+| Atlas v2.1 bounded transfer real check (L21) (job 43e13497) | cross-halves check of the bounded monotone transfer on L20's 767,672 pairs; rule in transfer_bounded_v21.py | `ATLAS_V21/transfer_bounded/transfer_bounded.log (not in S3 yet)` |  |  |  | running | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2.1 transfer shape check (L20) (job 80446c36) | is the array-to-sequencing transfer straight across the whole range (v2's samples, the terms job's own run12) | `ATLAS_V21/transfer/transfer_run1_80446c36.log` |  |  |  | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
+| Box Run 3 | first tests on the commissioned Met-A (neutrophils, EPIC v1) | `(no log in S3)` |  |  |  | not recorded | pending billing access | [boxruns/run3/JOBS.md](boxruns/run3/JOBS.md) |
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/A/job_A.log` | 2026-10-05 01:43 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/C/job_C.log` | 2026-10-05 03:30 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/D/job_D.log` | 2026-10-05 08:08 | 0.8 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
@@ -57,8 +58,8 @@ Total job hours: 86.5.
 | month | total | largest items |
 |---|---|---|
 | 2026-09 | $12.28 | SpotUsage:c7a.8xlarge $6.52; SpotUsage:m7a.32xlarge $2.94; EBS:VolumeUsage.gp3 $1.52; TimedStorage-ByteHrs $0.39 |
-| 2026-10 | $999.70 | BoxUsage:m7a.32xlarge $700.38; SpotUsage:m7a.32xlarge $123.38; BoxUsage:m7a.16xlarge $47.52; BoxUsage:c6a.32xlarge $35.60 |
+| 2026-10 | $1,003.96 | BoxUsage:m7a.32xlarge $700.38; SpotUsage:m7a.32xlarge $123.38; BoxUsage:m7a.16xlarge $47.52; BoxUsage:c6a.32xlarge $35.60 |
 
-Daily: 09-28 $7, 09-29 $4, 10-01 $155, 10-02 $204, 10-03 $181, 10-04 $74, 10-05 $8, 10-06 $3, 10-07 $3, 10-08 $5, 10-09 $116, 10-10 $77, 10-11 $94, 10-12 $67, 10-13 $13
+Daily: 09-28 $7, 09-29 $4, 10-01 $155, 10-02 $204, 10-03 $181, 10-04 $74, 10-05 $8, 10-06 $3, 10-07 $3, 10-08 $5, 10-09 $116, 10-10 $77, 10-11 $94, 10-12 $67, 10-13 $17
 
 BoxUsage = on-demand machine hours; SpotUsage = spot machine hours. Runs before 2026-10-12 carry no run tag, so their cost is by day and type only.
