@@ -35,6 +35,11 @@ real isolated errors turned back (the eraser-removed picture); about as many new
 0.45-0.55 and the base file's two halves within 0.95-1.05; doubled/base reported, no bar (amended before any real file was read: a
 code smoke test on a small made-up file read a doubling as 1.77, because a new error beside an old one leaves neither isolated).
 
+**Planted check on real healthy molecules, run once (job 091bf539): MET.** Granulocytes (33.9 M opportunities): halved/base 0.5316, halves
+1.0005. CD4 T cells (29.3 M): halved/base 0.5285, halves 0.9995. A true halving reads about 0.53 on real molecules, inside the sealed 0.40-0.60.
+The doubled arm read 1.5962 and 1.6142 (reported, no bar): on real reads an added error often lands beside another, so a boost is read compressed.
+That matters for the vitamin C side arm, which is reported only.
+
 **The sets, found by a metadata-only search and declared before any is read (2026-10-14).** GEO titles, summaries and sample fields only
 (`data/DEV_ERASE_01/erase_search_geo_metadata.json`, `erase_sets_runs.csv`); no data file opened.
 

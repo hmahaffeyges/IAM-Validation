@@ -1,0 +1,10 @@
+DEV-ERASE-01 planted check on real healthy molecules, run once (planted_real_erase_01.py)
+gran: base eps 0.03878 (33,928,922 opportunities, 1,315,753 isolated errors)
+  P1 halved/base 0.5316 (bar 0.45-0.55) -> met
+  P2 doubled/base 1.5962 (reported, no bar)
+  P3 base halves A/B 1.0005 (bar 0.95-1.05) -> met
+cd4: base eps 0.03762 (29,325,673 opportunities, 1,103,190 isolated errors)
+  P1 halved/base 0.5285 (bar 0.45-0.55) -> met
+  P2 doubled/base 1.6142 (reported, no bar)
+  P3 base halves A/B 0.9995 (bar 0.95-1.05) -> met
+PLANTED CHECK: MET

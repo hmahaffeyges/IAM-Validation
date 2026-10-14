@@ -505,7 +505,7 @@
    "date": "2026-10-14",
    "commit": "4d66949d",
    "s3_code_prefix": "results/DEV_ERASE_01/planted_real/code/run1/",
-   "state": "running",
+   "state": "done",
    "log": "results/DEV_ERASE_01/planted_real/erase.log",
    "machine": "methylphys-cpu-01 (32 cores)",
    "purpose": "halved / doubled / base arms on two spent healthy Loyfer files, read by Stage Q's counting; rules in planted_real_erase_01.py",
@@ -521,7 +521,7 @@
     "Biological_Physics/MethylPhys/chain/stage_m_met_a.py",
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
-   "note": "running"
+   "note": "PLANTED CHECK: MET (halved/base 0.5316 and 0.5285; halves 1.0005 and 0.9995; doubled reads 1.5962, 1.6142, no bar)"
   }
  ],
  "not_jobs": {

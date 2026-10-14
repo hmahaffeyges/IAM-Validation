@@ -1708,3 +1708,6 @@ Planted check on real healthy molecules committed first (a87e3656, amended 4d669
 
 ### 2026-10-14 · DEV-ERASE-01: the eraser-removed sets declared, and the verdict rule for several sets fixed, before any read
 Metadata-only search (GEO): 5 primary units of constitutive TET1/2/3 removal with same-laboratory controls (human HUES8; mouse ES cells from three laboratories; mouse neural stem cells), 2 tissue conditional knockouts as secondary, 2 side arms (IDH1 inhibitor, vitamin C). Verdict: MET if at least 3 of 5 primary units are MET and none NOT MET. Reads: 10 million pairs per sample as 20 blocks spread through each run. All nine series entered in CANON/data_spent.csv before reading.
+
+### 2026-10-14 · DEV-ERASE-01 planted check on real molecules MET
+Halved/base 0.5316 (granulocytes) and 0.5285 (CD4 T cells), bar 0.45-0.55; halves 1.0005 and 0.9995. Doubled arm 1.5962 and 1.6142, reported (a boost is read compressed on real reads). The counting finds a planted halving in real molecules, so the real reads may start.
