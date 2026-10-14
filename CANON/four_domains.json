@@ -370,10 +370,10 @@
     "source": "p7_05b sec:vp_partition; p2_02 sec:vc_coupling; p4_14 sec:qr_virial"
    },
    "qubits": {
-    "native": "two ledger entries per event",
-    "formula": "book: two ledger entries per event (local surface plus the cosmic horizon); no kinetic/potential split of the qubit record. OPEN under the halves rule: which part of a qubit fills the space (potential) and which does the writing work (kinetic) is not yet identified",
-    "status": "open",
-    "source": "p3_07 Two entries per event"
+    "native": "no record in superposition; decoherence writes onto the substrate (author, 2026-10-14)",
+    "formula": "kinetic: the decoherence event, which writes the qubit's state as a record onto its substrate surface ('the environment acquiring records'; 'a qubit that decoheres has had its state copied into its environment', p3_07, after Zurek 2003). Before decoherence there is no record. Potential: still to identify; candidate, what the write leaves held in the substrate, such as the quasiparticles spread over the island (p5_02)",
+    "status": "candidate",
+    "source": "p3_07 'Two entries per event'; p5_01 (barrier and substrate as the encoding surface, \\interp); p5_02_xqp"
    },
    "chips": {
     "native": "stored half and dissipated half",
@@ -697,7 +697,7 @@
    "definition": "Where the regime changes when the surface fills.",
    "cosmos": {
     "native": "collapse (runaway) regime: a new local horizon forms when local records saturate the surface (\"holographic saturation condition\")",
-    "formula": "S_info(R)/A(R) >= k_B/(4 l_P^2), met exactly at r_s=2GM/c^2 (hoop conjecture). Regimes: cosmological self-regulating vs collapse runaway",
+    "formula": "S_info(R)/A(R) >= k_B/(4 l_P^2), met exactly at r_s=2GM/c^2 (hoop conjecture). Regimes: cosmological self-regulating vs collapse runaway; NO BIG RIP (p2_20 sec:wz_norip, derived): dw_info/da = 1/(3a^2) > 0 and rho_info <= e rho_info(1), so expansion is at most exponential, 'a built-in thermodynamic governor'. Structure as the regulator: the record term 'is sourced by structure formation... and self-regulates as suppressed growth reduces the decoherence rate' (p1_02, conjecture)",
     "status": "conjecture",
     "source": "p3_01 sec:bh_formation, sec:bh_regimes; p1_02 sec:law_blackholes; p2_03 sec \"Two regimes\"; p7_05c sec:vd_vault; App. E #38, #39, #162, #359, #360, #525; Thorne1972 hoop conjecture, Bousso2002 bound (standard, not IAM-specific)",
     "tag_in_book": "criterion \\conjecture (#162, #359, #525) but #38 tagged \\derived; hoop equivalence \\derived (#39, #360)",
