@@ -1,0 +1,60 @@
+{
+ "_rule": "Atlas v2.1 commissioning bars, SEALED 2026-10-14 before the v2.1 atlas exists (readiness L15). Drafted 2026-10-12 in DEV_ATLAS_COMMISSION_01.md; fixed here with the details the draft left open. Test data are the plan's held-out assignments (atlas_v21_plan.md, 'Held-out assignments by use'), purified healthy cells from laboratories that share no GEO contributor with any build source (rule 9). No held-out array is opened before this file and the atlas both exist. Scorers: commission_v21.py; planted test: planted_commission_v21.py. A use that is not commissioned is labeled development everywhere it appears.",
+ "scorer_sha256": "89102b7508b56c056d6a9cb4bdcc776e6ca065426d0244f5f6528ff2944a1827",
+ "U1_reference_profiles": {
+  "interval": "posterior predictive 90 % interval for one new sample from a new laboratory (offset 0), from the 100 saved draws of mu and of the donor spread with 20 noise samples per draw, by the fit's own likelihood (commission_v21.predictive_interval)",
+  "coverage": "per held-out sample, share of its measured sites inside the interval; per set, the mean over its samples",
+  "bar": "0.80 <= coverage <= 0.97 for every independent set of the cell on that platform",
+  "verdict": "per cell and platform: COMMISSIONED, FAILED, or NOT ASSESSED (no independent set). Reported by cell and by sample.",
+  "sets": "atlas_v21_plan.md U1 list (GSE184269, the GSE224807 held-out half, GSE59065, GSE87640, GSE87095, GSE131989 after its UCSF check, the smaller sets listed there; sequencing GSE173787)"
+ },
+ "U2_blind_sites": {
+  "what": "the composition-blind sites of each sealed tissue test. U2a: the exact sealed site lists the cancer results used (sites_methylated + sites_unmethylated in each sealed file). U2b: the same rule re-applied to the v2.1 atlas (that test's panel, tolerance, epithelial SD <= 0.05 and value windows, 3,000 per channel).",
+  "tests": {
+   "breast": {
+    "rule_file": "Biological_Physics/MethylPhys/doors/data/DEV_TISSUE_BREAST_01/blind_sites_test.py",
+    "rule_file_sha256": "fe98151bd5e81301f659b0c9631a6928874a9994c85e61a29555c5ccead8c7cc",
+    "sealed_sites_file": "Biological_Physics/MethylPhys/doors/data/DEV_TISSUE_BREAST_01/sealed_breast_tissue.json",
+    "sealed_sites_sha256": "37b4bf17e5fb9546a7a8327b67568d47a5657bd087ebd80604e3ce46c9cdfb4e",
+    "tolerance": 0.05,
+    "anchor": "luminal"
+   },
+   "colon": {
+    "rule_file": "Biological_Physics/MethylPhys/doors/data/DEV_TISSUE_COLON_01/colon_synthetic.py",
+    "rule_file_sha256": "8a561c6a07f9458d8ab0f6eee7535ef0facdfa6019b3c5da300806c41d4b69be",
+    "sealed_sites_file": "Biological_Physics/MethylPhys/doors/data/DEV_TISSUE_COLON_01/sealed_colon_tissue.json",
+    "sealed_sites_sha256": "981f59615f6164e84fa76c99d92326ee28d497ec0f5987fd16380645c2d1c64c",
+    "tolerance": 0.05,
+    "anchor": "epithelium"
+   },
+   "liver": {
+    "rule_file": "Biological_Physics/MethylPhys/doors/data/DEV_TISSUE_LIVER_01/liver_synthetic.py",
+    "rule_file_sha256": "b34da75454905bc4216a74303dbcdb9dbbe1f86ce17efc7ebae056062544266b",
+    "sealed_sites_file": "Biological_Physics/MethylPhys/doors/data/DEV_TISSUE_LIVER_01/sealed_liver_tissue.json",
+    "sealed_sites_sha256": "a93cca19af9381f3192f4f9f57b5b64952c029b54f72450b0e0329b19c2d2399",
+    "tolerance": 0.03,
+    "anchor": "hepatocyte"
+   },
+   "lung": {
+    "rule_file": "Biological_Physics/MethylPhys/doors/data/DEV_TISSUE_LUNG_01/lung_synthetic.py",
+    "rule_file_sha256": "85492bda0bab58a286d30294bc22992b01a00fab21fe5126ade9108f2d307eb2",
+    "sealed_sites_file": "Biological_Physics/MethylPhys/doors/data/DEV_TISSUE_LUNG_01/sealed_lung_01.json",
+    "sealed_sites_sha256": "218171edcb90ba4ab1c50d9fd1423c86ac8f332f16081b93c27aa6c29c16d230",
+    "tolerance": 0.05,
+    "anchor": "mean of the two lung epithelia"
+   }
+  },
+  "measure": "for each panel cell type with an independent held-out set of at least 3 arrays: the set's mean at each blind site against the atlas anchor value; share within the test's tolerance",
+  "bar": "share >= 0.90 for every assessed panel cell",
+  "verdict": "per tissue, for U2a and U2b separately: COMMISSIONED if the epithelium is assessed and every assessed panel cell meets the bar; FAILED; or NOT ASSESSED. Panel cells with no independent set are listed.",
+  "sets": "atlas_v21_plan.md U2 list (colon epithelium held-out half of E-MTAB-4957; lung bronchus GSE104471, GSE85566, GSE201872; alveolar macrophages GSE132547 after its D13 check) and the U1 immune sets"
+ },
+ "U3_composition": {
+  "bars": "DEV_ATLAS_COMMISSION_01.md bars 1-2, unchanged: neutrophil fraction mean absolute error <= 0.02 and every sample within 0.05 on each independent truth set (>= 2 sets, >= 20 samples); not worse than the current method on neutrophils on any independent set. Bar 3 (every group RMSE <= 0.03) is a later commissioning.",
+  "sets": "GSE127824 (24 cord bloods, FACS counts); GSE167202 (provisional: ED patients, custom EPIC); GSE122126 is from the Dor laboratory and is reported, not counted (rule 9)",
+  "tool": "the v2.1 composition step built exactly as atlas_e was from v2, on the v2.1 means"
+ },
+ "U4_identity_sites": "stays development, no bar (v2 FAILED B1 and B2, PROC-V12-IDENTITY-02); not used by any commissioned reading",
+ "same_cell_different_laboratory": "reported, not a bar: for every cell with two or more independent sets, the share of sites where the set means differ by less than their combined 90 % interval",
+ "carried_preconditions": "D13 (GSE132547 purity and laboratory check) and D14 (GSE131989 UCSF check) must be recorded before those sets are scored (l8_conditions_v21.md)"
+}
