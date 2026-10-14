@@ -38,9 +38,10 @@
   "outcome": "OUT (research): ovary epithelium 0 of 8 arrays under 0.20 non-epithelial (median 0.62); fallopian tube epithelium 1 of 7 (median 0.59), fewer than 2 remain."
  },
  "D10_GSE137716": {
-  "status": "pending",
+  "status": "resolved",
   "arrays": 12,
-  "evidence": "same rule as GSE146552 (l8_conditions_v21.md addendum); export job v21_l8b_box.py",
-  "correction": "2026-10-14: the first D10 record said GSE137716 was unaffected; it is under D10 ('enriched, not sorted'). Recorded, not erased."
+  "evidence": "EpiDISH 2.26.0 RPC, centEpiFibIC, rule in l8_conditions_v21.md addendum (committed before reading); job 3cf4e084; l8_d10_gse137716_epidish.csv",
+  "correction": "2026-10-14: the first D10 record said GSE137716 was unaffected; it is under D10 ('enriched, not sorted'). Recorded, not erased.",
+  "outcome": "IN: 12 of 12 arrays under 0.20 non-epithelial (median 0.000, max 0.003)"
  }
 }

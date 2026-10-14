@@ -264,3 +264,5 @@ its other source. The sealed half split stands: the leaving samples drop out of 
 
 **Correction, same day.** The L8 record above omitted GSE137716 (lung bronchus epithelium, 12 conditional arrays), which decision 10
 also covers. Its outcome is pending under the identical rule (addendum in `l8_conditions_v21.md`), and L8 is open again until it is read.
+
+**D10, GSE137716, read once by the addendum rule (job 3cf4e084): IN.** 12 of 12 arrays under the 0.20 non-epithelial cut (median 0.000). L8 is settled.

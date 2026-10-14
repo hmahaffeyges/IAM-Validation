@@ -1,0 +1,13 @@
+"array","cell","epi","fib","ic","sites","non_epithelial","passes"
+"GSE137716|lung bronchus epithelium|GSM4085552_9979858039_R01C01","lung bronchus epithelium",1,0,0,654,0,TRUE
+"GSE137716|lung bronchus epithelium|GSM4085553_9976861137_R03C02","lung bronchus epithelium",1,0,0,654,0,TRUE
+"GSE137716|lung bronchus epithelium|GSM4085555_9977524024_R05C01","lung bronchus epithelium",0.9973,0,0.0027,654,0.0027,TRUE
+"GSE137716|lung bronchus epithelium|GSM4085556_9976861129_R01C01","lung bronchus epithelium",1,0,0,654,0,TRUE
+"GSE137716|lung bronchus epithelium|GSM4085557_9979858062_R05C01","lung bronchus epithelium",1,0,0,654,0,TRUE
+"GSE137716|lung bronchus epithelium|GSM4085558_9979858061_R03C01","lung bronchus epithelium",1,0,0,654,0,TRUE
+"GSE137716|lung bronchus epithelium|GSM4085559_9979858062_R04C01","lung bronchus epithelium",1,0,0,654,0,TRUE
+"GSE137716|lung bronchus epithelium|GSM4085560_9979858067_R01C02","lung bronchus epithelium",1,0,0,654,0,TRUE
+"GSE137716|lung bronchus epithelium|GSM4085561_9976861137_R02C01","lung bronchus epithelium",1,0,0,654,0,TRUE
+"GSE137716|lung bronchus epithelium|GSM4085562_9977524024_R06C01","lung bronchus epithelium",1,0,0,654,0,TRUE
+"GSE137716|lung bronchus epithelium|GSM4085563_9977524024_R02C01","lung bronchus epithelium",0.9994,0,6e-04,654,6e-04,TRUE
+"GSE137716|lung bronchus epithelium|GSM4085564_9976861129_R05C02","lung bronchus epithelium",1,0,0,654,0,TRUE

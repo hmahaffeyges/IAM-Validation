@@ -45,7 +45,7 @@ Work done on the laptop is free and is not listed.
 | Atlas v2.1 transfer shape check (L20), run 2 (job 30ad806b) | is the array-to-sequencing transfer straight across the whole range (v2's samples, the terms job's own run12) | `ATLAS_V21/transfer/transfer.log` | 2026-10-14 02:49 | 0.0 | 128 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2.1 bounded transfer real check (L21) (job 43e13497) | cross-halves check of the bounded monotone transfer on L20's 767,672 pairs; rule in transfer_bounded_v21.py | `ATLAS_V21/transfer_bounded/transfer_bounded.log` | 2026-10-14 07:12 | 0.0 | 32 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2.1 L8 conditions data step, run 2 (job 93d94090) | D1 twin test (GSE224807 vs Salas neutrophils), D7 astrocyte profile r, export of the 904 EpiDISH sites; rules in l8_conditions_v21.md | `ATLAS_V21/l8/l8_run2.log` | 2026-10-14 07:47 | 0.0 | 32 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
-| Atlas v2.1 L8 D10 GSE137716 export, run 2 (job 3cf4e084) | EpiDISH sites for GSE137716's 12 conditional arrays (decision 10 addendum) | `ATLAS_V21/l8b/l8b_run2.log` | 2026-10-14 07:58 | 0.0 | 32 | running | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
+| Atlas v2.1 L8 D10 GSE137716 export, run 2 (job 3cf4e084) | EpiDISH sites for GSE137716's 12 conditional arrays (decision 10 addendum) | `ATLAS_V21/l8b/l8b_run2.log` | 2026-10-14 07:58 | 0.0 | 32 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 
 Total job hours: 86.5.
 

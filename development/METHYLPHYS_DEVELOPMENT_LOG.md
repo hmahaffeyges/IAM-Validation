@@ -1666,3 +1666,6 @@ Box job e82da54c (code 72e8ff13) exports the EpiDISH sites for the 12 conditiona
 
 ### 2026-10-14 · GSE137716 export run 2
 Run 1 (e82da54c) failed before reading any array: the shared loader needs the twin thresholds and roster files, not shipped. Run 2 (3cf4e084, code c5160733) ships them.
+
+### 2026-10-14 · L8 settled: GSE137716 read by the decision 10 addendum
+The scorer (one-line selection change, committed first) reproduced the GSE146552 and D1 shares exactly before GSE137716 was scored. Outcome in conditions_v21.json and DEV_ATLAS_V21_01.md.

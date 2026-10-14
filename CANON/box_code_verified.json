@@ -247,6 +247,6 @@
   "outputs_in_s3": {
    "results/ATLAS_V21/l8b/l8b_epidish_betas.csv": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "done"
  }
 }

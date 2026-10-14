@@ -344,7 +344,7 @@
    "date": "2026-10-14",
    "commit": "c5160733",
    "s3_code_prefix": "results/ATLAS_V21/l8b/code/run2/",
-   "state": "running",
+   "state": "done",
    "log": "results/ATLAS_V21/l8b/l8b_run2.log",
    "machine": "methylphys-cpu-01 (32 cores)",
    "purpose": "EpiDISH sites for GSE137716's 12 conditional arrays (decision 10 addendum)",
@@ -364,7 +364,7 @@
     "Biological_Physics/MethylPhys/atlas/v2/inputs/hsc_manifest.csv",
     "Biological_Physics/MethylPhys/atlas/v2/inputs/twin_family_thresholds_v1.json"
    ],
-   "note": "running"
+   "note": "exported; D10 GSE137716 IN (12 of 12 pass)"
   }
  ],
  "not_jobs": {
