@@ -1753,3 +1753,6 @@ The fit machine methylphys-fit-01 (m7a.48xlarge spot, 192 cores, 740 GB, instanc
 
 ### 2026-10-14 · Physics game plan (author): an instrument that needs no atlas
 development/PHYSICS_GAMEPLAN.md: four stages, whiteboard first. 1 the half by scaling (Euler); 2 the cell's main sequence, held error from architecture; 3 the instrument, each sample read against its own line; 4 one clean sealed test, then the hand-over package.
+
+### 2026-10-15 · Overnight whiteboard (development/WHITEBOARD_2026-10-15.md)
+1. The black-hole scaling route to the half fails for the cell: any locally held system grows with degree 1 (closed). 2. On the sites every cell keeps fully methylated, the held error (median 0.0165) sits inside the writer-alone range 1/(1+D) (0.0123-0.0207); candidate: fully held territory reads the writer alone, consistent with U1. 3. Candidate: the genome-wide middle is a mix of held and loosely held territory, not a per-site half. 4. The writer limit as an atlas-free reference.
