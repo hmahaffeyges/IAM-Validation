@@ -41,7 +41,8 @@
    "K": "saved draws",
    "rhat_p99": "99th percentile R-hat",
    "ess_p01": "1st percentile ESS"
-  }
+  },
+  "_in_S3": "every per-block file and its log is copied to results/ATLAS_V21/fit/blocks/ as soon as the block lands (upload_block_v21.py)"
  },
  "per_run": {
   "stageB_v21_summary.json": "blocks, loci, divergences, worst R-hat and ESS, per-cell measured fraction, v2's distinctness gate",

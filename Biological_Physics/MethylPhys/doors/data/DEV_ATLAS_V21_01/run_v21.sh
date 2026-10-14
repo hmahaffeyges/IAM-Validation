@@ -10,7 +10,9 @@ OUTD=${OUTD:-/home/ubuntu/data/atlas_v21/blocks_v21}; export OUTD; mkdir -p logs
 PAR=${PAR:-$(~/env/bin/python -c "import json;print(json.load(open('block_measure_v21.json'))['par'])")}
 CORES=${CORES:-$(~/env/bin/python -c "import json;print(json.load(open('block_measure_v21.json'))['cores_per_process'])")}
 echo "$(date -u +%FT%TZ) START par=$PAR cores=$CORES outd=$OUTD" | tee -a run_v21.log
-seq 0 699 | xargs -P $PAR --process-slot-var=SLOT -I{} sh -c 'taskset -c $((SLOT*'$CORES'))-$((SLOT*'$CORES'+'$CORES'-1)) env BLOCK={} NBLOCK=700 ~/mcmc/bin/python run_v21_block.py > logs/block_{}.log 2>&1; tail -1 logs/block_{}.log' >> run_v21.log
+# each finished block's four files and its log go to S3 as soon as it lands (a spot reclaim then loses only blocks in flight; v2's practice)
+S3P=${S3P:-results/ATLAS_V21/fit/blocks/}; export S3P
+seq 0 699 | xargs -P $PAR --process-slot-var=SLOT -I{} sh -c 'taskset -c $((SLOT*'$CORES'))-$((SLOT*'$CORES'+'$CORES'-1)) env BLOCK={} NBLOCK=700 ~/mcmc/bin/python run_v21_block.py > logs/block_{}.log 2>&1; tail -1 logs/block_{}.log; ~/env/bin/python upload_block_v21.py {} >> logs/upload.log 2>&1' >> run_v21.log
 ~/env/bin/python - <<'PY'
 import json, glob, os, itertools, numpy as np, pandas as pd
 OUTD = os.environ["OUTD"]; R = []
