@@ -686,8 +686,8 @@
    "definition": "Reading over reference (App. E #501, #502).",
    "cosmos": {
     "native": "not in these chapters (no A for the cosmos)",
-    "formula": "nearest analogs: E(a)/e \"fraction of cumulative informational entropy ... encoded on the cosmic horizon relative to its asymptotic value\" (p2_03); R(a)/2",
-    "status": "interp",
+    "formula": "nearest analogs: E(a)/e \"fraction of cumulative informational entropy ... encoded on the cosmic horizon relative to its asymptotic value\" (p2_03); R(a)/2. ADDED 2026-10-14 (author: 'I dont think there is an A, time plays into the universe's gauge'): A is a reading over a reference of the same kind (healthy cells, as-built chips and qubits), which needs a population; there is one universe, so the whole cosmos has no A. Its gauge is a position on its own clock, R(a) sliding from infinity to 2 (kept beside it: E(a)/e). Local surfaces have populations and can carry an A: a halo's virial ratio against the ensemble (halos read 1.1-1.3, the ensemble 2), a black hole as a surface read at saturation",
+    "status": "definition",
     "source": "p2_03 sec \"The encoding transition\"",
     "tag_in_book": "not tagged (\\interp context)"
    },

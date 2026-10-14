@@ -1696,3 +1696,6 @@ One bounded curve for every WGBS source: leave-one-cell-out bias worst 0.0064 ag
 
 ### 2026-10-14 · Cosmos Mahaffey number filled from our own 2026-10-02 computation
 The author recalled we had already computed it. The record confirms it: N k_B T ln2 / Mc^2 = 0.500000 (black hole) and 1.000000 (cosmic horizon), with errata V17 correcting the (ln2/2) Mc^2 identity. Per bit: black hole M = 2 ln2, cosmic horizon M = ln2. The schematic box had said "no number given" because it was filled from the book's Mahaffey section only. Lesson: search our own record before computing or calling a box empty.
+
+### 2026-10-14 · Cosmos fidelity ratio: none for the whole universe (author)
+The author: there is no A for the cosmos; time plays into its gauge. Recorded as a definition: A needs a reference population of the same kind, and there is one universe, so the whole cosmos is read by its clock position R(a). Halos and black holes, which have populations, can carry an A. The earlier candidates R(a)/2 and E(a)/e are kept beside it.
