@@ -255,7 +255,7 @@
    "definition": "How the held error is set: restore against loss.",
    "cosmos": {
     "native": "the virial theorem as balance sheet; the self-regulating feedback loop",
-    "formula": "rho_info(a=1) = rho_m/2 = (Omega_m/2) rho_crit; feedback: suppressed growth lowers decoherence rate (step 9 -> step 1)",
+    "formula": "rho_info(a=1) = rho_m/2 = (Omega_m/2) rho_crit; feedback: suppressed growth lowers decoherence rate (step 9 -> step 1). ADDED 2026-10-14: E(a) = exp(1-1/a) is exactly a balance law in the clock tau = ln a: d(ln E)/d(ln a) = 1 - ln E, i.e. ln E relaxes to 1 at rate exactly 1 per e-fold, the cell's dm/dn = g(1-m) - f m with g = 1 and f = 0 (no eraser; the record heads for completion, E -> e). Algebraic identity (checked numerically to 3e-9); its reading as restore-against-loss is a candidate",
     "status": "conjecture",
     "source": "p1_02 sec:law_coupling \"The virial theorem as balance sheet\" and \"The nine-step causal chain\"; p7_05b sec:vp_partition; p2_03 sec:th:picture; App. E #27, #146",
     "tag_in_book": "\\prediction (#27) / \\derived (#146); feedback \\conjecture (p1_02 step 9) / \\interp (p2_03 picture)",
@@ -652,7 +652,7 @@
    },
    "qubits": {
     "native": "not in these chapters for qubit devices; for records at quantum scale: 'the time profile E_q(eta) = exp(1-1/eta)' carried over 'by analogy'",
-    "formula": "device: linear accumulation p_th(t) = p_eq t/T_1. Quantum records: c(t) = 1 - E(t/tau_IAM)/e with E(eta) = exp(1-1/eta) (\\analogy) vs derived exponential c = e^{-t/tau_IAM}; eraser F = 1 - exp(-Q_L/Q) 'carries over the activation ramp'; ledger monotone d ln E/da = 1/a^2 > 0",
+    "formula": "device: linear accumulation p_th(t) = p_eq t/T_1. Quantum records: c(t) = 1 - E(t/tau_IAM)/e with E(eta) = exp(1-1/eta) (\\analogy) vs derived exponential c = e^{-t/tau_IAM}; eraser F = 1 - exp(-Q_L/Q) 'carries over the activation ramp'; ledger monotone d ln E/da = 1/a^2 > 0. ADDED 2026-10-14: the qubit's own balance gives p(t) -> p_eq at rate 1/T1 (two-level rate equation from detailed balance, p5_10)",
     "status": "conjecture",
     "source": "part5/p5_10_qubit_platforms.tex §Three marks; part4/p4_21_entanglement_records.tex §What dephasing does to a Bell test, §The ledger only grows; part4/p4_04_measurement.tex §The quantum eraser, §Connection to the cosmology; App. E #476; #424, #426, #419; none; the book states the rate integral gives ",
     "tag_in_book": "\\derived (#476); \\analogy / \\conjecture (E_q profile, #424, #419); \\derived (ledger monotone)",
@@ -675,7 +675,7 @@
    },
    "cells": {
     "native": "build-up of the pattern through development",
-    "formula": "candidate: does the pattern's build-up through development follow E(x) = exp(1 - 1/x)? Test on public embryo methylation time courses, rule written before any data is opened",
+    "formula": "candidate: does the pattern's build-up through development follow E(x) = exp(1 - 1/x)? Test on public embryo methylation time courses, rule written before any data is opened. ADDED 2026-10-14: the cell's own balance gives its approach law: eps relaxes to f/(f+g) at rate (f+g) per interval (p6_02, derived; the interval need not be a division). Open difference from the cosmos: the cosmos relaxes ln E linearly, the cell the fraction itself; test which variable relaxes linearly in a recovery time course (e.g. remethylation after a demethylating drug is washed out), rule written first",
     "status": "candidate",
     "source": "2026-10-14"
    }
