@@ -8,6 +8,7 @@ Work done on the laptop is free and is not listed.
 
 | run | purpose | log | start (UTC) | job hours | vCPUs | end | actual cost | record |
 |---|---|---|---|---|---|---|---|---|
+| Atlas v2.1 twin test and source terms (L6, L7) (job 5115bd05) | atlas v2.1 twin test and source terms: v2 scripts 09/10/12 reproduced on v2 (gate), then run on v2 + v2.1 | `ATLAS_V21/terms/terms_v21.log (not in S3 yet)` |  |  |  | running | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Box Run 3 | first tests on the commissioned Met-A (neutrophils, EPIC v1) | `(no log in S3)` |  |  |  | not recorded | pending billing access | [boxruns/run3/JOBS.md](boxruns/run3/JOBS.md) |
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/A/job_A.log` | 2026-10-05 01:43 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/C/job_C.log` | 2026-10-05 03:30 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
@@ -31,14 +32,16 @@ Work done on the laptop is free and is not listed.
 | Box Run 10 | IAM-A commissioning on identical DNA (EpiQC): format check, Stage A | `BOXRUN10_EPIQC/stageA/session.log` | 2026-10-11 22:31 | 1.6 | 128 | DONE | pending billing access | [doors/DEV_IAMA_COMMISSION_01.md](doors/DEV_IAMA_COMMISSION_01.md) |
 | Work machine 01 | neuron reference (10 Loyfer files read whole) and colon replication normals (152 arrays, Stage 1); small spot machine, unattended | `WORKBOX01/session.log` | 2026-10-12 04:09 | 5.5 | 8 | 10 rows | pending billing access | [boxruns/workbox/jobs_01.sh](boxruns/workbox/jobs_01.sh) |
 | Box Run 10 | IAM-A commissioning on identical DNA (EpiQC): format check, Stage A | `BOXRUN10_EPIQC/stageB/session.log` | 2026-10-12 18:09 | 6.1 | 128 | DONE | pending billing access | [doors/DEV_IAMA_COMMISSION_01.md](doors/DEV_IAMA_COMMISSION_01.md) |
+| Box Run 10, cause test | IAM-A: why three EMSeq LAB02 libraries read low (three parts of each run) | `BOXRUN10_EPIQC/cause01/session.log` | 2026-10-13 05:50 | 4.8 | 128 | DONE | pending billing access | [doors/DEV_IAMA_CAUSE_01.md](doors/DEV_IAMA_CAUSE_01.md) |
+| Atlas v2.1 Stage 1 (L4) (job e89bcd1c) | atlas v2.1 Stage 1: reproduction gate on v2's arrays, v2 shards backed up, 472 build arrays calibrated | `ATLAS_V21/stage1/stage1_v21.log` | 2026-10-13 22:14 | 0.7 | 128 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
+| Atlas v2.1 identity (L5, B2) (job 0b3c06e8) | atlas v2.1 identity: build arrays reproduced with SNP values, 1,797 held-out arrays calibrated (not scored), raw IDATs to S3 | `ATLAS_V21/identity/identity_v21.log` | 2026-10-13 23:30 | 2.4 | 128 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 
-Total job hours: 76.3.
+Total job hours: 84.1.
 
 ## Upcoming
 
 | run tag | run | purpose | machine | estimate |
 |---|---|---|---|---|
-| ATLAS-V2 | atlas v2 fit (historical, added 2026-10-13) | the joint Bayesian fit behind IAM-Atlas v2 (NumPyro NUTS, 4 chains, ~814k loci in 700 blocks) | AWS EC2 c7a.32xlarge, 128 vCPU, 246 GB (atlas/v2/README.md); outputs written to s3 atlas_v2/ 2026-09-29 to 2026-09-30, 11.91 GB | cost not recorded; the run predates the ledger rule |
 | `BOXRUN10_stageB` | Box Run 10, Stage B (Stage A met C1) | IAM-A commissioning on identical DNA: the other 71 libraries, 12.2M read pairs each | spot, 128 cores: m7a.32xlarge until AWS reclaimed it at 25 of 71 libraries (2026-10-12 02:02 Pacific); then c6a.32xlarge spot, reclaimed three times (25, 50 and 50 of 71); the last 21 on an on-demand c6a.32xlarge (author decision, about $23) | about $50 in total |
 | `BOXRUN10_cause01` | Box Run 10, cause test (DEV-IAMA-CAUSE-01) | why three EMSeq LAB02 libraries read low: 5 runs read from 3 parts each, 12.2M read pairs per part | spot c6a.32xlarge, 128 cores; shuts down at the end | about 3 hours, $5-10 |
 | `WORKBOX01` | Work machine 01 | neuron reference (10 Loyfer files) and colon replication: 152 normal arrays calibrated, then synthetic tests | spot r7a.2xlarge, 8 cores, 64 GB | about 5 hours, $1-2 |
@@ -48,8 +51,8 @@ Total job hours: 76.3.
 | month | total | largest items |
 |---|---|---|
 | 2026-09 | $12.28 | SpotUsage:c7a.8xlarge $6.52; SpotUsage:m7a.32xlarge $2.94; EBS:VolumeUsage.gp3 $1.52; TimedStorage-ByteHrs $0.39 |
-| 2026-10 | $942.96 | BoxUsage:m7a.32xlarge $700.38; SpotUsage:m7a.32xlarge $123.38; BoxUsage:m7a.16xlarge $47.52; EBS:VolumeUsage.gp3 $15.35 |
+| 2026-10 | $999.70 | BoxUsage:m7a.32xlarge $700.38; SpotUsage:m7a.32xlarge $123.38; BoxUsage:m7a.16xlarge $47.52; BoxUsage:c6a.32xlarge $35.60 |
 
-Daily: 09-28 $7, 09-29 $4, 10-01 $152, 10-02 $204, 10-03 $181, 10-04 $74, 10-05 $8, 10-06 $3, 10-07 $3, 10-08 $5, 10-09 $116, 10-10 $77, 10-11 $94, 10-12 $26
+Daily: 09-28 $7, 09-29 $4, 10-01 $155, 10-02 $204, 10-03 $181, 10-04 $74, 10-05 $8, 10-06 $3, 10-07 $3, 10-08 $5, 10-09 $116, 10-10 $77, 10-11 $94, 10-12 $67, 10-13 $13
 
 BoxUsage = on-demand machine hours; SpotUsage = spot machine hours. Runs before 2026-10-12 carry no run tag, so their cost is by day and type only.

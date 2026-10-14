@@ -1,5 +1,5 @@
 {
- "_rule": "Every box job: its S3 code prefix, the repo commit its code came from, each code file's repo path. Checked by CANON/box_code_check.py.",
+ "_rule": "Every box job: S3 code prefix, repo commit, code files, its log and outputs in S3, state (running/done), machine, purpose, record. Checked by CANON/box_code_check.py; drives the job rows of RUNS.md (boxruns/make_runs_ledger.py).",
  "jobs": [
   {
    "job_id": "e89bcd1c-29ac-4166-8f5e-09acae95e100",
@@ -15,6 +15,15 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/code_checksums_stage1.txt",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_build_samples.csv",
     "Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py"
+   ],
+   "state": "done",
+   "log": "results/ATLAS_V21/stage1/stage1_v21.log",
+   "machine": "methylphys-cpu-01 (128 cores)",
+   "purpose": "atlas v2.1 Stage 1: reproduction gate on v2's arrays, v2 shards backed up, 472 build arrays calibrated",
+   "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [
+    "results/ATLAS_V21/stage1/stage1_v21_manifest.csv",
+    "results/ATLAS_V21/stage1/reproduction_gate.json"
    ]
   },
   {
@@ -32,6 +41,45 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sealed_split_v21_02.json",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/E-MTAB-2145.sdrf.txt",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/E-MTAB-4957.sdrf.txt"
+   ],
+   "state": "done",
+   "log": "results/ATLAS_V21/identity/identity_v21.log",
+   "machine": "methylphys-cpu-01 (128 cores)",
+   "purpose": "atlas v2.1 identity: build arrays reproduced with SNP values, 1,797 held-out arrays calibrated (not scored), raw IDATs to S3",
+   "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [
+    "results/ATLAS_V21/identity/identity_v21_arrays.csv",
+    "results/ATLAS_V21/identity/identity_v21_rs.parquet"
+   ]
+  },
+  {
+   "job_id": "5115bd05-8f17-4bb1-8f31-e61eb85afa6b",
+   "name": "Atlas v2.1 twin test and source terms (L6, L7)",
+   "date": "2026-10-14",
+   "commit": "ed91a999",
+   "s3_code_prefix": "results/ATLAS_V21/terms/code/",
+   "state": "running",
+   "log": "results/ATLAS_V21/terms/terms_v21.log",
+   "machine": "methylphys-cpu-01 (128 cores)",
+   "purpose": "atlas v2.1 twin test and source terms: v2 scripts 09/10/12 reproduced on v2 (gate), then run on v2 + v2.1",
+   "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [
+    "results/ATLAS_V21/terms/reproduction_gate_terms.json",
+    "results/ATLAS_V21/terms/twins_v21.csv",
+    "results/ATLAS_V21/terms/source_terms_v21.json"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_twin_terms_box.py",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/roster_samples.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/roster.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/hsc_manifest.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/twin_family_thresholds_v1.json",
+    "Biological_Physics/MethylPhys/atlas/v2/records/twins.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/records/twin_null_splithalf.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/records/10_twin_test_sample_level.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/records/12b_source_terms_bridged.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/stage1_v21_manifest.csv"
    ]
   }
  ],
