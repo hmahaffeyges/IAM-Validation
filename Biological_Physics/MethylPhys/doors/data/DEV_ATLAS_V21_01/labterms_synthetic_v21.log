@@ -18,3 +18,8 @@ abdt 16 {'rep': 16, 'cov_all': 0.89, 'cov_c8': 0.9, 'frac_mu_rhat_ge_1_01': 0.00
 abdt 17 {'rep': 17, 'cov_all': 0.893, 'cov_c8': 0.85, 'frac_mu_rhat_ge_1_01': 0.004, 'max_term_rhat': 1.008, 'div_frac': 0.0, 'cov_a': False, 'cov_b': True, 'cov_dM': True, 'cov_dX': True} 291s
 abdt 18 {'rep': 18, 'cov_all': 0.912, 'cov_c8': 0.908, 'frac_mu_rhat_ge_1_01': 0.018, 'max_term_rhat': 1.017, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': True, 'cov_dX': True} 305s
 abdt 19 {'rep': 19, 'cov_all': 0.882, 'cov_c8': 0.867, 'frac_mu_rhat_ge_1_01': 0.013, 'max_term_rhat': 1.008, 'div_frac': 0.0, 'cov_a': True, 'cov_b': False, 'cov_dM': True, 'cov_dX': True} 320s
+abd 0 {'rep': 0, 'cov_all': 0.919, 'cov_c8': 0.933, 'frac_mu_rhat_ge_1_01': 0.029, 'max_term_rhat': 1.008, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': True, 'cov_dX': True} 332s
+abd 1 {'rep': 1, 'cov_all': 0.899, 'cov_c8': 0.892, 'frac_mu_rhat_ge_1_01': 0.028, 'max_term_rhat': 1.008, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': True, 'cov_dX': True} 344s
+abd 2 {'rep': 2, 'cov_all': 0.918, 'cov_c8': 0.925, 'frac_mu_rhat_ge_1_01': 0.018, 'max_term_rhat': 1.01, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': False, 'cov_dX': True} 355s
+abd 3 {'rep': 3, 'cov_all': 0.921, 'cov_c8': 0.942, 'frac_mu_rhat_ge_1_01': 0.008, 'max_term_rhat': 1.013, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': False, 'cov_dX': True} 367s
+abd 4 {'rep': 4, 'cov_all': 0.906, 'cov_c8': 0.908, 'frac_mu_rhat_ge_1_01': 0.029, 'max_term_rhat': 1.016, 'div_frac': 0.0, 'cov_a': True, 'cov_b': False, 'cov_dM': True, 'cov_dX': True} 379s

@@ -1573,3 +1573,6 @@ Author: a guidebook given with the atlas and maps, an instruction manual for the
 
 ### 2026-10-14 · Genotype probes for atlas v2's arrays done (job 415c5736); transfer shape check running (job 80446c36)
 113 of 113 of v2's arrays read (Salas2022 56, Salas2018 35, Moss2018 22). v2's GSE63409 450K stem and progenitor arrays are listed in hsc_manifest.csv, not in the sample table this job read, and get their own run before the half split is sealed. Job 80446c36 runs readiness L20 (does the array-to-sequencing transfer bend at the ends) with the rule fixed before it ran.
+
+### 2026-10-14 · Transfer shape check, run 2 (job 30ad806b)
+Run 1 (80446c36) stopped before reading any data: an input the loaders read was not sent. Its log and code are kept under run1/ in S3; run 2 publishes to its own code folder. Same committed rule.
