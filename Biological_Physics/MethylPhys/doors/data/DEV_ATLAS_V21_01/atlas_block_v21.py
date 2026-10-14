@@ -1,7 +1,9 @@
 """Atlas v2.1 stage B: the model and the saved outputs of one block (2026-10-14). v2's 14_stageB_block.py, line for line, except:
- 1. Sequencing rows: mean h(m) = alpha + beta * g(m), g the bounded transfer (L21) and alpha, beta the source's terms (L22; Loyfer 0, 1);
+ 1. Sequencing rows (Loyfer, Tian, ENCODE alike): mean h(m) = g(m), g the one bounded transfer (L22 second design, transfer_v21_final.json);
     the donor-spread slope is the centered difference (h(m + 0.01) - h(m - 0.01)) / 0.02 (continuous in m), replacing v2's constant b; the
-    read-count term is h(1 - h) / coverage, the binomial variance at the value sequencing reads (v2's m(1 - m) came with its straight line).
+    read-count term is h(1 - h) / coverage, the binomial variance at the value sequencing reads (v2's m(1 - m) came with its straight line);
+    and the measured cell-to-cell scatter of the transfer is carried: + n * s(m)^2, n the source's samples for that cell and locus, s(m)
+    interpolated between the range midpoints, so the source's mean carries s(m)^2 however many samples it has.
  2. Saved outputs widened (L18): K = 100 thinned draws of mu AND of the donor spread, the chain of every saved draw, and per-block sampler
     warnings (divergences per chain, mean acceptance, draws at the maximum tree depth).
  mode = "v2" reproduces v2 exactly (straight line a + b m, constant b, m(1 - m)); the planted test (planted_run_v21.py) checks that against
@@ -21,9 +23,8 @@ def row_terms(O, TERMS, mode):
     if mode == "v2":
         a = O.src.map(lambda s: TERMS[s]["a"]).values; b = O.src.map(lambda s: TERMS[s]["b"]).values; d = O.src.map(lambda s: TERMS[s]["d"]).values
         return a, b, d
-    SQ, AR = TERMS["sequencing"], TERMS["array"]
-    al = np.array([0.0 if k != "sequencing" else (SQ[s].get("alpha", 0.0) if SQ[s]["form"] == "composed" else 0.0) for s, k in zip(O.src, O.kind.map(lambda x: "array" if x == "array" else "sequencing"))])
-    be = np.array([1.0 if k != "sequencing" else (SQ[s].get("beta", 1.0) if SQ[s]["form"] == "composed" else 1.0) for s, k in zip(O.src, O.kind.map(lambda x: "array" if x == "array" else "sequencing"))])
+    AR = TERMS["array"]
+    al = np.zeros(len(O)); be = np.ones(len(O))
     d = np.array([AR[s]["d"] if k == "array" else 0.0 for s, k in zip(O.src, O.kind)])
     return al, be, d
 
@@ -36,8 +37,9 @@ def fit_block(O, loci, TERMS, seed, mode="v21", K=100, warm=600, draws=400):
     c_ = jnp.array(O.c.values); l_ = jnp.array(O.l.values); y_ = jnp.array(O.y.values); cov_ = jnp.array(O["cov"].values)
     isarr = jnp.array((O.kind == "array").values); ispool = jnp.array((O.kind == "pooled").values)
     if mode != "v2":
-        G = TERMS["sequencing"]["Loyfer2023"]; kx = jnp.array(G["knots_x"]); ky = jnp.array(G["knots_y"])
-        g = lambda x: jnp.interp(x, kx, ky)
+        kx = jnp.array(TERMS["knots_x"]); ky = jnp.array(TERMS["knots_y"]); g = lambda x: jnp.interp(x, kx, ky)
+        smid = jnp.array(TERMS["scatter_mid"]); sval = jnp.array(TERMS["scatter_s"]); sc = lambda x: jnp.interp(x, smid, sval)
+        nrep = jnp.array(O.groupby(["cell", "src", "l"]).y.transform("size").values.astype(float))
     def model():
         nu = numpyro.sample("nu", dist.Normal(0., 2.).expand([NL])); tau = numpyro.sample("tau", dist.HalfNormal(2.))
         lmu = numpyro.sample("lmu", dist.Normal(nu[None, :], tau).expand([NC, NL])); mu = jax.nn.sigmoid(lmu)
@@ -49,7 +51,8 @@ def fit_block(O, loci, TERMS, seed, mode="v21", K=100, warm=600, draws=400):
         else:
             h = a + b * g(m); slope = b * (g(m + HSTEP) - g(m - HSTEP)) / (2 * HSTEP)
             loc = jnp.where(isarr, m + dd, h)
-            var = jnp.where(isarr, s_ ** 2 + t ** 2 + FLOOR, (slope ** 2) * jnp.where(ispool, s_ ** 2 / 3., s_ ** 2) + jnp.clip(h * (1 - h), 0., 0.25) / jnp.maximum(cov_, 1.) + t ** 2 + FLOOR)
+            var = jnp.where(isarr, s_ ** 2 + t ** 2 + FLOOR, (slope ** 2) * jnp.where(ispool, s_ ** 2 / 3., s_ ** 2) + jnp.clip(h * (1 - h), 0., 0.25) / jnp.maximum(cov_, 1.)
+                            + nrep * sc(m) ** 2 + t ** 2 + FLOOR)
         numpyro.sample("y", dist.Normal(loc, jnp.sqrt(var)), obs=y_)
     lm = O.groupby("l").y.mean().reindex(range(NL)).fillna(0.5).clip(0.02, 0.98).values
     cm = O.groupby(["c", "l"]).y.mean().unstack().reindex(index=range(NC), columns=range(NL))

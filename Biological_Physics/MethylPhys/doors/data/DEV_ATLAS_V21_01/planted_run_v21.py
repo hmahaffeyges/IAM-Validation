@@ -1,7 +1,9 @@
 """Atlas v2.1 readiness L10 and L18: planted test of the run script (atlas_block_v21.py). Written and committed 2026-10-14 BEFORE it runs.
+RUN 2 (same day, after the L22 second design changed the model: one curve for every WGBS source, cell scatter carried): P1-P5 unchanged in
+meaning; P6 added. Run 1 (MET) tested the first design and is kept in the record.
 Synthetic block, seed 20261014: 40 loci, 5 cells; truth mu bimodal like methylation. Sources as in the real fit: a Loyfer-like WGBS source
 (3 samples per cell, coverage 10-40, reads drawn as Binomial(cov, h(m)) with h the adopted bounded transfer), a pooled WGBS source on top
-of it (alpha -0.01, beta 1.02), and two array laboratories (offsets +0.006 and -0.004, noise 0.01). Donor spread 0.03 on the logit-free
+of it (on the same curve), and two array laboratories (offsets +0.006 and -0.004, noise 0.01). Donor spread 0.03 on the logit-free
 scale as v2 models it. 15 percent of (cell, locus) pairs get no observation at all.
 BARS (all must hold; MET otherwise NOT MET):
  P1 every declared output written (<block>.parquet, _draws.npz with draws, sd_draws, chain, cells, cpg; _prior.parquet; _warnings.json);
@@ -12,6 +14,9 @@ BARS (all must hold; MET otherwise NOT MET):
  P4 v2 reproduction: v2's own code (14_stageB_block.py from the model to the outputs, executed unchanged on the same block and terms) and
     atlas_block_v21.fit_block(mode="v2", K=20) give identical summary columns and identical 20 draws (exact, NaN where NaN).
  P5 widening changes nothing fitted: fit_block(mode="v2", K=100) gives summary columns identical to the K=20 save.
+ P6 scatter carried: a second block (80 loci) with a planted cell-level transfer bias, Normal(0, 0.03) per (cell, locus) shared by all of a
+    cell's sequencing samples. On the cell seen ONLY by sequencing, the 95 percent intervals hold the planted mu in at least 85 percent of
+    measured pairs with the scatter carried (s = 0.03). Reported, no bar: the same coverage with the scatter set to 0.
 Reported, no bar: the v2 straight line's recovery error on the same curved truth, and divergences per mode.
 Writes planted_run_v21_summary.txt."""
 import os, sys, json, tempfile, numpy as np, pandas as pd
@@ -32,14 +37,13 @@ for c in range(NC):
             for _ in range(3):
                 md = np.clip(m + rng.normal(0, 0.03), 0, 1); cov = rng.integers(10, 41); put(c, "LoyferSyn", "wgbs", l, rng.binomial(cov, g(md)) / cov, cov)
         if c == 3:
-            md = np.clip(m + rng.normal(0, 0.03 / np.sqrt(3)), 0, 1); cov = 30; h = np.clip(-0.01 + 1.02 * g(md), 0, 1); put(c, "PoolSyn", "pooled", l, rng.binomial(cov, h) / cov, cov)
+            md = np.clip(m + rng.normal(0, 0.03 / np.sqrt(3)), 0, 1); cov = 30; h = g(md); put(c, "PoolSyn", "pooled", l, rng.binomial(cov, h) / cov, cov)
         for lab, d in (("LabA", 0.006), ("LabB", -0.004)):
             if c >= 1:
                 for _ in range(2): put(c, lab, "array", l, np.clip(m + d + rng.normal(0, 0.03) + rng.normal(0, 0.01), 0, 1), 0.0)
 O = pd.DataFrame(obs, columns=["cell", "src", "kind", "l", "y", "cov"]); O["y"] = O.y.clip(1e-3, 1 - 1e-3)
-T21 = {"sequencing": {"LoyferSyn": {"form": "bounded", "knots_x": kx.tolist(), "knots_y": ky.tolist()}, "PoolSyn": {"form": "composed", "alpha": -0.01, "beta": 1.02}},
+T21 = {"knots_x": kx.tolist(), "knots_y": ky.tolist(), "scatter_mid": [0.075, 0.30, 0.65, 0.925], "scatter_s": [0.01] * 4,
        "array": {"LabA": {"d": 0.006}, "LabB": {"d": -0.004}}}
-T21["sequencing"]["Loyfer2023"] = T21["sequencing"]["LoyferSyn"]
 T2 = {"LoyferSyn": {"a": -0.0902, "b": 1.1026, "d": 0.0, "t": 0.0}, "PoolSyn": {"a": -0.1038, "b": 1.1200, "d": 0.0, "t": 0.0},
       "LabA": {"a": 0.0, "b": 1.0, "d": 0.006, "t": 0.0}, "LabB": {"a": 0.0, "b": 1.0, "d": -0.004, "t": 0.0}}   # v2's own straight-line form
 BI = 7; SEED = 1000 + BI; W = tempfile.mkdtemp()
@@ -69,7 +73,25 @@ P4 = all(same(V2S[c].values, R2["summary"][c].values) for c in COLS) and same(V2
 P5 = all(same(R2["summary"][c].values, R2b["summary"][c].values) for c in COLS)
 e2 = float(np.median(np.abs(R2["summary"].mu.values - tv)[mm])); low = mm & (tv < 0.1)
 e2low = float(np.median(np.abs(R2["summary"].mu.values - tv)[low])); e21low = float(np.median(np.abs(S.mu.values - tv)[low]))
-L = ["Atlas v2.1 L10/L18 planted test, run once (planted_run_v21.py)",
+# P6: planted cell-level transfer bias
+NL6 = 80; loci6 = np.array([f"cg{i:08d}" for i in range(NL6)]); z6 = rng.random((NC, NL6))
+tru6 = np.where(z6 < 0.4, rng.beta(1.2, 14, (NC, NL6)), np.where(z6 < 0.85, rng.beta(14, 1.3, (NC, NL6)), rng.random((NC, NL6)))); bias = rng.normal(0, 0.03, (NC, NL6))
+ob6 = []
+for c in range(NC):
+    for l in range(NL6):
+        m = tru6[c, l]
+        if c < 3:
+            for _ in range(3):
+                md = np.clip(m + rng.normal(0, 0.03), 0, 1); cov = rng.integers(10, 41); ob6.append((cells[c], "LoyferSyn", "wgbs", l, rng.binomial(cov, np.clip(g(md) + bias[c, l], 0, 1)) / cov, float(cov)))
+        if c >= 1:
+            for lab, d in (("LabA", 0.006), ("LabB", -0.004)):
+                for _ in range(2): ob6.append((cells[c], lab, "array", l, float(np.clip(m + d + rng.normal(0, 0.03) + rng.normal(0, 0.01), 0, 1)), 0.0))
+O6 = pd.DataFrame(ob6, columns=["cell", "src", "kind", "l", "y", "cov"]); O6["y"] = O6.y.clip(1e-3, 1 - 1e-3)
+def cov0(sv):
+    T = dict(T21, scatter_s=[sv] * 4); Q = AB.fit_block(O6, loci6, T, SEED, mode="v21", K=20)["summary"]; Q = Q[(Q.cell == "cell0") & (Q.n_obs > 0)]
+    tv6 = tru6[0, [int(np.where(loci6 == p)[0][0]) for p in Q.cpg]]; return float(((Q.mu_lo.values <= tv6) & (tv6 <= Q.mu_hi.values)).mean()), len(Q)
+c6, n6 = cov0(0.03); c6off, _ = cov0(0.0); P6 = c6 >= 0.85
+L = ["Atlas v2.1 L10/L18 planted test, run 2 (planted_run_v21.py; run 1 tested the first design)",
      f"block: {NL} loci x {NC} cells, {len(O)} observations, {int(nob.sum())} pairs with none",
      f"P1 outputs and shapes -> {'met' if P1 else 'NOT met'}", f"P2 NOT MEASURED pairs NaN, measured pairs filled -> {'met' if P2 else 'NOT met'}",
      f"P3 recovery (v2.1 mode): 95% interval coverage {cover:.3f} (bar 0.90), median |error| {err:.4f} (bar 0.03) -> {'met' if P3 else 'NOT met'}",
@@ -77,5 +99,6 @@ L = ["Atlas v2.1 L10/L18 planted test, run once (planted_run_v21.py)",
      f"P5 K=100 save leaves every summary column identical to K=20 -> {'met' if P5 else 'NOT met'}",
      f"reported: median |error| on the curved truth, v2 straight line {e2:.4f} vs v2.1 {err:.4f}; at planted mu < 0.1: v2 {e2low:.4f} vs v2.1 {e21low:.4f}",
      f"reported: divergences v2.1 {R['warnings']['divergences']}, v2 {R2['warnings']['divergences']}; R-hat p99 v2.1 {R['rhat_p99']:.4f}; wall v2.1 {R['warnings']['wall_s']} s",
-     f"PLANTED: {'MET' if (P1 and P2 and P3 and P4 and P5) else 'NOT MET'}"]
+     f"P6 scatter carried: sequencing-only cell, coverage {c6:.3f} over {n6} pairs (bar 0.85) -> {'met' if P6 else 'NOT met'}; reported: with scatter 0 {c6off:.3f}",
+     f"PLANTED: {'MET' if (P1 and P2 and P3 and P4 and P5 and P6) else 'NOT MET'}"]
 open(os.path.join(HERE, "planted_run_v21_summary.txt"), "w").write("\n".join(L) + "\n"); print("\n".join(L))
