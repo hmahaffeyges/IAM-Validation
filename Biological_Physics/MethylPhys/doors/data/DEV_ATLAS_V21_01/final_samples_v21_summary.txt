@@ -1,0 +1,5 @@
+final build table: 702 samples, 79 cells (314 v2 samples in 74 cells; 388 v2.1 samples)
+conditional series resolved IN: ['E-MTAB-4957', 'GSE137716']
+v2.1 rows not entering: 81 (not IN, an OUT condition, or failed qc); by source: {'GSE103541': 23, 'GSE122244': 2, 'GSE146552': 16, 'GSE224807': 16, 'GSE252045': 10, 'GSE306226': 11, 'GSE88824': 3}
+held as sample-level twins: ['podocyte', 'promyelocytes']; new cells with fewer than 2 samples: []
+new cells in v2.1: ['cd56bright nk cells', 'cd8 central memory t cells', 'cd8 temra t cells', 'central memory th1 cells', 'cytotoxic cd4 t cells (cd28-)']

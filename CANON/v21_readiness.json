@@ -588,6 +588,27 @@
      ]
     ]
    }
+  },
+  {
+   "id": "L22",
+   "stage": "before_launch",
+   "manifest": [
+    "ATL-061",
+    "ATL-005"
+   ],
+   "what": "ATL-061 The laboratory terms the fit uses, recomputed on the final build table (after L6 and L8) and on the bounded transfer: no new twin among admitted cells, the transfer met out of sample on Loyfer cells it was not built on, other sequencing sources on Loyfer's shape with their own terms",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/terms_final_v21_summary.txt",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv"
+   ],
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/terms_final_v21_summary.txt",
+      "VERDICT: L22 MET"
+     ]
+    ]
+   }
   }
  ],
  "public": {
