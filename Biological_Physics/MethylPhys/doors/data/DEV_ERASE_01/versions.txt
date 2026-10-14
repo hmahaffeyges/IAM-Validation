@@ -1,0 +1,5 @@
+bwa-meth.py 0.2.0
+samtools 1.9
+sambamba 0.6.5
+fastq-dump : 3.0.10
+wgbstools 0.1.0

@@ -1768,3 +1768,6 @@ The first fit machine (i-0091baa9e8073a637, us-west-2b) was launched directly, w
 
 ### 2026-10-15 · Fit relaunch plan
 A second spot machine (i-09de65f5e7181064d, us-west-2c, via the ledger guard) got a new address that the author SSH alias does not know; the old cpu-02 address could not be recovered. It was terminated unused (minutes). The fit relaunches through spot_from_box.py once the eraser side arms finish on the box: the box stops and its fixed address and SSH identity move to the spot machine, so no step is needed from the author. The B1/L18 rerun publishes to its own code folder (RUN=2).
+
+### 2026-10-15 · DEV-ERASE-01 job finished: verdict file written once
+All 32 samples read (job b8dc568d). The job verdict file matches the recorded primary reading exactly (NOT MET). Side arms, reported only: IDH1 inhibitor 1.1046, vitamin C 0.9970, secondary removals 0.8923 and 0.9181.

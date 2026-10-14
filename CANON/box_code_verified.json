@@ -384,7 +384,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {},
   "state_at_verify": "cancelled"
  },
@@ -417,12 +417,12 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/DEV_ERASE_01/reads/erase_verdict.txt": false,
-   "results/DEV_ERASE_01/reads/erase_verdict_units.csv": false
+   "results/DEV_ERASE_01/reads/erase_verdict.txt": true,
+   "results/DEV_ERASE_01/reads/erase_verdict_units.csv": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "succeeded"
  },
  "c9efb60a-11b9-48bb-9871-1915843769be": {
   "s3": {

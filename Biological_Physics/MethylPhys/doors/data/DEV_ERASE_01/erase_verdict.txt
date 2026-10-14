@@ -1,0 +1,13 @@
+DEV-ERASE-01, read once (erase_verdict.py)
+unit                set   control treated  n_ctrl  n_trt  missing  eps_ctrl  eps_trt   ratio  share_ctrl  share_trt  opp_ctrl  opp_trt      verdict
+  A1          GSE265854      DMSO   AG120       3      3        0   0.04114  0.04545 1.10465     0.08698    0.06380   9890191  7242159     reported
+  A2           GSE87623 untreated    vitC       1      1        0   0.03910  0.03899 0.99703     0.05570    0.05214    457474   405021     reported
+  S1          GSE288100        WT      KO       3      3        0   0.04895  0.04368 0.89232     0.03027    0.03000   2380056  2240370     reported
+  S2          GSE174047        WT      KO       1      1        0   0.06558  0.06021 0.91806     0.02519    0.02870    617538   637295     reported
+  U1 GSE89727,GSE126958        WT      KO       2      2        0   0.03805  0.03656 0.96081     0.08995    0.07527   3775667  2660253      NOT MET
+  U2          GSE223576        WT      KO       3      3        0   0.09107  0.07222 0.79299     0.00493    0.01891    629061  1490687 INCONCLUSIVE
+  U3          GSE248933        WT      KO       1      1        0   0.04397  0.03763 0.85600     0.02589    0.02366    660087   597459      NOT MET
+  U4          GSE248933        WT      KO       1      1        0   0.03588  0.03207 0.89377     0.03509    0.03195    922808   836618      NOT MET
+  U5           GSE56986        WT      KO       1      1        0   0.05511  0.04692 0.85138     0.02513    0.02274    500802   645325      NOT MET
+primary units MET 0, NOT MET 4 of 5
+VERDICT: DEV-ERASE-01 NOT MET

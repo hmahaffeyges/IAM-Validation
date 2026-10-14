@@ -101,3 +101,17 @@ every cell keeps fully methylated, the held error sits inside the writer-alone r
 
 **In plain words.** Switching off the eraser lowered the error a little in every set, never by half, so the half-and-half rule does not hold
 site by site where we count. The middle line itself is unchanged.
+
+## Side arms (reported only, 2026-10-15)
+
+The job's own verdict file (`data/DEV_ERASE_01/erase_verdict.txt`, written once by the job after every sample) gives the primary units exactly
+as recorded above, and the side arms, which carry no bar:
+
+| arm | set | change | eraser treated / control |
+|---|---|---|---|
+| A1 | GSE265854 | IDH1 inhibitor (AG120), eraser freed in IDH-mutant cells | 1.1046 |
+| A2 | GSE87623 | vitamin C, eraser boosted | 0.9970 |
+| S1 | GSE288100 | eraser removed (secondary set) | 0.8923 |
+| S2 | GSE174047 | eraser removed (secondary set) | 0.9181 |
+
+The secondary removals read like the primary units (a small fall, not a halving). Freeing or boosting the eraser did not lower the held error.

@@ -576,7 +576,7 @@
    "date": "2026-10-14",
    "commit": "12806969",
    "s3_code_prefix": "results/DEV_ERASE_01/reads/code/run2/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/DEV_ERASE_01/reads/erase_reads.log",
    "machine": "methylphys-cpu-01 (32 cores) + temporary 200 GB disk vol-099d9e78bdcb456b7",
    "purpose": "32 declared samples (16 primary), 10 M pairs each as 20 spread blocks, Stage Q counting; verdict by erase_verdict.py",
@@ -595,7 +595,7 @@
     "Biological_Physics/MethylPhys/chain/stage_m_met_a.py",
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
-   "note": "running; same blocks and rule; samples already in S3 skipped"
+   "note": "all 32 samples read; verdict NOT MET (primary MET 0, NOT MET 4 of 5); side arms reported"
   },
   {
    "job_id": "c9efb60a-11b9-48bb-9871-1915843769be",

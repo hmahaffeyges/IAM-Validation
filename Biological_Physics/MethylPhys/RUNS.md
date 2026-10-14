@@ -9,9 +9,9 @@ Work done on the laptop is free and is not listed.
 | run | purpose | log | start (UTC) | job hours | vCPUs | end | actual cost | record |
 |---|---|---|---|---|---|---|---|---|
 | Box Run 3 | first tests on the commissioned Met-A (neutrophils, EPIC v1) | `(no log in S3)` |  |  |  | not recorded | pending billing access | [boxruns/run3/JOBS.md](boxruns/run3/JOBS.md) |
-| DEV-ERASE-01 reads, run 2 (AWS open-data copy) (job b8dc568d) | 32 declared samples (16 primary), 10 M pairs each as 20 spread blocks, Stage Q counting; verdict by erase_verdict.py | `DEV_ERASE_01/reads/erase_reads.log (not in S3 yet)` |  |  |  | running | pending billing access | [doors/DEV_ERASE_01.md](doors/DEV_ERASE_01.md) |
+| DEV-ERASE-01 reads, run 2 (AWS open-data copy) (job b8dc568d) | 32 declared samples (16 primary), 10 M pairs each as 20 spread blocks, Stage Q counting; verdict by erase_verdict.py | `DEV_ERASE_01/reads/erase_reads.log` |  |  |  | succeeded | pending billing access | [doors/DEV_ERASE_01.md](doors/DEV_ERASE_01.md) |
 | Atlas v2.1 data-assembly dry run (L9 check) (job 09ef5d2c) | assemble the observations for blocks 0, 350, 699 with run_v21_block.py DRYRUN=1; no fit | `ATLAS_V21/dryrun/dryrun.txt` |  |  |  | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
-| DEV-ERASE-01 reads (the sealed test) (job d4bf0f29) | 32 declared samples (16 primary), 10 M pairs each as 20 spread blocks, Stage Q counting; verdict by erase_verdict.py | `DEV_ERASE_01/reads/erase_reads.log (not in S3 yet)` |  |  |  | cancelled | pending billing access | [doors/DEV_ERASE_01.md](doors/DEV_ERASE_01.md) |
+| DEV-ERASE-01 reads (the sealed test) (job d4bf0f29) | 32 declared samples (16 primary), 10 M pairs each as 20 spread blocks, Stage Q counting; verdict by erase_verdict.py | `DEV_ERASE_01/reads/erase_reads.log` |  |  |  | cancelled | pending billing access | [doors/DEV_ERASE_01.md](doors/DEV_ERASE_01.md) |
 | DEV-ERASE-01 planted check on real molecules (job 091bf539) | halved / doubled / base arms on two spent healthy Loyfer files, read by Stage Q's counting; rules in planted_real_erase_01.py | `DEV_ERASE_01/planted_real/erase.log` |  |  |  | done | pending billing access | [doors/DEV_ERASE_01.md](doors/DEV_ERASE_01.md) |
 | Atlas v2.1 L22 second design (one curve, scatter carried) (job 6ea74736) | one bounded transfer on all 22 shared cells; leave-one-cell-out bias; cell scatter by range; Tian/ENCODE against it | `ATLAS_V21/transfer_final/xf.log (not in S3 yet)` |  |  |  | failed | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2.1 L8 D10 GSE137716 export (job e82da54c) | EpiDISH sites for GSE137716's 12 conditional arrays (decision 10 addendum) | `ATLAS_V21/l8b/l8b.log (not in S3 yet)` |  |  |  | failed | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
@@ -73,8 +73,8 @@ Total job hours: 86.8.
 | month | total | largest items |
 |---|---|---|
 | 2026-09 | $12.28 | SpotUsage:c7a.8xlarge $6.52; SpotUsage:m7a.32xlarge $2.94; EBS:VolumeUsage.gp3 $1.52; TimedStorage-ByteHrs $0.39 |
-| 2026-10 | $1,012.99 | BoxUsage:m7a.32xlarge $700.38; SpotUsage:m7a.32xlarge $123.38; BoxUsage:m7a.16xlarge $47.52; BoxUsage:c6a.32xlarge $35.60 |
+| 2026-10 | $1,039.13 | BoxUsage:m7a.32xlarge $700.38; SpotUsage:m7a.32xlarge $123.38; BoxUsage:m7a.16xlarge $47.52; BoxUsage:m7a.8xlarge $44.45 |
 
-Daily: 09-28 $7, 09-29 $4, 10-01 $156, 10-02 $204, 10-03 $181, 10-04 $74, 10-05 $8, 10-06 $3, 10-07 $3, 10-08 $5, 10-09 $116, 10-10 $77, 10-11 $94, 10-12 $67, 10-13 $20, 10-14 $5
+Daily: 09-28 $7, 09-29 $4, 10-01 $158, 10-02 $204, 10-03 $181, 10-04 $74, 10-05 $8, 10-06 $3, 10-07 $3, 10-08 $5, 10-09 $116, 10-10 $77, 10-11 $94, 10-12 $67, 10-13 $20, 10-14 $29
 
 BoxUsage = on-demand machine hours; SpotUsage = spot machine hours. Runs before 2026-10-12 carry no run tag, so their cost is by day and type only.
