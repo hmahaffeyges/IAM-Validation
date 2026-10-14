@@ -5,14 +5,14 @@ operating point when every cell shares the same temperature and supply; his answ
 
 **What was read.** For the 56 healthy Loyfer cell types, three numbers from each cell's own healthy array-site betas (`data/DEV_ARCH_01/arch_box.py`,
 box job c9efb60a): the share of 100 kb domains held loosely (median beta below 0.70), the share of sites fully methylated (beta 0.80 or more), and
-the number of identity sites. Set beside the healthy held error from PROC-CHANNEL-01 (`arch_vs_held.csv`, `arch_vs_held.png`).
+the number of identity sites. Set beside the healthy held error from PROC-CHANNEL-01 (`arch_vs_held.csv`, `arch_vs_held.png`; correlations `arch_vs_held_summary.txt`).
+Nuclear mitochondrial-gene expression (Human Protein Atlas) showed no relation in a first look; not saved, so not counted here.
 
 | | rank correlation with the held error |
 |---|---|
 | loosely held share | +0.87 |
 | fully methylated share | -0.88 |
 | identity sites | +0.06 |
-| nuclear mitochondrial-gene expression (HPA, 30 matched types) | -0.01 |
 
 **Limits.** The loosely held share comes from the same Loyfer molecules as the held error, and the held-error windows were not excluded
 (the job could not find wgbstools). Part of the match can be built in. PROC-CHANNEL-01 section 7 already found that on the 26,800 sites every

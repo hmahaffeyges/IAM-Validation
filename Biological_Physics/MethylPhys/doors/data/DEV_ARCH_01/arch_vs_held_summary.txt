@@ -1,0 +1,4 @@
+cells 56
+loose_share: rank correlation with the held error +0.87
+fully_meth_share: rank correlation with the held error -0.88
+identity_sites: rank correlation with the held error +0.05
