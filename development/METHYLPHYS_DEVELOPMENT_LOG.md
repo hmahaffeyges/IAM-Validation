@@ -1624,3 +1624,6 @@ The author: a qubit lives on the far side of the Landauer boundary; its superpos
 
 ### 2026-10-14 · The halves come only after the write (author)
 Correction by the author: nothing is paid before the Landauer crossing and the superposition is not the potential half. Both halves exist only after decoherence or writing: each bit written splits its cost equally between potential (stored, filling the surface) and kinetic (the work), however many zeros are written. This is the chip's split at a single write and the book's identity at binding. The qubit row is corrected. The cell's virial-ratio box is reset to open: the 1.90 computed earlier is the writer-to-eraser loss balance (DEV-ERASE-01's quantity), not potential over kinetic.
+
+### 2026-10-14 · Cell R box restored (author: do not erase without thinking it through)
+The previous push reset the cell virial-ratio box to open on the argument that the per-bit half makes R = 2 at every write. That argument was wrong: in the cosmos every halo splits its energy in halves and R(a) still slides from infinity to 2, because R compares populations (what fills the space against what has been written), not the split of one event. The 1.90 (writer-to-eraser loss balance, after the fact) is restored as a candidate reading of the cell's R, with the open question of which cell quantities are the two populations.
