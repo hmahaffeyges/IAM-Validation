@@ -235,7 +235,7 @@
    "date": "2026-10-14",
    "commit": "2980d106",
    "s3_code_prefix": "results/ATLAS_V21/transfer_bounded/code/run1/",
-   "state": "running",
+   "state": "done",
    "log": "results/ATLAS_V21/transfer_bounded/transfer_bounded.log",
    "machine": "methylphys-cpu-01 (32 cores, 123 GB at submit)",
    "purpose": "cross-halves check of the bounded monotone transfer on L20's 767,672 pairs; rule in transfer_bounded_v21.py",
@@ -255,7 +255,7 @@
     "Biological_Physics/MethylPhys/atlas/v2/inputs/hsc_manifest.csv",
     "Biological_Physics/MethylPhys/atlas/v2/inputs/twin_family_thresholds_v1.json"
    ],
-   "note": "running"
+   "note": "VERDICT: ADOPTED (cross-halves worst 0.0179 both ways, 0 of 42 bins beyond 0.02; synthetic MET; 42 knots, range 0.0089-0.9590)"
   }
  ],
  "not_jobs": {

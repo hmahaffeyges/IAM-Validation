@@ -1642,3 +1642,6 @@ Closed tonight as identities or standard physics: the cosmic balance law (f = 0)
 
 ### 2026-10-14 · Atlas v2.1 L21: bounded transfer designed, synthetic test MET, real check submitted
 A 3-parameter logistic in logit space, tried on L20's committed bins, missed 3 of 42 bins with a smooth wave (structurally wrong; not used). Adopted design, committed before any test (504ffb8a): an empirical monotone calibration curve (PAV on L20's bins, linear between knots), which cannot leave [0, 1]; it is instrument calibration like v2's line, not physics. Synthetic test run once: MET (S1 0.0028, S2 0.0020 / 0.0019, S3 in [0.0099, 0.9587]). Real cross-halves check on the 17 shared cells submitted as box job 43e13497 (code committed 2980d106). Noted: the box now reports 32 cores and 123 GB, not the 128 cores the fit-time estimate assumed.
+
+### 2026-10-14 · Atlas v2.1 L21 ADOPTED: the bounded transfer
+Real cross-halves check (job 43e13497): worst bin 0.0179 both ways, 0 of 42 bins beyond 0.02; synthetic MET. The equal worst values both ways are expected: each half's curve sits on its own bin means, so the largest gap between the halves appears with opposite sign in each direction. Tian2023 and ENCODE keep their straight lines (L20 measured Loyfer only), recorded as a limit.

@@ -1,0 +1,7 @@
+Atlas v2.1 readiness L21, bounded transfer real check, run once 2026-10-14 (v21_transfer_bounded_box.py)
+pairs 767,672 over 17 cells (L20's); halves A 9 cells, B 8 cells
+built on A, checked on B: 42 bins, worst 0.0179, 0 beyond +/-0.02
+built on B, checked on A: 42 bins, worst 0.0179, 0 beyond +/-0.02
+synthetic test (shipped file): MET
+final curve on all 17 cells: 42 knots, range [0.0089, 0.9590]
+VERDICT: ADOPTED

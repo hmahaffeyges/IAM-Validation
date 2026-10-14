@@ -242,3 +242,11 @@ GSE137716 -0.030 (via Loyfer, one shared cell); flagged for the L21 work, which 
 In plain words: v2.1's new cells were checked for duplicates and each new laboratory's offset was measured. The check first reproduced v2
 exactly. One new cell, promyelocytes, cannot be told apart from neutrophils sample by sample, so it is held, by the same rule v2 used.
 
+
+**Readiness L21, run once (job 43e13497, rule committed first, 504ffb8a / 2980d106): the bounded transfer is ADOPTED.** A 3-parameter logistic in
+logit space, tried first on L20's committed bins, missed 3 of 42 bins with a smooth wave and is not used. The adopted transfer is an empirical
+monotone calibration curve (pool-adjacent-violators on L20's bins, linear between 42 knots; range 0.0089-0.9590, so it cannot leave [0, 1]).
+It is instrument calibration, like v2's straight line, not physics. Synthetic test MET (recovery 0.0028; cross-halves 0.0020 / 0.0019). Real
+check on L20's 767,672 pairs: built on 9 of the 17 shared cells and checked on the other 8, and the reverse: worst bin 0.0179 both ways, none
+beyond +/-0.02. In the fit, g(m) replaces a + b m for Loyfer rows and its local slope replaces b in the variance; Tian2023 and ENCODE keep
+their straight lines (L20 measured Loyfer only; recorded as a limit). Knots: `transfer_bounded_v21.json`.

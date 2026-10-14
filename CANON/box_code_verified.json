@@ -153,11 +153,11 @@
    "twin_family_thresholds_v1.json": "ac7163ee1aaddfa7606e326b1e655016d244be599040216fe9ea0cf7db5da03f"
   },
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/ATLAS_V21/transfer_bounded/transfer_bounded_v21.json": false,
-   "results/ATLAS_V21/transfer_bounded/transfer_bounded_v21_summary.txt": false
+   "results/ATLAS_V21/transfer_bounded/transfer_bounded_v21.json": true,
+   "results/ATLAS_V21/transfer_bounded/transfer_bounded_v21_summary.txt": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "done"
  }
 }
