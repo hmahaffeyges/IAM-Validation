@@ -118,11 +118,8 @@
    "hsc_manifest.csv": "9ee7fb9592d3b0cb2667e38cf00aa5cda7ed712777806a1aa6d7f99c7ee89af6"
   },
   "matches_repo": true,
-  "log_in_s3": false,
-  "outputs_in_s3": {
-   "results/ATLAS_V21/transfer/transfer_shape_v21.csv": false,
-   "results/ATLAS_V21/transfer/transfer_shape_v21_summary.txt": false
-  },
-  "state_at_verify": "running"
+  "log_in_s3": true,
+  "outputs_in_s3": {},
+  "state_at_verify": "done"
  }
 }

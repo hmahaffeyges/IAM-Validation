@@ -8,7 +8,7 @@ Work done on the laptop is free and is not listed.
 
 | run | purpose | log | start (UTC) | job hours | vCPUs | end | actual cost | record |
 |---|---|---|---|---|---|---|---|---|
-| Atlas v2.1 transfer shape check (L20) (job 80446c36) | is the array-to-sequencing transfer straight across the whole range (v2's samples, the terms job's own run12) | `ATLAS_V21/transfer/transfer.log (not in S3 yet)` |  |  |  | running | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
+| Atlas v2.1 transfer shape check (L20) (job 80446c36) | is the array-to-sequencing transfer straight across the whole range (v2's samples, the terms job's own run12) | `ATLAS_V21/transfer/transfer_run1_80446c36.log` |  |  |  | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2.1 twin test and source terms, run 2 (L6, L7) (job 178c64ed) | atlas v2.1 twin test and source terms: v2 scripts 09/10/12 reproduced on v2 (gate), then run on v2 + v2.1 | `ATLAS_V21/terms/terms_v21_run2.log (not in S3 yet)` |  |  |  | running | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Box Run 3 | first tests on the commissioned Met-A (neutrophils, EPIC v1) | `(no log in S3)` |  |  |  | not recorded | pending billing access | [boxruns/run3/JOBS.md](boxruns/run3/JOBS.md) |
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/A/job_A.log` | 2026-10-05 01:43 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
