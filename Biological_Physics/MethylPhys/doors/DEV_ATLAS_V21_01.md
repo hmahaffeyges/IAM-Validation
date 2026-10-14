@@ -210,3 +210,13 @@ any fit (readiness L19); a cell with one donor can sit in only one half and is N
 (about one more full fit of box time) so they do not delay it. The maps and their statistics (release checklist M01-M07) are built on the
 fit's output; none is read on real data until the sphere construction passes its synthetic methylome and noise-map check (M01).
 
+**Readiness L20, run once (job 30ad806b, rule committed first): the array-to-sequencing transfer is NOT a straight line.** On the 767,672
+pairs of the 17 cells Loyfer and our arrays both measured (v2's own Deming line reproduced: a -0.090199, b 1.102649), 14 of the 42 bins with
+at least 500 pairs miss the line by more than 0.02 (`transfer_shape_v21.csv`). Three regions: below x = 0.08 the line predicts negative
+readings while 53-68% of real sequencing readings sit at or below 0.01 (residual up to +0.081); between x = 0.2 and 0.45 sequencing reads
+lower than the line (about -0.04); above x = 0.97 sequencing levels off near 0.966 while the line keeps climbing (-0.03 to -0.06). The
+shape is an S, not a line. This applies to atlas v2 as built: its Loyfer-scale estimates near both ends and in the 0.2-0.45 band carry
+this error, now measured. By the rule, v2.1 does not launch on the straight line: a transfer that cannot leave [0, 1] is designed, then
+tested on synthetic data, before launch. The form is chosen after seeing these residuals, on build (development) cells only; that is
+disclosed, and the held-out arrays remain unopened.
+

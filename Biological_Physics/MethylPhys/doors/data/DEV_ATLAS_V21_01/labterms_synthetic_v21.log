@@ -23,3 +23,11 @@ abd 1 {'rep': 1, 'cov_all': 0.899, 'cov_c8': 0.892, 'frac_mu_rhat_ge_1_01': 0.02
 abd 2 {'rep': 2, 'cov_all': 0.918, 'cov_c8': 0.925, 'frac_mu_rhat_ge_1_01': 0.018, 'max_term_rhat': 1.01, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': False, 'cov_dX': True} 355s
 abd 3 {'rep': 3, 'cov_all': 0.921, 'cov_c8': 0.942, 'frac_mu_rhat_ge_1_01': 0.008, 'max_term_rhat': 1.013, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': False, 'cov_dX': True} 367s
 abd 4 {'rep': 4, 'cov_all': 0.906, 'cov_c8': 0.908, 'frac_mu_rhat_ge_1_01': 0.029, 'max_term_rhat': 1.016, 'div_frac': 0.0, 'cov_a': True, 'cov_b': False, 'cov_dM': True, 'cov_dX': True} 379s
+abd 5 {'rep': 5, 'cov_all': 0.896, 'cov_c8': 0.875, 'frac_mu_rhat_ge_1_01': 0.01, 'max_term_rhat': 1.02, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': True, 'cov_dX': True} 391s
+abd 6 {'rep': 6, 'cov_all': 0.912, 'cov_c8': 0.958, 'frac_mu_rhat_ge_1_01': 0.007, 'max_term_rhat': 1.01, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': True, 'cov_dX': True} 405s
+abd 7 {'rep': 7, 'cov_all': 0.894, 'cov_c8': 0.875, 'frac_mu_rhat_ge_1_01': 0.013, 'max_term_rhat': 1.016, 'div_frac': 0.0, 'cov_a': True, 'cov_b': False, 'cov_dM': True, 'cov_dX': True} 418s
+abd 8 {'rep': 8, 'cov_all': 0.912, 'cov_c8': 0.942, 'frac_mu_rhat_ge_1_01': 0.013, 'max_term_rhat': 1.0, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': True, 'cov_dX': True} 430s
+abd 9 {'rep': 9, 'cov_all': 0.899, 'cov_c8': 0.9, 'frac_mu_rhat_ge_1_01': 0.016, 'max_term_rhat': 1.018, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': True, 'cov_dX': True} 442s
+abd 10 {'rep': 10, 'cov_all': 0.895, 'cov_c8': 0.908, 'frac_mu_rhat_ge_1_01': 0.016, 'max_term_rhat': 1.009, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': True, 'cov_dX': True} 453s
+abd 11 {'rep': 11, 'cov_all': 0.901, 'cov_c8': 0.883, 'frac_mu_rhat_ge_1_01': 0.011, 'max_term_rhat': 1.003, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': False, 'cov_dX': True} 466s
+abd 12 {'rep': 12, 'cov_all': 0.896, 'cov_c8': 0.95, 'frac_mu_rhat_ge_1_01': 0.028, 'max_term_rhat': 1.007, 'div_frac': 0.0, 'cov_a': True, 'cov_b': True, 'cov_dM': True, 'cov_dX': False} 478s

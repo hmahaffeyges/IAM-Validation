@@ -1576,3 +1576,6 @@ Author: a guidebook given with the atlas and maps, an instruction manual for the
 
 ### 2026-10-14 · Transfer shape check, run 2 (job 30ad806b)
 Run 1 (80446c36) stopped before reading any data: an input the loaders read was not sent. Its log and code are kept under run1/ in S3; run 2 publishes to its own code folder. Same committed rule.
+
+### 2026-10-14 · Readiness L20 outcome: the array-to-sequencing transfer bends (an S, not a line)
+Run once by the committed rule on v2's 17 shared cells (767,672 pairs; v2's Deming line reproduced exactly). 14 of 42 bins miss the line by more than 0.02: near 0 the line predicts negative readings where most real readings sit at 0 (residual up to +0.081), sequencing reads about 0.04 low between 0.2 and 0.45, and it levels off near 0.966 at the top where the line keeps rising. This error is present in atlas v2 and is now measured. v2.1 will not launch on the straight line: a bounded transfer is designed and tested on synthetic data first. The form is chosen after seeing these residuals, on development cells only, and that is disclosed.

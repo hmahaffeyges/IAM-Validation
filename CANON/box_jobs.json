@@ -209,7 +209,7 @@
    "date": "2026-10-14",
    "commit": "76c3e41f",
    "s3_code_prefix": "results/ATLAS_V21/transfer/code/run2/",
-   "state": "running",
+   "state": "done",
    "log": "results/ATLAS_V21/transfer/transfer.log",
    "machine": "methylphys-cpu-01 (128 cores)",
    "purpose": "is the array-to-sequencing transfer straight across the whole range (v2's samples, the terms job's own run12)",
@@ -226,7 +226,8 @@
     "Biological_Physics/MethylPhys/atlas/v2/inputs/roster.csv",
     "Biological_Physics/MethylPhys/atlas/v2/inputs/hsc_manifest.csv",
     "Biological_Physics/MethylPhys/atlas/v2/inputs/twin_family_thresholds_v1.json"
-   ]
+   ],
+   "note": "VERDICT: the straight line BENDS (14 of 42 bins beyond +/-0.02; worst +0.081 at x 0.01-0.02)"
   }
  ],
  "not_jobs": {

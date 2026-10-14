@@ -1,0 +1,5 @@
+Atlas v2.1 readiness L20, transfer shape, run once 2026-10-14 (v21_transfer_shape_box.py)
+Loyfer transfer reproduced: a -0.090199, b 1.102649, pairs 767,672 over 17 shared cells
+bins with >= 500 pairs: 42; worst mean residual +0.0810 in bin (0.01, 0.02] (n 17054)
+bins beyond +/-0.02: ['(0.01, 0.02]', '(0.02, 0.03]', '(0.03, 0.04]', '(0.04, 0.05]', '(0.05, 0.06]', '(0.06, 0.07]', '(0.07, 0.08]', '(0.2, 0.25]', '(0.25, 0.3]', '(0.3, 0.35]', '(0.35, 0.4]', '(0.4, 0.45]', '(0.97, 0.98]', '(0.98, 0.99]']
+VERDICT: the straight line BENDS
