@@ -250,3 +250,14 @@ It is instrument calibration, like v2's straight line, not physics. Synthetic te
 check on L20's 767,672 pairs: built on 9 of the 17 shared cells and checked on the other 8, and the reverse: worst bin 0.0179 both ways, none
 beyond +/-0.02. In the fit, g(m) replaces a + b m for Loyfer rows and its local slope replaces b in the variance; Tian2023 and ENCODE keep
 their straight lines (L20 measured Loyfer only; recorded as a limit). Knots: `transfer_bounded_v21.json`.
+
+**Readiness L8, the five open conditions, settled by rules committed before reading (`l8_conditions_v21.md`, f63d897d; box job 93d94090).**
+- **D1, GSE224807 CD15+ as neutrophils: OUT (research).** Against the Salas neutrophils, r 0.9927 clears 0.985, but 198 sites separate
+  every sample of one lab from every sample of the other, against fewer than 30. By v2's sample-level rule they are not one cell.
+- **D7, GSE306226 astrocytes: OUT (research).** Their closest cell is Tian astrocytes, as required, but r 0.9575 is below 0.986.
+- **D10, GSE146552 scraped epithelium: OUT (research).** EpiDISH 2.26.0 (RPC) reads a median 0.62 (ovary) and 0.59 (fallopian tube)
+  non-epithelial share against the 0.20 cut; 0 of 8 and 1 of 7 arrays pass. Caveat: ovarian surface epithelium is mesothelial in origin
+  and an epithelial reference may read part of it as fibroblast; the cut was fixed first, so the outcome stands.
+- **D13, D14:** held-out only; carried to L15 as preconditions for scoring those two sets.
+37 samples leave the build (781 remain: 401 in half A, 380 in half B). Ovary epithelium leaves v2.1; fallopian tube epithelium stays through
+its other source. The sealed half split stands: the leaving samples drop out of their units, and no other unit changes half.

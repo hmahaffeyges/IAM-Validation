@@ -291,7 +291,7 @@
    "date": "2026-10-14",
    "commit": "8fd4a882",
    "s3_code_prefix": "results/ATLAS_V21/l8/code/run2/",
-   "state": "running",
+   "state": "done",
    "log": "results/ATLAS_V21/l8/l8_run2.log",
    "machine": "methylphys-cpu-01 (32 cores)",
    "purpose": "D1 twin test (GSE224807 vs Salas neutrophils), D7 astrocyte profile r, export of the 904 EpiDISH sites; rules in l8_conditions_v21.md",
@@ -311,7 +311,7 @@
     "Biological_Physics/MethylPhys/atlas/v2/inputs/twin_family_thresholds_v1.json",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/epidish_sites.txt"
    ],
-   "note": "running; run 1 failed before any result",
+   "note": "D1 not a twin (198 sites vs < 30), D7 r 0.9575 < 0.986; EpiDISH export 904 sites x 89 arrays",
    "s3_inputs": {
     "v21_samples_all.csv": "results/ATLAS_V21/terms/v21_samples_all.csv"
    }

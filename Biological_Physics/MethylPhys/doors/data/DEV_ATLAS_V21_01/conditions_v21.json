@@ -1,8 +1,10 @@
 {
  "_rule": "Readiness L8: each conditional decision's outcome, with its evidence, recorded before the fit. 'resolved' outcomes change which arrays enter; 'pending' ones wait for a named data step. Written 2026-10-14.",
  "D1_GSE224807": {
-  "status": "pending",
-  "evidence": "marker-selected (CD15+ beads, roster purification text); enters if each array passes the sample-level twin test (box job 5115bd05)"
+  "status": "resolved",
+  "evidence": "rule l8_conditions_v21.md (f63d897d), job 93d94090: sample-level twin test against the Salas neutrophils (12 arrays) r 0.9927 > 0.985, but 198 non-overlapping separating sites against fewer than 30 - not a twin, so (i) fails and none enters. (ii) moot; EpiDISH eosinophil share was 0.0 in all 10. Files l8_d1_twin.csv, l8_d1_epidish.csv.",
+  "outcome": "OUT (research)",
+  "arrays": 10
  },
  "D1_GSE103541": {
   "status": "resolved",
@@ -11,9 +13,11 @@
   "evidence": "Paper PMC8011804 (PubMed 33739972, the paper GEO lists for GSE103541), Methods: unstained cells were set aside 'for sorting of granulocytes based on FSC/SSC only'; the antibody panel is CD3, CD4, CD8, CD19, CD14. No CD15 or CD16 selection, so by decision 1 the fraction does not enter as neutrophils."
  },
  "D7_GSE306226": {
-  "status": "pending",
+  "status": "resolved",
   "applies_to": "the astrocyte fraction only (10 arrays)",
-  "evidence": "kept only if closer to Tian astrocytes than to any other cell, cross-laboratory r >= 0.986 - read from the twin output of job 5115bd05"
+  "evidence": "closest cell is Tian astrocytes, as required, but r 0.9575 < 0.986 (job 93d94090, the twin job's own profiles; l8_d7_profile_r.csv). The other three GSE306226 fractions are not affected.",
+  "outcome": "OUT (research)",
+  "arrays": 9
  },
  "D9_E-MTAB-4957": {
   "status": "resolved",
@@ -21,15 +25,16 @@
   "evidence": "SDRF (E-MTAB-4957.sdrf.txt): the 'n'-suffix arrays are 39ACn, 39SCn, 39TIn, cell type 'non-epithelial mucosal cell' (donor 39); none is on the build list. All 16 build arrays are 'intestinal epithelial cell', biosource 'purified cell'. Due before seal 1 by the decision; done before any build array was read for a result."
  },
  "D10_GSE146552_GSE137716": {
-  "status": "pending",
-  "evidence": "non-epithelial content under the plan's cut, by deconvolution after the source terms (job 5115bd05); also one GSE146552 build array called male (identity check), checked here"
+  "status": "resolved",
+  "evidence": "EpiDISH 2.26.0 RPC, centEpiFibIC, 627 sites (l8_epidish_v21.R, committed before it ran; l8_d10_epidish.csv). Caveat for the methods: ovarian surface epithelium is mesothelial in origin and a reference built on other epithelia may read part of it as fibroblast; the cut was fixed before reading, so the outcome stands. The male-called GSE146552 build array leaves with its set.",
+  "outcome": "OUT (research): ovary epithelium 0 of 8 arrays under 0.20 non-epithelial (median 0.62); fallopian tube epithelium 1 of 7 (median 0.59), fewer than 2 remain. GSE137716 is not scraped tissue and is unaffected."
  },
  "D13_GSE132547": {
-  "status": "pending",
-  "note": "held-out, not build: does not change the fit; paper check before the held-out sets are scored"
+  "status": "carried to L15",
+  "note": "held-out, not build: does not change the fit; paper check before the held-out sets are scored | carried to the commissioning gate (L15) as a precondition for scoring this held-out set, per l8_conditions_v21.md (committed before any read)"
  },
  "D14_GSE131989": {
-  "status": "pending",
-  "note": "held-out, not build: does not change the fit; paper check before the held-out sets are scored"
+  "status": "carried to L15",
+  "note": "held-out, not build: does not change the fit; paper check before the held-out sets are scored | carried to the commissioning gate (L15) as a precondition for scoring this held-out set, per l8_conditions_v21.md (committed before any read)"
  }
 }

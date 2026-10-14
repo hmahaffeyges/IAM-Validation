@@ -1,0 +1,16 @@
+"array","cell","epi","fib","ic","sites","non_epithelial","passes"
+"GSE146552|fallopien tubes epithelium|GSM4392132_6229025007_R03C02","fallopien tubes epithelium",0.8037,0.048,0.1483,627,0.1963,TRUE
+"GSE146552|fallopien tubes epithelium|GSM4392133_9992571039_R03C02","fallopien tubes epithelium",0.4102,0.374,0.2158,627,0.5898,FALSE
+"GSE146552|fallopien tubes epithelium|GSM4392134_6229025007_R04C02","fallopien tubes epithelium",0.4353,0.3507,0.214,627,0.5647,FALSE
+"GSE146552|fallopien tubes epithelium|GSM4392135_9992571039_R04C02","fallopien tubes epithelium",0.5854,0.2268,0.1879,627,0.4147,FALSE
+"GSE146552|fallopien tubes epithelium|GSM4392136_6229025007_R06C01","fallopien tubes epithelium",0.317,0.4368,0.2461,627,0.6829,FALSE
+"GSE146552|fallopien tubes epithelium|GSM4392138_9992571039_R05C02","fallopien tubes epithelium",0.3838,0.348,0.2682,627,0.6162,FALSE
+"GSE146552|fallopien tubes epithelium|GSM4392139_9992571039_R06C02","fallopien tubes epithelium",0.4083,0.3702,0.2214,627,0.5916,FALSE
+"GSE146552|ovary epithelium|GSM4392142_9992571039_R05C01","ovary epithelium",0.5812,0.2366,0.1822,627,0.4188,FALSE
+"GSE146552|ovary epithelium|GSM4392143_9992571039_R06C01","ovary epithelium",0.3902,0.3942,0.2156,627,0.6098,FALSE
+"GSE146552|ovary epithelium|GSM4392144_6229025007_R05C01","ovary epithelium",0.3716,0.4204,0.208,627,0.6284,FALSE
+"GSE146552|ovary epithelium|GSM4392145_6229025007_R01C02","ovary epithelium",0.3113,0.4727,0.2159,627,0.6886,FALSE
+"GSE146552|ovary epithelium|GSM4392146_9992571039_R01C02","ovary epithelium",0.3825,0.3479,0.2696,627,0.6175,FALSE
+"GSE146552|ovary epithelium|GSM4392147_9992571039_R02C02","ovary epithelium",0.3825,0.3876,0.2299,627,0.6175,FALSE
+"GSE146552|ovary epithelium|GSM4392148_5902871009_R05C01","ovary epithelium",0.3734,0.4373,0.1892,627,0.6265,FALSE
+"GSE146552|ovary epithelium|GSM4392149_5902871009_R06C01","ovary epithelium",0.459,0.3053,0.2358,627,0.5411,FALSE

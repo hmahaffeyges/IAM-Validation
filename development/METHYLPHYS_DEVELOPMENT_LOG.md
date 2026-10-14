@@ -1654,3 +1654,6 @@ The L8 job ships `v21_samples_all.csv`, the output of twin run 2 (178c64ed) stor
 
 ### 2026-10-14 · Atlas v2.1 L8 data step run 2
 Run 1 (36fc910c) failed before any result: the v2 rows' empty path came back from CSV as NaN and the loader took it for a path. Run 2 (93d94090, code 8fd4a882) reads the table with empty paths kept as empty strings, its own S3 code folder.
+
+### 2026-10-14 · Atlas v2.1 L8 settled: three conditional sets go to research
+D1 (GSE224807 CD15+): not a twin of the Salas neutrophils (198 separating sites, limit 30). D7 (GSE306226 astrocytes): r 0.9575 to Tian astrocytes, bar 0.986. D10 (GSE146552): non-epithelial share by EpiDISH far above the 0.20 cut (medians 0.62, 0.59); mesothelial-origin caveat recorded. D13 and D14 carried to L15. 37 samples leave the build; ovary epithelium leaves v2.1. Run 1 of the data step (36fc910c) failed before any result; run 2 (93d94090) is the result.

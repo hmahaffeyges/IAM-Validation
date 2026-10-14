@@ -205,12 +205,12 @@
    "v21_samples_all.csv": "f86f645cd41a5dc47509dffa435ba6fdadbecf69db923ed8c9dd8037436772fe"
   },
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/ATLAS_V21/l8/l8_d1_twin.csv": false,
-   "results/ATLAS_V21/l8/l8_d7_profile_r.csv": false,
-   "results/ATLAS_V21/l8/l8_epidish_betas.csv": false
+   "results/ATLAS_V21/l8/l8_d1_twin.csv": true,
+   "results/ATLAS_V21/l8/l8_d7_profile_r.csv": true,
+   "results/ATLAS_V21/l8/l8_epidish_betas.csv": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "done"
  }
 }

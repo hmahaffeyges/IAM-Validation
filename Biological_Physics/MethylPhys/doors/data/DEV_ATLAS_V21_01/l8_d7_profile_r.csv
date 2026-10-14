@@ -1,0 +1,92 @@
+cell,platform,shared,r
+astrocytes,WGBS,817938,0.9575
+oligodendrocytes,WGBS,839098,0.9304
+ovary epithelium,array,446441,0.9288
+oligodendrocyte precursors,WGBS,817444,0.9282
+vascular endothelium,array,836502,0.9201
+cortical neurons,WGBS,842546,0.9066
+HSC (bone marrow),array,444836,0.8939
+promyelocytes,array,445089,0.8758
+striated muscle,WGBS,828625,0.8664
+vascular leptomeningeal cells,WGBS,798001,0.8651
+central memory th1 cells,array,445709,0.8613
+adipocytes,WGBS,839819,0.858
+colon fibroblasts,WGBS,837254,0.857
+pancreas endothelium,WGBS,834258,0.856
+embryonic stem cells,WGBS,852196,0.8551
+podocyte,WGBS,837696,0.8544
+kidney glomerular endothelium,WGBS,839387,0.8515
+vascular saphenous endothelium,WGBS,841438,0.8505
+thyroid epithelium,WGBS,835263,0.8486
+kidney tubular epithelium,WGBS,839707,0.8467
+cd56bright nk cells,array,853293,0.8463
+naive b cells,array,854089,0.8443
+lung alveolar endothelium,WGBS,837076,0.8416
+kidney tubular endothelium,WGBS,835143,0.8369
+cardiomyocyte,WGBS,840175,0.8331
+aorta endothelium,WGBS,829609,0.8326
+kidney glomerular epithelium,WGBS,828426,0.831
+cytotoxic cd4 t cells (cd28-),array,445830,0.8305
+pancreatic delta,WGBS,830925,0.8296
+pancreatic duct,WGBS,836872,0.8287
+memory cd4 t cells,array,851259,0.8281
+basophils,array,854058,0.8272
+breast basal epithelium,WGBS,833501,0.8267
+pancreatic beta,WGBS,834454,0.8263
+pancreatic alpha,WGBS,837314,0.8234
+liver macrophages,WGBS,832587,0.8231
+neutrophils,array,856948,0.8229
+ad-dermal fibroblasts,WGBS,819983,0.8222
+regulatory t cells,array,848146,0.8219
+microglia,WGBS,817949,0.819
+eosinophils,array,853776,0.8183
+liver endothelium,WGBS,838875,0.816
+breast luminal epithelium,WGBS,839497,0.8138
+cd8 central memory t cells,array,853398,0.8117
+prostate epithelium,WGBS,840282,0.8086
+naive cd8 t cells,WGBS,821899,0.8074
+nk cells,WGBS,837255,0.8068
+cd4 t cells,WGBS,834042,0.8062
+fallopien tubes epithelium,WGBS,834381,0.8044
+naive cd4 t cells,WGBS,815053,0.8038
+colon macrophages,WGBS,837562,0.8029
+smooth muscle,WGBS,838045,0.8027
+hepatocyte,WGBS,843538,0.8024
+lung alveolar epithelium,WGBS,841345,0.8018
+lung interstitial macrophages,WGBS,838394,0.7991
+t cells cd3,WGBS,826788,0.7971
+b cells,WGBS,835717,0.7954
+lung alveolar macrophages,WGBS,833045,0.7916
+granulocytes,WGBS,840903,0.7866
+lung bronchus epithelium,WGBS,843850,0.7839
+heart fibroblasts,WGBS,835225,0.7837
+endometrium epithelium,WGBS,837365,0.7826
+monocytes,WGBS,821886,0.7804
+t central memory cd4,WGBS,831419,0.7767
+tongue epithelium,WGBS,839234,0.7738
+lung pleural epithelium,WGBS,819814,0.7733
+gastric body epithelium,WGBS,838547,0.7708
+osteoblasts,WGBS,829124,0.7704
+gastric antrum epithelium,WGBS,839507,0.7701
+cd8 temra t cells,array,852593,0.77
+gastric fundus epithelium,WGBS,838261,0.7697
+pancreatic acinar,WGBS,843520,0.7663
+cd8 t cells,WGBS,828975,0.766
+gallbladder epithelium,WGBS,818965,0.765
+keratinocyte,WGBS,821071,0.7638
+tonsil palatine epithelium,WGBS,839398,0.7638
+tonsil pharyngeal epithelium,WGBS,833713,0.7593
+colon epithelium,WGBS,839636,0.7543
+bladder epithelium,WGBS,835998,0.7512
+gastric enteroendocrine,WGBS,803842,0.7498
+esophagus epithelium,WGBS,820803,0.7487
+colon enteroendocrine,WGBS,833054,0.7475
+t effector memory cd4,WGBS,829557,0.7469
+t effector cell cd8,WGBS,829182,0.7458
+small intestine epithelium,WGBS,838014,0.7453
+erythrocyte progenitors,WGBS,845446,0.741
+larynx epithelium,WGBS,833485,0.737
+jejunum epithelium,WGBS,818656,0.7244
+effector memory cd8 t cells,WGBS,819741,0.7202
+jejunum enteroendocrine,WGBS,806089,0.7191
+memory b cells,WGBS,810316,0.7188
