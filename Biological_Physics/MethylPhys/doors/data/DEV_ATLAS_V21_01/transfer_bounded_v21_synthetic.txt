@@ -1,0 +1,5 @@
+Atlas v2.1 L21 synthetic test, run once (transfer_bounded_v21.py)
+S1 recovery: worst |g - truth| at knots 0.0028 over 44 knots -> met
+S2 cross-halves: A on B worst 0.0020 (0 beyond), B on A worst 0.0019 (0 beyond) -> met
+S3 bounds: g in [0.0099, 0.9587], non-decreasing -> met
+SYNTHETIC: MET
