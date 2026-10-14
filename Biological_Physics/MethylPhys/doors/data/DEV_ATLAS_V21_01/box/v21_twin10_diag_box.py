@@ -9,7 +9,8 @@ from publish_code import publish_code
 publish_code("results/ATLAS_V21/terms/diag10/code/", ["v21_twin10_diag_box.py", "v21_twin_terms_box.py", "publish_code.py", "roster_samples.csv",
              "twins.csv", "10_twin_test_sample_level.csv", "twin_family_thresholds_v1.json"], job="atlas v2.1 sample-level twin diagnostic", commit=os.environ.get("REPO_COMMIT"))
 src = open("v21_twin_terms_box.py").read()
-exec(src[src.index("BUCKET = "):src.index("# ---------------- 09:")])
+exec(src[src.index("import os, sys, json, itertools"):src.index("sys.path.insert(0, os.getcwd())")])   # the script's own imports
+exec(src[src.index("BUCKET = "):src.index("# ---------------- 09:")])                                    # its loaders (its publish_code line is skipped)
 exec(src[src.index("# ---------------- 10:"):src.index("# ---------------- 12:")])
 import pandas as pd, numpy as np
 S2 = pd.read_csv("roster_samples.csv"); ref = pd.read_csv("twins.csv"); R10 = pd.read_csv("10_twin_test_sample_level.csv")
