@@ -1732,3 +1732,6 @@ The October 12 draft bars fixed in sealed_commission_v21.json with the details i
 
 ### 2026-10-14 · DEV-ERASE-01 reads: run 1 stalled, run 2 by the AWS copy of SRA
 Run 1 (d4bf0f29) read 2 of 32 samples, then stalled on the deep blocks of a 462-million-read run (about 0.4 MB/min through NCBI). Run 2 (b8dc568d, code 12806969) copies each run whole from the AWS open-data SRA copy to a temporary 200 GB disk (vol-099d9e78bdcb456b7, to delete after the reads) and cuts the same blocks locally. Also fixed before any verdict: the verdict step now reads every result from S3, because each local copy is removed after upload. Blocks, counting and rule unchanged.
+
+### 2026-10-14 · DEV-POSITION-EXPR-01 committed before it runs
+Author asked to derive each cell type's healthy position now. Prediction from the two halves: eps = (1 + r)/(D + 1 + r), r = eraser/writer expression (TET1-3 over DNMT1 + UHRF1, Human Protein Atlas) normalized to its median; nothing fitted. Bar: one-sided permutation p < 0.01 on the rank correlation with the 56 measured copy errors. Planted test PASSED (100 of 100 true, 0 of 100 null).

@@ -1,0 +1,3 @@
+TRUE relation: MET in 100 of 100 (bar >= 95)
+NULL: MET in 0 of 100 (bar <= 5)
+PLANTED: PASSED
