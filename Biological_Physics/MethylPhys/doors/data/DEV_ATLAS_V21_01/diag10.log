@@ -1,0 +1,3 @@
+02:08:12 Loyfer loaded (895713, 207)
+02:08:56 rows v2 23 | rows now 24 | identical rows 23
+02:08:56 DIFF granulocytes | neutrophils | {'n_a': (nan, 3.0), 'n_b': (nan, 12.0), 'shared': (nan, 801491.0), 'nonoverlap_sep': (nan, 9702.0), 'twin': (nan, False)}

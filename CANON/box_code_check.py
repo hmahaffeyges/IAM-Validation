@@ -18,6 +18,8 @@ def expected(job): return {os.path.basename(p): at_commit(job["commit"], p) for 
 def verify():
     import boto3; s3 = boto3.client("s3"); out = {}
     for j in json.load(open(REG))["jobs"]:
+        if not j.get("s3_code_prefix"):   # allowed only with a written reason (a job whose S3 copy was overwritten, 2026-10-14)
+            out[j["job_id"]] = {"s3": None, "matches_repo": None, "no_s3_code": j.get("code_in_s3", ""), "log_in_s3": None, "outputs_in_s3": {}, "state_at_verify": j.get("state")}; continue
         idx = json.loads(s3.get_object(Bucket=BUCKET, Key=j["s3_code_prefix"].rstrip("/") + "/code_index.json")["Body"].read())
         got = idx.get("files", {k: v for k, v in idx.items() if not k.startswith("_")})
         def _has(k):
@@ -34,16 +36,18 @@ def problems():
             if h is None: P.append(f"{j['job_id']}: {k} is not in the repo at {j['commit']}")
         v = V.get(j["job_id"])
         if not v: P.append(f"{j['job_id']}: its S3 code copy has not been verified (python3 CANON/box_code_check.py --verify)")
+        elif v.get("no_s3_code") is not None:
+            if not j.get("code_in_s3"): P.append(f"{j['job_id'][:8]}: no S3 code prefix and no written reason (code_in_s3)")
         elif v["s3"] != e: P.append(f"{j['job_id']}: the code in S3 differs from the repo at {j['commit']}")
         sid = j["job_id"][:8]
         for f in ("log", "machine", "purpose", "record", "state"):
             if not j.get(f): P.append(f"{sid}: box job has no {f!r} in CANON/box_jobs.json")
-        if j.get("state") == "done":
+        if j.get("state") == "done" and not (v and v.get("no_s3_code") is not None and not j.get("outputs") and j.get("no_outputs_reason")):
             if not v or v.get("state_at_verify") != "done": P.append(f"{sid}: finished, but not verified since it finished (python3 CANON/box_code_check.py --verify)")
             else:
                 if not v.get("log_in_s3"): P.append(f"{sid}: its log is not in S3 ({j.get('log')})")
                 miss = [k for k, ok in v.get("outputs_in_s3", {}).items() if not ok]
-                if miss or not j.get("outputs"): P.append(f"{sid}: outputs missing from S3: {miss or 'none listed'}")
+                if miss or (not j.get("outputs") and not j.get("no_outputs_reason")): P.append(f"{sid}: outputs missing from S3: {miss or 'none listed'}")
         if sid not in open(os.path.join(ROOT, "Biological_Physics", "MethylPhys", "RUNS.md"), encoding="utf-8").read():
             P.append(f"{sid}: no row in RUNS.md (python3 Biological_Physics/MethylPhys/boxruns/make_runs_ledger.py)")
         if sid not in open(os.path.join(ROOT, "development", "METHYLPHYS_DEVELOPMENT_LOG.md"), encoding="utf-8").read():

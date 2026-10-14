@@ -188,3 +188,9 @@ table, split-half null and source terms (to 1e-12) exactly, but not the sample-l
 before computing anything for v2.1 (`reproduction_gate_terms.json`). It did not save its own v2-mode table, so a diagnostic job runs that one
 step and compares it row by row (`box/v21_twin10_diag_box.py`).
 
+**Cause of job 5115bd05's gate failure, found (2026-10-14).** The diagnostic (job f27327c9, `diag10_v2mode_compare.csv`, `diag10.log`)
+reproduced all 23 of v2's sample-level rows exactly and produced one extra: granulocytes against neutrophils, a sequencing-against-array pair
+that v2 marks "not testable" and skips. Our copy carried a mode switch whose skip line was inverted, so in v2 mode it recorded the "not testable"
+row and then computed the pair anyway. Fixed to skip every untestable pair in both modes, exactly as v2's script does (no new method); applied to
+the diagnostic's own rows the fixed loop gives 23 rows identical to v2's record. The full job reruns with its gate unchanged.
+

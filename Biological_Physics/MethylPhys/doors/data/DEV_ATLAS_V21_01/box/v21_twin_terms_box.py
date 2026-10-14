@@ -84,7 +84,7 @@ def run10(S, T, faithful):
         pa, Xa = samples(p.a); pb, Xb = samples(p.b)
         if Xa is None or Xb is None or pa != pb:
             out.append(dict(a=p.a, b=p.b, r=p.r, platform=f"{pa}/{pb}", n_a=None, n_b=None, shared=None, nonoverlap_sep=None, twin=None, note="not testable (need >=2 samples each, same platform)"))
-            if not faithful or Xa is None or Xb is None: continue
+            continue   # v2 skips every untestable pair, in both modes (fixed 2026-10-14: this line was inverted, job 5115bd05)
         j = Xa.dropna(thresh=Xa.shape[1]).index.intersection(Xb.dropna(thresh=Xb.shape[1]).index)
         a = Xa.loc[j].values; b = Xb.loc[j].values
         sep = int(((a.min(1) - b.max(1)) > SD).sum() + ((b.min(1) - a.max(1)) > SD).sum())

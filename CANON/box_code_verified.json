@@ -55,5 +55,30 @@
    "results/ATLAS_V21/terms/reproduction_gate_terms.json": true
   },
   "state_at_verify": "done"
+ },
+ "89286db7-6a8d-42f3-8817-9f0466da7433": {
+  "s3": null,
+  "matches_repo": null,
+  "no_s3_code": "none: the first submission's code_index was overwritten by f27327c9 at the same prefix; its code is the repo file at 15a35a14",
+  "log_in_s3": null,
+  "outputs_in_s3": {},
+  "state_at_verify": "done"
+ },
+ "f27327c9-8732-4d1f-ae56-5c9ed633f646": {
+  "s3": {
+   "v21_twin10_diag_box.py": "1c8eac51adbed965a0b7c9eb1244d9635428ba1a211f37f6056b25fbafc4e780",
+   "v21_twin_terms_box.py": "a7b0f09404cdafc9743d4dd7e59e07bb24725315475929167feef8f3a396d3c9",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20",
+   "roster_samples.csv": "da11a3c11285bde36dcc866c53c112eec5d8ac63e3ea18a66c24e27c7fc3aa4d",
+   "twins.csv": "7fa997f38c552607ba9e1f9de7fda4ec8ce59eae84ec2a7fef5d74b79d051c1b",
+   "10_twin_test_sample_level.csv": "e0a4e493c3de2e22e48df228af0ea6bf99fbdab49b1b93304562e0e119859eb6",
+   "twin_family_thresholds_v1.json": "ac7163ee1aaddfa7606e326b1e655016d244be599040216fe9ea0cf7db5da03f"
+  },
+  "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/ATLAS_V21/terms/diag10/v2mode_twin_sample_level_compare.csv": true
+  },
+  "state_at_verify": "done"
  }
 }
