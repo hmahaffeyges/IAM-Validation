@@ -315,6 +315,21 @@ if _doors:
         _j = _js.load(open(_p, encoding="utf-8"))
         if not _j.get("open_at_turnover"): fail.append(f"{_p}: no 'open_at_turnover' - that paragraph is what the page shows (rule 24)")
 
+# 25. The held balance is independent of division (author 2026-10-14: "It is independent of fucking division damnit!!! Stop reverting
+# back to this"; LEV-002; foundation copy_error_term). A line ADDED in this push may not make division a term of the held error or the
+# gauge. Allowed: the author's own tumor-phase hypothesis (a line naming falsifier 7, the two-phase picture or an established tumor),
+# and lines marked as a dated or retired record.
+_DIV25 = re.compile(r"(?i)\bper (cell )?divisions?\b|\bper[- ]copy\b|\bat copying\b|\bdivision adds\b|missed restores at copying|"
+                    r"written only when (the )?DNA is copied|third culprit")
+_OK25 = re.compile(r"(?i)falsifier 7|two-phase|established tumou?r|retired wording|dated record|RULE 25 EXEMPT")
+_all25 = [f for f in git("diff", "--name-only", base, "HEAD").split("\n") if f and f.endswith((".md", ".tex", ".json", ".py"))
+          and f.startswith(("docs/book/", "Biological_Physics/MethylPhys/doors/", "CANON/", "website/", "development/"))
+          and f != "CANON/repro_check.py" and os.path.isfile(f)]
+for f in _all25:
+    for l in git("diff", base, "HEAD", "--", f).split("\n"):
+        if l.startswith("+") and not l.startswith("+++") and _DIV25.search(l) and not _OK25.search(l):
+            fail.append(f"{f}: makes division a term of the held error ('{_DIV25.search(l).group(0)}'); the balance is independent of division (rule 25): {l[1:120].strip()}")
+
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
 print(f"repro_check: ok ({len(changed)} note(s) changed in this push)")
