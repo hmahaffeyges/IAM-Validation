@@ -1729,3 +1729,6 @@ Prices read by the author in CloudShell: m7a.32xlarge $7.42/h on demand, about $
 
 ### 2026-10-14 · Atlas v2.1 L15: commissioning bars sealed, scorers planted-tested
 The October 12 draft bars fixed in sealed_commission_v21.json with the details it left open (the interval is the fit's own posterior predictive for a new laboratory; U2 tests both the sealed blind-site lists the cancer results used and the v2.1 re-selection; U3 unchanged; U4 development). Planted test PASSED, all ten cases.
+
+### 2026-10-14 · DEV-ERASE-01 reads: run 1 stalled, run 2 by the AWS copy of SRA
+Run 1 (d4bf0f29) read 2 of 32 samples, then stalled on the deep blocks of a 462-million-read run (about 0.4 MB/min through NCBI). Run 2 (b8dc568d, code 12806969) copies each run whole from the AWS open-data SRA copy to a temporary 200 GB disk (vol-099d9e78bdcb456b7, to delete after the reads) and cuts the same blocks locally. Also fixed before any verdict: the verdict step now reads every result from S3, because each local copy is removed after upload. Blocks, counting and rule unchanged.
