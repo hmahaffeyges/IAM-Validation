@@ -820,3 +820,4 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **OTH-040** BOOK-V1.0: last run 2026-10-05, success
 - [x] **ATL-057** Site exclusion register, layer 1: probes with no atlas site, and the chain refusing them: last run 2026-10-13, progressed
 - [x] **ATL-059** Array-only sites in the fit: posteriors where only arrays measured a site (decision needed): last run 2026-10-13, progressed
+- [x] **PHY-041** Each healthy cell type's copy error from eraser/writer RNA (DEV-POSITION-EXPR-01): last run 2026-10-14, fail

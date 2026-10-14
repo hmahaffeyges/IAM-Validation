@@ -24977,6 +24977,38 @@
    "sources_of_row": [
     "Friday notes"
    ]
+  },
+  {
+   "title": "Each healthy cell type's copy error from eraser/writer RNA (DEV-POSITION-EXPR-01)",
+   "purpose": "derive a cell type's healthy IAM-A position from public RNA instead of purified single-molecule data",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 (PROC-CHANNEL-01 copy errors)",
+    "Human Protein Atlas single-cell and immune RNA"
+   ],
+   "data_status": "spent",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_POSITION_EXPR_01.md",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-14",
+     "outcome": "fail",
+     "note": "NOT MET: rank correlation +0.101, one-sided p 0.29650 over 30 cell types; predicted copy errors spread 0.017-0.187 against measured 0.024-0.042",
+     "commit": "e3243ef1"
+    }
+   ],
+   "next_step": "site-level eraser activity (5hmC maps) in place of bulk RNA, new rule committed first",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-040"
+   ],
+   "notes": "rule committed e3243ef1 before the run",
+   "legacy_ids": [],
+   "id": "PHY-041",
+   "sources_of_row": [
+    "session 2026-10-14"
+   ]
   }
  ],
  "not_tests": {

@@ -1735,3 +1735,6 @@ Run 1 (d4bf0f29) read 2 of 32 samples, then stalled on the deep blocks of a 462-
 
 ### 2026-10-14 · DEV-POSITION-EXPR-01 committed before it runs
 Author asked to derive each cell type's healthy position now. Prediction from the two halves: eps = (1 + r)/(D + 1 + r), r = eraser/writer expression (TET1-3 over DNMT1 + UHRF1, Human Protein Atlas) normalized to its median; nothing fitted. Bar: one-sided permutation p < 0.01 on the rank correlation with the 56 measured copy errors. Planted test PASSED (100 of 100 true, 0 of 100 null).
+
+### 2026-10-14 · DEV-POSITION-EXPR-01 run once: NOT MET
+Rank correlation +0.101 (p 0.29650) over 30 matched cell types; predicted copy errors spread 0.017-0.187 against measured 0.024-0.042. Cells hold their copy error far more tightly than eraser/writer RNA varies. Writer-alone rho +0.36 seen after the run: a lead only. The rule commit (e3243ef1) preceded the run but its push was refused for a missing plain-words paragraph; pushed now with the outcome.

@@ -1,0 +1,8 @@
+DEV-POSITION-EXPR-01, run once (position_expr_01.py)
+primary points 30 (HPA single-cell types; Loyfer cells averaged per point)
+PRIMARY: Spearman rho(predicted, measured) = +0.101, one-sided permutation p = 0.29650 -> NOT MET
+Pearson r = -0.033; measured median 0.0314 (range 0.0241-0.0417); predicted median 0.0304 (range 0.0174-0.1873); r range 0.13-13.68
+reported: writer alone (1/W) rho +0.358; eraser alone (TET) rho -0.084; MKI67 rho -0.109; prediction with MKI67 partialled out +0.068
+secondary CD4 T: memory minus naive, predicted eraser/writer change +0.027, measured eps change +0.0099 -> same sign
+secondary CD8 T: memory minus naive, predicted eraser/writer change -0.030, measured eps change +0.0120 -> OPPOSITE
+secondary B: memory minus naive, predicted eraser/writer change +0.105, measured eps change +0.0076 -> same sign
