@@ -549,6 +549,29 @@
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
    "note": "running"
+  },
+  {
+   "job_id": "09ef5d2c-3f90-4a92-bfd6-cee304591749",
+   "name": "Atlas v2.1 data-assembly dry run (L9 check)",
+   "date": "2026-10-14",
+   "commit": "d74af972",
+   "s3_code_prefix": "results/ATLAS_V21/dryrun/code/run1/",
+   "state": "running",
+   "log": "results/ATLAS_V21/dryrun/dryrun.txt",
+   "machine": "methylphys-cpu-01 (32 cores, shared with DEV-ERASE-01 reads)",
+   "purpose": "assemble the observations for blocks 0, 350, 699 with run_v21_block.py DRYRUN=1; no fit",
+   "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [
+    "results/ATLAS_V21/dryrun/dryrun.txt"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/run_v21_block.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_block_v21.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_final.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {

@@ -1717,3 +1717,6 @@ Box job d4bf0f29 (code 9026c1a2): the 32 declared samples, primary units first, 
 
 ### 2026-10-14 · Atlas v2.1 L9: run script, block driver and declared outputs committed
 run_v21.sh (v2's runner, PAR and cores from B1), run_v21_block.py (v2's data assembly on the final table; v2's loci, 700 blocks and seeds 1000 + block) and outputs_v21.json (every saved output; lab terms fixed per source; posterior-predictive draws derived after the fit from the saved draws). Checked next by a dry run of the data assembly on the box, then B1 and L18 on one real block.
+
+### 2026-10-14 · Atlas v2.1 dry run of the data assembly submitted
+Box job 09ef5d2c (code d74af972): blocks 0, 350 and 699 assembled by run_v21_block.py with DRYRUN=1, no fit; checks that every sample of the final table loads and every cell has observations.
