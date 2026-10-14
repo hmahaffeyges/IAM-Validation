@@ -10,6 +10,9 @@ from publish_code import publish_code
 publish_code(f"results/ATLAS_V21/b1_l18/code/run{os.environ.get('RUN', '1')}/", ["v21_b1_l18_box.py", "run_v21_block.py", "atlas_block_v21.py", "transfer_v21_final.json", "final_samples_v21.csv", "publish_code.py"],
              job="atlas v2.1 B1 and L18 (one block, K 100 and K 20)", commit=os.environ.get("REPO_COMMIT"))
 CORES = 8; NC = os.cpu_count(); MEM = int(open("/proc/meminfo").read().split()[1]) * 1024
+# The fit machine (m7a.48xlarge: 192 cores, 768 GB) is named by TARGET_CORES / TARGET_MEM_GB when the block is measured on another machine;
+# one block pinned to 8 cores runs the same wherever it runs (added 2026-10-15 before run 3: two spot fit machines were reclaimed).
+TC = int(os.environ.get("TARGET_CORES", NC)); TM = float(os.environ.get("TARGET_MEM_GB", MEM / 1e9)) * 1e9
 def run(k, outd):
     os.makedirs(outd, exist_ok=True)
     env = dict(os.environ, BLOCK="0", NBLOCK="700", OUTD=outd, K=str(k), OMP_NUM_THREADS="1", XLA_FLAGS="--xla_force_host_platform_device_count=4 --xla_cpu_multi_thread_eigen=false intra_op_parallelism_threads=1")
@@ -22,8 +25,8 @@ rc100, w100, r100 = run(100, "/home/ubuntu/data/atlas_v21/b1_K100"); print("K100
 rc20, w20, r20 = run(20, "/home/ubuntu/data/atlas_v21/b1_K20"); print("K20", rc20, round(w20), r20 / 1e9, flush=True)
 assert rc100 == 0 and rc20 == 0, "a block fit failed; see b1_K*.log"
 sizes = {os.path.basename(f): os.path.getsize(f) for f in glob.glob("/home/ubuntu/data/atlas_v21/b1_K100/block_00000*")}
-par = int(min(NC // CORES, np.floor(0.80 * MEM / r100)))
-B = {"block": 0, "K": 100, "cores_per_process": CORES, "wall_s": round(w100, 1), "peak_rss_gb": round(r100 / 1e9, 2), "machine_cores": NC, "machine_mem_gb": round(MEM / 1e9, 1),
+par = int(min(TC // CORES, np.floor(0.80 * TM / r100)))
+B = {"block": 0, "K": 100, "cores_per_process": CORES, "wall_s": round(w100, 1), "peak_rss_gb": round(r100 / 1e9, 2), "measured_on_cores": NC, "measured_on_mem_gb": round(MEM / 1e9, 1), "machine_cores": TC, "machine_mem_gb": round(TM / 1e9, 1),
      "par": par, "rule": "par = min(cores // cores_per_process, floor(0.80 * memory / peak))", "block_bytes": sizes, "bytes_per_block": sum(sizes.values()),
      "disk_for_700_blocks_gb": round(sum(sizes.values()) * 700 / 1e9, 1), "est_fit_hours": round(w100 * 700 / par / 3600, 1)}
 json.dump(B, open("block_measure_v21.json", "w"), indent=1)
