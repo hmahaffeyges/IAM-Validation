@@ -12,7 +12,7 @@ Nuclear mitochondrial-gene expression (Human Protein Atlas) showed no relation i
 |---|---|
 | loosely held share | +0.87 |
 | fully methylated share | -0.88 |
-| identity sites | +0.06 |
+| identity sites | +0.05 |
 
 **Limits.** The loosely held share comes from the same Loyfer molecules as the held error, and the held-error windows were not excluded
 (the job could not find wgbstools). Part of the match can be built in. PROC-CHANNEL-01 section 7 already found that on the 26,800 sites every
