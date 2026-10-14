@@ -1675,3 +1675,6 @@ The final build table (final_table_v21.py) is 702 samples in 79 cells: v2's 314 
 
 ### 2026-10-14 · Atlas v2.1 L10: planted test of the run script MET
 P1-P5 met (planted_run_v21_summary.txt). The board check for L10 looked for "PASSED"; changed to the committed verdict line "PLANTED: MET", with a note; the result file itself was not touched. L18 needs its check on a real block, which runs with B1.
+
+### 2026-10-14 · Atlas v2.1 L22 NOT MET: the launch stops
+The bounded transfer did not hold out of sample (worst 0.026 against 0.02, on the 5 Loyfer-shared cells not used to build it, between x 0.58 and 0.83). Tian and ENCODE on Loyfer's shape not confirmed, and the composed form alpha + beta g(m) leaves [0, 1] when alpha is negative: a design error of ours, caught by its own bin table. The final table (702 samples, 79 cells) and the twin recheck stand.

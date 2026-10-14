@@ -372,7 +372,7 @@
    "date": "2026-10-14",
    "commit": "fc501f01",
    "s3_code_prefix": "results/ATLAS_V21/terms_final/code/run1/",
-   "state": "running",
+   "state": "done",
    "log": "results/ATLAS_V21/terms_final/terms_final.log",
    "machine": "methylphys-cpu-01 (32 cores)",
    "purpose": "lab terms on the final build table and the bounded transfer; twin recheck; out-of-sample transfer test",
@@ -398,7 +398,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/twin_sample_level_v21.csv",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/stage1_v21_manifest.csv"
    ],
-   "note": "running"
+   "note": "VERDICT: L22 NOT MET - out-of-sample transfer worst 0.026 (bar 0.02) on 5 new Loyfer-shared cells; Tian/ENCODE shape not confirmed; twin recheck met"
   }
  ],
  "not_jobs": {

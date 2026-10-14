@@ -272,3 +272,12 @@ block laid out like the real sources: every output written with the right shapes
 error 0.0115 on the planted means; v2 mode reproduces v2's own block code exactly (every summary column and all 20 draws); the 100-draw save
 leaves every summary column identical to the 20-draw save. On the same curved truth v2's straight line misses by 0.0148 at planted values
 below 0.1, against 0.0103 with the bounded transfer. R-hat p99 1.038 on this small block (no bar here; the fit's convergence bars are G0).
+
+**Readiness L22, run once (job cb57b74b, rules committed first, fc501f01): NOT MET. The launch is stopped by the rule.** Twin recheck met
+(3 cells changed, 7 pairs tested, no new twin). The bounded transfer, built on L20's 17 cells, was tested on the 5 Loyfer-shared cells of the
+final table it had never seen (lung bronchus epithelium, oligodendrocytes, small intestine epithelium, t central memory cd4, t effector cell
+cd8): 36 of 42 bins within 0.02, but between x 0.58 and 0.83 it reads 0.020-0.026 low. It passed cross-halves on v2's own cells at 0.018,
+so cell-to-cell differences in the transfer were already close to the bar; new cells from new laboratories exceed it. Tian and ENCODE on
+Loyfer's shape: not confirmed (worst 0.043, 0.039; their straight lines 0.106, 0.087). **Our design error:** the composed form alpha + beta g(m)
+with a negative alpha predicts readings below 0 (to -0.03), breaking the bound L21 exists to keep; it should not have been committed. Next: a
+diagnosis of the per-cell residuals (labeled as diagnosis), then a redesign committed before it is tested.

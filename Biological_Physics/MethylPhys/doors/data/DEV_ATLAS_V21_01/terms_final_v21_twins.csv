@@ -1,0 +1,8 @@
+a,b,r,platform,n_a,n_b,shared,nonoverlap_sep,twin,note
+neutrophils,CMP (bone marrow),0.9797,array,48,3,415223,4622,False,
+neutrophils,GMP (bone marrow),0.9831,array,48,4,409581,3679,False,
+neutrophils,HSC (bone marrow),0.9806,array,48,6,416778,3419,False,
+neutrophils,L-MPP (bone marrow),0.9774,array,48,3,417374,5521,False,
+neutrophils,MEP (bone marrow),0.9756,array,48,3,408891,5877,False,
+neutrophils,MPP (bone marrow),0.9754,array,48,2,423782,5893,False,
+neutrophils,eosinophils,0.9777,array,48,4,424803,2876,False,

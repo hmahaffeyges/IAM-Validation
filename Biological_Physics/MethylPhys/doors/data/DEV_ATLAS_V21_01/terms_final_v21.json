@@ -1,0 +1,203 @@
+{
+ "rule": "v21_terms_final_box.py docstring",
+ "final_table_sha256": "68dc06bf4edfaa85f052e977e27cf7a505bbf4475acbdf57570c638820c83601",
+ "sequencing": {
+  "Loyfer2023": {
+   "form": "bounded",
+   "knots_x": [
+    0.016666666666666666,
+    0.024333333333333332,
+    0.035500000000000004,
+    0.04533333333333334,
+    0.055,
+    0.065,
+    0.075,
+    0.085,
+    0.095,
+    0.105,
+    0.11499999999999999,
+    0.125,
+    0.135,
+    0.145,
+    0.17333333333333334,
+    0.224,
+    0.27499999999999997,
+    0.325,
+    0.375,
+    0.42566666666666664,
+    0.47593333333333343,
+    0.526,
+    0.5758333333333334,
+    0.6263333333333333,
+    0.676,
+    0.7263999999999999,
+    0.777,
+    0.828,
+    0.8553333333333333,
+    0.8653333333333334,
+    0.8752000000000001,
+    0.8853333333333334,
+    0.8953333333333333,
+    0.9054,
+    0.9153333333333334,
+    0.9254,
+    0.9354000000000001,
+    0.9453333333333332,
+    0.955,
+    0.9638333333333332,
+    0.9739999999999999,
+    0.984
+   ],
+   "knots_y": [
+    0.008911684155464172,
+    0.012356268242001534,
+    0.013639857275149669,
+    0.013639857275149669,
+    0.01390440110117197,
+    0.015793893486261368,
+    0.01868356578052044,
+    0.023075420409440994,
+    0.027053574100136757,
+    0.03386220708489418,
+    0.04068839177489281,
+    0.04869893565773964,
+    0.05585036426782608,
+    0.0632099062204361,
+    0.08573645353317261,
+    0.12392522394657135,
+    0.17014162242412567,
+    0.22656245529651642,
+    0.2807541787624359,
+    0.3499636650085449,
+    0.4195695221424103,
+    0.49211952090263367,
+    0.5575206279754639,
+    0.616477906703949,
+    0.668835461139679,
+    0.7174102067947388,
+    0.7631700038909912,
+    0.8099313378334045,
+    0.8407948017120361,
+    0.8541944026947021,
+    0.8641059994697571,
+    0.8751528859138489,
+    0.8854189515113831,
+    0.8969910144805908,
+    0.9077277779579163,
+    0.9191747903823853,
+    0.9311411380767822,
+    0.943140983581543,
+    0.9542789459228516,
+    0.9589655729506021,
+    0.9589655729506021,
+    0.9589655729506021
+   ],
+   "status": "MEASURED (L21; out-of-sample check PART C)"
+  },
+  "ENCODE": {
+   "form": "composed",
+   "alpha": -0.03573240560465951,
+   "beta": 1.066680894872346,
+   "how": "direct: Deming of y on g(x)",
+   "status": "SHAPE NOT CONFIRMED (22 bins, worst 0.0390; straight line worst 0.0872)"
+  },
+  "Tian2023": {
+   "form": "composed",
+   "alpha": -0.04387309143220275,
+   "beta": 1.056879915128312,
+   "how": "direct: Deming of y on g(x)",
+   "status": "SHAPE NOT CONFIRMED (41 bins, worst 0.0432; straight line worst 0.1061)"
+  }
+ },
+ "array": {
+  "Moss2018": {
+   "d": -0.004421283184201758,
+   "status": "MEASURED (2 shared cells, centered)"
+  },
+  "Salas2018": {
+   "d": -0.004689338739757236,
+   "status": "MEASURED (6 shared cells, centered)"
+  },
+  "Salas2022": {
+   "d": 0.005226633482464847,
+   "status": "MEASURED (8 shared cells, centered)"
+  },
+  "GSE63409": {
+   "d": 0.007182883482464934,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "E-MTAB-4957": {
+   "d": 0.008391216815798304,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "GSE103541": {
+   "d": 0.003377030307861746,
+   "status": "MEASURED (4 shared cells, centered)"
+  },
+  "GSE116754": {
+   "d": 0.0,
+   "status": "ASSUMED 0 (no shared cell with another array laboratory or Loyfer)"
+  },
+  "GSE118144": {
+   "d": 0.011521465733547183,
+   "status": "MEASURED (4 shared cells, centered)"
+  },
+  "GSE122244": {
+   "d": 0.0034606612602427547,
+   "status": "MEASURED (3 shared cells, centered)"
+  },
+  "GSE124565": {
+   "d": -0.011079616517534967,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "GSE137716": {
+   "d": -0.010009169249849001,
+   "status": "MEASURED VIA LOYFER on the bounded transfer (['lung bronchus epithelium']); not centered",
+   "straight_line_d": -0.02893897962570191
+  },
+  "GSE224807": {
+   "d": -0.0050167196921382315,
+   "status": "MEASURED (5 shared cells, centered)"
+  },
+  "GSE226298": {
+   "d": 0.0003198655480186124,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "GSE252045": {
+   "d": -0.008561813487232,
+   "status": "MEASURED (6 shared cells, centered)"
+  },
+  "GSE306226": {
+   "d": 0.0011828834824649354,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "GSE49618": {
+   "d": -0.006817116517535072,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "GSE75405": {
+   "d": 0.0017164062097376552,
+   "status": "MEASURED (2 shared cells, centered)"
+  },
+  "GSE88824": {
+   "d": -0.001793158184201711,
+   "status": "MEASURED (6 shared cells, centered)"
+  }
+ },
+ "variance_slope": "(h(m + 0.01) - h(m - 0.01)) / 0.02 for a sequencing row with mean h(m)",
+ "checks": {
+  "A_no_new_twin": true,
+  "A_pairs_tested": 7,
+  "C_out_of_sample_cells": [
+   "lung bronchus epithelium",
+   "oligodendrocytes",
+   "small intestine epithelium",
+   "t central memory cd4",
+   "t effector cell cd8"
+  ],
+  "C_bins": 42,
+  "C_worst": 0.025962826340493628,
+  "C_met": false
+ },
+ "L22": "NOT MET"
+}

@@ -1,0 +1,212 @@
+{
+ "scale": "our Stage 1 array scale",
+ "loci": 50000,
+ "array_sources": [
+  "Moss2018",
+  "Salas2018",
+  "Salas2022",
+  "GSE63409",
+  "E-MTAB-4957",
+  "GSE103541",
+  "GSE116754",
+  "GSE118144",
+  "GSE122244",
+  "GSE124565",
+  "GSE137716",
+  "GSE224807",
+  "GSE226298",
+  "GSE252045",
+  "GSE306226",
+  "GSE49618",
+  "GSE75405",
+  "GSE88824"
+ ],
+ "sequencing": {
+  "ENCODE": {
+   "status": "IDENTIFIED",
+   "overlap_cells": [
+    "embryonic stem cells"
+   ],
+   "n_pairs": 25407,
+   "a": -0.0974441661485661,
+   "b": 1.1241174661026498,
+   "a_ci95": [
+    -0.0974441661485661,
+    -0.0974441661485661
+   ],
+   "b_ci95": [
+    1.1241174661026498,
+    1.1241174661026498
+   ],
+   "resid_sd": 0.12421712518681413,
+   "r": 0.9537173918526682,
+   "per_cell_b": {
+    "embryonic stem cells": 1.1241
+   }
+  },
+  "Loyfer2023": {
+   "status": "IDENTIFIED",
+   "overlap_cells": [
+    "adipocytes",
+    "b cells",
+    "cd4 t cells",
+    "cd8 t cells",
+    "colon epithelium",
+    "cortical neurons",
+    "effector memory cd8 t cells",
+    "hepatocyte",
+    "lung alveolar epithelium",
+    "lung bronchus epithelium",
+    "memory b cells",
+    "monocytes",
+    "naive cd4 t cells",
+    "naive cd8 t cells",
+    "nk cells",
+    "oligodendrocytes",
+    "pancreatic acinar",
+    "pancreatic beta",
+    "pancreatic duct",
+    "small intestine epithelium",
+    "t central memory cd4",
+    "t effector cell cd8"
+   ],
+   "n_pairs": 978886,
+   "a": -0.09533004018303359,
+   "b": 1.1116140937469225,
+   "a_ci95": [
+    -0.10149008615346598,
+    -0.08892766666773118
+   ],
+   "b_ci95": [
+    1.1005087292330893,
+    1.1222708370059853
+   ],
+   "resid_sd": 0.10500694766669848,
+   "r": 0.9629634382838875,
+   "per_cell_b": {
+    "adipocytes": 1.0675,
+    "b cells": 1.0929,
+    "cd4 t cells": 1.0971,
+    "cd8 t cells": 1.0727,
+    "colon epithelium": 1.1024,
+    "cortical neurons": 1.0938,
+    "effector memory cd8 t cells": 1.1314,
+    "hepatocyte": 1.0912,
+    "lung alveolar epithelium": 1.118,
+    "lung bronchus epithelium": 1.1225,
+    "memory b cells": 1.1366,
+    "monocytes": 1.0984,
+    "naive cd4 t cells": 1.1385,
+    "naive cd8 t cells": 1.1497,
+    "nk cells": 1.0756,
+    "oligodendrocytes": 1.13,
+    "pancreatic acinar": 1.0889,
+    "pancreatic beta": 1.1716,
+    "pancreatic duct": 1.1083,
+    "small intestine epithelium": 1.1005,
+    "t central memory cd4": 1.1386,
+    "t effector cell cd8": 1.1385
+   }
+  },
+  "Tian2023": {
+   "status": "IDENTIFIED",
+   "overlap_cells": [
+    "microglia",
+    "oligodendrocytes"
+   ],
+   "n_pairs": 93312,
+   "a": -0.11894918610184513,
+   "b": 1.1311498795083021,
+   "a_ci95": [
+    -0.12642250599785332,
+    -0.11126595126327365
+   ],
+   "b_ci95": [
+    1.113052855432109,
+    1.1488246309088825
+   ],
+   "resid_sd": 0.10950121693689646,
+   "r": 0.9604250931592253,
+   "per_cell_b": {
+    "microglia": 1.1131,
+    "oligodendrocytes": 1.1488
+   }
+  }
+ },
+ "array": {
+  "Moss2018": {
+   "d": -0.004421283184201758,
+   "overlap_cells": 2
+  },
+  "Salas2018": {
+   "d": -0.004689338739757236,
+   "overlap_cells": 6
+  },
+  "Salas2022": {
+   "d": 0.005226633482464847,
+   "overlap_cells": 8
+  },
+  "GSE63409": {
+   "d": 0.007182883482464934,
+   "overlap_cells": 1
+  },
+  "E-MTAB-4957": {
+   "d": 0.008391216815798304,
+   "overlap_cells": 1
+  },
+  "GSE103541": {
+   "d": 0.003377030307861746,
+   "overlap_cells": 4
+  },
+  "GSE116754": {
+   "status": "NOT IDENTIFIED - shares no cell with another array lab or with Loyfer"
+  },
+  "GSE118144": {
+   "d": 0.011521465733547183,
+   "overlap_cells": 4
+  },
+  "GSE122244": {
+   "d": 0.0034606612602427547,
+   "overlap_cells": 3
+  },
+  "GSE124565": {
+   "d": -0.011079616517534967,
+   "overlap_cells": 1
+  },
+  "GSE137716": {
+   "d_via_loyfer": -0.02893897962570191,
+   "overlap_cells_with_loyfer": [
+    "lung bronchus epithelium"
+   ],
+   "note": "offset of this lab vs Loyfer mapped onto the array scale; not centred with the directly measured labs"
+  },
+  "GSE224807": {
+   "d": -0.0050167196921382315,
+   "overlap_cells": 5
+  },
+  "GSE226298": {
+   "d": 0.0003198655480186124,
+   "overlap_cells": 1
+  },
+  "GSE252045": {
+   "d": -0.008561813487232,
+   "overlap_cells": 6
+  },
+  "GSE306226": {
+   "d": 0.0011828834824649354,
+   "overlap_cells": 1
+  },
+  "GSE49618": {
+   "d": -0.006817116517535072,
+   "overlap_cells": 1
+  },
+  "GSE75405": {
+   "d": 0.0017164062097376552,
+   "overlap_cells": 2
+  },
+  "GSE88824": {
+   "d": -0.001793158184201711,
+   "overlap_cells": 6
+  }
+ }
+}

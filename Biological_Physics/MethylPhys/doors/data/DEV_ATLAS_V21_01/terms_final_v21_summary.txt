@@ -1,0 +1,30 @@
+Atlas v2.1 readiness L22, final terms, run once 2026-10-14 (v21_terms_final_box.py)
+final build table: 702 samples, 79 cells (314 v2 samples in 74 cells; 388 v2.1 samples)
+conditional series resolved IN: ['E-MTAB-4957', 'GSE137716']
+v2.1 rows not entering: 81 (not IN, an OUT condition, or failed qc); by source: {'GSE103541': 23, 'GSE122244': 2, 'GSE146552': 16, 'GSE224807': 16, 'GSE252045': 10, 'GSE306226': 11, 'GSE88824': 3}
+held as sample-level twins: ['podocyte', 'promyelocytes']; new cells with fewer than 2 samples: []
+new cells in v2.1: ['cd56bright nk cells', 'cd8 central memory t cells', 'cd8 temra t cells', 'central memory th1 cells', 'cytotoxic cd4 t cells (cd28-)']
+final table sha256 68dc06bf4edfaa85f052e977e27cf7a505bbf4475acbdf57570c638820c83601
+PART A twin recheck: changed cells ['astrocytes', 'fallopien tubes epithelium', 'neutrophils']; pairs tested at sample level 7; twins [] -> met
+PART C out-of-sample transfer: cells ['lung bronchus epithelium', 'oligodendrocytes', 'small intestine epithelium', 't central memory cd4', 't effector cell cd8']; 42 bins; worst 0.025962826340493628 -> False
+PART D ENCODE: alpha -0.03573240560465951, beta 1.066680894872346 | SHAPE NOT CONFIRMED (22 bins, worst 0.0390; straight line worst 0.0872)
+PART D Tian2023: alpha -0.04387309143220275, beta 1.056879915128312 | SHAPE NOT CONFIRMED (41 bins, worst 0.0432; straight line worst 0.1061)
+PART E Moss2018: d -0.00442 | MEASURED (2 shared cells, centered)
+PART E Salas2018: d -0.00469 | MEASURED (6 shared cells, centered)
+PART E Salas2022: d 0.00523 | MEASURED (8 shared cells, centered)
+PART E GSE63409: d 0.00718 | MEASURED (1 shared cells, centered)
+PART E E-MTAB-4957: d 0.00839 | MEASURED (1 shared cells, centered)
+PART E GSE103541: d 0.00338 | MEASURED (4 shared cells, centered)
+PART E GSE116754: d 0.00000 | ASSUMED 0 (no shared cell with another array laboratory or Loyfer)
+PART E GSE118144: d 0.01152 | MEASURED (4 shared cells, centered)
+PART E GSE122244: d 0.00346 | MEASURED (3 shared cells, centered)
+PART E GSE124565: d -0.01108 | MEASURED (1 shared cells, centered)
+PART E GSE137716: d -0.01001 | MEASURED VIA LOYFER on the bounded transfer (['lung bronchus epithelium']); not centered
+PART E GSE224807: d -0.00502 | MEASURED (5 shared cells, centered)
+PART E GSE226298: d 0.00032 | MEASURED (1 shared cells, centered)
+PART E GSE252045: d -0.00856 | MEASURED (6 shared cells, centered)
+PART E GSE306226: d 0.00118 | MEASURED (1 shared cells, centered)
+PART E GSE49618: d -0.00682 | MEASURED (1 shared cells, centered)
+PART E GSE75405: d 0.00172 | MEASURED (2 shared cells, centered)
+PART E GSE88824: d -0.00179 | MEASURED (6 shared cells, centered)
+VERDICT: L22 NOT MET
