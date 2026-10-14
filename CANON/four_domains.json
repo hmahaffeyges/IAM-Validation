@@ -383,8 +383,8 @@
    },
    "cells": {
     "native": "the held pattern (potential) and the work of writing and making room (kinetic)",
-    "formula": "kinetic: the work of writing marks into the record and of making room for new writing (the writer and the eraser, each event >= k_B T ln2 at 310 K); potential: the held methylation pattern filling the DNA surface. Book p6_04: the two-halves picture for a cell is a conjecture; a split of the whole cell's energy is ruled out (maintenance ~1e-7 of the budget); a narrower split at the maintenance machinery is left open, which is where this sits",
-    "status": "candidate",
+    "formula": "kinetic: the work of writing marks into the record and of making room for new writing (the writer and the eraser, each event >= k_B T ln2 at 310 K); potential: the held methylation pattern filling the DNA surface. Book p6_04: the two-halves picture for a cell is a conjecture; a split of the whole cell's energy is ruled out (maintenance ~1e-7 of the budget); a narrower split at the maintenance machinery is left open, which is where this sits. TESTED 2026-10-15, DEV-ERASE-01 NOT MET: removing the eraser lowers the held error by 4-21 percent, not by half, so the equal split does not hold site by site where we count",
+    "status": "open",
     "source": "p6_04 keybox 'Status of the two-halves picture for a cell'; PHY-040; DEV_ERASE_01.md"
    }
   },
@@ -523,8 +523,8 @@
    },
    "cells": {
     "native": "eraser cost on the holding",
-    "formula": "candidate: equal writer and eraser loss lowers the holding by exactly ln2 (one Landauer bit): E_hold = ln D - ln 2",
-    "status": "candidate",
+    "formula": "candidate: equal writer and eraser loss lowers the holding by exactly ln2 (one Landauer bit): E_hold = ln D - ln 2. TESTED 2026-10-15, DEV-ERASE-01 NOT MET: removing the eraser lowers the held error by 4-21 percent, not by half, so the equal split does not hold site by site where we count",
+    "status": "open",
     "source": "p6_04 keybox (open problem: a narrower partition at the maintenance machinery); DEV_ERASE_01.md; PHY-040"
    }
   },
@@ -552,8 +552,8 @@
    },
    "cells": {
     "native": "phi, the fraction of one ATP spent per held bit",
-    "formula": "phi = E_hold/(M k_B T) = 3.41/20.94 = 0.163 +/- 0.006; why 0.163 (when a black hole holds 1/2) is the open problem D1. ADDED 2026-10-14: equivalently the cell holds its marks as if at T_b/phi = 1905 K. Conditional derivation: if the writer and the eraser contribute equal loss (DEV-ERASE-01), E_hold = ln D - ln2 and phi = (ln D - ln2)/M = 0.165 (0.151-0.176 over the writer's published D 47.4-80), against 0.163 +/- 0.006 measured",
-    "status": "measured",
+    "formula": "phi = E_hold/(M k_B T) = 3.41/20.94 = 0.163 +/- 0.006; why 0.163 (when a black hole holds 1/2) is the open problem D1. ADDED 2026-10-14: equivalently the cell holds its marks as if at T_b/phi = 1905 K. Conditional derivation: if the writer and the eraser contribute equal loss (DEV-ERASE-01), E_hold = ln D - ln2 and phi = (ln D - ln2)/M = 0.165 (0.151-0.176 over the writer's published D 47.4-80), against 0.163 +/- 0.006 measured. TESTED 2026-10-15, DEV-ERASE-01 NOT MET: removing the eraser lowers the held error by 4-21 percent, not by half, so the equal split does not hold site by site where we count",
+    "status": "open",
     "source": "App. E #491; p7_08; p7_11"
    }
   },
