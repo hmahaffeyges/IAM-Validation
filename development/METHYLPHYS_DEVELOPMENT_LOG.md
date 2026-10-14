@@ -1645,3 +1645,9 @@ A 3-parameter logistic in logit space, tried on L20's committed bins, missed 3 o
 
 ### 2026-10-14 · Atlas v2.1 L21 ADOPTED: the bounded transfer
 Real cross-halves check (job 43e13497): worst bin 0.0179 both ways, 0 of 42 bins beyond 0.02; synthetic MET. The equal worst values both ways are expected: each half's curve sits on its own bin means, so the largest gap between the halves appears with opposite sign in each direction. Tian2023 and ENCODE keep their straight lines (L20 measured Loyfer only), recorded as a limit.
+
+### 2026-10-14 · Atlas v2.1 L8: rules for the five open conditions, and the data step submitted
+Decisions 1 and 10 said their cuts were fixed in the plan, but no number was written. Fixed now, before reading, in `l8_conditions_v21.md` (f63d897d): D1 eosinophil share below 0.10 per array and the GSE224807 CD15+ set a sample-level twin of the Salas neutrophils; D10 fibroblast + immune below 0.20 per array, at least 2 arrays per cell remaining; both shares by EpiDISH 2.26.0 RPC, a published tool, not our withheld atlas solver. D7 as written. D13 and D14 touch only held-out sets and are carried to L15. Box job 36fc910c runs the twin test, the astrocyte profile check and the export of the 904 EpiDISH sites; `l8_epidish_v21.R` computes the shares on the laptop.
+
+### 2026-10-14 · Box code check: data inputs that are another job's S3 output
+The L8 job ships `v21_samples_all.csv`, the output of twin run 2 (178c64ed) stored in S3, so the code check (S3 copy against the repo at the job's commit) refused it. Rather than an exception, the check now accepts `s3_inputs` {filename: S3 key}: the key must be a registered job's output, and the shipped copy must equal that S3 object byte for byte. Checked both ways: the right key passes; a planted wrong key (twins_v21.csv) is refused. The table is also committed to the repository (DEV_ATLAS_V21_01/v21_samples_all.csv) for readers.

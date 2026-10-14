@@ -141,7 +141,8 @@
    "outputs": [
     "results/ATLAS_V21/terms/reproduction_gate_terms.json",
     "results/ATLAS_V21/terms/twins_v21.csv",
-    "results/ATLAS_V21/terms/source_terms_v21.json"
+    "results/ATLAS_V21/terms/source_terms_v21.json",
+    "results/ATLAS_V21/terms/v21_samples_all.csv"
    ],
    "files": [
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_twin_terms_box.py",
@@ -283,7 +284,10 @@
     "Biological_Physics/MethylPhys/atlas/v2/inputs/twin_family_thresholds_v1.json",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/epidish_sites.txt"
    ],
-   "note": "running; v21_samples_all.csv is the twin run 2 output (S3 results/ATLAS_V21/terms/)"
+   "note": "running; v21_samples_all.csv is the twin run 2 output (S3 results/ATLAS_V21/terms/)",
+   "s3_inputs": {
+    "v21_samples_all.csv": "results/ATLAS_V21/terms/v21_samples_all.csv"
+   }
   }
  ],
  "not_jobs": {

@@ -16,8 +16,8 @@ def at_commit(commit, path):
     return hashlib.sha256(r.stdout).hexdigest() if r.returncode == 0 else None
 def expected(job): return {os.path.basename(p): at_commit(job["commit"], p) for p in job["files"]}
 def verify():
-    import boto3; s3 = boto3.client("s3"); out = {}
-    for j in json.load(open(REG))["jobs"]:
+    import boto3; s3 = boto3.client("s3"); out = {}; J = json.load(open(REG))["jobs"]
+    for j in J:
         def _has(k):
             try: s3.head_object(Bucket=BUCKET, Key=k); return True
             except Exception: return False
@@ -26,7 +26,13 @@ def verify():
                                "outputs_in_s3": {k: _has(k) for k in j.get("outputs", [])}, "state_at_verify": j.get("state")}; continue
         idx = json.loads(s3.get_object(Bucket=BUCKET, Key=j["s3_code_prefix"].rstrip("/") + "/code_index.json")["Body"].read())
         got = idx.get("files", {k: v for k, v in idx.items() if not k.startswith("_")})
-        out[j["job_id"]] = {"s3": got, "matches_repo": got == expected(j), "log_in_s3": _has(j["log"]) if j.get("log") else None,
+        # 2026-10-14: a job may ship a DATA input that is another registered job's S3 output (s3_inputs: {filename: s3 key}).
+        # Its expected checksum is that S3 object's own sha256, read here; the job's code copy must match it byte for byte.
+        _si = {}
+        for _f, _k in (j.get("s3_inputs") or {}).items():
+            assert any(_k in (x.get("outputs") or []) for x in J if x is not j), f"{j['job_id'][:8]}: s3_input {_k} is not a registered job output"
+            _si[_f] = hashlib.sha256(s3.get_object(Bucket=BUCKET, Key=_k)["Body"].read()).hexdigest()
+        out[j["job_id"]] = {"s3": got, "s3_inputs_sha": _si, "matches_repo": got == {**expected(j), **_si}, "log_in_s3": _has(j["log"]) if j.get("log") else None,
                             "outputs_in_s3": {k: _has(k) for k in j.get("outputs", [])}, "state_at_verify": j.get("state")}
     json.dump(out, open(VER, "w"), indent=1); open(VER, "a").write("\n"); return out
 def problems():
@@ -42,7 +48,7 @@ def problems():
         if not v: P.append(f"{j['job_id']}: its S3 code copy has not been verified (python3 CANON/box_code_check.py --verify)")
         elif v.get("no_s3_code") is not None:
             if not j.get("code_in_s3"): P.append(f"{j['job_id'][:8]}: no S3 code prefix and no written reason (code_in_s3)")
-        elif v["s3"] != e: P.append(f"{j['job_id']}: the code in S3 differs from the repo at {j['commit']}")
+        elif v["s3"] != {**e, **(v.get("s3_inputs_sha") or {})}: P.append(f"{j['job_id']}: the code in S3 differs from the repo at {j['commit']}")
         sid = j["job_id"][:8]
         for f in ("log", "machine", "purpose", "record", "state"):
             if not j.get(f): P.append(f"{sid}: box job has no {f!r} in CANON/box_jobs.json")

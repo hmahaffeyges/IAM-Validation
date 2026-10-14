@@ -8,6 +8,7 @@
    "atlas_v21_build_samples.csv": "cc6399b826eb76997c041f0242a39bb548ae9b00c21bf1a1b973f555352f2da2",
    "stage_1_idat_calibration.py": "e3c57244f728c123647b41338b830d4f7dfdc52e6a7856f39c58c51f735dafbc"
   },
+  "s3_inputs_sha": {},
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
@@ -27,6 +28,7 @@
    "E-MTAB-2145.sdrf.txt": "c8c47157752c8aa2ab332c37d666709ffb3ab1ea89065403c4e5c15f40fea613",
    "E-MTAB-4957.sdrf.txt": "1735fb7f813da1dcb8d6961d2dcf4a6357d50334bb096c270a37ee962ee7e955"
   },
+  "s3_inputs_sha": {},
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
@@ -63,6 +65,7 @@
    "10_twin_test_sample_level.csv": "e0a4e493c3de2e22e48df228af0ea6bf99fbdab49b1b93304562e0e119859eb6",
    "twin_family_thresholds_v1.json": "ac7163ee1aaddfa7606e326b1e655016d244be599040216fe9ea0cf7db5da03f"
   },
+  "s3_inputs_sha": {},
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
@@ -84,12 +87,14 @@
    "12b_source_terms_bridged.json": "030a654ef0b99e24516e666d626cbdcfc234c75e8ccbdb2a4714069fd736a8a4",
    "stage1_v21_manifest.csv": "b9695fe94aec1a5d5b630c5bd1c72ba89e1c3be4e6d683f8cac398b9afb4931e"
   },
+  "s3_inputs_sha": {},
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
    "results/ATLAS_V21/terms/reproduction_gate_terms.json": true,
    "results/ATLAS_V21/terms/twins_v21.csv": true,
-   "results/ATLAS_V21/terms/source_terms_v21.json": true
+   "results/ATLAS_V21/terms/source_terms_v21.json": true,
+   "results/ATLAS_V21/terms/v21_samples_all.csv": true
   },
   "state_at_verify": "done"
  },
@@ -100,6 +105,7 @@
    "stage_1_idat_calibration.py": "75da834dfd53e0a29095550c546566ec1f9e6f4f4e8d45c0a87bb2ea48744ed7",
    "roster_samples.csv": "da11a3c11285bde36dcc866c53c112eec5d8ac63e3ea18a66c24e27c7fc3aa4d"
   },
+  "s3_inputs_sha": {},
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
@@ -117,6 +123,7 @@
    "roster.csv": "d0542f8bda2c7d4dc1c85ecd7958746b089149beb2ea7edaf5f00fbba2d92fd1",
    "hsc_manifest.csv": "9ee7fb9592d3b0cb2667e38cf00aa5cda7ed712777806a1aa6d7f99c7ee89af6"
   },
+  "s3_inputs_sha": {},
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {},
@@ -132,6 +139,7 @@
    "hsc_manifest.csv": "9ee7fb9592d3b0cb2667e38cf00aa5cda7ed712777806a1aa6d7f99c7ee89af6",
    "twin_family_thresholds_v1.json": "ac7163ee1aaddfa7606e326b1e655016d244be599040216fe9ea0cf7db5da03f"
   },
+  "s3_inputs_sha": {},
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
@@ -152,6 +160,7 @@
    "hsc_manifest.csv": "9ee7fb9592d3b0cb2667e38cf00aa5cda7ed712777806a1aa6d7f99c7ee89af6",
    "twin_family_thresholds_v1.json": "ac7163ee1aaddfa7606e326b1e655016d244be599040216fe9ea0cf7db5da03f"
   },
+  "s3_inputs_sha": {},
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
@@ -159,5 +168,29 @@
    "results/ATLAS_V21/transfer_bounded/transfer_bounded_v21_summary.txt": true
   },
   "state_at_verify": "done"
+ },
+ "36fc910c-813e-454f-8706-67dd293c5e29": {
+  "s3": {
+   "v21_l8_box.py": "a011c8329f85a62a5a7c585a04d5d316b9aaa4106f348795fd025173625e454b",
+   "v21_twin_terms_box.py": "54a215fb1738675a13c0116974819a7670a5889824a844b3561fb529ea7c7499",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20",
+   "roster_samples.csv": "da11a3c11285bde36dcc866c53c112eec5d8ac63e3ea18a66c24e27c7fc3aa4d",
+   "roster.csv": "d0542f8bda2c7d4dc1c85ecd7958746b089149beb2ea7edaf5f00fbba2d92fd1",
+   "hsc_manifest.csv": "9ee7fb9592d3b0cb2667e38cf00aa5cda7ed712777806a1aa6d7f99c7ee89af6",
+   "twin_family_thresholds_v1.json": "ac7163ee1aaddfa7606e326b1e655016d244be599040216fe9ea0cf7db5da03f",
+   "v21_samples_all.csv": "f86f645cd41a5dc47509dffa435ba6fdadbecf69db923ed8c9dd8037436772fe",
+   "epidish_sites.txt": "937a6a5e2290be6b0a92f7532d6c1f5f9b23dd9414456d66a7757bfd892f04a7"
+  },
+  "s3_inputs_sha": {
+   "v21_samples_all.csv": "f86f645cd41a5dc47509dffa435ba6fdadbecf69db923ed8c9dd8037436772fe"
+  },
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/ATLAS_V21/l8/l8_d1_twin.csv": false,
+   "results/ATLAS_V21/l8/l8_d7_profile_r.csv": false,
+   "results/ATLAS_V21/l8/l8_epidish_betas.csv": false
+  },
+  "state_at_verify": "running"
  }
 }
