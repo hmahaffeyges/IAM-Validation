@@ -302,5 +302,32 @@
    "results/ATLAS_V21/transfer_diag/transfer_diag_v21_cells.csv": true
   },
   "state_at_verify": "done"
+ },
+ "6ea74736-3159-4a4a-bb23-2e82cb760af1": {
+  "s3": {
+   "v21_transfer_final_box.py": "72d67755a6ed7b5e3c85b0cb789162e9f22366c47d605f1784cf216fe12e5f7b",
+   "v21_twin_terms_box.py": "54a215fb1738675a13c0116974819a7670a5889824a844b3561fb529ea7c7499",
+   "transfer_bounded_v21.py": "69b4e5b601bb8b414e0f396f4b9082fe885337d462927abe1393875d612f2c15",
+   "final_table_v21.py": "8ccb3114041aa36079a42b1fd64dfef0810abf32009975fcc9e72599bc12d9d2",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20",
+   "terms_final_v21.json": "e6e521d690ac126d20f57a2c53ac3369d104c84b9f7c54e5df90242187b39700",
+   "roster_samples.csv": "da11a3c11285bde36dcc866c53c112eec5d8ac63e3ea18a66c24e27c7fc3aa4d",
+   "roster.csv": "d0542f8bda2c7d4dc1c85ecd7958746b089149beb2ea7edaf5f00fbba2d92fd1",
+   "hsc_manifest.csv": "9ee7fb9592d3b0cb2667e38cf00aa5cda7ed712777806a1aa6d7f99c7ee89af6",
+   "twin_family_thresholds_v1.json": "ac7163ee1aaddfa7606e326b1e655016d244be599040216fe9ea0cf7db5da03f",
+   "v21_samples_all.csv": "f86f645cd41a5dc47509dffa435ba6fdadbecf69db923ed8c9dd8037436772fe",
+   "atlas_v21_build_samples.csv": "ea6aa44d3636aa98d29ddade020df7bea544fda8f8f0be1ca8e8d6317ecb6be4",
+   "conditions_v21.json": "34c63e98bff19df44bd4dad2f1ca58c61f5a197fc1460bea452785a7afcf9d56",
+   "twin_sample_level_v21.csv": "2aceb238cde84296fedbf1964963e275a76062fec55bcfd304e3b4be99a73d04",
+   "stage1_v21_manifest.csv": "b9695fe94aec1a5d5b630c5bd1c72ba89e1c3be4e6d683f8cac398b9afb4931e"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/ATLAS_V21/transfer_final/transfer_v21_final.json": false,
+   "results/ATLAS_V21/transfer_final/transfer_v21_final_summary.txt": false
+  },
+  "state_at_verify": "running"
  }
 }

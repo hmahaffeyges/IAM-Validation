@@ -1684,3 +1684,6 @@ Box job e28be19b (code d927760d): per-cell residuals of every sequencing source 
 
 ### 2026-10-14 · Transfer diagnosis read
 The out-of-sample miss is cell-to-cell difference between the sequencing and array cohorts, not the laboratories and not the five new cells in particular (cells inside L21 scatter as widely). A redesign is needed and changes the fit, so it goes to the author before it is written.
+
+### 2026-10-14 · L22 second design (author): one curve, scatter carried, no cell removed
+Asked how to proceed after L22, the author: "Just do what is best. I dont like losing cells out of my atlas!!" Chosen: one bounded transfer on all 22 shared cells for Loyfer, Tian and ENCODE alike (the alpha, beta layer dropped), tested leave-one-cell-out because no unseen shared cell remains (disclosed), and the measured cell-to-cell scatter carried into every sequencing row so the error bars include it. No cell leaves. Box job 6ea74736 (code 63bd4e0b).
