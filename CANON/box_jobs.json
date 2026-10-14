@@ -164,7 +164,7 @@
    "date": "2026-10-14",
    "commit": "14b689f2",
    "s3_code_prefix": "results/ATLAS_V21/halfsplit/code/v21_v2rs/",
-   "state": "running",
+   "state": "done",
    "log": "results/ATLAS_V21/halfsplit/v2rs.log",
    "machine": "methylphys-cpu-01 (128 cores)",
    "purpose": "genotype (rs) probe values for atlas v2's own arrays, so donors are identified by DNA for the half split",
@@ -178,6 +178,31 @@
     "Biological_Physics/MethylPhys/boxruns/publish_code.py",
     "Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py",
     "Biological_Physics/MethylPhys/atlas/v2/inputs/roster_samples.csv"
+   ],
+   "note": "113 of 113 v2 arrays read (Salas2022 56, Salas2018 35, Moss2018 22); GSE63409 450K arrays are listed in hsc_manifest.csv, not roster_samples.csv, and still need a run"
+  },
+  {
+   "job_id": "80446c36-9c30-4ebb-9a77-5ba4492e7ac7",
+   "name": "Atlas v2.1 transfer shape check (L20)",
+   "date": "2026-10-14",
+   "commit": "a1104914",
+   "s3_code_prefix": "results/ATLAS_V21/transfer/code/",
+   "state": "running",
+   "log": "results/ATLAS_V21/transfer/transfer.log",
+   "machine": "methylphys-cpu-01 (128 cores)",
+   "purpose": "is the array-to-sequencing transfer straight across the whole range (v2's samples, the terms job's own run12)",
+   "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [
+    "results/ATLAS_V21/transfer/transfer_shape_v21.csv",
+    "results/ATLAS_V21/transfer/transfer_shape_v21_summary.txt"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_transfer_shape_box.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_twin_terms_box.py",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/roster_samples.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/roster.csv",
+    "Biological_Physics/MethylPhys/atlas/v2/inputs/hsc_manifest.csv"
    ]
   }
  ],

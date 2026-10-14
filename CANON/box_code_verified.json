@@ -106,6 +106,23 @@
    "results/ATLAS_V21/halfsplit/v2_rs_arrays.csv": true,
    "results/ATLAS_V21/halfsplit/v2_rs.parquet": true
   },
+  "state_at_verify": "done"
+ },
+ "80446c36-9c30-4ebb-9a77-5ba4492e7ac7": {
+  "s3": {
+   "v21_transfer_shape_box.py": "b672039fcf5891afa3a3f35325c429db978d531c1fc33e1494eceed2a11a50d5",
+   "v21_twin_terms_box.py": "54a215fb1738675a13c0116974819a7670a5889824a844b3561fb529ea7c7499",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20",
+   "roster_samples.csv": "da11a3c11285bde36dcc866c53c112eec5d8ac63e3ea18a66c24e27c7fc3aa4d",
+   "roster.csv": "d0542f8bda2c7d4dc1c85ecd7958746b089149beb2ea7edaf5f00fbba2d92fd1",
+   "hsc_manifest.csv": "9ee7fb9592d3b0cb2667e38cf00aa5cda7ed712777806a1aa6d7f99c7ee89af6"
+  },
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/ATLAS_V21/transfer/transfer_shape_v21.csv": false,
+   "results/ATLAS_V21/transfer/transfer_shape_v21_summary.txt": false
+  },
   "state_at_verify": "running"
  }
 }
