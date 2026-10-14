@@ -16,8 +16,9 @@ conjecture, candidate (proposed, not tested), open (nothing yet).
 | **Reference (the 1)**<br>The state the gauge is read against. | a = 1: E(1) = 1, R(1) = 2 *(derived)* — today | the benchmarked gate error, A = 1 *(measured)* — as built | the chip on one stated definition *(measured)* — as built | eps0 = 0.032, E_hold = 3.41 k_B T; candidate derivation ln D - ln 2 (DEV-ERASE-01, sealed) *(measured)* — healthy |
 | **Ceiling (right mark)**<br>Saturation: the surface can no longer hold a record. | local area bound filled; the cosmic horizon never saturates on observable timescales *(derived)* — black hole | about 1e-2 per operation (surface code) *(measured)* — error-correction threshold | open in the book *(open)* — not defined | coin flip, eps = 1/2 at every identity site, A = 4.26 *(derived)* — full surface |
 | **Writer (potential half)**<br>What adds the record onto the surface. | geometric deposit, stored in spacetime curvature; |V|/2 *(conjecture)* — potential half: dark matter | candidate: gates (drive pulses) *(candidate)* | candidate: set operations *(candidate)* | DNMT, on SAM (author, 2026-10-14) *(candidate)* — writer |
-| **Eraser (kinetic half)**<br>What frees the surface; the Landauer step. | informational pressure on the horizon, driving expansion; K = |V|/2 *(conjecture)* — kinetic half: dark energy | candidate: relaxation to |0> (T1) and active reset *(candidate)* | candidate: reset of an unknown bit (CMOS erases at almost every gate) *(candidate)* | TET, on O2 and 2-oxoglutarate (author, 2026-10-14) *(candidate)* — eraser |
-| **Virial partition**<br>The two halves are equal: 2K + V = 0. | 2K + V = 0; beta_m = Omega_m / 2 = 0.15765 *(derived)* — virial theorem; coupling | open *(open)* | open *(open)* | E_hold = ln D - ln 2 (removing the eraser halves the copy error) *(candidate)* — equal halves of the loss |
+| **Eraser (kinetic half)**<br>What frees the surface; the Landauer step. | informational pressure on the horizon, driving expansion; K = |V|/2 *(conjecture)* — kinetic half: dark energy | each discarded flip is an erasure paid in heat; minimum Delta_Al ln2 at the gap scale; above 2 Delta it breaks a Cooper pair into quasiparticles (sets x_qp) *(derived)* — erasure of a discarded TLS flip | candidate: reset of an unknown bit (CMOS erases at almost every gate) *(candidate)* | TET, on O2 and 2-oxoglutarate (author, 2026-10-14) *(candidate)* — eraser |
+| **Virial partition**<br>The two halves are equal: 2K + V = 0 for any 1/r binding (Clausius 1870), so K = |V|/2. | 2K + V = 0; beta_m = Omega_m/2 = 0.15765 = Omega_m x f_coll x eta_vir (f_coll 0.62, Tinker 2008) *(derived)* — virial theorem; coupling | 2K + V = 0 for the Coulomb (1/r) binding of electrons and nuclei: 20 atoms H-Xe and 10 molecules at the Hartree-Fock limit, exact (Clementi & Roetti 1974; Bunge 1993). The qubit's own degree of freedom is not 1/r: a transmon is near-harmonic (degree 2, K = V) *(derived)* — Coulomb binding of the junction's electrons | 2K + V = 0 for the Coulomb (1/r) binding of electrons and nuclei: 20 atoms H-Xe and 10 molecules at the Hartree-Fock limit, exact (Clementi & Roetti 1974; Bunge 1993). The switch itself is transport over a barrier, not a 1/r bound state *(derived)* — Coulomb binding of the electrons in silicon | 2K + V = 0 for the Coulomb (1/r) binding of electrons and nuclei: 20 atoms H-Xe and 10 molecules at the Hartree-Fock limit, exact (Clementi & Roetti 1974; Bunge 1993). Which process carries which half in methylation is the separate writer/eraser question (DEV-ERASE-01) *(derived)* — Coulomb binding of the molecules (DNA, enzymes) |
+| **Kinetic-half identity**<br>When a 1/r system binds from rest, the energy it releases equals its kinetic half, and that is the Landauer cost of the binding: K = Q = T dS_min = E_Landauer. | N k_B T_H ln2 = T_H S = Mc^2/2 (Schwarzschild, exact); Kerr share sqrt(1-chi^2)/2 *(derived)* — Smarr: horizon bits cost half the rest energy; record term at the cosmic horizon | E_erase >= Delta_Al ln2 per discarded flip; N_QP = ln2 per event at the gap scale *(derived)* — erasure heat | k_B T_j ln2 per erased bit *(derived)* — erasure at every gate | candidate: equal writer and eraser loss lowers the holding by exactly ln2 (one Landauer bit): E_hold = ln D - ln 2 *(candidate)* — eraser cost on the holding |
 | **Virial ratio R**<br>Total against the kinetic half; 2 at equilibrium. | R(a) = Omega_m a^-3 / [beta_m E(a)]: 399 (z 2), 19.8 (z 0.7), 5.9 (z 0.3), 2 today *(derived)* — R(a) | candidate: total gate-error loss / reset loss, from an error budget *(candidate)* | open *(open)* | (writer + eraser loss) / eraser loss: 1.90 (1.61-2.76 over the writer's range), after the fact *(candidate)* — R |
 | **Clock x**<br>The variable the record accumulates against. | a (a = 1 today) *(derived)* — scale factor | open *(open)* | n *(derived)* — generation (node) | open *(open)* |
 | **Activation E(x)**<br>How the record builds up against the clock. | E(a) = exp(1 - 1/a) = e^-z; E(0)=0, E(1)=1, E(inf)=e *(derived)* — activation function | open *(open)* | n_floor = ln R / -ln(1-s); Dennard: 64.6 % per node, 29.3 % at fixed voltage *(derived)* — step series to the floor | open *(open)* |
@@ -29,10 +30,10 @@ conjecture, candidate (proposed, not tested), open (nothing yet).
 
 | Domain | derived, measured or calculated | conjecture or candidate | open |
 |---|---|---|---|
-| Cosmos | 13 of 18 | 4 | 1 |
-| Qubits | 11 of 18 | 4 | 3 |
-| Chips | 12 of 18 | 2 | 4 |
-| Cells | 10 of 18 | 5 | 3 |
+| Cosmos | 14 of 19 | 4 | 1 |
+| Qubits | 14 of 19 | 3 | 2 |
+| Chips | 14 of 19 | 2 | 3 |
+| Cells | 11 of 19 | 5 | 3 |
 
 ## Gap map: what each domain is missing, and who already has it
 
@@ -40,30 +41,27 @@ conjecture, candidate (proposed, not tested), open (nothing yet).
 - Mahaffey number M: candidate; donor: qubits, chips, cells
 - Balance law: open; donor: qubits, chips, cells
 - Writer (potential half): conjecture; no domain has it yet
-- Eraser (kinetic half): conjecture; no domain has it yet
+- Eraser (kinetic half): conjecture; donor: qubits
 - Fidelity ratio A: candidate; donor: qubits, chips, cells
 
-**Qubits** (7 gaps)
+**Qubits** (5 gaps)
 - Writer (potential half): candidate; no domain has it yet
-- Eraser (kinetic half): candidate; no domain has it yet
-- Virial partition: open; donor: cosmos
 - Virial ratio R: candidate; donor: cosmos
 - Clock x: open; donor: cosmos, chips
 - Activation E(x): open; donor: cosmos, chips
 - Saturation event (the wall): conjecture; donor: cosmos, chips
 
-**Chips** (6 gaps)
+**Chips** (5 gaps)
 - Ceiling (right mark): open; donor: cosmos, qubits, cells
 - Writer (potential half): candidate; no domain has it yet
-- Eraser (kinetic half): candidate; no domain has it yet
-- Virial partition: open; donor: cosmos
+- Eraser (kinetic half): candidate; donor: qubits
 - Virial ratio R: open; donor: cosmos
 - Point of no return: open; donor: cosmos, qubits
 
 **Cells** (8 gaps)
 - Writer (potential half): candidate; no domain has it yet
-- Eraser (kinetic half): candidate; no domain has it yet
-- Virial partition: candidate; donor: cosmos
+- Eraser (kinetic half): candidate; donor: qubits
+- Kinetic-half identity: candidate; donor: cosmos, qubits, chips
 - Virial ratio R: candidate; donor: cosmos
 - Clock x: open; donor: cosmos, chips
 - Activation E(x): open; donor: cosmos, chips

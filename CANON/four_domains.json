@@ -308,10 +308,10 @@
     "source": "Part VII, virial partners"
    },
    "qubits": {
-    "native": "not in the book",
-    "formula": "candidate: relaxation to |0> (T1) and active reset",
-    "status": "candidate",
-    "source": "2026-10-14"
+    "native": "erasure of a discarded TLS flip",
+    "formula": "each discarded flip is an erasure paid in heat; minimum Delta_Al ln2 at the gap scale; above 2 Delta it breaks a Cooper pair into quasiparticles (sets x_qp)",
+    "status": "derived",
+    "source": "Ch. The cost of holding a qubit (p5_02_xqp); IAM_Xqp paper"
    },
    "chips": {
     "native": "not in the book",
@@ -329,30 +329,59 @@
   {
    "id": "virial",
    "name": "Virial partition",
-   "definition": "The two halves are equal: 2K + V = 0.",
+   "definition": "The two halves are equal: 2K + V = 0 for any 1/r binding (Clausius 1870), so K = |V|/2.",
    "cosmos": {
     "native": "virial theorem; coupling",
-    "formula": "2K + V = 0; beta_m = Omega_m / 2 = 0.15765",
+    "formula": "2K + V = 0; beta_m = Omega_m/2 = 0.15765 = Omega_m x f_coll x eta_vir (f_coll 0.62, Tinker 2008)",
     "status": "derived",
-    "source": "App. E #49, #28"
+    "source": "App. E #49, #28; six independent N-body groups (Bryan & Norman 1998, Bett 2007, Neto 2007, Ludlow 2010, Power 2012, Klypin 2016): <eta_vir> = 0.815 +/- 0.025; 17 Planck chains"
    },
    "qubits": {
-    "native": "none",
-    "formula": "open",
-    "status": "open",
-    "source": ""
+    "native": "Coulomb binding of the junction's electrons",
+    "formula": "2K + V = 0 for the Coulomb (1/r) binding of electrons and nuclei: 20 atoms H-Xe and 10 molecules at the Hartree-Fock limit, exact (Clementi & Roetti 1974; Bunge 1993). The qubit's own degree of freedom is not 1/r: a transmon is near-harmonic (degree 2, K = V)",
+    "status": "derived",
+    "source": "Ch. The virial partition (p1_03); Virial Partition Across Wide Domains, Table 1"
    },
    "chips": {
-    "native": "none",
-    "formula": "open",
-    "status": "open",
-    "source": ""
+    "native": "Coulomb binding of the electrons in silicon",
+    "formula": "2K + V = 0 for the Coulomb (1/r) binding of electrons and nuclei: 20 atoms H-Xe and 10 molecules at the Hartree-Fock limit, exact (Clementi & Roetti 1974; Bunge 1993). The switch itself is transport over a barrier, not a 1/r bound state",
+    "status": "derived",
+    "source": "Ch. The virial partition (p1_03)"
    },
    "cells": {
-    "native": "equal halves of the loss",
-    "formula": "E_hold = ln D - ln 2 (removing the eraser halves the copy error)",
+    "native": "Coulomb binding of the molecules (DNA, enzymes)",
+    "formula": "2K + V = 0 for the Coulomb (1/r) binding of electrons and nuclei: 20 atoms H-Xe and 10 molecules at the Hartree-Fock limit, exact (Clementi & Roetti 1974; Bunge 1993). Which process carries which half in methylation is the separate writer/eraser question (DEV-ERASE-01)",
+    "status": "derived",
+    "source": "Ch. The virial partition (p1_03)"
+   }
+  },
+  {
+   "id": "identity",
+   "name": "Kinetic-half identity",
+   "definition": "When a 1/r system binds from rest, the energy it releases equals its kinetic half, and that is the Landauer cost of the binding: K = Q = T dS_min = E_Landauer.",
+   "cosmos": {
+    "native": "Smarr: horizon bits cost half the rest energy; record term at the cosmic horizon",
+    "formula": "N k_B T_H ln2 = T_H S = Mc^2/2 (Schwarzschild, exact); Kerr share sqrt(1-chi^2)/2",
+    "status": "derived",
+    "source": "App. E #348, #499; Smarr 1973; Bardeen, Carter & Hawking 1973; Thermodynamic Identity paper"
+   },
+   "qubits": {
+    "native": "erasure heat",
+    "formula": "E_erase >= Delta_Al ln2 per discarded flip; N_QP = ln2 per event at the gap scale",
+    "status": "derived",
+    "source": "p5_02_xqp; IAM_Xqp paper"
+   },
+   "chips": {
+    "native": "erasure at every gate",
+    "formula": "k_B T_j ln2 per erased bit",
+    "status": "derived",
+    "source": "Ch. CMOS"
+   },
+   "cells": {
+    "native": "eraser cost on the holding",
+    "formula": "candidate: equal writer and eraser loss lowers the holding by exactly ln2 (one Landauer bit): E_hold = ln D - ln 2",
     "status": "candidate",
-    "source": "DEV_ERASE_01.md"
+    "source": "DEV_ERASE_01.md; PHY-040"
    }
   },
   {
