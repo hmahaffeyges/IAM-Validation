@@ -1711,3 +1711,6 @@ Metadata-only search (GEO): 5 primary units of constitutive TET1/2/3 removal wit
 
 ### 2026-10-14 · DEV-ERASE-01 planted check on real molecules MET
 Halved/base 0.5316 (granulocytes) and 0.5285 (CD4 T cells), bar 0.45-0.55; halves 1.0005 and 0.9995. Doubled arm 1.5962 and 1.6142, reported (a boost is read compressed on real reads). The counting finds a planted halving in real molecules, so the real reads may start.
+
+### 2026-10-14 · DEV-ERASE-01 reads submitted (the sealed test)
+Box job d4bf0f29 (code 9026c1a2): the 32 declared samples, primary units first, each read once; the verdict script runs at the end.

@@ -370,5 +370,25 @@
    "results/DEV_ERASE_01/planted_real/planted_real_erase_01_raw.tsv": true
   },
   "state_at_verify": "done"
+ },
+ "d4bf0f29-8a7c-4e3f-842f-41a39eba8dbf": {
+  "s3": {
+   "erase_blocks.py": "9b7c8d8cd3a3b40daf3b610a71d7f4a2d570f7d4441e1f17687bb89486bea000",
+   "erase_read_one.py": "11ad03bc68e8487f695bc70a7348861030590aae46afcc2a7b0214443e7445fe",
+   "erase_reads.sh": "e6c99b0d0484d6cd403484c1477d64525c4fd6d67280f21df59b89c4d5c13dfb",
+   "erase_samples.csv": "d8dcfc33646bf7fd1dae7a798c4b8f359a251eee42e19a8c9006085fd8fea78b",
+   "erase_verdict.py": "e91ea674de11345ee52d4d87c743f91c5bb4936dc570f7ef48a0b6654c5a3c86",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20",
+   "stage_m_met_a.py": "2e8734954dd172df08b28419a102ba2ab7031f2644bd0aae2a053dc7d56e05f7",
+   "stage_q_iam_a.py": "e3b92f107dc8006eee48f0ef03c0545a7938ef21969e7a6f6690386c2b73b9bb"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/DEV_ERASE_01/reads/erase_verdict.txt": false,
+   "results/DEV_ERASE_01/reads/erase_verdict_units.csv": false
+  },
+  "state_at_verify": "running"
  }
 }

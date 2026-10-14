@@ -522,6 +522,33 @@
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
    "note": "PLANTED CHECK: MET (halved/base 0.5316 and 0.5285; halves 1.0005 and 0.9995; doubled reads 1.5962, 1.6142, no bar)"
+  },
+  {
+   "job_id": "d4bf0f29-8a7c-4e3f-842f-41a39eba8dbf",
+   "name": "DEV-ERASE-01 reads (the sealed test)",
+   "date": "2026-10-14",
+   "commit": "9026c1a2",
+   "s3_code_prefix": "results/DEV_ERASE_01/reads/code/run1/",
+   "state": "running",
+   "log": "results/DEV_ERASE_01/reads/erase_reads.log",
+   "machine": "methylphys-cpu-01 (32 cores)",
+   "purpose": "32 declared samples (16 primary), 10 M pairs each as 20 spread blocks, Stage Q counting; verdict by erase_verdict.py",
+   "record": "doors/DEV_ERASE_01.md",
+   "outputs": [
+    "results/DEV_ERASE_01/reads/erase_verdict.txt",
+    "results/DEV_ERASE_01/reads/erase_verdict_units.csv"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/erase_samples.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/erase_blocks.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/erase_read_one.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/erase_reads.sh",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/erase_verdict.py",
+    "Biological_Physics/MethylPhys/chain/stage_q_iam_a.py",
+    "Biological_Physics/MethylPhys/chain/stage_m_met_a.py",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {
