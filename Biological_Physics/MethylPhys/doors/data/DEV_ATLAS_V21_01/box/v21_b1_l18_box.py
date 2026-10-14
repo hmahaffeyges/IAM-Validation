@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Atlas v2.1 readiness B1 and L18 on the fit machine (committed 2026-10-14 before it runs).
-B1: block 0 fitted alone with K = 100 saved draws, pinned to CORES cores (4 chains, one thread each, as v2), under /usr/bin/time -v:
+B1: block 0 fitted alone with K = 100 saved draws, pinned to CORES = 8 cores with XLA_FLAGS exactly as run_v21.sh (4 chains on 4 devices, one thread each; v2 pinned 8 cores per block), under /usr/bin/time -v:
     wall time and peak memory -> par = min(cores // CORES, floor(0.80 * memory / peak)). Writes block_measure_v21.json.
 L18: block 0 fitted again with K = 20 (same model, same seed 1000). The summary columns of the two saves must be IDENTICAL (the widened save changes
     only what is stored, never the fit). Writes outputs_v21_check_summary.txt. Also reports the block's file sizes, to size the disk for 700 blocks."""
@@ -9,10 +9,10 @@ sys.path.insert(0, os.getcwd())
 from publish_code import publish_code
 publish_code("results/ATLAS_V21/b1_l18/code/run1/", ["v21_b1_l18_box.py", "run_v21_block.py", "atlas_block_v21.py", "transfer_v21_final.json", "final_samples_v21.csv", "publish_code.py"],
              job="atlas v2.1 B1 and L18 (one block, K 100 and K 20)", commit=os.environ.get("REPO_COMMIT"))
-CORES = 4; NC = os.cpu_count(); MEM = int(open("/proc/meminfo").read().split()[1]) * 1024
+CORES = 8; NC = os.cpu_count(); MEM = int(open("/proc/meminfo").read().split()[1]) * 1024
 def run(k, outd):
     os.makedirs(outd, exist_ok=True)
-    env = dict(os.environ, BLOCK="0", NBLOCK="700", OUTD=outd, K=str(k), OMP_NUM_THREADS="1")
+    env = dict(os.environ, BLOCK="0", NBLOCK="700", OUTD=outd, K=str(k), OMP_NUM_THREADS="1", XLA_FLAGS="--xla_force_host_platform_device_count=4 --xla_cpu_multi_thread_eigen=false intra_op_parallelism_threads=1")
     t = time.time(); p = subprocess.run(["/usr/bin/time", "-v", "taskset", "-c", f"0-{CORES-1}", os.path.expanduser("~/mcmc/bin/python"), "run_v21_block.py"],
                                         env=env, capture_output=True, text=True)
     open(f"b1_K{k}.log", "w").write(p.stdout + "\n" + p.stderr)
