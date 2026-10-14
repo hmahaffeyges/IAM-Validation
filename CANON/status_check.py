@@ -166,6 +166,14 @@ if _cn.returncode: fail.append("[cell_names] " + ((_cn.stdout + _cn.stderr).stri
 _bc = subprocess.run([sys.executable, "CANON/box_code_check.py"], capture_output=True, text=True)
 if _bc.returncode: fail += ["[box_code] " + l.strip() for l in (_bc.stdout + _bc.stderr).split("\n") if l.strip() and not l.startswith("box_code_check:")] or ["[box_code] the check could not run"]
 
+# Atlas v2.1 release checklist (author, 2026-10-14): generated, never by hand; any v2.1 release script must ask --ready before uploading
+_rl = subprocess.run([sys.executable, "CANON/v21_release.py", "--check"], capture_output=True, text=True)
+if _rl.returncode: fail.append("[v21_release] " + ((_rl.stdout + _rl.stderr).strip().split("\n")[-1] or "the check could not run"))
+import glob as _g
+for _f in _g.glob("Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/release/*.py"):
+    if "v21_release.py" not in open(_f, encoding="utf-8").read() or "--ready" not in open(_f, encoding="utf-8").read():
+        fail.append(f"[v21_release] {_f} uploads without first calling CANON/v21_release.py --ready")
+
 if fail:
     print(f"status_check: REFUSED ({len(fail)})\n  " + "\n  ".join(fail[:40])); sys.exit(1)
 print(f"status_check: ok ({len(F['facts'])} facts, {len(files)} documents)")

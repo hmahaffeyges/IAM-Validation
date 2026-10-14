@@ -1,0 +1,315 @@
+{
+ "R01": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md": true,
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_plan.md": true
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:28Z"
+ },
+ "R02": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_roster.csv": true,
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_build_samples.csv": true,
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_heldout_samples.csv": true,
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/same_source_v21.json": true
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:28Z"
+ },
+ "R03": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sealed_split_v21.json": true,
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sealed_split_v21_02.json": true,
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sealed_split_v21_03.json": true
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:28Z"
+ },
+ "R04": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/conditions_v21.json": true
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:28Z"
+ },
+ "R05": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/cell_names_v21.csv": true,
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/cell_names_v21_by_cell.csv": true,
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/cell_names_v21_snapshot.json": true
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:28Z"
+ },
+ "R06": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/identity_audit_v21_summary.txt": true,
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/geo_snapshots/index.json": true
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:28Z"
+ },
+ "R07": {
+  "repo": {
+   "CANON/data_spent.csv": true,
+   "CANON/spent_samples.json": true
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:28Z"
+ },
+ "R08": {
+  "repo": {
+   "CANON/site_exclusions/register.json": true
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:28Z"
+ },
+ "D01": {
+  "repo": {},
+  "s3": {
+   "results/ATLAS_V21/raw/build/": true,
+   "results/ATLAS_V21/raw/heldout/": true
+  },
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:28Z"
+ },
+ "D02": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/stage1_v21_manifest.csv": true,
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/reproduction_gate.json": true
+  },
+  "s3": {
+   "results/ATLAS_V21/stage1/shards/": true,
+   "results/ATLAS_V21/stage1/stage1_v21_manifest.csv": true
+  },
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:28Z"
+ },
+ "D03": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/identity_v21_arrays.csv": true
+  },
+  "s3": {
+   "results/ATLAS_V21/heldout/shards/": true
+  },
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:29Z"
+ },
+ "D04": {
+  "repo": {},
+  "s3": {
+   "atlas_v2/stage1_shards/": true
+  },
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:29Z"
+ },
+ "Q01": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/identity_check_v21.py": true,
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/identity_check_v21_summary.txt": true,
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/identity_check_v21_sex_vs_metadata.csv": true,
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/identity_check_v21_pairs.csv": true
+  },
+  "s3": {
+   "results/ATLAS_V21/identity/identity_v21_rs.parquet": true
+  },
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:29Z"
+ },
+ "Q02": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/twins_v21.csv": false,
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/twin_sample_level_v21.csv": false
+  },
+  "s3": {
+   "results/ATLAS_V21/terms/twins_v21.csv": false
+  },
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:29Z"
+ },
+ "Q03": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/source_terms_v21.json": false
+  },
+  "s3": {
+   "results/ATLAS_V21/terms/source_terms_v21.json": false
+  },
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:29Z"
+ },
+ "Q04": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/reproduction_gate.json": true,
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/reproduction_gate_terms.json": true
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:29Z"
+ },
+ "F01": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/run_v21.sh": false,
+   "Biological_Physics/MethylPhys/V21_READINESS.md": true
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:29Z"
+ },
+ "F02": {
+  "repo": {},
+  "s3": {
+   "atlas_v21/blocks/": false
+  },
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:29Z"
+ },
+ "F03": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/ATLAS_V21_OUTPUT_MANIFEST.json": false
+  },
+  "s3": {
+   "atlas_v21/ATLAS_V21_OUTPUT_MANIFEST.json": false
+  },
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:29Z"
+ },
+ "F04": {
+  "repo": {},
+  "s3": {
+   "atlas_v21/IAMAtlas_v21.parquet": false
+  },
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:29Z"
+ },
+ "F05": {
+  "repo": {},
+  "s3": {
+   "atlas_v21/convergence_v21.parquet": false
+  },
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:29Z"
+ },
+ "F06": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/box_mcmc_requirements_v21.txt": false
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:29Z"
+ },
+ "C01": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/commissioning_v21_summary.txt": false
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:29Z"
+ },
+ "C02": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/head_to_head_v21_summary.txt": false
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:29Z"
+ },
+ "G01": {
+  "repo": {},
+  "s3": {
+   "atlas_v21/gift/reference_with_error_bars.parquet": false
+  },
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:29Z"
+ },
+ "G02": {
+  "repo": {},
+  "s3": {
+   "atlas_v21/gift/bridge_per_site.parquet": false
+  },
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:30Z"
+ },
+ "G03": {
+  "repo": {},
+  "s3": {
+   "atlas_v21/gift/healthy_spread.parquet": false
+  },
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:30Z"
+ },
+ "G04": {
+  "repo": {},
+  "s3": {
+   "atlas_v21/gift/marker_check.parquet": false
+  },
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:30Z"
+ },
+ "G05": {
+  "repo": {},
+  "s3": {
+   "atlas_v21/sphere/": false
+  },
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:30Z"
+ },
+ "G06": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/rebuild_v21.py": false
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:30Z"
+ },
+ "G07": {
+  "repo": {},
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:30Z"
+ },
+ "P01": {
+  "repo": {
+   "CANON/box_jobs.json": true,
+   "CANON/box_code_verified.json": true,
+   "Biological_Physics/MethylPhys/RUNS.md": true
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:30Z"
+ },
+ "P02": {
+  "repo": {
+   "development/METHYLPHYS_DEVELOPMENT_LOG.md": true,
+   "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md": true
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:30Z"
+ },
+ "Z01": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/release/README_ZENODO.md": false,
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/release/CITATION.cff": false
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:30Z"
+ },
+ "Z02": {
+  "repo": {
+   "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/release/letter.md": false
+  },
+  "s3": {},
+  "zenodo": null,
+  "verified_utc": "2026-10-14T02:06:30Z"
+ }
+}
