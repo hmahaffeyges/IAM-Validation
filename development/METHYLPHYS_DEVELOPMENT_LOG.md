@@ -1723,3 +1723,6 @@ Box job 09ef5d2c (code d74af972): blocks 0, 350 and 699 assembled by run_v21_blo
 
 ### 2026-10-14 · Atlas v2.1 dry run OK; cost sheet (L11) written
 Dry run (09ef5d2c): every cell of the final table has observations in blocks 0, 350 and 699, from all 21 sources. The cost sheet uses those measured observations per locus with v2's measured block time; memory needs the 512 GB machine. The author asked for a bigger box: the 128-core on-demand quota caps us at m7a.32xlarge unless AWS raises it.
+
+### 2026-10-14 · Cost sheet: real prices from the author's AWS account
+Prices read by the author in CloudShell: m7a.32xlarge $7.42/h on demand, about $3.3-3.5 spot; m7a.48xlarge $11.13/h on demand, about $3.5-4.4 spot. Spot limit 300 cores, so the 192-core machine is available on spot now; on-demand limit 128, increase to 192 requested (pending). The earlier $7.40 figure (recalled) matched.

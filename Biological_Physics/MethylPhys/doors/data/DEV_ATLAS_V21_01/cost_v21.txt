@@ -5,12 +5,16 @@ Observations per locus MEASURED by the dry run (dryrun_v21.txt, blocks 0, 350, 6
 s per locus: 1.395 (central) to 1.605 (upper). Loci about 814,000 in 700 blocks (v2's).
 
 m7a.32xlarge, 128 cores, 512 GB (fits the 128-core quota today): 16 processes -> 19.7 to 22.7 h
-   cost at about $7.40/h on demand: $146 to $168
 m7a.48xlarge, 192 cores, 768 GB (needs a quota increase): 24 processes -> 13.1 to 15.1 h
-   cost: about 1.5 x the hourly price of the 128-core machine for about 2/3 the hours, so about the same total
+
+PRICES read by the author from AWS (CloudShell, 2026-10-14 10:31 UTC; us-west-2, Linux, on demand per hour, spot over the last 3 hours):
+  m7a.32xlarge 128 cores 512 GiB: on demand $7.41888; spot $3.3229-3.5343
+  m7a.48xlarge 192 cores 768 GiB: on demand $11.12832; spot $3.5220-4.3539
+  c7a.32xlarge 128 cores 256 GiB: on demand $6.56896; c7a.48xlarge 192 cores 384 GiB: on demand $9.85344 (too little memory for 16 or 24 blocks)
+  core limits: on demand 128 (increase to 192 requested 2026-10-14, PENDING); spot 300
+COST: m7a.32xlarge on demand $146-168, spot $65-80; m7a.48xlarge on demand $146-168, spot $46-66.
+Spot can be reclaimed; the run skips finished blocks, so a reclaim costs time, not results.
 
 Memory: v2 blocks peaked at about 13 GB; v2.1 blocks scale with the cost (about 1.7 to 2.3 x), about 23-30 GB each, so 16 at once need about
 370-480 GB: inside 512 GB, not inside the 246 GB machine v2 used. B1 measures one block's peak before the number of processes is fixed.
-Price caveat: $7.40/h is the m7a.32xlarge list price recalled in the project record (the AWS price list is not readable from this account);
-the author's billing page is the check. Spot is cheaper but can be reclaimed; the run skips finished blocks, so a reclaim costs time, not results.
 Add: B1 (one block measured alone, about 30 min) and the resize itself (minutes).
