@@ -1,7 +1,7 @@
 [
 {
 "file": "MANIFEST.md",
-"line": 373,
+"line": 374,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -10,7 +10,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 445,
+"line": 446,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -43,6 +43,69 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "The author: describing cancer as identity loss is wrong - identity that cannot be held is the left side, below H_min, where identity can no longer be held. To t"
+},
+{
+"file": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+"line": 1632,
+"pattern": "Mahaffey ratio",
+"use": "Mahaffey number (M)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The author asked whether the held pattern against the writing it takes is the Mahaffey ratio. The book's counterpart is phi = E_hold/(M k_B T) = 0.163 +/- 0.006"
+},
+{
+"file": "website/_build/src/appendices/app_A_canon.tex",
+"line": 45,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Met-A (Metrology A) & Array reading of ONE cell type in one specimen (chain v3, Stage M): Met-A = mean over the cell's identity sites of H(beta) / H\\_min(cell),"
+},
+{
+"file": "website/_build/src/part6/p6_09_cscore.tex",
+"line": 31,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "with $c_{\\rm healthy}$ the median over the six reference arrays, each read against the other five. \\calibrated{} The healthy arrays read $C=0.70$--$1.23$. A sco"
+},
+{
+"file": "website/_build/src/part6/p6_22_leukocyte.tex",
+"line": 59,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "A score pooled over many sites and many cells, computed as a case group minus a control group, can move in opposite directions under different conditions withou"
+},
+{
+"file": "website/_build/src/part6/p6_22_leukocyte.tex",
+"line": 64,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\section{A count, not a score}"
+},
+{
+"file": "website/_build/src/part6/p6_01_bridge.tex",
+"line": 109,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "across the specimen. Each A score carries one C-score beside it, computed from the same sites, which says where along the genome the"
+},
+{
+"file": "website/_build/src/part6/p6_01_bridge.tex",
+"line": 113,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "ATP at 310\\,K it is about 21 ($\\mathcal M=20.94$). \\calc{} The chip gauge is the efficiency one, how far above $\\kB T\\ln2$ each switch runs; the Mahaffey number"
 },
 {
 "file": "docs/verification/PAPER_ERRATA.md",

@@ -16,21 +16,22 @@ hash's last bit. A unit is never in both halves.
 CHECKS. (1) no unit in both halves (by construction, verified); (2) no array in half A has concordance >= 0.90 with an array in half B;
 (3) per cell: units in A, units in B; a cell with one unit is listed as NOT MEASURED in the other half.
 Writes half_split_v21.csv (one row per sample) and sealed_half_split_v21.json (rule, counts, single-unit cells, sha256 of the csv).
+FIX 2026-10-14, after the first run and before sealing: the stem-cell names now follow v2 exactly (label + " (bone marrow)", normal
+subjects only, as v2 and the twin job); the first run used the bare labels. No rule changed.
 Usage: python3 half_split_v21.py V2_RS_PARQUET V21_RS_PARQUET
 """
 import os, sys, json, hashlib, numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); MP = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 V2RS = pd.read_parquet(sys.argv[1]); V21RS = pd.read_parquet(sys.argv[2])
 S2 = pd.read_csv(os.path.join(MP, "atlas/v2/inputs/roster_samples.csv")); S2 = S2[S2.qc].drop_duplicates(["cell", "sample"])
-H = pd.read_csv(os.path.join(MP, "atlas/v2/inputs/hsc_manifest.csv")); H = H[(H.status == "ok") & H.label.str.contains("normal bone marrow")]
+H = pd.read_csv(os.path.join(MP, "atlas/v2/inputs/hsc_manifest.csv")); H = H[(H.status == "ok") & (H.subject_status == "normal")]   # as v2 and the twin job (v21_twin_terms_box.py line 161)
 B = pd.read_csv(os.path.join(HERE, "atlas_v21_build_samples.csv")); B = B[B.state != "OUT"]
 I = pd.read_csv(os.path.join(HERE, "identity_v21_arrays.csv")); I = I[(I.set == "build") & (I.status == "ok")]
 LG = {d["gsm"]: d for d in json.load(open(os.path.join(HERE, "half_split_inputs_loyfer_geo.json")))}
-HNAME = {"HSC": "hsc (bone marrow)"}
 rows = []
 for r in S2.itertuples(): rows.append(dict(sample=r.sample, source=r.source, cell=r.cell, platform=r.platform))
 for r in H.itertuples():
-    lab = r.label.replace(" of normal bone marrow", ""); rows.append(dict(sample=r.gsm, source="GSE63409", cell=lab, platform="array450k", subject=r.subject))
+    lab = r.label.replace(" of normal bone marrow", "") + " (bone marrow)"; rows.append(dict(sample=r.gsm, source="GSE63409", cell=lab, platform="array450k", subject=r.subject))
 base = dict(zip(I["sample"], I["base"]))
 for r in B.itertuples(): rows.append(dict(sample=r.sample, source=r.series, cell=r.cell, platform=r.platform, donor=r.donor, rs_key=base.get(r.sample)))
 T = pd.DataFrame(rows); T["key"] = T.source + "|" + T["sample"].astype(str) + "|" + T.cell
@@ -83,7 +84,7 @@ T["half"] = T.unit.map(half)
 assert T.groupby("unit").half.nunique().max() == 1
 hk = dict(zip(arr.rs_key, arr.key)); cross = [(a, b) for a, b in same_pairs if T.set_index("key").half[hk[a]] != T.set_index("key").half[hk[b]]]
 assert not cross, ("same person across halves", cross[:5])
-per = T.groupby("cell").apply(lambda g: pd.Series({"units_A": g[g.half == "A"].unit.nunique(), "units_B": g[g.half == "B"].unit.nunique(),
+per = T.groupby("cell")[["half", "unit"]].apply(lambda g: pd.Series({"units_A": g[g.half == "A"].unit.nunique(), "units_B": g[g.half == "B"].unit.nunique(),
                                                   "samples_A": int((g.half == "A").sum()), "samples_B": int((g.half == "B").sum())})).astype(int)
 single = per[(per.units_A == 0) | (per.units_B == 0)]
 out = os.path.join(HERE, "half_split_v21.csv")

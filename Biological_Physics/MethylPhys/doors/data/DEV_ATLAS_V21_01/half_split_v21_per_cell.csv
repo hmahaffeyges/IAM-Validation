@@ -1,0 +1,98 @@
+cell,units_A,units_B,samples_A,samples_B
+CMP (bone marrow),3,2,3,2
+GMP (bone marrow),3,2,3,2
+HSC (bone marrow),3,2,3,2
+L-MPP (bone marrow),3,2,3,2
+MEP (bone marrow),3,2,3,2
+MPP (bone marrow),3,2,3,2
+ad-dermal fibroblasts,0,1,0,1
+adipocytes,3,3,3,3
+aorta endothelium,1,1,1,1
+astrocytes,5,6,5,6
+b cells,26,26,28,30
+basophils,3,3,3,3
+bladder epithelium,2,1,3,1
+breast basal epithelium,2,2,2,2
+breast luminal epithelium,1,2,1,2
+cardiomyocyte,2,2,2,2
+cd4 t cells,23,22,25,26
+cd56bright nk cells,5,4,5,4
+cd8 central memory t cells,7,5,7,5
+cd8 t cells,24,22,26,26
+cd8 temra t cells,3,3,3,3
+central memory th1 cells,2,3,2,3
+colon enteroendocrine,1,1,1,1
+colon epithelium,8,8,8,8
+colon fibroblasts,1,1,1,1
+colon macrophages,0,1,0,2
+cortical neurons,9,9,11,10
+cytotoxic cd4 t cells (cd28-),2,3,2,3
+effector memory cd8 t cells,7,5,7,5
+embryonic stem cells,2,2,8,3
+endometrium epithelium,1,1,1,2
+eosinophils,2,2,2,2
+erythrocyte progenitors,2,1,2,1
+esophagus epithelium,1,0,1,0
+fallopien tubes epithelium,2,2,2,9
+gallbladder epithelium,1,0,1,0
+gastric antrum epithelium,2,1,2,1
+gastric body epithelium,2,1,2,1
+gastric enteroendocrine,0,1,0,1
+gastric fundus epithelium,2,1,2,1
+granulocytes,2,1,2,1
+heart fibroblasts,1,2,1,2
+hepatocyte,4,4,4,4
+hsc (bone marrow),1,2,1,2
+jejunum enteroendocrine,1,0,1,0
+jejunum epithelium,1,0,1,0
+keratinocyte,1,0,1,0
+kidney glomerular endothelium,1,2,1,2
+kidney glomerular epithelium,0,1,0,2
+kidney tubular endothelium,1,2,1,2
+kidney tubular epithelium,1,1,2,1
+larynx epithelium,1,0,1,0
+liver endothelium,0,1,0,1
+liver macrophages,0,1,0,1
+lung alveolar endothelium,2,1,2,1
+lung alveolar epithelium,2,3,2,4
+lung alveolar macrophages,1,1,1,1
+lung bronchus epithelium,8,7,8,7
+lung interstitial macrophages,1,2,1,2
+lung pleural epithelium,1,0,1,0
+memory b cells,9,7,9,7
+memory cd4 t cells,2,2,2,2
+microglia,6,5,6,5
+monocytes,29,29,34,35
+naive b cells,6,7,6,7
+naive cd4 t cells,9,9,10,9
+naive cd8 t cells,12,10,13,10
+neutrophils,29,31,33,39
+nk cells,14,14,16,16
+oligodendrocyte precursors,1,0,1,0
+oligodendrocytes,8,7,8,7
+osteoblasts,1,0,1,0
+ovary epithelium,0,1,0,8
+pancreas endothelium,1,2,2,2
+pancreatic acinar,3,3,3,3
+pancreatic alpha,2,1,2,1
+pancreatic beta,4,3,4,3
+pancreatic delta,2,1,2,1
+pancreatic duct,3,3,3,3
+podocyte,1,1,2,1
+promyelocytes,2,1,2,1
+prostate epithelium,2,2,2,2
+regulatory t cells,2,1,2,1
+small intestine epithelium,5,6,5,6
+smooth muscle,2,3,2,3
+striated muscle,1,1,1,1
+t cells cd3,2,0,2,0
+t central memory cd4,6,6,6,6
+t effector cell cd8,3,4,3,4
+t effector memory cd4,1,2,1,2
+thyroid epithelium,1,2,1,2
+tongue epithelium,2,1,3,1
+tonsil palatine epithelium,1,2,1,2
+tonsil pharyngeal epithelium,1,1,1,1
+vascular endothelium,1,1,1,1
+vascular leptomeningeal cells,1,0,1,0
+vascular saphenous endothelium,2,1,2,1

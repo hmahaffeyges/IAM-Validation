@@ -1,0 +1,30 @@
+{
+ "rule": "half_split_v21.py (docstring), committed before it ran",
+ "samples": 818,
+ "units": 328,
+ "genotype_same_person_pairs": 1049,
+ "cells": 97,
+ "cells_in_both_halves": 79,
+ "cells_NOT_MEASURED_in_one_half": {
+  "ad-dermal fibroblasts": "A empty",
+  "colon macrophages": "A empty",
+  "esophagus epithelium": "B empty",
+  "gallbladder epithelium": "B empty",
+  "gastric enteroendocrine": "A empty",
+  "jejunum enteroendocrine": "B empty",
+  "jejunum epithelium": "B empty",
+  "keratinocyte": "B empty",
+  "kidney glomerular epithelium": "A empty",
+  "larynx epithelium": "B empty",
+  "liver endothelium": "A empty",
+  "liver macrophages": "A empty",
+  "lung pleural epithelium": "B empty",
+  "oligodendrocyte precursors": "B empty",
+  "osteoblasts": "B empty",
+  "ovary epithelium": "A empty",
+  "t cells cd3": "B empty",
+  "vascular leptomeningeal cells": "B empty"
+ },
+ "loyfer_units_from_lab_age_sex": 99,
+ "half_split_csv_sha256": "8bdb841b39f099a96305b53ae58e7a802075b5a784a2405c8d3f538a86a9339b"
+}
