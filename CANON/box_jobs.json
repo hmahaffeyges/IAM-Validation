@@ -322,14 +322,12 @@
    "date": "2026-10-14",
    "commit": "72e8ff13",
    "s3_code_prefix": "results/ATLAS_V21/l8b/code/run1/",
-   "state": "running",
+   "state": "failed",
    "log": "results/ATLAS_V21/l8b/l8b.log",
    "machine": "methylphys-cpu-01 (32 cores)",
    "purpose": "EpiDISH sites for GSE137716's 12 conditional arrays (decision 10 addendum)",
    "record": "doors/DEV_ATLAS_V21_01.md",
-   "outputs": [
-    "results/ATLAS_V21/l8b/l8b_epidish_betas.csv"
-   ],
+   "outputs": [],
    "files": [
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_l8b_box.py",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_twin_terms_box.py",
@@ -338,7 +336,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/epidish_sites.txt",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_build_samples.csv"
    ],
-   "note": "running"
+   "note": "failed before reading any array: the shared loader needs twin_family_thresholds_v1.json and the roster files, which were not shipped"
   }
  ],
  "not_jobs": {

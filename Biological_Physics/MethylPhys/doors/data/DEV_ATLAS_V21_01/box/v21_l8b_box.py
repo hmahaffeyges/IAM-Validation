@@ -4,7 +4,7 @@ arrays. Rule in l8_conditions_v21.md (addendum). Uses the twin/terms job's loade
 import os, sys
 sys.path.insert(0, os.getcwd())
 from publish_code import publish_code
-publish_code("results/ATLAS_V21/l8b/code/run1/", ["v21_l8b_box.py", "v21_twin_terms_box.py", "publish_code.py", "v21_samples_all.csv", "epidish_sites.txt", "atlas_v21_build_samples.csv"],
+publish_code("results/ATLAS_V21/l8b/code/run2/", ["v21_l8b_box.py", "v21_twin_terms_box.py", "publish_code.py", "v21_samples_all.csv", "epidish_sites.txt", "atlas_v21_build_samples.csv", "roster_samples.csv", "roster.csv", "hsc_manifest.csv", "twin_family_thresholds_v1.json"],
              job="atlas v2.1 L8 D10 GSE137716 export", commit=os.environ.get("REPO_COMMIT"))
 src = open("v21_twin_terms_box.py").read()
 exec(src[src.index("import os, sys, json, itertools"):src.index("sys.path.insert(0, os.getcwd())")])
