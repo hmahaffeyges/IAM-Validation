@@ -1,0 +1,5 @@
+02:13:24 Loyfer loaded (895713, 207)
+02:50:57 REPRODUCTION GATE {'twins': True, 'null': True, 'twin_sample_level': True, 'source_terms': True}
+03:30:38 v2.1 twins: pairs 2926 | twin pairs 14 | null p95 0.07654
+03:33:52 v2.1 sample-level: pairs 37 | twins 2
+03:37:02 v2.1 source terms: Loyfer {'a': -0.09677922599706057, 'b': 1.113034636120872} | array labs {'Moss2018': -0.00456, 'Salas2018': -0.00469, 'Salas2022': 0.00508, 'GSE63409': 0.00704, 'E-MTAB-4957': 0.00825, 'GSE103541': 0.00309, 'GSE116754': 'NOT IDENTIFIED - shares no cel', 'GSE118144': 0.01138, 'GSE122244': 0.00328, 'GSE124565': -0.00961, 'GSE137716': '', 'GSE146552': '', 'GSE224807': -0.00469, 'GSE226298': 0.00018, 'GSE252045': -0.0087, 'GSE306226': 0.00104, 'GSE49618': -0.00696, 'GSE75405': 0.00157, 'GSE88824': -0.0017}

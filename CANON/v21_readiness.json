@@ -88,7 +88,9 @@
    "stage": "before_launch",
    "what": "Twin test (sample level) for every new source, results committed; failures excluded by the rule, not by eye",
    "files": [
-    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/twin_v21.csv"
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/twin_v21.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/twins_v21.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/reproduction_gate_terms.json"
    ],
    "checks": {},
    "manifest": [
@@ -100,7 +102,8 @@
    "stage": "before_launch",
    "what": "Source terms for every new source (measured, or marked ASSUMED with the reason)",
    "files": [
-    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/source_terms_v21.json"
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/source_terms_v21.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/reproduction_gate_terms.json"
    ],
    "checks": {},
    "manifest": [

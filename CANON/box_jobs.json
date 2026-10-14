@@ -133,7 +133,7 @@
    "date": "2026-10-14",
    "commit": "1ffd68c1",
    "s3_code_prefix": "results/ATLAS_V21/terms/code/",
-   "state": "running",
+   "state": "done",
    "log": "results/ATLAS_V21/terms/terms_v21_run2.log",
    "machine": "methylphys-cpu-01 (128 cores)",
    "purpose": "atlas v2.1 twin test and source terms: v2 scripts 09/10/12 reproduced on v2 (gate), then run on v2 + v2.1",
@@ -156,7 +156,7 @@
     "Biological_Physics/MethylPhys/atlas/v2/records/12b_source_terms_bridged.json",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/stage1_v21_manifest.csv"
    ],
-   "note": "rerun after the skip-line fix; same reproduction gate"
+   "note": "reproduction gate passed all four parts; v2.1: 14 profile-level twin pairs, 2 sample-level (kidney tubular / podocyte as in v2; neutrophils / promyelocytes, new); source terms for every new source, GSE116754 not identified"
   },
   {
    "job_id": "415c5736-5244-4182-a5d8-373a03bec4ff",

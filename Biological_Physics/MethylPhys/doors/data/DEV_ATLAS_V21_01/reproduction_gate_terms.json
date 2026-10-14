@@ -1,6 +1,6 @@
 {
  "twins": true,
  "null": true,
- "twin_sample_level": false,
+ "twin_sample_level": true,
  "source_terms": true
 }

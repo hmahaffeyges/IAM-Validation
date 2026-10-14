@@ -1588,3 +1588,6 @@ The author found the removed atlas line still on the live book page and the old 
 
 ### 2026-10-14 · The author's half-law recorded in his words (writing half, erasing half)
 The half-law check of 2026-10-10 counted only the writing energy and so did not test the author's version: half writing, half erasing, two different forms of energy, whole blocks erased while whole blocks are written. Added to the manifest as PHY-040 (idea), with the two energies to source first and the relation to be written with the author before computing. HYP-002 and SCO-033 flagged as possible duplicates of PHY-006 (all DEV-ERASE-01).
+
+### 2026-10-14 · Atlas v2.1 twin test and source terms (job 178c64ed): gate passed; promyelocytes held
+The rerun reproduced v2's twin table, null, sample-level twin test and source terms exactly, then computed v2.1: 14 profile-level twin pairs, 2 sample-level (kidney tubular/podocyte, held in v2; neutrophils/promyelocytes, new, held by v2's rule). Source terms for every new source; GSE116754 ASSUMED (no shared cell). Two offsets beyond 0.01 (GSE118144 +0.011, GSE137716 -0.030 via Loyfer) flagged for the bounded-transfer work (L21). Readiness L6 and L7 met.

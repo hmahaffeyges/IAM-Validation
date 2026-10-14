@@ -230,3 +230,15 @@ not measurably change the atlas's intervals. Readiness L17 was written as "bars 
 third outcome (NONE) is this one. The release states that the terms' uncertainty is not carried, with this test as the measured reason.
 The far larger error found tonight is the transfer's shape (L20, up to 0.08), which L21 addresses.
 
+**Twin test and source terms, run 2 (job 178c64ed, 2026-10-14): reproduction gate passed, all four parts.** In v2 mode the job reproduced
+v2's twin table, split-half null, sample-level twin test and source terms exactly, then computed v2.1 (`twins_v21.csv`,
+`twin_sample_level_v21.csv`, `twin_v21.csv`, `source_terms_v21.json`). Profile level: 14 pairs above the twin threshold (v2: 7). Sample level,
+2 twins: kidney tubular epithelium and podocyte (7 separating sites; held in v2 already) and **neutrophils and promyelocytes** (new in v2.1,
+GSE49618; 7 separating sites). By v2's own rule a sample-level twin is HELD, so promyelocytes are held, as podocyte was. Source terms are
+measured for every new source except GSE116754 (shares no cell with another array lab or with Loyfer: ASSUMED, offset 0, as v2 did for
+GSE63409). Loyfer's terms with the v2.1 samples: a -0.0968, b 1.1130 (v2: -0.0902, 1.1026); this is still the straight-line transfer that
+L20 found bends, and L21 replaces it before launch. Two offsets exceed the +/-0.01 seen so far: GSE118144 +0.011 (4 shared cells) and
+GSE137716 -0.030 (via Loyfer, one shared cell); flagged for the L21 work, which re-derives every term on the bounded transfer.
+In plain words: v2.1's new cells were checked for duplicates and each new laboratory's offset was measured. The check first reproduced v2
+exactly. One new cell, promyelocytes, cannot be told apart from neutrophils sample by sample, so it is held, by the same rule v2 used.
+

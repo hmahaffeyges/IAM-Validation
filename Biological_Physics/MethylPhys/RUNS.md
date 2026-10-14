@@ -8,7 +8,6 @@ Work done on the laptop is free and is not listed.
 
 | run | purpose | log | start (UTC) | job hours | vCPUs | end | actual cost | record |
 |---|---|---|---|---|---|---|---|---|
-| Atlas v2.1 twin test and source terms, run 2 (L6, L7) (job 178c64ed) | atlas v2.1 twin test and source terms: v2 scripts 09/10/12 reproduced on v2 (gate), then run on v2 + v2.1 | `ATLAS_V21/terms/terms_v21_run2.log (not in S3 yet)` |  |  |  | running | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Box Run 3 | first tests on the commissioned Met-A (neutrophils, EPIC v1) | `(no log in S3)` |  |  |  | not recorded | pending billing access | [boxruns/run3/JOBS.md](boxruns/run3/JOBS.md) |
 | Atlas v2.1 transfer shape check (L20) (job 80446c36) | is the array-to-sequencing transfer straight across the whole range (v2's samples, the terms job's own run12) | `ATLAS_V21/transfer/transfer_run1_80446c36.log` |  |  |  | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/A/job_A.log` | 2026-10-05 01:43 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
@@ -39,10 +38,11 @@ Work done on the laptop is free and is not listed.
 | Atlas v2.1 twin test and source terms (L6, L7) (job 5115bd05) | atlas v2.1 twin test and source terms: v2 scripts 09/10/12 reproduced on v2 (gate), then run on v2 + v2.1 | `ATLAS_V21/terms/terms_v21.log` | 2026-10-14 01:14 | 0.8 | 128 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Twin diagnostic, first submission (job 89286db7) | diagnose job 5115bd05's reproduction gate (sample-level twin test only, v2 mode) | `ATLAS_V21/terms/diag10/diag10.log` | 2026-10-14 02:08 | 0.0 | 128 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Twin diagnostic (job 5115bd05's gate) (job f27327c9) | diagnose job 5115bd05's reproduction gate (sample-level twin test only, v2 mode) | `ATLAS_V21/terms/diag10/diag10.log` | 2026-10-14 02:08 | 0.0 | 128 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
+| Atlas v2.1 twin test and source terms, run 2 (L6, L7) (job 178c64ed) | atlas v2.1 twin test and source terms: v2 scripts 09/10/12 reproduced on v2 (gate), then run on v2 + v2.1 | `ATLAS_V21/terms/terms_v21_run2.log` | 2026-10-14 02:13 | 1.4 | 128 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2 arrays: genotype probes for the half split (decision 17) (job 415c5736) | genotype (rs) probe values for atlas v2's own arrays, so donors are identified by DNA for the half split | `ATLAS_V21/halfsplit/v2rs.log` | 2026-10-14 02:35 | 0.1 | 128 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2.1 transfer shape check (L20), run 2 (job 30ad806b) | is the array-to-sequencing transfer straight across the whole range (v2's samples, the terms job's own run12) | `ATLAS_V21/transfer/transfer.log` | 2026-10-14 02:49 | 0.0 | 128 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 
-Total job hours: 85.1.
+Total job hours: 86.5.
 
 ## Upcoming
 

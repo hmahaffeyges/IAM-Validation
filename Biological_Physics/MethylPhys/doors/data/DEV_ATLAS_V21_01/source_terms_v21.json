@@ -1,0 +1,224 @@
+{
+ "scale": "our Stage 1 array scale",
+ "loci": 50000,
+ "array_sources": [
+  "Moss2018",
+  "Salas2018",
+  "Salas2022",
+  "GSE63409",
+  "E-MTAB-4957",
+  "GSE103541",
+  "GSE116754",
+  "GSE118144",
+  "GSE122244",
+  "GSE124565",
+  "GSE137716",
+  "GSE146552",
+  "GSE224807",
+  "GSE226298",
+  "GSE252045",
+  "GSE306226",
+  "GSE49618",
+  "GSE75405",
+  "GSE88824"
+ ],
+ "sequencing": {
+  "ENCODE": {
+   "status": "IDENTIFIED",
+   "overlap_cells": [
+    "embryonic stem cells"
+   ],
+   "n_pairs": 25407,
+   "a": -0.0974441661485661,
+   "b": 1.1241174661026498,
+   "a_ci95": [
+    -0.0974441661485661,
+    -0.0974441661485661
+   ],
+   "b_ci95": [
+    1.1241174661026498,
+    1.1241174661026498
+   ],
+   "resid_sd": 0.12421712518681413,
+   "r": 0.9537173918526682,
+   "per_cell_b": {
+    "embryonic stem cells": 1.1241
+   }
+  },
+  "Loyfer2023": {
+   "status": "IDENTIFIED",
+   "overlap_cells": [
+    "adipocytes",
+    "b cells",
+    "cd4 t cells",
+    "cd8 t cells",
+    "colon epithelium",
+    "cortical neurons",
+    "effector memory cd8 t cells",
+    "fallopien tubes epithelium",
+    "hepatocyte",
+    "lung alveolar epithelium",
+    "lung bronchus epithelium",
+    "memory b cells",
+    "monocytes",
+    "naive cd4 t cells",
+    "naive cd8 t cells",
+    "nk cells",
+    "oligodendrocytes",
+    "pancreatic acinar",
+    "pancreatic beta",
+    "pancreatic duct",
+    "small intestine epithelium",
+    "t central memory cd4",
+    "t effector cell cd8"
+   ],
+   "n_pairs": 1004417,
+   "a": -0.09677922599706057,
+   "b": 1.113034636120872,
+   "a_ci95": [
+    -0.10325256839498301,
+    -0.0901837338474846
+   ],
+   "b_ci95": [
+    1.1012548033211884,
+    1.1238923196244666
+   ],
+   "resid_sd": 0.1066290805380652,
+   "r": 0.9620591062467606,
+   "per_cell_b": {
+    "adipocytes": 1.0675,
+    "b cells": 1.0929,
+    "cd4 t cells": 1.0971,
+    "cd8 t cells": 1.0727,
+    "colon epithelium": 1.1024,
+    "cortical neurons": 1.0938,
+    "effector memory cd8 t cells": 1.1314,
+    "fallopien tubes epithelium": 1.1489,
+    "hepatocyte": 1.0912,
+    "lung alveolar epithelium": 1.118,
+    "lung bronchus epithelium": 1.1225,
+    "memory b cells": 1.1366,
+    "monocytes": 1.0984,
+    "naive cd4 t cells": 1.1385,
+    "naive cd8 t cells": 1.1497,
+    "nk cells": 1.0756,
+    "oligodendrocytes": 1.13,
+    "pancreatic acinar": 1.0889,
+    "pancreatic beta": 1.1716,
+    "pancreatic duct": 1.1083,
+    "small intestine epithelium": 1.1005,
+    "t central memory cd4": 1.1386,
+    "t effector cell cd8": 1.1385
+   }
+  },
+  "Tian2023": {
+   "status": "IDENTIFIED",
+   "overlap_cells": [
+    "astrocytes",
+    "microglia",
+    "oligodendrocytes"
+   ],
+   "n_pairs": 139970,
+   "a": -0.12620920912531186,
+   "b": 1.153619893166956,
+   "a_ci95": [
+    -0.14136591963919043,
+    -0.1112662309301411
+   ],
+   "b_ci95": [
+    1.1130532801005188,
+    1.198908054675722
+   ],
+   "resid_sd": 0.11333356494053953,
+   "r": 0.9579426581630518,
+   "per_cell_b": {
+    "astrocytes": 1.1989,
+    "microglia": 1.1131,
+    "oligodendrocytes": 1.1488
+   }
+  }
+ },
+ "array": {
+  "Moss2018": {
+   "d": -0.004563102606099285,
+   "overlap_cells": 2
+  },
+  "Salas2018": {
+   "d": -0.00469365816165482,
+   "overlap_cells": 6
+  },
+  "Salas2022": {
+   "d": 0.00508481406056732,
+   "overlap_cells": 8
+  },
+  "GSE63409": {
+   "d": 0.007041064060567407,
+   "overlap_cells": 1
+  },
+  "E-MTAB-4957": {
+   "d": 0.008249397393900777,
+   "overlap_cells": 1
+  },
+  "GSE103541": {
+   "d": 0.0030910640605674015,
+   "overlap_cells": 5
+  },
+  "GSE116754": {
+   "status": "NOT IDENTIFIED - shares no cell with another array lab or with Loyfer"
+  },
+  "GSE118144": {
+   "d": 0.011379646311649656,
+   "overlap_cells": 4
+  },
+  "GSE122244": {
+   "d": 0.0032827307272341026,
+   "overlap_cells": 3
+  },
+  "GSE124565": {
+   "d": -0.009612507368004135,
+   "overlap_cells": 1
+  },
+  "GSE137716": {
+   "d_via_loyfer": -0.02966462339957554,
+   "overlap_cells_with_loyfer": [
+    "lung bronchus epithelium"
+   ],
+   "note": "offset of this lab vs Loyfer mapped onto the array scale; not centred with the directly measured labs"
+  },
+  "GSE146552": {
+   "d_via_loyfer": -0.009241497516632058,
+   "overlap_cells_with_loyfer": [
+    "fallopien tubes epithelium"
+   ],
+   "note": "offset of this lab vs Loyfer mapped onto the array scale; not centred with the directly measured labs"
+  },
+  "GSE224807": {
+   "d": -0.004688499431496082,
+   "overlap_cells": 6
+  },
+  "GSE226298": {
+   "d": 0.00017804612612108564,
+   "overlap_cells": 1
+  },
+  "GSE252045": {
+   "d": -0.008703632909129526,
+   "overlap_cells": 6
+  },
+  "GSE306226": {
+   "d": 0.0010410640605674087,
+   "overlap_cells": 1
+  },
+  "GSE49618": {
+   "d": -0.006958935939432599,
+   "overlap_cells": 1
+  },
+  "GSE75405": {
+   "d": 0.0015745867878401284,
+   "overlap_cells": 2
+  },
+  "GSE88824": {
+   "d": -0.0017020771731988452,
+   "overlap_cells": 6
+  }
+ }
+}
