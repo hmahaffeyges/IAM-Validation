@@ -199,7 +199,7 @@ the diagnostic's own rows the fixed loop gives 23 rows identical to v2's record.
 atlas's intervals. In v2.1 each block samples them, with a prior centered on the measured value (12b source terms) and as wide as its
 bootstrap interval. Caveat stated in the methods: the prior was measured on all loci, so each block uses about 1/700 of its own data twice.
 No next version is planned (a new one waits for new cells), so the change is made now. Gates before launch: a synthetic test with planted lab
-terms (L17), and one real block fitted both ways (B3), recorded before the full fit. **Saved outputs widened** at the same time without
+terms (L17), and one real block fitted both ways (B4), recorded before the full fit. **Saved outputs widened** at the same time without
 changing the model or the seeds (L18): 100 thinned draws of each cell's estimate (was 20), draws of the healthy spread, chain labels and
 per-block sampler warnings. These serve 13 of the book's 79 cosmology tools (`atlas_tools79_needs`, development record).
 

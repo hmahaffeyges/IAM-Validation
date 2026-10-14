@@ -26,13 +26,14 @@ when its files are in the repository and their checks pass. The box run refuses 
 | L17 | ATL-061 Decision 16 (author, 2026-10-14): lab terms sampled in each block from their measured values and bootstrap uncertainty - synthetic test met (planted lab offsets recovered, intervals cover at their stated rate) | open - missing: labterms_synthetic_v21_summary.txt | `labterms_synthetic_v21_summary.txt` | ATL-061 |
 | L18 | ATL-061 Saved outputs widened (same model and seeds): 100 draws of the cell estimate, draws of the healthy spread, chain labels, sampler warnings per block - checked on one block: the summary columns identical to the 20-draw save | open - missing: outputs_v21_check_summary.txt | `outputs_v21_check_summary.txt` | ATL-061 |
 
-## On the box, before the full fit: 1 of 3 met
+## On the box, before the full fit: 1 of 4 met
 
 | # | Item | State | Proof (files) | Manifest |
 |---|---|---|---|---|
 | B1 | One v2.1 block measured alone (time, peak memory), and the number of parallel processes chosen from it | open - missing: block_measure_v21.json | `block_measure_v21.json` | ATL-005 |
 | B2 | Held-out arrays downloaded and through Stage 1, checksummed (after the split is sealed, before any scoring) | MET | `identity_v21_arrays.csv` | ATL-004 |
 | B3 | Sequencing commissioning sets aligned with the pinned pipeline (separate job; needed only for the sequencing uses) | open - missing: held_out_sequencing_v21_manifest.csv | `held_out_sequencing_v21_manifest.csv` | ATL-061 |
+| B4 | ATL-061 One real block fitted both ways (lab terms fixed as in v2, and sampled): timing, convergence and the difference, recorded before the full fit | open - missing: labterms_oneblock_v21_summary.txt | `labterms_oneblock_v21_summary.txt` | ATL-061 |
 
 ## After the fit: the gift package: 0 of 11 met
 

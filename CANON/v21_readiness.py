@@ -7,6 +7,9 @@ Biological_Physics/MethylPhys/V21_READINESS.md. Nothing is ticked by hand.
 import json, os, sys, hashlib
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "Biological_Physics", "MethylPhys", "V21_READINESS.md")
+def _unique(J):
+    ids = [x["id"] for x in J["items"]]; d = sorted({i for i in ids if ids.count(i) > 1})
+    if d: raise SystemExit(f"v21_readiness: REFUSED, duplicate readiness ids {d}")
 def state(x):
     miss = [f for f in x["files"] if not os.path.exists(os.path.join(ROOT, f))]
     if miss: return False, "missing: " + ", ".join(os.path.basename(f) for f in miss)
@@ -45,4 +48,4 @@ if __name__ == "__main__":
     if "--check" in sys.argv:
         P = ([f"unknown manifest ids: {bad}"] if bad else []) + (["V21_READINESS.md differs from the repository (run python3 CANON/v21_readiness.py)"] if not os.path.exists(OUT) or open(OUT, encoding="utf-8").read() != render(J) else [])
         print("v21_readiness: " + ("ok" if not P else "REFUSED: " + "; ".join(P))); sys.exit(1 if P else 0)
-    open(OUT, "w", encoding="utf-8").write(render(J)); print("v21_readiness: written")
+    _unique(J); open(OUT, "w", encoding="utf-8").write(render(J)); print("v21_readiness: written")

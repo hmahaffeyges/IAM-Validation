@@ -518,6 +518,18 @@
    "manifest": [
     "ATL-061"
    ]
+  },
+  {
+   "id": "B4",
+   "stage": "box_first",
+   "manifest": [
+    "ATL-061"
+   ],
+   "what": "ATL-061 One real block fitted both ways (lab terms fixed as in v2, and sampled): timing, convergence and the difference, recorded before the full fit",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/labterms_oneblock_v21_summary.txt"
+   ],
+   "checks": {}
   }
  ],
  "public": {
