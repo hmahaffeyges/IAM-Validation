@@ -9,12 +9,12 @@ when its files are in the repository and their checks pass. The box run refuses 
 |---|---|---|---|---|
 | L1 | The 15 open decisions adopted, each with its condition | MET | `DEV_ATLAS_V21_01.md` | ATL-006 |
 | L2 | Build sample list with the decisions applied (one row per array: series, GSM, cell, donor, platform, IDAT names, flags) | MET | `build_samples_v21.py`, `atlas_v21_build_samples.csv` | ATL-006, ATL-014 |
-| L3 | Build / held-out split sealed: checksums of both lists committed before any array is downloaded | MET | `sealed_split_v21_02.json` | ATL-006 |
+| L3 | Build / held-out split sealed: checksums of both lists committed before any array is downloaded | MET | `sealed_split_v21_03.json` | ATL-006 |
 | L4 | Every build array through the chain's Stage 1, each beta file listed with its checksum | MET | `stage1_v21_manifest.csv` | ATL-013 |
 | L5 | Sex inferred from X/Y probes for every build array and recorded | MET | `identity_check_v21_sex.csv`, `identity_check_v21_sex_vs_metadata.csv`, `identity_check_v21_summary.txt` | ATL-013 |
 | L6 | Twin test (sample level) for every new source, results committed; failures excluded by the rule, not by eye | open - missing: twin_v21.csv | `twin_v21.csv` | ATL-013 |
 | L7 | Source terms for every new source (measured, or marked ASSUMED with the reason) | open - missing: source_terms_v21.json | `source_terms_v21.json` | ATL-013 |
-| L8 | Conditions of decisions 1, 7, 9, 10, 13, 14 each resolved and recorded | open - missing: conditions_v21.json | `conditions_v21.json` | ATL-006 |
+| L8 | Conditions of decisions 1, 7, 9, 10, 13, 14 each resolved and recorded | open - 5 pending: D1_GSE224807, D7_GSE306226, D10_GSE146552_GSE137716, D13_GSE132547, D14_GSE131989 | `conditions_v21.json` | ATL-006 |
 | L9 | Run script and its declared outputs (draws ~100 per site, R-hat/ESS per site, lab terms per site, posterior-predictive arrays, cell-type names verbatim, seeds) | open - missing: run_v21.sh, outputs_v21.json | `run_v21.sh`, `outputs_v21.json` | ATL-005, ATL-045 |
 | L10 | Planted test of the run script on a small synthetic block: every declared output written, shapes right, a planted cell mean recovered | open - missing: planted_run_v21_summary.txt | `planted_run_v21_summary.txt` | ATL-045 |
 | L11 | Cost and time written down before launch, from the measured v2 timing | open - missing: cost_v21.txt | `cost_v21.txt` | ATL-005 |

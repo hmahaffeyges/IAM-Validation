@@ -44,7 +44,9 @@ def state(row):
         if re.search(r"CD15|CD16", p, re.I): return "CONDITIONAL", "D1: marker-selected granulocytes; enters if each array passes the sample-level twin test"
         if s == "GSE103541": return "CONDITIONAL", "D1: FACS granulocytes; enters only if the paper (PMC8011804) names CD15 or CD16 as the gate, and each array passes the twin test"
         return "OUT", "D1: granulocytes without a stated CD15/CD16 selection"
-    if s == "GSE306226": return "CONDITIONAL", "D7: kept only if closer to Tian astrocytes than to any other cell, cross-laboratory r at least 0.986"
+    # D7 is about the astrocyte fraction only (the roster lists the series' neurons, microglia and oligodendrocytes as firm). Until
+    # 2026-10-14 this line made the whole series conditional (found 2026-10-14 while resolving L8); fixed in seal 3.
+    if s == "GSE306226" and "astrocyte" in c: return "CONDITIONAL", "D7: kept only if closer to Tian astrocytes than to any other cell, cross-laboratory r at least 0.986"
     if s in ("GSE146552", "GSE137716"):
         if "ovary" in c and "WAIT" in str(row.cell_type): return "CONDITIONAL", "D10: OSE; enters only if non-epithelial content is under the plan's cut (and the cell leaves WAIT)"
         return "CONDITIONAL", "D10: enriched, not sorted; enters only if non-epithelial content is under the plan's cut"

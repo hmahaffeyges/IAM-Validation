@@ -8,7 +8,6 @@ Work done on the laptop is free and is not listed.
 
 | run | purpose | log | start (UTC) | job hours | vCPUs | end | actual cost | record |
 |---|---|---|---|---|---|---|---|---|
-| Atlas v2.1 twin test and source terms (L6, L7) (job 5115bd05) | atlas v2.1 twin test and source terms: v2 scripts 09/10/12 reproduced on v2 (gate), then run on v2 + v2.1 | `ATLAS_V21/terms/terms_v21.log (not in S3 yet)` |  |  |  | running | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Box Run 3 | first tests on the commissioned Met-A (neutrophils, EPIC v1) | `(no log in S3)` |  |  |  | not recorded | pending billing access | [boxruns/run3/JOBS.md](boxruns/run3/JOBS.md) |
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/A/job_A.log` | 2026-10-05 01:43 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
 | Box Run 1 | array jobs A-E: commissioning check and blood-set readings (arrays only) | `BOXRUN1/C/job_C.log` | 2026-10-05 03:30 | 0.0 |  | not recorded | pending billing access | [boxruns/run1/JOBS.md](boxruns/run1/JOBS.md) |
@@ -35,8 +34,9 @@ Work done on the laptop is free and is not listed.
 | Box Run 10, cause test | IAM-A: why three EMSeq LAB02 libraries read low (three parts of each run) | `BOXRUN10_EPIQC/cause01/session.log` | 2026-10-13 05:50 | 4.8 | 128 | DONE | pending billing access | [doors/DEV_IAMA_CAUSE_01.md](doors/DEV_IAMA_CAUSE_01.md) |
 | Atlas v2.1 Stage 1 (L4) (job e89bcd1c) | atlas v2.1 Stage 1: reproduction gate on v2's arrays, v2 shards backed up, 472 build arrays calibrated | `ATLAS_V21/stage1/stage1_v21.log` | 2026-10-13 22:14 | 0.7 | 128 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2.1 identity (L5, B2) (job 0b3c06e8) | atlas v2.1 identity: build arrays reproduced with SNP values, 1,797 held-out arrays calibrated (not scored), raw IDATs to S3 | `ATLAS_V21/identity/identity_v21.log` | 2026-10-13 23:30 | 2.4 | 128 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
+| Atlas v2.1 twin test and source terms (L6, L7) (job 5115bd05) | atlas v2.1 twin test and source terms: v2 scripts 09/10/12 reproduced on v2 (gate), then run on v2 + v2.1 | `ATLAS_V21/terms/terms_v21.log` | 2026-10-14 01:14 | 0.8 | 128 | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 
-Total job hours: 84.1.
+Total job hours: 84.9.
 
 ## Upcoming
 

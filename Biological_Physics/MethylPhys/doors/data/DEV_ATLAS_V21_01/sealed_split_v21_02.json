@@ -21,5 +21,6 @@
   ],
   "rule": "these series build from some arrays and hold out others; no sample is on both sides (checked above). Donor IDs are not in their metadata, so donor separation is checked at Stage 1 from the SNP probes: a held-out array whose genotype matches any build array is excluded from testing, by rule. Their held-out rows test new donors in the same laboratory and never count as an independent laboratory (commissioning_sets_v21.csv, counts_as_independent_laboratory)."
  },
- "rule": "Build arrays may be downloaded and calibrated; held-out and truth-set arrays are not scored until the atlas they judge is built and its commissioning bars are sealed (L15)."
+ "rule": "Build arrays may be downloaded and calibrated; held-out and truth-set arrays are not scored until the atlas they judge is built and its commissioning bars are sealed (L15).",
+ "superseded_by": "sealed_split_v21_03.json (2026-10-14; reason there)"
 }

@@ -50,12 +50,10 @@
    "stage1_v21_manifest.csv": "b9695fe94aec1a5d5b630c5bd1c72ba89e1c3be4e6d683f8cac398b9afb4931e"
   },
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/ATLAS_V21/terms/reproduction_gate_terms.json": false,
-   "results/ATLAS_V21/terms/twins_v21.csv": false,
-   "results/ATLAS_V21/terms/source_terms_v21.json": false
+   "results/ATLAS_V21/terms/reproduction_gate_terms.json": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "done"
  }
 }

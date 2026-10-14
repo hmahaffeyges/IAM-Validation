@@ -15,7 +15,7 @@ GSE101673,,,,,,,,PROC_LINES_01_BJ_OUTCOME,,,,,,
 GSE102726,,,,,,,,DEV_ATLAS_V21_01,,,,,,
 GSE102970,,,,,,,,,held-out test,sperm,yes,IDAT listed for 48/48 samples,Preconception Urinary Phthalate Concentrations and Sperm DNA Methylation Profiles among Men Undergoing IVF Treatment: A Cross-Sectional Study,gold-mine map
 GSE103413,,,,,,,,DEV_ATLAS_V21_01,not usable (too few donors for the purified type (3); leukocytes not purified),melanocyte,yes,IDAT listed for 67/67 samples,Mining novel candidate imprinted genes using genome-wide methylation screening and literature review,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE103541,,,,,spent,,,,atlas build,cd4 t cells | cd8 t cells | b cells | monocytes | granulocytes,yes,IDAT listed for 145/145 samples,DNA methylation profiles of Purified Blood Cell types,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE103541,,,,,spent,,,DEV_ATLAS_V21_01,atlas build,cd4 t cells | cd8 t cells | b cells | monocytes | granulocytes,yes,IDAT listed for 145/145 samples,DNA methylation profiles of Purified Blood Cell types,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE103911,,,,,,,,,not usable (not healthy),t cells cd3,yes,IDAT listed for 65/65 samples,Identification of kidney transplant patients at risk for cutaneous squamous cell carcinoma by differentially methylated regions in T cells,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE104287,,,,,,,,,held-out test,nk cells,yes,IDAT listed for 48/48 samples,Anti-mycobacterial activity correlates with altered DNA methylation pattern in immune cells from BCG-vaccinated subjects,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE104405,,,,,,,,,atlas build,hematopoietic stem cell,yes,SRA run links for 12/12 samples,Aging Human Hematopoietic Stem Cells Manifest Profound Epigenetic Reprogramming of Enhancers That May Predispose to Leukemia (ERRBS),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
@@ -199,7 +199,7 @@ GSE222147,,,,,,,,DEV_ATLAS_V21_01,,,,,,
 GSE222927,,,,,spent,,,,,,,,,
 GSE223153,,,,,,,,DEV_ATLAS_V21_01,atlas build,pancreatic acinar | pancreatic duct,yes,SRA run links for 19/19 samples,DNA methylation sequencing of human pancreatic acinar and ductal cells [Bisulfite-seq],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE223748,downloads/E_dog_animal/GSE223748/,16.33,,,spent,,,DEV_SPECIES_AGEING_01,,,,,Dog and other mammal arrays,S3 register
-GSE224807,,,,,,,,DEV_ATLAS_COMMISSION_01; DEV_COMPOSITION_TRUTH_03; DEV_METAA_450K_01; DEV_SYNTH_LEVERS_01,atlas build,monocytes | granulocytes | b cells | cd4 t cells | cd8 t cells | nk cells,yes,IDAT listed for 876/876 samples,Smoking effect on DNA methylation in human blood cell types,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE224807,,,,,,,,DEV_ATLAS_COMMISSION_01; DEV_ATLAS_V21_01; DEV_COMPOSITION_TRUTH_03; DEV_METAA_450K_01; DEV_SYNTH_LEVERS_01,atlas build,monocytes | granulocytes | b cells | cd4 t cells | cd8 t cells | nk cells,yes,IDAT listed for 876/876 samples,Smoking effect on DNA methylation in human blood cell types,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE225239,,,,,spent,,,,,,,,,
 GSE225544,,,,,spent,,,,,,,,,
 GSE225944,,,,,,,,DEV_METHIONINE_01,,,,,,

@@ -58,15 +58,13 @@
    "date": "2026-10-14",
    "commit": "ed91a999",
    "s3_code_prefix": "results/ATLAS_V21/terms/code/",
-   "state": "running",
+   "state": "done",
    "log": "results/ATLAS_V21/terms/terms_v21.log",
    "machine": "methylphys-cpu-01 (128 cores)",
    "purpose": "atlas v2.1 twin test and source terms: v2 scripts 09/10/12 reproduced on v2 (gate), then run on v2 + v2.1",
    "record": "doors/DEV_ATLAS_V21_01.md",
    "outputs": [
-    "results/ATLAS_V21/terms/reproduction_gate_terms.json",
-    "results/ATLAS_V21/terms/twins_v21.csv",
-    "results/ATLAS_V21/terms/source_terms_v21.json"
+    "results/ATLAS_V21/terms/reproduction_gate_terms.json"
    ],
    "files": [
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_twin_terms_box.py",
@@ -80,7 +78,8 @@
     "Biological_Physics/MethylPhys/atlas/v2/records/10_twin_test_sample_level.csv",
     "Biological_Physics/MethylPhys/atlas/v2/records/12b_source_terms_bridged.json",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/stage1_v21_manifest.csv"
-   ]
+   ],
+   "note": "stopped by its reproduction gate (sample-level twin test did not match v2); no v2.1 output"
   }
  ],
  "not_jobs": {

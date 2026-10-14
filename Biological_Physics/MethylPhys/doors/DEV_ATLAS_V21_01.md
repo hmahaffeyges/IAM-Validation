@@ -174,3 +174,17 @@ Sex: 1,125 male, 1,087 female, 57 unresolved (flagged). The metadata comparison 
 (`identity_sex_metadata_v21.py`; rule c only flags): 1,457 of 1,477 agree, 20 disagree and are flagged, one of them a GSE146552 build
 array (a female tissue called male), which is checked under that set's condition (decision 10).
 
+**Conditions (readiness L8, 2026-10-14; `conditions_v21.json`).** Decision 1 for GSE103541: the paper GEO lists (PMC8011804) sorted its
+granulocytes "based on FSC/SSC only", with no CD15 or CD16 antibody, so its 12 granulocyte arrays do not enter as neutrophils (research).
+Decision 9: E-MTAB-4957's "n"-suffix arrays are the non-epithelial mucosal fraction of donor 39 and none is a build array; its 16 build arrays
+are purified epithelial cells and enter flagged pediatric (this identification was due before seal 1 and was done before any build array was
+read for a result). Pending, each on a named data step: D1 GSE224807 and D7 (twin output), D10 (deconvolution after the source terms), D13 and
+D14 (held-out paper checks; they do not change the fit). **Seal 3**: while resolving L8 a rule bug was found - decision 7 had been applied to
+the whole GSE306226 series, so its 30 firm neuron, microglia and oligodendrocyte arrays were marked conditional. Fixed to the astrocyte
+fraction; a row-by-row comparison shows exactly those 30 rows changed and nothing else; the held-out list is unchanged; seals 1 and 2 are kept.
+
+**Twin and source-term job 5115bd05, run once (2026-10-14): stopped by its own reproduction gate.** In v2 mode it matched v2's committed twin
+table, split-half null and source terms (to 1e-12) exactly, but not the sample-level twin test (`10_twin_test_sample_level.csv`), so it stopped
+before computing anything for v2.1 (`reproduction_gate_terms.json`). It did not save its own v2-mode table, so a diagnostic job runs that one
+step and compares it row by row (`box/v21_twin10_diag_box.py`).
+
