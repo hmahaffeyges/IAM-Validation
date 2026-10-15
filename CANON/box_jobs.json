@@ -801,6 +801,38 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
    ],
    "note": "arm P (smooth, no plateaus) 4.751 s per locus, R-hat p99 1.101; arm L (v2 line in the v2.1 model) 3.494 s per locus, R-hat p99 1.013; both 100 percent of draws at max depth. Its two terms files were built on the laptop by diag3_terms_v21.py"
+  },
+  {
+   "job_id": "3d54707d-df5c-44f8-aadd-d4be2ecce8f5",
+   "name": "Atlas v2.1 diagnostic 4 (scatter term off)",
+   "date": "2026-10-15",
+   "commit": "86860155",
+   "s3_code_prefix": "results/ATLAS_V21/diag4/code/run1/",
+   "state": "running",
+   "log": "results/ATLAS_V21/diag4/diag2_S0.log",
+   "machine": "methylphys-cpu-01 (on-demand m7a.8xlarge, 2 x 8 cores)",
+   "purpose": "diagnostic only: whether the per-cell scatter term saturates the tree depth",
+   "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [
+    "results/ATLAS_V21/diag4/diag2_S0.json",
+    "results/ATLAS_V21/diag4/diag2_L0.json"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_block_v21.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_speed_diag2.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/run_v21_block.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/terms_final_v21_run12.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_anchored.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_diag3_L.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_diag3_P.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_diag4_L0.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_diag4_S0.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_final.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {

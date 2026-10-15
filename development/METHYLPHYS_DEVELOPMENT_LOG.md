@@ -1814,3 +1814,4 @@ Box job 936a9449: 4.81 s per locus (anchored 7.55, v2 0.41), every draw still at
 
 ### 2026-10-15 · Diagnostic 3: the curve is not the cause
 Box job e0728074: a smooth curve without plateaus (arm P) 4.75 s per locus; v2's own straight line inside the v2.1 model (arm L) 3.49 s per locus; every draw at the maximum depth in both, against 0.41 s and none at depth for v2's model. So the slowdown is in the v2.1 variance terms, not the transfer's shape. Diagnostic 4 (diagnostic only): the same two with the per-cell scatter term off (S0, L0).
+Box job 3d54707d (code 86860155) is diagnostic 4.
