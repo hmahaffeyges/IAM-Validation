@@ -715,5 +715,23 @@
    "results/DEV_BACKBONE_01/island/EOCRC_CRC6_WGBS_tumour.parquet": false
   },
   "state_at_verify": "running"
+ },
+ "eef8d756-44da-4f16-8206-acac86b79edd": {
+  "s3": {
+   "arch_cut.py": "af3982be89ca3d2de4b5140922e2901ed9aebb68c08b9945ec30e04f07fe8068",
+   "own_reads_loose.py": "d16b99581b504c9acf1953d96387b26257da7177fdc56c0d7dece5e14294dd2f",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20",
+   "roster_samples.csv": "da11a3c11285bde36dcc866c53c112eec5d8ac63e3ea18a66c24e27c7fc3aa4d",
+   "run_loose_share.sh": "c4d77a8e5a71fccf24de563c9a63b2ecbb6748fe1fae88c16ba826b24ac8cadb",
+   "windows_hg19_cpgidx.bed": "b7c1d4b55508e7561d8a097a9c92398fef0b952675e97bdcb55bdddd97d522e3"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/LOOSE_SHARE_2026-10-15/own_reads_loose.csv": false,
+   "results/LOOSE_SHARE_2026-10-15/arch_01_cut0.6667.csv": false
+  },
+  "state_at_verify": "running"
  }
 }

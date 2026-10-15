@@ -1887,3 +1887,4 @@ DEV-LOOSE-LINE-01 in the results register, numbers computed from loose_end_line.
 
 ### 2026-10-15 · The 2/3 cut and the loose share from each sample's own reads: scripts and synthetics before the run
 development/loose_share_2026-10-15/: arch_cut.py is arch_box.py with the cut as a setting (at 0.70 it must reproduce DEV-ARCH-01 exactly, then 2/3, the one-Landauer-bit cut); own_reads_loose.py reads each Loyfer sample's own molecules in the 399 random windows, half the reads for the loose share and the other half for the held error. Synthetic: planted loose shares 0.2, 0.5, 0.8 counted exactly; planted held error 0.02 and 0.05 counted 2 and 5 percent low (the mostly-methylated filter drops error-rich reads, as in the original rule).
+Box job eef8d756 (code a71d86e3) runs both on the second machine, beside the tumor island job.
