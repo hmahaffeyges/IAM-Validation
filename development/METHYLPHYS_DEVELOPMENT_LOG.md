@@ -1829,3 +1829,6 @@ Box job ac3af1ea (code b5becc48) runs mode v21inv on the 60 real loci, informati
 
 ### 2026-10-15 · Mode v21inv real check run once: NOT MET (R3, by 0.0004)
 Box job ac3af1ea, block 0's first 60 loci. R1 met: 0.427 s per locus, no draw at the maximum depth (R-hat p99 1.0055). R2 met: 79 cells, no pair below 0.005 (closest 0.008). R3: against the curve-in-the-likelihood fit r 0.9994 (met) but median |difference| 0.0054 against a bar of 0.005 (NOT met). With the planted test also NOT MET (sampler), v21inv is not adopted by its rule. Priced for the author: v21inv about 6 h, about $45; the curve in the likelihood about 66 h, about $493.
+
+### 2026-10-15 · Lesson C15: bars in the units of their purpose (author)
+The author: fail is still fail, but a sensible band would not have put the fail where it fell. Measured against the atlas's own uncertainty, mode v21inv differs from the exact model by a median 0.24 standard errors; 98.7 percent of its values lie inside the exact model's 95 percent interval (median width 0.079). Both NOT MET verdicts stand as written. LESSONS C15: every bar carries its reason and is stated in the units of its purpose; agreement in units of the stated uncertainty, quality by the output, never a sampler diagnostic alone.
