@@ -449,7 +449,9 @@
    "checks": {},
    "manifest": [
     "ATL-061"
-   ]
+   ],
+   "gates_fit": false,
+   "note": "not required before the fit (separate job, sequencing uses only)"
   },
   {
    "id": "G9",

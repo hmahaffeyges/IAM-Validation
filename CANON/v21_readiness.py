@@ -41,7 +41,7 @@ def render(J):
 if __name__ == "__main__":
     J = json.load(open(os.path.join(ROOT, "CANON", "v21_readiness.json"), encoding="utf-8"))
     if "--launch" in sys.argv:
-        open_ = [f"{x['id']} {state(x)[1]}" for x in J["items"] if x["stage"] in ("before_launch", "box_first") and not state(x)[0]]   # box_first too: the one-block and Flatness checks gate the full fit (2026-10-15)
+        open_ = [f"{x['id']} {state(x)[1]}" for x in J["items"] if x["stage"] in ("before_launch", "box_first") and x.get("gates_fit", True) and not state(x)[0]]   # box_first too: the one-block and Flatness checks gate the full fit (2026-10-15)
         print("v21_readiness: " + ("LAUNCH ALLOWED" if not open_ else "LAUNCH REFUSED: " + "; ".join(open_))); sys.exit(1 if open_ else 0)
     M = {r["id"] for r in json.load(open(os.path.join(ROOT, "CANON", "manifest.json"), encoding="utf-8"))["rows"]}
     bad = sorted({m for x in J["items"] for m in x["manifest"] if m not in M})

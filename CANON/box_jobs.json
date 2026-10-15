@@ -694,15 +694,43 @@
    "date": "2026-10-15",
    "commit": "d0f14911",
    "s3_code_prefix": "results/ATLAS_V21/diag2/code/run1/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/ATLAS_V21/diag2/diag2_B.log",
    "machine": "methylphys-cpu-01 (on-demand m7a.8xlarge, 3 x 8 cores)",
    "purpose": "which v2.1 model change breaks convergence on real data: v2's model, the v2.1 model with the anchored transfer, and the same without the per-cell scatter",
    "record": "doors/DEV_ATLAS_V21_01.md",
    "outputs": [
-    "results/ATLAS_V21/diag2/diag2_A.json",
     "results/ATLAS_V21/diag2/diag2_B.json",
     "results/ATLAS_V21/diag2/diag2_C.json"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_speed_diag2.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/run_v21_block.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_block_v21.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_final.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_anchored.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/terms_final_v21_run12.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py"
+   ],
+   "note": "arms B and C ran (anchored transfer: R-hat p99 1.016 and 1.026, every draw at max depth, 7.5 s per locus); arm A (v2) failed on the diagnostic's own error (two labs without a direct offset)"
+  },
+  {
+   "job_id": "53cff33f-4b1f-4693-9bce-72edc3813467",
+   "name": "Atlas v2.1 convergence diagnostic 2, run 2 (v2 vs v2.1 anchored, outputs saved)",
+   "date": "2026-10-15",
+   "commit": "840164b4",
+   "s3_code_prefix": "results/ATLAS_V21/diag2/code/run2/",
+   "state": "running",
+   "log": "results/ATLAS_V21/diag2/run2/diag2_A.log",
+   "machine": "methylphys-cpu-01 (on-demand m7a.8xlarge, 3 x 8 cores)",
+   "purpose": "which v2.1 model change breaks convergence on real data: v2's model, the v2.1 model with the anchored transfer, and the same without the per-cell scatter",
+   "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [
+    "results/ATLAS_V21/diag2/run2/diag2_A.json",
+    "results/ATLAS_V21/diag2/run2/diag2_B.json",
+    "results/ATLAS_V21/diag2/run2/diag2_A_summary.parquet",
+    "results/ATLAS_V21/diag2/run2/diag2_B_summary.parquet"
    ],
    "files": [
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_speed_diag2.py",
