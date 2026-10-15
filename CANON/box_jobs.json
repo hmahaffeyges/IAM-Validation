@@ -666,6 +666,31 @@
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
    "note": "running"
+  },
+  {
+   "job_id": "24a39f2b-f4cf-4094-af87-4d27c216053b",
+   "name": "Atlas v2.1 speed diagnostic (v2 model vs v2.1 model, 60 loci)",
+   "date": "2026-10-15",
+   "commit": "d2fc454e",
+   "s3_code_prefix": "results/ATLAS_V21/speed_diag/code/run1/",
+   "state": "running",
+   "log": "results/ATLAS_V21/speed_diag/spd_v21.log",
+   "machine": "methylphys-cpu-01 (on-demand m7a.8xlarge, cores 8-23, beside B1 run 3)",
+   "purpose": "find why B1 ran 7x over the cost sheet: per-locus time and tree depth of v2's model and the v2.1 model on identical data",
+   "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [
+    "results/ATLAS_V21/speed_diag/speed_v2.json",
+    "results/ATLAS_V21/speed_diag/speed_v21.json"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_speed_diag.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/run_v21_block.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_block_v21.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_final.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {

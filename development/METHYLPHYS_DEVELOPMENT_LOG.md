@@ -1778,3 +1778,6 @@ Box job 9cc985d0 (code b3904580) is B1/L18 run 3.
 
 ### 2026-10-15 · Atlas v2.1 fit moves to on-demand (author)
 Two spot fit machines were reclaimed and AWS rates large spot capacity 1-3 of 10 in us-west-2 today. The author chose the on-demand box resized to m7a.32xlarge (128 cores, 512 GB): about 20-23 hours, $150-170. Public ledger row updated before the resize.
+
+### 2026-10-15 · Atlas v2.1 block 0 running 7x over the cost sheet; speed diagnostic
+B1 run 3 (9cc985d0) passed 3 h 26 min on block 0 against about 30 min expected (1.395-1.605 s per locus x 1,163). Sampler settings are v2's, so the cause is the v2.1 model: the bounded transfer is evaluated by interpolation three times per observation per step, and its knots are kinks for the sampler. Box job 24a39f2b (code d2fc454e) fits the same 60 loci in both models to measure which. The full fit is not launched until this is understood.

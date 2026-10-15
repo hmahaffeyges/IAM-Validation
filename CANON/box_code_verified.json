@@ -472,5 +472,23 @@
    "results/ATLAS_V21/b1_l18/outputs_v21_check_summary.txt": false
   },
   "state_at_verify": "running"
+ },
+ "24a39f2b-f4cf-4094-af87-4d27c216053b": {
+  "s3": {
+   "atlas_block_v21.py": "c10e2184df06fa67448671be683cdf53a7c048e37bef864befab1ae76b533edf",
+   "final_samples_v21.csv": "68dc06bf4edfaa85f052e977e27cf7a505bbf4475acbdf57570c638820c83601",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20",
+   "run_v21_block.py": "3c09f92466b14193d12dfa30dca2d862c479b0cc842ec8267146467b5dadf9b7",
+   "transfer_v21_final.json": "6bd10582401300487d14404160198b84ed718751d7edf6a87973a327b464785f",
+   "v21_speed_diag.py": "edd357e85ddb555f6cc10bc35487369d79c8bcfcc1050543869a37c5f70a8ab7"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/ATLAS_V21/speed_diag/speed_v2.json": false,
+   "results/ATLAS_V21/speed_diag/speed_v21.json": false
+  },
+  "state_at_verify": "running"
  }
 }
