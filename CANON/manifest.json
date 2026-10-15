@@ -25155,6 +25155,30 @@
    "sources_of_row": [
     "session 2026-10-15"
    ]
+  },
+  {
+   "title": "The loose-end line on a second laboratory (PHY-045 replication)",
+   "purpose": "whether the same straight line (held error against loose share) holds on another lab's single-molecule reads of purified healthy cells, each read against its own instrument checks",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "not yet found",
+   "record": "development/loose_end_2026-10-15/loose_end_line.py",
+   "status": "planned",
+   "runs": [],
+   "next_step": "metadata-only search for public single-molecule methylation (WGBS or EM-seq) on sorted healthy human cells from a lab other than Loyfer's; then the rule, synthetic first",
+   "cost": "laptop or box",
+   "impact": 5,
+   "depends_on": [
+    "PHY-045"
+   ],
+   "notes": "author asked 2026-10-15 that it come soon; after the tumor island read",
+   "legacy_ids": [],
+   "id": "PHY-047",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
   }
  ],
  "not_tests": {
