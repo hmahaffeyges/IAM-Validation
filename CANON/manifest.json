@@ -25681,13 +25681,13 @@
    "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
    "status": "idea",
    "runs": [],
-   "next_step": "read the book's H0 derivation and its status tags",
+   "next_step": "find whether any IAM relation fixes H0's absolute scale (for example from the horizon's bit count or temperature today); until then distances need one measured anchor",
    "cost": "laptop",
    "impact": 4,
    "depends_on": [
     "PHY-053"
    ],
-   "notes": "",
+   "notes": "checked in the book 2026-10-15 (App. E #69, #198, #218): the photon-sector H0 = 67.16 +/- 0.47 is the Level 2 MCMC posterior on Planck data (measured, tagged \\measured); the matter-sector 72.26 = 67.16 x sqrt(1 + beta_m) is calculated from it, with beta_m = Omega_m/2. So IAM fixes the RATIO of the two Hubble values and the expansion's shape, but the absolute scale still comes from the CMB fit; Omega_m too. Distances with no CMB or supernova input need H0 (one absolute scale) from physics",
    "legacy_ids": [],
    "id": "PHY-056",
    "sources_of_row": [
