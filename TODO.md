@@ -825,3 +825,5 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **ATL-059** Array-only sites in the fit: posteriors where only arrays measured a site (decision needed): last run 2026-10-13, progressed
 - [x] **PHY-041** Each healthy cell type's held error from eraser/writer RNA (DEV-POSITION-EXPR-01): last run 2026-10-14, fail
 - [x] **PHY-042** Cell architecture against the healthy held error (DEV-ARCH-01): last run 2026-10-14, progressed
+- [x] **PHY-045** The loose end read off the line: every healthy cell's held error from its own loose share: last run 2026-10-15, success
+- [x] **PHY-046** Island side with the eraser removed (is the eraser what holds the 0s?): last run 2026-10-15, fail

@@ -1,0 +1,4 @@
+planted gain 0.0124 loss 0.0212: counted gain 0.00965 (expected 0.00968), loss 0.01613 (expected 0.01625)
+planted gain 0.0212 loss 0.0212: counted gain 0.01619 (expected 0.01625), loss 0.01613 (expected 0.01625)
+planted gain 0.0062 loss 0.04: counted gain 0.00485 (expected 0.00490), loss 0.02871 (expected 0.02949)
+planted ratio 1.70 -> counted 1.673

@@ -1872,3 +1872,6 @@ Across 56 healthy cell types the held error rises in a straight line with the lo
 
 ### 2026-10-15 · Island side with the eraser removed: read once
 Synthetic first: the counter returned planted rates within 1-3 percent and a planted 1.70x rise as 1.67x. Then the eraser-removed and control molecules already in our S3 (DEV-ERASE-01 U1-U5), read once: island gain error ratio median 1.07 (0.87-1.28). The predicted 1.7 (the eraser holds the 0s) is not seen. Recorded in development/island_eraser_2026-10-15/ and whiteboard part 7.
+
+### 2026-10-15 · Part 7 made reproducible: scripts, manifest rows, four-domain table
+The loose-end line and the island read had run in the working session only. Now committed as development/loose_end_2026-10-15/loose_end_line.py (reproduces every number; adds 53 of 56 cells within 0.003 of the line) and development/island_eraser_2026-10-15/island_eraser.py with its synthetic output. Manifest rows added for both; the four-domain table carries the measured firm and loose ends and the eraser result.

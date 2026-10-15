@@ -25092,6 +25092,69 @@
    "sources_of_row": [
     "session 2026-10-14"
    ]
+  },
+  {
+   "title": "The loose end read off the line: every healthy cell's held error from its own loose share",
+   "purpose": "the firm and loose ends of the gauge, measured from 56 healthy cell types with nothing tuned",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "spent",
+   "record": "development/loose_end_2026-10-15/loose_end_line.py",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-15",
+     "outcome": "success",
+     "note": "firm end 0.0212 (0.019-0.024), loose end 0.0497 (0.046-0.053), r 0.869, 53 of 56 cells within 0.003; one loose level for every class (development, one laboratory)",
+     "commit": "whiteboard part 7",
+     "page": "not headline: card drafted, awaiting the author's review (2026-10-15)"
+    }
+   ],
+   "next_step": "check the line on a second laboratory; read the loose share from each sample's own molecules; try the one-Landauer-bit cut (beta 2/3)",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-042"
+   ],
+   "notes": "whiteboard part 7; firm end equals D 46, the slow edge of the published writer range",
+   "legacy_ids": [],
+   "id": "PHY-045",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Island side with the eraser removed (is the eraser what holds the 0s?)",
+   "purpose": "whether removing TET raises the island gain error about 1.7x (eraser holds the 0s) or leaves it (not)",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "DEV-ERASE-01 molecules in our S3"
+   ],
+   "data_status": "spent",
+   "record": "development/island_eraser_2026-10-15/island_eraser.py",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-15",
+     "outcome": "fail",
+     "note": "synthetic first (planted 1.70 read 1.67); real: ratio median 1.07, range 0.87-1.28 over six sets; the predicted 1.7 not seen",
+     "commit": "whiteboard part 7"
+    }
+   ],
+   "next_step": "the island shield: what sets its height (4.38 kT)",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-042"
+   ],
+   "notes": "prediction committed before the read (74d17c52)",
+   "legacy_ids": [],
+   "id": "PHY-046",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
   }
  ],
  "not_tests": {

@@ -372,9 +372,9 @@
    },
    "cells": {
     "native": "the writer's discrimination (backbone)",
-    "formula": "eps_W = 1/(1 + D), E = ln D = 4.15 kT (3.86-4.38), H = 0.115 bits; D measured on two enzymes (47.4 to 80). Cells on fully held sites read inside it (median 0.0165). Island side (a gained mark between unmethylated neighbors): 56 healthy cell types read 0.0094-0.0162, median 0.0124: 29 of 56 inside the writer's band and 27 just below it (more accurate than the writer alone, which the eraser or a second writer could explain), and independent of the loose share (rank correlation 0.00)",
+    "formula": "eps_W = 1/(1 + D), E = ln D = 4.15 kT (3.86-4.38), H = 0.115 bits; D measured on two enzymes (47.4 to 80). Cells on fully held sites read inside it (median 0.0165). Island side (a gained mark between unmethylated neighbors): 56 healthy cell types read 0.0094-0.0162, median 0.0124: 29 of 56 inside the writer's band and 27 just below it (more accurate than the writer alone, which the eraser or a second writer could explain), and independent of the loose share (rank correlation 0.00); 2026-10-15: read off the line through 56 healthy cell types (held error against loose share), the firm end is 0.0212 (95 % 0.019-0.024), equal to a writer with D = 46, the slow edge of the published range",
     "status": "candidate",
-    "source": "WHITEBOARD_2026-10-15 parts 2 and 5; PROC-CHANNEL-01 section 7"
+    "source": "WHITEBOARD_2026-10-15 parts 2 and 5; PROC-CHANNEL-01 section 7; development/loose_end_2026-10-15/loose_end_line.py"
    }
   },
   {
@@ -401,9 +401,9 @@
    },
    "cells": {
     "native": "loosely held territory",
-    "formula": "L, the share of the genome held loosely, read from the sample itself (0.20 in naive T cells to 0.93 in red-cell progenitors). Its level is OPEN and waits by author decision; the 0.042 at the top of the measured range is the meter's read limit (few molecules qualify there), not the ceiling",
-    "status": "open",
-    "source": "WHITEBOARD_2026-10-15 parts 3-5; DEV-ARCH-01"
+    "formula": "L, the share of the genome held loosely, read from the sample itself (0.20 in naive T cells to 0.93 in red-cell progenitors). Its level is OPEN and waits by author decision; the 0.042 at the top of the measured range is the meter's read limit (few molecules qualify there), not the ceiling; 2026-10-15: the loose end read off the same line is ONE level for every cell class, 0.0497 (0.046-0.053) as the meter sees it; 53 of 56 cells within 0.003 of the line. Measured, not derived; one laboratory",
+    "status": "measured",
+    "source": "WHITEBOARD_2026-10-15 parts 3-5; DEV-ARCH-01; development/loose_end_2026-10-15/loose_end_line.py"
    }
   },
   {
@@ -581,7 +581,7 @@
    },
    "cells": {
     "native": "eraser",
-    "formula": "TET, on O2 and 2-oxoglutarate (author, 2026-10-14)",
+    "formula": "TET, on O2 and 2-oxoglutarate (author, 2026-10-14); 2026-10-15: removing it barely changes the 1s (DEV-ERASE-01) and raises the island gain error only 1.07x (median, six sets), so it is not what holds the 0s; the islands' 0s are held by a shield, holding 4.38 kT against 3.83 kT for the firm 1s",
     "status": "candidate",
     "source": "PHY-040"
    }

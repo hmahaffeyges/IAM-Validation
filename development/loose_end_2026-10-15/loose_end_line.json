@@ -1,0 +1,32 @@
+{
+ "cells": 56,
+ "firm_end": 0.0212,
+ "loose_end": 0.0497,
+ "firm_end_95": [
+  0.019,
+  0.0237
+ ],
+ "loose_end_95": [
+  0.0463,
+  0.0529
+ ],
+ "r": 0.869,
+ "implied_D_of_firm_end": 46.1,
+ "residual_abs_median": 0.0011,
+ "within_0_003": 0.95,
+ "leave_one_class_out_firm_end": {
+  "immune": 0.0235,
+  "terminal": 0.0213,
+  "cycling": 0.0218,
+  "secretory": 0.0204,
+  "stromal": 0.0194,
+  "progenitor": 0.021
+ },
+ "island_median": 0.0124,
+ "island_range": [
+  0.0094,
+  0.0162
+ ],
+ "island_vs_loose_share_rho": 0.0,
+ "island_odds_over_firm_end": 1.73
+}
