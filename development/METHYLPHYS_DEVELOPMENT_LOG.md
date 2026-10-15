@@ -1961,3 +1961,6 @@ GSE147740: 13 same-person pairs on two slides each, within-person SD of C_rel 0.
 
 ### 2026-10-15 · DEV-BACKBONE-01 island arm counted (reported, not scored)
 All six pairs: 4 of 6 tumors above the healthy island range, 3 of 6 pairs above 1.2x their own normal, median 1.21; CRC1 reversed with 3.5x the sequencing substitution error. Islands written over in some tumors, not all. Firm-territory test still waits for the author's go.
+
+### 2026-10-15 · PHY-049 open sea: prediction wrong; the array line reflects where its probes sit
+opensea_line.py builds both own-read versions from the same 153 samples (held error matched exactly on every sample). Open sea r 0.67 (34 of 56 within 0.003), every CpG r 0.78 (41), arrays r 0.87 (53, reproduced exactly). Genome-wide open-sea stretches 3 percent loose, arrays' bins 39 percent. IAM-A's self-reference is stated in own-read terms. Next: own reads at the arrays' probe positions only.

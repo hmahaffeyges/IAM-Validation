@@ -25254,9 +25254,15 @@
      "note": "whole genome, all 56 cells (with the 10 re-read in 39f8ae21): firm 0.0297, loose 0.0560, r 0.79, p 8e-13; no sharper than 399 windows; firm rate stable at about 0.029; the low point is one cell (erythrocyte progenitors, loose share 0.93), not a progenitor class effect",
      "commit": "",
      "page": "not headline: development detail"
+    },
+    {
+     "date": "2026-10-15",
+     "outcome": "fail",
+     "note": "open-sea own-read loose share made the line looser (r 0.67, 34 of 56 within 0.003) than every CpG (r 0.78, 41 of 56); arrays 0.87, 53 of 56. Genome-wide open-sea stretches are 3 percent loose against 39 percent of the arrays' bins: the array line reflects where its probes sit. Whiteboard part 10.",
+     "page": "not headline: a development diagnostic whose prediction failed; recorded on the whiteboard and in the day log"
     }
    ],
-   "next_step": "open-sea own-read loose share: count only CpGs more than 4 kb from any UCSC hg19 CpG island (cpgIslandExt), as DEV-ARCH-01's array loose share uses open-sea sites only (arch_box.py line 33, checked 2026-10-15); synthetic first; then whether the relation bends near a loose share of 1",
+   "next_step": "count the own-read loose share only at the arrays' own probe positions (EPIC open-sea cg probes); IAM-A's self-reference stated in own-read terms (firm 0.030, loose 0.056)",
    "cost": "box",
    "impact": 5,
    "depends_on": [

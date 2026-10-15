@@ -289,3 +289,21 @@ PHY-049: the own-read loose share with island CpGs left out.
 r 0.79 (p 8e-13), 40 of 56 within 0.003. **Correction to part 8 and the paragraph above:** "progenitors sit below the line" is ONE cell,
 erythrocyte progenitors, the only progenitor in the set, with by far the highest loose share (0.93); it is 0.015 below the line. So it is
 not a progenitor effect: the line may bend at the far loose end. Next step, PHY-049: whether the relation curves near a loose share of 1.
+
+## Part 10: the open-sea own-read count (PHY-049): the prediction was wrong
+
+Part 9 guessed the array line is tighter because its loose share leaves islands out. Tested on all 153 samples, 56 cells, one script
+building both own-read versions from the same molecules (`development/loose_share_2026-10-15/opensea_line.py`; the held error matched the
+earlier run exactly on every sample, so only the loose-share rule differs):
+
+| loose share from | r | within 0.003 | median loose share |
+|---|---|---|---|
+| arrays (reproduced: firm 0.0212, loose 0.0497) | 0.87 | 53 of 56 | 0.39 |
+| own reads, every CpG | 0.78 | 41 of 56 | 0.13 |
+| own reads, open sea only | 0.67 | 34 of 56 | 0.03 |
+
+Leaving islands out made the own-read line looser, not tighter. The telling number is the last column: genome-wide, only 3 percent of
+open-sea stretches are loose, while 39 percent of the arrays' open-sea bins are. The array's probes were chosen at variable sites, so the
+arrays' loose share reads where the array looks, not the genome. **For IAM-A:** its self-reference has to be stated in its own terms (own
+molecules, every CpG: firm 0.030, loose 0.056, r 0.78), not borrowed from the array line. Next, cheap and mechanical: count the own-read
+loose share only at the arrays' own probe positions; if that recovers the array line, the probe choice is the whole story.

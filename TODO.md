@@ -859,7 +859,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **PHY-045** The loose end read off the line: every healthy cell's held error from its own loose share: last run 2026-10-15, success
 - [x] **PHY-046** Island side with the eraser removed (is the eraser what holds the 0s?): last run 2026-10-15, fail
 - [x] **PHY-048** The loose-end line at the one-Landauer-bit cut (beta 2/3): last run 2026-10-15, success
-- [x] **PHY-049** The loose share from each sample's own molecules (atlas-free): last run 2026-10-15, progressed
+- [x] **PHY-049** The loose share from each sample's own molecules (atlas-free): last run 2026-10-15, fail
 - [x] **ATL-064** Atlas v2.1 transfer and sampler speed: smooth curve, diagnostics 2-5, converted readings (mode v21inv): last run 2026-10-15, success
 - [x] **PHY-053** The horizon's storage by era: bits held at the CMB, first stars, the turn to acceleration and today: last run 2026-10-15, success
 - [x] **COM-METAA-039** Met-A read against the sample's own line (a smaller tare, or none): last run 2026-10-15, fail
