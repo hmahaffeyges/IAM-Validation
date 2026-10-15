@@ -228,3 +228,26 @@ our S3 (DEV-ERASE-01 primary units U1-U5):
 Read once, reported whatever it says. Known biology to keep in view: TET loss is known to raise methylation at island edges and enhancers,
 so a rise is consistent with the literature; the number (about 1.7 against about 1) is what discriminates the two readings. Development use
 of spent data; not a sealed test.
+
+**Synthetic first (run before any real read):** the counter, PROC-CHANNEL-01's rules unchanged, returned planted island and loss rates
+within 1-3 percent, and a planted 1.70x rise read 1.67x (counting only isolated events compresses it slightly).
+
+**Read once (development/island_eraser_2026-10-15/):** island gain error, eraser removed over control, per set:
+
+| set | cells | control | eraser removed | ratio |
+|---|---|---|---|---|
+| U1 GSE126958 | human ESC | 0.0162 | 0.0196 | 1.21 |
+| U1 GSE89727 | human ESC | 0.0198 | 0.0197 | 0.99 |
+| U2 GSE223576 | mouse ESC | 0.0262 | 0.0227 | 0.87 |
+| U3 GSE248933 | mouse ESC | 0.0190 | 0.0190 | 1.00 |
+| U4 GSE248933 | mouse neural stem | 0.0162 | 0.0207 | 1.28 |
+| U5 GSE56986 | mouse ESC | 0.0134 | 0.0154 | 1.15 |
+
+Median 1.07, range 0.87-1.28. **Reading A's 1.7 is not seen in any set.** Removing the eraser raises the island error a little in
+three sets (by 15-28 percent, most in neural stem cells), not at all in two, and lowers it in one. So the eraser is not what makes the 0s
+1.7x better held than the 1s. The eraser now reads small on both sides: barely on the 1s (DEV-ERASE-01) and a little on the 0s here.
+
+**What that leaves (for the next session).** The asymmetry between the 1s and the 0s is still there (about 1.7 in odds). The simplest
+remaining reading: the two sides are held by different writing steps. The 1s are kept by maintenance (DNMT1 copying the old strand, the
+step D measures); a wrongly written mark on an island comes from a different step (de novo writing), with its own rate. If so the island
+nameplate is that step's own accuracy, not 1/(1 + D), and the two sides need not match.

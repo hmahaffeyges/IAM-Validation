@@ -1869,3 +1869,6 @@ The earlier entry and the chat said the search came up empty. It had one hit, re
 
 ### 2026-10-15 · Whiteboard part 7: the loose end read off the line; the island-side prediction committed before the read
 Across 56 healthy cell types the held error rises in a straight line with the loose share: firm end 0.0212, loose end 0.0497, r 0.87, one loose level for every cell class. The island side sits about 1.7 times better held, in odds, than that firm end. Prediction committed before reading the eraser-removed molecules: if the eraser holds the 0s, the island gain error rises about 1.7 times with the eraser removed; if not, it stays.
+
+### 2026-10-15 · Island side with the eraser removed: read once
+Synthetic first: the counter returned planted rates within 1-3 percent and a planted 1.70x rise as 1.67x. Then the eraser-removed and control molecules already in our S3 (DEV-ERASE-01 U1-U5), read once: island gain error ratio median 1.07 (0.87-1.28). The predicted 1.7 (the eraser holds the 0s) is not seen. Recorded in development/island_eraser_2026-10-15/ and whiteboard part 7.
