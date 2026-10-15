@@ -7,7 +7,7 @@ L18: block 0 fitted again with K = 20 (same model, same seed 1000). The summary 
 import os, sys, json, subprocess, re, glob, time, pandas as pd, numpy as np
 sys.path.insert(0, os.getcwd())
 from publish_code import publish_code
-publish_code(f"results/ATLAS_V21/b1_l18/code/run{os.environ.get('RUN', '1')}/", ["v21_b1_l18_box.py", "run_v21_block.py", "atlas_block_v21.py", "transfer_v21_final.json", "final_samples_v21.csv", "publish_code.py"],
+publish_code(f"results/ATLAS_V21/b1_l18/code/run{os.environ.get('RUN', '1')}/", ["v21_b1_l18_box.py", "run_v21_block.py", "atlas_block_v21.py", "transfer_v21_smooth.json", "final_samples_v21.csv", "publish_code.py"],
              job="atlas v2.1 B1 and L18 (one block, K 100 and K 20)", commit=os.environ.get("REPO_COMMIT"))
 CORES = 8; NC = os.cpu_count(); MEM = int(open("/proc/meminfo").read().split()[1]) * 1024
 # The fit machine (m7a.48xlarge: 192 cores, 768 GB) is named by TARGET_CORES / TARGET_MEM_GB when the block is measured on another machine;
@@ -38,6 +38,20 @@ L = ["Atlas v2.1 L18: block 0 fitted with K = 100 and K = 20 saved draws, same m
      f"VERDICT: {'IDENTICAL' if ident else 'DIFFERENT'}" + ("" if ident else f" (largest differences {diff})"),
      f"K = 100 draws file {sizes.get('block_00000_draws.npz', 0)} bytes"]
 open("outputs_v21_check_summary.txt", "w").write("\n".join(L) + "\n"); print("\n".join(L)); print(json.dumps(B), flush=True)
-import boto3
+import boto3, io, itertools
 s3 = boto3.client("s3", region_name="us-west-2")
-for f in ("block_measure_v21.json", "outputs_v21_check_summary.txt", "b1_K100.log", "b1_K20.log"): s3.upload_file(f, "methylphys-data-945451304272-us-west-2-an", "results/ATLAS_V21/b1_l18/" + f)
+# L23, the Flatness Lesson (added 2026-10-15, before this run): judge block 0 by its OUTPUT.
+# F1 distinct: no pair of v2.1 cells with mean |difference| below 0.005 on shared measured CpGs (the Flatness failure makes cells identical).
+# F2 no collapse against atlas v2's block 0 on shared cells: r >= 0.99. Reason: collapse drives r far down; v2.1 adds data and removes the
+#    bend v2 carried, so finer agreement is not expected; the median difference is reported in units of v2.1's own standard error.
+P = a.pivot(index="cpg", columns="cell", values="mu"); md = sorted((float((P[x] - P[y]).dropna().abs().mean()), x, y) for x, y in itertools.combinations(P.columns, 2) if P[[x, y]].dropna().shape[0] >= 10)
+V2 = pd.read_parquet(io.BytesIO(s3.get_object(Bucket="methylphys-data-945451304272-us-west-2-an", Key="atlas_v2/blocks_v2/block_00000.parquet")["Body"].read()))
+M = a[["cell", "cpg", "mu", "mu_sd"]].merge(V2[["cell", "cpg", "mu"]], on=["cell", "cpg"], suffixes=("", "_v2")).dropna()
+r = float(np.corrcoef(M.mu, M.mu_v2)[0, 1]); dsd = float(((M.mu - M.mu_v2).abs() / M.mu_sd).median())
+F1 = sum(m < 0.005 for m, _, _ in md) == 0; F2 = r >= 0.99
+FL = ["Atlas v2.1 L23, Flatness Lesson check on real block 0 (mode v21inv, K = 100)", f"cells {P.shape[1]}, pairs {len(md)}, closest {md[0][0]:.4f} ({md[0][1]}, {md[0][2]})",
+      f"F1 pairs below 0.005: {sum(m < 0.005 for m, _, _ in md)} -> {'met' if F1 else 'NOT met'}",
+      f"F2 against atlas v2 block 0: {len(M)} shared pairs, r {r:.4f} -> {'met' if F2 else 'NOT met'}; median difference {dsd:.2f} v2.1 standard errors",
+      "VERDICT: " + ("DISTINCT" if (F1 and F2) else "NOT DISTINCT")]
+open("flatness_check_v21_summary.txt", "w").write("\n".join(FL) + "\n"); print("\n".join(FL), flush=True)
+for f in ("block_measure_v21.json", "outputs_v21_check_summary.txt", "flatness_check_v21_summary.txt", "b1_K100.log", "b1_K20.log"): s3.upload_file(f, "methylphys-data-945451304272-us-west-2-an", "results/ATLAS_V21/b1_l18/" + f)

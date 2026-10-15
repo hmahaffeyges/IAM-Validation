@@ -1832,3 +1832,6 @@ Box job ac3af1ea, block 0's first 60 loci. R1 met: 0.427 s per locus, no draw at
 
 ### 2026-10-15 · Lesson C15: bars in the units of their purpose (author)
 The author: fail is still fail, but a sensible band would not have put the fail where it fell. Measured against the atlas's own uncertainty, mode v21inv differs from the exact model by a median 0.24 standard errors; 98.7 percent of its values lie inside the exact model's 95 percent interval (median width 0.079). Both NOT MET verdicts stand as written. LESSONS C15: every bar carries its reason and is stated in the units of its purpose; agreement in units of the stated uncertainty, quality by the output, never a sampler diagnostic alone.
+
+### 2026-10-15 · Atlas v2.1 fitted in mode v21inv (author decision)
+The author: "Go ahead and do the one you believe is best"; the recommendation was mode v21inv. DECISION_v21inv.md records both missed bars and the numbers that justify it (agreement 0.24 standard errors, 98.7 percent inside the exact model's interval, about $45 against $493). run_v21_block.py now uses transfer_v21_smooth.json and mode v21inv. B1/L18 run 4 adds the Flatness Lesson check on the full block 0 (L23: distinct, and r >= 0.99 against atlas v2's block 0, with the reason written), committed before it runs. B4 retired: decision 16 was not adopted, so there is no second way to fit.

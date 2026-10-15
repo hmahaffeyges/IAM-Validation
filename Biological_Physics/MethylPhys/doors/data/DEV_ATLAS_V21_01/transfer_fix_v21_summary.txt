@@ -1,0 +1,7 @@
+Atlas v2.1 transfer after the 2026-10-15 convergence work (readiness L21, reopened and closed)
+adopted curve (transfer_bounded_v21.py, L21 2026-10-14): ADOPTED; its knots are kept unchanged
+fix 1 (transfer_anchored_v21.py): anchors (0, 0) and (1, 1) outside the knots, so no flat end without bound; checks D1, D2 met
+fix 2 (transfer_smooth_v21.py): PCHIP through the same knots, continuous slope; S1-S3 met; S4 stated two ways (recorded)
+fix 3 (transfer_inverse_v21.md): readings converted once to the array scale (mode v21inv); planted and real checks NOT MET on two bars set
+without a reason; adopted by the author's decision with the numbers in DECISION_v21inv.md
+in use: transfer_v21_smooth.json, mode v21inv

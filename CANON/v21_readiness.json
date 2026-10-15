@@ -540,7 +540,9 @@
    "files": [
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/labterms_oneblock_v21_summary.txt"
    ],
-   "checks": {}
+   "checks": {},
+   "gates_fit": false,
+   "note": "retired before launch 2026-10-15: decision 16 (sampled laboratory terms) was tested and not adopted (labterms_synthetic_v21.py), so there is no second way to fit"
   },
   {
    "id": "L19",
@@ -586,6 +588,7 @@
    ],
    "what": "ATL-061 L20 found the transfer bends: a transfer that cannot leave [0, 1] adopted - every bin with >= 500 pairs within +/-0.02 on the shared cells, and its synthetic test met",
    "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/DECISION_v21inv.md",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_bounded_v21_summary.txt",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_fix_v21_summary.txt"
    ],
