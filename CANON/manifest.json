@@ -25741,6 +25741,150 @@
    "sources_of_row": [
     "session 2026-10-15"
    ]
+  },
+  {
+   "title": "Atlas-free IAM-A on nanopore and PacBio long reads (public human genomes)",
+   "purpose": "nanopore and HiFi runs call methylation on every molecule; public projects (human pangenome reference, 1000 Genomes nanopore) give far more molecules, 10-100x longer, than bisulfite reads; read the line and the held error there",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "not yet searched",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "metadata search of the open long-read projects; a synthetic for the long-read counter; mind that most samples are blood or cultured lines (culture drift)",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-049"
+   ],
+   "notes": "author 2026-10-15: what the atlas-free instrument can read",
+   "legacy_ids": [],
+   "id": "PHY-058",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "An array stand-in for the held error: the shortfall from 100 percent at firm sites",
+   "purpose": "arrays give the loose share but cannot see isolated mistakes; test whether an array's shortfall at fully held sites, once its instrument offset is removed, tracks the held error on the same cell types",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "not yet searched",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "pair array and single-molecule reads of the same cell types (Loyfer has both); synthetic first",
+   "cost": "laptop",
+   "impact": 4,
+   "depends_on": [
+    "PHY-045"
+   ],
+   "notes": "author 2026-10-15: what the atlas-free instrument can read",
+   "legacy_ids": [],
+   "id": "PHY-059",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "The temperature law in plants: Arabidopsis lines grown at 10 C and 16 C",
+   "purpose": "public whole-genome methylomes of the same Arabidopsis lines grown at two temperatures (1001 Methylomes work): one species, two temperatures, the clean test of PHY-057 in the CG context",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "not yet searched",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "seal PHY-057's numbers first, then confirm the sets' raw reads (metadata only)",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-057"
+   ],
+   "notes": "author 2026-10-15: what the atlas-free instrument can read",
+   "legacy_ids": [],
+   "id": "PHY-060",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "The bit rate from plant mutation-accumulation lines (a measured time course)",
+   "purpose": "Arabidopsis mutation-accumulation lines measured methylation changes generation by generation: a direct time course, the cell bit-rate idea of PHY-044",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "not yet searched",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "metadata search; then whether the per-generation rate fits IAM's balance of write against loss",
+   "cost": "laptop",
+   "impact": 4,
+   "depends_on": [
+    "PHY-044"
+   ],
+   "notes": "author 2026-10-15: what the atlas-free instrument can read",
+   "legacy_ids": [],
+   "id": "PHY-061",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Built-in controls across species: no methylation (fruit fly, roundworm) and a different writer (bacterial Dam)",
+   "purpose": "species without CpG methylation must read nothing on the instrument (negative control); bacteria tag adenine at GATC with Dam, read on nanopore, the same law on a different writer",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "not yet searched",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "pick one public set each; synthetic first",
+   "cost": "laptop",
+   "impact": 3,
+   "depends_on": [
+    "PHY-049"
+   ],
+   "notes": "author 2026-10-15: what the atlas-free instrument can read",
+   "legacy_ids": [],
+   "id": "PHY-062",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Birds read hotter: the held error at about 41 C",
+   "purpose": "by the temperature law the held error of a bird (body about 41 C) must sit above the human value by an exact amount from 314 K against 310 K",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "not yet searched",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "with PHY-057; seal the number first",
+   "cost": "laptop",
+   "impact": 3,
+   "depends_on": [
+    "PHY-057"
+   ],
+   "notes": "author 2026-10-15: what the atlas-free instrument can read",
+   "legacy_ids": [],
+   "id": "PHY-063",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
   }
  ],
  "not_tests": {
