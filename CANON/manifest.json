@@ -25221,7 +25221,7 @@
    ],
    "data_status": "held",
    "record": "development/loose_share_2026-10-15/own_reads_loose.py",
-   "status": "run",
+   "status": "running",
    "runs": [
     {
      "date": "2026-10-15",
@@ -25237,7 +25237,7 @@
    "depends_on": [
     "PHY-045"
    ],
-   "notes": "; box job eef8d756, 2026-10-15; author 2026-10-15: the whole-genome count is the top item for the atlas-free goal; runs when the tumor job frees the second machine, or on the box after the fit",
+   "notes": "; box job eef8d756, 2026-10-15; author 2026-10-15: the whole-genome count is the top item for the atlas-free goal; runs when the tumor job frees the second machine, or on the box after the fit; whole genome: box job 2d3d817b",
    "legacy_ids": [],
    "id": "PHY-049",
    "sources_of_row": [

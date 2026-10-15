@@ -733,5 +733,22 @@
    "results/LOOSE_SHARE_2026-10-15/arch_01_cut0.6667.csv": true
   },
   "state_at_verify": "succeeded"
+ },
+ "2d3d817b-dd9d-45e7-9c0a-9405436908b6": {
+  "s3": {
+   "genome_samples.txt": "0f64779a4d5082df37578eeda43b82d22d891b10cc5eb1f0242c0cc505af32be",
+   "own_reads_genome.py": "5da9368a40fa96f38ee33a0a2399a63ef304800c68592dff0d53a78755faa54e",
+   "own_reads_loose.py": "4aea4bcdf3975bfe9092c6c97cda497b25ab8ad8f3e00a250a649f0042b6265f",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20",
+   "tiles_hg19_cpgidx.bed": "b148cc84ab365f8ce5df09e6facf1993040fd35d150bf8dee426631618cfb276",
+   "windows_hg19_cpgidx.bed": "b7c1d4b55508e7561d8a097a9c92398fef0b952675e97bdcb55bdddd97d522e3"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/LOOSE_SHARE_2026-10-15/genome/own_reads_genome.csv": false
+  },
+  "state_at_verify": "running"
  }
 }

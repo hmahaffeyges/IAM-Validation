@@ -1045,6 +1045,33 @@
     "PHY-048",
     "PHY-049"
    ]
+  },
+  {
+   "job_id": "2d3d817b-dd9d-45e7-9c0a-9405436908b6",
+   "name": "PHY-049 whole genome: loose share from each sample's own reads",
+   "date": "2026-10-15",
+   "commit": "ec70e9d8",
+   "s3_code_prefix": "results/LOOSE_SHARE_2026-10-15/genome/code/run1/",
+   "state": "running",
+   "log": "results/LOOSE_SHARE_2026-10-15/genome/gw.log",
+   "machine": "methylphys-fit-01 (shared with the tumor island job)",
+   "manifest": [
+    "PHY-049"
+   ],
+   "purpose": "153 Loyfer hg19 read files streamed from GEO through own_reads_loose.py with the genome tiled into 13,225 windows",
+   "record": "development/loose_share_2026-10-15/own_reads_genome.py",
+   "outputs": [
+    "results/LOOSE_SHARE_2026-10-15/genome/own_reads_genome.csv"
+   ],
+   "files": [
+    "development/loose_share_2026-10-15/own_reads_genome.py",
+    "development/loose_share_2026-10-15/own_reads_loose.py",
+    "development/loose_share_2026-10-15/tiles_hg19_cpgidx.bed",
+    "development/loose_share_2026-10-15/windows_hg19_cpgidx.bed",
+    "development/loose_share_2026-10-15/genome_samples.txt",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {
