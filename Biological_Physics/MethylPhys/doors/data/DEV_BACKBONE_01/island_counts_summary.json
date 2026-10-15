@@ -2,5 +2,13 @@
  "tumors_above_range": 4,
  "normals_above_range": 1,
  "pairs_above_1_2": 3,
- "median_ratio": 1.211
+ "median_ratio": 1.211,
+ "tumor_over_normal": {
+  "CRC1": 0.72,
+  "CRC2": 1.4,
+  "CRC3": 1.13,
+  "CRC4": 1.35,
+  "CRC5": 1.3,
+  "CRC6": 1.05
+ }
 }

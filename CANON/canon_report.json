@@ -1,7 +1,43 @@
 [
 {
+"file": "TODO.md",
+"line": 41,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- [ ] **OTH-051** (impact 5, laptop) The A-score database: one table per instrument, one row per sample read: add each new test's per-sample rows as a source (t"
+},
+{
+"file": "TODO.md",
+"line": 126,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- [ ] **PHY-069** (impact 4, laptop) The concern line: where a reading first leaves the healthy line before it reaches tumor territory (the Warburg line, a poin"
+},
+{
+"file": "README.md",
+"line": 29,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| **Every reading, by instrument** | [the A-score database](ASCORES/README.md): healthy and tumor readings side by side |"
+},
+{
 "file": "MANIFEST.md",
-"line": 377,
+"line": 373,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| **PHY-069** | The concern line: where a reading first leaves the healthy line before it reaches tumor territory (the Warburg line, a point of no return?) | wi"
+},
+{
+"file": "MANIFEST.md",
+"line": 406,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -10,12 +46,48 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 449,
+"line": 478,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
 "text": "| **FLD-004** | Class-era adjacent-normal elevation across 28 cancer types (VAL-003), as summarized | Historical: in the class era, tissue next to tumors read h"
+},
+{
+"file": "MANIFEST.md",
+"line": 918,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| **OTH-051** | The A-score database: one table per instrument, one row per sample read | every reading of every instrument (Met-A, C-Score, IAM-A, Group-A, atl"
+},
+{
+"file": "COMMISSIONING_PLAN.md",
+"line": 3,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The author's mandate: commission IAM-A first and foremost, then the C-Score, Met-A on its own loose share, and Group-A; build the A-score"
+},
+{
+"file": "COMMISSIONING_PLAN.md",
+"line": 41,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| 5 | OTH-051 | The A-score database generator and its gate check | laptop |"
+},
+{
+"file": "COMMISSIONING_PLAN.md",
+"line": 71,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| 21 | PHY-069 | The concern line (where a reading first leaves the healthy line) from the A-score database |"
 },
 {
 "file": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
@@ -54,6 +126,24 @@
 "text": "The author asked whether the held pattern against the writing it takes is the Mahaffey ratio. The book's counterpart is phi = E_hold/(M k_B T) = 0.163 +/- 0.006"
 },
 {
+"file": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+"line": 1918,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "COMMISSIONING_PLAN.md: three decisions waiting for the author, the two running jobs with their watchers, and 21 steps in four stages (tonight; when the atlas la"
+},
+{
+"file": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+"line": 1953,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "### 2026-10-15 \u00b7 The A-score database started (OTH-051)"
+},
+{
 "file": "development/WHITEBOARD_2026-10-15.md",
 "line": 96,
 "pattern": "M\\s*=\\s*30\\.2",
@@ -61,6 +151,15 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "The genome-wide share is 0.163. In bits, the nameplate is 5.99 bits against M = 30.2 bits."
+},
+{
+"file": "development/archive/p1_01_encoding_surfaces.tex",
+"line": 125,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "reads $1/P=0.910$ on the gauge (Chapter~\\ref{ch:iama}). On arrays, this is an open problem. \\openprob{} The A-score reads where the cell sits:"
 },
 {
 "file": "website/_build/src/appendices/app_A_canon.tex",
@@ -207,6 +306,15 @@
 "text": "ATP at 310\\,K it is about 21 ($\\mathcal M=20.94$). \\calc{} The chip gauge is the efficiency one, how far above $\\kB T\\ln2$ each switch runs; the Mahaffey number"
 },
 {
+"file": "Biological_Physics/MethylPhys/README.md",
+"line": 24,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Where tumors sit on this gauge is being mapped test by test (manifest OTH-051, the A-score database)."
+},
+{
 "file": "Biological_Physics/MethylPhys/LESSONS.md",
 "line": 12,
 "pattern": "class H_min",
@@ -250,6 +358,24 @@
 "severity": "warn",
 "status": "RECORD",
 "text": "per-cell A-score architecture on the eight-class grid, the disease rows it flagged pulled"
+},
+{
+"file": "Biological_Physics/MethylPhys/whiteboard/2026-10-14_coffee_and_whiteboard.md",
+"line": 108,
+"pattern": "Mahaffey ratio",
+"use": "Mahaffey number (M)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\"One honest snag for the leak picture. A methyl mark is chemically very stable: left alone in the bath, it decays far more slowly than a lifetime. So the marks "
+},
+{
+"file": "Biological_Physics/MethylPhys/whiteboard/2026-10-14_coffee_and_whiteboard.md",
+"line": 173,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "1. I personally believe we should have one reading per instrument, if we do end up with Met-A, IAM-A, C-Score, Group-A, and maybe other scores from candidate in"
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/toolkit_surface_brightness.py",
@@ -927,6 +1053,15 @@
 "text": "compressed (~0.85 instead of ~0.95) and inflates every downstream A-score. The"
 },
 {
+"file": "Biological_Physics/MethylPhys/daylogs/2026-10-15.md",
+"line": 135,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "In progress. Running: the atlas v2.1 fit (164 of 700 blocks, expected Friday October 16, about 9 AM Pacific), the tumor pairs on both sides (PHY-043, 10 of 12 s"
+},
+{
 "file": "Biological_Physics/MethylPhys/daylogs/2026-10-13.md",
 "line": 254,
 "pattern": "class H_min",
@@ -943,5 +1078,14 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "**Question.** Can the gate-error reading \u2014 how faithfully a cell holds its methylation pattern, counted on single DNA molecules \u2014 be read for each"
+},
+{
+"file": "ASCORES/README.md",
+"line": 1,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "# The A-score database"
 }
 ]
