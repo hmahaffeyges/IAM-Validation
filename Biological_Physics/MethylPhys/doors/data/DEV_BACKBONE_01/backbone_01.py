@@ -60,4 +60,20 @@ if __name__ == "__main__":
         L.append("SYNTHETIC: " + ("MET" if ok else "NOT MET"))
         open(os.path.join(H, "backbone_01_synthetic.txt"), "w").write("\n".join(L) + "\n"); print("\n".join(L))
     elif sys.argv[1] == "real":
-        raise SystemExit("REFUSED: run only with the author's go (steps 1-3 on paper first); remove this line in that commit")
+        # The author's go, 2026-10-15: "fucking go!" (committed with this loader, before any restricted reading).
+        # Inputs: <dir>/EOCRC_<p>_WGBS_<normal|tumour>.parquet and _extract.log (downloads/tumour_work/out/). PROC-TUMOUR-01's corrections,
+        # unchanged (recovered cell 10-02T1013_e7c07ece): per-patient genotype mask over both samples pooled (site dropped if opp >= 5 and
+        # err > 0.30 x opp); sequencing-error rate sub_err from each sample's extract log, subtracted.
+        import re, ast
+        d = sys.argv[2]; tabs, sub = {}, {}
+        def inst(n):
+            line = re.findall(r"\{'reads'.*\}", open(os.path.join(d, n + "_extract.log")).read())[-1]
+            return ast.literal_eval(re.sub(r"np\.(?:float|int)\d*\(([^)]*)\)", r"\1", line))
+        for p in PAIRS:
+            T = {t: pd.read_parquet(os.path.join(d, f"EOCRC_{p}_WGBS_{t}.parquet")) for t in ("normal", "tumour")}
+            G = pd.concat([T[t][["pos", "opp_A", "opp_B", "err_A", "err_B"]] for t in T]).groupby("pos").sum(); o = G.opp_A + G.opp_B; e = G.err_A + G.err_B
+            mask = set(G.index[(o >= 5) & (e > 0.30 * o)])
+            for t in T: tabs[(p, t)] = T[t][~T[t].pos.isin(mask)]; sub[(p, t)] = float(inst(f"EOCRC_{p}_WGBS_{t}")["sub_err"])
+        R, V = score(tabs, sub)
+        R.to_csv(os.path.join(H, "backbone_01_rows.csv"), index=False); json.dump(V, open(os.path.join(H, "backbone_01_verdict.json"), "w"), indent=1)
+        print(R.round(5).to_string(index=False)); print(json.dumps(V))

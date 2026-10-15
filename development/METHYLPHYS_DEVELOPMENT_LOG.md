@@ -1973,3 +1973,6 @@ Whole blood and isolated neutrophils, EPIC v1. The plan's own rule: if tests (a)
 
 ### 2026-10-15 · Front page: wins and work under way only (author)
 The author: the page is for progress donors should see; exploratory checks are not broadcast as failures. The two exploratory misses (Met-A self-line, open-sea count) were taken out of the day log; they stay in this log, the whiteboard and the manifest. build_home.py now shows only findings and sealed or running work in "The last 24 hours".
+
+### 2026-10-15 · DEV-BACKBONE-01: the author's go; real-mode loader committed before reading
+The author: go. backbone_01.py real mode written (PROC-TUMOUR-01 genotype mask and sequencing-error subtraction, unchanged), committed before any restricted reading; synthetic rerun unchanged.
