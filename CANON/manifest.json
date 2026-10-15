@@ -25717,6 +25717,30 @@
    "sources_of_row": [
     "session 2026-10-15"
    ]
+  },
+  {
+   "title": "The temperature law: a held mark's error moves with body temperature by an exact amount (hibernators; one species at two temperatures)",
+   "purpose": "IAM's Boltzmann premise: a mark's holding energy is fixed, kT the yardstick, so ln[(1 - eps)/eps] scales as 1/T with nothing fitted. From the 37 C line: firm 0.0212 -> 0.0137 at 5 C, 0.0166 at 18 C, 0.0189 at 28 C; loose 0.0497 -> 0.0359 at 5 C; island 0.0124 -> 0.0075 at 5 C; within one species, 18 C against 28 C, the log-odds ratio is 1.0343 exactly",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "not yet searched",
+   "record": "development/WHITEBOARD_2026-10-15.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "seal the predicted numbers (this row's purpose) in a committed note BEFORE any search; then a metadata-only search for single-molecule methylation of hibernating mammals (torpor against active) and of one ectotherm species held at two temperatures; salmon (PROC-SALMON-01) is already read and cannot be the test",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-045"
+   ],
+   "notes": "author asked 2026-10-15 for a prediction that would make the assistant sit up; caution: enzymes of different species may differ, so the cleanest test is one species at two temperatures",
+   "legacy_ids": [],
+   "id": "PHY-057",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
   }
  ],
  "not_tests": {
