@@ -1937,3 +1937,6 @@ methylphys-fit-01 (spot, i-0b9412043061ffbff) was reclaimed by AWS between 7:47 
 
 ### 2026-10-15 · PHY-049 open sea: the own-read loose share counted the way the arrays count it (committed before it runs)
 own_reads_opensea.py: only the loose share changes, counted at open-sea CpGs (more than 4 kb from any UCSC hg19 island; opensea_hg19_cpgidx.npz, 81 percent of CpGs, checked against the read files' numbering on all 22 chromosomes); the held error is counted exactly as before. Synthetic MET (planted shares 0.2, 0.5, 0.8 recovered exactly; counting every CpG inflated them). Erratum found while building it: own_reads_genome.py's chromosome size table is wrong for chr14-22, so 534 of its 13,225 tiles (4 percent, chr16-22) held no reads and dropped out; this costs coverage, not bias, and the 399 windows of PROC-CHANNEL-01 and PHY-045 are all inside their true chromosomes (checked). The open-sea run tiles each chromosome inside its true range.
+
+### 2026-10-15 · DEV-METAA-SELFLINE-01 (COM-METAA-039) rule and synthetic committed before any loose share is computed
+Met-A against its own loose share: six series of healthy purified neutrophils, Met-A readings as already committed, the arrays' own loose-share rule (DEV-ARCH-01), leave one series out, showcase bars. Synthetic MET.

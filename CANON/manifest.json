@@ -26022,10 +26022,10 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "development/loose_end_2026-10-15/loose_end_line.py",
-   "status": "idea",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_SELFLINE_01.md",
+   "status": "synthetic_done",
    "runs": [],
-   "next_step": "synthetic first; then on healthy arrays already spent (development): Met-A level against own loose share, within and across labs",
+   "next_step": "compute each array's loose share from the stored Stage 1 betas and score once",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

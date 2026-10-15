@@ -1,0 +1,3 @@
+offset carried by the loose share: median |raw| 0.072 -> |corrected| 0.003; MET (want MET)
+offset NOT carried: median |raw| 0.065 -> |corrected| 0.050; NOT MET (want NOT MET)
+SYNTHETIC: MET (the method removes an offset the loose share carries, and refuses one it does not)
