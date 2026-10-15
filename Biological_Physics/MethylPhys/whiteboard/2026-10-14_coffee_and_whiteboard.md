@@ -270,13 +270,13 @@ That confusion is mine. Two things got mixed together in what I wrote, and I'd r
 
 | Left | Middle | Right |
 |---|---|---|
-| **Floor:** least order, the least work that still holds identity. Below it, identity is lost | healthy, centered in the band | **Ceiling:** saturation, can't measure past it |
+| **Floor:** least order, the least work that still holds identity. Below it, identity is lost | healthy, centered in the band | **Ceiling:** saturation, can't measure past it | <!-- [retired wording kept for the record] -->
 
 What I've been writing from the current foundation file reads the axis as **error**, increasing to the right. The left mark is the thermal limit, and the right mark is the coin flip, where the reading saturates and turns over. On that reading a cancer moves **right**, toward the coin flip.
 
 Both say "saturation on the right," but they may disagree on what the left mark means and which way a failing cell travels. If they disagree, then the foundation file, the book's gauge chapter, or my wording has drifted from the gauge you built. That changes the math, so it's your call, not mine.
 
-**One question settles it:** on your gauge, does a cell losing its identity (a cancer cell) move **left, through the floor**, or **right, toward the ceiling**?
+**One question settles it:** on your gauge, does a cell losing its identity (a cancer cell) move **left, through the floor**, or **right, toward the ceiling**? <!-- [retired wording kept for the record] -->
 
 Meanwhile I'll pull the original gauge definition from the old reports and set it beside the current foundation file and the book's gauge chapter, word for word. Nothing gets relabeled or re-run until the two match.
 
@@ -309,10 +309,10 @@ So the direction was never in doubt. My wording was the problem. And you're righ
 Starting it now, rule first as always.
 
 **Heath:**
-also a cancer cell is not what I would call losing its identity, that is to the left below h_min. To the right toward cancer is the supenova and black hole, writing too much and running out of 2D surface
+also a cancer cell is not what I would call losing its identity, that is to the left below h_min. To the right toward cancer is the supenova and black hole, writing too much and running out of 2D surface <!-- [retired wording kept for the record] -->
 
 **Marcel:**
-Cancer isn't loss of identity but over-writing — entropy pushing toward the surface's capacity until no room remains, which also explains the ceiling readout flip and why black holes share that side.
+Cancer isn't loss of identity but over-writing — entropy pushing toward the surface's capacity until no room remains, which also explains the ceiling readout flip and why black holes share that side. <!-- [retired wording kept for the record] -->
 
 ### "Is the cosmic horizon a 1/r bound state?" (October 2026)
 
