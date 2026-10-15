@@ -15,7 +15,8 @@ the release.
 - UT3 extras: shown on one blood cell, not scored.
 
 **Sealed inputs:** `data/DEV_ATLAS_USE_01/sealed_use_v21.json` (sample lists by cell, the scorer's and Moss reference's checksums, the
-disclosures). The real run is refused in code until the v2.1 release.
+disclosures). The real run is refused in code until the v2.1 release. Amendment (same day, before any data): GSE132547 and GSE131989 are scored only after
+their carried checks D13 and D14 are recorded, as in the L15 bars.
 
 **Synthetic test:** DEV_ATLAS_USE_01/use_tests_v21.py, DEV_ATLAS_USE_01/use_tests_synthetic.txt
 
