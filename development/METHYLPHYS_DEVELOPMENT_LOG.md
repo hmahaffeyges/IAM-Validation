@@ -1819,3 +1819,6 @@ Box job 3d54707d (code 86860155) is diagnostic 4.
 ### 2026-10-15 · Diagnostic 4: the scatter term is not the cause
 Box job 3d54707d: with the per-cell scatter off, the smooth curve runs 4.73 s per locus and v2's line in the v2.1 model 3.46; every draw still at the maximum depth. Remaining difference from v2's model: v2.1 takes the read-count noise from the converted value h, clipped at 0, where v2 takes it from the cell value m. Diagnostic 5 (diagnostic only; a flag in the terms file, off by default): the same two arms with the noise taken from m.
 Box job e2efa254 (code bee2bbfa) is diagnostic 5.
+
+### 2026-10-15 · Diagnostic 5: two causes, one found
+Box job e2efa254. v2's line inside the v2.1 model with the read-count noise taken from the cell value m (v2's way): 1.10 s per locus, no draw at the maximum depth, R-hat p99 1.0036. So with a straight line, the clipped noise on h was the whole cost. With the smooth curve, taking the noise from m does not help (4.64 s per locus, all at the maximum depth): the curve inside the likelihood is slow by itself. Options priced for the author (128-core on-demand, $7.42 per hour): the curve as built about 62 h, about $460; the straight-line form about 15 h but it carries the bend L20 measured.

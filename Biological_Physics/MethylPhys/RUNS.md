@@ -8,7 +8,7 @@ Work done on the laptop is free and is not listed.
 
 | run | purpose | log | start (UTC) | job hours | vCPUs | end | actual cost | record |
 |---|---|---|---|---|---|---|---|---|
-| Atlas v2.1 diagnostic 5 (read-count noise from m) (job e2efa254) | diagnostic only: whether taking the read-count noise from the converted value h (clipped at 0) saturates the tree depth | `ATLAS_V21/diag5/diag2_LM.log (not in S3 yet)` |  |  |  | running | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
+| Atlas v2.1 diagnostic 5 (read-count noise from m) (job e2efa254) | diagnostic only: whether taking the read-count noise from the converted value h (clipped at 0) saturates the tree depth | `ATLAS_V21/diag5/diag2_LM.log` |  |  |  | succeeded | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2.1 transfer shape check (L20) (job 80446c36) | is the array-to-sequencing transfer straight across the whole range (v2's samples, the terms job's own run12) | `ATLAS_V21/transfer/transfer_run1_80446c36.log` |  |  |  | done | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2.1 L8 conditions data step (job 36fc910c) | D1 twin test (GSE224807 vs Salas neutrophils), D7 astrocyte profile r, export of the 904 EpiDISH sites; rules in l8_conditions_v21.md | `ATLAS_V21/l8/l8.log (not in S3 yet)` |  |  |  | failed | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
 | Atlas v2.1 L8 D10 GSE137716 export (job e82da54c) | EpiDISH sites for GSE137716's 12 conditional arrays (decision 10 addendum) | `ATLAS_V21/l8b/l8b.log (not in S3 yet)` |  |  |  | failed | pending billing access | [doors/DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |

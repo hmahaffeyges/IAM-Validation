@@ -840,7 +840,7 @@
    "date": "2026-10-15",
    "commit": "bee2bbfa",
    "s3_code_prefix": "results/ATLAS_V21/diag5/code/run1/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/ATLAS_V21/diag5/diag2_LM.log",
    "machine": "methylphys-cpu-01 (on-demand m7a.8xlarge, 2 x 8 cores)",
    "purpose": "diagnostic only: whether taking the read-count noise from the converted value h (clipped at 0) saturates the tree depth",
@@ -866,7 +866,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_final.json",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
    ],
-   "note": "running"
+   "note": "v2 line with read-count noise from m: 1.098 s per locus, none at max depth, R-hat p99 1.0036, ESS p01 848; smooth curve with noise from m: 4.641 s per locus, all at max depth"
   }
  ],
  "not_jobs": {
