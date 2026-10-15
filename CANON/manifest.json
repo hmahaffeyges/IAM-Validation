@@ -25555,9 +25555,17 @@
    "sources": [],
    "data_status": "none",
    "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
-   "status": "planned",
-   "runs": [],
-   "next_step": "compute on the laptop; then redo on IAM's own E(a)",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-15",
+     "outcome": "success",
+     "note": "bits at the CMB 6.1e113, first stars 1.1e119, turn to acceleration 1.6e122 (49 percent of today), today 3.3e122 (H0 67.16); shares independent of H0",
+     "commit": "",
+     "page": "not headline: calculation for the paper"
+    }
+   ],
+   "next_step": "redo on IAM's own E(a)",
    "cost": "laptop",
    "impact": 3,
    "depends_on": [

@@ -211,7 +211,6 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **PHY-012** (impact 3, laptop) phi and the height of E_hold (open item D1): a physics-only derivation of 3.41 kT: Open after DEV-WRITER-01/-02 and DEV-FLOOR-HEIGHT-01/-02 did not fix it; candidate routes are the multi-step (proofread) gap and the loss side (H7).
 - [ ] **PHY-013** (impact 3, search) Repli-BS genome-wide rates test: does each region's isolated-error rate equal f/(f+g) from its own rates?: Find the Repli-BS and matched single-molecule data; write the prediction and bars before reading.
 - [ ] **PHY-052** (impact 3, laptop) The new writers' (DNMT3A/B) accuracy against the islands: literature lookup (Jeltsch lab kinetics, Gowher and Jeltsch 2001; Gao 2020), then a whiteboard comparison
-- [ ] **PHY-053** (impact 3, laptop) The horizon's storage by era: bits held at the CMB, first stars, the turn to acceleration and today: compute on the laptop; then redo on IAM's own E(a)
 - [ ] **SCO-030** (impact 3, search) Cancer cohorts with same-series healthy controls (whole-blood Met-A group comparisons, one cancer at a time): Search cancer cohorts whose arrays include healthy controls run in the same series, one cancer at a time (TODO L7; CANON/instruments.json BLOOD-METAA-LIMIT).
 - [ ] **SCO-031** (impact 3, laptop) Division-rate lever: serial-passage series (held error with divisions): Design and simulate (TODO C4).
 - [ ] **SCO-032** (impact 3, search) Erase channel alone: IDH-mutant tumors (TET chemically blocked in patients): Synthetic test first (CANON/next_jobs.json job 12), then search IDH-mutant tumor sets with matched IDH-wild-type tumors, declaring spent sets.
@@ -845,3 +844,4 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **PHY-045** The loose end read off the line: every healthy cell's held error from its own loose share: last run 2026-10-15, success
 - [x] **PHY-046** Island side with the eraser removed (is the eraser what holds the 0s?): last run 2026-10-15, fail
 - [x] **ATL-064** Atlas v2.1 transfer and sampler speed: smooth curve, diagnostics 2-5, converted readings (mode v21inv): last run 2026-10-15, success
+- [x] **PHY-053** The horizon's storage by era: bits held at the CMB, first stars, the turn to acceleration and today: last run 2026-10-15, success

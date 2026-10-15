@@ -64,3 +64,15 @@ proportional to the bit rate. Known physics to set it against: clocks run slower
 reading of time predicts a lower bit rate there, seen from far); the Tolman relation makes a surface deeper in gravity locally hotter by
 the same factor, so the Landauer price per bit is higher locally and identical everywhere as seen from far. Prior work, credited for
 exactly what it did: Jacobson 1995 derived Einstein's equations from horizon thermodynamics; Verlinde 2011 argued gravity is entropic.
+
+**Storage by era, computed 2026-10-15 (PHY-053; standard expansion shape with Omega_m 0.3153, radiation 9.1e-5, not yet IAM's own E(a)):**
+
+| era | z | bits on the horizon (H0 67.16 / 72.26) | share of today | horizon temperature |
+|---|---|---|---|---|
+| CMB released | 1090 | 6.1e113 / 5.3e113 | 2 in a billion | 6e-26 K |
+| first stars | 20 | 1.1e119 / 9.7e118 | 3 in 10,000 | 1.4e-28 K |
+| turn to acceleration | 0.63 | 1.6e122 / 1.4e122 | 49 percent | 4e-30 K |
+| today | 0 | 3.3e122 / 2.8e122 | 1 | 2.6e-30 K |
+
+Half of today's storage was written after the turn to acceleration. The shares depend only on the expansion's shape, not on H0, so the
+two H0 values change every total by the same factor (0.864) and the storage history alone cannot choose between them.
