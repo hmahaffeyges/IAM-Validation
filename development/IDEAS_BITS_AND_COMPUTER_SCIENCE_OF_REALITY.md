@@ -49,3 +49,18 @@ Analogy list to work through (author's, in his order of excitement):
   gravity as geometry), to get more out of the physics.
 - Bit rates with a time course: the sliding timescale applied to living cells for accurate aging; time near a black hole.
 - A per-cell bit rate as a meter sensitive enough to catch more than cancer.
+
+## Added 2026-10-15 (author): the paper's title, storage by era, gravity and time (OTH-049, PHY-053, PHY-054)
+
+**Title (OTH-049):** *Computer Science of Reality: The Bit-Rate of Cosmic Expansion from the Singularity Through Today, Black Hole Hard
+Drives, and Cosmic Storage Space*: the computer geek edition, after the plain-language series, both sponsored on the page.
+
+**Storage by era (PHY-053).** The horizon's bit count is a stock, so summing its bit rate from the start gives back today's count; the
+new number is the count at each era (CMB, first stars, the turn to acceleration, today). The night sky as old bits: light from far stars
+left them long ago, so we read old information arriving now; "stored on the horizon" is the IAM reading.
+
+**Gravity, time and the bit rate (PHY-054, candidate).** The author: time is the one-way writing to the horizon, and gravity is
+proportional to the bit rate. Known physics to set it against: clocks run slower deeper in gravity as seen from far (so a bit-rate
+reading of time predicts a lower bit rate there, seen from far); the Tolman relation makes a surface deeper in gravity locally hotter by
+the same factor, so the Landauer price per bit is higher locally and identical everywhere as seen from far. Prior work, credited for
+exactly what it did: Jacobson 1995 derived Einstein's equations from horizon thermodynamics; Verlinde 2011 argued gravity is entropic.

@@ -25493,7 +25493,7 @@
    ]
   },
   {
-   "title": "Paper: the Computer Science of Reality",
+   "title": "Paper: Computer Science of Reality: The Bit-Rate of Cosmic Expansion from the Singularity Through Today, Black Hole Hard Drives, and Cosmic Storage Space",
    "purpose": "the four domains read as computation (bits, storage, bit rates, leakage, saturation), with PC analogies; after the derivations and the four-domain table",
    "instrument_or_term": "paper",
    "sources": [
@@ -25509,7 +25509,7 @@
    "depends_on": [
     "PHY-045"
    ],
-   "notes": "",
+   "notes": "; author 2026-10-15: the 'computer geek edition', 'IAM for dummies', after the plain-language series (OTH-041 to OTH-048); both sponsored on the page",
    "legacy_ids": [],
    "id": "OTH-049",
    "sources_of_row": [
@@ -25544,6 +25544,50 @@
    "notes": "lesson C15 (bars in the units of their purpose) came out of it",
    "legacy_ids": [],
    "id": "ATL-064",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "The horizon's storage by era: bits held at the CMB, first stars, the turn to acceleration and today",
+   "purpose": "the horizon's bit count N = pi c^5/(G hbar H^2 ln2) at each era on the book's expansion curve (both H0 values); N is a stock, so its summed rate is today's count",
+   "instrument_or_term": "cosmos",
+   "sources": [],
+   "data_status": "none",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "compute on the laptop; then redo on IAM's own E(a)",
+   "cost": "laptop",
+   "impact": 3,
+   "depends_on": [
+    "PHY-044"
+   ],
+   "notes": "author 2026-10-15, for the Computer Science of Reality paper (OTH-049)",
+   "legacy_ids": [],
+   "id": "PHY-053",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Gravity, time and the bit rate (author's candidate): is local time the rate of writing to the horizon?",
+   "purpose": "the author's idea that gravity is proportional to the bit rate and time is the one-way writing; checked against known physics: clocks run slower deeper in gravity (time dilation), and the Tolman relation (local T times the clock factor is constant) makes the Landauer price per bit the same everywhere as seen from far, higher locally",
+   "instrument_or_term": "cosmos",
+   "sources": [],
+   "data_status": "none",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "state the candidate in IAM units beside time dilation and Tolman; credit Jacobson 1995 and Verlinde 2011 for exactly what they did",
+   "cost": "laptop",
+   "impact": 4,
+   "depends_on": [
+    "PHY-044"
+   ],
+   "notes": "author 2026-10-15, for the Computer Science of Reality paper (OTH-049)",
+   "legacy_ids": [],
+   "id": "PHY-054",
    "sources_of_row": [
     "session 2026-10-15"
    ]
