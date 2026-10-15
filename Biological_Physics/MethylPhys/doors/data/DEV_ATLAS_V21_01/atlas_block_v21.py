@@ -32,6 +32,16 @@ def fit_block(O, loci, TERMS, seed, mode="v21", K=100, warm=600, draws=400):
     """O: columns cell, src, kind (array | wgbs | pooled), l (locus index), y (clipped to [1e-3, 1 - 1e-3]), cov. Returns a dict of outputs."""
     NL = len(loci); cells = sorted(O.cell.unique()); ci = {c: i for i, c in enumerate(cells)}; NC = len(cells)
     O = O.copy(); O["c"] = O.cell.map(ci)
+    if mode == "v21inv":
+        # transfer_inverse_v21.py (2026-10-15): each sequencing reading y is converted ONCE to the array scale, x = g^-1(y), with g the smooth
+        # transfer; its noise is divided by the local slope k = g'(x) (error propagation), k floored at 0.151, the smallest non-flat segment
+        # slope of the adopted curve, so a reading on a plateau is down-weighted (at most 44x) instead of given infinite noise.
+        from scipy.interpolate import PchipInterpolator
+        _P = PchipInterpolator(TERMS["knots_x"], TERMS["knots_y"]); _gx = np.linspace(0, 1, 200001); _gv = _P(_gx) + 1e-12 * _gx
+        sq = (O.kind != "array").values; yv = O.y.values.astype(float); xv = yv.copy()
+        xv[sq] = np.interp(yv[sq], _gv, _gx); kv = np.ones(len(O)); kv[sq] = np.maximum(_P.derivative()(xv[sq]), 0.151)
+        sv = np.zeros(len(O)); sv[sq] = np.interp(xv[sq], TERMS["scatter_mid"], TERMS["scatter_s"])
+        O["y"] = np.clip(xv, 1e-3, 1 - 1e-3); INV_K = jnp.array(kv); INV_S = jnp.array(sv)
     p1, p2, d = row_terms(O, TERMS, mode)
     a = jnp.array(p1); b = jnp.array(p2); dd = jnp.array(d); t = jnp.zeros(len(O))
     c_ = jnp.array(O.c.values); l_ = jnp.array(O.l.values); y_ = jnp.array(O.y.values); cov_ = jnp.array(O["cov"].values)
@@ -62,7 +72,11 @@ def fit_block(O, loci, TERMS, seed, mode="v21", K=100, warm=600, draws=400):
         lmu = numpyro.sample("lmu", dist.Normal(nu[None, :], tau).expand([NC, NL])); mu = jax.nn.sigmoid(lmu)
         lsd = numpyro.sample("lsd", dist.Normal(jnp.log(0.03), 0.7).expand([NC, NL])); sd = jnp.exp(lsd)
         m = mu[c_, l_]; s_ = sd[c_, l_]
-        if mode == "v2":
+        if mode == "v21inv":
+            loc = jnp.where(isarr, m + dd, m)
+            var = jnp.where(isarr, s_ ** 2 + t ** 2 + FLOOR, jnp.where(ispool, s_ ** 2 / 3., s_ ** 2) + m * (1 - m) / (jnp.maximum(cov_, 1.) * INV_K ** 2)
+                            + nrep * INV_S ** 2 / INV_K ** 2 + t ** 2 + FLOOR)
+        elif mode == "v2":
             loc = jnp.where(isarr, m + dd, a + b * m)
             var = jnp.where(isarr, s_ ** 2 + t ** 2 + FLOOR, (b ** 2) * jnp.where(ispool, s_ ** 2 / 3., s_ ** 2) + m * (1 - m) / jnp.maximum(cov_, 1.) + t ** 2 + FLOOR)
         else:
