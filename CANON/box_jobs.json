@@ -648,15 +648,12 @@
    "date": "2026-10-14",
    "commit": "b3904580",
    "s3_code_prefix": "results/ATLAS_V21/b1_l18/code/run3/",
-   "state": "running",
+   "state": "cancelled",
    "log": "results/ATLAS_V21/b1_l18/b1_K100.log",
    "machine": "methylphys-cpu-01 (on-demand m7a.8xlarge, 32 cores, 123 GB); parallel count computed for the 192-core, 768 GB fit machine",
    "purpose": "B1: one block's time and peak memory, the parallel count and disk per block; L18: summary columns identical between 100 and 20 saved draws",
    "record": "doors/DEV_ATLAS_V21_01.md",
-   "outputs": [
-    "results/ATLAS_V21/b1_l18/block_measure_v21.json",
-    "results/ATLAS_V21/b1_l18/outputs_v21_check_summary.txt"
-   ],
+   "outputs": [],
    "files": [
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_b1_l18_box.py",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/run_v21_block.py",
@@ -665,7 +662,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv",
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
-   "note": "running"
+   "note": "stopped after about 4 h on block 0: the v2.1 model does not converge on real data (speed diagnostic 24a39f2b); no output"
   },
   {
    "job_id": "24a39f2b-f4cf-4094-af87-4d27c216053b",
@@ -673,13 +670,12 @@
    "date": "2026-10-15",
    "commit": "d2fc454e",
    "s3_code_prefix": "results/ATLAS_V21/speed_diag/code/run1/",
-   "state": "running",
+   "state": "failed",
    "log": "results/ATLAS_V21/speed_diag/spd_v21.log",
    "machine": "methylphys-cpu-01 (on-demand m7a.8xlarge, cores 8-23, beside B1 run 3)",
    "purpose": "find why B1 ran 7x over the cost sheet: per-locus time and tree depth of v2's model and the v2.1 model on identical data",
    "record": "doors/DEV_ATLAS_V21_01.md",
    "outputs": [
-    "results/ATLAS_V21/speed_diag/speed_v2.json",
     "results/ATLAS_V21/speed_diag/speed_v21.json"
    ],
    "files": [
@@ -690,7 +686,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv",
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
-   "note": "running"
+   "note": "v2.1 arm ran: 7.695 s per locus, all 1,600 draws at the maximum tree depth, R-hat p99 3.35 (not converging); v2 arm failed on the diagnostic's own error (v2's terms file not shipped)"
   }
  ],
  "not_jobs": {

@@ -467,11 +467,8 @@
   "s3_inputs_sha": {},
   "matches_repo": true,
   "log_in_s3": false,
-  "outputs_in_s3": {
-   "results/ATLAS_V21/b1_l18/block_measure_v21.json": false,
-   "results/ATLAS_V21/b1_l18/outputs_v21_check_summary.txt": false
-  },
-  "state_at_verify": "running"
+  "outputs_in_s3": {},
+  "state_at_verify": "cancelled"
  },
  "24a39f2b-f4cf-4094-af87-4d27c216053b": {
   "s3": {
@@ -484,11 +481,10 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/ATLAS_V21/speed_diag/speed_v2.json": false,
-   "results/ATLAS_V21/speed_diag/speed_v21.json": false
+   "results/ATLAS_V21/speed_diag/speed_v21.json": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "failed"
  }
 }

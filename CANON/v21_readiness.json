@@ -158,7 +158,10 @@
    "manifest": [
     "ATL-045"
    ],
-   "note": "check word changed 2026-10-14 from 'PASSED' to the verdict line the committed test writes ('PLANTED: MET'); the result file was not edited"
+   "note": "check word changed 2026-10-14 from 'PASSED' to the verdict line the committed test writes ('PLANTED: MET'); the result file was not edited",
+   "reopened": [
+    "2026-10-15: the v2.1 block model does not converge on real data (R-hat p99 3.35, every draw at the maximum tree depth; speed_diag_v21.json). The bounded transfer is exactly flat over array 0.035-0.055 and 0.964-0.984 and held flat outside 0.017-0.984, so sequencing readings carry no information on a cell's value there. The planted test (40 loci, 5 cells) did not cover values in the flat stretches. Fix, its planted test with extreme values, and a real-block convergence check required before launch."
+   ]
   },
   {
    "id": "L11",
@@ -580,7 +583,8 @@
    ],
    "what": "ATL-061 L20 found the transfer bends: a transfer that cannot leave [0, 1] adopted - every bin with >= 500 pairs within +/-0.02 on the shared cells, and its synthetic test met",
    "files": [
-    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_bounded_v21_summary.txt"
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_bounded_v21_summary.txt",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_fix_v21_summary.txt"
    ],
    "checks": {
     "contains": [
@@ -589,7 +593,10 @@
       "ADOPTED"
      ]
     ]
-   }
+   },
+   "reopened": [
+    "2026-10-15: the v2.1 block model does not converge on real data (R-hat p99 3.35, every draw at the maximum tree depth; speed_diag_v21.json). The bounded transfer is exactly flat over array 0.035-0.055 and 0.964-0.984 and held flat outside 0.017-0.984, so sequencing readings carry no information on a cell's value there. The planted test (40 loci, 5 cells) did not cover values in the flat stretches. Fix, its planted test with extreme values, and a real-block convergence check required before launch."
+   ]
   },
   {
    "id": "L22",
@@ -612,7 +619,10 @@
      ]
     ]
    },
-   "note": "first design NOT MET (terms_final_v21_summary.txt, kept); second design chosen by the author 2026-10-14: one curve for every WGBS source, cell scatter carried, no cell removed"
+   "note": "first design NOT MET (terms_final_v21_summary.txt, kept); second design chosen by the author 2026-10-14: one curve for every WGBS source, cell scatter carried, no cell removed",
+   "reopened": [
+    "2026-10-15: the v2.1 block model does not converge on real data (R-hat p99 3.35, every draw at the maximum tree depth; speed_diag_v21.json). The bounded transfer is exactly flat over array 0.035-0.055 and 0.964-0.984 and held flat outside 0.017-0.984, so sequencing readings carry no information on a cell's value there. The planted test (40 loci, 5 cells) did not cover values in the flat stretches. Fix, its planted test with extreme values, and a real-block convergence check required before launch."
+   ]
   }
  ],
  "public": {

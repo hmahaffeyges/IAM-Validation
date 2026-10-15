@@ -1,0 +1,25 @@
+{
+ "mode": "v21",
+ "loci": 60,
+ "obs": 35892,
+ "wall_s": 461.7,
+ "s_per_locus": 7.695,
+ "warnings": {
+  "divergences": 0,
+  "divergences_per_chain": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "accept_prob_mean": 0.8958787322044373,
+  "draws_at_max_tree_depth": 1600,
+  "wall_s": 460.8,
+  "loci": 60,
+  "cells": 79,
+  "seed": 1000,
+  "mode": "v21",
+  "K": 20
+ },
+ "rhat_p99": 3.349778652191162
+}
