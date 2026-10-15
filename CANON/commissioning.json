@@ -179,6 +179,26 @@
     {
      "file": "docs/book/part6/p6_16_sky.tex",
      "pattern": "block size; blocks per map & 50; 120 \\\\\\\\"
+    },
+    {
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
+     "pattern": "641 healthy arrays"
+    },
+    {
+     "file": "Biological_Physics/MethylPhys/chain/conductor_v3.py",
+     "pattern": "641 healthy arrays"
+    },
+    {
+     "file": "docs/book/part6/p6_09_cscore.tex",
+     "pattern": "641 healthy arrays"
+    },
+    {
+     "file": "Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md",
+     "pattern": "641 healthy arrays"
+    },
+    {
+     "file": "Biological_Physics/MethylPhys/STATUS.md",
+     "pattern": "641 healthy arrays"
     }
    ]
   }

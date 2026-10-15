@@ -206,7 +206,7 @@ def stage_t_tare(A, ref_A, shift_1pct=None, sample_id=None):
             "detection_note": "smallest loss of the cell's pattern (percent) this specimen could show: 2 x reference spread / shift per 1 % loss",
             "state": _state(Ar)}
 
-CSCORE_DEV_BAND = (0.877, 1.152)   # blocks of 10 (2026-10-09): 2.5-97.5 % of tared C on 641 healthy arrays, 19 laboratories; development, not commissioned (CSCORE_COMMISSIONING_PLAN)
+CSCORE_DEV_BAND = (0.877, 1.152)   # blocks of 10 (2026-10-09): 2.5-97.5 % of tared C on 617 healthy arrays, 19 laboratories; development, not commissioned (CSCORE_COMMISSIONING_PLAN)
 
 def stage_t_cscore(cs, ref_A, sample_id=None):
     """Same-run tare of the Met-A C-score, the same rule as the median tare of A (DEV-CSCORE-TARE-01): C_rel = C / median(C of >= MIN_REFS
