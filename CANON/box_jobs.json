@@ -1077,7 +1077,7 @@
    "job_id": "39f8ae21-d4c4-4817-801b-86d79e949995",
    "name": "PHY-049 whole genome: the ten samples GEO refused",
    "date": "2026-10-15",
-   "commit": "ec70e9d8",
+   "commit": "b14d5ff4",
    "s3_code_prefix": "results/LOOSE_SHARE_2026-10-15/genome/code/run2/",
    "state": "running",
    "log": "results/LOOSE_SHARE_2026-10-15/genome/run2_gw.log",
@@ -1095,9 +1095,10 @@
     "development/loose_share_2026-10-15/own_reads_loose.py",
     "development/loose_share_2026-10-15/tiles_hg19_cpgidx.bed",
     "development/loose_share_2026-10-15/windows_hg19_cpgidx.bed",
-    "Biological_Physics/MethylPhys/boxruns/publish_code.py"
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py",
+    "development/loose_share_2026-10-15/run2/genome_samples.txt"
    ],
-   "note": "running"
+   "note": "running; its genome_samples.txt is run2/genome_samples.txt (the ten refused samples)"
   }
  ],
  "not_jobs": {

@@ -761,7 +761,7 @@
    "windows_hg19_cpgidx.bed": "b7c1d4b55508e7561d8a097a9c92398fef0b952675e97bdcb55bdddd97d522e3"
   },
   "s3_inputs_sha": {},
-  "matches_repo": false,
+  "matches_repo": true,
   "log_in_s3": false,
   "outputs_in_s3": {
    "results/LOOSE_SHARE_2026-10-15/genome/run2_own_reads_genome.csv": false
