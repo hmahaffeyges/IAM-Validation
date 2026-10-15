@@ -1818,3 +1818,4 @@ Box job 3d54707d (code 86860155) is diagnostic 4.
 
 ### 2026-10-15 · Diagnostic 4: the scatter term is not the cause
 Box job 3d54707d: with the per-cell scatter off, the smooth curve runs 4.73 s per locus and v2's line in the v2.1 model 3.46; every draw still at the maximum depth. Remaining difference from v2's model: v2.1 takes the read-count noise from the converted value h, clipped at 0, where v2 takes it from the cell value m. Diagnostic 5 (diagnostic only; a flag in the terms file, off by default): the same two arms with the noise taken from m.
+Box job e2efa254 (code bee2bbfa) is diagnostic 5.
