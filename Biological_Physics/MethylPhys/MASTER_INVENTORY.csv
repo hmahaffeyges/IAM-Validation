@@ -113,6 +113,7 @@ GSE146552,,,,,,,,DEV_ATLAS_V21_01,atlas build,ovary epithelium | fallopien tubes
 GSE146920,downloads/E_dog_animal/GSE146920/,0.05,,,unspent,,,,,,,,Dog and other mammal arrays,S3 register
 GSE147430,,,,,,,,,"not usable (redundant: 128 of 132 donor IDs also in GSE224807 (GEO source names, this run))",cd8 t cells,yes,IDAT listed for 132/132 samples,Smoking effect on DNA methylation in human blood CD8T cells,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE147436,,,,,unspent,,,,,,,,,
+GSE147740,,,,,partly spent (declared before reading),,,,,,,,,
 GSE148663,,,,,partly spent,,,,,,,,,
 GSE149268,,,,,partly spent,,,,,,,,,
 GSE149438,,,,,,,,DEV_LIVER_BLOOD_01,,,,,,

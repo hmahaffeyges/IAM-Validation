@@ -6,9 +6,9 @@ first, writes its rule before its data, and is pushed through the gate. Times ar
 
 ## Decisions waiting for the author (nothing below is blocked on them)
 
-1. **COM-CSCORE-013:** the C-Score bars narrowly unmet. Should the healthy band be read one-sided (only "above the band" counts, as cancer
-   moves toward the ceiling), and should the repeatability bar be absolute (0.10) rather than series-tared? Recommendation: one-sided,
-   because the gauge flags only rightward moves; absolute repeatability kept, because a tared bar can hide array-to-array noise.
+1. ~~COM-CSCORE-013~~ **Withdrawn 2026-10-15: already decided.** The author adopted both C-Score definitions on 2026-10-09 (one-sided
+   band, upper limit 1.152; repeat bar within-person SD of C_rel <= 0.125; CSCORE_COMMISSIONING_PLAN.md). This plan wrongly listed them as
+   open. The last check, test (b), is now sealed on new same-person repeats (GSE147740), with a third-laboratory band test on the same arrays.
 2. **COM-CSCORE-012 against COM-CSCORE-014:** for the C-Score's last check, keep searching for unspent same-person EPIC v1 repeats, or
    commission the 450K band instead (opens the 450K archive). Recommendation: the repeat search first (metadata only); 450K only if it
    comes back empty.

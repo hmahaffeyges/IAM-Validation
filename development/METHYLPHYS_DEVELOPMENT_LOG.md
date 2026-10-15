@@ -1940,3 +1940,6 @@ own_reads_opensea.py: only the loose share changes, counted at open-sea CpGs (mo
 
 ### 2026-10-15 · DEV-METAA-SELFLINE-01 (COM-METAA-039) rule and synthetic committed before any loose share is computed
 Met-A against its own loose share: six series of healthy purified neutrophils, Met-A readings as already committed, the arrays' own loose-share rule (DEV-ARCH-01), leave one series out, showcase bars. Synthetic MET.
+
+### 2026-10-15 · C-score: same-person repeats found and the last check sealed before any array is fetched
+A GEO metadata search for EPIC blood series with repeat measures found GSE147740 (AIRWAVE, Imperial College London): 14 healthy people with two arrays each, on different slides, same recorded age, in a set never read by this work and with no contributor in common with the 19 band series. Pre-registered in CSCORE_COMMISSIONING_PLAN.md with the definitions the author adopted 2026-10-09: test (b) within-person SD of C_rel <= 0.125 (at least 10 complete pairs), and test (a) on a third laboratory (176 arrays, at least 95 percent not above 1.152). Reader read_repeat_test.py (Stage 1 and conductor_v3 unchanged, tare verbatim from run3). Correction to COMMISSIONING_PLAN.md: decision 1 (C-score one-sided band and repeat bar) had already been made by the author on 2026-10-09 and is withdrawn.
