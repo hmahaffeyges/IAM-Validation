@@ -8,7 +8,7 @@ Candidate instruments: every reading we could build on the methylation channel, 
 
 - **Reads:** whether losses are CLUSTERED (whole stretches) rather than scattered - the shape of the loss, not its size
 - **Substrate:** arrays (EPIC v1 now; 450K and EPIC v2 later) · **Cost:** free (a metadata search, then one laptop read)
-- **Where it stands:** test (a) MET in two laboratories that had no part in setting the band (34/35 and 22/23 healthy, 95 % bar)
+- **Where it stands:** DONE 2026-10-15: last check met (same person twice, SD 0.038 against 0.125; third laboratory 172/173); commissioned on whole blood. test (a) MET in two laboratories that had no part in setting the band (34/35 and 22/23 healthy, 95 % bar)
 - **Still open:** new SAME-PERSON replicate arrays, from a set that did not help build the band, to confirm the repeatability bar
 - **Advantage:** clustering is the cancer fingerprint; ordinary aging and inflammation scatter errors instead. Most specific thing we have
 - **Blind spot:** whole blood so far, while the meter it rides on is commissioned on sorted cells - that scope gap must be reconciled before any detection claim; and one array decided the second test (22/23 = 95.65 % against 95 %)

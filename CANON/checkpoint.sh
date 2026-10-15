@@ -12,7 +12,8 @@ step python3 Biological_Physics/MethylPhys/boxruns/make_runs_ledger.py
 step python3 CANON/box_code_check.py
 python3 CANON/fit_progress.py > /dev/null 2>&1 || true
 step python3 CANON/v21_readiness.py; step python3 CANON/v21_release.py --verify
-step python3 CANON/ascore_db.py; step python3 CANON/book_toolbox.py;
+step python3 CANON/ascore_db.py; step python3 CANON/instruments_board.py;
+step python3 CANON/book_toolbox.py;
 step python3 CANON/catalogue.py; python3 CANON/now_running.py > /dev/null 2>&1 || true
 step python3 CANON/four_domains.py; step python3 CANON/manifest.py; step python3 CANON/master_inventory.py; python3 CANON/daylog.py > /dev/null 2>&1 || true
 git add -A --sparse .
