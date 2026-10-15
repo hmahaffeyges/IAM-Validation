@@ -10,8 +10,10 @@ patient's normal tissue, and more than healthy cells ever read there.
 **Code:** `data/DEV_BACKBONE_01/backbone_01.py` (its constants and their sources: `backbone_01_constants.json`). The real mode refuses to run
 until the author's go is committed.
 
-**Synthetic test:** DEV_BACKBONE_01/backbone_01.py, DEV_BACKBONE_01/backbone_01_synthetic.txt (run once 2026-10-15: planted tumors worse than
-nameplate read MET; planted pairs with no tumor excess on firm territory read NOT MET; SYNTHETIC: MET)
+**Synthetic test:** DEV_BACKBONE_01/backbone_01.py, DEV_BACKBONE_01/backbone_01_synthetic.txt
+
+Run once 2026-10-15: planted tumors worse than nameplate read MET; planted pairs with no tumor excess on firm territory read NOT MET;
+SYNTHETIC: MET.
 
 **Data (already held, nothing downloaded).** The six true tumor/normal pairs of early-onset colorectal cancer (GSE284325, WGBS, PROC-TUMOUR-01),
 per-site tables in our S3 (downloads/tumour_work/out/EOCRC_*_WGBS_*.parquet: m, t, opp_A, err_A, opp_B, err_B). Development use of spent data.

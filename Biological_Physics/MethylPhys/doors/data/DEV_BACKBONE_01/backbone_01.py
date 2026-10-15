@@ -4,6 +4,7 @@ Usage: python backbone_01.py synthetic        (planted pairs, no data)
 Constants (written to backbone_01_constants.json): the healthy firm-territory range 0.0136-0.0226 is PROC-CHANNEL-01 section 7
 (56 healthy cell types on the 26,800 sites every cell keeps fully methylated); the loose cut 0.70 on 100 kb bins is DEV-ARCH-01's.
 Positions in the tables are chromosome << 32 | coordinate."""
+# NO CHAIN: the held-error count here is the stored per-site table (err/opp), the same sum Stage Q makes; no chain stage reads territories
 import os, sys, json, numpy as np, pandas as pd
 H = os.path.dirname(os.path.abspath(__file__))
 K = dict(healthy_lo=0.0136, healthy_hi=0.0226, loose_cut=0.70, bin_bp=100_000, min_pooled_t=50, min_opp=5000, se_allow=2.0,
