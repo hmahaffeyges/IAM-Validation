@@ -23,7 +23,7 @@ if ARM == "A":
     missing = sorted(set(O.src) - set(TT)); assert not missing, f"no v2-form term for {missing}"
     mode = "v2"
 else:
-    TT = json.load(open("transfer_v21_smooth.json" if ARM == "S" else "transfer_v21_anchored.json")); mode = "v21"   # ARM S: smooth transfer
+    TT = json.load(open({"S": "transfer_v21_smooth.json", "P": "transfer_v21_diag3_P.json", "L": "transfer_v21_diag3_L.json"}.get(ARM, "transfer_v21_anchored.json"))); mode = "v21"   # S smooth; P, L diagnostic 3 (diag3_terms_v21.py)
     if ARM == "C": TT = dict(TT); TT["scatter_s"] = [0.0] * len(TT["scatter_s"])
 t0 = time.time(); R = AB.fit_block(O, sub, TT, seed=1000, mode=mode, K=20); w = time.time() - t0
 W = R["warnings"]; out = {"arm": ARM, "mode": mode, "loci": NSUB, "obs": len(O), "s_per_locus": round(w / NSUB, 3), "max_depth_share": W["draws_at_max_tree_depth"] / 1600,
