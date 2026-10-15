@@ -44,12 +44,12 @@ Reads the methylation level at sites a healthy cell holds firmly, against a heal
 
 Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping against a healthy band. The band held in two laboratories that never helped set it.
 
-**Reads:** arrays (whole-genome sequencing too). **Where it stands:** passing its tests.
+**Reads:** arrays (whole-genome sequencing too). **Where it stands:** commissioned (whole blood and isolated neutrophils, EPIC v1, 2026-10-15).
 
 - COM-CSCORE-011 C-score healthy band test: run; last run 2026-10-13: met
 - COM-CSCORE-012 C-score last check: same-person repeatability on unspent replicate arrays: run; last run 2026-10-15: met
 
-**Next:** One check left: the same person measured twice on unused public arrays. Searching for that data.
+**Next:** Read real cancers with a sealed bar, then 450K and EPIC v2 arrays and plasma, each as its own commissioning step.
 
 ## IAM-A
 

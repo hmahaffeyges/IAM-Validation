@@ -32,15 +32,19 @@ import json, os
 import numpy as np, pandas as pd
 import stage_m_met_a as SM
 HERE = os.path.dirname(os.path.abspath(__file__)); RM = os.path.join(HERE, "Runtime Matrices", "Met_A_Floors")
-BUILD = "chain v3: Met-A on isolated neutrophils (EPIC v1) COMMISSIONED 2026-10-09; every other stage DEVELOPMENT - not commissioned"
+BUILD = "chain v3: Met-A on isolated neutrophils (EPIC v1) COMMISSIONED 2026-10-09; Met-A C-score on whole blood and isolated neutrophils (EPIC v1) COMMISSIONED 2026-10-15; every other stage DEVELOPMENT - not commissioned"
 METAA_COMMISSIONING = {   # doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md (author approved 2026-10-09)
     "status": "COMMISSIONED", "date": "2026-10-09", "reading": "Met-A", "cell": "neutrophils", "platform": "EPIC v1",
     "specimens": ["isolated neutrophils"],
     "stages": "0, 1, 2, 5, 6, 8 (self-tare II then the median tare), 9, 13",
     "detection_limit_pct_loss": {"isolated neutrophils": 2.0},
     "detection_basis": "DEV-METAA-SENS-01: every healthy array left Normal at these losses of the neutrophil pattern, through the whole chain",
-    "not_commissioned": "whole blood (bar 7 met only on the reference laboratory's own truth sets; commissioned when met on an independent one), Met-A C-score, IAM-A, sky (11/12), direction (10), trace/foreign cells (3b/3c), other cell types",
+    "not_commissioned": "whole blood (bar 7 met only on the reference laboratory's own truth sets; commissioned when met on an independent one), IAM-A, sky (11/12), direction (10), trace/foreign cells (3b/3c), other cell types",
     "note": "doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md"}
+CSCORE_COMMISSIONING = {   # doors/COMMISSIONING_NOTE_CSCORE.md (2026-10-15; plan rule: tests (a) and (b) met)
+    "status": "COMMISSIONED", "date": "2026-10-15", "reading": "Met-A C-score", "platform": "EPIC v1",
+    "specimens": ["whole blood", "isolated neutrophils"], "band_upper": 1.152, "reading_rule": "one-sided: C_rel above 1.152 is a clustered departure",
+    "detection_limit": "C_rel 1.5 at 5 percent of sites clustered", "note": "doors/COMMISSIONING_NOTE_CSCORE.md"}
 # No fixed fraction cut (author decision 2026-10-10, DEV-LOWFRAC-01): every whole-blood reading carries shift_per_1pct_loss at its own
 # fraction, and Stage T prints the detection limit (smallest loss of the pattern the specimen could show). The former 0.20 cut did not
 # follow from its stated basis (doors/data/DEV_LOWFRAC_01/shift_vs_fraction_01.py: the 1 % shift reaches 0.01 at 0.27).
@@ -218,7 +222,9 @@ def stage_t_cscore(cs, ref_A, sample_id=None):
     else:
         lo, hi = CSCORE_DEV_BAND
         cs["C_rel_band_dev"] = [lo, hi]; cs["C_rel_in_band_dev"] = bool(lo <= cs["C_rel"] <= hi)
-    cs["status"] = "development: tared C_rel against the development band (blocks of 10, CSCORE_COMMISSIONING_PLAN); not commissioned"
+    cs["C_call"] = ("above the band: clustered departure" if cs["C_rel"] > CSCORE_COMMISSIONING["band_upper"] else
+                    "less clustered than healthy (not a departure)" if cs["C_rel"] < CSCORE_DEV_BAND[0] else "not above the band")
+    cs["status"] = "commissioned reading (one-sided band, CSCORE_COMMISSIONING)"
     return cs
 
 def stage_t_selftare_ii(beta):
@@ -280,6 +286,8 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
         m["state"] = f"withheld: noise index {N} > {g['N_max']} and no same-run tare; A printed as a number only"
     if m.get("A") is not None and m.get("specimen") != "whole blood": m["commissioning"] = METAA_COMMISSIONING   # isolated neutrophils only (2026-10-11)
     elif m.get("A") is not None: m["development"] = ("DEVELOPMENT - not commissioned: whole blood (composition, bar 7, met only on the reference laboratory's own truth sets; commissioned when met on whole bloods of known composition from an independent laboratory). Detection limit at this fraction: 5 % loss (DEV-METAA-SENS-01).")
-    out["met_a"] = m; out["met_a_cscore"] = stage_t_cscore(stage_mc_cscore(z), ref_A, sample_id); out["tare"] = t
+    out["met_a"] = m; out["met_a_cscore"] = stage_t_cscore(stage_mc_cscore(z), ref_A, sample_id)
+    if out["met_a_cscore"].get("C_rel") is not None and m.get("specimen") in ("whole blood",) + ISOLATED: out["met_a_cscore"]["commissioning"] = CSCORE_COMMISSIONING
+    elif out["met_a_cscore"].get("C_rel") is not None: out["met_a_cscore"]["status"] = "development: specimen outside the commissioned C-score scope"; out["tare"] = t
     out["withheld"] = ["tier lines beyond Normal (not yet measured on this scale)", "other cell types (outside commissioning scope)"]
     return out

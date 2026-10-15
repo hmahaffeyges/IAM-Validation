@@ -75,8 +75,8 @@
      "title": "The clustering meter passes its last check",
      "status": "sealed",
      "what": "A public study measured 14 healthy adults twice on different chips; nobody in this work had ever read it. The bar, set before the arrays were read, allowed a spread of 0.125 between a person's two readings; the meter's spread was 0.038. The same 173 arrays were a third laboratory for its healthy range: 172 read inside it.",
-     "why": "Every check in the meter's plan is now met. It is proposed for commissioning on whole blood, which would make it the second commissioned instrument; its detection of clumped damage has been shown on changes planted into real arrays, not yet on real tumors.",
-     "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md"
+     "why": "Every check in the meter's plan is met, and the plan's own rule says that commissions it. It is commissioned on whole blood and isolated neutrophils, our second commissioned instrument; its detection of clumped damage has been shown on changes planted into real arrays, not yet on real tumors, which is its next test.",
+     "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md"
     },
     {
      "title": "Tumors' bare islands: written over in some, not all",

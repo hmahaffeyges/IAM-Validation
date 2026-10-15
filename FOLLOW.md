@@ -129,11 +129,15 @@ Each result says what was tested and what it means; the record behind it has eve
 
 Your cells put tiny chemical tags on their DNA. The tags tell each cell what kind of cell it is. Some stretches of DNA are tagged firmly and some loosely, and every cell makes a few tagging mistakes. We looked at 56 kinds of healthy human cells and found that the number of mistakes depends on one thing: how much of its DNA the cell keeps loosely tagged. Plotted, all 56 fall on one straight line. So we can tell what a healthy cell should look like from that cell's own sample, without comparing it to a library of other cells. Early result, from one laboratory's data. Next, we check it in a second lab.
 
-**2026-10-15 · The clustering meter passes its last check: the same person reads the same** *(development)* · [record](Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md)
+**2026-10-15 · The clustering meter passes its last check: the same person reads the same** · [record](Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md)
 
 Our second meter reads the shape of the damage: clumps, as a tumor leaves, or scattered, as ordinary wear leaves. Its last open check was whether one person measured twice reads the same. We found a public study, never touched by this work, in which 14 healthy adults were measured twice on different chips. The bar, set before the arrays were read, allowed a spread of 0.125; the meter's spread was 0.038, about a third of that. The same 173 arrays were also a third laboratory for its healthy range, and 172 read inside it. Every check in its plan is now met, and it is proposed for commissioning on whole blood. Its detection of clumped damage has been shown on changes planted into real arrays, not yet on real tumors.
 
-**2026-10-13 · The clustering meter's healthy range holds in two new laboratories** *(development)* · [record](Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md)
+**2026-10-15 · The clustering meter (C-score) commissioned on whole blood and isolated neutrophils (EPIC v1), with its band and detection limit printed on every report** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md)
+
+Commissioned means a reading is allowed to report results, not just development readings. The clustering meter reads the shape of the damage: clumps, as a tumor leaves, or scattered, as ordinary wear leaves. Every test written for it before its data were read was met: its healthy range held in three laboratories that never helped set it, the same person measured twice reads the same, and clumped damage planted into real healthy arrays was caught every time while scattered damage never set it off. It is our second commissioned instrument. It has not yet read real tumors with a sealed bar; that is its next test.
+
+**2026-10-13 · The clustering meter's healthy range holds in two new laboratories** · [record](Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md)
 
 Our second meter, the clustering meter, reads the shape of the damage: whether errors clump together, as they do when a whole region is wiped, or stay scattered, as ordinary errors do. Its healthy range was set on other laboratories' arrays and committed before two new laboratories' healthy blood was read. In both, at least 95 percent of healthy people had to read inside the range, and they did. The second laboratory passed by a single array, and both are whole blood rather than the purified cells the meter is being commissioned on, so this is development, not commissioning.
 

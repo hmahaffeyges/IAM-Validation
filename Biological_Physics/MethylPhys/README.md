@@ -1,7 +1,8 @@
 # MethylPhys — the cell instrument (chain v3)
 
 **Status (updated 2026-10-15):** Met-A on isolated neutrophils (Illumina EPIC v1) is **commissioned** (2026-10-09,
-[commissioning note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)); everything else here is in development. Not a diagnostic test. Further cell types are added one
+[commissioning note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)); the clustering meter (Met-A C-score) on whole blood and isolated neutrophils (EPIC v1) is **commissioned** (2026-10-15,
+[commissioning note](doors/COMMISSIONING_NOTE_CSCORE.md)); everything else here is in development. Not a diagnostic test. Further cell types are added one
 at a time, each after it passes pure-cell precision, mixture recovery and known damage. Every instrument, what it reads and where it
 stands: [`INSTRUMENTS.md`](../../INSTRUMENTS.md); the order of work: [`COMMISSIONING_PLAN.md`](../../COMMISSIONING_PLAN.md).
 

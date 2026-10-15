@@ -362,6 +362,5 @@ own slide (6-7 references), 2 against the series; one series-tared array's 172 r
 
 **Where the C-score now stands.** Every check in this plan has been met: the healthy band held on three laboratories that had no part in
 setting it (34 of 35, 22 of 23, 172 of 173), the same person reads the same within a third of the bar, and planted clustered loss in real
-healthy arrays was caught on 100 % of placements (step 2). **Proposed for commissioning** (`COMMISSIONING_NOTE_CSCORE_PROPOSED.md`),
-for the author's sign-off. Scope, stated plainly: healthy whole blood and purified neutrophils, EPIC v1. Its detection of clustered loss
+healthy arrays was caught on 100 % of placements (step 2). **Commissioned 2026-10-15** (`COMMISSIONING_NOTE_CSCORE.md`), as this plan's own rule fixed: both (a) and (b) met. Scope, stated plainly: healthy whole blood and purified neutrophils, EPIC v1. Its detection of clustered loss
 is shown on changes planted in real arrays, not yet on real cancers.

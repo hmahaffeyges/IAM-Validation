@@ -102,7 +102,7 @@
    "specimen_col": "specimen",
    "condition": "healthy",
    "platform": "EPIC v1",
-   "status": "development (band-building arrays)",
+   "status": "commissioned",
    "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md"
   },
   {
@@ -115,7 +115,7 @@
    "specimen": "whole blood",
    "condition": "healthy",
    "platform": "EPIC v1",
-   "status": "development (held-out lab, test a met)",
+   "status": "commissioned",
    "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md"
   },
   {
@@ -129,7 +129,7 @@
    "specimen_col": "specimen",
    "condition": "healthy",
    "platform": "EPIC v1",
-   "status": "development (held-out lab)",
+   "status": "commissioned",
    "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md"
   },
   {
@@ -160,7 +160,7 @@
    "specimen": "whole blood",
    "condition": "healthy",
    "platform": "EPIC v1",
-   "status": "development (held-out lab 3, test a met)",
+   "status": "commissioned",
    "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md"
   },
   {

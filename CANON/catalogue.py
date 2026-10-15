@@ -21,6 +21,7 @@ def stage(inst, M):
     rows = [M[i] for i in inst["rows"] if i in M]
     if any(r["status"] == "running" for r in rows): return "running now"
     if inst["id"] == "meta": return "commissioned (isolated neutrophils)"
+    if inst.get("commissioned"): return f"commissioned ({inst['commissioned']})"
     if any((r.get("runs") or [{}])[-1].get("outcome") == "success" for r in rows): return "passing its tests"
     return "in development"
 def markdown(C, M):

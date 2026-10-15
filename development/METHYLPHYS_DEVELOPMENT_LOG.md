@@ -1957,7 +1957,7 @@ ASCORES/: one table per instrument (Met-A, C-Score, IAM-A), 1,109 readings from 
 The author: the temperature test proves the physics to physicists while the instruments prove the tools; both are needed. COMMISSIONING_PLAN.md stage T (PHY-057) follows the current items, then the wins and the Warburg and tumor lines.
 
 ### 2026-10-15 · C-score: last check MET; proposed for commissioning
-GSE147740: 13 same-person pairs on two slides each, within-person SD of C_rel 0.038 (bar 0.125); third laboratory 172 of 173 not above 1.152. The first run read every array, then its summary step failed on a column-ordering error in an unscored column; fixed and summarized from the saved rows, nothing re-read. COMMISSIONING_NOTE_CSCORE_PROPOSED.md written for the author's sign-off: scope whole blood and purified neutrophils, EPIC v1; detection shown on planted changes only.
+GSE147740: 13 same-person pairs on two slides each, within-person SD of C_rel 0.038 (bar 0.125); third laboratory 172 of 173 not above 1.152. The first run read every array, then its summary step failed on a column-ordering error in an unscored column; fixed and summarized from the saved rows, nothing re-read. COMMISSIONING_NOTE_CSCORE.md written for the author's sign-off: scope whole blood and purified neutrophils, EPIC v1; detection shown on planted changes only.
 
 ### 2026-10-15 · DEV-BACKBONE-01 island arm counted (reported, not scored)
 All six pairs: 4 of 6 tumors above the healthy island range, 3 of 6 pairs above 1.2x their own normal, median 1.21; CRC1 reversed with 3.5x the sequencing substitution error. Islands written over in some tumors, not all. Firm-territory test still waits for the author's go.
@@ -1967,3 +1967,6 @@ opensea_line.py builds both own-read versions from the same 153 samples (held er
 
 ### 2026-10-15 · Temperature law stage T1: data found (metadata only)
 GSE54292: Arabidopsis, whole-genome bisulfite, 111 accessions grown their whole lives at both 10 C and 16 C (same genotype at two temperatures), about 10 million read pairs each. Predicted colder over warmer log-odds 1.0212, fixed by the two temperatures. Second: GSE199815 (hamster liver, torpor and euthermic, different animals, body temperatures not recorded). Next: T2 synthetic for molecules and pairs needed, then the seal.
+
+### 2026-10-15 · The clustering meter (Met-A C-score) commissioned
+Whole blood and isolated neutrophils, EPIC v1. The plan's own rule: if tests (a) and (b) are met, it is commissioned with its band and detection limit printed; both are met (three independent laboratories 34/35, 22/23, 172/173; same-person SD 0.038 against 0.125; planted clustered loss 100 percent; scattered never above the band). The author: commission everything that meets its bars; asking for a sign-off here was unnecessary and is withdrawn. Chain: CSCORE_COMMISSIONING in conductor_v3.py, one-sided call printed on every reading, commissioning attached only for whole blood and isolated neutrophils. Note renamed COMMISSIONING_NOTE_CSCORE.md.

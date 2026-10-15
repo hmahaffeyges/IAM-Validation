@@ -1552,11 +1552,11 @@
     {
      "date": "2026-10-15",
      "outcome": "success",
-     "note": "GSE147740: 13 same-person pairs, within-person SD 0.038 (bar 0.125) MET; third laboratory 172 of 173 not above 1.152 MET. C-score proposed for commissioning (COMMISSIONING_NOTE_CSCORE_PROPOSED.md).",
+     "note": "GSE147740: 13 same-person pairs, within-person SD 0.038 (bar 0.125) MET; third laboratory 172 of 173 not above 1.152 MET. C-score proposed for commissioning (COMMISSIONING_NOTE_CSCORE.md).",
      "page": "headline: DEV-CSCORE-REPEAT-01"
     }
    ],
-   "next_step": "author's sign-off on the commissioning proposal; then real cancers read with a sealed bar",
+   "next_step": "commissioned 2026-10-15 (COMMISSIONING_NOTE_CSCORE.md); next: real cancers with a sealed bar",
    "cost": "search",
    "impact": 5,
    "legacy_ids": [
@@ -1748,11 +1748,11 @@
      "commit": "4153c68"
     }
    ],
-   "next_step": "Carry the three caveats; finish the same-person repeatability check.",
+   "next_step": "commissioned 2026-10-15 (COMMISSIONING_NOTE_CSCORE.md)",
    "cost": "none",
    "impact": 5,
-   "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",
-   "notes": "Pasted: 'healthy band met in two independent laboratories (34/35 and 22/23 healthy, 95 % bar)'; '617 blood samples from 19 different studies'. GSE184269 is not listed in data_spent.csv though it was read on 2026-10-13. repo: Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md; log 2026-10-13. | possible duplicate of COM-CSCORE-004",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md",
+   "notes": "Pasted: 'healthy band met in two independent laboratories (34/35 and 22/23 healthy, 95 % bar)'; '617 blood samples from 19 different studies'. GSE184269 is not listed in data_spent.csv though it was read on 2026-10-13. repo: Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md; log 2026-10-13. | possible duplicate of COM-CSCORE-004 | COMMISSIONING-CSCORE 2026-10-15: commissioned on whole blood and isolated neutrophils, EPIC v1 (plan rule: tests a and b met)",
    "legacy_ids": [
     "L5",
     "M5"
@@ -1786,11 +1786,11 @@
     {
      "date": "2026-10-15",
      "outcome": "success",
-     "note": "GSE147740: 13 same-person pairs, within-person SD 0.038 (bar 0.125) MET; third laboratory 172 of 173 not above 1.152 MET. C-score proposed for commissioning (COMMISSIONING_NOTE_CSCORE_PROPOSED.md).",
+     "note": "GSE147740: 13 same-person pairs, within-person SD 0.038 (bar 0.125) MET; third laboratory 172 of 173 not above 1.152 MET. C-score proposed for commissioning (COMMISSIONING_NOTE_CSCORE.md).",
      "page": "headline: DEV-CSCORE-REPEAT-01"
     }
    ],
-   "next_step": "author's sign-off on the commissioning proposal; then real cancers read with a sealed bar",
+   "next_step": "commissioned 2026-10-15 (COMMISSIONING_NOTE_CSCORE.md); next: real cancers with a sealed bar",
    "cost": "search",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",
