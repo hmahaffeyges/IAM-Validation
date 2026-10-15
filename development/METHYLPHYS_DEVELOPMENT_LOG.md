@@ -1848,3 +1848,6 @@ code_checksums_v21.txt: sha256 of run_v21.sh, run_v21_block.py, atlas_block_v21.
 
 ### 2026-10-15 · Atlas v2.1 fit launched
 Launch guard ALLOWED (every before-launch item met). Box resized to m7a.32xlarge (128 cores, 512 GB; address unchanged). Box job c2b26b34 (code 9d6991f5): 700 blocks, mode v21inv, 16 at a time, each block to S3 as it lands; about 24 h, about $180. The Loyfer and Moss use tests are written and sealed while it runs, before any atlas output is opened.
+
+### 2026-10-14 · Day log completed at turnover; the day-log check now enforces it (author)
+The author asked whether the daily report holds everything and whether the code demands it. It did not: the 2026-10-14 day log was still in progress, with 42 of 68 committed threads under half covered, and the coverage check only reported. Fixed: the day log is complete; CANON/daylog.py now refuses a push when a finished Pacific day has no log, still says in progress, or omits a committed thread (a thread counts only if its record id or half its words appear); threads are dated by their Pacific commit time, because some development-log headings were dated by UTC.

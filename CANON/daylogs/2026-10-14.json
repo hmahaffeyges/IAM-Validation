@@ -1,7 +1,7 @@
 {
  "date": "2026-10-14",
- "title": "Atlas v2.1 groundwork after midnight: the two donor halves sealed and the bounded transfer adopted (in progress)",
- "set_out": "Work from midnight Pacific. The goal is the atlas v2.1 launch: every before-launch item on the readiness board met, then the fit on the 128-core machine. The derivations from the whiteboard (the four-domain schematic and the derivation ledger) wait while box jobs run. This log is in progress and will be completed at turnover.",
+ "title": "Atlas v2.1 launched, the eraser test closed, and the instrument without an atlas began on the whiteboard",
+ "set_out": "Work from midnight to midnight Pacific. Two goals: launch the atlas v2.1 fit, with every before-launch item on the readiness board met; and, while box jobs ran, work the derivations on the whiteboard toward an instrument that needs no atlas (the author: KISS, physics first, derivations first).",
  "sections": [
   {
    "kind": "ran",
@@ -9,17 +9,87 @@
    "lead": "Each rule below was committed before it ran.",
    "entries": [
     {
-     "title": "The two donor halves for the half-atlases (readiness L19)",
+     "title": "The two donor halves (L19, decision 17)",
      "status": "structure",
-     "what": "818 samples joined into 328 donor units by genotype, metadata donor ids, and, for Loyfer's samples, lab, age and sex together (which can merge two people but never split one). Half A holds 171 units, half B 157. 79 of 97 cells are in both halves; 18 single-unit cells are not measured in one half.",
-     "why": "Two independent halves give map statistics with no noise bias, and half A minus half B is a pure noise map.",
+     "what": "328 donor units sealed into half A (171) and half B (157); 79 of 97 cells in both halves.",
+     "why": "Two independent halves give noise-free map statistics.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     },
     {
-     "title": "The array-to-sequencing transfer, made bounded (readiness L21)",
+     "title": "The bounded transfer (L21)",
+     "status": "sealed",
+     "what": "Designed, synthetic test MET, real check MET: L21 ADOPTED. Reopened later in the day (see the convergence work below).",
+     "why": "v2's straight line bends away from the sequencing scale.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The five open conditions (L8)",
+     "status": "sealed",
+     "what": "Rules fixed before any purity reading; the data step needed two runs (run 2 after loader inputs were not shipped); L8 settled: three conditional sets go to research; GSE137716 read by the decision 10 addendum after a correction (it is under decision 10).",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Final terms (L22)",
+     "status": "sealed",
+     "what": "First design NOT MET: the launch stops. The transfer diagnosis found scatter between the sequencing and array cohorts. Second design (author: one curve, scatter carried, no cell removed): MET.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Run script, planted test, dry run, cost sheet (L9, L10, L11)",
+     "status": "synthetic only",
+     "what": "The run script, block driver and declared outputs committed; planted test MET (run 2 after a redesign); the dry run of the data assembly OK; the cost sheet written, then real prices from the author's AWS account.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Commissioning bars (L15)",
+     "status": "sealed",
+     "what": "Sealed before the atlas exists; their scorers planted-tested.",
+     "why": "The atlas is judged by rules set in advance.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_COMMISSION_01.md"
+    },
+    {
+     "title": "The eraser test (DEV-ERASE-01)",
+     "status": "sealed",
+     "what": "The eraser-removed sets declared and the several-set verdict rule fixed before any read; the planted check on real molecules MET; reads run 1 stalled, run 2 by the AWS copy of SRA; unit U1 first; then all primary units read once: NOT MET. The job's verdict file was written once.",
+     "why": "Tests whether writing and erasing each take half of the held balance.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "title": "Cell position from RNA (DEV-POSITION-EXPR-01)",
+     "status": "failed",
+     "what": "Committed before it ran; run once: NOT MET (rank correlation +0.101 over 30 cell types).",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_POSITION_EXPR_01.md"
+    },
+    {
+     "title": "Architecture against the healthy held error (DEV-ARCH-01)",
      "status": "development",
-     "what": "A 3-parameter logistic missed 3 of 42 bins with a smooth wave and was not used. The adopted transfer is a monotone calibration curve that cannot leave [0, 1]. Built on 9 of the 17 shared cells and checked on the other 8, and the reverse, the worst bin was 0.0179 against a 0.02 bar; the synthetic test was met.",
-     "why": "The straight line v2 used predicts negative readings near 0 and overshoots near 1; the new curve stays inside what sequencing can read.",
+     "what": "Exploration: the loosely held share tracks the held error across 56 cell types (rank correlation +0.87).",
+     "why": "Points to territory, not turnover.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ARCH_01.md"
+    },
+    {
+     "title": "Atlas v2.1 convergence and speed",
+     "status": "diagnosis",
+     "what": "Block 0 ran 7 times over the cost sheet; the model did not mix on real data and the launch was held. Strict transfer design 1 NOT MET before any fit; design 2 committed; its planted test NOT MET (the flat curve is not the cause), after a false start. Diagnostics 2 to 5: the anchored transfer fixes the mixing and passes the Flatness check on 60 real loci; the smooth transfer (PCHIP) is faster, not fixed; the curve and the scatter term are not the cause; diagnostic 5 found two causes, one of them the noise taken from the converted value. Mode v21inv: planted test NOT MET (sampler bar), real check NOT MET by 0.0004 (R3).",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Atlas v2.1 fitted in mode v21inv (author decision)",
+     "status": "sealed",
+     "what": "Adopted with both missed bars and the numbers that justify it: agreement 0.24 standard errors, 98.7 percent inside the exact model's interval. Block 0: B1, L18 and L23 met (79 cells distinct, r 0.9961 against v2). L12 code checksums written. The fit launched: 700 blocks, about 24 hours, about $180.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/DECISION_v21inv.md"
+    },
+    {
+     "title": "Fit machines",
+     "status": "structure",
+     "what": "The first spot machine was reclaimed (public ledger row added; fit relaunch plan); the second fit machine was reclaimed and B1/L18 moved to the box; the fit moved to on-demand (author).",
+     "why": "Spot capacity for large machines was poor.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
@@ -27,7 +97,7 @@
   {
    "kind": "table",
    "heading": "Every lever test: what ran, what it showed, what is left",
-   "lead": "No lever test ran after midnight.",
+   "lead": "One lever test ran today.",
    "table": {
     "columns": [
      "lever",
@@ -40,7 +110,7 @@
      ],
      [
       "**Division rate**",
-      "not worked on today"
+      "retired as a frame for the held error (the held state is independent of division; push rule 25)"
      ],
      [
       "**Methyl supply (SAM, methionine, folate, B12)**",
@@ -48,7 +118,7 @@
      ],
      [
       "**Write and erase enzymes (DNMT, TET)**",
-      "not worked on today"
+      "DEV-ERASE-01 (sealed): NOT MET on all five primary units; removing the eraser never halved the held error (0.79 to 0.96 of control)"
      ],
      [
       "**Clustered versus scattered failure**",
@@ -60,7 +130,7 @@
   {
    "kind": "table",
    "heading": "Every candidate instrument: what ran today, what remains",
-   "lead": "No instrument test ran after midnight.",
+   "lead": "No instrument test ran today; one was prepared (DEV-BACKBONE-01, not run).",
    "table": {
     "columns": [
      "instrument",
@@ -95,6 +165,41 @@
    }
   },
   {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "lead": "",
+   "entries": [
+    {
+     "title": "Removing the eraser does not halve the held error",
+     "status": "sealed",
+     "what": "The eraser is real but small where we count.",
+     "why": "Kills the per-site half-and-half as the origin of the middle line; the middle line itself stays measured.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "title": "Fully held sites read at the writer's own limit",
+     "status": "development",
+     "what": "On sites every cell keeps fully methylated, cells read 0.0136 to 0.0226, inside the writer limit 1/(1 + D), 0.0123 to 0.0207 (overnight whiteboard).",
+     "why": "An enzyme constant, the same for everyone, is a reference with no atlas.",
+     "record": "development/WHITEBOARD_2026-10-15.md"
+    },
+    {
+     "title": "The island side is held at nameplate and ignores architecture",
+     "status": "development",
+     "what": "Across 56 healthy cell types a gained mark between unmethylated neighbors reads 0.0094 to 0.0162 (29 inside the writer band, 27 just below), with no relation to the loose share. Whiteboard into the four-domain table: gate error, leakage, one reading per instrument; step 4 prepared (DEV-BACKBONE-01, not run).",
+     "why": "The clean side to watch for the overdrive writer.",
+     "record": "FOUR_DOMAINS.md"
+    },
+    {
+     "title": "The cosmos",
+     "status": "structure",
+     "what": "Cosmos Mahaffey number filled from our own 2026-10-02 computation (black hole 2 ln2, horizon ln2 per bit); cosmos fidelity ratio: none for the whole universe (author); the star gauge added to the schematic (author).",
+     "why": "",
+     "record": "FOUR_DOMAINS.md"
+    }
+   ]
+  },
+  {
    "kind": "loss",
    "heading": "Our own mistakes today, and what caught each",
    "lead": "",
@@ -112,12 +217,96 @@
      "what": "Decisions 1 and 10 say their eosinophil and non-epithelial cuts were fixed in the plan; neither number was ever written down.",
      "why": "Caught while preparing the step that reads those arrays; the cuts will be committed before any of them is read.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The fit judged by R-hat alone",
+     "status": "diagnosis",
+     "what": "Correction: the v2.1 fit was judged by R-hat alone, against the Flatness Lesson. The author caught it; the Flatness check became launch item L23.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Bars set without a reason",
+     "status": "diagnosis",
+     "what": "Lesson C15: bars in the units of their purpose (author). Two round-number bars failed good work; both verdicts stand as written.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/LESSONS.md"
+    },
+    {
+     "title": "The retired term",
+     "status": "structure",
+     "what": "The retired term (author): the held error, not a copying error. Renamed everywhere current; push rule 26 refuses the old term.",
+     "why": "Two days running the copying frame came back.",
+     "record": "Biological_Physics/MethylPhys/LESSONS.md"
+    },
+    {
+     "title": "A cost quoted from a light slice",
+     "status": "diagnosis",
+     "what": "The fit was quoted at about $45 from 60 sites lighter than a full block; block 0 measured about $180. Corrected to the author before launch.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/cost_v21.txt"
+    },
+    {
+     "title": "Our own design error in the v2.1 model",
+     "status": "diagnosis",
+     "what": "The adopted curve's flat stretches and a finite-difference slope; recorded as an assistant design error.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "A box code check gap",
+     "status": "structure",
+     "what": "Box code check: data inputs that are another job's S3 output, now verified byte for byte.",
+     "why": "",
+     "record": "CANON/box_code_check.py"
+    }
+   ]
+  },
+  {
+   "kind": "thinking",
+   "heading": "Coffee and a whiteboard: how the day's ideas actually arrived",
+   "lead": "",
+   "entries": [
+    {
+     "title": "Derivation ledger and the physics game plan",
+     "status": "development",
+     "what": "The derivation ledger (the author asked for the full derivations); the physics game plan (author): an instrument that needs no atlas; the overnight whiteboard.",
+     "why": "",
+     "record": "development/WHITEBOARD_2026-10-15.md"
+    },
+    {
+     "title": "The efficiency premise and the two ends",
+     "status": "development",
+     "what": "The author's premise: a design holds firm what it uses. The gauge's two ends became gate error (derived) and leakage (open). The loose end waits by the author's decision; one reading per instrument.",
+     "why": "",
+     "record": "development/WHITEBOARD_2026-10-15.md"
+    }
+   ]
+  },
+  {
+   "kind": "changed",
+   "heading": "What changed in the plan",
+   "lead": "",
+   "entries": [
+    {
+     "title": "Derivations first, KISS",
+     "status": "structure",
+     "what": "No new data tests, searches or calibrations unless the author asks; sealed jobs already running finish.",
+     "why": "",
+     "record": "development/WHITEBOARD_2026-10-15.md"
+    },
+    {
+     "title": "Use tests for Loyfer and Moss",
+     "status": "structure",
+     "what": "Showcase tests written and sealed while the fit runs, before any atlas output is opened: markers, mixtures (with a wide-area mixture of cells their atlas lacks), and the extras shown.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   }
  ],
- "open_at_turnover": "In progress. Atlas v2.1 readiness: 14 of 21 before-launch items met. Next: the conditional arrays (L8), the run script and its planted test (L9, L10, L18), the cost sheet and code checksums (L11, L12), and the sealed commissioning bars (L15). The machine now runs as a 32-core instance; the fit needs it resized to 128 cores.",
- "closing": "In progress.",
+ "open_at_turnover": "The atlas v2.1 fit is running (700 blocks, finishing about 11:30 PM Pacific on 2026-10-15). Next: write and seal the Loyfer and Moss use tests; steps 1 to 3 on paper before DEV-BACKBONE-01 runs; the island-side counts for the tumor pairs (not saved; recovery needs the raw files).",
+ "closing": "Nine sealed or synthetic results, two NOT MET outcomes that stand as written, six of our own errors found and recorded, and the atlas fit launched on the plan's budget.",
  "_convention": "see 2026-10-13.json",
  "check_completeness": true
 }

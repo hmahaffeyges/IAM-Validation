@@ -95,6 +95,28 @@ def page_lists_every_day(days):
     return [f"[daylog] {d['date']}: no rendered day log for the page to list"
             for d in days if not os.path.isfile(os.path.join(OUT, d["date"] + ".md"))]
 
+def pacific_heads():
+    """Every development-log heading with the PACIFIC day it was committed (git blame author time; uncommitted lines: today).
+    The author works on Pacific time; headings were for a while dated by UTC, so a day log is checked against when a thread was
+    actually committed, not the date written in its heading (2026-10-14 finding)."""
+    import subprocess, datetime, zoneinfo
+    PT = zoneinfo.ZoneInfo("America/Los_Angeles")
+    lp = os.path.join("development", "METHYLPHYS_DEVELOPMENT_LOG.md")
+    out, t = [], None
+    try: B = subprocess.run(["git", "blame", "--line-porcelain", lp], cwd=ROOT, capture_output=True, text=True, timeout=300).stdout.split("\n")
+    except Exception: B = []
+    for l in B:
+        if l.startswith("author-time "): t = int(l.split()[1])
+        elif l.startswith("\t### "):
+            day = datetime.datetime.fromtimestamp(t, PT).date().isoformat() if t else datetime.datetime.now(PT).date().isoformat()
+            m = re.match(r"\t### (\d{4}-\d{2}-\d{2}) . (.+)$", l)
+            if m and "Day summary" not in m.group(2): out.append((day, m.group(1), m.group(2).strip()))
+    return out
+
+def today_pt():
+    import datetime, zoneinfo
+    return datetime.datetime.now(zoneinfo.ZoneInfo("America/Los_Angeles")).date().isoformat()
+
 def coverage(d):
     """Committed development-log headings for this day whose content words do not appear in the rendered day log.
 
@@ -103,13 +125,15 @@ def coverage(d):
     import re
     lp = os.path.join(ROOT, "development", "METHYLPHYS_DEVELOPMENT_LOG.md")
     if not os.path.isfile(lp): return []
-    heads = [h.strip() for h in re.findall(rf"^### {d['date']} . (.+)$", open(lp, encoding="utf-8").read(), re.M)
-             if "Day summary" not in h]
+    heads = sorted({h for day, _, h in pacific_heads() if day == d["date"]})
     blob = set(re.findall(r"[a-z0-9-]+", render(d).lower()))
     out = []
     for h in heads:
         w = {x for x in re.findall(r"[a-z0-9-]+", h.lower()) if x not in STOP and len(x) > 3}
-        if w and not (w & blob): out.append(h)
+        ids = set(re.findall(r"\b(?:[A-Z]{2,}(?:-[A-Z0-9]+)*-\d{2,3}|[LB]\d{1,2})\b", h))
+        txt = render(d)
+        # covered only if its record id is named, or at least half of its content words appear (tightened 2026-10-14: one shared word is not coverage)
+        if w and not (any(i in txt for i in ids) or len(w & blob) >= 0.5 * len(w)): out.append(h)
     return out
 
 def build():
@@ -135,6 +159,15 @@ if __name__ == "__main__":
     files = {os.path.join(OUT, d["date"] + ".md"): render(d) for d in days}
     files[os.path.join(OUT, "README.md")] = idx
     P += page_lists_every_day(days)
+    # Enforced, not reported (author 2026-10-14: "Are we confirming the code is demanding perfection with this?"): once a Pacific day is
+    # over, its day log must exist, must not be in progress, and must cover every development-log thread committed that day.
+    have = {d["date"]: d for d in days}; tp = today_pt()
+    for day in sorted({x[0] for x in pacific_heads() if "2026-10-14" <= x[0] < tp}):
+        d = have.get(day)
+        if not d: P.append(f"[daylog] {day}: the day is over and has no day log"); continue
+        if re.search(r"(?i)in progress", (d.get("title", "") + " " + str(d.get("open_at_turnover", "")) + " " + d.get("set_out", ""))):
+            P.append(f"[daylog] {day}: the day is over and its log still says in progress")
+        for h in coverage(d): P.append(f"[daylog] {day}: committed thread missing from the day log: {h[:80]}")
     if "--check" in sys.argv:
         for f, t in files.items():
             cur = open(f, encoding="utf-8").read() if os.path.isfile(f) else ""
