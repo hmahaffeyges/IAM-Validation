@@ -19,3 +19,26 @@ GSE110554 reference arrays deposited again under new sample numbers: Met-A, loos
 GSM5121421 = GSM2998030; `data/DEV_METAA_SELFLINE_01/arrays_L_all.csv`). Kept, they would count one laboratory twice in every fit. They are
 dropped (`arrays_L.csv`), leaving five independent series; the rule, the code and the bars are unchanged (the majority bar reads 4 of 5).
 Finding for other records: wherever GSE110554 and GSE167998 healthy neutrophils are counted as two sets, they are one.
+**Second amendment (2026-10-15).** The first scoring run returned no numbers: four arrays (GSM3462471, GSM7885055, GSM7885062,
+GSM7885064) have no Met-A reading because the chain withheld them, and the line fit cannot take an empty value. Those four are left out, as
+every Met-A read-out leaves out a withheld array; nothing else changed. The empty run printed "NOT MET" only because no bar could be
+computed; it is not a result.
+
+## Outcome (2026-10-15): NOT MET
+
+Scored once on 68 arrays from five independent laboratories (`data/DEV_METAA_SELFLINE_01/selfline_series.csv`, `selfline_verdict.json`).
+
+| series | arrays | raw offset | after the line | slope fitted on the other labs |
+|---|---|---|---|---|
+| GSE110554 (reference lab) | 6 | 0.001 | -0.130 | 5.49 |
+| GSE118144 | 13 | 0.065 | -0.021 | 3.54 |
+| GSE122244 | 4 | 0.075 | 0.053 | 6.18 |
+| GSE247193 | 21 | 0.192 | 0.137 | 0.16 |
+| GSE247195 | 24 | 0.069 | -0.100 | 8.17 |
+
+All three bars unmet. The laboratory with the largest offset (GSE247193, 0.19) has a loose share (0.051) next to the reference lab's
+(0.052), and the fitted slope swings from 0.16 to 8.2 with the laboratory left out: a laboratory's Met-A offset is not carried by its
+arrays' own loose share. **What it means:** Met-A keeps its same-lab tare. The array offset is the two-channel chemistry of the array
+(DEV-SELFTARE-01: background in each channel shifts a measured level), which moves Met-A's identity sites but barely moves a count of
+open-sea stretches below 0.70, so the loose share cannot see it. Met-A's route away from a same-lab reference remains the array's own fixed
+sites (DEV-SELFTARE-01/02), not the loose share. The self-reference stays IAM-A's advantage: on single molecules there is no channel offset.

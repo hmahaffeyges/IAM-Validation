@@ -26021,11 +26021,17 @@
    "sources": [
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
-   "data_status": "",
+   "data_status": "spent",
    "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_SELFLINE_01.md",
-   "status": "synthetic_done",
-   "runs": [],
-   "next_step": "compute each array's loose share from the stored Stage 1 betas and score once",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-15",
+     "outcome": "fail",
+     "note": "NOT MET: five independent labs, 68 healthy purified neutrophil arrays: a lab's Met-A offset is not carried by the arrays' own loose share (largest offset 0.19 at a loose share equal to the reference lab's; slope 0.16 to 8.2 by lab left out). Met-A keeps its same-lab tare. Record: Biological_Physics/MethylPhys/doors/DEV_METAA_SELFLINE_01.md"
+    }
+   ],
+   "next_step": "none on this route; Met-A's reference-free route is the array's own fixed sites (DEV-SELFTARE-01/02)",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

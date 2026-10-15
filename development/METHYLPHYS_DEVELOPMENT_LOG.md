@@ -1946,3 +1946,6 @@ A GEO metadata search for EPIC blood series with repeat measures found GSE147740
 
 ### 2026-10-15 · Finding: the six healthy GSE167998 neutrophil arrays are the GSE110554 reference arrays deposited again
 Found computing DEV-METAA-SELFLINE-01 loose shares (Met-A, loose share, bins and probes identical array by array). Dropped from that test before scoring; any record counting the two as separate sets counts one laboratory twice.
+
+### 2026-10-15 · DEV-METAA-SELFLINE-01 NOT MET: Met-A keeps its same-lab tare
+Five independent labs, 68 healthy purified neutrophil arrays: the lab offset is not carried by the arrays' own loose share (GSE247193, offset 0.19, has the reference lab's loose share). The array offset is channel chemistry, which the open-sea loose share does not see. The self-reference stays an IAM-A advantage.

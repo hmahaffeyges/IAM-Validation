@@ -46,7 +46,7 @@ GSE114989,,,,,,,,,,,,,Global DNA methylation reflects spatial heterogeneity and 
 GSE115920,,,,,,,,,not usable (not purified (semen)),sperm,yes,IDAT listed for 6/6 samples,Epigenome analysis of Chinese Han male semen samples,gold-mine map
 GSE116754,,,,,,,,DEV_ATLAS_V21_01,atlas build,embryonic stem cells,yes,IDAT listed for 38/38 samples,"Methylation analysis of human embryonic stem cells (hESCs), hESC-derived splanchnic mesoderm and hESC-derived mesothelium (mesenchymal form)",gold-mine map
 GSE117050,,,,,,,,,not usable (not healthy),t cells cd3,yes,IDAT listed for 38/38 samples,Identification of kidney transplant patients at risk for cutaneous squamous cell carcinoma by differentially methylated regions in T cells (II),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE118144,,,,,spent,,,DEV_ATLAS_V21_01; DEV_BASE_CHAIN_01; DEV_INTAKE_02; DEV_METAA_SENS_01; DEV_NEWCELL_01; DEV_PERCELL_01; DEV_ROUND2_REPORT,held-out test,neutrophils | cd4 t cells | cd8 t cells | b cells,yes,IDAT listed for 145/145 samples,Cell lineage-specific genome-wide DNA methylation analysis of patients with paediatric-onset systemic lupus erythematosus,gold-mine map
+GSE118144,,,,,spent,,,DEV_ATLAS_V21_01; DEV_BASE_CHAIN_01; DEV_INTAKE_02; DEV_METAA_SELFLINE_01; DEV_METAA_SENS_01; DEV_NEWCELL_01; DEV_PERCELL_01; DEV_ROUND2_REPORT,held-out test,neutrophils | cd4 t cells | cd8 t cells | b cells,yes,IDAT listed for 145/145 samples,Cell lineage-specific genome-wide DNA methylation analysis of patients with paediatric-onset systemic lupus erythematosus,gold-mine map
 GSE118255,,,,,,,,DEV_ATLAS_V21_01,held-out test,naive b cells | memory b cells | b cells,yes,SRA run links for 92/92 samples,DNA methylation profiles profiles of B cell subsets from healthy and SLE subjects,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE118690,,,,,,,,,,,,,,candidates DEV_LIVER_BLOOD_01
 GSE118696,,,,,,,,,research,monocytes,yes,IDAT listed for 24/24 samples,Monocyte-to-macrophage differentiation is defined by gain and loss of DNA methylation at transcription factor binding sites,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
@@ -54,7 +54,7 @@ GSE119260,downloads/B_cfDNA_plasma/GSE119260/,0.66,IDAT,yes,unspent,,,,,,,,Plasm
 GSE121192,,,,,,,,,held-out test,naive cd4 t cells | memory cd4 t cells | monocytes,yes,IDAT listed for 46/46 samples,"Differential CpG methylation in peripheral naive and memory CD4+T-cells, and monocytes in early rheumatoid arthritis patients",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE122126,downloads/B_cfDNA_plasma/GSE122126/,2.29,IDAT,yes,spent,scored,DEV_CSCORE_MOSS_01,DEV_ATLAS_COMMISSION_01; DEV_CSCORE_MOSS_01,,,,,Plasma cell-free DNA arrays,S3 register
 GSE122148,,,,,,,,,not usable (cultured with no uncultured comparison),endometrium epithelium,yes,IDAT listed for 8/8 samples,Genome wide DNA methylation analysis of isolated endometrial epithelial cells from obese women,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE122244,,,,,spent,,,DEV_ATLAS_V21_01; DEV_BASE_CHAIN_01; DEV_NEWCELL_01; DEV_NILC_01; DEV_PERCELL_01; DEV_SELFTARE_02; DEV_TOOLKIT_ADDED_02,held-out test,b cells | t cells cd3 | monocytes | neutrophils,yes,IDAT listed for 70/70 samples,Whole genome methylation analysis in blood and in specific cell blood subtypes in Parkinson’s disease.; Whole genome methylation analysis in blood and in specif,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE122244,,,,,spent,,,DEV_ATLAS_V21_01; DEV_BASE_CHAIN_01; DEV_METAA_SELFLINE_01; DEV_NEWCELL_01; DEV_NILC_01; DEV_PERCELL_01; DEV_SELFTARE_02; DEV_TOOLKIT_ADDED_02,held-out test,b cells | t cells cd3 | monocytes | neutrophils,yes,IDAT listed for 70/70 samples,Whole genome methylation analysis in blood and in specific cell blood subtypes in Parkinson’s disease.; Whole genome methylation analysis in blood and in specif,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE123140,,,,,spent,,,DEV_DIRECTION_01,,,,,,
 GSE123914,,,,,spent,,,,,,,,,
 GSE123995,,,,,,,,DEV_ATLAS_COMMISSION_01,atlas build,hepatocyte,yes,IDAT listed for 56/56 samples,Uncovering the role admixture in health disparities: Association of hepatocyte gene expression and DNA methylation to African Ancestry in African-Americans [Met,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
@@ -227,8 +227,8 @@ GSE239605,,,,,,,,,not usable (same group as the atlas (Glaser); reanalysis of GS
 GSE243529,,,,,partly spent,,,,,,,,,
 GSE246337,,,,,,,,,not usable (not purified; no cell counts in GEO),,yes,IDAT listed for 500/500 samples,DNA methylation profiling of the Biomarkers of Aging Consortium Cohort,gold-mine map
 GSE246935,,,,,,,,,research,sperm,yes,IDAT listed for 16/16 samples,Novel Bioinformatic Analyses of Somatic Cell Contamination in Sperm Samples,gold-mine map
-GSE247193,,,,,spent,,,DEV_BASE_CHAIN_01; DEV_CHAIN_V3_RUN3; DEV_SELFTARE_01; DEV_SELFTARE_02; PROC_NEUT_TEST_01_PREREG; PROC_NEUT_TEST_01_T2_OUTCOME,,,,,,
-GSE247195,,,,,spent,,,DEV_BASE_CHAIN_01; DEV_METAA_SENS_01; DEV_SELFTARE_01; DEV_SELFTARE_02; DEV_TOOLKIT_ADDED_02; PROC_NEUT_TEST_01_PREREG; PROC_NEUT_TEST_01_T2_OUTCOME,,,,,,
+GSE247193,,,,,spent,,,DEV_BASE_CHAIN_01; DEV_CHAIN_V3_RUN3; DEV_METAA_SELFLINE_01; DEV_SELFTARE_01; DEV_SELFTARE_02; PROC_NEUT_TEST_01_PREREG; PROC_NEUT_TEST_01_T2_OUTCOME,,,,,,
+GSE247195,,,,,spent,,,DEV_BASE_CHAIN_01; DEV_METAA_SELFLINE_01; DEV_METAA_SENS_01; DEV_SELFTARE_01; DEV_SELFTARE_02; DEV_TOOLKIT_ADDED_02; PROC_NEUT_TEST_01_PREREG; PROC_NEUT_TEST_01,,,,,,
 GSE247198,,,,,,,,DEV_SYNTH_LEVERS_01,research,neutrophils,yes,IDAT listed for 96/96 samples,Epigenetic age oscillates during the day,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE247524,,,,,spent,,,,,,,,,
 GSE248933,,,,,partly spent (declared before reading),,,DEV_ERASE_01,,,,,,

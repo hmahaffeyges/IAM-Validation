@@ -33,7 +33,7 @@ Reads the methylation level at sites a healthy cell holds firmly, against a heal
 **Reads:** arrays. **Where it stands:** commissioned (isolated neutrophils).
 
 - COM-METAA-003 Met-A commissioning on isolated neutrophils, EPIC v1: run; last run 2026-10-11: progressed
-- COM-METAA-039 Met-A read against the sample's own line: synthetic done
+- COM-METAA-039 Met-A read against the sample's own line: run; last run 2026-10-15: not met
 - COM-METAA-032 Whole blood back into Met-A scope: designed
 
 **Next:** Test whether Met-A can read against the sample's own loose share, which would shrink or remove its same-lab calibration and open it to new cell types.

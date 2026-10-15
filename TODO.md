@@ -39,7 +39,6 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **COM-METAA-031** (impact 5, laptop) Met-A on neurons: neuron Met-A reference by the SOP new-cell rule: Build a neuron Met-A reference by the SOP new-cell rule; split build and held-out before reading.
 - [ ] **COM-METAA-032** (impact 5, laptop) Whole blood back into Met-A scope (bar 7) with an independent counted-cell truth set: Assess the cord-blood caveat (nucleated red cells, newborn mix); if usable, synthetic tests, seal, read.
 - [ ] **COM-METAA-033** (impact 5, laptop) Second-laboratory neutrophil reference from the atlas (U4 first case): Derive the sites and reference; pass the same bars on GSE72338 with its two caveats (household contacts, granulocytes); re-commission.
-- [ ] **COM-METAA-039** (impact 5, laptop) Met-A read against the sample's own line (a smaller tare, or none): compute each array's loose share from the stored Stage 1 betas and score once
 - [ ] **DAT-012** (impact 5, laptop) GSE167202 - Human blood and immune-disease arrays (blood cancers first); Host methylation predicts SAR: Design and seal before reading: Track A: per-cell Met-A on blood diseases; Box Run 1 job B reads the chain-test subset
 - [ ] **OTH-051** (impact 5, laptop) The A-score database: one table per instrument, one row per sample read: generator CANON/ascore_db.py from the committed outcome files; a gate check that every new outcome adds its rows
 - [ ] **PHY-040** (impact 5, laptop (literature)) The author's half-law: half writing, half erasing, two forms of energy (not the copying-only check): Tested by DEV-ERASE-01 (PHY-006, sealed 2026-10-14); a physical reason why writing and erasing are the virial K and Q is still to be derived.
@@ -864,3 +863,4 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **PHY-049** The loose share from each sample's own molecules (atlas-free): last run 2026-10-15, progressed
 - [x] **ATL-064** Atlas v2.1 transfer and sampler speed: smooth curve, diagnostics 2-5, converted readings (mode v21inv): last run 2026-10-15, success
 - [x] **PHY-053** The horizon's storage by era: bits held at the CMB, first stars, the turn to acceleration and today: last run 2026-10-15, success
+- [x] **COM-METAA-039** Met-A read against the sample's own line (a smaller tare, or none): last run 2026-10-15, fail

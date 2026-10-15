@@ -45,5 +45,6 @@ if sys.argv[1] == "synthetic":
     L_.append(f"SYNTHETIC: {'MET' if ok else 'NOT MET'} (the method removes an offset the loose share carries, and refuses one it does not)")
     open(os.path.join(H, "selfline_synthetic.txt"), "w").write("\n".join(L_) + "\n"); print("\n".join(L_))
 else:
-    T = pd.read_csv(sys.argv[2]); R, V = score(T); R.to_csv(os.path.join(H, "selfline_series.csv"), index=False)
+    T = pd.read_csv(sys.argv[2]); n0 = len(T); T = T.dropna(subset=["A", "L"])   # arrays the chain withheld (no Met-A) carry no reading
+    print(f"arrays with a reading: {len(T)} of {n0}"); R, V = score(T); R.to_csv(os.path.join(H, "selfline_series.csv"), index=False)
     json.dump(V, open(os.path.join(H, "selfline_verdict.json"), "w"), indent=1); print(R.round(4).to_string()); print(V)
