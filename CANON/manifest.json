@@ -25736,13 +25736,13 @@
    "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
    "status": "sealed",
    "runs": [],
-   "next_step": "metadata-only search: hibernating mammals (torpor against active), one ectotherm species at two temperatures, Arabidopsis at 10 C and 16 C (PHY-060)",
+   "next_step": "COMMISSIONING_PLAN.md stage T, after the current items: data search (one species, two temperatures, >= 20,000 qualifying molecules each), seal the sample list, read once",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
     "PHY-045"
    ],
-   "notes": "author asked 2026-10-15 for a prediction that would make the assistant sit up; caution: enzymes of different species may differ, so the cleanest test is one species at two temperatures; synthetic 2026-10-15: run 1 NOT MET (conversion bias), run 2 MET through the counter's measured response curve; needs >= 20,000 qualifying molecules per temperature",
+   "notes": "author asked 2026-10-15 for a prediction that would make the assistant sit up; caution: enzymes of different species may differ, so the cleanest test is one species at two temperatures; synthetic 2026-10-15: run 1 NOT MET (conversion bias), run 2 MET through the counter's measured response curve; needs >= 20,000 qualifying molecules per temperature | author 2026-10-15: not optional; it proves the physics to physicists, scheduled right after the current commissioning items",
    "legacy_ids": [],
    "id": "PHY-057",
    "sources_of_row": [

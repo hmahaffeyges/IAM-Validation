@@ -75,3 +75,15 @@ value is opened, so they are now step 0.
 Only three improve accuracy now, and they are in the plan as measurement steps: the meter correction (PHY-050), the open-sea count
 (PHY-049) and the bend of the line at very loose cells (PHY-049). Everything else (the shield height, the temperature law's test,
 cosmology, the papers) waits until the catalogue is commissioned, unless the author calls it.
+
+## Stage T: the temperature law, right after the current items (author, 2026-10-15)
+
+The author: the instruments prove the tools detect disease; the temperature test proves the physics is real "in a way that matters to
+physicists". Both are needed. Order: the current items finish first (open-sea own reads, tumor pairs scored, C-score test b, the atlas
+landing with its sealed bars); then this stage; then logging the wins and documenting the Warburg and tumor lines (PHY-069, from ASCORES/).
+
+| step | row | what | where |
+|---|---|---|---|
+| T1 | PHY-057 | Data search, metadata only: one species at two body temperatures on single-molecule reads (torpor against active, or two rearing temperatures), at least 20,000 qualifying molecules per temperature, never a fish set already scored | laptop |
+| T2 | PHY-057 | Seal the sample list and the reading against the numbers already sealed (log-odds ratio 1.115 for 5 against 37 C; 1.0343 for 18 against 28 C); synthetic already MET (run 2) | laptop |
+| T3 | PHY-057 | Read once with the committed counter; report the measured ratio with its error against the sealed number | box or spot |
