@@ -4,6 +4,21 @@ The author's mandate: commission IAM-A first and foremost, then the C-Score, Met
 database; derivations only where they improve accuracy now. Every step below is a Master Testing Manifest row; every test runs synthetic
 first, writes its rule before its data, and is pushed through the gate. Times are Pacific and are targets: box jobs set the pace.
 
+## To-do now, in order (updated 2026-10-15 evening; each item a manifest row)
+
+Commissioning first; documents while the machines run.
+
+1. **IAM-A gate: second laboratory and meter error** (PHY-047, PHY-050; DEV-SECONDLAB-01): rule sealed, running on a rented machine.
+2. **IAM-A gate passed? then** the clean-room rebuild of the 2026-10-15 results (PHY-055), then the grand sealed test (COM-IAMA-052).
+3. **Backbone, scale:** the healthy firm-territory range counted on the same counter (PHY-071).
+4. **Backbone, field effect:** tumor-adjacent colon against truly healthy colon (PHY-072).
+5. **Probe-position check:** own reads counted only at the arrays' probe positions (PHY-070).
+6. **C-Score on real tumors** with a sealed bar, which gives its tumor line (OTH-054).
+7. **Document audit** of the last week (OTH-055), while machines run.
+8. **Operations-manual PDF rebuilt** (OTH-056), while machines run.
+9. **Atlas v2.1 lands** about 8 AM Pacific Friday: release checks, sealed bars, the Loyfer and Moss use tests.
+10. Stage T: the temperature law, T2 synthetic then the seal (PHY-057).
+
 ## Decisions waiting for the author (nothing below is blocked on them)
 
 1. ~~COM-CSCORE-013~~ **Withdrawn 2026-10-15: already decided.** The author adopted both C-Score definitions on 2026-10-09 (one-sided

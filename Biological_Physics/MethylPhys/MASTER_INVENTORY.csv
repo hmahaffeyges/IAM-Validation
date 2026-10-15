@@ -9,6 +9,7 @@ E-MTAB-4957,,,,,,,,DEV_ATLAS_V21_01,atlas build,colon epithelium | small intesti
 E-MTAB-8952,,,,,,,,,"not usable (cultured commercial neonatal cells, 2 replicates each (one donor likely))",vascular endothelium,yes,IDAT files listed in SDRF: 8 files for 4 samples,DNA methylation profiling of primary human dermal microvascular blood and lymphatic endothelial cells,gold-mine map
 ENCODE,,,,,partly spent,,,,,,,,,
 "ENCODE RRBS (A549, HepG2, LNCaP, MCF-7, T47D + normal epithelial lines) - derived",,,,,spent,,,,,,,,,
+ENCODE-SECONDLAB-5 (ENCFF092SBB ENCFF605NRU ENCFF133QNK ENCFF704SCQ ENCFF969NGH),,,,,"partly spent (sequencing error only, PROC-CHANNEL-01)",,,,,,,,,
 GSE100561,,,,,,,,,held-out test,monocytes,yes,IDAT listed for 12/12 samples,"DNA-methylation analysis of response to P.falciparum infection in Fulani and Mossi ethnic groups, Burkina Faso",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE101641,,,,,,,,,not usable (not purified (brushing)),nasal epithelium,yes,IDAT listed for 48/48 samples,F508del homozygous cystic fibrosis patients and healthy controls,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE101673,,,,,,,,PROC_LINES_01_BJ_OUTCOME,,,,,,

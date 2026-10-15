@@ -1,0 +1,6 @@
+tile 1 loose, tile 2 firm, both strands: loose share 0.5 (want 0.5), held 0.04907 (want None), sub_err 0.00215 (planted 0.002), conv 0.0000 -> ok
+both firm: loose share 0.0 (want 0.0), held 0.04638 (want None), sub_err 0.00201 (planted 0.002), conv 0.0000 -> ok
+planted held error 0.03 (truth: the rule on the planted molecules): loose share 0.0 (want None), held 0.02445 (want 0.02386), sub_err 0.00413 (planted 0.004), conv 0.0000 -> ok
+scorer, 3 of 5 on the line: MET (want MET)
+scorer, 0 of 5 on the line: NOT MET (want NOT MET)
+SYNTHETIC: MET
