@@ -25237,7 +25237,7 @@
    "depends_on": [
     "PHY-045"
    ],
-   "notes": "; box job eef8d756, 2026-10-15",
+   "notes": "; box job eef8d756, 2026-10-15; author 2026-10-15: the whole-genome count is the top item for the atlas-free goal; runs when the tumor job frees the second machine, or on the box after the fit",
    "legacy_ids": [],
    "id": "PHY-049",
    "sources_of_row": [
@@ -25612,6 +25612,108 @@
    "notes": "author 2026-10-15, for the Computer Science of Reality paper (OTH-049)",
    "legacy_ids": [],
    "id": "PHY-054",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "IAM-A atlas-free commissioning: one grand sealed test on fresh data",
+   "purpose": "commission IAM-A with no atlas and no arrays: on a new laboratory's single-molecule reads, healthy samples land on their own line (held error from their own loose share) and tumors read off it toward the ceiling; rules, bars and data sealed before any read",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/loose_end_2026-10-15/loose_end_line.py",
+   "status": "planned",
+   "runs": [],
+   "next_step": "after PHY-049 (whole genome), PHY-047 (second lab), PHY-050 (meter error) and PHY-043 (tumor island side) hold",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-043",
+    "PHY-047",
+    "PHY-049",
+    "PHY-050"
+   ],
+   "notes": "author 2026-10-15: one grand test chosen to test it all, then commission",
+   "legacy_ids": [],
+   "id": "COM-IAMA-052",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Clean-room rebuild of the 2026-10-15 derivation results from public data only",
+   "purpose": "a fresh copy of the repository and public data only must reproduce the loose-end line, the 2/3 cut, the own-read line, the island read with the eraser removed and the tumor island counts; inputs now held only in our S3 or on the box image get rebuilt by their committed scripts",
+   "instrument_or_term": "reproducibility",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/loose_end_2026-10-15/loose_end_line.py",
+   "status": "planned",
+   "runs": [],
+   "next_step": "list every input of each result and the committed script that makes it from public data; then rebuild on a clean machine (as REPRO-CLEANROOM-2026-10-11)",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-045",
+    "PHY-046",
+    "PHY-048",
+    "PHY-049"
+   ],
+   "notes": "author 2026-10-15: 'This is so important that we stay vigilant'",
+   "legacy_ids": [],
+   "id": "PHY-055",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Distances from IAM's expansion curve alone, without the CMB or supernovae",
+   "purpose": "if IAM fixes both the expansion's shape E(a) and H0 from physics, d(z) = c integral dz/H(z) gives any galaxy's distance from its redshift, and the CMB and supernovae become tests rather than inputs; first, check whether the book derives its two H0 values (67.16, 72.26) or takes them from data",
+   "instrument_or_term": "cosmos",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "read the book's H0 derivation and its status tags",
+   "cost": "laptop",
+   "impact": 4,
+   "depends_on": [
+    "PHY-053"
+   ],
+   "notes": "",
+   "legacy_ids": [],
+   "id": "PHY-056",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Paper: How IAM Explains Classical Reality, General Relativity, and the Standard Model as One Interpretation",
+   "purpose": "an interpretation that reproduces every measured prediction of general relativity and the Standard Model (Mercury, light bending, GPS, gravitational waves) in IAM's terms: gravity proportional to the bit rate, time as one-way writing, light as the recording of a past present; any place it predicts differently becomes a test",
+   "instrument_or_term": "paper",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "after the derivations; the photon reading anchored in the zero proper time of light and the measured light delays",
+   "cost": "laptop",
+   "impact": 3,
+   "depends_on": [
+    "PHY-054"
+   ],
+   "notes": "author 2026-10-15; credits Jacobson 1995 and Verlinde 2011 for exactly what they did",
+   "legacy_ids": [],
+   "id": "OTH-050",
    "sources_of_row": [
     "session 2026-10-15"
    ]

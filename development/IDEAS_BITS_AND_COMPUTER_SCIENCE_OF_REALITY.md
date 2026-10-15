@@ -76,3 +76,15 @@ exactly what it did: Jacobson 1995 derived Einstein's equations from horizon the
 
 Half of today's storage was written after the turn to acceleration. The shares depend only on the expansion's shape, not on H0, so the
 two H0 values change every total by the same factor (0.864) and the storage history alone cannot choose between them.
+
+## Added 2026-10-15, later (author): light as a recording; the GR interpretation paper; distances without the CMB
+
+**Light as a recording (for OTH-049 and OTH-050).** The author: no photon travels for millions of years; we watch the archived footage,
+stored on the horizon, of a past that was the present when it was written. Anchor in relativity: a photon's own proper time between
+emission and arrival is zero. Any reading must keep the measured light delays (radar ranging to the planets; the arrival schedule of
+Supernova 1987A). Time dilation as "the computer bogging down": clocks run slower deeper in gravity, as a processor slows under load.
+
+**The interpretation paper (OTH-050):** *How IAM Explains Classical Reality, General Relativity, and the Standard Model as One
+Interpretation*. It must reproduce every measured prediction; any difference is a test.
+
+**Distances (PHY-056):** with E(a) and H0 both from physics, distance follows from redshift alone; the CMB and supernovae become tests.
