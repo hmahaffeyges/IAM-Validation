@@ -1822,3 +1822,6 @@ Box job e2efa254 (code bee2bbfa) is diagnostic 5.
 
 ### 2026-10-15 · Diagnostic 5: two causes, one found
 Box job e2efa254. v2's line inside the v2.1 model with the read-count noise taken from the cell value m (v2's way): 1.10 s per locus, no draw at the maximum depth, R-hat p99 1.0036. So with a straight line, the clipped noise on h was the whole cost. With the smooth curve, taking the noise from m does not help (4.64 s per locus, all at the maximum depth): the curve inside the likelihood is slow by itself. Options priced for the author (128-core on-demand, $7.42 per hour): the curve as built about 66 h, about $493; the straight-line form about 16 h, about $115, but it carries the bend L20 measured (computed: 700 blocks / 16 at once x 1,163 loci x s per locus).
+
+### 2026-10-15 · Mode v21inv planted test run once: NOT MET (sampler bar)
+planted_inv_v21.py (rule 6c407a0f, committed before it ran): recovery met (coverage 0.932, sequencing-only extremes 0.987, median error 0.0094) but 5.5 percent of draws at the maximum tree depth against a bar of 1 percent, so NOT MET; by its rule v21inv is not adopted. It ran in 5 s against 22 s for the curve inside the likelihood on the same block. The real 60-locus check runs once anyway as information for the author's decision; its numbers do not change this verdict.

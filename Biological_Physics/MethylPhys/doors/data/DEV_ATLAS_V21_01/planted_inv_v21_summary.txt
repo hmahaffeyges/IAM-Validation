@@ -1,0 +1,4 @@
+Planted test of mode v21inv (planted_inv_v21.py), 1446 observations
+V21INV: R-hat p99 1.0340, draws at max depth 5.5 percent, divergences 0, wall 5 s, coverage 0.932, sequencing-only extremes 0.987 (n 75), median error 0.0094
+I1 recovery: met | I2 sampler: NOT met
+VERDICT: NOT MET
