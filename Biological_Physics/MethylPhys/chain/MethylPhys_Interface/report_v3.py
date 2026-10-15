@@ -21,7 +21,7 @@ STAGES_2B = [("0", "Intake", "running (specimen rule; sex and age optional; iden
              ("2", "Composition, blood groups", "running"),
              ("3", "Atlas deconvolution", "development flag --dev-atlas-e"), ("4", "NILC component separation", "development flag --dev-nilc"),
              ("5", "Met-A", "running (neutrophils); B cells behind --dev-percell-b"),
-             ("6", "C-score", "running (band not set); IAM-A C-score in Stage Q (development)"), ("7", "IAM-A", "running (development)"),
+             ("6", "C-score", "COMMISSIONED 2026-10-15 on whole blood (one-sided band, upper 1.152); IAM-A C-score in Stage Q (development)"), ("7", "IAM-A", "running (development)"),
              ("8", "Same-run tare", "running (self-tare II, then the median tare; self-tare II wired 2026-10-04)"),
              ("9", "Noise gate", "running (state withheld above N_max untared, and below 90 % noise-site coverage)"),
              ("10", "Directional decomposition", "development flag --dev-direction"), ("11", "Sky map", "development flag --dev-sky"),
@@ -108,7 +108,8 @@ def red_flags(o):
     if m.get("past_entropy_ceiling"): add("CAUTION", "ENTROPY_CEILING", "methylated sites past beta 0.5: A falls as loss continues; read beta, not A")
     if m.get("noise_gate") == "above the reference arrays' range" and t.get("A_rel") is not None:
         add("NOTE", "NOISE_ABOVE_RANGE_TARED", f"noise index {m.get('noise_index')} above N_max {m.get('noise_gate_N_max')}; reading is tared, so the gate does not withhold")
-    if c.get("C") is not None: add("NOTE", "CSCORE_BAND_NOT_SET", "C-score printed for development; healthy band not set")
+    if c.get("C_call", "").startswith("above the band"): add("FLAG", "CSCORE_CLUSTERED", f"C-score {c.get('C_rel')} above the healthy band (1.152): clustered departure")
+    if c.get("C") is not None and not c.get("commissioning"): add("NOTE", "CSCORE_DEVELOPMENT", "C-score printed for development: specimen outside the commissioned scope (whole blood, EPIC v1) or untared")
     if (q.get("cscore") or {}).get("C") is not None: add("NOTE", "IAMA_CSCORE_DEVELOPMENT", "IAM-A C-score printed for development (independent errors = 1, derived); band not set")
     if o.get("development"): add("NOTE", "DEVELOPMENT_FLAGS", "development stages ran behind flags: " + ", ".join(o["development"].get("flags", [])) + "; they are not part of the reading")
     add("NOTE", "DEVELOPMENT_BUILD", str(o.get("build", "development build")) + "; not a diagnostic test")
@@ -230,7 +231,8 @@ def build(o, out, sid):
          f" | references {t.get('n_refs')} (median {t.get('reference_median')}) | detection limit: <b>{t.get('detection_limit_pct_loss')}</b> % loss of the neutrophil pattern (reference spread {t.get('reference_spread_sd')})</p>"
          f"<p>Tare method: step 1 self-tare II ({e(str((t.get('selftare_ii') or {}).get('status', 'not run')))}), then step 2 {e(str(t.get('method', 'median tare: not run')))}</p>",
          f"<h2 id='sec-noise-gate'>Stage 9 noise gate</h2><p>noise index N {m.get('noise_index')} ({m.get('noise_sites_measured')} of {m.get('noise_sites_total')} noise sites) | N_max {m.get('noise_gate_N_max')} | gate: {e(str(m.get('noise_gate')))}</p>",
-         f"<h2 id='sec-cscore'>Stage 6 Met-A C-score</h2><p>C = <b>{c.get('C')}</b> (healthy = 1; healthy held-out range {c.get('healthy_range')}); {e(str(c.get('status', c.get('reason',''))))}</p>",
+         f"<h2 id='sec-cscore'>Stage 6 Met-A C-score</h2><p>C = <b>{c.get('C')}</b> (healthy = 1; healthy held-out range {c.get('healthy_range')}); tared C_rel <b>{c.get('C_rel')}</b> against {c.get('C_n_refs')} same-run references; call: <b>{e(str(c.get('C_call', 'not tared')))}</b>; {e(str(c.get('status', c.get('reason',''))))}</p>"
+         + (f"<p class='commissioned'>COMMISSIONED {e(str((c.get('commissioning') or {}).get('date')))} on {e(', '.join((c.get('commissioning') or {}).get('specimens', [])))}: {e(str((c.get('commissioning') or {}).get('reading_rule')))}; detection limit {e(str((c.get('commissioning') or {}).get('detection_limit')))}</p>" if c.get('commissioning') else "<p>DEVELOPMENT - not commissioned for this specimen</p>"),
          (f"<h2 id='sec-iam-a'>Stage 7 IAM-A - {e(str(q.get('cell')))}</h2>{_gauge(q.get('A'), instrument='IAM-A', label=('IAM-A ' + str(q.get('A'))) if q.get('A') is not None else '')}"
           f"<p>IAM-A = <b>{q.get('A')}</b> ({e(str(q.get('state', q.get('refusal',''))))}); pipeline {e(str(q.get('pipeline')))}; copy error eps {q.get('eps')}; position P {q.get('P')}; "
           f"eps0 {q.get('eps0')}; halves {e(str(q.get('halves')))}; opportunities {q.get('opportunities')}; E = {q.get('E_kT')} kT</p>"

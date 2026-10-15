@@ -1475,8 +1475,15 @@
    "sources": [],
    "data_status": "none_needed",
    "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",
-   "status": "planned",
-   "runs": [],
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-15",
+     "outcome": "success",
+     "note": "commissioned on whole blood (COMMISSIONING_NOTE_CSCORE.md)",
+     "page": "headline: COMMISSIONING-CSCORE"
+    }
+   ],
    "next_step": "Write the commissioning note after (a) on further labs and (b) are met; reconcile the whole-blood versus sorted-cell scope gap first.",
    "cost": "none",
    "impact": 5,
@@ -1811,9 +1818,9 @@
    "instrument_or_term": "C-score",
    "sources": [],
    "data_status": "none_needed",
-   "status": "planned",
+   "status": "retired",
    "runs": [],
-   "next_step": "Author decision; commit before reading.",
+   "next_step": "decided by the author 2026-10-09 (one-sided band, 0.125 repeat bar); retired 2026-10-15",
    "cost": "none",
    "impact": 4,
    "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",
@@ -20146,7 +20153,7 @@
    ],
    "data_status": "to_scout",
    "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",
-   "status": "planned",
+   "status": "run",
    "runs": [
     {
      "date": "2026-10-13",
@@ -20154,7 +20161,7 @@
      "note": "metadata search: both front-runners out - GSE112611 has no IDATs (submitter betas only); GSE184202 is a burnout patient cohort with an intervention between draws; GSE291053 is dialysis patients (LOG 2026-10-13)"
     }
    ],
-   "next_step": "In priority order (log 2026-10-13): read sample sheets of healthy EPIC v1 blood series directly; or commission the 450K band, which makes GSE61151 usable; or accept a technical-replicate set with a declared specimen caveat (weakest).",
+   "next_step": "found: GSE147740 (AIRWAVE), read 2026-10-15",
    "impact": 5,
    "legacy_ids": [
     "L5",

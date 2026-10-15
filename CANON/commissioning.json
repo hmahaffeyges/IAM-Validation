@@ -1,0 +1,178 @@
+{
+ "_rule": "Commissioning registry (author 2026-10-15: 'The code should not allow us to commission anything without a verification that all the correct docs have been updated'). Every results-register entry of kind 'commissioning' must appear here, with every required place (kinds: note, chain, report, sop, sop_full, om, status, book, book_status, catalogue, readme), each a file and a pattern that must be found; 'forbid' lists stale statements that must not remain. CANON/commissioning_check.py runs in checked_push.sh; a missing place or a stale statement refuses the push.",
+ "required_kinds": [
+  "note",
+  "chain",
+  "report",
+  "sop",
+  "sop_full",
+  "om",
+  "status",
+  "book",
+  "book_status",
+  "catalogue",
+  "readme"
+ ],
+ "instruments": [
+  {
+   "register_id": "COMMISSIONING-METAA-NEUTROPHILS",
+   "name": "Met-A, isolated neutrophils, EPIC v1",
+   "date": "2026-10-09",
+   "places": [
+    {
+     "kind": "note",
+     "file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md",
+     "pattern": "\\*\\*Status: COMMISSIONED 2026-10-09"
+    },
+    {
+     "kind": "chain",
+     "file": "Biological_Physics/MethylPhys/chain/conductor_v3.py",
+     "pattern": "METAA_COMMISSIONING = \\{[^\\n]*\\n\\s*\\\"status\\\": \\\"COMMISSIONED\\\", \\\"date\\\": \\\"2026-10-09\\\""
+    },
+    {
+     "kind": "report",
+     "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v3.py",
+     "pattern": "Met-A COMMISSIONED|commissioning"
+    },
+    {
+     "kind": "sop",
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
+     "pattern": "Met-A on neutrophils, EPIC v1, commissioned 2026-10-09"
+    },
+    {
+     "kind": "sop_full",
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
+     "pattern": "Met-A \\(arrays; COMMISSIONED on isolated neutrophils 2026-10-09\\)"
+    },
+    {
+     "kind": "om",
+     "file": "Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md",
+     "pattern": "Met-A on isolated neutrophils COMMISSIONED 2026-10-09"
+    },
+    {
+     "kind": "status",
+     "file": "Biological_Physics/MethylPhys/STATUS.md",
+     "pattern": "\\*\\*Met-A, neutrophils, EPIC v1\\*\\* \\| \\*\\*COMMISSIONED 2026-10-09"
+    },
+    {
+     "kind": "book",
+     "file": "docs/book/part6/p6_07_meta.tex",
+     "pattern": "(?i)commission"
+    },
+    {
+     "kind": "book_status",
+     "file": "docs/book/part6/p6_24_status.tex",
+     "pattern": "(?i)Met-A"
+    },
+    {
+     "kind": "catalogue",
+     "file": "CANON/catalogue.py",
+     "pattern": "commissioned \\(isolated neutrophils\\)"
+    },
+    {
+     "kind": "readme",
+     "file": "Biological_Physics/README.md",
+     "pattern": "Met-A on isolated neutrophils \\(EPIC v1\\) is commissioned"
+    }
+   ],
+   "forbid": [
+    {
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
+     "pattern": "isolated neutrophils and whole blood \\(any neutrophil fraction"
+    },
+    {
+     "file": "Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md",
+     "pattern": "\\*\\*Build:\\*\\* development v3 \\(2026-10-01\\), DEVELOPMENT - not commissioned"
+    }
+   ]
+  },
+  {
+   "register_id": "COMMISSIONING-CSCORE",
+   "name": "Met-A C-score, whole blood, EPIC v1",
+   "date": "2026-10-15",
+   "places": [
+    {
+     "kind": "note",
+     "file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md",
+     "pattern": "\\*\\*Status: COMMISSIONED 2026-10-15\\*\\* on healthy-referenced whole blood"
+    },
+    {
+     "kind": "chain",
+     "file": "Biological_Physics/MethylPhys/chain/conductor_v3.py",
+     "pattern": "CSCORE_COMMISSIONING = \\{[^\\n]*\\n\\s*\\\"status\\\": \\\"COMMISSIONED\\\", \\\"date\\\": \\\"2026-10-15\\\"[\\s\\S]{0,200}\\\"specimens\\\": \\[\\\"whole blood\\\"\\]"
+    },
+    {
+     "kind": "report",
+     "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v3.py",
+     "pattern": "\\\"6\\\", \\\"C-score\\\", \\\"COMMISSIONED 2026-10-15 on whole blood"
+    },
+    {
+     "kind": "sop",
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
+     "pattern": "Met-A C-score on whole blood, EPIC v1, commissioned 2026-10-15"
+    },
+    {
+     "kind": "sop_full",
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
+     "pattern": "Met-A C-score \\(arrays; COMMISSIONED on whole blood 2026-10-15"
+    },
+    {
+     "kind": "om",
+     "file": "Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md",
+     "pattern": "Stage MC C-score \\|[^\\n]*COMMISSIONED 2026-10-15 on whole blood"
+    },
+    {
+     "kind": "status",
+     "file": "Biological_Physics/MethylPhys/STATUS.md",
+     "pattern": "\\*\\*Met-A C-score, whole blood, EPIC v1\\*\\* \\| \\*\\*COMMISSIONED 2026-10-15"
+    },
+    {
+     "kind": "book",
+     "file": "docs/book/part6/p6_09_cscore.tex",
+     "pattern": "\\\\textbf\\{commissioned on whole blood\\}"
+    },
+    {
+     "kind": "book_status",
+     "file": "docs/book/part6/p6_24_status.tex",
+     "pattern": "commissioned on whole blood 2026-10-15"
+    },
+    {
+     "kind": "catalogue",
+     "file": "CANON/catalogue.json",
+     "pattern": "\\\"commissioned\\\": \\\"whole blood, EPIC v1, 2026-10-15\\\""
+    },
+    {
+     "kind": "readme",
+     "file": "Biological_Physics/README.md",
+     "pattern": "clustering meter \\(Met-A C-score\\) on whole blood \\(EPIC v1, 2026-10-15\\)"
+    }
+   ],
+   "forbid": [
+    {
+     "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v3.py",
+     "pattern": "CSCORE_BAND_NOT_SET|\\\"C-score\\\", \\\"running \\(band not set\\)"
+    },
+    {
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
+     "pattern": "\\*\\*running\\*\\* \\(band not set\\)|The Met-A C-score, IAM-A and every other stage remain development|block 50\\)"
+    },
+    {
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
+     "pattern": "`clustering_block` \\| 50 sites|`healthy_clustering_median` \\| 1\\.1104"
+    },
+    {
+     "file": "Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md",
+     "pattern": "Development band 0\\.877–1\\.152 \\|"
+    },
+    {
+     "file": "docs/book/part6/p6_09_cscore.tex",
+     "pattern": "with no band: six healthy arrays are too few"
+    },
+    {
+     "file": "docs/book/part6/p6_24_status.tex",
+     "pattern": "Met-A C-score baseline 1\\.1104"
+    }
+   ]
+  }
+ ]
+}

@@ -5,7 +5,7 @@
 **Stage T (2026-10-04).** Stage T is self-tare II, then the median tare, adopted by the author on 2026-10-04 (`boxruns/run1/JOBS.md` job A; `doors/DEV_SELFTARE_02.md` reading (iv); development log 2026-10-04, DEV-PAIRED-01). Section 1 (tare rows), 4.1, 4.3, Stage T in section 5, section 6 item 6, the tare rows of section 7 and section 9 item 1 are updated for it. Self-tare II was wired into Stage T on 2026-10-04 (development log DEV-SELFTARE-03); `--dev-selftare-ii` is now a no-op alias. The noise-corrected tare described in this file before was removed on 2026-10-02 (DEV-TARE-02) and is kept here only as history.
 **Scope:** one cell type (neutrophils); Illumina EPIC v1 arrays for Met-A; single-molecule reads (pipeline `loyfer_pat_v1`) for IAM-A. 450K neutrophil floor: pending (canon `Met_A_floor_450K_neutrophil` = null).
 **Written from:** repository `hmahaffeyges/IAM-Validation`, `main` at `7cdbbf8` (floor v1.3) **plus the audit-fix patch** (`chain_fix_patch.zip`, branch `audit-fixes`, not yet pushed). Line numbers refer to the patched files. Paths are relative to `Biological_Physics/MethylPhys/`. Every number is read from a frozen file or the canon; the file and key are given beside it.
-**Readings:** Met-A (arrays), Met-A C-score (arrays), A_rel (Met-A after the same-run tare), IAM-A (sequencing).
+**Readings:** Met-A (arrays; COMMISSIONED on isolated neutrophils 2026-10-09), Met-A C-score (arrays; COMMISSIONED on whole blood 2026-10-15, one-sided band upper 1.152), A_rel (Met-A after the same-run tare), IAM-A (sequencing).
 
 ---
 
@@ -79,9 +79,9 @@ All under `chain/Runtime Matrices/`.
 | `../chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json` | `version` | `neutrophil_reference_v1_1` (bundle `reference_version`) | `conductor_v3.py:37-40` |
 | | `sites_ordered` | the 6000 sites in genome order | `conductor_v3.py:116, 130` |
 | | `neutrophil_H_mean`, `neutrophil_H_sd_shrunk` | healthy neutrophil mean and shrunk SD of H per site (6 arrays) | `conductor_v3.py:117, 138` |
-| | `clustering_block` | 50 sites | `conductor_v3.py:85` |
-| | `healthy_clustering_median` | 1.1104 | `conductor_v3.py:144-145` |
-| | `healthy_clustering_LOO` | 6 values, 0.7763–1.3632 (÷ median: 0.6991–1.2277) | `conductor_v3.py:147` |
+| | `clustering_block` | 10 sites (blocks of 10 adopted 2026-10-09) | `conductor_v3.py:85` |
+| | `healthy_clustering_median` | 1.0103 | `conductor_v3.py:144-145` |
+| | `healthy_clustering_LOO` | 6 values, 0.9635–1.0563 (÷ median: 0.9537–1.0455) | `conductor_v3.py:147` |
 | | `profiles_mean_beta`, `profile_map` | record only (not read) | — |
 | `../chain/Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json` | `sites` (`n` 48,528) | EPIC sites every purified blood group holds fixed (`rule`: every group mean ≤ 0.03 or ≥ 0.97, every group SD ≤ 0.02; not neutrophil sites); copied from `doors/data/noise_sites_EPIC_v1.json` unchanged | `conductor_v3.py:45-57` |
 | `../chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json` | `eps0` | 0.032 (canon `eps0_meth`) | `stage_q_iam_a.py:70` |

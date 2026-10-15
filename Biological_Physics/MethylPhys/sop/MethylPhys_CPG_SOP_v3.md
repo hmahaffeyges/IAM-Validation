@@ -3,7 +3,7 @@
 **Build:** development v3, 2026-10-01; frozen inputs re-checked against the code 2026-10-02; this SOP proofread against the code and the runtime files 2026-10-03; development round 2 (author decisions A-O) written in 2026-10-04; Stage T changed on 2026-10-04 to self-tare II then the median tare, adopted by the author (`boxruns/run1/JOBS.md` job A; DEV-SELFTARE-02; development log 2026-10-04, DEV-PAIRED-01; §2 row T and §2b "Tare: self-tare II"); self-tare II wired into Stage T on 2026-10-04 (development log DEV-SELFTARE-03). **DEVELOPMENT - not commissioned.** Not a diagnostic test.
 **Scope:** one cell, neutrophils, on Illumina EPIC v1 arrays. Other cells are added one at a time after each passes the new-cell rule
 (three tests: purified-cell Normal, replicate spread, identifiability; §2b). 450K neutrophil floor: pending.
-**Readings:** Met-A (arrays) and its C-score. IAM-A (sequencing) runs through a separate stage (Stage Q), which is in development; it has no C-score yet.
+**Readings:** Met-A (arrays; COMMISSIONED on isolated neutrophils) and its C-score (arrays; COMMISSIONED on whole blood). IAM-A (sequencing) runs through a separate stage (Stage Q), which is in development; it has no C-score yet.
 
 ## 1. Physics stated once
 
@@ -40,10 +40,10 @@ in the code it is in this order (wired 2026-10-04, `stage_t_selftare_ii`, called
 
 Frozen values (read from the files, never typed):
 - EPIC neutrophil healthy reference 0.330263 bits (6 physical arrays, Salas GSE110554; GSE167998 re-deposits the same 6; 6000 sites; our Stage 1).
-- Healthy clustering median 1.1104 (6 physical arrays, leave-one-out, block 50).
+- Healthy clustering median 1.0103 (6 physical arrays, leave-one-out, blocks of 10; `neutrophil_reference_v1_2.json`).
 - Noise gate N_max 0.149 (`noise_gate_EPIC_v1.json`); IAM-A ε₀ 0.032 (the healthy reference copy error, H_ref = H(ε₀) = 0.2043 bits, the holding energy 3.41 kT measured across 56 healthy cell types; not a lower limit) and neutrophil P 1.1492, measured on whole files (`iama_positions_v2.json`, 2026-10-08).
 - Gauge marks: the floor H_min is where thermal kicks win against one ATP per site, copy error 1/(1+e^M) = 8.1×10⁻¹⁰, 2.5×10⁻⁸ bits (1×10⁻⁷ on the neutrophil IAM-A gauge); A = 1 is the healthy reference; the full surface is 1 bit per site (neutrophils: Met-A 3.03, IAM-A 4.26). No reading is refused for lying below H_ref.
-- Met-A C-score tare: C_rel = C ÷ median C of ≥ 3 same-run healthy references. Development band 0.877–1.152 (blocks of 10; 2.5–97.5 % of tared C on 641 healthy arrays from 19 laboratories; `doors/CSCORE_COMMISSIONING_PLAN.md`).
+- Met-A C-score tare: C_rel = C ÷ median C of ≥ 3 same-run healthy references. Band 0.877–1.152 (blocks of 10; 2.5–97.5 % of tared C on 641 healthy arrays from 19 laboratories), read one-sided: above 1.152 is a clustered departure, below 0.877 is "less clustered than healthy" and not a departure. **COMMISSIONED 2026-10-15 on whole blood** (`doors/COMMISSIONING_NOTE_CSCORE.md`); detection limit C_rel 1.5 at 5 % of sites clustered.
 - IAM-A tare (2026-10-09, development): A_rel = IAM-A ÷ median IAM-A of ≥ 3 same-run healthy references of the same cell, laboratory, library kit and pipeline (`stage_q_iam_a.tare`, `run_sample.py --iama-ref-table`); fewer than 3 → untared, read against P only. Reason: library kit and laboratory shift IAM-A by up to 0.16 on healthy cells (DEV-IAMA-KIT-01).
 
 ## 2b. The full chain, and what runs today
@@ -60,7 +60,7 @@ pre-registered check on v3 has passed and the result is recorded in `doors/`.
 | 3 | Atlas deconvolution | whole-tissue split into the atlas v2 cell types, each with its identifiability | development flag `--dev-atlas-e` (DEV-ATLAS-EPIC-02; DEV-COMPOSITION-TRUTH-02: within 0.03 on another laboratory's mixtures except granulocytes 0.041) |
 | 4 | NILC component separation | cell-type separation by internal linear combination, the CMB method that needs no template per component | development flag `--dev-nilc` (DEV-NILC-01, DEV-COMPOSITION-TRUTH-02: outside the truth bars) |
 | 5 | Met-A | each cell read against its healthy reference or its composition-matched healthy expectation | **running** (neutrophils); B cells behind `--dev-percell-b`; monocytes and B cells do not meet the new-cell rule (DEV-NEWCELL-01) |
-| 6 | C-score | clustering of the residual map in genomic order | **running** (band not set); IAM-A C-score in Stage Q (development, DEV-IAMA-CSCORE-01) |
+| 6 | C-score | clustering of the residual map in genomic order | **COMMISSIONED 2026-10-15 on whole blood** (one-sided band, upper 1.152; isolated neutrophils development); IAM-A C-score in Stage Q (development, DEV-IAMA-CSCORE-01) |
 | 7 | IAM-A | single-molecule reading on sequencing data | **running** (development; constructed test data 2026-10-03, DEV-BASE-CHAIN-01 e; real Loyfer granulocyte files 2026-10-04, DEV-IAMA-REAL-01) |
 | 8 | Same-run tare | self-tare II on the array's own fixed sites, then A_rel = A / median of same-run healthy references | **running** (self-tare II, then the median tare); self-tare II then median tare adopted by the author as the Stage T reading on 2026-10-04 (it met every replicate and other-laboratory bar, DEV-SELFTARE-02; DEV-PAIRED-01); self-tare II wired into Stage T on 2026-10-04 (DEV-SELFTARE-03) |
 | 9 | Noise gate | noise index N; gauge state withheld above N_max untared, and withheld whenever fewer than 90 % of the noise sites are measured | **running** |
@@ -102,9 +102,12 @@ Commissioning record (stage, check, result, wired): `STATUS.md` (section 8, comm
 ### Commissioned stages
 
 - **Met-A on neutrophils, EPIC v1, commissioned 2026-10-09** (`doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md`): stages 0, 1, 2, 5, 6, 8
-  (self-tare II then the median tare), 9, 13; isolated neutrophils and whole blood (any neutrophil fraction, each reading with its own detection limit). Every report prints the
-  detection limits: 2 % loss of the neutrophil pattern in purified neutrophils, 5 % in whole blood (DEV-METAA-SENS-01). Readings in this scope
-  are results. The Met-A C-score, IAM-A and every other stage remain development.
+  (self-tare II then the median tare), 9, 13; isolated neutrophils (scope narrowed 2026-10-11: whole-blood Met-A is development). Every report prints the
+  detection limit: 2 % loss of the neutrophil pattern in purified neutrophils (DEV-METAA-SENS-01). Readings in this scope are results.
+- **Met-A C-score on whole blood, EPIC v1, commissioned 2026-10-15** (`doors/COMMISSIONING_NOTE_CSCORE.md`): stages 0, 1, 6 with the same-run
+  tare of the C-score (>= 3 healthy references on the slide, else the series). Every report prints C_rel, the one-sided call (above 1.152:
+  clustered departure) and the detection limit (C_rel 1.5 at 5 % of sites clustered). Isolated-neutrophil C-scores, IAM-A and every other
+  stage remain development.
 
 ### Reproducibility rule (2026-10-09)
 Every number in the book, a note in `doors/`, STATUS or the development log must be reproducible from this repository alone:

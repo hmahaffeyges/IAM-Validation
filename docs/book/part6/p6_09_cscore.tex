@@ -42,9 +42,12 @@ Bottom: the same total departure placed in one tenth of the genome order. Steps:
 \end{figure}
 
 \begin{keybox}[title=Status]
-The Met-A C-score is built into chain v3 and printed with every reading, with no band: six healthy arrays are too few to set
-one. On the acceptance run, isolated neutrophils read $C=0.69$--$1.21$ and whole bloods $0.78$--$1.49$; in whole blood the
-residual also carries composition error. \measured{} The IAM-A C-score, the same map built from per-region held error on
+The Met-A C-score is \textbf{commissioned on whole blood} (EPIC v1, 2026-10-15). Blocks of 10 sites; healthy baseline 1.0103 (six
+reference arrays, leave one out). The healthy band, 0.877--1.152, was set on 641 healthy arrays from 19 laboratories and is read
+one-sided: above 1.152 is a clustered departure, below 0.877 is less clustered than healthy and is not a departure. Three laboratories
+that had no part in setting it read 34 of 35, 22 of 23 and 172 of 173 healthy bloods not above it; one person measured twice reads the
+same within 0.038 (bar 0.125); clustered loss planted into real healthy arrays is caught every time, scattered loss never. Detection
+limit: $C_{\rm rel}=1.5$ at 5\,\% of sites clustered. Isolated neutrophils and real tumors are its next tests. \measured{} The IAM-A C-score, the same map built from per-region held error on
 molecules, is defined and not yet built. \openprob
 \end{keybox}
 
@@ -53,11 +56,11 @@ Figure~\ref{fig:p4_cscore_readings} and Table~\ref{tab:p4_cscore} give every C-s
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part6/fig_p4_09_readings.pdf}
 \caption{Met-A C-score as printed. Blue: the six reference arrays, each against the other five.
-Orange: the acceptance run. No band is drawn because none is set. \measured}
+Orange: the acceptance run. Both at blocks of 50, before the band was set; the commissioned band (blocks of 10) is in the Status box. \measured}
 \label{fig:p4_cscore_readings}
 \end{figure}
 \begin{table}[htbp]\centering\small
-\caption{Met-A C-scores in the records of chain v3.}\label{tab:p4_cscore}
+\caption{Met-A C-scores in the records of chain v3 before the band was set (blocks of 50, 2026-10-04); the commissioning tests are in the Status box.}\label{tab:p4_cscore}
 \begin{tabular}{@{}p{0.48\textwidth}rrl@{}}\toprule
 set & $n$ & $C$ & status \\\midrule
 healthy reference arrays, each against the other five & 6 & 0.70--1.23 & \calibrated \\
