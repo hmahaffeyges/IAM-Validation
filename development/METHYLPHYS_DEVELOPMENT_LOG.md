@@ -2000,3 +2000,6 @@ Five ENCODE sorted blood-cell alignments (gemBS, GRCh38), counter re-implemented
 
 ### 2026-10-15 · Operations-manual PDF rebuilt; DEV-SECONDLAB-01 launched
 MethylPhys_CPG_Operations_Manual.pdf rebuilt from the corrected chapter (18 pages; both commissionings named). DEV-SECONDLAB-01 counting on spot i-0ae982785e17a071d (code 4a087820), status in results/DEV_SECONDLAB_01/status.txt.
+
+### 2026-10-15 · Document audit, pass 1 (OTH-055): the 35 repository documents the page links to
+Checked each against this week's results and the known stale statements. Fixed: STATUS.md (three C-score rows still said the band was not set; the retired term in five places). Left as written: sealed outcome records dated before the term was retired (they are historical records) and the development log (history). The commissioning gate now forbids the STATUS rows' old wording.

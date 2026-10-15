@@ -199,6 +199,10 @@
     {
      "file": "Biological_Physics/MethylPhys/STATUS.md",
      "pattern": "641 healthy arrays"
+    },
+    {
+     "file": "Biological_Physics/MethylPhys/STATUS.md",
+     "pattern": "computed on every reading; band not set|\\| printed; band not set \\|"
     }
    ]
   }

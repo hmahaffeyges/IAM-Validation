@@ -51,7 +51,7 @@ with the kit and the open predictions once R1 and R2 are done.
 used to build it; a signed commissioning note (doors/COMMISSIONING_NOTE_*.md); its row in section 1.
 
 **What IAM-A adds to Met-A.** Not Met-A's detection performance, which stands on Met-A's own bars. It measures, on molecules, the physics that
-fixes Met-A's floor and ceiling (copy error, holding energy); the R2 link test turns those ends from derived into measured.
+fixes Met-A's floor and ceiling (held error, holding energy); the R2 link test turns those ends from derived into measured.
 
 ## 1. Now (updated 2026-10-09 afternoon)
 
@@ -79,11 +79,11 @@ mixtures atlas_e was already more accurate for neutrophils (RMSE 0.014 vs 0.019)
 
 ## 2c. Linking IAM-A and Met-A (added 2026-10-09, author discussion)
 
-Why: Met-A is commissioned as a measurement; IAM-A (copy error against the healthy reference height H_ref = 0.2043 bits; the floor, where thermal kicks win against one ATP, is 2.5×10⁻⁸ bits) is what can explain what it reads.
-1. **IAM-A → Met-A (forward, one answer).** From a measured copy error ε, the shift of each site's mean methylation toward 0.5 follows,
+Why: Met-A is commissioned as a measurement; IAM-A (held error against the healthy reference height H_ref = 0.2043 bits; the floor, where thermal kicks win against one ATP, is 2.5×10⁻⁸ bits) is what can explain what it reads.
+1. **IAM-A → Met-A (forward, one answer).** From a measured held error ε, the shift of each site's mean methylation toward 0.5 follows,
    and with the healthy neutrophil pattern the expected Met-A (the same model as `shift_per_1pct_loss`). Derive and write it down first.
-2. **Met-A → IAM-A (reverse, an upper limit).** Met-A cannot tell copy error from a fraction of cells that switched state, so it gives the
-   IAM-A expected *if all drift is copy error*. Measured IAM-A at the limit: drift is copy error; below: part is cells switching state (the
+2. **Met-A → IAM-A (reverse, an upper limit).** Met-A cannot tell held error from a fraction of cells that switched state, so it gives the
+   IAM-A expected *if all drift is held error*. Measured IAM-A at the limit: drift is held error; below: part is cells switching state (the
    gap measures how much); above: the model is wrong (falsified).
 3. **Same-file test first:** one sequencing file gives IAM-A (molecules) and a Met-A-style reading (site means), with no array and no
    laboratory or kit difference between them. Needs a healthy sequencing-mean reference (Loyfer files) and its own commissioning.
@@ -170,7 +170,7 @@ note before the data were read and the outcome is under the line in the same not
 | stage / item | check (note) | result | wired |
 |---|---|---|---|
 | 8 Self-tare II then median tare, on the box, wired | Box Run 1 job A (bars from DEV-SELFTARE-02) | replicate SD 0.0164 (<= 0.020); 62/63 Normal; other laboratories 68/68; floor 6/6 - every bar met | **yes** (Stage T step 1, PR #27) |
-| 6 Met-A C-score on every healthy array | Box Run 1 job C | median (2.5-97.5 %): GSE250556 0.840 (0.690-1.201), healthy_repeat 1.067 (0.728-1.852), DEV_BASE_CHAIN_01 1.165 (0.836-1.809) | printed; band not set |
+| 6 Met-A C-score on every healthy array | Box Run 1 job C | median (2.5-97.5 %): GSE250556 0.840 (0.690-1.201), healthy_repeat 1.067 (0.728-1.852), DEV_BASE_CHAIN_01 1.165 (0.836-1.809) | printed; band set 2026-10-09 and commissioned on whole blood 2026-10-15 (the Met-A C-score row above) |
 | 11 / 12 Sky with the apodised mask | Box Run 1 job D | band 1 1.84 -> 1.18; bands 1-4 still 1.13-1.18 (bar 0.9-1.1); look-elsewhere 0.611 (bar 0.084) | no |
 | 3 / 4 Composition against FACS (GSE112618, 6 bloods) | Box Run 1 job E, scored locally | mean abs error atlas_e 0.005-0.044, chain composition 0.007-0.031 by group; donor overlap with the references still to check | no (flags) |
 | All test sets re-read with the adopted tare | Box Run 1 job B | not complete: segfault after the first set (902/902 ok) | - |
@@ -188,7 +188,7 @@ note before the data were read and the outcome is under the line in the same not
 | 10 Directional decomposition, physics only (I) | DEV-DIRECTION-02 | treated arrays 12/12 toward disorder; replicates 56/63 no direction (bar 95 %); vehicle 4/6 no direction | flag `--dev-direction` |
 | 11 / 12 Sky map against the block-shuffle null; sky statistics (J) | DEV-SKY-02 | median power ratio band 1 1.84, bands 2-6 1.03-1.15 (bar 0.9-1.1); look-elsewhere rate 91 % (bar 8.4 %) | flag `--dev-sky` |
 | 3b / 3c / 11b on the array's own noise (K) | DEV-TOOLKIT-ADDED-02 | 3b: 82.5 % called at 5 % (bar 95 %), 0/360 unspiked; 3c: 100 % called at f = 0 (bar <= 5 %); 11b: 3.8 % of repeat pairs inside the interval (bar 95 %) | flags `--dev-trace`, `--dev-foreign`, `--dev-brightness` |
-| 7 IAM-A C-score (C) | DEV-IAMA-CSCORE-01 | constructed independent sites C 0.823 (limit +-0.80); clustered 447.5; real whole files 604-1,047 | **yes** (printed; band not set) |
+| 7 IAM-A C-score (C) | DEV-IAMA-CSCORE-01 | constructed independent sites C 0.823 (limit +-0.80); clustered 447.5; real whole files 604-1,047 | **yes** (printed; IAM-A C-score band not set; whole-genome reading only) |
 | 7 IAM-A on real single-molecule files | DEV-IAMA-REAL-01 | 3/3 end to end; 60 MB heads reproduce the floor file exactly; whole files 1.0394, 1.0632, 1.0344 (2/3 Normal) | running |
 | 5 New cell: monocytes, B cells (D) | DEV-NEWCELL-01 | monocytes 11/13, SD 0.032; B cells 16/22, SD 0.037 - neither meets the new-cell rule | no (B behind `--dev-percell-b`) |
 | EPIC v2 through SeSAMe (M) | DEV-EPIC-V2-01 | 72/72 v2 calibrated; identity sites median 5,391 of 6,000 (< 5,400); v2 minus v1 at shared sites mean -0.034, SD 0.054; no v2 floor, no v2 replicates | flag `--dev-epic-v2`; EPIC v2 stays refused |
@@ -210,7 +210,7 @@ only if its check passed. Data: 56 GEO series in the project bucket, 5,069 physi
 | 1 Calibration | (a) as above | run 2: PASS (one unreadable IDAT is a named stop) | running |
 | 2 Composition (8 groups) | exercised by (a), (d) | runs on every whole blood; deconvolver conformance PASS on 4,978 reports. Development finding: fails the held-out truth bars that stages 3/4 were held to (DEV-NILC-01) | running |
 | 5 Met-A (neutrophils) | (b) purified healthy neutrophils Normal on tared A_rel | **FAIL**: floor arrays 6/6; other laboratories 42/49 (0.810-1.068) | running |
-| 6 C-score | exercised by (a), (d) | computed on every reading; band not set | running |
+| 6 C-score | exercised by (a), (d) | computed on every reading; Met-A C-score commissioned on whole blood 2026-10-15 | **commissioned (whole blood)** |
 | 7 IAM-A (Stage Q) | (e) constructed single-molecule data | **PASS** (IAM-A 1.0 Normal; other pipeline refused; 30/30 errors) | running |
 | 8 Same-run tare | (c) GSE250556 within-person SD; targets SD <= 0.020, >= 95 % Normal | **not met**: SD 0.037, 48/63 Normal | running |
 | 9 Noise gate | (c) withhold rate | 0/63 withheld when tared; N > 0.149 on 59/64 (would be withheld untared) | running |
