@@ -28,7 +28,7 @@ def one(lines, WIN):
     m = np.array([a[0] / a[1] for a in calls.values() if a[1] >= 200])
     out = {f"loose_{cut:.4f}": float((m < cut).mean()) if len(m) else np.nan for cut in CUTS}
     out.update(windows=int(len(m)), held_err=e_iso / max(e_opp, 1), held_opp=int(e_opp)); return out
-if sys.argv[1] == "synthetic":
+if __name__ == "__main__" and sys.argv[1] == "synthetic":
     rng = np.random.default_rng(7); WIN = {"chr1": np.array([[w * 3000, w * 3000 + 2000] for w in range(100)])}; L = []
     for share in (0.2, 0.5, 0.8):
         loose = set(rng.choice(100, int(share * 100), replace=False)); lines = []
@@ -45,7 +45,7 @@ if sys.argv[1] == "synthetic":
         o = one(lines, WIN); exp = eps * (1 - eps) ** 2
         L.append(f"planted held error {eps}: counted isolated rate {o['held_err']:.5f} (expected {exp:.5f}, isolated losses only)")
     open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "own_reads_loose_synthetic.txt"), "w").write("\n".join(L) + "\n"); print("\n".join(L))
-else:
+elif __name__ == "__main__":
     WIN = windows(sys.argv[3]); R = []
     for f in sorted(glob.glob(os.path.join(sys.argv[2], "*.pat.txt"))):
         with open(f) as fh: o = one(fh, WIN)

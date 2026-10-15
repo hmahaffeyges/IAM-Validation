@@ -1894,3 +1894,6 @@ The author: "we are gonna lose ideas and plans this way." Found: two running tes
 
 ### 2026-10-15 · The 2/3 cut and the own-reads loose share: run once (box job eef8d756)
 Reproduction at 0.70 exact. At 2/3 the line holds (r 0.85; firm 0.0212). From each sample's own molecules, split halves, the line comes back (r 0.81, p 8e-14) with the firm rate at 0.0285 and progenitors below it. Whiteboard part 8; manifest PHY-048, PHY-049.
+
+### 2026-10-15 · PHY-049 whole genome: committed before it runs
+own_reads_genome.py streams each of the 153 Loyfer hg19 read files from GEO (about 330 MB each, never stored) through the unchanged own_reads_loose.py counter, with the genome tiled into 13,225 consecutive 2,000-CpG windows (99.9 percent of CpGs) in place of 399 random ones. own_reads_loose.py gained a main guard so it can be imported; its synthetic output is byte-identical afterward.
