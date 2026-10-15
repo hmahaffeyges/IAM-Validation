@@ -9,7 +9,7 @@
    "reads": "whether losses are CLUSTERED (whole stretches) rather than scattered - the shape of the loss, not its size",
    "substrate": "arrays (EPIC v1 now; 450K and EPIC v2 later)",
    "cost": "free (a metadata search, then one laptop read)",
-   "status": "test (a) MET in two laboratories that had no part in setting the band (34/35 and 22/23 healthy, 95 % bar)",
+   "status": "DONE 2026-10-15: last check met (same person twice, SD 0.038 against 0.125; third laboratory 172/173); commissioned on whole blood. test (a) MET in two laboratories that had no part in setting the band (34/35 and 22/23 healthy, 95 % bar)",
    "open": "new SAME-PERSON replicate arrays, from a set that did not help build the band, to confirm the repeatability bar",
    "advantage": "clustering is the cancer fingerprint; ordinary aging and inflammation scatter errors instead. Most specific thing we have",
    "blind": "whole blood so far, while the meter it rides on is commissioned on sorted cells - that scope gap must be reconciled before any detection claim; and one array decided the second test (22/23 = 95.65 % against 95 %)",

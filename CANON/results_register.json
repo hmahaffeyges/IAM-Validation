@@ -341,11 +341,11 @@
     },
     {
      "h": "Where it comes from",
-     "p": "It is one of the tools we carried over from cosmology. Cosmologists lay the microwave sky on a sphere, subtract what they expect to see, and measure how the leftover departures cluster at each scale. That measurement is how the Planck mission pinned down what the universe is made of and how old it is. We lay the genome on the same kind of sphere, subtract a healthy person's expected pattern, and measure the same thing: whether the leftovers clump."
+     "p": "It is one of the tools we carried over from cosmology. Cosmologists subtract the sky they expect to see and measure how the leftover departures cluster; that measurement is how the Planck mission pinned down what the universe is made of and how old it is. We subtract a healthy cell's expected pattern from a sample and measure the same thing along the genome, in order: whether the leftovers clump. The same leftovers can be drawn on a sphere, the way a microwave sky is drawn."
     },
     {
      "h": "Is anyone else doing this?",
-     "p": "Others count how many sites in a person's blood are unusual, and some have asked whether those sites gather in particular regions of the genome. We have not found a published test that scores, for a single sample, whether its changes clump together along the genome against a fixed healthy range checked in independent laboratories."
+     "p": "Not as far as we can find. Other groups count how many sites in a person's blood are unusual compared with other people. That is a count. The clustering meter is a different instrument: it asks whether one sample's departures from healthy sit together along the genome, reads that on a fixed healthy band checked in independent laboratories, and prints a call and a detection limit for every sample."
     },
     {
      "h": "How it was tested",

@@ -42,7 +42,7 @@ Reads the methylation level at sites a healthy cell holds firmly, against a heal
 
 **The question:** Has the pattern started to clump?
 
-Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping against a healthy band. The band held in two laboratories that never helped set it.
+Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping against a healthy band. The band held in three laboratories that never helped set it, and one person measured twice reads the same.
 
 **Reads:** arrays (whole-genome sequencing too). **Where it stands:** commissioned (whole blood, EPIC v1, 2026-10-15).
 

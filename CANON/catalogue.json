@@ -14,7 +14,9 @@
     "ATL-060",
     "ATL-001"
    ],
-   "next": "The fit finishes; then its sealed commissioning bars and the sealed tests on Loyfer's and Moss's own jobs are scored."
+   "next": "The fit finishes; then its sealed commissioning bars and the sealed tests on Loyfer's and Moss's own jobs are scored.",
+   "book_chapter": "ch:atlas",
+   "specialty": "It is the map every other instrument reads against: for 79 healthy cell types, the expected tagging at every site with its range of error, so a sample can be split into its cells and each cell compared with its own healthy kind."
   },
   {
    "id": "meta",
@@ -27,20 +29,25 @@
     "COM-METAA-039",
     "COM-METAA-032"
    ],
-   "next": "Test whether Met-A can read against the sample's own loose share, which would shrink or remove its same-lab calibration and open it to new cell types."
+   "next": "Test whether Met-A can read against the sample's own loose share, which would shrink or remove its same-lab calibration and open it to new cell types.",
+   "book_chapter": "ch:meta",
+   "specialty": "Cost and reach: a single array, the most common methylation measurement in the world, read on the gauge against the same cell type's healthy reference, with its detection limit printed.",
+   "commissioned": "isolated neutrophils, EPIC v1, 2026-10-09"
   },
   {
    "id": "cscore",
    "name": "C-Score (the clustering meter)",
    "question": "Has the pattern started to clump?",
-   "how": "Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping against a healthy band. The band held in two laboratories that never helped set it.",
+   "how": "Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping against a healthy band. The band held in three laboratories that never helped set it, and one person measured twice reads the same.",
    "reads": "arrays (whole-genome sequencing too)",
    "rows": [
     "COM-CSCORE-011",
     "COM-CSCORE-012"
    ],
    "next": "Isolated neutrophils from an independent laboratory, then real cancers with a sealed bar, then 450K, EPIC v2 and plasma.",
-   "commissioned": "whole blood, EPIC v1, 2026-10-15"
+   "commissioned": "whole blood, EPIC v1, 2026-10-15",
+   "book_chapter": "ch:cscore",
+   "specialty": "The shape of a change, not its size: whether a sample's departures from healthy are scattered like ordinary wear or packed together in stretches, the way a tumor that silences or loses a region leaves them. It is the clustering step of the cosmic microwave background analysis chain, carried over to the genome."
   },
   {
    "id": "iama",
@@ -55,7 +62,9 @@
     "PHY-043",
     "COM-IAMA-052"
    ],
-   "next": "The tumor pairs read on both sides of the DNA, a second laboratory, then one grand sealed test on fresh data to commission it."
+   "next": "The tumor pairs read on both sides of the DNA, a second laboratory, then one grand sealed test on fresh data to commission it.",
+   "book_chapter": "ch:iama",
+   "specialty": "That it reads single molecules and carries its own reference: how well each molecule held its marks, compared with the healthy level set by the cell's own loose share, with no library of other people's cells."
   },
   {
    "id": "groupa",
@@ -66,7 +75,36 @@
    "rows": [
     "GRP-004"
    ],
-   "next": "One cancer at a time, patients and healthy controls from the same series."
+   "next": "One cancer at a time, patients and healthy controls from the same series.",
+   "book_chapter": null,
+   "specialty": "Groups: whether a whole cohort, trial arm or exposure has moved, read as one, with patients and healthy comparisons run in the same laboratory series."
+  }
+ ],
+ "support_tools": [
+  {
+   "name": "Intake and calibration",
+   "what": "Takes an array's raw intensities, checks every control, and turns them into tagging levels on one fixed scale, refusing what it cannot read and saying why.",
+   "chapter": "ch:instrument"
+  },
+  {
+   "name": "The tare",
+   "what": "Reads each specimen against healthy references run beside it, so a laboratory's own offset cancels instead of passing for disease.",
+   "chapter": "ch:instrument"
+  },
+  {
+   "name": "Composition",
+   "what": "For whole blood, works out which cells are in the sample and in what shares, so a change in the mix is not mistaken for a change in the cells.",
+   "chapter": "ch:chain"
+  },
+  {
+   "name": "The sky map",
+   "what": "Lays the genome on a sphere, chromosome by chromosome, and draws each site's departure from healthy, the way a microwave sky is drawn; the same residuals the clustering meter scores.",
+   "chapter": "ch:skytools"
+  },
+  {
+   "name": "The chain and its report",
+   "what": "Runs every stage in a fixed order, records every input and setting, and prints one report per sample with each instrument's reading, its status and its detection limit.",
+   "chapter": "ch:report"
   }
  ]
 }
