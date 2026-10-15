@@ -40,7 +40,10 @@ per-site tables in our S3 (downloads/tumour_work/out/EOCRC_*_WGBS_*.parquet: m, 
 **Reported beside the verdict, not scored.** The loose-territory error and loose share of each sample; each pair with and without CRC5
 (conversion difference 0.0051, just over PROC-TUMOUR-01's 0.005 limit).
 
-**Not assessed.** The island side (a gained mark between unmethylated neighbors): those counts were not saved for these samples.
+**Island arm (added 2026-10-15, before any tumor island count exists).** The tumor's island gain error over its own normal's, counted
+with PROC-CHANNEL-01's rule, shown beside the healthy island range (0.0094-0.0162). The counts were not saved for these samples; they need
+the raw reads re-aligned (approved by the author). Synthetic (`data/DEV_BACKBONE_01/backbone_01_island.py`, `backbone_01_island_synthetic.txt`):
+planted tumors with islands written over 2x read 1.91-1.97x their normals in all six pairs; planted unchanged islands read 0.98-1.02x.
 
 **Limits.** Six pairs from one laboratory; purity unknown; the data were read genome-wide before (PROC-TUMOUR-01), so this is development,
 not a sealed test.

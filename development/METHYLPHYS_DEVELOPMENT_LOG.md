@@ -1875,3 +1875,6 @@ Synthetic first: the counter returned planted rates within 1-3 percent and a pla
 
 ### 2026-10-15 · Part 7 made reproducible: scripts, manifest rows, four-domain table
 The loose-end line and the island read had run in the working session only. Now committed as development/loose_end_2026-10-15/loose_end_line.py (reproduces every number; adds 53 of 56 cells within 0.003 of the line) and development/island_eraser_2026-10-15/island_eraser.py with its synthetic output. Manifest rows added for both; the four-domain table carries the measured firm and loose ends and the eraser result.
+
+### 2026-10-15 · DEV-BACKBONE-01 island arm added and its synthetic run
+The island arm compares each tumor's island gain error with its own normal's, using PROC-CHANNEL-01's counter. Synthetic: planted 2x reads 1.91-1.97x in all six pairs; planted unchanged reads 0.98-1.02x. The real counts wait for the re-aligned reads.

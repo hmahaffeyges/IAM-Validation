@@ -1,0 +1,3 @@
+DEV-BACKBONE-01 island arm, synthetic (planted pairs; no tumor data)
+tumor islands written over (2x): tumor over normal per pair 1.94, 1.92, 1.91, 1.92, 1.97, 1.91; pairs above 1.2: 6 of 6
+tumor islands unchanged: tumor over normal per pair 1.00, 0.99, 0.98, 0.98, 1.02, 0.99; pairs above 1.2: 0 of 6
