@@ -43,8 +43,6 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **PHY-042** (impact 5, laptop) Cell architecture against the healthy held error (DEV-ARCH-01): loose share from other laboratories' arrays of the same cell types; per-cell held error on the common fully methylated sites
 - [ ] **PHY-043** (impact 5, laptop) Tumor backbone against the writer's nameplate (DEV-BACKBONE-01, author's step 4): island-side counts approved by the author 2026-10-15: re-read the EOCRC pairs and count with PROC-CHANNEL-01's existing de novo channel (no new method); queued for the box after the atlas fit finishes; then the full test runs once, after steps 1-3 hold on paper
 - [ ] **PHY-047** (impact 5, laptop or box) The loose-end line on a second laboratory (PHY-045 replication): metadata-only search for public single-molecule methylation (WGBS or EM-seq) on sorted healthy human cells from a lab other than Loyfer's; then the rule, synthetic first
-- [ ] **PHY-048** (impact 5, box) The loose-end line at the one-Landauer-bit cut (beta 2/3): box job eef8d756: reproduce DEV-ARCH-01 at 0.70 exactly, then 2/3
-- [ ] **PHY-049** (impact 5, box) The loose share from each sample's own molecules (atlas-free): box job eef8d756 on the 153 cached Loyfer read files; synthetic met
 - [ ] **PHY-050** (impact 5, laptop) The firm rate after the meter's own error is subtracted: use sub_err and conv_fail from the tumor-pair normals (job 4110eb64) and a matched recount of healthy cells
 - [ ] **PHY-051** (impact 5, laptop) The island shield's height: whiteboard: compare the islands with the new writers' published preference for bare DNA, then derive
 - [ ] **SCO-002** (impact 5, search) Healthy neutrophils sequenced in a laboratory other than the Loyfer group (IAM-A, 3 or more donors): Verify GSE59163 from files (healthy status, donors, read-level data), then design (TODO A3); file a BLUEPRINT/EGA access request only if WGBS neutrophils are required (gold-mine map action 3).
@@ -843,5 +841,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **PHY-042** Cell architecture against the healthy held error (DEV-ARCH-01): last run 2026-10-14, progressed
 - [x] **PHY-045** The loose end read off the line: every healthy cell's held error from its own loose share: last run 2026-10-15, success
 - [x] **PHY-046** Island side with the eraser removed (is the eraser what holds the 0s?): last run 2026-10-15, fail
+- [x] **PHY-048** The loose-end line at the one-Landauer-bit cut (beta 2/3): last run 2026-10-15, success
+- [x] **PHY-049** The loose share from each sample's own molecules (atlas-free): last run 2026-10-15, success
 - [x] **ATL-064** Atlas v2.1 transfer and sampler speed: smooth curve, diagnostics 2-5, converted readings (mode v21inv): last run 2026-10-15, success
 - [x] **PHY-053** The horizon's storage by era: bits held at the CMB, first stars, the turn to acceleration and today: last run 2026-10-15, success

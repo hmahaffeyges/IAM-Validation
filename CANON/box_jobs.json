@@ -1023,7 +1023,7 @@
    "date": "2026-10-15",
    "commit": "a71d86e3",
    "s3_code_prefix": "results/LOOSE_SHARE_2026-10-15/code/run1/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/LOOSE_SHARE_2026-10-15/own.log",
    "machine": "methylphys-fit-01 (spot m7a.8xlarge, shared with the tumor island job)",
    "purpose": "arch_cut.py at 0.70 (reproduction) and 2/3; own_reads_loose.py on the 153 cached Loyfer read files",
@@ -1040,7 +1040,7 @@
     "Biological_Physics/MethylPhys/boxruns/publish_code.py",
     "Biological_Physics/MethylPhys/atlas/v2/inputs/roster_samples.csv"
    ],
-   "note": "running",
+   "note": "reproduced at 0.70; line holds at 2/3; own-read line r 0.81",
    "manifest": [
     "PHY-048",
     "PHY-049"

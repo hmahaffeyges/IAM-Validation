@@ -703,7 +703,7 @@
   "outputs_in_s3": {
    "results/DEV_BACKBONE_01/island/EOCRC_CRC1_WGBS_normal.parquet": true,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC1_WGBS_tumour.parquet": true,
-   "results/DEV_BACKBONE_01/island/EOCRC_CRC2_WGBS_normal.parquet": false,
+   "results/DEV_BACKBONE_01/island/EOCRC_CRC2_WGBS_normal.parquet": true,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC2_WGBS_tumour.parquet": false,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC3_WGBS_normal.parquet": false,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC3_WGBS_tumour.parquet": false,
@@ -727,11 +727,11 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/LOOSE_SHARE_2026-10-15/own_reads_loose.csv": false,
-   "results/LOOSE_SHARE_2026-10-15/arch_01_cut0.6667.csv": false
+   "results/LOOSE_SHARE_2026-10-15/own_reads_loose.csv": true,
+   "results/LOOSE_SHARE_2026-10-15/arch_01_cut0.6667.csv": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "succeeded"
  }
 }

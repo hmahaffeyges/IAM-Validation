@@ -1891,3 +1891,6 @@ Box job eef8d756 (code a71d86e3) runs both on the second machine, beside the tum
 
 ### 2026-10-15 · Push gate rule 27: plans and ideas go on the Master Testing Manifest when they are made (author)
 The author: "we are gonna lose ideas and plans this way." Found: two running tests, three planned derivations, the eight-part plain-language series and the Computer Science of Reality paper had no manifest rows, and ATL-005 (the atlas fit) still read planned while it ran. All added (PHY-048 to PHY-052, OTH-041 to OTH-049, ATL-064 for the speed diagnosis and mode v21inv); the manifest gains status running. Rule 27 refuses a push while a box job dated 2026-10-15 or later names no manifest row, or a plan, idea or test added to a whiteboard or ideas file has no manifest id. Checked by planting a plan line with no id (refused) beside one with an id (passed). The Loyfer and Moss use-test design is now in ATL-060.
+
+### 2026-10-15 · The 2/3 cut and the own-reads loose share: run once (box job eef8d756)
+Reproduction at 0.70 exact. At 2/3 the line holds (r 0.85; firm 0.0212). From each sample's own molecules, split halves, the line comes back (r 0.81, p 8e-14) with the firm rate at 0.0285 and progenitors below it. Whiteboard part 8; manifest PHY-048, PHY-049.

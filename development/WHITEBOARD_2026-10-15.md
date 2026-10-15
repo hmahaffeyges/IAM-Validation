@@ -251,3 +251,20 @@ three sets (by 15-28 percent, most in neural stem cells), not at all in two, and
 remaining reading: the two sides are held by different writing steps. The 1s are kept by maintenance (DNMT1 copying the old strand, the
 step D measures); a wrongly written mark on an island comes from a different step (de novo writing), with its own rate. If so the island
 nameplate is that step's own accuracy, not 1/(1 + D), and the two sides need not match.
+
+## Part 8: the line with the physics cut, and from each sample's own reads (box job eef8d756, 2026-10-15; PHY-048, PHY-049)
+
+**Reproduction first:** at the old 0.70 cut the rerun gives DEV-ARCH-01's loose shares exactly (largest difference 0).
+
+**The one-Landauer-bit cut (2/3), arrays (PHY-048):** the line holds. Firm rate 0.0212 (unchanged), loose rate 0.0528, r 0.85, 50 of 56
+cells within 0.003. Loose shares at 2/3 and at 0.70 rank the cells the same way (rho 0.996). So the line does not depend on the borrowed
+cut, and the physics cut can replace it.
+
+**Each sample's own molecules, no arrays (PHY-049):** half of each sample's reads give its loose share in the 399 random windows, the
+other half its held error. The line comes back: r 0.81 (p 8e-14), 46 of 56 cells within 0.003. Three things differ from the array line:
+1. Weaker (r 0.81 against 0.87): the windows hold about 5 percent of the genome's CpGs, against genome-wide array bins.
+2. The firm rate moves from 0.0212 to 0.0285. So the firm rate depends on how the loose share is measured, and the "slowest writer"
+   match (PHY-050) is not robust yet.
+3. Progenitor cells sit well below the line (median 0.013 below); the other classes sit on it.
+Scale note: the own-read counter divides by interior CpGs, PROC-CHANNEL-01 by all CpGs; the two counts agree (rho 0.999) after one fixed
+factor, 1.35, which was divided out.

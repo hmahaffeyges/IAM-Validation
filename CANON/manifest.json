@@ -25189,9 +25189,17 @@
    ],
    "data_status": "held",
    "record": "development/loose_share_2026-10-15/arch_cut.py",
-   "status": "running",
-   "runs": [],
-   "next_step": "box job eef8d756: reproduce DEV-ARCH-01 at 0.70 exactly, then 2/3",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-15",
+     "outcome": "success",
+     "note": "reproduced DEV-ARCH-01 exactly at 0.70; at 2/3 the line holds: firm 0.0212, loose 0.0528, r 0.85, 50 of 56 within 0.003; loose shares at the two cuts rho 0.996",
+     "commit": "",
+     "page": "not headline: method detail"
+    }
+   ],
+   "next_step": "adopt 2/3 as the cut in the gauge's definition (it changes nothing measurable)",
    "cost": "box",
    "impact": 5,
    "depends_on": [
@@ -25213,9 +25221,17 @@
    ],
    "data_status": "held",
    "record": "development/loose_share_2026-10-15/own_reads_loose.py",
-   "status": "running",
-   "runs": [],
-   "next_step": "box job eef8d756 on the 153 cached Loyfer read files; synthetic met",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-15",
+     "outcome": "success",
+     "note": "line from the sample's own molecules alone (split halves): r 0.81, p 8e-14, 46 of 56 within 0.003; firm rate moves to 0.0285 (from 0.0212 with arrays); progenitors 0.013 below the line",
+     "commit": "",
+     "page": "not headline: development detail of DEV-LOOSE-LINE-01"
+    }
+   ],
+   "next_step": "more windows (the whole genome) to sharpen the own-read loose share; why progenitors sit below the line",
    "cost": "box",
    "impact": 5,
    "depends_on": [
@@ -25245,7 +25261,7 @@
    "depends_on": [
     "PHY-045"
    ],
-   "notes": "",
+   "notes": "; 2026-10-15: the firm rate depends on how the loose share is measured (0.0212 arrays, 0.0285 own reads), so the slowest-writer match is not robust yet",
    "legacy_ids": [],
    "id": "PHY-050",
    "sources_of_row": [

@@ -1,0 +1,74 @@
+,loose_share,fully_meth_share,identity_sites,samples
+ad-dermal fibroblasts,0.51634,0.39309,28525,1
+adipocytes,0.48113,0.38884,9630,3
+aorta endothelium,0.47483,0.41365,14865,2
+b cells,0.293,0.50198,29632,3
+bladder epithelium,0.50122,0.42027,36649,5
+breast basal epithelium,0.30538,0.50654,44497,4
+breast luminal epithelium,0.38419,0.46537,27791,3
+cardiomyocyte,0.31943,0.48974,41611,6
+cd4 t cells,0.25239,0.53137,28409,3
+cd8 t cells,0.40338,0.45377,29520,3
+colon enteroendocrine,0.3785,0.46677,40459,3
+colon epithelium,0.36539,0.4797,40265,5
+colon fibroblasts,0.55022,0.35482,3840,2
+colon macrophages,0.28563,0.49639,26956,2
+cortical neurons,0.26528,0.51774,31736,10
+effector memory cd8 t cells,0.46314,0.43176,39044,2
+endometrium epithelium,0.45029,0.44291,38826,3
+erythrocyte progenitors,0.92688,0.12922,37302,3
+esophagus epithelium,0.43457,0.4382,47711,2
+fallopien tubes epithelium,0.38287,0.46725,32191,3
+gallbladder epithelium,0.38694,0.46203,44168,1
+gastric antrum epithelium,0.44164,0.43112,37622,3
+gastric body epithelium,0.44896,0.42679,37110,3
+gastric enteroendocrine,0.45115,0.42763,40013,2
+gastric fundus epithelium,0.4655,0.42203,36036,3
+granulocytes,0.26027,0.54136,39849,3
+heart fibroblasts,0.72598,0.30738,45339,4
+hepatocyte,0.37794,0.49103,36593,6
+jejunum enteroendocrine,0.39525,0.46489,48679,1
+jejunum epithelium,0.39105,0.46767,49136,1
+keratinocyte,0.423,0.43623,46803,1
+kidney glomerular endothelium,0.37494,0.44989,13487,3
+kidney glomerular epithelium,0.35052,0.47532,23476,2
+kidney tubular endothelium,0.33545,0.47609,19264,3
+kidney tubular epithelium,0.34551,0.47676,18376,3
+larynx epithelium,0.51823,0.40135,53338,1
+liver endothelium,0.55254,0.37133,13165,1
+liver macrophages,0.27886,0.51127,19925,1
+lung alveolar endothelium,0.47149,0.41518,12663,3
+lung alveolar epithelium,0.41358,0.43698,26325,3
+lung alveolar macrophages,0.25984,0.54505,36221,2
+lung bronchus epithelium,0.44412,0.42414,37923,3
+lung interstitial macrophages,0.25611,0.54586,33560,3
+lung pleural epithelium,0.38081,0.46065,34023,1
+memory b cells,0.46687,0.42925,44991,2
+monocytes,0.25153,0.55066,38713,3
+naive cd4 t cells,0.19782,0.5988,36901,1
+naive cd8 t cells,0.19092,0.60377,39049,2
+nk cells,0.24708,0.52865,29582,3
+oligodendrocytes,0.28773,0.5199,42969,4
+osteoblasts,0.71159,0.31749,45811,1
+ovary epithelium,0.44828,0.44422,40178,1
+pancreas endothelium,0.42013,0.42515,10866,4
+pancreatic acinar,0.56877,0.38862,37279,4
+pancreatic alpha,0.33078,0.48306,33086,3
+pancreatic beta,0.31347,0.49515,36881,3
+pancreatic delta,0.33853,0.47268,29316,3
+pancreatic duct,0.31437,0.50666,25259,4
+pharynx epithelium,0.55879,0.40541,65227,1
+podocyte,0.34855,0.46978,15199,3
+prostate epithelium,0.41114,0.44991,24871,4
+small intestine epithelium,0.39829,0.45766,42287,3
+smooth muscle,0.73159,0.29469,27637,5
+striated muscle,0.48109,0.38488,12274,2
+t cells cd3,0.27745,0.51244,28019,2
+t central memory cd4,0.34299,0.48237,31186,3
+t effector cell cd8,0.4087,0.45481,36825,3
+t effector memory cd4,0.47779,0.4262,34348,3
+thyroid epithelium,0.26524,0.53117,29814,3
+tongue epithelium,0.46708,0.42075,43644,4
+tonsil palatine epithelium,0.53339,0.38777,44025,3
+tonsil pharyngeal epithelium,0.5522,0.38218,42771,2
+vascular saphenous endothelium,0.39794,0.4376,14737,3
