@@ -1857,3 +1857,6 @@ The author: publish this one example; other whiteboard sessions stay in the priv
 
 ### 2026-10-15 · Bit-rate ideas and the Computer Science of Reality paper captured (author)
 development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md: the computed bit numbers, the author's questions with short answers (binary holds its 0s; Mahaffey numbers are kT, 30.2 bits per ATP; the horizon bit rate alone cannot settle the Hubble tension), the paper plan and analogy list, and further ideas. Manifest PHY-044 now points to it. No time-course data in our S3.
+
+### 2026-10-15 · DEV-BACKBONE-01 island side approved (author)
+The author approved recovering the island-side counts for the early-onset colorectal pairs. They will be counted with PROC-CHANNEL-01's existing de novo channel, no new method; the job is queued behind the atlas fit, which holds all 128 cores until about 11:30 PM Pacific.
