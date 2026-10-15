@@ -1860,3 +1860,6 @@ development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md: the computed bit numb
 
 ### 2026-10-15 · DEV-BACKBONE-01 island side approved (author)
 The author approved recovering the island-side counts for the early-onset colorectal pairs. They will be counted with PROC-CHANNEL-01's existing de novo channel, no new method; the job is queued behind the atlas fit, which holds all 128 cores until about 11:30 PM Pacific.
+
+### 2026-10-15 · Four-domain table: the record in bits
+New row "The record in bits": horizon bits and bit rate, one bit per decohered qubit and per stored node, and the cell's CpG count and held bits, with 1 kT = 1.443 Landauer bits (M = 20.94 kT = 30.2 bits per ATP).

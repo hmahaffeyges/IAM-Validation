@@ -206,6 +206,35 @@
    }
   },
   {
+   "id": "bits",
+   "name": "The record in bits",
+   "definition": "One two-state element is one bit of capacity; the held information per element is 1 - H(eps); 1 kT = 1/ln2 = 1.443 Landauer bits.",
+   "cosmos": {
+    "native": "horizon bits",
+    "formula": "Hubble horizon: area/(4 l_P^2 ln2) = about 3.3e122 bits (H0 67.16) or 2.8e122 (72.26); grows about 6.8e104 bits per second today, peak at the turn to acceleration (an identity of the expansion shape); computed with flat matter plus Lambda, not yet IAM's E(a)",
+    "status": "calculated",
+    "source": "development/WHITEBOARD_2026-10-15.md part 6"
+   },
+   "qubits": {
+    "native": "one qubit's classical record",
+    "formula": "one bit per decohered qubit; each discarded flip is an erasure paid at Delta_Al ln2",
+    "status": "derived",
+    "source": "p5_02_xqp"
+   },
+   "chips": {
+    "native": "one stored node",
+    "formula": "one bit per node; Landauer floor k_B T ln2 per erased bit",
+    "status": "derived",
+    "source": "Ch. CMOS"
+   },
+   "cells": {
+    "native": "one CpG on one strand of one DNA copy",
+    "formula": "28,217,009 CpG sites per haploid genome (counted from hg19); a diploid cell has about 112 million methyl positions (about 14 MB), about 89 million bits held at the healthy held error; M = 20.94 kT per ATP = 30.2 bits; the firm mark's holding 4.15 kT = 6.0 bits",
+    "status": "calculated",
+    "source": "development/WHITEBOARD_2026-10-15.md part 6"
+   }
+  },
+  {
    "id": "floor",
    "name": "Floor (left mark)",
    "definition": "The lowest error a record can hold against thermal kicks at full drive.",
