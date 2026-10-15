@@ -1979,3 +1979,6 @@ The author: go. backbone_01.py real mode written (PROC-TUMOUR-01 genotype mask a
 
 ### 2026-10-15 · Correction: C-score commissioned scope is whole blood only
 All three independent laboratories read whole blood; no independent laboratory's isolated neutrophils were read against the fixed definitions (GSE184269's sorted fraction was refused at intake). Scope narrowed in the note, the chain (CSCORE_COMMISSIONING specimens), READMEs, catalogue and register; isolated neutrophils stay development, next scope step.
+
+### 2026-10-15 · DEV-BACKBONE-01 run once: INCONCLUSIVE by its rule; tumor above own normal on firm territory 6 of 6
+T1 6 of 6 (median 1.154x, min 3.3 SE), T2 6 of 6, N 0 of 6 (normals 0.0318-0.0374 against the healthy range 0.0136-0.0226, counted on a different counter and scale). Next: the healthy firm-territory range with PROC-TUMOUR-01's counter, written before comparison.

@@ -1,6 +1,6 @@
-# DEV-BACKBONE-01: does a tumor's backbone read worse than the writer's nameplate? (rule written 2026-10-15; PREPARED, NOT RUN)
+# DEV-BACKBONE-01: does a tumor's backbone read worse than the writer's nameplate? (rule written 2026-10-15; run once 2026-10-15)
 
-**Status: prepared, not run.** The author's step 4 (whiteboard, 2026-10-15): run once, and only after steps 1 to 3 hold up on paper.
+**Status: run once 2026-10-15 with the author's go; verdict INCONCLUSIVE by the written rule (tumor side MET, healthy side not at nameplate).** The author's step 4 (whiteboard, 2026-10-15): run once, and only after steps 1 to 3 hold up on paper.
 
 **The question, in plain words.** Healthy cells hold their firmly held territory at the writer's own limit (whiteboard part 2). Tumors widen
 their loosely held territory, and on its own that only moves a sample along its own line. The cancer signal on this picture is different:
@@ -76,3 +76,37 @@ pairs read more than 1.2 times their own normal (the synthetic's planted 2x read
 tumor's sequencing substitution error is 3.5 times its normal's, so read quality, not the islands, is the first thing to check there.
 CRC5 is the pair flagged for a conversion difference. Six pairs, one laboratory, purity unknown: development. The firm-territory test
 (bars N, T1, T2 above) has still not been run; it waits for the author's go, as written.
+
+
+## Outcome (2026-10-15): INCONCLUSIVE by the rule; the tumor's excess survives on firm territory in 6 of 6
+
+Run once with the author's go (code `data/DEV_BACKBONE_01/backbone_01.py` at commit 69b8a77f; rows `backbone_01_rows.csv`, verdict
+`backbone_01_verdict.json`, summary `backbone_01_summary.json`). PROC-TUMOUR-01's genotype mask and sequencing-error subtraction, unchanged.
+
+| pair | normal, firm | tumor, firm | tumor over own normal | separation (standard errors) |
+|---|---|---|---|---|
+| CRC1 | 0.03427 | 0.04643 | 1.355 | 21.5 |
+| CRC2 | 0.03487 | 0.04196 | 1.203 | 10.2 |
+| CRC3 | 0.03194 | 0.03791 | 1.187 | 16.4 |
+| CRC4 | 0.03176 | 0.03561 | 1.121 | 12.7 |
+| CRC5 | 0.03606 | 0.03863 | 1.071 | 3.3 |
+| CRC6 | 0.03742 | 0.04126 | 1.103 | 11.7 |
+
+- **T1, MET (6 of 6, bar 5):** every tumor carries more held error than its own normal on firm territory alone, median 1.154 times,
+  every pair separated by at least 3.3 standard errors. The tumor excess is not only a change of territory: it is on the backbone itself.
+- **T2 (6 of 6 above 0.0226):** met as counted, but read with N.
+- **N, not met (0 of 6):** the normals read 0.0318-0.0374 on firm territory, above the healthy range 0.0136-0.0226. By the rule this
+  makes the verdict INCONCLUSIVE: the nameplate range cannot serve as the reference for these samples.
+
+**Why N likely failed (a hypothesis, not tested here).** The healthy range comes from PROC-CHANNEL-01, read on Loyfer's sorted cells with
+its own counter and scale; these samples are counted with PROC-TUMOUR-01's isolated-error counter on a different laboratory's tissue.
+The own-read work of 2026-10-15 measured that the two scales differ by a constant (0.741, own_reads_genome_cells.csv). The scale is not
+applied here, because the rule did not name it. A fair nameplate comparison needs a healthy range counted with this counter.
+
+**What it would take to finish.** The healthy firm-territory range counted with PROC-TUMOUR-01's counter on healthy tissue (the 56 cell
+types' own reads), written before it is compared; then N and T2 are read against it.
+
+**In plain words.** In six young patients with colorectal cancer, the tumor's DNA holds its firmest marks less well than the same
+patient's healthy colon, every time, and clearly. That is the tumor signal the physics points to, seen on the part of the DNA that is
+supposed to be held hardest. Whether the healthy colon itself sits exactly at the writer's limit could not be judged yet, because the
+healthy reference was counted on a different scale.

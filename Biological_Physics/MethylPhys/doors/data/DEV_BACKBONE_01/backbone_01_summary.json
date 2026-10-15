@@ -1,0 +1,26 @@
+{
+ "tumor_over_normal_firm": {
+  "CRC1": 1.355,
+  "CRC2": 1.203,
+  "CRC3": 1.187,
+  "CRC4": 1.121,
+  "CRC5": 1.071,
+  "CRC6": 1.103
+ },
+ "median_ratio": 1.154,
+ "min_ratio": 1.071,
+ "z_tumor_minus_normal": {
+  "CRC1": 21.5,
+  "CRC2": 10.2,
+  "CRC3": 16.4,
+  "CRC4": 12.7,
+  "CRC5": 3.3,
+  "CRC6": 11.7
+ },
+ "min_z": 3.3,
+ "normals_firm_eps_range": [
+  0.0318,
+  0.0374
+ ],
+ "loose_minus_firm_normal_median": 0.0058
+}

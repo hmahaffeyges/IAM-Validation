@@ -25070,15 +25070,21 @@
    ],
    "data_status": "spent",
    "record": "Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md",
-   "status": "running",
+   "status": "run",
    "runs": [
     {
      "date": "2026-10-15",
      "outcome": "progressed",
      "note": "island arm counted, reported not scored: 4 of 6 tumors above the healthy island range, 3 of 6 pairs above 1.2x own normal, median 1.211; CRC1 reversed with 3.5x the sequencing error. Firm-territory test still waits for the author's go."
+    },
+    {
+     "date": "2026-10-15",
+     "outcome": "progressed",
+     "note": "run once with the author's go: INCONCLUSIVE by the rule (N 0 of 6: normals 0.0318-0.0374 above the healthy range, a counter-scale difference likely). T1 6 of 6: tumor above own normal on firm territory alone, median 1.154x, min 3.3 SE. Record DEV_BACKBONE_01.md.",
+     "page": "not headline: inconclusive by its rule; the firm-territory result goes to the day log as a finding"
     }
    ],
-   "next_step": "author's go for the firm-territory test (bars N, T1, T2), run once",
+   "next_step": "healthy firm-territory range counted with PROC-TUMOUR-01's counter (56 cell types' own reads), written before comparison; then N and T2 re-read",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

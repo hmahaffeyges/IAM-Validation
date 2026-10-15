@@ -57,12 +57,12 @@ Cancer does not only shift tagging levels; it clumps them into runs. The C-Score
 
 Counts tagging mistakes one DNA molecule at a time, the most direct reading of informational fidelity we have, and reads them against the sample's own line. The physics end of the catalogue: the floor and ceiling are derived, and since 2026-10-15 the healthy middle comes from the sample itself.
 
-**Reads:** single-molecule sequencing (bisulfite, EM-seq; nanopore next). **Where it stands:** running now.
+**Reads:** single-molecule sequencing (bisulfite, EM-seq; nanopore next). **Where it stands:** passing its tests.
 
 - PHY-045 The loose end read off the line: every healthy cell's held error from its own loose share: run; last run 2026-10-15: met
 - PHY-048 The loose-end line at the one-Landauer-bit cut: run; last run 2026-10-15: met
 - PHY-049 The loose share from each sample's own molecules: run; last run 2026-10-15: not met
-- PHY-043 Tumor backbone against the writer's nameplate: running now; last run 2026-10-15: progressed
+- PHY-043 Tumor backbone against the writer's nameplate: run; last run 2026-10-15: progressed
 - COM-IAMA-052 IAM-A atlas-free commissioning: one grand sealed test on fresh data: planned
 
 **Next:** The tumor pairs read on both sides of the DNA, a second laboratory, then one grand sealed test on fresh data to commission it.
