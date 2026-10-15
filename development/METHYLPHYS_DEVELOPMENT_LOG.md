@@ -1910,3 +1910,6 @@ With the ten re-read samples (box job 39f8ae21): firm 0.0297, loose 0.0560, r 0.
 
 ### 2026-10-15 · PRED-TEMPERATURE-01: the temperature law sealed before any search (PHY-057)
 The predicted tagging error at each temperature, from the measured 37 C line with nothing fitted (temperature_law.json): firm 0.0137 at 5 C, 0.0223 at 41 C; within one species the log-odds ratio is fixed by the two temperatures alone (1.0343 for 18 C against 28 C). No data searched or read.
+
+### 2026-10-15 · PRED-TEMPERATURE-01 synthetic: run 1 NOT MET, run 2 MET (author asked: synthetic first)
+Run 1 found a systematic low bias in converting counted mistakes back to an error rate with a formula; run 2 converts through the counter's own response curve measured on planted molecules and recovers the sealed ratios within 0.5 percent at 200,000 molecules per temperature. A real test needs about 20,000 qualifying molecules per temperature or more. Sealed predictions unchanged.

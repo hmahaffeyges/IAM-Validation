@@ -1,0 +1,7 @@
+18 C, 2000 molecules per temperature: sealed 1.0343, recovered 1.0003, worst miss 4.69 percent, told apart 4 of 5
+18 C, 20000 molecules per temperature: sealed 1.0343, recovered 1.0349, worst miss 0.77 percent, told apart 5 of 5
+18 C, 200000 molecules per temperature: sealed 1.0343, recovered 1.0347, worst miss 0.51 percent, told apart 5 of 5
+torpor 5 C vs active 37 C, 2000 molecules per temperature: sealed 1.115, recovered 1.1074, worst miss 2.68 percent, told apart 5 of 5
+torpor 5 C vs active 37 C, 20000 molecules per temperature: sealed 1.115, recovered 1.1131, worst miss 1.23 percent, told apart 5 of 5
+torpor 5 C vs active 37 C, 200000 molecules per temperature: sealed 1.115, recovered 1.1166, worst miss 0.31 percent, told apart 5 of 5
+SYNTHETIC: MET

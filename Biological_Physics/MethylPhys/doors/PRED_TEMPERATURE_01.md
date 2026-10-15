@@ -17,9 +17,17 @@ Boltzmann premise does not hold for held marks there, and the gauge's use of kT 
 
 **Data:** none searched yet. Salmon (PROC-SALMON-01) and every other fish set already scored cannot be the test.
 
-**Synthetic test:** PRED_TEMPERATURE_01/temperature_law.py, PRED_TEMPERATURE_01/temperature_law_synthetic.txt
+**Synthetic test:** PRED_TEMPERATURE_01/temperature_synthetic.py, PRED_TEMPERATURE_01/temperature_synthetic.txt
 
-The self-check ran once on 2026-10-15 and read MET: at 37 C the rule returns the measured values exactly, and the error rises with temperature.
+The measurement synthetic (molecules planted at two temperatures, counted with the committed PROC-CHANNEL-01 counter) ran twice on
+2026-10-15. Run 1 read NOT MET (kept as temperature_synthetic_run1_NOTMET.txt): converting counts back to an error rate with the formula
+eps(1 - eps)^2 read the 5 C against 37 C ratio low (1.105 against 1.115) even at 200,000 molecules, a systematic bias in the conversion, not
+in the law. Run 2 converts through the counter's own response curve, measured on planted molecules with its own seed, and read MET: at
+200,000 molecules per temperature the sealed ratios are recovered within 0.51 percent (18 C against 28 C) and 0.31 percent (5 C against
+37 C), told apart in every repeat. At 2,000 molecules the 18 C against 28 C pair is not reliably told apart (4 of 5), so a real test needs
+at least about 20,000 qualifying molecules per temperature. The predictions themselves did not change.
+
+The formula self-check (temperature_law_synthetic.txt) also read MET: at 37 C the rule returns the measured values exactly, and the error rises with temperature.
 
 What it would take to succeed: single-molecule methylation of one species read at two body or water temperatures, with the log-odds ratio landing on the sealed value; finish line, not a promise.
 
