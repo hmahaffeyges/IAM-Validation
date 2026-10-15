@@ -14,6 +14,7 @@ strand, read G / A at the CpG's G):
  meter      = sequencing error: A/T-reference mismatches over A/T positions on 1 read in 20; conversion failure: non-CpG reference C (top)
               or G (bottom) read unconverted (as the tumor extractor)
 Usage: python secondlab.py synthetic | run <bam> <ref.fa> <workers> <out.json> | score <dir with *.json>"""
+# NO CHAIN: the chain's Stage Q (IAM-A) reads Bismark XM tags only and ENCODE's gemBS alignments carry none; the gemBS call rule here is to be wired into Stage Q after this test (manifest OTH-057)
 import os, sys, json, re, collections, multiprocessing as mp, numpy as np
 FIRM, LOOSE, CUT, TILE, MINC = 0.0298, 0.0555, 0.70, 2000, 200
 AUTO = [f"chr{i}" for i in range(1, 23)]

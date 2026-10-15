@@ -26326,6 +26326,28 @@
    "sources_of_row": [
     "session 2026-10-15"
    ]
+  },
+  {
+   "title": "Wire the own-read counter and gemBS reading into the chain's Stage Q",
+   "purpose": "Author 2026-10-15: are we using the actual chain? IAM-A's self-reference line and loose share run on development scripts; Stage Q reads Bismark only",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "COMMISSIONING_PLAN.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "add the loose share, the self-reference line and gemBS calls to stage_q_iam_a, with the development scripts as its reproduction test",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "author 2026-10-15",
+   "legacy_ids": [],
+   "id": "OTH-057",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
   }
  ],
  "not_tests": {
