@@ -25086,7 +25086,7 @@
    "cost": "unknown",
    "impact": 4,
    "depends_on": [],
-   "notes": "whiteboard part 6; ideas file holds the paper plan; no time-course data in our S3 (checked 2026-10-15)",
+   "notes": "whiteboard part 6; ideas file holds the paper plan; no time-course data in our S3 (file-name search 2026-10-15: one hit, A_bar_replicates.csv, a replicates table, not a time course)",
    "legacy_ids": [],
    "id": "PHY-044",
    "sources_of_row": [

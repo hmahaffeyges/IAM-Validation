@@ -1863,3 +1863,6 @@ The author approved recovering the island-side counts for the early-onset colore
 
 ### 2026-10-15 · Four-domain table: the record in bits
 New row "The record in bits": horizon bits and bit rate, one bit per decohered qubit and per stored node, and the cell's CpG count and held bits, with 1 kT = 1.443 Landauer bits (M = 20.94 kT = 30.2 bits per ATP).
+
+### 2026-10-15 · Correction: the time-course search had one hit
+The earlier entry and the chat said the search came up empty. It had one hit, results/BOXRUN1/A/A_bar_replicates.csv, matched on "repli"; it is a replicates table, not a time course. The conclusion stands; the claim of no hits did not. Ideas file and PHY-044 corrected.

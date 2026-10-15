@@ -28,7 +28,7 @@ the four-domain table (FOUR_DOMAINS.md) is as complete as we can make it. Comput
   (67.16 and 72.26 in the book), checked against independent probes such as gravitational-wave sirens. The bit-rate form is a way to
   explain that split, era by era, in units anyone understands.
 - **A cell's bit rate:** one sample gives the balance (loss over loss plus restore), not the rates. Rates need the same cells read over
-  time (manifest PHY-044). No such data is in our S3 (checked 2026-10-15).
+  time (manifest PHY-044). No such data is in our S3 (checked 2026-10-15: a file-name search of downloads/, results/ and archive/ for time-course terms had one hit, results/BOXRUN1/A/A_bar_replicates.csv, a replicates table matched on 'repli', not a time course).
 
 ## The paper: "Computer Science of Reality" (working title)
 
