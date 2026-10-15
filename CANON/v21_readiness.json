@@ -656,7 +656,7 @@
  "public": {
   "fit_estimate": "about 21 to 26 hours on one 128-core machine",
   "fit_estimate_source": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_plan.md, run-time table (v2.1 firm, 16 processes; scaled from v2's measured block)",
-  "fit_started_utc": "2026-10-15T06:30:00Z",
+  "fit_started_utc": "2026-10-15T06:25:59Z",
   "fit_finished_utc": null,
   "_rule": "The front page's v2.1 card reads only this block and the board's own state: preparing until every before-launch item is met, fitting once fit_started_utc is set by the launcher, fitted once fit_finished_utc is set."
  }

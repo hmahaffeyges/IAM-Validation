@@ -953,7 +953,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/run_v21_block.py",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
    ],
-   "note": "running; started 2026-10-15 06:30 UTC; about 24 h, about $180"
+   "note": "running; started 2026-10-15 06:25:59 UTC (run_v21.log); about 24 h, about $180"
   }
  ],
  "not_jobs": {
