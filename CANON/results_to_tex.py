@@ -18,6 +18,9 @@ def mw_p_greater(x, y):
 def f3(x): return f"{x:.3f}"
 def compute(e):
     D = "Biological_Physics/MethylPhys/doors/data/"
+    if e["compute"] == "loose_end_line":
+        O = json.load(open(os.path.join(ROOT, "development/loose_end_2026-10-15/loose_end_line.json")))
+        return dict(n=O["cells"], within=round(O["within_0_003"] * O["cells"]), firm=O["firm_end"], loose=O["loose_end"], r=O["r"])
     if e["compute"] == "sam":
         R = rows(D + "DEV_SAM_LEVER_01/sam_01_mice.csv"); g = lambda k: [float(r["IAMA"]) for r in R if r["group"] == k]
         ko, wt, sa = g("knockout vehicle"), g("wild type"), g("knockout SAMe"); pr = e["prediction"]

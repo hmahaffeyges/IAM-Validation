@@ -275,6 +275,26 @@
     "head": "Rebuilt from scratch on a clean machine",
     "sub": "A fresh copy of the repository and public data only: every number the commissioned instrument uses came out identical."
    }
+  },
+  {
+   "id": "DEV-LOOSE-LINE-01",
+   "date": "2026-10-15",
+   "kind": "result",
+   "instrument": "IAM-A",
+   "status": "development",
+   "sealed": false,
+   "book": false,
+   "record": "development/loose_end_2026-10-15/loose_end_line.py",
+   "compute": "loose_end_line",
+   "title": "Every healthy cell follows the same simple rule",
+   "plain": "Your cells put tiny chemical tags on their DNA. The tags tell each cell what kind of cell it is. Some stretches of DNA are tagged firmly and some loosely, and every cell makes a few tagging mistakes. We looked at 56 kinds of healthy human cells and found that the number of mistakes depends on one thing: how much of its DNA the cell keeps loosely tagged. Plotted, all 56 fall on one straight line. So we can tell what a healthy cell should look like from that cell's own sample, without comparing it to a library of other cells. Early result, from one laboratory's data. Next, we check it in a second lab.",
+   "win": {
+    "rank": 16,
+    "stat": "{within} of {n} on one line",
+    "head": "Every healthy cell follows the same simple rule",
+    "sub": "Cells tag their DNA to remember what kind of cell they are, and make a few tagging mistakes. Across {n} kinds of healthy human cells, the number of mistakes depends on one thing: how much of the DNA the cell keeps loosely tagged. So what a healthy cell should look like comes from its own sample, not a library of other cells. Early result, one laboratory's data; a second lab is next."
+   },
+   "headline": "**Every healthy cell follows the same simple rule.** Across 56 kinds of healthy human cells, the number of DNA-tagging mistakes depends on one thing, how much of the DNA the cell keeps loosely tagged, so a healthy cell's expected reading comes from its own sample (early result, one laboratory)"
   }
  ],
  "losses": [

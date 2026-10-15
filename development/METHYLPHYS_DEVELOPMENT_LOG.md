@@ -1881,3 +1881,6 @@ The island arm compares each tumor's island gain error with its own normal's, us
 
 ### 2026-10-15 · DEV-BACKBONE-01 island arm: real counts submitted on the second machine
 Box job 4110eb64 (code ed7af0dc) on the second machine (methylphys-fit-01, spot m7a.8xlarge, fixed address 32.190.44.180) runs development/tumor_island_2026-10-15/run_tumor_island.sh: the six early-onset colorectal pairs, the first 10 million read-1 reads each from ENA, the original Trim Galore and Bismark tools and hg38 index from our S3, and extract_island.py (the original extraction unchanged, with the island count added). The loss side is checked against the stored tables; it will not match exactly, because the original runs took 2.5 to 30 million reads per sample.
+
+### 2026-10-15 · Front page: the loose-end line as an early result (author approved the wording)
+DEV-LOOSE-LINE-01 in the results register, numbers computed from loose_end_line.json; the page marks it "Early result" (found in data already read, not a sealed test). Manifest PHY-045 headline set; PHY-047 added for the second-laboratory check.

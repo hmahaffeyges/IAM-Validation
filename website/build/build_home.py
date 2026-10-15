@@ -82,6 +82,7 @@ def page(art):
         w, v = e["win"], vals(e); f = lambda t: E(t.format(**v))
         chip = {"commissioned": '<span class="chip st-g">Commissioned</span>', "published": '<span class="chip st-g">Published</span>',
                 "reproduced": '<span class="chip st-g">Reproduced</span>'}.get(e["status"], '<span class="chip st-b">Passed its sealed test</span>')
+        if e.get("sealed") is False: chip = '<span class="chip st-b">Early result</span>'   # found in data already read; not a sealed test
         return f'''<article class="res win">{chip}<p class="stat">{f(w["stat"])}</p><h3>{f(w["head"])}</h3><p>{f(w["sub"])}</p><p class="more"><span>{E(e["date"])}</span> · <a href="{rec(e["record"])}">the record</a></p></article>'''
     MT = J("CANON/method.json")
     AS = J("CANON/assistant.json")
