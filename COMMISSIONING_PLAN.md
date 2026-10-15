@@ -33,7 +33,7 @@ value is opened, so they are now step 0.
 
 | # | Row | Step | Needs |
 |---|---|---|---|
-| 0 | ATL-060 | **First, before the fit lands:** write, synthetic-test and seal the Loyfer and Moss use tests (markers against their published lists; the wide-area mixture with a fair same-ground arm; extras shown). Only the fit's run log (speed, R-hat, divergences) has been read; no atlas value has been opened | laptop |
+| 0 | ATL-060 | **DONE 2026-10-15:** the Loyfer and Moss use tests sealed before the fit landed (DEV-ATLAS-USE-01; synthetic run 1 NOT MET and fixed, run 2 MET). Real run after the release | laptop |
 | 1 | PHY-049 | Open-sea own-read loose share: an hg19 open-sea map (islands, shores and shelves out, UCSC cpgIslandExt), synthetic, then the 153 Loyfer samples streamed from GEO | the second machine |
 | 2 | PHY-043 | Score the tumor pairs on both sides by the committed rule (DEV-BACKBONE-01 island arm) | the job's output |
 | 3 | COM-METAA-039 | Met-A against its own loose share: synthetic, then healthy neutrophil arrays already spent (development) | the box after the fit, or the second machine |
