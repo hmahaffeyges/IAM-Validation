@@ -171,6 +171,14 @@
     {
      "file": "docs/book/part6/p6_24_status.tex",
      "pattern": "Met-A C-score baseline 1\\.1104"
+    },
+    {
+     "file": "docs/book/part6/p6_09_cscore.tex",
+     "pattern": "c_\\{\\\\rm healthy\\}=1\\.1104|Consecutive runs of 50 sites are averaged\\. If"
+    },
+    {
+     "file": "docs/book/part6/p6_16_sky.tex",
+     "pattern": "block size; blocks per map & 50; 120 \\\\\\\\"
     }
    ]
   }

@@ -85,7 +85,7 @@ At each site $i$ the residual is
 \end{equation}
 where $\overline{H}_i$ is the mean of $H(\beta)$ over the healthy reference arrays and $s_i$ their spread, shrunk toward the pooled spread as in
 the chain. Two numbers summarize the sky. Met-A is its monopole, the mean of $H(\beta)$ over the 6,000 identity sites divided by the healthy
-reference. The C-score asks whether the departures sit together along the genome: take $z$ in genome order, average it in blocks of 50 sites,
+reference. The C-score asks whether the departures sit together along the genome: take $z$ in genome order, average it in blocks of 50 sites (this construction; the chain reads blocks of 10 since 2026-10-09, Chapter~\ref{ch:cscore}),
 and compare the variance of the block means (times 50) with the variance of $z$. Independent scatter gives 1; a pattern in which every 50-site
 block moves as one gives 50. Divided by the healthy baseline 1.1104, the healthy arrays read 0.70--1.23 and the far end is 45 (Chapter~\ref{ch:cscore}). \derived{} (construction) \calibrated{} (baseline)
 

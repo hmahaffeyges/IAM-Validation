@@ -77,13 +77,16 @@ def page(art):
         if "n" in v: v["exp"] = round(0.05 * v["n"])
         if "k" in v and v.get("exp"): v["xchance"] = round(v["k"] / (0.05 * v["n"]))
         return v
-    regs = sorted([e for e in REG["entries"] if e.get("status") != "withdrawn"], key=lambda e: e["win"]["rank"])
+    _covered = {c for e in REG["entries"] if e.get("kind") == "commissioning" for c in e.get("covers", [])}   # steps folded into a commissioning are not shown again (author 2026-10-15: front-page news only)
+    regs = sorted([e for e in REG["entries"] if e.get("status") != "withdrawn" and e["id"] not in _covered], key=lambda e: e["win"]["rank"])
     def card(e):
         w, v = e["win"], vals(e); f = lambda t: E(t.format(**v))
         chip = {"commissioned": '<span class="chip st-g">Commissioned</span>', "published": '<span class="chip st-g">Published</span>',
                 "reproduced": '<span class="chip st-g">Reproduced</span>'}.get(e["status"], '<span class="chip st-b">Passed its sealed test</span>')
         if e.get("sealed") is False: chip = '<span class="chip st-b">Early result</span>'   # found in data already read; not a sealed test
-        return f'''<article class="res win">{chip}<p class="stat">{f(w["stat"])}</p><h3>{f(w["head"])}</h3><p>{f(w["sub"])}</p><p class="more"><span>{E(e["date"])}</span> · <a href="{rec(e["record"])}">the record</a></p></article>'''
+        _story = "".join(f"<h4>{E(x['h'])}</h4><p>{E(x['p'])}</p>" for x in e.get("story", []))
+        _story = f'<details><summary>Why it matters</summary>{_story}</details>' if _story else ""
+        return f'''<article class="res win">{chip}<p class="stat">{f(w["stat"])}</p><h3>{f(w["head"])}</h3><p>{f(w["sub"])}</p>{_story}<p class="more"><span>{E(e["date"])}</span> · <a href="{rec(e["record"])}">the record</a></p></article>'''
     MT = J("CANON/method.json")
     AS = J("CANON/assistant.json")
     ul = lambda xs: "".join(f"<li>{E(x)}</li>" for x in xs)

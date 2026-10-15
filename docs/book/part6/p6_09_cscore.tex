@@ -21,14 +21,14 @@ own sky: only measured sites, placed by genome position, nothing interpolated. \
 
 \section{The score}
 
-Consecutive runs of 50 sites are averaged. If the departures are scattered at random, the block means vary as $1/\sqrt{50}$
+Consecutive runs of 10 sites are averaged (blocks of 50 until 2026-10-09). If the departures are scattered at random, the block means vary as $1/\sqrt{10}$
 of the site values; if they cluster, the block means vary more. The clustering statistic is
 \begin{equation}
-  c=\frac{\mathrm{var}\left(\sqrt{50}\;\overline{z}_{\rm block}\right)}{\mathrm{var}(z)},\qquad
-  C=\frac{c}{c_{\rm healthy}},\qquad c_{\rm healthy}=1.1104,
+  c=\frac{\mathrm{var}\left(\sqrt{10}\;\overline{z}_{\rm block}\right)}{\mathrm{var}(z)},\qquad
+  C=\frac{c}{c_{\rm healthy}},\qquad c_{\rm healthy}=1.0103,
   \label{eq:C}
 \end{equation}
-with $c_{\rm healthy}$ the median over the six reference arrays, each read against the other five. \calibrated{} The healthy arrays read $C=0.70$--$1.23$. A score needs a minimum
+with $c_{\rm healthy}$ the median over the six reference arrays, each read against the other five. \calibrated{} The healthy reference arrays read $C=0.954$--$1.046$; a reading is then tared against healthy arrays run with it ($C_{\rm rel}$) and read against the commissioned band (Status box). A score needs a minimum
 number of blocks.
 
 Figure~\ref{fig:p4_cscore_construction} shows the construction on two simulated maps with the same mean departure.

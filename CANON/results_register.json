@@ -329,11 +329,33 @@
    ],
    "plain": "Commissioned means a reading is allowed to report results, not just development readings. The clustering meter reads the shape of the damage: clumps, as a tumor leaves, or scattered, as ordinary wear leaves. Every test written for it before its data were read was met: its healthy range held in three laboratories that never helped set it, the same person measured twice reads the same, and clumped damage planted into real healthy arrays was caught every time while scattered damage never set it off. It is our second commissioned instrument, on whole blood; purified white cells are its next scope step. It has not yet read real tumors with a sealed bar; that is its next test.",
    "win": {
-    "rank": 7,
+    "rank": 0,
     "stat": "Commissioned",
-    "head": "Our second instrument is commissioned",
-    "sub": "The clustering meter passed every test written for it before its data was read, in three independent laboratories."
-   }
+    "head": "Our second instrument is commissioned: the clustering meter",
+    "sub": "It reads not how much a blood sample's DNA tags have changed, but how: scattered like ordinary wear, or packed together the way a tumor leaves them. It passed every test written for it before its data was read, in three independent laboratories."
+   },
+   "story": [
+    {
+     "h": "Why it matters",
+     "p": "Most methylation tests ask how much a sample has changed. The clustering meter asks how it changed. Ordinary aging leaves small changes spread thinly across the genome. A tumor that silences or loses a whole region leaves its changes packed together in stretches. Two samples can carry the same amount of change and mean very different things, and this meter tells them apart from a single blood array."
+    },
+    {
+     "h": "Where it comes from",
+     "p": "It is one of the tools we carried over from cosmology. Cosmologists lay the microwave sky on a sphere, subtract what they expect to see, and measure how the leftover departures cluster at each scale. That measurement is how the Planck mission pinned down what the universe is made of and how old it is. We lay the genome on the same kind of sphere, subtract a healthy person's expected pattern, and measure the same thing: whether the leftovers clump."
+    },
+    {
+     "h": "Is anyone else doing this?",
+     "p": "Others count how many sites in a person's blood are unusual, and some have asked whether those sites gather in particular regions of the genome. We have not found a published test that scores, for a single sample, whether its changes clump together along the genome against a fixed healthy range checked in independent laboratories."
+    },
+    {
+     "h": "How it was tested",
+     "p": "The healthy range was set on 617 healthy arrays from 19 studies, then fixed. Three laboratories that had no part in setting it read 34 of 35, 22 of 23 and 172 of 173 healthy bloods inside it. Thirteen people measured twice on different chips read the same to within 0.038, against an allowance of 0.125. Clumped damage planted into real healthy arrays was caught every time; scattered damage never set it off."
+    },
+    {
+     "h": "What comes next",
+     "p": "Reading real tumors with a bar fixed in advance, so we learn where on its scale a tumor begins; then purified white cells from an independent laboratory, older and newer array types, and plasma."
+    }
+   ]
   }
  ],
  "losses": [
