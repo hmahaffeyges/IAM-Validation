@@ -44,7 +44,7 @@ stage, two plants pooled per sample). Grown their whole lives at **10 C (157 sam
 so each genotype is its own control. Reads on SRA: paired-end 2 x 90 bp, median 10.0 million pairs per sample (range 1.7-22.2 million),
 about 13x coverage of the genome (`data/PRED_TEMPERATURE_01/t1_gse54292_design.json`, `t1_gse54292_runinfo_part.csv`). For a plant the
 body temperature is the growth temperature, held for its whole life, so the marks are held at one temperature from start to finish.
-**The number, already fixed by the law:** colder over warmer log-odds = (273.15 + 16) / (273.15 + 10) = 1.0212. Small: about a 2 percent
+**The number, already fixed by the law:** colder over warmer log-odds = (273.15 + 16) / (273.15 + 10) = 1.0212 (`data/PRED_TEMPERATURE_01/t1_plant_number.py`). Small: about a 2 percent
 change in log-odds, so the paired design and the molecule count decide whether it can be seen; stage T2 measures that on synthetic data
 first.
 
