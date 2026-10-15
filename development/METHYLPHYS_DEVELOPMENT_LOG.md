@@ -1997,3 +1997,6 @@ The band was set on the committed 617 arrays (DEV_CSCORE_TARE_01_arrays.csv, blo
 
 ### 2026-10-15 · DEV-SECONDLAB-01 sealed (PHY-047, PHY-050): IAM-A line in a second laboratory, with the meter error
 Five ENCODE sorted blood-cell alignments (gemBS, GRCh38), counter re-implemented for gemBS (calls from the read base on its conversion strand), synthetic MET after two test fixes. Bar S1: at least 3 of 5 cells within 0.003 of the fixed Loyfer own-read line. To-do list added to COMMISSIONING_PLAN.md.
+
+### 2026-10-15 · Operations-manual PDF rebuilt; DEV-SECONDLAB-01 launched
+MethylPhys_CPG_Operations_Manual.pdf rebuilt from the corrected chapter (18 pages; both commissionings named). DEV-SECONDLAB-01 counting on spot i-0ae982785e17a071d (code 4a087820), status in results/DEV_SECONDLAB_01/status.txt.

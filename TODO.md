@@ -222,7 +222,6 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **OTH-048** (impact 3, laptop) Plain-language series part 8: A New Candidate Law of Physics: From the Hydrogen Atom Through 37 Orders to the Cosmic Horizon: part 2 first (private draft IAM_cell_study_guide.md); part 8 last, the grand summary
 - [ ] **OTH-049** (impact 3, laptop) Paper: Computer Science of Reality: The Bit-Rate of Cosmic Expansion from the Singularity Through Today, Black Hole Hard Drives, and Cosmic Storage Space: after the derivations
 - [ ] **OTH-050** (impact 3, laptop) Paper: How IAM Explains Classical Reality, General Relativity, and the Standard Model as One Interpretation: after the derivations; the photon reading anchored in the zero proper time of light and the measured light delays
-- [ ] **OTH-056** (impact 3, laptop) Rebuild the operations-manual PDF from the corrected chapter: run build_manual_v3.py; check the PDF names both commissionings
 - [ ] **PHY-005** (impact 3, search) Copy-channel test with measured per-site rates (Repli-BS in human ES cells): Find the rate files and same-cell whole-genome data.
 - [ ] **PHY-007** (impact 3, search) DEV-METHIONINE-01: methionine depletion as a second SAM lever: Wait for a public set with weeks of restriction (cells or animals); listed in help_wanted.
 - [ ] **PHY-010** (impact 3, none) Met-A to IAM-A reverse direction: an upper-limit prediction any lab can check: Add to the open-prediction list of the replication package.
@@ -870,3 +869,4 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **ATL-064** Atlas v2.1 transfer and sampler speed: smooth curve, diagnostics 2-5, converted readings (mode v21inv): last run 2026-10-15, success
 - [x] **PHY-053** The horizon's storage by era: bits held at the CMB, first stars, the turn to acceleration and today: last run 2026-10-15, success
 - [x] **COM-METAA-039** Met-A read against the sample's own line (a smaller tare, or none): last run 2026-10-15, fail
+- [x] **OTH-056** Rebuild the operations-manual PDF from the corrected chapter: last run 2026-10-15, success

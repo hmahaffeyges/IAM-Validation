@@ -1099,6 +1099,30 @@
     "development/loose_share_2026-10-15/run2/genome_samples.txt"
    ],
    "note": "all ten read (the wrapper's last line returned 1 after a successful run; outputs in S3)"
+  },
+  {
+   "job_id": "i-0ae982785e17a071d",
+   "name": "DEV-SECONDLAB-01: IAM-A line in a second laboratory (ENCODE, five cells) and the meter error",
+   "date": "2026-10-15",
+   "commit": "4a087820",
+   "s3_code_prefix": "results/DEV_SECONDLAB_01/code/",
+   "state": "running",
+   "log": "results/DEV_SECONDLAB_01/status.txt",
+   "machine": "spot m7a.8xlarge, self-terminating (10-hour hard stop)",
+   "purpose": "count the five ENCODE alignments once with secondlab.py run",
+   "record": "doors/DEV_SECONDLAB_01.md",
+   "outputs": [
+    "results/DEV_SECONDLAB_01/out/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_01/secondlab.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_01/samples.tsv"
+   ],
+   "manifest": [
+    "PHY-047",
+    "PHY-050"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {

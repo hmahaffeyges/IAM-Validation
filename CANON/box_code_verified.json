@@ -767,5 +767,18 @@
    "results/LOOSE_SHARE_2026-10-15/genome/run2_own_reads_genome.csv": true
   },
   "state_at_verify": "succeeded"
+ },
+ "i-0ae982785e17a071d": {
+  "s3": {
+   "secondlab.py": "c03ef96378838aaf5cf29203120d40b2fd34a6e2d1dcafc7ecc280004c4c0811",
+   "samples.tsv": "0b94e9317a6e6bcbc921093107b88a0238b306b48a51719408ed5df9fee04ce5"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/DEV_SECONDLAB_01/out/": false
+  },
+  "state_at_verify": "running"
  }
 }

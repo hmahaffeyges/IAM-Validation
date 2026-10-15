@@ -26314,8 +26314,15 @@
    ],
    "data_status": "",
    "record": "COMMISSIONING_PLAN.md",
-   "status": "planned",
-   "runs": [],
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-15",
+     "outcome": "success",
+     "note": "MethylPhys_CPG_Operations_Manual.pdf rebuilt (18 pages) from the corrected chapter; names both commissionings",
+     "page": "not headline: document upkeep"
+    }
+   ],
    "next_step": "run build_manual_v3.py; check the PDF names both commissionings",
    "cost": "laptop",
    "impact": 3,
