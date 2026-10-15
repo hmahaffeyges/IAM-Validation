@@ -268,6 +268,10 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 <div class="card"><h3>What the researcher does</h3><ul class="road">{ul(AS["author_does"])}</ul></div>
 </div>
 </details>
+<details class="fold"><summary>{E(AS["whiteboard"]["title"])}</summary>
+<p>{E(AS["whiteboard"]["lead"])}</p>
+<p class="cta"><a class="btn" href="{rec(AS["whiteboard"]["record"])}">Read the session</a></p>
+</details>
 <!-- ASSISTANT:END -->
 </section>
 <section class="wrap"><h2>What it costs</h2><p class="sub">Every dollar, from Amazon's own billing and our storage, as of {E(CO["as_of"])}. Everything is paid by us and by people who choose to help.</p>

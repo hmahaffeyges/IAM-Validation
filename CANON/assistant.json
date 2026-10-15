@@ -70,5 +70,11 @@
    "q": "How can a reader check any of this?",
    "a": "Both halves are dated and public. The founder's corrections are in the development log; the partner's mistakes are in the lessons record, with the check each one now enforces. A reader who suspects the division of labor is the other way round can read both and see."
   }
- ]
+ ],
+ "whiteboard": {
+  "title": "Coffee and Whiteboard: one session, start to finish",
+  "lead": "One brainstorming session between Heath and his research partner, published as it happened, with the results from later the same day: what worked, what did not, and where the next session starts. Mistakes are left in with their corrections. It is a transcript of ideas, not a results page; every result in it links to its record.",
+  "record": "Biological_Physics/MethylPhys/whiteboard/2026-10-14_coffee_and_whiteboard.md",
+  "_rule": "Only this one session is published (author, 2026-10-14); other whiteboard sessions stay in the private record."
+ }
 }

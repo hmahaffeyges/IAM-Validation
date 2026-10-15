@@ -1851,3 +1851,6 @@ Launch guard ALLOWED (every before-launch item met). Box resized to m7a.32xlarge
 
 ### 2026-10-14 · Day log completed at turnover; the day-log check now enforces it (author)
 The author asked whether the daily report holds everything and whether the code demands it. It did not: the 2026-10-14 day log was still in progress, with 42 of 68 committed threads under half covered, and the coverage check only reported. Fixed: the day log is complete; CANON/daylog.py now refuses a push when a finished Pacific day has no log, still says in progress, or omits a committed thread (a thread counts only if its record id or half its words appear); threads are dated by their Pacific commit time, because some development-log headings were dated by UTC.
+
+### 2026-10-15 · One whiteboard session published on the page (author)
+The author: publish this one example; other whiteboard sessions stay in the private record (they may become the IAM story, or training material, later). The session and its results from later the same day are committed at Biological_Physics/MethylPhys/whiteboard/2026-10-14_coffee_and_whiteboard.md and linked from a collapsed fold in the research-partner section, generated from CANON/assistant.json. Dates corrected to Pacific: the session was 2026-10-14.
