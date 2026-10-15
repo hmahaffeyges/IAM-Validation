@@ -1,0 +1,3 @@
+model curve vs scipy PCHIP: largest difference 3.33e-16
+model slope vs scipy PCHIP derivative: largest difference 5.11e-14
+model slope vs automatic derivative of the model curve: 2.36e-13

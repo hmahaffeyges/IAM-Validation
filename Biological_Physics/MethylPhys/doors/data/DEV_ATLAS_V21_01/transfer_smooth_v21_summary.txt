@@ -1,0 +1,7 @@
+Atlas v2.1 smooth transfer (transfer_smooth_v21.py)
+knots 44 (the anchored knots, unchanged)
+S1 non-decreasing inside [0, 1]: met
+S2 through every knot: met
+S3 largest difference from the anchored curve: 0.00849 at 0.9910 -> met
+S4 largest slope jump across a knot: 4.29e-07 -> met
+SMOOTH TRANSFER: MET
