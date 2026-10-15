@@ -1976,3 +1976,6 @@ The author: the page is for progress donors should see; exploratory checks are n
 
 ### 2026-10-15 · DEV-BACKBONE-01: the author's go; real-mode loader committed before reading
 The author: go. backbone_01.py real mode written (PROC-TUMOUR-01 genotype mask and sequencing-error subtraction, unchanged), committed before any restricted reading; synthetic rerun unchanged.
+
+### 2026-10-15 · Correction: C-score commissioned scope is whole blood only
+All three independent laboratories read whole blood; no independent laboratory's isolated neutrophils were read against the fixed definitions (GSE184269's sorted fraction was refused at intake). Scope narrowed in the note, the chain (CSCORE_COMMISSIONING specimens), READMEs, catalogue and register; isolated neutrophils stay development, next scope step.

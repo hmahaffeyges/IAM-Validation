@@ -50,4 +50,4 @@ including those that failed or were undecided, is in the development log, day by
 | 2026-10-05 | **The book, IAM's Law and Order, v1.0** published (DOI [10.5281/zenodo.23151068](https://doi.org/10.5281/zenodo.23151068)); every derivation checked by one command, `docs/book/verify_book.py`. It includes the 74-cell reference atlas built as one Bayesian posterior, with an interval at every locus for every cell | [`docs/book`](../docs/book) |
 <!-- ADVANCEMENTS:END -->
 
-Met-A on isolated neutrophils (EPIC v1) is commissioned, and so is the clustering meter (Met-A C-score) on whole blood and isolated neutrophils (EPIC v1, 2026-10-15); every other reading here is in development. The instrument is not a diagnostic test and gives no medical advice.
+Met-A on isolated neutrophils (EPIC v1) is commissioned, and so is the clustering meter (Met-A C-score) on whole blood (EPIC v1, 2026-10-15); every other reading here is in development. The instrument is not a diagnostic test and gives no medical advice.

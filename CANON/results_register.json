@@ -322,12 +322,12 @@
    "status": "commissioned",
    "book": false,
    "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md",
-   "headline": "**The clustering meter (C-score) commissioned** on whole blood and isolated neutrophils (EPIC v1), with its band and detection limit printed on every report",
+   "headline": "**The clustering meter (C-score) commissioned** on whole blood (EPIC v1), with its band and detection limit printed on every report",
    "covers": [
     "DEV-CSCORE-BAND-01",
     "DEV-CSCORE-REPEAT-01"
    ],
-   "plain": "Commissioned means a reading is allowed to report results, not just development readings. The clustering meter reads the shape of the damage: clumps, as a tumor leaves, or scattered, as ordinary wear leaves. Every test written for it before its data were read was met: its healthy range held in three laboratories that never helped set it, the same person measured twice reads the same, and clumped damage planted into real healthy arrays was caught every time while scattered damage never set it off. It is our second commissioned instrument. It has not yet read real tumors with a sealed bar; that is its next test.",
+   "plain": "Commissioned means a reading is allowed to report results, not just development readings. The clustering meter reads the shape of the damage: clumps, as a tumor leaves, or scattered, as ordinary wear leaves. Every test written for it before its data were read was met: its healthy range held in three laboratories that never helped set it, the same person measured twice reads the same, and clumped damage planted into real healthy arrays was caught every time while scattered damage never set it off. It is our second commissioned instrument, on whole blood; purified white cells are its next scope step. It has not yet read real tumors with a sealed bar; that is its next test.",
    "win": {
     "rank": 7,
     "stat": "Commissioned",

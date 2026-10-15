@@ -1,6 +1,6 @@
 # The clustering meter (C-score): commissioned, 2026-10-15
 
-**Status: COMMISSIONED 2026-10-15** on whole blood and isolated neutrophils, EPIC v1, under the author's standing instruction to commission
+**Status: COMMISSIONED 2026-10-15** on healthy-referenced whole blood, EPIC v1, under the author's standing instruction to commission
 every instrument that meets its pre-registered bars (2026-10-15). Its plan fixed the rule in advance: "If (a) and (b) are met, the C-score
 is proposed for commissioning with its band and detection limit printed" (CSCORE_COMMISSIONING_PLAN.md). Both are met. Not a diagnostic test.
 
@@ -25,11 +25,13 @@ then the same-run tare against healthy arrays on the same slide.
 `repeat_GSE147740_rows.csv`; `data/CSCORE_COMMISSIONING/read_band_test.py` -> `data/CSCORE_COMMISSIONING/band_test_GSE184269.json`;
 `data/CSCORE_COMMISSIONING/band_test_GSE315366.json`; `data/CSCORE_COMMISSIONING/plan_numbers.py` -> `plan_numbers_output.txt`.
 
-**Scope.** EPIC v1 arrays; healthy whole blood (the band's own population, 555 of 617 arrays) and isolated neutrophils. The band:
+**Scope.** EPIC v1 arrays; whole blood, the specimen of all three independent laboratories and of the band's majority (555 of 617
+arrays). Isolated neutrophils stay development: they helped set the band, but no independent laboratory's neutrophils have been read
+against the fixed definitions (GSE184269's sorted fraction was refused at intake rather than relabelled). The band:
 upper limit 1.152 (blocks of 10), one-sided: above is a departure; below is "less clustered than healthy" and is not a departure.
 Detection limit: C_rel 1.5 at 5 percent of sites clustered.
 
-**Not yet shown.** Real cancers read by the C-score with a sealed bar; 450K and EPIC v2 arrays; plasma. Those are the next tests,
+**Not yet shown.** Isolated neutrophils from an independent laboratory (the next scope step); real cancers read by the C-score with a sealed bar; 450K and EPIC v2 arrays; plasma. Those are the next tests,
 and none of them is a condition of this commissioning.
 
 **What a commissioned reading reports.** C_rel against the same-run healthy references (at least 3 on its slide, else its series), the
@@ -37,7 +39,7 @@ call "above the band" (C_rel > 1.152: clustered departure) or "not above", and t
 clustered). A reading below 0.877 is printed as "less clustered than healthy" and is not a departure. The chain's commissioning record:
 `chain/conductor_v3.py`, `CSCORE_COMMISSIONING`.
 
-**What it would take to go further.** To widen the scope: a sealed bar met on real tumors (clustered departures above 1.152 in a
+**What it would take to go further.** To widen the scope: isolated neutrophils from an independent laboratory at >= 95 % not above 1.152; a sealed bar met on real tumors (clustered departures above 1.152 in a
 majority of tumor arrays against their own normals), then the same healthy-band and repeat tests on 450K, EPIC v2 and plasma.
 
 **Milestone:** listed in `Biological_Physics/README.md`, Advancements.

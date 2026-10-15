@@ -48,7 +48,7 @@ gravity follows from the thermodynamics of such surfaces.
 |---|---|---|
 | **IAM-Atlas v2.1** | Whose DNA is this? Which cells are in a sample, and in what shares? | running now |
 | **Met-A** | How far has a tissue's tagging level drifted toward the ceiling? | commissioned (isolated neutrophils) |
-| **C-Score (the clustering meter)** | Has the pattern started to clump? | commissioned (whole blood and isolated neutrophils, EPIC v1, 2026-10-15) |
+| **C-Score (the clustering meter)** | Has the pattern started to clump? | commissioned (whole blood, EPIC v1, 2026-10-15) |
 | **IAM-A** | Is each mark still held at its own healthy rate? | running now |
 | **Group-A** | Has a whole group moved (a trial arm, an exposure, a cohort)? | in development |
 
