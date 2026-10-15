@@ -1815,3 +1815,6 @@ Box job 936a9449: 4.81 s per locus (anchored 7.55, v2 0.41), every draw still at
 ### 2026-10-15 · Diagnostic 3: the curve is not the cause
 Box job e0728074: a smooth curve without plateaus (arm P) 4.75 s per locus; v2's own straight line inside the v2.1 model (arm L) 3.49 s per locus; every draw at the maximum depth in both, against 0.41 s and none at depth for v2's model. So the slowdown is in the v2.1 variance terms, not the transfer's shape. Diagnostic 4 (diagnostic only): the same two with the per-cell scatter term off (S0, L0).
 Box job 3d54707d (code 86860155) is diagnostic 4.
+
+### 2026-10-15 · Diagnostic 4: the scatter term is not the cause
+Box job 3d54707d: with the per-cell scatter off, the smooth curve runs 4.73 s per locus and v2's line in the v2.1 model 3.46; every draw still at the maximum depth. Remaining difference from v2's model: v2.1 takes the read-count noise from the converted value h, clipped at 0, where v2 takes it from the cell value m. Diagnostic 5 (diagnostic only; a flag in the terms file, off by default): the same two arms with the noise taken from m.

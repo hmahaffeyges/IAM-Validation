@@ -808,7 +808,7 @@
    "date": "2026-10-15",
    "commit": "86860155",
    "s3_code_prefix": "results/ATLAS_V21/diag4/code/run1/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/ATLAS_V21/diag4/diag2_S0.log",
    "machine": "methylphys-cpu-01 (on-demand m7a.8xlarge, 2 x 8 cores)",
    "purpose": "diagnostic only: whether the per-cell scatter term saturates the tree depth",
@@ -832,7 +832,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_final.json",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
    ],
-   "note": "running"
+   "note": "scatter off: smooth 4.733 s per locus, v2 line 3.456; both 100 percent of draws at max depth: the scatter term is not the cause"
   }
  ],
  "not_jobs": {

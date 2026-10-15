@@ -39,6 +39,7 @@ def fit_block(O, loci, TERMS, seed, mode="v21", K=100, warm=600, draws=400):
     if mode != "v2":
         kx = jnp.array(TERMS["knots_x"]); ky = jnp.array(TERMS["knots_y"]); g = lambda x: jnp.interp(x, kx, ky)
         SMOOTH = "knot_slopes" in TERMS
+        BINOM_M = bool(TERMS.get("diag_binom_on_m"))   # DIAGNOSTIC ONLY (diagnostic 5): read-count noise from the cell value m, as in v2
         if SMOOTH:
             # transfer_smooth_v21.py: monotone cubic (PCHIP) through the same knots, with its exact, continuous slope
             km = jnp.array(TERMS["knot_slopes"]); nk = len(TERMS["knots_x"])
@@ -68,7 +69,7 @@ def fit_block(O, loci, TERMS, seed, mode="v21", K=100, warm=600, draws=400):
             h = a + b * g(m)
             slope = b * gslope(m) if SMOOTH else b * (g(m + HSTEP) - g(m - HSTEP)) / (2 * HSTEP)
             loc = jnp.where(isarr, m + dd, h)
-            var = jnp.where(isarr, s_ ** 2 + t ** 2 + FLOOR, (slope ** 2) * jnp.where(ispool, s_ ** 2 / 3., s_ ** 2) + jnp.clip(h * (1 - h), 0., 0.25) / jnp.maximum(cov_, 1.)
+            var = jnp.where(isarr, s_ ** 2 + t ** 2 + FLOOR, (slope ** 2) * jnp.where(ispool, s_ ** 2 / 3., s_ ** 2) + (m * (1 - m) if BINOM_M else jnp.clip(h * (1 - h), 0., 0.25)) / jnp.maximum(cov_, 1.)
                             + nrep * sc(m) ** 2 + t ** 2 + FLOOR)
         numpyro.sample("y", dist.Normal(loc, jnp.sqrt(var)), obs=y_)
     lm = O.groupby("l").y.mean().reindex(range(NL)).fillna(0.5).clip(0.02, 0.98).values

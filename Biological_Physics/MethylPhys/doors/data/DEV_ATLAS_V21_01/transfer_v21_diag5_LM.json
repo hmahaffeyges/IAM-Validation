@@ -1,0 +1,162 @@
+{
+ "rule": "v21_transfer_final_box.py docstring",
+ "knots_x": [
+  0.0,
+  1.0
+ ],
+ "knots_y": [
+  -0.09533004018303359,
+  1.016284053563889
+ ],
+ "cells": [
+  "adipocytes",
+  "b cells",
+  "cd4 t cells",
+  "cd8 t cells",
+  "colon epithelium",
+  "cortical neurons",
+  "effector memory cd8 t cells",
+  "hepatocyte",
+  "lung alveolar epithelium",
+  "lung bronchus epithelium",
+  "memory b cells",
+  "monocytes",
+  "naive cd4 t cells",
+  "naive cd8 t cells",
+  "nk cells",
+  "oligodendrocytes",
+  "pancreatic acinar",
+  "pancreatic beta",
+  "pancreatic duct",
+  "small intestine epithelium",
+  "t central memory cd4",
+  "t effector cell cd8"
+ ],
+ "scatter_mid": [
+  0.075,
+  0.3,
+  0.65,
+  0.925
+ ],
+ "scatter_s": [
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "sequencing": {
+  "Loyfer2023": {
+   "form": "bounded",
+   "status": "MEASURED (22 cells; leave-one-cell-out T1)"
+  },
+  "Tian2023": {
+   "form": "bounded",
+   "status": "MEASURED (cells [('microglia', 0.014247767047456972), ('oligodendrocytes', 0.012323340553041573)]; Loyfer leave-one-out p95 0.0269)"
+  },
+  "ENCODE": {
+   "form": "bounded",
+   "status": "MEASURED (cells [('embryonic stem cells', 0.015655309048748744)]; Loyfer leave-one-out p95 0.0269)"
+  }
+ },
+ "array": {
+  "Moss2018": {
+   "d": -0.004421283184201758,
+   "status": "MEASURED (2 shared cells, centered)"
+  },
+  "Salas2018": {
+   "d": -0.004689338739757236,
+   "status": "MEASURED (6 shared cells, centered)"
+  },
+  "Salas2022": {
+   "d": 0.005226633482464847,
+   "status": "MEASURED (8 shared cells, centered)"
+  },
+  "GSE63409": {
+   "d": 0.007182883482464934,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "E-MTAB-4957": {
+   "d": 0.008391216815798304,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "GSE103541": {
+   "d": 0.003377030307861746,
+   "status": "MEASURED (4 shared cells, centered)"
+  },
+  "GSE116754": {
+   "d": 0.0,
+   "status": "ASSUMED 0 (no shared cell with another array laboratory or Loyfer)"
+  },
+  "GSE118144": {
+   "d": 0.011521465733547183,
+   "status": "MEASURED (4 shared cells, centered)"
+  },
+  "GSE122244": {
+   "d": 0.0034606612602427547,
+   "status": "MEASURED (3 shared cells, centered)"
+  },
+  "GSE124565": {
+   "d": -0.011079616517534967,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "GSE137716": {
+   "d": -0.010009169249849001,
+   "status": "MEASURED VIA LOYFER on the bounded transfer (['lung bronchus epithelium']); not centered",
+   "straight_line_d": -0.02893897962570191
+  },
+  "GSE224807": {
+   "d": -0.0050167196921382315,
+   "status": "MEASURED (5 shared cells, centered)"
+  },
+  "GSE226298": {
+   "d": 0.0003198655480186124,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "GSE252045": {
+   "d": -0.008561813487232,
+   "status": "MEASURED (6 shared cells, centered)"
+  },
+  "GSE306226": {
+   "d": 0.0011828834824649354,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "GSE49618": {
+   "d": -0.006817116517535072,
+   "status": "MEASURED (1 shared cells, centered)"
+  },
+  "GSE75405": {
+   "d": 0.0017164062097376552,
+   "status": "MEASURED (2 shared cells, centered)"
+  },
+  "GSE88824": {
+   "d": -0.001793158184201711,
+   "status": "MEASURED (6 shared cells, centered)"
+  }
+ },
+ "final_table_sha256": "68dc06bf4edfaa85f052e977e27cf7a505bbf4475acbdf57570c638820c83601",
+ "fit_rule": "sequencing row: mean g(m); variance (slope^2 x donor var [/3 pooled]) + h(1-h)/cov + n x s(m)^2 + floor; slope (g(m+0.01)-g(m-0.01))/0.02",
+ "checks": {
+  "T1_worst": 0.006403516031961713,
+  "T1": true,
+  "T2": true,
+  "T3": {
+   "Tian2023": [
+    0.014247767047456972,
+    0.012323340553041573
+   ],
+   "ENCODE": [
+    0.015655309048748744
+   ]
+  },
+  "p95": 0.026913091360429676
+ },
+ "L22": "MET",
+ "anchored_rule": "transfer_anchored_v21.py: adopted knots unchanged, anchors (0,0) and (1,1)",
+ "knot_slopes": [
+  1.1116140937469225,
+  1.1116140937469225
+ ],
+ "smooth_rule": "transfer_smooth_v21.py: PCHIP through the anchored knots; exact slope",
+ "diagnostic_only": "diag5: scatter off, read-count noise on m",
+ "diag_binom_on_m": true
+}
