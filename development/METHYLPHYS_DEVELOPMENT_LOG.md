@@ -1916,3 +1916,6 @@ Run 1 found a systematic low bias in converting counted mistakes back to an erro
 
 ### 2026-10-15 · Commissioning plan written (author overnight mandate)
 COMMISSIONING_PLAN.md: three decisions waiting for the author, the two running jobs with their watchers, and 21 steps in four stages (tonight; when the atlas lands; IAM-A atlas-free commissioning with its grand sealed test; the rest of the catalogue). New rows: the A-score database (OTH-051) and the concern line (PHY-069).
+
+### 2026-10-15 · DEV-ATLAS-USE-01 sealed before the atlas exists (ATL-060, author)
+The Loyfer and Moss use tests: markers (UT1), mixtures on shared ground (UT2A) and the wide-area mixture (UT2B), against Moss's published reference on held-out arrays. Synthetic run 1 NOT MET (the absolute mixture bar could not see a planted worse reference), so UT2A became a ratio; run 2 MET. Only the fit's run log had been read.

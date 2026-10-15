@@ -1,0 +1,4 @@
+equal references: UT1 confirmed v2.1 1.00 Moss 1.00 -> MET; UT2A median error v2.1 0.003 Moss 0.003 -> MET
+v2.1 noisier (should lose UT1 and UT2A): UT1 confirmed v2.1 0.80 Moss 1.00 -> NOT MET; UT2A median error v2.1 0.008 Moss 0.003 -> MET
+wide area: v2.1 recovers the outside share within 0.05 in 1.00 of mixtures, median error 0.002; Moss median error 0.039 with the outside share forced onto its own cells -> UT2B MET
+SYNTHETIC: NOT MET (equal references pass, a noisier v2.1 fails UT1 and UT2A, the wide-area arm recovers the outside cells)
