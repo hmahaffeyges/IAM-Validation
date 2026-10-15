@@ -1,0 +1,5 @@
+planted loose share 0.2: counted 0.200 at 0.70, 0.200 at 2/3 (100 windows)
+planted loose share 0.5: counted 0.500 at 0.70, 0.500 at 2/3 (100 windows)
+planted loose share 0.8: counted 0.800 at 0.70, 0.800 at 2/3 (100 windows)
+planted held error 0.02: counted isolated rate 0.01887 (expected 0.01921, isolated losses only)
+planted held error 0.05: counted isolated rate 0.04302 (expected 0.04512, isolated losses only)
