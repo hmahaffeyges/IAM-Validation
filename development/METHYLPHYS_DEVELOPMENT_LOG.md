@@ -1928,3 +1928,6 @@ README.md cut from 287 to about 140 lines: a start-here table, the law, the cata
 
 ### 2026-10-15 · README audit (author): stale statements corrected
 All 51 READMEs read against the full tree. Fixed: the cell instrument README still said nothing was commissioned and that no disease had been read (Met-A on neutrophils was commissioned 2026-10-09; the sealed breast and colon tissue results, the clustering band and the loose-end line added); the retired term in four places; one British spelling; the atlas READMEs now say v2.1 is fitting; a link to an audit folder that is archived privately. The front README's LICENSE and CONTRIBUTING links were checked and are fine.
+
+### 2026-10-15 · Front page: "The last 24 hours" section, generated from the newest day log
+The page now opens (after the atlas banner) with the newest day log's findings and its sealed and running work, each linked to its record; it updates itself when the day log does.

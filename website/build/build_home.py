@@ -172,6 +172,14 @@ def page(art):
                  f'<details class="fold"><summary>Open the catalogue: what each instrument does, where it stands, what is still being worked on</summary>'
                  f'<div class="grid">{_cards}</div><p class="more"><a href="{rec("INSTRUMENTS.md")}">The catalogue as a document</a> · '
                  f'<a href="{rec("COMMISSIONING_PLAN.md")}">The commissioning plan, step by step</a></p></details></section>')
+    _dlj = sorted(f for f in os.listdir(os.path.join(REPO, "CANON", "daylogs")) if re.fullmatch(r"\d{4}-\d\d-\d\d\.json", f))[-1]
+    _DL = J("CANON/daylogs/" + _dlj); _ran = next((x for x in _DL["sections"] if x.get("kind") == "ran"), {"entries": []})
+    _lrn = next((x for x in _DL["sections"] if x.get("kind") == "learned"), {"entries": []})
+    _hl = "".join(f'<li><b>{E(e["title"])}</b> <span class="chip st-b">{E(e["status"])}</span> {E(e["what"])} <a href="{rec(e["record"])}">record</a></li>'
+                  for e in _lrn["entries"] + [x for x in _ran["entries"] if x["status"] in ("sealed", "in progress")])
+    last24 = (f'<section class="wrap" id="today"><h2>The last 24 hours</h2><p class="sub">{E(_DL["date"])}: {E(_DL["title"])}. '
+              f'From the day log, which is written as the work happens; every line links to its record.</p><ul class="road">{_hl}</ul>'
+              f'<p class="more"><a href="{rec("Biological_Physics/MethylPhys/daylogs/" + _DL["date"] + ".md")}">The whole day log</a></p></section>')
     MF = J("CANON/manifest.json"); _CLOSED = {"run", "retired"}
     mf_total = len(MF["rows"]); mf_run = sum(1 for r in MF["rows"] if r["runs"]); mf_open = sum(1 for r in MF["rows"] if r["status"] not in _CLOSED)
     mf_rows = "\n".join(
@@ -211,6 +219,7 @@ def page(art):
 <p class="cta"><a class="btn" href="#daylogs">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
 <main>
 {v21_banner}
+{last24}
 <section class="wrap" id="daylogs"><h2>Start here: the daily log</h2>
 <p class="cta">{"".join(f'<a class="btn" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[:1])}{"".join(f'<a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[1:4])}</p>
 </section>
