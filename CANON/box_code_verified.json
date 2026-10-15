@@ -702,7 +702,7 @@
   "log_in_s3": false,
   "outputs_in_s3": {
    "results/DEV_BACKBONE_01/island/EOCRC_CRC1_WGBS_normal.parquet": true,
-   "results/DEV_BACKBONE_01/island/EOCRC_CRC1_WGBS_tumour.parquet": false,
+   "results/DEV_BACKBONE_01/island/EOCRC_CRC1_WGBS_tumour.parquet": true,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC2_WGBS_normal.parquet": false,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC2_WGBS_tumour.parquet": false,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC3_WGBS_normal.parquet": false,
