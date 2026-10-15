@@ -1,0 +1,5 @@
+Atlas v2.1 strict transfer (transfer_strict_v21.py)
+knots: adopted 42, strict 40 (ties merged, two anchors)
+C1 strictly increasing: met | smallest segment slope 0.0767
+C2 largest change inside 0.017-0.984: 0.01592 at array 0.9840 -> NOT met
+STRICT TRANSFER: NOT MET

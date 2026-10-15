@@ -5,7 +5,7 @@ Seed 20261015; 60 loci, 6 cells. Truth: 35 percent Uniform(0.003, 0.03), 35 perc
 Cells 0-1: sequencing only (Loyfer-like, 2 samples, coverage 10-40). Cells 2-5: the same sequencing plus two array laboratories (offsets
 +0.006, -0.004; 2 arrays each). Reads: Binomial(cov, g_strict(m + donor noise 0.02) + a cell-level bias drawn from the real scatter s(m),
 shared by the cell's samples). 10 percent of pairs unobserved. Fitted with atlas_block_v21.fit_block(mode="v21", K=20), seed 1007.
-STRICT arm (transfer_v21_strict.json) BARS, all must hold:
+STRICT arm (the transfer named on the command line; design 2 = transfer_v21_anchored.json, since design 1 failed C2 before any fit) BARS, all must hold:
  Q1 convergence: R-hat p99 <= 1.01 and at most 1 percent of draws at the maximum tree depth.
  Q2 recovery: 95 percent intervals hold the planted value in >= 0.90 of measured pairs overall and >= 0.85 of the sequencing-only cells'
     pairs with truth below 0.03 or above 0.965; median |mu - truth| <= 0.03.
@@ -16,7 +16,7 @@ import os, sys, json, numpy as np, pandas as pd
 H = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, H)
 import atlas_block_v21 as AB
 rng = np.random.default_rng(20261015); NL, NC = 60, 6; cells = [f"cell{i}" for i in range(NC)]; loci = np.array([f"cg{i:08d}" for i in range(NL)])
-ST = json.load(open(os.path.join(H, "transfer_v21_strict.json"))); FT = json.load(open(os.path.join(H, "transfer_v21_final.json")))
+ST = json.load(open(os.path.join(H, sys.argv[1] if len(sys.argv) > 1 else "transfer_v21_strict.json")))   # design 2: transfer_v21_anchored.json; FT = json.load(open(os.path.join(H, "transfer_v21_final.json")))
 g = lambda x: np.interp(x, ST["knots_x"], ST["knots_y"]); s = lambda x: np.interp(x, ST["scatter_mid"], ST["scatter_s"])
 z = rng.random((NC, NL)); truth = np.where(z < 0.35, rng.uniform(0.003, 0.03, (NC, NL)), np.where(z < 0.70, rng.uniform(0.965, 0.997, (NC, NL)), rng.uniform(0.03, 0.965, (NC, NL))))
 miss = rng.random((NC, NL)) < 0.10; bias = rng.normal(0, 1, (NC, NL)) * s(truth); obs = []
