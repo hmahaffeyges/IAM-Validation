@@ -1854,3 +1854,6 @@ The author asked whether the daily report holds everything and whether the code 
 
 ### 2026-10-15 · One whiteboard session published on the page (author)
 The author: publish this one example; other whiteboard sessions stay in the private record (they may become the IAM story, or training material, later). The session and its results from later the same day are committed at Biological_Physics/MethylPhys/whiteboard/2026-10-14_coffee_and_whiteboard.md and linked from a collapsed fold in the research-partner section, generated from CANON/assistant.json. Dates corrected to Pacific: the session was 2026-10-14.
+
+### 2026-10-15 · Bit-rate ideas and the Computer Science of Reality paper captured (author)
+development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md: the computed bit numbers, the author's questions with short answers (binary holds its 0s; Mahaffey numbers are kT, 30.2 bits per ATP; the horizon bit rate alone cannot settle the Hubble tension), the paper plan and analogy list, and further ideas. Manifest PHY-044 now points to it. No time-course data in our S3.
