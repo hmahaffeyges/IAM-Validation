@@ -301,6 +301,13 @@
      "what": "Showcase tests written and sealed while the fit runs, before any atlas output is opened: markers, mixtures (with a wide-area mixture of cells their atlas lacks), and the extras shown.",
      "why": "",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The day log is completed at turnover and the check now enforces it",
+     "status": "structure",
+     "what": "CANON/daylog.py refuses a push when a finished Pacific day has no day log, still says in progress, or omits a committed development-log thread; threads are dated by their Pacific commit time.",
+     "why": "The author asked whether the code demands it; it only reported.",
+     "record": "CANON/daylog.py"
     }
    ]
   }
