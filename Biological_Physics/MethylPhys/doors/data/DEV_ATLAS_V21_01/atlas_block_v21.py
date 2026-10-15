@@ -38,6 +38,22 @@ def fit_block(O, loci, TERMS, seed, mode="v21", K=100, warm=600, draws=400):
     isarr = jnp.array((O.kind == "array").values); ispool = jnp.array((O.kind == "pooled").values)
     if mode != "v2":
         kx = jnp.array(TERMS["knots_x"]); ky = jnp.array(TERMS["knots_y"]); g = lambda x: jnp.interp(x, kx, ky)
+        SMOOTH = "knot_slopes" in TERMS
+        if SMOOTH:
+            # transfer_smooth_v21.py: monotone cubic (PCHIP) through the same knots, with its exact, continuous slope
+            km = jnp.array(TERMS["knot_slopes"]); nk = len(TERMS["knots_x"])
+            def _seg(x):
+                x = jnp.clip(x, kx[0], kx[-1]); i = jnp.clip(jnp.searchsorted(kx, x) - 1, 0, nk - 2)
+                hh = kx[i + 1] - kx[i]; u = (x - kx[i]) / hh
+                return i, hh, u
+            def g(x):
+                i, hh, u = _seg(x)
+                return ((2 * u ** 3 - 3 * u ** 2 + 1) * ky[i] + (u ** 3 - 2 * u ** 2 + u) * hh * km[i]
+                        + (-2 * u ** 3 + 3 * u ** 2) * ky[i + 1] + (u ** 3 - u ** 2) * hh * km[i + 1])
+            def gslope(x):
+                i, hh, u = _seg(x)
+                return ((6 * u ** 2 - 6 * u) * ky[i] / hh + (3 * u ** 2 - 4 * u + 1) * km[i]
+                        + (-6 * u ** 2 + 6 * u) * ky[i + 1] / hh + (3 * u ** 2 - 2 * u) * km[i + 1])
         smid = jnp.array(TERMS["scatter_mid"]); sval = jnp.array(TERMS["scatter_s"]); sc = lambda x: jnp.interp(x, smid, sval)
         nrep = jnp.array(O.groupby(["cell", "src", "l"]).y.transform("size").values.astype(float))
     def model():
@@ -49,7 +65,8 @@ def fit_block(O, loci, TERMS, seed, mode="v21", K=100, warm=600, draws=400):
             loc = jnp.where(isarr, m + dd, a + b * m)
             var = jnp.where(isarr, s_ ** 2 + t ** 2 + FLOOR, (b ** 2) * jnp.where(ispool, s_ ** 2 / 3., s_ ** 2) + m * (1 - m) / jnp.maximum(cov_, 1.) + t ** 2 + FLOOR)
         else:
-            h = a + b * g(m); slope = b * (g(m + HSTEP) - g(m - HSTEP)) / (2 * HSTEP)
+            h = a + b * g(m)
+            slope = b * gslope(m) if SMOOTH else b * (g(m + HSTEP) - g(m - HSTEP)) / (2 * HSTEP)
             loc = jnp.where(isarr, m + dd, h)
             var = jnp.where(isarr, s_ ** 2 + t ** 2 + FLOOR, (slope ** 2) * jnp.where(ispool, s_ ** 2 / 3., s_ ** 2) + jnp.clip(h * (1 - h), 0., 0.25) / jnp.maximum(cov_, 1.)
                             + nrep * sc(m) ** 2 + t ** 2 + FLOOR)

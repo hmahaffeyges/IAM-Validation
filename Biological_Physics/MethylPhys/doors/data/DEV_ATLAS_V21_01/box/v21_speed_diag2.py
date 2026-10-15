@@ -3,6 +3,7 @@
  A  v2's model (mode v2) with v2-form terms for every v2.1 source (terms_final_v21_run12.json: a, b per sequencing source; d per array lab)
  B  v2.1 model with the anchored transfer (transfer_v21_anchored.json)
  C  as B with the per-cell scatter s(m) set to zero
+ S  v2.1 model with the smooth transfer (transfer_v21_smooth.json), 2026-10-15
 Reports per arm: s per locus, share of draws at the maximum tree depth, divergences, R-hat p99. Writes diag2_<ARM>.json."""
 import os, sys, json, time, numpy as np, pandas as pd
 sys.path.insert(0, os.getcwd())
@@ -22,7 +23,7 @@ if ARM == "A":
     missing = sorted(set(O.src) - set(TT)); assert not missing, f"no v2-form term for {missing}"
     mode = "v2"
 else:
-    TT = json.load(open("transfer_v21_anchored.json")); mode = "v21"
+    TT = json.load(open("transfer_v21_smooth.json" if ARM == "S" else "transfer_v21_anchored.json")); mode = "v21"   # ARM S: smooth transfer
     if ARM == "C": TT = dict(TT); TT["scatter_s"] = [0.0] * len(TT["scatter_s"])
 t0 = time.time(); R = AB.fit_block(O, sub, TT, seed=1000, mode=mode, K=20); w = time.time() - t0
 W = R["warnings"]; out = {"arm": ARM, "mode": mode, "loci": NSUB, "obs": len(O), "s_per_locus": round(w / NSUB, 3), "max_depth_share": W["draws_at_max_tree_depth"] / 1600,
