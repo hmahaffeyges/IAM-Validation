@@ -1970,3 +1970,6 @@ GSE54292: Arabidopsis, whole-genome bisulfite, 111 accessions grown their whole 
 
 ### 2026-10-15 · The clustering meter (Met-A C-score) commissioned
 Whole blood and isolated neutrophils, EPIC v1. The plan's own rule: if tests (a) and (b) are met, it is commissioned with its band and detection limit printed; both are met (three independent laboratories 34/35, 22/23, 172/173; same-person SD 0.038 against 0.125; planted clustered loss 100 percent; scattered never above the band). The author: commission everything that meets its bars; asking for a sign-off here was unnecessary and is withdrawn. Chain: CSCORE_COMMISSIONING in conductor_v3.py, one-sided call printed on every reading, commissioning attached only for whole blood and isolated neutrophils. Note renamed COMMISSIONING_NOTE_CSCORE.md.
+
+### 2026-10-15 · Front page: wins and work under way only (author)
+The author: the page is for progress donors should see; exploratory checks are not broadcast as failures. The two exploratory misses (Met-A self-line, open-sea count) were taken out of the day log; they stay in this log, the whiteboard and the manifest. build_home.py now shows only findings and sealed or running work in "The last 24 hours".

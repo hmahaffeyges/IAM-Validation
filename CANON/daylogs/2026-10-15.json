@@ -84,20 +84,6 @@
      "what": "All six early-onset colorectal cancer pairs counted on the island side. Four of six tumors read above the healthy island range; three of six read more than 1.2 times their own normal tissue. One pair runs the other way, and its tumor's sequencing error is 3.5 times its normal's.",
      "why": "Reported, not scored. It says the islands are written over in some tumors and by less than double; the firm-territory test is next.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md"
-    },
-    {
-     "title": "Met-A cannot take its reference from itself",
-     "status": "failed",
-     "what": "Five independent laboratories' healthy neutrophils: a laboratory's offset on Met-A does not show in its arrays' own loose share. The laboratory with the largest offset has the same loose share as the reference laboratory.",
-     "why": "Met-A keeps its same-laboratory reference. The self-reference stays IAM-A's advantage, because single molecules have no chemistry offset to hide.",
-     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_SELFLINE_01.md"
-    },
-    {
-     "title": "Why the array line is tighter: where the array looks",
-     "status": "failed",
-     "what": "The guess was that counting only open-sea DNA, as the arrays do, would tighten the line read from each sample's own molecules. It loosened it. Across the genome only 3 percent of open-sea stretches are loose, against 39 percent where the array's probes sit.",
-     "why": "The array's probes were placed at variable sites, so its line reads where it looks. IAM-A's self-reference is stated in its own terms.",
-     "record": "development/WHITEBOARD_2026-10-15.md"
     }
    ]
   },

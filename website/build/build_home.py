@@ -176,7 +176,7 @@ def page(art):
     _DL = J("CANON/daylogs/" + _dlj); _ran = next((x for x in _DL["sections"] if x.get("kind") == "ran"), {"entries": []})
     _lrn = next((x for x in _DL["sections"] if x.get("kind") == "learned"), {"entries": []})
     _hl = "".join(f'<li><b>{E(e["title"])}</b> <span class="chip st-b">{E(e["status"])}</span> {E(e["what"])} <a href="{rec(e["record"])}">record</a></li>'
-                  for e in _lrn["entries"] + [x for x in _ran["entries"] if x["status"] in ("sealed", "in progress")])
+                  for e in [x for x in _lrn["entries"] if x["status"] not in ("failed", "diagnosis")] + [x for x in _ran["entries"] if x["status"] in ("sealed", "in progress")])   # wins and work under way only (author 2026-10-15: the page is for progress; exploratory misses stay in the research record)
     last24 = (f'<section class="wrap" id="today"><h2>The last 24 hours</h2><p class="sub">{E(_DL["date"])}: {E(_DL["title"])}. '
               f'From the day log, which is written as the work happens; every line links to its record.</p><ul class="road">{_hl}</ul>'
               f'<p class="more"><a href="{rec("Biological_Physics/MethylPhys/daylogs/" + _DL["date"] + ".md")}">The whole day log</a></p></section>')
