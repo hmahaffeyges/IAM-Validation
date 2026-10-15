@@ -38,14 +38,14 @@
     },
     {
      "title": "Tumors: both sides of the DNA now being read",
-     "status": "running",
+     "status": "in progress",
      "what": "DEV-BACKBONE-01 island side approved; the island arm added and its synthetic run (planted changes read correctly in all six pairs); island arm real counts submitted on the second machine: six early-onset colorectal cancer patients, tumor and normal tissue, re-read on both sides. Manifest PHY-043.",
      "why": "The first test of the new rule on cancer: does a tumor read off its own line?",
      "record": "Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md"
     },
     {
      "title": "The horizon's storage by era",
-     "status": "calculation",
+     "status": "development",
      "what": "The cosmic horizon held 6e113 bits when the CMB was released and holds 3.3e122 today; half of today's total was written after the expansion began to speed up. Manifest PHY-053.",
      "why": "A number-by-number history for the Computer Science of Reality paper.",
      "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md"
@@ -157,7 +157,7 @@
     },
     {
      "title": "What the new instrument can read",
-     "status": "plan",
+     "status": "structure",
      "what": "Any organism that tags its DNA, from any lab, wherever single-piece sequencing exists: public nanopore genomes, plants grown at two temperatures, dogs, unread salmon data (PHY-058 to PHY-068).",
      "why": "Opens far more data than the old reference-bound instrument could use.",
      "record": "CANON/manifest.json"
@@ -227,7 +227,7 @@
     },
     {
      "title": "A plain-language series and a grand final test",
-     "status": "plan",
+     "status": "structure",
      "what": "An eight-part plain-language series (OTH-041 to OTH-048), and one sealed test on fresh data to commission the instrument (COM-IAMA-052).",
      "why": "",
      "record": "CANON/manifest.json"
