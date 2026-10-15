@@ -160,7 +160,8 @@
    ],
    "note": "check word changed 2026-10-14 from 'PASSED' to the verdict line the committed test writes ('PLANTED: MET'); the result file was not edited",
    "reopened": [
-    "2026-10-15: the v2.1 block model does not converge on real data (R-hat p99 3.35, every draw at the maximum tree depth; speed_diag_v21.json). The bounded transfer is exactly flat over array 0.035-0.055 and 0.964-0.984 and held flat outside 0.017-0.984, so sequencing readings carry no information on a cell's value there. The planted test (40 loci, 5 cells) did not cover values in the flat stretches. Fix, its planted test with extreme values, and a real-block convergence check required before launch."
+    "2026-10-15: the v2.1 block model does not converge on real data (R-hat p99 3.35, every draw at the maximum tree depth; speed_diag_v21.json). The bounded transfer is exactly flat over array 0.035-0.055 and 0.964-0.984 and held flat outside 0.017-0.984, so sequencing readings carry no information on a cell's value there. The planted test (40 loci, 5 cells) did not cover values in the flat stretches. Fix, its planted test with extreme values, and a real-block convergence check required before launch.",
+    "2026-10-15 correction: the 'does not converge' reading above was made from R-hat alone, which the Flatness Lesson forbids; L23 is the judge on real data."
    ]
   },
   {
@@ -623,6 +624,27 @@
    "reopened": [
     "2026-10-15: the v2.1 block model does not converge on real data (R-hat p99 3.35, every draw at the maximum tree depth; speed_diag_v21.json). The bounded transfer is exactly flat over array 0.035-0.055 and 0.964-0.984 and held flat outside 0.017-0.984, so sequencing readings carry no information on a cell's value there. The planted test (40 loci, 5 cells) did not cover values in the flat stretches. Fix, its planted test with extreme values, and a real-block convergence check required before launch."
    ]
+  },
+  {
+   "id": "L23",
+   "stage": "",
+   "manifest": [],
+   "what": "",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/flatness_check_v21_summary.txt"
+   ],
+   "checks": {
+    "contains": [
+     [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/flatness_check_v21_summary.txt",
+      "DISTINCT"
+     ]
+    ]
+   },
+   "note": "",
+   "reopened": [],
+   "needs": "Flatness Lesson (atlas/IAMAtlas_FLATNESS_LESSON.md, THE ONE RULE): the v2.1 model is judged on real block 0 by the OUTPUT, never by R-hat alone - every pair of cells distinct on shared measured CpGs (none below mean |difference| 0.005 except genuinely adjacent lineages), and the per-pair means agreeing with v2's model on the same sites; R-hat, ESS and tree depth are reported, not used as the judge",
+   "group": ""
   }
  ],
  "public": {
