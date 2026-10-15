@@ -778,7 +778,7 @@
    "date": "2026-10-15",
    "commit": "ea5ee26d",
    "s3_code_prefix": "results/ATLAS_V21/diag3/code/run1/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/ATLAS_V21/diag3/diag2_P.log",
    "machine": "methylphys-cpu-01 (on-demand m7a.8xlarge, 2 x 8 cores)",
    "purpose": "diagnostic only: whether the curve's plateaus or the v2.1 variance terms saturate the tree depth",
@@ -800,7 +800,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_final.json",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
    ],
-   "note": "running; its two terms files were built on the laptop by diag3_terms_v21.py (not run on the box)"
+   "note": "arm P (smooth, no plateaus) 4.751 s per locus, R-hat p99 1.101; arm L (v2 line in the v2.1 model) 3.494 s per locus, R-hat p99 1.013; both 100 percent of draws at max depth. Its two terms files were built on the laptop by diag3_terms_v21.py"
   }
  ],
  "not_jobs": {

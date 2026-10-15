@@ -1811,3 +1811,6 @@ Box job 936a9449 (code 8a8cb55c) runs the smooth transfer on the same 60 loci.
 
 ### 2026-10-15 · Smooth transfer on 60 real loci: faster, not fixed
 Box job 936a9449: 4.81 s per locus (anchored 7.55, v2 0.41), every draw still at the maximum tree depth; R-hat p99 1.063, ESS p01 62. Output by the Flatness rule: 79 cells, no pair below 0.005; agrees with v2 r 0.9991 and with the anchored curve r 1.0000. So the slope jumps were part of the cost, not the main cause. Diagnostic 3 (e0728074, code ea5ee26d), diagnostic only: arm P, a smooth curve without the two plateaus; arm L, v2's straight line inside the v2.1 model.
+
+### 2026-10-15 · Diagnostic 3: the curve is not the cause
+Box job e0728074: a smooth curve without plateaus (arm P) 4.75 s per locus; v2's own straight line inside the v2.1 model (arm L) 3.49 s per locus; every draw at the maximum depth in both, against 0.41 s and none at depth for v2's model. So the slowdown is in the v2.1 variance terms, not the transfer's shape. Diagnostic 4 (diagnostic only): the same two with the per-cell scatter term off (S0, L0).
