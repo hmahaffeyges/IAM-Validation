@@ -721,7 +721,7 @@
    "date": "2026-10-15",
    "commit": "840164b4",
    "s3_code_prefix": "results/ATLAS_V21/diag2/code/run2/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/ATLAS_V21/diag2/run2/diag2_A.log",
    "machine": "methylphys-cpu-01 (on-demand m7a.8xlarge, 3 x 8 cores)",
    "purpose": "which v2.1 model change breaks convergence on real data: v2's model, the v2.1 model with the anchored transfer, and the same without the per-cell scatter",
@@ -742,7 +742,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv",
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
-   "note": "running"
+   "note": "v2 model 0.409 s per locus, R-hat p99 1.004, no draws at max depth; v2.1 anchored 7.547 s per locus, R-hat p99 1.016, all draws at max depth. Per-pair means agree (r 0.9991, median |diff| 0.0044); 79 cells, no pair below 0.005 in either"
   }
  ],
  "not_jobs": {

@@ -520,13 +520,13 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/ATLAS_V21/diag2/run2/diag2_A.json": false,
-   "results/ATLAS_V21/diag2/run2/diag2_B.json": false,
-   "results/ATLAS_V21/diag2/run2/diag2_A_summary.parquet": false,
-   "results/ATLAS_V21/diag2/run2/diag2_B_summary.parquet": false
+   "results/ATLAS_V21/diag2/run2/diag2_A.json": true,
+   "results/ATLAS_V21/diag2/run2/diag2_B.json": true,
+   "results/ATLAS_V21/diag2/run2/diag2_A_summary.parquet": true,
+   "results/ATLAS_V21/diag2/run2/diag2_B_summary.parquet": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "succeeded"
  }
 }
