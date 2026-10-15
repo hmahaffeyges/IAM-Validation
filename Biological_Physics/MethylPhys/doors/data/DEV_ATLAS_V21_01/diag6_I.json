@@ -1,0 +1,12 @@
+{
+ "arm": "I",
+ "mode": "v21inv",
+ "loci": 60,
+ "obs": 35892,
+ "s_per_locus": 0.427,
+ "max_depth_share": 0.0,
+ "divergences": 0,
+ "accept": 0.9105731248855591,
+ "rhat_p99": 1.0054823160171509,
+ "ess_p01": 639.9708212268756
+}
