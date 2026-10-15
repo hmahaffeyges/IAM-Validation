@@ -25760,7 +25760,7 @@
    "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
    "status": "sealed",
    "runs": [],
-   "next_step": "COMMISSIONING_PLAN.md stage T, after the current items: data search (one species, two temperatures, >= 20,000 qualifying molecules each), seal the sample list, read once",
+   "next_step": "stage T2: synthetic on GSE54292's design (111 accessions at 10 C and 16 C; predicted log-odds ratio 1.0212) to fix molecules and pairs needed; then seal the sample list and rule",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -25830,9 +25830,9 @@
    ],
    "data_status": "not yet searched",
    "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
-   "status": "idea",
+   "status": "planned",
    "runs": [],
-   "next_step": "seal PHY-057's numbers first, then confirm the sets' raw reads (metadata only)",
+   "next_step": "merged into PHY-057 stage T: GSE54292 is the primary set (111 accessions at both temperatures)",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

@@ -1964,3 +1964,6 @@ All six pairs: 4 of 6 tumors above the healthy island range, 3 of 6 pairs above 
 
 ### 2026-10-15 · PHY-049 open sea: prediction wrong; the array line reflects where its probes sit
 opensea_line.py builds both own-read versions from the same 153 samples (held error matched exactly on every sample). Open sea r 0.67 (34 of 56 within 0.003), every CpG r 0.78 (41), arrays r 0.87 (53, reproduced exactly). Genome-wide open-sea stretches 3 percent loose, arrays' bins 39 percent. IAM-A's self-reference is stated in own-read terms. Next: own reads at the arrays' probe positions only.
+
+### 2026-10-15 · Temperature law stage T1: data found (metadata only)
+GSE54292: Arabidopsis, whole-genome bisulfite, 111 accessions grown their whole lives at both 10 C and 16 C (same genotype at two temperatures), about 10 million read pairs each. Predicted colder over warmer log-odds 1.0212, fixed by the two temperatures. Second: GSE199815 (hamster liver, torpor and euthermic, different animals, body temperatures not recorded). Next: T2 synthetic for molecules and pairs needed, then the seal.
