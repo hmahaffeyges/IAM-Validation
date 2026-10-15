@@ -25783,7 +25783,7 @@
    "depends_on": [
     "PHY-045"
    ],
-   "notes": "author 2026-10-15: what the atlas-free instrument can read",
+   "notes": "author 2026-10-15: what the atlas-free instrument can read; author 2026-10-15: if it passes, the early array signals (immune and blood cells changing before cancer) can be re-read on the same arrays",
    "legacy_ids": [],
    "id": "PHY-059",
    "sources_of_row": [
@@ -25882,6 +25882,127 @@
    "notes": "author 2026-10-15: what the atlas-free instrument can read",
    "legacy_ids": [],
    "id": "PHY-063",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Whole blood: the atlas sorts each molecule to its cell, the line reads each cell type",
+   "purpose": "in a mixed sample, assign each molecule to its cell type with the atlas's marker regions (read-level), then read each cell type's molecules on its own line; the loose share of a mixture is not a simple average, so the line is first checked on mixtures of known proportions",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "synthetic mixtures from purified-cell reads (known proportions), synthetic first",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-049",
+    "ATL-005"
+   ],
+   "notes": "author 2026-10-15",
+   "legacy_ids": [],
+   "id": "PHY-064",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "cfDNA (plasma): enough molecules for the counter in short fragments",
+   "purpose": "cfDNA fragments are about 167 bases, so few carry the 6+ CpGs the counter needs, and early tumor DNA can be under 1 in 1,000 fragments; measure how many qualifying molecules a plasma sample gives and whether rare off-line molecules can be found",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "metadata search for public cfDNA WGBS or EM-seq with read access; synthetic spike-in of off-line molecules at 1 in 1,000 and 1 in 10,000",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-049"
+   ],
+   "notes": "author 2026-10-15",
+   "legacy_ids": [],
+   "id": "PHY-065",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Dogs: the line and the temperature law in dogs (about 38.5 C), toward canine cancer",
+   "purpose": "dogs tag DNA as people do and get many of the same cancers; public dog methylation sets in GEO; commercial sequencing services accept dog samples",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "metadata search for dog WGBS or EM-seq (healthy tissue, tumor and normal pairs)",
+   "cost": "laptop",
+   "impact": 4,
+   "depends_on": [
+    "PHY-057"
+   ],
+   "notes": "author 2026-10-15",
+   "legacy_ids": [],
+   "id": "PHY-066",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Hatchery application: salmon held error under rearing conditions (the author's workplace path)",
+   "purpose": "a tool fisheries scientists can use: how well hatchery and wild fish hold their pattern, and the temperature law at real water temperatures; PROC-SALMON-01's salmon reads (hatchery and wild, reduced representation) are already read, so they serve development only",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "read PROC-SALMON-01's records against the line; draft a one-page proposal for the author's employer once the instrument is commissioned",
+   "cost": "laptop",
+   "impact": 4,
+   "depends_on": [
+    "PHY-057"
+   ],
+   "notes": "author 2026-10-15",
+   "legacy_ids": [],
+   "id": "PHY-067",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "A patient workflow, sketched (one blood draw to a reading with its margin)",
+   "purpose": "what the instrument would need from a patient someday: one 10 mL cfDNA tube, cfDNA extraction, EM-seq, the atlas for tissue of origin, IAM-A on each tissue's own line, a reading with its margin, repeated yearly against the person's own history; written as a concept, not a claim",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "a one-page concept note for the page and for researchers, after commissioning",
+   "cost": "laptop",
+   "impact": 4,
+   "depends_on": [
+    "COM-IAMA-052"
+   ],
+   "notes": "author 2026-10-15",
+   "legacy_ids": [],
+   "id": "PHY-068",
    "sources_of_row": [
     "session 2026-10-15"
    ]
