@@ -11,3 +11,7 @@ temps = {"hibernation torpor 5 C": 5, "cold fish 10 C": 10, "18 C": 18, "28 C": 
 O = {"basis_37C": base, "predicted": {k: {kind: round(eps(v, 273.15 + t), 4) for kind, v in base.items()} for k, t in temps.items()},
      "within_species_logodds_ratio": {"18 C vs 28 C": round(301.15 / 291.15, 4), "torpor 5 C vs active 37 C": round(310.15 / 278.15, 4)}}
 json.dump(O, open(os.path.join(H, "temperature_law.json"), "w"), indent=1); print(json.dumps(O, indent=1))
+# synthetic self-check: at 37 C the rule returns the measured basis exactly, and the error rises with temperature for every kind
+chk = [abs(eps(v, 310.15) - v) < 1e-12 for v in base.values()] + [all(eps(v, 273.15 + a) < eps(v, 273.15 + b) for a, b in ((5, 18), (18, 28), (28, 41))) for v in base.values()]
+open(os.path.join(H, "temperature_law_synthetic.txt"), "w").write(f"37 C returns the measured values exactly and the error rises with temperature: {'MET' if all(chk) else 'NOT MET'}\n")
+print("synthetic", "MET" if all(chk) else "NOT MET")

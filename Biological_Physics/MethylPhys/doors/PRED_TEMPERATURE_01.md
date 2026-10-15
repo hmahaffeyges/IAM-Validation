@@ -9,7 +9,7 @@ island 0.0124, development/loose_end_2026-10-15/loose_end_line.json). Code: `dat
 wrote are `data/PRED_TEMPERATURE_01/temperature_law.json` and are the prediction.
 
 **The cleanest test: one species at two temperatures** (the within-species log-odds ratio is fixed by the two temperatures alone: 1.0343
-for 18 C against 28 C; 1.1151 for torpor at 5 C against active at 37 C). Across species the enzymes differ, so cross-species numbers are
+for 18 C against 28 C; 1.115 for torpor at 5 C against active at 37 C). Across species the enzymes differ, so cross-species numbers are
 read as a guide, not a test.
 
 **What a miss means.** If the error does not move with temperature, or moves by a clearly different amount on the same species, the
@@ -17,7 +17,7 @@ Boltzmann premise does not hold for held marks there, and the gauge's use of kT 
 
 **Data:** none searched yet. Salmon (PROC-SALMON-01) and every other fish set already scored cannot be the test.
 
-**Synthetic test:** not applicable yet; the counter is the committed PROC-CHANNEL-01 rule, synthetic-checked 2026-10-15 (development/island_eraser_2026-10-15/island_eraser_synthetic.txt).
+**Synthetic test:** PRED_TEMPERATURE_01/temperature_law.py, PRED_TEMPERATURE_01/temperature_law_synthetic.txt (run once 2026-10-15: at 37 C the rule returns the measured values exactly, and the error rises with temperature: MET).
 
 What it would take to succeed: single-molecule methylation of one species read at two body or water temperatures, with the log-odds ratio landing on the sealed value; finish line, not a promise.
 
