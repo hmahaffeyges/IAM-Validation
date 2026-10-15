@@ -25733,10 +25733,10 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "not yet searched",
-   "record": "development/WHITEBOARD_2026-10-15.md",
-   "status": "idea",
+   "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
+   "status": "sealed",
    "runs": [],
-   "next_step": "seal the predicted numbers (this row's purpose) in a committed note BEFORE any search; then a metadata-only search for single-molecule methylation of hibernating mammals (torpor against active) and of one ectotherm species held at two temperatures; salmon (PROC-SALMON-01) is already read and cannot be the test",
+   "next_step": "metadata-only search: hibernating mammals (torpor against active), one ectotherm species at two temperatures, Arabidopsis at 10 C and 16 C (PHY-060)",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

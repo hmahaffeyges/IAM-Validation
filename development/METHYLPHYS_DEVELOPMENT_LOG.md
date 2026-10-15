@@ -1907,3 +1907,6 @@ ENCODE (Bernstein lab): five fresh sorted immune cell types, already read once b
 
 ### 2026-10-15 · PHY-049 whole genome completed on all 56 cells; a correction
 With the ten re-read samples (box job 39f8ae21): firm 0.0297, loose 0.0560, r 0.79. Correction: the cell below the line is one cell, erythrocyte progenitors (loose share 0.93), not a progenitor class effect; written that way in whiteboard parts 8-9 and the day log until now, corrected in place with this note.
+
+### 2026-10-15 · PRED-TEMPERATURE-01: the temperature law sealed before any search (PHY-057)
+The predicted tagging error at each temperature, from the measured 37 C line with nothing fitted (temperature_law.json): firm 0.0137 at 5 C, 0.0223 at 41 C; within one species the log-odds ratio is fixed by the two temperatures alone (1.0343 for 18 C against 28 C). No data searched or read.

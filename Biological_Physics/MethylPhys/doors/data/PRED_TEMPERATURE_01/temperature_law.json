@@ -1,0 +1,48 @@
+{
+ "basis_37C": {
+  "firm": 0.0212,
+  "loose": 0.0497,
+  "island": 0.0124
+ },
+ "predicted": {
+  "hibernation torpor 5 C": {
+   "firm": 0.0137,
+   "loose": 0.0359,
+   "island": 0.0075
+  },
+  "cold fish 10 C": {
+   "firm": 0.0148,
+   "loose": 0.038,
+   "island": 0.0082
+  },
+  "18 C": {
+   "firm": 0.0166,
+   "loose": 0.0414,
+   "island": 0.0093
+  },
+  "28 C": {
+   "firm": 0.0189,
+   "loose": 0.0457,
+   "island": 0.0109
+  },
+  "human 37 C": {
+   "firm": 0.0212,
+   "loose": 0.0497,
+   "island": 0.0124
+  },
+  "dog 38.5 C": {
+   "firm": 0.0216,
+   "loose": 0.0504,
+   "island": 0.0127
+  },
+  "bird 41 C": {
+   "firm": 0.0222,
+   "loose": 0.0515,
+   "island": 0.0131
+  }
+ },
+ "within_species_logodds_ratio": {
+  "18 C vs 28 C": 1.0343,
+  "torpor 5 C vs active 37 C": 1.115
+ }
+}
