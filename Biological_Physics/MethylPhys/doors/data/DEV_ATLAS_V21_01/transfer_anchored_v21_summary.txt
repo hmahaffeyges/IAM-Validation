@@ -1,0 +1,5 @@
+Atlas v2.1 anchored transfer, design 2 (transfer_anchored_v21.py)
+knots: 44 (adopted 42 plus two anchors)
+end slopes: low 0.488, high 2.538
+D1 bounded (no unbounded flat end): met | D2 unchanged inside the measured range: met
+ANCHORED TRANSFER: MET
