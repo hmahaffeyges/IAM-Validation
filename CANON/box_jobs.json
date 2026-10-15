@@ -954,6 +954,38 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
    ],
    "note": "running; started 2026-10-15 06:25:59 UTC (run_v21.log); about 24 h, about $180"
+  },
+  {
+   "job_id": "4110eb64-6c55-4e58-93e5-97590ef5acc1",
+   "name": "DEV-BACKBONE-01 island arm: tumor pairs re-aligned",
+   "date": "2026-10-15",
+   "commit": "ed7af0dc",
+   "s3_code_prefix": "results/DEV_BACKBONE_01/island/code/run1/",
+   "state": "running",
+   "log": "results/DEV_BACKBONE_01/island/ti.log",
+   "machine": "methylphys-fit-01 (spot m7a.8xlarge, 32 cores, fixed address 32.190.44.180)",
+   "purpose": "island-side counts for the six early-onset colorectal pairs (author approved)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md",
+   "outputs": [
+    "results/DEV_BACKBONE_01/island/EOCRC_CRC1_WGBS_normal.parquet",
+    "results/DEV_BACKBONE_01/island/EOCRC_CRC1_WGBS_tumour.parquet",
+    "results/DEV_BACKBONE_01/island/EOCRC_CRC2_WGBS_normal.parquet",
+    "results/DEV_BACKBONE_01/island/EOCRC_CRC2_WGBS_tumour.parquet",
+    "results/DEV_BACKBONE_01/island/EOCRC_CRC3_WGBS_normal.parquet",
+    "results/DEV_BACKBONE_01/island/EOCRC_CRC3_WGBS_tumour.parquet",
+    "results/DEV_BACKBONE_01/island/EOCRC_CRC4_WGBS_normal.parquet",
+    "results/DEV_BACKBONE_01/island/EOCRC_CRC4_WGBS_tumour.parquet",
+    "results/DEV_BACKBONE_01/island/EOCRC_CRC5_WGBS_normal.parquet",
+    "results/DEV_BACKBONE_01/island/EOCRC_CRC5_WGBS_tumour.parquet",
+    "results/DEV_BACKBONE_01/island/EOCRC_CRC6_WGBS_normal.parquet",
+    "results/DEV_BACKBONE_01/island/EOCRC_CRC6_WGBS_tumour.parquet"
+   ],
+   "files": [
+    "development/tumor_island_2026-10-15/extract_island.py",
+    "development/tumor_island_2026-10-15/run_tumor_island.sh",
+    "development/tumor_island_2026-10-15/samples.tsv"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {
