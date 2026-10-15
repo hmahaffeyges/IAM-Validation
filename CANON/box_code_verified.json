@@ -670,5 +670,25 @@
    "results/ATLAS_V21/b1_l18/flatness_check_v21_summary.txt": true
   },
   "state_at_verify": "succeeded"
+ },
+ "c2b26b34-467d-4bfb-9ed3-378a6c0cd32e": {
+  "s3": {
+   "atlas_block_v21.py": "da457e2ce2b911f630ae7deee98281cd4014434223615e53db0a7519f751e29f",
+   "block_measure_v21.json": "b3ae2830518cce2ff31c38870df343ac1212bd83c88c33b9254a5cc9332b0ff4",
+   "final_samples_v21.csv": "68dc06bf4edfaa85f052e977e27cf7a505bbf4475acbdf57570c638820c83601",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20",
+   "run_v21.sh": "a3af6b9c193a3d200f32b9cc221c9298364401d149231a511604ae56d6f19a57",
+   "run_v21_block.py": "d2b848af4358cc1049a0ca3b70693af85167e00649d940259a6234b5b70fa1d5",
+   "transfer_v21_smooth.json": "890170d1c2ebcaee445d862e4ba83daefdf835408490912f1d4d5efdba394b71"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/ATLAS_V21/fit/run_v21.log": false,
+   "results/ATLAS_V21/fit/stageB_v21_summary.json": false,
+   "results/ATLAS_V21/fit/distinctness_v21.csv": false
+  },
+  "state_at_verify": "running"
  }
 }

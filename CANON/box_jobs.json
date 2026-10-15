@@ -927,6 +927,33 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
    ],
    "note": "block 0, mode v21inv: 2,001 s, 15.6 GB, 1.66 s per locus (same at K 20 and 100); L18 IDENTICAL; L23 DISTINCT (79 cells, closest 0.0115; r 0.9961 vs v2, median 0.78 SE); par 16 on 128 cores; fit about 24.3 h"
+  },
+  {
+   "job_id": "c2b26b34-467d-4bfb-9ed3-378a6c0cd32e",
+   "name": "Atlas v2.1 fit (stage B, 700 blocks, mode v21inv)",
+   "date": "2026-10-15",
+   "commit": "9d6991f5",
+   "s3_code_prefix": "results/ATLAS_V21/fit/code/run1/",
+   "state": "running",
+   "log": "results/ATLAS_V21/fit/run_v21.log",
+   "machine": "methylphys-cpu-01 (on-demand m7a.32xlarge, 128 cores, 512 GB)",
+   "purpose": "the atlas v2.1 fit: 700 blocks, 16 at a time; each block uploaded to S3 as it lands",
+   "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [
+    "results/ATLAS_V21/fit/run_v21.log",
+    "results/ATLAS_V21/fit/stageB_v21_summary.json",
+    "results/ATLAS_V21/fit/distinctness_v21.csv"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_block_v21.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/block_measure_v21.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/run_v21.sh",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/run_v21_block.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
+   ],
+   "note": "running; started 2026-10-15 06:30 UTC; about 24 h, about $180"
   }
  ],
  "not_jobs": {

@@ -1845,3 +1845,6 @@ Box job beacca7a (code 27bb2353). B1: 2,001 s on 8 cores, peak 15.6 GB; 16 at on
 
 ### 2026-10-15 · Atlas v2.1 L12: code checksums written before launch
 code_checksums_v21.txt: sha256 of run_v21.sh, run_v21_block.py, atlas_block_v21.py, transfer_v21_smooth.json, final_samples_v21.csv, block_measure_v21.json and publish_code.py.
+
+### 2026-10-15 · Atlas v2.1 fit launched
+Launch guard ALLOWED (every before-launch item met). Box resized to m7a.32xlarge (128 cores, 512 GB; address unchanged). Box job c2b26b34 (code 9d6991f5): 700 blocks, mode v21inv, 16 at a time, each block to S3 as it lands; about 24 h, about $180. The Loyfer and Moss use tests are written and sealed while it runs, before any atlas output is opened.
