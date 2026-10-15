@@ -25961,7 +25961,7 @@
   },
   {
    "title": "Hatchery application: salmon held error under rearing conditions (the author's workplace path)",
-   "purpose": "a tool fisheries scientists can use: how well hatchery and wild fish hold their pattern, and the temperature law at real water temperatures; PROC-SALMON-01's salmon reads (hatchery and wild, reduced representation) are already read, so they serve development only",
+   "purpose": "a tool fisheries scientists can use: how well hatchery and wild fish hold their pattern, and the temperature law at real water temperatures. Four fish sets were scored (Methow steelhead, Rimouski Atlantic salmon, brook charr, coho) and are development only; MUCH of the fish data in our S3 has never been read (author, 2026-10-15) and can carry a sealed test. The scored sets tracked library bisulfite-conversion failure, a lab effect, so hatchery against wild was never compared; the atlas-free gauge measures conversion failure inside each sample and subtracts it, which is the fix those sets lacked",
    "instrument_or_term": "IAM-A",
    "sources": [
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
@@ -25970,7 +25970,7 @@
    "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
    "status": "idea",
    "runs": [],
-   "next_step": "read PROC-SALMON-01's records against the line; draft a one-page proposal for the author's employer once the instrument is commissioned",
+   "next_step": "inventory the unread fish data in S3 (metadata only); then a sealed hatchery/wild and temperature test with the conversion correction; a one-page proposal for the author's employer after commissioning",
    "cost": "laptop",
    "impact": 4,
    "depends_on": [
