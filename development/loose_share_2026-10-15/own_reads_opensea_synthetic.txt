@@ -1,0 +1,4 @@
+planted open-sea loose share 0.2: open-sea count 0.200 at 0.70 (120 windows); every-CpG count 0.967
+planted open-sea loose share 0.5: open-sea count 0.500 at 0.70 (120 windows); every-CpG count 0.992
+planted open-sea loose share 0.8: open-sea count 0.800 at 0.70 (120 windows); every-CpG count 0.992
+SYNTHETIC: MET (the open-sea count recovers the planted share within 0.03; counting every CpG inflates it by island territory)
