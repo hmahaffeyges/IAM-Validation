@@ -1,5 +1,7 @@
 # IAM-Atlas v2: a reference map of healthy human cells
 
+> **v2.1 is fitting now** (79 cell types; live progress on the [front page](https://hmahaffeyges.github.io/IAM-Validation/); record [`DEV_ATLAS_V21_01.md`](../doors/DEV_ATLAS_V21_01.md)). Until it is released and passes its sealed bars, v2 below is the reference in use.
+
 IAM-Atlas v2 is the reference every IAM instrument reads against. For each of **74 purified healthy human cell types**, at every CpG on the
 Illumina methylation array, it gives the cell's methylation and **how sure we are of it**: a mean, a standard deviation, a 95 % interval and
 20 posterior draws, per site, per cell.

@@ -29,6 +29,8 @@ def markdown(C, M):
     for i in C["instruments"]:
         L += [f"## {i['name']}", "", f"**The question:** {i['question']}", "", i["how"], "", f"**Reads:** {i['reads']}. **Where it stands:** {stage(i, M)}.", ""]
         L += [f"- {row_line(M[r])}" for r in i["rows"] if r in M] + ["", f"**Next:** {i['next']}", ""]
+    L += ["## Candidate instruments", "", "Readings still on the drawing board, each with its blind spot and next step: "
+          "[Biological_Physics/MethylPhys/INSTRUMENTS.md](Biological_Physics/MethylPhys/INSTRUMENTS.md).", ""]
     return "\n".join(L)
 def table(C, M):
     L = [B, "", "| Instrument | The question it answers | Where it stands |", "|---|---|---|"]

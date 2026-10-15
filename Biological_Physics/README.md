@@ -3,9 +3,9 @@
 A cell holds its identity as information: a methylation pattern, one bit per CpG copy, held at body temperature. IAM's Law prices each
 maintained bit at `k_B T ln 2` (2.97 × 10⁻²¹ J at 310.15 K). The instruments here read the cell's **informational fidelity**, how faithfully it
 holds its own pattern, against the same cell type when healthy, on one gauge where **A = 1 is healthy**, the thermal floor lies to the left
-and less fidelity lies to the right. Nothing about any other person enters a reading. There are two instruments, blind in different places:
+and less fidelity lies to the right. Nothing about any other person enters a reading. The two core instruments are blind in different places (the full catalogue is [`INSTRUMENTS.md`](../INSTRUMENTS.md)):
 **Met-A** (arrays) reads the state of the pattern at fixed identity sites, in both directions; **IAM-A** (sequencing) reads the isolated errors
-in the held pattern, the copy error, set by the balance of restore and loss whether the cell divides or not. Where both read the same cells and
+in the held pattern, the held error, set by the balance of restore and loss whether the cell divides or not. Where both read the same cells and
 agree, the result is stronger than either; where they disagree, that is information about the physics. The physics and every number are in
 Part VI of the book ([`docs/book`](../docs/book)).
 
@@ -14,11 +14,11 @@ Here the same bound is the ruler.
 
 | folder | contents |
 |---|---|
-| [`MethylPhys/`](MethylPhys/) | **the instrument**, chain v3 (development build, neutrophils on EPIC v1 and on single molecules). Start at [`MethylPhys/README.md`](MethylPhys/README.md); operator procedure [`MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`](MethylPhys/sop/MethylPhys_CPG_SOP_v3.md) |
-| [`MethylPhys/atlas/`](MethylPhys/atlas/) | **IAM-Atlas v2**, the reference of 74 purified healthy cell types every reading is measured against: how it was built, how to get it, what it has passed |
+| [`MethylPhys/`](MethylPhys/) | **the instrument**, chain v3 (Met-A commissioned on isolated neutrophils, EPIC v1; the rest in development). Start at [`MethylPhys/README.md`](MethylPhys/README.md); operator procedure [`MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`](MethylPhys/sop/MethylPhys_CPG_SOP_v3.md) |
+| [`MethylPhys/atlas/`](MethylPhys/atlas/) | **IAM-Atlas v2** (74 purified healthy cell types, in use) and **v2.1** (79, fitting now): how each was built, how to get it, what it has passed |
 | [`MethylPhys/doors/`](MethylPhys/doors/) | one pre-registration and one outcome record per procedure, including those that failed |
 | [`Landauer_Metrology/`](Landauer_Metrology/) | the Landauer floor of the cell as a measurement standard: [`verify_landauer_metrology.py`](Landauer_Metrology/verify_landauer_metrology.py) recomputes every number of the book's Landauer metrology chapter, with its output |
-| [`Salmonid/`](Salmonid/) | the fish work: copy error at water temperature (in development) |
+| [`Salmonid/`](Salmonid/) | the fish work: held error at water temperature (in development) |
 | RETIRED_2026-09/ (archived privately), RETIRED_2026-10/ (archived privately) | earlier chain versions, reports, manuals and pages, kept unchanged with an index |
 
 ## Advancements

@@ -79,3 +79,7 @@ Single blood readings are too noisy for one person on arrays, but a group averag
 
 **Next:** One cancer at a time, patients and healthy controls from the same series.
 
+## Candidate instruments
+
+Readings still on the drawing board, each with its blind spot and next step: [Biological_Physics/MethylPhys/INSTRUMENTS.md](Biological_Physics/MethylPhys/INSTRUMENTS.md).
+
