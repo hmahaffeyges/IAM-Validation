@@ -25072,6 +25072,26 @@
    "sources_of_row": [
     "session 2026-10-15"
    ]
+  },
+  {
+   "title": "A cell's bit rate: loss and restore as rates, not only their balance (author's idea)",
+   "purpose": "read each cell's write and loss rates in bits per second; a meter more sensitive than the balance the held error reads",
+   "instrument_or_term": "IAM-A",
+   "sources": [],
+   "data_status": "none",
+   "record": "development/WHITEBOARD_2026-10-15.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "needs a time course of the same cells (the held error from one sample is a ratio of two rates); design only after the current tests",
+   "cost": "unknown",
+   "impact": 4,
+   "depends_on": [],
+   "notes": "whiteboard part 6, 2026-10-14 Pacific",
+   "legacy_ids": [],
+   "id": "PHY-044",
+   "sources_of_row": [
+    "session 2026-10-14"
+   ]
   }
  ],
  "not_tests": {
