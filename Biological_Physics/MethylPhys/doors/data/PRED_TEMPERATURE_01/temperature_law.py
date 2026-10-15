@@ -2,6 +2,7 @@
 energy E (in joules) is fixed and kT is the yardstick, so ln[(1 - eps)/eps] = E / kT scales as 1/T. Nothing fitted: the 37 C values are the
 measured line (loose_end_line.json: firm 0.0212, loose 0.0497; island median 0.0124), and the prediction at temperature T is
 eps(T) = 1 / (1 + exp(ln[(1 - eps37)/eps37] * 310.15 / T)). Writes temperature_law.json."""
+# NO CHAIN: a prediction from the measured line and temperature alone; no chain stage reads temperature
 import json, os, math
 H = os.path.dirname(os.path.abspath(__file__))
 B = json.load(open(os.path.join(H, "..", "..", "..", "..", "..", "development", "loose_end_2026-10-15", "loose_end_line.json")))

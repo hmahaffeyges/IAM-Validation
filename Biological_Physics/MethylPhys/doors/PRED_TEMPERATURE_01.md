@@ -17,7 +17,9 @@ Boltzmann premise does not hold for held marks there, and the gauge's use of kT 
 
 **Data:** none searched yet. Salmon (PROC-SALMON-01) and every other fish set already scored cannot be the test.
 
-**Synthetic test:** PRED_TEMPERATURE_01/temperature_law.py, PRED_TEMPERATURE_01/temperature_law_synthetic.txt (run once 2026-10-15: MET).
+**Synthetic test:** PRED_TEMPERATURE_01/temperature_law.py, PRED_TEMPERATURE_01/temperature_law_synthetic.txt
+
+The self-check ran once on 2026-10-15 and read MET: at 37 C the rule returns the measured values exactly, and the error rises with temperature.
 
 What it would take to succeed: single-molecule methylation of one species read at two body or water temperatures, with the log-odds ratio landing on the sealed value; finish line, not a promise.
 
