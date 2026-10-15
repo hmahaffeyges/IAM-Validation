@@ -268,3 +268,19 @@ other half its held error. The line comes back: r 0.81 (p 8e-14), 46 of 56 cells
 3. Progenitor cells sit well below the line (median 0.013 below); the other classes sit on it.
 Scale note: the own-read counter divides by interior CpGs, PROC-CHANNEL-01 by all CpGs; the two counts agree (rho 0.999) after one fixed
 factor, 1.35, which was divided out.
+
+## Part 9: the own-read line on the whole genome (box job 2d3d817b; PHY-049)
+
+143 of 153 samples read across 12,689 windows each (the genome tiled into 2,000-CpG windows); 10 refused by GEO (HTTP 503) are being
+re-read (box job 39f8ae21). On the 53 cells with data, scale-matched to PROC-CHANNEL-01:
+
+| | firm rate | loose rate | r | within 0.003 |
+|---|---|---|---|---|
+| arrays (genome-wide bins of open-sea sites) | 0.0212 | 0.0497 | 0.87 | 53 of 56 |
+| own reads, 399 random windows | 0.0285 | 0.0554 | 0.81 | 46 of 56 |
+| own reads, whole genome | 0.0292 | 0.0559 | 0.79 | 43 of 53 |
+
+The whole genome did NOT sharpen the line (the prediction in part 8 was wrong): window count is not what limits it. Two features are
+stable across both own-read versions: the firm rate (0.029) and progenitors sitting below the line (0.0145 below). Candidate reason the
+array line is tighter: its loose share uses open-sea sites only, while the own-read windows hold every CpG, islands included. Next step,
+PHY-049: the own-read loose share with island CpGs left out.

@@ -706,7 +706,7 @@
    "results/DEV_BACKBONE_01/island/EOCRC_CRC2_WGBS_normal.parquet": true,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC2_WGBS_tumour.parquet": true,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC3_WGBS_normal.parquet": true,
-   "results/DEV_BACKBONE_01/island/EOCRC_CRC3_WGBS_tumour.parquet": false,
+   "results/DEV_BACKBONE_01/island/EOCRC_CRC3_WGBS_tumour.parquet": true,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC4_WGBS_normal.parquet": false,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC4_WGBS_tumour.parquet": false,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC5_WGBS_normal.parquet": false,
@@ -745,9 +745,26 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/LOOSE_SHARE_2026-10-15/genome/own_reads_genome.csv": true
+  },
+  "state_at_verify": "succeeded"
+ },
+ "39f8ae21-d4c4-4817-801b-86d79e949995": {
+  "s3": {
+   "genome_samples.txt": "0e79e23ddd28556a65b12866cb8d6ce8c5f968b54d1f66e9a4d880c5e98c7d3e",
+   "own_reads_genome.py": "5da9368a40fa96f38ee33a0a2399a63ef304800c68592dff0d53a78755faa54e",
+   "own_reads_loose.py": "4aea4bcdf3975bfe9092c6c97cda497b25ab8ad8f3e00a250a649f0042b6265f",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20",
+   "tiles_hg19_cpgidx.bed": "b148cc84ab365f8ce5df09e6facf1993040fd35d150bf8dee426631618cfb276",
+   "windows_hg19_cpgidx.bed": "b7c1d4b55508e7561d8a097a9c92398fef0b952675e97bdcb55bdddd97d522e3"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": false,
   "log_in_s3": false,
   "outputs_in_s3": {
-   "results/LOOSE_SHARE_2026-10-15/genome/own_reads_genome.csv": false
+   "results/LOOSE_SHARE_2026-10-15/genome/run2_own_reads_genome.csv": false
   },
   "state_at_verify": "running"
  }

@@ -1901,3 +1901,6 @@ Box job 2d3d817b (code ec70e9d8) runs it on the second machine.
 
 ### 2026-10-15 · Second-laboratory candidates found (metadata only, PHY-047)
 ENCODE (Bernstein lab): five fresh sorted immune cell types, already read once by PROC-CHANNEL-01 (development use only), with full alignments that carry the meter's own error (PHY-050). GSE144691 and GSE98837: sorted CD8 T-cell subsets from healthy donors, WGBS, unopened; candidates for the grand test (COM-IAMA-052). GSE324619 is controlled access. No data was read.
+
+### 2026-10-15 · PHY-049 whole genome: run once (box job 2d3d817b)
+143 of 153 samples read; 10 refused by GEO (503), re-read in box job 39f8ae21. Line on 53 cells: r 0.79, firm 0.0292; no sharper than 399 windows. Whiteboard part 9.

@@ -25221,7 +25221,7 @@
    ],
    "data_status": "held",
    "record": "development/loose_share_2026-10-15/own_reads_loose.py",
-   "status": "running",
+   "status": "run",
    "runs": [
     {
      "date": "2026-10-15",
@@ -25229,9 +25229,16 @@
      "note": "line from the sample's own molecules alone (split halves): r 0.81, p 8e-14, 46 of 56 within 0.003; firm rate moves to 0.0285 (from 0.0212 with arrays); progenitors 0.013 below the line",
      "commit": "",
      "page": "not headline: development detail of DEV-LOOSE-LINE-01"
+    },
+    {
+     "date": "2026-10-15",
+     "outcome": "progressed",
+     "note": "whole genome, 53 cells (10 samples refused by GEO, re-read in 39f8ae21): firm 0.0292, loose 0.0559, r 0.79; no sharper than 399 windows; firm rate and progenitor offset stable",
+     "commit": "",
+     "page": "not headline: development detail"
     }
    ],
-   "next_step": "more windows (the whole genome) to sharpen the own-read loose share; why progenitors sit below the line",
+   "next_step": "own-read loose share with island CpGs left out (as the array definition does); why progenitors sit below the line",
    "cost": "box",
    "impact": 5,
    "depends_on": [

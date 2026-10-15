@@ -1052,7 +1052,7 @@
    "date": "2026-10-15",
    "commit": "ec70e9d8",
    "s3_code_prefix": "results/LOOSE_SHARE_2026-10-15/genome/code/run1/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/LOOSE_SHARE_2026-10-15/genome/gw.log",
    "machine": "methylphys-fit-01 (shared with the tumor island job)",
    "manifest": [
@@ -1069,6 +1069,32 @@
     "development/loose_share_2026-10-15/tiles_hg19_cpgidx.bed",
     "development/loose_share_2026-10-15/windows_hg19_cpgidx.bed",
     "development/loose_share_2026-10-15/genome_samples.txt",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py"
+   ],
+   "note": "143 of 153 read; 10 refused by GEO (503)"
+  },
+  {
+   "job_id": "39f8ae21-d4c4-4817-801b-86d79e949995",
+   "name": "PHY-049 whole genome: the ten samples GEO refused",
+   "date": "2026-10-15",
+   "commit": "ec70e9d8",
+   "s3_code_prefix": "results/LOOSE_SHARE_2026-10-15/genome/code/run2/",
+   "state": "running",
+   "log": "results/LOOSE_SHARE_2026-10-15/genome/run2_gw.log",
+   "machine": "methylphys-fit-01",
+   "manifest": [
+    "PHY-049"
+   ],
+   "purpose": "re-read 10 samples refused with HTTP 503",
+   "record": "development/loose_share_2026-10-15/own_reads_genome.py",
+   "outputs": [
+    "results/LOOSE_SHARE_2026-10-15/genome/run2_own_reads_genome.csv"
+   ],
+   "files": [
+    "development/loose_share_2026-10-15/own_reads_genome.py",
+    "development/loose_share_2026-10-15/own_reads_loose.py",
+    "development/loose_share_2026-10-15/tiles_hg19_cpgidx.bed",
+    "development/loose_share_2026-10-15/windows_hg19_cpgidx.bed",
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
    "note": "running"
