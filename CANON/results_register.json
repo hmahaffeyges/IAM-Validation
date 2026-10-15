@@ -295,6 +295,24 @@
     "sub": "Cells tag their DNA to remember what kind of cell they are, and make a few tagging mistakes. Across {n} kinds of healthy human cells, the number of mistakes depends on one thing: how much of the DNA the cell keeps loosely tagged. So what a healthy cell should look like comes from its own sample, not a library of other cells. Early result, one laboratory's data; a second lab is next."
    },
    "headline": "**Every healthy cell follows the same simple rule.** Across 56 kinds of healthy human cells, the number of DNA-tagging mistakes depends on one thing, how much of the DNA the cell keeps loosely tagged, so a healthy cell's expected reading comes from its own sample (early result, one laboratory)"
+  },
+  {
+   "id": "DEV-CSCORE-REPEAT-01",
+   "date": "2026-10-15",
+   "kind": "result",
+   "instrument": "C-score",
+   "status": "development",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",
+   "title": "The clustering meter passes its last check: the same person reads the same",
+   "plain": "Our second meter reads the shape of the damage: clumps, as a tumor leaves, or scattered, as ordinary wear leaves. Its last open check was whether one person measured twice reads the same. We found a public study, never touched by this work, in which 14 healthy adults were measured twice on different chips. The bar, set before the arrays were read, allowed a spread of 0.125; the meter's spread was 0.038, about a third of that. The same 173 arrays were also a third laboratory for its healthy range, and 172 read inside it. Every check in its plan is now met, and it is proposed for commissioning on whole blood. Its detection of clumped damage has been shown on changes planted into real arrays, not yet on real tumors.",
+   "compute": "cscore_repeat",
+   "win": {
+    "rank": 12,
+    "stat": "{sd:.3f}",
+    "head": "The clustering meter passes its last check",
+    "sub": "The same person measured twice reads the same (spread {sd:.3f}, bar {bar}); a third laboratory's healthy blood read inside its range ({inn} of {n}). Proposed for commissioning."
+   }
   }
  ],
  "losses": [

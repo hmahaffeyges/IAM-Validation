@@ -1540,17 +1540,23 @@
     "GSE291053",
     "GSE318669"
    ],
-   "data_status": "unspent",
+   "data_status": "spent",
    "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",
-   "status": "sealed",
+   "status": "run",
    "runs": [
     {
      "date": "2026-10-13",
      "outcome": "inconclusive",
      "note": "Metadata search: GSE250556 and GSE123914 already spent; GSE112611 has no IDATs; GSE184202 is a burnout cohort (2 controls); GSE291053 dialysis patients. No healthy EPIC v1 raw same-person replicate set found yet."
+    },
+    {
+     "date": "2026-10-15",
+     "outcome": "success",
+     "note": "GSE147740: 13 same-person pairs, within-person SD 0.038 (bar 0.125) MET; third laboratory 172 of 173 not above 1.152 MET. C-score proposed for commissioning (COMMISSIONING_NOTE_CSCORE_PROPOSED.md).",
+     "page": "headline: DEV-CSCORE-REPEAT-01"
     }
    ],
-   "next_step": "fetch and read GSE147740 (176 arrays: 14 same-person pairs and their slide-mates) once, as pre-registered 2026-10-15",
+   "next_step": "author's sign-off on the commissioning proposal; then real cancers read with a sealed bar",
    "cost": "search",
    "impact": 5,
    "legacy_ids": [
@@ -1768,17 +1774,23 @@
     "GSE291053 (dialysis)",
     "GSE250556 and GSE123914 (spent)"
    ],
-   "data_status": "unspent",
-   "status": "sealed",
+   "data_status": "spent",
+   "status": "run",
    "runs": [
     {
      "date": "2026-10-13",
      "outcome": "fail",
      "note": "Metadata search: both front-runner replicate sets are out (GSE112611 has no IDATs; GSE184202 is a patient cohort with an intervention between draws); the ideal designs are already spent.",
      "commit": "028c360"
+    },
+    {
+     "date": "2026-10-15",
+     "outcome": "success",
+     "note": "GSE147740: 13 same-person pairs, within-person SD 0.038 (bar 0.125) MET; third laboratory 172 of 173 not above 1.152 MET. C-score proposed for commissioning (COMMISSIONING_NOTE_CSCORE_PROPOSED.md).",
+     "page": "headline: DEV-CSCORE-REPEAT-01"
     }
    ],
-   "next_step": "fetch and read GSE147740 (176 arrays: 14 same-person pairs and their slide-mates) once, as pre-registered 2026-10-15",
+   "next_step": "author's sign-off on the commissioning proposal; then real cancers read with a sealed bar",
    "cost": "search",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",

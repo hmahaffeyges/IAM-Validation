@@ -1,0 +1,180 @@
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.11s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.11s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.12s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.12s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.12s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.12s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.12s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.12s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.16s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.16s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.18s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.18s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.20s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.20s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.22s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.22s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.13s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.13s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.21s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.21s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.05s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.05s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.19s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.19s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.16s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.16s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.00s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.03s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.03s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.11s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.11s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.13s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.13s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.07s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.14s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.14s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.99s/it]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.99s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.13s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.13s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.03s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.03s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.07s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.07s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.11s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.11s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.15s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.15s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.07s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.07s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.14s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.14s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.13s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.13s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.07s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.07s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.98s/it]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.98s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.07s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.07s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.07s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.07s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.12s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.12s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.03s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.03s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.00s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.00s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.07s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.07s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.05s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.05s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.13s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.13s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.95s/it]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.95s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.96s/it]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.96s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.98s/it]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.98s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.05s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.05s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.17s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.17s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.12s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.12s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.10s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.03s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.03s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.15s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.15s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.11s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.11s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.07s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.07s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.11s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.11s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.03s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.03s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.20s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.20s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.00s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.00s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.95s/it]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.95s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.03s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.03s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.99s/it]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.99s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.05s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.05s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.12s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.12s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.98s/it]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.98s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.11s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.11s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.02s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.03s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.03s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.13s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.13s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.03s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.03s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.97s/it]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.97s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.05s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.05s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.00s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.00s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.04s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.06s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.00s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.00s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.01s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.09s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]Reading IDATs: 100%|██████████| 1/1 [00:09<00:00,  9.08s/it]
+Traceback (most recent call last):
+  File "/home/ubuntu/env/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'C_rel_series'
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "/home/ubuntu/cs/Biological_Physics/MethylPhys/doors/data/CSCORE_COMMISSIONING/read_repeat_test.py", line 71, in <module>
+    ser = T.C / T[T.C.notna()].C.median(); T["C_rel_series"] = ser; sd_ser, _ = sd_pairs("C_rel_series")
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/cs/Biological_Physics/MethylPhys/doors/data/CSCORE_COMMISSIONING/read_repeat_test.py", line 68, in sd_pairs
+    d = [float(p[col].iloc[0] - p[col].iloc[1]) for p in pairs if len(p) == 2 and p[col].notna().all()]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/cs/Biological_Physics/MethylPhys/doors/data/CSCORE_COMMISSIONING/read_repeat_test.py", line 68, in <listcomp>
+    d = [float(p[col].iloc[0] - p[col].iloc[1]) for p in pairs if len(p) == 2 and p[col].notna().all()]
+                                                                                  ~^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'C_rel_series'

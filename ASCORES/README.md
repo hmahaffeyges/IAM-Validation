@@ -19,7 +19,7 @@ apart and are never pooled.
 | Met-A | R, tumor over the same patient's normal tissue | liver tissue | tumor | 50 | 1.104 | 0.9364 to 1.326 | [Met_A.csv](Met_A.csv) |
 | C-Score | C_rel, tared to the series | whole blood | healthy | 553 | 1 | 0.7543 to 1.332 | [C_Score.csv](C_Score.csv) |
 | C-Score | C_rel, tared to the series | isolated neutrophils | healthy | 62 | 1.003 | 0.8452 to 1.219 | [C_Score.csv](C_Score.csv) |
-| C-Score | C_rel, chain tare | whole blood | healthy | 58 | 0.9953 | 0.8972 to 1.135 | [C_Score.csv](C_Score.csv) |
+| C-Score | C_rel, chain tare | whole blood | healthy | 231 | 0.9967 | 0.9029 to 1.103 | [C_Score.csv](C_Score.csv) |
 | C-Score | C_rel, tared to the series | granulocytes | patient (see record) | 38 | 1.044 | 0.7694 to 1.419 | [C_Score.csv](C_Score.csv) |
 | C-Score | C_rel, tared to the series | granulocytes | healthy | 26 | 1.031 | 0.7404 to 1.275 | [C_Score.csv](C_Score.csv) |
 | IAM-A | held error eps, pooled per cell type | purified cell types (56) | healthy | 56 | 0.03235 | 0.02577 to 0.0383 | [IAM_A.csv](IAM_A.csv) |
@@ -28,4 +28,4 @@ apart and are never pooled.
 | IAM-A | held error eps, conversion-corrected | colon tissue | tumor | 5 | 0.04216 | 0.0369 to 0.04588 | [IAM_A.csv](IAM_A.csv) |
 | IAM-A | held error eps, conversion-corrected | oral tissue | tumor | 8 | 0.04093 | 0.03451 to 0.04639 | [IAM_A.csv](IAM_A.csv) |
 
-1109 readings from 13 sources. Status and record for every row are in the tables.
+1282 readings from 14 sources. Status and record for every row are in the tables.

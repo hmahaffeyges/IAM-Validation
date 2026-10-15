@@ -19,8 +19,6 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **ATL-062** (impact 5, box (about one more full fit, after the main fit)) Atlas v2.1 decision 17: two half-atlases (the CMB's half-mission split) for noise-free cross-spectra and half-difference null maps: Write and seal the half-donor split before any fit.
 - [ ] **ATL-063** (impact 5, laptop) The guidebook: the CMB toolkit for the methylome, a manual given with the atlas and maps: Structure and history entries while the atlas is built; worked examples after the fit.
 - [ ] **COM-CSCORE-003** (impact 5, none) C-score commissioning proposal (band and detection limit printed on every report): Write the commissioning note after (a) on further labs and (b) are met; reconcile the whole-blood versus sorted-cell scope gap first.
-- [ ] **COM-CSCORE-005** (impact 5, search) C-score test (b): repeatability on new same-person replicate arrays (last open check): fetch and read GSE147740 (176 arrays: 14 same-person pairs and their slide-mates) once, as pre-registered 2026-10-15
-- [ ] **COM-CSCORE-012** (impact 5, search) C-score last check: same-person repeatability on unspent replicate arrays: fetch and read GSE147740 (176 arrays: 14 same-person pairs and their slide-mates) once, as pre-registered 2026-10-15
 - [ ] **COM-IAMA-007** (impact 5, box) IAM-A check C4: healthy cells from another laboratory read Normal: Met on neurons if the sealed sorted-neuron reference reads the two unread labs as Normal (DEV-IAMA-NEURON-01).
 - [ ] **COM-IAMA-011** (impact 5, laptop) IAM-A healthy band and C-score band on held-out data, then an IAM-A commissioning note: After the commissioning bars pass on EpiQC and a second-laboratory healthy set.
 - [ ] **COM-IAMA-012** (impact 5, laptop) IAM-A independent head diagnostic beyond chemistry (duplicates lead): Test the duplicate measure, bar first, on EpiQC libraries not used in the cause test; also read quality and insert size by position from saved quality files.
@@ -487,13 +485,13 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **COM-CSCORE-001** C-score (clustering meter) commissioning: band on held-out laboratories and repeatability: last run 2026-10-13, inconclusive
 - [x] **COM-CSCORE-002** C-score commissioning plan steps 1-3 (band by lab left out, positive control, repeatability): last run 2026-10-13, progressed
 - [x] **COM-CSCORE-004** C-score test (a): healthy band on laboratories not used to set it: last run 2026-10-13, success
-- [x] **COM-CSCORE-005** C-score test (b): repeatability on new same-person replicate arrays (last open check): last run 2026-10-13, inconclusive
+- [x] **COM-CSCORE-005** C-score test (b): repeatability on new same-person replicate arrays (last open check): last run 2026-10-15, success
 - [x] **COM-CSCORE-006** C-score same-run tare (DEV-CSCORE-TARE-01): last run 2026-10-08, success
 - [x] **COM-CSCORE-007** Moss 2018 mixes: Met-A and C-score specificity with foreign tissue DNA: last run 2026-10-10, fail
 - [x] **COM-CSCORE-009** IAM-A C-score on sequencing (whole-genome only): last run 2026-10-11, fail
 - [x] **COM-CSCORE-010** Imprinting disorders as a C-score known-truth test: last run 2026-10-10, fail
 - [x] **COM-CSCORE-011** C-score healthy band test (a) on laboratories that did not set the band: last run 2026-10-13, success
-- [x] **COM-CSCORE-012** C-score last check: same-person repeatability on unspent replicate arrays: last run 2026-10-13, fail
+- [x] **COM-CSCORE-012** C-score last check: same-person repeatability on unspent replicate arrays: last run 2026-10-15, success
 - [x] **COM-IAMA-001** Cause of the IAM-A across-laboratory failure (where in the file is read): last run 2026-10-13, inconclusive
 - [x] **COM-IAMA-002** IAM-A cause test for the across-laboratory failure (DEV-IAMA-CAUSE-01): last run 2026-10-13, inconclusive
 - [x] **COM-IAMA-003** IAM-A check C1: conversion rule on identical DNA: last run 2026-10-12, success

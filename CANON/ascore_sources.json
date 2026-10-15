@@ -150,6 +150,20 @@
    "record": "Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md"
   },
   {
+   "id": "CSCORE-LAB3",
+   "instrument": "C-Score",
+   "file": "Biological_Physics/MethylPhys/doors/data/CSCORE_COMMISSIONING/repeat_GSE147740_rows.csv",
+   "query": "C_rel == C_rel",
+   "sample": "gsm",
+   "value": "C_rel",
+   "kind": "C_rel, chain tare",
+   "specimen": "whole blood",
+   "condition": "healthy",
+   "platform": "EPIC v1",
+   "status": "development (held-out lab 3, test a met)",
+   "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md"
+  },
+  {
    "id": "IAMA-CELLS",
    "instrument": "IAM-A",
    "file": "Biological_Physics/MethylPhys/doors/data/DEV_ARCH_01/arch_vs_held.csv",

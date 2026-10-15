@@ -1,0 +1,35 @@
+{
+ "set": "GSE147740",
+ "laboratory": "AIRWAVE, Imperial College London",
+ "platform": "EPIC v1",
+ "specimen": "whole blood, healthy",
+ "test_b": {
+  "bar": "within-person SD of C_rel <= 0.125 (chain tare, slide first then series)",
+  "complete_pairs": 13,
+  "within_sd_C_rel": 0.0379,
+  "verdict": "MET",
+  "reported_not_scored": {
+   "within_sd_untared_C": 0.0754,
+   "within_sd_series_tared": 0.0571
+  }
+ },
+ "test_a": {
+  "bar": "at least 95 % of arrays not above 1.152",
+  "arrays_scored": 173,
+  "above": 1,
+  "not_above_fraction": 0.9942,
+  "verdict": "MET",
+  "C_rel_median": 0.999
+ },
+ "arrays_listed": 176,
+ "withheld_or_failed": 3,
+ "reasons": {
+  "withheld by the chain | only 5075 of 6000 neutrophil sites measured (>= 5400 required): A withheld": 1,
+  "withheld by the chain | only 5078 of 6000 neutrophil sites measured (>= 5400 required): A withheld": 1,
+  "withheld by the chain | only 5326 of 6000 neutrophil sites measured (>= 5400 required): A withheld": 1
+ },
+ "tare_scopes": {
+  "slide": 171,
+  "series": 2
+ }
+}

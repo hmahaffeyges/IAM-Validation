@@ -72,6 +72,11 @@ def compute(e):
         lim = float(re.search(r"(\d\.\d{3})", A["bar"]).group(1)); m = re.match(r"(\d+) arrays, (\d+) series", A["band_decided_on"])
         return dict(n1=A["n"], in1=A["n"] - A["above_limit"], n2=B["n_whole_blood_scored"], in2=B["n_whole_blood_scored"] - B["above_limit"],
                     lim=lim, setn=int(m.group(1)), setlabs=int(m.group(2)), withheld=B["whole_bloods_withheld"])
+    if e["compute"] == "cscore_repeat":
+        X = json.load(open(os.path.join(ROOT, D + "CSCORE_COMMISSIONING/repeat_GSE147740.json"), encoding="utf-8"))
+        assert X["test_b"]["verdict"] == "MET" and X["test_a"]["verdict"] == "MET", "listed only while both sealed bars are met"
+        return dict(pairs=X["test_b"]["complete_pairs"], sd=X["test_b"]["within_sd_C_rel"], bar=0.125, n=X["test_a"]["arrays_scored"],
+                    inn=X["test_a"]["arrays_scored"] - X["test_a"]["above"], people=X["test_b"]["complete_pairs"] + 1)
     if e["compute"] == "field_f2":
         F = json.load(open(os.path.join(ROOT, D + "DEV_FIELD_01/scored_field_01.json"), encoding="utf-8"))
         assert F["F2"]["verdict"] == "MET", "listed only while the sealed positive control is met"
@@ -169,6 +174,10 @@ def readme_row(e, v):
         h = (f"**The clustering meter's healthy range holds in two laboratories that never helped set it.** Set on {v['setn']} arrays from "
              f"{v['setlabs']} series and committed first; then {v['in1']} of {v['n1']} and {v['in2']} of {v['n2']} healthy bloods read inside it "
              f"(bar 95 %). The second passed by one array, with {v['withheld']} withheld for coverage; whole blood, not yet the commissioned cell type")
+    elif e.get("compute") == "cscore_repeat":
+        h = (f"**The clustering meter passes its last check.** The same person measured twice on different chips reads the same: spread "
+             f"{v['sd']:.3f} over {v['pairs']} people, against a bar of {v['bar']} set before the arrays were read; and a third laboratory's "
+             f"healthy blood read inside its range ({v['inn']} of {v['n']}). Proposed for commissioning on whole blood")
     elif e.get("compute") == "field_f2":
         h = (f"**Breast tumors seen again, in a second laboratory's patients.** {v['k']} of {v['n']} tumors read above the same breast's tissue on the "
              f"same slide ({v['crit']} needed), by a rule sealed before any array was read. The study's main question - does the tissue beside a tumor "

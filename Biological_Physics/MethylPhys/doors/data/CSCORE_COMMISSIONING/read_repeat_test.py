@@ -57,18 +57,22 @@ def one(g):
                              or (cs.get("reason") if cs.get("C") is None else None)),
                     status=("ok" if m.get("A") is not None else "withheld by the chain"))
     except Exception as e: return dict(gsm=g, status=f"error: {type(e).__name__}: {str(e)[:100]}")
-import multiprocessing as mp
-with mp.Pool(NW) as P: rows = list(P.imap(one, S.gsm))
-T = S.merge(pd.DataFrame(rows), on="gsm", how="left")
-T = tare(T.reset_index(drop=True), T.A.notna())
-T.to_csv(os.path.join(out, "repeat_GSE147740_rows.csv"), index=False)
+if idat == "--rows":            # summary only, from the rows a completed reading saved (added 2026-10-15: the first run's summary step
+    T = pd.read_csv(os.path.join(HERE, "repeat_GSE147740_rows.csv"), dtype={"person": str})   # crashed after every array was read)
+else:
+    import multiprocessing as mp
+    with mp.Pool(NW) as P: rows = list(P.imap(one, S.gsm))
+    T = S.merge(pd.DataFrame(rows), on="gsm", how="left")
+    T = tare(T.reset_index(drop=True), T.A.notna())
+    T.to_csv(os.path.join(out, "repeat_GSE147740_rows.csv"), index=False)
+T["C_rel_series"] = T.C / T[T.C.notna()].C.median()
 sc = T[T.C_rel.notna()]; ab = int((sc.C_rel > BAND_HI).sum()); fa = 1 - ab / len(sc) if len(sc) else float("nan")
 pairs = [g.sort_values("gsm") for _, g in T[T["repeat"].astype(str) == "True"].groupby("person")]
 def sd_pairs(col):
     d = [float(p[col].iloc[0] - p[col].iloc[1]) for p in pairs if len(p) == 2 and p[col].notna().all()]
     return (float(np.sqrt(np.sum(np.square(d)) / (2 * len(d)))) if d else None), len(d)
 sd_rel, npair = sd_pairs("C_rel"); sd_raw, _ = sd_pairs("C")
-ser = T.C / T[T.C.notna()].C.median(); T["C_rel_series"] = ser; sd_ser, _ = sd_pairs("C_rel_series")
+sd_ser, _ = sd_pairs("C_rel_series")
 res = {"set": "GSE147740", "laboratory": "AIRWAVE, Imperial College London", "platform": "EPIC v1", "specimen": "whole blood, healthy",
        "test_b": {"bar": "within-person SD of C_rel <= 0.125 (chain tare, slide first then series)", "complete_pairs": npair,
                   "within_sd_C_rel": None if sd_rel is None else round(sd_rel, 4),

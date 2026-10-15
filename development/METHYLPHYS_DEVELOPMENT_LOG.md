@@ -1955,3 +1955,6 @@ ASCORES/: one table per instrument (Met-A, C-Score, IAM-A), 1,109 readings from 
 
 ### 2026-10-15 · Plan: the temperature law gets its own stage (author)
 The author: the temperature test proves the physics to physicists while the instruments prove the tools; both are needed. COMMISSIONING_PLAN.md stage T (PHY-057) follows the current items, then the wins and the Warburg and tumor lines.
+
+### 2026-10-15 · C-score: last check MET; proposed for commissioning
+GSE147740: 13 same-person pairs on two slides each, within-person SD of C_rel 0.038 (bar 0.125); third laboratory 172 of 173 not above 1.152. The first run read every array, then its summary step failed on a column-ordering error in an unscored column; fixed and summarized from the saved rows, nothing re-read. COMMISSIONING_NOTE_CSCORE_PROPOSED.md written for the author's sign-off: scope whole blood and purified neutrophils, EPIC v1; detection shown on planted changes only.

@@ -47,7 +47,7 @@ Cancer does not only shift tagging levels; it clumps them into runs. The C-Score
 **Reads:** arrays (whole-genome sequencing too). **Where it stands:** passing its tests.
 
 - COM-CSCORE-011 C-score healthy band test: run; last run 2026-10-13: met
-- COM-CSCORE-012 C-score last check: same-person repeatability on unspent replicate arrays: sealed, waiting for data; last run 2026-10-13: not met
+- COM-CSCORE-012 C-score last check: same-person repeatability on unspent replicate arrays: run; last run 2026-10-15: met
 
 **Next:** One check left: the same person measured twice on unused public arrays. Searching for that data.
 
