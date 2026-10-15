@@ -1842,3 +1842,6 @@ Four new or updated rows in FOUR_DOMAINS: gate error (the firm end; cell backbon
 
 ### 2026-10-15 · Atlas v2.1 block 0 in mode v21inv: B1, L18, L23 met
 Box job beacca7a (code 27bb2353). B1: 2,001 s on 8 cores, peak 15.6 GB; 16 at once on 128 cores; fit about 24.3 h, about $180 (the $45 quoted to the author came from the 60-locus slice, which is lighter than a full block; corrected to him and in cost_v21.txt). L18: summaries with 100 and 20 saved draws IDENTICAL, same time. L23 Flatness: 79 cells, no pair below 0.005 (closest 0.0115), r 0.9961 against atlas v2 block 0 over 82,627 values, median difference 0.78 v2.1 standard errors: DISTINCT. Sampler: no divergences, R-hat p99 1.007.
+
+### 2026-10-15 · Atlas v2.1 L12: code checksums written before launch
+code_checksums_v21.txt: sha256 of run_v21.sh, run_v21_block.py, atlas_block_v21.py, transfer_v21_smooth.json, final_samples_v21.csv, block_measure_v21.json and publish_code.py.
