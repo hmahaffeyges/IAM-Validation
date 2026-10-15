@@ -1,7 +1,7 @@
 [
 {
 "file": "TODO.md",
-"line": 41,
+"line": 40,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -10,7 +10,25 @@
 },
 {
 "file": "TODO.md",
-"line": 126,
+"line": 41,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- [ ] **OTH-054** (impact 5, laptop) C-Score tumor line in the A-score database: read real tumors with the C-Score under a sealed bar (its next test) and add th"
+},
+{
+"file": "TODO.md",
+"line": 117,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "LIVE",
+"text": "- [ ] **OTH-052** (impact 4, laptop) Re-read the class h_min era's signals with the commissioned instruments: list each earlier signal with its record; pick the"
+},
+{
+"file": "TODO.md",
+"line": 129,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -37,7 +55,16 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 406,
+"line": 377,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "LIVE",
+"text": "| **PHY-073** | Systemic elevation across organs: does it hold before and after a tumor? | Re-test the class h_min era's systemic signal (several secretory cell"
+},
+{
+"file": "MANIFEST.md",
+"line": 410,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -46,7 +73,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 478,
+"line": 482,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -55,12 +82,30 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 918,
+"line": 922,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
 "text": "| **OTH-051** | The A-score database: one table per instrument, one row per sample read | every reading of every instrument (Met-A, C-Score, IAM-A, Group-A, atl"
+},
+{
+"file": "MANIFEST.md",
+"line": 923,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "LIVE",
+"text": "| **OTH-052** | Re-read the class h_min era's signals with the commissioned instruments | The earlier wide-area signals, checked one by one with instruments tha"
+},
+{
+"file": "MANIFEST.md",
+"line": 925,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| **OTH-054** | C-Score tumor line in the A-score database | Where on the C-Score's scale tumors begin | C-Score | Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-"
 },
 {
 "file": "COMMISSIONING_PLAN.md",
@@ -73,7 +118,7 @@
 },
 {
 "file": "COMMISSIONING_PLAN.md",
-"line": 41,
+"line": 56,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -82,7 +127,7 @@
 },
 {
 "file": "COMMISSIONING_PLAN.md",
-"line": 71,
+"line": 86,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -267,7 +312,7 @@
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "with $c_{\\rm healthy}$ the median over the six reference arrays, each read against the other five. \\calibrated{} The healthy arrays read $C=0.70$--$1.23$. A sco"
+"text": "with $c_{\\rm healthy}$ the median over the six reference arrays, each read against the other five. \\calibrated{} The healthy reference arrays read $C=0.954$--$1"
 },
 {
 "file": "docs/book/part6/p6_22_leukocyte.tex",
@@ -307,7 +352,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/README.md",
-"line": 24,
+"line": 25,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -1054,7 +1099,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/daylogs/2026-10-15.md",
-"line": 135,
+"line": 147,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
