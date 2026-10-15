@@ -1,6 +1,6 @@
 {
  "_rule": "DEV-ATLAS-USE-01 (ATL-060) SEALED 2026-10-15 before any atlas v2.1 value or held-out array is opened. Bars and method: use_tests_v21.py docstring.",
- "scorer_sha256": "fdb911d9ae052303f2dff155d98b3c1b85e3c96dbf26d2215327d3d2c309b019",
+ "scorer_sha256": "0ea85b5fbc2c2e19d01eaaaa1239a788f08fabae0916d7478d6a039e6e22dc7f",
  "moss_reference_sha256": "4b97dd2a8ba7bf41008e20703e8e12df731179e95cee50fdc12c4d2c202f05b1",
  "shared_cells_v21_to_moss": {
   "monocytes": "Monocytes_EPIC",
@@ -897,5 +897,7 @@
   "the same held-out arrays also serve the sealed L15 bars (U1); these are different questions",
   "only the fit's run log (block counts, speed, R-hat, divergences, effective sample size) had been read at sealing"
  ],
- "carried_preconditions": "amendment 2026-10-15, before any data is read: as in sealed_commission_v21.json, D13 (GSE132547 purity and laboratory check) and D14 (GSE131989 UCSF check) must be recorded (l8_conditions_v21.md) before those sets are scored; until then their cells are NOT ASSESSED on those sets"
+ "carried_preconditions": "amendment 2026-10-15, before any data is read: as in sealed_commission_v21.json, D13 (GSE132547 purity and laboratory check) and D14 (GSE131989 UCSF check) must be recorded (l8_conditions_v21.md) before those sets are scored; until then their cells are NOT ASSESSED on those sets",
+ "amendment_bars": "2026-10-15, before any atlas value or held-out array was read (author: 'Dont make the bars too tight... We are doing it to show Loyfer and Moss how it works for their purpose'): UT1 pooled over the shared cells, not per cell; UT2A ratio 1.5, with v2.1 on the eight shared cells only; UT2B v2.1's median error at most half of Moss's, recovery reported not scored; v2.1 subtypes summed into their parent cell before any scoring. Synthetic rerun MET; the pre-amendment run is kept as use_tests_synthetic_run2_MET_before_amendment.txt",
+ "subtype_rollup": "before scoring, v2.1 cells whose name contains a shared parent name (for example 'naive cd4 t cells', 'memory cd4 t cells') are summed into that parent"
 }

@@ -1919,3 +1919,6 @@ COMMISSIONING_PLAN.md: three decisions waiting for the author, the two running j
 
 ### 2026-10-15 · DEV-ATLAS-USE-01 sealed before the atlas exists (ATL-060, author)
 The Loyfer and Moss use tests: markers (UT1), mixtures on shared ground (UT2A) and the wide-area mixture (UT2B), against Moss's published reference on held-out arrays. Synthetic run 1 NOT MET (the absolute mixture bar could not see a planted worse reference), so UT2A became a ratio; run 2 MET. Only the fit's run log had been read.
+
+### 2026-10-15 · DEV-ATLAS-USE-01 bars loosened before any data (author: a showcase, not a referee gate)
+UT1 pooled; UT2A ratio 1.5 on the shared cells; UT2B at most half of Moss's error (a plain "lower than Moss" could not fail: a v2.1 with wrong outside profiles still edged Moss); subtypes summed into their parent cell before scoring. Synthetic rerun MET; each bar still fails when it should.

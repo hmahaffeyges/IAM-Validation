@@ -8,10 +8,15 @@ the release.
 
 **The tests and bars** (each with its reason; full text in `data/DEV_ATLAS_USE_01/use_tests_v21.py`):
 - UT1 markers: 100 marker sites per cell from each reference, confirmed on held-out arrays when the cell differs from every other shared
-  cell by at least 0.20; v2.1 must confirm at least Moss's share minus 0.05, per cell.
-- UT2A mixtures on shared ground: 200 mixtures of the eight shared cells; v2.1's median error at most 1.25 times Moss's.
+  cell by at least 0.20; v2.1's share pooled over the shared cells must be at least Moss's minus 0.05 (each cell reported).
+- UT2A mixtures on shared ground: 200 mixtures of the eight shared cells, v2.1 using only those eight; v2.1's median error at most 1.5
+  times Moss's.
 - UT2B wide area: the same with 10-30 percent from cells only v2.1 holds (microglia, oligodendrocytes, astrocytes, lung alveolar
-  macrophages); v2.1 must recover that share within 0.05 in at least 90 percent of mixtures, with median error at most 0.03.
+  macrophages); v2.1's median error at most half of Moss's. How often v2.1 recovers the outside share is reported.
+- v2.1's finer subtypes are summed into their parent cell before scoring, so a finer answer is never counted wrong.
+
+Amended the same day, before any data was read, at the author's direction: these are showcase bars, not a referee's gate. Each was then
+checked to still fail when it should (synthetic rerun MET).
 - UT3 extras: shown on one blood cell, not scored.
 
 **Sealed inputs:** `data/DEV_ATLAS_USE_01/sealed_use_v21.json` (sample lists by cell, the scorer's and Moss reference's checksums, the

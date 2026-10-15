@@ -1,0 +1,71 @@
+{
+ "_rule": "The IAM instrument catalogue (author 2026-10-15: 'Sell me the IAM instrument catalogue'). One source for INSTRUMENTS.md, the README's catalogue table and the page's catalogue section (CANON/catalogue.py). The words are written here; every status line is computed from the Master Testing Manifest rows named, so it cannot fall behind. Voice: we. No hype words.",
+ "why_self_reference": "Until now every instrument needed a reference: healthy cells of the same kind, often from the same laboratory, to say what normal looks like. That reference is the hardest thing in this field to get, and it is why most tests work in one lab and stumble in the next. On 2026-10-15 we found that across 56 kinds of healthy human cells, a cell's tagging mistakes follow one straight line set by how loosely it holds its own DNA. So a healthy cell's expected reading can come from its own sample. An instrument that carries its own reference does not need a library of other people's cells, does not inherit another lab's quirks, and can be pointed at any tissue, any lab, even any species that tags its DNA. That is the step we are now commissioning.",
+ "together": "Each instrument answers a different question about the same sample, so together they leave no blind side. The atlas says whose DNA it is. Met-A says how far a tissue's tagging level has drifted toward the ceiling. The C-Score says whether the pattern has started to clump. IAM-A says whether each mark is still held at its own healthy rate. Group-A says whether a whole group has moved, for studies rather than single patients. A tumor that hides from one reading still has to answer to the others.",
+ "instruments": [
+  {
+   "id": "atlas",
+   "name": "IAM-Atlas v2.1",
+   "question": "Whose DNA is this? Which cells are in a sample, and in what shares?",
+   "how": "A map of 79 kinds of healthy human cells, built from seven public sources on arrays and sequencing, fitted as one model so every spot on the genome carries its value and its uncertainty. Like a state estimator across the whole interconnection: many utilities' meters, each weighted by how far it can be trusted.",
+   "reads": "arrays or sequencing",
+   "rows": [
+    "ATL-005",
+    "ATL-060",
+    "ATL-001"
+   ],
+   "next": "The fit finishes; then its sealed commissioning bars and the sealed tests on Loyfer's and Moss's own jobs are scored."
+  },
+  {
+   "id": "meta",
+   "name": "Met-A",
+   "question": "How far has a tissue's tagging level drifted toward the ceiling?",
+   "how": "Reads the methylation level at sites a healthy cell holds firmly, against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils; whole blood is in development.",
+   "reads": "arrays",
+   "rows": [
+    "COM-METAA-003",
+    "COM-METAA-039",
+    "COM-METAA-032"
+   ],
+   "next": "Test whether Met-A can read against the sample's own loose share, which would shrink or remove its same-lab calibration and open it to new cell types."
+  },
+  {
+   "id": "cscore",
+   "name": "C-Score (the clustering meter)",
+   "question": "Has the pattern started to clump?",
+   "how": "Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping against a healthy band. The band held in two laboratories that never helped set it.",
+   "reads": "arrays (whole-genome sequencing too)",
+   "rows": [
+    "COM-CSCORE-011",
+    "COM-CSCORE-012"
+   ],
+   "next": "One check left: the same person measured twice on unused public arrays. Searching for that data."
+  },
+  {
+   "id": "iama",
+   "name": "IAM-A",
+   "question": "Is each mark still held at its own healthy rate?",
+   "how": "Counts tagging mistakes one DNA molecule at a time, the most direct reading of informational fidelity we have, and reads them against the sample's own line. The physics end of the catalogue: the floor and ceiling are derived, and since 2026-10-15 the healthy middle comes from the sample itself.",
+   "reads": "single-molecule sequencing (bisulfite, EM-seq; nanopore next)",
+   "rows": [
+    "PHY-045",
+    "PHY-048",
+    "PHY-049",
+    "PHY-043",
+    "COM-IAMA-052"
+   ],
+   "next": "The tumor pairs read on both sides of the DNA, a second laboratory, then one grand sealed test on fresh data to commission it."
+  },
+  {
+   "id": "groupa",
+   "name": "Group-A",
+   "question": "Has a whole group moved (a trial arm, an exposure, a cohort)?",
+   "how": "Single blood readings are too noisy for one person on arrays, but a group average is not. Our honesty test showed two healthy groups from two labs can differ as much as a tumor would, so Group-A compares groups only when they were run in the same series.",
+   "reads": "arrays",
+   "rows": [
+    "GRP-004"
+   ],
+   "next": "One cancer at a time, patients and healthy controls from the same series."
+  }
+ ]
+}
