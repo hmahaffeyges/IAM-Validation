@@ -1931,3 +1931,6 @@ All 51 READMEs read against the full tree. Fixed: the cell instrument README sti
 
 ### 2026-10-15 · Front page: "The last 24 hours" section, generated from the newest day log
 The page now opens (after the atlas banner) with the newest day log's findings and its sealed and running work, each linked to its record; it updates itself when the day log does.
+
+### 2026-10-15 · Tumor island job: spot machine reclaimed after 11 of 12 samples; the last sample rerun on a self-terminating machine
+methylphys-fit-01 (spot, i-0b9412043061ffbff) was reclaimed by AWS between 7:47 and 8:05 AM Pacific. Every finished sample had already been uploaded (11 of 12 in results/DEV_BACKBONE_01/island/); only EOCRC_CRC6 tumor was lost. Its watcher could not report the loss because it ran on the reclaimed machine: lesson, a watcher must run somewhere other than the machine it watches (the fit watcher is checked from here as well). The one sample is rerun with the same committed script (code/run1/run_tumor_island.sh, unchanged) on a spot machine launched with a start-up script that copies the tools from S3, runs the sample, uploads and terminates itself, with a 3-hour hard stop (i-098751f0d312d51cf; a first attempt without the S3 role shut itself down within minutes at no cost beyond its boot).
