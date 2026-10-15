@@ -109,3 +109,27 @@ but small where we count, which is what item 2 below says (item 2 was written af
 2. Does the nameplate need to be derived, or is "measured once on the enzyme, the same for everyone" enough for the instrument?
 3. The black-hole factor of 2: at the same radius a black hole is half as hot as the cosmic horizon, matching the held shares of one half
    and one. Is the cell's backbone (ratio 1 to the writer) the "horizon" reading and the genome-wide average the "black hole" reading?
+
+---
+
+## Part 3, with coffee: the efficiency premise (author, 2026-10-15)
+
+**The premise, in the author's words:** every cell design is the most efficient way to operate; "it only uses energy when it needs to."
+The substrate (chromatin) was chosen long ago, with "billions of years of experience." Status: an ASSUMPTION, based on the pattern across
+all four domains. Stated as such wherever it is used.
+
+**What it gives:**
+1. The design holds firm exactly what it uses, and lets the rest run loose. So the loose share L = 1 - U, where U is the share of the
+   genome the design uses. Physics fixes the two ends (backbone at the writer's nameplate, loose near the ceiling); the design fixes U.
+2. Support already in hand: the egg holds methylation almost only in the genes it reads; loosely held domains sit on the lamina, in the
+   inactive compartment; neurons (broad gene use) hold 73-80 percent firm; red-cell progenitors (shutting the genome down) hold 7 percent.
+3. **Toward an instrument without an atlas:** a sample's own L can be read from the sample itself (the share of its genome held loosely).
+   Its expected held error then follows from its own line, (1 - L) x backbone + L x loose, and the reading is how far it sits from its
+   own line. No reference cells needed for the position, only the two ends.
+4. **Cancer, the known fact this must survive:** tumors widen their loose domains. On this picture that alone moves a tumor along its
+   own line, not off it. The cancer signal would be the backbone itself reading worse than the nameplate (step 4, tumor pairs).
+
+**Open, and next on the board:**
+- The backbone end is derived (the writer's limit, 1/(1 + D)). The loose end is NOT: measured cells top out near 0.042, far from a
+  coin flip, so the loose end is not the ceiling itself. What holds the loose territory where it sits?
+- Last night's line missed the backbone at L = 0 (0.0222 against 0.0155); the 0.70 cut for "loose" was mine, not physics.

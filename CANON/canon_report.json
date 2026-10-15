@@ -54,6 +54,15 @@
 "text": "The author asked whether the held pattern against the writing it takes is the Mahaffey ratio. The book's counterpart is phi = E_hold/(M k_B T) = 0.163 +/- 0.006"
 },
 {
+"file": "development/WHITEBOARD_2026-10-15.md",
+"line": 96,
+"pattern": "M\\s*=\\s*30\\.2",
+"use": "M = 20.94 (30.2 only as the Landauer-unit conversion)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The genome-wide share is 0.163. In bits, the nameplate is 5.99 bits against M = 30.2 bits."
+},
+{
 "file": "website/_build/src/appendices/app_A_canon.tex",
 "line": 45,
 "pattern": "\\bA[- ]score",
