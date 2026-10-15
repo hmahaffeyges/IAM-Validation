@@ -171,3 +171,35 @@ That removes the pooling artifact and still gives one reading.
 
 **Decision 2 (author): the loose end waits.** Row 9 is not used until the first tests show what they give us; they may change the question
 across the whole IAM table, and may make the loose end easier to derive.
+
+## Part 6: down to the bit (author's question, computed 2026-10-14 late evening Pacific)
+
+**One CpG on one strand of one DNA copy = one bit of capacity** (methylated or not, as arrays and bisulfite read it). Counted from our own
+hg19 sequence: 28,217,009 CpG sites per haploid genome (autosomes 26,752,702, X 1,246,401, Y 217,906).
+
+| per cell | female | male |
+|---|---|---|
+| CpG sites (diploid) | 55,998,206 | 54,969,711 |
+| methyl positions, both strands (bits of capacity) | 111,996,412 (14.0 MB) | 109,939,422 (13.7 MB) |
+| held, at the genome-wide held error 0.0314 (1 - H per position) | 89.4 Mbit (11.2 MB) | 87.8 Mbit (11.0 MB) |
+| held, if every position read at the writer limit 0.0155 | 99.1 Mbit (12.4 MB) | 97.3 Mbit (12.2 MB) |
+| Landauer floor to write every position once, 310 K | 3.3e-13 J, about 3.7 million ATP | same within 2 percent |
+
+One ATP (M = 20.94) carries 30.2 bits' worth of Landauer cost.
+
+**The cosmic horizon** (Hubble horizon, bits = area / (4 Planck areas ln 2); the book's two H0; shape of the expansion taken as flat
+matter plus Lambda, Omega_m = 0.3153, NOT yet IAM's own E(a)):
+
+| | photon H0 67.16 | matter H0 72.26 |
+|---|---|---|
+| bits today | 3.29e122 | 2.84e122 |
+| bit rate today | 6.8e104 bits per second | 6.3e104 bits per second |
+| growth per year | 6.5e-11 of the total | 7.0e-11 |
+| bits at recombination (z 1100) | 5.9e113 | 5.1e113 |
+
+The bit rate peaked at z = 0.63 and is 0.68 of its peak today. Checked for four matter densities: the peak always sits exactly where the
+expansion turns from slowing to speeding up (q = 0), so it is a property of the expansion shape, not a new result. In IAM's words: the
+horizon's record grew fastest at the turn to acceleration. With IAM's own expansion curve the turn, and so the peak, sits where IAM's q = 0 is.
+
+**A cell's bit rate: open.** A single sample gives the balance (held error = loss over loss plus restore), a ratio of two rates, not
+the rates. Bits per second needs a time course of the same cells. Idea for the manifest, not a test.
