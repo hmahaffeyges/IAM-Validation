@@ -56,6 +56,20 @@
      "what": "Another lab's sorted immune cells (ENCODE) for development, and two sets of sorted healthy T cells nobody has opened yet, kept for the final sealed test. No data read.",
      "why": "The rule must hold in a second lab before anyone should trust it.",
      "record": "development/loose_share_2026-10-15/geo_sorted_wgbs.json"
+    },
+    {
+     "title": "Atlas v2.1: the fit is running and healthy",
+     "status": "in progress",
+     "what": "164 of 700 blocks done by 7:45 AM Pacific, about 20 blocks an hour. No divergent draws in any block; in every block, 99 percent of sites show an R-hat of 1.009 or less. Watchers on both machines check every 10 minutes for a stalled or idle box.",
+     "why": "The fit is the map every other instrument reads against. Expected to finish Friday October 16, about 9 AM Pacific.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Sealed before the atlas exists: the Loyfer and Moss use tests",
+     "status": "sealed",
+     "what": "Two jobs a reference atlas is built for: finding each cell's marker sites, and working out which cells are in a mixed sample. Atlas v2.1 is compared with Moss's published reference on the same held-out arrays, including mixtures with brain and lung cells Moss's reference does not hold. Each bar was first checked on made-up data to pass when it should and fail when it should; the first version of one bar could not see a planted worse atlas and was fixed before any real data. At the author's direction the bars are a showcase, not a referee's gate.",
+     "why": "So the atlas is judged on the job its users actually need, by rules fixed before its first value exists.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_01.md"
     }
    ]
   },
@@ -95,7 +109,7 @@
   {
    "kind": "table",
    "heading": "Every candidate instrument: what ran today, what remains",
-   "lead": "Nothing in this table ran today yet.",
+   "lead": "The instrument catalogue was written today (INSTRUMENTS.md), and the commissioning plan orders the work.",
    "table": {
     "columns": [
      "instrument",
@@ -104,7 +118,7 @@
     "rows": [
      [
       "**Clustering meter (C-score): finish its commissioning**",
-      "not worked on today"
+      "planned tonight: search for unused same-person repeat arrays, its last check (COM-CSCORE-012)"
      ],
      [
       "**Territory contrast: fidelity in fragile territory over fidelity in stable territory**",
@@ -231,11 +245,25 @@
      "what": "An eight-part plain-language series (OTH-041 to OTH-048), and one sealed test on fresh data to commission the instrument (COM-IAMA-052).",
      "why": "",
      "record": "CANON/manifest.json"
+    },
+    {
+     "title": "A commissioning plan for every instrument (author)",
+     "status": "structure",
+     "what": "Twenty-one steps in four stages: tonight's work; scoring the atlas when it lands; commissioning IAM-A without an atlas, ending in one grand sealed test on fresh data; then the C-Score, Met-A cell by cell, Group-A, whole blood and plasma. Two new manifest rows: a database of every instrument's readings (OTH-051), and the concern line, where a reading first leaves the healthy line before it reaches tumor territory (PHY-069). Only three derivations stay on the near list, because they improve accuracy now; the rest wait until the catalogue is commissioned.",
+     "why": "So the work runs in order without being pulled sideways.",
+     "record": "COMMISSIONING_PLAN.md"
+    },
+    {
+     "title": "The front README made short; the long sections moved to REFERENCE.md (author)",
+     "status": "structure",
+     "what": "The README now points to the page, the daily logs, the instrument catalogue, the manifest and the book; its live parts are generated from the same files as the page.",
+     "why": "So the most current work is what a visitor sees first.",
+     "record": "REFERENCE.md"
     }
    ]
   }
  ],
- "open_at_turnover": "In progress. Running: the whole-genome own-read count (PHY-049), the tumor pairs on both sides (PHY-043), the atlas v2.1 fit (until about 11:30 PM Pacific). Next: a second lab (PHY-047), the meter correction (PHY-050), then the grand sealed test (COM-IAMA-052).",
+ "open_at_turnover": "In progress. Running: the atlas v2.1 fit (164 of 700 blocks, expected Friday October 16, about 9 AM Pacific), the tumor pairs on both sides (PHY-043, 10 of 12 samples). Next, in plan order: the open-sea own-read count (PHY-049), scoring the tumor pairs, Met-A against its own line (COM-METAA-039), the C-Score repeat-data search, the A-score database (OTH-051). Waiting for the author: three C-Score and atlas choices in COMMISSIONING_PLAN.md.",
  "closing": "",
  "_convention": "see 2026-10-13.json",
  "check_completeness": true

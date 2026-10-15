@@ -147,7 +147,7 @@
  "book_check_count": {
   "output": "docs/book/verification/verify_book_output.txt",
   "places": [
-   "README.md"
+   "REFERENCE.md"
   ]
  }
 }

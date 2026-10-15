@@ -141,14 +141,37 @@ def page(art):
     _gifts = "".join("<li>" + ("<b>Done:</b> " if d else "") + E(n) + "</li>" for d, n in _gnames)
     _pub = _VR.get("public", {})
     if _pub.get("fit_finished_utc"): _v21_status = "The fit is finished; the checks against the source atlases are under way."
-    elif _pub.get("fit_started_utc"): _v21_status = f"The fit is running, started {E(_pub['fit_started_utc'][:10])}; expected to take {E(_pub['fit_estimate'])}."
+    elif _pub.get("fit_started_utc"):
+        _fp = J("CANON/fit_progress.json") if os.path.exists(os.path.join(REPO, "CANON", "fit_progress.json")) else {}
+        _v21_status = f"The fit is running, started {E(_pub['fit_started_utc'][:10])}; expected to take {E(_pub['fit_estimate'])}."
+        if _fp.get("blocks_done"):
+            _v21_status = (f"The fit is running: {_fp['blocks_done']} of {_fp['blocks']} blocks done ({_fp['percent']} percent, {_fp['blocks_per_hour']} blocks an hour), "
+                           f"expected to finish {E(_fp['expected_finish_pacific'] or 'soon')}. Every block so far passed the sampler's health checks. "
+                           f"Before it started, every check on the launch list passed and the tests it will be judged by were sealed.")
     else: _v21_status = (f"It is being prepared now: the computers are working through the data and the checks that must pass before the fit "
                          f"can start. The fit itself is expected to take {E(_pub['fit_estimate'])}.")
     v21_banner = (f'<section class="wrap" id="v21"><div class="banner"><p class="kicker">Now building</p><h2>IAM-Atlas v2.1</h2>'
         f'<p>The next version of our healthy-cell reference, built from Loyfer\'s and Moss\'s atlases plus sorted cells from new laboratories, '
         f'fitted with full uncertainty, and checked against their own references on their own job before anything is called better. '
         f'{_v21_status}</p>'
+        f'<details><summary>What was done and sealed before the fit started</summary><ul class="road">'
+        f'<li><b>Done:</b> all {_bl[1]} checks on the launch list, each written before its data was read: every array\'s identity and sex, a test that no new cell duplicates an old one, each laboratory\'s offset, a dry run of the data, a cost sheet, and a speed fix checked against the old model on 60 real sites.</li>'
+        f'<li><b>Sealed:</b> the bars the new map will be judged by, before it exists: how often new samples fall inside its stated range, the blind sites the tissue tests rely on, and blood composition.</li>'
+        f'<li><b>Sealed:</b> a showcase on the two jobs Loyfer and Moss built their atlases for: finding each cell\'s marker sites, and working out which cells are in a mixed sample, including brain and lung cells their atlases do not hold.</li>'
+        f'</ul></details>'
         f'<details><summary>What v2.1 will carry</summary><ul class="road">{_gifts}</ul></details></div></section>')
+    _cs = importlib.util.spec_from_file_location("cat", os.path.join(REPO, "CANON", "catalogue.py")); CAT = importlib.util.module_from_spec(_cs); _cs.loader.exec_module(CAT)
+    _C, _M = CAT.load()
+    _cards = "".join(f'<article class="card"><span class="chip st-b">{E(CAT.stage(i, _M))}</span><h3>{E(i["name"])}</h3><p><b>{E(i["question"])}</b></p>'
+                     f'<p>{E(i["how"])}</p><p class="sub">Reads: {E(i["reads"])}.</p><details><summary>Its tests, and what is next</summary><ul>'
+                     + "".join(f"<li>{E(CAT.row_line(_M[r]))}</li>" for r in i["rows"] if r in _M) + f'</ul><p><b>Next:</b> {E(i["next"])}</p></details></article>'
+                     for i in _C["instruments"])
+    catalogue = (f'<section class="wrap" id="instruments"><h2>The instruments</h2><p class="sub">Five readings, five different questions about the same sample. '
+                 f'Every status below is computed from the Master Testing Manifest.</p>'
+                 f'<p><b>Why a self-reference matters.</b> {E(_C["why_self_reference"])}</p><p><b>How they work together.</b> {E(_C["together"])}</p>'
+                 f'<details class="fold"><summary>Open the catalogue: what each instrument does, where it stands, what is still being worked on</summary>'
+                 f'<div class="grid">{_cards}</div><p class="more"><a href="{rec("INSTRUMENTS.md")}">The catalogue as a document</a> · '
+                 f'<a href="{rec("COMMISSIONING_PLAN.md")}">The commissioning plan, step by step</a></p></details></section>')
     MF = J("CANON/manifest.json"); _CLOSED = {"run", "retired"}
     mf_total = len(MF["rows"]); mf_run = sum(1 for r in MF["rows"] if r["runs"]); mf_open = sum(1 for r in MF["rows"] if r["status"] not in _CLOSED)
     mf_rows = "\n".join(
@@ -193,6 +216,7 @@ def page(art):
 </section>
 <section class="wrap" id="wins"><h2>Recent Accomplishments</h2><p class="sub">Each links to its record.</p><div class="grid">{results}</div>
 <p class="continues">Work continues: {going}. <a href="#road">The road ahead</a>.</p></section>
+{catalogue}
 <section class="wrap pic"><h2>The sky and the cell</h2>
 <figure><img src="{art("sky_atlas_globes.jpg")}" alt="Two globes: the microwave sky measured by Planck, and healthy neutrophil methylation from the atlas drawn the same way."><figcaption>Two skies, drawn the same way. Left, the microwave sky as the Planck satellite measured it (ESA and the Planck Collaboration, 2018); the pale band is the plane of our own galaxy, where Planck's processing fills in what dust and gas hide. Right, healthy neutrophils from our atlas, every site in genome order on the same kind of sphere.</figcaption></figure>
 <details class="fold"><summary>See more sky maps: the flat maps and zooms, six cell types, and planted damage (4 maps)</summary>

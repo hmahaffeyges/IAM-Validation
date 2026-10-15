@@ -13,16 +13,16 @@ built in public*. Each line links to the record it comes from.
 
 ### Building a bigger map of healthy cells: IAM-Atlas v2.1
 
-**Getting ready.** Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
+**Running now.** Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
 
 - **What we hope:** The new laboratories agree with the old ones, the map gets steadier, and tests that were too close to call, like lung, get a fair chance.
 - **What could go wrong:** Cells grown in a dish may have drifted too far to use; a new laboratory may disagree with the old ones; the fit may need more computing time than planned.
 
 | date | update |
 |---|---|
+| 2026-10-15 | The fit is running. It started at 11:26 PM Pacific on October 14 on a rented 128-core machine, and 164 of its 700 blocks are done. Every block so far has passed the sampler's own health checks: no divergent draws, and in every block 99 percent of sites show an R-hat (agreement between independent chains) of 1.009 or less. It is expected to finish Friday October 16, about 9 AM Pacific, and the live count is on the front page. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
 | 2026-10-13 | Not running. The fit itself needs a rented 128-core machine with 246 GB of memory - the same kind that built version 2 - so it is queued behind the free work. What moved instead: the four laboratories we had planned to TEST the new map against turned out to have been read already, so they can help build it but cannot judge it. One unread laboratory has been chosen as the test, with its two weaknesses written down first. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
 | 2026-10-12 | Culture check, second and third laboratories: much of the dish effect shows up again, in different cells grown in different labs. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
-| 2026-10-12 | Culture check, first result: growing cells in a dish changes them a lot. In the cleanest comparison, about 1 in 9 of the sites we read moves steadily as the cells keep dividing. Those sites will be set aside before any dish-grown cell is compared with the atlas. Two more laboratories' data are next. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
 
 *The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#atlas-v21).*
 
@@ -91,6 +91,7 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| 2026-10-15 | A healthy cell can be its own reference. Across 56 kinds of healthy human cells, the rate of tagging mistakes follows one straight line set by how loosely the cell holds its own DNA (r 0.87; 53 of 56 cells within 0.003 of the line). That means a sample's expected healthy reading can come from the sample itself, instead of from a library of other people's cells. [record](development/loose_end_2026-10-15/loose_end_line.py) |
 | 2026-10-13 | The three-channel test came back: a cell has three jobs at a methylation site - copy the pattern, write a new mark, remove a mark - and we asked whether our readings can tell which one has been damaged. Damaging the removal job is the only one that makes the reading go DOWN, so that one is identifiable on its own. The other two both push it up and can only be told apart if the damage size is already known, which in a patient it would not be. That limit is why a third reading is being built. All of this is on made-up data; no lever has yet been read against the world except one mouse result. [record](Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md) |
 
 *The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#levers).*

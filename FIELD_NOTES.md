@@ -6,7 +6,7 @@ a correction is a new note. Generated from CANON/now_running.json by CANON/now_r
 <a id="atlas-v21"></a>
 ## Building a bigger map of healthy cells: IAM-Atlas v2.1
 
-*Getting ready.* Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
+*Running now.* Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
 
 ### 2026-10-12 · Version 2 published with its own DOI, so anyone can download the map and check it.
 
@@ -35,6 +35,12 @@ We checked whether the sites that drift in a dish at the first laboratory drift 
 Record: [DEV_ATLAS_V21_01.md](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md)
 
 ### 2026-10-13 · Not running. The fit itself needs a rented 128-core machine with 246 GB of memory - the same kind that built version 2 - so it is queued behind the free work. What moved instead: the four laboratories we had planned to TEST the new map against turned out to have been read already, so they can help build it but cannot judge it. One unread laboratory has been chosen as the test, with its two weaknesses written down first.
+
+Record: [DEV_ATLAS_V21_01.md](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md)
+
+### 2026-10-15 · The fit is running. It started at 11:26 PM Pacific on October 14 on a rented 128-core machine, and 164 of its 700 blocks are done. Every block so far has passed the sampler's own health checks: no divergent draws, and in every block 99 percent of sites show an R-hat (agreement between independent chains) of 1.009 or less. It is expected to finish Friday October 16, about 9 AM Pacific, and the live count is on the front page.
+
+What it took to get here: 22 checks on a launch list, every one passed before the machine started. The new map's identity and sex checks; a test that no new cell is a duplicate of an old one; each laboratory's offset; a dry run; a cost sheet; and a speed fix checked against the old model on 60 real test sites before it was used. Sealed BEFORE the map exists: the bars it will be judged by (how often new samples fall inside its stated range, the blind sites the tissue tests rely on, blood composition), and a showcase test on the two jobs Loyfer and Moss built their atlases for: finding each cell's marker sites, and working out which cells are in a mixed sample, including cells their atlases do not hold.
 
 Record: [DEV_ATLAS_V21_01.md](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md)
 
@@ -112,3 +118,9 @@ Record: [DEV_GROUP_01.md](Biological_Physics/MethylPhys/doors/DEV_GROUP_01.md)
 ### 2026-10-13 · The three-channel test came back: a cell has three jobs at a methylation site - copy the pattern, write a new mark, remove a mark - and we asked whether our readings can tell which one has been damaged. Damaging the removal job is the only one that makes the reading go DOWN, so that one is identifiable on its own. The other two both push it up and can only be told apart if the damage size is already known, which in a patient it would not be. That limit is why a third reading is being built. All of this is on made-up data; no lever has yet been read against the world except one mouse result.
 
 Record: [DEV_LEVERS_01.md](Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md)
+
+### 2026-10-15 · A healthy cell can be its own reference. Across 56 kinds of healthy human cells, the rate of tagging mistakes follows one straight line set by how loosely the cell holds its own DNA (r 0.87; 53 of 56 cells within 0.003 of the line). That means a sample's expected healthy reading can come from the sample itself, instead of from a library of other people's cells.
+
+Why it matters: the hardest thing in this field is the healthy reference, cells of the same kind, often from the same lab. A test that carries its own reference can be pointed at any tissue and any lab. Same day: the line held when the cut was moved to the physics value of one Landauer bit (2/3); it came back, weaker but real, from each sample's own molecules with no array at all (r 0.79); and one prediction did not hold (removing the eraser enzyme did not raise the island errors as predicted, which points to a shield rather than the eraser). One laboratory so far; the second-laboratory test and a sealed grand test on fresh data come next. Development, not commissioned.
+
+Record: [loose_end_line.py](development/loose_end_2026-10-15/loose_end_line.py)

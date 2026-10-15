@@ -33,6 +33,14 @@ def block(J, rel):
         L += ["| date | update |", "|---|---|"] + [f"| {u['date']} | {u['text']} [record]({rel}{u['record']}) |" for _, u in U]
         L += ["", f"*The full story so far, every update in plain words: [field notes]({rel}FIELD_NOTES.md#{s['id'].replace('_', '-')}).*", ""]
     return "\n".join(L + [E])
+def compact(J):
+    """README form (author 2026-10-15: the front README should be short): one line per story, its newest update; the full board is FOLLOW.md."""
+    L = [B, "", "## Now running", "", "*Each line is the newest update in plain words; the full board is [FOLLOW.md](FOLLOW.md), every update in [FIELD_NOTES.md](FIELD_NOTES.md).*", "",
+         "| experiment | status | newest update |", "|---|---|---|"]
+    for s in J["stories"]:
+        u = sorted(enumerate(s["updates"]), key=lambda t: (t[1]["date"], t[0]))[-1][1]
+        L.append(f"| {s['headline']} | {STATUS[s['status']]} | {u['date']}: {u['text'].split('. ')[0].rstrip('.')}. [record]({u['record']}) |")
+    return "\n".join(L + ["", E])
 def notes(J):
     L = ["# Field notes", "", "*Every update to every experiment on the Now running board, in plain words, oldest first. Notes are never edited or removed;",
          "a correction is a new note. Generated from CANON/now_running.json by CANON/now_running.py; do not edit by hand.*", ""]
@@ -56,7 +64,7 @@ def appendonly(J):
                 P.append(f"{s['id']}: published update of {u['date']} was edited or removed (append-only; add a new update instead)")
     return P
 def apply(path, J, write):
-    t = open(path, encoding="utf-8").read(); b = block(J, "")
+    t = open(path, encoding="utf-8").read(); b = compact(J) if os.path.basename(path) == "README.md" else block(J, "")
     if B in t: new = t[:t.index(B)] + b + t[t.index(E) + len(E):]
     else: return None
     if write and new != t: open(path, "w", encoding="utf-8").write(new)
