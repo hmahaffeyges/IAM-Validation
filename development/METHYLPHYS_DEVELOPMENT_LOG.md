@@ -1807,3 +1807,4 @@ Box job 53cff33f (code 840164b4), same 60 loci of block 0, same seed and sampler
 
 ### 2026-10-15 · Smooth transfer (PCHIP) built; one check stated two ways
 transfer_smooth_v21.py (committed 6e2f9f39 before use): S1-S3 met (largest difference from the anchored curve 0.00849). S4: the docstring says the slope jump must be < 1e-9, the code checked < 1e-6; measured 4.29e-07 meets the code and not the text. Recorded as found, not edited. PCHIP is continuously differentiable by construction; the 4e-7 is the error of the plus-or-minus 1e-9 probe. Added after the run: the model's curve and slope checked against scipy PCHIP and the automatic derivative (transfer_smooth_v21_modelcheck.txt). Next: the 60-locus real check (speed, distinctness, agreement with v2).
+Box job 936a9449 (code 8a8cb55c) runs the smooth transfer on the same 60 loci.
