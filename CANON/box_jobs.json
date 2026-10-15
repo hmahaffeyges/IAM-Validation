@@ -750,7 +750,7 @@
    "date": "2026-10-15",
    "commit": "8a8cb55c",
    "s3_code_prefix": "results/ATLAS_V21/diag2/code/run3/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/ATLAS_V21/diag2/run3/diag2_S.log",
    "machine": "methylphys-cpu-01 (on-demand m7a.8xlarge, 8 cores)",
    "purpose": "the smooth (PCHIP) transfer on block 0's first 60 loci: speed, tree depth, and per-cell output against v2 (Flatness Lesson)",
@@ -770,7 +770,37 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv",
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
-   "note": "running"
+   "note": "smooth transfer: 4.81 s per locus (anchored 7.55, v2 0.41), every draw at max depth, R-hat p99 1.063, ESS p01 62; 79 cells distinct (none below 0.005); agrees with v2 r 0.9991"
+  },
+  {
+   "job_id": "e0728074-8413-491a-894b-0e49b6cab65b",
+   "name": "Atlas v2.1 diagnostic 3 (no plateaus; v2 line in the v2.1 model)",
+   "date": "2026-10-15",
+   "commit": "ea5ee26d",
+   "s3_code_prefix": "results/ATLAS_V21/diag3/code/run1/",
+   "state": "running",
+   "log": "results/ATLAS_V21/diag3/diag2_P.log",
+   "machine": "methylphys-cpu-01 (on-demand m7a.8xlarge, 2 x 8 cores)",
+   "purpose": "diagnostic only: whether the curve's plateaus or the v2.1 variance terms saturate the tree depth",
+   "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [
+    "results/ATLAS_V21/diag3/diag2_P.json",
+    "results/ATLAS_V21/diag3/diag2_L.json"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_block_v21.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_speed_diag2.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/run_v21_block.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/terms_final_v21_run12.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_anchored.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_diag3_L.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_diag3_P.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_final.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
+   ],
+   "note": "running; its two terms files were built on the laptop by diag3_terms_v21.py (not run on the box)"
   }
  ],
  "not_jobs": {
