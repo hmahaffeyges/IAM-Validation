@@ -18,3 +18,7 @@ Spot can be reclaimed; the run skips finished blocks, so a reclaim costs time, n
 Memory: v2 blocks peaked at about 13 GB; v2.1 blocks scale with the cost (about 1.7 to 2.3 x), about 23-30 GB each, so 16 at once need about
 370-480 GB: inside 512 GB, not inside the 246 GB machine v2 used. B1 measures one block's peak before the number of processes is fixed.
 Add: B1 (one block measured alone, about 30 min) and the resize itself (minutes).
+
+UPDATE 2026-10-15 (measured, replaces the estimate above for the launch): block 0 in mode v21inv on 8 cores took 2,001 s (1.66 s per
+locus, the same with 20 and 100 saved draws), peak 15.6 GB. 16 blocks at once on the 128-core, 512 GB machine: about 24.3 h, about $180
+on demand at $7.42 per hour. The 60-locus slice (0.43 s per locus) was lighter than the block and is not used for cost.

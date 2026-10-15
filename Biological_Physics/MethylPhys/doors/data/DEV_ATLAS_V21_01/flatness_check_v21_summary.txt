@@ -1,0 +1,5 @@
+Atlas v2.1 L23, Flatness Lesson check on real block 0 (mode v21inv, K = 100)
+cells 79, pairs 3081, closest 0.0115 (naive cd4 t cells, naive cd8 t cells)
+F1 pairs below 0.005: 0 -> met
+F2 against atlas v2 block 0: 82627 shared pairs, r 0.9961 -> met; median difference 0.78 v2.1 standard errors
+VERDICT: DISTINCT

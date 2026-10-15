@@ -1,0 +1,5 @@
+Atlas v2.1 L18: block 0 fitted with K = 100 and K = 20 saved draws, same model and seed 1000
+summary columns ['cell', 'cpg', 'n_obs', 'mu', 'mu_sd', 'mu_lo', 'mu_hi', 'donor_sd', 'rhat', 'ess']
+rows 91877 and 91877
+VERDICT: IDENTICAL
+K = 100 draws file 30647776 bytes

@@ -451,7 +451,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {},
   "state_at_verify": "failed"
  },
@@ -466,7 +466,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {},
   "state_at_verify": "cancelled"
  },
@@ -663,12 +663,12 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/ATLAS_V21/b1_l18/block_measure_v21.json": false,
-   "results/ATLAS_V21/b1_l18/outputs_v21_check_summary.txt": false,
-   "results/ATLAS_V21/b1_l18/flatness_check_v21_summary.txt": false
+   "results/ATLAS_V21/b1_l18/block_measure_v21.json": true,
+   "results/ATLAS_V21/b1_l18/outputs_v21_check_summary.txt": true,
+   "results/ATLAS_V21/b1_l18/flatness_check_v21_summary.txt": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "succeeded"
  }
 }

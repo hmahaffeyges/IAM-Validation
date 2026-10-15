@@ -908,7 +908,7 @@
    "date": "2026-10-14",
    "commit": "27bb2353",
    "s3_code_prefix": "results/ATLAS_V21/b1_l18/code/run4/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/ATLAS_V21/b1_l18/b1_K100.log",
    "machine": "methylphys-cpu-01 (on-demand m7a.8xlarge, 32 cores, 123 GB); parallel count computed for the 192-core, 768 GB fit machine",
    "purpose": "block 0 in mode v21inv with 100 and 20 saved draws: time, memory, parallel count for 128 cores (B1); identical summaries (L18); Flatness check (L23)",
@@ -926,7 +926,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/run_v21_block.py",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
    ],
-   "note": "running"
+   "note": "block 0, mode v21inv: 2,001 s, 15.6 GB, 1.66 s per locus (same at K 20 and 100); L18 IDENTICAL; L23 DISTINCT (79 cells, closest 0.0115; r 0.9961 vs v2, median 0.78 SE); par 16 on 128 cores; fit about 24.3 h"
   }
  ],
  "not_jobs": {

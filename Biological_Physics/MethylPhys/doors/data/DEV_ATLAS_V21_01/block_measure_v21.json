@@ -1,0 +1,22 @@
+{
+ "block": 0,
+ "K": 100,
+ "cores_per_process": 8,
+ "wall_s": 2000.8,
+ "peak_rss_gb": 15.63,
+ "measured_on_cores": 32,
+ "measured_on_mem_gb": 132.2,
+ "machine_cores": 128,
+ "machine_mem_gb": 512.0,
+ "par": 16,
+ "rule": "par = min(cores // cores_per_process, floor(0.80 * memory / peak))",
+ "block_bytes": {
+  "block_00000_draws.npz": 30647776,
+  "block_00000.parquet": 4155909,
+  "block_00000_prior.parquet": 17024,
+  "block_00000_warnings.json": 301
+ },
+ "bytes_per_block": 34821010,
+ "disk_for_700_blocks_gb": 24.4,
+ "est_fit_hours": 24.3
+}
