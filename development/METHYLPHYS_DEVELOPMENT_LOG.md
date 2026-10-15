@@ -1866,3 +1866,6 @@ New row "The record in bits": horizon bits and bit rate, one bit per decohered q
 
 ### 2026-10-15 · Correction: the time-course search had one hit
 The earlier entry and the chat said the search came up empty. It had one hit, results/BOXRUN1/A/A_bar_replicates.csv, matched on "repli"; it is a replicates table, not a time course. The conclusion stands; the claim of no hits did not. Ideas file and PHY-044 corrected.
+
+### 2026-10-15 · Whiteboard part 7: the loose end read off the line; the island-side prediction committed before the read
+Across 56 healthy cell types the held error rises in a straight line with the loose share: firm end 0.0212, loose end 0.0497, r 0.87, one loose level for every cell class. The island side sits about 1.7 times better held, in odds, than that firm end. Prediction committed before reading the eraser-removed molecules: if the eraser holds the 0s, the island gain error rises about 1.7 times with the eraser removed; if not, it stays.

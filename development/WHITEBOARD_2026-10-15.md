@@ -203,3 +203,28 @@ horizon's record grew fastest at the turn to acceleration. With IAM's own expans
 
 **A cell's bit rate: open.** A single sample gives the balance (held error = loss over loss plus restore), a ratio of two rates, not
 the rates. Bits per second needs a time course of the same cells. Idea for the manifest, not a test.
+
+## Part 7: the loose end and the island side, from data we hold (2026-10-15, early morning Pacific)
+
+**The loose end, read off the line through 56 healthy cell types.** Held error against loose share (DEV-ARCH-01 table), robust line
+(Theil-Sen), nothing tuned: at L = 0 (a cell with no loose territory) 0.0212 (bootstrap 95 % 0.019-0.024); at L = 1 0.0497 (0.046-0.053);
+r 0.87. Leaving out any one cell class moves the firm end only within 0.019-0.024. So the loose territory reads ONE level in every cell
+type, as the author predicted for option (a), about 0.05 as the meter sees it (only mostly-methylated molecules are counted, so this is
+the meter's view of the loose territory, not yet its own level). The firm end 0.0212 equals an enzyme with D = 46, at the slow edge of the
+published writer range (47.4-80), not its median.
+
+**The island side against that firm end.** The island gain error (isolated gain between unmethylated neighbors, PROC-CHANNEL-01) has
+median 0.0124. If the writer's accuracy is the D = 46 the line reads, every one of the 56 cells holds its islands BETTER than the writer
+alone, by a factor 1 + r = 1.3 to 2.3 (median 1.73) in the odds. Two readings, one asymmetry: the 1s and the 0s differ by about 1.7 in odds.
+ - Reading A: the writer sets the firm end; something extra holds the 0s, and the eraser (which cleans wrongly written marks) is the
+   candidate. The eraser test found the eraser does not affect the 1s; this reading puts it on the 0s instead.
+ - Reading B: the writer is the accurate one (D near 80) and sets the islands; something extra loses the 1s.
+
+**Prediction, committed before the read (this push).** Read with PROC-CHANNEL-01's own counter (reads with at least 6 CpGs and at most
+20 % methylated; an isolated methylated site between two unmethylated ones, per CpG) on the eraser-removed and control molecules already in
+our S3 (DEV-ERASE-01 primary units U1-U5):
+ - Reading A predicts the island gain error RISES with the eraser removed, toward the firm end: knockout over control about 1.7.
+ - Reading B predicts it does NOT change (ratio near 1).
+Read once, reported whatever it says. Known biology to keep in view: TET loss is known to raise methylation at island edges and enhancers,
+so a rise is consistent with the literature; the number (about 1.7 against about 1) is what discriminates the two readings. Development use
+of spent data; not a sealed test.
