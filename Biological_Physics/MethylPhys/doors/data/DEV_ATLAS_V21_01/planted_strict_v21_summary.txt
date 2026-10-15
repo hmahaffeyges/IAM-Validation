@@ -1,0 +1,5 @@
+Planted test of the strict transfer (planted_strict_v21.py), 1446 observations
+STRICT: R-hat p99 1.0451, draws at max depth 100.0 percent, divergences 0, wall 22 s, coverage 0.939, sequencing-only extremes 1.000 (n 75), median error 0.0089
+CONTROL (adopted flat curve): R-hat p99 1.0283, draws at max depth 99.8 percent, divergences 0, wall 24 s, coverage 0.961, sequencing-only extremes 1.000 (n 75), median error 0.0071
+Q1 convergence: NOT met | Q2 recovery: met | control shows the failure: yes
+VERDICT: NOT MET

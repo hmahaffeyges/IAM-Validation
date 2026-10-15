@@ -1790,3 +1790,6 @@ Design 1 (ties merged, anchors at 0 and 1) failed its own check C2: the top anch
 
 ### 2026-10-15 · Planted strict test: false start
 The first run stopped before any verdict: my edit for design 2 put a comment in front of the control curve on the same line (FT undefined). Fixed by moving the comment to its own line; no rule or bar changed. Lesson repeated from 2026-10-14: never append a comment to an edited line of code.
+
+### 2026-10-15 · L21 design 2 planted test NOT MET (run once): the flat curve is not the cause
+planted_strict_v21.py with the anchored transfer: recovery met (coverage 0.939; sequencing-only extremes 1.000; median error 0.0089) but convergence NOT met: R-hat p99 1.0451 and 100 percent of draws at the maximum tree depth. The control (adopted flat curve) read the same way (99.8 percent at maximum depth, R-hat 1.0283). So the depth saturation comes from the v2.1 model itself, not from the flat stretches. Next, a diagnostic on real block 0: v2's model (which converged on this block in v2, R-hat p99 1.005) against the v2.1 model with and without its new variance terms, to find which change breaks it. Launch stays held.
