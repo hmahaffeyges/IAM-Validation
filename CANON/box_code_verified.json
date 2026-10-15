@@ -651,5 +651,24 @@
    "results/ATLAS_V21/diag6/diag2_I_summary.parquet": true
   },
   "state_at_verify": "succeeded"
+ },
+ "beacca7a-7a46-4723-ab7d-94cfa3da70f0": {
+  "s3": {
+   "v21_b1_l18_box.py": "7706e9c7bb4dc6a1596755c19dcc977262f478b26112fdd058f2c10979a325a2",
+   "run_v21_block.py": "d2b848af4358cc1049a0ca3b70693af85167e00649d940259a6234b5b70fa1d5",
+   "atlas_block_v21.py": "da457e2ce2b911f630ae7deee98281cd4014434223615e53db0a7519f751e29f",
+   "transfer_v21_smooth.json": "890170d1c2ebcaee445d862e4ba83daefdf835408490912f1d4d5efdba394b71",
+   "final_samples_v21.csv": "68dc06bf4edfaa85f052e977e27cf7a505bbf4475acbdf57570c638820c83601",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/ATLAS_V21/b1_l18/block_measure_v21.json": false,
+   "results/ATLAS_V21/b1_l18/outputs_v21_check_summary.txt": false,
+   "results/ATLAS_V21/b1_l18/flatness_check_v21_summary.txt": false
+  },
+  "state_at_verify": "running"
  }
 }

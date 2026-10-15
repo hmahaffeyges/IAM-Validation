@@ -1835,3 +1835,4 @@ The author: fail is still fail, but a sensible band would not have put the fail 
 
 ### 2026-10-15 · Atlas v2.1 fitted in mode v21inv (author decision)
 The author: "Go ahead and do the one you believe is best"; the recommendation was mode v21inv. DECISION_v21inv.md records both missed bars and the numbers that justify it (agreement 0.24 standard errors, 98.7 percent inside the exact model's interval, about $45 against $493). run_v21_block.py now uses transfer_v21_smooth.json and mode v21inv. B1/L18 run 4 adds the Flatness Lesson check on the full block 0 (L23: distinct, and r >= 0.99 against atlas v2's block 0, with the reason written), committed before it runs. B4 retired: decision 16 was not adopted, so there is no second way to fit.
+Box job beacca7a (code 27bb2353) is B1/L18/L23 run 4.
