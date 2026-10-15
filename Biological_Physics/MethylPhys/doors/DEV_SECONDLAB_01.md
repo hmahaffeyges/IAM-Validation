@@ -23,6 +23,8 @@ molecules give the loose share (2,000-CpG tiles, loose below 0.70, tiles with at
 Synthetic MET (`secondlab_synthetic.txt`): planted loose share, held error and sequencing error recovered on both strands; the first synthetic
 compared against a formula that did not apply to its short molecules and then read past its planted span, both corrected before any data.
 
+**Synthetic test:** MET 2026-10-15 (`data/DEV_SECONDLAB_01/secondlab.py synthetic` -> `data/DEV_SECONDLAB_01/secondlab_synthetic.txt`).
+
 **The line (fixed).** Held error = 0.0298 + (0.0555 - 0.0298) x loose share (own reads, every CpG; `opensea_line.json`).
 
 **Bar (development, showcase).** S1: at least 3 of the 5 cells' held error within 0.003 of the line at their own loose share (Loyfer's own
