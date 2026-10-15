@@ -25048,6 +25048,30 @@
    "sources_of_row": [
     "session 2026-10-14"
    ]
+  },
+  {
+   "title": "Tumor backbone against the writer's nameplate (DEV-BACKBONE-01, author's step 4)",
+   "purpose": "whether a tumor's firmly held territory reads worse than nameplate while its normal reads at it",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "GSE284325 (early-onset CRC, 6 pairs, PROC-TUMOUR-01 tables)"
+   ],
+   "data_status": "spent",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md",
+   "status": "designed",
+   "runs": [],
+   "next_step": "run once after steps 1-3 hold on paper (author)",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-042"
+   ],
+   "notes": "rule written 2026-10-15 before any restricted reading; island side not assessed",
+   "legacy_ids": [],
+   "id": "PHY-043",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
   }
  ],
  "not_tests": {

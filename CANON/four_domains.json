@@ -314,9 +314,96 @@
    },
    "cells": {
     "native": "healthy",
-    "formula": "eps0 = 0.032, E_hold = 3.41 k_B T; candidate derivation ln D - ln 2 (DEV-ERASE-01, sealed)",
+    "formula": "eps0 = 0.032, E_hold = 3.41 k_B T; candidate derivation ln D - ln 2 (DEV-ERASE-01, sealed) | ADDED 2026-10-15 (whiteboard): DEV-ERASE-01 NOT MET on all five units (eraser removed over control 0.96, 0.79, 0.86, 0.89, 0.85), so ln D - ln 2 is not supported. Candidate in its place: on the 26,800 sites every cell keeps fully methylated, cells read eps 0.0136-0.0226 (median 0.0165), inside the writer's own limit 1/(1 + D) = 0.0123-0.0207 (median 0.0155, 4.15 kT); the genome-wide 3.41 kT is that limit diluted by the loosely held share L (eps = 0.0222 + 0.0248 L across 56 cell types, exploration, rank correlation +0.87)",
     "status": "measured",
     "source": "Part VI; DEV_ERASE_01.md"
+   }
+  },
+  {
+   "id": "gate_error",
+   "name": "Gate error (the firm end)",
+   "definition": "The error of the writing or switching step itself, where the record is held firm: the device's nameplate. Added 2026-10-15 from the whiteboard.",
+   "cosmos": {
+    "native": "none named",
+    "formula": "no counterpart named (the whole cosmos has no A; read by its clock)",
+    "status": "open",
+    "source": ""
+   },
+   "qubits": {
+    "native": "gate error",
+    "formula": "p_2Q of the benchmarked device; eps = -ln(1 - p_2Q)",
+    "status": "measured",
+    "source": "Ch. qubit platforms"
+   },
+   "chips": {
+    "native": "switching error, at the Boltzmann wall",
+    "formula": "a switch leaks as exp(-barrier/kT); 60 mV/decade = (kT/q) ln10 (book: 'The Dennard wall is a Boltzmann wall')",
+    "status": "derived",
+    "source": "p5_06_cmos"
+   },
+   "cells": {
+    "native": "the writer's discrimination (backbone)",
+    "formula": "eps_W = 1/(1 + D), E = ln D = 4.15 kT (3.86-4.38), H = 0.115 bits; D measured on two enzymes (47.4 to 80). Cells on fully held sites read inside it (median 0.0165). Island side (a gained mark between unmethylated neighbors): 56 healthy cell types read 0.0094-0.0162, median 0.0124: 29 of 56 inside the writer's band and 27 just below it (more accurate than the writer alone, which the eraser or a second writer could explain), and independent of the loose share (rank correlation 0.00)",
+    "status": "candidate",
+    "source": "WHITEBOARD_2026-10-15 parts 2 and 5; PROC-CHANNEL-01 section 7"
+   }
+  },
+  {
+   "id": "leakage",
+   "name": "Leakage (the loose end)",
+   "definition": "Loss outside the held states, where the record is not held at nameplate. Added 2026-10-15 from the whiteboard.",
+   "cosmos": {
+    "native": "none named",
+    "formula": "no counterpart named",
+    "status": "open",
+    "source": ""
+   },
+   "qubits": {
+    "native": "leakage out of the computational states",
+    "formula": "population leaving the two-state subspace; a separate error channel from the gate error",
+    "status": "measured",
+    "source": "qubit literature; book qubit chapters"
+   },
+   "chips": {
+    "native": "leakage current; dark silicon",
+    "formula": "static leakage grows as the barrier shrinks; past the power wall a share of the chip stays dark, set by the design (candidate translation: L is the genome's dark silicon)",
+    "status": "interp",
+    "source": "p5_06_cmos, p5_11_chip_generations"
+   },
+   "cells": {
+    "native": "loosely held territory",
+    "formula": "L, the share of the genome held loosely, read from the sample itself (0.20 in naive T cells to 0.93 in red-cell progenitors). Its level is OPEN and waits by author decision; the 0.042 at the top of the measured range is the meter's read limit (few molecules qualify there), not the ceiling",
+    "status": "open",
+    "source": "WHITEBOARD_2026-10-15 parts 3-5; DEV-ARCH-01"
+   }
+  },
+  {
+   "id": "one_reading",
+   "name": "One reading per instrument",
+   "definition": "How an instrument combines its territories into a single number. Added 2026-10-15 (author decision 1).",
+   "cosmos": {
+    "native": "none named",
+    "formula": "not applicable (one system, read by its clock)",
+    "status": "open",
+    "source": ""
+   },
+   "qubits": {
+    "native": "error budget",
+    "formula": "the error channels of one layer add into one fidelity per layer (gate, leakage, idle)",
+    "status": "interp",
+    "source": "qubit literature"
+   },
+   "chips": {
+    "native": "power budget",
+    "formula": "total power = dynamic + static (leakage), one number per chip",
+    "status": "derived",
+    "source": "p5_06_cmos"
+   },
+   "cells": {
+    "native": "territory-weighted reading",
+    "formula": "A = (1 - L) x A_backbone + L x A_loose; each territory read separately on the gauge first, because H is concave: a pooled reading overstates disorder (median +3.8 percent at loose eps 0.05, +10.5 percent at 0.10, over 56 cell types)",
+    "status": "definition",
+    "source": "author 2026-10-15; WHITEBOARD part 5"
    }
   },
   {
