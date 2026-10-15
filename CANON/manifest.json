@@ -24885,7 +24885,7 @@
    "data_status": "mixtures to be chosen (independent of every atlas source)",
    "status": "planned",
    "runs": [],
-   "next_step": "find known-proportion mixture sets made from DNA no atlas uses; seal the list, the scoring and the bars before the fit finishes",
+   "next_step": "seal BEFORE the v2.1 fit lands (about 6 AM Pacific Oct 16): markers, the wide-area mixture with a fair same-ground arm, extras shown; synthetic first; bars 'as good as their own reference on the same data', each with its reason; a miss never blocks the release",
    "cost": "laptop",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",

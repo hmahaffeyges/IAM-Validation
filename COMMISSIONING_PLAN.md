@@ -26,10 +26,14 @@ cannot continue, so it does not bill idle.
 
 ## Order of work
 
+Correction (author, 2026-10-15): the Loyfer and Moss use tests were first placed after the atlas lands; they must be sealed before any atlas
+value is opened, so they are now step 0.
+
 ### Stage 1: tonight and this morning (laptop and the second machine)
 
 | # | Row | Step | Needs |
 |---|---|---|---|
+| 0 | ATL-060 | **First, before the fit lands:** write, synthetic-test and seal the Loyfer and Moss use tests (markers against their published lists; the wide-area mixture with a fair same-ground arm; extras shown). Only the fit's run log (speed, R-hat, divergences) has been read; no atlas value has been opened | laptop |
 | 1 | PHY-049 | Open-sea own-read loose share: an hg19 open-sea map (islands, shores and shelves out, UCSC cpgIslandExt), synthetic, then the 153 Loyfer samples streamed from GEO | the second machine |
 | 2 | PHY-043 | Score the tumor pairs on both sides by the committed rule (DEV-BACKBONE-01 island arm) | the job's output |
 | 3 | COM-METAA-039 | Met-A against its own loose share: synthetic, then healthy neutrophil arrays already spent (development) | the box after the fit, or the second machine |
@@ -43,7 +47,6 @@ cannot continue, so it does not bill idle.
 |---|---|---|
 | 7 | ATL-004, ATL-045 | Release checks: every declared output present; distinctness and agreement with v2 on all 700 blocks |
 | 8 | ATL-001, ATL-035, ATL-034 | Commissioning bars sealed 2026-10-14 (L15) scored on the held-out sets: U1 profiles on independent labs, U2 composition-blind sites, U3 blood composition |
-| 9 | ATL-060 | Use tests for Loyfer and Moss (markers; the wide-area mixture with a fair same-ground arm; extras shown), sealed before any atlas output is opened |
 | 10 | COM-METAA-008, COM-METAA-033 | Met-A second-laboratory neutrophil reference from the atlas (ends the six-array, all-male reference) |
 
 ### Stage 3: commissioning IAM-A atlas-free (the main goal)
