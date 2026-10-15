@@ -16,7 +16,8 @@ import os, sys, json, numpy as np, pandas as pd
 H = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, H)
 import atlas_block_v21 as AB
 rng = np.random.default_rng(20261015); NL, NC = 60, 6; cells = [f"cell{i}" for i in range(NC)]; loci = np.array([f"cg{i:08d}" for i in range(NL)])
-ST = json.load(open(os.path.join(H, sys.argv[1] if len(sys.argv) > 1 else "transfer_v21_strict.json")))   # design 2: transfer_v21_anchored.json; FT = json.load(open(os.path.join(H, "transfer_v21_final.json")))
+# design 2: the transfer is named on the command line (transfer_v21_anchored.json)
+ST = json.load(open(os.path.join(H, sys.argv[1] if len(sys.argv) > 1 else "transfer_v21_strict.json"))); FT = json.load(open(os.path.join(H, "transfer_v21_final.json")))
 g = lambda x: np.interp(x, ST["knots_x"], ST["knots_y"]); s = lambda x: np.interp(x, ST["scatter_mid"], ST["scatter_s"])
 z = rng.random((NC, NL)); truth = np.where(z < 0.35, rng.uniform(0.003, 0.03, (NC, NL)), np.where(z < 0.70, rng.uniform(0.965, 0.997, (NC, NL)), rng.uniform(0.03, 0.965, (NC, NL))))
 miss = rng.random((NC, NL)) < 0.10; bias = rng.normal(0, 1, (NC, NL)) * s(truth); obs = []

@@ -1787,3 +1787,6 @@ Speed diagnostic 24a39f2b, v2.1 model on block 0's first 60 loci: 7.695 s per lo
 
 ### 2026-10-15 · Strict transfer design 1 NOT MET before any fit; design 2 committed
 Design 1 (ties merged, anchors at 0 and 1) failed its own check C2: the top anchor moved the curve 0.0159 at array 0.984 (bar 0.01). Not used (file kept as transfer_v21_strict_design1_NOTUSED.json). The top plateau is real: sequencing levels off near 0.959 while arrays still separate 0.964-0.984. Design 2: the adopted knots unchanged plus anchors at 0 and 1 outside them, so only the two bounded measured plateaus stay flat and nothing is flat without bound. Committed before it runs; the planted test runs with it.
+
+### 2026-10-15 · Planted strict test: false start
+The first run stopped before any verdict: my edit for design 2 put a comment in front of the control curve on the same line (FT undefined). Fixed by moving the comment to its own line; no rule or bar changed. Lesson repeated from 2026-10-14: never append a comment to an edited line of code.
