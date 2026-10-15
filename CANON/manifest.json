@@ -25225,7 +25225,7 @@
    "runs": [
     {
      "date": "2026-10-15",
-     "outcome": "success",
+     "outcome": "progressed",
      "note": "line from the sample's own molecules alone (split halves): r 0.81, p 8e-14, 46 of 56 within 0.003; firm rate moves to 0.0285 (from 0.0212 with arrays); progenitors 0.013 below the line",
      "commit": "",
      "page": "not headline: development detail of DEV-LOOSE-LINE-01"
