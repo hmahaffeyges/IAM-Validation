@@ -26038,6 +26038,53 @@
    "sources_of_row": [
     "session 2026-10-15"
    ]
+  },
+  {
+   "title": "The A-score database: one table per instrument, one row per sample read",
+   "purpose": "every reading of every instrument (Met-A, C-Score, IAM-A, Group-A, atlas composition) in one generated table per instrument, from committed records only, with its sample, tissue, health status, laboratory, test id and where it sits on the gauge; so where tumors sit on the bar gauge can be learned from all tests at once",
+   "instrument_or_term": "database",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "COMMISSIONING_PLAN.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "generator CANON/ascore_db.py from the committed outcome files; a gate check that every new outcome adds its rows",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "author 2026-10-15 overnight mandate",
+   "legacy_ids": [],
+   "id": "OTH-051",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "The concern line: where a reading first leaves the healthy line before it reaches tumor territory (the Warburg line, a point of no return?)",
+   "purpose": "with each sample read against its own line, place normal tissue, tissue next to tumor, precancer and tumor on one scale and ask whether a threshold separates them; development first, sealed later",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "COMMISSIONING_PLAN.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "after the A-score database and the tumor pairs on both sides (PHY-043); precancer sets from the manifest (DEV-BREACH-01 found no breach at the precancer stage)",
+   "cost": "laptop",
+   "impact": 4,
+   "depends_on": [
+    "OTH-051",
+    "PHY-043"
+   ],
+   "notes": "author 2026-10-15 overnight mandate",
+   "legacy_ids": [],
+   "id": "PHY-069",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
   }
  ],
  "not_tests": {

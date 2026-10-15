@@ -1913,3 +1913,6 @@ The predicted tagging error at each temperature, from the measured 37 C line wit
 
 ### 2026-10-15 · PRED-TEMPERATURE-01 synthetic: run 1 NOT MET, run 2 MET (author asked: synthetic first)
 Run 1 found a systematic low bias in converting counted mistakes back to an error rate with a formula; run 2 converts through the counter's own response curve measured on planted molecules and recovers the sealed ratios within 0.5 percent at 200,000 molecules per temperature. A real test needs about 20,000 qualifying molecules per temperature or more. Sealed predictions unchanged.
+
+### 2026-10-15 · Commissioning plan written (author overnight mandate)
+COMMISSIONING_PLAN.md: three decisions waiting for the author, the two running jobs with their watchers, and 21 steps in four stages (tonight; when the atlas lands; IAM-A atlas-free commissioning with its grand sealed test; the rest of the catalogue). New rows: the A-score database (OTH-051) and the concern line (PHY-069).
