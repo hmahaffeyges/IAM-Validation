@@ -25238,7 +25238,7 @@
      "page": "not headline: development detail"
     }
    ],
-   "next_step": "own-read loose share with island CpGs left out (as the array definition does); whether the relation bends near a loose share of 1 (erythrocyte progenitors)",
+   "next_step": "open-sea own-read loose share: count only CpGs more than 4 kb from any UCSC hg19 CpG island (cpgIslandExt), as DEV-ARCH-01's array loose share uses open-sea sites only (arch_box.py line 33, checked 2026-10-15); synthetic first; then whether the relation bends near a loose share of 1",
    "cost": "box",
    "impact": 5,
    "depends_on": [

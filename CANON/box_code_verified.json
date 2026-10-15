@@ -709,7 +709,7 @@
    "results/DEV_BACKBONE_01/island/EOCRC_CRC3_WGBS_tumour.parquet": true,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC4_WGBS_normal.parquet": true,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC4_WGBS_tumour.parquet": true,
-   "results/DEV_BACKBONE_01/island/EOCRC_CRC5_WGBS_normal.parquet": false,
+   "results/DEV_BACKBONE_01/island/EOCRC_CRC5_WGBS_normal.parquet": true,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC5_WGBS_tumour.parquet": false,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC6_WGBS_normal.parquet": false,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC6_WGBS_tumour.parquet": false
