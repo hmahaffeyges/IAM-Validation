@@ -26013,6 +26013,31 @@
    "sources_of_row": [
     "session 2026-10-15"
    ]
+  },
+  {
+   "title": "Met-A read against the sample's own line (a smaller tare, or none)",
+   "purpose": "the loose-end line was found on arrays, and a sample's loose share comes from its own array; test whether a healthy sample's Met-A level is predicted by its own loose share, so the same-lab healthy reference shrinks or disappears",
+   "instrument_or_term": "Met-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/loose_end_2026-10-15/loose_end_line.py",
+   "status": "idea",
+   "runs": [],
+   "next_step": "synthetic first; then on healthy arrays already spent (development): Met-A level against own loose share, within and across labs",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-045",
+    "PHY-059"
+   ],
+   "notes": "author 2026-10-15: can Met-A become more like IAM-A",
+   "legacy_ids": [],
+   "id": "COM-METAA-039",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
   }
  ],
  "not_tests": {
