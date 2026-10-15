@@ -26128,6 +26128,160 @@
    "sources_of_row": [
     "session 2026-10-15"
    ]
+  },
+  {
+   "title": "Own-read loose share counted only at the arrays' probe positions",
+   "purpose": "Whether the array line is tighter only because of where its probes sit (follows the open-sea count)",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "COMMISSIONING_PLAN.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "map EPIC open-sea cg probes to hg19 CpG indices; recount the 153 own-read samples there; compare lines with opensea_line.py's method",
+   "cost": "laptop",
+   "impact": 4,
+   "depends_on": [],
+   "notes": "author 2026-10-15",
+   "legacy_ids": [],
+   "id": "PHY-070",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Backbone: the healthy firm-territory range on the same counter",
+   "purpose": "DEV-BACKBONE-01 normals read above the healthy range; test whether the range differs by counter scale",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "COMMISSIONING_PLAN.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "count the 56 healthy cell types' firm territory with PROC-TUMOUR-01's counter; write the range before comparing; re-read N and T2",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "author 2026-10-15",
+   "legacy_ids": [],
+   "id": "PHY-071",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Backbone: tumor-adjacent colon against truly healthy colon (field effect)",
+   "purpose": "The normals in DEV-BACKBONE-01 are tumor-adjacent; adjacent tissue may read elevated (the other breast did)",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "COMMISSIONING_PLAN.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "healthy donors' colon epithelium (Loyfer) on the same counter and territory against the six adjacent normals; rule first",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "author 2026-10-15",
+   "legacy_ids": [],
+   "id": "PHY-072",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Systemic elevation across organs: does it hold before and after a tumor?",
+   "purpose": "Re-test the class h_min era's systemic signal (several secretory cell types elevated) with the commissioned instruments",
+   "instrument_or_term": "Met-A, C-Score, IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "COMMISSIONING_PLAN.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "scout data with several organs per person (cancer and healthy); one sealed rule per instrument; synthetic first",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "author 2026-10-15",
+   "legacy_ids": [],
+   "id": "PHY-073",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Re-read the class h_min era's signals with the commissioned instruments",
+   "purpose": "The earlier wide-area signals, checked one by one with instruments that are now commissioned",
+   "instrument_or_term": "catalogue",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "COMMISSIONING_PLAN.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "list each earlier signal with its record; pick the commissioned instrument that can read it; plan order",
+   "cost": "laptop",
+   "impact": 4,
+   "depends_on": [],
+   "notes": "author 2026-10-15",
+   "legacy_ids": [],
+   "id": "OTH-052",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "One page per instrument, and a report section with its sky map",
+   "purpose": "Each instrument gets its own page (what it reads, its tests, its scale) and its own report section; the C-Score shown on the sky map where it can be",
+   "instrument_or_term": "catalogue",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "COMMISSIONING_PLAN.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "inventory what report_v3 prints and what the sky stages (11, 12) can draw for the C-Score; design the page template",
+   "cost": "laptop",
+   "impact": 4,
+   "depends_on": [],
+   "notes": "author 2026-10-15",
+   "legacy_ids": [],
+   "id": "OTH-053",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "C-Score tumor line in the A-score database",
+   "purpose": "Where on the C-Score's scale tumors begin",
+   "instrument_or_term": "C-Score",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "COMMISSIONING_PLAN.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "read real tumors with the C-Score under a sealed bar (its next test) and add the rows as their own section",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "author 2026-10-15",
+   "legacy_ids": [],
+   "id": "OTH-054",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
   }
  ],
  "not_tests": {
