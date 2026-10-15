@@ -1,0 +1,738 @@
+instrument,source,sample,specimen,condition,platform,reading,value,status,record
+C-Score,CSCORE-BAND,GSM3319360,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.860582,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319372,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.326596,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319376,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.26534,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319388,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.965717,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319393,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.959407,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319408,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.886974,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319420,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.103604,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319424,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.934938,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319425,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.174841,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319428,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.005606,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319437,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.81609,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319440,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.030954,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319443,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.964198,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319451,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.871585,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319464,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.177574,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319476,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.210993,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319481,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.083157,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319486,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.14139,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319489,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.033206,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319491,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.900244,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319494,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.990476,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319495,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.832419,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319497,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.982274,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319498,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.051356,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319500,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.027637,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3319503,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.957591,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462455,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.881554,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462459,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.218983,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462463,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.134361,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462467,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.843792,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462495,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.201919,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462497,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.12932,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462499,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.967146,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462501,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.83831,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462503,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.744407,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462505,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.004379,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462507,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.885386,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462509,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.741246,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462513,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.893704,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462515,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.139,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462517,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.029125,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462519,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.058759,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3462521,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.153265,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230895,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.409296,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230896,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.530127,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230901,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.295876,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230902,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.034316,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230903,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.223377,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230904,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.449412,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230914,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.820691,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230916,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.138473,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230918,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.840632,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230925,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.852756,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230933,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.037538,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230935,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.699848,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230936,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.150234,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230941,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.990189,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230945,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.841031,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230946,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.037297,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230948,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.93571,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230949,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.701922,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230951,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.988195,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230953,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.21661,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230956,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.054213,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230959,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.984925,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230960,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.785674,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230964,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.852038,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230966,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.933477,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230977,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.083454,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230978,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.085629,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230986,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.01885,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230987,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.963309,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230991,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.92215,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230992,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.921193,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230994,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.152489,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230995,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.516272,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4230999,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.747388,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231000,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.82755,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231001,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.240938,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231002,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.81072,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231008,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.948153,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231009,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.834729,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231013,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.735343,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231014,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.076285,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231017,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.747228,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231018,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.608519,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231022,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.1773,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231023,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.814469,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231025,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.950865,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231026,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.087079,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231028,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.450137,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231029,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.250926,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231033,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.044144,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231036,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.08136,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231038,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.067907,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231042,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.331964,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231043,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.049863,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231044,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.980139,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231049,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.88163,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231053,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.974316,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231059,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.926936,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231061,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.052844,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231063,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.941374,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231065,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.802983,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231067,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.955891,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231068,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.904842,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231070,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.977586,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231072,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.009908,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231075,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.167311,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231076,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.148381,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231080,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.765175,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231083,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.292653,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231084,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.192363,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231089,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.852038,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231090,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.074513,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231093,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.931084,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231094,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.086918,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231098,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.249557,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4231101,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.218221,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4912596,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.953276,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4912597,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.842604,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4912598,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.100975,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4912599,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.002727,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4912600,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.02826,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4912601,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.997281,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032268,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.175959,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032271,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.105193,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032272,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.401729,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032277,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.863247,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032278,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.095114,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032283,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.988122,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032284,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.91799,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032286,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.97921,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032291,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.154209,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032293,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.876515,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032296,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.029335,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032297,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.750313,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032302,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.888425,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032303,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.086202,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032310,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.982971,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032316,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.13246,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032317,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.150072,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032321,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.928124,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6032322,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.958734,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8496586,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.079353,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8496587,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.045136,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8496588,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.809999,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8496589,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.95187,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8496590,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.151979,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8496591,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.956814,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981498,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.880671,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981499,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.85891,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981501,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.453147,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981502,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.856888,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981503,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.897794,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981504,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.01073,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981505,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.78661,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981506,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.859861,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981507,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.981271,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981508,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.110753,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981509,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.054959,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981510,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.344897,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981511,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.885546,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981512,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.979012,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981513,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.896724,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981514,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.9519,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981515,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.962364,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981516,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.839527,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981517,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.947619,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981518,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.968191,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981519,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.506795,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981520,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.023605,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981521,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.897081,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981522,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.29113,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981523,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.293157,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981524,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.231521,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981525,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.937035,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981526,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.077849,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981527,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.953921,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981528,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.23164,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981529,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.244278,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981530,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.942981,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981531,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.066166,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981532,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.967358,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981533,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.027539,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981534,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.368145,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981535,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.115999,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981536,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.291845,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981537,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.22413,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981538,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.041726,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981539,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.000298,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981540,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.034335,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981541,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.875914,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981542,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.84464,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981543,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.044826,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981544,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.928355,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981545,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.0335,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981546,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.048522,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981547,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.876865,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981548,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.797669,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981549,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.154506,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981550,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.864736,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981551,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.970926,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981552,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.065331,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981553,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.996016,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981554,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.351931,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981555,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.15546,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981556,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.287434,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981557,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.414282,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981558,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.003696,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981559,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.977585,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981560,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.977228,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7981561,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.928949,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM2995280,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.773908,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM2995281,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.202326,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM2995282,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.823344,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM2995283,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.299084,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM2995284,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.007138,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM2995285,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.926328,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM2995286,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.992913,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM2995287,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.182499,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM2995288,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.017272,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM2995289,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.831481,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM2995290,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.059658,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM2995291,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.764721,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3074480,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.920712,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3074481,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.19119,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3074482,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.086116,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3074483,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.208923,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3074484,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.879722,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3074485,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.770039,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516782,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.176091,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516783,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.095702,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516784,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.116592,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516785,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.182982,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516786,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.23384,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516787,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.201356,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516788,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.920538,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516789,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.920864,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516790,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.797655,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516791,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.029093,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516792,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.023187,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516793,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.93921,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516794,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.061249,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516795,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.949414,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516796,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.987842,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516797,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.905449,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516798,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.108498,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516799,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.15006,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516800,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.120529,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516801,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.9835,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516802,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.93997,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516803,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.078968,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516804,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.01039,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516805,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.898068,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516806,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.877877,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516807,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.218418,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516808,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.244012,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516809,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.29148,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516810,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.862679,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516811,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.897416,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516812,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.895245,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516813,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.925206,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516814,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.001854,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516815,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.286886,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516816,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.017609,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516817,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.232309,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516818,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.953105,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516819,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.064858,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516820,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.857686,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516821,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.034234,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516822,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.044952,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516823,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.823817,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516824,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.819909,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516825,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.156951,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516826,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.952453,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516827,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.10303,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516828,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.90013,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516829,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.703539,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516830,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.203216,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516831,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.915762,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516832,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.983608,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516833,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.936604,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516834,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.82881,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516835,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.879614,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516836,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.836409,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516837,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.205731,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516838,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.325276,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516839,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.098545,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516840,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.157716,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516841,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.872992,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516842,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.128514,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516843,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.217762,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516844,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.278574,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516845,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.762592,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516846,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.942358,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516847,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.725467,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM3516848,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.91967,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211039,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.842306,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211040,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.147011,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211041,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.295042,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211042,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.335646,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211043,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.2677,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211044,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.156295,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211045,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.680996,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211046,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.037441,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211047,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.153744,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211048,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.027545,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211049,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.314528,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211050,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.459804,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211051,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.960024,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211052,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.974287,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211053,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.916231,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211054,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.033463,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211055,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.757834,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211056,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.774809,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211057,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.961832,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211058,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.758638,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211059,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.902672,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211060,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.028566,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211061,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.946967,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211062,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.899257,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211063,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.879068,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211064,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.984532,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211065,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.202612,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211066,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.02224,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211067,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.015813,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211068,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.958417,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211069,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.275862,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211070,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.79309,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211071,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.970771,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211072,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.910406,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211073,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.203836,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211074,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.851547,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211075,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.860084,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211076,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.857573,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211077,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.020812,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211078,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.024077,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211080,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.015711,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM4211082,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.315038,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM5073372,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.027174,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM5073373,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.856353,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM5073374,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.14828,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM5073375,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.897181,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM5073378,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.106911,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM5073379,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.973545,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935423,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.006684,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935424,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.234431,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935425,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.926154,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935426,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.078415,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935427,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.750688,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935428,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.896275,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935429,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.858623,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935430,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.990931,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935431,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.22359,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935432,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.494702,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935433,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.990688,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935434,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.059667,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935435,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.901134,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935436,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.127323,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935437,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.982834,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935438,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.169302,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935439,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.181855,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935440,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.289778,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935441,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.737247,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935442,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.068552,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935443,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.99336,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935444,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.939838,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935445,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.016629,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM6935446,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.904534,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050060,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.877806,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050061,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.934699,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050062,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.965959,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050063,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.890486,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050064,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.037633,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050065,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.065553,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050066,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.735946,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050067,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.560656,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050068,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.93002,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050069,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.998237,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050070,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.461789,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050071,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.3692,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050072,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.040283,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050073,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.005095,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050074,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.925612,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050075,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.761918,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050076,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.95633,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050077,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.919509,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050078,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.873737,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050079,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.379254,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050080,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.860378,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050081,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.155424,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050082,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.123837,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050083,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.21201,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050084,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.210176,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050085,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.009578,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050086,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.180219,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050087,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.771208,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050088,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.863769,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050089,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.097208,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050090,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.777514,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050091,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.898284,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050092,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.886079,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050093,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.183344,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050094,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.013926,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050095,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.1864,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050096,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.017934,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050097,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.996745,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050098,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.979114,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050099,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.678375,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050100,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.861599,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050101,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.159772,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050102,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.290741,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050103,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.0968,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050104,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.402962,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050105,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.405136,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050106,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.42042,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050107,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.482848,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050108,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.776972,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050109,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.315671,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050110,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.095238,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050111,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.216154,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050112,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.743677,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050113,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.909337,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050114,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.920458,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050115,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.904591,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050116,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.074723,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050117,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.030501,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050118,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.09517,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050119,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.030501,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050120,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.080837,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050121,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.183411,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050122,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.117383,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050123,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.705974,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050124,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.681359,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050125,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.752424,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050126,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.796569,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050127,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.765783,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050128,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.001766,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050129,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.701838,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050130,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.03675,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050131,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.100808,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050132,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.747677,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050133,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.762867,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050134,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.15196,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050135,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.25827,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050136,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.140751,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050137,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.994507,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050138,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.903913,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050139,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.851631,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050140,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.83339,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050141,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.050472,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050142,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.301202,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050143,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.066843,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050144,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.626772,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050145,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.771411,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050146,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.027648,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050147,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.877467,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050148,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.825863,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050149,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.755544,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050150,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.183615,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050151,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.08994,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050152,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.76463,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7050153,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.729843,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508426,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.06035,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508427,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.091897,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508428,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.105824,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508429,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.880347,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508430,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.068158,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508431,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.933689,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508432,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.140958,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508433,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.834955,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508434,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.024056,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508435,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.907227,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508436,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.070268,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508437,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.050327,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508438,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.059506,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508439,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.986403,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508440,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.856187,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508441,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.332032,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508442,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.012555,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508443,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.764878,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508444,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.747725,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508445,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.970924,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508446,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.745006,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508447,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.285503,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508448,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.344376,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508449,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.001156,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508450,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.142435,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508451,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.817906,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508452,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.729631,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508453,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.041781,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508454,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.88976,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508455,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.832758,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508456,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.013821,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508457,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.8565,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508458,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.966426,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508459,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.126714,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7508460,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.880661,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885049,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.945773,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885050,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.976429,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885051,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.978043,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885052,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.185151,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885053,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.066615,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885054,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.210229,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885056,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.025219,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885057,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.046482,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885058,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.986321,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885059,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.006568,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885060,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.082792,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885061,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.890986,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885063,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.898422,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885065,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.926412,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885066,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.056513,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885067,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.199491,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885068,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.959383,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885069,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.007205,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885070,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.078836,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885071,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.916591,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885072,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.919537,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885082,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.247543,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885083,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.990301,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885084,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.053149,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885085,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.886518,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885086,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.293047,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885087,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.216357,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885088,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.935863,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885089,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.078995,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885090,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.874879,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885091,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.276059,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885092,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.841174,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885093,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.12632,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885094,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.157384,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885095,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.973933,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885096,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.12996,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885097,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.883002,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885098,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.999151,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885099,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.036039,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885100,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.935136,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885101,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.000849,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885102,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.884457,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885103,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",1.01711,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885104,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.837173,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM7885105,isolated neutrophils,healthy,EPIC v1,"C_rel, tared to the series",0.975509,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723397,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.0958,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723398,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.82277,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723399,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.955442,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723400,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.922099,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723401,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.758286,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723402,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.801943,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723403,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.083856,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723404,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.1234,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723405,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.034074,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723406,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.977771,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723407,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.203593,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723408,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.245446,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723409,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.063381,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723410,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.9231,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723411,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.056155,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723412,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.97667,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723413,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.09038,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723414,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.308476,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723415,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.852208,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723416,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.407738,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723417,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.996996,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723418,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.211221,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723419,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.461234,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723420,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.965455,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723421,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.389873,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723422,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.184122,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723423,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.405731,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723424,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.008481,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723425,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.280072,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723426,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.311989,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723427,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.127315,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723428,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.127415,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723429,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.905978,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723430,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.879443,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723431,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.837789,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723432,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.037386,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723433,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.813658,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723434,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.166056,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723435,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.852709,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723436,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.776109,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723437,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.837188,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723438,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.89256,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723439,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.824972,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723440,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.901071,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723441,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.767297,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723442,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.911385,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723443,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.946831,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723444,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.005069,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723445,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.075726,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723446,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.18081,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723447,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.860318,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723448,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.058263,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723449,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.979874,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723450,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.039394,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723451,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.031164,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723452,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.972664,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723453,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.951737,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723454,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.065891,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723455,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.808852,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723456,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.832382,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723457,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.18081,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723458,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.968359,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723459,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.831581,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723460,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.088573,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723461,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.998948,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723462,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.004065,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723463,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.836888,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723464,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.905377,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723465,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.01651,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723466,whole blood,healthy,EPIC v1,"C_rel, tared to the series",1.256486,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-BAND,GSM8723467,whole blood,healthy,EPIC v1,"C_rel, tared to the series",0.909282,development (band-building arrays),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426239,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.981427,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426242,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.956727,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426244,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.194699,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426249,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.933723,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426250,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.087066,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426251,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.988027,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426252,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.983407,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426253,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.959932,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426255,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.042132,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426256,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.027977,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426260,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.970963,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426261,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.962006,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426263,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.060561,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426264,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.027312,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426269,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.053817,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426270,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.018857,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426272,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.959649,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426273,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.033582,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426274,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.950222,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426276,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.006257,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426277,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.001184,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426279,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.036292,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426280,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.97068,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426284,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.975771,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426286,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.927689,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426287,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.977562,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426290,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.084311,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426291,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.96606,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426292,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.105971,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426293,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.133615,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426294,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.887056,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426297,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.010877,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426300,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.852927,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426301,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.993782,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB1,GSM9426302,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.961357,"development (held-out lab, test a met)",Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583004,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.916577,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583005,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.993937,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583006,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.004194,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583007,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.030957,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583008,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.992433,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583009,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.999247,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583010,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.906331,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583011,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.054516,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583012,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.96367,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583013,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.898999,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583014,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.870987,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583015,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.064129,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583016,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.972694,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583017,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.0139,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583018,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.032465,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583019,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.977769,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583020,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.996569,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583021,whole blood,healthy,EPIC v1,"C_rel, chain tare",0.93688,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583022,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.141026,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583023,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.181454,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583024,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.08995,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583026,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.10597,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-LAB2,GSM5583027,whole blood,healthy,EPIC v1,"C_rel, chain tare",1.010602,development (held-out lab),Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md
+C-Score,CSCORE-NEWLAB,GSM7070824,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.330445,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070825,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.383856,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070827,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.040591,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070828,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.33634,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070830,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.043219,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070831,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",0.852303,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070833,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",0.99755,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070834,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.367946,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070835,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.275258,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070836,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.156149,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070837,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.441671,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070838,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.411627,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070840,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.125182,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070842,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.321283,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070844,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.510849,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070846,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.121489,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070848,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.327888,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070851,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",0.985546,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070853,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.167229,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070854,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.414965,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070857,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.025321,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070858,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",0.915302,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070860,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.188679,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070863,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.04471,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070865,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",0.506836,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070867,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",0.9636,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070870,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",0.797685,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070873,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",0.718278,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070875,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",0.900884,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070876,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",0.813452,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070877,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",0.876736,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070878,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.055719,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070879,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",0.957775,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070881,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",0.787315,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070882,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",0.956213,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070883,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",0.778437,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070884,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",1.204375,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070886,granulocytes,patient (see record),EPIC v1,"C_rel, tared to the series",0.872971,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070887,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",1.206652,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070889,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",1.187792,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070891,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",0.836729,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070893,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",1.325658,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070896,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",1.058406,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070897,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",0.944817,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070899,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",1.271857,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070902,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",0.742247,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070903,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",0.984492,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070904,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",1.015752,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070905,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",1.232868,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070906,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",1.046606,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070908,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",0.863229,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070909,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",0.928457,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070911,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",1.276389,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070912,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",0.806478,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070915,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",1.249781,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070917,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",0.874024,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070918,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",1.128463,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070919,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",0.833023,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070920,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",1.205197,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070921,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",0.630609,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070924,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",1.054606,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070926,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",0.78196,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070928,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",0.73983,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+C-Score,CSCORE-NEWLAB,GSM7070929,granulocytes,healthy,EPIC v1,"C_rel, tared to the series",1.245833,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md

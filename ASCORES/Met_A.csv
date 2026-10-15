@@ -1,0 +1,291 @@
+instrument,source,sample,specimen,condition,platform,reading,value,status,record
+Met-A,METAA-REF,GSM2998021,isolated neutrophils,healthy,EPIC v1,"A, untared",1.0032,commissioned (reference arrays),Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md
+Met-A,METAA-REF,GSM2998057,isolated neutrophils,healthy,EPIC v1,"A, untared",0.9945,commissioned (reference arrays),Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md
+Met-A,METAA-REF,GSM2998116,isolated neutrophils,healthy,EPIC v1,"A, untared",0.9989,commissioned (reference arrays),Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md
+Met-A,METAA-REF,GSM2998023,isolated neutrophils,healthy,EPIC v1,"A, untared",0.9942,commissioned (reference arrays),Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md
+Met-A,METAA-REF,GSM2998143,isolated neutrophils,healthy,EPIC v1,"A, untared",1.0028,commissioned (reference arrays),Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md
+Met-A,METAA-REF,GSM2998030,isolated neutrophils,healthy,EPIC v1,"A, untared",1.0064,commissioned (reference arrays),Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md
+Met-A,METAA-PURIFIED,GSM3319451,purified neutrophils,healthy,EPIC v1,"A, tared to the same laboratory",1.0299,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319408,purified neutrophils,healthy,EPIC v1,"A, tared to the same laboratory",1.0653,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319486,purified neutrophils,healthy,EPIC v1,"A, tared to the same laboratory",0.9132,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319425,purified neutrophils,healthy,EPIC v1,"A, tared to the same laboratory",0.9229,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319463,purified neutrophils,patient (see record),EPIC v1,"A, tared to the same laboratory",0.9418,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319393,purified neutrophils,healthy,EPIC v1,"A, tared to the same laboratory",1.0027,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319443,purified neutrophils,healthy,EPIC v1,"A, tared to the same laboratory",0.9477,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319399,purified neutrophils,patient (see record),EPIC v1,"A, tared to the same laboratory",0.9213,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319364,purified neutrophils,patient (see record),EPIC v1,"A, tared to the same laboratory",0.9011,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319481,purified neutrophils,healthy,EPIC v1,"A, tared to the same laboratory",1.0484,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319420,purified neutrophils,healthy,EPIC v1,"A, tared to the same laboratory",0.9782,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319415,purified neutrophils,patient (see record),EPIC v1,"A, tared to the same laboratory",0.9905,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319430,purified neutrophils,patient (see record),EPIC v1,"A, tared to the same laboratory",0.9825,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319495,purified neutrophils,healthy,EPIC v1,"A, tared to the same laboratory",1.0597,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319466,purified neutrophils,patient (see record),EPIC v1,"A, tared to the same laboratory",0.9824,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319423,purified neutrophils,patient (see record),EPIC v1,"A, tared to the same laboratory",0.9678,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319444,purified neutrophils,patient (see record),EPIC v1,"A, tared to the same laboratory",0.9652,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319416,purified neutrophils,patient (see record),EPIC v1,"A, tared to the same laboratory",0.9514,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319482,purified neutrophils,patient (see record),EPIC v1,"A, tared to the same laboratory",1.0003,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319459,purified neutrophils,patient (see record),EPIC v1,"A, tared to the same laboratory",0.9453,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319452,purified neutrophils,patient (see record),EPIC v1,"A, tared to the same laboratory",0.9444,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319464,purified neutrophils,healthy,EPIC v1,"A, tared to the same laboratory",1.014,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319410,purified neutrophils,patient (see record),EPIC v1,"A, tared to the same laboratory",0.963,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319397,purified neutrophils,patient (see record),EPIC v1,"A, tared to the same laboratory",0.9429,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319483,purified neutrophils,patient (see record),EPIC v1,"A, tared to the same laboratory",0.9731,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319428,purified neutrophils,healthy,EPIC v1,"A, tared to the same laboratory",0.9834,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319491,purified neutrophils,healthy,EPIC v1,"A, tared to the same laboratory",0.9834,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319440,purified neutrophils,healthy,EPIC v1,"A, tared to the same laboratory",1.0467,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-PURIFIED,GSM3319392,purified neutrophils,patient (see record),EPIC v1,"A, tared to the same laboratory",0.9807,commissioned,Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md
+Met-A,METAA-NEWLAB,GSM7070824,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.022324,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070825,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.014947,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070827,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.020965,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070828,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.013879,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070830,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.026691,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070831,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.005629,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070833,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.008638,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070834,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.018635,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070835,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.03135,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070836,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.021838,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070837,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.023294,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070838,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.028438,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070840,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.035038,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070842,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.028924,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070844,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.035135,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070846,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.034165,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070848,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.043385,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070851,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",0.991847,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070853,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",0.997185,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070854,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.011259,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070857,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.006018,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070858,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",0.985441,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070860,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.007862,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070863,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.019121,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070865,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",0.974571,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070867,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",1.009221,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070870,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",0.983888,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070873,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",0.981559,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070875,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",0.982723,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070876,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",0.977579,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070877,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",0.980297,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070878,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",0.983209,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070879,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",0.975153,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070881,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",0.981365,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070882,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",0.992429,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070883,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",0.977773,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070884,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",0.987771,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070886,granulocytes,patient (see record),EPIC v1,"A, tared to the same laboratory",0.991071,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070887,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",1.009421,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070889,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",1.020008,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070891,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",0.985354,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070893,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",1.011558,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070896,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",1.006022,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070897,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",0.985354,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070899,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",1.008547,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070902,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",0.986906,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070903,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",1.014967,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070904,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",1.01239,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070905,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",1.02805,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070906,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",0.979048,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070908,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",0.97895,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070909,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",0.987762,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070911,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",1.020202,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070912,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",0.991756,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070915,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",1.034091,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070917,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",0.98031,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070918,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",1.000387,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070919,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",0.997919,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070920,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",1.001696,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070921,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",0.966365,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070924,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",1.007123,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070926,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",1.00913,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070928,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",0.990786,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-NEWLAB,GSM7070929,granulocytes,healthy,EPIC v1,"A, tared to the same laboratory",0.998642,development,Biological_Physics/MethylPhys/doors/DEV_NEWLAB_GRAN_01.md
+Met-A,METAA-BREAST,TCGA-A7-A13E,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.064912,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-A7-A13F,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.142365,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-AC-A23H,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.126717,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-AC-A2FB,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.015553,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-AC-A2FF,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.990504,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-AC-A2FG,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.131335,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A0AU,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.058264,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A0AZ,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.185647,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A0BF,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.132394,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A0BS,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.155059,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A0BT,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.223945,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A0BZ,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.134015,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A0C3,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.024464,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A0DG,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.053051,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A0DI,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.143866,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A0DV,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.981427,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A0HA,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.113326,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A1EO,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.002514,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A1ES,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.05073,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A1ET,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.157157,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A1EU,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.05746,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A1EV,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.995919,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A1EW,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.018504,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A1F0,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.119781,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A203,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.999393,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A204,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.980889,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A208,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.001118,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-BH-A209,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.03603,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E2-A15I,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.223204,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E2-A15K,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.261603,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E2-A1B5,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.027264,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E2-A1BC,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.083334,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E2-A1IF,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.09337,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E2-A1II,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.069786,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E2-A1IO,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.030654,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E2-A1L7,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.946418,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E2-A1LB,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.988226,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E2-A1LI,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.101658,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E2-A1LS,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.017108,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E9-A1N4,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.169728,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E9-A1N6,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.123793,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E9-A1N8,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.975344,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E9-A1NA,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.016784,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E9-A1ND,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.096919,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E9-A1NE,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.998146,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E9-A1NG,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.1499,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E9-A1R7,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.140474,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E9-A1RB,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.828614,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E9-A1RC,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.982623,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E9-A1RD,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.282087,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E9-A1RF,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.095904,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E9-A1RH,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.145877,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-BREAST,TCGA-E9-A1RI,breast tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.97994,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md
+Met-A,METAA-COLON,A2004,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.021941,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,A2027,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.12133,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,A2050,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.071138,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,A2073,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.059704,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,A2096,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.035334,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,B2012,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.046132,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,B2035,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.106174,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,B2058,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.023969,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,B2081,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.125876,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,C2021,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.013657,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,C2044,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.009434,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,C2067,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.970705,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,C2090,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.169646,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,D2033,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.027959,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,D2079,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.08806,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,E2023,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.204405,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,E2046,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.06186,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,E2069,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.99378,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,E2092,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.943322,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,F2008,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.061281,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,F2031,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.01492,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,F2054,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.053451,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,F2077,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.115099,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,F2100,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.080553,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,G2005,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.109939,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,G2028,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.064018,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,G2051,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.978341,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,G2097,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.062595,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,H2019,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.068832,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,H2042,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.0672,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,H2065,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.098351,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,H2088,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.102804,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,J2014,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.044921,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,J2037,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.143743,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,J2060,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.005026,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,K2022,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.953625,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,K2045,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.046684,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,K2068,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.187154,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,K2091,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.140468,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,L2020,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.051894,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,L2043,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.053287,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,L2066,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.080612,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,L2089,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.039128,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,M2006,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.11004,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,M2052,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.131547,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,M2075,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.085977,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,M2098,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.10577,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,N2013,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.0918,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,N2036,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.056234,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,N2059,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.981835,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,P2009,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.028718,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,P2032,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.137747,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,P2055,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.116329,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,P2078,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.064422,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,Q2017,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.011569,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,Q2040,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.076854,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,Q2063,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.014302,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,Q2086,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.011808,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,R2002,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.123646,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,R2025,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.04327,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,R2048,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.043947,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,R2071,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.035973,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,R2094,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.070256,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,S2016,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.135488,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,S2039,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.079666,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,S2062,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.062048,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,S2085,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.056468,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,T2024,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.073168,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,T2047,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.046906,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,T2093,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.103688,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,V2041,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.079507,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,V2064,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.105218,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,V2087,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.987314,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,W2026,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.178013,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,W2049,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.10101,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,W2072,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.138446,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,W2095,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.003986,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,X2011,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.084054,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,X2034,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.035663,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,X2057,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.076356,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,X2080,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.107234,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,Y2007,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.979621,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,Y2030,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.158722,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,Y2076,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.114272,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,Y2099,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.052789,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,Z2038,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.089331,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,Z2061,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.285644,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-COLON,Z2084,colon tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.062321,development (sealed test met),Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-BC-A10Q,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.090257,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-BC-A10R,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.100023,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-BC-A10S,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.827787,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-BC-A10T,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.307543,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-BC-A10U,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.349302,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-BC-A10W,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.076174,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-BC-A10X,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.895014,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-BC-A10Y,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.342515,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-BC-A10Z,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.30563,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-BC-A110,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.039539,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-BC-A112,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.92217,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-BC-A216,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.313,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-BD-A2L6,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.180444,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-BD-A3EP,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.287337,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A113,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.094556,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A114,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.057251,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A115,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.288907,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A116,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.953685,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A118,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.083148,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A119,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.046649,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A11A,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.074296,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A11B,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.107825,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A11C,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.210093,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A11D,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.309911,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A1E9,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.156123,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A1EB,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.030598,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A1EC,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.277357,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A1ED,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.997459,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A1EE,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.115061,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A1EF,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",0.992281,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A1EG,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.182191,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A1EH,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.026356,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A1EI,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.043496,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A1EJ,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.295622,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A1EL,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.335735,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A39V,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.25881,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A39W,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.14976,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A39X,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.068141,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A39Z,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.096879,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A3A1,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.218538,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A3A2,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.13023,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-DD-A3A3,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.022552,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-EP-A12J,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.083107,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-EP-A26S,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.311597,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-ES-A2HS,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.095514,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-ES-A2HT,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.048525,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-FV-A23B,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.110295,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-FV-A2QR,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.298873,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-G3-A25W,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.158917,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md
+Met-A,METAA-LIVER,TCGA-G3-A25X,liver tissue,tumor,450K,"R, tumor over the same patient's normal tissue",1.088917,development,Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md

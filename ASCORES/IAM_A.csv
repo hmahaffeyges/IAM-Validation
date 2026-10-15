@@ -1,0 +1,83 @@
+instrument,source,sample,specimen,condition,platform,reading,value,status,record
+IAM-A,IAMA-CELLS,immune,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0238,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,terminal,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0241,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,immune,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0248,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,immune,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0261,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,immune,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0262,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,immune,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0275,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,immune,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0275,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,immune,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0276,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,immune,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0279,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,immune,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0282,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,cycling,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0284,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,secretory,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0293,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,terminal,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0293,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,cycling,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0303,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,secretory,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0304,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,secretory,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0304,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,secretory,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0311,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,secretory,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0311,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,secretory,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0311,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,cycling,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0312,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,cycling,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0312,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,cycling,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0314,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,terminal,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0314,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,cycling,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0316,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,cycling,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0319,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,secretory,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0321,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,stromal,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0322,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,cycling,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0323,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,stromal,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0324,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,stromal,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0326,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,stromal,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0327,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,secretory,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0329,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,immune,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.033,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,immune,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0333,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,stromal,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0334,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,secretory,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0334,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,secretory,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0337,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,cycling,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0338,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,secretory,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0339,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,stromal,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0339,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,cycling,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0341,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,secretory,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0344,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,cycling,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0344,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,terminal,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0345,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,stromal,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0345,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,immune,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0347,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,stromal,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0348,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,immune,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0352,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,immune,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0364,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,immune,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0368,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,cycling,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.037,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,cycling,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0374,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,secretory,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0379,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,progenitor,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0395,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,stromal,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0395,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-CELLS,stromal,purified cell types (56),healthy,WGBS,"held error eps, pooled per cell type",0.0417,development,development/loose_end_2026-10-15/loose_end_line.py
+IAM-A,IAMA-TUMOR-N,EOCRC_CRC1_WGBS,colon tissue,normal tissue of a cancer patient,WGBS,"held error eps, conversion-corrected",0.035141,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-N,EOCRC_CRC2_WGBS,colon tissue,normal tissue of a cancer patient,WGBS,"held error eps, conversion-corrected",0.035497,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-N,EOCRC_CRC3_WGBS,colon tissue,normal tissue of a cancer patient,WGBS,"held error eps, conversion-corrected",0.032685,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-N,EOCRC_CRC4_WGBS,colon tissue,normal tissue of a cancer patient,WGBS,"held error eps, conversion-corrected",0.032753,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-N,EOCRC_CRC6_WGBS,colon tissue,normal tissue of a cancer patient,WGBS,"held error eps, conversion-corrected",0.038664,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-N,OSCC_OSCC1_WGBS,oral tissue,normal tissue of a cancer patient,WGBS,"held error eps, conversion-corrected",0.03692,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-N,OSCC_OSCC1_oxWGBS,oral tissue,normal tissue of a cancer patient,oxWGBS,"held error eps, conversion-corrected",0.03888,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-N,OSCC_OSCC2_WGBS,oral tissue,normal tissue of a cancer patient,WGBS,"held error eps, conversion-corrected",0.035566,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-N,OSCC_OSCC2_oxWGBS,oral tissue,normal tissue of a cancer patient,oxWGBS,"held error eps, conversion-corrected",0.03915,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-N,OSCC_OSCC3_WGBS,oral tissue,normal tissue of a cancer patient,WGBS,"held error eps, conversion-corrected",0.038931,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-N,OSCC_OSCC3_oxWGBS,oral tissue,normal tissue of a cancer patient,oxWGBS,"held error eps, conversion-corrected",0.040643,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-N,OSCC_OSCC4_WGBS,oral tissue,normal tissue of a cancer patient,WGBS,"held error eps, conversion-corrected",0.036228,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-N,OSCC_OSCC4_oxWGBS,oral tissue,normal tissue of a cancer patient,oxWGBS,"held error eps, conversion-corrected",0.039173,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-T,EOCRC_CRC1_WGBS,colon tissue,tumor,WGBS,"held error eps, conversion-corrected",0.046677,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-T,EOCRC_CRC2_WGBS,colon tissue,tumor,WGBS,"held error eps, conversion-corrected",0.042691,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-T,EOCRC_CRC3_WGBS,colon tissue,tumor,WGBS,"held error eps, conversion-corrected",0.03865,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-T,EOCRC_CRC4_WGBS,colon tissue,tumor,WGBS,"held error eps, conversion-corrected",0.036464,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-T,EOCRC_CRC6_WGBS,colon tissue,tumor,WGBS,"held error eps, conversion-corrected",0.042157,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-T,OSCC_OSCC1_WGBS,oral tissue,tumor,WGBS,"held error eps, conversion-corrected",0.040785,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-T,OSCC_OSCC1_oxWGBS,oral tissue,tumor,oxWGBS,"held error eps, conversion-corrected",0.041603,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-T,OSCC_OSCC2_WGBS,oral tissue,tumor,WGBS,"held error eps, conversion-corrected",0.036681,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-T,OSCC_OSCC2_oxWGBS,oral tissue,tumor,oxWGBS,"held error eps, conversion-corrected",0.033335,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-T,OSCC_OSCC3_WGBS,oral tissue,tumor,WGBS,"held error eps, conversion-corrected",0.046778,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-T,OSCC_OSCC3_oxWGBS,oral tissue,tumor,oxWGBS,"held error eps, conversion-corrected",0.04567,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-T,OSCC_OSCC4_WGBS,oral tissue,tumor,WGBS,"held error eps, conversion-corrected",0.038989,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-TUMOR-T,OSCC_OSCC4_oxWGBS,oral tissue,tumor,oxWGBS,"held error eps, conversion-corrected",0.041074,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md

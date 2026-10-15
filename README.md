@@ -26,6 +26,7 @@ Heath W. Mahaffey, IAMPerformance (independent research).
 | | |
 |---|---|
 | **Follow along, live** | the front page: <https://hmahaffeyges.github.io/IAM-Validation/> |
+| **Every reading, by instrument** | [the A-score database](ASCORES/README.md): healthy and tumor readings side by side |
 | **What happened each day** | [the daily logs](Biological_Physics/MethylPhys/daylogs/) |
 | **The instruments** | [INSTRUMENTS.md](INSTRUMENTS.md): what each one reads, how it works, where it stands |
 | **Every test, numbered** | [MANIFEST.md](MANIFEST.md), the Master Testing Manifest (generated; a push is refused if it drifts) |

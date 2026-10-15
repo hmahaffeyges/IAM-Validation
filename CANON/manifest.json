@@ -26053,10 +26053,10 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
-   "status": "planned",
+   "record": "ASCORES/README.md",
+   "status": "running",
    "runs": [],
-   "next_step": "generator CANON/ascore_db.py from the committed outcome files; a gate check that every new outcome adds its rows",
+   "next_step": "add each new test's per-sample rows as a source (tumor island pairs, C-score repeats, open-sea own reads); then read PHY-069 (is there a concern line) off the tables",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
