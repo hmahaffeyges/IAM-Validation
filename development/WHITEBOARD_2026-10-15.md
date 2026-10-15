@@ -133,3 +133,24 @@ all four domains. Stated as such wherever it is used.
 - The backbone end is derived (the writer's limit, 1/(1 + D)). The loose end is NOT: measured cells top out near 0.042, far from a
   coin flip, so the loose end is not the ceiling itself. What holds the loose territory where it sits?
 - Last night's line missed the backbone at L = 0 (0.0222 against 0.0155); the 0.70 cut for "loose" was mine, not physics.
+
+## Part 4: the writer on overdrive, and what the meter can read (author and Marcel)
+
+**Correction to part 3, item 4.** The cancer signal is not only the methylated backbone failing. The author's picture: cancer moves right
+because the writer runs on overdrive, writing selected, non-random marks. On the gauge both directions move a held site toward the coin
+flip: a held-methylated site that loses its mark, and a held-unmethylated site (an island) that gains one. The overdrive writer is the
+island side. So the cancer signal is the held state failing on EITHER side, read against the same nameplate. The held error as we count it
+today (a lost mark between two methylated neighbors) reads only the first side; the island side needs its mirror count (a gained mark
+between two unmethylated neighbors).
+
+**The efficiency premise gives cancer a definition:** a healthy design writes only where it uses the genome. A tumor spends writing where
+the design holds empty (selected targets, not random). Cancer is inefficient writing.
+
+**The loose end: the meter, not the cell (the author's Dennard question).** The held error counts only molecules whose neighbors are
+held methylated. In loosely held territory few molecules qualify, so a cell's held error is an average weighted toward the territory the
+meter can read. The 0.042 at the top of the table is a whole-cell average, not the level of the loose territory itself. Saturation of the
+reading there is the instrument's read limit, as the author put it, not the ceiling.
+
+**(a) or (b): the author leans to (a).** Holding the ability to write without writing is not the same kind of efficient; progenitors and
+the egg stay unwritten until told what to become. So the loose territory is not held part-time; it is not held at all, and sits where the
+substrate leaves it. Prediction of (a): read directly, the loose territory sits at the same level in every cell type.
