@@ -120,7 +120,7 @@ all four domains. Stated as such wherever it is used.
 
 **What it gives:**
 1. The design holds firm exactly what it uses, and lets the rest run loose. So the loose share L = 1 - U, where U is the share of the
-   genome the design uses. Physics fixes the two ends (backbone at the writer's nameplate, loose near the ceiling); the design fixes U.
+   genome the design uses. Physics fixes the backbone end (the writer's nameplate); the loose end is not yet derived (see Open, below); the design fixes U.
 2. Support already in hand: the egg holds methylation almost only in the genes it reads; loosely held domains sit on the lamina, in the
    inactive compartment; neurons (broad gene use) hold 73-80 percent firm; red-cell progenitors (shutting the genome down) hold 7 percent.
 3. **Toward an instrument without an atlas:** a sample's own L can be read from the sample itself (the share of its genome held loosely).
