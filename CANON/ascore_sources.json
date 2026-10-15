@@ -219,6 +219,34 @@
    "platform_col": "assay",
    "status": "development",
    "record": "Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md"
+  },
+  {
+   "id": "IAMA-ISLAND-N",
+   "instrument": "IAM-A",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_BACKBONE_01/island_counts.csv",
+   "query": "side == 'normal'",
+   "sample": "patient",
+   "value": "island",
+   "kind": "island gain error (PROC-CHANNEL-01 rule)",
+   "specimen": "colon tissue",
+   "condition": "normal tissue of a cancer patient",
+   "platform": "WGBS",
+   "status": "development",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md"
+  },
+  {
+   "id": "IAMA-ISLAND-T",
+   "instrument": "IAM-A",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_BACKBONE_01/island_counts.csv",
+   "query": "side == 'tumour'",
+   "sample": "patient",
+   "value": "island",
+   "kind": "island gain error (PROC-CHANNEL-01 rule)",
+   "specimen": "colon tissue",
+   "condition": "tumor",
+   "platform": "WGBS",
+   "status": "development",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md"
   }
  ]
 }

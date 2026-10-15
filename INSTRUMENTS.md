@@ -62,7 +62,7 @@ Counts tagging mistakes one DNA molecule at a time, the most direct reading of i
 - PHY-045 The loose end read off the line: every healthy cell's held error from its own loose share: run; last run 2026-10-15: met
 - PHY-048 The loose-end line at the one-Landauer-bit cut: run; last run 2026-10-15: met
 - PHY-049 The loose share from each sample's own molecules: run; last run 2026-10-15: progressed
-- PHY-043 Tumor backbone against the writer's nameplate: running now
+- PHY-043 Tumor backbone against the writer's nameplate: running now; last run 2026-10-15: progressed
 - COM-IAMA-052 IAM-A atlas-free commissioning: one grand sealed test on fresh data: planned
 
 **Next:** The tumor pairs read on both sides of the DNA, a second laboratory, then one grand sealed test on fresh data to commission it.

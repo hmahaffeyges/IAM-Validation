@@ -27,5 +27,7 @@ apart and are never pooled.
 | IAM-A | held error eps, conversion-corrected | oral tissue | normal tissue of a cancer patient | 8 | 0.03891 | 0.0358 to 0.04013 | [IAM_A.csv](IAM_A.csv) |
 | IAM-A | held error eps, conversion-corrected | colon tissue | tumor | 5 | 0.04216 | 0.0369 to 0.04588 | [IAM_A.csv](IAM_A.csv) |
 | IAM-A | held error eps, conversion-corrected | oral tissue | tumor | 8 | 0.04093 | 0.03451 to 0.04639 | [IAM_A.csv](IAM_A.csv) |
+| IAM-A | island gain error (PROC-CHANNEL-01 rule) | colon tissue | normal tissue of a cancer patient | 6 | 0.01383 | 0.01037 to 0.01871 | [IAM_A.csv](IAM_A.csv) |
+| IAM-A | island gain error (PROC-CHANNEL-01 rule) | colon tissue | tumor | 6 | 0.01714 | 0.01022 to 0.02194 | [IAM_A.csv](IAM_A.csv) |
 
-1282 readings from 14 sources. Status and record for every row are in the tables.
+1294 readings from 16 sources. Status and record for every row are in the tables.

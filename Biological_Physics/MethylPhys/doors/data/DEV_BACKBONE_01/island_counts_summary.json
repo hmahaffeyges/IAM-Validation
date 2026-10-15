@@ -1,0 +1,6 @@
+{
+ "tumors_above_range": 4,
+ "normals_above_range": 1,
+ "pairs_above_1_2": 3,
+ "median_ratio": 1.211
+}

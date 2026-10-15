@@ -53,3 +53,26 @@ earliest sign of cancer is not more loosely held DNA (healthy designs vary in th
 enzyme guarantees. This test will look for that slip in six colorectal cancer patients, each against their own normal tissue, by a rule
 written before the look. What it would take to succeed: the normals reading inside the healthy range and the tumors above both their own normal
 and that range, by the bars above; the test is finished when it has run once and its verdict is recorded.
+
+
+## Island arm, the counts (2026-10-15; reported, not scored)
+
+The six pairs re-aligned (box job 4110eb64 and one rerun after AWS reclaimed a spot machine; first 10 million reads per sample, unchanged
+committed script) and counted with PROC-CHANNEL-01's rule (`data/DEV_BACKBONE_01/island_counts.csv`, summary `island_counts_summary.json`).
+Healthy island range across 56 cell types: 0.0094-0.0162.
+
+| pair | normal | tumor | tumor over own normal | sequencing substitution error, normal / tumor |
+|---|---|---|---|---|
+| CRC1 | 0.0141 | 0.0102 | 0.72 | 0.0018 / 0.0064 |
+| CRC2 | 0.0120 | 0.0168 (above range) | 1.40 | 0.0019 / 0.0020 |
+| CRC3 | 0.0198 (above range) | 0.0223 (above range) | 1.13 | 0.0020 / 0.0021 |
+| CRC4 | 0.0155 | 0.0210 (above range) | 1.35 | 0.0021 / 0.0022 |
+| CRC5 | 0.0135 | 0.0175 (above range) | 1.30 | 0.0037 / 0.0022 |
+| CRC6 | 0.0098 | 0.0103 | 1.05 | 0.0065 / 0.0068 |
+
+**What it shows.** 4 of 6 tumors read above the healthy island range (1 of 6 normals does too, CRC3); 3 of 6
+pairs read more than 1.2 times their own normal (the synthetic's planted 2x read 1.91-1.97; unchanged islands 0.98-1.02); median ratio
+1.211. Islands are written over in some of these tumors, not all, and by less than 2x. CRC1 runs the other way; its
+tumor's sequencing substitution error is 3.5 times its normal's, so read quality, not the islands, is the first thing to check there.
+CRC5 is the pair flagged for a conversion difference. Six pairs, one laboratory, purity unknown: development. The firm-territory test
+(bars N, T1, T2 above) has still not been run; it waits for the author's go, as written.

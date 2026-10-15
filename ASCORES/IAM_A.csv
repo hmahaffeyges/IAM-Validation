@@ -81,3 +81,15 @@ IAM-A,IAMA-TUMOR-T,OSCC_OSCC3_WGBS,oral tissue,tumor,WGBS,"held error eps, conve
 IAM-A,IAMA-TUMOR-T,OSCC_OSCC3_oxWGBS,oral tissue,tumor,oxWGBS,"held error eps, conversion-corrected",0.04567,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
 IAM-A,IAMA-TUMOR-T,OSCC_OSCC4_WGBS,oral tissue,tumor,WGBS,"held error eps, conversion-corrected",0.038989,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
 IAM-A,IAMA-TUMOR-T,OSCC_OSCC4_oxWGBS,oral tissue,tumor,oxWGBS,"held error eps, conversion-corrected",0.041074,development,Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
+IAM-A,IAMA-ISLAND-N,CRC1,colon tissue,normal tissue of a cancer patient,WGBS,island gain error (PROC-CHANNEL-01 rule),0.014129,development,Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md
+IAM-A,IAMA-ISLAND-N,CRC2,colon tissue,normal tissue of a cancer patient,WGBS,island gain error (PROC-CHANNEL-01 rule),0.011977,development,Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md
+IAM-A,IAMA-ISLAND-N,CRC3,colon tissue,normal tissue of a cancer patient,WGBS,island gain error (PROC-CHANNEL-01 rule),0.019768,development,Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md
+IAM-A,IAMA-ISLAND-N,CRC4,colon tissue,normal tissue of a cancer patient,WGBS,island gain error (PROC-CHANNEL-01 rule),0.015524,development,Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md
+IAM-A,IAMA-ISLAND-N,CRC5,colon tissue,normal tissue of a cancer patient,WGBS,island gain error (PROC-CHANNEL-01 rule),0.013533,development,Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md
+IAM-A,IAMA-ISLAND-N,CRC6,colon tissue,normal tissue of a cancer patient,WGBS,island gain error (PROC-CHANNEL-01 rule),0.00983,development,Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md
+IAM-A,IAMA-ISLAND-T,CRC1,colon tissue,tumor,WGBS,island gain error (PROC-CHANNEL-01 rule),0.010185,development,Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md
+IAM-A,IAMA-ISLAND-T,CRC2,colon tissue,tumor,WGBS,island gain error (PROC-CHANNEL-01 rule),0.016759,development,Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md
+IAM-A,IAMA-ISLAND-T,CRC3,colon tissue,tumor,WGBS,island gain error (PROC-CHANNEL-01 rule),0.02226,development,Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md
+IAM-A,IAMA-ISLAND-T,CRC4,colon tissue,tumor,WGBS,island gain error (PROC-CHANNEL-01 rule),0.020974,development,Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md
+IAM-A,IAMA-ISLAND-T,CRC5,colon tissue,tumor,WGBS,island gain error (PROC-CHANNEL-01 rule),0.017528,development,Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md
+IAM-A,IAMA-ISLAND-T,CRC6,colon tissue,tumor,WGBS,island gain error (PROC-CHANNEL-01 rule),0.01034,development,Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md

@@ -25071,8 +25071,14 @@
    "data_status": "spent",
    "record": "Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md",
    "status": "running",
-   "runs": [],
-   "next_step": "island-side counts approved by the author 2026-10-15: re-read the EOCRC pairs and count with PROC-CHANNEL-01's existing de novo channel (no new method); queued for the box after the atlas fit finishes; then the full test runs once, after steps 1-3 hold on paper",
+   "runs": [
+    {
+     "date": "2026-10-15",
+     "outcome": "progressed",
+     "note": "island arm counted, reported not scored: 4 of 6 tumors above the healthy island range, 3 of 6 pairs above 1.2x own normal, median 1.211; CRC1 reversed with 3.5x the sequencing error. Firm-territory test still waits for the author's go."
+    }
+   ],
+   "next_step": "author's go for the firm-territory test (bars N, T1, T2), run once",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

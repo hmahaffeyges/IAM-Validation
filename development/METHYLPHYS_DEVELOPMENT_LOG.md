@@ -1958,3 +1958,6 @@ The author: the temperature test proves the physics to physicists while the inst
 
 ### 2026-10-15 · C-score: last check MET; proposed for commissioning
 GSE147740: 13 same-person pairs on two slides each, within-person SD of C_rel 0.038 (bar 0.125); third laboratory 172 of 173 not above 1.152. The first run read every array, then its summary step failed on a column-ordering error in an unscored column; fixed and summarized from the saved rows, nothing re-read. COMMISSIONING_NOTE_CSCORE_PROPOSED.md written for the author's sign-off: scope whole blood and purified neutrophils, EPIC v1; detection shown on planted changes only.
+
+### 2026-10-15 · DEV-BACKBONE-01 island arm counted (reported, not scored)
+All six pairs: 4 of 6 tumors above the healthy island range, 3 of 6 pairs above 1.2x their own normal, median 1.24; CRC1 reversed with 3.5x the sequencing substitution error. Islands written over in some tumors, not all. Firm-territory test still waits for the author's go.
