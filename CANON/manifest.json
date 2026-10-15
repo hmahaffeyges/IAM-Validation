@@ -25163,7 +25163,7 @@
    "sources": [
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
-   "data_status": "not yet found",
+   "data_status": "candidates found (metadata only)",
    "record": "development/loose_end_2026-10-15/loose_end_line.py",
    "status": "planned",
    "runs": [],
@@ -25173,7 +25173,7 @@
    "depends_on": [
     "PHY-045"
    ],
-   "notes": "author asked 2026-10-15 that it come soon; after the tumor island read",
+   "notes": "author asked 2026-10-15 that it come soon; after the tumor island read; metadata search 2026-10-15 (development/loose_share_2026-10-15/encode_primary_wgbs.json, geo_sorted_wgbs.json): (1) ENCODE, Bernstein lab: fresh sorted B cells, CD14 monocytes, T cells, NK cells, CD34 myeloid progenitors (ENCSR284TCU, ENCSR017BUL, ENCSR663MXB, ENCSR334LSM, ENCSR388RMS); full alignments, so the meter's own error is measurable (PHY-050); ALREADY READ once for held error by PROC-CHANNEL-01, so a development check, not fresh; (2) GSE144691 (healthy donors' sorted naive, stem-memory, central- and effector-memory CD8 T cells, WGBS) and GSE98837 (naive and memory CD8 subsets, WGBS): not in data_spent, raw-read access to confirm; candidates for the grand test (COM-IAMA-052); (3) GSE324619 (monocytes from many donors, WGBS): raw reads controlled access, not usable; cultured ENCODE lines excluded (culture drift)",
    "legacy_ids": [],
    "id": "PHY-047",
    "sources_of_row": [
@@ -25261,7 +25261,7 @@
    "depends_on": [
     "PHY-045"
    ],
-   "notes": "; 2026-10-15: the firm rate depends on how the loose share is measured (0.0212 arrays, 0.0285 own reads), so the slowest-writer match is not robust yet",
+   "notes": "; 2026-10-15: the firm rate depends on how the loose share is measured (0.0212 arrays, 0.0285 own reads), so the slowest-writer match is not robust yet; healthy-cell meter correction: ENCODE primary-cell alignments carry the sequencing error (PROC-CHANNEL-01 measured 0.1-0.3 percent per substitution)",
    "legacy_ids": [],
    "id": "PHY-050",
    "sources_of_row": [
@@ -25636,7 +25636,7 @@
     "PHY-049",
     "PHY-050"
    ],
-   "notes": "author 2026-10-15: one grand test chosen to test it all, then commission",
+   "notes": "author 2026-10-15: one grand test chosen to test it all, then commission; fresh-data candidates: GSE144691, GSE98837 (sorted CD8 T-cell subsets, unopened); a sharp prediction there: memory subsets sit higher on the line than naive because their loose share is higher",
    "legacy_ids": [],
    "id": "COM-IAMA-052",
    "sources_of_row": [

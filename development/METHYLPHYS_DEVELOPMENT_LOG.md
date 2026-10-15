@@ -1898,3 +1898,6 @@ Reproduction at 0.70 exact. At 2/3 the line holds (r 0.85; firm 0.0212). From ea
 ### 2026-10-15 · PHY-049 whole genome: committed before it runs
 own_reads_genome.py streams each of the 153 Loyfer hg19 read files from GEO (about 330 MB each, never stored) through the unchanged own_reads_loose.py counter, with the genome tiled into 13,225 consecutive 2,000-CpG windows (99.9 percent of CpGs) in place of 399 random ones. own_reads_loose.py gained a main guard so it can be imported; its synthetic output is byte-identical afterward.
 Box job 2d3d817b (code ec70e9d8) runs it on the second machine.
+
+### 2026-10-15 · Second-laboratory candidates found (metadata only, PHY-047)
+ENCODE (Bernstein lab): five fresh sorted immune cell types, already read once by PROC-CHANNEL-01 (development use only), with full alignments that carry the meter's own error (PHY-050). GSE144691 and GSE98837: sorted CD8 T-cell subsets from healthy donors, WGBS, unopened; candidates for the grand test (COM-IAMA-052). GSE324619 is controlled access. No data was read.
