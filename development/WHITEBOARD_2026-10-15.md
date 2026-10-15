@@ -154,3 +154,20 @@ reading there is the instrument's read limit, as the author put it, not the ceil
 **(a) or (b): the author leans to (a).** Holding the ability to write without writing is not the same kind of efficient; progenitors and
 the egg stay unwritten until told what to become. So the loose territory is not held part-time; it is not held at all, and sits where the
 substrate leaves it. Prediction of (a): read directly, the loose territory sits at the same level in every cell type.
+
+## Part 5: the math sheet and two decisions (author, 2026-10-15)
+
+Math sheet (status): ceiling H = 1 bit (derived); floor, Landauer (derived); holding E = ln[(1 - eps)/eps] (derived, two-state Boltzmann);
+gauge reads H(eps) (definition); backbone eps_W = 1/(1 + D), E = ln D = 4.15 kT, H = 0.115 bits (derived from the writer, D measured on the
+enzyme); genome-wide middle eps 0.0314, E 3.43 kT, H 0.201 bits (measured); drive M = 20.94, share held phi = E/M (backbone 0.198, middle
+0.163); a cell's reading = (1 - L) x backbone + L x loose (bookkeeping); loose end OPEN.
+
+**Pooling is not neutral.** H is concave, so the disorder of a pooled reading exceeds the average of its parts' disorder: +3.6 percent for
+L 0.5 with loose eps 0.05, +9.0 percent with loose eps 0.10. Part of a cell's gauge position today is an averaging artifact.
+
+**Decision 1 (author): one reading per instrument.** Ten scores per cell on a blood panel would overwhelm the reader. So each instrument
+reads its territories separately on the gauge and combines them into ONE number by their shares: A = (1 - L) x A_backbone + L x A_loose.
+That removes the pooling artifact and still gives one reading.
+
+**Decision 2 (author): the loose end waits.** Row 9 is not used until the first tests show what they give us; they may change the question
+across the whole IAM table, and may make the loose end easier to derive.
