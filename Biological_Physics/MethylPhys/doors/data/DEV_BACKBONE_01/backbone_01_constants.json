@@ -1,0 +1,10 @@
+{
+ "healthy_lo": 0.0136,
+ "healthy_hi": 0.0226,
+ "loose_cut": 0.7,
+ "bin_bp": 100000,
+ "min_pooled_t": 50,
+ "min_opp": 5000,
+ "se_allow": 2.0,
+ "source": "PROC_CHANNEL_01_OUTCOME.md section 7 (range); DEV_ARCH_01 arch_box.py A1 (cut)"
+}

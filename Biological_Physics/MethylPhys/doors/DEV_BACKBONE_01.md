@@ -7,6 +7,12 @@ their loosely held territory, and on its own that only moves a sample along its 
 the firm part itself reading worse than nameplate. This test asks whether a tumor's firmly held territory carries more error than the same
 patient's normal tissue, and more than healthy cells ever read there.
 
+**Code:** `data/DEV_BACKBONE_01/backbone_01.py` (its constants and their sources: `backbone_01_constants.json`). The real mode refuses to run
+until the author's go is committed.
+
+**Synthetic test:** run once 2026-10-15 (`backbone_01_synthetic.txt`): planted pairs with tumors worse than nameplate read MET; planted pairs
+with no tumor excess on firm territory read NOT MET. SYNTHETIC: MET.
+
 **Data (already held, nothing downloaded).** The six true tumor/normal pairs of early-onset colorectal cancer (GSE284325, WGBS, PROC-TUMOUR-01),
 per-site tables in our S3 (downloads/tumour_work/out/EOCRC_*_WGBS_*.parquet: m, t, opp_A, err_A, opp_B, err_B). Development use of spent data.
 
@@ -36,3 +42,9 @@ per-site tables in our S3 (downloads/tumour_work/out/EOCRC_*_WGBS_*.parquet: m, 
 
 **Limits.** Six pairs from one laboratory; purity unknown; the data were read genome-wide before (PROC-TUMOUR-01), so this is development,
 not a sealed test.
+
+**In plain words.** Healthy cells seem to hold their firmly held DNA exactly as well as the copying enzyme allows. If that is right, the
+earliest sign of cancer is not more loosely held DNA (healthy designs vary in that too) but the firmly held part slipping below what the
+enzyme guarantees. This test will look for that slip in six colorectal cancer patients, each against their own normal tissue, by a rule
+written before the look.
+

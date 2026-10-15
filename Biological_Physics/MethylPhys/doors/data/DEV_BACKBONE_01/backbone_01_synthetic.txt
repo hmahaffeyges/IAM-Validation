@@ -1,0 +1,4 @@
+DEV-BACKBONE-01 synthetic test (planted pairs; no data read)
+tumors worse than nameplate (5 of 6 at 0.030, one at 0.016): N 6/6, T1 5/6, T2 5/6, firm opportunities per sample min 47476 -> MET (expected MET)
+no tumor excess on firm territory (all at 0.016): N 6/6, T1 4/6, T2 0/6, firm opportunities per sample min 47476 -> NOT MET (expected NOT MET)
+SYNTHETIC: MET
