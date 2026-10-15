@@ -627,9 +627,12 @@
   },
   {
    "id": "L23",
-   "stage": "",
-   "manifest": [],
-   "what": "",
+   "stage": "box_first",
+   "manifest": [
+    "ATL-061",
+    "ATL-005"
+   ],
+   "what": "Flatness Lesson (atlas/IAMAtlas_FLATNESS_LESSON.md, THE ONE RULE): the v2.1 model is judged on real block 0 by the OUTPUT, never by R-hat alone - every pair of cells distinct on shared measured CpGs (none below mean |difference| 0.005 except genuinely adjacent lineages), and the per-pair means agreeing with v2's model on the same sites; R-hat, ESS and tree depth are reported, not used as the judge",
    "files": [
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/flatness_check_v21_summary.txt"
    ],
@@ -641,10 +644,8 @@
      ]
     ]
    },
-   "note": "",
-   "reopened": [],
-   "needs": "Flatness Lesson (atlas/IAMAtlas_FLATNESS_LESSON.md, THE ONE RULE): the v2.1 model is judged on real block 0 by the OUTPUT, never by R-hat alone - every pair of cells distinct on shared measured CpGs (none below mean |difference| 0.005 except genuinely adjacent lineages), and the per-pair means agreeing with v2's model on the same sites; R-hat, ESS and tree depth are reported, not used as the judge",
-   "group": ""
+   "note": "added 2026-10-15 after the v2.1 fit was judged by R-hat alone; THE ONE RULE of atlas/IAMAtlas_FLATNESS_LESSON.md",
+   "reopened": []
   }
  ],
  "public": {

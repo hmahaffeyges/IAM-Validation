@@ -30,7 +30,7 @@ when its files are in the repository and their checks pass. The box run refuses 
 | L21 | ATL-061 L20 found the transfer bends: a transfer that cannot leave [0, 1] adopted - every bin with >= 500 pairs within +/-0.02 on the shared cells, and its synthetic test met | open - missing: transfer_fix_v21_summary.txt | `transfer_bounded_v21_summary.txt`, `transfer_fix_v21_summary.txt` | ATL-061 |
 | L22 | ATL-061 The laboratory terms the fit uses, recomputed on the final build table (after L6 and L8) and on the bounded transfer: no new twin among admitted cells, the transfer met out of sample on Loyfer cells it was not built on, other sequencing sources on Loyfer's shape with their own terms | MET | `terms_final_v21_summary.txt`, `transfer_v21_final_summary.txt`, `final_samples_v21.csv` | ATL-061, ATL-005 |
 
-## On the box, before the full fit: 1 of 4 met
+## On the box, before the full fit: 1 of 5 met
 
 | # | Item | State | Proof (files) | Manifest |
 |---|---|---|---|---|
@@ -38,6 +38,7 @@ when its files are in the repository and their checks pass. The box run refuses 
 | B2 | Held-out arrays downloaded and through Stage 1, checksummed (after the split is sealed, before any scoring) | MET | `identity_v21_arrays.csv` | ATL-004 |
 | B3 | Sequencing commissioning sets aligned with the pinned pipeline (separate job; needed only for the sequencing uses) | open - missing: held_out_sequencing_v21_manifest.csv | `held_out_sequencing_v21_manifest.csv` | ATL-061 |
 | B4 | ATL-061 One real block fitted both ways (lab terms fixed as in v2, and sampled): timing, convergence and the difference, recorded before the full fit | open - missing: labterms_oneblock_v21_summary.txt | `labterms_oneblock_v21_summary.txt` | ATL-061 |
+| L23 | Flatness Lesson (atlas/IAMAtlas_FLATNESS_LESSON.md, THE ONE RULE): the v2.1 model is judged on real block 0 by the OUTPUT, never by R-hat alone - every pair of cells distinct on shared measured CpGs (none below mean |difference| 0.005 except genuinely adjacent lineages), and the per-pair means agreeing with v2's model on the same sites; R-hat, ESS and tree depth are reported, not used as the judge | open - missing: flatness_check_v21_summary.txt | `flatness_check_v21_summary.txt` | ATL-061, ATL-005 |
 
 ## After the fit: the gift package: 0 of 11 met
 
