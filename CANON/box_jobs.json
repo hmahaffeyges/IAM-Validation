@@ -867,6 +867,40 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
    ],
    "note": "v2 line with read-count noise from m: 1.098 s per locus, none at max depth, R-hat p99 1.0036, ESS p01 848; smooth curve with noise from m: 4.641 s per locus, all at max depth"
+  },
+  {
+   "job_id": "ac3af1ea-689c-463e-97a9-9be15b1168db",
+   "name": "Atlas v2.1 v21inv real check (60 loci, information only)",
+   "date": "2026-10-15",
+   "commit": "b5becc48",
+   "s3_code_prefix": "results/ATLAS_V21/diag6/code/run1/",
+   "state": "running",
+   "log": "results/ATLAS_V21/diag6/diag2_I.log",
+   "machine": "methylphys-cpu-01 (on-demand m7a.8xlarge, 2 x 8 cores)",
+   "purpose": "mode v21inv (converted readings) on block 0's first 60 loci: speed, depth, per-cell output; information for the author (planted test NOT MET)",
+   "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [
+    "results/ATLAS_V21/diag6/diag2_I.json",
+    "results/ATLAS_V21/diag6/diag2_I_summary.parquet"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_block_v21.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/box/v21_speed_diag2.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/run_v21_block.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/terms_final_v21_run12.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_anchored.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_diag3_L.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_diag3_P.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_diag4_L0.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_diag4_S0.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_diag5_LM.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_diag5_SM.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_final.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {

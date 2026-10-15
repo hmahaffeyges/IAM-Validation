@@ -1825,3 +1825,4 @@ Box job e2efa254. v2's line inside the v2.1 model with the read-count noise take
 
 ### 2026-10-15 · Mode v21inv planted test run once: NOT MET (sampler bar)
 planted_inv_v21.py (rule 6c407a0f, committed before it ran): recovery met (coverage 0.932, sequencing-only extremes 0.987, median error 0.0094) but 5.5 percent of draws at the maximum tree depth against a bar of 1 percent, so NOT MET; by its rule v21inv is not adopted. It ran in 5 s against 22 s for the curve inside the likelihood on the same block. The real 60-locus check runs once anyway as information for the author's decision; its numbers do not change this verdict.
+Box job ac3af1ea (code b5becc48) runs mode v21inv on the 60 real loci, information only.
