@@ -25,7 +25,7 @@
     {
      "title": "The rule from each sample's own DNA pieces, with no arrays",
      "status": "development",
-     "what": "Read straight from each sample's own sequenced pieces of DNA, with nothing borrowed from other data, the same line comes back (r 0.81; odds of chance about 1 in 10 trillion). It is weaker and the firm rate moved, and young progenitor cells sit below it, and the whole-genome version (box job 2d3d817b) gave the same picture: r 0.79, the same firm rate, progenitors again below. Manifest PHY-049.",
+     "what": "Read straight from each sample's own sequenced pieces of DNA, with nothing borrowed from other data, the same line comes back (r 0.81; odds of chance about 1 in 10 trillion). It is weaker and the firm rate moved, and young progenitor cells sit below it, and the whole-genome version (box job 2d3d817b) gave the same picture: r 0.79, the same firm rate, on all 56 cells once ten refused downloads were re-read. Manifest PHY-049.",
      "why": "The first reading of the gauge with no atlas and no arrays at all.",
      "record": "development/loose_share_2026-10-15/own_reads_loose.py"
     },

@@ -284,3 +284,8 @@ The whole genome did NOT sharpen the line (the prediction in part 8 was wrong): 
 stable across both own-read versions: the firm rate (0.029) and progenitors sitting below the line (0.0145 below). Candidate reason the
 array line is tighter: its loose share uses open-sea sites only, while the own-read windows hold every CpG, islands included. Next step,
 PHY-049: the own-read loose share with island CpGs left out.
+
+**Part 9, completed with the ten re-read samples (box job 39f8ae21): all 56 cells.** Whole genome, own reads: firm 0.0297, loose 0.0560,
+r 0.79 (p 8e-13), 40 of 56 within 0.003. **Correction to part 8 and the paragraph above:** "progenitors sit below the line" is ONE cell,
+erythrocyte progenitors, the only progenitor in the set, with by far the highest loose share (0.93); it is 0.015 below the line. So it is
+not a progenitor effect: the line may bend at the far loose end. Next step, PHY-049: whether the relation curves near a loose share of 1.

@@ -1904,3 +1904,6 @@ ENCODE (Bernstein lab): five fresh sorted immune cell types, already read once b
 
 ### 2026-10-15 · PHY-049 whole genome: run once (box job 2d3d817b)
 143 of 153 samples read; 10 refused by GEO (503), re-read in box job 39f8ae21. Line on 53 cells: r 0.79, firm 0.0292; no sharper than 399 windows. Whiteboard part 9.
+
+### 2026-10-15 · PHY-049 whole genome completed on all 56 cells; a correction
+With the ten re-read samples (box job 39f8ae21): firm 0.0297, loose 0.0560, r 0.79. Correction: the cell below the line is one cell, erythrocyte progenitors (loose share 0.93), not a progenitor class effect; written that way in whiteboard parts 8-9 and the day log until now, corrected in place with this note.

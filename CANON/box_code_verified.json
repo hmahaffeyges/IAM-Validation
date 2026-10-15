@@ -762,10 +762,10 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/LOOSE_SHARE_2026-10-15/genome/run2_own_reads_genome.csv": false
+   "results/LOOSE_SHARE_2026-10-15/genome/run2_own_reads_genome.csv": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "succeeded"
  }
 }

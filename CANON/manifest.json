@@ -25233,12 +25233,12 @@
     {
      "date": "2026-10-15",
      "outcome": "progressed",
-     "note": "whole genome, 53 cells (10 samples refused by GEO, re-read in 39f8ae21): firm 0.0292, loose 0.0559, r 0.79; no sharper than 399 windows; firm rate and progenitor offset stable",
+     "note": "whole genome, all 56 cells (with the 10 re-read in 39f8ae21): firm 0.0297, loose 0.0560, r 0.79, p 8e-13; no sharper than 399 windows; firm rate stable at about 0.029; the low point is one cell (erythrocyte progenitors, loose share 0.93), not a progenitor class effect",
      "commit": "",
      "page": "not headline: development detail"
     }
    ],
-   "next_step": "own-read loose share with island CpGs left out (as the array definition does); why progenitors sit below the line",
+   "next_step": "own-read loose share with island CpGs left out (as the array definition does); whether the relation bends near a loose share of 1 (erythrocyte progenitors)",
    "cost": "box",
    "impact": 5,
    "depends_on": [

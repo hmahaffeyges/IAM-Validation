@@ -1079,7 +1079,7 @@
    "date": "2026-10-15",
    "commit": "b14d5ff4",
    "s3_code_prefix": "results/LOOSE_SHARE_2026-10-15/genome/code/run2/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/LOOSE_SHARE_2026-10-15/genome/run2_gw.log",
    "machine": "methylphys-fit-01",
    "manifest": [
@@ -1098,7 +1098,7 @@
     "Biological_Physics/MethylPhys/boxruns/publish_code.py",
     "development/loose_share_2026-10-15/run2/genome_samples.txt"
    ],
-   "note": "running; its genome_samples.txt is run2/genome_samples.txt (the ten refused samples)"
+   "note": "all ten read (the wrapper's last line returned 1 after a successful run; outputs in S3)"
   }
  ],
  "not_jobs": {
