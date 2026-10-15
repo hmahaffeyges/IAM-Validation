@@ -340,6 +340,26 @@ for f in _all25:
         if l.startswith("+") and not l.startswith("+++") and _CE26.search(l) and not _OK26.search(l):
             fail.append(f"{f}: uses the retired term 'copy error'; write 'held error' (rule 26): {l[1:120].strip()}")
 
+# 27. Nothing that runs or is planned stays off the Master Testing Manifest (author 2026-10-15: "we are gonna lose ideas and plans this way").
+#  a. every box job dated 2026-10-15 or later names its manifest rows ("manifest": [ids]) and every id exists;
+#  b. a line ADDED in this push to a whiteboard or ideas file that states a plan, a next step, an idea or a test must carry a manifest id.
+import json
+_M27 = json.load(open("CANON/manifest.json", encoding="utf-8")); _ids27 = {r["id"] for r in _M27["rows"]}
+for _j in json.load(open("CANON/box_jobs.json", encoding="utf-8"))["jobs"]:
+    if str(_j.get("date", "")) >= "2026-10-15":
+        _m = _j.get("manifest") or []
+        if not _m: fail.append(f"box job {_j['job_id'][:8]} ({_j.get('name','')[:60]}): no manifest row named (rule 27)")
+        for _x in _m:
+            if _x not in _ids27: fail.append(f"box job {_j['job_id'][:8]}: manifest row {_x} does not exist (rule 27)")
+_ID27 = re.compile(r"\b[A-Z]{3}-\d{3}\b|\bDEV-[A-Z0-9-]+\b|\bPROC-[A-Z0-9-]+\b")
+_PLAN27 = re.compile(r"(?i)^\s*(?:[-*]\s+|\d+\.\s+)?(?:\*\*)?(?:next|plan|idea|to test|test next|queued|still to come|where the next session starts)\b")
+_f27 = [f for f in git("diff", "--name-only", base, "HEAD").split()
+        if re.match(r"(development/(WHITEBOARD|IDEAS)_[^/]*\.md$|Biological_Physics/MethylPhys/whiteboard/.*\.md$)", f) and os.path.isfile(f)]
+for f in _f27:
+    for l in git("diff", base, "HEAD", "--", f).split("\n"):
+        if l.startswith("+") and not l.startswith("+++") and _PLAN27.search(l[1:]) and not _ID27.search(l):
+            fail.append(f"{f}: a plan, idea or test with no manifest id (rule 27): {l[1:110].strip()}")
+
 if fail:
     print("repro_check: REFUSED\n  " + "\n  ".join(fail)); sys.exit(1)
 print(f"repro_check: ok ({len(changed)} note(s) changed in this push)")

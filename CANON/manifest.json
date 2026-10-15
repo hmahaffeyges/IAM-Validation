@@ -3753,7 +3753,7 @@
    ],
    "data_status": "partial",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
-   "status": "planned",
+   "status": "running",
    "runs": [],
    "next_step": "Run on the v2 machine type (c7a.32xlarge, 128 vCPU, 246 GB), estimated 21-30 h at 16 processes.",
    "cost": "box",
@@ -3762,7 +3762,7 @@
     "Atlas v2.1 compute dry run and ledger entry",
     "Atlas v2.1 culture drift mask (steps 1, 1b, 2)"
    ],
-   "notes": "Sources identified from metadata; not downloaded unless stated. | readiness board: Biological_Physics/MethylPhys/V21_READINESS.md (the run refuses to launch until every before-launch item is met)",
+   "notes": "Sources identified from metadata; not downloaded unless stated. | readiness board: Biological_Physics/MethylPhys/V21_READINESS.md (the run refuses to launch until every before-launch item is met); launched 2026-10-15 06:25:59 UTC (11:26 PM Pacific Oct 14), box job c2b26b34, mode v21inv, 700 blocks on m7a.32xlarge, about 24 h",
    "legacy_ids": [],
    "id": "ATL-005",
    "sources_of_row": [
@@ -24894,7 +24894,7 @@
     "ATL-045",
     "ATL-055"
    ],
-   "notes": "result file when run: doors/data/DEV_ATLAS_V21_01/head_to_head_v21_summary.txt (readiness G10)",
+   "notes": "result file when run: doors/data/DEV_ATLAS_V21_01/head_to_head_v21_summary.txt (readiness G10); author 2026-10-15: the Loyfer and Moss use tests are a showcase, not a referee gate ('dont make the bars too high'). Three uses: (1) cell-type markers confirmed on held-out arrays against their own published list; (2) mixtures of known proportions, including the author's wide-area mixture (their cells plus cells only v2.1 has) and a fair arm of shared cells only; (3) extras shown, not scored (an interval at every site, the 100 draws, the array-to-sequencing bridge). Framing: grid wide-area view (NERC ICCP, two steps beyond the ties). Sealed while the fit runs, before any output is opened",
    "sources_of_row": [
     "author 2026-10-13: if they do not find it better than what they have, they will not care"
    ]
@@ -25058,7 +25058,7 @@
    ],
    "data_status": "spent",
    "record": "Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md",
-   "status": "designed",
+   "status": "running",
    "runs": [],
    "next_step": "island-side counts approved by the author 2026-10-15: re-read the EOCRC pairs and count with PROC-CHANNEL-01's existing de novo channel (no new method); queued for the box after the atlas fit finishes; then the full test runs once, after steps 1-3 hold on paper",
    "cost": "laptop",
@@ -25066,7 +25066,7 @@
    "depends_on": [
     "PHY-042"
    ],
-   "notes": "rule written 2026-10-15 before any restricted reading; island side not assessed",
+   "notes": "rule written 2026-10-15 before any restricted reading; island side not assessed; island arm: box job 4110eb64 re-aligning the six pairs, 2026-10-15",
    "legacy_ids": [],
    "id": "PHY-043",
    "sources_of_row": [
@@ -25176,6 +25176,374 @@
    "notes": "author asked 2026-10-15 that it come soon; after the tumor island read",
    "legacy_ids": [],
    "id": "PHY-047",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "The loose-end line at the one-Landauer-bit cut (beta 2/3)",
+   "purpose": "replace the borrowed 0.70 cut with the physics cut: a stretch held by at least one Landauer bit has methylated:unmethylated odds >= 2; does the line hold?",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "held",
+   "record": "development/loose_share_2026-10-15/arch_cut.py",
+   "status": "running",
+   "runs": [],
+   "next_step": "box job eef8d756: reproduce DEV-ARCH-01 at 0.70 exactly, then 2/3",
+   "cost": "box",
+   "impact": 5,
+   "depends_on": [
+    "PHY-045"
+   ],
+   "notes": "; box job eef8d756, 2026-10-15",
+   "legacy_ids": [],
+   "id": "PHY-048",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "The loose share from each sample's own molecules (atlas-free)",
+   "purpose": "read the loose share from the sample's own reads, not the arrays, half the reads for the share and half for the held error; does the same line come back?",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "held",
+   "record": "development/loose_share_2026-10-15/own_reads_loose.py",
+   "status": "running",
+   "runs": [],
+   "next_step": "box job eef8d756 on the 153 cached Loyfer read files; synthetic met",
+   "cost": "box",
+   "impact": 5,
+   "depends_on": [
+    "PHY-045"
+   ],
+   "notes": "; box job eef8d756, 2026-10-15",
+   "legacy_ids": [],
+   "id": "PHY-049",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "The firm rate after the meter's own error is subtracted",
+   "purpose": "whether the firm rate (0.0212, the slowest published writer) drops toward the median writer (0.0155) once sequencing misreads and conversion failure, measured inside each sample, are subtracted",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/loose_end_2026-10-15/loose_end_line.py",
+   "status": "planned",
+   "runs": [],
+   "next_step": "use sub_err and conv_fail from the tumor-pair normals (job 4110eb64) and a matched recount of healthy cells",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-045"
+   ],
+   "notes": "",
+   "legacy_ids": [],
+   "id": "PHY-050",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "The island shield's height",
+   "purpose": "what holds the islands' 0s at 4.38 kT when the writer alone gives 3.83 kT and the eraser is not the reason (PHY-046); derive the shield from physics",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/WHITEBOARD_2026-10-15.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "whiteboard: compare the islands with the new writers' published preference for bare DNA, then derive",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-046"
+   ],
+   "notes": "",
+   "legacy_ids": [],
+   "id": "PHY-051",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "The new writers' (DNMT3A/B) accuracy against the islands",
+   "purpose": "a published accuracy for new writing on bare DNA, beside the islands' 0.0124, to see whether the islands follow the new writer rather than the maintenance writer",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/WHITEBOARD_2026-10-15.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "literature lookup (Jeltsch lab kinetics, Gowher and Jeltsch 2001; Gao 2020), then a whiteboard comparison",
+   "cost": "laptop",
+   "impact": 3,
+   "depends_on": [
+    "PHY-046"
+   ],
+   "notes": "",
+   "legacy_ids": [],
+   "id": "PHY-052",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Plain-language series part 1: What is AstroGenetics and the Cosmic Methylome: Tools of Cosmology Applied to DNA Methylation",
+   "purpose": "'IAM's Law Explained In Plain Language for All Audiences' part 1: readable by anyone, sourced from the book, reviewed by the author before the page",
+   "instrument_or_term": "public explainer",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "after part 2",
+   "cost": "laptop",
+   "impact": 3,
+   "depends_on": [
+    "PHY-045"
+   ],
+   "notes": "",
+   "legacy_ids": [],
+   "id": "OTH-041",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Plain-language series part 2: Cells, Genetics, and the Language of DNA",
+   "purpose": "'IAM's Law Explained In Plain Language for All Audiences' part 2: readable by anyone, sourced from the book, reviewed by the author before the page",
+   "instrument_or_term": "public explainer",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "designed",
+   "runs": [],
+   "next_step": "part 2 first (private draft IAM_cell_study_guide.md); part 8 last, the grand summary",
+   "cost": "laptop",
+   "impact": 3,
+   "depends_on": [
+    "PHY-045"
+   ],
+   "notes": "; private draft written 2026-10-15",
+   "legacy_ids": [],
+   "id": "OTH-042",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Plain-language series part 3: Black Holes, Gravity, and Dark Matter Revealed",
+   "purpose": "'IAM's Law Explained In Plain Language for All Audiences' part 3: readable by anyone, sourced from the book, reviewed by the author before the page",
+   "instrument_or_term": "public explainer",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "after part 2",
+   "cost": "laptop",
+   "impact": 3,
+   "depends_on": [
+    "PHY-045"
+   ],
+   "notes": "",
+   "legacy_ids": [],
+   "id": "OTH-043",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Plain-language series part 4: The Big Bang, Cosmic Microwave Background, and Dark Energy Revealed",
+   "purpose": "'IAM's Law Explained In Plain Language for All Audiences' part 4: readable by anyone, sourced from the book, reviewed by the author before the page",
+   "instrument_or_term": "public explainer",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "after part 2",
+   "cost": "laptop",
+   "impact": 3,
+   "depends_on": [
+    "PHY-045"
+   ],
+   "notes": "",
+   "legacy_ids": [],
+   "id": "OTH-044",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Plain-language series part 5: Particle Physics, Quantum Mechanics, and the Connection to Classical Reality",
+   "purpose": "'IAM's Law Explained In Plain Language for All Audiences' part 5: readable by anyone, sourced from the book, reviewed by the author before the page",
+   "instrument_or_term": "public explainer",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "after part 2",
+   "cost": "laptop",
+   "impact": 3,
+   "depends_on": [
+    "PHY-045"
+   ],
+   "notes": "",
+   "legacy_ids": [],
+   "id": "OTH-045",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Plain-language series part 6: Qubits, Superpositions, and Decoherence (Quantum Computers)",
+   "purpose": "'IAM's Law Explained In Plain Language for All Audiences' part 6: readable by anyone, sourced from the book, reviewed by the author before the page",
+   "instrument_or_term": "public explainer",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "after part 2",
+   "cost": "laptop",
+   "impact": 3,
+   "depends_on": [
+    "PHY-045"
+   ],
+   "notes": "",
+   "legacy_ids": [],
+   "id": "OTH-046",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Plain-language series part 7: Semi-Conductors, Transistors, and Designing the Next Chip",
+   "purpose": "'IAM's Law Explained In Plain Language for All Audiences' part 7: readable by anyone, sourced from the book, reviewed by the author before the page",
+   "instrument_or_term": "public explainer",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "after part 2",
+   "cost": "laptop",
+   "impact": 3,
+   "depends_on": [
+    "PHY-045"
+   ],
+   "notes": "",
+   "legacy_ids": [],
+   "id": "OTH-047",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Plain-language series part 8: A New Candidate Law of Physics: From the Hydrogen Atom Through 37 Orders to the Cosmic Horizon",
+   "purpose": "'IAM's Law Explained In Plain Language for All Audiences' part 8: readable by anyone, sourced from the book, reviewed by the author before the page",
+   "instrument_or_term": "public explainer",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "part 2 first (private draft IAM_cell_study_guide.md); part 8 last, the grand summary",
+   "cost": "laptop",
+   "impact": 3,
+   "depends_on": [
+    "PHY-045"
+   ],
+   "notes": "",
+   "legacy_ids": [],
+   "id": "OTH-048",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Paper: the Computer Science of Reality",
+   "purpose": "the four domains read as computation (bits, storage, bit rates, leakage, saturation), with PC analogies; after the derivations and the four-domain table",
+   "instrument_or_term": "paper",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "after the derivations",
+   "cost": "laptop",
+   "impact": 3,
+   "depends_on": [
+    "PHY-045"
+   ],
+   "notes": "",
+   "legacy_ids": [],
+   "id": "OTH-049",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Atlas v2.1 transfer and sampler speed: smooth curve, diagnostics 2-5, converted readings (mode v21inv)",
+   "purpose": "why the v2.1 fit sampled slowly, and the fix adopted for the launch",
+   "instrument_or_term": "IAM-Atlas v2.1",
+   "sources": [
+    "see Atlas v2.1 project decision, roster and build/held-out split (atlas_v21_roster.csv)"
+   ],
+   "data_status": "partial",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/DECISION_v21inv.md",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-15",
+     "outcome": "success",
+     "note": "curve inside the likelihood is slow by itself; converted readings (v21inv) at 0.43 s/site on 60 sites, all 79 cells distinct, r 0.9994 with the exact model; two of its own bars missed (sampler 5.5 % vs 1 %; median agreement 0.0054 vs 0.005), adopted by the author's decision (DECISION_v21inv.md); block 0 met B1, L18, L23",
+     "commit": "",
+     "page": "not headline: build step"
+    }
+   ],
+   "next_step": "done; the fit runs (ATL-005)",
+   "cost": "box",
+   "impact": 4,
+   "depends_on": [
+    "ATL-005"
+   ],
+   "notes": "lesson C15 (bars in the units of their purpose) came out of it",
+   "legacy_ids": [],
+   "id": "ATL-064",
    "sources_of_row": [
     "session 2026-10-15"
    ]

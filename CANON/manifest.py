@@ -14,7 +14,7 @@ import json, os, re, subprocess, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "CANON", "manifest.json"); OUT = os.path.join(ROOT, "MANIFEST.md"); TODO = os.path.join(ROOT, "TODO.md")
 OUTCOMES = {"success", "fail", "progressed", "inconclusive", "invalid"}
-STATUS = ["idea", "planned", "designed", "synthetic_done", "sealed", "run", "parked", "retired"]
+STATUS = ["idea", "planned", "designed", "synthetic_done", "sealed", "running", "run", "parked", "retired"]
 CLOSED = {"run", "retired"}
 def load(): return json.load(open(SRC, encoding="utf-8"))
 def esc(x): return str(x or "").replace("|", "/").replace("\n", " ")

@@ -686,7 +686,10 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv",
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
-   "note": "v2.1 arm ran: 7.695 s per locus, all 1,600 draws at the maximum tree depth, R-hat p99 3.35 (not converging); v2 arm failed on the diagnostic's own error (v2's terms file not shipped)"
+   "note": "v2.1 arm ran: 7.695 s per locus, all 1,600 draws at the maximum tree depth, R-hat p99 3.35 (not converging); v2 arm failed on the diagnostic's own error (v2's terms file not shipped)",
+   "manifest": [
+    "ATL-064"
+   ]
   },
   {
    "job_id": "7795a588-495b-4b55-ae4f-ba09b3e21748",
@@ -713,7 +716,10 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv",
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
-   "note": "arms B and C ran (anchored transfer: R-hat p99 1.016 and 1.026, every draw at max depth, 7.5 s per locus); arm A (v2) failed on the diagnostic's own error (two labs without a direct offset)"
+   "note": "arms B and C ran (anchored transfer: R-hat p99 1.016 and 1.026, every draw at max depth, 7.5 s per locus); arm A (v2) failed on the diagnostic's own error (two labs without a direct offset)",
+   "manifest": [
+    "ATL-064"
+   ]
   },
   {
    "job_id": "53cff33f-4b1f-4693-9bce-72edc3813467",
@@ -742,7 +748,10 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv",
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
-   "note": "v2 model 0.409 s per locus, R-hat p99 1.004, no draws at max depth; v2.1 anchored 7.547 s per locus, R-hat p99 1.016, all draws at max depth. Per-pair means agree (r 0.9991, median |diff| 0.0044); 79 cells, no pair below 0.005 in either"
+   "note": "v2 model 0.409 s per locus, R-hat p99 1.004, no draws at max depth; v2.1 anchored 7.547 s per locus, R-hat p99 1.016, all draws at max depth. Per-pair means agree (r 0.9991, median |diff| 0.0044); 79 cells, no pair below 0.005 in either",
+   "manifest": [
+    "ATL-064"
+   ]
   },
   {
    "job_id": "936a9449-2795-43cd-b7ba-8ec0e59cbdcd",
@@ -770,7 +779,10 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/final_samples_v21.csv",
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
-   "note": "smooth transfer: 4.81 s per locus (anchored 7.55, v2 0.41), every draw at max depth, R-hat p99 1.063, ESS p01 62; 79 cells distinct (none below 0.005); agrees with v2 r 0.9991"
+   "note": "smooth transfer: 4.81 s per locus (anchored 7.55, v2 0.41), every draw at max depth, R-hat p99 1.063, ESS p01 62; 79 cells distinct (none below 0.005); agrees with v2 r 0.9991",
+   "manifest": [
+    "ATL-064"
+   ]
   },
   {
    "job_id": "e0728074-8413-491a-894b-0e49b6cab65b",
@@ -800,7 +812,10 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_final.json",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
    ],
-   "note": "arm P (smooth, no plateaus) 4.751 s per locus, R-hat p99 1.101; arm L (v2 line in the v2.1 model) 3.494 s per locus, R-hat p99 1.013; both 100 percent of draws at max depth. Its two terms files were built on the laptop by diag3_terms_v21.py"
+   "note": "arm P (smooth, no plateaus) 4.751 s per locus, R-hat p99 1.101; arm L (v2 line in the v2.1 model) 3.494 s per locus, R-hat p99 1.013; both 100 percent of draws at max depth. Its two terms files were built on the laptop by diag3_terms_v21.py",
+   "manifest": [
+    "ATL-064"
+   ]
   },
   {
    "job_id": "3d54707d-df5c-44f8-aadd-d4be2ecce8f5",
@@ -832,7 +847,10 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_final.json",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
    ],
-   "note": "scatter off: smooth 4.733 s per locus, v2 line 3.456; both 100 percent of draws at max depth: the scatter term is not the cause"
+   "note": "scatter off: smooth 4.733 s per locus, v2 line 3.456; both 100 percent of draws at max depth: the scatter term is not the cause",
+   "manifest": [
+    "ATL-064"
+   ]
   },
   {
    "job_id": "e2efa254-9bbb-4321-832a-29a88a735817",
@@ -866,7 +884,10 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_final.json",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
    ],
-   "note": "v2 line with read-count noise from m: 1.098 s per locus, none at max depth, R-hat p99 1.0036, ESS p01 848; smooth curve with noise from m: 4.641 s per locus, all at max depth"
+   "note": "v2 line with read-count noise from m: 1.098 s per locus, none at max depth, R-hat p99 1.0036, ESS p01 848; smooth curve with noise from m: 4.641 s per locus, all at max depth",
+   "manifest": [
+    "ATL-064"
+   ]
   },
   {
    "job_id": "ac3af1ea-689c-463e-97a9-9be15b1168db",
@@ -900,7 +921,10 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_final.json",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
    ],
-   "note": "v21inv on 60 real loci: 0.427 s per locus, none at max depth, R-hat p99 1.0055; 79 cells distinct (closest 0.008); vs the curve-in-the-likelihood fit r 0.9994, median |diff| 0.0054 (bar 0.005: NOT met); vs v2 r 0.9986, median 0.0126"
+   "note": "v21inv on 60 real loci: 0.427 s per locus, none at max depth, R-hat p99 1.0055; 79 cells distinct (closest 0.008); vs the curve-in-the-likelihood fit r 0.9994, median |diff| 0.0054 (bar 0.005: NOT met); vs v2 r 0.9986, median 0.0126",
+   "manifest": [
+    "ATL-064"
+   ]
   },
   {
    "job_id": "beacca7a-7a46-4723-ab7d-94cfa3da70f0",
@@ -953,7 +977,10 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/run_v21_block.py",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
    ],
-   "note": "running; started 2026-10-15 06:25:59 UTC (run_v21.log); about 24 h, about $180"
+   "note": "running; started 2026-10-15 06:25:59 UTC (run_v21.log); about 24 h, about $180",
+   "manifest": [
+    "ATL-005"
+   ]
   },
   {
    "job_id": "4110eb64-6c55-4e58-93e5-97590ef5acc1",
@@ -985,7 +1012,10 @@
     "development/tumor_island_2026-10-15/run_tumor_island.sh",
     "development/tumor_island_2026-10-15/samples.tsv"
    ],
-   "note": "running"
+   "note": "running",
+   "manifest": [
+    "PHY-043"
+   ]
   },
   {
    "job_id": "eef8d756-44da-4f16-8206-acac86b79edd",
@@ -1010,7 +1040,11 @@
     "Biological_Physics/MethylPhys/boxruns/publish_code.py",
     "Biological_Physics/MethylPhys/atlas/v2/inputs/roster_samples.csv"
    ],
-   "note": "running"
+   "note": "running",
+   "manifest": [
+    "PHY-048",
+    "PHY-049"
+   ]
   }
  ],
  "not_jobs": {

@@ -43,6 +43,10 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **PHY-042** (impact 5, laptop) Cell architecture against the healthy held error (DEV-ARCH-01): loose share from other laboratories' arrays of the same cell types; per-cell held error on the common fully methylated sites
 - [ ] **PHY-043** (impact 5, laptop) Tumor backbone against the writer's nameplate (DEV-BACKBONE-01, author's step 4): island-side counts approved by the author 2026-10-15: re-read the EOCRC pairs and count with PROC-CHANNEL-01's existing de novo channel (no new method); queued for the box after the atlas fit finishes; then the full test runs once, after steps 1-3 hold on paper
 - [ ] **PHY-047** (impact 5, laptop or box) The loose-end line on a second laboratory (PHY-045 replication): metadata-only search for public single-molecule methylation (WGBS or EM-seq) on sorted healthy human cells from a lab other than Loyfer's; then the rule, synthetic first
+- [ ] **PHY-048** (impact 5, box) The loose-end line at the one-Landauer-bit cut (beta 2/3): box job eef8d756: reproduce DEV-ARCH-01 at 0.70 exactly, then 2/3
+- [ ] **PHY-049** (impact 5, box) The loose share from each sample's own molecules (atlas-free): box job eef8d756 on the 153 cached Loyfer read files; synthetic met
+- [ ] **PHY-050** (impact 5, laptop) The firm rate after the meter's own error is subtracted: use sub_err and conv_fail from the tumor-pair normals (job 4110eb64) and a matched recount of healthy cells
+- [ ] **PHY-051** (impact 5, laptop) The island shield's height: whiteboard: compare the islands with the new writers' published preference for bare DNA, then derive
 - [ ] **SCO-002** (impact 5, search) Healthy neutrophils sequenced in a laboratory other than the Loyfer group (IAM-A, 3 or more donors): Verify GSE59163 from files (healthy status, donors, read-level data), then design (TODO A3); file a BLUEPRINT/EGA access request only if WGBS neutrophils are required (gold-mine map action 3).
 - [ ] **SCO-003** (impact 5, search) Healthy purified neutrophil arrays across donor ages (Met-A, donors 20-39): Search purified neutrophil arrays across ages, excluding every set in CANON/data_spent.csv (TODO M6).
 - [ ] **SCO-004** (impact 5, search) Held-out test set for the second-laboratory neutrophil reference (450K): Confirm healthy status, donor overlap and purity of GSE72338, then fix it as the test set, seal, read once (TODO M2, M4; CANON/next_jobs.json job 4).
@@ -191,11 +195,21 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **OTH-002** (impact 3, laptop) Replication package: one-command kit per commissioning, open predictions, preprint: Extend the clean-room rebuild into the kit; draft the open-prediction list (TODO B9, R3, R4).
 - [ ] **OTH-029** (impact 3, laptop) Clean-room rerun of each result: Liver pilot (after the atlas deposit, now done), then breast, colon.
 - [ ] **OTH-033** (impact 3, laptop) Replication package (kit, open predictions, preprint): After R3-R4.
+- [ ] **OTH-041** (impact 3, laptop) Plain-language series part 1: What is AstroGenetics and the Cosmic Methylome: Tools of Cosmology Applied to DNA Methylation: after part 2
+- [ ] **OTH-042** (impact 3, laptop) Plain-language series part 2: Cells, Genetics, and the Language of DNA: part 2 first (private draft IAM_cell_study_guide.md); part 8 last, the grand summary
+- [ ] **OTH-043** (impact 3, laptop) Plain-language series part 3: Black Holes, Gravity, and Dark Matter Revealed: after part 2
+- [ ] **OTH-044** (impact 3, laptop) Plain-language series part 4: The Big Bang, Cosmic Microwave Background, and Dark Energy Revealed: after part 2
+- [ ] **OTH-045** (impact 3, laptop) Plain-language series part 5: Particle Physics, Quantum Mechanics, and the Connection to Classical Reality: after part 2
+- [ ] **OTH-046** (impact 3, laptop) Plain-language series part 6: Qubits, Superpositions, and Decoherence (Quantum Computers): after part 2
+- [ ] **OTH-047** (impact 3, laptop) Plain-language series part 7: Semi-Conductors, Transistors, and Designing the Next Chip: after part 2
+- [ ] **OTH-048** (impact 3, laptop) Plain-language series part 8: A New Candidate Law of Physics: From the Hydrogen Atom Through 37 Orders to the Cosmic Horizon: part 2 first (private draft IAM_cell_study_guide.md); part 8 last, the grand summary
+- [ ] **OTH-049** (impact 3, laptop) Paper: the Computer Science of Reality: after the derivations
 - [ ] **PHY-005** (impact 3, search) Copy-channel test with measured per-site rates (Repli-BS in human ES cells): Find the rate files and same-cell whole-genome data.
 - [ ] **PHY-007** (impact 3, search) DEV-METHIONINE-01: methionine depletion as a second SAM lever: Wait for a public set with weeks of restriction (cells or animals); listed in help_wanted.
 - [ ] **PHY-010** (impact 3, none) Met-A to IAM-A reverse direction: an upper-limit prediction any lab can check: Add to the open-prediction list of the replication package.
 - [ ] **PHY-012** (impact 3, laptop) phi and the height of E_hold (open item D1): a physics-only derivation of 3.41 kT: Open after DEV-WRITER-01/-02 and DEV-FLOOR-HEIGHT-01/-02 did not fix it; candidate routes are the multi-step (proofread) gap and the loss side (H7).
 - [ ] **PHY-013** (impact 3, search) Repli-BS genome-wide rates test: does each region's isolated-error rate equal f/(f+g) from its own rates?: Find the Repli-BS and matched single-molecule data; write the prediction and bars before reading.
+- [ ] **PHY-052** (impact 3, laptop) The new writers' (DNMT3A/B) accuracy against the islands: literature lookup (Jeltsch lab kinetics, Gowher and Jeltsch 2001; Gao 2020), then a whiteboard comparison
 - [ ] **SCO-030** (impact 3, search) Cancer cohorts with same-series healthy controls (whole-blood Met-A group comparisons, one cancer at a time): Search cancer cohorts whose arrays include healthy controls run in the same series, one cancer at a time (TODO L7; CANON/instruments.json BLOOD-METAA-LIMIT).
 - [ ] **SCO-031** (impact 3, laptop) Division-rate lever: serial-passage series (held error with divisions): Design and simulate (TODO C4).
 - [ ] **SCO-032** (impact 3, search) Erase channel alone: IDH-mutant tumors (TET chemically blocked in patients): Synthetic test first (CANON/next_jobs.json job 12), then search IDH-mutant tumor sets with matched IDH-wild-type tumors, declaring spent sets.
@@ -828,3 +842,4 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **PHY-042** Cell architecture against the healthy held error (DEV-ARCH-01): last run 2026-10-14, progressed
 - [x] **PHY-045** The loose end read off the line: every healthy cell's held error from its own loose share: last run 2026-10-15, success
 - [x] **PHY-046** Island side with the eraser removed (is the eraser what holds the 0s?): last run 2026-10-15, fail
+- [x] **ATL-064** Atlas v2.1 transfer and sampler speed: smooth curve, diagnostics 2-5, converted readings (mode v21inv): last run 2026-10-15, success
