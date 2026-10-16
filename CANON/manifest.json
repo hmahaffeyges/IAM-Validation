@@ -25205,7 +25205,7 @@
      "page": "not headline: exploratory miss, kept in the research record"
     }
    ],
-   "next_step": "a second-laboratory test on healthy cells whose tile shape is typical: GSE49627 resting B cells (3 donors; loose share already read, held error not) and other independent sorted sets; rule first",
+   "next_step": "DEV-SECONDLAB-02 (Hansen GSE49627, three healthy resting B-cell donors): runs 1-3 failed before any alignment (slow ENA download; tools path; trim naming), run 4 i-0a9119be4c9143bca aligning since 2026-10-15 22:44 PDT (preflight 82.9 percent mapped; donor B2 aligned 82.8 percent at 01:09 PDT). Then chain Stage Q2 count, shape check first (limit 0.662), sealed S1 scored once",
    "cost": "laptop or box",
    "impact": 5,
    "depends_on": [
@@ -25313,7 +25313,7 @@
      "page": "not headline: a measurement"
     }
    ],
-   "next_step": "apply the measured error to the line once both laboratories' errors are measured the same way",
+   "next_step": "apply the measured sequencing error to the line once Hansen is counted by chain Stage Q2 (both laboratories then measured the same way); rule first",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -25685,7 +25685,7 @@
    "record": "development/loose_end_2026-10-15/loose_end_line.py",
    "status": "planned",
    "runs": [],
-   "next_step": "after PHY-049 (whole genome), PHY-047 (second lab), PHY-050 (meter error) and PHY-043 (tumor island side) hold",
+   "next_step": "remaining gates (2026-10-16): PHY-047 (Hansen score), PHY-050 (meter error from the Hansen count), COM-IAMA-054 (IAM-A band from Loyfer + Hansen, rule sealed first), PHY-055 part A (clean room); then this test on the unopened CD8 sets GSE144691, GSE98837, bars sealed before reading; commission if met. Recommended to the author as NOT gates: OTH-059 concern and tumor lines (reporting marks from the A-score database; Met-A and the C-score were commissioned without them), OTH-058 agreement check (needs two commissioned instruments on the same samples)",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -25709,10 +25709,10 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "development/loose_end_2026-10-15/loose_end_line.py",
+   "record": "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py",
    "status": "planned",
    "runs": [],
-   "next_step": "list every input of each result and the committed script that makes it from public data; then rebuild on a clean machine (as REPRO-CLEANROOM-2026-10-11)",
+   "next_step": "part A (IAM-A, 2026-10-16): fresh public clone, public data only (GEO, ENCODE), chain Stage Q2 recounts Loyfer 153 and ENCODE 5, rebuilds the self-reference line and the shape reference; every count, the line and the reference must equal the committed ones (doors/data/CLEANROOM_IAMA_01/). Not in part A: the Hansen rerun (one run only; its script and chain code are committed), the restricted tumor pairs (not public), the eraser and island side results (own chain reruns later)",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -26471,7 +26471,7 @@
    "record": "COMMISSIONING_PLAN.md",
    "status": "planned",
    "runs": [],
-   "next_step": "healthy own-read readings through chain Stage Q2 from at least two independent laboratories (Loyfer, GSE49627 Hansen), band = their measured spread with the lab shift inside it; rule sealed first",
+   "next_step": "seal the band rule before Hansen is counted: healthy own-read readings through chain Stage Q2 from Loyfer and Hansen (GSE49627), band = measured spread with the lab shift inside; then build it from the Hansen count",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],

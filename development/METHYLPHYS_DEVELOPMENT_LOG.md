@@ -2077,3 +2077,6 @@ Commissioned: the clustering meter (C-score) on whole blood, EPIC v1 (scope narr
 
 ### 2026-10-16 · Cell throughput entry corrected
 The per-cell average (3,100-4,400 writes per second) divided by all 3.72e13 cells, about 70 percent of which are red blood cells without DNA. Withdrawn; the whole-body bound stands; per cell waits for the DNA-carrying cell count from Bianconi's table.
+
+### 2026-10-16 · IAM-A clean room, part A, written (PHY-055)
+Script doors/data/CLEANROOM_IAMA_01/ (fresh public clone, public data only, chain only; counts, line and shape reference must equal the committed ones). Hansen is not rerun; tumor pairs are restricted. Manifest brought up to date: PHY-047, PHY-050, PHY-055, COM-IAMA-052, COM-IAMA-054.
