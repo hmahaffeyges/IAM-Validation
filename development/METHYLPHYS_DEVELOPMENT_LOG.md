@@ -2124,3 +2124,6 @@ The author asked for a note KISS cannot be forgotten behind. CANON/kiss_check.py
 
 ### 2026-10-16 · Atlas v2.1 commissioning bars amended before the atlas exists (ATL-005)
 The author sealed the amendment: the U1 range adds the measured laboratory spread (SD 0.0065 of the fit's 18 array-laboratory offsets); 95 percent shares replace every set, cell and sample in U1, U2 and U3; chain-withheld samples are listed, not scored. The bars are unchanged. Scorer moved into the chain (Stage A21); planted test PASSED, 15 cases; stamped amendment_v21b.json. Fit at 580 of 700 blocks; nothing held out opened.
+
+### 2026-10-16 · IAM-A grand sealed test sealed (COM-IAMA-052)
+The author sealed DEV-IAMA-GRAND-01 before any CD8 read was downloaded: 13 healthy sorted CD8 T-cell samples from GSE144691 (Youngblood laboratory, St. Jude), first 40 billion bases each, aligned as Hansen (poly-G trimming on for NovaSeq), counted by chain Stage Q2; S1: at least 75 percent of read samples inside band v1 (0.7787-1.0551), at least 8 read. Neutrophils were checked first and set aside: no public, readable healthy set from an independent laboratory. Chain grand_verdict with synthetic T9 MET. A conversion-quality cutoff added as an idea row for after the test.

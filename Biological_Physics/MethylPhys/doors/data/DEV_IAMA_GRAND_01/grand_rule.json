@@ -1,0 +1,29 @@
+{
+ "test": "DEV-IAMA-GRAND-01 (COM-IAMA-052)",
+ "sealed_by_author": "2026-10-16, 'okay, seal it', before any CD8 read was downloaded",
+ "instruments_job": "a healthy CD8 T-cell sample from a laboratory IAM-A has never seen reads Normal on IAM-A's gauge",
+ "band_lo": 0.7787,
+ "band_hi": 1.0551,
+ "share": 0.75,
+ "min_read": 8,
+ "samples": 13,
+ "cap_gbases": 40,
+ "shape_types": {
+  "naive": "naive cd8 t cells",
+  "tem": "effector memory cd8 t cells",
+  "tcm": "cd8 t cells",
+  "tscm": "cd8 t cells"
+ },
+ "scorer": "score_grand.py -> chain Stage Q2 grand_verdict",
+ "synthetic": "DEV_CHAIN_Q2_01/q2_synthetic.py T9 MET",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "52e94725c307235a5cb7cc9760563eeaa85fbe0dc9c691257b6633f19adae40d",
+  "payload_sha256": "a97cb837abb03b99b4454d4205961ab78a33ea7328a65d531f72da8207f7c85f",
+  "inputs": [],
+  "manifest": [
+   "COM-IAMA-052"
+  ],
+  "utc": "2026-10-16T11:03:49Z"
+ }
+}

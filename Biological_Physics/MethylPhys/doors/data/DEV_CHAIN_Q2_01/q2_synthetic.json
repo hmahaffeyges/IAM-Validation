@@ -140,6 +140,13 @@
   }
  },
  "T8": true,
+ "T9": {
+  "13 inside": "MET",
+  "10 of 13 inside": "MET",
+  "9 of 13 inside": "NOT MET",
+  "3 refused, 10 read all inside": "MET",
+  "6 refused, 7 read": "NOT ASSESSED"
+ },
  "ok": {
   "T1": true,
   "T2": true,
@@ -148,19 +155,20 @@
   "T5": true,
   "T6": true,
   "T7": true,
-  "T8": true
+  "T8": true,
+  "T9": true
  },
  "verdict": "MET",
  "chain_stamp": {
   "stage": "Q2 self-reference",
-  "chain_sha": "a49c36c7b9a072d8ccfd7fc12b0970d82e997593282f53cb5f2c2be5d8bb6be2",
-  "payload_sha256": "739649d3166213bf6152d6f6a94d090481bee7516b3af0df4d7ff152fb199634",
+  "chain_sha": "52e94725c307235a5cb7cc9760563eeaa85fbe0dc9c691257b6633f19adae40d",
+  "payload_sha256": "8d615b0a369d39889e0579a98ba95d4e3bc860d10d01f573511e7db7b3e2f334",
   "inputs": [],
   "manifest": [
    "COM-IAMA-053",
    "COM-IAMA-054",
    "OTH-057"
   ],
-  "utc": "2026-10-16T09:32:04Z"
+  "utc": "2026-10-16T10:55:32Z"
  }
 }

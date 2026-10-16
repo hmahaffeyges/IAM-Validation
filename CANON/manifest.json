@@ -25761,10 +25761,10 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "development/loose_end_2026-10-15/loose_end_line.py",
-   "status": "planned",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_GRAND_01.md",
+   "status": "running",
    "runs": [],
-   "next_step": "next: the grand sealed test on fresh healthy data from other laboratories (CD8 T cells GSE144691, GSE98837): scout what each set provides (metadata only), then seal: healthy samples that pass the shape check read inside band v1 (0.7787-1.0551); commission if met. PHY-047 closed as recorded (lesson C19); PHY-055 clean room part A in parallel",
+   "next_step": "sealed 2026-10-16 (author: 'okay, seal it'): 13 healthy CD8 T-cell samples, GSE144691 (Youngblood, St. Jude), first 40 billion bases each, chain count; S1: at least 75 percent of read samples inside band v1, at least 8 read. Two self-terminating machines aligning and counting; then score_grand.py once",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -25778,6 +25778,15 @@
    "id": "COM-IAMA-052",
    "sources_of_row": [
     "session 2026-10-15"
+   ],
+   "chain_outputs": [
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01",
+     "files": 2,
+     "stage": "Q2 self-reference",
+     "chain": "52e94725c307",
+     "latest_utc": "2026-10-16T11:05:11Z"
+    }
    ]
   },
   {
@@ -26473,6 +26482,14 @@
      "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
      "payload_sha256": "739649d3166213bf6152d6f6a94d090481bee7516b3af0df4d7ff152fb199634",
      "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "MET (chain result Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json)",
+     "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
+     "payload_sha256": "8d615b0a369d39889e0579a98ba95d4e3bc860d10d01f573511e7db7b3e2f334",
+     "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
    "next_step": "sample-shape check (COM-IAMA-053) and IAM-A's own healthy band (COM-IAMA-054) through Stage Q2; second laboratory on GSE49627 through the chain",
@@ -26497,8 +26514,8 @@
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01",
      "files": 1,
      "stage": "Q2 self-reference",
-     "chain": "a49c36c7b9a0",
-     "latest_utc": "2026-10-16T09:32:04Z"
+     "chain": "52e94725c307",
+     "latest_utc": "2026-10-16T10:55:32Z"
     },
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/out",
@@ -26580,6 +26597,14 @@
      "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/secondlab02_scored.json",
      "payload_sha256": "93413cbb73f730a4b4795922ec21031af8b681a013bbdcb844c39ee9070b1323",
      "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "MET (chain result Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json)",
+     "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
+     "payload_sha256": "8d615b0a369d39889e0579a98ba95d4e3bc860d10d01f573511e7db7b3e2f334",
+     "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
    "next_step": "applied first in DEV-SECONDLAB-02 (Hansen B cells, limit 0.662)",
@@ -26606,8 +26631,8 @@
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01",
      "files": 2,
      "stage": "Q2 self-reference",
-     "chain": "a49c36c7b9a0",
-     "latest_utc": "2026-10-16T09:32:04Z"
+     "chain": "52e94725c307",
+     "latest_utc": "2026-10-16T10:55:32Z"
     },
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/shape_out",
@@ -26679,6 +26704,14 @@
      "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
      "payload_sha256": "739649d3166213bf6152d6f6a94d090481bee7516b3af0df4d7ff152fb199634",
      "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "MET (chain result Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json)",
+     "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
+     "payload_sha256": "8d615b0a369d39889e0579a98ba95d4e3bc860d10d01f573511e7db7b3e2f334",
+     "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
    "next_step": "band v1 built (Normal 0.7787-1.0551, 156 readings, two laboratories); becomes IAM-A's Normal mark when IAM-A is commissioned (COM-IAMA-052)",
@@ -26703,8 +26736,8 @@
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01",
      "files": 1,
      "stage": "Q2 self-reference",
-     "chain": "a49c36c7b9a0",
-     "latest_utc": "2026-10-16T09:32:04Z"
+     "chain": "52e94725c307",
+     "latest_utc": "2026-10-16T10:55:32Z"
     },
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_BAND_01",
@@ -26920,6 +26953,28 @@
    "notes": "",
    "legacy_ids": [],
    "id": "OTH-065",
+   "sources_of_row": [
+    "session 2026-10-16"
+   ]
+  },
+  {
+   "title": "IAM-A conversion-quality cutoff: withhold a sample whose chemistry is too poor to read",
+   "purpose": "Author question 2026-10-16: does IAM-A need more than its own sample? Hansen's donor spread followed conversion failure (1.8, 2.3, 5.1 percent; the worst read at the band edge). A sample whose chemistry is too poor should be withheld, as Met-A withholds arrays. Not part of the sealed CD8 test; designed after it, from its measured conversion failures.",
+   "instrument_or_term": "all",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_SECONDLAB_02.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "after DEV-IAMA-GRAND-01 is scored: look at conversion failure against reading across Loyfer, Hansen and the CD8 samples; then a rule, synthetic first",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "",
+   "legacy_ids": [],
+   "id": "COM-IAMA-055",
    "sources_of_row": [
     "session 2026-10-16"
    ]

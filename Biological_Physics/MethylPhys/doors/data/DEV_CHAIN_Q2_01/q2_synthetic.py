@@ -132,6 +132,15 @@ R["T7"] = t7
 import tempfile as _tf
 _p = os.path.join(_tf.mkdtemp(), "t8.json"); Q2.write_json({"read_lengths": {101: 5, 99: 2, 100: 7}, "x": 0.1}, _p, manifest=["OTH-057"])
 _o = json.load(open(_p)); ok["T8"] = Q2.payload_sha(_o) == _o["chain_stamp"]["payload_sha256"]; R["T8"] = ok["T8"]
+# ---- T9 grand-test verdict (COM-IAMA-052): planted readings against a planted band and shape reference
+_line = Q2.line; Q2.line = lambda version=None: dict(firm=0.03, slope=0.2, version=0, axis="raw")
+_B = dict(lo=0.78, hi=1.06); _ref = dict(margin=0.0, cells={"cd8 t cells": dict(min_p10=0.5, n=10)})
+def _rec(A, p10=0.7, L=0.05): return dict(loose_share=L, held_err=A * (0.03 + 0.2 * L), tile_p10=p10, sample="x")
+def _gv(As, bad_shape=0): return Q2.grand_verdict([(_rec(a, 0.3 if i < bad_shape else 0.7), "cd8 t cells") for i, a in enumerate(As)], B=_B, ref=_ref)["verdict"]
+t9 = {"13 inside": _gv([0.95] * 13), "10 of 13 inside": _gv([0.95] * 10 + [1.3] * 3), "9 of 13 inside": _gv([0.95] * 9 + [1.3] * 4),
+      "3 refused, 10 read all inside": _gv([1.3] * 3 + [0.95] * 10, bad_shape=3), "6 refused, 7 read": _gv([0.95] * 13, bad_shape=6)}
+Q2.line = _line
+ok["T9"] = t9 == {"13 inside": "MET", "10 of 13 inside": "MET", "9 of 13 inside": "NOT MET", "3 refused, 10 read all inside": "MET", "6 refused, 7 read": "NOT ASSESSED"}; R["T9"] = t9
 R["ok"] = ok; R["verdict"] = "MET" if all(ok.values()) else "NOT MET"
 Q2.write_json(R, os.path.join(H, "q2_synthetic.json"), manifest=["OTH-057", "COM-IAMA-053", "COM-IAMA-054"])
 print(json.dumps(ok), R["verdict"]); print(json.dumps(t1)[:400]); [print(x) for x in t2]; print(t3)

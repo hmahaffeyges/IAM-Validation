@@ -10,16 +10,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 136,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "| **COM-IAMA-052** | IAM-A atlas-free commissioning: one grand sealed test on fresh data | commission IAM-A with no atlas and no arrays: on a new laboratory's s"
-},
-{
-"file": "MANIFEST.md",
-"line": 375,
+"line": 376,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -28,7 +19,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 379,
+"line": 380,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
@@ -37,7 +28,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 413,
+"line": 414,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -46,7 +37,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 485,
+"line": 486,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -55,7 +46,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 925,
+"line": 926,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -64,7 +55,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 926,
+"line": 927,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
@@ -73,7 +64,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 928,
+"line": 929,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -82,7 +73,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 933,
+"line": 934,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -97,15 +88,6 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "Commission IAM-A first and foremost, then the C-score, Met-A on its own loose share, and Group-A; build the A-score database; derivations only where they improv"
-},
-{
-"file": "COMMISSIONING_PLAN.md",
-"line": 19,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "- COM-IAMA-052 (planned): remaining gates (2026-10-16): PHY-047 (Hansen score), PHY-050 (meter error from the Hansen count), COM-IAMA-054 (band rule sealed 2026"
 },
 {
 "file": "COMMISSIONING_PLAN.md",

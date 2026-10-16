@@ -244,3 +244,21 @@ def build_band(healthy, version=None):
     a = np.array([reading(o, version)["A"] for o in healthy], dtype=float); labs = collections.Counter(o.get("lab", "unknown") for o in healthy)
     return dict(lo=float(np.percentile(a, 2.5)), hi=float(np.percentile(a, 97.5)), median=float(np.median(a)), n=int(len(a)), labs=dict(labs),
                 rule="2.5th to 97.5th percentile of pooled healthy readings, A = held error / line prediction (COM-IAMA-054)", line_version=version or line()["version"])
+
+# ---------------------------------------------------------------- the grand sealed test (COM-IAMA-052), drafted 2026-10-16
+GRAND_SHARE = 0.75; GRAND_MIN_READ = 8
+CD8_SHAPE_TYPE = {"naive": "naive cd8 t cells", "tem": "effector memory cd8 t cells", "tcm": "cd8 t cells", "tscm": "cd8 t cells"}
+def band(version=1):
+    J = json.load(open(os.path.join(LINE_DIR, f"band_v{version}.json"), encoding="utf-8")); assert payload_sha(J) == J["chain_stamp"]["payload_sha256"]; return J
+def grand_verdict(records, version=1, B=None, ref=None):
+    """records: [(count, shape type)] for each healthy sample. Each is shape-checked first (refused = listed, not counted); each read sample's
+    reading A must lie inside IAM-A's band v1. MET if at least GRAND_SHARE of the read samples are inside and at least GRAND_MIN_READ were read;
+    NOT ASSESSED if fewer were read."""
+    B = B or band(version); rows = []
+    for rec, typ in records:
+        s = shape_check(rec, typ, ref=ref); r = dict(sample=rec.get("sample") or rec.get("run"), shape_type=typ, shape=s["reason"], read=s["read"])
+        if s["read"]: A = reading(rec)["A"]; r.update(A=A, inside=bool(B["lo"] <= A <= B["hi"]))
+        rows.append(r)
+    n = sum(r["read"] for r in rows); k = sum(r.get("inside", False) for r in rows)
+    v = "NOT ASSESSED" if n < GRAND_MIN_READ else ("MET" if k >= GRAND_SHARE * n else "NOT MET")
+    return dict(verdict=v, read=n, inside=k, of=len(rows), band=dict(lo=B["lo"], hi=B["hi"]), rows=rows)

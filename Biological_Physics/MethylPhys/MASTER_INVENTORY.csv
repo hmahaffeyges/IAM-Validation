@@ -105,6 +105,7 @@ GSE142257,downloads/C_tissue_tests/GSE142257/,4.03,IDAT,yes,unspent,,,,,,,,Solid
 GSE142512,,,,,spent,,,COMMISSIONING_NOTE_CSCORE,,,,,,
 GSE143209,,,,,,,,DEV_ATLAS_V21_01,not usable (not purified (mixed islet cells)),pancreatic beta | pancreatic alpha,yes,IDAT listed for 64/64 samples,Human pancreatic islets methylation array,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE143752,,,,,partly spent,,,,,,,,,
+GSE144691,,,,,,,,DEV_IAMA_GRAND_01,,,,,,
 GSE144858,,,,,partly spent,,,,,,,,,
 GSE145745,,,,,,,,,not usable (cultured with no uncultured comparison),kidney tubular epithelium,yes,IDAT listed for 24/24 samples,Integrative omics analyses reveal epigenetic memory in diabetic cells regulating genes associated with kidney dysfunction. [microarray],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE145887,downloads/F_salmonid/GSE145887/,0.99,,,unspent,,,,,,,,Steelhead and other salmonid sets,S3 register
@@ -408,6 +409,7 @@ GSE94785,,,,,,scored,DEV_TISSUE_LUNG_01,DEV_FINGERPRINT_03; DEV_TISSUE_LUNG_01; 
 GSE95761,,,,,,,,,not usable (cell lines from manipulated embryos),embryonic stem cells,yes,IDAT listed for 6/6 samples,DNA methylation data from ESCs derived by polar body transfer reconstructed embryos (PBTESCs),gold-mine map
 GSE96612,,,,,,,,DEV_IAMA_NEURON_01,atlas build,cortical neurons | oligodendrocytes,yes,SRA run links for 72/72 samples,Neuronal brain region-specific DNA methylation and chromatin accessibility are associated with neuropsychiatric trait heritability [Bisulfite-Seq],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE98203,,,,,,,,,held-out test,cortical neurons,yes,IDAT listed for 88/88 samples,DNA methylation profiling of human prefrontal cortex neurons in heroin users shows significant difference between genomic contexts of hyper- and hypomethylation,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE98837,,,,,,,,DEV_IAMA_GRAND_01,,,,,,
 GSE99511,,,,,partly spent,,,,not usable (not purified (cervico-vaginal self-samples)),,yes,IDAT listed for 68/68 samples,Identification and validation of a novel 3-gene methylation classifier for HPV-based cervical screening on self-samples,gold-mine map
 G_chain_tests 56 series - Stage 1 betas,,,,,spent,,,,,,,,,
 PRJDB12471,,,,,,,,DEV_METHIONINE_01,,,,,,
