@@ -225,6 +225,26 @@
    "phrase": "least holding",
    "why": "the gauge reads writing, not holding energy; holding energy runs the opposite way (highest at the left end) and confused the gauge (lesson C17)",
    "use_instead": "the least writing an X cell can run on"
+  },
+  {
+   "phrase": "problem dissolved",
+   "why": "draft overclaim language (author 2026-10-16: 'I never use that language in public facing document'); state what the reading implies and its status instead",
+   "use_instead": "on this reading the problem reads differently"
+  },
+  {
+   "phrase": "paradox dissolves",
+   "why": "draft overclaim language (author 2026-10-16: 'I never use that language in public facing document'); state what the reading implies and its status instead",
+   "use_instead": "the paradox would not arise, on this reading"
+  },
+  {
+   "phrase": "is not a problem under this",
+   "why": "draft overclaim language (author 2026-10-16: 'I never use that language in public facing document'); state what the reading implies and its status instead",
+   "use_instead": "reads differently under this"
+  },
+  {
+   "phrase": "This dissolves the",
+   "why": "draft overclaim language (author 2026-10-16: 'I never use that language in public facing document'); state what the reading implies and its status instead",
+   "use_instead": "This would remove the"
   }
  ],
  "retired_foundations": [

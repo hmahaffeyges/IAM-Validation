@@ -2147,3 +2147,4 @@ The author's downtime item 3: chemistry (bisulfite, EM-seq, conversion failure),
 
 ### 2026-10-16 · Book fixes: glossary collapsed fraction; virial-partners ratio by construction (PHY-075)
 The author's rule: every book error is told to him and fixed. Glossary f_coll entry corrected to the virial chapter's values; p7_05b now states R(1) = 2 holds by construction and is not evidence, and its coincidence section is marked an interpretation. The virial chapters already carried the 2026-10-01 trace (eta_vir a definition; 0.62 below Tinker's calibrated range).
+Book wording pass: three draft overclaim phrases reworded (p3_01b, p7_02, p7_05b) and four phrases retired in CANON/foundation.json (PHY-075).
