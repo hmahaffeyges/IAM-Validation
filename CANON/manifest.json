@@ -3803,6 +3803,14 @@
      "outcome": "success",
      "note": "U2a scored once (box job 8abbdbe9): blind sites COMMISSIONED for the colon and lung tissue tests; breast and liver NOT ASSESSED (no held-out epithelium). Record: doors/DEV_ATLAS_V21_01.md",
      "page": "not headline: part of the atlas commissioning, announced with it"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "fail",
+     "note": "NOT MET (chain result Biological_Physics/MethylPhys/doors/data/DEV_DECONV_V21_01/deconv_scored_v21.json)",
+     "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_DECONV_V21_01/deconv_scored_v21.json",
+     "payload_sha256": "2bc132ac645151552657f9cc7285c91fd5124887556382d74b5b1e963f6be633",
+     "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
    "next_step": "widen the commissioned uses (see the note's 'What it would take to go further')",
@@ -3828,10 +3836,10 @@
     },
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_DECONV_V21_01",
-     "files": 1,
+     "files": 3,
      "stage": "Q2 self-reference",
      "chain": "dfdbfb19916b",
-     "latest_utc": "2026-10-16T23:30:46Z"
+     "latest_utc": "2026-10-16T23:37:05Z"
     }
    ]
   },
@@ -27159,16 +27167,22 @@
    "instrument_or_term": "atlas v2.1, deconvolution",
    "sources": [],
    "data_status": "mixtures to be chosen (independent of every atlas source)",
-   "status": "sealed",
+   "status": "run",
    "runs": [
     {
      "date": "2026-10-16",
      "outcome": "success",
      "note": "planted test PASSED on the six-cell panel (error 0.003)",
      "page": "not headline: synthetic"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "fail",
+     "note": "scored once (box job e8e72ed7): B1 MET (mean error 0.029), B2 NOT MET (true share inside the 95% bar 0.42); shares right to about 3 points, error bars too narrow (site resampling only). Record: doors/DEV_DECONV_V21_01.md",
+     "page": "not headline: development"
     }
    ],
-   "next_step": "score once on the box",
+   "next_step": "error bar that carries the measured donor and laboratory spread; test on mixtures not built from these arrays",
    "cost": "laptop",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/DEV_DECONV_V21_01.md",

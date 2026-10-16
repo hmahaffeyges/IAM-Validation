@@ -2206,3 +2206,6 @@ After four spot helpers were reclaimed, an on-demand helper J (i-02ba02f9f94113c
 
 ### 2026-10-16 · Deconvolution tool (chain Stage D21) built, planted test passed, real test sealed (ATL-065)
 Atlas ranges, per-cell markers, weighted non-negative fit with a laboratory term, 95 percent bars from site resampling. Planted test PASSED (12-cell and six-cell panels). The only public wet-lab mixtures are from the Salas/Christensen laboratory (same group as two build sources), so the author chose: bars scored on 200 mixtures of held-out arrays from independent laboratories, Salas mixtures reported.
+
+### 2026-10-16 · Deconvolution tool scored once (ATL-065)
+B1 MET: mean error 0.029 per cell on 200 mixtures of held-out arrays from independent laboratories. B2 NOT MET: the true share falls inside the 95 percent bar 42 percent of the time; the bar comes from site resampling and misses donor and laboratory spread. Stays development.

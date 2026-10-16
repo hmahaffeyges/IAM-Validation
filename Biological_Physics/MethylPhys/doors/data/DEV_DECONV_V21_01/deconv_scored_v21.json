@@ -1,0 +1,43 @@
+{
+ "test": "DEV-DECONV-V21-01 (release track B)",
+ "arrays": {
+  "neutrophils": 48,
+  "monocytes": 116,
+  "b cells": 103,
+  "cd4 t cells": 156,
+  "cd8 t cells": 133,
+  "nk cells": 28
+ },
+ "markers": 600,
+ "B1_mean_error": 0.028733014076802385,
+ "B1_met": true,
+ "B2_inside": 0.4175,
+ "B2_met": false,
+ "per_cell_error": {
+  "b cells": 0.013012818778092952,
+  "cd4 t cells": 0.03233431528912997,
+  "cd8 t cells": 0.04800733747556956,
+  "monocytes": 0.017976481027705476,
+  "neutrophils": 0.025879390169059813,
+  "nk cells": 0.035187741721256535
+ },
+ "per_cell_inside": {
+  "b cells": 0.45,
+  "cd4 t cells": 0.37,
+  "cd8 t cells": 0.3,
+  "monocytes": 0.46,
+  "neutrophils": 0.385,
+  "nk cells": 0.54
+ },
+ "verdict": "NOT MET",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "dfdbfb19916b0106f794fecb99434b007163184aec37a0ec72c7a463451d99c1",
+  "payload_sha256": "2bc132ac645151552657f9cc7285c91fd5124887556382d74b5b1e963f6be633",
+  "inputs": [],
+  "manifest": [
+   "ATL-005"
+  ],
+  "utc": "2026-10-16T23:37:05Z"
+ }
+}

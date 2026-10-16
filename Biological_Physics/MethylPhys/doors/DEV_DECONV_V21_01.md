@@ -30,3 +30,18 @@ The planted test on the six-cell panel PASSED first (pure cells read at least 0.
 **What it would take to succeed:** both bars met on the 200 sealed mixtures.
 
 **In plain words:** real healthy blood cells from outside laboratories are mixed in known amounts by computer, and the tool must say how much of each is in the mix, with an honest error bar.
+
+## Outcome (2026-10-16), scored once: B1 MET, B2 NOT MET
+
+Box job e8e72ed7 (code 47c18ab3); planted test PASSED first on the box. 200 mixtures of 584 held-out arrays from independent laboratories
+(`data/DEV_DECONV_V21_01/deconv_scored_v21.json`, `deconv_mixtures_v21.csv`).
+
+| bar | result | verdict |
+|---|---|---|
+| B1 mean error per cell <= 0.03 | **0.029** (B 0.013, monocytes 0.018, neutrophils 0.026, CD4 T 0.032, NK 0.035, CD8 T 0.048) | MET |
+| B2 true share inside its 95 % bar >= 80 % | **0.42** | NOT MET |
+
+**What it means.** The shares are right to about 3 points on outside-laboratory cells. The error bars are too narrow: they come from
+resampling sites, which measures how well the mix fits, but not how much one donor's or one laboratory's cells differ from the atlas's
+average cell. The same gap U1 found. The tool stays development; the next step is an error bar that carries the measured donor and
+laboratory spread, tested on mixtures not built from these arrays.
