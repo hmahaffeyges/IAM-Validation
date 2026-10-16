@@ -94,3 +94,11 @@ laboratory's overall methylation level into the loose share.
 **What it would take.** A loose share that reads the same in two laboratories: the cut defined from the sample itself rather than fixed at
 0.70 (for example, relative to the sample's own firm level), designed and synthetic-tested first, then re-read on both laboratories' cells.
 Whether ENCODE's lower overall level is biology, donor or protocol is not settled here.
+
+**Follow-up the same evening (author chose: the cut from the sample's own firm level).** Checked first on the two B cells already read
+(`scale_diagnosis.json`): the difference is the SHAPE of the tile distribution, not its level. Loyfer B 10th percentile / median / 90th
+percentile 0.735 / 0.811 / 0.865; ENCODE B 0.545 / 0.767 / 0.886: the top ends match, ENCODE carries a long tail of much less methylated
+tiles. A cut set from the sample's own median still leaves ENCODE about five times Loyfer's share (0.278 against 0.053). ENCODE's earlier,
+deeper run of the same experiment on its earlier pipeline (ENCFF774VLD, coverage 15) shows the same tail (loose share 0.326, 10th percentile
+0.539): not the extractor, not the newer pipeline, not coverage. The tail belongs to this donor's sample (biology or preparation).
+**Next:** healthy B cells from a third source, to learn whose tail is typical, before the definition is chosen.

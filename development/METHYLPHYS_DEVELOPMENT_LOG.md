@@ -2012,3 +2012,6 @@ The line's held errors carry the committed scale factor 0.7412824486 (opensea_li
 
 ### 2026-10-15 · DEV-SECONDLAB-01 diagnosis: the fixed 0.70 cut carries a lab's overall methylation level into the loose share
 ENCODE own calls 0.359 (extractor 0.337): not the extractor. ENCODE B cells genome-wide 0.727 against Loyfer 0.805; at the steep 0.70 cut that becomes 0.36 against 0.054. Next: a loose share defined from the sample itself, synthetic with a planted offset first.
+
+### 2026-10-15 · Loose-share definition: the labs differ in shape, not level
+Author chose the self-relative cut. Checked first on the two B cells: ENCODE carries a long low tail (p10 0.545 against 0.735) with matching tops; a self-relative cut leaves 5x. ENCODE's 2017 run of the same experiment shows the same tail. Next: a third source of healthy sorted cells before the definition is sealed.

@@ -26381,13 +26381,13 @@
    "record": "Biological_Physics/MethylPhys/doors/DEV_SECONDLAB_01.md",
    "status": "planned",
    "runs": [],
-   "next_step": "candidate definitions (cut relative to the sample's own firm level; share of tiles below the sample's median minus a fixed margin); synthetic with a planted overall offset first; then re-read Loyfer and ENCODE cells",
+   "next_step": "metadata search for healthy sorted B cells (and T, NK, monocytes) WGBS from a third source; read their tile distributions; then choose and seal the definition, synthetic first",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
     "PHY-047"
    ],
-   "notes": "2026-10-15",
+   "notes": "2026-10-15 | author chose the cut from the sample's own firm level; checked first: the labs differ in the shape of the tile distribution (ENCODE low tail), so a self-relative cut alone leaves 5x; ENCODE's 2017 run shows the same tail",
    "legacy_ids": [],
    "id": "PHY-074",
    "sources_of_row": [

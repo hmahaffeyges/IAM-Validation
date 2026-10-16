@@ -22,5 +22,33 @@
    "0.75": 0.133
   },
   "global_mean": 0.8045
+ },
+ "encode_b_2017_ENCFF774VLD": {
+  "note": "earlier ENCODE pipeline, same experiment ENCSR284TCU; bedMethyl rows per strand, so a 2,000-row tile is about 1,000 CpGs",
+  "coverage_median": 15.0,
+  "global_mean": 0.7351,
+  "tiles": 24296,
+  "loose_share": 0.326,
+  "p10": 0.539,
+  "tile_median": 0.798,
+  "p90": 0.892
+ },
+ "shape": {
+  "loyfer_b": {
+   "p10": 0.735,
+   "median": 0.811,
+   "p90": 0.865
+  },
+  "encode_b_2021": {
+   "p10": 0.545,
+   "median": 0.767,
+   "p90": 0.886
+  },
+  "self_relative_cut_check": {
+   "loyfer_below_0p863_median": 0.053,
+   "encode_below_0p863_median": 0.278,
+   "loyfer_below_median_minus_0p11": 0.054,
+   "encode_below_median_minus_0p11": 0.268
+  }
  }
 }
