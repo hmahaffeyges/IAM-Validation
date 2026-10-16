@@ -49,14 +49,13 @@ test from 2026-10-15 on is held to the rule by the push gate (CANON/chain_gate.p
 **Also not chain-verified: the self-reference line itself** (development/loose_share_2026-10-15/, own-read counts of Loyfer's 153 samples).
 It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 
-**53 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
+**52 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
 
 | record | synthetic script | why | manifest rows |
 |---|---|---|---|
 | DEV_BACKBONE_01 *IAM-A gate* | `DEV_BACKBONE_01/backbone_01.py` | declares NO CHAIN | PHY-043 |
 | DEV_SECONDLAB_01 *IAM-A gate* | `DEV_SECONDLAB_01/secondlab.py` | declares NO CHAIN | PHY-047, PHY-050 |
 | CSCORE_COMMISSIONING_PLAN | `CSCORE_COMMISSIONING/plan_numbers.py` | declares NO CHAIN | COM-METAA-036, COM-CSCORE-001, COM-CSCORE-002, COM-CSCORE-003, COM-CSCORE-004, COM-CSCORE-005 |
-| DEV_ATLAS_USE_01 | `DEV_ATLAS_USE_01/use_tests_v21.py` | declares NO CHAIN | ATL-060 |
 | DEV_BLOOD_SENSITIVITY_01 | `DEV_BLOOD_SENSITIVITY_01/blood_sensitivity_01.py` | no chain import | COM-METAA-020, CAN-007, CAN-011, CAN-020, CAN-021, PHY-001 |
 | DEV_BREACH_01 | `DEV_BREACH_01/planted_breach_01.py` | declares NO CHAIN | BRE-003, BRE-004, BRE-007, DAT-124, SCO-049 |
 | DEV_CEILING_02 | `DEV_CEILING_02/ceiling_position_02.py` | declares NO CHAIN | CAN-003, CAN-006, TIS-001, TIS-002 |

@@ -3815,10 +3815,10 @@
    "chain_outputs": [
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01",
-     "files": 3,
+     "files": 4,
      "stage": "Q2 self-reference",
      "chain": "52e94725c307",
-     "latest_utc": "2026-10-16T17:56:40Z"
+     "latest_utc": "2026-10-16T18:04:06Z"
     }
    ]
   },
@@ -24957,6 +24957,15 @@
    "notes": "result file when run: doors/data/DEV_ATLAS_V21_01/head_to_head_v21_summary.txt (readiness G10); author 2026-10-15: the Loyfer and Moss use tests are a showcase, not a referee gate ('dont make the bars too high'). Three uses: (1) cell-type markers confirmed on held-out arrays against their own published list; (2) mixtures of known proportions, including the author's wide-area mixture (their cells plus cells only v2.1 has) and a fair arm of shared cells only; (3) extras shown, not scored (an interval at every site, the 100 draws, the array-to-sequencing bridge). Framing: grid wide-area view (NERC ICCP, two steps beyond the ties). Sealed while the fit runs, before any output is opened",
    "sources_of_row": [
     "author 2026-10-13: if they do not find it better than what they have, they will not care"
+   ],
+   "chain_outputs": [
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_USE_01",
+     "files": 2,
+     "stage": "Q2 self-reference",
+     "chain": "52e94725c307",
+     "latest_utc": "2026-10-16T18:35:04Z"
+    }
    ]
   },
   {

@@ -18,8 +18,8 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 5. **IAM-A: the grand sealed test, then commissioning**
    - COM-IAMA-052 (running): sealed 2026-10-16 (author: 'okay, seal it'): 13 healthy CD8 T-cell samples, GSE144691 (Youngblood, St. Jude), first 40 billion bases each, chain count; S1: at least 75 percent of read samples inside band v1, at least 8 read. Two self-terminating machines aligning and counting (run 1 never started, start-up file quoting; run 2: A i-0fd3660dff150bd4a, B i-0888ed7bd36c2020c, launched 04:34 PDT (AWS launch time); preflight ok 04:41 PDT, mapping 89.3 and 89.7 percent, poly-G tails 0.01 percent); then score_grand.py once
 6. **Atlas v2.1: the fit lands; release checks, sealed bars, the Loyfer and Moss use tests**
-   - ATL-005 (running; last run 2026-10-16: not met): U1 (4 of 27 pairs) and U3 (failed) scored 2026-10-16; U2a running; then the per-use commissioning decision
-   - ATL-060 (sealed): after the v2.1 release: assemble the held-out betas (Stage 1) and run use_tests_v21.py real once
+   - ATL-005 (running; last run 2026-10-16: met): U1 (4 of 27 pairs) and U3 (failed) scored 2026-10-16; U2a running; then the per-use commissioning decision
+   - ATL-060 (run; last run 2026-10-16: met): after the v2.1 release: assemble the held-out betas (Stage 1) and run use_tests_v21.py real once
 7. **Backbone: healthy range on the same counter; tumor-adjacent against truly healthy colon**
    - PHY-071 (planned): count the 56 healthy cell types' firm territory with PROC-TUMOUR-01's counter; write the range before comparing; re-read N and T2
    - PHY-072 (planned): healthy donors' colon epithelium (Loyfer) on the same counter and territory against the six adjacent normals; rule first
