@@ -4,7 +4,7 @@
  "floor": {
   "A": 1e-07,
   "book_anchor": "is at $1\\times10^{-7}$ on both rows, off the left edge",
-  "label": "floor H_min: thermal kicks win against one ATP. Below it identity can no longer be held"
+  "label": "floor H_min: the least writing an X cell can run on (one ATP against thermal kicks). Below it the bit rate is too low to maintain the cell"
  },
  "normal": {
   "lo": 0.95,
@@ -21,8 +21,8 @@
   "book_anchor": "full surface & Met-A $3.03$; IAM-A $4.26$",
   "label": "full surface: every identity site at a coin flip - the 2D surface is full and past it the reading turns over"
  },
- "left_region": "writes less than healthy: more order (senescence reads here)",
- "right_region": "over-writing toward the full surface: the black hole side, where cancer sits",
+ "left_region": "less writing than healthy (senescence reads here)",
+ "right_region": "more and more writing toward the full surface: the black hole side, where cancer sits",
  "direction_entry": "gauge_direction",
  "normal_by_instrument": {
   "Met-A": [
@@ -33,13 +33,14 @@
   "_note": "IAM-A has no healthy band of its own yet (COM-IAMA-054); Met-A's band is not borrowed (author 2026-10-15). A band is drawn only where it was measured."
  },
  "reading": [
-  "Left end, the floor (H_min): the least holding work that still keeps a cell's identity. Going left past it, a cell can no longer hold its identity. Derived: one full ATP per site against thermal kicks.",
-  "Left of healthy: more order than healthy cells. Senescence reads here.",
-  "Healthy: where purified healthy cells of this type read. Measured, not chosen.",
-  "Right of healthy: over-writing. The record fills up toward the full surface, the black-hole side. Cancer sits here. It has not lost its identity; it is writing too much error.",
-  "Right end, the ceiling (full surface): every identity site at a coin flip, 1 bit per site. Derived."
+  "The gauge reads the writing on the cell's 2D surface, in bits: less writing to the left, more to the right.",
+  "Left end, the floor (H_min): the least writing an X cell can run on. Below it the bit rate is too low to maintain the X cell. Derived: one full ATP per site against thermal kicks.",
+  "Left of healthy: less writing than healthy cells. Senescence reads here.",
+  "Healthy: the balance, the bit rate this cell type is built for. Measured on purified healthy cells, not chosen.",
+  "Right of healthy: more and more writing; the surface fills up toward the full surface, the black-hole side. Cancer sits here. It has not lost its identity; it is writing more than the cell can manage.",
+  "Right end, the ceiling (full surface): every identity site at a coin flip, 1 bit per site, the surface full. Derived."
  ],
- "misreading": "A misreading to avoid. It was made more than three times while this gauge was being built, so it is printed on every report: the floor is NOT the most a cell can hold, and cancer does NOT lose its identity. The floor is the least holding that still keeps identity; left of it, identity cannot be held. Cancer moves right, toward the ceiling.",
+ "misreading": "A misreading to avoid. It was made more than three times while this gauge was being built, so it is printed on every report: the gauge reads writing on the surface, not holding energy; left is less writing, right is more. The floor is NOT the most a cell can hold, and cancer does NOT lose its identity. Below the floor the bit rate is too low to maintain the cell; cancer moves right, toward the full surface.",
  "forbidden": {
   "_rule": "CANON/gauge_words.py refuses these on every presentation surface unless a negation (not, never, no longer, retired, wrong) stands just before them",
   "floor_as_most_held": {
@@ -57,6 +58,11 @@
    "window": 160,
    "pattern": "(?i)\\b(?:can )?no longer (?:hold|keep|maintain)s? (?:its |their )?identity",
    "unless_before": "(?i)\\bleft\\b|\\bfloor\\b|H_?min|\\bbelow\\b"
+  },
+  "floor_as_holding": {
+   "near": "(?i)\\bfloor\\b|H_?\\\\?_?\\{?min|\\bH_min\\b|left (?:end|edge)",
+   "window": 160,
+   "pattern": "(?i)\\b(?:least|most) holding\\b"
   }
  },
  "book_reading_anchor": "A misreading to avoid."

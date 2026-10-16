@@ -213,13 +213,18 @@
   },
   {
    "phrase": "the most a cell can hold",
-   "why": "the floor H_min is the least holding that still keeps identity; left of it identity cannot be held (entry 'gauge_direction'; lesson C17)",
-   "use_instead": "the least holding that still keeps identity"
+   "why": "the gauge reads writing on the surface in bits: the floor H_min is the least writing an X cell can run on; below it the bit rate is too low to maintain the cell (entry 'gauge_direction'; lesson C17)",
+   "use_instead": "the least writing an X cell can run on"
   },
   {
    "phrase": "most order a site can hold",
-   "why": "the floor H_min is the least holding that still keeps identity; left of it identity cannot be held (entry 'gauge_direction'; lesson C17)",
-   "use_instead": "the least holding that still keeps identity"
+   "why": "the gauge reads writing on the surface in bits: the floor H_min is the least writing an X cell can run on; below it the bit rate is too low to maintain the cell (entry 'gauge_direction'; lesson C17)",
+   "use_instead": "the least writing an X cell can run on"
+  },
+  {
+   "phrase": "least holding",
+   "why": "the gauge reads writing, not holding energy; holding energy runs the opposite way (highest at the left end) and confused the gauge (lesson C17)",
+   "use_instead": "the least writing an X cell can run on"
   }
  ],
  "retired_foundations": [

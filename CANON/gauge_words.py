@@ -56,7 +56,8 @@ def controls():
              ("C8 cancer has not lost identity", "Cancer has not lost its identity; it is over-writing.", False),
              ("C10 Astro-Genetics breach sentence", "Breach, the point past which a cell can no longer hold its identity, lies to the right of Normal and short of the full surface.", True),
              ("C11 identity lost left of the floor", "Going left past the floor, a cell can no longer hold its identity.", False),
-             ("C9 an unrelated 'most'", "The ceiling is the most error a site can carry, a coin flip; the floor is the least holding that keeps identity.", False)]
+             ("C12 holding language at the floor", "Left end, the floor (H_min): the least holding work that still keeps a cell's identity.", True),
+             ("C9 an unrelated 'most'", "The ceiling is the most writing a site can carry, a coin flip; the floor is the least writing an X cell can run on.", False)]
     bad = []
     for name, text, refuse in cases:
         got = bool(scan_text(text, G)); ok = got == refuse

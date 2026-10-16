@@ -803,7 +803,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/DEV_SECONDLAB_02/bam/": false
   },
