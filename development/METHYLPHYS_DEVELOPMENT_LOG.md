@@ -2048,3 +2048,6 @@ ENA served the Hansen runs at about 0.26 MB/s; the first machine (i-08f7918ad0a7
 
 ### 2026-10-15 · Four-domain schematic: three bit measures (author)
 bits stored (data at rest), bits per operation (snapshot or limit), bit rate (in motion), each entry from the book: cosmos record rate (p2_02, conjecture tag kept), black-hole saturation as rate reaching capacity (app_S), Hawking bit rate (p3_01); qubit error per gate and erasure rate (p5_10, p5_02); chip E_sw/(k_B T_j ln 2) and switches per second (p5_06); cell H(eps) per site (p6_06); cell bit rate open (a snapshot; no clock but the candidate development clock).
+
+### 2026-10-15 · Atlas v2.1 fit: two blocks with divergences, for release check F05
+At 480 of 700 blocks: block 458 (11 divergences, R-hat p99 1.0076, ESS p01 476) and block 467 (1; 1.0068; 513); every other block 0. No sealed bar sets a number; F05 (convergence per site) judges them at release, and if a site in them fails F05 the two blocks are refitted with a smaller step.
