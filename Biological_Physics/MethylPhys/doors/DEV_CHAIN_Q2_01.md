@@ -43,3 +43,13 @@ rounding). This is a reproduction, not a new test; no verdict changes.
 The ENCODE five (`out/ENCFF*.json`, chain Stage Q2 count_bam, identical to `secondlab.py`'s counts) read against the chain's line
 (`encode_vs_line_v1.json`): all five below the line, residuals -0.011 to -0.019 on the raw axis, the same verdict as the corrected
 DEV-SECONDLAB-01 (NOT MET; explained by that sample's undermethylated tail, PHY-074).
+
+## Step 3: the tile shape, for the sample-shape check (2026-10-15)
+
+Chain Stage Q2 now also stores each sample's tile percentiles (tile_p10, tile_p50, tile_p90 of the 2,000-CpG tile means), so the
+sample-shape check (COM-IAMA-053) can be built from chain output. Synthetic T5 (`q2_synthetic.py`): the percentiles equal those of the
+planted tile means and under-covered tiles are left out; T1-T5 MET. A range rule was checked first and does not work: ENCODE's loose shares
+(0.11-0.38) lie inside the line's own range (0.03-0.93), so the check must compare a sample with healthy cells of its own type.
+Loyfer's 153 samples and the ENCODE five are counted again through this chain version (box job, `results/DEV_CHAIN_Q2_01/shape/`); held
+error and loose share must reproduce step 2 exactly. The shape rule is then drafted from the healthy evidence, shown to the author, and
+sealed before any Hansen (DEV-SECONDLAB-02) count.

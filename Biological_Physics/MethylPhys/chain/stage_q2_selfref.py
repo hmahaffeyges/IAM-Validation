@@ -60,7 +60,10 @@ def hg19_tiles():
 def _finish(tile_calls, e_iso, e_opp, extra=None):
     m = np.array([a[0] / a[1] for a in tile_calls.values() if a[1] >= MIN_TILE_CALLS])
     out = dict(loose_share=float((m < CUT).mean()) if len(m) else None, tiles=int(len(m)), held_err=e_iso / max(e_opp, 1), held_opp=int(e_opp),
-               cut=CUT, tile_cpgs=TILE, min_tile_calls=MIN_TILE_CALLS)
+               cut=CUT, tile_cpgs=TILE, min_tile_calls=MIN_TILE_CALLS,
+               # the tile distribution's shape, for the sample-shape check (COM-IAMA-053, added 2026-10-15): percentiles of the tile means
+               tile_p10=float(np.quantile(m, 0.10)) if len(m) else None, tile_p50=float(np.quantile(m, 0.50)) if len(m) else None,
+               tile_p90=float(np.quantile(m, 0.90)) if len(m) else None)
     if extra: out.update(extra)
     return out
 def count_pat(lines, tiles):

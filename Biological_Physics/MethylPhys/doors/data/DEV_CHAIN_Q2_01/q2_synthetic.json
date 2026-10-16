@@ -105,18 +105,29 @@
   "edited_line_refused": true,
   "refusal": "selfref_line_v0.json has been edited after the chain wrote it"
  },
+ "T5": {
+  "tile_p10": 0.815000000000002,
+  "want_p10": 0.815000000000002,
+  "tile_p50": 0.85,
+  "want_p50": 0.85,
+  "tile_p90": 0.85,
+  "want_p90": 0.85,
+  "tiles": 1000,
+  "loose_share": 0.1
+ },
  "ok": {
   "T1": true,
   "T2": true,
   "T3": true,
-  "T4": true
+  "T4": true,
+  "T5": true
  },
  "verdict": "MET",
  "chain_stamp": {
   "stage": "Q2 self-reference",
-  "chain_sha": "2f03a59ff0ed2ff2cd631de4abf4d001c9d1596e8cd0a5b68b5bdd07a75fadc0",
-  "payload_sha256": "25506eaac486daccde29d6b257c118c6a5689d443365a6245896bc8db3fdb72c",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "963781a252d43be18d134e299d8f62afe890b487f366d8c7e478023e4bb00534",
   "inputs": [],
-  "utc": "2026-10-16T02:39:11Z"
+  "utc": "2026-10-16T05:18:23Z"
  }
 }

@@ -2,6 +2,7 @@
  T1 the .pat reader equals the development counter (own_reads_loose.one) exactly on the same lines, and recovers planted loose shares
  T2 the aligned-read reader recovers planted loose share, held error (truth = the counter's rule on the planted molecules) and sequencing
     error, for gemBS (XB) on both strands and for Bismark (XM)
+ T5 the tile percentiles (shape check) equal those of the planted tile means; under-covered tiles are left out
  T3 build_line recovers a planted line; residual() reads a sample against it; an edited line file is refused
  T4 every output carries a chain stamp whose payload hash verifies
 Writes q2_synthetic.json (stamped)."""
@@ -89,6 +90,17 @@ Q2.LINE_DIR = LD
 ok["T3"] = t3["recovered"] and t3["residual_ok"] and t3["edited_line_refused"]; R["T3"] = t3
 # ---- T4
 o = Q2.stamp({"x": 1}); ok["T4"] = Q2.payload_sha(o) == o["chain_stamp"]["payload_sha256"] and len(o["chain_stamp"]["chain_sha"]) == 64
+# ---- T5 (2026-10-15): the tile distribution's shape. 900 tiles at 0.85 and 100 at 0.50 with 400 calls each, plus 50 tiles at 0.10 with
+# 150 calls (below MIN_TILE_CALLS, must be left out); the chain's percentiles must equal those of the 1,000 planted tile means.
+tc = {}
+for i in range(900): tc[("chr1", i)] = (0.85 * 400, 400)
+for i in range(900, 1000): tc[("chr1", i)] = (0.50 * 400, 400)
+for i in range(1000, 1050): tc[("chr1", i)] = (0.10 * 150, 150)
+o5 = Q2._finish(tc, 0, 1); want = np.array([0.85] * 900 + [0.50] * 100)
+t5 = dict(tile_p10=o5["tile_p10"], want_p10=float(np.quantile(want, 0.1)), tile_p50=o5["tile_p50"], want_p50=float(np.quantile(want, 0.5)),
+          tile_p90=o5["tile_p90"], want_p90=float(np.quantile(want, 0.9)), tiles=o5["tiles"], loose_share=o5["loose_share"])
+ok["T5"] = (o5["tiles"] == 1000 and abs(o5["loose_share"] - 0.1) < 1e-12
+            and all(abs(t5[k] - t5["want_" + k[5:]]) < 1e-12 for k in ("tile_p10", "tile_p50", "tile_p90"))); R["T5"] = t5
 R["ok"] = ok; R["verdict"] = "MET" if all(ok.values()) else "NOT MET"
 Q2.write_json(R, os.path.join(H, "q2_synthetic.json"))
 print(json.dumps(ok), R["verdict"]); print(json.dumps(t1)[:400]); [print(x) for x in t2]; print(t3)

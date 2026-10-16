@@ -92,8 +92,8 @@ Total job hours: 86.8.
 | month | total | largest items |
 |---|---|---|
 | 2026-09 | $12.28 | SpotUsage:c7a.8xlarge $6.52; SpotUsage:m7a.32xlarge $2.94; EBS:VolumeUsage.gp3 $1.52; TimedStorage-ByteHrs $0.39 |
-| 2026-10 | $1,136.36 | BoxUsage:m7a.32xlarge $748.67; SpotUsage:m7a.32xlarge $123.38; BoxUsage:m7a.8xlarge $75.30; BoxUsage:m7a.16xlarge $47.52 |
+| 2026-10 | $1,222.75 | BoxUsage:m7a.32xlarge $829.17; SpotUsage:m7a.32xlarge $123.38; BoxUsage:m7a.8xlarge $75.30; BoxUsage:m7a.16xlarge $47.52 |
 
-Daily: 09-28 $7, 09-29 $4, 10-01 $164, 10-02 $204, 10-03 $181, 10-04 $74, 10-05 $8, 10-06 $3, 10-07 $3, 10-08 $5, 10-09 $116, 10-10 $77, 10-11 $94, 10-12 $67, 10-13 $20, 10-14 $58, 10-15 $62
+Daily: 09-28 $7, 09-29 $4, 10-01 $171, 10-02 $204, 10-03 $181, 10-04 $74, 10-05 $8, 10-06 $3, 10-07 $3, 10-08 $5, 10-09 $116, 10-10 $77, 10-11 $94, 10-12 $67, 10-13 $20, 10-14 $58, 10-15 $142
 
 BoxUsage = on-demand machine hours; SpotUsage = spot machine hours. Runs before 2026-10-12 carry no run tag, so their cost is by day and type only.
