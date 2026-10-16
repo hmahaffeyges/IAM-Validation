@@ -1,0 +1,10 @@
+{
+ "_rule": "chain versions that were committed; a chain stamp must name one (CANON/chain_gate.py)",
+ "versions": [
+  {
+   "chain_sha": "2f03a59ff0ed2ff2cd631de4abf4d001c9d1596e8cd0a5b68b5bdd07a75fadc0",
+   "first_commit_after": "31e68c80",
+   "date": "2026-10-15"
+  }
+ ]
+}

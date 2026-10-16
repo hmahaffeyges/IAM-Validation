@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+"""Controls for the chain gate (lesson C8: a check is switched on only if every control gives its stated answer). Builds a throwaway repo
+tree and feeds the gate the mistakes it must refuse, plus one correct test it must accept:
+ C1 the DEV-SECONDLAB-01 pattern: a synthetic script with '# NO CHAIN:' and no chain import                -> REFUSE
+ C2 a script outside the chain typing the line's numbers                                                     -> REFUSE
+ C3 a result file with no chain stamp                                                                        -> REFUSE
+ C4 a stamped result edited by hand afterwards                                                               -> REFUSE
+ C5 a stamped result from a chain version that was never committed                                          -> REFUSE
+ C6 a record citing scratch/                                                                                 -> REFUSE
+ C7 a correct test: chain-importing synthetic, stamped result, committed chain version                      -> ACCEPT"""
+import os, sys, json, tempfile, hashlib, importlib.util
+H = os.path.dirname(os.path.abspath(__file__)); spec = importlib.util.spec_from_file_location("cg", os.path.join(H, "chain_gate.py")); CG = importlib.util.module_from_spec(spec); spec.loader.exec_module(CG)
+def tree():
+    r = tempfile.mkdtemp(); os.makedirs(os.path.join(r, CG.CHAIN)); os.makedirs(os.path.join(r, CG.DOORS, "data", "DEV_X_01"))
+    open(os.path.join(r, CG.CHAIN, "stage_q2_selfref.py"), "w").write("X = 1\n"); return r
+def w(r, p, s): open(os.path.join(r, p), "w").write(s)
+def stamped(o, sha):
+    o = dict(o); o["chain_stamp"] = {"chain_sha": sha, "payload_sha256": hashlib.sha256(CG._canon(o)).hexdigest()}; return o
+NOTE = CG.DOORS + "DEV_X_01.md"; SYN = "**Synthetic test:** DEV_X_01/t.py, DEV_X_01/out.json"; OUT = CG.DOORS + "data/DEV_X_01/out.json"; T = CG.DOORS + "data/DEV_X_01/t.py"
+GOOD = "import sys\nsys.path.insert(0, 'chain')\nimport stage_q2_selfref as Q2\n"
+def run(r, changed, added_note=(SYN,), known=None):
+    return CG.check(changed, {NOTE: list(added_note)}, root=r, known=known if known is not None else {CG.chain_sha(r)})
+res = {}
+r = tree(); w(r, NOTE, SYN + "\n"); w(r, T, "# NO CHAIN: gemBS\nimport pysam\n"); w(r, OUT, json.dumps(stamped({"v": 1}, CG.chain_sha(r))))
+res["C1 NO CHAIN script"] = run(r, [NOTE, T, OUT])
+r = tree(); w(r, "Biological_Physics/MethylPhys/doors/data/DEV_X_01/side.py", "FIRM, LOOSE = 0.0298, 0.0555\n")
+res["C2 line numbers typed"] = run(r, ["Biological_Physics/MethylPhys/doors/data/DEV_X_01/side.py"], ())
+r = tree(); w(r, NOTE, SYN + "\n"); w(r, T, GOOD); w(r, OUT, json.dumps({"v": 1}))
+res["C3 unstamped result"] = run(r, [NOTE, T, OUT])
+r = tree(); w(r, NOTE, SYN + "\n"); w(r, T, GOOD); o = stamped({"v": 1}, CG.chain_sha(r)); o["v"] = 2; w(r, OUT, json.dumps(o))
+res["C4 hand-edited result"] = run(r, [NOTE, T, OUT])
+r = tree(); w(r, NOTE, SYN + "\n"); w(r, T, GOOD); w(r, OUT, json.dumps(stamped({"v": 1}, "f" * 64)))
+res["C5 uncommitted chain"] = run(r, [NOTE, T, OUT])
+r = tree(); w(r, NOTE, SYN + "\nsee scratch/try.py\n"); w(r, T, GOOD); w(r, OUT, json.dumps(stamped({"v": 1}, CG.chain_sha(r))))
+res["C6 scratch cited"] = run(r, [NOTE, T, OUT])
+r = tree(); w(r, NOTE, SYN + "\n"); w(r, T, GOOD); w(r, OUT, json.dumps(stamped({"v": 1}, CG.chain_sha(r))))
+res["C7 correct test"] = run(r, [NOTE, T, OUT])
+want = {k: (k.startswith("C7")) for k in res}
+bad = [k for k, F in res.items() if (len(F) == 0) != want[k]]
+for k, F in res.items(): print(f"  {k}: {'ACCEPTED' if not F else 'REFUSED'} (want {'ACCEPT' if want[k] else 'REFUSE'})" + ("" if not F else f" - {F[0][-110:]}"))
+print("chain_gate_controls: " + ("ok (7 of 7)" if not bad else "FAILED: " + ", ".join(bad))); sys.exit(1 if bad else 0)

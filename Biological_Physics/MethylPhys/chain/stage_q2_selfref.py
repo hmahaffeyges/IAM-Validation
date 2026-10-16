@@ -1,0 +1,188 @@
+#!/usr/bin/env python3
+"""Stage Q2 - IAM-A self-reference (development build, NOT commissioned). Written 2026-10-15 to move the own-read loose share, the held
+error and the self-reference line out of side scripts (development/loose_share_2026-10-15/, doors/data/DEV_SECONDLAB_01/) into the chain.
+Author's rule (2026-10-15): side scripts are for exploration only; every logged test runs through the chain, and the gate checks the stamp.
+
+ONE COUNTER, two readers of the same molecules:
+  count_pat(lines, tiles)          wgbstools .pat lines (Loyfer, hg19 CpG-index tiles): an exact port of own_reads_loose.one()
+  count_bam(bam, ref, ...)         aligned reads (gemBS tag XB, or Bismark tag XM), GRCh38 or hg19, read pairs merged: port of secondlab.py
+Both: molecules alternate EVEN -> loose share, ODD -> held error (no molecule used twice).
+  loose share = tiles of 2,000 consecutive CpGs whose molecules' mean call is below CUT (0.70), over tiles with >= MIN_TILE_CALLS calls
+  held error  = on molecules with >= 6 CpG calls and >= 80 % methylated, isolated unmethylated interior calls / interior calls
+THE LINE lives only here, in its runtime matrix (Runtime Matrices/IAM_A_SelfRef/selfref_line_v*.json), on the RAW held-error axis this counter
+writes. There is no scale factor anywhere: the 0.7412824486 factor of the development line (opensea_line.py) is gone, so a raw value can never
+be compared with a scaled line again (the DEV-SECONDLAB-01 error). predict() and residual() are the only way to use it.
+STAMP: every output this stage writes carries chain_stamp = {stage, chain_sha (sha256 of the chain's .py files), payload_sha256, inputs,
+utc}. CANON/repro_check.py rule 23 recomputes the payload hash and checks chain_sha against CANON/chain_versions.json."""
+import os, sys, json, glob, gzip, hashlib, datetime, collections, numpy as np, pandas as pd
+HERE = os.path.dirname(os.path.abspath(__file__))
+LINE_DIR = os.path.join(HERE, "Runtime Matrices", "IAM_A_SelfRef")
+CUT, TILE, MIN_TILE_CALLS = 0.70, 2000, 200
+QUAL_MIN_CALLS, QUAL_MIN_METH = 6, 0.8
+STAGE = "Q2 self-reference"
+HG19_CPGS = [("chr1",2284470),("chr2",2164335),("chr3",1623646),("chr4",1473930),("chr5",1506454),("chr6",1475569),("chr7",1568666),("chr8",1309135),
+             ("chr9",1226821),("chr10",1351291),("chr11",1289987),("chr12",1277218),("chr13",803708),("chr14",859154),("chr15",825117),("chr16",1047108),
+             ("chr17",1138298),("chr18",650016),("chr19",1009963),("chr20",693212),("chr21",340133),("chr22",554124)]   # PROC-CHANNEL-01 make_windows.py
+
+# ---------------------------------------------------------------- stamp
+def chain_sha():
+    h = hashlib.sha256()
+    for f in sorted(glob.glob(os.path.join(HERE, "*.py"))): h.update(os.path.basename(f).encode()); h.update(open(f, "rb").read())
+    return h.hexdigest()
+def _canon(obj): return json.dumps(obj, sort_keys=True, separators=(",", ":"), default=float).encode()
+def payload_sha(obj): return hashlib.sha256(_canon({k: v for k, v in obj.items() if k != "chain_stamp"})).hexdigest()
+def file_sha(path, chunk=1 << 24):
+    h = hashlib.sha256()
+    with open(path, "rb") as fh:
+        for b in iter(lambda: fh.read(chunk), b""): h.update(b)
+    return h.hexdigest()
+def stamp(obj, inputs=()):
+    """Attach the chain stamp to a result dict. inputs: [{'name':..., 'sha256':..., 'size':...}] (file_sha of each input where possible)."""
+    obj = {k: v for k, v in obj.items() if k != "chain_stamp"}
+    obj["chain_stamp"] = dict(stage=STAGE, chain_sha=chain_sha(), payload_sha256=payload_sha(obj), inputs=list(inputs),
+                              utc=datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
+    return obj
+def write_json(obj, path, inputs=()):
+    o = stamp(obj, inputs); json.dump(o, open(path, "w", encoding="utf-8"), indent=1, default=float); return o
+def write_csv(df, path, inputs=()):
+    df.to_csv(path, index=False); s = dict(stage=STAGE, chain_sha=chain_sha(), payload_sha256=file_sha(path), inputs=list(inputs),
+                                            utc=datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
+    json.dump({"chain_stamp": s}, open(path + ".stamp.json", "w"), indent=1); return s
+
+# ---------------------------------------------------------------- tiles and the .pat reader (exact port of own_reads_loose.one)
+def hg19_tiles():
+    """{chrom: array of [start, end) CpG-index tiles}, consecutive 2,000-CpG tiles, partial last tile dropped (own_reads_genome.tiles)."""
+    T = collections.defaultdict(list); off = 1
+    for c, n in HG19_CPGS:
+        for s in range(off, off + n - TILE + 1, TILE): T[c].append((s - 1, s - 1 + TILE))
+        off += n
+    return {c: np.array(v) for c, v in T.items()}
+def _finish(tile_calls, e_iso, e_opp, extra=None):
+    m = np.array([a[0] / a[1] for a in tile_calls.values() if a[1] >= MIN_TILE_CALLS])
+    out = dict(loose_share=float((m < CUT).mean()) if len(m) else None, tiles=int(len(m)), held_err=e_iso / max(e_opp, 1), held_opp=int(e_opp),
+               cut=CUT, tile_cpgs=TILE, min_tile_calls=MIN_TILE_CALLS)
+    if extra: out.update(extra)
+    return out
+def count_pat(lines, tiles):
+    tile_calls = {}; e_iso = e_opp = 0
+    for k, line in enumerate(lines):
+        p = line.rstrip("\n").split("\t")
+        if len(p) < 4: continue
+        c, i, pat, n = p[0], int(p[1]), p[2], int(p[3]); s = [x for x in pat if x != "."]
+        if not s: continue
+        if k % 2 == 0:
+            w = tiles.get(c)
+            if w is None: continue
+            j = np.searchsorted(w[:, 0], i, side="right") - 1
+            if j < 0 or i > w[j, 1]: continue
+            a = tile_calls.setdefault((c, j), [0, 0]); a[0] += n * s.count("C"); a[1] += n * len(s)
+        elif len(s) >= QUAL_MIN_CALLS and s.count("C") >= QUAL_MIN_METH * len(s):
+            e_opp += n * (len(s) - 2); e_iso += n * sum(1 for q in range(1, len(s) - 1) if s[q] == "T" and s[q - 1] == "C" and s[q + 1] == "C")
+    return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19"))
+
+# ---------------------------------------------------------------- the aligned-read reader (port of secondlab.py, plus Bismark XM)
+AUTOSOMES = [f"chr{i}" for i in range(1, 23)]
+def _cpg_index(seq):
+    b = np.frombuffer(seq.upper().encode(), dtype=np.uint8); return np.flatnonzero((b[:-1] == ord("C")) & (b[1:] == ord("G")))
+def _calls_of(r, ref, ref0, sub):
+    q = r.query_sequence; out = {}; nc = [0, 0]; at = [0, 0]
+    if q is None: return out, nc, at
+    xm = r.get_tag("XM") if r.has_tag("XM") else None; xb = r.get_tag("XB") if r.has_tag("XB") else None
+    if xm is None and xb not in ("C", "G"): return out, nc, at
+    top = (r.get_tag("XG") == "CT") if (xm is not None and r.has_tag("XG")) else (xb == "C")
+    pairs = r.get_aligned_pairs(matches_only=True); L = len(pairs)
+    for j, (qi, ri) in enumerate(pairs):
+        if j < 3 or j >= L - 3: continue
+        k = ri - ref0
+        if k < 1 or k + 1 >= len(ref): continue
+        rb, qb = ref[k], q[qi]
+        if sub and rb in "AT": at[1] += 1; at[0] += qb != rb
+        if xm is not None:
+            z = xm[qi]
+            if z in "Zz": out[ri if top else ri - 1] = z == "Z"
+            elif z in "XxHh": nc[1] += 1; nc[0] += z in "XH"
+            continue
+        if top and rb == "C":
+            if ref[k + 1] == "G":
+                if qb in "CT": out[ri] = qb == "C"
+            elif qb in "CT": nc[1] += 1; nc[0] += qb == "C"
+        elif (not top) and rb == "G":
+            if ref[k - 1] == "C":
+                if qb in "GA": out[ri - 1] = qb == "G"
+            elif qb in "GA": nc[1] += 1; nc[0] += qb == "G"
+    return out, nc, at
+def _merge(a, b):
+    m = dict(a)
+    for p, v in b.items():
+        if p in m and m[p] != v: m[p] = None
+        elif p not in m: m[p] = v
+    return [(p, v) for p, v in sorted(m.items()) if v is not None]
+def count_bam_region(args):
+    """One region of one alignment file -> partial counts. args = (bam, ref_fasta, chrom, start, end)."""
+    bam, fa, chrom, s0, e0 = args
+    import pysam
+    B = pysam.AlignmentFile(bam, "rb"); F = pysam.FastaFile(fa)
+    cp = _cpg_index(F.fetch(chrom)); ntile = len(cp) // TILE
+    T = collections.defaultdict(lambda: [0, 0]); st = collections.Counter(); buf = {}; k = [0]
+    def done(calls):
+        if not calls: return
+        st["molecules"] += 1; k[0] += 1
+        if k[0] % 2 == 0:
+            rk = int(np.searchsorted(cp, calls[0][0]))
+            if rk < len(cp) and cp[rk] == calls[0][0] and rk // TILE < ntile:
+                a = T[rk // TILE]; a[0] += sum(v for _, v in calls); a[1] += len(calls)
+        else:
+            n = len(calls); mm = sum(v for _, v in calls)
+            if n >= QUAL_MIN_CALLS and mm >= QUAL_MIN_METH * n:
+                st["qualifying"] += 1; st["e_opp"] += n - 2
+                st["e_iso"] += sum(1 for i in range(1, n - 1) if (not calls[i][1]) and calls[i - 1][1] and calls[i + 1][1])
+    for r in B.fetch(chrom, s0, e0):
+        if r.reference_start < s0 or r.is_unmapped or r.is_secondary or r.is_supplementary or r.is_duplicate or r.mapping_quality < 10: continue
+        st["reads"] += 1
+        ref0 = r.reference_start - 1; ref = F.fetch(chrom, max(ref0, 0), r.reference_end + 1).upper()
+        if ref0 < 0: ref = "N" + ref
+        c, n1, a1 = _calls_of(r, ref, ref0, st["reads"] % 20 == 0)
+        st["nc_m"] += n1[0]; st["nc_t"] += n1[1]; st["at_mm"] += a1[0]; st["at_n"] += a1[1]
+        if r.is_paired and not r.mate_is_unmapped and r.next_reference_name == chrom and r.next_reference_start >= s0:
+            if r.query_name in buf: done(_merge(buf.pop(r.query_name), c)); continue
+            if r.next_reference_start >= r.reference_start and r.next_reference_start < e0: buf[r.query_name] = c; continue
+        done(sorted(c.items()))
+    for c in buf.values(): done(sorted(c.items()))
+    return dict(chrom=chrom, tiles={int(t): v for t, v in T.items()}, **{x: int(st[x]) for x in ("e_iso", "e_opp", "molecules", "qualifying", "reads", "nc_m", "nc_t", "at_mm", "at_n")})
+def combine_bam(parts, assembly):
+    T = {}; s = collections.Counter()
+    for p in parts:
+        for t, v in p["tiles"].items():
+            a = T.setdefault((p["chrom"], int(t)), [0, 0]); a[0] += v[0]; a[1] += v[1]
+        for x in ("e_iso", "e_opp", "molecules", "qualifying", "reads", "nc_m", "nc_t", "at_mm", "at_n"): s[x] += p[x]
+    return _finish(T, s["e_iso"], s["e_opp"], dict(reader="aligned reads", assembly=assembly, sub_err=s["at_mm"] / max(s["at_n"], 1),
+                   conv_fail=s["nc_m"] / max(s["nc_t"], 1), molecules=int(s["molecules"]), qualifying=int(s["qualifying"]), reads=int(s["reads"])))
+def count_bam(bam, fa, workers, assembly, chroms=AUTOSOMES, span=10_000_000):
+    import pysam, multiprocessing as mp
+    F = pysam.FastaFile(fa); jobs = [(bam, fa, c, s, min(F.get_reference_length(c), s + span)) for c in chroms for s in range(0, F.get_reference_length(c), span)]
+    with mp.get_context("fork").Pool(workers) as P: parts = P.map(count_bam_region, jobs, chunksize=1)
+    return combine_bam(parts, assembly)
+
+# ---------------------------------------------------------------- the line
+def build_line(per_sample):
+    """per_sample: DataFrame with cell, loose_share, held_err, held_opp (RAW counter output). Per cell: median loose share, opportunity-weighted
+    held error; Theil-Sen line across cells (as opensea_line.py, without its scale factor)."""
+    from scipy.stats import theilslopes
+    g = per_sample.dropna(subset=["loose_share", "held_err"]).groupby("cell")
+    C = pd.DataFrame({"L": g["loose_share"].median(), "eps": g.apply(lambda x: (x.held_err * x.held_opp).sum() / x.held_opp.sum(), include_groups=False), "n": g.size()})
+    s, i, _, _ = theilslopes(C.eps.values, C.L.values); res = C.eps.values - (i + s * C.L.values)
+    return dict(axis="raw counter held error (no scale factor)", firm=float(i), slope=float(s), cells=int(len(C)), samples=int(C.n.sum()),
+                residual_abs_median=float(np.median(abs(res))), within_0_003=int((abs(res) <= 0.003).sum()), cut=CUT, tile_cpgs=TILE), C.reset_index()
+def line(version=None):
+    fs = sorted(glob.glob(os.path.join(LINE_DIR, "selfref_line_v*.json")))
+    if not fs: raise RuntimeError("no self-reference line in the chain yet (Runtime Matrices/IAM_A_SelfRef): build it with build_line() first")
+    f = [x for x in fs if x.endswith(f"_v{version}.json")][0] if version else fs[-1]; J = json.load(open(f))
+    if payload_sha(J) != J["chain_stamp"]["payload_sha256"]: raise RuntimeError(f"{os.path.basename(f)} has been edited after the chain wrote it")
+    return J
+def predict(loose_share, version=None):
+    J = line(version); return J["firm"] + J["slope"] * float(loose_share)
+def residual(rec, version=None):
+    """rec: a count from count_pat / count_bam (RAW). Returns the self-reference reading against the chain's line."""
+    J = line(version); p = J["firm"] + J["slope"] * rec["loose_share"]
+    return dict(loose_share=rec["loose_share"], held_err=rec["held_err"], predicted=p, residual=rec["held_err"] - p,
+                line_version=J["version"], axis=J["axis"])

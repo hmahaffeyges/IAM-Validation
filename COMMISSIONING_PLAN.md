@@ -18,7 +18,7 @@ Commissioning first; documents while the machines run.
 8. **Operations-manual PDF rebuilt** (OTH-056), while machines run.
 9. **Atlas v2.1 lands** about 8 AM Pacific Friday: release checks, sealed bars, the Loyfer and Moss use tests.
 10. Stage T: the temperature law, T2 synthetic then the seal (PHY-057).
-11. **Wire IAM-A's self-reference into the chain** (OTH-057): loose share, the line and gemBS reading in Stage Q, before IAM-A's commissioning note.
+11. **IAM-A's self-reference in the chain** (OTH-057): Stage Q2 written, synthetic MET, gate rule 23b live. Next: rebuild the line through the chain from Loyfer's 153 samples. Every IAM-A test from now on runs through it.
 
 ## Decisions waiting for the author (nothing below is blocked on them)
 

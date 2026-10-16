@@ -2018,3 +2018,6 @@ Author chose the self-relative cut. Checked first on the two B cells: ENCODE car
 
 ### 2026-10-15 · Third source: healthy B cells look like Loyfer's; ENCODE's sample is the outlier
 GSE49627 resting B cells (3 donors): loose share 0.021-0.031, 10th percentile 0.76-0.78, like Loyfer's; ENCODE's B cell (0.359, 0.545) carries a long undermethylated tail resembling culture-induced hypomethylated blocks. DEV-SECONDLAB-01 stays NOT MET; it is explained.
+
+### 2026-10-15 · Chain Stage Q2 and chain gate rule 23b (author: logged tests must run through the chain)
+stage_q2_selfref.py holds the own-read counter (.pat, gemBS, Bismark), loose share, held error and the line on the raw axis (no scale factor), with stamped outputs. Synthetic MET (DEV-CHAIN-Q2-01). CANON/chain_gate.py refuses new tests without a chain import, without a valid stamp from a committed chain version, citing scratch/, or typing the line numbers; 7 of 7 controls; wired into checked_push (controls && gate) and checkpoint (registers the chain version). Lesson C16.

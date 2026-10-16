@@ -26356,10 +26356,17 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
-   "status": "planned",
-   "runs": [],
-   "next_step": "add the loose share, the self-reference line and gemBS calls to stage_q_iam_a, with the development scripts as its reproduction test",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_CHAIN_Q2_01.md",
+   "status": "running",
+   "runs": [
+    {
+     "date": "2026-10-15",
+     "outcome": "progressed",
+     "note": "chain Stage Q2 written; synthetic MET through the chain; chain gate rule 23b with 7 of 7 controls; line rebuild from Loyfer 153 samples next",
+     "page": "not headline: internal quality control"
+    }
+   ],
+   "next_step": "box run: count_pat over Loyfer's 153 samples and count_bam over the ENCODE five through the chain; build selfref_line_v1.json; compare with the development line",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],

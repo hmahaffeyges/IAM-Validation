@@ -1,0 +1,122 @@
+{
+ "T1": [
+  {
+   "planted": 0.2,
+   "chain": 0.2,
+   "development": 0.2,
+   "held_chain": 0.051251933764968775,
+   "held_dev": 0.051251933764968775,
+   "identical": true,
+   "recovered": true
+  },
+  {
+   "planted": 0.5,
+   "chain": 0.5,
+   "development": 0.5,
+   "held_chain": 0.04897018579864612,
+   "held_dev": 0.04897018579864612,
+   "identical": true,
+   "recovered": true
+  },
+  {
+   "planted": 0.8,
+   "chain": 0.8,
+   "development": 0.8,
+   "held_chain": 0.0413848177376926,
+   "held_dev": 0.0413848177376926,
+   "identical": true,
+   "recovered": true
+  }
+ ],
+ "T2": [
+  {
+   "format": "XB",
+   "planted_loose": 0.5,
+   "loose": 0.5,
+   "planted_held_truth": null,
+   "held": 0.04978004167631396,
+   "planted_sub": 0.002,
+   "sub": 0.001753731343283582,
+   "ok": true
+  },
+  {
+   "format": "XB",
+   "planted_loose": 0.0,
+   "loose": 0.0,
+   "planted_held_truth": null,
+   "held": 0.05033690051525961,
+   "planted_sub": 0.002,
+   "sub": 0.002325870646766169,
+   "ok": true
+  },
+  {
+   "format": "XB",
+   "planted_loose": null,
+   "loose": 0.0,
+   "planted_held_truth": 0.024005891016200296,
+   "held": 0.024285714285714285,
+   "planted_sub": 0.004,
+   "sub": 0.004092039800995025,
+   "ok": true
+  },
+  {
+   "format": "XM",
+   "planted_loose": 0.5,
+   "loose": 0.5,
+   "planted_held_truth": null,
+   "held": 0.05193780982424515,
+   "planted_sub": 0.002,
+   "sub": 0.001965174129353234,
+   "ok": true
+  },
+  {
+   "format": "XM",
+   "planted_loose": 0.0,
+   "loose": 0.0,
+   "planted_held_truth": null,
+   "held": 0.04888110307414105,
+   "planted_sub": 0.002,
+   "sub": 0.0021019900497512437,
+   "ok": true
+  },
+  {
+   "format": "XM",
+   "planted_loose": null,
+   "loose": 0.0,
+   "planted_held_truth": 0.02441432768026858,
+   "held": 0.02550667325753831,
+   "planted_sub": 0.004,
+   "sub": 0.003930348258706468,
+   "ok": true
+  }
+ ],
+ "T3": {
+  "planted": [
+   0.04,
+   0.035
+  ],
+  "built": [
+   0.04032,
+   0.03397
+  ],
+  "recovered": true,
+  "residual_of_planted_plus_0.001": 0.00089,
+  "residual_ok": true,
+  "edited_line_refused": true,
+  "refusal": "selfref_line_v0.json has been edited after the chain wrote it"
+ },
+ "ok": {
+  "T1": true,
+  "T2": true,
+  "T3": true,
+  "T4": true
+ },
+ "verdict": "MET",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "2f03a59ff0ed2ff2cd631de4abf4d001c9d1596e8cd0a5b68b5bdd07a75fadc0",
+  "payload_sha256": "25506eaac486daccde29d6b257c118c6a5689d443365a6245896bc8db3fdb72c",
+  "inputs": [],
+  "utc": "2026-10-16T02:39:11Z"
+ }
+}

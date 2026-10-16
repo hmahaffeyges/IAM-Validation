@@ -39,7 +39,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **DAT-012** (impact 5, laptop) GSE167202 - Human blood and immune-disease arrays (blood cancers first); Host methylation predicts SAR: Design and seal before reading: Track A: per-cell Met-A on blood diseases; Box Run 1 job B reads the chain-test subset
 - [ ] **OTH-051** (impact 5, laptop) The A-score database: one table per instrument, one row per sample read: add each new test's per-sample rows as a source (tumor island pairs, C-score repeats, open-sea own reads); then read PHY-069 (is there a concern line) off the tables
 - [ ] **OTH-054** (impact 5, laptop) C-Score tumor line in the A-score database: read real tumors with the C-Score under a sealed bar (its next test) and add the rows as their own section
-- [ ] **OTH-057** (impact 5, laptop) Wire the own-read counter and gemBS reading into the chain's Stage Q: add the loose share, the self-reference line and gemBS calls to stage_q_iam_a, with the development scripts as its reproduction test
+- [ ] **OTH-057** (impact 5, laptop) Wire the own-read counter and gemBS reading into the chain's Stage Q: box run: count_pat over Loyfer's 153 samples and count_bam over the ENCODE five through the chain; build selfref_line_v1.json; compare with the development line
 - [ ] **PHY-040** (impact 5, laptop (literature)) The author's half-law: half writing, half erasing, two forms of energy (not the copying-only check): Tested by DEV-ERASE-01 (PHY-006, sealed 2026-10-14); a physical reason why writing and erasing are the virial K and Q is still to be derived.
 - [ ] **PHY-042** (impact 5, laptop) Cell architecture against the healthy held error (DEV-ARCH-01): loose share from other laboratories' arrays of the same cell types; per-cell held error on the common fully methylated sites
 - [ ] **PHY-051** (impact 5, laptop) The island shield's height: whiteboard: compare the islands with the new writers' published preference for bare DNA, then derive
@@ -871,3 +871,4 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **PHY-053** The horizon's storage by era: bits held at the CMB, first stars, the turn to acceleration and today: last run 2026-10-15, success
 - [x] **COM-METAA-039** Met-A read against the sample's own line (a smaller tare, or none): last run 2026-10-15, fail
 - [x] **OTH-056** Rebuild the operations-manual PDF from the corrected chapter: last run 2026-10-15, success
+- [x] **OTH-057** Wire the own-read counter and gemBS reading into the chain's Stage Q: last run 2026-10-15, progressed

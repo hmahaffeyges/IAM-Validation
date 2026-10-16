@@ -8,6 +8,7 @@ step(){ "$@" > /tmp/checkpoint_step.txt 2>&1 || { echo "checkpoint: STEP FAILED:
 git pull -q --ff-only origin main 2>/dev/null || true
 # verify first (it records what S3 holds; its refusals are re-checked by the gate after the ledger is regenerated)
 python3 CANON/box_code_check.py --verify > /dev/null 2>&1 || true
+step python3 CANON/chain_gate.py register
 step python3 Biological_Physics/MethylPhys/boxruns/make_runs_ledger.py
 step python3 CANON/box_code_check.py
 python3 CANON/fit_progress.py > /dev/null 2>&1 || true
