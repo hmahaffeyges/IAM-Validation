@@ -1509,7 +1509,7 @@
    "date": "2026-10-16",
    "commit": "e4b2ccba",
    "s3_code_prefix": "results/DEV_IAMA_GRAND_01/code/run3_G/",
-   "state": "running",
+   "state": "failed",
    "log": "results/DEV_IAMA_GRAND_01/status_G.txt",
    "machine": "spot c7a.32xlarge us-west-2d",
    "purpose": "the 12 CD8 samples not counted in run 2; scheduling only changed (QUEUE=1)",
@@ -1523,10 +1523,60 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/samples.csv",
     "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/count_grand.py"
    ],
-   "note": "running",
+   "note": "reclaimed by AWS (spot, no capacity) 17:38 UTC, about 15 min after start; its one claim (SRR11007279) released for the queue",
    "manifest": [
     "COM-IAMA-052"
    ]
+  },
+  {
+   "job_id": "i-0a8d0ea2bb7131746",
+   "name": "DEV-IAMA-GRAND-01 run 3 machine H: CD8 samples from the shared queue, aligned and counted by chain Stage Q2",
+   "date": "2026-10-16",
+   "commit": "e4b2ccba",
+   "s3_code_prefix": "results/DEV_IAMA_GRAND_01/code/run3_H/",
+   "state": "running",
+   "log": "results/DEV_IAMA_GRAND_01/status_H.txt",
+   "machine": "spot m7a.16xlarge us-west-2d, 2 samples at a time",
+   "purpose": "helper on the shared queue (64 cores; 64-core spot placement score 9 of 10 in this zone)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_GRAND_01.md",
+   "manifest": [
+    "COM-IAMA-052"
+   ],
+   "outputs": [
+    "results/DEV_IAMA_GRAND_01/out/",
+    "results/DEV_IAMA_GRAND_01/bam/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/box/align_grand.sh",
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/samples.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/count_grand.py"
+   ],
+   "note": "running"
+  },
+  {
+   "job_id": "i-0255f9da20747166c",
+   "name": "DEV-IAMA-GRAND-01 run 3 machine I: CD8 samples from the shared queue, aligned and counted by chain Stage Q2",
+   "date": "2026-10-16",
+   "commit": "e4b2ccba",
+   "s3_code_prefix": "results/DEV_IAMA_GRAND_01/code/run3_I/",
+   "state": "running",
+   "log": "results/DEV_IAMA_GRAND_01/status_I.txt",
+   "machine": "spot m7a.16xlarge us-west-2d, 2 samples at a time",
+   "purpose": "helper on the shared queue (64 cores; 64-core spot placement score 9 of 10 in this zone)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_GRAND_01.md",
+   "manifest": [
+    "COM-IAMA-052"
+   ],
+   "outputs": [
+    "results/DEV_IAMA_GRAND_01/out/",
+    "results/DEV_IAMA_GRAND_01/bam/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/box/align_grand.sh",
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/samples.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/count_grand.py"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {
