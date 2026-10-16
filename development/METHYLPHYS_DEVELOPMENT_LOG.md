@@ -2182,3 +2182,6 @@ U1 had scored GSE132547 and GSE131989 before their carried checks were recorded 
 
 ### 2026-10-16 · Atlas v2.1 U2a scored once (ATL-005)
 Planted test PASSED; blind sites COMMISSIONED for the colon (epithelium 0.999) and lung (bronchus 0.980) tissue tests; breast and liver NOT ASSESSED; liver blind sites do not hold for blood cells on outside arrays (0.46-0.69).
+
+### 2026-10-16 · Atlas v2.1 against Moss's reference: all three showcase bars MET (ATL-060)
+On 731 held-out arrays from independent laboratories: markers confirmed 0.424 (Moss 0.398); blood mixtures median error 0.0224 (Moss 0.0305); with brain cells Moss does not hold, 0.0228 (Moss 0.0523), the outside share recovered in 87 percent of mixtures. Sealed scorer unchanged; chain runner planted test first.

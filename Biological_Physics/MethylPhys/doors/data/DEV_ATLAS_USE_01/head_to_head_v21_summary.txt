@@ -1,0 +1,4 @@
+sites 2836 | arrays {'astrocytes': 10, 'b cells': 103, 'cd4 t cells': 156, 'cd8 t cells': 133, 'colon epithelium': 9, 'cortical neurons': 88, 'microglia': 30, 'monocytes': 116, 'neutrophils': 48, 'nk cells': 28, 'oligodendrocytes': 10}
+UT1 markers confirmed: v2.1 0.424, Moss 0.398 -> MET
+UT2A shared-ground mixtures: median error v2.1 0.0224, Moss 0.0305, ratio 0.74 -> MET
+UT2B wide area (microglia, oligodendrocytes, astrocytes): median error v2.1 0.0228, Moss 0.0523; v2.1 recovers the outside share within 0.05 in 0.87 -> MET

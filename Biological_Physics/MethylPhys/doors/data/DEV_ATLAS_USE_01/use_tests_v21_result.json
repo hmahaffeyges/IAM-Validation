@@ -1,0 +1,127 @@
+{
+ "sites": 2836,
+ "arrays": {
+  "astrocytes": 10,
+  "b cells": 103,
+  "cd4 t cells": 156,
+  "cd8 t cells": 133,
+  "colon epithelium": 9,
+  "cortical neurons": 88,
+  "microglia": 30,
+  "monocytes": 116,
+  "neutrophils": 48,
+  "nk cells": 28,
+  "oligodendrocytes": 10
+ },
+ "platforms": {
+  "astrocytes": {
+   "EPIC": 10
+  },
+  "b cells": {
+   "450K": 103
+  },
+  "cd4 t cells": {
+   "450K": 156
+  },
+  "cd8 t cells": {
+   "450K": 133
+  },
+  "colon epithelium": {
+   "450K": 9
+  },
+  "cortical neurons": {
+   "450K": 45,
+   "EPIC": 43
+  },
+  "microglia": {
+   "EPIC": 30
+  },
+  "monocytes": {
+   "450K": 81,
+   "EPIC": 35
+  },
+  "neutrophils": {
+   "EPIC": 48
+  },
+  "nk cells": {
+   "EPIC": 20,
+   "450K": 8
+  },
+  "oligodendrocytes": {
+   "EPIC": 10
+  }
+ },
+ "UT1": {
+  "v21_share": 0.42374999999999996,
+  "moss_share": 0.3975,
+  "per_cell_v21": {
+   "monocytes": 0.11,
+   "b cells": 0.44,
+   "cd4 t cells": 0.1,
+   "nk cells": 0.38,
+   "cd8 t cells": 0.15,
+   "neutrophils": 0.37,
+   "cortical neurons": 1.0,
+   "colon epithelium": 0.84
+  },
+  "per_cell_moss": {
+   "monocytes": 0.11,
+   "b cells": 0.43,
+   "cd4 t cells": 0.1,
+   "nk cells": 0.38,
+   "cd8 t cells": 0.15,
+   "neutrophils": 0.35,
+   "cortical neurons": 0.95,
+   "colon epithelium": 0.71
+  },
+  "verdict": "MET"
+ },
+ "UT2A": {
+  "median_error_v21": 0.02241500063188209,
+  "median_error_moss": 0.030488046568847467,
+  "ratio": 0.7352061924093761,
+  "verdict": "MET"
+ },
+ "UT2B": {
+  "median_error_v21": 0.02276451045634833,
+  "median_error_moss": 0.052340082880448724,
+  "recovered_within_005": 0.87,
+  "outside_cells": [
+   "microglia",
+   "oligodendrocytes",
+   "astrocytes"
+  ],
+  "verdict": "MET"
+ },
+ "lines": [
+  "sites 2836 | arrays {'astrocytes': 10, 'b cells': 103, 'cd4 t cells': 156, 'cd8 t cells': 133, 'colon epithelium': 9, 'cortical neurons': 88, 'microglia': 30, 'monocytes': 116, 'neutrophils': 48, 'nk cells': 28, 'oligodendrocytes': 10}",
+  "UT1 markers confirmed: v2.1 0.424, Moss 0.398 -> MET",
+  "UT2A shared-ground mixtures: median error v2.1 0.0224, Moss 0.0305, ratio 0.74 -> MET",
+  "UT2B wide area (microglia, oligodendrocytes, astrocytes): median error v2.1 0.0228, Moss 0.0523; v2.1 recovers the outside share within 0.05 in 0.87 -> MET"
+ ],
+ "test": "DEV-ATLAS-USE-01",
+ "listed": [
+  [
+   "lung alveolar macrophages",
+   "not used: D13 NOT MET (2026-10-16)"
+  ]
+ ],
+ "n_listed": 1,
+ "excluded_sets": {
+  "GSE132547": "D13 NOT MET (2026-10-16)"
+ },
+ "deviations": [
+  "UT2A and UT2B mixtures combine 450K and EPIC arrays on the common probe set (no one platform holds all their cells)",
+  "lung alveolar macrophages not used (D13 NOT MET)"
+ ],
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "52e94725c307235a5cb7cc9760563eeaa85fbe0dc9c691257b6633f19adae40d",
+  "payload_sha256": "f1df2bb8f22645ade412c713b9802144faf5fd89e6a9a3e694d998a6bae2d454",
+  "inputs": [],
+  "manifest": [
+   "ATL-060"
+  ],
+  "utc": "2026-10-16T18:35:04Z"
+ }
+}

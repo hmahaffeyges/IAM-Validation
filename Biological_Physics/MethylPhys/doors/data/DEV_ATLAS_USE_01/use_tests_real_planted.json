@@ -1,0 +1,211 @@
+{
+ "true": {
+  "sites": 60000,
+  "arrays": {
+   "monocytes": 6,
+   "b cells": 6,
+   "cd4 t cells": 6,
+   "nk cells": 6,
+   "cd8 t cells": 6,
+   "neutrophils": 6,
+   "cortical neurons": 6,
+   "colon epithelium": 6,
+   "microglia": 6,
+   "oligodendrocytes": 6,
+   "astrocytes": 6
+  },
+  "platforms": {
+   "monocytes": {
+    "450K": 6
+   },
+   "b cells": {
+    "450K": 6
+   },
+   "cd4 t cells": {
+    "450K": 6
+   },
+   "nk cells": {
+    "450K": 6
+   },
+   "cd8 t cells": {
+    "450K": 6
+   },
+   "neutrophils": {
+    "450K": 6
+   },
+   "cortical neurons": {
+    "450K": 6
+   },
+   "colon epithelium": {
+    "450K": 6
+   },
+   "microglia": {
+    "EPIC": 6
+   },
+   "oligodendrocytes": {
+    "EPIC": 6
+   },
+   "astrocytes": {
+    "EPIC": 6
+   }
+  },
+  "UT1": {
+   "v21_share": 0.835,
+   "moss_share": 0.8325,
+   "per_cell_v21": {
+    "monocytes": 1.0,
+    "b cells": 1.0,
+    "cd4 t cells": 0.5,
+    "nk cells": 1.0,
+    "cd8 t cells": 0.18,
+    "neutrophils": 1.0,
+    "cortical neurons": 1.0,
+    "colon epithelium": 1.0
+   },
+   "per_cell_moss": {
+    "monocytes": 1.0,
+    "b cells": 1.0,
+    "cd4 t cells": 0.48,
+    "nk cells": 1.0,
+    "cd8 t cells": 0.18,
+    "neutrophils": 1.0,
+    "cortical neurons": 1.0,
+    "colon epithelium": 1.0
+   },
+   "verdict": "MET"
+  },
+  "UT2A": {
+   "median_error_v21": 0.0026533210729622002,
+   "median_error_moss": 0.0034467226624791524,
+   "ratio": 0.7698098549808252,
+   "verdict": "MET"
+  },
+  "UT2B": {
+   "median_error_v21": 0.002234723843069177,
+   "median_error_moss": 0.036504747949094765,
+   "recovered_within_005": 1.0,
+   "outside_cells": [
+    "microglia",
+    "oligodendrocytes",
+    "astrocytes"
+   ],
+   "verdict": "MET"
+  },
+  "lines": [
+   "sites 60000 | arrays {'monocytes': 6, 'b cells': 6, 'cd4 t cells': 6, 'nk cells': 6, 'cd8 t cells': 6, 'neutrophils': 6, 'cortical neurons': 6, 'colon epithelium': 6, 'microglia': 6, 'oligodendrocytes': 6, 'astrocytes': 6}",
+   "UT1 markers confirmed: v2.1 0.835, Moss 0.833 -> MET",
+   "UT2A shared-ground mixtures: median error v2.1 0.0027, Moss 0.0034, ratio 0.77 -> MET",
+   "UT2B wide area (microglia, oligodendrocytes, astrocytes): median error v2.1 0.0022, Moss 0.0365; v2.1 recovers the outside share within 0.05 in 1.00 -> MET"
+  ]
+ },
+ "scrambled": {
+  "sites": 60000,
+  "arrays": {
+   "monocytes": 6,
+   "b cells": 6,
+   "cd4 t cells": 6,
+   "nk cells": 6,
+   "cd8 t cells": 6,
+   "neutrophils": 6,
+   "cortical neurons": 6,
+   "colon epithelium": 6,
+   "microglia": 6,
+   "oligodendrocytes": 6,
+   "astrocytes": 6
+  },
+  "platforms": {
+   "monocytes": {
+    "450K": 6
+   },
+   "b cells": {
+    "450K": 6
+   },
+   "cd4 t cells": {
+    "450K": 6
+   },
+   "nk cells": {
+    "450K": 6
+   },
+   "cd8 t cells": {
+    "450K": 6
+   },
+   "neutrophils": {
+    "450K": 6
+   },
+   "cortical neurons": {
+    "450K": 6
+   },
+   "colon epithelium": {
+    "450K": 6
+   },
+   "microglia": {
+    "EPIC": 6
+   },
+   "oligodendrocytes": {
+    "EPIC": 6
+   },
+   "astrocytes": {
+    "EPIC": 6
+   }
+  },
+  "UT1": {
+   "v21_share": 0.835,
+   "moss_share": 0.8325,
+   "per_cell_v21": {
+    "monocytes": 1.0,
+    "b cells": 1.0,
+    "cd4 t cells": 0.5,
+    "nk cells": 1.0,
+    "cd8 t cells": 0.18,
+    "neutrophils": 1.0,
+    "cortical neurons": 1.0,
+    "colon epithelium": 1.0
+   },
+   "per_cell_moss": {
+    "monocytes": 1.0,
+    "b cells": 1.0,
+    "cd4 t cells": 0.48,
+    "nk cells": 1.0,
+    "cd8 t cells": 0.18,
+    "neutrophils": 1.0,
+    "cortical neurons": 1.0,
+    "colon epithelium": 1.0
+   },
+   "verdict": "MET"
+  },
+  "UT2A": {
+   "median_error_v21": 0.0026533210729622002,
+   "median_error_moss": 0.0034467226624791524,
+   "ratio": 0.7698098549808252,
+   "verdict": "MET"
+  },
+  "UT2B": {
+   "median_error_v21": 0.03647787606815422,
+   "median_error_moss": 0.036504747949094765,
+   "recovered_within_005": 0.0,
+   "outside_cells": [
+    "microglia",
+    "oligodendrocytes",
+    "astrocytes"
+   ],
+   "verdict": "NOT MET"
+  },
+  "lines": [
+   "sites 60000 | arrays {'monocytes': 6, 'b cells': 6, 'cd4 t cells': 6, 'nk cells': 6, 'cd8 t cells': 6, 'neutrophils': 6, 'cortical neurons': 6, 'colon epithelium': 6, 'microglia': 6, 'oligodendrocytes': 6, 'astrocytes': 6}",
+   "UT1 markers confirmed: v2.1 0.835, Moss 0.833 -> MET",
+   "UT2A shared-ground mixtures: median error v2.1 0.0027, Moss 0.0034, ratio 0.77 -> MET",
+   "UT2B wide area (microglia, oligodendrocytes, astrocytes): median error v2.1 0.0365, Moss 0.0365; v2.1 recovers the outside share within 0.05 in 0.00 -> NOT MET"
+  ]
+ },
+ "passed": true,
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "52e94725c307235a5cb7cc9760563eeaa85fbe0dc9c691257b6633f19adae40d",
+  "payload_sha256": "03a2ae244d735b3964aa6639e58e8a7435f95f6c7011eadc6985ec64075a62a8",
+  "inputs": [],
+  "manifest": [
+   "ATL-060"
+  ],
+  "utc": "2026-10-16T18:29:51Z"
+ }
+}

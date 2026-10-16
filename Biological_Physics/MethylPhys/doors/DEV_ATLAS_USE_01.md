@@ -23,7 +23,7 @@ checked to still fail when it should (synthetic rerun MET).
 disclosures). The real run is refused in code until the v2.1 release. Amendment (same day, before any data): GSE132547 and GSE131989 are scored only after
 their carried checks D13 and D14 are recorded, as in the L15 bars.
 
-**Synthetic test:** DEV_ATLAS_USE_01/use_tests_v21.py, DEV_ATLAS_USE_01/use_tests_synthetic.txt
+**Synthetic test:** DEV_ATLAS_USE_01/use_tests_real_v21.py, DEV_ATLAS_USE_01/use_tests_real_planted.txt (the chain runner's planted test, PASSED 2026-10-16; the sealed scorer's own synthetic, use_tests_synthetic.txt, MET 2026-10-15)
 
 The synthetic ran twice. Run 1 (kept as use_tests_synthetic_run1_NOTMET.txt) showed an absolute mixture bar (Moss plus 0.01) passed a planted
 v2.1 four times noisier than Moss, so UT2A became a ratio before any real value was read. Run 2 read MET: equal references pass; a noisier
@@ -31,3 +31,21 @@ v2.1 fails UT1 and UT2A; the wide-area arm recovers the outside cells and fails 
 
 What it would take to succeed: v2.1 matching Moss's reference on markers and shared-ground mixtures, and recovering the cells Moss's reference
 does not hold; finish line, not a promise.
+
+## Outcome (2026-10-16): all three showcase bars MET
+
+Run once on box job ee92df65 (code 59af94a2) by the chain runner `data/DEV_ATLAS_USE_01/use_tests_real_v21.py`, which checks the sealed scorer's
+and Moss reference's checksums and loads the sealed functions unchanged; its planted test PASSED first. Runs 1 and 2 stopped before any score
+(a platform split no held-out set allows; Moss's file repeats 1,785 identical rows). Results: `data/DEV_ATLAS_USE_01/use_tests_v21_result.json`,
+`head_to_head_v21_summary.txt`. 731 held-out arrays from independent laboratories; 2,836 sites (in both references and measured on every array).
+
+| test | atlas v2.1 | Moss's reference | bar | verdict |
+|---|---|---|---|---|
+| UT1 markers confirmed on held-out arrays | 0.424 | 0.398 | v2.1 >= Moss - 0.05 | **MET** |
+| UT2A blood-type mixtures, median error | 0.0224 | 0.0305 | v2.1 <= 1.5 x Moss | **MET** (ratio 0.74) |
+| UT2B wide area (microglia, oligodendrocytes, astrocytes in the mix), median error | 0.0228 | 0.0523 | v2.1 <= 0.5 x Moss | **MET**; outside share recovered within 0.05 in 87 % of mixtures |
+
+**Deviations, each fixed before the real run:** mixtures combine 450K and EPIC arrays on the common probe set, because no one platform holds
+every cell's held-out arrays (the seal's site rule names that set; the docstring said "one platform"); lung alveolar macrophages are not used,
+because their only held-out set (GSE132547) failed its carried check D13 (DEV_ATLAS_V21_01.md). Moss's reference may include some of these
+held-out laboratories, which can only favor Moss (seal disclosure).
