@@ -1,0 +1,49 @@
+{
+ "mu_hi_part1.parquet": {
+  "bytes": 35043544,
+  "sha256": "ab21e3fcec4179a69912ad223155e08ae425f1cacd4d6f2bd2d9b7f0d840bba1"
+ },
+ "mu_hi_part2.parquet": {
+  "bytes": 36845244,
+  "sha256": "393d5922cd8e1bafa0a331530f4c9b47cb52ca4739c1cfcfefddec620c1edad6"
+ },
+ "mu_hi_part3.parquet": {
+  "bytes": 36849617,
+  "sha256": "68307135a8e2acb150fdb6e94837dcd15dcedec19bb446f536ed00adbad962a9"
+ },
+ "mu_lo_part1.parquet": {
+  "bytes": 35306569,
+  "sha256": "725185f82078e65c11fb6f4a03c0423d5133e2773dbb3182b6dcfeb03c6d7857"
+ },
+ "mu_lo_part2.parquet": {
+  "bytes": 37175551,
+  "sha256": "89f622c61666b38dee39dd0034c086941fbacc1eb5b6325aac230864e8447867"
+ },
+ "mu_lo_part3.parquet": {
+  "bytes": 37203284,
+  "sha256": "93fb04b70320ae61f7d75ead5048760220caa5a45954809ad63ff5bc5ab47f29"
+ },
+ "mu_part1.parquet": {
+  "bytes": 35358049,
+  "sha256": "df4a73657da71e4c8eab7fb991e075e033584f6fa872a4a0fd820e4b0a0f6dcf"
+ },
+ "mu_part2.parquet": {
+  "bytes": 37200090,
+  "sha256": "f1542d1e40647245602f75370f660bdc41d90988ed6b00c6e70497b923193a84"
+ },
+ "mu_part3.parquet": {
+  "bytes": 37242684,
+  "sha256": "91d89da680bd23bd903bdca3dea527df7c9d86bbd725b4c980ef145b2a2268c4"
+ },
+ "sites.parquet": {
+  "bytes": 2836049,
+  "sha256": "fb5673f981cb508ed1a96bc957020d5aa1642447ae51943a7f6960203f570d25"
+ },
+ "_source": {
+  "file": "atlas_v21_summary.parquet",
+  "sha256": "b3e964da86eb8fe5d012f9a23e7b145de6bd6a81d67b925b3a81794de0b9ff0d",
+  "cells": 79,
+  "sites": 813951,
+  "measured_pairs": 60687175
+ }
+}
