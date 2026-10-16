@@ -293,6 +293,35 @@
    }
   },
   {
+   "id": "throughput",
+   "name": "Throughput (the most bits per second the system can process)",
+   "definition": "Power available for writing divided by the price per write. Load is the bits per second the job demands; a crash is load exceeding throughput (author 2026-10-15: the undersized-chip analogy).",
+   "cosmos": {
+    "status": "open",
+    "native": "none named",
+    "formula": "not given in the book",
+    "source": "author 2026-10-15"
+   },
+   "qubits": {
+    "status": "open",
+    "native": "none named",
+    "formula": "gate rate x qubits; the power-budget form not given in the book",
+    "source": "author 2026-10-15"
+   },
+   "chips": {
+    "status": "calculated",
+    "native": "switches per second at the power budget",
+    "formula": "N_trans f = TDP / E_sw (Ryzen 9 9950X: 170 W / about 1.95e-18 J)",
+    "source": "p5_06 'The floor for logic'"
+   },
+   "cells": {
+    "status": "open",
+    "native": "writes per second the marking machinery can pay for",
+    "formula": "(power spent on methyl writing: one-carbon supply to SAM and the ATP behind it) / (price per write); inputs to be found in measured data",
+    "source": "author 2026-10-15; OTH-061"
+   }
+  },
+  {
    "id": "floor",
    "name": "Floor (left mark)",
    "definition": "The lowest error a record can hold against thermal kicks at full drive.",

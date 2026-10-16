@@ -9,14 +9,15 @@ S = {s["id"]: s for s in J["slots"]}; DOM = J["domains"]; NAME = {"cosmos": "Cos
 ROWS = [("Price per bit", "bit_price", "the least energy to write one bit at this surface (Landauer, at the surface's temperature)"),
         ("Capacity (bits stored)", "bits", "data at rest: what the surface holds"),
         ("Bits per operation", "bits_per_op", "a snapshot or a limit: the writing in one operation"),
-        ("Bit rate", "bit_rate", "data in motion: bits written per unit time"),
+        ("Bit rate", "bit_rate", "data in motion: bits per operation x operations per second"),
+        ("Throughput", "throughput", "the most bits per second the system can process: power for writing / price per write"),
         ("Power budget per operation", "mahaffey", "the drive each operation can spend, in units of k_B T (divide by ln 2 for bits' worth)"),
         ("Operating point", "reference", "the system as built or healthy: where it is designed to run"),
         ("Gate error", "gate_error", "error of the writing step itself, the firm end"),
         ("Leakage", "leakage", "loss outside the held states, the loose end"),
         ("Floor", "floor", "the least writing the system can run on"),
         ("Saturation (capacity reached)", "ceiling", "the surface full: no more room to write"),
-        ("Overflow (the failure event)", "wall", "the writing outruns what the surface can record"),
+        ("Crash (overload)", "wall", "the load (bits per second demanded) exceeds throughput: the writing outruns what the surface can record"),
         ("Point of no return", "no_return", "past it the record cannot be undone")]
 E = lambda t: str(t or "").replace("|", "/").replace("\n", " ")
 def short(t, n=140):

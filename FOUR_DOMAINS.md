@@ -19,6 +19,7 @@ The book is the source; every entry cites a book section or App. E number.
 | **Bits stored (data at rest)**<br>The surface's record and its capacity, in bits. One two-state element is one bit of capacity; the held information per element is 1 - H(eps); 1 kT = 1/ln2 = 1.443 Landauer bits. One of three bit measures (OTH-061): bits stored, bits per operation, bit rate. | Hubble horizon: area/(4 l_P^2 ln2) = about 3.3e122 bits (H0 67.16) or 2.8e122 (72.26); grows about 6.8e104 bits per second today, peak at the turn to acceleration (an identity of the expansion shape); computed with flat matter plus Lambda, not yet IAM's E(a) *(calculated)* — horizon bits | one bit per decohered qubit; each discarded flip is an erasure paid at Delta_Al ln2 *(derived)* — one qubit's classical record | one bit per node; Landauer floor k_B T ln2 per erased bit *(derived)* — one stored node | 28,217,009 CpG sites per haploid genome (counted from hg19); a diploid cell has about 112 million methyl positions (about 14 MB), about 89 million bits held at the healthy held error; M = 20.94 kT per ATP = 30.2 bits; the firm mark's holding 4.15 kT = 6.0 bits *(calculated)* — one CpG on one strand of one DNA copy |
 | **Bits per operation (a snapshot or a limit)**<br>The writing in one operation, read at one moment: per site for the cell, per gate for the qubit, per switch for the chip. Limits (floor, ceiling) are stated in this measure. Each bit written costs at least k_B T ln 2 (IAM's Law). | k_B T_H ln 2 per bit at the Gibbons-Hawking temperature T_H = hbar H/(2 pi k_B) *(derived)* — one irreversible record on the horizon | error per gate p, read as eps = -ln(1 - p); the error-correction threshold about 1e-2 per operation is the limit *(measured)* — one gate | E_sw/(k_B T_j ln 2), E_sw = TDP/(N_trans f): the Landauer bits' worth paid per switch; 399-411 for the Ryzen 9 9950X, an order-of-magnitude figure for the whole chip (the book's own caveat) *(calculated)* — one switch | H(eps) bits per site; floor H_min = 2.5e-8 bits per site (one ATP against thermal kicks), ceiling 1 bit per site (coin flip) *(derived)* — one identity site |
 | **Bit rate (data in motion)**<br>Bits written per unit time: anything in motion, the scaling formulas, rewinding to another z. Saturation is a rate reaching the surface's capacity to record. | I_dot proportional to rho_m D^n f H (n = 7/2); its cumulative integral on the horizon gives E(a) = exp(1 - 1/a). Black-hole formation: dS_local/dt >= dS_BH/dt, the local rate reaching the horizon's encoding capacity. Hawking bit rate dS_transfer/dt for the outflow *(conjecture)* — the record rate on the horizon | p_th(t) = Gamma_up t = p_eq t/T_1 (t << T_1); erasures at rate 1/tau_TLS whether or not the qubit is being used *(derived)* — erasures of discarded flips | N f switches per second at E per switch (TDP = N f E); bits' worth per second = TDP/(k_B T_j ln 2) *(calculated)* — switches per second | the cell reading is a snapshot (bits per site); a rate needs a clock, and the only clock proposed is development (clock row, candidate). Turnover and division are not used (author's rule) *(open)* — none yet |
+| **Throughput (the most bits per second the system can process)**<br>Power available for writing divided by the price per write. Load is the bits per second the job demands; a crash is load exceeding throughput (author 2026-10-15: the undersized-chip analogy). | not given in the book *(open)* — none named | gate rate x qubits; the power-budget form not given in the book *(open)* — none named | N_trans f = TDP / E_sw (Ryzen 9 9950X: 170 W / about 1.95e-18 J) *(calculated)* — switches per second at the power budget | (power spent on methyl writing: one-carbon supply to SAM and the ATP behind it) / (price per write); inputs to be found in measured data *(open)* — writes per second the marking machinery can pay for |
 | **Floor (left mark)**<br>The lowest error a record can hold against thermal kicks at full drive. | delta A_min = 4 hbar G/c^3 = 4 l_P^2; eta*delta A_min = 1; one bit = 4 ln2 l_P^2 = 2.77 l_P^2 *(calculated)* — one unit of entropy (one nat) per minimum encoding area 4 l_P^2 | held record: p_eq = 1/(1+e^M); one gate: p_th(t_g) = p_eq t_g/T_1 = 6.2e-7 (5 GHz, 35 mK, T_1 = 68 us, t_g = 40 ns); on the gauge at p_th/eps = 6.2e-4 *(calculated)* — thermal floor; 'The floor from k_BT'; 'left-hand mark'; two forms: held-record floor and floor of one gate (per-gate thermal floor) | k_B T_j ln2; E_min = k_B T ln(1/p): p=1/2 -> k_B T ln2; p=1e-15 -> 34.5 k_B T = 49.8 Landauer units; p=1e-25 -> 83.0 units; floor sits at 0.0017 on the chip gauge (0.0018–0.0019 at 105 °C) *(calculated)* — Landauer floor and 'The reliability floor' (E_min of a binary switch) | eps_min = 1/(1+e^M) = 8e-10 *(derived)* — floor |
 | **Balance law**<br>How the held error is set: restore against loss. | rho_info(a=1) = rho_m/2 = (Omega_m/2) rho_crit; feedback: suppressed growth lowers decoherence rate (step 9 -> step 1). ADDED 2026-10-14: E(a) = exp(1-1/a) is exactly a balance law in the clock tau = ln a: d(ln E)/d(ln a) = 1 - ln E, i.e. ln E relaxes to 1 at rate exactly 1 per e-fold, the cell's dm/dn = g(1-m) - f m with g = 1 and f = 0 (no eraser; the record heads for completion, E -> e). Algebraic identity (checked numerically to 3e-9); its reading as restore-against-loss is a candidate *(conjecture)* — the virial theorem as balance sheet; the self-regulating feedback loop | Gamma_up/Gamma_down = e^{-E/k_BT}; Gamma_1 = Gamma_up + Gamma_down = 1/T_1; gives p_eq = 1/(1+e^M). Ions/NV: state 'set by optical pumping, not by T'; hot Si: initialization by tunneling. ADDED 2026-10-14: dp/dt = G_up (1-p) - G_down p, so p relaxes to p_eq = 1/(1+e^M) at rate 1/T1 = G_up + G_down; the same restore-against-loss form as the cell *(derived)* — detailed balance | only the thermal flip probability p ≈ e^{-E/k_B T} for a switch with barrier E *(open)* — not in these chapters (no restore-against-loss law for chips) | eps = f/(f+g), E_hold = k_B T ln(g/f) *(derived)* — restore against loss |
 | **Reference (the 1)**<br>The state the gauge is read against. | E(1)=1; R(1)=Omega_m/(beta_m E(1))=2; mu(1)=1/(1+beta_m)=0.864 *(definition)* — normalization today (a = 1 now by definition) | eps = -ln(1 - p_2Q) of the benchmarked device; device reads A = 1 *(definition)* — As built; 'the device as built'; 'its own as-built state' | the chip on one stated definition of power, count and clock *(interp)* — 'as built' ('reads 1: as built'); 'its own as-built state and its own history on one definition' | eps0 = 0.032, E_hold = 3.41 k_B T; candidate derivation ln D - ln 2 (DEV-ERASE-01, sealed) | ADDED 2026-10-15 (whiteboard): DEV-ERASE-01 NOT MET on all five units (eraser removed over control 0.96, 0.79, 0.86, 0.89, 0.85), so ln D - ln 2 is not supported. Candidate in its place: on the 26,800 sites every cell keeps fully methylated, cells read eps 0.0136-0.0226 (median 0.0165), inside the writer's own limit 1/(1 + D) = 0.0123-0.0207 (median 0.0155, 4.15 kT); the genome-wide 3.41 kT is that limit diluted by the loosely held share L (eps = 0.0222 + 0.0248 L across 56 cell types, exploration, rank correlation +0.87) *(measured)* — healthy |
@@ -43,16 +44,17 @@ The book is the source; every entry cites a book section or App. E number.
 
 | Domain | derived, measured, calculated or definition | conjecture, interpretation or candidate | open |
 |---|---|---|---|
-| Cosmos | 13 of 27 | 11 | 3 |
-| Qubits | 14 of 27 | 10 | 3 |
-| Chips | 16 of 27 | 6 | 5 |
-| Cells | 15 of 27 | 7 | 5 |
+| Cosmos | 13 of 28 | 11 | 4 |
+| Qubits | 14 of 28 | 10 | 4 |
+| Chips | 17 of 28 | 6 | 5 |
+| Cells | 15 of 28 | 7 | 6 |
 
 ## Gap map: what each domain is missing, and who already has it
 
-**Cosmos** (14 gaps)
+**Cosmos** (15 gaps)
 - Bit price e_bit: conjecture; donor: chips, cells
 - Bit rate (data in motion): conjecture; donor: qubits, chips
+- Throughput (the most bits per second the system can process): open; donor: chips
 - Balance law: conjecture; donor: qubits, cells
 - Gate error (the firm end): open; donor: qubits, chips
 - Leakage (the loose end): open; donor: qubits, cells
@@ -66,9 +68,10 @@ The book is the source; every entry cites a book section or App. E number.
 - Saturation event (the wall): conjecture; donor: chips
 - Point of no return: conjecture; no domain has it yet
 
-**Qubits** (13 gaps)
+**Qubits** (14 gaps)
 - Encoding surface: conjecture; donor: cosmos, cells
 - Bit price e_bit: conjecture; donor: chips, cells
+- Throughput (the most bits per second the system can process): open; donor: chips
 - One reading per instrument: interp; donor: chips, cells
 - The two halves: candidate; donor: chips
 - Writing process: interp; no domain has it yet
@@ -94,8 +97,9 @@ The book is the source; every entry cites a book section or App. E number.
 - Fidelity ratio A: interp; donor: cosmos, qubits, cells
 - Point of no return: open; no domain has it yet
 
-**Cells** (12 gaps)
+**Cells** (13 gaps)
 - Bit rate (data in motion): open; donor: qubits, chips
+- Throughput (the most bits per second the system can process): open; donor: chips
 - Gate error (the firm end): candidate; donor: qubits, chips
 - The two halves: open; donor: chips
 - Writing process: candidate; no domain has it yet
