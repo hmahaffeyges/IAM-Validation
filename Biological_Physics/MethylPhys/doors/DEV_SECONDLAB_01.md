@@ -102,3 +102,10 @@ tiles. A cut set from the sample's own median still leaves ENCODE about five tim
 deeper run of the same experiment on its earlier pipeline (ENCFF774VLD, coverage 15) shows the same tail (loose share 0.326, 10th percentile
 0.539): not the extractor, not the newer pipeline, not coverage. The tail belongs to this donor's sample (biology or preparation).
 **Next:** healthy B cells from a third source, to learn whose tail is typical, before the definition is chosen.
+
+**Third source (2026-10-15): healthy B cells from another laboratory look like Loyfer's; ENCODE's sample is the outlier.** GSE49627 (Hansen
+laboratory), resting B cells of three healthy donors, published per-CpG calls, same tile rule (`scale_diagnosis.json`): genome-wide
+0.8222 / 0.838 / 0.8378, 10th percentile 0.762 / 0.779 / 0.782, loose share 0.031 / 0.023 / 0.021 (Loyfer B: 0.8045, 0.735, 0.054; ENCODE B:
+0.7271, 0.545, 0.359). The long undermethylated tail is specific to the ENCODE donor's sample; it resembles the large hypomethylated blocks the
+Hansen laboratory reported in B cells after culture and transformation. The sealed result stands as NOT MET; this explains it. Only the
+loose share of GSE49627 has been read (no molecule, no held error).

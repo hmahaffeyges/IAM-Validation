@@ -50,5 +50,29 @@
    "loyfer_below_median_minus_0p11": 0.054,
    "encode_below_median_minus_0p11": 0.268
   }
+ },
+ "hansen_GSE49627_resting_b": {
+  "note": "processed per-CpG csv (M, Cov), hg19, covered CpGs, same 2,000-CpG tile rule",
+  "B1": {
+   "global_mean": 0.8222,
+   "p10": 0.762,
+   "median": 0.826,
+   "p90": 0.877,
+   "loose_share": 0.031
+  },
+  "B2": {
+   "global_mean": 0.838,
+   "p10": 0.779,
+   "median": 0.843,
+   "p90": 0.888,
+   "loose_share": 0.023
+  },
+  "B3": {
+   "global_mean": 0.8378,
+   "p10": 0.782,
+   "median": 0.842,
+   "p90": 0.886,
+   "loose_share": 0.021
+  }
  }
 }

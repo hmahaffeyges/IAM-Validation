@@ -25205,7 +25205,7 @@
      "page": "not headline: exploratory miss, kept in the research record"
     }
    ],
-   "next_step": "find why ENCODE's loose share reads 6x Loyfer's on the same cell types (ENCODE's own CpG calls ENCFF703XLD through the same tile rule first); define a loose share that reads the same in two laboratories",
+   "next_step": "a second-laboratory test on healthy cells whose tile shape is typical: GSE49627 resting B cells (3 donors; loose share already read, held error not) and other independent sorted sets; rule first",
    "cost": "laptop or box",
    "impact": 5,
    "depends_on": [
@@ -26387,7 +26387,7 @@
    "depends_on": [
     "PHY-047"
    ],
-   "notes": "2026-10-15 | author chose the cut from the sample's own firm level; checked first: the labs differ in the shape of the tile distribution (ENCODE low tail), so a self-relative cut alone leaves 5x; ENCODE's 2017 run shows the same tail",
+   "notes": "2026-10-15 | author chose the cut from the sample's own firm level; checked first: the labs differ in the shape of the tile distribution (ENCODE low tail), so a self-relative cut alone leaves 5x; ENCODE's 2017 run shows the same tail | third source GSE49627 (Hansen, 3 donors' resting B): loose share 0.021-0.031, like Loyfer 0.054; ENCODE's sample (0.359) is the outlier",
    "legacy_ids": [],
    "id": "PHY-074",
    "sources_of_row": [

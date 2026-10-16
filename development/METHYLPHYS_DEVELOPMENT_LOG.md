@@ -2015,3 +2015,6 @@ ENCODE own calls 0.359 (extractor 0.337): not the extractor. ENCODE B cells geno
 
 ### 2026-10-15 · Loose-share definition: the labs differ in shape, not level
 Author chose the self-relative cut. Checked first on the two B cells: ENCODE carries a long low tail (p10 0.545 against 0.735) with matching tops; a self-relative cut leaves 5x. ENCODE's 2017 run of the same experiment shows the same tail. Next: a third source of healthy sorted cells before the definition is sealed.
+
+### 2026-10-15 · Third source: healthy B cells look like Loyfer's; ENCODE's sample is the outlier
+GSE49627 resting B cells (3 donors): loose share 0.021-0.031, 10th percentile 0.76-0.78, like Loyfer's; ENCODE's B cell (0.359, 0.545) carries a long undermethylated tail resembling culture-induced hypomethylated blocks. DEV-SECONDLAB-01 stays NOT MET; it is explained.

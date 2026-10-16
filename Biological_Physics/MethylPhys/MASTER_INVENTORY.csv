@@ -318,6 +318,7 @@ GSE47966,,,,,,,,DEV_IAMA_NEURON_01,,,,,,
 GSE48580,,,,,,,,PROC_LINES_01_BJ_OUTCOME,,,,,,
 GSE49149,,,,,partly spent,,,,,,,,,
 GSE49618,,,,,,,,DEV_ATLAS_V21_01,atlas build,granulocytes | t cells cd3 | b cells | monocytes,yes,IDAT listed for 21/21 samples,Sorted normal bone marrow cells from healthy volunteers at Washington University,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE49627,,,,,"partly spent (loose share of the 3 resting B cells read, 2026-10-15; molecules and held error not read)",,,DEV_SECONDLAB_01,,,,,,
 GSE50386,,,,,,,,DEV_ATLAS_V21_01,,,,,,
 GSE50660,,,,,partly spent,,,,,,,,,
 GSE50797,,,,,,,,,not usable (no raw data (TXT only)),neutrophils,yes,no per-sample IDAT or SRA link (series files: GSE50797_RAW.tar; GSE50797_methylated_unmethylated_signal_intensities.txt.gz),Analysis of the DNA methylome and transcriptome in granulopoiesis reveal timed changes and dynamic enhancer methylation,gold-mine map
