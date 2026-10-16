@@ -15,7 +15,7 @@ Usage: python3 CANON/chain_manifest.py [--write]
 import ast, json, os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CH = os.path.join(ROOT, "Biological_Physics/MethylPhys/chain")
-ENTRY = ["conductor_v3", "stage_1_idat_calibration", "stage_q_iam_a", "stage_q0_intake", "stage_q2_selfref", "stage_atlas_commission"]
+ENTRY = ["conductor_v3", "stage_1_idat_calibration", "stage_q_iam_a", "stage_q0_intake", "stage_q2_selfref", "stage_atlas_commission", "stage_atlas_u1", "stage_atlas_u1_planted", "stage_atlas_u2", "stage_atlas_u3"]
 CLASSES = {
  "build_all": "tool", "build_chain_sequence": "tool", "release_check_v3": "tool", "serial_mode": "tool",
  "pat_eps_fast": "tool", "cmb_tools": "tool", "toolkit_foreign_detection": "tool", "stage_a_composition_v2": "tool",
