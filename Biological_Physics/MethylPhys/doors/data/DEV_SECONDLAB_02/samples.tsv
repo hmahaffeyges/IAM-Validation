@@ -1,0 +1,4 @@
+donor	gsm	srr	fastq_1	fastq_2
+B1	GSM1202807	SRR948844	ftp.sra.ebi.ac.uk/vol1/fastq/SRR948/SRR948844/SRR948844_1.fastq.gz	ftp.sra.ebi.ac.uk/vol1/fastq/SRR948/SRR948844/SRR948844_2.fastq.gz
+B2	GSM1202808	SRR948845	ftp.sra.ebi.ac.uk/vol1/fastq/SRR948/SRR948845/SRR948845_1.fastq.gz	ftp.sra.ebi.ac.uk/vol1/fastq/SRR948/SRR948845/SRR948845_2.fastq.gz
+B3	GSM1202809	SRR948846	ftp.sra.ebi.ac.uk/vol1/fastq/SRR948/SRR948846/SRR948846_1.fastq.gz	ftp.sra.ebi.ac.uk/vol1/fastq/SRR948/SRR948846/SRR948846_2.fastq.gz

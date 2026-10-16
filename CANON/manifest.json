@@ -25211,7 +25211,7 @@
    "depends_on": [
     "PHY-045"
    ],
-   "notes": "author asked 2026-10-15 that it come soon; after the tumor island read; metadata search 2026-10-15 (development/loose_share_2026-10-15/encode_primary_wgbs.json, geo_sorted_wgbs.json): (1) ENCODE, Bernstein lab: fresh sorted B cells, CD14 monocytes, T cells, NK cells, CD34 myeloid progenitors (ENCSR284TCU, ENCSR017BUL, ENCSR663MXB, ENCSR334LSM, ENCSR388RMS); full alignments, so the meter's own error is measurable (PHY-050); ALREADY READ once for held error by PROC-CHANNEL-01, so a development check, not fresh; (2) GSE144691 (healthy donors' sorted naive, stem-memory, central- and effector-memory CD8 T cells, WGBS) and GSE98837 (naive and memory CD8 subsets, WGBS): not in data_spent, raw-read access to confirm; candidates for the grand test (COM-IAMA-052); (3) GSE324619 (monocytes from many donors, WGBS): raw reads controlled access, not usable; cultured ENCODE lines excluded (culture drift) | spent set ENCODE-SECONDLAB-5 (ENCFF092SBB ENCFF605NRU ENCFF133QNK ENCFF704SCQ ENCFF969NGH), declared 2026-10-15 with DEV-SECONDLAB-01",
+   "notes": "author asked 2026-10-15 that it come soon; after the tumor island read; metadata search 2026-10-15 (development/loose_share_2026-10-15/encode_primary_wgbs.json, geo_sorted_wgbs.json): (1) ENCODE, Bernstein lab: fresh sorted B cells, CD14 monocytes, T cells, NK cells, CD34 myeloid progenitors (ENCSR284TCU, ENCSR017BUL, ENCSR663MXB, ENCSR334LSM, ENCSR388RMS); full alignments, so the meter's own error is measurable (PHY-050); ALREADY READ once for held error by PROC-CHANNEL-01, so a development check, not fresh; (2) GSE144691 (healthy donors' sorted naive, stem-memory, central- and effector-memory CD8 T cells, WGBS) and GSE98837 (naive and memory CD8 subsets, WGBS): not in data_spent, raw-read access to confirm; candidates for the grand test (COM-IAMA-052); (3) GSE324619 (monocytes from many donors, WGBS): raw reads controlled access, not usable; cultured ENCODE lines excluded (culture drift) | spent set ENCODE-SECONDLAB-5 (ENCFF092SBB ENCFF605NRU ENCFF133QNK ENCFF704SCQ ENCFF969NGH), declared 2026-10-15 with DEV-SECONDLAB-01 | DEV-SECONDLAB-02 (GSE49627 healthy resting B cells): alignment running 2026-10-15; rule before any count",
    "legacy_ids": [],
    "id": "PHY-047",
    "sources_of_row": [
@@ -26391,7 +26391,7 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "Biological_Physics/MethylPhys/doors/DEV_SECONDLAB_01.md",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_SECONDLAB_02.md",
    "status": "planned",
    "runs": [],
    "next_step": "metadata search for healthy sorted B cells (and T, NK, monocytes) WGBS from a third source; read their tile distributions; then choose and seal the definition, synthetic first",
@@ -26400,7 +26400,7 @@
    "depends_on": [
     "PHY-047"
    ],
-   "notes": "2026-10-15 | author chose the cut from the sample's own firm level; checked first: the labs differ in the shape of the tile distribution (ENCODE low tail), so a self-relative cut alone leaves 5x; ENCODE's 2017 run shows the same tail | third source GSE49627 (Hansen, 3 donors' resting B): loose share 0.021-0.031, like Loyfer 0.054; ENCODE's sample (0.359) is the outlier",
+   "notes": "2026-10-15 | author chose the cut from the sample's own firm level; checked first: the labs differ in the shape of the tile distribution (ENCODE low tail), so a self-relative cut alone leaves 5x; ENCODE's 2017 run shows the same tail | third source GSE49627 (Hansen, 3 donors' resting B): loose share 0.021-0.031, like Loyfer 0.054; ENCODE's sample (0.359) is the outlier | DEV-SECONDLAB-02 (GSE49627 healthy resting B cells): alignment running 2026-10-15; rule before any count",
    "legacy_ids": [],
    "id": "PHY-074",
    "sources_of_row": [
