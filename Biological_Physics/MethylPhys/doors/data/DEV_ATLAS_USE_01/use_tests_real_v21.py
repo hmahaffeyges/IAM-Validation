@@ -6,9 +6,9 @@ confirmed, deconv, mixtures, score_mix) are loaded unchanged; only the loading o
  - held-out arrays: the sealed sample lists, each array's calibrated file from the identity record (status ok). Carried checks: GSE132547 is
    out (D13 NOT MET, 2026-10-16), so lung alveolar macrophages leave the outside set; GSE131989 is in (D14 MET).
  - UT1: held-out means per shared cell over all its arrays.
- - UT2A: 200 mixtures from 450K arrays only (the one platform holding all eight shared cells), seed 2026.
- - UT2B: the outside cells exist on EPIC only and three shared cells on 450K only, so these mixtures combine both platforms on the common
-   probe set the seal names; seed 2026 + 1. Disclosed as a deviation from "one platform" in the docstring.
+ - UT2A and UT2B: no one platform holds every cell's held-out arrays (neutrophils and the outside cells are EPIC only; B, CD4 and CD8 T
+   cells and colon epithelium are 450K only; found on run 1, which stopped before any score), so mixtures combine both platforms on the
+   common probe set the seal names. Seeds 2026 (UT2A) and 2027 (UT2B). Disclosed as a deviation from "one platform" in the docstring.
  - subtype rollup: v2.1 is used with the shared and outside cells only, so it returns no subtypes and the rollup has nothing to sum.
 Planted test first (chain rule): the same loader and scoring on arrays and a "Moss" built from the v2.1 means plus noise; the true case must
 pass UT1, UT2A and UT2B, and a v2.1 whose outside-cell profiles are scrambled must fail UT2B.
@@ -53,8 +53,7 @@ def run(v21, moss, arrays, plat):
     cv = confirmed(markers(v21, SHARED), held); cm = confirmed(markers(moss, SHARED), held)
     p_v, p_m = float(np.nanmean(list(cv.values()))), float(np.nanmean(list(cm.values())))
     siv = union(markers(v21, SHARED)); sim = union(markers(moss, SHARED))
-    A450 = {c: [b for b, p in zip(A[c], plat[c]) if p == "450K"] for c in SHARED}
-    MA = mixtures(A450, SHARED, 200, np.random.default_rng(2026))
+    MA = mixtures(A, SHARED, 200, np.random.default_rng(2026))
     ev, _ = score_mix([(t, x[siv]) for t, x in MA], v21.loc[siv], SHARED); em, _ = score_mix([(t, x[sim]) for t, x in MA], moss.loc[sim], SHARED)
     ALL = SHARED + OUTSIDE; sia = union(markers(v21, ALL))
     MB = mixtures(A, SHARED, 200, np.random.default_rng(2027), outside=OUTSIDE)
@@ -68,7 +67,7 @@ def run(v21, moss, arrays, plat):
                        verdict="MET" if np.median(eb) <= 0.5 * np.median(emb) else "NOT MET"))
     V["lines"] = [f"sites {V['sites']} | arrays {V['arrays']}",
         f"UT1 markers confirmed: v2.1 {p_v:.3f}, Moss {p_m:.3f} -> {V['UT1']['verdict']}",
-        f"UT2A shared-ground mixtures (450K): median error v2.1 {np.median(ev):.4f}, Moss {np.median(em):.4f}, ratio {V['UT2A']['ratio']:.2f} -> {V['UT2A']['verdict']}",
+        f"UT2A shared-ground mixtures: median error v2.1 {np.median(ev):.4f}, Moss {np.median(em):.4f}, ratio {V['UT2A']['ratio']:.2f} -> {V['UT2A']['verdict']}",
         f"UT2B wide area ({', '.join(OUTSIDE)}): median error v2.1 {np.median(eb):.4f}, Moss {np.median(emb):.4f}; v2.1 recovers the outside share within 0.05 in {rec:.2f} -> {V['UT2B']['verdict']}"]
     return V
 if __name__ == "__main__" and sys.argv[1] == "planted":
@@ -91,6 +90,6 @@ if __name__ == "__main__" and sys.argv[1] == "planted":
 if __name__ == "__main__":
     summary, shards, out = sys.argv[1:4]; os.makedirs(out, exist_ok=True); v21, moss = refs(summary); arrays, plat, listed = load_arrays(shards)
     V = run(v21, moss, arrays, plat); V.update(test="DEV-ATLAS-USE-01", listed=listed[:50], n_listed=len(listed), excluded_sets=EXCL,
-        deviations=["UT2B mixtures combine 450K and EPIC arrays on the common probe set (no one platform holds all its cells)", "lung alveolar macrophages not used (D13 NOT MET)"])
+        deviations=["UT2A and UT2B mixtures combine 450K and EPIC arrays on the common probe set (no one platform holds all their cells)", "lung alveolar macrophages not used (D13 NOT MET)"])
     Q2.write_json(V, os.path.join(out, "use_tests_v21_result.json"), manifest=["ATL-060"])
     open(os.path.join(out, "head_to_head_v21_summary.txt"), "w").write("\n".join(V["lines"]) + "\n"); print("\n".join(V["lines"]))
