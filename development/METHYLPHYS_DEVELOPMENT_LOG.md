@@ -2197,3 +2197,6 @@ Head-to-head box jobs: cdaad7c5 (run 1, stopped before any score), da7e2032 (run
 ### 2026-10-16 · IAM-A clean room run 1 found a chain bug; fixed (PHY-055)
 The fresh public copy, built to the chain's own requirements (pandas 1.5.3, pinned for methylprep), stopped in Stage Q2 build_line: it used a pandas 2.2 option (include_groups). Replaced by a per-cell loop with the same arithmetic; on the committed 153 counts the line and its cell table are identical to the old code and to the committed line. Clean room rerun from the fixed commit.
 Clean room run 2 launched as i-08a0814a8c11e3c18 from e1d64460 (PHY-055). Grand test helpers H (i-0a8d0ea2bb7131746) and I (i-0255f9da20747166c) reclaimed by AWS; claims released to the fit box (COM-IAMA-052).
+
+### 2026-10-16 · Website and book had not updated since 2026-10-15: one unescaped _ in the book (lesson C18; OTH-067)
+The author: the webpage and the book had not updated all day. Every website build since d1dd1c1e failed on p6_09_cscore.tex line 46 (a bare filename with underscores, from the 617 correction). Fixed; CANON/site_build_check.py added to the push gate so a failing build refuses further pushes until fixed.
