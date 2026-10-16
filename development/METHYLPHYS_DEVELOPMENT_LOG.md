@@ -2104,3 +2104,6 @@ Run 4 (i-0a9119be4c9143bca): all three donors aligned and deduplicated by 02:06 
 The count machine fetched the three alignments without their index files, so every region read failed and no count was written. count_hansen.py now builds the index when it is missing; count_box.sh fetches it when present and reports a donor with no count. Nothing was read.
 Same README row also said 50-site blocks, the superseded set; it now says blocks of 10, as the commissioning note does, and the commissioning gate refuses the old wording (OTH-064).
 Count run 2 launched as i-0ec02d263962a4bdf (code f6165411, code/count2/) (PHY-047).
+
+### 2026-10-16 · IAM-A healthy band rule sealed before the Hansen count (COM-IAMA-054)
+The author sealed the draft: A = held error / the line's prediction from the sample's own loose share; band = 2.5th to 97.5th percentile of pooled healthy readings (Loyfer 153 plus each Hansen donor that passes the shape check). In chain Stage Q2 (reading, build_band); synthetic T7 MET; DEV_IAMA_BAND_01.md and build_band_v1.py committed before any Hansen count exists.

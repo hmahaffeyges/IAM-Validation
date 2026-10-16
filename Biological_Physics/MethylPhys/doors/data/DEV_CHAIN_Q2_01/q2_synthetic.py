@@ -118,6 +118,16 @@ with tempfile.TemporaryDirectory() as td:
     Q2.LINE_DIR = keep
 t6 = dict(margin=ref["margin"], want_margin=want_m, x_067=a6["read"], x_065=b6["read"], unknown=c6["read"], no_shape=d6["read"], edited_refused=e6)
 ok["T6"] = (abs(ref["margin"] - want_m) < 1e-12 and a6["read"] and not b6["read"] and not c6["read"] and not d6["read"] and e6); R["T6"] = t6
+# ---- T7 the reading and the band (COM-IAMA-054): planted samples exactly on a planted line read A = 1; a planted spread gives the known percentiles
+import numpy as _np
+_J = {"firm": 0.04, "slope": 0.03, "version": 99, "axis": "raw"}
+_orig = Q2.line; Q2.line = lambda version=None: _J
+_on = [dict(loose_share=x, held_err=0.04 + 0.03 * x, lab="a") for x in _np.linspace(0.1, 0.9, 9)]
+_k = _np.linspace(0.8, 1.2, 401); _pl = [dict(loose_share=0.5, held_err=float(k) * 0.055, lab=("a" if i % 2 else "b")) for i, k in enumerate(_k)]
+t7 = dict(on_line=max(abs(Q2.reading(o)["A"] - 1) for o in _on), band=Q2.build_band(_pl))
+Q2.line = _orig
+ok["T7"] = t7["on_line"] < 1e-12 and abs(t7["band"]["lo"] - _np.percentile(_k, 2.5)) < 1e-9 and abs(t7["band"]["hi"] - _np.percentile(_k, 97.5)) < 1e-9 and t7["band"]["labs"] == {"a": 200, "b": 201}
+R["T7"] = t7
 R["ok"] = ok; R["verdict"] = "MET" if all(ok.values()) else "NOT MET"
-Q2.write_json(R, os.path.join(H, "q2_synthetic.json"))
+Q2.write_json(R, os.path.join(H, "q2_synthetic.json"), manifest=["OTH-057", "COM-IAMA-053", "COM-IAMA-054"])
 print(json.dumps(ok), R["verdict"]); print(json.dumps(t1)[:400]); [print(x) for x in t2]; print(t3)

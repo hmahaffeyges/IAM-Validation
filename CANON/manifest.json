@@ -25724,7 +25724,7 @@
    "record": "development/loose_end_2026-10-15/loose_end_line.py",
    "status": "planned",
    "runs": [],
-   "next_step": "remaining gates (2026-10-16): PHY-047 (Hansen score), PHY-050 (meter error from the Hansen count), COM-IAMA-054 (IAM-A band from Loyfer + Hansen, rule sealed first), PHY-055 part A (clean room); then this test on the unopened CD8 sets GSE144691, GSE98837, bars sealed before reading; commission if met. Recommended to the author as NOT gates: OTH-059 concern and tumor lines (reporting marks from the A-score database; Met-A and the C-score were commissioned without them), OTH-058 agreement check (needs two commissioned instruments on the same samples)",
+   "next_step": "remaining gates (2026-10-16): PHY-047 (Hansen score), PHY-050 (meter error from the Hansen count), COM-IAMA-054 (band rule sealed 2026-10-16; built after the Hansen count), PHY-055 part A (clean room); then this test on the unopened CD8 sets GSE144691, GSE98837, bars sealed before reading; commission if met. Recommended to the author as NOT gates: OTH-059 concern and tumor lines (reporting marks from the A-score database; Met-A and the C-score were commissioned without them), OTH-058 agreement check (needs two commissioned instruments on the same samples)",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -26417,6 +26417,14 @@
      "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
      "payload_sha256": "4779e3c72bf74c223b126e5c14141313195b3a524e955b1e189ffbb47e4ff0da",
      "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "MET (chain result Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json)",
+     "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
+     "payload_sha256": "f2900f7c675952e03af24365a2ffc68918f472f3c0f7516fa2a6cfa66ec1feb7",
+     "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
    "next_step": "sample-shape check (COM-IAMA-053) and IAM-A's own healthy band (COM-IAMA-054) through Stage Q2; second laboratory on GSE49627 through the chain",
@@ -26441,8 +26449,8 @@
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01",
      "files": 1,
      "stage": "Q2 self-reference",
-     "chain": "a78b5f14bd02",
-     "latest_utc": "2026-10-16T06:31:43Z"
+     "chain": "7d4c3559ad99",
+     "latest_utc": "2026-10-16T09:22:34Z"
     },
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/out",
@@ -26500,6 +26508,14 @@
      "outcome": "success",
      "note": "sealed and built in chain Stage Q2: margin 0.0543 from 153 healthy samples; ENCODE 0 of 5 read (all withheld, as the check is for)",
      "page": "not headline: instrument safeguard"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "MET (chain result Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json)",
+     "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
+     "payload_sha256": "f2900f7c675952e03af24365a2ffc68918f472f3c0f7516fa2a6cfa66ec1feb7",
+     "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
    "next_step": "applied first in DEV-SECONDLAB-02 (Hansen B cells, limit 0.662)",
@@ -26524,10 +26540,10 @@
     },
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01",
-     "files": 1,
+     "files": 2,
      "stage": "Q2 self-reference",
-     "chain": "a78b5f14bd02",
-     "latest_utc": "2026-10-16T06:36:17Z"
+     "chain": "7d4c3559ad99",
+     "latest_utc": "2026-10-16T09:22:34Z"
     },
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/shape_out",
@@ -26568,10 +26584,25 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
-   "status": "planned",
-   "runs": [],
-   "next_step": "seal the band rule before Hansen is counted: healthy own-read readings through chain Stage Q2 from Loyfer and Hansen (GSE49627), band = measured spread with the lab shift inside; then build it from the Hansen count",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_BAND_01.md",
+   "status": "sealed",
+   "runs": [
+    {
+     "date": "2026-10-16",
+     "outcome": "progressed",
+     "note": "rule sealed by the author before any Hansen count: A = held error / line prediction; band = 2.5th to 97.5th percentile of pooled healthy readings (Loyfer 153 + Hansen donors passing the shape check); synthetic T7 MET",
+     "page": "not headline: sealed rule"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "MET (chain result Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json)",
+     "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
+     "payload_sha256": "f2900f7c675952e03af24365a2ffc68918f472f3c0f7516fa2a6cfa66ec1feb7",
+     "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
+    }
+   ],
+   "next_step": "build band_v1 with build_band_v1.py once the three Hansen counts are in (DEV-SECONDLAB-02 run 2)",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
@@ -26580,6 +26611,15 @@
    "id": "COM-IAMA-054",
    "sources_of_row": [
     "session 2026-10-15"
+   ],
+   "chain_outputs": [
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "7d4c3559ad99",
+     "latest_utc": "2026-10-16T09:22:34Z"
+    }
    ]
   },
   {

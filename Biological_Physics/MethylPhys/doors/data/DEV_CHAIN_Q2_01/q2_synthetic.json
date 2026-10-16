@@ -124,24 +124,41 @@
   "no_shape": false,
   "edited_refused": true
  },
+ "T7": {
+  "on_line": 0.0,
+  "band": {
+   "lo": 0.8100000000000002,
+   "hi": 1.19,
+   "median": 1.0,
+   "n": 401,
+   "labs": {
+    "b": 201,
+    "a": 200
+   },
+   "rule": "2.5th to 97.5th percentile of pooled healthy readings, A = held error / line prediction (COM-IAMA-054)",
+   "line_version": 99
+  }
+ },
  "ok": {
   "T1": true,
   "T2": true,
   "T3": true,
   "T4": true,
   "T5": true,
-  "T6": true
+  "T6": true,
+  "T7": true
  },
  "verdict": "MET",
  "chain_stamp": {
   "stage": "Q2 self-reference",
-  "chain_sha": "a78b5f14bd02f60be28c793b60c5396559a21452d2ec8fa8db47cfd91e0bf1ed",
-  "payload_sha256": "4779e3c72bf74c223b126e5c14141313195b3a524e955b1e189ffbb47e4ff0da",
+  "chain_sha": "7d4c3559ad992a5bed7320a600dd1075ebef0e89dab09cbb626776b4b7ac3c13",
+  "payload_sha256": "f2900f7c675952e03af24365a2ffc68918f472f3c0f7516fa2a6cfa66ec1feb7",
   "inputs": [],
-  "utc": "2026-10-16T06:31:43Z",
   "manifest": [
+   "COM-IAMA-053",
+   "COM-IAMA-054",
    "OTH-057"
   ],
-  "manifest_backfilled": true
+  "utc": "2026-10-16T09:22:34Z"
  }
 }

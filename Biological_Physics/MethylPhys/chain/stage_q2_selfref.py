@@ -229,3 +229,15 @@ def shape_check(rec, cell, version=None, ref=None):
     ok = p >= lo
     return dict(read=bool(ok), cell=cell, tile_p10=p, healthy_min_p10=c["min_p10"], margin=J["margin"], limit=lo, healthy_n=c["n"],
                 reason="read" if ok else f"not read: tile 10th percentile {p:.3f} is below its healthy type's limit {lo:.3f} (sample shape outside healthy)")
+
+# ---------------------------------------------------------------- the reading and its healthy band (COM-IAMA-054, sealed by the author 2026-10-16)
+def reading(rec, version=None):
+    """IAM-A self-reference reading: A = measured held error / what the sample's own loose share predicts on the line. 1 = on the healthy
+    line; above 1 = more holes than its own line predicts (right on the gauge)."""
+    q = residual(rec, version); return dict(A=rec["held_err"] / q["predicted"], **q)
+def build_band(healthy, version=None):
+    """healthy: counts of healthy samples from every laboratory, each already through the shape check (a refused sample is not passed in).
+    Band = 2.5th to 97.5th percentile of their readings, pooled (sealed 2026-10-16: 'Seal as drafted'). Returns the band with its counts."""
+    a = np.array([reading(o, version)["A"] for o in healthy], dtype=float); labs = collections.Counter(o.get("lab", "unknown") for o in healthy)
+    return dict(lo=float(np.percentile(a, 2.5)), hi=float(np.percentile(a, 97.5)), median=float(np.median(a)), n=int(len(a)), labs=dict(labs),
+                rule="2.5th to 97.5th percentile of pooled healthy readings, A = held error / line prediction (COM-IAMA-054)", line_version=version or line()["version"])
