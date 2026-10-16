@@ -3774,7 +3774,7 @@
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
    "status": "running",
    "runs": [],
-   "next_step": "fit finished 2026-10-16 08:22 PDT: 700 of 700 blocks, every block R-hat p99 < 1.01 (worst 1.0085), ESS p01 >= 429, 13 divergences, distinctness PASS (0 of 3,081 pairs below 0.005; closest naive CD4/CD8 0.013); blocks backed up to S3 (2,800 files); assembled 08:29 PDT (one atlas file, checksums, convergence: 0.42 percent of cell-site pairs at R-hat >= 1.01, worst block 0.71 percent against 1 percent; 13 divergences in blocks 458, 467, 660; not flat, median spread 0.114); next: the held-out scoring by the amended bars (Stage A21)",
+   "next_step": "fit finished 2026-10-16 08:22 PDT: 700 of 700 blocks, every block R-hat p99 < 1.01 (worst 1.0085), ESS p01 >= 429, 13 divergences, distinctness PASS (0 of 3,081 pairs below 0.005; closest naive CD4/CD8 0.013); blocks backed up to S3 (2,800 files); assembled 08:29 PDT (one atlas file, checksums, convergence: 0.42 percent of cell-site pairs at R-hat >= 1.01, worst block 0.71 percent against 1 percent; 13 divergences in blocks 458, 467, 660; not flat, median spread 0.114); next: the held-out scoring by the amended bars (Stage A21) | U1 scorer and label map committed 2026-10-16 (18 cells); planted test then one scoring run on the AWS machine; then U2, then U3 (v2's deconv_v2 method on v2.1 means)",
    "cost": "box",
    "impact": 5,
    "depends_on": [

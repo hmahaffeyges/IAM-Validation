@@ -2158,3 +2158,6 @@ Assembled (box job 725c1103, ATL-005): one atlas file (S3 results/ATLAS_V21/asse
 
 ### 2026-10-16 · Atlas v2.1 compact copy in the repository (ATL-005)
 The author: keep a copy of the atlas in the repo. atlas/v2.1/ holds every site's best value and 95 percent range for all 79 cells (uint16, exact to 4 decimals; three parts per table, each under 100 MB; 317 MB), made by export_compact_v21.py (rounding only); checksums match and three cells checked at every site against the full atlas (largest difference 0.00005). The full 2.4 GB atlas file is also on the author's laptop.
+
+### 2026-10-16 · Atlas v2.1 U1 scorer and held-out label map committed before scoring (ATL-005)
+score_u1_v21.py (chain Stage A21 interval, coverage and verdict), planted_u1_v21.py (synthetic first; run on the AWS machine) and heldout_cell_map_v21.py/.json: 29 held-out labels, 18 atlas cells scored, each label matched to exactly one fitted cell by rule; 11 cells carry Loyfer or Moss names, 7 are built from other public laboratories and say which; sperm and cord-blood stem cells listed (not in v2.1); whole blood and cord blood are the U3 truth sets. The planted test first ran on the laptop and locked it up (worker processes without a main guard); fixed, and heavy work now runs only on the AWS machines.
