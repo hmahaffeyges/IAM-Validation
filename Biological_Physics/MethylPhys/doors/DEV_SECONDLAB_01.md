@@ -13,7 +13,7 @@ IAM-A needs before its grand test.
 (ENCFF092SBB), T cells (ENCFF605NRU), NK cells (ENCFF133QNK), CD14 monocytes (ENCFF704SCQ), CD34 myeloid progenitors (ENCFF969NGH).
 Reference: ENCODE's GRCh38_no_alt_analysis_set_GCA_000001405.15.
 
-**Prior reading:** PROC-CHANNEL-01 (2026-10-10) read ENCODE alignments only for the sequencing error (work_errors.csv); no loose share and no
+**Prior reading:** GSE49627 was read only for the loose share of its three resting B cells, for the scale diagnosis below (2026-10-15), after this test was scored; it was not part of this test. PROC-CHANNEL-01 (2026-10-10) read ENCODE alignments only for the sequencing error (work_errors.csv); no loose share and no
 held error of these cells was ever computed. Loyfer's 56 cells set the line; nothing from ENCODE helped set it.
 
 **Counter.** `data/DEV_SECONDLAB_01/secondlab.py`: the own-read counter of `development/loose_share_2026-10-15/` re-implemented for gemBS
