@@ -3774,7 +3774,7 @@
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
    "status": "running",
    "runs": [],
-   "next_step": "the v2.1 fit is running on methylphys-cpu-01 (m7a.32xlarge, 128 cores, 512 GB; job c2b26b34): 558 of 700 blocks at 2026-10-16T08:46:11Z, 12 divergences, worst R-hat p99 1.0084; then release checks (F05 judges the divergent blocks), the sealed bars and the use tests",
+   "next_step": "fit finished 2026-10-16 08:22 PDT: 700 of 700 blocks, every block R-hat p99 < 1.01 (worst 1.0085), ESS p01 >= 429, 13 divergences, distinctness PASS (0 of 3,081 pairs below 0.005; closest naive CD4/CD8 0.013); blocks backed up to S3 (2,800 files); next: assembly (assemble_v21.py: F03, F04, F05), then the held-out scoring by the amended bars (Stage A21)",
    "cost": "box",
    "impact": 5,
    "depends_on": [

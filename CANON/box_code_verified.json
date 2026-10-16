@@ -683,11 +683,11 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/ATLAS_V21/fit/run_v21.log": false,
-   "results/ATLAS_V21/fit/stageB_v21_summary.json": false,
-   "results/ATLAS_V21/fit/distinctness_v21.csv": false
+   "results/ATLAS_V21/fit/run_v21.log": true,
+   "results/ATLAS_V21/fit/stageB_v21_summary.json": true,
+   "results/ATLAS_V21/fit/distinctness_v21.csv": true
   },
   "state_at_verify": "running"
  },

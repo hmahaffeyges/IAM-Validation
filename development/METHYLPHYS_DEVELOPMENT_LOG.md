@@ -2148,3 +2148,6 @@ The author's downtime item 3: chemistry (bisulfite, EM-seq, conversion failure),
 ### 2026-10-16 · Book fixes: glossary collapsed fraction; virial-partners ratio by construction (PHY-075)
 The author's rule: every book error is told to him and fixed. Glossary f_coll entry corrected to the virial chapter's values; p7_05b now states R(1) = 2 holds by construction and is not evidence, and its coincidence section is marked an interpretation. The virial chapters already carried the 2026-10-01 trace (eta_vir a definition; 0.62 below Tinker's calibrated range).
 Book wording pass: three draft overclaim phrases reworded (p3_01b, p7_02, p7_05b) and four phrases retired in CANON/foundation.json (PHY-075).
+
+### 2026-10-16 · Atlas v2.1 fit finished (ATL-005)
+700 of 700 blocks at 08:22 PDT, 813,951 sites, 79 cells. Every block R-hat p99 under 1.01 (worst 1.0085), ESS p01 at least 429, 13 divergences (judged at release, F05). Distinctness gate PASS: 0 of 3,081 cell pairs below 0.005 (closest naive CD4 and CD8 T cells, 0.013; median 0.13). All 2,800 block files backed up to S3. Assembly script assemble_v21.py committed before any held-out array is read.
