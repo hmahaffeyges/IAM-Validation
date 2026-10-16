@@ -13,3 +13,9 @@ def era(z):
                 bits=N,energy_per_bit_J=Mc2/N,per_bit_over_kTdS_ln2=Mc2/N/(kB*TGH*ln2))
 for z in (0.0,(OL/Om)**(1/3)-1,1089.92): print({k:(float(f"{v:.4g}") if isinstance(v,float) else v) for k,v in era(z).items()})
 print("DE/matter today", round(OL/Om,4), "| observed DE / Planck-cutoff vacuum", f"{OL*3*H0**2/(8*np.pi*G)*c**2/(c**7/(hbar*G**2)):.4g}")
+# ---- the bill from the Big Bang to now (author question 2026-10-16): each horizon bit paid k_B T ln2 at the horizon temperature when it was written
+lP2_=hbar*G/c**3; Nf=lambda H: np.pi*c**2/(H**2*lP2_*ln2); price=lambda H: hbar*H/(2*np.pi)*ln2; Hz=lambda z: H0*E(z)
+def dNdz(z, e=1e-6): return -(Nf(Hz(z+e))-Nf(Hz(max(z-e,0))))/(z+e-max(z-e,0))
+paid=sum(quad(lambda z: price(Hz(z))*dNdz(z), a, b, limit=400)[0] for a,b in ((0,1),(1,1e3),(1e3,1e6),(1e6,1e9)))
+Mc2=c**5/(2*G*H0)
+print(f"bill paid when written {paid:.4g} J | energy inside the horizon today {Mc2:.4g} J | ratio {paid/Mc2:.5f} (exactly 2 for any expansion history: the sum is c^5/(G H0))")
