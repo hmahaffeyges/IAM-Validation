@@ -6,7 +6,7 @@ DEV-SECONDLAB-01, whose B cell carries an undermethylated tail that healthy B ce
 **Prior reading:** GSE49627's processed per-CpG files of the three resting B cells were read for their tile shape only (loose share and
 tile percentiles), for the DEV-SECONDLAB-01 scale diagnosis on 2026-10-15. No held error has been computed on any GSE49627 sample.
 
-**Step 1 (running): alignment only.** `data/DEV_SECONDLAB_02/box/align_hansen.sh`: full runs SRR948844, SRR948845, SRR948846 from ENA,
+**Step 1 (running): alignment only.** `data/DEV_SECONDLAB_02/box/align_hansen.sh`: full runs SRR948844, SRR948845, SRR948846 from NCBI's open copy in AWS (fasterq-dump; ENA served them at about 0.26 MB/s, so the first machine, i-08f7918ad0a721c4c, was stopped after 35 minutes with nothing downloaded),
 Trim Galore, Bismark paired-end on hg38 (the tumor work's tools and index), deduplication, sorted and indexed BAMs to S3. No count.
 
 **Step 2 (before any count): the rule.** Written and committed after step 1 and before step 2's count: the bar against the chain's line

@@ -1155,7 +1155,7 @@
    "date": "2026-10-15",
    "commit": "49483adc",
    "s3_code_prefix": "results/DEV_SECONDLAB_02/code/",
-   "state": "running",
+   "state": "cancelled",
    "log": "results/DEV_SECONDLAB_02/status.txt",
    "machine": "spot m7a.32xlarge, self-terminating (30-hour hard stop)",
    "purpose": "Trim Galore, Bismark paired-end hg38, dedup, sorted BAMs for three healthy donors; nothing counted",
@@ -1171,7 +1171,7 @@
     "PHY-047",
     "PHY-074"
    ],
-   "note": "running"
+   "note": "stopped after 35 minutes: ENA served the files at about 0.26 MB/s; nothing downloaded, nothing counted; relaunched from NCBI's AWS copy"
   }
  ],
  "not_jobs": {
