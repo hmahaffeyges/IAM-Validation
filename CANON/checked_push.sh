@@ -13,7 +13,7 @@ python3 CANON/commissioning_check.py || { echo "checked_push.sh: COMMISSIONING C
 python3 CANON/ascore_db.py --check || { echo "checked_push.sh: A-SCORE DATABASE CHECK FAILED - run python3 CANON/ascore_db.py - push refused"; exit 1; }
 python3 CANON/bit_tables.py --check || { echo "checked_push.sh: BIT TABLES differ from CANON/four_domains.json - push refused"; exit 1; }
 python3 CANON/manifest_fresh_controls.py > /dev/null && python3 CANON/manifest_fresh.py check || { echo "checked_push.sh: MANIFEST FRESHNESS CHECK FAILED - work changed without its Master Testing Manifest row - push refused"; exit 1; }
-python3 CANON/status_md.py --check && python3 CANON/plan_md.py --check || { echo "checked_push.sh: STATUS.md or COMMISSIONING_PLAN.md differs from its sources - push refused"; exit 1; }
+python3 CANON/status_md.py --check && python3 CANON/status_lines.py --check && python3 CANON/plan_md.py --check || { echo "checked_push.sh: STATUS.md or COMMISSIONING_PLAN.md differs from its sources - push refused"; exit 1; }
 python3 CANON/catalogue.py --check || { echo "checked_push.sh: CATALOGUE CHECK FAILED - INSTRUMENTS.md or the README catalogue differs from CANON/catalogue.json - push refused"; exit 1; }
 python3 CANON/bib_check.py > /dev/null || { python3 CANON/bib_check.py | tail -20; echo "checked_push.sh: BIBLIOGRAPHY CHECK FAILED - a citation does not match its CrossRef record - push refused"; exit 1; }
 n=$(grep -rl "COMMISSIONING-RETURN" docs/book --include=*.tex 2>/dev/null | wc -l | tr -d " ")

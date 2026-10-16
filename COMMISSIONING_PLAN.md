@@ -37,7 +37,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
    - OTH-062 (planned): search the scholarly databases claim by claim; table: claim, nearest prior work, difference, status; then the paper's lineage section
 13. **Record keeping: the manifest kept current by the chain; document consolidation**
    - OTH-063 (run; last run 2026-10-16: met): none: live; the chain names rows in every stamp and the gate refuses stale rows. Document consolidation is OTH-064
-   - OTH-064 (running; last run 2026-10-16: progressed): batch 3: status sentences in README, REFERENCE and the MethylPhys README generated from the same sources
+   - OTH-064 (run; last run 2026-10-16: met): done: hand-kept living documents are now the development log and the day log (both written as work happens and checked by the gate); the book is the toolbox, checked by verify_book; sealed records are history. Everything else is generated or a pointer
 
 ## Machines running now (machine ledger)
 

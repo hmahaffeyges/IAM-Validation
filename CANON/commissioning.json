@@ -86,7 +86,8 @@
     }
    ],
    "status_line": "| **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)) | isolated neutrophils; detection limit 2 %; whole blood is development |",
-   "summary": "Met-A on neutrophils, EPIC v1, isolated neutrophils"
+   "summary": "Met-A on neutrophils, EPIC v1, isolated neutrophils",
+   "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md"
   },
   {
    "register_id": "COMMISSIONING-CSCORE",
@@ -205,10 +206,15 @@
     {
      "file": "Biological_Physics/MethylPhys/STATUS.md",
      "pattern": "computed on every reading; band not set|\\| printed; band not set \\|"
+    },
+    {
+     "file": "Biological_Physics/MethylPhys/README.md",
+     "pattern": "\\*\\*Met-A C-score\\*\\*[^\\n]*band not set"
     }
    ],
    "status_line": "| **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](doors/COMMISSIONING_NOTE_CSCORE.md)) | one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered; isolated neutrophils development |",
-   "summary": "the Met-A C-score on whole blood, EPIC v1"
+   "summary": "the Met-A C-score on whole blood, EPIC v1",
+   "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md"
   }
  ]
 }
