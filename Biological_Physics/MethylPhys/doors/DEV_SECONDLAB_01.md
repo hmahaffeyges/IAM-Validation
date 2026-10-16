@@ -87,7 +87,7 @@ for the same run (ENCFF703XLD) are being read with the same tile rule, to separa
 
 `data/DEV_SECONDLAB_01/scale_diagnosis.py` -> `scale_diagnosis.json`, the same tile rule on published per-CpG data. ENCODE's own calls for the
 counted B-cell run read a loose share of 0.359 (this extractor: 0.337), so the extractor is not the cause. ENCODE's B cells are less
-methylated overall than Loyfer's (genome-wide mean 0.727 against 0.805; tile median 0.767 against 0.811). The cut at 0.70 sits on the steep
+methylated overall than Loyfer's (genome-wide mean 0.7271 against 0.8045; tile median 0.767 against 0.811). The cut at 0.70 sits on the steep
 side of the tile distribution: on Loyfer's B cell alone the share is 0.054 at 0.70 and 0.133 at 0.75. A fixed cut therefore carries each
 laboratory's overall methylation level into the loose share.
 
