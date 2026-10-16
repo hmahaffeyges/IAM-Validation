@@ -1,0 +1,117 @@
+{
+ "GSE127824": {
+  "verdict": "NOT MET",
+  "n": 24,
+  "atlas": {
+   "mae": 0.1264183484877666,
+   "within_005": 0.16666666666666666,
+   "max": 0.2855049728669204,
+   "met": false
+  },
+  "current": {
+   "mae": 0.09286122284593423,
+   "within_005": 0.375,
+   "max": 0.2359015752966293,
+   "met": false
+  },
+  "not_worse": false
+ },
+ "GSE167202": {
+  "verdict": "NOT MET",
+  "n": 195,
+  "atlas": {
+   "mae": 0.08439429745531307,
+   "within_005": 0.4,
+   "max": 0.3940772701384949,
+   "met": false
+  },
+  "current": {
+   "mae": 0.08024333553911192,
+   "within_005": 0.49743589743589745,
+   "max": 0.38803551301173284,
+   "met": false
+  },
+  "not_worse": false
+ },
+ "U3": "FAILED",
+ "tool": {
+  "array_blood_cells": [
+   "b cells",
+   "basophils",
+   "cd4 t cells",
+   "cd8 t cells",
+   "effector memory cd8 t cells",
+   "eosinophils",
+   "memory b cells",
+   "memory cd4 t cells",
+   "monocytes",
+   "naive b cells",
+   "naive cd4 t cells",
+   "naive cd8 t cells",
+   "neutrophils",
+   "nk cells",
+   "regulatory t cells",
+   "t central memory cd4",
+   "t effector cell cd8"
+  ],
+  "mixture_removed": {
+   "cd4 t cells": {
+    "cd8 t cells": 0.095,
+    "memory cd4 t cells": 0.177,
+    "naive cd4 t cells": 0.491,
+    "regulatory t cells": 0.045,
+    "t central memory cd4": 0.173
+   },
+   "cd8 t cells": {
+    "b cells": 0.021,
+    "effector memory cd8 t cells": 0.312,
+    "naive cd8 t cells": 0.579,
+    "nk cells": 0.031,
+    "t effector cell cd8": 0.049
+   },
+   "b cells": {
+    "memory b cells": 0.313,
+    "naive b cells": 0.684
+   }
+  },
+  "cells": [
+   "basophils",
+   "effector memory cd8 t cells",
+   "eosinophils",
+   "memory b cells",
+   "memory cd4 t cells",
+   "monocytes",
+   "naive b cells",
+   "naive cd4 t cells",
+   "naive cd8 t cells",
+   "neutrophils",
+   "nk cells",
+   "regulatory t cells",
+   "t central memory cd4",
+   "t effector cell cd8"
+  ],
+  "solver": {
+   "n_cells": 14,
+   "n_loci_all_measured": 759362,
+   "n_markers": 9820,
+   "margin": 0.1,
+   "top": 600,
+   "sigma": 0.02,
+   "drop": [],
+   "markers": "hybrid",
+   "k_near": 8,
+   "per_pair": 60,
+   "pair_margin": 0.15
+  }
+ },
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "52e94725c307235a5cb7cc9760563eeaa85fbe0dc9c691257b6633f19adae40d",
+  "payload_sha256": "86aa4c5b2371c33402dbed4b6e4f4222810bd23a74aa770026abb1ef3451b7e2",
+  "inputs": [],
+  "manifest": [
+   "ATL-005"
+  ],
+  "utc": "2026-10-16T17:56:40Z"
+ }
+}

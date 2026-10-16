@@ -3779,9 +3779,15 @@
      "outcome": "fail",
      "note": "U1 scored once (box job 85685c55): 4 of 27 cell-platform pairs reach the 95 percent share (cortical neurons 450K, lung alveolar macrophages EPIC, lung bronchus epithelium 450K, naive CD4 T cells 450K); median coverage 0.891 against 0.90; 72 percent of the low arrays from GSE59065, GSE224807, GSE247198. Record: doors/DEV_ATLAS_V21_01.md",
      "page": "not headline: use test in progress"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "fail",
+     "note": "U3 scored once (box job 50b9a3b9): NOT MET on GSE127824 cord blood (MAE 0.126) and GSE167202 emergency-department bloods (MAE 0.084); the current method misses both nearly as widely (0.093, 0.080). Record: doors/DEV_ATLAS_V21_01.md",
+     "page": "not headline: use test"
     }
    ],
-   "next_step": "U1 scored 2026-10-16 (4 of 27 pairs); author decision on the next step, then U2 and U3",
+   "next_step": "U1 (4 of 27 pairs) and U3 (failed) scored 2026-10-16; U2a running; then the per-use commissioning decision",
    "cost": "box",
    "impact": 5,
    "depends_on": [

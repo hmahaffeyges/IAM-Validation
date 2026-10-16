@@ -1,0 +1,4 @@
+PLANTED_OK: MET (want MET), atlas MAE 0.0011, within 0.05 1.000
+PLANTED_BIASED: NOT MET (want NOT MET), atlas MAE 0.0602, within 0.05 0.000
+cells used: 14 (basophils, effector memory cd8 t cells, eosinophils, memory b cells, memory cd4 t cells, monocytes, naive b cells, naive cd4 t cells, naive cd8 t cells, neutrophils, nk cells, regulatory t cells, t central memory cd4, t effector cell cd8); removed as mixtures: ['b cells', 'cd4 t cells', 'cd8 t cells']; markers 9820
+PLANTED U3 TEST: PASSED

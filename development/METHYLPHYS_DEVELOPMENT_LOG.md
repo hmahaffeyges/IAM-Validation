@@ -2173,3 +2173,6 @@ Run 3 helper G (i-0c21463e9f0de811b) was reclaimed after about 15 minutes; its c
 
 ### 2026-10-16 · IAM-A clean room part A launched (PHY-055)
 Self-terminating spot machine i-016be641747ea1aa5 clones the public repository at e9e388c5 and recounts Loyfer 153 (GEO) and ENCODE 5 (ENCODE) with the clone's own chain, then rebuilds the line and the shape reference; every count and both references must equal the committed ones.
+
+### 2026-10-16 · Atlas v2.1 U3 scored once (ATL-005)
+Planted test PASSED; then NOT MET on both truth sets: cord blood MAE 0.126, emergency-department bloods 0.084; the current method 0.093 and 0.080. U3 FAILED; the composition step stays development.

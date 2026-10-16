@@ -342,3 +342,20 @@ array file). Results: `data/DEV_ATLAS_V21_01/u1_scored_v21.json`, `u1_samples_v2
 naive CD4 T cells (450K). The other 23 did not reach 95 %. Median coverage over all 1,319 arrays is 0.891 against the interval's 0.90, so the
 atlas's range is centered; the misses are a low tail (244 arrays below 0.80, 41 above 0.97), and 72 % of the low arrays come from three
 laboratories (GSE59065, 113; GSE224807, 38; GSE247198, 24). These are reported, not reasons: the bar stands as sealed.
+
+## U3 outcome (2026-10-16), scored once by the amended bar B3
+
+Box job 50b9a3b9 (code 64bfaed4; run 1, 2fa39f71, crashed on its first sample on a column-name clash before anything was recorded). Planted
+test PASSED first (planted blood: neutrophil error 0.001; a planted 0.06 bias caught). Tool: atlas_e built on the v2.1 means, 14 array-measured
+blood cells (the mixture rule removed the three unsorted parent cells, b cells, cd4 t cells and cd8 t cells, as it did in v2). Truth rules fixed
+before reading (score_u3_v21.py). Results: `data/DEV_ATLAS_V21_01/u3_scored_v21.json`, `u3_samples_v21.csv`.
+
+| truth set | n | atlas v2.1 MAE | within 0.05 | current method (NNLS8) MAE | verdict |
+|---|---|---|---|---|---|
+| GSE127824, cord blood, flow counts | 24 | 0.126 (reads 0.124 low) | 0.17 | 0.093 | NOT MET |
+| GSE167202, emergency-department bloods, clinical count | 195 | 0.084 | 0.40 | 0.080 | NOT MET |
+
+**U3: FAILED.** The current commissioned composition step misses both sets almost as widely, so the misses are not particular to v2.1;
+both sets differ from healthy adult blood (cord blood carries cord-blood granulocytes and nucleated red cells; these patients were acutely
+ill). On adult bloods counted by flow, the same method read neutrophils within 0.016 (DEV-ATLAS-EPIC-01, development). Reported, not reasons:
+the bar stands. The v2.1 composition step stays development.
