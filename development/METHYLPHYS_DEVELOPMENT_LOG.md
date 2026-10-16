@@ -2072,5 +2072,8 @@ Author: KISS, not too high. Sealed as drafted: tile 10th percentile no more than
 ### 2026-10-15 · Shape reference built by the chain
 All 153 Loyfer samples (7 recounted locally, same chain) reproduce step 2 exactly; the chain built shape_reference_v1.json (margin 0.0543, 53 cell types). ENCODE: 0 of 5 read. Hansen B-cell limit 0.662.
 
-### 2026-10-15 · Cell throughput entry corrected
+### 2026-10-15 · Day summary
+Commissioned: the clustering meter (C-score) on whole blood, EPIC v1 (scope narrowed from whole blood and isolated neutrophils after review). Atlas v2.1 fit launched and running (512 of 700 blocks by midnight; 2 blocks with divergences noted for F05). IAM-A: second laboratory (ENCODE) NOT MET like for like after a first MET that compared raw values with a scaled line (lesson C16); ENCODE's B-cell sample is the outlier (Hansen's three healthy donors match Loyfer). Chain Stage Q2 built (own-read counter, loose share, line, stamps; synthetic T1-T6 MET); the self-reference line rebuilt by the chain from 153 samples, identical to the development counts; sample-shape check sealed (margin 0.0543; ENCODE 0 of 5 read); Hansen second-lab rule sealed; Hansen alignment running (run 4, after three failed runs: slow download, tools path, trim naming). Gates: chain gate rule 23b (logged tests must run through the chain), chain-only replication (REPLICATE.md), gauge words (lesson C17, bit-rate language). IAM-A no longer borrows Met-A's band. Met-A self-line NOT MET (exploratory). IAM's definition at the top of the README and the book's abstract; IAM in bits: connections table and per-application tables; the pieces table with verified citations.
+
+### 2026-10-16 · Cell throughput entry corrected
 The per-cell average (3,100-4,400 writes per second) divided by all 3.72e13 cells, about 70 percent of which are red blood cells without DNA. Withdrawn; the whole-body bound stands; per cell waits for the DNA-carrying cell count from Bianconi's table.
