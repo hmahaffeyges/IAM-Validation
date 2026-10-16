@@ -14,6 +14,7 @@ python3 CANON/ascore_db.py --check || { echo "checked_push.sh: A-SCORE DATABASE 
 python3 CANON/bit_tables.py --check || { echo "checked_push.sh: BIT TABLES differ from CANON/four_domains.json - push refused"; exit 1; }
 python3 CANON/manifest_fresh_controls.py > /dev/null && python3 CANON/manifest_fresh.py check || { echo "checked_push.sh: MANIFEST FRESHNESS CHECK FAILED - work changed without its Master Testing Manifest row - push refused"; exit 1; }
 python3 CANON/status_md.py --check && python3 CANON/status_lines.py --check && python3 CANON/plan_md.py --check || { echo "checked_push.sh: STATUS.md or COMMISSIONING_PLAN.md differs from its sources - push refused"; exit 1; }
+python3 CANON/kiss_check_controls.py > /dev/null && python3 CANON/kiss_check.py check || { echo "checked_push.sh: KISS CHECK FAILED - a sealed rule needs the instrument's job, at most 3 bars and public sources - push refused"; exit 1; }
 python3 CANON/catalogue.py --check || { echo "checked_push.sh: CATALOGUE CHECK FAILED - INSTRUMENTS.md or the README catalogue differs from CANON/catalogue.json - push refused"; exit 1; }
 python3 CANON/bib_check.py > /dev/null || { python3 CANON/bib_check.py | tail -20; echo "checked_push.sh: BIBLIOGRAPHY CHECK FAILED - a citation does not match its CrossRef record - push refused"; exit 1; }
 n=$(grep -rl "COMMISSIONING-RETURN" docs/book --include=*.tex 2>/dev/null | wc -l | tr -d " ")

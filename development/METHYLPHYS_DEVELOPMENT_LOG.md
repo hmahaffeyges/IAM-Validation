@@ -2118,3 +2118,6 @@ Correction the same night: removing the Hansen meter error makes the three donor
 
 ### 2026-10-16 · IAM-A second-laboratory gate closed as recorded; lesson C19 (PHY-047, COM-IAMA-052)
 The author: self-reference means the sample reads against itself and the instrument, not across laboratories, and the bar was set too high. S1 stays NOT MET as scored; its bar (the line's cell-type scatter) was stricter than the instrument's job, and the comparison needed data that is not public (lesson C19). The job itself, a healthy sample from another laboratory reading Normal on band v1, is tested next on fresh data in the grand sealed test.
+
+### 2026-10-16 · KISS enforced at the gate (OTH-065)
+The author asked for a note KISS cannot be forgotten behind. CANON/kiss_check.py (controls 7 of 7) refuses a sealed rule without a plain line stating the instrument's job, with more than 3 scored bars, or with a source that is not public; wired into checked_push. Also first in the session memory.

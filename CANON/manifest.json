@@ -26885,6 +26885,35 @@
    "sources_of_row": [
     "session 2026-10-16"
    ]
+  },
+  {
+   "title": "KISS enforced at the gate for every sealed rule",
+   "purpose": "Author 2026-10-16: 'Where can you write KISS so you will remember it during our commissioning and official pre-reg testing??' A sealed rule must state the instrument's job in one plain sentence, carry at most 3 scored bars, and name every source as public with what it provides (lesson C19).",
+   "instrument_or_term": "all",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "CANON/kiss_check.py",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "controls 7 of 7, including refusing the 2026-10-15 Hansen rule (no job line, no sources) and a controlled-access source",
+     "page": "not headline: record keeping"
+    }
+   ],
+   "next_step": "none: live; first use is the IAM-A grand sealed test (COM-IAMA-052)",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "",
+   "legacy_ids": [],
+   "id": "OTH-065",
+   "sources_of_row": [
+    "session 2026-10-16"
+   ]
   }
  ],
  "not_tests": {
