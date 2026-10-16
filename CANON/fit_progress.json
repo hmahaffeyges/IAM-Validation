@@ -1,11 +1,11 @@
 {
  "_rule": "written by CANON/fit_progress.py from the box watcher; do not edit by hand",
- "as_of_utc": "2026-10-16T08:46:11Z",
+ "as_of_utc": "2026-10-16T08:56:12Z",
  "status": "OK",
- "blocks_done": 558,
+ "blocks_done": 560,
  "blocks": 700,
- "percent": 79.7,
- "blocks_per_hour": 21.0,
+ "percent": 80.0,
+ "blocks_per_hour": 21.3,
  "rate_basis": "blocks finished in the last 3 hours",
  "expected_finish_pacific": "Friday October 16, about 8 AM Pacific"
 }

@@ -1,0 +1,91 @@
+{
+ "_rule": "The order of work (author 2026-10-16: one source per fact). Each item names its Master Testing Manifest rows; COMMISSIONING_PLAN.md is generated from this order and the rows' live status and next step by CANON/plan_md.py. Edit the order here; edit a row's state in the manifest.",
+ "mandate": "Commission IAM-A first and foremost, then the C-score, Met-A on its own loose share, and Group-A; build the A-score database; derivations only where they improve accuracy now. Every step is a manifest row, runs synthetic first, writes its rule before its data, runs through the chain, and is pushed through the gate.",
+ "items": [
+  {
+   "label": "IAM-A gate: second laboratory (Hansen healthy B cells)",
+   "rows": [
+    "PHY-047",
+    "COM-IAMA-053"
+   ]
+  },
+  {
+   "label": "IAM-A: the sequencer's own error subtracted",
+   "rows": [
+    "PHY-050"
+   ]
+  },
+  {
+   "label": "IAM-A: its own healthy band, from evidence across laboratories",
+   "rows": [
+    "COM-IAMA-054"
+   ]
+  },
+  {
+   "label": "IAM-A: clean room, part A",
+   "rows": [
+    "PHY-055"
+   ]
+  },
+  {
+   "label": "IAM-A: the grand sealed test, then commissioning",
+   "rows": [
+    "COM-IAMA-052"
+   ]
+  },
+  {
+   "label": "Atlas v2.1: the fit lands; release checks, sealed bars, the Loyfer and Moss use tests",
+   "rows": [
+    "ATL-005",
+    "ATL-060"
+   ]
+  },
+  {
+   "label": "Backbone: healthy range on the same counter; tumor-adjacent against truly healthy colon",
+   "rows": [
+    "PHY-071",
+    "PHY-072"
+   ]
+  },
+  {
+   "label": "Probe-position check",
+   "rows": [
+    "PHY-070"
+   ]
+  },
+  {
+   "label": "C-score on real tumors, with a sealed bar",
+   "rows": [
+    "OTH-054"
+   ]
+  },
+  {
+   "label": "Gauge lines from evidence (reporting marks, not a commissioning gate)",
+   "rows": [
+    "OTH-059",
+    "OTH-058"
+   ]
+  },
+  {
+   "label": "Stage T: the temperature law",
+   "rows": [
+    "PHY-057"
+   ]
+  },
+  {
+   "label": "IAM in bits; literature positioning",
+   "rows": [
+    "OTH-061",
+    "OTH-062"
+   ]
+  },
+  {
+   "label": "Record keeping: the manifest kept current by the chain; document consolidation",
+   "rows": [
+    "OTH-063",
+    "OTH-064"
+   ]
+  }
+ ],
+ "decisions_waiting": []
+}

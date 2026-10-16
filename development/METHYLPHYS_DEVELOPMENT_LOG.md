@@ -2090,3 +2090,6 @@ Count machine i-0987cb49e219d16f2 launched (code a32e96bc, PHY-047).
 
 ### 2026-10-16 · Document consolidation, batch 1 (OTH-064)
 The author approved consolidation (one source per fact). Merged by code: the candidates board into INSTRUMENTS.md; the not-chain-verified list into REPLICATE.md; IAM in bits (bit tables, scope and the pieces, now data in four_domains.json) into FOUR_DOMAINS.md. Retired to one-line pointers so links still work: Biological_Physics/MethylPhys/INSTRUMENTS.md, NOT_CHAIN_VERIFIED.md, development/bit_paper/BIT_TABLES.md, OUTLINE.md, PIECES.md, TODO.md, PRIORITY_2026-10-13.md.
+
+### 2026-10-16 · Document consolidation, batch 2 (OTH-064)
+STATUS.md and COMMISSIONING_PLAN.md are now generated (CANON/status_md.py; CANON/plan_md.py from CANON/plan.json and the manifest); the hand-kept versions are frozen in archive/history_2026-10-16/. The first generated plan showed two stale rows (ATL-005, OTH-063), corrected.
