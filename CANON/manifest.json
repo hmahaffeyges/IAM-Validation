@@ -25228,7 +25228,7 @@
      "page": "not headline: exploratory miss, kept in the research record"
     }
    ],
-   "next_step": "all three Hansen donors aligned (B2 82.8, B1 69.5, B3 65.8 percent mapped); count_box.sh counts each with chain Stage Q2 (count_hansen.py) once the BAMs land; score_secondlab02.py scores once by the sealed S1 with the shape check first (both committed before any count); count machine i-0987cb49e219d16f2 launched 2026-10-16",
+   "next_step": "alignment done 2026-10-16 02:06 PDT (B2 82.8, B1 69.5, B3 65.8 percent mapped; deduplicated BAMs in S3); count machine i-0987cb49e219d16f2 counting each with chain Stage Q2; then the IAM-A band rule (COM-IAMA-054) sealed before the counts are read, then score_secondlab02.py once",
    "cost": "laptop or box",
    "impact": 5,
    "depends_on": [

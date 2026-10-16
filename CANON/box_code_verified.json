@@ -863,7 +863,7 @@
    "results/DEV_SECONDLAB_02/bam/": false,
    "results/DEV_SECONDLAB_02/logs/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "succeeded"
  },
  "i-0987cb49e219d16f2": {
   "s3": {

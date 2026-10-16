@@ -1254,7 +1254,7 @@
    "date": "2026-10-15",
    "commit": "00992635",
    "s3_code_prefix": "results/DEV_SECONDLAB_02/code/run4/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/DEV_SECONDLAB_02/status.txt",
    "machine": "spot m7a.32xlarge, self-terminating (30-hour hard stop)",
    "purpose": "preflight on 100,000 pairs, then fasterq-dump, Trim Galore (--no_poly_g), Bismark paired-end hg38, dedup, sorted BAMs; nothing counted",
@@ -1268,10 +1268,9 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/samples.tsv"
    ],
    "manifest": [
-    "PHY-047",
-    "PHY-074"
+    "PHY-047"
    ],
-   "note": "running"
+   "note": "all three donors aligned and deduplicated: B2 SRR948845 (82.8 percent mapped, 17 GB), B1 SRR948844 (69.5, 24 GB), B3 SRR948846 (65.8, 21 GB); ALL DONE 2026-10-16 02:06 PDT; machine terminated itself"
   },
   {
    "job_id": "i-0987cb49e219d16f2",
