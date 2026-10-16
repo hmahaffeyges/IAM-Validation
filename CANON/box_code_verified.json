@@ -1023,7 +1023,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/DEV_IAMA_GRAND_01/out/": false,
    "results/DEV_IAMA_GRAND_01/bam/": false
@@ -1038,10 +1038,23 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/DEV_IAMA_GRAND_01/out/": false,
    "results/DEV_IAMA_GRAND_01/bam/": false
+  },
+  "state_at_verify": "running"
+ },
+ "i-016be641747ea1aa5": {
+  "s3": {
+   "cleanroom_box.sh": "12cc2a41845acba10e6a024798de4a7aff2d81173ed88103743dad188c6c0397",
+   "cleanroom_iama.py": "60a2a66c0ecca9a637be6df3e54a33d6da22ee6e3c1d68e82d031246b6c115e6"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/CLEANROOM_IAMA_01/": false
   },
   "state_at_verify": "running"
  }

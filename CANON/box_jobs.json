@@ -1583,7 +1583,7 @@
    "name": "IAM-A clean room part A: fresh public clone recounts Loyfer 153 and ENCODE 5 and rebuilds the line and shape reference (PHY-055)",
    "date": "2026-10-16",
    "commit": "e9e388c5",
-   "s3_code_prefix": "public GitHub clone at e9e388c5 (no code from our S3)",
+   "s3_code_prefix": "results/CLEANROOM_IAMA_01/code/run1/",
    "state": "running",
    "log": "results/CLEANROOM_IAMA_01/status.txt",
    "machine": "spot c7a.8xlarge us-west-2d, self-terminating",
