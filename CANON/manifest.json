@@ -26400,6 +26400,52 @@
    "sources_of_row": [
     "session 2026-10-15"
    ]
+  },
+  {
+   "title": "IAM-A sample-shape check: no reading when a sample's tile distribution is outside the healthy shape",
+   "purpose": "A sample like ENCODE's B cell (long undermethylated tail) reads a high loose share and a falsely reassuring residual; the instrument must refuse it, as Met-A withholds arrays",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "COMMISSIONING_PLAN.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "rule from healthy shapes of two independent labs (Loyfer, GSE49627 Hansen), sealed; synthetic first; then ENCODE's B cell must be refused; in chain Stage Q2",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "OTH-057"
+   ],
+   "notes": "author 2026-10-15: could a lab or sample problem skew a patient's result without us knowing?",
+   "legacy_ids": [],
+   "id": "COM-IAMA-053",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Instrument agreement check: each instrument keeps its own reading; disagreement flags a sample or lab problem",
+   "purpose": "Author: do the other instruments balance a patient's result? Not by averaging (a bad reading would blend in) but by cross-checking, like redundant metering in state estimation",
+   "instrument_or_term": "catalogue",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "COMMISSIONING_PLAN.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "define, per specimen, which instruments read it and what agreement means; report agreement beside the readings, never folded into them",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "author 2026-10-15: could a lab or sample problem skew a patient's result without us knowing?",
+   "legacy_ids": [],
+   "id": "OTH-058",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
   }
  ],
  "not_tests": {
