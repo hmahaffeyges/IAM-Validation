@@ -1056,7 +1056,7 @@
   "outputs_in_s3": {
    "results/CLEANROOM_IAMA_01/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "failed"
  },
  "cdaad7c5-b683-466a-beea-0ee6e9e78fc4": {
   "s3": {
@@ -1108,5 +1108,18 @@
    "results/ATLAS_V21/repro_chain/": false
   },
   "state_at_verify": "succeeded"
+ },
+ "i-08a0814a8c11e3c18": {
+  "s3": {
+   "cleanroom_box.sh": "12cc2a41845acba10e6a024798de4a7aff2d81173ed88103743dad188c6c0397",
+   "cleanroom_iama.py": "60a2a66c0ecca9a637be6df3e54a33d6da22ee6e3c1d68e82d031246b6c115e6"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/CLEANROOM_IAMA_01/": false
+  },
+  "state_at_verify": "running"
  }
 }

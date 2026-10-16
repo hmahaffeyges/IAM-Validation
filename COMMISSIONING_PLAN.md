@@ -47,7 +47,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 | DEV-IAMA-GRAND-01 run 3 machine F: CD8 samples from the shared queue, aligned and counted by chain Stage Q2 | methylphys-cpu-01, on-demand m7a.32xlarge, 1.5 TB work disk vol-0230dfb60526c5806 (delete after the test) | COM-IAMA-052 |
 | DEV-IAMA-GRAND-01 run 3 machine H: CD8 samples from the shared queue, aligned and counted by chain Stage Q2 | spot m7a.16xlarge us-west-2d, 2 samples at a time | COM-IAMA-052 |
 | DEV-IAMA-GRAND-01 run 3 machine I: CD8 samples from the shared queue, aligned and counted by chain Stage Q2 | spot m7a.16xlarge us-west-2d, 2 samples at a time | COM-IAMA-052 |
-| IAM-A clean room part A: fresh public clone recounts Loyfer 153 and ENCODE 5 and rebuilds the line and shape reference (PHY-055) | spot c7a.8xlarge us-west-2d, self-terminating | PHY-055 |
+| IAM-A clean room part A run 2 (PHY-055) | spot c7a.8xlarge us-west-2c, self-terminating | PHY-055 |
 
 ## Decisions waiting for the author
 

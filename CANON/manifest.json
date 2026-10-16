@@ -25820,7 +25820,7 @@
     "PHY-049",
     "PHY-050"
    ],
-   "notes": "author 2026-10-15: one grand test chosen to test it all, then commission; fresh-data candidates: GSE144691, GSE98837 (sorted CD8 T-cell subsets, unopened); a sharp prediction there: memory subsets sit higher on the line than naive because their loose share is higher | 2026-10-16: run-2 spot machines reclaimed (1 of 13 counted); run 3 on a shared queue, fit box (on-demand) plus one spot helper | run 3 helper G reclaimed after 15 min (claim released); helpers H and I (64-core spot, us-west-2d) added to the queue; fit box F runs the rest",
+   "notes": "author 2026-10-15: one grand test chosen to test it all, then commission; fresh-data candidates: GSE144691, GSE98837 (sorted CD8 T-cell subsets, unopened); a sharp prediction there: memory subsets sit higher on the line than naive because their loose share is higher | 2026-10-16: run-2 spot machines reclaimed (1 of 13 counted); run 3 on a shared queue, fit box (on-demand) plus one spot helper | run 3 helper G reclaimed after 15 min (claim released); helpers H and I (64-core spot, us-west-2d) added to the queue; fit box F runs the rest | helpers H and I reclaimed by AWS (spot) about 11:50 AM and 12:10 PM PDT, I also out of disk; their claims released to the fit box F",
    "legacy_ids": [],
    "id": "COM-IAMA-052",
    "sources_of_row": [
@@ -25863,7 +25863,7 @@
     "PHY-048",
     "PHY-049"
    ],
-   "notes": "author 2026-10-15: 'This is so important that we stay vigilant' | part A launched 2026-10-16 on i-016be641747ea1aa5 from the public clone at e9e388c5",
+   "notes": "author 2026-10-15: 'This is so important that we stay vigilant' | part A launched 2026-10-16 on i-016be641747ea1aa5 from the public clone at e9e388c5 | run 2 launched on i-08a0814a8c11e3c18 from e1d64460",
    "legacy_ids": [],
    "id": "PHY-055",
    "sources_of_row": [

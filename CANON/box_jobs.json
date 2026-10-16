@@ -1584,7 +1584,7 @@
    "date": "2026-10-16",
    "commit": "e9e388c5",
    "s3_code_prefix": "results/CLEANROOM_IAMA_01/code/run1/",
-   "state": "running",
+   "state": "failed",
    "log": "results/CLEANROOM_IAMA_01/status.txt",
    "machine": "spot c7a.8xlarge us-west-2d, self-terminating",
    "purpose": "every count, the line and the shape reference must equal the committed ones",
@@ -1599,7 +1599,7 @@
     "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_box.sh",
     "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py"
    ],
-   "note": "running"
+   "note": "stopped in chain Stage Q2 build_line (pandas 2.2 option under the chain's pinned pandas 1.5.3); fixed at e1d64460"
   },
   {
    "job_id": "cdaad7c5-b683-466a-beea-0ee6e9e78fc4",
@@ -1691,6 +1691,29 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/repro_chain_copies_v21.py"
    ],
    "note": "Atlas v2.1 use scorers rerun from their chain copies (reproduction)"
+  },
+  {
+   "job_id": "i-08a0814a8c11e3c18",
+   "name": "IAM-A clean room part A run 2 (PHY-055)",
+   "date": "2026-10-16",
+   "commit": "e1d64460",
+   "s3_code_prefix": "results/CLEANROOM_IAMA_01/code/run2/",
+   "state": "running",
+   "log": "results/CLEANROOM_IAMA_01/status.txt",
+   "machine": "spot c7a.8xlarge us-west-2c, self-terminating",
+   "purpose": "fresh public clone recounts Loyfer 153 and ENCODE 5 and rebuilds the line and shape reference; all must equal the committed ones",
+   "record": "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py",
+   "manifest": [
+    "PHY-055"
+   ],
+   "outputs": [
+    "results/CLEANROOM_IAMA_01/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_box.sh",
+    "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {
