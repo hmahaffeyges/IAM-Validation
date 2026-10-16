@@ -35,13 +35,25 @@ The Met-A C-score sits on the same gauge: 1 is the healthy baseline, and its far
 point & value (neutrophils) & status \\\midrule
 $\Hmin$ & $1\times10^{-7}$ (IAM-A and Met-A) & \calc{} from $M$ alone: the error one ATP of holding energy still allows against thermal kicks, $\varepsilon_{\min}=1/(1+e^{M})$ (Ch.~\ref{ch:iama}) \\
 healthy reference & 1 (IAM-A $0.2348$ bits; Met-A $0.330263$ bits) & IAM-A \measured; Met-A \calibrated \\
-Normal & $0.95$--$1.05$ & a design tolerance: healthy is $A=1\pm5$~\%; no group of people sets it \\
+Normal (Met-A) & $0.95$--$1.05$ & a design tolerance set by hand (2026-10-01), then confirmed on healthy arrays (525 of 541 inside); IAM-A has no band of its own yet and does not borrow this one \\
 breach & to be measured & placed from per-person data: tumor/normal pairs, the DNMT1-inhibitor series, blood cancers \\
 cancer region & beyond breach & to be measured the same way \\
 full surface & Met-A $3.03$; IAM-A $4.26$ & \calc{} from the healthy reference alone \\
 C-score far end & Met-A C-score $45$ & \calc{} block size 50 over the healthy baseline 1.1104; the IAM-A C-score is not built \\\bottomrule
 \end{tabular}
 \end{center}
+
+\begin{keybox}[title=How to read this gauge]
+\begin{itemize}
+\item Left end, the floor ($\Hmin$): the least holding work that still keeps a cell's identity. Going left past it, a cell can no longer hold its identity. Derived: one full ATP per site against thermal kicks.
+\item Left of healthy: more order than healthy cells. Senescence reads here.
+\item Healthy: where purified healthy cells of this type read. Measured, not chosen.
+\item Right of healthy: over-writing. The record fills up toward the full surface, the black-hole side. Cancer sits here. It has not lost its identity; it is writing too much error.
+\item Right end, the ceiling (full surface): every identity site at a coin flip, 1 bit per site. Derived.
+\end{itemize}
+\textbf{A misreading to avoid.} It was made more than three times while this gauge was being built, so it is printed on every report: the floor is \textbf{not} the most a cell can hold, and cancer does \textbf{not} lose its identity. The floor is the least holding that still keeps identity; left of it, identity cannot be held. Cancer moves right, toward the ceiling.
+The chain prints these lines under every gauge, from \texttt{chain/Runtime Matrices/Gauge/cell\_gauge\_marks\_v1.json}, and the push gate refuses the misreading on every page, card and chapter.
+\end{keybox}
 
 \begin{keybox}[title=What the chain prints today]
 Chain v3 prints the reading with one of three words: \emph{Normal}, \emph{above Normal}, \emph{below Normal}. Every line

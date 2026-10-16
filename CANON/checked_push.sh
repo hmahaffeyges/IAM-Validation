@@ -8,6 +8,7 @@ python3 CANON/repro_check.py || { echo "checked_push.sh: REPRODUCIBILITY CHECK F
 python3 CANON/status_check.py || { echo "checked_push.sh: STATUS CHECK FAILED - an old status is still printed somewhere - push refused"; exit 1; }
 python3 CANON/book_toolbox.py --check || { echo "checked_push.sh: BOOK TOOLBOX CHECK FAILED - run python3 CANON/book_toolbox.py - push refused"; exit 1; }
 python3 CANON/chain_gate_controls.py > /dev/null && python3 CANON/chain_gate.py check && python3 CANON/replicate.py --check || { echo "checked_push.sh: CHAIN GATE FAILED - a logged test did not run through the chain (rule 23b) - push refused"; exit 1; }
+python3 CANON/gauge_words.py controls > /dev/null && python3 CANON/gauge_words.py check || { echo "checked_push.sh: GAUGE WORDS CHECK FAILED - the floor is the least holding that keeps identity; cancer moves right and has not lost its identity - push refused"; exit 1; }
 python3 CANON/commissioning_check.py || { echo "checked_push.sh: COMMISSIONING CHECK FAILED - a commissioned instrument is missing from a required document, or a stale statement remains - push refused"; exit 1; }
 python3 CANON/ascore_db.py --check || { echo "checked_push.sh: A-SCORE DATABASE CHECK FAILED - run python3 CANON/ascore_db.py - push refused"; exit 1; }
 python3 CANON/catalogue.py --check || { echo "checked_push.sh: CATALOGUE CHECK FAILED - INSTRUMENTS.md or the README catalogue differs from CANON/catalogue.json - push refused"; exit 1; }

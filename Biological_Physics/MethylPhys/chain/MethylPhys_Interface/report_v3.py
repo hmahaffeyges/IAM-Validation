@@ -51,17 +51,19 @@ def _gauge(A, lo=None, hi=None, w=640, label="", instrument="Met-A"):
     Left to right: the floor (off the left edge), more order than healthy, Normal, over-writing, the full surface. The direction is
     CANON/foundation.json gauge_direction, remembered by the black hole: right is over-writing toward the full surface."""
     G = _load("Runtime Matrices/Gauge/cell_gauge_marks_v1.json")
-    top = G["full_surface"][instrument]; nl, nh = G["normal"]["lo"], G["normal"]["hi"]
+    top = G["full_surface"][instrument]; _nb = (G.get("normal_by_instrument") or {}).get(instrument, [G["normal"]["lo"], G["normal"]["hi"]])
+    nl, nh = (_nb if _nb else (None, None))   # None: this instrument's healthy band is not measured yet, so none is drawn
     x = lambda v: 30 + int(min(max(v, 0.0), top * 1.04) / (top * 1.04) * w)
     E = html.escape
     arrow = lambda x0, y, d: f'<path d="M{x0},{y} l{-6*d},-4 l0,8 z" fill="currentColor"/>'   # apex at x0, pointing d (-1 left, +1 right)
-    xm = (x(nl) + x(nh)) // 2
+    xm = (x(nl) + x(nh)) // 2 if nl is not None else 30 + w // 2
     out = [f'<p style="margin:2px 0"><b>{E(label)}</b></p>', f'<svg width="{w + 60}" height="150" font-family="sans-serif" style="color:#333">',
-           f'<text x="{xm}" y="26" font-size="10" text-anchor="middle" fill="#2e7d32">Normal {nl:g}&#8211;{nh:g}</text>',
+           (f'<text x="{xm}" y="26" font-size="10" text-anchor="middle" fill="#2e7d32">Normal {nl:g}&#8211;{nh:g}</text>' if nl is not None else
+            f'<text x="{xm}" y="26" font-size="10" text-anchor="middle" fill="#555">healthy band not yet measured for {E(instrument)}</text>'),
            f'<rect x="30" y="34" width="{x(top) - 30}" height="18" fill="#f2f2f2"/>',
-           f'<rect x="{x(nh)}" y="34" width="{x(top) - x(nh)}" height="18" fill="#f6d5d1"/>',
-           f'<rect x="30" y="34" width="{x(nl) - 30}" height="18" fill="#d6e4f5"/>',
-           f'<rect x="{x(nl)}" y="34" width="{max(2, x(nh) - x(nl))}" height="18" fill="#9fd39f"/>',
+           *((f'<rect x="{x(nh)}" y="34" width="{x(top) - x(nh)}" height="18" fill="#f6d5d1"/>',
+              f'<rect x="30" y="34" width="{x(nl) - 30}" height="18" fill="#d6e4f5"/>',
+              f'<rect x="{x(nl)}" y="34" width="{max(2, x(nh) - x(nl))}" height="18" fill="#9fd39f"/>') if nl is not None else ()),
            f'<line x1="30" y1="28" x2="30" y2="58" stroke="#333" stroke-width="2"/>',
            f'<text x="30" y="14" font-size="10">floor {G["floor"]["A"]:g} (off scale, to the left)</text>',
            f'<line x1="{x(top)}" y1="28" x2="{x(top)}" y2="58" stroke="#111" stroke-width="3"/>',
@@ -75,6 +77,9 @@ def _gauge(A, lo=None, hi=None, w=640, label="", instrument="Met-A"):
         out.append(f'<line x1="{x(A)}" y1="30" x2="{x(A)}" y2="56" stroke="#c0392b" stroke-width="3"/>')
         out.append(f'<text x="{x(A)}" y="68" font-size="11" font-weight="bold" fill="#c0392b" text-anchor="middle">{A:.3f}{" past the full surface" if past else ""}</text>')
     out.append("</svg>")
+    # How to read the gauge, and the misreading to avoid: printed under every gauge from the marks file (author 2026-10-15)
+    out.append("<p style='margin:4px 0'><b>How to read this gauge</b></p><ul style='margin:0'>" + "".join(f"<li>{E(t)}</li>" for t in G["reading"]) + "</ul>")
+    out.append(f"<p style='margin:4px 0;border-left:3px solid #c0392b;padding-left:6px'><b>{E(G['misreading'].split('. ')[0])}.</b> {E(G['misreading'].split('. ', 1)[1])}</p>")
     if A is None: out.insert(1, f"<p><i>{E(label) or 'A not reported'}</i> - the gauge is shown without a position.</p>")
     return "".join(out)
 

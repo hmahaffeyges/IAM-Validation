@@ -23,5 +23,35 @@
  },
  "left_region": "writes less than healthy: more order (senescence reads here)",
  "right_region": "over-writing toward the full surface: the black hole side, where cancer sits",
- "direction_entry": "gauge_direction"
+ "direction_entry": "gauge_direction",
+ "normal_by_instrument": {
+  "Met-A": [
+   0.95,
+   1.05
+  ],
+  "IAM-A": null,
+  "_note": "IAM-A has no healthy band of its own yet (COM-IAMA-054); Met-A's band is not borrowed (author 2026-10-15). A band is drawn only where it was measured."
+ },
+ "reading": [
+  "Left end, the floor (H_min): the least holding work that still keeps a cell's identity. Going left past it, a cell can no longer hold its identity. Derived: one full ATP per site against thermal kicks.",
+  "Left of healthy: more order than healthy cells. Senescence reads here.",
+  "Healthy: where purified healthy cells of this type read. Measured, not chosen.",
+  "Right of healthy: over-writing. The record fills up toward the full surface, the black-hole side. Cancer sits here. It has not lost its identity; it is writing too much error.",
+  "Right end, the ceiling (full surface): every identity site at a coin flip, 1 bit per site. Derived."
+ ],
+ "misreading": "A misreading to avoid. It was made more than three times while this gauge was being built, so it is printed on every report: the floor is NOT the most a cell can hold, and cancer does NOT lose its identity. The floor is the least holding that still keeps identity; left of it, identity cannot be held. Cancer moves right, toward the ceiling.",
+ "forbidden": {
+  "_rule": "CANON/gauge_words.py refuses these on every presentation surface unless a negation (not, never, no longer, retired, wrong) stands just before them",
+  "floor_as_most_held": {
+   "near": "(?i)\\bfloor\\b|H_?\\\\?_?\\{?min|\\bH_min\\b|left (?:end|edge)|\\b0 ?=",
+   "window": 160,
+   "pattern": "(?i)\\bmost (?:a cell|a site|the cell|it)? ?(?:can )?(?:hold|holds)\\b|\\bmost order\\b"
+  },
+  "cancer_loses_identity": {
+   "near": "(?i)\\b(?:cancer|tumou?r)s?\\b",
+   "window": 120,
+   "pattern": "(?i)\\b(?:loses|losing|lost|loss of) (?:its |their )?identity\\b"
+  }
+ },
+ "book_reading_anchor": "A misreading to avoid."
 }

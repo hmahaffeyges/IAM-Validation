@@ -2027,3 +2027,6 @@ Stage Q printed IAM-A's state with Met-A's Normal 0.95-1.05; it now prints "no b
 
 ### 2026-10-15 · DEV-CHAIN-Q2-01 line rebuild launched
 Spot i-0f3380b0fa6d2bd0a (code 0f90bfce, chain e49788e3db38): Loyfer's 153 samples streamed through chain Stage Q2 count_pat, then the ENCODE five through count_bam, every result stamped. A reproduction of the development counts; the line is then built by the chain on the raw axis.
+
+### 2026-10-15 · The gauge's reading and its misreading put into the chain (author)
+The floor was described as the most a cell can hold three times this evening, against the author's settled gauge. cell_gauge_marks_v1.json now carries the reading (floor = least holding that keeps identity; left of it identity cannot be held; healthy measured; right = over-writing, the black-hole side, where cancer sits without losing identity; ceiling = coin flip) and the misreading; report_v3 prints both under every gauge; IAM-A's gauge no longer draws Met-A's 0.95-1.05 band; the book's gauge chapter carries the passage and its table no longer gives IAM-A that band. CANON/gauge_words.py refuses the misreadings on every presentation surface (9 of 9 controls, three of them the evening's own sentences). Lesson C17.
