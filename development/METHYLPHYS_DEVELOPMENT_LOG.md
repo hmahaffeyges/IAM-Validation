@@ -2203,3 +2203,6 @@ The author: the webpage and the book had not updated all day. Every website buil
 
 ### 2026-10-16 · IAM-A grand test: on-demand helper J added (COM-IAMA-052)
 After four spot helpers were reclaimed, an on-demand helper J (i-02ba02f9f94113c16) joins the queue; the on-demand core quota is 192, not 128 as stated earlier; an increase to 384 was requested (pending).
+
+### 2026-10-16 · Deconvolution tool (chain Stage D21) built, planted test passed, real test sealed (ATL-065)
+Atlas ranges, per-cell markers, weighted non-negative fit with a laboratory term, 95 percent bars from site resampling. Planted test PASSED (12-cell and six-cell panels). The only public wet-lab mixtures are from the Salas/Christensen laboratory (same group as two build sources), so the author chose: bars scored on 200 mixtures of held-out arrays from independent laboratories, Salas mixtures reported.

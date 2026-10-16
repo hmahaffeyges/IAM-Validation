@@ -31,7 +31,7 @@ GSE108123,,,,,,,,,,,,,,candidates DEV_FINGERPRINT_03
 GSE109042,,,,,,,,,not usable (not purified (buccal swab epithelium); FASD case-control),,yes,IDAT listed for 53/53 samples,DNA methylation as a predictor of fetal alcohol spectrum disorder,gold-mine map
 GSE109446,,,,,,,,,not usable (not purified (brushing)),nasal epithelium,yes,IDAT listed for 58/58 samples,Nasal DNA methylation is associated with childhood asthma,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE110530,,,,,spent,,,COMMISSIONING_NOTE_CSCORE; DEV_ATLAS_EPIC_01; DEV_COMPOSITION_TRUTH_02; DEV_METAA_SENS_01,,,,,,
-GSE110554,,,,,spent,,,COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_COMMISSION_01; DEV_ATLAS_EPIC_01; DEV_BASE_CHAIN_01; DEV_COMPOSITION_TRUTH_02; DEV_DIRECTION_AUDIT_01; DEV_METAA,,,,,,
+GSE110554,,,,,spent,,,COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_COMMISSION_01; DEV_ATLAS_EPIC_01; DEV_BASE_CHAIN_01; DEV_COMPOSITION_TRUTH_02; DEV_DECONV_V21_01; DEV_DIRECTION_,,,,,,
 GSE110607,,,,,,,,,not usable (not healthy-only (co-twins of SLE patients)),monocytes | b cells | cd4 t cells | granulocytes,yes,IDAT listed for 104/104 samples,Twin DNA methylation profiling reveals flare-dependent interferon signature and B-cell promoter hypermethylation in systemic lupus erythematosus,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE111396,,,,,,,,,not usable (cultured with no uncultured comparison),lung fibroblast,yes,IDAT listed for 61/61 samples,DNA methylation in airway and parenchymal fibroblasts from individuals with and wthout COPD,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE111445,,,,,,,,DEV_ATLAS_V21_01,atlas build,adipocytes,yes,SRA run links for 12/12 samples,Developmental origins define epigenomic differences between subcutaneous and visceral adipocytes [Bisulfite-Seq],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
@@ -168,7 +168,7 @@ GSE180130,,,,,spent,,,DEV_NEWCELL_01; DEV_PERCELL_01,,,,,,
 GSE180683,,,,,partly spent,,,,,,,,,
 GSE180970,,,,,,,,DEV_COMPOSITION_TRUTH_02; DEV_SYNTH_LEVERS_01,not usable (same group as the atlas (Salas/Koestler)),,no,IDAT listed for 12/12 samples,Umbilical cord blood artificial mixtures validation dataset: An Enhanced DNA Methylation Library for Deconvoluting Peripheral Blood,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE181034,,,,,spent,,,DEV_BASE_CHAIN_01; DEV_COMPOSITION_TRUTH_02; DEV_NEWCELL_01; DEV_NILC_01,,,,,,
-GSE182379,,,,,spent,,,COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_COMMISSION_01; DEV_ATLAS_EPIC_01; DEV_BASE_CHAIN_01; DEV_COMPOSITION_TRUTH_02; DEV_NILC_01; DEV_SYNTH_LEVERS_01,,,,,,
+GSE182379,,,,,spent,,,COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_COMMISSION_01; DEV_ATLAS_EPIC_01; DEV_BASE_CHAIN_01; DEV_COMPOSITION_TRUTH_02; DEV_DECONV_V21_01; DEV_NILC_01; D,,,,,,
 GSE184047,,,,,spent,,,,,,,,,
 GSE184269,,,,,partly spent,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_CSCORE; DEV_BLOOD_SENSITIVITY_01; DEV_GROUP_01,atlas build,monocytes | naive cd4 t cells | naive cd8 t cells | naive b cells | nk cells | granulocytes,yes,IDAT listed for 167/167 samples,Specification of human immune cell epigenetic identity by combinations of transcription factors (MethylationEPIC),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE185556,,,,,,,,DEV_ATLAS_V21_01,not usable (not healthy (cystic fibrosis children)),lung alveolar macrophages | granulocytes | lung alveolar epithelium,yes,IDAT listed for 20/20 samples,DNA methylation profiles of cells commonly found in bronchoalveolar lavage,gold-mine map; candidates DEV_ATLAS_COMMISSION_01

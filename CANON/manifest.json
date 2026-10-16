@@ -3825,6 +3825,13 @@
      "stage": "Q2 self-reference",
      "chain": "5ec99586d473",
      "latest_utc": "2026-10-16T19:25:22Z"
+    },
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_DECONV_V21_01",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "dfdbfb19916b",
+     "latest_utc": "2026-10-16T23:30:46Z"
     }
    ]
   },
@@ -27144,6 +27151,35 @@
     "session 2026-10-16"
    ],
    "notes": "2026-10-16: the page and book had not deployed since d1dd1c1e (one unescaped _ in p6_09_cscore.tex); fixed, and the push gate now refuses pushes while the website build fails (site_build_check.py, lesson C18)"
+  },
+  {
+   "id": "ATL-065",
+   "title": "Deconvolution tool on atlas v2.1 (chain Stage D21): planted test, then 200 held-out real-cell mixtures (DEV-DECONV-V21-01)",
+   "purpose": "Release track B: given a mixed sample, report each cell's share with its error bar; for the Loyfer and Moss showcase.",
+   "instrument_or_term": "atlas v2.1, deconvolution",
+   "sources": [],
+   "data_status": "mixtures to be chosen (independent of every atlas source)",
+   "status": "sealed",
+   "runs": [
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "planted test PASSED on the six-cell panel (error 0.003)",
+     "page": "not headline: synthetic"
+    }
+   ],
+   "next_step": "score once on the box",
+   "cost": "laptop",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_DECONV_V21_01.md",
+   "legacy_ids": [],
+   "depends_on": [
+    "ATL-045",
+    "ATL-055"
+   ],
+   "sources_of_row": [
+    "author 2026-10-13: if they do not find it better than what they have, they will not care"
+   ]
   }
  ],
  "not_tests": {

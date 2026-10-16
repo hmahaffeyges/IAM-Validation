@@ -1,0 +1,32 @@
+# DEV-DECONV-V21-01: the atlas v2.1 deconvolution tool on real mixtures (release track B)
+
+**The instrument's job:** given a mixed sample, report each cell's share with its error bar.
+
+**Tool:** chain Stage D21 (`chain/stage_deconv_v21.py`): the atlas's best values and 95 % ranges, marker sites chosen per cell from the
+atlas, a weighted non-negative fit with a laboratory term, and a 95 % bar per share from resampling the sites.
+
+**Sealed 2026-10-16** (`data/DEV_DECONV_V21_01/sealed_deconv_v21.json`), before any mixture was built; the author chose the test set.
+200 mixtures of the six blood cells (neutrophils, monocytes, B, CD4 T, CD8 T, NK), each built from real held-out arrays of laboratories
+that built nothing, with shares drawn at random (seed 2026).
+
+| bar | rule |
+|---|---|
+| B1 | mean error per cell at most 0.03 |
+| B2 | the true share inside its 95 % bar for at least 80 % of shares |
+
+Both met: commissioned on six-cell blood mixtures; otherwise development. Reported alongside, not scored: the Salas laboratory's wet-lab
+DNA mixtures (same group as two build sources).
+
+**Synthetic test:** chain/stage_deconv_v21.py, DEV_DECONV_V21_01/planted_deconv_v21.txt
+
+The planted test on the six-cell panel PASSED first (pure cells read at least 0.993 of themselves; mixture error 0.003; a 5 % share seen in 20 of 20).
+
+**Sources:** public: the atlas v2.1 compact copy in this repository (best values and 95 % ranges, built from public GEO, ENCODE and ArrayExpress data); public held-out GEO arrays of six sorted healthy blood cells (the DEV-ATLAS-USE-01 lists), which provide the mixture components; the Salas laboratory's published wet-lab mixtures, which provide known shares (reported only, not a test set).
+
+**Reference sets:** atlas v2.1 (DEV_ATLAS_V21_01.md); held-out arrays from the sealed DEV-ATLAS-USE-01 lists (731 arrays, independent laboratories).
+
+**Prior reading:** these held-out arrays were read once in DEV-ATLAS-USE-01 (marker and mixture tests against Moss's reference), and no mixture of them has been built for this tool; the Salas mixtures GSE110554 and GSE182379 were read in earlier composition tests (CANON/data_spent.csv) and are reported here, never scored.
+
+**What it would take to succeed:** both bars met on the 200 sealed mixtures.
+
+**In plain words:** real healthy blood cells from outside laboratories are mixed in known amounts by computer, and the tool must say how much of each is in the mix, with an honest error bar.
