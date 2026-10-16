@@ -6,6 +6,10 @@ DEV-SECONDLAB-01, whose B cell carries an undermethylated tail that healthy B ce
 **Prior reading:** GSE49627's processed per-CpG files of the three resting B cells were read for their tile shape only (loose share and
 tile percentiles), for the DEV-SECONDLAB-01 scale diagnosis on 2026-10-15. No held error has been computed on any GSE49627 sample.
 
+**In plain words.** IAM-A reads a sample against its own loose share, using one line measured on healthy cells in one laboratory. This
+test asks whether that line holds for healthy B cells from a different laboratory. The bar was fixed from the line's own scatter before any of
+these cells is counted.
+
 **Step 1 (running): alignment only.** `data/DEV_SECONDLAB_02/box/align_hansen.sh`: full runs SRR948844, SRR948845, SRR948846 from NCBI's open copy in AWS (fasterq-dump; ENA served them at about 0.26 MB/s, so the first machine, i-08f7918ad0a721c4c, was stopped after 35 minutes with nothing downloaded),
 Trim Galore, Bismark paired-end on hg38 (the tumor work's tools and index), deduplication, sorted and indexed BAMs to S3. No count.
 
@@ -18,7 +22,9 @@ Trim Galore, Bismark paired-end on hg38 (the tumor work's tools and index), dedu
 - **Applied first:** the sample-shape check (COM-IAMA-053). Its rule is drafted from the healthy tile shapes of the chain's recount
   (DEV-CHAIN-Q2-01 step 3), shown to the author and added here before the count; a donor it refuses is not scored, and with fewer than
   2 donors left the test reads NOT ASSESSED rather than MET or NOT MET.
-- **Synthetic test:** chain Stage Q2 count_bam on planted Bismark (XM) paired alignments, `DEV_CHAIN_Q2_01/q2_synthetic.py` T2 (MET), plus the
-  read length of these runs (checked from the first aligned BAM before the count).
+- Synthetic test: chain Stage Q2 count_bam on planted Bismark (XM) paired alignments, T2 of the chain synthetic (MET), plus the read length
+  of these runs (checked from the first aligned BAM before the count).
+
+**Synthetic test:** DEV_CHAIN_Q2_01/q2_synthetic.py, DEV_CHAIN_Q2_01/q2_synthetic.json
 
 **Step 3: the count**, chain Stage Q2 count_bam only, stamped, then scored once by the committed rule.
