@@ -1,0 +1,154 @@
+sample,cell
+GSM5652176,adipocytes
+GSM5652177,adipocytes
+GSM5652178,adipocytes
+GSM5652179,aorta endothelium
+GSM5652180,aorta endothelium
+GSM5652181,vascular saphenous endothelium
+GSM5652182,vascular saphenous endothelium
+GSM5652183,vascular saphenous endothelium
+GSM5652184,kidney glomerular endothelium
+GSM5652185,kidney glomerular endothelium
+GSM5652186,kidney glomerular endothelium
+GSM5652187,kidney tubular endothelium
+GSM5652188,kidney tubular endothelium
+GSM5652189,kidney tubular endothelium
+GSM5652191,lung alveolar endothelium
+GSM5652192,lung alveolar endothelium
+GSM5652193,lung alveolar endothelium
+GSM5652194,pancreas endothelium
+GSM5652195,pancreas endothelium
+GSM5652196,pancreas endothelium
+GSM5652198,colon fibroblasts
+GSM5652199,colon fibroblasts
+GSM5652201,heart fibroblasts
+GSM5652202,heart fibroblasts
+GSM5652203,heart fibroblasts
+GSM5652205,striated muscle
+GSM5652206,striated muscle
+GSM5652207,smooth muscle
+GSM5652208,smooth muscle
+GSM5652209,smooth muscle
+GSM5652212,cardiomyocyte
+GSM5652213,cardiomyocyte
+GSM5652216,cardiomyocyte
+GSM5652219,oligodendrocytes
+GSM5652220,oligodendrocytes
+GSM5652221,oligodendrocytes
+GSM5652223,cortical neurons
+GSM5652224,cortical neurons
+GSM5652225,cortical neurons
+GSM5652233,hepatocyte
+GSM5652234,hepatocyte
+GSM5652235,hepatocyte
+GSM5652239,pancreatic duct
+GSM5652240,pancreatic duct
+GSM5652241,pancreatic duct
+GSM5652243,pancreatic acinar
+GSM5652244,pancreatic acinar
+GSM5652245,pancreatic acinar
+GSM5652247,pancreatic delta
+GSM5652248,pancreatic delta
+GSM5652249,pancreatic delta
+GSM5652250,pancreatic beta
+GSM5652251,pancreatic beta
+GSM5652252,pancreatic beta
+GSM5652253,pancreatic alpha
+GSM5652254,pancreatic alpha
+GSM5652255,pancreatic alpha
+GSM5652256,kidney glomerular epithelium
+GSM5652257,kidney glomerular epithelium
+GSM5652258,kidney tubular epithelium
+GSM5652259,kidney tubular epithelium
+GSM5652260,kidney tubular epithelium
+GSM5652264,thyroid epithelium
+GSM5652265,thyroid epithelium
+GSM5652266,thyroid epithelium
+GSM5652267,fallopien tubes epithelium
+GSM5652268,fallopien tubes epithelium
+GSM5652269,fallopien tubes epithelium
+GSM5652271,endometrium epithelium
+GSM5652272,endometrium epithelium
+GSM5652273,endometrium epithelium
+GSM5652274,erythrocyte progenitors
+GSM5652275,erythrocyte progenitors
+GSM5652276,erythrocyte progenitors
+GSM5652279,cd4 t cells
+GSM5652280,cd4 t cells
+GSM5652281,cd4 t cells
+GSM5652282,cd8 t cells
+GSM5652283,cd8 t cells
+GSM5652284,cd8 t cells
+GSM5652285,t central memory cd4
+GSM5652286,t central memory cd4
+GSM5652287,t central memory cd4
+GSM5652288,t effector cell cd8
+GSM5652289,t effector cell cd8
+GSM5652290,t effector cell cd8
+GSM5652291,t effector memory cd4
+GSM5652292,t effector memory cd4
+GSM5652293,t effector memory cd4
+GSM5652295,effector memory cd8 t cells
+GSM5652296,naive cd4 t cells
+GSM5652298,naive cd8 t cells
+GSM5652299,nk cells
+GSM5652300,nk cells
+GSM5652301,nk cells
+GSM5652302,monocytes
+GSM5652303,monocytes
+GSM5652304,monocytes
+GSM5652305,colon macrophages
+GSM5652306,colon macrophages
+GSM5652308,lung alveolar macrophages
+GSM5652309,lung alveolar macrophages
+GSM5652310,lung interstitial macrophages
+GSM5652311,lung interstitial macrophages
+GSM5652312,lung interstitial macrophages
+GSM5652316,b cells
+GSM5652317,b cells
+GSM5652318,b cells
+GSM5652319,memory b cells
+GSM5652320,memory b cells
+GSM5652322,tonsil palatine epithelium
+GSM5652323,tonsil palatine epithelium
+GSM5652324,tonsil palatine epithelium
+GSM5652325,tonsil pharyngeal epithelium
+GSM5652326,tonsil pharyngeal epithelium
+GSM5652327,tongue epithelium
+GSM5652328,tongue epithelium
+GSM5652329,tongue epithelium
+GSM5652335,lung bronchus epithelium
+GSM5652336,lung bronchus epithelium
+GSM5652337,lung bronchus epithelium
+GSM5652338,prostate epithelium
+GSM5652339,prostate epithelium
+GSM5652340,prostate epithelium
+GSM5652342,bladder epithelium
+GSM5652343,bladder epithelium
+GSM5652344,bladder epithelium
+GSM5652347,breast luminal epithelium
+GSM5652348,breast luminal epithelium
+GSM5652349,breast luminal epithelium
+GSM5652350,breast basal epithelium
+GSM5652351,breast basal epithelium
+GSM5652352,breast basal epithelium
+GSM5652354,lung alveolar epithelium
+GSM5652355,lung alveolar epithelium
+GSM5652356,lung alveolar epithelium
+GSM5652359,gastric fundus epithelium
+GSM5652360,gastric fundus epithelium
+GSM5652361,gastric fundus epithelium
+GSM5652362,gastric body epithelium
+GSM5652363,gastric body epithelium
+GSM5652364,gastric body epithelium
+GSM5652365,gastric antrum epithelium
+GSM5652366,gastric antrum epithelium
+GSM5652367,gastric antrum epithelium
+GSM5652370,colon epithelium
+GSM5652371,colon epithelium
+GSM5652372,colon enteroendocrine
+GSM5652373,colon epithelium
+GSM5652375,colon enteroendocrine
+GSM5652379,small intestine epithelium
+GSM5652380,small intestine epithelium
+GSM5652381,small intestine epithelium

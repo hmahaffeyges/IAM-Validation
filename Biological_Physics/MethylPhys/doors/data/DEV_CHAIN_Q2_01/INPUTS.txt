@@ -1,0 +1,3 @@
+# declared inputs (not chain outputs)
+loyfer_samples.csv
+encode_samples.tsv

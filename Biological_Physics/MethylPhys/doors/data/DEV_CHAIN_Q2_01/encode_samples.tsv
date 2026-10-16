@@ -1,0 +1,6 @@
+cell	loyfer_cell	experiment	file	url
+b cells	b cells	ENCSR284TCU	ENCFF092SBB	s3://encode-public/2021/03/09/188383d0-82b5-4a2b-bab0-5bae8d621fa4/ENCFF092SBB.bam
+t cells	cd4 t cells	ENCSR663MXB	ENCFF605NRU	s3://encode-public/2021/03/09/b8ff46e4-5ddf-4bc4-8ca7-1d334b65d34b/ENCFF605NRU.bam
+nk cells	nk cells	ENCSR334LSM	ENCFF133QNK	s3://encode-public/2022/01/18/4d97b352-219a-435e-a5ce-de5db4e74e94/ENCFF133QNK.bam
+monocytes	monocytes	ENCSR017BUL	ENCFF704SCQ	s3://encode-public/2021/03/09/d1edb680-babe-4172-ace3-3ab6abbf8c59/ENCFF704SCQ.bam
+cd34 myeloid progenitors	hsc	ENCSR388RMS	ENCFF969NGH	s3://encode-public/2021/03/09/9597ae2a-f7d2-401e-ab06-db5343d798b5/ENCFF969NGH.bam
