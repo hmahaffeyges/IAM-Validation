@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.4567307692307692,
+ "tiles": 12688,
+ "held_err": 0.05271729170610231,
+ "held_opp": 49748781,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.6066529081457568,
+ "tile_p50": 0.7093588210937456,
+ "tile_p90": 0.799572768671587,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652325",
+ "cell": "tonsil pharyngeal epithelium",
+ "file": "GSM5652325_Tonsil-Pharyngeal-Epithelial-Z000000Q9.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "7f98f1edf321727aa681d2c559d116d60acdf106371dcf4a4836a9e2c4af6095",
+  "inputs": [
+   {
+    "name": "GSM5652325_Tonsil-Pharyngeal-Epithelial-Z000000Q9.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652325/suppl/GSM5652325_Tonsil-Pharyngeal-Epithelial-Z000000Q9.pat.gz",
+    "sha256": "a35bb44e2c4d5bf33c6a50ec84a6ba258e76a10c9e551af3bf5af10747c3299f",
+    "size": 364912717
+   }
+  ],
+  "utc": "2026-10-16T05:48:12Z"
+ }
+}

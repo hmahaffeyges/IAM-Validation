@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.21081251477657814,
+ "tiles": 12689,
+ "held_err": 0.04223412552854678,
+ "held_opp": 64091063,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.6574751913796008,
+ "tile_p50": 0.7564659779123619,
+ "tile_p90": 0.8362708421282589,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652273",
+ "cell": "endometrium epithelium",
+ "file": "GSM5652273_Endometrium-Epithelial-Z0000043S.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "d6d5b7ee26eae76b424b9c8bb1833e3e0f85a33b5ec7e8397dccad8d81713cdd",
+  "inputs": [
+   {
+    "name": "GSM5652273_Endometrium-Epithelial-Z0000043S.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652273/suppl/GSM5652273_Endometrium-Epithelial-Z0000043S.pat.gz",
+    "sha256": "5e8c03e099dad300365a2fdd09f51c7f87c8a2952dabc112cfa024129d3d28ea",
+    "size": 358682325
+   }
+  ],
+  "utc": "2026-10-16T05:39:22Z"
+ }
+}

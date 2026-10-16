@@ -2068,3 +2068,6 @@ Run 4 launched as i-0a9119be4c9143bca (code 00992635, code/run4/); run 3 logs ke
 
 ### 2026-10-15 · Sample-shape check sealed (COM-IAMA-053)
 Author: KISS, not too high. Sealed as drafted: tile 10th percentile no more than the healthy within-type 90th-percentile spread (0.055 on 146 samples) below the lowest healthy sample of the same type; no reference means not read. In chain Stage Q2 with synthetic T6 (T1-T6 MET). ENCODE: all five not read.
+
+### 2026-10-15 · Shape reference built by the chain
+All 153 Loyfer samples (7 recounted locally, same chain) reproduce step 2 exactly; the chain built shape_reference_v1.json (margin 0.0543, 53 cell types). ENCODE: 0 of 5 read. Hansen B-cell limit 0.662.

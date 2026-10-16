@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.18110174166600992,
+ "tiles": 12689,
+ "held_err": 0.045064997115934445,
+ "held_opp": 52110466,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.663931221810281,
+ "tile_p50": 0.7616896551724138,
+ "tile_p90": 0.8283679784715978,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652366",
+ "cell": "gastric antrum epithelium",
+ "file": "GSM5652366_Gastric-antrum-Epithelial-Z000000SP.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "a45ad6db612d6cf6ed26d0a5d2c366eac981074591d90dbb3a705c703acc1665",
+  "inputs": [
+   {
+    "name": "GSM5652366_Gastric-antrum-Epithelial-Z000000SP.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652366/suppl/GSM5652366_Gastric-antrum-Epithelial-Z000000SP.pat.gz",
+    "sha256": "d9c33a906e1bb8072efab49d629f8b110049ef487ae4cf9f892c7816cbbedc58",
+    "size": 349203667
+   }
+  ],
+  "utc": "2026-10-16T05:53:38Z"
+ }
+}

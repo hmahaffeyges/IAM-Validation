@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.4565371581684924,
+ "tiles": 12689,
+ "held_err": 0.05099025593550903,
+ "held_opp": 41250548,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.6344595092979204,
+ "tile_p50": 0.709265066812108,
+ "tile_p90": 0.824179466923459,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652295",
+ "cell": "effector memory cd8 t cells",
+ "file": "GSM5652295_Blood-T-EffMem-CD8-Z0000041G.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "3d9e5ac1116f2683fa14ef27c1abc8135e4fbb96725687098087bb0c48925cee",
+  "inputs": [
+   {
+    "name": "GSM5652295_Blood-T-EffMem-CD8-Z0000041G.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652295/suppl/GSM5652295_Blood-T-EffMem-CD8-Z0000041G.pat.gz",
+    "sha256": "252c92dfc14d18f7d1a6f20e1c4046b426c976b2f1f3d28f1c7814904f471412",
+    "size": 330284120
+   }
+  ],
+  "utc": "2026-10-16T05:43:26Z"
+ }
+}

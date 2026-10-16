@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.03042004886121838,
+ "tiles": 12689,
+ "held_err": 0.03441241184343662,
+ "held_opp": 59665013,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.7841045664144343,
+ "tile_p50": 0.8694318959616701,
+ "tile_p90": 0.9122533760025285,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652296",
+ "cell": "naive cd4 t cells",
+ "file": "GSM5652296_Blood-T-Naive-CD4-Z0000041E.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "6532997d232930977f9a0b83ab1850311290a284b6b5ef6304896eaf68d7dc5e",
+  "inputs": [
+   {
+    "name": "GSM5652296_Blood-T-Naive-CD4-Z0000041E.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652296/suppl/GSM5652296_Blood-T-Naive-CD4-Z0000041E.pat.gz",
+    "sha256": "11a2baa9f408e10a9d3b04d0d6af899f108acabcf3ebc0615b211e994ac8ec00",
+    "size": 298665801
+   }
+  ],
+  "utc": "2026-10-16T05:43:14Z"
+ }
+}

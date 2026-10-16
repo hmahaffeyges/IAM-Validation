@@ -1,0 +1,854 @@
+{
+ "kind": "IAM-A sample-shape reference",
+ "margin": 0.05426611336258584,
+ "margin_basis": "90% quantile of within-type spread of tile_p10 over 53 cell types",
+ "cells": {
+  "adipocytes": {
+   "min_p10": 0.6573175359757977,
+   "n": 3
+  },
+  "aorta endothelium": {
+   "min_p10": 0.6232909803829058,
+   "n": 2
+  },
+  "b cells": {
+   "min_p10": 0.7163923819835069,
+   "n": 3
+  },
+  "bladder epithelium": {
+   "min_p10": 0.6625743002289408,
+   "n": 3
+  },
+  "breast basal epithelium": {
+   "min_p10": 0.7006681247547912,
+   "n": 3
+  },
+  "breast luminal epithelium": {
+   "min_p10": 0.6636660008569445,
+   "n": 3
+  },
+  "cardiomyocyte": {
+   "min_p10": 0.6769077790840349,
+   "n": 3
+  },
+  "cd4 t cells": {
+   "min_p10": 0.7362532976246589,
+   "n": 3
+  },
+  "cd8 t cells": {
+   "min_p10": 0.6474388601937204,
+   "n": 3
+  },
+  "colon enteroendocrine": {
+   "min_p10": 0.6806031426687407,
+   "n": 2
+  },
+  "colon epithelium": {
+   "min_p10": 0.6568211036772094,
+   "n": 3
+  },
+  "colon fibroblasts": {
+   "min_p10": 0.6603851124915635,
+   "n": 2
+  },
+  "colon macrophages": {
+   "min_p10": 0.7030461486712798,
+   "n": 2
+  },
+  "cortical neurons": {
+   "min_p10": 0.723907184537507,
+   "n": 3
+  },
+  "effector memory cd8 t cells": {
+   "min_p10": 0.6344595092979204,
+   "n": 1
+  },
+  "endometrium epithelium": {
+   "min_p10": 0.6574751913796008,
+   "n": 3
+  },
+  "erythrocyte progenitors": {
+   "min_p10": 0.4191326390793668,
+   "n": 3
+  },
+  "fallopien tubes epithelium": {
+   "min_p10": 0.6578974124082657,
+   "n": 3
+  },
+  "gastric antrum epithelium": {
+   "min_p10": 0.6403235123557365,
+   "n": 3
+  },
+  "gastric body epithelium": {
+   "min_p10": 0.6474999301086672,
+   "n": 3
+  },
+  "gastric fundus epithelium": {
+   "min_p10": 0.6271670517426613,
+   "n": 3
+  },
+  "heart fibroblasts": {
+   "min_p10": 0.48219308959599533,
+   "n": 3
+  },
+  "hepatocyte": {
+   "min_p10": 0.6275983357752603,
+   "n": 3
+  },
+  "kidney glomerular endothelium": {
+   "min_p10": 0.6846633188640066,
+   "n": 3
+  },
+  "kidney glomerular epithelium": {
+   "min_p10": 0.6976910099367065,
+   "n": 2
+  },
+  "kidney tubular endothelium": {
+   "min_p10": 0.6985563076744477,
+   "n": 3
+  },
+  "kidney tubular epithelium": {
+   "min_p10": 0.6933793061797376,
+   "n": 3
+  },
+  "lung alveolar endothelium": {
+   "min_p10": 0.625438699880459,
+   "n": 3
+  },
+  "lung alveolar epithelium": {
+   "min_p10": 0.675895748693078,
+   "n": 3
+  },
+  "lung alveolar macrophages": {
+   "min_p10": 0.7428651830312126,
+   "n": 2
+  },
+  "lung bronchus epithelium": {
+   "min_p10": 0.6469267086254336,
+   "n": 3
+  },
+  "lung interstitial macrophages": {
+   "min_p10": 0.7329943810318091,
+   "n": 3
+  },
+  "memory b cells": {
+   "min_p10": 0.6553218828614751,
+   "n": 2
+  },
+  "monocytes": {
+   "min_p10": 0.7294070037694717,
+   "n": 3
+  },
+  "naive cd4 t cells": {
+   "min_p10": 0.7841045664144343,
+   "n": 1
+  },
+  "naive cd8 t cells": {
+   "min_p10": 0.7784436798700363,
+   "n": 1
+  },
+  "nk cells": {
+   "min_p10": 0.6977444380449838,
+   "n": 3
+  },
+  "oligodendrocytes": {
+   "min_p10": 0.699883233169229,
+   "n": 3
+  },
+  "pancreas endothelium": {
+   "min_p10": 0.6683734773181422,
+   "n": 3
+  },
+  "pancreatic acinar": {
+   "min_p10": 0.5337473878583298,
+   "n": 3
+  },
+  "pancreatic alpha": {
+   "min_p10": 0.6898351267979056,
+   "n": 3
+  },
+  "pancreatic beta": {
+   "min_p10": 0.6943457760743301,
+   "n": 3
+  },
+  "pancreatic delta": {
+   "min_p10": 0.6876482581164526,
+   "n": 3
+  },
+  "pancreatic duct": {
+   "min_p10": 0.6945900026279827,
+   "n": 3
+  },
+  "prostate epithelium": {
+   "min_p10": 0.6772806892815619,
+   "n": 3
+  },
+  "small intestine epithelium": {
+   "min_p10": 0.6636450815380007,
+   "n": 3
+  },
+  "smooth muscle": {
+   "min_p10": 0.33570007791583995,
+   "n": 3
+  },
+  "striated muscle": {
+   "min_p10": 0.6842537302831372,
+   "n": 2
+  },
+  "t central memory cd4": {
+   "min_p10": 0.6860767034159347,
+   "n": 3
+  },
+  "t effector cell cd8": {
+   "min_p10": 0.643058837681436,
+   "n": 3
+  },
+  "t effector memory cd4": {
+   "min_p10": 0.6215109189298806,
+   "n": 3
+  },
+  "thyroid epithelium": {
+   "min_p10": 0.7181612741937187,
+   "n": 3
+  },
+  "tongue epithelium": {
+   "min_p10": 0.6658358414276183,
+   "n": 3
+  },
+  "tonsil palatine epithelium": {
+   "min_p10": 0.62180596192841,
+   "n": 3
+  },
+  "tonsil pharyngeal epithelium": {
+   "min_p10": 0.6066529081457568,
+   "n": 2
+  },
+  "vascular saphenous endothelium": {
+   "min_p10": 0.6749924116399146,
+   "n": 3
+  }
+ },
+ "samples": 153,
+ "version": 1,
+ "built_from": "Loyfer 2023 (GSE186458), 153 healthy samples, 56 cell types, chain Stage Q2 counts with tile percentiles",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "a78b5f14bd02f60be28c793b60c5396559a21452d2ec8fa8db47cfd91e0bf1ed",
+  "payload_sha256": "3d5b32c4e42ffb1f033888c8c86a004cd9ce3eb647f25f5e20437499d56d0957",
+  "inputs": [
+   {
+    "name": "GSM5652176.json",
+    "sha256": "79815b61a5d84f0173d85ba3757ea1f99034bc6d1b9a464fa90e7a469c16f36f"
+   },
+   {
+    "name": "GSM5652177.json",
+    "sha256": "594459fbec9b7a94c0c034d3a21eee3110b56fc362174eb1793a47990c3fd156"
+   },
+   {
+    "name": "GSM5652178.json",
+    "sha256": "0617040368a675512c4831a5cfc898435686d8fcf8b09e0f35299c962011d1f4"
+   },
+   {
+    "name": "GSM5652179.json",
+    "sha256": "c110e14b34baea655d5572ee819b91574c3ee8ce5f1fd989fda0ea3235255d5c"
+   },
+   {
+    "name": "GSM5652180.json",
+    "sha256": "2cd210fba1ac303b2fda62c82bf17f112079a7b2f30e4a7ac0a04ae8d916ee0a"
+   },
+   {
+    "name": "GSM5652181.json",
+    "sha256": "bb96254fdf66eb4e1780a16f45491a4ea26c99037b3ebb1d131be7c8b934b120"
+   },
+   {
+    "name": "GSM5652182.json",
+    "sha256": "67f5bc98a10f1b72024d383b9fcd2729f769eed14c6663d47af4ad5ac12c29b1"
+   },
+   {
+    "name": "GSM5652183.json",
+    "sha256": "934f59dea22fd3ea4f5510ff4dc50966f5c8a98254d0a9092f602528c607adb1"
+   },
+   {
+    "name": "GSM5652184.json",
+    "sha256": "bcce8ba8511caf2193898f8635c118bb309fb9ffdd750a23dc554bbee2ab8ab4"
+   },
+   {
+    "name": "GSM5652185.json",
+    "sha256": "379d5d1dddfb955dbc4c93a81f87e1ec29f485afdbfa3a793abbefdcbc3a1b93"
+   },
+   {
+    "name": "GSM5652186.json",
+    "sha256": "0b02d8b526ed0e4d610b71466e95f6c2619b8e4541b86ec042eea4ddeef09ba4"
+   },
+   {
+    "name": "GSM5652187.json",
+    "sha256": "9ca42b49b7dcaca0a2c8df79bbdeaf248b047d63a7480a3bad4e2f99d5e6d294"
+   },
+   {
+    "name": "GSM5652188.json",
+    "sha256": "8ad64e291c353f4c58ed20f3e5132bf4344ed87276c31e4510a7ad3b0bd437fc"
+   },
+   {
+    "name": "GSM5652189.json",
+    "sha256": "32347091a4cd1e3c34a9455f73e75c8637051875dba1f8f350862d098220055c"
+   },
+   {
+    "name": "GSM5652191.json",
+    "sha256": "645a3dd1653aeb13dad3423f2398f744eacf6b34ccf744dff6cad135afb01802"
+   },
+   {
+    "name": "GSM5652192.json",
+    "sha256": "2e33d5eef592101c2a787dc728cd43e82afc782fd9796d257602b377821593d8"
+   },
+   {
+    "name": "GSM5652193.json",
+    "sha256": "1ccc66ca3347290915490cd964c06f810fe35e1a72aa5de659515fb47c3b33ce"
+   },
+   {
+    "name": "GSM5652194.json",
+    "sha256": "83708ff7940bd691e7df4eb11948dcbf8b99fdbe3520be0b3014941071bad64a"
+   },
+   {
+    "name": "GSM5652195.json",
+    "sha256": "162244df6b02d546c6a373c848061c2a7ac20d220d1ade9a7497fb5b91ce4f67"
+   },
+   {
+    "name": "GSM5652196.json",
+    "sha256": "eef9a8309aff1f1f7e5e50ef9ca348a18fe38c005bf807c053adb6e7b1555b71"
+   },
+   {
+    "name": "GSM5652198.json",
+    "sha256": "794661f598f69d5e180247c3a926c6eab430f6b18e3a1944e8a4b0aab62da6f3"
+   },
+   {
+    "name": "GSM5652199.json",
+    "sha256": "41ac6c0ddb6f684bcf4a32f4bd0e687887f091d9222315c53a04e1c22d502095"
+   },
+   {
+    "name": "GSM5652201.json",
+    "sha256": "8c895a59e7e462e0114862b540f8745a90d5e027e52633accb3160891865da47"
+   },
+   {
+    "name": "GSM5652202.json",
+    "sha256": "768a78de1fa67c149a915bb0ab0cc3b903a0c7ab53267dcc5b984a7f111f96e8"
+   },
+   {
+    "name": "GSM5652203.json",
+    "sha256": "8b45438f5dd0eeaf7dbe64832145504fda7cdd1187eba2ddee910e2b5b96f12e"
+   },
+   {
+    "name": "GSM5652205.json",
+    "sha256": "a28d83e8acd471a9385e5bd33ff9a9318557fc6182219f8cfacb18b83d8fcb33"
+   },
+   {
+    "name": "GSM5652206.json",
+    "sha256": "76a3bc26e3b108a835ada37a1ad2161b2c46147a9b6a0de885ec354d38d0a5ee"
+   },
+   {
+    "name": "GSM5652207.json",
+    "sha256": "29cba7b2d6efb2110c4ae922b70c5373627e026a6233299d0a3bedd1a3624018"
+   },
+   {
+    "name": "GSM5652208.json",
+    "sha256": "0c88795668bde934df7a65141c50d697dc9e827d6ae50c1cc27e6b54b3fb5085"
+   },
+   {
+    "name": "GSM5652209.json",
+    "sha256": "9a0c3b25dfa97dab3dc932853443bf7aa8a7adc625073a26d6f0c35898b449ef"
+   },
+   {
+    "name": "GSM5652212.json",
+    "sha256": "327ef9abfaa313b77a472a82a87f6623a5c5bb4cd7890c30f156f23ad5bd6c08"
+   },
+   {
+    "name": "GSM5652213.json",
+    "sha256": "e5862bacfddadf6ff8b1ccd0e48a680908aa290679846712feddf009b8e04225"
+   },
+   {
+    "name": "GSM5652216.json",
+    "sha256": "d22ef9f420555f1c161b91423718d1321e321632874bc3f949c05a0dd29b5d47"
+   },
+   {
+    "name": "GSM5652219.json",
+    "sha256": "fbb03c78a523e257963faf09f9187b0392d615def3ffd4d2e4ab235bb646a1ed"
+   },
+   {
+    "name": "GSM5652220.json",
+    "sha256": "5baa265e10be5421d04fca8ad6472db280df0d54b5839eff9d2e57a449f04fae"
+   },
+   {
+    "name": "GSM5652221.json",
+    "sha256": "1c7e1d72fd2b4ed5ff77d134b1dcedbcfbe2367003738477dbbd045dfd1f0d05"
+   },
+   {
+    "name": "GSM5652223.json",
+    "sha256": "a5e79e44d36685c6885006992a26c289496cdd36b9f87751dc551641918e5800"
+   },
+   {
+    "name": "GSM5652224.json",
+    "sha256": "0d7655cd5159cf3e4e699f3a1950964c8ea029c728fa9aa2666783cd11ba2cc0"
+   },
+   {
+    "name": "GSM5652225.json",
+    "sha256": "97c2e084a43cacd9cf892c91469ffea3e01c076f825ddade485db314b4a003cf"
+   },
+   {
+    "name": "GSM5652233.json",
+    "sha256": "cad5cee8c0f48d6c02da7cb5e5b643f27fee6a71f7d5f12e86c94c08a5a71ab9"
+   },
+   {
+    "name": "GSM5652234.json",
+    "sha256": "c78ff0deb610577b106d461352066c06179d0fd10ff2edbdc6a65968ddd49b0c"
+   },
+   {
+    "name": "GSM5652235.json",
+    "sha256": "f47db9e59587f327bebc473210926f637d9729925d8d7e6a4a3cdfb4899b484a"
+   },
+   {
+    "name": "GSM5652239.json",
+    "sha256": "b6fe550b3dfe1b05e68588869abe6237d2a1849fbf358a890265cbad68f7482a"
+   },
+   {
+    "name": "GSM5652240.json",
+    "sha256": "dcc5ffa5419e861a8d003604e7c758e66666b6a4738af8641766468bf3c7fd3d"
+   },
+   {
+    "name": "GSM5652241.json",
+    "sha256": "a2d1ac7bfccd44da62be6b6c4f3e9b1222e9082fa556db02fba6f33921edc040"
+   },
+   {
+    "name": "GSM5652243.json",
+    "sha256": "8e48670625b824b1759a543d5c7fe48c0a105529c2781708d45ad958fd65788b"
+   },
+   {
+    "name": "GSM5652244.json",
+    "sha256": "e4c7f2979e2813c67087974ba4388f21f2ee04ca1565684b0cbb69550b6a46d1"
+   },
+   {
+    "name": "GSM5652245.json",
+    "sha256": "4553fc9f0eb0f682c07877446b6e8fcb76189e773d77bc8449d1f0678f3e31c5"
+   },
+   {
+    "name": "GSM5652247.json",
+    "sha256": "9a02b09a8454a00aa28c355f36bb5f47842fd402f62499a23c4c3c36bfff5527"
+   },
+   {
+    "name": "GSM5652248.json",
+    "sha256": "7f93ad115c563af3aa6f2618f0489fa3be552d17743e5d41c841a99df655ba9a"
+   },
+   {
+    "name": "GSM5652249.json",
+    "sha256": "6d96c38910ea0d01cae1e6d4a9c8431f12623a7198e93268161e2a635badbae1"
+   },
+   {
+    "name": "GSM5652250.json",
+    "sha256": "fbbcf2c52313837c354a04d1df6d0e0633e44576297e86cf66b4b4bf843c32f4"
+   },
+   {
+    "name": "GSM5652251.json",
+    "sha256": "f08d2bc5d1914c3cfd3f356b33d2b51169d0e05465e105112e125a76dd67efc8"
+   },
+   {
+    "name": "GSM5652252.json",
+    "sha256": "a556e6eafb44b10fe90440f76b4fdedeb9fab2f1243a3482569be5d741b2438b"
+   },
+   {
+    "name": "GSM5652253.json",
+    "sha256": "53c63742b6032174f183ab871a15d5cd572892d76ecac30d626f2ccf8fcc0fb5"
+   },
+   {
+    "name": "GSM5652254.json",
+    "sha256": "797a57b8a767b692141e208f18596023b39360fb3e42c28ec94032d0b892fe6a"
+   },
+   {
+    "name": "GSM5652255.json",
+    "sha256": "5b8a8a9922dd1c411d3ac0dda8ea3d9cceaeac13fa041358cda47ca2c8127ac0"
+   },
+   {
+    "name": "GSM5652256.json",
+    "sha256": "f53973ffe086e82710e874f12dfddf59976f7663b879fb9c57e44ef3ef14220c"
+   },
+   {
+    "name": "GSM5652257.json",
+    "sha256": "dc2cae10a6e67e208890000a92ee093461bdf52794ced6f9d4dd81e91f2d938e"
+   },
+   {
+    "name": "GSM5652258.json",
+    "sha256": "2efbc51c143a69ba409a988443907cee511bdb2f205ef1231c9d03b3bbe4dbaf"
+   },
+   {
+    "name": "GSM5652259.json",
+    "sha256": "afbf3eb81b4c1799e417e813baf580da0d57010414c475b9915326a2b2e71b36"
+   },
+   {
+    "name": "GSM5652260.json",
+    "sha256": "9308f4763af67d14824e2cc532e8abb7c912188bb763040f8aee356daa7affd8"
+   },
+   {
+    "name": "GSM5652264.json",
+    "sha256": "e2ed718387d2b1485b427706152fb0dd2b4a197dcb98f134f6870ee339c6faff"
+   },
+   {
+    "name": "GSM5652265.json",
+    "sha256": "73e483bebcbf7be7ac1997a6c1892e3749a4ad36d48cef6f6cb211bc162d3054"
+   },
+   {
+    "name": "GSM5652266.json",
+    "sha256": "8e008443b2b3f2fb047956fa7490a4e7dde4c24e53de5aed703fa40ff24c102e"
+   },
+   {
+    "name": "GSM5652267.json",
+    "sha256": "361eaff6bdea7f4c14c46c98eddf2dada92ed7aabb4eacf061768a048925f29f"
+   },
+   {
+    "name": "GSM5652268.json",
+    "sha256": "64d07abed9e3a672fd8fed8bb7b76e637f49f4f099af3c1613d6612a665a469c"
+   },
+   {
+    "name": "GSM5652269.json",
+    "sha256": "bb503656f67f92ac883a613dd3261c925cda701b491dac41e85d03499b420c5c"
+   },
+   {
+    "name": "GSM5652271.json",
+    "sha256": "57eeccf0656fe980f476a84f8fa76430bceac0c604ab1f0f9bb2010f971fe929"
+   },
+   {
+    "name": "GSM5652272.json",
+    "sha256": "0c3de29410fd1470001df0e9278a5dc47447f347ac8ee2e06206f3c18de5915e"
+   },
+   {
+    "name": "GSM5652273.json",
+    "sha256": "d6d5b7ee26eae76b424b9c8bb1833e3e0f85a33b5ec7e8397dccad8d81713cdd"
+   },
+   {
+    "name": "GSM5652274.json",
+    "sha256": "3b8596a07ae774ee9e29997ec0da299be08830f207c6b08be3ad8a2de014b11d"
+   },
+   {
+    "name": "GSM5652275.json",
+    "sha256": "104998e83acb5ceca97e9b00e2a19be952d7bf4d6d1017c3729c7c8411f741d6"
+   },
+   {
+    "name": "GSM5652276.json",
+    "sha256": "0414beeb0e5035ffd38dd9001494a9831a026afd708df4a4a6727213c79f486c"
+   },
+   {
+    "name": "GSM5652279.json",
+    "sha256": "a95439f29d049e4661436e9bcdaa71b8f6e401aafa77f7f9f3bb90b0e1dd3ff1"
+   },
+   {
+    "name": "GSM5652280.json",
+    "sha256": "5ed44d144ab882dc44f41c0e7586771ae9407019efb46e61721e61f34f3c6aa0"
+   },
+   {
+    "name": "GSM5652281.json",
+    "sha256": "ee474258b9a765dfc9e48f35d04e83eadf5029c024b7abd5e8064b8e1b623018"
+   },
+   {
+    "name": "GSM5652282.json",
+    "sha256": "4998c7c452e4b91ef721f64f45c1c9ae3075824a2febffef79b27d6f925db77a"
+   },
+   {
+    "name": "GSM5652283.json",
+    "sha256": "e90ad36f314702cc584a31539d90649cb325b9acd66d262b5d889563398b744c"
+   },
+   {
+    "name": "GSM5652284.json",
+    "sha256": "4275b51955921db77ba59a9b8b581d5aee3bed694a5dc0b78a18741bd43f0323"
+   },
+   {
+    "name": "GSM5652285.json",
+    "sha256": "6cf101eaf65eaf790f44b46e7244d31fd4f32507d53fa902699e66d139d37bb9"
+   },
+   {
+    "name": "GSM5652286.json",
+    "sha256": "acfd09f9a275c4e7e578dd64addb4a844e757a9a2427ac1bc9ad56b686d47d7f"
+   },
+   {
+    "name": "GSM5652287.json",
+    "sha256": "21e0df4aa4cfc3dd462228ceebebf8dcb62094bcd8b4f74cd763bad5404f712d"
+   },
+   {
+    "name": "GSM5652288.json",
+    "sha256": "b7ad399dd20ae9b4ac5f3a27aaeec38e9c4cca862f4c5243d044b06791490c6f"
+   },
+   {
+    "name": "GSM5652289.json",
+    "sha256": "92c1f6ae9ad8d73530a1e6651de0f56640936dba731d6cca744a0ae6893a1511"
+   },
+   {
+    "name": "GSM5652290.json",
+    "sha256": "8eccc3315ca0c9a77e104b503614a487d9de957e02b46e1999faf5660613d073"
+   },
+   {
+    "name": "GSM5652291.json",
+    "sha256": "2816ea01d0e918e0b3b018c5b49dfb890dbd847152931c095dbd561a28e3fdce"
+   },
+   {
+    "name": "GSM5652292.json",
+    "sha256": "119e908bef859ed94a946d59c985c2dbaba903eec476565a1b7fe546ff1ba625"
+   },
+   {
+    "name": "GSM5652293.json",
+    "sha256": "dea20759f1c9d5cf8c70425fdf3634994e9a87beeb5ac58daa0150edbd1f9087"
+   },
+   {
+    "name": "GSM5652295.json",
+    "sha256": "3d9e5ac1116f2683fa14ef27c1abc8135e4fbb96725687098087bb0c48925cee"
+   },
+   {
+    "name": "GSM5652296.json",
+    "sha256": "6532997d232930977f9a0b83ab1850311290a284b6b5ef6304896eaf68d7dc5e"
+   },
+   {
+    "name": "GSM5652298.json",
+    "sha256": "7470c0d367f1dc4ca11c8fffc400c67ba424bcbb182e62c35cf79eaadb8fb9ff"
+   },
+   {
+    "name": "GSM5652299.json",
+    "sha256": "474b9247b6d0dc1867d4db2a8c25f5ffe8a9651511f3a471259fe0017e63b827"
+   },
+   {
+    "name": "GSM5652300.json",
+    "sha256": "0cc318fa894a84aff8681515742cbb8cb732b7e4bb6e9afa06939ec0d599990c"
+   },
+   {
+    "name": "GSM5652301.json",
+    "sha256": "45cfab33299572141288edb2dd445c16b6c1e6d08e08055850a3b9c1d4ea33ac"
+   },
+   {
+    "name": "GSM5652302.json",
+    "sha256": "91ed5db6186855e77b533ab3069917475e0513fb33ecdc009be6e384a6063fa6"
+   },
+   {
+    "name": "GSM5652303.json",
+    "sha256": "135ee0cfb98ef67eb3d11588fd3a6ec15107414a669cbe471d7b56aa13f4038d"
+   },
+   {
+    "name": "GSM5652304.json",
+    "sha256": "c84a34f4a8ebf53fb56763877cf2790969efe4e0845868ebca2b430458a2d59c"
+   },
+   {
+    "name": "GSM5652305.json",
+    "sha256": "32df6c1ac3a11d0259711d5144dbc463650c0b512a4d992e480e30c6a20a2e56"
+   },
+   {
+    "name": "GSM5652306.json",
+    "sha256": "544d793897d37375f0094b1518e16bce4cc6ee1c13da15938cec5a71cfc35c70"
+   },
+   {
+    "name": "GSM5652308.json",
+    "sha256": "d53f81d6e15e54b4e66ceedb027b5f06e0bb78b95aa476fc8e9fd9f903e016a6"
+   },
+   {
+    "name": "GSM5652309.json",
+    "sha256": "ff722ca0065e0ca59ca4cad1318dadf5fd560df9c396b62e016db46f2cc1aaa3"
+   },
+   {
+    "name": "GSM5652310.json",
+    "sha256": "9f9f63fa13cdb9381c426edd0172ff330b46405c2b6afbfc8b293406939393d7"
+   },
+   {
+    "name": "GSM5652311.json",
+    "sha256": "5dac0f5767d18ddcdf6ab957b97431d57014f65e8957bf08f8d914b82e476373"
+   },
+   {
+    "name": "GSM5652312.json",
+    "sha256": "79d8bcee73fe750998fb65bd857468e60558ac5a28e1641cf54c8a6a67886b23"
+   },
+   {
+    "name": "GSM5652316.json",
+    "sha256": "270f6363aecf0ef244123c9fc423f714a196cb35788c3881b3ef58ab0eaedf2f"
+   },
+   {
+    "name": "GSM5652317.json",
+    "sha256": "bbe504ef6a89e075bf4c37e8b8689ff533da7217ffbb001086dc2f727e9c0b3d"
+   },
+   {
+    "name": "GSM5652318.json",
+    "sha256": "6f41897a9f578aaf48dedead6e1327f90bcff5eeb0c1c2c3d3fdd84e6972b257"
+   },
+   {
+    "name": "GSM5652319.json",
+    "sha256": "9da22cbdc1387d7310a11b9b34d6ded2a4fb6526227600981df6bf399587b6a4"
+   },
+   {
+    "name": "GSM5652320.json",
+    "sha256": "45d46e0dee0be3617d94ae79be6b4e9731bfe39207a274122000aad1b1aedac2"
+   },
+   {
+    "name": "GSM5652322.json",
+    "sha256": "951c20e0c329559822f639dfdd6cfa459fddbfc91a9fdf12564790fdfe972510"
+   },
+   {
+    "name": "GSM5652323.json",
+    "sha256": "f869d38fb0d89ce5afa217f0d69ea55c1f4ab6920f846150efc5f40d6fab85fb"
+   },
+   {
+    "name": "GSM5652324.json",
+    "sha256": "50ce734d35c9bdd15fd572a35cc599bf10865d4d11b7449313264d6cc921037a"
+   },
+   {
+    "name": "GSM5652325.json",
+    "sha256": "7f98f1edf321727aa681d2c559d116d60acdf106371dcf4a4836a9e2c4af6095"
+   },
+   {
+    "name": "GSM5652326.json",
+    "sha256": "697b451063353ffdb169a78c8b90b513d60d142b9f630b02c49e8f0990f4cdc9"
+   },
+   {
+    "name": "GSM5652327.json",
+    "sha256": "e25fa5d7d7f26601a94fb8e71c2991000973aa674c4521e3b13dbde993e9a3a5"
+   },
+   {
+    "name": "GSM5652328.json",
+    "sha256": "f00757af83c3e78e7c4b8aa5b15ec8e14e876411a0445db0aa60bbffe36abee8"
+   },
+   {
+    "name": "GSM5652329.json",
+    "sha256": "58ed5ace4a23c3e239943ab941120dbb33e73ef382eeaa18fe7d3d41596c3523"
+   },
+   {
+    "name": "GSM5652335.json",
+    "sha256": "473689f61d21656dd78f8d9083ec9cabff7cfea83c6efc52e58497699d31030a"
+   },
+   {
+    "name": "GSM5652336.json",
+    "sha256": "ef70d8626cb33c0a585b75b3eae063b348715f78aae54a1a309a186fa0152674"
+   },
+   {
+    "name": "GSM5652337.json",
+    "sha256": "d3294d76dc6256ca8da1e799bbb3e12a4fe503ac0416072c992062024309592c"
+   },
+   {
+    "name": "GSM5652338.json",
+    "sha256": "4761f5f5ad0bd4fca206948e57d76eca22014eaf018abdd83d05871a88c88103"
+   },
+   {
+    "name": "GSM5652339.json",
+    "sha256": "755c75047a8406a635669d5e8d5c686f008399c71c532c2aa4716f8237fea992"
+   },
+   {
+    "name": "GSM5652340.json",
+    "sha256": "0093f0ae7d7ad3ccad92d9f4bd08b1878be73ec7fc9c3612a4c8f351332d7855"
+   },
+   {
+    "name": "GSM5652342.json",
+    "sha256": "11402e2167a7cd93f68fd0ea9aab7c41e0bae92c806e023956152237c0dc2650"
+   },
+   {
+    "name": "GSM5652343.json",
+    "sha256": "7dd66de2479d5a3b0e72968bc8e89f6fb2ebf201350070096038a9daa838d96f"
+   },
+   {
+    "name": "GSM5652344.json",
+    "sha256": "eb7206f2beb19d4d74f757bb7b4313085100b242c5eb9e7aa69dd4541c66b47a"
+   },
+   {
+    "name": "GSM5652347.json",
+    "sha256": "2998059fc5479f6b613b16d0752e83a8c874b2f238d5ed1bd951b2544ce28498"
+   },
+   {
+    "name": "GSM5652348.json",
+    "sha256": "6217610df5fd58d6fd08a65e064e7ba951470b07e0bf9027e7c559133a13e672"
+   },
+   {
+    "name": "GSM5652349.json",
+    "sha256": "19b469cea814e761de5c3150d2e71250afa7c4d5a3c91b619ebc565d305451ee"
+   },
+   {
+    "name": "GSM5652350.json",
+    "sha256": "a26477355a3de7d4b983a05b0b68f820121d6e8577c429ceaeb36f207e8a7b02"
+   },
+   {
+    "name": "GSM5652351.json",
+    "sha256": "adb1f72e975f02c8399eadce8b06b35d3034eb1c971a7b2d340118b8018cc34b"
+   },
+   {
+    "name": "GSM5652352.json",
+    "sha256": "003d5b9294a53ecebeebf1d687696219259a63d026db5ccddcb449ad9cf43712"
+   },
+   {
+    "name": "GSM5652354.json",
+    "sha256": "d1616d8590591dc4818fbbfc456e252d33e77ceae3f2af4ea231e56d39527d13"
+   },
+   {
+    "name": "GSM5652355.json",
+    "sha256": "37a832876f236311c4771e273fd9d827fb96e0b01e011758f3caada606366953"
+   },
+   {
+    "name": "GSM5652356.json",
+    "sha256": "8a5d5a473f3c1ccc770fb5ac554ccec8fbf11690c88c8eecca9cd9c7f9f6c570"
+   },
+   {
+    "name": "GSM5652359.json",
+    "sha256": "c19a6174a859af539b2bc7d9bb16d9acc8d5676610b000cb11ded9fa077e6619"
+   },
+   {
+    "name": "GSM5652360.json",
+    "sha256": "e1733123dddfc6dcd006e514c7ec2d48b1226aa1cf03926cc0fbfe4de6cda3e0"
+   },
+   {
+    "name": "GSM5652361.json",
+    "sha256": "1bd8f7eb480a4e102f5c878fe72687ee63b7682433af047a8b69aef0974063ef"
+   },
+   {
+    "name": "GSM5652362.json",
+    "sha256": "40bfc45f46221a958794e0f88aefe6442a5ee0c16f30dbe70364cbb45ca24c31"
+   },
+   {
+    "name": "GSM5652363.json",
+    "sha256": "81dde4026659a4ea59a5bf5a4b50b3d690a4b2203f8a1924c30e2b16b6f2f212"
+   },
+   {
+    "name": "GSM5652364.json",
+    "sha256": "3ad2381ac3c640a41f3be1d39761d5405e839f3be990459250bed4c623d9ddfa"
+   },
+   {
+    "name": "GSM5652365.json",
+    "sha256": "276ee7eb4c618b35ccc06f62464cbfff346d288bce6763f907053a1085391b3f"
+   },
+   {
+    "name": "GSM5652366.json",
+    "sha256": "a45ad6db612d6cf6ed26d0a5d2c366eac981074591d90dbb3a705c703acc1665"
+   },
+   {
+    "name": "GSM5652367.json",
+    "sha256": "0b2445cedf0855748af8fbef1a689e7d9a0301a0194adc30076b977f2abfe3d4"
+   },
+   {
+    "name": "GSM5652370.json",
+    "sha256": "7ca9d78d92cc43c4693765a327a763b02150cf4a8b08405155b432d08081e7ae"
+   },
+   {
+    "name": "GSM5652371.json",
+    "sha256": "a942ab86ba2c9690b7483e3b1feb2b6740f3152d885b3f336df9b82b0b8ca0f7"
+   },
+   {
+    "name": "GSM5652372.json",
+    "sha256": "fa89131fc453fc4b1b7996269b80f02cf08d0b86cffca3c56e4b288ebeb44e2a"
+   },
+   {
+    "name": "GSM5652373.json",
+    "sha256": "c7ecd71d33640cf20752b1d66afb3aa8e207f0f7f7ea49c586977867fae7e378"
+   },
+   {
+    "name": "GSM5652375.json",
+    "sha256": "1e4e851256c21bf66c36ec07cf2f8355792528c6da5bb97fa534cf8cc5504e95"
+   },
+   {
+    "name": "GSM5652379.json",
+    "sha256": "a1f7cee1765bc623b135beaa45de32d9d26a8b7dad5970d5763eee9c114298b0"
+   },
+   {
+    "name": "GSM5652380.json",
+    "sha256": "b73a2b339674ed817c9a01f1e545eddb7ebb7ddc8e061fdff27c970569a387bd"
+   },
+   {
+    "name": "GSM5652381.json",
+    "sha256": "0a6ff4afe9c1dfd1f0d66de3305222abc9236934c366a8161319c7d999d7e4f9"
+   }
+  ],
+  "utc": "2026-10-16T06:36:17Z"
+ }
+}

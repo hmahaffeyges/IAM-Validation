@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.1186066671920561,
+ "tiles": 12689,
+ "held_err": 0.044610371020644246,
+ "held_opp": 58086067,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.6877478702561762,
+ "tile_p50": 0.7883607263149898,
+ "tile_p90": 0.8569226071697816,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652182",
+ "cell": "vascular saphenous endothelium",
+ "file": "GSM5652182_Saphenous-Vein-Endothel-Z000000S7.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "67f5bc98a10f1b72024d383b9fcd2729f769eed14c6663d47af4ad5ac12c29b1",
+  "inputs": [
+   {
+    "name": "GSM5652182_Saphenous-Vein-Endothel-Z000000S7.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652182/suppl/GSM5652182_Saphenous-Vein-Endothel-Z000000S7.pat.gz",
+    "sha256": "8810cac29a2c3d3091e938f9766478210a02bb4eb26c4f832de246f2bb661400",
+    "size": 353709389
+   }
+  ],
+  "utc": "2026-10-16T05:27:22Z"
+ }
+}

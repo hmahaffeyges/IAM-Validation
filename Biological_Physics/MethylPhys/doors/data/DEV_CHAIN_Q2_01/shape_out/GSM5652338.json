@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.14203515409474265,
+ "tiles": 12687,
+ "held_err": 0.04262986953157825,
+ "held_opp": 47972068,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.6772806892815619,
+ "tile_p50": 0.7799553387788682,
+ "tile_p90": 0.8453318050221729,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652338",
+ "cell": "prostate epithelium",
+ "file": "GSM5652338_Prostate-Epithelial-Z000000RV.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "4761f5f5ad0bd4fca206948e57d76eca22014eaf018abdd83d05871a88c88103",
+  "inputs": [
+   {
+    "name": "GSM5652338_Prostate-Epithelial-Z000000RV.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652338/suppl/GSM5652338_Prostate-Epithelial-Z000000RV.pat.gz",
+    "sha256": "fed07b7e0c1f69c80a89601704b2b6c1cd778c46971ff93529d77b0522050cda",
+    "size": 315952739
+   }
+  ],
+  "utc": "2026-10-16T05:48:47Z"
+ }
+}

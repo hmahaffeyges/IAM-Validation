@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.7372527385924816,
+ "tiles": 12689,
+ "held_err": 0.0565333859020251,
+ "held_opp": 28853676,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.33570007791583995,
+ "tile_p50": 0.6070510990579503,
+ "tile_p90": 0.7668155431350872,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652209",
+ "cell": "smooth muscle",
+ "file": "GSM5652209_Bladder-Smooth-Muscle-Z0000041Z.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "9a0c3b25dfa97dab3dc932853443bf7aa8a7adc625073a26d6f0c35898b449ef",
+  "inputs": [
+   {
+    "name": "GSM5652209_Bladder-Smooth-Muscle-Z0000041Z.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652209/suppl/GSM5652209_Bladder-Smooth-Muscle-Z0000041Z.pat.gz",
+    "sha256": "2e94dc2909e38c33c6cf7a91c7732e7ac80b78c968059839ad8a440f18e5d765",
+    "size": 339083093
+   }
+  ],
+  "utc": "2026-10-16T05:32:27Z"
+ }
+}

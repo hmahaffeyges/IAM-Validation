@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.13121601387028134,
+ "tiles": 12689,
+ "held_err": 0.040934179484692794,
+ "held_opp": 45039696,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.6806031426687407,
+ "tile_p50": 0.7823687259864609,
+ "tile_p90": 0.8562966577354101,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652375",
+ "cell": "colon enteroendocrine",
+ "file": "GSM5652375_Colon-Left-Endocrine-Z0000044T.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "1e4e851256c21bf66c36ec07cf2f8355792528c6da5bb97fa534cf8cc5504e95",
+  "inputs": [
+   {
+    "name": "GSM5652375_Colon-Left-Endocrine-Z0000044T.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652375/suppl/GSM5652375_Colon-Left-Endocrine-Z0000044T.pat.gz",
+    "sha256": "2baa2696f11f1ea264f5fb1e3bff41679f45dc70ea3004af9752984f88f21752",
+    "size": 295032361
+   }
+  ],
+  "utc": "2026-10-16T05:53:31Z"
+ }
+}

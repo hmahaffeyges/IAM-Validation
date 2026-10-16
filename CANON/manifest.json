@@ -26416,9 +26416,16 @@
    ],
    "data_status": "",
    "record": "Biological_Physics/MethylPhys/doors/DEV_CHAIN_Q2_01.md",
-   "status": "running",
-   "runs": [],
-   "next_step": "build the stamped reference from all 153 chain counts (the 7 GEO-refused recounted locally), then apply it first in DEV-SECONDLAB-02",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-15",
+     "outcome": "success",
+     "note": "sealed and built in chain Stage Q2: margin 0.0543 from 153 healthy samples; ENCODE 0 of 5 read (all withheld, as the check is for)",
+     "page": "not headline: instrument safeguard"
+    }
+   ],
+   "next_step": "applied first in DEV-SECONDLAB-02 (Hansen B cells, limit 0.662)",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

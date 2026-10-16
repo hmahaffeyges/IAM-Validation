@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.4934205342368608,
+ "tiles": 12691,
+ "held_err": 0.05151515303834779,
+ "held_opp": 65651421,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.5443958925060083,
+ "tile_p50": 0.7017798893773933,
+ "tile_p90": 0.8180867267355441,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652243",
+ "cell": "pancreatic acinar",
+ "file": "GSM5652243_Pancreas-Acinar-Z000000QX.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "8e48670625b824b1759a543d5c7fe48c0a105529c2781708d45ad958fd65788b",
+  "inputs": [
+   {
+    "name": "GSM5652243_Pancreas-Acinar-Z000000QX.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652243/suppl/GSM5652243_Pancreas-Acinar-Z000000QX.pat.gz",
+    "sha256": "783051bd863cc940e45ed3db01dc5d7d53e4a489b0a9199d2b0a64a41f0d257c",
+    "size": 442174200
+   }
+  ],
+  "utc": "2026-10-16T05:36:17Z"
+ }
+}

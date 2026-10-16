@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.11616360627314998,
+ "tiles": 12689,
+ "held_err": 0.04554231313906894,
+ "held_opp": 46346526,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.6918942707272836,
+ "tile_p50": 0.7902267989133869,
+ "tile_p90": 0.8621065312913352,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652254",
+ "cell": "pancreatic alpha",
+ "file": "GSM5652254_Pancreas-Alpha-Z00000456.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "797a57b8a767b692141e208f18596023b39360fb3e42c28ec94032d0b892fe6a",
+  "inputs": [
+   {
+    "name": "GSM5652254_Pancreas-Alpha-Z00000456.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652254/suppl/GSM5652254_Pancreas-Alpha-Z00000456.pat.gz",
+    "sha256": "9834e092938979fec600dae39b6de2e2020a4a59dd74ef77f4293fccd85c67ad",
+    "size": 314568529
+   }
+  ],
+  "utc": "2026-10-16T05:36:00Z"
+ }
+}

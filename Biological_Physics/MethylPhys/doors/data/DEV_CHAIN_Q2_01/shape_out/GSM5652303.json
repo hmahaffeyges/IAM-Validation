@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.04539722572509458,
+ "tiles": 12688,
+ "held_err": 0.03763979006869037,
+ "held_opp": 39438424,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.7503304584513679,
+ "tile_p50": 0.8423921303300932,
+ "tile_p90": 0.8879130614013445,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652303",
+ "cell": "monocytes",
+ "file": "GSM5652303_Blood-Monocytes-Z000000U3.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "135ee0cfb98ef67eb3d11588fd3a6ec15107414a669cbe471d7b56aa13f4038d",
+  "inputs": [
+   {
+    "name": "GSM5652303_Blood-Monocytes-Z000000U3.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652303/suppl/GSM5652303_Blood-Monocytes-Z000000U3.pat.gz",
+    "sha256": "8ef47358d1f8da7439bdb6666d205da1838329f498fc01adc8a0bc7203f3df9b",
+    "size": 262608328
+   }
+  ],
+  "utc": "2026-10-16T05:43:15Z"
+ }
+}

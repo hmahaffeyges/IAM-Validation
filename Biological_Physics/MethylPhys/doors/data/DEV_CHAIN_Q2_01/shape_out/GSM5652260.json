@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.0880359394703657,
+ "tiles": 12688,
+ "held_err": 0.03900606075025528,
+ "held_opp": 61532976,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.7084130376890684,
+ "tile_p50": 0.8209850276339278,
+ "tile_p90": 0.8818052133291657,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652260",
+ "cell": "kidney tubular epithelium",
+ "file": "GSM5652260_Kidney-Tubular-Epithelial-Z00000440.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "9308f4763af67d14824e2cc532e8abb7c912188bb763040f8aee356daa7affd8",
+  "inputs": [
+   {
+    "name": "GSM5652260_Kidney-Tubular-Epithelial-Z00000440.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652260/suppl/GSM5652260_Kidney-Tubular-Epithelial-Z00000440.pat.gz",
+    "sha256": "c4148a7da0dcbdcd28f039bf78f8ce996c06d3771d9a105ec9a3b09fafd6ae8b",
+    "size": 328250550
+   }
+  ],
+  "utc": "2026-10-16T05:37:53Z"
+ }
+}

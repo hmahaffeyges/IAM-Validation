@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.7069345941686367,
+ "tiles": 12690,
+ "held_err": 0.05658432270618586,
+ "held_opp": 38977722,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.4674238970295434,
+ "tile_p50": 0.6403140816636711,
+ "tile_p90": 0.7629420914236607,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652207",
+ "cell": "smooth muscle",
+ "file": "GSM5652207_Aorta-Smooth-Muscle-Z0000041U.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "29cba7b2d6efb2110c4ae922b70c5373627e026a6233299d0a3bedd1a3624018",
+  "inputs": [
+   {
+    "name": "GSM5652207_Aorta-Smooth-Muscle-Z0000041U.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652207/suppl/GSM5652207_Aorta-Smooth-Muscle-Z0000041U.pat.gz",
+    "sha256": "33c84ee7d73a8c643fb9fc36474994161864da53fc015c56a2a26b82c4904fe1",
+    "size": 384008150
+   }
+  ],
+  "utc": "2026-10-16T05:30:55Z"
+ }
+}

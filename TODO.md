@@ -28,7 +28,6 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **COM-IAMA-046** (impact 5, box) IAM-A across-laboratory check rerun on the whole stage: Wait for an independent head diagnostic and its seal; then about one day of box time.
 - [ ] **COM-IAMA-047** (impact 5, search) IAM-A other-laboratory healthy neutrophils (C4): Verify GSE59163 from its files (RRBS, donor count, sorting); design.
 - [ ] **COM-IAMA-052** (impact 5, laptop) IAM-A atlas-free commissioning: one grand sealed test on fresh data: after PHY-049 (whole genome), PHY-047 (second lab), PHY-050 (meter error) and PHY-043 (tumor island side) hold
-- [ ] **COM-IAMA-053** (impact 5, laptop) IAM-A sample-shape check: no reading when a sample's tile distribution is outside the healthy shape: build the stamped reference from all 153 chain counts (the 7 GEO-refused recounted locally), then apply it first in DEV-SECONDLAB-02
 - [ ] **COM-IAMA-054** (impact 5, laptop) IAM-A healthy band built from healthy evidence across laboratories (no borrowed band): healthy own-read readings through chain Stage Q2 from at least two independent laboratories (Loyfer, GSE49627 Hansen), band = their measured spread with the lab shift inside it; rule sealed first
 - [ ] **COM-METAA-001** (impact 5, search) Healthy Met-A across donor ages (reference donors 20-39): Search purified neutrophil arrays across ages from other laboratories.
 - [ ] **COM-METAA-006** (impact 5, laptop) Met-A on sorted neurons (second cell type on arrays): Build a neuron Met-A reference by the SOP new-cell rule; check Exeter (GSE234520/GSE279509) donor overlap with Maastricht.
@@ -879,4 +878,5 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **COM-METAA-039** Met-A read against the sample's own line (a smaller tare, or none): last run 2026-10-15, fail
 - [x] **OTH-056** Rebuild the operations-manual PDF from the corrected chapter: last run 2026-10-15, success
 - [x] **OTH-057** Wire the own-read counter and gemBS reading into the chain's Stage Q: last run 2026-10-15, success
+- [x] **COM-IAMA-053** IAM-A sample-shape check: no reading when a sample's tile distribution is outside the healthy shape: last run 2026-10-15, success
 - [x] **OTH-061** One bit convention across the four domains: bits stored, bits per operation, bit rate: last run 2026-10-15, progressed

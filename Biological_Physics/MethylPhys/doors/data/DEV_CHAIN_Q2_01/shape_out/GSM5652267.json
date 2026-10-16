@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.11638168781025923,
+ "tiles": 12691,
+ "held_err": 0.04153962968948078,
+ "held_opp": 64815118,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.6896169381451464,
+ "tile_p50": 0.8008947382110437,
+ "tile_p90": 0.8694001518602885,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652267",
+ "cell": "fallopien tubes epithelium",
+ "file": "GSM5652267_Fallopian-Epithelial-Z000000Q7.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "361eaff6bdea7f4c14c46c98eddf2dada92ed7aabb4eacf061768a048925f29f",
+  "inputs": [
+   {
+    "name": "GSM5652267_Fallopian-Epithelial-Z000000Q7.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652267/suppl/GSM5652267_Fallopian-Epithelial-Z000000Q7.pat.gz",
+    "sha256": "9f61b484497077d38f5b3b448bae091fbda4ff8071c39ab5a604c466751295c7",
+    "size": 345755994
+   }
+  ],
+  "utc": "2026-10-16T05:38:16Z"
+ }
+}

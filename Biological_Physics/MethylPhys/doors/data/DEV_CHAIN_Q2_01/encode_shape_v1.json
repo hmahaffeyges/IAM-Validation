@@ -1,0 +1,73 @@
+{
+ "rows": [
+  {
+   "read": false,
+   "cell": "b cells",
+   "tile_p10": 0.5761967618865471,
+   "healthy_min_p10": 0.7163923819835069,
+   "margin": 0.05426611336258584,
+   "limit": 0.662126268620921,
+   "healthy_n": 3,
+   "reason": "not read: tile 10th percentile 0.576 is below its healthy type's limit 0.662 (sample shape outside healthy)",
+   "file": "ENCFF092SBB",
+   "encode_cell": "b cells",
+   "reference_cell": "b cells"
+  },
+  {
+   "read": false,
+   "cell": "nk cells",
+   "tile_p10": 0.6229214680567442,
+   "healthy_min_p10": 0.6977444380449838,
+   "margin": 0.05426611336258584,
+   "limit": 0.643478324682398,
+   "healthy_n": 3,
+   "reason": "not read: tile 10th percentile 0.623 is below its healthy type's limit 0.643 (sample shape outside healthy)",
+   "file": "ENCFF133QNK",
+   "encode_cell": "nk cells",
+   "reference_cell": "nk cells"
+  },
+  {
+   "read": false,
+   "cell": "cd4 t cells",
+   "tile_p10": 0.5736280324436032,
+   "healthy_min_p10": 0.7362532976246589,
+   "margin": 0.05426611336258584,
+   "limit": 0.681987184262073,
+   "healthy_n": 3,
+   "reason": "not read: tile 10th percentile 0.574 is below its healthy type's limit 0.682 (sample shape outside healthy)",
+   "file": "ENCFF605NRU",
+   "encode_cell": "t cells",
+   "reference_cell": "cd4 t cells"
+  },
+  {
+   "read": false,
+   "cell": "monocytes",
+   "tile_p10": 0.5749180736505249,
+   "healthy_min_p10": 0.7294070037694717,
+   "margin": 0.05426611336258584,
+   "limit": 0.6751408904068859,
+   "healthy_n": 3,
+   "reason": "not read: tile 10th percentile 0.575 is below its healthy type's limit 0.675 (sample shape outside healthy)",
+   "file": "ENCFF704SCQ",
+   "encode_cell": "monocytes",
+   "reference_cell": "monocytes"
+  },
+  {
+   "read": false,
+   "reason": "not read: no healthy reference of this type (hsc)",
+   "cell": "hsc",
+   "file": "ENCFF969NGH",
+   "encode_cell": "cd34 myeloid progenitors",
+   "reference_cell": "hsc"
+  }
+ ],
+ "read": 0,
+ "of": 5,
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "a78b5f14bd02f60be28c793b60c5396559a21452d2ec8fa8db47cfd91e0bf1ed",
+  "payload_sha256": "b8854c54a70238930c6d36492e29434f90ccf15bb5b55b11e7e911e7aca5237e",
+  "inputs": [],
+  "utc": "2026-10-16T06:36:17Z"
+ }
+}

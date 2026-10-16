@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.057849936948297605,
+ "tiles": 12688,
+ "held_err": 0.037811309884377094,
+ "held_opp": 52252276,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.7372615235101867,
+ "tile_p50": 0.8290886795240131,
+ "tile_p90": 0.8798756316022462,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652299",
+ "cell": "nk cells",
+ "file": "GSM5652299_Blood-NK-Z000000TM.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "474b9247b6d0dc1867d4db2a8c25f5ffe8a9651511f3a471259fe0017e63b827",
+  "inputs": [
+   {
+    "name": "GSM5652299_Blood-NK-Z000000TM.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652299/suppl/GSM5652299_Blood-NK-Z000000TM.pat.gz",
+    "sha256": "8935985f7e640341255fcdeff12e963acfec0d94cde127893aa46853d90cac27",
+    "size": 306131340
+   }
+  ],
+  "utc": "2026-10-16T05:43:21Z"
+ }
+}

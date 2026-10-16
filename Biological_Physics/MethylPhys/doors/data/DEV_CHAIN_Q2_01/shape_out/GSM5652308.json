@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.05170239596469105,
+ "tiles": 12688,
+ "held_err": 0.03529113177259009,
+ "held_opp": 45528095,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.7431707372709861,
+ "tile_p50": 0.8393279070647514,
+ "tile_p90": 0.8890775182068568,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652308",
+ "cell": "lung alveolar macrophages",
+ "file": "GSM5652308_Lung-Alveolar-Macrophages-Z00000448.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "d53f81d6e15e54b4e66ceedb027b5f06e0bb78b95aa476fc8e9fd9f903e016a6",
+  "inputs": [
+   {
+    "name": "GSM5652308_Lung-Alveolar-Macrophages-Z00000448.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652308/suppl/GSM5652308_Lung-Alveolar-Macrophages-Z00000448.pat.gz",
+    "sha256": "69a9552bb516ad81db4c6f196edce61ab540f35722256d9a9eff53f715933f64",
+    "size": 275410910
+   }
+  ],
+  "utc": "2026-10-16T05:44:53Z"
+ }
+}

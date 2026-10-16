@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.34544451450189156,
+ "tiles": 12688,
+ "held_err": 0.048869860023925835,
+ "held_opp": 30045349,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.6553218828614751,
+ "tile_p50": 0.7242198822469534,
+ "tile_p90": 0.8216459254438938,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652320",
+ "cell": "memory b cells",
+ "file": "GSM5652320_Blood-B-Mem-Z0000041K.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "45d46e0dee0be3617d94ae79be6b4e9731bfe39207a274122000aad1b1aedac2",
+  "inputs": [
+   {
+    "name": "GSM5652320_Blood-B-Mem-Z0000041K.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652320/suppl/GSM5652320_Blood-B-Mem-Z0000041K.pat.gz",
+    "sha256": "9648f938eef8080fb2d4ebd7e98c3a64465c8b9ae7d73a682b6a0ef00c19a997",
+    "size": 269334513
+   }
+  ],
+  "utc": "2026-10-16T05:45:42Z"
+ }
+}

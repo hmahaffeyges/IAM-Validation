@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.06967762276345865,
+ "tiles": 12687,
+ "held_err": 0.04260454766815026,
+ "held_opp": 50035621,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.7243104960007196,
+ "tile_p50": 0.8273740168948441,
+ "tile_p90": 0.8870017115708504,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652265",
+ "cell": "thyroid epithelium",
+ "file": "GSM5652265_Thyroid-Epithelial-Z0000042T.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "73e483bebcbf7be7ac1997a6c1892e3749a4ad36d48cef6f6cb211bc162d3054",
+  "inputs": [
+   {
+    "name": "GSM5652265_Thyroid-Epithelial-Z0000042T.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652265/suppl/GSM5652265_Thyroid-Epithelial-Z0000042T.pat.gz",
+    "sha256": "4918effc4c726c8f256ad7f471e15ec87c1e0e4b60b16e249700931c865f5367",
+    "size": 308834653
+   }
+  ],
+  "utc": "2026-10-16T05:37:56Z"
+ }
+}

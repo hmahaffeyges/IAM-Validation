@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.21209016393442623,
+ "tiles": 12688,
+ "held_err": 0.047193867444457804,
+ "held_opp": 55152081,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.663843777739142,
+ "tile_p50": 0.7472069125752974,
+ "tile_p90": 0.82659954319817,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652343",
+ "cell": "bladder epithelium",
+ "file": "GSM5652343_Bladder-Epithelial-Z000000QP.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "7dd66de2479d5a3b0e72968bc8e89f6fb2ebf201350070096038a9daa838d96f",
+  "inputs": [
+   {
+    "name": "GSM5652343_Bladder-Epithelial-Z000000QP.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652343/suppl/GSM5652343_Bladder-Epithelial-Z000000QP.pat.gz",
+    "sha256": "5e659e6f62c4217a7c445fbd6b788b3aeff025d9a17f658f8b6753a2f2aee237",
+    "size": 339491497
+   }
+  ],
+  "utc": "2026-10-16T06:33:40Z"
+ }
+}

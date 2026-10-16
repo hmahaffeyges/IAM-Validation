@@ -1,0 +1,31 @@
+{
+ "loose_share": 0.1051304279297029,
+ "tiles": 12689,
+ "held_err": 0.03881613075654355,
+ "held_opp": 41702173,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.6975412865166375,
+ "tile_p50": 0.7901492854863302,
+ "tile_p90": 0.8655347977346399,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652373",
+ "cell": "colon epithelium",
+ "file": "GSM5652373_Colon-Left-Epithelial-Z000000VA.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "c7ecd71d33640cf20752b1d66afb3aa8e207f0f7f7ea49c586977867fae7e378",
+  "inputs": [
+   {
+    "name": "GSM5652373_Colon-Left-Epithelial-Z000000VA.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652373/suppl/GSM5652373_Colon-Left-Epithelial-Z000000VA.pat.gz",
+    "sha256": "538ee66b3bcea74f67fb4ff913e229b33c92f3ab6f328469b9fc5095866708d3",
+    "size": 278299839
+   }
+  ],
+  "utc": "2026-10-16T06:35:29Z"
+ }
+}
