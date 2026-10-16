@@ -36,7 +36,7 @@ bases; a different sequencer whose error is measured and reported. Four of the f
 
 **What it would take to finish.** The five files counted once on a rented machine, the bar read, and the result recorded here.
 
-## Outcome (2026-10-15): S1 MET, 3 of 5
+## Outcome (2026-10-15): S1 as first scored 3 of 5; CORRECTED below to NOT MET (0 of 5) like for like
 
 Counted once on spot machine i-0ae982785e17a071d (code 4a087820); results `data/DEV_SECONDLAB_01/out/`, scored `secondlab_scored.json`,
 side by side `secondlab_side_by_side.csv`.
@@ -59,3 +59,26 @@ A/T positions; subtracted, the held errors read 0.028-0.034 (PHY-050).
 laboratory's loose share means the same as another's: the next step is to find why ENCODE's loose share reads six times higher on the same
 cell types (candidates: GRCh38 against hg19 tiles, the two pipelines' read filtering, a global methylation offset), with Loyfer files
 counted by this same extractor as the bridge.
+
+## Correction (2026-10-15, the same evening): the first scoring compared unlike quantities
+
+The line's held errors are scale-matched: `opensea_line.py` multiplies every own-read held error by 0.7412824486 (the committed
+`own_reads_genome_cells.csv` constant, gerr_s / gerr, matching PROC-CHANNEL-01's scale). The rule above named the line but not that
+factor, and the first scoring compared ENCODE's RAW held errors with it. Found when Loyfer's own B-cell samples (raw 0.036-0.041) were put
+beside the line's B-cell value (0.0282). Like for like (`secondlab_like_for_like.csv`, `.json`):
+
+| ENCODE cell | held, raw | held x 0.741 | the line | residual |
+|---|---|---|---|---|
+| B cells | 0.0329 | 0.0244 | 0.0384 | -0.0140 |
+| T cells | 0.0375 | 0.0278 | 0.0396 | -0.0117 |
+| NK cells | 0.0358 | 0.0266 | 0.0363 | -0.0097 |
+| CD14 monocytes | 0.0340 | 0.0252 | 0.0383 | -0.0131 |
+| CD34 myeloid progenitors | 0.0325 | 0.0241 | 0.0325 | -0.0084 |
+
+**Verdict like for like: NOT MET, 0 of 5.** The same holds on the raw axis (line 0.0402 + 0.0347 x L): every ENCODE cell sits well below.
+On the same cell types, ENCODE reads a lower held error than Loyfer (B cells raw 0.0329 against 0.0380) with a loose share six times
+higher (0.337 against 0.055): the two laboratories' loose shares are not on one scale, so the line cannot yet be carried from one laboratory
+to another. This blocks IAM-A's grand test until the loose share is defined so that it reads the same in two laboratories.
+
+**What it would take.** Find why ENCODE's loose share reads six times higher on the same cell types: ENCODE's own published per-CpG calls
+for the same run (ENCFF703XLD) are being read with the same tile rule, to separate the extractor from the data.

@@ -25200,12 +25200,12 @@
    "runs": [
     {
      "date": "2026-10-15",
-     "outcome": "success",
-     "note": "S1 MET 3 of 5 within 0.003 of the Loyfer line (DEV-SECONDLAB-01). Disclosed: ENCODE loose shares about 6x Loyfer's on the same cell types; all residuals at or below the line.",
-     "page": "not headline: the scale difference between the two laboratories is open; it becomes front-page news with IAM-A's commissioning"
+     "outcome": "fail",
+     "note": "CORRECTED same evening: first scored 3 of 5, but ENCODE raw held errors were compared with a line built on held errors x 0.741; like for like 0 of 5, NOT MET. Loose shares 6x Loyfer's on the same cells. Record DEV_SECONDLAB_01.md",
+     "page": "not headline: exploratory miss, kept in the research record"
     }
    ],
-   "next_step": "bridge the scale: count Loyfer files of the same cell types with secondlab.py (GRCh38 .pat or alignments) to find why ENCODE's loose share reads 6x higher",
+   "next_step": "find why ENCODE's loose share reads 6x Loyfer's on the same cell types (ENCODE's own CpG calls ENCFF703XLD through the same tile rule first); define a loose share that reads the same in two laboratories",
    "cost": "laptop or box",
    "impact": 5,
    "depends_on": [

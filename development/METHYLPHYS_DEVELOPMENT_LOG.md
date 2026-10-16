@@ -2006,3 +2006,6 @@ Checked each against this week's results and the known stale statements. Fixed: 
 
 ### 2026-10-15 · DEV-SECONDLAB-01 counted once: S1 MET (3 of 5)
 ENCODE B, T, NK, monocytes, CD34 progenitors. Residuals -0.0056, -0.0020, -0.0004, -0.0043, +0.0000. Disclosed: ENCODE loose shares about 6x Loyfer's on the same cell types, held errors higher too; all residuals at or below the line. Sequencing error 0.0031-0.0041. Next: bridge the scale with Loyfer files counted by the same extractor.
+
+### 2026-10-15 · Correction: DEV-SECONDLAB-01 is NOT MET like for like (0 of 5)
+The line's held errors carry the committed scale factor 0.7412824486 (opensea_line.py); the first scoring compared ENCODE raw held errors with it. Like for like every ENCODE cell sits 0.008-0.014 below the line. ENCODE loose shares read 6x Loyfer's on the same cell types while held errors read lower: the loose share is not yet on one scale across laboratories. Day-log entry withdrawn; the plan gate reopened. Lesson: a rule that names a line must name every factor in it.

@@ -1,0 +1,6 @@
+cell,loose_share,held_raw,held_scaled,predicted,residual_scaled,within
+b_cells,0.3366,0.0329,0.02439,0.03845,-0.01406,False
+cd34_myeloid_progenitors,0.1058,0.03254,0.02412,0.03252,-0.0084,False
+monocytes,0.329,0.03399,0.02519,0.03826,-0.01306,False
+nk_cells,0.2528,0.03585,0.02657,0.0363,-0.00972,False
+t_cells,0.3794,0.03751,0.02781,0.03955,-0.01174,False
