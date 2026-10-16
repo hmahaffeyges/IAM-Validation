@@ -1195,7 +1195,7 @@
     "PHY-047",
     "PHY-074"
    ],
-   "note": "downloads and conversion fine (all three donors by 10:15 PM PDT); every trim produced no output, so Bismark found no reads and the machine stopped itself at 10:21 PM PDT. Likely cause: the tools bundle is a conda environment built under ~/tum and was unpacked under ~/hs (its Python tools carry the ~/tum path); the trim log was not uploaded. Nothing aligned, nothing counted. Run 3 unpacks under ~/tum, adds a preflight and uploads every log"
+   "note": "downloads and conversion fine (all three donors by 10:15 PM PDT); every trim produced no output, so Bismark found no reads and the machine stopped itself at 10:21 PM PDT. Likely cause: the tools bundle is a conda environment built under ~/tum and was unpacked under ~/hs (its Python tools carry the ~/tum path); the trim log was not uploaded. Nothing aligned, nothing counted. Run 3 unpacks under ~/tum, adds a preflight and uploads every log. At launch it read its code from results/DEV_SECONDLAB_02/code/ (the boot file's path edit did not apply); those files were identical to code/run2/"
   },
   {
    "job_id": "i-0f54ab117054ee79f",
@@ -1220,6 +1220,31 @@
    "manifest": [
     "COM-IAMA-053",
     "OTH-057"
+   ],
+   "note": "running"
+  },
+  {
+   "job_id": "i-0cde3f265d7110189",
+   "name": "DEV-SECONDLAB-02 step 1 run 3: Hansen healthy resting B cells, alignment only (tools under ~/tum, preflight first)",
+   "date": "2026-10-15",
+   "commit": "9aee070c",
+   "s3_code_prefix": "results/DEV_SECONDLAB_02/code/run3/",
+   "state": "running",
+   "log": "results/DEV_SECONDLAB_02/status.txt",
+   "machine": "spot m7a.32xlarge, self-terminating (30-hour hard stop)",
+   "purpose": "preflight on 100,000 pairs, then fasterq-dump, Trim Galore, Bismark paired-end hg38, dedup, sorted BAMs; nothing counted",
+   "record": "doors/DEV_SECONDLAB_02.md",
+   "outputs": [
+    "results/DEV_SECONDLAB_02/bam/",
+    "results/DEV_SECONDLAB_02/logs/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/box/align_hansen.sh",
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/samples.tsv"
+   ],
+   "manifest": [
+    "PHY-047",
+    "PHY-074"
    ],
    "note": "running"
   }

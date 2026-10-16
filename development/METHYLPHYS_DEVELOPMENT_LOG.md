@@ -2060,3 +2060,4 @@ Author: seal as drafted. Bar 0.0067 computed by the chain from the line's scatte
 
 ### 2026-10-15 · DEV-SECONDLAB-02 run 2 failed at trimming; run 3
 Download and conversion worked (NCBI AWS copy, all three donors in 15 minutes). Every trim produced nothing and the machine stopped at 10:21 PM PDT; the trim log was lost with the machine. Likely cause: the conda tools bundle was unpacked under ~/hs, not ~/tum where it was built. Run 3 unpacks under ~/tum, runs a 100,000-pair preflight through trim and Bismark first, and uploads every log on failure. Lesson: a box script must upload its logs before it stops.
+Run 3 launched as i-0cde3f265d7110189 (code 9aee070c, code/run3/).
