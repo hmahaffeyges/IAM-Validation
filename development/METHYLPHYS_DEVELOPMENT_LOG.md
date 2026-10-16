@@ -2176,3 +2176,6 @@ Self-terminating spot machine i-016be641747ea1aa5 clones the public repository a
 
 ### 2026-10-16 · Atlas v2.1 U3 scored once (ATL-005)
 Planted test PASSED; then NOT MET on both truth sets: cord blood MAE 0.126, emergency-department bloods 0.084; the current method 0.093 and 0.080. U3 FAILED; the composition step stays development.
+
+### 2026-10-16 · Atlas v2.1: D13 not met, D14 met, U1 corrected (ATL-005)
+U1 had scored GSE132547 and GSE131989 before their carried checks were recorded (error). D13 fails on authorship (Christensen is an author of the GSE132547 paper), so alveolar macrophages are NOT ASSESSED; D14 passes. U1: 3 of 26 assessed pairs.

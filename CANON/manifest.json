@@ -3785,6 +3785,12 @@
      "outcome": "fail",
      "note": "U3 scored once (box job 50b9a3b9): NOT MET on GSE127824 cord blood (MAE 0.126) and GSE167202 emergency-department bloods (MAE 0.084); the current method misses both nearly as widely (0.093, 0.080). Record: doors/DEV_ATLAS_V21_01.md",
      "page": "not headline: use test"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "progressed",
+     "note": "D13 NOT MET (GSE132547 paper has Christensen as author; set not used) and D14 MET (GSE131989 subjecttype 2 = controls, separate group), recorded after U1 had scored them (error, disclosed). U1 corrected to 3 of 26 assessed pairs; alveolar macrophages NOT ASSESSED. Record: doors/DEV_ATLAS_V21_01.md",
+     "page": "not headline: correction"
     }
    ],
    "next_step": "U1 (4 of 27 pairs) and U3 (failed) scored 2026-10-16; U2a running; then the per-use commissioning decision",

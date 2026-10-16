@@ -359,3 +359,19 @@ before reading (score_u3_v21.py). Results: `data/DEV_ATLAS_V21_01/u3_scored_v21.
 both sets differ from healthy adult blood (cord blood carries cord-blood granulocytes and nucleated red cells; these patients were acutely
 ill). On adult bloods counted by flow, the same method read neutrophils within 0.016 (DEV-ATLAS-EPIC-01, development). Reported, not reasons:
 the bar stands. The v2.1 composition step stays development.
+
+## D13 and D14 recorded, and a correction to U1 (2026-10-16)
+
+**Error found:** U1 scored GSE132547 and GSE131989 before their carried checks D13 and D14 were recorded, against the sealed rule
+(sealed_commission_v21.json, carried_preconditions). Both checks are about the papers, not the arrays, and are recorded now by the plan's own wording
+(atlas_v21_plan.md items 13 and 14):
+
+- **D13, GSE132547 (alveolar macrophages): NOT MET.** The plan's condition: "the authors (Armstrong, Chen) are not in the Christensen/Salas group."
+  The paper (Armstrong et al. 2019, ImmunoHorizons, PMID 31356157, doi 10.4049/immunohorizons.1900042) lists Brock C. Christensen as an author.
+  GSE132547 is not used: its cell, lung alveolar macrophages, is NOT ASSESSED on U1 (no other held-out set).
+- **D14, GSE131989 (sorted blood, rheumatoid arthritis study): MET.** Controls: GEO subjecttype 2 holds 30-31 arrays per sorted cell type and
+  subjecttype 1 holds 61-63, matching the paper's 31 controls and 63 patients (Rhead et al. 2017, PMID 27723282); every held-out GSE131989
+  array is subjecttype 2. Group: Barcellos (UC Berkeley) and Criswell (UCSF) with their co-authors; Wiencke is not among them.
+
+**U1 corrected:** 3 of 26 assessed cell-platform pairs commissioned (cortical neurons 450K, lung bronchus epithelium 450K, naive CD4 T cells
+450K); lung alveolar macrophages EPIC moves from COMMISSIONED to NOT ASSESSED. No number was recomputed and no bar changed; the GSE131989 pairs stand.
