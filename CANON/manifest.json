@@ -25805,7 +25805,7 @@
    ],
    "data_status": "",
    "record": "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py",
-   "status": "planned",
+   "status": "running",
    "runs": [],
    "next_step": "part A (IAM-A, 2026-10-16): fresh public clone, public data only (GEO, ENCODE), chain Stage Q2 recounts Loyfer 153 and ENCODE 5, rebuilds the self-reference line and the shape reference; every count, the line and the reference must equal the committed ones (doors/data/CLEANROOM_IAMA_01/). Not in part A: the Hansen rerun (one run only; its script and chain code are committed), the restricted tumor pairs (not public), the eraser and island side results (own chain reruns later)",
    "cost": "laptop",
@@ -25816,7 +25816,7 @@
     "PHY-048",
     "PHY-049"
    ],
-   "notes": "author 2026-10-15: 'This is so important that we stay vigilant'",
+   "notes": "author 2026-10-15: 'This is so important that we stay vigilant' | part A launched 2026-10-16 on i-016be641747ea1aa5 from the public clone at e9e388c5",
    "legacy_ids": [],
    "id": "PHY-055",
    "sources_of_row": [

@@ -1008,6 +1008,36 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/DEV_IAMA_GRAND_01/out/": false,
+   "results/DEV_IAMA_GRAND_01/bam/": false
+  },
+  "state_at_verify": "failed"
+ },
+ "i-0a8d0ea2bb7131746": {
+  "s3": {
+   "align_grand.sh": "3d128394809bffb6fe69b909724ba01f19e85fe32d7c9435e92bb38a9843a062",
+   "samples.csv": "64acac392ecc95d821bb7c76a30bce4ad9009d4b260e08d8b909e53e9d1d34bc",
+   "count_grand.py": "5575d7db7596a4042ef526788f1d5c6626b40fdef2b56a0fbb79ea4460a432b7"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/DEV_IAMA_GRAND_01/out/": false,
+   "results/DEV_IAMA_GRAND_01/bam/": false
+  },
+  "state_at_verify": "running"
+ },
+ "i-0255f9da20747166c": {
+  "s3": {
+   "align_grand.sh": "3d128394809bffb6fe69b909724ba01f19e85fe32d7c9435e92bb38a9843a062",
+   "samples.csv": "64acac392ecc95d821bb7c76a30bce4ad9009d4b260e08d8b909e53e9d1d34bc",
+   "count_grand.py": "5575d7db7596a4042ef526788f1d5c6626b40fdef2b56a0fbb79ea4460a432b7"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
   "log_in_s3": false,
   "outputs_in_s3": {
    "results/DEV_IAMA_GRAND_01/out/": false,

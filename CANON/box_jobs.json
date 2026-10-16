@@ -1577,6 +1577,29 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/count_grand.py"
    ],
    "note": "running"
+  },
+  {
+   "job_id": "i-016be641747ea1aa5",
+   "name": "IAM-A clean room part A: fresh public clone recounts Loyfer 153 and ENCODE 5 and rebuilds the line and shape reference (PHY-055)",
+   "date": "2026-10-16",
+   "commit": "e9e388c5",
+   "s3_code_prefix": "public GitHub clone at e9e388c5 (no code from our S3)",
+   "state": "running",
+   "log": "results/CLEANROOM_IAMA_01/status.txt",
+   "machine": "spot c7a.8xlarge us-west-2d, self-terminating",
+   "purpose": "every count, the line and the shape reference must equal the committed ones",
+   "record": "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py",
+   "manifest": [
+    "PHY-055"
+   ],
+   "outputs": [
+    "results/CLEANROOM_IAMA_01/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_box.sh",
+    "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {
