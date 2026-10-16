@@ -7,7 +7,9 @@ tree and feeds the gate the mistakes it must refuse, plus one correct test it mu
  C4 a stamped result edited by hand afterwards                                                               -> REFUSE
  C5 a stamped result from a chain version that was never committed                                          -> REFUSE
  C6 a record citing scratch/                                                                                 -> REFUSE
- C7 a correct test: chain-importing synthetic, stamped result, committed chain version                      -> ACCEPT"""
+ C7 a correct test: chain-importing synthetic, stamped result, committed chain version                      -> ACCEPT
+ C8 a commissioning note adding a side script as evidence                                                   -> REFUSE
+ C9 a commissioning note adding chain code                                                                  -> ACCEPT"""
 import os, sys, json, tempfile, hashlib, importlib.util
 H = os.path.dirname(os.path.abspath(__file__)); spec = importlib.util.spec_from_file_location("cg", os.path.join(H, "chain_gate.py")); CG = importlib.util.module_from_spec(spec); spec.loader.exec_module(CG)
 def tree():
@@ -35,7 +37,11 @@ r = tree(); w(r, NOTE, SYN + "\nsee scratch/try.py\n"); w(r, T, GOOD); w(r, OUT,
 res["C6 scratch cited"] = run(r, [NOTE, T, OUT])
 r = tree(); w(r, NOTE, SYN + "\n"); w(r, T, GOOD); w(r, OUT, json.dumps(stamped({"v": 1}, CG.chain_sha(r))))
 res["C7 correct test"] = run(r, [NOTE, T, OUT])
-want = {k: (k.startswith("C7")) for k in res}
+r = tree(); CN = CG.DOORS + "COMMISSIONING_NOTE_X.md"; w(r, CN, "Evidence: data/X/side_reader.py\n")
+res["C8 commissioning cites side code"] = CG.check([CN], {CN: ["Evidence: data/X/side_reader.py"]}, root=r, known={CG.chain_sha(r)})
+r = tree(); w(r, CN, "Evidence: chain/conductor_v3.py\n")
+res["C9 commissioning cites chain"] = CG.check([CN], {CN: ["Evidence: chain/conductor_v3.py"]}, root=r, known={CG.chain_sha(r)})
+want = {k: (k.startswith(("C7", "C9"))) for k in res}
 bad = [k for k, F in res.items() if (len(F) == 0) != want[k]]
 for k, F in res.items(): print(f"  {k}: {'ACCEPTED' if not F else 'REFUSED'} (want {'ACCEPT' if want[k] else 'REFUSE'})" + ("" if not F else f" - {F[0][-110:]}"))
-print("chain_gate_controls: " + ("ok (7 of 7)" if not bad else "FAILED: " + ", ".join(bad))); sys.exit(1 if bad else 0)
+print("chain_gate_controls: " + (f"ok ({len(res)} of {len(res)})" if not bad else "FAILED: " + ", ".join(bad))); sys.exit(1 if bad else 0)

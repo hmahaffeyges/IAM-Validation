@@ -7,6 +7,7 @@ seal or an outcome (older notes are not re-judged until such a line is added to 
     others): payload hash recomputed here, chain_sha listed in CANON/chain_versions.json (a committed chain). Declared inputs are listed in the
     folder's INPUTS.txt and are exempt.
  c. no record cites a scratch/ path (scratch/ is for exploration and is never evidence)
+e. a line added to a commissioning note may cite only chain code (CANON/ scripts excepted)
  d. no changed script outside chain/ types the self-reference line's numbers (they live only in chain Stage Q2's runtime matrix)
 Usage: chain_gate.py register (add the working chain's sha; checkpoint.sh runs it) | check [base] (default origin/main)"""
 import os, sys, re, json, glob, hashlib, subprocess
@@ -45,6 +46,10 @@ def check(changed, added, root=ROOT, known=None):
         if f.endswith(".py") and not f.startswith(CHAIN + "/") and f not in ("CANON/chain_gate_controls.py",) and os.path.isfile(os.path.join(root, f)):   # the controls must contain the numbers they test
             hits = set(LINE_NUMS.findall(open(os.path.join(root, f), encoding="utf-8", errors="replace").read()))
             if len(hits) >= 2: F.append(f"{f}: types the self-reference line's numbers {sorted(hits)} outside the chain; ask chain Stage Q2 (rule 23b-d)")
+        if f.startswith(DOORS + "COMMISSIONING_NOTE_") and f.endswith(".md"):   # rule e: a commissioning note may add only chain code as evidence
+            for l in added.get(f, []):
+                for x in re.findall(r"[A-Za-z0-9_/.-]+\.(?:py|sh|R)\b", l):
+                    if not x.startswith(("chain/", CHAIN, "CANON/")): F.append(f"{f}: adds {x} as evidence; a commissioning note may cite only chain code (rule 23b-e)")
         if not (f.startswith(DOORS) and f.endswith(".md") and os.path.isfile(os.path.join(root, f))): continue
         text = open(os.path.join(root, f), encoding="utf-8", errors="replace").read()
         if re.search(r"(?<![\w/])scratch/[\w.-]", text): F.append(f"{f}: cites a scratch/ path; scratch is exploration, never evidence (rule 23b-c)")

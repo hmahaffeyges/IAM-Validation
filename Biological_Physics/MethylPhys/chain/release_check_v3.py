@@ -252,7 +252,7 @@ def E4(tmp):
         for i in range(300): fh.write("chr1\t%d\t%s\t1\n" % (1000 + i, "CCCTCCCCCC" if i % 10 == 0 else "CCCCCCCCCC"))
     sys.path[:0] = [HERE]; import stage_q_iam_a as Q
     PT = Q.pat_site_table(pat)
-    ok = (code == 0 and q.get("A") is not None and abs(q["A"] - 1) < 5e-3 and q.get("state") == "Normal" and code2 == 0
+    ok = (code == 0 and q.get("A") is not None and abs(q["A"] - 1) < 5e-3 and q.get("state") == Q.IAMA_BAND_STATE and code2 == 0
           and q2.get("A") is None and "refusal" in q2 and len(PT) > 0 and int(PT[["err_A", "err_B"]].sum().sum()) == 30)
     rec("E4", ok, f"IAM-A {q.get('A')} ({q.get('state')}) at eps {q.get('eps')}; other pipeline: {str(q2.get('refusal'))[:70]}; "
         f".pat extractor: {len(PT)} sites, {int(PT[['err_A', 'err_B']].sum().sum())} isolated errors (30 constructed)")

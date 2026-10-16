@@ -27,6 +27,7 @@ LOYFER_PAT_V1_HEAD_BYTES = 60_000_000
 CSCORE_BLOCK_SITES = 1000
 CSCORE_MIN_BLOCKS = 10
 _P = None
+IAMA_BAND_STATE = "no band: IAM-A's healthy band is not set (Met-A's 0.95-1.05 is not borrowed; author 2026-10-15)"
 def positions():
     global _P
     if _P is None: _P = json.load(open(POS))
@@ -136,7 +137,7 @@ def read(site_table, cell, pipeline, mask=None, allow_partial=False):
     A = _H(eps) / (c["P"] * _H(EPS0))
     halves = {h: round(_H(e[h] / o[h]) / (c["P"] * _H(EPS0)), 4) for h in "AB" if o[h] > MIN_HALF_OPPORTUNITIES and 0 < e[h] < o[h]}
     rec.update(eps=round(eps, 6), errors=int(e["A"] + e["B"]), A=round(A, 4), P=c["P"], E_kT=round(float(np.log((1 - eps) / eps)), 4), halves=halves,
-               state="Normal" if SM.NORMAL[0] <= A <= SM.NORMAL[1] else ("above Normal" if A > SM.NORMAL[1] else "below Normal"),
+               state=IAMA_BAND_STATE,   # IAM-A has no healthy band of its own; it is built from healthy evidence across laboratories (COM-IAMA-054)
                opportunities=int(o["A"] + o["B"]), n_sites=int(len(D)))
     rec["cscore"] = {"label": "DEVELOPMENT - not commissioned", **cscore(D)}   # one C per A (DEV-IAMA-CSCORE-01); band not set
     return rec
@@ -164,5 +165,5 @@ def tare(rec, refs, sample_id=None):
         out["reason"] = f"untared: {len(vals)} same-run healthy references (>= {MIN_REFS} required); read A against P only"; return out
     v = np.array(vals); m = float(np.median(v)); Ar = rec["A"] / m
     out.update(n_refs=len(vals), reference_median=round(m, 4), A_rel=round(Ar, 4), reference_spread_sd=round(float(np.std(v / m, ddof=1)), 4),
-               state="Normal" if SM.NORMAL[0] <= Ar <= SM.NORMAL[1] else ("above Normal" if Ar > SM.NORMAL[1] else "below Normal"))
+               state=IAMA_BAND_STATE)
     return out

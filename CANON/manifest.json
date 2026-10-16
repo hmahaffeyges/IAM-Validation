@@ -26446,6 +26446,72 @@
    "sources_of_row": [
     "session 2026-10-15"
    ]
+  },
+  {
+   "title": "IAM-A healthy band built from healthy evidence across laboratories (no borrowed band)",
+   "purpose": "Author: choose the healthy band from real evidence, not 0.05 either side of 1. Until 2026-10-15 Stage Q printed IAM-A's state with Met-A's 0.95-1.05; removed, it now prints 'no band'",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "COMMISSIONING_PLAN.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "healthy own-read readings through chain Stage Q2 from at least two independent laboratories (Loyfer, GSE49627 Hansen), band = their measured spread with the lab shift inside it; rule sealed first",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "author 2026-10-15",
+   "legacy_ids": [],
+   "id": "COM-IAMA-054",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Three lines and a margin on every gauge: healthy band, concern line, tumor line, all from data; margin larger than the worst measured lab shift",
+   "purpose": "Author: if the concern line is far enough from the healthy band, a lab skew toward healthy still lands a tumor in concern. Commissioning bar for Met-A, C-Score and IAM-A",
+   "instrument_or_term": "catalogue",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "COMMISSIONING_PLAN.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "for each instrument: healthy band from healthy readings (Met-A's 0.95-1.05 was set by hand on 2026-10-01 and confirmed, 525 of 541 healthy arrays inside, medians 0.994-1.005: rebuild it from the spread); tumor line from tumor-over-own-normal readings (A-score database); worst lab shift measured (ENCODE B cell for IAM-A); margin stated",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "author 2026-10-15",
+   "legacy_ids": [],
+   "id": "OTH-059",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Bring the commissioning notes' non-chain scripts into the chain (REPLICATE.md list)",
+   "purpose": "Author: the only code sent to be replicated is the full chain. Ten scripts cited by the two commissioning notes are not chain code (reference builders, figure scripts, drivers)",
+   "instrument_or_term": "chain",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "COMMISSIONING_PLAN.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "move each reference builder into the chain as a builder command whose output reproduces the frozen runtime matrix byte for byte; fold the drivers into a chain command",
+   "cost": "laptop",
+   "impact": 4,
+   "depends_on": [],
+   "notes": "author 2026-10-15",
+   "legacy_ids": [],
+   "id": "OTH-060",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
   }
  ],
  "not_tests": {
