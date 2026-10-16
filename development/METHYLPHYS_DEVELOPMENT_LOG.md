@@ -2071,3 +2071,6 @@ Author: KISS, not too high. Sealed as drafted: tile 10th percentile no more than
 
 ### 2026-10-15 · Shape reference built by the chain
 All 153 Loyfer samples (7 recounted locally, same chain) reproduce step 2 exactly; the chain built shape_reference_v1.json (margin 0.0543, 53 cell types). ENCODE: 0 of 5 read. Hansen B-cell limit 0.662.
+
+### 2026-10-15 · Cell throughput entry corrected
+The per-cell average (3,100-4,400 writes per second) divided by all 3.72e13 cells, about 70 percent of which are red blood cells without DNA. Withdrawn; the whole-body bound stands; per cell waits for the DNA-carrying cell count from Bianconi's table.

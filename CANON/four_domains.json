@@ -317,8 +317,8 @@
    "cells": {
     "status": "candidate",
     "native": "methyl writes per second the body's methyl supply can pay for",
-    "formula": "upper bound, all methylation: whole-body transmethylation 16.7-23.4 mmol SAM/d (70 kg young adults) = 1.2e17-1.6e17 methyl writes per second; averaged over 3.72e13 cells, about 3,100-4,400 writes per second per cell. Most of the flux is creatine and phosphatidylcholine synthesis in the liver, so the DNA writing of any one cell is a small part of this; a per-cell-type, DNA-only figure is open",
-    "source": "Mudd et al. 2007, Am J Clin Nutr 85, 19-25 (10.1093/ajcn/85.1.19); Bianconi et al. 2013, Ann Hum Biol 40, 463-471 (10.3109/03014460.2013.807878); conversion in this entry"
+    "formula": "upper bound, all methylation: whole-body transmethylation 16.7-23.4 mmol SAM/d (70 kg young adults) = 1.2e17-1.6e17 methyl writes per second. Per cell: open. CORRECTED 2026-10-15: a first version divided by all 3.72e13 cells (3,100-4,400 per cell per second), but about 70 percent of those are red blood cells, which carry no DNA; the per-cell figure must use DNA-carrying cells from Bianconi's cell-type table (not yet read). Most of the flux is creatine and phosphatidylcholine synthesis in the liver, so DNA writing in any one cell is a small part of it",
+    "source": "Mudd et al. 2007, Am J Clin Nutr 85, 19-25 (10.1093/ajcn/85.1.19); cell counts: Bianconi et al. 2013, Ann Hum Biol 40, 463-471; red-cell share per Sender, Fuchs and Milo 2016 (bioRxiv 10.1101/036103)"
    }
   },
   {
