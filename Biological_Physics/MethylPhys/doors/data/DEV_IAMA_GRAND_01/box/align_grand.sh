@@ -40,14 +40,44 @@ one(){ gsm=$1; sid=$2; sub=$3; typ=$4; srr=$5; cap=$6; mkdir -p $W/$srr && cd $W
   [ -s out/$srr.json ] && up out/$srr.json out && up $srr.bam bam && up $srr.bam.bai bam && touch done && st "$srr counted"
   [ -f done ] || st "$srr no count written"
 }
-mkdir -p $W/pre && cd $W/pre && first=$($PY -c "import csv;print([r['runs'] for r in csv.DictReader(open('$W/samples.csv')) if r['machine']=='$M'][0])") && dl $first p.sra \
+mkdir -p $W/pre && cd $W/pre && first=$($PY -c "import csv;R=list(csv.DictReader(open('$W/samples.csv')));print(([r['runs'] for r in R if r['machine']=='$M'] or [R[0]['runs']])[0])") && dl $first p.sra \
  && fastq-dump --split-3 -X 100000 -O . p.sra > fqd.log 2>&1 && mv p_1.fastq q_1.fastq && mv p_2.fastq q_2.fastq && $TG q_1.fastq q_2.fastq > trim.log 2>&1 && P1=$(fq q_1_val_1) && P2=$(fq q_2_val_2) \
  && bismark --genome $TL/ref -p 4 --bowtie2 -o . -1 $P1 -2 $P2 > bismark.log 2>&1 && ls *_bismark_bt2_pe.bam > /dev/null 2>&1 \
  && st "preflight ok ($first): $(grep -m1 'Mapping efficiency' *_PE_report.txt | xargs); poly-G: $(grep -i -m1 'poly' trim.log | cut -c1-120)" || { logs $W/pre/fqd.log $W/pre/trim.log $W/pre/bismark.log; st "preflight FAILED: $(tail -2 trim.log bismark.log 2>/dev/null | tr '\n' ' ' | cut -c1-240)"; st "ALL DONE"; exit 1; }
 rm -rf $W/pre; cd $W
+# Run 3 (2026-10-16): both run-2 spot machines were reclaimed by AWS (no capacity); only SRR11007281 was counted. Scheduling only changes:
+# with QUEUE=1 every machine works one shared list. A sample is skipped when its count is already in S3 (out/<run>.json); otherwise a machine
+# claims it (claims/<run>, holding the machine name and time) and runs it. A claim older than 6.5 h with no count is a dead machine's and is
+# taken over. The alignment, the count (count_grand.py) and the sealed rule are unchanged.
+q(){ $PY - "$@" <<'EOQ'
+import sys, time, boto3
+s = boto3.client("s3"); B = "methylphys-data-945451304272-us-west-2-an"; P = "results/DEV_IAMA_GRAND_01/"; op, srr, me = sys.argv[1:4]
+def has(k):
+    try: return s.get_object(Bucket=B, Key=P + k)["Body"].read().decode()
+    except s.exceptions.NoSuchKey: return None
+if has(f"out/{srr}.json") is not None: print("done"); sys.exit()
+c = has(f"claims/{srr}")
+if c and not c.startswith(me) and time.time() - float(c.split()[1]) < 6.5 * 3600: print("taken"); sys.exit()
+if op == "claim": s.put_object(Bucket=B, Key=P + f"claims/{srr}", Body=f"{me} {time.time()}".encode())
+print("go")
+EOQ
+}
+if [ "${QUEUE:-0}" = 1 ]; then
+  for pass in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36; do
+    left=0
+    while IFS=, read -r gsm sid sub typ lay srr gb spots cap mach; do
+      while [ "$(jobs -rp | wc -l)" -ge ${PAR:-4} ]; do sleep 60; done
+      r=$(q claim $srr $M); [ "$r" = done ] && continue; left=1; [ "$r" = go ] || continue
+      [ -d $W/$srr ] && [ ! -f $W/$srr/done ] && rm -rf $W/$srr   # a half-finished local copy is started again
+      st "$srr claimed by $M"; one "$gsm" "$sid" "$sub" "$typ" "$srr" "$cap" & sleep 300
+    done < <(tail -n +2 $W/samples.csv); wait
+    [ $left = 0 ] && break; sleep 900
+  done
+else
 while IFS=, read -r gsm sid sub typ lay srr gb spots cap mach; do
   [ "$mach" = "$M" ] || continue
   while [ "$(jobs -rp | wc -l)" -ge 4 ]; do sleep 60; done
   one "$gsm" "$sid" "$sub" "$typ" "$srr" "$cap" & sleep 300
 done < <(tail -n +2 $W/samples.csv); wait
+fi
 st "ALL DONE $(ls $W/*/done 2>/dev/null | wc -l) samples"

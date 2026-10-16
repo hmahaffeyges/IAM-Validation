@@ -2165,3 +2165,6 @@ U1 run 1 (box job a1dcdad3): planted test PASSED; the real run scored nothing (i
 
 ### 2026-10-16 · Atlas v2.1 U1 scored once (ATL-005)
 Planted test PASSED; 1,319 held-out arrays scored. 4 of 27 cell-platform pairs reach the sealed 95 percent share; median coverage 0.891 against the 0.90 interval; the low tail is 72 percent three laboratories (GSE59065, GSE224807, GSE247198). Recorded as scored; the bar stands.
+
+### 2026-10-16 · IAM-A grand test: both run-2 spot machines reclaimed; run 3 on a shared work queue
+AWS took back machine A (about 5:30 AM PDT) and machine B (9:27 AM PDT), each for lack of spot capacity; only SRR11007281 was counted (its count, BAM and reports are in S3). The other 12 alignments were lost with the machines. Run 3: align_grand.sh gains QUEUE=1 (scheduling only: skip a sample whose count is in S3, claim the rest, take over a claim older than 6.5 h); the alignment, count_grand.py, the counting code (code.tgz of 778d0d03) and the sealed rule are unchanged. Runs on the on-demand fit box (cannot be reclaimed) plus one spot helper. Missed: machine A was gone for about five hours before it was noticed; the watch now checks the machines themselves, not only their status files.
