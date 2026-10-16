@@ -26993,11 +26993,11 @@
     {
      "date": "2026-10-16",
      "outcome": "success",
-     "note": "Energy inside the Hubble horizon per horizon bit = exactly 2 x kT ln2 at the Hawking temperature for that radius (1 x at the de Sitter temperature), at every era: an identity, because the Hubble sphere is exactly its own Schwarzschild radius. The split is of the total energy, not of dark energy against matter: DE/matter is 2.19 today, equal 3.5 Gyr ago (z 0.298), and DE is 1 part in 6e8 at the CMB. Finding for the book: p7_05b's virial ratio Omega_m/(beta_m E) is exactly 2 at a = 1 by the definition beta_m = Omega_m/2, so it cannot be evidence. Antimatter: the book holds a conjecture only (p2_13).",
+     "note": "At decoherence one Landauer cost per bit is split in two (the author). Energy inside the Hubble horizon per horizon bit = exactly one Landauer cost, kT ln2 at the horizon's temperature (de Sitter, Gibbons-Hawking); each half 1/2 kT ln2 = 1.27e-53 J today; the same at the crossover and the CMB. Open, the author's call: whether the two halves are what astronomy calls dark matter and dark energy (measured ratio 2.19 today, 1 at z 0.298, about 1/6e8 at the CMB); p7_05b's ratio of exactly 2 at a = 1 holds by the definition beta_m = Omega_m/2. Antimatter: a conjecture in the book (p2_13).",
      "page": "not headline: exploration"
     }
    ],
-   "next_step": "author decision: whether p7_05b is reworded (the a = 1 ratio is a definition, not a result); the Hawking-temperature half is the candidate reading of the author's 50/50 split",
+   "next_step": "author decision on the p7_05b labels; nothing changed in the book",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

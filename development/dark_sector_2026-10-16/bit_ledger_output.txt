@@ -1,4 +1,4 @@
-{'z': 0.0, 'age_Gyr': 13.81, 'DE': 0.6861, 'DM': 0.2645, 'baryons': 0.0493, 'radiation': 9.22e-05, 'u_J_m3': 7.66e-10, 'bits': 3.272e+122, 'energy_per_bit_J': 2.54e-53, 'per_bit_over_kTdS_ln2': 1.0, 'per_bit_over_kTH_ln2': 2.0}
-{'z': 0.298, 'age_Gyr': 10.29, 'DE': 0.4999, 'DM': 0.4214, 'baryons': 0.07855, 'radiation': 0.0001907, 'u_J_m3': 1.051e-09, 'bits': 2.384e+122, 'energy_per_bit_J': 2.975e-53, 'per_bit_over_kTdS_ln2': 1.0, 'per_bit_over_kTH_ln2': 2.0}
-{'z': 1090.0, 'age_Gyr': 0.0003718, 'DE': 1.275e-09, 'DM': 0.6383, 'baryons': 0.119, 'radiation': 0.2427, 'u_J_m3': 0.4121, 'bits': 6.083e+113, 'energy_per_bit_J': 5.89e-49, 'per_bit_over_kTdS_ln2': 1.0, 'per_bit_over_kTH_ln2': 2.0}
+{'z': 0.0, 'age_Gyr': 13.81, 'DE': 0.6861, 'DM': 0.2645, 'baryons': 0.0493, 'radiation': 9.22e-05, 'u_J_m3': 7.66e-10, 'bits': 3.272e+122, 'energy_per_bit_J': 2.54e-53, 'per_bit_over_kTdS_ln2': 1.0}
+{'z': 0.298, 'age_Gyr': 10.29, 'DE': 0.4999, 'DM': 0.4214, 'baryons': 0.07855, 'radiation': 0.0001907, 'u_J_m3': 1.051e-09, 'bits': 2.384e+122, 'energy_per_bit_J': 2.975e-53, 'per_bit_over_kTdS_ln2': 1.0}
+{'z': 1090.0, 'age_Gyr': 0.0003718, 'DE': 1.275e-09, 'DM': 0.6383, 'baryons': 0.119, 'radiation': 0.2427, 'u_J_m3': 0.4121, 'bits': 6.083e+113, 'energy_per_bit_J': 5.89e-49, 'per_bit_over_kTdS_ln2': 1.0}
 DE/matter today 2.1867 | observed DE / Planck-cutoff vacuum 1.134e-123
