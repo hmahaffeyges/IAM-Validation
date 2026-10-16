@@ -820,7 +820,7 @@
   "outputs_in_s3": {
    "results/DEV_SECONDLAB_02/bam/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "failed"
  },
  "i-0f54ab117054ee79f": {
   "s3": {

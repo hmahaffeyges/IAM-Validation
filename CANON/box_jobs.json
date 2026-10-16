@@ -1179,7 +1179,7 @@
    "date": "2026-10-15",
    "commit": "6d414f8c",
    "s3_code_prefix": "results/DEV_SECONDLAB_02/code/run2/",
-   "state": "running",
+   "state": "failed",
    "log": "results/DEV_SECONDLAB_02/status.txt",
    "machine": "spot m7a.32xlarge, self-terminating (30-hour hard stop)",
    "purpose": "fasterq-dump from s3://sra-pub-run-odp, Trim Galore, Bismark paired-end hg38, dedup, sorted BAMs; nothing counted",
@@ -1195,7 +1195,7 @@
     "PHY-047",
     "PHY-074"
    ],
-   "note": "running; the machine fetched these same files from results/DEV_SECONDLAB_02/code/ at launch (identical to the code/run2/ copy), before run 1's own copy was restored there"
+   "note": "downloads and conversion fine (all three donors by 10:15 PM PDT); every trim produced no output, so Bismark found no reads and the machine stopped itself at 10:21 PM PDT. Likely cause: the tools bundle is a conda environment built under ~/tum and was unpacked under ~/hs (its Python tools carry the ~/tum path); the trim log was not uploaded. Nothing aligned, nothing counted. Run 3 unpacks under ~/tum, adds a preflight and uploads every log"
   },
   {
    "job_id": "i-0f54ab117054ee79f",
