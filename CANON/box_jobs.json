@@ -1130,7 +1130,7 @@
    "date": "2026-10-15",
    "commit": "0f90bfce",
    "s3_code_prefix": "results/DEV_CHAIN_Q2_01/code/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/DEV_CHAIN_Q2_01/status.txt",
    "machine": "spot m7a.8xlarge, self-terminating (14-hour hard stop)",
    "purpose": "reproduce the line's per-sample counts and the ENCODE counts through the chain, stamped",
@@ -1146,6 +1146,30 @@
    ],
    "manifest": [
     "OTH-057"
+   ],
+   "note": "153 Loyfer (140 on the box, 13 GEO-refused counted locally by the same chain) and 5 ENCODE counted; line rebuilt, selfref_line_v1"
+  },
+  {
+   "job_id": "i-08f7918ad0a721c4c",
+   "name": "DEV-SECONDLAB-02 step 1: Hansen (GSE49627) healthy resting B cells, alignment only",
+   "date": "2026-10-15",
+   "commit": "49483adc",
+   "s3_code_prefix": "results/DEV_SECONDLAB_02/code/",
+   "state": "running",
+   "log": "results/DEV_SECONDLAB_02/status.txt",
+   "machine": "spot m7a.32xlarge, self-terminating (30-hour hard stop)",
+   "purpose": "Trim Galore, Bismark paired-end hg38, dedup, sorted BAMs for three healthy donors; nothing counted",
+   "record": "doors/DEV_SECONDLAB_02.md",
+   "outputs": [
+    "results/DEV_SECONDLAB_02/bam/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/box/align_hansen.sh",
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/samples.tsv"
+   ],
+   "manifest": [
+    "PHY-047",
+    "PHY-074"
    ],
    "note": "running"
   }

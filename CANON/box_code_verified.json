@@ -794,6 +794,19 @@
   "outputs_in_s3": {
    "results/DEV_CHAIN_Q2_01/out/": false
   },
+  "state_at_verify": "succeeded"
+ },
+ "i-08f7918ad0a721c4c": {
+  "s3": {
+   "align_hansen.sh": "7a3281b3e478fc027b844275aa8aa9b7d38b4c436c3d1cc10c044ebe552b70da",
+   "samples.tsv": "7d37bd910f07156ebef568b61a7ba7e412f2606017e08e6f87f07ef2ef350a9d"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/DEV_SECONDLAB_02/bam/": false
+  },
   "state_at_verify": "running"
  }
 }

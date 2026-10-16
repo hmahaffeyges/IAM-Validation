@@ -2036,3 +2036,6 @@ Book: the Astro-Genetics chapter said breach is where a cell can no longer hold 
 
 ### 2026-10-15 · Self-reference line rebuilt by the chain
 153 Loyfer samples counted by chain Stage Q2, identical to the development counts; the line built by Q2.build_line agrees with the development line and is stored stamped on the raw axis (selfref_line_v1.json). ENCODE five read against it: all below (same verdict).
+
+### 2026-10-15 · DEV-SECONDLAB-02 alignment launched
+Spot i-08f7918ad0a721c4c (code 49483adc): GSE49627 resting B cells of three healthy donors (SRR948844-6, about 196 million read pairs each), Trim Galore, Bismark paired-end hg38, dedup, sorted BAMs to S3. Alignment only; the count waits for the sealed rule. The line-rebuild machine finished and shut down.
