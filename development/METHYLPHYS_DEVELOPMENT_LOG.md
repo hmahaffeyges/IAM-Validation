@@ -2042,3 +2042,6 @@ Spot i-08f7918ad0a721c4c (code 49483adc): GSE49627 resting B cells of three heal
 
 ### 2026-10-15 · Gauge passage rewritten in the author's bit-rate language
 The author: the gauge has always read the writing on the 2D surface, less on the left, more on the right (as in every paper and the book). The chain passage had said the floor is the least holding; holding energy runs the opposite way and confused the gauge again. Marks file, report, book keybox, foundation and lesson C17 now say: floor = the least writing an X cell can run on; below it the bit rate is too low to maintain the cell; right = more and more writing toward the full surface. Gate: least/most holding near the floor refused (12 of 12 controls).
+
+### 2026-10-15 · DEV-SECONDLAB-02 relaunched from NCBI's AWS copy
+ENA served the Hansen runs at about 0.26 MB/s; the first machine (i-08f7918ad0a721c4c) was stopped after 35 minutes with nothing downloaded. Run 2 (i-0629519b42e52ed71, code 6d414f8c) reads the same runs from s3://sra-pub-run-odp with fasterq-dump 3.4.1; tools ready 10:00 PM PDT. Alignment only.

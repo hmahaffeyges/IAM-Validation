@@ -808,5 +808,18 @@
    "results/DEV_SECONDLAB_02/bam/": false
   },
   "state_at_verify": "cancelled"
+ },
+ "i-0629519b42e52ed71": {
+  "s3": {
+   "align_hansen.sh": "1277ffdeaee2ddb56d0e50ef98d7adb8c511dfbc6d6ec0dd32152653a012ca42",
+   "samples.tsv": "7d37bd910f07156ebef568b61a7ba7e412f2606017e08e6f87f07ef2ef350a9d"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/DEV_SECONDLAB_02/bam/": false
+  },
+  "state_at_verify": "running"
  }
 }

@@ -1172,6 +1172,30 @@
     "PHY-074"
    ],
    "note": "stopped after 35 minutes: ENA served the files at about 0.26 MB/s; nothing downloaded, nothing counted; relaunched from NCBI's AWS copy"
+  },
+  {
+   "job_id": "i-0629519b42e52ed71",
+   "name": "DEV-SECONDLAB-02 step 1 run 2: Hansen (GSE49627) healthy resting B cells, alignment only, from NCBI's AWS copy",
+   "date": "2026-10-15",
+   "commit": "6d414f8c",
+   "s3_code_prefix": "results/DEV_SECONDLAB_02/code/run2/",
+   "state": "running",
+   "log": "results/DEV_SECONDLAB_02/status.txt",
+   "machine": "spot m7a.32xlarge, self-terminating (30-hour hard stop)",
+   "purpose": "fasterq-dump from s3://sra-pub-run-odp, Trim Galore, Bismark paired-end hg38, dedup, sorted BAMs; nothing counted",
+   "record": "doors/DEV_SECONDLAB_02.md",
+   "outputs": [
+    "results/DEV_SECONDLAB_02/bam/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/box/align_hansen.sh",
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/samples.tsv"
+   ],
+   "manifest": [
+    "PHY-047",
+    "PHY-074"
+   ],
+   "note": "running; the machine fetched these same files from results/DEV_SECONDLAB_02/code/ at launch (identical to the code/run2/ copy), before run 1's own copy was restored there"
   }
  ],
  "not_jobs": {

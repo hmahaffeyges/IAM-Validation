@@ -26518,6 +26518,28 @@
    "sources_of_row": [
     "session 2026-10-15"
    ]
+  },
+  {
+   "title": "One bit convention across the four domains: bits stored, bits per operation, bit rate",
+   "purpose": "Author 2026-10-15: 'It is a bit story, literally the processor of reality down to the bit.' Bits stored = the surface and its capacity (data at rest); bits per operation = a snapshot or a limit (cell per site, chip per switch, qubit per gate); bit rate = anything in motion (expansion, rewinding to a z). Every gauge reads writing in bits: less to the left, more to the right. Computing terms: operating point (healthy), utilization/throttling (right), saturation/overflow/capacity (ceiling).",
+   "instrument_or_term": "all four domains",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "FOUR_DOMAINS.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "four-domain schematic: one bit row per domain, each entry from the book's own section (open where the book has none); then the one-gauge figure on the bits axis; then the book's gauge chapters and the plain-language series",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "no math changes: each number re-expressed in bits; book tags (derived, interpretation, conjecture) unchanged",
+   "legacy_ids": [],
+   "id": "OTH-061",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
   }
  ],
  "not_tests": {
