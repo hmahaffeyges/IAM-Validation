@@ -3797,10 +3797,10 @@
    "chain_outputs": [
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01",
-     "files": 1,
+     "files": 2,
      "stage": "Q2 self-reference",
-     "chain": "a70384ce40bc",
-     "latest_utc": "2026-10-16T10:21:06Z"
+     "chain": "52e94725c307",
+     "latest_utc": "2026-10-16T17:12:30Z"
     }
    ]
   },

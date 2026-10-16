@@ -34,7 +34,7 @@ A map of 79 kinds of healthy human cells, built from seven public sources on arr
 
 **Reads:** arrays or sequencing. **Where it stands:** running now.
 
-- ATL-005 Atlas v2.1 joint fit: running now
+- ATL-005 Atlas v2.1 joint fit: running now; last run 2026-10-16: not met
 - ATL-060 Head to head: atlas v2.1 against the source atlases' own references, on their own job: sealed, waiting for data
 - ATL-001 Atlas commissioning as a source of healthy references: designed; last run 2026-10-12: progressed
 
