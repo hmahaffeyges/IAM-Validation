@@ -64,7 +64,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 410,
+"line": 411,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -73,7 +73,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 482,
+"line": 483,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -82,7 +82,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 922,
+"line": 923,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -91,7 +91,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 923,
+"line": 924,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
@@ -100,7 +100,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 925,
+"line": 926,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -118,7 +118,7 @@
 },
 {
 "file": "COMMISSIONING_PLAN.md",
-"line": 56,
+"line": 57,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -127,7 +127,7 @@
 },
 {
 "file": "COMMISSIONING_PLAN.md",
-"line": 86,
+"line": 87,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",

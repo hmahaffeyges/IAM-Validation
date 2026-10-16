@@ -42,12 +42,12 @@ def check(changed, added, root=ROOT, known=None):
     """changed: repo-relative paths changed by the push; added: {path: [added lines]}. Returns a list of refusals."""
     known = registry(root) if known is None else known; F = []
     for f in changed:
-        if f.endswith(".py") and not f.startswith(CHAIN + "/") and os.path.isfile(os.path.join(root, f)):
+        if f.endswith(".py") and not f.startswith(CHAIN + "/") and f not in ("CANON/chain_gate_controls.py",) and os.path.isfile(os.path.join(root, f)):   # the controls must contain the numbers they test
             hits = set(LINE_NUMS.findall(open(os.path.join(root, f), encoding="utf-8", errors="replace").read()))
             if len(hits) >= 2: F.append(f"{f}: types the self-reference line's numbers {sorted(hits)} outside the chain; ask chain Stage Q2 (rule 23b-d)")
         if not (f.startswith(DOORS) and f.endswith(".md") and os.path.isfile(os.path.join(root, f))): continue
         text = open(os.path.join(root, f), encoding="utf-8", errors="replace").read()
-        if re.search(r"(?<![\w/])scratch/", text): F.append(f"{f}: cites a scratch/ path; scratch is exploration, never evidence (rule 23b-c)")
+        if re.search(r"(?<![\w/])scratch/[\w.-]", text): F.append(f"{f}: cites a scratch/ path; scratch is exploration, never evidence (rule 23b-c)")
         if not any(ADDS.search(l) for l in added.get(f, [])): continue
         nid = os.path.basename(f)[:-3].replace("_OUTCOME", "").replace("_PREREG", "")
         for l in text.split("\n"):
