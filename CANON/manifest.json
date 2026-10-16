@@ -25236,7 +25236,7 @@
      "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
-   "next_step": "NOT MET by S1 (1 of 3 within 0.0067; all three below the line, the same side as Loyfer's B cells). Diagnosis: the donor order follows conversion failure (1.8, 2.3, 5.1 percent); with sequencing error and conversion failure removed the donors agree (0.0305-0.0323). Next: PHY-050, both laboratories' meter error measured the same way, then a new sealed test; decision with the author",
+   "next_step": "NOT MET by S1 (1 of 3 within 0.0067; all three below the line, the same side as Loyfer's B cells). Diagnosis: the donor order follows conversion failure (1.8, 2.3, 5.1 percent); with sequencing error and conversion failure removed the donors agree with each other (0.0305-0.0323) but sit further below the line; Loyfer's raw reads are controlled (EGA). Next: PHY-050, both laboratories' meter error measured the same way, then a new sealed test; decision with the author",
    "cost": "laptop or box",
    "impact": 5,
    "depends_on": [
@@ -26524,7 +26524,7 @@
    "depends_on": [
     "PHY-047"
    ],
-   "notes": "2026-10-15 | author chose the cut from the sample's own firm level; checked first: the labs differ in the shape of the tile distribution (ENCODE low tail), so a self-relative cut alone leaves 5x; ENCODE's 2017 run shows the same tail | third source GSE49627 (Hansen, 3 donors' resting B): loose share 0.021-0.031, like Loyfer 0.054; ENCODE's sample (0.359) is the outlier | DEV-SECONDLAB-02 (GSE49627 healthy resting B cells): alignment running 2026-10-15; rule before any count | 2026-10-16: Hansen's three healthy B cells (DEV-SECONDLAB-02) passed the shape check with the fixed cut and read loose shares 0.032-0.048; the second-lab gap traces to conversion failure, not to the loose share (PHY-050)",
+   "notes": "2026-10-15 | author chose the cut from the sample's own firm level; checked first: the labs differ in the shape of the tile distribution (ENCODE low tail), so a self-relative cut alone leaves 5x; ENCODE's 2017 run shows the same tail | third source GSE49627 (Hansen, 3 donors' resting B): loose share 0.021-0.031, like Loyfer 0.054; ENCODE's sample (0.359) is the outlier | DEV-SECONDLAB-02 (GSE49627 healthy resting B cells): alignment running 2026-10-15; rule before any count | 2026-10-16: Hansen's three healthy B cells (DEV-SECONDLAB-02) passed the shape check with the fixed cut and read loose shares 0.032-0.048; the spread among the three donors follows conversion failure; with it and sequencing error removed they agree with each other but sit further below Loyfer's line (0.0305-0.0323 against about 0.0415), so the gap to Loyfer is not explained by Hansen's meter alone; Loyfer's own meter error needs its raw reads (EGA, controlled: EGAS00001006791)",
    "legacy_ids": [],
    "id": "PHY-074",
    "sources_of_row": [

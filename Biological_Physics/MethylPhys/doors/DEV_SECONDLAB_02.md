@@ -44,7 +44,7 @@ run 3, `out/`). All three donors passed the sample-shape check and were read; on
 All three read below the line, the same side as Loyfer's own B cells (mean residual -0.0039). **Reported, not scored (diagnosis):** the
 order of the three follows the chemistry. Conversion failure (an unconverted C reads as a written mark, so a hole is hidden) runs 1.8, 2.3
 and 5.1 percent, and the residuals run -0.0063, -0.0081, -0.0091. With each donor's measured sequencing error and conversion failure taken out,
-(held - sequencing error) / (1 - conversion failure) (`data/DEV_SECONDLAB_02/meter_diagnosis.json`), the three agree to 0.0305-0.0323: the spread among them is the meter. The line was built on
+(held - sequencing error) / (1 - conversion failure) (`data/DEV_SECONDLAB_02/meter_diagnosis.json`), the three agree to 0.0305-0.0323: the spread among them is the meter. Corrected, they sit further below the line, not closer, so Hansen's meter does not explain the gap to Loyfer's line; Loyfer's raw reads, needed to correct its side, are under controlled access (EGA, EGAS00001006791). The line was built on
 Loyfer's raw counts, whose own meter error is not in the .pat files, so the two laboratories are not yet compared on the same footing; that is
 PHY-050.
 

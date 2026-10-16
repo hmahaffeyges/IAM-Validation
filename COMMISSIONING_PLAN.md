@@ -7,7 +7,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 ## The order of work
 
 1. **IAM-A gate: second laboratory (Hansen healthy B cells)**
-   - PHY-047 (run; last run 2026-10-16: not met): NOT MET by S1 (1 of 3 within 0.0067; all three below the line, the same side as Loyfer's B cells). Diagnosis: the donor order follows conversion failure (1.8, 2.3, 5.1 percent); with sequencing error and conversion failure removed the donors agree (0.0305-0.0323). Next: PHY-050, both laboratories' meter error measured the same way, then a new sealed test; decision with the author
+   - PHY-047 (run; last run 2026-10-16: not met): NOT MET by S1 (1 of 3 within 0.0067; all three below the line, the same side as Loyfer's B cells). Diagnosis: the donor order follows conversion failure (1.8, 2.3, 5.1 percent); with sequencing error and conversion failure removed the donors agree with each other (0.0305-0.0323) but sit further below the line; Loyfer's raw reads are controlled (EGA). Next: PHY-050, both laboratories' meter error measured the same way, then a new sealed test; decision with the author
    - COM-IAMA-053 (run; last run 2026-10-16: not met): applied first in DEV-SECONDLAB-02 (Hansen B cells, limit 0.662)
 2. **IAM-A: the sequencer's own error subtracted**
    - PHY-050 (run; last run 2026-10-15: progressed): measured on Hansen (sequencing error 0.002-0.006, conversion failure 1.8-5.1 percent, chain count run 3); Loyfer's needs reads with non-CpG context, which its .pat files do not carry; options for the author: Loyfer's raw reads (access to be checked), or a line rebuilt from a public laboratory whose meter error can be measured
