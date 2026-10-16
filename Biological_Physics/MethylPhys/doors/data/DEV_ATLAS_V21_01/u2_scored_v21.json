@@ -1,0 +1,128 @@
+{
+ "breast": {
+  "verdict": "NOT ASSESSED",
+  "share": null,
+  "shares": {
+   "T": 0.8357,
+   "B": 0.9135
+  },
+  "arrays": {
+   "T": 410,
+   "B": 164
+  },
+  "listed": [
+   "luminal",
+   "basal",
+   "adipocytes",
+   "fibroblast",
+   "endothelium",
+   "macrophage"
+  ],
+  "tolerance": 0.05,
+  "sites": 6000
+ },
+ "colon": {
+  "verdict": "COMMISSIONED",
+  "share": 1.0,
+  "failing": [],
+  "shares": {
+   "epithelium": 0.9985,
+   "neutrophil": 0.9707,
+   "T": 0.9633,
+   "B": 0.9812
+  },
+  "arrays": {
+   "epithelium": 10,
+   "neutrophil": 108,
+   "T": 410,
+   "B": 164
+  },
+  "listed": [
+   "fibroblast",
+   "macrophage",
+   "smooth_muscle",
+   "endothelium",
+   "adipocytes"
+  ],
+  "tolerance": 0.05,
+  "sites": 6000
+ },
+ "liver": {
+  "verdict": "NOT ASSESSED",
+  "share": null,
+  "shares": {
+   "neutrophil": 0.4608,
+   "monocyte": 0.6673,
+   "nk": 0.6358,
+   "T": 0.5731,
+   "B": 0.6936
+  },
+  "arrays": {
+   "neutrophil": 108,
+   "monocyte": 179,
+   "nk": 83,
+   "T": 410,
+   "B": 164
+  },
+  "listed": [
+   "hepatocyte",
+   "fibroblast",
+   "macrophage",
+   "smooth_muscle",
+   "endothelium",
+   "adipocytes"
+  ],
+  "tolerance": 0.03,
+  "sites": 5683
+ },
+ "lung": {
+  "verdict": "COMMISSIONED",
+  "share": 1.0,
+  "failing": [],
+  "shares": {
+   "bronchial": 0.9795,
+   "neutrophil": 0.96,
+   "monocyte": 0.9927,
+   "T": 0.9735,
+   "B": 0.9853
+  },
+  "arrays": {
+   "bronchial": 58,
+   "neutrophil": 108,
+   "monocyte": 179,
+   "T": 410,
+   "B": 164
+  },
+  "listed": [
+   "alveolar",
+   "fibroblast",
+   "macrophage",
+   "smooth_muscle",
+   "endothelium",
+   "adipocytes"
+  ],
+  "tolerance": 0.05,
+  "sites": 6000
+ },
+ "arrays_by_cell": {
+  "monocytes": 179,
+  "neutrophils": 108,
+  "b cells": 164,
+  "cd4 t cells": 216,
+  "cd8 t cells": 194,
+  "colon epithelium": 10,
+  "nk cells": 83,
+  "lung bronchus epithelium": 58
+ },
+ "U2": "COMMISSIONED for colon, lung",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "52e94725c307235a5cb7cc9760563eeaa85fbe0dc9c691257b6633f19adae40d",
+  "payload_sha256": "81f3056c0285b8418e4a07ebb4a95ef6fd8df8e06101083f12318399b48277f5",
+  "inputs": [],
+  "manifest": [
+   "ATL-005"
+  ],
+  "utc": "2026-10-16T18:04:06Z"
+ }
+}

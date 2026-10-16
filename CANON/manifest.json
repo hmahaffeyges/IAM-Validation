@@ -3791,6 +3791,12 @@
      "outcome": "progressed",
      "note": "D13 NOT MET (GSE132547 paper has Christensen as author; set not used) and D14 MET (GSE131989 subjecttype 2 = controls, separate group), recorded after U1 had scored them (error, disclosed). U1 corrected to 3 of 26 assessed pairs; alveolar macrophages NOT ASSESSED. Record: doors/DEV_ATLAS_V21_01.md",
      "page": "not headline: correction"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "U2a scored once (box job 8abbdbe9): blind sites COMMISSIONED for the colon and lung tissue tests; breast and liver NOT ASSESSED (no held-out epithelium). Record: doors/DEV_ATLAS_V21_01.md",
+     "page": "headline candidate: atlas use"
     }
    ],
    "next_step": "U1 (4 of 27 pairs) and U3 (failed) scored 2026-10-16; U2a running; then the per-use commissioning decision",

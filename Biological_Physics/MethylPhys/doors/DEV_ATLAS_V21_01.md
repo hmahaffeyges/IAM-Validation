@@ -375,3 +375,20 @@ the bar stands. The v2.1 composition step stays development.
 
 **U1 corrected:** 3 of 26 assessed cell-platform pairs commissioned (cortical neurons 450K, lung bronchus epithelium 450K, naive CD4 T cells
 450K); lung alveolar macrophages EPIC moves from COMMISSIONED to NOT ASSESSED. No number was recomputed and no bar changed; the GSE131989 pairs stand.
+
+## U2a outcome (2026-10-16), scored once by the amended bar B2
+
+Box job 8abbdbe9 (code 8737394c). Planted test PASSED first (arrays at the anchor: all four tissues pass; a 0.09 shift: all four fail). The
+exact sealed blind sites of each tissue test; each panel as in its committed rule file; held-out arrays of each panel cell pooled; share of
+blind sites within the test's tolerance of the v2.1 anchor. Result: `data/DEV_ATLAS_V21_01/u2_scored_v21.json`. GSE132547 was not in any panel.
+
+| tissue | epithelium on held-out arrays | assessed panel cells (share) | verdict |
+|---|---|---|---|
+| colon | colon epithelium 0.999 (10 arrays) | neutrophils 0.971, T 0.963, B 0.981 | **COMMISSIONED** |
+| lung | bronchus epithelium 0.980 (58) | neutrophils 0.960, monocytes 0.993, T 0.974, B 0.985 | **COMMISSIONED** |
+| breast | none held out | T 0.836, B 0.914 | NOT ASSESSED |
+| liver | none held out (no held-out hepatocytes) | neutrophils 0.461, monocytes 0.667, NK 0.636, T 0.573, B 0.694 | NOT ASSESSED |
+
+Panel cells with no held-out set (fibroblasts, macrophages, smooth muscle, endothelium, adipocytes) are listed in the result file. The liver
+blind sites (tolerance 0.03) do not hold for blood cells on outside arrays: reported here because the liver test's normals and tumors carry
+blood, though its verdict is NOT ASSESSED without held-out hepatocytes.

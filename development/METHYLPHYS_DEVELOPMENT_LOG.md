@@ -2179,3 +2179,6 @@ Planted test PASSED; then NOT MET on both truth sets: cord blood MAE 0.126, emer
 
 ### 2026-10-16 · Atlas v2.1: D13 not met, D14 met, U1 corrected (ATL-005)
 U1 had scored GSE132547 and GSE131989 before their carried checks were recorded (error). D13 fails on authorship (Christensen is an author of the GSE132547 paper), so alveolar macrophages are NOT ASSESSED; D14 passes. U1: 3 of 26 assessed pairs.
+
+### 2026-10-16 · Atlas v2.1 U2a scored once (ATL-005)
+Planted test PASSED; blind sites COMMISSIONED for the colon (epithelium 0.999) and lung (bronchus 0.980) tissue tests; breast and liver NOT ASSESSED; liver blind sites do not hold for blood cells on outside arrays (0.46-0.69).
