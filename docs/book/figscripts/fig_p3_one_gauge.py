@@ -23,7 +23,7 @@ QF = _peq * 40e-9 / 68e-6 / e(1e-3)          # thermal floor of the transmon rea
 
 G = [
     dict(title="Cell · neutrophil · IAM-A", sub="held error at each CpG, read on single molecules", lim=(1/5.6, 5.6), hmin=1/5.6, cmap=cm_cell,
-         band=(0.95, 1.05), hmin_lab="H$_{\\min}$ 1×10⁻⁷, off the left edge\n(thermal kicks win against one ATP)", fail=1/(1.1492*0.20433), fail_lab=f"surface full {1/(1.1492*0.20433):.2f}",
+         band=None, hmin_lab="H$_{\\min}$ 1×10⁻⁷, off the left edge\n(thermal kicks win against one ATP)", fail=1/(1.1492*0.20433), fail_lab=f"surface full {1/(1.1492*0.20433):.2f}",
          zones=[(1.35, 4.0, "more error · breach, cancer: to be measured →")],
          marks=[(1.0, "healthy granulocytes, 3 donors", "#1d7a46"), (1/1.1492, "   H$_{\\rm ref}$ 0.870, average healthy cell type", "#555555")],
          ticks=[0.3, 0.5, 1, 2, 4.26]),

@@ -210,6 +210,16 @@
    "phrase": "loses its identity",
    "why": "a cancer cell has not lost its identity; it is over-writing toward the full surface (entry 'gauge_direction'). Identity that cannot be held is the LEFT side, below the floor",
    "use_instead": "departs from its healthy pattern toward the full surface (for cancer); identity can no longer be held (for the left side, below the floor)"
+  },
+  {
+   "phrase": "the most a cell can hold",
+   "why": "the floor H_min is the least holding that still keeps identity; left of it identity cannot be held (entry 'gauge_direction'; lesson C17)",
+   "use_instead": "the least holding that still keeps identity"
+  },
+  {
+   "phrase": "most order a site can hold",
+   "why": "the floor H_min is the least holding that still keeps identity; left of it identity cannot be held (entry 'gauge_direction'; lesson C17)",
+   "use_instead": "the least holding that still keeps identity"
   }
  ],
  "retired_foundations": [

@@ -14,7 +14,7 @@ Usage: python3 CANON/foundation_check.py [--changed f1 f2 ...] [--print]
 import json, os, re, subprocess, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 F = json.load(open(os.path.join(ROOT, "CANON", "foundation.json"), encoding="utf-8"))
-SKIP = ("CANON/foundation.json", "CANON/foundation_check.py", "LESSONS.md", "METHYLPHYS_DEVELOPMENT_LOG.md", "CLASS_HISTORY.md")
+SKIP = ("CANON/foundation.json", "CANON/foundation_check.py", "CANON/gauge_words.py", "cell_gauge_marks_v1.json", "LESSONS.md", "METHYLPHYS_DEVELOPMENT_LOG.md", "CLASS_HISTORY.md")
 def changed_files():
     base = subprocess.run(["git", "merge-base", "HEAD", "origin/main"], capture_output=True, text=True, cwd=ROOT).stdout.strip()
     if not base: return []

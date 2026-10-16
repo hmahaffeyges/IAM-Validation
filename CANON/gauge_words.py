@@ -26,6 +26,7 @@ def scan_text(text, G):
             lo, hi = max(0, m.start() - r["window"]), m.end() + r["window"]
             if not re.search(r["near"], text[lo:hi]): continue
             if NEG.search(text[max(0, m.start() - 40):m.start()]): continue
+            if r.get("unless_before") and re.search(r["unless_before"], text[max(0, m.start() - 70):m.start()]): continue
             hits.append((name, re.sub(r"\s+", " ", text[max(0, m.start() - 80):m.end() + 40])))
     return hits
 def check(root="."):
@@ -53,6 +54,8 @@ def controls():
              ("C6 the reading passage", " ".join(G["reading"]), False),
              ("C7 the misreading passage", G["misreading"], False),
              ("C8 cancer has not lost identity", "Cancer has not lost its identity; it is over-writing.", False),
+             ("C10 Astro-Genetics breach sentence", "Breach, the point past which a cell can no longer hold its identity, lies to the right of Normal and short of the full surface.", True),
+             ("C11 identity lost left of the floor", "Going left past the floor, a cell can no longer hold its identity.", False),
              ("C9 an unrelated 'most'", "The ceiling is the most error a site can carry, a coin flip; the floor is the least holding that keeps identity.", False)]
     bad = []
     for name, text, refuse in cases:

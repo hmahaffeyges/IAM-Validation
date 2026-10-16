@@ -89,9 +89,9 @@
    "units": "A",
    "source": "healthy is A = 1 within 5 %",
    "applies_to": [
-    "Met-A",
-    "IAM-A"
-   ]
+    "Met-A"
+   ],
+   "note": "IAM-A has no healthy band of its own yet and does not borrow this one (author 2026-10-15; manifest COM-IAMA-054). Set by hand 2026-10-01 and confirmed on healthy arrays; to be rebuilt from the measured spread (OTH-059)."
   },
   "beta_m": {
    "value": 0.15765,

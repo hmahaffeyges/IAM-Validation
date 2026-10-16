@@ -51,6 +51,12 @@
    "near": "(?i)\\b(?:cancer|tumou?r)s?\\b",
    "window": 120,
    "pattern": "(?i)\\b(?:loses|losing|lost|loss of) (?:its |their )?identity\\b"
+  },
+  "identity_lost_on_right": {
+   "near": "(?i)\\bbreach\\b|right of (?:Normal|healthy)|right side|over-?writ|\\bcancer|\\btumou?r",
+   "window": 160,
+   "pattern": "(?i)\\b(?:can )?no longer (?:hold|keep|maintain)s? (?:its |their )?identity",
+   "unless_before": "(?i)\\bleft\\b|\\bfloor\\b|H_?min|\\bbelow\\b"
   }
  },
  "book_reading_anchor": "A misreading to avoid."

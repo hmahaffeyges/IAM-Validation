@@ -2,7 +2,7 @@
 
 One gauge, four readings, for neutrophils. Each row: the healthy reference 1 in the middle; the left half runs linearly from the floor to 1,
 the right half on a log scale from 1 to the far end. Values:
-  * Normal 0.95-1.05 (CANON Normal_band, Met-A and IAM-A);
+  * Normal 0.95-1.05 (CANON Normal_band) on Met-A only; IAM-A has no healthy band of its own yet and none is drawn;
   * floor H_min = H(1/(1+e^M)) (CANON H_min_cell), the same for both readings; full surface 1/(P H(eps0)) with eps0 = CANON eps0_meth;
   * Met-A floor H_min / 0.330263; full surface 1/H_ref with H_ref = CANON Met_A_floor_EPIC_neutrophil (every identity site at a coin flip);
   * Met-A C-score: floor 0, far end = block size / healthy baseline (neutrophil_reference_v1_1.json: 50 / 1.1104);
@@ -69,7 +69,8 @@ y = 3.3; xf = row(y, "Met-A", meta_floor, meta_full, rf"$H_{{\rm min}}$ {meta_fl
 ax.text(0.98, y + h * 0.7, "breach and cancer region: to be measured", ha="right", va="bottom", fontsize=6, color=S.DATA)
 r = rng("healthy", "MetA_6000"); bar(xf, y, r, S.IAM, f"healthy held-out\n{r[0]:.3f}\u2013{r[1]:.3f}", -14, "right")
 r = rng("blur2pct", "MetA_6000"); bar(xf, y, r, S.DATA, f"2 % blur {r[0]:.3f}\u2013{r[1]:.3f}", -14, "left")
-y = 2.2; xf = row(y, "IAM-A", iama_floor, iama_full, rf"$H_{{\rm min}}$ {iama_floor:.0e}", f"surface full {iama_full:.2f}")
+y = 2.2; xf = row(y, "IAM-A", iama_floor, iama_full, rf"$H_{{\rm min}}$ {iama_floor:.0e}", f"surface full {iama_full:.2f}", normal=False)
+ax.text(0.25, y + h * 0.7, "healthy band not yet measured", ha="center", va="bottom", fontsize=6, color=S.GR)
 ax.text(0.98, y + h * 0.7, "breach and cancer region: to be measured", ha="right", va="bottom", fontsize=6, color=S.DATA)
 y = 1.1; xf = row(y, "Met-A C-score", 0.0, C_far, "0", f"every block as one {C_far:.0f}", normal=False)
 r = rng("healthy", "C_6000"); bar(xf, y, r, S.IAM, f"healthy {r[0]:.2f}\u2013{r[1]:.2f}", 7, "right")
