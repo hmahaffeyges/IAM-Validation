@@ -65,6 +65,11 @@ def compute(e):
         loss = [ld(f"scored_{q}.json") for q in P]; gain = [ld(f"scored_gain_{q}.json") for q in P]
         return dict(n=len(P), loss=sum(v == "FINGERPRINT" for v in loss), gain=sum(v == "FINGERPRINT" for v in gain),
                     undecided=sum(v.startswith("UNDECIDED") for v in loss), inside=all(v == "FINGERPRINT" for v in gain))
+    if e["compute"] == "atlas_use":
+        X = json.load(open(os.path.join(ROOT, D + "DEV_ATLAS_USE_01/use_tests_v21_result.json"), encoding="utf-8"))
+        assert all(X[k]["verdict"] == "MET" for k in ("UT1", "UT2A", "UT2B")), "listed only while all three showcase bars are met"
+        return dict(n=sum(X["arrays"].values()), m_v=X["UT1"]["v21_share"], m_m=X["UT1"]["moss_share"], a_v=X["UT2A"]["median_error_v21"], a_m=X["UT2A"]["median_error_moss"],
+                    b_v=X["UT2B"]["median_error_v21"], b_m=X["UT2B"]["median_error_moss"], rec=round(100 * X["UT2B"]["recovered_within_005"]), less=round(100 * (1 - X["UT2A"]["ratio"])))
     if e["compute"] == "cscore_band":
         A = json.load(open(os.path.join(ROOT, D + "CSCORE_COMMISSIONING/band_test_GSE315366.json"), encoding="utf-8"))
         B = json.load(open(os.path.join(ROOT, D + "CSCORE_COMMISSIONING/band_test_GSE184269.json"), encoding="utf-8"))
@@ -170,6 +175,11 @@ def readme_row(e, v):
         h = (f"**Met-A on patients' breast tumors.** Each of {v['n']} TCGA tumors read against the same patient's normal tissue at sites the tissue mix "
              f"cannot move, by a rule sealed before any tumor array was downloaded: {v['k']} of {v['n']} above the healthy bar ({v['crit']} needed; "
              f"p = {v['p']:.1e}); {v['up']} of {v['n']} above their own normal. Group-level; TCGA built the reading")
+    elif e.get("compute") == "atlas_use":
+        h = (f"**IAM-Atlas v2.1 does Moss's own jobs better than Moss's reference.** On {v['n']} held-out arrays from independent laboratories, by bars "
+             f"sealed before the atlas existed: markers confirmed {v['m_v']:.3f} against {v['m_m']:.3f}; blood mixtures split with median error "
+             f"{v['a_v']:.4f} against {v['a_m']:.4f}; with brain cells Moss's reference does not hold mixed in, {v['b_v']:.4f} against {v['b_m']:.4f}, "
+             f"the outside share recovered in {v['rec']} percent of mixtures. A showcase, not a gate")
     elif e.get("compute") == "cscore_band":
         h = (f"**The clustering meter's healthy range holds in two laboratories that never helped set it.** Set on {v['setn']} arrays from "
              f"{v['setlabs']} series and committed first; then {v['in1']} of {v['n1']} and {v['in2']} of {v['n2']} healthy bloods read inside it "

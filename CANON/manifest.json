@@ -24942,7 +24942,7 @@
      "date": "2026-10-16",
      "outcome": "success",
      "note": "MET on all three showcase bars against Moss's reference (box job ee92df65): markers 0.424 vs 0.398; mixtures median error 0.0224 vs 0.0305; wide area 0.0228 vs 0.0523, outside cells recovered in 87 percent. Record: doors/DEV_ATLAS_USE_01.md",
-     "page": "headline: ATL-060"
+     "page": "headline: DEV-ATLAS-USE-01"
     }
    ],
    "next_step": "after the v2.1 release: assemble the held-out betas (Stage 1) and run use_tests_v21.py real once",

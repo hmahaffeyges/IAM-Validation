@@ -356,6 +356,24 @@
      "p": "Reading real tumors with a bar fixed in advance, so we learn where on its scale a tumor begins; then purified white cells from an independent laboratory, older and newer array types, and plasma."
     }
    ]
+  },
+  {
+   "id": "DEV-ATLAS-USE-01",
+   "date": "2026-10-16",
+   "kind": "result",
+   "instrument": "IAM-Atlas v2.1",
+   "status": "development",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_01.md",
+   "compute": "atlas_use",
+   "title": "Atlas v2.1 against Moss's published reference, on the jobs a reference atlas is used for",
+   "plain": "A reference atlas is used for two jobs: finding the DNA spots that mark each cell type, and working out which cells a mixed sample came from. On healthy cells from laboratories that never helped build either atlas, v2.1 was scored against Moss's published reference by bars sealed before v2.1 existed. It found as many reliable markers, split blood-cell mixtures with a smaller error, and, when brain cells Moss's reference does not hold were mixed in, recovered them and cut the error by more than half.",
+   "win": {
+    "rank": 3,
+    "stat": "3 of 3 bars",
+    "head": "Our atlas beats the field's reference on its own jobs",
+    "sub": "On {n} held-out arrays: blood mixtures split {less} percent more accurately than Moss's reference; brain cells it cannot see recovered in {rec} percent of mixtures."
+   }
   }
  ],
  "losses": [
