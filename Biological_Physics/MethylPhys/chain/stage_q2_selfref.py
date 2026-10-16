@@ -186,7 +186,8 @@ def build_line(per_sample):
     held error; Theil-Sen line across cells (as opensea_line.py, without its scale factor)."""
     from scipy.stats import theilslopes
     g = per_sample.dropna(subset=["loose_share", "held_err"]).groupby("cell")
-    C = pd.DataFrame({"L": g["loose_share"].median(), "eps": g.apply(lambda x: (x.held_err * x.held_opp).sum() / x.held_opp.sum(), include_groups=False), "n": g.size()})
+    eps = pd.Series({c: (x.held_err * x.held_opp).sum() / x.held_opp.sum() for c, x in g}).rename_axis("cell")   # same arithmetic as before, on any pandas (requirements pin 1.5.3; the clean room found include_groups needs 2.2, 2026-10-16)
+    C = pd.DataFrame({"L": g["loose_share"].median(), "eps": eps, "n": g.size()})
     s, i, _, _ = theilslopes(C.eps.values, C.L.values); res = C.eps.values - (i + s * C.L.values)
     return dict(axis="raw counter held error (no scale factor)", firm=float(i), slope=float(s), cells=int(len(C)), samples=int(C.n.sum()),
                 residual_abs_median=float(np.median(abs(res))), within_0_003=int((abs(res) <= 0.003).sum()), cut=CUT, tile_cpgs=TILE), C.reset_index()
