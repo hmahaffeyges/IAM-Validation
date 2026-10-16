@@ -25780,7 +25780,7 @@
     "PHY-049",
     "PHY-050"
    ],
-   "notes": "author 2026-10-15: one grand test chosen to test it all, then commission; fresh-data candidates: GSE144691, GSE98837 (sorted CD8 T-cell subsets, unopened); a sharp prediction there: memory subsets sit higher on the line than naive because their loose share is higher",
+   "notes": "author 2026-10-15: one grand test chosen to test it all, then commission; fresh-data candidates: GSE144691, GSE98837 (sorted CD8 T-cell subsets, unopened); a sharp prediction there: memory subsets sit higher on the line than naive because their loose share is higher | 2026-10-16: run-2 spot machines reclaimed (1 of 13 counted); run 3 on a shared queue, fit box (on-demand) plus one spot helper",
    "legacy_ids": [],
    "id": "COM-IAMA-052",
    "sources_of_row": [
