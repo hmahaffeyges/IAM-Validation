@@ -1297,6 +1297,32 @@
     "COM-IAMA-054"
    ],
    "note": "every donor's count failed at once: the machine fetched the alignment files without their index, and the counter reads by region (ValueError: fetch called on bamfile without index). No count was written. Run 2 builds the index when missing"
+  },
+  {
+   "job_id": "i-0ec02d263962a4bdf",
+   "name": "DEV-SECONDLAB-02 step 3, count run 2: Hansen's three donors counted by chain Stage Q2",
+   "date": "2026-10-16",
+   "commit": "f6165411",
+   "s3_code_prefix": "results/DEV_SECONDLAB_02/code/count2/",
+   "state": "running",
+   "log": "results/DEV_SECONDLAB_02/count_status.txt",
+   "machine": "spot m7a.8xlarge, self-terminating (5-hour hard stop)",
+   "purpose": "count each donor with count_hansen.py (chain Stage Q2 count_bam), building the alignment index when missing; nothing scored on the machine",
+   "record": "doors/DEV_SECONDLAB_02.md",
+   "outputs": [
+    "results/DEV_SECONDLAB_02/out/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/count_hansen.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/samples.tsv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/box/count_box.sh"
+   ],
+   "manifest": [
+    "PHY-047",
+    "PHY-050",
+    "COM-IAMA-054"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {
