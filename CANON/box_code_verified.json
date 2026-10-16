@@ -780,5 +780,20 @@
    "results/DEV_SECONDLAB_01/out/": false
   },
   "state_at_verify": "succeeded"
+ },
+ "i-0f3380b0fa6d2bd0a": {
+  "s3": {
+   "box_q2_line.py": "b7531948d4e44e4c3594b230f8dfdcfdd5034d4a5e79a1d3d28c1dc7d7f99c15",
+   "loyfer_samples.csv": "b2ecefe86b574a864a11c055a0bb5d602c00616e558b178e7ea19c9c418f26e8",
+   "encode_samples.tsv": "0b94e9317a6e6bcbc921093107b88a0238b306b48a51719408ed5df9fee04ce5",
+   "stage_q2_selfref.py": "3568d0b1b6bf68472fd9b4e5a7a537df7d38b0705bd71287d6dcc8cccaecb2c1"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/DEV_CHAIN_Q2_01/out/": false
+  },
+  "state_at_verify": "running"
  }
 }

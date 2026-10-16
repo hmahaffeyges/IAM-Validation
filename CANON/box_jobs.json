@@ -1123,6 +1123,31 @@
     "PHY-050"
    ],
    "note": "five files counted, machine terminated itself; S1 MET 3 of 5"
+  },
+  {
+   "job_id": "i-0f3380b0fa6d2bd0a",
+   "name": "DEV-CHAIN-Q2-01: the self-reference line's inputs (Loyfer 153 samples) and the ENCODE five counted through chain Stage Q2",
+   "date": "2026-10-15",
+   "commit": "0f90bfce",
+   "s3_code_prefix": "results/DEV_CHAIN_Q2_01/code/",
+   "state": "running",
+   "log": "results/DEV_CHAIN_Q2_01/status.txt",
+   "machine": "spot m7a.8xlarge, self-terminating (14-hour hard stop)",
+   "purpose": "reproduce the line's per-sample counts and the ENCODE counts through the chain, stamped",
+   "record": "doors/DEV_CHAIN_Q2_01.md",
+   "outputs": [
+    "results/DEV_CHAIN_Q2_01/out/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/box_q2_line.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/loyfer_samples.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/encode_samples.tsv",
+    "Biological_Physics/MethylPhys/chain/stage_q2_selfref.py"
+   ],
+   "manifest": [
+    "OTH-057"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {
