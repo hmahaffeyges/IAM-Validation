@@ -1272,6 +1272,32 @@
     "PHY-074"
    ],
    "note": "running"
+  },
+  {
+   "job_id": "i-0987cb49e219d16f2",
+   "name": "DEV-SECONDLAB-02 step 3: Hansen's three donors counted by chain Stage Q2",
+   "date": "2026-10-16",
+   "commit": "a32e96bc",
+   "s3_code_prefix": "results/DEV_SECONDLAB_02/code/count/",
+   "state": "running",
+   "log": "results/DEV_SECONDLAB_02/count_status.txt",
+   "machine": "spot m7a.8xlarge, self-terminating (5-hour hard stop)",
+   "purpose": "wait for the three BAMs, count each with count_hansen.py (chain Stage Q2 count_bam); nothing scored on the machine",
+   "record": "doors/DEV_SECONDLAB_02.md",
+   "outputs": [
+    "results/DEV_SECONDLAB_02/out/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/count_hansen.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/samples.tsv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/box/count_box.sh"
+   ],
+   "manifest": [
+    "PHY-047",
+    "PHY-050",
+    "COM-IAMA-054"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {

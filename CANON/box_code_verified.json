@@ -864,5 +864,19 @@
    "results/DEV_SECONDLAB_02/logs/": false
   },
   "state_at_verify": "running"
+ },
+ "i-0987cb49e219d16f2": {
+  "s3": {
+   "count_hansen.py": "826f29b11efce85929b6c15516966ccfdae4812495e913423909a84f3cbd570c",
+   "samples.tsv": "7d37bd910f07156ebef568b61a7ba7e412f2606017e08e6f87f07ef2ef350a9d",
+   "count_box.sh": "d38d631fe1fb1b95fe9676d2fe5af845c2bb33f59ee94085f7ff1922dd490af0"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/DEV_SECONDLAB_02/out/": false
+  },
+  "state_at_verify": "running"
  }
 }

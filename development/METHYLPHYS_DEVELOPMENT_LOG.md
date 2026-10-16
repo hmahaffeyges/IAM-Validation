@@ -2086,3 +2086,4 @@ Chain Stage Q2 stamps now name their Master Testing Manifest rows (outside the p
 
 ### 2026-10-16 · DEV-SECONDLAB-02 count and scorer committed before any count (PHY-047)
 All three donors aligned (82.8, 69.5, 65.8 percent mapped). count_hansen.py (chain Stage Q2 count_bam on the alignment's own hg38 reference, read length recorded, stamped with PHY-047, PHY-050, COM-IAMA-054) and score_secondlab02.py (shape check first, then S1 against the stamped bar, verdict written by the chain) committed before the count.
+Count machine i-0987cb49e219d16f2 launched (code a32e96bc, PHY-047).

@@ -25228,7 +25228,7 @@
      "page": "not headline: exploratory miss, kept in the research record"
     }
    ],
-   "next_step": "all three Hansen donors aligned (B2 82.8, B1 69.5, B3 65.8 percent mapped); count_box.sh counts each with chain Stage Q2 (count_hansen.py) once the BAMs land; score_secondlab02.py scores once by the sealed S1 with the shape check first (both committed before any count)",
+   "next_step": "all three Hansen donors aligned (B2 82.8, B1 69.5, B3 65.8 percent mapped); count_box.sh counts each with chain Stage Q2 (count_hansen.py) once the BAMs land; score_secondlab02.py scores once by the sealed S1 with the shape check first (both committed before any count); count machine i-0987cb49e219d16f2 launched 2026-10-16",
    "cost": "laptop or box",
    "impact": 5,
    "depends_on": [
@@ -25358,7 +25358,7 @@
    "depends_on": [
     "PHY-045"
    ],
-   "notes": "; 2026-10-15: the firm rate depends on how the loose share is measured (0.0212 arrays, 0.0285 own reads), so the slowest-writer match is not robust yet; healthy-cell meter correction: ENCODE primary-cell alignments carry the sequencing error (PROC-CHANNEL-01 measured 0.1-0.3 percent per substitution)",
+   "notes": "; 2026-10-15: the firm rate depends on how the loose share is measured (0.0212 arrays, 0.0285 own reads), so the slowest-writer match is not robust yet; healthy-cell meter correction: ENCODE primary-cell alignments carry the sequencing error (PROC-CHANNEL-01 measured 0.1-0.3 percent per substitution) | 2026-10-16: the Hansen count (job i-0987cb49e219d16f2) measures this row's inputs",
    "legacy_ids": [],
    "id": "PHY-050",
    "sources_of_row": [
@@ -26575,7 +26575,7 @@
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
-   "notes": "author 2026-10-15",
+   "notes": "author 2026-10-15 | 2026-10-16: the Hansen count (job i-0987cb49e219d16f2) measures this row's inputs",
    "legacy_ids": [],
    "id": "COM-IAMA-054",
    "sources_of_row": [
