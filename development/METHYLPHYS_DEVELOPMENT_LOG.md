@@ -2080,3 +2080,6 @@ The per-cell average (3,100-4,400 writes per second) divided by all 3.72e13 cell
 
 ### 2026-10-16 · IAM-A clean room, part A, written (PHY-055)
 Script doors/data/CLEANROOM_IAMA_01/ (fresh public clone, public data only, chain only; counts, line and shape reference must equal the committed ones). Hansen is not rerun; tumor pairs are restricted. Manifest brought up to date: PHY-047, PHY-050, PHY-055, COM-IAMA-052, COM-IAMA-054.
+
+### 2026-10-16 · The manifest kept current by the chain and the gate (OTH-063)
+Chain Stage Q2 stamps now name their Master Testing Manifest rows (outside the payload hash); CANON/chain_events.py writes each row's chain outputs and verdicts at every checkpoint; 324 earlier results backfilled with their rows, payload hashes re-verified. CANON/manifest_fresh.py (controls 9 of 9) refuses a push whose log entries, machine jobs, records or chain results changed without their row. Wired into checked_push (controls && gate) and checkpoint.

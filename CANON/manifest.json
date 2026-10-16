@@ -25149,11 +25149,34 @@
    "depends_on": [
     "PHY-042"
    ],
-   "notes": "whiteboard part 7; firm end equals D 46, the slow edge of the published writer range",
+   "notes": "whiteboard part 7; firm end equals D 46, the slow edge of the published writer range | 2026-10-16: chain results now name this row in their stamps",
    "legacy_ids": [],
    "id": "PHY-045",
    "sources_of_row": [
     "session 2026-10-15"
+   ],
+   "chain_outputs": [
+    {
+     "folder": "Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_SelfRef",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "e49788e3db38",
+     "latest_utc": "2026-10-16T04:09:14Z"
+    },
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01",
+     "files": 2,
+     "stage": "Q2 self-reference",
+     "chain": "e49788e3db38",
+     "latest_utc": "2026-10-16T04:09:14Z"
+    },
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/out",
+     "files": 158,
+     "stage": "Q2 self-reference",
+     "chain": "e49788e3db38",
+     "latest_utc": "2026-10-16T04:05:01Z"
+    }
    ]
   },
   {
@@ -25211,11 +25234,27 @@
    "depends_on": [
     "PHY-045"
    ],
-   "notes": "author asked 2026-10-15 that it come soon; after the tumor island read; metadata search 2026-10-15 (development/loose_share_2026-10-15/encode_primary_wgbs.json, geo_sorted_wgbs.json): (1) ENCODE, Bernstein lab: fresh sorted B cells, CD14 monocytes, T cells, NK cells, CD34 myeloid progenitors (ENCSR284TCU, ENCSR017BUL, ENCSR663MXB, ENCSR334LSM, ENCSR388RMS); full alignments, so the meter's own error is measurable (PHY-050); ALREADY READ once for held error by PROC-CHANNEL-01, so a development check, not fresh; (2) GSE144691 (healthy donors' sorted naive, stem-memory, central- and effector-memory CD8 T cells, WGBS) and GSE98837 (naive and memory CD8 subsets, WGBS): not in data_spent, raw-read access to confirm; candidates for the grand test (COM-IAMA-052); (3) GSE324619 (monocytes from many donors, WGBS): raw reads controlled access, not usable; cultured ENCODE lines excluded (culture drift) | spent set ENCODE-SECONDLAB-5 (ENCFF092SBB ENCFF605NRU ENCFF133QNK ENCFF704SCQ ENCFF969NGH), declared 2026-10-15 with DEV-SECONDLAB-01 | DEV-SECONDLAB-02 (GSE49627 healthy resting B cells): alignment running 2026-10-15; rule before any count",
+   "notes": "author asked 2026-10-15 that it come soon; after the tumor island read; metadata search 2026-10-15 (development/loose_share_2026-10-15/encode_primary_wgbs.json, geo_sorted_wgbs.json): (1) ENCODE, Bernstein lab: fresh sorted B cells, CD14 monocytes, T cells, NK cells, CD34 myeloid progenitors (ENCSR284TCU, ENCSR017BUL, ENCSR663MXB, ENCSR334LSM, ENCSR388RMS); full alignments, so the meter's own error is measurable (PHY-050); ALREADY READ once for held error by PROC-CHANNEL-01, so a development check, not fresh; (2) GSE144691 (healthy donors' sorted naive, stem-memory, central- and effector-memory CD8 T cells, WGBS) and GSE98837 (naive and memory CD8 subsets, WGBS): not in data_spent, raw-read access to confirm; candidates for the grand test (COM-IAMA-052); (3) GSE324619 (monocytes from many donors, WGBS): raw reads controlled access, not usable; cultured ENCODE lines excluded (culture drift) | spent set ENCODE-SECONDLAB-5 (ENCFF092SBB ENCFF605NRU ENCFF133QNK ENCFF704SCQ ENCFF969NGH), declared 2026-10-15 with DEV-SECONDLAB-01 | DEV-SECONDLAB-02 (GSE49627 healthy resting B cells): alignment running 2026-10-15; rule before any count | 2026-10-16: chain results now name this row in their stamps",
    "legacy_ids": [],
    "id": "PHY-047",
    "sources_of_row": [
     "session 2026-10-15"
+   ],
+   "chain_outputs": [
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01",
+     "files": 2,
+     "stage": "Q2 self-reference",
+     "chain": "a78b5f14bd02",
+     "latest_utc": "2026-10-16T06:36:17Z"
+    },
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "d7f64ca700df",
+     "latest_utc": "2026-10-16T05:24:32Z"
+    }
    ]
   },
   {
@@ -26370,17 +26409,55 @@
      "outcome": "success",
      "note": "self-reference line rebuilt by chain Stage Q2 from Loyfer's 153 samples (counts identical to development; line agrees within printed rounding); stored stamped as selfref_line_v1.json on the raw axis; ENCODE five read against it (all below, same verdict)",
      "page": "not headline: internal reproduction"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "MET (chain result Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json)",
+     "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
+     "payload_sha256": "4779e3c72bf74c223b126e5c14141313195b3a524e955b1e189ffbb47e4ff0da",
+     "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
    "next_step": "sample-shape check (COM-IAMA-053) and IAM-A's own healthy band (COM-IAMA-054) through Stage Q2; second laboratory on GSE49627 through the chain",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
-   "notes": "author 2026-10-15",
+   "notes": "author 2026-10-15 | 2026-10-16: chain results now name this row in their stamps",
    "legacy_ids": [],
    "id": "OTH-057",
    "sources_of_row": [
     "session 2026-10-15"
+   ],
+   "chain_outputs": [
+    {
+     "folder": "Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_SelfRef",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "e49788e3db38",
+     "latest_utc": "2026-10-16T04:09:14Z"
+    },
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "a78b5f14bd02",
+     "latest_utc": "2026-10-16T06:31:43Z"
+    },
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/out",
+     "files": 158,
+     "stage": "Q2 self-reference",
+     "chain": "e49788e3db38",
+     "latest_utc": "2026-10-16T04:05:01Z"
+    },
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/shape_out",
+     "files": 158,
+     "stage": "Q2 self-reference",
+     "chain": "d7f64ca700df",
+     "latest_utc": "2026-10-16T06:35:38Z"
+    }
    ]
   },
   {
@@ -26431,11 +26508,34 @@
    "depends_on": [
     "OTH-057"
    ],
-   "notes": "author 2026-10-15: could a lab or sample problem skew a patient's result without us knowing?",
+   "notes": "author 2026-10-15: could a lab or sample problem skew a patient's result without us knowing? | 2026-10-16: chain results now name this row in their stamps",
    "legacy_ids": [],
    "id": "COM-IAMA-053",
    "sources_of_row": [
     "session 2026-10-15"
+   ],
+   "chain_outputs": [
+    {
+     "folder": "Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_SelfRef",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "a78b5f14bd02",
+     "latest_utc": "2026-10-16T06:36:17Z"
+    },
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "a78b5f14bd02",
+     "latest_utc": "2026-10-16T06:36:17Z"
+    },
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/shape_out",
+     "files": 158,
+     "stage": "Q2 self-reference",
+     "chain": "d7f64ca700df",
+     "latest_utc": "2026-10-16T06:35:38Z"
+    }
    ]
   },
   {
@@ -26583,6 +26683,35 @@
    "id": "OTH-062",
    "sources_of_row": [
     "session 2026-10-15"
+   ]
+  },
+  {
+   "title": "Manifest kept current by the chain and the gate",
+   "purpose": "Author 2026-10-16: 'It should demand that every place from the log to every doc that we maintain should be updated. The manifest is one of the most important.' and 'when the chain runs, it should have a certain amount of updates that happen automatically from the chain script.' Chain stamps name their manifest rows; CANON/chain_events.py writes each row's chain outputs and verdicts at every checkpoint; CANON/manifest_fresh.py refuses log entries, machine jobs, records and chain results whose rows did not change.",
+   "instrument_or_term": "all",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "CANON/manifest_fresh.py",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "controls 9 of 9 (C1 is the 2026-10-15 miss: log and ledger updated, manifest not); 324 earlier chain results backfilled with their rows (payload hashes re-verified)",
+     "page": "not headline: record keeping"
+    }
+   ],
+   "next_step": "next: document consolidation (OTH, author approved 2026-10-16): 9 hand-kept living documents to 2",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "",
+   "legacy_ids": [],
+   "id": "OTH-063",
+   "sources_of_row": [
+    "session 2026-10-16"
    ]
   }
  ],

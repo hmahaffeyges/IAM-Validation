@@ -628,6 +628,11 @@
     "sha256": "2bfb7ab8f97853c70d51bf523a46d7be6386def32a2e27440a55e709ff112712"
    }
   ],
-  "utc": "2026-10-16T04:09:14Z"
+  "utc": "2026-10-16T04:09:14Z",
+  "manifest": [
+   "OTH-057",
+   "PHY-045"
+  ],
+  "manifest_backfilled": true
  }
 }

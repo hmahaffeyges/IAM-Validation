@@ -138,6 +138,10 @@
   "chain_sha": "a78b5f14bd02f60be28c793b60c5396559a21452d2ec8fa8db47cfd91e0bf1ed",
   "payload_sha256": "4779e3c72bf74c223b126e5c14141313195b3a524e955b1e189ffbb47e4ff0da",
   "inputs": [],
-  "utc": "2026-10-16T06:31:43Z"
+  "utc": "2026-10-16T06:31:43Z",
+  "manifest": [
+   "OTH-057"
+  ],
+  "manifest_backfilled": true
  }
 }

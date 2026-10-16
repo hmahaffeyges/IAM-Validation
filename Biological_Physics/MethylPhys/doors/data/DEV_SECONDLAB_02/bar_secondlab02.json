@@ -11,6 +11,10 @@
   "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
   "payload_sha256": "b86c85924ce583fe7b1ff0a0abc17598611a2fb4d098a24104d88e47092e9502",
   "inputs": [],
-  "utc": "2026-10-16T05:24:32Z"
+  "utc": "2026-10-16T05:24:32Z",
+  "manifest": [
+   "PHY-047"
+  ],
+  "manifest_backfilled": true
  }
 }

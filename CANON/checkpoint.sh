@@ -18,7 +18,7 @@ step python3 CANON/v21_readiness.py; step python3 CANON/v21_release.py --verify
 step python3 CANON/ascore_db.py; step python3 CANON/instruments_board.py;
 step python3 CANON/book_toolbox.py;
 step python3 CANON/catalogue.py; python3 CANON/now_running.py > /dev/null 2>&1 || true
-step python3 CANON/four_domains.py; python3 CANON/bit_tables.py; step python3 CANON/manifest.py; step python3 CANON/master_inventory.py; python3 CANON/daylog.py > /dev/null 2>&1 || true
+step python3 CANON/four_domains.py; python3 CANON/bit_tables.py; step python3 CANON/chain_events.py; step python3 CANON/manifest.py; step python3 CANON/master_inventory.py; python3 CANON/daylog.py > /dev/null 2>&1 || true
 git add -A --sparse .
 if git diff --cached --quiet; then echo "checkpoint: nothing changed"; exit 0; fi
 git -c user.name="Heath W. Mahaffey" -c user.email="hmahaffeyges@users.noreply.github.com" commit -q -m "Checkpoint: ${1:-records regenerated} (CANON/checkpoint.sh)"

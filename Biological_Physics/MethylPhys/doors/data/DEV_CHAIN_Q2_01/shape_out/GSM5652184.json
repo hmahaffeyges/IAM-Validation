@@ -26,6 +26,11 @@
     "size": 363986670
    }
   ],
-  "utc": "2026-10-16T05:27:30Z"
+  "utc": "2026-10-16T05:27:30Z",
+  "manifest": [
+   "COM-IAMA-053",
+   "OTH-057"
+  ],
+  "manifest_backfilled": true
  }
 }

@@ -877,6 +877,7 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **PHY-053** The horizon's storage by era: bits held at the CMB, first stars, the turn to acceleration and today: last run 2026-10-15, success
 - [x] **COM-METAA-039** Met-A read against the sample's own line (a smaller tare, or none): last run 2026-10-15, fail
 - [x] **OTH-056** Rebuild the operations-manual PDF from the corrected chapter: last run 2026-10-15, success
-- [x] **OTH-057** Wire the own-read counter and gemBS reading into the chain's Stage Q: last run 2026-10-15, success
+- [x] **OTH-057** Wire the own-read counter and gemBS reading into the chain's Stage Q: last run 2026-10-16, success
 - [x] **COM-IAMA-053** IAM-A sample-shape check: no reading when a sample's tile distribution is outside the healthy shape: last run 2026-10-15, success
 - [x] **OTH-061** One bit convention across the four domains: bits stored, bits per operation, bit rate: last run 2026-10-15, progressed
+- [x] **OTH-063** Manifest kept current by the chain and the gate: last run 2026-10-16, success

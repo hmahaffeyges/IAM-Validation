@@ -849,6 +849,10 @@
     "sha256": "0a6ff4afe9c1dfd1f0d66de3305222abc9236934c366a8161319c7d999d7e4f9"
    }
   ],
-  "utc": "2026-10-16T06:36:17Z"
+  "utc": "2026-10-16T06:36:17Z",
+  "manifest": [
+   "COM-IAMA-053"
+  ],
+  "manifest_backfilled": true
  }
 }

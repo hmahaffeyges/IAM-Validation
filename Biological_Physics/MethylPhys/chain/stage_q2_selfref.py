@@ -36,16 +36,27 @@ def file_sha(path, chunk=1 << 24):
     with open(path, "rb") as fh:
         for b in iter(lambda: fh.read(chunk), b""): h.update(b)
     return h.hexdigest()
-def stamp(obj, inputs=()):
-    """Attach the chain stamp to a result dict. inputs: [{'name':..., 'sha256':..., 'size':...}] (file_sha of each input where possible)."""
+# Manifest link (author 2026-10-16: "when the chain runs, it should have a certain amount of updates that happen automatically from the chain
+# script"). Every result names the Master Testing Manifest rows it belongs to, in its stamp (manifest=[...] or env IAM_MANIFEST="ID,ID").
+# The stamp's manifest field is outside the payload hash, so it never changes a result. CANON/chain_events.py reads these stamps at every
+# checkpoint and writes each row's chain outputs and verdicts into CANON/manifest.json; CANON/manifest_fresh.py refuses a push with a stamped
+# result (written from 2026-10-16) that names no row.
+def _rows(manifest):
+    m = manifest if manifest is not None else [x for x in os.environ.get("IAM_MANIFEST", "").split(",") if x.strip()]
+    return sorted({str(x).strip() for x in m})
+def stamp(obj, inputs=(), manifest=None):
+    """Attach the chain stamp to a result dict. inputs: [{'name':..., 'sha256':..., 'size':...}] (file_sha of each input where possible).
+    manifest: the Master Testing Manifest row IDs this result belongs to."""
     obj = {k: v for k, v in obj.items() if k != "chain_stamp"}
-    obj["chain_stamp"] = dict(stage=STAGE, chain_sha=chain_sha(), payload_sha256=payload_sha(obj), inputs=list(inputs),
+    obj["chain_stamp"] = dict(stage=STAGE, chain_sha=chain_sha(), payload_sha256=payload_sha(obj), inputs=list(inputs), manifest=_rows(manifest),
                               utc=datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
     return obj
-def write_json(obj, path, inputs=()):
-    o = stamp(obj, inputs); json.dump(o, open(path, "w", encoding="utf-8"), indent=1, default=float); return o
-def write_csv(df, path, inputs=()):
-    df.to_csv(path, index=False); s = dict(stage=STAGE, chain_sha=chain_sha(), payload_sha256=file_sha(path), inputs=list(inputs),
+def write_json(obj, path, inputs=(), manifest=None):
+    """Write a stamped result. A result with a 'verdict' field (MET, NOT MET, INCONCLUSIVE, NOT ASSESSED, REPRODUCED, DIFFERS) is recorded
+    as a run on each named manifest row by CANON/chain_events.py."""
+    o = stamp(obj, inputs, manifest); json.dump(o, open(path, "w", encoding="utf-8"), indent=1, default=float); return o
+def write_csv(df, path, inputs=(), manifest=None):
+    df.to_csv(path, index=False); s = dict(stage=STAGE, chain_sha=chain_sha(), payload_sha256=file_sha(path), inputs=list(inputs), manifest=_rows(manifest),
                                             utc=datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
     json.dump({"chain_stamp": s}, open(path + ".stamp.json", "w"), indent=1); return s
 

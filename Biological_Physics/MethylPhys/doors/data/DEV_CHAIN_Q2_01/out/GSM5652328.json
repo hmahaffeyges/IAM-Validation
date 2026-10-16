@@ -23,6 +23,11 @@
     "size": 354446270
    }
   ],
-  "utc": "2026-10-16T03:32:45Z"
+  "utc": "2026-10-16T03:32:45Z",
+  "manifest": [
+   "OTH-057",
+   "PHY-045"
+  ],
+  "manifest_backfilled": true
  }
 }
