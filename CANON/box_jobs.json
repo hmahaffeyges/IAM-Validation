@@ -1534,7 +1534,7 @@
    "date": "2026-10-16",
    "commit": "e4b2ccba",
    "s3_code_prefix": "results/DEV_IAMA_GRAND_01/code/run3_H/",
-   "state": "running",
+   "state": "failed",
    "log": "results/DEV_IAMA_GRAND_01/status_H.txt",
    "machine": "spot m7a.16xlarge us-west-2d, 2 samples at a time",
    "purpose": "helper on the shared queue (64 cores; 64-core spot placement score 9 of 10 in this zone)",
@@ -1551,7 +1551,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/samples.csv",
     "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/count_grand.py"
    ],
-   "note": "running"
+   "note": "reclaimed by AWS (spot); claims released to the queue"
   },
   {
    "job_id": "i-0255f9da20747166c",
@@ -1559,7 +1559,7 @@
    "date": "2026-10-16",
    "commit": "e4b2ccba",
    "s3_code_prefix": "results/DEV_IAMA_GRAND_01/code/run3_I/",
-   "state": "running",
+   "state": "failed",
    "log": "results/DEV_IAMA_GRAND_01/status_I.txt",
    "machine": "spot m7a.16xlarge us-west-2d, 2 samples at a time",
    "purpose": "helper on the shared queue (64 cores; 64-core spot placement score 9 of 10 in this zone)",
@@ -1576,7 +1576,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/samples.csv",
     "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/count_grand.py"
    ],
-   "note": "running"
+   "note": "reclaimed by AWS (spot); claims released to the queue"
   },
   {
    "job_id": "i-016be641747ea1aa5",
@@ -1712,6 +1712,31 @@
    "files": [
     "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_box.sh",
     "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py"
+   ],
+   "note": "running"
+  },
+  {
+   "job_id": "i-02ba02f9f94113c16",
+   "name": "DEV-IAMA-GRAND-01 run 3 machine J: on-demand helper on the shared queue",
+   "date": "2026-10-16",
+   "commit": "e4b2ccba",
+   "s3_code_prefix": "results/DEV_IAMA_GRAND_01/code/run3_J/",
+   "state": "running",
+   "log": "results/DEV_IAMA_GRAND_01/status_J.txt",
+   "machine": "on-demand m7a.16xlarge us-west-2a, 2 samples at a time, 1.5 TB disk",
+   "purpose": "on-demand helper (cannot be reclaimed) after four spot helpers were reclaimed",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_GRAND_01.md",
+   "manifest": [
+    "COM-IAMA-052"
+   ],
+   "outputs": [
+    "results/DEV_IAMA_GRAND_01/out/",
+    "results/DEV_IAMA_GRAND_01/bam/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/box/align_grand.sh",
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/samples.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/count_grand.py"
    ],
    "note": "running"
   }

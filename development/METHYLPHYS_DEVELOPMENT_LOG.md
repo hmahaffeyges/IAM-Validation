@@ -2200,3 +2200,6 @@ Clean room run 2 launched as i-08a0814a8c11e3c18 from e1d64460 (PHY-055). Grand 
 
 ### 2026-10-16 · Website and book had not updated since 2026-10-15: one unescaped _ in the book (lesson C18; OTH-067)
 The author: the webpage and the book had not updated all day. Every website build since d1dd1c1e failed on p6_09_cscore.tex line 46 (a bare filename with underscores, from the 617 correction). Fixed; CANON/site_build_check.py added to the push gate so a failing build refuses further pushes until fixed.
+
+### 2026-10-16 · IAM-A grand test: on-demand helper J added (COM-IAMA-052)
+After four spot helpers were reclaimed, an on-demand helper J (i-02ba02f9f94113c16) joins the queue; the on-demand core quota is 192, not 128 as stated earlier; an increase to 384 was requested (pending).
