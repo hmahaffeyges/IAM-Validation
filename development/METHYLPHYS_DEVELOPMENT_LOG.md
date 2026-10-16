@@ -2009,3 +2009,6 @@ ENCODE B, T, NK, monocytes, CD34 progenitors. Residuals -0.0056, -0.0020, -0.000
 
 ### 2026-10-15 · Correction: DEV-SECONDLAB-01 is NOT MET like for like (0 of 5)
 The line's held errors carry the committed scale factor 0.7412824486 (opensea_line.py); the first scoring compared ENCODE raw held errors with it. Like for like every ENCODE cell sits 0.008-0.014 below the line. ENCODE loose shares read 6x Loyfer's on the same cell types while held errors read lower: the loose share is not yet on one scale across laboratories. Day-log entry withdrawn; the plan gate reopened. Lesson: a rule that names a line must name every factor in it.
+
+### 2026-10-15 · DEV-SECONDLAB-01 diagnosis: the fixed 0.70 cut carries a lab's overall methylation level into the loose share
+ENCODE own calls 0.359 (extractor 0.337): not the extractor. ENCODE B cells genome-wide 0.727 against Loyfer 0.805; at the steep 0.70 cut that becomes 0.36 against 0.054. Next: a loose share defined from the sample itself, synthetic with a planted offset first.

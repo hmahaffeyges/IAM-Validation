@@ -1,0 +1,26 @@
+{
+ "encode_b_ENCFF703XLD": {
+  "tiles": 17268,
+  "loose_share": 0.359,
+  "tile_median": 0.767,
+  "share_by_cut": {
+   "0.6": 0.171,
+   "0.65": 0.255,
+   "0.7": 0.359,
+   "0.75": 0.464
+  },
+  "global_mean": 0.7271
+ },
+ "loyfer_b_GSM5652317": {
+  "tiles": 14540,
+  "loose_share": 0.054,
+  "tile_median": 0.811,
+  "share_by_cut": {
+   "0.6": 0.013,
+   "0.65": 0.026,
+   "0.7": 0.054,
+   "0.75": 0.133
+  },
+  "global_mean": 0.8045
+ }
+}

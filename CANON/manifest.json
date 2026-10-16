@@ -26369,6 +26369,30 @@
    "sources_of_row": [
     "session 2026-10-15"
    ]
+  },
+  {
+   "title": "A loose share that reads the same in two laboratories (the cut from the sample itself)",
+   "purpose": "DEV-SECONDLAB-01 diagnosis: the fixed 0.70 cut turns ENCODE's 8-point lower overall methylation into a six-fold loose share; IAM-A's self-reference needs a lab-invariant definition before its grand test",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_SECONDLAB_01.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "candidate definitions (cut relative to the sample's own firm level; share of tiles below the sample's median minus a fixed margin); synthetic with a planted overall offset first; then re-read Loyfer and ENCODE cells",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-047"
+   ],
+   "notes": "2026-10-15",
+   "legacy_ids": [],
+   "id": "PHY-074",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
   }
  ],
  "not_tests": {

@@ -82,3 +82,15 @@ to another. This blocks IAM-A's grand test until the loose share is defined so t
 
 **What it would take.** Find why ENCODE's loose share reads six times higher on the same cell types: ENCODE's own published per-CpG calls
 for the same run (ENCFF703XLD) are being read with the same tile rule, to separate the extractor from the data.
+
+## Diagnosis (2026-10-15): the fixed 0.70 cut turns a laboratory's overall methylation offset into a six-fold loose share
+
+`data/DEV_SECONDLAB_01/scale_diagnosis.py` -> `scale_diagnosis.json`, the same tile rule on published per-CpG data. ENCODE's own calls for the
+counted B-cell run read a loose share of 0.359 (this extractor: 0.337), so the extractor is not the cause. ENCODE's B cells are less
+methylated overall than Loyfer's (genome-wide mean 0.727 against 0.805; tile median 0.767 against 0.811). The cut at 0.70 sits on the steep
+side of the tile distribution: on Loyfer's B cell alone the share is 0.054 at 0.70 and 0.133 at 0.75. A fixed cut therefore carries each
+laboratory's overall methylation level into the loose share.
+
+**What it would take.** A loose share that reads the same in two laboratories: the cut defined from the sample itself rather than fixed at
+0.70 (for example, relative to the sample's own firm level), designed and synthetic-tested first, then re-read on both laboratories' cells.
+Whether ENCODE's lower overall level is biology, donor or protocol is not settled here.
