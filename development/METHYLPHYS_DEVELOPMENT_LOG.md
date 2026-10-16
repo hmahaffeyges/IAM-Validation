@@ -2051,3 +2051,6 @@ bits stored (data at rest), bits per operation (snapshot or limit), bit rate (in
 
 ### 2026-10-15 · Atlas v2.1 fit: two blocks with divergences, for release check F05
 At 480 of 700 blocks: block 458 (11 divergences, R-hat p99 1.0076, ESS p01 476) and block 467 (1; 1.0068; 513); every other block 0. No sealed bar sets a number; F05 (convergence per site) judges them at release, and if a site in them fails F05 the two blocks are refitted with a smaller step.
+
+### 2026-10-15 · Shape recount launched
+Chain Stage Q2 stores tile percentiles (synthetic T5 met). Spot i-0f54ab117054ee79f (code 764e072e, chain d7f64ca700df) counts Loyfer 153 and ENCODE 5 again, to results/DEV_CHAIN_Q2_01/shape/. Hansen rule S1 sealed as drafted by the author (2 of 3 donors within the line's 90th-percentile scatter, 0.0067); written into the record before any Hansen count, with the shape rule added after this recount.

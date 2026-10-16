@@ -1196,6 +1196,32 @@
     "PHY-074"
    ],
    "note": "running; the machine fetched these same files from results/DEV_SECONDLAB_02/code/ at launch (identical to the code/run2/ copy), before run 1's own copy was restored there"
+  },
+  {
+   "job_id": "i-0f54ab117054ee79f",
+   "name": "DEV-CHAIN-Q2-01 step 3: Loyfer 153 and ENCODE 5 counted again through chain Stage Q2 with tile percentiles (shape check)",
+   "date": "2026-10-15",
+   "commit": "764e072e",
+   "s3_code_prefix": "results/DEV_CHAIN_Q2_01/shape/code/",
+   "state": "running",
+   "log": "results/DEV_CHAIN_Q2_01/shape/status.txt",
+   "machine": "spot m7a.8xlarge, self-terminating (14-hour hard stop)",
+   "purpose": "tile percentiles for every healthy sample and the ENCODE five; held error and loose share must reproduce step 2 exactly",
+   "record": "doors/DEV_CHAIN_Q2_01.md",
+   "outputs": [
+    "results/DEV_CHAIN_Q2_01/shape/out/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/box_q2_line.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/loyfer_samples.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/encode_samples.tsv",
+    "Biological_Physics/MethylPhys/chain/stage_q2_selfref.py"
+   ],
+   "manifest": [
+    "COM-IAMA-053",
+    "OTH-057"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {

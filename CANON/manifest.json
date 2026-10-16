@@ -26416,9 +26416,9 @@
    ],
    "data_status": "",
    "record": "COMMISSIONING_PLAN.md",
-   "status": "planned",
+   "status": "running",
    "runs": [],
-   "next_step": "rule from healthy shapes of two independent labs (Loyfer, GSE49627 Hansen), sealed; synthetic first; then ENCODE's B cell must be refused; in chain Stage Q2",
+   "next_step": "chain recount with tile percentiles (box job, DEV-CHAIN-Q2-01 step 3); then draft the same-cell-type shape rule from healthy evidence, show the author, seal; ENCODE's B cell must be refused",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

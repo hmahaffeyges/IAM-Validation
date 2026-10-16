@@ -821,5 +821,20 @@
    "results/DEV_SECONDLAB_02/bam/": false
   },
   "state_at_verify": "running"
+ },
+ "i-0f54ab117054ee79f": {
+  "s3": {
+   "box_q2_line.py": "b7531948d4e44e4c3594b230f8dfdcfdd5034d4a5e79a1d3d28c1dc7d7f99c15",
+   "loyfer_samples.csv": "b2ecefe86b574a864a11c055a0bb5d602c00616e558b178e7ea19c9c418f26e8",
+   "encode_samples.tsv": "0b94e9317a6e6bcbc921093107b88a0238b306b48a51719408ed5df9fee04ce5",
+   "stage_q2_selfref.py": "e1325db5e31fd2f3afd9f53e1fcb0655005bb6795e0e41923de9ab74516a4845"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/DEV_CHAIN_Q2_01/shape/out/": false
+  },
+  "state_at_verify": "running"
  }
 }
