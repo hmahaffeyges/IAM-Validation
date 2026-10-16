@@ -1,0 +1,54 @@
+{
+ "loose_share": 0.04204926395569159,
+ "tiles": 13722,
+ "held_err": 0.03357663796917356,
+ "held_opp": 3677557,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.7592626671574041,
+ "tile_p50": 0.8444770689971235,
+ "tile_p90": 0.8931249935331314,
+ "reader": "aligned reads",
+ "assembly": "hg38 (Bismark genome of the tumor-work bundle)",
+ "sub_err": 0.0019871633441171776,
+ "conv_fail": 0.022950173807677363,
+ "molecules": 45878382,
+ "qualifying": 697625,
+ "reads": 143206712,
+ "sample": "GSM1202808",
+ "donor": "B2",
+ "run": "SRR948845",
+ "cell": "b cells",
+ "reference_cell": "b cells",
+ "read_length_mode": 101,
+ "read_lengths": {
+  "101": 9944,
+  "100": 6798,
+  "99": 1161,
+  "98": 412,
+  "97": 213
+ },
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "a49c36c7b9a072d8ccfd7fc12b0970d82e997593282f53cb5f2c2be5d8bb6be2",
+  "payload_sha256": "f518fe58dad414a81092f6f93650eacf7774c67972f6894e99283d92906a2877",
+  "inputs": [
+   {
+    "name": "SRR948845.bam",
+    "sha256": "49e77f33c84a8c93e8d8dbab6181f0ccd565be83e025477a9d9f2f15e4e650f9",
+    "size": 17994292467
+   },
+   {
+    "name": "hg38.fa",
+    "sha256": "0b13cb387c6bf8fb242da275f8bf51e74d713e58890730f1bde9bc7dc4427748"
+   }
+  ],
+  "manifest": [
+   "COM-IAMA-054",
+   "PHY-047",
+   "PHY-050"
+  ],
+  "utc": "2026-10-16T09:45:51Z"
+ }
+}

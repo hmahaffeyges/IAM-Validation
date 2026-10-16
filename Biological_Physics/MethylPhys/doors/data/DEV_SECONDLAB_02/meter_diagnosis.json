@@ -1,0 +1,38 @@
+{
+ "rows": [
+  {
+   "donor": "B1",
+   "conv_fail": 0.0181,
+   "seq_err": 0.0057,
+   "held": 0.0356,
+   "corrected": 0.0305
+  },
+  {
+   "donor": "B2",
+   "conv_fail": 0.023,
+   "seq_err": 0.002,
+   "held": 0.0336,
+   "corrected": 0.0323
+  },
+  {
+   "donor": "B3",
+   "conv_fail": 0.0511,
+   "seq_err": 0.0027,
+   "held": 0.0323,
+   "corrected": 0.0311
+  }
+ ],
+ "corrected_min": 0.0305,
+ "corrected_max": 0.0323,
+ "scored": false,
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "a49c36c7b9a072d8ccfd7fc12b0970d82e997593282f53cb5f2c2be5d8bb6be2",
+  "payload_sha256": "004c2945cb3b0e05e25efc202f8334ebb73366aeb6ed5e40b16cfdef7af85a30",
+  "inputs": [],
+  "manifest": [
+   "PHY-050"
+  ],
+  "utc": "2026-10-16T09:52:25Z"
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "lo": 0.7787,
+ "hi": 1.0551,
+ "median": 0.9488,
+ "n": 156,
+ "labs": {
+  "Loyfer 2023": 153,
+  "Hansen GSE49627": 3
+ },
+ "hansen_readings": {
+  "B1": 0.849,
+  "B2": 0.805,
+  "B3": 0.78
+ },
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "a49c36c7b9a072d8ccfd7fc12b0970d82e997593282f53cb5f2c2be5d8bb6be2",
+  "payload_sha256": "751f9fdc80a2fcd31c697694330b36d9df420e68d2d9764359574a1892344292",
+  "inputs": [],
+  "manifest": [
+   "COM-IAMA-054"
+  ],
+  "utc": "2026-10-16T09:52:24Z"
+ }
+}

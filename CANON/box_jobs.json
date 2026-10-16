@@ -1330,7 +1330,7 @@
    "date": "2026-10-16",
    "commit": "d0decb23",
    "s3_code_prefix": "results/DEV_SECONDLAB_02/code/count3/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/DEV_SECONDLAB_02/count_status.txt",
    "machine": "spot m7a.8xlarge, self-terminating (5-hour hard stop)",
    "purpose": "recount each donor with the fixed chain; run 2's refused counts kept in results/DEV_SECONDLAB_02/out_run2_refused/",
@@ -1348,7 +1348,7 @@
     "PHY-050",
     "COM-IAMA-054"
    ],
-   "note": "running"
+   "note": "all three counted 02:49 PDT, stamps verified; scored once (S1 NOT MET). The machine's code.tgz carries REPO_COMMIT bd811592 (chain identical at the recorded commit; only count_box.sh's code path differs)"
   }
  ],
  "not_jobs": {

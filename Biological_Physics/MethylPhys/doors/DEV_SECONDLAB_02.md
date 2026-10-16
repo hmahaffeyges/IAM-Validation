@@ -29,3 +29,24 @@ Trim Galore, Bismark paired-end on hg38 (the tumor work's tools and index), dedu
 **Synthetic test:** DEV_CHAIN_Q2_01/q2_synthetic.py, DEV_CHAIN_Q2_01/q2_synthetic.json
 
 **Step 3: the count**, chain Stage Q2 count_bam only, stamped, then scored once by the committed rule.
+
+## Outcome (2026-10-16): NOT MET
+
+Scored once by S1 through chain Stage Q2 (`data/DEV_SECONDLAB_02/score_secondlab02.py` -> `secondlab02_scored.json`, stamped; counts from count
+run 3, `out/`). All three donors passed the sample-shape check and were read; one of three read within the bar (0.0067), two outside.
+
+| donor | run | loose share | held error | line predicts | residual | lab shift vs Loyfer B cells | sequencing error | conversion failure |
+|---|---|---|---|---|---|---|---|---|
+| B1 | SRR948844 | 0.048 | 0.0356 | 0.0419 | -0.0063 (within) | -0.0024 | 0.0057 | 0.0181 |
+| B2 | SRR948845 | 0.042 | 0.0336 | 0.0417 | -0.0081 (outside) | -0.0043 | 0.0020 | 0.0230 |
+| B3 | SRR948846 | 0.032 | 0.0323 | 0.0414 | -0.0091 (outside) | -0.0052 | 0.0027 | 0.0511 |
+
+All three read below the line, the same side as Loyfer's own B cells (mean residual -0.0039). **Reported, not scored (diagnosis):** the
+order of the three follows the chemistry. Conversion failure (an unconverted C reads as a written mark, so a hole is hidden) runs 1.8, 2.3
+and 5.1 percent, and the residuals run -0.0063, -0.0081, -0.0091. With each donor's measured sequencing error and conversion failure taken out,
+(held - sequencing error) / (1 - conversion failure) (`data/DEV_SECONDLAB_02/meter_diagnosis.json`), the three agree to 0.0305-0.0323: the spread among them is the meter. The line was built on
+Loyfer's raw counts, whose own meter error is not in the .pat files, so the two laboratories are not yet compared on the same footing; that is
+PHY-050.
+
+Count history: run 1 fetched no alignment index (no count written); run 2 counted, but every count failed its own stamp check (lesson C18) and
+was not scored; run 3 is the one scored.

@@ -21,3 +21,8 @@ median 0.95, 2.5th to 97.5th percentile 0.785 to 1.055, range 0.72 to 1.068.
 measurement, not a pass or fail; it becomes IAM-A's Normal mark when IAM-A is commissioned (COM-IAMA-052).
 
 **In plain words:** the healthy range for IAM-A comes from healthy people measured in two different laboratories, not from a number we picked.
+
+## Band v1 (2026-10-16), built by the chain by the sealed rule
+
+`chain/Runtime Matrices/IAM_A_SelfRef/band_v1.json` (stamped; quoted here from `data/DEV_IAMA_BAND_01/band_v1_summary.json`): 156 healthy readings (Loyfer 153, Hansen 3, all three passing the shape check),
+**Normal 0.7787 to 1.0551**, median 0.9488. The Hansen donors read 0.849, 0.805 and 0.78, inside.

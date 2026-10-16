@@ -2111,3 +2111,6 @@ The author sealed the draft: A = held error / the line's prediction from the sam
 ### 2026-10-16 · Hansen count run 2: counts refused by their own stamp check; chain fixed (PHY-047, OTH-057)
 All three donors counted, but the scorer refused every count: the chain hashed each result before the JSON round trip turned the number keys of the read-length table into text. With the keys restored the fingerprints match exactly, so nothing was edited; the counter's log line shows each count was read only as the machine wrote it. Chain Stage Q2 now hashes what it stores and re-reads every file it writes; synthetic T8 MET; lesson C18. Count run 3 recounts. Nothing has been scored.
 Count run 3 launched as i-0c7b1e115294ce1e4 (code bd811592, code/count3/) (PHY-047).
+
+### 2026-10-16 · DEV-SECONDLAB-02 scored once: NOT MET; IAM-A band v1 built (PHY-047, PHY-050, COM-IAMA-054)
+S1: 1 of 3 Hansen donors within 0.0067 of the line; all three below it, the same side as Loyfer's B cells. Diagnosis (reported, not scored): the donor order follows conversion failure (1.8, 2.3, 5.1 percent); with sequencing error and conversion failure removed the donors agree to 0.0305-0.0323. Loyfer's meter error is not in its .pat files, so PHY-050 is the next step. Band v1 by the sealed rule: Normal 0.7787-1.0551 from 156 readings in two laboratories.

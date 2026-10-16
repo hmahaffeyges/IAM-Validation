@@ -25226,9 +25226,17 @@
      "outcome": "fail",
      "note": "CORRECTED same evening: first scored 3 of 5, but ENCODE raw held errors were compared with a line built on held errors x 0.741; like for like 0 of 5, NOT MET. Loose shares 6x Loyfer's on the same cells. Record DEV_SECONDLAB_01.md",
      "page": "not headline: exploratory miss, kept in the research record"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "fail",
+     "note": "NOT MET (chain result Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/secondlab02_scored.json)",
+     "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/secondlab02_scored.json",
+     "payload_sha256": "93413cbb73f730a4b4795922ec21031af8b681a013bbdcb844c39ee9070b1323",
+     "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
-   "next_step": "count run 2 counted all three but the counts failed their own stamp check (lesson C18, the chain hashed before the JSON round trip); chain fixed, synthetic T8 MET; count run 3 (i-0c7b1e115294ce1e4, launched 02:40 PDT), then score_secondlab02.py once",
+   "next_step": "NOT MET by S1 (1 of 3 within 0.0067; all three below the line, the same side as Loyfer's B cells). Diagnosis: the donor order follows conversion failure (1.8, 2.3, 5.1 percent); with sequencing error and conversion failure removed the donors agree (0.0305-0.0323). Next: PHY-050, both laboratories' meter error measured the same way, then a new sealed test; decision with the author",
    "cost": "laptop or box",
    "impact": 5,
    "depends_on": [
@@ -25250,10 +25258,17 @@
     },
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02",
-     "files": 1,
+     "files": 2,
      "stage": "Q2 self-reference",
-     "chain": "d7f64ca700df",
-     "latest_utc": "2026-10-16T05:24:32Z"
+     "chain": "a49c36c7b9a0",
+     "latest_utc": "2026-10-16T09:49:39Z"
+    },
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/out",
+     "files": 3,
+     "stage": "Q2 self-reference",
+     "chain": "a49c36c7b9a0",
+     "latest_utc": "2026-10-16T09:49:15Z"
     }
    ]
   },
@@ -25352,7 +25367,7 @@
      "page": "not headline: a measurement"
     }
    ],
-   "next_step": "apply the measured sequencing error to the line once Hansen is counted by chain Stage Q2 (both laboratories then measured the same way); rule first",
+   "next_step": "measured on Hansen (sequencing error 0.002-0.006, conversion failure 1.8-5.1 percent, chain count run 3); Loyfer's needs reads with non-CpG context, which its .pat files do not carry; options for the author: Loyfer's raw reads (access to be checked), or a line rebuilt from a public laboratory whose meter error can be measured",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -25363,6 +25378,22 @@
    "id": "PHY-050",
    "sources_of_row": [
     "session 2026-10-15"
+   ],
+   "chain_outputs": [
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "a49c36c7b9a0",
+     "latest_utc": "2026-10-16T09:52:25Z"
+    },
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/out",
+     "files": 3,
+     "stage": "Q2 self-reference",
+     "chain": "a49c36c7b9a0",
+     "latest_utc": "2026-10-16T09:49:15Z"
+    }
    ]
   },
   {
@@ -25724,7 +25755,7 @@
    "record": "development/loose_end_2026-10-15/loose_end_line.py",
    "status": "planned",
    "runs": [],
-   "next_step": "remaining gates (2026-10-16): PHY-047 (Hansen score), PHY-050 (meter error from the Hansen count), COM-IAMA-054 (band rule sealed 2026-10-16; built after the Hansen count), PHY-055 part A (clean room); then this test on the unopened CD8 sets GSE144691, GSE98837, bars sealed before reading; commission if met. Recommended to the author as NOT gates: OTH-059 concern and tumor lines (reporting marks from the A-score database; Met-A and the C-score were commissioned without them), OTH-058 agreement check (needs two commissioned instruments on the same samples)",
+   "next_step": "remaining gates (2026-10-16): PHY-047 (Hansen scored NOT MET 2026-10-16; meter error is the lead), PHY-050 (meter error from the Hansen count), COM-IAMA-054 (band v1 built 2026-10-16), PHY-055 part A (clean room); then this test on the unopened CD8 sets GSE144691, GSE98837, bars sealed before reading; commission if met. Recommended to the author as NOT gates: OTH-059 concern and tumor lines (reporting marks from the A-score database; Met-A and the C-score were commissioned without them), OTH-058 agreement check (needs two commissioned instruments on the same samples)",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -26493,7 +26524,7 @@
    "depends_on": [
     "PHY-047"
    ],
-   "notes": "2026-10-15 | author chose the cut from the sample's own firm level; checked first: the labs differ in the shape of the tile distribution (ENCODE low tail), so a self-relative cut alone leaves 5x; ENCODE's 2017 run shows the same tail | third source GSE49627 (Hansen, 3 donors' resting B): loose share 0.021-0.031, like Loyfer 0.054; ENCODE's sample (0.359) is the outlier | DEV-SECONDLAB-02 (GSE49627 healthy resting B cells): alignment running 2026-10-15; rule before any count",
+   "notes": "2026-10-15 | author chose the cut from the sample's own firm level; checked first: the labs differ in the shape of the tile distribution (ENCODE low tail), so a self-relative cut alone leaves 5x; ENCODE's 2017 run shows the same tail | third source GSE49627 (Hansen, 3 donors' resting B): loose share 0.021-0.031, like Loyfer 0.054; ENCODE's sample (0.359) is the outlier | DEV-SECONDLAB-02 (GSE49627 healthy resting B cells): alignment running 2026-10-15; rule before any count | 2026-10-16: Hansen's three healthy B cells (DEV-SECONDLAB-02) passed the shape check with the fixed cut and read loose shares 0.032-0.048; the second-lab gap traces to conversion failure, not to the loose share (PHY-050)",
    "legacy_ids": [],
    "id": "PHY-074",
    "sources_of_row": [
@@ -26532,6 +26563,14 @@
      "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
      "payload_sha256": "739649d3166213bf6152d6f6a94d090481bee7516b3af0df4d7ff152fb199634",
      "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "fail",
+     "note": "NOT MET (chain result Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/secondlab02_scored.json)",
+     "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/secondlab02_scored.json",
+     "payload_sha256": "93413cbb73f730a4b4795922ec21031af8b681a013bbdcb844c39ee9070b1323",
+     "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
    "next_step": "applied first in DEV-SECONDLAB-02 (Hansen B cells, limit 0.662)",
@@ -26567,6 +26606,13 @@
      "stage": "Q2 self-reference",
      "chain": "d7f64ca700df",
      "latest_utc": "2026-10-16T06:35:38Z"
+    },
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "a49c36c7b9a0",
+     "latest_utc": "2026-10-16T09:49:39Z"
     }
    ]
   },
@@ -26601,7 +26647,7 @@
    ],
    "data_status": "",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_BAND_01.md",
-   "status": "sealed",
+   "status": "run",
    "runs": [
     {
      "date": "2026-10-16",
@@ -26626,7 +26672,7 @@
      "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
-   "next_step": "build band_v1 with build_band_v1.py once the three Hansen counts are in (DEV-SECONDLAB-02 run 2)",
+   "next_step": "band v1 built (Normal 0.7787-1.0551, 156 readings, two laboratories); becomes IAM-A's Normal mark when IAM-A is commissioned (COM-IAMA-052)",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
@@ -26638,6 +26684,13 @@
    ],
    "chain_outputs": [
     {
+     "folder": "Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_SelfRef",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "a49c36c7b9a0",
+     "latest_utc": "2026-10-16T09:50:25Z"
+    },
+    {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01",
      "files": 1,
      "stage": "Q2 self-reference",
@@ -26646,10 +26699,17 @@
     },
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_BAND_01",
-     "files": 1,
+     "files": 2,
      "stage": "Q2 self-reference",
-     "chain": "7d4c3559ad99",
-     "latest_utc": "2026-10-16T09:24:30Z"
+     "chain": "a49c36c7b9a0",
+     "latest_utc": "2026-10-16T09:52:24Z"
+    },
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/out",
+     "files": 3,
+     "stage": "Q2 self-reference",
+     "chain": "a49c36c7b9a0",
+     "latest_utc": "2026-10-16T09:49:15Z"
     }
    ]
   },

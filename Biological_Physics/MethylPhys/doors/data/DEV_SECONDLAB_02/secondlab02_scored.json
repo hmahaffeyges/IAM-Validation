@@ -1,0 +1,98 @@
+{
+ "test": "DEV-SECONDLAB-02 S1",
+ "verdict": "NOT MET",
+ "donors_read": 3,
+ "donors_within": 1,
+ "need": 2,
+ "bar": 0.006661030952544791,
+ "line_version": 1,
+ "loyfer_b_mean_residual": -0.003876902731476913,
+ "rows": [
+  {
+   "donor": "B1",
+   "sample": "GSM1202807",
+   "run": "SRR948844",
+   "shape": {
+    "read": true,
+    "cell": "b cells",
+    "tile_p10": 0.7501043841336117,
+    "healthy_min_p10": 0.7163923819835069,
+    "margin": 0.05426611336258584,
+    "limit": 0.662126268620921,
+    "healthy_n": 3,
+    "reason": "read"
+   },
+   "read": true,
+   "loose_share": 0.047847935328818,
+   "held_err": 0.03559800440260061,
+   "sub_err": 0.005665007294636748,
+   "conv_fail": 0.018109977154686773,
+   "read_length": 101,
+   "predicted": 0.04192153442256428,
+   "residual": -0.00632353001996367,
+   "within": true,
+   "lab_shift": -0.0024466272884867573
+  },
+  {
+   "donor": "B2",
+   "sample": "GSM1202808",
+   "run": "SRR948845",
+   "shape": {
+    "read": true,
+    "cell": "b cells",
+    "tile_p10": 0.7592626671574041,
+    "healthy_min_p10": 0.7163923819835069,
+    "margin": 0.05426611336258584,
+    "limit": 0.662126268620921,
+    "healthy_n": 3,
+    "reason": "read"
+   },
+   "read": true,
+   "loose_share": 0.04204926395569159,
+   "held_err": 0.03357663796917356,
+   "sub_err": 0.0019871633441171776,
+   "conv_fail": 0.022950173807677363,
+   "read_length": 101,
+   "predicted": 0.04172075826155142,
+   "residual": -0.008144120292377863,
+   "within": false,
+   "lab_shift": -0.004267217560900949
+  },
+  {
+   "donor": "B3",
+   "sample": "GSM1202809",
+   "run": "SRR948846",
+   "shape": {
+    "read": true,
+    "cell": "b cells",
+    "tile_p10": 0.7721975019657435,
+    "healthy_min_p10": 0.7163923819835069,
+    "margin": 0.05426611336258584,
+    "limit": 0.662126268620921,
+    "healthy_n": 3,
+    "reason": "read"
+   },
+   "read": true,
+   "loose_share": 0.03202328966521106,
+   "held_err": 0.03227240627465273,
+   "sub_err": 0.0027278421962637477,
+   "conv_fail": 0.05114441903058879,
+   "read_length": 101,
+   "predicted": 0.041373613803980455,
+   "residual": -0.009101207529327728,
+   "within": false,
+   "lab_shift": -0.005224304797850814
+  }
+ ],
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "a49c36c7b9a072d8ccfd7fc12b0970d82e997593282f53cb5f2c2be5d8bb6be2",
+  "payload_sha256": "93413cbb73f730a4b4795922ec21031af8b681a013bbdcb844c39ee9070b1323",
+  "inputs": [],
+  "manifest": [
+   "COM-IAMA-053",
+   "PHY-047"
+  ],
+  "utc": "2026-10-16T09:49:39Z"
+ }
+}

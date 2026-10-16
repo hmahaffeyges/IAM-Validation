@@ -7,16 +7,16 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 ## The order of work
 
 1. **IAM-A gate: second laboratory (Hansen healthy B cells)**
-   - PHY-047 (run; last run 2026-10-15: not met): count run 2 counted all three but the counts failed their own stamp check (lesson C18, the chain hashed before the JSON round trip); chain fixed, synthetic T8 MET; count run 3 (i-0c7b1e115294ce1e4, launched 02:40 PDT), then score_secondlab02.py once
-   - COM-IAMA-053 (run; last run 2026-10-16: met): applied first in DEV-SECONDLAB-02 (Hansen B cells, limit 0.662)
+   - PHY-047 (run; last run 2026-10-16: not met): NOT MET by S1 (1 of 3 within 0.0067; all three below the line, the same side as Loyfer's B cells). Diagnosis: the donor order follows conversion failure (1.8, 2.3, 5.1 percent); with sequencing error and conversion failure removed the donors agree (0.0305-0.0323). Next: PHY-050, both laboratories' meter error measured the same way, then a new sealed test; decision with the author
+   - COM-IAMA-053 (run; last run 2026-10-16: not met): applied first in DEV-SECONDLAB-02 (Hansen B cells, limit 0.662)
 2. **IAM-A: the sequencer's own error subtracted**
-   - PHY-050 (run; last run 2026-10-15: progressed): apply the measured sequencing error to the line once Hansen is counted by chain Stage Q2 (both laboratories then measured the same way); rule first
+   - PHY-050 (run; last run 2026-10-15: progressed): measured on Hansen (sequencing error 0.002-0.006, conversion failure 1.8-5.1 percent, chain count run 3); Loyfer's needs reads with non-CpG context, which its .pat files do not carry; options for the author: Loyfer's raw reads (access to be checked), or a line rebuilt from a public laboratory whose meter error can be measured
 3. **IAM-A: its own healthy band, from evidence across laboratories**
-   - COM-IAMA-054 (sealed; last run 2026-10-16: met): build band_v1 with build_band_v1.py once the three Hansen counts are in (DEV-SECONDLAB-02 run 2)
+   - COM-IAMA-054 (run; last run 2026-10-16: met): band v1 built (Normal 0.7787-1.0551, 156 readings, two laboratories); becomes IAM-A's Normal mark when IAM-A is commissioned (COM-IAMA-052)
 4. **IAM-A: clean room, part A**
    - PHY-055 (planned): part A (IAM-A, 2026-10-16): fresh public clone, public data only (GEO, ENCODE), chain Stage Q2 recounts Loyfer 153 and ENCODE 5, rebuilds the self-reference line and the shape reference; every count, the line and the reference must equal the committed ones (doors/data/CLEANROOM_IAMA_01/). Not in part A: the Hansen rerun (one run only; its script and chain code are committed), the restricted tumor pairs (not public), the eraser and island side results (own chain reruns later)
 5. **IAM-A: the grand sealed test, then commissioning**
-   - COM-IAMA-052 (planned): remaining gates (2026-10-16): PHY-047 (Hansen score), PHY-050 (meter error from the Hansen count), COM-IAMA-054 (band rule sealed 2026-10-16; built after the Hansen count), PHY-055 part A (clean room); then this test on the unopened CD8 sets GSE144691, GSE98837, bars sealed before reading; commission if met. Recommended to the author as NOT gates: OTH-059 concern and tumor lines (reporting marks from the A-score database; Met-A and the C-score were commissioned without them), OTH-058 agreement check (needs two commissioned instruments on the same samples)
+   - COM-IAMA-052 (planned): remaining gates (2026-10-16): PHY-047 (Hansen scored NOT MET 2026-10-16; meter error is the lead), PHY-050 (meter error from the Hansen count), COM-IAMA-054 (band v1 built 2026-10-16), PHY-055 part A (clean room); then this test on the unopened CD8 sets GSE144691, GSE98837, bars sealed before reading; commission if met. Recommended to the author as NOT gates: OTH-059 concern and tumor lines (reporting marks from the A-score database; Met-A and the C-score were commissioned without them), OTH-058 agreement check (needs two commissioned instruments on the same samples)
 6. **Atlas v2.1: the fit lands; release checks, sealed bars, the Loyfer and Moss use tests**
    - ATL-005 (running): the v2.1 fit is running on methylphys-cpu-01 (m7a.32xlarge, 128 cores, 512 GB; job c2b26b34): 558 of 700 blocks at 2026-10-16T08:46:11Z, 12 divergences, worst R-hat p99 1.0084; then release checks (F05 judges the divergent blocks), the sealed bars and the use tests
    - ATL-060 (sealed): after the v2.1 release: assemble the held-out betas (Stage 1) and run use_tests_v21.py real once
@@ -45,7 +45,6 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 |---|---|---|
 | Atlas v2.1 fit (stage B, 700 blocks, mode v21inv) | methylphys-cpu-01 (on-demand m7a.32xlarge, 128 cores, 512 GB) | ATL-005 |
 | DEV-BACKBONE-01 island arm: tumor pairs re-aligned | methylphys-fit-01 (spot m7a.8xlarge, 32 cores, fixed address 32.190.44.180) | PHY-043 |
-| DEV-SECONDLAB-02 step 3, count run 3: Hansen's three donors counted by chain Stage Q2 (stamp fix, lesson C18) | spot m7a.8xlarge, self-terminating (5-hour hard stop) | PHY-047, PHY-050, COM-IAMA-054 |
 
 ## Decisions waiting for the author
 
