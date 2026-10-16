@@ -689,7 +689,7 @@
    "results/ATLAS_V21/fit/stageB_v21_summary.json": true,
    "results/ATLAS_V21/fit/distinctness_v21.csv": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "succeeded"
  },
  "4110eb64-6c55-4e58-93e5-97590ef5acc1": {
   "s3": {
@@ -970,5 +970,19 @@
    "results/DEV_IAMA_GRAND_01/reports/": false
   },
   "state_at_verify": "running"
+ },
+ "725c1103-2c7a-4594-80d6-28b122b00d3a": {
+  "s3": {
+   "assemble_v21.py": "9e3bd0cc7e8c55ddc067bee3d90f3a84a83bb56f753ea920470194fc9ce41c2a"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/ATLAS_V21/assembly/atlas_v21_summary.parquet": true,
+   "results/ATLAS_V21/assembly/output_manifest_v21.json": true,
+   "results/ATLAS_V21/assembly/convergence_v21.json": true
+  },
+  "state_at_verify": "succeeded"
  }
 }

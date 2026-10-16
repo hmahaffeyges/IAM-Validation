@@ -1,0 +1,20 @@
+{
+ "cell_site_pairs_measured": 60687175,
+ "cells": 79,
+ "sites": 813951,
+ "share_rhat_ge_101": 0.0042154211330482924,
+ "share_ess_lt_100": 0.00028496960024914655,
+ "worst_block_share_rhat_ge_101": 0.007082953614728852,
+ "divergent_blocks": {
+  "660": 1,
+  "467": 1,
+  "458": 11
+ },
+ "divergences_total": 13,
+ "flatness": {
+  "median_spread_across_cells": 0.11373982578516006,
+  "p10": 0.022920526564121246,
+  "p90": 0.24683354794979095,
+  "v2_broken_run": "about 0.005"
+ }
+}

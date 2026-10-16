@@ -958,7 +958,7 @@
    "date": "2026-10-15",
    "commit": "9d6991f5",
    "s3_code_prefix": "results/ATLAS_V21/fit/code/run1/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/ATLAS_V21/fit/run_v21.log",
    "machine": "methylphys-cpu-01 (on-demand m7a.32xlarge, 128 cores, 512 GB)",
    "purpose": "the atlas v2.1 fit: 700 blocks, 16 at a time; each block uploaded to S3 as it lands",
@@ -977,7 +977,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/run_v21_block.py",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json"
    ],
-   "note": "running; started 2026-10-15 06:25:59 UTC (run_v21.log); about 24 h, about $180",
+   "note": "700 of 700 blocks, finished 2026-10-16 08:22 PDT; blocks were on the machine's disk only until the 08:23 PDT backup to results/ATLAS_V21/fit/blocks/ (2,800 files)",
    "manifest": [
     "ATL-005"
    ]
@@ -1453,6 +1453,30 @@
     "COM-IAMA-052"
    ],
    "note": "running; its start-up file is committed as box/ud_grand_B.sh (EC2 user data, not part of the published code folder)"
+  },
+  {
+   "job_id": "725c1103-2c7a-4594-80d6-28b122b00d3a",
+   "name": "Atlas v2.1 assembly (release F03, F04, F05)",
+   "date": "2026-10-16",
+   "commit": "6233e4a2",
+   "s3_code_prefix": "results/ATLAS_V21/assembly/code/run1/",
+   "state": "succeeded",
+   "log": "results/ATLAS_V21/assembly/convergence_v21.json",
+   "machine": "methylphys-cpu-01",
+   "purpose": "stack the 700 blocks into one atlas file, checksum every block file, per-site convergence; no new fitting, no held-out data",
+   "record": "doors/DEV_ATLAS_V21_01.md",
+   "outputs": [
+    "results/ATLAS_V21/assembly/atlas_v21_summary.parquet",
+    "results/ATLAS_V21/assembly/output_manifest_v21.json",
+    "results/ATLAS_V21/assembly/convergence_v21.json"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/assemble_v21.py"
+   ],
+   "manifest": [
+    "ATL-005"
+   ],
+   "note": "0.42 percent of 60.7 million cell-site pairs at R-hat >= 1.01 (worst block 0.71 percent, bar 1 percent); ESS < 100 0.03 percent; divergences 13 in blocks 458 (11), 467, 660; median spread across cells 0.114 (v2's broken run about 0.005)"
   }
  ],
  "not_jobs": {

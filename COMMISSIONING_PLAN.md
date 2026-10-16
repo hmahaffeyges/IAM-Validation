@@ -18,7 +18,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 5. **IAM-A: the grand sealed test, then commissioning**
    - COM-IAMA-052 (running): sealed 2026-10-16 (author: 'okay, seal it'): 13 healthy CD8 T-cell samples, GSE144691 (Youngblood, St. Jude), first 40 billion bases each, chain count; S1: at least 75 percent of read samples inside band v1, at least 8 read. Two self-terminating machines aligning and counting (run 1 never started, start-up file quoting; run 2: A i-0fd3660dff150bd4a, B i-0888ed7bd36c2020c, launched 04:34 PDT (AWS launch time); preflight ok 04:41 PDT, mapping 89.3 and 89.7 percent, poly-G tails 0.01 percent); then score_grand.py once
 6. **Atlas v2.1: the fit lands; release checks, sealed bars, the Loyfer and Moss use tests**
-   - ATL-005 (running): fit finished 2026-10-16 08:22 PDT: 700 of 700 blocks, every block R-hat p99 < 1.01 (worst 1.0085), ESS p01 >= 429, 13 divergences, distinctness PASS (0 of 3,081 pairs below 0.005; closest naive CD4/CD8 0.013); blocks backed up to S3 (2,800 files); next: assembly (assemble_v21.py: F03, F04, F05), then the held-out scoring by the amended bars (Stage A21)
+   - ATL-005 (running): fit finished 2026-10-16 08:22 PDT: 700 of 700 blocks, every block R-hat p99 < 1.01 (worst 1.0085), ESS p01 >= 429, 13 divergences, distinctness PASS (0 of 3,081 pairs below 0.005; closest naive CD4/CD8 0.013); blocks backed up to S3 (2,800 files); assembled 08:29 PDT (one atlas file, checksums, convergence: 0.42 percent of cell-site pairs at R-hat >= 1.01, worst block 0.71 percent against 1 percent; 13 divergences in blocks 458, 467, 660; not flat, median spread 0.114); next: the held-out scoring by the amended bars (Stage A21)
    - ATL-060 (sealed): after the v2.1 release: assemble the held-out betas (Stage 1) and run use_tests_v21.py real once
 7. **Backbone: healthy range on the same counter; tumor-adjacent against truly healthy colon**
    - PHY-071 (planned): count the 56 healthy cell types' firm territory with PROC-TUMOUR-01's counter; write the range before comparing; re-read N and T2
@@ -43,7 +43,6 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 
 | Job | Machine | Rows |
 |---|---|---|
-| Atlas v2.1 fit (stage B, 700 blocks, mode v21inv) | methylphys-cpu-01 (on-demand m7a.32xlarge, 128 cores, 512 GB) | ATL-005 |
 | DEV-BACKBONE-01 island arm: tumor pairs re-aligned | methylphys-fit-01 (spot m7a.8xlarge, 32 cores, fixed address 32.190.44.180) | PHY-043 |
 | DEV-IAMA-GRAND-01 machine A, run 2: CD8 samples aligned and counted by chain Stage Q2 | spot m6a.32xlarge, self-terminating (20-hour hard stop) | COM-IAMA-052 |
 | DEV-IAMA-GRAND-01 machine B, run 2: CD8 samples aligned and counted by chain Stage Q2 | spot m7a.32xlarge, self-terminating (20-hour hard stop) | COM-IAMA-052 |
