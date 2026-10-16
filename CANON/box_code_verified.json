@@ -835,7 +835,7 @@
   "outputs_in_s3": {
    "results/DEV_CHAIN_Q2_01/shape/out/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "succeeded"
  },
  "i-0cde3f265d7110189": {
   "s3": {

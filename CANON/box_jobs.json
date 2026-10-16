@@ -1203,7 +1203,7 @@
    "date": "2026-10-15",
    "commit": "764e072e",
    "s3_code_prefix": "results/DEV_CHAIN_Q2_01/shape/code/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/DEV_CHAIN_Q2_01/shape/status.txt",
    "machine": "spot m7a.8xlarge, self-terminating (14-hour hard stop)",
    "purpose": "tile percentiles for every healthy sample and the ENCODE five; held error and loose share must reproduce step 2 exactly",
@@ -1221,7 +1221,7 @@
     "COM-IAMA-053",
     "OTH-057"
    ],
-   "note": "running"
+   "note": "146 Loyfer and 5 ENCODE counted with tile percentiles, identical to step 2 on held error and loose share; 7 GEO-refused samples counted locally by the same chain; machine shut itself down after finishing"
   },
   {
    "job_id": "i-0cde3f265d7110189",
