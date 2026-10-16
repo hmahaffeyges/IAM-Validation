@@ -26606,7 +26606,7 @@
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
-   "notes": "author 2026-10-15 | 2026-10-16: the Hansen count (job i-0987cb49e219d16f2) measures this row's inputs",
+   "notes": "author 2026-10-15 | 2026-10-16: the Hansen count (job i-0987cb49e219d16f2) measures this row's inputs | prior reading of Loyfer's 153 counts committed as a chain output (prior_loyfer.json); record numbers match it",
    "legacy_ids": [],
    "id": "COM-IAMA-054",
    "sources_of_row": [

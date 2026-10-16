@@ -1,43 +1,7 @@
 [
 {
-"file": "TODO.md",
-"line": 40,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "- [ ] **OTH-051** (impact 5, laptop) The A-score database: one table per instrument, one row per sample read: add each new test's per-sample rows as a source (t"
-},
-{
-"file": "TODO.md",
-"line": 41,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "- [ ] **OTH-054** (impact 5, laptop) C-Score tumor line in the A-score database: read real tumors with the C-Score under a sealed bar (its next test) and add th"
-},
-{
-"file": "TODO.md",
-"line": 117,
-"pattern": "class H_min",
-"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
-"severity": "warn",
-"status": "LIVE",
-"text": "- [ ] **OTH-052** (impact 4, laptop) Re-read the class h_min era's signals with the commissioned instruments: list each earlier signal with its record; pick the"
-},
-{
-"file": "TODO.md",
-"line": 129,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "- [ ] **PHY-069** (impact 4, laptop) The concern line: where a reading first leaves the healthy line before it reaches tumor territory (the Warburg line, a poin"
-},
-{
 "file": "README.md",
-"line": 29,
+"line": 31,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -46,7 +10,16 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 373,
+"line": 136,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| **COM-IAMA-052** | IAM-A atlas-free commissioning: one grand sealed test on fresh data | commission IAM-A with no atlas and no arrays: on a new laboratory's s"
+},
+{
+"file": "MANIFEST.md",
+"line": 375,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -55,7 +28,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 377,
+"line": 379,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
@@ -64,7 +37,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 411,
+"line": 413,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -73,7 +46,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 483,
+"line": 485,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -82,7 +55,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 923,
+"line": 925,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -91,7 +64,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 924,
+"line": 926,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
@@ -100,7 +73,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 926,
+"line": 928,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -108,31 +81,40 @@
 "text": "| **OTH-054** | C-Score tumor line in the A-score database | Where on the C-Score's scale tumors begin | C-Score | Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-"
 },
 {
-"file": "COMMISSIONING_PLAN.md",
-"line": 3,
+"file": "MANIFEST.md",
+"line": 933,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "The author's mandate: commission IAM-A first and foremost, then the C-Score, Met-A on its own loose share, and Group-A; build the A-score"
+"text": "| **OTH-059** | Three lines and a margin on every gauge: healthy band, concern line, tumor line, all from data; margin larger than the worst measured lab shift "
 },
 {
 "file": "COMMISSIONING_PLAN.md",
-"line": 57,
+"line": 5,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "| 5 | OTH-051 | The A-score database generator and its gate check | laptop |"
+"text": "Commission IAM-A first and foremost, then the C-score, Met-A on its own loose share, and Group-A; build the A-score database; derivations only where they improv"
 },
 {
 "file": "COMMISSIONING_PLAN.md",
-"line": 87,
+"line": 19,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "| 21 | PHY-069 | The concern line (where a reading first leaves the healthy line) from the A-score database |"
+"text": "- COM-IAMA-052 (planned): remaining gates (2026-10-16): PHY-047 (Hansen score), PHY-050 (meter error from the Hansen count), COM-IAMA-054 (band rule sealed 2026"
+},
+{
+"file": "COMMISSIONING_PLAN.md",
+"line": 31,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- OTH-059 (planned): for each instrument: healthy band from healthy readings (Met-A's 0.95-1.05 was set by hand on 2026-10-01 and confirmed, 525 of 541 healthy "
 },
 {
 "file": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
@@ -352,7 +334,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/README.md",
-"line": 25,
+"line": 26,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -403,6 +385,33 @@
 "severity": "warn",
 "status": "RECORD",
 "text": "per-cell A-score architecture on the eight-class grid, the disease rows it flagged pulled"
+},
+{
+"file": "Biological_Physics/MethylPhys/archive/history_2026-10-16/COMMISSIONING_PLAN_to_2026-10-15.md",
+"line": 3,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The author's mandate: commission IAM-A first and foremost, then the C-Score, Met-A on its own loose share, and Group-A; build the A-score"
+},
+{
+"file": "Biological_Physics/MethylPhys/archive/history_2026-10-16/COMMISSIONING_PLAN_to_2026-10-15.md",
+"line": 59,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| 5 | OTH-051 | The A-score database generator and its gate check | laptop |"
+},
+{
+"file": "Biological_Physics/MethylPhys/archive/history_2026-10-16/COMMISSIONING_PLAN_to_2026-10-15.md",
+"line": 89,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| 21 | PHY-069 | The concern line (where a reading first leaves the healthy line) from the A-score database |"
 },
 {
 "file": "Biological_Physics/MethylPhys/whiteboard/2026-10-14_coffee_and_whiteboard.md",
@@ -1096,15 +1105,6 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "compressed (~0.85 instead of ~0.95) and inflates every downstream A-score. The"
-},
-{
-"file": "Biological_Physics/MethylPhys/daylogs/2026-10-15.md",
-"line": 147,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "RECORD",
-"text": "In progress. Running: the atlas v2.1 fit (164 of 700 blocks, expected Friday October 16, about 9 AM Pacific), the tumor pairs on both sides (PHY-043, 10 of 12 s"
 },
 {
 "file": "Biological_Physics/MethylPhys/daylogs/2026-10-13.md",
