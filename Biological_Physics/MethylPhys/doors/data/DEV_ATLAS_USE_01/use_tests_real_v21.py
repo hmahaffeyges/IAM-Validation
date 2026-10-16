@@ -26,7 +26,9 @@ OUTSIDE_LAB = {k: v for k, v in SEAL["outside_cells_heldout_to_v21"].items() if 
 EXCL = {"GSE132547": "D13 NOT MET (2026-10-16)"}
 union = lambda mk: sorted(set().union(*[set(m.index) for m in mk.values()]))
 def refs(summary):
-    M = pd.read_csv(MO, index_col=0); M.index = M.index.astype(str); moss = M[[MAP[c] for c in SHARED]]; moss.columns = SHARED
+    M = pd.read_csv(MO, index_col=0); M.index = M.index.astype(str)
+    M = M[~M.index.duplicated()]   # Moss lists a site once per cell it marks: 7,890 rows, 6,105 sites, every repeat identical (checked 2026-10-16; run 2 stopped on it before any score)
+    moss = M[[MAP[c] for c in SHARED]]; moss.columns = SHARED
     T = pq.read_table(summary, filters=[("cell", "in", SHARED + OUTSIDE)], columns=["cell", "cpg", "mu"]).to_pandas()
     v21 = T.pivot(index="cpg", columns="cell", values="mu"); v21.index = v21.index.astype(str); return v21[SHARED + OUTSIDE], moss
 def load_arrays(shards):
