@@ -8,7 +8,8 @@ tile percentiles), for the DEV-SECONDLAB-01 scale diagnosis on 2026-10-15. No he
 
 **In plain words.** IAM-A reads a sample against its own loose share, using one line measured on healthy cells in one laboratory. This
 test asks whether that line holds for healthy B cells from a different laboratory. The bar was fixed from the line's own scatter before any of
-these cells is counted.
+these cells is counted. What it would take to succeed: at least two of the three donors pass the shape check and read within 0.0067 of
+the line.
 
 **Step 1 (running): alignment only.** `data/DEV_SECONDLAB_02/box/align_hansen.sh`: full runs SRR948844, SRR948845, SRR948846 from NCBI's open copy in AWS (fasterq-dump; ENA served them at about 0.26 MB/s, so the first machine, i-08f7918ad0a721c4c, was stopped after 35 minutes with nothing downloaded),
 Trim Galore, Bismark paired-end on hg38 (the tumor work's tools and index), deduplication, sorted and indexed BAMs to S3. No count.
