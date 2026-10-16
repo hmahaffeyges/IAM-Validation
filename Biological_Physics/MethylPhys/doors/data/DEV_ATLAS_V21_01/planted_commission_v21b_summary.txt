@@ -1,0 +1,18 @@
+Atlas v2.1 planted test of the AMENDED commissioning scorers (chain Stage A21), run once
+lab spread from the fit's offsets: 0.0065
+U1-a: COMMISSIONED (planted COMMISSIONED) ok share 1.000
+U1-b: FAILED (planted FAILED) ok share 0.000
+U1-c: FAILED (planted FAILED) ok share 0.000
+U1-d: FAILED (planted FAILED) ok share 0.000
+U1-f: COMMISSIONED (planted COMMISSIONED) ok share 0.958
+U1-g: FAILED (planted FAILED) ok share 0.875
+U1-h: COMMISSIONED (planted COMMISSIONED) ok share 1.000, withheld ['s21', 's22', 's23']
+U1-e: COMMISSIONED (planted COMMISSIONED) ok share 1.000
+U2-a: COMMISSIONED (planted COMMISSIONED) ok 
+U2-b: FAILED (planted FAILED) ok 
+U2-c: NOT ASSESSED (planted NOT ASSESSED) ok 
+U2-d: COMMISSIONED (planted COMMISSIONED) ok 
+U3-a: True (planted True) ok 
+U3-b: False (planted False) ok 
+U3-c: True (planted True) ok 
+PLANTED COMMISSIONING TEST (amended): PASSED

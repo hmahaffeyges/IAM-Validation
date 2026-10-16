@@ -307,5 +307,27 @@ sample's sites inside the 90 % posterior predictive interval at 0.80-0.97, every
 lists the sealed cancer tests used, and U2b: the same rule on v2.1; each panel cell's held-out set mean within the test's tolerance of the epithelial
 anchor at >= 0.90 of sites. U3: composition bars 1-2 unchanged. U4: development. Planted test of every scorer, run once: PASSED (a correct atlas reads
 0.9261 coverage; intervals too narrow 0.7336, a shifted laboratory 0.5730 and too wide 1.0000 all FAILED as planted; a disagreeing panel cell 0.7172 FAILED).
-**Synthetic test:** DEV_ATLAS_V21_01/planted_commission_v21.py, DEV_ATLAS_V21_01/planted_commission_v21_summary.txt
+**Original synthetic test (2026-10-14; superseded 2026-10-16 by the amended scorer's planted test below, kept as history):** DEV_ATLAS_V21_01/planted_commission_v21.py, DEV_ATLAS_V21_01/planted_commission_v21_summary.txt
 **Prior reading:** the spent series named in this record (GSE103541, GSE118144, GSE122244, GSE167998, GSE226298, GSE271697) are BUILD sets of the atlas; none is a commissioning test set. The U1-U3 test sets are the plan's held-out assignments, unopened.
+
+## Amendment to the commissioning bars, sealed 2026-10-16 before the atlas exists
+
+**Sealed 2026-10-16 by the author ("Seal the amendment").** The fit stood at 580 of 700 blocks; no held-out array had been opened. Stamped record:
+`data/DEV_ATLAS_V21_01/amendment_v21b.json`. Scorer: chain Stage A21, `chain/stage_atlas_commission.py`; the original scorer
+(`commission_v21.py`) and `sealed_commission_v21.json` are kept unchanged as history.
+
+**The instrument's job:** a healthy cell from any laboratory reads inside the atlas's range for that cell, and a mixed blood sample splits into its cells correctly.
+
+**Sources:** the held-out sets of atlas_v21_plan.md (U1, U2, U3 lists), all public on GEO or ArrayExpress: arrays with their laboratory, cell label and, for U3, FACS counts; sequencing GSE173787, public on GEO.
+
+Why: the sealed bars passed or failed a whole cell on every set, and the U1 range left out the laboratory-to-laboratory shift the fit itself
+measures, the trap DEV-SECONDLAB-02 fell into (lessons C19, KISS). The bars themselves are unchanged.
+
+- **B1:** U1 reference profiles: at least 95 % of a cell's healthy held-out samples, all laboratories pooled, have coverage in 0.80-0.97; the array range includes the measured laboratory spread (SD of the fit's own array-laboratory offsets, 0.0065).
+- **B2:** U2 blind sites: the epithelium is assessed and at least 95 % of the tissue's assessed panel cells reach share 0.90.
+- **B3:** U3 composition: neutrophil mean absolute error at most 0.02 and at least 95 % of samples within 0.05.
+- **Listed, not scored:** any sample or set the chain withholds (Stage 1 QC, the identity and sex check, the composition guard). Every set, cell and sample is still reported.
+
+**Synthetic test:** DEV_ATLAS_V21_01/planted_commission_v21b.py, DEV_ATLAS_V21_01/planted_commission_v21b_summary.txt
+
+**What it would take to succeed:** B1, B2 and B3 met by the real held-out sets once the atlas is released.

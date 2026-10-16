@@ -1,0 +1,28 @@
+{
+ "amends": "sealed_commission_v21.json",
+ "sealed_by_author": "2026-10-16, before the atlas exists (fit at 580 of 700 blocks; no held-out array opened)",
+ "instruments_job": "a healthy cell from any laboratory reads inside the atlas's range for that cell, and a mixed blood sample splits into its cells correctly",
+ "scorer": "Biological_Physics/MethylPhys/chain/stage_atlas_commission.py",
+ "scorer_sha256": "3d6f368e1d13a8769ad51e76804a7feef0663f5101be18028f3f9599ba15d433",
+ "original_scorer_sha256": "89102b7508b56c056d6a9cb4bdcc776e6ca065426d0244f5f6528ff2944a1827",
+ "lab_spread": 0.0065,
+ "share": 0.95,
+ "changes": [
+  "U1 range adds the measured laboratory spread (SD of the fit's array laboratory offsets) to the donor spread",
+  "samples or sets the chain withholds are listed, not scored",
+  "U1: >= 95 % of a cell's healthy held-out samples, all laboratories pooled, with coverage 0.80-0.97 (was: every set)",
+  "U2: epithelium assessed and >= 95 % of assessed panel cells at share >= 0.90 (was: every cell)",
+  "U3: mean absolute error <= 0.02 and >= 95 % of samples within 0.05 (was: every sample)"
+ ],
+ "planted": "planted_commission_v21b.py: PASSED (15 cases)",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "a70384ce40bcd6775f34ff5848ef5d5754bcfedd64878b510e1287cc3260e4fa",
+  "payload_sha256": "e56ce233e70cca1156091096a8aefd3e2c3a7ac8de5d0ebc05517b0370159c77",
+  "inputs": [],
+  "manifest": [
+   "ATL-005"
+  ],
+  "utc": "2026-10-16T10:21:06Z"
+ }
+}

@@ -152,7 +152,7 @@ GSE166844,,,,,,,,,not usable (no raw data: per-sample IDAT not listed and RAW.ta
 GSE167202,downloads/A_blood_immune/GSE167202/,13.4,IDAT,yes,unspent,,,DEV_ATLAS_COMMISSION_01; DEV_COMPOSITION_TRUTH_04,truth set,,yes,IDAT listed for 525/525 samples,Human blood and immune-disease arrays (blood cancers first); Host methylation predicts SARS-CoV-2 infection and clinical outcome,S3 register; gold-mine map
 GSE167998,,,,,spent,,,COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_COMMISSION_01; DEV_ATLAS_EPIC_01; DEV_ATLAS_V21_01; DEV_BASE_CHAIN_01; DEV_COMPOSITION_TRUTH_02; DEV_DIRECTION_A,,,,,,
 GSE173330,downloads/E_dog_animal/GSE173330/,0.85,,,unspent,,,,,,,,Dog and other mammal arrays,S3 register
-GSE173787,,,,,,,,,held-out test,b cells | cd4 t cells | cd8 t cells | monocytes,yes,SRA run links for 133/133 samples,DNA methylation profiles of four immune cell types from MS patients and healthy controls,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE173787,,,,,,,,DEV_ATLAS_V21_01,held-out test,b cells | cd4 t cells | cd8 t cells | monocytes,yes,SRA run links for 133/133 samples,DNA methylation profiles of four immune cell types from MS patients and healthy controls,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE174047,,,,,spent (declared before reading),,,DEV_ERASE_01,,,,,,
 GSE174818,,,,,spent,,,,,,,,,
 GSE175458,,,,,,,,,not usable (not purified (lung tissue)),,yes,IDAT listed for 547/547 samples,Functional Validation of Common Idiopathic Pulmonary Fibrosis Genetic Risk Variants [850k methylation arrays],gold-mine map

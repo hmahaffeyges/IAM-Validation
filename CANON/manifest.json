@@ -3781,11 +3781,20 @@
     "Atlas v2.1 compute dry run and ledger entry",
     "Atlas v2.1 culture drift mask (steps 1, 1b, 2)"
    ],
-   "notes": "Sources identified from metadata; not downloaded unless stated. | readiness board: Biological_Physics/MethylPhys/V21_READINESS.md (the run refuses to launch until every before-launch item is met); launched 2026-10-15 06:25:59 UTC (11:26 PM Pacific Oct 14), box job c2b26b34, mode v21inv, 700 blocks on m7a.32xlarge, about 24 h",
+   "notes": "Sources identified from metadata; not downloaded unless stated. | readiness board: Biological_Physics/MethylPhys/V21_READINESS.md (the run refuses to launch until every before-launch item is met); launched 2026-10-15 06:25:59 UTC (11:26 PM Pacific Oct 14), box job c2b26b34, mode v21inv, 700 blocks on m7a.32xlarge, about 24 h | 2026-10-16: commissioning bars amended before the atlas exists (author: 'Seal the amendment'): lab spread in the U1 range, 95 percent shares instead of every set/cell/sample, chain-withheld samples listed not scored; chain Stage A21; planted test PASSED (15 cases)",
    "legacy_ids": [],
    "id": "ATL-005",
    "sources_of_row": [
     "Commissioning"
+   ],
+   "chain_outputs": [
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "a70384ce40bc",
+     "latest_utc": "2026-10-16T10:21:06Z"
+    }
    ]
   },
   {

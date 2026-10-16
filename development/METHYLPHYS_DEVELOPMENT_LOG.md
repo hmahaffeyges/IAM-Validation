@@ -2121,3 +2121,6 @@ The author: self-reference means the sample reads against itself and the instrum
 
 ### 2026-10-16 · KISS enforced at the gate (OTH-065)
 The author asked for a note KISS cannot be forgotten behind. CANON/kiss_check.py (controls 7 of 7) refuses a sealed rule without a plain line stating the instrument's job, with more than 3 scored bars, or with a source that is not public; wired into checked_push. Also first in the session memory.
+
+### 2026-10-16 · Atlas v2.1 commissioning bars amended before the atlas exists (ATL-005)
+The author sealed the amendment: the U1 range adds the measured laboratory spread (SD 0.0065 of the fit's 18 array-laboratory offsets); 95 percent shares replace every set, cell and sample in U1, U2 and U3; chain-withheld samples are listed, not scored. The bars are unchanged. Scorer moved into the chain (Stage A21); planted test PASSED, 15 cases; stamped amendment_v21b.json. Fit at 580 of 700 blocks; nothing held out opened.
