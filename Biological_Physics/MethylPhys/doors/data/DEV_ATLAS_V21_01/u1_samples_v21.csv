@@ -1,0 +1,1479 @@
+sample,series,label,cell,family,coverage,sites,status
+16910_CD14,E-MTAB-2145,"monocytes [E-MTAB-2145, ArrayExpress only]",monocytes,450K,0.8990076190196568,408714,scored
+16910_CD16,E-MTAB-2145,"neutrophils [E-MTAB-2145, ArrayExpress only]",neutrophils,450K,0.8520975353308916,403285,scored
+16910_CD19,E-MTAB-2145,"b cells [E-MTAB-2145, ArrayExpress only]",b cells,450K,0.8347340683032974,400742,scored
+16910_CD4,E-MTAB-2145,"cd4 t cells [E-MTAB-2145, ArrayExpress only]",cd4 t cells,450K,0.8854959934782176,402344,scored
+16910_CD8,E-MTAB-2145,"cd8 t cells [E-MTAB-2145, ArrayExpress only]",cd8 t cells,450K,0.7842210863476704,387758,scored
+20910_CD14,E-MTAB-2145,"monocytes [E-MTAB-2145, ArrayExpress only]",monocytes,450K,0.8926697502312674,405375,scored
+20910_CD16,E-MTAB-2145,"neutrophils [E-MTAB-2145, ArrayExpress only]",neutrophils,450K,0.8339325242155473,396671,scored
+20910_CD19,E-MTAB-2145,"b cells [E-MTAB-2145, ArrayExpress only]",b cells,450K,0.844739620854016,405332,scored
+20910_CD4,E-MTAB-2145,"cd4 t cells [E-MTAB-2145, ArrayExpress only]",cd4 t cells,450K,0.8879207119149175,410049,scored
+20910_CD8,E-MTAB-2145,"cd8 t cells [E-MTAB-2145, ArrayExpress only]",cd8 t cells,450K,0.8805219348483747,398977,scored
+22910B_CD14,E-MTAB-2145,"monocytes [E-MTAB-2145, ArrayExpress only]",monocytes,450K,0.8335615658182831,395065,scored
+22910B_CD16,E-MTAB-2145,"neutrophils [E-MTAB-2145, ArrayExpress only]",neutrophils,450K,0.8341666197152047,408244,scored
+22910B_CD19,E-MTAB-2145,"b cells [E-MTAB-2145, ArrayExpress only]",b cells,450K,0.8284252849537066,406645,scored
+22910B_CD4,E-MTAB-2145,"cd4 t cells [E-MTAB-2145, ArrayExpress only]",cd4 t cells,450K,0.7846904460688428,402337,scored
+22910B_CD8,E-MTAB-2145,"cd8 t cells [E-MTAB-2145, ArrayExpress only]",cd8 t cells,450K,0.6811602339658851,391852,scored
+24910A_CD14,E-MTAB-2145,"monocytes [E-MTAB-2145, ArrayExpress only]",monocytes,450K,0.8347588348638898,390272,scored
+24910A_CD16,E-MTAB-2145,"neutrophils [E-MTAB-2145, ArrayExpress only]",neutrophils,450K,0.8713434406886131,412352,scored
+24910A_CD19,E-MTAB-2145,"b cells [E-MTAB-2145, ArrayExpress only]",b cells,450K,0.7815805690293975,391087,scored
+24910A_CD4,E-MTAB-2145,"cd4 t cells [E-MTAB-2145, ArrayExpress only]",cd4 t cells,450K,0.8374508674351144,392306,scored
+24910A_CD8,E-MTAB-2145,"cd8 t cells [E-MTAB-2145, ArrayExpress only]",cd8 t cells,450K,0.8642534277913811,397778,scored
+24910B_CD14,E-MTAB-2145,"monocytes [E-MTAB-2145, ArrayExpress only]",monocytes,450K,0.8122272430832841,387937,scored
+24910B_CD16,E-MTAB-2145,"neutrophils [E-MTAB-2145, ArrayExpress only]",neutrophils,450K,0.895796877347927,412644,scored
+24910B_CD19,E-MTAB-2145,"b cells [E-MTAB-2145, ArrayExpress only]",b cells,450K,0.77718031978738,373248,scored
+24910B_CD4,E-MTAB-2145,"cd4 t cells [E-MTAB-2145, ArrayExpress only]",cd4 t cells,450K,0.8113918873259474,393631,scored
+24910B_CD8,E-MTAB-2145,"cd8 t cells [E-MTAB-2145, ArrayExpress only]",cd8 t cells,450K,0.8560319207343006,387961,scored
+29910_CD14,E-MTAB-2145,"monocytes [E-MTAB-2145, ArrayExpress only]",monocytes,450K,0.808708173205165,404884,scored
+29910_CD16,E-MTAB-2145,"neutrophils [E-MTAB-2145, ArrayExpress only]",neutrophils,450K,0.7861184708795427,392170,scored
+29910_CD19,E-MTAB-2145,"b cells [E-MTAB-2145, ArrayExpress only]",b cells,450K,0.7896310939479384,391536,scored
+29910_CD4,E-MTAB-2145,"cd4 t cells [E-MTAB-2145, ArrayExpress only]",cd4 t cells,450K,0.795179700319433,388814,scored
+29910_CD8,E-MTAB-2145,"cd8 t cells [E-MTAB-2145, ArrayExpress only]",cd8 t cells,450K,0.7511251879895633,363717,scored
+100SC,E-MTAB-4957,colon epithelium,colon epithelium,450K,0.9391208382416765,403225,scored
+100TI,E-MTAB-4957,small intestine epithelium,small intestine epithelium,450K,0.9385439781053854,399733,scored
+15SC,E-MTAB-4957,colon epithelium,colon epithelium,450K,0.9486715263949538,398239,scored
+15TI,E-MTAB-4957,small intestine epithelium,small intestine epithelium,450K,0.9348631645407876,399129,scored
+23SC,E-MTAB-4957,colon epithelium,colon epithelium,450K,0.9744563101740848,403309,scored
+23TI,E-MTAB-4957,small intestine epithelium,small intestine epithelium,450K,0.9476225742095399,396984,scored
+39ACn,E-MTAB-4957,colon epithelium [ascending],colon epithelium,450K,0.6776049954133291,406613,scored
+39SC,E-MTAB-4957,colon epithelium,colon epithelium,450K,0.9565602258878284,398782,scored
+39SCn,E-MTAB-4957,colon epithelium,colon epithelium,450K,0.688195120019209,403977,scored
+39TI,E-MTAB-4957,small intestine epithelium,small intestine epithelium,450K,0.9518606381053859,397928,scored
+39TIn,E-MTAB-4957,small intestine epithelium,small intestine epithelium,450K,0.6886718076326098,405890,scored
+56Sc,E-MTAB-4957,colon epithelium,colon epithelium,450K,0.9295066387629926,400903,scored
+56TI,E-MTAB-4957,small intestine epithelium,small intestine epithelium,450K,0.8527998083642745,384062,scored
+64SC,E-MTAB-4957,colon epithelium,colon epithelium,450K,0.980016329260855,406632,scored
+64TI,E-MTAB-4957,small intestine epithelium,small intestine epithelium,450K,0.9577217268195806,406852,scored
+7SC,E-MTAB-4957,colon epithelium,colon epithelium,450K,0.9498574654770279,405165,scored
+7TI,E-MTAB-4957,small intestine epithelium,small intestine epithelium,450K,,0,listed: withheld by Stage 1
+PSC_2,E-MTAB-4957,colon epithelium,colon epithelium,450K,0.8900493521017188,411330,scored
+PTI_2,E-MTAB-4957,small intestine epithelium,small intestine epithelium,450K,0.859375,410240,scored
+GSM2686823,GSE100561,monocytes,monocytes,450K,0.8904899275996694,410081,scored
+GSM2686824,GSE100561,monocytes,monocytes,450K,0.9262437164153233,403830,scored
+GSM2686825,GSE100561,monocytes,monocytes,450K,0.9128098891896629,410792,scored
+GSM2686829,GSE100561,monocytes,monocytes,450K,0.908987460830324,410394,scored
+GSM2686830,GSE100561,monocytes,monocytes,450K,0.9156826186036876,410295,scored
+GSM2686831,GSE100561,monocytes,monocytes,450K,0.907979598270692,409181,scored
+GSM2751783,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751784,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751785,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751786,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751787,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751788,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751789,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751790,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751791,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751792,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751793,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751794,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751795,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751796,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751797,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751798,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751799,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751800,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751801,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751802,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751803,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751804,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751805,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751806,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751807,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751808,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751809,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751810,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751811,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751812,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751813,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751814,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751815,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751816,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751817,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751818,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751819,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751820,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751821,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751822,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751823,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751824,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751825,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751826,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751827,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751828,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751829,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2751830,GSE102970,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM2794387,GSE104287,nk cells,nk cells,450K,0.871584967623676,376973,scored
+GSM2794389,GSE104287,nk cells,nk cells,450K,0.7966070137187389,370588,scored
+GSM2794390,GSE104287,nk cells,nk cells,450K,0.9193675022814987,392286,scored
+GSM2794391,GSE104287,nk cells,nk cells,450K,0.911640881664693,389309,scored
+GSM2794394,GSE104287,nk cells,nk cells,450K,0.8417208866417646,370251,scored
+GSM2794395,GSE104287,nk cells,nk cells,450K,0.9212020288049627,393335,scored
+GSM2794398,GSE104287,nk cells,nk cells,450K,0.8554436453387816,376393,scored
+GSM2794400,GSE104287,nk cells,nk cells,450K,0.920429924036756,386766,scored
+GSM2800975,GSE104471,lung bronchus epithelium,lung bronchus epithelium,450K,0.8777408459109575,408861,scored
+GSM2800976,GSE104471,lung bronchus epithelium,lung bronchus epithelium,450K,0.8944569436606988,409359,scored
+GSM2800979,GSE104471,lung bronchus epithelium,lung bronchus epithelium,450K,0.8749875028956705,410095,scored
+GSM2800981,GSE104471,lung bronchus epithelium,lung bronchus epithelium,450K,0.8917761704475273,409651,scored
+GSM2800982,GSE104471,lung bronchus epithelium,lung bronchus epithelium,450K,0.8849273320516772,408846,scored
+GSM2800983,GSE104471,lung bronchus epithelium,lung bronchus epithelium,450K,0.8996036018400705,408680,scored
+GSM2800984,GSE104471,lung bronchus epithelium,lung bronchus epithelium,450K,0.868379499136697,406578,scored
+GSM2800990,GSE104471,lung bronchus epithelium,lung bronchus epithelium,450K,0.8962948489363262,409430,scored
+GSM2800992,GSE104471,lung bronchus epithelium,lung bronchus epithelium,450K,0.8952226914228978,409917,scored
+GSM2800993,GSE104471,lung bronchus epithelium,lung bronchus epithelium,450K,0.8834733975579045,409812,scored
+GSM2800994,GSE104471,lung bronchus epithelium,lung bronchus epithelium,450K,0.8998093655293773,409160,scored
+GSM2800995,GSE104471,lung bronchus epithelium,lung bronchus epithelium,450K,0.8816190841954115,408799,scored
+GSM3059446,GSE112179,cortical neurons,cortical neurons,EPIC,0.9709210463946574,759484,scored
+GSM3059459,GSE112179,cortical neurons,cortical neurons,EPIC,0.9544875027105546,765526,scored
+GSM3059460,GSE112179,cortical neurons,cortical neurons,EPIC,0.9675814992790674,767062,scored
+GSM3059461,GSE112179,cortical neurons,cortical neurons,EPIC,0.9633850325309254,770805,scored
+GSM3059462,GSE112179,cortical neurons,cortical neurons,EPIC,0.9456892965611132,766847,scored
+GSM3059470,GSE112179,cortical neurons,cortical neurons,EPIC,0.9328316556021774,761445,scored
+GSM3059471,GSE112179,cortical neurons,cortical neurons,EPIC,0.952817788380424,764589,scored
+GSM3059472,GSE112179,cortical neurons,cortical neurons,EPIC,0.9623606110960259,769699,scored
+GSM3059473,GSE112179,cortical neurons,cortical neurons,EPIC,0.9700371783262284,763079,scored
+GSM3059474,GSE112179,cortical neurons,cortical neurons,EPIC,0.9297632276956271,739698,scored
+GSM3059475,GSE112179,cortical neurons,cortical neurons,EPIC,0.9411979499142294,761334,scored
+GSM3059493,GSE112179,cortical neurons,cortical neurons,EPIC,0.9519004741875504,765309,scored
+GSM3059500,GSE112179,cortical neurons,cortical neurons,EPIC,0.9107906814333799,738869,scored
+GSM3059505,GSE112179,cortical neurons,cortical neurons,EPIC,0.9647394976029877,763659,scored
+GSM3059510,GSE112179,cortical neurons,cortical neurons,EPIC,0.9618086217368065,768917,scored
+GSM3059512,GSE112179,cortical neurons,cortical neurons,EPIC,0.9624169448655002,772529,scored
+GSM3059513,GSE112179,cortical neurons,cortical neurons,EPIC,0.9697696799788692,764762,scored
+GSM3059514,GSE112179,cortical neurons,cortical neurons,EPIC,0.9671053921792939,764867,scored
+GSM3059519,GSE112179,cortical neurons,cortical neurons,EPIC,0.9614890342082938,755577,scored
+GSM3059521,GSE112179,cortical neurons,cortical neurons,EPIC,0.9590817268882639,756899,scored
+GSM3059522,GSE112179,cortical neurons,cortical neurons,EPIC,0.9497080334554944,754196,scored
+GSM3059523,GSE112179,cortical neurons,cortical neurons,EPIC,0.9436719201211295,768764,scored
+GSM3059527,GSE112179,cortical neurons,cortical neurons,EPIC,0.9340138993437305,754568,scored
+GSM3059529,GSE112179,cortical neurons,cortical neurons,EPIC,0.8978213590252285,764651,scored
+GSM3059530,GSE112179,cortical neurons,cortical neurons,EPIC,0.916752621743853,731002,scored
+GSM3059532,GSE112179,cortical neurons,cortical neurons,EPIC,0.9303157498076611,764276,scored
+GSM3059533,GSE112179,cortical neurons,cortical neurons,EPIC,0.9456792605288613,766061,scored
+GSM3059534,GSE112179,cortical neurons,cortical neurons,EPIC,0.9351862678762637,761135,scored
+GSM3059535,GSE112179,cortical neurons,cortical neurons,EPIC,0.9428980845075626,757873,scored
+GSM3059538,GSE112179,cortical neurons,cortical neurons,EPIC,0.9436763163976659,765859,scored
+GSM3059539,GSE112179,cortical neurons,cortical neurons,EPIC,0.9161957404608364,752241,scored
+GSM3059540,GSE112179,cortical neurons,cortical neurons,EPIC,0.9469246484924799,755247,scored
+GSM3059541,GSE112179,cortical neurons,cortical neurons,EPIC,0.9490352591378531,761448,scored
+GSM3080996,GSE112696,cd4 t cells,cd4 t cells,450K,0.9557365369496855,407040,scored
+GSM3080997,GSE112696,cd4 t cells,cd4 t cells,450K,0.947411261100024,407882,scored
+GSM3080998,GSE112696,cd4 t cells,cd4 t cells,450K,0.9319821031270629,409010,scored
+GSM3080999,GSE112696,cd4 t cells,cd4 t cells,450K,0.8977612422328153,387045,scored
+GSM3081000,GSE112696,cd4 t cells,cd4 t cells,450K,0.9618552531639326,405508,scored
+GSM3081001,GSE112696,cd4 t cells,cd4 t cells,450K,0.9586677159682151,405349,scored
+GSM3149445,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149448,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149449,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149450,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149454,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149455,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149458,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149460,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149463,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149466,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149468,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149469,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149470,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149472,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149477,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149479,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149480,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149484,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149485,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149488,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149490,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149493,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149496,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149500,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149501,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149505,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149506,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149507,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149508,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149510,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149514,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149515,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149516,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149518,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149523,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149526,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149527,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149528,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149533,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149536,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149537,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149538,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149539,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149542,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149545,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149547,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149549,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149552,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149554,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149555,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149557,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149561,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149567,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149568,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149571,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149572,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149575,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149579,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149581,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149584,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149585,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149586,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149588,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149592,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149594,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3149597,GSE114753,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3427600,GSE121192,naive cd4 t cells,naive cd4 t cells,450K,0.9587841480840322,413603,scored
+GSM3427601,GSE121192,naive cd4 t cells,naive cd4 t cells,450K,0.9205038478327453,414649,scored
+GSM3427602,GSE121192,naive cd4 t cells,naive cd4 t cells,450K,0.9468244208044108,413893,scored
+GSM3427603,GSE121192,naive cd4 t cells,naive cd4 t cells,450K,0.9005466395171473,411057,scored
+GSM3427614,GSE121192,memory cd4 t cells,memory cd4 t cells,450K,0.8452182605798068,399570,scored
+GSM3427615,GSE121192,memory cd4 t cells,memory cd4 t cells,450K,0.6227322493834992,315609,scored
+GSM3427616,GSE121192,memory cd4 t cells,memory cd4 t cells,450K,0.8584767745905789,414463,scored
+GSM3427617,GSE121192,memory cd4 t cells,memory cd4 t cells,450K,0.9018958639240096,413811,scored
+GSM3427618,GSE121192,memory cd4 t cells,memory cd4 t cells,450K,0.8527805967391683,400972,scored
+GSM3427619,GSE121192,memory cd4 t cells,memory cd4 t cells,450K,0.7925192401446216,381057,scored
+GSM3427630,GSE121192,monocytes,monocytes,450K,0.9507091785752398,412308,scored
+GSM3427631,GSE121192,monocytes,monocytes,450K,0.9524326914235105,413246,scored
+GSM3427632,GSE121192,monocytes,monocytes,450K,0.785910129033006,345028,scored
+GSM3427633,GSE121192,monocytes,monocytes,450K,0.9457698660304643,414124,scored
+GSM3427634,GSE121192,monocytes,monocytes,450K,0.9344980171053363,413789,scored
+GSM3427635,GSE121192,monocytes,monocytes,450K,0.9565617723242735,412701,scored
+GSM3588018,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588019,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588020,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588021,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588022,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588023,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588024,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588025,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588026,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588027,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588028,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588029,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588030,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588031,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588032,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588033,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588034,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3588035,GSE126017,NEW: sperm,,450K,,0,listed: cell not in v2.1
+GSM3730417,GSE130029,cd4 t cells,cd4 t cells,450K,0.9575582937650434,410893,scored
+GSM3730418,GSE130029,cd4 t cells,cd4 t cells,450K,0.9280152613280024,404683,scored
+GSM3730419,GSE130029,cd4 t cells,cd4 t cells,450K,0.9540957647660694,410485,scored
+GSM3730420,GSE130029,cd4 t cells,cd4 t cells,450K,0.969451652802367,412330,scored
+GSM3730421,GSE130029,cd4 t cells,cd4 t cells,450K,0.8891991128634795,405800,scored
+GSM3730422,GSE130029,cd4 t cells,cd4 t cells,450K,0.9697048786853576,409967,scored
+GSM3730423,GSE130029,cd4 t cells,cd4 t cells,450K,0.922566960308336,409683,scored
+GSM3730424,GSE130029,cd4 t cells,cd4 t cells,450K,0.828712174883664,392398,scored
+GSM3730425,GSE130029,cd4 t cells,cd4 t cells,450K,0.9592117690763101,411859,scored
+GSM3730426,GSE130029,cd4 t cells,cd4 t cells,450K,0.9652638123828121,411732,scored
+GSM3730427,GSE130029,cd4 t cells,cd4 t cells,450K,0.9523001434212853,407192,scored
+GSM3730444,GSE130030,cd8 t cells,cd8 t cells,450K,0.9800218198319101,414302,scored
+GSM3730445,GSE130030,cd8 t cells,cd8 t cells,450K,0.9285162719091629,411814,scored
+GSM3730446,GSE130030,cd8 t cells,cd8 t cells,450K,0.9667706325224321,411353,scored
+GSM3730447,GSE130030,cd8 t cells,cd8 t cells,450K,0.9391455460734722,412591,scored
+GSM3730448,GSE130030,cd8 t cells,cd8 t cells,450K,0.9681697163736256,413537,scored
+GSM3730449,GSE130030,cd8 t cells,cd8 t cells,450K,0.9727249466950959,410375,scored
+GSM3730450,GSE130030,cd8 t cells,cd8 t cells,450K,0.9589912631767885,412278,scored
+GSM3730451,GSE130030,cd8 t cells,cd8 t cells,450K,0.9659081818909033,412533,scored
+GSM3730452,GSE130030,cd8 t cells,cd8 t cells,450K,0.9558848095289973,413055,scored
+GSM3730453,GSE130030,cd8 t cells,cd8 t cells,450K,0.9614348359510708,411615,scored
+GSM3730454,GSE130030,cd8 t cells,cd8 t cells,450K,0.7876914546054012,400356,scored
+GSM3730455,GSE130030,cd8 t cells,cd8 t cells,450K,0.874843642258326,413315,scored
+GSM3730456,GSE130030,cd8 t cells,cd8 t cells,450K,0.8673034064043402,413251,scored
+GSM3730457,GSE130030,cd8 t cells,cd8 t cells,450K,0.8790545136527063,411640,scored
+GSM3833466,GSE131989,monocytes,monocytes,450K,0.9279759068944395,411404,scored
+GSM3833467,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9067854379083065,412221,scored
+GSM3833468,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.859989334114104,410943,scored
+GSM3833469,GSE131989,monocytes,monocytes,450K,0.9446741761830645,411833,scored
+GSM3833470,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8614374450981261,412339,scored
+GSM3833471,GSE131989,monocytes,monocytes,450K,0.9400450839980956,411676,scored
+GSM3833472,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9304402119963805,410007,scored
+GSM3833473,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9019501507099711,413045,scored
+GSM3833474,GSE131989,monocytes,monocytes,450K,0.895559931615893,408282,scored
+GSM3833475,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.873475520802941,411288,scored
+GSM3833476,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.829488344878747,411260,scored
+GSM3833477,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8114230721828447,409478,scored
+GSM3833478,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.8154591178218025,390488,scored
+GSM3833479,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8520207514015563,410866,scored
+GSM3833480,GSE131989,monocytes,monocytes,450K,0.9379118014380464,412365,scored
+GSM3833481,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8511763799716446,411531,scored
+GSM3833482,GSE131989,b cells,b cells,450K,0.8792932095340263,405495,scored
+GSM3833483,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.6816116931900694,409750,scored
+GSM3833484,GSE131989,b cells,b cells,450K,0.9349411553624509,412442,scored
+GSM3833485,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8470331481196597,412047,scored
+GSM3833486,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9454666494971853,411583,scored
+GSM3833487,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8443400931287371,409196,scored
+GSM3833488,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.8685212747329715,411192,scored
+GSM3833489,GSE131989,monocytes,monocytes,450K,0.9376705090674992,411635,scored
+GSM3833490,GSE131989,monocytes,monocytes,450K,0.9522589061424013,412412,scored
+GSM3833491,GSE131989,b cells,b cells,450K,0.9273104804210702,407913,scored
+GSM3833492,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9273936988604837,412719,scored
+GSM3833493,GSE131989,monocytes,monocytes,450K,0.9286250027307217,411979,scored
+GSM3833494,GSE131989,b cells,b cells,450K,0.9382091910677672,412618,scored
+GSM3833495,GSE131989,monocytes,monocytes,450K,0.9311510200521836,412773,scored
+GSM3833496,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8500308253284083,407418,scored
+GSM3833497,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9026070276397244,412884,scored
+GSM3833498,GSE131989,monocytes,monocytes,450K,0.9579988980930213,412013,scored
+GSM3833499,GSE131989,b cells,b cells,450K,0.8380313622222707,412407,scored
+GSM3833500,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.844928737893027,410698,scored
+GSM3833501,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9424333092482046,412426,scored
+GSM3833502,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.942267385237879,411743,scored
+GSM3833503,GSE131989,monocytes,monocytes,450K,0.9075833684892128,407708,scored
+GSM3833504,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8645748306859403,412062,scored
+GSM3833505,GSE131989,b cells,b cells,450K,0.9235903805228103,413037,scored
+GSM3833506,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9127027519591763,411525,scored
+GSM3833507,GSE131989,monocytes,monocytes,450K,0.9502411865749568,412751,scored
+GSM3833508,GSE131989,b cells,b cells,450K,0.9644518714958646,412905,scored
+GSM3833509,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.860958963147543,411414,scored
+GSM3833510,GSE131989,monocytes,monocytes,450K,0.9530951923848037,411493,scored
+GSM3833511,GSE131989,b cells,b cells,450K,0.934378636554678,411619,scored
+GSM3833512,GSE131989,monocytes,monocytes,450K,0.9598322895812808,413093,scored
+GSM3833513,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8680539448824027,412405,scored
+GSM3833514,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9294086463404552,411226,scored
+GSM3833568,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9429045538156089,410996,scored
+GSM3833569,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9479192642070834,413051,scored
+GSM3833570,GSE131989,b cells,b cells,450K,0.9503826149847221,412033,scored
+GSM3833571,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8846854190015648,411163,scored
+GSM3833572,GSE131989,monocytes,monocytes,450K,0.9283083129906009,410466,scored
+GSM3833573,GSE131989,b cells,b cells,450K,0.8963989054423837,411125,scored
+GSM3833574,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8786931736726731,412237,scored
+GSM3833575,GSE131989,b cells,b cells,450K,0.9165471043294492,412616,scored
+GSM3833576,GSE131989,b cells,b cells,450K,0.8918478342523175,399354,scored
+GSM3833577,GSE131989,monocytes,monocytes,450K,0.9192511190537388,412402,scored
+GSM3833578,GSE131989,b cells,b cells,450K,0.9015022486351477,411583,scored
+GSM3833579,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9460219967882942,412242,scored
+GSM3833580,GSE131989,monocytes,monocytes,450K,0.9088969024413311,412357,scored
+GSM3833581,GSE131989,b cells,b cells,450K,0.8743249973146366,409628,scored
+GSM3833582,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.863137601077108,410010,scored
+GSM3833583,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9407426122615565,411628,scored
+GSM3833584,GSE131989,b cells,b cells,450K,0.9293784558152152,412891,scored
+GSM3833585,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.922188136336012,413009,scored
+GSM3833586,GSE131989,monocytes,monocytes,450K,0.9433066538254815,411177,scored
+GSM3833587,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9320250525973506,412093,scored
+GSM3833588,GSE131989,monocytes,monocytes,450K,0.9447394885955492,410673,scored
+GSM3833589,GSE131989,b cells,b cells,450K,0.937866317118261,412723,scored
+GSM3833590,GSE131989,b cells,b cells,450K,0.9362764055602174,411135,scored
+GSM3833591,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8743415021455865,411302,scored
+GSM3833592,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8744703458970898,411561,scored
+GSM3833593,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8667327636814298,411755,scored
+GSM3833594,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9461587551168473,412119,scored
+GSM3833595,GSE131989,b cells,b cells,450K,0.896485943286502,410978,scored
+GSM3833596,GSE131989,monocytes,monocytes,450K,0.9298698541227338,414458,scored
+GSM3833597,GSE131989,b cells,b cells,450K,0.8002932971405957,411869,scored
+GSM3833598,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8794332362919194,410645,scored
+GSM3833599,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9207409295607103,411915,scored
+GSM3833600,GSE131989,monocytes,monocytes,450K,0.9436438022030349,411614,scored
+GSM3833601,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8608707906954894,411642,scored
+GSM3833602,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9415741574642971,411941,scored
+GSM3833603,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.83710573003072,410508,scored
+GSM3833604,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9253945655216053,410895,scored
+GSM3833605,GSE131989,b cells,b cells,450K,0.8779434256368158,409302,scored
+GSM3833652,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9304941724148823,411577,scored
+GSM3833653,GSE131989,b cells,b cells,450K,0.9238266240702164,413806,scored
+GSM3833654,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8561452768610863,412631,scored
+GSM3833655,GSE131989,monocytes,monocytes,450K,0.9541688206902216,413954,scored
+GSM3833656,GSE131989,b cells,b cells,450K,0.9527773672491866,412747,scored
+GSM3833657,GSE131989,b cells,b cells,450K,0.9573598456140691,412991,scored
+GSM3833658,GSE131989,monocytes,monocytes,450K,0.9335801925695532,413461,scored
+GSM3833659,GSE131989,monocytes,monocytes,450K,0.9492732083952586,413805,scored
+GSM3833660,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9410239353660454,413405,scored
+GSM3833661,GSE131989,b cells,b cells,450K,0.9250643240283559,412754,scored
+GSM3833662,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8776565610365851,413806,scored
+GSM3833663,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9550480136567887,414153,scored
+GSM3833664,GSE131989,b cells,b cells,450K,0.9194121657889773,413586,scored
+GSM3833665,GSE131989,monocytes,monocytes,450K,0.9465752498018979,413928,scored
+GSM3833748,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8693187440433721,412775,scored
+GSM3833749,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9069525567891191,410554,scored
+GSM3833750,GSE131989,b cells,b cells,450K,0.8868931084926601,412203,scored
+GSM3833751,GSE131989,monocytes,monocytes,450K,0.9603910225793234,412457,scored
+GSM3833752,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8564466946965282,413239,scored
+GSM3833753,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9140241600604001,413244,scored
+GSM3833754,GSE131989,b cells,b cells,450K,0.926817023248629,414304,scored
+GSM3833755,GSE131989,monocytes,monocytes,450K,0.9413293041117915,412983,scored
+GSM3833756,GSE131989,monocytes,monocytes,450K,0.8682431934614006,407182,scored
+GSM3833757,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8552467358536286,412602,scored
+GSM3833758,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.8981698130574004,412854,scored
+GSM3833759,GSE131989,b cells,b cells,450K,0.9462051417251797,413441,scored
+GSM3833769,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8641324283473253,413334,scored
+GSM3833770,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9509798945788592,413769,scored
+GSM3833771,GSE131989,b cells,b cells,450K,0.9461866140988601,412927,scored
+GSM3833772,GSE131989,monocytes,monocytes,450K,0.9487013081360152,412954,scored
+GSM3833773,GSE131989,b cells,b cells,450K,0.7034964661825555,412302,scored
+GSM3833774,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8581197871653633,413107,scored
+GSM3833775,GSE131989,naive cd4 t cells,naive cd4 t cells,450K,0.9382330058967666,412599,scored
+GSM3833776,GSE131989,monocytes,monocytes,450K,0.9410238692705871,412455,scored
+GSM3833777,GSE131989,monocytes,monocytes,450K,0.952775887661726,412967,scored
+GSM3833778,GSE131989,memory cd4 t cells,memory cd4 t cells,450K,0.8652344054910572,413315,scored
+GSM3874378,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8540056279790961,783585,scored
+GSM3874379,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.850909383530061,782893,scored
+GSM3874380,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8621101110820116,782755,scored
+GSM3874381,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8582679074920513,783457,scored
+GSM3874382,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8580411028949526,784227,scored
+GSM3874383,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8575016326197424,784016,scored
+GSM3874384,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8548914472629318,779575,scored
+GSM3874385,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8573441703921187,782008,scored
+GSM3874386,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8562937593866955,783689,scored
+GSM3874387,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8575786716185297,784082,scored
+GSM3874388,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8636146833919125,784124,scored
+GSM3874389,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8584639210503487,783892,scored
+GSM3874390,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8632141198327915,783692,scored
+GSM3874391,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8616149978117771,783741,scored
+GSM3874392,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8756675705854203,783625,scored
+GSM3874393,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8732507589029944,783697,scored
+GSM3874394,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8646306332075124,783124,scored
+GSM3874395,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8648223291292411,783443,scored
+GSM3874396,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.859877719903349,784265,scored
+GSM3874397,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8509110939119724,784277,scored
+GSM3874398,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8592334379140362,783446,scored
+GSM3874399,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8574209538076509,782359,scored
+GSM3874400,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8535195815792831,783900,scored
+GSM3874401,GSE132547,lung alveolar macrophages,lung alveolar macrophages,EPIC,0.8550774890908465,784433,scored
+GSM4644505,GSE153459,cd4 t cells,cd4 t cells,450K,0.9590017001549355,411139,scored
+GSM4644506,GSE153459,cd4 t cells,cd4 t cells,450K,0.941204231722185,406832,scored
+GSM4644507,GSE153459,cd4 t cells,cd4 t cells,450K,0.9163419603699328,408831,scored
+GSM4644508,GSE153459,cd4 t cells,cd4 t cells,450K,0.9612471457027644,411660,scored
+GSM4644509,GSE153459,cd4 t cells,cd4 t cells,450K,0.9670167765376869,410633,scored
+GSM4644510,GSE153459,cd4 t cells,cd4 t cells,450K,0.9627072631035122,410348,scored
+GSM4644511,GSE153459,cd4 t cells,cd4 t cells,450K,0.9521249478611484,409963,scored
+GSM4644512,GSE153459,cd4 t cells,cd4 t cells,450K,0.956426560528104,412040,scored
+GSM4644513,GSE153459,cd4 t cells,cd4 t cells,450K,0.95688563740904,409933,scored
+GSM4644514,GSE153459,cd4 t cells,cd4 t cells,450K,0.9549527472127528,412145,scored
+GSM4644515,GSE153459,cd4 t cells,cd4 t cells,450K,0.9359030347980746,409879,scored
+GSM4644516,GSE153459,cd4 t cells,cd4 t cells,450K,0.9387627060940615,411220,scored
+GSM5583029,GSE184269,monocytes,monocytes,EPIC,0.9434685211896601,764689,scored
+GSM5583030,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.8987371015933041,774806,scored
+GSM5583031,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.8931358552033398,775377,scored
+GSM5583032,GSE184269,naive b cells,naive b cells,EPIC,0.8736935370928285,770153,scored
+GSM5583033,GSE184269,monocytes,monocytes,EPIC,0.9641814990060105,774153,scored
+GSM5583034,GSE184269,nk cells,nk cells,EPIC,0.9226446540718491,776404,scored
+GSM5583036,GSE184269,nk cells,nk cells,EPIC,0.9321358548663331,774238,scored
+GSM5583037,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.8970264622787012,774801,scored
+GSM5583038,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.9084517036291623,775110,scored
+GSM5583039,GSE184269,naive b cells,naive b cells,EPIC,0.8129087000646054,776770,scored
+GSM5583040,GSE184269,monocytes,monocytes,EPIC,0.9385774317860531,774585,scored
+GSM5583041,GSE184269,nk cells,nk cells,EPIC,0.9348894080656783,778583,scored
+GSM5583044,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.9029150557079904,769728,scored
+GSM5583045,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.9220844970267847,776264,scored
+GSM5583046,GSE184269,naive b cells,naive b cells,EPIC,0.8699964608836901,771953,scored
+GSM5583047,GSE184269,monocytes,monocytes,EPIC,0.9582180855522158,775503,scored
+GSM5583048,GSE184269,nk cells,nk cells,EPIC,0.909334394505334,773987,scored
+GSM5583051,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.8372649388159957,778308,scored
+GSM5583052,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.8620156492191443,778697,scored
+GSM5583053,GSE184269,naive b cells,naive b cells,EPIC,0.8570754729139334,777093,scored
+GSM5583054,GSE184269,monocytes,monocytes,EPIC,0.9500111777206186,778334,scored
+GSM5583055,GSE184269,nk cells,nk cells,EPIC,0.9044201104060259,775320,scored
+GSM5583058,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.8658635978988664,769299,scored
+GSM5583059,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.9240440276166239,779965,scored
+GSM5583060,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.9094654943694169,781714,scored
+GSM5583061,GSE184269,naive b cells,naive b cells,EPIC,0.7790205104374995,782195,scored
+GSM5583062,GSE184269,monocytes,monocytes,EPIC,0.9273664704064307,773293,scored
+GSM5583063,GSE184269,nk cells,nk cells,EPIC,0.7995578328878342,770297,scored
+GSM5583066,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.877840773738625,776593,scored
+GSM5583067,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.902727255205556,778255,scored
+GSM5583068,GSE184269,naive b cells,naive b cells,EPIC,0.8700581974856114,778929,scored
+GSM5583069,GSE184269,monocytes,monocytes,EPIC,0.9768656389876272,777026,scored
+GSM5583070,GSE184269,nk cells,nk cells,EPIC,0.9454890019529243,778320,scored
+GSM5583073,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.9225886413918523,776979,scored
+GSM5583074,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.9379662013680399,775416,scored
+GSM5583075,GSE184269,naive b cells,naive b cells,EPIC,0.8554297812642783,778830,scored
+GSM5583076,GSE184269,monocytes,monocytes,EPIC,0.9662404659977588,774596,scored
+GSM5583077,GSE184269,nk cells,nk cells,EPIC,0.9325755029992623,776691,scored
+GSM5583078,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.8671964640722432,766079,scored
+GSM5583081,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.8941241313944563,776532,scored
+GSM5583082,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.8899876805624068,774386,scored
+GSM5583083,GSE184269,naive b cells,naive b cells,EPIC,0.8567105225767953,775414,scored
+GSM5583084,GSE184269,monocytes,monocytes,EPIC,0.9656859201115443,774580,scored
+GSM5583087,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.8748348284796994,774952,scored
+GSM5583088,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.9152685360911582,778778,scored
+GSM5583089,GSE184269,naive b cells,naive b cells,EPIC,0.8637439735241014,777090,scored
+GSM5583090,GSE184269,naive b cells,naive b cells,EPIC,0.84194241468207,774301,scored
+GSM5583091,GSE184269,monocytes,monocytes,EPIC,0.957682055204685,779173,scored
+GSM5583092,GSE184269,nk cells,nk cells,EPIC,0.8443305220219393,761922,scored
+GSM5583094,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.9027307047251488,772145,scored
+GSM5583095,GSE184269,monocytes,monocytes,EPIC,0.9417529235708932,771146,scored
+GSM5583096,GSE184269,naive b cells,naive b cells,EPIC,0.8544878536632577,776749,scored
+GSM5583097,GSE184269,monocytes,monocytes,EPIC,0.949616946078785,776392,scored
+GSM5583098,GSE184269,nk cells,nk cells,EPIC,0.9110085916685599,774704,scored
+GSM5583101,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.885157195340398,777663,scored
+GSM5583102,GSE184269,naive b cells,naive b cells,EPIC,0.8423065664439638,777385,scored
+GSM5583103,GSE184269,monocytes,monocytes,EPIC,0.920065073821344,774505,scored
+GSM5583104,GSE184269,nk cells,nk cells,EPIC,0.8828799536173747,765804,scored
+GSM5583105,GSE184269,nk cells,nk cells,EPIC,0.7964597637334627,770909,scored
+GSM5583108,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.9066066657000228,772432,scored
+GSM5583109,GSE184269,naive b cells,naive b cells,EPIC,0.7995143393495855,778825,scored
+GSM5583110,GSE184269,monocytes,monocytes,EPIC,0.9008075849468532,777751,scored
+GSM5583113,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.8997851353801406,777699,scored
+GSM5583115,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.8963593941632424,777041,scored
+GSM5583116,GSE184269,naive b cells,naive b cells,EPIC,0.8406709620313095,779692,scored
+GSM5583117,GSE184269,monocytes,monocytes,EPIC,0.9538359494768573,774932,scored
+GSM5583119,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.8440258105656699,777821,scored
+GSM5583120,GSE184269,naive b cells,naive b cells,EPIC,0.7983808992972913,779125,scored
+GSM5583121,GSE184269,monocytes,monocytes,EPIC,0.9138236993513003,777093,scored
+GSM5583123,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.8435960623213965,767762,scored
+GSM5583124,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.8739698235971942,775838,scored
+GSM5583125,GSE184269,naive b cells,naive b cells,EPIC,0.8471022770839912,770159,scored
+GSM5583126,GSE184269,monocytes,monocytes,EPIC,0.924126151200387,771043,scored
+GSM5583127,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.8717702143032577,769517,scored
+GSM5583128,GSE184269,nk cells,nk cells,EPIC,0.8743975907526041,770033,scored
+GSM5583130,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.7938883259128298,742088,scored
+GSM5583131,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.735767883941971,759620,scored
+GSM5583132,GSE184269,naive b cells,naive b cells,EPIC,0.8138302207755672,761416,scored
+GSM5583133,GSE184269,monocytes,monocytes,EPIC,0.899150881602701,751132,scored
+GSM5583134,GSE184269,nk cells,nk cells,EPIC,0.8055738948241431,733096,scored
+GSM5583136,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.7884101242315574,749568,scored
+GSM5583137,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.766718534141911,744847,scored
+GSM5583138,GSE184269,naive b cells,naive b cells,EPIC,0.6592312380472017,713912,scored
+GSM5583139,GSE184269,monocytes,monocytes,EPIC,0.8464983281322693,735106,scored
+GSM5583140,GSE184269,nk cells,nk cells,EPIC,0.8762252371042305,755364,scored
+GSM5583142,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.8045209154657028,762235,scored
+GSM5583143,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.8198369679841397,758624,scored
+GSM5583144,GSE184269,monocytes,monocytes,EPIC,0.8666380186484957,733035,scored
+GSM5583145,GSE184269,nk cells,nk cells,EPIC,0.8721629781713458,760789,scored
+GSM5583147,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.8727196774688908,768422,scored
+GSM5583148,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.8494311748389605,763943,scored
+GSM5583149,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.8275496450231343,744133,scored
+GSM5583150,GSE184269,naive b cells,naive b cells,EPIC,0.8280061437534169,769162,scored
+GSM5583151,GSE184269,monocytes,monocytes,EPIC,0.9349969548895125,770087,scored
+GSM5583152,GSE184269,nk cells,nk cells,EPIC,0.8903851141078838,771200,scored
+GSM5583154,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.8697331551941941,769436,scored
+GSM5583155,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.8777547897283986,772382,scored
+GSM5583156,GSE184269,naive b cells,naive b cells,EPIC,0.8585522953324768,774134,scored
+GSM5583157,GSE184269,monocytes,monocytes,EPIC,0.9381661818576367,774188,scored
+GSM5583158,GSE184269,nk cells,nk cells,EPIC,0.8747595651129947,774638,scored
+GSM5583159,GSE184269,naive b cells,naive b cells,EPIC,0.8366809491194257,753570,scored
+GSM5583161,GSE184269,naive b cells,naive b cells,EPIC,0.8477086966841763,777122,scored
+GSM5583162,GSE184269,monocytes,monocytes,EPIC,0.9463067644443643,777137,scored
+GSM5583163,GSE184269,nk cells,nk cells,EPIC,0.9152743678036679,777132,scored
+GSM5583165,GSE184269,naive cd4 t cells,naive cd4 t cells,EPIC,0.8890840574775792,775398,scored
+GSM5583166,GSE184269,naive cd8 t cells,naive cd8 t cells,EPIC,0.8928694184920164,768072,scored
+GSM5583167,GSE184269,naive b cells,naive b cells,EPIC,0.8890102483048283,770912,scored
+GSM5583168,GSE184269,monocytes,monocytes,EPIC,0.9116918994001567,773202,scored
+GSM5583169,GSE184269,nk cells,nk cells,EPIC,0.8947808825460416,776798,scored
+GSM5685685,GSE188573,monocytes,monocytes,EPIC,0.9253835425383543,739944,scored
+GSM5685693,GSE188573,monocytes,monocytes,EPIC,0.9599620319298707,752211,scored
+GSM5685696,GSE188573,monocytes,monocytes,EPIC,0.9664735184273168,779712,scored
+GSM5685702,GSE188573,monocytes,monocytes,EPIC,0.9777331252992426,774873,scored
+GSM5685706,GSE188573,monocytes,monocytes,EPIC,0.9716789216485833,766355,scored
+GSM5685710,GSE188573,monocytes,monocytes,EPIC,0.9749048950167091,761264,scored
+GSM5685712,GSE188573,monocytes,monocytes,EPIC,0.9766359686516685,781158,scored
+GSM5685722,GSE188573,monocytes,monocytes,EPIC,0.9616893844192885,779053,scored
+GSM5685727,GSE188573,monocytes,monocytes,EPIC,0.9777007187435757,773433,scored
+GSM5685738,GSE188573,monocytes,monocytes,EPIC,0.9672199917644637,777120,scored
+GSM5685739,GSE188573,monocytes,monocytes,EPIC,0.9640720653164655,773465,scored
+GSM5696635,GSE189255,cd4 t cells,cd4 t cells,450K,0.9408569852265065,407825,scored
+GSM5696636,GSE189255,cd4 t cells,cd4 t cells,450K,0.9381491494735071,404279,scored
+GSM5696637,GSE189255,cd4 t cells,cd4 t cells,450K,0.9494634636147175,410317,scored
+GSM5696638,GSE189255,cd4 t cells,cd4 t cells,450K,0.9726611810661653,411137,scored
+GSM5696639,GSE189255,cd4 t cells,cd4 t cells,450K,0.9729450902155515,410018,scored
+GSM5696640,GSE189255,cd4 t cells,cd4 t cells,450K,0.9632399074564242,408024,scored
+GSM5696641,GSE189255,cd4 t cells,cd4 t cells,450K,0.9636654540472701,408757,scored
+GSM5696642,GSE189255,cd4 t cells,cd4 t cells,450K,0.9213498008514641,408238,scored
+GSM5696649,GSE189256,monocytes,monocytes,450K,0.9443039592257012,406923,scored
+GSM5696650,GSE189256,monocytes,monocytes,450K,0.930876958903634,403223,scored
+GSM5696651,GSE189256,monocytes,monocytes,450K,0.9669624135295616,408232,scored
+GSM5696652,GSE189256,monocytes,monocytes,450K,0.9713755191790863,409300,scored
+GSM5696653,GSE189256,monocytes,monocytes,450K,0.9706695098868744,408926,scored
+GSM5696654,GSE189256,monocytes,monocytes,450K,0.9574085374856052,406396,scored
+GSM5696655,GSE189256,monocytes,monocytes,450K,0.9659690859360092,408746,scored
+GSM5696656,GSE189256,monocytes,monocytes,450K,0.9533286687282264,408752,scored
+GSM5741502,GSE191200,microglia,microglia,EPIC,0.7851807958748798,605850,scored
+GSM5741509,GSE191200,microglia,microglia,EPIC,0.8892959973144233,697059,scored
+GSM5741510,GSE191200,microglia,microglia,EPIC,0.9130977761649335,705449,scored
+GSM5741511,GSE191200,microglia,microglia,EPIC,0.851001793541333,625578,scored
+GSM5741512,GSE191200,microglia,microglia,EPIC,0.8479402845812922,643051,scored
+GSM5741513,GSE191200,microglia,microglia,EPIC,0.797147055424392,605690,scored
+GSM5741514,GSE191200,microglia,microglia,EPIC,0.9073702606602514,727845,scored
+GSM5741522,GSE191200,microglia,microglia,EPIC,0.8390555015351162,653045,scored
+GSM5741523,GSE191200,microglia,microglia,EPIC,0.8203015075376885,631825,scored
+GSM5741524,GSE191200,microglia,microglia,EPIC,0.7515267517074532,570001,scored
+GSM5741530,GSE191200,microglia,microglia,EPIC,0.8346165355456594,678383,scored
+GSM5741531,GSE191200,microglia,microglia,EPIC,0.8971514583676365,686283,scored
+GSM5741532,GSE191200,microglia,microglia,EPIC,0.8766492104712558,650010,scored
+GSM5741538,GSE191200,microglia,microglia,EPIC,0.8797105066134265,689204,scored
+GSM5741539,GSE191200,microglia,microglia,EPIC,0.7959249875366219,585716,scored
+GSM5741540,GSE191200,microglia,microglia,EPIC,0.829519304923253,643152,scored
+GSM5741546,GSE191200,microglia,microglia,EPIC,0.9210939457924164,694294,scored
+GSM5741547,GSE191200,microglia,microglia,EPIC,0.8873003197174351,698742,scored
+GSM5741548,GSE191200,microglia,microglia,EPIC,0.9048854809192824,690150,scored
+GSM5741549,GSE191200,microglia,microglia,EPIC,0.8914773475328779,683592,scored
+GSM6077507,GSE201872,lung bronchus epithelium,lung bronchus epithelium,EPIC,0.8082898966484382,780830,scored
+GSM6077508,GSE201872,lung bronchus epithelium,lung bronchus epithelium,EPIC,0.7909152054359188,783529,scored
+GSM6077515,GSE201872,lung bronchus epithelium,lung bronchus epithelium,EPIC,0.8235751516596196,784487,scored
+GSM6077522,GSE201872,lung bronchus epithelium,lung bronchus epithelium,EPIC,0.7981549636556681,783616,scored
+GSM6077524,GSE201872,lung bronchus epithelium,lung bronchus epithelium,EPIC,0.7814285788771169,767168,scored
+GSM7032664,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.647251855154987,349836,scored
+GSM7032665,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.7459470508440381,376701,scored
+GSM7032666,GSE224807,monocytes,monocytes,EPIC,0.8899561882183383,383002,scored
+GSM7032667,GSE224807,monocytes,monocytes,EPIC,0.8878587799740639,387877,scored
+GSM7032668,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.6350675733210067,328828,scored
+GSM7032669,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.6462789847121644,341775,scored
+GSM7032670,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.6135336376442628,313057,scored
+GSM7032671,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.5498431668841725,262062,scored
+GSM7032672,GSE224807,b cells,b cells,EPIC,0.7236854211712748,347792,scored
+GSM7032673,GSE224807,nk cells,nk cells,EPIC,0.6693407048378611,321237,scored
+GSM7032674,GSE224807,nk cells,nk cells,EPIC,0.6269277837143935,283551,scored
+GSM7032762,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9467407633587787,409375,scored
+GSM7032763,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.950748881826742,407808,scored
+GSM7032764,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9676825596504958,410181,scored
+GSM7032765,GSE224807,b cells,b cells,EPIC,0.9639396636872463,410035,scored
+GSM7032766,GSE224807,b cells,b cells,EPIC,0.9505208397327364,406939,scored
+GSM7032767,GSE224807,nk cells,nk cells,EPIC,0.968924948102541,409943,scored
+GSM7032768,GSE224807,nk cells,nk cells,EPIC,0.9618286750441132,410308,scored
+GSM7032769,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9189240785158354,408581,scored
+GSM7032770,GSE224807,monocytes,monocytes,EPIC,0.9581941569294465,406259,scored
+GSM7032771,GSE224807,nk cells,nk cells,EPIC,0.9569086077468497,408295,scored
+GSM7032772,GSE224807,nk cells,nk cells,EPIC,0.9416148035071239,408768,scored
+GSM7032773,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8932302826996114,406014,scored
+GSM7032774,GSE224807,monocytes,monocytes,EPIC,0.9657167139923558,407108,scored
+GSM7032775,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.790565368047168,391621,scored
+GSM7032776,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.8306765745790136,400488,scored
+GSM7032777,GSE224807,b cells,b cells,EPIC,0.9154307687371505,405171,scored
+GSM7032779,GSE224807,nk cells,nk cells,EPIC,0.9569813882502181,403616,scored
+GSM7032780,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8675329138226849,401579,scored
+GSM7032782,GSE224807,monocytes,monocytes,EPIC,0.9440781611027009,401632,scored
+GSM7032784,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9319383462878518,401533,scored
+GSM7032786,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9520877717296399,400858,scored
+GSM7032788,GSE224807,b cells,b cells,EPIC,0.9462048136766912,397991,scored
+GSM7032790,GSE224807,nk cells,nk cells,EPIC,0.7810598741252806,400557,scored
+GSM7032791,GSE224807,nk cells,nk cells,EPIC,0.9654273522224391,404713,scored
+GSM7032792,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.903482917820868,406126,scored
+GSM7032793,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9344127029343365,407214,scored
+GSM7032794,GSE224807,monocytes,monocytes,EPIC,0.9505378786569453,405017,scored
+GSM7032795,GSE224807,monocytes,monocytes,EPIC,0.9649575737941862,401285,scored
+GSM7032796,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9406415799147239,403161,scored
+GSM7032797,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9336904033799674,390773,scored
+GSM7032798,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9552641842694285,402541,scored
+GSM7032799,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9429855094056571,389287,scored
+GSM7032800,GSE224807,b cells,b cells,EPIC,0.947937295579154,401439,scored
+GSM7032801,GSE224807,b cells,b cells,EPIC,0.9261011021399365,385432,scored
+GSM7032802,GSE224807,nk cells,nk cells,EPIC,0.9293549102636636,401231,scored
+GSM7032803,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9320894036560815,406829,scored
+GSM7032804,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8682436735336059,400422,scored
+GSM7032805,GSE224807,monocytes,monocytes,EPIC,0.9635445213089013,405042,scored
+GSM7032806,GSE224807,monocytes,monocytes,EPIC,0.9339670421516161,400815,scored
+GSM7032807,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9625304992836641,409026,scored
+GSM7032808,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.906422178454788,401110,scored
+GSM7032809,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9521979299773192,399899,scored
+GSM7032810,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.954727875783822,404907,scored
+GSM7032811,GSE224807,b cells,b cells,EPIC,0.9566321865284455,399167,scored
+GSM7032812,GSE224807,b cells,b cells,EPIC,0.960479901100456,402833,scored
+GSM7032813,GSE224807,nk cells,nk cells,EPIC,0.8339283830107797,407529,scored
+GSM7032814,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9129153970378345,404975,scored
+GSM7032815,GSE224807,monocytes,monocytes,EPIC,0.9636019975141392,407907,scored
+GSM7032816,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9535429777596239,408851,scored
+GSM7032817,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9630979723889259,404910,scored
+GSM7032821,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9485792500115686,410593,scored
+GSM7032823,GSE224807,monocytes,monocytes,EPIC,0.9516007991571079,402424,scored
+GSM7032825,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9386178224035143,407936,scored
+GSM7032827,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9156770002836935,408892,scored
+GSM7032829,GSE224807,b cells,b cells,EPIC,0.9318301009240497,406147,scored
+GSM7032830,GSE224807,b cells,b cells,EPIC,0.9485638786206628,411734,scored
+GSM7032831,GSE224807,nk cells,nk cells,EPIC,0.9010269121813032,412304,scored
+GSM7032832,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9245683853647535,412351,scored
+GSM7032833,GSE224807,monocytes,monocytes,EPIC,0.9647910264887782,411344,scored
+GSM7032834,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9441493810132137,412529,scored
+GSM7032835,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9551562302217116,410804,scored
+GSM7032837,GSE224807,nk cells,nk cells,EPIC,0.9700529483505697,403412,scored
+GSM7032838,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8232382076551664,393094,scored
+GSM7032840,GSE224807,monocytes,monocytes,EPIC,0.9214647784874866,395937,scored
+GSM7032843,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9714977819572934,406214,scored
+GSM7032845,GSE224807,b cells,b cells,EPIC,0.9267848796157251,402212,scored
+GSM7032847,GSE224807,nk cells,nk cells,EPIC,0.8780305101139662,380464,scored
+GSM7032850,GSE224807,nk cells,nk cells,EPIC,0.9040730125207422,397740,scored
+GSM7032851,GSE224807,nk cells,nk cells,EPIC,0.8263845348747167,400333,scored
+GSM7032852,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8438507008781116,397218,scored
+GSM7032853,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8427287892385776,394446,scored
+GSM7032854,GSE224807,monocytes,monocytes,EPIC,0.9426092909486582,400239,scored
+GSM7032855,GSE224807,monocytes,monocytes,EPIC,0.8992008015345441,385261,scored
+GSM7032856,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.8818081698037645,399520,scored
+GSM7032857,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.8876398386904731,386338,scored
+GSM7032858,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.8573820469889002,390007,scored
+GSM7032859,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9142837759913165,383253,scored
+GSM7032860,GSE224807,b cells,b cells,EPIC,0.8735993112093088,394895,scored
+GSM7032861,GSE224807,b cells,b cells,EPIC,0.8533519886160377,377373,scored
+GSM7032862,GSE224807,nk cells,nk cells,EPIC,0.9343267191951702,395214,scored
+GSM7032865,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8749937682590011,401173,scored
+GSM7032867,GSE224807,monocytes,monocytes,EPIC,0.9605178567469906,405981,scored
+GSM7032869,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9450101132238696,406893,scored
+GSM7032871,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9532924337399409,404731,scored
+GSM7032873,GSE224807,b cells,b cells,EPIC,0.9097252583036312,404853,scored
+GSM7032874,GSE224807,b cells,b cells,EPIC,0.9359331201875946,405982,scored
+GSM7032876,GSE224807,nk cells,nk cells,EPIC,0.8903275036312959,407568,scored
+GSM7032879,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8715067488153078,400738,scored
+GSM7032881,GSE224807,monocytes,monocytes,EPIC,0.9575118085101076,400982,scored
+GSM7032883,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9529857579976325,402963,scored
+GSM7032885,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9201716014000139,391139,scored
+GSM7032886,GSE224807,b cells,b cells,EPIC,0.9563285384104451,408001,scored
+GSM7032887,GSE224807,nk cells,nk cells,EPIC,0.8837258530049732,401551,scored
+GSM7032888,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9511313627740123,410611,scored
+GSM7032889,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9104475415745988,407761,scored
+GSM7032890,GSE224807,monocytes,monocytes,EPIC,0.9636988759984274,409519,scored
+GSM7032891,GSE224807,monocytes,monocytes,EPIC,0.9541093370612905,407730,scored
+GSM7032892,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9036595706918822,405676,scored
+GSM7032893,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9192990909224998,406786,scored
+GSM7032894,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9661227293881259,406113,scored
+GSM7032895,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.8620473270270004,406364,scored
+GSM7032896,GSE224807,nk cells,nk cells,EPIC,0.9343627336940112,404054,scored
+GSM7032897,GSE224807,nk cells,nk cells,EPIC,0.9386772558546782,405445,scored
+GSM7032898,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9068091051844158,404385,scored
+GSM7032899,GSE224807,monocytes,monocytes,EPIC,0.9551550172461643,403568,scored
+GSM7032900,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9407817160296872,403676,scored
+GSM7032901,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9274801779152968,403338,scored
+GSM7032902,GSE224807,b cells,b cells,EPIC,0.931237593801446,401513,scored
+GSM7032914,GSE224807,b cells,b cells,EPIC,0.9349475665093409,395358,scored
+GSM7032915,GSE224807,b cells,b cells,EPIC,0.9250778189833638,402858,scored
+GSM7032916,GSE224807,nk cells,nk cells,EPIC,0.9480527698608362,395074,scored
+GSM7032917,GSE224807,nk cells,nk cells,EPIC,0.8187854774000423,402545,scored
+GSM7032918,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8656713813944794,401226,scored
+GSM7032919,GSE224807,monocytes,monocytes,EPIC,0.9558461827197566,404948,scored
+GSM7032920,GSE224807,monocytes,monocytes,EPIC,0.9660187007874016,406400,scored
+GSM7032921,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9375192222995898,406429,scored
+GSM7032922,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.8777585395878579,399668,scored
+GSM7032923,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9464227765130215,403679,scored
+GSM7032924,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.8907280441594493,405621,scored
+GSM7032925,GSE224807,b cells,b cells,EPIC,0.9699449329752137,407685,scored
+GSM7032926,GSE224807,b cells,b cells,EPIC,0.9565528951376456,411673,scored
+GSM7032927,GSE224807,b cells,b cells,EPIC,0.9300180655241443,409620,scored
+GSM7032928,GSE224807,nk cells,nk cells,EPIC,0.9550173179537194,409113,scored
+GSM7032929,GSE224807,nk cells,nk cells,EPIC,0.9422045641366893,408752,scored
+GSM7032930,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9274677344742427,408563,scored
+GSM7032932,GSE224807,monocytes,monocytes,EPIC,0.96977852279086,412819,scored
+GSM7032934,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9438726849824336,411012,scored
+GSM7032936,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9462366652278473,405425,scored
+GSM7032948,GSE224807,b cells,b cells,EPIC,0.8269255964945482,412158,scored
+GSM7032949,GSE224807,b cells,b cells,EPIC,0.942504834180327,411652,scored
+GSM7032950,GSE224807,nk cells,nk cells,EPIC,0.7130546875755788,413476,scored
+GSM7032951,GSE224807,nk cells,nk cells,EPIC,0.9338044044747719,412535,scored
+GSM7032952,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9620476888186114,413604,scored
+GSM7032953,GSE224807,monocytes,monocytes,EPIC,0.954718987097086,413860,scored
+GSM7032954,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9184652858238253,413419,scored
+GSM7032955,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9419221812536387,412240,scored
+GSM7032970,GSE224807,b cells,b cells,EPIC,0.9368132404793764,409532,scored
+GSM7032972,GSE224807,nk cells,nk cells,EPIC,0.9142435034439574,408832,scored
+GSM7032973,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9048818789779315,408818,scored
+GSM7032974,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.928756637826525,409962,scored
+GSM7032975,GSE224807,monocytes,monocytes,EPIC,0.9418565883455216,410915,scored
+GSM7032976,GSE224807,monocytes,monocytes,EPIC,0.9502684085452914,411127,scored
+GSM7032977,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9551299024668716,411655,scored
+GSM7032978,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.94635125762056,410895,scored
+GSM7032979,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9541820425734064,408377,scored
+GSM7032980,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9585889155107499,406099,scored
+GSM7032981,GSE224807,monocytes,monocytes,EPIC,0.9641887370656633,412468,scored
+GSM7032982,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9300737398062372,414837,scored
+GSM7032983,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9701747387674885,411128,scored
+GSM7032984,GSE224807,b cells,b cells,EPIC,0.9687669876524035,412064,scored
+GSM7032985,GSE224807,nk cells,nk cells,EPIC,0.9207085044330094,411797,scored
+GSM7032987,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9398098799305564,411848,scored
+GSM7032988,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9184440650718447,411798,scored
+GSM7032989,GSE224807,monocytes,monocytes,EPIC,0.9685140367860601,413200,scored
+GSM7032990,GSE224807,monocytes,monocytes,EPIC,0.963129357087529,413120,scored
+GSM7032991,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9442288123273732,412740,scored
+GSM7032992,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.8792915551175846,412001,scored
+GSM7032993,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9748919870263136,412219,scored
+GSM7032994,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9603424398841748,413036,scored
+GSM7032995,GSE224807,b cells,b cells,EPIC,0.9687390090498725,412271,scored
+GSM7032996,GSE224807,b cells,b cells,EPIC,0.9533164593753406,412865,scored
+GSM7032997,GSE224807,nk cells,nk cells,EPIC,0.8093343419795652,412434,scored
+GSM7032998,GSE224807,nk cells,nk cells,EPIC,0.8641067113570816,410528,scored
+GSM7033010,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9351349772685235,410891,scored
+GSM7033011,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9304598571156504,409562,scored
+GSM7033012,GSE224807,b cells,b cells,EPIC,0.9307551958028123,409417,scored
+GSM7033013,GSE224807,nk cells,nk cells,EPIC,0.8896468484140674,409286,scored
+GSM7033014,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9499850748804171,412059,scored
+GSM7033016,GSE224807,monocytes,monocytes,EPIC,0.9488202286817841,411139,scored
+GSM7033018,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9447764254434143,409662,scored
+GSM7033020,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8251116259426259,409630,scored
+GSM7033021,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8854048418293521,410506,scored
+GSM7033022,GSE224807,monocytes,monocytes,EPIC,0.9372318144046341,411562,scored
+GSM7033023,GSE224807,monocytes,monocytes,EPIC,0.9622618030986947,409850,scored
+GSM7033024,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9423339471293296,411646,scored
+GSM7033025,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9346072083672453,411605,scored
+GSM7033026,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9513972322883479,411170,scored
+GSM7033027,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9291726908409909,412228,scored
+GSM7033028,GSE224807,b cells,b cells,EPIC,0.7830677024447767,411285,scored
+GSM7033029,GSE224807,b cells,b cells,EPIC,0.9686608442503639,412200,scored
+GSM7033030,GSE224807,nk cells,nk cells,EPIC,0.8854757006443599,412192,scored
+GSM7033031,GSE224807,nk cells,nk cells,EPIC,0.9534321335015038,412280,scored
+GSM7033033,GSE224807,b cells,b cells,EPIC,0.7056435095488514,361300,scored
+GSM7033035,GSE224807,nk cells,nk cells,EPIC,0.9324268272449567,409852,scored
+GSM7033036,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.7785117327701259,385885,scored
+GSM7033037,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.7175987447765735,374754,scored
+GSM7033038,GSE224807,monocytes,monocytes,EPIC,0.6525701669373006,311614,scored
+GSM7033039,GSE224807,monocytes,monocytes,EPIC,0.7461579944412948,361595,scored
+GSM7033040,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9444881262936156,408255,scored
+GSM7033041,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.6942376736803687,353451,scored
+GSM7033042,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.7821077835999584,374621,scored
+GSM7033043,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.689073282896149,340093,scored
+GSM7033044,GSE224807,monocytes,monocytes,EPIC,0.9662292110324296,407127,scored
+GSM7033046,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9545793792012653,404640,scored
+GSM7033048,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9406926750407879,403306,scored
+GSM7033050,GSE224807,b cells,b cells,EPIC,0.9711579123353953,406732,scored
+GSM7033052,GSE224807,nk cells,nk cells,EPIC,0.7465063909885583,405884,scored
+GSM7033054,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9688532383803005,412274,scored
+GSM7033055,GSE224807,b cells,b cells,EPIC,0.9525945760118532,413054,scored
+GSM7033057,GSE224807,nk cells,nk cells,EPIC,0.732515892444195,413404,scored
+GSM7033058,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9593919804907316,413345,scored
+GSM7033059,GSE224807,monocytes,monocytes,EPIC,0.9638653281298888,412291,scored
+GSM7033060,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9633975159488475,413196,scored
+GSM7033067,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.8693816325834871,410662,scored
+GSM7033068,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.8514474587327009,410858,scored
+GSM7033069,GSE224807,b cells,b cells,EPIC,0.7521212974379387,412012,scored
+GSM7033070,GSE224807,b cells,b cells,EPIC,0.9512865599054456,412884,scored
+GSM7033071,GSE224807,nk cells,nk cells,EPIC,0.6963942319336197,412894,scored
+GSM7033072,GSE224807,nk cells,nk cells,EPIC,0.8624178206657585,413273,scored
+GSM7033073,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9688827190553371,412765,scored
+GSM7033074,GSE224807,monocytes,monocytes,EPIC,0.9621142194022293,412767,scored
+GSM7033075,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9071690217087872,411953,scored
+GSM7033076,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.8286754258762872,409626,scored
+GSM7033077,GSE224807,b cells,b cells,EPIC,0.9282209275181885,411248,scored
+GSM7033078,GSE224807,nk cells,nk cells,EPIC,0.8673889689246657,403986,scored
+GSM7033079,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9109197233428264,408014,scored
+GSM7033080,GSE224807,monocytes,monocytes,EPIC,0.9413620211264178,410860,scored
+GSM7033081,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.8624968048155814,399038,scored
+GSM7033082,GSE224807,monocytes,monocytes,EPIC,0.9602755715391578,412089,scored
+GSM7033083,GSE224807,monocytes,monocytes,EPIC,0.963333850600353,412424,scored
+GSM7033084,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9728388309856087,413237,scored
+GSM7033085,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.913951687904447,410746,scored
+GSM7033086,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9769632366301254,412775,scored
+GSM7033087,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9740488794220253,412198,scored
+GSM7033088,GSE224807,b cells,b cells,EPIC,0.9392950043838191,412882,scored
+GSM7033089,GSE224807,b cells,b cells,EPIC,0.793201078208932,412536,scored
+GSM7033090,GSE224807,nk cells,nk cells,EPIC,0.9700602433014494,412328,scored
+GSM7033091,GSE224807,nk cells,nk cells,EPIC,0.9627358079237276,412836,scored
+GSM7033092,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9185935419119492,414530,scored
+GSM7033093,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8720220702820632,410690,scored
+GSM7033094,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.8168580011997367,411757,scored
+GSM7033095,GSE224807,b cells,b cells,EPIC,0.9389425465650335,412595,scored
+GSM7033096,GSE224807,nk cells,nk cells,EPIC,0.6965881899442153,412479,scored
+GSM7033097,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9586729219598088,412877,scored
+GSM7033098,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9342134390043957,411087,scored
+GSM7033099,GSE224807,monocytes,monocytes,EPIC,0.945768041074288,411547,scored
+GSM7033100,GSE224807,monocytes,monocytes,EPIC,0.9491620518799184,411720,scored
+GSM7033101,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9239470652282465,410543,scored
+GSM7033102,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.796931877275091,411522,scored
+GSM7033104,GSE224807,monocytes,monocytes,EPIC,0.9684506600930716,408503,scored
+GSM7033106,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9737279948475741,409904,scored
+GSM7033108,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.976465661641541,405960,scored
+GSM7033110,GSE224807,b cells,b cells,EPIC,0.9633091901228752,407568,scored
+GSM7033112,GSE224807,nk cells,nk cells,EPIC,0.9514725387425855,405626,scored
+GSM7033113,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9193624979193796,408535,scored
+GSM7033114,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9131806353414837,407341,scored
+GSM7033115,GSE224807,monocytes,monocytes,EPIC,0.9220712301331706,411427,scored
+GSM7033117,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.7636266286783054,412758,scored
+GSM7033119,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.6219658225964974,410037,scored
+GSM7033121,GSE224807,b cells,b cells,EPIC,0.9010942914020654,412413,scored
+GSM7033123,GSE224807,nk cells,nk cells,EPIC,0.6094566149528339,410464,scored
+GSM7033148,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9477678626377007,406225,scored
+GSM7033150,GSE224807,b cells,b cells,EPIC,0.9332788269840803,407292,scored
+GSM7033152,GSE224807,nk cells,nk cells,EPIC,0.9339370601251693,405371,scored
+GSM7033153,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8197285744436844,393257,scored
+GSM7033154,GSE224807,monocytes,monocytes,EPIC,0.9544118405445825,407211,scored
+GSM7033155,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9474774699311657,405902,scored
+GSM7033156,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.539662503766699,298670,scored
+GSM7033183,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9184730972183649,410480,scored
+GSM7033185,GSE224807,monocytes,monocytes,EPIC,0.9475573309734339,404537,scored
+GSM7033187,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9497506959480359,404125,scored
+GSM7033189,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9641938154756888,403394,scored
+GSM7033191,GSE224807,b cells,b cells,EPIC,0.9107811179524327,397584,scored
+GSM7033192,GSE224807,nk cells,nk cells,EPIC,0.9068137755293988,398707,scored
+GSM7033193,GSE224807,nk cells,nk cells,EPIC,0.7971202655212808,409760,scored
+GSM7033194,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8493377154165134,402246,scored
+GSM7033196,GSE224807,monocytes,monocytes,EPIC,0.9420017953980084,408823,scored
+GSM7033198,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9443590160621788,405798,scored
+GSM7033200,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9153388304473072,403727,scored
+GSM7033202,GSE224807,b cells,b cells,EPIC,0.7959298121338233,406566,scored
+GSM7033225,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8129940856871581,390748,scored
+GSM7033227,GSE224807,monocytes,monocytes,EPIC,0.9184265859787681,389980,scored
+GSM7033247,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.869561137969689,405003,scored
+GSM7033249,GSE224807,monocytes,monocytes,EPIC,0.9523894019040297,405771,scored
+GSM7033251,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.8661858402568938,392380,scored
+GSM7033253,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.8424667090393291,387042,scored
+GSM7033255,GSE224807,b cells,b cells,EPIC,0.8659886837173552,388997,scored
+GSM7033257,GSE224807,nk cells,nk cells,EPIC,0.7106985578940054,388529,scored
+GSM7033266,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9203569938199233,402584,scored
+GSM7033268,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.8012140092420712,405104,scored
+GSM7033270,GSE224807,b cells,b cells,EPIC,0.9350301223526489,402525,scored
+GSM7033272,GSE224807,nk cells,nk cells,EPIC,0.6759759796637644,407155,scored
+GSM7033273,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.883757252331637,404009,scored
+GSM7033275,GSE224807,monocytes,monocytes,EPIC,0.9480131965355371,402833,scored
+GSM7033302,GSE224807,b cells,b cells,EPIC,0.9119322005692372,408617,scored
+GSM7033304,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8609262035731134,404858,scored
+GSM7033306,GSE224807,monocytes,monocytes,EPIC,0.9390072218215587,404884,scored
+GSM7033308,GSE224807,b cells,b cells,EPIC,0.9299337656482991,403718,scored
+GSM7033309,GSE224807,monocytes,monocytes,EPIC,0.9289030948858411,400144,scored
+GSM7033318,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9187001538767724,412020,scored
+GSM7033320,GSE224807,monocytes,monocytes,EPIC,0.9665357194820311,412380,scored
+GSM7033322,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9699035025886585,411410,scored
+GSM7033324,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9781941563459002,410257,scored
+GSM7033326,GSE224807,b cells,b cells,EPIC,0.952958182605314,408849,scored
+GSM7033339,GSE224807,nk cells,nk cells,EPIC,0.9334506475058942,409726,scored
+GSM7033340,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.9034851166690365,407908,scored
+GSM7033341,GSE224807,monocytes,monocytes,EPIC,0.9696099228094985,407304,scored
+GSM7033342,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9310182828955096,408688,scored
+GSM7033343,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9767234927437658,410199,scored
+GSM7033344,GSE224807,b cells,b cells,EPIC,0.9512031970910588,408121,scored
+GSM7033371,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8869093932968936,411276,scored
+GSM7033373,GSE224807,monocytes,monocytes,EPIC,0.9349034136014819,411911,scored
+GSM7033375,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.9306696603221581,411537,scored
+GSM7033377,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9575672987844761,411263,scored
+GSM7033379,GSE224807,b cells,b cells,EPIC,0.957280385078219,410514,scored
+GSM7033380,GSE224807,nk cells,nk cells,EPIC,0.9445893693895762,410174,scored
+GSM7033432,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.8012144776893942,387327,scored
+GSM7033433,GSE224807,monocytes,monocytes,EPIC,0.8416813964920354,382444,scored
+GSM7033435,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.8384371394859316,380533,scored
+GSM7033437,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.8368282606505125,377118,scored
+GSM7033439,GSE224807,b cells,b cells,EPIC,0.8028721176210573,380068,scored
+GSM7033441,GSE224807,nk cells,nk cells,EPIC,0.7780432815204102,377898,scored
+GSM7033457,GSE224807,monocytes,monocytes,EPIC,0.918207367638348,396735,scored
+GSM7033459,GSE224807,cd4 t cells,cd4 t cells,EPIC,0.8834404638714535,397179,scored
+GSM7033461,GSE224807,cd8 t cells,cd8 t cells,EPIC,0.9047361699198785,392279,scored
+GSM7033463,GSE224807,b cells,b cells,EPIC,0.7545182561973379,393072,scored
+GSM7033465,GSE224807,nk cells,nk cells,EPIC,0.8402641515233796,390382,scored
+GSM7033480,GSE224807,neutrophils [CD15+ granulocytes; D6 decision],neutrophils,EPIC,0.822369525088102,393296,scored
+GSM7033481,GSE224807,nk cells,nk cells,EPIC,0.9140045632601905,413301,scored
+GSM7885049,GSE247198,neutrophils,neutrophils,EPIC,0.7146733786919416,762891,scored
+GSM7885050,GSE247198,neutrophils,neutrophils,EPIC,0.6982924894474468,753937,scored
+GSM7885051,GSE247198,neutrophils,neutrophils,EPIC,0.7351638361506739,759037,scored
+GSM7885052,GSE247198,neutrophils,neutrophils,EPIC,0.7394715619947323,755208,scored
+GSM7885053,GSE247198,neutrophils,neutrophils,EPIC,0.7325140874632365,764774,scored
+GSM7885054,GSE247198,neutrophils,neutrophils,EPIC,0.6789189117819867,757454,scored
+GSM7885055,GSE247198,neutrophils,neutrophils,EPIC,0.6931276131337236,726656,scored
+GSM7885056,GSE247198,neutrophils,neutrophils,EPIC,0.7145197592046536,759417,scored
+GSM7885057,GSE247198,neutrophils,neutrophils,EPIC,0.7110309378282306,753164,scored
+GSM7885058,GSE247198,neutrophils,neutrophils,EPIC,0.7175399052152622,761402,scored
+GSM7885059,GSE247198,neutrophils,neutrophils,EPIC,0.6968374231674751,759590,scored
+GSM7885060,GSE247198,neutrophils,neutrophils,EPIC,0.728906366864278,762186,scored
+GSM7885061,GSE247198,neutrophils,neutrophils,EPIC,0.7709227869992425,773810,scored
+GSM7885062,GSE247198,neutrophils,neutrophils,EPIC,0.5258852083890382,676978,scored
+GSM7885063,GSE247198,neutrophils,neutrophils,EPIC,0.6939760909020251,733424,scored
+GSM7885064,GSE247198,neutrophils,neutrophils,EPIC,0.6886638607603728,719935,scored
+GSM7885065,GSE247198,neutrophils,neutrophils,EPIC,0.7614576480932687,767733,scored
+GSM7885066,GSE247198,neutrophils,neutrophils,EPIC,0.7447664284297512,761344,scored
+GSM7885067,GSE247198,neutrophils,neutrophils,EPIC,0.7070994740440611,751818,scored
+GSM7885068,GSE247198,neutrophils,neutrophils,EPIC,0.7742661738538114,764901,scored
+GSM7885069,GSE247198,neutrophils,neutrophils,EPIC,0.7544815710169884,754963,scored
+GSM7885070,GSE247198,neutrophils,neutrophils,EPIC,0.7938798782752621,767341,scored
+GSM7885071,GSE247198,neutrophils,neutrophils,EPIC,0.7773294798292054,765404,scored
+GSM7885072,GSE247198,neutrophils,neutrophils,EPIC,0.7484635506949479,761568,scored
+GSM7885082,GSE247198,neutrophils,neutrophils,EPIC,0.9061828184837301,778687,scored
+GSM7885083,GSE247198,neutrophils,neutrophils,EPIC,0.9171573127638077,779939,scored
+GSM7885084,GSE247198,neutrophils,neutrophils,EPIC,0.8987584257921238,779915,scored
+GSM7885085,GSE247198,neutrophils,neutrophils,EPIC,0.9067169108546173,779678,scored
+GSM7885086,GSE247198,neutrophils,neutrophils,EPIC,0.9004005090149841,778766,scored
+GSM7885087,GSE247198,neutrophils,neutrophils,EPIC,0.9281563139141509,777416,scored
+GSM7885088,GSE247198,neutrophils,neutrophils,EPIC,0.8964176532140585,779840,scored
+GSM7885089,GSE247198,neutrophils,neutrophils,EPIC,0.91354663123223,781184,scored
+GSM7885090,GSE247198,neutrophils,neutrophils,EPIC,0.8991217279432493,780415,scored
+GSM7885091,GSE247198,neutrophils,neutrophils,EPIC,0.8764296944846934,778497,scored
+GSM7885092,GSE247198,neutrophils,neutrophils,EPIC,0.8971766388851146,780155,scored
+GSM7885093,GSE247198,neutrophils,neutrophils,EPIC,0.9013484522659175,780322,scored
+GSM7885094,GSE247198,neutrophils,neutrophils,EPIC,0.9024574101137014,778720,scored
+GSM7885095,GSE247198,neutrophils,neutrophils,EPIC,0.8913675146791121,779521,scored
+GSM7885096,GSE247198,neutrophils,neutrophils,EPIC,0.8279922175075136,775590,scored
+GSM7885097,GSE247198,neutrophils,neutrophils,EPIC,0.887250802868781,779720,scored
+GSM7885098,GSE247198,neutrophils,neutrophils,EPIC,0.9018702615083152,779805,scored
+GSM7885099,GSE247198,neutrophils,neutrophils,EPIC,0.906701556725392,780378,scored
+GSM7885100,GSE247198,neutrophils,neutrophils,EPIC,0.9200471193249478,780165,scored
+GSM7885101,GSE247198,neutrophils,neutrophils,EPIC,0.9003684778142974,778890,scored
+GSM7885102,GSE247198,neutrophils,neutrophils,EPIC,0.9015188708389361,780138,scored
+GSM7885103,GSE247198,neutrophils,neutrophils,EPIC,0.8990439265214167,779460,scored
+GSM7885104,GSE247198,neutrophils,neutrophils,EPIC,0.9134500285799971,780282,scored
+GSM7885105,GSE247198,neutrophils,neutrophils,EPIC,0.9033955088387419,779369,scored
+GSM8420777,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420782,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420787,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420792,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420795,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420797,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420800,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420803,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420806,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420813,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420820,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420823,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420825,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420826,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420828,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420832,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420834,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420836,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420838,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420839,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420840,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420841,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420842,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420843,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420846,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM8420847,GSE273074,NEW: HSC (cord blood),,450K,,0,listed: cell not in v2.1
+GSM9195046,GSE306226,cortical neurons,cortical neurons,EPIC,0.979412772674639,770332,scored
+GSM9195047,GSE306226,astrocytes [triple-negative glia],astrocytes,EPIC,0.7783748247076694,774281,scored
+GSM9195048,GSE306226,microglia,microglia,EPIC,0.7760997790151006,738512,scored
+GSM9195049,GSE306226,oligodendrocytes,oligodendrocytes,EPIC,0.9117291414752116,773245,scored
+GSM9195050,GSE306226,astrocytes [triple-negative glia],astrocytes,EPIC,0.80251613159673,774529,scored
+GSM9195051,GSE306226,oligodendrocytes,oligodendrocytes,EPIC,0.9813705604662057,776996,scored
+GSM9195052,GSE306226,cortical neurons,cortical neurons,EPIC,0.9803348887001245,773451,scored
+GSM9195053,GSE306226,microglia,microglia,EPIC,0.9498084503914275,774478,scored
+GSM9195058,GSE306226,cortical neurons,cortical neurons,EPIC,0.9827735435784712,772939,scored
+GSM9195059,GSE306226,microglia,microglia,EPIC,0.8398474645880248,725603,scored
+GSM9195060,GSE306226,oligodendrocytes,oligodendrocytes,EPIC,0.9240252622250389,776337,scored
+GSM9195061,GSE306226,astrocytes [triple-negative glia],astrocytes,EPIC,0.8574227738007804,778274,scored
+GSM9195062,GSE306226,microglia,microglia,EPIC,0.8576698592844565,765516,scored
+GSM9195063,GSE306226,cortical neurons,cortical neurons,EPIC,0.9766439383237189,771577,scored
+GSM9195064,GSE306226,astrocytes [triple-negative glia],astrocytes,EPIC,0.6659145573701615,771868,scored
+GSM9195065,GSE306226,oligodendrocytes,oligodendrocytes,EPIC,0.9758366473638922,773982,scored
+GSM9195070,GSE306226,microglia,microglia,EPIC,0.6585066269812998,757971,scored
+GSM9195071,GSE306226,oligodendrocytes,oligodendrocytes,EPIC,0.8400913262057913,774367,scored
+GSM9195072,GSE306226,cortical neurons,cortical neurons,EPIC,0.9808922637348986,772776,scored
+GSM9195073,GSE306226,astrocytes [triple-negative glia],astrocytes,EPIC,0.7731738218098795,777603,scored
+GSM9195074,GSE306226,oligodendrocytes,oligodendrocytes,EPIC,0.9698787024632155,775531,scored
+GSM9195075,GSE306226,microglia,microglia,EPIC,0.9732396411723363,771179,scored
+GSM9195076,GSE306226,astrocytes [triple-negative glia],astrocytes,EPIC,0.803935510083475,777939,scored
+GSM9195077,GSE306226,cortical neurons,cortical neurons,EPIC,0.9833610455599333,774628,scored
+GSM9195094,GSE306226,cortical neurons,cortical neurons,EPIC,0.9740890271745367,758173,scored
+GSM9195095,GSE306226,oligodendrocytes,oligodendrocytes,EPIC,0.9697162755270462,778537,scored
+GSM9195096,GSE306226,astrocytes [triple-negative glia],astrocytes,EPIC,0.7252943384486856,703228,scored
+GSM9195097,GSE306226,microglia,microglia,EPIC,0.8893275990931685,723841,scored
+GSM9195098,GSE306226,astrocytes [triple-negative glia],astrocytes,EPIC,0.7990397498295608,779713,scored
+GSM9195099,GSE306226,microglia,microglia,EPIC,0.9078019368274193,779860,scored
+GSM9195100,GSE306226,oligodendrocytes,oligodendrocytes,EPIC,0.9533690716757087,775451,scored
+GSM9195101,GSE306226,cortical neurons,cortical neurons,EPIC,0.9818297773804919,773023,scored
+GSM9195102,GSE306226,microglia,microglia,EPIC,0.8886786926062441,737409,scored
+GSM9195103,GSE306226,oligodendrocytes,oligodendrocytes,EPIC,0.915609054909503,749251,scored
+GSM9195104,GSE306226,cortical neurons,cortical neurons,EPIC,0.9629604303428154,745824,scored
+GSM9195105,GSE306226,astrocytes [triple-negative glia],astrocytes,EPIC,0.824050636353008,755093,scored
+GSM9195110,GSE306226,astrocytes [triple-negative glia],astrocytes,EPIC,0.8096100608081103,767794,scored
+GSM9195111,GSE306226,oligodendrocytes,oligodendrocytes,EPIC,0.9403075426596438,773096,scored
+GSM9195112,GSE306226,cortical neurons,cortical neurons,EPIC,0.9787383000982534,754173,scored
+GSM9195113,GSE306226,microglia,microglia,EPIC,0.8943826593894071,769157,scored
+GSM1425464,GSE59065,cd4 t cells,cd4 t cells,450K,0.7569078739813525,412066,scored
+GSM1425466,GSE59065,cd8 t cells,cd8 t cells,450K,0.7607023249041401,412060,scored
+GSM1425467,GSE59065,cd4 t cells,cd4 t cells,450K,0.7591233966015052,401413,scored
+GSM1425469,GSE59065,cd8 t cells,cd8 t cells,450K,0.8086165842164904,400646,scored
+GSM1425471,GSE59065,cd8 t cells,cd8 t cells,450K,0.8465586166742592,410489,scored
+GSM1425473,GSE59065,cd8 t cells,cd8 t cells,450K,0.6273524211767016,407240,scored
+GSM1425474,GSE59065,cd4 t cells,cd4 t cells,450K,0.7051228227759119,409696,scored
+GSM1425476,GSE59065,cd8 t cells,cd8 t cells,450K,0.7433273388921176,400927,scored
+GSM1425477,GSE59065,cd4 t cells,cd4 t cells,450K,0.7875726658549039,407344,scored
+GSM1425479,GSE59065,cd8 t cells,cd8 t cells,450K,0.8864717178728132,407731,scored
+GSM1425480,GSE59065,cd4 t cells,cd4 t cells,450K,0.8510846707798521,403256,scored
+GSM1425482,GSE59065,cd8 t cells,cd8 t cells,450K,0.7185089323250383,394858,scored
+GSM1425483,GSE59065,cd4 t cells,cd4 t cells,450K,0.8152385482751423,412034,scored
+GSM1425485,GSE59065,cd8 t cells,cd8 t cells,450K,0.6487056334431731,411205,scored
+GSM1425486,GSE59065,cd4 t cells,cd4 t cells,450K,0.7241402747334105,411963,scored
+GSM1425488,GSE59065,cd8 t cells,cd8 t cells,450K,0.7350053890296834,411948,scored
+GSM1425489,GSE59065,cd4 t cells,cd4 t cells,450K,0.8217184923554264,409964,scored
+GSM1425491,GSE59065,cd8 t cells,cd8 t cells,450K,0.7702346823985609,385798,scored
+GSM1425492,GSE59065,cd4 t cells,cd4 t cells,450K,0.873427751785937,408889,scored
+GSM1425494,GSE59065,cd8 t cells,cd8 t cells,450K,0.8034618091532912,409208,scored
+GSM1425495,GSE59065,cd4 t cells,cd4 t cells,450K,0.8611205647553019,411364,scored
+GSM1425497,GSE59065,cd8 t cells,cd8 t cells,450K,0.8927873338545739,409280,scored
+GSM1425498,GSE59065,cd4 t cells,cd4 t cells,450K,0.8635676706417758,406949,scored
+GSM1425500,GSE59065,cd8 t cells,cd8 t cells,450K,0.75703204983602,403403,scored
+GSM1425501,GSE59065,cd4 t cells,cd4 t cells,450K,0.8744939767603234,407837,scored
+GSM1425503,GSE59065,cd8 t cells,cd8 t cells,450K,0.787706972985394,387309,scored
+GSM1425504,GSE59065,cd4 t cells,cd4 t cells,450K,0.6324319044077795,317348,scored
+GSM1425506,GSE59065,cd8 t cells,cd8 t cells,450K,0.8957041814531764,407466,scored
+GSM1425507,GSE59065,cd4 t cells,cd4 t cells,450K,0.8926366628366668,410792,scored
+GSM1425509,GSE59065,cd8 t cells,cd8 t cells,450K,0.7175267847017813,405642,scored
+GSM1425510,GSE59065,cd4 t cells,cd4 t cells,450K,0.7492809132773961,402594,scored
+GSM1425512,GSE59065,cd8 t cells,cd8 t cells,450K,0.6732707654585935,385821,scored
+GSM1425513,GSE59065,cd4 t cells,cd4 t cells,450K,0.7694053796995154,407941,scored
+GSM1425515,GSE59065,cd8 t cells,cd8 t cells,450K,0.8631163569806426,399383,scored
+GSM1425516,GSE59065,cd4 t cells,cd4 t cells,450K,0.8780947617961937,407907,scored
+GSM1425518,GSE59065,cd8 t cells,cd8 t cells,450K,0.7648134348219513,375740,scored
+GSM1425519,GSE59065,cd4 t cells,cd4 t cells,450K,0.777299784777141,396798,scored
+GSM1425521,GSE59065,cd8 t cells,cd8 t cells,450K,0.833441810242714,401007,scored
+GSM1425522,GSE59065,cd4 t cells,cd4 t cells,450K,0.8641604279907099,408607,scored
+GSM1425524,GSE59065,cd8 t cells,cd8 t cells,450K,0.7873833143124689,410076,scored
+GSM1425525,GSE59065,cd4 t cells,cd4 t cells,450K,0.8538227463841853,409797,scored
+GSM1425527,GSE59065,cd8 t cells,cd8 t cells,450K,0.7973418304296203,412690,scored
+GSM1425528,GSE59065,cd4 t cells,cd4 t cells,450K,0.7368890828794853,407809,scored
+GSM1425530,GSE59065,cd8 t cells,cd8 t cells,450K,0.8155580169675134,410785,scored
+GSM1425531,GSE59065,cd4 t cells,cd4 t cells,450K,0.8100330362151718,401075,scored
+GSM1425533,GSE59065,cd8 t cells,cd8 t cells,450K,0.7275638895563133,391222,scored
+GSM1425534,GSE59065,cd4 t cells,cd4 t cells,450K,0.7141852286049238,405175,scored
+GSM1425536,GSE59065,cd8 t cells,cd8 t cells,450K,0.7698325806304457,394578,scored
+GSM1425537,GSE59065,cd4 t cells,cd4 t cells,450K,0.808710808198178,409652,scored
+GSM1425539,GSE59065,cd8 t cells,cd8 t cells,450K,0.5492847402999876,403350,scored
+GSM1425540,GSE59065,cd4 t cells,cd4 t cells,450K,0.64821138926345,409368,scored
+GSM1425542,GSE59065,cd8 t cells,cd8 t cells,450K,0.824122896456628,411924,scored
+GSM1425543,GSE59065,cd4 t cells,cd4 t cells,450K,0.777912650940131,410262,scored
+GSM1425545,GSE59065,cd8 t cells,cd8 t cells,450K,0.8963836874964763,407957,scored
+GSM1425546,GSE59065,cd4 t cells,cd4 t cells,450K,0.8574466384590607,412891,scored
+GSM1425548,GSE59065,cd8 t cells,cd8 t cells,450K,0.8138403083345122,402939,scored
+GSM1425549,GSE59065,cd4 t cells,cd4 t cells,450K,0.8506576280457727,409502,scored
+GSM1425551,GSE59065,cd8 t cells,cd8 t cells,450K,0.8788935847794107,406502,scored
+GSM1425552,GSE59065,cd4 t cells,cd4 t cells,450K,0.8891959294264058,408198,scored
+GSM1425554,GSE59065,cd8 t cells,cd8 t cells,450K,0.748431563778221,412194,scored
+GSM1425555,GSE59065,cd4 t cells,cd4 t cells,450K,0.7371510264322437,410597,scored
+GSM1425556,GSE59065,cd8 t cells,cd8 t cells,450K,0.5586636691485267,407893,scored
+GSM1425557,GSE59065,cd4 t cells,cd4 t cells,450K,0.6212967690175771,411330,scored
+GSM1425559,GSE59065,cd8 t cells,cd8 t cells,450K,0.7535798286241232,386052,scored
+GSM1425560,GSE59065,cd4 t cells,cd4 t cells,450K,0.7833909705336596,399337,scored
+GSM1425562,GSE59065,cd8 t cells,cd8 t cells,450K,0.7394852669931123,395778,scored
+GSM1425563,GSE59065,cd4 t cells,cd4 t cells,450K,0.7786372162102719,404657,scored
+GSM1425565,GSE59065,cd8 t cells,cd8 t cells,450K,0.5610060004299983,409304,scored
+GSM1425566,GSE59065,cd4 t cells,cd4 t cells,450K,0.6040077388790396,407811,scored
+GSM1425568,GSE59065,cd8 t cells,cd8 t cells,450K,0.8488980880992538,409697,scored
+GSM1425569,GSE59065,cd4 t cells,cd4 t cells,450K,0.8573069541110099,412648,scored
+GSM1425571,GSE59065,cd8 t cells,cd8 t cells,450K,0.7704238389727026,406192,scored
+GSM1425572,GSE59065,cd4 t cells,cd4 t cells,450K,0.7126869082930397,393776,scored
+GSM1425574,GSE59065,cd8 t cells,cd8 t cells,450K,0.8742039343766095,409671,scored
+GSM1425575,GSE59065,cd4 t cells,cd4 t cells,450K,0.8350542202899983,404830,scored
+GSM1425577,GSE59065,cd8 t cells,cd8 t cells,450K,0.6181695530775844,394319,scored
+GSM1425578,GSE59065,cd4 t cells,cd4 t cells,450K,0.7018416453824439,409145,scored
+GSM1425580,GSE59065,cd8 t cells,cd8 t cells,450K,0.6228229149919859,410526,scored
+GSM1425581,GSE59065,cd4 t cells,cd4 t cells,450K,0.6786444674641624,412207,scored
+GSM1425583,GSE59065,cd8 t cells,cd8 t cells,450K,0.8262858652679376,408752,scored
+GSM1425584,GSE59065,cd4 t cells,cd4 t cells,450K,0.7824047352973683,407155,scored
+GSM1425586,GSE59065,cd8 t cells,cd8 t cells,450K,0.9139323913484798,408853,scored
+GSM1425587,GSE59065,cd4 t cells,cd4 t cells,450K,0.898838004101162,408177,scored
+GSM1425589,GSE59065,cd8 t cells,cd8 t cells,450K,0.7811397402166731,410111,scored
+GSM1425590,GSE59065,cd4 t cells,cd4 t cells,450K,0.7737340182900091,408201,scored
+GSM1425592,GSE59065,cd8 t cells,cd8 t cells,450K,0.8254209478059316,404682,scored
+GSM1425593,GSE59065,cd4 t cells,cd4 t cells,450K,0.8489050846964176,412178,scored
+GSM1425595,GSE59065,cd8 t cells,cd8 t cells,450K,0.8383305644827811,413529,scored
+GSM1425596,GSE59065,cd4 t cells,cd4 t cells,450K,0.8701300917663809,410172,scored
+GSM1425598,GSE59065,cd8 t cells,cd8 t cells,450K,0.8169727691252816,408360,scored
+GSM1425599,GSE59065,cd4 t cells,cd4 t cells,450K,0.8365101575583497,406643,scored
+GSM1425601,GSE59065,cd8 t cells,cd8 t cells,450K,0.7875172277043517,408499,scored
+GSM1425602,GSE59065,cd4 t cells,cd4 t cells,450K,0.785027288942025,411522,scored
+GSM1425603,GSE59065,cd8 t cells,cd8 t cells,450K,0.8543175698274241,409617,scored
+GSM1425604,GSE59065,cd4 t cells,cd4 t cells,450K,0.827209595959596,411840,scored
+GSM1425606,GSE59065,cd8 t cells,cd8 t cells,450K,0.725508532874395,408479,scored
+GSM1425607,GSE59065,cd4 t cells,cd4 t cells,450K,0.6928763507793436,401620,scored
+GSM1425609,GSE59065,cd8 t cells,cd8 t cells,450K,0.6224396904870277,408642,scored
+GSM1425610,GSE59065,cd4 t cells,cd4 t cells,450K,0.6749193126042846,410535,scored
+GSM1425612,GSE59065,cd8 t cells,cd8 t cells,450K,0.8674644217866972,408396,scored
+GSM1425613,GSE59065,cd4 t cells,cd4 t cells,450K,0.8825600101552831,409639,scored
+GSM1425615,GSE59065,cd8 t cells,cd8 t cells,450K,0.7087291421407117,405183,scored
+GSM1425616,GSE59065,cd4 t cells,cd4 t cells,450K,0.738464228301676,411806,scored
+GSM1425618,GSE59065,cd8 t cells,cd8 t cells,450K,0.8480372394900854,399361,scored
+GSM1425619,GSE59065,cd4 t cells,cd4 t cells,450K,0.6882839341318887,354223,scored
+GSM1425621,GSE59065,cd8 t cells,cd8 t cells,450K,0.7279122012300666,407295,scored
+GSM1425622,GSE59065,cd4 t cells,cd4 t cells,450K,0.8070709938647277,405035,scored
+GSM1425624,GSE59065,cd8 t cells,cd8 t cells,450K,0.8849960240095325,403673,scored
+GSM1425625,GSE59065,cd4 t cells,cd4 t cells,450K,0.8910651998926751,409970,scored
+GSM1425627,GSE59065,cd8 t cells,cd8 t cells,450K,0.8190239038932846,407214,scored
+GSM1425628,GSE59065,cd4 t cells,cd4 t cells,450K,0.8455265372435901,411158,scored
+GSM1425630,GSE59065,cd8 t cells,cd8 t cells,450K,0.8636717177827765,404993,scored
+GSM1425631,GSE59065,cd4 t cells,cd4 t cells,450K,0.8627915253734589,404596,scored
+GSM1425633,GSE59065,cd8 t cells,cd8 t cells,450K,0.7058142455294354,398160,scored
+GSM1425634,GSE59065,cd4 t cells,cd4 t cells,450K,0.8072391256685216,405933,scored
+GSM1425636,GSE59065,cd8 t cells,cd8 t cells,450K,0.8861940070456451,409047,scored
+GSM1425637,GSE59065,cd4 t cells,cd4 t cells,450K,0.6955337215422156,355307,scored
+GSM1425639,GSE59065,cd8 t cells,cd8 t cells,450K,0.7738669024983418,407070,scored
+GSM1425640,GSE59065,cd4 t cells,cd4 t cells,450K,0.7832196409272968,406213,scored
+GSM1425642,GSE59065,cd8 t cells,cd8 t cells,450K,0.8592201816861891,407736,scored
+GSM1425643,GSE59065,cd4 t cells,cd4 t cells,450K,0.8057749332806168,404680,scored
+GSM1425645,GSE59065,cd8 t cells,cd8 t cells,450K,0.80163490136492,386323,scored
+GSM1425646,GSE59065,cd4 t cells,cd4 t cells,450K,0.7301850881306374,362530,scored
+GSM1425648,GSE59065,cd8 t cells,cd8 t cells,450K,0.8693887091416832,406435,scored
+GSM1425649,GSE59065,cd4 t cells,cd4 t cells,450K,0.8684259894647979,405118,scored
+GSM1425651,GSE59065,cd8 t cells,cd8 t cells,450K,0.8068202225354677,406497,scored
+GSM1425652,GSE59065,cd4 t cells,cd4 t cells,450K,0.8355527950922906,405729,scored
+GSM1425654,GSE59065,cd8 t cells,cd8 t cells,450K,0.7644829684616042,397674,scored
+GSM1425655,GSE59065,cd4 t cells,cd4 t cells,450K,0.7215416925135089,401403,scored
+GSM1425657,GSE59065,cd8 t cells,cd8 t cells,450K,0.7097267901074712,386150,scored
+GSM1425658,GSE59065,cd4 t cells,cd4 t cells,450K,0.6877128846014479,372561,scored
+GSM1425660,GSE59065,cd8 t cells,cd8 t cells,450K,0.5503094329817765,338684,scored
+GSM1425661,GSE59065,cd4 t cells,cd4 t cells,450K,0.45672730818760915,348661,scored
+GSM1425663,GSE59065,cd8 t cells,cd8 t cells,450K,0.8672878675465656,409744,scored
+GSM1425664,GSE59065,cd4 t cells,cd4 t cells,450K,0.8961056618432554,411880,scored
+GSM1425666,GSE59065,cd8 t cells,cd8 t cells,450K,0.6394704139183635,376596,scored
+GSM1425667,GSE59065,cd4 t cells,cd4 t cells,450K,0.760099027392017,407564,scored
+GSM1425669,GSE59065,cd8 t cells,cd8 t cells,450K,0.6017074380332581,395212,scored
+GSM1425670,GSE59065,cd4 t cells,cd4 t cells,450K,0.6348267390742177,402168,scored
+GSM1425672,GSE59065,cd8 t cells,cd8 t cells,450K,0.7982605738282655,405766,scored
+GSM1425673,GSE59065,cd4 t cells,cd4 t cells,450K,0.8196991333464645,406160,scored
+GSM1425675,GSE59065,cd8 t cells,cd8 t cells,450K,0.8656874975634479,410416,scored
+GSM1425676,GSE59065,cd4 t cells,cd4 t cells,450K,0.8871306061522551,409996,scored
+GSM1425678,GSE59065,cd8 t cells,cd8 t cells,450K,0.8460964718582855,407580,scored
+GSM1425679,GSE59065,cd4 t cells,cd4 t cells,450K,0.8886064032440357,407887,scored
+GSM1425681,GSE59065,cd8 t cells,cd8 t cells,450K,0.6473358098141653,405414,scored
+GSM1425682,GSE59065,cd4 t cells,cd4 t cells,450K,0.709439374572694,403692,scored
+GSM1425684,GSE59065,cd8 t cells,cd8 t cells,450K,0.6833285718507719,406036,scored
+GSM1425685,GSE59065,cd4 t cells,cd4 t cells,450K,0.7124255686436483,377697,scored
+GSM1425687,GSE59065,cd8 t cells,cd8 t cells,450K,0.6493135154929295,398698,scored
+GSM1425688,GSE59065,cd4 t cells,cd4 t cells,450K,0.5843143287898834,325010,scored
+GSM1425690,GSE59065,cd8 t cells,cd8 t cells,450K,0.7487649235643312,377507,scored
+GSM1425691,GSE59065,cd4 t cells,cd4 t cells,450K,0.7758787304104067,385983,scored
+GSM1425693,GSE59065,cd8 t cells,cd8 t cells,450K,0.8715501263897333,406283,scored
+GSM1425694,GSE59065,cd4 t cells,cd4 t cells,450K,0.6692566963715753,391630,scored
+GSM1425696,GSE59065,cd8 t cells,cd8 t cells,450K,0.883651992386566,407175,scored
+GSM1425697,GSE59065,cd4 t cells,cd4 t cells,450K,0.6066145975035999,301394,scored
+GSM1425699,GSE59065,cd8 t cells,cd8 t cells,450K,0.6765235285367184,403340,scored
+GSM1425700,GSE59065,cd4 t cells,cd4 t cells,450K,0.6084771625445304,332918,scored
+GSM1425701,GSE59065,cd8 t cells,cd8 t cells,450K,0.7121781704325628,401144,scored
+GSM1425703,GSE59065,cd8 t cells,cd8 t cells,450K,0.6649020219607685,397436,scored
+GSM1425704,GSE59065,cd4 t cells,cd4 t cells,450K,0.6584721048076875,399818,scored
+GSM1425706,GSE59065,cd8 t cells,cd8 t cells,450K,0.8244715890446784,405319,scored
+GSM1425707,GSE59065,cd4 t cells,cd4 t cells,450K,0.8259123744262847,403946,scored
+GSM1425709,GSE59065,cd8 t cells,cd8 t cells,450K,0.6178492166516119,334334,scored
+GSM1425710,GSE59065,cd4 t cells,cd4 t cells,450K,0.6129233802784608,348918,scored
+GSM1425712,GSE59065,cd8 t cells,cd8 t cells,450K,0.7958927597416098,408839,scored
+GSM1425713,GSE59065,cd4 t cells,cd4 t cells,450K,0.7825585738117172,401630,scored
+GSM1425715,GSE59065,cd8 t cells,cd8 t cells,450K,0.7519693906087972,404059,scored
+GSM1425716,GSE59065,cd4 t cells,cd4 t cells,450K,0.7667112083230688,401871,scored
+GSM1425718,GSE59065,cd8 t cells,cd8 t cells,450K,0.7104140736841588,406546,scored
+GSM1425719,GSE59065,cd4 t cells,cd4 t cells,450K,0.6935605917769649,397785,scored
+GSM1425721,GSE59065,cd8 t cells,cd8 t cells,450K,0.8081339594047353,402510,scored
+GSM1425722,GSE59065,cd4 t cells,cd4 t cells,450K,0.7531003215148238,404958,scored
+GSM1425724,GSE59065,cd8 t cells,cd8 t cells,450K,0.7086517990272321,404413,scored
+GSM1425725,GSE59065,cd4 t cells,cd4 t cells,450K,0.7503305724187087,406870,scored
+GSM1425727,GSE59065,cd8 t cells,cd8 t cells,450K,0.8751714105586451,407647,scored
+GSM1425728,GSE59065,cd4 t cells,cd4 t cells,450K,0.8530359404105939,409066,scored
+GSM1425730,GSE59065,cd8 t cells,cd8 t cells,450K,0.8623357754109463,406075,scored
+GSM1425731,GSE59065,cd4 t cells,cd4 t cells,450K,0.869797736385723,405016,scored
+GSM1425733,GSE59065,cd8 t cells,cd8 t cells,450K,0.7423425190415481,397683,scored
+GSM1425734,GSE59065,cd4 t cells,cd4 t cells,450K,0.8266573446543265,406207,scored
+GSM1425736,GSE59065,cd4 t cells,cd4 t cells,450K,0.7898911654410995,381864,scored
+GSM1425737,GSE59065,cd8 t cells,cd8 t cells,450K,0.8398607271066498,407258,scored
+GSM1425738,GSE59065,cd4 t cells,cd4 t cells,450K,0.8199976218669336,403678,scored
+GSM1425739,GSE59065,cd8 t cells,cd8 t cells,450K,0.743586989700745,353812,scored
+GSM1425740,GSE59065,cd4 t cells,cd4 t cells,450K,0.8611446830764765,399639,scored
+GSM1425743,GSE59065,cd8 t cells,cd8 t cells,450K,0.551652035842149,395512,scored
+GSM1425744,GSE59065,cd4 t cells,cd4 t cells,450K,0.554371066756307,362932,scored
+GSM1425745,GSE59065,cd8 t cells,cd8 t cells,450K,0.6342987094000012,330234,scored
+GSM1425746,GSE59065,cd4 t cells,cd4 t cells,450K,0.7485735540264088,403275,scored
+GSM1425747,GSE59065,cd8 t cells,cd8 t cells,450K,0.8529485614997163,398262,scored
+GSM1425748,GSE59065,cd4 t cells,cd4 t cells,450K,0.827063129884658,394219,scored
+GSM1425751,GSE59065,cd8 t cells,cd8 t cells,450K,0.7406137575082016,378586,scored
+GSM1425752,GSE59065,cd4 t cells,cd4 t cells,450K,0.6332341077841368,325521,scored
+GSM1425753,GSE59065,cd8 t cells,cd8 t cells,450K,0.8695255090549534,404033,scored
+GSM1425754,GSE59065,cd4 t cells,cd4 t cells,450K,0.7564341760212279,385908,scored
+GSM1425755,GSE59065,cd8 t cells,cd8 t cells,450K,0.794695813223968,405491,scored
+GSM1425756,GSE59065,cd4 t cells,cd4 t cells,450K,0.7378805167071435,382112,scored
+GSM2808886,GSE66351,cortical neurons,cortical neurons,450K,0.8582248252978734,397820,scored
+GSM2808894,GSE66351,cortical neurons,cortical neurons,450K,0.859099206515393,405931,scored
+GSM2808896,GSE66351,cortical neurons,cortical neurons,450K,0.8458985266013193,405525,scored
+GSM2808898,GSE66351,cortical neurons,cortical neurons,450K,0.8794438276342555,402609,scored
+GSM2808900,GSE66351,cortical neurons,cortical neurons,450K,0.9243983825246362,410269,scored
+GSM2808902,GSE66351,cortical neurons,cortical neurons,450K,0.8295545867941277,404411,scored
+GSM2808904,GSE66351,cortical neurons,cortical neurons,450K,0.9021080549364346,401555,scored
+GSM2808906,GSE66351,cortical neurons,cortical neurons,450K,0.8409540596139967,407354,scored
+GSM2808908,GSE66351,cortical neurons,cortical neurons,450K,0.8740875336139863,411659,scored
+GSM2808910,GSE66351,cortical neurons,cortical neurons,450K,0.9309973690504664,401376,scored
+GSM2808916,GSE66351,cortical neurons,cortical neurons,450K,0.9352954771946131,402383,scored
+GSM2808918,GSE66351,cortical neurons,cortical neurons,450K,0.8984794912480166,400195,scored
+GSM2808920,GSE66351,cortical neurons,cortical neurons,450K,0.9285501437787744,402702,scored
+GSM2808922,GSE66351,cortical neurons,cortical neurons,450K,0.9301051073575151,399972,scored
+GSM2808924,GSE66351,cortical neurons,cortical neurons,450K,0.9375021662812749,403918,scored
+GSM2808926,GSE66351,cortical neurons,cortical neurons,450K,0.92840575150866,400521,scored
+GSM2277236,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8609743546607423,404206,scored
+GSM2277237,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8762801143127021,415002,scored
+GSM2277238,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8753947095660726,414862,scored
+GSM2277239,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8780146321714991,414976,scored
+GSM2277240,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8668873565876906,415062,scored
+GSM2277241,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8713649955304112,415027,scored
+GSM2277242,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8386649060750051,415012,scored
+GSM2277243,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8793219358802906,415005,scored
+GSM2277245,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8495398477401946,415080,scored
+GSM2277247,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8830614636122107,414782,scored
+GSM2277254,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8746345566596851,414907,scored
+GSM2277256,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8679723036003392,415072,scored
+GSM2277257,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8728639352993202,414957,scored
+GSM2277258,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8605462752971061,414919,scored
+GSM2277260,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8756190793556504,414123,scored
+GSM2277262,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8771070301208023,413734,scored
+GSM2277265,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8828433523475209,414778,scored
+GSM2277267,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8843188714836382,414562,scored
+GSM2277269,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8666944803503559,414664,scored
+GSM2277270,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8863688447278087,414543,scored
+GSM2277272,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8934507533431639,414353,scored
+GSM2277276,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8701161460921931,414478,scored
+GSM2277282,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8515251914180987,414407,scored
+GSM2277284,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8339931234052396,415031,scored
+GSM2277288,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.864154092137915,414661,scored
+GSM2277295,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8810619212962963,414720,scored
+GSM2277304,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8527962706749519,414874,scored
+GSM2277305,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8621768205484375,414669,scored
+GSM2277308,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8343284229395862,415038,scored
+GSM2277310,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8556109148906439,415066,scored
+GSM2277311,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8900918880912744,413873,scored
+GSM2277312,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8545241227119199,415086,scored
+GSM2277313,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8364415480499949,414922,scored
+GSM2277315,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8628803353051967,414667,scored
+GSM2277318,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8322031897749911,415139,scored
+GSM2277320,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8492516423397228,415109,scored
+GSM2277324,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8490897919352313,415015,scored
+GSM2277325,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8321507135474016,415039,scored
+GSM2277329,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8611640818806217,414799,scored
+GSM2277330,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.8614021222664495,415028,scored
+GSM2277336,GSE85566,lung bronchus epithelium,lung bronchus epithelium,450K,0.879797026368708,414241,scored
+GSM2280166,GSE85647,monocytes,monocytes,450K,0.9496987682268804,413469,scored
+GSM2280167,GSE85647,monocytes,monocytes,450K,0.9013166720492882,402530,scored
+GSM2280168,GSE85647,monocytes,monocytes,450K,0.9434490129510876,413556,scored
+GSM2280171,GSE85647,monocytes,monocytes,450K,0.9093609321426307,410066,scored
+GSM2280172,GSE85647,monocytes,monocytes,450K,0.22510774052722898,410941,scored
+GSM2280173,GSE85647,monocytes,monocytes,450K,0.1983096482861041,414115,scored
+GSM2280174,GSE85647,monocytes,monocytes,450K,0.7612509111270944,414322,scored
+GSM2280176,GSE85647,monocytes,monocytes,450K,0.8878189494014089,403865,scored
+GSM2280181,GSE85647,monocytes,monocytes,450K,0.9120521332599985,407264,scored
+GSM2280184,GSE85647,monocytes,monocytes,450K,0.8804324803831424,401313,scored
+GSM2322082,GSE87095,b cells,b cells,450K,0.9501135059926282,409670,scored
+GSM2322083,GSE87095,b cells,b cells,450K,0.9233994821835836,402073,scored
+GSM2322084,GSE87095,b cells,b cells,450K,0.8701942585638294,406623,scored
+GSM2322085,GSE87095,b cells,b cells,450K,0.9230953369647524,409390,scored
+GSM2322086,GSE87095,b cells,b cells,450K,0.8959610520991401,395400,scored
+GSM2322087,GSE87095,b cells,b cells,450K,0.8097799867328683,397976,scored
+GSM2322088,GSE87095,b cells,b cells,450K,0.9409679070107464,410370,scored
+GSM2322089,GSE87095,b cells,b cells,450K,0.7989825305399076,379176,scored
+GSM2322090,GSE87095,b cells,b cells,450K,0.8798508959451329,408842,scored
+GSM2322091,GSE87095,b cells,b cells,450K,0.8919698730669482,394066,scored
+GSM2322095,GSE87095,b cells,b cells,450K,0.877025738798856,403865,scored
+GSM2322096,GSE87095,b cells,b cells,450K,0.8016769541159785,400488,scored
+GSM2322097,GSE87095,b cells,b cells,450K,0.7723380500841134,395894,scored
+GSM2322098,GSE87095,b cells,b cells,450K,0.7834578023814498,382960,scored
+GSM2322099,GSE87095,b cells,b cells,450K,0.9114581547639455,408338,scored
+GSM2322100,GSE87095,b cells,b cells,450K,0.8739222806887522,404790,scored
+GSM2322101,GSE87095,b cells,b cells,450K,0.9289571678808773,412751,scored
+GSM2322102,GSE87095,b cells,b cells,450K,0.8563175900051377,399005,scored
+GSM2322103,GSE87095,b cells,b cells,450K,0.7956531806716065,405952,scored
+GSM2322104,GSE87095,b cells,b cells,450K,0.8340800454337504,380334,scored
+GSM2322114,GSE87095,b cells,b cells,450K,0.8002737010520384,397514,scored
+GSM2322115,GSE87095,b cells,b cells,450K,0.7754620982126414,380114,scored
+GSM2322116,GSE87095,b cells,b cells,450K,0.8722670448628626,403318,scored
+GSM2322117,GSE87095,b cells,b cells,450K,0.8178278170446176,363892,scored
+GSM2322118,GSE87095,b cells,b cells,450K,0.7757790034922944,369671,scored
+GSM2322119,GSE87095,b cells,b cells,450K,0.8952744244924977,413939,scored
+GSM2322120,GSE87095,b cells,b cells,450K,0.785405847362486,399941,scored
+GSM2322121,GSE87095,b cells,b cells,450K,0.9292553798906164,411579,scored
+GSM2322122,GSE87095,b cells,b cells,450K,0.8027938467463822,394653,scored
+GSM2322123,GSE87095,b cells,b cells,450K,0.9257249789633648,398115,scored
+GSM2322124,GSE87095,b cells,b cells,450K,0.9169864777221326,410138,scored
+GSM2322130,GSE87095,b cells,b cells,450K,0.6528342481044285,345806,scored
+GSM2322131,GSE87095,b cells,b cells,450K,0.8555058684941619,395587,scored
+GSM2322132,GSE87095,b cells,b cells,450K,0.883055004375208,405695,scored
+GSM2322133,GSE87095,b cells,b cells,450K,0.7797370373758628,393516,scored
+GSM2322134,GSE87095,b cells,b cells,450K,0.8734540759529703,393454,scored
+GSM2322135,GSE87095,b cells,b cells,450K,0.7272530986512156,365885,scored
+GSM2322136,GSE87095,b cells,b cells,450K,0.9361772110875438,413473,scored
+GSM2322137,GSE87095,b cells,b cells,450K,0.6920922920268328,357474,scored
+GSM2322138,GSE87095,b cells,b cells,450K,0.8544985018624489,403501,scored
+GSM2322139,GSE87095,b cells,b cells,450K,0.9390234072539771,409403,scored
+GSM2322147,GSE87095,b cells,b cells,450K,0.8596693091253436,378057,scored
+GSM2322148,GSE87095,b cells,b cells,450K,0.8480246248869836,393748,scored
+GSM2322149,GSE87095,b cells,b cells,450K,0.8672468116288882,405301,scored
+GSM2322150,GSE87095,b cells,b cells,450K,0.8232921792735836,412353,scored
+GSM2322151,GSE87095,b cells,b cells,450K,0.8949292110281767,395895,scored
+GSM2322152,GSE87095,b cells,b cells,450K,0.9171917628668796,411988,scored
+GSM2322153,GSE87095,b cells,b cells,450K,0.9519919723405341,411577,scored
+GSM2322171,GSE87095,b cells,b cells,450K,0.9220397741682117,406143,scored
+GSM2322172,GSE87095,b cells,b cells,450K,0.84855434890397,393283,scored
+GSM2322173,GSE87095,b cells,b cells,450K,0.9027909384860355,409468,scored
+GSM2322174,GSE87095,b cells,b cells,450K,0.7657251419742453,388979,scored
+GSM2322175,GSE87095,b cells,b cells,450K,0.9293095396111398,406830,scored
+GSM2322176,GSE87095,b cells,b cells,450K,0.9357707990696498,411028,scored
+GSM2322183,GSE87095,b cells,b cells,450K,0.9276121294028212,414365,scored
+GSM2322184,GSE87095,b cells,b cells,450K,0.925009387631887,407451,scored
+GSM2322185,GSE87095,b cells,b cells,450K,0.90340295762035,413170,scored
+GSM2322186,GSE87095,b cells,b cells,450K,0.8263699971419801,377884,scored
+GSM2322187,GSE87095,b cells,b cells,450K,0.9469388849875156,410112,scored
+GSM2322188,GSE87095,b cells,b cells,450K,0.8606693840059705,383218,scored
+GSM2322198,GSE87095,b cells,b cells,450K,0.8337840391968713,412686,scored
+GSM2322199,GSE87095,b cells,b cells,450K,0.9345210136119976,413018,scored
+GSM2322200,GSE87095,b cells,b cells,450K,0.8606642390473235,396273,scored
+GSM2322201,GSE87095,b cells,b cells,450K,0.9256758082234777,407808,scored
+GSM2322202,GSE87095,b cells,b cells,450K,0.9547649871150672,410169,scored
+GSM2322203,GSE87095,b cells,b cells,450K,0.9428632254287436,413359,scored
+GSM2322205,GSE87095,b cells,b cells,450K,0.9530053159870242,412153,scored
+GSM2322207,GSE87095,b cells,b cells,450K,0.8236023061287715,397029,scored
+GSM2322209,GSE87095,b cells,b cells,450K,0.694920831000306,346474,scored
+GSM2322210,GSE87095,b cells,b cells,450K,0.6484566860213915,358741,scored
+GSM2322211,GSE87095,b cells,b cells,450K,0.6450164015634344,331066,scored
+GSM2322212,GSE87095,b cells,b cells,450K,0.6546489900709808,337697,scored
+GSM2322213,GSE87095,b cells,b cells,450K,0.6041380143166708,298114,scored
+GSM2336824,GSE87640,cd4 t cells,cd4 t cells,450K,0.893609758955431,392583,scored
+GSM2336828,GSE87640,monocytes,monocytes,450K,0.9025176290528846,389414,scored
+GSM2336839,GSE87640,monocytes,monocytes,450K,0.8969865005670632,390609,scored
+GSM2336841,GSE87640,monocytes,monocytes,450K,0.8954802903592525,394959,scored
+GSM2336845,GSE87640,cd8 t cells,cd8 t cells,450K,0.9026187389152063,394121,scored
+GSM2336849,GSE87640,cd8 t cells,cd8 t cells,450K,0.9371984568805547,409560,scored
+GSM2336851,GSE87640,cd8 t cells,cd8 t cells,450K,0.9115847165594554,389729,scored
+GSM2336857,GSE87640,cd4 t cells,cd4 t cells,450K,0.890518044163233,391955,scored
+GSM2336858,GSE87640,monocytes,monocytes,450K,0.8648480829037449,378463,scored
+GSM2336869,GSE87640,cd4 t cells,cd4 t cells,450K,0.8997559516748983,396233,scored
+GSM2336874,GSE87640,cd8 t cells,cd8 t cells,450K,0.9298042204425343,400195,scored
+GSM2336875,GSE87640,cd4 t cells,cd4 t cells,450K,0.9042623683321951,393889,scored
+GSM2336879,GSE87640,cd8 t cells,cd8 t cells,450K,0.913163001293661,401960,scored
+GSM2336883,GSE87640,cd4 t cells,cd4 t cells,450K,0.9472280071988411,410066,scored
+GSM2336884,GSE87640,monocytes,monocytes,450K,0.9194879124976695,402275,scored
+GSM2336891,GSE87640,monocytes,monocytes,450K,0.9117418038963518,398116,scored
+GSM2336894,GSE87640,monocytes,monocytes,450K,0.9215446238578044,399450,scored
+GSM2336896,GSE87640,cd4 t cells,cd4 t cells,450K,0.8533388460738416,389401,scored
+GSM2336899,GSE87640,monocytes,monocytes,450K,0.9083791370750663,398621,scored
+GSM2336900,GSE87640,cd8 t cells,cd8 t cells,450K,0.9176910595244674,398122,scored
+GSM2336907,GSE87640,cd4 t cells,cd4 t cells,450K,0.8929826765355122,390049,scored
+GSM2336908,GSE87640,monocytes,monocytes,450K,0.8959691969640463,396844,scored
+GSM2336910,GSE87640,cd4 t cells,cd4 t cells,450K,0.7926908133596086,392766,scored
+GSM2336911,GSE87640,cd8 t cells,cd8 t cells,450K,0.9544027851906984,408446,scored
+GSM2336917,GSE87640,cd8 t cells,cd8 t cells,450K,0.9241770828146009,401620,scored
+GSM2336922,GSE87640,cd8 t cells,cd8 t cells,450K,0.9129555522536158,397073,scored
+GSM2336927,GSE87640,cd8 t cells,cd8 t cells,450K,0.8711297380585517,405625,scored
+GSM2336929,GSE87640,monocytes,monocytes,450K,0.9299855609639918,403074,scored
+GSM2336935,GSE87640,cd8 t cells,cd8 t cells,450K,0.9246748238263858,399322,scored
+GSM2336937,GSE87640,monocytes,monocytes,450K,0.91779910647916,396857,scored
+GSM2336939,GSE87640,cd8 t cells,cd8 t cells,450K,0.8868779770953684,394680,scored
+GSM2336941,GSE87640,cd8 t cells,cd8 t cells,450K,0.9493873837050878,411024,scored
+GSM2336947,GSE87640,monocytes,monocytes,450K,0.9184715098573489,399296,scored
+GSM2336949,GSE87640,monocytes,monocytes,450K,0.903832043121593,393863,scored
+GSM2336950,GSE87640,monocytes,monocytes,450K,0.6934091790948255,402044,scored
+GSM2336952,GSE87640,cd8 t cells,cd8 t cells,450K,0.7852614221847998,399048,scored
+GSM2336953,GSE87640,cd8 t cells,cd8 t cells,450K,0.9067725783247103,408013,scored
+GSM2336957,GSE87640,cd4 t cells,cd4 t cells,450K,0.9277042444129516,407147,scored
+GSM2336963,GSE87640,monocytes,monocytes,450K,0.9284788320876732,401126,scored
+GSM2336964,GSE87640,monocytes,monocytes,450K,0.9412532830427142,405112,scored
+GSM2336967,GSE87640,cd8 t cells,cd8 t cells,450K,0.733172538287432,397193,scored
+GSM2336974,GSE87640,cd4 t cells,cd4 t cells,450K,0.928589210402999,409728,scored
+GSM2336980,GSE87640,cd4 t cells,cd4 t cells,450K,0.9012995793269231,399360,scored
+GSM2336983,GSE87640,monocytes,monocytes,450K,0.9314179796107507,402467,scored
+GSM2336984,GSE87640,cd4 t cells,cd4 t cells,450K,0.9244359652901717,406225,scored
+GSM2336989,GSE87640,cd4 t cells,cd4 t cells,450K,0.9212783161456455,401935,scored
+GSM2336994,GSE87640,cd4 t cells,cd4 t cells,450K,0.9216085916010447,402812,scored
+GSM2337002,GSE87640,cd8 t cells,cd8 t cells,450K,0.9459195169652307,410074,scored
+GSM2337006,GSE87640,cd4 t cells,cd4 t cells,450K,0.9206467355137653,405730,scored
+GSM2337007,GSE87640,monocytes,monocytes,450K,0.9187888484824013,396251,scored
+GSM2337017,GSE87640,cd8 t cells,cd8 t cells,450K,0.9254057172125543,402189,scored
+GSM2337020,GSE87640,monocytes,monocytes,450K,0.9441559018067208,405486,scored
+GSM2337022,GSE87640,monocytes,monocytes,450K,0.9259559929477155,401572,scored
+GSM2337030,GSE87640,cd4 t cells,cd4 t cells,450K,0.9342024588582163,409377,scored
+GSM2337035,GSE87640,cd4 t cells,cd4 t cells,450K,0.9288472899669454,409626,scored
+GSM2337036,GSE87640,cd4 t cells,cd4 t cells,450K,0.9214277019087203,402521,scored
+GSM2337046,GSE87640,cd8 t cells,cd8 t cells,450K,0.7894332382368304,398192,scored
+GSM2337050,GSE87640,cd4 t cells,cd4 t cells,450K,0.8956182324969673,401459,scored
+GSM2337051,GSE87640,cd4 t cells,cd4 t cells,450K,0.9257430023496391,404743,scored
+GSM2589158,GSE98203,cortical neurons,cortical neurons,450K,0.8986905905225926,384219,scored
+GSM2589159,GSE98203,cortical neurons,cortical neurons,450K,0.8845248705649078,399428,scored
+GSM2589160,GSE98203,cortical neurons,cortical neurons,450K,0.8719316724090882,392111,scored
+GSM2589162,GSE98203,cortical neurons,cortical neurons,450K,0.8948154819166138,390856,scored
+GSM2589163,GSE98203,cortical neurons,cortical neurons,450K,0.7682181784961831,350282,scored
+GSM2589164,GSE98203,cortical neurons,cortical neurons,450K,0.9049204229157533,392324,scored
+GSM2589168,GSE98203,cortical neurons,cortical neurons,450K,0.8973043411605386,391370,scored
+GSM2589175,GSE98203,cortical neurons,cortical neurons,450K,0.8699971524453043,375761,scored
+GSM2589181,GSE98203,cortical neurons,cortical neurons,450K,0.8907721906964606,390862,scored
+GSM2589185,GSE98203,cortical neurons,cortical neurons,450K,0.8777093195343907,381092,scored
+GSM2589189,GSE98203,cortical neurons,cortical neurons,450K,0.8541671686061608,373551,scored
+GSM2589191,GSE98203,cortical neurons,cortical neurons,450K,0.8414362670672206,370154,scored
+GSM2589194,GSE98203,cortical neurons,cortical neurons,450K,0.8263734850676696,373284,scored
+GSM2589200,GSE98203,cortical neurons,cortical neurons,450K,0.8403906789162174,389783,scored
+GSM2589204,GSE98203,cortical neurons,cortical neurons,450K,0.8797506446608591,385474,scored
+GSM2589206,GSE98203,cortical neurons,cortical neurons,450K,0.8280861935032112,365596,scored
+GSM2589213,GSE98203,cortical neurons,cortical neurons,450K,0.9038159904766284,391458,scored
+GSM2589218,GSE98203,cortical neurons,cortical neurons,450K,0.9099474151120482,388895,scored
+GSM2589219,GSE98203,cortical neurons,cortical neurons,450K,0.9020126856588725,404236,scored
+GSM2589221,GSE98203,cortical neurons,cortical neurons,450K,0.8820161914147354,377484,scored
+GSM2589223,GSE98203,cortical neurons,cortical neurons,450K,0.8817720376455316,394416,scored
+GSM2589224,GSE98203,cortical neurons,cortical neurons,450K,0.8656808810705481,371548,scored
+GSM2589225,GSE98203,cortical neurons,cortical neurons,450K,0.9023435665032425,404469,scored
+GSM2589227,GSE98203,cortical neurons,cortical neurons,450K,0.8869667755475806,390947,scored
+GSM2589230,GSE98203,cortical neurons,cortical neurons,450K,0.8374300556810292,364397,scored
+GSM2589236,GSE98203,cortical neurons,cortical neurons,450K,0.8881563968019262,382105,scored
+GSM2589237,GSE98203,cortical neurons,cortical neurons,450K,0.8667045737786641,385152,scored
+GSM2589238,GSE98203,cortical neurons,cortical neurons,450K,0.8470433998852867,366130,scored
+GSM2589239,GSE98203,cortical neurons,cortical neurons,450K,0.8628026852073843,383732,scored

@@ -331,3 +331,14 @@ measures, the trap DEV-SECONDLAB-02 fell into (lessons C19, KISS). The bars them
 **Synthetic test:** DEV_ATLAS_V21_01/planted_commission_v21b.py, DEV_ATLAS_V21_01/planted_commission_v21b_summary.txt
 
 **What it would take to succeed:** B1, B2 and B3 met by the real held-out sets once the atlas is released.
+
+## U1 outcome (2026-10-16), scored once by the amended bar
+
+Box job 85685c55 (code 77c31eb2): planted test PASSED first; then 1,319 held-out arrays scored, 159 listed (158 cells not in v2.1, 1 with no
+array file). Results: `data/DEV_ATLAS_V21_01/u1_scored_v21.json`, `u1_samples_v21.csv` (stamped). Bar: a cell and platform pass when at least
+95 % of its healthy held-out arrays have coverage 0.80-0.97 of the 90 % predictive interval.
+
+**Commissioned on U1 (4 of 27 cell-platform pairs):** cortical neurons (450K), lung alveolar macrophages (EPIC), lung bronchus epithelium (450K),
+naive CD4 T cells (450K). The other 23 did not reach 95 %. Median coverage over all 1,319 arrays is 0.891 against the interval's 0.90, so the
+atlas's range is centered; the misses are a low tail (244 arrays below 0.80, 41 above 0.97), and 72 % of the low arrays come from three
+laboratories (GSE59065, 113; GSE224807, 38; GSE247198, 24). These are reported, not reasons: the bar stands as sealed.

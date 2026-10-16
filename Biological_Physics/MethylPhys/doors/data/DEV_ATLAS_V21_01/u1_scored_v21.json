@@ -1,0 +1,322 @@
+{
+ "test": "atlas v2.1 U1 reference profiles",
+ "lab_sd": 0.00649420637248279,
+ "share_bar": 0.95,
+ "coverage_bar": [
+  0.8,
+  0.97
+ ],
+ "verdicts": {
+  "astrocytes | EPIC": {
+   "verdict": "FAILED",
+   "n": 10,
+   "share": 0.5,
+   "withheld": [],
+   "laboratories": [
+    "GSE306226"
+   ],
+   "median_coverage": 0.8007779407131455
+  },
+  "b cells | 450K": {
+   "verdict": "FAILED",
+   "n": 109,
+   "share": 0.8073394495412844,
+   "withheld": [],
+   "laboratories": [
+    "E-MTAB-2145",
+    "GSE131989",
+    "GSE87095"
+   ],
+   "median_coverage": 0.883055004375208
+  },
+  "b cells | EPIC": {
+   "verdict": "FAILED",
+   "n": 55,
+   "share": 0.8545454545454545,
+   "withheld": [],
+   "laboratories": [
+    "GSE224807"
+   ],
+   "median_coverage": 0.9349475665093409
+  },
+  "cd4 t cells | 450K": {
+   "verdict": "FAILED",
+   "n": 162,
+   "share": 0.6234567901234568,
+   "withheld": [],
+   "laboratories": [
+    "E-MTAB-2145",
+    "GSE112696",
+    "GSE130029",
+    "GSE153459",
+    "GSE189255",
+    "GSE59065",
+    "GSE87640"
+   ],
+   "median_coverage": 0.8508711494128124
+  },
+  "cd4 t cells | EPIC": {
+   "verdict": "FAILED",
+   "n": 54,
+   "share": 0.8333333333333334,
+   "withheld": [],
+   "laboratories": [
+    "GSE224807"
+   ],
+   "median_coverage": 0.9328143748339096
+  },
+  "cd8 t cells | 450K": {
+   "verdict": "FAILED",
+   "n": 139,
+   "share": 0.5251798561151079,
+   "withheld": [],
+   "laboratories": [
+    "E-MTAB-2145",
+    "GSE130030",
+    "GSE59065",
+    "GSE87640"
+   ],
+   "median_coverage": 0.8138403083345122
+  },
+  "cd8 t cells | EPIC": {
+   "verdict": "FAILED",
+   "n": 55,
+   "share": 0.7636363636363637,
+   "withheld": [],
+   "laboratories": [
+    "GSE224807"
+   ],
+   "median_coverage": 0.9462366652278473
+  },
+  "colon epithelium | 450K": {
+   "verdict": "FAILED",
+   "n": 10,
+   "share": 0.6,
+   "withheld": [],
+   "laboratories": [
+    "E-MTAB-4957"
+   ],
+   "median_coverage": 0.9438961823183152
+  },
+  "cortical neurons | 450K": {
+   "verdict": "COMMISSIONED",
+   "n": 45,
+   "share": 0.9777777777777777,
+   "withheld": [],
+   "laboratories": [
+    "GSE66351",
+    "GSE98203"
+   ],
+   "median_coverage": 0.8817720376455316
+  },
+  "cortical neurons | EPIC": {
+   "verdict": "FAILED",
+   "n": 43,
+   "share": 0.7441860465116279,
+   "withheld": [],
+   "laboratories": [
+    "GSE112179",
+    "GSE306226"
+   ],
+   "median_coverage": 0.9590817268882639
+  },
+  "lung alveolar macrophages | EPIC": {
+   "verdict": "COMMISSIONED",
+   "n": 24,
+   "share": 1.0,
+   "withheld": [],
+   "laboratories": [
+    "GSE132547"
+   ],
+   "median_coverage": 0.858154505193502
+  },
+  "lung bronchus epithelium | 450K": {
+   "verdict": "COMMISSIONED",
+   "n": 53,
+   "share": 1.0,
+   "withheld": [],
+   "laboratories": [
+    "GSE104471",
+    "GSE85566"
+   ],
+   "median_coverage": 0.8728639352993202
+  },
+  "lung bronchus epithelium | EPIC": {
+   "verdict": "FAILED",
+   "n": 5,
+   "share": 0.4,
+   "withheld": [],
+   "laboratories": [
+    "GSE201872"
+   ],
+   "median_coverage": 0.7981549636556681
+  },
+  "memory cd4 t cells | 450K": {
+   "verdict": "FAILED",
+   "n": 37,
+   "share": 0.918918918918919,
+   "withheld": [],
+   "laboratories": [
+    "GSE121192",
+    "GSE131989"
+   ],
+   "median_coverage": 0.8584767745905789
+  },
+  "microglia | EPIC": {
+   "verdict": "FAILED",
+   "n": 30,
+   "share": 0.7666666666666667,
+   "withheld": [],
+   "laboratories": [
+    "GSE191200",
+    "GSE306226"
+   ],
+   "median_coverage": 0.8781798585423412
+  },
+  "monocytes | 450K": {
+   "verdict": "FAILED",
+   "n": 87,
+   "share": 0.9195402298850575,
+   "withheld": [],
+   "laboratories": [
+    "E-MTAB-2145",
+    "GSE100561",
+    "GSE121192",
+    "GSE131989",
+    "GSE189256",
+    "GSE85647",
+    "GSE87640"
+   ],
+   "median_coverage": 0.9284788320876732
+  },
+  "monocytes | EPIC": {
+   "verdict": "FAILED",
+   "n": 92,
+   "share": 0.9130434782608695,
+   "withheld": [],
+   "laboratories": [
+    "GSE184269",
+    "GSE188573",
+    "GSE224807"
+   ],
+   "median_coverage": 0.9519951005305688
+  },
+  "naive b cells | EPIC": {
+   "verdict": "FAILED",
+   "n": 23,
+   "share": 0.8260869565217391,
+   "withheld": [],
+   "laboratories": [
+    "GSE184269"
+   ],
+   "median_coverage": 0.8471022770839912
+  },
+  "naive cd4 t cells | 450K": {
+   "verdict": "COMMISSIONED",
+   "n": 35,
+   "share": 1.0,
+   "withheld": [],
+   "laboratories": [
+    "GSE121192",
+    "GSE131989"
+   ],
+   "median_coverage": 0.9304402119963805
+  },
+  "naive cd4 t cells | EPIC": {
+   "verdict": "FAILED",
+   "n": 23,
+   "share": 0.9130434782608695,
+   "withheld": [],
+   "laboratories": [
+    "GSE184269"
+   ],
+   "median_coverage": 0.877840773738625
+  },
+  "naive cd8 t cells | EPIC": {
+   "verdict": "FAILED",
+   "n": 19,
+   "share": 0.8947368421052632,
+   "withheld": [],
+   "laboratories": [
+    "GSE184269"
+   ],
+   "median_coverage": 0.8899876805624068
+  },
+  "neutrophils | 450K": {
+   "verdict": "FAILED",
+   "n": 6,
+   "share": 0.8333333333333334,
+   "withheld": [],
+   "laboratories": [
+    "E-MTAB-2145"
+   ],
+   "median_coverage": 0.8431320775230482
+  },
+  "neutrophils | EPIC": {
+   "verdict": "FAILED",
+   "n": 102,
+   "share": 0.7254901960784313,
+   "withheld": [],
+   "laboratories": [
+    "GSE224807",
+    "GSE247198"
+   ],
+   "median_coverage": 0.8893091587739466
+  },
+  "nk cells | 450K": {
+   "verdict": "FAILED",
+   "n": 8,
+   "share": 0.875,
+   "withheld": [],
+   "laboratories": [
+    "GSE104287"
+   ],
+   "median_coverage": 0.8916129246441845
+  },
+  "nk cells | EPIC": {
+   "verdict": "FAILED",
+   "n": 75,
+   "share": 0.7733333333333333,
+   "withheld": [],
+   "laboratories": [
+    "GSE184269",
+    "GSE224807"
+   ],
+   "median_coverage": 0.9010269121813032
+  },
+  "oligodendrocytes | EPIC": {
+   "verdict": "FAILED",
+   "n": 10,
+   "share": 0.8,
+   "withheld": [],
+   "laboratories": [
+    "GSE306226"
+   ],
+   "median_coverage": 0.9468383071676763
+  },
+  "small intestine epithelium | 450K": {
+   "verdict": "FAILED",
+   "n": 8,
+   "share": 0.875,
+   "withheld": [
+    "7TI"
+   ],
+   "laboratories": [
+    "E-MTAB-4957"
+   ],
+   "median_coverage": 0.9367035713230865
+  }
+ },
+ "scored": 1319,
+ "listed": 159,
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "52e94725c307235a5cb7cc9760563eeaa85fbe0dc9c691257b6633f19adae40d",
+  "payload_sha256": "ed7aa5d90f7ff50a5df758134eb63e8b39eb015640baf75d059256be2d78f2bf",
+  "inputs": [],
+  "manifest": [
+   "ATL-005"
+  ],
+  "utc": "2026-10-16T17:12:30Z"
+ }
+}

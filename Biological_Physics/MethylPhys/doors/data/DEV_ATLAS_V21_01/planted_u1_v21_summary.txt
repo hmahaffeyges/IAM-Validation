@@ -1,0 +1,7 @@
+alpha | 450K: COMMISSIONED (want COMMISSIONED), share 1.000, median coverage 0.901
+beta | EPIC: COMMISSIONED (want COMMISSIONED), share 1.000, median coverage 0.898
+gamma | 450K: FAILED (want FAILED), share 0.000, median coverage 0.077
+listed: w1 - listed: withheld by Stage 1
+listed: x1 - listed: cell not in v2.1
+lab spread used 0.0065
+PLANTED U1 TEST: PASSED
