@@ -8,7 +8,7 @@ first, writes its rule before its data, and is pushed through the gate. Times ar
 
 Commissioning first; documents while the machines run.
 
-1. **IAM-A gate: second laboratory and meter error** (PHY-047, PHY-050; DEV-SECONDLAB-01): rule sealed, running on a rented machine.
+1. ~~IAM-A gate: second laboratory and meter error~~ **MET 2026-10-15** (3 of 5; DEV-SECONDLAB-01). Open: the two labs read the loose share on different scales (PHY-047 next step).
 2. **IAM-A gate passed? then** the clean-room rebuild of the 2026-10-15 results (PHY-055), then the grand sealed test (COM-IAMA-052).
 3. **Backbone, scale:** the healthy firm-territory range counted on the same counter (PHY-071).
 4. **Backbone, field effect:** tumor-adjacent colon against truly healthy colon (PHY-072).

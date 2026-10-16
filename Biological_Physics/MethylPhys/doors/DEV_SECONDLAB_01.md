@@ -35,3 +35,27 @@ subtracted (PHY-050).
 bases; a different sequencer whose error is measured and reported. Four of the five cells come from one donor.
 
 **What it would take to finish.** The five files counted once on a rented machine, the bar read, and the result recorded here.
+
+## Outcome (2026-10-15): S1 MET, 3 of 5
+
+Counted once on spot machine i-0ae982785e17a071d (code 4a087820); results `data/DEV_SECONDLAB_01/out/`, scored `secondlab_scored.json`,
+side by side `secondlab_side_by_side.csv`.
+
+| ENCODE cell | loose share | held error | the line predicts | residual | within 0.003 | sequencing error |
+|---|---|---|---|---|---|---|
+| B cells | 0.337 | 0.0329 | 0.0384 | -0.0056 | no | 0.0032 |
+| T cells | 0.379 | 0.0375 | 0.0396 | -0.0020 | yes | 0.0031 |
+| NK cells | 0.253 | 0.0358 | 0.0363 | -0.0004 | yes | 0.0033 |
+| CD14 monocytes | 0.329 | 0.0340 | 0.0383 | -0.0043 | no | 0.0032 |
+| CD34 myeloid progenitors | 0.106 | 0.0325 | 0.0325 | +0.0000 | yes | 0.0041 |
+
+**Reported, not scored.** (1) Beside Loyfer's same cell types the ENCODE loose shares are about six times higher (B cells 0.337 against
+0.055, monocytes 0.329 against 0.045, NK 0.253 against 0.058, T cells 0.379 against CD4 T 0.048) and the held errors higher too (0.033-0.038
+against 0.028-0.029): the two laboratories' readings differ in scale, and the cells moved roughly along the line rather than sitting at
+Loyfer's positions. Every residual is at or below the line (median -0.0020). (2) The meter's sequencing error is 0.0031-0.0041 per base on
+A/T positions; subtracted, the held errors read 0.028-0.034 (PHY-050).
+
+**What it means.** The line held in a second laboratory by the bar written before the count. What it does not yet show is that one
+laboratory's loose share means the same as another's: the next step is to find why ENCODE's loose share reads six times higher on the same
+cell types (candidates: GRCh38 against hg19 tiles, the two pipelines' read filtering, a global methylation offset), with Loyfer files
+counted by this same extractor as the bridge.

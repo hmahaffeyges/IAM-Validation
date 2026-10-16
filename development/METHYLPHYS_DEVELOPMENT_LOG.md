@@ -2003,3 +2003,6 @@ MethylPhys_CPG_Operations_Manual.pdf rebuilt from the corrected chapter (18 page
 
 ### 2026-10-15 · Document audit, pass 1 (OTH-055): the 35 repository documents the page links to
 Checked each against this week's results and the known stale statements. Fixed: STATUS.md (three C-score rows still said the band was not set; the retired term in five places). Left as written: sealed outcome records dated before the term was retired (they are historical records) and the development log (history). The commissioning gate now forbids the STATUS rows' old wording.
+
+### 2026-10-15 · DEV-SECONDLAB-01 counted once: S1 MET (3 of 5)
+ENCODE B, T, NK, monocytes, CD34 progenitors. Residuals -0.0056, -0.0020, -0.0004, -0.0043, +0.0000. Disclosed: ENCODE loose shares about 6x Loyfer's on the same cell types, held errors higher too; all residuals at or below the line. Sequencing error 0.0031-0.0041. Next: bridge the scale with Loyfer files counted by the same extractor.

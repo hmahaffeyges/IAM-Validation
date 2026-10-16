@@ -25196,9 +25196,16 @@
    ],
    "data_status": "candidates found (metadata only)",
    "record": "Biological_Physics/MethylPhys/doors/DEV_SECONDLAB_01.md",
-   "status": "sealed",
-   "runs": [],
-   "next_step": "count the five ENCODE files once (DEV-SECONDLAB-01), then read bar S1",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-15",
+     "outcome": "success",
+     "note": "S1 MET 3 of 5 within 0.003 of the Loyfer line (DEV-SECONDLAB-01). Disclosed: ENCODE loose shares about 6x Loyfer's on the same cell types; all residuals at or below the line.",
+     "page": "not headline: the scale difference between the two laboratories is open; it becomes front-page news with IAM-A's commissioning"
+    }
+   ],
+   "next_step": "bridge the scale: count Loyfer files of the same cell types with secondlab.py (GRCh38 .pat or alignments) to find why ENCODE's loose share reads 6x higher",
    "cost": "laptop or box",
    "impact": 5,
    "depends_on": [
@@ -25297,9 +25304,16 @@
    ],
    "data_status": "",
    "record": "Biological_Physics/MethylPhys/doors/DEV_SECONDLAB_01.md",
-   "status": "sealed",
-   "runs": [],
-   "next_step": "the sequencing error from the same five ENCODE files (DEV-SECONDLAB-01), reported beside the held error",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-15",
+     "outcome": "progressed",
+     "note": "ENCODE sequencing error 0.0031-0.0041 per A/T base measured on the same reads; corrected held errors 0.028-0.034",
+     "page": "not headline: a measurement"
+    }
+   ],
+   "next_step": "apply the measured error to the line once both laboratories' errors are measured the same way",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

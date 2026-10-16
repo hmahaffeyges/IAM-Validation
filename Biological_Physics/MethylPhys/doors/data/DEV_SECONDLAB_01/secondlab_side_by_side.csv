@@ -1,0 +1,6 @@
+encode_cell,loyfer_cell,enc_L,loy_L,enc_held,loy_held,residual
+b_cells,b cells,0.337,0.055,0.0329,0.0282,-0.00555
+cd34_myeloid_progenitors,,0.106,,0.0325,,2e-05
+monocytes,monocytes,0.329,0.045,0.034,0.0277,-0.00427
+nk_cells,nk cells,0.253,0.058,0.0358,0.0291,-0.00045
+t_cells,cd4 t cells,0.379,0.048,0.0375,0.0289,-0.00204

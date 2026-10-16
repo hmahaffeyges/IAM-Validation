@@ -779,6 +779,6 @@
   "outputs_in_s3": {
    "results/DEV_SECONDLAB_01/out/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "succeeded"
  }
 }

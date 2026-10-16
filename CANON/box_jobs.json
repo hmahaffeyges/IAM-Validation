@@ -1106,7 +1106,7 @@
    "date": "2026-10-15",
    "commit": "4a087820",
    "s3_code_prefix": "results/DEV_SECONDLAB_01/code/",
-   "state": "running",
+   "state": "succeeded",
    "log": "results/DEV_SECONDLAB_01/status.txt",
    "machine": "spot m7a.8xlarge, self-terminating (10-hour hard stop)",
    "purpose": "count the five ENCODE alignments once with secondlab.py run",
@@ -1122,7 +1122,7 @@
     "PHY-047",
     "PHY-050"
    ],
-   "note": "running"
+   "note": "five files counted, machine terminated itself; S1 MET 3 of 5"
   }
  ],
  "not_jobs": {

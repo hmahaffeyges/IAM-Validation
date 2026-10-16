@@ -1,0 +1,89 @@
+{
+ "rows": [
+  {
+   "cell": "b_cells",
+   "loose_share": 0.3365590603531063,
+   "tiles": 13537,
+   "held_err": 0.03290382908927599,
+   "held_opp": 8757461,
+   "sub_err": 0.003237267088483892,
+   "conv_fail": 0.006247515437200429,
+   "molecules": 129910448,
+   "qualifying": 1749489,
+   "reads": 201363055,
+   "predicted": 0.03845,
+   "residual": -0.00555,
+   "within": false,
+   "held_err_corrected": 0.02967
+  },
+  {
+   "cell": "cd34_myeloid_progenitors",
+   "loose_share": 0.10578051643192488,
+   "tiles": 13632,
+   "held_err": 0.03253935285161932,
+   "held_opp": 7761064,
+   "sub_err": 0.004087430198562396,
+   "conv_fail": 0.00303514224796212,
+   "molecules": 148095404,
+   "qualifying": 1572301,
+   "reads": 247752506,
+   "predicted": 0.03252,
+   "residual": 2e-05,
+   "within": true,
+   "held_err_corrected": 0.02845
+  },
+  {
+   "cell": "monocytes",
+   "loose_share": 0.3290418054014058,
+   "tiles": 13515,
+   "held_err": 0.033985360258021596,
+   "held_opp": 6998484,
+   "sub_err": 0.0031762893206631797,
+   "conv_fail": 0.004067525349169159,
+   "molecules": 108186277,
+   "qualifying": 1400291,
+   "reads": 170567925,
+   "predicted": 0.03826,
+   "residual": -0.00427,
+   "within": false,
+   "held_err_corrected": 0.03081
+  },
+  {
+   "cell": "nk_cells",
+   "loose_share": 0.25279349876650703,
+   "tiles": 13782,
+   "held_err": 0.035847114067498395,
+   "held_opp": 21660070,
+   "sub_err": 0.0032631531475419695,
+   "conv_fail": 0.0026765648880376102,
+   "molecules": 361318457,
+   "qualifying": 4344075,
+   "reads": 579959145,
+   "predicted": 0.0363,
+   "residual": -0.00045,
+   "within": true,
+   "held_err_corrected": 0.03258
+  },
+  {
+   "cell": "t_cells",
+   "loose_share": 0.3793843421636821,
+   "tiles": 13514,
+   "held_err": 0.0375136829561394,
+   "held_opp": 6667967,
+   "sub_err": 0.0030678500584066736,
+   "conv_fail": 0.0049852405308570425,
+   "molecules": 104498439,
+   "qualifying": 1327569,
+   "reads": 167054204,
+   "predicted": 0.03955,
+   "residual": -0.00204,
+   "within": true,
+   "held_err_corrected": 0.03445
+  }
+ ],
+ "verdict": {
+  "S1_within": 3,
+  "of": 5,
+  "verdict": "MET"
+ }
+}

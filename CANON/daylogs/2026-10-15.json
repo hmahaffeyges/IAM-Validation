@@ -170,6 +170,13 @@
      "record": "Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md"
     },
     {
+     "title": "IAM-A's line holds in a second lab",
+     "status": "development",
+     "what": "Five kinds of healthy blood cells from a different laboratory (ENCODE), counted with a rule written before any read was counted: 3 of 5 landed on the line set by the first laboratory's 56 cell types, the bar set in advance. The same reads measured the sequencer's own error.",
+     "why": "A rule that holds across laboratories, machines and software is a step from a finding to physics. Next: why the two laboratories read the loose share on different scales.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SECONDLAB_01.md"
+    },
+    {
      "title": "A healthy cell carries its own reference",
      "status": "development",
      "what": "Its expected tagging mistakes follow from how loosely it holds its DNA, one straight line for every cell type tested.",

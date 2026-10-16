@@ -42,8 +42,6 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [ ] **OTH-057** (impact 5, laptop) Wire the own-read counter and gemBS reading into the chain's Stage Q: add the loose share, the self-reference line and gemBS calls to stage_q_iam_a, with the development scripts as its reproduction test
 - [ ] **PHY-040** (impact 5, laptop (literature)) The author's half-law: half writing, half erasing, two forms of energy (not the copying-only check): Tested by DEV-ERASE-01 (PHY-006, sealed 2026-10-14); a physical reason why writing and erasing are the virial K and Q is still to be derived.
 - [ ] **PHY-042** (impact 5, laptop) Cell architecture against the healthy held error (DEV-ARCH-01): loose share from other laboratories' arrays of the same cell types; per-cell held error on the common fully methylated sites
-- [ ] **PHY-047** (impact 5, laptop or box) The loose-end line on a second laboratory (PHY-045 replication): count the five ENCODE files once (DEV-SECONDLAB-01), then read bar S1
-- [ ] **PHY-050** (impact 5, laptop) The firm rate after the meter's own error is subtracted: the sequencing error from the same five ENCODE files (DEV-SECONDLAB-01), reported beside the held error
 - [ ] **PHY-051** (impact 5, laptop) The island shield's height: whiteboard: compare the islands with the new writers' published preference for bare DNA, then derive
 - [ ] **PHY-055** (impact 5, laptop) Clean-room rebuild of the 2026-10-15 derivation results from public data only: list every input of each result and the committed script that makes it from public data; then rebuild on a clean machine (as REPRO-CLEANROOM-2026-10-11)
 - [ ] **PHY-057** (impact 5, laptop) The temperature law: a held mark's error moves with body temperature by an exact amount (hibernators; one species at two temperatures): stage T2: synthetic on GSE54292's design (111 accessions at 10 C and 16 C; predicted log-odds ratio 1.0212) to fix molecules and pairs needed; then seal the sample list and rule
@@ -864,8 +862,10 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **PHY-043** Tumor backbone against the writer's nameplate (DEV-BACKBONE-01, author's step 4): last run 2026-10-15, progressed
 - [x] **PHY-045** The loose end read off the line: every healthy cell's held error from its own loose share: last run 2026-10-15, success
 - [x] **PHY-046** Island side with the eraser removed (is the eraser what holds the 0s?): last run 2026-10-15, fail
+- [x] **PHY-047** The loose-end line on a second laboratory (PHY-045 replication): last run 2026-10-15, success
 - [x] **PHY-048** The loose-end line at the one-Landauer-bit cut (beta 2/3): last run 2026-10-15, success
 - [x] **PHY-049** The loose share from each sample's own molecules (atlas-free): last run 2026-10-15, fail
+- [x] **PHY-050** The firm rate after the meter's own error is subtracted: last run 2026-10-15, progressed
 - [x] **ATL-064** Atlas v2.1 transfer and sampler speed: smooth curve, diagnostics 2-5, converted readings (mode v21inv): last run 2026-10-15, success
 - [x] **PHY-053** The horizon's storage by era: bits held at the CMB, first stars, the turn to acceleration and today: last run 2026-10-15, success
 - [x] **COM-METAA-039** Met-A read against the sample's own line (a smaller tare, or none): last run 2026-10-15, fail
