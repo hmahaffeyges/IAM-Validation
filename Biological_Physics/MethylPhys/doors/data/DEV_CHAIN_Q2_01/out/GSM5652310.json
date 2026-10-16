@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.05934741488020177,
+ "tiles": 12688,
+ "held_err": 0.036457568951439846,
+ "held_opp": 55150770,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652310",
+ "cell": "lung interstitial macrophages",
+ "file": "GSM5652310_Lung-Interstitial-Macrophages-Z00000447.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "77eba6875d762e45740fdfc21f05a979874d1e4320505530f2fece5902862628",
+  "inputs": [
+   {
+    "name": "GSM5652310_Lung-Interstitial-Macrophages-Z00000447.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652310/suppl/GSM5652310_Lung-Interstitial-Macrophages-Z00000447.pat.gz",
+    "sha256": "ef69e1339619ca812367c2e570d9198afc1656a142787b1726ae1004e964f400",
+    "size": 316123896
+   }
+  ],
+  "utc": "2026-10-16T03:30:44Z"
+ }
+}

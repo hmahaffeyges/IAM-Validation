@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.10033102143757881,
+ "tiles": 12688,
+ "held_err": 0.04003680506956491,
+ "held_opp": 44058061,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652221",
+ "cell": "oligodendrocytes",
+ "file": "GSM5652221_Oligodendrocytes-Z0000042L.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "85dd35a4e8b65a40f8a3f6d750c401bbbdf93487b7d795f058769c01f087b486",
+  "inputs": [
+   {
+    "name": "GSM5652221_Oligodendrocytes-Z0000042L.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652221/suppl/GSM5652221_Oligodendrocytes-Z0000042L.pat.gz",
+    "sha256": "a0384966f66241a86a59d53957f6af0e4dfb8d7bedb0aadab8c53a80045f864d",
+    "size": 285669152
+   }
+  ],
+  "utc": "2026-10-16T03:18:15Z"
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.32973441563558986,
+ "tiles": 12689,
+ "held_err": 0.04791992885826899,
+ "held_opp": 52978188,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652191",
+ "cell": "lung alveolar endothelium",
+ "file": "GSM5652191_Lung-Alveolar-Endothel-Z000000Q1.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "a268a5625abef628ef79e18e4c6eaf74f42a0cac8806919d751a2255963b5eff",
+  "inputs": [
+   {
+    "name": "GSM5652191_Lung-Alveolar-Endothel-Z000000Q1.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652191/suppl/GSM5652191_Lung-Alveolar-Endothel-Z000000Q1.pat.gz",
+    "sha256": "ba18e875d4bbf18da02502d2ac4c8d7740bc70dbf541700456b09a81e833d20a",
+    "size": 354713637
+   }
+  ],
+  "utc": "2026-10-16T03:13:31Z"
+ }
+}

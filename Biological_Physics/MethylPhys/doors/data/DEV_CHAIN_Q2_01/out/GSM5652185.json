@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.10931588902900378,
+ "tiles": 12688,
+ "held_err": 0.04406500383731195,
+ "held_opp": 62972467,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652185",
+ "cell": "kidney glomerular endothelium",
+ "file": "GSM5652185_Kidney-Glomerular-Endothel-Z00000443.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "6bf19cbd98dd2376ac1724d208cd520d7df0abed86a5bd98bc277b789035da38",
+  "inputs": [
+   {
+    "name": "GSM5652185_Kidney-Glomerular-Endothel-Z00000443.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652185/suppl/GSM5652185_Kidney-Glomerular-Endothel-Z00000443.pat.gz",
+    "sha256": "5bd78833b9391d4d3100e7eb860f5906d6ed175b15a0e38a43462ff86978de00",
+    "size": 353490907
+   }
+  ],
+  "utc": "2026-10-16T03:13:31Z"
+ }
+}

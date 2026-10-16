@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.06658261760302576,
+ "tiles": 12691,
+ "held_err": 0.03616707785488711,
+ "held_opp": 34180616,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652223",
+ "cell": "cortical neurons",
+ "file": "GSM5652223_Cortex-Neuron-Z000000TF.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "8d81965b779e6268d67103c74cb5fdbd0588475ea38b4495bc9cd2044eee5d88",
+  "inputs": [
+   {
+    "name": "GSM5652223_Cortex-Neuron-Z000000TF.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652223/suppl/GSM5652223_Cortex-Neuron-Z000000TF.pat.gz",
+    "sha256": "135bb303ccd599fda18c378c556f024b7f4c9a7fb507782a8151656ed7482bb1",
+    "size": 261769392
+   }
+  ],
+  "utc": "2026-10-16T03:18:29Z"
+ }
+}

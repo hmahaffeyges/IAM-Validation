@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.15407045472456457,
+ "tiles": 12689,
+ "held_err": 0.04549271288980832,
+ "held_opp": 42002727,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652180",
+ "cell": "aorta endothelium",
+ "file": "GSM5652180_Aorta-Endothel-Z0000043G.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "9d6870d356a52dd5ec50ee21f527a4e6d9aadd9e1c47c36e47229b9585b00ead",
+  "inputs": [
+   {
+    "name": "GSM5652180_Aorta-Endothel-Z0000043G.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652180/suppl/GSM5652180_Aorta-Endothel-Z0000043G.pat.gz",
+    "sha256": "311ed00a12ac029a59f6cf712c84bb1080bb0491e1711c4637293e6e4c9e3697",
+    "size": 310233678
+   }
+  ],
+  "utc": "2026-10-16T03:13:06Z"
+ }
+}

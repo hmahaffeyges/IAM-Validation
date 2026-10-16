@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.17016078184110972,
+ "tiles": 12688,
+ "held_err": 0.04246943599233884,
+ "held_opp": 48267394,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652271",
+ "cell": "endometrium epithelium",
+ "file": "GSM5652271_Endometrium-Epithelial-Z00000434.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "adfccefdfefeb371c127b8699cb26d840a0847b4d9fd292925359c55b4fa5c93",
+  "inputs": [
+   {
+    "name": "GSM5652271_Endometrium-Epithelial-Z00000434.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652271/suppl/GSM5652271_Endometrium-Epithelial-Z00000434.pat.gz",
+    "sha256": "af0af07c71d0aea3ded548ef9b540602f570282b588a928bab672fe5729e7223",
+    "size": 312184483
+   }
+  ],
+  "utc": "2026-10-16T03:23:49Z"
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "chain": {
+  "firm": 0.04026482305722752,
+  "slope": 0.034624511046330374,
+  "cells": 56
+ },
+ "development_raw_axis": {
+  "firm": 0.04020060107490855,
+  "slope": 0.034669645893461394,
+  "cells": 56,
+  "printed_to": "4 decimals on the scaled axis"
+ },
+ "firm_diff": 6.422198231897241e-05,
+ "slope_diff": -4.513484713102034e-05,
+ "tolerance": 0.00013490134588895486,
+ "agree": true,
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "7848c12bfde7affc48739c4fe92965d40403f740626c00ea03ec8d96a60459af",
+  "inputs": [],
+  "utc": "2026-10-16T04:09:14Z"
+ }
+}

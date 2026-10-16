@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.10638297872340426,
+ "tiles": 12690,
+ "held_err": 0.04021233491355742,
+ "held_opp": 52369155,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652347",
+ "cell": "breast luminal epithelium",
+ "file": "GSM5652347_Breast-Luminal-Epithelial-Z000000V2.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "174a732d87a05aad634a086afa48cb4c132e782b8df0a5ead919d4238204dfd7",
+  "inputs": [
+   {
+    "name": "GSM5652347_Breast-Luminal-Epithelial-Z000000V2.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652347/suppl/GSM5652347_Breast-Luminal-Epithelial-Z000000V2.pat.gz",
+    "sha256": "11996b28e9e222bc81b178a2d0ec62ba9e814ccdc7d6d4e7f08fdef0770a5755",
+    "size": 319889943
+   }
+  ],
+  "utc": "2026-10-16T03:34:23Z"
+ }
+}

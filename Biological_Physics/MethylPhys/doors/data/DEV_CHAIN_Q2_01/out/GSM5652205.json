@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.12081330286074553,
+ "tiles": 12689,
+ "held_err": 0.047461592379461674,
+ "held_opp": 48575256,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652205",
+ "cell": "striated muscle",
+ "file": "GSM5652205_Skeletal-Muscle-Z00000427.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "e70b6e2ba99695e287baee0d7a0ccad1d82c1b72d15341c0b9cd1695862bbc5d",
+  "inputs": [
+   {
+    "name": "GSM5652205_Skeletal-Muscle-Z00000427.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652205/suppl/GSM5652205_Skeletal-Muscle-Z00000427.pat.gz",
+    "sha256": "9d7acfee861308c7ff0f7daacb8c683358b4331b21ffedb7a422e1d9e13ef731",
+    "size": 344519535
+   }
+  ],
+  "utc": "2026-10-16T03:16:16Z"
+ }
+}

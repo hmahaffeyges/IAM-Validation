@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.3905264817150063,
+ "tiles": 12688,
+ "held_err": 0.051332538713389886,
+ "held_opp": 45001807,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652322",
+ "cell": "tonsil palatine epithelium",
+ "file": "GSM5652322_Tonsil-Palatine-Epithelial-Z000000QF.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "3db14c12da13127bd9a26fba92f1846a837195fd79dc7e6747b2d5def77b5719",
+  "inputs": [
+   {
+    "name": "GSM5652322_Tonsil-Palatine-Epithelial-Z000000QF.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652322/suppl/GSM5652322_Tonsil-Palatine-Epithelial-Z000000QF.pat.gz",
+    "sha256": "decbc98f4c849997470e379247aa47855ab3fb5fed759abee97af0819891de22",
+    "size": 339756501
+   }
+  ],
+  "utc": "2026-10-16T03:53:14Z"
+ }
+}

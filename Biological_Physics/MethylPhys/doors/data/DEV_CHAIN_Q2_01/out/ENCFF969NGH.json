@@ -1,0 +1,38 @@
+{
+ "loose_share": 0.10578051643192488,
+ "tiles": 13632,
+ "held_err": 0.03253935285161932,
+ "held_opp": 7761064,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "aligned reads",
+ "assembly": "GRCh38",
+ "sub_err": 0.004087430198562396,
+ "conv_fail": 0.00303514224796212,
+ "molecules": 148095404,
+ "qualifying": 1572301,
+ "reads": 247752506,
+ "sample": "ENCFF969NGH",
+ "cell": "cd34 myeloid progenitors",
+ "loyfer_cell": "hsc",
+ "experiment": "ENCSR388RMS",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "47f3e6601b270262e66d1be071cfd5cc8290022237438b487cca9b6fde27133b",
+  "inputs": [
+   {
+    "name": "ENCFF969NGH.bam",
+    "url": "s3://encode-public/2021/03/09/9597ae2a-f7d2-401e-ab06-db5343d798b5/ENCFF969NGH.bam",
+    "sha256": "41f0dc5bb752bcbc5569f1a692eb2b7d6a6dcc4de6e746308edff3672d7cdb8f",
+    "size": 27568308363
+   },
+   {
+    "name": "GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta",
+    "sha256": "9cce8b926416dd96b152deea85188495b75f7ac8d634cc723a017067be8702b7"
+   }
+  ],
+  "utc": "2026-10-16T04:05:01Z"
+ }
+}

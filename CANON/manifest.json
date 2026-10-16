@@ -26364,9 +26364,15 @@
      "outcome": "progressed",
      "note": "chain Stage Q2 written; synthetic MET through the chain; chain gate rule 23b with 7 of 7 controls; line rebuild from Loyfer 153 samples next",
      "page": "not headline: internal quality control"
+    },
+    {
+     "date": "2026-10-15",
+     "outcome": "success",
+     "note": "self-reference line rebuilt by chain Stage Q2 from Loyfer's 153 samples (counts identical to development; line agrees within printed rounding); stored stamped as selfref_line_v1.json on the raw axis; ENCODE five read against it (all below, same verdict)",
+     "page": "not headline: internal reproduction"
     }
    ],
-   "next_step": "box run: count_pat over Loyfer's 153 samples and count_bam over the ENCODE five through the chain; build selfref_line_v1.json; compare with the development line",
+   "next_step": "sample-shape check (COM-IAMA-053) and IAM-A's own healthy band (COM-IAMA-054) through Stage Q2; second laboratory on GSE49627 through the chain",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],

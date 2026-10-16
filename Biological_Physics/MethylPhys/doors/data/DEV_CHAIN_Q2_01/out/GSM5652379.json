@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.1685579196217494,
+ "tiles": 12690,
+ "held_err": 0.04388165064110235,
+ "held_opp": 54313636,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652379",
+ "cell": "small intestine epithelium",
+ "file": "GSM5652379_Small-int-Epithelial-Z000000RT.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "d8cc465695fb987d7a8fd7492b2174d2a38e6f0b12a5245e540b425fccf7a2f3",
+  "inputs": [
+   {
+    "name": "GSM5652379_Small-int-Epithelial-Z000000RT.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652379/suppl/GSM5652379_Small-int-Epithelial-Z000000RT.pat.gz",
+    "sha256": "e2d0901e536701a2e26e93034b9298c447e8ea6b96bd3ea8d35ceaff8bc5bb0e",
+    "size": 335352674
+   }
+  ],
+  "utc": "2026-10-16T03:39:27Z"
+ }
+}

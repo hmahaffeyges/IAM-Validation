@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.09937741350776264,
+ "tiles": 12689,
+ "held_err": 0.03929306199301133,
+ "held_opp": 37631758,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652352",
+ "cell": "breast basal epithelium",
+ "file": "GSM5652352_Breast-Basal-Epithelial-Z000000VL.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "1c98c78ac03b240cf87c76574d021e554cca2dec016cd8f7450a972d3472a956",
+  "inputs": [
+   {
+    "name": "GSM5652352_Breast-Basal-Epithelial-Z000000VL.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652352/suppl/GSM5652352_Breast-Basal-Epithelial-Z000000VL.pat.gz",
+    "sha256": "7c177d012cd5670a9ba0576a9ae8a4e431ad56fe1a099f7f7c47f1436121e9fb",
+    "size": 260719900
+   }
+  ],
+  "utc": "2026-10-16T03:35:22Z"
+ }
+}

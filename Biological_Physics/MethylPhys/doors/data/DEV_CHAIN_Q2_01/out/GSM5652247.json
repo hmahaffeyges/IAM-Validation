@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.11389611413257665,
+ "tiles": 12687,
+ "held_err": 0.046618002738177004,
+ "held_opp": 33843685,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652247",
+ "cell": "pancreatic delta",
+ "file": "GSM5652247_Pancreas-Delta-Z00000451.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "fd19923d9b5c83844a2b163b3cda107d8c318c4f77e9cbebaae585c0ba423e5e",
+  "inputs": [
+   {
+    "name": "GSM5652247_Pancreas-Delta-Z00000451.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652247/suppl/GSM5652247_Pancreas-Delta-Z00000451.pat.gz",
+    "sha256": "ff087c8a0515a5b1cfe6cf359fb86219c23b051f1f41c0bb72c454ebf727e045",
+    "size": 262837652
+   }
+  ],
+  "utc": "2026-10-16T03:20:27Z"
+ }
+}

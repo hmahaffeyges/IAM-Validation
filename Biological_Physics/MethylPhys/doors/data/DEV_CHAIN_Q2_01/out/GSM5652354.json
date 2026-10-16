@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.1439041689652455,
+ "tiles": 12689,
+ "held_err": 0.04369655427481268,
+ "held_opp": 65713511,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652354",
+ "cell": "lung alveolar epithelium",
+ "file": "GSM5652354_Lung-Alveolar-Epithelial-Z000000T1.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "2853878b0a2b9c0a532742cf500d8a77d77a7cc5e6c09c5f39cf1ac8311aa1da",
+  "inputs": [
+   {
+    "name": "GSM5652354_Lung-Alveolar-Epithelial-Z000000T1.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652354/suppl/GSM5652354_Lung-Alveolar-Epithelial-Z000000T1.pat.gz",
+    "sha256": "126b04c295cb242b833bbed65cc379b72ca835d74f9a43ab3df90cd7a70a669c",
+    "size": 375599463
+   }
+  ],
+  "utc": "2026-10-16T03:36:36Z"
+ }
+}

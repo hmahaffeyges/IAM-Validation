@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.13547166837418237,
+ "tiles": 12689,
+ "held_err": 0.04259388609672625,
+ "held_opp": 44412806,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652216",
+ "cell": "cardiomyocyte",
+ "file": "GSM5652216_Heart-Cardiomyocyte-Z0000044Q.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "13fb4120576e6be2b3219bc2073e87fd1d63d1445872f9aadb738efd5072e168",
+  "inputs": [
+   {
+    "name": "GSM5652216_Heart-Cardiomyocyte-Z0000044Q.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652216/suppl/GSM5652216_Heart-Cardiomyocyte-Z0000044Q.pat.gz",
+    "sha256": "7a6d8400d04708238cf8244a9592af03726b22ab48c62fda86497fbf07c784a5",
+    "size": 286929912
+   }
+  ],
+  "utc": "2026-10-16T03:17:33Z"
+ }
+}

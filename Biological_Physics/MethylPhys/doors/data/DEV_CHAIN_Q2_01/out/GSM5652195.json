@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.10402711009535819,
+ "tiles": 12689,
+ "held_err": 0.046085978783631396,
+ "held_opp": 45989020,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652195",
+ "cell": "pancreas endothelium",
+ "file": "GSM5652195_Pancreas-Endothel-Z0000042X.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "8c4c819d8d53ee39b345f2760a3bdbf700ebf0c70031bc01e0805f80aa9d7b3f",
+  "inputs": [
+   {
+    "name": "GSM5652195_Pancreas-Endothel-Z0000042X.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652195/suppl/GSM5652195_Pancreas-Endothel-Z0000042X.pat.gz",
+    "sha256": "ef2c48a78cb86fa137b09be96c246cd1ed1daac4a2e307edcd66d9263a7dcff8",
+    "size": 317612757
+   }
+  ],
+  "utc": "2026-10-16T03:15:47Z"
+ }
+}

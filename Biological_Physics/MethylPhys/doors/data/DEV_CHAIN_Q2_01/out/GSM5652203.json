@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.555765744462836,
+ "tiles": 12687,
+ "held_err": 0.052641720810781494,
+ "held_opp": 41895135,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652203",
+ "cell": "heart fibroblasts",
+ "file": "GSM5652203_Heart-Fibroblasts-Z0000041X.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "7bc2a2a11eb14d1e6d2f82d2db71526574ea911dc7ad20b4ea077ae7580a6868",
+  "inputs": [
+   {
+    "name": "GSM5652203_Heart-Fibroblasts-Z0000041X.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652203/suppl/GSM5652203_Heart-Fibroblasts-Z0000041X.pat.gz",
+    "sha256": "c6177e99950caf14ff674797265d6b191588d48ac4918ada0e5cd9bc0f7c96ee",
+    "size": 363921069
+   }
+  ],
+  "utc": "2026-10-16T03:16:29Z"
+ }
+}

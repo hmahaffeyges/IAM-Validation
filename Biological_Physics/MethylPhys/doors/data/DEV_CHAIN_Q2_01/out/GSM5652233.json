@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.20548593048001892,
+ "tiles": 12687,
+ "held_err": 0.04398355513131539,
+ "held_opp": 53334570,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652233",
+ "cell": "hepatocyte",
+ "file": "GSM5652233_Liver-Hepatocytes-Z000000R3.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "44eaa5b861b9d197090fcba3c5aa18ab1d5489cd82884c19f5fd8596e3dbe938",
+  "inputs": [
+   {
+    "name": "GSM5652233_Liver-Hepatocytes-Z000000R3.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652233/suppl/GSM5652233_Liver-Hepatocytes-Z000000R3.pat.gz",
+    "sha256": "f8863d30adeddb23414ee1a4e062f7f59162fa7a8e8a19293147f6d814735cc4",
+    "size": 344515426
+   }
+  ],
+  "utc": "2026-10-16T03:19:27Z"
+ }
+}

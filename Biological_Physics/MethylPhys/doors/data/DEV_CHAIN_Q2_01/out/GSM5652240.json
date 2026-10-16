@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.09702080706179067,
+ "tiles": 12688,
+ "held_err": 0.04259440718227338,
+ "held_opp": 51593135,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652240",
+ "cell": "pancreatic duct",
+ "file": "GSM5652240_Pancreas-Duct-Z0000043U.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "ef872a8da0c6d104985a0acee15874939b434226d777fded1f538768cff3a947",
+  "inputs": [
+   {
+    "name": "GSM5652240_Pancreas-Duct-Z0000043U.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652240/suppl/GSM5652240_Pancreas-Duct-Z0000043U.pat.gz",
+    "sha256": "889113491c522493a199b0647f2794ede953b976e043562539d2fddc18addf52",
+    "size": 317555997
+   }
+  ],
+  "utc": "2026-10-16T03:19:11Z"
+ }
+}

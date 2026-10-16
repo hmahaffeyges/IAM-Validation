@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.05626477541371158,
+ "tiles": 12690,
+ "held_err": 0.03913080645454385,
+ "held_opp": 54699946,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652281",
+ "cell": "cd4 t cells",
+ "file": "GSM5652281_Blood-T-CD4-Z000000UM.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "8facc1ca2ae1473965d2c214b21379750755ba1edcb9d0769e0438dca17a950e",
+  "inputs": [
+   {
+    "name": "GSM5652281_Blood-T-CD4-Z000000UM.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652281/suppl/GSM5652281_Blood-T-CD4-Z000000UM.pat.gz",
+    "sha256": "769057e240e997678b84a6207e5c05af0160714744e0e99b951dc87a01213181",
+    "size": 326199907
+   }
+  ],
+  "utc": "2026-10-16T03:25:21Z"
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.18102293324927102,
+ "tiles": 12689,
+ "held_err": 0.044684137096268124,
+ "held_opp": 55472057,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652361",
+ "cell": "gastric fundus epithelium",
+ "file": "GSM5652361_Gastric-fundus-Epithelial-Z000000SV.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "0b9558239658cf9d2dcb380810bfb755dd45e2602846fe7df4814263f392c7b7",
+  "inputs": [
+   {
+    "name": "GSM5652361_Gastric-fundus-Epithelial-Z000000SV.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652361/suppl/GSM5652361_Gastric-fundus-Epithelial-Z000000SV.pat.gz",
+    "sha256": "8776e9608f8635eb2f6f4f4a6a62ee322a0d764da7d73861667d89660b5d1055",
+    "size": 350518662
+   }
+  ],
+  "utc": "2026-10-16T03:36:55Z"
+ }
+}

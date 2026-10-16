@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.1901796973518285,
+ "tiles": 12688,
+ "held_err": 0.04676224758348543,
+ "held_opp": 51948166,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652198",
+ "cell": "colon fibroblasts",
+ "file": "GSM5652198_Colon-Fibroblasts-Z0000042A.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "0dae46cf19f9d2c9a5a79102d15b7e16377a73e258f0e6d5992013ae3348cff7",
+  "inputs": [
+   {
+    "name": "GSM5652198_Colon-Fibroblasts-Z0000042A.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652198/suppl/GSM5652198_Colon-Fibroblasts-Z0000042A.pat.gz",
+    "sha256": "98cf865f4e0fb08ddd2192af12a73b08bc9f84f9c78e737893c62523b9c64e75",
+    "size": 372368180
+   }
+  ],
+  "utc": "2026-10-16T03:16:27Z"
+ }
+}

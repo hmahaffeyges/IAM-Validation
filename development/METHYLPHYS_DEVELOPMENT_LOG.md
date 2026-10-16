@@ -2033,3 +2033,6 @@ The floor was described as the most a cell can hold three times this evening, ag
 
 ### 2026-10-15 · Gauge fixes across the docs and the book (author)
 Book: the Astro-Genetics chapter said breach is where a cell can no longer hold its identity (right side) and that a cell moving toward cancer can no longer maintain its identity; both corrected to the author's 2026-10-13 ruling (cancer over-writes and has not lost its identity; identity is lost only left of the floor). The one-gauge chapter, the glossary, both gauge figures and CANON Normal_band no longer give IAM-A Met-A's 0.95-1.05. The manifest's line numbers now say they are scaled. Retired phrasings added (the most a cell can hold; most order a site can hold); gauge_words gains the identity-on-the-right pattern (11 of 11 controls, including the Astro-Genetics sentence).
+
+### 2026-10-15 · Self-reference line rebuilt by the chain
+153 Loyfer samples counted by chain Stage Q2, identical to the development counts; the line built by Q2.build_line agrees with the development line and is stored stamped on the raw axis (selfref_line_v1.json). ENCODE five read against it: all below (same verdict).

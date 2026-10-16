@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.07904484198912444,
+ "tiles": 12689,
+ "held_err": 0.04555151636737158,
+ "held_opp": 53814169,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652285",
+ "cell": "t central memory cd4",
+ "file": "GSM5652285_Blood-T-CenMem-CD4-Z00000417.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "fcdefb9498b5c6bf519340eaafd21e1b4599581120ea62cb0c5e90059d0248ff",
+  "inputs": [
+   {
+    "name": "GSM5652285_Blood-T-CenMem-CD4-Z00000417.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652285/suppl/GSM5652285_Blood-T-CenMem-CD4-Z00000417.pat.gz",
+    "sha256": "3545f2d7b1452b1515d47b8d00b354dbdd7edb34ea43c6570eee2f86ebd4d519",
+    "size": 339612160
+   }
+  ],
+  "utc": "2026-10-16T03:25:58Z"
+ }
+}

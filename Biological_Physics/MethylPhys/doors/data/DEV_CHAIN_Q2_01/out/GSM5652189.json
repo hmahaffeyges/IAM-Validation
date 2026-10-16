@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.0816455197415084,
+ "tiles": 12689,
+ "held_err": 0.044191373665322095,
+ "held_opp": 36321591,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652189",
+ "cell": "kidney tubular endothelium",
+ "file": "GSM5652189_Kidney-Tubular-Endothel-Z0000042R.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "b0423b49f2ee8121f6f8024f043640317931599ecec0c81588a77e151b38460f",
+  "inputs": [
+   {
+    "name": "GSM5652189_Kidney-Tubular-Endothel-Z0000042R.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652189/suppl/GSM5652189_Kidney-Tubular-Endothel-Z0000042R.pat.gz",
+    "sha256": "1da037669836b8412752212159c4d7a3bb64e53a8a4b9d4999b1bef828df8e90",
+    "size": 266438223
+   }
+  ],
+  "utc": "2026-10-16T03:12:44Z"
+ }
+}

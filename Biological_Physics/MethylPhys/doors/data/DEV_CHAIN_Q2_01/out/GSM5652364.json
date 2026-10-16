@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.19120428751576293,
+ "tiles": 12688,
+ "held_err": 0.0444407075941849,
+ "held_opp": 50696290,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652364",
+ "cell": "gastric body epithelium",
+ "file": "GSM5652364_Gastric-body-Epithelial-Z000000ST.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "650bccfe67bc6238e3ca0b53b16f3948d47a13b64494de0df5ad18683f586784",
+  "inputs": [
+   {
+    "name": "GSM5652364_Gastric-body-Epithelial-Z000000ST.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652364/suppl/GSM5652364_Gastric-body-Epithelial-Z000000ST.pat.gz",
+    "sha256": "5ae21e6e29110dae25f87143b80d5d5c02633b11b8d081d07b9880d5bc326cd8",
+    "size": 335701066
+   }
+  ],
+  "utc": "2026-10-16T03:37:00Z"
+ }
+}

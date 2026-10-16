@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.10332597730138714,
+ "tiles": 12688,
+ "held_err": 0.043008295669893046,
+ "held_opp": 52060654,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652256",
+ "cell": "kidney glomerular epithelium",
+ "file": "GSM5652256_Kidney-Glomerular-Epithelial-Z0000045K.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "c43222296c861b61fe8024b71140944c410cb1f6f503375df301e3a5ec7efd18",
+  "inputs": [
+   {
+    "name": "GSM5652256_Kidney-Glomerular-Epithelial-Z0000045K.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652256/suppl/GSM5652256_Kidney-Glomerular-Epithelial-Z0000045K.pat.gz",
+    "sha256": "6de64d0e7aebe8ccc84f0733c3142ce6c5f93641c640d45e29ef602f81eab7f8",
+    "size": 311217196
+   }
+  ],
+  "utc": "2026-10-16T03:22:09Z"
+ }
+}

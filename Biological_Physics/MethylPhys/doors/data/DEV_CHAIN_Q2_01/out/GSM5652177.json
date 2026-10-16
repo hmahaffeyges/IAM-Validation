@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.19687894073139975,
+ "tiles": 12688,
+ "held_err": 0.04752536124731281,
+ "held_opp": 50905915,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652177",
+ "cell": "adipocytes",
+ "file": "GSM5652177_Adipocytes-Z000000T9.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "a2556b7cd7b81a844dd7201d1b3da6c0f49b4f536cabae9ec9c55d9d384fd3ef",
+  "inputs": [
+   {
+    "name": "GSM5652177_Adipocytes-Z000000T9.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652177/suppl/GSM5652177_Adipocytes-Z000000T9.pat.gz",
+    "sha256": "33b085bb9a5b1c75c950152a41e3be1bbbb282256086c403fa15859e46405d97",
+    "size": 332850121
+   }
+  ],
+  "utc": "2026-10-16T03:13:19Z"
+ }
+}

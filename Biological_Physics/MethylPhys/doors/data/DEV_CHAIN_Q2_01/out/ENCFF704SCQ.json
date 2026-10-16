@@ -1,0 +1,38 @@
+{
+ "loose_share": 0.3290418054014058,
+ "tiles": 13515,
+ "held_err": 0.033985360258021596,
+ "held_opp": 6998484,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "aligned reads",
+ "assembly": "GRCh38",
+ "sub_err": 0.0031762893206631797,
+ "conv_fail": 0.004067525349169159,
+ "molecules": 108186277,
+ "qualifying": 1400291,
+ "reads": 170567925,
+ "sample": "ENCFF704SCQ",
+ "cell": "monocytes",
+ "loyfer_cell": "monocytes",
+ "experiment": "ENCSR017BUL",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "dc98cbb6123a67ce77717479a0ad9b1ceb3f77cc05088bea6f3e0a234273a8bf",
+  "inputs": [
+   {
+    "name": "ENCFF704SCQ.bam",
+    "url": "s3://encode-public/2021/03/09/d1edb680-babe-4172-ace3-3ab6abbf8c59/ENCFF704SCQ.bam",
+    "sha256": "ea96a2785e6c8275e40eea34f091f0ae9e03b41300fc4110f7c7c75568349093",
+    "size": 16248955053
+   },
+   {
+    "name": "GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta",
+    "sha256": "9cce8b926416dd96b152deea85188495b75f7ac8d634cc723a017067be8702b7"
+   }
+  ],
+  "utc": "2026-10-16T04:00:19Z"
+ }
+}

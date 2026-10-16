@@ -1,0 +1,38 @@
+{
+ "loose_share": 0.25279349876650703,
+ "tiles": 13782,
+ "held_err": 0.035847114067498395,
+ "held_opp": 21660070,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "aligned reads",
+ "assembly": "GRCh38",
+ "sub_err": 0.0032631531475419695,
+ "conv_fail": 0.0026765648880376102,
+ "molecules": 361318457,
+ "qualifying": 4344075,
+ "reads": 579959145,
+ "sample": "ENCFF133QNK",
+ "cell": "nk cells",
+ "loyfer_cell": "nk cells",
+ "experiment": "ENCSR334LSM",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "3708a93edfa7c07aeed80d5030eec194d7c2b0e0e8142ffd9840fddef4944200",
+  "inputs": [
+   {
+    "name": "ENCFF133QNK.bam",
+    "url": "s3://encode-public/2022/01/18/4d97b352-219a-435e-a5ce-de5db4e74e94/ENCFF133QNK.bam",
+    "sha256": "e246c9577f0598e24049dc88bdc02c7132caa36ff86dc9d9798ae6a3dc6b3ae0",
+    "size": 54402642257
+   },
+   {
+    "name": "GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta",
+    "sha256": "9cce8b926416dd96b152deea85188495b75f7ac8d634cc723a017067be8702b7"
+   }
+  ],
+  "utc": "2026-10-16T03:57:04Z"
+ }
+}

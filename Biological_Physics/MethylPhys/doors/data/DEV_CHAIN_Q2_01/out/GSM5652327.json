@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.16163606273149972,
+ "tiles": 12689,
+ "held_err": 0.04571416724182968,
+ "held_opp": 48860061,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652327",
+ "cell": "tongue epithelium",
+ "file": "GSM5652327_Tongue-Epithelial-Z000000QV.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "9c0ad5a5e20d194eaace1d1cb513208c3ba3e6fb2e5aefa59ea15fdf9d980758",
+  "inputs": [
+   {
+    "name": "GSM5652327_Tongue-Epithelial-Z000000QV.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652327/suppl/GSM5652327_Tongue-Epithelial-Z000000QV.pat.gz",
+    "sha256": "e96d1a3e284955753d037c56694145afba7ac1d457adba6d6c6e10bc0625c630",
+    "size": 316931734
+   }
+  ],
+  "utc": "2026-10-16T03:32:10Z"
+ }
+}

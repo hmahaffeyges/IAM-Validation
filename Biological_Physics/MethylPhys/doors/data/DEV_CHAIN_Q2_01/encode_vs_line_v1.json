@@ -1,0 +1,63 @@
+{
+ "rows": [
+  {
+   "cell": "b cells",
+   "file": "ENCFF092SBB",
+   "loose_share": 0.3365590603531063,
+   "held_err": 0.03290382908927599,
+   "predicted": 0.05191801596016622,
+   "residual": -0.01901418687089023,
+   "line_version": 1,
+   "axis": "raw counter held error (no scale factor)"
+  },
+  {
+   "cell": "nk cells",
+   "file": "ENCFF133QNK",
+   "loose_share": 0.25279349876650703,
+   "held_err": 0.035847114067498395,
+   "predicted": 0.04901767434770894,
+   "residual": -0.013170560280210547,
+   "line_version": 1,
+   "axis": "raw counter held error (no scale factor)"
+  },
+  {
+   "cell": "t cells",
+   "file": "ENCFF605NRU",
+   "loose_share": 0.3793843421636821,
+   "held_err": 0.0375136829561394,
+   "predicted": 0.05340082040327871,
+   "residual": -0.015887137447139307,
+   "line_version": 1,
+   "axis": "raw counter held error (no scale factor)"
+  },
+  {
+   "cell": "monocytes",
+   "file": "ENCFF704SCQ",
+   "loose_share": 0.3290418054014058,
+   "held_err": 0.033985360258021596,
+   "predicted": 0.051657734683052986,
+   "residual": -0.01767237442503139,
+   "line_version": 1,
+   "axis": "raw counter held error (no scale factor)"
+  },
+  {
+   "cell": "cd34 myeloid progenitors",
+   "file": "ENCFF969NGH",
+   "loose_share": 0.10578051643192488,
+   "held_err": 0.03253935285161932,
+   "predicted": 0.04392742171691123,
+   "residual": -0.011388068865291916,
+   "line_version": 1,
+   "axis": "raw counter held error (no scale factor)"
+  }
+ ],
+ "within_0_003": 0,
+ "of": 5,
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "472ab6e960c093edf4d1a63eda3de5312358e1aaf72e3ada7fd59c272ae8cf12",
+  "inputs": [],
+  "utc": "2026-10-16T04:09:14Z"
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.46000472850500435,
+ "tiles": 12689,
+ "held_err": 0.05052234416278628,
+ "held_opp": 39403714,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652293",
+ "cell": "t effector memory cd4",
+ "file": "GSM5652293_Blood-T-EffMem-CD4-Z0000041M.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "81e6177b6bdf115be8c0614e63bb4431f51c1036d85f7b227b61537151e37587",
+  "inputs": [
+   {
+    "name": "GSM5652293_Blood-T-EffMem-CD4-Z0000041M.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652293/suppl/GSM5652293_Blood-T-EffMem-CD4-Z0000041M.pat.gz",
+    "sha256": "4828745c0a70076ad3db5349707f8f195abee1b6ccadf62ccebb6bb2ac6ea1fc",
+    "size": 324213339
+   }
+  ],
+  "utc": "2026-10-16T03:28:08Z"
+ }
+}

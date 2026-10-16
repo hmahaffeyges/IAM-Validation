@@ -30,3 +30,16 @@ uncommitted chain and a scratch/ citation are refused; a correct test is accepte
 **What it would take to finish.** The line rebuilt by the chain from Loyfer's 153 samples (a box run of `count_pat`), checked against the
 development line, then stored as `selfref_line_v1.json`; the ENCODE five recounted through the chain; then the second-laboratory test on
 GSE49627 run through the chain from the start.
+
+## The line rebuilt by the chain (2026-10-15)
+
+Loyfer's 153 samples counted by chain Stage Q2 (`out/GSM*.json`, stamped; spot machine i-0f3380b0fa6d2bd0a, code 0f90bfce, chain
+e49788e3db38; 13 samples GEO refused with server-busy errors were counted by the same committed chain on the laptop). Every count equals the
+development count to machine precision (loose share, held error, opportunities). `build_line_v1.py` verifies every stamp, builds the line with
+`Q2.build_line` and stores it as `chain/Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json` on the counter's raw axis (no scale factor).
+It agrees with the development line read from its own file (`line_v1_vs_development.json`: differences within the old file's printed
+rounding). This is a reproduction, not a new test; no verdict changes.
+
+The ENCODE five (`out/ENCFF*.json`, chain Stage Q2 count_bam, identical to `secondlab.py`'s counts) read against the chain's line
+(`encode_vs_line_v1.json`): all five below the line, residuals -0.011 to -0.019 on the raw axis, the same verdict as the corrected
+DEV-SECONDLAB-01 (NOT MET; explained by that sample's undermethylated tail, PHY-074).

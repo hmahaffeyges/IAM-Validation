@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.16053274489715502,
+ "tiles": 12689,
+ "held_err": 0.04593885623359475,
+ "held_opp": 54657804,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652335",
+ "cell": "lung bronchus epithelium",
+ "file": "GSM5652335_Lung-Bronchus-Epithelial-Z000000QD.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "483e7152cdb08393b3964657dda3cedb5433a8041413321e1b0977339d1d03ff",
+  "inputs": [
+   {
+    "name": "GSM5652335_Lung-Bronchus-Epithelial-Z000000QD.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652335/suppl/GSM5652335_Lung-Bronchus-Epithelial-Z000000QD.pat.gz",
+    "sha256": "e1b06ca22bf889006a623ad18c9372988dad5dfbd8edd3e0c46f32d4728f1b54",
+    "size": 331702209
+   }
+  ],
+  "utc": "2026-10-16T03:33:12Z"
+ }
+}

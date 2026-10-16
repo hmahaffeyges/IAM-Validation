@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.09395444155434697,
+ "tiles": 12687,
+ "held_err": 0.039427038063347755,
+ "held_opp": 66035521,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652305",
+ "cell": "colon macrophages",
+ "file": "GSM5652305_Colon-Macrophages-Z00000444.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "6eac4418f072affe06e6c0b31c309a9833360a0f03b2aa56c837fc3e9c5a9e3b",
+  "inputs": [
+   {
+    "name": "GSM5652305_Colon-Macrophages-Z00000444.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652305/suppl/GSM5652305_Colon-Macrophages-Z00000444.pat.gz",
+    "sha256": "12e20f7048d34fc50cd2912b31927d5db637c30277c9c7bd6d7676f6fd442a9d",
+    "size": 380167588
+   }
+  ],
+  "utc": "2026-10-16T03:29:50Z"
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "loose_share": 0.9170016552376449,
+ "tiles": 12687,
+ "held_err": 0.05328309863608907,
+ "held_opp": 19384477,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "reader": "pat",
+ "assembly": "hg19",
+ "sample": "GSM5652276",
+ "cell": "erythrocyte progenitors",
+ "file": "GSM5652276_Bone_marrow-Erythrocyte_progenitors-Z000000RK.pat.gz",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e49788e3db388ea5e223d11fb7d94642045be5a400869559e969ec11d408b31c",
+  "payload_sha256": "d73bae81eecb6e045920fa9b74a9ee49492fbcb25fa32c22d62a6c2fc80e52a9",
+  "inputs": [
+   {
+    "name": "GSM5652276_Bone_marrow-Erythrocyte_progenitors-Z000000RK.pat.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652276/suppl/GSM5652276_Bone_marrow-Erythrocyte_progenitors-Z000000RK.pat.gz",
+    "sha256": "eeb14a7f4fdbc43e88d22948689074fb740f15fa6d5d5345c057b0cd1a0b3e33",
+    "size": 291553474
+   }
+  ],
+  "utc": "2026-10-16T03:24:29Z"
+ }
+}
