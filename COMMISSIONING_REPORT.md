@@ -5,9 +5,9 @@ Master Testing Manifest; do not edit by hand. Commissioned means a use is allowe
 
 | Instrument | Commissioned | Scope |
 |---|---|---|
-| **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)) | isolated neutrophils; detection limit 2 %; whole blood is development |
-| **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](doors/COMMISSIONING_NOTE_CSCORE.md)) | one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered; isolated neutrophils development |
-| **IAM-Atlas v2.1, per use** | **COMMISSIONED 2026-10-16** ([note](doors/COMMISSIONING_NOTE_ATLAS_V21.md)) | reference profiles of cortical neurons, lung bronchus epithelium and naive CD4 T cells (450K); blind sites of the colon and lung tissue tests; composition and other cells development |
+| **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)) | isolated neutrophils; detection limit 2 %; whole blood is development |
+| **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md)) | one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered; isolated neutrophils development |
+| **IAM-Atlas v2.1, per use** | **COMMISSIONED 2026-10-16** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)) | reference profiles of cortical neurons, lung bronchus epithelium and naive CD4 T cells (450K); blind sites of the colon and lung tissue tests; composition and other cells development |
 
 ## Met-A, isolated neutrophils, EPIC v1 (2026-10-09)
 

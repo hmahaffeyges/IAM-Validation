@@ -322,7 +322,7 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 </details>
 <!-- ASSISTANT:END -->
 </section>
-<section class="wrap"><h2>What it costs</h2><p class="sub">Every dollar, from Amazon's own billing and our storage, as of {E(CO["as_of"])}. Everything is paid by us and by people who choose to help.</p>
+<section class="wrap"><h2>What it costs</h2><p class="sub">Every dollar, from Amazon's own billing and our storage, refreshed every time the site is published. Everything is paid by us and by people who choose to help.</p>
 <details class="fold"><summary>See every cost: this month ${mtot:,.2f} so far</summary>
 <div class="grid costs"><div class="card"><p class="big">${mtot:,.2f}</p><p>this month so far ({E(mkey)}), all costs</p><p class="small">{E(mlines)}</p></div>
 <div class="card"><p class="big">{CO["s3"]["bytes"] / 1e12:.2f} TB</p><p>of public data stored for our tests ({CO["s3"]["objects"]:,} files), {E(s3c)} this month</p><p class="small">Amazon moves files we have not touched to cheaper storage on its own.</p></div>
@@ -372,6 +372,51 @@ details.fold[open]>summary{margin-bottom:20px}
 footer{padding:50px 22px 60px;color:var(--muted);font-size:14px}
 """
 
+
+# ---- documents on the site (author 2026-10-16: "The webpage is the interface, NOT the repo"; "the repo is the root that feeds everything
+# else"). Every repository document the page links to is rendered from the repository at build time into docs/<name>.html, in the page's
+# style with each ## section collapsible, and the page links there. Documents those pages link to are rendered too (two levels).
+# Non-document files (code, data) still link to the repository.
+sys.path.insert(0, HERE); import md_lite
+INLINE = [("doc-commissioning", "Commissioning report: what is commissioned, its scope and what it passed", "COMMISSIONING_REPORT.md"),
+          ("doc-instruments", "The instrument catalogue", "INSTRUMENTS.md"),
+          ("doc-four", "One law, four applications, and IAM in bits", "FOUR_DOMAINS.md"),
+          ("doc-runs", "Every rented-computer run and what AWS billed", "Biological_Physics/MethylPhys/RUNS.md"),
+          ("doc-status", "Status of every instrument", "Biological_Physics/MethylPhys/STATUS.md")]
+ALIAS = {"development/bit_paper/BIT_TABLES.md": "FOUR_DOMAINS.md"}   # moved; its tables are in FOUR_DOMAINS.md
+def docname(p): return "docs/" + re.sub(r"[^A-Za-z0-9_.-]", "__", p[:-3]) + ".html"
+def onpage_map(paths, front=True):
+    M = {p: docname(p) for p in paths}
+    if front: M.update({p: "#" + a for a, _, p in INLINE})
+    for a, b in ALIAS.items(): M[a] = M.get(b, docname(b))
+    return M
+def doc_sections(path, onpage):
+    intro, S = md_lite.sections(path, REPO, onpage)
+    return intro + "".join(f"<details><summary>{E(t) if '<' not in t else t}</summary>{h}</details>" for t, h in S)
+def inline_docs(onpage):
+    return ('<!-- RECORDS:BEGIN --><section class="wrap" id="tables"><h2>The tables</h2><p class="sub">Built from the repository every time the site is published; '
+            'open any section.</p>' + "".join(f'<details id="{a}"><summary><b>{E(t)}</b></summary>{doc_sections(p, onpage)}</details>' for a, t, p in INLINE)
+            + "</section><!-- RECORDS:END -->")
+def linked_docs(body, depth=2):
+    seen, frontier = set(), set(re.findall(re.escape(GH) + r"([^\"#]+?\.md)", body))
+    for _ in range(depth):
+        new = set()
+        for p in frontier - seen:
+            q = ALIAS.get(p, p)
+            if not os.path.exists(os.path.join(REPO, q)): continue
+            seen.add(q)
+            md = open(os.path.join(REPO, q), encoding="utf-8").read(); base = os.path.dirname(q)
+            for u in re.findall(r"\]\(([^)#\s]+\.md)", md):
+                if not re.match(r"[a-z]+:", u): new.add(os.path.normpath(os.path.join(base, u)).replace(os.sep, "/"))
+        frontier = new
+    return sorted(seen)
+def relink(body, M, prefix=""):
+    def r(m):
+        p, frag = m.group(1), m.group(2) or ""
+        if p in M: return M[p] if M[p].startswith("#") else prefix + M[p] + frag
+        return m.group(0)
+    return re.sub(re.escape(GH) + r"([^\"#]+?\.md)(#[^\"]*)?", r, body)
+
 def problems(body):
     # The voice check skips exactly two marked blocks: the author's own words, and the block that describes the research
     # research partner (the author asked for it, 2026-10-13; the words "assistant"/"partner" in that sense stay refused everywhere
@@ -379,6 +424,7 @@ def problems(body):
     # model name stays refused even inside it - see the brand check below).
     _b = re.sub(r"<!-- AUTHOR:BEGIN.*?<!-- AUTHOR:END -->", "", body, flags=re.S)
     _b = re.sub(r"<!-- ASSISTANT:BEGIN.*?<!-- ASSISTANT:END -->", "", _b, flags=re.S)
+    _b = re.sub(r"<!-- RECORDS:BEGIN.*?<!-- RECORDS:END -->", "", _b, flags=re.S)   # the tables section shows the records in their own words
     txt = re.sub(r"<[^>]+>", " ", _b); P = []
     _brand = re.search(r"(?i:\bclaude\b|\bgpt\b|\bopenai\b|\banthropic\b|\bgemini\b|\bllama\b)", re.sub(r"<[^>]+>", " ", body))
     if _brand: P.append(f"vendor or model name '{_brand.group(0)}' on the page: describe the role, not the brand")
@@ -396,8 +442,22 @@ def problems(body):
         if not os.path.exists(os.path.join(REPO, p)): P.append(f"record not found: {p}")
     return P
 
+DOCS = []   # (path, html) of every document page, filled by full()
+def doc_page(path, css_tag, docs):
+    M = {q: os.path.basename(docname(q)) for q in docs}; M.update({q: "../index.html#" + a for a, _, q in INLINE})
+    for a_, b_ in ALIAS.items(): M[a_] = M.get(b_, os.path.basename(docname(b_)))
+    title = re.search(r"(?m)^#\s+(.+)$", open(os.path.join(REPO, path), encoding="utf-8").read())
+    t = title.group(1) if title else path
+    body = (f'<section class="wrap"><p><a href="../index.html">&larr; IAMPerformance front page</a></p><h1>{E(t)}</h1>'
+            f'{doc_sections(path, M)}<p class="more">Source in the repository: <a href="{GH}{path}">{E(path)}</a></p></section>')
+    return (f'<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
+            f'<title>{E(t)}</title>{css_tag}<style>{CSS}</style></head><body>{body}</body></html>')
 def full(art, css_tag):
     body = page(art)
+    _docs = linked_docs(body); _M = onpage_map(_docs)
+    _tab = inline_docs(_M)
+    _i = body.rfind("<footer"); body = (body[:_i] + _tab + body[_i:]) if _i >= 0 else body + _tab
+    body = relink(body, _M); DOCS[:] = _docs
     head = f'''<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>IAMPerformance: two telescopes, one sky map</title>{css_tag}<style>{CSS}</style></head><body>'''
     return head + body + "</body></html>", body
@@ -420,3 +480,6 @@ if __name__ == "__main__":
     doc, b = full(lambda n: pre + "art/" + n, f'<link rel="stylesheet" href="{pre}static/themes.css">'); P = problems(b)
     if P: raise SystemExit("build_home: " + "; ".join(P))
     open(os.path.join(out, "index.html"), "w", encoding="utf-8").write(doc); print("build_home: " + ("index.html" if live else "preview/index.html") + " written")
+    os.makedirs(os.path.join(out, "docs"), exist_ok=True); _css = f'<link rel="stylesheet" href="{pre}../static/themes.css">'
+    for q in DOCS: open(os.path.join(out, docname(q)), "w", encoding="utf-8").write(doc_page(q, _css, DOCS))
+    print("build_home:", len(DOCS), "document pages written")

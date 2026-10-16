@@ -2,22 +2,25 @@
 """Stage D21 - the deconvolution tool on IAM-Atlas v2.1 (release track B; DEVELOPMENT, not commissioned). Written 2026-10-16.
 Job: given a mixed sample's array readings, report each cell's share with its error bar.
 
- reference   the atlas's best value and 95 % range per site and cell (Biological_Physics/MethylPhys/atlas/v2.1, compact copy; uint16 x 1e-4,
-             65535 = not measured). The per-site spread of each cell is sd = (hi - lo) / 3.92.
+ reference   the atlas's best value per site and cell, and the spread a NEW person's cell has around it, as the fit itself defines it
+             (version 2, 2026-10-16): sd^2 = (uncertainty of the average, (hi - lo)/3.92)^2 + the fit's donor spread (donor_sd)^2 + the
+             measured laboratory spread (Stage A21 lab_sd)^2 + FLOOR, exactly the array predictive of Stage A21 used in U1.
+             Version 1 (scored once, DEV-DECONV-V21-01) used only the average's range; it is kept as SPREAD="mean_only".
  markers     for each cell, the sites that separate it most from its nearest other cell in the panel, in both directions:
              z = |mu_c - mu_nearest| / sqrt(sd_c^2 + sd_nearest^2); top `per_cell` per direction, every panel cell measured there.
  solver      weighted non-negative least squares on the markers; each site's weight is 1 / (sum_k f_k^2 sd_k^2 + lab_sd^2), refined over
              three passes from equal shares (the atlas's own range plus a laboratory term, which the U1 diagnostic found the range lacks).
              Shares are reported as estimated and normalized to sum 1; the raw sum is reported.
- error bars  95 % interval of each share from `boot` resamplings of the marker sites (seeded), so the bar includes how well the panel
-             fits the sample, not only noise.
+ error bars  95 % interval of each share from `boot` refits, each on resampled marker sites AND on cell profiles redrawn from the
+             atlas's spread (a new person's cells are not the average cell), version 2; version 1 resampled sites only.
 Usage: import stage_deconv_v21 as D; R = D.reference(cells); M = D.markers(R); D.deconvolve(beta, R, M)
        python stage_deconv_v21.py planted [out] [six]   (six: the BLOOD6 panel; default the 12-cell BLOOD panel)     (synthetic test on planted mixtures built from the atlas itself)"""
 import os, sys, json, numpy as np, pandas as pd
 from scipy.optimize import nnls
 HERE = os.path.dirname(os.path.abspath(__file__)); ATLAS = os.path.join(HERE, "..", "atlas", "v2.1")
-LAB_SD = 0.02; PER_CELL = 50; BOOT = 200; SEED = 2026
-def reference(cells, atlas=ATLAS):
+LAB_SD = 0.02; PER_CELL = 50; BOOT = 200; SEED = 2026; SPREAD = "full"   # "full" (v2) or "mean_only" (v1, as scored once)
+def reference(cells, atlas=ATLAS, spread=None):
+    spread = spread or SPREAD; import pyarrow.parquet as pq
     """mu and sd DataFrames (sites x cells) for the named cells, from the compact copy; reads only those columns."""
     sites = pd.read_parquet(os.path.join(atlas, "sites.parquet")).cpg.astype(str).values; out = {}
     for k in ("mu", "mu_lo", "mu_hi"):
@@ -29,7 +32,16 @@ def reference(cells, atlas=ATLAS):
             if cols: parts.append(pd.read_parquet(p, columns=cols))
         X = pd.concat(parts, axis=1)[list(cells)].astype("float32"); X = X.where(X != 65535) / 10000.0; X.index = sites; out[k] = X
     miss = [c for c in cells if c not in out["mu"].columns]; assert not miss, f"cells not in the atlas: {miss}"
-    return dict(mu=out["mu"], sd=(out["mu_hi"] - out["mu_lo"]) / 3.92, cells=list(cells))
+    se = (out["mu_hi"] - out["mu_lo"]) / 3.92
+    if spread == "mean_only": return dict(mu=out["mu"], sd=se, cells=list(cells), spread=spread)
+    import stage_atlas_commission as A21
+    ds = []
+    for n in (1, 2, 3):
+        p = os.path.join(atlas, f"donor_sd_part{n}.parquet"); cols = [c for c in pq.ParquetFile(p).schema_arrow.names if c in cells]
+        if cols: ds.append(pd.read_parquet(p, columns=cols))
+    D = pd.concat(ds, axis=1)[list(cells)].astype("float32"); D = D.where(D != 65535) / 10000.0; D.index = out["mu"].index
+    lab = A21.lab_sd()
+    return dict(mu=out["mu"], sd=np.sqrt(se ** 2 + D ** 2 + lab ** 2 + A21.FLOOR), cells=list(cells), spread=spread, lab_sd=lab, floor=A21.FLOOR)
 def markers(R, per_cell=PER_CELL):
     mu, sd = R["mu"], R["sd"]; ok = mu.notna().all(1) & sd.notna().all(1); mu, sd = mu[ok], sd[ok]; pick = set()
     for c in R["cells"]:
@@ -47,13 +59,16 @@ def deconvolve(beta, R, M, lab_sd=LAB_SD, boot=BOOT, seed=SEED):
     """beta: pd.Series of readings by site id. Returns shares (normalized), raw sum, 95 % intervals, sites used."""
     y = pd.Series(beta).reindex(M).astype(float); m = y.notna().values; sites = np.array(M)[m]
     A = R["mu"].loc[sites].values.astype(float); S = R["sd"].loc[sites].values.astype(float); yy = y.values[m]
-    f = _solve(yy, A, S, lab_sd); tot = f.sum(); rng = np.random.default_rng(seed); B = []
+    full = R.get("spread", "mean_only") == "full"; lab_w = 0.0 if full else lab_sd   # v2: the laboratory term is already inside S
+    f = _solve(yy, A, S, lab_w); tot = f.sum(); rng = np.random.default_rng(seed); B = []
     for _ in range(boot):
-        i = rng.integers(0, len(yy), len(yy)); g = _solve(yy[i], A[i], S[i], lab_sd); B.append(g / g.sum() if g.sum() > 0 else g)
+        i = rng.integers(0, len(yy), len(yy)); Ai = A[i]
+        if full: Ai = np.clip(Ai + rng.normal(0, 1, Ai.shape) * S[i], 0, 1)   # this person's cells, drawn from the atlas's spread
+        g = _solve(yy[i], Ai, S[i], lab_w); B.append(g / g.sum() if g.sum() > 0 else g)
     B = np.array(B); lo, hi = np.percentile(B, 2.5, 0), np.percentile(B, 97.5, 0)
     sh = f / tot if tot > 0 else f
     return dict(shares={c: float(v) for c, v in zip(R["cells"], sh)}, raw_sum=float(tot),
-                interval_95={c: [float(a), float(b)] for c, a, b in zip(R["cells"], lo, hi)}, sites_used=int(m.sum()), lab_sd=lab_sd, boot=boot)
+                interval_95={c: [float(a), float(b)] for c, a, b in zip(R["cells"], lo, hi)}, sites_used=int(m.sum()), lab_sd=R.get("lab_sd", lab_sd), spread=R.get("spread", "mean_only"), boot=boot)
 # the blood panel: separate subsets only; the atlas's unsorted parent cells (b cells, cd4 t cells, cd8 t cells) contain their subsets and would
 # compete with them in a mixture (U3's mixture rule removed them for the same reason)
 BLOOD = ["neutrophils", "eosinophils", "basophils", "monocytes", "naive b cells", "memory b cells", "naive cd4 t cells", "memory cd4 t cells",
@@ -67,18 +82,21 @@ if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "planted":
     have = set(n for k in (1, 2, 3) for n in pq.ParquetFile(os.path.join(ATLAS, f"mu_part{k}.parquet")).schema_arrow.names)
     panel = BLOOD6 if (len(sys.argv) > 3 and sys.argv[3] == "six") else BLOOD
     cells = [c for c in panel if c in have]; R = reference(cells); M = markers(R); rng = np.random.default_rng(7)
-    mu = R["mu"].loc[M].values.astype(float); sd = R["sd"].loc[M].values.astype(float); rows = []
-    def sample(f, lab):   # a planted array: each cell's DNA drawn inside its atlas range, mixed, plus one laboratory shift and array noise
-        x = np.clip(mu + rng.normal(0, 1, mu.shape) * sd, 0, 1) @ f + lab + rng.normal(0, 0.01, len(M)); return pd.Series(np.clip(x, 0, 1), index=M)
+    # truth is planted with the fit's OWN person-to-person spread (donor_sd) and a laboratory shift, whatever spread the tool assumes, so
+    # a tool that treats the atlas average as exact is caught (version 1's flaw, 2026-10-16)
+    RF = reference(cells, spread="full"); mu = RF["mu"].loc[M].values.astype(float)
+    dsd = np.sqrt(np.clip(RF["sd"].loc[M].values.astype(float) ** 2 - RF["lab_sd"] ** 2 - RF["floor"], 0, None)); rows = []
+    def sample(f, lab):   # a planted array: each cell's DNA drawn from the atlas's donor spread, mixed, plus one laboratory shift and array noise
+        x = np.clip(mu + rng.normal(0, 1, mu.shape) * dsd, 0, 1) @ f + lab + rng.normal(0, 0.01, len(M)); return pd.Series(np.clip(x, 0, 1), index=M)
     T = {}
     pure = [deconvolve(sample(np.eye(len(cells))[k], 0.0), R, M, boot=50)["shares"][c] for k, c in enumerate(cells)]
     T["T1_pure"] = dict(min_share=float(min(pure)), met=bool(min(pure) >= 0.80))
     err = []; cov = []
     for j in range(40):
-        f = rng.dirichlet(np.ones(len(cells))); r = deconvolve(sample(f, rng.normal(0, 0.01)), R, M)
+        f = rng.dirichlet(np.ones(len(cells))); r = deconvolve(sample(f, rng.normal(0, RF["lab_sd"])), R, M)
         e = np.array([r["shares"][c] for c in cells]) - f; err.append(np.abs(e).mean())
-        cov.append(np.mean([r["interval_95"][c][0] - 0.01 <= f[k] <= r["interval_95"][c][1] + 0.01 for k, c in enumerate(cells)]))
-    T["T2_mixtures"] = dict(n=40, mae=float(np.mean(err)), interval_coverage=float(np.mean(cov)), met=bool(np.mean(err) <= 0.02 and np.mean(cov) >= 0.80))
+        cov.append(np.mean([r["interval_95"][c][0] <= f[k] <= r["interval_95"][c][1] for k, c in enumerate(cells)]))
+    T["T2_mixtures"] = dict(n=40, spread=R["spread"], mae=float(np.mean(err)), interval_coverage=float(np.mean(cov)), met=bool(np.mean(err) <= 0.03 and np.mean(cov) >= 0.80))
     # T3 a planted 5 % share of one cell is seen: its interval excludes 0 in most mixtures
     seen = []
     for j in range(20):

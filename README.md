@@ -33,7 +33,7 @@ Heath W. Mahaffey, IAMPerformance (independent research).
 | **What is commissioned** | [COMMISSIONING_REPORT.md](COMMISSIONING_REPORT.md): every commissioned instrument, its scope, what it passed and what is next |
 | **The instruments** | [INSTRUMENTS.md](INSTRUMENTS.md): what each one reads, how it works, where it stands |
 | **One law, four applications** | [FOUR_DOMAINS.md](FOUR_DOMAINS.md): the same slots in the cosmos, qubits, chips and cells, each with its source and status |
-| **IAM in bits** | [BIT_TABLES.md](development/bit_paper/BIT_TABLES.md): the four applications in computer language, one term per row |
+| **IAM in bits** | [FOUR_DOMAINS.md, IAM in bits](FOUR_DOMAINS.md#iam-in-bits-a-guidebook-to-computational-reality): the four applications in computer language, one term per row |
 | **Every test, numbered** | [MANIFEST.md](MANIFEST.md), the Master Testing Manifest (generated; a push is refused if it drifts) |
 | **The book** | [read online](https://hmahaffeyges.github.io/IAM-Validation/read/) or open [`docs/book/main.tex`](docs/book/) |
 | **Everything else** | [REFERENCE.md](REFERENCE.md): the law in full, results by domain, the folder map, the papers, how to reproduce |
