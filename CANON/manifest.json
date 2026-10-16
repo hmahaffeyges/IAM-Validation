@@ -11087,7 +11087,7 @@
   },
   {
    "title": "HYP-SATURATION-01 falsifier 1: the weakest point fails first (fragile territory saturates before stable)",
-   "purpose": "Tests whether, on the way to cancer, the territory with the least holding headroom reaches the surface before stable territory. If stable territory saturates first or both together, the picture is wrong.",
+   "purpose": "Tests whether, on the way to cancer, the territory with the least room left before its surface is full (the loose territory) fills up before stable territory. If stable territory saturates first or both together, the picture is wrong.",
    "instrument_or_term": "territory contrast (DEV-TERRITORY-01/02) on an ordered lesion series",
    "sources": [
     "219 sealed tumor/normal pairs",
