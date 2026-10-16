@@ -104,6 +104,9 @@ Commissioning record (stage, check, result, wired): `STATUS.md` (section 8, comm
 - **Met-A on neutrophils, EPIC v1, commissioned 2026-10-09** (`doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md`): stages 0, 1, 2, 5, 6, 8
   (self-tare II then the median tare), 9, 13; isolated neutrophils (scope narrowed 2026-10-11: whole-blood Met-A is development). Every report prints the
   detection limit: 2 % loss of the neutrophil pattern in purified neutrophils (DEV-METAA-SENS-01). Readings in this scope are results.
+- **IAM-Atlas v2.1, commissioned 2026-10-16 for three cell references (cortical neurons, lung bronchus epithelium, naive CD4 T cells; 450K) and the colon and lung blind sites** (`doors/COMMISSIONING_NOTE_ATLAS_V21.md`): the reference profile and range of
+  each of those cells, and the blind sites of the sealed colon and lung tissue tests; chain Stage A21 `atlas_v21_use_status` names each use's status.
+  Blood composition from v2.1 and every other cell reference are development.
 - **Met-A C-score on whole blood, EPIC v1, commissioned 2026-10-15** (`doors/COMMISSIONING_NOTE_CSCORE.md`): stages 0, 1, 6 with the same-run
   tare of the C-score (>= 3 healthy references on the slide, else the series). Every report prints C_rel, the one-sided call (above 1.152:
   clustered departure) and the detection limit (C_rel 1.5 at 5 % of sites clustered). Isolated-neutrophil C-scores, IAM-A and every other

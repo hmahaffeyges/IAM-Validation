@@ -32,13 +32,13 @@ DNA's sequence is the same in every cell; the methyl tags are not, and a sequenc
 
 A map of 79 kinds of healthy human cells, built from seven public sources on arrays and sequencing, fitted as one model so every spot on the genome carries its value and its uncertainty. Like a state estimator across the whole interconnection: many utilities' meters, each weighted by how far it can be trusted.
 
-**Reads:** arrays or sequencing. **Where it stands:** running now.
+**Reads:** arrays or sequencing. **Where it stands:** commissioned (three cell references (450K) and the colon and lung blind sites, 2026-10-16).
 
-- ATL-005 Atlas v2.1 joint fit: running now; last run 2026-10-16: met
+- ATL-005 Atlas v2.1 joint fit: run; last run 2026-10-16: met
 - ATL-060 Head to head: atlas v2.1 against the source atlases' own references, on their own job: run; last run 2026-10-16: met
-- ATL-001 Atlas commissioning as a source of healthy references: designed; last run 2026-10-12: progressed
+- ATL-001 Atlas commissioning as a source of healthy references: run; last run 2026-10-16: met
 
-**Next:** The fit finishes; then its sealed commissioning bars and the sealed tests on Loyfer's and Moss's own jobs are scored.
+**Next:** Widen the commissioned uses: cell references with a measured laboratory spread in the range, adult healthy blood for composition, held-out breast and liver epithelium.
 
 ## Met-A
 

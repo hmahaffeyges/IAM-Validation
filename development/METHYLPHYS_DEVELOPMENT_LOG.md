@@ -2185,3 +2185,6 @@ Planted test PASSED; blind sites COMMISSIONED for the colon (epithelium 0.999) a
 
 ### 2026-10-16 · Atlas v2.1 against Moss's reference: all three showcase bars MET (ATL-060)
 On 731 held-out arrays from independent laboratories: markers confirmed 0.424 (Moss 0.398); blood mixtures median error 0.0224 (Moss 0.0305); with brain cells Moss does not hold, 0.0228 (Moss 0.0523), the outside share recovered in 87 percent of mixtures. Sealed scorer unchanged; chain runner planted test first.
+
+### 2026-10-16 · IAM-Atlas v2.1 commissioned per use (COMMISSIONING-ATLAS-V21; ATL-001, ATL-005)
+By the sealed rule (each use on its own bar; a use not commissioned is development everywhere): commissioned for the reference profiles of cortical neurons, lung bronchus epithelium and naive CD4 T cells on 450K (U1) and for the blind sites of the sealed colon and lung tissue tests (U2a). Development: the other 23 assessed cell references, alveolar macrophages (D13), blood composition (U3 failed), the breast and liver blind sites. Written into the note, chain Stage A21 (ATLAS_V21_COMMISSIONING, atlas_v21_use_status), the report, both SOPs, the operations manual, the book chapter and status table, the catalogue, STATUS and the READMEs; the commissioning gate checks all eleven.

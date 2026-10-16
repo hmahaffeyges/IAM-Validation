@@ -129,6 +129,10 @@ Each result says what was tested and what it means; the record behind it has eve
 
 A reference atlas is used for two jobs: finding the DNA spots that mark each cell type, and working out which cells a mixed sample came from. On healthy cells from laboratories that never helped build either atlas, v2.1 was scored against Moss's published reference by bars sealed before v2.1 existed. It found as many reliable markers, split blood-cell mixtures with a smaller error, and, when brain cells Moss's reference does not hold were mixed in, recovered them and cut the error by more than half.
 
+**2026-10-16 · IAM-Atlas v2.1 commissioned for three cell references and the colon and lung tissue tests' blind sites, each on a bar sealed before the atlas existed** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)
+
+Commissioned means a use of the atlas is allowed to report results. Healthy cells from laboratories that never helped build the atlas were read against it, by bars fixed before it existed. Three cell types, brain neurons, airway lining and naive helper T cells, landed inside the atlas's predicted range, and the sites the colon and lung cancer tests depend on held steady in every cell type that could be checked. Its blood-composition use and its other cell references stay in development.
+
 **2026-10-15 · Every healthy cell follows the same simple rule** *(development)* · [record](development/loose_end_2026-10-15/loose_end_line.py)
 
 Your cells put tiny chemical tags on their DNA. The tags tell each cell what kind of cell it is. Some stretches of DNA are tagged firmly and some loosely, and every cell makes a few tagging mistakes. We looked at 56 kinds of healthy human cells and found that the number of mistakes depends on one thing: how much of its DNA the cell keeps loosely tagged. Plotted, all 56 fall on one straight line. So we can tell what a healthy cell should look like from that cell's own sample, without comparing it to a library of other cells. Early result, from one laboratory's data. Next, we check it in a second lab.

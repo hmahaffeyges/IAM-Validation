@@ -219,6 +219,77 @@
    "status_line": "| **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](doors/COMMISSIONING_NOTE_CSCORE.md)) | one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered; isolated neutrophils development |",
    "summary": "the Met-A C-score on whole blood, EPIC v1",
    "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md"
+  },
+  {
+   "register_id": "COMMISSIONING-ATLAS-V21",
+   "name": "IAM-Atlas v2.1, per use",
+   "date": "2026-10-16",
+   "status_line": "| **IAM-Atlas v2.1, per use** | **COMMISSIONED 2026-10-16** ([note](doors/COMMISSIONING_NOTE_ATLAS_V21.md)) | reference profiles of cortical neurons, lung bronchus epithelium and naive CD4 T cells (450K); blind sites of the colon and lung tissue tests; composition and other cells development |",
+   "summary": "IAM-Atlas v2.1 for three cell references (450K) and the colon and lung tissue tests' blind sites",
+   "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md",
+   "places": [
+    {
+     "kind": "note",
+     "file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md",
+     "pattern": "\\*\\*Status: COMMISSIONED 2026-10-16\\*\\* for the uses below"
+    },
+    {
+     "kind": "chain",
+     "file": "Biological_Physics/MethylPhys/chain/stage_atlas_commission.py",
+     "pattern": "ATLAS_V21_COMMISSIONING = \\{\"status\": \"COMMISSIONED\", \"date\": \"2026-10-16\""
+    },
+    {
+     "kind": "report",
+     "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v3.py",
+     "pattern": "IAM-Atlas v2.1 COMMISSIONED 2026-10-16 for three cell references"
+    },
+    {
+     "kind": "sop",
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
+     "pattern": "IAM-Atlas v2.1, commissioned 2026-10-16 for three cell references"
+    },
+    {
+     "kind": "sop_full",
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
+     "pattern": "IAM-Atlas v2.1 \\(COMMISSIONED 2026-10-16 for three cell references"
+    },
+    {
+     "kind": "om",
+     "file": "Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md",
+     "pattern": "Atlas v2.1 reference \\(Stage A21\\)[^\\n]*COMMISSIONED 2026-10-16"
+    },
+    {
+     "kind": "status",
+     "file": "Biological_Physics/MethylPhys/STATUS.md",
+     "pattern": "\\*\\*IAM-Atlas v2.1, per use\\*\\* \\| \\*\\*COMMISSIONED 2026-10-16"
+    },
+    {
+     "kind": "book",
+     "file": "docs/book/part6/p6_14_atlas.tex",
+     "pattern": "\\\\textbf\\{Atlas v2.1 is commissioned for three cell references"
+    },
+    {
+     "kind": "book_status",
+     "file": "docs/book/part6/p6_24_status.tex",
+     "pattern": "IAM-Atlas v2.1, 79 cells: commissioned 2026-10-16"
+    },
+    {
+     "kind": "catalogue",
+     "file": "CANON/catalogue.json",
+     "pattern": "\"commissioned\": \"three cell references \\(450K\\) and the colon and lung blind sites, 2026-10-16\""
+    },
+    {
+     "kind": "readme",
+     "file": "Biological_Physics/README.md",
+     "pattern": "IAM-Atlas v2.1 for three cell references \\(450K\\)"
+    }
+   ],
+   "forbid": [
+    {
+     "file": "Biological_Physics/MethylPhys/STATUS.md",
+     "pattern": "IAM-Atlas v2.1\\*\\* \\| running now"
+    }
+   ]
   }
  ]
 }

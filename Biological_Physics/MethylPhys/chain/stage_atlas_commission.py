@@ -47,3 +47,15 @@ def u3_neutrophil(est, truth, withheld_mask=None):
     e = np.abs(np.asarray(est, float) - np.asarray(truth, float))
     if withheld_mask is not None: e = e[~np.asarray(withheld_mask, bool)]
     w = float((e <= 0.05).mean()); return dict(mae=float(e.mean()), within_005=w, max=float(e.max()), met=bool(e.mean() <= 0.02 and w >= SHARE))
+
+
+# Per-use commissioning of atlas v2.1 (COMMISSIONING_NOTE_ATLAS_V21.md). A use not listed here is development wherever it appears.
+ATLAS_V21_COMMISSIONING = {"status": "COMMISSIONED", "date": "2026-10-16", "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md",
+    "U1_reference_profiles": [("cortical neurons", "450K"), ("lung bronchus epithelium", "450K"), ("naive cd4 t cells", "450K")],
+    "U2a_blind_sites": ["colon", "lung"], "U3_composition": "development"}
+def atlas_v21_use_status(use, key):
+    """'COMMISSIONED' or 'development' for a use of atlas v2.1: use 'U1' with key (cell, platform family), 'U2a' with a tissue, 'U3'."""
+    C = ATLAS_V21_COMMISSIONING
+    if use == "U1": return "COMMISSIONED" if tuple(key) in C["U1_reference_profiles"] else "development"
+    if use == "U2a": return "COMMISSIONED" if key in C["U2a_blind_sites"] else "development"
+    return "development"

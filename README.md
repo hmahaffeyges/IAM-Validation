@@ -48,7 +48,7 @@ gravity follows from the thermodynamics of such surfaces.
 
 | Instrument | The question it answers | Where it stands |
 |---|---|---|
-| **IAM-Atlas v2.1** | Whose DNA is this? Which cells are in a sample, and in what shares? | running now |
+| **IAM-Atlas v2.1** | Whose DNA is this? Which cells are in a sample, and in what shares? | commissioned (three cell references (450K) and the colon and lung blind sites, 2026-10-16) |
 | **Met-A** | How far has a tissue's tagging level drifted toward the ceiling? | commissioned (isolated neutrophils) |
 | **C-Score (the clustering meter)** | Has the pattern started to clump? | commissioned (whole blood, EPIC v1, 2026-10-15) |
 | **IAM-A** | Is each mark still held at its own healthy rate? | running now |
@@ -87,6 +87,7 @@ How each one works, why it matters, and every test behind it: [INSTRUMENTS.md](I
 | date | result | status | record |
 |---|---|---|---|
 | 2026-10-16 | **IAM-Atlas v2.1 does Moss's own jobs better than Moss's reference.** On 731 held-out arrays from independent laboratories, by bars sealed before the atlas existed: markers confirmed 0.424 against 0.398; blood mixtures split with median error 0.0224 against 0.0305; with brain cells Moss's reference does not hold mixed in, 0.0228 against 0.0523, the outside share recovered in 87 percent of mixtures. A showcase, not a gate | MEASURED, sealed before reading; development | [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_01.md) |
+| 2026-10-16 | **IAM-Atlas v2.1 commissioned** for three cell references and the colon and lung tissue tests' blind sites, each on a bar sealed before the atlas existed | COMMISSIONED | [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md) |
 | 2026-10-15 | **Every healthy cell follows the same simple rule.** Across 56 kinds of healthy human cells, the number of DNA-tagging mistakes depends on one thing, how much of the DNA the cell keeps loosely tagged, so a healthy cell's expected reading comes from its own sample (early result, one laboratory) | MEASURED, sealed before reading; development | [record](development/loose_end_2026-10-15/loose_end_line.py) |
 | 2026-10-15 | **The clustering meter passes its last check.** The same person measured twice on different chips reads the same: spread 0.038 over 13 people, against a bar of 0.125 set before the arrays were read; and a third laboratory's healthy blood read inside its range (172 of 173). Proposed for commissioning on whole blood | COMMISSIONED | [record](Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md) |
 | 2026-10-15 | **The clustering meter (C-score) commissioned** on whole blood (EPIC v1), with its band and detection limit printed on every report | COMMISSIONED | [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md) |

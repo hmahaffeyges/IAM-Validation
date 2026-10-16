@@ -4,7 +4,7 @@
  "set_out": "Goal for the day: take IAM-A through its last gates to commissioning: the second laboratory, its own healthy range, the clean room, then the grand sealed test.",
  "_convention": "see 2026-10-13.json",
  "check_completeness": true,
- "open_at_turnover": "Running: the atlas v2.1 fit; the Hansen count (DEV-SECONDLAB-02 run 2).",
+ "open_at_turnover": "Running: the IAM-A grand test (three machines on one queue); the IAM-A clean room.",
  "closing": "",
  "sections": [
   {
@@ -25,6 +25,27 @@
      "what": "IAM-A's healthy range now comes from healthy people measured in two laboratories (156 readings), by a rule sealed before the second laboratory's counts were read.",
      "why": "",
      "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_BAND_01.md"
+    },
+    {
+     "title": "IAM-Atlas v2.1 commissioned for its first uses",
+     "status": "sealed",
+     "what": "The 79-cell atlas, fitted as one model from seven public sources, is commissioned for three cell references and for the sites our colon and lung cancer tests rely on, each on a bar fixed before the atlas existed. Its other uses stay in development.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md"
+    },
+    {
+     "title": "The IAM-A grand test is aligning its 13 healthy samples",
+     "status": "in progress",
+     "what": "Three machines share one work list after AWS took back two spot machines; the sealed rule is unchanged.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_GRAND_01.md"
+    },
+    {
+     "title": "IAM-A clean room, from a fresh public copy",
+     "status": "in progress",
+     "what": "A new machine clones the public repository and recounts the line's samples from GEO and ENCODE; every number must match what is committed.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py"
     }
    ]
   },
@@ -102,7 +123,15 @@
    "kind": "learned",
    "heading": "What we learned that we did not know yesterday",
    "lead": "",
-   "entries": []
+   "entries": [
+    {
+     "title": "Our atlas beats the field's reference on its own jobs",
+     "status": "sealed",
+     "what": "On 731 healthy arrays from independent laboratories, v2.1 split blood mixtures 26 percent more accurately than Moss's published reference and, with brain cells Moss's reference cannot see, recovered them in 87 percent of mixtures.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_01.md"
+    }
+   ]
   },
   {
    "kind": "loss",

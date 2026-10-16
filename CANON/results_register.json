@@ -374,6 +374,24 @@
     "head": "Our atlas beats the field's reference on its own jobs",
     "sub": "On {n} held-out arrays: blood mixtures split {less} percent more accurately than Moss's reference; brain cells it cannot see recovered in {rec} percent of mixtures."
    }
+  },
+  {
+   "id": "COMMISSIONING-ATLAS-V21",
+   "date": "2026-10-16",
+   "kind": "commissioning",
+   "instrument": "IAM-Atlas v2.1",
+   "status": "commissioned",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md",
+   "headline": "**IAM-Atlas v2.1 commissioned** for three cell references and the colon and lung tissue tests' blind sites, each on a bar sealed before the atlas existed",
+   "covers": [],
+   "plain": "Commissioned means a use of the atlas is allowed to report results. Healthy cells from laboratories that never helped build the atlas were read against it, by bars fixed before it existed. Three cell types, brain neurons, airway lining and naive helper T cells, landed inside the atlas's predicted range, and the sites the colon and lung cancer tests depend on held steady in every cell type that could be checked. Its blood-composition use and its other cell references stay in development.",
+   "win": {
+    "rank": 1,
+    "stat": "Commissioned",
+    "head": "Our 79-cell atlas is commissioned for its first uses",
+    "sub": "Three cell references and the sites behind our colon and lung cancer tests passed bars fixed before the atlas existed; on the jobs a reference atlas is used for, it also beat the field's published reference."
+   }
   }
  ],
  "losses": [
