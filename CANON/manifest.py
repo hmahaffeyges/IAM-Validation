@@ -111,9 +111,13 @@ def problems(J):
 if __name__ == "__main__":
     J = load(); P = problems(J); md, td = render(J), render_todo(J)
     if "--check" in sys.argv:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import pointer   # TODO.md retired 2026-10-16: MANIFEST.md lists every open row
+        td = pointer.text(TODO, OUT, "The list of open tests")
         for f, t in ((OUT, md), (TODO, td)):
             if not os.path.exists(f) or open(f, encoding="utf-8").read() != t: P.append(f"{os.path.basename(f)} differs from CANON/manifest.json (run python3 CANON/manifest.py)")
     else:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import pointer
+        td = pointer.text(TODO, OUT, "The list of open tests")
         open(OUT, "w", encoding="utf-8").write(md); open(TODO, "w", encoding="utf-8").write(td)
     print("manifest: " + (f"ok ({len(J['rows'])} tests)" if not P else "REFUSED:\n  " + "\n  ".join(P[:40])))
     sys.exit(1 if P else 0)

@@ -2087,3 +2087,6 @@ Chain Stage Q2 stamps now name their Master Testing Manifest rows (outside the p
 ### 2026-10-16 · DEV-SECONDLAB-02 count and scorer committed before any count (PHY-047)
 All three donors aligned (82.8, 69.5, 65.8 percent mapped). count_hansen.py (chain Stage Q2 count_bam on the alignment's own hg38 reference, read length recorded, stamped with PHY-047, PHY-050, COM-IAMA-054) and score_secondlab02.py (shape check first, then S1 against the stamped bar, verdict written by the chain) committed before the count.
 Count machine i-0987cb49e219d16f2 launched (code a32e96bc, PHY-047).
+
+### 2026-10-16 · Document consolidation, batch 1 (OTH-064)
+The author approved consolidation (one source per fact). Merged by code: the candidates board into INSTRUMENTS.md; the not-chain-verified list into REPLICATE.md; IAM in bits (bit tables, scope and the pieces, now data in four_domains.json) into FOUR_DOMAINS.md. Retired to one-line pointers so links still work: Biological_Physics/MethylPhys/INSTRUMENTS.md, NOT_CHAIN_VERIFIED.md, development/bit_paper/BIT_TABLES.md, OUTLINE.md, PIECES.md, TODO.md, PRIORITY_2026-10-13.md.

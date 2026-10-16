@@ -1010,5 +1010,87 @@
  ],
  "_source_rule": "The book (docs/book) is the source; the author's papers are only a guide to find the section. Every entry cites a book section or App. E number.",
  "preamble": "**The virial part of IAM's Law.** The book's thermodynamic identity, <K> = Q = T dS = E_Landauer, \"is IAM's Law at the boundary of a bound state; the virial theorem is its mechanical special case\" (Ch. What the kinetic half is, p1_04, tagged \\interp). The one half it fixes holds for every 1/r binding: gravity and the Coulomb binding of every atom, molecule and bond. It therefore applies to the electrons and molecules in qubits, chips and cells, not only to the cosmos (Ch. One half at every scale, p1_03, \\derived). The evidence, none of it produced by us: Hartree-Fock tables for 20 atoms and 10 molecules (Clementi & Roetti 1974; Bunge et al. 1993), the Sun and the Chandrasekhar limit, Zwicky's Coma cluster, six independent N-body simulation groups (Bryan & Norman 1998; Bett 2007; Neto 2007; Ludlow 2010; Power 2012; Klypin 2016), and the Smarr relation for black holes (Smarr 1973; Bardeen, Carter & Hawking 1973). What is still open in each domain is not whether the half holds, but which process carries which half (the 'two halves' row).\n\n**Three bit measures (author, 2026-10-15: 'a bit story, literally the processor of reality down to the bit').** Bits stored is the surface and its capacity (data at rest). Bits per operation is a snapshot or a limit. Bit rate is anything in motion. Every gauge reads writing in bits: less to the left, more to the right.",
- "_mixed_rule": "Where the book gives one entry more than one status tag, the box takes the weakest and is listed for review against the book by hand."
+ "_mixed_rule": "Where the book gives one entry more than one status tag, the box takes the weakest and is listed for review against the book by hand.",
+ "pieces": [
+  {
+   "piece": "The heat of erasing one bit, k_B T ln 2",
+   "who": "Landauer 1961; Bennett 1982; measured by Berut et al. 2012",
+   "fits": "Price per bit, all four",
+   "iam": "the price paid at the temperature of the surface where the record is written: horizon, junction, refrigerator, 310 K"
+  },
+  {
+   "piece": "Horizon entropy; one bit per 4 ln 2 Planck areas",
+   "who": "Bekenstein 1973; Hawking 1975",
+   "fits": "Capacity and Floor (cosmos)",
+   "iam": "the horizon as the writing surface for every decohered record, not only black holes"
+  },
+  {
+   "piece": "Einstein's equations from delta Q = T dS",
+   "who": "Jacobson 1995, PRL 75, 1260 (10.1103/PhysRevLett.75.1260)",
+   "fits": "the bridge from bits to gravity",
+   "iam": "the horizon entropy completed with information (the entropy functional; book abstract, derived)"
+  },
+  {
+   "piece": "Gravity as an entropic force from bits on a screen",
+   "who": "Verlinde 2011, JHEP 04, 029 (10.1007/JHEP04(2011)029)",
+   "fits": "Capacity to force",
+   "iam": "the price per bit on that screen; gravity tied to the decoherence rate of mass (IAM's claim; novelty to confirm)"
+  },
+  {
+   "piece": "Dark-matter effects from dark energy's entropy",
+   "who": "Verlinde 2017, SciPost Phys. 2, 016 (10.21468/SciPostPhys.2.3.016)",
+   "fits": "Saturation and Overflow (cosmos)",
+   "iam": "the record term: information density rho_m/2 today, E(a) = exp(1 - 1/a) (book: conjecture and derived parts as tagged)"
+  },
+  {
+   "piece": "Equipartition on horizons, E = 2TS",
+   "who": "Padmanabhan 2010, Mod. Phys. Lett. A 25, 1129 (10.1142/S021773231003313X)",
+   "fits": "Operating point, the 50/50",
+   "iam": "the virial theorem as IAM's Law at a bound state, its mechanical special case; K = Q = T dS_min"
+  },
+  {
+   "piece": "Expansion as the quest for holographic equipartition",
+   "who": "Padmanabhan 2012, arXiv:1206.4916 (preprint)",
+   "fits": "Bit rate (cosmos)",
+   "iam": "the record rate with exponent 7/2 and its integral E(a)"
+  },
+  {
+   "piece": "The universe's computational capacity, about 1e120 operations on 1e90 bits",
+   "who": "Lloyd 2002, PRL 88, 237901 (10.1103/PhysRevLett.88.237901)",
+   "fits": "Capacity and Bit rate (cosmos)",
+   "iam": "the price of each operation at the horizon's temperature; written minus erased = stored"
+  },
+  {
+   "piece": "Information energy as dark energy",
+   "who": "Gough 2011, Entropy 13, 924 (10.3390/e13040924); 2013, Entropy 15, 1135",
+   "fits": "Price per bit x Capacity (cosmos)",
+   "iam": "to state after reading the papers in full"
+  },
+  {
+   "piece": "Mass of information; the information catastrophe",
+   "who": "Vopson 2019, AIP Adv. 9, 095206 (10.1063/1.5123794); 2020, AIP Adv. 10, 085014",
+   "fits": "Capacity to mass",
+   "iam": "to state after reading the papers in full"
+  },
+  {
+   "piece": "Gravity causes collapse",
+   "who": "Diosi 1987, Phys. Lett. A 120, 377; Penrose 1996, Gen. Rel. Grav. 28, 581",
+   "fits": "the gravity-decoherence link",
+   "iam": "the other direction: decoherence writes records whose price is gravity's source (IAM's claim; novelty to confirm)"
+  },
+  {
+   "piece": "The virial theorem; the Smarr relation",
+   "who": "Clausius 1870; Smarr 1973",
+   "fits": "Operating point (cosmos), the 50/50",
+   "iam": "one example of IAM's Law (book, What the kinetic half is)"
+  },
+  {
+   "piece": "It from bit",
+   "who": "Wheeler 1989",
+   "fits": "the framing",
+   "iam": "the bit with its price, from the quantum to the classical"
+  }
+ ],
+ "pieces_note": "Each prior piece, who gave it (record checked in Crossref or arXiv on 2026-10-15), where it sits on the connections table, and what IAM connects it to. The last column is IAM's claim and keeps the book's tag. Gough and Vopson: what IAM adds is stated only after their papers are read in full. Still to add: the surface-code threshold (qubits), Dennard scaling and the 60 mV per decade limit (chips), single-molecule methylation entropy (cells).",
+ "bits_scope": "IAM is a model of how reality begins with a bit and the cost that comes with it. This part translates the four applications into computer language; the book stays the source (author 2026-10-15: translate the applications and make the connections, in bits)."
 }

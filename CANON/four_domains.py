@@ -35,6 +35,7 @@ MX = [(s["name"], d, s[d]["status"], s[d]["mixed_tags"]) for s in J["slots"] for
 if MX:
     L += ["## Boxes with mixed tags in the book (weakest shown; confirm by hand)", ""] + [f"- {n}, {d}: shown as {st}; the book tags it {', '.join(t)}" for n, d, st, t in MX] + [""]
 txt = "\n".join(L) + "\n"
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import bit_tables as _BT; txt = txt.rstrip("\n") + "\n\n" + _BT.render()   # IAM in bits, merged 2026-10-16
 if "--check" in sys.argv:
     if not os.path.exists(OUT) or open(OUT, encoding="utf-8").read() != txt: P.append("FOUR_DOMAINS.md differs (run python3 CANON/four_domains.py)")
     print("four_domains: " + ("REFUSED\n  " + "\n  ".join(P) if P else f"ok ({len(J['slots'])} slots)")); sys.exit(1 if P else 0)

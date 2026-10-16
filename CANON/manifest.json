@@ -26713,6 +26713,35 @@
    "sources_of_row": [
     "session 2026-10-16"
    ]
+  },
+  {
+   "title": "Document consolidation: one source per fact, hand-kept living documents from 9 to 2",
+   "purpose": "Author 2026-10-16: 'I dont like having too many things to keep updated, things always go stale.' Approved: 'Do all of it.' Every fact lives once (manifest, chain, sealed record or book); everything else is generated or retired to a pointer so no link breaks.",
+   "instrument_or_term": "all",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "CANON/pointer.py",
+   "status": "running",
+   "runs": [
+    {
+     "date": "2026-10-16",
+     "outcome": "progressed",
+     "note": "batch 1: candidates board merged into INSTRUMENTS.md; NOT_CHAIN_VERIFIED into REPLICATE.md; BIT_TABLES, the bit paper OUTLINE and PIECES into FOUR_DOMAINS.md (pieces now data); TODO.md and PRIORITY_2026-10-13.md retired to pointers",
+     "page": "not headline: record keeping"
+    }
+   ],
+   "next_step": "batch 2: STATUS.md and COMMISSIONING_PLAN.md generated (from the catalogue, the results register and the manifest); hand status lines in README, REFERENCE and the MethylPhys README generated",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "",
+   "legacy_ids": [],
+   "id": "OTH-064",
+   "sources_of_row": [
+    "session 2026-10-16"
+   ]
   }
  ],
  "not_tests": {
