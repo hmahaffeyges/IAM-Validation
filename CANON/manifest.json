@@ -25228,7 +25228,7 @@
      "page": "not headline: exploratory miss, kept in the research record"
     }
    ],
-   "next_step": "DEV-SECONDLAB-02 (Hansen GSE49627, three healthy resting B-cell donors): runs 1-3 failed before any alignment (slow ENA download; tools path; trim naming), run 4 i-0a9119be4c9143bca aligning since 2026-10-15 22:44 PDT (preflight 82.9 percent mapped; donor B2 aligned 82.8 percent at 01:09 PDT). Then chain Stage Q2 count, shape check first (limit 0.662), sealed S1 scored once",
+   "next_step": "all three Hansen donors aligned (B2 82.8, B1 69.5, B3 65.8 percent mapped); count_box.sh counts each with chain Stage Q2 (count_hansen.py) once the BAMs land; score_secondlab02.py scores once by the sealed S1 with the shape check first (both committed before any count)",
    "cost": "laptop or box",
    "impact": 5,
    "depends_on": [

@@ -2083,3 +2083,6 @@ Script doors/data/CLEANROOM_IAMA_01/ (fresh public clone, public data only, chai
 
 ### 2026-10-16 · The manifest kept current by the chain and the gate (OTH-063)
 Chain Stage Q2 stamps now name their Master Testing Manifest rows (outside the payload hash); CANON/chain_events.py writes each row's chain outputs and verdicts at every checkpoint; 324 earlier results backfilled with their rows, payload hashes re-verified. CANON/manifest_fresh.py (controls 9 of 9) refuses a push whose log entries, machine jobs, records or chain results changed without their row. Wired into checked_push (controls && gate) and checkpoint.
+
+### 2026-10-16 · DEV-SECONDLAB-02 count and scorer committed before any count (PHY-047)
+All three donors aligned (82.8, 69.5, 65.8 percent mapped). count_hansen.py (chain Stage Q2 count_bam on the alignment's own hg38 reference, read length recorded, stamped with PHY-047, PHY-050, COM-IAMA-054) and score_secondlab02.py (shape check first, then S1 against the stamped bar, verdict written by the chain) committed before the count.
