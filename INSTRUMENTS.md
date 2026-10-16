@@ -10,6 +10,22 @@ Until now every instrument needed a reference: healthy cells of the same kind, o
 
 Each instrument answers a different question about the same sample, so together they leave no blind side. The atlas says whose DNA it is. Met-A says how far a tissue's tagging level has drifted toward the ceiling. The C-Score says whether the pattern has started to clump. IAM-A says whether each mark is still held at its own healthy rate. Group-A says whether a whole group has moved, for studies rather than single patients. A tumor that hides from one reading still has to answer to the others.
 
+## Lab methods: what the chemistry and the machines give, and which instrument reads each
+
+DNA's sequence is the same in every cell; the methyl tags are not, and a sequencer cannot see a tag directly. So the DNA is first treated so that tagged and untagged spots read as different letters. **Bisulfite** (a salt solution) turns every untagged C into a U, which reads as T; a tagged C stays C. **EM-seq** does the same with enzymes instead, and damages the DNA far less. After either, a tag shows up as a C and a missing tag as a T. **Conversion failure** is an untagged C the chemistry missed: it stays C and looks tagged. The chain measures it on every sample, from the C's outside CpG pairs, which are almost never tagged in blood and most body cells, and prints it in every report. Then the treated DNA is read, either by an **array** (millions of DNA probes that light up red or green, one pair of colors per site, so each site gives one average over all the cells in the sample) or by a **sequencer** (hundreds of millions of short pieces, each one molecule from one cell).
+
+| Method | What it gives | Single molecules? | Who uses it | Which IAM instruments read it |
+|---|---|---|---|---|
+| **Methylation arrays (Illumina 450K, EPIC v1, EPIC v2)** | One average per site (beta value) over every cell in the sample; 450,000 to 935,000 chosen sites; two-color readout | no | Most aging clocks (Horvath, GrimAge) and most cohort studies | Met-A, C-Score, Group-A, Atlas |
+| **Whole-genome bisulfite sequencing (WGBS)** | Every one of about 28 million CpG sites, on single molecules about 100-150 letters long | yes | Reference atlases (Loyfer et al. 2023); research | IAM-A, Atlas, C-Score (sequencing reading) |
+| **EM-seq (enzymatic conversion)** | The same readout as WGBS with gentler chemistry: longer, less damaged molecules from less DNA | yes | Newer research and clinical labs | IAM-A, Atlas |
+| **RRBS (reduced representation)** | A cut-and-select step keeps only CpG-dense regions (islands and promoters), about 1 to 3 million sites | yes, islands only | Lower-cost research studies | none of IAM's readings: IAM-A's loose share comes from the rest of the genome, which RRBS skips; the C-Score's sequencing reading failed on it |
+| **Targeted methylation sequencing (capture panels)** | Molecules from selected regions only | yes, selected regions only | Blood tests for cancer such as GRAIL's Galleri, which match a sample against patterns learned from people with and without cancer | not yet assessed |
+| **MeDIP and MRE (enrichment)** | Pull out methylated (or cut unmethylated) DNA in bulk; no reading per site or per molecule | no | Older and lower-cost studies | none: there is nothing per molecule to count (a thermometer handed a barometer's printout) |
+| **Nanopore and PacBio long reads** | Read the tag directly on long native molecules, no conversion chemistry | yes, long | Growing research use | IAM-A: a reader is not built yet (planned) |
+
+**How IAM differs from cohort methods.** Aging clocks and cancer blood tests learn patterns from large groups of people and score a new sample by how closely it matches them. IAM's instruments measure a physical quantity against a floor and a ceiling set by physics. IAM-A goes further: it reads each sample against its own loose share, like checking for a fever with the back of your own hand on your own forehead instead of against a crowd's average.
+
 ## IAM-Atlas v2.1
 
 **The question:** Whose DNA is this? Which cells are in a sample, and in what shares?

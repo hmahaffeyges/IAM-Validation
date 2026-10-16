@@ -27,6 +27,10 @@ def stage(inst, M):
 def markdown(C, M):
     L = ["# The IAM instrument catalogue", "", "*Generated from CANON/catalogue.json; every status line comes from the Master Testing Manifest.*", "",
          "## Why a self-reference matters", "", C["why_self_reference"], "", "## How they work together", "", C["together"], ""]
+    if C.get("methods"):   # lab methods and what each instrument reads (author's downtime item 3, 2026-10-16)
+        L += ["## Lab methods: what the chemistry and the machines give, and which instrument reads each", "", C["chemistry_intro"], "",
+              "| Method | What it gives | Single molecules? | Who uses it | Which IAM instruments read it |", "|---|---|---|---|---|"]
+        L += [f"| **{m['name']}** | {m['what']} | {m['molecules']} | {m['industry']} | {m['readers']} |" for m in C["methods"]] + ["", C.get("cohort_note", ""), ""]
     for i in C["instruments"]:
         L += [f"## {i['name']}", "", f"**The question:** {i['question']}", "", i["how"], "", f"**Reads:** {i['reads']}. **Where it stands:** {stage(i, M)}.", ""]
         L += [f"- {row_line(M[r])}" for r in i["rows"] if r in M] + ["", f"**Next:** {i['next']}", ""]

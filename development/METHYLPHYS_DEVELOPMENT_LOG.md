@@ -2141,3 +2141,6 @@ From the author's question. Three measured behaviors it must reproduce before it
 ### 2026-10-16 · Guidebook to computational reality: Tables 7-11 (OTH-061)
 The author's downtime item 1. Five tables added as data in CANON/four_domains.json and generated into FOUR_DOMAINS.md: claims, the one-law ladder, computing terms, facts, literature checks. Two literature checks run: gravity and decoherence have prior work in both directions, but IAM's form (gravity set by the Landauer price of decohered records) was not found; single-molecule methylation entropy exists (Xie 2011, Landan 2012, Landau 2014), and IAM-A measures something different.
 Correction (PHY-076): the row repeated the book's attribution of f_coll = 0.62 to Tinker 2008; NBODY_TRACE.md (2026-10-01) already showed Tinker 2008 reports no collapsed fraction (0.486 from its fit; 0.62 only 2.3 dex below its calibrated range). The row now says so and lists it as a book erratum.
+
+### 2026-10-16 · Lab methods explainer in the catalogue (OTH-066)
+The author's downtime item 3: chemistry (bisulfite, EM-seq, conversion failure), arrays and sequencing, seven methods with what each gives, who uses it and which IAM instrument reads it, and how IAM differs from cohort methods. Data in CANON/catalogue.json, generated into INSTRUMENTS.md.

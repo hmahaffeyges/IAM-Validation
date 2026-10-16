@@ -106,5 +106,58 @@
    "what": "Runs every stage in a fixed order, records every input and setting, and prints one report per sample with each instrument's reading, its status and its detection limit.",
    "chapter": "ch:report"
   }
- ]
+ ],
+ "chemistry_intro": "DNA's sequence is the same in every cell; the methyl tags are not, and a sequencer cannot see a tag directly. So the DNA is first treated so that tagged and untagged spots read as different letters. **Bisulfite** (a salt solution) turns every untagged C into a U, which reads as T; a tagged C stays C. **EM-seq** does the same with enzymes instead, and damages the DNA far less. After either, a tag shows up as a C and a missing tag as a T. **Conversion failure** is an untagged C the chemistry missed: it stays C and looks tagged. The chain measures it on every sample, from the C's outside CpG pairs, which are almost never tagged in blood and most body cells, and prints it in every report. Then the treated DNA is read, either by an **array** (millions of DNA probes that light up red or green, one pair of colors per site, so each site gives one average over all the cells in the sample) or by a **sequencer** (hundreds of millions of short pieces, each one molecule from one cell).",
+ "methods": [
+  {
+   "name": "Methylation arrays (Illumina 450K, EPIC v1, EPIC v2)",
+   "what": "One average per site (beta value) over every cell in the sample; 450,000 to 935,000 chosen sites; two-color readout",
+   "molecules": "no",
+   "industry": "Most aging clocks (Horvath, GrimAge) and most cohort studies",
+   "readers": "Met-A, C-Score, Group-A, Atlas"
+  },
+  {
+   "name": "Whole-genome bisulfite sequencing (WGBS)",
+   "what": "Every one of about 28 million CpG sites, on single molecules about 100-150 letters long",
+   "molecules": "yes",
+   "industry": "Reference atlases (Loyfer et al. 2023); research",
+   "readers": "IAM-A, Atlas, C-Score (sequencing reading)"
+  },
+  {
+   "name": "EM-seq (enzymatic conversion)",
+   "what": "The same readout as WGBS with gentler chemistry: longer, less damaged molecules from less DNA",
+   "molecules": "yes",
+   "industry": "Newer research and clinical labs",
+   "readers": "IAM-A, Atlas"
+  },
+  {
+   "name": "RRBS (reduced representation)",
+   "what": "A cut-and-select step keeps only CpG-dense regions (islands and promoters), about 1 to 3 million sites",
+   "molecules": "yes, islands only",
+   "industry": "Lower-cost research studies",
+   "readers": "none of IAM's readings: IAM-A's loose share comes from the rest of the genome, which RRBS skips; the C-Score's sequencing reading failed on it"
+  },
+  {
+   "name": "Targeted methylation sequencing (capture panels)",
+   "what": "Molecules from selected regions only",
+   "molecules": "yes, selected regions only",
+   "industry": "Blood tests for cancer such as GRAIL's Galleri, which match a sample against patterns learned from people with and without cancer",
+   "readers": "not yet assessed"
+  },
+  {
+   "name": "MeDIP and MRE (enrichment)",
+   "what": "Pull out methylated (or cut unmethylated) DNA in bulk; no reading per site or per molecule",
+   "molecules": "no",
+   "industry": "Older and lower-cost studies",
+   "readers": "none: there is nothing per molecule to count (a thermometer handed a barometer's printout)"
+  },
+  {
+   "name": "Nanopore and PacBio long reads",
+   "what": "Read the tag directly on long native molecules, no conversion chemistry",
+   "molecules": "yes, long",
+   "industry": "Growing research use",
+   "readers": "IAM-A: a reader is not built yet (planned)"
+  }
+ ],
+ "cohort_note": "**How IAM differs from cohort methods.** Aging clocks and cancer blood tests learn patterns from large groups of people and score a new sample by how closely it matches them. IAM's instruments measure a physical quantity against a floor and a ceiling set by physics. IAM-A goes further: it reads each sample against its own loose share, like checking for a fever with the back of your own hand on your own forehead instead of against a crowd's average."
 }
