@@ -23,7 +23,9 @@ checked to still fail when it should (synthetic rerun MET).
 disclosures). The real run is refused in code until the v2.1 release. Amendment (same day, before any data): GSE132547 and GSE131989 are scored only after
 their carried checks D13 and D14 are recorded, as in the L15 bars.
 
-**Synthetic test:** DEV_ATLAS_USE_01/use_tests_real_v21.py, DEV_ATLAS_USE_01/use_tests_real_planted.txt (the chain runner's planted test, PASSED 2026-10-16; the sealed scorer's own synthetic, use_tests_synthetic.txt, MET 2026-10-15)
+**Synthetic test:** DEV_ATLAS_USE_01/use_tests_real_v21.py, DEV_ATLAS_USE_01/use_tests_real_planted.txt
+
+The chain runner's planted test PASSED on 2026-10-16; the sealed scorer's own synthetic (use_tests_synthetic.txt) read MET on 2026-10-15.
 
 The synthetic ran twice. Run 1 (kept as use_tests_synthetic_run1_NOTMET.txt) showed an absolute mixture bar (Moss plus 0.01) passed a planted
 v2.1 four times noisier than Moss, so UT2A became a ratio before any real value was read. Run 2 read MET: equal references pass; a noisier
