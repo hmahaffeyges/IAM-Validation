@@ -1,0 +1,23 @@
+{
+ "identical": {
+  "u1_scored_v21.json": true,
+  "u2_scored_v21.json": true,
+  "u3_scored_v21.json": true,
+  "u1_samples_v21.csv": true,
+  "u3_samples_v21.csv": true,
+  "planted_u1_v21_summary.txt": true,
+  "planted_u2_v21_summary.txt": true,
+  "planted_u3_v21_summary.txt": true
+ },
+ "all_identical": true,
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "5ec99586d473083325bd2e83743dcda604b88065bff353932c78cdd527202b79",
+  "payload_sha256": "c2e925221f4def8650e938f2ef396ca2231c7d0771ba2ab292822ff79c90bd20",
+  "inputs": [],
+  "manifest": [
+   "ATL-005"
+  ],
+  "utc": "2026-10-16T19:25:22Z"
+ }
+}

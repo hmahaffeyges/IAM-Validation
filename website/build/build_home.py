@@ -175,6 +175,16 @@ def page(art):
                  f'<details class="fold"><summary>Open the catalogue: what each instrument does, where it stands, what is still being worked on</summary>'
                  f'<div class="grid">{_cards}</div><p class="more"><a href="{rec("INSTRUMENTS.md")}">The catalogue as a document</a> · '
                  f'<a href="{rec("COMMISSIONING_PLAN.md")}">The commissioning plan, step by step</a></p></details></section>')
+    _bs = importlib.util.spec_from_file_location("bits", os.path.join(REPO, "CANON", "bit_tables.py")); BT = importlib.util.module_from_spec(_bs); _bs.loader.exec_module(BT)
+    _bits_rows = "".join(f'<tr><th>{E(t)}<br><span class="sub">{E(m)}</span></th>' + "".join(f'<td>{E(BT.short(BT.S[k][d].get("native") or BT.S[k][d].get("formula"), 120))} <span class="chip st-b">{E(BT.S[k][d].get("status"))}</span></td>' for d in BT.DOM) + "</tr>"
+                         for t, k, m in BT.ROWS)
+    bits = (f'<section class="wrap" id="bits"><h2>One law, four applications, in computer language</h2>'
+            f'<p class="sub">IAM is a model of how reality begins with a bit and the cost that comes with it. The same terms run through the cosmos, '
+            f'quantum computers, computer chips and living cells; each row gives the word each application uses and how far it is established. Built from the four-domain schematic.</p>'
+            f'<details class="fold"><summary>Open the connections table</summary><div style="overflow-x:auto"><table class="tools"><thead><tr><th>Computer term</th>'
+            + "".join(f"<th>{BT.NAME[d]}</th>" for d in BT.DOM) + f'</tr></thead><tbody>{_bits_rows}</tbody></table></div>'
+            f'<p class="more"><a href="{rec("development/bit_paper/BIT_TABLES.md")}">All the bit tables, with every value and its source</a> · '
+            f'<a href="{rec("FOUR_DOMAINS.md")}">The four-domain schematic</a></p></details></section>')
     _dlj = sorted(f for f in os.listdir(os.path.join(REPO, "CANON", "daylogs")) if re.fullmatch(r"\d{4}-\d\d-\d\d\.json", f))[-1]
     _DL = J("CANON/daylogs/" + _dlj); _ran = next((x for x in _DL["sections"] if x.get("kind") == "ran"), {"entries": []})
     _lrn = next((x for x in _DL["sections"] if x.get("kind") == "learned"), {"entries": []})
@@ -229,6 +239,7 @@ def page(art):
 <section class="wrap" id="wins"><h2>Recent Accomplishments</h2><p class="sub">Each links to its record.</p><div class="grid">{results}</div>
 <p class="continues">Work continues: {going}. <a href="#road">The road ahead</a>.</p></section>
 {catalogue}
+{bits}
 <section class="wrap pic"><h2>The sky and the cell</h2>
 <figure><img src="{art("sky_atlas_globes.jpg")}" alt="Two globes: the microwave sky measured by Planck, and healthy neutrophil methylation from the atlas drawn the same way."><figcaption>Two skies, drawn the same way. Left, the microwave sky as the Planck satellite measured it (ESA and the Planck Collaboration, 2018); the pale band is the plane of our own galaxy, where Planck's processing fills in what dust and gas hide. Right, healthy neutrophils from our atlas, every site in genome order on the same kind of sphere.</figcaption></figure>
 <details class="fold"><summary>See more sky maps: the flat maps and zooms, six cell types, and planted damage (4 maps)</summary>

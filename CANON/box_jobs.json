@@ -1600,6 +1600,97 @@
     "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py"
    ],
    "note": "running"
+  },
+  {
+   "job_id": "cdaad7c5-b683-466a-beea-0ee6e9e78fc4",
+   "name": "DEV-ATLAS-USE-01 run 1 (stopped before any score: platform split)",
+   "date": "2026-10-16",
+   "commit": "ea26cbcd",
+   "s3_code_prefix": "results/ATLAS_V21/use_tests/code/run1/",
+   "state": "failed",
+   "log": "results/ATLAS_V21/use_tests/",
+   "machine": "methylphys-cpu-01",
+   "purpose": "DEV-ATLAS-USE-01 run 1 (stopped before any score: platform split)",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md",
+   "manifest": [
+    "ATL-060"
+   ],
+   "outputs": [
+    "results/ATLAS_V21/use_tests/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_USE_01/use_tests_real_v21.py"
+   ],
+   "note": "DEV-ATLAS-USE-01 run 1 (stopped before any score: platform split)"
+  },
+  {
+   "job_id": "da7e2032-9f78-4e48-a38a-268e20ce4763",
+   "name": "DEV-ATLAS-USE-01 run 2 (stopped before any score: Moss's repeated rows)",
+   "date": "2026-10-16",
+   "commit": "7bce7ba1",
+   "s3_code_prefix": "results/ATLAS_V21/use_tests/code/run2/",
+   "state": "failed",
+   "log": "results/ATLAS_V21/use_tests/",
+   "machine": "methylphys-cpu-01",
+   "purpose": "DEV-ATLAS-USE-01 run 2 (stopped before any score: Moss's repeated rows)",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md",
+   "manifest": [
+    "ATL-060"
+   ],
+   "outputs": [
+    "results/ATLAS_V21/use_tests/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_USE_01/use_tests_real_v21.py"
+   ],
+   "note": "DEV-ATLAS-USE-01 run 2 (stopped before any score: Moss's repeated rows)"
+  },
+  {
+   "job_id": "ee92df65-bb79-4f7e-b7f9-8c0991be64fe",
+   "name": "DEV-ATLAS-USE-01 run 3: planted test then the head-to-head against Moss",
+   "date": "2026-10-16",
+   "commit": "59af94a2",
+   "s3_code_prefix": "results/ATLAS_V21/use_tests/code/run3/",
+   "state": "succeeded",
+   "log": "results/ATLAS_V21/use_tests/",
+   "machine": "methylphys-cpu-01",
+   "purpose": "DEV-ATLAS-USE-01 run 3: planted test then the head-to-head against Moss",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md",
+   "manifest": [
+    "ATL-060"
+   ],
+   "outputs": [
+    "results/ATLAS_V21/use_tests/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_USE_01/use_tests_real_v21.py"
+   ],
+   "note": "DEV-ATLAS-USE-01 run 3: planted test then the head-to-head against Moss"
+  },
+  {
+   "job_id": "c556f4d1-57cc-4aff-b6e7-7db33e365af4",
+   "name": "Atlas v2.1 use scorers rerun from their chain copies (reproduction)",
+   "date": "2026-10-16",
+   "commit": "9331425b",
+   "s3_code_prefix": "results/ATLAS_V21/repro_chain/code/run1/",
+   "state": "succeeded",
+   "log": "results/ATLAS_V21/repro_chain/",
+   "machine": "methylphys-cpu-01",
+   "purpose": "Atlas v2.1 use scorers rerun from their chain copies (reproduction)",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md",
+   "manifest": [
+    "ATL-005"
+   ],
+   "outputs": [
+    "results/ATLAS_V21/repro_chain/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/chain/stage_atlas_u1.py",
+    "Biological_Physics/MethylPhys/chain/stage_atlas_u2.py",
+    "Biological_Physics/MethylPhys/chain/stage_atlas_u3.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/repro_chain_copies_v21.py"
+   ],
+   "note": "Atlas v2.1 use scorers rerun from their chain copies (reproduction)"
   }
  ],
  "not_jobs": {

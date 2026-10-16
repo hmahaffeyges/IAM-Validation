@@ -31,13 +31,15 @@ markers confirmed 0.424 against 0.398; blood mixtures median error 0.0224 agains
 
 **Prior reading:** GSE103541, GSE118144, GSE122244 and GSE226298 are build sources, read to build the atlas; GSE184269 was read in the C-score band test (CANON/data_spent.csv), never against the atlas. None of the commissioned uses rests on them.
 
-**Synthetic test:** DEV_ATLAS_V21_01/score_u2_v21.py, DEV_ATLAS_V21_01/score_u3_v21.py, DEV_ATLAS_V21_01/planted_u2_v21_summary.txt, DEV_ATLAS_V21_01/planted_u3_v21_summary.txt
+**Synthetic test:** DEV_ATLAS_V21_01/planted_u1_v21_summary.txt, DEV_ATLAS_V21_01/planted_u2_v21_summary.txt, DEV_ATLAS_V21_01/planted_u3_v21_summary.txt
 
-The U1 planted test (planted_u1_v21.py, PASSED) ran first on box job 85685c55, the U2a and U3 planted modes on 8abbdbe9 and 50b9a3b9.
+Each use's planted test passed before its real scoring (box jobs 85685c55, 8abbdbe9, 50b9a3b9).
 
-**Code and outputs:** `data/DEV_ATLAS_V21_01/score_u1_v21.py`, `score_u2_v21.py`, `score_u3_v21.py` (each with its planted test, PASSED first),
-scorers in chain Stage A21 (`chain/stage_atlas_commission.py`, which also holds `ATLAS_V21_COMMISSIONING`, the per-use status the chain reports);
-results `u1_scored_v21.json`, `u2_scored_v21.json`, `u3_scored_v21.json`; the compact copy `Biological_Physics/MethylPhys/atlas/v2.1/`.
+**Code and outputs (chain only):** `chain/stage_atlas_u1.py` with `chain/stage_atlas_u1_planted.py` (U1), `chain/stage_atlas_u2.py` (U2a),
+`chain/stage_atlas_u3.py` (U3), each with its planted mode; the bars and the per-use status in `chain/stage_atlas_commission.py`
+(`ATLAS_V21_COMMISSIONING`, `atlas_v21_use_status`). The scorers first ran from the test folder; their chain copies (logic unchanged) were
+rerun from the chain and reproduce every committed result exactly (`data/DEV_ATLAS_V21_01/repro_chain_copies_v21.json`). Results
+`u1_scored_v21.json`, `u2_scored_v21.json`, `u3_scored_v21.json`; the compact copy `Biological_Physics/MethylPhys/atlas/v2.1/`.
 
 **What it would take to go further.** Each further cell reference: a held-out set from an independent laboratory with >= 95 % of arrays in range,
 or the next version's range carrying a measured laboratory-by-site spread, re-sealed and tested on laboratories never read. Composition: U3 met on an
