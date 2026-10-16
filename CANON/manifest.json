@@ -26415,10 +26415,10 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_CHAIN_Q2_01.md",
    "status": "running",
    "runs": [],
-   "next_step": "chain recount with tile percentiles (box job, DEV-CHAIN-Q2-01 step 3); then draft the same-cell-type shape rule from healthy evidence, show the author, seal; ENCODE's B cell must be refused",
+   "next_step": "build the stamped reference from all 153 chain counts (the 7 GEO-refused recounted locally), then apply it first in DEV-SECONDLAB-02",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

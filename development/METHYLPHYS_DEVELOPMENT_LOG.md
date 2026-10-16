@@ -2065,3 +2065,6 @@ Run 3 launched as i-0cde3f265d7110189 (code 9aee070c, code/run3/).
 ### 2026-10-15 · DEV-SECONDLAB-02 run 3 preflight caught the trim naming
 The tools path fix worked (Trim Galore and Bismark ran). The bundle's Trim Galore v2.3.0 names its paired output <base>_val_N.fq (not .fq.gz) and turns on poly-G trimming by itself (2.7 percent of read 1 trimmed on the 100,000-pair preflight). Run 4 takes whichever name exists (gzip checked) and sets --no_poly_g: GSE49627 is HiSeq 2000, four-colour, where poly-G tails do not arise.
 Run 4 launched as i-0a9119be4c9143bca (code 00992635, code/run4/); run 3 logs kept under results/DEV_SECONDLAB_02/logs_run3/.
+
+### 2026-10-15 · Sample-shape check sealed (COM-IAMA-053)
+Author: KISS, not too high. Sealed as drafted: tile 10th percentile no more than the healthy within-type 90th-percentile spread (0.055 on 146 samples) below the lowest healthy sample of the same type; no reference means not read. In chain Stage Q2 with synthetic T6 (T1-T6 MET). ENCODE: all five not read.

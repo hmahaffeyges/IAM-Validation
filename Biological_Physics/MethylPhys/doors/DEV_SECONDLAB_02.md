@@ -20,8 +20,8 @@ Trim Galore, Bismark paired-end on hg38 (the tumor work's tools and index), dedu
   `chain/Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json`). The bar is the 90th percentile of the line's own scatter over Loyfer's 56
   cell types, computed by the chain (`data/DEV_SECONDLAB_02/bar_secondlab02.py` -> `bar_secondlab02.json`, stamped), not chosen.
 - **Reported, not scored:** the lab shift, each donor's residual against Loyfer's own B cells' residual.
-- **Applied first:** the sample-shape check (COM-IAMA-053). Its rule is drafted from the healthy tile shapes of the chain's recount
-  (DEV-CHAIN-Q2-01 step 3), shown to the author and added here before the count; a donor it refuses is not scored, and with fewer than
+- **Applied first:** the sample-shape check (COM-IAMA-053), sealed 2026-10-15 in DEV_CHAIN_Q2_01.md: tile 10th percentile no more than the
+  chain-computed margin below the lowest healthy Loyfer B cell; a donor it refuses is not scored, and with fewer than
   2 donors left the test reads NOT ASSESSED rather than MET or NOT MET.
 - Synthetic test: chain Stage Q2 count_bam on planted Bismark (XM) paired alignments, T2 of the chain synthetic (MET), plus the read length
   of these runs (checked from the first aligned BAM before the count).

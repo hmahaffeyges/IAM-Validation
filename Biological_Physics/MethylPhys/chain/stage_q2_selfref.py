@@ -189,3 +189,32 @@ def residual(rec, version=None):
     J = line(version); p = J["firm"] + J["slope"] * rec["loose_share"]
     return dict(loose_share=rec["loose_share"], held_err=rec["held_err"], predicted=p, residual=rec["held_err"] - p,
                 line_version=J["version"], axis=J["axis"])
+
+# ---- sample-shape check (COM-IAMA-053; author: "Seal as drafted", 2026-10-15) --------------------------------------------------------------
+# A sample is read only if its tile 10th percentile is no more than MARGIN below the lowest healthy sample of its own cell type. MARGIN is the
+# 90th percentile, over cell types with at least 2 healthy samples, of the within-type spread (max - min) of the tile 10th percentile; it is
+# computed from the reference, never typed. A cell type with no healthy reference is not read.
+SHAPE_Q = 0.90
+def build_shape_reference(records):
+    """records: chain counts (count_pat/count_bam output with cell and tile_p10). Returns the reference dict (write it with write_json)."""
+    G = {}
+    for r in records:
+        if r.get("tile_p10") is not None: G.setdefault(r["cell"], []).append(float(r["tile_p10"]))
+    spread = [max(v) - min(v) for v in G.values() if len(v) >= 2]
+    return dict(kind="IAM-A sample-shape reference", margin=float(np.quantile(spread, SHAPE_Q)), margin_basis=f"{SHAPE_Q:.0%} quantile of within-type spread of tile_p10 over {len(spread)} cell types",
+                cells={c: dict(min_p10=min(v), n=len(v)) for c, v in sorted(G.items())}, samples=int(sum(len(v) for v in G.values())))
+def shape_reference(version=None):
+    fs = sorted(glob.glob(os.path.join(LINE_DIR, "shape_reference_v*.json")))
+    if not fs: raise RuntimeError("no shape reference in the chain yet: build it with build_shape_reference()")
+    f = [x for x in fs if x.endswith(f"_v{version}.json")][0] if version else fs[-1]; J = json.load(open(f))
+    if payload_sha(J) != J["chain_stamp"]["payload_sha256"]: raise RuntimeError(f"{os.path.basename(f)} has been edited after the chain wrote it")
+    return J
+def shape_check(rec, cell, version=None, ref=None):
+    """Returns dict(read=bool, reason, ...). ref: a reference dict (for tests); else the chain's stored reference."""
+    J = ref if ref is not None else shape_reference(version); c = J["cells"].get(cell)
+    if c is None: return dict(read=False, reason=f"not read: no healthy reference of this type ({cell})", cell=cell)
+    lo = c["min_p10"] - J["margin"]; p = rec.get("tile_p10")
+    if p is None: return dict(read=False, reason="not read: no tile shape in this count", cell=cell)
+    ok = p >= lo
+    return dict(read=bool(ok), cell=cell, tile_p10=p, healthy_min_p10=c["min_p10"], margin=J["margin"], limit=lo, healthy_n=c["n"],
+                reason="read" if ok else f"not read: tile 10th percentile {p:.3f} is below its healthy type's limit {lo:.3f} (sample shape outside healthy)")

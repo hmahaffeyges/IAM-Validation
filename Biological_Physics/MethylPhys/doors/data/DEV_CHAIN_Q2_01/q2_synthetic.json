@@ -115,19 +115,29 @@
   "tiles": 1000,
   "loose_share": 0.1
  },
+ "T6": {
+  "margin": 0.03700000000000003,
+  "want_margin": 0.037000000000000005,
+  "x_067": true,
+  "x_065": false,
+  "unknown": false,
+  "no_shape": false,
+  "edited_refused": true
+ },
  "ok": {
   "T1": true,
   "T2": true,
   "T3": true,
   "T4": true,
-  "T5": true
+  "T5": true,
+  "T6": true
  },
  "verdict": "MET",
  "chain_stamp": {
   "stage": "Q2 self-reference",
-  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
-  "payload_sha256": "963781a252d43be18d134e299d8f62afe890b487f366d8c7e478023e4bb00534",
+  "chain_sha": "a78b5f14bd02f60be28c793b60c5396559a21452d2ec8fa8db47cfd91e0bf1ed",
+  "payload_sha256": "4779e3c72bf74c223b126e5c14141313195b3a524e955b1e189ffbb47e4ff0da",
   "inputs": [],
-  "utc": "2026-10-16T05:18:23Z"
+  "utc": "2026-10-16T06:31:43Z"
  }
 }
