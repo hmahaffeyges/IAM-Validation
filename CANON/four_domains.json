@@ -627,7 +627,7 @@
    },
    "cells": {
     "native": "writer",
-    "formula": "DNMT, on SAM (author, 2026-10-14)",
+    "formula": "DNMT, on SAM (author, 2026-10-14) | ADDED 2026-10-15 (author): fuel of the writer is carbon: the methyl group comes from SAM, made by one-carbon metabolism (methionine, folate)",
     "status": "candidate",
     "source": "PHY-040"
    }
@@ -668,7 +668,7 @@
    },
    "cells": {
     "native": "eraser",
-    "formula": "TET, on O2 and 2-oxoglutarate (author, 2026-10-14); 2026-10-15: removing it barely changes the 1s (DEV-ERASE-01) and raises the island gain error only 1.07x (median, six sets), so it is not what holds the 0s; the islands' 0s are held by a shield, holding 4.38 kT against 3.83 kT for the firm 1s",
+    "formula": "TET, on O2 and 2-oxoglutarate (author, 2026-10-14); 2026-10-15: removing it barely changes the 1s (DEV-ERASE-01) and raises the island gain error only 1.07x (median, six sets), so it is not what holds the 0s; the islands' 0s are held by a shield, holding 4.38 kT against 3.83 kT for the firm 1s | ADDED 2026-10-15 (author): fuel of the eraser is oxygen: TET enzymes are Fe(II)/2-oxoglutarate dioxygenases that need O2; tumor hypoxia slows TET and leaves hypermethylation (Thienpont et al. 2016, Nature 537, 63-68, 10.1038/nature19081). In computer terms: losing the eraser's oxygen is a crash from lost erasing, not from extra writing (candidate). Not since the first cells: oxygen-powered erasure post-dates the rise of atmospheric oxygen; plants lack TET (ROS1/DME glycosylases)",
     "status": "candidate",
     "source": "PHY-040"
    }

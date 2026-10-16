@@ -12,6 +12,8 @@ ROWS = [("Price per bit", "bit_price", "the least energy to write one bit at thi
         ("Bit rate", "bit_rate", "data in motion: bits per operation x operations per second"),
         ("Throughput", "throughput", "the most bits per second the system can process: power for writing / price per write"),
         ("Power budget per operation", "mahaffey", "the drive each operation can spend, in units of k_B T (divide by ln 2 for bits' worth)"),
+        ("Write process (and its fuel)", "writer", "what writes the record"),
+        ("Erase process (and its fuel)", "eraser", "what erases it"),
         ("Operating point", "reference", "the system as built or healthy: where it is designed to run"),
         ("Gate error", "gate_error", "error of the writing step itself, the firm end"),
         ("Leakage", "leakage", "loss outside the held states, the loose end"),
