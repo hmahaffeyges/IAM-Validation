@@ -1229,7 +1229,7 @@
    "date": "2026-10-15",
    "commit": "9aee070c",
    "s3_code_prefix": "results/DEV_SECONDLAB_02/code/run3/",
-   "state": "running",
+   "state": "failed",
    "log": "results/DEV_SECONDLAB_02/status.txt",
    "machine": "spot m7a.32xlarge, self-terminating (30-hour hard stop)",
    "purpose": "preflight on 100,000 pairs, then fasterq-dump, Trim Galore, Bismark paired-end hg38, dedup, sorted BAMs; nothing counted",
@@ -1246,7 +1246,7 @@
     "PHY-047",
     "PHY-074"
    ],
-   "note": "running"
+   "note": "preflight failed in 2 minutes as designed: Trim Galore v2.3.0 names its output <base>_val_N.fq, not .fq.gz, and enables poly-G trimming by itself; logs in results/DEV_SECONDLAB_02/logs/. Nothing aligned. Run 4 reads the real names and sets --no_poly_g (HiSeq 2000 is four-colour)"
   }
  ],
  "not_jobs": {
