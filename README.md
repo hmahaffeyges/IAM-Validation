@@ -6,6 +6,8 @@
 
 **One law of physics from the qubit to the genome to the cosmic horizon.**
 
+IAM is a model of how reality begins with a bit and the cost that comes with it: how information and entropy keep their balance, the thermodynamics of informational fidelity. It is not a new theory of gravity; it reads reality, from the quantum to the classical, through the bit and its price.
+
 <p align="center">
   <a href="https://hmahaffeyges.github.io/IAM-Validation/"><img src="https://img.shields.io/badge/Follow_the_research-live-7a3ea3?style=for-the-badge" alt="Follow the research, live"></a>
   <a href="https://hmahaffeyges.github.io/IAM-Validation/read/"><img src="https://img.shields.io/badge/Read_the_book-online-2b5cad?style=for-the-badge" alt="Read the book online"></a>

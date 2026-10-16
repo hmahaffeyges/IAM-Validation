@@ -26547,6 +26547,30 @@
    "sources_of_row": [
     "session 2026-10-15"
    ]
+  },
+  {
+   "title": "Literature positioning: what IAM claims against the bit lineage",
+   "purpose": "Author 2026-10-15: 'What are we really contributing that we can actually claim?' Before the bit-dictionary paper claims anything as new, search the literature claim by claim: gravity tied to the decoherence rate of mass (nearest: Verlinde, Padmanabhan, Diosi-Penrose); the kinetic-half identity K = Q = T dS_min (nearest: Smarr, Padmanabhan E = 2TS); the record rate with exponent 7/2 and E(a) = exp(1-1/a); information density = rho_m/2 today; the one-price reading across horizon, qubit, chip and cell; the cell instruments. Add to the book the lineage it does not yet cite: Lloyd 2002 (computational capacity), Gough (information energy as dark energy), Vopson (information mass).",
+   "instrument_or_term": "all four domains",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "FOUR_DOMAINS.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "search the scholarly databases claim by claim; table: claim, nearest prior work, difference, status; then the paper's lineage section",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "OTH-061"
+   ],
+   "notes": "the definition sentence added to README and the book's abstract 2026-10-15",
+   "legacy_ids": [],
+   "id": "OTH-062",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
   }
  ],
  "not_tests": {
