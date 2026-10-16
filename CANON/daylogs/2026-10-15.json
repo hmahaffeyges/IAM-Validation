@@ -1,6 +1,6 @@
 {
  "date": "2026-10-15",
- "title": "A healthy cell can be read against itself: the first steps to an instrument that needs no reference library (in progress)",
+ "title": "A healthy cell can be read against itself: the first steps to an instrument that needs no reference library",
  "set_out": "Goal for the day: an instrument built from physics alone, so a sample can be read without a library of other people's cells (an atlas) and without lab-by-lab calibration. Every test ran on made-up data first, then on real data once.",
  "sections": [
   {
@@ -84,6 +84,41 @@
      "what": "All six early-onset colorectal cancer pairs counted on the island side. Four of six tumors read above the healthy island range; three of six read more than 1.2 times their own normal tissue. One pair runs the other way, and its tumor's sequencing error is 3.5 times its normal's.",
      "why": "Reported, not scored. It says the islands are written over in some tumors and by less than double; the firm-territory test is next.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md"
+    },
+    {
+     "title": "The clustering meter commissioned on whole blood",
+     "status": "sealed",
+     "what": "Our second commissioned instrument: the C-score on whole blood, EPIC v1. Its front-page story was written, and the book's old blocks-of-50 text corrected.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md"
+    },
+    {
+     "title": "The self-reference line rebuilt by the chain",
+     "status": "development",
+     "what": "The line was rebuilt by the chain from 153 samples, identical to the earlier counts (DEV-CHAIN-Q2-01). The line rebuild launched on a machine that shut itself off when done; a shape recount launched the same way.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_CHAIN_Q2_01.md"
+    },
+    {
+     "title": "Hansen's healthy B cells: alignment launched",
+     "status": "in progress",
+     "what": "DEV-SECONDLAB-02: three healthy donors' reads being aligned, nothing counted. Relaunched from NCBI's AWS copy after a slow download; run 2 failed at trimming, run 3's preflight caught the trim naming, run 4 running.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SECONDLAB_02.md"
+    },
+    {
+     "title": "Operations-manual PDF rebuilt",
+     "status": "structure",
+     "what": "The operations-manual PDF rebuilt and checked to name both commissionings; DEV-SECONDLAB-01 launched the same day.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/manual/MethylPhys_CPG_Operations_Manual.pdf"
+    },
+    {
+     "title": "Document audit, pass 1, and the README audit",
+     "status": "structure",
+     "what": "Document audit pass 1 (OTH-055): the 35 repository documents the page links to, checked against the week's results. README audit (author): stale statements corrected.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   },
@@ -196,6 +231,20 @@
      "what": "Any organism that tags its DNA, from any lab, wherever single-piece sequencing exists: public nanopore genomes, plants grown at two temperatures, dogs, unread salmon data (PHY-058 to PHY-068).",
      "why": "Opens far more data than the old reference-bound instrument could use.",
      "record": "CANON/manifest.json"
+    },
+    {
+     "title": "Loose share: the labs differ in shape, not level",
+     "status": "development",
+     "what": "The loose-share definition: ENCODE's cells carry a long low tail that healthy cells from two other labs do not, so the labs differ in shape, not level.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SECONDLAB_01.md"
+    },
+    {
+     "title": "Two public series hold the same six arrays",
+     "status": "structure",
+     "what": "Finding: the six healthy GSE167998 neutrophil arrays are the GSE110554 reference arrays deposited again; they count as one laboratory.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_SELFLINE_01.md"
     }
    ]
   },
@@ -224,6 +273,13 @@
      "what": "Two running tests, several planned ones and the plain-language series were missing from the Master Testing Manifest, and the atlas fit still read 'planned'.",
      "why": "",
      "record": "CANON/repro_check.py"
+    },
+    {
+     "title": "Correction: the second laboratory was first reported as passing",
+     "status": "diagnosis",
+     "what": "A raw value was compared with a scaled line. Like for like it did not pass; record corrected, and the chain gate now makes that mistake impossible (lesson C16).",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SECONDLAB_01.md"
     }
    ]
   },
@@ -280,12 +336,54 @@
      "what": "The README now points to the page, the daily logs, the instrument catalogue, the manifest and the book; its live parts are generated from the same files as the page.",
      "why": "So the most current work is what a visitor sees first.",
      "record": "REFERENCE.md"
+    },
+    {
+     "title": "Chain Stage Q2 and chain gate rule 23b (author)",
+     "status": "structure",
+     "what": "Author: logged tests must run through the chain. Chain Stage Q2 holds the IAM-A counter, the loose share and the line, with stamped outputs; the gate refuses anything else.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_CHAIN_Q2_01.md"
+    },
+    {
+     "title": "Commissioning gate: every document brought in line (author)",
+     "status": "structure",
+     "what": "Author: \"The code should not allow us to commission anything without a verification that all the correct docs have been updated.\" A commissioning gate checks every document; every document was brought in line.",
+     "why": "",
+     "record": "CANON/commissioning_check.py"
+    },
+    {
+     "title": "IAM-A no longer borrows Met-A's band; replication is chain code only (author)",
+     "status": "structure",
+     "what": "IAM-A prints no band until it has its own from healthy evidence. Replication is chain code only (REPLICATE.md).",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/REPLICATE.md"
+    },
+    {
+     "title": "Met-A keeps its same-lab tare (DEV-METAA-SELFLINE-01)",
+     "status": "structure",
+     "what": "Met-A keeps its same-lab tare; reading a sample against its own line stays an IAM-A advantage.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_SELFLINE_01.md"
+    },
+    {
+     "title": "The gauge passage rewritten in the author's bit-rate language",
+     "status": "structure",
+     "what": "The gauge passage rewritten in the author's bit-rate language: less writing to the left, more to the right; printed on every report and in the book.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Gauge/cell_gauge_marks_v1.json"
+    },
+    {
+     "title": "Four-domain schematic: three bit measures (author)",
+     "status": "structure",
+     "what": "Four-domain schematic: three bit measures, bits stored, bits per operation and bit rate, each from the book.",
+     "why": "",
+     "record": "FOUR_DOMAINS.md"
     }
    ]
   }
  ],
- "open_at_turnover": "In progress. Running: the atlas v2.1 fit (164 of 700 blocks, expected Friday October 16, about 9 AM Pacific), the tumor pairs on both sides (PHY-043, 10 of 12 samples). Next, in plan order: the open-sea own-read count (PHY-049), scoring the tumor pairs, Met-A against its own line (COM-METAA-039), the C-Score repeat-data search, the A-score database (OTH-051). Waiting for the author: three C-Score and atlas choices in COMMISSIONING_PLAN.md.",
- "closing": "",
+ "open_at_turnover": "Running at midnight: the atlas v2.1 fit (512 of 700 blocks); the Hansen healthy B-cell alignment (DEV-SECONDLAB-02, run 4). Next: count Hansen through the chain with the sample-shape check first, then the second-laboratory rule; the bit translation tables.",
+ "closing": "A second instrument commissioned, the IAM-A self-reference moved into the chain, and a sample-shape check that refuses unusual samples instead of reading them.",
  "_convention": "see 2026-10-13.json",
  "check_completeness": true
 }
