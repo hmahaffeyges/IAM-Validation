@@ -2144,3 +2144,6 @@ Correction (PHY-076): the row repeated the book's attribution of f_coll = 0.62 t
 
 ### 2026-10-16 · Lab methods explainer in the catalogue (OTH-066)
 The author's downtime item 3: chemistry (bisulfite, EM-seq, conversion failure), arrays and sequencing, seven methods with what each gives, who uses it and which IAM instrument reads it, and how IAM differs from cohort methods. Data in CANON/catalogue.json, generated into INSTRUMENTS.md.
+
+### 2026-10-16 · Book fixes: glossary collapsed fraction; virial-partners ratio by construction (PHY-075)
+The author's rule: every book error is told to him and fixed. Glossary f_coll entry corrected to the virial chapter's values; p7_05b now states R(1) = 2 holds by construction and is not evidence, and its coincidence section is marked an interpretation. The virial chapters already carried the 2026-10-01 trace (eta_vir a definition; 0.62 below Tinker's calibrated range).
