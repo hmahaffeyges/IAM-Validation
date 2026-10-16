@@ -831,7 +831,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/DEV_CHAIN_Q2_01/shape/out/": false
   },

@@ -2054,3 +2054,6 @@ At 480 of 700 blocks: block 458 (11 divergences, R-hat p99 1.0076, ESS p01 476) 
 
 ### 2026-10-15 · Shape recount launched
 Chain Stage Q2 stores tile percentiles (synthetic T5 met). Spot i-0f54ab117054ee79f (code 764e072e, chain d7f64ca700df) counts Loyfer 153 and ENCODE 5 again, to results/DEV_CHAIN_Q2_01/shape/. Hansen rule S1 sealed as drafted by the author (2 of 3 donors within the line's 90th-percentile scatter, 0.0067); written into the record before any Hansen count, with the shape rule added after this recount.
+
+### 2026-10-15 · DEV-SECONDLAB-02 rule S1 sealed
+Author: seal as drafted. Bar 0.0067 computed by the chain from the line's scatter (bar_secondlab02.json); shape check applied first, its rule added before the count; fewer than 2 donors left reads NOT ASSESSED.

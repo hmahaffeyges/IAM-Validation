@@ -1,0 +1,16 @@
+{
+ "rule": "S1: at least 2 of the 3 Hansen donors read within +/- bar of the chain's line (version 1); the lab shift (Hansen minus Loyfer B cells) is reported, not scored; the sample-shape check (COM-IAMA-053) is applied first and a refused donor is not scored",
+ "bar": 0.006661030952544791,
+ "bar_basis": "90th percentile of |residual| over the line's 56 cell types",
+ "line_version": 1,
+ "cells": 56,
+ "need": 2,
+ "of": 3,
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "d7f64ca700df761a235a2cb253df30bbb5ed43b06955b4833ae5baa2685bab4c",
+  "payload_sha256": "b86c85924ce583fe7b1ff0a0abc17598611a2fb4d098a24104d88e47092e9502",
+  "inputs": [],
+  "utc": "2026-10-16T05:24:32Z"
+ }
+}
