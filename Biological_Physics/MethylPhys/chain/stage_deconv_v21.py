@@ -18,7 +18,7 @@ Usage: import stage_deconv_v21 as D; R = D.reference(cells); M = D.markers(R); D
 import os, sys, json, numpy as np, pandas as pd
 from scipy.optimize import nnls
 HERE = os.path.dirname(os.path.abspath(__file__)); ATLAS = os.path.join(HERE, "..", "atlas", "v2.1")
-LAB_SD = 0.02; PER_CELL = 50; BOOT = 200; SEED = 2026; SPREAD = "full"   # "full" (v2) or "mean_only" (v1, as scored once)
+LAB_SD = 0.02; PER_CELL = 50; BOOT = 200; SEED = 2026; SPREAD = os.environ.get("DECONV_SPREAD", "full")   # "full" (v2) or "mean_only" (v1, as scored once)
 def reference(cells, atlas=ATLAS, spread=None):
     spread = spread or SPREAD; import pyarrow.parquet as pq
     """mu and sd DataFrames (sites x cells) for the named cells, from the compact copy; reads only those columns."""
@@ -60,12 +60,12 @@ def deconvolve(beta, R, M, lab_sd=LAB_SD, boot=BOOT, seed=SEED):
     y = pd.Series(beta).reindex(M).astype(float); m = y.notna().values; sites = np.array(M)[m]
     A = R["mu"].loc[sites].values.astype(float); S = R["sd"].loc[sites].values.astype(float); yy = y.values[m]
     full = R.get("spread", "mean_only") == "full"; lab_w = 0.0 if full else lab_sd   # v2: the laboratory term is already inside S
-    f = _solve(yy, A, S, lab_w); tot = f.sum(); rng = np.random.default_rng(seed); B = []
+    f = _solve(yy, A, S, lab_w); tot = f.sum(); rng = np.random.default_rng(seed); B = [f / tot if tot > 0 else f]
     for _ in range(boot):
         i = rng.integers(0, len(yy), len(yy)); Ai = A[i]
         if full: Ai = np.clip(Ai + rng.normal(0, 1, Ai.shape) * S[i], 0, 1)   # this person's cells, drawn from the atlas's spread
         g = _solve(yy[i], Ai, S[i], lab_w); B.append(g / g.sum() if g.sum() > 0 else g)
-    B = np.array(B); lo, hi = np.percentile(B, 2.5, 0), np.percentile(B, 97.5, 0)
+    B = np.array(B); lo, hi = np.percentile(B, 2.5, 0), np.percentile(B, 97.5, 0)   # boot=0: the point estimate only
     sh = f / tot if tot > 0 else f
     return dict(shares={c: float(v) for c, v in zip(R["cells"], sh)}, raw_sum=float(tot),
                 interval_95={c: [float(a), float(b)] for c, a, b in zip(R["cells"], lo, hi)}, sites_used=int(m.sum()), lab_sd=R.get("lab_sd", lab_sd), spread=R.get("spread", "mean_only"), boot=boot)
@@ -133,3 +133,27 @@ if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "score":
     V["verdict"] = "COMMISSIONED" if V["B1_met"] and V["B2_met"] else "NOT MET"
     Q2.write_csv(T, os.path.join(out, "deconv_mixtures_v21.csv"), manifest=["ATL-005"]); Q2.write_json(V, os.path.join(out, "deconv_scored_v21.json"), manifest=["ATL-005"])
     print(json.dumps(V))
+
+# ---------------------------------------------------------------- DIAGNOSTIC ONLY (2026-10-16): no bar, nothing rescored
+# Each pure held-out array of the six cells (the DEV-DECONV-V21-01 lists) read alone, by two panels: the six parent profiles, and the
+# atlas's subsets summed back into the six families. Shows where a cell's share goes when it is read as itself.
+FAMILY = {"neutrophils": ["neutrophils"], "monocytes": ["monocytes"], "b cells": ["naive b cells", "memory b cells"],
+          "cd4 t cells": ["naive cd4 t cells", "memory cd4 t cells", "regulatory t cells", "cytotoxic cd4 t cells (cd28-)"],
+          "cd8 t cells": ["naive cd8 t cells", "cd8 central memory t cells", "effector memory cd8 t cells", "cd8 temra t cells"],
+          "nk cells": ["nk cells", "cd56bright nk cells"]}
+if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "diag_pure":
+    sys.path.insert(0, HERE); import stage_q2_selfref as Q2
+    shards, out = sys.argv[2], sys.argv[3]; os.makedirs(out, exist_ok=True)
+    DD = os.path.join(HERE, "..", "doors", "data"); SEAL = json.load(open(os.path.join(DD, "DEV_DECONV_V21_01", "sealed_deconv_v21.json")))
+    I = pd.read_csv(os.path.join(DD, "DEV_ATLAS_V21_01", "identity_v21_arrays.csv")); I = I[(I.set != "build") & (I.status == "ok")]; base = dict(zip(I["sample"], I["base"]))
+    panels = {"six parents": {c: [c] for c in SEAL["panel"]}, "subsets summed": FAMILY}; rows = []
+    for pn, fam in panels.items():
+        cells = [x for v in fam.values() for x in v]; R = reference(cells); M = markers(R)
+        for c in SEAL["panel"]:
+            for smp in SEAL["samples"][c]:
+                b = base.get(smp); p = os.path.join(shards, f"{b}.parquet") if isinstance(b, str) else None
+                if not (p and os.path.exists(p)): continue
+                x = pd.read_parquet(p).iloc[:, 0].astype(float); x.index = x.index.astype(str); r = deconvolve(x, R, M, boot=0)
+                rows.append(dict(panel=pn, cell=c, sample=smp, **{f: sum(r["shares"][k] for k in v) for f, v in fam.items()}))
+    T = pd.DataFrame(rows); S = T.groupby(["panel", "cell"])[list(FAMILY)].mean().round(3)
+    Q2.write_csv(T, os.path.join(out, "diag_pure_v21.csv"), manifest=["ATL-065"]); print(S.to_string())
