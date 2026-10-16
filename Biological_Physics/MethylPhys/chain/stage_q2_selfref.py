@@ -48,13 +48,16 @@ def stamp(obj, inputs=(), manifest=None):
     """Attach the chain stamp to a result dict. inputs: [{'name':..., 'sha256':..., 'size':...}] (file_sha of each input where possible).
     manifest: the Master Testing Manifest row IDs this result belongs to."""
     obj = {k: v for k, v in obj.items() if k != "chain_stamp"}
+    obj = json.loads(json.dumps(obj, default=float))   # hash what will be stored: JSON turns number keys into text (2026-10-16, Hansen count run 2)
     obj["chain_stamp"] = dict(stage=STAGE, chain_sha=chain_sha(), payload_sha256=payload_sha(obj), inputs=list(inputs), manifest=_rows(manifest),
                               utc=datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
     return obj
 def write_json(obj, path, inputs=(), manifest=None):
     """Write a stamped result. A result with a 'verdict' field (MET, NOT MET, INCONCLUSIVE, NOT ASSESSED, REPRODUCED, DIFFERS) is recorded
     as a run on each named manifest row by CANON/chain_events.py."""
-    o = stamp(obj, inputs, manifest); json.dump(o, open(path, "w", encoding="utf-8"), indent=1, default=float); return o
+    o = stamp(obj, inputs, manifest); json.dump(o, open(path, "w", encoding="utf-8"), indent=1, default=float)
+    assert payload_sha(json.load(open(path, encoding="utf-8"))) == o["chain_stamp"]["payload_sha256"], f"{path}: stored result does not verify"
+    return o
 def write_csv(df, path, inputs=(), manifest=None):
     df.to_csv(path, index=False); s = dict(stage=STAGE, chain_sha=chain_sha(), payload_sha256=file_sha(path), inputs=list(inputs), manifest=_rows(manifest),
                                             utc=datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))

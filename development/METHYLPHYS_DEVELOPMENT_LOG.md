@@ -2107,3 +2107,6 @@ Count run 2 launched as i-0ec02d263962a4bdf (code f6165411, code/count2/) (PHY-0
 
 ### 2026-10-16 · IAM-A healthy band rule sealed before the Hansen count (COM-IAMA-054)
 The author sealed the draft: A = held error / the line's prediction from the sample's own loose share; band = 2.5th to 97.5th percentile of pooled healthy readings (Loyfer 153 plus each Hansen donor that passes the shape check). In chain Stage Q2 (reading, build_band); synthetic T7 MET; DEV_IAMA_BAND_01.md and build_band_v1.py committed before any Hansen count exists.
+
+### 2026-10-16 · Hansen count run 2: counts refused by their own stamp check; chain fixed (PHY-047, OTH-057)
+All three donors counted, but the scorer refused every count: the chain hashed each result before the JSON round trip turned the number keys of the read-length table into text. With the keys restored the fingerprints match exactly, so nothing was edited; the counter's log line shows each count was read only as the machine wrote it. Chain Stage Q2 now hashes what it stores and re-reads every file it writes; synthetic T8 MET; lesson C18. Count run 3 recounts. Nothing has been scored.

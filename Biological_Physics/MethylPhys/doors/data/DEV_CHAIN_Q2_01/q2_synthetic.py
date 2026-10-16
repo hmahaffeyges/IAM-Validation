@@ -128,6 +128,10 @@ t7 = dict(on_line=max(abs(Q2.reading(o)["A"] - 1) for o in _on), band=Q2.build_b
 Q2.line = _orig
 ok["T7"] = t7["on_line"] < 1e-12 and abs(t7["band"]["lo"] - _np.percentile(_k, 2.5)) < 1e-9 and abs(t7["band"]["hi"] - _np.percentile(_k, 97.5)) < 1e-9 and t7["band"]["labs"] == {"a": 200, "b": 201}
 R["T7"] = t7
+# ---- T8 a result with number keys verifies after it is written and read back (the Hansen count run 2 failure, 2026-10-16)
+import tempfile as _tf
+_p = os.path.join(_tf.mkdtemp(), "t8.json"); Q2.write_json({"read_lengths": {101: 5, 99: 2, 100: 7}, "x": 0.1}, _p, manifest=["OTH-057"])
+_o = json.load(open(_p)); ok["T8"] = Q2.payload_sha(_o) == _o["chain_stamp"]["payload_sha256"]; R["T8"] = ok["T8"]
 R["ok"] = ok; R["verdict"] = "MET" if all(ok.values()) else "NOT MET"
 Q2.write_json(R, os.path.join(H, "q2_synthetic.json"), manifest=["OTH-057", "COM-IAMA-053", "COM-IAMA-054"])
 print(json.dumps(ok), R["verdict"]); print(json.dumps(t1)[:400]); [print(x) for x in t2]; print(t3)

@@ -139,6 +139,7 @@
    "line_version": 99
   }
  },
+ "T8": true,
  "ok": {
   "T1": true,
   "T2": true,
@@ -146,19 +147,20 @@
   "T4": true,
   "T5": true,
   "T6": true,
-  "T7": true
+  "T7": true,
+  "T8": true
  },
  "verdict": "MET",
  "chain_stamp": {
   "stage": "Q2 self-reference",
-  "chain_sha": "7d4c3559ad992a5bed7320a600dd1075ebef0e89dab09cbb626776b4b7ac3c13",
-  "payload_sha256": "f2900f7c675952e03af24365a2ffc68918f472f3c0f7516fa2a6cfa66ec1feb7",
+  "chain_sha": "a49c36c7b9a072d8ccfd7fc12b0970d82e997593282f53cb5f2c2be5d8bb6be2",
+  "payload_sha256": "739649d3166213bf6152d6f6a94d090481bee7516b3af0df4d7ff152fb199634",
   "inputs": [],
   "manifest": [
    "COM-IAMA-053",
    "COM-IAMA-054",
    "OTH-057"
   ],
-  "utc": "2026-10-16T09:22:34Z"
+  "utc": "2026-10-16T09:32:04Z"
  }
 }

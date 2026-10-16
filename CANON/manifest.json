@@ -25228,7 +25228,7 @@
      "page": "not headline: exploratory miss, kept in the research record"
     }
    ],
-   "next_step": "alignment done 2026-10-16 02:06 PDT (B2 82.8, B1 69.5, B3 65.8 percent mapped; deduplicated BAMs in S3); count run 1 (i-0987cb49e219d16f2) failed with no count written (no alignment index fetched); run 2 (i-0ec02d263962a4bdf) builds the index, launched 02:15 PDT; then the IAM-A band rule (COM-IAMA-054) sealed before the counts are read, then score_secondlab02.py once",
+   "next_step": "count run 2 counted all three but the counts failed their own stamp check (lesson C18, the chain hashed before the JSON round trip); chain fixed, synthetic T8 MET; count run 3, then score_secondlab02.py once",
    "cost": "laptop or box",
    "impact": 5,
    "depends_on": [
@@ -26425,13 +26425,21 @@
      "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
      "payload_sha256": "f2900f7c675952e03af24365a2ffc68918f472f3c0f7516fa2a6cfa66ec1feb7",
      "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "MET (chain result Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json)",
+     "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
+     "payload_sha256": "739649d3166213bf6152d6f6a94d090481bee7516b3af0df4d7ff152fb199634",
+     "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
    "next_step": "sample-shape check (COM-IAMA-053) and IAM-A's own healthy band (COM-IAMA-054) through Stage Q2; second laboratory on GSE49627 through the chain",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
-   "notes": "author 2026-10-15 | 2026-10-16: chain results now name this row in their stamps",
+   "notes": "author 2026-10-15 | 2026-10-16: chain results now name this row in their stamps | 2026-10-16: stamp now hashes what is stored and re-reads every written file (lesson C18, synthetic T8)",
    "legacy_ids": [],
    "id": "OTH-057",
    "sources_of_row": [
@@ -26449,8 +26457,8 @@
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01",
      "files": 1,
      "stage": "Q2 self-reference",
-     "chain": "7d4c3559ad99",
-     "latest_utc": "2026-10-16T09:22:34Z"
+     "chain": "a49c36c7b9a0",
+     "latest_utc": "2026-10-16T09:32:04Z"
     },
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/out",
@@ -26516,6 +26524,14 @@
      "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
      "payload_sha256": "f2900f7c675952e03af24365a2ffc68918f472f3c0f7516fa2a6cfa66ec1feb7",
      "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "MET (chain result Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json)",
+     "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
+     "payload_sha256": "739649d3166213bf6152d6f6a94d090481bee7516b3af0df4d7ff152fb199634",
+     "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
    "next_step": "applied first in DEV-SECONDLAB-02 (Hansen B cells, limit 0.662)",
@@ -26542,8 +26558,8 @@
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01",
      "files": 2,
      "stage": "Q2 self-reference",
-     "chain": "7d4c3559ad99",
-     "latest_utc": "2026-10-16T09:22:34Z"
+     "chain": "a49c36c7b9a0",
+     "latest_utc": "2026-10-16T09:32:04Z"
     },
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/shape_out",
@@ -26600,6 +26616,14 @@
      "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
      "payload_sha256": "f2900f7c675952e03af24365a2ffc68918f472f3c0f7516fa2a6cfa66ec1feb7",
      "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "MET (chain result Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json)",
+     "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/q2_synthetic.json",
+     "payload_sha256": "739649d3166213bf6152d6f6a94d090481bee7516b3af0df4d7ff152fb199634",
+     "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
    "next_step": "build band_v1 with build_band_v1.py once the three Hansen counts are in (DEV-SECONDLAB-02 run 2)",
@@ -26617,8 +26641,8 @@
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01",
      "files": 1,
      "stage": "Q2 self-reference",
-     "chain": "7d4c3559ad99",
-     "latest_utc": "2026-10-16T09:22:34Z"
+     "chain": "a49c36c7b9a0",
+     "latest_utc": "2026-10-16T09:32:04Z"
     },
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_BAND_01",

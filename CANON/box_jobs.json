@@ -1304,7 +1304,7 @@
    "date": "2026-10-16",
    "commit": "f6165411",
    "s3_code_prefix": "results/DEV_SECONDLAB_02/code/count2/",
-   "state": "running",
+   "state": "failed",
    "log": "results/DEV_SECONDLAB_02/count_status.txt",
    "machine": "spot m7a.8xlarge, self-terminating (5-hour hard stop)",
    "purpose": "count each donor with count_hansen.py (chain Stage Q2 count_bam), building the alignment index when missing; nothing scored on the machine",
@@ -1322,7 +1322,7 @@
     "PHY-050",
     "COM-IAMA-054"
    ],
-   "note": "running"
+   "note": "all three counted (ALL COUNTED 3 of 3, 02:29 PDT), but every count failed its own stamp check when read: the chain hashed before the JSON round trip turned the number keys of read_lengths into text (lesson C18). Not scored; rerun as count run 3"
   }
  ],
  "not_jobs": {
