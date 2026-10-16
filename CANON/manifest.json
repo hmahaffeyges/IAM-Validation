@@ -27021,13 +27021,13 @@
    "record": "docs/book/part7/p7_05b_virial_partners.tex",
    "status": "idea",
    "runs": [],
-   "next_step": "after the cell catalogue is commissioned: derive (1) whether the potential half gathers where bits are written, then (2) and (3) against Planck",
+   "next_step": "derive: which decoherence in the first 372,000 years writes 5.36 times the baryons' worth of potential half, and why it then stops; then tests (2) dilution and (3) the CMB pattern",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
     "PHY-047"
    ],
-   "notes": "Three measured behaviors it must reproduce: (1) clumping in halos around galaxies, where matter decoheres; (2) dilution as 1/a^3 with expansion; (3) the CMB acoustic peak pattern (the test that rules out modified gravity). None derived yet. | Author 2026-10-16: 'sounds like structure to me' - dark matter as structure itself, the potential half stored where bits were written (fits test 1). Book link: p1_03/App. E #49 match beta_m = Omega_m/2 to Omega_m x f_coll x eta_vir, f_coll = collapsed (structure) fraction 0.62 (Tinker 2008). Question it must answer: at the CMB the universe was smooth to 1e-5, yet dark matter's full pull (0.64 of the energy) is already in the CMB pattern; a candidate answer is that writing began at the first decoherence events, long before galaxies.",
+   "notes": "Three measured behaviors it must reproduce: (1) clumping in halos around galaxies, where matter decoheres; (2) dilution as 1/a^3 with expansion; (3) the CMB acoustic peak pattern (the test that rules out modified gravity). None derived yet. | Author 2026-10-16: 'sounds like structure to me' - dark matter as structure itself, the potential half stored where bits were written (fits test 1). Book link: p1_03/App. E #49 match beta_m = Omega_m/2 to Omega_m x f_coll x eta_vir, f_coll = collapsed (structure) fraction 0.62 (Tinker 2008). Question it must answer: at the CMB the universe was smooth to 1e-5, yet dark matter's full pull (0.64 of the energy) is already in the CMB pattern; a candidate answer is that writing began at the first decoherence events, long before galaxies. | 2026-10-16 finding (measured): dark matter / baryons = 5.36 at the CMB (Planck 2018 Omega_c h^2 0.1200 / Omega_b h^2 0.02237) and the same in today's clusters (Landry et al. 2013, MNRAS 433, 2790: f_gas + stars consistent with Omega_b/Omega_m at 1 sigma, z 0.15-0.30). So the amount was fixed by 372,000 years and did not grow with structure: 'written as structure forms' fails as stated (to about 20 percent). Surviving version: the potential half written before or during the CMB era, then fixed and moving with matter.",
    "legacy_ids": [],
    "id": "PHY-076",
    "sources_of_row": [
