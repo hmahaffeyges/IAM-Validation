@@ -26748,7 +26748,7 @@
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
-   "notes": "",
+   "notes": "2026-10-16: the MethylPhys README C-score row also said 50-site blocks (the superseded set); corrected to blocks of 10 as the commissioning note states, and the gate now refuses the old wording",
    "legacy_ids": [],
    "id": "OTH-064",
    "sources_of_row": [

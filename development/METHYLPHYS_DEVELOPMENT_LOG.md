@@ -2102,3 +2102,4 @@ Run 4 (i-0a9119be4c9143bca): all three donors aligned and deduplicated by 02:06 
 
 ### 2026-10-16 · Hansen count run 1 failed before any count; run 2 (PHY-047)
 The count machine fetched the three alignments without their index files, so every region read failed and no count was written. count_hansen.py now builds the index when it is missing; count_box.sh fetches it when present and reports a donor with no count. Nothing was read.
+Same README row also said 50-site blocks, the superseded set; it now says blocks of 10, as the commissioning note does, and the commissioning gate refuses the old wording (OTH-064).

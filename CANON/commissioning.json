@@ -210,6 +210,10 @@
     {
      "file": "Biological_Physics/MethylPhys/README.md",
      "pattern": "\\*\\*Met-A C-score\\*\\*[^\\n]*band not set"
+    },
+    {
+     "file": "Biological_Physics/MethylPhys/README.md",
+     "pattern": "\\(50-site blocks\\)"
     }
    ],
    "status_line": "| **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](doors/COMMISSIONING_NOTE_CSCORE.md)) | one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered; isolated neutrophils development |",
