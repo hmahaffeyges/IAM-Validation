@@ -46,6 +46,8 @@ DEV-SECONDLAB-01 (NOT MET; explained by that sample's undermethylated tail, PHY-
 
 ## Step 3: the tile shape, for the sample-shape check (2026-10-15)
 
+**Prior reading:** GSE49627 (Hansen resting B cells) was read for its tile shape only, for the DEV-SECONDLAB-01 scale diagnosis (2026-10-15); it is not counted in this record and no held error has been computed on it.
+
 Chain Stage Q2 now also stores each sample's tile percentiles (tile_p10, tile_p50, tile_p90 of the 2,000-CpG tile means), so the
 sample-shape check (COM-IAMA-053) can be built from chain output. Synthetic T5 (`q2_synthetic.py`): the percentiles equal those of the
 planted tile means and under-covered tiles are left out; T1-T5 MET. A range rule was checked first and does not work: ENCODE's loose shares
