@@ -1247,6 +1247,31 @@
     "PHY-074"
    ],
    "note": "preflight failed in 2 minutes as designed: Trim Galore v2.3.0 names its output <base>_val_N.fq, not .fq.gz, and enables poly-G trimming by itself; logs in results/DEV_SECONDLAB_02/logs/. Nothing aligned. Run 4 reads the real names and sets --no_poly_g (HiSeq 2000 is four-colour)"
+  },
+  {
+   "job_id": "i-0a9119be4c9143bca",
+   "name": "DEV-SECONDLAB-02 step 1 run 4: Hansen healthy resting B cells, alignment only",
+   "date": "2026-10-15",
+   "commit": "00992635",
+   "s3_code_prefix": "results/DEV_SECONDLAB_02/code/run4/",
+   "state": "running",
+   "log": "results/DEV_SECONDLAB_02/status.txt",
+   "machine": "spot m7a.32xlarge, self-terminating (30-hour hard stop)",
+   "purpose": "preflight on 100,000 pairs, then fasterq-dump, Trim Galore (--no_poly_g), Bismark paired-end hg38, dedup, sorted BAMs; nothing counted",
+   "record": "doors/DEV_SECONDLAB_02.md",
+   "outputs": [
+    "results/DEV_SECONDLAB_02/bam/",
+    "results/DEV_SECONDLAB_02/logs/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/box/align_hansen.sh",
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/samples.tsv"
+   ],
+   "manifest": [
+    "PHY-047",
+    "PHY-074"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {

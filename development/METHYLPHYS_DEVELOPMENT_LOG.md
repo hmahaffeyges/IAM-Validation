@@ -2064,3 +2064,4 @@ Run 3 launched as i-0cde3f265d7110189 (code 9aee070c, code/run3/).
 
 ### 2026-10-15 · DEV-SECONDLAB-02 run 3 preflight caught the trim naming
 The tools path fix worked (Trim Galore and Bismark ran). The bundle's Trim Galore v2.3.0 names its paired output <base>_val_N.fq (not .fq.gz) and turns on poly-G trimming by itself (2.7 percent of read 1 trimmed on the 100,000-pair preflight). Run 4 takes whichever name exists (gzip checked) and sets --no_poly_g: GSE49627 is HiSeq 2000, four-colour, where poly-G tails do not arise.
+Run 4 launched as i-0a9119be4c9143bca (code 00992635, code/run4/); run 3 logs kept under results/DEV_SECONDLAB_02/logs_run3/.
