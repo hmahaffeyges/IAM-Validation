@@ -1356,7 +1356,7 @@
    "date": "2026-10-16",
    "commit": "778d0d03",
    "s3_code_prefix": "results/DEV_IAMA_GRAND_01/code/run1_A/",
-   "state": "running",
+   "state": "failed",
    "log": "results/DEV_IAMA_GRAND_01/status_A.txt",
    "machine": "spot m7a.32xlarge, self-terminating (20-hour hard stop)",
    "purpose": "align (as Hansen, poly-G on for NovaSeq) and count the samples.csv rows with machine A; nothing scored on the machine",
@@ -1374,7 +1374,7 @@
    "manifest": [
     "COM-IAMA-052"
    ],
-   "note": "running; read its code at launch from code/run1/ (byte-identical to this folder)"
+   "note": "never started: the start-up file's quoting was broken (a backslash lost when the file was written), so its one command failed and the machine shut itself off within 3 minutes; no data downloaded, nothing read. Start-up files now committed (box/ud_grand_A.sh, ud_grand_B.sh) and tested locally end to end before launch"
   },
   {
    "job_id": "i-09312ac563e99be54",
@@ -1382,6 +1382,58 @@
    "date": "2026-10-16",
    "commit": "778d0d03",
    "s3_code_prefix": "results/DEV_IAMA_GRAND_01/code/run1_B/",
+   "state": "failed",
+   "log": "results/DEV_IAMA_GRAND_01/status_B.txt",
+   "machine": "spot m7a.32xlarge, self-terminating (20-hour hard stop)",
+   "purpose": "align (as Hansen, poly-G on for NovaSeq) and count the samples.csv rows with machine B; nothing scored on the machine",
+   "record": "doors/DEV_IAMA_GRAND_01.md",
+   "outputs": [
+    "results/DEV_IAMA_GRAND_01/out/",
+    "results/DEV_IAMA_GRAND_01/bam/",
+    "results/DEV_IAMA_GRAND_01/reports/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/box/align_grand.sh",
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/samples.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/count_grand.py"
+   ],
+   "manifest": [
+    "COM-IAMA-052"
+   ],
+   "note": "never started: the start-up file's quoting was broken (a backslash lost when the file was written), so its one command failed and the machine shut itself off within 3 minutes; no data downloaded, nothing read. Start-up files now committed (box/ud_grand_A.sh, ud_grand_B.sh) and tested locally end to end before launch"
+  },
+  {
+   "job_id": "i-0fd3660dff150bd4a",
+   "name": "DEV-IAMA-GRAND-01 machine A, run 2: CD8 samples aligned and counted by chain Stage Q2",
+   "date": "2026-10-16",
+   "commit": "778d0d03",
+   "s3_code_prefix": "results/DEV_IAMA_GRAND_01/code/run2_A/",
+   "state": "running",
+   "log": "results/DEV_IAMA_GRAND_01/status_A.txt",
+   "machine": "spot m6a.32xlarge, self-terminating (20-hour hard stop)",
+   "purpose": "align (as Hansen, poly-G on for NovaSeq) and count the samples.csv rows with machine A; nothing scored on the machine",
+   "record": "doors/DEV_IAMA_GRAND_01.md",
+   "outputs": [
+    "results/DEV_IAMA_GRAND_01/out/",
+    "results/DEV_IAMA_GRAND_01/bam/",
+    "results/DEV_IAMA_GRAND_01/reports/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/box/align_grand.sh",
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/samples.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/count_grand.py"
+   ],
+   "manifest": [
+    "COM-IAMA-052"
+   ],
+   "note": "running; its start-up file is committed as box/ud_grand_A.sh (EC2 user data, not part of the published code folder)"
+  },
+  {
+   "job_id": "i-0888ed7bd36c2020c",
+   "name": "DEV-IAMA-GRAND-01 machine B, run 2: CD8 samples aligned and counted by chain Stage Q2",
+   "date": "2026-10-16",
+   "commit": "778d0d03",
+   "s3_code_prefix": "results/DEV_IAMA_GRAND_01/code/run2_B/",
    "state": "running",
    "log": "results/DEV_IAMA_GRAND_01/status_B.txt",
    "machine": "spot m7a.32xlarge, self-terminating (20-hour hard stop)",
@@ -1400,7 +1452,7 @@
    "manifest": [
     "COM-IAMA-052"
    ],
-   "note": "running; read its code at launch from code/run1/ (byte-identical to this folder)"
+   "note": "running; its start-up file is committed as box/ud_grand_B.sh (EC2 user data, not part of the published code folder)"
   }
  ],
  "not_jobs": {

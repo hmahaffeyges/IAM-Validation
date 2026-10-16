@@ -25764,7 +25764,7 @@
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_GRAND_01.md",
    "status": "running",
    "runs": [],
-   "next_step": "sealed 2026-10-16 (author: 'okay, seal it'): 13 healthy CD8 T-cell samples, GSE144691 (Youngblood, St. Jude), first 40 billion bases each, chain count; S1: at least 75 percent of read samples inside band v1, at least 8 read. Two self-terminating machines aligning and counting (A i-08dc4b0112d7cbdcf, B i-09312ac563e99be54, launched 04:20 PDT); then score_grand.py once",
+   "next_step": "sealed 2026-10-16 (author: 'okay, seal it'): 13 healthy CD8 T-cell samples, GSE144691 (Youngblood, St. Jude), first 40 billion bases each, chain count; S1: at least 75 percent of read samples inside band v1, at least 8 read. Two self-terminating machines aligning and counting (run 1 never started, start-up file quoting; run 2: A i-0fd3660dff150bd4a, B i-0888ed7bd36c2020c, launched 04:45 PDT); then score_grand.py once",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

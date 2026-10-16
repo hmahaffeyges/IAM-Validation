@@ -921,9 +921,41 @@
    "results/DEV_IAMA_GRAND_01/bam/": false,
    "results/DEV_IAMA_GRAND_01/reports/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "failed"
  },
  "i-09312ac563e99be54": {
+  "s3": {
+   "align_grand.sh": "5f0f14f63815ee3717e15c9568189b9f54f4d47eb683311bc7e546dc9264ccdd",
+   "samples.csv": "64acac392ecc95d821bb7c76a30bce4ad9009d4b260e08d8b909e53e9d1d34bc",
+   "count_grand.py": "5575d7db7596a4042ef526788f1d5c6626b40fdef2b56a0fbb79ea4460a432b7"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/DEV_IAMA_GRAND_01/out/": false,
+   "results/DEV_IAMA_GRAND_01/bam/": false,
+   "results/DEV_IAMA_GRAND_01/reports/": false
+  },
+  "state_at_verify": "failed"
+ },
+ "i-0fd3660dff150bd4a": {
+  "s3": {
+   "align_grand.sh": "5f0f14f63815ee3717e15c9568189b9f54f4d47eb683311bc7e546dc9264ccdd",
+   "samples.csv": "64acac392ecc95d821bb7c76a30bce4ad9009d4b260e08d8b909e53e9d1d34bc",
+   "count_grand.py": "5575d7db7596a4042ef526788f1d5c6626b40fdef2b56a0fbb79ea4460a432b7"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/DEV_IAMA_GRAND_01/out/": false,
+   "results/DEV_IAMA_GRAND_01/bam/": false,
+   "results/DEV_IAMA_GRAND_01/reports/": false
+  },
+  "state_at_verify": "running"
+ },
+ "i-0888ed7bd36c2020c": {
   "s3": {
    "align_grand.sh": "5f0f14f63815ee3717e15c9568189b9f54f4d47eb683311bc7e546dc9264ccdd",
    "samples.csv": "64acac392ecc95d821bb7c76a30bce4ad9009d4b260e08d8b909e53e9d1d34bc",
