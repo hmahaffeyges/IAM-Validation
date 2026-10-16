@@ -873,7 +873,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": true,
+  "log_in_s3": false,
   "outputs_in_s3": {
    "results/DEV_SECONDLAB_02/out/": false
   },
@@ -887,10 +887,24 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": true,
+  "log_in_s3": false,
   "outputs_in_s3": {
    "results/DEV_SECONDLAB_02/out/": false
   },
   "state_at_verify": "failed"
+ },
+ "i-0c7b1e115294ce1e4": {
+  "s3": {
+   "count_hansen.py": "d0dde98f68dec4864cd0e39a7a4caee972d29a6b84fa86a7911eeefebae35fd8",
+   "samples.tsv": "7d37bd910f07156ebef568b61a7ba7e412f2606017e08e6f87f07ef2ef350a9d",
+   "count_box.sh": "ad21d7b6d7858869d73adada6da76eb7716a377a65cfb9001a9f474dd6eb453b"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": false,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/DEV_SECONDLAB_02/out/": false
+  },
+  "state_at_verify": "running"
  }
 }

@@ -2110,3 +2110,4 @@ The author sealed the draft: A = held error / the line's prediction from the sam
 
 ### 2026-10-16 · Hansen count run 2: counts refused by their own stamp check; chain fixed (PHY-047, OTH-057)
 All three donors counted, but the scorer refused every count: the chain hashed each result before the JSON round trip turned the number keys of the read-length table into text. With the keys restored the fingerprints match exactly, so nothing was edited; the counter's log line shows each count was read only as the machine wrote it. Chain Stage Q2 now hashes what it stores and re-reads every file it writes; synthetic T8 MET; lesson C18. Count run 3 recounts. Nothing has been scored.
+Count run 3 launched as i-0c7b1e115294ce1e4 (code bd811592, code/count3/) (PHY-047).

@@ -1323,6 +1323,32 @@
     "COM-IAMA-054"
    ],
    "note": "all three counted (ALL COUNTED 3 of 3, 02:29 PDT), but every count failed its own stamp check when read: the chain hashed before the JSON round trip turned the number keys of read_lengths into text (lesson C18). Not scored; rerun as count run 3"
+  },
+  {
+   "job_id": "i-0c7b1e115294ce1e4",
+   "name": "DEV-SECONDLAB-02 step 3, count run 3: Hansen's three donors counted by chain Stage Q2 (stamp fix, lesson C18)",
+   "date": "2026-10-16",
+   "commit": "bd811592",
+   "s3_code_prefix": "results/DEV_SECONDLAB_02/code/count3/",
+   "state": "running",
+   "log": "results/DEV_SECONDLAB_02/count_status.txt",
+   "machine": "spot m7a.8xlarge, self-terminating (5-hour hard stop)",
+   "purpose": "recount each donor with the fixed chain; run 2's refused counts kept in results/DEV_SECONDLAB_02/out_run2_refused/",
+   "record": "doors/DEV_SECONDLAB_02.md",
+   "outputs": [
+    "results/DEV_SECONDLAB_02/out/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/count_hansen.py",
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/samples.tsv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_SECONDLAB_02/box/count_box.sh"
+   ],
+   "manifest": [
+    "PHY-047",
+    "PHY-050",
+    "COM-IAMA-054"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {

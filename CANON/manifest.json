@@ -25228,7 +25228,7 @@
      "page": "not headline: exploratory miss, kept in the research record"
     }
    ],
-   "next_step": "count run 2 counted all three but the counts failed their own stamp check (lesson C18, the chain hashed before the JSON round trip); chain fixed, synthetic T8 MET; count run 3, then score_secondlab02.py once",
+   "next_step": "count run 2 counted all three but the counts failed their own stamp check (lesson C18, the chain hashed before the JSON round trip); chain fixed, synthetic T8 MET; count run 3 (i-0c7b1e115294ce1e4, launched 02:40 PDT), then score_secondlab02.py once",
    "cost": "laptop or box",
    "impact": 5,
    "depends_on": [
