@@ -31,7 +31,7 @@ markers confirmed 0.424 against 0.398; blood mixtures median error 0.0224 agains
 
 **Prior reading:** GSE103541, GSE118144, GSE122244 and GSE226298 are build sources, read to build the atlas; GSE184269 was read in the C-score band test (CANON/data_spent.csv), never against the atlas. None of the commissioned uses rests on them.
 
-**Synthetic test:** DEV_ATLAS_V21_01/planted_u1_v21_summary.txt, DEV_ATLAS_V21_01/planted_u2_v21_summary.txt, DEV_ATLAS_V21_01/planted_u3_v21_summary.txt
+**Synthetic test:** chain/stage_atlas_u1_planted.py, chain/stage_atlas_u2.py, chain/stage_atlas_u3.py, DEV_ATLAS_V21_01/planted_u1_v21_summary.txt, DEV_ATLAS_V21_01/planted_u2_v21_summary.txt, DEV_ATLAS_V21_01/planted_u3_v21_summary.txt
 
 Each use's planted test passed before its real scoring (box jobs 85685c55, 8abbdbe9, 50b9a3b9).
 

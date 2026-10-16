@@ -58,6 +58,7 @@ def check(changed, added, root=ROOT, known=None):
         for l in text.split("\n"):
             if not l.startswith("**Synthetic test:**"): continue
             for x in re.findall(r"[A-Za-z0-9_/.-]+\.(?:py|sh)", l):
+                if x.startswith("chain/") and os.path.isfile(os.path.join(root, CHAIN, x[len("chain/"):])): continue   # chain code is chain code (2026-10-16)
                 p = os.path.join(root, DOORS, "data", x)
                 if not os.path.isfile(p): F.append(f"{f}: synthetic test {x} is not under doors/data/ (rule 23b-a)"); continue
                 if not CHAIN_IMPORT.search(open(p, encoding="utf-8", errors="replace").read()):
