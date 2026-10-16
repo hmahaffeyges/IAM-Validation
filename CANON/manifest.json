@@ -27158,7 +27158,7 @@
    "sources_of_row": [
     "session 2026-10-16"
    ],
-   "notes": "2026-10-16: the page and book had not deployed since d1dd1c1e (one unescaped _ in p6_09_cscore.tex); fixed, and the push gate now refuses pushes while the website build fails (site_build_check.py, lesson C18)"
+   "notes": "2026-10-16: the page and book had not deployed since d1dd1c1e (one unescaped _ in p6_09_cscore.tex); fixed, and the push gate now refuses pushes while the website build fails (site_build_check.py, lesson C18) | 2026-10-16: page costs refreshed ($1,393.14 October to date; were $943 from 2026-10-12); checkpoint refreshes them every push; billing tags activated"
   },
   {
    "id": "ATL-065",

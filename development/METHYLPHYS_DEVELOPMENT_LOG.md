@@ -2209,3 +2209,6 @@ Atlas ranges, per-cell markers, weighted non-negative fit with a laboratory term
 
 ### 2026-10-16 · Deconvolution tool scored once (ATL-065)
 B1 MET: mean error 0.029 per cell on 200 mixtures of held-out arrays from independent laboratories. B2 NOT MET: the true share falls inside the 95 percent bar 42 percent of the time; the bar comes from site resampling and misses donor and laboratory spread. Stays development.
+
+### 2026-10-16 · Costs on the page refreshed; billing by machine switched on (OTH-067)
+The author: none of the pricing was updated. The page reads CANON/costs_snapshot.json, which the website build cannot refresh (no AWS access there) and which was last written 2026-10-12 ($943 for October). Refreshed from AWS billing: October to date $1,393.14. The checkpoint now refreshes the snapshot on every push. The run ledger said per-run cost was pending billing access; billing access works, the ledger now points to the monthly and daily charges, and the Name, run and project tags were activated in AWS billing so cost per machine is reported from 2026-10-16.
