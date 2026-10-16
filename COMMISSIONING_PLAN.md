@@ -14,11 +14,11 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 3. **IAM-A: its own healthy band, from evidence across laboratories**
    - COM-IAMA-054 (run; last run 2026-10-16: met): band v1 built (Normal 0.7787-1.0551, 156 readings, two laboratories); becomes IAM-A's Normal mark when IAM-A is commissioned (COM-IAMA-052)
 4. **IAM-A: clean room, part A**
-   - PHY-055 (planned): part A (IAM-A, 2026-10-16): fresh public clone, public data only (GEO, ENCODE), chain Stage Q2 recounts Loyfer 153 and ENCODE 5, rebuilds the self-reference line and the shape reference; every count, the line and the reference must equal the committed ones (doors/data/CLEANROOM_IAMA_01/). Not in part A: the Hansen rerun (one run only; its script and chain code are committed), the restricted tumor pairs (not public), the eraser and island side results (own chain reruns later)
+   - PHY-055 (running): part A (IAM-A, 2026-10-16): fresh public clone, public data only (GEO, ENCODE), chain Stage Q2 recounts Loyfer 153 and ENCODE 5, rebuilds the self-reference line and the shape reference; every count, the line and the reference must equal the committed ones (doors/data/CLEANROOM_IAMA_01/). Not in part A: the Hansen rerun (one run only; its script and chain code are committed), the restricted tumor pairs (not public), the eraser and island side results (own chain reruns later)
 5. **IAM-A: the grand sealed test, then commissioning**
    - COM-IAMA-052 (running): sealed 2026-10-16 (author: 'okay, seal it'): 13 healthy CD8 T-cell samples, GSE144691 (Youngblood, St. Jude), first 40 billion bases each, chain count; S1: at least 75 percent of read samples inside band v1, at least 8 read. Two self-terminating machines aligning and counting (run 1 never started, start-up file quoting; run 2: A i-0fd3660dff150bd4a, B i-0888ed7bd36c2020c, launched 04:34 PDT (AWS launch time); preflight ok 04:41 PDT, mapping 89.3 and 89.7 percent, poly-G tails 0.01 percent); then score_grand.py once
 6. **Atlas v2.1: the fit lands; release checks, sealed bars, the Loyfer and Moss use tests**
-   - ATL-005 (running; last run 2026-10-16: not met): U1 scored 2026-10-16 (4 of 27 pairs); author decision on the next step, then U2 and U3
+   - ATL-005 (running; last run 2026-10-16: not met): U1 (4 of 27 pairs) and U3 (failed) scored 2026-10-16; U2a running; then the per-use commissioning decision
    - ATL-060 (sealed): after the v2.1 release: assemble the held-out betas (Stage 1) and run use_tests_v21.py real once
 7. **Backbone: healthy range on the same counter; tumor-adjacent against truly healthy colon**
    - PHY-071 (planned): count the 56 healthy cell types' firm territory with PROC-TUMOUR-01's counter; write the range before comparing; re-read N and T2
@@ -45,7 +45,9 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 |---|---|---|
 | DEV-BACKBONE-01 island arm: tumor pairs re-aligned | methylphys-fit-01 (spot m7a.8xlarge, 32 cores, fixed address 32.190.44.180) | PHY-043 |
 | DEV-IAMA-GRAND-01 run 3 machine F: CD8 samples from the shared queue, aligned and counted by chain Stage Q2 | methylphys-cpu-01, on-demand m7a.32xlarge, 1.5 TB work disk vol-0230dfb60526c5806 (delete after the test) | COM-IAMA-052 |
-| DEV-IAMA-GRAND-01 run 3 machine G: CD8 samples from the shared queue, aligned and counted by chain Stage Q2 | spot c7a.32xlarge us-west-2d | COM-IAMA-052 |
+| DEV-IAMA-GRAND-01 run 3 machine H: CD8 samples from the shared queue, aligned and counted by chain Stage Q2 | spot m7a.16xlarge us-west-2d, 2 samples at a time | COM-IAMA-052 |
+| DEV-IAMA-GRAND-01 run 3 machine I: CD8 samples from the shared queue, aligned and counted by chain Stage Q2 | spot m7a.16xlarge us-west-2d, 2 samples at a time | COM-IAMA-052 |
+| IAM-A clean room part A: fresh public clone recounts Loyfer 153 and ENCODE 5 and rebuilds the line and shape reference (PHY-055) | spot c7a.8xlarge us-west-2d, self-terminating | PHY-055 |
 
 ## Decisions waiting for the author
 
