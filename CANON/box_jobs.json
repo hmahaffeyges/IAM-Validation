@@ -1278,7 +1278,7 @@
    "date": "2026-10-16",
    "commit": "a32e96bc",
    "s3_code_prefix": "results/DEV_SECONDLAB_02/code/count/",
-   "state": "running",
+   "state": "failed",
    "log": "results/DEV_SECONDLAB_02/count_status.txt",
    "machine": "spot m7a.8xlarge, self-terminating (5-hour hard stop)",
    "purpose": "wait for the three BAMs, count each with count_hansen.py (chain Stage Q2 count_bam); nothing scored on the machine",
@@ -1296,7 +1296,7 @@
     "PHY-050",
     "COM-IAMA-054"
    ],
-   "note": "running"
+   "note": "every donor's count failed at once: the machine fetched the alignment files without their index, and the counter reads by region (ValueError: fetch called on bamfile without index). No count was written. Run 2 builds the index when missing"
   }
  ],
  "not_jobs": {

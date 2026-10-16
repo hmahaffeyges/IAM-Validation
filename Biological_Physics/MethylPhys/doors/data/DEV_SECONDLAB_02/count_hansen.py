@@ -5,6 +5,7 @@ import os, sys, json, collections
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "chain")); import stage_q2_selfref as Q2
 import pysam
 bam, fa, donor, gsm, srr, w = sys.argv[1:7]
+if not (os.path.exists(bam + ".bai") or os.path.exists(bam[:-4] + ".bai")): pysam.index(bam, "-@", str(w))   # run 1 of the count: the machine fetched no index, every region read failed (2026-10-16)
 L = collections.Counter()
 for i, a in enumerate(pysam.AlignmentFile(bam, "rb")):
     if i >= 20000: break
