@@ -1349,6 +1349,58 @@
     "COM-IAMA-054"
    ],
    "note": "all three counted 02:49 PDT, stamps verified; scored once (S1 NOT MET). The machine's code.tgz carries REPO_COMMIT bd811592 (chain identical at the recorded commit; only count_box.sh's code path differs)"
+  },
+  {
+   "job_id": "i-08dc4b0112d7cbdcf",
+   "name": "DEV-IAMA-GRAND-01 machine A: CD8 samples aligned and counted by chain Stage Q2",
+   "date": "2026-10-16",
+   "commit": "778d0d03",
+   "s3_code_prefix": "results/DEV_IAMA_GRAND_01/code/run1_A/",
+   "state": "running",
+   "log": "results/DEV_IAMA_GRAND_01/status_A.txt",
+   "machine": "spot m7a.32xlarge, self-terminating (20-hour hard stop)",
+   "purpose": "align (as Hansen, poly-G on for NovaSeq) and count the samples.csv rows with machine A; nothing scored on the machine",
+   "record": "doors/DEV_IAMA_GRAND_01.md",
+   "outputs": [
+    "results/DEV_IAMA_GRAND_01/out/",
+    "results/DEV_IAMA_GRAND_01/bam/",
+    "results/DEV_IAMA_GRAND_01/reports/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/box/align_grand.sh",
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/samples.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/count_grand.py"
+   ],
+   "manifest": [
+    "COM-IAMA-052"
+   ],
+   "note": "running; read its code at launch from code/run1/ (byte-identical to this folder)"
+  },
+  {
+   "job_id": "i-09312ac563e99be54",
+   "name": "DEV-IAMA-GRAND-01 machine B: CD8 samples aligned and counted by chain Stage Q2",
+   "date": "2026-10-16",
+   "commit": "778d0d03",
+   "s3_code_prefix": "results/DEV_IAMA_GRAND_01/code/run1_B/",
+   "state": "running",
+   "log": "results/DEV_IAMA_GRAND_01/status_B.txt",
+   "machine": "spot m7a.32xlarge, self-terminating (20-hour hard stop)",
+   "purpose": "align (as Hansen, poly-G on for NovaSeq) and count the samples.csv rows with machine B; nothing scored on the machine",
+   "record": "doors/DEV_IAMA_GRAND_01.md",
+   "outputs": [
+    "results/DEV_IAMA_GRAND_01/out/",
+    "results/DEV_IAMA_GRAND_01/bam/",
+    "results/DEV_IAMA_GRAND_01/reports/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/box/align_grand.sh",
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/samples.csv",
+    "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/count_grand.py"
+   ],
+   "manifest": [
+    "COM-IAMA-052"
+   ],
+   "note": "running; read its code at launch from code/run1/ (byte-identical to this folder)"
   }
  ],
  "not_jobs": {

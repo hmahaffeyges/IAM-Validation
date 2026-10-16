@@ -2127,3 +2127,4 @@ The author sealed the amendment: the U1 range adds the measured laboratory sprea
 
 ### 2026-10-16 · IAM-A grand sealed test sealed (COM-IAMA-052)
 The author sealed DEV-IAMA-GRAND-01 before any CD8 read was downloaded: 13 healthy sorted CD8 T-cell samples from GSE144691 (Youngblood laboratory, St. Jude), first 40 billion bases each, aligned as Hansen (poly-G trimming on for NovaSeq), counted by chain Stage Q2; S1: at least 75 percent of read samples inside band v1 (0.7787-1.0551), at least 8 read. Neutrophils were checked first and set aside: no public, readable healthy set from an independent laboratory. Chain grand_verdict with synthetic T9 MET. A conversion-quality cutoff added as an idea row for after the test.
+Machines A (i-08dc4b0112d7cbdcf) and B (i-09312ac563e99be54) launched, code 778d0d03, code/run1/ (COM-IAMA-052).

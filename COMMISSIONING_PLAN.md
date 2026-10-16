@@ -16,7 +16,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 4. **IAM-A: clean room, part A**
    - PHY-055 (planned): part A (IAM-A, 2026-10-16): fresh public clone, public data only (GEO, ENCODE), chain Stage Q2 recounts Loyfer 153 and ENCODE 5, rebuilds the self-reference line and the shape reference; every count, the line and the reference must equal the committed ones (doors/data/CLEANROOM_IAMA_01/). Not in part A: the Hansen rerun (one run only; its script and chain code are committed), the restricted tumor pairs (not public), the eraser and island side results (own chain reruns later)
 5. **IAM-A: the grand sealed test, then commissioning**
-   - COM-IAMA-052 (running): sealed 2026-10-16 (author: 'okay, seal it'): 13 healthy CD8 T-cell samples, GSE144691 (Youngblood, St. Jude), first 40 billion bases each, chain count; S1: at least 75 percent of read samples inside band v1, at least 8 read. Two self-terminating machines aligning and counting; then score_grand.py once
+   - COM-IAMA-052 (running): sealed 2026-10-16 (author: 'okay, seal it'): 13 healthy CD8 T-cell samples, GSE144691 (Youngblood, St. Jude), first 40 billion bases each, chain count; S1: at least 75 percent of read samples inside band v1, at least 8 read. Two self-terminating machines aligning and counting (A i-08dc4b0112d7cbdcf, B i-09312ac563e99be54, launched 04:20 PDT); then score_grand.py once
 6. **Atlas v2.1: the fit lands; release checks, sealed bars, the Loyfer and Moss use tests**
    - ATL-005 (running): the v2.1 fit is running on methylphys-cpu-01 (m7a.32xlarge, 128 cores, 512 GB; job c2b26b34): 558 of 700 blocks at 2026-10-16T08:46:11Z, 12 divergences, worst R-hat p99 1.0084; then release checks (F05 judges the divergent blocks), the sealed bars and the use tests
    - ATL-060 (sealed): after the v2.1 release: assemble the held-out betas (Stage 1) and run use_tests_v21.py real once
@@ -45,6 +45,8 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 |---|---|---|
 | Atlas v2.1 fit (stage B, 700 blocks, mode v21inv) | methylphys-cpu-01 (on-demand m7a.32xlarge, 128 cores, 512 GB) | ATL-005 |
 | DEV-BACKBONE-01 island arm: tumor pairs re-aligned | methylphys-fit-01 (spot m7a.8xlarge, 32 cores, fixed address 32.190.44.180) | PHY-043 |
+| DEV-IAMA-GRAND-01 machine A: CD8 samples aligned and counted by chain Stage Q2 | spot m7a.32xlarge, self-terminating (20-hour hard stop) | COM-IAMA-052 |
+| DEV-IAMA-GRAND-01 machine B: CD8 samples aligned and counted by chain Stage Q2 | spot m7a.32xlarge, self-terminating (20-hour hard stop) | COM-IAMA-052 |
 
 ## Decisions waiting for the author
 
