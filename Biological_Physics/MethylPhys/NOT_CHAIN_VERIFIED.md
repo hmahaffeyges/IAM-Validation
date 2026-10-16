@@ -12,7 +12,7 @@ It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 | record | synthetic script | why | manifest rows |
 |---|---|---|---|
 | DEV_BACKBONE_01 *IAM-A gate* | `DEV_BACKBONE_01/backbone_01.py` | declares NO CHAIN | PHY-043 |
-| DEV_SECONDLAB_01 *IAM-A gate* | `DEV_SECONDLAB_01/secondlab.py` | declares NO CHAIN | PHY-047, PHY-050, PHY-074 |
+| DEV_SECONDLAB_01 *IAM-A gate* | `DEV_SECONDLAB_01/secondlab.py` | declares NO CHAIN | PHY-047, PHY-050 |
 | CSCORE_COMMISSIONING_PLAN | `CSCORE_COMMISSIONING/plan_numbers.py` | declares NO CHAIN | COM-METAA-036, COM-CSCORE-001, COM-CSCORE-002, COM-CSCORE-003, COM-CSCORE-004, COM-CSCORE-005 |
 | DEV_ATLAS_USE_01 | `DEV_ATLAS_USE_01/use_tests_v21.py` | declares NO CHAIN | ATL-060 |
 | DEV_ATLAS_V21_01 | `DEV_ATLAS_V21_01/planted_commission_v21.py` | declares NO CHAIN | COM-METAA-007, COM-METAA-008, COM-METAA-011, COM-METAA-033, ATL-005, ATL-006 |
