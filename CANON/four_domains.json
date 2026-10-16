@@ -1092,5 +1092,168 @@
   }
  ],
  "pieces_note": "Each prior piece, who gave it (record checked in Crossref or arXiv on 2026-10-15), where it sits on the connections table, and what IAM connects it to. The last column is IAM's claim and keeps the book's tag. Gough and Vopson: what IAM adds is stated only after their papers are read in full. Still to add: the surface-code threshold (qubits), Dennard scaling and the 60 mV per decade limit (chips), single-molecule methylation entropy (cells).",
- "bits_scope": "IAM is a model of how reality begins with a bit and the cost that comes with it. This part translates the four applications into computer language; the book stays the source (author 2026-10-15: translate the applications and make the connections, in bits)."
+ "bits_scope": "IAM is a model of how reality begins with a bit and the cost that comes with it. This part translates the four applications into computer language; the book stays the source (author 2026-10-15: translate the applications and make the connections, in bits).",
+ "guidebook_title": "IAM in bits: a guidebook to computational reality",
+ "unique": [
+  {
+   "claim": "One law with one price at every scale",
+   "what": "Each irreversible record costs k_B T ln 2 at the temperature of its own surface: horizon, star, qubit, chip, cell. Others use bits in one domain at a time; reading one law across all of them is the synthesis.",
+   "status": "IAM's law (book Part 1)"
+  },
+  {
+   "claim": "Formulas others do not have",
+   "what": "The record rate with its 7/2 exponent; the activation function E(a) = exp(1 - 1/a); information density at half the matter density today; the expansion-rate value that follows.",
+   "status": "IAM's (book Parts 1-2; tags as in the book)"
+  },
+  {
+   "claim": "The kinetic half as the Landauer cost of binding",
+   "what": "K = Q = T dS_min. Related to Smarr 1973 and Padmanabhan 2010; the identity as the book states it is the candidate contribution.",
+   "status": "candidate (book p1_04, interp)"
+  },
+  {
+   "claim": "Data and working instruments",
+   "what": "The same law measured on chips, qubits and living cells; two commissioned cell instruments (Met-A, the C-score), the cell floor from the Mahaffey number (20.94), and the self-reference line. No one in the lineage took the law into a cell and built a working instrument.",
+   "status": "measured and commissioned (records in the repository)"
+  },
+  {
+   "claim": "Gravity tied to the decoherence of mass, in IAM's direction",
+   "what": "Prior work links gravity and decoherence: gravity as a cause of decoherence or collapse (Diosi 1987; Penrose 1996; reviews Bassi et al. 2017, Anastopoulos and Hu 2022), and decoherence as the trigger for a mass to source a classical field (semiclassical proposals, e.g. arXiv 2507.05237, 2025). Not found: gravity's strength set by the Landauer price of the records decoherence writes. IAM may claim that form only.",
+   "status": "literature checked 2026-10-16; IAM form is IAM's claim"
+  }
+ ],
+ "ladder_note": "One law, the same units at every scale (book Ch. 'One half at every scale', p6_04, Table tab:p4_halves, values as the book states them). Each row splits an energy into two equal halves; the row's status is the book's.",
+ "ladder": [
+  {
+   "system": "Hydrogen atom, ground state",
+   "relation": "2<K> = -<V>",
+   "half": "<K> = 13.61 eV, <V> = -27.21 eV",
+   "status": "derived"
+  },
+  {
+   "system": "Charging a capacitor (a chip's gate) from a fixed supply",
+   "relation": "drawn CV^2",
+   "half": "1/2 CV^2 stored, 1/2 CV^2 dissipated",
+   "status": "derived"
+  },
+  {
+   "system": "Equipartition at body temperature, 310.15 K",
+   "relation": "1/2 k_B T per quadratic term",
+   "half": "2.14e-21 J (a different half)",
+   "status": "derived"
+  },
+  {
+   "system": "A star contracting slowly",
+   "relation": "E = U/2",
+   "half": "half of the released energy heats the star, half is radiated",
+   "status": "derived"
+  },
+  {
+   "system": "Black hole, one solar mass",
+   "relation": "Mc^2 = 2 T_H S",
+   "half": "horizon bits x Landauer cost T_H S = 8.94e46 J = Mc^2/2",
+   "status": "calc"
+  },
+  {
+   "system": "Cosmic horizon (today)",
+   "relation": "energy inside = bits x k_B T ln 2 at the horizon temperature",
+   "half": "3.27e122 bits; 2.54e-53 J per bit, split in two at decoherence",
+   "status": "calc (PHY-075, development/dark_sector_2026-10-16)"
+  }
+ ],
+ "terms": [
+  {
+   "picture": "Happy spot for the program",
+   "term": "operating point (sweet spot), steady state, peak performance per watt",
+   "gauge": "healthy balance"
+  },
+  {
+   "picture": "Working too hard",
+   "term": "high utilization, overclocked, throttling (heat forces it to slow), queue building up (backpressure)",
+   "gauge": "right of healthy"
+  },
+  {
+   "picture": "The moment it cannot keep up",
+   "term": "saturation, overflow (data arriving faster than it can be handled), thermal shutdown",
+   "gauge": "toward the ceiling, the full surface"
+  },
+  {
+   "picture": "The reading at that moment",
+   "term": "maximum sustained throughput; in information theory, channel capacity",
+   "gauge": "the qubit's error-correction threshold is this"
+  },
+  {
+   "picture": "Storage full",
+   "term": "capacity reached, disk full",
+   "gauge": "the ceiling"
+  },
+  {
+   "picture": "Adding a new machine when one cannot keep up",
+   "term": "scaling out",
+   "gauge": "tumors adding surface to carry a rising bit rate (hypothesis)"
+  },
+  {
+   "picture": "A record of the state at failure",
+   "term": "snapshot, checkpoint; at a crash, a core dump",
+   "gauge": "one sample's reading"
+  },
+  {
+   "picture": "Working memory and long-term storage",
+   "term": "RAM (fast, lost when power is cut) and disk (slow, kept)",
+   "gauge": "loose territory and firm territory (analogy)"
+  },
+  {
+   "picture": "A typo fixed on the fly",
+   "term": "error-correcting code (ECC memory)",
+   "gauge": "the writer re-marking a lost tag (analogy)"
+  }
+ ],
+ "facts": [
+  {
+   "fact": "The whole body writes about 1.2-1.6e17 methyl marks per second: 16.7-23.4 mmol of SAM a day in a 70 kg young adult.",
+   "source": "Mudd et al. 2007, Am J Clin Nutr 85:19 (doi 10.1093/ajcn/85.1.19)",
+   "note": "Whole-body only. A per-cell average is not given: most cells are red cells, which carry no DNA."
+  },
+  {
+   "fact": "The cosmic horizon holds about 3.3e122 bits today, one per 4 ln 2 = 2.77 Planck areas.",
+   "source": "holographic bound (Bekenstein 1973; 't Hooft; Susskind); PHY-075",
+   "note": "calculated with Planck 2018 values"
+  },
+  {
+   "fact": "Dark energy and matter were equal 3.5 billion years ago; at the CMB, matter outweighed dark energy about 600 million to one.",
+   "source": "Planck 2018; PHY-075",
+   "note": "calculated"
+  },
+  {
+   "fact": "The measured dark-energy density is about 1e-123 of the particle-physics vacuum estimate.",
+   "source": "Planck 2018; c^7/(hbar G^2)",
+   "note": "calculated"
+  },
+  {
+   "fact": "A cell's methyl writer would hold its mark at 4.15 k_B T against a drive of 20.94 k_B T (the Mahaffey number) from ATP.",
+   "source": "book Part 6; DEV_BACKBONE_01",
+   "note": "derived; drive measured"
+  }
+ ],
+ "literature_status": [
+  {
+   "item": "Gravity tied to the decoherence of mass",
+   "found": "Related prior work in both directions (Diosi-Penrose: gravity causes collapse; semiclassical proposals: decoherence triggers a classical field). Not found: gravity set by the Landauer price of decohered records.",
+   "checked": "2026-10-16, web search; to confirm in a database search before any paper"
+  },
+  {
+   "item": "Methylation entropy read on single molecules",
+   "found": "Yes: methylation entropy (Xie et al. 2011, Nucleic Acids Res 39:4099), epipolymorphism (Landan et al. 2012, Nat Genet 44:1207), discordant reads (Landau et al. 2014). They measure pattern diversity in 4-CpG windows. IAM-A differs: isolated holes inside firm runs, read against the sample's own loose share and a physical floor.",
+   "checked": "2026-10-16, web search"
+  },
+  {
+   "item": "Surface-code error threshold (qubits)",
+   "found": "to check",
+   "checked": "open"
+  },
+  {
+   "item": "Dennard scaling and the 60 mV per decade limit (chips)",
+   "found": "to check",
+   "checked": "open"
+  }
+ ]
 }

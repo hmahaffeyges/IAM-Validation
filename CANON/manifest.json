@@ -26827,7 +26827,7 @@
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
-   "notes": "no math changes: each number re-expressed in bits; book tags (derived, interpretation, conjecture) unchanged",
+   "notes": "no math changes: each number re-expressed in bits; book tags (derived, interpretation, conjecture) unchanged | 2026-10-16 (author's downtime list item 1): the IAM-in-bits part renamed 'a guidebook to computational reality'; Tables 7-11 added as data in four_domains.json: what IAM can claim, one law at every scale (book tab:p4_halves plus the horizon), everyday picture to computing term to gauge, facts (the per-cell methyl rate stays withdrawn), literature checks (gravity-decoherence: related prior work both directions, IAM's Landauer-price form not found; single-molecule methylation entropy: Xie 2011, Landan 2012, Landau 2014 exist, IAM-A's measure differs). Open: surface-code threshold, Dennard and the 60 mV limit.",
    "legacy_ids": [],
    "id": "OTH-061",
    "sources_of_row": [

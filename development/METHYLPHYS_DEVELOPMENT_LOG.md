@@ -2137,3 +2137,6 @@ Correction the same morning: the first working used the black-hole temperature f
 
 ### 2026-10-16 · Candidate: dark matter as the potential half stored as spacetime's fabric (PHY-076)
 From the author's question. Three measured behaviors it must reproduce before it is a result: clumping around galaxies, 1/a^3 dilution, the CMB peak pattern. Parked behind commissioning.
+
+### 2026-10-16 · Guidebook to computational reality: Tables 7-11 (OTH-061)
+The author's downtime item 1. Five tables added as data in CANON/four_domains.json and generated into FOUR_DOMAINS.md: claims, the one-law ladder, computing terms, facts, literature checks. Two literature checks run: gravity and decoherence have prior work in both directions, but IAM's form (gravity set by the Landauer price of decohered records) was not found; single-molecule methylation entropy exists (Xie 2011, Landan 2012, Landau 2014), and IAM-A measures something different.

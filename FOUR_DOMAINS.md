@@ -146,7 +146,7 @@ The book is the source; every entry cites a book section or App. E number.
 - Point of no return, cosmos: shown as conjecture; the book tags it conjecture, derived
 - Point of no return, qubits: shown as conjecture; the book tags it calculated, conjecture, derived, interp
 
-## IAM in bits: the applications in computer language
+## IAM in bits: a guidebook to computational reality
 
 IAM is a model of how reality begins with a bit and the cost that comes with it. This part translates the four applications into computer language; the book stays the source (author 2026-10-15: translate the applications and make the connections, in bits).
 
@@ -272,3 +272,59 @@ Each prior piece, who gave it (record checked in Crossref or arXiv on 2026-10-15
 | Gravity causes collapse | Diosi 1987, Phys. Lett. A 120, 377; Penrose 1996, Gen. Rel. Grav. 28, 581 | the gravity-decoherence link | the other direction: decoherence writes records whose price is gravity's source (IAM's claim; novelty to confirm) |
 | The virial theorem; the Smarr relation | Clausius 1870; Smarr 1973 | Operating point (cosmos), the 50/50 | one example of IAM's Law (book, What the kinetic half is) |
 | It from bit | Wheeler 1989 | the framing | the bit with its price, from the quantum to the classical |
+
+### Table 7. What IAM brings that it can claim
+
+| Claim | What it is | Status |
+|---|---|---|
+| **One law with one price at every scale** | Each irreversible record costs k_B T ln 2 at the temperature of its own surface: horizon, star, qubit, chip, cell. Others use bits in one domain at a time; reading one law across all of them is the synthesis. | IAM's law (book Part 1) |
+| **Formulas others do not have** | The record rate with its 7/2 exponent; the activation function E(a) = exp(1 - 1/a); information density at half the matter density today; the expansion-rate value that follows. | IAM's (book Parts 1-2; tags as in the book) |
+| **The kinetic half as the Landauer cost of binding** | K = Q = T dS_min. Related to Smarr 1973 and Padmanabhan 2010; the identity as the book states it is the candidate contribution. | candidate (book p1_04, interp) |
+| **Data and working instruments** | The same law measured on chips, qubits and living cells; two commissioned cell instruments (Met-A, the C-score), the cell floor from the Mahaffey number (20.94), and the self-reference line. No one in the lineage took the law into a cell and built a working instrument. | measured and commissioned (records in the repository) |
+| **Gravity tied to the decoherence of mass, in IAM's direction** | Prior work links gravity and decoherence: gravity as a cause of decoherence or collapse (Diosi 1987; Penrose 1996; reviews Bassi et al. 2017, Anastopoulos and Hu 2022), and decoherence as the trigger for a mass to source a classical field (semiclassical proposals, e.g. arXiv 2507.05237, 2025). Not found: gravity's strength set by the Landauer price of the records decoherence writes. IAM may claim that form only. | literature checked 2026-10-16; IAM form is IAM's claim |
+
+### Table 8. One law at every scale, in the same units
+
+One law, the same units at every scale (book Ch. 'One half at every scale', p6_04, Table tab:p4_halves, values as the book states them). Each row splits an energy into two equal halves; the row's status is the book's.
+
+| System | Relation | The two halves | Status |
+|---|---|---|---|
+| Hydrogen atom, ground state | 2<K> = -<V> | <K> = 13.61 eV, <V> = -27.21 eV | derived |
+| Charging a capacitor (a chip's gate) from a fixed supply | drawn CV^2 | 1/2 CV^2 stored, 1/2 CV^2 dissipated | derived |
+| Equipartition at body temperature, 310.15 K | 1/2 k_B T per quadratic term | 2.14e-21 J (a different half) | derived |
+| A star contracting slowly | E = U/2 | half of the released energy heats the star, half is radiated | derived |
+| Black hole, one solar mass | Mc^2 = 2 T_H S | horizon bits x Landauer cost T_H S = 8.94e46 J = Mc^2/2 | calc |
+| Cosmic horizon (today) | energy inside = bits x k_B T ln 2 at the horizon temperature | 3.27e122 bits; 2.54e-53 J per bit, split in two at decoherence | calc (PHY-075, development/dark_sector_2026-10-16) |
+
+### Table 9. The everyday picture, the computing term, the gauge
+
+| Your picture | Computing term | On IAM's gauge |
+|---|---|---|
+| Happy spot for the program | operating point (sweet spot), steady state, peak performance per watt | healthy balance |
+| Working too hard | high utilization, overclocked, throttling (heat forces it to slow), queue building up (backpressure) | right of healthy |
+| The moment it cannot keep up | saturation, overflow (data arriving faster than it can be handled), thermal shutdown | toward the ceiling, the full surface |
+| The reading at that moment | maximum sustained throughput; in information theory, channel capacity | the qubit's error-correction threshold is this |
+| Storage full | capacity reached, disk full | the ceiling |
+| Adding a new machine when one cannot keep up | scaling out | tumors adding surface to carry a rising bit rate (hypothesis) |
+| A record of the state at failure | snapshot, checkpoint; at a crash, a core dump | one sample's reading |
+| Working memory and long-term storage | RAM (fast, lost when power is cut) and disk (slow, kept) | loose territory and firm territory (analogy) |
+| A typo fixed on the fly | error-correcting code (ECC memory) | the writer re-marking a lost tag (analogy) |
+
+### Table 10. Facts
+
+| Fact | Source | Note |
+|---|---|---|
+| The whole body writes about 1.2-1.6e17 methyl marks per second: 16.7-23.4 mmol of SAM a day in a 70 kg young adult. | Mudd et al. 2007, Am J Clin Nutr 85:19 (doi 10.1093/ajcn/85.1.19) | Whole-body only. A per-cell average is not given: most cells are red cells, which carry no DNA. |
+| The cosmic horizon holds about 3.3e122 bits today, one per 4 ln 2 = 2.77 Planck areas. | holographic bound (Bekenstein 1973; 't Hooft; Susskind); PHY-075 | calculated with Planck 2018 values |
+| Dark energy and matter were equal 3.5 billion years ago; at the CMB, matter outweighed dark energy about 600 million to one. | Planck 2018; PHY-075 | calculated |
+| The measured dark-energy density is about 1e-123 of the particle-physics vacuum estimate. | Planck 2018; c^7/(hbar G^2) | calculated |
+| A cell's methyl writer would hold its mark at 4.15 k_B T against a drive of 20.94 k_B T (the Mahaffey number) from ATP. | book Part 6; DEV_BACKBONE_01 | derived; drive measured |
+
+### Table 11. Literature checks
+
+| Question | What was found | Checked |
+|---|---|---|
+| Gravity tied to the decoherence of mass | Related prior work in both directions (Diosi-Penrose: gravity causes collapse; semiclassical proposals: decoherence triggers a classical field). Not found: gravity set by the Landauer price of decohered records. | 2026-10-16, web search; to confirm in a database search before any paper |
+| Methylation entropy read on single molecules | Yes: methylation entropy (Xie et al. 2011, Nucleic Acids Res 39:4099), epipolymorphism (Landan et al. 2012, Nat Genet 44:1207), discordant reads (Landau et al. 2014). They measure pattern diversity in 4-CpG windows. IAM-A differs: isolated holes inside firm runs, read against the sample's own loose share and a physical floor. | 2026-10-16, web search |
+| Surface-code error threshold (qubits) | to check | open |
+| Dennard scaling and the 60 mV per decade limit (chips) | to check | open |
