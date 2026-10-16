@@ -878,3 +878,4 @@ _The canonical list is [MANIFEST.md](MANIFEST.md). This file is generated from i
 - [x] **COM-METAA-039** Met-A read against the sample's own line (a smaller tare, or none): last run 2026-10-15, fail
 - [x] **OTH-056** Rebuild the operations-manual PDF from the corrected chapter: last run 2026-10-15, success
 - [x] **OTH-057** Wire the own-read counter and gemBS reading into the chain's Stage Q: last run 2026-10-15, success
+- [x] **OTH-061** One bit convention across the four domains: bits stored, bits per operation, bit rate: last run 2026-10-15, progressed

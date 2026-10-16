@@ -207,13 +207,13 @@
   },
   {
    "id": "bits",
-   "name": "The record in bits",
-   "definition": "One two-state element is one bit of capacity; the held information per element is 1 - H(eps); 1 kT = 1/ln2 = 1.443 Landauer bits.",
+   "name": "Bits stored (data at rest)",
+   "definition": "The surface's record and its capacity, in bits. One two-state element is one bit of capacity; the held information per element is 1 - H(eps); 1 kT = 1/ln2 = 1.443 Landauer bits. One of three bit measures (OTH-061): bits stored, bits per operation, bit rate.",
    "cosmos": {
     "native": "horizon bits",
     "formula": "Hubble horizon: area/(4 l_P^2 ln2) = about 3.3e122 bits (H0 67.16) or 2.8e122 (72.26); grows about 6.8e104 bits per second today, peak at the turn to acceleration (an identity of the expansion shape); computed with flat matter plus Lambda, not yet IAM's E(a)",
     "status": "calculated",
-    "source": "development/WHITEBOARD_2026-10-15.md part 6"
+    "source": "development/WHITEBOARD_2026-10-15.md part 6; the rate 'about 6.8e104 bits per second today' is our whiteboard calculation, not a book figure (see the bit-rate row)"
    },
    "qubits": {
     "native": "one qubit's classical record",
@@ -232,6 +232,64 @@
     "formula": "28,217,009 CpG sites per haploid genome (counted from hg19); a diploid cell has about 112 million methyl positions (about 14 MB), about 89 million bits held at the healthy held error; M = 20.94 kT per ATP = 30.2 bits; the firm mark's holding 4.15 kT = 6.0 bits",
     "status": "calculated",
     "source": "development/WHITEBOARD_2026-10-15.md part 6"
+   }
+  },
+  {
+   "id": "bits_per_op",
+   "name": "Bits per operation (a snapshot or a limit)",
+   "definition": "The writing in one operation, read at one moment: per site for the cell, per gate for the qubit, per switch for the chip. Limits (floor, ceiling) are stated in this measure. Each bit written costs at least k_B T ln 2 (IAM's Law).",
+   "cosmos": {
+    "status": "derived",
+    "native": "one irreversible record on the horizon",
+    "formula": "k_B T_H ln 2 per bit at the Gibbons-Hawking temperature T_H = hbar H/(2 pi k_B)",
+    "source": "p1_02 (IAM's Law at the horizon); p2_03a sec:eg_activation"
+   },
+   "qubits": {
+    "status": "measured",
+    "native": "one gate",
+    "formula": "error per gate p, read as eps = -ln(1 - p); the error-correction threshold about 1e-2 per operation is the limit",
+    "source": "part5/p5_10_qubit_platforms.tex §Three marks; one-gauge figure (part7)"
+   },
+   "chips": {
+    "status": "calculated",
+    "native": "one switch",
+    "formula": "E_sw/(k_B T_j ln 2), E_sw = TDP/(N_trans f): the Landauer bits' worth paid per switch; 399-411 for the Ryzen 9 9950X, an order-of-magnitude figure for the whole chip (the book's own caveat)",
+    "source": "p5_06 'The floor for logic'; p5_11 sec:cg_floor and tab:cg_defs"
+   },
+   "cells": {
+    "status": "derived",
+    "native": "one identity site",
+    "formula": "H(eps) bits per site; floor H_min = 2.5e-8 bits per site (one ATP against thermal kicks), ceiling 1 bit per site (coin flip)",
+    "source": "p6_00b 'One instrument, one gauge'; p6_06 'The points on the gauge'; p6_07 'The entropy ceiling'"
+   }
+  },
+  {
+   "id": "bit_rate",
+   "name": "Bit rate (data in motion)",
+   "definition": "Bits written per unit time: anything in motion, the scaling formulas, rewinding to another z. Saturation is a rate reaching the surface's capacity to record.",
+   "cosmos": {
+    "status": "conjecture",
+    "native": "the record rate on the horizon",
+    "formula": "I_dot proportional to rho_m D^n f H (n = 7/2); its cumulative integral on the horizon gives E(a) = exp(1 - 1/a). Black-hole formation: dS_local/dt >= dS_BH/dt, the local rate reaching the horizon's encoding capacity. Hawking bit rate dS_transfer/dt for the outflow",
+    "source": "p2_02 sec:vc_exponent, sec:vc_activation; p2_03 eq:th:rhodot (the identification of the density's growth rate with the record rate is tagged conjecture); app_S Step 5 eq:sat_star; p3_01 sec:bh_bitrate"
+   },
+   "qubits": {
+    "status": "derived",
+    "native": "erasures of discarded flips",
+    "formula": "p_th(t) = Gamma_up t = p_eq t/T_1 (t << T_1); erasures at rate 1/tau_TLS whether or not the qubit is being used",
+    "source": "part5/p5_10_qubit_platforms.tex §Three marks; part5/p5_02_xqp.tex §The proposal"
+   },
+   "chips": {
+    "status": "calculated",
+    "native": "switches per second",
+    "formula": "N f switches per second at E per switch (TDP = N f E); bits' worth per second = TDP/(k_B T_j ln 2)",
+    "source": "p5_06 'The floor for logic' (TDP = N_trans f E_sw); p5_11 tab:cg_defs"
+   },
+   "cells": {
+    "status": "open",
+    "native": "none yet",
+    "formula": "the cell reading is a snapshot (bits per site); a rate needs a clock, and the only clock proposed is development (clock row, candidate). Turnover and division are not used (author's rule)",
+    "source": "clock row; author 2026-10-15"
    }
   },
   {
@@ -922,6 +980,6 @@
   }
  ],
  "_source_rule": "The book (docs/book) is the source; the author's papers are only a guide to find the section. Every entry cites a book section or App. E number.",
- "preamble": "**The virial part of IAM's Law.** The book's thermodynamic identity, <K> = Q = T dS = E_Landauer, \"is IAM's Law at the boundary of a bound state; the virial theorem is its mechanical special case\" (Ch. What the kinetic half is, p1_04, tagged \\interp). The one half it fixes holds for every 1/r binding: gravity and the Coulomb binding of every atom, molecule and bond. It therefore applies to the electrons and molecules in qubits, chips and cells, not only to the cosmos (Ch. One half at every scale, p1_03, \\derived). The evidence, none of it produced by us: Hartree-Fock tables for 20 atoms and 10 molecules (Clementi & Roetti 1974; Bunge et al. 1993), the Sun and the Chandrasekhar limit, Zwicky's Coma cluster, six independent N-body simulation groups (Bryan & Norman 1998; Bett 2007; Neto 2007; Ludlow 2010; Power 2012; Klypin 2016), and the Smarr relation for black holes (Smarr 1973; Bardeen, Carter & Hawking 1973). What is still open in each domain is not whether the half holds, but which process carries which half (the 'two halves' row).",
+ "preamble": "**The virial part of IAM's Law.** The book's thermodynamic identity, <K> = Q = T dS = E_Landauer, \"is IAM's Law at the boundary of a bound state; the virial theorem is its mechanical special case\" (Ch. What the kinetic half is, p1_04, tagged \\interp). The one half it fixes holds for every 1/r binding: gravity and the Coulomb binding of every atom, molecule and bond. It therefore applies to the electrons and molecules in qubits, chips and cells, not only to the cosmos (Ch. One half at every scale, p1_03, \\derived). The evidence, none of it produced by us: Hartree-Fock tables for 20 atoms and 10 molecules (Clementi & Roetti 1974; Bunge et al. 1993), the Sun and the Chandrasekhar limit, Zwicky's Coma cluster, six independent N-body simulation groups (Bryan & Norman 1998; Bett 2007; Neto 2007; Ludlow 2010; Power 2012; Klypin 2016), and the Smarr relation for black holes (Smarr 1973; Bardeen, Carter & Hawking 1973). What is still open in each domain is not whether the half holds, but which process carries which half (the 'two halves' row).\n\n**Three bit measures (author, 2026-10-15: 'a bit story, literally the processor of reality down to the bit').** Bits stored is the surface and its capacity (data at rest). Bits per operation is a snapshot or a limit. Bit rate is anything in motion. Every gauge reads writing in bits: less to the left, more to the right.",
  "_mixed_rule": "Where the book gives one entry more than one status tag, the box takes the weakest and is listed for review against the book by hand."
 }

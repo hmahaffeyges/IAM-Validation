@@ -26528,8 +26528,15 @@
    ],
    "data_status": "",
    "record": "FOUR_DOMAINS.md",
-   "status": "planned",
-   "runs": [],
+   "status": "running",
+   "runs": [
+    {
+     "date": "2026-10-15",
+     "outcome": "progressed",
+     "note": "four-domain schematic: 'bits' renamed bits stored; rows added for bits per operation and bit rate, every entry from its book section with the book's tag (cell bit rate open: snapshot only)",
+     "page": "not headline: framing"
+    }
+   ],
    "next_step": "four-domain schematic: one bit row per domain, each entry from the book's own section (open where the book has none); then the one-gauge figure on the bits axis; then the book's gauge chapters and the plain-language series",
    "cost": "laptop",
    "impact": 5,

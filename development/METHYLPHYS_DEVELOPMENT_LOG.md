@@ -2045,3 +2045,6 @@ The author: the gauge has always read the writing on the 2D surface, less on the
 
 ### 2026-10-15 · DEV-SECONDLAB-02 relaunched from NCBI's AWS copy
 ENA served the Hansen runs at about 0.26 MB/s; the first machine (i-08f7918ad0a721c4c) was stopped after 35 minutes with nothing downloaded. Run 2 (i-0629519b42e52ed71, code 6d414f8c) reads the same runs from s3://sra-pub-run-odp with fasterq-dump 3.4.1; tools ready 10:00 PM PDT. Alignment only.
+
+### 2026-10-15 · Four-domain schematic: three bit measures (author)
+bits stored (data at rest), bits per operation (snapshot or limit), bit rate (in motion), each entry from the book: cosmos record rate (p2_02, conjecture tag kept), black-hole saturation as rate reaching capacity (app_S), Hawking bit rate (p3_01); qubit error per gate and erasure rate (p5_10, p5_02); chip E_sw/(k_B T_j ln 2) and switches per second (p5_06); cell H(eps) per site (p6_06); cell bit rate open (a snapshot; no clock but the candidate development clock).
