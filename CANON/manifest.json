@@ -26619,6 +26619,13 @@
      "stage": "Q2 self-reference",
      "chain": "7d4c3559ad99",
      "latest_utc": "2026-10-16T09:22:34Z"
+    },
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_BAND_01",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "7d4c3559ad99",
+     "latest_utc": "2026-10-16T09:24:30Z"
     }
    ]
   },

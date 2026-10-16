@@ -1,0 +1,25 @@
+{
+ "samples": 153,
+ "median": 0.95,
+ "p2_5": 0.785,
+ "p97_5": 1.055,
+ "p5": 0.837,
+ "p95": 1.046,
+ "min": 0.72,
+ "max": 1.068,
+ "b_cells": [
+  0.964,
+  0.905,
+  0.855
+ ],
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "7d4c3559ad992a5bed7320a600dd1075ebef0e89dab09cbb626776b4b7ac3c13",
+  "payload_sha256": "b710551aeab25762d4065b2ec84e43ff72f716640ecc065f4f1eb9f39559a5e5",
+  "inputs": [],
+  "manifest": [
+   "COM-IAMA-054"
+  ],
+  "utc": "2026-10-16T09:24:30Z"
+ }
+}

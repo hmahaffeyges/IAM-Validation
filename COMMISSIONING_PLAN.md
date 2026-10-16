@@ -8,11 +8,11 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 
 1. **IAM-A gate: second laboratory (Hansen healthy B cells)**
    - PHY-047 (run; last run 2026-10-15: not met): alignment done 2026-10-16 02:06 PDT (B2 82.8, B1 69.5, B3 65.8 percent mapped; deduplicated BAMs in S3); count run 1 (i-0987cb49e219d16f2) failed with no count written (no alignment index fetched); run 2 (i-0ec02d263962a4bdf) builds the index, launched 02:15 PDT; then the IAM-A band rule (COM-IAMA-054) sealed before the counts are read, then score_secondlab02.py once
-   - COM-IAMA-053 (run; last run 2026-10-15: met): applied first in DEV-SECONDLAB-02 (Hansen B cells, limit 0.662)
+   - COM-IAMA-053 (run; last run 2026-10-16: met): applied first in DEV-SECONDLAB-02 (Hansen B cells, limit 0.662)
 2. **IAM-A: the sequencer's own error subtracted**
    - PHY-050 (run; last run 2026-10-15: progressed): apply the measured sequencing error to the line once Hansen is counted by chain Stage Q2 (both laboratories then measured the same way); rule first
 3. **IAM-A: its own healthy band, from evidence across laboratories**
-   - COM-IAMA-054 (sealed; last run 2026-10-16: progressed): build band_v1 with build_band_v1.py once the three Hansen counts are in (DEV-SECONDLAB-02 run 2)
+   - COM-IAMA-054 (sealed; last run 2026-10-16: met): build band_v1 with build_band_v1.py once the three Hansen counts are in (DEV-SECONDLAB-02 run 2)
 4. **IAM-A: clean room, part A**
    - PHY-055 (planned): part A (IAM-A, 2026-10-16): fresh public clone, public data only (GEO, ENCODE), chain Stage Q2 recounts Loyfer 153 and ENCODE 5, rebuilds the self-reference line and the shape reference; every count, the line and the reference must equal the committed ones (doors/data/CLEANROOM_IAMA_01/). Not in part A: the Hansen rerun (one run only; its script and chain code are committed), the restricted tumor pairs (not public), the eraser and island side results (own chain reruns later)
 5. **IAM-A: the grand sealed test, then commissioning**

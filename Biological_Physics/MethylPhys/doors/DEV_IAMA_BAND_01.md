@@ -8,8 +8,10 @@
 **The band.** The 2.5th to 97.5th percentile of every healthy reading, both laboratories pooled: Loyfer's 153 samples and each Hansen donor
 (GSE49627) that passes the sample-shape check (COM-IAMA-053). A refused donor is not pooled. Computed by chain Stage Q2 `build_band()`
 (`data/DEV_IAMA_BAND_01/build_band_v1.py` writes `chain/Runtime Matrices/IAM_A_SelfRef/band_v1.json`, stamped). Nothing is chosen by hand;
-the laboratory difference sits inside the band by construction. Prior reading (Loyfer alone, already counted, shown to the author before sealing):
+the laboratory difference sits inside the band by construction. Loyfer alone, already counted, shown to the author before sealing (`data/DEV_IAMA_BAND_01/prior_loyfer.json`, by the chain):
 median 0.950, 2.5th to 97.5th percentile 0.785 to 1.055, range 0.720 to 1.068.
+
+**Prior reading:** GSE49627's tile shape was read on 2026-10-15 to plan DEV-SECONDLAB-02; no held error, loose share or reading of it had been computed when this rule was sealed. Loyfer's 153 counts had been read (above).
 
 **Synthetic test:** DEV_CHAIN_Q2_01/q2_synthetic.py, DEV_CHAIN_Q2_01/q2_synthetic.json
 

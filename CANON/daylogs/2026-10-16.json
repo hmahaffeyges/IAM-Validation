@@ -1,0 +1,136 @@
+{
+ "date": "2026-10-16",
+ "title": "IAM-A gets its own healthy range, from two laboratories",
+ "set_out": "Goal for the day: take IAM-A through its last gates to commissioning: the second laboratory, its own healthy range, the clean room, then the grand sealed test.",
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": true,
+ "open_at_turnover": "Running: the atlas v2.1 fit; the Hansen count (DEV-SECONDLAB-02 run 2).",
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "lead": "Each rule was written down before its data was read, and every count runs through the chain.",
+   "entries": [
+    {
+     "title": "Healthy B cells from a second laboratory, counting now",
+     "status": "in progress",
+     "what": "Three healthy donors from the Hansen lab, aligned overnight, are being counted by the chain. They test whether IAM-A reads the same in a laboratory that had no part in building it.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SECONDLAB_02.md"
+    },
+    {
+     "title": "IAM-A's own healthy range, sealed before the data",
+     "status": "sealed",
+     "what": "IAM-A's healthy range will come from healthy people measured in two laboratories, not from a number we pick. The rule was sealed before the second laboratory's counts were read.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_BAND_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "heading": "Every lever test: what ran, what it showed, what is left",
+   "lead": "No lever test today; the work is IAM-A's commissioning.",
+   "table": {
+    "columns": [
+     "lever",
+     "today"
+    ],
+    "rows": [
+     [
+      "**Body temperature**",
+      "not worked on today"
+     ],
+     [
+      "**Division rate**",
+      "not worked on today"
+     ],
+     [
+      "**Methyl supply (SAM, methionine, folate, B12)**",
+      "not worked on today"
+     ],
+     [
+      "**Write and erase enzymes (DNMT, TET)**",
+      "not worked on today"
+     ],
+     [
+      "**Clustered versus scattered failure**",
+      "not worked on today"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "table",
+   "heading": "Every candidate instrument: what ran today, what remains",
+   "lead": "The commissioned instruments are unchanged; IAM-A's gates are the work today.",
+   "table": {
+    "columns": [
+     "instrument",
+     "today"
+    ],
+    "rows": [
+     [
+      "**Clustering meter (C-score)**",
+      "commissioned on whole blood 2026-10-15; next, real tumors with a sealed bar"
+     ],
+     [
+      "**Territory contrast: fidelity in fragile territory over fidelity in stable territory**",
+      "not worked on today"
+     ],
+     [
+      "**Met-A on whole blood: measure the real healthy spread**",
+      "not worked on today"
+     ],
+     [
+      "**Distance to the ceiling**",
+      "not worked on today"
+     ],
+     [
+      "**Run-length spectrum of losses**",
+      "not worked on today"
+     ],
+     [
+      "**Tail of fragments in plasma (the early-detection instrument)**",
+      "not worked on today"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "lead": "",
+   "entries": []
+  },
+  {
+   "kind": "loss",
+   "heading": "Our own mistakes today, and what caught each",
+   "lead": "",
+   "entries": [
+    {
+     "title": "The manifest fell behind the work",
+     "status": "audit",
+     "what": "Overnight the log and the machine list moved while the testing manifest did not. Now the chain writes its own results into the manifest, and the push gate refuses any change whose manifest row did not move.",
+     "why": "",
+     "record": "CANON/manifest_fresh.py"
+    }
+   ]
+  },
+  {
+   "kind": "changed",
+   "heading": "What changed in the plan",
+   "lead": "",
+   "entries": [
+    {
+     "title": "Fewer documents to keep current",
+     "status": "changed",
+     "what": "Nine hand-kept status documents became two (the development log and this day log); everything else is built from the manifest and the chain, so it cannot go stale.",
+     "why": "",
+     "record": "CANON/pointer.py"
+    }
+   ]
+  }
+ ]
+}
