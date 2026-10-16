@@ -5,7 +5,7 @@ held-out array is read. The instrument's job: a healthy cell from any laboratory
  2. For each held-out array (atlas_v21_heldout_samples.csv, roles 'held-out'), its Stage 1 calibrated values: coverage = share of its measured
     sites inside its cell's interval (Stage A21 u1_coverage).
  3. Per cell and platform family (450K, EPIC), all laboratories pooled: Stage A21 u1_verdict (>= 95 % of samples with coverage 0.80-0.97).
-    Arrays whose cell is not in v2.1, and arrays Stage 1 withheld (no calibrated shard), are listed, not scored.
+    Arrays whose cell is not in v2.1, and arrays with no calibrated file that passed Stage 1 and the identity check, are listed, not scored.
 Usage: python score_u1_v21.py <blocks dir> <shards dir> <out dir> [workers]   |   functions are reused by planted_u1_v21.py"""
 import os, sys, json, glob, numpy as np, pandas as pd
 from multiprocessing import Pool
@@ -28,9 +28,9 @@ def coverage(iv, shard):
 def score(samples, cmap, IV, shards):
     rows = []
     for _, s in samples.iterrows():
-        c = cmap.get(s.cell_type); sh = os.path.join(shards, f"{s['sample']}.parquet") if c else None
+        c = cmap.get(s.cell_type); base = s.get("base", s["sample"]); sh = os.path.join(shards, f"{base}.parquet") if c and isinstance(base, str) else None
         if c is None: rows.append(dict(sample=s["sample"], series=s.series, label=s.cell_type, cell=None, family=family(s.platform), coverage=None, sites=0, status="listed: cell not in v2.1")); continue
-        if not os.path.exists(sh): rows.append(dict(sample=s["sample"], series=s.series, label=s.cell_type, cell=c, family=family(s.platform), coverage=None, sites=0, status="listed: withheld by Stage 1")); continue
+        if sh is None or not os.path.exists(sh): rows.append(dict(sample=s["sample"], series=s.series, label=s.cell_type, cell=c, family=family(s.platform), coverage=None, sites=0, status="listed: withheld by Stage 1")); continue
         cv, n = coverage(IV[c], sh); rows.append(dict(sample=s["sample"], series=s.series, label=s.cell_type, cell=c, family=family(s.platform), coverage=cv, sites=n, status="scored"))
     T = pd.DataFrame(rows); V = {}
     for (c, fm), g in T[T.cell.notna()].groupby(["cell", "family"]):
@@ -40,6 +40,9 @@ def score(samples, cmap, IV, shards):
 if __name__ == "__main__":
     blocks, shards, out = sys.argv[1:4]; w = int(sys.argv[4]) if len(sys.argv) > 4 else 8; os.makedirs(out, exist_ok=True)
     S = pd.read_csv(os.path.join(H, "atlas_v21_heldout_samples.csv")); S = S[S.role.str.startswith("held-out")]
+    # each sample's calibrated array file, as recorded by the identity check (2026-10-14): base = shard name; status ok = passed Stage 1 and identity
+    I = pd.read_csv(os.path.join(H, "identity_v21_arrays.csv")); I = I[(I.set != "build") & (I.status == "ok")][["sample", "series", "base"]]
+    S = S.merge(I, on=["sample", "series"], how="left")   # run 1 looked for <sample>.parquet and found none; nothing was scored
     cmap = json.load(open(os.path.join(H, "heldout_cell_map_v21.json")))["map"]
     IV, lab = intervals(blocks, sorted({v for v in cmap.values() if v}), w)
     T, V = score(S, cmap, IV, shards)
