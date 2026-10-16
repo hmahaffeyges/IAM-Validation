@@ -2134,3 +2134,6 @@ Run 2 launched 04:34 PDT (read from AWS; an earlier line here said 04:45, writte
 ### 2026-10-16 · Dark-sector bit ledger (exploration, PHY-075)
 Author question during the CD8 run. Energy inside the Hubble horizon per horizon bit is exactly two Landauer prices at the Hawking temperature for that radius (one at the de Sitter temperature), at every era, because the Hubble sphere is its own Schwarzschild radius. The 50/50 is a split of the total, not of dark energy against matter (2.19 today, equal at z 0.298, matter 6e8 times dark energy at the CMB). Book finding: the virial-partners chapter's ratio of exactly 2 at a = 1 follows from beta_m = Omega_m/2 by definition.
 Correction the same morning: the first working used the black-hole temperature for the horizon radius, half the horizon's own temperature, and so read the energy as two Landauer costs per bit. At the horizon's temperature it is one Landauer cost per bit, split in two at decoherence, as the author states; no "two costs" exists in IAM or the book. PHY-075 note corrected.
+
+### 2026-10-16 · Candidate: dark matter as the potential half stored as spacetime's fabric (PHY-076)
+From the author's question. Three measured behaviors it must reproduce before it is a result: clumping around galaxies, 1/a^3 dilution, the CMB peak pattern. Parked behind commissioning.

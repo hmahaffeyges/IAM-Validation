@@ -27009,6 +27009,30 @@
    "sources_of_row": [
     "session 2026-10-15"
    ]
+  },
+  {
+   "title": "Dark matter as the potential half stored as spacetime's fabric (candidate)",
+   "purpose": "Author 2026-10-16: 'the potential energy became spacetime's fabric, what is dark matter?' Book p7_05b: dark matter is 'the geometric potential half, stored in spacetime curvature'. Candidate: dark matter is not a particle but the extra gravity of the fabric, the potential half of each written bit.",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "docs/book/part7/p7_05b_virial_partners.tex",
+   "status": "idea",
+   "runs": [],
+   "next_step": "after the cell catalogue is commissioned: derive (1) whether the potential half gathers where bits are written, then (2) and (3) against Planck",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-047"
+   ],
+   "notes": "Three measured behaviors it must reproduce: (1) clumping in halos around galaxies, where matter decoheres; (2) dilution as 1/a^3 with expansion; (3) the CMB acoustic peak pattern (the test that rules out modified gravity). None derived yet.",
+   "legacy_ids": [],
+   "id": "PHY-076",
+   "sources_of_row": [
+    "session 2026-10-15"
+   ]
   }
  ],
  "not_tests": {
