@@ -69,7 +69,7 @@ beside the line's B-cell value (0.0282). Like for like (`secondlab_like_for_like
 
 | ENCODE cell | held, raw | held x 0.741 | the line | residual |
 |---|---|---|---|---|
-| B cells | 0.0329 | 0.0244 | 0.0384 | -0.0140 |
+| B cells | 0.0329 | 0.0244 | 0.0384 | -0.0141 |
 | T cells | 0.0375 | 0.0278 | 0.0396 | -0.0117 |
 | NK cells | 0.0358 | 0.0266 | 0.0363 | -0.0097 |
 | CD14 monocytes | 0.0340 | 0.0252 | 0.0383 | -0.0131 |

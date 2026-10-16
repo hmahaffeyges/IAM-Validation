@@ -3,5 +3,12 @@
  "source": "opensea_line.py SCALE (own_reads_genome_cells.csv gerr_s/gerr)",
  "within": 0,
  "of": 5,
- "verdict_like_for_like": "NOT MET"
+ "verdict_like_for_like": "NOT MET",
+ "raw_line_firm": 0.0402,
+ "raw_line_slope": 0.0347,
+ "loyfer_b_raw_opp_weighted": 0.038,
+ "loyfer_b_raw_range": [
+  0.036,
+  0.041
+ ]
 }
