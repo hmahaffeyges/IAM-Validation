@@ -7,7 +7,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 ## The order of work
 
 1. **IAM-A gate: second laboratory (Hansen healthy B cells)**
-   - PHY-047 (run; last run 2026-10-15: not met): count run 2 counted all three but the counts failed their own stamp check (lesson C18, the chain hashed before the JSON round trip); chain fixed, synthetic T8 MET; count run 3, then score_secondlab02.py once
+   - PHY-047 (run; last run 2026-10-15: not met): count run 2 counted all three but the counts failed their own stamp check (lesson C18, the chain hashed before the JSON round trip); chain fixed, synthetic T8 MET; count run 3 (i-0c7b1e115294ce1e4, launched 02:40 PDT), then score_secondlab02.py once
    - COM-IAMA-053 (run; last run 2026-10-16: met): applied first in DEV-SECONDLAB-02 (Hansen B cells, limit 0.662)
 2. **IAM-A: the sequencer's own error subtracted**
    - PHY-050 (run; last run 2026-10-15: progressed): apply the measured sequencing error to the line once Hansen is counted by chain Stage Q2 (both laboratories then measured the same way); rule first
@@ -45,6 +45,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 |---|---|---|
 | Atlas v2.1 fit (stage B, 700 blocks, mode v21inv) | methylphys-cpu-01 (on-demand m7a.32xlarge, 128 cores, 512 GB) | ATL-005 |
 | DEV-BACKBONE-01 island arm: tumor pairs re-aligned | methylphys-fit-01 (spot m7a.8xlarge, 32 cores, fixed address 32.190.44.180) | PHY-043 |
+| DEV-SECONDLAB-02 step 3, count run 3: Hansen's three donors counted by chain Stage Q2 (stamp fix, lesson C18) | spot m7a.8xlarge, self-terminating (5-hour hard stop) | PHY-047, PHY-050, COM-IAMA-054 |
 
 ## Decisions waiting for the author
 

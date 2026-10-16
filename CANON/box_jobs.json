@@ -1328,7 +1328,7 @@
    "job_id": "i-0c7b1e115294ce1e4",
    "name": "DEV-SECONDLAB-02 step 3, count run 3: Hansen's three donors counted by chain Stage Q2 (stamp fix, lesson C18)",
    "date": "2026-10-16",
-   "commit": "bd811592",
+   "commit": "d0decb23",
    "s3_code_prefix": "results/DEV_SECONDLAB_02/code/count3/",
    "state": "running",
    "log": "results/DEV_SECONDLAB_02/count_status.txt",
