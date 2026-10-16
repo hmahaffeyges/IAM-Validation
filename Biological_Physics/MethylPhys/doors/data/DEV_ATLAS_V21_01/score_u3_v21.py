@@ -77,11 +77,11 @@ if __name__ == "__main__":
     I = pd.read_csv(os.path.join(H, "identity_v21_arrays.csv")); I = I[(I.set != "build") & (I.status == "ok")][["sample", "series", "base"]]
     T = S.merge(I, on=["sample", "series"], how="left").merge(truth(), on=["sample", "series"], how="left"); rows = []
     for _, r in T.iterrows():
-        d = dict(series=r.series, sample=r["sample"], truth=r.truth, compare=r.compare)
+        d = dict(series=r.series, sample=r["sample"], truth=r.truth, compare=r["compare"])
         if not isinstance(r.base, str) or not os.path.exists(os.path.join(shards, r.base + ".parquet")): rows.append(dict(d, status="listed: no calibrated array")); continue
         if pd.isna(r.truth): rows.append(dict(d, status="listed: no count")); continue
         b = pd.read_parquet(os.path.join(shards, r.base + ".parquet")).iloc[:, 0].astype(float); b.index = b.index.astype(str); e = est(Dv, b)
-        rows.append(dict(d, status="scored", est_atlas=e["atlas_" + r.compare], est_current=e["current_" + r.compare]))
+        rows.append(dict(d, status="scored", est_atlas=e["atlas_" + r["compare"]], est_current=e["current_" + r["compare"]]))
     R_ = pd.DataFrame(rows); V = verdict(R_); V["tool"] = info
     Q2.write_csv(R_, os.path.join(out, "u3_samples_v21.csv"), manifest=["ATL-005"]); Q2.write_json(V, os.path.join(out, "u3_scored_v21.json"), manifest=["ATL-005"])
     for k, v in V.items():
