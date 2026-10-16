@@ -2151,3 +2151,6 @@ Book wording pass: three draft overclaim phrases reworded (p3_01b, p7_02, p7_05b
 
 ### 2026-10-16 · Atlas v2.1 fit finished (ATL-005)
 700 of 700 blocks at 08:22 PDT, 813,951 sites, 79 cells. Every block R-hat p99 under 1.01 (worst 1.0085), ESS p01 at least 429, 13 divergences (judged at release, F05). Distinctness gate PASS: 0 of 3,081 cell pairs below 0.005 (closest naive CD4 and CD8 T cells, 0.013; median 0.13). All 2,800 block files backed up to S3. Assembly script assemble_v21.py committed before any held-out array is read.
+
+### 2026-10-16 · Atlas release checklist is the one ordered list (ATL-005, ATL-062)
+The author: one list, with a needed-for-the-gift column. Tracks A (commissioning, the Loyfer and Moss use tests), B (deconvolution), C (3D sphere), D (gift and release) are needed for the gift; the half-atlases, the half-difference maps and the map statistics (F07, F08, M03H, M04-M07) moved after the gift by the author.

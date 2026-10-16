@@ -11,7 +11,9 @@
    ],
    "s3": [],
    "zenodo": "methods/decisions_and_plan.md",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 1
   },
   {
    "id": "R02",
@@ -25,7 +27,9 @@
    ],
    "s3": [],
    "zenodo": "inputs/",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 2
   },
   {
    "id": "R03",
@@ -38,7 +42,9 @@
    ],
    "s3": [],
    "zenodo": "inputs/seals/",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 3
   },
   {
    "id": "R04",
@@ -49,7 +55,9 @@
    ],
    "s3": [],
    "zenodo": "inputs/conditions_v21.json",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 4
   },
   {
    "id": "R05",
@@ -62,7 +70,9 @@
    ],
    "s3": [],
    "zenodo": "inputs/cell_names/",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 5
   },
   {
    "id": "R06",
@@ -74,7 +84,9 @@
    ],
    "s3": [],
    "zenodo": "inputs/identity_audit/",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 6
   },
   {
    "id": "R07",
@@ -86,7 +98,9 @@
    ],
    "s3": [],
    "zenodo": "inputs/data_spent/",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 7
   },
   {
    "id": "R08",
@@ -97,7 +111,9 @@
    ],
    "s3": [],
    "zenodo": "inputs/site_exclusions/",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 8
   },
   {
    "id": "D01",
@@ -109,7 +125,9 @@
     "results/ATLAS_V21/raw/heldout/"
    ],
    "zenodo": "",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 9
   },
   {
    "id": "D02",
@@ -124,7 +142,9 @@
     "results/ATLAS_V21/stage1/stage1_v21_manifest.csv"
    ],
    "zenodo": "calibration/stage1_v21_manifest.csv",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 10
   },
   {
    "id": "D03",
@@ -137,7 +157,9 @@
     "results/ATLAS_V21/heldout/shards/"
    ],
    "zenodo": "calibration/heldout_arrays.csv",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 11
   },
   {
    "id": "D04",
@@ -148,7 +170,9 @@
     "atlas_v2/stage1_shards/"
    ],
    "zenodo": "",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 12
   },
   {
    "id": "Q01",
@@ -164,7 +188,9 @@
     "results/ATLAS_V21/identity/identity_v21_rs.parquet"
    ],
    "zenodo": "quality/identity/",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 13
   },
   {
    "id": "Q02",
@@ -178,7 +204,9 @@
     "results/ATLAS_V21/terms/twins_v21.csv"
    ],
    "zenodo": "quality/twins/",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 14
   },
   {
    "id": "Q03",
@@ -191,7 +219,9 @@
     "results/ATLAS_V21/terms/source_terms_v21.json"
    ],
    "zenodo": "model/source_terms_v21.json",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 15
   },
   {
    "id": "Q04",
@@ -203,7 +233,9 @@
    ],
    "s3": [],
    "zenodo": "quality/reproduction_gates/",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 16
   },
   {
    "id": "F01",
@@ -215,7 +247,9 @@
    ],
    "s3": [],
    "zenodo": "code/",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 17
   },
   {
    "id": "F02",
@@ -226,7 +260,9 @@
     "atlas_v21/blocks/"
    ],
    "zenodo": "atlas_v21_blocks.tar",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 18
   },
   {
    "id": "F03",
@@ -239,7 +275,9 @@
     "atlas_v21/ATLAS_V21_OUTPUT_MANIFEST.json"
    ],
    "zenodo": "ATLAS_V21_OUTPUT_MANIFEST.json",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 19
   },
   {
    "id": "F04",
@@ -250,7 +288,9 @@
     "atlas_v21/IAMAtlas_v21.parquet"
    ],
    "zenodo": "IAMAtlas_v21.parquet",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 20
   },
   {
    "id": "F05",
@@ -261,7 +301,9 @@
     "atlas_v21/convergence_v21.parquet"
    ],
    "zenodo": "quality/convergence_v21.parquet",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 21
   },
   {
    "id": "F06",
@@ -272,18 +314,22 @@
    ],
    "s3": [],
    "zenodo": "code/environment/",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 22
   },
   {
    "id": "C01",
    "group": "Commissioning",
-   "what": "Held-out posterior check and distinctness gate on v2.1",
+   "what": "Use tests U1-U3 on the held-out arrays, scored once by the amended bars (chain Stage A21), and the distinctness gate (met 2026-10-16)",
    "repo": [
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/commissioning_v21_summary.txt"
    ],
    "s3": [],
    "zenodo": "commissioning/",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 23
   },
   {
    "id": "C02",
@@ -294,51 +340,59 @@
    ],
    "s3": [],
    "zenodo": "commissioning/head_to_head/",
-   "required": true
+   "required": true,
+   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "step": 24
   },
   {
-   "id": "G01",
+   "id": "G07",
    "group": "Gift package",
-   "what": "Reference with error bars, in Loyfer's and Moss's names",
+   "what": "Deconvolution tool, only once commissioned on independent known mixtures",
    "repo": [],
-   "s3": [
-    "atlas_v21/gift/reference_with_error_bars.parquet"
-   ],
-   "zenodo": "gift/reference_with_error_bars.parquet",
-   "required": true
+   "s3": [],
+   "zenodo": "tools/deconvolution/",
+   "required": false,
+   "track": "B. The deconvolution tool",
+   "step": 1
   },
   {
-   "id": "G02",
-   "group": "Gift package",
-   "what": "Array-to-sequencing bridge, per site",
-   "repo": [],
-   "s3": [
-    "atlas_v21/gift/bridge_per_site.parquet"
+   "id": "M01",
+   "group": "Maps and CMB statistics",
+   "what": "Sphere construction adopted: synthetic methylome and the noise-map check met",
+   "repo": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sphere_adoption_v21_summary.txt"
    ],
-   "zenodo": "gift/bridge_per_site.parquet",
-   "required": true
+   "s3": [],
+   "zenodo": "maps/construction/",
+   "required": true,
+   "track": "C. The 3D genome sphere (HEALPix)",
+   "step": 1
   },
   {
-   "id": "G03",
-   "group": "Gift package",
-   "what": "Healthy person-to-person spread",
+   "id": "M02",
+   "group": "Maps and CMB statistics",
+   "what": "Atlas maps on the sphere, with masks and apodization",
    "repo": [],
    "s3": [
-    "atlas_v21/gift/healthy_spread.parquet"
+    "atlas_v21/maps/"
    ],
-   "zenodo": "gift/healthy_spread.parquet",
-   "required": true
+   "zenodo": "maps/",
+   "required": true,
+   "track": "C. The 3D genome sphere (HEALPix)",
+   "step": 2
   },
   {
-   "id": "G04",
-   "group": "Gift package",
-   "what": "Marker-set check (internal; shared only if we decide to)",
+   "id": "M03",
+   "group": "Maps and CMB statistics",
+   "what": "Noise maps from the posterior draws (the half-difference maps are M03H, after the gift)",
    "repo": [],
    "s3": [
-    "atlas_v21/gift/marker_check.parquet"
+    "atlas_v21/maps/noise/"
    ],
-   "zenodo": "",
-   "required": false
+   "zenodo": "maps/noise/",
+   "required": true,
+   "track": "C. The 3D genome sphere (HEALPix)",
+   "step": 3
   },
   {
    "id": "G05",
@@ -349,7 +403,61 @@
     "atlas_v21/sphere/"
    ],
    "zenodo": "sphere/",
-   "required": true
+   "required": true,
+   "track": "C. The 3D genome sphere (HEALPix)",
+   "step": 4
+  },
+  {
+   "id": "G01",
+   "group": "Gift package",
+   "what": "Reference with error bars, in Loyfer's and Moss's names",
+   "repo": [],
+   "s3": [
+    "atlas_v21/gift/reference_with_error_bars.parquet"
+   ],
+   "zenodo": "gift/reference_with_error_bars.parquet",
+   "required": true,
+   "track": "D. The gift and the release",
+   "step": 1
+  },
+  {
+   "id": "G02",
+   "group": "Gift package",
+   "what": "Array-to-sequencing bridge, per site",
+   "repo": [],
+   "s3": [
+    "atlas_v21/gift/bridge_per_site.parquet"
+   ],
+   "zenodo": "gift/bridge_per_site.parquet",
+   "required": true,
+   "track": "D. The gift and the release",
+   "step": 2
+  },
+  {
+   "id": "G03",
+   "group": "Gift package",
+   "what": "Healthy person-to-person spread",
+   "repo": [],
+   "s3": [
+    "atlas_v21/gift/healthy_spread.parquet"
+   ],
+   "zenodo": "gift/healthy_spread.parquet",
+   "required": true,
+   "track": "D. The gift and the release",
+   "step": 3
+  },
+  {
+   "id": "G04",
+   "group": "Gift package",
+   "what": "Marker-set check (internal; shared only if we decide to)",
+   "repo": [],
+   "s3": [
+    "atlas_v21/gift/marker_check.parquet"
+   ],
+   "zenodo": "",
+   "required": false,
+   "track": "D. The gift and the release",
+   "step": 4
   },
   {
    "id": "G06",
@@ -360,16 +468,23 @@
    ],
    "s3": [],
    "zenodo": "code/rebuild_v21.py",
-   "required": true
+   "required": true,
+   "track": "D. The gift and the release",
+   "step": 5
   },
   {
-   "id": "G07",
+   "id": "G08",
    "group": "Gift package",
-   "what": "Deconvolution tool, only once commissioned on independent known mixtures",
-   "repo": [],
+   "what": "The guidebook: every method and tool the atlas and maps make possible - what it is in cosmology, its origin and history (cited from the original papers), what it does on the methylome (shown on the atlas, or labeled not yet tested), what geneticists use now and the difference, and its limits",
+   "repo": [
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/guidebook/guidebook.json",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/guidebook/build_guidebook.py"
+   ],
    "s3": [],
-   "zenodo": "tools/deconvolution/",
-   "required": false
+   "zenodo": "guidebook/",
+   "required": true,
+   "track": "D. The gift and the release",
+   "step": 6
   },
   {
    "id": "P01",
@@ -382,7 +497,9 @@
    ],
    "s3": [],
    "zenodo": "provenance/box_jobs/",
-   "required": true
+   "required": true,
+   "track": "D. The gift and the release",
+   "step": 7
   },
   {
    "id": "P02",
@@ -394,7 +511,9 @@
    ],
    "s3": [],
    "zenodo": "provenance/",
-   "required": true
+   "required": true,
+   "track": "D. The gift and the release",
+   "step": 8
   },
   {
    "id": "Z01",
@@ -406,7 +525,9 @@
    ],
    "s3": [],
    "zenodo": "README.md",
-   "required": true
+   "required": true,
+   "track": "D. The gift and the release",
+   "step": 9
   },
   {
    "id": "Z02",
@@ -417,7 +538,9 @@
    ],
    "s3": [],
    "zenodo": "",
-   "required": true
+   "required": true,
+   "track": "D. The gift and the release",
+   "step": 10
   },
   {
    "id": "F07",
@@ -429,7 +552,9 @@
     "atlas_v21/half_B/"
    ],
    "zenodo": "halves/",
-   "required": true
+   "required": false,
+   "track": "After the gift (research on the maps)",
+   "step": 1
   },
   {
    "id": "F08",
@@ -441,40 +566,22 @@
    ],
    "s3": [],
    "zenodo": "inputs/half_split/",
-   "required": true
+   "required": false,
+   "track": "After the gift (research on the maps)",
+   "step": 2
   },
   {
-   "id": "M01",
+   "id": "M03H",
    "group": "Maps and CMB statistics",
-   "what": "Sphere construction adopted: synthetic methylome and the noise-map check met",
-   "repo": [
-    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/sphere_adoption_v21_summary.txt"
-   ],
-   "s3": [],
-   "zenodo": "maps/construction/",
-   "required": true
-  },
-  {
-   "id": "M02",
-   "group": "Maps and CMB statistics",
-   "what": "Atlas maps on the sphere, with masks and apodization",
-   "repo": [],
-   "s3": [
-    "atlas_v21/maps/"
-   ],
-   "zenodo": "maps/",
-   "required": true
-  },
-  {
-   "id": "M03",
-   "group": "Maps and CMB statistics",
-   "what": "Noise maps from the posterior draws, and the half-difference null maps",
+   "what": "Half-difference null maps (need the two half-atlases, F07)",
    "repo": [],
    "s3": [
     "atlas_v21/maps/noise/"
    ],
    "zenodo": "maps/noise/",
-   "required": true
+   "required": false,
+   "track": "After the gift (research on the maps)",
+   "step": 3
   },
   {
    "id": "M04",
@@ -485,7 +592,9 @@
     "atlas_v21/spectra/"
    ],
    "zenodo": "spectra/",
-   "required": true
+   "required": false,
+   "track": "After the gift (research on the maps)",
+   "step": 4
   },
   {
    "id": "M05",
@@ -496,7 +605,9 @@
     "atlas_v21/sims/"
    ],
    "zenodo": "sims/",
-   "required": true
+   "required": false,
+   "track": "After the gift (research on the maps)",
+   "step": 5
   },
   {
    "id": "M06",
@@ -507,7 +618,9 @@
     "atlas_v21/higher_order/"
    ],
    "zenodo": "higher_order/",
-   "required": false
+   "required": false,
+   "track": "After the gift (research on the maps)",
+   "step": 6
   },
   {
    "id": "M07",
@@ -518,19 +631,10 @@
     "atlas_v21/covariance/"
    ],
    "zenodo": "covariance/",
-   "required": true
-  },
-  {
-   "id": "G08",
-   "group": "Gift package",
-   "what": "The guidebook: every method and tool the atlas and maps make possible - what it is in cosmology, its origin and history (cited from the original papers), what it does on the methylome (shown on the atlas, or labeled not yet tested), what geneticists use now and the difference, and its limits",
-   "repo": [
-    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/guidebook/guidebook.json",
-    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/guidebook/build_guidebook.py"
-   ],
-   "s3": [],
-   "zenodo": "guidebook/",
-   "required": true
+   "required": false,
+   "track": "After the gift (research on the maps)",
+   "step": 7
   }
- ]
+ ],
+ "_order_rule": "Ordered 2026-10-16 (author: one list, with a needed-for-the-gift column). Tracks A-D are needed for the gift; the half-atlases (F07, F08, M03H) and the map statistics (M04-M07) moved after the gift by the author, 2026-10-16. Within a track, steps run in order."
 }

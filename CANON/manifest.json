@@ -3781,7 +3781,7 @@
     "Atlas v2.1 compute dry run and ledger entry",
     "Atlas v2.1 culture drift mask (steps 1, 1b, 2)"
    ],
-   "notes": "Sources identified from metadata; not downloaded unless stated. | readiness board: Biological_Physics/MethylPhys/V21_READINESS.md (the run refuses to launch until every before-launch item is met); launched 2026-10-15 06:25:59 UTC (11:26 PM Pacific Oct 14), box job c2b26b34, mode v21inv, 700 blocks on m7a.32xlarge, about 24 h | 2026-10-16: commissioning bars amended before the atlas exists (author: 'Seal the amendment'): lab spread in the U1 range, 95 percent shares instead of every set/cell/sample, chain-withheld samples listed not scored; chain Stage A21; planted test PASSED (15 cases)",
+   "notes": "Sources identified from metadata; not downloaded unless stated. | readiness board: Biological_Physics/MethylPhys/V21_READINESS.md (the run refuses to launch until every before-launch item is met); launched 2026-10-15 06:25:59 UTC (11:26 PM Pacific Oct 14), box job c2b26b34, mode v21inv, 700 blocks on m7a.32xlarge, about 24 h | 2026-10-16: commissioning bars amended before the atlas exists (author: 'Seal the amendment'): lab spread in the U1 range, 95 percent shares instead of every set/cell/sample, chain-withheld samples listed not scored; chain Stage A21; planted test PASSED (15 cases) | 2026-10-16: release checklist made the one ordered list (tracks A-D needed for the gift; F07, F08, M03H, M04-M07 after the gift, author).",
    "legacy_ids": [],
    "id": "ATL-005",
    "sources_of_row": [
@@ -24955,7 +24955,7 @@
    "instrument_or_term": "atlas",
    "data_status": "partial",
    "status": "designed",
-   "next_step": "Write and seal the half-donor split before any fit.",
+   "next_step": "moved after the gift by the author 2026-10-16 (half-atlases F07, F08 and half-difference maps M03H); scripts and the donor split stay sealed",
    "cost": "box (about one more full fit, after the main fit)",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
