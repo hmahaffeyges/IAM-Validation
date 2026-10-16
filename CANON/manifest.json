@@ -25236,7 +25236,7 @@
      "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
-   "next_step": "NOT MET by S1 (1 of 3 within 0.0067; all three below the line, the same side as Loyfer's B cells). Diagnosis: the donor order follows conversion failure (1.8, 2.3, 5.1 percent); with sequencing error and conversion failure removed the donors agree with each other (0.0305-0.0323) but sit further below the line; Loyfer's raw reads are controlled (EGA). Next: PHY-050, both laboratories' meter error measured the same way, then a new sealed test; decision with the author",
+   "next_step": "closed as recorded: S1 NOT MET (bar = the line's cell-type scatter, stricter than the instrument's job; lesson C19). The Hansen donors served as sealed: shape check passed, pooled into band v1. The job the self-reference must do (a healthy sample from another laboratory reads Normal) is tested next on fresh data in the grand sealed test (COM-IAMA-052)",
    "cost": "laptop or box",
    "impact": 5,
    "depends_on": [
@@ -25755,7 +25755,7 @@
    "record": "development/loose_end_2026-10-15/loose_end_line.py",
    "status": "planned",
    "runs": [],
-   "next_step": "remaining gates (2026-10-16): PHY-047 (Hansen scored NOT MET 2026-10-16; meter error is the lead), PHY-050 (meter error from the Hansen count), COM-IAMA-054 (band v1 built 2026-10-16), PHY-055 part A (clean room); then this test on the unopened CD8 sets GSE144691, GSE98837, bars sealed before reading; commission if met. Recommended to the author as NOT gates: OTH-059 concern and tumor lines (reporting marks from the A-score database; Met-A and the C-score were commissioned without them), OTH-058 agreement check (needs two commissioned instruments on the same samples)",
+   "next_step": "next: the grand sealed test on fresh healthy data from other laboratories (CD8 T cells GSE144691, GSE98837): scout what each set provides (metadata only), then seal: healthy samples that pass the shape check read inside band v1 (0.7787-1.0551); commission if met. PHY-047 closed as recorded (lesson C19); PHY-055 clean room part A in parallel",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
