@@ -27229,6 +27229,37 @@
    "sources_of_row": [
     "author 2026-10-13: if they do not find it better than what they have, they will not care"
    ]
+  },
+  {
+   "id": "ATL-067",
+   "title": "Atlas v2.1 head to head against Loyfer's own reference (DEV-ATLAS-USE-02)",
+   "purpose": "Release item C02: the head-to-head against the source atlases' own references, Loyfer's half (Moss's met 2026-10-16).",
+   "instrument_or_term": "atlas v2.1, deconvolution",
+   "sources": [],
+   "data_status": "mixtures to be chosen (independent of every atlas source)",
+   "status": "sealed",
+   "runs": [],
+   "next_step": "box: planted test, build Loyfer's projected reference from GEO, score once",
+   "cost": "laptop",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_02.md",
+   "legacy_ids": [],
+   "depends_on": [
+    "ATL-045",
+    "ATL-055"
+   ],
+   "sources_of_row": [
+    "author 2026-10-13: if they do not find it better than what they have, they will not care"
+   ],
+   "chain_outputs": [
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_USE_01",
+     "files": 2,
+     "stage": "Q2 self-reference",
+     "chain": "52e94725c307",
+     "latest_utc": "2026-10-16T18:35:04Z"
+    }
+   ]
   }
  ],
  "not_tests": {

@@ -172,7 +172,7 @@ GSE182379,,,,,spent,,,COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_COMMISSION
 GSE184047,,,,,spent,,,,,,,,,
 GSE184269,,,,,partly spent,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_CSCORE; DEV_BLOOD_SENSITIVITY_01; DEV_GROUP_01,atlas build,monocytes | naive cd4 t cells | naive cd8 t cells | naive b cells | nk cells | granulocytes,yes,IDAT listed for 167/167 samples,Specification of human immune cell epigenetic identity by combinations of transcription factors (MethylationEPIC),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE185556,,,,,,,,DEV_ATLAS_V21_01,not usable (not healthy (cystic fibrosis children)),lung alveolar macrophages | granulocytes | lung alveolar epithelium,yes,IDAT listed for 20/20 samples,DNA methylation profiles of cells commonly found in bronchoalveolar lavage,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE186458,,,,,,,,DEV_IAMA_NEURON_01; DEV_IAMA_P_WHOLE_01; DEV_IAMA_REAL_01; DEV_POSITION_EXPR_01,,,,,,
+GSE186458,,,,,,,,DEV_ATLAS_USE_02; DEV_IAMA_NEURON_01; DEV_IAMA_P_WHOLE_01; DEV_IAMA_REAL_01; DEV_POSITION_EXPR_01,,,,,,
 GSE187291,,,,,spent,,,DEV_DIRECTION_01; DEV_DIRECTION_02,,,,,,
 GSE188573,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,monocytes,yes,IDAT listed for 59/59 samples,Epigenetic and transcriptomic remodeling in monocytes of severe COVID-19 patients mirrors systemic changes in cytokines and immune cell crosstalk,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE189255,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,cd4 t cells,yes,IDAT listed for 14/14 samples,Genome-wide DNA methylation profiling identifies epigenetic changes in CD4+ and CD14+ cells of multiple sclerosis patients [CD4],gold-mine map; candidates DEV_ATLAS_COMMISSION_01

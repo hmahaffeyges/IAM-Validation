@@ -2224,3 +2224,6 @@ Version 2 reads the atlas's own spread (Stage A21 array predictive) and checks e
 
 ### 2026-10-16 · IAM-A clean room run 2: Loyfer, the line and the shape reference identical; ENCODE not counted (PHY-055)
 Fresh public clone, public data only (finished 1:26 PM PDT). All 153 Loyfer counts equal the committed ones, and the self-reference line and the sample-shape reference rebuilt identically. The five ENCODE files were not counted: ENCODE serves these alignments without an index and the script did not build one. Fixed (samtools index after download); run 3 recounts only the five ENCODE files and compares everything again. Run 2 outputs kept under results/CLEANROOM_IAMA_01/run2/.
+
+### 2026-10-16 · Atlas v2.1 against Loyfer's own reference, sealed (DEV-ATLAS-USE-02; ATL-067)
+Same held-out arrays, sealed scorer and bars as the Moss run (met). Loyfer's reference rebuilt his way from GEO (205 samples, his 39 groups, his tool's coverage rule); the probe numbering was confirmed against his own printed marker ranges (931 of 931). Sealed before the reference is built.

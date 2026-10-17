@@ -1,0 +1,36 @@
+{
+ "test": "DEV-ATLAS-USE-02 (ATL-067): atlas v2.1 head to head against Loyfer's own reference",
+ "sealed": "2026-10-16, before Loyfer's projected reference is built or any of its values read",
+ "job": "for the jobs a reference atlas is used for (markers that hold, reading mixtures, and cells the reference lacks), is v2.1 at least as good as Loyfer's own reference",
+ "runner_sha256": "b6ddaf8b473bcea5d8cbb22ae41ed587a19c477660c84d9c8365ceaff3973310",
+ "builder_sha256": "e968e75fe6c85d662bcb19b7253330e2ca2eb19c2a151b062fd4cc8a7baf92b7",
+ "scorer_sha256": "0ea85b5fbc2c2e19d01eaaaa1239a788f08fabae0916d7478d6a039e6e22dc7f",
+ "opponent": "Loyfer et al. 2023 (Nature 613:355), his 205 samples (GEO GSE186458) in his 39 groups (his Supplementary Table S1), projected onto array probes as his paper does: wgbstools beta_to_450k (coverage >= 3), mean per group",
+ "crosswalk": {
+  "neutrophils": "Blood-Granul",
+  "monocytes": "Blood-Mono+Macro",
+  "b cells": "Blood-B",
+  "t cells": "Blood-T",
+  "nk cells": "Blood-NK",
+  "colon epithelium": "Colon-Ep",
+  "cortical neurons": "Neuron",
+  "oligodendrocytes": "Oligodend"
+ },
+ "wide_area": [
+  "microglia",
+  "astrocytes"
+ ],
+ "bars": {
+  "UT1": "v2.1 confirmed-marker share >= Loyfer's - 0.05",
+  "UT2A": "v2.1 median mixture error <= 1.5 x Loyfer's (shared ground)",
+  "UT2B": "v2.1 median mixture error <= 0.5 x Loyfer's (wide area)"
+ },
+ "verdict": "all three met: v2.1 commissioned against Loyfer's reference on these jobs (showcase, as the Moss run); otherwise reported as is",
+ "disclosures": [
+  "v2.1 was built from Loyfer's sequencing plus public arrays, so it contains his data; the question is whether the combined atlas reads held-out arrays better than his reference does",
+  "Loyfer pools CD4 and CD8 T cells (Blood-T), so both atlases use one T-cell profile; v2.1's is the mean of its CD4 and CD8 profiles",
+  "Loyfer's Blood-Mono+Macro pools monocytes and macrophages",
+  "the held-out arrays were read before in U1 and in the Moss head-to-head; Loyfer's projected reference has never been built or read",
+  "his published 450K marker list (Supplementary Table S12, 936 probes) is reported for reference; the scored markers come from the sealed rule applied to each reference alike"
+ ]
+}
