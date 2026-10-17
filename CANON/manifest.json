@@ -27426,9 +27426,16 @@
      "note": "clean clone run 1 (job i-0d4559e967ace0f61): 18 of 25; all 7 failures from an unpinned pyarrow needing NumPy 2",
      "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/run1/release_check_v4.log",
      "page": "not headline: a gate on the way to the commissioned chain"
+    },
+    {
+     "date": "2026-10-17",
+     "outcome": "fail",
+     "note": "clean clone run 2: 23 of 25; E3 tare dropped for whole blood since 2026-10-15 (LESSONS C21), E8 v4 gauge drawn when withheld; both fixed",
+     "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/run2/release_check_v4.log",
+     "page": "not headline: a gate on the way to the commissioned chain"
     }
    ],
-   "next_step": "clean clone run 2 running (job i-0fdf1258fb10dd30c, commit f7f448c2, pyarrow and matplotlib pinned)",
+   "next_step": "clean clone run 3 after the C21 fixes",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

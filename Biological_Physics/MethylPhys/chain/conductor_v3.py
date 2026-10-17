@@ -288,6 +288,7 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
     elif m.get("A") is not None: m["development"] = ("DEVELOPMENT - not commissioned: whole blood (composition, bar 7, met only on the reference laboratory's own truth sets; commissioned when met on whole bloods of known composition from an independent laboratory). Detection limit at this fraction: 5 % loss (DEV-METAA-SENS-01).")
     out["met_a"] = m; out["met_a_cscore"] = stage_t_cscore(stage_mc_cscore(z), ref_A, sample_id); out["_cscore_z"] = z   # v4 sky; popped before the bundle
     if out["met_a_cscore"].get("C_rel") is not None and m.get("specimen") in CSCORE_COMMISSIONING["specimens"]: out["met_a_cscore"]["commissioning"] = CSCORE_COMMISSIONING
-    elif out["met_a_cscore"].get("C_rel") is not None: out["met_a_cscore"]["status"] = "development: specimen outside the commissioned C-score scope"; out["tare"] = t
+    elif out["met_a_cscore"].get("C_rel") is not None: out["met_a_cscore"]["status"] = "development: specimen outside the commissioned C-score scope"
+    out["tare"] = t   # every specimen (2026-10-17): from 2026-10-15 this sat inside the elif above, so in-scope (whole blood) runs lost their tare record (LESSONS C21)
     out["withheld"] = ["tier lines beyond Normal (not yet measured on this scale)", "other cell types (outside commissioning scope)"]
     return out

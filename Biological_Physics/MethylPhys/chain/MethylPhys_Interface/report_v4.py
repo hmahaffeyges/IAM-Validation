@@ -73,6 +73,7 @@ def _meta(o):
     m, t = o.get("met_a") or {}, o.get("tare") or {}
     if m.get("A") is None: return ""
     gA = t.get("A_rel") if t.get("A_rel") is not None else (m["A"] if m.get("specimen") != "whole blood" else None)
+    if str(m.get("state", "")).startswith("withheld"): gA = None   # the noise gate withholds the state: no gauge is drawn (as the v3 record)
     return ("<h2 id='v4-met-a'>Met-A: the neutrophil's tagging level on the gauge</h2>" + (R3._gauge(gA, label=f"Met-A {gA}") if gA is not None else "")
             + f"<p>{chip('commissioned' if m.get('commissioning') else 'development (whole blood)')} {E(str(t.get('state') or m.get('state', '')))}</p>")
 
