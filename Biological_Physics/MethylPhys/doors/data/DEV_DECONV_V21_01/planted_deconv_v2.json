@@ -1,0 +1,41 @@
+{
+ "stage": "D21 deconvolution (development)",
+ "cells": [
+  "neutrophils",
+  "monocytes",
+  "b cells",
+  "cd4 t cells",
+  "cd8 t cells",
+  "nk cells"
+ ],
+ "markers": 600,
+ "tests": {
+  "T1_pure": {
+   "min_share": 0.9887687740133297,
+   "met": true
+  },
+  "T2_mixtures": {
+   "n": 40,
+   "spread": "full",
+   "mae": 0.0038787866846090495,
+   "interval_coverage": 0.8166666666666668,
+   "met": true
+  },
+  "T3_small_share": {
+   "n": 20,
+   "seen": 1.0,
+   "met": true
+  }
+ },
+ "verdict": "PASSED",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "15c31c203bf75125418f7191b260701d10a61b2b8970951e665663ab47dfa70d",
+  "payload_sha256": "c83a3d5703b2bc95b160612bb9fa54d973e8965eb5cf2e8462f9c00572889638",
+  "inputs": [],
+  "manifest": [
+   "ATL-005"
+  ],
+  "utc": "2026-10-17T01:06:55Z"
+ }
+}

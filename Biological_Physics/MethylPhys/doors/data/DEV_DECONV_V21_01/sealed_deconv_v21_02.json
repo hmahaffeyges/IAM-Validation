@@ -1,0 +1,64 @@
+{
+ "test": "DEV-DECONV-V21-02 (release track B, version 2 of the tool)",
+ "sealed": "2026-10-16, before any E-MTAB-2145 array is mixed or read by the tool",
+ "job": "given a mixed sample, report each cell's share with its error bar",
+ "tool": "chain/stage_deconv_v21.py version 2: spread = average's uncertainty + the fit's donor spread + the measured laboratory spread + floor (Stage A21's array predictive); error bars from site resampling with cell profiles redrawn from that spread",
+ "panel": [
+  "neutrophils",
+  "monocytes",
+  "b cells",
+  "cd4 t cells",
+  "cd8 t cells",
+  "nk cells"
+ ],
+ "sample_check": "each pure array read alone must read at least 0.80 of its own cell; failing arrays listed, not used; a cell with fewer than 3 passing arrays is left out of the mixtures",
+ "mixtures": "200 mixtures (seed 2027) of the passing E-MTAB-2145 arrays, shares ~ Dirichlet(1,...) over the cells mixed; NK not in this laboratory, its truth is 0",
+ "samples": {
+  "monocytes": [
+   "16910_CD14",
+   "20910_CD14",
+   "22910B_CD14",
+   "24910A_CD14",
+   "24910B_CD14",
+   "29910_CD14"
+  ],
+  "neutrophils": [
+   "16910_CD16",
+   "20910_CD16",
+   "22910B_CD16",
+   "24910A_CD16",
+   "24910B_CD16",
+   "29910_CD16"
+  ],
+  "b cells": [
+   "16910_CD19",
+   "20910_CD19",
+   "22910B_CD19",
+   "24910A_CD19",
+   "24910B_CD19",
+   "29910_CD19"
+  ],
+  "cd4 t cells": [
+   "16910_CD4",
+   "20910_CD4",
+   "22910B_CD4",
+   "24910A_CD4",
+   "24910B_CD4",
+   "29910_CD4"
+  ],
+  "cd8 t cells": [
+   "16910_CD8",
+   "20910_CD8",
+   "22910B_CD8",
+   "24910A_CD8",
+   "24910B_CD8",
+   "29910_CD8"
+  ]
+ },
+ "bars": {
+  "B1": "mean over mixtures of the per-mixture mean |share - truth| over the six panel cells <= 0.03",
+  "B2": "the true share inside its 95 % bar for >= 80 % of shares"
+ },
+ "verdict": "both bars met: COMMISSIONED on six-cell blood mixtures read on 450K; otherwise development",
+ "prior_reading": "E-MTAB-2145's 30 arrays were read once in U1 (each alone against its cell's range); none has been read by this tool or mixed"
+}

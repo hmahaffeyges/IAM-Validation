@@ -2218,3 +2218,6 @@ The author: the page linked to the repository (a stale "Moved" stub next to the 
 
 ### 2026-10-16 · Deconvolution diagnostic: the misses come from one laboratory (ATL-065)
 Pure held-out arrays read alone: five of six laboratories read as their own cell at 0.93-1.00; GSE59065 reads CD8 0.74 and CD4 0.90 with neutrophil and monocyte signal, and supplied most of the T cells in the mixture pool. Summing CD8 subsets did not help (0.55). The spread terms were not the cause (old and new versions both cover over 80 percent on planted data). Score stands; next a shape check sealed before a fresh mixture test on E-MTAB-2145.
+
+### 2026-10-16 · Deconvolution tool version 2 sealed on fresh mixtures (DEV-DECONV-V21-02; ATL-066)
+Version 2 reads the atlas's own spread (Stage A21 array predictive) and checks every sample first (a pure array must read at least 0.80 of its own cell). Planted test PASSED. Sealed: 200 mixtures of E-MTAB-2145 (never read by the tool), bars B1 error at most 0.03 and B2 true share inside the bar for at least 80 percent.

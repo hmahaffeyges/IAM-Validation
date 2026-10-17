@@ -157,3 +157,37 @@ if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "diag_pure":
                 rows.append(dict(panel=pn, cell=c, sample=smp, **{f: sum(r["shares"][k] for k in v) for f, v in fam.items()}))
     T = pd.DataFrame(rows); S = T.groupby(["panel", "cell"])[list(FAMILY)].mean().round(3)
     Q2.write_csv(T, os.path.join(out, "diag_pure_v21.csv"), manifest=["ATL-065"]); print(S.to_string())
+
+# ---------------------------------------------------------------- DEV-DECONV-V21-02 (sealed 2026-10-16): version 2 on fresh mixtures
+# Sample check, first (the instrument knows when it cannot read a sample): every pure array is read alone by the six-cell panel; an array
+# passes when it reads at least SELF_MIN of its own cell. Failing arrays are listed and not used. A cell with fewer than 3 passing arrays is
+# left out of the mixtures (listed). Then 200 mixtures (seed 2027) of the passing arrays of one laboratory, E-MTAB-2145, scored once.
+SELF_MIN = 0.80
+def sample_check(x, cell, R, M):
+    r = deconvolve(x, R, M, boot=0); return dict(own=r["shares"][cell], passes=bool(r["shares"][cell] >= SELF_MIN))
+if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "score_fresh":
+    sys.path.insert(0, HERE); import stage_q2_selfref as Q2
+    shards, out = sys.argv[2], sys.argv[3]; os.makedirs(out, exist_ok=True)
+    DD = os.path.join(HERE, "..", "doors", "data"); SEAL = json.load(open(os.path.join(DD, "DEV_DECONV_V21_01", "sealed_deconv_v21_02.json")))
+    assert SPREAD == "full", "version 2 is sealed"; cells = SEAL["panel"]; R = reference(cells); M = markers(R)
+    I = pd.read_csv(os.path.join(DD, "DEV_ATLAS_V21_01", "identity_v21_arrays.csv")); I = I[(I.set != "build") & (I.status == "ok")]; base = dict(zip(I["sample"], I["base"]))
+    A, chk = {}, []
+    for c, smps in SEAL["samples"].items():
+        A[c] = []
+        for smp in smps:
+            b = base.get(smp); p = os.path.join(shards, f"{b}.parquet") if isinstance(b, str) else None
+            if not (p and os.path.exists(p)): chk.append(dict(cell=c, sample=smp, own=None, passes=False, note="no calibrated array")); continue
+            x = pd.read_parquet(p).iloc[:, 0].astype(float); x.index = x.index.astype(str); k = sample_check(x, c, R, M); chk.append(dict(cell=c, sample=smp, **k))
+            if k["passes"]: A[c].append(x.reindex(M))
+    use = [c for c in SEAL["samples"] if len(A[c]) >= 3]; rng = np.random.default_rng(2027); rows = []
+    for j in range(200):
+        f = rng.dirichlet(np.ones(len(use))); mix = sum(fk * A[c][rng.integers(len(A[c]))] for fk, c in zip(f, use)); r = deconvolve(mix, R, M)
+        truth = {c: 0.0 for c in cells}; truth.update(dict(zip(use, f)))
+        for c in cells:
+            lo, hi = r["interval_95"][c]; rows.append(dict(mixture=j, cell=c, truth=float(truth[c]), share=r["shares"][c], lo=lo, hi=hi, inside=bool(lo <= truth[c] <= hi)))
+    T = pd.DataFrame(rows); mae = float(T.assign(e=(T.share - T.truth).abs()).groupby("mixture").e.mean().mean()); cov = float(T.inside.mean())
+    V = dict(test=SEAL["test"], sample_check=chk, cells_mixed=use, markers=len(M), B1_mean_error=mae, B1_met=bool(mae <= 0.03), B2_inside=cov, B2_met=bool(cov >= 0.80),
+             per_cell_error={c: float((g.share - g.truth).abs().mean()) for c, g in T.groupby("cell")}, per_cell_inside={c: float(g.inside.mean()) for c, g in T.groupby("cell")})
+    V["verdict"] = "COMMISSIONED" if V["B1_met"] and V["B2_met"] else "NOT MET"
+    Q2.write_csv(T, os.path.join(out, "deconv_v2_mixtures.csv"), manifest=["ATL-065"]); Q2.write_json(V, os.path.join(out, "deconv_v2_scored.json"), manifest=["ATL-065"])
+    print(json.dumps({k: V[k] for k in ("cells_mixed", "B1_mean_error", "B2_inside", "verdict")}))

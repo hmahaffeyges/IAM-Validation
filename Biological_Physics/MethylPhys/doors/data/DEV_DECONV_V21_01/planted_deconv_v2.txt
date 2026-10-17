@@ -1,0 +1,4 @@
+T1_pure: {'min_share': 0.9887687740133297, 'met': True}
+T2_mixtures: {'n': 40, 'spread': 'full', 'mae': 0.0038787866846090495, 'interval_coverage': 0.8166666666666668, 'met': True}
+T3_small_share: {'n': 20, 'seen': 1.0, 'met': True}
+PLANTED DECONVOLUTION TEST: PASSED

@@ -3836,10 +3836,10 @@
     },
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_DECONV_V21_01",
-     "files": 3,
+     "files": 4,
      "stage": "Q2 self-reference",
-     "chain": "dfdbfb19916b",
-     "latest_utc": "2026-10-16T23:37:05Z"
+     "chain": "15c31c203bf7",
+     "latest_utc": "2026-10-17T01:06:55Z"
     }
    ]
   },
@@ -27186,6 +27186,35 @@
    "cost": "laptop",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/DEV_DECONV_V21_01.md",
+   "legacy_ids": [],
+   "depends_on": [
+    "ATL-045",
+    "ATL-055"
+   ],
+   "sources_of_row": [
+    "author 2026-10-13: if they do not find it better than what they have, they will not care"
+   ]
+  },
+  {
+   "id": "ATL-066",
+   "title": "Deconvolution tool version 2 on fresh mixtures (E-MTAB-2145), with a sample check first (DEV-DECONV-V21-02)",
+   "purpose": "Release track B: the tool reading the atlas's own spread terms, judged on a laboratory it has never read.",
+   "instrument_or_term": "atlas v2.1, deconvolution",
+   "sources": [],
+   "data_status": "mixtures to be chosen (independent of every atlas source)",
+   "status": "sealed",
+   "runs": [
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "version 2 planted test PASSED (error 0.004, true share inside its bar 0.82)",
+     "page": "not headline: synthetic"
+    }
+   ],
+   "next_step": "score once on the box",
+   "cost": "laptop",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_DECONV_V21_02.md",
    "legacy_ids": [],
    "depends_on": [
     "ATL-045",
