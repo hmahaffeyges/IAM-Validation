@@ -4,7 +4,7 @@
  "set_out": "Re-evaluate every limit against each tool's job, commission what already does its job, and score IAM-A's grand test.",
  "_convention": "see 2026-10-13.json",
  "check_completeness": true,
- "open_at_turnover": "Next: the gift package (deposit, README, letter).",
+ "open_at_turnover": "Next: wire Atlas v2.1, the deconvolution tool and IAM-A's self-reference into the live run.",
  "closing": "IAM-A commissioned on its own reference, the deconvolution tool commissioned for shares, and every tool now held to its job.",
  "sections": [
   {
@@ -119,6 +119,13 @@
      "title": "Limits study adopted: tools held to their job, the gift ships without new science",
      "status": "structure",
      "what": "Each tool held to its job with at most three bars; experts set the gauge lines. Sphere and noise maps move after the gift; off-path rows parked.",
+     "why": "",
+     "record": "development/LIMITS_STUDY_2026-10-17.md"
+    },
+    {
+     "title": "The to-do list for the first commissioned chain and the gift",
+     "status": "structure",
+     "what": "One-command chain through every commissioned instrument, the report with the HEALPix C-score, a fresh-clone test, the front page, the book audit, the temperature law.",
      "why": "",
      "record": "development/LIMITS_STUDY_2026-10-17.md"
     }

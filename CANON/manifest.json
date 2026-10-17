@@ -25991,9 +25991,9 @@
    ],
    "data_status": "not yet searched",
    "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
-   "status": "parked",
+   "status": "planned",
    "runs": [],
-   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
+   "next_step": "unparked by the author 2026-10-17 (the physicist's test, alongside the gift): stage T2 synthetic on planted molecules with the committed counter, then the sealed reading (plants GSE54292, sealed number 1.0212; hamster GSE199815)",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -27359,6 +27359,106 @@
    "legacy_ids": [],
    "sources_of_row": [
     "author request 2026-10-13"
+   ]
+  },
+  {
+   "title": "The first commissioned chain (chain v4): one run reads a sample through every commissioned instrument",
+   "purpose": "Today's live path (run_sample.py) is chain v3: intake, calibration, the old 8-group composition, Met-A, C-score, the tare and the old Stage Q. Atlas v2.1 (Stage A21), the deconvolution tool (D21) and IAM-A's self-reference (Stage Q2) are commissioned but run from their own scripts. Wire them into the conductor and the run, arrays and sequencing, one command.",
+   "instrument_or_term": "all",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/LIMITS_STUDY_2026-10-17.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "map the live path against the five commissioned instruments; wire A21, D21 and Q2; synthetic first",
+   "cost": "laptop",
+   "impact": 5,
+   "legacy_ids": [],
+   "id": "OTH-068",
+   "sources_of_row": [
+    "session 2026-10-16"
+   ]
+  },
+  {
+   "title": "The report, professional, with the C-score drawn on the sphere (HEALPix)",
+   "purpose": "One report per sample: every commissioned reading with its status and limits, the cell shares, IAM-A against the sample's own line, and the C-score's departures drawn on a HEALPix sphere so the clustering is visible (a picture of the same residuals the C-score scores, not a new reading).",
+   "instrument_or_term": "all",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/LIMITS_STUDY_2026-10-17.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "after chain v4 is wired",
+   "cost": "laptop",
+   "impact": 5,
+   "legacy_ids": [],
+   "id": "OTH-069",
+   "sources_of_row": [
+    "session 2026-10-16"
+   ]
+  },
+  {
+   "title": "One-button test from a fresh clone",
+   "purpose": "A fresh clone on a clean rented machine, one command, public sample files in, reports out; every stage runs and every number equals the committed results (release check extended to chain v4).",
+   "instrument_or_term": "all",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/LIMITS_STUDY_2026-10-17.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "after the report",
+   "cost": "laptop",
+   "impact": 5,
+   "legacy_ids": [],
+   "id": "OTH-070",
+   "sources_of_row": [
+    "session 2026-10-16"
+   ]
+  },
+  {
+   "title": "Front page and repository: the commissioned chain front and center",
+   "purpose": "Only the five commissioned instruments, the head-to-head wins and tests run by the commissioned chain on the front page and repository front; older results move to an archive folder (kept, not deleted).",
+   "instrument_or_term": "all",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/LIMITS_STUDY_2026-10-17.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "after the one-button test",
+   "cost": "laptop",
+   "impact": 5,
+   "legacy_ids": [],
+   "id": "OTH-071",
+   "sources_of_row": [
+    "session 2026-10-16"
+   ]
+  },
+  {
+   "title": "Book audit: the cellular part (AstroGenetics, the cosmic methylome, the cell, DNA, the instruments, the atlas)",
+   "purpose": "Chapter by chapter: every statement checked against the committed records and the law; every error reported to the author and fixed.",
+   "instrument_or_term": "all",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "record": "development/LIMITS_STUDY_2026-10-17.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "after the front page",
+   "cost": "laptop",
+   "impact": 5,
+   "legacy_ids": [],
+   "id": "OTH-072",
+   "sources_of_row": [
+    "session 2026-10-16"
    ]
   }
  ],

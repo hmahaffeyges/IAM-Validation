@@ -2259,3 +2259,6 @@ Neutrophils, monocytes, CD4 T and CD8 T on arrays, against atlas v2.1: share err
 
 ### 2026-10-17 · IAM-A commissioned: grand test MET, 7 of 8 read inside Normal (COMMISSIONING-IAMA; COM-IAMA-052)
 DEV-IAMA-GRAND-01 scored once by the sealed rule: 7 of 8 read healthy CD8 T-cell samples (GSE144691) inside band v1, each against its own loose share; the shape check declined five (all naive, one central memory). Commissioned on healthy blood CD8 T cells, whole-genome bisulfite; every required place updated.
+
+### 2026-10-17 · The to-do list for the first commissioned chain and the gift (OTH-068,OTH-069,OTH-070,OTH-071,OTH-072, PHY-057)
+Author: the chain must run every commissioned instrument from one command after a fresh clone, with a professional report and the C-score on the HEALPix sphere; the front page shows only the commissioned chain and its wins; the cellular book chapters are audited; the temperature law is unparked as the physicist's test. Found: Atlas v2.1, the deconvolution tool and IAM-A's self-reference are commissioned but not yet wired into the live run (run_sample.py is chain v3).

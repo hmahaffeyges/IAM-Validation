@@ -34,3 +34,13 @@ Anything beyond the job is reported as information, labeled, and never gates a r
 ## Cost
 
 Both machines are on-demand (m7a.32xlarge and m7a.16xlarge). Once the grand test is scored, both stop; nothing parked needs them.
+
+## The to-do list (author, 2026-10-17)
+
+1. **The first commissioned chain** (OTH-068): one run through every commissioned instrument. Atlas v2.1, the deconvolution tool and IAM-A's self-reference are commissioned but not yet in the live run.
+2. **The report** (OTH-069): professional, with the C-score drawn on the HEALPix sphere.
+3. **One-button test from a fresh clone** (OTH-070).
+4. **Front page and repository** (OTH-071): the commissioned chain front and center; older results to an archive folder.
+5. **Book audit, the cellular part** (OTH-072).
+6. **The temperature law** (PHY-057, unparked): the physicist's test, alongside the gift.
+7. **Gift packaging:** deposit, README, letter (release checklist).
