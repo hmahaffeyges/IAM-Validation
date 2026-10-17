@@ -1215,11 +1215,10 @@
   "s3": {
    "align_plants.sh": "a8d6f4b03060db7839e721d2e5d875f6f11dfb9653611fedff5908ef21fa1b04",
    "t3_pairs_runs.csv": "5bb99b79b8c2c9559829ddf7e7739bb286381c9365de2a56294cf1bcaf87a248",
-   "count_plant.py": "3e1703543b6572fbfe75aa17ab316fe3a9850405e9d832e2875007773b8cec0b",
-   "code.tgz": "ba722b0c2528c0fc3c26ff8071d771a5b68ba5479b09428e63a6e9f4ab1f0d5b"
+   "count_plant.py": "3e1703543b6572fbfe75aa17ab316fe3a9850405e9d832e2875007773b8cec0b"
   },
   "s3_inputs_sha": {},
-  "matches_repo": false,
+  "matches_repo": true,
   "log_in_s3": false,
   "outputs_in_s3": {
    "results/PRED_TEMPERATURE_01/T3/": false
@@ -1230,11 +1229,10 @@
   "s3": {
    "align_plants.sh": "a8d6f4b03060db7839e721d2e5d875f6f11dfb9653611fedff5908ef21fa1b04",
    "t3_pairs_runs.csv": "5bb99b79b8c2c9559829ddf7e7739bb286381c9365de2a56294cf1bcaf87a248",
-   "count_plant.py": "3e1703543b6572fbfe75aa17ab316fe3a9850405e9d832e2875007773b8cec0b",
-   "code.tgz": "ba722b0c2528c0fc3c26ff8071d771a5b68ba5479b09428e63a6e9f4ab1f0d5b"
+   "count_plant.py": "3e1703543b6572fbfe75aa17ab316fe3a9850405e9d832e2875007773b8cec0b"
   },
   "s3_inputs_sha": {},
-  "matches_repo": false,
+  "matches_repo": true,
   "log_in_s3": false,
   "outputs_in_s3": {
    "results/PRED_TEMPERATURE_01/T3/": false

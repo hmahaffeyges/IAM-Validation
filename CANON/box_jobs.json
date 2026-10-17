@@ -1900,16 +1900,17 @@
    ],
    "files": [
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/box/align_plants.sh",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "stops itself after 24 hours at most"
+   "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run1/ at boot, where code.tgz is chain/ archived at the commit (git archive); run1_B holds machine B's verified copy of the same three files"
   },
   {
    "job_id": "i-0ebb4b0b42b31bbf6",
    "name": "Temperature law stage T3, machine B: align and chain-count Arabidopsis samples from a shared queue (PHY-057)",
    "date": "2026-10-17",
    "commit": "afc726be",
-   "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run1/",
+   "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run1_B/",
    "state": "running",
    "log": "results/PRED_TEMPERATURE_01/T3/status_B.txt",
    "machine": "spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once",
@@ -1923,9 +1924,10 @@
    ],
    "files": [
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/box/align_plants.sh",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "stops itself after 24 hours at most"
+   "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run1/ at boot, where code.tgz is chain/ archived at the commit (git archive); run1_B holds machine B's verified copy of the same three files"
   }
  ],
  "not_jobs": {
