@@ -1,0 +1,128 @@
+{
+ "_rule": "One source for the IAM-Atlas v2.1 story (author, 2026-10-16: the commentary must feed the repo, the webpage and the book). CANON/atlas_story.py writes the README section and the book section from this file; the page builder reads it directly. Every number here is from a committed record named in 'record'. Status is one of: now (in the atlas as released), gift (needed for the gift, not yet done), after (after the gift). Edit here only.",
+ "title": "IAM-Atlas v2.1: outfitted with AstroGenetics",
+ "opening": [
+  "IAM-Atlas v2.1 is outfitted with the latest in AstroGenetics ingenuity, blending the most advanced tools geneticists created to learn the unbelievably complex coding language of a human cell with the tools cosmologists created to study the faintest traces of the early universe, light that has traveled for more than 13 billion years to reach us. These are two of the most respected and revered fields of research, run by some of the most brilliant and talented scientists on the planet, who over the past few decades developed ingenious toolkits independently because the advancement of their fields demanded it. A geneticist knows little if anything at all about the language of dark matter, horizons or the cosmic microwave background. Nor does the cosmologist speak the language of CpG islands, chromatin surfaces or the methylome.",
+  "IAM speaks both, because IAM's Law is the physics underneath both. We are not only bringing IAM's Law to biology from cosmology; we are bringing the toolkit too."
+ ],
+ "not_this": "This is not a bigger table built for the sake of putting more cells in one place. A blended 79-cell atlas with MCMC posteriors would be interesting, but not new. What is new is how it was built and how it was checked: the way cosmologists build and check a map of the sky. That is what we mean by AstroGenetics and the physics of the methylome, and every tool below is something a geneticist can use in their own work, not only in ours.",
+ "facts": {
+  "cells": 79,
+  "sites": 813951,
+  "measured_pairs": 60687175,
+  "sources": 21,
+  "rhat_share": 0.0042,
+  "divergences": 13,
+  "blocks": 700,
+  "draws_per_block": 100,
+  "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/convergence_v21.json; Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md"
+ },
+ "tools": [
+  {
+   "name": "One map from many instruments",
+   "status": "now",
+   "sky": "Planck's sky maps were made by fitting every scan from every detector together, with each scan's own offset fitted alongside the sky (destriping).",
+   "cell": "21 sources, arrays and sequencing from many laboratories, are fitted together in one hierarchical model. Each laboratory's offset is fitted apart from the cells, so the same cell measured by two laboratories becomes one cell, not two.",
+   "them": "One reference across laboratories and platforms, instead of one table per laboratory.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+  },
+  {
+   "name": "The whole posterior, sampled (MCMC)",
+   "status": "now",
+   "sky": "Cosmologists estimate the parameters of the universe from the microwave background by Markov chain Monte Carlo sampling, which returns every answer with its full uncertainty.",
+   "cell": "The No-U-Turn sampler fitted 813,951 array sites in 700 blocks. Every site and cell carries its best value, its 95 % range, the number of observations behind it, and the posterior draws themselves (100 per block): 60,687,175 measured cell-site values.",
+   "them": "An error bar on every reference value, and draws that carry the reference's own uncertainty into any deconvolution or marker search built on it.",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/convergence_v21.json"
+  },
+  {
+   "name": "A convergence certificate at every site",
+   "status": "now",
+   "sky": "No cosmological chain is reported without its Gelman-Rubin statistic (R-hat), the check that the sampler has settled.",
+   "cell": "R-hat and the effective sample size are stored for every site and cell. 0.42 % of values sit at R-hat 1.01 or above, and the whole fit had 13 divergent transitions in 700 blocks. Flagged values are kept, with the flag.",
+   "them": "You know which reference values to trust before you use them.",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/convergence_v21.json"
+  },
+  {
+   "name": "Masks, never filling",
+   "status": "now",
+   "sky": "Where the galaxy hides the sky, cosmologists mask it rather than paint it over.",
+   "cell": "Where a cell's sources never measured a site, the value is left blank (not measured), never imputed, and the count of observations sits beside every value.",
+   "them": "No invented reference value slips into a deconvolution.",
+   "record": "Biological_Physics/MethylPhys/atlas/v2.1/README.md"
+  },
+  {
+   "name": "Sample variance: the next person, not only the average",
+   "status": "now",
+   "sky": "Cosmic variance is the spread a different sky would show: how well the average is known is a different question from how much one realization varies.",
+   "cell": "The fit separates how well each cell's average is known from how much a new person's cell varies around it (the donor spread), at every site.",
+   "them": "A range for a new person's cells, not just an error on the mean. Our deconvolution tool already reads it.",
+   "record": "Biological_Physics/MethylPhys/atlas/v2.1/README.md"
+  },
+  {
+   "name": "Cross-calibrating two instruments",
+   "status": "now",
+   "sky": "Planck's maps were compared with WMAP's on the same sky, and a calibration difference between the two telescopes was traced and resolved.",
+   "cell": "On 767,672 site pairs of the 17 cells both sequencing and arrays measured, the array-to-sequencing transfer turned out not to be a straight line: an S shape, off by up to 0.08 near the low end. v2.1 uses one bounded curve that cannot leave 0 to 1, tested before launch.",
+   "them": "Anyone who projects sequencing onto array sites with a straight line, or reads an array against a sequencing reference, inherits this error. The bridge ships with the atlas.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+  },
+  {
+   "name": "Blind analysis and sealed bars",
+   "status": "now",
+   "sky": "Modern microwave-background and dark-energy analyses are blinded: the tests are fixed before anyone sees the answer.",
+   "cell": "Every commissioning bar was sealed before the atlas existed, on held-out laboratories that share no GEO contributor with any source, and each use was scored once.",
+   "them": "A reference whose claims were fixed before the data could flatter it.",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md"
+  },
+  {
+   "name": "Tested on held-out skies",
+   "status": "now",
+   "sky": "A map earns trust on data that played no part in making it.",
+   "cell": "Held-out cells from independent laboratories, the blind sites of the tissue tests, and head-to-heads against Moss's and Loyfer's own references on the jobs they built them for: three bars met against each.",
+   "them": "Evidence on independent samples, not on the training data.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_02.md"
+  },
+  {
+   "name": "Noise maps from the posterior draws",
+   "status": "gift",
+   "sky": "Planck released noise simulations alongside its sky maps, so others could tell signal from noise.",
+   "cell": "Maps of where the atlas is unsure, drawn from its own posterior.",
+   "them": "See where a reference can and cannot be leaned on, site by site.",
+   "record": "CANON/v21_release.json (M03)"
+  },
+  {
+   "name": "The information sphere, with masks and apodization",
+   "status": "gift",
+   "sky": "The sky is stored on the HEALPix sphere, with masks and smooth mask edges (apodization) so the edges do not create false structure.",
+   "cell": "The atlas drawn on a sphere, so its structure can be studied with the sky's own tools.",
+   "them": "A picture of healthy order across all 79 cells at once.",
+   "record": "CANON/v21_release.json (M01, M02, G05)"
+  },
+  {
+   "name": "The guidebook",
+   "status": "gift",
+   "sky": "Every tool above, with its origin and history in cosmology.",
+   "cell": "How each one applies to the methylome, how it differs from what geneticists use now (such as the bootstrap), and its limits.",
+   "them": "An instruction manual for the new tools.",
+   "record": "CANON/v21_release.json (G08)"
+  },
+  {
+   "name": "Two half-atlases and null maps",
+   "status": "after",
+   "sky": "Planck's half-mission split: two maps from two halves of the data; their difference must be pure noise.",
+   "cell": "The atlas refitted on two sealed halves of every cell's donors; half A minus half B is a noise map with no signal in it.",
+   "them": "A direct test of the atlas's stated noise, and noise-free cross-spectra.",
+   "record": "CANON/v21_release.json (F07, F08, M03H)"
+  },
+  {
+   "name": "Power spectra, simulations and higher-order statistics",
+   "status": "after",
+   "sky": "Masked power spectra with shuffled nulls, end-to-end simulations that measure the pipeline's own transfer function, and three-point and Minkowski statistics of the residuals.",
+   "cell": "The same statistics on the atlas maps, each against its simulated null, and the cross-site covariance of healthy donors.",
+   "them": "Structure in healthy methylation that a table of means cannot show.",
+   "record": "CANON/v21_release.json (M04-M07)"
+  }
+ ],
+ "limits": "What is commissioned today: three cell reference profiles (cortical neurons, lung bronchus epithelium and naive CD4 T cells on 450K arrays) and the blind sites of the colon and lung tissue tests. Every other use is labeled development until it passes its own sealed test. The deconvolution tool reads shares accurately (median error 0.016 on fresh mixtures) but its error bars are not yet commissioned.",
+ "closing": "The tools of the sky, brought to the cell, because one law runs underneath both."
+}

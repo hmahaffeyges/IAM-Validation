@@ -153,16 +153,15 @@ def page(art):
                            f"Before it started, every check on the launch list passed and the tests it will be judged by were sealed.")
     else: _v21_status = (f"It is being prepared now: the computers are working through the data and the checks that must pass before the fit "
                          f"can start. The fit itself is expected to take {E(_pub['fit_estimate'])}.")
-    v21_banner = (f'<section class="wrap" id="v21"><div class="banner"><p class="kicker">Now building</p><h2>IAM-Atlas v2.1</h2>'
-        f'<p>The next version of our healthy-cell reference, built from Loyfer\'s and Moss\'s atlases plus sorted cells from new laboratories, '
-        f'fitted with full uncertainty, and checked against their own references on their own job before anything is called better. '
-        f'{_v21_status}</p>'
-        f'<details><summary>What was done and sealed before the fit started</summary><ul class="road">'
-        f'<li><b>Done:</b> all {_bl[1]} checks on the launch list, each written before its data was read: every array\'s identity and sex, a test that no new cell duplicates an old one, each laboratory\'s offset, a dry run of the data, a cost sheet, and a speed fix checked against the old model on 60 real sites.</li>'
-        f'<li><b>Sealed:</b> the bars the new map will be judged by, before it exists: how often new samples fall inside its stated range, the blind sites the tissue tests rely on, and blood composition.</li>'
-        f'<li><b>Sealed:</b> a showcase on the two jobs Loyfer and Moss built their atlases for: finding each cell\'s marker sites, and working out which cells are in a mixed sample, including brain and lung cells their atlases do not hold.</li>'
-        f'</ul></details>'
-        f'<details><summary>What v2.1 will carry</summary><ul class="road">{_gifts}</ul></details></div></section>')
+    # IAM-Atlas v2.1 story (author 2026-10-16): one source, CANON/atlas_story.json, feeds this section, the atlas README and the book
+    _ST = J("CANON/atlas_story.json"); _LB = {"now": "In the atlas now", "gift": "Coming with the release", "after": "After the release"}
+    def _tools(st):
+        return "".join(f'<li><b>{E(t["name"])}.</b> <i>In cosmology:</i> {E(t["sky"])} <i>In the atlas:</i> {E(t["cell"])} <i>For your work:</i> {E(t["them"])}</li>'
+                       for t in _ST["tools"] if t["status"] == st)
+    v21_banner = (f'<section class="wrap" id="v21"><div class="banner"><p class="kicker">IAM-Atlas v2.1 · 79 cells · commissioned use by use</p><h2>{E(_ST["title"])}</h2>'
+        + "".join(f"<p>{E(x)}</p>" for x in _ST["opening"]) + f'<p><b>{E(_ST["not_this"])}</b></p>'
+        + "".join(f'<details{" open" if st == "now" else ""}><summary>{_LB[st]}</summary><ul class="road">{_tools(st)}</ul></details>' for st in ("now", "gift", "after"))
+        + f'<p><b>Where it stands.</b> {E(_ST["limits"])}</p><p class="sub"><i>{E(_ST["closing"])}</i></p></div></section>')
     _cs = importlib.util.spec_from_file_location("cat", os.path.join(REPO, "CANON", "catalogue.py")); CAT = importlib.util.module_from_spec(_cs); _cs.loader.exec_module(CAT)
     _C, _M = CAT.load()
     _cards = "".join(f'<article class="card"><span class="chip st-b">{E(CAT.stage(i, _M))}</span><h3>{E(i["name"])}</h3><p><b>{E(i["question"])}</b></p>'

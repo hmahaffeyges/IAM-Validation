@@ -2239,3 +2239,6 @@ Run 3 (job i-09dd0f71b2e095177): Loyfer 153, ENCFF092SBB, ENCFF605NRU, ENCFF704S
 
 ### 2026-10-16 · IAM-A clean room part A REPRODUCED: 158 of 158 counts, the line and the shape reference identical (PHY-055)
 Run 4 (job i-09f4d660c5c75e867, 500 GB disk, finished 7:22 PM PDT): a fresh public clone, public data only (GEO, ENCODE), recounted Loyfer 153 and ENCODE 5 with the chain; every count equals the committed one, and the self-reference line and the sample-shape reference rebuilt identically (doors/data/CLEANROOM_IAMA_01/cleanroom_compare_run4.txt).
+
+### 2026-10-16 · IAM-Atlas v2.1 story: one source for the repo, the page and the book (author request; ATL-063)
+CANON/atlas_story.json (author's opening, what the MCMC build gives, every tool with its cosmology origin, its use in the atlas and for geneticists' own work, and status: in the atlas now, coming with the release, after the release). CANON/atlas_story.py writes the atlas README section and book section p6_14b_atlas_v21.tex; the page reads the JSON; the push gate refuses drift. Replaced the stale front-page banner ("Now building", "the fit is running") and the README's "not yet commissioned" line.

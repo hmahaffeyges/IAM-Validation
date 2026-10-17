@@ -17,7 +17,7 @@ python3 CANON/fit_progress.py > /dev/null 2>&1 || true
 step python3 CANON/v21_readiness.py; step python3 CANON/v21_release.py --verify
 step python3 CANON/ascore_db.py; step python3 CANON/instruments_board.py;
 step python3 CANON/book_toolbox.py;
-step python3 CANON/book_bits.py; python3 CANON/bit_tables.py; python3 CANON/four_domains.py
+step python3 CANON/book_bits.py; python3 CANON/atlas_story.py; python3 CANON/bit_tables.py; python3 CANON/four_domains.py
 step python3 CANON/commissioning_report.py
 python3 CANON/costs_snapshot.py > /dev/null 2>&1 || echo "checkpoint: costs not refreshed (no AWS billing access in this shell); the page keeps the last snapshot"
 step python3 CANON/catalogue.py; step python3 CANON/status_md.py; step python3 CANON/status_lines.py; step python3 CANON/plan_md.py; python3 CANON/now_running.py > /dev/null 2>&1 || true

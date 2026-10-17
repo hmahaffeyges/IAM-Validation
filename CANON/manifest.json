@@ -25039,7 +25039,7 @@
    "instrument_or_term": "atlas",
    "data_status": "partial",
    "status": "designed",
-   "next_step": "Structure and history entries while the atlas is built; worked examples after the fit.",
+   "next_step": "the guidebook builds on CANON/atlas_story.json (13 tools, each with its cosmology origin, its use in the atlas and for geneticists' work, and status); next: each tool's full entry with history and the bootstrap comparison",
    "cost": "laptop",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
