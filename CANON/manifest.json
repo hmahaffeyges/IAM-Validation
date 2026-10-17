@@ -27398,9 +27398,9 @@
    ],
    "data_status": "",
    "record": "development/LIMITS_STUDY_2026-10-17.md",
-   "status": "planned",
+   "status": "synthetic_done",
    "runs": [],
-   "next_step": "after chain v4 is wired",
+   "next_step": "report_v4.py built 2026-10-17 (at-a-glance table, shares, Met-A gauge, C-Score with its HEALPix sky, IAM-A gauge, then the full v3 record); tested on a constructed blood sample and by release_check_v4 V4 (9 of 9 sections, sky embedded) on the laptop. On clean clone run 1 V4 failed only because pyarrow was unpinned; run 2 repeats it. Then a real public sample of each kind.",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
@@ -27418,9 +27418,17 @@
    ],
    "data_status": "",
    "record": "development/LIMITS_STUDY_2026-10-17.md",
-   "status": "planned",
-   "runs": [],
-   "next_step": "after the report",
+   "status": "running",
+   "runs": [
+    {
+     "date": "2026-10-17",
+     "outcome": "fail",
+     "note": "clean clone run 1 (job i-0d4559e967ace0f61): 18 of 25; all 7 failures from an unpinned pyarrow needing NumPy 2",
+     "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/run1/release_check_v4.log",
+     "page": "not headline: a gate on the way to the commissioned chain"
+    }
+   ],
+   "next_step": "clean clone run 2 running (job i-0fdf1258fb10dd30c, commit f7f448c2, pyarrow and matplotlib pinned)",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

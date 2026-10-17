@@ -1798,7 +1798,32 @@
    "purpose": "clone the public repository, install only chain/requirements.txt, run release_check_v4.py; every check must pass",
    "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh",
    "manifest": [
-    "OTH-068"
+    "OTH-068",
+    "OTH-070"
+   ],
+   "outputs": [
+    "results/CHAIN_V4_CLEANCLONE/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
+   ],
+   "note": "stops itself after 150 minutes at most"
+  },
+  {
+   "job_id": "i-0fdf1258fb10dd30c",
+   "name": "Chain v4 one-command test from a fresh public clone, run 2 (pyarrow and matplotlib pinned) (OTH-070)",
+   "date": "2026-10-17",
+   "commit": "f7f448c2",
+   "s3_code_prefix": "results/CHAIN_V4_CLEANCLONE/code/run2/",
+   "state": "running",
+   "log": "results/CHAIN_V4_CLEANCLONE/status.txt",
+   "machine": "spot m7a.xlarge, self-terminating (box image 2026-10-14; a new Python 3.11 environment from chain/requirements.txt only)",
+   "purpose": "clone the public repository, install only chain/requirements.txt, run release_check_v4.py; every check must pass",
+   "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh",
+   "manifest": [
+    "OTH-068",
+    "OTH-069",
+    "OTH-070"
    ],
    "outputs": [
     "results/CHAIN_V4_CLEANCLONE/"
