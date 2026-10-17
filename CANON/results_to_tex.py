@@ -70,6 +70,11 @@ def compute(e):
         assert all(X[k]["verdict"] == "MET" for k in ("UT1", "UT2A", "UT2B")), "listed only while all three showcase bars are met"
         return dict(n=sum(X["arrays"].values()), m_v=X["UT1"]["v21_share"], m_m=X["UT1"]["moss_share"], a_v=X["UT2A"]["median_error_v21"], a_m=X["UT2A"]["median_error_moss"],
                     b_v=X["UT2B"]["median_error_v21"], b_m=X["UT2B"]["median_error_moss"], rec=round(100 * X["UT2B"]["recovered_within_005"]), less=round(100 * (1 - X["UT2A"]["ratio"])))
+    if e["compute"] == "atlas_use_loyfer":
+        X = json.load(open(os.path.join(ROOT, D + "DEV_ATLAS_USE_02/use_tests_loyfer_result.json"), encoding="utf-8"))
+        assert all(X[k]["verdict"] == "MET" for k in ("UT1", "UT2A", "UT2B")), "listed only while all three showcase bars are met"
+        return dict(n=sum(X["arrays"].values()), m_v=X["UT1"]["v21_share"], m_l=X["UT1"]["loyfer_share"], a_v=X["UT2A"]["median_error_v21"], a_l=X["UT2A"]["median_error_loyfer"],
+                    b_v=X["UT2B"]["median_error_v21"], b_l=X["UT2B"]["median_error_loyfer"], rec=round(100 * X["UT2B"]["recovered_within_005"]), less=round(100 * (1 - X["UT2A"]["ratio"])))
     if e["compute"] == "cscore_band":
         A = json.load(open(os.path.join(ROOT, D + "CSCORE_COMMISSIONING/band_test_GSE315366.json"), encoding="utf-8"))
         B = json.load(open(os.path.join(ROOT, D + "CSCORE_COMMISSIONING/band_test_GSE184269.json"), encoding="utf-8"))
@@ -180,6 +185,11 @@ def readme_row(e, v):
              f"sealed before the atlas existed: markers confirmed {v['m_v']:.3f} against {v['m_m']:.3f}; blood mixtures split with median error "
              f"{v['a_v']:.4f} against {v['a_m']:.4f}; with brain cells Moss's reference does not hold mixed in, {v['b_v']:.4f} against {v['b_m']:.4f}, "
              f"the outside share recovered in {v['rec']} percent of mixtures. A showcase, not a gate")
+    elif e.get("compute") == "atlas_use_loyfer":
+        h = (f"**IAM-Atlas v2.1 does Loyfer's own jobs better than Loyfer's reference.** His reference rebuilt his way from his 205 public samples; on "
+             f"{v['n']} held-out arrays from independent laboratories, by the bars v2.1 met against Moss: markers confirmed {v['m_v']:.3f} against "
+             f"{v['m_l']:.3f}; mixtures split with median error {v['a_v']:.4f} against {v['a_l']:.4f}; with brain cells Loyfer's atlas does not hold "
+             f"mixed in, {v['b_v']:.4f} against {v['b_l']:.4f}. A showcase, not a gate")
     elif e.get("compute") == "cscore_band":
         h = (f"**The clustering meter's healthy range holds in two laboratories that never helped set it.** Set on {v['setn']} arrays from "
              f"{v['setlabs']} series and committed first; then {v['in1']} of {v['n1']} and {v['in2']} of {v['n2']} healthy bloods read inside it "

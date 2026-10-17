@@ -392,6 +392,24 @@
     "head": "Our 79-cell atlas is commissioned for its first uses",
     "sub": "Three cell references and the sites behind our colon and lung cancer tests passed bars fixed before the atlas existed; on the jobs a reference atlas is used for, it also beat the field's published reference."
    }
+  },
+  {
+   "id": "DEV-ATLAS-USE-02",
+   "date": "2026-10-16",
+   "kind": "result",
+   "instrument": "IAM-Atlas v2.1",
+   "status": "development",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_02.md",
+   "compute": "atlas_use_loyfer",
+   "title": "Atlas v2.1 against Loyfer's own reference, on the jobs a reference atlas is used for",
+   "plain": "Loyfer's published atlas was rebuilt exactly the way his paper builds it for arrays, from his 205 public samples, and scored against v2.1 by the same sealed bars that v2.1 met against Moss. On 731 healthy arrays from laboratories that never helped build either atlas, v2.1's markers held more often (0.998 against 0.938), it split mixtures with a smaller error (0.020 against 0.025), and with brain cells Loyfer's atlas does not hold mixed in, it cut the error by half (0.023 against 0.048).",
+   "win": {
+    "rank": 2,
+    "stat": "3 of 3 bars",
+    "head": "Our atlas beats Loyfer's reference too",
+    "sub": "On {n} held-out arrays: mixtures split {less} percent more accurately than Loyfer's reference; both published references now beaten on their own jobs."
+   }
   }
  ],
  "losses": [

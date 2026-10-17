@@ -2230,3 +2230,6 @@ Same held-out arrays, sealed scorer and bars as the Moss run (met). Loyfer's ref
 
 ### 2026-10-16 · Deconvolution tool version 2 scored once: shares met (0.016), error bars just short (0.78 of 0.80) (DEV-DECONV-V21-02; ATL-066)
 The sample check refused all six of the test laboratory's B-cell arrays (they read 0.29-0.68 B cells) and one monocyte array, as the rule says. Error bars too narrow for monocytes (0.38) and CD4 T (0.64). Also: the big box's root disk filled (291 GB), which stopped clean room run 3 in seconds; freed 41 GB (atlas fit blocks, verified on S3 2800 of 2800 at the same size, and finished job folders), clean room run 3 moved to its own self-terminating machine (job i-09dd0f71b2e095177, spot m7a.8xlarge; code copy results/CLEANROOM_IAMA_01/code/run3/). The CD8 grand test was unaffected (its own drive).
+
+### 2026-10-16 · Atlas v2.1 beats Loyfer's own reference on all three bars (DEV-ATLAS-USE-02; ATL-067)
+Scored once (box job fa050e05): markers held 0.998 vs 0.938; mixture error 0.0200 vs 0.0248; with cells Loyfer lacks 0.0232 vs 0.0484. Both source atlases' own references are now beaten on their own jobs (release item C02). Two attempts stopped before any score (wrong array folder; reference fetch).

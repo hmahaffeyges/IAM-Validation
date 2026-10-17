@@ -336,9 +336,12 @@
    "group": "Commissioning",
    "what": "Head to head against the source atlases' own references (win or lose)",
    "repo": [
-    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/head_to_head_v21_summary.txt"
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_USE_01/head_to_head_v21_summary.txt",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_USE_02/head_to_head_loyfer_summary.txt"
    ],
-   "s3": [],
+   "s3": [
+    "results/ATLAS_V21/loyfer_h2h/loyfer_array_reference.parquet"
+   ],
    "zenodo": "commissioning/head_to_head/",
    "required": true,
    "track": "A. Atlas commissioning: the Loyfer and Moss use tests",

@@ -133,6 +133,10 @@ A reference atlas is used for two jobs: finding the DNA spots that mark each cel
 
 Commissioned means a use of the atlas is allowed to report results. Healthy cells from laboratories that never helped build the atlas were read against it, by bars fixed before it existed. Three cell types, brain neurons, airway lining and naive helper T cells, landed inside the atlas's predicted range, and the sites the colon and lung cancer tests depend on held steady in every cell type that could be checked. Its blood-composition use and its other cell references stay in development.
 
+**2026-10-16 · Atlas v2.1 against Loyfer's own reference, on the jobs a reference atlas is used for** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_02.md)
+
+Loyfer's published atlas was rebuilt exactly the way his paper builds it for arrays, from his 205 public samples, and scored against v2.1 by the same sealed bars that v2.1 met against Moss. On 731 healthy arrays from laboratories that never helped build either atlas, v2.1's markers held more often (0.998 against 0.938), it split mixtures with a smaller error (0.020 against 0.025), and with brain cells Loyfer's atlas does not hold mixed in, it cut the error by half (0.023 against 0.048).
+
 **2026-10-15 · Every healthy cell follows the same simple rule** *(development)* · [record](development/loose_end_2026-10-15/loose_end_line.py)
 
 Your cells put tiny chemical tags on their DNA. The tags tell each cell what kind of cell it is. Some stretches of DNA are tagged firmly and some loosely, and every cell makes a few tagging mistakes. We looked at 56 kinds of healthy human cells and found that the number of mistakes depends on one thing: how much of its DNA the cell keeps loosely tagged. Plotted, all 56 fall on one straight line. So we can tell what a healthy cell should look like from that cell's own sample, without comparing it to a library of other cells. Early result, from one laboratory's data. Next, we check it in a second lab.

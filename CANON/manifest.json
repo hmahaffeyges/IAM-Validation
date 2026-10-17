@@ -27260,16 +27260,22 @@
    "instrument_or_term": "atlas v2.1, deconvolution",
    "sources": [],
    "data_status": "mixtures to be chosen (independent of every atlas source)",
-   "status": "sealed",
+   "status": "run",
    "runs": [
     {
      "date": "2026-10-16",
      "outcome": "success",
      "note": "planted test PASSED (scrambled outside profiles fail UT2B as they must)",
      "page": "not headline: synthetic"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "all three bars met: markers 0.998 vs 0.938, mixtures 0.0200 vs 0.0248, wide area 0.0232 vs 0.0484",
+     "page": "headline: DEV-ATLAS-USE-02"
     }
    ],
-   "next_step": "build Loyfer's projected reference on the box, score once",
+   "next_step": "release item C02 done for both source atlases",
    "cost": "laptop",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_02.md",
@@ -27284,10 +27290,10 @@
    "chain_outputs": [
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_USE_02",
-     "files": 1,
+     "files": 2,
      "stage": "Q2 self-reference",
      "chain": "15c31c203bf7",
-     "latest_utc": "2026-10-17T01:24:38Z"
+     "latest_utc": "2026-10-17T01:43:12Z"
     }
    ]
   }

@@ -1,0 +1,4 @@
+sites 211971 | arrays {'astrocytes': 10, 'b cells': 103, 't cells': 289, 'colon epithelium': 9, 'cortical neurons': 88, 'microglia': 30, 'monocytes': 116, 'neutrophils': 48, 'nk cells': 28, 'oligodendrocytes': 10}
+UT1 markers confirmed: v2.1 0.998, Loyfer 0.938 -> MET
+UT2A shared-ground mixtures: median error v2.1 0.0200, Loyfer 0.0248, ratio 0.81 -> MET
+UT2B wide area (microglia, astrocytes): median error v2.1 0.0232, Loyfer 0.0484; v2.1 recovers the outside share within 0.05 in 0.51 -> MET

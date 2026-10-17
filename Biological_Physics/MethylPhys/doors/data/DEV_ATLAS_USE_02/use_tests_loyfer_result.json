@@ -1,0 +1,84 @@
+{
+ "sites": 211971,
+ "arrays": {
+  "astrocytes": 10,
+  "b cells": 103,
+  "t cells": 289,
+  "colon epithelium": 9,
+  "cortical neurons": 88,
+  "microglia": 30,
+  "monocytes": 116,
+  "neutrophils": 48,
+  "nk cells": 28,
+  "oligodendrocytes": 10
+ },
+ "UT1": {
+  "v21_share": 0.9975,
+  "loyfer_share": 0.9375,
+  "per_cell_v21": {
+   "neutrophils": 1.0,
+   "monocytes": 1.0,
+   "b cells": 1.0,
+   "t cells": 0.98,
+   "nk cells": 1.0,
+   "colon epithelium": 1.0,
+   "cortical neurons": 1.0,
+   "oligodendrocytes": 1.0
+  },
+  "per_cell_loyfer": {
+   "neutrophils": 0.98,
+   "monocytes": 0.66,
+   "b cells": 1.0,
+   "t cells": 0.94,
+   "nk cells": 0.97,
+   "colon epithelium": 0.95,
+   "cortical neurons": 1.0,
+   "oligodendrocytes": 1.0
+  },
+  "verdict": "MET"
+ },
+ "UT2A": {
+  "median_error_v21": 0.020012730318476363,
+  "median_error_loyfer": 0.024760078593857367,
+  "ratio": 0.8082660255949771,
+  "verdict": "MET"
+ },
+ "UT2B": {
+  "median_error_v21": 0.023207059405678215,
+  "median_error_loyfer": 0.048367751902004735,
+  "recovered_within_005": 0.505,
+  "outside_cells": [
+   "microglia",
+   "astrocytes"
+  ],
+  "verdict": "MET"
+ },
+ "lines": [
+  "sites 211971 | arrays {'astrocytes': 10, 'b cells': 103, 't cells': 289, 'colon epithelium': 9, 'cortical neurons': 88, 'microglia': 30, 'monocytes': 116, 'neutrophils': 48, 'nk cells': 28, 'oligodendrocytes': 10}",
+  "UT1 markers confirmed: v2.1 0.998, Loyfer 0.938 -> MET",
+  "UT2A shared-ground mixtures: median error v2.1 0.0200, Loyfer 0.0248, ratio 0.81 -> MET",
+  "UT2B wide area (microglia, astrocytes): median error v2.1 0.0232, Loyfer 0.0484; v2.1 recovers the outside share within 0.05 in 0.51 -> MET"
+ ],
+ "test": "DEV-ATLAS-USE-02",
+ "loyfer_reference_sha256": "89ad8d72ec9d13fa4e9f4daaa2ccc9ee7cd792bbdc202d1dfb5d84a458c00a00",
+ "listed": [
+  [
+   "lung alveolar macrophages",
+   "not used: D13 NOT MET (2026-10-16)"
+  ]
+ ],
+ "n_listed": 1,
+ "excluded_sets": {
+  "GSE132547": "D13 NOT MET (2026-10-16)"
+ },
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "15c31c203bf75125418f7191b260701d10a61b2b8970951e665663ab47dfa70d",
+  "payload_sha256": "efda38e964aaa2c0966754ac2de234f32da61c725e7e58e45bbf88c28279cf28",
+  "inputs": [],
+  "manifest": [
+   "ATL-067"
+  ],
+  "utc": "2026-10-17T01:43:12Z"
+ }
+}

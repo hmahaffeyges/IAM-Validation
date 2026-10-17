@@ -1,3 +1,4 @@
 loyfer_S12_450k_markers.csv
 loyfer_files_groups.csv
 sealed_use_loyfer_v21.json
+loyfer_array_reference.json

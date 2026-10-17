@@ -32,7 +32,7 @@ A box is ticked only when code finds the file there. The Zenodo upload refuses w
 | 21 | F05 | Convergence per site (R-hat, effective sample size, divergences) | yes | - | [ ] | [ ] |
 | 22 | F06 | Environment lock and seeds (rebuild on the same versions gives the same draws) | yes | [ ] | - | [ ] |
 | 23 | C01 | Use tests U1-U3 on the held-out arrays, scored once by the amended bars (chain Stage A21), and the distinctness gate (met 2026-10-16) | yes | [ ] | - | [ ] |
-| 24 | C02 | Head to head against the source atlases' own references (win or lose) | yes | [x] | - | [ ] |
+| 24 | C02 | Head to head against the source atlases' own references (win or lose) | yes | [ ] | [ ] | [ ] |
 
 ## B. The deconvolution tool
 
