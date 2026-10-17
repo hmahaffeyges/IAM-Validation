@@ -9,6 +9,6 @@ pytz
 python-dateutil
 # chain v4 (2026-10-17): the C-Score sky is drawn with matplotlib; the IAM-Atlas v2.1 tables are parquet (pyarrow).
 # reportlab builds the operations manual (manual/build_manual_v3.py). healpy is not needed (the chain carries its own HEALPix NESTED layout).
-matplotlib>=3.7
-pyarrow>=14
+matplotlib==3.9.2
+pyarrow==17.0.0
 reportlab>=3.6

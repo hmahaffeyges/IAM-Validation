@@ -27371,8 +27371,16 @@
    "data_status": "",
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "synthetic_done",
-   "runs": [],
-   "next_step": "chain v4 wired (2026-10-17); clean-clone test script doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh: a fresh public clone, a new environment from chain/requirements.txt only, then release_check_v4.py, on a clean self-terminating machine. Running now: job i-0d4559e967ace0f61. Then one real public sample of each kind.",
+   "runs": [
+    {
+     "date": "2026-10-17",
+     "outcome": "fail",
+     "note": "clean clone run 1: 18 of 25; all 7 failures from an unpinned pyarrow needing NumPy 2; pinned, run 2 next",
+     "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh",
+     "page": "not headline: a gate on the way to the commissioned chain"
+    }
+   ],
+   "next_step": "clean clone run 2 with pyarrow and matplotlib pinned (2026-10-17); then one real public sample of each kind",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

@@ -1792,7 +1792,7 @@
    "date": "2026-10-17",
    "commit": "f6c74bb3",
    "s3_code_prefix": "results/CHAIN_V4_CLEANCLONE/code/run1/",
-   "state": "running",
+   "state": "finished",
    "log": "results/CHAIN_V4_CLEANCLONE/status.txt",
    "machine": "spot m7a.xlarge, self-terminating (box image 2026-10-14; a new Python 3.11 environment from chain/requirements.txt only)",
    "purpose": "clone the public repository, install only chain/requirements.txt, run release_check_v4.py; every check must pass",

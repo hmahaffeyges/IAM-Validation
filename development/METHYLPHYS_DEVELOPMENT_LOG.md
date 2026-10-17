@@ -2277,3 +2277,6 @@ Job i-0d4559e967ace0f61 (spot m7a.xlarge, self-terminating within 150 minutes): 
 
 ### 2026-10-17 · Front page: the commissioned chain first (OTH-071)
 The page now opens with "The first commissioned IAM chain": the five commissioned instruments and the two atlas head-to-heads, in the order of CANON/chain_front.json, under a short lead. The 16 earlier results (development tests from before the chain) moved off the front to EARLIER_RESULTS.md, generated from the register by CANON/earlier_results.py with the same computed numbers and rendered as a site page; none is withdrawn. Checkpoint writes it; the push gate refuses a stale copy.
+
+### 2026-10-17 · Chain v4 clean clone run 1: 18 of 25 passed; one cause for all 7 failures (OTH-068)
+Job i-0d4559e967ace0f61 (fresh public clone at f6c74bb3, new environment from chain/requirements.txt). Clone, install, methylprep and both real IDAT runs (E1, E2) passed, and so did the IAM-A grand-test reproduction (V2, 8 of 8 exact) and the sky (V3). The 7 failures share one cause: requirements.txt said pyarrow>=14, so a fresh install took the newest pyarrow, which needs NumPy 2, while methylprep 1.7.1 needs NumPy 1.26. The laptop never showed it because its pyarrow was older. Pinned pyarrow==17.0.0 and matplotlib==3.9.2 (both built for NumPy 1.26); run 2 repeats the test.

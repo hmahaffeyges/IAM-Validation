@@ -1,0 +1,4 @@
+2026-10-17T08:13:04Z clone
+2026-10-17T08:13:49Z environment
+2026-10-17T08:13:56Z release check v4
+2026-10-17T08:18:01Z finished rc 1: RELEASE CHECK v4: FAIL (7 of 25 checks)  (25 checks, 245 s; outputs in /tmp/rc_v4_sgi29tc_)

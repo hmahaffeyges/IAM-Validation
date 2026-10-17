@@ -31,7 +31,7 @@
   },
   {
    "id": "copy_error_term",
-   "statement": "'Held error' is a RETIRED term. It is NOT what IAM measures and NOT what sets A, IAM-A or the gauge. What is read is the held error eps, the error of the balance between writing (on SAM) and erasing (on oxygen and 2-oxoglutarate) at the held sites, independent of division: neurons do not divide and hold the same balance (author, 2026-10-14).",
+   "statement": "'Copy error' is a RETIRED term. It is NOT what IAM measures and NOT what sets A, IAM-A or the gauge. What is read is the held error eps, the error of the balance between writing (on SAM) and erasing (on oxygen and 2-oxoglutarate) at the held sites, independent of division: neurons do not divide and hold the same balance (author, 2026-10-14).",
    "status": "definition in force (term retired 2026-10-14)",
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
    "anchor": "\\textbf{Not} what IAM measures, and \\textbf{not} what sets $A$, IAM-A or the gauge.",
@@ -58,10 +58,10 @@
   },
   {
    "id": "iam_a",
-   "statement": "IAM-A = H(eps) / (P_cell H(eps_0)): the held error read against the cell type's healthy reference.",
-   "status": "definition in force",
+   "statement": "IAM-A = eps / eps_pred(L): the measured held error over the held error the sample's own loose share L predicts on the self-reference line (each sample against its own reference; no outside reference). Commissioned 2026-10-17 on healthy blood CD8 T cells, whole-genome bisulfite, band v1 0.779-1.055. The earlier form H(eps)/(P_cell H(eps_0)) against a frozen per-cell position P is retired to a development flag.",
+   "status": "definition in force (commissioned 2026-10-17)",
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
-   "anchor": "IAM-A $=H(\\varepsilon)/(P_{\\rm cell}H(\\varepsilon_0))$",
+   "anchor": "IAM-A $=\\varepsilon/\\varepsilon_{\\rm pred}(L)$",
    "commit": "2c737a57",
    "layer": "medium",
    "layer_note": "an instrument, not a law: it reads the core's terms in one substrate through one named pipeline"

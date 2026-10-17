@@ -1,0 +1,132 @@
+{
+ "check": "release_check_v4",
+ "verdict": "FAIL (7 of 25 checks)",
+ "checks": [
+  {
+   "check": "F1",
+   "result": "PASS",
+   "detail": "12 of 12 frozen inputs match FROZEN_INPUTS_v4.json"
+  },
+  {
+   "check": "F1b",
+   "result": "PASS",
+   "detail": "4 of 4 agree with the PROC-REPL-V3-01 run record (1 by data keys: _meta added since the run: ['blood_composition_EPIC_v1.json'])"
+  },
+  {
+   "check": "F2",
+   "result": "PASS",
+   "detail": "14 of 14 atlas v2.1 tables match compact_manifest.json"
+  },
+  {
+   "check": "S1",
+   "result": "PASS",
+   "detail": "584 Python files scanned; retired imports: 0; path-loaded modules missing: 0"
+  },
+  {
+   "check": "S2",
+   "result": "PASS",
+   "detail": "3762 tracked files scanned; files carrying the retired name: 0"
+  },
+  {
+   "check": "S3",
+   "result": "PASS",
+   "detail": "chain_sequence.json matches the code"
+  },
+  {
+   "check": "S4",
+   "result": "PASS",
+   "detail": "16 of 16 toolkit modules import (1 build-time scripts byte-compiled)"
+  },
+  {
+   "check": "E1",
+   "result": "PASS",
+   "detail": "exit 0; Stage 0 PROCEED (sex check NOT_DECLARED); Stage 1 566952 CpGs; refusal: 566,952 probes (450K or incomplete vector): chain v3 reads EPIC v1 arrays only (450K neutr"
+  },
+  {
+   "check": "E2",
+   "result": "PASS",
+   "detail": "exit 2; Stage 0 verdict: QUARANTINE  hard failures: ['hm450_coverage']  deferred: ['ctrl_qc_threshold_uncalibrated']; report written: False"
+  },
+  {
+   "check": "E3",
+   "result": "FAIL",
+   "detail": "exit 1; 862,927 probes; composition max |error| 1.60e+00; NEU None; Met-A None; A_rel None (None); noise index None |     from pyarrow.lib import (BuildInfo, CppBuildInfo, RuntimeInfo, set_timezone_db_path, /   File \"pyarrow/lib.pyx\", line 42, in init pyarrow.lib / ImportError: pyarrow requires NumPy 2.0 or newer, found 1.26.4"
+  },
+  {
+   "check": "E4",
+   "result": "PASS",
+   "detail": "IAM-A 1.0 (no band: IAM-A's healthy band is not set (Met-A's 0.95-1.05 is not borrowed; author 2026-10-15)) at eps 0.03838; other pipeline: position for neutrophils was measured on loyfer_pat_v1, not another_pi; .pat extractor: 307 sites, 30 isolated errors (30 constructed)"
+  },
+  {
+   "check": "E5",
+   "result": "FAIL",
+   "detail": "same person: None (None addresses, mean |d beta| None); other person: None |     from pyarrow.lib import (BuildInfo, CppBuildInfo, RuntimeInfo, set_timezone_db_path, /   File \"pyarrow/lib.pyx\", line 42, in init pyarrow.lib / ImportError: pyarrow requires NumPy 2.0 or newer, found 1.26.4"
+  },
+  {
+   "check": "E6",
+   "result": "PASS",
+   "detail": "tissue IDAT: refused with a report; PBMC: refused with a report; cell line: refused with a report"
+  },
+  {
+   "check": "E7",
+   "result": "FAIL",
+   "detail": "typed id in bundle: False; in ledger: False; in report title: False; bundle sample_id None"
+  },
+  {
+   "check": "E8",
+   "result": "FAIL",
+   "detail": "A None; noise sites None of None; state withheld: False; gauge drawn: False"
+  },
+  {
+   "check": "E9",
+   "result": "PASS",
+   "detail": "independent C 0.8233 (50 blocks, limit 1 +/- 0.800); clustered C 447.529; E4 report carries the C-score line: True"
+  },
+  {
+   "check": "E10",
+   "result": "FAIL",
+   "detail": "reading identical: True; blocks:  |     from pyarrow.lib import (BuildInfo, CppBuildInfo, RuntimeInfo, set_timezone_db_path, /   File \"pyarrow/lib.pyx\", line 42, in init pyarrow.lib / ImportError: pyarrow requires NumPy 2.0 or newer, found 1.26.4"
+  },
+  {
+   "check": "E11",
+   "result": "PASS",
+   "detail": "good: proceeds; one_chrom: QUARANTINE_NOT_WHOLE_GENOME; wrong_build: GENOME_BUILD_MISMATCH; truncated: QUARANTINE_UNREADABLE_PAT; malformed: QUARANTINE_UNREADABLE_PAT; whole_blood: SPECIMEN_REFUSED"
+  },
+  {
+   "check": "V1",
+   "result": "FAIL",
+   "detail": "could not run: ImportError: pyarrow requires NumPy 2.0 or newer, found 1.26.4"
+  },
+  {
+   "check": "V2",
+   "result": "PASS",
+   "detail": "8 of 8 grand-test readings reproduced exactly, 0 differ []; constructed .pat: stage Q2, refused: Stage Q0 stopped the file: Q0.2 build: 840 lines outside their chromosome's hg19 index ran"
+  },
+  {
+   "check": "V3",
+   "result": "PASS",
+   "detail": "drawn True (NSIDE 16, NESTED); median distance consecutive 0.0546 rad vs random 1.577 rad"
+  },
+  {
+   "check": "V4",
+   "result": "FAIL",
+   "detail": "0 of 9 sections present; missing ['v4-glance', 'v4-shares', 'v4-cscore', 'sec-met-a', 'sec-cscore', 'sec-red-flags', 'sec-safeguards', 'sec-integrity', 'sec-run-yourself']; sky image embedded: False"
+  },
+  {
+   "check": "D1",
+   "result": "PASS",
+   "detail": "9 of 9 frozen inputs named in the SOP"
+  },
+  {
+   "check": "D2",
+   "result": "PASS",
+   "detail": "9 of 9 frozen inputs named in the LOG; STATUS.md present"
+  },
+  {
+   "check": "M1",
+   "result": "PASS",
+   "detail": "manual: /tmp/rc_v4_sgi29tc_/manual.pdf (50596 bytes)"
+  }
+ ],
+ "seconds": 245
+}
