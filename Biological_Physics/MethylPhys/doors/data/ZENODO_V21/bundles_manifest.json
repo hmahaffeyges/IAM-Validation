@@ -1,0 +1,52 @@
+{
+ "iam_atlas_v21_fit_blocks_00000-00069.tar": {
+  "files": 280,
+  "bytes": 2430474240,
+  "sha256": "a8972271f8bd4e44ac51f4622df7804168768b2f8716b03671266841b24e3b0d"
+ },
+ "iam_atlas_v21_fit_blocks_00070-00139.tar": {
+  "files": 280,
+  "bytes": 2427125760,
+  "sha256": "423f98fca23a9b132873a29c2d48c689c4a404a52d0bdbc1176a969978199c31"
+ },
+ "iam_atlas_v21_fit_blocks_00140-00209.tar": {
+  "files": 280,
+  "bytes": 2423152640,
+  "sha256": "b97c187b32dbfa42c60bc60bfd559d8ad72d7b28cdb5b9d1b2eb33dd0083a13d"
+ },
+ "iam_atlas_v21_fit_blocks_00210-00279.tar": {
+  "files": 280,
+  "bytes": 2419025920,
+  "sha256": "e98e2ab683658e5d0d9fdfc27d43bef3efd5082ab651b7fe61b10be352d40727"
+ },
+ "iam_atlas_v21_fit_blocks_00280-00349.tar": {
+  "files": 280,
+  "bytes": 2415923200,
+  "sha256": "6c574bb79e74e7715f150fab58e4b23e41c8cbb3d7cd2298e0d051febed941dc"
+ },
+ "iam_atlas_v21_fit_blocks_00350-00419.tar": {
+  "files": 280,
+  "bytes": 2421073920,
+  "sha256": "f3826c4f960d9084cd9ba7028f81c9fee53c822206201357dc8f1576e8ae6738"
+ },
+ "iam_atlas_v21_fit_blocks_00420-00489.tar": {
+  "files": 280,
+  "bytes": 2418155520,
+  "sha256": "30ab527c26ad7cd21d9f99e6331eeed842815e9181ecc72f3b1f735c642f3def"
+ },
+ "iam_atlas_v21_fit_blocks_00490-00559.tar": {
+  "files": 280,
+  "bytes": 2426460160,
+  "sha256": "331d4b82d901f7891b16ebf0c565b9da5d0d2556fb8c16996038b321033a872a"
+ },
+ "iam_atlas_v21_fit_blocks_00560-00629.tar": {
+  "files": 280,
+  "bytes": 2417879040,
+  "sha256": "9c2a912a7540c158e499d59905fecb6a5a5ca43d4064aec7e7c05cd6c5e1d9d5"
+ },
+ "iam_atlas_v21_fit_blocks_00630-00699.tar": {
+  "files": 280,
+  "bytes": 2419046400,
+  "sha256": "ed89c1a065b63d853841282979bca3b47575eeef7ef71935f43b67c7b2f4e072"
+ }
+}
