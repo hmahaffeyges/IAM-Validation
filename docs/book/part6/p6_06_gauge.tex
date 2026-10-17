@@ -22,8 +22,8 @@ because the question is whether this cell is still the cell it should be.
 \caption{One gauge, four readings, for neutrophils: Met-A (EPIC arrays), IAM-A (single molecules), the Met-A C-score and the IAM-A
 C-score (not built). On every row 1 is the healthy reference, in the middle; the left half runs from the floor to 1 and the right half from 1 to
 the far end on a log scale, so the two halves are not on one scale. Normal (green) is $0.95$--$1.05$ on the Met-A row. Bars are measured readings: held-out
-healthy arrays, and the same arrays with known damage (Chapter~\ref{ch:skytools}). $\Hmin$, the floor where thermal kicks win against one ATP, is at $1\times10^{-7}$ on both rows, off the left edge. Breach and the cancer region lie to the right of Normal and are
-to be measured on this scale. The surface is full when every identity site sits at a coin flip: $3.03$ (Met-A), $4.26$ (IAM-A).
+healthy arrays, and the same arrays with known damage (Chapter~\ref{ch:skytools}). $\Hmin$, the floor where thermal kicks win against one ATP, is at $1\times10^{-7}$ on the Met-A row and $1$--$2\times10^{-8}$ on the IAM-A row (the sample's own), off the left edge. Breach and the cancer region lie to the right of Normal and are
+to be measured on this scale. The surface is full when every identity site sits at a coin flip: $3.03$ (Met-A); on IAM-A, read against the sample's own line, when the held error reaches one half, $0.5/\varepsilon_{\rm pred}(L)$, between $6.68$ and $12.41$.
 The Met-A C-score sits on the same gauge: 1 is the healthy baseline, and its far end, every 50-site block moving as one, is 45. \calc}
 \label{fig:gauge}
 \end{figure}
@@ -33,12 +33,12 @@ The Met-A C-score sits on the same gauge: 1 is the healthy baseline, and its far
 \begin{center}\small
 \begin{tabular}{@{}p{0.2\textwidth}p{0.2\textwidth}p{0.5\textwidth}@{}}\toprule
 point & value (neutrophils) & status \\\midrule
-$\Hmin$ & $1\times10^{-7}$ (IAM-A and Met-A) & \calc{} from $M$ alone: the error one ATP of holding energy still allows against thermal kicks, $\varepsilon_{\min}=1/(1+e^{M})$ (Ch.~\ref{ch:iama}) \\
-healthy reference & 1 (IAM-A $0.2348$ bits; Met-A $0.330263$ bits) & IAM-A \measured; Met-A \calibrated \\
+$\Hmin$ & Met-A $1\times10^{-7}$; IAM-A $8.06\times10^{-10}/\varepsilon_{\rm pred}(L)$, $1$--$2\times10^{-8}$ & \calc{} from $M$ alone: the error one ATP of holding energy still allows against thermal kicks, $\varepsilon_{\min}=1/(1+e^{M})$ (Ch.~\ref{ch:iama}) \\
+healthy reference & 1 (IAM-A: the sample's own line, $\varepsilon_{\rm pred}(L)=0.0403+0.0346\,L$; Met-A $0.330263$ bits) & IAM-A \measured; Met-A \calibrated \\
 Normal (Met-A) & $0.95$--$1.05$ & a design tolerance set by hand (2026-10-01), then confirmed on healthy arrays (525 of 541 inside); IAM-A has its own band, v1 $0.779$--$1.055$, each sample read against its own reference, and does not borrow this one \\
 breach & to be measured & placed from per-person data: tumor/normal pairs, the DNMT1-inhibitor series, blood cancers \\
 cancer region & beyond breach & to be measured the same way \\
-full surface & Met-A $3.03$; IAM-A $4.26$ & \calc{} from the healthy reference alone \\
+full surface & Met-A $3.03$; IAM-A $0.5/\varepsilon_{\rm pred}(L)$, $6.68$--$12.41$ & \calc{} from the healthy reference alone (Met-A) and from the sample's own line (IAM-A) \\
 C-score far end & Met-A C-score $45$ & \calc{} block size 50 over the healthy baseline 1.1104; the sequencing C-score was tried and does not hold on reduced-representation reads \\\bottomrule
 \end{tabular}
 \end{center}
@@ -98,7 +98,7 @@ is of one specimen, not of its position among the others on the plate.
 \paragraph{One gauge, not one scale.} The gauge has the same shape everywhere: the system as built, or the cell when healthy, reads 1 in the
 middle, its physical floor lies to the left and its full surface to the right. The distances do not carry from one system to another. $A=2$
 for a neutrophil and $A=2$ for a qubit are both twice their reference, but the room between 1 and the full surface is different for each
-(4.26 for a neutrophil on IAM-A), so equal readings do not mean equal damage, and the gauge does not rank systems against each other. Each
+(3.03 for a neutrophil on Met-A), so equal readings do not mean equal damage, and the gauge does not rank systems against each other. Each
 system is read against itself. \derived
 
 Two cautions keep the mapping exact. First, Met-A measures \emph{state} error, the fraction of copies holding the wrong mark at one moment;

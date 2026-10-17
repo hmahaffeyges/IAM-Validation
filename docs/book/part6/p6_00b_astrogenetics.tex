@@ -41,8 +41,7 @@ the X chromosome. Built and not yet tested: a patient's blood draws in sequence,
 remains, the way two sky maps are differenced (an optional comparison that refuses unless both draws are of one person; no public set
 with two draws of one person has yet been found to test it). Planned: the full set of sky statistics on the whole genome, which must be
 measured against a healthy sky rather than against noise, because the healthy sky already has structure: stretches of DNA methylated
-alike sit together. No reading uses the sphere yet: its statistics enter the
-chain only after they pass their own test. Neither name is a claim that
+alike sit together. Chain v4 draws the C-score's departures on this sphere in every array report, as a picture of the commissioned reading; no reading is scored from the sphere yet, and its statistics enter the chain only after they pass their own test. Neither name is a claim that
 cells and the cosmos are the same thing. Both say that a calibrated way of reading a noisy record against a reference already exists,
 has been tested hard by the field that built it, and works on cells.
 
@@ -128,8 +127,7 @@ for its mass to bend space in any way an instrument could detect, so the gravita
 saturation account does. A cell maintains its identity by writing its running record onto the surface available to it, which is not
 spacetime but its own chromatin, the methylation pattern. A healthy cell sits well below the limit of what that surface can hold. The limit
 itself is exact and known from the healthy reference alone: the surface is full when every identity site sits at a coin flip,
-$\beta=\tfrac12$, which for neutrophils is $A=1/0.330263=3.03$ on arrays (Met-A) and $A=1/(1.149\times0.2043)=4.26$ on single molecules (the earlier position form of IAM-A, now a development flag)
-(IAM-A) (Chapter~\ref{ch:floorbreach}). \calc
+$\beta=\tfrac12$, which for neutrophils is $A=1/0.330263=3.03$ on arrays (Met-A). On single molecules IAM-A reads each sample against its own line, so its full surface is the sample's own: the held error at one half, $A=0.5/\varepsilon_{\rm pred}(L)$, between 6.68 and 12.41 (Chapter~\ref{ch:floorbreach}). \calc
 
 A cell moving toward cancer is, in this reading, one whose record is climbing toward that full surface, writing more and more error onto
 a surface that has only so much room, until the surface is full. The black hole and the tumor
@@ -150,14 +148,13 @@ The gauge has three fixed points, and each comes from physics or from the cell's
 \begin{center}\small
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.27\linewidth}@{}}\toprule
 point & what it is & neutrophils \\\midrule
-the floor $\Hmin$, on the left & where thermal kicks win against everything one ATP can buy: a held error of $1/(1+e^{M})=8\times10^{-10}$, $\Hmin=2.5\times10^{-8}$ bits per site; nothing reads below it & $1\times10^{-7}$ on both IAM-A and Met-A (\calc) \\
-1, in the middle & the healthy reference: the same cell type healthy, on the same platform, through the same calibration; Met-A's Normal is $1\pm0.05$, a design tolerance; IAM-A's band v1 is $0.779$--$1.055$ & Met-A 0.330263 bits on EPIC (\calibrated); IAM-A $1.149\times0.2043=0.2348$ bits in the earlier position form; the commissioned IAM-A reads each sample against its own loose share (\measured) \\
-the full surface, on the right & every identity site at a coin flip: the most a pattern can be blurred & Met-A 3.03; IAM-A 4.26 (\calc) \\\bottomrule
+the floor $\Hmin$, on the left & where thermal kicks win against everything one ATP can buy: a held error of $1/(1+e^{M})=8\times10^{-10}$, $\Hmin=2.5\times10^{-8}$ bits per site; nothing reads below it & Met-A $1\times10^{-7}$; IAM-A $1$--$2\times10^{-8}$, the sample's own (\calc) \\
+1, in the middle & the healthy reference: the same cell type healthy, on the same platform, through the same calibration; Met-A's Normal is $1\pm0.05$, a design tolerance; IAM-A's band v1 is $0.779$--$1.055$ & Met-A 0.330263 bits on EPIC (\calibrated); IAM-A the held error the sample's own loose share predicts on the healthy line, $\varepsilon_{\rm pred}(L)=0.0403+0.0346\,L$ (\measured) \\
+the full surface, on the right & every identity site at a coin flip: the most a pattern can be blurred & Met-A 3.03; IAM-A $0.5/\varepsilon_{\rm pred}(L)$, 6.68--12.41 (\calc) \\\bottomrule
 \end{tabularx}
 \end{center}
 Breach, the point past which a cell's over-writing reads as cancer, lies to the right of Normal and short of the full surface; the cell there has not lost its identity, it is writing too much error (identity that cannot be held is the other end, left of the floor). It is to
-be measured on this scale from per-person data: tumor against the same patient's normal tissue, cells under a known block of the copying
-enzyme, blood cancers read against the healthy cell of their own lineage. \openprob
+be measured on this scale from per-person data: tumor against the same patient's normal tissue, cells under a known block of the maintenance writer (the DNMT1-inhibitor series), blood cancers read against the healthy cell of their own lineage. \openprob
 
 For a cell, the reading is the Shannon entropy of the methylated fraction $\beta$ at the sites that make the cell what it is,
 \begin{equation}
@@ -165,13 +162,10 @@ For a cell, the reading is the Shannon entropy of the methylated fraction $\beta
 \end{equation}
 which at an identity site is the entropy of the cell's error rate, because $H(\beta)=H(1-\beta)$ (Chapter~\ref{ch:gauge}). \derived{} On
 arrays the reading is Met-A, the mean of $H(\beta)$ over the cell's identity sites over the same quantity on purified healthy cells of
-the same type (Chapter~\ref{ch:meta}); on single molecules it is IAM-A, the held error priced against the floor set by thermal noise
-(Chapter~\ref{ch:iama}). The mathematics underneath is what makes the gauge honest.
+the same type (Chapter~\ref{ch:meta}); on single molecules it is IAM-A, the held error over the held error the sample's own loose share predicts on the healthy line, with no outside reference at all (Chapter~\ref{ch:iama}). The mathematics underneath is what makes the gauge honest.
 
 \begin{keybox}[title=Measured against the cell's own healthy state]
-Every reading is one cell type against itself: the same cell type, healthy, on the same platform, through the same calibration, and tared
-against at least three healthy specimens run the same way (same slide, else same batch), $A_{\rm rel}=A/\mathrm{median}(A_{\rm ref})$
-(Chapter~\ref{ch:onegauge}). No group of people sets where 1 is, and no band of other people sets what Normal is. A cell is never
+Every reading is one cell type against itself. On arrays (Met-A and the C-score) that is the same cell type, healthy, on the same platform, through the same calibration, tared against at least three healthy specimens run the same way (same slide, else same batch), $A_{\rm rel}=A/\mathrm{median}(A_{\rm ref})$. On single molecules (IAM-A) it is the sample itself: its own loose share sets the held error it should carry, and no other specimen is needed (Chapter~\ref{ch:onegauge}). No group of people sets where 1 is, and no band of other people sets what Normal is. A cell is never
 pooled with other cells into a class before it has been separated from the specimen; each cell type is read on its own identity sites,
 with its own fraction of the specimen deciding how large a change the reading could show (Chapter~\ref{ch:separation}). \derived{} for
 the arithmetic; the rest is the rule of the instrument.
@@ -244,7 +238,7 @@ can no longer be held. \prediction
 Premalignant and borderline lesions are expected to read above Normal but short of where established cancer reads, in the order in which
 their cells depart from their healthy pattern toward the full surface. \prediction{} The reading does not depend on a lesion's shape: a flat lesion and a raised one with the same
 departure are expected to read the same, because the instrument reads methylation entropy rather than looking for a shape.
-\prediction{} None of this is tested. Chain v3 reads neutrophils only, and an ordered tissue series (normal, benign, dysplastic,
+\prediction{} None of this is tested. The commissioned chain (v4) reads blood cells only (neutrophils on arrays, CD8 T cells on single molecules), and an ordered tissue series (normal, benign, dysplastic,
 established) read cell by cell, each against its own healthy tissue, is the named test for when tissue cell types are commissioned
 (Chapter~\ref{ch:report}). \openprob
 
@@ -263,9 +257,9 @@ these separately and you get a collection of cell-fraction estimates that do not
 uncertainty, and contain no concept of a floor. They can tell you what cells are present. They cannot tell you whether those cells have
 moved from where their healthy physics says they should sit. \interp
 
-The reference chain v3 reads is purified healthy neutrophils on the specimen's own platform, processed from the raw array files by the
+The reference Met-A reads is purified healthy neutrophils on the specimen's own platform, processed from the raw array files by the
 chain's own first stage, so the specimen and the reference are on one scale before anything is compared (Chapter~\ref{ch:atlas}).
-\calibrated{} The reference for the cells that come next, IAM-Atlas v2.1, reconciles open methylation measurements into one frame: one set of
+\calibrated{} IAM-Atlas v2.1, commissioned use by use in October 2026 and read in chain v4 by the IAM-Deconvolver for the specimen's cell shares, reconciles open methylation measurements into one frame: one set of
 cell-type definitions, every value on the same scale, every value with its own interval. It is built with the tools of cosmology, not by
 analogy but in fact. The reconciliation is a hierarchical Bayesian model sampled by Markov-chain Monte Carlo (the No-U-Turn sampler), the
 same class of inference machinery that cosmology runs against the Planck likelihood to infer the parameters of the universe. The raw
@@ -284,7 +278,7 @@ the gauge a thermometer rather than a switch, and it is what makes a trajectory 
 confident that figure is, is a different and more useful thing than knowing only whether it hit the mark. \interp
 
 This is also why the reference takes what it takes to build. A posterior at every CpG for every cell type, with convergence checked, is
-the same class of computation that cosmology runs on its maps: the atlas v2 fit ran over about 814,000 loci in 700 blocks, every finished
+the same class of computation that cosmology runs on its maps: the IAM-Atlas v2.1 fit ran over about 814,000 array sites in 700 blocks, every finished
 block kept as it landed (Chapter~\ref{ch:atlas}). \observed{} References that report point estimates and stop do not solve for the
 uncertainty at all. The compute cost is not inefficiency. It is the price of a reference that can state a distance with a confidence,
 which is the price of measuring rather than classifying. \interp
@@ -359,6 +353,7 @@ were written down before the data below were read; each specimen is read against
 a group.
 \begin{itemize}
 \item Senescent and immortalized fibroblasts against their own proliferating cultures, channel by channel, as above. \measured
+\item Healthy CD8 T cells, each read against its own loose share with a rule sealed before the data was downloaded: 7 of the 8 read inside IAM-A's band (the grand test that commissioned IAM-A, Chapter~\ref{ch:iama}). \measured
 \end{itemize}
 What these do not show: why. The far end is exact and the floor's form is derived, but breach on this gauge is still to be
 measured. \openprob
@@ -371,7 +366,7 @@ cosmology; AstroGenetics points them at the cell. \analogy{} of structure; each 
 shared tool & in cosmology & in AstroGenetics \\\midrule
 the reference map & the microwave background: a frozen snapshot of the early universe & the methylation pattern of purified healthy cells: a frozen snapshot of the cell, in fixed files \\
 sharpening the map & Bayesian inference fills and sharpens the sparse, noisy sky map & a hierarchical fit sharpens every measured value and states its interval; unmeasured values stay blank \\
-fitting the model & Markov-chain Monte Carlo against the Planck likelihood & Markov-chain Monte Carlo to build atlas v2 \\
+fitting the model & Markov-chain Monte Carlo against the Planck likelihood & Markov-chain Monte Carlo to build IAM-Atlas v2.1 \\
 reading the departure & the residual after the foregrounds are removed & the residual sky after the specimen's own healthy expectation is removed (Chapter~\ref{ch:sky}) \\
 the single number & a remnant's mass over the typical remnant of its kind & $A$: the reading over the same cell type's healthy reading \\\bottomrule
 \end{tabularx}

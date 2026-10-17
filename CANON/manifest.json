@@ -27458,7 +27458,7 @@
      "page": "not headline: goes into the commissioned-chain card with the shipped example reports (OTH-068)"
     }
    ],
-   "next_step": "done 2026-10-17: 25 of 25 from a fresh public clone (run 4); the run-2 log entry that called E8 fixed was corrected (run 3 still failed E8)",
+   "next_step": "run 5 to confirm the per-sample IAM-A gauge end (report change 2026-10-17)",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
@@ -27498,7 +27498,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "running",
    "runs": [],
-   "next_step": "pass 1 done 2026-10-17 on all 26 Part 6 files (66 flags reviewed by hand: IAM-A definition, bands, retired terms, atlas version, division framing, C-score band from 19 studies, v4 sky order, spelling, tumor figure); pass 2: the AstroGenetics chapter read end to end by hand",
+   "next_step": "pass 2 2026-10-17: AstroGenetics read by hand and fixed; IAM-A gauge ends corrected in 12 places; next: Cosmic Methylome (sky) and DNA/cell chapters read by hand",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

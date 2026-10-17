@@ -98,7 +98,7 @@ def _iama(o):
     h = "<h2 id='v4-iam-a'>IAM-A: the sample against its own reference</h2>"
     if q.get("A") is None: return h + f"<p>{chip('not read')} {E(str(q.get('refusal', '')))}</p>"
     st = "commissioned" if q.get("commissioning") else "development"
-    return (h + R3._gauge(q["A"], q["band"]["lo"], q["band"]["hi"], label=f"IAM-A {q['A']}", instrument="IAM-A")
+    return (h + R3._gauge(q["A"], q["band"]["lo"], q["band"]["hi"], label=f"IAM-A {q['A']}", instrument="IAM-A", top=(0.5 / q["predicted"]) if q.get("predicted") else None)
             + f"<p>{chip(st)} <b>{E(str(q.get('state')))}</b> (Normal {q['band']['lo']:.3f} to {q['band']['hi']:.3f}). Held error {q.get('held_err')} against "
             f"{q.get('predicted')} predicted by this sample's own loose share ({q.get('loose_share')}). No outside reference is used: the sample is read against itself.</p>")
 
