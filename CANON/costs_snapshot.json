@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-16",
+ "as_of": "2026-10-17",
  "aws_by_month": {
   "2026-09": {
    "machines": 9.46,
@@ -9,16 +9,16 @@
    "data transfer": 0.0
   },
   "2026-10": {
-   "machines": 1326.02,
-   "machine disks and snapshots": 28.53,
-   "S3 storage": 27.17,
-   "other": 11.22,
-   "data transfer": 0.2
+   "machines": 1401.21,
+   "machine disks and snapshots": 32.17,
+   "S3 storage": 29.27,
+   "other": 11.65,
+   "data transfer": 0.23
   }
  },
  "s3": {
-  "bytes": 3146262134208,
-  "objects": 29603
+  "bytes": 3292048898262,
+  "objects": 29856
  },
  "fixed": [
   {

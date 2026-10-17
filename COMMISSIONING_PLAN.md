@@ -21,17 +21,17 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
    - ATL-005 (run; last run 2026-10-16: not met): widen the commissioned uses (see the note's 'What it would take to go further')
    - ATL-060 (run; last run 2026-10-16: met): after the v2.1 release: assemble the held-out betas (Stage 1) and run use_tests_v21.py real once
 7. **Backbone: healthy range on the same counter; tumor-adjacent against truly healthy colon**
-   - PHY-071 (planned): count the 56 healthy cell types' firm territory with PROC-TUMOUR-01's counter; write the range before comparing; re-read N and T2
-   - PHY-072 (planned): healthy donors' colon epithelium (Loyfer) on the same counter and territory against the six adjacent normals; rule first
+   - PHY-071 (parked): parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships
+   - PHY-072 (parked): parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships
 8. **Probe-position check**
-   - PHY-070 (planned): map EPIC open-sea cg probes to hg19 CpG indices; recount the 153 own-read samples there; compare lines with opensea_line.py's method
+   - PHY-070 (parked): parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships
 9. **C-score on real tumors, with a sealed bar**
    - OTH-054 (planned): read real tumors with the C-Score under a sealed bar (its next test) and add the rows as their own section
 10. **Gauge lines from evidence (reporting marks, not a commissioning gate)**
    - OTH-059 (planned): for each instrument: healthy band from healthy readings (Met-A's 0.95-1.05 was set by hand on 2026-10-01 and confirmed, 525 of 541 healthy arrays inside, medians 0.994-1.005: rebuild it from the spread); tumor line from tumor-over-own-normal readings (A-score database); worst lab shift measured (ENCODE B cell for IAM-A); margin stated
    - OTH-058 (planned): define, per specimen, which instruments read it and what agreement means; report agreement beside the readings, never folded into them
 11. **Stage T: the temperature law**
-   - PHY-057 (sealed): stage T2: synthetic on GSE54292's design (111 accessions at 10 C and 16 C; predicted log-odds ratio 1.0212) to fix molecules and pairs needed; then seal the sample list and rule
+   - PHY-057 (parked): parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships
 12. **IAM in bits; literature positioning**
    - OTH-061 (running; last run 2026-10-15: progressed): cell throughput: find measured one-carbon/SAM flux and ATP for methyl writing per cell (literature, metadata only), then power/price as a bound, tagged candidate; then the citations for qubits, chips, cells
    - OTH-062 (planned): search the scholarly databases claim by claim; table: claim, nearest prior work, difference, status; then the paper's lineage section

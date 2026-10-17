@@ -5,7 +5,7 @@
  "_convention": "see 2026-10-13.json",
  "check_completeness": true,
  "open_at_turnover": "Running: the IAM-A grand test (three machines on one queue); the IAM-A clean room.",
- "closing": "",
+ "closing": "Atlas v2.1 finished, commissioned use by use, and beat both published references on their own jobs; IAM-A's clean room reproduced; the page became the interface.",
  "sections": [
   {
    "kind": "ran",
@@ -46,6 +46,97 @@
      "what": "A new machine clones the public repository and recounts the line's samples from GEO and ENCODE; every number must match what is committed.",
      "why": "",
      "record": "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py"
+    },
+    {
+     "title": "Atlas v2.1 U1 scored once (ATL-005)",
+     "status": "sealed",
+     "what": "Atlas v2.1 U1 scored once (ATL-005)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Atlas v2.1 U2a scored once (ATL-005)",
+     "status": "sealed",
+     "what": "Atlas v2.1 U2a scored once (ATL-005)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Atlas v2.1 U3 scored once (ATL-005)",
+     "status": "sealed",
+     "what": "Atlas v2.1 U3 scored once (ATL-005)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Atlas v2.1 against Loyfer's own reference, sealed (DEV-ATLAS-USE-02; ATL-067)",
+     "status": "sealed",
+     "what": "Atlas v2.1 against Loyfer's own reference, sealed (DEV-ATLAS-USE-02; ATL-067)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Atlas v2.1 against Moss's reference: all three showcase bars MET (ATL-060)",
+     "status": "sealed",
+     "what": "Atlas v2.1 against Moss's reference: all three showcase bars MET (ATL-060)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Atlas v2.1 beats Loyfer's own reference on all three bars (DEV-ATLAS-USE-02; ATL-067)",
+     "status": "sealed",
+     "what": "Atlas v2.1 beats Loyfer's own reference on all three bars (DEV-ATLAS-USE-02; ATL-067)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Atlas v2.1 commissioning bars amended before the atlas exists (ATL-005)",
+     "status": "sealed",
+     "what": "Atlas v2.1 commissioning bars amended before the atlas exists (ATL-005)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Atlas v2.1 fit finished (ATL-005)",
+     "status": "sealed",
+     "what": "Atlas v2.1 fit finished (ATL-005)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Atlas v2.1: D13 not met, D14 met, U1 corrected (ATL-005)",
+     "status": "sealed",
+     "what": "Atlas v2.1: D13 not met, D14 met, U1 corrected (ATL-005)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Deconvolution tool scored once (ATL-065)",
+     "status": "development",
+     "what": "Deconvolution tool scored once (ATL-065)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Deconvolution tool version 2 scored once: shares met (0.016), error bars just short (0.78 of 0.80) (DEV-DECONV-V21-02; ATL-066)",
+     "status": "development",
+     "what": "Deconvolution tool version 2 scored once: shares met (0.016), error bars just short (0.78 of 0.80) (DEV-DECONV-V21-02; ATL-066)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Deconvolution tool version 2 sealed on fresh mixtures (DEV-DECONV-V21-02; ATL-066)",
+     "status": "development",
+     "what": "Deconvolution tool version 2 sealed on fresh mixtures (DEV-DECONV-V21-02; ATL-066)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "IAM-Atlas v2.1 commissioned per use (COMMISSIONING-ATLAS-V21; ATL-001, ATL-005)",
+     "status": "sealed",
+     "what": "IAM-Atlas v2.1 commissioned per use (COMMISSIONING-ATLAS-V21; ATL-001, ATL-005)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   },
@@ -130,6 +221,34 @@
      "what": "On 731 healthy arrays from independent laboratories, v2.1 split blood mixtures 26 percent more accurately than Moss's published reference and, with brain cells Moss's reference cannot see, recovered them in 87 percent of mixtures.",
      "why": "",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_01.md"
+    },
+    {
+     "title": "Candidate: dark matter as the potential half stored as spacetime's fabric (PHY-076)",
+     "status": "diagnosis",
+     "what": "Candidate: dark matter as the potential half stored as spacetime's fabric (PHY-076)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Cell throughput entry corrected",
+     "status": "diagnosis",
+     "what": "Cell throughput entry corrected",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Dark-sector bit ledger (exploration, PHY-075)",
+     "status": "diagnosis",
+     "what": "Dark-sector bit ledger (exploration, PHY-075)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Deconvolution diagnostic: the misses come from one laboratory (ATL-065)",
+     "status": "diagnosis",
+     "what": "Deconvolution diagnostic: the misses come from one laboratory (ATL-065)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   },
@@ -144,6 +263,13 @@
      "what": "Overnight the log and the machine list moved while the testing manifest did not. Now the chain writes its own results into the manifest, and the push gate refuses any change whose manifest row did not move.",
      "why": "",
      "record": "CANON/manifest_fresh.py"
+    },
+    {
+     "title": "DEV-SECONDLAB-02 scored once: NOT MET; IAM-A band v1 built (PHY-047, PHY-050, COM-IAMA-054)",
+     "status": "failed",
+     "what": "DEV-SECONDLAB-02 scored once: NOT MET; IAM-A band v1 built (PHY-047, PHY-050, COM-IAMA-054)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   },
@@ -158,6 +284,160 @@
      "what": "Nine hand-kept status documents became two (the development log and this day log); everything else is built from the manifest and the chain, so it cannot go stale.",
      "why": "",
      "record": "CANON/pointer.py"
+    },
+    {
+     "title": "Atlas release checklist is the one ordered list (ATL-005, ATL-062)",
+     "status": "structure",
+     "what": "Atlas release checklist is the one ordered list (ATL-005, ATL-062)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Atlas v2.1 U1 scorer and held-out label map committed before scoring (ATL-005)",
+     "status": "structure",
+     "what": "Atlas v2.1 U1 scorer and held-out label map committed before scoring (ATL-005)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Book fixes: glossary collapsed fraction; virial-partners ratio by construction (PHY-075)",
+     "status": "structure",
+     "what": "Book fixes: glossary collapsed fraction; virial-partners ratio by construction (PHY-075)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Costs on the page refreshed; billing by machine switched on (OTH-067)",
+     "status": "structure",
+     "what": "Costs on the page refreshed; billing by machine switched on (OTH-067)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "DEV-SECONDLAB-02 count and scorer committed before any count (PHY-047)",
+     "status": "structure",
+     "what": "DEV-SECONDLAB-02 count and scorer committed before any count (PHY-047)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Document consolidation, batch 1 (OTH-064)",
+     "status": "structure",
+     "what": "Document consolidation, batch 1 (OTH-064)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Document consolidation, batch 2 (OTH-064)",
+     "status": "structure",
+     "what": "Document consolidation, batch 2 (OTH-064)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Document consolidation, batch 3, done (OTH-064)",
+     "status": "structure",
+     "what": "Document consolidation, batch 3, done (OTH-064)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Four-domain schematic and bit tables on the page, in the book and in the README (author; OTH-067)",
+     "status": "structure",
+     "what": "Four-domain schematic and bit tables on the page, in the book and in the README (author; OTH-067)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Guidebook to computational reality: Tables 7-11 (OTH-061)",
+     "status": "structure",
+     "what": "Guidebook to computational reality: Tables 7-11 (OTH-061)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Hansen alignment finished (PHY-047)",
+     "status": "structure",
+     "what": "Hansen alignment finished (PHY-047)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Hansen count run 1 failed before any count; run 2 (PHY-047)",
+     "status": "structure",
+     "what": "Hansen count run 1 failed before any count; run 2 (PHY-047)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Hansen count run 2: counts refused by their own stamp check; chain fixed (PHY-047, OTH-057)",
+     "status": "structure",
+     "what": "Hansen count run 2: counts refused by their own stamp check; chain fixed (PHY-047, OTH-057)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "IAM-A grand test: on-demand helper J added (COM-IAMA-052)",
+     "status": "structure",
+     "what": "IAM-A grand test: on-demand helper J added (COM-IAMA-052)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "IAM-A second-laboratory gate closed as recorded; lesson C19 (PHY-047, COM-IAMA-052)",
+     "status": "structure",
+     "what": "IAM-A second-laboratory gate closed as recorded; lesson C19 (PHY-047, COM-IAMA-052)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "IAM-Atlas v2.1 in sequencing coordinates (release item G09); molecule-level atlas added as a future row (ATL-068)",
+     "status": "structure",
+     "what": "IAM-Atlas v2.1 in sequencing coordinates (release item G09); molecule-level atlas added as a future row (ATL-068)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "IAM-Atlas v2.1 story: one source for the repo, the page and the book (author request; ATL-063)",
+     "status": "structure",
+     "what": "IAM-Atlas v2.1 story: one source for the repo, the page and the book (author request; ATL-063)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "KISS enforced at the gate (OTH-065)",
+     "status": "structure",
+     "what": "KISS enforced at the gate (OTH-065)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Lab methods explainer in the catalogue (OTH-066)",
+     "status": "structure",
+     "what": "Lab methods explainer in the catalogue (OTH-066)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Site build fixed: the atlas story opened its first fold by default (house rule: every fold starts closed); the local page check now refuses an open fold before push (ATL-063)",
+     "status": "structure",
+     "what": "Site build fixed: the atlas story opened its first fold by default (house rule: every fold starts closed); the local page check now refuses an open fold before push (ATL-063)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The page is the interface: every linked document rendered on the site; costs cannot go stale (lesson C19; OTH-067)",
+     "status": "structure",
+     "what": "The page is the interface: every linked document rendered on the site; costs cannot go stale (lesson C19; OTH-067)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Website and book had not updated since 2026-10-15: one unescaped _ in the book (lesson C18; OTH-067)",
+     "status": "structure",
+     "what": "Website and book had not updated since 2026-10-15: one unescaped _ in the book (lesson C18; OTH-067)",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   }

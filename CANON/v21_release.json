@@ -354,7 +354,7 @@
    "repo": [],
    "s3": [],
    "zenodo": "tools/deconvolution/",
-   "required": false,
+   "required": true,
    "track": "B. The deconvolution tool",
    "step": 1
   },
@@ -367,8 +367,8 @@
    ],
    "s3": [],
    "zenodo": "maps/construction/",
-   "required": true,
-   "track": "C. The 3D genome sphere (HEALPix)",
+   "required": false,
+   "track": "After the gift (limits study 2026-10-17)",
    "step": 1
   },
   {
@@ -380,8 +380,8 @@
     "atlas_v21/maps/"
    ],
    "zenodo": "maps/",
-   "required": true,
-   "track": "C. The 3D genome sphere (HEALPix)",
+   "required": false,
+   "track": "After the gift (limits study 2026-10-17)",
    "step": 2
   },
   {
@@ -393,8 +393,8 @@
     "atlas_v21/maps/noise/"
    ],
    "zenodo": "maps/noise/",
-   "required": true,
-   "track": "C. The 3D genome sphere (HEALPix)",
+   "required": false,
+   "track": "After the gift (limits study 2026-10-17)",
    "step": 3
   },
   {
@@ -406,8 +406,8 @@
     "atlas_v21/sphere/"
    ],
    "zenodo": "sphere/",
-   "required": true,
-   "track": "C. The 3D genome sphere (HEALPix)",
+   "required": false,
+   "track": "After the gift (limits study 2026-10-17)",
    "step": 4
   },
   {

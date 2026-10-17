@@ -90,9 +90,9 @@
    "sources": [],
    "data_status": "to_scout",
    "record": "TODO.md",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "Search purified neutrophil arrays across ages from other laboratories.",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "search",
    "impact": 5,
    "depends_on": [],
@@ -293,9 +293,9 @@
    ],
    "data_status": "partial",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "Build a neuron Met-A reference by the SOP new-cell rule; check Exeter (GSE234520/GSE279509) donor overlap with Maastricht.",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [
@@ -556,7 +556,7 @@
    "sources": [],
    "data_status": "to_scout",
    "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
-   "status": "planned",
+   "status": "parked",
    "runs": [
     {
      "date": "2026-10-11",
@@ -564,7 +564,7 @@
      "note": "Commissioning roadmap written into STATUS section 0 (R1-R5); R4 runs alongside R1-R3."
     }
    ],
-   "next_step": "Place each new cell type against the roadmap; the atlas must be commissioned as a reference source first.",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "none",
    "impact": 4,
    "depends_on": [
@@ -732,7 +732,7 @@
    ],
    "data_status": "to_scout",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
-   "status": "planned",
+   "status": "parked",
    "runs": [
     {
      "date": "2026-10-11",
@@ -740,7 +740,7 @@
      "note": "Public data checked (metadata only): two independent EPIC v1 laboratories (Pishva GSE306226/7, Labrie GSE112179); no independent same-donor array plus WGBS."
     }
    ],
-   "next_step": "Build a neuron Met-A reference by the SOP new-cell rule (TODO A11).",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 4,
    "depends_on": [],
@@ -763,9 +763,9 @@
    ],
    "data_status": "in_hand",
    "record": "TODO.md",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "After 450K settles: build per the SOP new-cell rule; GSE87640 (450K, unread) held for commissioning.",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 4,
    "depends_on": [
@@ -789,7 +789,7 @@
    ],
    "data_status": "to_scout",
    "record": "Biological_Physics/MethylPhys/doors/DEV_BLOOD_SENSITIVITY_01.md",
-   "status": "planned",
+   "status": "parked",
    "runs": [
     {
      "date": "2026-10-13",
@@ -802,7 +802,7 @@
      "note": "Part 2, 23 real healthy whole bloods (GSE184269, untared, one array per slide): relative SD 6.36 %; chain leverage 2.09 % per 1 % loss; per person about 7.2 % loss needed. Group comparisons separate at 0.86 % with 50 people."
     }
    ],
-   "next_step": "Find a healthy whole-blood EPIC v1 set with several arrays per slide and measure the tared spread.",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "search",
    "impact": 4,
    "legacy_ids": [
@@ -1149,9 +1149,9 @@
     "GSE234520 (43 donors)"
    ],
    "data_status": "to_scout",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "Build a neuron Met-A reference by the SOP new-cell rule; split build and held-out before reading.",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
@@ -1229,9 +1229,9 @@
     "GSE226298 (commissioning reference)"
    ],
    "data_status": "spent",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "Solved by M2 if it passes (GSE124565 7F/5M and GSE88824 as build sources).",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "none",
    "impact": 4,
    "record": "TODO.md",
@@ -1279,9 +1279,9 @@
     "purified neutrophil arrays across ages (none found yet)"
    ],
    "data_status": "to_scout",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "Search purified neutrophil arrays across ages.",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "search",
    "impact": 4,
    "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",
@@ -2362,7 +2362,7 @@
    ],
    "data_status": "partial",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
-   "status": "sealed",
+   "status": "parked",
    "runs": [
     {
      "date": "2026-10-11",
@@ -2380,7 +2380,7 @@
      "note": "Rule change labeled as post-reading: sorted samples only; sealed before either independent lab is opened (push-gate rule 21, LESSONS C11)."
     }
    ],
-   "next_step": "Seal the sorted-only reference's Normal band and test, then read GSE96612 and GSE107729 controls (8.4 TB raw reads in total for the neuron sets per the v2.1 plan).",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "box",
    "impact": 5,
    "legacy_ids": [
@@ -2439,7 +2439,7 @@
    ],
    "data_status": "partial",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
-   "status": "sealed",
+   "status": "parked",
    "runs": [
     {
      "date": "2026-10-11",
@@ -2462,7 +2462,7 @@
      "note": "Reference rule sealed on sorted cells only (post-reading rule change, disclosed); push-gate rule 21."
     }
    ],
-   "next_step": "Seal the sorted-only reference's test on the two unread laboratories (Feinberg GSE96612, Yi GSE107729 controls) before opening them (TODO A8).",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "box",
    "impact": 5,
    "depends_on": [
@@ -2604,7 +2604,7 @@
    ],
    "data_status": "none_needed",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
-   "status": "synthetic_done",
+   "status": "parked",
    "runs": [
     {
      "date": "2026-10-13",
@@ -2612,7 +2612,7 @@
      "note": "levers_synth_04: about 20 donors detect a 5-10 % drift in the balance across a lifetime; false-positive rate 0.050 with no drift."
     }
    ],
-   "next_step": "Write the derivation note (balance section is DERIVED in the book; the age test is a PREDICTION).",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 4,
    "legacy_ids": [
@@ -2735,9 +2735,9 @@
    ],
    "data_status": "partial",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "Record post-mortem interval per sample (given for 20 of 25 Yi controls) and test whether held error follows it.",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "box",
    "impact": 4,
    "legacy_ids": [
@@ -2960,9 +2960,9 @@
    ],
    "data_status": "to_scout",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "Check held error against post-mortem interval in the Yi controls before trusting post-mortem neurons (TODO A10).",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 4,
    "depends_on": [],
@@ -2984,7 +2984,7 @@
    ],
    "data_status": "in_hand",
    "record": "Biological_Physics/MethylPhys/doors/DEV_DIRECTION_AUDIT_01.md",
-   "status": "designed",
+   "status": "parked",
    "runs": [
     {
      "date": "2026-10-11",
@@ -2992,7 +2992,7 @@
      "note": "Reader passes its exact recovery test; healthy liver held territory 0.0269 vs mixed 0.0527."
     }
    ],
-   "next_step": "Seal a prediction on MCF-7 territories before reading (TODO A5).",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 4,
    "depends_on": [],
@@ -3592,9 +3592,9 @@
     "GSE107729 (Yi controls)"
    ],
    "data_status": "in_hand",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "Check held error against post-mortem time in the Yi controls before trusting post-mortem neurons.",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 4,
    "record": "TODO.md",
@@ -24597,8 +24597,8 @@
    "purpose": "Builds the sphere from every posterior draw, the way CMB teams use simulated skies: per-pixel and per-band error bars, the covariance between bands so a whole spectrum is tested in one score, and a planted-signal recovery check (transfer function). v2's saved draws allow it on the laptop now; v2.1 repeats it.",
    "instrument_or_term": "information sphere",
    "data_status": "have",
-   "status": "planned",
-   "next_step": "after sphere construction v2 passes its planted test",
+   "status": "parked",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 4,
    "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md",
@@ -24639,8 +24639,8 @@
    "purpose": "The same construction on three maps, read with the chain's sky statistics and their noise maps: what our atlas sees, what more cells add, and what the whole genome adds beyond the array sites.",
    "instrument_or_term": "information sphere",
    "data_status": "partial",
-   "status": "planned",
-   "next_step": "after the noise maps; Loyfer sphere in the v2.1 box session",
+   "status": "parked",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop and box",
    "impact": 4,
    "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md",
@@ -24764,9 +24764,9 @@
     "Moss 2018 arrays"
    ],
    "data_status": "partial",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "after ATL-046 and ATL-048",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop (from the v2.1 box outputs)",
    "impact": 3,
    "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_plan.md",
@@ -24816,7 +24816,7 @@
    "data_status": "partial",
    "status": "planned",
    "runs": [],
-   "next_step": "design the commissioning on known mixtures, bars first; builds on COM-METAA-009, COM-METAA-022, ATL-003",
+   "next_step": "commission for shares (met twice: 0.029, 0.016; bar 0.03); error bars ship as information, labeled not calibrated (limits study 2026-10-17)",
    "cost": "laptop (from the v2.1 box outputs)",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_plan.md",
@@ -25016,8 +25016,8 @@
    "purpose": "Fit the atlas twice more on two sealed halves of every cell's donors, so map spectra can be crossed without noise bias and half A minus half B gives a pure noise map.",
    "instrument_or_term": "atlas",
    "data_status": "partial",
-   "status": "designed",
-   "next_step": "moved after the gift by the author 2026-10-16 (half-atlases F07, F08 and half-difference maps M03H); scripts and the donor split stay sealed",
+   "status": "parked",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "box (about one more full fit, after the main fit)",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
@@ -25039,7 +25039,7 @@
    "instrument_or_term": "atlas",
    "data_status": "partial",
    "status": "designed",
-   "next_step": "the guidebook builds on CANON/atlas_story.json (13 tools, each with its cosmology origin, its use in the atlas and for geneticists' work, and status); next: each tool's full entry with history and the bootstrap comparison; the story's folds start closed like every fold on the page",
+   "next_step": "guidebook v1 = the 13-tool story (CANON/atlas_story.json), shipped with the gift; full manual after (limits study 2026-10-17)",
    "cost": "laptop",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
@@ -25476,9 +25476,9 @@
    ],
    "data_status": "",
    "record": "development/WHITEBOARD_2026-10-15.md",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "whiteboard: compare the islands with the new writers' published preference for bare DNA, then derive",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -25960,9 +25960,9 @@
    ],
    "data_status": "not yet searched",
    "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
-   "status": "sealed",
+   "status": "parked",
    "runs": [],
-   "next_step": "stage T2: synthetic on GSE54292's design (111 accessions at 10 C and 16 C; predicted log-odds ratio 1.0212) to fix molecules and pairs needed; then seal the sample list and rule",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -26032,9 +26032,9 @@
    ],
    "data_status": "not yet searched",
    "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "merged into PHY-057 stage T: GSE54292 is the primary set (111 accessions at both temperatures)",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -26327,9 +26327,9 @@
    ],
    "data_status": "",
    "record": "COMMISSIONING_PLAN.md",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "map EPIC open-sea cg probes to hg19 CpG indices; recount the 153 own-read samples there; compare lines with opensea_line.py's method",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 4,
    "depends_on": [],
@@ -26349,9 +26349,9 @@
    ],
    "data_status": "",
    "record": "COMMISSIONING_PLAN.md",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "count the 56 healthy cell types' firm territory with PROC-TUMOUR-01's counter; write the range before comparing; re-read N and T2",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
@@ -26371,9 +26371,9 @@
    ],
    "data_status": "",
    "record": "COMMISSIONING_PLAN.md",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "healthy donors' colon epithelium (Loyfer) on the same counter and territory against the six adjacent normals; rule first",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
@@ -26393,9 +26393,9 @@
    ],
    "data_status": "",
    "record": "COMMISSIONING_PLAN.md",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "scout data with several organs per person (cancer and healthy); one sealed rule per instrument; synthetic first",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
@@ -26629,9 +26629,9 @@
    ],
    "data_status": "",
    "record": "Biological_Physics/MethylPhys/doors/DEV_SECONDLAB_02.md",
-   "status": "planned",
+   "status": "parked",
    "runs": [],
-   "next_step": "metadata search for healthy sorted B cells (and T, NK, monocytes) WGBS from a third source; read their tile distributions; then choose and seal the definition, synthetic first",
+   "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
