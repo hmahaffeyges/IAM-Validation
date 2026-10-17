@@ -25176,7 +25176,7 @@
    "depends_on": [
     "PHY-042"
    ],
-   "notes": "rule written 2026-10-15 before any restricted reading; island side not assessed; island arm: box job 4110eb64 re-aligning the six pairs, 2026-10-15",
+   "notes": "rule written 2026-10-15 before any restricted reading; island side not assessed; island arm: box job 4110eb64 re-aligning the six pairs, 2026-10-15 | 2026-10-17: its finished machine jobs marked finished in the job register (state reconciled against EC2); results unchanged",
    "legacy_ids": [],
    "id": "PHY-043",
    "sources_of_row": [
@@ -25859,7 +25859,7 @@
     "PHY-049",
     "PHY-050"
    ],
-   "notes": "author 2026-10-15: one grand test chosen to test it all, then commission; fresh-data candidates: GSE144691, GSE98837 (sorted CD8 T-cell subsets, unopened); a sharp prediction there: memory subsets sit higher on the line than naive because their loose share is higher | 2026-10-16: run-2 spot machines reclaimed (1 of 13 counted); run 3 on a shared queue, fit box (on-demand) plus one spot helper | run 3 helper G reclaimed after 15 min (claim released); helpers H and I (64-core spot, us-west-2d) added to the queue; fit box F runs the rest | helpers H and I reclaimed by AWS (spot) about 11:50 AM and 12:10 PM PDT, I also out of disk; their claims released to the fit box F | on-demand helper J (i-02ba02f9f94113c16, m7a.16xlarge) added 2026-10-16 4:30 PM PDT; on-demand core quota is 192 (increase to 384 requested)",
+   "notes": "author 2026-10-15: one grand test chosen to test it all, then commission; fresh-data candidates: GSE144691, GSE98837 (sorted CD8 T-cell subsets, unopened); a sharp prediction there: memory subsets sit higher on the line than naive because their loose share is higher | 2026-10-16: run-2 spot machines reclaimed (1 of 13 counted); run 3 on a shared queue, fit box (on-demand) plus one spot helper | run 3 helper G reclaimed after 15 min (claim released); helpers H and I (64-core spot, us-west-2d) added to the queue; fit box F runs the rest | helpers H and I reclaimed by AWS (spot) about 11:50 AM and 12:10 PM PDT, I also out of disk; their claims released to the fit box F | on-demand helper J (i-02ba02f9f94113c16, m7a.16xlarge) added 2026-10-16 4:30 PM PDT; on-demand core quota is 192 (increase to 384 requested) | 2026-10-17: its finished machine jobs marked finished in the job register (state reconciled against EC2); results unchanged",
    "legacy_ids": [],
    "id": "COM-IAMA-052",
    "sources_of_row": [
@@ -25927,7 +25927,7 @@
     "PHY-048",
     "PHY-049"
    ],
-   "notes": "author 2026-10-15: 'This is so important that we stay vigilant' | part A launched 2026-10-16 on i-016be641747ea1aa5 from the public clone at e9e388c5 | run 2 launched on i-08a0814a8c11e3c18 from e1d64460",
+   "notes": "author 2026-10-15: 'This is so important that we stay vigilant' | part A launched 2026-10-16 on i-016be641747ea1aa5 from the public clone at e9e388c5 | run 2 launched on i-08a0814a8c11e3c18 from e1d64460 | 2026-10-17: its finished machine jobs marked finished in the job register (state reconciled against EC2); results unchanged",
    "legacy_ids": [],
    "id": "PHY-055",
    "sources_of_row": [
@@ -27494,7 +27494,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "running",
    "runs": [],
-   "next_step": "2026-10-17: author page review 2 applied (commissioning wording, catalogue, register, tables link to the repository, footer); next: the run ledger rebuilt from AWS billing",
+   "next_step": "2026-10-17: author page review 2 applied, run ledger rebuilt from AWS billing; next: further author review",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

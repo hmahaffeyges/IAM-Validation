@@ -988,7 +988,7 @@
    "date": "2026-10-15",
    "commit": "ed7af0dc",
    "s3_code_prefix": "results/DEV_BACKBONE_01/island/code/run1/",
-   "state": "running",
+   "state": "finished",
    "log": "results/DEV_BACKBONE_01/island/ti.log",
    "machine": "methylphys-fit-01 (spot m7a.8xlarge, 32 cores, fixed address 32.190.44.180)",
    "purpose": "island-side counts for the six early-onset colorectal pairs (author approved)",
@@ -1012,7 +1012,7 @@
     "development/tumor_island_2026-10-15/run_tumor_island.sh",
     "development/tumor_island_2026-10-15/samples.tsv"
    ],
-   "note": "running",
+   "note": "running; state reconciled 2026-10-17 against EC2: machine no longer running",
    "manifest": [
     "PHY-043"
    ]
@@ -1484,7 +1484,7 @@
    "date": "2026-10-16",
    "commit": "e4b2ccba",
    "s3_code_prefix": "results/DEV_IAMA_GRAND_01/code/run3_F/",
-   "state": "running",
+   "state": "finished",
    "log": "results/DEV_IAMA_GRAND_01/status_F.txt",
    "machine": "methylphys-cpu-01, on-demand m7a.32xlarge, 1.5 TB work disk vol-0230dfb60526c5806 (delete after the test)",
    "purpose": "the 12 CD8 samples not counted in run 2; scheduling only changed (QUEUE=1)",
@@ -1498,7 +1498,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/samples.csv",
     "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/count_grand.py"
    ],
-   "note": "running",
+   "note": "running; state reconciled 2026-10-17 against EC2: machine no longer running",
    "manifest": [
     "COM-IAMA-052"
    ]
@@ -1698,7 +1698,7 @@
    "date": "2026-10-16",
    "commit": "e1d64460",
    "s3_code_prefix": "results/CLEANROOM_IAMA_01/code/run2/",
-   "state": "running",
+   "state": "finished",
    "log": "results/CLEANROOM_IAMA_01/status.txt",
    "machine": "spot c7a.8xlarge us-west-2c, self-terminating",
    "purpose": "fresh public clone recounts 153 sequencing-atlas samples and ENCODE 5 and rebuilds the line and shape reference; all must equal the committed ones",
@@ -1713,7 +1713,7 @@
     "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_box.sh",
     "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py"
    ],
-   "note": "running"
+   "note": "running; state reconciled 2026-10-17 against EC2: machine no longer running"
   },
   {
    "job_id": "i-02ba02f9f94113c16",
@@ -1721,7 +1721,7 @@
    "date": "2026-10-16",
    "commit": "e4b2ccba",
    "s3_code_prefix": "results/DEV_IAMA_GRAND_01/code/run3_J/",
-   "state": "running",
+   "state": "finished",
    "log": "results/DEV_IAMA_GRAND_01/status_J.txt",
    "machine": "on-demand m7a.16xlarge us-west-2a, 2 samples at a time, 1.5 TB disk",
    "purpose": "on-demand helper (cannot be reclaimed) after four spot helpers were reclaimed",
@@ -1738,7 +1738,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/samples.csv",
     "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/count_grand.py"
    ],
-   "note": "running"
+   "note": "running; state reconciled 2026-10-17 against EC2: machine no longer running"
   },
   {
    "job_id": "i-09dd0f71b2e095177",

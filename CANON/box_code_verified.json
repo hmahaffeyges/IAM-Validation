@@ -714,7 +714,7 @@
    "results/DEV_BACKBONE_01/island/EOCRC_CRC6_WGBS_normal.parquet": true,
    "results/DEV_BACKBONE_01/island/EOCRC_CRC6_WGBS_tumour.parquet": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "eef8d756-44da-4f16-8206-acac86b79edd": {
   "s3": {
@@ -998,7 +998,7 @@
    "results/DEV_IAMA_GRAND_01/out/": false,
    "results/DEV_IAMA_GRAND_01/bam/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "i-0c21463e9f0de811b": {
   "s3": {
@@ -1120,7 +1120,7 @@
   "outputs_in_s3": {
    "results/CLEANROOM_IAMA_01/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "i-02ba02f9f94113c16": {
   "s3": {
@@ -1135,7 +1135,7 @@
    "results/DEV_IAMA_GRAND_01/out/": false,
    "results/DEV_IAMA_GRAND_01/bam/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "i-09dd0f71b2e095177": {
   "s3": {

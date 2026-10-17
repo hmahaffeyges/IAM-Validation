@@ -1,5 +1,7 @@
 #!/bin/bash
 # Push only if the canon check passes. Use this (or MethylPhys/chain/guarded_push.sh) for every push; a plain `git push` skips the check.
+# temp files of every check go to one folder that is removed when the gate exits (2026-10-17: leftover check folders filled the laptop disk)
+_GATE_TMP="$(mktemp -d "${TMPDIR:-/tmp}/gate.XXXXXX")"; export TMPDIR="$_GATE_TMP"; trap 'rm -rf "$_GATE_TMP"' EXIT
 set -euo pipefail
 ROOT="$(git rev-parse --show-toplevel)"; cd "$ROOT"
 python3 CANON/canon_check.py || { echo "checked_push.sh: CANON CHECK FAILED - push refused"; exit 1; }
