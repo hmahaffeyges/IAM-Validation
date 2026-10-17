@@ -52,7 +52,7 @@ def _gauge(A, lo=None, hi=None, w=640, label="", instrument="Met-A", top=None):
     CANON/foundation.json gauge_direction, remembered by the black hole: right is over-writing toward the full surface."""
     if A is None: return f'<p style="margin:2px 0"><b>{html.escape(label)}</b></p>' if label else ""   # no reading on the gauge: no gauge is drawn (2026-10-17)
     G = _load("Runtime Matrices/Gauge/cell_gauge_marks_v1.json")
-    top = top or G["full_surface"][instrument]   # IAM-A: the sample's own full surface, 0.5/eps_pred(L), passed by the report
+    top = top or G["full_surface"][instrument] or G["full_surface"].get(instrument + "_position")   # IAM-A: the sample's own end, 0.5/eps_pred(L), passed by report_v4; the retired position form (this v3 record) keeps its own 4.26
     _nb = (G.get("normal_by_instrument") or {}).get(instrument, [G["normal"]["lo"], G["normal"]["hi"]])
     nl, nh = (_nb if _nb else (None, None))   # None: this instrument's healthy band is not measured yet, so none is drawn
     x = lambda v: 30 + int(min(max(v, 0.0), top * 1.04) / (top * 1.04) * w)

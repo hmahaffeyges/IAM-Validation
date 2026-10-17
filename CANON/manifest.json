@@ -27456,9 +27456,16 @@
      "note": "clean clone run 4 (job i-0e980d41f06e19212): RELEASE CHECK v4 PASS, 25 of 25, from a fresh public clone with a new environment from chain/requirements.txt only",
      "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/run4/release_check_v4.log",
      "page": "not headline: goes into the commissioned-chain card with the shipped example reports (OTH-068)"
+    },
+    {
+     "date": "2026-10-17",
+     "outcome": "fail",
+     "note": "clean clone run 5 (job i-0e16beceebf3b188e): 23 of 25; the v3 technical record drew the retired position-form IAM-A gauge with no end once 4.26 was removed, the report crashed (E4, E9); the position form keeps its own end; E4 and E9 pass locally; run 6 confirms",
+     "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/run5/release_check_v4.log",
+     "page": "not headline: a gate on the way to the commissioned chain"
     }
    ],
-   "next_step": "run 5 running (job i-0e16beceebf3b188e, commit 35246d52) to confirm the per-sample IAM-A gauge end",
+   "next_step": "run 6 after the position-form gauge end fix",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
