@@ -27435,7 +27435,7 @@
      "page": "not headline: a gate on the way to the commissioned chain"
     }
    ],
-   "next_step": "clean clone run 3 after the C21 fixes",
+   "next_step": "clean clone run 3 running (job i-053cec43288dd2e39, commit da7ef58e)",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

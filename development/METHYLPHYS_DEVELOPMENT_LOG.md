@@ -2289,3 +2289,5 @@ Every Part 6 chapter was checked against a facts sheet (development/book_audit_2
 
 ### 2026-10-17 · Chain v4 clean clone run 2: 23 of 25; two real defects found and fixed (OTH-070, LESSONS C21)
 Run 2 (pyarrow and matplotlib pinned) passed 23 of 25. E3: the tare record was missing from whole-blood bundles since the C-score commissioning edit of 2026-10-15 (0f02f627 put the save inside the out-of-scope branch); Met-A still printed tared. Commissioned readings unaffected (isolated-neutrophil Met-A keeps its tare; the C-score has its own). E8: the new v4 Met-A gauge was drawn when the noise gate withholds the state. Both fixed; run 3 repeats the check.
+
+Run 3 launched as job i-053cec43288dd2e39 (commit da7ef58e).

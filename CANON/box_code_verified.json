@@ -1185,6 +1185,18 @@
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/": false
   },
+  "state_at_verify": "finished"
+ },
+ "i-053cec43288dd2e39": {
+  "s3": {
+   "cleanclone_v4.sh": "1ccaee2dafe10abe1aa98e2cba3215453c0eadb4115b7694295abca3f7850365"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/CHAIN_V4_CLEANCLONE/": false
+  },
   "state_at_verify": "running"
  }
 }
