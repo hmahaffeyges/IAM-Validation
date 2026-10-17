@@ -91,11 +91,11 @@ $A_{\rm rel}=A/\mathrm{median}(A_{\rm ref})$; nothing is fitted. The array's own
 blood cell holds fixed, is checked against the references' range, and if it falls outside, the gauge state is withheld. The gauge is read on
 $A_{\rm rel}$, and each reading states the smallest loss of the cell's pattern that specimen could have shown.
 \paragraph{IAM-A} (single molecules) reads the held error directly: $\varepsilon$ is the rate of an isolated unmethylated call between two
-methylated calls, on molecules with at least 6 CpGs and at least 80\,\% methylated, on the methylated channel only. $P_{\rm cell}$ is valid only for the read-level pipeline it was measured on; a different pipeline needs its own healthy measurement first.
-\begin{equation}\text{IAM-A}=\frac{H(\varepsilon)}{P_{\rm cell}\,H(\varepsilon_0)},\qquad \varepsilon_0=\frac{1}{1+e^{\varphi M}}=0.032,\end{equation}
-with $M=20.94$, $\varphi=0.1628$ and $P_{\rm cell}$ the healthy cell's frozen position relative to the healthy reference $H_{\rm ref}=H(\varepsilon_0)$ (neutrophils $1.149$).
+methylated calls, on molecules with at least 6 CpGs and at least 80\,\% methylated, on the methylated channel only. The sample is read against its own reference: its loose share $L$ (the share of 2,000-CpG tiles below 70\,\% methylated) predicts, on the healthy self-reference line, the held error it should carry.
+\begin{equation}\text{IAM-A}=\frac{\varepsilon}{\varepsilon_{\rm pred}(L)},\qquad \varepsilon_{\rm pred}(L)=0.0403+0.0346\,L,\end{equation}
+measured on 56 healthy cell types and frozen (Chapter~\ref{ch:iama}); commissioned 2026-10-17 on healthy blood CD8 T cells. The earlier form, $H(\varepsilon)/(P_{\rm cell}H(\varepsilon_0))$ with a frozen per-cell position, is now a development flag.
 \begin{itemize}
-\item $A=1$: errors at the rate the healthy cell carries; Normal is $0.95$--$1.05$.
+\item $A=1$: errors at the rate the sample's own state predicts; Normal is band v1, $0.779$--$1.055$ (Met-A's band is not borrowed).
 \item $A>1$: more error; the pattern is blurring.
 \item $A<1$: less error than the standard; the pattern is locking tighter than normal.
 \end{itemize}

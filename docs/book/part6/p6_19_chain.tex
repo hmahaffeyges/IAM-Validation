@@ -91,11 +91,20 @@ The operating procedure is in the operations manual.
 % COMMISSIONING-RETURN fig:p4_detlimit: figure taken out 2026-10-03 (plotted development values from the removed fitted tare). Put back, redrawn from the commissioned chain; see development/COMMISSIONING_RETURNS.md.
 
 
-\section{Stage Q: IAM-A}
+\section{Stage Q2: IAM-A against the sample's own reference}
 
-Single-molecule input, a read-level file of the one pipeline for which a neutrophil position is frozen, is read as IAM-A,
-Eq.~\eqref{eq:iama}, with enough opportunities and a reading on each half of the molecules as a repeat check. A table from
-any other pipeline is refused until a position has been measured on healthy cells with that pipeline.
+Single-molecule input (a read-level \texttt{.pat} file or an aligned whole-genome bisulfite BAM) passes the intake checks of Stage Q0,
+is counted once for its held error and its loose share, passes the sample-shape check, and is read as IAM-A, Eq.~\eqref{eq:iama}, on
+band v1. Commissioned 2026-10-17 on healthy blood CD8 T cells; every other cell type is printed as development. The earlier position
+reading (Stage Q, Eq.~\eqref{eq:iamapos}) runs only behind a development flag.
+
+\section{Chain v4: the commissioned instruments in one run}
+
+Chain v4 (2026-10-17) keeps every stage of chain v3 and adds three. After the array reading, the IAM-Deconvolver reads the cell shares
+against IAM-Atlas v2.1 (commissioned for neutrophils, monocytes, CD4 and CD8 T cells), and the C-score's departures are drawn on a
+HEALPix sphere in nested order, where neighboring sites fill compact patches; the drawing is a picture of the reading and nothing is
+scored from it. Sequencing input goes to Stage Q2 above. One command, \texttt{release\_check\_v4.py}, runs every check of the chain
+from a fresh copy of the public repository. Where this part says ``chain v3'', the stage it describes is carried unchanged into v4.
 
 \section{What the chain withholds}
 

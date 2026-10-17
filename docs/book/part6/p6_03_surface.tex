@@ -102,19 +102,18 @@ lost less. The chain flags this and tells the reader to read the mean $\beta$ in
 
 \section{A pattern is a steady state}
 
-A methylation pattern is not written once. At each division the maintenance machinery copies it
-with finite fidelity, and between divisions de novo methyltransferases and TET-mediated oxidation
-add and remove marks. The simplest model of a locus is a two-state chain per division: a methylated
-copy stays methylated with probability $1-u$; an unmethylated copy becomes methylated with probability
-$d$. Its steady state is
+A methylation pattern is not written once. It is held: writing (on SAM) and erasing (on oxygen and
+2-oxoglutarate) run all the time, in dividing and non-dividing cells alike. The simplest model of a locus is a two-state chain
+over any interval: a methylated site stays methylated with probability $1-u$; an unmethylated site becomes methylated with
+probability $d$. The interval need not be a division; neurons, which do not divide, hold the same balance. Its steady state is
 \begin{equation}
   \beta_{\mathrm{ss}}=\frac{d}{u+d}.
   \label{eq:steady}
 \end{equation}
 \derived{} With $u=0.03$ and $d=0.08$, $\beta_{\mathrm{ss}}=0.727$ and $H=0.845$ bits. \calc{} The model is too simple to
 fit data, but it says what a held pattern is in mechanistic terms: the entropy a site settles at when writing and erasing
-balance. A cell whose balance shifts, toward less faithful maintenance or more active removal, drifts toward $\beta=\tfrac12$
-and its entropy rises. A cell whose copies agree with one another more than the healthy cell's do holds less entropy and
+balance. A cell whose balance shifts, toward weaker writing or stronger erasing, drifts toward $\beta=\tfrac12$
+and its entropy rises. A cell whose molecules agree with one another more than the healthy cell's do holds less entropy and
 moves the other way. The gauge of Chapter~\ref{ch:gauge} reads both directions; what each direction
 means for the cell is the subject of Chapter~\ref{ch:leukocyte}.
 

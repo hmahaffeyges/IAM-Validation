@@ -105,7 +105,7 @@ def tex_esc(s): return s.replace("_", r"\_").replace("%", r"\%").replace("&", r"
 def section(e, v):
     rec = tex_esc(e["record"].split("MethylPhys/")[-1])
     if e["compute"] == "sam":
-        body = (r"Mat1a knockout mice cannot make S-adenosylmethionine (SAM) in the liver, so the methyl supply to the copier falls. "
+        body = (r"Mat1a knockout mice cannot make S-adenosylmethionine (SAM) in the liver, so the methyl supply to the writer falls. "
                 r"IAM's Law, through the restore rate of DNMT1, gives the rise in held error; mapped through Stage~Q's measured response on one healthy "
                 r"mouse's molecules, the window was committed (" + v["commit"] + r") before any knockout file was read. Liver RRBS, aligned reads, "
                 + str(v["nwt"]) + r" healthy and " + str(v["nko"]) + r" knockout mice.")
@@ -124,7 +124,7 @@ def section(e, v):
         tail = ""
     elif e["compute"] == "fingerprint":
         body = (r"Prostate cancer cells (LNCaP) against normal prostate epithelium (PrEC), one laboratory, both instruments on the same cells: "
-                + str(v["nL"]) + r" and " + str(v["nP"]) + r" sequencing runs, two EPIC arrays each. If cancer only made the copier worse, Met-A would sit on the line "
+                + str(v["nL"]) + r" and " + str(v["nP"]) + r" sequencing runs, two EPIC arrays each. If cancer only made the writer worse, Met-A would sit on the line "
                 r"the IAM-A $\leftrightarrow$ Met-A relation gives for the measured IAM-A; a fingerprint is Met-A above that line, or, where too few "
                 r"molecules can be read for IAM-A, methylation lost in runs along molecules beyond every healthy run. Both arms and the choice between "
                 r"them were committed before any cancer file was read, and the scorer was first shown to call a planted fingerprint and to stay silent on the line.")

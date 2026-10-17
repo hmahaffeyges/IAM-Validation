@@ -764,9 +764,9 @@ def fig_tumour():
     lim5 = tp[~tp.instrument_ok]
     ax.plot(lim5.eps_corr_normal, lim5.eps_corr_tumour, "o", mfc="none", mec="k", ms=7, label="conversion diff. > 0.005")
     ax.set_xlim(*lim); ax.set_ylim(*lim); ax.set_aspect("equal")
-    ax.set_xlabel(r"normal tissue, held error $\varepsilon$"); ax.set_ylabel(r"tumour, same person, $\varepsilon$")
+    ax.set_xlabel(r"normal tissue, held error $\varepsilon$"); ax.set_ylabel(r"tumor, same person, $\varepsilon$")
     ax.legend(loc="center right", bbox_to_anchor=(1.0, 0.33), fontsize=5.8); ax.set_title("Above the diagonal: more held error")
-    S.save(fig, "part6", "fig_p4_23_tumour")
+    S.save(fig, "part6", "fig_p4_23_tumor")
     return tp
 
 
@@ -923,7 +923,7 @@ def tables():
         f"Stage Q & pipeline \\texttt{{{ip['pipeline'].replace('_', chr(92)+'_')}}}; $P={ip['P']}$; at least 100,000 opportunities & \\texttt{{iama\\_positions\\_v1.json}} \\\\"])
     # p4_23: tumour pairs
     tp = pd.read_csv(DD / "tumour_pairs.csv"); tp = tp[tp.eps_corr_tumour.notna()]
-    T["p4_23_tumour"] = "\n".join(f"{x.patient} & {x.assay} & {x.eps_corr_normal:.5f} & {x.eps_corr_tumour:.5f} & {x.ratio:.3f} & {x.conv_diff:.4f}{'' if x.instrument_ok else ' (over 0.005)'} \\\\" for x in tp.itertuples())
+    T["p4_23_tumor"] = "\n".join(f"{x.patient} & {x.assay} & {x.eps_corr_normal:.5f} & {x.eps_corr_tumour:.5f} & {x.ratio:.3f} & {x.conv_diff:.4f}{'' if x.instrument_ok else ' (over 0.005)'} \\\\" for x in tp.itertuples())
     return T
 
 

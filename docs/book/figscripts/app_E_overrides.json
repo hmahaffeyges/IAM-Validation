@@ -12,10 +12,6 @@
   "ch:bridge|body:\\varepsilon=\\frac{\\text{errors}}{\\text{opportunities}}.": {
    "chapter": "\\varepsilon=\\frac{\\text{errors}}{\\text{opportunities}} .",
    "why": "display in the chapter's section 'Two readings of one record', added in 4736ecf after the sheet was generated (96210e4); the committed sheet does not list it (open question: list it)"
-  },
-  "ch:bridge|body:\\text{IAM-A}=\\frac{H(\\varepsilon)}{P_{\\rmcell}\\,H(\\varepsilon_0)}": {
-   "chapter": "\\text{IAM-A}=\\frac{H(\\varepsilon)}{P_{\\rm cell}\\,H(\\varepsilon_0)}",
-   "why": "display in the chapter's section 'Two readings of one record', added in 4736ecf after the sheet was generated (96210e4); the committed sheet does not list it (open question: list it)"
   }
  },
  "body": {
@@ -758,12 +754,6 @@
    "chapter": "\\derived{}",
    "sheet": "definition; the reference is \\calibrated{} (Stage~1)",
    "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
-  },
-  "ch:onegauge|body:\\text{IAM-A}=\\frac{H(\\varepsilon)}{P_{\\rmcell}\\,H(\\varepsilon_0)},\\qquad\\varepsilon_0=\\frac{1}{1+e^{\\varphiM}}=0.032,": {
-   "entry": 537,
-   "chapter": "no status label attached in the chapter",
-   "sheet": "definition; the Boltzmann form of $\\varepsilon_0$ is \\derived, its height \\measured; $P$ \\measured",
-   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
   }
  },
  "intext": {
@@ -1255,7 +1245,7 @@
   },
   "ch:surface|eq:steady": {
    "entry": 505,
-   "sheet": "Steady state of a two-state maintenance chain with loss $u$ and gain $d$ per division."
+   "sheet": "Steady state of a two-state holding chain with loss $u$ and gain $d$ over any interval (independent of division)."
   },
   "ch:ledgers|eq:virial": {
    "entry": 506,
@@ -1295,7 +1285,7 @@
   },
   "ch:iama|eq:iama": {
    "entry": 515,
-   "sheet": "IAM-A with the neutrophil position $P=1.099$ (pipeline \\texttt{loyfer\\_pat\\_v1})."
+   "sheet": "IAM-A against the sample's own reference: measured held error over what its loose share $L$ predicts on the healthy self-reference line (commissioned 2026-10-17)."
   },
   "ch:cscore|eq:z": {
    "entry": 516,
@@ -1348,10 +1338,6 @@
   "ch:onegauge|body:\\text{Met-A}=\\frac{\\langleH(\\beta)\\rangle_{\\rmidentity\\sites}}{\\langleH(\\beta)\\rangle_{\\rmhealthy\\reference}}.": {
    "entry": 536,
    "sheet": "Met-A: mean binary entropy over the cell's identity sites over the same quantity on purified healthy cells (same type, same platform)."
-  },
-  "ch:onegauge|body:\\text{IAM-A}=\\frac{H(\\varepsilon)}{P_{\\rmcell}\\,H(\\varepsilon_0)},\\qquad\\varepsilon_0=\\frac{1}{1+e^{\\varphiM}}=0.032,": {
-   "entry": 537,
-   "sheet": "IAM-A: held-error entropy over the physics floor at the cell's position $P_{\\rm cell}$; $\\varepsilon_0=1/(1+e^{\\varphi M})=0.032$."
   }
  }
 }

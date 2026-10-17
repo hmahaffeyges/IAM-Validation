@@ -128,7 +128,7 @@ for its mass to bend space in any way an instrument could detect, so the gravita
 saturation account does. A cell maintains its identity by writing its running record onto the surface available to it, which is not
 spacetime but its own chromatin, the methylation pattern. A healthy cell sits well below the limit of what that surface can hold. The limit
 itself is exact and known from the healthy reference alone: the surface is full when every identity site sits at a coin flip,
-$\beta=\tfrac12$, which for neutrophils is $A=1/0.330263=3.03$ on arrays (Met-A) and $A=1/(1.149\times0.2043)=4.26$ on single molecules
+$\beta=\tfrac12$, which for neutrophils is $A=1/0.330263=3.03$ on arrays (Met-A) and $A=1/(1.149\times0.2043)=4.26$ on single molecules (the earlier position form of IAM-A, now a development flag)
 (IAM-A) (Chapter~\ref{ch:floorbreach}). \calc
 
 A cell moving toward cancer is, in this reading, one whose record is climbing toward that full surface, writing more and more error onto
@@ -151,7 +151,7 @@ The gauge has three fixed points, and each comes from physics or from the cell's
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.27\linewidth}@{}}\toprule
 point & what it is & neutrophils \\\midrule
 the floor $\Hmin$, on the left & where thermal kicks win against everything one ATP can buy: a held error of $1/(1+e^{M})=8\times10^{-10}$, $\Hmin=2.5\times10^{-8}$ bits per site; nothing reads below it & $1\times10^{-7}$ on both IAM-A and Met-A (\calc) \\
-1, in the middle & the healthy reference: the same cell type healthy, on the same platform, through the same calibration; Normal is $1\pm0.05$, a design tolerance & Met-A 0.330263 bits on EPIC (\calibrated); IAM-A $1.149\times0.2043=0.2348$ bits (\measured) \\
+1, in the middle & the healthy reference: the same cell type healthy, on the same platform, through the same calibration; Met-A's Normal is $1\pm0.05$, a design tolerance; IAM-A's band v1 is $0.779$--$1.055$ & Met-A 0.330263 bits on EPIC (\calibrated); IAM-A $1.149\times0.2043=0.2348$ bits in the earlier position form; the commissioned IAM-A reads each sample against its own loose share (\measured) \\
 the full surface, on the right & every identity site at a coin flip: the most a pattern can be blurred & Met-A 3.03; IAM-A 4.26 (\calc) \\\bottomrule
 \end{tabularx}
 \end{center}
@@ -194,7 +194,7 @@ it on the patient in front of them. The instrument flags and refers; it does not
 $A$ does not measure how many cells there are, or how large a mass is, or whether a tumor is present. It measures one thing: how far one
 cell type's methylation pattern in the specimen sits from the healthy reading of that same cell type. In plain terms, it reads how well a
 cell is still keeping its own identity. A cell that is doing its job sits near 1; a cell that has lost the fidelity of its pattern reads
-high. The reading may track how far a cell has lost its differentiated identity, which a pathologist reads as grade, more than it tracks
+high. The reading may track how far a cell has over-written its differentiated pattern, which a pathologist reads as grade, more than it tracks
 size or burden, but it is its own axis (Section~\ref{sec:p4notmean}). \conjecture
 
 \subsection{Two roads away from 1}
@@ -265,7 +265,7 @@ moved from where their healthy physics says they should sit. \interp
 
 The reference chain v3 reads is purified healthy neutrophils on the specimen's own platform, processed from the raw array files by the
 chain's own first stage, so the specimen and the reference are on one scale before anything is compared (Chapter~\ref{ch:atlas}).
-\calibrated{} The reference for the cells that come next, atlas v2, reconciles open methylation measurements into one frame: one set of
+\calibrated{} The reference for the cells that come next, IAM-Atlas v2.1, reconciles open methylation measurements into one frame: one set of
 cell-type definitions, every value on the same scale, every value with its own interval. It is built with the tools of cosmology, not by
 analogy but in fact. The reconciliation is a hierarchical Bayesian model sampled by Markov-chain Monte Carlo (the No-U-Turn sampler), the
 same class of inference machinery that cosmology runs against the Planck likelihood to infer the parameters of the universe. The raw

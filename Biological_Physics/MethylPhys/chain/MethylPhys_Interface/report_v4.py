@@ -66,7 +66,7 @@ def _shares(o):
                    for r in sorted(sh["cells"], key=lambda r: -r["share"]))
     return (h + f"<table><tr><th>Cell</th><th></th><th>Share</th><th>Range (information)</th><th>Status</th></tr>{rows}</table>"
             f"<p class='note'>Read on {sh.get('sites_used')} of {sh.get('markers')} marker sites. Each cell's healthy profile, with its uncertainty and the spread "
-            "between people, comes from the 79-cell atlas fitted as one model across seven public sources. Commissioned on mixtures from a laboratory the "
+            "between people, comes from the 79-cell atlas fitted as one model across 21 public sources. Commissioned on mixtures from a laboratory the "
             "atlas never saw: median share error 0.016. The ranges are printed as information; they are not calibrated.</p>")
 
 def _meta(o):

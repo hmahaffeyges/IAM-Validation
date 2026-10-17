@@ -89,10 +89,10 @@ and the places where one could have happened,
 \end{equation*}
 \measured{} The floor is $\varepsilon_0=0.032$, set by the energy that holds a mark at 310\,K (Eq.~\eqref{eq:eps0}). \derived{} The reading is
 \begin{equation*}
-\text{IAM-A}=\frac{H(\varepsilon)}{P_{\rm cell}\,H(\varepsilon_0)}
+\text{IAM-A}=\frac{\varepsilon}{\varepsilon_{\rm pred}(L)}
 \end{equation*}
-(Eq.~\eqref{eq:iama}), where $H$ is the binary entropy and $P_{\rm cell}$ is the healthy position of that cell type on one read-level
-pipeline. \calibrated{} This is the cell's error per gate, read against a thermal floor.
+(Eq.~\eqref{eq:iama}), where $\varepsilon_{\rm pred}(L)$ is the held error the sample's own loose share $L$ predicts on the healthy
+self-reference line. \measured{} This is the cell's error per gate, read against the sample itself: no outside reference is needed.
 
 \paragraph{Met-A: the pattern across the ensemble.} An array does not see molecules. It sees $\beta$, the fraction of copies methylated at
 each site, over all the cells in the specimen. Met-A is the Shannon entropy of $\beta$ at the cell's identity sites, over the healthy floor of

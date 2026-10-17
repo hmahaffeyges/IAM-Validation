@@ -50,13 +50,35 @@ the cell actually holds is set by the kinetics of maintenance, the balance of re
 deriving $\phi$ needs the writer's discrimination measured outside the cell, and is the central open problem of the cellular rung
 (Chapter~\ref{ch:open}). \openprob
 
-\section{The healthy position, and the reading}
+\section{The reading: each sample against its own reference}
 
-Each healthy cell type sits at its own position $P$ relative to the healthy reference, measured once per cell type and per
-read pipeline, and frozen:
+The commissioned IAM-A needs no outside reference. A sample's own molecules carry two numbers. The first is its held error
+$\varepsilon$, Eq.~\eqref{eq:eps}. The second is its \emph{loose share} $L$: the genome is cut into tiles of 2,000 consecutive CpGs,
+and $L$ is the share of tiles (each with at least 200 calls) whose mean methylation is below 0.70. Across 56 healthy cell types
+(153 samples of one public atlas~\cite{Loyfer2023}, counted by the chain), the held error follows the loose share on one line,
 \begin{equation}
-  \text{IAM-A}=\frac{H(\varepsilon)}{P_{\rm cell}\,H(\varepsilon_0)},\qquad P_{\rm neutrophil}=1.149 .
+  \varepsilon_{\rm pred}(L)=0.0403+0.0346\,L,\qquad
+  \text{IAM-A}=\frac{\varepsilon}{\varepsilon_{\rm pred}(L)},
   \label{eq:iama}
+\end{equation}
+fitted once (Theil--Sen, across cell types) and frozen in the chain (self-reference line v1). \measured{} A sample is read against what its
+own loose share predicts: 1 is on the healthy line, above 1 is more held sites lost than its own state predicts (right on the gauge).
+Before reading, a sample-shape check compares the sample's tile distribution with the healthy samples of its cell type and refuses
+a sample whose shape lies outside them; a refused sample is listed with its reason and not read. The healthy band, v1, is
+$0.779$--$1.055$, set on healthy samples only.
+
+\textbf{Commissioned 2026-10-17} on healthy blood CD8 T cells, whole-genome bisulfite: on a rule sealed before any of the data was
+downloaded, 7 of the 8 samples it read, from a laboratory it had never seen, read Normal; the shape check refused five (all four naive
+samples and one central-memory sample). The counts, the line and the shape reference were rebuilt identically from public data on a clean
+machine (158 of 158). Other cell types and chemistries are development.
+
+\subsection*{The earlier form: a frozen position (retired to a development flag)}
+
+Before the self-reference line, each healthy cell type was given its own position $P$ relative to the healthy reference, measured once
+per cell type and per read pipeline, and frozen. This form is kept in the chain behind a development flag only:
+\begin{equation}
+  \text{IAM-A}_{\rm position}=\frac{H(\varepsilon)}{P_{\rm cell}\,H(\varepsilon_0)},\qquad P_{\rm neutrophil}=1.149 .
+  \label{eq:iamapos}
 \end{equation}
 \measured{} $P$ was measured on three healthy granulocyte donors (range 1.140--1.155, coefficient of variation 0.74~\%), on
 whole read-level files of one public atlas~\cite{Loyfer2023}, with one named read-level pipeline. The average healthy cell type, $\Href$, then
