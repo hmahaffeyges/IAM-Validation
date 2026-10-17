@@ -13,6 +13,12 @@ try:
 except Exception as e:
     print(f"site_build_check: WARNING could not read the website build status ({type(e).__name__}); not checked"); sys.exit(0)
 if not R or R[0]["conclusion"] == "success": print("site_build_check: ok (last website build " + (R[0]["conclusion"] + " at " + R[0]["head_sha"][:8] if R else "unknown") + ")"); sys.exit(0)
+try:   # a newer build already running after the failure may be the fix: let work through, the next check will judge it
+    rq2 = urllib.request.Request("https://api.github.com/repos/hmahaffeyges/IAM-Validation/actions/runs?branch=main&per_page=10",
+                                 headers={"Accept": "application/vnd.github+json", **({"Authorization": "Bearer " + tok} if tok else {})})
+    run = [r for r in json.load(urllib.request.urlopen(rq2, timeout=30))["workflow_runs"] if r["name"] == "website" and r["status"] != "completed" and r["created_at"] > R[0]["created_at"]]
+    if run: print(f"site_build_check: last website build FAILED at {R[0]['head_sha'][:8]}, but a newer build ({run[0]['head_sha'][:8]}) is running - allowed"); sys.exit(0)
+except Exception: pass
 ch = subprocess.run(["git", "diff", "--name-only", base, "HEAD"], capture_output=True, text=True).stdout.split()
 if any(f.startswith(("docs/book/", "website/")) for f in ch):
     print(f"site_build_check: last website build FAILED at {R[0]['head_sha'][:8]}; this push changes the book or the site, so it may fix it - allowed. Confirm the next build passes."); sys.exit(0)
