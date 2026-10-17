@@ -57,7 +57,10 @@ null tests on split data & held-out reference arrays, repeat specimens & develop
 
 HEALPix~\cite{Gorski2005} divides the sphere into $12N_{\rm side}^2$ pixels of equal area, arranged on rings of constant latitude. The chain lays CpGs on it in
 genome order, chromosome 1 to chromosome Y and by position within each, filling the pixels ring by ring from the north pole
-(Figure~\ref{fig:genomesphere}). On EPIC this places 865,873 CpGs on 49,152 pixels ($N_{\rm side}=64$), 17.6 per pixel; the atlas map uses
+(Figure~\ref{fig:genomesphere}). The C-Score sky that chain v4 prints on every array report (2026-10-17) uses the \emph{nested} ordering of the same
+sphere instead: consecutive pixel numbers fill compact patches, so a run of neighboring departures, which is what the C-score scores, shows as one
+patch, and scattered departures show as speckle. Ring order spreads the same run along a thin band. The drawing is a picture of the
+commissioned reading; nothing is scored from it. On EPIC this places 865,873 CpGs on 49,152 pixels ($N_{\rm side}=64$), 17.6 per pixel; the atlas map uses
 $N_{\rm side}=128$ for its 483,092 CpGs, 2.5 per pixel. \calc
 
 \begin{figure}[htbp]\centering
@@ -141,7 +144,7 @@ condenses into one number, and it is the right null for any whole-array map: a h
 to be tested against a genome-shuffled healthy map, not against independent noise.
 A Gaussian null would call the healthy baseline a finding every time.
 
-\paragraph{A test the C-score was built for.} Cancer and aging erode methylation over whole genomic neighbourhoods, the late-replicating
+\paragraph{A test the C-score was built for.} Cancer and aging erode methylation over whole genomic neighborhoods, the late-replicating
 partially methylated domains~\cite{Berman2012,Zhou2018PMD}. If that
 erosion is regional in one person's cells, the C-score will rise where Met-A, which averages over all identity sites, barely moves, as the
 constructed damage of Figure~\ref{fig:whatitsees}c does. \prediction{} The blood-cancer arrays are the first test, read per person against the

@@ -4,7 +4,7 @@ fix: rewrites them to American spelling in place. Donor-facing: README.md, FOLLO
 and the 'plain', 'title' and 'headline' fields of CANON/results_register.json. Usage: python3 CANON/us_spelling.py check | fix"""
 import os, re, sys, json
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); os.chdir(ROOT)
-MAP = {"tumour": "tumor", "tumours": "tumors", "colour": "color", "colours": "colors", "behaviour": "behavior", "behaviours": "behaviors",
+MAP = {"neighbourhood": "neighborhood", "neighbourhoods": "neighborhoods", "neighbouring": "neighboring", "neighbour": "neighbor", "neighbours": "neighbors", "centred": "centered", "tumour": "tumor", "tumours": "tumors", "colour": "color", "colours": "colors", "behaviour": "behavior", "behaviours": "behaviors",
        "analyse": "analyze", "analysed": "analyzed", "analysing": "analyzing", "centre": "center", "centres": "centers", "modelling": "modeling",
        "modelled": "modeled", "labelled": "labeled", "labelling": "labeling", "ageing": "aging", "programme": "program", "programmes": "programs",
        "favour": "favor", "organised": "organized", "organise": "organize", "recognised": "recognized", "recognise": "recognize", "realise": "realize",

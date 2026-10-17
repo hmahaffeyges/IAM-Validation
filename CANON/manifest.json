@@ -27491,7 +27491,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "running",
    "runs": [],
-   "next_step": "pass 1 done 2026-10-17 (65 flags reviewed; IAM-A definition, bands, retired terms, atlas version fixed); pass 2: the AstroGenetics chapter read by hand end to end, then the skytools chapter (its check returned no answer)",
+   "next_step": "pass 1 done 2026-10-17 on all 26 Part 6 files (66 flags reviewed by hand: IAM-A definition, bands, retired terms, atlas version, division framing, C-score band from 19 studies, v4 sky order, spelling, tumor figure); pass 2: the AstroGenetics chapter read end to end by hand",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
