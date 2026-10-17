@@ -74,7 +74,7 @@ but small where we count, which is what item 2 below says (item 2 was written af
 - **The methylation ceilings line up with the held error for the four classes we can match** (observation; four points, and both measure
   distance from the coin flip, so partly expected):
 
-| class | held error (Loyfer) | holding | GAPE 002 methylation ceiling |
+| class | held error (sequencing-atlas) | holding | GAPE 002 methylation ceiling |
 |---|---|---|---|
 | terminal (neurons) | 0.024 | 3.71 kT | 1.294 |
 | immune | 0.028 | 3.55 kT | 1.192 |

@@ -26,7 +26,7 @@ Stage-B timing: 0.83 s per locus per 4-chain process; ~814k loci; 32 processes o
 |---|---|---|---|
 | 01 | `01a_box_setup_and_test.sh`, `01b_init_hg19_index.sh` | — | environments; wgbstools hg19 CpG index (28,217,448 sites) |
 | 02 | [`02_fetch_sources.py`](scripts/02_fetch_sources.py) | `inputs/loyfer_beta_list.json` | Loyfer 2023 (GSE186458) per-sample `.beta` files — `records/02_fetch_summary.json` |
-| 03 | [`03_loyfer_extract.py`](scripts/03_loyfer_extract.py) | `manifest.csv` (see `inputs/ARRAY_MANIFEST_IS_IN_REPO.txt`) | Loyfer beta and depth at every array CpG; `probe_map_summary.csv` (= `inputs/probe_map_summary.csv.gz`) |
+| 03 | [`03_loyfer_extract.py`](scripts/03_loyfer_extract.py) | `manifest.csv` (see `inputs/ARRAY_MANIFEST_IS_IN_REPO.txt`) | sequencing-atlas beta and depth at every array CpG; `probe_map_summary.csv` (= `inputs/probe_map_summary.csv.gz`) |
 | 04 | [`04_moss_stage1.py`](scripts/04_moss_stage1.py) | `inputs/moss_manifest.csv` | Moss 2018 sorted-cell arrays through Stage 1 |
 | 05 | [`05_salas_blood_stage1.py`](scripts/05_salas_blood_stage1.py) | — | Salas 2018 (GSE110554) and 2022 (GSE167998) sorted blood through Stage 1 — `inputs/salas_blood_manifest.csv` |
 | 06 | [`06_tian_extract.py`](scripts/06_tian_extract.py) | — | Tian 2023 (GSE215353) brain non-neuron pseudobulk at array CpGs |
@@ -35,7 +35,7 @@ Stage-B timing: 0.83 s per locus per 4-chain process; ~814k loci; 32 processes o
 | 09 | [`09_roster.py`](scripts/09_roster.py) | the above, `inputs/twin_family_thresholds_v1.json` | candidate cells, sample QC — `records/09_roster_summary.json` |
 | 10 | [`10_twin_test_sample_level.py`](scripts/10_twin_test_sample_level.py) | `records/twins.csv` | sample-level twin test — `records/10_*`; roster final: `inputs/roster.csv`, `inputs/roster_samples.csv` |
 | 11 | [`11_dryrun_and_stageA.py`](scripts/11_dryrun_and_stageA.py) | roster | smoke tests and stage A — `records/11*` (stage A did **not** converge; its source terms are not used) |
-| 12 | [`12_source_terms.py`](scripts/12_source_terms.py) | roster | closed-form source terms + Loyfer bridge — `records/12*` |
+| 12 | [`12_source_terms.py`](scripts/12_source_terms.py) | roster | closed-form source terms + sequencing-atlas bridge — `records/12*` |
 | 13 | [`13_encode_bridge_gse116754.py`](scripts/13_encode_bridge_gse116754.py) | ENCODE extract | ENCODE term measured via GSE116754 — `records/13b_*`; all terms: `inputs/source_terms_v1.json` |
 | 14–15 | `15_stageB_run_all.sh` → [`14_stageB_block.py`](scripts/14_stageB_block.py) | `inputs/{roster,roster_samples,hsc_manifest}.csv`, `inputs/source_terms_v1.json` | 700 blocks → `atlas_v2/blocks_v2/block_NNNNN{.parquet,_draws.npz,_prior.parquet}`; `stageB_summary.json` with the distinctness gate |
 

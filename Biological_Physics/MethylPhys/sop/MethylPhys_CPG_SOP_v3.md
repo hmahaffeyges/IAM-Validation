@@ -61,7 +61,7 @@ pre-registered check on v3 has passed and the result is recorded in `doors/`.
 | 4 | NILC component separation | cell-type separation by internal linear combination, the CMB method that needs no template per component | development flag `--dev-nilc` (DEV-NILC-01, DEV-COMPOSITION-TRUTH-02: outside the truth bars) |
 | 5 | Met-A | each cell read against its healthy reference or its composition-matched healthy expectation | **running** (neutrophils); B cells behind `--dev-percell-b`; monocytes and B cells do not meet the new-cell rule (DEV-NEWCELL-01) |
 | 6 | C-score | clustering of the residual map in genomic order | **COMMISSIONED 2026-10-15 on whole blood** (one-sided band, upper 1.152; isolated neutrophils development); IAM-A C-score in Stage Q (development, DEV-IAMA-CSCORE-01) |
-| 7 | IAM-A | single-molecule reading on sequencing data | **running** (development; constructed test data 2026-10-03, DEV-BASE-CHAIN-01 e; real Loyfer granulocyte files 2026-10-04, DEV-IAMA-REAL-01) |
+| 7 | IAM-A | single-molecule reading on sequencing data | **running** (development; constructed test data 2026-10-03, DEV-BASE-CHAIN-01 e; real sequencing-atlas granulocyte files 2026-10-04, DEV-IAMA-REAL-01) |
 | 8 | Same-run tare | self-tare II on the array's own fixed sites, then A_rel = A / median of same-run healthy references | **running** (self-tare II, then the median tare); self-tare II then median tare adopted by the author as the Stage T reading on 2026-10-04 (it met every replicate and other-laboratory bar, DEV-SELFTARE-02; DEV-PAIRED-01); self-tare II wired into Stage T on 2026-10-04 (DEV-SELFTARE-03) |
 | 9 | Noise gate | noise index N; gauge state withheld above N_max untared, and withheld whenever fewer than 90 % of the noise sites are measured | **running** |
 | 10 | Directional decomposition | which way a departure points (toward disorder or toward over-order), per cell | development flag `--dev-direction` (rebuilt physics-only, DEV-DIRECTION-02: known loss of methylation 12/12 toward disorder; replicates 56/63 no direction) |
@@ -304,7 +304,7 @@ It is written for the compute box (box paths, roster files, `chain_v3.tgz`). The
 | Round 2, self-tare on type II fixed sites then median tare (DEV-SELFTARE-02, flag) | replicate within-person SD 0.0164, 62/63 Normal; other laboratories 49/49; floor 6/6 |
 | Purified neutrophils from a new laboratory, GSE128733, 2 EPIC arrays on one slide (DEV-PAIRED-01, 2026-10-04) | A untared 1.1663 / 1.1695; self-tare II 1.0437 / 1.0426; median step not run (2 arrays, ≥ 3 needed); noise index 0.169 / 0.182, gauge state withheld |
 | Round 2, known loss of methylation (DEV-DIRECTION-02, flag) | decitabine and NTX-301 treated arrays 12/12 toward disorder; replicates 56/63 no direction |
-| Round 2, IAM-A on real single-molecule files (DEV-IAMA-REAL-01) | three Loyfer granulocyte files end to end: whole files 1.0394, 1.0632, 1.0344 (2/3 Normal) |
+| Round 2, IAM-A on real single-molecule files (DEV-IAMA-REAL-01) | three sequencing-atlas granulocyte files end to end: whole files 1.0394, 1.0632, 1.0344 (2/3 Normal) |
 
 Round 2 rows are development (DEVELOPMENT - not commissioned); each check and its full outcome is in the named `doors/` note.
 Not yet shown: any disease; a physical control DNA; an EPIC v2 floor. The C-score band is not set.

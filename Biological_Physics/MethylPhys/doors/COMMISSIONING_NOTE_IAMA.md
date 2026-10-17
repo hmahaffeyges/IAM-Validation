@@ -15,7 +15,7 @@ met like for like and are recorded as such.
 
 **Synthetic test:** chain/stage_q2_selfref.py, DEV_CHAIN_Q2_01/q2_synthetic.json
 
-**Reference sets:** the self-reference line and band v1 were built from GSE186458 (Loyfer) only; the test laboratory, GSE144691, is a
+**Reference sets:** the self-reference line and band v1 were built from GSE186458 (sequencing-atlas) only; the test laboratory, GSE144691, is a
 different laboratory.
 
 **Prior reading:** none of the test reads before the seal (DEV_IAMA_GRAND_01.md).

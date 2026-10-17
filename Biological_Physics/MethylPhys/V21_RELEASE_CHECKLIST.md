@@ -5,7 +5,7 @@ A box is ticked only when code finds the file there. The Zenodo upload refuses w
 
 **2 of 35 items needed for the gift complete; 12 items after the gift.**  Last verified: 2026-10-16T18:37:55Z.
 
-## A. Atlas commissioning: the Loyfer and Moss use tests
+## A. Atlas commissioning: the use tests against the two published reference atlases
 
 | Step | # | Deliverable | Needed for the gift | Repo | S3 | Zenodo |
 |---|---|---|---|---|---|---|

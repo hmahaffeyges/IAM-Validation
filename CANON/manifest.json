@@ -880,7 +880,7 @@
    ]
   },
   {
-   "title": "Met-A and C-score specificity on Moss in vitro tissue-DNA mixes (DEV-CSCORE-MOSS-01)",
+   "title": "Met-A and C-score specificity on array-reference in vitro tissue-DNA mixes (DEV-CSCORE-MOSS-01)",
    "purpose": "Small amounts of healthy liver, lung, colon or brain DNA were mixed into blood DNA to check the meters do not call healthy foreign DNA a disease. It is a false-alarm test for both array meters.",
    "instrument_or_term": "Met-A and C-score",
    "sources": [
@@ -1635,7 +1635,7 @@
    "cost": "none",
    "impact": 4,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_CSCORE_MOSS_01_OUTCOME.md. Pasted wording: 'The Moss 2018 mixes (GSE122126)... ideal for the C-score' (C6, 10-09); 'Moss mixes: Met-A specificity met; untared C-score not met'. GSE122126 is not a neutrophil truth set (development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09).",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_CSCORE_MOSS_01_OUTCOME.md. Pasted wording: 'The Moss 2018 mixes (GSE122126)... ideal for the C-score' (C6, 10-09); 'array-reference mixes: Met-A specificity met; untared C-score not met'. GSE122126 is not a neutrophil truth set (development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09).",
    "legacy_ids": [
     "C6 (10-09 list)",
     "DEV-CSCORE-MOSS-01"
@@ -2153,7 +2153,7 @@
    "depends_on": [
     "IAM-A neuron reference sealed on sorted cells, read on two independent laboratories"
    ],
-   "notes": "help_wanted: healthy neutrophils sequenced whole-genome in a lab other than Loyfer, 3 or more donors. Sources identified from metadata; not downloaded unless stated. | repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01.md (C4 row and stopping rule); TODO.md A3; CANON/next_jobs.json help_wanted[0]. Pasted wording: A3 'Other-lab healthy neutrophils... Search purified neutrophil WGBS/EM-seq, any lab'; 10-10 item 11; R1 C4 '>= 3 healthy donors, WGBS... GSE126754 (one donor, ~25x) as a spot check'; 10-08 'If that's what limits it, I'll search for more purified neutrophil WGBS before calling IAM-A commissioned.' GSE59163 is RRBS and IAM-A C-score fails on RRBS; P is measured on whole files - check fit. | also listed as: IAM-A healthy neutrophils from another laboratory (bar C4)",
+   "notes": "help_wanted: healthy neutrophils sequenced whole-genome in a lab other than sequencing-atlas, 3 or more donors. Sources identified from metadata; not downloaded unless stated. | repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01.md (C4 row and stopping rule); TODO.md A3; CANON/next_jobs.json help_wanted[0]. Pasted wording: A3 'Other-lab healthy neutrophils... Search purified neutrophil WGBS/EM-seq, any lab'; 10-10 item 11; R1 C4 '>= 3 healthy donors, WGBS... GSE126754 (one donor, ~25x) as a spot check'; 10-08 'If that's what limits it, I'll search for more purified neutrophil WGBS before calling IAM-A commissioned.' GSE59163 is RRBS and IAM-A C-score fails on RRBS; P is measured on whole files - check fit. | also listed as: IAM-A healthy neutrophils from another laboratory (bar C4)",
    "id": "COM-IAMA-007",
    "sources_of_row": [
     "Commissioning",
@@ -2433,7 +2433,7 @@
     "GSE107729",
     "GSE107729 (Yi controls)",
     "GSE186458",
-    "GSE186458 (Loyfer, reference)",
+    "GSE186458 (sequencing-atlas, reference)",
     "GSE96612",
     "GSE96612 (Feinberg)"
    ],
@@ -2449,7 +2449,7 @@
     {
      "date": "2026-10-12",
      "outcome": "progressed",
-     "note": "Neuron reference built from Loyfer whole files: 2 of 5 cortical donors inside Normal leave-one-out; ND264 (not sorted) reads high."
+     "note": "Neuron reference built from sequencing-atlas whole files: 2 of 5 cortical donors inside Normal leave-one-out; ND264 (not sorted) reads high."
     },
     {
      "date": "2026-10-12",
@@ -2468,7 +2468,7 @@
    "depends_on": [
     "Neurons: post-mortem time check"
    ],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md; TODO.md A8; results_register decisions 2026-10-13. Pasted wording: G4 'Neurons: low end and non-dividing cells; neuron check running (Loyfer, GSE96615, GSE108066; arrays searched); design note DEV-IAMA-NEURON-01 after the check'; R3 'sorted cortical neurons: GSE96615 (6 donors), GSE108066 (25 controls, windows only), Loyfer Cortex-Neuron'. DISCREPANCY: the pasted accessions GSE96615/GSE108066 differ from the repo's GSE96612 (Feinberg, 6 donors) and GSE107729 (Yi, 25 controls); neither pasted accession is in MASTER_INVENTORY.csv. R3 also lists GSE262274 (one laboratory, non-pinned format) - see DAT hold-list row. | also in the pasted notes as: Neurons as IAM-A's second cell type (DEV-IAMA-NEURON-01)",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md; TODO.md A8; results_register decisions 2026-10-13. Pasted wording: G4 'Neurons: low end and non-dividing cells; neuron check running (sequencing-atlas, GSE96615, GSE108066; arrays searched); design note DEV-IAMA-NEURON-01 after the check'; R3 'sorted cortical neurons: GSE96615 (6 donors), GSE108066 (25 controls, windows only), sequencing-atlas Cortex-Neuron'. DISCREPANCY: the pasted accessions GSE96615/GSE108066 differ from the repo's GSE96612 (Feinberg, 6 donors) and GSE107729 (Yi, 25 controls); neither pasted accession is in MASTER_INVENTORY.csv. R3 also lists GSE262274 (one laboratory, non-pinned format) - see DAT hold-list row. | also in the pasted notes as: Neurons as IAM-A's second cell type (DEV-IAMA-NEURON-01)",
    "legacy_ids": [
     "A8",
     "G4",
@@ -3080,8 +3080,8 @@
    ]
   },
   {
-   "title": "IAM-A Box Run 2 session 1: pinned Loyfer pipeline and 1-million-read check",
-   "purpose": "Installs pinned tools and the genome index and checks on one million reads that the files match Loyfer's exactly. It matters because IAM-A's reference was measured with that pipeline, so any difference would bias every reading.",
+   "title": "IAM-A Box Run 2 session 1: pinned sequencing-atlas pipeline and 1-million-read check",
+   "purpose": "Installs pinned tools and the genome index and checks on one million reads that the files match the sequencing atlas's exactly. It matters because IAM-A's reference was measured with that pipeline, so any difference would bias every reading.",
    "instrument_or_term": "IAM-A pipeline",
    "sources": [
     "GSE186458"
@@ -3100,7 +3100,7 @@
    "cost": "none",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-08/09 'Box Run 2 session 1' entries. Pasted wording (10-08 schedule): 'Run 2 session 1: pinned tools, the genome index, and a 1-million-read check that our files match Loyfer's exactly.'",
+   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-08/09 'Box Run 2 session 1' entries. Pasted wording (10-08 schedule): 'Run 2 session 1: pinned tools, the genome index, and a 1-million-read check that our files match the sequencing atlas's exactly.'",
    "legacy_ids": [],
    "id": "COM-IAMA-033",
    "sources_of_row": [
@@ -3133,7 +3133,7 @@
    "next_step": "none (same-cell references required)",
    "cost": "none",
    "impact": 3,
-   "notes": "P_CD4 = 1.167 measured on Loyfer Blood-T-CD4 files. | also listed as: IAM-A kit offset across cell types (CD4 T cells and neutrophils, DEV-IAMA-XCELL-01)",
+   "notes": "P_CD4 = 1.167 measured on sequencing-atlas Blood-T-CD4 files. | also listed as: IAM-A kit offset across cell types (CD4 T cells and neutrophils, DEV-IAMA-XCELL-01)",
    "depends_on": [],
    "legacy_ids": [],
    "id": "COM-IAMA-034",
@@ -3218,7 +3218,7 @@
     {
      "date": "2026-10-10",
      "outcome": "progressed",
-     "note": "Prostate epithelium position measured: Loyfer GSE186458, 4 donors, P = 1.2102 (1.1798-1.2443), CV 2.3 %; development, not added to positions file."
+     "note": "Prostate epithelium position measured: sequencing-atlas GSE186458, 4 donors, P = 1.2102 (1.1798-1.2443), CV 2.3 %; development, not added to positions file."
     }
    ],
    "next_step": "Needs read-level healthy prostate epithelium from a second laboratory; none named.",
@@ -3233,7 +3233,7 @@
    ]
   },
   {
-   "title": "IAM-A references for other cell types (CD4 T, prostate epithelium, other Loyfer blood cells)",
+   "title": "IAM-A references for other cell types (CD4 T, prostate epithelium, other sequencing-atlas blood cells)",
    "purpose": "Each new cell type needs its own healthy position on the sequencing instrument and then held-out healthy samples from another lab. These references open IAM-A beyond neutrophils and neurons.",
    "instrument_or_term": "IAM-A (position P per cell)",
    "sources": [
@@ -3248,7 +3248,7 @@
     {
      "date": "2026-10-09",
      "outcome": "progressed",
-     "note": "P_CD4 = 1.167 on three Loyfer Blood-T-CD4 files (DEV-IAMA-XCELL-01)."
+     "note": "P_CD4 = 1.167 on three sequencing-atlas Blood-T-CD4 files (DEV-IAMA-XCELL-01)."
     },
     {
      "date": "2026-10-10",
@@ -3259,7 +3259,7 @@
    "next_step": "Pick the next cell with held-out other-lab healthy samples (CD4 T cells: GSE128731 has them).",
    "cost": "box",
    "impact": 3,
-   "notes": "Loyfer gives 3 healthy samples each for monocytes, NK, B, CD4 T and CD8 T (one laboratory): enough to build, not to test.",
+   "notes": "sequencing-atlas gives 3 healthy samples each for monocytes, NK, B, CD4 T and CD8 T (one laboratory): enough to build, not to test.",
    "depends_on": [],
    "legacy_ids": [],
    "id": "COM-IAMA-038",
@@ -3268,7 +3268,7 @@
    ]
   },
   {
-   "title": "Loyfer donor screening (Supplementary Table 1) for the IAM-A blood donors",
+   "title": "sequencing-atlas donor screening (Supplementary Table 1) for the IAM-A blood donors",
    "purpose": "Reads the source paper's donor table to record how the three granulocyte donors behind IAM-A's neutrophil position were screened as healthy. It matters because 'healthy' must be documented for every reference donor.",
    "instrument_or_term": "IAM-A reference donors",
    "sources": [
@@ -3282,7 +3282,7 @@
    "cost": "laptop",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_P_WHOLE_01.md ('its Supplementary Table 1 is not yet read'). The same table (S1) was fetched and read for the neuron donors on 2026-10-12 (Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md), so the blood-donor rows may be quick; not confirmed. Pasted wording: C9 'Loyfer donor screening (Supplementary Table 1)'; 10-10 item 17 'Loyfer blood-donor screening... Completes the IAM-A donor record'. No current TODO id found for it.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_P_WHOLE_01.md ('its Supplementary Table 1 is not yet read'). The same table (S1) was fetched and read for the neuron donors on 2026-10-12 (Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md), so the blood-donor rows may be quick; not confirmed. Pasted wording: C9 'sequencing-atlas donor screening (Supplementary Table 1)'; 10-10 item 17 'sequencing-atlas blood-donor screening... Completes the IAM-A donor record'. No current TODO id found for it.",
    "legacy_ids": [
     "C9 (10-11)",
     "17 (10-10)"
@@ -3453,7 +3453,7 @@
    "instrument_or_term": "IAM-A",
    "sources": [
     "EpiQC",
-    "GSE186458 (Loyfer neutrophil reference)"
+    "GSE186458 (sequencing-atlas neutrophil reference)"
    ],
    "data_status": "spent",
    "status": "sealed",
@@ -4241,7 +4241,7 @@
      "note": "Candidates counted by script (lung_stroma_candidates.py); all cultured; decision: research-only in v2.1; culture check runs first."
     }
    ],
-   "next_step": "After the mask, compare GSE111396 fibroblasts and GSE146376 smooth muscle with Loyfer stromal samples (culture status from Loyfer Supplementary Table 1 first).",
+   "next_step": "After the mask, compare GSE111396 fibroblasts and GSE146376 smooth muscle with sequencing-atlas stromal samples (culture status from sequencing-atlas Supplementary Table 1 first).",
    "cost": "laptop",
    "impact": 4,
    "legacy_ids": [
@@ -5432,7 +5432,7 @@
   },
   {
    "title": "Sequencing Met-A: one WGBS file read both ways (molecules and site averages)",
-   "purpose": "Reads one sequencing file twice: IAM-A from single molecules and a Met-A-style reading from site averages, against a Loyfer healthy sequencing reference. It matters because it makes the link test self-contained, with no array and no laboratory or kit difference.",
+   "purpose": "Reads one sequencing file twice: IAM-A from single molecules and a Met-A-style reading from site averages, against a sequencing-atlas healthy sequencing reference. It matters because it makes the link test self-contained, with no array and no laboratory or kit difference.",
    "instrument_or_term": "sequencing Met-A",
    "sources": [
     "GSE186458"
@@ -5447,7 +5447,7 @@
    "depends_on": [
     "COM-IAMA: Met-A to IAM-A link"
    ],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_LINK_IAMA_METAA_01.md prediction 3 ('Same-file test first... Needs the sequencing Met-A commissioned'). Pasted wording: 'one sequencing file gives two readings... It needs a healthy reference on sequencing averages, which Loyfer's files provide, and its own commissioning... I'd add it as the next IAM-A step'.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_LINK_IAMA_METAA_01.md prediction 3 ('Same-file test first... Needs the sequencing Met-A commissioned'). Pasted wording: 'one sequencing file gives two readings... It needs a healthy reference on sequencing averages, which the sequencing atlas's files provide, and its own commissioning... I'd add it as the next IAM-A step'.",
    "legacy_ids": [],
    "id": "CAN-009",
    "sources_of_row": [
@@ -6231,7 +6231,7 @@
    "sources": [
     "GSE96612 (Feinberg laboratory, test lab 1)",
     "GSE107729 (Yi laboratory, 25 control NeuN+ donors, ages 25-80; test lab 2)",
-    "GSE186458 (Loyfer neurons, reference only)"
+    "GSE186458 (sequencing-atlas neurons, reference only)"
    ],
    "data_status": "partial",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md",
@@ -8274,8 +8274,8 @@
    "purpose": "Tested per sequence context whether the held error follows the writer's selectivity. It showed the genome-wide agreement in DEV-WRITER-01 was a coincidence of size.",
    "instrument_or_term": "Model A'",
    "sources": [
-    "153 healthy Loyfer window files (PROC-CHANNEL-01; GSE186458)",
-    "153 healthy window files (Loyfer)",
+    "153 healthy sequencing-atlas window files (PROC-CHANNEL-01; GSE186458)",
+    "153 healthy window files (sequencing-atlas)",
     "Adam 2023 per-context discriminations",
     "Adam et al. 2023 per-context D"
    ],
@@ -10362,7 +10362,7 @@
     {
      "date": "2026-10-02",
      "outcome": "fail",
-     "note": "DEV-COLON-BLOCKS-02: against every Loyfer cell type only 1 strict region (6 CpGs), 5 loose regions."
+     "note": "DEV-COLON-BLOCKS-02: against every sequencing-atlas cell type only 1 strict region (6 CpGs), 5 loose regions."
     },
     {
      "date": "2026-10-02",
@@ -12117,7 +12117,7 @@
    "cost": "none",
    "impact": 5,
    "depends_on": [],
-   "notes": "S3: downloads/B_cfDNA_plasma/GSE122126/ (2.29 GB); format IDAT. Register status: KEEP: tests planned, not yet run. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (DEV-CSCORE-MOSS-01 (2026-10-10, LOG \"Moss mixes\"); also old VAL record); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "S3: downloads/B_cfDNA_plasma/GSE122126/ (2.29 GB); format IDAT. Register status: KEEP: tests planned, not yet run. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (DEV-CSCORE-MOSS-01 (2026-10-10, LOG \"array-reference mixes\"); also old VAL record); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-007",
    "sources_of_row": [
@@ -13996,7 +13996,7 @@
    "sources": [
     "GSE128731",
     "GSE237662",
-    "Loyfer granulocyte files (GEO)"
+    "sequencing-atlas granulocyte files (GEO)"
    ],
    "data_status": "spent",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01_OUTCOME.md",
@@ -14012,7 +14012,7 @@
    "cost": "none",
    "impact": 3,
    "depends_on": [],
-   "notes": "Pasted wording: 'R1 C5 known change: planted loss on real files; GSE128731, GSE237662 (fine for planting); Loyfer granulocyte files (0.28 GB each, GEO); ready'. Repo: C5 was scored on EpiQC libraries (Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01_OUTCOME.md).",
+   "notes": "Pasted wording: 'R1 C5 known change: planted loss on real files; GSE128731, GSE237662 (fine for planting); sequencing-atlas granulocyte files (0.28 GB each, GEO); ready'. Repo: C5 was scored on EpiQC libraries (Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01_OUTCOME.md).",
    "legacy_ids": [
     "R1 C5"
    ],
@@ -19994,7 +19994,7 @@
    ]
   },
   {
-   "title": "Healthy neutrophils sequenced in a laboratory other than the Loyfer group (IAM-A, 3 or more donors)",
+   "title": "Healthy neutrophils sequenced in a laboratory other than the sequencing-atlas group (IAM-A, 3 or more donors)",
    "purpose": "IAM-A, the instrument that tests the law directly, cannot be commissioned until a healthy person from another laboratory reads as healthy on it. This is on the public help-wanted list because no such set has been found.",
    "instrument_or_term": "IAM-A",
    "sources": [
@@ -20168,7 +20168,7 @@
     {
      "date": "2026-10-11",
      "outcome": "progressed",
-     "note": "public data checked, metadata only: reference GSE186458 (Loyfer); test lab 1 GSE96612 (Feinberg, 6 donors, 23 NeuN+ libraries, FASTQ SRP101887); test lab 2 GSE107729 (Yi, 25 control donors, PMI given for 20); arrays GSE306226+GSE306227 (39), GSE112179 (33 arrays, 28 donors); not usable GSE330111 (controlled), GSE47966 (2 donors, hg18)"
+     "note": "public data checked, metadata only: reference GSE186458 (sequencing-atlas); test lab 1 GSE96612 (Feinberg, 6 donors, 23 NeuN+ libraries, FASTQ SRP101887); test lab 2 GSE107729 (Yi, 25 control donors, PMI given for 20); arrays GSE306226+GSE306227 (39), GSE112179 (33 arrays, 28 donors); not usable GSE330111 (controlled), GSE47966 (2 donors, hg18)"
     },
     {
      "date": "2026-10-13",
@@ -24635,7 +24635,7 @@
    ]
   },
   {
-   "title": "Three spheres compared: atlas v2, atlas v2.1 and the whole genome (Loyfer)",
+   "title": "Three spheres compared: atlas v2, atlas v2.1 and the whole genome (sequencing-atlas)",
    "purpose": "The same construction on three maps, read with the chain's sky statistics and their noise maps: what our atlas sees, what more cells add, and what the whole genome adds beyond the array sites.",
    "instrument_or_term": "information sphere",
    "data_status": "partial",
@@ -24666,7 +24666,7 @@
    "data_status": "partial",
    "status": "planned",
    "runs": [],
-   "next_step": "ATL-045 saves the draws; export per-site, per-cell mean and spread with Loyfer and Moss names kept exactly",
+   "next_step": "ATL-045 saves the draws; export per-site, per-cell mean and spread with the two published reference atlases names kept exactly",
    "cost": "laptop (from the v2.1 box outputs)",
    "impact": 4,
    "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_plan.md",
@@ -24682,7 +24682,7 @@
   {
    "id": "ATL-050",
    "title": "Gift 2: the array-to-sequencing bridge",
-   "purpose": "Per site, how an array reading maps to a sequencing reading on the same cell types, with its uncertainty: the measured bridge between Moss's arrays and Loyfer's sequencing.",
+   "purpose": "Per site, how an array reading maps to a sequencing reading on the same cell types, with its uncertainty: the measured bridge between the array reference's arrays and the sequencing atlas's sequencing.",
    "instrument_or_term": "atlas",
    "sources": [
     "GSE186458",
@@ -24935,7 +24935,7 @@
   {
    "id": "ATL-059",
    "title": "Array-only sites in the fit: posteriors where only arrays measured a site (decision needed)",
-   "purpose": "The 66,708 / 76,022 array probes outside the atlas have no sequencing depth, but the array sources (Moss, Salas, the v2.1 array sets) did measure them. A fit that includes them gives a real posterior for every cell with array data and an honest 'not measured' (posterior equal to the prior) for cells measured only by sequencing. Filling those from neighboring sites would be imputation and is not proposed. Changes the site rule and v2.1 decision 3, so it is the author's call; about 9 percent more sites, so about 9 percent more box time.",
+   "purpose": "The 66,708 / 76,022 array probes outside the atlas have no sequencing depth, but the array sources (array-reference, Salas, the v2.1 array sets) did measure them. A fit that includes them gives a real posterior for every cell with array data and an honest 'not measured' (posterior equal to the prior) for cells measured only by sequencing. Filling those from neighboring sites would be imputation and is not proposed. Changes the site rule and v2.1 decision 3, so it is the author's call; about 9 percent more sites, so about 9 percent more box time.",
    "instrument_or_term": "atlas fit",
    "sources": [],
    "data_status": "in hand",
@@ -24970,7 +24970,7 @@
     {
      "date": "2026-10-16",
      "outcome": "success",
-     "note": "MET on all three showcase bars against Moss's reference (box job ee92df65): markers 0.424 vs 0.398; mixtures median error 0.0224 vs 0.0305; wide area 0.0228 vs 0.0523, outside cells recovered in 87 percent. Record: doors/DEV_ATLAS_USE_01.md",
+     "note": "MET on all three showcase bars against the published array reference (box job ee92df65): markers 0.424 vs 0.398; mixtures median error 0.0224 vs 0.0305; wide area 0.0228 vs 0.0523, outside cells recovered in 87 percent. Record: doors/DEV_ATLAS_USE_01.md",
      "page": "headline: DEV-ATLAS-USE-01"
     }
    ],
@@ -24983,7 +24983,7 @@
     "ATL-045",
     "ATL-055"
    ],
-   "notes": "result file when run: doors/data/DEV_ATLAS_V21_01/head_to_head_v21_summary.txt (readiness G10); author 2026-10-15: the Loyfer and Moss use tests are a showcase, not a referee gate ('dont make the bars too high'). Three uses: (1) cell-type markers confirmed on held-out arrays against their own published list; (2) mixtures of known proportions, including the author's wide-area mixture (their cells plus cells only v2.1 has) and a fair arm of shared cells only; (3) extras shown, not scored (an interval at every site, the 100 draws, the array-to-sequencing bridge). Framing: grid wide-area view (NERC ICCP, two steps beyond the ties). Sealed while the fit runs, before any output is opened | box jobs cdaad7c5 and da7e2032 stopped before any score (platform split; Moss's repeated rows); ee92df65 scored | 2026-10-17 wording only: the published reference atlases are described by their work and cited, not named in prose (author review); no number or bar changed",
+   "notes": "result file when run: doors/data/DEV_ATLAS_V21_01/head_to_head_v21_summary.txt (readiness G10); author 2026-10-15: the the two published reference atlases use tests are a showcase, not a referee gate ('dont make the bars too high'). Three uses: (1) cell-type markers confirmed on held-out arrays against their own published list; (2) mixtures of known proportions, including the author's wide-area mixture (their cells plus cells only v2.1 has) and a fair arm of shared cells only; (3) extras shown, not scored (an interval at every site, the 100 draws, the array-to-sequencing bridge). Framing: grid wide-area view (NERC ICCP, two steps beyond the ties). Sealed while the fit runs, before any output is opened | box jobs cdaad7c5 and da7e2032 stopped before any score (platform split; the array reference's repeated rows); ee92df65 scored | 2026-10-17 wording only: the published reference atlases are described by their work and cited, not named in prose (author review); no number or bar changed",
    "sources_of_row": [
     "author 2026-10-13: if they do not find it better than what they have, they will not care"
    ],
@@ -25303,7 +25303,7 @@
     {
      "date": "2026-10-15",
      "outcome": "fail",
-     "note": "CORRECTED same evening: first scored 3 of 5, but ENCODE raw held errors were compared with a line built on held errors x 0.741; like for like 0 of 5, NOT MET. Loose shares 6x Loyfer's on the same cells. Record DEV_SECONDLAB_01.md",
+     "note": "CORRECTED same evening: first scored 3 of 5, but ENCODE raw held errors were compared with a line built on held errors x 0.741; like for like 0 of 5, NOT MET. Loose shares 6x the sequencing atlas's on the same cells. Record DEV_SECONDLAB_01.md",
      "page": "not headline: exploratory miss, kept in the research record"
     },
     {
@@ -25446,7 +25446,7 @@
      "page": "not headline: a measurement"
     }
    ],
-   "next_step": "measured on Hansen (sequencing error 0.002-0.006, conversion failure 1.8-5.1 percent, chain count run 3); Loyfer's needs reads with non-CpG context, which its .pat files do not carry; options for the author: Loyfer's raw reads (access to be checked), or a line rebuilt from a public laboratory whose meter error can be measured",
+   "next_step": "measured on Hansen (sequencing error 0.002-0.006, conversion failure 1.8-5.1 percent, chain count run 3); the sequencing atlas's needs reads with non-CpG context, which its .pat files do not carry; options for the author: the sequencing atlas's raw reads (access to be checked), or a line rebuilt from a public laboratory whose meter error can be measured",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -25902,13 +25902,13 @@
     {
      "date": "2026-10-16",
      "outcome": "progressed",
-     "note": "run 2: Loyfer 153 counts, the line and the shape reference identical from public data; ENCODE 5 not counted (no index built); fixed, run 3 ENCODE only",
+     "note": "run 2: 153 sequencing-atlas samples counts, the line and the shape reference identical from public data; ENCODE 5 not counted (no index built); fixed, run 3 ENCODE only",
      "page": "not headline: in progress"
     },
     {
      "date": "2026-10-16",
      "outcome": "progressed",
-     "note": "run 3: 157 of 158 counts identical (Loyfer 153, ENCODE 4 of 5), line and shape reference identical; ENCFF133QNK (54 GB) did not fit on the disk; run 4 on a 500 GB disk",
+     "note": "run 3: 157 of 158 counts identical (153 sequencing-atlas samples, ENCODE 4 of 5), line and shape reference identical; ENCFF133QNK (54 GB) did not fit on the disk; run 4 on a 500 GB disk",
      "page": "not headline: in progress"
     },
     {
@@ -26050,7 +26050,7 @@
    "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
    "status": "idea",
    "runs": [],
-   "next_step": "pair array and single-molecule reads of the same cell types (Loyfer has both); synthetic first",
+   "next_step": "pair array and single-molecule reads of the same cell types (sequencing-atlas has both); synthetic first",
    "cost": "laptop",
    "impact": 4,
    "depends_on": [
@@ -26577,13 +26577,13 @@
     {
      "date": "2026-10-15",
      "outcome": "progressed",
-     "note": "chain Stage Q2 written; synthetic MET through the chain; chain gate rule 23b with 7 of 7 controls; line rebuild from Loyfer 153 samples next",
+     "note": "chain Stage Q2 written; synthetic MET through the chain; chain gate rule 23b with 7 of 7 controls; line rebuild from 153 sequencing-atlas samples samples next",
      "page": "not headline: internal quality control"
     },
     {
      "date": "2026-10-15",
      "outcome": "success",
-     "note": "self-reference line rebuilt by chain Stage Q2 from Loyfer's 153 samples (counts identical to development; line agrees within printed rounding); stored stamped as selfref_line_v1.json on the raw axis; ENCODE five read against it (all below, same verdict)",
+     "note": "self-reference line rebuilt by chain Stage Q2 from the 153 samples of the published sequencing atlas (counts identical to development; line agrees within printed rounding); stored stamped as selfref_line_v1.json on the raw axis; ENCODE five read against it (all below, same verdict)",
      "page": "not headline: internal reproduction"
     },
     {
@@ -26677,7 +26677,7 @@
    "depends_on": [
     "PHY-047"
    ],
-   "notes": "2026-10-15 | author chose the cut from the sample's own firm level; checked first: the labs differ in the shape of the tile distribution (ENCODE low tail), so a self-relative cut alone leaves 5x; ENCODE's 2017 run shows the same tail | third source GSE49627 (Hansen, 3 donors' resting B): loose share 0.021-0.031, like Loyfer 0.054; ENCODE's sample (0.359) is the outlier | DEV-SECONDLAB-02 (GSE49627 healthy resting B cells): alignment running 2026-10-15; rule before any count | 2026-10-16: Hansen's three healthy B cells (DEV-SECONDLAB-02) passed the shape check with the fixed cut and read loose shares 0.032-0.048; the spread among the three donors follows conversion failure; with it and sequencing error removed they agree with each other but sit further below Loyfer's line (0.0305-0.0323 against about 0.0415), so the gap to Loyfer is not explained by Hansen's meter alone; Loyfer's own meter error needs its raw reads (EGA, controlled: EGAS00001006791)",
+   "notes": "2026-10-15 | author chose the cut from the sample's own firm level; checked first: the labs differ in the shape of the tile distribution (ENCODE low tail), so a self-relative cut alone leaves 5x; ENCODE's 2017 run shows the same tail | third source GSE49627 (Hansen, 3 donors' resting B): loose share 0.021-0.031, like sequencing-atlas 0.054; ENCODE's sample (0.359) is the outlier | DEV-SECONDLAB-02 (GSE49627 healthy resting B cells): alignment running 2026-10-15; rule before any count | 2026-10-16: Hansen's three healthy B cells (DEV-SECONDLAB-02) passed the shape check with the fixed cut and read loose shares 0.032-0.048; the spread among the three donors follows conversion failure; with it and sequencing error removed they agree with each other but sit further below the sequencing atlas's line (0.0305-0.0323 against about 0.0415), so the gap to sequencing-atlas is not explained by Hansen's meter alone; the sequencing atlas's own meter error needs its raw reads (EGA, controlled: EGAS00001006791)",
    "legacy_ids": [],
    "id": "PHY-074",
    "sources_of_row": [
@@ -26813,7 +26813,7 @@
     {
      "date": "2026-10-16",
      "outcome": "progressed",
-     "note": "rule sealed by the author before any Hansen count: A = held error / line prediction; band = 2.5th to 97.5th percentile of pooled healthy readings (Loyfer 153 + Hansen donors passing the shape check); synthetic T7 MET",
+     "note": "rule sealed by the author before any Hansen count: A = held error / line prediction; band = 2.5th to 97.5th percentile of pooled healthy readings (153 sequencing-atlas samples + Hansen donors passing the shape check); synthetic T7 MET",
      "page": "not headline: sealed rule"
     },
     {
@@ -26845,7 +26845,7 @@
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
-   "notes": "author 2026-10-15 | 2026-10-16: the Hansen count (job i-0987cb49e219d16f2) measures this row's inputs | prior reading of Loyfer's 153 counts committed as a chain output (prior_loyfer.json); record numbers match it",
+   "notes": "author 2026-10-15 | 2026-10-16: the Hansen count (job i-0987cb49e219d16f2) measures this row's inputs | prior reading of the sequencing atlas's 153 counts committed as a chain output (prior_loyfer.json); record numbers match it",
    "legacy_ids": [],
    "id": "COM-IAMA-054",
    "sources_of_row": [
@@ -27095,7 +27095,7 @@
    "record": "Biological_Physics/MethylPhys/doors/DEV_SECONDLAB_02.md",
    "status": "idea",
    "runs": [],
-   "next_step": "after DEV-IAMA-GRAND-01 is scored: look at conversion failure against reading across Loyfer, Hansen and the CD8 samples; then a rule, synthetic first",
+   "next_step": "after DEV-IAMA-GRAND-01 is scored: look at conversion failure against reading across sequencing-atlas, Hansen and the CD8 samples; then a rule, synthetic first",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
@@ -27130,7 +27130,7 @@
    "depends_on": [
     "PHY-047"
    ],
-   "notes": "2026-10-15 | author chose the cut from the sample's own firm level; checked first: the labs differ in the shape of the tile distribution (ENCODE low tail), so a self-relative cut alone leaves 5x; ENCODE's 2017 run shows the same tail | third source GSE49627 (Hansen, 3 donors' resting B): loose share 0.021-0.031, like Loyfer 0.054; ENCODE's sample (0.359) is the outlier | DEV-SECONDLAB-02 (GSE49627 healthy resting B cells): alignment running 2026-10-15; rule before any count | 2026-10-16: Hansen's three healthy B cells (DEV-SECONDLAB-02) passed the shape check with the fixed cut and read loose shares 0.032-0.048; the spread among the three donors follows conversion failure; with it and sequencing error removed they agree with each other but sit further below Loyfer's line (0.0305-0.0323 against about 0.0415), so the gap to Loyfer is not explained by Hansen's meter alone; Loyfer's own meter error needs its raw reads (EGA, controlled: EGAS00001006791) | Author's reading, 2026-10-16: 'The reason a black hole is half is because it is only the potential side on the surface' (Smarr: bits x Landauer cost = half the rest energy), while the cosmic horizon carries the full Landauer cost per bit, split in two. Not yet written in the book (p3_01 states the half without a reason). For the author's decision: p7_05b and p7_05c place the KINETIC half on the horizon and the potential half in curvature, the opposite assignment. | Author's idea, 2026-10-16: 'every bit on a Planck tile is only worth half a Landauer cost because the other half went as dark energy and maybe that is why it cant be reversed'. Its check (bit_ledger_output.txt): dark energy would be exactly half the energy inside the horizon; measured 0 at the CMB, 0.4999 at z 0.298, 0.6861 today. Holds today only if dark energy is the half plus a further baseline (about 0.19 of today's total; the book's 'vacuum baseline', not derived) or the other half also went elsewhere. Irreversibility as the half spent into expansion: interpretation. | Significance (Planck 2018 Omega_Lambda 0.6847 +/- 0.0073, Omega_m 0.3153 +/- 0.0073): dark energy as half the total predicts 0.50, measured 0.6847, 25 sigma off (ruled out as stated); the assistant's own check, not the author's idea and not in the book: dark energy twice matter (from 2K + V = 0) predicts 2.00, measured 2.17 +/- 0.07, 2.3 sigma (Omega_Lambda = 1 - Omega_m in flat LCDM, so the error is propagated from Omega_m alone; an earlier 3.1 sigma treated the two as independent). Correction: DE = 0.4999 at z 0.298 is the matter-dark-energy equality, half by definition, not evidence. | The bill (author question): every horizon bit from the Big Bang to now, each paid at the horizon temperature when written, totals 1.66e70 J, exactly twice the energy inside the horizon today (8.31e69 J). Exact for any expansion history (the sum is c^5/(G H0)), so it follows from the horizon picture and is not a measurement. | 2026-10-16 book fixes (author: book errors MUST be told and fixed): glossary f_coll entry now matches the virial chapter (0.64 Sheth-Tormen, 0.71 Tinker extrapolated, 0.486 Tinker in range); p7_05b: R(1) = 2 stated as true by construction, not evidence, and the coincidence section retitled and marked an interpretation. The virial chapter (p2_02, p2_03, App. C3) already stated eta_vir is a definition and 0.62 lies below Tinker's range. | Book wording pass 2026-10-16 (author: 'I never use that language in public facing document'): draft overclaim phrases reworded in p3_01b (paradox), p7_02 (inertial objection), p7_05b (coincidence); the four phrases are retired in CANON/foundation.json so the gate refuses them.",
+   "notes": "2026-10-15 | author chose the cut from the sample's own firm level; checked first: the labs differ in the shape of the tile distribution (ENCODE low tail), so a self-relative cut alone leaves 5x; ENCODE's 2017 run shows the same tail | third source GSE49627 (Hansen, 3 donors' resting B): loose share 0.021-0.031, like sequencing-atlas 0.054; ENCODE's sample (0.359) is the outlier | DEV-SECONDLAB-02 (GSE49627 healthy resting B cells): alignment running 2026-10-15; rule before any count | 2026-10-16: Hansen's three healthy B cells (DEV-SECONDLAB-02) passed the shape check with the fixed cut and read loose shares 0.032-0.048; the spread among the three donors follows conversion failure; with it and sequencing error removed they agree with each other but sit further below the sequencing atlas's line (0.0305-0.0323 against about 0.0415), so the gap to sequencing-atlas is not explained by Hansen's meter alone; the sequencing atlas's own meter error needs its raw reads (EGA, controlled: EGAS00001006791) | Author's reading, 2026-10-16: 'The reason a black hole is half is because it is only the potential side on the surface' (Smarr: bits x Landauer cost = half the rest energy), while the cosmic horizon carries the full Landauer cost per bit, split in two. Not yet written in the book (p3_01 states the half without a reason). For the author's decision: p7_05b and p7_05c place the KINETIC half on the horizon and the potential half in curvature, the opposite assignment. | Author's idea, 2026-10-16: 'every bit on a Planck tile is only worth half a Landauer cost because the other half went as dark energy and maybe that is why it cant be reversed'. Its check (bit_ledger_output.txt): dark energy would be exactly half the energy inside the horizon; measured 0 at the CMB, 0.4999 at z 0.298, 0.6861 today. Holds today only if dark energy is the half plus a further baseline (about 0.19 of today's total; the book's 'vacuum baseline', not derived) or the other half also went elsewhere. Irreversibility as the half spent into expansion: interpretation. | Significance (Planck 2018 Omega_Lambda 0.6847 +/- 0.0073, Omega_m 0.3153 +/- 0.0073): dark energy as half the total predicts 0.50, measured 0.6847, 25 sigma off (ruled out as stated); the assistant's own check, not the author's idea and not in the book: dark energy twice matter (from 2K + V = 0) predicts 2.00, measured 2.17 +/- 0.07, 2.3 sigma (Omega_Lambda = 1 - Omega_m in flat LCDM, so the error is propagated from Omega_m alone; an earlier 3.1 sigma treated the two as independent). Correction: DE = 0.4999 at z 0.298 is the matter-dark-energy equality, half by definition, not evidence. | The bill (author question): every horizon bit from the Big Bang to now, each paid at the horizon temperature when written, totals 1.66e70 J, exactly twice the energy inside the horizon today (8.31e69 J). Exact for any expansion history (the sum is c^5/(G H0)), so it follows from the horizon picture and is not a measurement. | 2026-10-16 book fixes (author: book errors MUST be told and fixed): glossary f_coll entry now matches the virial chapter (0.64 Sheth-Tormen, 0.71 Tinker extrapolated, 0.486 Tinker in range); p7_05b: R(1) = 2 stated as true by construction, not evidence, and the coincidence section retitled and marked an interpretation. The virial chapter (p2_02, p2_03, App. C3) already stated eta_vir is a definition and 0.62 lies below Tinker's range. | Book wording pass 2026-10-16 (author: 'I never use that language in public facing document'): draft overclaim phrases reworded in p3_01b (paradox), p7_02 (inertial objection), p7_05b (coincidence); the four phrases are retired in CANON/foundation.json so the gate refuses them.",
    "legacy_ids": [],
    "id": "PHY-075",
    "sources_of_row": [
@@ -27221,7 +27221,7 @@
   {
    "id": "ATL-065",
    "title": "Deconvolution tool on atlas v2.1 (chain Stage D21): planted test, then 200 held-out real-cell mixtures (DEV-DECONV-V21-01)",
-   "purpose": "Release track B: given a mixed sample, report each cell's share with its error bar; for the Loyfer and Moss showcase.",
+   "purpose": "Release track B: given a mixed sample, report each cell's share with its error bar; for the the two published reference atlases showcase.",
    "instrument_or_term": "atlas v2.1, deconvolution",
    "sources": [],
    "data_status": "mixtures to be chosen (independent of every atlas source)",
@@ -27307,8 +27307,8 @@
   },
   {
    "id": "ATL-067",
-   "title": "Atlas v2.1 head to head against Loyfer's own reference (DEV-ATLAS-USE-02)",
-   "purpose": "Release item C02: the head-to-head against the source atlases' own references, Loyfer's half (Moss's met 2026-10-16).",
+   "title": "Atlas v2.1 head to head against the published sequencing atlas (DEV-ATLAS-USE-02)",
+   "purpose": "Release item C02: the head-to-head against the source atlases' own references, the sequencing atlas's half (the array reference's met 2026-10-16).",
    "instrument_or_term": "atlas v2.1, deconvolution",
    "sources": [],
    "data_status": "mixtures to be chosen (independent of every atlas source)",
@@ -27352,11 +27352,11 @@
   },
   {
    "title": "A sequencing-native atlas with molecule-level markers, for cell-free DNA (future, after the gift)",
-   "purpose": "v2.1 is array-scale (one value per site at array CpGs). Loyfer's laboratory reads cell-free DNA molecule by molecule; a sequencing-native version with read-level markers would reach that work directly. Author decision 2026-10-16: future consideration.",
+   "purpose": "v2.1 is array-scale (one value per site at array CpGs). the sequencing atlas's laboratory reads cell-free DNA molecule by molecule; a sequencing-native version with read-level markers would reach that work directly. Author decision 2026-10-16: future consideration.",
    "instrument_or_term": "atlas",
    "data_status": "partial",
    "status": "idea",
-   "next_step": "after the gift: scope the data (Loyfer's 205 samples at read level), the model and its commissioning plan",
+   "next_step": "after the gift: scope the data (the sequencing atlas's 205 samples at read level), the model and its commissioning plan",
    "cost": "laptop",
    "impact": 5,
    "record": "CANON/atlas_story.json",
@@ -27493,7 +27493,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "running",
    "runs": [],
-   "next_step": "2026-10-17: wording per the author's page review (names, atlas story labels, now-running line, Met-A and Group-A cards, how-we-test); next: the rest of his batched review",
+   "next_step": "2026-10-17: wording per the author's page review; dated and sealed records stay in the repository, not rendered; no rendered page names another researcher; next: the rest of his batched review",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

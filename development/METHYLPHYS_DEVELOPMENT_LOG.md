@@ -2337,3 +2337,6 @@ No other researcher named in public prose: the two published reference atlases a
 Met-A card states its commissioned scope only; Group-A card no longer leads with its exploratory check; How-we-test no longer says failures are posted beside the wins (front-page rule 2026-10-15). Records unchanged.
 T3 run 3: ranged downloads now re-fetch each range until it has its exact length (run 2 machines refused short files at the length check; nothing counted from them).
 T3 run 3 launched as jobs i-0c41babf42cacb851 (A) and i-06c853f33d845a463 (B), commit 774657f0.
+
+### 2026-10-17 · Dated and sealed records kept in the repository, not rendered on the site (author decision; OTH-071)
+The site renders 28 document pages; the development log, day logs, field notes, box-run job lists, the archive and the sealed records under doors/ (commissioning notes excepted) stay in the repository as written and are linked there. Working documents (manifest, plan, SOP, run ledger, release checklist, limits study, whiteboard, atlas v2 README) describe the published atlases by their work. No rendered page names another researcher (checked on a local build).

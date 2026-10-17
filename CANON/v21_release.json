@@ -12,7 +12,7 @@
    "s3": [],
    "zenodo": "methods/decisions_and_plan.md",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 1
   },
   {
@@ -28,7 +28,7 @@
    "s3": [],
    "zenodo": "inputs/",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 2
   },
   {
@@ -43,7 +43,7 @@
    "s3": [],
    "zenodo": "inputs/seals/",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 3
   },
   {
@@ -56,7 +56,7 @@
    "s3": [],
    "zenodo": "inputs/conditions_v21.json",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 4
   },
   {
@@ -71,7 +71,7 @@
    "s3": [],
    "zenodo": "inputs/cell_names/",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 5
   },
   {
@@ -85,7 +85,7 @@
    "s3": [],
    "zenodo": "inputs/identity_audit/",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 6
   },
   {
@@ -99,7 +99,7 @@
    "s3": [],
    "zenodo": "inputs/data_spent/",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 7
   },
   {
@@ -112,7 +112,7 @@
    "s3": [],
    "zenodo": "inputs/site_exclusions/",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 8
   },
   {
@@ -126,7 +126,7 @@
    ],
    "zenodo": "",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 9
   },
   {
@@ -143,7 +143,7 @@
    ],
    "zenodo": "calibration/stage1_v21_manifest.csv",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 10
   },
   {
@@ -158,7 +158,7 @@
    ],
    "zenodo": "calibration/heldout_arrays.csv",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 11
   },
   {
@@ -171,7 +171,7 @@
    ],
    "zenodo": "",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 12
   },
   {
@@ -189,7 +189,7 @@
    ],
    "zenodo": "quality/identity/",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 13
   },
   {
@@ -205,7 +205,7 @@
    ],
    "zenodo": "quality/twins/",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 14
   },
   {
@@ -220,7 +220,7 @@
    ],
    "zenodo": "model/source_terms_v21.json",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 15
   },
   {
@@ -234,7 +234,7 @@
    "s3": [],
    "zenodo": "quality/reproduction_gates/",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 16
   },
   {
@@ -248,7 +248,7 @@
    "s3": [],
    "zenodo": "code/",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 17
   },
   {
@@ -261,7 +261,7 @@
    ],
    "zenodo": "atlas_v21_blocks.tar",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 18
   },
   {
@@ -276,7 +276,7 @@
    ],
    "zenodo": "ATLAS_V21_OUTPUT_MANIFEST.json",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 19
   },
   {
@@ -289,7 +289,7 @@
    ],
    "zenodo": "IAMAtlas_v21.parquet",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 20
   },
   {
@@ -302,7 +302,7 @@
    ],
    "zenodo": "quality/convergence_v21.parquet",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 21
   },
   {
@@ -315,7 +315,7 @@
    "s3": [],
    "zenodo": "code/environment/",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 22
   },
   {
@@ -328,7 +328,7 @@
    "s3": [],
    "zenodo": "commissioning/",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 23
   },
   {
@@ -344,7 +344,7 @@
    ],
    "zenodo": "commissioning/head_to_head/",
    "required": true,
-   "track": "A. Atlas commissioning: the Loyfer and Moss use tests",
+   "track": "A. Atlas commissioning: the use tests against the two published reference atlases",
    "step": 24
   },
   {

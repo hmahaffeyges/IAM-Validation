@@ -397,13 +397,18 @@ def inline_docs(onpage):
     return ('<!-- RECORDS:BEGIN --><section class="wrap" id="tables"><h2>The tables</h2><p class="sub">Built from the repository every time the site is published; '
             'open any section.</p>' + "".join(f'<details id="{a}"><summary><b>{E(t)}</b></summary>{doc_sections(p, onpage)}</details>' for a, t, p in INLINE)
             + "</section><!-- RECORDS:END -->")
+# Dated and sealed records stay in the repository for auditors and are not rendered as site pages (author decision 2026-10-17): the
+# development log, day logs, the box-run job lists, the archive, and the sealed records under doors/ (their wording is part of the seal).
+# Links to them from the page go to the repository.
+RECORD_ONLY = re.compile(r"^(development/METHYLPHYS_DEVELOPMENT_LOG\.md|Biological_Physics/MethylPhys/daylogs/|Biological_Physics/MethylPhys/doors/(?!COMMISSIONING_NOTE_)|"
+                         r"Biological_Physics/MethylPhys/archive/|Biological_Physics/MethylPhys/boxruns/[^/]+/JOBS\.md|FIELD_NOTES\.md)")
 def linked_docs(body, depth=2):
     seen, frontier = set(), set(re.findall(re.escape(GH) + r"([^\"#]+?\.md)", body))
     for _ in range(depth):
         new = set()
         for p in frontier - seen:
             q = ALIAS.get(p, p)
-            if not os.path.exists(os.path.join(REPO, q)): continue
+            if not os.path.exists(os.path.join(REPO, q)) or RECORD_ONLY.match(q): continue
             seen.add(q)
             md = open(os.path.join(REPO, q), encoding="utf-8").read(); base = os.path.dirname(q)
             for u in re.findall(r"\]\(([^)#\s]+\.md)", md):

@@ -10,14 +10,14 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
    - PHY-047 (run; last run 2026-10-16: not met): closed as recorded: S1 NOT MET (bar = the line's cell-type scatter, stricter than the instrument's job; lesson C19). The Hansen donors served as sealed: shape check passed, pooled into band v1. The job the self-reference must do (a healthy sample from another laboratory reads Normal) is tested next on fresh data in the grand sealed test (COM-IAMA-052)
    - COM-IAMA-053 (run; last run 2026-10-16: met): applied first in DEV-SECONDLAB-02 (Hansen B cells, limit 0.662)
 2. **IAM-A: the sequencer's own error subtracted**
-   - PHY-050 (run; last run 2026-10-15: progressed): measured on Hansen (sequencing error 0.002-0.006, conversion failure 1.8-5.1 percent, chain count run 3); Loyfer's needs reads with non-CpG context, which its .pat files do not carry; options for the author: Loyfer's raw reads (access to be checked), or a line rebuilt from a public laboratory whose meter error can be measured
+   - PHY-050 (run; last run 2026-10-15: progressed): measured on Hansen (sequencing error 0.002-0.006, conversion failure 1.8-5.1 percent, chain count run 3); the sequencing atlas's needs reads with non-CpG context, which its .pat files do not carry; options for the author: the sequencing atlas's raw reads (access to be checked), or a line rebuilt from a public laboratory whose meter error can be measured
 3. **IAM-A: its own healthy band, from evidence across laboratories**
    - COM-IAMA-054 (run; last run 2026-10-16: met): band v1 built (Normal 0.7787-1.0551, 156 readings, two laboratories); becomes IAM-A's Normal mark when IAM-A is commissioned (COM-IAMA-052)
 4. **IAM-A: clean room, part A**
    - PHY-055 (run; last run 2026-10-16: met): done for part A; IAM-A grand test (COM-IAMA) is the remaining gate
 5. **IAM-A: the grand sealed test, then commissioning**
    - COM-IAMA-052 (run; last run 2026-10-17: met): commissioned; widen to other specimens on their own sealed tests after the gift
-6. **Atlas v2.1: the fit lands; release checks, sealed bars, the Loyfer and Moss use tests**
+6. **Atlas v2.1: the fit lands; release checks, sealed bars, the use tests against the two published reference atlases**
    - ATL-005 (run; last run 2026-10-16: not met): widen the commissioned uses (see the note's 'What it would take to go further')
    - ATL-060 (run; last run 2026-10-16: met): after the v2.1 release: assemble the held-out betas (Stage 1) and run use_tests_v21.py real once
 7. **Backbone: healthy range on the same counter; tumor-adjacent against truly healthy colon**
