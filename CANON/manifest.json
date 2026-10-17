@@ -27372,7 +27372,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "synthetic_done",
    "runs": [],
-   "next_step": "chain v4 wired (2026-10-17); clean-clone test script doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh: a fresh public clone, a new environment from chain/requirements.txt only, then release_check_v4.py, on a clean self-terminating machine. Then one real public sample of each kind.",
+   "next_step": "chain v4 wired (2026-10-17); clean-clone test script doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh: a fresh public clone, a new environment from chain/requirements.txt only, then release_check_v4.py, on a clean self-terminating machine. Running now: job i-0d4559e967ace0f61. Then one real public sample of each kind.",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
