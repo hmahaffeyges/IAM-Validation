@@ -45,5 +45,17 @@
   "cells": 79,
   "sites": 813951,
   "measured_pairs": 60687175
+ },
+ "donor_sd_part1.parquet": {
+  "bytes": 26679023,
+  "sha256": "bc5d8fb18fc32f187433feae9b0df69b06780fc362ffd864396b375ae3c9fd4c"
+ },
+ "donor_sd_part2.parquet": {
+  "bytes": 28102699,
+  "sha256": "5e6cf82a0e34a1e2f9549c5da89dbd12c167b6c633905b8f008846c14f8c6a76"
+ },
+ "donor_sd_part3.parquet": {
+  "bytes": 27903250,
+  "sha256": "a3d0f0b12ec7f7a956adda3faea7a41fdb397c347a93cc4fc5830b3edd5619cf"
  }
 }
