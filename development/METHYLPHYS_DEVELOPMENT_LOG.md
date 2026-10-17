@@ -2268,3 +2268,6 @@ run_sample.py now runs, after the array reading, the IAM-Deconvolver against IAM
 
 ### 2026-10-17 · Lesson C20: verdict words are matched in uppercase (OTH-068)
 Rule 22 of repro_check matched ": MET" without case, so the generated chain map (a stage description "Whole blood: Met-A") was read as a recorded outcome. Verdict words (MET, NOT MET, BAR MET, FINGERPRINT) are written in uppercase; the rule now matches them case-sensitively.
+
+### 2026-10-17 · Chain v4 clean-clone test written (OTH-068)
+doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh: a fresh public clone at a named commit, a new Python 3.11 environment with only chain/requirements.txt (matplotlib and pyarrow now listed as chain needs, not toolkit), then the one command release_check_v4.py. Runs on a clean self-terminating machine; nothing is read from our storage.

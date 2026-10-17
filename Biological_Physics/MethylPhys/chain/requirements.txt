@@ -7,8 +7,8 @@ pandas==1.5.3
 scipy==1.17.1
 pytz
 python-dateutil
-# toolkit only (chain/TOOLKIT.md): the sky plate needs matplotlib; the atlas v2 solver reads parquet (pyarrow); the sky statistics need healpy.
-# Chain v3 readings need none of them. reportlab builds the operations manual (manual/build_manual_v3.py).
+# chain v4 (2026-10-17): the C-Score sky is drawn with matplotlib; the IAM-Atlas v2.1 tables are parquet (pyarrow).
+# reportlab builds the operations manual (manual/build_manual_v3.py). healpy is not needed (the chain carries its own HEALPix NESTED layout).
 matplotlib>=3.7
 pyarrow>=14
 reportlab>=3.6

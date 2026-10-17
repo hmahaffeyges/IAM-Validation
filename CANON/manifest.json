@@ -27372,7 +27372,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "synthetic_done",
    "runs": [],
-   "next_step": "chain v4 wired (2026-10-17): run_sample.py runs D21 shares, the C-Score sky and Stage Q2; report_v4; release_check_v4 (F1, F1b, F2, V1-V4 pass locally). Next: the full release_check_v4 on a fresh public clone on a clean machine, then a real public sample of each kind through the one command.",
+   "next_step": "chain v4 wired (2026-10-17); clean-clone test script doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh: a fresh public clone, a new environment from chain/requirements.txt only, then release_check_v4.py, on a clean self-terminating machine. Then one real public sample of each kind.",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
