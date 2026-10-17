@@ -25867,9 +25867,15 @@
      "outcome": "fail",
      "note": "run 1 stopped: chain Stage Q2 build_line used a pandas 2.2 option while the chain pins pandas 1.5.3; fixed (identical results), rerun",
      "page": "not headline: clean room"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "progressed",
+     "note": "run 2: Loyfer 153 counts, the line and the shape reference identical from public data; ENCODE 5 not counted (no index built); fixed, run 3 ENCODE only",
+     "page": "not headline: in progress"
     }
    ],
-   "next_step": "part A (IAM-A, 2026-10-16): fresh public clone, public data only (GEO, ENCODE), chain Stage Q2 recounts Loyfer 153 and ENCODE 5, rebuilds the self-reference line and the shape reference; every count, the line and the reference must equal the committed ones (doors/data/CLEANROOM_IAMA_01/). Not in part A: the Hansen rerun (one run only; its script and chain code are committed), the restricted tumor pairs (not public), the eraser and island side results (own chain reruns later)",
+   "next_step": "run 3: the five ENCODE files recounted from ENCODE with the index built, then the full comparison",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

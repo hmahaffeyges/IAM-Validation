@@ -8,10 +8,13 @@ git clone -q https://github.com/hmahaffeyges/IAM-Validation.git repo && cd repo 
 cp -r ../repo/Biological_Physics/MethylPhys/chain ./chain
 cp ../repo/Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/{box_q2_line.py,loyfer_samples.csv,encode_samples.tsv} .
 st "clone $COMMIT ok; counting Loyfer from GEO"
-for pass in 1 2 3 4; do $PY box_q2_line.py loyfer 14 >> loyfer.log 2>&1; n=$(ls out/GSM*.json 2>/dev/null | wc -l); st "pass $pass: $n of 153"; [ $n -ge 153 ] && break; sleep 120; done
+# ENCODE_ONLY=1 (run 3, 2026-10-16): Loyfer's 153 counts, the line and the shape reference were already identical in run 2
+# (results/CLEANROOM_IAMA_01/run2/); this run recounts only the five ENCODE files, then compares everything again.
+if [ -n "${ENCODE_ONLY:-}" ]; then mkdir -p out; $PY -c "import boto3;s=boto3.client('s3');[s.download_file('$B',o['Key'],'out/'+o['Key'].split('/')[-1]) for o in s.list_objects_v2(Bucket='$B',Prefix='${P}run2/out/')['Contents'] if o['Key'].endswith('.json')]"; st "run 2's Loyfer counts restored: $(ls out/GSM*.json | wc -l)"; fi
+[ -n "${ENCODE_ONLY:-}" ] || for pass in 1 2 3 4; do $PY box_q2_line.py loyfer 14 >> loyfer.log 2>&1; n=$(ls out/GSM*.json 2>/dev/null | wc -l); st "pass $pass: $n of 153"; [ $n -ge 153 ] && break; sleep 120; done
 curl -sL -o ref.fa.gz "https://www.encodeproject.org/files/GRCh38_no_alt_analysis_set_GCA_000001405.15/@@download/GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.gz" && gunzip -f ref.fa.gz && samtools faidx ref.fa 2>/dev/null || $PY -c "import pysam;pysam.faidx('ref.fa')"
 tail -n +2 encode_samples.tsv | while IFS=$'\t' read cell lc exp acc url; do
-  st "encode $acc"; $PY -c "import boto3;from botocore import UNSIGNED;from botocore.config import Config;b,k='$url'[5:].split('/',1);boto3.client('s3',config=Config(signature_version=UNSIGNED),region_name='us-west-2').download_file(b,k,'$acc.bam')"
+  st "encode $acc"; $PY -c "import boto3;from botocore import UNSIGNED;from botocore.config import Config;b,k='$url'[5:].split('/',1);boto3.client('s3',config=Config(signature_version=UNSIGNED),region_name='us-west-2').download_file(b,k,'$acc.bam')" && samtools index -@ 16 $acc.bam   # ENCODE serves no index with these files; run 1 stopped here (2026-10-16)
   head -1 encode_samples.tsv > one.tsv; grep -P "\t$acc\t" encode_samples.tsv >> one.tsv; cp encode_samples.tsv all.tsv; cp one.tsv encode_samples.tsv
   OMP_NUM_THREADS=1 $PY box_q2_line.py encode 32 >> encode.log 2>&1; cp all.tsv encode_samples.tsv; rm -f $acc.bam*
 done
