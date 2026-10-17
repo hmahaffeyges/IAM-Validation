@@ -138,6 +138,14 @@ def page(art):
         f'{CS["fit_steps"] / 1e6:.1f} million sampling steps in {CS["fit_blocks"]} blocks, each step itself up to 255 smaller steps (at least)</p></div>'
         f'<div class="card"><p class="big">{CS["machine_hours"]:,.0f} hours</p><p>on rented machines of up to 192 cores</p></div>'
         f'<div class="card"><p class="big">${CS["billed_usd"]:,.0f}</p><p>billed by AWS for computing and storage, every dollar listed in <a href="{rec("Biological_Physics/MethylPhys/RUNS.md")}">the run ledger</a></p></div>'
+        f'</div><h3>What it took to build IAM-Atlas v2.1 alone</h3><div class="grid costs">'
+        f'<div class="card"><p class="big">{CS["fit_updates"] / 1e9:,.0f} billion</p><p>estimates updated by the Bayesian (MCMC) fit: {CS["atlas_sites"]:,} DNA sites x '
+        f'{CS["atlas_cells"]} cell types, 4 independent chains, 1,000 sampling steps each, in {CS["fit_blocks"]} blocks (at least: each step is itself up to 255 smaller steps)</p></div>'
+        f'<div class="card"><p class="big">{CS["fit_process_hours"]:,} hours</p><p>of sampling, block after block, for {CS["fit_steps"] / 1e6:.1f} million sampling steps; '
+        f'every block converged (largest R-hat {CS["fit_rhat_max"]})</p></div>'
+        f'<div class="card"><p class="big">{CS["atlas_samples"]} samples</p><p>of purified healthy cells from {CS["atlas_sources"]} public sources, fitted as one model</p></div>'
+        f'<div class="card"><p class="big">{CS["atlas_gb_all"]:.0f} GB</p><p>in all: {CS["atlas_gb_inputs"]:.0f} GB of input arrays, {CS["atlas_gb_fit"]:.0f} GB of raw fit output '
+        f'({CS["atlas_gb_draws"]:.0f} GB of it posterior draws), and the {CS["atlas_gb_product"]:.1f} GB atlas itself</p></div>'
         f'</div></section>')
     CF = J("CANON/chain_front.json"); _byid = {e["id"]: e for e in REG["entries"]}
     results = "\n".join(card(_byid[i]) for i in CF["front"] if i in _byid)

@@ -45,7 +45,19 @@ for pg in s3.get_paginator("list_objects_v2").paginate(Bucket=B):
 # site x cell estimate of its block; each step takes 1 to 255 leapfrog steps (max tree depth 8), not saved, so the update count is a LOWER bound
 FIT = [json.loads(l) for l in s3.get_object(Bucket=B, Key="results/ATLAS_V21/fit/run_v21.log")["Body"].read().decode().split("\n") if l.startswith("{")]
 fit_steps = len(FIT) * 4 * 1000; fit_updates = sum(x["loci"] * x["cells"] for x in FIT) * 4 * 1000; fit_proc_hours = sum(x["s_per_locus"] * x["loci"] for x in FIT) / 3600
-S = dict(fit_blocks=len(FIT), fit_steps=fit_steps, fit_updates=fit_updates, fit_process_hours=round(fit_proc_hours), as_of=datetime.date.today().isoformat(), since=START, name="The Commissioning Campaign",
+SZ = collections.Counter()
+for pg in s3.get_paginator("list_objects_v2").paginate(Bucket=B, Prefix="results/ATLAS_V21/"):
+    for ob in pg.get("Contents", []):
+        k = ob["Key"].split("/")[2]
+        if k != "zenodo_bundles": SZ["all"] += ob["Size"]          # the bundles are a packed copy of fit/, not counted twice
+        if k == "fit": SZ["fit"] += ob["Size"]
+        if ob["Key"].endswith("_draws.npz"): SZ["draws"] += ob["Size"]
+        if k in ("assembly", "compact", "compact_donor_sd"): SZ["product"] += ob["Size"]
+        if k in ("raw", "stage1", "heldout"): SZ["inputs"] += ob["Size"]
+ATL = dict(atlas_samples=702, atlas_cells=79, atlas_sites=813951, atlas_sources=21, fit_rhat_max=round(max(x["rhat_p99"] for x in FIT), 4),
+           fit_divergences=sum(x["divergences"] for x in FIT), atlas_gb_all=round(SZ["all"] / 1e9, 1), atlas_gb_fit=round(SZ["fit"] / 1e9, 1),
+           atlas_gb_draws=round(SZ["draws"] / 1e9, 1), atlas_gb_product=round(SZ["product"] / 1e9, 1), atlas_gb_inputs=round(SZ["inputs"] / 1e9, 1))
+S = dict(**ATL, fit_blocks=len(FIT), fit_steps=fit_steps, fit_updates=fit_updates, fit_process_hours=round(fit_proc_hours), as_of=datetime.date.today().isoformat(), since=START, name="The Commissioning Campaign",
          machine_hours=round(sum(H.values()), 1), core_hours=round(sum(h * V.get(t, 0) for t, h in H.items())), billed_usd=round(cost, 2),
          seq_samples=len(seq), seq_calls=sum(seq.values()), arrays=len(arrays), array_reads=len(arrays) * 485577)
 if os.path.exists(OUT):
