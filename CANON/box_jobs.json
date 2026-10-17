@@ -398,7 +398,7 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/twin_sample_level_v21.csv",
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/stage1_v21_manifest.csv"
    ],
-   "note": "VERDICT: L22 NOT MET - out-of-sample transfer worst 0.026 (bar 0.02) on 5 new Loyfer-shared cells; Tian/ENCODE shape not confirmed; twin recheck met"
+   "note": "VERDICT: L22 NOT MET - out-of-sample transfer worst 0.026 (bar 0.02) on 5 new sequencing-atlas-shared cells; Tian/ENCODE shape not confirmed; twin recheck met"
   },
   {
    "job_id": "e28be19b-b195-4794-a297-7e5358031c05",
@@ -508,7 +508,7 @@
    "state": "done",
    "log": "results/DEV_ERASE_01/planted_real/erase.log",
    "machine": "methylphys-cpu-01 (32 cores)",
-   "purpose": "halved / doubled / base arms on two spent healthy Loyfer files, read by Stage Q's counting; rules in planted_real_erase_01.py",
+   "purpose": "halved / doubled / base arms on two spent healthy sequencing-atlas files, read by Stage Q's counting; rules in planted_real_erase_01.py",
    "record": "doors/DEV_ERASE_01.md",
    "outputs": [
     "results/DEV_ERASE_01/planted_real/planted_real_erase_01.txt",
@@ -606,7 +606,7 @@
    "state": "succeeded",
    "log": "results/DEV_ARCH_01/arch.log",
    "machine": "methylphys-cpu-01 (32 cores, shared with DEV-ERASE-01 reads)",
-   "purpose": "three architecture numbers per Loyfer cell type: loosely held share, fully methylated share, identity sites",
+   "purpose": "three architecture numbers per sequencing-atlas cell type: loosely held share, fully methylated share, identity sites",
    "record": "doors/DEV_ARCH_01.md",
    "outputs": [
     "results/DEV_ARCH_01/arch_01.csv",
@@ -1026,7 +1026,7 @@
    "state": "succeeded",
    "log": "results/LOOSE_SHARE_2026-10-15/own.log",
    "machine": "methylphys-fit-01 (spot m7a.8xlarge, shared with the tumor island job)",
-   "purpose": "arch_cut.py at 0.70 (reproduction) and 2/3; own_reads_loose.py on the 153 cached Loyfer read files",
+   "purpose": "arch_cut.py at 0.70 (reproduction) and 2/3; own_reads_loose.py on the 153 cached sequencing-atlas read files",
    "record": "development/loose_share_2026-10-15/own_reads_loose.py",
    "outputs": [
     "results/LOOSE_SHARE_2026-10-15/own_reads_loose.csv",
@@ -1058,7 +1058,7 @@
    "manifest": [
     "PHY-049"
    ],
-   "purpose": "153 Loyfer hg19 read files streamed from GEO through own_reads_loose.py with the genome tiled into 13,225 windows",
+   "purpose": "153 sequencing-atlas hg19 read files streamed from GEO through own_reads_loose.py with the genome tiled into 13,225 windows",
    "record": "development/loose_share_2026-10-15/own_reads_genome.py",
    "outputs": [
     "results/LOOSE_SHARE_2026-10-15/genome/own_reads_genome.csv"
@@ -1126,7 +1126,7 @@
   },
   {
    "job_id": "i-0f3380b0fa6d2bd0a",
-   "name": "DEV-CHAIN-Q2-01: the self-reference line's inputs (Loyfer 153 samples) and the ENCODE five counted through chain Stage Q2",
+   "name": "DEV-CHAIN-Q2-01: the self-reference line's inputs (153 sequencing-atlas samples samples) and the ENCODE five counted through chain Stage Q2",
    "date": "2026-10-15",
    "commit": "0f90bfce",
    "s3_code_prefix": "results/DEV_CHAIN_Q2_01/code/",
@@ -1147,7 +1147,7 @@
    "manifest": [
     "OTH-057"
    ],
-   "note": "153 Loyfer (140 on the box, 13 GEO-refused counted locally by the same chain) and 5 ENCODE counted; line rebuilt, selfref_line_v1"
+   "note": "153 sequencing-atlas (140 on the box, 13 GEO-refused counted locally by the same chain) and 5 ENCODE counted; line rebuilt, selfref_line_v1"
   },
   {
    "job_id": "i-08f7918ad0a721c4c",
@@ -1199,7 +1199,7 @@
   },
   {
    "job_id": "i-0f54ab117054ee79f",
-   "name": "DEV-CHAIN-Q2-01 step 3: Loyfer 153 and ENCODE 5 counted again through chain Stage Q2 with tile percentiles (shape check)",
+   "name": "DEV-CHAIN-Q2-01 step 3: 153 sequencing-atlas samples and ENCODE 5 counted again through chain Stage Q2 with tile percentiles (shape check)",
    "date": "2026-10-15",
    "commit": "764e072e",
    "s3_code_prefix": "results/DEV_CHAIN_Q2_01/shape/code/",
@@ -1221,7 +1221,7 @@
     "COM-IAMA-053",
     "OTH-057"
    ],
-   "note": "146 Loyfer and 5 ENCODE counted with tile percentiles, identical to step 2 on held error and loose share; 7 GEO-refused samples counted locally by the same chain; machine shut itself down after finishing"
+   "note": "146 sequencing-atlas and 5 ENCODE counted with tile percentiles, identical to step 2 on held error and loose share; 7 GEO-refused samples counted locally by the same chain; machine shut itself down after finishing"
   },
   {
    "job_id": "i-0cde3f265d7110189",
@@ -1580,7 +1580,7 @@
   },
   {
    "job_id": "i-016be641747ea1aa5",
-   "name": "IAM-A clean room part A: fresh public clone recounts Loyfer 153 and ENCODE 5 and rebuilds the line and shape reference (PHY-055)",
+   "name": "IAM-A clean room part A: fresh public clone recounts 153 sequencing-atlas samples and ENCODE 5 and rebuilds the line and shape reference (PHY-055)",
    "date": "2026-10-16",
    "commit": "e9e388c5",
    "s3_code_prefix": "results/CLEANROOM_IAMA_01/code/run1/",
@@ -1625,14 +1625,14 @@
   },
   {
    "job_id": "da7e2032-9f78-4e48-a38a-268e20ce4763",
-   "name": "DEV-ATLAS-USE-01 run 2 (stopped before any score: Moss's repeated rows)",
+   "name": "DEV-ATLAS-USE-01 run 2 (stopped before any score: the array reference's repeated rows)",
    "date": "2026-10-16",
    "commit": "7bce7ba1",
    "s3_code_prefix": "results/ATLAS_V21/use_tests/code/run2/",
    "state": "failed",
    "log": "results/ATLAS_V21/use_tests/",
    "machine": "methylphys-cpu-01",
-   "purpose": "DEV-ATLAS-USE-01 run 2 (stopped before any score: Moss's repeated rows)",
+   "purpose": "DEV-ATLAS-USE-01 run 2 (stopped before any score: the array reference's repeated rows)",
    "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md",
    "manifest": [
     "ATL-060"
@@ -1643,18 +1643,18 @@
    "files": [
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_USE_01/use_tests_real_v21.py"
    ],
-   "note": "DEV-ATLAS-USE-01 run 2 (stopped before any score: Moss's repeated rows)"
+   "note": "DEV-ATLAS-USE-01 run 2 (stopped before any score: the array reference's repeated rows)"
   },
   {
    "job_id": "ee92df65-bb79-4f7e-b7f9-8c0991be64fe",
-   "name": "DEV-ATLAS-USE-01 run 3: planted test then the head-to-head against Moss",
+   "name": "DEV-ATLAS-USE-01 run 3: planted test then the head-to-head against the published array reference",
    "date": "2026-10-16",
    "commit": "59af94a2",
    "s3_code_prefix": "results/ATLAS_V21/use_tests/code/run3/",
    "state": "succeeded",
    "log": "results/ATLAS_V21/use_tests/",
    "machine": "methylphys-cpu-01",
-   "purpose": "DEV-ATLAS-USE-01 run 3: planted test then the head-to-head against Moss",
+   "purpose": "DEV-ATLAS-USE-01 run 3: planted test then the head-to-head against the published array reference",
    "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md",
    "manifest": [
     "ATL-060"
@@ -1665,7 +1665,7 @@
    "files": [
     "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_USE_01/use_tests_real_v21.py"
    ],
-   "note": "DEV-ATLAS-USE-01 run 3: planted test then the head-to-head against Moss"
+   "note": "DEV-ATLAS-USE-01 run 3: planted test then the head-to-head against the published array reference"
   },
   {
    "job_id": "c556f4d1-57cc-4aff-b6e7-7db33e365af4",
@@ -1701,7 +1701,7 @@
    "state": "running",
    "log": "results/CLEANROOM_IAMA_01/status.txt",
    "machine": "spot c7a.8xlarge us-west-2c, self-terminating",
-   "purpose": "fresh public clone recounts Loyfer 153 and ENCODE 5 and rebuilds the line and shape reference; all must equal the committed ones",
+   "purpose": "fresh public clone recounts 153 sequencing-atlas samples and ENCODE 5 and rebuilds the line and shape reference; all must equal the committed ones",
    "record": "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py",
    "manifest": [
     "PHY-055"
@@ -1749,7 +1749,7 @@
    "state": "finished",
    "log": "results/CLEANROOM_IAMA_01/status.txt",
    "machine": "spot c7a.8xlarge, self-terminating (box image 2026-10-14, 300 GB disk)",
-   "purpose": "fresh public clone recounts Loyfer 153 and ENCODE 5 and rebuilds the line and shape reference; all must equal the committed ones",
+   "purpose": "fresh public clone recounts 153 sequencing-atlas samples and ENCODE 5 and rebuilds the line and shape reference; all must equal the committed ones",
    "record": "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py",
    "manifest": [
     "PHY-055"
@@ -1772,7 +1772,7 @@
    "state": "finished",
    "log": "results/CLEANROOM_IAMA_01/status.txt",
    "machine": "spot, self-terminating, 500 GB disk (box image 2026-10-14)",
-   "purpose": "fresh public clone recounts Loyfer 153 and ENCODE 5 and rebuilds the line and shape reference; all must equal the committed ones",
+   "purpose": "fresh public clone recounts 153 sequencing-atlas samples and ENCODE 5 and rebuilds the line and shape reference; all must equal the committed ones",
    "record": "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py",
    "manifest": [
     "PHY-055"

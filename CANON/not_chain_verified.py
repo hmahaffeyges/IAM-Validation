@@ -22,7 +22,7 @@ def section():
          "Author's rule, 2026-10-15: side scripts are for exploration; every logged test runs through the chain. These records predate that rule:",
          "their synthetic tests ran on their own code. They stay as history and are marked NOT CHAIN-VERIFIED until rerun through the chain. Every",
          "test from 2026-10-15 on is held to the rule by the push gate (CANON/chain_gate.py, rule 23b).", "",
-         "**Also not chain-verified: the self-reference line itself** (development/loose_share_2026-10-15/, own-read counts of Loyfer's 153 samples).",
+         "**Also not chain-verified: the self-reference line itself** (development/loose_share_2026-10-15/, own-read counts of the 153 samples of the published sequencing atlas).",
          "It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).", "",
          f"**{len(rows)} synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.", "",
          "| record | synthetic script | why | manifest rows |", "|---|---|---|---|"]

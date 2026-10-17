@@ -17,7 +17,7 @@ DNA's sequence is the same in every cell; the methyl tags are not, and a sequenc
 | Method | What it gives | Single molecules? | Who uses it | Which IAM instruments read it |
 |---|---|---|---|---|
 | **Methylation arrays (Illumina 450K, EPIC v1, EPIC v2)** | One average per site (beta value) over every cell in the sample; 450,000 to 935,000 chosen sites; two-color readout | no | Most aging clocks (Horvath, GrimAge) and most cohort studies | Met-A, C-Score, Group-A, Atlas |
-| **Whole-genome bisulfite sequencing (WGBS)** | Every one of about 28 million CpG sites, on single molecules about 100-150 letters long | yes | Reference atlases (Loyfer et al. 2023); research | IAM-A, Atlas, C-Score (sequencing reading) |
+| **Whole-genome bisulfite sequencing (WGBS)** | Every one of about 28 million CpG sites, on single molecules about 100-150 letters long | yes | Reference atlases of human cell types; research | IAM-A, Atlas, C-Score (sequencing reading) |
 | **EM-seq (enzymatic conversion)** | The same readout as WGBS with gentler chemistry: longer, less damaged molecules from less DNA | yes | Newer research and clinical labs | IAM-A, Atlas |
 | **RRBS (reduced representation)** | A cut-and-select step keeps only CpG-dense regions (islands and promoters), about 1 to 3 million sites | yes, islands only | Lower-cost research studies | none of IAM's readings: IAM-A's loose share comes from the rest of the genome, which RRBS skips; the C-Score's sequencing reading failed on it |
 | **Targeted methylation sequencing (capture panels)** | Molecules from selected regions only | yes, selected regions only | Blood tests for cancer such as GRAIL's Galleri, which match a sample against patterns learned from people with and without cancer | not yet assessed |

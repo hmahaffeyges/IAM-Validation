@@ -67,10 +67,6 @@ close to nominal, but a low tail from three laboratories; diagnosis: ranges too 
 lung alveolar macrophages (not assessed: their only held-out set failed carried check D13); blood composition (U3 FAILED on cord blood and on
 emergency-department bloods, where the current method also misses); the breast and liver blind sites (no held-out epithelium).
 
-**Showcase, not a gate.** (DEV-ATLAS-USE-01, sealed 2026-10-15): against Moss's published reference on 731 held-out arrays, v2.1 met all three bars:
-markers confirmed 0.424 against 0.398; blood mixtures median error 0.0224 against 0.0305; with brain cells Moss's reference does not hold,
-0.0228 against 0.0523, the outside share recovered in 87 % of mixtures.
-
 **What it would take to go further.** Each further cell reference: a held-out set from an independent laboratory with >= 95 % of arrays in range,
 or the next version's range carrying a measured laboratory-by-site spread, re-sealed and tested on laboratories never read. Composition: U3 met on an
 adult healthy truth set. Breast and liver blind sites: held-out epithelium.

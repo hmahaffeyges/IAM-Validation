@@ -128,7 +128,7 @@
    "name": "Whole-genome bisulfite sequencing (WGBS)",
    "what": "Every one of about 28 million CpG sites, on single molecules about 100-150 letters long",
    "molecules": "yes",
-   "industry": "Reference atlases (Loyfer et al. 2023); research",
+   "industry": "Reference atlases of human cell types; research",
    "readers": "IAM-A, Atlas, C-Score (sequencing reading)"
   },
   {

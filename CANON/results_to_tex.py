@@ -137,7 +137,7 @@ def section(e, v):
         tail = (r"Both arms read a fingerprint: in these cancer cells blocks of the pattern were lost, beyond what held error explains. One cell line against "
                 r"one primary culture from one laboratory; LNCaP is a long-cultured line, so culture as well as cancer may contribute.")
     else:
-        body = (r"One donor's blood DNA with 4--15~\% liver, lung, colon or neuron DNA mixed in at known fractions (Moss 2018), " + str(v["n"])
+        body = (r"One donor's blood DNA with 4--15~\% liver, lung, colon or neuron DNA mixed in at known fractions (a published mixing series~\\cite{Moss2018}), " + str(v["n"])
                 + r" EPIC arrays. Foreign DNA at these fractions does not move the neutrophil identity sites, so Met-A must stay where the unmixed blood reads.")
         tab = [(r"sealed bar: Normal and within 0.03 of the unmixed blood", f"{v['ok']} of {v['n']}", r"\measured"),
                (r"largest shift in $A$", f"{v['maxd']:.4f}", r"\measured")]
@@ -181,14 +181,14 @@ def readme_row(e, v):
              f"cannot move, by a rule sealed before any tumor array was downloaded: {v['k']} of {v['n']} above the healthy bar ({v['crit']} needed; "
              f"p = {v['p']:.1e}); {v['up']} of {v['n']} above their own normal. Group-level; TCGA built the reading")
     elif e.get("compute") == "atlas_use":
-        h = (f"**IAM-Atlas v2.1 does Moss's own jobs better than Moss's reference.** On {v['n']} held-out arrays from independent laboratories, by bars "
+        h = (f"**IAM-Atlas v2.1 outperforms the published array reference atlas on its own jobs.** On {v['n']} held-out arrays from independent laboratories, by bars "
              f"sealed before the atlas existed: markers confirmed {v['m_v']:.3f} against {v['m_m']:.3f}; blood mixtures split with median error "
-             f"{v['a_v']:.4f} against {v['a_m']:.4f}; with brain cells Moss's reference does not hold mixed in, {v['b_v']:.4f} against {v['b_m']:.4f}, "
+             f"{v['a_v']:.4f} against {v['a_m']:.4f}; with brain cells that reference does not hold mixed in, {v['b_v']:.4f} against {v['b_m']:.4f}, "
              f"the outside share recovered in {v['rec']} percent of mixtures. A showcase, not a gate")
     elif e.get("compute") == "atlas_use_loyfer":
-        h = (f"**IAM-Atlas v2.1 does Loyfer's own jobs better than Loyfer's reference.** His reference rebuilt his way from his 205 public samples; on "
-             f"{v['n']} held-out arrays from independent laboratories, by the bars v2.1 met against Moss: markers confirmed {v['m_v']:.3f} against "
-             f"{v['m_l']:.3f}; mixtures split with median error {v['a_v']:.4f} against {v['a_l']:.4f}; with brain cells Loyfer's atlas does not hold "
+        h = (f"**IAM-Atlas v2.1 outperforms the published sequencing atlas on its own jobs.** That atlas rebuilt for arrays as its paper builds it, from its 205 public samples; on "
+             f"{v['n']} held-out arrays from independent laboratories, by the bars v2.1 met against the array reference: markers confirmed {v['m_v']:.3f} against "
+             f"{v['m_l']:.3f}; mixtures split with median error {v['a_v']:.4f} against {v['a_l']:.4f}; with brain cells that atlas does not hold "
              f"mixed in, {v['b_v']:.4f} against {v['b_l']:.4f}. A showcase, not a gate")
     elif e.get("compute") == "cscore_band":
         h = (f"**The clustering meter's healthy range holds in two laboratories that never helped set it.** Set on {v['setn']} arrays from "

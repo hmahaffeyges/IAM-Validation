@@ -2,8 +2,23 @@
  "_rule": "One story per experiment followers can watch. status: getting ready | running | on hold | result. Every update is dated and links to its record. The generator writes the block into README.md and FOLLOW.md; status_check refuses a stale or unchecked board. Plain words, American English, no claims beyond the record. Updates are APPEND-ONLY: an update, once pushed, is never edited or removed (a correction is a new update); the board shows the newest three per story, FIELD_NOTES.md keeps every update with its longer 'note'. The board carries an 'as_of' date: status_check REFUSES a push that changes any doors/ note while as_of is older than that push's date, because work happened and the board did not move (added 2026-10-13 after the board advertised a job that had not run for a day).",
  "stories": [
   {
-   "id": "atlas_v21",
+   "id": "temperature_law",
    "status": "running",
+   "headline": "The temperature test: does a plant grown colder hold its marks better, by exactly the amount physics predicts?",
+   "why": "IAM's Law says the cost of holding a mark is set by temperature. If that is right, the same plant grown at 10 and at 16 degrees C must differ by an amount fixed by the two temperatures alone, with nothing adjusted to fit.",
+   "hope": "The colder plants read lower, by the predicted amount: a test of the physics itself that any physicist can check.",
+   "risk": "The difference predicted is small (about 2 percent), so it needs every one of the 111 plant pairs counted cleanly.",
+   "updates": [
+    {
+     "date": "2026-10-17",
+     "text": "The rule is sealed and the counting is running on two cloud machines: 233 samples from 111 plant lines grown at both temperatures.",
+     "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md"
+    }
+   ]
+  },
+  {
+   "id": "atlas_v21",
+   "status": "result",
    "headline": "Building a bigger map of healthy cells: IAM-Atlas v2.1",
    "why": "Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.",
    "hope": "The new laboratories agree with the old ones, the map gets steadier, and tests that were too close to call, like lung, get a fair chance.",
@@ -47,6 +62,11 @@
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
      "text": "The fit is running. It started at 11:26 PM Pacific on October 14 on a rented 128-core machine, and 164 of its 700 blocks are done. Every block so far has passed the sampler's own health checks: no divergent draws, and in every block 99 percent of sites show an R-hat (agreement between independent chains) of 1.009 or less. It is expected to finish Friday October 16, about 9 AM Pacific, and the live count is on the front page.",
      "note": "What it took to get here: 22 checks on a launch list, every one passed before the machine started. The new map's identity and sex checks; a test that no new cell is a duplicate of an old one; each laboratory's offset; a dry run; a cost sheet; and a speed fix checked against the old model on 60 real test sites before it was used. Sealed BEFORE the map exists: the bars it will be judged by (how often new samples fall inside its stated range, the blind sites the tissue tests rely on, blood composition), and a showcase test on the two jobs Loyfer and Moss built their atlases for: finding each cell's marker sites, and working out which cells are in a mixed sample, including cells their atlases do not hold."
+    },
+    {
+     "date": "2026-10-17",
+     "text": "Commissioned. IAM-Atlas v2.1 met its sealed tests, and it outperformed both published reference atlases of human cell types on the jobs each was built for.",
+     "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md"
     }
    ]
   },
@@ -80,12 +100,17 @@
      "date": "2026-10-13",
      "text": "The cause of the failed laboratory check is now known, and it was not the laboratories. The reading had been taken from the very beginning of each sequencing file, and the beginning reads differently - the three disagreeing libraries sit 11 to 14 percent below the controls read at the same spot, while both controls read flat. Our first fix, reading several places and averaging, failed its own test on made-up data: averaging shrinks a bad measurement, it does not remove it. The replacement skips the unsettled beginning, and how much to skip is decided by the sequencing chemistry itself rather than by whether our answer improves. It passed six tests on made-up files, including recovering a planted 12 percent error to within a fifth of a percent. Nothing real has been trimmed yet.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_TRIM_01.md"
+    },
+    {
+     "date": "2026-10-17",
+     "text": "Paused so the commissioned chain reaches researchers first; this picks up after that.",
+     "record": "development/LIMITS_STUDY_2026-10-17.md"
     }
    ]
   },
   {
    "id": "neurons",
-   "status": "getting ready",
+   "status": "on hold",
    "headline": "Brain cells: does healthy order hold in cells that never divide?",
    "why": "Neurons stop dividing for life, so they can never refresh their switch pattern by making a new copy. If they still sit where physics says healthy cells should, that tells us how cells hold their information. We built a healthy brain-cell reference from one laboratory's neurons, using a rule written before we looked.",
    "hope": "Healthy neurons from two other laboratories, which we have never opened, read inside the healthy range we set in advance.",
@@ -101,6 +126,11 @@
      "date": "2026-10-13",
      "text": "The rule for what counts as a healthy brain-cell reference is now sealed: cleanly sorted cells only. That was a decision made after looking at the data, so it is labeled as one, and it was sealed before either independent laboratory was opened. Neither has been read.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md"
+    },
+    {
+     "date": "2026-10-17",
+     "text": "Paused so the commissioned chain reaches researchers first; this picks up after that.",
+     "record": "development/LIMITS_STUDY_2026-10-17.md"
     }
    ]
   },
@@ -122,12 +152,17 @@
      "date": "2026-10-13",
      "text": "Still on hold, and now with a named condition for coming off hold: measured lung support cells in the map. Four lung attempts failed for one reason - a healthy lung whose cell mixture leans one way can imitate the signal - and in three of the four no tumor was ever opened.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md"
+    },
+    {
+     "date": "2026-10-17",
+     "text": "Paused so the commissioned chain reaches researchers first; this picks up after that.",
+     "record": "development/LIMITS_STUDY_2026-10-17.md"
     }
    ]
   },
   {
    "id": "blood_group",
-   "status": "running",
+   "status": "on hold",
    "headline": "Can a tube of blood tell us about a GROUP of people?",
    "hope": "That groups of patients separate from groups of healthy donors, while healthy groups never separate from each other.",
    "risk": "That a change of laboratory alone moves the reading as much as cancer would - which is exactly what we tested first, and exactly what we found in the raw reading.",
@@ -136,13 +171,18 @@
      "date": "2026-10-13",
      "record": "Biological_Physics/MethylPhys/doors/DEV_GROUP_01.md",
      "text": "First test done, and it is the honesty test rather than the detection one. Two groups of HEALTHY people, read in two different laboratories: in the raw reading they differ by 3.69 percent - as much as a tumor would - and after the chain's correction, which compares each person against healthy people measured in the same run, they agree to 0.16 percent. The rule this forces, written before any patient data is opened: patients and their healthy comparisons must be measured in the same run, or the comparison is measuring the laboratories."
+    },
+    {
+     "date": "2026-10-17",
+     "text": "Paused so the commissioned chain reaches researchers first; this picks up after that.",
+     "record": "development/LIMITS_STUDY_2026-10-17.md"
     }
    ],
    "why": "Reading cancer from one person's blood on these arrays is out of reach: healthy people differ from each other by more than a tumor-sized signal. But comparing GROUPS is a different question, and that is within reach today."
   },
   {
    "id": "levers",
-   "status": "running",
+   "status": "on hold",
    "headline": "Testing the physics itself: the levers",
    "hope": "That the handles move the readings the way the equation says, in real data and not only in simulation.",
    "risk": "That they do not - two of the five would break the law itself if they failed, which is the point of running them.",
@@ -157,10 +197,15 @@
      "record": "development/loose_end_2026-10-15/loose_end_line.py",
      "text": "A healthy cell can be its own reference. Across 56 kinds of healthy human cells, the rate of tagging mistakes follows one straight line set by how loosely the cell holds its own DNA (r 0.87; 53 of 56 cells within 0.003 of the line). That means a sample's expected healthy reading can come from the sample itself, instead of from a library of other people's cells.",
      "note": "Why it matters: the hardest thing in this field is the healthy reference, cells of the same kind, often from the same lab. A test that carries its own reference can be pointed at any tissue and any lab. Same day: the line held when the cut was moved to the physics value of one Landauer bit (2/3); it came back, weaker but real, from each sample's own molecules with no array at all (r 0.79); and one prediction did not hold (removing the eraser enzyme did not raise the island errors as predicted, which points to a shield rather than the eraser). One laboratory so far; the second-laboratory test and a sealed grand test on fresh data come next. Development, not commissioned."
+    },
+    {
+     "date": "2026-10-17",
+     "text": "Paused so the commissioned chain reaches researchers first; this picks up after that.",
+     "record": "development/LIMITS_STUDY_2026-10-17.md"
     }
    ],
    "why": "A lever is a handle that moves one term in the law. If the law is real, turning a handle moves the reading by the amount the equation says - and if it does not, the law is wrong. Every lever carries, in writing and before any data is opened, the reading that would break it."
   }
  ],
- "as_of": "2026-10-13"
+ "as_of": "2026-10-17"
 }

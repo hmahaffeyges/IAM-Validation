@@ -3,10 +3,19 @@
 *Every update to every experiment on the Now running board, in plain words, oldest first. Notes are never edited or removed;
 a correction is a new note. Generated from CANON/now_running.json by CANON/now_running.py; do not edit by hand.*
 
+<a id="temperature-law"></a>
+## The temperature test: does a plant grown colder hold its marks better, by exactly the amount physics predicts?
+
+*Running now.* IAM's Law says the cost of holding a mark is set by temperature. If that is right, the same plant grown at 10 and at 16 degrees C must differ by an amount fixed by the two temperatures alone, with nothing adjusted to fit.
+
+### 2026-10-17 · The rule is sealed and the counting is running on two cloud machines: 233 samples from 111 plant lines grown at both temperatures.
+
+Record: [PRED_TEMPERATURE_01.md](Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md)
+
 <a id="atlas-v21"></a>
 ## Building a bigger map of healthy cells: IAM-Atlas v2.1
 
-*Running now.* Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
+*Result is in.* Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
 
 ### 2026-10-12 · Version 2 published with its own DOI, so anyone can download the map and check it.
 
@@ -44,6 +53,10 @@ What it took to get here: 22 checks on a launch list, every one passed before th
 
 Record: [DEV_ATLAS_V21_01.md](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md)
 
+### 2026-10-17 · Commissioned. IAM-Atlas v2.1 met its sealed tests, and it outperformed both published reference atlases of human cell types on the jobs each was built for.
+
+Record: [COMMISSIONING_NOTE_ATLAS_V21.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)
+
 <a id="iama-commission"></a>
 ## Does our second instrument read the same DNA the same way everywhere?
 
@@ -71,10 +84,14 @@ Record: [DEV_IAMA_CAUSE_01.md](Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUS
 
 Record: [DEV_IAMA_TRIM_01.md](Biological_Physics/MethylPhys/doors/DEV_IAMA_TRIM_01.md)
 
+### 2026-10-17 · Paused so the commissioned chain reaches researchers first; this picks up after that.
+
+Record: [LIMITS_STUDY_2026-10-17.md](development/LIMITS_STUDY_2026-10-17.md)
+
 <a id="neurons"></a>
 ## Brain cells: does healthy order hold in cells that never divide?
 
-*Getting ready.* Neurons stop dividing for life, so they can never refresh their switch pattern by making a new copy. If they still sit where physics says healthy cells should, that tells us how cells hold their information. We built a healthy brain-cell reference from one laboratory's neurons, using a rule written before we looked.
+*On hold.* Neurons stop dividing for life, so they can never refresh their switch pattern by making a new copy. If they still sit where physics says healthy cells should, that tells us how cells hold their information. We built a healthy brain-cell reference from one laboratory's neurons, using a rule written before we looked.
 
 ### 2026-10-12 · Healthy brain-cell reference built by its rule, from seven samples of five donors. Cleanly sorted cells read tightly together; unsorted cells read higher.
 
@@ -85,6 +102,10 @@ Record: [DEV_IAMA_NEURON_01.md](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEU
 ### 2026-10-13 · The rule for what counts as a healthy brain-cell reference is now sealed: cleanly sorted cells only. That was a decision made after looking at the data, so it is labeled as one, and it was sealed before either independent laboratory was opened. Neither has been read.
 
 Record: [DEV_IAMA_NEURON_01.md](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md)
+
+### 2026-10-17 · Paused so the commissioned chain reaches researchers first; this picks up after that.
+
+Record: [LIMITS_STUDY_2026-10-17.md](development/LIMITS_STUDY_2026-10-17.md)
 
 <a id="lung"></a>
 ## Lung cancer: waiting for a better map of the lung
@@ -101,19 +122,27 @@ Record: [DEV_TISSUE_LUNG_04.md](Biological_Physics/MethylPhys/doors/DEV_TISSUE_L
 
 Record: [DEV_TISSUE_LUNG_03.md](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md)
 
+### 2026-10-17 · Paused so the commissioned chain reaches researchers first; this picks up after that.
+
+Record: [LIMITS_STUDY_2026-10-17.md](development/LIMITS_STUDY_2026-10-17.md)
+
 <a id="blood-group"></a>
 ## Can a tube of blood tell us about a GROUP of people?
 
-*Running now.* Reading cancer from one person's blood on these arrays is out of reach: healthy people differ from each other by more than a tumor-sized signal. But comparing GROUPS is a different question, and that is within reach today.
+*On hold.* Reading cancer from one person's blood on these arrays is out of reach: healthy people differ from each other by more than a tumor-sized signal. But comparing GROUPS is a different question, and that is within reach today.
 
 ### 2026-10-13 · First test done, and it is the honesty test rather than the detection one. Two groups of HEALTHY people, read in two different laboratories: in the raw reading they differ by 3.69 percent - as much as a tumor would - and after the chain's correction, which compares each person against healthy people measured in the same run, they agree to 0.16 percent. The rule this forces, written before any patient data is opened: patients and their healthy comparisons must be measured in the same run, or the comparison is measuring the laboratories.
 
 Record: [DEV_GROUP_01.md](Biological_Physics/MethylPhys/doors/DEV_GROUP_01.md)
 
+### 2026-10-17 · Paused so the commissioned chain reaches researchers first; this picks up after that.
+
+Record: [LIMITS_STUDY_2026-10-17.md](development/LIMITS_STUDY_2026-10-17.md)
+
 <a id="levers"></a>
 ## Testing the physics itself: the levers
 
-*Running now.* A lever is a handle that moves one term in the law. If the law is real, turning a handle moves the reading by the amount the equation says - and if it does not, the law is wrong. Every lever carries, in writing and before any data is opened, the reading that would break it.
+*On hold.* A lever is a handle that moves one term in the law. If the law is real, turning a handle moves the reading by the amount the equation says - and if it does not, the law is wrong. Every lever carries, in writing and before any data is opened, the reading that would break it.
 
 ### 2026-10-13 · The three-channel test came back: a cell has three jobs at a methylation site - copy the pattern, write a new mark, remove a mark - and we asked whether our readings can tell which one has been damaged. Damaging the removal job is the only one that makes the reading go DOWN, so that one is identifiable on its own. The other two both push it up and can only be told apart if the damage size is already known, which in a patient it would not be. That limit is why a third reading is being built. All of this is on made-up data; no lever has yet been read against the world except one mouse result.
 
@@ -124,3 +153,7 @@ Record: [DEV_LEVERS_01.md](Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md)
 Why it matters: the hardest thing in this field is the healthy reference, cells of the same kind, often from the same lab. A test that carries its own reference can be pointed at any tissue and any lab. Same day: the line held when the cut was moved to the physics value of one Landauer bit (2/3); it came back, weaker but real, from each sample's own molecules with no array at all (r 0.79); and one prediction did not hold (removing the eraser enzyme did not raise the island errors as predicted, which points to a shield rather than the eraser). One laboratory so far; the second-laboratory test and a sealed grand test on fresh data come next. Development, not commissioned.
 
 Record: [loose_end_line.py](development/loose_end_2026-10-15/loose_end_line.py)
+
+### 2026-10-17 · Paused so the commissioned chain reaches researchers first; this picks up after that.
+
+Record: [LIMITS_STUDY_2026-10-17.md](development/LIMITS_STUDY_2026-10-17.md)

@@ -11,18 +11,31 @@ built in public*. Each line links to the record it comes from.
 
 *Live experiments, in plain words. Each update links to its record. Results are posted here win or lose.*
 
+### The temperature test: does a plant grown colder hold its marks better, by exactly the amount physics predicts?
+
+**Running now.** IAM's Law says the cost of holding a mark is set by temperature. If that is right, the same plant grown at 10 and at 16 degrees C must differ by an amount fixed by the two temperatures alone, with nothing adjusted to fit.
+
+- **What we hope:** The colder plants read lower, by the predicted amount: a test of the physics itself that any physicist can check.
+- **What could go wrong:** The difference predicted is small (about 2 percent), so it needs every one of the 111 plant pairs counted cleanly.
+
+| date | update |
+|---|---|
+| 2026-10-17 | The rule is sealed and the counting is running on two cloud machines: 233 samples from 111 plant lines grown at both temperatures. [record](Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md) |
+
+*The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#temperature-law).*
+
 ### Building a bigger map of healthy cells: IAM-Atlas v2.1
 
-**Running now.** Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
+**Result is in.** Every IAM reading compares a sample with healthy cells. The atlas is that comparison: a map of what 74 kinds of healthy human cells look like. Version 2.1 more than doubles the samples behind it and adds second and third laboratories for key cells, so the map stops depending on any one lab's habits.
 
 - **What we hope:** The new laboratories agree with the old ones, the map gets steadier, and tests that were too close to call, like lung, get a fair chance.
 - **What could go wrong:** Cells grown in a dish may have drifted too far to use; a new laboratory may disagree with the old ones; the fit may need more computing time than planned.
 
 | date | update |
 |---|---|
+| 2026-10-17 | Commissioned. IAM-Atlas v2.1 met its sealed tests, and it outperformed both published reference atlases of human cell types on the jobs each was built for. [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md) |
 | 2026-10-15 | The fit is running. It started at 11:26 PM Pacific on October 14 on a rented 128-core machine, and 164 of its 700 blocks are done. Every block so far has passed the sampler's own health checks: no divergent draws, and in every block 99 percent of sites show an R-hat (agreement between independent chains) of 1.009 or less. It is expected to finish Friday October 16, about 9 AM Pacific, and the live count is on the front page. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
 | 2026-10-13 | Not running. The fit itself needs a rented 128-core machine with 246 GB of memory - the same kind that built version 2 - so it is queued behind the free work. What moved instead: the four laboratories we had planned to TEST the new map against turned out to have been read already, so they can help build it but cannot judge it. One unread laboratory has been chosen as the test, with its two weaknesses written down first. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
-| 2026-10-12 | Culture check, second and third laboratories: much of the dish effect shows up again, in different cells grown in different labs. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
 
 *The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#atlas-v21).*
 
@@ -35,21 +48,22 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| 2026-10-17 | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
 | 2026-10-13 | The cause of the failed laboratory check is now known, and it was not the laboratories. The reading had been taken from the very beginning of each sequencing file, and the beginning reads differently - the three disagreeing libraries sit 11 to 14 percent below the controls read at the same spot, while both controls read flat. Our first fix, reading several places and averaging, failed its own test on made-up data: averaging shrinks a bad measurement, it does not remove it. The replacement skips the unsettled beginning, and how much to skip is decided by the sequencing chemistry itself rather than by whether our answer improves. It passed six tests on made-up files, including recovering a planted 12 percent error to within a fifth of a percent. Nothing real has been trimmed yet. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_TRIM_01.md) |
 | 2026-10-12 | The cause test is running on a rented computer: the three low files and two normal ones, each read from its start, middle and end. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md) |
-| 2026-10-12 | The cause test is written and listed in the run ledger. It starts when rented-computer prices and availability allow. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md) |
 
 *The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#iama-commission).*
 
 ### Brain cells: does healthy order hold in cells that never divide?
 
-**Getting ready.** Neurons stop dividing for life, so they can never refresh their switch pattern by making a new copy. If they still sit where physics says healthy cells should, that tells us how cells hold their information. We built a healthy brain-cell reference from one laboratory's neurons, using a rule written before we looked.
+**On hold.** Neurons stop dividing for life, so they can never refresh their switch pattern by making a new copy. If they still sit where physics says healthy cells should, that tells us how cells hold their information. We built a healthy brain-cell reference from one laboratory's neurons, using a rule written before we looked.
 
 - **What we hope:** Healthy neurons from two other laboratories, which we have never opened, read inside the healthy range we set in advance.
 - **What could go wrong:** How the cells were prepared moved our first readings more than age or brain region did, so the reference may first need a rule about preparation before the test is fair.
 
 | date | update |
 |---|---|
+| 2026-10-17 | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
 | 2026-10-13 | The rule for what counts as a healthy brain-cell reference is now sealed: cleanly sorted cells only. That was a decision made after looking at the data, so it is labeled as one, and it was sealed before either independent laboratory was opened. Neither has been read. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md) |
 | 2026-10-12 | Healthy brain-cell reference built by its rule, from seven samples of five donors. Cleanly sorted cells read tightly together; unsorted cells read higher. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md) |
 
@@ -64,6 +78,7 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| 2026-10-17 | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
 | 2026-10-13 | Still on hold, and now with a named condition for coming off hold: measured lung support cells in the map. Four lung attempts failed for one reason - a healthy lung whose cell mixture leans one way can imitate the signal - and in three of the four no tumor was ever opened. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md) |
 | 2026-10-12 | Four lung sets tried: one read with no clear cancer signal; three stopped by their made-up tests before any tumor was opened, so none was wasted. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_04.md) |
 
@@ -71,26 +86,28 @@ built in public*. Each line links to the record it comes from.
 
 ### Can a tube of blood tell us about a GROUP of people?
 
-**Running now.** Reading cancer from one person's blood on these arrays is out of reach: healthy people differ from each other by more than a tumor-sized signal. But comparing GROUPS is a different question, and that is within reach today.
+**On hold.** Reading cancer from one person's blood on these arrays is out of reach: healthy people differ from each other by more than a tumor-sized signal. But comparing GROUPS is a different question, and that is within reach today.
 
 - **What we hope:** That groups of patients separate from groups of healthy donors, while healthy groups never separate from each other.
 - **What could go wrong:** That a change of laboratory alone moves the reading as much as cancer would - which is exactly what we tested first, and exactly what we found in the raw reading.
 
 | date | update |
 |---|---|
+| 2026-10-17 | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
 | 2026-10-13 | First test done, and it is the honesty test rather than the detection one. Two groups of HEALTHY people, read in two different laboratories: in the raw reading they differ by 3.69 percent - as much as a tumor would - and after the chain's correction, which compares each person against healthy people measured in the same run, they agree to 0.16 percent. The rule this forces, written before any patient data is opened: patients and their healthy comparisons must be measured in the same run, or the comparison is measuring the laboratories. [record](Biological_Physics/MethylPhys/doors/DEV_GROUP_01.md) |
 
 *The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#blood-group).*
 
 ### Testing the physics itself: the levers
 
-**Running now.** A lever is a handle that moves one term in the law. If the law is real, turning a handle moves the reading by the amount the equation says - and if it does not, the law is wrong. Every lever carries, in writing and before any data is opened, the reading that would break it.
+**On hold.** A lever is a handle that moves one term in the law. If the law is real, turning a handle moves the reading by the amount the equation says - and if it does not, the law is wrong. Every lever carries, in writing and before any data is opened, the reading that would break it.
 
 - **What we hope:** That the handles move the readings the way the equation says, in real data and not only in simulation.
 - **What could go wrong:** That they do not - two of the five would break the law itself if they failed, which is the point of running them.
 
 | date | update |
 |---|---|
+| 2026-10-17 | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
 | 2026-10-15 | A healthy cell can be its own reference. Across 56 kinds of healthy human cells, the rate of tagging mistakes follows one straight line set by how loosely the cell holds its own DNA (r 0.87; 53 of 56 cells within 0.003 of the line). That means a sample's expected healthy reading can come from the sample itself, instead of from a library of other people's cells. [record](development/loose_end_2026-10-15/loose_end_line.py) |
 | 2026-10-13 | The three-channel test came back: a cell has three jobs at a methylation site - copy the pattern, write a new mark, remove a mark - and we asked whether our readings can tell which one has been damaged. Damaging the removal job is the only one that makes the reading go DOWN, so that one is identifiable on its own. The other two both push it up and can only be told apart if the damage size is already known, which in a patient it would not be. That limit is why a third reading is being built. All of this is on made-up data; no lever has yet been read against the world except one mouse result. [record](Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md) |
 
@@ -133,17 +150,17 @@ Given a blood sample read on an array, the tool says how much of it came from ea
 
 IAM-A reads how well each DNA molecule kept its marks and compares that with what the same sample's own loose ends predict, so it needs no outside reference. On healthy immune cells from a new laboratory, 7 of the 8 samples it read came out Normal, as sealed in advance.
 
-**2026-10-16 · Atlas v2.1 against Moss's published reference, on the jobs a reference atlas is used for** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_01.md)
+**2026-10-16 · IAM-Atlas v2.1 against the published array reference atlas of human cell types, on the jobs a reference atlas is used for** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_01.md)
 
-A reference atlas is used for two jobs: finding the DNA spots that mark each cell type, and working out which cells a mixed sample came from. On healthy cells from laboratories that never helped build either atlas, v2.1 was scored against Moss's published reference by bars sealed before v2.1 existed. It found as many reliable markers, split blood-cell mixtures with a smaller error, and, when brain cells Moss's reference does not hold were mixed in, recovered them and cut the error by more than half.
+A reference atlas is used for two jobs: finding the DNA spots that mark each cell type, and working out which cells a mixed sample came from. On healthy cells from laboratories that never helped build either atlas, v2.1 was scored against the published array reference atlas of human cell types by bars sealed before v2.1 existed. It found as many reliable markers, split blood-cell mixtures with a smaller error, and, when brain cells that reference does not hold were mixed in, recovered them and cut the error by more than half.
 
 **2026-10-16 · IAM-Atlas v2.1 commissioned for three cell references and the colon and lung tissue tests' blind sites, each on a bar sealed before the atlas existed** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)
 
 Commissioned means a use of the atlas is allowed to report results. Healthy cells from laboratories that never helped build the atlas were read against it, by bars fixed before it existed. Three cell types, brain neurons, airway lining and naive helper T cells, landed inside the atlas's predicted range, and the sites the colon and lung cancer tests depend on held steady in every cell type that could be checked. Its blood-composition use and its other cell references stay in development.
 
-**2026-10-16 · Atlas v2.1 against Loyfer's own reference, on the jobs a reference atlas is used for** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_02.md)
+**2026-10-16 · IAM-Atlas v2.1 against the published sequencing atlas of human cell types, on the jobs a reference atlas is used for** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_02.md)
 
-Loyfer's published atlas was rebuilt exactly the way his paper builds it for arrays, from his 205 public samples, and scored against v2.1 by the same sealed bars that v2.1 met against Moss. On 731 healthy arrays from laboratories that never helped build either atlas, v2.1's markers held more often (0.998 against 0.938), it split mixtures with a smaller error (0.020 against 0.025), and with brain cells Loyfer's atlas does not hold mixed in, it cut the error by half (0.023 against 0.048).
+The published sequencing atlas was rebuilt for arrays exactly as its paper builds it, from its 205 public samples, and scored against v2.1 by the same sealed bars v2.1 met against the published array reference. On 731 healthy arrays from laboratories that never helped build either atlas, v2.1's markers held more often (0.998 against 0.938), it split mixtures with a smaller error (0.020 against 0.025), and with brain cells that atlas does not hold mixed in, it cut the error by half (0.023 against 0.048).
 
 **2026-10-15 · Every healthy cell follows the same simple rule** *(development)* · [record](development/loose_end_2026-10-15/loose_end_line.py)
 

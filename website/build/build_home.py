@@ -132,7 +132,7 @@ def page(art):
     decisions = "\n".join(f'<li><b>{E(x["date"])}</b> {E(x["plain"])} <a href="{rec(x["record"])}">the record</a></li>' for x in REG.get("decisions", []))
     losses = "\n".join(f'<li><b>{E(x["date"])}</b> {E(x["plain"])} <a href="{rec(x["record"])}">the record</a></li>' for x in REG["losses"])
     mouse = next(e for e in REG["entries"] if e["id"] == "DEV-SAM-LEVER-01"); mv = vals(mouse)
-    going = "; ".join(E(s_["headline"]) for s_ in NRJ["stories"] if s_["status"] != "result")
+    going = "; ".join(E(s_["headline"]) for s_ in NRJ["stories"] if s_["status"] == "running")   # only what is running now (author 2026-10-17)
     AT = J("CANON/atlas_release.json")
     import importlib.util as _ilu
     _sp = _ilu.spec_from_file_location("v21r", os.path.join(REPO, "CANON", "v21_readiness.py")); _v21 = _ilu.module_from_spec(_sp); _sp.loader.exec_module(_v21)
@@ -154,14 +154,14 @@ def page(art):
     else: _v21_status = (f"It is being prepared now: the computers are working through the data and the checks that must pass before the fit "
                          f"can start. The fit itself is expected to take {E(_pub['fit_estimate'])}.")
     # IAM-Atlas v2.1 story (author 2026-10-16): one source, CANON/atlas_story.json, feeds this section, the atlas README and the book
-    _ST = J("CANON/atlas_story.json"); _LB = {"now": "In the atlas now", "gift": "Coming with the release", "after": "After the release"}
+    _ST = J("CANON/atlas_story.json"); _LB = {"now": "In IAM-Atlas v2.1", "gift": "Complementary additions, ready or in progress", "after": "On the horizon"}
     def _tools(st):
-        return "".join(f'<li><b>{E(t["name"])}.</b> <i>In cosmology:</i> {E(t["sky"])} <i>In the atlas:</i> {E(t["cell"])} <i>For your work:</i> {E(t["them"])}</li>'
+        return "".join(f'<li><b>{E(t["name"])}.</b> <i>In cosmology:</i> {E(t["sky"])} <i>In the atlas:</i> {E(t["cell"])} <i>IAM-Atlas&rsquo;s unique capability:</i> {E(t["them"])}</li>'
                        for t in _ST["tools"] if t["status"] == st)
     v21_banner = (f'<section class="wrap" id="v21"><div class="banner"><p class="kicker">IAM-Atlas v2.1 · 79 cells · commissioned use by use</p><h2>{E(_ST["title"])}</h2>'
         + "".join(f"<p>{E(x)}</p>" for x in _ST["opening"]) + f'<p><b>{E(_ST["not_this"])}</b></p>'
         + "".join(f'<details><summary>{_LB[st]}</summary><ul class="road">{_tools(st)}</ul></details>' for st in ("now", "gift", "after"))
-        + f'<p><b>Where it stands.</b> {E(_ST["limits"])}</p><p class="sub"><i>{E(_ST["closing"])}</i></p></div></section>')
+        + f'<p><b>What is commissioned.</b> {E(_ST["commissioned"])}</p><p class="sub"><i>{E(_ST["closing"])}</i></p></div></section>')
     _cs = importlib.util.spec_from_file_location("cat", os.path.join(REPO, "CANON", "catalogue.py")); CAT = importlib.util.module_from_spec(_cs); _cs.loader.exec_module(CAT)
     _C, _M = CAT.load()
     _cards = "".join(f'<article class="card"><span class="chip st-b">{E(CAT.stage(i, _M))}</span><h3>{E(i["name"])}</h3><p><b>{E(i["question"])}</b></p>'
@@ -237,7 +237,7 @@ def page(art):
 <section class="wrap" id="daylogs"><h2>Start here: the daily log</h2>
 <p class="cta">{"".join(f'<a class="btn" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[:1])}{"".join(f'<a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[1:4])}</p>
 </section>
-<p class="continues">Work continues: {going}. <a href="#road">The road ahead</a>.</p>
+<div class="wrap"><p class="continues">Running now: {going}. <a href="#road">The road ahead</a>.</p></div>
 {catalogue}
 {bits}
 <section class="wrap pic"><h2>The sky and the cell</h2>

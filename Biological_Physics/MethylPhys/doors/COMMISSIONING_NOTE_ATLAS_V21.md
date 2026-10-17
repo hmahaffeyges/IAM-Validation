@@ -23,8 +23,8 @@ close to nominal, but a low tail from three laboratories; diagnosis: ranges too 
 lung alveolar macrophages (not assessed: their only held-out set failed carried check D13); blood composition (U3 FAILED on cord blood and on
 emergency-department bloods, where the current method also misses); the breast and liver blind sites (no held-out epithelium).
 
-**Showcase, not a gate** (DEV-ATLAS-USE-01, sealed 2026-10-15): against Moss's published reference on 731 held-out arrays, v2.1 met all three bars:
-markers confirmed 0.424 against 0.398; blood mixtures median error 0.0224 against 0.0305; with brain cells Moss's reference does not hold,
+**Head-to-head against the published array reference atlas of human cell types** (DEV-ATLAS-USE-01, sealed 2026-10-15): on 731 held-out arrays, v2.1 met all three bars:
+markers confirmed 0.424 against 0.398; blood mixtures median error 0.0224 against 0.0305; with brain cells the published array reference does not hold,
 0.0228 against 0.0523, the outside share recovered in 87 % of mixtures.
 
 **Reference sets:** the atlas was built from 21 sources (E-MTAB-4957, ENCODE, GSE103541, GSE116754, GSE118144, GSE122244, GSE124565, GSE137716, GSE224807, GSE226298, GSE252045, GSE306226, GSE49618, GSE63409, GSE75405, GSE88824, Loyfer2023, Moss2018, Salas2018, Salas2022, Tian2023; `data/DEV_ATLAS_V21_01/final_samples_v21.csv`). Held out and read once: U1 29 series (E-MTAB-2145, E-MTAB-4957, GSE100561, GSE104287, GSE104471, GSE112179, GSE112696, GSE121192, GSE130029, GSE130030, GSE131989, GSE132547, GSE153459, GSE184269, GSE188573, GSE189255, GSE189256, GSE191200, GSE201872, GSE224807, GSE247198, GSE306226, GSE59065, GSE66351, GSE85566, GSE85647, GSE87095, GSE87640, GSE98203), GSE132547 removed by D13; U2a the same held-out arrays at each tissue test's sealed sites; U3 GSE127824 and GSE167202. Three held-out sets are the held-out halves of build series, named as held-out halves in the plan's held-out assignments (atlas_v21_plan.md) (E-MTAB-4957 colon epithelium, used for the colon blind sites; GSE224807; GSE306226); the commissioned cell references rest only on laboratories that built nothing.

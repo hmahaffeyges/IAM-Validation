@@ -51,7 +51,7 @@
   "E_hold_meth": {
    "value": 3.41,
    "units": "kT per methylated site",
-   "derivation": "ln((1-eps)/eps) of the measured held error on single molecules (Loyfer read-level, uncorrected)",
+   "derivation": "ln((1-eps)/eps) of the measured held error on single molecules (read-level files of the published sequencing atlas, uncorrected)",
    "source": "PROC-CHANNEL-01",
    "range_note": "3.41-3.77 kT across datasets (ENCODE, instrument-corrected, upper end)"
   },
@@ -128,7 +128,7 @@
   "P_neutrophil_IAM_A": {
    "value": 1.1492,
    "units": "dimensionless (H(eps_healthy) / H_ref)",
-   "derivation": "mean over 3 Loyfer granulocyte donors of H(eps of the other donors)/H(eps0), WHOLE files (1.1396-1.1554, CV 1.2 %)",
+   "derivation": "mean over 3 granulocyte donors of the published sequencing atlas of H(eps of the other donors)/H(eps0), WHOLE files (1.1396-1.1554, CV 1.2 %)",
    "source": "chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json (frozen 2026-10-08, whole files); valid for the loyfer_pat_v1 pipeline only",
    "status": "development"
   },

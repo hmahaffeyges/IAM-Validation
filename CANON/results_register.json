@@ -366,13 +366,13 @@
    "book": false,
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_01.md",
    "compute": "atlas_use",
-   "title": "Atlas v2.1 against Moss's published reference, on the jobs a reference atlas is used for",
-   "plain": "A reference atlas is used for two jobs: finding the DNA spots that mark each cell type, and working out which cells a mixed sample came from. On healthy cells from laboratories that never helped build either atlas, v2.1 was scored against Moss's published reference by bars sealed before v2.1 existed. It found as many reliable markers, split blood-cell mixtures with a smaller error, and, when brain cells Moss's reference does not hold were mixed in, recovered them and cut the error by more than half.",
+   "title": "IAM-Atlas v2.1 against the published array reference atlas of human cell types, on the jobs a reference atlas is used for",
+   "plain": "A reference atlas is used for two jobs: finding the DNA spots that mark each cell type, and working out which cells a mixed sample came from. On healthy cells from laboratories that never helped build either atlas, v2.1 was scored against the published array reference atlas of human cell types by bars sealed before v2.1 existed. It found as many reliable markers, split blood-cell mixtures with a smaller error, and, when brain cells that reference does not hold were mixed in, recovered them and cut the error by more than half.",
    "win": {
     "rank": 3,
     "stat": "3 of 3 bars",
     "head": "Our atlas beats the field's reference on its own jobs",
-    "sub": "On {n} held-out arrays: blood mixtures split {less} percent more accurately than Moss's reference; brain cells it cannot see recovered in {rec} percent of mixtures."
+    "sub": "On {n} held-out arrays: blood mixtures split {less} percent more accurately than the published array reference; brain cells it does not hold recovered in {rec} percent of mixtures."
    }
   },
   {
@@ -402,13 +402,13 @@
    "book": false,
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_02.md",
    "compute": "atlas_use_loyfer",
-   "title": "Atlas v2.1 against Loyfer's own reference, on the jobs a reference atlas is used for",
-   "plain": "Loyfer's published atlas was rebuilt exactly the way his paper builds it for arrays, from his 205 public samples, and scored against v2.1 by the same sealed bars that v2.1 met against Moss. On 731 healthy arrays from laboratories that never helped build either atlas, v2.1's markers held more often (0.998 against 0.938), it split mixtures with a smaller error (0.020 against 0.025), and with brain cells Loyfer's atlas does not hold mixed in, it cut the error by half (0.023 against 0.048).",
+   "title": "IAM-Atlas v2.1 against the published sequencing atlas of human cell types, on the jobs a reference atlas is used for",
+   "plain": "The published sequencing atlas was rebuilt for arrays exactly as its paper builds it, from its 205 public samples, and scored against v2.1 by the same sealed bars v2.1 met against the published array reference. On 731 healthy arrays from laboratories that never helped build either atlas, v2.1's markers held more often (0.998 against 0.938), it split mixtures with a smaller error (0.020 against 0.025), and with brain cells that atlas does not hold mixed in, it cut the error by half (0.023 against 0.048).",
    "win": {
     "rank": 2,
     "stat": "3 of 3 bars",
-    "head": "Our atlas beats Loyfer's reference too",
-    "sub": "On {n} held-out arrays: mixtures split {less} percent more accurately than Loyfer's reference; both published references now beaten on their own jobs."
+    "head": "IAM-Atlas v2.1 outperforms the published sequencing atlas on its own jobs",
+    "sub": "On {n} held-out arrays: mixtures split {less} percent more accurately than the published sequencing atlas; IAM-Atlas v2.1 now outperforms both published references on the jobs they were built for."
    }
   },
   {
