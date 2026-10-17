@@ -2336,3 +2336,4 @@ No other researcher named in public prose: the two published reference atlases a
 ### 2026-10-17 · Front page: three passages brought in line with the limits study (OTH-071, PHY-057)
 Met-A card states its commissioned scope only; Group-A card no longer leads with its exploratory check; How-we-test no longer says failures are posted beside the wins (front-page rule 2026-10-15). Records unchanged.
 T3 run 3: ranged downloads now re-fetch each range until it has its exact length (run 2 machines refused short files at the length check; nothing counted from them).
+T3 run 3 launched as jobs i-0c41babf42cacb851 (A) and i-06c853f33d845a463 (B), commit 774657f0.

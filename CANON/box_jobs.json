@@ -1979,7 +1979,7 @@
    "date": "2026-10-17",
    "commit": "7e5bdb3a",
    "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run2/",
-   "state": "running",
+   "state": "stopped",
    "log": "results/PRED_TEMPERATURE_01/T3/status_A.txt",
    "machine": "spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once",
    "purpose": "align 233 samples (ENA FASTQ, 16 ranged connections per file) with Bismark on TAIR10 and count each with chain stage TL; nothing scored",
@@ -1995,7 +1995,7 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run2/ at boot (code.tgz: chain/ archived at the commit)"
+   "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run2/ at boot (code.tgz: chain/ archived at the commit); stopped 2026-10-17 before any sample was counted (short ranged downloads refused at the length check); replaced by run 3"
   },
   {
    "job_id": "i-0953f41107b709b80",
@@ -2003,7 +2003,7 @@
    "date": "2026-10-17",
    "commit": "7e5bdb3a",
    "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run2_B/",
-   "state": "running",
+   "state": "stopped",
    "log": "results/PRED_TEMPERATURE_01/T3/status_B.txt",
    "machine": "spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once",
    "purpose": "align 233 samples (ENA FASTQ, 16 ranged connections per file) with Bismark on TAIR10 and count each with chain stage TL; nothing scored",
@@ -2019,7 +2019,55 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run2/ at boot (code.tgz: chain/ archived at the commit)"
+   "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run2/ at boot (code.tgz: chain/ archived at the commit); stopped 2026-10-17 before any sample was counted (short ranged downloads refused at the length check); replaced by run 3"
+  },
+  {
+   "job_id": "i-0c41babf42cacb851",
+   "name": "Temperature law stage T3 run 3, machine A: align and chain-count Arabidopsis samples from a shared queue (PHY-057)",
+   "date": "2026-10-17",
+   "commit": "774657f0",
+   "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run3/",
+   "state": "running",
+   "log": "results/PRED_TEMPERATURE_01/T3/status_A.txt",
+   "machine": "spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once",
+   "purpose": "align 233 samples (ENA FASTQ, 16 ranged connections per file, each range re-fetched to its exact length) with Bismark on TAIR10 and count each with chain stage TL; nothing scored",
+   "record": "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/box/align_plants.sh",
+   "manifest": [
+    "PHY-057"
+   ],
+   "outputs": [
+    "results/PRED_TEMPERATURE_01/T3/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/box/align_plants.sh",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
+   ],
+   "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run3/ at boot"
+  },
+  {
+   "job_id": "i-06c853f33d845a463",
+   "name": "Temperature law stage T3 run 3, machine B: align and chain-count Arabidopsis samples from a shared queue (PHY-057)",
+   "date": "2026-10-17",
+   "commit": "774657f0",
+   "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run3_B/",
+   "state": "running",
+   "log": "results/PRED_TEMPERATURE_01/T3/status_B.txt",
+   "machine": "spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once",
+   "purpose": "align 233 samples (ENA FASTQ, 16 ranged connections per file, each range re-fetched to its exact length) with Bismark on TAIR10 and count each with chain stage TL; nothing scored",
+   "record": "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/box/align_plants.sh",
+   "manifest": [
+    "PHY-057"
+   ],
+   "outputs": [
+    "results/PRED_TEMPERATURE_01/T3/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/box/align_plants.sh",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
+   ],
+   "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run3/ at boot"
   }
  ],
  "not_jobs": {
