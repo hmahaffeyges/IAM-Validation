@@ -1957,7 +1957,7 @@
    "date": "2026-10-17",
    "commit": "ace77d73",
    "s3_code_prefix": "results/CHAIN_V4_CLEANCLONE/code/run6/",
-   "state": "running",
+   "state": "finished",
    "log": "results/CHAIN_V4_CLEANCLONE/status.txt",
    "machine": "spot m7a.xlarge, self-terminating",
    "purpose": "clone, install chain/requirements.txt only, run release_check_v4.py; every check must pass",

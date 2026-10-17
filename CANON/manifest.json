@@ -27463,9 +27463,16 @@
      "note": "clean clone run 5 (job i-0e16beceebf3b188e): 23 of 25; the v3 technical record drew the retired position-form IAM-A gauge with no end once 4.26 was removed, the report crashed (E4, E9); the position form keeps its own end; E4 and E9 pass locally; run 6 confirms",
      "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/run5/release_check_v4.log",
      "page": "not headline: a gate on the way to the commissioned chain"
+    },
+    {
+     "date": "2026-10-17",
+     "outcome": "success",
+     "note": "clean clone run 6 (job i-0aba950537dcf09ba): 25 of 25 with the per-sample IAM-A gauge end",
+     "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/run6/release_check_v4.log",
+     "page": "not headline: goes into the commissioned-chain card with the shipped example reports (OTH-068)"
     }
    ],
-   "next_step": "run 6 running (job i-0aba950537dcf09ba, commit ace77d73)",
+   "next_step": "done 2026-10-17: 25 of 25 from a fresh public clone (runs 4 and 6)",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
@@ -27505,7 +27512,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "running",
    "runs": [],
-   "next_step": "pass 2 2026-10-17: AstroGenetics read by hand and fixed; IAM-A gauge ends corrected in 12 places; next: Cosmic Methylome (sky) and DNA/cell chapters read by hand",
+   "next_step": "pass 2 2026-10-17: AstroGenetics, sky, separation, atlas and temperature chapters read by hand and fixed; IAM-A gauge ends in 12 places; next: Landauer, surface and identity chapters read by hand",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

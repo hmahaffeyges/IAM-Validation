@@ -49,7 +49,6 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 | DEV-IAMA-GRAND-01 run 3 machine J: on-demand helper on the shared queue | on-demand m7a.16xlarge us-west-2a, 2 samples at a time, 1.5 TB disk | COM-IAMA-052 |
 | Temperature law stage T3, machine A: align and chain-count Arabidopsis samples from a shared queue (PHY-057) | spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once | PHY-057 |
 | Temperature law stage T3, machine B: align and chain-count Arabidopsis samples from a shared queue (PHY-057) | spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once | PHY-057 |
-| Chain v4 one-command test from a fresh public clone, run 6 (position-form gauge end) (OTH-070) | spot m7a.xlarge, self-terminating | OTH-070 |
 
 ## Decisions waiting for the author
 

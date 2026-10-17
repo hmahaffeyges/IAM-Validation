@@ -8,9 +8,9 @@ model a CMB analysis subtracts. Two rules govern what may enter. A cell enters w
 left out, because a partial cell has to be filled, and filled values are where misplaced and duplicate cells come from. And a reference is
 purified healthy cells of one type; every sample, specimen or vial is a means to the methylome sought.
 
-\section{What chain v3 reads}
+\section{What the chain reads}
 
-Chain v3 reads five frozen reference files and nothing else. All are built from
+Met-A and the C-score read five frozen reference files and nothing else (as in chain v3). Chain v4 adds the IAM-Atlas v2.1 tables, read by the IAM-Deconvolver for cell shares, and IAM-A's self-reference line, sample-shape reference and band. The five array files are all built from
 purified EPIC v1 arrays of healthy donors~\cite{Salas2018,Salas2022}, processed from the raw IDATs by the chain's own Stage~1, so the specimen and the
 reference are on one scale before anything is compared.
 
@@ -80,9 +80,7 @@ those series, so the profiles and the mixtures are not independent there; the in
 
 \section{The multi-source atlas}
 
-Atlas v2, described below, is the multi-source reference. The commissioned reading (Met-A on isolated neutrophils) does not read it.
-Development stages of chain v3 read it for blood composition, and the sealed tissue tests use it to choose their composition-blind sites.
-Each use is commissioned on its own, on purified cells from laboratories that did not build it; until then each is development. \openprob
+Atlas v2, described below, is the multi-source reference. The commissioned reading (Met-A on isolated neutrophils) does not read it, nor its second build, IAM-Atlas v2.1, which chain v4's IAM-Deconvolver reads for cell shares; the sealed tissue tests use it to choose their composition-blind sites. Each use is commissioned on its own, on purified cells from laboratories that did not build it; until then each is development.
 
 \textbf{Atlas v2.1 is commissioned for three cell references and two tissue tests' blind sites} (2026-10-16): the reference profiles of
 cortical neurons, lung bronchus epithelium and naive CD4 T cells on 450K arrays, and the blind sites of the sealed colon and lung tissue tests,
@@ -99,8 +97,7 @@ held-out precision of its healthy reference, recovery in known mixtures, and a k
 
 \section{Atlas v2: the reference for the cells that come next}
 
-The neutrophil reference and the eight composition profiles of chain v3 come from purified EPIC arrays, as above. Atlas v2
-is the reference from which the identity sites and profiles of each further cell type will be drawn as that type is commissioned. It was built
+The neutrophil reference and the eight composition profiles of chain v3 come from purified EPIC arrays, as above. Atlas v2, and after it IAM-Atlas v2.1, are the references from which the identity sites and profiles of each further cell type are drawn as that type is commissioned. It was built
 to the same rule: every cell type measured on purified healthy cells of that type, nothing filled, every value with its uncertainty.
 Its build scripts, records, checksums and commissioning status are in the repository folder
 \href{https://github.com/hmahaffeyges/IAM-Validation/tree/main/Biological_Physics/MethylPhys/atlas}{\texttt{Biological\_Physics/MethylPhys/atlas}}.
@@ -143,9 +140,7 @@ the same null tests rerun at every release & the same held-out cells rerun at ev
 AstroGenetics is not a metaphor laid over the biology: it is the same mathematics applied to a different signal. The atlas is one
 hierarchical fit with an offset for each source, sampled by MCMC to a posterior, the family of methods used to combine scans from different
 instruments into one sky map (the atlas is a posterior; readings carry no posterior yet). Reading past the cell-type mix is component separation,
-the job of pulling the microwave background out from behind dust and galactic emission (in use, one solver; a second solver is built but not in
-the chain). The atlas proves itself the way the maps did, on held-out data and with split maps and null tests (in use). The genome-on-HEALPix
-pixelization of the sky maps is built but not in the chain. The status of every tool, built, partial or not built, is on the tool board
+the job of pulling the microwave background out from behind dust and galactic emission (in use: Stage~A for Met-A's expectation, and the IAM-Deconvolver against IAM-Atlas v2.1 for cell shares, both in chain v4). The atlas proves itself the way the maps did, on held-out data and with split maps and null tests (in use). The genome-on-HEALPix pixelization draws the C-score's departures in every chain v4 array report, as a picture; no reading is scored from it. The status of every tool, built, partial or not built, is on the tool board
 (Table~\ref{tab:map79}).
 
 The map is used only where the sky has foregrounds. The commissioned Met-A reading on isolated neutrophils does not read the atlas, and

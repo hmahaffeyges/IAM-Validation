@@ -2321,3 +2321,6 @@ Clean clone run 5 launched as job i-0e16beceebf3b188e (commit 35246d52).
 Removing 4.26 left the retired position-form IAM-A gauge in the v3 technical record with no end; the report crashed and E4/E9 failed. That form now keeps its own end (IAM-A_position 4.26, labeled retired). E4 and E9 pass on the laptop; not called fixed until run 6 passes.
 
 Clean clone run 6 launched as job i-0aba950537dcf09ba (commit ace77d73).
+
+### 2026-10-17 · Clean clone run 6 passes 25 of 25; book pass 2 continued (OTH-070, OTH-072)
+Run 6 confirms the per-sample IAM-A gauge end and the position-form fix. Book: the sky chapter said no C-score band was set (it is commissioned on whole blood, one-sided above 1.152) and called v2.1 the reference for cells that come next; the separation chapter said a second solver was not built (the IAM-Deconvolver is in v4, commissioned for blood shares); the atlas chapter listed only the five v3 files; the temperature chapter gains the sealed plant test (PRED-TEMPERATURE-01 T3, Dubin et al. 2015 cited).

@@ -38,6 +38,17 @@ preference is the same at every temperature, the enzyme holds its error fixed in
 Figure~\ref{fig:eps0T}). This is measurable by single-molecule DNMT1 kinetics --- a direct test in a cell-free system.
 \prediction
 
+\section{The sealed plant test}\label{sec:temp_plants}
+
+The cleanest test of a fixed holding energy needs no animal and no enzyme assay: the same plant grown at two temperatures. If the held error is set by
+a fixed energy, its log-odds scale as $1/T$, so the log-odds of a plant grown at $T_{\rm cold}$ over those of the same plant at $T_{\rm warm}$ is
+$T_{\rm warm}/T_{\rm cold}$, whatever the energy is. For Arabidopsis accessions grown at 10 and 16~\textdegree C~\cite{Dubin2015} that is
+$289.15/283.15=1.0212$, nothing fitted. \calc{} The test is sealed (PRED-TEMPERATURE-01, stage T3, 2026-10-17): 111 accessions grown at both
+temperatures, counted by the chain on single molecules, each sample corrected for its own sequencer error and for bisulfite conversion read on its
+chloroplast. It passes if the paired median ratio lies within a quarter of the law's shift (1.0159 to 1.0265) and its 95~\% interval excludes 1. On
+planted data through the chain it recovered the law when true (40 of 40) and rejected it when temperature had no effect (0 of 40). The plants are
+being counted now. \prediction
+
 \section{Reading ectotherms}
 
 The test is one species, one cell type and one pipeline at two recorded temperatures, each fish read against its own floor on single
