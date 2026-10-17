@@ -27458,7 +27458,7 @@
      "page": "not headline: goes into the commissioned-chain card with the shipped example reports (OTH-068)"
     }
    ],
-   "next_step": "done 2026-10-17: 25 of 25 from a fresh public clone (run 4)",
+   "next_step": "done 2026-10-17: 25 of 25 from a fresh public clone (run 4); the run-2 log entry that called E8 fixed was corrected (run 3 still failed E8)",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
