@@ -86,7 +86,7 @@ def page(art):
         if e.get("sealed") is False: chip = '<span class="chip st-b">Early result</span>'   # found in data already read; not a sealed test
         _story = "".join(f"<h4>{E(x['h'])}</h4><p>{E(x['p'])}</p>" for x in e.get("story", []))
         _story = f'<details><summary>Why it matters</summary>{_story}</details>' if _story else ""
-        return f'''<article class="res win">{chip}<p class="stat">{f(w["stat"])}</p><h3>{f(w["head"])}</h3><p>{f(w["sub"])}</p>{_story}<p class="more"><span>{E(e["date"])}</span> · <a href="{rec(e["record"])}">the record</a></p></article>'''
+        return f'''<article class="res win">{chip}{"" if w["stat"].strip().lower() == e.get("status", "") else '<p class="stat">' + f(w["stat"]) + '</p>'}<h3>{f(w["head"])}</h3><p>{f(w["sub"])}</p>{_story}<p class="more"><span>{E(e["date"])}</span> · <a href="{rec(e["record"])}">the record</a></p></article>'''
     MT = J("CANON/method.json")
     AS = J("CANON/assistant.json")
     ul = lambda xs: "".join(f"<li>{E(x)}</li>" for x in xs)
@@ -123,12 +123,12 @@ def page(art):
                 f'<br><span class="meta">Breaks: <b>{E(x.get("falsifier_scope", "?"))}</b>. {E(x.get("falsifier", ""))}</span>'
                 + (f'<br><span class="meta">Simulated: {done}</span>' if done else "") + '</li>')
     levers_list = "\n".join(lever_row(x) for x in LV["levers"])
-    results = "\n".join(card(e) for e in regs[:3])
-    if len(regs) > 3:
-        # the fold spans the whole grid and holds its own grid, so folded cards lay out side by side (they stacked in one cell before)
-        _more = sorted(regs[3:], key=lambda e: e["date"], reverse=True)
-        results += ('\n<details class="span"><summary>' + str(len(_more)) + ' more results, newest first</summary>\n<div class="grid">'
-                    + "\n".join(card(e) for e in _more) + '</div>\n</details>')
+    # the front (author 2026-10-17): only the commissioned chain and the tests it passed, in CANON/chain_front.json order; every other
+    # register entry is in EARLIER_RESULTS.md (CANON/earlier_results.py), rendered as a site page and linked below the cards
+    CF = J("CANON/chain_front.json"); _byid = {e["id"]: e for e in REG["entries"]}
+    results = "\n".join(card(_byid[i]) for i in CF["front"] if i in _byid)
+    chain_lead = "".join(f'<p class="sub">{E(x)}</p>' for x in CF["lead"])
+    n_earlier = sum(1 for e in REG["entries"] if e["id"] not in CF["front"] and e.get("status") != "withdrawn")
     decisions = "\n".join(f'<li><b>{E(x["date"])}</b> {E(x["plain"])} <a href="{rec(x["record"])}">the record</a></li>' for x in REG.get("decisions", []))
     losses = "\n".join(f'<li><b>{E(x["date"])}</b> {E(x["plain"])} <a href="{rec(x["record"])}">the record</a></li>' for x in REG["losses"])
     mouse = next(e for e in REG["entries"] if e["id"] == "DEV-SAM-LEVER-01"); mv = vals(mouse)
@@ -230,13 +230,14 @@ def page(art):
 <p class="lead">We read the methylation of human DNA with the same mathematics cosmologists use to map the sky, to measure how faithfully a cell holds its information. The goal is early cancer detection from a blood or stool sample. Every test is written down before its data is read, and every result is recorded in the open, win or lose: <a href="#daylogs">the daily log</a>.</p>
 <p class="cta"><a class="btn" href="#daylogs">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
 <main>
+<section class="wrap" id="wins"><h2>{E(CF["title"])}</h2>{chain_lead}<div class="grid">{results}</div>
+<p class="sub">Each card links to its record. <a href="{rec("EARLIER_RESULTS.md")}">{E(CF["earlier"])}</a> ({n_earlier}, each with its record).</p></section>
 {v21_banner}
 {last24}
 <section class="wrap" id="daylogs"><h2>Start here: the daily log</h2>
 <p class="cta">{"".join(f'<a class="btn" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[:1])}{"".join(f'<a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[1:4])}</p>
 </section>
-<section class="wrap" id="wins"><h2>Recent Accomplishments</h2><p class="sub">Each links to its record.</p><div class="grid">{results}</div>
-<p class="continues">Work continues: {going}. <a href="#road">The road ahead</a>.</p></section>
+<p class="continues">Work continues: {going}. <a href="#road">The road ahead</a>.</p>
 {catalogue}
 {bits}
 <section class="wrap pic"><h2>The sky and the cell</h2>

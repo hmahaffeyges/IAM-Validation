@@ -2274,3 +2274,6 @@ doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh: a fresh public clone at a named
 
 ### 2026-10-17 · Chain v4 clean-clone test launched (OTH-068)
 Job i-0d4559e967ace0f61 (spot m7a.xlarge, self-terminating within 150 minutes): a fresh public clone at f6c74bb3, a new environment from chain/requirements.txt, then release_check_v4.py. Results to results/CHAIN_V4_CLEANCLONE/.
+
+### 2026-10-17 · Front page: the commissioned chain first (OTH-071)
+The page now opens with "The first commissioned IAM chain": the five commissioned instruments and the two atlas head-to-heads, in the order of CANON/chain_front.json, under a short lead. The 16 earlier results (development tests from before the chain) moved off the front to EARLIER_RESULTS.md, generated from the register by CANON/earlier_results.py with the same computed numbers and rendered as a site page; none is withdrawn. Checkpoint writes it; the push gate refuses a stale copy.

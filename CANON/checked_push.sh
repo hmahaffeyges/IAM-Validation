@@ -18,6 +18,7 @@ python3 CANON/kiss_check_controls.py > /dev/null && python3 CANON/kiss_check.py 
 python3 CANON/costs_fresh.py || { echo "checked_push.sh: COSTS ON THE PAGE ARE STALE - push refused"; exit 1; }
 python3 CANON/site_build_check.py || { echo "checked_push.sh: WEBSITE BUILD IS FAILING - push refused"; exit 1; }
 python3 CANON/commissioning_report.py --check || { echo "checked_push.sh: COMMISSIONING_REPORT.md differs from the records - push refused"; exit 1; }
+python3 CANON/earlier_results.py --check || { echo "checked_push.sh: EARLIER_RESULTS.md differs from the register - push refused"; exit 1; }
 python3 CANON/atlas_story.py --check || { echo "checked_push.sh: ATLAS STORY (README or book) differs from CANON/atlas_story.json - push refused"; exit 1; }
 python3 CANON/book_bits.py --check || { echo "checked_push.sh: BOOK BITS CHAPTER differs from CANON/four_domains.json - push refused"; exit 1; }
 python3 CANON/catalogue.py --check || { echo "checked_push.sh: CATALOGUE CHECK FAILED - INSTRUMENTS.md or the README catalogue differs from CANON/catalogue.json - push refused"; exit 1; }
