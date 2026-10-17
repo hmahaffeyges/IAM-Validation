@@ -2308,3 +2308,6 @@ Run 3 still failed E8. The real cause (v3 drew an empty gauge scale with no read
 
 ### 2026-10-17 · Temperature law stage T3 sealed (PHY-057)
 The reading rule for the 111 Arabidopsis pairs (GSE54292) is committed before any plant read is counted (PRED_TEMPERATURE_01.md, stage T3). Public headers carry no flowcell, so the flowcell pairing is replaced by a chloroplast conversion correction in chain stage TL (T2 synthetic rerun MET: planted 0.030 read 0.0305) and an information-only sequencer-error check. Scorer tested on planted counts (law MET, null NOT MET).
+
+### 2026-10-17 · Temperature law stage T3 counting launched (PHY-057)
+Jobs i-07f82bdb6c101f758 (A) and i-0ebb4b0b42b31bbf6 (B): spot 64-core machines on one shared queue, code at afc726be (results/PRED_TEMPERATURE_01/T3/code/run1/). A first pair launched minutes earlier booted before the code upload and shut itself down; nothing ran.

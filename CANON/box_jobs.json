@@ -1880,6 +1880,52 @@
     "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
    ],
    "note": "stops itself after 150 minutes at most"
+  },
+  {
+   "job_id": "i-07f82bdb6c101f758",
+   "name": "Temperature law stage T3, machine A: align and chain-count Arabidopsis samples from a shared queue (PHY-057)",
+   "date": "2026-10-17",
+   "commit": "afc726be",
+   "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run1/",
+   "state": "running",
+   "log": "results/PRED_TEMPERATURE_01/T3/status_A.txt",
+   "machine": "spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once",
+   "purpose": "align 233 samples (ENA FASTQ) with Bismark on TAIR10 and count each with chain stage TL; nothing scored",
+   "record": "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/box/align_plants.sh",
+   "manifest": [
+    "PHY-057"
+   ],
+   "outputs": [
+    "results/PRED_TEMPERATURE_01/T3/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/box/align_plants.sh",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
+   ],
+   "note": "stops itself after 24 hours at most"
+  },
+  {
+   "job_id": "i-0ebb4b0b42b31bbf6",
+   "name": "Temperature law stage T3, machine B: align and chain-count Arabidopsis samples from a shared queue (PHY-057)",
+   "date": "2026-10-17",
+   "commit": "afc726be",
+   "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run1/",
+   "state": "running",
+   "log": "results/PRED_TEMPERATURE_01/T3/status_B.txt",
+   "machine": "spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once",
+   "purpose": "align 233 samples (ENA FASTQ) with Bismark on TAIR10 and count each with chain stage TL; nothing scored",
+   "record": "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/box/align_plants.sh",
+   "manifest": [
+    "PHY-057"
+   ],
+   "outputs": [
+    "results/PRED_TEMPERATURE_01/T3/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/box/align_plants.sh",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
+   ],
+   "note": "stops itself after 24 hours at most"
   }
  ],
  "not_jobs": {
