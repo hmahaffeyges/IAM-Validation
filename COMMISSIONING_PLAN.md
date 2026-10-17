@@ -14,7 +14,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 3. **IAM-A: its own healthy band, from evidence across laboratories**
    - COM-IAMA-054 (run; last run 2026-10-16: met): band v1 built (Normal 0.7787-1.0551, 156 readings, two laboratories); becomes IAM-A's Normal mark when IAM-A is commissioned (COM-IAMA-052)
 4. **IAM-A: clean room, part A**
-   - PHY-055 (running; last run 2026-10-16: progressed): run 3: the five ENCODE files recounted from ENCODE with the index built, then the full comparison
+   - PHY-055 (running; last run 2026-10-16: progressed): run 3 running on its own machine (job i-09dd0f71b2e095177): the five ENCODE files recounted with the index built, then the full comparison
 5. **IAM-A: the grand sealed test, then commissioning**
    - COM-IAMA-052 (running): sealed 2026-10-16 (author: 'okay, seal it'): 13 healthy CD8 T-cell samples, GSE144691 (Youngblood, St. Jude), first 40 billion bases each, chain count; S1: at least 75 percent of read samples inside band v1, at least 8 read. Two self-terminating machines aligning and counting (run 1 never started, start-up file quoting; run 2: A i-0fd3660dff150bd4a, B i-0888ed7bd36c2020c, launched 04:34 PDT (AWS launch time); preflight ok 04:41 PDT, mapping 89.3 and 89.7 percent, poly-G tails 0.01 percent); then score_grand.py once
 6. **Atlas v2.1: the fit lands; release checks, sealed bars, the Loyfer and Moss use tests**

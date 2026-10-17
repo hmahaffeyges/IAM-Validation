@@ -25875,7 +25875,7 @@
      "page": "not headline: in progress"
     }
    ],
-   "next_step": "run 3: the five ENCODE files recounted from ENCODE with the index built, then the full comparison",
+   "next_step": "run 3 running on its own machine (job i-09dd0f71b2e095177): the five ENCODE files recounted with the index built, then the full comparison",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -27186,6 +27186,14 @@
      "outcome": "fail",
      "note": "scored once (box job e8e72ed7): B1 MET (mean error 0.029), B2 NOT MET (true share inside the 95% bar 0.42); shares right to about 3 points, error bars too narrow (site resampling only). Record: doors/DEV_DECONV_V21_01.md",
      "page": "not headline: development"
+    },
+    {
+     "date": "2026-10-17",
+     "outcome": "fail",
+     "note": "NOT MET (chain result Biological_Physics/MethylPhys/doors/data/DEV_DECONV_V21_01/deconv_v2_scored.json)",
+     "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_DECONV_V21_01/deconv_v2_scored.json",
+     "payload_sha256": "d9b6b87f1dfbf43bb09cb89326d09a6c5d252715a2d910bb77511bc21b8d86b3",
+     "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
    "next_step": "sample-shape check that flags an array not reading as its own cell (sealed first), then a fresh mixture test on E-MTAB-2145; diagnostic 2026-10-16: misses trace to GSE59065's sorted T cells",
@@ -27199,6 +27207,15 @@
    ],
    "sources_of_row": [
     "author 2026-10-13: if they do not find it better than what they have, they will not care"
+   ],
+   "chain_outputs": [
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_DECONV_V21_01",
+     "files": 2,
+     "stage": "Q2 self-reference",
+     "chain": "15c31c203bf7",
+     "latest_utc": "2026-10-17T01:09:35Z"
+    }
    ]
   },
   {
@@ -27263,6 +27280,15 @@
    ],
    "sources_of_row": [
     "author 2026-10-13: if they do not find it better than what they have, they will not care"
+   ],
+   "chain_outputs": [
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_USE_02",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "15c31c203bf7",
+     "latest_utc": "2026-10-17T01:24:38Z"
+    }
    ]
   }
  ],
