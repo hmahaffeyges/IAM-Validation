@@ -26,7 +26,8 @@ one(){ gsm=$1; acc=$2; temp=$3; runs=$4; urls=$5; mkdir -p $W/$gsm && cd $W/$gsm
   for u in $(echo "$urls" | tr '|' ' '); do for m in 1 2; do url="https://${u}_$m.fastq.gz"
     size=$(curl -sIL --retry 8 "$url" | grep -i '^content-length' | tail -1 | awk '{print $2}' | tr -d '\r'); [ -n "$size" ] || { st "$gsm download FAILED (no length) $u"; return; }
     n=16; c=$(( (size + n - 1) / n ))
-    for k in $(seq 0 $((n - 1))); do a=$((k * c)); z=$(( (k + 1) * c - 1 )); [ $z -ge $size ] && z=$((size - 1)); curl -s --retry 10 -r $a-$z -o rg_$m.$k "$url" & done; wait
+    getr() { local k=$1 a=$2 z=$3 t; for t in 1 2 3 4 5 6 7 8; do curl -s --retry 10 --retry-all-errors -r $a-$z -o rg_$m.$k "$url"; [ "$(stat -c %s rg_$m.$k 2>/dev/null)" = "$((z - a + 1))" ] && return 0; sleep $((t * 5)); done; return 1; }
+    for k in $(seq 0 $((n - 1))); do a=$((k * c)); z=$(( (k + 1) * c - 1 )); [ $z -ge $size ] && z=$((size - 1)); getr $k $a $z & done; wait   # each range re-fetched until it has its exact length
     for k in $(seq 0 $((n - 1))); do cat rg_$m.$k; done > part_$m.fq.gz; rm -f rg_$m.*
     got=$(stat -c %s part_$m.fq.gz); [ "$got" = "$size" ] || { st "$gsm download FAILED (length $got of $size) $u"; return; }
     cat part_$m.fq.gz >> r_$m.fastq.gz; rm -f part_$m.fq.gz; done; done

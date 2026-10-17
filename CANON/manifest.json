@@ -25993,7 +25993,7 @@
    "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
    "status": "running",
    "runs": [],
-   "next_step": "stage T3 run 2 counting on AWS: jobs i-0c300e14cdfd6fd15 and i-0953f41107b709b80 (shared queue, 233 samples); then scored once by score_temperature.py",
+   "next_step": "stage T3 run 3 (ranged downloads with per-range retry): counting on AWS from a shared queue, then scored once by score_temperature.py",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -27493,7 +27493,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "running",
    "runs": [],
-   "next_step": "2026-10-17: wording per the author's page review (names, atlas story labels, now-running line); next: the rest of his batched review",
+   "next_step": "2026-10-17: wording per the author's page review (names, atlas story labels, now-running line, Met-A and Group-A cards, how-we-test); next: the rest of his batched review",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

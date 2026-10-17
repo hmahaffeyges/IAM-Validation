@@ -31,7 +31,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
    - OTH-059 (planned): for each instrument: healthy band from healthy readings (Met-A's 0.95-1.05 was set by hand on 2026-10-01 and confirmed, 525 of 541 healthy arrays inside, medians 0.994-1.005: rebuild it from the spread); tumor line from tumor-over-own-normal readings (A-score database); worst lab shift measured (ENCODE B cell for IAM-A); margin stated
    - OTH-058 (planned): define, per specimen, which instruments read it and what agreement means; report agreement beside the readings, never folded into them
 11. **Stage T: the temperature law**
-   - PHY-057 (running): stage T3 run 2 counting on AWS: jobs i-0c300e14cdfd6fd15 and i-0953f41107b709b80 (shared queue, 233 samples); then scored once by score_temperature.py
+   - PHY-057 (running): stage T3 run 3 (ranged downloads with per-range retry): counting on AWS from a shared queue, then scored once by score_temperature.py
 12. **IAM in bits; literature positioning**
    - OTH-061 (running; last run 2026-10-15: progressed): cell throughput: find measured one-carbon/SAM flux and ATP for methyl writing per cell (literature, metadata only), then power/price as a bound, tagged candidate; then the citations for qubits, chips, cells
    - OTH-062 (planned): search the scholarly databases claim by claim; table: claim, nearest prior work, difference, status; then the paper's lineage section

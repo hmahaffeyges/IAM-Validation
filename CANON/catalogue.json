@@ -23,7 +23,7 @@
    "id": "meta",
    "name": "Met-A",
    "question": "How far has a tissue's tagging level drifted toward the ceiling?",
-   "how": "Reads the methylation level at sites a healthy cell holds firmly, against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils; whole blood is in development.",
+   "how": "Reads the methylation level at sites a healthy cell holds firmly, against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils.",
    "reads": "arrays",
    "rows": [
     "COM-METAA-003",
@@ -72,7 +72,7 @@
    "id": "groupa",
    "name": "Group-A",
    "question": "Has a whole group moved (a trial arm, an exposure, a cohort)?",
-   "how": "Single blood readings are too noisy for one person on arrays, but a group average is not. Our honesty test showed two healthy groups from two labs can differ as much as a tumor would, so Group-A compares groups only when they were run in the same series.",
+   "how": "Single blood readings are too noisy for one person on arrays, but a group average is not. Group-A compares groups run in the same series, so a laboratory's own habits cancel out.",
    "reads": "arrays",
    "rows": [
     "GRP-004"

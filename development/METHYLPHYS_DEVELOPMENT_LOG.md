@@ -2332,3 +2332,7 @@ T3 run 2 launched as jobs i-0c300e14cdfd6fd15 (A) and i-0953f41107b709b80 (B), c
 
 ### 2026-10-17 · Public wording (author review of the page; OTH-071, ATL-005, ATL-060, ATL-067)
 No other researcher named in public prose: the two published reference atlases are described by their work (the published array reference atlas, the published sequencing atlas of human cell types) and cited formally; code, file and record identifiers keep their names, and dated records (development log, day logs, sealed pre-registrations) stay as written. Atlas story: "For your work" is now "IAM-Atlas's unique capability"; "coming with / after the release" are now "complementary additions, ready or in progress" and "on the horizon"; "Where it stands" (a list of what is not commissioned) replaced by "What is commissioned"; the cross-calibration entry rewritten in plain words; no "launch" or "ships". Now-running board: atlas v2.1 marked result; parked items on hold (limits study); the temperature test added; the page line shows only what is running, inside the page width.
+
+### 2026-10-17 · Front page: three passages brought in line with the limits study (OTH-071, PHY-057)
+Met-A card states its commissioned scope only; Group-A card no longer leads with its exploratory check; How-we-test no longer says failures are posted beside the wins (front-page rule 2026-10-15). Records unchanged.
+T3 run 3: ranged downloads now re-fetch each range until it has its exact length (run 2 machines refused short files at the length check; nothing counted from them).

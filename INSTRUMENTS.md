@@ -44,7 +44,7 @@ A map of 79 kinds of healthy human cells, built from seven public sources on arr
 
 **The question:** How far has a tissue's tagging level drifted toward the ceiling?
 
-Reads the methylation level at sites a healthy cell holds firmly, against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils; whole blood is in development.
+Reads the methylation level at sites a healthy cell holds firmly, against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils.
 
 **Reads:** arrays. **Where it stands:** commissioned (isolated neutrophils).
 
@@ -87,7 +87,7 @@ Counts tagging mistakes one DNA molecule at a time, the most direct reading of i
 
 **The question:** Has a whole group moved (a trial arm, an exposure, a cohort)?
 
-Single blood readings are too noisy for one person on arrays, but a group average is not. Our honesty test showed two healthy groups from two labs can differ as much as a tumor would, so Group-A compares groups only when they were run in the same series.
+Single blood readings are too noisy for one person on arrays, but a group average is not. Group-A compares groups run in the same series, so a laboratory's own habits cancel out.
 
 **Reads:** arrays. **Where it stands:** in development.
 
