@@ -2327,3 +2327,5 @@ Run 6 confirms the per-sample IAM-A gauge end and the position-form fix. Book: t
 
 ### 2026-10-17 · Temperature T3 run 2: parallel ranged downloads from ENA (PHY-057)
 Run 1 machines fetched ENA at about 0.7 MB/s per connection (one 1.3 GB sample in 30 minutes; 585 GB would take over 13 hours). Run 2 fetches each file as 16 byte ranges and checks the joined length against ENA. Same files and source; alignment, count and the sealed rule unchanged. Run 1 machines stopped before any sample was counted; their claims cleared.
+
+T3 run 2 launched as jobs i-0c300e14cdfd6fd15 (A) and i-0953f41107b709b80 (B), commit 7e5bdb3a.
