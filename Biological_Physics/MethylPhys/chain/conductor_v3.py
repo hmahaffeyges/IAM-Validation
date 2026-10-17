@@ -280,13 +280,13 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
         m["state"] = (f"withheld: only {m['noise_sites_measured']:,} of the {m['noise_sites_total']:,} noise sites were measured on this array "
                       f"(at least {need:,}, 90 %, are needed). The noise index N is this array's own noise, read at sites every blood cell holds fixed; "
                       f"without it the gauge cannot tell a change in the cell from noise on the array, so no gauge state is shown, tared or not. "
-                      f"A is printed as a number only. Probes are lost when Stage 1 finds them at background: re-hybridise the specimen or check the "
+                      f"A is printed as a number only. Probes are lost when Stage 1 finds them at background: re-hybridize the specimen or check the "
                       f"array's signal (Stage 1 detection line).")
     elif N is not None and N > g["N_max"] and t.get("A_rel") is None and m.get("A") is not None:   # no A -> its own reason stands (2026-10-03)
         m["state"] = f"withheld: noise index {N} > {g['N_max']} and no same-run tare; A printed as a number only"
     if m.get("A") is not None and m.get("specimen") != "whole blood": m["commissioning"] = METAA_COMMISSIONING   # isolated neutrophils only (2026-10-11)
     elif m.get("A") is not None: m["development"] = ("DEVELOPMENT - not commissioned: whole blood (composition, bar 7, met only on the reference laboratory's own truth sets; commissioned when met on whole bloods of known composition from an independent laboratory). Detection limit at this fraction: 5 % loss (DEV-METAA-SENS-01).")
-    out["met_a"] = m; out["met_a_cscore"] = stage_t_cscore(stage_mc_cscore(z), ref_A, sample_id)
+    out["met_a"] = m; out["met_a_cscore"] = stage_t_cscore(stage_mc_cscore(z), ref_A, sample_id); out["_cscore_z"] = z   # v4 sky; popped before the bundle
     if out["met_a_cscore"].get("C_rel") is not None and m.get("specimen") in CSCORE_COMMISSIONING["specimens"]: out["met_a_cscore"]["commissioning"] = CSCORE_COMMISSIONING
     elif out["met_a_cscore"].get("C_rel") is not None: out["met_a_cscore"]["status"] = "development: specimen outside the commissioned C-score scope"; out["tare"] = t
     out["withheld"] = ["tier lines beyond Normal (not yet measured on this scale)", "other cell types (outside commissioning scope)"]

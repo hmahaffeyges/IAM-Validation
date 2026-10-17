@@ -74,15 +74,18 @@ def scan_pat(path):
     return out
 
 
-def intake(path, specimen, cell="neutrophils", alignment_qc=None):
+def intake(path, specimen, cell="neutrophils", alignment_qc=None, selfref_cells=None):
     """Stage Q0 on one .pat(.gz). alignment_qc: dict (or JSON path) from the alignment step with 'conversion_rate' and/or
     'duplicate_fraction'; None = not measured here. Returns {stage, checks:[...], decision, refusal_code?, refusal?, measured}."""
     rec = {"stage": "Q0", "status": "development - not commissioned", "limits": Q0_LIMITS, "checks": []}
     def chk(step, ok, value, rule, code=None, stop=True):
         rec["checks"].append({"step": step, "value": value, "rule": rule, "result": ("pass" if ok else ("REFUSED" if stop else "recorded"))})
         if not ok and stop and "refusal_code" not in rec: rec["refusal_code"] = code; rec["refusal"] = f"{step}: {value} ({rule})"
-    sp = ACCEPTED.get(str(specimen or "").strip().lower())
-    chk("Q0.7 specimen", sp == cell, specimen, f"purified {cell} only (a position P exists for {cell})", "SPECIMEN_REFUSED")
+    if selfref_cells is not None:   # chain v4, Stage Q2: the self-reference reads any purified cell type with a healthy shape reference
+        chk("Q0.7 specimen", str(cell).strip().lower() in selfref_cells, cell, "a purified cell type with a healthy shape reference (Stage Q2)", "SPECIMEN_REFUSED")
+    else:
+        sp = ACCEPTED.get(str(specimen or "").strip().lower())
+        chk("Q0.7 specimen", sp == cell, specimen, f"purified {cell} only (a position P exists for {cell})", "SPECIMEN_REFUSED")
     S = scan_pat(path); rec["measured"] = {k: v for k, v in S.items() if k != "per_chrom_molecules"}
     rec["measured"]["per_chrom_molecules"] = S["per_chrom_molecules"]
     chk("Q0.1 readable", S.get("complete") and not S.get("error") and S["bad_lines"] == 0 and S["lines"] > 0,

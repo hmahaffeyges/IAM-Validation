@@ -29,8 +29,11 @@
    0.95,
    1.05
   ],
-  "IAM-A": null,
-  "_note": "IAM-A has no healthy band of its own yet (COM-IAMA-054); Met-A's band is not borrowed (author 2026-10-15). A band is drawn only where it was measured."
+  "IAM-A": [
+   0.7787,
+   1.0551
+  ],
+  "_note": "IAM-A: band v1 (COM-IAMA-054, sealed 2026-10-16; commissioned 2026-10-17, Runtime Matrices/IAM_A_SelfRef/band_v1.json). Met-A's band is not borrowed (author 2026-10-15). A band is drawn only where it was measured."
  },
  "reading": [
   "The gauge reads the writing on the cell's 2D surface, in bits: less writing to the left, more to the right.",

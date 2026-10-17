@@ -85,6 +85,21 @@
    "chain_sha": "464a42b6016da0057d010a4ea752848610a0512f5c7cd9ec7683752336e0076d",
    "first_commit_after": "a41a4263",
    "date": "2026-10-17"
+  },
+  {
+   "chain_sha": "ca03b09738c37a39e6d5f5f2d8cce8772bfd4e495d69d780857ef129a56e0f97",
+   "first_commit_after": "760b9e99",
+   "date": "2026-10-17"
+  },
+  {
+   "chain_sha": "0fa489ec4b69d98ff79c08d25f5210b9db2da2425c79d718f6fa69000243aca8",
+   "first_commit_after": "ff155c00",
+   "date": "2026-10-17"
+  },
+  {
+   "chain_sha": "792354d5b76a37bdde5a8f1f14bc0f9a4b9aba6e290a2c58eca0f9ca48298aea",
+   "first_commit_after": "b49bd6eb",
+   "date": "2026-10-17"
   }
  ]
 }

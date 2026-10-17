@@ -225,7 +225,13 @@ def main():
     ap.add_argument("--engine", default="v3", choices=("v3",), help="v3 is the only engine (the class-floor engine was retired 2026-10-03); the flag is kept so recorded v3 commands still run")
     ap.add_argument("--slide-ref-A", "--ref-A", dest="slide_ref_A", default=None, help="comma-separated Met-A before the median tare (met_a.A, self-tared since 2026-10-04) of >= 3 same-run healthy reference arrays (same slide, else same batch) - v3 Stage T median tare, whole blood and isolated neutrophils")
     ap.add_argument("--slide-ref-table", "--ref-table", dest="slide_ref_table", default=None, help="CSV of same-run healthy references with column A (optional id): Met-A from pass 1 (met_a.A, self-tared since 2026-10-04; before the median tare). >= 3 rows -> median tare (nothing is fitted)")
-    ap.add_argument("--pat", default=None, help="v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table)")
+    ap.add_argument("--bam", default=None, help="chain v4 Stage Q2: an aligned whole-genome bisulfite BAM (bwa-meth or Bismark), counted by the chain (needs --ref-fasta)")
+    ap.add_argument("--ref-fasta", default=None, help="the reference FASTA the --bam was aligned to (indexed)")
+    ap.add_argument("--assembly", default="hg19", choices=("hg19", "hg38"), help="assembly of --bam")
+    ap.add_argument("--workers", type=int, default=4, help="processes for counting --bam")
+    ap.add_argument("--seq-chemistry", default="whole-genome bisulfite", help="chemistry of the sequencing input (IAM-A is commissioned on whole-genome bisulfite)")
+    ap.add_argument("--dev-iama-position", action="store_true", help="development: read --pat with the retired position reading (Stage Q) instead of the commissioned self-reference (Stage Q2)")
+    ap.add_argument("--pat", default=None, help="chain v4 Stage Q2 (IAM-A against the sample's own reference); with --dev-iama-position the retired v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table)")
     ap.add_argument("--pat-max-bytes", type=int, default=None, help="development: read only the first N bytes of --pat; IAM-A is then refused (P is measured on whole files) unless --dev-allow-partial")
     ap.add_argument("--alignment-qc", default=None, help="Stage Q0: JSON from the alignment step with conversion_rate and/or duplicate_fraction")
     ap.add_argument("--iama-ref-table", default=None, help="CSV of same-run healthy references for IAM-A (column A, optional id, pipeline): same laboratory, kit and pipeline; >= 3 rows -> IAM-A median tare")
@@ -247,9 +253,10 @@ def main():
     ap.add_argument("--atlas-v2", default=os.environ.get("CPG_ATLAS_V2_PARQUET"), help="atlas v2 parquet for the atlas-based development flags (not stored in the repository)")
     ap.add_argument("--sesame-rscript", default=os.environ.get("METHYLPHYS_SESAME_RSCRIPT"), help="Rscript of an environment with Bioconductor sesame (--dev-epic-v2)")
     a=ap.parse_args()
-    seq = bool(a.pat or a.site_table)
-    if not (a.betas or (a.grn and a.red) or seq): ap.error("give --betas, both --grn and --red, or --pat / --site-table")
-    if a.pat and a.site_table: ap.error("give --pat or --site-table, not both")
+    seq = bool(a.pat or a.site_table or a.bam)
+    if not (a.betas or (a.grn and a.red) or seq): ap.error("give --betas, both --grn and --red, or --pat / --bam / --site-table")
+    if sum(bool(x) for x in (a.pat, a.site_table, a.bam)) > 1: ap.error("give one of --pat, --bam or --site-table")
+    if a.bam and not a.ref_fasta: ap.error("--bam needs --ref-fasta: the reference it was aligned to")
     if a.site_table and not a.seq_pipeline: ap.error("--site-table needs --seq-pipeline: the pipeline that produced the table")
     if a.slide_ref_A and a.slide_ref_table: ap.error("give --slide-ref-A or --slide-ref-table, not both")
 
@@ -478,7 +485,7 @@ def main():
                   "Stage 0 rejected the specimen; see the flags above.", flush=True)
             sys.exit(2)
 
-    import pandas as _pd, json as _json, datetime as _dt, conductor_v3 as C3, report_v3 as R3
+    import pandas as _pd, json as _json, datetime as _dt, conductor_v3 as C3, report_v4 as R3
     refs = [float(x) for x in a.slide_ref_A.split(",") if x.strip()] if a.slide_ref_A else None
     if a.slide_ref_table:
         rt = _pd.read_csv(a.slide_ref_table)
@@ -496,7 +503,27 @@ def main():
         o = C3.run_neutrophil(_pd.Series(beta, dtype="float64"), specimen=a.specimen, ref_A=refs, array_type=array_type, sample_id=sid)
     else:
         o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "neutrophils only", "note": "sequencing input only: no array reading"}
-    if seq:   # Stage Q - IAM-A from single-molecule reads
+    _z = o.pop("_cscore_z", None)
+    if beta is not None and not o.get("refusal"):   # chain v4: the cell shares (D21) and the C-Score drawn on the sphere
+        import stage_v4 as V4
+        print("Stage D21: cell shares against IAM-Atlas v2.1", flush=True)
+        o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"))
+        o["cscore_sky"] = V4.cscore_sky(_z, os.path.splitext(os.path.abspath(a.out))[0] + "_cscore_sky.png", title=f"{sid}: C-Score departures on the sphere")
+    if seq and (a.pat or a.bam) and not a.dev_iama_position:   # chain v4 Stage Q2 - IAM-A against the sample's own reference (commissioned 2026-10-17)
+        import stage_v4 as V4, stage_q2_selfref as _Q2
+        cells = set(_Q2.shape_reference()["cells"]); src = {"pat": os.path.abspath(a.pat)} if a.pat else {"bam": os.path.abspath(a.bam), "ref_fasta": a.ref_fasta, "assembly": a.assembly}
+        if a.pat:
+            import stage_q0_intake as Q0
+            print(f"Stage Q0: intake checks on {os.path.basename(a.pat)}", flush=True)
+            o["iam_a_intake"] = Q0.intake(a.pat, specimen=a.specimen, cell=a.seq_cell, alignment_qc=a.alignment_qc, selfref_cells=cells)
+        qi = o.get("iam_a_intake") or {}
+        if qi.get("refusal_code"):
+            o["iam_a"] = {"stage": "Q2", "reading": "IAM-A", "cell": a.seq_cell, "A": None, "refusal_code": qi["refusal_code"], "refusal": f"Stage Q0 stopped the file: {qi['refusal']}", "input": src}
+        else:
+            print(f"Stage Q2: counting {os.path.basename(a.pat or a.bam)} (held error and loose share, one pass)", flush=True)
+            o["iam_a"] = V4.stage_q2(V4.count_sequencing(pat=a.pat, bam=a.bam, ref_fasta=a.ref_fasta, workers=a.workers, assembly=a.assembly),
+                                     a.seq_cell, chemistry=a.seq_chemistry, source=src)
+    elif seq:   # Stage Q (v3, retired position reading): --site-table, or --pat with --dev-iama-position
         import stage_q_iam_a as Q
         if a.pat:
             if a.seq_pipeline and a.seq_pipeline != Q.PAT_PIPELINE:

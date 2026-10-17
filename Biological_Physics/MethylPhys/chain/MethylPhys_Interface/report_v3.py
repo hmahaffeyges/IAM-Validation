@@ -174,10 +174,10 @@ def troubleshooting(o):
     elif o.get("refusal"): T.append(("platform refused", "v3 reads EPIC v1 arrays only; a 450K or EPIC v2 array needs its own frozen floor first"))
     if "fraction" in str(m.get("reason", "")): T.append(("A withheld for fraction", "the neutrophil fraction is below the read line (0.20); the fraction is printed; no action changes this on this specimen"))
     if "sites measured" in str(m.get("reason", "")) or "markers measured" in str(m.get("reason", "")):
-        T.append(("too few sites or markers measured", "check Stage 1 detection: probes at background are removed before the reading; re-hybridise if the array is low-signal"))
+        T.append(("too few sites or markers measured", "check Stage 1 detection: probes at background are removed before the reading; re-hybridize if the array is low-signal"))
     if m.get("A") is not None and t.get("A_rel") is None:
         T.append(("untared", "run >= 3 healthy references of the same specimen type on the same slide (else the same batch) and pass their untared A with --slide-ref-A or --slide-ref-table"))
-    if str(m.get("state", "")).startswith("withheld: only"): T.append(("noise sites not measured", "fewer than 90 % of the noise sites were measured, so the array's own noise is unknown and no state is shown; re-hybridise or check the array's signal"))
+    if str(m.get("state", "")).startswith("withheld: only"): T.append(("noise sites not measured", "fewer than 90 % of the noise sites were measured, so the array's own noise is unknown and no state is shown; re-hybridize or check the array's signal"))
     elif str(m.get("state", "")).startswith("withheld"): T.append(("noise gate", "the array's noise index is above the reference arrays' range; tare it against same-run references to get a gauge state"))
     if m.get("past_entropy_ceiling"): T.append(("entropy ceiling", "the methylated sites have fallen past beta 0.5; read the mean beta, not A"))
     if it.get("stage0_verdict") == "PROCEED_WITH_PENALTY": T.append(("intake penalty", f"borderline {it.get('stage0_borderline')}: the reading is printed with this flag"))

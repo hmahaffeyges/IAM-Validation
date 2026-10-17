@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Stage D21 - the deconvolution tool on IAM-Atlas v2.1 (release track B; DEVELOPMENT, not commissioned). Written 2026-10-16.
-Job: given a mixed sample's array readings, report each cell's share with its error bar.
+"""Stage D21 - the deconvolution tool (IAM-Deconvolver) on IAM-Atlas v2.1. Written 2026-10-16; COMMISSIONED 2026-10-17 for the shares of
+neutrophils, monocytes, CD4 T and CD8 T cells on arrays (DECONV_V21_COMMISSIONING below); error bars are information. Called by chain v4 (stage_v4.stage_d21).
+Job: given a mixed sample's array readings, report each cell's share.
 
  reference   the atlas's best value per site and cell, and the spread a NEW person's cell has around it, as the fit itself defines it
              (version 2, 2026-10-16): sd^2 = (uncertainty of the average, (hi - lo)/3.92)^2 + the fit's donor spread (donor_sd)^2 + the

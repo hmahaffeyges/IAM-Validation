@@ -277,7 +277,8 @@ _REGJ = _js.load(open("CANON/results_register.json", encoding="utf-8"))
 _pub = {e.get("record") for e in _REGJ.get("entries", [])} | {x.get("record") for x in _REGJ.get("losses", [])} | {x.get("record") for x in _REGJ.get("decisions", [])}
 for f in [x for x in changed if x.startswith("Biological_Physics/MethylPhys/doors/") and x.endswith(".md") and os.path.isfile(x)]:
     _t = open(f, encoding="utf-8", errors="replace").read()
-    if not (re.search(r"(?i)\b(not suitable|no fingerprint|NOT MET|BAR MET|: MET\b|FINGERPRINT\b)", _t) or f in _pub): continue
+    # verdict words are uppercase (2026-10-17): case-blind ": MET" matched "Whole blood: Met-A" in the generated chain map
+    if not (re.search(r"(?i)\b(not suitable|no fingerprint)", _t) or re.search(r"\b(NOT MET|BAR MET|FINGERPRINT)\b|: MET\b", _t) or f in _pub): continue
     if "In plain words" not in _t:
         fail.append(f"{f}: records an outcome or is shown on the page but has no 'In plain words' paragraph (rule 22)")
     elif "What it would take" not in _t:
