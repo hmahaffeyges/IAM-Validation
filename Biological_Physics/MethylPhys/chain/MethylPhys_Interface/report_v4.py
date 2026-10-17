@@ -112,7 +112,7 @@ def build(o, out, sid):
              "<p class='note'><b>Research use only. Not a diagnostic test.</b> Each reading is printed with its commissioning status: "
              "<i>commissioned</i> means it passed a test sealed before its data was seen; <i>development</i> means it has not.</p>",
              "<h2 id='v4-glance'>At a glance</h2>", _glance(o), _shares(o), _meta(o), _cscore(o), _iama(o)]
-    prose = re.sub(r"<[^>]+>", " ", "\n".join(front))
+    prose = re.sub(r"<[^>]+>", " ", re.sub(r"<!--GAUGE-->.*?<!--/GAUGE-->", " ", "\n".join(front), flags=re.S))   # as report_v3: the gauge's fixed legend is a scale, not prose
     if re.search(CLAIM_SCAN, prose, re.I): raise ValueError("report_v4: front prose carries a word the report may not print: " + re.search(CLAIM_SCAN, prose, re.I).group(0))
     H = (f"<html><head><meta charset='utf-8'><title>IAM chain v4 - {E(sid)}</title>{CSS}</head><body>" + "\n".join(front)
          + "<div class='tech'><h2 id='v4-technical'>Technical record</h2>" + body + "</div></body></html>")

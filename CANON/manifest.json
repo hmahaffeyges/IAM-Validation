@@ -25991,9 +25991,9 @@
    ],
    "data_status": "not yet searched",
    "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
-   "status": "planned",
+   "status": "synthetic_done",
    "runs": [],
-   "next_step": "unparked by the author 2026-10-17 (the physicist's test, alongside the gift): stage T2 synthetic on planted molecules with the committed counter, then the sealed reading (plants GSE54292, sealed number 1.0212; hamster GSE199815)",
+   "next_step": "stage T2 synthetic MET 2026-10-17 through chain stage TL (stage_temperature.py): planted per-site held error recovered within 0.3 %, chloroplast conversion within 0.001; 111 pairs: law true met 40 of 40, no temperature effect met 0 of 40, 20,000 molecules per plant enough; an uncorrected batch drift of 3 % or more breaks it, so pairs are compared within flowcells shared by both temperatures. Next: seal the reading rule (job line, B1 median ratio within a quarter of the law's shift 1.0159-1.0265, B2 interval excludes 1; gates: 20,000 molecules, conversion failure at most 1 %, flowcell), then read headers, then align and count on AWS",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -26004,6 +26004,15 @@
    "id": "PHY-057",
    "sources_of_row": [
     "session 2026-10-15"
+   ],
+   "chain_outputs": [
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "c10e504ec853",
+     "latest_utc": "2026-10-17T09:18:23Z"
+    }
    ]
   },
   {
@@ -27433,9 +27442,16 @@
      "note": "clean clone run 2: 23 of 25; E3 tare dropped for whole blood since 2026-10-15 (LESSONS C21), E8 v4 gauge drawn when withheld; both fixed",
      "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/run2/release_check_v4.log",
      "page": "not headline: a gate on the way to the commissioned chain"
+    },
+    {
+     "date": "2026-10-17",
+     "outcome": "fail",
+     "note": "clean clone run 3: 21 of 25; tare restored; the claim scan read the gauge legend as prose (E3, E7, E10) and an empty gauge was drawn when withheld (E8); both fixed",
+     "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/run3/release_check_v4.log",
+     "page": "not headline: a gate on the way to the commissioned chain"
     }
    ],
-   "next_step": "clean clone run 3 running (job i-053cec43288dd2e39, commit da7ef58e)",
+   "next_step": "clean clone run 4 after the gauge and claim-scan fixes",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
@@ -27482,6 +27498,30 @@
    "id": "OTH-072",
    "sources_of_row": [
     "session 2026-10-16"
+   ]
+  },
+  {
+   "title": "Tumor pairs rescored with the counter's response-curve meter correction",
+   "purpose": "T2 synthetic (2026-10-17) showed the plain subtraction held_err - sub_err over-corrects the held error by about 9 percent at sub_err 0.004; the tumor pairs (PHY-043) used it. Within-person pairs on one sequencer share most of the bias, so the direction is unlikely to change, but the values are rescored with stage TL's correction (p = g^-1(held_err), eps = (p - s)/(1 - s)).",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "not yet searched",
+   "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "rescore from the committed per-sample counts once n_hist is recorded (a recount on AWS)",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [
+    "PHY-045"
+   ],
+   "notes": "author asked 2026-10-15 for a prediction that would make the assistant sit up; caution: enzymes of different species may differ, so the cleanest test is one species at two temperatures; synthetic 2026-10-15: run 1 NOT MET (conversion bias), run 2 MET through the counter's measured response curve; needs >= 20,000 qualifying molecules per temperature | author 2026-10-15: not optional; it proves the physics to physicists, scheduled right after the current commissioning items",
+   "legacy_ids": [],
+   "id": "PHY-077",
+   "sources_of_row": [
+    "session 2026-10-15"
    ]
   }
  ],

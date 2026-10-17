@@ -1,0 +1,5 @@
+2026-10-17T09:01:44Z clone
+2026-10-17T09:02:26Z environment
+python 3.11.17 methylprep 1.7.1 pandas 1.5.3
+2026-10-17T09:02:33Z release check v4
+2026-10-17T09:07:07Z finished rc 1: RELEASE CHECK v4: FAIL (4 of 25 checks)  (25 checks, 273 s; outputs in /tmp/rc_v4_qm82unns)

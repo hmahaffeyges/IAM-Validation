@@ -31,7 +31,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
    - OTH-059 (planned): for each instrument: healthy band from healthy readings (Met-A's 0.95-1.05 was set by hand on 2026-10-01 and confirmed, 525 of 541 healthy arrays inside, medians 0.994-1.005: rebuild it from the spread); tumor line from tumor-over-own-normal readings (A-score database); worst lab shift measured (ENCODE B cell for IAM-A); margin stated
    - OTH-058 (planned): define, per specimen, which instruments read it and what agreement means; report agreement beside the readings, never folded into them
 11. **Stage T: the temperature law**
-   - PHY-057 (planned): unparked by the author 2026-10-17 (the physicist's test, alongside the gift): stage T2 synthetic on planted molecules with the committed counter, then the sealed reading (plants GSE54292, sealed number 1.0212; hamster GSE199815)
+   - PHY-057 (synthetic_done): stage T2 synthetic MET 2026-10-17 through chain stage TL (stage_temperature.py): planted per-site held error recovered within 0.3 %, chloroplast conversion within 0.001; 111 pairs: law true met 40 of 40, no temperature effect met 0 of 40, 20,000 molecules per plant enough; an uncorrected batch drift of 3 % or more breaks it, so pairs are compared within flowcells shared by both temperatures. Next: seal the reading rule (job line, B1 median ratio within a quarter of the law's shift 1.0159-1.0265, B2 interval excludes 1; gates: 20,000 molecules, conversion failure at most 1 %, flowcell), then read headers, then align and count on AWS
 12. **IAM in bits; literature positioning**
    - OTH-061 (running; last run 2026-10-15: progressed): cell throughput: find measured one-carbon/SAM flux and ATP for methyl writing per cell (literature, metadata only), then power/price as a bound, tagged candidate; then the citations for qubits, chips, cells
    - OTH-062 (planned): search the scholarly databases claim by claim; table: claim, nearest prior work, difference, status; then the paper's lineage section
@@ -47,7 +47,6 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 | DEV-IAMA-GRAND-01 run 3 machine F: CD8 samples from the shared queue, aligned and counted by chain Stage Q2 | methylphys-cpu-01, on-demand m7a.32xlarge, 1.5 TB work disk vol-0230dfb60526c5806 (delete after the test) | COM-IAMA-052 |
 | IAM-A clean room part A run 2 (PHY-055) | spot c7a.8xlarge us-west-2c, self-terminating | PHY-055 |
 | DEV-IAMA-GRAND-01 run 3 machine J: on-demand helper on the shared queue | on-demand m7a.16xlarge us-west-2a, 2 samples at a time, 1.5 TB disk | COM-IAMA-052 |
-| Chain v4 one-command test from a fresh public clone, run 3 (after LESSONS C21 fixes) (OTH-070) | spot m7a.xlarge, self-terminating | OTH-068, OTH-069, OTH-070 |
 
 ## Decisions waiting for the author
 

@@ -13,7 +13,7 @@ refused by the push gate otherwise (`CANON/chain_gate.py`).
    `--grn`, `--red`, `--betas`, `--age`, `--specimen`, `--out`, `--id`, `--bundle`, `--covariate`, `--covariates`, `--no-bundle`, `--ledger`, `--sex`, `--patient-id`, `--array-type`, `--intake-log`, `--manifest-dir`, `--no-intake`, `--engine`, `--slide-ref-A`, `--slide-ref-table`, `--bam`, `--ref-fasta`, `--assembly`, `--workers`, `--seq-chemistry`, `--dev-iama-position`, `--pat`, `--pat-max-bytes`, `--alignment-qc`, `--iama-ref-table`, `--dev-allow-partial`, `--site-table`, `--seq-pipeline`, `--seq-cell`, `--prior-betas`, `--prior-bundle`, `--save-betas`, `--dev-selftare-ii`, `--atlas-v2`, `--sesame-rscript`.
 4. Every result the chain writes for a logged test carries a chain stamp (chain version, payload hash, inputs); compare yours with ours.
 
-Chain entry points: `chain/conductor_v3.py`, `chain/stage_v4.py`, `chain/stage_1_idat_calibration.py`, `chain/stage_q_iam_a.py`, `chain/stage_q0_intake.py`, `chain/stage_q2_selfref.py`, `chain/stage_atlas_commission.py`, `chain/stage_atlas_u1.py`, `chain/stage_atlas_u1_planted.py`, `chain/stage_atlas_u2.py`, `chain/stage_atlas_u3.py`, `chain/stage_deconv_v21.py`.
+Chain entry points: `chain/conductor_v3.py`, `chain/stage_v4.py`, `chain/stage_1_idat_calibration.py`, `chain/stage_q_iam_a.py`, `chain/stage_q0_intake.py`, `chain/stage_q2_selfref.py`, `chain/stage_atlas_commission.py`, `chain/stage_atlas_u1.py`, `chain/stage_atlas_u1_planted.py`, `chain/stage_atlas_u2.py`, `chain/stage_atlas_u3.py`, `chain/stage_deconv_v21.py`, `chain/stage_temperature.py`.
 
 ## Commissioned instruments
 
@@ -52,7 +52,7 @@ test from 2026-10-15 on is held to the rule by the push gate (CANON/chain_gate.p
 **Also not chain-verified: the self-reference line itself** (development/loose_share_2026-10-15/, own-read counts of Loyfer's 153 samples).
 It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 
-**52 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
+**51 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
 
 | record | synthetic script | why | manifest rows |
 |---|---|---|---|
@@ -107,4 +107,3 @@ It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 | DEV_TISSUE_LIVER_01 | `DEV_TISSUE_LIVER_01/liver_synthetic.py` | no chain import | TIS-028, DAT-156 |
 | DEV_TISSUE_LIVER_01 | `DEV_TISSUE_LIVER_01/liver_direction_07.py` | no chain import | TIS-028, DAT-156 |
 | DEV_TISSUE_LUNG_01 | `DEV_TISSUE_LUNG_01/lung_synthetic.py` | no chain import | DAT-153 |
-| PRED_TEMPERATURE_01 | `PRED_TEMPERATURE_01/temperature_synthetic.py` | declares NO CHAIN | PHY-057 |

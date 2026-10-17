@@ -17,7 +17,9 @@ Boltzmann premise does not hold for held marks there, and the gauge's use of kT 
 
 **Data:** searched 2026-10-15 (stage T1, metadata only; see below). Salmon (PROC-SALMON-01) and every other fish set already scored cannot be the test.
 
-**Synthetic test:** PRED_TEMPERATURE_01/temperature_synthetic.py, PRED_TEMPERATURE_01/temperature_synthetic.txt
+**Synthetic test:** PRED_TEMPERATURE_01/temperature_T2_synthetic.py, PRED_TEMPERATURE_01/temperature_T2_synthetic.json
+
+The chain synthetic (stage T2, 2026-10-17, below) supersedes the earlier measurement synthetic (temperature_synthetic.py, run outside the chain on 2026-10-15; kept as history).
 
 The measurement synthetic (molecules planted at two temperatures, counted with the committed PROC-CHANNEL-01 counter) ran twice on
 2026-10-15. Run 1 read NOT MET (kept as temperature_synthetic_run1_NOTMET.txt): converting counts back to an error rate with the formula
@@ -58,3 +60,11 @@ already scored.
 **Next, stage T2:** a synthetic on planted plant-like molecules with the committed counter, to find how many molecules per accession and how
 many pairs it takes to see 1.0212 against the plants' own spread; then the sample list and the reading rule sealed before any read is
 opened.
+
+## Stage T2, synthetic through the chain (2026-10-17)
+**The instrument's job:** a plant grown colder reads a lower held error, by the amount the law fixes from the two temperatures alone.
+Chain stage TL (`chain/stage_temperature.py`) counts with the chain's own counter on the nuclear chromosomes, reads conversion on the chloroplast (unmethylated; in plants the non-CpG contexts are methylated, so the human check does not apply), and corrects for the sequencer's own error through the counter's response curve: a held site reads lost if it was lost or misread, independently, p = eps + s(1 - eps); p is read from the counter's statistic through its response to the sample's own calls-per-molecule mix, then eps = (p - s)/(1 - s).
+
+Run 1 (NOT MET, kept in the log): the plain subtraction used for the tumor pairs over-corrected the planted held error by about 9 percent, more than the effect sought (about 7 percent lower held error at 10 C than at 16 C); and a bar requiring the 95 percent interval to contain 1.0212 was tighter than the job, failing on a 0.3 percent bias. Run 2 (MET, `PRED_TEMPERATURE_01/temperature_T2_synthetic.py`, `.json`): planted per-site held error 0.030 read 0.0301; conversion 0.0066 against 0.006 planted; 111 pairs with the two temperatures on different sequencer error: law true met 40 of 40, no temperature effect met 0 of 40, 20,000 molecules per plant enough. An uncorrected batch drift of 3 percent or more breaks it (met 0 of 40), so the sealed rule compares pairs within flowcells shared by both temperatures.
+
+**Bars to seal (at most three):** B1 the paired median log-odds ratio, colder over warmer, lands within a quarter of the law's shift (1.0159 to 1.0265); B2 its 95 percent bootstrap interval excludes 1. Gates per sample: at least 20,000 qualifying molecules; chloroplast conversion failure at most 1 percent; flowcell read from the first read header before any methylation is counted.

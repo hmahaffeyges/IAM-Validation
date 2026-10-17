@@ -50,6 +50,7 @@ def _gauge(A, lo=None, hi=None, w=640, label="", instrument="Met-A"):
     """The whole cell gauge, drawn from Runtime Matrices/Gauge/cell_gauge_marks_v1.json (the book's marks) - never a bare band.
     Left to right: the floor (off the left edge), more order than healthy, Normal, over-writing, the full surface. The direction is
     CANON/foundation.json gauge_direction, remembered by the black hole: right is over-writing toward the full surface."""
+    if A is None: return f'<p style="margin:2px 0"><b>{html.escape(label)}</b></p>' if label else ""   # no reading on the gauge: no gauge is drawn (2026-10-17)
     G = _load("Runtime Matrices/Gauge/cell_gauge_marks_v1.json")
     top = G["full_surface"][instrument]; _nb = (G.get("normal_by_instrument") or {}).get(instrument, [G["normal"]["lo"], G["normal"]["hi"]])
     nl, nh = (_nb if _nb else (None, None))   # None: this instrument's healthy band is not measured yet, so none is drawn
@@ -81,7 +82,7 @@ def _gauge(A, lo=None, hi=None, w=640, label="", instrument="Met-A"):
     out.append("<p style='margin:4px 0'><b>How to read this gauge</b></p><ul style='margin:0'>" + "".join(f"<li>{E(t)}</li>" for t in G["reading"]) + "</ul>")
     out.append(f"<p style='margin:4px 0;border-left:3px solid #c0392b;padding-left:6px'><b>{E(G['misreading'].split('. ')[0])}.</b> {E(G['misreading'].split('. ', 1)[1])}</p>")
     if A is None: out.insert(1, f"<p><i>{E(label) or 'A not reported'}</i> - the gauge is shown without a position.</p>")
-    return "".join(out)
+    return "<!--GAUGE-->" + "".join(out) + "<!--/GAUGE-->"   # the drawn gauge and its legend: the book's fixed marks, skipped by the claim scan
 
 def _H(b):
     b = np.clip(np.asarray(b, dtype="float64"), 1e-6, 1 - 1e-6)
@@ -269,7 +270,7 @@ def build(o, out, sid):
              + "<p>The frozen inputs are listed in the inventory with their hashes; a reading made from the same IDATs, commit and inputs is identical.</p>")
     P.append("<h2 id='sec-stages'>The chain (SOP v3 section 2b)</h2>" + _table(STAGES_2B, ("#", "stage", "status on this build")))
     P.append("<h2 id='sec-toolkit'>Toolkit stages</h2>" + _table(toolkit_table(o), ("stage", "name", "module", "status", "note")))
-    prose = re.sub(r"<[^>]+>", " ", re.sub(r"<pre>.*?</pre>", " ", "\n".join(P), flags=re.S))   # the command line (flag names) is not prose
+    prose = re.sub(r"<[^>]+>", " ", re.sub(r"<pre>.*?</pre>|<!--GAUGE-->.*?<!--/GAUGE-->", " ", "\n".join(P), flags=re.S))   # the command line (flag names) is not prose; nor is the gauge's fixed legend (the book's marks, cell_gauge_marks_v1.json), which is a scale, not a statement about the sample (2026-10-17)
     SG = safeguards(o, prose); o["safeguards"] = [{"check": s[0], "result": s[1], "detail": s[2]} for s in SG]
     if any(s[1] == "FAIL" for s in SG):
         F.append({"level": "CAUTION", "code": "SAFEGUARD_FAIL", "text": "; ".join(f"{s[0]}: {s[2]}" for s in SG if s[1] == "FAIL")})

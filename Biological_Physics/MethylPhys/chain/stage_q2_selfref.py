@@ -140,7 +140,7 @@ def count_bam_region(args):
     import pysam
     B = pysam.AlignmentFile(bam, "rb"); F = pysam.FastaFile(fa)
     cp = _cpg_index(F.fetch(chrom)); ntile = len(cp) // TILE
-    T = collections.defaultdict(lambda: [0, 0]); st = collections.Counter(); buf = {}; k = [0]
+    T = collections.defaultdict(lambda: [0, 0]); st = collections.Counter(); buf = {}; k = [0]; nh = collections.Counter()
     def done(calls):
         if not calls: return
         st["molecules"] += 1; k[0] += 1
@@ -149,7 +149,7 @@ def count_bam_region(args):
             if rk < len(cp) and cp[rk] == calls[0][0] and rk // TILE < ntile:
                 a = T[rk // TILE]; a[0] += sum(v for _, v in calls); a[1] += len(calls)
         else:
-            n = len(calls); mm = sum(v for _, v in calls)
+            n = len(calls); mm = sum(v for _, v in calls); nh[min(n, 60)] += 1   # calls per held-error molecule (stage TL's response curve, 2026-10-17)
             if n >= QUAL_MIN_CALLS and mm >= QUAL_MIN_METH * n:
                 st["qualifying"] += 1; st["e_opp"] += n - 2
                 st["e_iso"] += sum(1 for i in range(1, n - 1) if (not calls[i][1]) and calls[i - 1][1] and calls[i + 1][1])
@@ -165,7 +165,7 @@ def count_bam_region(args):
             if r.next_reference_start >= r.reference_start and r.next_reference_start < e0: buf[r.query_name] = c; continue
         done(sorted(c.items()))
     for c in buf.values(): done(sorted(c.items()))
-    return dict(chrom=chrom, tiles={int(t): v for t, v in T.items()}, **{x: int(st[x]) for x in ("e_iso", "e_opp", "molecules", "qualifying", "reads", "nc_m", "nc_t", "at_mm", "at_n")})
+    return dict(chrom=chrom, tiles={int(t): v for t, v in T.items()}, n_hist={int(a): int(b) for a, b in nh.items()}, **{x: int(st[x]) for x in ("e_iso", "e_opp", "molecules", "qualifying", "reads", "nc_m", "nc_t", "at_mm", "at_n")})
 def combine_bam(parts, assembly):
     T = {}; s = collections.Counter()
     for p in parts:
