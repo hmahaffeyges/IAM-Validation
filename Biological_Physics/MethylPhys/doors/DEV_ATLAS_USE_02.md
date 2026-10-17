@@ -16,9 +16,9 @@ probes with his tool's rule (coverage at least 3), then the mean of each group (
 
 **Sealed 2026-10-16** (`data/DEV_ATLAS_USE_02/sealed_use_loyfer_v21.json`), before Loyfer's projected reference was built.
 
-**Synthetic test:** DEV_ATLAS_USE_02/use_tests_loyfer_v21.py
+**Synthetic test:** DEV_ATLAS_USE_02/use_tests_loyfer_v21.py, DEV_ATLAS_USE_02/use_tests_loyfer_planted.txt
 
-Run with `planted`: a planted opponent, and a v2.1 with scrambled outside-cell profiles that must fail UT2B.
+Run with `planted` (box job 8d48145f, 2026-10-16): PASSED; all three bars met against a planted opponent, and a v2.1 with scrambled outside-cell profiles failed UT2B as it must.
 
 **Sources:** public: Loyfer et al. 2023, Nature 613:355, GEO GSE186458 (.beta files) and his Supplementary Tables S1 and S12; the held-out arrays named in DEV_ATLAS_USE_01/sealed_use_v21.json.
 

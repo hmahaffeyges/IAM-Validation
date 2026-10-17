@@ -27244,8 +27244,15 @@
    "sources": [],
    "data_status": "mixtures to be chosen (independent of every atlas source)",
    "status": "sealed",
-   "runs": [],
-   "next_step": "box: planted test, build Loyfer's projected reference from GEO, score once",
+   "runs": [
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "planted test PASSED (scrambled outside profiles fail UT2B as they must)",
+     "page": "not headline: synthetic"
+    }
+   ],
+   "next_step": "build Loyfer's projected reference on the box, score once",
    "cost": "laptop",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_02.md",

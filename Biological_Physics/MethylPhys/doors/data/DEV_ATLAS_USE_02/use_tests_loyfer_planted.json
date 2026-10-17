@@ -1,0 +1,137 @@
+{
+ "true": {
+  "sites": 60000,
+  "arrays": {
+   "neutrophils": 6,
+   "monocytes": 6,
+   "b cells": 6,
+   "t cells": 6,
+   "nk cells": 6,
+   "colon epithelium": 6,
+   "cortical neurons": 6,
+   "oligodendrocytes": 6,
+   "microglia": 6,
+   "astrocytes": 6
+  },
+  "UT1": {
+   "v21_share": 1.0,
+   "loyfer_share": 1.0,
+   "per_cell_v21": {
+    "neutrophils": 1.0,
+    "monocytes": 1.0,
+    "b cells": 1.0,
+    "t cells": 1.0,
+    "nk cells": 1.0,
+    "colon epithelium": 1.0,
+    "cortical neurons": 1.0,
+    "oligodendrocytes": 1.0
+   },
+   "per_cell_loyfer": {
+    "neutrophils": 1.0,
+    "monocytes": 1.0,
+    "b cells": 1.0,
+    "t cells": 1.0,
+    "nk cells": 1.0,
+    "colon epithelium": 1.0,
+    "cortical neurons": 1.0,
+    "oligodendrocytes": 1.0
+   },
+   "verdict": "MET"
+  },
+  "UT2A": {
+   "median_error_v21": 0.0018379398359466984,
+   "median_error_loyfer": 0.0021831113928636407,
+   "ratio": 0.8418900849286612,
+   "verdict": "MET"
+  },
+  "UT2B": {
+   "median_error_v21": 0.001753699386082279,
+   "median_error_loyfer": 0.03977636840710007,
+   "recovered_within_005": 1.0,
+   "outside_cells": [
+    "microglia",
+    "astrocytes"
+   ],
+   "verdict": "MET"
+  },
+  "lines": [
+   "sites 60000 | arrays {'neutrophils': 6, 'monocytes': 6, 'b cells': 6, 't cells': 6, 'nk cells': 6, 'colon epithelium': 6, 'cortical neurons': 6, 'oligodendrocytes': 6, 'microglia': 6, 'astrocytes': 6}",
+   "UT1 markers confirmed: v2.1 1.000, Loyfer 1.000 -> MET",
+   "UT2A shared-ground mixtures: median error v2.1 0.0018, Loyfer 0.0022, ratio 0.84 -> MET",
+   "UT2B wide area (microglia, astrocytes): median error v2.1 0.0018, Loyfer 0.0398; v2.1 recovers the outside share within 0.05 in 1.00 -> MET"
+  ]
+ },
+ "scrambled": {
+  "sites": 60000,
+  "arrays": {
+   "neutrophils": 6,
+   "monocytes": 6,
+   "b cells": 6,
+   "t cells": 6,
+   "nk cells": 6,
+   "colon epithelium": 6,
+   "cortical neurons": 6,
+   "oligodendrocytes": 6,
+   "microglia": 6,
+   "astrocytes": 6
+  },
+  "UT1": {
+   "v21_share": 1.0,
+   "loyfer_share": 1.0,
+   "per_cell_v21": {
+    "neutrophils": 1.0,
+    "monocytes": 1.0,
+    "b cells": 1.0,
+    "t cells": 1.0,
+    "nk cells": 1.0,
+    "colon epithelium": 1.0,
+    "cortical neurons": 1.0,
+    "oligodendrocytes": 1.0
+   },
+   "per_cell_loyfer": {
+    "neutrophils": 1.0,
+    "monocytes": 1.0,
+    "b cells": 1.0,
+    "t cells": 1.0,
+    "nk cells": 1.0,
+    "colon epithelium": 1.0,
+    "cortical neurons": 1.0,
+    "oligodendrocytes": 1.0
+   },
+   "verdict": "MET"
+  },
+  "UT2A": {
+   "median_error_v21": 0.0018379398359466984,
+   "median_error_loyfer": 0.0021831113928636407,
+   "ratio": 0.8418900849286612,
+   "verdict": "MET"
+  },
+  "UT2B": {
+   "median_error_v21": 0.038505942309520466,
+   "median_error_loyfer": 0.03977636840710007,
+   "recovered_within_005": 0.0,
+   "outside_cells": [
+    "microglia",
+    "astrocytes"
+   ],
+   "verdict": "NOT MET"
+  },
+  "lines": [
+   "sites 60000 | arrays {'neutrophils': 6, 'monocytes': 6, 'b cells': 6, 't cells': 6, 'nk cells': 6, 'colon epithelium': 6, 'cortical neurons': 6, 'oligodendrocytes': 6, 'microglia': 6, 'astrocytes': 6}",
+   "UT1 markers confirmed: v2.1 1.000, Loyfer 1.000 -> MET",
+   "UT2A shared-ground mixtures: median error v2.1 0.0018, Loyfer 0.0022, ratio 0.84 -> MET",
+   "UT2B wide area (microglia, astrocytes): median error v2.1 0.0385, Loyfer 0.0398; v2.1 recovers the outside share within 0.05 in 0.00 -> NOT MET"
+  ]
+ },
+ "passed": true,
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "15c31c203bf75125418f7191b260701d10a61b2b8970951e665663ab47dfa70d",
+  "payload_sha256": "4fd73ed81837f692acd6707d0e08c339d95707ab5d5debebf7f2eb1dfc488792",
+  "inputs": [],
+  "manifest": [
+   "ATL-067"
+  ],
+  "utc": "2026-10-17T01:24:38Z"
+ }
+}
