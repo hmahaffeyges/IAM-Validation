@@ -2068,6 +2068,51 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
    "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run3/ at boot"
+  },
+  {
+   "job_id": "i-0d514d933409c720f",
+   "name": "Chain v4 one-command test from a fresh public clone, run 7 (untested-scope wording) (OTH-070)",
+   "date": "2026-10-17",
+   "commit": "414126a6",
+   "s3_code_prefix": "results/CHAIN_V4_CLEANCLONE/code/run7/",
+   "state": "finished",
+   "log": "results/CHAIN_V4_CLEANCLONE/status.txt",
+   "machine": "spot m7a.xlarge, self-terminating",
+   "purpose": "clone, install chain/requirements.txt only, run release_check_v4.py; every check must pass",
+   "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh",
+   "manifest": [
+    "OTH-069",
+    "OTH-070"
+   ],
+   "outputs": [
+    "results/CHAIN_V4_CLEANCLONE/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
+   ],
+   "note": "PASS 25 of 25"
+  },
+  {
+   "job_id": "i-0364c850040a5b734",
+   "name": "IAM-Atlas v2.1 raw fit packed into 10 bundles for the Zenodo deposit (ATL-005)",
+   "date": "2026-10-17",
+   "commit": "54054705",
+   "s3_code_prefix": "results/ATLAS_V21/zenodo_bundles/code/run1/",
+   "state": "finished",
+   "log": "results/ATLAS_V21/zenodo_bundles/status.txt",
+   "machine": "spot m7a.large, self-terminating",
+   "purpose": "pack the 700 fit blocks (2,800 files) into 10 tar bundles of 70 blocks with a SHA-256 each; no value changed",
+   "record": "Biological_Physics/MethylPhys/doors/data/ZENODO_V21/ud_bundle.sh",
+   "manifest": [
+    "ATL-005"
+   ],
+   "outputs": [
+    "results/ATLAS_V21/zenodo_bundles/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/ZENODO_V21/ud_bundle.sh"
+   ],
+   "note": "10 bundles, 2,800 files, 24.22 GB (bundles_manifest.json); script committed in the next commit after the run (it ran from the launch copy, identical to the committed file)"
   }
  ],
  "not_jobs": {

@@ -2350,3 +2350,9 @@ The push gate now keeps every check's temp files in one folder it removes on exi
 
 ### 2026-10-17 · Chain v4 report: readings outside the tested scope worded plainly (author decision; OTH-069)
 report_v4 now prints "reading shown; <cell type> has not yet been tested with <instrument>" where it printed "development" (Met-A, C-Score, IAM-A, IAM-Deconvolver shares); the run record keeps status development, so every check and the scoring are unchanged; the v3 technical record below it is unchanged. A clean clone run confirms it before it is called tested.
+
+### 2026-10-17 · Clean clone run 7 PASS 25 of 25 (OTH-069, OTH-070); Zenodo deposit staged (ATL-005)
+Run 7 (job i-0d514d933409c720f) confirms the untested-scope wording. The raw fit is packed into 10 bundles (2,800 files, 24.22 GB, SHA-256 each: doors/data/ZENODO_V21/bundles_manifest.json) by job i-0364c850040a5b734. IAM-Atlas v2.1 staged on Zenodo as a new version of v2 (reserved 10.5281/zenodo.23441999) and the raw fit as its own record (reserved 10.5281/zenodo.23422688), both drafts until the author publishes.
+
+### 2026-10-17 · The Commissioning Campaign in numbers on the page (OTH-071); page build fixed (LESSONS C22)
+CANON/compute_snapshot.py (run by checkpoint, from AWS billing and the committed and S3 chain counts; values only grow) feeds a box at the top of the page: 36,490 processor-core hours (4.2 core-years), 8.9 billion CpG readings at least (7.7 billion on single molecules from 222 sequenced samples, 1.2 billion on 2,400 arrays), 370 machine hours, $1,611 billed, since 2026-09-28. Two website builds (efa2c5d8, 414126a6) had failed because the page parsed the old run-ledger layout; the parser reads the new one, and the gate now builds the page before every push.

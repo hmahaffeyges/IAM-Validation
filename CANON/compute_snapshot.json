@@ -1,0 +1,14 @@
+{
+ "as_of": "2026-10-17",
+ "since": "2026-09-28",
+ "name": "The Commissioning Campaign",
+ "machine_hours": 370.5,
+ "core_hours": 36490,
+ "billed_usd": 1611.16,
+ "seq_samples": 222,
+ "seq_calls": 7741076901,
+ "arrays": 2400,
+ "array_reads": 1165384800,
+ "cpg_total": 8906461701,
+ "core_years": 4.2
+}

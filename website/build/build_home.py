@@ -51,10 +51,11 @@ def book_tools():
     return [(n, tex(a), tex(b), st, tex(w), order.get(n)) for n, a, b, st, w in rows]
 
 def rec(p): return GH + p
-def costs():
+def costs():   # reads the run ledger as rebuilt 2026-10-17 (month table: categories then a bold total; day table: a bold total per day)
     t = open(os.path.join(REPO, "Biological_Physics/MethylPhys/RUNS.md"), encoding="utf-8").read()
-    months = re.findall(r"^\| (\d{4}-\d{2}) \| \$([\d,.]+) \| (.*?) \|$", t, re.M)
-    daily = re.search(r"^Daily: (.*)$", t, re.M); days = re.findall(r"(\d{2}-\d{2}) \$([\d,.]+)", daily.group(1)) if daily else []
+    months = [(m, tot, "; ".join(f"{c} {v}" for c, v in zip(("on-demand", "spot", "disks", "storage", "other"), rest.split(" | ")) if v != "$0.00"))
+              for m, rest, tot in re.findall(r"^\| (\d{4}-\d{2}) \| (.*?) \| \*\*\$([\d,.]+)\*\* \|$", t, re.M)]
+    days = sorted((d[5:], v) for d, v in re.findall(r"^\| (\d{4}-\d{2}-\d{2}) \| .*?\| \*\*\$([\d,.]+)\*\* \|", t, re.M))
     assert months and days, "RUNS.md billing section not found"
     week = days[-7:]
     return months, days, week, sum(float(v.replace(",", "")) for _, v in week)
@@ -125,6 +126,17 @@ def page(art):
     levers_list = "\n".join(lever_row(x) for x in LV["levers"])
     # the front (author 2026-10-17): only the commissioned chain and the tests it passed, in CANON/chain_front.json order; every other
     # register entry is in EARLIER_RESULTS.md (CANON/earlier_results.py), rendered as a site page and linked below the cards
+    # The Commissioning Campaign in numbers (author 2026-10-17: "somewhere up top easy to see"); CANON/compute_snapshot.py, run by checkpoint
+    CS = J("CANON/compute_snapshot.json")
+    campaign = (f'<section class="wrap" id="campaign"><h2>{E(CS["name"])}: the final stretch</h2>'
+        f'<p class="sub">Since {E(CS["since"])}, nearly every rented computer hour has gone to one goal: commissioning the instruments, packaging them into one chain '
+        f'anyone can run, and testing the physics underneath. Paid for out of our own pocket. Updated {E(CS["as_of"])} from AWS billing and the committed records.</p>'
+        f'<div class="grid costs"><div class="card"><p class="big">{CS["core_hours"]:,}</p><p>processor-core hours, about {CS["core_years"]} years of one computer core running non-stop</p></div>'
+        f'<div class="card"><p class="big">{CS["cpg_total"] / 1e9:.1f} billion</p><p>DNA sites (CpGs) read: {CS["seq_calls"] / 1e9:.1f} billion on single molecules from '
+        f'{CS["seq_samples"]} sequenced samples, {CS["array_reads"] / 1e9:.1f} billion on {CS["arrays"]:,} arrays (at least)</p></div>'
+        f'<div class="card"><p class="big">{CS["machine_hours"]:,.0f} hours</p><p>on rented machines of up to 192 cores</p></div>'
+        f'<div class="card"><p class="big">${CS["billed_usd"]:,.0f}</p><p>billed by AWS for computing and storage, every dollar listed in <a href="{rec("Biological_Physics/MethylPhys/RUNS.md")}">the run ledger</a></p></div>'
+        f'</div></section>')
     CF = J("CANON/chain_front.json"); _byid = {e["id"]: e for e in REG["entries"]}
     results = "\n".join(card(_byid[i]) for i in CF["front"] if i in _byid)
     chain_lead = "".join(f'<p class="sub">{E(x)}</p>' for x in CF["lead"])
@@ -229,6 +241,7 @@ def page(art):
 <p class="lead">We read the methylation of human DNA with the same mathematics cosmologists use to map the sky, to measure how faithfully a cell holds its information. The goal is early cancer detection from a blood or stool sample. Every test is written down before its data is read, and every result is recorded in the open, win or lose: <a href="#daylogs">the daily log</a>.</p>
 <p class="cta"><a class="btn" href="#daylogs">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
 <main>
+{campaign}
 <section class="wrap" id="wins"><h2>{E(CF["title"])}</h2>{chain_lead}<div class="grid">{results}</div>
 <p class="sub">Each card links to its record. <a href="{rec("EARLIER_RESULTS.md")}">{E(CF["earlier"])}</a> ({n_earlier}, each with its record).</p></section>
 {v21_banner}
