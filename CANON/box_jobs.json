@@ -1746,9 +1746,32 @@
    "date": "2026-10-16",
    "commit": "81a26d92",
    "s3_code_prefix": "results/CLEANROOM_IAMA_01/code/run3/",
-   "state": "running",
+   "state": "finished",
    "log": "results/CLEANROOM_IAMA_01/status.txt",
    "machine": "spot c7a.8xlarge, self-terminating (box image 2026-10-14, 300 GB disk)",
+   "purpose": "fresh public clone recounts Loyfer 153 and ENCODE 5 and rebuilds the line and shape reference; all must equal the committed ones",
+   "record": "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py",
+   "manifest": [
+    "PHY-055"
+   ],
+   "outputs": [
+    "results/CLEANROOM_IAMA_01/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_box.sh",
+    "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py"
+   ],
+   "note": "running"
+  },
+  {
+   "job_id": "i-09f4d660c5c75e867",
+   "name": "IAM-A clean room part A run 4: ENCODE recount on a 500 GB disk (run 3 matched 4 of 5; ENCFF133QNK, 54 GB, did not fit) (PHY-055)",
+   "date": "2026-10-16",
+   "commit": "81a26d92",
+   "s3_code_prefix": "results/CLEANROOM_IAMA_01/code/run4/",
+   "state": "running",
+   "log": "results/CLEANROOM_IAMA_01/status.txt",
+   "machine": "spot, self-terminating, 500 GB disk (box image 2026-10-14)",
    "purpose": "fresh public clone recounts Loyfer 153 and ENCODE 5 and rebuilds the line and shape reference; all must equal the committed ones",
    "record": "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py",
    "manifest": [

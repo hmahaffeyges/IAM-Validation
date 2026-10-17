@@ -2233,3 +2233,6 @@ The sample check refused all six of the test laboratory's B-cell arrays (they re
 
 ### 2026-10-16 · Atlas v2.1 beats Loyfer's own reference on all three bars (DEV-ATLAS-USE-02; ATL-067)
 Scored once (box job fa050e05): markers held 0.998 vs 0.938; mixture error 0.0200 vs 0.0248; with cells Loyfer lacks 0.0232 vs 0.0484. Both source atlases' own references are now beaten on their own jobs (release item C02). Two attempts stopped before any score (wrong array folder; reference fetch).
+
+### 2026-10-16 · IAM-A clean room run 3: 4 of 5 ENCODE recounts identical; the fifth did not fit on the disk (PHY-055)
+Run 3 (job i-09dd0f71b2e095177): Loyfer 153, ENCFF092SBB, ENCFF605NRU, ENCFF704SCQ and ENCFF969NGH identical to the committed counts; the line and the shape reference identical. ENCFF133QNK (54 GB) never downloaded: the machine image leaves 43 GB free. Run 4 (job i-09f4d660c5c75e867, spot, self-terminating, 500 GB disk, code copy results/CLEANROOM_IAMA_01/code/run4/) recounts the ENCODE files again.

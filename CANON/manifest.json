@@ -25873,9 +25873,15 @@
      "outcome": "progressed",
      "note": "run 2: Loyfer 153 counts, the line and the shape reference identical from public data; ENCODE 5 not counted (no index built); fixed, run 3 ENCODE only",
      "page": "not headline: in progress"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "progressed",
+     "note": "run 3: 157 of 158 counts identical (Loyfer 153, ENCODE 4 of 5), line and shape reference identical; ENCFF133QNK (54 GB) did not fit on the disk; run 4 on a 500 GB disk",
+     "page": "not headline: in progress"
     }
    ],
-   "next_step": "run 3 running on its own machine (job i-09dd0f71b2e095177): the five ENCODE files recounted with the index built, then the full comparison",
+   "next_step": "run 4 (500 GB disk): ENCFF133QNK recounted, then the full comparison",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

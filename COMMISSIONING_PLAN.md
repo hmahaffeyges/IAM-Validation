@@ -14,7 +14,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 3. **IAM-A: its own healthy band, from evidence across laboratories**
    - COM-IAMA-054 (run; last run 2026-10-16: met): band v1 built (Normal 0.7787-1.0551, 156 readings, two laboratories); becomes IAM-A's Normal mark when IAM-A is commissioned (COM-IAMA-052)
 4. **IAM-A: clean room, part A**
-   - PHY-055 (running; last run 2026-10-16: progressed): run 3 running on its own machine (job i-09dd0f71b2e095177): the five ENCODE files recounted with the index built, then the full comparison
+   - PHY-055 (running; last run 2026-10-16: progressed): run 4 (500 GB disk): ENCFF133QNK recounted, then the full comparison
 5. **IAM-A: the grand sealed test, then commissioning**
    - COM-IAMA-052 (running): sealed 2026-10-16 (author: 'okay, seal it'): 13 healthy CD8 T-cell samples, GSE144691 (Youngblood, St. Jude), first 40 billion bases each, chain count; S1: at least 75 percent of read samples inside band v1, at least 8 read. Two self-terminating machines aligning and counting (run 1 never started, start-up file quoting; run 2: A i-0fd3660dff150bd4a, B i-0888ed7bd36c2020c, launched 04:34 PDT (AWS launch time); preflight ok 04:41 PDT, mapping 89.3 and 89.7 percent, poly-G tails 0.01 percent); then score_grand.py once
 6. **Atlas v2.1: the fit lands; release checks, sealed bars, the Loyfer and Moss use tests**
@@ -47,7 +47,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 | DEV-IAMA-GRAND-01 run 3 machine F: CD8 samples from the shared queue, aligned and counted by chain Stage Q2 | methylphys-cpu-01, on-demand m7a.32xlarge, 1.5 TB work disk vol-0230dfb60526c5806 (delete after the test) | COM-IAMA-052 |
 | IAM-A clean room part A run 2 (PHY-055) | spot c7a.8xlarge us-west-2c, self-terminating | PHY-055 |
 | DEV-IAMA-GRAND-01 run 3 machine J: on-demand helper on the shared queue | on-demand m7a.16xlarge us-west-2a, 2 samples at a time, 1.5 TB disk | COM-IAMA-052 |
-| IAM-A clean room part A run 3: the five ENCODE files recounted with the index built, then the full comparison (PHY-055) | spot c7a.8xlarge, self-terminating (box image 2026-10-14, 300 GB disk) | PHY-055 |
+| IAM-A clean room part A run 4: ENCODE recount on a 500 GB disk (run 3 matched 4 of 5; ENCFF133QNK, 54 GB, did not fit) (PHY-055) | spot, self-terminating, 500 GB disk (box image 2026-10-14) | PHY-055 |
 
 ## Decisions waiting for the author
 
