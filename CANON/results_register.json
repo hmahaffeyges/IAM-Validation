@@ -95,7 +95,8 @@
     "stat": "Rebuilt",
     "head": "Everything it reads rebuilds from public data",
     "sub": "Every number the commissioned instrument uses, rebuilt from public samples, identical."
-   }
+   },
+   "title": "Everything the commissioned chain reads rebuilds from public data"
   },
   {
    "id": "COMMISSIONING-METAA-NEUTROPHILS",
@@ -113,7 +114,8 @@
     "stat": "Commissioned",
     "head": "Our first instrument is commissioned",
     "sub": "Met-A on white blood cells passed every test written for it before its data was read."
-   }
+   },
+   "title": "Met-A on isolated neutrophils (EPIC v1) commissioned, with its detection limit printed on every report"
   },
   {
    "id": "BOOK-V1.0",
@@ -281,7 +283,7 @@
    "date": "2026-10-15",
    "kind": "result",
    "instrument": "IAM-A",
-   "status": "development",
+   "status": "commissioned",
    "sealed": false,
    "book": false,
    "record": "development/loose_end_2026-10-15/loose_end_line.py",
@@ -355,14 +357,15 @@
      "h": "What comes next",
      "p": "Reading real tumors with a bar fixed in advance, so we learn where on its scale a tumor begins; then purified white cells from an independent laboratory, older and newer array types, and plasma."
     }
-   ]
+   ],
+   "title": "The C-Score commissioned on whole blood"
   },
   {
    "id": "DEV-ATLAS-USE-01",
    "date": "2026-10-16",
    "kind": "result",
    "instrument": "IAM-Atlas v2.1",
-   "status": "development",
+   "status": "commissioned",
    "book": false,
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_01.md",
    "compute": "atlas_use",
@@ -384,21 +387,25 @@
    "book": false,
    "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md",
    "headline": "**IAM-Atlas v2.1 commissioned** for three cell references and the colon and lung tissue tests' blind sites, each on a bar sealed before the atlas existed",
-   "covers": [],
+   "covers": [
+    "DEV-ATLAS-USE-01",
+    "DEV-ATLAS-USE-02"
+   ],
    "plain": "Commissioned means a use of the atlas is allowed to report results. Healthy cells from laboratories that never helped build the atlas were read against it, by bars fixed before it existed. Three cell types, brain neurons, airway lining and naive helper T cells, landed inside the atlas's predicted range, and the sites the colon and lung cancer tests depend on held steady in every cell type that could be checked. Its blood-composition use and its other cell references stay in development.",
    "win": {
     "rank": 1,
     "stat": "Commissioned",
     "head": "Our 79-cell atlas is commissioned for its first uses",
     "sub": "Three cell references and the sites behind our colon and lung cancer tests passed bars fixed before the atlas existed; on the jobs a reference atlas is used for, it also beat the field's published reference."
-   }
+   },
+   "title": "IAM-Atlas v2.1 commissioned"
   },
   {
    "id": "DEV-ATLAS-USE-02",
    "date": "2026-10-16",
    "kind": "result",
    "instrument": "IAM-Atlas v2.1",
-   "status": "development",
+   "status": "commissioned",
    "book": false,
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_02.md",
    "compute": "atlas_use_loyfer",
@@ -427,7 +434,8 @@
     "stat": "Commissioned",
     "head": "The deconvolution tool is commissioned",
     "sub": "Blood-cell shares within 1.6 points at the median, on a laboratory it never saw."
-   }
+   },
+   "title": "The IAM-Deconvolver commissioned for blood-cell shares"
   },
   {
    "id": "COMMISSIONING-IAMA",
@@ -438,14 +446,17 @@
    "book": false,
    "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
    "headline": "**IAM-A commissioned** on healthy blood CD8 T cells, each sample read against its own reference: 7 of 8 read samples from a laboratory it had never seen inside Normal, on a rule sealed before any read was downloaded",
-   "covers": [],
+   "covers": [
+    "DEV-LOOSE-LINE-01"
+   ],
    "plain": "IAM-A reads how well each DNA molecule kept its marks and compares that with what the same sample's own loose ends predict, so it needs no outside reference. On healthy immune cells from a new laboratory, 7 of the 8 samples it read came out Normal, as sealed in advance.",
    "win": {
     "rank": 1,
     "stat": "7 of 8 Normal",
     "head": "IAM-A is commissioned: a sample read against itself",
     "sub": "Healthy CD8 T cells from a laboratory it never saw, on a rule sealed before the data was downloaded."
-   }
+   },
+   "title": "IAM-A commissioned: each sample read against its own reference"
   }
  ],
  "losses": [

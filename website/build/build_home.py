@@ -69,7 +69,7 @@ def page(art):
 <h3>{E(s["headline"])}</h3><p>{E(s["why"])}</p>
 <p class="hr"><b>What we hope:</b> {E(s["hope"])}</p><p class="hr"><b>What could go wrong:</b> {E(s["risk"])}</p>
 <p class="latest"><span>{E(u["date"])}</span> {E(u["text"])}</p>
-<p class="more"><a href="{rec("FIELD_NOTES.md")}#{s["id"].replace("_", "-")}">The full story, in plain words</a> · <a href="{rec(u["record"])}">record</a></p></article>''')
+<p class="more"><a href="{rec(u["record"])}">record</a></p></article>''')
     sys.path.insert(0, os.path.join(REPO, "CANON")); import results_to_tex as RT
     def vals(e):
         try: v = dict(RT.compute(e))
@@ -165,13 +165,12 @@ def page(art):
     _cs = importlib.util.spec_from_file_location("cat", os.path.join(REPO, "CANON", "catalogue.py")); CAT = importlib.util.module_from_spec(_cs); _cs.loader.exec_module(CAT)
     _C, _M = CAT.load()
     _cards = "".join(f'<article class="card"><span class="chip st-b">{E(CAT.stage(i, _M))}</span><h3>{E(i["name"])}</h3><p><b>{E(i["question"])}</b></p>'
-                     f'<p>{E(i["how"])}</p><p class="sub">Reads: {E(i["reads"])}.</p><details><summary>Its tests, and what is next</summary><ul>'
-                     + "".join(f"<li>{E(CAT.row_line(_M[r]))}</li>" for r in i["rows"] if r in _M) + f'</ul><p><b>Next:</b> {E(i["next"])}</p></details></article>'
+                     f'<p>{E(i["how"])}</p><p class="sub">Reads: {E(i["reads"])}.</p><p class="sub"><b>Next:</b> {E(i["next"])}</p></article>'
                      for i in _C["instruments"])
     catalogue = (f'<section class="wrap" id="instruments"><h2>The instruments</h2><p class="sub">Five readings, five different questions about the same sample. '
                  f'Every status below is computed from the Master Testing Manifest.</p>'
                  f'<p><b>Why a self-reference matters.</b> {E(_C["why_self_reference"])}</p><p><b>How they work together.</b> {E(_C["together"])}</p>'
-                 f'<details class="fold"><summary>Open the catalogue: what each instrument does, where it stands, what is still being worked on</summary>'
+                 f'<details class="fold"><summary>Open the catalogue: what each instrument does, and what it was commissioned on</summary>'
                  f'<div class="grid">{_cards}</div><p class="more"><a href="{rec("INSTRUMENTS.md")}">The catalogue as a document</a> · '
                  f'<a href="{rec("COMMISSIONING_PLAN.md")}">The commissioning plan, step by step</a></p></details></section>')
     _bs = importlib.util.spec_from_file_location("bits", os.path.join(REPO, "CANON", "bit_tables.py")); BT = importlib.util.module_from_spec(_bs); _bs.loader.exec_module(BT)
@@ -329,7 +328,7 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 <div class="card"><p class="big">${wsum:,.2f}</p><p>rented computing, last 7 billed days ({E(week[0][0])} to {E(week[-1][0])})</p><p class="small">Every run, its purpose, its estimate before it starts and its actual cost: <a href="{rec("Biological_Physics/MethylPhys/RUNS.md")}">the run ledger</a>.</p></div></div></details></section>
 <section class="wrap"><h2>Check it yourself</h2><div class="grid links">
 <a class="tile" href="read/">The book, every number checked by a script</a><a class="tile" href="book/">Run every check in your browser</a>
-<a class="tile" href="{rec("FIELD_NOTES.md")}">Field notes: every experiment's story</a><a class="tile" href="{rec("development/METHYLPHYS_DEVELOPMENT_LOG.md")}">The development log, every result good or bad</a>
+<a class="tile" href="{rec("FOUR_DOMAINS.md")}">One law, four applications, and IAM in bits</a><a class="tile" href="{rec("COMMISSIONING_REPORT.md")}">Commissioning report: what is commissioned and what it passed</a><a class="tile" href="{rec("INSTRUMENTS.md")}">The instrument catalogue</a>
 <a class="tile" href="https://github.com/hmahaffeyges/IAM-Validation">The repository: every script and record</a><a class="tile" href="{E(FUND["url"])}">The fundraiser</a></div>
 <p class="more"><b>Cite this work.</b> The book: Mahaffey, H. W. <i>IAM's Law and Order: The Actualization of Reality</i>, version 1.0, 2026, DOI <a href="https://doi.org/10.5281/zenodo.23151068">10.5281/zenodo.23151068</a>. The atlas: IAM-Atlas v2, DOI <a href="https://doi.org/10.5281/zenodo.23325865">10.5281/zenodo.23325865</a>. Code and records carry the MIT license, in the repository. A preprint follows the first replication kit.</p>
 <p class="more"><b>Questions, or think something here is wrong?</b> Open an <a href="https://github.com/hmahaffeyges/IAM-Validation/issues">issue</a> or a <a href="https://github.com/hmahaffeyges/IAM-Validation/discussions">discussion</a>. Finding an error in our numbers is the most useful thing anyone can do with this page.</p>
@@ -393,6 +392,10 @@ def onpage_map(paths, front=True):
 def doc_sections(path, onpage):
     intro, S = md_lite.sections(path, REPO, onpage)
     return intro + "".join(f"<details><summary>{E(t) if '<' not in t else t}</summary>{h}</details>" for t, h in S)
+def tables_links():
+    return ('<!-- RECORDS:BEGIN --><section class="wrap" id="tables"><h2>The tables</h2><p class="sub">Each is generated from the records every time they change; '
+            'each opens in the repository.</p><div class="grid links">' + "".join(f'<a class="tile" id="{a}" href="{rec(p)}">{E(t)}</a>' for a, t, p in INLINE)
+            + "</div></section><!-- RECORDS:END -->")
 def inline_docs(onpage):
     return ('<!-- RECORDS:BEGIN --><section class="wrap" id="tables"><h2>The tables</h2><p class="sub">Built from the repository every time the site is published; '
             'open any section.</p>' + "".join(f'<details id="{a}"><summary><b>{E(t)}</b></summary>{doc_sections(p, onpage)}</details>' for a, t, p in INLINE)
@@ -460,10 +463,10 @@ def doc_page(path, css_tag, docs):
             f'<title>{E(t)}</title>{css_tag}<style>{CSS}</style></head><body>{body}</body></html>')
 def full(art, css_tag):
     body = page(art)
-    _docs = linked_docs(body); _M = onpage_map(_docs)
-    _tab = inline_docs(_M)
+    # author 2026-10-17: the tables link to their files in the repository (no rendered copies); back arrow returns to the page
+    _tab = tables_links()
     _i = body.rfind("<footer"); body = (body[:_i] + _tab + body[_i:]) if _i >= 0 else body + _tab
-    body = relink(body, _M); DOCS[:] = _docs
+    DOCS[:] = []
     head = f'''<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>IAMPerformance: two telescopes, one sky map</title>{css_tag}<style>{CSS}</style></head><body>'''
     return head + body + "</body></html>", body

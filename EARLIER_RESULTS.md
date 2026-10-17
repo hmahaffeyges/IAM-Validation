@@ -6,7 +6,7 @@ runs every sample existed. Each keeps its record; none is withdrawn.*
 
 ## Every healthy cell follows the same simple rule
 
-**2026-10-15** · development, early result (data already read) · 53 of 56 on one line
+**2026-10-15** · commissioned, early result (data already read) · 53 of 56 on one line
 
 Cells tag their DNA to remember what kind of cell they are, and make a few tagging mistakes. Across 56 kinds of healthy human cells, the number of mistakes depends on one thing: how much of the DNA the cell keeps loosely tagged. So what a healthy cell should look like comes from its own sample, not a library of other cells. Early result, one laboratory's data; a second lab is next.
 

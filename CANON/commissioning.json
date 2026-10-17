@@ -66,8 +66,8 @@
     },
     {
      "kind": "catalogue",
-     "file": "CANON/catalogue.py",
-     "pattern": "commissioned \\(isolated neutrophils\\)"
+     "file": "CANON/catalogue.json",
+     "pattern": "\"commissioned\":\\ \"tested\\ and\\ commissioned\\ on\\ isolated\\ neut"
     },
     {
      "kind": "readme",
@@ -85,7 +85,7 @@
      "pattern": "\\*\\*Build:\\*\\* development v3 \\(2026-10-01\\), DEVELOPMENT - not commissioned"
     }
    ],
-   "status_line": "| **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)) | isolated neutrophils; detection limit 2 %; whole blood is development |",
+   "status_line": "| **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)) | tested and commissioned on isolated neutrophils against their own healthy profile; detection limit 2 % |",
    "summary": "Met-A on neutrophils, EPIC v1, isolated neutrophils",
    "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md"
   },
@@ -142,7 +142,7 @@
     {
      "kind": "catalogue",
      "file": "CANON/catalogue.json",
-     "pattern": "\\\"commissioned\\\": \\\"whole blood, EPIC v1, 2026-10-15\\\""
+     "pattern": "\"commissioned\":\\ \"tested\\ and\\ commissioned\\ on\\ whole\\ blood,\\ "
     },
     {
      "kind": "readme",
@@ -216,7 +216,7 @@
      "pattern": "\\(50-site blocks\\)"
     }
    ],
-   "status_line": "| **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](doors/COMMISSIONING_NOTE_CSCORE.md)) | one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered; isolated neutrophils development |",
+   "status_line": "| **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](doors/COMMISSIONING_NOTE_CSCORE.md)) | tested and commissioned on whole blood; one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered |",
    "summary": "the Met-A C-score on whole blood, EPIC v1",
    "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md"
   },
@@ -224,7 +224,7 @@
    "register_id": "COMMISSIONING-ATLAS-V21",
    "name": "IAM-Atlas v2.1, per use",
    "date": "2026-10-16",
-   "status_line": "| **IAM-Atlas v2.1, per use** | **COMMISSIONED 2026-10-16** ([note](doors/COMMISSIONING_NOTE_ATLAS_V21.md)) | reference profiles of cortical neurons, lung bronchus epithelium and naive CD4 T cells (450K); blind sites of the colon and lung tissue tests; composition and other cells development |",
+   "status_line": "| **IAM-Atlas v2.1** | **COMMISSIONED 2026-10-16** ([note](doors/COMMISSIONING_NOTE_ATLAS_V21.md)) | 79 cell types; met all three sealed bars against both published reference atlases on 731 held-out arrays (markers, mixtures, cells a reference lacks); cell profiles confirmed on held-out cortical neurons, lung bronchus epithelium and naive CD4 T cells; blind sites of the colon and lung tissue tests |",
    "summary": "IAM-Atlas v2.1 for three cell references (450K) and the colon and lung tissue tests' blind sites",
    "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md",
    "places": [
@@ -261,7 +261,7 @@
     {
      "kind": "status",
      "file": "Biological_Physics/MethylPhys/STATUS.md",
-     "pattern": "\\*\\*IAM-Atlas v2.1, per use\\*\\* \\| \\*\\*COMMISSIONED 2026-10-16"
+     "pattern": "\\*\\*IAM-Atlas v2.1\\*\\* \\| \\*\\*COMMISSIONED 2026-10-16"
     },
     {
      "kind": "book",
@@ -276,7 +276,7 @@
     {
      "kind": "catalogue",
      "file": "CANON/catalogue.json",
-     "pattern": "\"commissioned\": \"three cell references \\(450K\\) and the colon and lung blind sites, 2026-10-16\""
+     "pattern": "\"commissioned\":\\ \"79\\ cell\\ types;\\ met\\ all\\ three\\ sealed\\ bars"
     },
     {
      "kind": "readme",
@@ -344,7 +344,7 @@
     {
      "kind": "catalogue",
      "file": "CANON/catalogue.json",
-     "pattern": "\"commissioned\": \"blood-cell shares \\(neutrophils, monocytes, CD4 T, CD8 T; arrays\\), 2026-10-17\""
+     "pattern": "\"commissioned\":\\ \"blood\\-cell\\ shares\\ on\\ arrays,\\ tested\\ on\\ n"
     },
     {
      "kind": "readme",
@@ -353,7 +353,7 @@
     }
    ],
    "forbid": [],
-   "status_line": "| **Deconvolution tool (atlas v2.1)** | **COMMISSIONED 2026-10-17** ([note](doors/COMMISSIONING_NOTE_DECONV_V21.md)) | blood-cell shares of neutrophils, monocytes, CD4 T and CD8 T cells on arrays; error bars information; B, NK, tissues and cell-free DNA development |",
+   "status_line": "| **IAM-Deconvolver (atlas v2.1)** | **COMMISSIONED 2026-10-17** ([note](doors/COMMISSIONING_NOTE_DECONV_V21.md)) | blood-cell shares on arrays, tested on mixtures of neutrophils, monocytes, CD4 T and CD8 T cells from a laboratory the atlas never saw: median share error 0.016 |",
    "summary": "the Deconvolution tool for blood-cell shares on arrays",
    "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md"
   },
@@ -361,7 +361,7 @@
    "register_id": "COMMISSIONING-IAMA",
    "name": "IAM-A, healthy blood CD8 T cells, sequencing",
    "date": "2026-10-17",
-   "status_line": "| **IAM-A, own reference** | **COMMISSIONED 2026-10-17** ([note](doors/COMMISSIONING_NOTE_IAMA.md)) | healthy blood CD8 T cells, whole-genome bisulfite, each sample against its own loose share; other specimens development |",
+   "status_line": "| **IAM-A, own reference** | **COMMISSIONED 2026-10-17** ([note](doors/COMMISSIONING_NOTE_IAMA.md)) | each sample against its own loose share, on a self-reference line from 56 healthy cell types; sealed test on healthy blood CD8 T cells, whole-genome bisulfite: 7 of 8 read Normal |",
    "summary": "IAM-A on healthy blood CD8 T cells (sequencing, its own reference)",
    "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
    "places": [
@@ -413,7 +413,7 @@
     {
      "kind": "catalogue",
      "file": "CANON/catalogue.json",
-     "pattern": "\"commissioned\": \"healthy blood CD8 T cells, whole-genome bisulfite, 2026-10-17\""
+     "pattern": "\"commissioned\":\\ \"each\\ sample\\ against\\ its\\ own\\ reference;\\ s"
     },
     {
      "kind": "readme",

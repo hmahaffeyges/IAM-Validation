@@ -5,11 +5,11 @@ Master Testing Manifest; do not edit by hand. Commissioned means a use is allowe
 
 | Instrument | Commissioned | Scope |
 |---|---|---|
-| **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)) | isolated neutrophils; detection limit 2 %; whole blood is development |
-| **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md)) | one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered; isolated neutrophils development |
-| **IAM-Atlas v2.1, per use** | **COMMISSIONED 2026-10-16** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)) | reference profiles of cortical neurons, lung bronchus epithelium and naive CD4 T cells (450K); blind sites of the colon and lung tissue tests; composition and other cells development |
-| **Deconvolution tool (atlas v2.1)** | **COMMISSIONED 2026-10-17** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md)) | blood-cell shares of neutrophils, monocytes, CD4 T and CD8 T cells on arrays; error bars information; B, NK, tissues and cell-free DNA development |
-| **IAM-A, own reference** | **COMMISSIONED 2026-10-17** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md)) | healthy blood CD8 T cells, whole-genome bisulfite, each sample against its own loose share; other specimens development |
+| **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)) | tested and commissioned on isolated neutrophils against their own healthy profile; detection limit 2 % |
+| **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md)) | tested and commissioned on whole blood; one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered |
+| **IAM-Atlas v2.1** | **COMMISSIONED 2026-10-16** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)) | 79 cell types; met all three sealed bars against both published reference atlases on 731 held-out arrays (markers, mixtures, cells a reference lacks); cell profiles confirmed on held-out cortical neurons, lung bronchus epithelium and naive CD4 T cells; blind sites of the colon and lung tissue tests |
+| **IAM-Deconvolver (atlas v2.1)** | **COMMISSIONED 2026-10-17** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md)) | blood-cell shares on arrays, tested on mixtures of neutrophils, monocytes, CD4 T and CD8 T cells from a laboratory the atlas never saw: median share error 0.016 |
+| **IAM-A, own reference** | **COMMISSIONED 2026-10-17** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md)) | each sample against its own loose share, on a self-reference line from 56 healthy cell types; sealed test on healthy blood CD8 T cells, whole-genome bisulfite: 7 of 8 read Normal |
 
 ## Met-A, isolated neutrophils, EPIC v1 (2026-10-09)
 
@@ -71,6 +71,8 @@ emergency-department bloods, where the current method also misses); the breast a
 or the next version's range carrying a measured laboratory-by-site spread, re-sealed and tested on laboratories never read. Composition: U3 met on an
 adult healthy truth set. Breast and liver blind sites: held-out epithelium.
 
+Results it rests on: IAM-Atlas v2.1 against the published array reference atlas of human cell types, on the jobs a reference atlas is used for (2026-10-16); IAM-Atlas v2.1 against the published sequencing atlas of human cell types, on the jobs a reference atlas is used for (2026-10-16).
+
 Note: [COMMISSIONING_NOTE_ATLAS_V21.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)
 
 ## Deconvolution tool, blood-cell shares, arrays (2026-10-17)
@@ -86,6 +88,8 @@ Note: [COMMISSIONING_NOTE_DECONV_V21.md](Biological_Physics/MethylPhys/doors/COM
 **IAM-A commissioned** on healthy blood CD8 T cells, each sample read against its own reference: 7 of 8 read samples from a laboratory it had never seen inside Normal, on a rule sealed before any read was downloaded
 
 IAM-A reads how well each DNA molecule kept its marks and compares that with what the same sample's own loose ends predict, so it needs no outside reference. On healthy immune cells from a new laboratory, 7 of the 8 samples it read came out Normal, as sealed in advance.
+
+Results it rests on: Every healthy cell follows the same simple rule (2026-10-15).
 
 Note: [COMMISSIONING_NOTE_IAMA.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md)
 

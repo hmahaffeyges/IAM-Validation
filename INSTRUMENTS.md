@@ -4,7 +4,7 @@
 
 ## Why a self-reference matters
 
-Until now every instrument needed a reference: healthy cells of the same kind, often from the same laboratory, to say what normal looks like. That reference is the hardest thing in this field to get, and it is why most tests work in one lab and stumble in the next. On 2026-10-15 we found that across 56 kinds of healthy human cells, a cell's tagging mistakes follow one straight line set by how loosely it holds its own DNA. So a healthy cell's expected reading can come from its own sample. An instrument that carries its own reference does not need a library of other people's cells, does not inherit another lab's quirks, and can be pointed at any tissue, any lab, even any species that tags its DNA. That is the step we are now commissioning.
+Until now every instrument needed a reference: healthy cells of the same kind, often from the same laboratory, to say what normal looks like. That reference is the hardest thing in this field to get, and it is why most tests work in one lab and stumble in the next. On 2026-10-15 we found that across 56 kinds of healthy human cells, a cell's tagging mistakes follow one straight line set by how loosely it holds its own DNA. So a healthy cell's expected reading can come from its own sample. An instrument that carries its own reference does not need a library of other people's cells, does not inherit another lab's quirks, and can be pointed at any tissue, any lab, even any species that tags its DNA. That step is now commissioned: IAM-A reads each sample against its own reference (2026-10-17).
 
 ## How they work together
 
@@ -32,13 +32,13 @@ DNA's sequence is the same in every cell; the methyl tags are not, and a sequenc
 
 A map of 79 kinds of healthy human cells, built from seven public sources on arrays and sequencing, fitted as one model so every spot on the genome carries its value and its uncertainty. Like a state estimator across the whole interconnection: many utilities' meters, each weighted by how far it can be trusted.
 
-**Reads:** arrays or sequencing. **Where it stands:** commissioned (three cell references (450K) and the colon and lung blind sites, 2026-10-16).
+**Reads:** arrays or sequencing. **Where it stands:** commissioned (79 cell types; met all three sealed bars against both published reference atlases, 2026-10-16).
 
 - ATL-005 Atlas v2.1 joint fit: run; last run 2026-10-16: not met
 - ATL-060 Head to head: atlas v2.1 against the source atlases' own references, on their own job: run; last run 2026-10-16: met
 - ATL-001 Atlas commissioning as a source of healthy references: run; last run 2026-10-16: met
 
-**Next:** Widen the commissioned uses: cell references with a measured laboratory spread in the range, adult healthy blood for composition, held-out breast and liver epithelium.
+**Next:** Deposit IAM-Atlas v2.1 with its DOI, with its complementary additions: noise maps, the information sphere and the guidebook.
 
 ## Met-A
 
@@ -52,7 +52,7 @@ Reads the methylation level at sites a healthy cell holds firmly, against a heal
 - COM-METAA-039 Met-A read against the sample's own line: run; last run 2026-10-15: not met
 - COM-METAA-032 Whole blood back into Met-A scope: designed
 
-**Next:** Test whether Met-A can read against the sample's own loose share, which would shrink or remove its same-lab calibration and open it to new cell types.
+**Next:** More cell types, each against its own healthy profile.
 
 ## C-Score (the clustering meter)
 
@@ -60,12 +60,12 @@ Reads the methylation level at sites a healthy cell holds firmly, against a heal
 
 Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping against a healthy band. The band held in three laboratories that never helped set it, and one person measured twice reads the same.
 
-**Reads:** arrays (whole-genome sequencing too). **Where it stands:** commissioned (whole blood, EPIC v1, 2026-10-15).
+**Reads:** arrays (whole-genome sequencing too). **Where it stands:** commissioned (tested and commissioned on whole blood, EPIC v1, 2026-10-15).
 
 - COM-CSCORE-011 C-score healthy band test: run; last run 2026-10-13: met
 - COM-CSCORE-012 C-score last check: same-person repeatability on unspent replicate arrays: run; last run 2026-10-15: met
 
-**Next:** Isolated neutrophils from an independent laboratory, then real cancers with a sealed bar, then 450K, EPIC v2 and plasma.
+**Next:** Real cancers read on the gauge; then 450K, EPIC v2 and plasma.
 
 ## IAM-A
 
@@ -73,7 +73,7 @@ Cancer does not only shift tagging levels; it clumps them into runs. The C-Score
 
 Counts tagging mistakes one DNA molecule at a time, the most direct reading of informational fidelity we have, and reads them against the sample's own line. The physics end of the catalogue: the floor and ceiling are derived, and since 2026-10-15 the healthy middle comes from the sample itself.
 
-**Reads:** single-molecule sequencing (bisulfite, EM-seq; nanopore next). **Where it stands:** commissioned (healthy blood CD8 T cells, whole-genome bisulfite, 2026-10-17).
+**Reads:** single-molecule sequencing (bisulfite, EM-seq; nanopore next). **Where it stands:** commissioned (each sample against its own reference; sealed test on healthy blood CD8 T cells, whole-genome bisulfite, 2026-10-17).
 
 - PHY-045 The loose end read off the line: every healthy cell's held error from its own loose share: run; last run 2026-10-15: met
 - PHY-048 The loose-end line at the one-Landauer-bit cut: run; last run 2026-10-15: met
@@ -81,7 +81,7 @@ Counts tagging mistakes one DNA molecule at a time, the most direct reading of i
 - PHY-043 Tumor backbone against the writer's nameplate: run; last run 2026-10-15: progressed
 - COM-IAMA-052 IAM-A atlas-free commissioning: one grand sealed test on fresh data: run; last run 2026-10-17: met
 
-**Next:** Widen what it reads: other healthy blood cells, then tissue and cell-free DNA, each on its own sealed test; the tumor pairs read on the gauge.
+**Next:** Other healthy blood cells, then tissue and cell-free DNA; the tumor pairs read on the gauge.
 
 ## Group-A
 
