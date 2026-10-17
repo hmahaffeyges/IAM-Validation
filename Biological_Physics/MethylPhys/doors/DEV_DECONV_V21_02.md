@@ -29,3 +29,22 @@ Version 2's planted test (the atlas's own person-to-person and laboratory spread
 **What it would take to succeed:** both bars met on the 200 sealed mixtures.
 
 **In plain words:** healthy blood cells from a laboratory the tool has never seen are mixed in known amounts by computer; the tool must first confirm each sample looks like its own cell, then say how much of each cell is in every mix, with an honest error bar.
+
+## Outcome: NOT MET (scored once, 2026-10-16, box job 41e7d7d7; `data/DEV_DECONV_V21_01/deconv_v2_scored.json`)
+
+The planted test passed first on the box. Then the sealed test:
+
+| bar | result | needed |
+|---|---|---|
+| B1 mean error | **0.016** (met) | at most 0.03 |
+| B2 true share inside its bar | **0.78** (not met) | at least 0.80 |
+
+**The sample check worked.** Neutrophils, CD4 T, CD8 T and monocytes passed (own-cell share 0.75-1.00; one monocyte array at 0.75 was
+refused). All six B-cell arrays from this laboratory read only 0.29-0.68 B cells and were refused, so B cells were left out of the mixtures,
+as the rule says. The tool told us it could not read those samples instead of reporting a wrong answer.
+
+**Where the error bars are too narrow:** monocytes (true share inside the bar 0.38 of the time) and CD4 T cells (0.64). Neutrophils 0.93,
+CD8 T 0.81. The shares themselves are accurate (error 0.016, half the bar).
+
+**What it would take:** error bars that widen for monocytes and CD4 T cells, the two cells whose shares trade off most in blood. This is
+development; the shares (B1) are the deliverable that already works, twice now (0.029 on the first test, 0.016 here).

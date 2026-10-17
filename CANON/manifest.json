@@ -27208,16 +27208,22 @@
    "instrument_or_term": "atlas v2.1, deconvolution",
    "sources": [],
    "data_status": "mixtures to be chosen (independent of every atlas source)",
-   "status": "sealed",
+   "status": "run",
    "runs": [
     {
      "date": "2026-10-16",
      "outcome": "success",
      "note": "version 2 planted test PASSED (error 0.004, true share inside its bar 0.82)",
      "page": "not headline: synthetic"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "fail",
+     "note": "scored once: B1 error 0.016 met; B2 inside 0.78 not met (0.80); sample check refused the lab's B-cell arrays; bars too narrow for monocytes 0.38 and CD4 T 0.64",
+     "page": "not headline: development"
     }
    ],
-   "next_step": "score once on the box",
+   "next_step": "error bars that widen for monocytes and CD4 T cells, then a fresh laboratory",
    "cost": "laptop",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/DEV_DECONV_V21_02.md",
@@ -27250,15 +27256,6 @@
    ],
    "sources_of_row": [
     "author 2026-10-13: if they do not find it better than what they have, they will not care"
-   ],
-   "chain_outputs": [
-    {
-     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_USE_01",
-     "files": 2,
-     "stage": "Q2 self-reference",
-     "chain": "52e94725c307",
-     "latest_utc": "2026-10-16T18:35:04Z"
-    }
    ]
   }
  ],

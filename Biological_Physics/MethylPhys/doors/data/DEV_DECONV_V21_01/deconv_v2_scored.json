@@ -1,0 +1,223 @@
+{
+ "test": "DEV-DECONV-V21-02 (release track B, version 2 of the tool)",
+ "sample_check": [
+  {
+   "cell": "monocytes",
+   "sample": "16910_CD14",
+   "own": 0.9432687733098553,
+   "passes": true
+  },
+  {
+   "cell": "monocytes",
+   "sample": "20910_CD14",
+   "own": 0.8998657015525128,
+   "passes": true
+  },
+  {
+   "cell": "monocytes",
+   "sample": "22910B_CD14",
+   "own": 0.8682043390565004,
+   "passes": true
+  },
+  {
+   "cell": "monocytes",
+   "sample": "24910A_CD14",
+   "own": 0.8181070165007649,
+   "passes": true
+  },
+  {
+   "cell": "monocytes",
+   "sample": "24910B_CD14",
+   "own": 0.8224052244165784,
+   "passes": true
+  },
+  {
+   "cell": "monocytes",
+   "sample": "29910_CD14",
+   "own": 0.7482396230394441,
+   "passes": false
+  },
+  {
+   "cell": "neutrophils",
+   "sample": "16910_CD16",
+   "own": 1.0,
+   "passes": true
+  },
+  {
+   "cell": "neutrophils",
+   "sample": "20910_CD16",
+   "own": 0.9984962362803067,
+   "passes": true
+  },
+  {
+   "cell": "neutrophils",
+   "sample": "22910B_CD16",
+   "own": 0.9940682036071238,
+   "passes": true
+  },
+  {
+   "cell": "neutrophils",
+   "sample": "24910A_CD16",
+   "own": 1.0,
+   "passes": true
+  },
+  {
+   "cell": "neutrophils",
+   "sample": "24910B_CD16",
+   "own": 0.9924880585609834,
+   "passes": true
+  },
+  {
+   "cell": "neutrophils",
+   "sample": "29910_CD16",
+   "own": 0.9969278220508289,
+   "passes": true
+  },
+  {
+   "cell": "b cells",
+   "sample": "16910_CD19",
+   "own": 0.4527081956014047,
+   "passes": false
+  },
+  {
+   "cell": "b cells",
+   "sample": "20910_CD19",
+   "own": 0.6789576249299034,
+   "passes": false
+  },
+  {
+   "cell": "b cells",
+   "sample": "22910B_CD19",
+   "own": 0.5272808051956998,
+   "passes": false
+  },
+  {
+   "cell": "b cells",
+   "sample": "24910A_CD19",
+   "own": 0.4589485984831558,
+   "passes": false
+  },
+  {
+   "cell": "b cells",
+   "sample": "24910B_CD19",
+   "own": 0.29241479059614756,
+   "passes": false
+  },
+  {
+   "cell": "b cells",
+   "sample": "29910_CD19",
+   "own": 0.3961866449108935,
+   "passes": false
+  },
+  {
+   "cell": "cd4 t cells",
+   "sample": "16910_CD4",
+   "own": 0.999446933244466,
+   "passes": true
+  },
+  {
+   "cell": "cd4 t cells",
+   "sample": "20910_CD4",
+   "own": 1.0,
+   "passes": true
+  },
+  {
+   "cell": "cd4 t cells",
+   "sample": "22910B_CD4",
+   "own": 0.993908068446385,
+   "passes": true
+  },
+  {
+   "cell": "cd4 t cells",
+   "sample": "24910A_CD4",
+   "own": 0.975107673213282,
+   "passes": true
+  },
+  {
+   "cell": "cd4 t cells",
+   "sample": "24910B_CD4",
+   "own": 0.9938431075316779,
+   "passes": true
+  },
+  {
+   "cell": "cd4 t cells",
+   "sample": "29910_CD4",
+   "own": 0.9525181232923317,
+   "passes": true
+  },
+  {
+   "cell": "cd8 t cells",
+   "sample": "16910_CD8",
+   "own": 0.9378566887830821,
+   "passes": true
+  },
+  {
+   "cell": "cd8 t cells",
+   "sample": "20910_CD8",
+   "own": 0.9558105156252305,
+   "passes": true
+  },
+  {
+   "cell": "cd8 t cells",
+   "sample": "22910B_CD8",
+   "own": 0.930857893166106,
+   "passes": true
+  },
+  {
+   "cell": "cd8 t cells",
+   "sample": "24910A_CD8",
+   "own": 0.9988984342143548,
+   "passes": true
+  },
+  {
+   "cell": "cd8 t cells",
+   "sample": "24910B_CD8",
+   "own": 0.925651843981152,
+   "passes": true
+  },
+  {
+   "cell": "cd8 t cells",
+   "sample": "29910_CD8",
+   "own": 0.8814499315755465,
+   "passes": true
+  }
+ ],
+ "cells_mixed": [
+  "monocytes",
+  "neutrophils",
+  "cd4 t cells",
+  "cd8 t cells"
+ ],
+ "markers": 600,
+ "B1_mean_error": 0.015864904478919604,
+ "B1_met": true,
+ "B2_inside": 0.78,
+ "B2_met": false,
+ "per_cell_error": {
+  "b cells": 0.0003790935895142454,
+  "cd4 t cells": 0.02546651530664273,
+  "cd8 t cells": 0.015878627852615464,
+  "monocytes": 0.03616376275550573,
+  "neutrophils": 0.010085356680204534,
+  "nk cells": 0.0072160706890349105
+ },
+ "per_cell_inside": {
+  "b cells": 1.0,
+  "cd4 t cells": 0.64,
+  "cd8 t cells": 0.81,
+  "monocytes": 0.38,
+  "neutrophils": 0.93,
+  "nk cells": 0.92
+ },
+ "verdict": "NOT MET",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "15c31c203bf75125418f7191b260701d10a61b2b8970951e665663ab47dfa70d",
+  "payload_sha256": "d9b6b87f1dfbf43bb09cb89326d09a6c5d252715a2d910bb77511bc21b8d86b3",
+  "inputs": [],
+  "manifest": [
+   "ATL-065"
+  ],
+  "utc": "2026-10-17T01:09:35Z"
+ }
+}

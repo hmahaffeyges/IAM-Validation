@@ -1739,6 +1739,29 @@
     "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/count_grand.py"
    ],
    "note": "running"
+  },
+  {
+   "job_id": "i-09dd0f71b2e095177",
+   "name": "IAM-A clean room part A run 3: the five ENCODE files recounted with the index built, then the full comparison (PHY-055)",
+   "date": "2026-10-16",
+   "commit": "81a26d92",
+   "s3_code_prefix": "results/CLEANROOM_IAMA_01/code/run3/",
+   "state": "running",
+   "log": "results/CLEANROOM_IAMA_01/status.txt",
+   "machine": "spot c7a.8xlarge, self-terminating (box image 2026-10-14, 300 GB disk)",
+   "purpose": "fresh public clone recounts Loyfer 153 and ENCODE 5 and rebuilds the line and shape reference; all must equal the committed ones",
+   "record": "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py",
+   "manifest": [
+    "PHY-055"
+   ],
+   "outputs": [
+    "results/CLEANROOM_IAMA_01/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_box.sh",
+    "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py"
+   ],
+   "note": "running"
   }
  ],
  "not_jobs": {
