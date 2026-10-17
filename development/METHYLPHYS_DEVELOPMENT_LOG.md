@@ -2245,3 +2245,5 @@ CANON/atlas_story.json (author's opening, what the MCMC build gives, every tool 
 
 ### 2026-10-16 · IAM-Atlas v2.1 in sequencing coordinates (release item G09); molecule-level atlas added as a future row (ATL-068)
 Author decision: ship the atlas labeled by Loyfer's own CpG numbering. atlas/v2.1/sites_sequencing_key.parquet keys all 813,951 sites (probe ID, his .beta CpG index, hg19 position; no index shared), made by joining only (doors/data/DEV_ATLAS_V21_01/export_site_key_v21.py). The scope is stated in the README and the story: an array-scale reference with no molecule-level markers. A sequencing-native, molecule-level atlas for cell-free DNA is a new manifest row, future.
+
+### 2026-10-16 · Site build fixed: the atlas story opened its first fold by default (house rule: every fold starts closed); the local page check now refuses an open fold before push (ATL-063)

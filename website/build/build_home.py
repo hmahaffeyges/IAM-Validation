@@ -160,7 +160,7 @@ def page(art):
                        for t in _ST["tools"] if t["status"] == st)
     v21_banner = (f'<section class="wrap" id="v21"><div class="banner"><p class="kicker">IAM-Atlas v2.1 · 79 cells · commissioned use by use</p><h2>{E(_ST["title"])}</h2>'
         + "".join(f"<p>{E(x)}</p>" for x in _ST["opening"]) + f'<p><b>{E(_ST["not_this"])}</b></p>'
-        + "".join(f'<details{" open" if st == "now" else ""}><summary>{_LB[st]}</summary><ul class="road">{_tools(st)}</ul></details>' for st in ("now", "gift", "after"))
+        + "".join(f'<details><summary>{_LB[st]}</summary><ul class="road">{_tools(st)}</ul></details>' for st in ("now", "gift", "after"))
         + f'<p><b>Where it stands.</b> {E(_ST["limits"])}</p><p class="sub"><i>{E(_ST["closing"])}</i></p></div></section>')
     _cs = importlib.util.spec_from_file_location("cat", os.path.join(REPO, "CANON", "catalogue.py")); CAT = importlib.util.module_from_spec(_cs); _cs.loader.exec_module(CAT)
     _C, _M = CAT.load()
@@ -417,6 +417,7 @@ def relink(body, M, prefix=""):
     return re.sub(re.escape(GH) + r"([^\"#]+?\.md)(#[^\"]*)?", r, body)
 
 def problems(body):
+    if re.search(r"<details[^>]* open", body): return ["a fold set to open by default; every fold starts closed (build.sh rule)"]
     # The voice check skips exactly two marked blocks: the author's own words, and the block that describes the research
     # research partner (the author asked for it, 2026-10-13; the words "assistant"/"partner" in that sense stay refused everywhere
     # else, and a vendor or
