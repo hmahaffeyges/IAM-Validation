@@ -2253,3 +2253,6 @@ Atlas v2.1 fit finished converged (79 cells, 813,951 sites; 0.42 % of values at 
 
 ### 2026-10-17 · Limits study adopted: tools held to their job, the gift ships without new science (ATL-055, ATL-063)
 Author: the atlas and the deconvolver are tools, not things to score; experts set the gauge lines. development/LIMITS_STUDY_2026-10-17.md: deconvolver commissioned for shares (met twice), error bars labeled information; no more atlas commissioning before the gift; sphere and noise maps after the gift; the 13-tool story is guidebook v1; neurons, second cell types, age ranges, post-mortem checks and nonessential derivations parked. Nothing scored is rescored; IAM-A's grand test keeps its sealed rule.
+
+### 2026-10-17 · The deconvolution tool commissioned for blood-cell shares (COMMISSIONING-DECONV-V21; ATL-055)
+Neutrophils, monocytes, CD4 T and CD8 T on arrays, against atlas v2.1: share error 0.016 on 200 mixtures from a laboratory the atlas never saw (bar 0.03; version 1: 0.029 on six cells). Error bars ship as information (limits study 2026-10-17, decided after both scores; disclosed in the note). Every required place updated.

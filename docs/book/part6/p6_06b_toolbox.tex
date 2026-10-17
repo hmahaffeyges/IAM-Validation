@@ -41,6 +41,7 @@ Every reading in this part comes from one of a small set of tools. Each answers 
 \item \textbf{Intake and calibration.} Takes an array's raw intensities, checks every control, and turns them into tagging levels on one fixed scale, refusing what it cannot read and saying why. (Chapter~\ref{ch:instrument})
 \item \textbf{The tare.} Reads each specimen against healthy references run beside it, so a laboratory's own offset cancels instead of passing for disease. (Chapter~\ref{ch:instrument})
 \item \textbf{Composition.} For whole blood, works out which cells are in the sample and in what shares, so a change in the mix is not mistaken for a change in the cells. (Chapter~\ref{ch:chain})
+\item \textbf{The deconvolution tool.} Reads a mixed sample against atlas v2.1 and reports each cell's share, after a sample check that refuses arrays it cannot read. (Chapter~\ref{ch:atlas})
 \item \textbf{The sky map.} Lays the genome on a sphere, chromosome by chromosome, and draws each site's departure from healthy, the way a microwave sky is drawn; the same residuals the clustering meter scores. (Chapter~\ref{ch:skytools})
 \item \textbf{The chain and its report.} Runs every stage in a fixed order, records every input and setting, and prints one report per sample with each instrument's reading, its status and its detection limit. (Chapter~\ref{ch:report})
 \end{itemize}

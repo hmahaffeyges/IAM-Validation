@@ -19,7 +19,7 @@ REPORT_SECTIONS = ("sec-reading-intake", "sec-composition", "sec-met-a", "sec-ta
 # SOP v3 section 2b - the 14 stages and their status on this build (kept in step with the SOP status column)
 STAGES_2B = [("0", "Intake", "running (specimen rule; sex and age optional; identifiers hashed in bundle and ledger)"), ("1", "Calibration", "running"),
              ("2", "Composition, blood groups", "running"),
-             ("3", "Atlas deconvolution", "development flag --dev-atlas-e; IAM-Atlas v2.1 COMMISSIONED 2026-10-16 for three cell references (cortical neurons, lung bronchus epithelium, naive CD4 T cells; 450K) and the colon and lung blind sites; its composition (U3) development"), ("4", "NILC component separation", "development flag --dev-nilc"),
+             ("3", "Atlas deconvolution", "development flag --dev-atlas-e; IAM-Atlas v2.1 COMMISSIONED 2026-10-16 for three cell references (cortical neurons, lung bronchus epithelium, naive CD4 T cells; 450K) and the colon and lung blind sites; its composition (U3) development; Deconvolution tool COMMISSIONED 2026-10-17 for blood-cell shares (neutrophils, monocytes, CD4 T, CD8 T; arrays), error bars information"), ("4", "NILC component separation", "development flag --dev-nilc"),
              ("5", "Met-A", "running (neutrophils); B cells behind --dev-percell-b"),
              ("6", "C-score", "COMMISSIONED 2026-10-15 on whole blood (one-sided band, upper 1.152); IAM-A C-score in Stage Q (development)"), ("7", "IAM-A", "running (development)"),
              ("8", "Same-run tare", "running (self-tare II, then the median tare; self-tare II wired 2026-10-04)"),

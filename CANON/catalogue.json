@@ -98,6 +98,12 @@
    "chapter": "ch:chain"
   },
   {
+   "name": "The deconvolution tool",
+   "what": "Reads a mixed sample against atlas v2.1 and reports each cell's share, after a sample check that refuses arrays it cannot read.",
+   "chapter": "ch:atlas",
+   "commissioned": "blood-cell shares (neutrophils, monocytes, CD4 T, CD8 T; arrays), 2026-10-17"
+  },
+  {
    "name": "The sky map",
    "what": "Lays the genome on a sphere, chromosome by chromosome, and draws each site's departure from healthy, the way a microwave sky is drawn; the same residuals the clustering meter scores.",
    "chapter": "ch:skytools"

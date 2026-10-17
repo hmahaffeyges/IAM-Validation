@@ -24814,9 +24814,17 @@
     "Moss 2018 arrays"
    ],
    "data_status": "partial",
-   "status": "planned",
-   "runs": [],
-   "next_step": "commission for shares (met twice: 0.029, 0.016; bar 0.03); error bars ship as information, labeled not calibrated (limits study 2026-10-17)",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-17",
+     "outcome": "success",
+     "note": "commissioned for blood-cell shares (DEV-DECONV-V21-01 0.029, DEV-DECONV-V21-02 0.016; bar 0.03); error bars information",
+     "page": "headline: COMMISSIONING-DECONV-V21",
+     "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md"
+    }
+   ],
+   "next_step": "in the gift",
    "cost": "laptop (from the v2.1 box outputs)",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/atlas_v21_plan.md",

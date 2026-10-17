@@ -18,7 +18,10 @@ Usage: import stage_deconv_v21 as D; R = D.reference(cells); M = D.markers(R); D
 import os, sys, json, numpy as np, pandas as pd
 from scipy.optimize import nnls
 HERE = os.path.dirname(os.path.abspath(__file__)); ATLAS = os.path.join(HERE, "..", "atlas", "v2.1")
-LAB_SD = 0.02; PER_CELL = 50; BOOT = 200; SEED = 2026; SPREAD = os.environ.get("DECONV_SPREAD", "full")   # "full" (v2) or "mean_only" (v1, as scored once)
+LAB_SD = 0.02; PER_CELL = 50; BOOT = 200
+DECONV_V21_COMMISSIONING = {"status": "COMMISSIONED", "date": "2026-10-17", "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md",
+    "use": "blood-cell shares on arrays", "cells": ["neutrophils", "monocytes", "cd4 t cells", "cd8 t cells"], "error_bars": "information, not calibrated"}
+SEED = 2026; SPREAD = os.environ.get("DECONV_SPREAD", "full")   # "full" (v2) or "mean_only" (v1, as scored once)
 def reference(cells, atlas=ATLAS, spread=None):
     spread = spread or SPREAD; import pyarrow.parquet as pq
     """mu and sd DataFrames (sites x cells) for the named cells, from the compact copy; reads only those columns."""

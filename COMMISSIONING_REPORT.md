@@ -8,6 +8,7 @@ Master Testing Manifest; do not edit by hand. Commissioned means a use is allowe
 | **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)) | isolated neutrophils; detection limit 2 %; whole blood is development |
 | **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md)) | one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered; isolated neutrophils development |
 | **IAM-Atlas v2.1, per use** | **COMMISSIONED 2026-10-16** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)) | reference profiles of cortical neurons, lung bronchus epithelium and naive CD4 T cells (450K); blind sites of the colon and lung tissue tests; composition and other cells development |
+| **Deconvolution tool (atlas v2.1)** | **COMMISSIONED 2026-10-17** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md)) | blood-cell shares of neutrophils, monocytes, CD4 T and CD8 T cells on arrays; error bars information; B, NK, tissues and cell-free DNA development |
 
 ## Met-A, isolated neutrophils, EPIC v1 (2026-10-09)
 
@@ -74,6 +75,14 @@ or the next version's range carrying a measured laboratory-by-site spread, re-se
 adult healthy truth set. Breast and liver blind sites: held-out epithelium.
 
 Note: [COMMISSIONING_NOTE_ATLAS_V21.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)
+
+## Deconvolution tool, blood-cell shares, arrays (2026-10-17)
+
+**The deconvolution tool commissioned** for blood-cell shares: on 200 mixtures from a laboratory the atlas never saw, median share error 0.016 (bar 0.03), after a sample check that refuses arrays it cannot read
+
+Given a blood sample read on an array, the tool says how much of it came from each kind of blood cell. On mixtures made from healthy cells of a laboratory it had never seen, it was off by 1.6 percentage points at the median, and it refused the samples it could not read instead of guessing.
+
+Note: [COMMISSIONING_NOTE_DECONV_V21.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md)
 
 ## Not yet commissioned
 

@@ -3,9 +3,9 @@ accession,in_s3,s3_gb,format,chain_readable,spent,test_status,tested_by,test_rec
 E-MTAB-11545,,,,,,,,,"not usable (organoids only (culture), 5 donors)",colon epithelium | small intestine epithelium,yes,IDAT files listed in SDRF: 84 files for 42 samples,Culture associated DNA methylation changes impact on cellular function of Human Intestinal Organoids (Methylation),gold-mine map
 E-MTAB-13654,,,,,,,,,not usable (pooled donors (4-5 per pool); HLA-risk carriers with family history of T1D),cd4 t cells | b cells,yes,IDAT files listed in SDRF: 64 files for 32 samples,DNA methylation of CD4+ T cells and CD19+ B cells in autoimmune-disease associated HLA class II genotype carriers,gold-mine map
 E-MTAB-15426,,,,,,,,,not usable (cultured cells (3 HUASMC + 1 HAoSMC)),smooth muscle,yes,IDAT files listed in SDRF: 8 files for 4 samples,Methylation profiling by EPIC microarray of HUASMCs and HAoSMCs,gold-mine map
-E-MTAB-2145,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; DEV_ATLAS_V21_01; DEV_DECONV_V21_01; DEV_DECONV_V21_02,,,,,,
+E-MTAB-2145,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01; DEV_DECONV_V21_01; DEV_DECONV_V21_02,,,,,,
 E-MTAB-3709,,,,,,,,,atlas build,colon epithelium,yes,IDAT files listed in SDRF: 60 files for 30 samples,DNA methylation of purified intestinal epithelial cells from treatment-naive paediatric IBD patients and controls,gold-mine map
-E-MTAB-4957,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; DEV_ATLAS_V21_01,atlas build,colon epithelium | small intestine epithelium,yes,IDAT files listed in SDRF: 268 files for 134 samples,DNA methylation array of human purified intestinal epithelial samples and organoids from paediatric and foetal gut,gold-mine map
+E-MTAB-4957,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01,atlas build,colon epithelium | small intestine epithelium,yes,IDAT files listed in SDRF: 268 files for 134 samples,DNA methylation array of human purified intestinal epithelial samples and organoids from paediatric and foetal gut,gold-mine map
 E-MTAB-8952,,,,,,,,,"not usable (cultured commercial neonatal cells, 2 replicates each (one donor likely))",vascular endothelium,yes,IDAT files listed in SDRF: 8 files for 4 samples,DNA methylation profiling of primary human dermal microvascular blood and lymphatic endothelial cells,gold-mine map
 ENCODE,,,,,partly spent,,,,,,,,,
 "ENCODE RRBS (A549, HepG2, LNCaP, MCF-7, T47D + normal epithelial lines) - derived",,,,,spent,,,,,,,,,
@@ -16,7 +16,7 @@ GSE101673,,,,,,,,PROC_LINES_01_BJ_OUTCOME,,,,,,
 GSE102726,,,,,,,,DEV_ATLAS_V21_01,,,,,,
 GSE102970,,,,,,,,,held-out test,sperm,yes,IDAT listed for 48/48 samples,Preconception Urinary Phthalate Concentrations and Sperm DNA Methylation Profiles among Men Undergoing IVF Treatment: A Cross-Sectional Study,gold-mine map
 GSE103413,,,,,,,,DEV_ATLAS_V21_01,not usable (too few donors for the purified type (3); leukocytes not purified),melanocyte,yes,IDAT listed for 67/67 samples,Mining novel candidate imprinted genes using genome-wide methylation screening and literature review,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE103541,,,,,spent,,,COMMISSIONING_NOTE_ATLAS_V21; DEV_ATLAS_V21_01,atlas build,cd4 t cells | cd8 t cells | b cells | monocytes | granulocytes,yes,IDAT listed for 145/145 samples,DNA methylation profiles of Purified Blood Cell types,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE103541,,,,,spent,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01,atlas build,cd4 t cells | cd8 t cells | b cells | monocytes | granulocytes,yes,IDAT listed for 145/145 samples,DNA methylation profiles of Purified Blood Cell types,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE103911,,,,,,,,,not usable (not healthy),t cells cd3,yes,IDAT listed for 65/65 samples,Identification of kidney transplant patients at risk for cutaneous squamous cell carcinoma by differentially methylated regions in T cells,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE104287,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,nk cells,yes,IDAT listed for 48/48 samples,Anti-mycobacterial activity correlates with altered DNA methylation pattern in immune cells from BCG-vaccinated subjects,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE104405,,,,,,,,,atlas build,hematopoietic stem cell,yes,SRA run links for 12/12 samples,Aging Human Hematopoietic Stem Cells Manifest Profound Epigenetic Reprogramming of Enhancers That May Predispose to Leukemia (ERRBS),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
@@ -31,7 +31,7 @@ GSE108123,,,,,,,,,,,,,,candidates DEV_FINGERPRINT_03
 GSE109042,,,,,,,,,not usable (not purified (buccal swab epithelium); FASD case-control),,yes,IDAT listed for 53/53 samples,DNA methylation as a predictor of fetal alcohol spectrum disorder,gold-mine map
 GSE109446,,,,,,,,,not usable (not purified (brushing)),nasal epithelium,yes,IDAT listed for 58/58 samples,Nasal DNA methylation is associated with childhood asthma,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE110530,,,,,spent,,,COMMISSIONING_NOTE_CSCORE; DEV_ATLAS_EPIC_01; DEV_COMPOSITION_TRUTH_02; DEV_METAA_SENS_01,,,,,,
-GSE110554,,,,,spent,,,COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_COMMISSION_01; DEV_ATLAS_EPIC_01; DEV_BASE_CHAIN_01; DEV_COMPOSITION_TRUTH_02; DEV_DECONV_V21_01; DEV_DIRECTION_,,,,,,
+GSE110554,,,,,spent,,,COMMISSIONING_NOTE_DECONV_V21; COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_COMMISSION_01; DEV_ATLAS_EPIC_01; DEV_BASE_CHAIN_01; DEV_COMPOSITION_TRUTH_02; DE,,,,,,
 GSE110607,,,,,,,,,not usable (not healthy-only (co-twins of SLE patients)),monocytes | b cells | cd4 t cells | granulocytes,yes,IDAT listed for 104/104 samples,Twin DNA methylation profiling reveals flare-dependent interferon signature and B-cell promoter hypermethylation in systemic lupus erythematosus,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE111396,,,,,,,,,not usable (cultured with no uncultured comparison),lung fibroblast,yes,IDAT listed for 61/61 samples,DNA methylation in airway and parenchymal fibroblasts from individuals with and wthout COPD,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE111445,,,,,,,,DEV_ATLAS_V21_01,atlas build,adipocytes,yes,SRA run links for 12/12 samples,Developmental origins define epigenomic differences between subcutaneous and visceral adipocytes [Bisulfite-Seq],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
@@ -45,22 +45,22 @@ GSE113061,,,,,,,,,not usable (cell line (commercial)),smooth muscle,yes,IDAT lis
 GSE114753,,,,,,,,,atlas build,sperm,yes,IDAT listed for 156/156 samples,Cigarette smoking significantly alters sperm DNA methylation patterns,gold-mine map
 GSE114989,,,,,,,,,,,,,Global DNA methylation reflects spatial heterogeneity and molecular evolution of lung adenocarcinomas,candidates DEV_FINGERPRINT_03
 GSE115920,,,,,,,,,not usable (not purified (semen)),sperm,yes,IDAT listed for 6/6 samples,Epigenome analysis of Chinese Han male semen samples,gold-mine map
-GSE116754,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; DEV_ATLAS_V21_01,atlas build,embryonic stem cells,yes,IDAT listed for 38/38 samples,"Methylation analysis of human embryonic stem cells (hESCs), hESC-derived splanchnic mesoderm and hESC-derived mesothelium (mesenchymal form)",gold-mine map
+GSE116754,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01,atlas build,embryonic stem cells,yes,IDAT listed for 38/38 samples,"Methylation analysis of human embryonic stem cells (hESCs), hESC-derived splanchnic mesoderm and hESC-derived mesothelium (mesenchymal form)",gold-mine map
 GSE117050,,,,,,,,,not usable (not healthy),t cells cd3,yes,IDAT listed for 38/38 samples,Identification of kidney transplant patients at risk for cutaneous squamous cell carcinoma by differentially methylated regions in T cells (II),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE118144,,,,,spent,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_CSCORE; DEV_ATLAS_V21_01; DEV_BASE_CHAIN_01; DEV_INTAKE_02; DEV_METAA_SELFLINE_01; DEV_METAA_SENS_01; DEV_NEWCE,held-out test,neutrophils | cd4 t cells | cd8 t cells | b cells,yes,IDAT listed for 145/145 samples,Cell lineage-specific genome-wide DNA methylation analysis of patients with paediatric-onset systemic lupus erythematosus,gold-mine map
+GSE118144,,,,,spent,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_CSCORE; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01; DEV_BASE_CHAIN_01; DEV_INTAKE_02; DEV_METAA_SELFLINE_0,held-out test,neutrophils | cd4 t cells | cd8 t cells | b cells,yes,IDAT listed for 145/145 samples,Cell lineage-specific genome-wide DNA methylation analysis of patients with paediatric-onset systemic lupus erythematosus,gold-mine map
 GSE118255,,,,,,,,DEV_ATLAS_V21_01,held-out test,naive b cells | memory b cells | b cells,yes,SRA run links for 92/92 samples,DNA methylation profiles profiles of B cell subsets from healthy and SLE subjects,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE118690,,,,,,,,,,,,,,candidates DEV_LIVER_BLOOD_01
 GSE118696,,,,,,,,,research,monocytes,yes,IDAT listed for 24/24 samples,Monocyte-to-macrophage differentiation is defined by gain and loss of DNA methylation at transcription factor binding sites,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE119260,downloads/B_cfDNA_plasma/GSE119260/,0.66,IDAT,yes,unspent,,,,,,,,Plasma cell-free DNA arrays,S3 register
 GSE121192,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,naive cd4 t cells | memory cd4 t cells | monocytes,yes,IDAT listed for 46/46 samples,"Differential CpG methylation in peripheral naive and memory CD4+T-cells, and monocytes in early rheumatoid arthritis patients",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE122126,downloads/B_cfDNA_plasma/GSE122126/,2.29,IDAT,yes,spent,scored,DEV_CSCORE_MOSS_01,DEV_ATLAS_COMMISSION_01; DEV_CSCORE_MOSS_01,,,,,Plasma cell-free DNA arrays,S3 register
+GSE122126,downloads/B_cfDNA_plasma/GSE122126/,2.29,IDAT,yes,spent,scored,DEV_CSCORE_MOSS_01,COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_COMMISSION_01; DEV_CSCORE_MOSS_01,,,,,Plasma cell-free DNA arrays,S3 register
 GSE122148,,,,,,,,,not usable (cultured with no uncultured comparison),endometrium epithelium,yes,IDAT listed for 8/8 samples,Genome wide DNA methylation analysis of isolated endometrial epithelial cells from obese women,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE122244,,,,,spent,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_CSCORE; DEV_ATLAS_V21_01; DEV_BASE_CHAIN_01; DEV_METAA_SELFLINE_01; DEV_NEWCELL_01; DEV_NILC_01; DEV_PERCELL_01,held-out test,b cells | t cells cd3 | monocytes | neutrophils,yes,IDAT listed for 70/70 samples,Whole genome methylation analysis in blood and in specific cell blood subtypes in Parkinson’s disease.; Whole genome methylation analysis in blood and in specif,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE122244,,,,,spent,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_CSCORE; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01; DEV_BASE_CHAIN_01; DEV_METAA_SELFLINE_01; DEV_NEWCELL_,held-out test,b cells | t cells cd3 | monocytes | neutrophils,yes,IDAT listed for 70/70 samples,Whole genome methylation analysis in blood and in specific cell blood subtypes in Parkinson’s disease.; Whole genome methylation analysis in blood and in specif,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE123140,,,,,spent,,,DEV_DIRECTION_01,,,,,,
 GSE123914,,,,,spent,,,COMMISSIONING_NOTE_CSCORE,,,,,,
 GSE123995,,,,,,,,DEV_ATLAS_COMMISSION_01,atlas build,hepatocyte,yes,IDAT listed for 56/56 samples,Uncovering the role admixture in health disparities: Association of hepatocyte gene expression and DNA methylation to African Ancestry in African-Americans [Met,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE124413,,,,,spent,,,,,,,,,
-GSE124565,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; DEV_ATLAS_V21_01; DEV_METAA_450K_01; DEV_SYNTH_LEVERS_01,atlas build,neutrophils,yes,IDAT listed for 22/22 samples,Genome-wide DNA methylation analysis in primary antiphospholipid syndrome neutrophils,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE124565,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01; DEV_METAA_450K_01; DEV_SYNTH_LEVERS_01,atlas build,neutrophils,yes,IDAT listed for 22/22 samples,Genome-wide DNA methylation analysis in primary antiphospholipid syndrome neutrophils,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE124775,,,,,,,,DEV_LIVER_BLOOD_01,,,,,,
 GSE125105,downloads/A_blood_immune/GSE125105/,9.68,IDAT,yes,partly spent,,,PROC_BAND_01_PREREG; PROC_CMB_04_OUTCOME; PROC_CMB_05_OUTCOME; PROC_COV_01_PREREG; PROC_INTAKE_01_PREREG; PROC_MAHA_03_OUTCOME; PROC_MAHA_03_PREREG; PROC_MF_01_,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE126017,,,,,,,,,held-out test,sperm,yes,IDAT listed for 54/54 samples,"Epigenomic analysis of sperm cells from patients with psoriatic arthritis, psoriasis without arthritis, and healthy controls",gold-mine map
@@ -94,7 +94,7 @@ GSE136724,downloads/A_blood_immune/GSE136724/,1.27,IDAT,yes,unspent,,,,,,,,Human
 GSE137134,,,,,,,,,not usable (cultured with no uncultured comparison),ad-dermal fibroblasts,yes,IDAT listed for 12/12 samples,A methylation analysis of human normotrophic scar dermal fibroblasts,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE137594,,,,,,,,,not usable (not healthy (arthritis clinic)),b cells,yes,IDAT listed for 119/119 samples,Early arthritis B cell DNA methylation profiling,gold-mine map
 GSE137634,,,,,,,,,"not usable (not healthy (arthritis clinic; ""disease controls""))",cd4 t cells | b cells,yes,IDAT listed for 436/436 samples,Lymphocyte DNA methylation mediates genetic risk at shared immune mediated disease loci,gold-mine map
-GSE137716,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; DEV_ATLAS_V21_01,not usable (cultured with no uncultured comparison),lung bronchus epithelium,yes,IDAT listed for 33/33 samples,DNA methylation in airway epithelial cells isloated by pronase and bronchial brush from individuals with and without asthma,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE137716,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01,not usable (cultured with no uncultured comparison),lung bronchus epithelium,yes,IDAT listed for 33/33 samples,DNA methylation in airway epithelial cells isloated by pronase and bronchial brush from individuals with and without asthma,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE139307,,,,,,,,,"not usable (same group as the atlas (Kelsey/Koestler, Brown))",sperm,no,IDAT listed for 37/37 samples,Serum Dioxin and DNA Methylation in the Sperm of Operation Ranch Hand Veterans Exposed to Agent Orange,gold-mine map
 GSE140038,,,,,spent,,,,,,,,,
 GSE140078,,,,,,,,DEV_ATLAS_V21_01,,,,,,
@@ -151,7 +151,7 @@ GSE166652,,,,,,,,,not usable (cultured with no uncultured comparison),striated m
 GSE166787,,,,,,,,,not usable (duplicate of GSE166652 sample set),striated muscle,yes,IDAT listed for 56/56 samples,DNA methylation data throughout human muscle cell differentiation in individuals with type 2 diabetes and controls,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE166844,,,,,,,,,not usable (no raw data: per-sample IDAT not listed and RAW.tar holds only the EPIC manifest (GEO filelist.txt); donors overlap GSE103541),cd4 t cells | cd8 t cells | b cells | monocytes | granulocytes,yes,no per-sample IDAT or SRA link (series files: GSE166844_RAW.tar; GSE166844_Variance_processed_signals.csv.gz; GSE166844_Varian),DNA methylation profiles of Purified Blood Cell types,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE167202,downloads/A_blood_immune/GSE167202/,13.4,IDAT,yes,unspent,,,COMMISSIONING_NOTE_ATLAS_V21; DEV_ATLAS_COMMISSION_01; DEV_ATLAS_V21_01; DEV_COMPOSITION_TRUTH_04,truth set,,yes,IDAT listed for 525/525 samples,Human blood and immune-disease arrays (blood cancers first); Host methylation predicts SARS-CoV-2 infection and clinical outcome,S3 register; gold-mine map
-GSE167998,,,,,spent,,,COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_COMMISSION_01; DEV_ATLAS_EPIC_01; DEV_ATLAS_V21_01; DEV_BASE_CHAIN_01; DEV_COMPOSITION_TRUTH_02; DEV_DIRECTION_A,,,,,,
+GSE167998,,,,,spent,,,COMMISSIONING_NOTE_DECONV_V21; COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_COMMISSION_01; DEV_ATLAS_EPIC_01; DEV_ATLAS_V21_01; DEV_BASE_CHAIN_01; DEV_COMPOS,,,,,,
 GSE173330,downloads/E_dog_animal/GSE173330/,0.85,,,unspent,,,,,,,,Dog and other mammal arrays,S3 register
 GSE173787,,,,,,,,DEV_ATLAS_V21_01,held-out test,b cells | cd4 t cells | cd8 t cells | monocytes,yes,SRA run links for 133/133 samples,DNA methylation profiles of four immune cell types from MS patients and healthy controls,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE174047,,,,,spent (declared before reading),,,DEV_ERASE_01,,,,,,
@@ -172,7 +172,7 @@ GSE182379,,,,,spent,,,COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_COMMISSION
 GSE184047,,,,,spent,,,,,,,,,
 GSE184269,,,,,partly spent,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_CSCORE; DEV_BLOOD_SENSITIVITY_01; DEV_GROUP_01,atlas build,monocytes | naive cd4 t cells | naive cd8 t cells | naive b cells | nk cells | granulocytes,yes,IDAT listed for 167/167 samples,Specification of human immune cell epigenetic identity by combinations of transcription factors (MethylationEPIC),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE185556,,,,,,,,DEV_ATLAS_V21_01,not usable (not healthy (cystic fibrosis children)),lung alveolar macrophages | granulocytes | lung alveolar epithelium,yes,IDAT listed for 20/20 samples,DNA methylation profiles of cells commonly found in bronchoalveolar lavage,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE186458,,,,,,,,DEV_ATLAS_USE_02; DEV_IAMA_NEURON_01; DEV_IAMA_P_WHOLE_01; DEV_IAMA_REAL_01; DEV_POSITION_EXPR_01,,,,,,
+GSE186458,,,,,,,,COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_USE_02; DEV_IAMA_NEURON_01; DEV_IAMA_P_WHOLE_01; DEV_IAMA_REAL_01; DEV_POSITION_EXPR_01,,,,,,
 GSE187291,,,,,spent,,,DEV_DIRECTION_01; DEV_DIRECTION_02,,,,,,
 GSE188573,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,monocytes,yes,IDAT listed for 59/59 samples,Epigenetic and transcriptomic remodeling in monocytes of severe COVID-19 patients mirrors systemic changes in cytokines and immune cell crosstalk,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE189255,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,cd4 t cells,yes,IDAT listed for 14/14 samples,Genome-wide DNA methylation profiling identifies epigenetic changes in CD4+ and CD14+ cells of multiple sclerosis patients [CD4],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
@@ -196,6 +196,7 @@ GSE207998,downloads/B_cfDNA_plasma/GSE207998/,4.27,IDAT,yes,partly spent,,,,,,,,
 GSE210430,,,,,spent,,,,,,,,,
 GSE212634,,,,,,,,PROC_TUMOUR_01_PREREG,,,,,,
 GSE213532,,,,,,,,,"not usable (not healthy (all NEC patients; ""non-NEC"" = healed))",colon epithelium | small intestine epithelium,yes,SRA run links for 40/40 samples,Global hypermethylation of intestinal epithelial cells is a hallmark feature of neonatal surgical necrotizing enterocolitis [lcm_colon_ileum],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE215353,,,,,,,,COMMISSIONING_NOTE_DECONV_V21,,,,,,
 GSE216906,,,,,spent,,,,,,,,,
 GSE217633,,,,,spent,,,,,,,,,
 GSE218542,,,,,,,,DEV_IAMA_NEURON_01,,,,,,
@@ -206,11 +207,11 @@ GSE222927,,,,,spent,,,COMMISSIONING_NOTE_CSCORE,,,,,,
 GSE223153,,,,,,,,DEV_ATLAS_V21_01,atlas build,pancreatic acinar | pancreatic duct,yes,SRA run links for 19/19 samples,DNA methylation sequencing of human pancreatic acinar and ductal cells [Bisulfite-seq],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE223576,,,,,partly spent (declared before reading),,,DEV_ERASE_01,,,,,,
 GSE223748,downloads/E_dog_animal/GSE223748/,16.33,,,spent,,,DEV_SPECIES_AGEING_01,,,,,Dog and other mammal arrays,S3 register
-GSE224807,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; DEV_ATLAS_COMMISSION_01; DEV_ATLAS_V21_01; DEV_COMPOSITION_TRUTH_03; DEV_METAA_450K_01; DEV_SYNTH_LEVERS_01,atlas build,monocytes | granulocytes | b cells | cd4 t cells | cd8 t cells | nk cells,yes,IDAT listed for 876/876 samples,Smoking effect on DNA methylation in human blood cell types,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE224807,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_COMMISSION_01; DEV_ATLAS_V21_01; DEV_COMPOSITION_TRUTH_03; DEV_METAA_450K_01; DEV_SYNTH_L,atlas build,monocytes | granulocytes | b cells | cd4 t cells | cd8 t cells | nk cells,yes,IDAT listed for 876/876 samples,Smoking effect on DNA methylation in human blood cell types,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE225239,,,,,spent,,,,,,,,,
 GSE225544,,,,,spent,,,COMMISSIONING_NOTE_CSCORE,,,,,,
 GSE225944,,,,,,,,DEV_METHIONINE_01,,,,,,
-GSE226298,,,,,spent,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_V21_01; DEV_NEWLAB_GRAN_01,held-out test,granulocytes | monocytes,yes,IDAT listed for 106/106 samples,Epigenome analysis of samples from  Alzheimer's disease patients and healthy controls with and without LOY (loss of chromosome Y),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE226298,,,,,spent,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_V21_01; DEV_NEWLAB_GRAN_01,held-out test,granulocytes | monocytes,yes,IDAT listed for 106/106 samples,Epigenome analysis of samples from  Alzheimer's disease patients and healthy controls with and without LOY (loss of chromosome Y),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE227271,,,,,,,,PROC_CHARR_01_PREREG,,,,,,
 GSE230132,,,,,,,,DEV_EPIQC_ARRAY_01,,,,,,
 GSE230850,,,,,spent,,,,not usable (not purified (PBMC)),,yes,IDAT listed for 189/189 samples,Impact of Plasmodium falciparum Infection on DNA Methylation of Circulating Immune Cells,gold-mine map
@@ -236,7 +237,7 @@ GSE247524,,,,,spent,,,,,,,,,
 GSE248933,,,,,partly spent (declared before reading),,,DEV_ERASE_01,,,,,,
 GSE250556,downloads/G_chain_tests/GSE250556/,1.12,,,spent,,,COMMISSIONING_NOTE_CSCORE; DEV_ATLAS_EPIC_01; DEV_ATLAS_EPIC_02; DEV_BASE_CHAIN_01; DEV_CHAIN_V3_RUN2; DEV_CHAIN_V3_RUN3; DEV_DETECTION_01; DEV_DIRECTION_01; DE,,,,,Chain test sets (commissioning and development),S3 register
 GSE251932,,,,,,,,DEV_HORIZON_01,,,,,,
-GSE252045,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,atlas build,naive cd8 t cells | effector memory cd8 t cells | t central memory cd4 | naive cd4 t cells | nk cells | monocytes | naive b cells | memory b cells,yes,IDAT listed for 130/130 samples,Development of an Epigenetic Clock Resistant to Changes in Immune Composition,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE252045,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21,atlas build,naive cd8 t cells | effector memory cd8 t cells | t central memory cd4 | naive cd4 t cells | nk cells | monocytes | naive b cells | memory b cells,yes,IDAT listed for 130/130 samples,Development of an Epigenetic Clock Resistant to Changes in Immune Composition,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE255057,,,,,spent,,,DEV_BASE_CHAIN_01; DEV_DETECTION_01,not usable (not purified (PBMC)),,yes,IDAT listed for 24/24 samples,Transcriptome and DNA methylation cell-type deconvolutions produce similar estimates of bulk differential gene expression and differential methylation [bead arr,gold-mine map
 GSE255776,,,,,spent,,,,,,,,,
 GSE256092,,,,,partly spent,,,,,,,,,
@@ -287,7 +288,7 @@ GSE303825,downloads/B_cfDNA_plasma/GSE303825/,0.98,IDAT,yes,unspent,,,,,,,,Plasm
 GSE303826,downloads/B_cfDNA_plasma/GSE303826/,0.64,IDAT,yes,unspent,,,,,,,,Plasma cell-free DNA arrays,S3 register
 GSE304107,downloads/A_blood_immune/GSE304107/,0.93,IDAT,yes,unspent,,,,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE304513,downloads/C_tissue_tests/GSE304513/,1.12,IDAT,yes,unspent,,,,,,,,Solid-tissue arrays,S3 register
-GSE306226,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; DEV_ATLAS_V21_01; DEV_IAMA_NEURON_01,atlas build,cortical neurons | astrocytes | microglia | oligodendrocytes,yes,IDAT listed for 80/80 samples,A Cell Type Enrichment Analysis Tool for Brain DNA  Methylation Data (CEAM) [BDR],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE306226,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01; DEV_IAMA_NEURON_01,atlas build,cortical neurons | astrocytes | microglia | oligodendrocytes,yes,IDAT listed for 80/80 samples,A Cell Type Enrichment Analysis Tool for Brain DNA  Methylation Data (CEAM) [BDR],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE306227,,,,,,,,DEV_IAMA_NEURON_01,,,,,,
 GSE307447,downloads/E_dog_animal/GSE307447/,0.16,,,unspent,,,,,,,,Dog and other mammal arrays,S3 register
 GSE307998,,,,,,,,DEV_EPIC_V2_01,,,,,,
@@ -318,7 +319,7 @@ GSE46306,,,,,partly spent,,,,,,,,,
 GSE47966,,,,,,,,DEV_IAMA_NEURON_01,,,,,,
 GSE48580,,,,,,,,PROC_LINES_01_BJ_OUTCOME,,,,,,
 GSE49149,,,,,partly spent,,,,,,,,,
-GSE49618,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; DEV_ATLAS_V21_01,atlas build,granulocytes | t cells cd3 | b cells | monocytes,yes,IDAT listed for 21/21 samples,Sorted normal bone marrow cells from healthy volunteers at Washington University,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE49618,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01,atlas build,granulocytes | t cells cd3 | b cells | monocytes,yes,IDAT listed for 21/21 samples,Sorted normal bone marrow cells from healthy volunteers at Washington University,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE49627,,,,,"partly spent (loose share of the 3 resting B cells read, 2026-10-15; molecules and held error not read)",,,DEV_CHAIN_Q2_01; DEV_IAMA_BAND_01; DEV_SECONDLAB_01; DEV_SECONDLAB_02,,,,,,
 GSE50386,,,,,,,,DEV_ATLAS_V21_01,,,,,,
 GSE50660,,,,,partly spent,,,,,,,,,
@@ -343,7 +344,7 @@ GSE60274,,,,,partly spent,,,,,,,,,
 GSE62195,downloads/F_salmonid/GSE62195/,0.01,,,unspent,,,,,,,,Steelhead and other salmonid sets,S3 register
 GSE62298,,,,,partly spent,,,,,,,,,
 GSE63384,,,,,,,,,,,,,,candidates DEV_FINGERPRINT_03
-GSE63409,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; DEV_ATLAS_V21_01; PROC_AML_PROG_01_OUTCOME; PROC_AML_PROG_01_PREREG; PROC_AML_SERIAL_01_OUTCOME; PROC_HMIN_REFIT_01_OUTCOME; PROC_,,,,,,
+GSE63409,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01; PROC_AML_PROG_01_OUTCOME; PROC_AML_PROG_01_PREREG; PROC_AML_SERIAL_01_OUTCOME; PR,,,,,,
 GSE63499,,,,,,,,,"not usable (no raw data (CSV only); women, folate supplementation)",neutrophils,yes,no per-sample IDAT or SRA link (series files: GSE63499_RAW.tar; GSE63499_unmethylated_methylated_intensities.csv.gz),DNA Methylation Changes in Whole Blood and CD16+ Neutrophils in Response to Chronic Folic Acid Supplementation in Women of Childbearing Age,gold-mine map
 GSE63775,,,,,,,,DEV_LIVER_BLOOD_01,,,,,,
 GSE64096,,,,,,,,,research,sperm,yes,IDAT listed for 40/40 samples,Intra-sample heterogeneity of sperm DNA methylation,gold-mine map
@@ -365,7 +366,7 @@ GSE72338,,,,,,,,DEV_ATLAS_V21_01,held-out test,neutrophils | monocytes,yes,IDAT 
 GSE72354,,,,,,,,,held-out test,t cells cd3,yes,IDAT listed for 34/34 samples,DNA methylation signatures triggered by prenatal maternal stress exposure to a natural disaster: Project Ice Storm,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE74071,,,,,partly spent,,,,,,,,,
 GSE74877,,,,,,,,DEV_ATLAS_V21_01,,,,,,
-GSE75405,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,atlas build,naive cd4 t cells | naive cd8 t cells | t effector cell cd8,yes,IDAT listed for 24/24 samples,Genome-wide study of methylation profile of human cytotoxic CD4 T cells,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE75405,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21,atlas build,naive cd4 t cells | naive cd8 t cells | t effector cell cd8,yes,IDAT listed for 24/24 samples,Genome-wide study of methylation profile of human cytotoxic CD4 T cells,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE76372,,,,,,,,,not usable (iPSC; lymphocytes not one type),,yes,IDAT listed for 9/9 samples,Genome-wide methylation profile of Lymphocytes and induced pluripotent stem cells,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE77079,,,,,,scored,DEV_SAM_LEVER_01,DEV_SAM_LEVER_01; DEV_SAM_LEVER_01_OUTCOME; DEV_SYNTH_LEVERS_01,,,,,,
 GSE77079 / PRJNA309409 (Mat1a KO mouse liver) - derived reads,,,,,spent,,,,,,,,,
@@ -397,7 +398,7 @@ GSE87571,,,,,,,,PROC_BAND_01_PREREG; PROC_CMB_04_OUTCOME; PROC_CMB_05_OUTCOME; P
 GSE87623,,,,,partly spent (declared before reading),,,DEV_ERASE_01,,,,,,
 GSE87640,downloads/A_blood_immune/GSE87640/,5.19,IDAT,yes,unspent,,,COMMISSIONING_NOTE_ATLAS_V21; DEV_DECONV_V21_01,held-out test,cd4 t cells | cd8 t cells | monocytes,yes,IDAT listed for 240/240 samples,Human blood and immune-disease arrays (blood cancers first); Integrative Epigenome-Wide Analysis Shows That DNA Methylation May Mediate Genetic Risk In Inflamma,S3 register; gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE87650,,,,,partly spent,,,,,,,,,
-GSE88824,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; DEV_ATLAS_V21_01; DEV_METAA_450K_01; DEV_SYNTH_LEVERS_01; PROC_PREDX_NEUT_01_OUTCOME; PROC_PREDX_NEUT_01_PREREG,held-out test,neutrophils | cd4 t cells | cd8 t cells | nk cells | b cells | monocytes,yes,IDAT listed for 83/83 samples,Deconvolution of whole blood DNA methylomes reveals immune cell type-specific differential methylation in Multiple Sclerosis,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE88824,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01; DEV_METAA_450K_01; DEV_SYNTH_LEVERS_01; PROC_PREDX_NEUT_01_OUTCOME; PROC_PREDX_NE,held-out test,neutrophils | cd4 t cells | cd8 t cells | nk cells | b cells | monocytes,yes,IDAT listed for 83/83 samples,Deconvolution of whole blood DNA methylomes reveals immune cell type-specific differential methylation in Multiple Sclerosis,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE89093,,,,,partly spent,,,,,,,,,
 GSE89727,,,,,spent (declared before reading),,,DEV_ERASE_01,,,,,,
 GSE89852,,,,,,,,DEV_FINGERPRINT_03,,,,,Genome-wide DNA methylation analysis of liver tissue samples obtained from patients with hepatitis virus-related hepatocellular carcinomas,candidates DEV_FINGERPRINT_03

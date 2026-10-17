@@ -290,6 +290,72 @@
      "pattern": "IAM-Atlas v2.1\\*\\* \\| running now"
     }
    ]
+  },
+  {
+   "register_id": "COMMISSIONING-DECONV-V21",
+   "name": "Deconvolution tool, blood-cell shares, arrays",
+   "date": "2026-10-17",
+   "places": [
+    {
+     "kind": "note",
+     "file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md",
+     "pattern": "\\*\\*Status: COMMISSIONED 2026-10-17\\*\\* for the shares of neutrophils"
+    },
+    {
+     "kind": "chain",
+     "file": "Biological_Physics/MethylPhys/chain/stage_deconv_v21.py",
+     "pattern": "DECONV_V21_COMMISSIONING = \\{\"status\": \"COMMISSIONED\", \"date\": \"2026-10-17\""
+    },
+    {
+     "kind": "report",
+     "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v3.py",
+     "pattern": "Deconvolution tool COMMISSIONED 2026-10-17 for blood-cell shares"
+    },
+    {
+     "kind": "sop",
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
+     "pattern": "Deconvolution tool, commissioned 2026-10-17 for blood-cell shares"
+    },
+    {
+     "kind": "sop_full",
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
+     "pattern": "Deconvolution tool \\(COMMISSIONED 2026-10-17 for blood-cell shares"
+    },
+    {
+     "kind": "om",
+     "file": "Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md",
+     "pattern": "Deconvolution tool \\(stage_deconv_v21.py\\)[^\\n]*COMMISSIONED 2026-10-17 for blood-cell shares"
+    },
+    {
+     "kind": "status",
+     "file": "Biological_Physics/MethylPhys/STATUS.md",
+     "pattern": "Deconvolution tool"
+    },
+    {
+     "kind": "book",
+     "file": "docs/book/part6/p6_14_atlas.tex",
+     "pattern": "\\\\textbf\\{The deconvolution tool is commissioned for blood-cell shares\\}"
+    },
+    {
+     "kind": "book_status",
+     "file": "docs/book/part6/p6_24_status.tex",
+     "pattern": "Deconvolution tool \\(atlas v2.1\\): commissioned 2026-10-17 for blood-cell shares"
+    },
+    {
+     "kind": "catalogue",
+     "file": "CANON/catalogue.json",
+     "pattern": "\"commissioned\": \"blood-cell shares \\(neutrophils, monocytes, CD4 T, CD8 T; arrays\\), 2026-10-17\""
+    },
+    {
+     "kind": "readme",
+     "file": "Biological_Physics/README.md",
+     "pattern": "Deconvolution tool"
+    }
+   ],
+   "forbid": [],
+   "status_line": "| **Deconvolution tool (atlas v2.1)** | **COMMISSIONED 2026-10-17** ([note](doors/COMMISSIONING_NOTE_DECONV_V21.md)) | blood-cell shares of neutrophils, monocytes, CD4 T and CD8 T cells on arrays; error bars information; B, NK, tissues and cell-free DNA development |",
+   "summary": "the Deconvolution tool for blood-cell shares on arrays",
+   "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md"
   }
  ]
 }
