@@ -1950,6 +1950,28 @@
     "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
    ],
    "note": "stops itself after 150 minutes at most"
+  },
+  {
+   "job_id": "i-0aba950537dcf09ba",
+   "name": "Chain v4 one-command test from a fresh public clone, run 6 (position-form gauge end) (OTH-070)",
+   "date": "2026-10-17",
+   "commit": "ace77d73",
+   "s3_code_prefix": "results/CHAIN_V4_CLEANCLONE/code/run6/",
+   "state": "running",
+   "log": "results/CHAIN_V4_CLEANCLONE/status.txt",
+   "machine": "spot m7a.xlarge, self-terminating",
+   "purpose": "clone, install chain/requirements.txt only, run release_check_v4.py; every check must pass",
+   "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh",
+   "manifest": [
+    "OTH-070"
+   ],
+   "outputs": [
+    "results/CHAIN_V4_CLEANCLONE/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
+   ],
+   "note": "stops itself after 150 minutes at most"
   }
  ],
  "not_jobs": {

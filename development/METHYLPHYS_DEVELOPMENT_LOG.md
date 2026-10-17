@@ -2319,3 +2319,5 @@ Clean clone run 5 launched as job i-0e16beceebf3b188e (commit 35246d52).
 
 ### 2026-10-17 · Clean clone run 5: 23 of 25; the gauge change broke the position-form record (OTH-070)
 Removing 4.26 left the retired position-form IAM-A gauge in the v3 technical record with no end; the report crashed and E4/E9 failed. That form now keeps its own end (IAM-A_position 4.26, labeled retired). E4 and E9 pass on the laptop; not called fixed until run 6 passes.
+
+Clean clone run 6 launched as job i-0aba950537dcf09ba (commit ace77d73).
