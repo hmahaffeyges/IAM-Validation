@@ -25860,7 +25860,7 @@
    ],
    "data_status": "",
    "record": "Biological_Physics/MethylPhys/doors/data/CLEANROOM_IAMA_01/cleanroom_iama.py",
-   "status": "running",
+   "status": "run",
    "runs": [
     {
      "date": "2026-10-16",
@@ -25879,9 +25879,15 @@
      "outcome": "progressed",
      "note": "run 3: 157 of 158 counts identical (Loyfer 153, ENCODE 4 of 5), line and shape reference identical; ENCFF133QNK (54 GB) did not fit on the disk; run 4 on a 500 GB disk",
      "page": "not headline: in progress"
+    },
+    {
+     "date": "2026-10-16",
+     "outcome": "success",
+     "note": "run 4: REPRODUCED, 158 of 158 counts identical; line and shape reference identical; fresh public clone, public data only",
+     "page": "not headline: a gate on the way to IAM-A commissioning, shown with that result"
     }
    ],
-   "next_step": "run 4 (500 GB disk): ENCFF133QNK recounted, then the full comparison",
+   "next_step": "done for part A; IAM-A grand test (COM-IAMA) is the remaining gate",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

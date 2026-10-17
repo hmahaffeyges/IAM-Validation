@@ -1,0 +1,1 @@
+{"counts": 158, "committed": 158, "line_identical": true, "shape_reference_identical": true, "line": {"firm": 0.04026482305722752, "slope": 0.034624511046330374, "cells": 56}, "margin": 0.05426611336258584, "verdict": "REPRODUCED"} differing: []

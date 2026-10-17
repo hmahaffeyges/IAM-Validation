@@ -2236,3 +2236,6 @@ Scored once (box job fa050e05): markers held 0.998 vs 0.938; mixture error 0.020
 
 ### 2026-10-16 · IAM-A clean room run 3: 4 of 5 ENCODE recounts identical; the fifth did not fit on the disk (PHY-055)
 Run 3 (job i-09dd0f71b2e095177): Loyfer 153, ENCFF092SBB, ENCFF605NRU, ENCFF704SCQ and ENCFF969NGH identical to the committed counts; the line and the shape reference identical. ENCFF133QNK (54 GB) never downloaded: the machine image leaves 43 GB free. Run 4 (job i-09f4d660c5c75e867, spot, self-terminating, 500 GB disk, code copy results/CLEANROOM_IAMA_01/code/run4/) recounts the ENCODE files again.
+
+### 2026-10-16 · IAM-A clean room part A REPRODUCED: 158 of 158 counts, the line and the shape reference identical (PHY-055)
+Run 4 (job i-09f4d660c5c75e867, 500 GB disk, finished 7:22 PM PDT): a fresh public clone, public data only (GEO, ENCODE), recounted Loyfer 153 and ENCODE 5 with the chain; every count equals the committed one, and the self-reference line and the sample-shape reference rebuilt identically (doors/data/CLEANROOM_IAMA_01/cleanroom_compare_run4.txt).

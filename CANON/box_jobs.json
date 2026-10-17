@@ -1769,7 +1769,7 @@
    "date": "2026-10-16",
    "commit": "81a26d92",
    "s3_code_prefix": "results/CLEANROOM_IAMA_01/code/run4/",
-   "state": "running",
+   "state": "finished",
    "log": "results/CLEANROOM_IAMA_01/status.txt",
    "machine": "spot, self-terminating, 500 GB disk (box image 2026-10-14)",
    "purpose": "fresh public clone recounts Loyfer 153 and ENCODE 5 and rebuilds the line and shape reference; all must equal the committed ones",
