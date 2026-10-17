@@ -4,6 +4,6 @@ CANON/costs_snapshot.json, and the website build cannot refresh it (no AWS acces
 today (UTC); the checkpoint refreshes it (CANON/costs_snapshot.py). Usage: python3 CANON/costs_fresh.py"""
 import os, json, datetime, sys
 J = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "costs_snapshot.json"), encoding="utf-8"))
-today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+today = datetime.date.today().isoformat()   # the same clock costs_snapshot.py writes with
 ok = J["as_of"] >= today
 print("costs_fresh: " + ("ok (" + J["as_of"] + ")" if ok else f"REFUSED: costs_snapshot.json is from {J['as_of']}, today is {today}; run python3 CANON/costs_snapshot.py (needs AWS billing access)")); sys.exit(0 if ok else 1)
