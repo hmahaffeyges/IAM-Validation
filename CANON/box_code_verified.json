@@ -1140,10 +1140,10 @@
  "i-09dd0f71b2e095177": {
   "s3": {
    "cleanroom_box.sh": "b75dbc5cb18c8d81b0c401a669446baf09c217ad61dbbb3d9ce7cb10c51bba30",
-   "ud_cr3.sh": "e74ab757068fed98eec0d555f0dfc77591111b7670cf9c3b226dc51e4450b9b1"
+   "cleanroom_iama.py": "60a2a66c0ecca9a637be6df3e54a33d6da22ee6e3c1d68e82d031246b6c115e6"
   },
   "s3_inputs_sha": {},
-  "matches_repo": false,
+  "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
    "results/CLEANROOM_IAMA_01/": false
