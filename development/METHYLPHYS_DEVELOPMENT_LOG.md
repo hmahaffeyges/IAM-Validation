@@ -2314,3 +2314,5 @@ Jobs i-07f82bdb6c101f758 (A) and i-0ebb4b0b42b31bbf6 (B): spot 64-core machines 
 
 ### 2026-10-17 · IAM-A gauge ends brought to the commissioned reading; AstroGenetics chapter pass 2 (OTH-072)
 IAM-A reads A = eps/eps_pred(L), so its ends are the sample own: full surface 0.5/eps_pred(L), 12.41 (no loose tiles) to 6.68 (all loose); floor 8.06e-10/eps_pred(L), 1-2e-8. The 4.26 and 1e-7 quoted in 12 book places and the gauge-marks file were the retired position form; corrected (the position-form figure keeps its values, labeled). The report now draws each IAM-A gauge to that sample own full surface (report_v3 _gauge top=, report_v4); cell_gauge_marks_v1.json and FROZEN_INPUTS_v4.json updated with the superseded hash; a clean clone run confirms it before it is called tested. AstroGenetics read by hand end to end: sphere status (v4 draws the C-score sky), the IAM-A definition and keybox (self-reference needs no other specimen), chain v4 scope, atlas v2.1 as commissioned and in use, grand test added to the cell-side results, copying-enzyme wording.
+
+Clean clone run 5 launched as job i-0e16beceebf3b188e (commit 35246d52).

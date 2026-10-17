@@ -1928,6 +1928,28 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
    "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run1/ at boot, where code.tgz is chain/ archived at the commit (git archive); run1_B holds machine B's verified copy of the same three files"
+  },
+  {
+   "job_id": "i-0e16beceebf3b188e",
+   "name": "Chain v4 one-command test from a fresh public clone, run 5 (per-sample IAM-A gauge end) (OTH-070)",
+   "date": "2026-10-17",
+   "commit": "35246d52",
+   "s3_code_prefix": "results/CHAIN_V4_CLEANCLONE/code/run5/",
+   "state": "running",
+   "log": "results/CHAIN_V4_CLEANCLONE/status.txt",
+   "machine": "spot m7a.xlarge, self-terminating",
+   "purpose": "clone, install chain/requirements.txt only, run release_check_v4.py; every check must pass",
+   "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh",
+   "manifest": [
+    "OTH-070"
+   ],
+   "outputs": [
+    "results/CHAIN_V4_CLEANCLONE/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
+   ],
+   "note": "stops itself after 150 minutes at most"
   }
  ],
  "not_jobs": {

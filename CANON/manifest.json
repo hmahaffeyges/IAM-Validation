@@ -27458,7 +27458,7 @@
      "page": "not headline: goes into the commissioned-chain card with the shipped example reports (OTH-068)"
     }
    ],
-   "next_step": "run 5 to confirm the per-sample IAM-A gauge end (report change 2026-10-17)",
+   "next_step": "run 5 running (job i-0e16beceebf3b188e, commit 35246d52) to confirm the per-sample IAM-A gauge end",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
