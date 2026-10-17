@@ -25993,7 +25993,7 @@
    "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
    "status": "running",
    "runs": [],
-   "next_step": "stage T3 counting on AWS: jobs i-07f82bdb6c101f758 and i-0ebb4b0b42b31bbf6 (shared queue, 233 samples); then scored once by score_temperature.py",
+   "next_step": "stage T3 run 2 (parallel ranged ENA downloads): counting on AWS from a shared queue, then scored once by score_temperature.py",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

@@ -31,7 +31,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
    - OTH-059 (planned): for each instrument: healthy band from healthy readings (Met-A's 0.95-1.05 was set by hand on 2026-10-01 and confirmed, 525 of 541 healthy arrays inside, medians 0.994-1.005: rebuild it from the spread); tumor line from tumor-over-own-normal readings (A-score database); worst lab shift measured (ENCODE B cell for IAM-A); margin stated
    - OTH-058 (planned): define, per specimen, which instruments read it and what agreement means; report agreement beside the readings, never folded into them
 11. **Stage T: the temperature law**
-   - PHY-057 (running): stage T3 counting on AWS: jobs i-07f82bdb6c101f758 and i-0ebb4b0b42b31bbf6 (shared queue, 233 samples); then scored once by score_temperature.py
+   - PHY-057 (running): stage T3 run 2 (parallel ranged ENA downloads): counting on AWS from a shared queue, then scored once by score_temperature.py
 12. **IAM in bits; literature positioning**
    - OTH-061 (running; last run 2026-10-15: progressed): cell throughput: find measured one-carbon/SAM flux and ATP for methyl writing per cell (literature, metadata only), then power/price as a bound, tagged candidate; then the citations for qubits, chips, cells
    - OTH-062 (planned): search the scholarly databases claim by claim; table: claim, nearest prior work, difference, status; then the paper's lineage section
@@ -47,8 +47,6 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 | DEV-IAMA-GRAND-01 run 3 machine F: CD8 samples from the shared queue, aligned and counted by chain Stage Q2 | methylphys-cpu-01, on-demand m7a.32xlarge, 1.5 TB work disk vol-0230dfb60526c5806 (delete after the test) | COM-IAMA-052 |
 | IAM-A clean room part A run 2 (PHY-055) | spot c7a.8xlarge us-west-2c, self-terminating | PHY-055 |
 | DEV-IAMA-GRAND-01 run 3 machine J: on-demand helper on the shared queue | on-demand m7a.16xlarge us-west-2a, 2 samples at a time, 1.5 TB disk | COM-IAMA-052 |
-| Temperature law stage T3, machine A: align and chain-count Arabidopsis samples from a shared queue (PHY-057) | spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once | PHY-057 |
-| Temperature law stage T3, machine B: align and chain-count Arabidopsis samples from a shared queue (PHY-057) | spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once | PHY-057 |
 
 ## Decisions waiting for the author
 

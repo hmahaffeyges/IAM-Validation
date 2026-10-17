@@ -1887,7 +1887,7 @@
    "date": "2026-10-17",
    "commit": "afc726be",
    "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run1/",
-   "state": "running",
+   "state": "stopped",
    "log": "results/PRED_TEMPERATURE_01/T3/status_A.txt",
    "machine": "spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once",
    "purpose": "align 233 samples (ENA FASTQ) with Bismark on TAIR10 and count each with chain stage TL; nothing scored",
@@ -1903,7 +1903,7 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run1/ at boot, where code.tgz is chain/ archived at the commit (git archive); run1_B holds machine B's verified copy of the same three files"
+   "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run1/ at boot, where code.tgz is chain/ archived at the commit (git archive); run1_B holds machine B's verified copy of the same three files; stopped 2026-10-17 before any sample was counted (slow ENA transfer); replaced by run 2"
   },
   {
    "job_id": "i-0ebb4b0b42b31bbf6",
@@ -1911,7 +1911,7 @@
    "date": "2026-10-17",
    "commit": "afc726be",
    "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run1_B/",
-   "state": "running",
+   "state": "stopped",
    "log": "results/PRED_TEMPERATURE_01/T3/status_B.txt",
    "machine": "spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once",
    "purpose": "align 233 samples (ENA FASTQ) with Bismark on TAIR10 and count each with chain stage TL; nothing scored",
@@ -1927,7 +1927,7 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run1/ at boot, where code.tgz is chain/ archived at the commit (git archive); run1_B holds machine B's verified copy of the same three files"
+   "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run1/ at boot, where code.tgz is chain/ archived at the commit (git archive); run1_B holds machine B's verified copy of the same three files; stopped 2026-10-17 before any sample was counted (slow ENA transfer); replaced by run 2"
   },
   {
    "job_id": "i-0e16beceebf3b188e",

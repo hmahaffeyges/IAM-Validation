@@ -2324,3 +2324,6 @@ Clean clone run 6 launched as job i-0aba950537dcf09ba (commit ace77d73).
 
 ### 2026-10-17 · Clean clone run 6 passes 25 of 25; book pass 2 continued (OTH-070, OTH-072)
 Run 6 confirms the per-sample IAM-A gauge end and the position-form fix. Book: the sky chapter said no C-score band was set (it is commissioned on whole blood, one-sided above 1.152) and called v2.1 the reference for cells that come next; the separation chapter said a second solver was not built (the IAM-Deconvolver is in v4, commissioned for blood shares); the atlas chapter listed only the five v3 files; the temperature chapter gains the sealed plant test (PRED-TEMPERATURE-01 T3, Dubin et al. 2015 cited).
+
+### 2026-10-17 · Temperature T3 run 2: parallel ranged downloads from ENA (PHY-057)
+Run 1 machines fetched ENA at about 0.7 MB/s per connection (one 1.3 GB sample in 30 minutes; 585 GB would take over 13 hours). Run 2 fetches each file as 16 byte ranges and checks the joined length against ENA. Same files and source; alignment, count and the sealed rule unchanged. Run 1 machines stopped before any sample was counted; their claims cleared.

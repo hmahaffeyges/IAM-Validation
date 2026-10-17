@@ -21,7 +21,15 @@ st "tools ready on $(nproc) cores, code $(cat REPO_COMMIT): $(bismark --version 
 fq(){ b=$1; for f in $b.fq.gz $b.fq; do [ -s $f ] && { echo $f; return 0; }; done; return 1; }
 one(){ gsm=$1; acc=$2; temp=$3; runs=$4; urls=$5; mkdir -p $W/$gsm && cd $W/$gsm; t0=$(date +%s)
   : > r_1.fastq.gz; : > r_2.fastq.gz
-  for u in $(echo "$urls" | tr '|' ' '); do for m in 1 2; do curl -s --retry 8 -C - "https://${u}_$m.fastq.gz" -o part_$m.fq.gz || { st "$gsm download FAILED $u"; return; }; cat part_$m.fq.gz >> r_$m.fastq.gz; rm -f part_$m.fq.gz; done; done
+  # run 2 (2026-10-17): ENA serves each connection at about 0.7 MB/s, so each file is fetched as 16 byte ranges at once and joined in order;
+  # the joined file must have ENA's stated length. Same files, same source; only the transfer changes.
+  for u in $(echo "$urls" | tr '|' ' '); do for m in 1 2; do url="https://${u}_$m.fastq.gz"
+    size=$(curl -sIL --retry 8 "$url" | grep -i '^content-length' | tail -1 | awk '{print $2}' | tr -d '\r'); [ -n "$size" ] || { st "$gsm download FAILED (no length) $u"; return; }
+    n=16; c=$(( (size + n - 1) / n ))
+    for k in $(seq 0 $((n - 1))); do a=$((k * c)); z=$(( (k + 1) * c - 1 )); [ $z -ge $size ] && z=$((size - 1)); curl -s --retry 10 -r $a-$z -o rg_$m.$k "$url" & done; wait
+    for k in $(seq 0 $((n - 1))); do cat rg_$m.$k; done > part_$m.fq.gz; rm -f rg_$m.*
+    got=$(stat -c %s part_$m.fq.gz); [ "$got" = "$size" ] || { st "$gsm download FAILED (length $got of $size) $u"; return; }
+    cat part_$m.fq.gz >> r_$m.fastq.gz; rm -f part_$m.fq.gz; done; done
   st "$gsm ($acc $temp) downloaded $(du -ch r_?.fastq.gz | tail -1 | cut -f1)"
   trim_galore -q 20 --paired --cores 2 --gzip r_1.fastq.gz r_2.fastq.gz > trim.log 2>&1; rm -f r_1.fastq.gz r_2.fastq.gz
   R1=$(fq r_1_val_1) && R2=$(fq r_2_val_2) || { st "$gsm trim FAILED"; up $W/$gsm/trim.log logs; return; }
