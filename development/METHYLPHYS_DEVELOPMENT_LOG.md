@@ -2294,3 +2294,5 @@ Run 3 launched as job i-053cec43288dd2e39 (commit da7ef58e).
 
 ### 2026-10-17 · Temperature law stage T2: synthetic MET through chain stage TL (PHY-057); clean clone run 3 (OTH-070)
 Chain stage TL (stage_temperature.py) and the counter now recording calls per molecule (n_hist; no existing output changed). T2 run 1 NOT MET: the plain meter subtraction over-corrects by about 9 percent (a new row rescoring the tumor pairs with the response-curve correction), and an interval-contains bar was tighter than the job. Run 2 MET: planted held error 0.030 read 0.0301; 111 pairs: law met 40 of 40, no effect 0 of 40; batch drift of 3 percent breaks it, so pairs are compared within shared flowcells. Clean clone run 3: 21 of 25; the restored tare exposed an empty gauge drawn when withheld and the claim scan reading the gauge legend as prose; both fixed (LESSONS C21).
+
+Clean clone run 4 launched as job i-0e980d41f06e19212 (commit 82f88df6).

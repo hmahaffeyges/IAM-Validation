@@ -27451,7 +27451,7 @@
      "page": "not headline: a gate on the way to the commissioned chain"
     }
    ],
-   "next_step": "clean clone run 4 after the gauge and claim-scan fixes",
+   "next_step": "clean clone run 4 running (job i-0e980d41f06e19212, commit 82f88df6)",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
