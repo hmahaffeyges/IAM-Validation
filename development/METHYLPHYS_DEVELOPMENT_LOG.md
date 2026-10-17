@@ -2347,3 +2347,6 @@ Commissioning statements now say what each instrument was tested and commissione
 ### 2026-10-17 · Run ledger rebuilt from AWS billing (author review 2; OTH-071, PHY-043, COM-IAMA-052, PHY-055)
 RUNS.md now opens with what AWS billed (Cost Explorer, cost and hours per day and usage type): total, on-demand, spot, disks, storage; the actual price per hour of each machine type as rented; every day with the runs started that day; the runs now running with their spot and on-demand prices; and why most computing was billed on-demand (spot machines reclaimed by AWS between 2026-10-14 and 2026-10-16, work moved to on-demand). Job register states reconciled against EC2: four jobs still marked running were finished.
 The push gate now keeps every check's temp files in one folder it removes on exit (leftover check folders had filled the laptop disk).
+
+### 2026-10-17 · Chain v4 report: readings outside the tested scope worded plainly (author decision; OTH-069)
+report_v4 now prints "reading shown; <cell type> has not yet been tested with <instrument>" where it printed "development" (Met-A, C-Score, IAM-A, IAM-Deconvolver shares); the run record keeps status development, so every check and the scoring are unchanged; the v3 technical record below it is unchanged. A clean clone run confirms it before it is called tested.

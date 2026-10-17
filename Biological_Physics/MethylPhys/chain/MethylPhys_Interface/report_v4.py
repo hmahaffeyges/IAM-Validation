@@ -21,6 +21,8 @@ th{background:#f4f6fa;font-weight:600}.chip{display:inline-block;padding:2px 8px
 .tech{margin-top:46px;border-top:3px double #1d2330;padding-top:8px}.tech h2{font-size:16px}img{max-width:100%}
 </style>"""
 
+def untested(what, inst):   # author 2026-10-17: plain wording for a reading outside the tested scope (the data keeps status "development")
+    return f"reading shown; {what} has not yet been tested with {inst}"
 def chip(status):
     s = str(status or "").lower()
     k = "com" if s.startswith("commissioned") else "ref" if s.startswith(("refused", "withheld", "not read")) else "na" if s.startswith("not run") else "dev"
@@ -37,7 +39,7 @@ def _glance(o):
     else: rows.append(("IAM-Deconvolver", "Which cells, in what shares", "", "", "not run (no array input)"))
     if m.get("A") is not None:
         val = f"A_rel {t['A_rel']}" if t.get("A_rel") is not None else f"A {m['A']} (untared)"
-        st = "commissioned" if m.get("commissioning") else "development (whole blood)"
+        st = "commissioned" if m.get("commissioning") else untested("whole blood", "Met-A")
         rows.append(("Met-A", "How far the neutrophil's tagging level has moved", val, str(t.get("state") or m.get("state", "")).split(". ")[0][:140], st))
     elif o.get("met_a") is not None or o.get("refusal"):
         rows.append(("Met-A", "How far the neutrophil's tagging level has moved", "", "", "refused: " + str(o.get("refusal") or m.get("reason", ""))))
@@ -45,11 +47,11 @@ def _glance(o):
     if c.get("C") is not None:
         val = f"C_rel {c['C_rel']}" if c.get("C_rel") is not None else f"C {c['C']} (untared)"
         st = ("commissioned" if c.get("commissioning") else "not tared: needs 3 same-run healthy references" if c.get("C_rel") is None and o.get("specimen") == "whole blood"
-              else "development")
+              else untested("this specimen", "the C-Score"))
         rows.append(("C-Score", "Are the departures clustered or scattered", val, str(c.get("C_call") or ""), st))
     else: rows.append(("C-Score", "Are the departures clustered or scattered", "", "", "not run" if not o.get("met_a") else "not read: " + str(c.get("reason", ""))))
     if q.get("A") is not None:
-        st = "commissioned" if q.get("commissioning") else "development (" + str(q.get("cell")) + ")"
+        st = "commissioned" if q.get("commissioning") else untested(str(q.get("cell")), "IAM-A")
         rows.append(("IAM-A", "Is each mark still held, against the sample's own reference", f"A {q['A']}", str(q.get("state", "")), st))
     elif q: rows.append(("IAM-A", "Is each mark still held, against the sample's own reference", "", "", "not read: " + str(q.get("refusal", ""))))
     else: rows.append(("IAM-A", "Is each mark still held, against the sample's own reference", "", "", "not run (no sequencing input)"))
@@ -62,7 +64,7 @@ def _shares(o):
     h = "<h2 id='v4-shares'>Cell shares: IAM-Deconvolver against IAM-Atlas v2.1</h2>"
     if not sh.get("cells"): return h + f"<p>{chip('withheld')} {E(str(sh.get('withheld')))}</p>"
     rows = "".join(f"<tr><td>{E(r['cell'])}</td><td><div class='bt'><div class='bar' style='width:{max(1, int(240*r['share']))}px'></div></div></td>"
-                   f"<td><b>{100*r['share']:.1f} %</b></td><td>{100*r['interval_95'][0]:.1f} to {100*r['interval_95'][1]:.1f} %</td><td>{chip(r['status'])}</td></tr>"
+                   f"<td><b>{100*r['share']:.1f} %</b></td><td>{100*r['interval_95'][0]:.1f} to {100*r['interval_95'][1]:.1f} %</td><td>{chip(r['status'] if r['status'] != 'development' else untested(r['cell'] if 'cell' in r else 'this cell type', 'the IAM-Deconvolver'))}</td></tr>"
                    for r in sorted(sh["cells"], key=lambda r: -r["share"]))
     return (h + f"<table><tr><th>Cell</th><th></th><th>Share</th><th>Range (information)</th><th>Status</th></tr>{rows}</table>"
             f"<p class='note'>Read on {sh.get('sites_used')} of {sh.get('markers')} marker sites. Each cell's healthy profile, with its uncertainty and the spread "
@@ -75,7 +77,7 @@ def _meta(o):
     gA = t.get("A_rel") if t.get("A_rel") is not None else (m["A"] if m.get("specimen") != "whole blood" else None)
     if str(m.get("state", "")).startswith("withheld"): gA = None   # the noise gate withholds the state: no gauge is drawn (as the v3 record)
     return ("<h2 id='v4-met-a'>Met-A: the neutrophil's tagging level on the gauge</h2>" + (R3._gauge(gA, label=f"Met-A {gA}") if gA is not None else "")
-            + f"<p>{chip('commissioned' if m.get('commissioning') else 'development (whole blood)')} {E(str(t.get('state') or m.get('state', '')))}</p>")
+            + f"<p>{chip('commissioned' if m.get('commissioning') else untested('whole blood', 'Met-A'))} {E(str(t.get('state') or m.get('state', '')))}</p>")
 
 def _cscore(o):
     c, k = o.get("met_a_cscore") or {}, o.get("cscore_sky") or {}
@@ -89,7 +91,7 @@ def _cscore(o):
                "scattered ones as speckle. A picture of the reading, not a new reading.</p>")
     val = c.get("C_rel") if c.get("C_rel") is not None else c.get("C")
     return (f"<h2 id='v4-cscore'>C-Score: clustered or scattered</h2><p class='big'>{'C_rel' if c.get('C_rel') is not None else 'C'} {E(str(val))}</p>"
-            f"<p>{chip('commissioned' if c.get('commissioning') else 'development')} {E(str(c.get('C_call', c.get('C_rel_reason', ''))))}. "
+            f"<p>{chip('commissioned' if c.get('commissioning') else untested('this specimen', 'the C-Score'))} {E(str(c.get('C_call', c.get('C_rel_reason', ''))))}. "
             "Healthy reads near 1; above 1.152 is a clustered departure.</p>" + img)
 
 def _iama(o):
@@ -97,7 +99,7 @@ def _iama(o):
     if not q or q.get("stage") != "Q2": return ""
     h = "<h2 id='v4-iam-a'>IAM-A: the sample against its own reference</h2>"
     if q.get("A") is None: return h + f"<p>{chip('not read')} {E(str(q.get('refusal', '')))}</p>"
-    st = "commissioned" if q.get("commissioning") else "development"
+    st = "commissioned" if q.get("commissioning") else untested(str(q.get("cell")), "IAM-A")
     return (h + R3._gauge(q["A"], q["band"]["lo"], q["band"]["hi"], label=f"IAM-A {q['A']}", instrument="IAM-A", top=(0.5 / q["predicted"]) if q.get("predicted") else None)
             + f"<p>{chip(st)} <b>{E(str(q.get('state')))}</b> (Normal {q['band']['lo']:.3f} to {q['band']['hi']:.3f}). Held error {q.get('held_err')} against "
             f"{q.get('predicted')} predicted by this sample's own loose share ({q.get('loose_share')}). No outside reference is used: the sample is read against itself.</p>")
@@ -110,7 +112,7 @@ def build(o, out, sid):
     front = [f"<p class='meta'>IAM chain v4 · run {E(str(o.get('run_id')))} · {when}</p>", f"<h1>Sample report: {E(sid)}</h1>",
              f"<p class='meta'>Specimen {E(str(o.get('specimen', '')))} · platform {E(str(o.get('platform') or o.get('array_type') or 'sequencing'))}</p>",
              "<p class='note'><b>Research use only. Not a diagnostic test.</b> Each reading is printed with its commissioning status: "
-             "<i>commissioned</i> means it passed a test sealed before its data was seen; <i>development</i> means it has not.</p>",
+             "<i>commissioned</i> means it passed a test sealed before its data was seen; a reading outside what an instrument was tested on is still shown, and says so.</p>",
              "<h2 id='v4-glance'>At a glance</h2>", _glance(o), _shares(o), _meta(o), _cscore(o), _iama(o)]
     prose = re.sub(r"<[^>]+>", " ", re.sub(r"<!--GAUGE-->.*?<!--/GAUGE-->", " ", "\n".join(front), flags=re.S))   # as report_v3: the gauge's fixed legend is a scale, not prose
     if re.search(CLAIM_SCAN, prose, re.I): raise ValueError("report_v4: front prose carries a word the report may not print: " + re.search(CLAIM_SCAN, prose, re.I).group(0))
