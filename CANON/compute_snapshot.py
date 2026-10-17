@@ -41,7 +41,11 @@ for pg in s3.get_paginator("list_objects_v2").paginate(Bucket=B):
     for ob in pg.get("Contents", []):
         b = os.path.basename(ob["Key"])
         if re.search(r"_Grn\.idat(\.gz)?$", b) and not ob["Key"].startswith("laptop_backup"): arrays.add(re.sub(r"_Grn\.idat(\.gz)?$", "", b))
-S = dict(as_of=datetime.date.today().isoformat(), since=START, name="The Commissioning Campaign",
+# the atlas fit (MCMC, NUTS): 700 blocks x 4 chains x (600 warmup + 400 kept) sampling steps (atlas_block_v21.fit_block), each updating every
+# site x cell estimate of its block; each step takes 1 to 255 leapfrog steps (max tree depth 8), not saved, so the update count is a LOWER bound
+FIT = [json.loads(l) for l in s3.get_object(Bucket=B, Key="results/ATLAS_V21/fit/run_v21.log")["Body"].read().decode().split("\n") if l.startswith("{")]
+fit_steps = len(FIT) * 4 * 1000; fit_updates = sum(x["loci"] * x["cells"] for x in FIT) * 4 * 1000; fit_proc_hours = sum(x["s_per_locus"] * x["loci"] for x in FIT) / 3600
+S = dict(fit_blocks=len(FIT), fit_steps=fit_steps, fit_updates=fit_updates, fit_process_hours=round(fit_proc_hours), as_of=datetime.date.today().isoformat(), since=START, name="The Commissioning Campaign",
          machine_hours=round(sum(H.values()), 1), core_hours=round(sum(h * V.get(t, 0) for t, h in H.items())), billed_usd=round(cost, 2),
          seq_samples=len(seq), seq_calls=sum(seq.values()), arrays=len(arrays), array_reads=len(arrays) * 485577)
 if os.path.exists(OUT):

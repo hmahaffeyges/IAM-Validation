@@ -134,6 +134,8 @@ def page(art):
         f'<div class="grid costs"><div class="card"><p class="big">{CS["core_hours"]:,}</p><p>processor-core hours, about {CS["core_years"]} years of one computer core running non-stop</p></div>'
         f'<div class="card"><p class="big">{CS["cpg_total"] / 1e9:.1f} billion</p><p>DNA sites (CpGs) read: {CS["seq_calls"] / 1e9:.1f} billion on single molecules from '
         f'{CS["seq_samples"]} sequenced samples, {CS["array_reads"] / 1e9:.1f} billion on {CS["arrays"]:,} arrays (at least)</p></div>'
+        f'<div class="card"><p class="big">{CS["fit_updates"] / 1e9:,.0f} billion</p><p>estimates updated by the IAM-Atlas v2.1 fit (MCMC): 813,951 sites x 79 cell types, '
+        f'{CS["fit_steps"] / 1e6:.1f} million sampling steps in {CS["fit_blocks"]} blocks, each step itself up to 255 smaller steps (at least)</p></div>'
         f'<div class="card"><p class="big">{CS["machine_hours"]:,.0f} hours</p><p>on rented machines of up to 192 cores</p></div>'
         f'<div class="card"><p class="big">${CS["billed_usd"]:,.0f}</p><p>billed by AWS for computing and storage, every dollar listed in <a href="{rec("Biological_Physics/MethylPhys/RUNS.md")}">the run ledger</a></p></div>'
         f'</div></section>')

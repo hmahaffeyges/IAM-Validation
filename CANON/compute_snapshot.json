@@ -1,4 +1,8 @@
 {
+ "fit_blocks": 700,
+ "fit_steps": 2800000,
+ "fit_updates": 257208516000,
+ "fit_process_hours": 507,
  "as_of": "2026-10-17",
  "since": "2026-09-28",
  "name": "The Commissioning Campaign",
