@@ -9,6 +9,7 @@ Master Testing Manifest; do not edit by hand. Commissioned means a use is allowe
 | **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md)) | one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered; isolated neutrophils development |
 | **IAM-Atlas v2.1, per use** | **COMMISSIONED 2026-10-16** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)) | reference profiles of cortical neurons, lung bronchus epithelium and naive CD4 T cells (450K); blind sites of the colon and lung tissue tests; composition and other cells development |
 | **Deconvolution tool (atlas v2.1)** | **COMMISSIONED 2026-10-17** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md)) | blood-cell shares of neutrophils, monocytes, CD4 T and CD8 T cells on arrays; error bars information; B, NK, tissues and cell-free DNA development |
+| **IAM-A, own reference** | **COMMISSIONED 2026-10-17** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md)) | healthy blood CD8 T cells, whole-genome bisulfite, each sample against its own loose share; other specimens development |
 
 ## Met-A, isolated neutrophils, EPIC v1 (2026-10-09)
 
@@ -84,9 +85,16 @@ Given a blood sample read on an array, the tool says how much of it came from ea
 
 Note: [COMMISSIONING_NOTE_DECONV_V21.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md)
 
+## IAM-A, healthy blood CD8 T cells, sequencing (2026-10-17)
+
+**IAM-A commissioned** on healthy blood CD8 T cells, each sample read against its own reference: 7 of 8 read samples from a laboratory it had never seen inside Normal, on a rule sealed before any read was downloaded
+
+IAM-A reads how well each DNA molecule kept its marks and compares that with what the same sample's own loose ends predict, so it needs no outside reference. On healthy immune cells from a new laboratory, 7 of the 8 samples it read came out Normal, as sealed in advance.
+
+Note: [COMMISSIONING_NOTE_IAMA.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md)
+
 ## Not yet commissioned
 
 | Instrument | Where it stands | Next |
 |---|---|---|
-| **IAM-A** | running now | The tumor pairs read on both sides of the DNA, a second laboratory, then one grand sealed test on fresh data to commission it. |
 | **Group-A** | in development | One cancer at a time, patients and healthy controls from the same series. |

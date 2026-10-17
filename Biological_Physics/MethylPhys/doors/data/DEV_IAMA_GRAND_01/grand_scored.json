@@ -1,0 +1,131 @@
+{
+ "verdict": "MET",
+ "read": 8,
+ "inside": 7,
+ "of": 13,
+ "band": {
+  "lo": 0.778712674423175,
+  "hi": 1.0551038505882362
+ },
+ "rows": [
+  {
+   "sample": "GSM4293877",
+   "shape_type": "naive cd8 t cells",
+   "shape": "not read: tile 10th percentile 0.712 is below its healthy type's limit 0.724 (sample shape outside healthy)",
+   "read": false,
+   "subset": "naive"
+  },
+  {
+   "sample": "GSM4293878",
+   "shape_type": "naive cd8 t cells",
+   "shape": "not read: tile 10th percentile 0.687 is below its healthy type's limit 0.724 (sample shape outside healthy)",
+   "read": false,
+   "subset": "naive"
+  },
+  {
+   "sample": "GSM4293879",
+   "shape_type": "naive cd8 t cells",
+   "shape": "not read: tile 10th percentile 0.708 is below its healthy type's limit 0.724 (sample shape outside healthy)",
+   "read": false,
+   "subset": "naive"
+  },
+  {
+   "sample": "GSM4293880",
+   "shape_type": "naive cd8 t cells",
+   "shape": "not read: tile 10th percentile 0.633 is below its healthy type's limit 0.724 (sample shape outside healthy)",
+   "read": false,
+   "subset": "naive"
+  },
+  {
+   "sample": "GSM4293890",
+   "shape_type": "cd8 t cells",
+   "shape": "read",
+   "read": true,
+   "A": 0.8337046336629275,
+   "inside": true,
+   "subset": "tscm"
+  },
+  {
+   "sample": "GSM4293891",
+   "shape_type": "cd8 t cells",
+   "shape": "read",
+   "read": true,
+   "A": 0.89824029723617,
+   "inside": true,
+   "subset": "tscm"
+  },
+  {
+   "sample": "GSM4293892",
+   "shape_type": "cd8 t cells",
+   "shape": "read",
+   "read": true,
+   "A": 0.978350511803342,
+   "inside": true,
+   "subset": "tscm"
+  },
+  {
+   "sample": "GSM4293893",
+   "shape_type": "cd8 t cells",
+   "shape": "read",
+   "read": true,
+   "A": 1.0848027550081252,
+   "inside": false,
+   "subset": "tcm"
+  },
+  {
+   "sample": "GSM4293894",
+   "shape_type": "cd8 t cells",
+   "shape": "not read: tile 10th percentile 0.592 is below its healthy type's limit 0.593 (sample shape outside healthy)",
+   "read": false,
+   "subset": "tcm"
+  },
+  {
+   "sample": "GSM4293895",
+   "shape_type": "cd8 t cells",
+   "shape": "read",
+   "read": true,
+   "A": 0.9082762718439318,
+   "inside": true,
+   "subset": "tcm"
+  },
+  {
+   "sample": "GSM4293896",
+   "shape_type": "effector memory cd8 t cells",
+   "shape": "read",
+   "read": true,
+   "A": 1.0099373767234219,
+   "inside": true,
+   "subset": "tem"
+  },
+  {
+   "sample": "GSM4293897",
+   "shape_type": "effector memory cd8 t cells",
+   "shape": "read",
+   "read": true,
+   "A": 0.8767177678133395,
+   "inside": true,
+   "subset": "tem"
+  },
+  {
+   "sample": "GSM4293898",
+   "shape_type": "effector memory cd8 t cells",
+   "shape": "read",
+   "read": true,
+   "A": 0.8620980505997116,
+   "inside": true,
+   "subset": "tem"
+  }
+ ],
+ "missing": [],
+ "rule": "DEV_IAMA_GRAND_01.md (sealed 2026-10-16)",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e5b680f0b766d86a99abd6053a2284044de1ce380ef712736cbfe01b63597ecc",
+  "payload_sha256": "dd90b76c788bf02535f76821d7d86c97515cc1563c9373ff641fe578a7beb967",
+  "inputs": [],
+  "manifest": [
+   "COM-IAMA-052"
+  ],
+  "utc": "2026-10-17T07:40:27Z"
+ }
+}

@@ -356,6 +356,81 @@
    "status_line": "| **Deconvolution tool (atlas v2.1)** | **COMMISSIONED 2026-10-17** ([note](doors/COMMISSIONING_NOTE_DECONV_V21.md)) | blood-cell shares of neutrophils, monocytes, CD4 T and CD8 T cells on arrays; error bars information; B, NK, tissues and cell-free DNA development |",
    "summary": "the Deconvolution tool for blood-cell shares on arrays",
    "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md"
+  },
+  {
+   "register_id": "COMMISSIONING-IAMA",
+   "name": "IAM-A, healthy blood CD8 T cells, sequencing",
+   "date": "2026-10-17",
+   "status_line": "| **IAM-A, own reference** | **COMMISSIONED 2026-10-17** ([note](doors/COMMISSIONING_NOTE_IAMA.md)) | healthy blood CD8 T cells, whole-genome bisulfite, each sample against its own loose share; other specimens development |",
+   "summary": "IAM-A on healthy blood CD8 T cells (sequencing, its own reference)",
+   "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
+   "places": [
+    {
+     "kind": "note",
+     "file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
+     "pattern": "\\*\\*Status: COMMISSIONED 2026-10-17\\*\\* on healthy blood CD8 T cells"
+    },
+    {
+     "kind": "chain",
+     "file": "Biological_Physics/MethylPhys/chain/stage_q2_selfref.py",
+     "pattern": "IAMA_COMMISSIONING = \\{\"status\": \"COMMISSIONED\", \"date\": \"2026-10-17\""
+    },
+    {
+     "kind": "report",
+     "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v3.py",
+     "pattern": "\"IAM-A\", \"COMMISSIONED 2026-10-17 on healthy blood CD8 T cells"
+    },
+    {
+     "kind": "sop",
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
+     "pattern": "IAM-A \\(sequencing; COMMISSIONED 2026-10-17 on healthy blood CD8 T cells"
+    },
+    {
+     "kind": "sop_full",
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
+     "pattern": "IAM-A \\(sequencing; COMMISSIONED 2026-10-17 on healthy blood CD8 T cells"
+    },
+    {
+     "kind": "om",
+     "file": "Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md",
+     "pattern": "Stage Q2 IAM-A self-reference \\|[^\\n]*COMMISSIONED 2026-10-17 on healthy blood CD8 T cells"
+    },
+    {
+     "kind": "status",
+     "file": "Biological_Physics/MethylPhys/STATUS.md",
+     "pattern": "\\*\\*IAM-A, own reference\\*\\* \\| \\*\\*COMMISSIONED 2026-10-17"
+    },
+    {
+     "kind": "book",
+     "file": "docs/book/part6/p6_08_iama.tex",
+     "pattern": "\\\\textbf\\{IAM-A is commissioned on healthy blood CD8 T cells\\}"
+    },
+    {
+     "kind": "book_status",
+     "file": "docs/book/part6/p6_24_status.tex",
+     "pattern": "IAM-A \\(sequencing, its own reference\\): commissioned 2026-10-17"
+    },
+    {
+     "kind": "catalogue",
+     "file": "CANON/catalogue.json",
+     "pattern": "\"commissioned\": \"healthy blood CD8 T cells, whole-genome bisulfite, 2026-10-17\""
+    },
+    {
+     "kind": "readme",
+     "file": "Biological_Physics/README.md",
+     "pattern": "IAM-A on healthy blood CD8 T cells"
+    }
+   ],
+   "forbid": [
+    {
+     "file": "Biological_Physics/MethylPhys/chain/stage_q2_selfref.py",
+     "pattern": "development build, NOT commissioned"
+    },
+    {
+     "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v3.py",
+     "pattern": "\"IAM-A\", \"running \\(development\\)\""
+    }
+   ]
   }
  ]
 }

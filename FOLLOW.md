@@ -129,6 +129,10 @@ Each result says what was tested and what it means; the record behind it has eve
 
 Given a blood sample read on an array, the tool says how much of it came from each kind of blood cell. On mixtures made from healthy cells of a laboratory it had never seen, it was off by 1.6 percentage points at the median, and it refused the samples it could not read instead of guessing.
 
+**2026-10-17 · IAM-A commissioned on healthy blood CD8 T cells, each sample read against its own reference: 7 of 8 read samples from a laboratory it had never seen inside Normal, on a rule sealed before any read was downloaded** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md)
+
+IAM-A reads how well each DNA molecule kept its marks and compares that with what the same sample's own loose ends predict, so it needs no outside reference. On healthy immune cells from a new laboratory, 7 of the 8 samples it read came out Normal, as sealed in advance.
+
 **2026-10-16 · Atlas v2.1 against Moss's published reference, on the jobs a reference atlas is used for** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_01.md)
 
 A reference atlas is used for two jobs: finding the DNA spots that mark each cell type, and working out which cells a mixed sample came from. On healthy cells from laboratories that never helped build either atlas, v2.1 was scored against Moss's published reference by bars sealed before v2.1 existed. It found as many reliable markers, split blood-cell mixtures with a smaller error, and, when brain cells Moss's reference does not hold were mixed in, recovered them and cut the error by more than half.

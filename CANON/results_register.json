@@ -428,6 +428,24 @@
     "head": "The deconvolution tool is commissioned",
     "sub": "Blood-cell shares within 1.6 points at the median, on a laboratory it never saw."
    }
+  },
+  {
+   "id": "COMMISSIONING-IAMA",
+   "date": "2026-10-17",
+   "kind": "commissioning",
+   "instrument": "IAM-A",
+   "status": "commissioned",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
+   "headline": "**IAM-A commissioned** on healthy blood CD8 T cells, each sample read against its own reference: 7 of 8 read samples from a laboratory it had never seen inside Normal, on a rule sealed before any read was downloaded",
+   "covers": [],
+   "plain": "IAM-A reads how well each DNA molecule kept its marks and compares that with what the same sample's own loose ends predict, so it needs no outside reference. On healthy immune cells from a new laboratory, 7 of the 8 samples it read came out Normal, as sealed in advance.",
+   "win": {
+    "rank": 1,
+    "stat": "7 of 8 Normal",
+    "head": "IAM-A is commissioned: a sample read against itself",
+    "sub": "Healthy CD8 T cells from a laboratory it never saw, on a rule sealed before the data was downloaded."
+   }
   }
  ],
  "losses": [

@@ -4,8 +4,8 @@
  "set_out": "Re-evaluate every limit against each tool's job, commission what already does its job, and score IAM-A's grand test.",
  "_convention": "see 2026-10-13.json",
  "check_completeness": true,
- "open_at_turnover": "Running: the IAM-A grand test's last sample, then its single score.",
- "closing": "",
+ "open_at_turnover": "Next: the gift package (deposit, README, letter).",
+ "closing": "IAM-A commissioned on its own reference, the deconvolution tool commissioned for shares, and every tool now held to its job.",
  "sections": [
   {
    "kind": "ran",
@@ -20,11 +20,11 @@
      "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md"
     },
     {
-     "title": "IAM-A grand test on healthy CD8 T cells",
-     "status": "in progress",
-     "what": "Twelve of thirteen samples counted; the last is counting, then scored once by the sealed rule.",
+     "title": "IAM-A commissioned: its grand test MET",
+     "status": "sealed",
+     "what": "7 of 8 read healthy CD8 T-cell samples from a laboratory it never saw inside Normal, each read against its own reference; five declined by the shape check.",
      "why": "",
-     "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_GRAND_01.md"
+     "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md"
     }
    ]
   },

@@ -1,0 +1,54 @@
+{
+ "loose_share": 0.08982941049449363,
+ "tiles": 4631,
+ "held_err": 0.03145707319464936,
+ "held_opp": 2243470,
+ "cut": 0.7,
+ "tile_cpgs": 2000,
+ "min_tile_calls": 200,
+ "tile_p10": 0.7082273112807463,
+ "tile_p50": 0.8493862134088763,
+ "tile_p90": 0.9206981016533986,
+ "reader": "aligned reads",
+ "assembly": "hg38 (Bismark genome of the tumor-work bundle)",
+ "sub_err": 0.005312538820112448,
+ "conv_fail": 0.008914178689500842,
+ "molecules": 16848483,
+ "qualifying": 403544,
+ "reads": 51129788,
+ "sample": "GSM4293879",
+ "sample_id": "1237932",
+ "run": "SRR11007280",
+ "cell": "cd8 t cells (naive)",
+ "subset": "naive",
+ "shape_type": "naive cd8 t cells",
+ "lab": "Youngblood (St. Jude) GSE144691",
+ "read_length_mode": 101,
+ "read_lengths": {
+  "101": 9318,
+  "100": 3514,
+  "99": 2928,
+  "98": 592,
+  "97": 348
+ },
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "52e94725c307235a5cb7cc9760563eeaa85fbe0dc9c691257b6633f19adae40d",
+  "payload_sha256": "814c137f22e5f9b498e9376b4267840327ec14a9c0e4bcba88eec97d39b4c69a",
+  "inputs": [
+   {
+    "name": "SRR11007280.bam",
+    "sha256": "82dab56b0617b1e7935c8b6f03294166b5ca18a366b4d608a8778fb77a5a3474",
+    "size": 4674234675
+   },
+   {
+    "name": "hg38.fa",
+    "sha256": "0b13cb387c6bf8fb242da275f8bf51e74d713e58890730f1bde9bc7dc4427748"
+   }
+  ],
+  "manifest": [
+   "COM-IAMA-052"
+  ],
+  "utc": "2026-10-16T22:27:25Z"
+ }
+}

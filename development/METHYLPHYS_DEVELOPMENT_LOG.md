@@ -2256,3 +2256,6 @@ Author: the atlas and the deconvolver are tools, not things to score; experts se
 
 ### 2026-10-17 · The deconvolution tool commissioned for blood-cell shares (COMMISSIONING-DECONV-V21; ATL-055)
 Neutrophils, monocytes, CD4 T and CD8 T on arrays, against atlas v2.1: share error 0.016 on 200 mixtures from a laboratory the atlas never saw (bar 0.03; version 1: 0.029 on six cells). Error bars ship as information (limits study 2026-10-17, decided after both scores; disclosed in the note). Every required place updated.
+
+### 2026-10-17 · IAM-A commissioned: grand test MET, 7 of 8 read inside Normal (COMMISSIONING-IAMA; COM-IAMA-052)
+DEV-IAMA-GRAND-01 scored once by the sealed rule: 7 of 8 read healthy CD8 T-cell samples (GSE144691) inside band v1, each against its own loose share; the shape check declined five (all naive, one central memory). Commissioned on healthy blood CD8 T cells, whole-genome bisulfite; every required place updated.

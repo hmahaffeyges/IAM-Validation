@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Stage Q2 - IAM-A self-reference (development build, NOT commissioned). Written 2026-10-15 to move the own-read loose share, the held
+"""Stage Q2 - IAM-A self-reference (COMMISSIONED 2026-10-17 on healthy blood CD8 T cells, whole-genome bisulfite; IAMA_COMMISSIONING). Written 2026-10-15 to move the own-read loose share, the held
 error and the self-reference line out of side scripts (development/loose_share_2026-10-15/, doors/data/DEV_SECONDLAB_01/) into the chain.
 Author's rule (2026-10-15): side scripts are for exploration only; every logged test runs through the chain, and the gate checks the stamp.
 
@@ -251,6 +251,8 @@ GRAND_SHARE = 0.75; GRAND_MIN_READ = 8
 CD8_SHAPE_TYPE = {"naive": "naive cd8 t cells", "tem": "effector memory cd8 t cells", "tcm": "cd8 t cells", "tscm": "cd8 t cells"}
 def band(version=1):
     J = json.load(open(os.path.join(LINE_DIR, f"band_v{version}.json"), encoding="utf-8")); assert payload_sha(J) == J["chain_stamp"]["payload_sha256"]; return J
+IAMA_COMMISSIONING = {"status": "COMMISSIONED", "date": "2026-10-17", "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
+    "specimens": ["healthy blood CD8 T cells"], "chemistry": ["whole-genome bisulfite"], "band": [0.7787, 1.0551]}
 def grand_verdict(records, version=1, B=None, ref=None):
     """records: [(count, shape type)] for each healthy sample. Each is shape-checked first (refused = listed, not counted); each read sample's
     reading A must lie inside IAM-A's band v1. MET if at least GRAND_SHARE of the read samples are inside and at least GRAND_MIN_READ were read;

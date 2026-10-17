@@ -23,6 +23,7 @@ Chain entry points: `chain/conductor_v3.py`, `chain/stage_1_idat_calibration.py`
 | Met-A C-score, whole blood, EPIC v1 | 2026-10-15 | `chain/MethylPhys_Interface/report_v3.py`, `chain/conductor_v3.py` |
 | IAM-Atlas v2.1, per use | 2026-10-16 | `chain/MethylPhys_Interface/report_v3.py`, `chain/stage_atlas_commission.py` |
 | Deconvolution tool, blood-cell shares, arrays | 2026-10-17 | `chain/MethylPhys_Interface/report_v3.py`, `chain/stage_deconv_v21.py` |
+| IAM-A, healthy blood CD8 T cells, sequencing | 2026-10-17 | `chain/MethylPhys_Interface/report_v3.py`, `chain/stage_q2_selfref.py` |
 
 ## Code still to be brought into the chain (not the replication path)
 

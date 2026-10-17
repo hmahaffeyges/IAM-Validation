@@ -3,7 +3,7 @@
 **Build:** development v3, 2026-10-01; frozen inputs re-checked against the code 2026-10-02; this SOP proofread against the code and the runtime files 2026-10-03; development round 2 (author decisions A-O) written in 2026-10-04; Stage T changed on 2026-10-04 to self-tare II then the median tare, adopted by the author (`boxruns/run1/JOBS.md` job A; DEV-SELFTARE-02; development log 2026-10-04, DEV-PAIRED-01; §2 row T and §2b "Tare: self-tare II"); self-tare II wired into Stage T on 2026-10-04 (development log DEV-SELFTARE-03). **DEVELOPMENT - not commissioned.** Not a diagnostic test.
 **Scope:** one cell, neutrophils, on Illumina EPIC v1 arrays. Other cells are added one at a time after each passes the new-cell rule
 (three tests: purified-cell Normal, replicate spread, identifiability; §2b). 450K neutrophil floor: pending.
-**Readings:** Met-A (arrays; COMMISSIONED on isolated neutrophils) and its C-score (arrays; COMMISSIONED on whole blood). IAM-A (sequencing) runs through a separate stage (Stage Q), which is in development; it has no C-score yet.
+**Readings:** Met-A (arrays; COMMISSIONED on isolated neutrophils) and its C-score (arrays; COMMISSIONED on whole blood). IAM-A (sequencing; COMMISSIONED 2026-10-17 on healthy blood CD8 T cells, whole-genome bisulfite, Stage Q2 self-reference) runs through a separate stage; other specimens are development; it has no C-score yet.
 
 ## 1. Physics stated once
 

@@ -54,7 +54,7 @@ gravity follows from the thermodynamics of such surfaces.
 | **IAM-Atlas v2.1** | Whose DNA is this? Which cells are in a sample, and in what shares? | commissioned (three cell references (450K) and the colon and lung blind sites, 2026-10-16) |
 | **Met-A** | How far has a tissue's tagging level drifted toward the ceiling? | commissioned (isolated neutrophils) |
 | **C-Score (the clustering meter)** | Has the pattern started to clump? | commissioned (whole blood, EPIC v1, 2026-10-15) |
-| **IAM-A** | Is each mark still held at its own healthy rate? | running now |
+| **IAM-A** | Is each mark still held at its own healthy rate? | commissioned (healthy blood CD8 T cells, whole-genome bisulfite, 2026-10-17) |
 | **Group-A** | Has a whole group moved (a trial arm, an exposure, a cohort)? | in development |
 
 How each one works, why it matters, and every test behind it: [INSTRUMENTS.md](INSTRUMENTS.md).
@@ -90,6 +90,7 @@ How each one works, why it matters, and every test behind it: [INSTRUMENTS.md](I
 | date | result | status | record |
 |---|---|---|---|
 | 2026-10-17 | **The deconvolution tool commissioned** for blood-cell shares: on 200 mixtures from a laboratory the atlas never saw, median share error 0.016 (bar 0.03), after a sample check that refuses arrays it cannot read | COMMISSIONED | [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md) |
+| 2026-10-17 | **IAM-A commissioned** on healthy blood CD8 T cells, each sample read against its own reference: 7 of 8 read samples from a laboratory it had never seen inside Normal, on a rule sealed before any read was downloaded | COMMISSIONED | [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md) |
 | 2026-10-16 | **IAM-Atlas v2.1 does Moss's own jobs better than Moss's reference.** On 731 held-out arrays from independent laboratories, by bars sealed before the atlas existed: markers confirmed 0.424 against 0.398; blood mixtures split with median error 0.0224 against 0.0305; with brain cells Moss's reference does not hold mixed in, 0.0228 against 0.0523, the outside share recovered in 87 percent of mixtures. A showcase, not a gate | MEASURED, sealed before reading; development | [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_01.md) |
 | 2026-10-16 | **IAM-Atlas v2.1 commissioned** for three cell references and the colon and lung tissue tests' blind sites, each on a bar sealed before the atlas existed | COMMISSIONED | [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md) |
 | 2026-10-16 | **IAM-Atlas v2.1 does Loyfer's own jobs better than Loyfer's reference.** His reference rebuilt his way from his 205 public samples; on 731 held-out arrays from independent laboratories, by the bars v2.1 met against Moss: markers confirmed 0.998 against 0.938; mixtures split with median error 0.0200 against 0.0248; with brain cells Loyfer's atlas does not hold mixed in, 0.0232 against 0.0484. A showcase, not a gate | MEASURED, sealed before reading; development | [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_02.md) |

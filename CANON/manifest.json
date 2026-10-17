@@ -25832,9 +25832,25 @@
    ],
    "data_status": "",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_GRAND_01.md",
-   "status": "running",
-   "runs": [],
-   "next_step": "sealed 2026-10-16 (author: 'okay, seal it'): 13 healthy CD8 T-cell samples, GSE144691 (Youngblood, St. Jude), first 40 billion bases each, chain count; S1: at least 75 percent of read samples inside band v1, at least 8 read. Two self-terminating machines aligning and counting (run 1 never started, start-up file quoting; run 2: A i-0fd3660dff150bd4a, B i-0888ed7bd36c2020c, launched 04:34 PDT (AWS launch time); preflight ok 04:41 PDT, mapping 89.3 and 89.7 percent, poly-G tails 0.01 percent); then score_grand.py once",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-17",
+     "outcome": "success",
+     "note": "MET: 7 of 8 read inside Normal (bar 0.75, at least 8 read); 5 declined by the shape check; IAM-A commissioned",
+     "page": "headline: COMMISSIONING-IAMA",
+     "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md"
+    },
+    {
+     "date": "2026-10-17",
+     "outcome": "success",
+     "note": "MET (chain result Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/grand_scored.json)",
+     "chain_result": "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/grand_scored.json",
+     "payload_sha256": "dd90b76c788bf02535f76821d7d86c97515cc1563c9373ff641fe578a7beb967",
+     "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
+    }
+   ],
+   "next_step": "commissioned; widen to other specimens on their own sealed tests after the gift",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -25852,10 +25868,17 @@
    "chain_outputs": [
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01",
-     "files": 2,
+     "files": 3,
+     "stage": "Q2 self-reference",
+     "chain": "e5b680f0b766",
+     "latest_utc": "2026-10-17T07:40:27Z"
+    },
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/out",
+     "files": 13,
      "stage": "Q2 self-reference",
      "chain": "52e94725c307",
-     "latest_utc": "2026-10-16T11:05:11Z"
+     "latest_utc": "2026-10-17T07:39:56Z"
     }
    ]
   },

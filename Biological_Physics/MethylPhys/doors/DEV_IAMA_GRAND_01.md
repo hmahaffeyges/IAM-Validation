@@ -1,6 +1,6 @@
 # DEV-IAMA-GRAND-01: IAM-A's grand sealed test on healthy CD8 T cells (COM-IAMA-052)
 
-**Status: rule sealed 2026-10-16; alignment running. No CD8 read was downloaded before the seal.**
+**Status: MET, scored once 2026-10-17 (rule sealed 2026-10-16, before any CD8 read was downloaded).**
 
 **The instrument's job:** a healthy CD8 T-cell sample from a laboratory IAM-A has never seen reads Normal on IAM-A's gauge.
 
@@ -23,3 +23,27 @@
 **In plain words:** thirteen healthy immune-cell samples from a laboratory IAM-A has never seen are each read against their own line; most of them must read Normal.
 
 Code: `data/DEV_IAMA_GRAND_01/box/align_grand.sh` (machine), `count_grand.py` (chain count), `score_grand.py` (chain score, run once).
+
+## Outcome: MET (scored once, 2026-10-17; `data/DEV_IAMA_GRAND_01/grand_scored.json`)
+
+S1: 7 of 8 read samples inside Normal (0.875; bar 0.75, at least 8 read). IAM-A is commissioned on healthy blood CD8 T
+cells read by whole-genome bisulfite sequencing (COMMISSIONING_NOTE_IAMA.md).
+
+| sample | subset | IAM-A reading | Normal 0.7787 to 1.0551 |
+|---|---|---|---|
+| GSM4293877 | naive | not read | not read: tile 10th percentile 0.712 is below its healthy type's limit 0.724 (sample shape outside healthy) |
+| GSM4293878 | naive | not read | not read: tile 10th percentile 0.687 is below its healthy type's limit 0.724 (sample shape outside healthy) |
+| GSM4293879 | naive | not read | not read: tile 10th percentile 0.708 is below its healthy type's limit 0.724 (sample shape outside healthy) |
+| GSM4293880 | naive | not read | not read: tile 10th percentile 0.633 is below its healthy type's limit 0.724 (sample shape outside healthy) |
+| GSM4293890 | tscm | 0.834 | inside |
+| GSM4293891 | tscm | 0.898 | inside |
+| GSM4293892 | tscm | 0.978 | inside |
+| GSM4293893 | tcm | 1.085 | outside |
+| GSM4293894 | tcm | not read | not read: tile 10th percentile 0.592 is below its healthy type's limit 0.593 (sample shape outside healthy) |
+| GSM4293895 | tcm | 0.908 | inside |
+| GSM4293896 | tem | 1.010 | inside |
+| GSM4293897 | tem | 0.877 | inside |
+| GSM4293898 | tem | 0.862 | inside |
+
+Five samples were not read: the sample-shape check, set before the seal, placed all four naive samples and one central-memory sample just
+below their healthy type's limit. The rule counts read samples only; the five are listed, not hidden.
