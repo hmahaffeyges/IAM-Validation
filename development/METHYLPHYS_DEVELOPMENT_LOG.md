@@ -2242,3 +2242,6 @@ Run 4 (job i-09f4d660c5c75e867, 500 GB disk, finished 7:22 PM PDT): a fresh publ
 
 ### 2026-10-16 · IAM-Atlas v2.1 story: one source for the repo, the page and the book (author request; ATL-063)
 CANON/atlas_story.json (author's opening, what the MCMC build gives, every tool with its cosmology origin, its use in the atlas and for geneticists' own work, and status: in the atlas now, coming with the release, after the release). CANON/atlas_story.py writes the atlas README section and book section p6_14b_atlas_v21.tex; the page reads the JSON; the push gate refuses drift. Replaced the stale front-page banner ("Now building", "the fit is running") and the README's "not yet commissioned" line.
+
+### 2026-10-16 · IAM-Atlas v2.1 in sequencing coordinates (release item G09); molecule-level atlas added as a future row (ATL-068)
+Author decision: ship the atlas labeled by Loyfer's own CpG numbering. atlas/v2.1/sites_sequencing_key.parquet keys all 813,951 sites (probe ID, his .beta CpG index, hg19 position; no index shared), made by joining only (doors/data/DEV_ATLAS_V21_01/export_site_key_v21.py). The scope is stated in the README and the story: an array-scale reference with no molecule-level markers. A sequencing-native, molecule-level atlas for cell-free DNA is a new manifest row, future.

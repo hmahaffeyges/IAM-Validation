@@ -35,7 +35,7 @@ This is not a bigger table built for the sake of putting more cells in one place
 | **Two half-atlases and null maps** | Planck's half-mission split: two maps from two halves of the data; their difference must be pure noise. | The atlas refitted on two sealed halves of every cell's donors; half A minus half B is a noise map with no signal in it. | A direct test of the atlas's stated noise, and noise-free cross-spectra. |
 | **Power spectra, simulations and higher-order statistics** | Masked power spectra with shuffled nulls, end-to-end simulations that measure the pipeline's own transfer function, and three-point and Minkowski statistics of the residuals. | The same statistics on the atlas maps, each against its simulated null, and the cross-site covariance of healthy donors. | Structure in healthy methylation that a table of means cannot show. |
 
-**Where it stands.** What is commissioned today: three cell reference profiles (cortical neurons, lung bronchus epithelium and naive CD4 T cells on 450K arrays) and the blind sites of the colon and lung tissue tests. Every other use is labeled development until it passes its own sealed test. The deconvolution tool reads shares accurately (median error 0.016 on fresh mixtures) but its error bars are not yet commissioned.
+**Where it stands.** What is commissioned today: three cell reference profiles (cortical neurons, lung bronchus epithelium and naive CD4 T cells on 450K arrays) and the blind sites of the colon and lung tissue tests. Every other use is labeled development until it passes its own sealed test. The deconvolution tool reads shares accurately (median error 0.016 on fresh mixtures) but its error bars are not yet commissioned. v2.1 is an array-scale reference: one value per site at 813,951 array CpGs, also labeled by the CpG numbering of Loyfer's sequencing atlas so sequencing tools can open it at those sites. It holds no molecule-level markers.
 
 *The tools of the sky, brought to the cell, because one law runs underneath both.*
 <!-- STORY:END -->
@@ -51,7 +51,10 @@ The fitted atlas (2026-10-16): 79 cell types, 813,951 array sites, from the Baye
 | `mu_part1-3.parquet` | best estimate (posterior mean) per site and cell; columns are the cells, in the source atlases' exact names |
 | `mu_lo_part1-3.parquet`, `mu_hi_part1-3.parquet` | the 2.5th and 97.5th percentiles (the 95 % range of the cell's average) |
 | `donor_sd_part1-3.parquet` | the fit's person-to-person spread of each cell at each site (posterior mean of the donor SD); a new person's cell varies this much around the average |
+| `sites_sequencing_key.parquet` | the same sites in sequencing coordinates: Illumina probe ID, the CpG index of Loyfer et al. 2023's .beta files (GSE186458, wgbstools numbering, 1-based; all 813,951 sites keyed, none shared), and the manifest chromosome and position (hg19). Join it to any table above to open the atlas in sequencing tools at these sites |
 | `compact_manifest.json` | each file's size and SHA-256 |
+
+**Scope:** v2.1 is an array-scale reference, one value per site at about 814,000 array CpGs; it holds no molecule-level (read-level) markers.
 
 Values are stored as round(value x 10000) in unsigned 16-bit integers: value = stored / 10000 (exact to 4 decimals); **65535 = not measured**.
 The 79 cells are split into three files in alphabetical order so every file stays under GitHub's 100 MB limit; join the parts side by side.

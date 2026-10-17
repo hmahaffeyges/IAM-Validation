@@ -27308,6 +27308,27 @@
      "latest_utc": "2026-10-17T01:43:12Z"
     }
    ]
+  },
+  {
+   "title": "A sequencing-native atlas with molecule-level markers, for cell-free DNA (future, after the gift)",
+   "purpose": "v2.1 is array-scale (one value per site at array CpGs). Loyfer's laboratory reads cell-free DNA molecule by molecule; a sequencing-native version with read-level markers would reach that work directly. Author decision 2026-10-16: future consideration.",
+   "instrument_or_term": "atlas",
+   "data_status": "partial",
+   "status": "idea",
+   "next_step": "after the gift: scope the data (Loyfer's 205 samples at read level), the model and its commissioning plan",
+   "cost": "laptop",
+   "impact": 5,
+   "record": "CANON/atlas_story.json",
+   "depends_on": [
+    "ATL-005"
+   ],
+   "id": "ATL-068",
+   "sources": [],
+   "runs": [],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
   }
  ],
  "not_tests": {

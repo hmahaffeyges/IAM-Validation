@@ -437,6 +437,20 @@
    "step": 2
   },
   {
+   "id": "G09",
+   "group": "Gift package",
+   "what": "The atlas in sequencing coordinates: site key to Loyfer's CpG numbering (and hg19 positions), so his tools open it at these sites",
+   "repo": [
+    "Biological_Physics/MethylPhys/atlas/v2.1/sites_sequencing_key.parquet",
+    "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/export_site_key_v21.py"
+   ],
+   "s3": [],
+   "zenodo": "gift/bridge_per_site.parquet",
+   "required": true,
+   "track": "D. The gift and the release",
+   "step": 2
+  },
+  {
    "id": "G03",
    "group": "Gift package",
    "what": "Healthy person-to-person spread",

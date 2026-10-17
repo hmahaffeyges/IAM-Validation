@@ -123,6 +123,6 @@
    "record": "CANON/v21_release.json (M04-M07)"
   }
  ],
- "limits": "What is commissioned today: three cell reference profiles (cortical neurons, lung bronchus epithelium and naive CD4 T cells on 450K arrays) and the blind sites of the colon and lung tissue tests. Every other use is labeled development until it passes its own sealed test. The deconvolution tool reads shares accurately (median error 0.016 on fresh mixtures) but its error bars are not yet commissioned.",
+ "limits": "What is commissioned today: three cell reference profiles (cortical neurons, lung bronchus epithelium and naive CD4 T cells on 450K arrays) and the blind sites of the colon and lung tissue tests. Every other use is labeled development until it passes its own sealed test. The deconvolution tool reads shares accurately (median error 0.016 on fresh mixtures) but its error bars are not yet commissioned. v2.1 is an array-scale reference: one value per site at 813,951 array CpGs, also labeled by the CpG numbering of Loyfer's sequencing atlas so sequencing tools can open it at those sites. It holds no molecule-level markers.",
  "closing": "The tools of the sky, brought to the cell, because one law runs underneath both."
 }

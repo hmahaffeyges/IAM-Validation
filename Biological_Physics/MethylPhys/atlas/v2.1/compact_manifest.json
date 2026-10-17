@@ -57,5 +57,9 @@
  "donor_sd_part3.parquet": {
   "bytes": 27903250,
   "sha256": "a3d0f0b12ec7f7a956adda3faea7a41fdb397c347a93cc4fc5830b3edd5619cf"
+ },
+ "sites_sequencing_key.parquet": {
+  "bytes": 10031051,
+  "sha256": "9b2a6635227b87fec3c0292f9f6af5a1175c236ebf64825a2cb7b40bc9e4c937"
  }
 }
