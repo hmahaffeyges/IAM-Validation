@@ -4,9 +4,10 @@
 The instrument's job: a plant grown colder reads a lower held error, by the amount the law fixes from the two temperatures alone.
   law          ln[(1 - eps)/eps] = E/kT with E fixed  ->  log-odds(cold) / log-odds(warm) = T_warm / T_cold   (nothing fitted)
   count        the chain's own counter (stage_q2_selfref.count_bam_region, Bismark XM), on the nuclear chromosomes only
-  meter        a held site reads lost if it was lost (eps) or misread (s, the sequencer's own error on A/T bases), independently: p = eps + s(1 - eps).
+  meter        a site reads lost if it was lost and converted (eps(1 - c), c = conversion failure, read on the chloroplast) or held and misread
+               (s(1 - eps), s = the sequencer's own error on A/T bases), independently: p = eps(1 - c) + s(1 - eps).
                The counter's statistic is a known function g(p) of that per-site rate, set by the sample's own mix of calls per molecule
-               (n_hist); p = g^-1(held_err) is read through that response curve, then eps = (p - s)/(1 - s). (T2 synthetic run 1, 2026-10-17:
+               (n_hist); p = g^-1(held_err) is read through that response curve, then eps = (p - s)/(1 - c - s). (T2 synthetic run 1, 2026-10-17:
                the plain subtraction held_err - s used for the tumor pairs over-corrects by about 9 % here, more than the effect sought.)
   conversion   read on the chloroplast, which carries no methylation: the share of its CpG calls read methylated is the conversion failure
                (in plants the non-CpG contexts are methylated, so the human non-CpG check does not apply)
@@ -17,6 +18,11 @@ HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import stage_q2_selfref as Q2
 
 NUCLEAR = ["Chr1", "Chr2", "Chr3", "Chr4", "Chr5"]; PLASTID = "ChrC"   # TAIR10 names
+NAMES = {"tair": (NUCLEAR, "ChrC"), "ensembl": (["1", "2", "3", "4", "5"], "Pt")}   # the same TAIR10 assembly as TAIR and Ensembl Plants name it
+def names(refs, chroms=None):
+    for k, (n, p) in NAMES.items():
+        if all(c in refs for c in (chroms or n)) and (chroms is None or p in refs or all(c in n for c in chroms)): return n, p
+    raise ValueError("reference carries neither TAIR (Chr1-5) nor Ensembl (1-5) chromosome names")
 MIN_QUALIFYING, MAX_CONV_FAIL = 20_000, 0.01                           # per-sample gates (T2 synthetic: 20,000 molecules tell 18 C from 28 C)
 
 def predicted_ratio(t_cold_c, t_warm_c): return (273.15 + t_warm_c) / (273.15 + t_cold_c)
@@ -59,10 +65,11 @@ def plastid_conversion(bam, fa, chrom=PLASTID):
         c, _, _ = Q2._calls_of(r, ref, ref0, False); m += sum(c.values()); n += len(c)
     return dict(plastid_calls=int(n), conv_fail=(m / n) if n else None)
 
-def count_plant(bam, fa, workers=4, chroms=NUCLEAR, span=10_000_000):
+def count_plant(bam, fa, workers=4, chroms=None, span=10_000_000):
     """One sample: the chain counter on the nuclear chromosomes, the meter correction, and the chloroplast conversion check."""
     import pysam
-    F = pysam.FastaFile(fa); jobs = [(bam, fa, c, s, min(F.get_reference_length(c), s + span)) for c in chroms for s in range(0, F.get_reference_length(c), span)]
+    F = pysam.FastaFile(fa); nuc, plastid = names(F.references, chroms); chroms = chroms or nuc
+    jobs = [(bam, fa, c, s, min(F.get_reference_length(c), s + span)) for c in chroms for s in range(0, F.get_reference_length(c), span)]
     if workers > 1:
         import multiprocessing as mp
         with mp.get_context("fork").Pool(workers) as P: parts = P.map(Q2.count_bam_region, jobs)
@@ -74,8 +81,10 @@ def count_plant(bam, fa, workers=4, chroms=NUCLEAR, span=10_000_000):
     eps = s["e_iso"] / max(s["e_opp"], 1); sub = s["at_mm"] / max(s["at_n"], 1)
     p_site = invert(eps, nh)
     out = dict(held_err=eps, held_opp=int(s["e_opp"]), qualifying=int(s["qualifying"]), reads=int(s["reads"]), sub_err=sub, n_hist=dict(nh),
-               p_site=p_site, eps_corr=(p_site - sub) / (1 - sub) if p_site is not None else None)
-    out.update(plastid_conversion(bam, fa) if PLASTID in F.references else dict(plastid_calls=0, conv_fail=None))
+               p_site=p_site)
+    out.update(plastid_conversion(bam, fa, plastid) if plastid in F.references else dict(plastid_calls=0, conv_fail=None))
+    cf = out["conv_fail"] or 0.0
+    out["eps_corr"] = (p_site - sub) / (1 - cf - sub) if p_site is not None else None
     why = []
     if out["qualifying"] < MIN_QUALIFYING: why.append(f"{out['qualifying']:,} qualifying molecules (at least {MIN_QUALIFYING:,})")
     if out["conv_fail"] is None or out["conv_fail"] > MAX_CONV_FAIL: why.append(f"chloroplast conversion failure {out['conv_fail']} (at most {MAX_CONV_FAIL})")

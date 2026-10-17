@@ -1,15 +1,15 @@
 {
  "A_counter": {
   "planted_held_error": 0.03,
-  "rule_on_planted": 0.02599,
-  "counter_held_err": 0.02871,
-  "sub_err": 0.00403,
+  "rule_on_planted": 0.02601,
+  "counter_held_err": 0.0288,
+  "sub_err": 0.004,
   "planted_sub": 0.004,
-  "eps_corr": 0.03008,
-  "conv_fail": 0.00655,
+  "eps_corr": 0.03045,
+  "conv_fail": 0.0067,
   "planted_conv_fail": 0.006,
-  "p_site": 0.03399,
-  "corrected_within": 0.0026,
+  "p_site": 0.03413,
+  "corrected_within": 0.0152,
   "met": true
  },
  "law_true": {
@@ -56,12 +56,12 @@
  "met": true,
  "chain_stamp": {
   "stage": "Q2 self-reference",
-  "chain_sha": "c10e504ec85318a7bfb7680aab07c3682583559d7b76e796e11e2ce7f11dae81",
-  "payload_sha256": "093f2e30290908f6411d94a45bc3ea090bd158b56784d8d65ffc3e6f724508c1",
+  "chain_sha": "852ad9e9c1aba62134ca8fed25165021d3914c52f3ae698b31f495f6d23358a2",
+  "payload_sha256": "22ac8a0e35575aab65ce0b56174d4004f78fd064882e0ff4004e5252f54c851b",
   "inputs": [],
   "manifest": [
    "PHY-057"
   ],
-  "utc": "2026-10-17T09:18:23Z"
+  "utc": "2026-10-17T18:14:59Z"
  }
 }

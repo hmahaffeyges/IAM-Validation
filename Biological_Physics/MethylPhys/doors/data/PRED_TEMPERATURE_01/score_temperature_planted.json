@@ -1,0 +1,25 @@
+{
+ "law_true": {
+  "verdict": "MET",
+  "median_ratio": 1.0217,
+  "pairs": 110,
+  "left_out": 1
+ },
+ "no_temperature_effect": {
+  "verdict": "NOT MET",
+  "median_ratio": 1.0014,
+  "pairs": 110,
+  "left_out": 1
+ },
+ "met": true,
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "852ad9e9c1aba62134ca8fed25165021d3914c52f3ae698b31f495f6d23358a2",
+  "payload_sha256": "dcabd1ae1bf8f9ca23e0e6b17455499f6bd42fec5cbceacb5db5fb7d9ead8fa4",
+  "inputs": [],
+  "manifest": [
+   "PHY-057"
+  ],
+  "utc": "2026-10-17T18:17:11Z"
+ }
+}

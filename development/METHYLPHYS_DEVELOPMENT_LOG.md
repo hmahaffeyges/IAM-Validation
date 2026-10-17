@@ -2305,3 +2305,6 @@ Run 4 (job i-0e980d41f06e19212): a fresh clone of the public repository, a new P
 
 ### 2026-10-17 · Correction: the run-2 entry called the E8 fix done before it was tested (OTH-070)
 Run 3 still failed E8. The real cause (v3 drew an empty gauge scale with no reading) was fixed before run 4, which passed 25 of 25. LESSONS C21 now says a fix is called fixed only after the check that found it passes.
+
+### 2026-10-17 · Temperature law stage T3 sealed (PHY-057)
+The reading rule for the 111 Arabidopsis pairs (GSE54292) is committed before any plant read is counted (PRED_TEMPERATURE_01.md, stage T3). Public headers carry no flowcell, so the flowcell pairing is replaced by a chloroplast conversion correction in chain stage TL (T2 synthetic rerun MET: planted 0.030 read 0.0305) and an information-only sequencer-error check. Scorer tested on planted counts (law MET, null NOT MET).

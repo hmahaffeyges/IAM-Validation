@@ -30,7 +30,9 @@ for chrom, n in (("Chr1", 300_000), ("ChrC", 8_000)):
             cpg = b == "C" and j + 1 < L and r_[j + 1] == "G"
             if cpg:
                 if chrom == "ChrC": meth = rng.random() < CF                      # unmethylated plastid; a conversion failure reads methylated
-                else: meth = rng.random() >= EPS; calls.append(meth)              # held molecule: each site lost with the planted held error
+                else:
+                    meth = rng.random() >= EPS; calls.append(meth)                # held molecule: each site lost with the planted held error
+                    if not meth and rng.random() < CF: meth = True                # a lost site whose conversion failed reads methylated
                 if chrom != "ChrC" and meth and rng.random() < SUB: meth = False   # the sequencer misreads a methylated C as T
                 q.append("C" if meth else "T"); xm.append("Z" if meth else "z")
             elif b == "C": q.append("T"); xm.append("h")

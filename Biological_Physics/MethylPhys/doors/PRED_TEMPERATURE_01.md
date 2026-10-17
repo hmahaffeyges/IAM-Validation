@@ -65,6 +65,28 @@ opened.
 **The instrument's job:** a plant grown colder reads a lower held error, by the amount the law fixes from the two temperatures alone.
 Chain stage TL (`chain/stage_temperature.py`) counts with the chain's own counter on the nuclear chromosomes, reads conversion on the chloroplast (unmethylated; in plants the non-CpG contexts are methylated, so the human check does not apply), and corrects for the sequencer's own error through the counter's response curve: a held site reads lost if it was lost or misread, independently, p = eps + s(1 - eps); p is read from the counter's statistic through its response to the sample's own calls-per-molecule mix, then eps = (p - s)/(1 - s).
 
-Run 1 (NOT MET, kept in the log): the plain subtraction used for the tumor pairs over-corrected the planted held error by about 9 percent, more than the effect sought (about 7 percent lower held error at 10 C than at 16 C); and a bar requiring the 95 percent interval to contain 1.0212 was tighter than the job, failing on a 0.3 percent bias. Run 2 (MET, `PRED_TEMPERATURE_01/temperature_T2_synthetic.py`, `.json`): planted per-site held error 0.030 read 0.0301; conversion 0.0066 against 0.006 planted; 111 pairs with the two temperatures on different sequencer error: law true met 40 of 40, no temperature effect met 0 of 40, 20,000 molecules per plant enough. An uncorrected batch drift of 3 percent or more breaks it (met 0 of 40), so the sealed rule compares pairs within flowcells shared by both temperatures.
+Run 1 (NOT MET, kept in the log): the plain subtraction used for the tumor pairs over-corrected the planted held error by about 9 percent, more than the effect sought (about 7 percent lower held error at 10 C than at 16 C); and a bar requiring the 95 percent interval to contain 1.0212 was tighter than the job, failing on a 0.3 percent bias. Run 2 (MET, `PRED_TEMPERATURE_01/temperature_T2_synthetic.py`, `.json`): planted per-site held error 0.030 read 0.0305 after the conversion correction was added (stage T3); conversion 0.0067 against 0.006 planted; 111 pairs with the two temperatures on different sequencer error: law true met 40 of 40, no temperature effect met 0 of 40, 20,000 molecules per plant enough. An uncorrected batch drift of 3 percent or more breaks it (met 0 of 40), so the sealed rule compares pairs within flowcells shared by both temperatures.
 
 **Bars to seal (at most three):** B1 the paired median log-odds ratio, colder over warmer, lands within a quarter of the law's shift (1.0159 to 1.0265); B2 its 95 percent bootstrap interval excludes 1. Gates per sample: at least 20,000 qualifying molecules; chloroplast conversion failure at most 1 percent; flowcell read from the first read header before any methylation is counted.
+
+## Stage T3: the sealed reading on the plants (sealed 2026-10-17, before any plant read is counted)
+
+**The instrument's job:** a plant grown colder reads a lower held error, by the amount the law fixes from the two temperatures alone.
+
+**Data:** GSE54292 (BioProject PRJNA236110), Arabidopsis accessions grown at 10 C and 16 C. 111 accessions have both; 233 samples, 394 runs, 584.7 GB of FASTQ from ENA (`PRED_TEMPERATURE_01/t3_pairs_runs.csv`, built by `build_t3_pairs.py`, sha256 5bb99b79b8c2c9559829ddf7e7739bb286381c9365de2a56294cf1bcaf87a248). Only one FASTQ header was opened before sealing; the public files carry no flowcell or lane (`@SRR1138710.1 1/1`), so the flowcell pairing named in stage T2 cannot be used. It is replaced by the conversion correction below and an information-only check on sequencer error.
+
+**Sources:** all public. GEO GSE54292 / SRA PRJNA236110 (Dubin et al. 2015): the plants' bisulfite reads and their growth temperature; ENA: the FASTQ files; Ensembl Plants release 60: the TAIR10 genome with the chloroplast; Bismark, Bowtie 2, Trim Galore: the published aligners.
+
+**Alignment** (`PRED_TEMPERATURE_01/box/align_plants.sh`): Trim Galore (HiSeq 2000, no poly-G trim), Bismark with Bowtie 2 on TAIR10 (Ensembl Plants release 60, with the chloroplast), deduplicated, sorted.
+
+**Count and correction:** chain stage TL (`chain/stage_temperature.py`, sha256 943cda56bc674dd6f675bb6a4c7df7c2a7e983323aba9ae08e44da4e9ea21e48) on the five nuclear chromosomes. The held error is read through the counter's response curve, then corrected for the sequencer's own error s and the chloroplast conversion failure c: eps = (p - s)/(1 - c - s).
+
+**Gates per sample:** at least 20,000 qualifying molecules; chloroplast conversion failure at most 1 %; corrected held error above zero. A sample failing a gate is left out with its reason. Replicates at one temperature are averaged.
+
+**Bars** (scorer `PRED_TEMPERATURE_01/score_temperature.py`, sha256 a5a85be9341e4806e9a012f884ac8378163c91d0e16b93c2baa97f4d807c84b3, run once):
+- B1: the paired median log-odds ratio, 10 C over 16 C, lies within a quarter of the law's shift, 1.0159 to 1.0265 (law 1.0212; nothing fitted).
+- B2: its 95 % bootstrap interval excludes 1.
+
+MET when both hold. **Information only:** the cold/warm ratios of sequencer error and conversion failure, and the reading repeated on pairs whose sequencer errors differ by less than 20 %.
+
+**Scorer test (planted counts):** `PRED_TEMPERATURE_01/score_temperature_planted.py`, `score_temperature_planted.json`: law true read MET (median 1.0217); no temperature effect read NOT MET (median 1.0014); a planted gate failure was left out.

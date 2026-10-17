@@ -25991,9 +25991,9 @@
    ],
    "data_status": "not yet searched",
    "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
-   "status": "synthetic_done",
+   "status": "sealed",
    "runs": [],
-   "next_step": "stage T2 synthetic MET 2026-10-17 through chain stage TL (stage_temperature.py): planted per-site held error recovered within 0.3 %, chloroplast conversion within 0.001; 111 pairs: law true met 40 of 40, no temperature effect met 0 of 40, 20,000 molecules per plant enough; an uncorrected batch drift of 3 % or more breaks it, so pairs are compared within flowcells shared by both temperatures. Next: seal the reading rule (job line, B1 median ratio within a quarter of the law's shift 1.0159-1.0265, B2 interval excludes 1; gates: 20,000 molecules, conversion failure at most 1 %, flowcell), then read headers, then align and count on AWS",
+   "next_step": "stage T3 sealed 2026-10-17 (233 samples, 111 pairs; bars B1 1.0159-1.0265, B2 excludes 1); aligning and counting on AWS spot machines from a shared queue, then scored once",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -26008,10 +26008,10 @@
    "chain_outputs": [
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01",
-     "files": 1,
+     "files": 3,
      "stage": "Q2 self-reference",
-     "chain": "c10e504ec853",
-     "latest_utc": "2026-10-17T09:18:23Z"
+     "chain": "852ad9e9c1ab",
+     "latest_utc": "2026-10-17T18:18:03Z"
     }
    ]
   },
