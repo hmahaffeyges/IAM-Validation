@@ -27182,7 +27182,7 @@
      "page": "not headline: development"
     }
    ],
-   "next_step": "error bar that carries the measured donor and laboratory spread; test on mixtures not built from these arrays",
+   "next_step": "sample-shape check that flags an array not reading as its own cell (sealed first), then a fresh mixture test on E-MTAB-2145; diagnostic 2026-10-16: misses trace to GSE59065's sorted T cells",
    "cost": "laptop",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/DEV_DECONV_V21_01.md",

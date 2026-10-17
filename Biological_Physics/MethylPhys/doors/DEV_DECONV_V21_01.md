@@ -45,3 +45,15 @@ Box job e8e72ed7 (code 47c18ab3); planted test PASSED first on the box. 200 mixt
 resampling sites, which measures how well the mix fits, but not how much one donor's or one laboratory's cells differ from the atlas's
 average cell. The same gap U1 found. The tool stays development; the next step is an error bar that carries the measured donor and
 laboratory spread, tested on mixtures not built from these arrays.
+
+## Diagnostic after scoring (2026-10-16; nothing rescored, the outcome above stands)
+
+Each pure held-out array read alone (box job 91ef36cf, `data/DEV_DECONV_V21_01/diag_pure_v21.csv`). In real mixtures CD8 T read 0.76 x true and
+NK 1.16 x true. Read alone, pure cells from five of the six laboratories read as themselves at 0.93-1.00 (CD8: GSE130030 1.00, GSE87640 0.93;
+CD4: four laboratories 0.95-0.99). One laboratory, **GSE59065**, reads CD8 0.74 and CD4 0.90, its T cells carrying neutrophil (0.06) and
+monocyte (0.04) signal; it supplied 100 of the 133 CD8 and 99 of the 156 CD4 arrays in the mixture pool, and it is one of the three laboratories
+behind most of U1's misses. Summing the atlas's CD8 subsets instead of the parent CD8 profile made CD8 worse (0.55), so it is not the
+panel. **What it points to:** the sorted cells of one laboratory, not the atlas or the tool. The planted test with the atlas's donor and
+laboratory spread planted (version 2) gives error 0.004 and covers 82 % of true shares; the old version covered 89 % on the same planted
+data, so the spread terms were not the cause. Next: a sample-shape check that flags an array that does not read as its own cell, sealed
+before use, then a fresh mixture test on E-MTAB-2145 (Cambridge; read once in U1, never mixed).

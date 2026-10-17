@@ -2215,3 +2215,6 @@ The author: none of the pricing was updated. The page reads CANON/costs_snapshot
 
 ### 2026-10-16 · The page is the interface: every linked document rendered on the site; costs cannot go stale (lesson C19; OTH-067)
 The author: the page linked to the repository (a stale "Moved" stub next to the four-domain link, the coffee and whiteboard session) and showed costs dated 2026-10-12. build_home.py now renders every linked document from the repository into site pages with collapsible sections and puts the main tables (commissioning report, catalogue, four domains and bits, run ledger with billing, status) on the page; costs_fresh.py in the push gate refuses a cost snapshot older than today; the dated line was removed. Fixed on the way: the commissioning report and run ledger linked records by wrong relative paths.
+
+### 2026-10-16 · Deconvolution diagnostic: the misses come from one laboratory (ATL-065)
+Pure held-out arrays read alone: five of six laboratories read as their own cell at 0.93-1.00; GSE59065 reads CD8 0.74 and CD4 0.90 with neutrophil and monocyte signal, and supplied most of the T cells in the mixture pool. Summing CD8 subsets did not help (0.55). The spread terms were not the cause (old and new versions both cover over 80 percent on planted data). Score stands; next a shape check sealed before a fresh mixture test on E-MTAB-2145.
