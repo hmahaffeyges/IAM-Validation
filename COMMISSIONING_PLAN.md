@@ -47,7 +47,6 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 | DEV-IAMA-GRAND-01 run 3 machine F: CD8 samples from the shared queue, aligned and counted by chain Stage Q2 | methylphys-cpu-01, on-demand m7a.32xlarge, 1.5 TB work disk vol-0230dfb60526c5806 (delete after the test) | COM-IAMA-052 |
 | IAM-A clean room part A run 2 (PHY-055) | spot c7a.8xlarge us-west-2c, self-terminating | PHY-055 |
 | DEV-IAMA-GRAND-01 run 3 machine J: on-demand helper on the shared queue | on-demand m7a.16xlarge us-west-2a, 2 samples at a time, 1.5 TB disk | COM-IAMA-052 |
-| Chain v4 one-command test from a fresh public clone, run 4 (gauge and claim-scan fixes) (OTH-070) | spot m7a.xlarge, self-terminating | OTH-068, OTH-069, OTH-070 |
 
 ## Decisions waiting for the author
 

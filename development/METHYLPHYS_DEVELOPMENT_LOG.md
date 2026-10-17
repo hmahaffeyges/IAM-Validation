@@ -2299,3 +2299,6 @@ Clean clone run 4 launched as job i-0e980d41f06e19212 (commit 82f88df6).
 
 ### 2026-10-17 · Book audit pass 1 continued (OTH-072)
 The C-score band was set on 617 healthy arrays from 19 GEO series, which come from 17 institutions (two each from Dartmouth and Vilnius): "19 laboratories" (introduced with the 641-to-617 correction) corrected to "19 studies (17 institutions)" in the chapter, the SOP and the conductor comment. Tools from the sky: the chain v4 C-Score sky uses nested order (the chapter described only the ring order of the earlier map); neighbourhoods to neighborhoods, and the spelling check now knows neighbour/centred forms.
+
+### 2026-10-17 · Chain v4 passes from a fresh public clone: 25 of 25 (OTH-068, OTH-069, OTH-070)
+Run 4 (job i-0e980d41f06e19212): a fresh clone of the public repository, a new Python 3.11 environment from chain/requirements.txt only, then one command (release_check_v4.py): every check passed, among them real IDAT arrays end to end, the IAM-A grand test reproduced exactly (8 of 8), the Deconvolver's commissioned shares within 0.002 on planted mixtures, the C-Score sky in nested order, the report with all 9 sections, and every refusal case. Runs 1-3 found an unpinned dependency and three latent report faults (LESSONS C21), all fixed. Next: one real public sample of each kind as the shipped example reports.

@@ -27389,7 +27389,7 @@
      "page": "not headline: a gate on the way to the commissioned chain"
     }
    ],
-   "next_step": "clean clone run 2 with pyarrow and matplotlib pinned (2026-10-17); then one real public sample of each kind",
+   "next_step": "chain v4 passes its release check from a fresh public clone (OTH-070, 25 of 25, 2026-10-17); next: one real public sample of each kind (an EPIC whole blood, an isolated-neutrophil array, a CD8 T-cell .pat) through the one command, reports kept as the shipped examples",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
@@ -27407,9 +27407,9 @@
    ],
    "data_status": "",
    "record": "development/LIMITS_STUDY_2026-10-17.md",
-   "status": "synthetic_done",
+   "status": "run",
    "runs": [],
-   "next_step": "report_v4.py built 2026-10-17 (at-a-glance table, shares, Met-A gauge, C-Score with its HEALPix sky, IAM-A gauge, then the full v3 record); tested on a constructed blood sample and by release_check_v4 V4 (9 of 9 sections, sky embedded) on the laptop. On clean clone run 1 V4 failed only because pyarrow was unpinned; run 2 repeats it. Then a real public sample of each kind.",
+   "next_step": "done 2026-10-17: report v4 passes V4 (9 of 9 sections, sky embedded) and E3/E8 on a fresh public clone (run 4)",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
@@ -27427,7 +27427,7 @@
    ],
    "data_status": "",
    "record": "development/LIMITS_STUDY_2026-10-17.md",
-   "status": "running",
+   "status": "run",
    "runs": [
     {
      "date": "2026-10-17",
@@ -27449,9 +27449,16 @@
      "note": "clean clone run 3: 21 of 25; tare restored; the claim scan read the gauge legend as prose (E3, E7, E10) and an empty gauge was drawn when withheld (E8); both fixed",
      "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/run3/release_check_v4.log",
      "page": "not headline: a gate on the way to the commissioned chain"
+    },
+    {
+     "date": "2026-10-17",
+     "outcome": "success",
+     "note": "clean clone run 4 (job i-0e980d41f06e19212): RELEASE CHECK v4 PASS, 25 of 25, from a fresh public clone with a new environment from chain/requirements.txt only",
+     "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/run4/release_check_v4.log",
+     "page": "not headline: goes into the commissioned-chain card with the shipped example reports (OTH-068)"
     }
    ],
-   "next_step": "clean clone run 4 running (job i-0e980d41f06e19212, commit 82f88df6)",
+   "next_step": "done 2026-10-17: 25 of 25 from a fresh public clone (run 4)",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
