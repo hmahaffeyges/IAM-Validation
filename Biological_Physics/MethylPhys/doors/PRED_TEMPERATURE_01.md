@@ -98,3 +98,31 @@ that never qualify (found by DEV-CFDNA-SHORT-01; LESSONS C23). Computed exactly 
 ratio was computed and no sample's value was read; the 159 counts were moved, unread, to results/PRED_TEMPERATURE_01/T3/superseded_run3_counter_bias/.
 The fix is in the chain (qualifying-molecule length mix; exact response curve). The rule, the bars and the scorer are unchanged. T2 passes on
 the fixed counter (run 3, `temperature_T2_synthetic.json`: planted 0.030 read 0.0303). All 233 samples are counted again (run 4).
+
+## Stage T3 result (scored once, 2026-10-18, 5:10 AM Pacific): NOT MET
+
+Scored by the sealed `data/PRED_TEMPERATURE_01/score_temperature.py` with chain stage TL (both unchanged since their sealing commit), on all
+233 counted samples of run 4 (`data/PRED_TEMPERATURE_01/t3_counts/`, one chain-stamped count per sample; `t3_scored.json`).
+
+| | value |
+|---|---|
+| samples counted / left out by the gates | 233 / 3 (two chloroplast conversion failures above 1 %, one sample with 11,067 qualifying molecules) |
+| accessions with both temperatures | 109 |
+| cold/warm log-odds ratio of the corrected held error, median | **1.0002** |
+| its 95 % bootstrap interval | **0.993 to 1.008** |
+| the law's prediction, from the two temperatures alone (10 °C, 16 °C) | 1.0212 (B1 window 1.0159 to 1.0265) |
+| B1: median within a quarter of the law's shift | not met |
+| B2: interval excludes no change | not met |
+
+Information only (not bars): the sequencer error's cold/warm ratio 0.978 and the conversion failure's 1.016; on the 100 pairs whose two
+sequencer errors differ by less than 20 % the reading is the same (1.0006, 0.993 to 1.008).
+
+**What it says.** Arabidopsis grown at 10 °C holds its marks exactly as well as at 16 °C, within ±0.8 %. The interval excludes the predicted
+2.1 % shift, so this is an informative null, not an underpowered one: the simplest form of the prediction, a fixed holding energy read at the
+plant's growth temperature, does not hold in these plants.
+
+**What it does not say.** It does not test the Landauer cost itself, animals, or a warm-blooded cell; and it does not say which assumption
+failed. Candidates to test, each with its own synthetic first: the holding energy E may not be fixed (plants acclimate their enzymes to the
+cold, as their clocks are known to compensate for temperature), the mark's effective temperature may not be the growth temperature, or the
+held error on these molecules may be set by a process other than the thermal barrier the prediction assumes. Next per the plan: the
+hamster torpor set (a much larger temperature step), only after its own synthetic and rule.

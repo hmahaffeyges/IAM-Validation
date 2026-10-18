@@ -2487,3 +2487,6 @@ The sealed rules were applied to the GEO labels only (plan Part 7). Buffy coat i
 
 ### 2026-10-18 · README and catalogue for the researcher package (OTH-071, ATL-066)
 The root README said IAM-Atlas v2.1 "is being built now" (stale since its commissioning) and its instrument table, generated from the catalogue, left out the commissioned IAM-Deconvolver, which was filed as a support tool. The Deconvolver is now an instrument in CANON/catalogue.json (INSTRUMENTS.md, README and front page follow); the atlas section is current; Start here links the Try to break it guide, the example reports and SOP v4.
+
+### 2026-10-18 · Temperature law stage T3: NOT MET (PHY-057)
+Scored once by the sealed scorer on all 233 run-4 counts: 109 accessions with both temperatures; cold/warm ratio 1.0002 (95 % 0.993-1.008) against the law's 1.0212 from the two temperatures alone. B1 and B2 not met. The interval excludes the predicted shift: an informative null in Arabidopsis at 10 against 16 C. Record: PRED_TEMPERATURE_01.md, Stage T3 result. The four counting machines terminated at 5:07 AM.

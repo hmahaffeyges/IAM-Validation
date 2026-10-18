@@ -1,0 +1,340 @@
+{
+ "date": "2026-10-18",
+ "title": "The commissioned chain's report, finished on real samples; the first temperature test scored",
+ "set_out": "Finish the chain v4 report on real samples, put IAM-Atlas v2.1 on the sky on the front page, and score the temperature law's plant test once.",
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": true,
+ "open_at_turnover": "Next: IAMPerformance's three showcase decisions (buffy coat, tissue route, a blood-mixture set), then the showcase in one launch; Zenodo when it is healthy.",
+ "closing": "The report reads real samples end to end, IAM-A included, from one command on a clean install; IAM-Atlas v2.1 is on the sky with every cell on its own page; the temperature law's first plant test is scored, and it did not show the predicted shift.",
+ "sections": [
+  {
+   "kind": "ran",
+   "entries": [
+    {
+     "title": "Temperature law stage T3: NOT MET",
+     "status": "failed",
+     "what": "Scored once by the sealed scorer on all 233 run-4 counts: 109 accessions with both temperatures; cold/warm ratio 1.0002 (95 % 0.993-1.008) against the law's 1.0212 from the two temperatures alone.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "IAM-Atlas v2.1 on the sphere",
+     "status": "in progress",
+     "what": "All 79 cell types drawn on one HEALPix sphere (NSIDE 256, NESTED, genome order), with a per-cell uncertainty map (half-width of the 95 % range).",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Chain v4 report redesign",
+     "status": "in progress",
+     "what": "One HTML report with a Researcher view (results table; AstroGenetics, the physics behind each reading; the sample's sky beside the healthy IAM-Atlas v2.1 sky at the same sites and pixels, with the atlas's 95 % range there; one section per instrument) and a Plain view (floor-to-ceiling gauges with a magnified strip for ",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Machines launched: clean clone run 10 and real example reports",
+     "status": "in progress",
+     "what": "Clean clone run 10: i-0a0beda9c8f4d562c.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Report: a withheld Met-A prints no number anywhere",
+     "status": "in progress",
+     "what": "The sky caption printed the untared Met-A beside a withheld state, and the plain view said only \"No gauge\".",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Report sky drawn in units of the sample's own spread",
+     "status": "in progress",
+     "what": "The first real whole-blood report (GSE235717_GSM7508429) drew its sky at the color limits everywhere: in whole blood the departures from pure neutrophils are large at most sites (57 % beyond 3).",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Clean clone run 11 PASS 26 of 26; run 12 and example run 2 launched",
+     "status": "in progress",
+     "what": "Run 11 (i-0721df7b2f292508b) passed every check from a fresh public clone.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Clean clone run 12 PASS 27 of 27; real example reports",
+     "status": "in progress",
+     "what": "Run 12 (i-0a90224fe480361ec) passed every check, V5 and V6 included.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Chain v4 report finished; clean clone run 13 PASS 27 of 27",
+     "status": "in progress",
+     "what": "Run 13 (i-0cddc10d0fb321550) passed every check on the finished report.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The atlas sky's bright patch is chromosome X",
+     "status": "in progress",
+     "what": "The uncertainty map shows one bright stretch in every cell type: chromosome X, 53-109 Mb (4,239 sites).",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Clean clone run 14 PASS 28 of 28; overlay sky on real arrays",
+     "status": "in progress",
+     "what": "Run 14 (i-0b470176e0d90e0b5) passed every check including V7 (IAM-A from a BAM).",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Report: \"This score is preliminary until ... is officially commissioned on ...\" ",
+     "status": "in progress",
+     "what": "The label \"reading shown; not yet tested with Met-A on whole blood\" read badly beside the state (\"...",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "IAM-A through the one command reproduces its grand test",
+     "status": "in progress",
+     "what": "Grand-test sample GSM4293895 (healthy CD8 T cells), read from its committed alignment by run_sample.py --bam on a clean install, gave A 0.9083, Normal: equal to the committed grand-test reading.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The page shows IAM-Atlas v2.1 on the sky",
+     "status": "in progress",
+     "what": "The front page's sky section now shows v2.1 only: the measured Planck sky beside v2.1 neutrophils, the 79-cell plate, two cells, six cells with the neutrophil uncertainty map (dark = certain), and what a researcher sees: a real healthy blood array and the same array with a planted clustered change, each laid over its h",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Final report set; clean clone run 16 PASS 28 of 28",
+     "status": "in progress",
+     "what": "The last set (arrays and IAM-A) carries no retired wording in either view, either PDF or the technical record.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Book: \"Reading a report, step by step\"",
+     "status": "in progress",
+     "what": "New Part 6 chapter after The report: the one command, then three real reports from the commissioned chain, stage by stage (healthy whole blood GSE235717 GSM7508429; the same array with a planted clustered change; healthy CD8 T cells GSM4293895 through IAM-A), every number from the run bundles, two figures composed from",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "\"Try to break it\" guide",
+     "status": "in progress",
+     "what": "TRY_TO_BREAK_IT.md: install and the release check; how to read arrays (references first, then the sample against them) and sequencing; for each instrument its commissioned scope, what it should do on samples a laboratory already knows, the line past which it is broken (each from its own commissioning bar), and its comm",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Showcase picks applied to the labels; three findings for IAMPerformance",
+     "status": "in progress",
+     "what": "The sealed rules were applied to the GEO labels only (plan Part 7).",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "README and catalogue for the researcher package",
+     "status": "in progress",
+     "what": "The root README said IAM-Atlas v2.1 \"is being built now\" (stale since its commissioning) and its instrument table, generated from the catalogue, left out the commissioned IAM-Deconvolver, which was filed as a support tool.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ],
+   "heading": "What ran, and how each came out",
+   "lead": "Each rule was written down before its data was read, and every count runs through the chain."
+  },
+  {
+   "kind": "table",
+   "heading": "Every lever test: what ran, what it showed, what is left",
+   "lead": "Today: the report and the sky; the temperature test scored.",
+   "table": {
+    "columns": [
+     "lever",
+     "today"
+    ],
+    "rows": [
+     [
+      "**Body temperature**",
+      "sealed plant test scored once: NOT MET (ratio 1.000 against the law's 1.021)"
+     ],
+     [
+      "**Division rate**",
+      "not worked on today"
+     ],
+     [
+      "**Methyl supply (SAM, methionine, folate, B12)**",
+      "not worked on today"
+     ],
+     [
+      "**Write and erase enzymes (DNMT, TET)**",
+      "not worked on today"
+     ],
+     [
+      "**Clustered versus scattered failure**",
+      "not worked on today"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "table",
+   "heading": "Every candidate instrument: what ran today, what remains",
+   "lead": "Today: the report and the sky; the temperature test scored.",
+   "table": {
+    "columns": [
+     "instrument",
+     "today"
+    ],
+    "rows": [
+     [
+      "**Clustering meter (C-score)**",
+      "commissioned on whole blood 2026-10-15; next, real tumors with a sealed bar"
+     ],
+     [
+      "**Territory contrast: fidelity in fragile territory over fidelity in stable territory**",
+      "not worked on today"
+     ],
+     [
+      "**Met-A on whole blood: measure the real healthy spread**",
+      "not worked on today"
+     ],
+     [
+      "**Distance to the ceiling**",
+      "not worked on today"
+     ],
+     [
+      "**Run-length spectrum of losses**",
+      "not worked on today"
+     ],
+     [
+      "**Tail of fragments in plasma (the early-detection instrument)**",
+      "not worked on today"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "learned",
+   "entries": [
+    {
+     "title": "Counter fix before the temperature result",
+     "status": "audit",
+     "what": "The cfDNA synthetic (DEV-CFDNA-SHORT-01) found the temperature counter's correction weighted by every molecule, including unmethylated ones; computed exactly, it moves the temperature ratio from 1.0212 to 1.0179-1.0195 (inside the window, 10-15 % of the effect; a first estimate of 1.0156-1.0333 was partly the old curve",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Pre-launch checklist",
+     "status": "audit",
+     "what": "Two of tonight's losses came from information already in hand (plant unmethylated regions; spot reclaims).",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Page: no links to moved files or the working plan",
+     "status": "audit",
+     "what": "The connections table linked BIT_TABLES.md, which only says it moved; now one link to FOUR_DOMAINS.md, where the tables live.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "C-Score same-run tare reached through the one-command run",
+     "status": "audit",
+     "what": "run_sample read --ref-table but kept only column A, so the C-Score tare never saw the references' C.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "CHAIN FIX: an above-band C-Score crashed the report",
+     "status": "audit",
+     "what": "The C-Score's clustered-departure flag used level FLAG, missing from the report's order: every above-band reading crashed the report.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Report after IAMPerformance's review; IAM-A from a BAM",
+     "status": "audit",
+     "what": "Gauges now print 0 (floor: below it a cell can no longer hold its identity), healthy 1 with the reference it is measured against, and saturation (the most the scale can register); no 1e-7 and no \"coin flip\".",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Final report batch; technical-record wording; MethylPhys README brought to chain v4",
+     "status": "audit",
+     "what": "Clean clone run 15 PASS 28 of 28; arrays (14 PDFs) and the IAM-A example (A 0.9083, equal to its grand test) at the final report.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ],
+   "heading": "What we learned that we did not know yesterday",
+   "lead": ""
+  },
+  {
+   "kind": "loss",
+   "entries": [
+    {
+     "title": "The X-chromosome patch first called 'not X'",
+     "status": "audit",
+     "what": "Our first check compared X's average level, not where X sits on the sphere; the uncertainty patch is chromosome X. Corrected in chat and in ATL-069.",
+     "why": "",
+     "record": "CANON/manifest.json"
+    },
+    {
+     "title": "Two IAM-A example launches failed in minutes",
+     "status": "audit",
+     "what": "The download ran in the chain's clean environment (no boto3), then a file search picked Bismark's converted genome. Both rules were already known; both are now checklist lines.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/boxruns/PRELAUNCH_CHECKLIST.md"
+    },
+    {
+     "title": "A sourced line removed as unsourced",
+     "status": "audit",
+     "what": "'About one ATP per site' was taken off the page without checking the canon, which defines M = 20.94 that way; restored with its source.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "A rate written without its unit",
+     "status": "audit",
+     "what": "'55-60 an hour' read as dollars; it was samples. Every rate now carries its unit.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ],
+   "heading": "Our own mistakes today, and what caught each",
+   "lead": ""
+  },
+  {
+   "kind": "changed",
+   "entries": [
+    {
+     "title": "The canon corrected at its source",
+     "status": "in progress",
+     "what": "CANON/iam_canon.json still defined IAM-A in the retired position form (P = 1.149) and the C-score as development on 50-site blocks with baseline 1.1104 and no band; every document drawing on the canon carried it.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Clean clone run 10: 24 of 26; one cause",
+     "status": "in progress",
+     "what": "E4 and E9 failed: the new physics panel assumed an own-reference prediction, and the retired IAM-A position form (development flag) has none, so its report did not build (E9 reads the same report).",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Outreach reference: what methylation researchers ask",
+     "status": "in progress",
+     "what": "IAMPerformance shared an expert Q&A on methylation studies.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ],
+   "heading": "What changed in the plan",
+   "lead": ""
+  }
+ ]
+}

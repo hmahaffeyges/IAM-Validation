@@ -2167,7 +2167,7 @@
    "date": "2026-10-18",
    "commit": "1721f1a5",
    "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run4_A/",
-   "state": "running",
+   "state": "finished",
    "log": "results/PRED_TEMPERATURE_01/T3/status_A.txt",
    "machine": "spot c7a.16xlarge, self-terminating",
    "purpose": "align and chain-count from the shared S3 queue; outputs to results/PRED_TEMPERATURE_01/T3/out/",
@@ -2183,7 +2183,7 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "recount after LESSONS C23",
+   "note": "all 233 counted; terminated 2026-10-18 5:07 AM Pacific; scored once: NOT MET",
    "prelaunch": "launched before boxruns/PRELAUNCH_CHECKLIST.md existed (written 2026-10-18); reviewed against it after launch: synthetic plants unmethylated regions (counter fixed, LESSONS C23); per-machine watcher on A-D; shared claim queue; code in S3 before boot; self-terminating"
   },
   {
@@ -2192,7 +2192,7 @@
    "date": "2026-10-18",
    "commit": "1721f1a5",
    "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run4_B/",
-   "state": "running",
+   "state": "finished",
    "log": "results/PRED_TEMPERATURE_01/T3/status_B.txt",
    "machine": "spot c7a.16xlarge, self-terminating",
    "purpose": "align and chain-count from the shared S3 queue; outputs to results/PRED_TEMPERATURE_01/T3/out/",
@@ -2208,7 +2208,7 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "recount after LESSONS C23",
+   "note": "all 233 counted; terminated 2026-10-18 5:07 AM Pacific; scored once: NOT MET",
    "prelaunch": "launched before boxruns/PRELAUNCH_CHECKLIST.md existed (written 2026-10-18); reviewed against it after launch: synthetic plants unmethylated regions (counter fixed, LESSONS C23); per-machine watcher on A-D; shared claim queue; code in S3 before boot; self-terminating"
   },
   {
@@ -2270,7 +2270,7 @@
    "date": "2026-10-18",
    "commit": "1721f1a5",
    "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run4_C/",
-   "state": "running",
+   "state": "finished",
    "log": "results/PRED_TEMPERATURE_01/T3/status_C.txt",
    "machine": "spot c7a.16xlarge, self-terminating",
    "purpose": "align and chain-count from the shared S3 queue; outputs to results/PRED_TEMPERATURE_01/T3/out/",
@@ -2286,7 +2286,7 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "added 2026-10-18 to speed up the recount after the counter fix (same committed code, same shared queue)",
+   "note": "all 233 counted; terminated 2026-10-18 5:07 AM Pacific; scored once: NOT MET",
    "prelaunch": "launched before boxruns/PRELAUNCH_CHECKLIST.md existed (written 2026-10-18); reviewed against it after launch: synthetic plants unmethylated regions (counter fixed, LESSONS C23); per-machine watcher on A-D; shared claim queue; code in S3 before boot; self-terminating"
   },
   {
@@ -2295,7 +2295,7 @@
    "date": "2026-10-18",
    "commit": "1721f1a5",
    "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run4_D/",
-   "state": "running",
+   "state": "finished",
    "log": "results/PRED_TEMPERATURE_01/T3/status_D.txt",
    "machine": "spot c7a.16xlarge, self-terminating",
    "purpose": "align and chain-count from the shared S3 queue; outputs to results/PRED_TEMPERATURE_01/T3/out/",
@@ -2311,7 +2311,7 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "added 2026-10-18 to speed up the recount after the counter fix (same committed code, same shared queue)",
+   "note": "all 233 counted; terminated 2026-10-18 5:07 AM Pacific; scored once: NOT MET",
    "prelaunch": "launched before boxruns/PRELAUNCH_CHECKLIST.md existed (written 2026-10-18); reviewed against it after launch: synthetic plants unmethylated regions (counter fixed, LESSONS C23); per-machine watcher on A-D; shared claim queue; code in S3 before boot; self-terminating"
   },
   {
