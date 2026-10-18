@@ -27494,7 +27494,7 @@
      "page": "not headline: a repeat of the clean-clone check after a fix"
     }
    ],
-   "next_step": "clean clone run 10: 24 of 26 (E4, E9, one cause, fixed); run 11 next",
+   "next_step": "clean clone run 10: 24 of 26 (E4, E9, one cause, fixed); run 11 running (i-0721df7b2f292508b)",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

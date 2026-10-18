@@ -1466,7 +1466,7 @@
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "i-0c1fd471e84c09eb2": {
   "s3": {
@@ -1474,9 +1474,21 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/REPORT_EXAMPLES_V4/": false
+  },
+  "state_at_verify": "finished"
+ },
+ "i-0721df7b2f292508b": {
+  "s3": {
+   "cleanclone_v4.sh": "1ccaee2dafe10abe1aa98e2cba3215453c0eadb4115b7694295abca3f7850365"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/CHAIN_V4_CLEANCLONE/": false
   },
   "state_at_verify": "running"
  }

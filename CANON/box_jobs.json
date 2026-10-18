@@ -2360,6 +2360,30 @@
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays; AWS caveats): synthetic path passed locally (planted blood, release checks V1, V4, V5); script verified in S3 before boot; results to S3 as made; disk image+40 GB; per-machine watcher from launch; spot reclaim costs one rerun of about 20 min; 90-min shutdown timer, terminate on shutdown; cost under $0.25 for both, told to the author",
    "note": "rc 0: 5 reports, 10 PDFs; the tared report is GSE235717_GSM7508429"
+  },
+  {
+   "job_id": "i-0721df7b2f292508b",
+   "name": "Chain v4 one-command test from a fresh public clone, run 11 (physics panel guard) (OTH-070)",
+   "date": "2026-10-18",
+   "commit": "9ae0c472",
+   "s3_code_prefix": "results/CHAIN_V4_CLEANCLONE/code/run11/",
+   "state": "running",
+   "log": "results/CHAIN_V4_CLEANCLONE/status.txt",
+   "machine": "spot m7a.xlarge, self-terminating",
+   "purpose": "clone, install chain/requirements.txt only, run release_check_v4.py; every check must pass",
+   "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh",
+   "manifest": [
+    "OTH-069",
+    "OTH-070"
+   ],
+   "outputs": [
+    "results/CHAIN_V4_CLEANCLONE/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays; AWS caveats): synthetic path passed locally (planted blood, release checks V1, V4, V5); script verified in S3 before boot; results to S3 as made; disk image+40 GB; per-machine watcher from launch; spot reclaim costs one rerun of about 20 min; 90-min shutdown timer, terminate on shutdown; cost under $0.25 for both, told to the author; every report-building check that can run locally ran first (E4, E9, E11, V1-V5 pass; E10 needs E3's array, clean clone only)",
+   "note": ""
   }
  ],
  "not_jobs": {
