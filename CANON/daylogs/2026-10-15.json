@@ -228,7 +228,7 @@
     {
      "title": "What the new instrument can read",
      "status": "structure",
-     "what": "Any organism that tags its DNA, from any lab, wherever single-piece sequencing exists: public nanopore genomes, plants grown at two temperatures, dogs, unread salmon data (PHY-058 to PHY-068).",
+     "what": "Any organism that tags its DNA, from any lab, wherever single-piece sequencing exists: public nanopore genomes, dogs, unread salmon data (PHY-058 to PHY-068).",
      "why": "Opens far more data than the old reference-bound instrument could use.",
      "record": "CANON/manifest.json"
     },
