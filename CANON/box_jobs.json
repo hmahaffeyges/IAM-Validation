@@ -2593,7 +2593,7 @@
    "date": "2026-10-18",
    "commit": "f8523bc2",
    "s3_code_prefix": "results/REPORT_EXAMPLES_V4/code/iama3/",
-   "state": "running",
+   "state": "finished",
    "log": "results/REPORT_EXAMPLES_V4/iama/status.txt",
    "machine": "ON-DEMAND c7a.8xlarge (the spot quota was full with the four temperature machines), 32 cores, 340 GB, self-terminating (180-min timer); about $1.64 per hour",
    "purpose": "read one committed grand-test alignment through run_sample.py --bam on a clean install; the reading must equal the committed one",
@@ -2602,13 +2602,17 @@
     "OTH-069"
    ],
    "outputs": [
-    "results/REPORT_EXAMPLES_V4/iama/"
+    "results/REPORT_EXAMPLES_V4/iama/status.txt",
+    "results/REPORT_EXAMPLES_V4/iama/GSM4293895_CD8.html",
+    "results/REPORT_EXAMPLES_V4/iama/GSM4293895_CD8_bundle.json",
+    "results/REPORT_EXAMPLES_V4/iama/GSM4293895_CD8_researcher.pdf",
+    "results/REPORT_EXAMPLES_V4/iama/GSM4293895_CD8_plain.pdf"
    ],
    "files": [
     "Biological_Physics/MethylPhys/doors/data/REPORT_EXAMPLES_V4/iama_example_v4.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (human WGBS; AWS caveats): the BAM route passed locally through the one command on a planted Bismark-style BAM (release check V7) and pysam is pinned (C28); the alignment, its index and the reference bundle are already in S3 (no public download); script verified in S3 before boot; disk 340 GB for 13 GB BAM + 9.3 GB bundle; results to S3 as made; per-machine watcher from launch; 180-min shutdown timer, terminate on shutdown; cost about $1-2, told to the author; second launch: S3 steps on the machine's own Python (checklist line added); third launch: hg38.fa by name with the grand test's stamped checksum (checklist line added); on-demand because the spot quota was full, about $2",
-   "note": ""
+   "note": "rc 0: the one command (--bam) read GSM4293895 as A 0.9083 Normal, equal to the committed grand-test reading; report and both PDFs written"
   }
  ],
  "not_jobs": {

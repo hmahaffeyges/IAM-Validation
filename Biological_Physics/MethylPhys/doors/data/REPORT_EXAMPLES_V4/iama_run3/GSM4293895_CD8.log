@@ -1,0 +1,4 @@
+Stage Q2: counting SRR11007296.bam (held error and loose share, one pass)
+
+GSM4293895_CD8: neutrophil Met-A None (None) | C None | tare None | IAM-A 0.9083 (Normal)
+report: /home/ubuntu/iama/out/GSM4293895_CD8.html | bundle: /home/ubuntu/iama/out/GSM4293895_CD8_bundle.json | evidence ledger: /home/ubuntu/iama/out/ledger.jsonl (one row appended)

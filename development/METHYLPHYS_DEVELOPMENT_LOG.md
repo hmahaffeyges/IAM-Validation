@@ -2458,3 +2458,6 @@ Third launch i-06dff339a467c10c8, on-demand (spot quota full), about $2.
 
 ### 2026-10-18 · Report: "This score is preliminary until ... is officially commissioned on ..." (author; OTH-069)
 The label "reading shown; not yet tested with Met-A on whole blood" read badly beside the state ("... whole blood Normal"). Now one plain sentence on its own line: "This score is preliminary until Met-A is officially commissioned on whole blood." (shares: "This share is preliminary until the IAM-Deconvolver is officially commissioned on B cells."); a withheld reading says "Met-A is not yet officially commissioned on whole blood." and its state line says withheld, not Normal. The run record keeps status "development"; checks and scoring unchanged. Local report checks E4, E9, E11, V1-V7 pass.
+
+### 2026-10-18 · IAM-A through the one command reproduces its grand test (OTH-069)
+Grand-test sample GSM4293895 (healthy CD8 T cells), read from its committed alignment by run_sample.py --bam on a clean install, gave A 0.9083, Normal: equal to the committed grand-test reading. The report and both PDFs were written. Gauge label fix: near the floor (IAM-A) the healthy-reference label moves to the magnified strip so it does not collide with the floor label.

@@ -34,7 +34,8 @@ def gauge_png(out, name, A, floor, ceiling, band, subject, state="", unit="A"):
     _bar(ax, floor, ceiling, band, A, floor, ceiling)
     ax.text(0, -0.45, "0  floor\nbelow it a cell can no longer hold its identity", ha="left", va="top", fontsize=6.8, color=SUB)   # author 2026-10-18: 0, not 1e-7
     ax.text(1, -0.45, f"{ceiling:.2f}  saturation\nthe most this scale can register", ha="right", va="top", fontsize=6.8, color=SUB)
-    ax.text((1 - floor) / (ceiling - floor), -0.45, "1  healthy reference", ha="center", va="top", fontsize=6.8, color="#1f6b43")
+    if (1 - floor) / (ceiling - floor) > 0.22:   # near the floor (IAM-A) the label goes on the magnified strip instead, so the two never collide
+        ax.text((1 - floor) / (ceiling - floor), -0.45, "1  healthy reference", ha="center", va="top", fontsize=6.8, color="#1f6b43")
     if A is not None: ax.text(min(max((A - floor) / (ceiling - floor), 0.06), 0.94), 1.3, f"{name} {A:.3f}", ha="center", va="bottom", fontsize=9.5, fontweight="bold", color=INK)
     fig.text(0.04, 0.95, f"{name}  ·  {subject}" + (f"  ·  {state}" if state else ""), fontsize=8, color=INK, va="top")
     if zoom:
@@ -42,7 +43,7 @@ def gauge_png(out, name, A, floor, ceiling, band, subject, state="", unit="A"):
         az = fig.add_axes([0.04, 0.10, 0.92, 0.13]); az.set_xlim(-0.01, 1.01); az.set_ylim(-0.9, 1.6); az.axis("off")
         xz = _bar(az, floor, hi_z, band, A, floor, hi_z, ticks=[(v, f"{v:g}") for v in np.arange(0.5, hi_z + 1e-9, 0.5)])
         az.text(0, -0.25, "floor", ha="left", va="top", fontsize=6.8, color=SUB)
-        az.text((xz(band[0]) + xz(band[1])) / 2, 1.15, "Normal", ha="center", va="bottom", fontsize=6.8, color=NORM)
+        az.text((xz(band[0]) + xz(band[1])) / 2, 1.15, "Normal band around 1, the healthy reference", ha="center", va="bottom", fontsize=6.8, color=NORM)
         fig.text(0.04, 0.27, f"magnified: from the floor to {hi_z:g}, the same numbers and the same needle", fontsize=6.8, color=SUB, style="italic")
     fig.savefig(out, dpi=170, facecolor="white"); plt.close(fig); return out
 

@@ -64,7 +64,6 @@ The first commissioned chain is built (IAM-Atlas v2.1, IAM-Deconvolver, Met-A, C
 | Temperature law stage T3 run 4, machine B: all 233 Arabidopsis samples on the fixed counter (PHY-057) | spot c7a.16xlarge, self-terminating | PHY-057 |
 | Temperature law stage T3 run 4, machine C: all 233 Arabidopsis samples on the fixed counter (PHY-057) | spot c7a.16xlarge, self-terminating | PHY-057 |
 | Temperature law stage T3 run 4, machine D: all 233 Arabidopsis samples on the fixed counter (PHY-057) | spot c7a.16xlarge, self-terminating | PHY-057 |
-| Chain v4 IAM-A example report: grand-test sample GSM4293895 through the one command (--bam); must reproduce A 0.9083 third launch (OTH-069) | ON-DEMAND c7a.8xlarge (the spot quota was full with the four temperature machines), 32 cores, 340 GB, self-terminating (180-min timer); about $1.64 per hour | OTH-069 |
 
 ## Decisions waiting for the author
 
