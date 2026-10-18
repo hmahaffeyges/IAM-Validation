@@ -27479,9 +27479,15 @@
      "note": "clean clone run 7 (job i-0d514d933409c720f): 25 of 25 with the untested-scope wording",
      "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/run7/release_check_v4.log",
      "page": "not headline: goes into the commissioned-chain card with the shipped example reports (OTH-068)"
+    },
+    {
+     "date": "2026-10-18",
+     "outcome": "success",
+     "note": "clean clone run 8 after the counter fix (LESSONS C23) and the gauge-marks correction: RELEASE CHECK v4 PASS, 25 of 25",
+     "page": "not headline: a repeat of the clean-clone check after a fix"
     }
    ],
-   "next_step": "clean clone run 8 (i-00e8af094ae38138c, commit 13f910c5) after the counter fix (LESSONS C23) and the gauge-marks correction; every check must pass",
+   "next_step": "every chain change runs the full release check on a clean clone (run 8 passed 2026-10-18)",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

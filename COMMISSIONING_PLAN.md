@@ -62,7 +62,6 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 |---|---|---|
 | Temperature law stage T3 run 4, machine A: all 233 Arabidopsis samples on the fixed counter (PHY-057) | spot c7a.16xlarge, self-terminating | PHY-057 |
 | Temperature law stage T3 run 4, machine B: all 233 Arabidopsis samples on the fixed counter (PHY-057) | spot c7a.16xlarge, self-terminating | PHY-057 |
-| Chain v4 one-command test from a fresh public clone, run 8 (after the counter fix, LESSONS C23, and the gauge-marks correction) (OTH-070) | spot m7a.xlarge, self-terminating | OTH-070 |
 
 ## Decisions waiting for the author
 
