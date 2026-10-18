@@ -2891,7 +2891,7 @@
    "date": "2026-10-18",
    "commit": "903f2288",
    "chain_commit": "903f2288",
-   "state": "running",
+   "state": "stopped",
    "s3_code_prefix": "results/REPRODUCE_V1/code/run2/",
    "log": "results/REPRODUCE_V1/run2/status.txt",
    "machine": "on-demand c7a.4xlarge, self-terminating (12-hour timer)",
@@ -2907,7 +2907,7 @@
     "reproduce/box/reproduce_fresh.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: code in S3 first; results and 5-minute progress lines to S3; watcher from launch; disk image+150 GB for the 54 GB ENCODE file and mm10; self-terminating; about $8 on-demand",
-   "note": "stops itself after 12 hours at most"
+   "note": "terminated 2026-10-18 after three_labs: every step reproduced (the committed BARS line printed exactly) but the runner's table comparison ran on the machine's python3 without pandas; relaunched as run 2b on the fix"
   },
   {
    "job_id": "i-0fd94f1e7a44db34b",

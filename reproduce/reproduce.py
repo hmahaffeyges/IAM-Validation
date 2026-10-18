@@ -15,6 +15,10 @@ import json, os, re, subprocess, sys, time, datetime
 HERE = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.dirname(HERE)
 T = json.load(open(os.path.join(HERE, "tests.json"), encoding="utf-8"))
 PY = os.environ.get("REPRO_PY") or os.path.join(HERE, ".venv", "bin", "python")
+# 2026-10-18 (fresh-clone run 2): the runner itself compares tables with pandas, so it runs inside the environment setup.sh made, whichever
+# python3 started it. Before this, a machine's own python3 without pandas failed the comparison after every step had reproduced.
+if os.path.exists(PY) and os.path.realpath(sys.executable) != os.path.realpath(PY) and not os.environ.get("REPRO_REEXEC"):
+    os.environ["REPRO_REEXEC"] = "1"; os.execv(PY, [PY, os.path.abspath(__file__)] + sys.argv[1:])
 
 def get(d, path):
     for k in path.split("."):
