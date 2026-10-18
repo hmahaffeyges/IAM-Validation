@@ -1,6 +1,6 @@
 {
  "_rule": "The order of work (author 2026-10-16: one source per fact). Each item names its Master Testing Manifest rows; COMMISSIONING_PLAN.md is generated from this order and the rows' live status and next step by CANON/plan_md.py. Edit the order here; edit a row's state in the manifest.",
- "mandate": "Commission IAM-A first and foremost, then the C-score, Met-A on its own loose share, and Group-A; build the A-score database; derivations only where they improve accuracy now. Every step is a manifest row, runs synthetic first, writes its rule before its data, runs through the chain, and is pushed through the gate.",
+ "mandate": "The first commissioned chain is built (IAM-Atlas v2.1, IAM-Deconvolver, Met-A, C-Score, IAM-A). What remains is the researcher package (report, showcase runs, SOP, Zenodo, the book audit) and the temperature law. Every step is a manifest row, runs synthetic first, writes its rule before its data, runs through the chain, and is pushed through the gate. A working document: not shown on the public site.",
  "items": [
   {
    "label": "IAM-A gate: second laboratory (Hansen healthy B cells)",

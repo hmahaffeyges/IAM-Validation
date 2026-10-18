@@ -193,8 +193,7 @@ def page(art):
                  f'Every status below is computed from the Master Testing Manifest.</p>'
                  f'<p><b>Why a self-reference matters.</b> {E(_C["why_self_reference"])}</p><p><b>How they work together.</b> {E(_C["together"])}</p>'
                  f'<details class="fold"><summary>Open the catalogue: what each instrument does, and what it was commissioned on</summary>'
-                 f'<div class="grid">{_cards}</div><p class="more"><a href="{rec("INSTRUMENTS.md")}">The catalogue as a document</a> · '
-                 f'<a href="{rec("COMMISSIONING_PLAN.md")}">The commissioning plan, step by step</a></p></details></section>')
+                 f'<div class="grid">{_cards}</div><p class="more"><a href="{rec("INSTRUMENTS.md")}">The catalogue as a document</a></p></details></section>')
     _bs = importlib.util.spec_from_file_location("bits", os.path.join(REPO, "CANON", "bit_tables.py")); BT = importlib.util.module_from_spec(_bs); _bs.loader.exec_module(BT)
     _bits_rows = "".join(f'<tr><th>{E(t)}<br><span class="sub">{E(m)}</span></th>' + "".join(f'<td>{E(BT.short(BT.S[k][d].get("native") or BT.S[k][d].get("formula"), 120))} <span class="chip st-b">{E(BT.S[k][d].get("status"))}</span></td>' for d in BT.DOM) + "</tr>"
                          for t, k, m in BT.ROWS)
@@ -203,8 +202,7 @@ def page(art):
             f'quantum computers, computer chips and living cells; each row gives the word each application uses and how far it is established. Built from the four-domain schematic.</p>'
             f'<details class="fold"><summary>Open the connections table</summary><div style="overflow-x:auto"><table class="tools"><thead><tr><th>Computer term</th>'
             + "".join(f"<th>{BT.NAME[d]}</th>" for d in BT.DOM) + f'</tr></thead><tbody>{_bits_rows}</tbody></table></div>'
-            f'<p class="more"><a href="{rec("development/bit_paper/BIT_TABLES.md")}">All the bit tables, with every value and its source</a> · '
-            f'<a href="{rec("FOUR_DOMAINS.md")}">The four-domain schematic</a></p></details></section>')
+            f'<p class="more"><a href="{rec("FOUR_DOMAINS.md")}">Every bit table, with each value and its source, and the four-domain schematic</a></p></details></section>')
     _dlj = sorted(f for f in os.listdir(os.path.join(REPO, "CANON", "daylogs")) if re.fullmatch(r"\d{4}-\d\d-\d\d\.json", f))[-1]
     _DL = J("CANON/daylogs/" + _dlj); _ran = next((x for x in _DL["sections"] if x.get("kind") == "ran"), {"entries": []})
     _lrn = next((x for x in _DL["sections"] if x.get("kind") == "learned"), {"entries": []})
@@ -434,22 +432,41 @@ def linked_docs(body, depth=2):
         new = set()
         for p in frontier - seen:
             q = ALIAS.get(p, p)
-            if not os.path.exists(os.path.join(REPO, q)) or RECORD_ONLY.match(q): continue
+            if not os.path.exists(os.path.join(REPO, q)) or RECORD_ONLY.match(q) or q in NOT_ON_SITE: continue
             seen.add(q)
             md = open(os.path.join(REPO, q), encoding="utf-8").read(); base = os.path.dirname(q)
             for u in re.findall(r"\]\(([^)#\s]+\.md)", md):
                 if not re.match(r"[a-z]+:", u): new.add(os.path.normpath(os.path.join(base, u)).replace(os.sep, "/"))
         frontier = new
     return sorted(seen)
+# Working documents that are not for the site (author 2026-10-18: "dont leave things like this linked to the page if its stale"): never rendered,
+# and a link to one on any site page is reduced to its text
+def _moved(p):
+    f = os.path.join(REPO, p)
+    try: return os.path.exists(f) and open(f, encoding="utf-8").readline().strip().lower() in ("# moved", "# moved.")
+    except Exception: return False
+NOT_ON_SITE = {"COMMISSIONING_PLAN.md"} | {os.path.relpath(os.path.join(r, f), REPO).replace(os.sep, "/") for r, _, fs in os.walk(REPO)
+              if "/.git" not in r for f in fs if f.endswith(".md") and _moved(os.path.relpath(os.path.join(r, f), REPO))}
+def off_site(h):   # a link to a NOT_ON_SITE document (GitHub path or its rendered page) keeps only its text (author 2026-10-18; LESSONS C25)
+    forms = [re.escape(GH + p) for p in NOT_ON_SITE] + [r"(?:\.\./)?(?:docs/)?" + re.escape(p.replace("/", "__")[:-3] + ".html") for p in NOT_ON_SITE]
+    return re.sub(r'<a href="(?:' + "|".join(forms) + r')(?:#[^"]*)?"[^>]*>(.*?)</a>', r"\1", h, flags=re.S)
 def relink(body, M, prefix=""):
     def r(m):
         p, frag = m.group(1), m.group(2) or ""
         if p in M: return M[p] if M[p].startswith("#") else prefix + M[p] + frag
         return m.group(0)
+    body = off_site(body)
     return re.sub(re.escape(GH) + r"([^\"#]+?\.md)(#[^\"]*)?", r, body)
 
+def moved_links(body):   # author 2026-10-18: a page link must never land on a file that only says it moved (LESSONS C25)
+    bad = []
+    for p in sorted(set(re.findall(re.escape(GH) + r"([^\"#]+?\.md)", body))):
+        f = os.path.join(REPO, p)
+        if os.path.exists(f) and open(f, encoding="utf-8").readline().strip().lower() in ("# moved", "# moved."): bad.append(p)
+    return bad
 def problems(body):
     if re.search(r"<details[^>]* open", body): return ["a fold set to open by default; every fold starts closed (build.sh rule)"]
+    if moved_links(body): return ["a link to a file that only says it moved (link the new home instead): " + ", ".join(moved_links(body))]
     # The voice check skips exactly two marked blocks: the author's own words, and the block that describes the research
     # research partner (the author asked for it, 2026-10-13; the words "assistant"/"partner" in that sense stay refused everywhere
     # else, and a vendor or
@@ -504,14 +521,14 @@ if __name__ == "__main__":
         themes = open(os.path.join(REPO, "website", "static", "themes.css"), encoding="utf-8").read()
         doc, b = full(b64, f"<style>{themes}</style>"); P = problems(b)
         if P: raise SystemExit("build_home: " + "; ".join(P))
-        open(sys.argv[2], "w", encoding="utf-8").write(doc); print("build_home: standalone written", sys.argv[2]); sys.exit(0)
+        open(sys.argv[2], "w", encoding="utf-8").write(off_site(doc)); print("build_home: standalone written", sys.argv[2]); sys.exit(0)
     site = sys.argv[1]
     live = "--preview" not in sys.argv              # live since 2026-10-13 (author approved): the project front page IS the site root
     out = site if live else os.path.join(site, "preview"); os.makedirs(out, exist_ok=True)
     pre = "" if live else "../"
     doc, b = full(lambda n: pre + "art/" + n, f'<link rel="stylesheet" href="{pre}static/themes.css">'); P = problems(b)
     if P: raise SystemExit("build_home: " + "; ".join(P))
-    open(os.path.join(out, "index.html"), "w", encoding="utf-8").write(doc); print("build_home: " + ("index.html" if live else "preview/index.html") + " written")
+    open(os.path.join(out, "index.html"), "w", encoding="utf-8").write(off_site(doc)); print("build_home: " + ("index.html" if live else "preview/index.html") + " written")
     os.makedirs(os.path.join(out, "docs"), exist_ok=True); _css = f'<link rel="stylesheet" href="{pre}../static/themes.css">'
-    for q in DOCS: open(os.path.join(out, docname(q)), "w", encoding="utf-8").write(doc_page(q, _css, DOCS))
+    for q in DOCS: open(os.path.join(out, docname(q)), "w", encoding="utf-8").write(off_site(doc_page(q, _css, DOCS)))
     print("build_home:", len(DOCS), "document pages written")

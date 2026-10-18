@@ -2402,3 +2402,6 @@ Clean clone run 9: RELEASE CHECK v4 PASS (25 checks) after the wording fix (OTH-
 
 ### 2026-10-18 · Pre-launch checklist (LESSONS C24; PHY-057)
 Two of tonight's losses came from information already in hand (plant unmethylated regions; spot reclaims). boxruns/PRELAUNCH_CHECKLIST.md: ten items, each tied to its lesson, plus known facts by data (plants, human WGBS, cfDNA, arrays, salmonids) and known AWS and transfer caveats. Linked from LESSONS.md; CANON/box_code_check.py refuses a box job dated 2026-10-18 or later without a prelaunch field naming it. Jobs launched before it existed are marked as reviewed after launch.
+
+### 2026-10-18 · Page: no links to moved files or the working plan (OTH-071, LESSONS C25)
+The connections table linked BIT_TABLES.md, which only says it moved; now one link to FOUR_DOMAINS.md, where the tables live. The commissioning plan (a working to-do list) is no longer linked or rendered. A page link to any file that only says it moved is refused by the build, and links to such files or to the plan are reduced to text on every site page. Plan mandate updated: the first chain is commissioned.
