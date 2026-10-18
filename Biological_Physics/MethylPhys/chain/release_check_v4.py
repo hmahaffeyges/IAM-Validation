@@ -12,7 +12,8 @@ with F1 reading FROZEN_INPUTS_v4.json and S2 leaving verbatim run transcripts (d
   V3  the C-Score sky: a planted map with runs of departing neighbors is drawn, and the NESTED layout keeps neighbors together (median
       distance between consecutive sites under a tenth of the median distance between random sites)
   V4  the v4 report: the front sections (at a glance, shares, C-Score with its sky) and every v3 section id are present
-  V5  the same-run reference table reaches the C-Score tare (C_rel = C / median of three references) and both report PDFs are written (C26)"""
+  V5  the same-run reference table reaches the C-Score tare (C_rel = C / median of three references) and both report PDFs are written (C26)
+  V6  a planted clustered departure gives a full report: C_rel above the band, the CSCORE_CLUSTERED flag, both PDFs (C27)"""
 import os, sys, json, gzip, glob, hashlib, re, time, subprocess, tempfile
 import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path[:0] = [HERE]
@@ -99,12 +100,26 @@ def V5(tmp):
     rec("V5", code == 0 and want is not None and c.get("C_rel") == want and c.get("C_n_refs") == 3 and pdf,
         f"C {c.get('C')} | C_rel {c.get('C_rel')} (want {want}) from {c.get('C_n_refs')} same-run references | both PDFs written: {pdf}")
 
+def V6(tmp):
+    """A clustered departure produces a full report (LESSONS C27, 2026-10-18): clustered loss planted by the C-Score's own positive-control rule
+    (10 % of its sites in 20 contiguous stretches, 10 % toward 0.5) into the V1 sample, read against the V5 references, must give a report and
+    both PDFs, a C_rel above the band and the CSCORE_CLUSTERED flag. Until 2026-10-18 the flag's level was missing from the report's order and
+    every above-band reading crashed the report."""
+    src = os.path.join(tmp, "V1_betas.csv"); p = os.path.join(tmp, "V6_betas.csv"); t = os.path.join(tmp, "V5_refs.csv")
+    PL = os.path.join(MP, "doors", "data", "REPORT_EXAMPLES_V4", "plant_clustered.py")
+    R3.run([PY, PL, src, p, HERE]); out = os.path.join(tmp, "V6.html")
+    code, log = R3.run([PY, RS, "--betas", p, "--specimen", "whole blood", "--id", "PLANTED_CLUSTERED", "--ref-table", t, "--out", out, "--ledger", os.path.join(tmp, "ledger.jsonl")])
+    c = (R3._bundle(out) or {}).get("met_a_cscore") or {}; h = open(out).read() if os.path.exists(out) else ""
+    pdf = all(os.path.exists(os.path.splitext(out)[0] + f"_{v}.pdf") for v in ("researcher", "plain"))
+    rec("V6", code == 0 and (c.get("C_rel") or 0) > 1.152 and "CSCORE_CLUSTERED" in h and pdf,
+        f"exit {code}; C_rel {c.get('C_rel')} ({c.get('C_call')}); flag in report: {'CSCORE_CLUSTERED' in h}; both PDFs: {pdf}")
+
 def main():
     t0 = time.time(); files = R3.tracked(); tmp = tempfile.mkdtemp(prefix="rc_v4_")
     print(f"release_check_v4 @ {subprocess.run(['git', '-C', R3.ROOT, 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()}  python {PY}")
     steps = [("F1", F1, ()), ("F1b", F1b, ()), ("F2", F2, ()), ("S1", R3.S1, (files,)), ("S2", S2, (files,)), ("S3", R3.S3, ()), ("S4", R3.S4, ())] + \
             [(n, getattr(R3, n), (tmp,)) for n in ("E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "E10", "E11")] + \
-            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
+            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V6", V6, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
     for name, fn, args in steps:
         try: fn(*args)
         except Exception as e: rec(name, False, f"could not run: {type(e).__name__}: {str(e)[:200]}")

@@ -2428,3 +2428,6 @@ Clean clone run 11 launched: i-0721df7b2f292508b.
 
 ### 2026-10-18 · Report sky drawn in units of the sample's own spread (OTH-069)
 The first real whole-blood report (GSE235717_GSM7508429) drew its sky at the color limits everywhere: in whole blood the departures from pure neutrophils are large at most sites (57 % beyond 3). The C-Score (block-mean variance over site variance) does not change when every departure is shifted or rescaled (checked: 2.190138 both ways), so the sky now shows departures in units of the sample's own spread (median, 1.4826 x MAD), color limits +/- 3. A picture only; no reading changes.
+
+### 2026-10-18 · CHAIN FIX: an above-band C-Score crashed the report (LESSONS C27; OTH-069, OTH-070)
+The C-Score's clustered-departure flag used level FLAG, missing from the report's order: every above-band reading crashed the report. Fixed; new release check V6 (planted clustered loss by the commissioning rule: C_rel 3.56, flag in report, both PDFs). The C-Score bar now stretches to hold its reading. The example machine's script adds the far-right example, labeled PLANTED, beside the same array unchanged. Local report checks E4, E9, E11, V1-V6 pass.

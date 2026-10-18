@@ -3,7 +3,7 @@
 # Four healthy whole-blood EPIC v1 arrays from one study (GSE235717; already read in the C-Score band, DEV_CSCORE_TARE_01, so no unread data
 # is spent). Pass 1: each array through the chain alone. Then the first three are the same-run healthy references (their Met-A and C-Score
 # from pass 1) and the fourth is read against them, so Met-A and the C-Score both give tared readings. Every report (HTML and both PDFs) is
-# uploaded to S3 as it is made. Nothing is scored here: these are examples of the report.
+# uploaded to S3 as it is made. Nothing is scored here: these are examples of the report. Run 2 adds the far-right example (PLANTED).
 set -u; C=${1:?commit}; W=$HOME/examples; rm -rf $W; mkdir -p $W/idat $W/out; cd $W
 B=s3://methylphys-data-945451304272-us-west-2-an/results/REPORT_EXAMPLES_V4
 st(){ echo "$(date -u +%FT%TZ) $*" | tee -a $W/status.txt; aws s3 cp -q $W/status.txt $B/status.txt 2>/dev/null || ~/env/bin/python -c "import boto3;boto3.client('s3').upload_file('$W/status.txt','methylphys-data-945451304272-us-west-2-an','results/REPORT_EXAMPLES_V4/status.txt')"; }
@@ -27,5 +27,12 @@ open(os.path.join(o,"same_run_refs.csv"),"w").write("id,A,C\n"+"".join(f"{g},{a}
 PY
 st "references: $(tail -n +2 $W/out/same_run_refs.csv | tr '\n' ' ')"
 g=GSM7508429; G=$(ls $W/idat/${g}_*Grn.idat.gz); R=$(ls $W/idat/${g}_*Red.idat.gz)
-$PY $RS --grn $G --red $R --specimen "whole blood" --id GSE235717_${g} --ref-table $W/out/same_run_refs.csv --out $W/out/GSE235717_${g}.html --ledger $W/out/ledger.jsonl > $W/out/GSE235717_${g}.log 2>&1; rc=$?
-up; st "finished rc $rc: $(ls $W/out | grep -c pdf) PDFs"; exit $rc
+$PY $RS --grn $G --red $R --specimen "whole blood" --id GSE235717_${g} --ref-table $W/out/same_run_refs.csv --save-betas $W/out/GSE235717_${g}_betas.csv --out $W/out/GSE235717_${g}.html --ledger $W/out/ledger.jsonl > $W/out/GSE235717_${g}.log 2>&1; rc=$?
+up; st "tared report rc $rc"
+# 2026-10-18 run 2: the far-right example, labeled PLANTED: the same real array with clustered loss put in by the C-Score's own positive-control
+# rule (plant_clustered.py), and the same array's saved values read unchanged through the same path, so the pair differs only by the plant.
+CH=Biological_Physics/MethylPhys/chain; PL=Biological_Physics/MethylPhys/doors/data/REPORT_EXAMPLES_V4/plant_clustered.py
+$PY $PL $W/out/GSE235717_${g}_betas.csv $W/out/GSE235717_${g}_PLANTED_CLUSTERED_betas.csv $CH | tee -a $W/status.txt
+for v in "" _PLANTED_CLUSTERED; do $PY $RS --betas $W/out/GSE235717_${g}${v}_betas.csv --specimen "whole blood" --id GSE235717_${g}${v:-_VALUES} --ref-table $W/out/same_run_refs.csv \
+  --out $W/out/GSE235717_${g}${v:-_VALUES}.html --ledger $W/out/ledger.jsonl > $W/out/GSE235717_${g}${v:-_VALUES}.log 2>&1; st "values run ${v:-unchanged} rc $?"; up; done
+st "finished rc $rc: $(ls $W/out | grep -c pdf) PDFs"; exit $rc

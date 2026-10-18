@@ -95,8 +95,9 @@ def _load(rel):
     except Exception: return None
 
 
+FLAG_ORDER = ["STOP", "FLAG", "WITHHELD", "CAUTION", "NOTE"]   # FLAG: a commissioned reading outside its band (C-Score clustered; LESSONS C27, 2026-10-18)
 def red_flags(o):
-    """STOP / WITHHELD / CAUTION / NOTE, from the bundle only. Returned as a list of {level, code, text}."""
+    """STOP / FLAG / WITHHELD / CAUTION / NOTE, from the bundle only. Returned as a list of {level, code, text}."""
     m, t, it = o.get("met_a") or {}, o.get("tare") or {}, o.get("intake") or {}
     c, q = o.get("met_a_cscore") or {}, o.get("iam_a") or {}
     F = []
@@ -257,7 +258,7 @@ def build(o, out, sid):
                      for k, v in o["development"].items() if isinstance(v, dict)], ("stage", "status", "record (truncated; full record in the bundle)")))
           if o.get("development") else "")]
     F = red_flags(o); o["red_flags"] = F
-    P.append("<h2 id='sec-red-flags'>Red flags</h2>" + _table([(f["level"], f["code"], f["text"]) for f in sorted(F, key=lambda f: ["STOP", "WITHHELD", "CAUTION", "NOTE"].index(f["level"]))], ("level", "code", "what")))
+    P.append("<h2 id='sec-red-flags'>Red flags</h2>" + _table([(f["level"], f["code"], f["text"]) for f in sorted(F, key=lambda f: FLAG_ORDER.index(f["level"]))], ("level", "code", "what")))
     TS = troubleshooting(o)
     P.append("<h2 id='sec-troubleshooting'>Troubleshooting</h2>" + _table(TS, ("condition", "what to do")))
     v = o.get("versions") or {}
@@ -275,7 +276,7 @@ def build(o, out, sid):
     SG = safeguards(o, prose); o["safeguards"] = [{"check": s[0], "result": s[1], "detail": s[2]} for s in SG]
     if any(s[1] == "FAIL" for s in SG):
         F.append({"level": "CAUTION", "code": "SAFEGUARD_FAIL", "text": "; ".join(f"{s[0]}: {s[2]}" for s in SG if s[1] == "FAIL")})
-        P[P.index(next(x for x in P if x.startswith("<h2 id='sec-red-flags'>")))] = "<h2 id='sec-red-flags'>Red flags</h2>" + _table([(f["level"], f["code"], f["text"]) for f in sorted(F, key=lambda f: ["STOP", "WITHHELD", "CAUTION", "NOTE"].index(f["level"]))], ("level", "code", "what"))
+        P[P.index(next(x for x in P if x.startswith("<h2 id='sec-red-flags'>")))] = "<h2 id='sec-red-flags'>Red flags</h2>" + _table([(f["level"], f["code"], f["text"]) for f in sorted(F, key=lambda f: FLAG_ORDER.index(f["level"]))], ("level", "code", "what"))
     P.insert(P.index(next(x for x in P if x.startswith("<h2 id='sec-troubleshooting'>"))), "<h2 id='sec-safeguards'>Safeguards</h2>" + _table(SG, ("safeguard", "result", "detail")))
     H = [f"<html><head><meta charset='utf-8'><title>CPG v3 - {e(sid)}</title></head><body style='font-family:sans-serif;max-width:900px'>"] + P + [
          "<details id='sec-bundle'><summary>bundle (JSON, also written beside this page)</summary><pre>" + e(json.dumps({k: v for k, v in o.items() if k != 'intake'}, indent=1, default=str)[:20000]) + "</pre></details></body></html>"]

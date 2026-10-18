@@ -27419,7 +27419,7 @@
    "sources_of_row": [
     "session 2026-10-16"
    ],
-   "notes": "2026-10-18: a withheld Met-A prints no number in the sky or plain view | 2026-10-18: sky drawn in units of the sample's own spread (the C-Score is unchanged by it)"
+   "notes": "2026-10-18: a withheld Met-A prints no number in the sky or plain view | 2026-10-18: sky drawn in units of the sample's own spread (the C-Score is unchanged by it) | 2026-10-18: an above-band C-Score crashed the report (C27), fixed with release check V6; far-right example (PLANTED) added to the example run"
   },
   {
    "title": "One-button test from a fresh clone",
@@ -27494,7 +27494,7 @@
      "page": "not headline: a repeat of the clean-clone check after a fix"
     }
    ],
-   "next_step": "clean clone run 10: 24 of 26 (E4, E9, one cause, fixed); run 11 running (i-0721df7b2f292508b)",
+   "next_step": "run 11 superseded by the C27 fix; clean clone run 12 next (27 checks, V5 and V6 added)",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

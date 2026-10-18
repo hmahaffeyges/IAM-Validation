@@ -47,10 +47,11 @@ def gauge_png(out, name, A, floor, ceiling, band, subject, state="", unit="A"):
 
 def cscore_png(out, C, band_hi, band_lo, subject, state=""):
     """The C-Score bar: scattered on the left, clustered on the right; its Normal band; no derived ends (it is a clustering ratio)."""
-    lo_v, hi_v = 0.5, 3.0
-    fig = plt.figure(figsize=(7.2, 1.55), facecolor="white"); ax = fig.add_axes([0.04, 0.30, 0.92, 0.32]); ax.set_xlim(-0.01, 1.01); ax.set_ylim(-0.6, 1.9); ax.axis("off")
-    _bar(ax, lo_v, hi_v, (band_lo, band_hi), C, lo_v, hi_v, ticks=[(v, f"{v:g}") for v in (0.5, 1, 1.5, 2, 2.5, 3)])
-    ax.text(0, 1.3, "scattered", ha="left", va="bottom", fontsize=7, color=SUB); ax.text(1, 1.3, "clustered", ha="right", va="bottom", fontsize=7, color=SUB)
+    lo_v = 0.5; hi_v = max(3.0, float(np.ceil((C or 0) * 1.2)))   # the scale stretches to hold the reading (2026-10-18)
+    step = 0.5 if hi_v <= 3 else (1.0 if hi_v <= 8 else float(np.ceil(hi_v / 8)))
+    fig = plt.figure(figsize=(7.2, 1.7), facecolor="white"); ax = fig.add_axes([0.04, 0.34, 0.92, 0.30]); ax.set_xlim(-0.01, 1.01); ax.set_ylim(-0.6, 1.9); ax.axis("off")
+    _bar(ax, lo_v, hi_v, (band_lo, band_hi), C, lo_v, hi_v, ticks=[(v, f"{v:g}") for v in np.arange(1.0 if step >= 1 else 0.5, hi_v + 1e-9, step)])
+    fig.text(0.04, 0.06, "\u2190 scattered", ha="left", fontsize=7, color=SUB); fig.text(0.96, 0.06, "clustered \u2192", ha="right", fontsize=7, color=SUB)
     if C is not None: ax.text(min(max((C - lo_v) / (hi_v - lo_v), 0.08), 0.92), 1.3, f"C-Score {C:.2f}", ha="center", va="bottom", fontsize=9.5, fontweight="bold", color=INK)
     fig.text(0.04, 0.95, f"C-Score  ·  {subject}" + (f"  ·  {state}" if state else ""), fontsize=8, color=INK, va="top")
     fig.savefig(out, dpi=170, facecolor="white"); plt.close(fig); return out
