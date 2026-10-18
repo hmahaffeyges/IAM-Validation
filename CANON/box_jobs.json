@@ -2932,6 +2932,30 @@
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: code in S3 first; results and 5-minute progress to S3; watcher; image+40 GB disk; self-terminating; about $1",
    "note": "stops itself after 5 hours at most"
+  },
+  {
+   "job_id": "i-0173a92945aecb068",
+   "name": "reproduce/ from a fresh public clone, run 2b: three laboratories, IAM-A line, mouse prediction (OTH-076)",
+   "date": "2026-10-18",
+   "commit": "0654f813",
+   "chain_commit": "0654f813",
+   "state": "running",
+   "s3_code_prefix": "results/REPRODUCE_V1/code/run2b/",
+   "log": "results/REPRODUCE_V1/run2b/status.txt",
+   "machine": "on-demand c7a.4xlarge, self-terminating (12-hour timer)",
+   "purpose": "a researcher's path: fresh clone, manifests removed, reproduce/setup.sh, then three_labs, iama_line, mice from public accessions, each compared with the committed result",
+   "record": "reproduce/box/reproduce_fresh.sh",
+   "manifest": [
+    "OTH-076"
+   ],
+   "outputs": [
+    "results/REPRODUCE_V1/run2b/"
+   ],
+   "files": [
+    "reproduce/box/reproduce_fresh.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: code in S3 first; results and 5-minute progress lines to S3; watcher from launch; disk image+150 GB for the 54 GB ENCODE file and mm10; self-terminating; about $8 on-demand",
+   "note": "run 2 on the fixed runner; stops itself after 12 hours at most"
   }
  ],
  "not_jobs": {

@@ -2547,3 +2547,6 @@ Author: "Try and break it sounds bad and unprofessional... Instead we create a Q
 
 ### 2026-10-18 · reproduce/ run 2 stopped and fixed (OTH-076)
 three_labs reproduced every step (the read printed the committed BARS line and spreads exactly), then the comparison failed: the runner ran on the machine's python3, which has no pandas. The runner now re-executes inside reproduce/.venv. The machine was terminated before iama_line and mice spent hours on a comparison that could not finish; relaunched as run 2b. Checklist line added.
+
+### 2026-10-18 · reproduce/ run 2b launched (OTH-076)
+Job i-0173a92945aecb068 (on-demand c7a.4xlarge): three_labs, iama_line, mice on the fixed runner.
