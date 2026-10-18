@@ -27487,7 +27487,7 @@
      "page": "not headline: a repeat of the clean-clone check after a fix"
     }
    ],
-   "next_step": "every chain change runs the full release check on a clean clone (run 8 passed 2026-10-18)",
+   "next_step": "clean clone run 9 (i-0bb1310b7ec57719b) for the wording fix; every check must pass",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

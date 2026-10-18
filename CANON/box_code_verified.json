@@ -1412,5 +1412,19 @@
    "results/CHAIN_V4_CLEANCLONE/run8/uv.log": true
   },
   "state_at_verify": "done"
+ },
+ "i-0bb1310b7ec57719b": {
+  "s3": {
+   "cleanclone_v4.sh": "1ccaee2dafe10abe1aa98e2cba3215453c0eadb4115b7694295abca3f7850365"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/CHAIN_V4_CLEANCLONE/status.txt": false,
+   "results/CHAIN_V4_CLEANCLONE/release_check_v4.log": false,
+   "results/CHAIN_V4_CLEANCLONE/release_check_v4.json": false
+  },
+  "state_at_verify": "running"
  }
 }

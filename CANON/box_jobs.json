@@ -2233,6 +2233,31 @@
     "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
    ],
    "note": "stops itself after 150 minutes at most; RELEASE CHECK v4: PASS (25 checks); results in doors/data/CHAIN_V4_CLEANCLONE/run8/"
+  },
+  {
+   "job_id": "i-0bb1310b7ec57719b",
+   "name": "Chain v4 one-command test from a fresh public clone, run 9 (wording fix) (OTH-070, OTH-074)",
+   "date": "2026-10-18",
+   "commit": "cf702e9d",
+   "s3_code_prefix": "results/CHAIN_V4_CLEANCLONE/code/run9/",
+   "state": "running",
+   "log": "results/CHAIN_V4_CLEANCLONE/status.txt",
+   "machine": "spot m7a.xlarge, self-terminating",
+   "purpose": "clone, install chain/requirements.txt only, run release_check_v4.py; every check must pass",
+   "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh",
+   "manifest": [
+    "OTH-070",
+    "OTH-074"
+   ],
+   "outputs": [
+    "results/CHAIN_V4_CLEANCLONE/status.txt",
+    "results/CHAIN_V4_CLEANCLONE/release_check_v4.log",
+    "results/CHAIN_V4_CLEANCLONE/release_check_v4.json"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
+   ],
+   "note": "stops itself after 150 minutes at most"
   }
  ],
  "not_jobs": {
