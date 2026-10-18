@@ -85,6 +85,45 @@
     "OTH-063",
     "OTH-064"
    ]
+  },
+  {
+   "label": "Showcase runs of the commissioned chain (plan: development/TEST_PLAN_TRACKS_2026-10-17.md)",
+   "rows": [
+    "OTH-073"
+   ]
+  },
+  {
+   "label": "Field: normal tissue of patients against healthy people, same slides",
+   "rows": [
+    "FLD-002"
+   ]
+  },
+  {
+   "label": "Precancer and before diagnosis",
+   "rows": [
+    "BRE-010",
+    "GRP-008"
+   ]
+  },
+  {
+   "label": "Immune track, organ by organ (Group-A)",
+   "rows": [
+    "GRP-013"
+   ]
+  },
+  {
+   "label": "cfDNA and shed-cell routes (short-fragment synthetic first)",
+   "rows": [
+    "TIS-053",
+    "TIS-018",
+    "TIS-054"
+   ]
+  },
+  {
+   "label": "One person over time (IAM-A)",
+   "rows": [
+    "COM-IAMA-056"
+   ]
   }
  ],
  "decisions_waiting": []

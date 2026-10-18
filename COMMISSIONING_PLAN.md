@@ -38,6 +38,21 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 13. **Record keeping: the manifest kept current by the chain; document consolidation**
    - OTH-063 (run; last run 2026-10-16: met): none: live; the chain names rows in every stamp and the gate refuses stale rows. Document consolidation is OTH-064
    - OTH-064 (run; last run 2026-10-16: met): done: hand-kept living documents are now the development log and the day log (both written as work happens and checked by the gate); the book is the toolbox, checked by verify_book; sealed records are history. Everything else is generated or a pointer
+14. **Showcase runs of the commissioned chain (plan: development/TEST_PLAN_TRACKS_2026-10-17.md)**
+   - OTH-073 (planned): write the selection rule per set and commit it; download on AWS; run after the temperature result; lung tissue set with raw files still to find
+15. **Field: normal tissue of patients against healthy people, same slides**
+   - FLD-002 (planned): 2026-10-17: first in line after the showcase (TEST_PLAN_TRACKS_2026-10-17.md, track 1); scout a set with healthy donors and patients on the same slides, ages known
+16. **Precancer and before diagnosis**
+   - BRE-010 (planned): scout public sets with raw files
+   - GRP-008 (run; last run 2026-10-01: progressed): 2026-10-17: replicate on a fresh pre-diagnosis set (TEST_PLAN_TRACKS_2026-10-17.md, track 3)
+17. **Immune track, organ by organ (Group-A)**
+   - GRP-013 (planned): pre-register on the breast and lung sets in hand (GRP-001, GRP-006); scout colon and pancreas blood sets
+18. **cfDNA and shed-cell routes (short-fragment synthetic first)**
+   - TIS-053 (planned): write and run the synthetic (laptop, light)
+   - TIS-018 (planned): 2026-10-17: lung first: GSE277078 (plasma cfDNA, 185 people with non-small-cell lung cancer, EPIC, IDATs, unused) and GSE287137 (lung-injury plasma cfDNA); after the short-fragment synthetic
+   - TIS-054 (planned): scout public stool and sputum methylation sets with raw files; human-DNA share and enrichment noted per set
+19. **One person over time (IAM-A)**
+   - COM-IAMA-056 (planned): scout public longitudinal sequencing sets of the same donors
 
 ## Machines running now (machine ledger)
 
