@@ -2441,3 +2441,6 @@ Final pair launched: clean clone run 13 (i-0cddc10d0fb321550), example run 3 (i-
 
 ### 2026-10-18 · Chain v4 report finished; clean clone run 13 PASS 27 of 27 (OTH-069, OTH-070)
 Run 13 (i-0cddc10d0fb321550) passed every check on the finished report. Final example reports (i-0e16b64e60f88f0ab): the real healthy whole-blood report and the far-right example, which carries the PLANTED banner and the clustered flag. Shown to the author for review.
+
+### 2026-10-18 · The atlas sky's bright patch is chromosome X (ATL-069)
+The uncertainty map shows one bright stretch in every cell type: chromosome X, 53-109 Mb (4,239 sites). Neutrophil donor spread is 0.060 on X against 0.014 on the autosomes; most likely the pooling of male and female donors (one X silenced in female cells). Not yet tested by sex. Correction: earlier today the assistant told the author the patch was not X, having compared X's mean level instead of its place on the sphere. Page section for the v2.1 sky drafted for the author's review; not on the site.
