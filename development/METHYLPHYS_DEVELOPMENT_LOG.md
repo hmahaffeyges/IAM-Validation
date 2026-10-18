@@ -2511,3 +2511,6 @@ Author: the 79 cell pages' certainty maps were "all too pale when they should be
 
 ### 2026-10-18 · Temperature record: the published study's own finding added (PHY-057)
 The source study reported no temperature effect on CG or CHG levels (CHH +14 % at 16 C). Not decisive for held error, but known before sealing; added to the record beside the result.
+
+### 2026-10-18 · The temperature test taken off the public pages (PHY-057)
+Author: "dont broadcast the temp test anywhere, it was exploratory and has no bearing on our instruments". Removed from the now-running board (README, FOLLOW, FIELD_NOTES; declared in off_board, which the append-only guard now honors) and from the 2026-10-17 and 2026-10-18 day logs (declared in off_page_rows, which the completeness check now honors). The record, scorer, counts and manifest row are unchanged.

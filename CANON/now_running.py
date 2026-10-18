@@ -57,7 +57,11 @@ def appendonly(J):
     P = []; cur = {s["id"]: s["updates"] for s in J["stories"]}
     for s in published()["stories"]:
         now = cur.get(s["id"])
-        if now is None: P.append(f"story {s['id']} was removed (append-only)"); continue
+        if now is None:
+            # author 2026-10-18: a story the author rules exploratory may be taken off the board, declared in off_board with the date and
+            # reason; its record stays in the development log and manifest. Any other removal is still refused.
+            if s["id"] in {o.get("id") for o in J.get("off_board", [])}: continue
+            P.append(f"story {s['id']} was removed (append-only)"); continue
         for u in s["updates"]:
             if u not in now:
                 old = [x for x in now if x["date"] == u["date"] and x["text"] == u["text"] and x["record"] == u["record"]]

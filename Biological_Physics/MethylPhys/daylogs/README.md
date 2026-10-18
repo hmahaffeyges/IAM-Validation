@@ -4,7 +4,7 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
-| [2026-10-18](2026-10-18.md) | The commissioned chain's report, finished on real samples; the first temperature test scored |
+| [2026-10-18](2026-10-18.md) | The commissioned chain's report, finished on real samples; IAM-Atlas v2.1 on the sky |
 | [2026-10-17](2026-10-17.md) | Tools held to their job; the deconvolution tool commissioned; IAM-A's grand test scored |
 | [2026-10-16](2026-10-16.md) | IAM-A gets its own healthy range, from two laboratories |
 | [2026-10-15](2026-10-15.md) | A healthy cell can be read against itself: the first steps to an instrument that needs no reference library |

@@ -26008,7 +26008,7 @@
    "depends_on": [
     "PHY-045"
    ],
-   "notes": "author asked 2026-10-15 for a prediction that would make the assistant sit up; caution: enzymes of different species may differ, so the cleanest test is one species at two temperatures; synthetic 2026-10-15: run 1 NOT MET (conversion bias), run 2 MET through the counter's measured response curve; needs >= 20,000 qualifying molecules per temperature | author 2026-10-15: not optional; it proves the physics to physicists, scheduled right after the current commissioning items | 2026-10-18: pre-launch checklist written after this test's losses (LESSONS C24) | 2026-10-18: the source study reported CG levels unchanged by temperature; added to the record as context known before sealing",
+   "notes": "author asked 2026-10-15 for a prediction that would make the assistant sit up; caution: enzymes of different species may differ, so the cleanest test is one species at two temperatures; synthetic 2026-10-15: run 1 NOT MET (conversion bias), run 2 MET through the counter's measured response curve; needs >= 20,000 qualifying molecules per temperature | author 2026-10-15: not optional; it proves the physics to physicists, scheduled right after the current commissioning items | 2026-10-18: pre-launch checklist written after this test's losses (LESSONS C24) | 2026-10-18: the source study reported CG levels unchanged by temperature; added to the record as context known before sealing | 2026-10-18: author ruled it exploratory; kept off the public page, board and day logs",
    "legacy_ids": [],
    "id": "PHY-057",
    "sources_of_row": [

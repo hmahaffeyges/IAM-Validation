@@ -1,26 +1,6 @@
 {
- "_rule": "One story per experiment followers can watch. status: getting ready | running | on hold | result. Every update is dated and links to its record. The generator writes the block into README.md and FOLLOW.md; status_check refuses a stale or unchecked board. Plain words, American English, no claims beyond the record. Updates are APPEND-ONLY: an update, once pushed, is never edited or removed (a correction is a new update); the board shows the newest three per story, FIELD_NOTES.md keeps every update with its longer 'note'. The board carries an 'as_of' date: status_check REFUSES a push that changes any doors/ note while as_of is older than that push's date, because work happened and the board did not move (added 2026-10-13 after the board advertised a job that had not run for a day).",
+ "_rule": "One story per experiment followers can watch. status: getting ready | running | on hold | result. Every update is dated and links to its record. The generator writes the block into README.md and FOLLOW.md; status_check refuses a stale or unchecked board. Plain words, American English, no claims beyond the record. Updates are APPEND-ONLY: an update, once pushed, is never edited or removed (a correction is a new update); the board shows the newest three per story, FIELD_NOTES.md keeps every update with its longer 'note'. The board carries an 'as_of' date: status_check REFUSES a push that changes any doors/ note while as_of is older than that push's date, because work happened and the board did not move (added 2026-10-13 after the board advertised a job that had not run for a day). Author 2026-10-18: a story may be taken off the board when the author rules the work exploratory (the temperature test); its record stays in the development log and manifest.",
  "stories": [
-  {
-   "id": "temperature_law",
-   "status": "result",
-   "headline": "The temperature test: does a plant grown colder hold its marks better, by exactly the amount physics predicts?",
-   "why": "IAM's Law says the cost of holding a mark is set by temperature. If that is right, the same plant grown at 10 and at 16 degrees C must differ by an amount fixed by the two temperatures alone, with nothing adjusted to fit.",
-   "hope": "The colder plants read lower, by the predicted amount: a test of the physics itself that any physicist can check.",
-   "risk": "The difference predicted is small (about 2 percent), so it needs every one of the 111 plant pairs counted cleanly.",
-   "updates": [
-    {
-     "date": "2026-10-17",
-     "text": "The rule is sealed and the counting is running on two cloud machines: 233 samples from 111 plant lines grown at both temperatures.",
-     "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md"
-    },
-    {
-     "date": "2026-10-18",
-     "text": "Scored once by its sealed rule: plants grown at 10 C held their marks as well as plants at 16 C (ratio 1.000, 95 % range 0.993 to 1.008), where the simplest form of the law predicted 1.021. The next step is to find which assumption the plants do not share, each tested on planted data first.",
-     "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md"
-    }
-   ]
-  },
   {
    "id": "atlas_v21",
    "status": "result",
@@ -212,5 +192,12 @@
    "why": "A lever is a handle that moves one term in the law. If the law is real, turning a handle moves the reading by the amount the equation says - and if it does not, the law is wrong. Every lever carries, in writing and before any data is opened, the reading that would break it."
   }
  ],
- "as_of": "2026-10-17"
+ "as_of": "2026-10-17",
+ "off_board": [
+  {
+   "id": "temperature_law",
+   "date": "2026-10-18",
+   "reason": "author: exploratory, no bearing on the instruments; the record stays in the development log and manifest (PHY-057)"
+  }
+ ]
 }

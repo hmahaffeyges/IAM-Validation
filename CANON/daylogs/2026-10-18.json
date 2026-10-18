@@ -1,22 +1,15 @@
 {
  "date": "2026-10-18",
- "title": "The commissioned chain's report, finished on real samples; the first temperature test scored",
- "set_out": "Finish the chain v4 report on real samples, put IAM-Atlas v2.1 on the sky on the front page, and score the temperature law's plant test once.",
+ "title": "The commissioned chain's report, finished on real samples; IAM-Atlas v2.1 on the sky",
+ "set_out": "Finish the chain v4 report on real samples and put IAM-Atlas v2.1 on the sky on the front page.",
  "_convention": "see 2026-10-13.json",
  "check_completeness": true,
  "open_at_turnover": "Next: IAMPerformance's three showcase decisions (buffy coat, tissue route, a blood-mixture set), then the showcase in one launch; Zenodo when it is healthy.",
- "closing": "The report reads real samples end to end, IAM-A included, from one command on a clean install; IAM-Atlas v2.1 is on the sky with every cell on its own page; the temperature law's first plant test is scored, and it did not show the predicted shift.",
+ "closing": "The report reads real samples end to end, IAM-A included, from one command on a clean install; IAM-Atlas v2.1 is on the sky with every cell on its own page; the showcase reads one person's buffy coat by every array instrument.",
  "sections": [
   {
    "kind": "ran",
    "entries": [
-    {
-     "title": "Temperature law stage T3: NOT MET",
-     "status": "failed",
-     "what": "Scored once by the sealed scorer on all 233 run-4 counts: 109 accessions with both temperatures; cold/warm ratio 1.0002 (95 % 0.993-1.008) against the law's 1.0212 from the two temperatures alone.",
-     "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
-    },
     {
      "title": "IAM-Atlas v2.1 on the sphere",
      "status": "in progress",
@@ -150,7 +143,7 @@
   {
    "kind": "table",
    "heading": "Every lever test: what ran, what it showed, what is left",
-   "lead": "Today: the report and the sky; the temperature test scored.",
+   "lead": "Today: the report and the sky.",
    "table": {
     "columns": [
      "lever",
@@ -159,7 +152,7 @@
     "rows": [
      [
       "**Body temperature**",
-      "sealed plant test scored once: NOT MET (ratio 1.000 against the law's 1.021)"
+      "work continues in the development log"
      ],
      [
       "**Division rate**",
@@ -183,7 +176,7 @@
   {
    "kind": "table",
    "heading": "Every candidate instrument: what ran today, what remains",
-   "lead": "Today: the report and the sky; the temperature test scored.",
+   "lead": "Today: the report and the sky.",
    "table": {
     "columns": [
      "instrument",
@@ -221,9 +214,9 @@
    "kind": "learned",
    "entries": [
     {
-     "title": "Counter fix before the temperature result",
+     "title": "Counter fix (LESSONS C23; TIS-053)",
      "status": "audit",
-     "what": "The cfDNA synthetic (DEV-CFDNA-SHORT-01) found the temperature counter's correction weighted by every molecule, including unmethylated ones; computed exactly, it moves the temperature ratio from 1.0212 to 1.0179-1.0195 (inside the window, 10-15 % of the effect; a first estimate of 1.0156-1.0333 was partly the old curve",
+     "what": "The cfDNA synthetic (DEV-CFDNA-SHORT-01) found the held-error counter's correction weighted by every molecule, including unmethylated ones; fixed in the chain, with a release check.",
      "why": "",
      "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
@@ -336,5 +329,8 @@
    "heading": "What changed in the plan",
    "lead": ""
   }
+ ],
+ "off_page_rows": [
+  "PHY-057"
  ]
 }

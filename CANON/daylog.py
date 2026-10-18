@@ -126,6 +126,9 @@ def coverage(d):
     lp = os.path.join(ROOT, "development", "METHYLPHYS_DEVELOPMENT_LOG.md")
     if not os.path.isfile(lp): return []
     heads = sorted({h for day, _, h in pacific_heads() if day == d["date"]})
+    # author 2026-10-18 ("dont broadcast the temp test anywhere, it was exploratory and has no bearing on our instruments"): threads of the
+    # manifest rows in the day log's off_page_rows are kept off the public day log; they stay in the development log, manifest and record
+    off = set(d.get("off_page_rows", [])); heads = [h for h in heads if not any(o in h for o in off)]
     blob = set(re.findall(r"[a-z0-9-]+", render(d).lower()))
     out = []
     for h in heads:
