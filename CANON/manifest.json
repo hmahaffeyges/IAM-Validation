@@ -27838,7 +27838,7 @@
    "status": "planned",
    "record": "reproduce/README.md",
    "runs": [],
-   "next_step": "2026-10-18: runner and first three entries written (Met-A rebuild, Deconvolver, C-Score band); each run from a fresh clone on AWS; then IAM-A, atlas uses and the headline results",
+   "next_step": "2026-10-18: runner and first three entries written (Met-A rebuild, Deconvolver, C-Score band); each run from a fresh clone on AWS; then IAM-A, atlas uses and the headline results Running now: fresh-clone test, job i-012c3ce1a8fdb5c08.",
    "notes": ""
   }
  ],

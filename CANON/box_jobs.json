@@ -2860,6 +2860,30 @@
    ],
    "note": "relaunch of run 1 (same script and commit) after Zenodo recovered; skips files already there; key in the AWS secret store for this run only, removed after; code copy for this run under code/run2/ (the script also rewrites code/run1/ with the same bytes)",
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (AWS caveats: Zenodo tested with a small file first, 0.35 MB/s): watcher from minute one; machine time about $0.05 per hour plus outbound transfer"
+  },
+  {
+   "job_id": "i-012c3ce1a8fdb5c08",
+   "name": "reproduce/ from a fresh public clone, run 1: C-Score band, Deconvolver, Met-A rebuild (OTH-076)",
+   "date": "2026-10-18",
+   "commit": "537984a4",
+   "chain_commit": "537984a4",
+   "state": "running",
+   "s3_code_prefix": "results/REPRODUCE_V1/code/run1/",
+   "log": "results/REPRODUCE_V1/status.txt",
+   "machine": "on-demand m7a.2xlarge, self-terminating (7-hour timer)",
+   "purpose": "a researcher's path: fresh clone, methylprep manifests removed, reproduce/setup.sh, then three tests from public accessions, each compared with the committed result",
+   "record": "reproduce/box/reproduce_fresh.sh",
+   "manifest": [
+    "OTH-076"
+   ],
+   "outputs": [
+    "results/REPRODUCE_V1/"
+   ],
+   "files": [
+    "reproduce/box/reproduce_fresh.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays: manifest fetched before Stage 1, one array at a time; S3 steps on ~/env/bin/python): code in S3 first, results to S3 as made, watcher from launch, self-terminating, cost about $3 on-demand",
+   "note": "stops itself after 7 hours at most"
   }
  ],
  "not_jobs": {

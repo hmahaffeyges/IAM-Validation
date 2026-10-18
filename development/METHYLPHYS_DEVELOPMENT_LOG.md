@@ -2529,3 +2529,6 @@ Author: "Why is this colon cell so unsure?? ... visit each one individually and 
 
 ### 2026-10-18 · One-command reproduction from public data (OTH-076)
 reproduce/: setup.sh (the chain's pinned environment), reproduce.py (runs a test from public accessions and compares with the committed result), tests.json, heldout_arrays.py (the atlas job's held-out fetch and Stage 1, checked against the recorded IDAT SHA-256). First entries: Met-A reference rebuild, IAM-Deconvolver (E-MTAB-2145), C-Score band (GSE184269). Each to be run from a fresh clone on AWS before it is listed as tested.
+
+### 2026-10-18 · reproduce/ fresh-clone test launched (OTH-076)
+Job i-012c3ce1a8fdb5c08 (on-demand m7a.2xlarge, about 5 hours, about $3): fresh public clone, methylprep manifests removed, reproduce/setup.sh, then cscore_band, deconv, metaa_rebuild.
