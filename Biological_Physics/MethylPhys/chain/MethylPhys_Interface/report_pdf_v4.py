@@ -90,6 +90,8 @@ def build_pdfs(o, F, out, sid, when):
                            ("cscore", "C-Score", "Whether the changes are scattered, as in healthy cells, or clustered along the genome.")):
         i = _img(F.get(key))
         if i: st += [KeepTogether([P(name, "h2"), i, P(say)])]
+        elif key == "met_a" and str((o.get("met_a") or {}).get("state", "")).startswith("withheld"):
+            st += [P("Met-A", "h2"), P("No reading on this sample: the array's own noise check could not confirm it was clean enough to read, so Met-A held back rather than guess.")]
     if k.get("drawn"): st += [KeepTogether([P("The sample on the sphere", "h2"), _img(k["png"], 5.4),
                               P("Each dot of color is one place in the genome. Speckle is what healthy looks like; patches mean the changes are bunched together.")])]
     res["plain"] = doc(base + "_plain.pdf", st)

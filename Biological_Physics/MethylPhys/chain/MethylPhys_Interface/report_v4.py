@@ -214,7 +214,8 @@ def _plain(o, F):
                            ("iam_a", "IAM-A", "Whether each mark is still held, read against this sample's own reference: no other person is needed."),
                            ("cscore", "C-Score", "Whether the changes are scattered, as in healthy cells, or clustered along the genome.")):
         if key in F: P.append(f"<h3>{name}</h3><img alt='{name} gauge' src='{_uri(F[key])}'><p class='say'>{E(say)}</p>")
-        elif key == "met_a" and m.get("A") is not None: P.append(f"<h3>Met-A</h3><p class='say'>No gauge for this sample: {E(str(m.get('state', '')).split('.')[0])}.</p>")
+        elif key == "met_a" and str(m.get("state", "")).startswith("withheld"):
+            P.append("<h3>Met-A</h3><p class='say'>No reading on this sample: the array's own noise check could not confirm it was clean enough to read, so Met-A held back rather than guess.</p>")
         elif key == "iam_a" and q: P.append(f"<h3>IAM-A</h3><p class='say'>Not read: {E(str(q.get('refusal', '')).split('.')[0])}.</p>")
     k = o.get("cscore_sky") or {}
     if k.get("drawn"): P.append(f"<h3>The sample on the sphere</h3><img alt='sky' src='{_uri(k['png'])}'><p class='say'>Each dot of color is one place in the genome. "

@@ -2418,3 +2418,6 @@ Launched 2026-10-18: clean clone run 10 (i-0a0beda9c8f4d562c) and the example-re
 
 ### 2026-10-18 · Machines launched: clean clone run 10 and real example reports (OTH-069, OTH-070)
 Clean clone run 10: i-0a0beda9c8f4d562c. Example reports on four already-read whole-blood arrays (GSE235717): i-0c1fd471e84c09eb2. Both after the pre-launch checklist; under $0.25 together.
+
+### 2026-10-18 · Report: a withheld Met-A prints no number anywhere (OTH-069)
+The sky caption printed the untared Met-A beside a withheld state, and the plain view said only "No gauge". Now the sky omits a withheld Met-A, and both views say in plain words that the array's noise check held the reading back.
