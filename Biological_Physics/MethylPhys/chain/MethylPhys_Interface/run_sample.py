@@ -322,7 +322,7 @@ def main():
         if (rec.get("array_type_detected") or declared) == "EPIC_v2":
             # unhandled platform (2026-10-03, DEV-BASE-CHAIN-01): an EPIC v2 array is refused here, before the QC decode, instead of being
             # judged by EPIC v1 rules (sex mismatch) or crashing in Stage 1. v3 reads EPIC v1 only.
-            platform_stop = ("EPIC v2 array (IDAT header): chain v3 reads EPIC v1 arrays only - no frozen neutrophil floor for EPIC v2, and Stage 1 "
+            platform_stop = ("EPIC v2 array (IDAT header): the chain reads EPIC v1 arrays only - no frozen neutrophil floor for EPIC v2, and Stage 1 "
                              "(methylprep 1.7.1) does not calibrate EPIC v2. Intake stopped before the QC decode; nothing is scored.")
             rec["status"] = "PLATFORM_REFUSED"; rec.setdefault("flags", []).append("PLATFORM_REFUSED:EPIC_v2"); rec["stage0_verdict"] = "REFUSED_PLATFORM"
             print("  PLATFORM_REFUSED - " + platform_stop, flush=True)
@@ -415,7 +415,7 @@ def main():
         except ValueError as e:
             if "Unknown array type" not in str(e): raise
             b = meta = None   # an array type methylprep cannot calibrate (EPIC v2 read without intake): refused, not a crash
-            platform_stop = f"array type not calibrated by Stage 1 ({e}): chain v3 reads EPIC v1 arrays only; nothing is scored."
+            platform_stop = f"array type not calibrated by Stage 1 ({e}): the chain reads EPIC v1 arrays only; nothing is scored."
             print("  PLATFORM_REFUSED - " + platform_stop, flush=True)
         except (EOFError, OSError) as e:
             # the IDAT bytes could not be read (truncated or corrupt file): the specimen's files, not the chain - a named stop, not a traceback

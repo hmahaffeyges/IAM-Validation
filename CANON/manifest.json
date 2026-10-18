@@ -27742,7 +27742,7 @@
      "page": "not headline: a procedure document for the researcher package"
     }
    ],
-   "next_step": "next chain batch: conductor_v3.py docstring calls the C-score 'development: band not set', and the platform refusal text says 'chain v3 reads EPIC v1 arrays only'; reword both, then a clean clone"
+   "next_step": "wording fixed 2026-10-18: the platform refusal now says 'the chain reads EPIC v1 arrays only' (was 'chain v3'), the conductor's Stage MC line states the C-score's commissioning; clean clone run 9 to confirm"
   }
  ],
  "not_tests": {

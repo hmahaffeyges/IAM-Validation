@@ -8,7 +8,7 @@ Runs after Stage 0 (intake) and Stage 1 (IDAT calibration), both driven by Methy
             cells; no marker is a neutrophil identity site), sum 1; >= 90 % of the markers must be measured
   Stage M   Met-A: isolated / sorted neutrophils -> healthy reference (stage_m_met_a.read); whole blood -> composition-matched healthy
             expectation, read at any neutrophil fraction above 0 with its own detection limit, when >= 90 % of the 6000 sites are measured
-  Stage MC  Met-A C-score: clustering of the neutrophil residual map over the healthy baseline (development: band not set)
+  Stage MC  Met-A C-score: clustering of the neutrophil residual map over the healthy baseline (commissioned 2026-10-15 on whole blood; band 0.877-1.152, one-sided)
   Stage T   step 1, self-tare II (adopted by the author 2026-10-04, DEV-SELFTARE-02; wired here 2026-10-04): each probe design mapped
             onto the reference arrays' scale by this array's own low and high fixed-site anchors (dev_stages.selftare_map), before
             Stages A, M and MC; no references; nothing is fitted. Step 2, the median tare against >= 3 healthy references run the same
@@ -240,12 +240,12 @@ def stage_t_selftare_ii(beta):
 def platform_refusal(beta, array_type=None):
     """None when the specimen is EPIC v1; otherwise the refusal text."""
     if array_type is not None and array_type not in ACCEPTED_ARRAY_TYPES:
-        return f"array type {array_type}: chain v3 reads EPIC v1 arrays only (no frozen neutrophil floor for this platform)"
+        return f"array type {array_type}: the chain reads EPIC v1 arrays only (no frozen neutrophil floor for this platform)"
     p = SM.platform_of(beta)
     if p == "EPIC_v2":
-        return "EPIC v2 probe names (design suffix, e.g. cg..._TC21): chain v3 reads EPIC v1 arrays only (no frozen neutrophil floor for this platform)"
+        return "EPIC v2 probe names (design suffix, e.g. cg..._TC21): the chain reads EPIC v1 arrays only (no frozen neutrophil floor for this platform)"
     if p != "EPIC":
-        return f"{len(beta):,} probes (450K or incomplete vector): chain v3 reads EPIC v1 arrays only (450K neutrophil floor pending)"
+        return f"{len(beta):,} probes (450K or incomplete vector): the chain reads EPIC v1 arrays only (450K neutrophil floor pending)"
     return None
 
 def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sample_id=None):
