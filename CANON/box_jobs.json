@@ -2113,6 +2113,29 @@
     "Biological_Physics/MethylPhys/doors/data/ZENODO_V21/ud_bundle.sh"
    ],
    "note": "10 bundles, 2,800 files, 24.22 GB (bundles_manifest.json); script committed in the next commit after the run (it ran from the launch copy, identical to the committed file)"
+  },
+  {
+   "job_id": "i-03ebc30fc11ccb741",
+   "name": "IAM-Atlas v2.1 Zenodo large-file upload (ATL-005)",
+   "date": "2026-10-17",
+   "commit": "7c7173fa",
+   "s3_code_prefix": "results/ATLAS_V21/zenodo_upload/code/run1/",
+   "state": "stopped",
+   "log": "results/ATLAS_V21/zenodo_upload/status.txt",
+   "machine": "spot m7a.large, self-terminating",
+   "purpose": "stream the assembled atlas and the 10 raw-fit bundles from S3 to the two Zenodo drafts",
+   "record": "Biological_Physics/MethylPhys/doors/data/ZENODO_V21/zenodo_upload_box.py",
+   "manifest": [
+    "ATL-005"
+   ],
+   "outputs": [
+    "results/ATLAS_V21/zenodo_upload/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/ZENODO_V21/zenodo_upload_box.py",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py"
+   ],
+   "note": "stopped after 1 hour: Zenodo degraded (about 33 KB/s and gateway errors; a 20 MB test upload failed after 4 minutes). Retry when Zenodo recovers; the key was removed from the secret store"
   }
  ],
  "not_jobs": {

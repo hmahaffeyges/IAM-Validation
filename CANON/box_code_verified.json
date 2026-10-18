@@ -1342,5 +1342,18 @@
    "results/ATLAS_V21/zenodo_bundles/": false
   },
   "state_at_verify": "finished"
+ },
+ "i-03ebc30fc11ccb741": {
+  "s3": {
+   "zenodo_upload_box.py": "68b095385338b12a6a6c5a37df3da747fbced45c8d01534222212fe728702cab",
+   "publish_code.py": "1f5539d560a28283330c350427f3eef4b50e41af1cd11e93371b5293bc0efd20"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/ATLAS_V21/zenodo_upload/": false
+  },
+  "state_at_verify": "stopped"
  }
 }

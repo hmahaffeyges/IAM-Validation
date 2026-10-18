@@ -3813,7 +3813,7 @@
      "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
-   "next_step": "Zenodo: the assembled atlas and the 10 raw-fit bundles uploaded from AWS by doors/data/ZENODO_V21/zenodo_upload_box.py into the two drafts (reserved 10.5281/zenodo.23441999 and 10.5281/zenodo.23422688); then the author publishes",
+   "next_step": "Zenodo: IAM-Atlas v2.1 draft holds 23 files; the 2.4 GB assembled atlas and the 10 raw-fit bundles wait for Zenodo to recover (degraded 2026-10-17 evening: gateway errors, about 33 KB/s); then zenodo_upload_box.py from AWS; then the author publishes",
    "cost": "box",
    "impact": 5,
    "depends_on": [

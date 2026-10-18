@@ -2361,3 +2361,6 @@ A second panel, What it took to build IAM-Atlas v2.1 alone: the fit updates and 
 
 ### 2026-10-17 · Zenodo large-file upload script (ATL-005)
 doors/data/ZENODO_V21/zenodo_upload_box.py, committed before it runs: on an AWS machine, streams the assembled atlas and the 10 raw-fit bundles from S3 to the two Zenodo drafts with retries and an MD5 check per file; the key is read from the AWS secret store and deleted after. The laptop upload was stopped with 23 files (Zenodo returning repeated gateway errors on the 2.4 GB file; large transfers run from AWS) in the IAM-Atlas v2.1 draft.
+
+### 2026-10-17 · Zenodo upload paused (ATL-005)
+The AWS upload machine (job i-03ebc30fc11ccb741) was stopped after an hour: Zenodo was degraded (about 33 KB/s out of the machine; a 20 MB test upload from the laptop ran 4 minutes and ended in a gateway error). The IAM-Atlas v2.1 draft holds 23 files, each with its checksum confirmed; the 2.4 GB atlas and the 10 raw-fit bundles go when Zenodo recovers, after a small test upload first. The key was removed from the AWS secret store.
