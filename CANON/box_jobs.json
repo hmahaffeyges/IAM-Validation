@@ -2496,7 +2496,7 @@
    "date": "2026-10-18",
    "commit": "e328a783",
    "s3_code_prefix": "results/CHAIN_V4_CLEANCLONE/code/run14/",
-   "state": "running",
+   "state": "finished",
    "log": "results/CHAIN_V4_CLEANCLONE/status.txt",
    "machine": "spot m7a.xlarge, self-terminating",
    "purpose": "clone, install chain/requirements.txt only, run release_check_v4.py; every check must pass",
@@ -2506,13 +2506,16 @@
     "OTH-070"
    ],
    "outputs": [
-    "results/CHAIN_V4_CLEANCLONE/"
+    "results/CHAIN_V4_CLEANCLONE/run14/status.txt",
+    "results/CHAIN_V4_CLEANCLONE/run14/release_check_v4.log",
+    "results/CHAIN_V4_CLEANCLONE/run14/release_check_v4.json",
+    "results/CHAIN_V4_CLEANCLONE/run14/uv.log"
    ],
    "files": [
     "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays; AWS caveats): synthetic path passed locally (planted blood, release checks V1, V4, V5); script verified in S3 before boot; results to S3 as made; disk image+40 GB; per-machine watcher from launch; spot reclaim costs one rerun of about 20 min; 90-min shutdown timer, terminate on shutdown; cost under $0.25 for both, told to the author; every report-building check that can run locally ran first (E4, E9, E11, V1-V5 pass; E10 needs E3's array, clean clone only)",
-   "note": ""
+   "note": "PASS 28 of 28"
   },
   {
    "job_id": "i-0d808104a9b3ff4a5",
@@ -2520,7 +2523,7 @@
    "date": "2026-10-18",
    "commit": "e328a783",
    "s3_code_prefix": "results/REPORT_EXAMPLES_V4/code/run4/",
-   "state": "running",
+   "state": "finished",
    "log": "results/REPORT_EXAMPLES_V4/status.txt",
    "machine": "spot m7a.xlarge, self-terminating",
    "purpose": "four already-read healthy whole-blood EPIC arrays: pass 1 each, then one read against the other three as same-run references; reports and PDFs to S3",
@@ -2536,7 +2539,7 @@
     "Biological_Physics/MethylPhys/doors/data/REPORT_EXAMPLES_V4/plant_clustered.py"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays; AWS caveats): synthetic path passed locally (planted blood, release checks V1, V4, V5); script verified in S3 before boot; results to S3 as made; disk image+40 GB; per-machine watcher from launch; spot reclaim costs one rerun of about 20 min; 90-min shutdown timer, terminate on shutdown; cost under $0.25 for both, told to the author; the planter ran locally through the chain first (release check V6) before launch",
-   "note": ""
+   "note": "rc 0: 14 PDFs; overlay sky: healthy 53 changed pixels, planted 146"
   },
   {
    "job_id": "i-005fb77ca94ef4e6f",
@@ -2544,6 +2547,29 @@
    "date": "2026-10-18",
    "commit": "e328a783",
    "s3_code_prefix": "results/REPORT_EXAMPLES_V4/code/iama1/",
+   "state": "finished",
+   "log": "results/REPORT_EXAMPLES_V4/iama/status.txt",
+   "machine": "spot c7a.8xlarge, 32 cores, 340 GB, self-terminating (180-min timer)",
+   "purpose": "read one committed grand-test alignment through run_sample.py --bam on a clean install; the reading must equal the committed one",
+   "record": "Biological_Physics/MethylPhys/doors/data/REPORT_EXAMPLES_V4/iama_example_v4.sh",
+   "manifest": [
+    "OTH-069"
+   ],
+   "outputs": [
+    "results/REPORT_EXAMPLES_V4/iama/launch1_status.txt"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/REPORT_EXAMPLES_V4/iama_example_v4.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (human WGBS; AWS caveats): the BAM route passed locally through the one command on a planted Bismark-style BAM (release check V7) and pysam is pinned (C28); the alignment, its index and the reference bundle are already in S3 (no public download); script verified in S3 before boot; disk 340 GB for 13 GB BAM + 9.3 GB bundle; results to S3 as made; per-machine watcher from launch; 180-min shutdown timer, terminate on shutdown; cost about $1-2, told to the author",
+   "note": "FAILED at its first download after 2 minutes: the download ran on the chain's clean environment, which has no boto3; relaunched as i-077169a7835e9047c"
+  },
+  {
+   "job_id": "i-077169a7835e9047c",
+   "name": "Chain v4 IAM-A example report: grand-test sample GSM4293895 through the one command (--bam); must reproduce A 0.9083 second launch (OTH-069)",
+   "date": "2026-10-18",
+   "commit": "4c5950d8",
+   "s3_code_prefix": "results/REPORT_EXAMPLES_V4/code/iama2/",
    "state": "running",
    "log": "results/REPORT_EXAMPLES_V4/iama/status.txt",
    "machine": "spot c7a.8xlarge, 32 cores, 340 GB, self-terminating (180-min timer)",
@@ -2558,7 +2584,7 @@
    "files": [
     "Biological_Physics/MethylPhys/doors/data/REPORT_EXAMPLES_V4/iama_example_v4.sh"
    ],
-   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (human WGBS; AWS caveats): the BAM route passed locally through the one command on a planted Bismark-style BAM (release check V7) and pysam is pinned (C28); the alignment, its index and the reference bundle are already in S3 (no public download); script verified in S3 before boot; disk 340 GB for 13 GB BAM + 9.3 GB bundle; results to S3 as made; per-machine watcher from launch; 180-min shutdown timer, terminate on shutdown; cost about $1-2, told to the author",
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (human WGBS; AWS caveats): the BAM route passed locally through the one command on a planted Bismark-style BAM (release check V7) and pysam is pinned (C28); the alignment, its index and the reference bundle are already in S3 (no public download); script verified in S3 before boot; disk 340 GB for 13 GB BAM + 9.3 GB bundle; results to S3 as made; per-machine watcher from launch; 180-min shutdown timer, terminate on shutdown; cost about $1-2, told to the author; second launch: S3 steps on the machine's own Python (checklist line added)",
    "note": ""
   }
  ],

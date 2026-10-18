@@ -1,0 +1,147 @@
+{
+ "check": "release_check_v4",
+ "verdict": "PASS",
+ "checks": [
+  {
+   "check": "F1",
+   "result": "PASS",
+   "detail": "12 of 12 frozen inputs match FROZEN_INPUTS_v4.json"
+  },
+  {
+   "check": "F1b",
+   "result": "PASS",
+   "detail": "4 of 4 agree with the PROC-REPL-V3-01 run record (1 by data keys: _meta added since the run: ['blood_composition_EPIC_v1.json'])"
+  },
+  {
+   "check": "F2",
+   "result": "PASS",
+   "detail": "14 of 14 atlas v2.1 tables match compact_manifest.json"
+  },
+  {
+   "check": "S1",
+   "result": "PASS",
+   "detail": "598 Python files scanned; retired imports: 0; path-loaded modules missing: 0"
+  },
+  {
+   "check": "S2",
+   "result": "PASS",
+   "detail": "3844 tracked files scanned; files carrying the retired name: 0"
+  },
+  {
+   "check": "S3",
+   "result": "PASS",
+   "detail": "chain_sequence.json matches the code"
+  },
+  {
+   "check": "S4",
+   "result": "PASS",
+   "detail": "16 of 16 toolkit modules import (1 build-time scripts byte-compiled)"
+  },
+  {
+   "check": "E1",
+   "result": "PASS",
+   "detail": "exit 0; Stage 0 PROCEED (sex check NOT_DECLARED); Stage 1 566952 CpGs; refusal: 566,952 probes (450K or incomplete vector): the chain reads EPIC v1 arrays only (450K neut"
+  },
+  {
+   "check": "E2",
+   "result": "PASS",
+   "detail": "exit 2; Stage 0 verdict: QUARANTINE  hard failures: ['hm450_coverage']  deferred: ['ctrl_qc_threshold_uncalibrated']; report written: False"
+  },
+  {
+   "check": "E3",
+   "result": "PASS",
+   "detail": "exit 0; 862,927 probes; composition max |error| 1.35e-09; NEU 0.5999999986461146; Met-A 1.0; A_rel 1.0 (median tare (same-run healthy references)); noise index 0.13396"
+  },
+  {
+   "check": "E4",
+   "result": "PASS",
+   "detail": "IAM-A 1.0 (no band: IAM-A's healthy band is not set (Met-A's 0.95-1.05 is not borrowed; author 2026-10-15)) at eps 0.03838; other pipeline: position for neutrophils was measured on loyfer_pat_v1, not another_pi; .pat extractor: 307 sites, 30 isolated errors (30 constructed)"
+  },
+  {
+   "check": "E5",
+   "result": "PASS",
+   "detail": "same person: OK (726963 addresses, mean |d beta| 0.007975614807360447); other person: REFUSED"
+  },
+  {
+   "check": "E6",
+   "result": "PASS",
+   "detail": "tissue IDAT: refused with a report; PBMC: refused with a report; cell line: refused with a report"
+  },
+  {
+   "check": "E7",
+   "result": "PASS",
+   "detail": "typed id in bundle: False; in ledger: False; in report title: True; bundle sample_id e02396baa56626301930d8ed1b69d485"
+  },
+  {
+   "check": "E8",
+   "result": "PASS",
+   "detail": "A 1.0; noise sites 38528 of 48528; state withheld: True; gauge drawn: False"
+  },
+  {
+   "check": "E9",
+   "result": "PASS",
+   "detail": "independent C 0.8233 (50 blocks, limit 1 +/- 0.800); clustered C 447.529; E4 report carries the C-score line: True"
+  },
+  {
+   "check": "E10",
+   "result": "PASS",
+   "detail": "reading identical: True; blocks: selftare_ii OK, direction OK, trace OK, foreign OK, brightness OK, nilc NOT_RUN, atlas_e NOT_RUN, percell_b NOT_RUN, sky NOT_RUN"
+  },
+  {
+   "check": "E11",
+   "result": "PASS",
+   "detail": "good: proceeds; one_chrom: QUARANTINE_NOT_WHOLE_GENOME; wrong_build: GENOME_BUILD_MISMATCH; truncated: QUARANTINE_UNREADABLE_PAT; malformed: QUARANTINE_UNREADABLE_PAT; whole_blood: SPECIMEN_REFUSED"
+  },
+  {
+   "check": "V1",
+   "result": "PASS",
+   "detail": "exit 0; commissioned-cell errors {'neutrophils': 0.0012, 'monocytes': 0.0005, 'cd4 t cells': 0.0018, 'cd8 t cells': 0.0015}"
+  },
+  {
+   "check": "V2",
+   "result": "PASS",
+   "detail": "8 of 8 grand-test readings reproduced exactly, 0 differ []; constructed .pat: stage Q2, refused: Stage Q0 stopped the file: Q0.2 build: 840 lines outside their chromosome's hg19 index ran"
+  },
+  {
+   "check": "V3",
+   "result": "PASS",
+   "detail": "drawn True (NSIDE 16, NESTED); median distance consecutive 0.0546 rad vs random 1.577 rad"
+  },
+  {
+   "check": "V4",
+   "result": "PASS",
+   "detail": "9 of 9 sections present; sky image embedded: True"
+  },
+  {
+   "check": "V5",
+   "result": "PASS",
+   "detail": "C 1.0727 | C_rel 0.9328 (want 0.9328) from 3 same-run references | both PDFs written: True"
+  },
+  {
+   "check": "V6",
+   "result": "PASS",
+   "detail": "exit 0; C_rel 3.5591 (above the band: clustered departure); flag in report: True; both PDFs: True"
+  },
+  {
+   "check": "V7",
+   "result": "PASS",
+   "detail": "exit 0; report written: True; held-error opportunities counted: 29864; A 0.815 (Normal)"
+  },
+  {
+   "check": "D1",
+   "result": "PASS",
+   "detail": "9 of 9 frozen inputs named in the SOP"
+  },
+  {
+   "check": "D2",
+   "result": "PASS",
+   "detail": "9 of 9 frozen inputs named in the LOG; STATUS.md present"
+  },
+  {
+   "check": "M1",
+   "result": "PASS",
+   "detail": "manual: /tmp/rc_v4_9fffyp3h/manual.pdf (50738 bytes)"
+  }
+ ],
+ "seconds": 326
+}

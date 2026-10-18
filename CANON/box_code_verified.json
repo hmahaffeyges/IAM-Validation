@@ -1559,9 +1559,12 @@
   "matches_repo": true,
   "log_in_s3": false,
   "outputs_in_s3": {
-   "results/CHAIN_V4_CLEANCLONE/": false
+   "results/CHAIN_V4_CLEANCLONE/run14/status.txt": true,
+   "results/CHAIN_V4_CLEANCLONE/run14/release_check_v4.log": true,
+   "results/CHAIN_V4_CLEANCLONE/run14/release_check_v4.json": true,
+   "results/CHAIN_V4_CLEANCLONE/run14/uv.log": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "i-0d808104a9b3ff4a5": {
   "s3": {
@@ -1574,11 +1577,23 @@
   "outputs_in_s3": {
    "results/REPORT_EXAMPLES_V4/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "i-005fb77ca94ef4e6f": {
   "s3": {
    "iama_example_v4.sh": "1c4f4ebca92465a668c34c39420bd4a4000db1679d55156ad0e321e062a228f0"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/REPORT_EXAMPLES_V4/iama/launch1_status.txt": true
+  },
+  "state_at_verify": "finished"
+ },
+ "i-077169a7835e9047c": {
+  "s3": {
+   "iama_example_v4.sh": "d72ed1fb6eb79a8e3dddc4d57edca4b63dd3fa6ed9be9727932d353e8f03abf6"
   },
   "s3_inputs_sha": {},
   "matches_repo": true,

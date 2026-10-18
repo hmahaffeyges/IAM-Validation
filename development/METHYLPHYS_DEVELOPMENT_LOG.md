@@ -2450,3 +2450,6 @@ Gauges now print 0 (floor: below it a cell loses its identity), healthy 1 with t
 Launched: clean clone run 14 (i-0b470176e0d90e0b5), example arrays run 4 (i-0d808104a9b3ff4a5), IAM-A example (i-005fb77ca94ef4e6f).
 
 IAM-A example, first launch: failed at its first download in 2 minutes (the download used the chain's clean environment, which has no boto3; every earlier script uses the machine's own Python for S3). Fixed, added to the pre-launch checklist, relaunched.
+
+### 2026-10-18 · Clean clone run 14 PASS 28 of 28; overlay sky on real arrays (OTH-069, OTH-070)
+Run 14 (i-0b470176e0d90e0b5) passed every check including V7 (IAM-A from a BAM). Arrays run 4 (i-0d808104a9b3ff4a5): the overlay sky shows 53 scattered changed pixels on the real healthy sample and streaks (146 pixels) on the planted one. IAM-A example relaunched (i-077169a7835e9047c).
