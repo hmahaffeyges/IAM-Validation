@@ -27510,7 +27510,7 @@
      "page": "not headline: a repeat of the clean-clone check after a fix"
     }
    ],
-   "next_step": "run 16 (i-05cdf05259bbd2102) PASS 28 of 28 on the final report: done for this chain version",
+   "next_step": "clean clone run 17 running (i-081b8c4cf8c7e5e9e) on commit de6e20ab: buffy coat path and release check V8",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
@@ -27594,8 +27594,8 @@
    ],
    "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
    "record": "development/TEST_PLAN_TRACKS_2026-10-17.md",
-   "status": "planned",
-   "next_step": "2026-10-18 decided (author: do what is best): buffy coat read on the whole-blood path, labeled as its own specimen, preliminary on every instrument (intake, conductor, report; release check V8); colon tissue through the atlas's own commissioned tissue scorer; GSE281305 run as sealed and labeled outside the Deconvolver's commissioned scope (a showcase of what is possible, not a test). Next: clean clone, then the showcase in one launch",
+   "status": "running",
+   "next_step": "2026-10-18 decided (author: do what is best): buffy coat read on the whole-blood path, labeled as its own specimen, preliminary on every instrument (intake, conductor, report; release check V8); colon tissue through the atlas's own commissioned tissue scorer; GSE281305 run as sealed and labeled outside the Deconvolver's commissioned scope (a showcase of what is possible, not a test). Running now: showcase job i-0c5b1f3644561f54e and clean clone run 17 i-081b8c4cf8c7e5e9e.",
    "cost": "AWS, small",
    "impact": 5,
    "legacy_ids": [],

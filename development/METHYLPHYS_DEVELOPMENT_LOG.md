@@ -2493,3 +2493,6 @@ Scored once by the sealed scorer on all 233 run-4 counts: 109 accessions with bo
 
 ### 2026-10-18 · Buffy coat read on the whole-blood path, labeled as its own specimen (OTH-073)
 Intake accepts buffy coat (the white-cell layer of whole blood). It is read exactly as whole blood and labeled buffy coat throughout, so no commissioned label attaches: the report prints "This score is preliminary until Met-A (the C-Score) is officially commissioned on buffy coat". Release check V8 (local: every report check passes). Showcase decisions: colon tissue runs through the atlas's own tissue scorer; GSE281305 runs as sealed, labeled outside the Deconvolver's commissioned scope.
+
+### 2026-10-18 · Showcase and clean clone run 17 launched (OTH-073, OTH-070)
+Showcase job i-0c5b1f3644561f54e (spot m7a.xlarge, about 45 minutes, about $0.20): the sealed picks read once each through the one command on a clean install; nothing scored. Clean clone run 17 i-081b8c4cf8c7e5e9e on commit de6e20ab (buffy coat, release check V8).

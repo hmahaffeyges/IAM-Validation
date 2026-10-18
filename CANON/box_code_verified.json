@@ -1382,7 +1382,7 @@
   "outputs_in_s3": {
    "results/PRED_TEMPERATURE_01/T3/out/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "i-0583ab0c226363999": {
   "s3": {
@@ -1396,7 +1396,7 @@
   "outputs_in_s3": {
    "results/PRED_TEMPERATURE_01/T3/out/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "i-00e8af094ae38138c": {
   "s3": {
@@ -1440,7 +1440,7 @@
   "outputs_in_s3": {
    "results/PRED_TEMPERATURE_01/T3/out/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "i-0817aadec94703fca": {
   "s3": {
@@ -1454,7 +1454,7 @@
   "outputs_in_s3": {
    "results/PRED_TEMPERATURE_01/T3/out/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "i-0a0beda9c8f4d562c": {
   "s3": {
@@ -1474,7 +1474,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/REPORT_EXAMPLES_V4/": false
   },
@@ -1517,7 +1517,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/REPORT_EXAMPLES_V4/": false
   },
@@ -1545,7 +1545,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/REPORT_EXAMPLES_V4/": false
   },
@@ -1573,7 +1573,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/REPORT_EXAMPLES_V4/": false
   },
@@ -1585,7 +1585,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/REPORT_EXAMPLES_V4/iama/launch1_status.txt": false
   },
@@ -1597,7 +1597,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/REPORT_EXAMPLES_V4/iama/launch2_status.txt": false
   },
@@ -1609,13 +1609,13 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/REPORT_EXAMPLES_V4/iama/status.txt": false,
-   "results/REPORT_EXAMPLES_V4/iama/GSM4293895_CD8.html": false,
-   "results/REPORT_EXAMPLES_V4/iama/GSM4293895_CD8_bundle.json": false,
-   "results/REPORT_EXAMPLES_V4/iama/GSM4293895_CD8_researcher.pdf": false,
-   "results/REPORT_EXAMPLES_V4/iama/GSM4293895_CD8_plain.pdf": false
+   "results/REPORT_EXAMPLES_V4/iama/status.txt": true,
+   "results/REPORT_EXAMPLES_V4/iama/GSM4293895_CD8.html": true,
+   "results/REPORT_EXAMPLES_V4/iama/GSM4293895_CD8_bundle.json": true,
+   "results/REPORT_EXAMPLES_V4/iama/GSM4293895_CD8_researcher.pdf": true,
+   "results/REPORT_EXAMPLES_V4/iama/GSM4293895_CD8_plain.pdf": true
   },
   "state_at_verify": "finished"
  },
@@ -1641,7 +1641,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/REPORT_EXAMPLES_V4/": false
   },
@@ -1653,7 +1653,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/REPORT_EXAMPLES_V4/iama/": false
   },
@@ -1667,9 +1667,12 @@
   "matches_repo": true,
   "log_in_s3": false,
   "outputs_in_s3": {
-   "results/CHAIN_V4_CLEANCLONE/": false
+   "results/CHAIN_V4_CLEANCLONE/run16/status.txt": true,
+   "results/CHAIN_V4_CLEANCLONE/run16/release_check_v4.log": true,
+   "results/CHAIN_V4_CLEANCLONE/run16/release_check_v4.json": true,
+   "results/CHAIN_V4_CLEANCLONE/run16/uv.log": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "i-06fd497326090626e": {
   "s3": {
@@ -1678,11 +1681,11 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/REPORT_EXAMPLES_V4/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "i-03e9e5160b5fea273": {
   "s3": {
@@ -1690,9 +1693,36 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/REPORT_EXAMPLES_V4/iama/": false
+  },
+  "state_at_verify": "finished"
+ },
+ "i-081b8c4cf8c7e5e9e": {
+  "s3": {
+   "cleanclone_v4.sh": "1ccaee2dafe10abe1aa98e2cba3215453c0eadb4115b7694295abca3f7850365"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/CHAIN_V4_CLEANCLONE/run16/status.txt": true,
+   "results/CHAIN_V4_CLEANCLONE/run16/release_check_v4.log": true,
+   "results/CHAIN_V4_CLEANCLONE/run16/release_check_v4.json": true,
+   "results/CHAIN_V4_CLEANCLONE/run16/uv.log": true
+  },
+  "state_at_verify": "running"
+ },
+ "i-0c5b1f3644561f54e": {
+  "s3": {
+   "showcase_v4.sh": "fe17cd74521ed813c690a2618ae3e559a59e9211f080966292073ea25dfc2ebe"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": false,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/SHOWCASE_V4/": false
   },
   "state_at_verify": "running"
  }

@@ -2761,6 +2761,56 @@
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (human WGBS; AWS caveats): the BAM route passed locally through the one command on a planted Bismark-style BAM (release check V7) and pysam is pinned (C28); the alignment, its index and the reference bundle are already in S3 (no public download); script verified in S3 before boot; disk 340 GB for 13 GB BAM + 9.3 GB bundle; results to S3 as made; per-machine watcher from launch; 180-min shutdown timer, terminate on shutdown; cost about $1-2, told to the author; second launch: S3 steps on the machine's own Python (checklist line added); third launch: hg38.fa by name with the grand test's stamped checksum (checklist line added); on-demand because the spot quota was full, about $2",
    "note": "rc 0: A 0.9083 Normal, equal to the committed grand test; 2 PDFs"
+  },
+  {
+   "job_id": "i-081b8c4cf8c7e5e9e",
+   "name": "Chain v4 clean clone run 17 (buffy coat path, release check V8) (OTH-070)",
+   "date": "2026-10-18",
+   "commit": "de6e20ab",
+   "s3_code_prefix": "results/CHAIN_V4_CLEANCLONE/code/run17/",
+   "state": "running",
+   "log": "results/CHAIN_V4_CLEANCLONE/status.txt",
+   "machine": "spot m7a.xlarge, self-terminating (150-min timer)",
+   "purpose": "clone, install chain/requirements.txt only, run release_check_v4.py; every check must pass",
+   "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh",
+   "manifest": [
+    "OTH-069",
+    "OTH-070"
+   ],
+   "outputs": [
+    "results/CHAIN_V4_CLEANCLONE/run16/status.txt",
+    "results/CHAIN_V4_CLEANCLONE/run16/release_check_v4.log",
+    "results/CHAIN_V4_CLEANCLONE/run16/release_check_v4.json",
+    "results/CHAIN_V4_CLEANCLONE/run16/uv.log"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays; AWS caveats): code in S3 first, watcher from minute one, about $0.15",
+   "note": ""
+  },
+  {
+   "job_id": "i-0c5b1f3644561f54e",
+   "name": "Chain v4 showcase: public samples by the sealed label rules, each read once through the one command (OTH-073)",
+   "date": "2026-10-18",
+   "commit": "de6e20ab",
+   "state": "running",
+   "s3_code_prefix": "results/SHOWCASE_V4/code/run1/",
+   "log": "results/SHOWCASE_V4/status.txt",
+   "machine": "spot m7a.xlarge, self-terminating (120-min timer)",
+   "purpose": "read the showcase picks (selected.json) on a clean install: AK0005's buffy coat tared by three other participants', the declines (PBMC, saliva, EPIC v2, failed controls) and three nine-cell mixtures labeled outside the Deconvolver's scope; nothing is scored",
+   "record": "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/showcase_v4.sh",
+   "manifest": [
+    "OTH-073"
+   ],
+   "outputs": [
+    "results/SHOWCASE_V4/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/showcase_v4.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays: one array at a time so the manifest download is not raced; S3 from ~/env/bin/python; AWS caveats): code in S3 first, watcher from minute one, about 45 minutes, about $0.20",
+   "note": "stops itself after 120 minutes at most"
   }
  ],
  "not_jobs": {
