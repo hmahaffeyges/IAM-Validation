@@ -27481,7 +27481,7 @@
      "page": "not headline: goes into the commissioned-chain card with the shipped example reports (OTH-068)"
     }
    ],
-   "next_step": "done 2026-10-17: 25 of 25 from a fresh public clone (runs 4 and 6)",
+   "next_step": "clean clone run 8 (i-00e8af094ae38138c, commit 13f910c5) after the counter fix (LESSONS C23) and the gauge-marks correction; every check must pass",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
