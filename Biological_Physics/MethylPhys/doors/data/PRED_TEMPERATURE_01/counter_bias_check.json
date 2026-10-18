@@ -1,0 +1,39 @@
+{
+ "law_ratio": 1.0212,
+ "B1_window": [
+  1.0159,
+  1.0265
+ ],
+ "rows": [
+  {
+   "p_warm": 0.03,
+   "right_mix": 1.0212,
+   "all_molecule_mix": 1.0195
+  },
+  {
+   "p_warm": 0.045,
+   "right_mix": 1.0212,
+   "all_molecule_mix": 1.0189
+  },
+  {
+   "p_warm": 0.06,
+   "right_mix": 1.0212,
+   "all_molecule_mix": 1.0184
+  },
+  {
+   "p_warm": 0.08,
+   "right_mix": 1.0212,
+   "all_molecule_mix": 1.0179
+  }
+ ],
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "c82b4c9dd448d44a8e5c1337311d9a7c1b2fadda4cbbd2e6616b792e9365efb6",
+  "payload_sha256": "407b1bc88046806956d6f9f5d84e9abc6b9b6d60b16cbfdc9556b9bb6ac79f37",
+  "inputs": [],
+  "manifest": [
+   "PHY-057"
+  ],
+  "utc": "2026-10-18T04:36:11Z"
+ }
+}

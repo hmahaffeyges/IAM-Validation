@@ -1,0 +1,67 @@
+{
+ "A_counter": {
+  "planted_held_error": 0.03,
+  "rule_on_planted": 0.02601,
+  "counter_held_err": 0.0288,
+  "sub_err": 0.004,
+  "planted_sub": 0.004,
+  "eps_corr": 0.03045,
+  "conv_fail": 0.0067,
+  "planted_conv_fail": 0.006,
+  "p_site": 0.03413,
+  "corrected_within": 0.0152,
+  "met": true
+ },
+ "law_true": {
+  "repeats": 40,
+  "met": 40,
+  "median_ratio": 1.0211,
+  "ci_width": 0.0052
+ },
+ "no_temperature_effect": {
+  "repeats": 40,
+  "met": 0,
+  "median_ratio": 0.9996,
+  "ci_width": 0.005
+ },
+ "law_true_20k_molecules": {
+  "repeats": 40,
+  "met": 40,
+  "median_ratio": 1.0211,
+  "ci_width": 0.0068
+ },
+ "law_true_no_meter_correction": {
+  "repeats": 40,
+  "met": 0,
+  "median_ratio": 1.0478,
+  "ci_width": 0.0052
+ },
+ "law_true_batch_drift_3pct": {
+  "repeats": 40,
+  "met": 0,
+  "median_ratio": 1.03,
+  "ci_width": 0.0053
+ },
+ "law_true_batch_drift_7pct": {
+  "repeats": 40,
+  "met": 0,
+  "median_ratio": 1.0422,
+  "ci_width": 0.0051
+ },
+ "verdict": {
+  "A": true,
+  "B_law": true,
+  "B_null": true
+ },
+ "met": true,
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "852ad9e9c1aba62134ca8fed25165021d3914c52f3ae698b31f495f6d23358a2",
+  "payload_sha256": "22ac8a0e35575aab65ce0b56174d4004f78fd064882e0ff4004e5252f54c851b",
+  "inputs": [],
+  "manifest": [
+   "PHY-057"
+  ],
+  "utc": "2026-10-17T18:14:59Z"
+ }
+}

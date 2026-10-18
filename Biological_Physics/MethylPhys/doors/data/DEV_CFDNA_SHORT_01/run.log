@@ -1,0 +1,27 @@
+{
+ "planted": {
+  "held_error": 0.045,
+  "sequencer_error": 0.004,
+  "conversion_failure": 0.0
+ },
+ "long": {
+  "fragments": 250000,
+  "qualifying_molecules": 6099,
+  "per_million_fragments": 24396,
+  "raw_held_err": 0.03785,
+  "sub_err": 0.004,
+  "per_site_corrected": 0.04436,
+  "within": 0.0141
+ },
+ "cfDNA": {
+  "fragments": 250000,
+  "qualifying_molecules": 7675,
+  "per_million_fragments": 30700,
+  "raw_held_err": 0.0384,
+  "sub_err": 0.00405,
+  "per_site_corrected": 0.04515,
+  "within": 0.0034
+ },
+ "B1_met": true,
+ "raw_outputs_differ_by": 0.0145
+}

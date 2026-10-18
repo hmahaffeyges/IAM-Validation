@@ -55,4 +55,4 @@ Each draft source was checked against CANON/data_spent.csv, MASTER_INVENTORY.csv
 | 5 IAM-A, CD8 | GSE245832 | every sample **stimulated** 4 hours with peptide; IAM-A is commissioned on healthy resting CD8 T cells | GSE173787 healthy-control CD8 T cells (bisulfite sequencing) is reserved as the atlas's held-out sequencing set; a fresh healthy CD8 WGBS set still to find |
 | 1, 3 | GSE350403, GSE281305 | unspent, IDATs present, labels and (GSE281305) pure references for the mixtures | keep |
 
-Immune track: GSE275371 is PBMCs from 35 people with lung adenocarcinoma and 50 without (EPIC, IDATs), confirmed.
+Immune track: GSE275371 is PBMCs, 35 labeled lung adenocarcinoma and 50 labeled normal (GEO sample characteristics, counted 2026-10-18; EPIC, IDATs).

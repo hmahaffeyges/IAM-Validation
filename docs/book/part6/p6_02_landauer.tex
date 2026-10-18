@@ -61,9 +61,7 @@ one, is \interp.
 involved. Thermal motion, on the scale $R\Tb$, randomizes marks; it is the denominator of $M$. The free energy of ATP is what the
 cell spends to hold its pattern against that motion; it is the numerator. The pattern, which sites are held methylated and which are
 held unmethylated, is the information, and it is what an array or a sequencing read records. The first two are the same in every
-human cell at 37~\textdegree C. \derived{} The third differs from one cell type to the next: on single molecules the healthy copy
-error ranges 0.024--0.042 across 56 cell types (Chapter~\ref{ch:iama}). \measured{} That is why a cell is read against the healthy
-reading of its own type and not against one number for the body.
+human cell at 37~\textdegree C. \derived{} The third differs from one cell type to the next: on single molecules the healthy held error ranges 0.024--0.042 across 56 cell types (Chapter~\ref{ch:iama}). \measured{} That is why a cell is read against its own reference and not against one number for the body: on arrays, the healthy reading of its type (Met-A); on single molecules, the held error its own loose share predicts (IAM-A).
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part6/fig_cell_budget.pdf}
@@ -153,9 +151,8 @@ for other ways of counting the sites.
 
 \begin{checkbox}
 A growing mammalian cell of about $3000\,\mu\mathrm{m}^3$ turns over ATP at a rate of order $10^9$ per second~\cite{Milo2015}. Over a
-24-hour cycle that is of order $10^{14}$ ATP. In a typical somatic cell roughly 70~\% of CpGs are methylated, so one copy writes about
-$2.0\times10^7$ methyl groups at one ATP or more each: a fraction of order $10^{-7}$ of the cell's energy budget. The Landauer floor of
-the copy, $9.3\times10^5$ ATP, is about twenty times smaller again: thirty per written mark (Eq.~\eqref{eq:markmargin}), times the 70~\% of
+24-hour cycle that is of order $10^{14}$ ATP. In a typical somatic cell roughly 70~\% of CpGs are methylated, so one full rewrite of the pattern writes about
+$2.0\times10^7$ methyl groups at one ATP or more each: a fraction of order $10^{-7}$ of the cell's energy budget. The Landauer floor of that rewrite, $9.3\times10^5$ ATP, is about twenty times smaller again: thirty per written mark (Eq.~\eqref{eq:markmargin}), times the 70~\% of
 decisions that need a mark. \calc{} \emph{Energy is not what limits a cell's methylation.} Whatever makes a cell lose or gain entropy on its
 identity sites, it is not that the cell cannot afford the ATP. This is the first place where a naive reading of ``the cell cannot pay its
 cost'' fails, and the book returns to it in Chapter~\ref{ch:floorbreach}.
@@ -250,8 +247,7 @@ landscape~\cite{Jenkinson2017}. \observed{} The entropy itself is therefore not 
 candidate law of physics: every irreversible transition from quantum superposition to classical record pays $\kB T\ln2$ per bit to the
 nearest encoding surface at the local temperature (Chapter~\ref{ch:bridge}). On the cell, the law gives the gauge the entropy is read
 on: a floor and a ceiling fixed by physics, the identity sites of one cell type as the place it is read, and that cell type's healthy
-reference as the fixed origin (Chapters~\ref{ch:gauge} and~\ref{ch:meta}). Because the physics fixes both ends of the gauge, a single
-sample can be read against its own cell's healthy reference, with no cohort to compare it to. That anchor is what makes Met-A possible.
+reference as the fixed origin (Chapters~\ref{ch:gauge} and~\ref{ch:meta}). Because the physics fixes both ends of the gauge, a single sample can be read with no cohort to compare it to: on arrays against its own cell type's healthy reference (Met-A), and on single molecules against the line its own loose share predicts (IAM-A), with no other specimen at all. That anchor is what makes both instruments possible.
 
 Three things are taken from that work as established and built on. (i) $\kB T\ln2$ is the correct physical anchor for methylation as an
 information-writing process. (ii) Thermal fluctuations produce a genuine statistical background in methylation level that any analysis must
@@ -281,8 +277,7 @@ Chapter~\ref{ch:instrument} applies to any absolute methylation measurement, inc
 divergence from a control pool inherits that pool's laboratory and pipeline offset, and on the immune identity sites of 450K arrays that offset,
 between raw-IDAT noob processing and the processed reference methylomes, is about $0.075$ in $\beta$. \measured
 
-Three limitations of the comparison should be stated. Their data are whole-genome bisulfite sequencing read counts; the array results here are
-statements about arrays. Their signal is a site that moved; a reading here is a cell against its reference, and carries no site-level
+Three limitations of the comparison should be stated. Their data are whole-genome bisulfite sequencing read counts, as are IAM-A's (Chapter~\ref{ch:iama}); the Met-A results here are statements about arrays. Their signal is a site that moved; a reading here is a cell against its reference, and carries no site-level
 information. And their 2016 proposal of a binary methylation ``language'' is not used or evaluated.
 
 \section{Summary}

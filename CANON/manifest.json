@@ -25993,7 +25993,7 @@
    "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
    "status": "running",
    "runs": [],
-   "next_step": "stage T3 run 3 counting on AWS: machine A i-0c41babf42cacb851 and replacement B i-00e917d3d319c520e (the first B was reclaimed by AWS); then scored once by score_temperature.py",
+   "next_step": "stage T3 run 4: all 233 samples counted again on the fixed counter (run 3 stopped unread at 159, LESSONS C23); then scored once by score_temperature.py",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -26008,10 +26008,10 @@
    "chain_outputs": [
     {
      "folder": "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01",
-     "files": 3,
+     "files": 5,
      "stage": "Q2 self-reference",
-     "chain": "852ad9e9c1ab",
-     "latest_utc": "2026-10-17T18:18:03Z"
+     "chain": "c82b4c9dd448",
+     "latest_utc": "2026-10-18T04:36:11Z"
     }
    ]
   },
@@ -27621,9 +27621,9 @@
    "instrument_or_term": "IAM-A",
    "sources": [],
    "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
-   "record": "development/TEST_PLAN_TRACKS_2026-10-17.md",
-   "status": "planned",
-   "next_step": "write and run the synthetic (laptop, light)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_CFDNA_SHORT_01.md",
+   "status": "synthetic_done",
+   "next_step": "first real cfDNA (TIS-018, lung): whether IAM-A's line holds on cfDNA directly",
    "cost": "laptop",
    "impact": 4,
    "legacy_ids": [],
@@ -27631,7 +27631,28 @@
    "sources_of_row": [
     "session 2026-10-17 (author)"
    ],
-   "runs": []
+   "runs": [
+    {
+     "date": "2026-10-17",
+     "outcome": "fail",
+     "note": "run 1: both arms about 10 % low; counter response curve weighted by every molecule (LESSONS C23)"
+    },
+    {
+     "date": "2026-10-18",
+     "outcome": "success",
+     "note": "run 2 on the fixed counter: cfDNA arm within 0.3 % of planted (bar 3 %)",
+     "page": "not headline: a synthetic gate before real cfDNA; the page shows it with the first real cfDNA result"
+    }
+   ],
+   "chain_outputs": [
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/DEV_CFDNA_SHORT_01",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "c82b4c9dd448",
+     "latest_utc": "2026-10-18T04:36:47Z"
+    }
+   ]
   },
   {
    "title": "Stool and other shed-cell routes: colon lining (stool), airways (sputum), urine, cervical swab",

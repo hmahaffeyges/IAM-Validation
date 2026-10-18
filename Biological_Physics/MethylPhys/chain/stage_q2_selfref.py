@@ -149,8 +149,10 @@ def count_bam_region(args):
             if rk < len(cp) and cp[rk] == calls[0][0] and rk // TILE < ntile:
                 a = T[rk // TILE]; a[0] += sum(v for _, v in calls); a[1] += len(calls)
         else:
-            n = len(calls); mm = sum(v for _, v in calls); nh[min(n, 60)] += 1   # calls per held-error molecule (stage TL's response curve, 2026-10-17)
+            n = len(calls); mm = sum(v for _, v in calls)
             if n >= QUAL_MIN_CALLS and mm >= QUAL_MIN_METH * n:
+                nh[min(n, 200)] += 1   # calls per QUALIFYING molecule (stage TL's response curve). Until 2026-10-18 every molecule was counted here,
+                                       # including unmethylated ones that never qualify, which biased the curve (LESSONS C23, DEV-CFDNA-SHORT-01)
                 st["qualifying"] += 1; st["e_opp"] += n - 2
                 st["e_iso"] += sum(1 for i in range(1, n - 1) if (not calls[i][1]) and calls[i - 1][1] and calls[i + 1][1])
     for r in B.fetch(chrom, s0, e0):

@@ -29,20 +29,25 @@ def predicted_ratio(t_cold_c, t_warm_c): return (273.15 + t_warm_c) / (273.15 + 
 def logodds(e): return float(np.log((1 - e) / e))
 
 GRID = np.round(np.arange(0.002, 0.1201, 0.002), 4)
-def response(nh, grid=GRID, m=40_000, seed=7):
-    """The counter's held-error statistic g(p) for molecules with this sample's calls-per-molecule mix nh, each call lost with probability p,
-    by the counter's own rule (Q2: at least QUAL_MIN_CALLS calls, at least QUAL_MIN_METH held, isolated losses over interior calls)."""
-    rng = np.random.default_rng(seed); ns = np.array(sorted(k for k in nh if k >= Q2.QUAL_MIN_CALLS)); w = np.array([nh[k] for k in ns], float)
+def response(nh, grid=GRID, m=None, seed=None):
+    """The counter's held-error statistic g(p) for qualifying molecules with this sample's calls-per-molecule mix nh (counts of QUALIFYING
+    molecules by number of calls), each call lost with probability p, by the counter's own rule (Q2: at least QUAL_MIN_CALLS calls, at least
+    QUAL_MIN_METH of them held; isolated losses over interior calls). Exact (2026-10-18, LESSONS C23): with k losses among n calls placed at
+    random, an interior call is an isolated loss with probability k(n-k)(n-k-1) / (n(n-1)(n-2)); summed over the qualifying k by the binomial.
+    (m and seed are kept for callers of the earlier simulated curve and are not used.)"""
+    from math import comb
+    ns = np.array(sorted(k for k in nh if k >= Q2.QUAL_MIN_CALLS)); w = np.array([nh[k] for k in ns], float)
     if not len(ns): return grid, None
     g = []
     for p in grid:
         iso = opp = 0.0
         for n, wt in zip(ns, w):
-            x = rng.random((m // 4, n)) >= p                                    # True = held
-            q = x.sum(1) >= Q2.QUAL_MIN_METH * n; x = x[q]
-            if not len(x): continue
-            e = ((~x[:, 1:-1]) & x[:, :-2] & x[:, 2:]).sum() / len(x); o = n - 2
-            frac = q.mean(); iso += wt * frac * e; opp += wt * frac * o
+            n = int(n); kmax = int(np.floor(n - Q2.QUAL_MIN_METH * n + 1e-9))
+            k = np.arange(0, kmax + 1)
+            pk = np.array([comb(n, int(x)) for x in k], float) * p ** k * (1 - p) ** (n - k); pq = pk.sum()
+            if pq <= 0: continue
+            e = (n - 2) * np.sum(pk * k * (n - k) * (n - k - 1)) / (n * (n - 1) * (n - 2)) / pq   # isolated losses per qualifying molecule
+            iso += wt * e; opp += wt * (n - 2)
         g.append(iso / opp if opp else np.nan)
     return grid, np.array(g)
 def invert(held_err, nh):
