@@ -66,7 +66,7 @@ def build_pdfs(o, F, out, sid, when):
         st += [P("Cell shares: IAM-Deconvolver against IAM-Atlas v2.1", "h2"),
                _tbl([[P("<b>Cell</b>"), P("<b>Share</b>"), P("<b>Range (information)</b>"), P("<b>Status</b>")]]
                     + [[P(R.cellname(r["cell"])), P(f"<b>{100 * r['share']:.1f} %</b>"), P(f"{100 * r['interval_95'][0]:.1f} to {100 * r['interval_95'][1]:.1f} %"),
-                        P(r["status"] if r["status"] != "development" else R.untested(r["cell"], "the IAM-Deconvolver"), "small")]
+                        P(r["status"] if r["status"] != "development" else R.untested(r["cell"], "the IAM-Deconvolver", noun="shares"), "small")]
                        for r in sorted(sh["cells"], key=lambda r: -r["share"])], [1.9, 1.0, 1.7, 2.7])]
     for k, t_ in (("met_a", "Met-A on its gauge"), ("iam_a", "IAM-A on its gauge"), ("cscore", "C-Score on its bar")):
         i = _img(F.get(k))

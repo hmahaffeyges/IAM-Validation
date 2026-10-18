@@ -27419,7 +27419,7 @@
    "sources_of_row": [
     "session 2026-10-16"
    ],
-   "notes": "2026-10-18: a withheld Met-A prints no number in the sky or plain view | 2026-10-18: sky drawn in units of the sample's own spread (the C-Score is unchanged by it) | 2026-10-18: an above-band C-Score crashed the report (C27), fixed with release check V6; far-right example (PLANTED) added to the example run | 2026-10-18 (author review): gauges printed as 0, healthy 1 (with the value it is measured against) and saturation; the sky is one overlay, the sample laid on its healthy reference with matches in grey and only the changes in color; IAM-A example on a grand-test sample through --bam (C28, V7)"
+   "notes": "2026-10-18: a withheld Met-A prints no number in the sky or plain view | 2026-10-18: sky drawn in units of the sample's own spread (the C-Score is unchanged by it) | 2026-10-18: an above-band C-Score crashed the report (C27), fixed with release check V6; far-right example (PLANTED) added to the example run | 2026-10-18 (author review): gauges printed as 0, healthy 1 (with the value it is measured against) and saturation; the sky is one overlay, the sample laid on its healthy reference with matches in grey and only the changes in color; IAM-A example on a grand-test sample through --bam (C28, V7) | 2026-10-18 (author): out-of-scope label is 'This score is preliminary until <instrument> is officially commissioned on <specimen>.'"
   },
   {
    "title": "One-button test from a fresh clone",

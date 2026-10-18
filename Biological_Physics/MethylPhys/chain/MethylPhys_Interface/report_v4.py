@@ -44,9 +44,11 @@ def _marks(): return json.load(open(os.path.join(CH, "Runtime Matrices", "Gauge"
 _NAMES = {"cd4 t cells": "CD4 T cells", "cd8 t cells": "CD8 T cells", "b cells": "B cells", "nk cells": "NK cells", "neutrophils": "Neutrophils", "monocytes": "Monocytes"}
 def cellname(c):   # 2026-10-18: cell types printed as a reader writes them (the data keeps the atlas's own names)
     c = str(c); return _NAMES.get(c.lower(), c[:1].upper() + c[1:])
-def untested(what, inst, shown=True):   # author 2026-10-17: plain wording for a reading outside the tested scope (the data keeps status "development")
-    w = cellname(what) if what.lower() in _NAMES else what
-    return ("reading shown; " if shown else "") + f"not yet tested with {inst} on {w}"
+def untested(what, inst, shown=True, noun="score"):   # author 2026-10-18: one plain sentence for a reading outside the commissioned scope
+    w = cellname(what) if what.lower() in _NAMES else what   # (the run record keeps status "development"; checks and scoring unchanged)
+    if not shown: return f"{inst} is not yet officially commissioned on {w}."
+    lead = "This share is" if noun == "shares" else "This score is"
+    return f"{lead} preliminary until {inst} is officially commissioned on {w}."
 def chip(status):
     s = str(status or "").lower()
     k = "com" if s.startswith("commissioned") else "ref" if s.startswith(("refused", "withheld", "not read")) else "na" if s.startswith("not run") else "dev"
@@ -93,7 +95,7 @@ def _shares(o):
     h = "<h2 id='v4-shares'>Cell shares: IAM-Deconvolver against IAM-Atlas v2.1</h2>"
     if not sh.get("cells"): return h + f"<p>{chip('withheld')} {E(str(sh.get('withheld')))}</p>"
     rows = "".join(f"<tr><td>{E(cellname(r['cell']))}</td><td><div class='bt'><div class='bar' style='width:{max(1, int(240*r['share']))}px'></div></div></td>"
-                   f"<td><b>{100*r['share']:.1f} %</b></td><td>{100*r['interval_95'][0]:.1f} to {100*r['interval_95'][1]:.1f} %</td><td>{chip(r['status'] if r['status'] != 'development' else untested(r['cell'] if 'cell' in r else 'this cell type', 'the IAM-Deconvolver'))}</td></tr>"
+                   f"<td><b>{100*r['share']:.1f} %</b></td><td>{100*r['interval_95'][0]:.1f} to {100*r['interval_95'][1]:.1f} %</td><td>{chip(r['status'] if r['status'] != 'development' else untested(r['cell'] if 'cell' in r else 'this cell type', 'the IAM-Deconvolver', noun='shares'))}</td></tr>"
                    for r in sorted(sh["cells"], key=lambda r: -r["share"]))
     return (h + f"<table><tr><th>Cell</th><th></th><th>Share</th><th>Range (information)</th><th>Status</th></tr>{rows}</table>"
             f"<p class='note'>Read on {sh.get('sites_used')} of {sh.get('markers')} marker sites. Each cell's healthy profile, with its uncertainty and the spread "
@@ -107,7 +109,8 @@ def _meta(o):
     if str(m.get("state", "")).startswith("withheld"): gA = None   # the noise gate withholds the state: no gauge is drawn (as the v3 record)
     _f = (o.get("_figs") or {}).get("met_a")
     return ("<h2 id='v4-met-a'>Met-A: the neutrophil's tagging level on the gauge</h2>" + (f"<img alt='Met-A gauge' src='{_uri(_f)}'>" if _f else "")
-            + f"<p>{chip('commissioned' if m.get('commissioning') else untested('whole blood', 'Met-A', shown=not str(m.get('state', '')).startswith('withheld')))} {E(str(t.get('state') or m.get('state', '')))}</p>")
+            + f"<p>State: <b>{'withheld by the array&#39;s noise check' if str(m.get('state', '')).startswith('withheld') else E(str(t.get('state') or m.get('state', '')))}</b></p>"
+            + f"<p>{chip('commissioned' if m.get('commissioning') else untested('whole blood', 'Met-A', shown=not str(m.get('state', '')).startswith('withheld')))}</p>")
 
 def _cscore(o):
     c, k = o.get("met_a_cscore") or {}, o.get("cscore_sky") or {}
