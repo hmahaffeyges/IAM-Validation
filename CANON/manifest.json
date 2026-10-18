@@ -27839,7 +27839,7 @@
    "status": "planned",
    "record": "reproduce/README.md",
    "runs": [],
-   "next_step": "2026-10-18 fresh-clone run 1: cscore_band PASS (every compared number identical, 42 min, methylprep manifests fetched fresh); deconv and metaa_rebuild running; run 2 running: job i-0aa8c719d3b0131c8 (three_labs, iama_line, mice)",
+   "next_step": "2026-10-18 fresh-clone run 1: cscore_band PASS (every compared number identical, 42 min, methylprep manifests fetched fresh); deconv and metaa_rebuild running; run 2 running: job i-0aa8c719d3b0131c8 (three_labs, iama_line, mice); run 3 running: job i-0fd94f1e7a44db34b (colon)",
    "notes": "2026-10-18: colon entry added (atlas v2 from Zenodo, GSE131013 from GEO; extract_posterior.py reads local blocks with BLOCKS_DIR)"
   }
  ],

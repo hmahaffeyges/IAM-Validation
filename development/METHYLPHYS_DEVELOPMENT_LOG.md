@@ -2538,3 +2538,6 @@ The manual described chain v3 only. New operator chapter manual/OM_v4_chain.md (
 
 ### 2026-10-18 · reproduce/ fresh-clone run 2 launched (OTH-076)
 Job i-0aa8c719d3b0131c8 (on-demand c7a.4xlarge, about 8 hours, about $8): three_labs, iama_line, mice. Run 1: cscore_band PASS, every compared number identical.
+
+### 2026-10-18 · reproduce/ run 3 launched: colon (OTH-076)
+Job i-0fd94f1e7a44db34b (on-demand m7a.xlarge, about 2 hours, about $1).

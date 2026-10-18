@@ -2908,6 +2908,30 @@
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: code in S3 first; results and 5-minute progress lines to S3; watcher from launch; disk image+150 GB for the 54 GB ENCODE file and mm10; self-terminating; about $8 on-demand",
    "note": "stops itself after 12 hours at most"
+  },
+  {
+   "job_id": "i-0fd94f1e7a44db34b",
+   "name": "reproduce/ from a fresh public clone, run 3: colorectal tissue (OTH-076)",
+   "date": "2026-10-18",
+   "commit": "0a4dc7aa",
+   "chain_commit": "0a4dc7aa",
+   "state": "running",
+   "s3_code_prefix": "results/REPRODUCE_V1/code/run3/",
+   "log": "results/REPRODUCE_V1/run3/status.txt",
+   "machine": "on-demand m7a.xlarge, self-terminating (5-hour timer)",
+   "purpose": "fresh clone; IAM-Atlas v2 from Zenodo, GSE131013 from GEO; the sealed colon scorer; compared with the committed result",
+   "record": "reproduce/box/reproduce_fresh.sh",
+   "manifest": [
+    "OTH-076"
+   ],
+   "outputs": [
+    "results/REPRODUCE_V1/run3/"
+   ],
+   "files": [
+    "reproduce/box/reproduce_fresh.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: code in S3 first; results and 5-minute progress to S3; watcher; image+40 GB disk; self-terminating; about $1",
+   "note": "stops itself after 5 hours at most"
   }
  ],
  "not_jobs": {
