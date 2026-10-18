@@ -2380,3 +2380,4 @@ Temperature T3 run 4 launched on the fixed counter: i-02ddbcb364e254e53 i-0583ab
 Machines: i-02ddbcb364e254e53 i-0583ab0c226363999.
 
 Book audit pass 2 (OTH-072): Landauer (retired term; IAM-A own-reference reading added beside Met-A; WGBS comparison), identity (IAM-A needs no identity sites), ledgers, Met-A (whole-blood note; chain scope), surface (no change).
+Book audit pass 2 continued (OTH-072): C-score (figure labeled as the pre-2026-10-09 construction; HEALPix sky in the report), translation (two solvers in chain v4; the Normal band is a line on the gauge, not a comparison; map scores dated, three rows since in the chain), instrument (Met-A tare named; sequencing intake and shape check), discipline (five commissioned instruments; synthetic-first rule with C23; clean-clone release check).

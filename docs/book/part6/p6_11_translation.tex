@@ -20,8 +20,7 @@ measurements.
 \paragraph{Component separation $\to$ deconvolution.} Planck separated the CMB from synchrotron, dust and free-free emission
 using templates and their frequency dependence. The methylome's templates are the reference methylomes of purified cells,
 and a specimen is separated into cells by solving for the fractions that best reproduce it. Planck never trusted a single
-separation method; it compared four~\cite{Planck2018IV}. Chain v3 runs one solver; a second, independent solver as a cross-check is
-not yet in the chain (Chapter~\ref{ch:separation}). \openprob
+separation method; it compared four~\cite{Planck2018IV}. Chain v4 carries two solvers on different references: the eight-group composition behind Met-A's whole-blood expectation, and IAM-Deconvolver against IAM-Atlas v2.1 (Chapters~\ref{ch:separation} and~\ref{ch:atlas}). Comparing the two on every specimen, as Planck compared its four, is not yet a check the chain prints. \openprob
 
 \paragraph{Map-making from sparse data $\to$ the atlas as a posterior.} A raw sky map is sparse and unevenly covered;
 Bayesian map-making fills and sharpens it using the statistical structure of the field, with an uncertainty at every pixel.
@@ -50,12 +49,10 @@ cell.
 
 \paragraph{A group of people is never the reference.} A cosmologist compares the measured sky with a theory spectrum, a prediction
 computed from physics. She does not compare this sky with other skies. The methylome analog of the theory spectrum is the floor.
-The field's habit is to compare a person with a panel of healthy people, in several forms: laboratory zeros from healthy
-panels, age curves, healthy bands per cell type. The chain uses none of them; the translation, read carefully, forbids them.
+The field's habit is to compare a person with a panel of healthy people, in several forms: laboratory zeros from healthy panels, age curves, a healthy group as the origin of each reading. No reading in the chain is made that way; the translation, read carefully, forbids it. A reading is made against the floor and the cell's own reference. Where the Normal band ends on the gauge is then a line on that gauge, set from how far healthy people's own readings scatter (Chapters~\ref{ch:cscore} and~\ref{ch:iama}); it says where healthy readings fall, and it is not what a reading is made against.
 
 \begin{rulebox}
-MEASURE, DON'T COMPARE. A cell is read against its floor and the healthy reference of its own cell type, fixed by physics and calibration. It is
-never read against other people.
+MEASURE, DON'T COMPARE. A cell is read against its floor and its own reference, fixed by physics and calibration: on arrays the healthy reference of its own cell type, on single molecules the line its own loose share predicts. It is never read against other people.
 \end{rulebox}
 
 \section{The scored map}
@@ -93,7 +90,7 @@ thermal and kinetic SZ (64, 65) & inflammation; clonal expansion & analogy \\
 \bottomrule
 \end{longtable}
 
-Figure~\ref{fig:p4_map79} counts the status of all 79 rows of the full map (Table~\ref{tab:map79}).
+The scores are as of 2 October 2026. Chain v4 (17 October) brought three rows into the chain since: HEALPix pixelization (the C-score's map drawn on a HEALPix sphere in the report), a second solver (IAM-Deconvolver), and the atlas as a commissioned posterior (IAM-Atlas v2.1). Figure~\ref{fig:p4_map79} counts the status of all 79 rows of the full map as scored (Table~\ref{tab:map79}).
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part6/fig_p4_11_map79.pdf}

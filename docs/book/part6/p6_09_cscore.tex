@@ -16,8 +16,7 @@ in units of the healthy spread at that site:
   \label{eq:z}
 \end{equation}
 with $\mathrm{ref}_i$ the healthy neutrophil mean entropy at that site (isolated cells) or the person's own expectation
-$H(e_i)$ (whole blood), and $s_i$ the shrunken standard deviation of $H$ across the six reference arrays. The map is the cell's
-own sky: only measured sites, placed by genome position, nothing interpolated. \derived{} (the construction)
+$H(e_i)$ (whole blood), and $s_i$ the shrunken standard deviation of $H$ across the six reference arrays. The map is the cell's own sky: only measured sites, placed by genome position, nothing interpolated. \derived{} (the construction) The chain's report draws this map on a HEALPix sphere in genome order (Chapter~\ref{ch:chain}), so a clustered departure shows as a patch and a scattered one as speckle; the picture is of the commissioned reading, and nothing is scored from it.
 
 \section{The score}
 
@@ -36,7 +35,7 @@ Figure~\ref{fig:p4_cscore_construction} shows the construction on two simulated 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.95\textwidth]{figures/part6/fig_p4_09_construction.pdf}
 \caption{The C-score construction on two simulated residual maps of 6,000 sites (fixed seed). Top: every site moved by $+0.5$ healthy SD.
-Bottom: the same total departure placed in one tenth of the genome order. Steps: 50-site block means. $C$ uses the healthy baseline 1.1104.
+Bottom: the same total departure placed in one tenth of the genome order. Drawn with the construction as it stood before 2026-10-09 (50-site block means, healthy baseline 1.1104); the commissioned score uses blocks of 10 and the baseline 1.0103.
 \calc{} (illustration; no specimen).}
 \label{fig:p4_cscore_construction}
 \end{figure}

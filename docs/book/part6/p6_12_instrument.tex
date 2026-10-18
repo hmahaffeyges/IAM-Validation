@@ -52,8 +52,11 @@ true methylation. \measured{} Met-A identity sites sit at 0.75--0.95 or 0.05--0.
 
 The chain reads EPIC v1 arrays only. It refuses a specimen when Stage~0 reports another array type, when probe names carry the EPIC v2
 design suffix, or when the $\beta$ vector holds too few probes for EPIC v1. The reason is
-measured: a reference built on one platform does not transfer to another (Chapter~\ref{ch:meta}). A 450K neutrophil reference is not
-yet frozen. \openprob
+measured: a reference built on one platform does not transfer to another (Chapter~\ref{ch:meta}). A 450K neutrophil reference is not yet frozen. \openprob
+
+Sequencing enters through its own intake (Stage~Q0): a methylation-read file or an aligned BAM, with its cell type declared. Before IAM-A reads it,
+the sample-shape check compares the sample's tile distribution with the healthy samples of its cell type and declines a sample whose shape it does not
+recognize, saying why (Chapter~\ref{ch:iama}). IAM-A needs no tare: it reads a sample against the line its own loose share predicts.
 
 \section{The noise index}
 
@@ -76,8 +79,7 @@ about 1.07. That residual is the reason the chain also tares every reading again
 
 \section{The tare: references run beside the specimen}
 
-A physical instrument is zeroed against a known input measured the same way. Chain v3 does this with healthy reference specimens of the same
-type, run on the same slide, else in the same batch, through the same chain (Stage~T). The
+A physical instrument is zeroed against a known input measured the same way. The chain does this for Met-A with healthy reference specimens of the same type, run on the same slide, else in the same batch, through the same chain (Stage~T). The
 references are part of the run, not a stored group, and the specimen is never among its own references.
 \begin{itemize}
 \item \textbf{Median tare}: $A_{\rm rel}=A/\mathrm{median}(A_{\rm ref})$. There is no fitted correction.

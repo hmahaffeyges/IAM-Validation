@@ -19,7 +19,8 @@ Three refinements came from use.
 \item \textbf{A deferred check is never a pass.} A gate that cannot run because an input is missing stops the specimen (Chapter~\ref{ch:instrument}).
 \item \textbf{Development and commissioning are different stages.} During development the chain is diagnosed, fixed and re-run as often as needed, and each
       result is reported and marked \emph{development, after looking}. Pre-registration governs the procedures that commission the instrument and produce
-      evidence. The first scope commissioned this way is Met-A on neutrophils, EPIC v1 (2026-10-09); every other stage of chain v3 is a development build.
+      evidence. The first scope commissioned this way was Met-A on neutrophils, EPIC v1 (2026-10-09). Chain v4 carries five instruments each commissioned this way, each for its own scope (Chapter~\ref{ch:chain}); a reading outside an instrument's tested scope is printed with a plain note saying so.
+\item \textbf{A synthetic test comes first, and it must plant what real data holds.} Every procedure is first run on planted data with a known answer. The planted data must carry what the real data carries: a counter test that planted only methylated molecules missed a flaw that unmethylated molecules expose, found by a later test that planted both, before any real result was scored.
 \item \textbf{A pass must survive the obvious confound.} In one pre-registered battery, severe infection read above Normal more often than health
       (one-sided $p=0.015$), a pass as written. Severe specimens also had more neutrophils (median fraction 0.79 against 0.65), and with fraction in the model
       the severity term was $+0.0075$ ($p=0.42$). \measured{} The pass was a composition effect, and the
@@ -71,8 +72,7 @@ part of the loss as a change of fraction. \measured}
 
 \section{Look-elsewhere}
 
-A search over many places must be corrected for the number of places. Chain v3 reads one statistic per cell per specimen, Met-A, and one map statistic, the
-C-score, each defined before any specimen is read, so a reading involves no search. A comparison across many specimens, many sites or many lead times is a
+A search over many places must be corrected for the number of places. Each instrument of the chain reads one statistic per specimen (Met-A, the C-score, IAM-A, and the shares of the Deconvolver), each defined before any specimen is read, so a reading involves no search. A comparison across many specimens, many sites or many lead times is a
 search, and it carries the correction. Most patterns found by looking are the product of looking.
 
 
@@ -80,8 +80,7 @@ search, and it carries the correction. Most patterns found by looking are the pr
 
 A single build script regenerates the documents derived from the code and runs gates that include a vocabulary scan
 that fails on condition names and group-comparison language in live text, a link check, and a reconciliation of each generated procedure with its source.
-The chain v3 procedure (the SOP), its operator chapter and the v3 report are not yet generated from the
-code or scanned by these gates. \openprob{} Two
+Every chain change must also pass the full release check on a fresh public clone of the repository, on a clean machine, before it is called tested. The operating procedure (the SOP) and its operator chapter are not yet generated from the code or scanned by these gates. \openprob{} Two
 runs never write to one output path; one early procedure run was voided when a stray process kept writing into the same log, and the rule was written that day.
 
 A posterior can converge cleanly to the wrong answer. In a hierarchical fit in which a between-member spread and a concentration parameter
