@@ -251,7 +251,10 @@ def page(art):
 <main>
 {campaign}
 <section class="wrap" id="wins"><h2>{E(CF["title"])}</h2>{chain_lead}<div class="grid">{results}</div>
-<p class="sub">Each card links to its record. <a href="{rec("EARLIER_RESULTS.md")}">{E(CF["earlier"])}</a> ({n_earlier}, each with its record).</p></section>
+<p class="sub">Each card links to its record. <a href="{rec("EARLIER_RESULTS.md")}">{E(CF["earlier"])}</a> ({n_earlier}, each with its record).</p>
+<p class="sub"><b>Run it on your own samples.</b> <a href="{rec("TRY_TO_BREAK_IT.md")}">Try to break it</a>: what each instrument should do on samples you already know, and how to report a break.
+<a href="{rec("Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/README.md")}">The showcase</a>: public samples read once through the one command.
+<a href="{rec("Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md")}">The operating procedure</a>.</p></section>
 {v21_banner}
 {last24}
 <section class="wrap" id="daylogs"><h2>Start here: the daily log</h2>
@@ -533,6 +536,7 @@ def full(art, css_tag):
 if __name__ == "__main__":
     ART = os.path.join(REPO, "website", "art", "out")
     if sys.argv[1] == "--check":
+        import atlas_pages   # 2026-10-18: a syntax error in the cell-page code passed this check and broke the live build; import it here too
         _, b = full(lambda n: "../art/" + n, ""); P = problems(b)
         print("build_home: " + ("ok" if not P else "REFUSED: " + "; ".join(P))); sys.exit(1 if P else 0)
     if sys.argv[1] == "--standalone":

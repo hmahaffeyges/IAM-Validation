@@ -24,6 +24,7 @@ comes from (`../LESSONS.md`).
 - **A rerun on a committed input uses the exact files the committed run stamped, checked by checksum** (reference genome, alignment), never the first match of a file search. The IAM-A example (2026-10-18) first picked Bismark's bisulfite-converted genome.
 
 - **Text passed to `--banner` (or any report field) is checked against the report's claim guard before launch** (`CLAIM_SCAN` in report_v3.py: no disease or clinical words in a report's front text). Showcase run 1 (2026-10-18) lost its three mixture reports to a banner that named the cell lines with such a word.
+- **The site check loads every module the live build loads** (website/build/build_home.py --check imports atlas_pages). An apostrophe in a caption string broke atlas_pages.py; --check never imported it, so the push passed and every live site build failed for about 20 minutes (2026-10-18).
 ## Known facts, by data
 
 **Plants (Arabidopsis whole-genome bisulfite).** Methylation in three contexts: CG, CHG and CHH; the IAM-A counter reads CG only. Much of the

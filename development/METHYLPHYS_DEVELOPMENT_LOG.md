@@ -2517,3 +2517,6 @@ Author: "dont broadcast the temp test anywhere, it was exploratory and has no be
 
 ### 2026-10-18 · Zenodo upload run 2 launched; plan and chain v4 rows current (ATL-005, OTH-068)
 Zenodo tested at 0.35 MB/s (5 MB from the laptop), so the IAM-Atlas v2.1 upload machine was relaunched: job i-0f469dcb16e99a67d, same script and commit as run 1, skipping files already there; both records stay drafts. Chain v4 (OTH-068) marked run: real samples of each kind read through the one command. The temperature stage taken out of the commissioning plan (author: exploratory).
+
+### 2026-10-18 · Site build broken by a caption, fixed; page links the guide, showcase and SOP (OTH-071)
+The shared-scale caption on the cell pages put an apostrophe inside a quoted string in website/build/atlas_pages.py; the push check never imported that file, so the push passed and the live site build failed from commit 91778487 on (the live page kept showing the previous build). Fixed, and build_home.py --check now imports atlas_pages. The chain section of the front page now links Try to break it, the showcase and the operating procedure.

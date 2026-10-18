@@ -27530,7 +27530,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "running",
    "runs": [],
-   "next_step": "2026-10-17: the Commissioning Campaign numbers at the top of the page (compute_snapshot); next: further author review",
+   "next_step": "2026-10-18: the chain section links Try to break it, the showcase and SOP v4; site build fixed (caption syntax) and its check now loads the cell-page code",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
