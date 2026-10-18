@@ -71,19 +71,15 @@ def build_pdfs(o, F, out, sid, when):
     for k, t_ in (("met_a", "Met-A on its gauge"), ("iam_a", "IAM-A on its gauge"), ("cscore", "C-Score on its bar")):
         i = _img(F.get(k))
         if i: st += [KeepTogether([P(t_, "h2"), i])]
-    k, a = o.get("cscore_sky") or {}, o.get("atlas_sky") or {}
-    if k.get("drawn"):
-        pair = [[_img(k["png"], 3.45), _img(a.get("png"), 3.45) if a.get("drawn") else P("")],
-                [P("This sample: how far each identity site departs from healthy neutrophils, in units of this sample's own spread.", "small"),
-                 P(f"Healthy neutrophils from IAM-Atlas v2.1 at the same {a.get('sites', 0):,} sites, on the same pixels. Most sites in a healthy cell are fully tagged (red) or untagged (blue)." if a.get("drawn") else "", "small")]]
-        st += [KeepTogether([P("The sample's sky beside the healthy sky", "h2"), _tbl(pair, [3.55, 3.55], head=False),
-                             P("Each site keeps one place on a HEALPix sphere, set by its position in the genome, so the two pictures line up site for site. "
-                               "Healthy departures look like speckle; clustered departures show as patches. Pictures of the readings; nothing is scored from them.", "small")])]
+    c = o.get("changes_sky") or {}
+    if c.get("drawn") and c.get("png") and os.path.exists(c["png"]):
+        import report_v4 as R4
+        st += [KeepTogether([P("What changed: the sample laid over its healthy reference", "h2"), _img(c["png"], 6.4), P(R4.SKY_CAP, "small")])]
     res["researcher"] = doc(base + "_researcher.pdf", st)
     # plain
     st = _head(o, sid, when, "Plain") + [P("The readings, in plain words", "h2"),
-          P("Each gauge runs from the floor, below which a cell can no longer hold its identity, to the ceiling, where every mark is a coin flip. "
-            "Healthy cells sit in the green band. Moving right means more writing than healthy.")]
+          P("Each gauge runs from 0, the floor (below it a cell can no longer hold its identity), through 1, healthy, "
+            "to saturation, the most the scale can register. Healthy cells sit in the green band around 1. Moving right means the marks are being lost.")]
     if sh.get("cells"):
         top = sorted(sh["cells"], key=lambda r: -r["share"])[:4]
         st += [P("Which cells are in the sample", "h2"), P(", ".join(f"{R.cellname(r['cell'])} {100 * r['share']:.0f} %" for r in top) + ", read against the 79-cell IAM-Atlas v2.1.")]
@@ -94,7 +90,10 @@ def build_pdfs(o, F, out, sid, when):
         if i: st += [KeepTogether([P(name, "h2"), i, P(say)])]
         elif key == "met_a" and str((o.get("met_a") or {}).get("state", "")).startswith("withheld"):
             st += [P("Met-A", "h2"), P("No reading on this sample: the array's own noise check could not confirm it was clean enough to read, so Met-A held back rather than guess.")]
-    if k.get("drawn"): st += [KeepTogether([P("The sample on the sphere", "h2"), _img(k["png"], 5.4),
-                              P("Each dot of color is one place in the genome. Speckle is what healthy looks like; patches mean the changes are bunched together.")])]
+    c = o.get("changes_sky") or {}
+    if c.get("drawn") and c.get("png") and os.path.exists(c["png"]):
+        st += [KeepTogether([P("The sample on the sphere", "h2"), _img(c["png"], 5.6),
+                             P("Each point is one place in the genome. Grey means the same as a healthy cell. Color means different: a few scattered "
+                               "colored points are ordinary; colored patches mean the changes are bunched together along the genome.")])]
     res["plain"] = doc(base + "_plain.pdf", st)
     return res

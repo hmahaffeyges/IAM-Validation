@@ -150,8 +150,9 @@ def _figs(o, base):
     return F
 
 PHYS_INTRO = ("One law runs under every reading here: a mark held against thermal noise costs energy, and the loss of that hold shows as entropy, "
-              "in bits. Each reading sits on a gauge whose ends are derived, not fitted: the floor H<sub>min</sub> below which a cell cannot hold its "
-              "identity, and the ceiling where every site is a coin flip.")
+              "in bits. Each reading is a ratio to its healthy reference, so healthy reads 1. Its gauge runs from 0, the floor (below it a cell can no "
+              "longer hold its identity), to saturation, the most the scale can register (every identity site fully scrambled). Both ends are derived "
+              "from physics, not fitted to data.")
 def _physics(o):
     rows = physics_rows(o)
     if not rows: return ""
@@ -168,18 +169,22 @@ def physics_rows(o):
                      f"This sample's loose share L = {L:.3f} predicts &epsilon;<sub>pred</sub>(L) = {ep:.4f} from the self-reference line; "
                      f"<b>A = &epsilon;/&epsilon;<sub>pred</sub> = {float(q['A']):.3f}</b>.",
                      f"In bits: H(&epsilon;) = {_H(e):.3f} bits per site. Holding energy E/kT = ln((1&minus;&epsilon;)/&epsilon;) = {math.log((1 - e) / e):.2f}. "
-                     f"Floor: &epsilon;<sub>min</sub> = 1/(1+e<sup>M</sup>), M = {M} (one ATP per site against thermal kicks), A = {_sci(emin / ep)}. "
-                     f"Ceiling: &epsilon; = &frac12;, a coin flip, E = 0, H = 1 bit, A = {0.5 / ep:.2f}."))
+                     f"<b>Gauge: 0 &middot; healthy 1 &middot; saturation {0.5 / ep:.2f}.</b> Healthy 1 is this sample's own predicted held error, {ep:.4f}. "
+                     f"Saturation: half the sites unwritten, nothing held (H = 1 bit per site). The floor sits at A = {_sci(emin / ep)}, effectively 0: "
+                     f"the least error one ATP per site (M = {M}) can buy against thermal noise."))
     if m.get("A") is not None and str(m.get("state", "")).startswith("withheld"):
         rows.append(("Met-A", "No reading: the noise gate withheld the state on this array (" + E(str(m["state"]).split(":", 1)[-1].split("(")[0].strip()) + ").",
                      "A reading is given only when enough of the array's noise sites are measured to show the array is clean enough to read."))
     elif m.get("A") is not None:
         a = t.get("A_rel") if t.get("A_rel") is not None else m["A"]
+        ref_txt = (f"Healthy 1 is the median of this run's {t.get('n_refs')} healthy references (their own Met-A {float(t['reference_median']):.3f}). "
+                   if t.get("A_rel") is not None and t.get("reference_median") is not None else "Healthy 1 is the committed healthy reference of the cell type. ")
         bits = (f"On isolated neutrophils the healthy reference is 0.330 bits per site, so this reading is {float(a) * 0.330263:.3f} bits per site. "
                 if m.get("specimen") != "whole blood" else "In whole blood the expectation is the healthy profile of each cell type, weighted by this sample's cell shares. ")
         rows.append(("Met-A", f"&lang;H(&beta;)&rang; over {m.get('n_sites', '')} identity sites of the neutrophil, divided by its healthy expectation; "
                      f"<b>{'A_rel' if t.get('A_rel') is not None else 'A'} = {float(a):.3f}</b>.",
-                     bits + f"Floor H<sub>min</sub>: A = 1&times;10<sup>{int(math.floor(math.log10(float(G['floor']['A']))))}</sup>. Ceiling: every identity site at a coin flip, 1 bit per site, A = {float(G['full_surface']['Met-A']):.2f}."))
+                     f"<b>Gauge: 0 &middot; healthy 1 &middot; saturation {float(G['full_surface']['Met-A']):.2f}.</b> " + ref_txt + bits
+                     + "The floor (0 on the gauge) is the least entropy a cell can carry and still hold its identity; saturation is every identity site fully scrambled."))
     if c.get("C") is not None:
         rows.append(("C-Score", f"How the departures of Met-A's identity sites cluster along the genome: the variance of the means of blocks of "
                      f"{c.get('block_sites', 10)} neighboring sites over the variance of single sites, divided by the healthy median; "
@@ -188,26 +193,20 @@ def physics_rows(o):
                      "617 healthy arrays from 19 studies and held in two laboratories that had no part in setting it. The sky below shows the same departures."))
     return rows
 
-def _skypair(o):
-    k, a = o.get("cscore_sky") or {}, o.get("atlas_sky") or {}
-    if not k.get("drawn"): return ""
-    left = f"<figure><img alt='This sample: departures on the sphere' src='{_uri(k['png'])}'><figcaption>This sample: how far each identity site departs from healthy neutrophils, in units of this sample's own spread.</figcaption></figure>"
-    right = ""
-    if a.get("drawn"):
-        hw = a.get("range_halfwidth") or {}
-        right = (f"<figure><img alt='Healthy neutrophils from IAM-Atlas v2.1' src='{_uri(a['png'])}'><figcaption>Healthy neutrophils from IAM-Atlas v2.1 at the same "
-                 f"{a['sites']:,} sites, on the same pixels. Most sites in a healthy cell are fully tagged (red) or untagged (blue)." + (f" The atlas's 95 % range at these sites: median half-width {hw['median']:.3f}; nine sites in ten within {hw['p90']:.3f}." if hw else "")
-                 + "</figcaption></figure>")
-    return (f"<h3 id='v4-skypair'>The sample's sky beside the healthy sky</h3><div class='pair'>{left}{right}</div>"
-            f"<p class='note'>Each site keeps one place on a HEALPix sphere (NSIDE {k['nside']}, nested order), set by its position in the genome, so "
-            "neighbors on the genome are neighbors on the sphere and the two pictures line up site for site. A healthy sample's departures look like "
-            "speckle; departures clustered along the genome show as patches, which is what the C-Score measures. IAM-Atlas v2.1 draws all 79 of its "
-            "healthy cell types this way, each with a map of where its reference is sure and where it is not. Pictures of the readings; nothing is scored from them.</p>")
+SKY_CAP = "Grey is where this sample matches healthy neutrophils from IAM-Atlas v2.1 (the shade is the healthy cell's own tagging). Color marks only the sites that differ from healthy by more than 2 of this sample's own spread: red where its pattern is more disordered than healthy (marks lost), blue where it is more ordered. Every site keeps one place on a HEALPix sphere, set by its position in the genome, so a few scattered colored points are ordinary, and colored patches are changes that run along the genome, which is what the C-Score measures. A picture of the reading; nothing is scored from it."
+def _skypair(o):   # the overlay replaces the side-by-side pair (author 2026-10-18: "quieten the matches and showcase the changes")
+    c, a = o.get("changes_sky") or {}, o.get("atlas_sky") or {}
+    if not c.get("drawn"): return ""
+    hw = a.get("range_halfwidth") or {}
+    sure = (f" How sure the healthy reference is at these sites: its 95 % range is half {hw['median']:.3f} wide at the median site (0 would be exact; "
+            f"nine sites in ten within {hw['p90']:.3f})." if hw else "")
+    return (f"<h3 id='v4-skypair'>What changed: the sample laid over its healthy reference</h3><figure><img alt='This sample laid over healthy neutrophils' "
+            f"src='{_uri(c['png'])}'><figcaption>{SKY_CAP}{sure}</figcaption></figure>")
 
 def _plain(o, F):
     sh, m, t, c, q = o.get("cell_shares") or {}, o.get("met_a") or {}, o.get("tare") or {}, o.get("met_a_cscore") or {}, o.get("iam_a") or {}
-    P = ["<h2 id='v4-plain'>The readings, in plain words</h2><p>Each gauge runs from the floor, below which a cell can no longer hold its identity, "
-         "to the ceiling, where every mark is a coin flip. Healthy cells sit in the green band. Moving right means more writing than healthy.</p>"]
+    P = ["<h2 id='v4-plain'>The readings, in plain words</h2><p>Each gauge runs from 0, the floor (below it a cell can no longer hold its identity), "
+         "through 1, healthy, to saturation, the most the scale can register. Healthy cells sit in the green band around 1. Moving right means the marks are being lost.</p>"]
     if sh.get("cells"):
         top = sorted(sh["cells"], key=lambda r: -r["share"])[:4]
         P.append("<h3>Which cells are in the sample</h3><p class='say'>" + E(", ".join(f"{cellname(r['cell'])} {100 * r['share']:.0f} %" for r in top))

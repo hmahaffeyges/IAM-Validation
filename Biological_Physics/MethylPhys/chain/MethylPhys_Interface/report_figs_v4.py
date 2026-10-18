@@ -1,7 +1,7 @@
 """Figures for the chain v4 report (2026-10-18): the floor-to-ceiling gauges, the C-Score bar and the healthy atlas sky beside a sample's own.
 
 Gauge (author 2026-10-16, for webpage viewers and doctors; researchers get the table): left end the floor H_min (below it the cell cannot hold
-its identity; derived), the Normal band around healthy 1 (measured), right end the ceiling, a coin flip at every site (derived). Right of healthy
+its identity; derived), the Normal band around healthy 1 (measured), right end saturation, every identity site fully scrambled (derived); printed as 0, 1 and the saturation value (author 2026-10-18). Right of healthy
 is more writing than healthy, toward the full surface. Because healthy sits near the floor on IAM-A's scale, a magnified strip under the bar
 shows the same numbers from the floor to a little past the band. Every mark comes from a committed file; nothing is typed here.
 The C-Score measures clustering, not tagging: it has no derived floor or ceiling, so its bar runs from scattered to clustered with its band."""
@@ -32,8 +32,9 @@ def gauge_png(out, name, A, floor, ceiling, band, subject, state="", unit="A"):
     fig = plt.figure(figsize=(7.2, 2.25 if zoom else 1.55), facecolor="white")
     ax = fig.add_axes([0.04, 0.50 if zoom else 0.30, 0.92, 0.22 if zoom else 0.32]); ax.set_xlim(-0.01, 1.01); ax.set_ylim(-0.6, 1.9); ax.axis("off")
     _bar(ax, floor, ceiling, band, A, floor, ceiling)
-    ax.text(0, -0.45, f"floor {sci(floor)}\nidentity cannot be held below", ha="left", va="top", fontsize=6.8, color=SUB)
-    ax.text(1, -0.45, f"ceiling {ceiling:.2f}\na coin flip at every site", ha="right", va="top", fontsize=6.8, color=SUB)
+    ax.text(0, -0.45, "0  floor\nbelow it a cell can no longer hold its identity", ha="left", va="top", fontsize=6.8, color=SUB)   # author 2026-10-18: 0, not 1e-7
+    ax.text(1, -0.45, f"{ceiling:.2f}  saturation\nthe most this scale can register", ha="right", va="top", fontsize=6.8, color=SUB)
+    ax.text((1 - floor) / (ceiling - floor), -0.45, "1  healthy reference", ha="center", va="top", fontsize=6.8, color="#1f6b43")
     if A is not None: ax.text(min(max((A - floor) / (ceiling - floor), 0.06), 0.94), 1.3, f"{name} {A:.3f}", ha="center", va="bottom", fontsize=9.5, fontweight="bold", color=INK)
     fig.text(0.04, 0.95, f"{name}  ·  {subject}" + (f"  ·  {state}" if state else ""), fontsize=8, color=INK, va="top")
     if zoom:
@@ -96,3 +97,47 @@ def atlas_sky_png(out, ids, cell, atlas_dir, nest_pix2ang, title=""):
     except Exception: pass
     return {"drawn": True, "png": os.path.abspath(out), "cell": cell, "sites": n, "sites_in_atlas": int(ok.sum()), "nside": nside, "order": "NESTED",
             "atlas": "IAM-Atlas v2.1", "range_halfwidth": hw}
+
+def changes_sky_png(out, z, cell, atlas_dir, nest_pix2ang, readings="", thr=2.0, title=""):
+    """The sample laid over its healthy reference (author 2026-10-18: overlay the two, quiet the matches, show the changes). Same sites, same
+    order, same pixels as the C-Score sky. Background: the healthy cell from IAM-Atlas v2.1 in greys (darker = more tagged). Color only where
+    the sample's pattern (entropy per site, the Met-A departure) differs from healthy by more than `thr` of its own spread (the C-Score's departures, scaled as on the C-Score sky). Scattered
+    single colored pixels are ordinary; colored patches are changes that run along the genome, which is what the C-Score measures."""
+    import pyarrow.parquet as pq, pandas as pd
+    from scipy.spatial import cKDTree
+    from matplotlib.patches import Ellipse, Patch
+    zz = pd.Series(z, dtype="float64"); ids = list(zz.index); n = len(zz)
+    med = float(zz.median()); mad = float((zz - med).abs().median()) * 1.4826 or float(zz.std()) or 1.0; d = ((zz - med) / mad).to_numpy()
+    sites = pq.read_table(os.path.join(atlas_dir, "sites.parquet")).column("cpg").to_pylist()
+    part = next(k for k in (1, 2, 3) if cell in pq.read_schema(os.path.join(atlas_dir, f"mu_part{k}.parquet")).names)
+    u = pq.read_table(os.path.join(atlas_dir, f"mu_part{part}.parquet"), columns=[cell]).column(cell).to_numpy()
+    v = u.astype(np.float32) / 1e4; v[u == 65535] = np.nan; mu = pd.Series(v, index=sites).reindex(ids).to_numpy()
+    nside = 1
+    while 12 * nside * nside * 2 < n: nside *= 2
+    npix = 12 * nside * nside; pix = (np.arange(n) * npix) // n
+    def pmean(x):
+        ok = np.isfinite(x); s = np.bincount(pix[ok], x[ok], npix); k = np.bincount(pix[ok], minlength=npix); return np.where(k > 0, s / np.maximum(k, 1), np.nan)
+    D, H = pmean(d), pmean(mu)
+    th, ph = nest_pix2ang(nside, np.arange(npix)); xyz = np.c_[np.sin(th) * np.cos(ph), np.sin(th) * np.sin(ph), np.cos(th)]
+    X, Y = np.meshgrid((np.arange(1600) + 0.5) / 1600 * 4 - 2, (np.arange(800) + 0.5) / 800 * 2 - 1)
+    inside = (X / 2) ** 2 + Y ** 2 < 1; t = np.arcsin(np.clip(Y, -1, 1)); lat = np.arcsin(np.clip((2 * t + np.sin(2 * t)) / np.pi, -1, 1))
+    lon = np.pi * X / (2 * np.cos(np.where(inside, t, 0)))
+    q = np.c_[(np.cos(lat) * np.cos(-lon)).ravel(), (np.cos(lat) * np.sin(-lon)).ravel(), np.sin(lat).ravel()]
+    idx = cKDTree(xyz).query(q)[1].reshape(X.shape); di, hi = D[idx], H[idx]
+    g = np.where(np.isfinite(hi), 0.95 - 0.30 * np.nan_to_num(hi), 0.97)          # healthy backdrop: light greys
+    rgb = np.dstack([g, g, g]); cm = plt.get_cmap("RdBu_r"); ch = np.isfinite(di) & (np.abs(di) > thr) & inside
+    col = cm(np.clip((di + 4) / 8, 0, 1))[..., :3]; rgb[ch] = col[ch]; rgb[~inside] = 1.0
+    fig, ax = plt.subplots(figsize=(7.2, 4.3)); fig.patch.set_facecolor("white")
+    im = ax.imshow(rgb, origin="lower", interpolation="nearest", extent=(-2, 2, -1, 1))
+    e = Ellipse((0, 0), 4, 2, transform=ax.transData, fc="none", ec="#555555", lw=0.5); ax.add_patch(e); im.set_clip_path(e)
+    ax.set_xlim(-2.02, 2.02); ax.set_ylim(-1.02, 1.02); ax.set_aspect("equal"); ax.set_axis_off()
+    ax.set_title(title or "What changed: this sample laid over healthy " + cell, loc="left", fontsize=9.5)
+    nch = int((np.isfinite(D) & (np.abs(D) > thr)).sum()); nd = int(np.isfinite(D).sum())
+    ax.legend(handles=[Patch(color="#c8c8c8", label="matches healthy (grey shade: the healthy cell's tagging)"),
+                       Patch(color=cm(0.92), label=f"more disorder than healthy: pattern lost (beyond +{thr:g} of its own spread)"),
+                       Patch(color=cm(0.08), label=f"more order than healthy (beyond \u2212{thr:g})")],
+              loc="upper center", bbox_to_anchor=(0.5, -0.02), ncol=1, fontsize=7.2, frameon=False)
+    if readings: fig.text(0.5, 0.005, readings + f"   \u00b7   {nch} of {nd} pixels changed", ha="center", fontsize=9)
+    fig.savefig(out, dpi=200, bbox_inches="tight"); plt.close(fig)
+    return {"drawn": True, "png": os.path.abspath(out), "cell": cell, "nside": nside, "order": "NESTED", "threshold": thr,
+            "pixels_changed": nch, "pixels": nd, "atlas": "IAM-Atlas v2.1"}

@@ -12,3 +12,4 @@ python-dateutil
 matplotlib==3.9.2
 pyarrow==17.0.0
 reportlab>=3.6
+pysam==0.24.1   # chain v4 Stage Q2 reads aligned BAM files (--bam); missing until 2026-10-18 (LESSONS C28)

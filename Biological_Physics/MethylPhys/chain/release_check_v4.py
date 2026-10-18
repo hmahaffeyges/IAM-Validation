@@ -13,7 +13,8 @@ with F1 reading FROZEN_INPUTS_v4.json and S2 leaving verbatim run transcripts (d
       distance between consecutive sites under a tenth of the median distance between random sites)
   V4  the v4 report: the front sections (at a glance, shares, C-Score with its sky) and every v3 section id are present
   V5  the same-run reference table reaches the C-Score tare (C_rel = C / median of three references) and both report PDFs are written (C26)
-  V6  a planted clustered departure gives a full report: C_rel above the band, the CSCORE_CLUSTERED flag, both PDFs (C27)"""
+  V6  a planted clustered departure gives a full report: C_rel above the band, the CSCORE_CLUSTERED flag, both PDFs (C27)
+  V7  IAM-A from an aligned BAM through the one command (--bam; pysam pinned): exit 0, report written, molecules counted (C28)"""
 import os, sys, json, gzip, glob, hashlib, re, time, subprocess, tempfile
 import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path[:0] = [HERE]
@@ -114,12 +115,43 @@ def V6(tmp):
     rec("V6", code == 0 and (c.get("C_rel") or 0) > 1.152 and "CSCORE_CLUSTERED" in h and pdf,
         f"exit {code}; C_rel {c.get('C_rel')} ({c.get('C_call')}); flag in report: {'CSCORE_CLUSTERED' in h}; both PDFs: {pdf}")
 
+def V7(tmp):
+    """IAM-A from an aligned BAM through the one command (LESSONS C28, 2026-10-18): a small planted Bismark-style BAM (every autosome present;
+    methylated CpG runs with planted isolated unwritten sites) and its FASTA, read with --bam, must exit 0, write the report and count
+    qualifying molecules. Until 2026-10-18 pysam, which --bam needs, was missing from requirements.txt and no check used this route."""
+    import pysam
+    rng = np.random.default_rng(7); D = os.path.join(tmp, "V7"); os.makedirs(D, exist_ok=True)
+    seq = list(rng.choice(list("AT"), 400_000))
+    for i in range(1000, 399_000, 25): seq[i], seq[i + 1] = "C", "G"
+    ref = "".join(seq); fa = os.path.join(D, "ref.fa")
+    with open(fa, "w") as f:
+        f.write(">chr1\n" + ref + "\n")
+        for c in range(2, 23): f.write(f">chr{c}\n" + "A" * 2000 + "\n")
+    pysam.faidx(fa)
+    hdr = {"HD": {"VN": "1.6", "SO": "coordinate"}, "SQ": [{"SN": "chr1", "LN": len(ref)}] + [{"SN": f"chr{c}", "LN": 2000} for c in range(2, 23)]}
+    bam = os.path.join(D, "planted.bam"); starts = np.sort(rng.integers(1000, len(ref) - 300, 20_000))
+    with pysam.AlignmentFile(bam, "wb", header=hdr) as B:
+        for k, st in enumerate(starts):
+            st = int(st); L = 150; q = ref[st:st + L]
+            xm = ["Z" if q[j] == "C" and j + 1 < L and q[j + 1] == "G" else "." for j in range(L)]
+            for j in range(L):
+                if xm[j] == "Z" and rng.random() < 0.04: xm[j] = "z"
+            a = pysam.AlignedSegment(); a.query_name = f"r{k}"; a.query_sequence = q; a.flag = 0; a.reference_id = 0; a.reference_start = st
+            a.mapping_quality = 40; a.cigarstring = f"{L}M"; a.query_qualities = pysam.qualitystring_to_array("I" * L)
+            a.set_tags([("XM", "".join(xm)), ("XG", "CT"), ("XR", "CT")]); B.write(a)
+    pysam.index(bam); out = os.path.join(tmp, "V7.html")
+    code, log = R3.run([PY, RS, "--bam", bam, "--ref-fasta", fa, "--assembly", "hg38", "--workers", "2", "--seq-cell", "cd8 t cells", "--specimen", "sorted cells",
+                        "--id", "PLANTED_BAM", "--out", out, "--ledger", os.path.join(tmp, "ledger.jsonl")])
+    q = (R3._bundle(out) or {}).get("iam_a") or {}; n = (q.get("count") or {}).get("held_opp")
+    rec("V7", code == 0 and os.path.exists(out) and bool(n), f"exit {code}; report written: {os.path.exists(out)}; held-error opportunities counted: {n}; "
+        f"A {q.get('A')} ({q.get('state') or q.get('refusal', '')})"[:300])
+
 def main():
     t0 = time.time(); files = R3.tracked(); tmp = tempfile.mkdtemp(prefix="rc_v4_")
     print(f"release_check_v4 @ {subprocess.run(['git', '-C', R3.ROOT, 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()}  python {PY}")
     steps = [("F1", F1, ()), ("F1b", F1b, ()), ("F2", F2, ()), ("S1", R3.S1, (files,)), ("S2", S2, (files,)), ("S3", R3.S3, ()), ("S4", R3.S4, ())] + \
             [(n, getattr(R3, n), (tmp,)) for n in ("E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "E10", "E11")] + \
-            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V6", V6, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
+            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V6", V6, (tmp,)), ("V7", V7, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
     for name, fn, args in steps:
         try: fn(*args)
         except Exception as e: rec(name, False, f"could not run: {type(e).__name__}: {str(e)[:200]}")

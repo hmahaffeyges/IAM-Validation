@@ -520,6 +520,9 @@ def main():
                                                     os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "atlas", "v2.1"), V4.nest_pix2ang,
                                                     title="Healthy neutrophils, IAM-Atlas v2.1: the same sites on the same sphere")
             except Exception as e: o["atlas_sky"] = {"drawn": False, "reason": f"{type(e).__name__}: {e}"[:200]}
+            try: o["changes_sky"] = RF.changes_sky_png(os.path.splitext(os.path.abspath(a.out))[0] + "_changes_sky.png", _z, "neutrophils",   # the overlay (2026-10-18)
+                                                       os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "atlas", "v2.1"), V4.nest_pix2ang, readings=_rd)
+            except Exception as e: o["changes_sky"] = {"drawn": False, "reason": f"{type(e).__name__}: {e}"[:200]}
     if seq and (a.pat or a.bam) and not a.dev_iama_position:   # chain v4 Stage Q2 - IAM-A against the sample's own reference (commissioned 2026-10-17)
         import stage_v4 as V4, stage_q2_selfref as _Q2
         cells = set(_Q2.shape_reference()["cells"]); src = {"pat": os.path.abspath(a.pat)} if a.pat else {"bam": os.path.abspath(a.bam), "ref_fasta": a.ref_fasta, "assembly": a.assembly}
