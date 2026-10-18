@@ -1,0 +1,163 @@
+{
+ "_rule": "Each test starts from public accessions only and runs committed code; 'compare' names what must equal the committed result. Edit here; reproduce/README.md is generated from this file by reproduce/readme.py.",
+ "tests": [
+  {
+   "id": "metaa_rebuild",
+   "instrument": "Met-A (commissioned)",
+   "title": "Met-A's reference, rebuilt from public arrays: noise sites and gate, the floor, the 6,000 identity sites, the healthy spread and the blood-composition markers",
+   "shows": "Every reference matrix Met-A reads is rebuilt from 91 public purified-blood arrays and comes out identical to the frozen file the chain reads.",
+   "public_inputs": [
+    "GSE110554",
+    "GSE167998",
+    "GSE2998xxx neutrophil arrays (listed in reference_donors.csv)"
+   ],
+   "time": "about 3 h",
+   "disk": "20 GB",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md",
+   "steps": [
+    {
+     "name": "calibrate",
+     "run": "$PY $MP/doors/data/DEV_NOISE_02/build_noise_sites_01.py $WORK calib 0 1"
+    },
+    {
+     "name": "noise_sites",
+     "run": "$PY $MP/doors/data/DEV_NOISE_02/build_noise_sites_01.py $WORK build"
+    },
+    {
+     "name": "noise_gate",
+     "run": "$PY $MP/doors/data/DEV_NOISE_02/build_noise_gate_01.py $WORK"
+    },
+    {
+     "name": "floor",
+     "run": "$PY $MP/doors/data/MET_A_FLOOR_V13_REPRO/reproduce_floor_v13.py $WORK/betas $WORK/floor"
+    },
+    {
+     "name": "reference",
+     "run": "$PY $MP/doors/data/MET_A_FLOOR_V13_REPRO/reproduce_reference_v12.py $WORK/betas"
+    },
+    {
+     "name": "composition",
+     "run": "$PY $MP/doors/data/MET_A_FLOOR_V13_REPRO/reproduce_blood_composition.py $WORK/betas $WORK/composition"
+    }
+   ],
+   "compare": [
+    {
+     "kind": "log",
+     "step": "noise_sites",
+     "must_contain": [
+      "same set True \\| only here 0 \\| only committed 0"
+     ]
+    },
+    {
+     "kind": "log",
+     "step": "noise_gate",
+     "must_contain": [
+      "match True"
+     ]
+    },
+    {
+     "kind": "log",
+     "step": "floor",
+     "must_contain": [
+      "diff 0\\.00e\\+00",
+      "sites same: True \\| refs same: True"
+     ]
+    },
+    {
+     "kind": "log",
+     "step": "reference",
+     "must_contain": [
+      "H_mean max diff 0\\.0e\\+00 \\| H_sd_shrunk max diff 0\\.0e\\+00"
+     ]
+    },
+    {
+     "kind": "log",
+     "step": "composition",
+     "must_contain": [
+      "markers identical: True",
+      "mu_markers max abs diff 0\\.0\\b",
+      "profiles_at_neutrophil_sites max abs diff 0\\.0\\b"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "deconv",
+   "instrument": "IAM-Deconvolver (commissioned)",
+   "title": "Blood-cell shares in 200 mixtures from a laboratory the atlas never saw (E-MTAB-2145)",
+   "shows": "The Deconvolver reads 200 mixtures of purified cells from an unseen laboratory within 0.016 of the true shares, and its sample check refuses the arrays that do not read as their own cell.",
+   "public_inputs": [
+    "E-MTAB-2145 (ArrayExpress)"
+   ],
+   "time": "about 30 min",
+   "disk": "2 GB",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md",
+   "steps": [
+    {
+     "name": "arrays",
+     "run": "$PY reproduce/heldout_arrays.py $WORK/shards E-MTAB-2145"
+    },
+    {
+     "name": "score",
+     "run": "$PY $MP/chain/stage_deconv_v21.py score_fresh $WORK/shards $WORK/scored"
+    }
+   ],
+   "compare": [
+    {
+     "kind": "json",
+     "produced": "scored/deconv_v2_scored.json",
+     "committed": "Biological_Physics/MethylPhys/doors/data/DEV_DECONV_V21_01/deconv_v2_scored.json",
+     "fields": {
+      "markers": 0,
+      "cells_mixed": null,
+      "B1_mean_error": 1e-06,
+      "B1_met": null,
+      "B2_inside": 1e-06
+     }
+    }
+   ]
+  },
+  {
+   "id": "cscore_band",
+   "instrument": "C-Score (commissioned)",
+   "title": "The C-Score's healthy range holds in a laboratory that did not set it (GSE184269)",
+   "shows": "Healthy whole bloods from a second laboratory read inside the C-Score band: 22 of 23 not above 1.152, the bar sealed before the arrays were fetched.",
+   "public_inputs": [
+    "GSE184269"
+   ],
+   "time": "about 40 min",
+   "disk": "3 GB",
+   "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",
+   "steps": [
+    {
+     "name": "fetch",
+     "run": "$PY $MP/doors/data/CSCORE_COMMISSIONING/fetch_band_test.py $WORK/idat"
+    },
+    {
+     "name": "calibrate",
+     "run": "$PY $MP/doors/data/CSCORE_COMMISSIONING/score_band_test.py $WORK/idat $WORK/betas"
+    },
+    {
+     "name": "score",
+     "run": "$PY $MP/doors/data/CSCORE_COMMISSIONING/read_band_test.py $WORK/betas $WORK/scored"
+    }
+   ],
+   "compare": [
+    {
+     "kind": "json",
+     "produced": "scored/band_test_GSE184269.json",
+     "committed": "Biological_Physics/MethylPhys/doors/data/CSCORE_COMMISSIONING/band_test_GSE184269.json",
+     "fields": {
+      "n_whole_blood_scored": 0,
+      "above_limit": 0,
+      "met": null,
+      "granulocytes_refused": 0,
+      "C_rel_median": 0.0001,
+      "C_rel_min": 0.0001,
+      "C_rel_max": 0.0001
+     }
+    }
+   ]
+  }
+ ]
+}

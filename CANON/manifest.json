@@ -27819,6 +27819,27 @@
    "record": "TRY_TO_BREAK_IT.md",
    "runs": [],
    "next_step": "written 2026-10-18: each instrument's commissioned scope, its prediction on known samples, the failure line taken from its commissioning bar, and a public Break report issue form (.github/ISSUE_TEMPLATE/break_report.yml); link it from the researcher README and the front page with the package"
+  },
+  {
+   "instrument_or_term": "all",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "cost": "laptop",
+   "impact": 5,
+   "legacy_ids": [],
+   "id": "OTH-076",
+   "sources_of_row": [
+    "session 2026-10-16"
+   ],
+   "title": "One-command reproduction of the commissioning tests and headline results from public data (reproduce/)",
+   "purpose": "author 2026-10-18: outside labs should test the chain on their own known samples and try to break it",
+   "status": "planned",
+   "record": "reproduce/README.md",
+   "runs": [],
+   "next_step": "2026-10-18: runner and first three entries written (Met-A rebuild, Deconvolver, C-Score band); each run from a fresh clone on AWS; then IAM-A, atlas uses and the headline results",
+   "notes": ""
   }
  ],
  "not_tests": {
