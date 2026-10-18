@@ -21,6 +21,7 @@ comes from (`../LESSONS.md`).
 10. **Cost and finish time are estimated before launch and told to the author**, and re-measured from the real rate within an hour of launch.
 
 - **S3 steps run on the machine's own Python (`~/env/bin/python`), never the chain's clean environment**, which has no boto3 by design. The IAM-A example (2026-10-18) failed its first download this way, though every earlier script already did it right.
+- **A rerun on a committed input uses the exact files the committed run stamped, checked by checksum** (reference genome, alignment), never the first match of a file search. The IAM-A example (2026-10-18) first picked Bismark's bisulfite-converted genome.
 
 ## Known facts, by data
 

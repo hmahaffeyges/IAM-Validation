@@ -19,7 +19,9 @@ for k,f in (("results/DEV_IAMA_GRAND_01/bam/SRR11007296.bam","$W/SRR11007296.bam
 for i in ("00","01","02"): s.download_file("$BK",f"downloads/tumour_work/tools.tgz.part_{i}",f"$W/tools.tgz.part_{i}")
 PYE
 mkdir -p $W/tools && cat $W/tools.tgz.part_0* | tar xz -C $W/tools && rm -f $W/tools.tgz.part_0*
-FA=$(find $W/tools -path '*ref*' \( -name '*.fa' -o -name '*.fasta' \) | head -1); [ -s "$FA" ] || { st "FAILED: no reference fasta in the bundle"; exit 1; }
+# the exact reference the grand test counted against (its stamp: hg38.fa, sha256 0b13cb38...); never Bismark's converted copies (2026-10-18)
+FA=$(find $W/tools -name hg38.fa -not -path '*Bisulfite_Genome*' | head -1); [ -s "$FA" ] || { st "FAILED: hg38.fa not in the bundle"; exit 1; }
+SH=$(sha256sum "$FA" | cut -c1-64); [ "$SH" = "0b13cb387c6bf8fb242da275f8bf51e74d713e58890730f1bde9bc7dc4427748" ] || { st "FAILED: hg38.fa checksum $SH is not the grand test's"; exit 1; }
 [ -s "$FA.fai" ] || $PY -c "import pysam;pysam.faidx('$FA')"; st "reference $(basename $FA); counting with $(nproc) workers"
 RS=Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py
 $PY $RS --bam $W/SRR11007296.bam --ref-fasta $FA --assembly hg38 --workers $(nproc) --seq-cell "cd8 t cells" --specimen "sorted CD8 T cells" \
