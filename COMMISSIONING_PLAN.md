@@ -18,7 +18,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 5. **IAM-A: the grand sealed test, then commissioning**
    - COM-IAMA-052 (run; last run 2026-10-17: met): commissioned; widen to other specimens on their own sealed tests after the gift
 6. **Atlas v2.1: the fit lands; release checks, sealed bars, the use tests against the two published reference atlases**
-   - ATL-005 (run; last run 2026-10-16: not met): widen the commissioned uses (see the note's 'What it would take to go further')
+   - ATL-005 (run; last run 2026-10-16: not met): Zenodo: the assembled atlas and the 10 raw-fit bundles uploaded from AWS by doors/data/ZENODO_V21/zenodo_upload_box.py into the two drafts (reserved 10.5281/zenodo.23441999 and 10.5281/zenodo.23422688); then the author publishes
    - ATL-060 (run; last run 2026-10-16: met): after the v2.1 release: assemble the held-out betas (Stage 1) and run use_tests_v21.py real once
 7. **Backbone: healthy range on the same counter; tumor-adjacent against truly healthy colon**
    - PHY-071 (parked): parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships

@@ -3813,7 +3813,7 @@
      "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
-   "next_step": "widen the commissioned uses (see the note's 'What it would take to go further')",
+   "next_step": "Zenodo: the assembled atlas and the 10 raw-fit bundles uploaded from AWS by doors/data/ZENODO_V21/zenodo_upload_box.py into the two drafts (reserved 10.5281/zenodo.23441999 and 10.5281/zenodo.23422688); then the author publishes",
    "cost": "box",
    "impact": 5,
    "depends_on": [
