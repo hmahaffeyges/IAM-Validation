@@ -3,7 +3,7 @@
 # fetch them as a researcher's machine would, bash reproduce/setup.sh, then each test in order. Every verdict, log and status line goes to S3
 # as it is made (the machine's own Python; the clean environment has no boto3 by design). Run: bash reproduce_fresh.sh <commit> <test ...>
 set -u; C=${1:?commit}; shift; W=$HOME/rp; rm -rf $W; mkdir -p $W; cd $W
-BK=methylphys-data-945451304272-us-west-2-an; P=results/REPRODUCE_V1
+BK=methylphys-data-945451304272-us-west-2-an; P=${OUTP:-results/REPRODUCE_V1}
 st(){ echo "$(date -u +%FT%TZ) $*" | tee -a $W/status.txt; ~/env/bin/python -c "import boto3;boto3.client('s3').upload_file('$W/status.txt','$BK','$P/status.txt')" 2>/dev/null; }
 up(){ ~/env/bin/python - "$W/repo/reproduce/out" "$BK" "$P/out" <<'PY'
 import boto3, os, sys

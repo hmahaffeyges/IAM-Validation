@@ -27839,7 +27839,7 @@
    "status": "planned",
    "record": "reproduce/README.md",
    "runs": [],
-   "next_step": "2026-10-18: runner and first three entries written (Met-A rebuild, Deconvolver, C-Score band); each run from a fresh clone on AWS; then IAM-A, atlas uses and the headline results Running now: fresh-clone test, job i-012c3ce1a8fdb5c08.",
+   "next_step": "2026-10-18 fresh-clone run 1: cscore_band PASS (every compared number identical, 42 min, methylprep manifests fetched fresh); deconv and metaa_rebuild running; run 2 next: iama_line, three_labs, mice",
    "notes": ""
   }
  ],
