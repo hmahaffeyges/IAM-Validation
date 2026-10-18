@@ -25993,7 +25993,7 @@
    "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
    "status": "running",
    "runs": [],
-   "next_step": "stage T3 run 4: all 233 samples counted again on the fixed counter (run 3 stopped unread at 159, LESSONS C23); then scored once by score_temperature.py",
+   "next_step": "stage T3 run 4 counting on the fixed counter: machines i-02ddbcb364e254e53 and i-0583ab0c226363999 (run 3 stopped unread at 159 of 233, LESSONS C23); then scored once by score_temperature.py",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [

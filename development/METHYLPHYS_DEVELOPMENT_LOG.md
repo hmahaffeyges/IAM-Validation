@@ -2375,3 +2375,6 @@ The cfDNA synthetic (DEV-CFDNA-SHORT-01) found the temperature counter's correct
 
 ### 2026-10-17 · Day summary
 IAM-A and the Deconvolver commissioned (limits study); chain v4 built and passed its clean-clone release check (run 7, 25 of 25), with plain wording for readings outside an instrument's tested scope; the front page now opens with the commissioned chain and the Commissioning Campaign numbers; IAM-Atlas v2.1 staged on Zenodo as a new version of v2 (23 small files in; the large files wait on Zenodo); laptop data backed up to S3 and cleared; the showcase and the tracks after it written into the manifest and the plan; temperature counting stopped unread at 159 of 233 when the cfDNA synthetic exposed a counter flaw (LESSONS C23), fixed in the chain the same night.
+
+Temperature T3 run 4 launched on the fixed counter: i-02ddbcb364e254e53 i-0583ab0c226363999 (commit 1721f1a5).
+Machines: i-02ddbcb364e254e53 i-0583ab0c226363999.

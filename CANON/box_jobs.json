@@ -2027,7 +2027,7 @@
    "date": "2026-10-17",
    "commit": "774657f0",
    "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run3/",
-   "state": "running",
+   "state": "stopped",
    "log": "results/PRED_TEMPERATURE_01/T3/status_A.txt",
    "machine": "spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once",
    "purpose": "align 233 samples (ENA FASTQ, 16 ranged connections per file, each range re-fetched to its exact length) with Bismark on TAIR10 and count each with chain stage TL; nothing scored",
@@ -2043,7 +2043,7 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run3/ at boot"
+   "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run3/ at boot; stopped unread at 159 of 233 for the counter fix (LESSONS C23)"
   },
   {
    "job_id": "i-06c853f33d845a463",
@@ -2143,7 +2143,7 @@
    "date": "2026-10-17",
    "commit": "774657f0",
    "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run3_B_replacement/",
-   "state": "running",
+   "state": "stopped",
    "log": "results/PRED_TEMPERATURE_01/T3/status_B.txt",
    "machine": "spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once",
    "purpose": "align 233 samples (ENA FASTQ, 16 ranged connections per file, each range re-fetched to its exact length) with Bismark on TAIR10 and count each with chain stage TL; nothing scored",
@@ -2159,7 +2159,55 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "replacement for the reclaimed B (same code, same queue; takes back B's unfinished claims); code copy: the run3_B folder copied unchanged (the machine runs the same committed code)"
+   "note": "replacement for the reclaimed B (same code, same queue; takes back B's unfinished claims); code copy: the run3_B folder copied unchanged (the machine runs the same committed code); stopped unread at 159 of 233 for the counter fix (LESSONS C23)"
+  },
+  {
+   "job_id": "i-02ddbcb364e254e53",
+   "name": "Temperature law stage T3 run 4, machine A: all 233 Arabidopsis samples on the fixed counter (PHY-057)",
+   "date": "2026-10-18",
+   "commit": "1721f1a5",
+   "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run4_A/",
+   "state": "running",
+   "log": "results/PRED_TEMPERATURE_01/T3/status_A.txt",
+   "machine": "spot c7a.16xlarge, self-terminating",
+   "purpose": "align and chain-count from the shared S3 queue; outputs to results/PRED_TEMPERATURE_01/T3/out/",
+   "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
+   "manifest": [
+    "PHY-057"
+   ],
+   "outputs": [
+    "results/PRED_TEMPERATURE_01/T3/out/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/box/align_plants.sh",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
+   ],
+   "note": "recount after LESSONS C23"
+  },
+  {
+   "job_id": "i-0583ab0c226363999",
+   "name": "Temperature law stage T3 run 4, machine B: all 233 Arabidopsis samples on the fixed counter (PHY-057)",
+   "date": "2026-10-18",
+   "commit": "1721f1a5",
+   "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run4_B/",
+   "state": "running",
+   "log": "results/PRED_TEMPERATURE_01/T3/status_B.txt",
+   "machine": "spot c7a.16xlarge, self-terminating",
+   "purpose": "align and chain-count from the shared S3 queue; outputs to results/PRED_TEMPERATURE_01/T3/out/",
+   "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
+   "manifest": [
+    "PHY-057"
+   ],
+   "outputs": [
+    "results/PRED_TEMPERATURE_01/T3/out/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/box/align_plants.sh",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
+   ],
+   "note": "recount after LESSONS C23"
   }
  ],
  "not_jobs": {
