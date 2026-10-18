@@ -56,3 +56,8 @@ Each draft source was checked against CANON/data_spent.csv, MASTER_INVENTORY.csv
 | 1, 3 | GSE350403, GSE281305 | unspent, IDATs present, labels and (GSE281305) pure references for the mixtures | keep |
 
 Immune track: GSE275371 is PBMCs, 35 labeled lung adenocarcinoma and 50 labeled normal (GEO sample characteristics, counted 2026-10-18; EPIC, IDATs).
+
+Scenario 5, searched again 2026-10-18: no fresh public whole-genome set of healthy resting CD8 T cells was found on GEO (the candidates were
+stimulated, gene-edited, or already used: GSE245832, GSE306917, GSE144691, GSE98837, GSE186458). The showcase therefore runs one of IAM-A's
+grand-test samples through the one-command chain, labeled as a demonstration of the chain, not a new test; a B-cell or monocyte sample is added
+to show the plain note for a cell type IAM-A has not been tested on.

@@ -39,7 +39,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
    - OTH-063 (run; last run 2026-10-16: met): none: live; the chain names rows in every stamp and the gate refuses stale rows. Document consolidation is OTH-064
    - OTH-064 (run; last run 2026-10-16: met): done: hand-kept living documents are now the development log and the day log (both written as work happens and checked by the gate); the book is the toolbox, checked by verify_book; sealed records are history. Everything else is generated or a pointer
 14. **Showcase runs of the commissioned chain (plan: development/TEST_PLAN_TRACKS_2026-10-17.md)**
-   - OTH-073 (planned): sources checked 2026-10-17 (plan Part 5): keep GSE350403 and GSE281305; replace GSE122244 (spent), GSE199057 (normals already read), GSE245832 (stimulated); find a fresh healthy CD8 WGBS set and a fresh colon tissue set
+   - OTH-073 (planned): sources checked 2026-10-17 (plan Part 5): keep GSE350403 and GSE281305; replace GSE122244 (spent), GSE199057 (normals already read), GSE245832 (stimulated); find a fresh healthy CD8 WGBS set and a fresh colon tissue set; CD8 scenario: no fresh healthy resting CD8 WGBS on GEO, so a grand-test sample runs as a labeled demonstration (plan Part 5)
 15. **Field: normal tissue of patients against healthy people, same slides**
    - FLD-002 (planned): 2026-10-17: first in line after the showcase (TEST_PLAN_TRACKS_2026-10-17.md, track 1); scout a set with healthy donors and patients on the same slides, ages known
 16. **Precancer and before diagnosis**

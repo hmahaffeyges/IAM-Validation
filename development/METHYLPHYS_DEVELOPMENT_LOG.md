@@ -2378,3 +2378,5 @@ IAM-A and the Deconvolver commissioned (limits study); chain v4 built and passed
 
 Temperature T3 run 4 launched on the fixed counter: i-02ddbcb364e254e53 i-0583ab0c226363999 (commit 1721f1a5).
 Machines: i-02ddbcb364e254e53 i-0583ab0c226363999.
+
+Book audit pass 2 (OTH-072): Landauer (retired term; IAM-A own-reference reading added beside Met-A; WGBS comparison), identity (IAM-A needs no identity sites), ledgers, Met-A (whole-blood note; chain scope), surface (no change).
