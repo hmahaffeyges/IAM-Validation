@@ -27560,15 +27560,12 @@
    "instrument_or_term": "all",
    "sources": [
     "GSE350403",
-    "GSE122244",
-    "GSE281305",
-    "GSE199057",
-    "GSE245832"
+    "GSE281305"
    ],
    "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
    "record": "development/TEST_PLAN_TRACKS_2026-10-17.md",
    "status": "planned",
-   "next_step": "write the selection rule per set and commit it; download on AWS; run after the temperature result; lung tissue set with raw files still to find",
+   "next_step": "sources checked 2026-10-17 (plan Part 5): keep GSE350403 and GSE281305; replace GSE122244 (spent), GSE199057 (normals already read), GSE245832 (stimulated); find a fresh healthy CD8 WGBS set and a fresh colon tissue set",
    "cost": "AWS, small",
    "impact": 5,
    "legacy_ids": [],

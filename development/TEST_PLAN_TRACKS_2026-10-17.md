@@ -43,3 +43,16 @@ The goal behind every track: whether these tests could one day stand in for rout
 
 ## Part 4: salmon track (author, 2026-10-17; gated on the temperature result)
 IAM-A needs no atlas or other specimens, so it can read fish. Synthetic first; the Mahaffey number scales with water temperature by the law itself (M(T) = M(37 C) x 310.15 K / T); then healthy fish read Normal on their own reference; then one fisheries question on public data. Manifest row in the TIS section.
+
+## Part 5: showcase sources checked against the record (2026-10-17, evening)
+
+Each draft source was checked against CANON/data_spent.csv, MASTER_INVENTORY.csv and every repo mention. Four of the first picks cannot be used as drafted:
+
+| Scenario | Draft pick | Finding | Use instead |
+|---|---|---|---|
+| 2 Met-A, neutrophils | GSE122244 | **spent**: an atlas build source and read in three commissionings | GSE83944 (circadian neutrophils, 450K, IDATs, unspent) if Met-A's platform scope covers 450K; otherwise keep searching EPIC |
+| 4 Atlas, colon tissue | GSE199057 | normals fetched and calibrated in DEV-TISSUE-COLON-02 (recorded not suitable); not clean | a fresh colon set; GSE235414 adjacent-normal lung (EPIC, IDATs) is held for the field test (DEV-FINGERPRINT-03), so not used here |
+| 5 IAM-A, CD8 | GSE245832 | every sample **stimulated** 4 hours with peptide; IAM-A is commissioned on healthy resting CD8 T cells | GSE173787 healthy-control CD8 T cells (bisulfite sequencing) is reserved as the atlas's held-out sequencing set; a fresh healthy CD8 WGBS set still to find |
+| 1, 3 | GSE350403, GSE281305 | unspent, IDATs present, labels and (GSE281305) pure references for the mixtures | keep |
+
+Immune track: GSE275371 is PBMCs from 35 people with lung adenocarcinoma and 50 without (EPIC, IDATs), confirmed.
