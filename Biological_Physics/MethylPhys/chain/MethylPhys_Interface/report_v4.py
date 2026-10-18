@@ -1,13 +1,19 @@
 #!/usr/bin/env python3
-"""Report for chain v4 (2026-10-17). One self-contained HTML page per sample.
+"""Report for chain v4 (2026-10-17; two views 2026-10-18). One self-contained HTML page per sample, and the same report as two PDFs.
+
+Two views of the same readings (author 2026-10-16/18: researchers get the table, everyone else the gauge): the RESEARCHER view opens first
+(results table; AstroGenetics, the physics behind each reading; the sample's sky beside its cell's healthy sky from IAM-Atlas v2.1; one section
+per instrument), and the PLAIN view (the floor-to-ceiling gauges, one sentence each, and the sky). The technical record follows both.
 
 Front: the reading at a glance (every commissioned instrument, its reading, its state and its commissioning status), then one section per
 instrument: the cell shares (IAM-Deconvolver against IAM-Atlas v2.1), Met-A on its gauge, the C-Score with its departures drawn on the
 HEALPix sphere, and IAM-A against the sample's own reference on its gauge. Back: the technical record, the complete chain v3 report
 (intake, calibration, tare, noise gate, red flags, safeguards, integrity, inventory, run it yourself), every section id unchanged so the
 release check reads it as before. Research use; not a diagnostic test."""
-import html, os, re, datetime
+import html, os, re, datetime, json, math, base64
 import report_v3 as R3
+import report_figs_v4 as RF
+HERE = os.path.dirname(os.path.abspath(__file__)); CH = os.path.join(HERE, "..")
 from report_v3 import CLAIM_SCAN, REPORT_SECTIONS   # noqa: F401  (the same prose rule and section ids)
 E = html.escape
 CSS = """<style>
@@ -19,27 +25,49 @@ th{background:#f4f6fa;font-weight:600}.chip{display:inline-block;padding:2px 8px
 .com{background:#dff3e4;color:#17602b}.dev{background:#fff1d6;color:#7a5200}.ref{background:#fde2e2;color:#8a1f1f}.na{background:#eceff3;color:#556}
 .bar{background:#3a5a9b;height:12px;border-radius:2px}.bt{background:#eceff3;width:240px;border-radius:2px}.big{font-size:22px;font-weight:700}
 .tech{margin-top:46px;border-top:3px double #1d2330;padding-top:8px}.tech h2{font-size:16px}img{max-width:100%}
+.sub2{font-size:15px;color:#3a5a9b;margin:2px 0 10px;font-weight:600;letter-spacing:.2px}
+.views{margin:18px 0 6px}.views input{display:none}.views label{display:inline-block;padding:6px 16px;border:1px solid #9aa3b2;cursor:pointer;font-size:14px;margin-right:-1px}
+.views label:first-of-type{border-radius:6px 0 0 6px}.views label:last-of-type{border-radius:0 6px 6px 0}
+#vr:checked~.vbar label[for=vr],#vp:checked~.vbar label[for=vp]{background:#1d2330;color:#fff}
+#vr:checked~.plain{display:none}#vp:checked~.research{display:none}
+.phys td:first-child{white-space:nowrap;font-weight:600}.phys .eq{font-family:Georgia,serif}
+.pair{display:flex;gap:10px;flex-wrap:wrap}.pair figure{flex:1 1 440px;margin:0}.pair figcaption{font-size:12.5px;color:#556;margin-top:2px}
+.plain p.say{font-size:15.5px;margin:4px 0 18px}
+@media print{.vbar{display:none}.plain,.research{display:block!important}.plain{page-break-before:always}}
 </style>"""
+def _uri(path): return "data:image/png;base64," + base64.b64encode(open(path, "rb").read()).decode() if path and os.path.exists(path) else None
+def _H(p): return 0.0 if p <= 0 or p >= 1 else -(p * math.log2(p) + (1 - p) * math.log2(1 - p))
+def _sci(v):
+    m_, e_ = f"{v:.1e}".split("e"); return f"{m_}&times;10<sup>{int(e_)}</sup>"
+def _marks(): return json.load(open(os.path.join(CH, "Runtime Matrices", "Gauge", "cell_gauge_marks_v1.json"), encoding="utf-8"))
 
-def untested(what, inst):   # author 2026-10-17: plain wording for a reading outside the tested scope (the data keeps status "development")
-    return f"reading shown; {what} has not yet been tested with {inst}"
+_NAMES = {"cd4 t cells": "CD4 T cells", "cd8 t cells": "CD8 T cells", "b cells": "B cells", "nk cells": "NK cells", "neutrophils": "Neutrophils", "monocytes": "Monocytes"}
+def cellname(c):   # 2026-10-18: cell types printed as a reader writes them (the data keeps the atlas's own names)
+    c = str(c); return _NAMES.get(c.lower(), c[:1].upper() + c[1:])
+def untested(what, inst, shown=True):   # author 2026-10-17: plain wording for a reading outside the tested scope (the data keeps status "development")
+    w = cellname(what) if what.lower() in _NAMES else what
+    return ("reading shown; " if shown else "") + f"not yet tested with {inst} on {w}"
 def chip(status):
     s = str(status or "").lower()
     k = "com" if s.startswith("commissioned") else "ref" if s.startswith(("refused", "withheld", "not read")) else "na" if s.startswith("not run") else "dev"
     return f"<span class='chip {k}'>{E(str(status))}</span>"
 
 def _glance(o):
+    return "<table><tr><th>Instrument</th><th>Question it answers</th><th>Reading</th><th>State</th><th>Status</th></tr>" + "".join(
+        f"<tr><td><b>{E(a)}</b></td><td>{E(b)}</td><td class='big'>{E(v)}</td><td>{E(s)}</td><td>{chip(st)}</td></tr>" for a, b, v, s, st in glance_rows(o)) + "</table>"
+
+def glance_rows(o):
     sh, m, c, t, q = o.get("cell_shares") or {}, o.get("met_a") or {}, o.get("met_a_cscore") or {}, o.get("tare") or {}, o.get("iam_a") or {}
     rows = []
     if sh.get("cells"):
         top = sorted(sh["cells"], key=lambda r: -r["share"])[:3]
-        rows.append(("IAM-Deconvolver", "Which cells, in what shares", ", ".join(f"{r['cell']} {100*r['share']:.1f} %" for r in top), "",
+        rows.append(("IAM-Deconvolver", "Which cells, in what shares", ", ".join(f"{cellname(r['cell'])} {100*r['share']:.1f} %" for r in top), "",
                      "commissioned (neutrophils, monocytes, CD4 T, CD8 T)"))
     elif sh: rows.append(("IAM-Deconvolver", "Which cells, in what shares", "", "", "withheld: " + str(sh.get("withheld", ""))))
     else: rows.append(("IAM-Deconvolver", "Which cells, in what shares", "", "", "not run (no array input)"))
     if m.get("A") is not None:
         val = f"A_rel {t['A_rel']}" if t.get("A_rel") is not None else f"A {m['A']} (untared)"
-        st = "commissioned" if m.get("commissioning") else untested("whole blood", "Met-A")
+        st = "commissioned" if m.get("commissioning") else untested("whole blood", "Met-A", shown=not str(m.get("state", "")).startswith("withheld"))
         rows.append(("Met-A", "How far the neutrophil's tagging level has moved", val, str(t.get("state") or m.get("state", "")).split(". ")[0][:140], st))
     elif o.get("met_a") is not None or o.get("refusal"):
         rows.append(("Met-A", "How far the neutrophil's tagging level has moved", "", "", "refused: " + str(o.get("refusal") or m.get("reason", ""))))
@@ -55,15 +83,14 @@ def _glance(o):
         rows.append(("IAM-A", "Is each mark still held, against the sample's own reference", f"A {q['A']}", str(q.get("state", "")), st))
     elif q: rows.append(("IAM-A", "Is each mark still held, against the sample's own reference", "", "", "not read: " + str(q.get("refusal", ""))))
     else: rows.append(("IAM-A", "Is each mark still held, against the sample's own reference", "", "", "not run (no sequencing input)"))
-    return "<table><tr><th>Instrument</th><th>Question it answers</th><th>Reading</th><th>State</th><th>Status</th></tr>" + "".join(
-        f"<tr><td><b>{E(a)}</b></td><td>{E(b)}</td><td class='big'>{E(v)}</td><td>{E(s)}</td><td>{chip(st)}</td></tr>" for a, b, v, s, st in rows) + "</table>"
+    return rows
 
 def _shares(o):
     sh = o.get("cell_shares")
     if not sh: return ""
     h = "<h2 id='v4-shares'>Cell shares: IAM-Deconvolver against IAM-Atlas v2.1</h2>"
     if not sh.get("cells"): return h + f"<p>{chip('withheld')} {E(str(sh.get('withheld')))}</p>"
-    rows = "".join(f"<tr><td>{E(r['cell'])}</td><td><div class='bt'><div class='bar' style='width:{max(1, int(240*r['share']))}px'></div></div></td>"
+    rows = "".join(f"<tr><td>{E(cellname(r['cell']))}</td><td><div class='bt'><div class='bar' style='width:{max(1, int(240*r['share']))}px'></div></div></td>"
                    f"<td><b>{100*r['share']:.1f} %</b></td><td>{100*r['interval_95'][0]:.1f} to {100*r['interval_95'][1]:.1f} %</td><td>{chip(r['status'] if r['status'] != 'development' else untested(r['cell'] if 'cell' in r else 'this cell type', 'the IAM-Deconvolver'))}</td></tr>"
                    for r in sorted(sh["cells"], key=lambda r: -r["share"]))
     return (h + f"<table><tr><th>Cell</th><th></th><th>Share</th><th>Range (information)</th><th>Status</th></tr>{rows}</table>"
@@ -76,22 +103,18 @@ def _meta(o):
     if m.get("A") is None: return ""
     gA = t.get("A_rel") if t.get("A_rel") is not None else (m["A"] if m.get("specimen") != "whole blood" else None)
     if str(m.get("state", "")).startswith("withheld"): gA = None   # the noise gate withholds the state: no gauge is drawn (as the v3 record)
-    return ("<h2 id='v4-met-a'>Met-A: the neutrophil's tagging level on the gauge</h2>" + (R3._gauge(gA, label=f"Met-A {gA}") if gA is not None else "")
-            + f"<p>{chip('commissioned' if m.get('commissioning') else untested('whole blood', 'Met-A'))} {E(str(t.get('state') or m.get('state', '')))}</p>")
+    _f = (o.get("_figs") or {}).get("met_a")
+    return ("<h2 id='v4-met-a'>Met-A: the neutrophil's tagging level on the gauge</h2>" + (f"<img alt='Met-A gauge' src='{_uri(_f)}'>" if _f else "")
+            + f"<p>{chip('commissioned' if m.get('commissioning') else untested('whole blood', 'Met-A', shown=not str(m.get('state', '')).startswith('withheld')))} {E(str(t.get('state') or m.get('state', '')))}</p>")
 
 def _cscore(o):
     c, k = o.get("met_a_cscore") or {}, o.get("cscore_sky") or {}
     if c.get("C") is None: return ""
-    img = ""
-    if k.get("drawn"):
-        import stage_v4 as V4
-        img = (f"<img alt='C-Score departures on the sphere' src='{V4.png_data_uri(k['png'])}'>"
-               f"<p class='note'>The same departures the C-Score scores, its {k['sites']:,} sites in genomic order laid on a HEALPix sphere (NSIDE {k['nside']}, "
-               "NESTED order, where neighboring sites fill compact patches), the way a microwave sky is drawn. Clustered departures show as patches; "
-               "scattered ones as speckle. A picture of the reading, not a new reading.</p>")
+    _f = (o.get("_figs") or {}).get("cscore")
+    img = (f"<img alt='C-Score bar' src='{_uri(_f)}'>" if _f else "") + _skypair(o)
     val = c.get("C_rel") if c.get("C_rel") is not None else c.get("C")
     return (f"<h2 id='v4-cscore'>C-Score: clustered or scattered</h2><p class='big'>{'C_rel' if c.get('C_rel') is not None else 'C'} {E(str(val))}</p>"
-            f"<p>{chip('commissioned' if c.get('commissioning') else untested('this specimen', 'the C-Score'))} {E(str(c.get('C_call', c.get('C_rel_reason', ''))))}. "
+            f"<p>{chip('commissioned' if c.get('commissioning') else ('not tared: needs 3 same-run healthy references (whole blood is its commissioned scope)' if o.get('specimen') == 'whole blood' and c.get('C_rel') is None else untested('this specimen', 'the C-Score')))} {E(str(c.get('C_call', c.get('C_rel_reason', ''))))}. "
             "Healthy reads near 1; above 1.152 is a clustered departure.</p>" + img)
 
 def _iama(o):
@@ -100,23 +123,127 @@ def _iama(o):
     h = "<h2 id='v4-iam-a'>IAM-A: the sample against its own reference</h2>"
     if q.get("A") is None: return h + f"<p>{chip('not read')} {E(str(q.get('refusal', '')))}</p>"
     st = "commissioned" if q.get("commissioning") else untested(str(q.get("cell")), "IAM-A")
-    return (h + R3._gauge(q["A"], q["band"]["lo"], q["band"]["hi"], label=f"IAM-A {q['A']}", instrument="IAM-A", top=(0.5 / q["predicted"]) if q.get("predicted") else None)
+    _f = (o.get("_figs") or {}).get("iam_a")
+    return (h + (f"<img alt='IAM-A gauge' src='{_uri(_f)}'>" if _f else "")
             + f"<p>{chip(st)} <b>{E(str(q.get('state')))}</b> (Normal {q['band']['lo']:.3f} to {q['band']['hi']:.3f}). Held error {q.get('held_err')} against "
             f"{q.get('predicted')} predicted by this sample's own loose share ({q.get('loose_share')}). No outside reference is used: the sample is read against itself.</p>")
+
+
+def _figs(o, base):
+    """The gauge pictures for this sample (PNG beside the report); a withheld or unread instrument gets none."""
+    F, G = {}, _marks(); m, t, c, q = o.get("met_a") or {}, o.get("tare") or {}, o.get("met_a_cscore") or {}, o.get("iam_a") or {}
+    gA = t.get("A_rel") if t.get("A_rel") is not None else (m.get("A") if m.get("specimen") != "whole blood" else None)
+    if m.get("A") is not None and gA is not None and not str(m.get("state", "")).startswith("withheld"):
+        st = str(t.get("state") or m.get("state", "")).split(":")[0].split("(")[0].strip()[:40]
+        F["met_a"] = RF.gauge_png(base + "_gauge_met_a.png", "Met-A", float(gA), float(G["floor"]["A"]), float(G["full_surface"]["Met-A"]), (0.95, 1.05),
+                                  f"neutrophils, {o.get('specimen', '')}", st)
+    if c.get("C") is not None:
+        cv = c.get("C_rel") if c.get("C_rel") is not None else None
+        F["cscore"] = RF.cscore_png(base + "_gauge_cscore.png", cv, 1.152, 0.877, f"{o.get('specimen', '')}",
+                                    str(c.get("C_call") or ("not tared: no reading on the band" if cv is None else "")))
+    if q.get("A") is not None and q.get("predicted"):
+        M = G["M_cell"]["value"]; ep = float(q["predicted"])
+        F["iam_a"] = RF.gauge_png(base + "_gauge_iam_a.png", "IAM-A", float(q["A"]), (1 / (1 + math.exp(M))) / ep, 0.5 / ep, (q["band"]["lo"], q["band"]["hi"]),
+                                  f"{cellname(q.get('cell', ''))}, against its own reference", str(q.get("state", "")))
+    return F
+
+PHYS_INTRO = ("One law runs under every reading here: a mark held against thermal noise costs energy, and the loss of that hold shows as entropy, "
+              "in bits. Each reading sits on a gauge whose ends are derived, not fitted: the floor H<sub>min</sub> below which a cell cannot hold its "
+              "identity, and the ceiling where every site is a coin flip.")
+def _physics(o):
+    rows = physics_rows(o)
+    if not rows: return ""
+    return ("<h2 id='v4-physics'>AstroGenetics: the physics behind each reading</h2><p>" + PHYS_INTRO + "</p>"
+            "<table class='phys'><tr><th>Instrument</th><th>What was measured</th><th>The physics</th></tr>"
+            + "".join(f"<tr><td>{E(a)}</td><td>{b}</td><td>{c_}</td></tr>" for a, b, c_ in rows) + "</table>")
+
+def physics_rows(o):
+    """AstroGenetics: each reading in the physics it rests on. Every number from this run's record or a committed reference file."""
+    G = _marks(); M = G["M_cell"]["value"]; rows = []; m, t, c, q = o.get("met_a") or {}, o.get("tare") or {}, o.get("met_a_cscore") or {}, o.get("iam_a") or {}
+    if q.get("A") is not None:
+        e, ep, L = float(q["held_err"]), float(q["predicted"]), float(q.get("loose_share") or 0); emin = 1 / (1 + math.exp(M))
+        rows.append(("IAM-A", f"Held error &epsilon; = {e:.4f}: of the qualifying molecules, the share of sites left unwritten between written neighbors. "
+                     f"This sample's loose share L = {L:.3f} predicts &epsilon;<sub>pred</sub>(L) = {ep:.4f} from the self-reference line; "
+                     f"<b>A = &epsilon;/&epsilon;<sub>pred</sub> = {float(q['A']):.3f}</b>.",
+                     f"In bits: H(&epsilon;) = {_H(e):.3f} bits per site. Holding energy E/kT = ln((1&minus;&epsilon;)/&epsilon;) = {math.log((1 - e) / e):.2f}. "
+                     f"Floor: &epsilon;<sub>min</sub> = 1/(1+e<sup>M</sup>), M = {M} (one ATP per site against thermal kicks), A = {_sci(emin / ep)}. "
+                     f"Ceiling: &epsilon; = &frac12;, a coin flip, E = 0, H = 1 bit, A = {0.5 / ep:.2f}."))
+    if m.get("A") is not None and str(m.get("state", "")).startswith("withheld"):
+        rows.append(("Met-A", "No reading: the noise gate withheld the state on this array (" + E(str(m["state"]).split(":", 1)[-1].split("(")[0].strip()) + ").",
+                     "A reading is given only when enough of the array's noise sites are measured to show the array is clean enough to read."))
+    elif m.get("A") is not None:
+        a = t.get("A_rel") if t.get("A_rel") is not None else m["A"]
+        bits = (f"On isolated neutrophils the healthy reference is 0.330 bits per site, so this reading is {float(a) * 0.330263:.3f} bits per site. "
+                if m.get("specimen") != "whole blood" else "In whole blood the expectation is the healthy profile of each cell type, weighted by this sample's cell shares. ")
+        rows.append(("Met-A", f"&lang;H(&beta;)&rang; over {m.get('n_sites', '')} identity sites of the neutrophil, divided by its healthy expectation; "
+                     f"<b>{'A_rel' if t.get('A_rel') is not None else 'A'} = {float(a):.3f}</b>.",
+                     bits + f"Floor H<sub>min</sub>: A = 1&times;10<sup>{int(math.floor(math.log10(float(G['floor']['A']))))}</sup>. Ceiling: every identity site at a coin flip, 1 bit per site, A = {float(G['full_surface']['Met-A']):.2f}."))
+    if c.get("C") is not None:
+        rows.append(("C-Score", f"How the departures of Met-A's identity sites cluster along the genome: the variance of the means of blocks of "
+                     f"{c.get('block_sites', 10)} neighboring sites over the variance of single sites, divided by the healthy median; "
+                     f"<b>{'C_rel' if c.get('C_rel') is not None else 'C'} = {float(c.get('C_rel') if c.get('C_rel') is not None else c['C']):.3f}</b>.",
+                     "A ratio of clustering, so it has no derived floor or ceiling. Healthy reads near 1; the Normal band 0.877 to 1.152 was set on "
+                     "617 healthy arrays from 19 studies and held in two laboratories that had no part in setting it. The sky below shows the same departures."))
+    return rows
+
+def _skypair(o):
+    k, a = o.get("cscore_sky") or {}, o.get("atlas_sky") or {}
+    if not k.get("drawn"): return ""
+    left = f"<figure><img alt='This sample: departures on the sphere' src='{_uri(k['png'])}'><figcaption>This sample: where each identity site departs from healthy neutrophils (z).</figcaption></figure>"
+    right = ""
+    if a.get("drawn"):
+        hw = a.get("range_halfwidth") or {}
+        right = (f"<figure><img alt='Healthy neutrophils from IAM-Atlas v2.1' src='{_uri(a['png'])}'><figcaption>Healthy neutrophils from IAM-Atlas v2.1 at the same "
+                 f"{a['sites']:,} sites, on the same pixels." + (f" The atlas's 95 % range at these sites: median half-width {hw['median']:.3f}; nine sites in ten within {hw['p90']:.3f}." if hw else "")
+                 + "</figcaption></figure>")
+    return (f"<h3 id='v4-skypair'>The sample's sky beside the healthy sky</h3><div class='pair'>{left}{right}</div>"
+            f"<p class='note'>Each site keeps one place on a HEALPix sphere (NSIDE {k['nside']}, nested order), set by its position in the genome, so "
+            "neighbors on the genome are neighbors on the sphere and the two pictures line up site for site. A healthy sample's departures look like "
+            "speckle; departures clustered along the genome show as patches, which is what the C-Score measures. IAM-Atlas v2.1 draws all 79 of its "
+            "healthy cell types this way, each with a map of where its reference is sure and where it is not. Pictures of the readings; nothing is scored from them.</p>")
+
+def _plain(o, F):
+    sh, m, t, c, q = o.get("cell_shares") or {}, o.get("met_a") or {}, o.get("tare") or {}, o.get("met_a_cscore") or {}, o.get("iam_a") or {}
+    P = ["<h2 id='v4-plain'>The readings, in plain words</h2><p>Each gauge runs from the floor, below which a cell can no longer hold its identity, "
+         "to the ceiling, where every mark is a coin flip. Healthy cells sit in the green band. Moving right means more writing than healthy.</p>"]
+    if sh.get("cells"):
+        top = sorted(sh["cells"], key=lambda r: -r["share"])[:4]
+        P.append("<h3>Which cells are in the sample</h3><p class='say'>" + E(", ".join(f"{cellname(r['cell'])} {100 * r['share']:.0f} %" for r in top))
+                 + ", read against the 79-cell IAM-Atlas v2.1.</p>")
+    for key, name, say in (("met_a", "Met-A", "How far the neutrophils' tagging level sits from healthy."),
+                           ("iam_a", "IAM-A", "Whether each mark is still held, read against this sample's own reference: no other person is needed."),
+                           ("cscore", "C-Score", "Whether the changes are scattered, as in healthy cells, or clustered along the genome.")):
+        if key in F: P.append(f"<h3>{name}</h3><img alt='{name} gauge' src='{_uri(F[key])}'><p class='say'>{E(say)}</p>")
+        elif key == "met_a" and m.get("A") is not None: P.append(f"<h3>Met-A</h3><p class='say'>No gauge for this sample: {E(str(m.get('state', '')).split('.')[0])}.</p>")
+        elif key == "iam_a" and q: P.append(f"<h3>IAM-A</h3><p class='say'>Not read: {E(str(q.get('refusal', '')).split('.')[0])}.</p>")
+    k = o.get("cscore_sky") or {}
+    if k.get("drawn"): P.append(f"<h3>The sample on the sphere</h3><img alt='sky' src='{_uri(k['png'])}'><p class='say'>Each dot of color is one place in the genome. "
+                                "Speckle is what healthy looks like; patches mean the changes are bunched together.</p>")
+    return "".join(P)
 
 def build(o, out, sid):
     tech = os.path.splitext(out)[0] + "_v3record.tmp.html"
     r = R3.build(o, tech, sid); t = open(tech, encoding="utf-8").read(); os.remove(tech)
     body = re.search(r"<body[^>]*>(.*)</body>", t, re.S).group(1)
     when = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+    o["_figs"] = F = _figs(o, os.path.splitext(os.path.abspath(out))[0])
     front = [f"<p class='meta'>IAM chain v4 · run {E(str(o.get('run_id')))} · {when}</p>", f"<h1>Sample report: {E(sid)}</h1>",
+             "<p class='sub2'>AstroGenetics: the physics of methylation, read on one sample</p>",
              f"<p class='meta'>Specimen {E(str(o.get('specimen', '')))} · platform {E(str(o.get('platform') or o.get('array_type') or 'sequencing'))}</p>",
              "<p class='note'><b>Research use only. Not a diagnostic test.</b> Each reading is printed with its commissioning status: "
              "<i>commissioned</i> means it passed a test sealed before its data was seen; a reading outside what an instrument was tested on is still shown, and says so.</p>",
-             "<h2 id='v4-glance'>At a glance</h2>", _glance(o), _shares(o), _meta(o), _cscore(o), _iama(o)]
-    prose = re.sub(r"<[^>]+>", " ", re.sub(r"<!--GAUGE-->.*?<!--/GAUGE-->", " ", "\n".join(front), flags=re.S))   # as report_v3: the gauge's fixed legend is a scale, not prose
+             "<div class='views'><input type='radio' name='v' id='vr' checked><input type='radio' name='v' id='vp'>"
+             "<div class='vbar'><label for='vr'>Researcher</label><label for='vp'>Plain</label></div>",
+             "<div class='research'>", "<h2 id='v4-glance'>At a glance</h2>", _glance(o), _physics(o), _shares(o), _meta(o), _cscore(o), _iama(o), "</div>",
+             "<div class='plain'>", _plain(o, F), "</div></div>"]
+    prose = re.sub(r"<[^>]+>", " ", re.sub(r"src='data:[^']+'", "", re.sub(r"<!--GAUGE-->.*?<!--/GAUGE-->", " ", "\n".join(front), flags=re.S)))   # as report_v3: the gauge's fixed legend is a scale, not prose
     if re.search(CLAIM_SCAN, prose, re.I): raise ValueError("report_v4: front prose carries a word the report may not print: " + re.search(CLAIM_SCAN, prose, re.I).group(0))
     H = (f"<html><head><meta charset='utf-8'><title>IAM chain v4 - {E(sid)}</title>{CSS}</head><body>" + "\n".join(front)
          + "<div class='tech'><h2 id='v4-technical'>Technical record</h2>" + body + "</div></body></html>")
-    open(out, "w", encoding="utf-8").write(H)
-    return {**r, "out": out, "bytes": len(H)}
+    open(out, "w", encoding="utf-8").write(H); o.pop("_figs", None)
+    pdfs = {}
+    try:
+        import report_pdf_v4 as RP
+        pdfs = RP.build_pdfs(o, F, out, sid, when)
+    except Exception as e: pdfs = {"error": f"{type(e).__name__}: {e}"[:200]}
+    return {**r, "out": out, "bytes": len(H), "pdfs": pdfs}

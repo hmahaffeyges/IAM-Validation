@@ -508,7 +508,16 @@ def main():
         import stage_v4 as V4
         print("Stage D21: cell shares against IAM-Atlas v2.1", flush=True)
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"))
-        o["cscore_sky"] = V4.cscore_sky(_z, os.path.splitext(os.path.abspath(a.out))[0] + "_cscore_sky.png", title=f"{sid}: C-Score departures on the sphere")
+        _m, _c, _t = o.get("met_a") or {}, o.get("met_a_cscore") or {}, o.get("tare") or {}
+        _rd = "    ".join(x for x in ((f"Met-A {_t['A_rel']:.3f} (tared)" if _t.get("A_rel") is not None else (f"Met-A {_m['A']:.3f}" if _m.get("A") is not None else "")),
+                                     (f"C-score {_c['C_rel']:.2f} (tared)" if _c.get("C_rel") is not None else (f"C-score {_c['C']:.2f}" if _c.get("C") is not None else ""))) if x)
+        o["cscore_sky"] = V4.cscore_sky(_z, os.path.splitext(os.path.abspath(a.out))[0] + "_cscore_sky.png", title=f"{sid}: C-Score departures on the sphere", readings=_rd)
+        if _z is not None:   # 2026-10-18: the healthy neutrophil of IAM-Atlas v2.1 at the same sites, same pixels, drawn beside the sample's sky
+            import report_figs_v4 as RF
+            try: o["atlas_sky"] = RF.atlas_sky_png(os.path.splitext(os.path.abspath(a.out))[0] + "_atlas_sky.png", list(_z.index), "neutrophils",
+                                                    os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "atlas", "v2.1"), V4.nest_pix2ang,
+                                                    title="Healthy neutrophils, IAM-Atlas v2.1: the same sites on the same sphere")
+            except Exception as e: o["atlas_sky"] = {"drawn": False, "reason": f"{type(e).__name__}: {e}"[:200]}
     if seq and (a.pat or a.bam) and not a.dev_iama_position:   # chain v4 Stage Q2 - IAM-A against the sample's own reference (commissioned 2026-10-17)
         import stage_v4 as V4, stage_q2_selfref as _Q2
         cells = set(_Q2.shape_reference()["cells"]); src = {"pat": os.path.abspath(a.pat)} if a.pat else {"bam": os.path.abspath(a.bam), "ref_fasta": a.ref_fasta, "assembly": a.assembly}
@@ -592,7 +601,7 @@ def main():
         _json.dump(o, open(bundle_path, "w"), default=str)
         row = {"run_id": o["run_id"], "engine": "v3", "sample_id": hid, "utc": _dt.datetime.utcnow().isoformat(timespec="seconds"),
                "report": _redact(os.path.abspath(a.out), typed, hid), "bundle": _redact(os.path.abspath(bundle_path), typed, hid), "specimen": a.specimen,
-               "label": ("Met-A COMMISSIONED 2026-10-09 (isolated neutrophils, EPIC v1); whole blood and other stages DEVELOPMENT" if (o.get("met_a") or {}).get("commissioning") else "DEVELOPMENT - not commissioned"), "refusal_code": o.get("refusal_code"),
+               "label": C3.BUILD, "refusal_code": o.get("refusal_code"),
                "platform": o.get("platform"), "array_type": o.get("array_type"), "refusal": o.get("refusal"),
                "floors_version": o.get("floors_version"), "reference_version": o.get("reference_version"),
                "stage0_verdict": it.get("stage0_verdict"), "call_rate_status": it.get("call_rate_status"),

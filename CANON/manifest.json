@@ -27411,7 +27411,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "run",
    "runs": [],
-   "next_step": "2026-10-17: untested-scope readings worded plainly in report_v4 (author decision); clean clone run 7 PASS 25 of 25",
+   "next_step": "2026-10-18 redesign (author-approved): one HTML with Researcher and Plain views and two PDFs; researcher: table, AstroGenetics physics panel, the sample's sky beside the healthy IAM-Atlas v2.1 sky at the same sites, instrument sections; plain: floor-to-ceiling gauges with a magnified strip, C-Score bar; conductor build line and C-Score status brought to chain v4. Next: clean clone run 10, then real whole-blood arrays (GSE235717, already read in the C-Score band) through the chain",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

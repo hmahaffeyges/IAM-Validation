@@ -81,7 +81,7 @@ def nest_pix2ang(nside, ipix):
     jp = np.where(jp > 4 * nside, jp - 4 * nside, jp); jp = np.where(jp < 1, jp + 4 * nside, jp)
     phi = (jp - (ks + 1) * 0.5) * (np.pi / 2 / nr); return np.arccos(np.clip(z, -1, 1)), phi
 
-def cscore_sky(z, out_png, title="", vlim=3.0):
+def cscore_sky(z, out_png, title="", vlim=4.0, readings=""):
     """z: the C-Score's per-site departure map (pd.Series by site, in the C-Score's genomic order). Writes a Mollweide view; returns a summary."""
     if z is None: return {"stage": "SKY", "drawn": False, "reason": "no departure map (the C-Score was not computed)"}
     zz = pd.Series(z, dtype="float64"); n = len(zz)
@@ -91,17 +91,29 @@ def cscore_sky(z, out_png, title="", vlim=3.0):
     npix = 12 * nside * nside; pix = (np.arange(n) * npix) // n
     sky = pd.Series(zz.values).groupby(pix).mean().reindex(range(npix)).values
     import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
-    th, ph = nest_pix2ang(nside, np.arange(npix)); lat = np.pi / 2 - th; lon = np.where(ph > np.pi, ph - 2 * np.pi, ph); m = np.isfinite(sky)
-    fig, ax = plt.subplots(figsize=(10, 5.6), subplot_kw={"projection": "mollweide"}); fig.patch.set_facecolor("white")
-    size = 32000.0 / npix
-    ax.scatter(lon[~m], lat[~m], c="#d9d9d9", s=size, marker="o", linewidths=0, rasterized=True)
-    sc = ax.scatter(lon[m], lat[m], c=np.clip(sky[m], -vlim, vlim), s=size, cmap="RdBu_r", vmin=-vlim, vmax=vlim, marker="o", linewidths=0, rasterized=True)
-    ax.set_xticklabels([]); ax.set_yticklabels([]); ax.grid(False)
-    cb = fig.colorbar(sc, ax=ax, orientation="horizontal", fraction=0.05, pad=0.04); cb.set_label("departure from the healthy cell, z (blue below, red above; grey not measured)")
-    ax.set_title(title or "C-Score departures on the sphere", fontsize=11)
-    fig.savefig(out_png, dpi=130, bbox_inches="tight"); plt.close(fig)
+    from matplotlib.patches import Ellipse
+    from scipy.spatial import cKDTree
+    # Drawn in the style of the sky figures on the public page and in the book (2026-10-18; reference_floors_v1/sky/make_sky_figs.py):
+    # Mollweide, RdBu_r from -4 to +4 in pixel residual z, no smoothing, nearest-pixel fill, unmeasured sky grey, a thin outline, the
+    # readings printed under the map. The pixel layout (NSIDE, NESTED, genome order) is unchanged.
+    th, ph = nest_pix2ang(nside, np.arange(npix)); xyz = np.c_[np.sin(th) * np.cos(ph), np.sin(th) * np.sin(ph), np.cos(th)]
+    xs, ys = 1600, 800; X, Y = np.meshgrid((np.arange(xs) + 0.5) / xs * 4 - 2, (np.arange(ys) + 0.5) / ys * 2 - 1)
+    inside = (X / 2) ** 2 + Y ** 2 < 1; t = np.arcsin(np.clip(Y, -1, 1)); lat = np.arcsin(np.clip((2 * t + np.sin(2 * t)) / np.pi, -1, 1))
+    lon = np.pi * X / (2 * np.cos(np.where(inside, t, 0)))
+    q = np.c_[(np.cos(lat) * np.cos(-lon)).ravel(), (np.cos(lat) * np.sin(-lon)).ravel(), np.sin(lat).ravel()]
+    img = sky[cKDTree(xyz).query(q)[1]].reshape(X.shape); img = np.where(inside, img, np.nan)
+    cmap = plt.get_cmap("RdBu_r").copy(); cmap.set_bad("#d9d9d9")
+    fig, ax = plt.subplots(figsize=(7.2, 4.2)); fig.patch.set_facecolor("white")
+    im = ax.imshow(np.ma.masked_invalid(np.clip(img, -vlim, vlim)), cmap=cmap, vmin=-vlim, vmax=vlim, origin="lower", interpolation="nearest", extent=(-2, 2, -1, 1))
+    e = Ellipse((0, 0), 4, 2, transform=ax.transData, fc="none", ec="#555555", lw=0.5); ax.add_patch(e); im.set_clip_path(e)
+    ax.set_xlim(-2.02, 2.02); ax.set_ylim(-1.02, 1.02); ax.set_aspect("equal"); ax.set_axis_off()
+    ax.set_title(title or "C-Score departures on the sphere", loc="left", fontsize=9.5)
+    if readings: ax.text(0, -1.12, readings, ha="center", va="top", fontsize=9, transform=ax.transData)
+    cb = fig.colorbar(im, ax=ax, orientation="horizontal", fraction=0.045, pad=0.12 if readings else 0.05, shrink=0.45, ticks=[-vlim, 0, vlim])
+    cb.set_label("pixel residual z", fontsize=9); cb.ax.tick_params(labelsize=8)
+    fig.savefig(out_png, dpi=200, bbox_inches="tight"); plt.close(fig)
     return {"stage": "SKY", "drawn": True, "png": os.path.abspath(out_png), "nside": nside, "order": "NESTED", "sites": int(n),
-            "sites_measured": int(zz.notna().sum()), "pixels_drawn": int(m.sum()), "frac_abs_z_gt3": round(float((zz.abs() > 3).mean()), 4),
+            "sites_measured": int(zz.notna().sum()), "pixels_drawn": int(np.isfinite(sky).sum()), "frac_abs_z_gt3": round(float((zz.abs() > 3).mean()), 4),
             "note": "a picture of the C-Score's departures; nothing is scored from it"}
 
 def png_data_uri(path):

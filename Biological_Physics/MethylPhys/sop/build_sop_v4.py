@@ -18,7 +18,7 @@ def text():
          "## 1. What is commissioned", "", "| Instrument and scope | Commissioned | Note |", "|---|---|---|"]
     L += [f"| {i['name']} | {i['date']} | [{os.path.basename(i['note'])}]({rel(i['note'])}) |" for i in K]
     L += ["", "Each was commissioned by a test sealed before its data were read. A reading outside these scopes is printed with the note "
-          "\"reading shown; ... has not yet been tested with ...\" and is not a commissioned result.", "",
+          "\"reading shown; not yet tested with ... on ...\" and is not a commissioned result.", "",
           "## 2. Install", "", "From a fresh clone of the repository, Python 3.11:", "", "```",
           "git clone https://github.com/hmahaffeyges/IAM-Validation.git && cd IAM-Validation/Biological_Physics/MethylPhys/chain",
           "python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt", "```", "",

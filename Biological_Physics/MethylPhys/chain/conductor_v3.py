@@ -32,7 +32,9 @@ import json, os
 import numpy as np, pandas as pd
 import stage_m_met_a as SM
 HERE = os.path.dirname(os.path.abspath(__file__)); RM = os.path.join(HERE, "Runtime Matrices", "Met_A_Floors")
-BUILD = "chain v3: Met-A on isolated neutrophils (EPIC v1) COMMISSIONED 2026-10-09; Met-A C-score on whole blood (EPIC v1) COMMISSIONED 2026-10-15; every other stage DEVELOPMENT - not commissioned"
+BUILD = ("chain v4: Met-A on isolated neutrophils (EPIC v1) COMMISSIONED 2026-10-09; Met-A C-score on whole blood (EPIC v1) COMMISSIONED 2026-10-15; "
+         "IAM-Deconvolver shares (neutrophils, monocytes, CD4 T, CD8 T; arrays) and IAM-A (healthy CD8 T cells, whole-genome bisulfite) COMMISSIONED 2026-10-17; "
+         "a reading outside these scopes is printed and marked not yet tested")   # 2026-10-18: was the chain v3 line
 METAA_COMMISSIONING = {   # doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md (author approved 2026-10-09)
     "status": "COMMISSIONED", "date": "2026-10-09", "reading": "Met-A", "cell": "neutrophils", "platform": "EPIC v1",
     "specimens": ["isolated neutrophils"],
@@ -174,7 +176,7 @@ def stage_mc_cscore(z):
             "healthy_baseline": R["healthy_clustering_median"], "n_healthy_baseline": len(R["healthy_clustering_LOO"]),
             "block_sites": int(R["clustering_block"]),
             "healthy_range": [min(R["healthy_clustering_LOO"]) / R["healthy_clustering_median"], max(R["healthy_clustering_LOO"]) / R["healthy_clustering_median"]],
-            "status": "development: healthy band not yet set", "frac_abs_z_gt3": round(float((z.abs() > 3).mean()), 4)}
+            "status": "computed; read against the band 0.877-1.152 after the same-run tare (commissioned on whole blood, EPIC v1)", "frac_abs_z_gt3": round(float((z.abs() > 3).mean()), 4)}
 
 def _ref_records(ref_A, sample_id=None):
     """References as plain A values or as records {A, f_neu, N[, id]}. Returns (records, n_self_excluded)."""

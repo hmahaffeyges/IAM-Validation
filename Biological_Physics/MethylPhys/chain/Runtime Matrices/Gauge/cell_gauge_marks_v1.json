@@ -70,5 +70,10 @@
    "pattern": "(?i)\\b(?:least|most) holding\\b"
   }
  },
- "book_reading_anchor": "A misreading to avoid."
+ "book_reading_anchor": "A misreading to avoid.",
+ "M_cell": {
+  "value": 20.94,
+  "source": "CANON/iam_canon.json, Mahaffey number (M): cell 20.94 (one full ATP per site against thermal kicks); the single-molecule floor is 1/(1+e^M) = 8.06e-10",
+  "used_by": "report_v4 physics panel (2026-10-18)"
+ }
 }
