@@ -2405,3 +2405,6 @@ Two of tonight's losses came from information already in hand (plant unmethylate
 
 ### 2026-10-18 · Page: no links to moved files or the working plan (OTH-071, LESSONS C25)
 The connections table linked BIT_TABLES.md, which only says it moved; now one link to FOUR_DOMAINS.md, where the tables live. The commissioning plan (a working to-do list) is no longer linked or rendered. A page link to any file that only says it moved is refused by the build, and links to such files or to the plan are reduced to text on every site page. Plan mandate updated: the first chain is commissioned.
+
+### 2026-10-18 · IAM-Atlas v2.1 on the sphere (ATL-069)
+All 79 cell types drawn on one HEALPix sphere (NSIDE 256, NESTED, genome order), with a per-cell uncertainty map (half-width of the 95 % range). Synthetic first (decode, placement, masking: met). Built from the compact copy in 47 s; 813,950 of 813,951 sites placed. Maps in S3 atlas_v21/maps/; plates and checksums in atlas/v2.1/sky/. A picture: nothing is scored from it.

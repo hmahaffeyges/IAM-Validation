@@ -24609,7 +24609,7 @@
    "sources": [],
    "runs": [],
    "legacy_ids": [],
-   "notes": "",
+   "notes": "2026-10-18: per-cell uncertainty maps built from the 95 % range (ATL-069); noise realizations from the posterior draws still to do",
    "sources_of_row": [
     "author request 2026-10-13"
    ]
@@ -27750,6 +27750,38 @@
     }
    ],
    "next_step": "wording fix confirmed by clean clone run 9 (25 of 25)"
+  },
+  {
+   "id": "ATL-069",
+   "title": "IAM-Atlas v2.1 on the sphere: all 79 cell types, site for site (release M02), with an uncertainty map per cell",
+   "purpose": "The atlas drawn on one HEALPix sphere (NSIDE 256, NESTED, genome order) so cells and a sample's own map can be laid side by side; a picture, nothing scored from it.",
+   "instrument_or_term": "atlas",
+   "sources": [
+    "GSE186458",
+    "Moss 2018 arrays"
+   ],
+   "data_status": "partial",
+   "status": "run",
+   "runs": [
+    {
+     "date": "2026-10-18",
+     "outcome": "success",
+     "note": "synthetic met (decode, genome-order placement, masking); built from the compact copy: 79 cells, 813,950 of 813,951 sites placed (1 without a manifest position); maps to S3 atlas_v21/maps/ and maps/noise/ (sizes verified); plates in atlas/v2.1/sky/",
+     "page": "the atlas sky plate, shown to the author"
+    }
+   ],
+   "next_step": "into the v4 report beside each sample's own sky; Zenodo maps/ with the atlas deposit; apodization enters only with power spectra (after the gift)",
+   "cost": "laptop (from the v2.1 box outputs)",
+   "impact": 3,
+   "record": "Biological_Physics/MethylPhys/atlas/tools/sky_maps_v21.py",
+   "legacy_ids": [],
+   "depends_on": [
+    "ATL-045"
+   ],
+   "notes": "",
+   "sources_of_row": [
+    "author request 2026-10-13"
+   ]
   }
  ],
  "not_tests": {

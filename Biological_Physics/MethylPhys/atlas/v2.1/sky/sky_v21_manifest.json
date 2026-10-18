@@ -1,0 +1,16 @@
+{
+ "cells": 79,
+ "sites": 813951,
+ "placed": 813950,
+ "without_position": 1,
+ "nside": 256,
+ "order": "NESTED",
+ "pixels": 786432,
+ "files": {
+  "atlas_v21_plate.jpg": "61637dee0fd679b174e56a82c1023ff498e1013dc502a4f4c8495fe7aefd0aba",
+  "atlas_v21_uncertainty_plate.jpg": "46b0cbd44bc86c8b057e706ef8ceb0ce999b6871b0c52f366edd049c09e95c8b",
+  "sky_v21_halfwidth_nside256_nest.npz": "34bb2a37417c277a563b4aa51004b77715d062283271d577676fcbb3a28116e8",
+  "sky_v21_mu_nside256_nest.npz": "5ff826a86ccc9b013c97a9db42de6461cff0d4b8fadda626b3f4d7f3d5141972"
+ },
+ "median_pixels_filled": 786432
+}

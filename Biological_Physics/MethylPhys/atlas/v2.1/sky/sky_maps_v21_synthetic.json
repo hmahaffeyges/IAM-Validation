@@ -1,0 +1,8 @@
+{
+ "decode": true,
+ "one_value_per_chromosome_block": true,
+ "masked_where_unmeasured": true,
+ "pixels_filled": 786432,
+ "pixels_total": 786432,
+ "met": true
+}
