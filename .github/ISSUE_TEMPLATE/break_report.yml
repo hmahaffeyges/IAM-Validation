@@ -1,0 +1,26 @@
+name: Break report
+description: The chain did not do what TRY_TO_BREAK_IT.md says it should on samples you know.
+title: "[break] <instrument>: <one line>"
+labels: ["break-report"]
+body:
+  - type: dropdown
+    id: instrument
+    attributes: {label: Instrument, options: ["Met-A", "C-Score", "IAM-Deconvolver", "IAM-A", "IAM-Atlas v2.1", "the chain itself (install, intake, refusal)"]}
+    validations: {required: true}
+  - type: textarea
+    id: known
+    attributes: {label: What you knew about the samples before running them, description: "Specimen, platform or chemistry, how they were prepared, and what the right answer is."}
+    validations: {required: true}
+  - type: textarea
+    id: got
+    attributes: {label: What the chain reported, description: "The readings and states, and which line of TRY_TO_BREAK_IT.md it breaks."}
+    validations: {required: true}
+  - type: input
+    id: data
+    attributes: {label: "Data: a public accession (GEO, SRA, ArrayExpress), or 'private'"}
+  - type: input
+    id: commit
+    attributes: {label: "Chain commit (printed in the report's technical record)"}
+  - type: textarea
+    id: files
+    attributes: {label: Attach the report, the bundle (JSON) and the ledger row}

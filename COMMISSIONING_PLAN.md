@@ -56,7 +56,7 @@ The first commissioned chain is built (IAM-Atlas v2.1, IAM-Deconvolver, Met-A, C
 20. **Operating procedure and manual for chain v4 (researcher package)**
    - OTH-074 (run; last run 2026-10-18: met): wording fix confirmed by clean clone run 9 (25 of 25)
 21. **'Try to break it' guide for outside labs (researcher package)**
-   - OTH-075 (planned): write after the chain and report are final; built from the questions methylation researchers ask (reference file)
+   - OTH-075 (run): written 2026-10-18: each instrument's commissioned scope, its prediction on known samples, the failure line taken from its commissioning bar, and a public Break report issue form (.github/ISSUE_TEMPLATE/break_report.yml); link it from the researcher README and the front page with the package
 
 ## Machines running now (machine ledger)
 

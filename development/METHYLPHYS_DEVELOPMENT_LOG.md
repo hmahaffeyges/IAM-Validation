@@ -2478,3 +2478,6 @@ The last set (arrays and IAM-A) carries no retired wording in either view, eithe
 
 ### 2026-10-18 · Book: "Reading a report, step by step" (OTH-072, OTH-069)
 New Part 6 chapter after The report: the one command, then three real reports from the commissioned chain, stage by stage (healthy whole blood GSE235717 GSM7508429; the same array with a planted clustered change; healthy CD8 T cells GSM4293895 through IAM-A), every number from the run bundles, two figures composed from the reports' own images (figscripts/fig_walkthrough.py; reports and bundles in doors/data/REPORT_EXAMPLES_V4/final).
+
+### 2026-10-18 · "Try to break it" guide (OTH-075)
+TRY_TO_BREAK_IT.md: install and the release check; how to read arrays (references first, then the sample against them) and sequencing; for each instrument its commissioned scope, what it should do on samples a laboratory already knows, the line past which it is broken (each from its own commissioning bar), and its commissioning result; declines are not breaks; a public Break report form.
