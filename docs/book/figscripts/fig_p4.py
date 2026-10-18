@@ -825,8 +825,9 @@ def fig_status():
 def fig_summary():
     loo = pd.read_csv(RM / "Met_A_Floors" / "metA_floors_v1_3_loo.csv"); acc = pd.read_csv(MP / "chain_tests" / "chain_acceptance.csv"); d = dnmt()
     pr = pd.read_csv(MP / "doors" / "PROC_DNMT_01_PARTB" / "dnmt_b_pairs.csv"); tp = pd.read_csv(DD / "tumour_pairs.csv").dropna(subset=["ratio"]); im = imr90()
-    g = pd.read_csv(MP / "chain_tests" / "iama_floor_granulocytes.csv")
-    rows = [("held-out reference neutrophils (Met-A)", loo.A_loo, S.IAM), ("healthy granulocytes, held out (IAM-A)", g.A_own, S.IAM),
+    GR = json.load(open(MP / "doors" / "data" / "DEV_IAMA_GRAND_01" / "grand_scored.json"))   # IAM-A as commissioned (2026-10-18; was the retired position form)
+    gA = [r["A"] for r in GR["rows"] if r.get("read")]; gband = (GR["band"]["lo"], GR["band"]["hi"])
+    rows = [("held-out reference neutrophils (Met-A)", loo.A_loo, S.IAM), ("healthy CD8 T cells, sealed grand test (IAM-A)", gA, S.IAM),
             ("tared DNA mixtures (Met-A)", acc.loc[acc.group.str.contains("mixture", case=False), "A_rel_tared"].dropna(), S.IAM),
             ("senescent IMR90, unmethylated channel", im.loc[im.state == "Senescent", "A_unmeth"], S.GOLD),
             ("SV40 IMR90, methylated channel", im.loc[im.state == "SV40", "A_meth"], S.DATA)]
@@ -834,11 +835,12 @@ def fig_summary():
     normal_band(ax, axis="x")
     y = np.arange(len(rows))[::-1]; out = []
     for yi, (lab, v, c) in zip(y, rows):
+        if "IAM-A" in lab: ax.fill_betweenx([yi - 0.3, yi + 0.3], *gband, color=NCOL, alpha=0.22, lw=0, zorder=0)   # IAM-A's own Normal band (band v1)
         v = np.asarray(v, float); ax.plot([v.min(), v.max()], [yi, yi], color=c, lw=1.0); ax.plot(v, np.full(len(v), yi), "o", color=c, ms=3)
         out.append((lab, len(v), float(v.min()), float(v.max())))
     ax.set_xscale("log"); ax.set_xlim(0.6, 2.2); ax.set_xticks([0.6, 0.7, 0.8, 0.9, 1.0, 1.25, 1.5, 2.0], ["0.6", "0.7", "0.8", "0.9", "1", "1.25", "1.5", "2"])
     ax.minorticks_off(); ax.set_yticks(y, [r[0] for r in rows], fontsize=6.3); ax.set_xlabel("reading on the one gauge (log scale; healthy = 1)")
-    ax.set_title("Measured readings of Part 4 on one gauge (each against its own healthy reference)")
+    ax.set_title("Measured readings of the cellular chapters on one gauge (each against its own reference)")
     S.save(fig, "part6", "fig_p4_24_summary")
     return out
 

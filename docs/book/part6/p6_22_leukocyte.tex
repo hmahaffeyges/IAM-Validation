@@ -33,14 +33,14 @@ All three are \conjecture.
 \toprule mechanism & end & which cells & test, and where it stands \\\midrule\endhead
 the leukocyte is the tumor: leukemias, lymphoma, myeloma; clonal hematopoiesis as the pre-malignant form & above & the affected lineage; the others near 1.00 & the affected lineage read against its own healthy floor. Not yet possible: on the neutrophil sites leukemic blood stayed Normal in 6 of 10, and progenitor floors on EPIC are not built \\
 aging & above & slowly, per person, over years & serial readings of one person; serial mode is not yet built (Chapter~\ref{ch:serial}) \\
-T-cell exhaustion, immunosenescence & below & CD4 and CD8 specifically, with neutrophils near 1.00 in the same specimen & needs T-cell floors; chain v3 reads neutrophils only \\
+T-cell exhaustion, immunosenescence & below & CD4 and CD8 specifically, with neutrophils near 1.00 in the same specimen & on single molecules, IAM-A now reads CD8 T cells against their own reference (commissioned on healthy CD8 T cells); on arrays, T-cell floors are not yet built \\
 emergency hematopoiesis: immature cells pushed out of the marrow & composition first & immature fraction up; immature cells may read below Normal & needs a progenitor group in Stage~A \\\bottomrule
 \end{longtable}
 \end{center}
 
 \section{Aging}
 
-The direction of aging on the neutrophil gauge is not yet measured on chain v3. \openprob{} One development reading on 450K arrays, outside the chain's platform, found
+The direction of aging on the neutrophil gauge is not yet measured by the commissioned chain. \openprob{} One development reading on 450K arrays, outside the chain's platform, found
 neutrophil Met-A rising with age among controls with $\rho=0.23$; the same arrays carried a slide effect large
 enough to split the reading by sex, so the trend is not separated from the instrument. \observed{} One reading is that an old immune system has had more written
 over a lifetime onto the same surface, with less headroom, which is the same direction as clonal hematopoiesis. \conjecture{} Whether an elevation in old blood is a slope
@@ -49,19 +49,17 @@ the others.
 
 \section{What the leukocyte gauge does not do}
 
-It does not detect a solid tumor through the blood cells' $A$. Immune cells are not expected to take on a tumor's state by fighting it. \conjecture{} A solid cancer, if it
-shows in whole blood at all, shows through composition or through shed cells. Chain v3 holds no template for a non-blood cell, so it does not detect shed cells at all
-(Chapter~\ref{ch:separation}). Plasma cell-free DNA, where shed cells are a much larger share, and single molecules, where a tumor's held error is read directly, are the
+It does not detect a solid tumor through the blood cells' $A$. Immune cells are not expected to take on a tumor's state by fighting it. \conjecture{} A solid cancer, if it shows in whole blood at all, shows through composition or through shed cells. Chain v4 reads composition against IAM-Atlas v2.1, whose 79 cell types include the cells of solid organs (Chapter~\ref{ch:atlas}, Section~\ref{sec:atlas:v21story}); the Deconvolver is commissioned for the shares of four blood cell types, and its reading of shed organ cells in blood is a test still to run. Plasma cell-free DNA, where shed cells are a much larger share, and single molecules, where a tumor's held error is read directly, are the
 routes for that question (Chapter~\ref{part4:ch:reach}).
 
 \section{Why a reading of one cell does not cancel}
 
 A score pooled over many sites and many cells, computed as a case group minus a control group, can move in opposite directions under different conditions without any cell going
 both ways. Two things produce that. Pooling: some sites drift up and others down, and one lineage moves one way while another moves the other, netted by a composition that itself
-moves with disease and age. And the comparison: a control group sitting above or below 1.00 flips the sign of a departure. Neither enters chain v3. One cell is read on its own
+moves with disease and age. And the comparison: a control group sitting above or below 1.00 flips the sign of a departure. Neither enters the chain. One cell is read on its own
 identity sites, against its own healthy reference, and the methylated and unmethylated channels can be reported apart (Chapter~\ref{ch:gauge}).
 
 \section{A count, not a score}
 
 For conditions that involve the immune system as a whole, the intended report is how many immune cell types read outside Normal, and which: a count of cell readings, not one score
-for the immune system as a whole. It needs a commissioned reading for each cell type and is not yet built. \openprob
+for the immune system as a whole. It needs a commissioned reading for each cell type and is not yet built. \openprob{} The test plan's immune track asks the same question organ by organ: whether the immune cells of whole blood carry a distinct reading for the organ in which a cancer is forming, read with Group-A on patients and healthy people run in the same series.
