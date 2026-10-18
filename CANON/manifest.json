@@ -27411,7 +27411,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "run",
    "runs": [],
-   "next_step": "built and tested 2026-10-18: Researcher and Plain views, two PDFs, physics panel, the sample's sky beside the healthy atlas sky; clean clone run 13 PASS 27 of 27; real example reports (GSE235717_GSM7508429, healthy) and the far-right example (PLANTED, C_rel 2.66) from i-0e16b64e60f88f0ab; after review: arrays run 4 done; IAM-A example reproduced its grand-test reading exactly (A 0.9083 Normal, one command from the BAM); Last set running after the technical-record wording: arrays (i-06fd497326090626e), IAM-A (i-03e9e5160b5fea273).",
+   "next_step": "built and tested 2026-10-18: Researcher and Plain views, two PDFs, physics panel, the sample's sky beside the healthy atlas sky; clean clone run 13 PASS 27 of 27; real example reports (GSE235717_GSM7508429, healthy) and the far-right example (PLANTED, C_rel 2.66) from i-0e16b64e60f88f0ab; after review: arrays run 4 done; IAM-A example reproduced its grand-test reading exactly (A 0.9083 Normal, one command from the BAM); Final reports made (i-06fd497326090626e, i-03e9e5160b5fea273): real healthy blood, the planted clustered example, and IAM-A on grand-test GSM4293895 (A 0.9083, equal to its grand test); no retired wording anywhere. Next: the book chapter on the chain and the report.",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
@@ -27494,7 +27494,7 @@
      "page": "not headline: a repeat of the clean-clone check after a fix"
     }
    ],
-   "next_step": "run 15 PASS 28 of 28; last run 16 (i-05cdf05259bbd2102) after the technical-record wording",
+   "next_step": "run 16 (i-05cdf05259bbd2102) PASS 28 of 28 on the final report: done for this chain version",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
