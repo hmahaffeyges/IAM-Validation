@@ -11,6 +11,12 @@ Every reading in this part comes from one of a small set of tools. Each answers 
 \textbf{Its specialty.} It is the map every other instrument reads against: for 79 healthy cell types, the expected tagging at every site with its range of error, so a sample can be split into its cells and each cell compared with its own healthy kind. (Chapter~\ref{ch:atlas})\par
 \textbf{Reads from.} arrays or sequencing. \textbf{Status.} Commissioned (79 cell types; met all three sealed bars against both published reference atlases, 2026-10-16; commissioned for three cell references and the colon and lung tissue tests).\par
 
+\subsection*{IAM-Deconvolver}
+\textbf{The question.} How much of each cell is in a mixed sample?\par
+\textbf{How it reads.} Reads a mixed sample against IAM-Atlas v2.1 and reports each cell's share with its range, after a sample check that refuses arrays it cannot read. On 200 fresh mixtures from a laboratory the atlas never saw, the shares came back within 0.016 of the truth (median).\par
+\textbf{Its specialty.} It turns a whole-blood array into its cells, so each instrument reads the cell it was built for and a change in the mix is not mistaken for a change in the cells. (Chapter~\ref{ch:atlas})\par
+\textbf{Reads from.} arrays. \textbf{Status.} Commissioned (blood-cell shares on arrays, tested on neutrophils, monocytes, CD4 T and CD8 T cells, 2026-10-17).\par
+
 \subsection*{Met-A}
 \textbf{The question.} How far has a tissue's tagging level drifted toward the ceiling?\par
 \textbf{How it reads.} Reads the methylation level at sites a healthy cell holds firmly, against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils.\par
@@ -41,7 +47,6 @@ Every reading in this part comes from one of a small set of tools. Each answers 
 \item \textbf{Intake and calibration.} Takes an array's raw intensities, checks every control, and turns them into tagging levels on one fixed scale, refusing what it cannot read and saying why. (Chapter~\ref{ch:instrument})
 \item \textbf{The tare.} Reads each specimen against healthy references run beside it, so a laboratory's own offset cancels instead of passing for disease. (Chapter~\ref{ch:instrument})
 \item \textbf{Composition.} For whole blood, works out which cells are in the sample and in what shares, so a change in the mix is not mistaken for a change in the cells. (Chapter~\ref{ch:chain})
-\item \textbf{The IAM-Deconvolver.} Reads a mixed sample against atlas v2.1 and reports each cell's share, after a sample check that refuses arrays it cannot read. (Chapter~\ref{ch:atlas})
 \item \textbf{The sky map.} Lays the genome on a sphere, chromosome by chromosome, and draws each site's departure from healthy, the way a microwave sky is drawn; the same residuals the clustering meter scores. (Chapter~\ref{ch:skytools})
 \item \textbf{The chain and its report.} Runs every stage in a fixed order, records every input and setting, and prints one report per sample with each instrument's reading, its status and its detection limit. (Chapter~\ref{ch:report})
 \end{itemize}

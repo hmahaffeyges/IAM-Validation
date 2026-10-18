@@ -2484,3 +2484,6 @@ TRY_TO_BREAK_IT.md: install and the release check; how to read arrays (reference
 
 ### 2026-10-18 · Showcase picks applied to the labels; three findings for the author (OTH-073)
 The sealed rules were applied to the GEO labels only (plan Part 7). Buffy coat is not an accepted specimen, tissue has no one-command route, and GSE281305 is a nine-cell mixture with cancer lines and stromal cells, not a blood mixture: each needs the author before the showcase launches. Intake refusal messages still said "chain v3"; now "the chain" (wording only; local report checks pass; clean clone with the next chain batch).
+
+### 2026-10-18 · README and catalogue for the researcher package (OTH-071, ATL-066)
+The root README said IAM-Atlas v2.1 "is being built now" (stale since its commissioning) and its instrument table, generated from the catalogue, left out the commissioned IAM-Deconvolver, which was filed as a support tool. The Deconvolver is now an instrument in CANON/catalogue.json (INSTRUMENTS.md, README and front page follow); the atlas section is current; Start here links the Try to break it guide, the example reports and SOP v4.

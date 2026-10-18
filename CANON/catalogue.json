@@ -20,6 +20,21 @@
    "commissioned": "79 cell types; met all three sealed bars against both published reference atlases, 2026-10-16; commissioned for three cell references and the colon and lung tissue tests"
   },
   {
+   "id": "deconv",
+   "name": "IAM-Deconvolver",
+   "question": "How much of each cell is in a mixed sample?",
+   "how": "Reads a mixed sample against IAM-Atlas v2.1 and reports each cell's share with its range, after a sample check that refuses arrays it cannot read. On 200 fresh mixtures from a laboratory the atlas never saw, the shares came back within 0.016 of the truth (median).",
+   "reads": "arrays",
+   "rows": [
+    "ATL-065",
+    "ATL-066"
+   ],
+   "commissioned": "blood-cell shares on arrays, tested on neutrophils, monocytes, CD4 T and CD8 T cells, 2026-10-17",
+   "next": "B and NK cell shares, tissue cells, then cell-free DNA.",
+   "book_chapter": "ch:atlas",
+   "specialty": "It turns a whole-blood array into its cells, so each instrument reads the cell it was built for and a change in the mix is not mistaken for a change in the cells."
+  },
+  {
    "id": "meta",
    "name": "Met-A",
    "question": "How far has a tissue's tagging level drifted toward the ceiling?",
@@ -97,12 +112,6 @@
    "name": "Composition",
    "what": "For whole blood, works out which cells are in the sample and in what shares, so a change in the mix is not mistaken for a change in the cells.",
    "chapter": "ch:chain"
-  },
-  {
-   "name": "The IAM-Deconvolver",
-   "what": "Reads a mixed sample against atlas v2.1 and reports each cell's share, after a sample check that refuses arrays it cannot read.",
-   "chapter": "ch:atlas",
-   "commissioned": "blood-cell shares on arrays, tested on neutrophils, monocytes, CD4 T and CD8 T cells, 2026-10-17"
   },
   {
    "name": "The sky map",

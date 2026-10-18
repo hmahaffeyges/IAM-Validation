@@ -40,6 +40,19 @@ A map of 79 kinds of healthy human cells, built from 21 public sources on arrays
 
 **Next:** Deposit IAM-Atlas v2.1 with its DOI, with its complementary additions: noise maps, the information sphere and the guidebook.
 
+## IAM-Deconvolver
+
+**The question:** How much of each cell is in a mixed sample?
+
+Reads a mixed sample against IAM-Atlas v2.1 and reports each cell's share with its range, after a sample check that refuses arrays it cannot read. On 200 fresh mixtures from a laboratory the atlas never saw, the shares came back within 0.016 of the truth (median).
+
+**Reads:** arrays. **Where it stands:** commissioned (blood-cell shares on arrays, tested on neutrophils, monocytes, CD4 T and CD8 T cells, 2026-10-17).
+
+- ATL-065 Deconvolution tool on atlas v2.1: run; last run 2026-10-17: not met
+- ATL-066 Deconvolution tool version 2 on fresh mixtures: run; last run 2026-10-16: not met
+
+**Next:** B and NK cell shares, tissue cells, then cell-free DNA.
+
 ## Met-A
 
 **The question:** How far has a tissue's tagging level drifted toward the ceiling?
