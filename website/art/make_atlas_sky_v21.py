@@ -29,6 +29,11 @@ def panel(fig, sub, m, title, cmap, lo, hi, unit, ticks, labels=None, nest=True,
     if labels: cb.ax.set_xticklabels(labels)
     cb.set_label(unit, color=FG, fontsize=10); cb.ax.tick_params(colors=FG, labelsize=9); cb.outline.set_edgecolor("#444")
 MU = ("methylation: 0 never tagged, 1 always tagged", [0, 0.25, 0.5, 0.75, 1]); UU = ("uncertainty: dark = certain (0), bright = less sure", [0, 0.025, 0.05], ["0  certain", "\u00b10.025", "\u00b10.05 or more"])
+# 2026-10-18 (author: the cell pages' certainty maps were "all too pale when they should be dark"): the 0-0.05 scale above was set for
+# neutrophils, the atlas's most certain cell (median half-width 0.006); 38 of the 79 cells have half their sites beyond it, so their maps
+# saturated. Every cell page now uses ONE shared scale, 0 to 0.15 (nine in ten sites inside it for 76 of 79 cells), so each map shows its own
+# certainty and cells can be compared with each other. The neutrophil tile on the front page keeps 0-0.05 for its fine detail.
+UHI = 0.15; UC_ = ("uncertainty: dark = certain (0), bright = less sure (same scale for every cell)", [0, 0.05, 0.10, 0.15], ["0  certain", "\u00b10.05", "\u00b10.10", "\u00b10.15"])
 f = os.path.join(HERE, "data", "planck_smica_pr3_nside256.npz"); C0 = hp.smoothing(np.load(f)["map"].astype(np.float64), fwhm=np.radians(0.5))
 NM = m_(Z, "neutrophils"); nN = int((NM != hp.UNSEEN).sum())
 # globes
@@ -63,10 +68,10 @@ for c in cells:
     v = Z[f"m{cells.index(c):02d}"].astype(float); u = W[f"m{cells.index(c):02d}"].astype(float)
     fg = plt.figure(figsize=(14, 4.4), facecolor=BG)
     panel(fg, (1, 2, 1), m_(Z, c), f"{pretty(c)}: the value at each site", CM, 0, 1, *MU, fs=12)
-    panel(fg, (1, 2, 2), m_(W, c), "How sure the atlas is of that value", UC, 0, 0.05, *UU, fs=12)
+    panel(fg, (1, 2, 2), m_(W, c), "How sure the atlas is of that value", UC, 0, UHI, *UC_, fs=12)
     fg.savefig(os.path.join(CO, slug(c) + ".jpg"), dpi=95, facecolor=BG, bbox_inches="tight", pil_kwargs={"quality": 80}); plt.close(fg)
     idx.append(dict(cell=c, name=pretty(c), slug=slug(c), pixels_measured=int(np.isfinite(v).sum()), pixels=int(v.size),
-                    mean_methylation=round(float(np.nanmean(v)), 3), halfwidth_median=round(float(np.nanmedian(u)), 4), halfwidth_p90=round(float(np.nanpercentile(u, 90)), 4)))
+                    mean_methylation=round(float(np.nanmean(v)), 3), halfwidth_median=round(float(np.nanmedian(u)), 4), halfwidth_p90=round(float(np.nanpercentile(u, 90)), 4), uncertainty_scale=[0, UHI]))
 json.dump(dict(atlas="IAM-Atlas v2.1", nside=256, order="NESTED", source="Biological_Physics/MethylPhys/atlas/tools/sky_maps_v21.py", cells=idx),
           open(os.path.join(CO, "index.json"), "w"), indent=1)
 print("cells", len(idx), "| neutrophil pixels", nN)

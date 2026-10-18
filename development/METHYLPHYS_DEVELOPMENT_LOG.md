@@ -2505,3 +2505,6 @@ Job i-0bc349afb0ee8c84c (spot m7a.xlarge, about 15 minutes): scenario 3 alone, t
 
 ### 2026-10-18 · Showcase shown (OTH-073)
 SHOWCASE_V4/README.md: one person's buffy coat (AK0005) read by every array instrument and tared by three others of the same study (Met-A A_rel 1.039, Normal; C-Score C_rel 1.067, not above the band; neutrophils 96.7 %), each reading labeled preliminary on buffy coat; every decline with its printed reason; three nine-cell mixtures labeled outside the Deconvolver's scope (raw totals 1.11-1.13, the sign of cells the reference does not hold). Nothing scored.
+
+### 2026-10-18 · Cell pages: certainty maps redrawn on one shared scale (ATL-069)
+Author: the 79 cell pages' certainty maps were "all too pale when they should be dark". Cause: every map used the 0 to 0.05 scale set for neutrophils, the atlas's most certain cell (median half-width 0.006); 38 of the 79 cells have half their sites beyond 0.05 and 63 their top tenth, so those parts drew at full brightness. All 79 now use one shared scale, 0 to 0.15 (nine in ten sites inside it for 76 cells), stated on each page, so maps show their own certainty and cells compare. The front page's neutrophil tile keeps 0 to 0.05 for its detail. Pictures only; no value changed.
