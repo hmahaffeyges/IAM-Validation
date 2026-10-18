@@ -54,7 +54,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 19. **One person over time (IAM-A)**
    - COM-IAMA-056 (planned): scout public longitudinal sequencing sets of the same donors
 20. **Operating procedure and manual for chain v4 (researcher package)**
-   - OTH-074 (planned): found 2026-10-18 in the book audit; write before the researcher package; also: conductor_v3.py docstring still calls the C-score 'development: band not set' (fix in the next chain batch)
+   - OTH-074 (run; last run 2026-10-18: met): next chain batch: conductor_v3.py docstring calls the C-score 'development: band not set', and the platform refusal text says 'chain v3 reads EPIC v1 arrays only'; reword both, then a clean clone
 
 ## Machines running now (machine ledger)
 

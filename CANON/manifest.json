@@ -27731,10 +27731,17 @@
    ],
    "title": "Operating procedure and manual for chain v4 (SOP and operations manual cover chain v3 only)",
    "purpose": "For the researcher package: the SOP and the operations manual describe the one-command chain v4 (Deconvolver, IAM-A on its own reference, the sky plate, the v4 report), generated from the code where possible.",
-   "status": "planned",
-   "record": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
-   "runs": [],
-   "next_step": "found 2026-10-18 in the book audit; write before the researcher package; also: conductor_v3.py docstring still calls the C-score 'development: band not set' (fix in the next chain batch)"
+   "status": "run",
+   "record": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+   "runs": [
+    {
+     "date": "2026-10-18",
+     "outcome": "success",
+     "note": "chain v4 SOP generated from the chain's files (commissioning, frozen inputs, live stages, shape reference); gated by checked_push.sh",
+     "page": "not headline: a procedure document for the researcher package"
+    }
+   ],
+   "next_step": "next chain batch: conductor_v3.py docstring calls the C-score 'development: band not set', and the platform refusal text says 'chain v3 reads EPIC v1 arrays only'; reword both, then a clean clone"
   }
  ],
  "not_tests": {

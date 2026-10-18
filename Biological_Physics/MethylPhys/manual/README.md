@@ -1,3 +1,5 @@
+**For chain v4, the operating procedure is [`../sop/MethylPhys_CPG_SOP_v4.md`](../sop/MethylPhys_CPG_SOP_v4.md).** The files below describe chain v3.
+
 # manual
 
 The operations manual for chain v3 and what it is built from. One live version, edited in place; version control is the history.
