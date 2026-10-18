@@ -199,22 +199,6 @@
       "nothing synthetic; it now needs a cancer whose mechanism is independently known"
      ],
      [
-      "**Temperature, two clocks** (test 2)",
-      "can a temperature series separate the derived floor (scales with kT) from thermal chemical damage (scales exponentially)",
-      "some feasible series must separate them",
-      "**MET** - 120 of 120 designs work; the smallest is 3 temperatures x 3 donors",
-      "law",
-      "run it on hibernator tissue, warm and cold, same animals"
-     ],
-     [
-      "**Temperature, across species** (test 2b)",
-      "can a cross-species series detect a thermal-damage share at realistic between-species spread",
-      "some feasible design must detect a share",
-      "**MET but weak** - of 108 designs only 18 detect any share; at 10 % species spread exactly one does (8 temperatures x 20 donors, share 0.25)",
-      "law",
-      "superseded in priority: hibernation removes the species difference by construction rather than fitting it"
-     ],
-     [
       "**Division rate** (test 4)",
       "can an age series in sorted neurons detect a drift, without the reader inventing one",
       "some feasible series must detect it and the reader must not accept a null",
