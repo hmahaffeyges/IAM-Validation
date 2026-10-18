@@ -2258,6 +2258,54 @@
     "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
    ],
    "note": "stops itself after 150 minutes at most"
+  },
+  {
+   "job_id": "i-06c3fa83aea9a27aa",
+   "name": "Temperature law stage T3 run 4, machine C: all 233 Arabidopsis samples on the fixed counter (PHY-057)",
+   "date": "2026-10-18",
+   "commit": "1721f1a5",
+   "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run4_C/",
+   "state": "running",
+   "log": "results/PRED_TEMPERATURE_01/T3/status_C.txt",
+   "machine": "spot c7a.16xlarge, self-terminating",
+   "purpose": "align and chain-count from the shared S3 queue; outputs to results/PRED_TEMPERATURE_01/T3/out/",
+   "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
+   "manifest": [
+    "PHY-057"
+   ],
+   "outputs": [
+    "results/PRED_TEMPERATURE_01/T3/out/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/box/align_plants.sh",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
+   ],
+   "note": "added 2026-10-18 to speed up the recount after the counter fix (same committed code, same shared queue)"
+  },
+  {
+   "job_id": "i-0817aadec94703fca",
+   "name": "Temperature law stage T3 run 4, machine D: all 233 Arabidopsis samples on the fixed counter (PHY-057)",
+   "date": "2026-10-18",
+   "commit": "1721f1a5",
+   "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run4_D/",
+   "state": "running",
+   "log": "results/PRED_TEMPERATURE_01/T3/status_D.txt",
+   "machine": "spot c7a.16xlarge, self-terminating",
+   "purpose": "align and chain-count from the shared S3 queue; outputs to results/PRED_TEMPERATURE_01/T3/out/",
+   "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
+   "manifest": [
+    "PHY-057"
+   ],
+   "outputs": [
+    "results/PRED_TEMPERATURE_01/T3/out/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/box/align_plants.sh",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
+   ],
+   "note": "added 2026-10-18 to speed up the recount after the counter fix (same committed code, same shared queue)"
   }
  ],
  "not_jobs": {

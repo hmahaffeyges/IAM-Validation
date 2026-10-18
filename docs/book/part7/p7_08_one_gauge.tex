@@ -32,7 +32,7 @@ trapped ion, Rydberg decay in a neutral atom, two-level fluctuators in a transmo
 replication), and each field writes its thresholds in its own units.
 \begin{center}\small\begin{tabular}{p{0.11\textwidth}p{0.24\textwidth}p{0.22\textwidth}p{0.29\textwidth}}\toprule
 score & reading & healthy reference ($A=1$) & $H_{\min}$ (on the gauge)\\\midrule
-IAM-A & held error, $H(\varepsilon)$ & $P_{\rm cell}H(\varepsilon_0)$ & $H(1/(1+e^{M}))=2.5\times10^{-8}$ bits; neutrophils at $1\times10^{-7}$\\
+IAM-A & held error, $\varepsilon$ & the sample's own: $\varepsilon_{\rm pred}(L)$, the held error its loose share predicts & $1/(1+e^{M})=8.1\times10^{-10}$ over $\varepsilon_{\rm pred}(L)$: $1$--$2\times10^{-8}$\\
 Met-A & $\langle H(\beta)\rangle$ at identity sites & purified healthy cells, same platform & the same floor; neutrophils at $8\times10^{-8}$\\
 C-score & clustering of the residual map & healthy median clustering & ---\\
 qubit gauge & $\varepsilon=-\ln(1-p_{2Q})$ & the device as built & thermal floor $p_{\rm eq}t_g/T_1$ (transmon reading: $6\times10^{-4}$)\\
@@ -98,10 +98,10 @@ measured on 56 healthy cell types and frozen (Chapter~\ref{ch:iama}); commission
 \item $A>1$: more error; the pattern is blurring.
 \item $A<1$: less error than the standard; the pattern is locking tighter than normal.
 \end{itemize}
-Each reading has a C-score (built for Met-A, its healthy band being set next; the IAM-A C-score is defined and is the next to build): the clustering of the person's residual map along the genome, over the healthy baseline, so healthy reads 1 on the same
+Met-A has a C-score (commissioned 2026-10-15 on whole blood, read one-sided against the band 0.877--1.152; the IAM-A C-score is defined, not built): the clustering of the person's residual map along the genome, over the healthy baseline, so healthy reads 1 on the same
 gauge. $A$ says how much error there is; the C-score says whether it is spread out or concentrated in regions.
 
-The commissioned cell is the neutrophil. Other cells are added one at a time after passing the same tests.
+Met-A is commissioned on isolated neutrophils (EPIC v1) and IAM-A on healthy CD8 T cells read by whole-genome sequencing; other cells are added one at a time, each after its own sealed test.
 
 \section{Two error channels}
 

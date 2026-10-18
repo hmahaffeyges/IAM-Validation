@@ -1426,5 +1426,33 @@
    "results/CHAIN_V4_CLEANCLONE/release_check_v4.json": false
   },
   "state_at_verify": "running"
+ },
+ "i-06c3fa83aea9a27aa": {
+  "s3": {
+   "align_plants.sh": "48a11673f9bf85eb2d727975a88452f9c8be2f3c45ec519410f07e9e02007d88",
+   "t3_pairs_runs.csv": "5bb99b79b8c2c9559829ddf7e7739bb286381c9365de2a56294cf1bcaf87a248",
+   "count_plant.py": "3e1703543b6572fbfe75aa17ab316fe3a9850405e9d832e2875007773b8cec0b"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/PRED_TEMPERATURE_01/T3/out/": false
+  },
+  "state_at_verify": "running"
+ },
+ "i-0817aadec94703fca": {
+  "s3": {
+   "align_plants.sh": "48a11673f9bf85eb2d727975a88452f9c8be2f3c45ec519410f07e9e02007d88",
+   "t3_pairs_runs.csv": "5bb99b79b8c2c9559829ddf7e7739bb286381c9365de2a56294cf1bcaf87a248",
+   "count_plant.py": "3e1703543b6572fbfe75aa17ab316fe3a9850405e9d832e2875007773b8cec0b"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/PRED_TEMPERATURE_01/T3/out/": false
+  },
+  "state_at_verify": "running"
  }
 }
