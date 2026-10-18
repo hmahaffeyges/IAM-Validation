@@ -27709,6 +27709,26 @@
    "sources_of_row": [
     "session 2026-10-17 (author)"
    ]
+  },
+  {
+   "instrument_or_term": "all",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "cost": "laptop",
+   "impact": 5,
+   "legacy_ids": [],
+   "id": "OTH-074",
+   "sources_of_row": [
+    "session 2026-10-16"
+   ],
+   "title": "Operating procedure and manual for chain v4 (SOP and operations manual cover chain v3 only)",
+   "purpose": "For the researcher package: the SOP and the operations manual describe the one-command chain v4 (Deconvolver, IAM-A on its own reference, the sky plate, the v4 report), generated from the code where possible.",
+   "status": "planned",
+   "record": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
+   "runs": [],
+   "next_step": "found 2026-10-18 in the book audit; write before the researcher package"
   }
  ],
  "not_tests": {

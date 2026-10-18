@@ -53,6 +53,8 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
    - TIS-054 (planned): scout public stool and sputum methylation sets with raw files; human-DNA share and enrichment noted per set
 19. **One person over time (IAM-A)**
    - COM-IAMA-056 (planned): scout public longitudinal sequencing sets of the same donors
+20. **Operating procedure and manual for chain v4 (researcher package)**
+   - OTH-074 (planned): found 2026-10-18 in the book audit; write before the researcher package
 
 ## Machines running now (machine ledger)
 
