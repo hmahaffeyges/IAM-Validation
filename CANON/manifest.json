@@ -25996,11 +25996,6 @@
     {
      "date": "2026-10-18",
      "outcome": "fail",
-     "what": "stage T3 scored once: 109 Arabidopsis pairs, cold/warm ratio 1.0002 (95 % 0.993-1.008) against the law's 1.0212; B1 and B2 not met (t3_scored.json)"
-    },
-    {
-     "date": "2026-10-18",
-     "outcome": "fail",
      "note": "NOT MET (chain result Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_scored.json)",
      "chain_result": "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_scored.json",
      "payload_sha256": "a89d916969ae22207e3ef9c773f3774d503d487e85d4e370308f4ccdba83cd20",
