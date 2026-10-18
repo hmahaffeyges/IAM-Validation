@@ -2431,3 +2431,6 @@ The first real whole-blood report (GSE235717_GSM7508429) drew its sky at the col
 
 ### 2026-10-18 · CHAIN FIX: an above-band C-Score crashed the report (LESSONS C27; OTH-069, OTH-070)
 The C-Score's clustered-departure flag used level FLAG, missing from the report's order: every above-band reading crashed the report. Fixed; new release check V6 (planted clustered loss by the commissioning rule: C_rel 3.56, flag in report, both PDFs). The C-Score bar now stretches to hold its reading. The example machine's script adds the far-right example, labeled PLANTED, beside the same array unchanged. Local report checks E4, E9, E11, V1-V6 pass.
+
+### 2026-10-18 · Clean clone run 11 PASS 26 of 26; run 12 and example run 2 launched (OTH-069, OTH-070)
+Run 11 (i-0721df7b2f292508b) passed every check from a fresh public clone. Run 12 (i-0a90224fe480361ec) tests the C27 fix and V6; example run 2 (i-0303517b557b2bbbd) adds the far-right example (PLANTED). Pre-launch checklist read; under $0.25 together.
