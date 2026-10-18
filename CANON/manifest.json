@@ -27485,9 +27485,15 @@
      "outcome": "success",
      "note": "clean clone run 8 after the counter fix (LESSONS C23) and the gauge-marks correction: RELEASE CHECK v4 PASS, 25 of 25",
      "page": "not headline: a repeat of the clean-clone check after a fix"
+    },
+    {
+     "date": "2026-10-18",
+     "outcome": "success",
+     "note": "clean clone run 9 after the wording fix: RELEASE CHECK v4 PASS, 25 of 25",
+     "page": "not headline: a repeat of the clean-clone check after a fix"
     }
    ],
-   "next_step": "clean clone run 9 (i-0bb1310b7ec57719b) for the wording fix; every check must pass",
+   "next_step": "every chain change runs the full release check on a clean clone (run 9 passed 2026-10-18)",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
@@ -27742,7 +27748,7 @@
      "page": "not headline: a procedure document for the researcher package"
     }
    ],
-   "next_step": "wording fixed 2026-10-18: the platform refusal now says 'the chain reads EPIC v1 arrays only' (was 'chain v3'), the conductor's Stage MC line states the C-score's commissioning; clean clone run 9 to confirm"
+   "next_step": "wording fix confirmed by clean clone run 9 (25 of 25)"
   }
  ],
  "not_tests": {

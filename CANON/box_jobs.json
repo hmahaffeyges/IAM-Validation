@@ -2240,8 +2240,8 @@
    "date": "2026-10-18",
    "commit": "cf702e9d",
    "s3_code_prefix": "results/CHAIN_V4_CLEANCLONE/code/run9/",
-   "state": "running",
-   "log": "results/CHAIN_V4_CLEANCLONE/status.txt",
+   "state": "done",
+   "log": "results/CHAIN_V4_CLEANCLONE/run9/status.txt",
    "machine": "spot m7a.xlarge, self-terminating",
    "purpose": "clone, install chain/requirements.txt only, run release_check_v4.py; every check must pass",
    "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh",
@@ -2250,14 +2250,15 @@
     "OTH-074"
    ],
    "outputs": [
-    "results/CHAIN_V4_CLEANCLONE/status.txt",
-    "results/CHAIN_V4_CLEANCLONE/release_check_v4.log",
-    "results/CHAIN_V4_CLEANCLONE/release_check_v4.json"
+    "results/CHAIN_V4_CLEANCLONE/run9/status.txt",
+    "results/CHAIN_V4_CLEANCLONE/run9/release_check_v4.log",
+    "results/CHAIN_V4_CLEANCLONE/run9/release_check_v4.json",
+    "results/CHAIN_V4_CLEANCLONE/run9/uv.log"
    ],
    "files": [
     "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
    ],
-   "note": "stops itself after 150 minutes at most"
+   "note": "stops itself after 150 minutes at most; RELEASE CHECK v4: PASS (25 checks)"
   },
   {
    "job_id": "i-06c3fa83aea9a27aa",

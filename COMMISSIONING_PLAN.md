@@ -54,7 +54,7 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 19. **One person over time (IAM-A)**
    - COM-IAMA-056 (planned): scout public longitudinal sequencing sets of the same donors
 20. **Operating procedure and manual for chain v4 (researcher package)**
-   - OTH-074 (run; last run 2026-10-18: met): wording fixed 2026-10-18: the platform refusal now says 'the chain reads EPIC v1 arrays only' (was 'chain v3'), the conductor's Stage MC line states the C-score's commissioning; clean clone run 9 to confirm
+   - OTH-074 (run; last run 2026-10-18: met): wording fix confirmed by clean clone run 9 (25 of 25)
 
 ## Machines running now (machine ledger)
 
@@ -62,7 +62,6 @@ Commission IAM-A first and foremost, then the C-score, Met-A on its own loose sh
 |---|---|---|
 | Temperature law stage T3 run 4, machine A: all 233 Arabidopsis samples on the fixed counter (PHY-057) | spot c7a.16xlarge, self-terminating | PHY-057 |
 | Temperature law stage T3 run 4, machine B: all 233 Arabidopsis samples on the fixed counter (PHY-057) | spot c7a.16xlarge, self-terminating | PHY-057 |
-| Chain v4 one-command test from a fresh public clone, run 9 (wording fix) (OTH-070, OTH-074) | spot m7a.xlarge, self-terminating | OTH-070, OTH-074 |
 | Temperature law stage T3 run 4, machine C: all 233 Arabidopsis samples on the fixed counter (PHY-057) | spot c7a.16xlarge, self-terminating | PHY-057 |
 | Temperature law stage T3 run 4, machine D: all 233 Arabidopsis samples on the fixed counter (PHY-057) | spot c7a.16xlarge, self-terminating | PHY-057 |
 

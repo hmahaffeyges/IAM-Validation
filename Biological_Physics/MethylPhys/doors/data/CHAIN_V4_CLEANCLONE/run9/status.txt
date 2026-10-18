@@ -1,0 +1,5 @@
+2026-10-18T06:18:54Z clone
+2026-10-18T06:20:10Z environment
+python 3.11.17 methylprep 1.7.1 pandas 1.5.3
+2026-10-18T06:20:16Z release check v4
+2026-10-18T06:24:54Z finished rc 0: RELEASE CHECK v4: PASS  (25 checks, 277 s; outputs in /tmp/rc_v4_jcln1gl3)

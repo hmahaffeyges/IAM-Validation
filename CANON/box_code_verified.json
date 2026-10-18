@@ -1419,13 +1419,14 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/CHAIN_V4_CLEANCLONE/status.txt": false,
-   "results/CHAIN_V4_CLEANCLONE/release_check_v4.log": false,
-   "results/CHAIN_V4_CLEANCLONE/release_check_v4.json": false
+   "results/CHAIN_V4_CLEANCLONE/run9/status.txt": true,
+   "results/CHAIN_V4_CLEANCLONE/run9/release_check_v4.log": true,
+   "results/CHAIN_V4_CLEANCLONE/run9/release_check_v4.json": true,
+   "results/CHAIN_V4_CLEANCLONE/run9/uv.log": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "done"
  },
  "i-06c3fa83aea9a27aa": {
   "s3": {
