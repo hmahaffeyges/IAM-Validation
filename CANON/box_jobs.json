@@ -2836,6 +2836,30 @@
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays; AWS caveats): banner text checked against the report's claim guard before launch; code in S3 first; watcher; about 15 minutes, under $0.10",
    "note": "3 reports written; terminated itself"
+  },
+  {
+   "job_id": "i-0f469dcb16e99a67d",
+   "name": "IAM-Atlas v2.1 Zenodo large-file upload, run 2 (ATL-005)",
+   "date": "2026-10-18",
+   "commit": "7c7173fa",
+   "s3_code_prefix": "results/ATLAS_V21/zenodo_upload/code/run2/",
+   "state": "running",
+   "log": "results/ATLAS_V21/zenodo_upload/status.txt",
+   "machine": "spot m7a.large, self-terminating (600-min timer)",
+   "purpose": "stream the assembled atlas and the 10 raw-fit bundles from S3 to the two Zenodo drafts",
+   "record": "Biological_Physics/MethylPhys/doors/data/ZENODO_V21/zenodo_upload_box.py",
+   "manifest": [
+    "ATL-005"
+   ],
+   "outputs": [
+    "results/ATLAS_V21/zenodo_upload/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/ZENODO_V21/zenodo_upload_box.py",
+    "Biological_Physics/MethylPhys/boxruns/publish_code.py"
+   ],
+   "note": "relaunch of run 1 (same script and commit) after Zenodo recovered; skips files already there; key in the AWS secret store for this run only, removed after; code copy for this run under code/run2/ (the script also rewrites code/run1/ with the same bytes)",
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (AWS caveats: Zenodo tested with a small file first, 0.35 MB/s): watcher from minute one; machine time about $0.05 per hour plus outbound transfer"
   }
  ],
  "not_jobs": {

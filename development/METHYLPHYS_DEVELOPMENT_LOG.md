@@ -2514,3 +2514,6 @@ The source study reported no temperature effect on CG or CHG levels (CHH +14 % a
 
 ### 2026-10-18 · The temperature test taken off the public pages (PHY-057)
 Author: "dont broadcast the temp test anywhere, it was exploratory and has no bearing on our instruments". Removed from the now-running board (README, FOLLOW, FIELD_NOTES; declared in off_board, which the append-only guard now honors) and from the 2026-10-17 and 2026-10-18 day logs (declared in off_page_rows, which the completeness check now honors). The record, scorer, counts and manifest row are unchanged.
+
+### 2026-10-18 · Zenodo upload run 2 launched; plan and chain v4 rows current (ATL-005, OTH-068)
+Zenodo tested at 0.35 MB/s (5 MB from the laptop), so the IAM-Atlas v2.1 upload machine was relaunched: job i-0f469dcb16e99a67d, same script and commit as run 1, skipping files already there; both records stay drafts. Chain v4 (OTH-068) marked run: real samples of each kind read through the one command. The temperature stage taken out of the commissioning plan (author: exploratory).

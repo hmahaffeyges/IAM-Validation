@@ -3813,7 +3813,7 @@
      "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
-   "next_step": "Zenodo: IAM-Atlas v2.1 draft holds 23 files; the 2.4 GB assembled atlas and the 10 raw-fit bundles wait for Zenodo to recover (degraded 2026-10-17 evening: gateway errors, about 33 KB/s); then zenodo_upload_box.py from AWS; then the author publishes",
+   "next_step": "2026-10-18: Zenodo recovered (0.35 MB/s laptop test); upload machine i-0f469dcb16e99a67d relaunched, same script; both records stay drafts until the author publishes",
    "cost": "box",
    "impact": 5,
    "depends_on": [
@@ -27397,7 +27397,7 @@
    ],
    "data_status": "",
    "record": "development/LIMITS_STUDY_2026-10-17.md",
-   "status": "synthetic_done",
+   "status": "run",
    "runs": [
     {
      "date": "2026-10-17",
@@ -27407,7 +27407,7 @@
      "page": "not headline: a gate on the way to the commissioned chain"
     }
    ],
-   "next_step": "chain v4 passes its release check from a fresh public clone (OTH-070, 25 of 25, 2026-10-17); next: one real public sample of each kind (an EPIC whole blood, an isolated-neutrophil array, a CD8 T-cell .pat) through the one command, reports kept as the shipped examples",
+   "next_step": "done 2026-10-18: real public samples of each kind read through the one command (REPORT_EXAMPLES_V4/final, SHOWCASE_V4); clean clone run 17 PASS 29 of 29",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
