@@ -23,7 +23,7 @@
    "id": "deconv",
    "name": "IAM-Deconvolver",
    "question": "How much of each cell is in a mixed sample?",
-   "how": "Reads a mixed sample against IAM-Atlas v2.1 and reports each cell's share with its range, after a sample check that refuses arrays it cannot read. On 200 fresh mixtures from a laboratory the atlas never saw, the shares came back within 0.016 of the truth (median).",
+   "how": "Reads a mixed sample against IAM-Atlas v2.1 and reports each cell's share with its range, after a sample check that refuses arrays it cannot read. On 200 fresh mixtures from a laboratory the atlas never saw, the shares came back within 0.016 of the truth (mean absolute error).",
    "reads": "arrays",
    "rows": [
     "ATL-065",

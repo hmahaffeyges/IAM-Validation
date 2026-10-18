@@ -64,7 +64,7 @@ rerun the line with `python3 reproduce/reproduce.py iama_line`.
 
 **Whole-blood differences are mostly differences in cell proportions. How does IAM handle that?**
 It measures the mix and reads each cell on its own terms. The IAM-Deconvolver reports each cell's share with its 95 % interval; on 200
-mixtures from a laboratory the atlas never saw, the shares came back within 0.016 of the truth (median). Met-A is commissioned on isolated
+mixtures from a laboratory the atlas never saw, the shares came back within 0.016 of the truth (mean absolute error). Met-A is commissioned on isolated
 neutrophils for exactly this reason, and the C-Score on whole blood, where its band was set. Evidence:
 [COMMISSIONING_NOTE_DECONV_V21.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md); `python3 reproduce/reproduce.py deconv`.
 
@@ -150,7 +150,7 @@ The procedure is the [operating procedure](Biological_Physics/MethylPhys/sop/Met
 |---|---|---|---|---|
 | **Met-A** | isolated neutrophils, EPIC v1, tared by ≥ 3 same-run healthy references | read healthy neutrophils Normal (0.95-1.05); agree on one person's repeat arrays | fewer than 95 % of your healthy isolated neutrophils read Normal, or one person's repeats differ by SD > 0.020 | 525 of 541 healthy arrays Normal (97.0 %, 18 series); other laboratories' purified neutrophils 68 of 68; repeat SD 0.016 |
 | **C-Score** | whole blood, EPIC v1, tared by ≥ 3 same-run healthy references | read healthy whole blood not above its band (C_rel ≤ 1.152); never read a scattered change above it; read a clustered change above it | more than 5 % of your healthy whole bloods read above 1.152, or a scattered change reads above it, or a clustered change at 5 % of sites stays below C_rel 1.5 | three laboratories: 34 of 35, 22 of 23, 172 of 173 not above; 0 of 120 planted scattered changes above |
-| **IAM-Deconvolver** | shares of neutrophils, monocytes, CD4 T and CD8 T cells in blood mixtures, arrays | return mixtures of known composition at their true shares | median absolute share error above 0.03 | 0.016 on 200 mixtures from a laboratory the atlas never saw |
+| **IAM-Deconvolver** | shares of neutrophils, monocytes, CD4 T and CD8 T cells in blood mixtures, arrays | return mixtures of known composition at their true shares | mean absolute share error above 0.03 | 0.016 on 200 mixtures from a laboratory the atlas never saw |
 | **IAM-A** | healthy blood CD8 T cells, whole-genome bisulfite, read against the sample's own loose share | read healthy samples Normal (0.779-1.055) | fewer than 75 % of at least 8 read healthy samples are Normal | 7 of 8 Normal, a laboratory it had never seen |
 | **IAM-Atlas v2.1** | the uses in its [commissioning note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md) | place your healthy cells of those types inside its range | below the bar the note states for that use | e.g. 97.8 % of 45 cortical-neuron arrays, 100 % of 53 lung-bronchus arrays inside |
 

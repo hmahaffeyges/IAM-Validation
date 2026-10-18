@@ -27840,7 +27840,7 @@
    "record": "reproduce/README.md",
    "runs": [],
    "next_step": "2026-10-18 fresh-clone run 1: cscore_band PASS (every compared number identical, 42 min, methylprep manifests fetched fresh); deconv and metaa_rebuild running; run 2 stopped (runner ran outside its environment; fixed), relaunched as 2b, job i-0173a92945aecb068",
-   "notes": "2026-10-18: colon entry added (atlas v2 from Zenodo, GSE131013 from GEO; extract_posterior.py reads local blocks with BLOCKS_DIR)"
+   "notes": "2026-10-18: colon entry added (atlas v2 from Zenodo, GSE131013 from GEO; extract_posterior.py reads local blocks with BLOCKS_DIR) | 2026-10-18: deconv PASS from a fresh clone (5 of 5 identical, 67 min); it exposed that the Deconvolver's error was described as a median everywhere while the sealed bar and the code use a mean; corrected at every source"
   }
  ],
  "not_tests": {

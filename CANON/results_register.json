@@ -426,14 +426,14 @@
    "status": "commissioned",
    "book": false,
    "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md",
-   "headline": "**The deconvolution tool commissioned** for blood-cell shares: on 200 mixtures from a laboratory the atlas never saw, median share error 0.016 (bar 0.03), after a sample check that refuses arrays it cannot read",
+   "headline": "**The deconvolution tool commissioned** for blood-cell shares: on 200 mixtures from a laboratory the atlas never saw, mean share error 0.016 (bar 0.03), after a sample check that refuses arrays it cannot read",
    "covers": [],
-   "plain": "Given a blood sample read on an array, the tool says how much of it came from each kind of blood cell. On mixtures made from healthy cells of a laboratory it had never seen, it was off by 1.6 percentage points at the median, and it refused the samples it could not read instead of guessing.",
+   "plain": "Given a blood sample read on an array, the tool says how much of it came from each kind of blood cell. On mixtures made from healthy cells of a laboratory it had never seen, it was off by 1.6 percentage points on average, and it refused the samples it could not read instead of guessing.",
    "win": {
     "rank": 2,
     "stat": "Commissioned",
     "head": "The deconvolution tool is commissioned",
-    "sub": "Blood-cell shares within 1.6 points at the median, on a laboratory it never saw."
+    "sub": "Blood-cell shares within 1.6 points on average, on a laboratory it never saw."
    },
    "title": "The IAM-Deconvolver commissioned for blood-cell shares"
   },
