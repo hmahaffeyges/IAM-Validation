@@ -2793,7 +2793,7 @@
    "job_id": "i-0c5b1f3644561f54e",
    "name": "Chain v4 showcase: public samples by the sealed label rules, each read once through the one command (OTH-073)",
    "date": "2026-10-18",
-   "commit": "de6e20ab",
+   "commit": "40ddabbb",
    "state": "running",
    "s3_code_prefix": "results/SHOWCASE_V4/code/run1/",
    "log": "results/SHOWCASE_V4/status.txt",
@@ -2810,7 +2810,8 @@
     "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/showcase_v4.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays: one array at a time so the manifest download is not raced; S3 from ~/env/bin/python; AWS caveats): code in S3 first, watcher from minute one, about 45 minutes, about $0.20",
-   "note": "stops itself after 120 minutes at most"
+   "note": "the script (commit 40ddabbb) runs the chain at chain_commit de6e20ab; stops itself after 120 minutes at most",
+   "chain_commit": "de6e20ab"
   }
  ],
  "not_jobs": {

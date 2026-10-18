@@ -1719,7 +1719,7 @@
    "showcase_v4.sh": "fe17cd74521ed813c690a2618ae3e559a59e9211f080966292073ea25dfc2ebe"
   },
   "s3_inputs_sha": {},
-  "matches_repo": false,
+  "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
    "results/SHOWCASE_V4/": false
