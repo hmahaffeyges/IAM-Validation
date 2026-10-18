@@ -13,13 +13,14 @@ built in public*. Each line links to the record it comes from.
 
 ### The temperature test: does a plant grown colder hold its marks better, by exactly the amount physics predicts?
 
-**Running now.** IAM's Law says the cost of holding a mark is set by temperature. If that is right, the same plant grown at 10 and at 16 degrees C must differ by an amount fixed by the two temperatures alone, with nothing adjusted to fit.
+**Result is in.** IAM's Law says the cost of holding a mark is set by temperature. If that is right, the same plant grown at 10 and at 16 degrees C must differ by an amount fixed by the two temperatures alone, with nothing adjusted to fit.
 
 - **What we hope:** The colder plants read lower, by the predicted amount: a test of the physics itself that any physicist can check.
 - **What could go wrong:** The difference predicted is small (about 2 percent), so it needs every one of the 111 plant pairs counted cleanly.
 
 | date | update |
 |---|---|
+| 2026-10-18 | Scored once by its sealed rule: plants grown at 10 C held their marks as well as plants at 16 C (ratio 1.000, 95 % range 0.993 to 1.008), where the simplest form of the law predicted 1.021. The next step is to find which assumption the plants do not share, each tested on planted data first. [record](Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md) |
 | 2026-10-17 | The rule is sealed and the counting is running on two cloud machines: 233 samples from 111 plant lines grown at both temperatures. [record](Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md) |
 
 *The full story so far, every update in plain words: [field notes](FIELD_NOTES.md#temperature-law).*

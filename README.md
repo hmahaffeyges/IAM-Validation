@@ -79,7 +79,7 @@ use ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)
 
 | experiment | status | newest update |
 |---|---|---|
-| The temperature test: does a plant grown colder hold its marks better, by exactly the amount physics predicts? | Running now | 2026-10-17: The rule is sealed and the counting is running on two cloud machines: 233 samples from 111 plant lines grown at both temperatures. [record](Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md) |
+| The temperature test: does a plant grown colder hold its marks better, by exactly the amount physics predicts? | Result is in | 2026-10-18: Scored once by its sealed rule: plants grown at 10 C held their marks as well as plants at 16 C (ratio 1.000, 95 % range 0.993 to 1.008), where the simplest form of the law predicted 1.021. [record](Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md) |
 | Building a bigger map of healthy cells: IAM-Atlas v2.1 | Result is in | 2026-10-17: Commissioned. [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md) |
 | Does our second instrument read the same DNA the same way everywhere? | On hold | 2026-10-17: Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
 | Brain cells: does healthy order hold in cells that never divide? | On hold | 2026-10-17: Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
