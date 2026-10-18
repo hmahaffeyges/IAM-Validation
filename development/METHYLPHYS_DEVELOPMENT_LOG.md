@@ -2364,3 +2364,6 @@ doors/data/ZENODO_V21/zenodo_upload_box.py, committed before it runs: on an AWS 
 
 ### 2026-10-17 · Zenodo upload paused (ATL-005)
 The AWS upload machine (job i-03ebc30fc11ccb741) was stopped after an hour: Zenodo was degraded (about 33 KB/s out of the machine; a 20 MB test upload from the laptop ran 4 minutes and ended in a gateway error). The IAM-Atlas v2.1 draft holds 23 files, each with its checksum confirmed; the 2.4 GB atlas and the 10 raw-fit bundles go when Zenodo recovers, after a small test upload first. The key was removed from the AWS secret store.
+
+### 2026-10-17 · Test plan: showcase and tracks (manifest rows added; FLD-002, TIS-018, GRP-008 updated)
+Showcase of the commissioned chain (7 scenarios, unused public sets) and the tracks after it, from the author's direction: field, precancer, before diagnosis, the immune track organ by organ (Group-A), one person over time, and the collection routes (plasma, stool, sputum, urine, swab). development/TEST_PLAN_TRACKS_2026-10-17.md.

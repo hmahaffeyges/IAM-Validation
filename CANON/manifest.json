@@ -8853,7 +8853,7 @@
      "note": "PROC-PREDX-SLIDE-01 (320 arrays of GSE51057 with >= 3 same-slide controls): S1 controls 92.9 % Normal PASS; S2 > 8 y FAIL (p 0.52); S3 all breast cases 20/144 vs 12/170, p 0.036 PASS (median A_rel 1.011 vs 1.000)."
     }
    ],
-   "next_step": "None as run; any re-test with the current group method is TODO V2, sealed first, only on sets not already spent.",
+   "next_step": "2026-10-17: replicate on a fresh pre-diagnosis set (TEST_PLAN_TRACKS_2026-10-17.md, track 3)",
    "cost": "none",
    "impact": 1,
    "legacy_ids": [],
@@ -9587,7 +9587,7 @@
    "data_status": "in_hand",
    "record": "CANON/next_jobs.json",
    "status": "planned",
-   "next_step": "Build a healthy cfDNA reference first; then one cancer at a time, sealed.",
+   "next_step": "2026-10-17: lung first: GSE277078 (plasma cfDNA, 185 people with non-small-cell lung cancer, EPIC, IDATs, unused) and GSE287137 (lung-injury plasma cfDNA); after the short-fragment synthetic",
    "cost": "laptop",
    "impact": 2,
    "legacy_ids": [
@@ -10970,7 +10970,7 @@
    "data_status": "to_scout",
    "record": "Biological_Physics/MethylPhys/doors/DEV_FIELD_01.md",
    "status": "planned",
-   "next_step": "Search for a series where healthy donors and patients share slides and ages are recorded; declare spent; bars and planted test first.",
+   "next_step": "2026-10-17: first in line after the showcase (TEST_PLAN_TRACKS_2026-10-17.md, track 1); scout a set with healthy donors and patients on the same slides, ages known",
    "cost": "search",
    "impact": 3,
    "legacy_ids": [
@@ -27553,6 +27553,124 @@
    "sources_of_row": [
     "session 2026-10-15"
    ]
+  },
+  {
+   "title": "Showcase runs of the commissioned chain: each instrument in its own arena, plus declines and one person through every array instrument",
+   "purpose": "Seven scenarios run once through the one-command chain on unused public data, chosen by a written rule before any file is opened, shown whatever they read; they become the example runs researchers see first (OTH-068).",
+   "instrument_or_term": "all",
+   "sources": [
+    "GSE350403",
+    "GSE122244",
+    "GSE281305",
+    "GSE199057",
+    "GSE245832"
+   ],
+   "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
+   "record": "development/TEST_PLAN_TRACKS_2026-10-17.md",
+   "status": "planned",
+   "next_step": "write the selection rule per set and commit it; download on AWS; run after the temperature result; lung tissue set with raw files still to find",
+   "cost": "AWS, small",
+   "impact": 5,
+   "legacy_ids": [],
+   "id": "OTH-073",
+   "sources_of_row": [
+    "session 2026-10-17 (author)"
+   ],
+   "runs": []
+  },
+  {
+   "title": "Immune track, organ by organ: does the immune pattern in whole blood point to the organ under strain?",
+   "purpose": "Patients against healthy people in the same lab series (Group-A), each instrument reading its part (Deconvolver shares, Met-A neutrophils, C-Score clustering, Atlas non-blood DNA); then organ groups against each other. Replicates the class-era immune leads with the commissioned instruments.",
+   "instrument_or_term": "Group-A, IAM-Deconvolver, Met-A, C-Score, IAM-Atlas",
+   "sources": [
+    "GSE243529",
+    "GSE283951",
+    "GSE275371"
+   ],
+   "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
+   "record": "development/TEST_PLAN_TRACKS_2026-10-17.md",
+   "status": "planned",
+   "next_step": "pre-register on the breast and lung sets in hand (GRP-001, GRP-006); scout colon and pancreas blood sets",
+   "cost": "AWS, small",
+   "impact": 5,
+   "legacy_ids": [],
+   "id": "GRP-013",
+   "sources_of_row": [
+    "session 2026-10-17 (author)"
+   ],
+   "runs": []
+  },
+  {
+   "title": "Precancer against healthy tissue: polyps and adenomas (colon), CIN lesions (cervix), DCIS (breast)",
+   "purpose": "Whether the readings move at the precancer stage, the stage routine screening exists to catch.",
+   "instrument_or_term": "IAM-Atlas, Met-A, IAM-A",
+   "sources": [],
+   "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
+   "record": "development/TEST_PLAN_TRACKS_2026-10-17.md",
+   "status": "planned",
+   "next_step": "scout public sets with raw files",
+   "cost": "AWS, small",
+   "impact": 5,
+   "legacy_ids": [],
+   "id": "BRE-010",
+   "sources_of_row": [
+    "session 2026-10-17 (author)"
+   ],
+   "runs": []
+  },
+  {
+   "title": "Short-fragment synthetic: does IAM-A's held-error count hold on cfDNA and stool DNA (about 167 letters)?",
+   "purpose": "Planted molecules at cfDNA fragment lengths through chain Stage Q2; must come before any real plasma or stool is read by IAM-A.",
+   "instrument_or_term": "IAM-A",
+   "sources": [],
+   "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
+   "record": "development/TEST_PLAN_TRACKS_2026-10-17.md",
+   "status": "planned",
+   "next_step": "write and run the synthetic (laptop, light)",
+   "cost": "laptop",
+   "impact": 4,
+   "legacy_ids": [],
+   "id": "TIS-053",
+   "sources_of_row": [
+    "session 2026-10-17 (author)"
+   ],
+   "runs": []
+  },
+  {
+   "title": "Stool and other shed-cell routes: colon lining (stool), airways (sputum), urine, cervical swab",
+   "purpose": "Each route carries an organ's normal lining cells; stool reaches the cells colorectal cancer starts in.",
+   "instrument_or_term": "IAM-Atlas, IAM-Deconvolver, IAM-A",
+   "sources": [],
+   "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
+   "record": "development/TEST_PLAN_TRACKS_2026-10-17.md",
+   "status": "planned",
+   "next_step": "scout public stool and sputum methylation sets with raw files; human-DNA share and enrichment noted per set",
+   "cost": "AWS, small",
+   "impact": 5,
+   "legacy_ids": [],
+   "id": "TIS-054",
+   "sources_of_row": [
+    "session 2026-10-17 (author)"
+   ],
+   "runs": []
+  },
+  {
+   "title": "One person over time: IAM-A on the same person's cells across years",
+   "purpose": "The self-reference read as a person's own record, year after year.",
+   "instrument_or_term": "IAM-A",
+   "sources": [],
+   "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
+   "record": "development/TEST_PLAN_TRACKS_2026-10-17.md",
+   "status": "planned",
+   "next_step": "scout public longitudinal sequencing sets of the same donors",
+   "cost": "AWS, small",
+   "impact": 4,
+   "legacy_ids": [],
+   "id": "COM-IAMA-056",
+   "sources_of_row": [
+    "session 2026-10-17 (author)"
+   ],
+   "runs": []
   }
  ],
  "not_tests": {
