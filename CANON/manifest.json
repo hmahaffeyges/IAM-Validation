@@ -27795,7 +27795,7 @@
    "depends_on": [
     "ATL-045"
    ],
-   "notes": "2026-10-18: the uncertainty map's bright patch (in every cell) is one stretch of chromosome X (53-109 Mb, 4,239 sites); neutrophil person-to-person spread is 0.060 on X vs 0.014 on autosomes; most likely the pooling of male and female donors (X inactivation), not yet tested by sex. Earlier the same day the assistant said in chat that the patch was not X: wrong (it compared X's mean level, not its place on the sphere) | 2026-10-18: the 79 cell pages' certainty maps were drawn on the neutrophil scale (0 to 0.05) and saturated pale for most cells (38 of 79 have half their sites beyond it); every cell page now uses one shared scale, 0 to 0.15, stated on the page",
+   "notes": "2026-10-18: the uncertainty map's bright patch (in every cell) is one stretch of chromosome X (53-109 Mb, 4,239 sites); neutrophil person-to-person spread is 0.060 on X vs 0.014 on autosomes; most likely the pooling of male and female donors (X inactivation), not yet tested by sex. Earlier the same day the assistant said in chat that the patch was not X: wrong (it compared X's mean level, not its place on the sphere) | 2026-10-18: the 79 cell pages' certainty maps were drawn on the neutrophil scale (0 to 0.05) and saturated pale for most cells (38 of 79 have half their sites beyond it); every cell page now uses one shared scale, 0 to 0.15, stated on the page | 2026-10-18: all 79 cell pages checked against the atlas (check_cell_pages.py: agree within 0.0007); certainty follows samples per cell (rank -0.82); each page states its samples",
    "sources_of_row": [
     "author request 2026-10-13"
    ]
