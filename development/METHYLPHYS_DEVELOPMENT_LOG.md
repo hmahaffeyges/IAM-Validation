@@ -2425,3 +2425,6 @@ The sky caption printed the untared Met-A beside a withheld state, and the plain
 ### 2026-10-18 · Clean clone run 10: 24 of 26; one cause (OTH-070)
 E4 and E9 failed: the new physics panel assumed an own-reference prediction, and the retired IAM-A position form (development flag) has none, so its report did not build (E9 reads the same report). Guarded; E4 and E9 pass locally. Before a clean clone, every release check that builds a report now runs locally, not only the new ones. The example-report machine finished: four real GSE235717 arrays through the chain, the fourth tared against the other three (C 1.011, 1.078, 1.102).
 Clean clone run 11 launched: i-0721df7b2f292508b.
+
+### 2026-10-18 · Report sky drawn in units of the sample's own spread (OTH-069)
+The first real whole-blood report (GSE235717_GSM7508429) drew its sky at the color limits everywhere: in whole blood the departures from pure neutrophils are large at most sites (57 % beyond 3). The C-Score (block-mean variance over site variance) does not change when every departure is shifted or rescaled (checked: 2.190138 both ways), so the sky now shows departures in units of the sample's own spread (median, 1.4826 x MAD), color limits +/- 3. A picture only; no reading changes.

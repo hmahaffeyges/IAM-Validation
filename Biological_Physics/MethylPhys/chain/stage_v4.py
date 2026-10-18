@@ -81,7 +81,7 @@ def nest_pix2ang(nside, ipix):
     jp = np.where(jp > 4 * nside, jp - 4 * nside, jp); jp = np.where(jp < 1, jp + 4 * nside, jp)
     phi = (jp - (ks + 1) * 0.5) * (np.pi / 2 / nr); return np.arccos(np.clip(z, -1, 1)), phi
 
-def cscore_sky(z, out_png, title="", vlim=4.0, readings=""):
+def cscore_sky(z, out_png, title="", vlim=3.0, readings=""):
     """z: the C-Score's per-site departure map (pd.Series by site, in the C-Score's genomic order). Writes a Mollweide view; returns a summary."""
     if z is None: return {"stage": "SKY", "drawn": False, "reason": "no departure map (the C-Score was not computed)"}
     zz = pd.Series(z, dtype="float64"); n = len(zz)
@@ -89,12 +89,16 @@ def cscore_sky(z, out_png, title="", vlim=4.0, readings=""):
     nside = 1
     while 12 * nside * nside * 2 < n: nside *= 2
     npix = 12 * nside * nside; pix = (np.arange(n) * npix) // n
-    sky = pd.Series(zz.values).groupby(pix).mean().reindex(range(npix)).values
+    # Drawn in units of the sample's own spread (2026-10-18): the C-Score (variance of block means over site variance) is unchanged by
+    # shifting or rescaling every departure, so the picture shows exactly what it scores. Unscaled, a whole-blood sample read against pure
+    # neutrophils sits at the color limits everywhere and hides the pattern.
+    med = float(zz.median()); mad = float((zz - med).abs().median()) * 1.4826 or float(zz.std()) or 1.0
+    sky = pd.Series(((zz - med) / mad).values).groupby(pix).mean().reindex(range(npix)).values
     import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
     from matplotlib.patches import Ellipse
     from scipy.spatial import cKDTree
     # Drawn in the style of the sky figures on the public page and in the book (2026-10-18; reference_floors_v1/sky/make_sky_figs.py):
-    # Mollweide, RdBu_r from -4 to +4 in pixel residual z, no smoothing, nearest-pixel fill, unmeasured sky grey, a thin outline, the
+    # Mollweide, RdBu_r from -4 to +4 (departures in units of the sample's own spread), no smoothing, nearest-pixel fill, unmeasured sky grey, a thin outline, the
     # readings printed under the map. The pixel layout (NSIDE, NESTED, genome order) is unchanged.
     th, ph = nest_pix2ang(nside, np.arange(npix)); xyz = np.c_[np.sin(th) * np.cos(ph), np.sin(th) * np.sin(ph), np.cos(th)]
     xs, ys = 1600, 800; X, Y = np.meshgrid((np.arange(xs) + 0.5) / xs * 4 - 2, (np.arange(ys) + 0.5) / ys * 2 - 1)
@@ -110,7 +114,7 @@ def cscore_sky(z, out_png, title="", vlim=4.0, readings=""):
     ax.set_title(title or "C-Score departures on the sphere", loc="left", fontsize=9.5)
     if readings: ax.text(0, -1.12, readings, ha="center", va="top", fontsize=9, transform=ax.transData)
     cb = fig.colorbar(im, ax=ax, orientation="horizontal", fraction=0.045, pad=0.12 if readings else 0.05, shrink=0.45, ticks=[-vlim, 0, vlim])
-    cb.set_label("pixel residual z", fontsize=9); cb.ax.tick_params(labelsize=8)
+    cb.set_label("departure, in units of this sample's own spread", fontsize=9); cb.ax.tick_params(labelsize=8)
     fig.savefig(out_png, dpi=200, bbox_inches="tight"); plt.close(fig)
     return {"stage": "SKY", "drawn": True, "png": os.path.abspath(out_png), "nside": nside, "order": "NESTED", "sites": int(n),
             "sites_measured": int(zz.notna().sum()), "pixels_drawn": int(np.isfinite(sky).sum()), "frac_abs_z_gt3": round(float((zz.abs() > 3).mean()), 4),
