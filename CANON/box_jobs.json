@@ -2768,7 +2768,7 @@
    "date": "2026-10-18",
    "commit": "de6e20ab",
    "s3_code_prefix": "results/CHAIN_V4_CLEANCLONE/code/run17/",
-   "state": "running",
+   "state": "finished",
    "log": "results/CHAIN_V4_CLEANCLONE/status.txt",
    "machine": "spot m7a.xlarge, self-terminating (150-min timer)",
    "purpose": "clone, install chain/requirements.txt only, run release_check_v4.py; every check must pass",
@@ -2787,14 +2787,14 @@
     "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays; AWS caveats): code in S3 first, watcher from minute one, about $0.15",
-   "note": ""
+   "note": "PASS, 29 of 29 checks"
   },
   {
    "job_id": "i-0c5b1f3644561f54e",
    "name": "Chain v4 showcase: public samples by the sealed label rules, each read once through the one command (OTH-073)",
    "date": "2026-10-18",
    "commit": "40ddabbb",
-   "state": "running",
+   "state": "finished",
    "s3_code_prefix": "results/SHOWCASE_V4/code/run1/",
    "log": "results/SHOWCASE_V4/status.txt",
    "machine": "spot m7a.xlarge, self-terminating (120-min timer)",
@@ -2810,7 +2810,7 @@
     "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/showcase_v4.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays: one array at a time so the manifest download is not raced; S3 from ~/env/bin/python; AWS caveats): code in S3 first, watcher from minute one, about 45 minutes, about $0.20",
-   "note": "the script (commit 40ddabbb) runs the chain at chain_commit de6e20ab; stops itself after 120 minutes at most",
+   "note": "the script (commit 40ddabbb) runs the chain at chain_commit de6e20ab; stops itself after 120 minutes at most; scenario 3 wrote no report (banner word refused by the claim guard), rerun as run 2",
    "chain_commit": "de6e20ab"
   }
  ],

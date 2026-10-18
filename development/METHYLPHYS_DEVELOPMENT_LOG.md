@@ -2496,3 +2496,6 @@ Intake accepts buffy coat (the white-cell layer of whole blood). It is read exac
 
 ### 2026-10-18 · Showcase and clean clone run 17 launched (OTH-073, OTH-070)
 Showcase job i-0c5b1f3644561f54e (spot m7a.xlarge, about 45 minutes, about $0.20): the sealed picks read once each through the one command on a clean install; nothing scored. Clean clone run 17 i-081b8c4cf8c7e5e9e on commit de6e20ab (buffy coat, release check V8).
+
+### 2026-10-18 · Showcase run 1 read; scenario 3 refused by the report's own claim guard, rerun (OTH-073)
+Run 1 (job i-0c5b1f3644561f54e): the buffy coat of one person (AK0005) tared by three other participants' buffy coats read Met-A A_rel 1.039 (Normal) and C-Score C_rel 1.067 (not above), both labeled preliminary on buffy coat; PBMC and saliva were refused at intake and EPIC v2 at the platform check, each with its reason; the 450K test array was quarantined at Stage 0. The three nine-cell mixtures wrote no report: the showcase banner named the two cell lines with a word the report refuses to print (its claim guard, working as built). Banner reworded; scenario 3 rerun alone (showcase_v4_run2.sh). Clean clone run 17 passed all 29 checks.

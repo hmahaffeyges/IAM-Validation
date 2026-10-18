@@ -32,7 +32,8 @@ one S6_AK0005_buffy_coat_EPICv2 GSM10113831 "buffy coat"
 one S6_AK0005_PBMC_EPICv2 GSM10113832 "peripheral blood mononuclear cells"
 one S6_AK0005_saliva_EPICv2 GSM10113833 "saliva"
 TD=Biological_Physics/MethylPhys/chain/TEST_DATA/idats; $PY $RS --grn $TD/GSM2333901_Grn.idat.gz --red $TD/GSM2333901_Red.idat.gz --specimen "whole blood" --id S6_failed_controls_GSM2333901 --out $W/out/S6_failed_controls_GSM2333901.html --ledger $L > $W/out/S6_failed_controls_GSM2333901.log 2>&1; st "S6 failed controls rc $?"; up
+# run 2 (2026-10-18): the banner first named the two cell lines with a word the report refuses to print (its claim guard); reworded
 # 3: known mixtures of nine cell types (GSE281305), outside the Deconvolver's commissioned arena (blood-cell shares), labeled so
-BN="SHOWCASE, OUTSIDE THE COMMISSIONED SCOPE: a DNA mixture of nine cell types, including two cancer lines, fibroblasts and endothelial cells (GSE281305). The IAM-Deconvolver is commissioned on blood-cell shares; this shows what it reports on cells it was not built for. Not a clinical result."
+BN="SHOWCASE, OUTSIDE THE COMMISSIONED SCOPE: a DNA mixture of nine cell types, including two cultured cell lines, fibroblasts and endothelial cells (GSE281305). The IAM-Deconvolver is commissioned on blood-cell shares; this shows what it reports on cells it was not built for. Not a clinical result."
 n=1; for g in $MIX; do one S3_GSE281305_mix$n $g "constructed DNA mixture" --banner "$BN"; n=$((n+1)); done
 st "finished: $(ls $W/out | grep -c 'researcher.pdf') researcher PDFs, $(ls $W/out | grep -c '\.html$') reports"; exit 0
