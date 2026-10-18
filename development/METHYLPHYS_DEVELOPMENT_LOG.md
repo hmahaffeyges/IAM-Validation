@@ -2553,3 +2553,6 @@ Job i-0173a92945aecb068 (on-demand c7a.4xlarge): three_labs, iama_line, mice on 
 
 ### 2026-10-18 · Correction: the Deconvolver error is a mean, not a median (OTH-076, ATL-066)
 The fresh-clone reproduction of the Deconvolver (PASS, every number identical, B1_mean_error 0.015865) made us read the field name against the text. The sealed bar is "mean over mixtures of the per-mixture mean |share - truth| <= 0.03" and the code computes a mean; the commissioning note said "median absolute" and "1.6 percentage points at the median", and that wording had been copied into the register, catalogue, commissioning record, atlas story, book (atlas, v2.1 and toolbox chapters), INSTRUMENTS, COMMISSIONING_REPORT, FOLLOW, the v2.1 README and our new Q&A. Corrected at every source, generated documents rebuilt. The number and the verdict are unchanged.
+
+### 2026-10-18 · reproduce/ run 4 launched: breast and liver (OTH-076)
+Job i-0ec4b93905093cf2c (on-demand m7a.xlarge, about 4 hours, about $2), after run 3 proved the route that fetches IAM-Atlas v2 from Zenodo.

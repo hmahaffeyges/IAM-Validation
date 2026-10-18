@@ -2956,6 +2956,30 @@
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: code in S3 first; results and 5-minute progress lines to S3; watcher from launch; disk image+150 GB for the 54 GB ENCODE file and mm10; self-terminating; about $8 on-demand",
    "note": "run 2 on the fixed runner; stops itself after 12 hours at most"
+  },
+  {
+   "job_id": "i-0ec4b93905093cf2c",
+   "name": "reproduce/ from a fresh public clone, run 4: breast and liver tissue (OTH-076)",
+   "date": "2026-10-18",
+   "commit": "211e26c0",
+   "chain_commit": "211e26c0",
+   "state": "running",
+   "s3_code_prefix": "results/REPRODUCE_V1/code/run4/",
+   "log": "results/REPRODUCE_V1/run4/status.txt",
+   "machine": "on-demand m7a.xlarge, self-terminating (9-hour timer)",
+   "purpose": "fresh clone; atlas v2 from Zenodo, TCGA-BRCA and TCGA-LIHC 450K from the NCI GDC; the sealed scorers; compared with the committed results",
+   "record": "reproduce/box/reproduce_fresh.sh",
+   "manifest": [
+    "OTH-076"
+   ],
+   "outputs": [
+    "results/REPRODUCE_V1/run4/"
+   ],
+   "files": [
+    "reproduce/box/reproduce_fresh.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: code in S3 first; status and 5-minute progress to S3; watcher; the Zenodo atlas route already proven by run 3; self-terminating; about $2",
+   "note": "stops itself after 9 hours at most"
   }
  ],
  "not_jobs": {
