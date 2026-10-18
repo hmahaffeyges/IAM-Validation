@@ -7,7 +7,7 @@
    "id": "atlas",
    "name": "IAM-Atlas v2.1",
    "question": "Whose DNA is this? Which cells are in a sample, and in what shares?",
-   "how": "A map of 79 kinds of healthy human cells, built from seven public sources on arrays and sequencing, fitted as one model so every spot on the genome carries its value and its uncertainty. Like a state estimator across the whole interconnection: many utilities' meters, each weighted by how far it can be trusted.",
+   "how": "A map of 79 kinds of healthy human cells, built from 21 public sources on arrays and sequencing, fitted as one model so every spot on the genome carries its value and its uncertainty. Like a state estimator across the whole interconnection: many utilities' meters, each weighted by how far it can be trusted.",
    "reads": "arrays or sequencing",
    "rows": [
     "ATL-005",
@@ -17,7 +17,7 @@
    "next": "Deposit IAM-Atlas v2.1 with its DOI, with its complementary additions: noise maps, the information sphere and the guidebook.",
    "book_chapter": "ch:atlas",
    "specialty": "It is the map every other instrument reads against: for 79 healthy cell types, the expected tagging at every site with its range of error, so a sample can be split into its cells and each cell compared with its own healthy kind.",
-   "commissioned": "79 cell types; met all three sealed bars against both published reference atlases, 2026-10-16"
+   "commissioned": "79 cell types; met all three sealed bars against both published reference atlases, 2026-10-16; commissioned for three cell references and the colon and lung tissue tests"
   },
   {
    "id": "meta",
@@ -40,7 +40,7 @@
    "name": "C-Score (the clustering meter)",
    "question": "Has the pattern started to clump?",
    "how": "Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping against a healthy band. The band held in three laboratories that never helped set it, and one person measured twice reads the same.",
-   "reads": "arrays (whole-genome sequencing too)",
+   "reads": "arrays",
    "rows": [
     "COM-CSCORE-011",
     "COM-CSCORE-012"

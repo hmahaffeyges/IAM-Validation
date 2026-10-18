@@ -4,7 +4,7 @@
 amended `amendment_v21b.json`); every other use stays development. The sealed rule: "A use that is not commissioned is labeled development
 everywhere it appears."
 
-**What it is.** A map of 79 healthy human cell types at 813,951 array sites, fitted as one Bayesian model from seven public sources on arrays
+**What it is.** A map of 79 healthy human cell types at 813,951 array sites, fitted as one Bayesian model from 21 public sources on arrays
 and sequencing, so every site of every cell carries its value and its range of error (record `DEV_ATLAS_V21_01.md`). The fit converged
 (worst R-hat and effective sample size within the sealed limits) and every pair of cells passed the distinctness gate.
 
