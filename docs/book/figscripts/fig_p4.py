@@ -151,26 +151,29 @@ def fig_fullsurface():
     q = np.linspace(0, 1, 101)
     A_meta = ((1 - q) * h.mean() + q * 1.0) / HREF
     Amax = 1 / HREF
+    # (b) IAM-A as commissioned (2026-10-18; was the retired position form): A = eps / eps_pred(L), eps_pred(L) = firm + slope * L from the chain's
+    # self-reference line; the full surface is the held error at one half, so it is the sample's own: 0.5 / eps_pred(L)
+    SL = json.load(open(MP / "chain" / "Runtime Matrices" / "IAM_A_SelfRef" / "selfref_line_v1.json")); BD = json.load(open(MP / "chain" / "Runtime Matrices" / "IAM_A_SelfRef" / "band_v1.json"))
+    lo_b, hi_b = BD.get("lo", BD.get("band", {}).get("lo")), BD.get("hi", BD.get("band", {}).get("hi"))
     e = np.logspace(np.log10(0.01), np.log10(0.5), 300)
-    iam = H(e) / (P_NEU * H(EPS0)); Amax2 = 1 / (P_NEU * H(EPS0))
-    from scipy.optimize import brentq
-    eh = float(brentq(lambda x: H(x) / (P_NEU * H(EPS0)) - 1, EPS0, 0.5))   # exact root (0.03619), not a grid argmin
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(S.TEXTW, 2.4))
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(S.TEXTW, 2.6))
     a1.plot(q * 100, A_meta, color=S.IAM); normal_band(a1)
     a1.plot(100, Amax, "o", color=S.IAM, ms=4); a1.annotate(f"surface full: {Amax:.2f}", (100, Amax), xytext=(-62, -4), textcoords="offset points", fontsize=7)
-    a1.set_xlabel("share of identity sites moved to a coin flip (%)"); a1.set_ylabel("Met-A"); a1.set_xlim(0, 104); a1.set_ylim(0.8, 3.3)
+    a1.set_xlabel("identity sites at a coin flip (%)"); a1.set_ylabel("Met-A"); a1.set_xlim(0, 104); a1.set_ylim(0.8, 3.3)
     a1.set_title("Arrays: Met-A from 1 to 1/0.330263"); S.panel_letter(a1, "a")
-    a2.plot(e, iam, color=S.IAM); normal_band(a2, alpha=0.35)
-    a2.text(0.6 * 0.97, 1.07, "Normal", ha="right", va="bottom", fontsize=6, color=NCOL)
-    a2.plot(eh, 1.0, "o", color=S.DATA, ms=4, zorder=3); a2.annotate(f"healthy cell: $\\varepsilon$ = {eh:.4f}", (eh, 1.0), xytext=(6, 8), textcoords="offset points", fontsize=6.5)
-    a2.plot(EPS0, 1 / P_NEU, "s", color="k", ms=4); a2.annotate(f"healthy reference $H_{{\\rm ref}}$: 1/P = {1/P_NEU:.3f}", (EPS0, 1 / P_NEU), xytext=(8, -12), textcoords="offset points", fontsize=6.5)
-    a2.plot(0.5, Amax2, "o", color=S.IAM, ms=4); a2.annotate(f"surface full: {Amax2:.2f}", (0.5, Amax2), xytext=(-64, -2), textcoords="offset points", fontsize=7)
-    a2.set_xscale("log"); a2.set_xlim(0.01, 0.6); a2.set_ylim(0.4, 4.9)
+    fig.subplots_adjust(wspace=0.35)
+    a2.axhspan(lo_b, hi_b, color=NCOL, alpha=0.30, lw=0, zorder=0); a2.axhline(1.0, color=S.GR, lw=0.6, ls="--", zorder=0)
+    a2.text(0.6 * 0.97, hi_b * 1.02, "Normal (band v1)", ha="right", va="bottom", fontsize=6, color=NCOL)
+    for L, ls in ((0.0, "-"), (1.0, "--")):
+        ep = SL["firm"] + SL["slope"] * L; a2.plot(e, e / ep, color=S.IAM, ls=ls, label=f"loose share {L:.0f}: $\\varepsilon_{{\\rm pred}}$ = {ep:.4f}")
+        a2.plot(0.5, 0.5 / ep, "o", color=S.IAM, ms=4); a2.annotate(f"full: {0.5 / ep:.2f}", (0.5, 0.5 / ep), xytext=(-38, 4 if L == 0 else -10), textcoords="offset points", fontsize=6.5)
+    a2.set_xscale("log"); a2.set_yscale("log"); a2.set_xlim(0.01, 0.6); a2.set_ylim(0.2, 16)
+    a2.set_yticks([0.25, 0.5, 1, 2, 4, 8, 16], ["0.25", "0.5", "1", "2", "4", "8", "16"]); a2.yaxis.set_minor_formatter(plt.NullFormatter())
     a2.set_xticks([0.01, 0.03, 0.1, 0.3, 0.5], ["0.01", "0.03", "0.1", "0.3", "0.5"]); a2.xaxis.set_minor_formatter(plt.NullFormatter())
-    a2.set_xlabel(r"held error $\varepsilon$ on the methylated channel"); a2.set_ylabel("IAM-A")
-    a2.set_title(f"Molecules: IAM-A up to the full surface, {Amax2:.2f}"); S.panel_letter(a2, "b")
+    a2.set_xlabel(r"held error $\varepsilon$ (counter)"); a2.set_ylabel(r"IAM-A $=\varepsilon/\varepsilon_{\rm pred}(L)$"); a2.legend(loc="lower right", fontsize=6)
+    a2.set_title("Molecules: IAM-A against the sample's own line"); S.panel_letter(a2, "b")
     S.save(fig, "part6", "fig_p4_05_fullsurface")
-    return dict(Amax_meta=Amax, Amax_iama=Amax2, floor=1 / P_NEU, eps_healthy=eh, Hmean=float(h.mean()))
+    return dict(Amax_meta=Amax, Amax_iama_L0=0.5 / SL["firm"], Amax_iama_L1=0.5 / (SL["firm"] + SL["slope"]), Hmean=float(h.mean()))
 
 
 def fig_surfaces():

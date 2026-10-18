@@ -23,7 +23,7 @@ because the question is whether this cell is still the cell it should be.
 C-score (not built). On every row 1 is the healthy reference, in the middle; the left half runs from the floor to 1 and the right half from 1 to
 the far end on a log scale, so the two halves are not on one scale. Normal (green) is $0.95$--$1.05$ on the Met-A row. Bars are measured readings: held-out
 healthy arrays, and the same arrays with known damage (Chapter~\ref{ch:skytools}). $\Hmin$, the floor where thermal kicks win against one ATP, is at $1\times10^{-7}$ on the Met-A row and $1$--$2\times10^{-8}$ on the IAM-A row (the sample's own), off the left edge. Breach and the cancer region lie to the right of Normal and are
-to be measured on this scale. The surface is full when every identity site sits at a coin flip: $3.03$ (Met-A); on IAM-A, read against the sample's own line, when the held error reaches one half, $0.5/\varepsilon_{\rm pred}(L)$, between $6.68$ and $12.41$.
+to be measured on this scale. The surface is full when every identity site sits at a coin flip: $3.03$ (Met-A); on IAM-A, read against the sample's own line, when the held error reaches one half, $0.5/\varepsilon_{\rm pred}(L)$, between $6.68$ and $12.42$.
 The Met-A C-score sits on the same gauge: 1 is the healthy baseline, and its far end, every 50-site block moving as one, is 45. \calc}
 \label{fig:gauge}
 \end{figure}
@@ -38,7 +38,7 @@ healthy reference & 1 (IAM-A: the sample's own line, $\varepsilon_{\rm pred}(L)=
 Normal (Met-A) & $0.95$--$1.05$ & a design tolerance set by hand (2026-10-01), then confirmed on healthy arrays (525 of 541 inside); IAM-A has its own band, v1 $0.779$--$1.055$, each sample read against its own reference, and does not borrow this one \\
 breach & to be measured & placed from per-person data: tumor/normal pairs, the DNMT1-inhibitor series, blood cancers \\
 cancer region & beyond breach & to be measured the same way \\
-full surface & Met-A $3.03$; IAM-A $0.5/\varepsilon_{\rm pred}(L)$, $6.68$--$12.41$ & \calc{} from the healthy reference alone (Met-A) and from the sample's own line (IAM-A) \\
+full surface & Met-A $3.03$; IAM-A $0.5/\varepsilon_{\rm pred}(L)$, $6.68$--$12.42$ & \calc{} from the healthy reference alone (Met-A) and from the sample's own line (IAM-A) \\
 C-score far end & Met-A C-score $45$ & \calc{} block size 50 over the healthy baseline 1.1104; the sequencing C-score was tried and does not hold on reduced-representation reads \\\bottomrule
 \end{tabular}
 \end{center}

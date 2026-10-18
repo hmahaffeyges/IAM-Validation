@@ -26,7 +26,7 @@ eps0 = 0.032                                      # frozen value (Appendix A2)
 print(Ehold/M, eps0)                              # phi = 0.163 ; eps0 = 0.032
 print(H(eps0), 1.1492*H(eps0), 1/1.1492)          # H_ref 0.2043 ; neutrophil 0.2348 ; 0.870
 print(H(1/(1 + math.exp(M))))                     # H_min, the floor: 2.5e-08
-print(1/0.330263, 0.5/0.0403, 0.5/(0.0403+0.0346)) # A_max: 3.03 (Met-A) ; IAM-A 0.5/eps_pred(L): 12.41 (L=0) to 6.68 (L=1)
+print(1/0.330263, 0.5/0.040265, 0.5/(0.040265+0.034625)) # A_max: 3.03 (Met-A) ; IAM-A 0.5/eps_pred(L): 12.42 (L=0) to 6.68 (L=1)
 d = "Biological_Physics/MethylPhys/chain/Runtime Matrices/"
 f = json.load(open(d + "Met_A_Floors/metA_floors_v1_3.json"))["platforms"]["EPIC"]["neutrophils"]
 print(f["floor"], f["n_ref"], f["n_sites"])         # 0.330263 ; 6 ; 6000

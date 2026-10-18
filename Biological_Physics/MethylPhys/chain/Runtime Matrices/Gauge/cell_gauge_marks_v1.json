@@ -18,9 +18,9 @@
  "full_surface": {
   "Met-A": 3.03,
   "IAM-A": null,
-  "book_anchor": "full surface & Met-A $3.03$; IAM-A $0.5/\\varepsilon_{\\rm pred}(L)$, $6.68$--$12.41$",
+  "book_anchor": "full surface & Met-A $3.03$; IAM-A $0.5/\\varepsilon_{\\rm pred}(L)$, $6.68$--$12.42$",
   "label": "full surface: every identity site at a coin flip - the 2D surface is full and past it the reading turns over",
-  "IAM-A_rule": "IAM-A reads each sample against its own line, A = eps/eps_pred(L), so its ends are the sample's own: the full surface is the held error at a coin flip, A = 0.5/eps_pred(L) (12.41 at L = 0, 6.68 at L = 1), and the floor is 1/(1+e^M) = 8.06e-10 over eps_pred(L) (2.0e-8 to 1.1e-8). The report draws them per sample. 4.26 and 1e-7 were the retired position form's ends (2026-10-17). IAM-A_position: 4.26, the end of the retired position form, used only to draw that form behind its development flag.",
+  "IAM-A_rule": "IAM-A reads each sample against its own line, A = eps/eps_pred(L), so its ends are the sample's own: the full surface is the held error at a coin flip, A = 0.5/eps_pred(L) (12.42 at L = 0, 6.68 at L = 1), and the floor is 1/(1+e^M) = 8.06e-10 over eps_pred(L) (2.0e-8 to 1.1e-8). The report draws them per sample. 4.26 and 1e-7 were the retired position form's ends (2026-10-17). IAM-A_position: 4.26, the end of the retired position form, used only to draw that form behind its development flag.",
   "IAM-A_position": 4.26
  },
  "left_region": "less writing than healthy (senescence reads here)",
