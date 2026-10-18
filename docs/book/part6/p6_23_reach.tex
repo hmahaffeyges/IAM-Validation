@@ -2,19 +2,21 @@
 
 \section{The order}
 
-After commissioning, the order of work is set:
+After the first commissioned chain, the order of work is set in the commissioning plan:
 \begin{enumerate}
-\item human blood conditions, blood cancers first;
-\item plasma cell-free DNA;
-\item tissue specimens;
-\item dogs and other mammals;
-\item salmonids;
-\item aging, in the same person over time;
+\item showcase runs of the chain on unused public samples, each instrument in its own arena, and the chain declining what it cannot read;
+\item the field: normal tissue of patients read against healthy people's on the same slides, the cells where a tumor would form;
+\item precancer, and blood drawn before diagnosis;
+\item the immune system, organ by organ: whether the immune cells of whole blood carry a distinct reading for the organ in which a cancer is forming;
+\item plasma cell-free DNA, lung first, then the routes that reach one organ directly: stool, sputum, urine and swabs;
+\item one person read over time against their own reference;
+\item other species: salmonids, if the temperature law holds, then dogs and other mammals;
 \item back to the quantum processors of Part~\ref{part:3}, to check which of its predictions have come due.
 \end{enumerate}
-Each of items 1--6 needs something chain v3 does not yet have: a floor for another cell type, another platform, a non-blood template, or serial mode.
+The goal behind every track is evidence for whether such readings could one day help decide who needs a routine screening procedure, by reading an
+organ's normal cells, and the immune system, before a tumor forms; that decision belongs to clinicians, clinical studies and regulators.
 Public data for these tracks have been collected, with raw array files preferred wherever they exist so that each specimen enters through the chain's own
-Stage~1. The list of collected sets is not in the repository and is not quoted here. \openprob
+Stage~1. The collected sets are listed in the repository (\texttt{Biological\_Physics/MethylPhys/doors/data/RECOVERED\_2026-09-30/DOWNLOAD\_MANIFEST.csv}), and the sets chosen for each track, checked against the record of data already read, are in the test plan linked from the Master Testing Manifest.
 
 \paragraph{What each new surface needs.} A reading generalizes in three directions: the cell type, the platform, and the route by which
 the DNA reaches the array. The same cell type may need its own reference on each route: a neutrophil in a whole-blood draw, the same
@@ -78,8 +80,7 @@ epithelium, enough to pull its molecules from a deep stool library; whether enou
 \section{Tissues}
 
 A tissue profile is a specimen, not a reference: a biopsy is a mixture of cells like a blood draw, and it is separated and read cell by cell.
-Chain v3 has no tissue cell types, so it does not read tissue arrays. \openprob{} The test, when it can be run, is that each healthy tissue separates into the cells known
-to be in it, and each healthy cell reads Normal against its healthy reference.
+IAM-Atlas v2.1 holds 79 cell types, including the cells of solid organs, and is commissioned for the colon and lung tissue tests (Chapter~\ref{ch:atlas}). The next test is that each healthy tissue separates into the cells known to be in it and that each healthy cell reads Normal against its own reference. \openprob
 
 \section{Other mammals}
 

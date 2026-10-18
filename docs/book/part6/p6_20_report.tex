@@ -2,26 +2,21 @@
 
 \section{What a report is}
 
-A report is one specimen's reading and everything needed to check it. Chain v3 writes it as one self-contained HTML page rendered from the run's
-bundle. A banner at the top states the build and that it is not a diagnostic test.
-The sections follow the stages.
+A report is one specimen's reading and everything needed to check it. Chain v4 writes it as one self-contained HTML page rendered from the run's
+bundle. A banner at the top states the chain version, the run, and that it is a research instrument, not a diagnostic test; it also says that each
+reading carries its commissioning status, and that a reading outside what an instrument was tested on is shown with a note saying so.
 
 \begin{center}\small
 \begin{longtable}{@{}p{0.24\textwidth}p{0.68\textwidth}@{}}
-\caption{Sections of the chain v3 report.}\label{tab:tabs}\\
+\caption{Sections of the chain v4 report.}\label{tab:tabs}\\
 \toprule section & what it holds \\\midrule\endfirsthead
 \toprule section & what it holds \\\midrule\endhead
-header & specimen type, platform, array type, the floor and reference versions read \\
-refusal & the one sentence that stopped the run, when the platform or the sequencing pipeline was refused \\
-Stage 0 intake & verdict, call rate and flags; Stage~1's detection and control numbers, recorded \\
-Stage A composition & the eight blood groups, each at 1~\% or more \\
-Stage M Met-A & the gauge with Normal marked, $A$, its state or the reason it was withheld, the neutrophil fraction, the number of sites, the expectation used, the shift per 1~\% loss \\
-Stage T tare & $A_{\rm rel}$ and its state, the number and median of the references, the noise index and whether it lies in the reference arrays' range, and the detection limit \\
-entropy ceiling & the methylated sites' mean $\beta$, and the warning \emph{read $\beta$, not $A$} when it is below one half \\
-Stage MC C-score & $C$, the healthy held-out range, and its one-sided band (above $C_{\rm rel}=1.152$ is a clustered departure; commissioned 2026-10-15) \\
-Stage Q IAM-A & when sequencing input is given: IAM-A, its state or refusal, pipeline, held error, position $P$, $\varepsilon_0$, the two halves, opportunities and $E$ in $\kB T$ \\
-withheld & what the build does not print, and why \\
-bundle & the run's bundle without the intake record, in a collapsed block \\\bottomrule
+at a glance & one line per instrument: the reading, its state, and its commissioning status or the plain note \\
+cell shares & the IAM-Deconvolver's shares against IAM-Atlas v2.1, each with its interval, the commissioned cells marked \\
+Met-A & the gauge with Normal marked, $A$ (tared when references were run beside it), its state or the reason it was withheld \\
+C-score & $C$, its one-sided band (above $C_{\rm rel}=1.152$ is a clustered departure), and the HEALPix sky plate of the departures \\
+IAM-A & when sequencing input is given: the sample-shape check, the held error, the loose share, the held error the line predicts, IAM-A on the gauge with its own ends, and its state \\
+technical record & the full stage-by-stage record: intake, calibration, composition, tare, entropy ceiling, refusals, what the build withholds, and the bundle \\\bottomrule
 \end{longtable}
 \end{center}
 
@@ -35,8 +30,7 @@ Untared whole blood has no gauge position; the number is printed and the reader 
 
 The report does not name a condition, and it states its own state words only: \emph{Normal}, \emph{above Normal}, \emph{below Normal}, \emph{untared}. Covariates
 supplied with a run are kept in the custody record, the bundle and the ledger, and no stage reads them. Because the bundle block of the
-page shows the bundle, a covariate supplied as free text appears there. A render-time vocabulary guard on the v3 page, failing on condition names and group-comparison
-vocabulary, is not yet built. \openprob
+page shows the bundle, a covariate supplied as free text appears there. The v4 page carries a render-time vocabulary guard: the page is not written if its front prose carries a condition name or a word the report may not print.
 
 % COMMISSIONING-RETURN fig:p4_states: figure taken out 2026-10-03 (plotted development values from the removed fitted tare). Put back, redrawn from the commissioned chain; see development/COMMISSIONING_RETURNS.md.
 
@@ -59,26 +53,20 @@ growth is expected to read near 1 (Section~\ref{sec:ag_benign}).
 
 Because the gauge reads identity fidelity and not cell number, two expectations follow. A benign growth whose cells remain well
 differentiated should read near 1 on its own cells: those cells have lost growth control, not identity. And a reading does not depend
-on a lesion's shape, since it reads DNA rather than an image. \prediction{} Neither is tested. Chain v3 reads neutrophils only, and an
-ordered tissue series (normal, benign, dysplastic, established) read cell by cell is a named test for when tissue cell types are
-commissioned. \openprob
+on a lesion's shape, since it reads DNA rather than an image. \prediction{} Neither is tested. An ordered tissue series (normal, benign, dysplastic, established) read cell by cell is a named test in the plan's precancer track. \openprob
 
 \section{Refusals are printed}
 
 Everything the chain declines to do appears with the reason: a quarantined array (no page; the run stops), a refused platform, a composition not solved, a
-neutrophil fraction below the read line, too few identity sites measured, a reading left untared, a methylated-site mean past the entropy ceiling, and an IAM-A
-refused for its pipeline or for too few opportunities. The rule is that a reader should never have to infer what the instrument did not measure.
+neutrophil fraction below the read line, too few identity sites measured, a reading left untared, a methylated-site mean past the entropy ceiling, and an IAM-A declined by the sample-shape check or for too few qualifying molecules. The rule is that a reader should never have to infer what the instrument did not measure.
 
 \section{The report as a laboratory record}
 
 Each run writes, beside the page, the bundle as JSON and one row in an evidence ledger: run number, specimen, platform and array type, intake verdict, floor and
 reference versions, neutrophil fraction, $A$, state, $A_{\rm rel}$, tare method and number of references, noise index, detection limit, C-score and, when present,
 IAM-A with its pipeline. The intake record in the bundle carries the integrity hash of the IDAT pair. A reading is reproducible if a second laboratory with the same
-IDATs, the same references and the same frozen files obtains the same numbers. The v3 bundle does not yet carry the chain's commit or the checksum of each frozen
-file read, which a second laboratory needs to show it ran the same instrument. \openprob
+IDATs, the same references and the same frozen files obtains the same numbers. The bundle carries the chain's commit, and the release check verifies the checksum of every frozen file the chain reads (FROZEN\_INPUTS\_v4.json) on a fresh copy of the repository.
 
 Two readings are comparable only if they were made with the same instrument. The record therefore needs a fingerprint: the chain's
 commit and the checksum of every frozen file the run read (the reference, the identity sites, the composition profiles, the noise
-sites) and of the tare inputs. Two readings with different fingerprints are compared only after the difference is named, and a
-reading whose recorded checksums no longer match the repository is not quoted until the difference is resolved. \openprob{} (not
-built in chain v3)
+sites) and of the tare inputs. Two readings with different fingerprints are compared only after the difference is named, and a reading whose recorded checksums no longer match the repository is not quoted until the difference is resolved. The commit is recorded with every run; writing each frozen file's checksum into every run's own bundle is not yet built. \openprob

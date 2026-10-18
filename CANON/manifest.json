@@ -27521,7 +27521,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "running",
    "runs": [],
-   "next_step": "pass 2 2026-10-18: Landauer, surface, identity, ledgers, Met-A, C-score, translation, instrument, discipline, leukocyte and status chapters read by hand and fixed; status summary figure redrawn with IAM-A as commissioned; floor-at-temperature label clarified in three places; next: bridge, floor-breach, toolbox, report, reach, development, Part 7 and appendices",
+   "next_step": "pass 2 2026-10-18: all Part 6 chapters except toolbox, sky tools, serial, separation, atlas and development read by hand and fixed, including the chain chapter (stage table: C-score blocks of 10 and baseline 1.0103, not the superseded 50 and 1.1104; chain v4 stages), the report chapter (v4 sections), reach (the plan's track order); next: the remaining Part 6 chapters, Part 7 and the appendices",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
@@ -27728,7 +27728,7 @@
    "status": "planned",
    "record": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
    "runs": [],
-   "next_step": "found 2026-10-18 in the book audit; write before the researcher package"
+   "next_step": "found 2026-10-18 in the book audit; write before the researcher package; also: conductor_v3.py docstring still calls the C-score 'development: band not set' (fix in the next chain batch)"
   }
  ],
  "not_tests": {

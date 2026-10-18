@@ -3,16 +3,14 @@
 \section{What the chain is}
 
 The Cellular Performance Gauge is a chain of stages that takes a specimen's raw array files and returns a reading on the one gauge of
-Chapter~\ref{ch:gauge}. In chain v3, Met-A on neutrophils (EPIC v1) is commissioned (2026-10-09), with its detection limits printed on every report; every other stage is a development build. It is not a diagnostic test. Its scope is one cell type, neutrophils,
-on EPIC v1 arrays; other cell types are added one at a time after each passes its tests. The
+Chapter~\ref{ch:gauge}. Chain v4, the first commissioned chain, carries five instruments, each commissioned for its own scope: Met-A on isolated neutrophils (EPIC v1, 2026-10-09), the C-score on whole blood (2026-10-15), IAM-Atlas v2.1 for three cell references and the colon and lung tissue tests (2026-10-16), the IAM-Deconvolver for the shares of neutrophils, monocytes, CD4 and CD8 T cells (2026-10-17), and IAM-A on healthy CD8 T cells, read by whole-genome sequencing against each sample's own reference (2026-10-17). A reading outside an instrument's tested scope is printed with a plain note saying so. It is a research instrument, not a diagnostic test; its scope grows one cell type and one specimen at a time, each after it passes its own sealed test. The
 procedure is the SOP and the operations manual.
 Where a document and the code differ, the code is what runs. This chapter walks through the stages (Figure~\ref{fig:chain}).
 
 Table~\ref{tab:p4_gates} lists the line each stage applies; the values and the files they are read from are in the SOP.
 
 \begin{table}[htbp]\centering\small
-\caption{The lines chain v3 applies, stage by stage. Values are read from frozen files and listed in the SOP; platform, Stage~M and Stage~T
-rules as stated in this chapter. \calibrated}\label{tab:p4_gates}
+\caption{The lines chain v4 applies, stage by stage. Values are read from frozen files (FROZEN\_INPUTS\_v4.json); platform, Stage~M and Stage~T rules as stated in this chapter. \calibrated}\label{tab:p4_gates}
 \begin{tabular}{@{}lp{0.5\textwidth}p{0.3\textwidth}@{}}\toprule
 stage & line & source \\\midrule
 Stage 0 & call rate: proceed; flagged; quarantine & SOP \\
@@ -20,9 +18,11 @@ Stage 0 & bisulfite conversion: printed, not gated & SOP \\
 platform & EPIC v1 only & SOP \\
 Stage A & enough of the composition markers measured & SOP \\
 Stage M & neutrophil fraction above the read line; enough of the identity sites measured & SOP \\
-Stage MC & blocks of 50 sites; enough blocks; baseline 1.1104 & SOP \\
+Stage MC & blocks of 10 sites; enough blocks; baseline 1.0103; band 0.877--1.152, read one-sided & SOP \\
 Stage T & median tare against same-run references & SOP \\
-Stage Q & one named read-level pipeline; $P=1.149$; enough opportunities & SOP \\
+Stage D21 & IAM-Atlas v2.1 tables; the six-cell blood panel & FROZEN\_INPUTS\_v4 \\
+Stage Q2 & enough qualifying molecules; the sample-shape check; self-reference line v1; band v1 0.779--1.055 & FROZEN\_INPUTS\_v4 \\
+Stage SKY & C-score departures on HEALPix, NSIDE 128, nested order; nothing scored & FROZEN\_INPUTS\_v4 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -108,9 +108,7 @@ from a fresh copy of the public repository. Where this part says ``chain v3'', t
 
 \section{What the chain withholds}
 
-Every bundle lists what the build does not print: any line beyond Normal, because breach and the cancer region are not yet measured on this scale, and every
-cell type other than neutrophils.
-Composition-based detection of cells outside the eight groups, the whole-array sky, serial mode and the out-of-span map are not part of chain v3. \openprob
+Every bundle lists what the build does not print: any line beyond Normal, because breach and the cancer region are not yet measured on this scale. A cell type or specimen outside an instrument's tested scope is read and printed with that note. The whole-array sky, serial mode and the out-of-span map are not part of chain v4. \openprob
 
 \section{The record of a run}
 
