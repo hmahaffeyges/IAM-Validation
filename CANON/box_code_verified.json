@@ -1599,6 +1599,18 @@
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
+   "results/REPORT_EXAMPLES_V4/iama/launch2_status.txt": true
+  },
+  "state_at_verify": "finished"
+ },
+ "i-06dff339a467c10c8": {
+  "s3": {
+   "iama_example_v4.sh": "6b1f7f562eb9a0ebf6ca79299c752c3eb72f704ff8b60c232eafd13f350b6de1"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
    "results/REPORT_EXAMPLES_V4/iama/": false
   },
   "state_at_verify": "running"

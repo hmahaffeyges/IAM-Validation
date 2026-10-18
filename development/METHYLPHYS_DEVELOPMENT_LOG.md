@@ -2454,3 +2454,4 @@ IAM-A example, first launch: failed at its first download in 2 minutes (the down
 ### 2026-10-18 · Clean clone run 14 PASS 28 of 28; overlay sky on real arrays (OTH-069, OTH-070)
 Run 14 (i-0b470176e0d90e0b5) passed every check including V7 (IAM-A from a BAM). Arrays run 4 (i-0d808104a9b3ff4a5): the overlay sky shows 53 scattered changed pixels on the real healthy sample and streaks (146 pixels) on the planted one. IAM-A example relaunched (i-077169a7835e9047c).
 IAM-A example, second launch: the file search picked Bismark's converted genome (genome_mfa.GA_conversion.fa) instead of hg38.fa, so counting stopped at once (about 4 minutes, cents). The script now takes hg38.fa by name and requires the grand test's stamped checksum; checklist line added. Third launch.
+Third launch i-06dff339a467c10c8, on-demand (spot quota full), about $2.

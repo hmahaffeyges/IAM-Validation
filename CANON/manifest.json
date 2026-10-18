@@ -27411,7 +27411,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "run",
    "runs": [],
-   "next_step": "built and tested 2026-10-18: Researcher and Plain views, two PDFs, physics panel, the sample's sky beside the healthy atlas sky; clean clone run 13 PASS 27 of 27; real example reports (GSE235717_GSM7508429, healthy) and the far-right example (PLANTED, C_rel 2.66) from i-0e16b64e60f88f0ab; after review: arrays run 4 done; IAM-A example running (i-077169a7835e9047c); page section draft 2 shown to the author.",
+   "next_step": "built and tested 2026-10-18: Researcher and Plain views, two PDFs, physics panel, the sample's sky beside the healthy atlas sky; clean clone run 13 PASS 27 of 27; real example reports (GSE235717_GSM7508429, healthy) and the far-right example (PLANTED, C_rel 2.66) from i-0e16b64e60f88f0ab; after review: arrays run 4 done; IAM-A example running (i-06dff339a467c10c8, third launch); page section draft 2 shown to the author.",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
