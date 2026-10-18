@@ -54,7 +54,7 @@ The first commissioned chain is built (IAM-Atlas v2.1, IAM-Deconvolver, Met-A, C
 19. **Operating procedure and manual for chain v4 (researcher package)**
    - OTH-074 (run; last run 2026-10-18: met): wording fix confirmed by clean clone run 9 (25 of 25)
 20. **'Try to break it' guide for outside labs (researcher package)**
-   - OTH-075 (run): written 2026-10-18: each instrument's commissioned scope, its prediction on known samples, the failure line taken from its commissioning bar, and a public Break report issue form (.github/ISSUE_TEMPLATE/break_report.yml); link it from the researcher README and the front page with the package
+   - OTH-075 (run): 2026-10-18 author: 'Try to break it' replaced by QUESTIONS_AND_ANSWERS.md (every question a researcher or reviewer will ask; answers point to their test; open questions named; checking on known samples is one section; issue form 'Report a result'). Next: add recent questions found online
 
 ## Machines running now (machine ledger)
 

@@ -27817,9 +27817,9 @@
    "title": "'Try to break it': predictions on known samples, failure criteria and a public report form, for outside labs (researcher package)",
    "purpose": "author 2026-10-18: outside labs should test the chain on their own known samples and try to break it",
    "status": "run",
-   "record": "TRY_TO_BREAK_IT.md",
+   "record": "QUESTIONS_AND_ANSWERS.md",
    "runs": [],
-   "next_step": "written 2026-10-18: each instrument's commissioned scope, its prediction on known samples, the failure line taken from its commissioning bar, and a public Break report issue form (.github/ISSUE_TEMPLATE/break_report.yml); link it from the researcher README and the front page with the package"
+   "next_step": "2026-10-18 author: 'Try to break it' replaced by QUESTIONS_AND_ANSWERS.md (every question a researcher or reviewer will ask; answers point to their test; open questions named; checking on known samples is one section; issue form 'Report a result'). Next: add recent questions found online"
   },
   {
    "instrument_or_term": "all",

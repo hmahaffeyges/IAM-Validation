@@ -1,7 +1,7 @@
-name: Break report
-description: The chain did not do what TRY_TO_BREAK_IT.md says it should on samples you know.
-title: "[break] <instrument>: <one line>"
-labels: ["break-report"]
+name: Report a result
+description: What the chain read on samples you know, against what QUESTIONS_AND_ANSWERS.md says it should.
+title: "[result] <instrument>: <one line>"
+labels: ["result-report"]
 body:
   - type: dropdown
     id: instrument
@@ -13,7 +13,7 @@ body:
     validations: {required: true}
   - type: textarea
     id: got
-    attributes: {label: What the chain reported, description: "The readings and states, and which line of TRY_TO_BREAK_IT.md it breaks."}
+    attributes: {label: What the chain reported, description: "The readings and states, and which line of QUESTIONS_AND_ANSWERS.md it tests."}
     validations: {required: true}
   - type: input
     id: data

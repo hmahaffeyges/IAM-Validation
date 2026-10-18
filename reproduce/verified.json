@@ -1,0 +1,11 @@
+{
+ "cscore_band": {
+  "verdict": "PASS",
+  "date": "2026-10-18",
+  "checks": 7,
+  "checks_ok": 7,
+  "minutes": 42.4,
+  "commit": "537984a4",
+  "job": "results/REPRODUCE_V1/out/cscore_band/verdict.json"
+ }
+}

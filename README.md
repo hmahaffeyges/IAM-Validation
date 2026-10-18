@@ -30,7 +30,8 @@ Heath W. Mahaffey, IAMPerformance (independent research).
 | **Follow along, live** | the front page: <https://hmahaffeyges.github.io/IAM-Validation/> |
 | **Every reading, by instrument** | [the A-score database](ASCORES/README.md): healthy and tumor readings side by side |
 | **What happened each day** | [the daily logs](Biological_Physics/MethylPhys/daylogs/) |
-| **Run it on your own samples** | [TRY_TO_BREAK_IT.md](TRY_TO_BREAK_IT.md): install, the release check, what each instrument should do on samples you already know, and how to report a break |
+| **Questions and answers** | [QUESTIONS_AND_ANSWERS.md](QUESTIONS_AND_ANSWERS.md): what a researcher or reviewer will ask, answered with the test behind each answer, the open questions, and how to check the chain on samples you already know |
+| **Reproduce the results** | [reproduce/](reproduce/README.md): each commissioning test and headline result rebuilt from public data with one command, compared with the committed result |
 | **Example reports** | three real reports from the commissioned chain, with their bundles: [REPORT_EXAMPLES_V4/final](Biological_Physics/MethylPhys/doors/data/REPORT_EXAMPLES_V4/final); the operating procedure: [SOP v4](Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md) |
 | **What is commissioned** | [COMMISSIONING_REPORT.md](COMMISSIONING_REPORT.md): every commissioned instrument, its scope, what it passed and what is next |
 | **The instruments** | [INSTRUMENTS.md](INSTRUMENTS.md): what each one reads, how it works, where it stands |

@@ -252,7 +252,8 @@ def page(art):
 {campaign}
 <section class="wrap" id="wins"><h2>{E(CF["title"])}</h2>{chain_lead}<div class="grid">{results}</div>
 <p class="sub">Each card links to its record. <a href="{rec("EARLIER_RESULTS.md")}">{E(CF["earlier"])}</a> ({n_earlier}, each with its record).</p>
-<p class="sub"><b>Run it on your own samples.</b> <a href="{rec("TRY_TO_BREAK_IT.md")}">Try to break it</a>: what each instrument should do on samples you already know, and how to report a break.
+<p class="sub"><b>For researchers.</b> <a href="{rec("QUESTIONS_AND_ANSWERS.md")}">Questions and answers</a>: what a researcher will ask, answered with the test behind each answer, and the open questions.
+<a href="{rec("reproduce/README.md")}">Reproduce the results</a>: each test rebuilt from public data with one command.
 <a href="{rec("Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/README.md")}">The showcase</a>: public samples read once through the one command.
 <a href="{rec("Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md")}">The operating procedure</a>.</p></section>
 {v21_banner}
