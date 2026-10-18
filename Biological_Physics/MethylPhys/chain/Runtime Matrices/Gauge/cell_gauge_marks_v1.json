@@ -19,7 +19,7 @@
   "Met-A": 3.03,
   "IAM-A": null,
   "book_anchor": "full surface & Met-A $3.03$; IAM-A $0.5/\\varepsilon_{\\rm pred}(L)$, $6.68$--$12.42$",
-  "label": "full surface: every identity site at a coin flip - the 2D surface is full and past it the reading turns over",
+  "label": "full surface: every identity site fully scrambled - the 2D surface is full and past it the reading turns over",
   "IAM-A_rule": "IAM-A reads each sample against its own line, A = eps/eps_pred(L), so its ends are the sample's own: the full surface is the held error at a coin flip, A = 0.5/eps_pred(L) (12.42 at L = 0, 6.68 at L = 1), and the floor is 1/(1+e^M) = 8.06e-10 over eps_pred(L) (2.0e-8 to 1.1e-8). The report draws them per sample. 4.26 and 1e-7 were the retired position form's ends (2026-10-17). IAM-A_position: 4.26, the end of the retired position form, used only to draw that form behind its development flag.",
   "IAM-A_position": 4.26
  },
@@ -43,7 +43,7 @@
   "Left of healthy: less writing than healthy cells. Senescence reads here.",
   "Healthy: the balance, the bit rate this cell type is built for. Measured on purified healthy cells, not chosen.",
   "Right of healthy: more and more writing; the surface fills up toward the full surface, the black-hole side. Cancer sits here. It has not lost its identity; it is writing more than the cell can manage.",
-  "Right end, the ceiling (full surface): every identity site at a coin flip, 1 bit per site, the surface full. Derived."
+  "Right end, the ceiling (full surface): every identity site fully scrambled, 1 bit per site, the surface full. Derived."
  ],
  "misreading": "A misreading to avoid. It was made more than three times while this gauge was being built, so it is printed on every report: the gauge reads writing on the surface, not holding energy; left is less writing, right is more. The floor is NOT the most a cell can hold, and cancer does NOT lose its identity. Below the floor the bit rate is too low to maintain the cell; cancer moves right, toward the full surface.",
  "forbidden": {

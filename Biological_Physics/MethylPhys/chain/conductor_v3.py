@@ -34,7 +34,7 @@ import stage_m_met_a as SM
 HERE = os.path.dirname(os.path.abspath(__file__)); RM = os.path.join(HERE, "Runtime Matrices", "Met_A_Floors")
 BUILD = ("chain v4: Met-A on isolated neutrophils (EPIC v1) COMMISSIONED 2026-10-09; Met-A C-score on whole blood (EPIC v1) COMMISSIONED 2026-10-15; "
          "IAM-Deconvolver shares (neutrophils, monocytes, CD4 T, CD8 T; arrays) and IAM-A (healthy CD8 T cells, whole-genome bisulfite) COMMISSIONED 2026-10-17; "
-         "a reading outside these scopes is printed and marked not yet tested")   # 2026-10-18: was the chain v3 line
+         "a reading outside these scopes is printed as preliminary until its instrument is commissioned there")   # 2026-10-18: was the chain v3 line
 METAA_COMMISSIONING = {   # doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md (author approved 2026-10-09)
     "status": "COMMISSIONED", "date": "2026-10-09", "reading": "Met-A", "cell": "neutrophils", "platform": "EPIC v1",
     "specimens": ["isolated neutrophils"],
