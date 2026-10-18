@@ -61,3 +61,20 @@ Scenario 5, searched again 2026-10-18: no fresh public whole-genome set of healt
 stimulated, gene-edited, or already used: GSE245832, GSE306917, GSE144691, GSE98837, GSE186458). The showcase therefore runs one of IAM-A's
 grand-test samples through the one-command chain, labeled as a demonstration of the chain, not a new test; a B-cell or monocyte sample is added
 to show the plain note for a cell type IAM-A has not been tested on.
+
+## Part 6: showcase selection rules (sealed 2026-10-18, before any file is opened)
+
+Each scenario's samples are picked from GEO sample labels alone, by the rule below, and run once through the one-command chain (chain v4).
+Every sample named here is spent by the showcase and recorded in CANON/data_spent.csv when it is read.
+
+| # | Scenario | Set | Rule |
+|---|---|---|---|
+| 1 | One person, three specimens, two array versions | GSE350403 | the participant with the lowest ID: buffy coat, PBMC and saliva, EPIC v1 and EPIC v2 (6 arrays). Expected behavior: EPIC v2 refused with its one sentence; buffy coat read by every array instrument, C-score in its arena |
+| 2 | Met-A, isolated neutrophils | none fresh | no unspent public set of healthy isolated neutrophils on EPIC v1 was found (GEO search 2026-10-18); one held-out reference array runs as a labeled demonstration of the chain, not a new test |
+| 3 | IAM-Deconvolver, known mixtures | GSE281305 | the first 3 mixtures by GSM accession, with their published true shares |
+| 4 | IAM-Atlas, healthy colon tissue | GSE151732 | adenoma history "No": the first 3 by GSM accession (these 3 are excluded from any later use of the set) |
+| 5 | IAM-A, healthy CD8 T cells | grand test | one grand-test sample as a labeled demonstration (Part 5), plus one B-cell sample of the published sequencing atlas to show the plain note |
+| 6 | Declines | from #1 and the chain's own test data | the EPIC v2 arrays of #1, and one failed-control array from the chain's test data |
+| 7 | All together | #1 | the buffy coat of #1 read by every instrument in one report |
+
+Reserved, not for the showcase: GSE216024 (140 normal rectal biopsies, adenoma history yes/no, ages, EPIC v1) for the field test (FLD-002).

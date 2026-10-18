@@ -10970,7 +10970,7 @@
    "data_status": "to_scout",
    "record": "Biological_Physics/MethylPhys/doors/DEV_FIELD_01.md",
    "status": "planned",
-   "next_step": "2026-10-17: first in line after the showcase (TEST_PLAN_TRACKS_2026-10-17.md, track 1); scout a set with healthy donors and patients on the same slides, ages known",
+   "next_step": "2026-10-17: first in line after the showcase (TEST_PLAN_TRACKS_2026-10-17.md, track 1); scout a set with healthy donors and patients on the same slides, ages known; candidate reserved 2026-10-18: GSE216024 (140 normal rectal biopsies, adenoma history yes/no, ages, EPIC v1, unspent)",
    "cost": "search",
    "impact": 3,
    "legacy_ids": [
@@ -27571,7 +27571,7 @@
    "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
    "record": "development/TEST_PLAN_TRACKS_2026-10-17.md",
    "status": "planned",
-   "next_step": "sources checked 2026-10-17 (plan Part 5): keep GSE350403 and GSE281305; replace GSE122244 (spent), GSE199057 (normals already read), GSE245832 (stimulated); find a fresh healthy CD8 WGBS set and a fresh colon tissue set; CD8 scenario: no fresh healthy resting CD8 WGBS on GEO, so a grand-test sample runs as a labeled demonstration (plan Part 5)",
+   "next_step": "selection rules sealed 2026-10-18 (plan Part 6): GSE350403, GSE281305, GSE151732, two labeled demonstrations; next: one AWS job downloads only the selected IDATs and runs the chain once, after the temperature result",
    "cost": "AWS, small",
    "impact": 5,
    "legacy_ids": [],
