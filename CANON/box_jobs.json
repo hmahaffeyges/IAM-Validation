@@ -2051,7 +2051,7 @@
    "date": "2026-10-17",
    "commit": "774657f0",
    "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run3_B/",
-   "state": "running",
+   "state": "reclaimed",
    "log": "results/PRED_TEMPERATURE_01/T3/status_B.txt",
    "machine": "spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once",
    "purpose": "align 233 samples (ENA FASTQ, 16 ranged connections per file, each range re-fetched to its exact length) with Bismark on TAIR10 and count each with chain stage TL; nothing scored",
@@ -2067,7 +2067,7 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run3/ at boot"
+   "note": "stops itself after 24 hours at most; both machines read results/PRED_TEMPERATURE_01/T3/code/run3/ at boot; spot machine reclaimed by AWS about 7:05 PM PDT 2026-10-17; replaced by i-00e917d3d319c520e"
   },
   {
    "job_id": "i-0d514d933409c720f",
@@ -2136,6 +2136,30 @@
     "Biological_Physics/MethylPhys/boxruns/publish_code.py"
    ],
    "note": "stopped after 1 hour: Zenodo degraded (about 33 KB/s and gateway errors; a 20 MB test upload failed after 4 minutes). Retry when Zenodo recovers; the key was removed from the secret store"
+  },
+  {
+   "job_id": "i-00e917d3d319c520e",
+   "name": "Temperature law stage T3 run 3, machine B (replacement): align and chain-count Arabidopsis samples from a shared queue (PHY-057)",
+   "date": "2026-10-17",
+   "commit": "774657f0",
+   "s3_code_prefix": "results/PRED_TEMPERATURE_01/T3/code/run3_B_replacement/",
+   "state": "running",
+   "log": "results/PRED_TEMPERATURE_01/T3/status_B.txt",
+   "machine": "spot c6a.16xlarge (64 cores), self-terminating within 24 h, 8 samples at once",
+   "purpose": "align 233 samples (ENA FASTQ, 16 ranged connections per file, each range re-fetched to its exact length) with Bismark on TAIR10 and count each with chain stage TL; nothing scored",
+   "record": "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/box/align_plants.sh",
+   "manifest": [
+    "PHY-057"
+   ],
+   "outputs": [
+    "results/PRED_TEMPERATURE_01/T3/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/box/align_plants.sh",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
+    "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
+   ],
+   "note": "replacement for the reclaimed B (same code, same queue; takes back B's unfinished claims); code copy: the run3_B folder copied unchanged (the machine runs the same committed code)"
   }
  ],
  "not_jobs": {

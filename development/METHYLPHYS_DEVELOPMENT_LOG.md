@@ -2367,3 +2367,5 @@ The AWS upload machine (job i-03ebc30fc11ccb741) was stopped after an hour: Zeno
 
 ### 2026-10-17 · Test plan: showcase and tracks (manifest rows added; FLD-002, TIS-018, GRP-008 updated)
 Showcase of the commissioned chain (7 scenarios, unused public sets) and the tracks after it, from the author's direction: field, precancer, before diagnosis, the immune track organ by organ (Group-A), one person over time, and the collection routes (plasma, stool, sputum, urine, swab). development/TEST_PLAN_TRACKS_2026-10-17.md.
+
+Temperature T3: machine B was reclaimed by AWS (spot) about 7:05 PM; replacement i-00e917d3d319c520e launched on the same code and queue (PHY-057).
