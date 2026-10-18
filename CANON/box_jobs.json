@@ -2865,7 +2865,7 @@
    "job_id": "i-012c3ce1a8fdb5c08",
    "name": "reproduce/ from a fresh public clone, run 1: C-Score band, Deconvolver, Met-A rebuild (OTH-076)",
    "date": "2026-10-18",
-   "commit": "537984a4",
+   "commit": "b4b850b1",
    "chain_commit": "537984a4",
    "state": "running",
    "s3_code_prefix": "results/REPRODUCE_V1/code/run1/",
@@ -2883,7 +2883,7 @@
     "reproduce/box/reproduce_fresh.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays: manifest fetched before Stage 1, one array at a time; S3 steps on ~/env/bin/python): code in S3 first, results to S3 as made, watcher from launch, self-terminating, cost about $3 on-demand",
-   "note": "stops itself after 7 hours at most"
+   "note": "the script (commit b4b850b1) clones and tests commit 537984a4; stops itself after 7 hours at most"
   }
  ],
  "not_jobs": {

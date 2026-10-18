@@ -1756,8 +1756,8 @@
    "reproduce_fresh.sh": "0c7cefcaf9cb220f19c292acef9844cf6d481f2e37fe58eda3cd2c8443b8a1de"
   },
   "s3_inputs_sha": {},
-  "matches_repo": false,
-  "log_in_s3": false,
+  "matches_repo": true,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/REPRODUCE_V1/": false
   },
