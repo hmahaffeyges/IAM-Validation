@@ -230,6 +230,48 @@
      ]
     }
    ]
+  },
+  {
+   "id": "mice",
+   "instrument": "IAM-A (physics prediction)",
+   "title": "Physics called it in advance, in living mice (GSE77079)",
+   "shows": "Mice that cannot make enough of the methyl donor hold their marks worse, by the amount the law predicted before the data were read: knockout over wild type 1.124, inside the sealed window 1.016 to 1.135 (p 0.0003).",
+   "public_inputs": [
+    "GSE77079 (38 RRBS runs, ENA)",
+    "UCSC mm10"
+   ],
+   "time": "about 4 h on 16 cores",
+   "disk": "40 GB",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_SAM_LEVER_01_OUTCOME.md",
+   "steps": [
+    {
+     "name": "reads_to_pat",
+     "run": "bash reproduce/mice_rrbs.sh"
+    },
+    {
+     "name": "score",
+     "run": "$PY $MP/doors/data/DEV_SAM_LEVER_01/score_sam_01.py $WORK/seq/pat"
+    }
+   ],
+   "compare": [
+    {
+     "kind": "csv",
+     "produced": "repo:Biological_Physics/MethylPhys/doors/data/DEV_SAM_LEVER_01/sam_01_runs.csv",
+     "committed": "Biological_Physics/MethylPhys/doors/data/DEV_SAM_LEVER_01/sam_01_runs.csv",
+     "key": "run",
+     "columns": {
+      "eps": 0.0005
+     }
+    },
+    {
+     "kind": "log",
+     "step": "score",
+     "must_contain": [
+      "KO vehicle / WT ratio 1\\.1[0-3]\\d\\d \\(window 1\\.016-1\\.135\\) \\| p \\(KO > WT\\) 0\\.000\\d \\| -> PASS"
+     ]
+    }
+   ],
+   "tolerance_note": "The aligner (bwa-meth, on bwa mem) can place a few reads differently with a different thread count, so per-run error rates are compared within 0.0005 and the verdict must be PASS with the ratio 1.10 to 1.139; the committed run gives 1.1238."
   }
  ]
 }
