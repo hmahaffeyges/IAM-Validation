@@ -158,6 +158,78 @@
      }
     }
    ]
+  },
+  {
+   "id": "iama_line",
+   "instrument": "IAM-A (commissioned)",
+   "title": "IAM-A's self-reference line, rebuilt from 158 public healthy-cell sequencing files",
+   "shows": "Every healthy cell type's held error falls on one simple line; recounted from GEO and ENCODE files through chain Stage Q2, every count, the line and the sample-shape reference come out identical.",
+   "public_inputs": [
+    "GSE186458 (153 .pat files, GEO)",
+    "ENCODE ENCFF092SBB, ENCFF605NRU, ENCFF133QNK, ENCFF704SCQ, ENCFF969NGH",
+    "ENCODE GRCh38 analysis set"
+   ],
+   "time": "about 3 h on 16 cores",
+   "disk": "70 GB",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
+   "steps": [
+    {
+     "name": "count_and_compare",
+     "run": "NW=${NW:-} bash reproduce/iama_line.sh"
+    }
+   ],
+   "compare": [
+    {
+     "kind": "log",
+     "step": "count_and_compare",
+     "must_contain": [
+      "\"verdict\": \"REPRODUCED\"",
+      "\"line_identical\": true",
+      "\"shape_reference_identical\": true"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "three_labs",
+   "instrument": "Met-A and C-Score",
+   "title": "The same DNA gives the same reading in three laboratories (SEQC2 EpiQC, GSE230132)",
+   "shows": "Identical cell-line DNA run at three laboratories: Met-A's technical repeats agree within 0.0114 and the same DNA across laboratories within 0.0084.",
+   "public_inputs": [
+    "GSE230132"
+   ],
+   "time": "about 30 min",
+   "disk": "3 GB",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_EPIQC_ARRAY_01_OUTCOME.md",
+   "steps": [
+    {
+     "name": "calibrate",
+     "run": "$PY $MP/doors/data/DEV_EPIQC_ARRAY_01/epiqc_array_01.py $WORK calib"
+    },
+    {
+     "name": "read",
+     "run": "$PY $MP/doors/data/DEV_EPIQC_ARRAY_01/epiqc_array_01.py $WORK read"
+    }
+   ],
+   "compare": [
+    {
+     "kind": "csv",
+     "produced": "repo:Biological_Physics/MethylPhys/doors/data/DEV_EPIQC_ARRAY_01/epiqc_array_01_rows.csv",
+     "committed": "Biological_Physics/MethylPhys/doors/data/DEV_EPIQC_ARRAY_01/epiqc_array_01_rows.csv",
+     "key": "gsm",
+     "columns": {
+      "A": 0.0001,
+      "C": 0.0001
+     }
+    },
+    {
+     "kind": "log",
+     "step": "read",
+     "must_contain": [
+      "BARS 1 A repeat <= 0\\.012: 1\\.00 \\| 2 A_rel across labs <= 0\\.02: 1\\.00 \\| 3 C repeat <= 0\\.10: 0\\.90 \\| 4 C_rel across labs <= 0\\.10: 1\\.00"
+     ]
+    }
+   ]
   }
  ]
 }
