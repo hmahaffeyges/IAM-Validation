@@ -489,8 +489,8 @@ def main():
     refs = [float(x) for x in a.slide_ref_A.split(",") if x.strip()] if a.slide_ref_A else None
     if a.slide_ref_table:
         rt = _pd.read_csv(a.slide_ref_table)
-        if "A" not in rt.columns: sys.exit(f"--slide-ref-table {a.slide_ref_table}: needs a column A")
-        refs = [{k: (None if _pd.isna(r.get(k)) else r.get(k)) for k in ("A", "f_neu", "N", "id", "gsm") if k in rt.columns} for r in rt.to_dict("records")]
+        if "A" not in rt.columns: sys.exit(f"--slide-ref-table {a.slide_ref_table}: needs a column A (and C for the C-Score tare)")
+        refs = [{k: (None if _pd.isna(r.get(k)) else r.get(k)) for k in ("A", "f_neu", "N", "C", "id", "gsm") if k in rt.columns} for r in rt.to_dict("records")]   # C carried (2026-10-18, LESSONS C26): the C-Score tare reads it
     it = intake or {}
     array_type = it.get("array_type_detected") or it.get("array_type") or a.array_type   # header first, then declared
     if specimen_stop:

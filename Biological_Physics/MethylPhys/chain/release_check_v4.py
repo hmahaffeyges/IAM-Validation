@@ -11,7 +11,8 @@ with F1 reading FROZEN_INPUTS_v4.json and S2 leaving verbatim run transcripts (d
       (same samples read, same A to 1e-9, same refusals); a constructed .pat through run_sample.py reaches Stage Q2 and is refused with a reason
   V3  the C-Score sky: a planted map with runs of departing neighbors is drawn, and the NESTED layout keeps neighbors together (median
       distance between consecutive sites under a tenth of the median distance between random sites)
-  V4  the v4 report: the front sections (at a glance, shares, C-Score with its sky) and every v3 section id are present"""
+  V4  the v4 report: the front sections (at a glance, shares, C-Score with its sky) and every v3 section id are present
+  V5  the same-run reference table reaches the C-Score tare (C_rel = C / median of three references) and both report PDFs are written (C26)"""
 import os, sys, json, gzip, glob, hashlib, re, time, subprocess, tempfile
 import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path[:0] = [HERE]
@@ -87,12 +88,23 @@ def V4_(tmp):
     miss = [s for s in need if f"id='{s}'" not in h]
     rec("V4", bool(h) and not miss and "data:image/png;base64" in h, f"{len(need) - len(miss)} of {len(need)} sections present" + (f"; missing {miss}" if miss else "") + f"; sky image embedded: {'data:image/png;base64' in h}")
 
+def V5(tmp):
+    """The same-run tare reaches the C-Score through the one-command run (LESSONS C26, 2026-10-18): a reference table with columns A and C,
+    three rows, must give C_rel = C / median(C of the references), and the report must carry the PDFs."""
+    p = os.path.join(tmp, "V1_betas.csv"); t = os.path.join(tmp, "V5_refs.csv"); open(t, "w").write("id,A,C\nr1,1.00,1.10\nr2,1.01,1.20\nr3,0.99,1.15\n")
+    out = os.path.join(tmp, "V5.html"); code, log = R3.run([PY, RS, "--betas", p, "--specimen", "whole blood", "--id", "PLANTED_MIX_TARED", "--ref-table", t, "--out", out,
+                                                         "--ledger", os.path.join(tmp, "ledger.jsonl")])
+    c = (R3._bundle(out) or {}).get("met_a_cscore") or {}; want = round(c["C"] / 1.15, 4) if c.get("C") is not None else None
+    pdf = all(os.path.exists(os.path.splitext(out)[0] + f"_{v}.pdf") for v in ("researcher", "plain"))
+    rec("V5", code == 0 and want is not None and c.get("C_rel") == want and c.get("C_n_refs") == 3 and pdf,
+        f"C {c.get('C')} | C_rel {c.get('C_rel')} (want {want}) from {c.get('C_n_refs')} same-run references | both PDFs written: {pdf}")
+
 def main():
     t0 = time.time(); files = R3.tracked(); tmp = tempfile.mkdtemp(prefix="rc_v4_")
     print(f"release_check_v4 @ {subprocess.run(['git', '-C', R3.ROOT, 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()}  python {PY}")
     steps = [("F1", F1, ()), ("F1b", F1b, ()), ("F2", F2, ()), ("S1", R3.S1, (files,)), ("S2", S2, (files,)), ("S3", R3.S3, ()), ("S4", R3.S4, ())] + \
             [(n, getattr(R3, n), (tmp,)) for n in ("E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "E10", "E11")] + \
-            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
+            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
     for name, fn, args in steps:
         try: fn(*args)
         except Exception as e: rec(name, False, f"could not run: {type(e).__name__}: {str(e)[:200]}")

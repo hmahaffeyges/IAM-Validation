@@ -27493,7 +27493,7 @@
      "page": "not headline: a repeat of the clean-clone check after a fix"
     }
    ],
-   "next_step": "every chain change runs the full release check on a clean clone (run 9 passed 2026-10-18)",
+   "next_step": "clean clone run 10 for the report redesign and the C-Score tare fix (release check now 26 checks, V5 added); every check must pass",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
