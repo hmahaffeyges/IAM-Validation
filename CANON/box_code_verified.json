@@ -1503,13 +1503,41 @@
   "matches_repo": true,
   "log_in_s3": false,
   "outputs_in_s3": {
-   "results/CHAIN_V4_CLEANCLONE/": false
+   "results/CHAIN_V4_CLEANCLONE/run12/status.txt": true,
+   "results/CHAIN_V4_CLEANCLONE/run12/release_check_v4.log": true,
+   "results/CHAIN_V4_CLEANCLONE/run12/release_check_v4.json": true,
+   "results/CHAIN_V4_CLEANCLONE/run12/uv.log": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "i-0303517b557b2bbbd": {
   "s3": {
    "report_examples_v4.sh": "af080ecb55c3bd83d6ebfc085b26c0a6a9c593bc344e09892c83dbb984f071a8",
+   "plant_clustered.py": "dd95a202ade5a7a85089b779994561b76a37c7072d5255f3614bc537dacea60f"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/REPORT_EXAMPLES_V4/": false
+  },
+  "state_at_verify": "finished"
+ },
+ "i-0cddc10d0fb321550": {
+  "s3": {
+   "cleanclone_v4.sh": "1ccaee2dafe10abe1aa98e2cba3215453c0eadb4115b7694295abca3f7850365"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/CHAIN_V4_CLEANCLONE/": false
+  },
+  "state_at_verify": "running"
+ },
+ "i-0e16b64e60f88f0ab": {
+  "s3": {
+   "report_examples_v4.sh": "d9f7bfea630b53239c720dcb20e2a423ad938e169c709e8a586102539651c539",
    "plant_clustered.py": "dd95a202ade5a7a85089b779994561b76a37c7072d5255f3614bc537dacea60f"
   },
   "s3_inputs_sha": {},

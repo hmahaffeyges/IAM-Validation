@@ -2437,3 +2437,4 @@ Run 11 (i-0721df7b2f292508b) passed every check from a fresh public clone. Run 1
 
 ### 2026-10-18 · Clean clone run 12 PASS 27 of 27; real example reports (OTH-069, OTH-070)
 Run 12 (i-0a90224fe480361ec) passed every check, V5 and V6 included. Example run 2 (i-0303517b557b2bbbd): GSE235717_GSM7508429 read from its raw files and from its saved values gives the same readings (Met-A tared 0.9793 Normal; C_rel 0.8986 inside the band); with clustered loss planted by the commissioning rule (546 of 5,975 sites, 20 stretches) the C-Score reads 2.66, above the band, while Met-A stays Normal (1.0115). Finishing edits: a PLANTED banner option (--banner), sky captions, the glance table shows no number for a withheld Met-A.
+Final pair launched: clean clone run 13 (i-0cddc10d0fb321550), example run 3 (i-0e16b64e60f88f0ab).
