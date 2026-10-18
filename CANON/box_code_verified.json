@@ -1627,9 +1627,12 @@
   "matches_repo": true,
   "log_in_s3": false,
   "outputs_in_s3": {
-   "results/CHAIN_V4_CLEANCLONE/": false
+   "results/CHAIN_V4_CLEANCLONE/run15/status.txt": true,
+   "results/CHAIN_V4_CLEANCLONE/run15/release_check_v4.log": true,
+   "results/CHAIN_V4_CLEANCLONE/run15/release_check_v4.json": true,
+   "results/CHAIN_V4_CLEANCLONE/run15/uv.log": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "i-02b660fae7653524a": {
   "s3": {
@@ -1642,9 +1645,46 @@
   "outputs_in_s3": {
    "results/REPORT_EXAMPLES_V4/": false
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "i-0412a2110def2a852": {
+  "s3": {
+   "iama_example_v4.sh": "6b1f7f562eb9a0ebf6ca79299c752c3eb72f704ff8b60c232eafd13f350b6de1"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/REPORT_EXAMPLES_V4/iama/": false
+  },
+  "state_at_verify": "finished"
+ },
+ "i-05cdf05259bbd2102": {
+  "s3": {
+   "cleanclone_v4.sh": "1ccaee2dafe10abe1aa98e2cba3215453c0eadb4115b7694295abca3f7850365"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/CHAIN_V4_CLEANCLONE/": false
+  },
+  "state_at_verify": "running"
+ },
+ "i-06fd497326090626e": {
+  "s3": {
+   "report_examples_v4.sh": "d9f7bfea630b53239c720dcb20e2a423ad938e169c709e8a586102539651c539",
+   "plant_clustered.py": "dd95a202ade5a7a85089b779994561b76a37c7072d5255f3614bc537dacea60f"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/REPORT_EXAMPLES_V4/": false
+  },
+  "state_at_verify": "running"
+ },
+ "i-03e9e5160b5fea273": {
   "s3": {
    "iama_example_v4.sh": "6b1f7f562eb9a0ebf6ca79299c752c3eb72f704ff8b60c232eafd13f350b6de1"
   },
