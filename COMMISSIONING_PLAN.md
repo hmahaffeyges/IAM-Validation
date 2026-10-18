@@ -39,7 +39,7 @@ The first commissioned chain is built (IAM-Atlas v2.1, IAM-Deconvolver, Met-A, C
    - OTH-063 (run; last run 2026-10-16: met): none: live; the chain names rows in every stamp and the gate refuses stale rows. Document consolidation is OTH-064
    - OTH-064 (run; last run 2026-10-16: met): done: hand-kept living documents are now the development log and the day log (both written as work happens and checked by the gate); the book is the toolbox, checked by verify_book; sealed records are history. Everything else is generated or a pointer
 14. **Showcase runs of the commissioned chain (plan: development/TEST_PLAN_TRACKS_2026-10-17.md)**
-   - OTH-073 (planned): selection rules sealed 2026-10-18 (plan Part 6): GSE350403, GSE281305, GSE151732, two labeled demonstrations; next: one AWS job downloads only the selected IDATs and runs the chain once, after the temperature result
+   - OTH-073 (planned): 2026-10-18: sealed rules applied to the labels (plan Part 7). Three findings need the author: buffy coat is not an accepted specimen (#1, #7), tissue has no one-command route (#4), GSE281305 is not a blood mixture (#3); recommendations in Part 7; then one launch
 15. **Field: normal tissue of patients against healthy people, same slides**
    - FLD-002 (planned): 2026-10-17: first in line after the showcase (TEST_PLAN_TRACKS_2026-10-17.md, track 1); scout a set with healthy donors and patients on the same slides, ages known; candidate reserved 2026-10-18: GSE216024 (140 normal rectal biopsies, adenoma history yes/no, ages, EPIC v1, unspent)
 16. **Precancer and before diagnosis**

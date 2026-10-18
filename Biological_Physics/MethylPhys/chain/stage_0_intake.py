@@ -66,11 +66,11 @@ ACCEPTED_SPECIMENS = {
     "constructed dna mixture": "constructed DNA mixture",   # test material: DNA of purified blood cells mixed in known amounts; read as whole blood
 }
 REFUSED_SPECIMEN_REASONS = (
-    (("pbmc", "mononuclear"), "PBMC (peripheral blood mononuclear cells) has no reference in chain v3: the neutrophil reading needs whole blood or isolated neutrophils"),
+    (("pbmc", "mononuclear"), "PBMC (peripheral blood mononuclear cells) has no reference in the chain: the neutrophil reading needs whole blood or isolated neutrophils"),
     (("sorted", "purified", "isolated", "gmdsc", "mdsc", "cd4", "cd8", "t cells", "b cells", "nk cells", "monocytes", "basophils", "eosinophils"),
-     "a sorted cell fraction other than neutrophils has no reference in chain v3 yet; each cell type is added only after the three new-cell tests (SOP section 2b)"),
-    (("bone marrow", "marrow"), "bone marrow has no reference in chain v3"),
-    (("cell line", "cultured", "culture"), "a cell line has no reference in chain v3"),
+     "a sorted cell fraction other than neutrophils has no reference in the chain yet; each cell type is added only after the three new-cell tests (SOP section 2b)"),
+    (("bone marrow", "marrow"), "bone marrow has no reference in the chain"),
+    (("cell line", "cultured", "culture"), "a cell line has no reference in the chain"),
     (("unspecified", "unknown", "not given", ""), "the specimen is not stated: intake reads only a stated specimen it has a reference for"),
 )
 
@@ -84,7 +84,7 @@ def specimen_refusal(specimen):
     s = normalise_specimen(specimen)
     if s in ACCEPTED_SPECIMENS: return None
     why = next((r for keys, r in REFUSED_SPECIMEN_REASONS if any(k and k in s for k in keys) or (s == "" and "" in keys)), None)
-    why = why or f"'{specimen}' is not a blood specimen chain v3 has a reference for (tissue, placenta and other specimens each need their own reference)"
+    why = why or f"'{specimen}' is not a blood specimen the chain has a reference for (tissue, placenta and other specimens each need their own reference)"
     return (f"specimen '{specimen}' refused at intake: {why}. Accepted: whole blood, isolated / sorted / purified neutrophils. "
             f"Nothing is read; this specimen can be read once it has its own reference.")
 

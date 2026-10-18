@@ -2481,3 +2481,6 @@ New Part 6 chapter after The report: the one command, then three real reports fr
 
 ### 2026-10-18 · "Try to break it" guide (OTH-075)
 TRY_TO_BREAK_IT.md: install and the release check; how to read arrays (references first, then the sample against them) and sequencing; for each instrument its commissioned scope, what it should do on samples a laboratory already knows, the line past which it is broken (each from its own commissioning bar), and its commissioning result; declines are not breaks; a public Break report form.
+
+### 2026-10-18 · Showcase picks applied to the labels; three findings for the author (OTH-073)
+The sealed rules were applied to the GEO labels only (plan Part 7). Buffy coat is not an accepted specimen, tissue has no one-command route, and GSE281305 is a nine-cell mixture with cancer lines and stromal cells, not a blood mixture: each needs the author before the showcase launches. Intake refusal messages still said "chain v3"; now "the chain" (wording only; local report checks pass; clean clone with the next chain batch).

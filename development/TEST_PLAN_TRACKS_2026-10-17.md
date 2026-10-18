@@ -78,3 +78,29 @@ Every sample named here is spent by the showcase and recorded in CANON/data_spen
 | 7 | All together | #1 | the buffy coat of #1 read by every instrument in one report |
 
 Reserved, not for the showcase: GSE216024 (140 normal rectal biopsies, adenoma history yes/no, ages, EPIC v1) for the field test (FLD-002).
+
+## Part 7: the sealed rules applied to the GEO labels (2026-10-18, 4 AM; labels only, no data file opened)
+
+Picks (development/showcase_selected_2026-10-18.json): #1 participant AK0005 (lowest of 16): GSM10113783-85 (buffy coat, PBMC, saliva; EPIC v1)
+and GSM10113831-33 (the same, EPIC v2). #3 GSE281305 mixtures 1-3: GSM8618257-59. #4 GSE151732 adenoma history "No", first 3: GSM4589141,
+GSM4589144, GSM4589145.
+
+Found when the picks were checked against what the one command reads (chain/stage_0_intake.py ACCEPTED_SPECIMENS):
+1. **Buffy coat is not an accepted specimen** (accepted: whole blood, isolated neutrophils, constructed DNA mixture). #1 and #7 expected the buffy
+   coat to be read by every array instrument; as the chain stands it is refused at intake. PBMC and saliva are refused too, as expected.
+2. **Tissue has no route through the one command.** The atlas's colon and lung tissue uses were commissioned through their own scorers
+   (DEV_ATLAS_USE_01), not run_sample.py; #4 as written would be refused at intake.
+3. **GSE281305's mixtures are not blood mixtures**: nine cell types including two cancer lines, fibroblasts and endothelial cells. The
+   IAM-Deconvolver is commissioned on blood-cell shares (neutrophils, monocytes, CD4 T, CD8 T), so #3 as picked would show it outside its scope.
+
+Recommendations (for the author):
+- **Buffy coat:** read it as whole blood, labeled as its own specimen with the preliminary line ("This score is preliminary until ... is
+  officially commissioned on buffy coat"). Buffy coat is the leukocyte layer of whole blood, the DNA most whole-blood studies extract, so the
+  readings are meaningful; the label keeps the commissioned scope exact. A small intake change, a release check, a clean clone.
+- **Colon tissue (#4):** run it through the atlas's own commissioned tissue scorer, not the one command, and say so in the showcase; a tissue
+  route in run_sample.py is later work.
+- **Known mixtures (#3):** replace GSE281305 with an unspent set of BLOOD-cell DNA mixtures of known shares (the Deconvolver's commissioned
+  arena), found by the same label-only rule; if none exists, show GSE281305 as what the Deconvolver does outside its scope, labeled so.
+- The rest runs as sealed: #2 (a held-out reference array, demonstration), #5 (the grand-test sample, done 2026-10-18: A 0.9083, and one B-cell
+  sample of the sequencing atlas for the preliminary line), #6 (the EPIC v2, PBMC and saliva refusals, and one failed-control array).
+All seven then go out in one launch.

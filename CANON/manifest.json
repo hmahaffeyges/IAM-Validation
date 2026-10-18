@@ -27579,7 +27579,7 @@
    "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
    "record": "development/TEST_PLAN_TRACKS_2026-10-17.md",
    "status": "planned",
-   "next_step": "selection rules sealed 2026-10-18 (plan Part 6): GSE350403, GSE281305, GSE151732, two labeled demonstrations; next: one AWS job downloads only the selected IDATs and runs the chain once, after the temperature result",
+   "next_step": "2026-10-18: sealed rules applied to the labels (plan Part 7). Three findings need the author: buffy coat is not an accepted specimen (#1, #7), tissue has no one-command route (#4), GSE281305 is not a blood mixture (#3); recommendations in Part 7; then one launch",
    "cost": "AWS, small",
    "impact": 5,
    "legacy_ids": [],
