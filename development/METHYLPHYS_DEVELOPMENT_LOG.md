@@ -2414,3 +2414,7 @@ One HTML report with a Researcher view (results table; AstroGenetics, the physic
 
 ### 2026-10-18 · C-Score same-run tare reached through the one-command run (LESSONS C26; OTH-069, OTH-070)
 run_sample read --ref-table but kept only column A, so the C-Score tare never saw the references' C. Fixed (C carried); planted: C 1.0727 against references 1.10, 1.20, 1.15 gives C_rel 0.9328, exactly C / median. New release check V5 runs the tare through the one command and requires both PDFs. Found before any machine was launched.
+Launched 2026-10-18: clean clone run 10 (i-0a0beda9c8f4d562c) and the example-report machine (i-0c1fd471e84c09eb2), after the pre-launch checklist.
+
+### 2026-10-18 · Machines launched: clean clone run 10 and real example reports (OTH-069, OTH-070)
+Clean clone run 10: i-0a0beda9c8f4d562c. Example reports on four already-read whole-blood arrays (GSE235717): i-0c1fd471e84c09eb2. Both after the pre-launch checklist; under $0.25 together.

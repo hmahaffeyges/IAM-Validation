@@ -2313,6 +2313,51 @@
    ],
    "note": "added 2026-10-18 to speed up the recount after the counter fix (same committed code, same shared queue)",
    "prelaunch": "launched before boxruns/PRELAUNCH_CHECKLIST.md existed (written 2026-10-18); reviewed against it after launch: synthetic plants unmethylated regions (counter fixed, LESSONS C23); per-machine watcher on A-D; shared claim queue; code in S3 before boot; self-terminating"
+  },
+  {
+   "job_id": "i-0a0beda9c8f4d562c",
+   "name": "Chain v4 one-command test from a fresh public clone, run 10 (report redesign, C-Score tare fix) (OTH-070)",
+   "date": "2026-10-18",
+   "commit": "04f5bb32",
+   "s3_code_prefix": "results/CHAIN_V4_CLEANCLONE/code/run10/",
+   "state": "running",
+   "log": "results/CHAIN_V4_CLEANCLONE/status.txt",
+   "machine": "spot m7a.xlarge, self-terminating",
+   "purpose": "clone, install chain/requirements.txt only, run release_check_v4.py; every check must pass",
+   "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh",
+   "manifest": [
+    "OTH-069",
+    "OTH-070"
+   ],
+   "outputs": [
+    "results/CHAIN_V4_CLEANCLONE/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays; AWS caveats): synthetic path passed locally (planted blood, release checks V1, V4, V5); script verified in S3 before boot; results to S3 as made; disk image+40 GB; per-machine watcher from launch; spot reclaim costs one rerun of about 20 min; 90-min shutdown timer, terminate on shutdown; cost under $0.25 for both, told to the author"
+  },
+  {
+   "job_id": "i-0c1fd471e84c09eb2",
+   "name": "Chain v4 example reports on real whole-blood arrays, GSE235717 (OTH-069)",
+   "date": "2026-10-18",
+   "commit": "04f5bb32",
+   "s3_code_prefix": "results/REPORT_EXAMPLES_V4/code/run1/",
+   "state": "running",
+   "log": "results/REPORT_EXAMPLES_V4/status.txt",
+   "machine": "spot m7a.xlarge, self-terminating",
+   "purpose": "four already-read healthy whole-blood EPIC arrays: pass 1 each, then one read against the other three as same-run references; reports and PDFs to S3",
+   "record": "Biological_Physics/MethylPhys/doors/data/REPORT_EXAMPLES_V4/report_examples_v4.sh",
+   "manifest": [
+    "OTH-069"
+   ],
+   "outputs": [
+    "results/REPORT_EXAMPLES_V4/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/REPORT_EXAMPLES_V4/report_examples_v4.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays; AWS caveats): synthetic path passed locally (planted blood, release checks V1, V4, V5); script verified in S3 before boot; results to S3 as made; disk image+40 GB; per-machine watcher from launch; spot reclaim costs one rerun of about 20 min; 90-min shutdown timer, terminate on shutdown; cost under $0.25 for both, told to the author"
   }
  ],
  "not_jobs": {

@@ -27411,7 +27411,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "run",
    "runs": [],
-   "next_step": "2026-10-18 redesign (author-approved): one HTML with Researcher and Plain views and two PDFs; researcher: table, AstroGenetics physics panel, the sample's sky beside the healthy IAM-Atlas v2.1 sky at the same sites, instrument sections; plain: floor-to-ceiling gauges with a magnified strip, C-Score bar; conductor build line and C-Score status brought to chain v4. Next: clean clone run 10, then real whole-blood arrays (GSE235717, already read in the C-Score band) through the chain",
+   "next_step": "2026-10-18 redesign (author-approved): one HTML with Researcher and Plain views and two PDFs; researcher: table, AstroGenetics physics panel, the sample's sky beside the healthy IAM-Atlas v2.1 sky at the same sites, instrument sections; plain: floor-to-ceiling gauges with a magnified strip, C-Score bar; conductor build line and C-Score status brought to chain v4. Running: example reports on real arrays (i-0c1fd471e84c09eb2), clean clone run 10 (i-0a0beda9c8f4d562c).",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
@@ -27493,7 +27493,7 @@
      "page": "not headline: a repeat of the clean-clone check after a fix"
     }
    ],
-   "next_step": "clean clone run 10 for the report redesign and the C-Score tare fix (release check now 26 checks, V5 added); every check must pass",
+   "next_step": "clean clone run 10 running (i-0a0beda9c8f4d562c) for the report redesign and the C-Score tare fix; release check now 26 checks (V5)",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

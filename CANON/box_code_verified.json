@@ -1436,7 +1436,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/PRED_TEMPERATURE_01/T3/out/": false
   },
@@ -1450,9 +1450,33 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/PRED_TEMPERATURE_01/T3/out/": false
+  },
+  "state_at_verify": "running"
+ },
+ "i-0a0beda9c8f4d562c": {
+  "s3": {
+   "cleanclone_v4.sh": "1ccaee2dafe10abe1aa98e2cba3215453c0eadb4115b7694295abca3f7850365"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/CHAIN_V4_CLEANCLONE/": false
+  },
+  "state_at_verify": "running"
+ },
+ "i-0c1fd471e84c09eb2": {
+  "s3": {
+   "report_examples_v4.sh": "e380b994f19ef0bd21300b12217d82d60b6e51b09c29d036dc64742f3735b0d9"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/REPORT_EXAMPLES_V4/": false
   },
   "state_at_verify": "running"
  }
