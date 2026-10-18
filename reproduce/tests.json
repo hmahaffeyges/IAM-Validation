@@ -306,6 +306,74 @@
      }
     }
    ]
+  },
+  {
+   "id": "breast",
+   "instrument": "Met-A on tissue, with IAM-Atlas v2",
+   "title": "Breast cancer: tumors leave the patient's own healthy range far more often than chance",
+   "shows": "Each tumor read against the same patient's healthy tissue at the atlas's composition-blind sites: 23 of 53 pairs above the bar fixed on normal pairs alone (about 3 expected by chance), the sealed fingerprint verdict.",
+   "public_inputs": [
+    "TCGA-BRCA 450K (NCI GDC open access)",
+    "IAM-Atlas v2, Zenodo 10.5281/zenodo.23325865"
+   ],
+   "time": "about 2 h",
+   "disk": "20 GB",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md",
+   "steps": [
+    {
+     "name": "atlas_arrays_score",
+     "run": "bash reproduce/tcga_tissue.sh breast"
+    }
+   ],
+   "compare": [
+    {
+     "kind": "json",
+     "produced": "repo:Biological_Physics/MethylPhys/doors/data/DEV_TISSUE_BREAST_01/scored_breast_tissue.json",
+     "committed": "Biological_Physics/MethylPhys/doors/data/DEV_TISSUE_BREAST_01/scored_breast_tissue.json",
+     "fields": {
+      "pairs": 0,
+      "above_bar": 0,
+      "crit": 0,
+      "bar": 1e-09,
+      "R_median": 1e-09,
+      "VERDICT": null
+     }
+    }
+   ]
+  },
+  {
+   "id": "liver",
+   "instrument": "Met-A on tissue, with IAM-Atlas v2",
+   "title": "Liver cancer: a third cancer, the same result",
+   "shows": "Each tumor read against the same patient's healthy tissue at the atlas's composition-blind sites: 22 of 50 pairs above the bar fixed on normal pairs alone (about 2 expected by chance), the sealed fingerprint verdict.",
+   "public_inputs": [
+    "TCGA-LIHC 450K (NCI GDC open access)",
+    "IAM-Atlas v2, Zenodo 10.5281/zenodo.23325865"
+   ],
+   "time": "about 2 h",
+   "disk": "20 GB",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md",
+   "steps": [
+    {
+     "name": "atlas_arrays_score",
+     "run": "bash reproduce/tcga_tissue.sh liver"
+    }
+   ],
+   "compare": [
+    {
+     "kind": "json",
+     "produced": "repo:Biological_Physics/MethylPhys/doors/data/DEV_TISSUE_LIVER_01/scored_liver_tissue.json",
+     "committed": "Biological_Physics/MethylPhys/doors/data/DEV_TISSUE_LIVER_01/scored_liver_tissue.json",
+     "fields": {
+      "pairs": 0,
+      "above_bar": 0,
+      "crit": 0,
+      "bar": 1e-09,
+      "R_median": 1e-09,
+      "VERDICT": null
+     }
+    }
+   ]
   }
  ]
 }
