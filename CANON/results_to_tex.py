@@ -137,7 +137,7 @@ def section(e, v):
         tail = (r"Both arms read a fingerprint: in these cancer cells blocks of the pattern were lost, beyond what held error explains. One cell line against "
                 r"one primary culture from one laboratory; LNCaP is a long-cultured line, so culture as well as cancer may contribute.")
     else:
-        body = (r"One donor's blood DNA with 4--15~\% liver, lung, colon or neuron DNA mixed in at known fractions (a published mixing series~\\cite{Moss2018}), " + str(v["n"])
+        body = (r"One donor's blood DNA with 4--15~\% liver, lung, colon or neuron DNA mixed in at known fractions (a published mixing series~\cite{Moss2018}), " + str(v["n"])
                 + r" EPIC arrays. Foreign DNA at these fractions does not move the neutrophil identity sites, so Met-A must stay where the unmixed blood reads.")
         tab = [(r"sealed bar: Normal and within 0.03 of the unmixed blood", f"{v['ok']} of {v['n']}", r"\measured"),
                (r"largest shift in $A$", f"{v['maxd']:.4f}", r"\measured")]
