@@ -2508,3 +2508,6 @@ SHOWCASE_V4/README.md: one person's buffy coat (AK0005) read by every array inst
 
 ### 2026-10-18 · Cell pages: certainty maps redrawn on one shared scale (ATL-069)
 Author: the 79 cell pages' certainty maps were "all too pale when they should be dark". Cause: every map used the 0 to 0.05 scale set for neutrophils, the atlas's most certain cell (median half-width 0.006); 38 of the 79 cells have half their sites beyond 0.05 and 63 their top tenth, so those parts drew at full brightness. All 79 now use one shared scale, 0 to 0.15 (nine in ten sites inside it for 76 cells), stated on each page, so maps show their own certainty and cells compare. The front page's neutrophil tile keeps 0 to 0.05 for its detail. Pictures only; no value changed.
+
+### 2026-10-18 · Temperature record: the published study's own finding added (PHY-057)
+The source study reported no temperature effect on CG or CHG levels (CHH +14 % at 16 C). Not decisive for held error, but known before sealing; added to the record beside the result.

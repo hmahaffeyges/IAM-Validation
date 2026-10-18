@@ -126,3 +126,9 @@ failed. Candidates to test, each with its own synthetic first: the holding energ
 cold, as their clocks are known to compensate for temperature), the mark's effective temperature may not be the growth temperature, or the
 held error on these molecules may be set by a process other than the thermal barrier the prediction assumes. Next per the plan: the
 hamster torpor set (a much larger temperature step), only after its own synthetic and rule.
+
+**Context known before sealing (added 2026-10-18, after scoring).** The study that published these plants (the 2015 common-garden
+methylome of Swedish accessions grown at 10 °C and 16 °C) reported that temperature did not change genome-wide CG or CHG methylation
+levels, while CHH methylation on transposons was 14 % higher at 16 °C. A level is not an error rate, so that report did not decide this test
+in advance, but it was a warning available before sealing, and the CG null here agrees with it. Anyone choosing a temperature test after
+this one should start from it: in plants, the CG maintenance machinery holds its marks the same at both temperatures.
