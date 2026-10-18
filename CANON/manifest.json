@@ -9599,7 +9599,7 @@
     "AT5 (blood composition)",
     "atlas commissioning"
    ],
-   "notes": "next_jobs 'later' Track B note (2026-10-13): this is an ARRAY job; the limit is the specimen. GSE207998 is partly spent (old VAL record only, blinded). All four in S3 under downloads/B_cfDNA_plasma/. No doors note defines this test.",
+   "notes": "next_jobs 'later' Track B note (2026-10-13): this is an ARRAY job; the limit is the specimen. GSE207998 is partly spent (old VAL record only, blinded). All four in S3 under downloads/B_cfDNA_plasma/. No doors note defines this test. | plan: development/TEST_PLAN_TRACKS_2026-10-17.md (cfDNA and shed-cell routes)",
    "runs": [],
    "id": "TIS-018",
    "sources_of_row": [
@@ -27658,7 +27658,8 @@
      "chain": "c82b4c9dd448",
      "latest_utc": "2026-10-18T04:36:47Z"
     }
-   ]
+   ],
+   "notes": "plan: development/TEST_PLAN_TRACKS_2026-10-17.md (cfDNA and shed-cell routes)"
   },
   {
    "title": "Stool and other shed-cell routes: colon lining (stool), airways (sputum), urine, cervical swab",
