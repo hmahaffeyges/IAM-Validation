@@ -40,3 +40,6 @@ The goal behind every track: whether these tests could one day stand in for rout
 4. **Immune track, organ by organ:** whole blood, patients against healthy people in the same lab series (Group-A); each instrument reads its part (Deconvolver shares, Met-A neutrophils, C-Score clustering, Atlas non-blood DNA). Question: does the pattern point to the organ under strain? With plasma cfDNA (which organ's cells are shedding), two readings from one blood draw. Sets in hand: breast GSE243529 and GSE283951, lung GSE275371 (blood immune cells, EPIC); colon and pancreas to scout. The class-era immune signals are leads to replicate with the commissioned instruments.
 5. **One person over time:** IAM-A's self-reference read on the same person's cells across years.
 6. **Collection routes:** plasma cfDNA, stool (colon lining), sputum (airways), urine, cervical swab; each needs a short-fragment synthetic first where the DNA is broken.
+
+## Part 4: salmon track (author, 2026-10-17; gated on the temperature result)
+IAM-A needs no atlas or other specimens, so it can read fish. Synthetic first; the Mahaffey number scales with water temperature by the law itself (M(T) = M(37 C) x 310.15 K / T); then healthy fish read Normal on their own reference; then one fisheries question on public data. Manifest row in the TIS section.

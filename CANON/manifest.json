@@ -27671,6 +27671,26 @@
     "session 2026-10-17 (author)"
    ],
    "runs": []
+  },
+  {
+   "id": "TIS-055",
+   "title": "Salmon track: IAM-A on fish, its Mahaffey number scaled by water temperature (gated on PHY-057)",
+   "purpose": "If the temperature law is MET: synthetic first (fish fragment lengths, chemistry and temperatures), then healthy fish read Normal against their own reference, then one fisheries question on public data (healthy by life stage and temperature; hatchery vs wild; rearing temperature against returns where records exist). For Washington fisheries biologists, with a replication package.",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "track F_salmonid in S3 (GSE145887, GSE62195, GSE269087, GSE153343)"
+   ],
+   "data_status": "inventory first (metadata only)",
+   "record": "development/TEST_PLAN_TRACKS_2026-10-17.md",
+   "status": "idea",
+   "next_step": "gated on the temperature result (PHY-057); then inventory the stored salmon data, metadata only",
+   "cost": "laptop then AWS, small",
+   "impact": 4,
+   "legacy_ids": [],
+   "runs": [],
+   "sources_of_row": [
+    "session 2026-10-17 (author)"
+   ]
   }
  ],
  "not_tests": {
