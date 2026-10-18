@@ -1,0 +1,17 @@
+  array type: EPIC_v1 (header: EPIC_v1, 1,051,815 addresses)
+Stage 0: intake gates (SOP 11-19)
+/home/ubuntu/showcase/repo/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+/home/ubuntu/showcase/repo/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Stage 1: calibrating the IDAT pair (methylprep noob) - about 25 s
+      array detected: epic (1,051,815 bead addresses, barcode 204086160136)
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.64s/it]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.64s/it]
+Processing samples:   0%|          | 0/1 [00:00<?, ?it/s]Processing samples: 100%|██████████| 1/1 [00:48<00:00, 48.30s/it]Processing samples: 100%|██████████| 1/1 [00:48<00:00, 48.30s/it]
+      calibrated: 839,107 CpGs (noob, per-sample dye-bias + probe-type norm)
+Stage 1: 839,107 of 862,927 probes detected (97.24 %); 23,820 at background removed
+Stage 0 verdict: PROCEED_WITH_PENALTY  deferred: ['ctrl_qc_threshold_uncalibrated']
+Stage D21: cell shares against IAM-Atlas v2.1
+
+S3_GSE281305_mix1: neutrophil Met-A 0.8792 (withheld: noise index 0.23972 > 0.149 and no same-run tare; A printed as a number only) | C 1.2113 | tare None
+report: /home/ubuntu/showcase/out/S3_GSE281305_mix1.html | bundle: /home/ubuntu/showcase/out/S3_GSE281305_mix1_bundle.json | evidence ledger: /home/ubuntu/showcase/out/ledger.jsonl (one row appended)

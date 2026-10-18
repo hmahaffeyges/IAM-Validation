@@ -1,0 +1,6 @@
+  array type: EPIC_v2 (header: EPIC_v2, 1,105,209 addresses)
+Stage 0: intake gates (SOP 11-19)
+  PLATFORM_REFUSED - EPIC v2 array (IDAT header): the chain reads EPIC v1 arrays only - no frozen neutrophil floor for EPIC v2, and Stage 1 (methylprep 1.7.1) does not calibrate EPIC v2. Intake stopped before the QC decode; nothing is scored.
+
+S6_AK0005_buffy_coat_EPICv2: neutrophil Met-A None (EPIC v2 array (IDAT header): the chain reads EPIC v1 arrays only - no frozen neutrophil floor for EPIC v2, and Stage 1 (methylprep 1.7.1) does not calibrate EPIC v2. Intake stopped before the QC decode; nothing is scored.) | C None | tare None
+report: /home/ubuntu/showcase/out/S6_AK0005_buffy_coat_EPICv2.html | bundle: /home/ubuntu/showcase/out/S6_AK0005_buffy_coat_EPICv2_bundle.json | evidence ledger: /home/ubuntu/showcase/out/ledger.jsonl (one row appended)

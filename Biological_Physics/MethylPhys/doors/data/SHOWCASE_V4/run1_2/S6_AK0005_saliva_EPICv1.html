@@ -1,0 +1,205 @@
+<html><head><meta charset='utf-8'><title>IAM chain v4 - S6_AK0005_saliva_EPICv1</title><style>
+body{font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;max-width:960px;margin:24px auto;color:#1d2330;line-height:1.45;padding:0 16px}
+h1{font-size:26px;margin:4px 0}h2{font-size:19px;border-bottom:2px solid #1d2330;padding-bottom:4px;margin-top:34px}
+.meta{color:#556;font-size:13px}.note{background:#f4f6fa;border-left:4px solid #3a5a9b;padding:8px 12px;font-size:13px}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:7px 9px;border-bottom:1px solid #dde2ea;text-align:left;vertical-align:top}
+th{background:#f4f6fa;font-weight:600}.chip{display:inline-block;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600}
+.com{background:#dff3e4;color:#17602b}.dev{background:#fff1d6;color:#7a5200}.ref{background:#fde2e2;color:#8a1f1f}.na{background:#eceff3;color:#556}
+.bar{background:#3a5a9b;height:12px;border-radius:2px}.bt{background:#eceff3;width:240px;border-radius:2px}.big{font-size:22px;font-weight:700}
+.tech{margin-top:46px;border-top:3px double #1d2330;padding-top:8px}.tech h2{font-size:16px}img{max-width:100%}
+.sub2{font-size:15px;color:#3a5a9b;margin:2px 0 10px;font-weight:600;letter-spacing:.2px}
+.views{margin:18px 0 6px}.views input{display:none}.views label{display:inline-block;padding:6px 16px;border:1px solid #9aa3b2;cursor:pointer;font-size:14px;margin-right:-1px}
+.views label:first-of-type{border-radius:6px 0 0 6px}.views label:last-of-type{border-radius:0 6px 6px 0}
+#vr:checked~.vbar label[for=vr],#vp:checked~.vbar label[for=vp]{background:#1d2330;color:#fff}
+#vr:checked~.plain{display:none}#vp:checked~.research{display:none}
+.phys td:first-child{white-space:nowrap;font-weight:600}.phys .eq{font-family:Georgia,serif}
+.pair{display:flex;gap:10px;flex-wrap:wrap}.pair figure{flex:1 1 440px;margin:0}.pair figcaption{font-size:12.5px;color:#556;margin-top:2px}
+.plain p.say{font-size:15.5px;margin:4px 0 18px}
+@media print{.vbar{display:none}.plain,.research{display:block!important}.plain{page-break-before:always}}
+</style></head><body><p class='meta'>IAM chain v4 · run RUN-20261018-06 · 2026-10-18 18:22 UTC</p>
+<h1>Sample report: S6_AK0005_saliva_EPICv1</h1>
+<p class='sub2'>AstroGenetics: the physics of methylation, read on one sample</p>
+<p class='meta'>Specimen saliva · platform sequencing</p>
+
+<p class='note'><b>Research use only. Not a diagnostic test.</b> Each reading is printed with its commissioning status: <i>commissioned</i> means it passed a test sealed before its data was seen; a reading outside what an instrument was tested on is still shown, and says so.</p>
+<div class='views'><input type='radio' name='v' id='vr' checked><input type='radio' name='v' id='vp'><div class='vbar'><label for='vr'>Researcher</label><label for='vp'>Plain</label></div>
+<div class='research'>
+<h2 id='v4-glance'>At a glance</h2>
+<table><tr><th>Instrument</th><th>Question it answers</th><th>Reading</th><th>State</th><th>Status</th></tr><tr><td><b>IAM-Deconvolver</b></td><td>Which cells, in what shares</td><td class='big'></td><td></td><td><span class='chip na'>not run (no array input)</span></td></tr><tr><td><b>Met-A</b></td><td>How far the neutrophil&#x27;s tagging level has moved</td><td class='big'></td><td></td><td><span class='chip ref'>refused: specimen &#x27;saliva&#x27; refused at intake: &#x27;saliva&#x27; is not a blood specimen the chain has a reference for (tissue, placenta and other specimens each need their own reference). Accepted: whole blood, isolated / sorted / purified neutrophils. Nothing is read; this specimen can be read once it has its own reference.</span></td></tr><tr><td><b>C-Score</b></td><td>Are the departures clustered or scattered</td><td class='big'></td><td></td><td><span class='chip na'>not run</span></td></tr><tr><td><b>IAM-A</b></td><td>Is each mark still held, against the sample&#x27;s own reference</td><td class='big'></td><td></td><td><span class='chip na'>not run (no sequencing input)</span></td></tr></table>
+
+
+
+
+
+</div>
+<div class='plain'>
+<h2 id='v4-plain'>The readings, in plain words</h2><p>Each gauge runs from 0, the floor (below it a cell can no longer hold its identity), through 1, healthy, to saturation, the most the scale can register. Healthy cells sit in the green band around 1. Moving right means the marks are being lost.</p>
+</div></div><div class='tech'><h2 id='v4-technical'>Technical record</h2>
+<div style='background:#fff3cd;padding:8px;border:1px solid #e0c060'><b>chain v4: Met-A on isolated neutrophils (EPIC v1) COMMISSIONED 2026-10-09; Met-A C-score on whole blood (EPIC v1) COMMISSIONED 2026-10-15; IAM-Deconvolver shares (neutrophils, monocytes, CD4 T, CD8 T; arrays) and IAM-A (healthy CD8 T cells, whole-genome bisulfite) COMMISSIONED 2026-10-17; a reading outside these scopes is printed as preliminary until its instrument is commissioned there</b>. Not a diagnostic test.</div>
+<h1>Cellular Performance Gauge - S6_AK0005_saliva_EPICv1</h1><p>Run RUN-20261018-06 | specimen: saliva | platform  | array type None | floors None | reference None</p>
+<p style='color:#a00'><b>Refused:</b> specimen &#x27;saliva&#x27; refused at intake: &#x27;saliva&#x27; is not a blood specimen the chain has a reference for (tissue, placenta and other specimens each need their own reference). Accepted: whole blood, isolated / sorted / purified neutrophils. Nothing is read; this specimen can be read once it has its own reference.</p>
+<h2 id='sec-reading-intake'>Stage 0 intake</h2><p>verdict: <b>REFUSED_SPECIMEN</b> | call rate: -  | flags: SPECIMEN_REFUSED:saliva</p><p>Stage 1 (recorded, not gated): not run - specimen &#x27;saliva&#x27; refused at intake: &#x27;saliva&#x27; is not a blood specimen the chain has a reference for (tissue, placenta and other specimens each need their own reference). Accepted: whole blood, isolated / sorted / purified neutrophils. Nothing is read; this specimen can be read once it has its own reference.</p>
+<h2 id='sec-composition'>Stage 2 composition (8 blood groups)</h2><p></p>
+<h2 id='sec-met-a'>Stage 5 Met-A - neutrophils</h2><p>A = <b>None</b> (); neutrophil fraction None; sites None; healthy reference; shift per 1 % loss None</p><p>Methylated sites mean beta None</p>
+<h2 id='sec-tare'>Stage 8 same-run tare</h2><p>A_rel = <b>None</b>  | references None (median None) | detection limit: <b>None</b> % loss of the neutrophil pattern (reference spread None)</p><p>Tare method: step 1 self-tare II (not run), then step 2 median tare: not run</p>
+<h2 id='sec-noise-gate'>Stage 9 noise gate</h2><p>noise index N None (None of None noise sites) | N_max None | gate: None</p>
+<h2 id='sec-cscore'>Stage 6 Met-A C-score</h2><p>C = <b>None</b> (healthy = 1; healthy held-out range None); tared C_rel <b>None</b> against None same-run references; call: <b>not tared</b>; </p><p>DEVELOPMENT - not commissioned for this specimen</p>
+
+
+<h2 id='sec-withheld'>Withheld</h2><ul></ul>
+
+<h2 id='sec-red-flags'>Red flags</h2><table border='1' cellpadding='3' style='border-collapse:collapse;font-size:12px'><tr><th>level</th><th>code</th><th>what</th></tr><tr><td>STOP</td><td>SPECIMEN_REFUSED</td><td>specimen &#x27;saliva&#x27; refused at intake: &#x27;saliva&#x27; is not a blood specimen the chain has a reference for (tissue, placenta and other specimens each need their own reference). Accepted: whole blood, isolated / sorted / purified neutrophils. Nothing is read; this specimen can be read once it has its own reference.</td></tr><tr><td>NOTE</td><td>DEVELOPMENT_BUILD</td><td>chain v4: Met-A on isolated neutrophils (EPIC v1) COMMISSIONED 2026-10-09; Met-A C-score on whole blood (EPIC v1) COMMISSIONED 2026-10-15; IAM-Deconvolver shares (neutrophils, monocytes, CD4 T, CD8 T; arrays) and IAM-A (healthy CD8 T cells, whole-genome bisulfite) COMMISSIONED 2026-10-17; a reading outside these scopes is printed as preliminary until its instrument is commissioned there; not a diagnostic test</td></tr></table>
+<h2 id='sec-safeguards'>Safeguards</h2><table border='1' cellpadding='3' style='border-collapse:collapse;font-size:12px'><tr><th>safeguard</th><th>result</th><th>detail</th></tr><tr><td>rendered-claim scan</td><td>PASS</td><td>no disease, cohort or population words in the report prose</td></tr><tr><td>formula self-test</td><td>PASS</td><td>H(0.5) = 1, H(0.25) = 0.811278, H(0) -&gt; 0</td></tr><tr><td>anchors</td><td>PASS</td><td>Normal 0.95-1.05</td></tr><tr><td>deconvolver conformance</td><td>NOT_RUN</td><td>no composition on this specimen</td></tr><tr><td>atlas separability</td><td>NOT_RUN</td><td>stage 3 (atlas deconvolution) is not wired into this build</td></tr></table>
+<h2 id='sec-troubleshooting'>Troubleshooting</h2><table border='1' cellpadding='3' style='border-collapse:collapse;font-size:12px'><tr><th>condition</th><th>what to do</th></tr><tr><td>specimen refused</td><td>intake reads whole blood and isolated / sorted / purified neutrophils; this specimen needs its own reference before it can be read</td></tr></table>
+<h2 id='sec-integrity'>Integrity</h2><table border='1' cellpadding='3' style='border-collapse:collapse;font-size:12px'><tr><th>item</th><th>sha256 / version</th></tr><tr><td>Grn IDAT</td><td>intake not run</td></tr><tr><td>Red IDAT</td><td>intake not run</td></tr><tr><td>chain commit</td><td>de6e20ab</td></tr><tr><td>methylprep</td><td>1.7.1</td></tr><tr><td>python</td><td>3.11.17</td></tr></table>
+<h2 id='sec-inventory'>Chain file inventory</h2><table border='1' cellpadding='3' style='border-collapse:collapse;font-size:12px'><tr><th>file (relative to chain/)</th><th>sha256 (12)</th><th>bytes</th></tr><tr><td>MethylPhys_Interface/report_v3.py</td><td>c03b4897f713</td><td>31999</td></tr><tr><td>MethylPhys_Interface/run_sample.py</td><td>3ed94c31918f</td><td>49880</td></tr><tr><td>Runtime Matrices/IAM_A_Positions/hg19_cpg_chrom_ranges.json</td><td>fb08d2fbfd15</td><td>1389</td></tr><tr><td>Runtime Matrices/IAM_A_Positions/iama_positions_v2.json</td><td>1bf9bf49b38c</td><td>1807</td></tr><tr><td>Runtime Matrices/Intake/intake_thresholds_v1.json</td><td>58f7e6073e8f</td><td>1479</td></tr><tr><td>Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json</td><td>6ad3dfb0e01a</td><td>573241</td></tr><tr><td>Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json</td><td>2f64f8846f8a</td><td>85068</td></tr><tr><td>Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv</td><td>73f090a7004b</td><td>439</td></tr><tr><td>Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json</td><td>820c9b1ecf82</td><td>944490</td></tr><tr><td>Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json</td><td>825f64f7b6c7</td><td>857</td></tr><tr><td>Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json</td><td>353156178326</td><td>679555</td></tr><tr><td>conductor_v3.py</td><td>2d4730ccab67</td><td>24723</td></tr><tr><td>stage_0_1_qc_handoff.py</td><td>e91ee9561feb</td><td>9454</td></tr><tr><td>stage_0_intake.py</td><td>34c21594dd18</td><td>51854</td></tr><tr><td>stage_1_idat_calibration.py</td><td>75da834dfd53</td><td>13367</td></tr><tr><td>stage_m_met_a.py</td><td>2e8734954dd1</td><td>4869</td></tr><tr><td>stage_q0_intake.py</td><td>1f9b4fca40fe</td><td>9430</td></tr><tr><td>stage_q_iam_a.py</td><td>862d596e1b38</td><td>12211</td></tr></table>
+<h2 id='sec-run-yourself'>Run it yourself</h2><p>From <code>Biological_Physics/MethylPhys/chain/MethylPhys_Interface</code> at the chain commit above:</p><pre>python run_sample.py --grn /home/ubuntu/showcase/idat/GSM10113785_207357020042_R05C01_Grn.idat.gz --red /home/ubuntu/showcase/idat/GSM10113785_207357020042_R05C01_Red.idat.gz --specimen saliva --id S6_AK0005_saliva_EPICv1 --out /home/ubuntu/showcase/out/S6_AK0005_saliva_EPICv1.html --ledger /home/ubuntu/showcase/out/ledger.jsonl</pre><p>The frozen inputs are listed in the inventory with their hashes; a reading made from the same IDATs, commit and inputs is identical.</p>
+<h2 id='sec-stages'>The chain (SOP v3 section 2b)</h2><table border='1' cellpadding='3' style='border-collapse:collapse;font-size:12px'><tr><th>#</th><th>stage</th><th>status on this build</th></tr><tr><td>0</td><td>Intake</td><td>running (specimen rule; sex and age optional; identifiers hashed in bundle and ledger)</td></tr><tr><td>1</td><td>Calibration</td><td>running</td></tr><tr><td>2</td><td>Composition, blood groups</td><td>running</td></tr><tr><td>3</td><td>Atlas deconvolution</td><td>development flag --dev-atlas-e; IAM-Atlas v2.1 COMMISSIONED 2026-10-16 for three cell references (cortical neurons, lung bronchus epithelium, naive CD4 T cells; 450K) and the colon and lung blind sites; its composition (U3) development; Deconvolution tool COMMISSIONED 2026-10-17 for blood-cell shares (neutrophils, monocytes, CD4 T, CD8 T; arrays), error bars information</td></tr><tr><td>4</td><td>NILC component separation</td><td>development flag --dev-nilc</td></tr><tr><td>5</td><td>Met-A</td><td>running (neutrophils); B cells behind --dev-percell-b</td></tr><tr><td>6</td><td>C-score</td><td>COMMISSIONED 2026-10-15 on whole blood (one-sided band, upper 1.152); IAM-A C-score in Stage Q (development)</td></tr><tr><td>7</td><td>IAM-A</td><td>COMMISSIONED 2026-10-17 on healthy blood CD8 T cells (whole-genome bisulfite), read against its own reference; other specimens development</td></tr><tr><td>8</td><td>Same-run tare</td><td>running (self-tare II, then the median tare; self-tare II wired 2026-10-04)</td></tr><tr><td>9</td><td>Noise gate</td><td>running (state withheld above N_max untared, and below 90 % noise-site coverage)</td></tr><tr><td>10</td><td>Directional decomposition</td><td>development flag --dev-direction</td></tr><tr><td>11</td><td>Sky map</td><td>development flag --dev-sky</td></tr><tr><td>12</td><td>Sky statistics</td><td>development flag --dev-sky</td></tr><tr><td>13</td><td>Report</td><td>running</td></tr><tr><td>3b</td><td>Trace-cell detection</td><td>development flag --dev-trace</td></tr><tr><td>3c</td><td>Foreign-cell detection</td><td>development flag --dev-foreign</td></tr><tr><td>11b</td><td>Surface brightness</td><td>development flag --dev-brightness</td></tr><tr><td>12b</td><td>Difference map</td><td>running with --prior-betas (per-address difference; the sky drawing is not built)</td></tr></table>
+<h2 id='sec-toolkit'>Toolkit stages</h2><table border='1' cellpadding='3' style='border-collapse:collapse;font-size:12px'><tr><th>stage</th><th>name</th><th>module</th><th>status</th><th>note</th></tr><tr><td>3</td><td>Atlas deconvolution (atlas_e, --dev-atlas-e)</td><td>chain/dev_stages.py</td><td>NOT_RUN</td><td>behind a development flag (not given), or not run on this specimen</td></tr><tr><td>3b</td><td>Trace-cell detection (--dev-trace)</td><td>chain/dev_stages.py</td><td>NOT_RUN</td><td>behind a development flag (not given), or not run on this specimen</td></tr><tr><td>3c</td><td>Foreign-cell detection (--dev-foreign)</td><td>chain/dev_stages.py</td><td>NOT_RUN</td><td>behind a development flag (not given), or not run on this specimen</td></tr><tr><td>4</td><td>NILC component separation (NILC-e, --dev-nilc)</td><td>chain/dev_stages.py</td><td>NOT_RUN</td><td>behind a development flag (not given), or not run on this specimen</td></tr><tr><td>10</td><td>Directional decomposition (--dev-direction)</td><td>chain/dev_stages.py</td><td>NOT_RUN</td><td>behind a development flag (not given), or not run on this specimen</td></tr><tr><td>11</td><td>Sky map (--dev-sky)</td><td>chain/dev_stages.py</td><td>NOT_RUN</td><td>behind a development flag (not given), or not run on this specimen</td></tr><tr><td>11b</td><td>Surface brightness (--dev-brightness)</td><td>chain/dev_stages.py</td><td>NOT_RUN</td><td>behind a development flag (not given), or not run on this specimen</td></tr><tr><td>12</td><td>Sky statistics (--dev-sky)</td><td>chain/sky_statistics.py</td><td>NOT_RUN</td><td>behind a development flag (not given), or not run on this specimen</td></tr><tr><td>12b</td><td>Difference map</td><td>chain/serial_mode.py</td><td>NOT_RUN</td><td>built; not run on this specimen</td></tr><tr><td>12</td><td>apodised mask</td><td>-</td><td>NOT_BUILT</td><td>listed under stage 12 as a tool to build</td></tr><tr><td>12</td><td>beam smoothing</td><td>-</td><td>NOT_BUILT</td><td>listed under stage 12 as a tool to build</td></tr><tr><td>12</td><td>cell-type covariance in the separation (GLS)</td><td>-</td><td>NOT_BUILT</td><td>listed under stage 12 as a tool to build</td></tr><tr><td>12</td><td>Fisher degeneracy of the composition</td><td>-</td><td>NOT_BUILT</td><td>listed under stage 12 as a tool to build</td></tr><tr><td>12</td><td>ILC on the residual sky</td><td>-</td><td>NOT_BUILT</td><td>listed under stage 12 as a tool to build</td></tr><tr><td>12</td><td>per-specimen composition posterior</td><td>-</td><td>NOT_BUILT</td><td>listed under stage 12 as a tool to build</td></tr><tr><td>12</td><td>cross-spectra between cell panels</td><td>-</td><td>NOT_BUILT</td><td>listed under stage 12 as a tool to build</td></tr><tr><td>12</td><td>difference map drawn as a sky</td><td>-</td><td>NOT_BUILT</td><td>listed under stage 12 as a tool to build</td></tr></table>
+<details id='sec-bundle'><summary>bundle (JSON, also written beside this page)</summary><pre>{
+ &quot;build&quot;: &quot;chain v4: Met-A on isolated neutrophils (EPIC v1) COMMISSIONED 2026-10-09; Met-A C-score on whole blood (EPIC v1) COMMISSIONED 2026-10-15; IAM-Deconvolver shares (neutrophils, monocytes, CD4 T, CD8 T; arrays) and IAM-A (healthy CD8 T cells, whole-genome bisulfite) COMMISSIONED 2026-10-17; a reading outside these scopes is printed as preliminary until its instrument is commissioned there&quot;,
+ &quot;specimen&quot;: &quot;saliva&quot;,
+ &quot;scope&quot;: &quot;neutrophils only&quot;,
+ &quot;array_type&quot;: null,
+ &quot;refusal&quot;: &quot;specimen &#x27;saliva&#x27; refused at intake: &#x27;saliva&#x27; is not a blood specimen the chain has a reference for (tissue, placenta and other specimens each need their own reference). Accepted: whole blood, isolated / sorted / purified neutrophils. Nothing is read; this specimen can be read once it has its own reference.&quot;,
+ &quot;refusal_code&quot;: &quot;SPECIMEN_REFUSED&quot;,
+ &quot;command&quot;: [
+  &quot;run_sample.py&quot;,
+  &quot;--grn&quot;,
+  &quot;/home/ubuntu/showcase/idat/GSM10113785_207357020042_R05C01_Grn.idat.gz&quot;,
+  &quot;--red&quot;,
+  &quot;/home/ubuntu/showcase/idat/GSM10113785_207357020042_R05C01_Red.idat.gz&quot;,
+  &quot;--specimen&quot;,
+  &quot;saliva&quot;,
+  &quot;--id&quot;,
+  &quot;S6_AK0005_saliva_EPICv1&quot;,
+  &quot;--out&quot;,
+  &quot;/home/ubuntu/showcase/out/S6_AK0005_saliva_EPICv1.html&quot;,
+  &quot;--ledger&quot;,
+  &quot;/home/ubuntu/showcase/out/ledger.jsonl&quot;
+ ],
+ &quot;intake_skipped&quot;: false,
+ &quot;sample_id&quot;: &quot;S6_AK0005_saliva_EPICv1&quot;,
+ &quot;covariates&quot;: {},
+ &quot;run_id&quot;: &quot;RUN-20261018-06&quot;,
+ &quot;versions&quot;: {
+  &quot;run_timestamp_utc&quot;: &quot;2026-10-18T18:22:02Z&quot;,
+  &quot;python&quot;: &quot;3.11.17&quot;,
+  &quot;methylprep&quot;: &quot;1.7.1&quot;,
+  &quot;chain_commit&quot;: &quot;de6e20ab&quot;,
+  &quot;chain_dirty&quot;: false,
+  &quot;inputs&quot;: {
+   &quot;Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json&quot;: {
+    &quot;sha256_12&quot;: &quot;2f64f8846f8a&quot;,
+    &quot;bytes&quot;: 85068
+   },
+   &quot;Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv&quot;: {
+    &quot;sha256_12&quot;: &quot;73f090a7004b&quot;,
+    &quot;bytes&quot;: 439
+   },
+   &quot;Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json&quot;: {
+    &quot;sha256_12&quot;: &quot;820c9b1ecf82&quot;,
+    &quot;bytes&quot;: 944490
+   },
+   &quot;Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json&quot;: {
+    &quot;sha256_12&quot;: &quot;6ad3dfb0e01a&quot;,
+    &quot;bytes&quot;: 573241
+   },
+   &quot;Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json&quot;: {
+    &quot;sha256_12&quot;: &quot;353156178326&quot;,
+    &quot;bytes&quot;: 679555
+   },
+   &quot;Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json&quot;: {
+    &quot;sha256_12&quot;: &quot;825f64f7b6c7&quot;,
+    &quot;bytes&quot;: 857
+   },
+   &quot;Runtime Matrices/IAM_A_Positions/iama_positions_v2.json&quot;: {
+    &quot;sha256_12&quot;: &quot;1bf9bf49b38c&quot;,
+    &quot;bytes&quot;: 1807
+   },
+   &quot;Runtime Matrices/IAM_A_Positions/hg19_cpg_chrom_ranges.json&quot;: {
+    &quot;sha256_12&quot;: &quot;fb08d2fbfd15&quot;,
+    &quot;bytes&quot;: 1389
+   },
+   &quot;Runtime Matrices/Intake/intake_thresholds_v1.json&quot;: {
+    &quot;sha256_12&quot;: &quot;58f7e6073e8f&quot;,
+    &quot;bytes&quot;: 1479
+   },
+   &quot;conductor_v3.py&quot;: {
+    &quot;sha256_12&quot;: &quot;2d4730ccab67&quot;,
+    &quot;bytes&quot;: 24723
+   },
+   &quot;stage_m_met_a.py&quot;: {
+    &quot;sha256_12&quot;: &quot;2e8734954dd1&quot;,
+    &quot;bytes&quot;: 4869
+   },
+   &quot;stage_q_iam_a.py&quot;: {
+    &quot;sha256_12&quot;: &quot;862d596e1b38&quot;,
+    &quot;bytes&quot;: 12211
+   },
+   &quot;stage_q0_intake.py&quot;: {
+    &quot;sha256_12&quot;: &quot;1f9b4fca40fe&quot;,
+    &quot;bytes&quot;: 9430
+   },
+   &quot;stage_0_intake.py&quot;: {
+    &quot;sha256_12&quot;: &quot;34c21594dd18&quot;,
+    &quot;bytes&quot;: 51854
+   },
+   &quot;stage_0_1_qc_handoff.py&quot;: {
+    &quot;sha256_12&quot;: &quot;e91ee9561feb&quot;,
+    &quot;bytes&quot;: 9454
+   },
+   &quot;stage_1_idat_calibration.py&quot;: {
+    &quot;sha256_12&quot;: &quot;75da834dfd53&quot;,
+    &quot;bytes&quot;: 13367
+   },
+   &quot;MethylPhys_Interface/report_v3.py&quot;: {
+    &quot;sha256_12&quot;: &quot;c03b4897f713&quot;,
+    &quot;bytes&quot;: 31999
+   },
+   &quot;MethylPhys_Interface/run_sample.py&quot;: {
+    &quot;sha256_12&quot;: &quot;3ed94c31918f&quot;,
+    &quot;bytes&quot;: 49880
+   }
+  }
+ },
+ &quot;red_flags&quot;: [
+  {
+   &quot;level&quot;: &quot;STOP&quot;,
+   &quot;code&quot;: &quot;SPECIMEN_REFUSED&quot;,
+   &quot;text&quot;: &quot;specimen &#x27;saliva&#x27; refused at intake: &#x27;saliva&#x27; is not a blood specimen the chain has a reference for (tissue, placenta and other specimens each need their own reference). Accepted: whole blood, isolated / sorted / purified neutrophils. Nothing is read; this specimen can be read once it has its own reference.&quot;
+  },
+  {
+   &quot;level&quot;: &quot;NOTE&quot;,
+   &quot;code&quot;: &quot;DEVELOPMENT_BUILD&quot;,
+   &quot;text&quot;: &quot;chain v4: Met-A on isolated neutrophils (EPIC v1) COMMISSIONED 2026-10-09; Met-A C-score on whole blood (EPIC v1) COMMISSIONED 2026-10-15; IAM-Deconvolver shares (neutrophils, monocytes, CD4 T, CD8 T; arrays) and IAM-A (healthy CD8 T cells, whole-genome bisulfite) COMMISSIONED 2026-10-17; a reading outside these scopes is printed as preliminary until its instrument is commissioned there; not a diagnostic test&quot;
+  }
+ ],
+ &quot;safeguards&quot;: [
+  {
+   &quot;check&quot;: &quot;rendered-claim scan&quot;,
+   &quot;result&quot;: &quot;PASS&quot;,
+   &quot;detail&quot;: &quot;no disease, cohort or population words in the report prose&quot;
+  },
+  {
+   &quot;check&quot;: &quot;formula self-test&quot;,
+   &quot;result&quot;: &quot;PASS&quot;,
+   &quot;detail&quot;: &quot;H(0.5) = 1, H(0.25) = 0.811278, H(0) -&gt; 0&quot;
+  },
+  {
+   &quot;check&quot;: &quot;anchors&quot;,
+   &quot;result&quot;: &quot;PASS&quot;,
+   &quot;detail&quot;: &quot;Normal 0.95-1.05&quot;
+  },
+  {
+   &quot;check&quot;: &quot;deconvolver conformance&quot;,
+   &quot;result&quot;: &quot;NOT_RUN&quot;,
+   &quot;detail&quot;: &quot;no composition on this specimen&quot;
+  },
+  {
+   &quot;check&quot;: &quot;atlas separability&quot;,
+   &quot;result&quot;: &quot;NOT_RUN&quot;,
+   &quot;detail&quot;: &quot;stage 3 (atlas deconvolution) is not wired into this build&quot;
+  }
+ ]
+}</pre></details></div></body></html>

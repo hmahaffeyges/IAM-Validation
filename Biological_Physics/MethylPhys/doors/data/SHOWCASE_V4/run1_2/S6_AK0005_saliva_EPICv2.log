@@ -1,0 +1,4 @@
+  SPECIMEN_REFUSED - specimen 'saliva' refused at intake: 'saliva' is not a blood specimen the chain has a reference for (tissue, placenta and other specimens each need their own reference). Accepted: whole blood, isolated / sorted / purified neutrophils. Nothing is read; this specimen can be read once it has its own reference.
+
+S6_AK0005_saliva_EPICv2: neutrophil Met-A None (specimen 'saliva' refused at intake: 'saliva' is not a blood specimen the chain has a reference for (tissue, placenta and other specimens each need their own reference). Accepted: whole blood, isolated / sorted / purified neutrophils. Nothing is read; this specimen can be read once it has its own reference.) | C None | tare None
+report: /home/ubuntu/showcase/out/S6_AK0005_saliva_EPICv2.html | bundle: /home/ubuntu/showcase/out/S6_AK0005_saliva_EPICv2_bundle.json | evidence ledger: /home/ubuntu/showcase/out/ledger.jsonl (one row appended)

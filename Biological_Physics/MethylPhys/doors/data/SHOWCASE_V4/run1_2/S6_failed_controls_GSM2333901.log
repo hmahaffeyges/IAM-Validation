@@ -1,0 +1,15 @@
+  array type: HM450K (header: HM450K, 622,399 addresses)
+Stage 0: intake gates (SOP 11-19)
+/home/ubuntu/showcase/repo/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+/home/ubuntu/showcase/repo/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Stage 1: calibrating the IDAT pair (methylprep noob) - about 25 s
+      array detected: 450k (622,399 bead addresses, barcode 9370847096)
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:05<00:00,  5.13s/it]Reading IDATs: 100%|██████████| 1/1 [00:05<00:00,  5.13s/it]
+Processing samples:   0%|          | 0/1 [00:00<?, ?it/s]Processing samples: 100%|██████████| 1/1 [00:22<00:00, 22.29s/it]Processing samples: 100%|██████████| 1/1 [00:22<00:00, 22.29s/it]
+      calibrated: 478,228 CpGs (noob, per-sample dye-bias + probe-type norm)
+Stage 1: 478,228 of 482,421 probes detected (99.13 %); 4,193 at background removed
+Stage 0 verdict: QUARANTINE  hard failures: ['hm450_coverage']  deferred: ['ctrl_qc_threshold_uncalibrated']
+
+QUARANTINE - the chain stops here and nothing is scored. Stage 0 rejected the specimen; see the flags above.

@@ -2819,7 +2819,7 @@
    "date": "2026-10-18",
    "commit": "8cbbe7a0",
    "chain_commit": "de6e20ab",
-   "state": "running",
+   "state": "finished",
    "s3_code_prefix": "results/SHOWCASE_V4/code/run2/",
    "log": "results/SHOWCASE_V4/run2/status.txt",
    "machine": "spot m7a.xlarge, self-terminating (60-min timer)",
@@ -2835,7 +2835,7 @@
     "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/showcase_v4_run2.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays; AWS caveats): banner text checked against the report's claim guard before launch; code in S3 first; watcher; about 15 minutes, under $0.10",
-   "note": "stops itself after 60 minutes at most"
+   "note": "3 reports written; terminated itself"
   }
  ],
  "not_jobs": {

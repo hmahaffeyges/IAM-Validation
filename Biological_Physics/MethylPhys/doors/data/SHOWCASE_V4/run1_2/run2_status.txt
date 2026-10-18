@@ -1,0 +1,7 @@
+2026-10-18T18:31:47Z clone
+2026-10-18T18:32:33Z environment
+2026-10-18T18:32:43Z downloaded 6 IDAT files
+2026-10-18T18:34:28Z S3_GSE281305_mix1 (constructed DNA mixture) rc 0
+2026-10-18T18:35:59Z S3_GSE281305_mix2 (constructed DNA mixture) rc 0
+2026-10-18T18:37:31Z S3_GSE281305_mix3 (constructed DNA mixture) rc 0
+2026-10-18T18:37:33Z finished: 3 researcher PDFs, 3 reports

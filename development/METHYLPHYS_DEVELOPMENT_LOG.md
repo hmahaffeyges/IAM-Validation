@@ -2502,3 +2502,6 @@ Run 1 (job i-0c5b1f3644561f54e): the buffy coat of one person (AK0005) tared by 
 
 ### 2026-10-18 · Showcase run 2 launched (OTH-073)
 Job i-0bc349afb0ee8c84c (spot m7a.xlarge, about 15 minutes): scenario 3 alone, the banner reworded and checked against the claim guard before launch (new pre-launch checklist line).
+
+### 2026-10-18 · Showcase shown (OTH-073)
+SHOWCASE_V4/README.md: one person's buffy coat (AK0005) read by every array instrument and tared by three others of the same study (Met-A A_rel 1.039, Normal; C-Score C_rel 1.067, not above the band; neutrophils 96.7 %), each reading labeled preliminary on buffy coat; every decline with its printed reason; three nine-cell mixtures labeled outside the Deconvolver's scope (raw totals 1.11-1.13, the sign of cells the reference does not hold). Nothing scored.

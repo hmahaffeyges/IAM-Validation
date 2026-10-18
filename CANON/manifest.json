@@ -27593,9 +27593,9 @@
     "GSE281305"
    ],
    "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
-   "record": "development/TEST_PLAN_TRACKS_2026-10-17.md",
-   "status": "running",
-   "next_step": "2026-10-18 decided (author: do what is best): buffy coat read on the whole-blood path, labeled as its own specimen, preliminary on every instrument (intake, conductor, report; release check V8); colon tissue through the atlas's own commissioned tissue scorer; GSE281305 run as sealed and labeled outside the Deconvolver's commissioned scope (a showcase of what is possible, not a test). Run 1 read (buffy coat, declines); scenario 3 rerun (run 2) after the banner tripped the report's claim guard. Running now: scenario 3 rerun, job i-0bc349afb0ee8c84c.",
+   "record": "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/README.md",
+   "status": "run",
+   "next_step": "2026-10-18 shown: one person's buffy coat read by every array instrument (Met-A A_rel 1.039 Normal, C_rel 1.067 not above, shares), every decline with its reason, three nine-cell mixtures labeled outside the Deconvolver's scope; scenarios 2 and 5 are the example reports. Next: scenario 4 (colon) through the atlas's own tissue scorer",
    "cost": "AWS, small",
    "impact": 5,
    "legacy_ids": [],
