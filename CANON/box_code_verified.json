@@ -1759,9 +1759,13 @@
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
-   "results/REPRODUCE_V1/": false
+   "results/REPRODUCE_V1/status.txt": true,
+   "results/REPRODUCE_V1/out/cscore_band/verdict.json": true,
+   "results/REPRODUCE_V1/out/deconv/verdict.json": true,
+   "results/REPRODUCE_V1/out/metaa_rebuild/verdict.json": true,
+   "results/REPRODUCE_V1/out/metaa_rebuild/logs/floor.log": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "done"
  },
  "i-0aa8c719d3b0131c8": {
   "s3": {
@@ -1771,7 +1775,7 @@
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
-   "results/REPRODUCE_V1/run2/": false
+   "results/REPRODUCE_V1/run2/status.txt": true
   },
   "state_at_verify": "stopped"
  },
@@ -1783,7 +1787,7 @@
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
-   "results/REPRODUCE_V1/run3/": false
+   "results/REPRODUCE_V1/run3/status.txt": true
   },
   "state_at_verify": "running"
  },
@@ -1795,7 +1799,7 @@
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
-   "results/REPRODUCE_V1/run2b/": false
+   "results/REPRODUCE_V1/run2b/status.txt": true
   },
   "state_at_verify": "running"
  },
@@ -1805,9 +1809,9 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/REPRODUCE_V1/run4/": false
+   "results/REPRODUCE_V1/run4/status.txt": true
   },
   "state_at_verify": "running"
  }

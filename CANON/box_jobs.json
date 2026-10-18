@@ -2867,7 +2867,7 @@
    "date": "2026-10-18",
    "commit": "b4b850b1",
    "chain_commit": "537984a4",
-   "state": "running",
+   "state": "done",
    "s3_code_prefix": "results/REPRODUCE_V1/code/run1/",
    "log": "results/REPRODUCE_V1/status.txt",
    "machine": "on-demand m7a.2xlarge, self-terminating (7-hour timer)",
@@ -2877,13 +2877,17 @@
     "OTH-076"
    ],
    "outputs": [
-    "results/REPRODUCE_V1/"
+    "results/REPRODUCE_V1/status.txt",
+    "results/REPRODUCE_V1/out/cscore_band/verdict.json",
+    "results/REPRODUCE_V1/out/deconv/verdict.json",
+    "results/REPRODUCE_V1/out/metaa_rebuild/verdict.json",
+    "results/REPRODUCE_V1/out/metaa_rebuild/logs/floor.log"
    ],
    "files": [
     "reproduce/box/reproduce_fresh.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays: manifest fetched before Stage 1, one array at a time; S3 steps on ~/env/bin/python): code in S3 first, results to S3 as made, watcher from launch, self-terminating, cost about $3 on-demand",
-   "note": "the script (commit b4b850b1) clones and tests commit 537984a4; stops itself after 7 hours at most"
+   "note": "cscore_band PASS, deconv PASS; metaa_rebuild stopped at the floor step (a path guard written for the clean room; noise sites and gate reproduced exactly); rerun as run 5"
   },
   {
    "job_id": "i-0aa8c719d3b0131c8",
@@ -2901,7 +2905,7 @@
     "OTH-076"
    ],
    "outputs": [
-    "results/REPRODUCE_V1/run2/"
+    "results/REPRODUCE_V1/run2/status.txt"
    ],
    "files": [
     "reproduce/box/reproduce_fresh.sh"
@@ -2925,7 +2929,7 @@
     "OTH-076"
    ],
    "outputs": [
-    "results/REPRODUCE_V1/run3/"
+    "results/REPRODUCE_V1/run3/status.txt"
    ],
    "files": [
     "reproduce/box/reproduce_fresh.sh"
@@ -2949,7 +2953,7 @@
     "OTH-076"
    ],
    "outputs": [
-    "results/REPRODUCE_V1/run2b/"
+    "results/REPRODUCE_V1/run2b/status.txt"
    ],
    "files": [
     "reproduce/box/reproduce_fresh.sh"
@@ -2973,7 +2977,7 @@
     "OTH-076"
    ],
    "outputs": [
-    "results/REPRODUCE_V1/run4/"
+    "results/REPRODUCE_V1/run4/status.txt"
    ],
    "files": [
     "reproduce/box/reproduce_fresh.sh"

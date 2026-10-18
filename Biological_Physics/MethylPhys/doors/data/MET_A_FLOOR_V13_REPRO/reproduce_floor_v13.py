@@ -10,7 +10,8 @@ for f in glob.glob(os.path.join(BET, "GSM*.parquet")): shutil.copy(f, os.path.jo
 shutil.copy(os.path.join(RM, "metA_floors_v1_2_ALLCELLS_development.json"), os.path.join(W, "metA_floors_v1_2.json"))
 shutil.copy(os.path.join(RM, "neutrophil_reference_v1_2.json"), os.path.join(W, "neutrophil_reference_v1.json"))
 src = open(os.path.join(MP, "chain_tests/freeze_v13.py")).read().replace('D="/home/ubuntu/data/atlas_sources/blood/GSE110554/shards"', f'D="{os.path.join(W, "shards")}"')
-assert "shards" in src and "/home/ubuntu" not in src.split("import")[1][:0] + src.split("D=")[1][:80]
+assert "shards" in src and "/home/ubuntu/data/atlas_sources" not in src   # 2026-10-18: the builder's own input path was replaced (the old guard
+# refused any path under /home/ubuntu, so it failed on a fresh clone in /home/ubuntu/rp; noise sites and gate had reproduced exactly)
 open(os.path.join(W, "freeze_v13_paths.py"), "w").write(src)
 print(subprocess.run([sys.executable, "freeze_v13_paths.py"], cwd=W, capture_output=True, text=True).stdout[-1500:])
 a = json.load(open(os.path.join(W, "metA_floors_v1_3.json"))); b = json.load(open(os.path.join(RM, "metA_floors_v1_3.json")))

@@ -2556,3 +2556,6 @@ The fresh-clone reproduction of the Deconvolver (PASS, every number identical, B
 
 ### 2026-10-18 · reproduce/ run 4 launched: breast and liver (OTH-076)
 Job i-0ec4b93905093cf2c (on-demand m7a.xlarge, about 4 hours, about $2), after run 3 proved the route that fetches IAM-Atlas v2 from Zenodo.
+
+### 2026-10-18 · reproduce/ run 1 finished; Met-A rebuild guard fixed (OTH-076)
+Run 1 (job i-012c3ce1a8fdb5c08) ended: cscore_band PASS, deconv PASS, metaa_rebuild stopped at the floor step after the noise sites (48,528, same set) and the noise gate (N_max 0.149, match) had reproduced exactly. Cause: a guard in MET_A_FLOOR_V13_REPRO/reproduce_floor_v13.py, written for the clean room, refused any builder input path under /home/ubuntu; a fresh clone in /home/ubuntu/rp puts the new path there. The guard now checks what it meant to: that the builder's own hard-coded path was replaced. Rerun as run 5.

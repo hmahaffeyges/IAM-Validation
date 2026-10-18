@@ -27840,7 +27840,7 @@
    "record": "reproduce/README.md",
    "runs": [],
    "next_step": "2026-10-18 fresh-clone run 1: cscore_band PASS (every compared number identical, 42 min, methylprep manifests fetched fresh); deconv and metaa_rebuild running; run 2 stopped (runner ran outside its environment; fixed), relaunched as 2b, job i-0173a92945aecb068; run 4 running: job i-0ec4b93905093cf2c (breast, liver)",
-   "notes": "2026-10-18: colon entry added (atlas v2 from Zenodo, GSE131013 from GEO; extract_posterior.py reads local blocks with BLOCKS_DIR) | 2026-10-18: deconv PASS from a fresh clone (5 of 5 identical, 67 min); it exposed that the Deconvolver's error was described as a median everywhere while the sealed bar and the code use a mean; corrected at every source | 2026-10-18: three_labs PASS (4 of 4 identical); breast and liver entries added (TCGA from the NCI GDC, atlas v2 from Zenodo; reproduce/tcga_tissue.sh), launched once the colon run proves the Zenodo route"
+   "notes": "2026-10-18: colon entry added (atlas v2 from Zenodo, GSE131013 from GEO; extract_posterior.py reads local blocks with BLOCKS_DIR) | 2026-10-18: deconv PASS from a fresh clone (5 of 5 identical, 67 min); it exposed that the Deconvolver's error was described as a median everywhere while the sealed bar and the code use a mean; corrected at every source | 2026-10-18: three_labs PASS (4 of 4 identical); breast and liver entries added (TCGA from the NCI GDC, atlas v2 from Zenodo; reproduce/tcga_tissue.sh), launched once the colon run proves the Zenodo route | 2026-10-18: metaa_rebuild run 1 stopped at the floor step on a clean-room path guard (noise sites and gate identical); guard fixed, rerun as run 5"
   }
  ],
  "not_tests": {
