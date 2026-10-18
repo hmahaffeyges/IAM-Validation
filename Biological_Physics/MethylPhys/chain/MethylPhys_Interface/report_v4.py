@@ -66,9 +66,11 @@ def glance_rows(o):
     elif sh: rows.append(("IAM-Deconvolver", "Which cells, in what shares", "", "", "withheld: " + str(sh.get("withheld", ""))))
     else: rows.append(("IAM-Deconvolver", "Which cells, in what shares", "", "", "not run (no array input)"))
     if m.get("A") is not None:
-        val = f"A_rel {t['A_rel']}" if t.get("A_rel") is not None else f"A {m['A']} (untared)"
+        wh = str(m.get("state", "")).startswith("withheld")
+        val = "no reading" if wh else (f"A_rel {t['A_rel']}" if t.get("A_rel") is not None else f"A {m['A']} (untared)")
         st = "commissioned" if m.get("commissioning") else untested("whole blood", "Met-A", shown=not str(m.get("state", "")).startswith("withheld"))
-        rows.append(("Met-A", "How far the neutrophil's tagging level has moved", val, str(t.get("state") or m.get("state", "")).split(". ")[0][:140], st))
+        rows.append(("Met-A", "How far the neutrophil's tagging level has moved", val,
+                     "withheld by the array's noise check" if wh else str(t.get("state") or m.get("state", "")).split(". ")[0][:140], st))
     elif o.get("met_a") is not None or o.get("refusal"):
         rows.append(("Met-A", "How far the neutrophil's tagging level has moved", "", "", "refused: " + str(o.get("refusal") or m.get("reason", ""))))
     else: rows.append(("Met-A", "How far the neutrophil's tagging level has moved", "", "", "not run (no array input)"))
@@ -189,12 +191,12 @@ def physics_rows(o):
 def _skypair(o):
     k, a = o.get("cscore_sky") or {}, o.get("atlas_sky") or {}
     if not k.get("drawn"): return ""
-    left = f"<figure><img alt='This sample: departures on the sphere' src='{_uri(k['png'])}'><figcaption>This sample: where each identity site departs from healthy neutrophils (z).</figcaption></figure>"
+    left = f"<figure><img alt='This sample: departures on the sphere' src='{_uri(k['png'])}'><figcaption>This sample: how far each identity site departs from healthy neutrophils, in units of this sample's own spread.</figcaption></figure>"
     right = ""
     if a.get("drawn"):
         hw = a.get("range_halfwidth") or {}
         right = (f"<figure><img alt='Healthy neutrophils from IAM-Atlas v2.1' src='{_uri(a['png'])}'><figcaption>Healthy neutrophils from IAM-Atlas v2.1 at the same "
-                 f"{a['sites']:,} sites, on the same pixels." + (f" The atlas's 95 % range at these sites: median half-width {hw['median']:.3f}; nine sites in ten within {hw['p90']:.3f}." if hw else "")
+                 f"{a['sites']:,} sites, on the same pixels. Most sites in a healthy cell are fully tagged (red) or untagged (blue)." + (f" The atlas's 95 % range at these sites: median half-width {hw['median']:.3f}; nine sites in ten within {hw['p90']:.3f}." if hw else "")
                  + "</figcaption></figure>")
     return (f"<h3 id='v4-skypair'>The sample's sky beside the healthy sky</h3><div class='pair'>{left}{right}</div>"
             f"<p class='note'>Each site keeps one place on a HEALPix sphere (NSIDE {k['nside']}, nested order), set by its position in the genome, so "
@@ -231,6 +233,7 @@ def build(o, out, sid):
     front = [f"<p class='meta'>IAM chain v4 · run {E(str(o.get('run_id')))} · {when}</p>", f"<h1>Sample report: {E(sid)}</h1>",
              "<p class='sub2'>AstroGenetics: the physics of methylation, read on one sample</p>",
              f"<p class='meta'>Specimen {E(str(o.get('specimen', '')))} · platform {E(str(o.get('platform') or o.get('array_type') or 'sequencing'))}</p>",
+             (f"<p class='note' style='border-left-color:#b33;background:#fdf0f0'><b>{E(o['banner'])}</b></p>" if o.get("banner") else ""),
              "<p class='note'><b>Research use only. Not a diagnostic test.</b> Each reading is printed with its commissioning status: "
              "<i>commissioned</i> means it passed a test sealed before its data was seen; a reading outside what an instrument was tested on is still shown, and says so.</p>",
              "<div class='views'><input type='radio' name='v' id='vr' checked><input type='radio' name='v' id='vp'>"

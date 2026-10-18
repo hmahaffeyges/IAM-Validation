@@ -27411,7 +27411,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "run",
    "runs": [],
-   "next_step": "2026-10-18 redesign (author-approved): one HTML with Researcher and Plain views and two PDFs; researcher: table, AstroGenetics physics panel, the sample's sky beside the healthy IAM-Atlas v2.1 sky at the same sites, instrument sections; plain: floor-to-ceiling gauges with a magnified strip, C-Score bar; conductor build line and C-Score status brought to chain v4. Example reports: run 1 done (real tared report); run 2 running (i-0303517b557b2bbbd) with the far-right example, labeled PLANTED.",
+   "next_step": "2026-10-18 redesign (author-approved): one HTML with Researcher and Plain views and two PDFs; researcher: table, AstroGenetics physics panel, the sample's sky beside the healthy IAM-Atlas v2.1 sky at the same sites, instrument sections; plain: floor-to-ceiling gauges with a magnified strip, C-Score bar; conductor build line and C-Score status brought to chain v4. Example run 2 (i-0303517b557b2bbbd): real tared report and the far-right example (PLANTED, C_rel 2.66); finishing edits then a final run.",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
@@ -27494,7 +27494,7 @@
      "page": "not headline: a repeat of the clean-clone check after a fix"
     }
    ],
-   "next_step": "run 11 PASS 26 of 26 (i-0721df7b2f292508b); run 12 running (i-0a90224fe480361ec) with the C27 fix and V6",
+   "next_step": "run 12 PASS 27 of 27 (i-0a90224fe480361ec); one more run after the report's finishing edits (banner, captions, a withheld Met-A shows no number)",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

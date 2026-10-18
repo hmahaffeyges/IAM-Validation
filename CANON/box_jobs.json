@@ -2394,7 +2394,7 @@
    "date": "2026-10-18",
    "commit": "50adb48c",
    "s3_code_prefix": "results/CHAIN_V4_CLEANCLONE/code/run12/",
-   "state": "running",
+   "state": "finished",
    "log": "results/CHAIN_V4_CLEANCLONE/status.txt",
    "machine": "spot m7a.xlarge, self-terminating",
    "purpose": "clone, install chain/requirements.txt only, run release_check_v4.py; every check must pass",
@@ -2410,7 +2410,7 @@
     "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays; AWS caveats): synthetic path passed locally (planted blood, release checks V1, V4, V5); script verified in S3 before boot; results to S3 as made; disk image+40 GB; per-machine watcher from launch; spot reclaim costs one rerun of about 20 min; 90-min shutdown timer, terminate on shutdown; cost under $0.25 for both, told to the author; every report-building check that can run locally ran first (E4, E9, E11, V1-V5 pass; E10 needs E3's array, clean clone only)",
-   "note": ""
+   "note": "PASS 27 of 27"
   },
   {
    "job_id": "i-0303517b557b2bbbd",
@@ -2418,7 +2418,7 @@
    "date": "2026-10-18",
    "commit": "50adb48c",
    "s3_code_prefix": "results/REPORT_EXAMPLES_V4/code/run2/",
-   "state": "running",
+   "state": "finished",
    "log": "results/REPORT_EXAMPLES_V4/status.txt",
    "machine": "spot m7a.xlarge, self-terminating",
    "purpose": "four already-read healthy whole-blood EPIC arrays: pass 1 each, then one read against the other three as same-run references; reports and PDFs to S3",
@@ -2434,7 +2434,7 @@
     "Biological_Physics/MethylPhys/doors/data/REPORT_EXAMPLES_V4/plant_clustered.py"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays; AWS caveats): synthetic path passed locally (planted blood, release checks V1, V4, V5); script verified in S3 before boot; results to S3 as made; disk image+40 GB; per-machine watcher from launch; spot reclaim costs one rerun of about 20 min; 90-min shutdown timer, terminate on shutdown; cost under $0.25 for both, told to the author; the planter ran locally through the chain first (release check V6) before launch",
-   "note": ""
+   "note": "rc 0: 7 reports, 14 PDFs; raw-file and saved-values routes agree (Met-A 0.9793, C_rel 0.8986); planted C_rel 2.66 above the band"
   }
  ],
  "not_jobs": {

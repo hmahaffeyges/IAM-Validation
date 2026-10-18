@@ -19,6 +19,7 @@ S = {k: ParagraphStyle(k, fontName="DV", **v) for k, v in dict(
     h1=dict(fontSize=18, leading=22, textColor=INK, spaceAfter=2), sub=dict(fontSize=10.5, leading=14, textColor=colors.HexColor("#3a5a9b")),
     meta=dict(fontSize=8.5, leading=11, textColor=SUB), h2=dict(fontSize=12.5, leading=16, textColor=INK, spaceBefore=12, spaceAfter=5),
     body=dict(fontSize=9, leading=12.2, textColor=INK), small=dict(fontSize=7.8, leading=10.2, textColor=SUB),
+    flag=dict(fontSize=9, leading=12, textColor=colors.HexColor("#8a1f1f"), backColor=colors.HexColor("#fdf0f0"), borderPadding=5, leftIndent=4, rightIndent=4),
     note=dict(fontSize=8.5, leading=11.5, textColor=INK, backColor=colors.HexColor("#f4f6fa"), borderPadding=5, leftIndent=4, rightIndent=4)).items()}
 
 def P(t, st="body"):
@@ -35,8 +36,10 @@ def _head(o, sid, when, view):
     return [P(f"IAM chain v4 · run {o.get('run_id')} · {when} · {view} view", "meta"), P(f"Sample report: {sid}", "h1"),
             P("AstroGenetics: the physics of methylation, read on one sample", "sub"),
             P(f"Specimen {o.get('specimen', '')} · platform {o.get('platform') or o.get('array_type') or 'sequencing'}", "meta"), Spacer(1, 6),
+            *([P(f"<b>{o['banner']}</b>", "flag"), Spacer(1, 4)] if o.get("banner") else []),
             P("<b>Research use only. Not a diagnostic test.</b> Each reading is printed with its commissioning status: <i>commissioned</i> means it "
-              "passed a test sealed before its data was seen; a reading outside what an instrument was tested on is still shown, and says so.", "note"), Spacer(1, 4)]
+              "passed a test sealed before its data was seen; a reading outside what an instrument was tested on is still shown, and says so. The full technical record (intake, calibration, tare, noise gate, safeguards, integrity, and how to run it yourself) "
+              "is in the HTML report.", "note"), Spacer(1, 4)]
 
 def _tbl(rows, widths, head=True):
     t = Table(rows, colWidths=[w * inch for w in widths], repeatRows=1 if head else 0)
@@ -53,7 +56,7 @@ def build_pdfs(o, F, out, sid, when):
     # researcher
     st = _head(o, sid, when, "Researcher") + [P("At a glance", "h2")]
     st.append(_tbl([[P("<b>Instrument</b>"), P("<b>Question it answers</b>"), P("<b>Reading</b>"), P("<b>State</b>"), P("<b>Status</b>")]]
-                   + [[P(f"<b>{a}</b>"), P(b), P(f"<b>{v}</b>"), P(s_, "small"), P(x, "small")] for a, b, v, s_, x in R.glance_rows(o)], [1.2, 1.5, 1.25, 1.65, 1.7]))
+                   + [[P(f"<b>{a}</b>"), P(b), P(f"<b>{v}</b>"), P(s_, "small"), P(x, "small")] for a, b, v, s_, x in R.glance_rows(o)], [1.35, 1.45, 1.25, 1.55, 1.7]))
     ph = R.physics_rows(o)
     if ph:
         st += [P("AstroGenetics: the physics behind each reading", "h2"), P(R.PHYS_INTRO), Spacer(1, 4),
@@ -71,12 +74,11 @@ def build_pdfs(o, F, out, sid, when):
     k, a = o.get("cscore_sky") or {}, o.get("atlas_sky") or {}
     if k.get("drawn"):
         pair = [[_img(k["png"], 3.45), _img(a.get("png"), 3.45) if a.get("drawn") else P("")],
-                [P("This sample: where each identity site departs from healthy neutrophils (z).", "small"),
-                 P(f"Healthy neutrophils from IAM-Atlas v2.1 at the same {a.get('sites', 0):,} sites, on the same pixels." if a.get("drawn") else "", "small")]]
+                [P("This sample: how far each identity site departs from healthy neutrophils, in units of this sample's own spread.", "small"),
+                 P(f"Healthy neutrophils from IAM-Atlas v2.1 at the same {a.get('sites', 0):,} sites, on the same pixels. Most sites in a healthy cell are fully tagged (red) or untagged (blue)." if a.get("drawn") else "", "small")]]
         st += [KeepTogether([P("The sample's sky beside the healthy sky", "h2"), _tbl(pair, [3.55, 3.55], head=False),
                              P("Each site keeps one place on a HEALPix sphere, set by its position in the genome, so the two pictures line up site for site. "
                                "Healthy departures look like speckle; clustered departures show as patches. Pictures of the readings; nothing is scored from them.", "small")])]
-    st += [Spacer(1, 8), P("The full technical record (intake, calibration, tare, noise gate, safeguards, integrity, and how to run it yourself) is in the HTML report.", "small")]
     res["researcher"] = doc(base + "_researcher.pdf", st)
     # plain
     st = _head(o, sid, when, "Plain") + [P("The readings, in plain words", "h2"),

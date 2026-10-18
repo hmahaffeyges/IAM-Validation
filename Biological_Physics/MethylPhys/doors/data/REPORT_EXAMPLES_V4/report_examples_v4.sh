@@ -33,6 +33,8 @@ up; st "tared report rc $rc"
 # rule (plant_clustered.py), and the same array's saved values read unchanged through the same path, so the pair differs only by the plant.
 CH=Biological_Physics/MethylPhys/chain; PL=Biological_Physics/MethylPhys/doors/data/REPORT_EXAMPLES_V4/plant_clustered.py
 $PY $PL $W/out/GSE235717_${g}_betas.csv $W/out/GSE235717_${g}_PLANTED_CLUSTERED_betas.csv $CH | tee -a $W/status.txt
-for v in "" _PLANTED_CLUSTERED; do $PY $RS --betas $W/out/GSE235717_${g}${v}_betas.csv --specimen "whole blood" --id GSE235717_${g}${v:-_VALUES} --ref-table $W/out/same_run_refs.csv \
+BN="PLANTED EXAMPLE: a known clustered change was put into a real healthy array (GSE235717 GSM7508429), by the C-Score's own positive-control rule, to show what the report looks like when the C-Score reads above its band. Not a clinical result."
+for v in "" _PLANTED_CLUSTERED; do BA=(); [ -n "$v" ] && BA=(--banner "$BN")
+  $PY $RS --betas $W/out/GSE235717_${g}${v}_betas.csv --specimen "whole blood" --id GSE235717_${g}${v:-_VALUES} --ref-table $W/out/same_run_refs.csv "${BA[@]}" \
   --out $W/out/GSE235717_${g}${v:-_VALUES}.html --ledger $W/out/ledger.jsonl > $W/out/GSE235717_${g}${v:-_VALUES}.log 2>&1; st "values run ${v:-unchanged} rc $?"; up; done
 st "finished rc $rc: $(ls $W/out | grep -c pdf) PDFs"; exit $rc
