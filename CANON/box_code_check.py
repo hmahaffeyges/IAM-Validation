@@ -52,6 +52,8 @@ def problems():
         sid = j["job_id"][:8]
         for f in ("log", "machine", "purpose", "record", "state"):
             if not j.get(f): P.append(f"{sid}: box job has no {f!r} in CANON/box_jobs.json")
+        if str(j.get("date", "")) >= "2026-10-18" and "PRELAUNCH_CHECKLIST" not in str(j.get("prelaunch", "")):   # LESSONS C24
+            P.append(f"{sid}: no 'prelaunch' field naming boxruns/PRELAUNCH_CHECKLIST.md (read it before every paid launch; LESSONS C24)")
         if j.get("state") == "done" and not (v and v.get("no_s3_code") is not None and not j.get("outputs") and j.get("no_outputs_reason")):
             if not v or v.get("state_at_verify") != "done": P.append(f"{sid}: finished, but not verified since it finished (python3 CANON/box_code_check.py --verify)")
             else:

@@ -2183,7 +2183,8 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "recount after LESSONS C23"
+   "note": "recount after LESSONS C23",
+   "prelaunch": "launched before boxruns/PRELAUNCH_CHECKLIST.md existed (written 2026-10-18); reviewed against it after launch: synthetic plants unmethylated regions (counter fixed, LESSONS C23); per-machine watcher on A-D; shared claim queue; code in S3 before boot; self-terminating"
   },
   {
    "job_id": "i-0583ab0c226363999",
@@ -2207,7 +2208,8 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "recount after LESSONS C23"
+   "note": "recount after LESSONS C23",
+   "prelaunch": "launched before boxruns/PRELAUNCH_CHECKLIST.md existed (written 2026-10-18); reviewed against it after launch: synthetic plants unmethylated regions (counter fixed, LESSONS C23); per-machine watcher on A-D; shared claim queue; code in S3 before boot; self-terminating"
   },
   {
    "job_id": "i-00e8af094ae38138c",
@@ -2232,7 +2234,8 @@
    "files": [
     "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
    ],
-   "note": "stops itself after 150 minutes at most; RELEASE CHECK v4: PASS (25 checks); results in doors/data/CHAIN_V4_CLEANCLONE/run8/"
+   "note": "stops itself after 150 minutes at most; RELEASE CHECK v4: PASS (25 checks); results in doors/data/CHAIN_V4_CLEANCLONE/run8/",
+   "prelaunch": "launched before boxruns/PRELAUNCH_CHECKLIST.md existed (written 2026-10-18); reviewed against it after launch: clean-clone release check: no data, small spot machine, self-terminating, status file watched"
   },
   {
    "job_id": "i-0bb1310b7ec57719b",
@@ -2258,7 +2261,8 @@
    "files": [
     "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_v4.sh"
    ],
-   "note": "stops itself after 150 minutes at most; RELEASE CHECK v4: PASS (25 checks)"
+   "note": "stops itself after 150 minutes at most; RELEASE CHECK v4: PASS (25 checks)",
+   "prelaunch": "launched before boxruns/PRELAUNCH_CHECKLIST.md existed (written 2026-10-18); reviewed against it after launch: clean-clone release check: no data, small spot machine, self-terminating, status file watched"
   },
   {
    "job_id": "i-06c3fa83aea9a27aa",
@@ -2282,7 +2286,8 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "added 2026-10-18 to speed up the recount after the counter fix (same committed code, same shared queue)"
+   "note": "added 2026-10-18 to speed up the recount after the counter fix (same committed code, same shared queue)",
+   "prelaunch": "launched before boxruns/PRELAUNCH_CHECKLIST.md existed (written 2026-10-18); reviewed against it after launch: synthetic plants unmethylated regions (counter fixed, LESSONS C23); per-machine watcher on A-D; shared claim queue; code in S3 before boot; self-terminating"
   },
   {
    "job_id": "i-0817aadec94703fca",
@@ -2306,7 +2311,8 @@
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/t3_pairs_runs.csv",
     "Biological_Physics/MethylPhys/doors/data/PRED_TEMPERATURE_01/count_plant.py"
    ],
-   "note": "added 2026-10-18 to speed up the recount after the counter fix (same committed code, same shared queue)"
+   "note": "added 2026-10-18 to speed up the recount after the counter fix (same committed code, same shared queue)",
+   "prelaunch": "launched before boxruns/PRELAUNCH_CHECKLIST.md existed (written 2026-10-18); reviewed against it after launch: synthetic plants unmethylated regions (counter fixed, LESSONS C23); per-machine watcher on A-D; shared claim queue; code in S3 before boot; self-terminating"
   }
  ],
  "not_jobs": {

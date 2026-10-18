@@ -2399,3 +2399,6 @@ Clean clone run 9 launched as job i-0bb1310b7ec57719b (commit cf702e9d) for the 
 Temperature T3 run 4: machines C i-06c3fa83aea9a27aa and D i-0817aadec94703fca added on the same shared queue to speed the recount (PHY-057).
 Book Part 7 (OTH-072): one-gauge table (IAM-A against its own reference; floor over eps_pred), C-score commissioned, commissioned cells; synthesis Cells paragraph adds IAM-A; conclusion.
 Clean clone run 9: RELEASE CHECK v4 PASS (25 checks) after the wording fix (OTH-070, OTH-074).
+
+### 2026-10-18 · Pre-launch checklist (LESSONS C24; PHY-057)
+Two of tonight's losses came from information already in hand (plant unmethylated regions; spot reclaims). boxruns/PRELAUNCH_CHECKLIST.md: ten items, each tied to its lesson, plus known facts by data (plants, human WGBS, cfDNA, arrays, salmonids) and known AWS and transfer caveats. Linked from LESSONS.md; CANON/box_code_check.py refuses a box job dated 2026-10-18 or later without a prelaunch field naming it. Jobs launched before it existed are marked as reviewed after launch.
