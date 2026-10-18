@@ -1,12 +1,14 @@
 \chapter{Reproducing the cell numbers and figures}\label{appendices:app:repro}
 
-The cell numbers of Part~\ref{part:4} come from chain v3, in \texttt{Biological\_Physics/\allowbreak MethylPhys/\allowbreak chain/} of the repository
-\url{https://github.com/hmahaffeyges/IAM-Validation}. A specimen is read through the chain's own entry point,
-\texttt{MethylPhys\_Interface/\allowbreak run\_sample.py} with \texttt{--engine v3}, from its raw IDAT pair: intake, calibration, the platform check,
-composition (whole blood), Met-A, the C-score, the tare and the report (Chapter~\ref{ch:chain}). Every frozen value the chain reads is a file in
-\texttt{chain/\allowbreak Runtime~Matrices/}: the Met-A neutrophil reference and its 6,000 sites (\texttt{Met\_A\_Floors/\allowbreak metA\_floors\_v1\_3.json}, with the
-held-out readings in \texttt{metA\_floors\_\allowbreak v1\_3\_loo.csv}), the C-score baseline (\texttt{Met\_A\_Floors/\allowbreak neutrophil\_reference\_\allowbreak v1\_1.json}),
-the IAM-A position (\texttt{IAM\_A\_Positions/\allowbreak iama\_positions\_\allowbreak v1.json}) and the intake lines (\texttt{Intake/\allowbreak intake\_thresholds\_\allowbreak v1.json}).
+The cell numbers of Part~\ref{part:4} come from chain v4, in \texttt{Biological\_Physics/\allowbreak MethylPhys/\allowbreak chain/} of the repository
+\url{https://github.com/hmahaffeyges/IAM-Validation}. One command, \texttt{release\_check\_v4.py}, runs every check of the chain from a fresh copy of the
+repository. A specimen is read through the chain's own entry point, \texttt{MethylPhys\_Interface/\allowbreak run\_sample.py}: from its raw IDAT pair through
+intake, calibration, the platform check, composition, Met-A, the C-score, the tare, the IAM-Deconvolver's shares and the sky plate; or from a methylation-read
+file or an aligned BAM through IAM-A's intake, the sample-shape check and the reading (Chapter~\ref{ch:chain}). Every frozen value the chain reads is a file in
+\texttt{chain/\allowbreak Runtime~Matrices/}, listed with its checksum in \texttt{FROZEN\_INPUTS\_v4.json}: the Met-A neutrophil reference and its 6,000 sites
+(\texttt{Met\_A\_Floors/\allowbreak metA\_floors\_v1\_3.json}, with the held-out readings in \texttt{metA\_floors\_\allowbreak v1\_3\_loo.csv}), the C-score baseline
+(\texttt{Met\_A\_Floors/\allowbreak neutrophil\_reference\_\allowbreak v1\_2.json}), IAM-A's self-reference line, band and shape reference
+(\texttt{IAM\_A\_SelfRef/}), the IAM-Atlas v2.1 tables (\texttt{atlas/\allowbreak v2.1/}) and the intake lines (\texttt{Intake/\allowbreak intake\_thresholds\_\allowbreak v1.json}).
 The end-to-end acceptance run, \texttt{Biological\_Physics/\allowbreak MethylPhys/\allowbreak chain\_tests/\allowbreak run\_chain\_acceptance.py}, sends the purified
 neutrophil arrays and the known mixtures of GSE110554 and blood arrays from a second laboratory through that same entry point; it needs those IDAT files
 and atlas v2 on local disk, and its results are in \texttt{chain\_tests/\allowbreak chain\_acceptance.csv}. The Part~\ref{part:4} figures are built by the scripts in
@@ -24,7 +26,7 @@ print(28217448*kB*T*math.log(2)/(54000/NA))       # 9.3e5 ATP: Landauer floor of
 Ehold = 3.41; print(1/(1+math.exp(Ehold)))       # 0.03198 before rounding
 eps0 = 0.032                                      # frozen value (Appendix A2)
 print(Ehold/M, eps0)                              # phi = 0.163 ; eps0 = 0.032
-print(H(eps0), 1.1492*H(eps0), 1/1.1492)          # H_ref 0.2043 ; neutrophil 0.2348 ; 0.870
+print(H(eps0))                                    # H_ref 0.2043
 print(H(1/(1 + math.exp(M))))                     # H_min, the floor: 2.5e-08
 print(1/0.330263, 0.5/0.040265, 0.5/(0.040265+0.034625)) # A_max: 3.03 (Met-A) ; IAM-A 0.5/eps_pred(L): 12.42 (L=0) to 6.68 (L=1)
 d = "Biological_Physics/MethylPhys/chain/Runtime Matrices/"
@@ -32,7 +34,8 @@ f = json.load(open(d + "Met_A_Floors/metA_floors_v1_3.json"))["platforms"]["EPIC
 print(f["floor"], f["n_ref"], f["n_sites"])         # 0.330263 ; 6 ; 6000
 loo = pd.read_csv(d + "Met_A_Floors/metA_floors_v1_3_loo.csv")
 print(loo.A_loo.min(), loo.A_loo.max(), loo.A_loo.std())   # 0.983 ; 1.045 ; 0.020
-p = json.load(open(d + "IAM_A_Positions/iama_positions_v2.json"))["cells"]["neutrophils"]
-print(p["P"], p["P_range"], p["pipeline"])         # 1.1492 ; [1.1396, 1.1554] ; loyfer_pat_v1
-print(json.load(open(d + "Met_A_Floors/neutrophil_reference_v1_1.json"))["healthy_clustering_median"])   # 1.1104
+L = json.load(open(d + "IAM_A_SelfRef/selfref_line_v1.json")); b = json.load(open(d + "IAM_A_SelfRef/band_v1.json"))
+print(L["firm"], L["slope"], L["samples"], L["cells"])   # 0.040265 ; 0.034625 ; 153 ; 56 (eps_pred(L) = firm + slope * L)
+print(b["lo"], b["hi"])                            # 0.7787 ; 1.0551 (IAM-A Normal band v1)
+print(json.load(open(d + "Met_A_Floors/neutrophil_reference_v1_2.json"))["healthy_clustering_median"])   # 1.0103
 \end{Verbatim}

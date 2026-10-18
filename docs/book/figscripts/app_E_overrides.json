@@ -1293,7 +1293,7 @@
   },
   "ch:cscore|eq:C": {
    "entry": 517,
-   "sheet": "C-score: variance of $\\sqrt{50}\\times$ the 50-site block means over the site variance, divided by the healthy median $1.1104$."
+   "sheet": "C-score: variance of $\\sqrt{10}\\times$ the 10-site block means over the site variance, divided by the healthy median $1.0103$ (blocks of 50 and 1.1104 before 2026-10-09)."
   },
   "ch:temperature|eq:eps0T": {
    "entry": 518,

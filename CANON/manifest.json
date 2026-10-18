@@ -27521,7 +27521,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "running",
    "runs": [],
-   "next_step": "pass 2 2026-10-18: all Part 6 chapters except toolbox, sky tools, serial, separation, atlas and development read by hand and fixed, including the chain chapter (stage table: C-score blocks of 10 and baseline 1.0103, not the superseded 50 and 1.1104; chain v4 stages), the report chapter (v4 sections), reach (the plan's track order); next: the remaining Part 6 chapters, Part 7 and the appendices",
+   "next_step": "pass 2 2026-10-18: Part 6 read by hand and fixed (remaining: toolbox, sky tools, serial, separation and atlas chapters, scanned with no stale scope found); the canon itself still defined IAM-A in the retired position form and the C-score as development on 50-site blocks: corrected at the source (CANON/iam_canon.json) and the canon appendix, GLOSSARY.md, the formulas, frozen-values, reproduce and glossary appendices and Part 7 regenerated or fixed; next: read the remaining Part 6 chapters by hand, then Part 7 in full",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
