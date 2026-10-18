@@ -55,6 +55,8 @@ The first commissioned chain is built (IAM-Atlas v2.1, IAM-Deconvolver, Met-A, C
    - COM-IAMA-056 (planned): scout public longitudinal sequencing sets of the same donors
 20. **Operating procedure and manual for chain v4 (researcher package)**
    - OTH-074 (run; last run 2026-10-18: met): wording fix confirmed by clean clone run 9 (25 of 25)
+21. **'Try to break it' guide for outside labs (researcher package)**
+   - OTH-075 (planned): write after the chain and report are final; built from the questions methylation researchers ask (reference file)
 
 ## Machines running now (machine ledger)
 

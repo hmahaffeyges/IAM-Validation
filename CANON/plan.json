@@ -130,6 +130,12 @@
    "rows": [
     "OTH-074"
    ]
+  },
+  {
+   "label": "'Try to break it' guide for outside labs (researcher package)",
+   "rows": [
+    "OTH-075"
+   ]
   }
  ],
  "decisions_waiting": []

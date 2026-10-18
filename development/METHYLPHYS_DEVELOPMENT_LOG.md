@@ -2462,3 +2462,6 @@ The label "reading shown; not yet tested with Met-A on whole blood" read badly b
 ### 2026-10-18 · IAM-A through the one command reproduces its grand test (OTH-069)
 Grand-test sample GSM4293895 (healthy CD8 T cells), read from its committed alignment by run_sample.py --bam on a clean install, gave A 0.9083, Normal: equal to the committed grand-test reading. The report and both PDFs were written. Gauge label fix: near the floor (IAM-A) the healthy-reference label moves to the magnified strip so it does not collide with the floor label.
 Final batch launched at 2f4d830d: clean clone run 15 (i-0760dedeedf2b45e2), arrays examples (i-02b660fae7653524a), IAM-A example (i-0412a2110def2a852, on-demand, about $2).
+
+### 2026-10-18 · Outreach reference: what methylation researchers ask (OTH-075)
+The author shared an expert Q&A on methylation studies. Saved as development/outreach/EXPERT_QUESTIONS_REFERENCE.md: their questions, what they emphasized, how IAM answers each, where they will push, and the planned "Try to break it" guide for outside labs (manifest row added).
