@@ -20,6 +20,8 @@ comes from (`../LESSONS.md`).
 9. **The machine stops itself** (shutdown timer and terminate on shutdown). (B2)
 10. **Cost and finish time are estimated before launch and told to the author**, and re-measured from the real rate within an hour of launch.
 
+- **S3 steps run on the machine's own Python (`~/env/bin/python`), never the chain's clean environment**, which has no boto3 by design. The IAM-A example (2026-10-18) failed its first download this way, though every earlier script already did it right.
+
 ## Known facts, by data
 
 **Plants (Arabidopsis whole-genome bisulfite).** Methylation in three contexts: CG, CHG and CHH; the IAM-A counter reads CG only. Much of the

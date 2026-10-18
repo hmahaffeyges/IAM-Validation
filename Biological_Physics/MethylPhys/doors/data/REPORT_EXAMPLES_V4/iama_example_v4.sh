@@ -13,7 +13,7 @@ st "environment"; curl -LsSf https://astral.sh/uv/install.sh | sh > $W/uv.log 2>
 uv venv -q -p 3.11 $W/venv >> $W/uv.log 2>&1 && uv pip install -q -p $W/venv/bin/python -r Biological_Physics/MethylPhys/chain/requirements.txt >> $W/uv.log 2>&1 || { st "FAILED environment"; exit 1; }
 PY=$W/venv/bin/python; $PY -c "import pysam; print('pysam', pysam.__version__)" | tee -a $W/status.txt
 st "downloading the alignment and the reference bundle"
-$PY - <<PYE || { st "FAILED download"; exit 1; }
+~/env/bin/python - <<PYE 2>>$W/status.txt || { st "FAILED download"; exit 1; }   # S3 steps use the machine's own Python: the chain's clean install has no boto3 (2026-10-18)
 import boto3; s=boto3.client("s3")
 for k,f in (("results/DEV_IAMA_GRAND_01/bam/SRR11007296.bam","$W/SRR11007296.bam"),("results/DEV_IAMA_GRAND_01/bam/SRR11007296.bam.bai","$W/SRR11007296.bam.bai")): s.download_file("$BK",k,f)
 for i in ("00","01","02"): s.download_file("$BK",f"downloads/tumour_work/tools.tgz.part_{i}",f"$W/tools.tgz.part_{i}")
