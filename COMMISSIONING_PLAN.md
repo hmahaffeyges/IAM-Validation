@@ -64,8 +64,6 @@ The first commissioned chain is built (IAM-Atlas v2.1, IAM-Deconvolver, Met-A, C
 | Temperature law stage T3 run 4, machine B: all 233 Arabidopsis samples on the fixed counter (PHY-057) | spot c7a.16xlarge, self-terminating | PHY-057 |
 | Temperature law stage T3 run 4, machine C: all 233 Arabidopsis samples on the fixed counter (PHY-057) | spot c7a.16xlarge, self-terminating | PHY-057 |
 | Temperature law stage T3 run 4, machine D: all 233 Arabidopsis samples on the fixed counter (PHY-057) | spot c7a.16xlarge, self-terminating | PHY-057 |
-| Chain v4 one-command test from a fresh public clone, run 10 (report redesign, C-Score tare fix) (OTH-070) | spot m7a.xlarge, self-terminating | OTH-069, OTH-070 |
-| Chain v4 example reports on real whole-blood arrays, GSE235717 (OTH-069) | spot m7a.xlarge, self-terminating | OTH-069 |
 
 ## Decisions waiting for the author
 

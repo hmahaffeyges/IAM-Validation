@@ -160,7 +160,7 @@ def _physics(o):
 def physics_rows(o):
     """AstroGenetics: each reading in the physics it rests on. Every number from this run's record or a committed reference file."""
     G = _marks(); M = G["M_cell"]["value"]; rows = []; m, t, c, q = o.get("met_a") or {}, o.get("tare") or {}, o.get("met_a_cscore") or {}, o.get("iam_a") or {}
-    if q.get("A") is not None:
+    if q.get("A") is not None and q.get("predicted") and q.get("held_err") is not None:   # the own-reference reading only (the retired position form has no prediction)
         e, ep, L = float(q["held_err"]), float(q["predicted"]), float(q.get("loose_share") or 0); emin = 1 / (1 + math.exp(M))
         rows.append(("IAM-A", f"Held error &epsilon; = {e:.4f}: of the qualifying molecules, the share of sites left unwritten between written neighbors. "
                      f"This sample's loose share L = {L:.3f} predicts &epsilon;<sub>pred</sub>(L) = {ep:.4f} from the self-reference line; "

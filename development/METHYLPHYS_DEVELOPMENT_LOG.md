@@ -2421,3 +2421,6 @@ Clean clone run 10: i-0a0beda9c8f4d562c. Example reports on four already-read wh
 
 ### 2026-10-18 · Report: a withheld Met-A prints no number anywhere (OTH-069)
 The sky caption printed the untared Met-A beside a withheld state, and the plain view said only "No gauge". Now the sky omits a withheld Met-A, and both views say in plain words that the array's noise check held the reading back.
+
+### 2026-10-18 · Clean clone run 10: 24 of 26; one cause (OTH-070)
+E4 and E9 failed: the new physics panel assumed an own-reference prediction, and the retired IAM-A position form (development flag) has none, so its report did not build (E9 reads the same report). Guarded; E4 and E9 pass locally. Before a clean clone, every release check that builds a report now runs locally, not only the new ones. The example-report machine finished: four real GSE235717 arrays through the chain, the fourth tared against the other three (C 1.011, 1.078, 1.102).
