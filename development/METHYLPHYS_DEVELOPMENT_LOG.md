@@ -2490,3 +2490,6 @@ The root README said IAM-Atlas v2.1 "is being built now" (stale since its commis
 
 ### 2026-10-18 · Temperature law stage T3: NOT MET (PHY-057)
 Scored once by the sealed scorer on all 233 run-4 counts: 109 accessions with both temperatures; cold/warm ratio 1.0002 (95 % 0.993-1.008) against the law's 1.0212 from the two temperatures alone. B1 and B2 not met. The interval excludes the predicted shift: an informative null in Arabidopsis at 10 against 16 C. Record: PRED_TEMPERATURE_01.md, Stage T3 result. The four counting machines terminated at 5:07 AM.
+
+### 2026-10-18 · Buffy coat read on the whole-blood path, labeled as its own specimen (OTH-073)
+Intake accepts buffy coat (the white-cell layer of whole blood). It is read exactly as whole blood and labeled buffy coat throughout, so no commissioned label attaches: the report prints "This score is preliminary until Met-A (the C-Score) is officially commissioned on buffy coat". Release check V8 (local: every report check passes). Showcase decisions: colon tissue runs through the atlas's own tissue scorer; GSE281305 runs as sealed, labeled outside the Deconvolver's commissioned scope.

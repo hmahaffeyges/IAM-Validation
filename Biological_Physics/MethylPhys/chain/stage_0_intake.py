@@ -63,7 +63,8 @@ ACCEPTED_SPECIMENS = {
     "whole blood": "whole blood", "blood": "whole blood", "peripheral blood": "whole blood", "venous blood": "whole blood",
     "isolated neutrophils": "isolated neutrophils", "sorted neutrophils": "isolated neutrophils",
     "purified neutrophils": "isolated neutrophils", "neutrophils": "isolated neutrophils",
-    "constructed dna mixture": "constructed DNA mixture",   # test material: DNA of purified blood cells mixed in known amounts; read as whole blood
+    "constructed dna mixture": "constructed DNA mixture",
+    "buffy coat": "buffy coat",   # 2026-10-18: the white-cell layer of whole blood; read on the whole-blood path, labeled as its own specimen (not commissioned)   # test material: DNA of purified blood cells mixed in known amounts; read as whole blood
 }
 REFUSED_SPECIMEN_REASONS = (
     (("pbmc", "mononuclear"), "PBMC (peripheral blood mononuclear cells) has no reference in the chain: the neutrophil reading needs whole blood or isolated neutrophils"),

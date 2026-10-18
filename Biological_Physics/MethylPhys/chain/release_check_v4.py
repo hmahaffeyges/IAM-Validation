@@ -12,6 +12,7 @@ with F1 reading FROZEN_INPUTS_v4.json and S2 leaving verbatim run transcripts (d
   V3  the C-Score sky: a planted map with runs of departing neighbors is drawn, and the NESTED layout keeps neighbors together (median
       distance between consecutive sites under a tenth of the median distance between random sites)
   V4  the v4 report: the front sections (at a glance, shares, C-Score with its sky) and every v3 section id are present
+  V8  buffy coat: read on the whole-blood path, labeled as its own specimen, preliminary on Met-A and the C-Score (2026-10-18)
   V5  the same-run reference table reaches the C-Score tare (C_rel = C / median of three references) and both report PDFs are written (C26)
   V6  a planted clustered departure gives a full report: C_rel above the band, the CSCORE_CLUSTERED flag, both PDFs (C27)
   V7  IAM-A from an aligned BAM through the one command (--bam; pysam pinned): exit 0, report written, molecules counted (C28)"""
@@ -146,12 +147,28 @@ def V7(tmp):
     rec("V7", code == 0 and os.path.exists(out) and bool(n), f"exit {code}; report written: {os.path.exists(out)}; held-error opportunities counted: {n}; "
         f"A {q.get('A')} ({q.get('state') or q.get('refusal', '')})"[:300])
 
+def V8(tmp):
+    """Buffy coat (2026-10-18): accepted at intake, read on the whole-blood path, labeled as its own specimen. Met-A and the C-Score carry no
+    commissioned label on it; the report prints the preliminary line for both; both PDFs are written."""
+    import html as _h, re as _re
+    p = os.path.join(tmp, "V1_betas.csv"); t = os.path.join(tmp, "V5_refs.csv")
+    if not os.path.exists(t): open(t, "w").write("id,A,C\nr1,1.00,1.10\nr2,1.01,1.20\nr3,0.99,1.15\n")
+    out = os.path.join(tmp, "V8.html"); code, log = R3.run([PY, RS, "--betas", p, "--specimen", "buffy coat", "--id", "PLANTED_BUFFY", "--ref-table", t, "--out", out,
+                                                         "--ledger", os.path.join(tmp, "ledger.jsonl")])
+    b = R3._bundle(out) or {}; m = b.get("met_a") or {}; c = b.get("met_a_cscore") or {}
+    txt = _h.unescape(_re.sub(r"<[^>]+>", " ", open(out, encoding="utf-8").read())) if os.path.exists(out) else ""
+    lines = ("preliminary until Met-A is officially commissioned on buffy coat" in txt or "Met-A is not yet officially commissioned on buffy coat" in txt,   # withheld form
+             "preliminary until the C-Score is officially commissioned on buffy coat" in txt)
+    pdf = all(os.path.exists(os.path.splitext(out)[0] + f"_{v}.pdf") for v in ("researcher", "plain"))
+    ok = code == 0 and m.get("specimen") == "buffy coat" and not m.get("commissioning") and not c.get("commissioning") and all(lines) and pdf
+    rec("V8", ok, f"exit {code} | specimen {m.get('specimen')} | Met-A commissioned label: {bool(m.get('commissioning'))} | C-Score: {bool(c.get('commissioning'))} | preliminary lines {lines} | PDFs {pdf}")
+
 def main():
     t0 = time.time(); files = R3.tracked(); tmp = tempfile.mkdtemp(prefix="rc_v4_")
     print(f"release_check_v4 @ {subprocess.run(['git', '-C', R3.ROOT, 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()}  python {PY}")
     steps = [("F1", F1, ()), ("F1b", F1b, ()), ("F2", F2, ()), ("S1", R3.S1, (files,)), ("S2", S2, (files,)), ("S3", R3.S3, ()), ("S4", R3.S4, ())] + \
             [(n, getattr(R3, n), (tmp,)) for n in ("E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "E10", "E11")] + \
-            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V6", V6, (tmp,)), ("V7", V7, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
+            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V8", V8, (tmp,)), ("V6", V6, (tmp,)), ("V7", V7, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
     for name, fn, args in steps:
         try: fn(*args)
         except Exception as e: rec(name, False, f"could not run: {type(e).__name__}: {str(e)[:200]}")

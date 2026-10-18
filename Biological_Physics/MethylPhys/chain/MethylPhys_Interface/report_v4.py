@@ -70,7 +70,7 @@ def glance_rows(o):
     if m.get("A") is not None:
         wh = str(m.get("state", "")).startswith("withheld")
         val = "no reading" if wh else (f"A_rel {t['A_rel']}" if t.get("A_rel") is not None else f"A {m['A']} (untared)")
-        st = "commissioned" if m.get("commissioning") else untested("whole blood", "Met-A", shown=not str(m.get("state", "")).startswith("withheld"))
+        st = "commissioned" if m.get("commissioning") else untested(m.get("specimen") or "whole blood", "Met-A", shown=not str(m.get("state", "")).startswith("withheld"))
         rows.append(("Met-A", "How far the neutrophil's tagging level has moved", val,
                      "withheld by the array's noise check" if wh else str(t.get("state") or m.get("state", "")).split(". ")[0][:140], st))
     elif o.get("met_a") is not None or o.get("refusal"):
@@ -79,7 +79,7 @@ def glance_rows(o):
     if c.get("C") is not None:
         val = f"C_rel {c['C_rel']}" if c.get("C_rel") is not None else f"C {c['C']} (untared)"
         st = ("commissioned" if c.get("commissioning") else "not tared: needs 3 same-run healthy references" if c.get("C_rel") is None and o.get("specimen") == "whole blood"
-              else untested("this specimen", "the C-Score"))
+              else untested(o.get("specimen") or "this specimen", "the C-Score"))
         rows.append(("C-Score", "Are the departures clustered or scattered", val, str(c.get("C_call") or ""), st))
     else: rows.append(("C-Score", "Are the departures clustered or scattered", "", "", "not run" if not o.get("met_a") else "not read: " + str(c.get("reason", ""))))
     if q.get("A") is not None:
@@ -105,12 +105,12 @@ def _shares(o):
 def _meta(o):
     m, t = o.get("met_a") or {}, o.get("tare") or {}
     if m.get("A") is None: return ""
-    gA = t.get("A_rel") if t.get("A_rel") is not None else (m["A"] if m.get("specimen") != "whole blood" else None)
+    gA = t.get("A_rel") if t.get("A_rel") is not None else (m["A"] if m.get("specimen") not in ("whole blood", "buffy coat") else None)
     if str(m.get("state", "")).startswith("withheld"): gA = None   # the noise gate withholds the state: no gauge is drawn (as the v3 record)
     _f = (o.get("_figs") or {}).get("met_a")
     return ("<h2 id='v4-met-a'>Met-A: the neutrophil's tagging level on the gauge</h2>" + (f"<img alt='Met-A gauge' src='{_uri(_f)}'>" if _f else "")
             + f"<p>State: <b>{'withheld by the array&#39;s noise check' if str(m.get('state', '')).startswith('withheld') else E(str(t.get('state') or m.get('state', '')))}</b></p>"
-            + f"<p>{chip('commissioned' if m.get('commissioning') else untested('whole blood', 'Met-A', shown=not str(m.get('state', '')).startswith('withheld')))}</p>")
+            + f"<p>{chip('commissioned' if m.get('commissioning') else untested(m.get('specimen') or 'whole blood', 'Met-A', shown=not str(m.get('state', '')).startswith('withheld')))}</p>")
 
 def _cscore(o):
     c, k = o.get("met_a_cscore") or {}, o.get("cscore_sky") or {}
@@ -119,7 +119,7 @@ def _cscore(o):
     img = (f"<img alt='C-Score bar' src='{_uri(_f)}'>" if _f else "") + _skypair(o)
     val = c.get("C_rel") if c.get("C_rel") is not None else c.get("C")
     return (f"<h2 id='v4-cscore'>C-Score: clustered or scattered</h2><p class='big'>{'C_rel' if c.get('C_rel') is not None else 'C'} {E(str(val))}</p>"
-            f"<p>{chip('commissioned' if c.get('commissioning') else ('not tared: needs 3 same-run healthy references (whole blood is its commissioned scope)' if o.get('specimen') == 'whole blood' and c.get('C_rel') is None else untested('this specimen', 'the C-Score')))} {E(str(c.get('C_call', c.get('C_rel_reason', ''))))}. "
+            f"<p>{chip('commissioned' if c.get('commissioning') else ('not tared: needs 3 same-run healthy references (whole blood is its commissioned scope)' if o.get('specimen') == 'whole blood' and c.get('C_rel') is None else untested(o.get('specimen') or 'this specimen', 'the C-Score')))} {E(str(c.get('C_call', c.get('C_rel_reason', ''))))}. "
             "Healthy reads near 1; above 1.152 is a clustered departure.</p>" + img)
 
 def _iama(o):
@@ -137,7 +137,7 @@ def _iama(o):
 def _figs(o, base):
     """The gauge pictures for this sample (PNG beside the report); a withheld or unread instrument gets none."""
     F, G = {}, _marks(); m, t, c, q = o.get("met_a") or {}, o.get("tare") or {}, o.get("met_a_cscore") or {}, o.get("iam_a") or {}
-    gA = t.get("A_rel") if t.get("A_rel") is not None else (m.get("A") if m.get("specimen") != "whole blood" else None)
+    gA = t.get("A_rel") if t.get("A_rel") is not None else (m.get("A") if m.get("specimen") not in ("whole blood", "buffy coat") else None)
     if m.get("A") is not None and gA is not None and not str(m.get("state", "")).startswith("withheld"):
         st = str(t.get("state") or m.get("state", "")).split(":")[0].split("(")[0].strip()[:40]
         F["met_a"] = RF.gauge_png(base + "_gauge_met_a.png", "Met-A", float(gA), float(G["floor"]["A"]), float(G["full_surface"]["Met-A"]), (0.95, 1.05),
@@ -183,7 +183,7 @@ def physics_rows(o):
         ref_txt = (f"Healthy 1 is the median of this run's {t.get('n_refs')} healthy references (their own Met-A {float(t['reference_median']):.3f}). "
                    if t.get("A_rel") is not None and t.get("reference_median") is not None else "Healthy 1 is the committed healthy reference of the cell type. ")
         bits = (f"On isolated neutrophils the healthy reference is 0.330 bits per site, so this reading is {float(a) * 0.330263:.3f} bits per site. "
-                if m.get("specimen") != "whole blood" else "In whole blood the expectation is the healthy profile of each cell type, weighted by this sample's cell shares. ")
+                if m.get("specimen") not in ("whole blood", "buffy coat") else "In whole blood the expectation is the healthy profile of each cell type, weighted by this sample's cell shares. ")
         rows.append(("Met-A", f"&lang;H(&beta;)&rang; over {m.get('n_sites', '')} identity sites of the neutrophil, divided by its healthy expectation; "
                      f"<b>{'A_rel' if t.get('A_rel') is not None else 'A'} = {float(a):.3f}</b>.",
                      f"<b>Gauge: 0 &middot; healthy 1 &middot; saturation {float(G['full_surface']['Met-A']):.2f}.</b> " + ref_txt + bits

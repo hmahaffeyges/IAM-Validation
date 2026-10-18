@@ -27595,7 +27595,7 @@
    "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
    "record": "development/TEST_PLAN_TRACKS_2026-10-17.md",
    "status": "planned",
-   "next_step": "2026-10-18: sealed rules applied to the labels (plan Part 7). Three findings need the author: buffy coat is not an accepted specimen (#1, #7), tissue has no one-command route (#4), GSE281305 is not a blood mixture (#3); recommendations in Part 7; then one launch",
+   "next_step": "2026-10-18 decided (author: do what is best): buffy coat read on the whole-blood path, labeled as its own specimen, preliminary on every instrument (intake, conductor, report; release check V8); colon tissue through the atlas's own commissioned tissue scorer; GSE281305 run as sealed and labeled outside the Deconvolver's commissioned scope (a showcase of what is possible, not a test). Next: clean clone, then the showcase in one launch",
    "cost": "AWS, small",
    "impact": 5,
    "legacy_ids": [],

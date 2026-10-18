@@ -286,7 +286,10 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
                       f"array's signal (Stage 1 detection line).")
     elif N is not None and N > g["N_max"] and t.get("A_rel") is None and m.get("A") is not None:   # no A -> its own reason stands (2026-10-03)
         m["state"] = f"withheld: noise index {N} > {g['N_max']} and no same-run tare; A printed as a number only"
-    if m.get("A") is not None and m.get("specimen") != "whole blood": m["commissioning"] = METAA_COMMISSIONING   # isolated neutrophils only (2026-10-11)
+    _sp = S0.ACCEPTED_SPECIMENS.get(S0.normalise_specimen(specimen))
+    if _sp == "buffy coat": m["specimen"] = "buffy coat"   # 2026-10-18: whole-blood path, its own name, so no commissioned label attaches to it
+    if m.get("A") is not None and _sp == "isolated neutrophils": m["commissioning"] = METAA_COMMISSIONING   # isolated neutrophils only (2026-10-11; explicit 2026-10-18)
+    elif m.get("A") is not None and _sp == "buffy coat": m["development"] = "DEVELOPMENT - not commissioned: buffy coat (read on the whole-blood path; Met-A is commissioned on isolated neutrophils, the C-Score on whole blood)"
     elif m.get("A") is not None: m["development"] = ("DEVELOPMENT - not commissioned: whole blood (composition, bar 7, met only on the reference laboratory's own truth sets; commissioned when met on whole bloods of known composition from an independent laboratory). Detection limit at this fraction: 5 % loss (DEV-METAA-SENS-01).")
     out["met_a"] = m; out["met_a_cscore"] = stage_t_cscore(stage_mc_cscore(z), ref_A, sample_id); out["_cscore_z"] = z   # v4 sky; popped before the bundle
     if out["met_a_cscore"].get("C_rel") is not None and m.get("specimen") in CSCORE_COMMISSIONING["specimens"]: out["met_a_cscore"]["commissioning"] = CSCORE_COMMISSIONING
