@@ -27766,7 +27766,8 @@
      "page": "not headline: a procedure document for the researcher package"
     }
    ],
-   "next_step": "wording fix confirmed by clean clone run 9 (25 of 25)"
+   "next_step": "wording fix confirmed by clean clone run 9 (25 of 25)",
+   "notes": "2026-10-18: operations manual rebuilt for chain v4 (manual/OM_v4_chain.md, build_manual_v4.py); SOP and run_sample help: the reference table needs columns A and C"
   },
   {
    "id": "ATL-069",

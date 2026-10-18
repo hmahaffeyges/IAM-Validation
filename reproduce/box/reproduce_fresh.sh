@@ -17,5 +17,8 @@ PY
 st "clone $C"; git clone -q https://github.com/hmahaffeyges/IAM-Validation.git repo && cd repo && git checkout -q $C || { st "FAILED clone"; exit 1; }
 rm -rf ~/.methylprep_manifest_files; st "methylprep manifests removed"
 bash reproduce/setup.sh > $W/setup.log 2>&1 && st "setup: $(tail -1 $W/setup.log)" || { st "FAILED setup: $(tail -3 $W/setup.log | tr '\n' ' ')"; exit 1; }
+# every 5 minutes: the runner's progress lines and the last line of each step log, so a watcher sees a long step working (checklist 7)
+( while sleep 300; do { tail -3 $W/repo/reproduce/out/progress.txt; for f in $W/repo/reproduce/out/*/logs/*.log; do [ -f $f ] && echo "$(basename $(dirname $(dirname $f)))/$(basename $f): $(tail -c 160 $f | tr '\n' ' ')"; done; } > $W/progress.txt 2>/dev/null
+    ~/env/bin/python -c "import boto3;boto3.client('s3').upload_file('$W/progress.txt','$BK','$P/progress.txt')" 2>/dev/null; done ) & PROG=$!
 for t in "$@"; do st "start $t"; python3 reproduce/reproduce.py $t > $W/$t.txt 2>&1; rc=$?; up; st "$t rc $rc: $(tail -1 $W/$t.txt)"; done
-st "finished"
+kill $PROG 2>/dev/null; st "finished"

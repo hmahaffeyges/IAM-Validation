@@ -225,7 +225,7 @@ def main():
     ap.add_argument("--no-intake", action="store_true", help="skip Stage 0 (recorded in the report as skipped)")
     ap.add_argument("--engine", default="v3", choices=("v3",), help="v3 is the only engine (the class-floor engine was retired 2026-10-03); the flag is kept so recorded v3 commands still run")
     ap.add_argument("--slide-ref-A", "--ref-A", dest="slide_ref_A", default=None, help="comma-separated Met-A before the median tare (met_a.A, self-tared since 2026-10-04) of >= 3 same-run healthy reference arrays (same slide, else same batch) - v3 Stage T median tare, whole blood and isolated neutrophils")
-    ap.add_argument("--slide-ref-table", "--ref-table", dest="slide_ref_table", default=None, help="CSV of same-run healthy references with column A (optional id): Met-A from pass 1 (met_a.A, self-tared since 2026-10-04; before the median tare). >= 3 rows -> median tare (nothing is fitted)")
+    ap.add_argument("--slide-ref-table", "--ref-table", dest="slide_ref_table", default=None, help="CSV of same-run healthy references with columns A and C (optional id): Met-A and the C-score from pass 1 (met_a.A, self-tared since 2026-10-04; before the median tare). >= 3 rows -> median tare (nothing is fitted)")
     ap.add_argument("--bam", default=None, help="chain v4 Stage Q2: an aligned whole-genome bisulfite BAM (bwa-meth or Bismark), counted by the chain (needs --ref-fasta)")
     ap.add_argument("--ref-fasta", default=None, help="the reference FASTA the --bam was aligned to (indexed)")
     ap.add_argument("--assembly", default="hg19", choices=("hg19", "hg38"), help="assembly of --bam")

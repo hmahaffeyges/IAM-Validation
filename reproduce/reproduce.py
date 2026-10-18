@@ -60,6 +60,7 @@ def run(tid):
     t0 = time.time(); print(f"== {tid}: {t['title']}")
     for s in t["steps"]:
         print(f"   {s['name']} ...", flush=True); lp = os.path.join(work, "logs", s["name"] + ".log")
+        open(os.path.join(HERE, "out", "progress.txt"), "a").write(f"{datetime.datetime.utcnow().isoformat(timespec='seconds')}Z {tid} {s['name']} started\n")
         with open(lp, "w") as L: rc = subprocess.run(s["run"], shell=True, cwd=REPO, env=env, stdout=L, stderr=subprocess.STDOUT, executable="/bin/bash").returncode
         if rc != 0:
             v = dict(test=tid, verdict="FAILED", step=s["name"], exit_code=rc, log=os.path.relpath(lp, REPO)); json.dump(v, open(os.path.join(work, "verdict.json"), "w"), indent=1)

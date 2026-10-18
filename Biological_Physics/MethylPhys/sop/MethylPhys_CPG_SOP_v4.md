@@ -44,7 +44,7 @@ cd MethylPhys_Interface
 python3 run_sample.py --grn S_Grn.idat --red S_Red.idat --specimen "whole blood" --id S001 --out S001.html
 ```
 
-Isolated neutrophils: `--specimen "isolated neutrophils"`. Optional: `--sex F|M`, `--age`, recorded when given. Same-run healthy references for the median tare: `--slide-ref-table refs.csv` (column `A`).
+Isolated neutrophils: `--specimen "isolated neutrophils"`. Optional: `--sex F|M`, `--age`, recorded when given. Same-run healthy references for the median tare: `--ref-table refs.csv`, three or more healthy arrays read on the same run, with column `A` (their Met-A reading) and column `C` (their C-score), each from that array's own report bundle.
 
 Sequencing (whole-genome bisulfite), against the sample's own reference:
 

@@ -30,7 +30,7 @@ def text():
           "## 4. Read one sample", "", "Arrays (a raw IDAT pair, Illumina EPIC v1):", "", "```", "cd MethylPhys_Interface",
           "python3 run_sample.py --grn S_Grn.idat --red S_Red.idat --specimen \"whole blood\" --id S001 --out S001.html",
           "```", "", "Isolated neutrophils: `--specimen \"isolated neutrophils\"`. Optional: `--sex F|M`, `--age`, recorded when given. "
-          "Same-run healthy references for the median tare: `--slide-ref-table refs.csv` (column `A`).", "",
+          "Same-run healthy references for the median tare: `--ref-table refs.csv`, three or more healthy arrays read on the same run, with column `A` (their Met-A reading) and column `C` (their C-score), each from that array's own report bundle.", "",
           "Sequencing (whole-genome bisulfite), against the sample's own reference:", "", "```",
           "python3 run_sample.py --pat S.pat.gz --seq-cell \"cd8 t cells\" --id S002 --out S002.html",
           "python3 run_sample.py --bam S.bam --ref-fasta hg19.fa --assembly hg19 --seq-cell \"cd8 t cells\" --id S003 --out S003.html", "```", "",
