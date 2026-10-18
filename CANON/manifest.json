@@ -27595,7 +27595,7 @@
    "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
    "record": "development/TEST_PLAN_TRACKS_2026-10-17.md",
    "status": "running",
-   "next_step": "2026-10-18 decided (author: do what is best): buffy coat read on the whole-blood path, labeled as its own specimen, preliminary on every instrument (intake, conductor, report; release check V8); colon tissue through the atlas's own commissioned tissue scorer; GSE281305 run as sealed and labeled outside the Deconvolver's commissioned scope (a showcase of what is possible, not a test). Run 1 read (buffy coat, declines); scenario 3 rerun (run 2) after the banner tripped the report's claim guard.",
+   "next_step": "2026-10-18 decided (author: do what is best): buffy coat read on the whole-blood path, labeled as its own specimen, preliminary on every instrument (intake, conductor, report; release check V8); colon tissue through the atlas's own commissioned tissue scorer; GSE281305 run as sealed and labeled outside the Deconvolver's commissioned scope (a showcase of what is possible, not a test). Run 1 read (buffy coat, declines); scenario 3 rerun (run 2) after the banner tripped the report's claim guard. Running now: scenario 3 rerun, job i-0bc349afb0ee8c84c.",
    "cost": "AWS, small",
    "impact": 5,
    "legacy_ids": [],

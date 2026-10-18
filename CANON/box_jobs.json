@@ -2812,6 +2812,30 @@
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays: one array at a time so the manifest download is not raced; S3 from ~/env/bin/python; AWS caveats): code in S3 first, watcher from minute one, about 45 minutes, about $0.20",
    "note": "the script (commit 40ddabbb) runs the chain at chain_commit de6e20ab; stops itself after 120 minutes at most; scenario 3 wrote no report (banner word refused by the claim guard), rerun as run 2",
    "chain_commit": "de6e20ab"
+  },
+  {
+   "job_id": "i-0bc349afb0ee8c84c",
+   "name": "Chain v4 showcase run 2: scenario 3 (nine-cell mixtures, labeled outside the Deconvolver's scope) (OTH-073)",
+   "date": "2026-10-18",
+   "commit": "8cbbe7a0",
+   "chain_commit": "de6e20ab",
+   "state": "running",
+   "s3_code_prefix": "results/SHOWCASE_V4/code/run2/",
+   "log": "results/SHOWCASE_V4/run2/status.txt",
+   "machine": "spot m7a.xlarge, self-terminating (60-min timer)",
+   "purpose": "rerun of scenario 3 only, banner reworded after the report's claim guard refused run 1's wording; nothing is scored",
+   "record": "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/showcase_v4_run2.sh",
+   "manifest": [
+    "OTH-073"
+   ],
+   "outputs": [
+    "results/SHOWCASE_V4/run2/"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/showcase_v4_run2.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch (arrays; AWS caveats): banner text checked against the report's claim guard before launch; code in S3 first; watcher; about 15 minutes, under $0.10",
+   "note": "stops itself after 60 minutes at most"
   }
  ],
  "not_jobs": {

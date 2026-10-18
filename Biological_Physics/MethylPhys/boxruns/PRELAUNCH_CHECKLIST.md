@@ -23,6 +23,7 @@ comes from (`../LESSONS.md`).
 - **S3 steps run on the machine's own Python (`~/env/bin/python`), never the chain's clean environment**, which has no boto3 by design. The IAM-A example (2026-10-18) failed its first download this way, though every earlier script already did it right.
 - **A rerun on a committed input uses the exact files the committed run stamped, checked by checksum** (reference genome, alignment), never the first match of a file search. The IAM-A example (2026-10-18) first picked Bismark's bisulfite-converted genome.
 
+- **Text passed to `--banner` (or any report field) is checked against the report's claim guard before launch** (`CLAIM_SCAN` in report_v3.py: no disease or clinical words in a report's front text). Showcase run 1 (2026-10-18) lost its three mixture reports to a banner that named the cell lines with such a word.
 ## Known facts, by data
 
 **Plants (Arabidopsis whole-genome bisulfite).** Methylation in three contexts: CG, CHG and CHH; the IAM-A counter reads CG only. Much of the

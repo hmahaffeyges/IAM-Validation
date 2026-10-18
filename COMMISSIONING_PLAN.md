@@ -39,7 +39,7 @@ The first commissioned chain is built (IAM-Atlas v2.1, IAM-Deconvolver, Met-A, C
    - OTH-063 (run; last run 2026-10-16: met): none: live; the chain names rows in every stamp and the gate refuses stale rows. Document consolidation is OTH-064
    - OTH-064 (run; last run 2026-10-16: met): done: hand-kept living documents are now the development log and the day log (both written as work happens and checked by the gate); the book is the toolbox, checked by verify_book; sealed records are history. Everything else is generated or a pointer
 14. **Showcase runs of the commissioned chain (plan: development/TEST_PLAN_TRACKS_2026-10-17.md)**
-   - OTH-073 (running): 2026-10-18 decided (author: do what is best): buffy coat read on the whole-blood path, labeled as its own specimen, preliminary on every instrument (intake, conductor, report; release check V8); colon tissue through the atlas's own commissioned tissue scorer; GSE281305 run as sealed and labeled outside the Deconvolver's commissioned scope (a showcase of what is possible, not a test). Run 1 read (buffy coat, declines); scenario 3 rerun (run 2) after the banner tripped the report's claim guard.
+   - OTH-073 (running): 2026-10-18 decided (author: do what is best): buffy coat read on the whole-blood path, labeled as its own specimen, preliminary on every instrument (intake, conductor, report; release check V8); colon tissue through the atlas's own commissioned tissue scorer; GSE281305 run as sealed and labeled outside the Deconvolver's commissioned scope (a showcase of what is possible, not a test). Run 1 read (buffy coat, declines); scenario 3 rerun (run 2) after the banner tripped the report's claim guard. Running now: scenario 3 rerun, job i-0bc349afb0ee8c84c.
 15. **Field: normal tissue of patients against healthy people, same slides**
    - FLD-002 (planned): 2026-10-17: first in line after the showcase (TEST_PLAN_TRACKS_2026-10-17.md, track 1); scout a set with healthy donors and patients on the same slides, ages known; candidate reserved 2026-10-18: GSE216024 (140 normal rectal biopsies, adenoma history yes/no, ages, EPIC v1, unspent)
 16. **Precancer and before diagnosis**
@@ -62,6 +62,7 @@ The first commissioned chain is built (IAM-Atlas v2.1, IAM-Deconvolver, Met-A, C
 
 | Job | Machine | Rows |
 |---|---|---|
+| Chain v4 showcase run 2: scenario 3 (nine-cell mixtures, labeled outside the Deconvolver's scope) (OTH-073) | spot m7a.xlarge, self-terminating (60-min timer) | OTH-073 |
 
 ## Decisions waiting for the author
 

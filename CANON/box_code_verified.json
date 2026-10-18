@@ -1169,7 +1169,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/": false
   },
@@ -1181,7 +1181,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/": false
   },
@@ -1193,7 +1193,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/": false
   },
@@ -1205,7 +1205,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/": false
   },
@@ -1245,7 +1245,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/": false
   },
@@ -1257,7 +1257,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/": false
   },
@@ -1325,7 +1325,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/": false
   },
@@ -1462,7 +1462,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/": false
   },
@@ -1486,7 +1486,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/run11/status.txt": true,
    "results/CHAIN_V4_CLEANCLONE/run11/release_check_v4.log": true,
@@ -1501,7 +1501,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/run12/status.txt": true,
    "results/CHAIN_V4_CLEANCLONE/run12/release_check_v4.log": true,
@@ -1529,7 +1529,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/run13/status.txt": true,
    "results/CHAIN_V4_CLEANCLONE/run13/release_check_v4.log": true,
@@ -1557,7 +1557,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/run14/status.txt": true,
    "results/CHAIN_V4_CLEANCLONE/run14/release_check_v4.log": true,
@@ -1625,7 +1625,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/run15/status.txt": true,
    "results/CHAIN_V4_CLEANCLONE/run15/release_check_v4.log": true,
@@ -1665,7 +1665,7 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/run16/status.txt": true,
    "results/CHAIN_V4_CLEANCLONE/run16/release_check_v4.log": true,
@@ -1705,14 +1705,14 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
    "results/CHAIN_V4_CLEANCLONE/run16/status.txt": true,
    "results/CHAIN_V4_CLEANCLONE/run16/release_check_v4.log": true,
    "results/CHAIN_V4_CLEANCLONE/run16/release_check_v4.json": true,
    "results/CHAIN_V4_CLEANCLONE/run16/uv.log": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "finished"
  },
  "i-0c5b1f3644561f54e": {
   "s3": {
@@ -1723,6 +1723,18 @@
   "log_in_s3": true,
   "outputs_in_s3": {
    "results/SHOWCASE_V4/": false
+  },
+  "state_at_verify": "finished"
+ },
+ "i-0bc349afb0ee8c84c": {
+  "s3": {
+   "showcase_v4_run2.sh": "c571e576ddfd4ec34533103d7b33f2832b0f65f741d4ea4438f4989a69dba31c"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/SHOWCASE_V4/run2/": false
   },
   "state_at_verify": "running"
  }
