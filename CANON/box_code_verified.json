@@ -1814,5 +1814,25 @@
    "results/REPRODUCE_V1/run4/status.txt": true
   },
   "state_at_verify": "running"
+ },
+ "i-057e21ce87336144c": {
+  "s3": {
+   "reproduce_fresh.sh": "031208dbc7fc1f38a9e067391fb164b6f0d1c7cf37f735e63e0fba7bee200aae"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/REPRODUCE_V1/run5/status.txt": true
+  },
+  "state_at_verify": "running"
+ },
+ "i-02265f88bdcce1fa6": {
+  "s3": null,
+  "matches_repo": null,
+  "no_s3_code": "none: terminated within a minute, before it could fetch code; the code it would have run is results/REPRODUCE_V1/code/run5/ (job i-057e21ce87336144c)",
+  "log_in_s3": true,
+  "outputs_in_s3": {},
+  "state_at_verify": "cancelled"
  }
 }

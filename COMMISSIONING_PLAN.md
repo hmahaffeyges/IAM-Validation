@@ -64,6 +64,7 @@ The first commissioned chain is built (IAM-Atlas v2.1, IAM-Deconvolver, Met-A, C
 | reproduce/ from a fresh public clone, run 3: colorectal tissue (OTH-076) | on-demand m7a.xlarge, self-terminating (5-hour timer) | OTH-076 |
 | reproduce/ from a fresh public clone, run 2b: three laboratories, IAM-A line, mouse prediction (OTH-076) | on-demand c7a.4xlarge, self-terminating (12-hour timer) | OTH-076 |
 | reproduce/ from a fresh public clone, run 4: breast and liver tissue (OTH-076) | on-demand m7a.xlarge, self-terminating (9-hour timer) | OTH-076 |
+| reproduce/ from a fresh public clone, run 5: Met-A reference rebuild (OTH-076) | on-demand m7a.xlarge, self-terminating (6-hour timer) | OTH-076 |
 
 ## Decisions waiting for the author
 

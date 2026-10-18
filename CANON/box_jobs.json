@@ -2984,6 +2984,53 @@
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: code in S3 first; status and 5-minute progress to S3; watcher; the Zenodo atlas route already proven by run 3; self-terminating; about $2",
    "note": "stops itself after 9 hours at most"
+  },
+  {
+   "job_id": "i-057e21ce87336144c",
+   "name": "reproduce/ from a fresh public clone, run 5: Met-A reference rebuild (OTH-076)",
+   "date": "2026-10-18",
+   "commit": "79a267d2",
+   "chain_commit": "79a267d2",
+   "state": "running",
+   "s3_code_prefix": "results/REPRODUCE_V1/code/run5/",
+   "log": "results/REPRODUCE_V1/run5/status.txt",
+   "machine": "on-demand m7a.xlarge, self-terminating (6-hour timer)",
+   "purpose": "metaa_rebuild rerun after the floor-step path guard fix; compared with the committed matrices",
+   "record": "reproduce/box/reproduce_fresh.sh",
+   "manifest": [
+    "OTH-076"
+   ],
+   "outputs": [
+    "results/REPRODUCE_V1/run5/status.txt"
+   ],
+   "files": [
+    "reproduce/box/reproduce_fresh.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: commit confirmed on origin before launch; code in S3 first; status and progress to S3; watcher; about $1",
+   "note": "stops itself after 6 hours at most"
+  },
+  {
+   "job_id": "i-02265f88bdcce1fa6",
+   "name": "reproduce/ run 5, first launch (terminated: launched at an unpushed commit)",
+   "date": "2026-10-18",
+   "commit": "79a267d2",
+   "chain_commit": "79a267d2",
+   "state": "cancelled",
+   "log": "results/REPRODUCE_V1/run5/status.txt",
+   "machine": "on-demand m7a.xlarge, self-terminating (9-hour timer)",
+   "purpose": "fresh clone; atlas v2 from Zenodo, TCGA-BRCA and TCGA-LIHC 450K from the NCI GDC; the sealed scorers; compared with the committed results",
+   "record": "reproduce/box/reproduce_fresh.sh",
+   "manifest": [
+    "OTH-076"
+   ],
+   "outputs": [],
+   "files": [
+    "reproduce/box/reproduce_fresh.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: code in S3 first; status and 5-minute progress to S3; watcher; the Zenodo atlas route already proven by run 3; self-terminating; about $2",
+   "note": "checklist line added",
+   "no_outputs_reason": "terminated within a minute: launched in the same cell as a refused push, at a commit not on GitHub",
+   "code_in_s3": "none: terminated within a minute, before it could fetch code; the code it would have run is results/REPRODUCE_V1/code/run5/ (job i-057e21ce87336144c)"
   }
  ],
  "not_jobs": {

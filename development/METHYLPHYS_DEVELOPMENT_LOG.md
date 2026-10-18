@@ -2559,3 +2559,6 @@ Job i-0ec4b93905093cf2c (on-demand m7a.xlarge, about 4 hours, about $2), after r
 
 ### 2026-10-18 · reproduce/ run 1 finished; Met-A rebuild guard fixed (OTH-076)
 Run 1 (job i-012c3ce1a8fdb5c08) ended: cscore_band PASS, deconv PASS, metaa_rebuild stopped at the floor step after the noise sites (48,528, same set) and the noise gate (N_max 0.149, match) had reproduced exactly. Cause: a guard in MET_A_FLOOR_V13_REPRO/reproduce_floor_v13.py, written for the clean room, refused any builder input path under /home/ubuntu; a fresh clone in /home/ubuntu/rp puts the new path there. The guard now checks what it meant to: that the builder's own hard-coded path was replaced. Rerun as run 5.
+
+### 2026-10-18 · reproduce/ run 5 launched: Met-A rebuild (OTH-076)
+Job i-057e21ce87336144c. A first launch (i-02265f88bdcce1fa6) went out in the same cell as a refused push, at a commit not on GitHub, and was terminated within a minute; the launch now checks the commit is on origin first (checklist line).
