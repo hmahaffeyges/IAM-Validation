@@ -2465,3 +2465,6 @@ Final batch launched at 2f4d830d: clean clone run 15 (i-0760dedeedf2b45e2), arra
 
 ### 2026-10-18 · Outreach reference: what methylation researchers ask (OTH-075)
 The author shared an expert Q&A on methylation studies. Saved as development/outreach/EXPERT_QUESTIONS_REFERENCE.md: their questions, what they emphasized, how IAM answers each, where they will push, and the planned "Try to break it" guide for outside labs (manifest row added).
+
+### 2026-10-18 · The page shows IAM-Atlas v2.1 on the sky (ATL-069, OTH-071)
+The front page's sky section now shows v2.1 only: the measured Planck sky beside v2.1 neutrophils, the 79-cell plate, two cells, six cells with the neutrophil uncertainty map (dark = certain), and what a researcher sees: a real healthy blood array and the same array with a planted clustered change, each laid over its healthy reference with its C-Score bar (0.90 and 2.66). Under them: how it was built, who else could use it, and why AstroGenetics. Every one of the 79 cells has its own page (atlas/<cell>.html, gallery atlas/index.html; website/build/atlas_pages.py, art by website/art/make_atlas_sky_v21.py). The v2 art (sky_pair, sky_damage, sky_atlas_hero) is removed; make_atlas_sky.py is kept for the record.

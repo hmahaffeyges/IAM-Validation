@@ -1,3 +1,4 @@
+# SUPERSEDED 2026-10-18 by make_atlas_sky_v21.py (the page now shows IAM-Atlas v2.1); kept for the record of the v2 art.
 """IAM-Atlas v2 on the sky (art for the front page; author 2026-10-12: "a real HEALPix skymap of the atlas ... next to the CMB itself").
 Redraws CPG Plates 1 and 3 ("The Cosmic Microwave Methylome", "Grandaddy" plate; class-era atlas, retired) from atlas v2. Every CpG in genome
 order (chr1..chr22, chrX, chrY, then position) goes to pixel floor(i * npix / n) at HEALPix NSIDE 256 in NESTED order: 786,432 pixels for

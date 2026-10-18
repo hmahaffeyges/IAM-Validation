@@ -1,0 +1,798 @@
+{
+ "atlas": "IAM-Atlas v2.1",
+ "nside": 256,
+ "order": "NESTED",
+ "source": "Biological_Physics/MethylPhys/atlas/tools/sky_maps_v21.py",
+ "cells": [
+  {
+   "cell": "CMP (bone marrow)",
+   "name": "CMP (bone marrow)",
+   "slug": "cmp-bone-marrow",
+   "pixels_measured": 403154,
+   "pixels": 786432,
+   "mean_methylation": 0.581,
+   "halfwidth_median": 0.0323,
+   "halfwidth_p90": 0.0661
+  },
+  {
+   "cell": "GMP (bone marrow)",
+   "name": "GMP (bone marrow)",
+   "slug": "gmp-bone-marrow",
+   "pixels_measured": 397169,
+   "pixels": 786432,
+   "mean_methylation": 0.581,
+   "halfwidth_median": 0.0242,
+   "halfwidth_p90": 0.0547
+  },
+  {
+   "cell": "HSC (bone marrow)",
+   "name": "HSC (bone marrow)",
+   "slug": "hsc-bone-marrow",
+   "pixels_measured": 404636,
+   "pixels": 786432,
+   "mean_methylation": 0.584,
+   "halfwidth_median": 0.0217,
+   "halfwidth_p90": 0.0544
+  },
+  {
+   "cell": "L-MPP (bone marrow)",
+   "name": "L-MPP (bone marrow)",
+   "slug": "l-mpp-bone-marrow",
+   "pixels_measured": 397623,
+   "pixels": 786432,
+   "mean_methylation": 0.587,
+   "halfwidth_median": 0.0308,
+   "halfwidth_p90": 0.058
+  },
+  {
+   "cell": "MEP (bone marrow)",
+   "name": "MEP (bone marrow)",
+   "slug": "mep-bone-marrow",
+   "pixels_measured": 402071,
+   "pixels": 786432,
+   "mean_methylation": 0.581,
+   "halfwidth_median": 0.0322,
+   "halfwidth_p90": 0.0704
+  },
+  {
+   "cell": "MPP (bone marrow)",
+   "name": "MPP (bone marrow)",
+   "slug": "mpp-bone-marrow",
+   "pixels_measured": 401887,
+   "pixels": 786432,
+   "mean_methylation": 0.583,
+   "halfwidth_median": 0.0432,
+   "halfwidth_p90": 0.0665
+  },
+  {
+   "cell": "adipocytes",
+   "name": "Adipocytes",
+   "slug": "adipocytes",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.615,
+   "halfwidth_median": 0.0461,
+   "halfwidth_p90": 0.1057
+  },
+  {
+   "cell": "aorta endothelium",
+   "name": "Aorta endothelium",
+   "slug": "aorta-endothelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.62,
+   "halfwidth_median": 0.0886,
+   "halfwidth_p90": 0.1425
+  },
+  {
+   "cell": "astrocytes",
+   "name": "Astrocytes",
+   "slug": "astrocytes",
+   "pixels_measured": 766332,
+   "pixels": 786432,
+   "mean_methylation": 0.673,
+   "halfwidth_median": 0.0726,
+   "halfwidth_p90": 0.1409
+  },
+  {
+   "cell": "b cells",
+   "name": "B cells",
+   "slug": "b-cells",
+   "pixels_measured": 786428,
+   "pixels": 786432,
+   "mean_methylation": 0.664,
+   "halfwidth_median": 0.0088,
+   "halfwidth_p90": 0.0257
+  },
+  {
+   "cell": "basophils",
+   "name": "Basophils",
+   "slug": "basophils",
+   "pixels_measured": 755784,
+   "pixels": 786432,
+   "mean_methylation": 0.649,
+   "halfwidth_median": 0.0182,
+   "halfwidth_p90": 0.0572
+  },
+  {
+   "cell": "bladder epithelium",
+   "name": "Bladder epithelium",
+   "slug": "bladder-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.605,
+   "halfwidth_median": 0.0613,
+   "halfwidth_p90": 0.1086
+  },
+  {
+   "cell": "breast basal epithelium",
+   "name": "Breast basal epithelium",
+   "slug": "breast-basal-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.649,
+   "halfwidth_median": 0.051,
+   "halfwidth_p90": 0.1091
+  },
+  {
+   "cell": "breast luminal epithelium",
+   "name": "Breast luminal epithelium",
+   "slug": "breast-luminal-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.637,
+   "halfwidth_median": 0.0643,
+   "halfwidth_p90": 0.1228
+  },
+  {
+   "cell": "cardiomyocyte",
+   "name": "Cardiomyocyte",
+   "slug": "cardiomyocyte",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.637,
+   "halfwidth_median": 0.0543,
+   "halfwidth_p90": 0.1009
+  },
+  {
+   "cell": "cd4 t cells",
+   "name": "CD4 t cells",
+   "slug": "cd4-t-cells",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.673,
+   "halfwidth_median": 0.0083,
+   "halfwidth_p90": 0.0236
+  },
+  {
+   "cell": "cd56bright nk cells",
+   "name": "Cd56bright NK cells",
+   "slug": "cd56bright-nk-cells",
+   "pixels_measured": 754583,
+   "pixels": 786432,
+   "mean_methylation": 0.675,
+   "halfwidth_median": 0.0159,
+   "halfwidth_p90": 0.0414
+  },
+  {
+   "cell": "cd8 central memory t cells",
+   "name": "CD8 central memory t cells",
+   "slug": "cd8-central-memory-t-cells",
+   "pixels_measured": 755131,
+   "pixels": 786432,
+   "mean_methylation": 0.646,
+   "halfwidth_median": 0.0166,
+   "halfwidth_p90": 0.0402
+  },
+  {
+   "cell": "cd8 t cells",
+   "name": "CD8 t cells",
+   "slug": "cd8-t-cells",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.67,
+   "halfwidth_median": 0.0101,
+   "halfwidth_p90": 0.0306
+  },
+  {
+   "cell": "cd8 temra t cells",
+   "name": "CD8 TEMRA t cells",
+   "slug": "cd8-temra-t-cells",
+   "pixels_measured": 754569,
+   "pixels": 786432,
+   "mean_methylation": 0.635,
+   "halfwidth_median": 0.0269,
+   "halfwidth_p90": 0.0662
+  },
+  {
+   "cell": "central memory th1 cells",
+   "name": "Central memory Th1 cells",
+   "slug": "central-memory-th1-cells",
+   "pixels_measured": 404614,
+   "pixels": 786432,
+   "mean_methylation": 0.563,
+   "halfwidth_median": 0.0195,
+   "halfwidth_p90": 0.0403
+  },
+  {
+   "cell": "colon enteroendocrine",
+   "name": "Colon enteroendocrine",
+   "slug": "colon-enteroendocrine",
+   "pixels_measured": 786431,
+   "pixels": 786432,
+   "mean_methylation": 0.628,
+   "halfwidth_median": 0.0721,
+   "halfwidth_p90": 0.1326
+  },
+  {
+   "cell": "colon epithelium",
+   "name": "Colon epithelium",
+   "slug": "colon-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.631,
+   "halfwidth_median": 0.0258,
+   "halfwidth_p90": 0.071
+  },
+  {
+   "cell": "colon fibroblasts",
+   "name": "Colon fibroblasts",
+   "slug": "colon-fibroblasts",
+   "pixels_measured": 786427,
+   "pixels": 786432,
+   "mean_methylation": 0.607,
+   "halfwidth_median": 0.0971,
+   "halfwidth_p90": 0.134
+  },
+  {
+   "cell": "colon macrophages",
+   "name": "Colon macrophages",
+   "slug": "colon-macrophages",
+   "pixels_measured": 786397,
+   "pixels": 786432,
+   "mean_methylation": 0.652,
+   "halfwidth_median": 0.0771,
+   "halfwidth_p90": 0.1265
+  },
+  {
+   "cell": "cortical neurons",
+   "name": "Cortical neurons",
+   "slug": "cortical-neurons",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.684,
+   "halfwidth_median": 0.0186,
+   "halfwidth_p90": 0.0623
+  },
+  {
+   "cell": "cytotoxic cd4 t cells (cd28-)",
+   "name": "Cytotoxic CD4 t cells (CD28-)",
+   "slug": "cytotoxic-cd4-t-cells-cd28",
+   "pixels_measured": 404810,
+   "pixels": 786432,
+   "mean_methylation": 0.555,
+   "halfwidth_median": 0.0305,
+   "halfwidth_p90": 0.0953
+  },
+  {
+   "cell": "effector memory cd8 t cells",
+   "name": "Effector memory CD8 t cells",
+   "slug": "effector-memory-cd8-t-cells",
+   "pixels_measured": 786424,
+   "pixels": 786432,
+   "mean_methylation": 0.632,
+   "halfwidth_median": 0.0267,
+   "halfwidth_p90": 0.0746
+  },
+  {
+   "cell": "embryonic stem cells",
+   "name": "Embryonic stem cells",
+   "slug": "embryonic-stem-cells",
+   "pixels_measured": 785930,
+   "pixels": 786432,
+   "mean_methylation": 0.705,
+   "halfwidth_median": 0.046,
+   "halfwidth_p90": 0.1118
+  },
+  {
+   "cell": "endometrium epithelium",
+   "name": "Endometrium epithelium",
+   "slug": "endometrium-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.612,
+   "halfwidth_median": 0.067,
+   "halfwidth_p90": 0.1188
+  },
+  {
+   "cell": "eosinophils",
+   "name": "Eosinophils",
+   "slug": "eosinophils",
+   "pixels_measured": 755426,
+   "pixels": 786432,
+   "mean_methylation": 0.647,
+   "halfwidth_median": 0.0234,
+   "halfwidth_p90": 0.0482
+  },
+  {
+   "cell": "erythrocyte progenitors",
+   "name": "Erythrocyte progenitors",
+   "slug": "erythrocyte-progenitors",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.499,
+   "halfwidth_median": 0.0947,
+   "halfwidth_p90": 0.1207
+  },
+  {
+   "cell": "fallopien tubes epithelium",
+   "name": "Fallopien tubes epithelium",
+   "slug": "fallopien-tubes-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.623,
+   "halfwidth_median": 0.0604,
+   "halfwidth_p90": 0.1144
+  },
+  {
+   "cell": "gastric antrum epithelium",
+   "name": "Gastric antrum epithelium",
+   "slug": "gastric-antrum-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.599,
+   "halfwidth_median": 0.0663,
+   "halfwidth_p90": 0.1115
+  },
+  {
+   "cell": "gastric body epithelium",
+   "name": "Gastric body epithelium",
+   "slug": "gastric-body-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.599,
+   "halfwidth_median": 0.0676,
+   "halfwidth_p90": 0.1127
+  },
+  {
+   "cell": "gastric fundus epithelium",
+   "name": "Gastric fundus epithelium",
+   "slug": "gastric-fundus-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.597,
+   "halfwidth_median": 0.0671,
+   "halfwidth_p90": 0.1099
+  },
+  {
+   "cell": "heart fibroblasts",
+   "name": "Heart fibroblasts",
+   "slug": "heart-fibroblasts",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.557,
+   "halfwidth_median": 0.0854,
+   "halfwidth_p90": 0.1164
+  },
+  {
+   "cell": "hepatocyte",
+   "name": "Hepatocyte",
+   "slug": "hepatocyte",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.648,
+   "halfwidth_median": 0.0394,
+   "halfwidth_p90": 0.0881
+  },
+  {
+   "cell": "kidney glomerular endothelium",
+   "name": "Kidney glomerular endothelium",
+   "slug": "kidney-glomerular-endothelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.634,
+   "halfwidth_median": 0.0662,
+   "halfwidth_p90": 0.1124
+  },
+  {
+   "cell": "kidney glomerular epithelium",
+   "name": "Kidney glomerular epithelium",
+   "slug": "kidney-glomerular-epithelium",
+   "pixels_measured": 786416,
+   "pixels": 786432,
+   "mean_methylation": 0.633,
+   "halfwidth_median": 0.0743,
+   "halfwidth_p90": 0.1338
+  },
+  {
+   "cell": "kidney tubular endothelium",
+   "name": "Kidney tubular endothelium",
+   "slug": "kidney-tubular-endothelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.643,
+   "halfwidth_median": 0.0657,
+   "halfwidth_p90": 0.1154
+  },
+  {
+   "cell": "kidney tubular epithelium",
+   "name": "Kidney tubular epithelium",
+   "slug": "kidney-tubular-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.644,
+   "halfwidth_median": 0.061,
+   "halfwidth_p90": 0.125
+  },
+  {
+   "cell": "lung alveolar endothelium",
+   "name": "Lung alveolar endothelium",
+   "slug": "lung-alveolar-endothelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.621,
+   "halfwidth_median": 0.0724,
+   "halfwidth_p90": 0.1183
+  },
+  {
+   "cell": "lung alveolar epithelium",
+   "name": "Lung alveolar epithelium",
+   "slug": "lung-alveolar-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.625,
+   "halfwidth_median": 0.0366,
+   "halfwidth_p90": 0.0912
+  },
+  {
+   "cell": "lung alveolar macrophages",
+   "name": "Lung alveolar macrophages",
+   "slug": "lung-alveolar-macrophages",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.661,
+   "halfwidth_median": 0.0648,
+   "halfwidth_p90": 0.1268
+  },
+  {
+   "cell": "lung bronchus epithelium",
+   "name": "Lung bronchus epithelium",
+   "slug": "lung-bronchus-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.59,
+   "halfwidth_median": 0.048,
+   "halfwidth_p90": 0.1015
+  },
+  {
+   "cell": "lung interstitial macrophages",
+   "name": "Lung interstitial macrophages",
+   "slug": "lung-interstitial-macrophages",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.665,
+   "halfwidth_median": 0.0537,
+   "halfwidth_p90": 0.1088
+  },
+  {
+   "cell": "memory b cells",
+   "name": "Memory b cells",
+   "slug": "memory-b-cells",
+   "pixels_measured": 786426,
+   "pixels": 786432,
+   "mean_methylation": 0.606,
+   "halfwidth_median": 0.0164,
+   "halfwidth_p90": 0.0424
+  },
+  {
+   "cell": "memory cd4 t cells",
+   "name": "Memory CD4 t cells",
+   "slug": "memory-cd4-t-cells",
+   "pixels_measured": 752956,
+   "pixels": 786432,
+   "mean_methylation": 0.642,
+   "halfwidth_median": 0.0253,
+   "halfwidth_p90": 0.0491
+  },
+  {
+   "cell": "microglia",
+   "name": "Microglia",
+   "slug": "microglia",
+   "pixels_measured": 785585,
+   "pixels": 786432,
+   "mean_methylation": 0.654,
+   "halfwidth_median": 0.019,
+   "halfwidth_p90": 0.0665
+  },
+  {
+   "cell": "monocytes",
+   "name": "Monocytes",
+   "slug": "monocytes",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.659,
+   "halfwidth_median": 0.0066,
+   "halfwidth_p90": 0.0219
+  },
+  {
+   "cell": "naive b cells",
+   "name": "Naive b cells",
+   "slug": "naive-b-cells",
+   "pixels_measured": 755396,
+   "pixels": 786432,
+   "mean_methylation": 0.685,
+   "halfwidth_median": 0.0107,
+   "halfwidth_p90": 0.0327
+  },
+  {
+   "cell": "naive cd4 t cells",
+   "name": "Naive CD4 t cells",
+   "slug": "naive-cd4-t-cells",
+   "pixels_measured": 786431,
+   "pixels": 786432,
+   "mean_methylation": 0.687,
+   "halfwidth_median": 0.0105,
+   "halfwidth_p90": 0.0312
+  },
+  {
+   "cell": "naive cd8 t cells",
+   "name": "Naive CD8 t cells",
+   "slug": "naive-cd8-t-cells",
+   "pixels_measured": 786431,
+   "pixels": 786432,
+   "mean_methylation": 0.688,
+   "halfwidth_median": 0.0107,
+   "halfwidth_p90": 0.0308
+  },
+  {
+   "cell": "neutrophils",
+   "name": "Neutrophils",
+   "slug": "neutrophils",
+   "pixels_measured": 785718,
+   "pixels": 786432,
+   "mean_methylation": 0.655,
+   "halfwidth_median": 0.0059,
+   "halfwidth_p90": 0.0179
+  },
+  {
+   "cell": "nk cells",
+   "name": "NK cells",
+   "slug": "nk-cells",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.669,
+   "halfwidth_median": 0.012,
+   "halfwidth_p90": 0.0353
+  },
+  {
+   "cell": "oligodendrocyte precursors",
+   "name": "Oligodendrocyte precursors",
+   "slug": "oligodendrocyte-precursors",
+   "pixels_measured": 766301,
+   "pixels": 786432,
+   "mean_methylation": 0.657,
+   "halfwidth_median": 0.0771,
+   "halfwidth_p90": 0.1459
+  },
+  {
+   "cell": "oligodendrocytes",
+   "name": "Oligodendrocytes",
+   "slug": "oligodendrocytes",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.66,
+   "halfwidth_median": 0.0166,
+   "halfwidth_p90": 0.0477
+  },
+  {
+   "cell": "pancreas endothelium",
+   "name": "Pancreas endothelium",
+   "slug": "pancreas-endothelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.627,
+   "halfwidth_median": 0.0669,
+   "halfwidth_p90": 0.1082
+  },
+  {
+   "cell": "pancreatic acinar",
+   "name": "Pancreatic acinar",
+   "slug": "pancreatic-acinar",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.597,
+   "halfwidth_median": 0.0469,
+   "halfwidth_p90": 0.0947
+  },
+  {
+   "cell": "pancreatic alpha",
+   "name": "Pancreatic alpha",
+   "slug": "pancreatic-alpha",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.647,
+   "halfwidth_median": 0.0637,
+   "halfwidth_p90": 0.1128
+  },
+  {
+   "cell": "pancreatic beta",
+   "name": "Pancreatic beta",
+   "slug": "pancreatic-beta",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.642,
+   "halfwidth_median": 0.0446,
+   "halfwidth_p90": 0.1006
+  },
+  {
+   "cell": "pancreatic delta",
+   "name": "Pancreatic delta",
+   "slug": "pancreatic-delta",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.643,
+   "halfwidth_median": 0.069,
+   "halfwidth_p90": 0.1213
+  },
+  {
+   "cell": "pancreatic duct",
+   "name": "Pancreatic duct",
+   "slug": "pancreatic-duct",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.652,
+   "halfwidth_median": 0.0414,
+   "halfwidth_p90": 0.0906
+  },
+  {
+   "cell": "prostate epithelium",
+   "name": "Prostate epithelium",
+   "slug": "prostate-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.628,
+   "halfwidth_median": 0.0582,
+   "halfwidth_p90": 0.1125
+  },
+  {
+   "cell": "regulatory t cells",
+   "name": "Regulatory t cells",
+   "slug": "regulatory-t-cells",
+   "pixels_measured": 749587,
+   "pixels": 786432,
+   "mean_methylation": 0.639,
+   "halfwidth_median": 0.0344,
+   "halfwidth_p90": 0.0647
+  },
+  {
+   "cell": "small intestine epithelium",
+   "name": "Small intestine epithelium",
+   "slug": "small-intestine-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.618,
+   "halfwidth_median": 0.0362,
+   "halfwidth_p90": 0.1048
+  },
+  {
+   "cell": "smooth muscle",
+   "name": "Smooth muscle",
+   "slug": "smooth-muscle",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.568,
+   "halfwidth_median": 0.0815,
+   "halfwidth_p90": 0.1478
+  },
+  {
+   "cell": "striated muscle",
+   "name": "Striated muscle",
+   "slug": "striated-muscle",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.613,
+   "halfwidth_median": 0.091,
+   "halfwidth_p90": 0.1327
+  },
+  {
+   "cell": "t central memory cd4",
+   "name": "T central memory CD4",
+   "slug": "t-central-memory-cd4",
+   "pixels_measured": 786431,
+   "pixels": 786432,
+   "mean_methylation": 0.648,
+   "halfwidth_median": 0.0217,
+   "halfwidth_p90": 0.054
+  },
+  {
+   "cell": "t effector cell cd8",
+   "name": "T effector cell CD8",
+   "slug": "t-effector-cell-cd8",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.638,
+   "halfwidth_median": 0.0521,
+   "halfwidth_p90": 0.1118
+  },
+  {
+   "cell": "t effector memory cd4",
+   "name": "T effector memory CD4",
+   "slug": "t-effector-memory-cd4",
+   "pixels_measured": 786431,
+   "pixels": 786432,
+   "mean_methylation": 0.627,
+   "halfwidth_median": 0.0775,
+   "halfwidth_p90": 0.12
+  },
+  {
+   "cell": "thyroid epithelium",
+   "name": "Thyroid epithelium",
+   "slug": "thyroid-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.665,
+   "halfwidth_median": 0.0544,
+   "halfwidth_p90": 0.1103
+  },
+  {
+   "cell": "tongue epithelium",
+   "name": "Tongue epithelium",
+   "slug": "tongue-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.597,
+   "halfwidth_median": 0.0616,
+   "halfwidth_p90": 0.1068
+  },
+  {
+   "cell": "tonsil palatine epithelium",
+   "name": "Tonsil palatine epithelium",
+   "slug": "tonsil-palatine-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.579,
+   "halfwidth_median": 0.0737,
+   "halfwidth_p90": 0.1121
+  },
+  {
+   "cell": "tonsil pharyngeal epithelium",
+   "name": "Tonsil pharyngeal epithelium",
+   "slug": "tonsil-pharyngeal-epithelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.581,
+   "halfwidth_median": 0.0908,
+   "halfwidth_p90": 0.1418
+  },
+  {
+   "cell": "vascular endothelium",
+   "name": "Vascular endothelium",
+   "slug": "vascular-endothelium",
+   "pixels_measured": 738086,
+   "pixels": 786432,
+   "mean_methylation": 0.649,
+   "halfwidth_median": 0.049,
+   "halfwidth_p90": 0.0787
+  },
+  {
+   "cell": "vascular leptomeningeal cells",
+   "name": "Vascular leptomeningeal cells",
+   "slug": "vascular-leptomeningeal-cells",
+   "pixels_measured": 764219,
+   "pixels": 786432,
+   "mean_methylation": 0.643,
+   "halfwidth_median": 0.0974,
+   "halfwidth_p90": 0.1764
+  },
+  {
+   "cell": "vascular saphenous endothelium",
+   "name": "Vascular saphenous endothelium",
+   "slug": "vascular-saphenous-endothelium",
+   "pixels_measured": 786432,
+   "pixels": 786432,
+   "mean_methylation": 0.629,
+   "halfwidth_median": 0.069,
+   "halfwidth_p90": 0.1149
+  }
+ ]
+}
