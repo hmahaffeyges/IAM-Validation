@@ -2535,3 +2535,6 @@ Job i-012c3ce1a8fdb5c08 (on-demand m7a.2xlarge, about 5 hours, about $3): fresh 
 
 ### 2026-10-18 · Operations manual for chain v4; SOP reference-table columns (OTH-074)
 The manual described chain v3 only. New operator chapter manual/OM_v4_chain.md (before a run, reading the report, when the chain stops: exit codes 0-3) and build_manual_v4.py (SOP v4 + chapter + chain sequence); the PDF rebuilt. The SOP and run_sample.py help said the same-run reference table needs column A only; since C26 it needs A and C. Fixed in the SOP generator and the help text.
+
+### 2026-10-18 · reproduce/ fresh-clone run 2 launched (OTH-076)
+Job i-0aa8c719d3b0131c8 (on-demand c7a.4xlarge, about 8 hours, about $8): three_labs, iama_line, mice. Run 1: cscore_band PASS, every compared number identical.
