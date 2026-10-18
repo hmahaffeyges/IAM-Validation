@@ -2520,3 +2520,6 @@ Zenodo tested at 0.35 MB/s (5 MB from the laptop), so the IAM-Atlas v2.1 upload 
 
 ### 2026-10-18 · Site build broken by a caption, fixed; page links the guide, showcase and SOP (OTH-071)
 The shared-scale caption on the cell pages put an apostrophe inside a quoted string in website/build/atlas_pages.py; the push check never imported that file, so the push passed and the live site build failed from commit 91778487 on (the live page kept showing the previous build). Fixed, and build_home.py --check now imports atlas_pages. The chain section of the front page now links Try to break it, the showcase and the operating procedure.
+
+### 2026-10-18 · Book audit pass 3: the last Part 6 chapters (OTH-072)
+Toolbox, sky tools, serial, separation and atlas chapters read. Fixed: the atlas chapter listed atlas v2's limits in the present tense ("it holds 74 cell types", "the commissioned reading does not read it yet"), now written as atlas v2's and saying the chain reads IAM-Atlas v2.1; its section "What the reference does not yet do" is about Met-A's neutrophil reference and now says so; the serial chapter said "chain v3". Dated chain v3 scorings (the 79-row map, 2 October) are history and stay.
