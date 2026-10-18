@@ -272,6 +272,40 @@
     }
    ],
    "tolerance_note": "The aligner (bwa-meth, on bwa mem) can place a few reads differently with a different thread count, so per-run error rates are compared within 0.0005 and the verdict must be PASS with the ratio 1.10 to 1.139; the committed run gives 1.1238."
+  },
+  {
+   "id": "colon",
+   "instrument": "Met-A on tissue, with IAM-Atlas v2",
+   "title": "Colorectal tumors leave their own healthy tissue's range (GSE131013, 88 patients)",
+   "shows": "Each tumor read against the same patient's adjacent normal tissue at the atlas's composition-blind sites: 28 of 88 pairs above the bar fixed on normal pairs alone (11 needed), the sealed fingerprint verdict.",
+   "public_inputs": [
+    "GSE131013 (GEO)",
+    "IAM-Atlas v2, Zenodo 10.5281/zenodo.23325865"
+   ],
+   "time": "about 2 h",
+   "disk": "15 GB",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md",
+   "steps": [
+    {
+     "name": "atlas_arrays_score",
+     "run": "bash reproduce/colon_tissue.sh"
+    }
+   ],
+   "compare": [
+    {
+     "kind": "json",
+     "produced": "repo:Biological_Physics/MethylPhys/doors/data/DEV_TISSUE_COLON_01/scored_colon_tissue.json",
+     "committed": "Biological_Physics/MethylPhys/doors/data/DEV_TISSUE_COLON_01/scored_colon_tissue.json",
+     "fields": {
+      "pairs": 0,
+      "above_bar": 0,
+      "crit": 0,
+      "bar": 1e-09,
+      "R_median": 1e-09,
+      "VERDICT": null
+     }
+    }
+   ]
   }
  ]
 }
