@@ -2475,3 +2475,6 @@ Last set launched at d2eb5de6: clean clone run 16 (i-05cdf05259bbd2102), arrays 
 
 ### 2026-10-18 · Final report set; clean clone run 16 PASS 28 of 28 (OTH-069, OTH-070)
 The last set (arrays and IAM-A) carries no retired wording in either view, either PDF or the technical record. IAM-A on grand-test GSM4293895 through the one command: A 0.9083, Normal, equal to its grand test. Page: the line "about one ATP per site" restored with its source (M = 20.94, CANON/iam_canon.json: one full ATP per site against thermal kicks); the assistant had removed it as unsourced without checking the canon.
+
+### 2026-10-18 · Book: "Reading a report, step by step" (OTH-072, OTH-069)
+New Part 6 chapter after The report: the one command, then three real reports from the commissioned chain, stage by stage (healthy whole blood GSE235717 GSM7508429; the same array with a planted clustered change; healthy CD8 T cells GSM4293895 through IAM-A), every number from the run bundles, two figures composed from the reports' own images (figscripts/fig_walkthrough.py; reports and bundles in doors/data/REPORT_EXAMPLES_V4/final).
