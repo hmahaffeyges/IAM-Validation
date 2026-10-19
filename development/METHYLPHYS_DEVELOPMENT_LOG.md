@@ -2589,3 +2589,6 @@ Job i-05b0f0f23a841f8fa.
 
 ### 2026-10-18 · reproduce/ mice run 8: the environment's curl (OTH-076)
 The split genome step logged the cause: curl (60), certificate problem. The PATH puts the tool environments first, and bwa-meth 0.2.0's environment brings its own curl 7.87, which cannot find the system certificates. All four downloads in reproduce/mice_rrbs.sh now call /usr/bin/curl (the ENA metadata call would otherwise have failed silently next). Checklist line added. Rerun as run 9.
+
+### 2026-10-18 · reproduce/ run 9 launched: mice (OTH-076)
+Job i-0cfe3c22a9c7dfde1.

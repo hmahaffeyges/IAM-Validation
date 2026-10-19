@@ -3108,6 +3108,30 @@
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: commit confirmed on origin; code in S3 first; status and progress to S3; watcher; tools installed first so an install error shows in minutes; about $5",
    "note": "genome download refused: bwa-meth's environment curl 7.87 could not find certificates (curl 60); system curl pinned, rerun as run 9"
+  },
+  {
+   "job_id": "i-0cfe3c22a9c7dfde1",
+   "name": "reproduce/ from a fresh public clone, run 9: the mouse prediction (OTH-076)",
+   "date": "2026-10-18",
+   "commit": "9fd7071f",
+   "chain_commit": "9fd7071f",
+   "state": "running",
+   "s3_code_prefix": "results/REPRODUCE_V1/code/run9/",
+   "log": "results/REPRODUCE_V1/run9/status.txt",
+   "machine": "on-demand c7a.4xlarge, self-terminating (7-hour timer)",
+   "purpose": "mice rerun with the wgbs_tools tag fixed; ENA reads to .pat to the sealed scorer, compared with the committed result",
+   "record": "reproduce/box/reproduce_fresh.sh",
+   "manifest": [
+    "OTH-076"
+   ],
+   "outputs": [
+    "results/REPRODUCE_V1/run9/status.txt"
+   ],
+   "files": [
+    "reproduce/box/reproduce_fresh.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: commit confirmed on origin; code in S3 first; status and progress to S3; watcher; tools installed first so an install error shows in minutes; about $5",
+   "note": "stops itself after 7 hours at most"
   }
  ],
  "not_jobs": {
