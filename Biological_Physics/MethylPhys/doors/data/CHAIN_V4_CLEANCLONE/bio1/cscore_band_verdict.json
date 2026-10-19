@@ -1,0 +1,59 @@
+{
+ "test": "cscore_band",
+ "title": "The C-Score's healthy range holds in a laboratory that did not set it (GSE184269)",
+ "verdict": "PASS",
+ "commit": "549ab877abc5487251bb1c866ae3be72004a5624",
+ "utc": "2026-10-19T20:28:23Z",
+ "minutes": 41.7,
+ "checks": [
+  {
+   "check": "band_test_GSE184269.json: n_whole_blood_scored",
+   "committed": 23,
+   "reproduced": 23,
+   "tolerance": 0,
+   "ok": true
+  },
+  {
+   "check": "band_test_GSE184269.json: above_limit",
+   "committed": 1,
+   "reproduced": 1,
+   "tolerance": 0,
+   "ok": true
+  },
+  {
+   "check": "band_test_GSE184269.json: met",
+   "committed": true,
+   "reproduced": true,
+   "tolerance": null,
+   "ok": true
+  },
+  {
+   "check": "band_test_GSE184269.json: granulocytes_refused",
+   "committed": 10,
+   "reproduced": 10,
+   "tolerance": 0,
+   "ok": true
+  },
+  {
+   "check": "band_test_GSE184269.json: C_rel_median",
+   "committed": 0.9992,
+   "reproduced": 0.9992,
+   "tolerance": 0.0001,
+   "ok": true
+  },
+  {
+   "check": "band_test_GSE184269.json: C_rel_min",
+   "committed": 0.871,
+   "reproduced": 0.871,
+   "tolerance": 0.0001,
+   "ok": true
+  },
+  {
+   "check": "band_test_GSE184269.json: C_rel_max",
+   "committed": 1.1815,
+   "reproduced": 1.1815,
+   "tolerance": 0.0001,
+   "ok": true
+  }
+ ]
+}

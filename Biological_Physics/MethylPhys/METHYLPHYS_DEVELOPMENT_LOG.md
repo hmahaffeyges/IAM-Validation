@@ -2673,3 +2673,9 @@ Job i-04db6debe64b4d107 at 549ab877: a partial sparse clone of Biological_Physic
 
 ### 2026-10-19 · Root cleared of retired files (OTH-077)
 TODO.md and PRIORITY_2026-10-13.md were one-line "Moved" pointers kept for old links; removed, and the 40 manifest fields and one day-log record that named them now name the document itself (MANIFEST.md, Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md). ROADMAP.md, retired 2026-10-13 and frozen, moved unchanged to archive/retired_root_2026-10-19/ (its checksum unchanged, its frozen entry renamed). manifest.py no longer writes the TODO pointer.
+
+### 2026-10-19 · A clone of Biological_Physics alone runs everything (OTH-077)
+Job i-04db6debe64b4d107: a partial sparse clone downloaded only Biological_Physics (843 MB checkout, no other folder present), and on it the chain v4 release check passed 29 of 29 (333 s) and the C-Score band reproduction passed, every number identical (41.7 min). The researcher package therefore becomes that folder with the license, README and citation: zenodo_v4_box.sh archives only those, the Zenodo description says so, and RESEARCHER_PACKAGE.md gives the biology-only clone command. Record: doors/data/CHAIN_V4_CLEANCLONE/bio1/.
+
+### 2026-10-19 · Book build fixed: escaped paths in the reproduced chapter (OTH-072)
+The move rewrote reproduce/ paths inside build_repro_chapter.py's LaTeX strings unescaped (Biological_Physics), and the website build failed at b340dcc9. The three strings are escaped, the chapter regenerated with no raw underscore, and the generator's --check now refuses one. Every other .tex file the move touched was scanned: none affected.

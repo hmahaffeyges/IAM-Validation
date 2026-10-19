@@ -47,8 +47,8 @@ def text():
               rf"\caption{{{tex(cap)}}}\label{{fig:report:{tag}{k}}}", r"\end{figure}", ""]
     done = [t for t in T if (V.get(t["id"]) or {}).get("verdict") == "PASS"]
     L += [r"\clearpage", r"\section{Every result, rebuilt from public data}", "",
-          "Each test below is one entry in the repository's reproduction registry (Biological_Physics/MethylPhys/reproduce/tests.json). The command "
-          r"\texttt{python3 Biological_Physics/MethylPhys/reproduce/reproduce.py <test>} downloads only public files (GEO, ArrayExpress, ENCODE, the NCI Genomic Data "
+          "Each test below is one entry in the repository's reproduction registry (Biological\\_Physics/MethylPhys/reproduce/tests.json). The command "
+          r"\texttt{python3 Biological\_Physics/MethylPhys/reproduce/reproduce.py <test>} downloads only public files (GEO, ArrayExpress, ENCODE, the NCI Genomic Data "
           "Commons, ENA, Zenodo), runs the steps, and compares every number with the committed result, taken from git so a script cannot "
           "compare a file with itself. Each was run from a fresh clone of the public repository on a new machine.",
           f" {len(done)} of the {len(T)} tests have passed that way with every compared number identical.", "",
@@ -65,7 +65,7 @@ def text():
         L += [rf"\subsection*{{{tex(t['title'])}}}", "", tex(t.get("shows", "")), "",
               r"\begin{itemize}\setlength\itemsep{1pt}",
               rf"\item \textbf{{Public data:}} {tex('; '.join(t.get('public_inputs', [])))}.",
-              rf"\item \textbf{{Command:}} \texttt{{python3 Biological_Physics/MethylPhys/reproduce/reproduce.py {tex(t['id'])}}} ({tex(t.get('time', ''))}; {tex(t.get('disk', ''))} of disk"
+              rf"\item \textbf{{Command:}} \texttt{{python3 Biological\_Physics/MethylPhys/reproduce/reproduce.py {tex(t['id'])}}} ({tex(t.get('time', ''))}; {tex(t.get('disk', ''))} of disk"
               + (f"; {tex(t['memory'])} of memory" if t.get("memory") else "") + ").",
               (rf"\item \textbf{{Fresh-clone result:}} {v['verdict']} on {v['date']}, {v['checks_ok']} of {v['checks']} compared numbers identical, "
                rf"{round(v['minutes'])} minutes, repository commit \texttt{{{tex(v['commit'])}}}." if v.get("verdict") else
@@ -76,5 +76,8 @@ if __name__ == "__main__":
     t = text()
     if "--check" in sys.argv:
         ok = os.path.exists(OUT) and open(OUT, encoding="utf-8").read() == t and all(os.path.exists(os.path.join(FIG, p[2] + ".png")) for p in PAGES)
+        import re as _re   # 2026-10-19: a raw underscore outside math, a comment or a url broke the book build
+        _b = _re.sub(r"\\(url|includegraphics|label|ref)(\[[^]]*\])?\{[^}]*\}", "", _re.sub(r"(?m)(?<!\\)%.*$", "", t))
+        if _re.search(r"(?<!\\)_", _re.sub(r"\$[^$]*\$", "", _b)): ok = False; print("repro_chapter: an unescaped underscore would break the book build")
         print("repro_chapter: " + ("ok" if ok else "REFUSED: the reproduced chapter differs (run python3 docs/book/build_repro_chapter.py)")); sys.exit(0 if ok else 1)
     render(); open(OUT, "w", encoding="utf-8").write(t); print("repro_chapter: written")

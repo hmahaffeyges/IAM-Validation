@@ -1,0 +1,9 @@
+2026-10-19T19:40:37Z clone (Biological_Physics only)
+2026-10-19T19:41:01Z top-level folders present: Biological_Physics | checkout size 843M
+2026-10-19T19:41:01Z environment
+python 3.11.17 methylprep 1.7.1 pandas 1.5.3
+2026-10-19T19:41:07Z release check v4
+2026-10-19T19:46:40Z release check rc 0: RELEASE CHECK v4: PASS  (29 checks, 333 s; outputs in /tmp/rc_v4_dd4fq3w7)
+2026-10-19T19:46:40Z reproduce setup
+2026-10-19T19:46:43Z reproduce cscore_band
+2026-10-19T20:28:23Z finished rc 0: release check RELEASE CHECK v4: PASS  (29 checks, 333 s; outputs in /tmp/rc_v4_dd4fq3w7) | cscore_band    PASS (41.7 min)

@@ -18,7 +18,7 @@ pkg = dict(title="MethylPhys chain v4: the commissioned IAM cell instruments and
     "<li><b>IAM-A</b>: each sample read against its own reference, with no other specimen; commissioned on healthy blood CD8 T cells by sequencing.</li>"
     "<li><b>The IAM-Deconvolver</b>: blood-cell shares on arrays (neutrophils, monocytes, CD4 T and CD8 T cells).</li>"
     "<li><b>IAM-Atlas v2.1</b>: 79 purified healthy human cell types, commissioned use by use (published separately; see the related records).</li></ul>"
-    f"<p><b>This record</b> holds the whole repository at commit {S} (IAM-Validation-{S}.zip), because the chain reads files across it. Before upload, "
+    f"<p><b>This record</b> holds the Biological_Physics folder of the repository at commit {S} (IAM-Validation-{S}.zip), with its license, README and citation; a clone of that folder alone passed the chain's release check and a reproduction from public data. Before upload, "
     "this exact archive was unpacked on a fresh machine, given a new Python 3.11 environment from the chain's requirements file only, and passed "
     f"the chain v4 release check: {RC} (release_check_v4_from_archive.json).</p>"
     "<p><b>Start with README.md</b> (the researcher package: look, run, reproduce). <b>To run it:</b> unzip; in the folder run <code>git init &amp;&amp; git add -A &amp;&amp; git commit -m archive</code> (the release check lists "

@@ -32,6 +32,7 @@ comes from (`../LESSONS.md`).
 - **Size the self-stop timer from the work, not a guess.** Timer = setup + index + (samples x minutes per sample) + 25 %. Biological_Physics/MethylPhys/reproduce/ run 10 had an 8-hour timer for about 10 hours of work (38 mouse runs, not the 8 mice I had in mind) and was terminated at 11 of 38 rather than cut off; SSM is not permitted for this AWS user, so a running machine's timer cannot be extended (2026-10-18).
 - **Long runs get termination protection** (DisableApiTermination): a stray terminate call is refused, while the machine's own shutdown still terminates it. Biological_Physics/MethylPhys/reproduce/ run 11 was terminated by an outside call at 20 of 38 (2026-10-19).
 - **Use what is already committed instead of a live lookup.** If a file's address and checksum are in a committed list, read them from it; a lookup service that is down stops a ten-hour run (Biological_Physics/MethylPhys/reproduce/ run 12, ENA filereport HTTP 500, 2026-10-19).
+- **Generated LaTeX gets every path escaped.** A path rewrite (the 2026-10-19 move) put raw Biological_Physics into the reproduced chapter's text; LaTeX reads _ as math and the book and site build failed. build_repro_chapter.py --check now refuses an unescaped underscore.
 ## Known facts, by data
 
 **Plants (Arabidopsis whole-genome bisulfite).** Methylation in three contexts: CG, CHG and CHH; the IAM-A counter reads CG only. Much of the

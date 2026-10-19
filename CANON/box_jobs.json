@@ -3241,7 +3241,7 @@
    "date": "2026-10-19",
    "commit": "549ab877",
    "s3_code_prefix": "results/CHAIN_V4_CLEANCLONE/code/bio1/",
-   "state": "running",
+   "state": "done",
    "log": "results/CHAIN_V4_CLEANCLONE/bio1/status.txt",
    "machine": "spot m7a.xlarge, self-terminating (150-min timer)",
    "purpose": "a partial sparse clone of Biological_Physics only, as a researcher would download it: no other folder may come down; the release check and one reproduction must pass",
@@ -3250,13 +3250,16 @@
     "OTH-077"
    ],
    "outputs": [
-    "results/CHAIN_V4_CLEANCLONE/bio1/status.txt"
+    "results/CHAIN_V4_CLEANCLONE/bio1/status.txt",
+    "results/CHAIN_V4_CLEANCLONE/bio1/release_check_v4.json",
+    "results/CHAIN_V4_CLEANCLONE/bio1/cscore_band_verdict.json"
    ],
    "files": [
     "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_bio.sh"
    ],
    "chain_commit": "549ab877",
-   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch: commit confirmed on origin, code copy in S3 first, timer sized from the work (about 45 min of 150), system tools by full path"
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch: commit confirmed on origin, code copy in S3 first, timer sized from the work (about 45 min of 150), system tools by full path",
+   "note": "PASS: only Biological_Physics came down (843 MB checkout); release check v4 PASS 29 of 29 (333 s); cscore_band PASS (41.7 min)"
   }
  ],
  "not_jobs": {

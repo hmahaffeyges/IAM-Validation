@@ -10,7 +10,7 @@ put(){ $PYB -c "import boto3,sys;boto3.client('s3').upload_file(sys.argv[1],'$B'
 st(){ echo "$(date -u +%FT%TZ) $*" >> $W/status.txt; put $W/status.txt status.txt; }
 st "start commit $S"
 git clone -q https://github.com/hmahaffeyges/IAM-Validation.git repo && git -C repo checkout -q $C || { st "FAILED clone"; exit 1; }
-st "archive"; git -C repo archive --format=zip --prefix=IAM-Validation-$S/ -o up/package/IAM-Validation-$S.zip $C || { st "FAILED archive"; exit 1; }
+st "archive"; git -C repo archive --format=zip --prefix=IAM-Validation-$S/ -o up/package/IAM-Validation-$S.zip $C Biological_Physics LICENSE README.md CITATION.cff ||  { st "FAILED archive"; exit 1; }
 st "archive $(du -m up/package/IAM-Validation-$S.zip | cut -f1) MB; testing it as received"
 mkdir t && cd t && unzip -q ../up/package/IAM-Validation-$S.zip && cd IAM-Validation-$S && git init -q && git add -A && git -c user.name=archive -c user.email=archive@example.org commit -qm "archive $S" || { st "FAILED unpack"; exit 1; }
 curl -LsSf https://astral.sh/uv/install.sh | sh > $W/uv.log 2>&1; export PATH=$HOME/.local/bin:$PATH

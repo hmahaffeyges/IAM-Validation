@@ -1,8 +1,9 @@
 # The researcher package: MethylPhys chain v4
 
 One command reads a DNA methylation sample through the commissioned IAM cell instruments and writes a report. This package is everything
-needed to read the reports, run the chain on your own samples, and rebuild every headline result from public data. It is the whole
-repository at one commit, because the chain reads files across it.
+needed to read the reports, run the chain on your own samples, and rebuild every headline result from public data. It is the
+Biological_Physics folder of the repository at one commit, with the repository's license, README and citation: the cosmology, quantum and
+semiconductor work is not needed to run or rebuild anything here.
 
 **Book:** https://hmahaffeyges.github.io/IAM-Validation/ (Part VI, *Cellular Physics: Thermodynamics of the Methylome*).
 **IAM-Atlas v2.1:** https://doi.org/10.5281/zenodo.23441999 (the atlas) and https://doi.org/10.5281/zenodo.23422688 (the fit's full outputs).
@@ -23,10 +24,11 @@ repository at one commit, because the chain reads files across it.
 
 ### 2. Run the chain (about 30 minutes)
 
-From GitHub:
+From GitHub, downloading only the biology folder (about 0.85 GB):
 
 ```
-git clone https://github.com/hmahaffeyges/IAM-Validation.git && cd IAM-Validation
+git clone --filter=blob:none --sparse https://github.com/hmahaffeyges/IAM-Validation.git && cd IAM-Validation
+git sparse-checkout set Biological_Physics
 ```
 
 Or from the Zenodo archive: unzip it, then in the folder run once (the release check lists the package's files with git):
