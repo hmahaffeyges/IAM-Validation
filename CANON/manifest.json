@@ -27596,7 +27596,7 @@
    "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
    "record": "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/README.md",
    "status": "run",
-   "next_step": "2026-10-18 shown: one person's buffy coat read by every array instrument (Met-A A_rel 1.039 Normal, C_rel 1.067 not above, shares), every decline with its reason, three nine-cell mixtures labeled outside the Deconvolver's scope; scenarios 2 and 5 are the example reports. Scenario 4 (healthy colon, the atlas's own tissue scorer) not yet run: step 1 of the to-do list (CANON/plan.json)",
+   "next_step": "2026-10-18 shown: one person's buffy coat read by every array instrument (Met-A A_rel 1.039 Normal, C_rel 1.067 not above, shares), every decline with its reason, three nine-cell mixtures labeled outside the Deconvolver's scope; scenarios 2 and 5 are the example reports. Scenario 4 (healthy colon, the atlas's own tissue scorer) running now: job i-0eef1a24ec243aee7 (step 1 of the to-do list, CANON/plan.json)",
    "cost": "AWS, small",
    "impact": 5,
    "legacy_ids": [],

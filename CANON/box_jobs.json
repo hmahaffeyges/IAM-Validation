@@ -3332,6 +3332,32 @@
     "results/BOOK_CHECK/fdf5a2f2/verify_book_output.txt"
    ],
    "note": "PASS 4650, FAIL 0"
+  },
+  {
+   "job_id": "i-0eef1a24ec243aee7",
+   "name": "Showcase scenario 4: healthy colon through IAM-Atlas v2.1's commissioned tissue scorer (OTH-073)",
+   "date": "2026-10-19",
+   "commit": "8b603822",
+   "chain_commit": "8b603822",
+   "state": "running",
+   "s3_code_prefix": "results/SHOWCASE_V4/code/s4/",
+   "log": "results/SHOWCASE_V4/s4/status.txt",
+   "machine": "spot m7a.xlarge, self-terminating (90-min timer)",
+   "purpose": "three GSE151732 healthy colon arrays (adenoma history No) through chain Stage 1 and the U2 scorer unchanged; a showcase reading, not scored",
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch: scorer's planted test passed (no-effect and 0.09 shift), EPIC v1, arrays calibrated one at a time, commit on origin, code copy in S3 first, results to S3 as made, watcher from minute one, timer 90 min for about 45 of work, cost about $0.10",
+   "record": "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/showcase_v4_s4.sh",
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/showcase_v4_s4.sh"
+   ],
+   "manifest": [
+    "OTH-073"
+   ],
+   "outputs": [
+    "results/SHOWCASE_V4/s4/status.txt",
+    "results/SHOWCASE_V4/s4/scenario4_colon.json",
+    "results/SHOWCASE_V4/s4/s4.log"
+   ],
+   "note": ""
   }
  ],
  "not_jobs": {

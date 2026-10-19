@@ -1989,5 +1989,19 @@
    "results/BOOK_CHECK/fdf5a2f2/verify_book_output.txt": true
   },
   "state_at_verify": "done"
+ },
+ "i-0eef1a24ec243aee7": {
+  "s3": {
+   "showcase_v4_s4.sh": "cb45530f3e1f866235f7546bcec85c65fec219e534231cbacb8d3334a5a9f10e"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/SHOWCASE_V4/s4/status.txt": false,
+   "results/SHOWCASE_V4/s4/scenario4_colon.json": false,
+   "results/SHOWCASE_V4/s4/s4.log": false
+  },
+  "state_at_verify": "running"
  }
 }

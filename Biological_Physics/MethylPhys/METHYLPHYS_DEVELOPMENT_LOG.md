@@ -2692,3 +2692,4 @@ Showcase scenario 4 (healthy colon through the atlas's tissue scorer) was sealed
 
 ### 2026-10-19 · Showcase scenario 4 written (OTH-073, to-do step 1)
 The reading of three healthy colon arrays (GSE151732, adenoma history No, first 3 by accession) by IAM-Atlas v2.1's commissioned colon tissue use is written before any of the files is opened: chain Stage 1, then the U2 scorer unchanged at the 6,000 sealed composition-blind sites (tolerance 0.05, bar 0.90), per array and the three together. A showcase reading, not a test.
+Launched: job i-0eef1a24ec243aee7 (spot m7a.xlarge, 90-minute timer, about $0.10); results to results/SHOWCASE_V4/s4/.

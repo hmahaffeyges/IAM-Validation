@@ -55,7 +55,7 @@ _Worked one step at a time. A step is closed only with its date and the record t
    - OTH-063 (run; last run 2026-10-16: met): none: live; the chain names rows in every stamp and the gate refuses stale rows. Document consolidation is OTH-064
    - OTH-064 (run; last run 2026-10-16: met): done: hand-kept living documents are now the development log and the day log (both written as work happens and checked by the gate); the book is the toolbox, checked by verify_book; sealed records are history. Everything else is generated or a pointer
 13. **Showcase runs of the commissioned chain (plan: development/TEST_PLAN_TRACKS_2026-10-17.md)**
-   - OTH-073 (run): 2026-10-18 shown: one person's buffy coat read by every array instrument (Met-A A_rel 1.039 Normal, C_rel 1.067 not above, shares), every decline with its reason, three nine-cell mixtures labeled outside the Deconvolver's scope; scenarios 2 and 5 are the example reports. Scenario 4 (healthy colon, the atlas's own tissue scorer) not yet run: step 1 of the to-do list (CANON/plan.json)
+   - OTH-073 (run): 2026-10-18 shown: one person's buffy coat read by every array instrument (Met-A A_rel 1.039 Normal, C_rel 1.067 not above, shares), every decline with its reason, three nine-cell mixtures labeled outside the Deconvolver's scope; scenarios 2 and 5 are the example reports. Scenario 4 (healthy colon, the atlas's own tissue scorer) running now: job i-0eef1a24ec243aee7 (step 1 of the to-do list, CANON/plan.json)
 14. **Field: normal tissue of patients against healthy people, same slides**
    - FLD-002 (planned): 2026-10-17: first in line after the showcase (TEST_PLAN_TRACKS_2026-10-17.md, track 1); scout a set with healthy donors and patients on the same slides, ages known; candidate reserved 2026-10-18: GSE216024 (140 normal rectal biopsies, adenoma history yes/no, ages, EPIC v1, unspent)
 15. **Precancer and before diagnosis**
@@ -80,6 +80,7 @@ _Worked one step at a time. A step is closed only with its date and the record t
 |---|---|---|
 | IAM-Atlas v2.1 Zenodo large-file upload, run 2 (ATL-005) | spot m7a.large, self-terminating (600-min timer) | ATL-005 |
 | reproduce/ from a fresh public clone, run 13: the mouse prediction (OTH-076) | on-demand m7a.4xlarge (16 cores, 64 GB), self-terminating (14-hour timer) | OTH-076 |
+| Showcase scenario 4: healthy colon through IAM-Atlas v2.1's commissioned tissue scorer (OTH-073) | spot m7a.xlarge, self-terminating (90-min timer) | OTH-073 |
 
 ## Decisions waiting for the author
 
