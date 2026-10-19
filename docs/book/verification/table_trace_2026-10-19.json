@@ -1,0 +1,106 @@
+{
+ "date": "2026-10-19",
+ "what": "every number of three or more significant figures in the book's 212 tables, against the book checks (verify_book.py) and the measurement records (as CANON/number_trace.py)",
+ "tables": 212,
+ "untraced": 16,
+ "explained": [
+  {
+   "file": "appendices/app_A2_frozen_values.tex",
+   "table_line": 4,
+   "num": "1.380649",
+   "reason": "Boltzmann constant, exact (SI 2019)"
+  },
+  {
+   "file": "appendices/app_F_glossary.tex",
+   "table_line": 10,
+   "num": "348.15",
+   "reason": "75 degrees C in kelvin (chip junction temperature)"
+  },
+  {
+   "file": "appendices/app_N_notation.tex",
+   "table_line": 56,
+   "num": "299792458",
+   "reason": "speed of light, exact (SI)"
+  },
+  {
+   "file": "appendices/app_N_notation.tex",
+   "table_line": 56,
+   "num": "1.380649",
+   "reason": "Boltzmann constant, exact (SI 2019)"
+  },
+  {
+   "file": "appendices/app_N_notation.tex",
+   "table_line": 56,
+   "num": "6.67430",
+   "reason": "G, CODATA 2018"
+  },
+  {
+   "file": "appendices/app_N_notation.tex",
+   "table_line": 56,
+   "num": "1.616255",
+   "reason": "Planck length, CODATA 2018"
+  },
+  {
+   "file": "appendices/app_N_notation.tex",
+   "table_line": 56,
+   "num": "2.176434",
+   "reason": "Planck mass, CODATA 2018"
+  },
+  {
+   "file": "appendices/app_N_notation.tex",
+   "table_line": 83,
+   "num": "1.98847",
+   "reason": "solar mass, IAU nominal GM over G"
+  },
+  {
+   "file": "appendices/app_N_notation.tex",
+   "table_line": 83,
+   "num": "3.0857",
+   "reason": "parsec, IAU"
+  },
+  {
+   "file": "appendices/app_N_notation.tex",
+   "table_line": 83,
+   "num": "3.0857",
+   "reason": "parsec, IAU"
+  },
+  {
+   "file": "part6/p6_02_landauer.tex",
+   "table_line": 84,
+   "num": "348.15",
+   "reason": "75 degrees C in kelvin (chip junction temperature)"
+  }
+ ],
+ "for_the_author": [
+  {
+   "file": "part2/p2_13b_baryon_chain.tex",
+   "table_line": 101,
+   "num": "21560",
+   "reason": "Part 2 baryon-chain table: internally consistent (third column = 0.8 x first in every row) but in no committed record; cosmology, for IAMPerformance (to-do step 10)"
+  },
+  {
+   "file": "part2/p2_13b_baryon_chain.tex",
+   "table_line": 101,
+   "num": "17248",
+   "reason": "Part 2 baryon-chain table: internally consistent (third column = 0.8 x first in every row) but in no committed record; cosmology, for IAMPerformance (to-do step 10)"
+  },
+  {
+   "file": "part2/p2_13b_baryon_chain.tex",
+   "table_line": 101,
+   "num": "17472",
+   "reason": "Part 2 baryon-chain table: internally consistent (third column = 0.8 x first in every row) but in no committed record; cosmology, for IAMPerformance (to-do step 10)"
+  },
+  {
+   "file": "part2/p2_13b_baryon_chain.tex",
+   "table_line": 101,
+   "num": "17696",
+   "reason": "Part 2 baryon-chain table: internally consistent (third column = 0.8 x first in every row) but in no committed record; cosmology, for IAMPerformance (to-do step 10)"
+  },
+  {
+   "file": "part2/p2_13b_baryon_chain.tex",
+   "table_line": 101,
+   "num": "17248",
+   "reason": "Part 2 baryon-chain table: internally consistent (third column = 0.8 x first in every row) but in no committed record; cosmology, for IAMPerformance (to-do step 10)"
+  }
+ ]
+}

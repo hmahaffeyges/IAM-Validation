@@ -237,18 +237,18 @@
    "record": "CANON/number_trace.py"
   },
   {
-   "task": "Every other table audited the way FOUR_DOMAINS was: bit tables, COMMISSIONING_REPORT, STATUS, EARLIER_RESULTS, and the book's tables",
+   "task": "Every other table audited the way FOUR_DOMAINS was: bit tables, COMMISSIONING_REPORT, STATUS, EARLIER_RESULTS, and the book's tables (COMMISSIONING_REPORT, STATUS and EARLIER_RESULTS read row by row, six corrections at their sources; the book's 212 tables traced: 11 physical constants and unit conversions explained, one Part 2 cosmology table carried to step 10)",
    "done_when": "each table's rows read against their records; corrections committed with a before/after record",
    "rows": [
     "OTH-078",
     "OTH-072"
    ],
-   "status": "open",
-   "done_date": "",
-   "record": ""
+   "status": "done",
+   "done_date": "2026-10-19",
+   "record": "docs/book/verification/table_trace_2026-10-19.json"
   },
   {
-   "task": "The 88 book checks whose printed number their chapter no longer prints: the cell ones fixed; the cosmology, quantum and chip ones shown to IAMPerformance with what each chapter says now, changed only on his word",
+   "task": "The 88 book checks whose printed number their chapter no longer prints: the cell ones fixed; the cosmology, quantum and chip ones shown to IAMPerformance with what each chapter says now, changed only on his word; with them, the Part 2 baryon-chain table (p2_13b, lines 103-105), consistent but in no committed record",
    "done_when": "docs/book/stale_checks_baseline.json empty",
    "rows": [
     "OTH-072"
