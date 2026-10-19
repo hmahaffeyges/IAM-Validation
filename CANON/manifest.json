@@ -27555,7 +27555,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "running",
    "runs": [],
-   "next_step": "pass 3 2026-10-18: the last Part 6 chapters (toolbox, sky tools, serial, separation, atlas) read; fixed: the atlas chapter's v2 limits list read as current (it now says atlas v2, and that the chain reads v2.1), its 'reference does not yet do' section named as Met-A's, the serial chapter's chain v3. Part 6 audit complete; 2026-10-19: glossary's 18 chain v3 entries brought to chain v4 (two solvers, the sky on the sphere, SOP and manual generated); 77 British spellings fixed in the book, MANIFEST and SOP, and the spelling check now covers every public text. Part 7 pass 2026-10-19: open item I1 corrected (on whole blood the C-score and cell shares are commissioned, Met-A's whole-blood reading is preliminary); the status table gains IAM-Atlas v2.1, the IAM-Deconvolver and the C-score band; two status 'today's reworded; two book checks repointed to the archived STATUS record. Part 7 audit complete; next: the book's Zenodo record",
+   "next_step": "Audit complete 2026-10-19 (book check on a full clone: 4,639 checks, 0 failures; 0 stale checks). Next: the book's Zenodo record (to-do step 11).",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

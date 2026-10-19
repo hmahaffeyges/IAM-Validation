@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4639 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/front/p0_preface.tex`
@@ -4269,7 +4269,6 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 63 | ch:astrogenetics:L63 | calc | `3.03` | file `CANON/iam_canon.json`: Met-A at a coin flip: 1/0.330263 (canon floor) | PASS |
 | 85 | ch:astrogenetics:L88:Hmin | calc | `1e-7` | file `CANON/iam_canon.json`: the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0)) | PASS |
 | 85 | ch:astrogenetics:floor_eps | calc | `8e-10` | file `CANON/iam_canon.json`: floor held error 1/(1+e^M) | PASS |
-| 88 | ch:astrogenetics:L88:310 | derived | `310` | file `CANON/iam_canon.json`: the floor is set at 310 K (cell temperature) | PASS |
 | 89 | ch:astrogenetics:L89 | calibrated | `0.330263` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 90 | ch:astrogenetics:L90 | calc | `3.03` | file `CANON/iam_canon.json`: Met-A at a coin flip | PASS |
 | 98 | ch:astrogenetics:L98 | derived |  | sympy: H(beta) is symmetric: H(beta) = H(1 - beta) | PASS |
@@ -4338,7 +4337,7 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 186 | ch:landauer:L186:3.13 | measured | `2.85` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy across 56 cell types (Loyfer read-level) | PASS |
 | 186 | ch:landauer:L186:3.71 | measured | `3.37` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy across 56 cell types (Loyfer read-level) | PASS |
 | 187 | ch:landauer:L187 | calc | `4.45` | numeric: 3.41/ln2 | PASS |
-| 188 | eq:phi | measured | `0.163` | heavy numeric `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: phi = E_hold/(M k T): committed record and E_hold/M (canon) | PASS |
+| 188 | eq:phi | measured | `0.147` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: phi, fraction of one ATP per held bit | PASS |
 | 194 | ch:landauer:L194 | calc | `1.9` | numeric: Hopfield discrimination ln(7) from the enzyme selectivity | PASS |
 | 194 | ch:landauer:L194:4.4 | calc | `4.4` | numeric: Hopfield discrimination ln(80) from the enzyme selectivity | PASS |
 | 205 | eq:sanchezH | none |  | not run: definition: per-site Shannon entropy of methylation status (Sanchez2016) | - |
@@ -4355,7 +4354,7 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 264 | ch:landauer:L264:9.3\times10^5 | calc | `9.3\times10^5` | numeric: floor in ATP at 54 kJ/mol | PASS |
 | 267 | ch:landauer:L267 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy, 56 cell types | PASS |
 | 267 | ch:landauer:L267:56 | calc | `56` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy read in 56 cell types | PASS |
-| 268 | ch:landauer:L268 | measured | `0.163` | heavy numeric `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: phi, committed record | PASS |
+| 268 | ch:landauer:L268 | measured | `0.147` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: phi, fraction of one ATP per held bit | PASS |
 | 269 |  | calc | `450` | not run: not a number: array platform name (450K) | - |
 
 ## Part 6 - ch:surface - `docs/book/part6/p6_03_surface.tex`
@@ -4536,7 +4535,6 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 95 | ch:meta:L95 | measured | `0.243` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: noise index of second-laboratory arrays, highest | PASS |
 | 95 | ch:meta:L95:0.79 | measured | `0.79` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: Spearman rho of Met-A with N, second laboratory (30 y donor) | PASS |
 | 95 | ch:meta:L95:0.83 | measured | `0.83` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: Spearman rho of Met-A with N, second laboratory (54 y donor) | PASS |
-| 111 | ch:meta:L111:1.002 | measured | `1.002` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT-inhibitor series: inactive analogue, lowest | PASS |
 | 112 |  | measured | `2.8` | not run: measured, source not named | - |
 
 ## Part 6 - ch:iama - `docs/book/part6/p6_08_iama.tex`
@@ -4650,9 +4648,6 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 32 | ch:instrument:L32:0.932 | measured | `0.932` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: intake call rate, third laboratory minimum | PASS |
 | 32 | ch:instrument:L32:0.878 | measured | `0.878` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: intake call rate, fourth laboratory median | PASS |
 | 32 | ch:instrument:L32:0.928 | measured | `0.928` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: intake call rate, fourth laboratory maximum | PASS |
-| 50 | ch:instrument:L50:0.15 | measured | `0.15` | file `Biological_Physics/MethylPhys/doors/FINDING_GSE125105_LOW_SIGNAL.md`: low-signal laboratory: lowest control-signal ratio | PASS |
-| 50 | ch:instrument:L50:0.31 | measured | `0.31` | file `Biological_Physics/MethylPhys/doors/FINDING_GSE125105_LOW_SIGNAL.md`: low-signal laboratory: highest control-signal ratio | PASS |
-| 51 | ch:instrument:L51 | measured | `12.5` | file `Biological_Physics/MethylPhys/doors/FINDING_GSE125105_LOW_SIGNAL.md`: low-signal laboratory: probes at background | PASS |
 | 55 | ch:instrument:L55:0.33 | measured | `0.33` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: beta of probes at background, lower end | PASS |
 | 55 | ch:instrument:L55:0.42 | measured | `0.42` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: beta of probes at background, upper end | PASS |
 | 56 |  | measured | `0.75` | not run: definition: identity-site window 0.75-0.95 restated from the site rule (ch:identity L20, calibrated) | - |
@@ -4715,7 +4710,6 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 140 | ch:atlas:L140:-0.04 | measured | `-0.04` | file `Biological_Physics/MethylPhys/atlas/v2/records/03b_crossplatform_check.csv`: array-sequencing transfer, intercept nearest zero | PASS |
 | 140 | ch:atlas:L140:-0.07 | measured | `-0.07` | file `Biological_Physics/MethylPhys/atlas/v2/records/03b_crossplatform_check.csv`: array-sequencing transfer, most negative intercept | PASS |
 | 144 |  | measured | `0.015` | not run: measured, source not named | - |
-| 148 | ch:atlas:L148 | measured | `4.35` | file `Biological_Physics/MethylPhys/atlas/v2/records/11c_stageA_report_NOT_CONVERGED.json`: joint fit did not converge: largest R-hat | PASS |
 | 150 | ch:atlas:L150:1.005 | measured | `1.005` | file `Biological_Physics/MethylPhys/atlas/v2/records/14_stageB_timing_block.log`: test block converged: R-hat 99th percentile | PASS |
 | 150 | ch:atlas:L150:0.83 | measured | `0.83` | file `Biological_Physics/MethylPhys/atlas/v2/records/14_stageB_timing_block.log`: test block: seconds per locus | PASS |
 | 153 | ch:atlas:L153 | measured | `0.19` | file `Biological_Physics/MethylPhys/atlas/v2/postbuild/records/atlas_v2_gate.json`: values flagged for per-block convergence | PASS |
@@ -4727,8 +4721,6 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 169 | ch:atlas:L169:0.051 | measured | `0.051` | file `Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md`: held-out mean absolute prediction error | PASS |
 | 173 |  | derived | `36` | not run: input: illustrative number of independent samples n = 36 (the derived factor six is sqrt(36) applied to it) | - |
 | 177 | ch:atlas:L177 | derived | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: precision of the neutrophil reference restated | PASS |
-| 181 | ch:atlas:L181 | measured | `87.7` | file `Biological_Physics/MethylPhys/atlas/v2/postbuild/README.md`: atlas v2 identity sites, array to array in Normal | PASS |
-| 182 | ch:atlas:L182 | measured | `73.1` | file `Biological_Physics/MethylPhys/atlas/v2/postbuild/README.md`: atlas v2 identity sites, sequencing to array in Normal | PASS |
 | 223 | ch:atlas:L223:1.062 | measured | `1.062` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: six DNA mixtures against the neutrophil floor alone, lowest | PASS |
 | 223 | ch:atlas:L223:1.118 | measured | `1.118` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: six DNA mixtures against the neutrophil floor alone, highest | PASS |
 | 223 | ch:atlas:L223:0.982 | measured | `0.982` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: six DNA mixtures against the expectation from their own composition, lowest | PASS |
@@ -4831,7 +4823,6 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 31 | ch:serial:L31 | measured | `0.045` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: within-person SD, donor 1 (GSE247195), untared isolated neutrophils | PASS |
 | 35 | ch:serial:L71 | measured | `0.894` | file `Biological_Physics/MethylPhys/archive/history_2026-10-16/STATUS_to_2026-10-15.md`: E-MTAB-7309 Stage 1: median call rate | PASS |
 
 ## Part 6 - ch:discipline - `docs/book/part6/p6_18_discipline.tex`
@@ -4931,7 +4922,6 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 72 | part4:ch:reach:L72:1.049 | measured | `1.049` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC4 oxWGBS: ratio | PASS |
 | 72 | part4:ch:reach:L72:0.0005 | measured | `0.0005` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC4 oxWGBS: conversion difference | PASS |
 | 79 |  | measured | `10` | not run: restates Chapter ch:sky (p6_16_sky.tex L72-73): about 10^3 genome equivalents per millilitre of plasma (Sender2024), so a draw yields of order 10^3-10^4 copies of a site; an order of magnitude carried over, nothing to recompute here | - |
-| 82 | part4:ch:reach:L82 | measured | `0.5` | heavy file `Biological_Physics/MethylPhys/doors/PROC_MOLECULE_01_OUTCOME.md`: constructed mixtures: fewest molecules | PASS |
 | 109 |  | prediction | `1.00` | not run: prediction, nothing to recompute: sorted healthy canine cells held out of a canine reference read 1.00 within tolerance | - |
 
 ## Part 6 - ch:status - `docs/book/part6/p6_24_status.tex`
@@ -5594,7 +5584,7 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 609 | app:formulas:L618:2.3 | calc | `2.3` | numeric: discrimination energy at 10 % maintenance error | PASS |
 | 609 | app:formulas:L618:3.9 | calc | `3.9` | numeric: discrimination energy at 2 % maintenance error | PASS |
 | 609 |  | calc | `0.10` | not run: input: maintenance error rate 10 % (upper end of the 2-10 % of Genereux et al. 2005) | - |
-| 610 | app:formulas:L619 | measured | `0.163` | heavy numeric `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: phi = E_hold / M | PASS |
+| 610 | app:formulas:L619 | measured | `0.147` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: phi, fraction of one ATP per held bit (formula sheet) | PASS |
 | 622 | app:formulas:L631 | calc | `3.03` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: full surface on Met-A | PASS |
 | 628 | app:formulas:L637 | calibrated | `0.330263` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: frozen EPIC neutrophil reference, bits | PASS |
 | 633 | app:formulas:L642 | measured | `0.032` | heavy numeric `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: held-error floor eps0 | PASS |
@@ -5602,7 +5592,6 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 634 | app:formulas:L643 | measured | `1.149` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json`: neutrophil position P | PASS |
 | 638 | app:formulas:L647 | calibrated | `1.1104` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C-score healthy baseline | PASS |
 | 655 | app:formulas:L664 | calc | `2.3\times10^{22}` | numeric: M_eq at H0 = 67.16, solar masses | PASS |
-| 673 | app:formulas:L682 | derived | `0.044` | file `CANON/iam_canon.json`: eps0 from phi and M | PASS |
 
 ## Part 8 - app:derivations - `docs/book/appendices/app_C3_derivations.tex`
 

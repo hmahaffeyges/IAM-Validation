@@ -2717,3 +2717,5 @@ Every number of three or more significant figures in the book's 212 tables is he
 
 ### 2026-10-19 · Stale book checks: none left (OTH-078, to-do step 10)
 Of the 88: 15 in the cell chapters and appendices were real (11 removed, no chapter prints them; 3 rewritten to phi 0.147 on the commissioned counter; the Landauer table still printed 0.163 and is corrected). Regenerating Appendix E would have undone its hand edits from the holding-energy correction, so those now live in app_E_overrides.json and make_app_E.py --check is in the push gate. The other 72 (Parts 1, 2, 4, 5) were not stale: stale_checks.py compared the printed text, so 0.8\,\% or 111\,612 read as absent; it now compares the number, and refuses a planted change. One question for the author: the Part 2 convergence table (tab:bc_conv) quotes the 18th chain's run log, which is not in the repository.
+
+Book check record on a full clone (job i-0e1f7fe83760ba763): 4,639 checks, 0 failures; REFERENCE.md updated.

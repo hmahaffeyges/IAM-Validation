@@ -3982,7 +3982,6 @@ PASS  ch:astrogenetics:L40               ch:astrogenetics:p6_00b_astrogenetics:4
 PASS  ch:astrogenetics:L40:4.9           ch:astrogenetics:p6_00b_astrogenetics:40  printed 4.45  recomputed 4.44927  tol 0.00500001  [measured] Landauer units
 PASS  ch:astrogenetics:L63               ch:astrogenetics:p6_00b_astrogenetics:63  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] Met-A at a coin flip: 1/0.330263 (canon floor)  file CANON/iam_canon.json
 PASS  ch:astrogenetics:L88:Hmin          ch:astrogenetics:p6_00b_astrogenetics:85  printed 1e-7  recomputed 8.553240e-08  tol 5.000005e-08  [calc] the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))  file CANON/iam_canon.json
-PASS  ch:astrogenetics:L88:310           ch:astrogenetics:p6_00b_astrogenetics:88  printed 310  recomputed 310.15  tol 0.5  [derived] the floor is set at 310 K (cell temperature)  file CANON/iam_canon.json
 PASS  ch:astrogenetics:L89               ch:astrogenetics:p6_00b_astrogenetics:89  printed 0.330263  recomputed found in file  [calibrated] measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_astrogenetics_book_output.txt
       heavy: python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt
 PASS  ch:astrogenetics:L90               ch:astrogenetics:p6_00b_astrogenetics:90  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] Met-A at a coin flip  file CANON/iam_canon.json
@@ -4049,8 +4048,7 @@ PASS  ch:landauer:L186                   ch:landauer:p6_02_landauer:186  printed
 PASS  ch:landauer:L186:3.13              ch:landauer:p6_02_landauer:186  printed 2.85  recomputed 2.85  tol 0.00500001  [measured] holding energy across 56 cell types (Loyfer read-level)  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:landauer:L186:3.71              ch:landauer:p6_02_landauer:186  printed 3.37  recomputed 3.37  tol 0.00500001  [measured] holding energy across 56 cell types (Loyfer read-level)  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:landauer:L187                   ch:landauer:p6_02_landauer:187  printed 4.45  recomputed 4.44927  tol 0.00500001  [calc] 3.41/ln2
-PASS  eq:phi                             ch:landauer:p6_02_landauer:188  printed 0.163  recomputed 0.162867  tol 5.000005e-04  [measured] phi = E_hold/(M k T): committed record and E_hold/M (canon)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
+PASS  eq:phi                             ch:landauer:p6_02_landauer:188  printed 0.147  recomputed 0.1473  tol 5.000005e-04  [measured] phi, fraction of one ATP per held bit  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:landauer:L194                   ch:landauer:p6_02_landauer:194  printed 1.9  recomputed 1.94591  tol 0.05  [calc] Hopfield discrimination ln(7) from the enzyme selectivity
 PASS  ch:landauer:L194:4.4               ch:landauer:p6_02_landauer:194  printed 4.4  recomputed 4.38203  tol 0.05  [calc] Hopfield discrimination ln(80) from the enzyme selectivity
 PASS  eq:sanchezER                       ch:landauer:p6_02_landauer:211  printed (algebra)  recomputed lhs-rhs=0  [derived] E_R = I_R k_B T ln2 from Landauer, with H in bits
@@ -4066,8 +4064,7 @@ PASS  ch:landauer:L264:9.3\times10^5     ch:landauer:p6_02_landauer:264  printed
 PASS  ch:landauer:L267                   ch:landauer:p6_02_landauer:267  printed 3.08  recomputed 3.084  tol 0.00500001  [measured] holding energy, 56 cell types  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:landauer:L267:56                ch:landauer:p6_02_landauer:267  printed 56  recomputed 56  tol 0.5  [calc] holding energy read in 56 cell types  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
       heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-PASS  ch:landauer:L268                   ch:landauer:p6_02_landauer:268  printed 0.163  recomputed 0.162867  tol 5.000005e-04  [measured] phi, committed record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
+PASS  ch:landauer:L268                   ch:landauer:p6_02_landauer:268  printed 0.147  recomputed 0.1473  tol 5.000005e-04  [measured] phi, fraction of one ATP per held bit  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:surface (part6/p6_03_surface.tex)
 PASS  eq:H                               ch:surface:p6_03_surface:13  printed (algebra)  recomputed True  [derived] binary entropy: 1 bit at 1/2, symmetric
@@ -4231,7 +4228,6 @@ PASS  ch:meta:L94:0.149                  ch:meta:p6_07_meta:94  printed 0.149  r
 PASS  ch:meta:L95                        ch:meta:p6_07_meta:95  printed 0.243  recomputed 0.243364  tol 5.000005e-04  [measured] noise index of second-laboratory arrays, highest  file Biological_Physics/MethylPhys/doors/data/noise_index.csv
 PASS  ch:meta:L95:0.79                   ch:meta:p6_07_meta:95  printed 0.79  recomputed 0.788312  tol 0.00500001  [measured] Spearman rho of Met-A with N, second laboratory (30 y donor)  file Biological_Physics/MethylPhys/doors/data/noise_index.csv
 PASS  ch:meta:L95:0.83                   ch:meta:p6_07_meta:95  printed 0.83  recomputed 0.825397  tol 0.00500001  [measured] Spearman rho of Met-A with N, second laboratory (54 y donor)  file Biological_Physics/MethylPhys/doors/data/noise_index.csv
-PASS  ch:meta:L111:1.002                 ch:meta:p6_07_meta:111  printed 1.002  recomputed 1.00192  tol 5.000005e-04  [measured] DNMT-inhibitor series: inactive analogue, lowest  file Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:iama (part6/p6_08_iama.tex)
 PASS  eq:eps                             ch:iama:p6_08_iama:14  printed (algebra)  recomputed lhs-rhs=0  [derived] E_hold = kT ln((1-eps)/eps) solves the two-state Boltzmann error
@@ -4330,9 +4326,6 @@ PASS  ch:instrument:L31:0.953            ch:instrument:p6_12_instrument:31  prin
 PASS  ch:instrument:L32:0.932            ch:instrument:p6_12_instrument:32  printed 0.932  recomputed 0.932  tol 5.000005e-04  [measured] intake call rate, third laboratory minimum  file Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md
 PASS  ch:instrument:L32:0.878            ch:instrument:p6_12_instrument:32  printed 0.878  recomputed 0.878  tol 5.000005e-04  [measured] intake call rate, fourth laboratory median  file Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md
 PASS  ch:instrument:L32:0.928            ch:instrument:p6_12_instrument:32  printed 0.928  recomputed 0.928  tol 5.000005e-04  [measured] intake call rate, fourth laboratory maximum  file Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md
-PASS  ch:instrument:L50:0.15             ch:instrument:p6_12_instrument:50  printed 0.15  recomputed 0.150431  tol 0.00500001  [measured] low-signal laboratory: lowest control-signal ratio  file Biological_Physics/MethylPhys/doors/FINDING_GSE125105_LOW_SIGNAL.md
-PASS  ch:instrument:L50:0.31             ch:instrument:p6_12_instrument:50  printed 0.31  recomputed 0.312741  tol 0.00500001  [measured] low-signal laboratory: highest control-signal ratio  file Biological_Physics/MethylPhys/doors/FINDING_GSE125105_LOW_SIGNAL.md
-PASS  ch:instrument:L51                  ch:instrument:p6_12_instrument:51  printed 12.5  recomputed 12.5  tol 0.05  [measured] low-signal laboratory: probes at background  file Biological_Physics/MethylPhys/doors/FINDING_GSE125105_LOW_SIGNAL.md
 PASS  ch:instrument:L55:0.33             ch:instrument:p6_12_instrument:55  printed 0.33  recomputed 0.33  tol 0.00500001  [measured] beta of probes at background, lower end  file Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md
 PASS  ch:instrument:L55:0.42             ch:instrument:p6_12_instrument:55  printed 0.42  recomputed 0.42  tol 0.00500001  [measured] beta of probes at background, upper end  file Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md
 PASS  ch:instrument:L82:0.79             ch:instrument:p6_12_instrument:82  printed 0.79  recomputed 0.788312  tol 0.00500001  [measured] Met-A follows N, second laboratory donor 2  file Biological_Physics/MethylPhys/doors/data/noise_index.csv
@@ -4372,7 +4365,6 @@ PASS  ch:atlas:L140:1.03                 ch:atlas:p6_14_atlas:140  printed 1.03 
 PASS  ch:atlas:L140:1.09                 ch:atlas:p6_14_atlas:140  printed 1.09  recomputed 1.0896  tol 0.00500001  [measured] array-sequencing transfer, highest slope  file Biological_Physics/MethylPhys/atlas/v2/records/03b_crossplatform_check.csv
 PASS  ch:atlas:L140:-0.04                ch:atlas:p6_14_atlas:140  printed -0.04  recomputed -0.0413  tol 0.00500001  [measured] array-sequencing transfer, intercept nearest zero  file Biological_Physics/MethylPhys/atlas/v2/records/03b_crossplatform_check.csv
 PASS  ch:atlas:L140:-0.07                ch:atlas:p6_14_atlas:140  printed -0.07  recomputed -0.0749  tol 0.00500001  [measured] array-sequencing transfer, most negative intercept  file Biological_Physics/MethylPhys/atlas/v2/records/03b_crossplatform_check.csv
-PASS  ch:atlas:L148                      ch:atlas:p6_14_atlas:148  printed 4.35  recomputed 4.34509  tol 0.00500001  [measured] joint fit did not converge: largest R-hat  file Biological_Physics/MethylPhys/atlas/v2/records/11c_stageA_report_NOT_CONVERGED.json
 PASS  ch:atlas:L150:1.005                ch:atlas:p6_14_atlas:150  printed 1.005  recomputed 1.00455  tol 5.000005e-04  [measured] test block converged: R-hat 99th percentile  file Biological_Physics/MethylPhys/atlas/v2/records/14_stageB_timing_block.log
 PASS  ch:atlas:L150:0.83                 ch:atlas:p6_14_atlas:150  printed 0.83  recomputed 0.828891  tol 0.00500001  [measured] test block: seconds per locus  file Biological_Physics/MethylPhys/atlas/v2/records/14_stageB_timing_block.log
 PASS  ch:atlas:L153                      ch:atlas:p6_14_atlas:153  printed 0.19  recomputed 0.191984  tol 0.00500001  [measured] values flagged for per-block convergence  file Biological_Physics/MethylPhys/atlas/v2/postbuild/records/atlas_v2_gate.json
@@ -4383,8 +4375,6 @@ PASS  ch:atlas:L169:96.9                 ch:atlas:p6_14_atlas:169  printed 96.9 
 PASS  ch:atlas:L169:97.2                 ch:atlas:p6_14_atlas:169  printed 97.2  recomputed 97.2  tol 0.05  [measured] held-out coverage, highest cells, upper end  file Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md
 PASS  ch:atlas:L169:0.051                ch:atlas:p6_14_atlas:169  printed 0.051  recomputed 0.051  tol 5.000005e-04  [measured] held-out mean absolute prediction error  file Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md
 PASS  ch:atlas:L177                      ch:atlas:p6_14_atlas:177  printed 0.020  recomputed 0.0197562  tol 5.000005e-04  [derived] precision of the neutrophil reference restated  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv
-PASS  ch:atlas:L181                      ch:atlas:p6_14_atlas:181  printed 87.7  recomputed 87.7  tol 0.05  [measured] atlas v2 identity sites, array to array in Normal  file Biological_Physics/MethylPhys/atlas/v2/postbuild/README.md
-PASS  ch:atlas:L182                      ch:atlas:p6_14_atlas:182  printed 73.1  recomputed 73.1  tol 0.05  [measured] atlas v2 identity sites, sequencing to array in Normal  file Biological_Physics/MethylPhys/atlas/v2/postbuild/README.md
 PASS  ch:atlas:L223:1.062                ch:atlas:p6_14_atlas:223  printed 1.062  recomputed 1.062  tol 5.000005e-04  [measured] six DNA mixtures against the neutrophil floor alone, lowest  file Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md
 PASS  ch:atlas:L223:1.118                ch:atlas:p6_14_atlas:223  printed 1.118  recomputed 1.118  tol 5.000005e-04  [measured] six DNA mixtures against the neutrophil floor alone, highest  file Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md
 PASS  ch:atlas:L223:0.982                ch:atlas:p6_14_atlas:223  printed 0.982  recomputed 0.982  tol 5.000005e-04  [measured] six DNA mixtures against the expectation from their own composition, lowest  file Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md
@@ -4445,7 +4435,6 @@ PASS  ch:sky:L74                         ch:sky:p6_16_sky:74  printed 0.0046  re
 PASS  eq:outspan                         ch:sky:p6_16_sky:90  printed (algebra)  recomputed True  [derived] out-of-span residual is blind to composition error
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:serial (part6/p6_17_serial.tex)
-PASS  ch:serial:L31                      ch:serial:p6_17_serial:31  printed 0.045  recomputed 0.0453166  tol 5.000005e-04  [measured] within-person SD, donor 1 (GSE247195), untared isolated neutrophils  file Biological_Physics/MethylPhys/doors/data/t2_diag.csv
 PASS  ch:serial:L71                      ch:serial:p6_17_serial:35  printed 0.894  recomputed 0.894  tol 5.000005e-04  [measured] E-MTAB-7309 Stage 1: median call rate  file Biological_Physics/MethylPhys/archive/history_2026-10-16/STATUS_to_2026-10-15.md
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:discipline (part6/p6_18_discipline.tex)
@@ -4583,8 +4572,6 @@ PASS  part4:ch:reach:L72:1.049           part4:ch:reach:p6_23_reach:72  printed 
       heavy: python3 Biological_Physics/MethylPhys/doors/data/score_tumour.py (needs the per-sample site tables of the methylation chain: Bismark alignment, GRCh38)
 PASS  part4:ch:reach:L72:0.0005          part4:ch:reach:p6_23_reach:72  printed 0.0005  recomputed 4.604508e-04  tol 5.000005e-05  [measured] Table tab:p4_tumour OSCC4 oxWGBS: conversion difference  file Biological_Physics/MethylPhys/doors/data/tumour_readings.csv
       heavy: python3 Biological_Physics/MethylPhys/doors/data/score_tumour.py (needs the per-sample site tables of the methylation chain: Bismark alignment, GRCh38)
-PASS  part4:ch:reach:L82                 part4:ch:reach:p6_23_reach:82  printed 0.5  recomputed 0.5  tol 0.05  [measured] constructed mixtures: fewest molecules  file Biological_Physics/MethylPhys/doors/PROC_MOLECULE_01_OUTCOME.md
-      heavy: methylation chain on 12 ENCODE WGBS files mixed in silico (PROC-MOLECULE-01); the record is the outcome file
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:status (part6/p6_24_status.tex)
 PASS  ch:status:L9                       ch:status:p6_24_status:9  printed 2.97\times10^{-21}  recomputed 2.968114e-21  tol 5.000005e-24  [calc] Landauer cost per bit at 37 C
@@ -5128,8 +5115,7 @@ PASS  app:formulas:L616                  app:formulas:app_E_formulas:607  printe
 PASS  app:formulas:L617                  app:formulas:app_E_formulas:608  printed 8.38\times10^{-14}  recomputed 8.375259e-14  tol 5.000005e-17  [calc] Landauer floor of one copy of the methylome  file Biological_Physics/MethylPhys/atlas/v2/README.md
 PASS  app:formulas:L618:2.3              app:formulas:app_E_formulas:609  printed 2.3  recomputed 2.30259  tol 0.05  [calc] discrimination energy at 10 % maintenance error
 PASS  app:formulas:L618:3.9              app:formulas:app_E_formulas:609  printed 3.9  recomputed 3.91202  tol 0.05  [calc] discrimination energy at 2 % maintenance error
-PASS  app:formulas:L619                  app:formulas:app_E_formulas:610  printed 0.163  recomputed 0.162867  tol 5.000005e-04  [measured] phi = E_hold / M  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
+PASS  app:formulas:L619                  app:formulas:app_E_formulas:610  printed 0.147  recomputed 0.1473  tol 5.000005e-04  [measured] phi, fraction of one ATP per held bit (formula sheet)  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  app:formulas:L631                  app:formulas:app_E_formulas:622  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] full surface on Met-A  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
 PASS  app:formulas:L637                  app:formulas:app_E_formulas:628  printed 0.330263  recomputed 0.330263  tol 5.000005e-07  [calibrated] frozen EPIC neutrophil reference, bits  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
@@ -5142,7 +5128,6 @@ PASS  app:formulas:L643                  app:formulas:app_E_formulas:634  printe
 PASS  app:formulas:L647                  app:formulas:app_E_formulas:638  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [calibrated] C-score healthy baseline  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
 PASS  app:formulas:L664                  app:formulas:app_E_formulas:655  printed 2.3\times10^{22}  recomputed 2.331939e+22  tol 5.000005e+20  [calc] M_eq at H0 = 67.16, solar masses
-PASS  app:formulas:L682                  app:formulas:app_E_formulas:673  printed 0.044  recomputed 0.0437494  tol 5.000005e-04  [derived] eps0 from phi and M  file CANON/iam_canon.json
 
 == Part 8: Appendices | app:derivations (appendices/app_C3_derivations.tex)
 PASS  app:derivations:L33                app:derivations:app_C3_derivations:33  printed (algebra)  recomputed True  [derived] dG/dt = sum p^2/m + sum F.r (one degree of freedom, F = m r'')
@@ -5778,4 +5763,4 @@ PASS  app:register:L73:1.55 \%           app:register:app_G_predictions_register
 PASS  app:register:L73:0.78 \%           app:register:app_G_predictions_register:73  printed 0.78 \%  recomputed 0.776789  tol 0.00500001  [openprob] COS-357: D lowered at z = 0, per cent
 PASS  app:register:L74:1.03              app:register:app_G_predictions_register:74  printed 1.03  recomputed 1.03045  tol 0.00500001  [openprob] COS-365: ISW amplitude ratio A_ISW
 
-SUMMARY  PASS 4650  FAIL 0  (heavy, read from committed outputs: 939)  inventoried-not-run 1342  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4639  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1342  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

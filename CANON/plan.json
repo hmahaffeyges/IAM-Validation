@@ -261,7 +261,8 @@
    "task": "The book's Zenodo record, after steps 9 and 10",
    "done_when": "the draft uploaded by the box job with every book check passing; IAMPerformance publishes",
    "rows": [
-    "OTH-077"
+    "OTH-077",
+    "OTH-072"
    ],
    "status": "open",
    "done_date": "",
