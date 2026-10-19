@@ -227,14 +227,14 @@
    "record": "CANON/doc_audit.py"
   },
   {
-   "task": "Every number printed in the public documents (README, REFERENCE, Q&A, package README, commissioning report, SOP, reproduce README, atlas v2.1 README, showcase README) traced to a measurement record",
+   "task": "Every number printed in the public documents (README, REFERENCE, Q&A, package README, commissioning report, SOP, reproduce README, atlas v2.1 README, showcase README) traced to a measurement record (8 numbers that are not measurements explained: arXiv and article identifiers, a unit conversion, a vendor probe count, the atlas file's code; small counts are read by hand in step 9)",
    "done_when": "the untraced list is empty or each remaining number is labeled with its source",
    "rows": [
     "OTH-078"
    ],
-   "status": "open",
-   "done_date": "",
-   "record": ""
+   "status": "done",
+   "done_date": "2026-10-19",
+   "record": "CANON/number_trace.py"
   },
   {
    "task": "Every other table audited the way FOUR_DOMAINS was: bit tables, COMMISSIONING_REPORT, STATUS, EARLIER_RESULTS, and the book's tables",

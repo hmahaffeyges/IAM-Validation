@@ -1,0 +1,13 @@
+{
+ "untraced": [],
+ "explained": {
+  "348.15": "75 degrees C, the chip junction temperature, in kelvin (a unit conversion)",
+  "1206.4916": "an arXiv identifier",
+  "2507.05237": "an arXiv identifier",
+  "237901": "a journal article number (Phys. Rev. Lett. 88)",
+  "095206": "a journal article number (AIP Adv. 9)",
+  "085014": "a journal article number (AIP Adv. 10)",
+  "935,000": "the vendor's probe count for EPIC v2",
+  "65535": "the atlas file's 'not measured' code (largest unsigned 16-bit integer)"
+ }
+}
