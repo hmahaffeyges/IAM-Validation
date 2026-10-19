@@ -27604,7 +27604,8 @@
    "sources_of_row": [
     "session 2026-10-17 (author)"
    ],
-   "runs": []
+   "runs": [],
+   "notes": "2026-10-19: scenario 4 reading written before its files are opened (doors/data/SHOWCASE_V4/scenario4_colon.py: the atlas's commissioned colon tissue scorer, unchanged, at the 6,000 sealed blind sites, tolerance 0.05; box script showcase_v4_s4.sh)"
   },
   {
    "title": "Immune track, organ by organ: does the immune pattern in whole blood point to the organ under strain?",

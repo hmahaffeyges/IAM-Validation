@@ -2689,3 +2689,6 @@ Job i-0e48c47699a37bba0 (run 3) repeated the full-clone book check after four la
 
 ### 2026-10-19 · An ordered to-do list, and a gate against lost follow-ups (OTH-078)
 Showcase scenario 4 (healthy colon through the atlas's tissue scorer) was sealed and picked on 2026-10-18 and never run: its "Next" sat in OTH-073, a row marked run, and no list tracked it. CANON/plan.json now holds a numbered to-do list, rendered first in COMMISSIONING_PLAN.md; a step closes only with its date and an existing record, and plan_md.py --check (push gate) refuses any finished or running row whose next step names pending work unless the row is on the plan (tested: removing PHY-008 from step 6 is refused). New row OTH-078: the documentation audit (CANON/doc_audit.py), first pass 135 path findings in 14 names, 5 status wordings, 5 running rows naming no job, 16 finished rows with pending next steps.
+
+### 2026-10-19 · Showcase scenario 4 written (OTH-073, to-do step 1)
+The reading of three healthy colon arrays (GSE151732, adenoma history No, first 3 by accession) by IAM-Atlas v2.1's commissioned colon tissue use is written before any of the files is opened: chain Stage 1, then the U2 scorer unchanged at the 6,000 sealed composition-blind sites (tolerance 0.05, bar 0.90), per array and the three together. A showcase reading, not a test.
