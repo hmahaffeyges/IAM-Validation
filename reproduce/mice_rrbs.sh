@@ -29,9 +29,14 @@ if [ ! -s $REF.bwameth.c2t.sa ]; then
 fi
 for r in $(tail -n +2 $RUNS_CSV | cut -d, -f1); do
   [ -s pat/$r.pat.gz ] && continue; f=fq/$r.fastq.gz
-  m=$(/usr/bin/curl -s "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=$r&result=read_run&fields=fastq_md5,fastq_ftp" | tail -1); md5=$(echo "$m" | cut -f2); url=$(echo "$m" | cut -f3)
-  for t in 1 2 3 4 5; do [ -s $f ] && [ "$(md5sum $f | cut -d' ' -f1)" = "$md5" ] && break; /usr/bin/curl -s -o $f "https://$url"; sleep 5; done
-  [ "$(md5sum $f | cut -d' ' -f1)" = "$md5" ] || { echo "$r MD5_FAIL"; exit 19; }
+  # 2026-10-19 run 12: ENA's lookup service failed (HTTP 500) and the run stopped at 5 of 38. The address and MD5 of every file are in the
+  # committed run list (GSE77079_runs.csv, columns fastq_ftp and fastq_md5), so they are read from there; downloads retry with growing pauses.
+  url=$(awk -F, -v r=$r 'NR==1{for(i=1;i<=NF;i++){if($i=="fastq_ftp")a=i;if($i=="fastq_md5")b=i}} $1==r{print $a}' $RUNS_CSV)
+  md5=$(awk -F, -v r=$r 'NR==1{for(i=1;i<=NF;i++){if($i=="fastq_ftp")a=i;if($i=="fastq_md5")b=i}} $1==r{print $b}' $RUNS_CSV)
+  [ -n "$md5" ] && [ -n "$url" ] || { echo "$r not in the run list"; exit 19; }
+  for t in 1 2 3 4 5 6; do [ -s $f ] && [ "$(md5sum $f | cut -d' ' -f1)" = "$md5" ] && break
+    rm -f $f; /usr/bin/curl -sf --retry 3 -o $f "https://$url" || echo "$r download failed (try $t)"; sleep $((30 * t)); done
+  [ -s $f ] && [ "$(md5sum $f | cut -d' ' -f1)" = "$md5" ] || { echo "$r MD5_FAIL"; exit 19; }
   trim_galore --rrbs --cores 2 -o trim $f > logs/${r}_trim.log 2>&1 && rm -f $f
   bwameth.py --threads $T --reference $REF trim/${r}_trimmed.fq.gz 2>> logs/${r}_align.log | samtools view -b -o bam/$r.u.bam - || exit 20
   samtools sort -@ 8 -m 1G -T bam/$r.tmp -o bam/$r.bam bam/$r.u.bam && rm -f bam/$r.u.bam && samtools index bam/$r.bam

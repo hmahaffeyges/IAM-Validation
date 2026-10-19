@@ -3191,7 +3191,7 @@
    "date": "2026-10-19",
    "commit": "04eded42",
    "chain_commit": "04eded42",
-   "state": "running",
+   "state": "failed",
    "s3_code_prefix": "results/REPRODUCE_V1/code/run12/",
    "log": "results/REPRODUCE_V1/run12/status.txt",
    "machine": "on-demand m7a.4xlarge (16 cores, 64 GB), self-terminating (14-hour timer)",
@@ -3201,13 +3201,15 @@
     "OTH-076"
    ],
    "outputs": [
-    "results/REPRODUCE_V1/run12/status.txt"
+    "results/REPRODUCE_V1/run12/status.txt",
+    "results/REPRODUCE_V1/run12/out/mice/verdict.json",
+    "results/REPRODUCE_V1/run12/out/mice/logs/reads_to_pat.log"
    ],
    "files": [
     "reproduce/box/reproduce_fresh.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: commit confirmed on origin; code in S3 first; timer sized from the work (100 min index + 38 runs x 12 min + 25 %); watcher; about $10",
-   "note": "termination-protected; stops itself after 14 hours at most"
+   "note": "stopped at 5 of 38 runs: ENA's lookup service failed (HTTP 500) for SRR3111454; addresses and MD5s now read from the committed run list; rerun as run 13"
   }
  ],
  "not_jobs": {

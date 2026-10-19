@@ -1922,8 +1922,10 @@
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
-   "results/REPRODUCE_V1/run12/status.txt": true
+   "results/REPRODUCE_V1/run12/status.txt": true,
+   "results/REPRODUCE_V1/run12/out/mice/verdict.json": true,
+   "results/REPRODUCE_V1/run12/out/mice/logs/reads_to_pat.log": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "failed"
  }
 }

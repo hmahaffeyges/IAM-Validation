@@ -2640,3 +2640,6 @@ The author published both IAM-Atlas v2.1 records. New-version drafts: the resear
 
 ### 2026-10-19 · Q&A: four questions from recent atlases (OTH-075)
 From a search for work following the 2022 sequencing atlas of purified human cells: imprinted and allele-specific regions (a 2025 atlas of the same 39 cell types finds 325k bimodal regions, 11 % of CpGs) are not counted as held error by construction (molecules >= 6 CpG calls and >= 80 % methylated, isolated unmethylated calls only), checked in stage_q2_selfref.py; cfDNA fragmentation (the short-fragment synthetic run 2, 0.3 % of planted, bar 3 %; real plasma open); library chemistry (open); one person over time (open, planned). A source list with links added, no author names.
+
+### 2026-10-19 · reproduce/ mice run 12: ENA lookup down (OTH-076)
+Run 12 aligned 4 runs, then stopped (exit 19): ENA's filereport service answered HTTP 500 for SRR3111454, so the five download tries had no address. ENA's file server was up (the file answers 200, 369,993,367 bytes). Every address and MD5 is already in the committed run list (GSE77079_runs.csv), so mice_rrbs.sh now reads them from it and retries downloads with growing pauses. Rerun as run 13, termination-protected. Checklist line added.
