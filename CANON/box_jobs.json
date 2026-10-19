@@ -3145,7 +3145,7 @@
    "date": "2026-10-18",
    "commit": "730763c2",
    "chain_commit": "730763c2",
-   "state": "running",
+   "state": "cancelled",
    "s3_code_prefix": "results/REPRODUCE_V1/code/run10/",
    "log": "results/REPRODUCE_V1/run10/status.txt",
    "machine": "on-demand m7a.4xlarge (16 cores, 64 GB), self-terminating (8-hour timer)",
@@ -3154,14 +3154,13 @@
    "manifest": [
     "OTH-076"
    ],
-   "outputs": [
-    "results/REPRODUCE_V1/run10/status.txt"
-   ],
+   "outputs": [],
    "files": [
     "reproduce/box/reproduce_fresh.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: commit confirmed on origin; code in S3 first; status and progress to S3; watcher; tools installed first so an install error shows in minutes; about $5",
-   "note": "stops itself after 8 hours at most"
+   "note": "relaunched as run 11 with a 14-hour timer",
+   "no_outputs_reason": "terminated at 11 of 38 runs aligned: its 8-hour self-stop timer was shorter than the ~10 hours of work and cannot be extended (no SSM); 64 GB held, no memory error"
   }
  ],
  "not_jobs": {

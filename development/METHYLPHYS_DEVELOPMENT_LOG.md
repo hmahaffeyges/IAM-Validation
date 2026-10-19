@@ -2607,3 +2607,6 @@ Run 4, fresh clone, IAM-Atlas v2 from Zenodo and TCGA 450K arrays from the NCI G
 
 ### 2026-10-18 · reproduce/ iama_line PASS (OTH-076)
 Run 6, fresh clone: all 153 GEO .pat files (first pass, 8 parallel downloads) and the 5 ENCODE BAMs counted through chain Stage Q2; every count, the self-reference line and the sample-shape reference identical to the committed ones.
+
+### 2026-10-18 · reproduce/ mice run 10 terminated at 11 of 38; timer too short (OTH-076)
+On 64 GB the alignment ran cleanly (11 of the 38 GSE77079 runs in 131 minutes, about 12 minutes each), but the machine's 8-hour self-stop timer would have cut it off about 80 minutes before the end, and the timer cannot be changed on a running machine (SSM is not permitted for this AWS user). Terminated early to stop paying for hours that could not finish; relaunched as run 11 with a 14-hour timer. The registry now says about 10 hours; checklist line: size the timer from the work.

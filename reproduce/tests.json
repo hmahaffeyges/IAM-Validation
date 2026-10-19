@@ -241,7 +241,7 @@
     "GSE77079 (38 RRBS runs, ENA)",
     "UCSC mm10"
    ],
-   "time": "about 5 h on 16 cores",
+   "time": "about 10 h on 16 cores (mm10 index 100 min, then 38 runs at about 12 min each)",
    "disk": "40 GB",
    "record": "Biological_Physics/MethylPhys/doors/DEV_SAM_LEVER_01_OUTCOME.md",
    "steps": [
