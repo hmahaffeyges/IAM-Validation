@@ -27,10 +27,18 @@ M = json.load(open("CANON/manifest.json", encoding="utf-8"))["rows"]
 J = {j["job_id"]: j for j in json.load(open("CANON/box_jobs.json", encoding="utf-8"))["jobs"]}
 COMM = json.load(open("CANON/commissioning.json", encoding="utf-8"))["instruments"]
 COMMISSIONED = {"Met-A": "neutrophils", "C-Score": "whole blood", "IAM-A": "CD8", "IAM-Atlas v2.1": "", "Deconvolver": ""}
+HONEST = re.compile(r"not in the repository|not found|never (committed|written)|no (separate )?repo record|not in the repo|pasted|private draft|search file|in our S3|exists in doors/; status|No [A-Z_0-9]+\\.md exists", re.I)
 NOTCOMM = re.compile(r"(not (yet )?commissioned|stays? (in )?development|in development|still development|chain v3 (reads|is the)|position form (is|reads) (the )?(current|commissioned))", re.I)
 for r in M:
-    t = text_of({k: r.get(k) for k in ("title", "purpose", "record", "sources", "next_step", "notes", "data_status", "runs")})
+    t = text_of({k: r.get(k) for k in ("title", "purpose", "record", "sources", "next_step", "notes", "data_status")})
+    HIST = text_of(r.get("runs"))   # dated run notes are history: a file they name must have existed in the repository at some commit
+    for m in PATH.finditer(HIST):
+        p = m.group(1)
+        if resolve(p) is None and not subprocess.run(["git", "log", "--all", "--format=%h", "-1", "--", "*" + os.path.basename(p)], capture_output=True, text=True).stdout.strip() and not re.match(r"^(results|downloads|atlas_v21|s3:|GSE|GSM)", p):
+            add("A missing path (run note, never in the repository)", r["id"], p)
     for m in PATH.finditer(t):
+        _c = t[max(0, m.start() - 200): m.end() + 200]
+        if HONEST.search(_c): continue   # the text itself says the file is not in the repository
         p = m.group(1)
         if "/" not in p and p.count(".") == 1 and len(BASE.get(p, [])) == 1: continue   # a bare file name that names one file
         if resolve(p) is None and not (len(BASE.get(os.path.basename(p), [])) >= 1 and "/" not in p):

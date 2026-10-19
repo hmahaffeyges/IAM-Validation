@@ -398,7 +398,8 @@
    "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
    "Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_OUTCOME.md",
    "Biological_Physics/MethylPhys/doors/DEV_LINK_IAMA_METAA_01.md",
-   "Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md"
+   "Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md",
+   "archive/retired_root_2026-10-19/TODO_to_2026-10-16.md"
   ],
   "record_files_note": "Published editions, provenance scripts and verbatim records: kept as written, never edited to current language. 2026-10-19: dated records of the earlier held-error counter (every CpG in the denominator) keep the values they were sealed or written with; PROC_CHANNEL_01_OUTCOME.md carries the correction.",
   "cell_scope": {

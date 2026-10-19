@@ -96,7 +96,7 @@
    "cost": "search",
    "impact": 5,
    "depends_on": [],
-   "notes": "repo: TODO.md M6; CANON/next_jobs.json job 'M5, M6'. No doors note found. Pasted wording: 'C3 Healthy Met-A across ages (donors 20-39)', 10-10 item 7, 10-10 schedule item 3 'the gap between the 20-39 and 50-56 donor groups', 'Healthy Met-A across ages: answers the age question on the six young donors'.",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md M6; CANON/next_jobs.json job 'M5, M6'. No doors note found. Pasted wording: 'C3 Healthy Met-A across ages (donors 20-39)', 10-10 item 7, 10-10 schedule item 3 'the gap between the 20-39 and 50-56 donor groups', 'Healthy Met-A across ages: answers the age question on the six young donors'.",
    "legacy_ids": [
     "M6",
     "C3 (10-11)",
@@ -335,7 +335,7 @@
    "depends_on": [
     "ATL: atlas v2.1 build and commissioning"
    ],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md; TODO.md M2, M3; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-13. Pasted wording: reviewer challenge 'Six arrays from one group's donor recruitment... A larger reference from more labs would be stronger.' TODO M2 names GSE224807 granulocytes as held-out; the 10-13 log names GSE72338 - check which is current. | possible duplicate of COM-METAA-008",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md; archive/retired_root_2026-10-19/TODO_to_2026-10-16.md M2, M3; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-13. Pasted wording: reviewer challenge 'Six arrays from one group's donor recruitment... A larger reference from more labs would be stronger.' TODO M2 names GSE224807 granulocytes as held-out; the 10-13 log names GSE72338 - check which is current. | possible duplicate of COM-METAA-008",
    "legacy_ids": [
     "M2",
     "M3"
@@ -453,7 +453,7 @@
     "Atlas use U3: blood composition (atlas_e) commissioning, bars 1-2",
     "SCO: composition truth set from another laboratory"
    ],
-   "notes": "TODO M1 names GSE127824 as the new lead; atlas_v21_plan.md assigns it as a U3 truth set (24 cord bloods, FACS). help_wanted asks for independent whole-blood EPIC arrays with flow counts. GSE167202 is unspent in data_spent.csv. | repo: Biological_Physics/MethylPhys/doors/DEV_COMPOSITION_TRUTH_04.md; TODO.md M1; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11. Pasted wording: 'R4a Met-A in whole blood back into the commissioned scope' (top priority 10-11), 'Whole blood (top priority) has no truth set yet', '1. Whole-blood Met-A back into the commissioned scope (new top priority, as you asked)'. GSE167202 inventory: in S3, IDAT, unspent, use truth set. GSE127824 inventory: use truth set, not in S3. | also listed as: Met-A whole blood back into the commissioned scope (bar 7 on an independent truth set)",
+   "notes": "TODO M1 names GSE127824 as the new lead; atlas_v21_plan.md assigns it as a U3 truth set (24 cord bloods, FACS). help_wanted asks for independent whole-blood EPIC arrays with flow counts. GSE167202 is unspent in data_spent.csv. | repo: Biological_Physics/MethylPhys/doors/DEV_COMPOSITION_TRUTH_04.md; archive/retired_root_2026-10-19/TODO_to_2026-10-16.md M1; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11. Pasted wording: 'R4a Met-A in whole blood back into the commissioned scope' (top priority 10-11), 'Whole blood (top priority) has no truth set yet', '1. Whole-blood Met-A back into the commissioned scope (new top priority, as you asked)'. GSE167202 inventory: in S3, IDAT, unspent, use truth set. GSE127824 inventory: use truth set, not in S3. | also listed as: Met-A whole blood back into the commissioned scope (bar 7 on an independent truth set)",
    "id": "COM-METAA-009",
    "sources_of_row": [
     "Commissioning",
@@ -744,7 +744,7 @@
    "cost": "laptop",
    "impact": 4,
    "depends_on": [],
-   "notes": "repo: TODO.md A11; Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11. Pasted wording: G4 'neuron check running (... arrays searched)'. | possible duplicate of COM-METAA-006",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md A11; Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11. Pasted wording: G4 'neuron check running (... arrays searched)'. | possible duplicate of COM-METAA-006",
    "legacy_ids": [
     "A11",
     "G4"
@@ -2153,7 +2153,7 @@
    "depends_on": [
     "IAM-A neuron reference sealed on sorted cells, read on two independent laboratories"
    ],
-   "notes": "help_wanted: healthy neutrophils sequenced whole-genome in a lab other than sequencing-atlas, 3 or more donors. Sources identified from metadata; not downloaded unless stated. | repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01.md (C4 row and stopping rule); TODO.md A3; CANON/next_jobs.json help_wanted[0]. Pasted wording: A3 'Other-lab healthy neutrophils... Search purified neutrophil WGBS/EM-seq, any lab'; 10-10 item 11; R1 C4 '>= 3 healthy donors, WGBS... GSE126754 (one donor, ~25x) as a spot check'; 10-08 'If that's what limits it, I'll search for more purified neutrophil WGBS before calling IAM-A commissioned.' GSE59163 is RRBS and IAM-A C-score fails on RRBS; P is measured on whole files - check fit. | also listed as: IAM-A healthy neutrophils from another laboratory (bar C4)",
+   "notes": "help_wanted: healthy neutrophils sequenced whole-genome in a lab other than sequencing-atlas, 3 or more donors. Sources identified from metadata; not downloaded unless stated. | repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01.md (C4 row and stopping rule); archive/retired_root_2026-10-19/TODO_to_2026-10-16.md A3; CANON/next_jobs.json help_wanted[0]. Pasted wording: A3 'Other-lab healthy neutrophils... Search purified neutrophil WGBS/EM-seq, any lab'; 10-10 item 11; R1 C4 '>= 3 healthy donors, WGBS... GSE126754 (one donor, ~25x) as a spot check'; 10-08 'If that's what limits it, I'll search for more purified neutrophil WGBS before calling IAM-A commissioned.' GSE59163 is RRBS and IAM-A C-score fails on RRBS; P is measured on whole files - check fit. | also listed as: IAM-A healthy neutrophils from another laboratory (bar C4)",
    "id": "COM-IAMA-007",
    "sources_of_row": [
     "Commissioning",
@@ -2235,7 +2235,7 @@
    "depends_on": [
     "COM-IAMA: cause of the across-laboratory failure"
    ],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01.md and _OUTCOME.md; results_register losses 2026-10-12. Pasted wording: A1 'Narrow scope, bars written first: sorted neutrophils, WGBS, pinned pipeline, same-run healthy references'; A2 'EpiQC sequencing (PRJNA646948)'; 10-10 item 5; 10-10 schedule item 2; 'decide C1 (conversion rule) on EpiQC identical DNA, write C2-C5 pass values from tests 1-2, seal, then one box run'; R1 C1-C5 table. TODO.md N1 (10-13) still says Stage B 55 of 71 running; the log and outcome note say scored 2026-10-12 on all 78 libraries - TODO N1 looks stale.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01.md and _OUTCOME.md; results_register losses 2026-10-12. Pasted wording: A1 'Narrow scope, bars written first: sorted neutrophils, WGBS, pinned pipeline, same-run healthy references'; A2 'EpiQC sequencing (PRJNA646948)'; 10-10 item 5; 10-10 schedule item 2; 'decide C1 (conversion rule) on EpiQC identical DNA, write C2-C5 pass values from tests 1-2, seal, then one box run'; R1 C1-C5 table. archive/retired_root_2026-10-19/TODO_to_2026-10-16.md N1 (10-13) still says Stage B 55 of 71 running; the log and outcome note say scored 2026-10-12 on all 78 libraries - TODO N1 looks stale.",
    "legacy_ids": [
     "A1",
     "A2",
@@ -2468,7 +2468,7 @@
    "depends_on": [
     "Neurons: post-mortem time check"
    ],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md; TODO.md A8; results_register decisions 2026-10-13. Pasted wording: G4 'Neurons: low end and non-dividing cells; neuron check running (sequencing-atlas, GSE96615, GSE108066; arrays searched); design note DEV-IAMA-NEURON-01 after the check'; R3 'sorted cortical neurons: GSE96615 (6 donors), GSE108066 (25 controls, windows only), sequencing-atlas Cortex-Neuron'. DISCREPANCY: the pasted accessions GSE96615/GSE108066 differ from the repo's GSE96612 (Feinberg, 6 donors) and GSE107729 (Yi, 25 controls); neither pasted accession is in MASTER_INVENTORY.csv. R3 also lists GSE262274 (one laboratory, non-pinned format) - see DAT hold-list row. | also in the pasted notes as: Neurons as IAM-A's second cell type (DEV-IAMA-NEURON-01)",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md; archive/retired_root_2026-10-19/TODO_to_2026-10-16.md A8; results_register decisions 2026-10-13. Pasted wording: G4 'Neurons: low end and non-dividing cells; neuron check running (sequencing-atlas, GSE96615, GSE108066; arrays searched); design note DEV-IAMA-NEURON-01 after the check'; R3 'sorted cortical neurons: GSE96615 (6 donors), GSE108066 (25 controls, windows only), sequencing-atlas Cortex-Neuron'. DISCREPANCY: the pasted accessions GSE96615/GSE108066 differ from the repo's GSE96612 (Feinberg, 6 donors) and GSE107729 (Yi, 25 controls); neither pasted accession is in MASTER_INVENTORY.csv. R3 also lists GSE262274 (one laboratory, non-pinned format) - see DAT hold-list row. | also in the pasted notes as: Neurons as IAM-A's second cell type (DEV-IAMA-NEURON-01)",
    "legacy_ids": [
     "A8",
     "G4",
@@ -2620,7 +2620,7 @@
     "G4",
     "L2"
    ],
-   "notes": "The division-rate lever (CANON/levers.json id division_rate) carries the falsifier; the lever section group may also list it. | repo: TODO.md A9; CANON/levers.json division_rate (falsifier: held error rising with age beyond 10 % while rates unchanged). Pasted wording: G4 'Neurons: low end and non-dividing cells'. | also listed as: Neurons: held error in non-dividing cells (derivation and age prediction)",
+   "notes": "The division-rate lever (CANON/levers.json id division_rate) carries the falsifier; the lever section group may also list it. | repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md A9; CANON/levers.json division_rate (falsifier: held error rising with age beyond 10 % while rates unchanged). Pasted wording: G4 'Neurons: low end and non-dividing cells'. | also listed as: Neurons: held error in non-dividing cells (derivation and age prediction)",
    "depends_on": [
     "COM-IAMA: IAM-A second cell type: sorted neurons"
    ],
@@ -2940,7 +2940,7 @@
    "depends_on": [
     "COM-IAMA: IAM-A commissioning on identical DNA"
    ],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_LINK_IAMA_METAA_01.md; TODO.md A6. Pasted wording: A6 'Met-A to IAM-A link as a standing sealed prediction... so far: dose series no result, healthy donors off curve B by up to 0.19'; R2 link test (GSE128733 + GSE128731, GSE86833 spent; ENCODE ENTEx 31 donor-tissue pairs, 27 unread, same-DNA not confirmed); 'The direct tie is the link test (A6)'. The 'off curve B by up to 0.19' figure was not found in the doors note. ENTEx is not in MASTER_INVENTORY.csv.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_LINK_IAMA_METAA_01.md; archive/retired_root_2026-10-19/TODO_to_2026-10-16.md A6. Pasted wording: A6 'Met-A to IAM-A link as a standing sealed prediction... so far: dose series no result, healthy donors off curve B by up to 0.19'; R2 link test (GSE128733 + GSE128731, GSE86833 spent; ENCODE ENTEx 31 donor-tissue pairs, 27 unread, same-DNA not confirmed); 'The direct tie is the link test (A6)'. The 'off curve B by up to 0.19' figure was not found in the doors note. ENTEx is not in MASTER_INVENTORY.csv.",
    "legacy_ids": [
     "A6",
     "R2",
@@ -2966,7 +2966,7 @@
    "cost": "laptop",
    "impact": 4,
    "depends_on": [],
-   "notes": "repo: TODO.md A10; Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md question 3. Not in the pasted notes by name; included as part of the pasted G4 neuron item.",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md A10; Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md question 3. Not in the pasted notes by name; included as part of the pasted G4 neuron item.",
    "legacy_ids": [
     "A10"
    ],
@@ -2996,7 +2996,7 @@
    "cost": "laptop",
    "impact": 4,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_DIRECTION_AUDIT_01.md; TODO.md A5. Pasted wording: A5 'Per-territory IAM-A (held vs gained)... Seal a prediction on MCF-7 territories before reading'. | possible duplicate of COM-IAMA-040",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_DIRECTION_AUDIT_01.md; archive/retired_root_2026-10-19/TODO_to_2026-10-16.md A5. Pasted wording: A5 'Per-territory IAM-A (held vs gained)... Seal a prediction on MCF-7 territories before reading'. | possible duplicate of COM-IAMA-040",
    "legacy_ids": [
     "A5"
    ],
@@ -3403,7 +3403,7 @@
    "legacy_ids": [
     "A7"
    ],
-   "notes": "No doors note found; accession not given in TODO.md (left empty).",
+   "notes": "No doors note found; accession not given in archive/retired_root_2026-10-19/TODO_to_2026-10-16.md (left empty).",
    "depends_on": [],
    "id": "COM-IAMA-043",
    "sources_of_row": [
@@ -3539,7 +3539,7 @@
    "cost": "laptop",
    "impact": 3,
    "record": "MANIFEST.md",
-   "notes": "Pasted A5: 'reader built and passed'. No dedicated doors note found for the per-territory prediction; repo: TODO.md A5 only. | possible duplicate of COM-IAMA-040",
+   "notes": "Pasted A5: 'reader built and passed'. No dedicated doors note found for the per-territory prediction; repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md A5 only. | possible duplicate of COM-IAMA-040",
    "legacy_ids": [
     "A5"
    ],
@@ -3622,7 +3622,7 @@
    "cost": "search",
    "impact": 2,
    "record": "MANIFEST.md",
-   "notes": "Pasted A7 only names it; no accession given in the notes. repo: TODO.md A7. | possible duplicate of COM-IAMA-043",
+   "notes": "Pasted A7 only names it; no accession given in the notes. repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md A7. | possible duplicate of COM-IAMA-043",
    "legacy_ids": [
     "A7"
    ],
@@ -3658,7 +3658,7 @@
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_ATLAS_COMMISSION_01.md; TODO.md AT3, AT5, AT6; next_jobs job 'AT3, AT5, AT6'. Pasted wording: 'the atlas itself isn't commissioned as a reference yet (STATUS 2b). That's a step before most Met-A expansions.' | 2026-10-17 wording only: the published reference atlases are described by their work and cited, not named in prose (author review); no number or bar changed | 2026-10-18 wording: the v2.1 commissioning note said seven public sources; the fit's sample table has 21 (final_samples_v21.csv); seven is atlas v2. No number or bar changed",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_ATLAS_COMMISSION_01.md; archive/retired_root_2026-10-19/TODO_to_2026-10-16.md AT3, AT5, AT6; next_jobs job 'AT3, AT5, AT6'. Pasted wording: 'the atlas itself isn't commissioned as a reference yet (STATUS 2b). That's a step before most Met-A expansions.' | 2026-10-17 wording only: the published reference atlases are described by their work and cited, not named in prose (author review); no number or bar changed | 2026-10-18 wording: the v2.1 commissioning note said seven public sources; the fit's sample table has 21 (final_samples_v21.csv); seven is atlas v2. No number or bar changed",
    "legacy_ids": [
     "AT3",
     "AT5",
@@ -3909,7 +3909,7 @@
    "cost": "none",
    "impact": 5,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-12. Pasted wording: 'The atlas. A reference of 74 healthy human cell types... The atlas's 90% intervals caught 92.7% of them. To our knowledge, no other public atlas...'. TODO.md N2 (10-13) still lists the deposit as awaiting author approval while the log says deposited 2026-10-12 - check.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-12. Pasted wording: 'The atlas. A reference of 74 healthy human cell types... The atlas's 90% intervals caught 92.7% of them. To our knowledge, no other public atlas...'. archive/retired_root_2026-10-19/TODO_to_2026-10-16.md N2 (10-13) still lists the deposit as awaiting author approval while the log says deposited 2026-10-12 - check.",
    "legacy_ids": [
     "N2",
     "AT1",
@@ -4039,7 +4039,7 @@
     {
      "date": "2026-09-29",
      "outcome": "success",
-     "note": "Finished atlas: 74 cells, 352 samples, distinctness gate; postbuild tests began 2026-09-29 (postbuild/README.md)."
+     "note": "Finished atlas: 74 cells, 352 samples, distinctness gate; postbuild tests began 2026-09-29 (Biological_Physics/MethylPhys/atlas/v2/postbuild/README.md)."
     }
    ],
    "next_step": "none",
@@ -4075,7 +4075,7 @@
     "AT2",
     "N2"
    ],
-   "notes": "TODO.md (updated 2026-10-13) still lists N2 as awaiting author approval; the development log 2026-10-12 and the 10-13 daylog record it as deposited. TODO appears stale on this item.",
+   "notes": "archive/retired_root_2026-10-19/TODO_to_2026-10-16.md (updated 2026-10-13) still lists N2 as awaiting author approval; the development log 2026-10-12 and the 10-13 daylog record it as deposited. TODO appears stale on this item.",
    "depends_on": [],
    "id": "ATL-011",
    "sources_of_row": [
@@ -4681,7 +4681,7 @@
    "depends_on": [
     "OTH: Stage 1 support for the later EPIC revision"
    ],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_ATLAS_LAVAGE_02.md; TODO.md C5. Pasted wording: C7 (10-11) 'Lavage set 2: Stage 1 on the newer EPIC revision'; 10-10 item 14 'Unblocks GSE206709'.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_ATLAS_LAVAGE_02.md; archive/retired_root_2026-10-19/TODO_to_2026-10-16.md C5. Pasted wording: C7 (10-11) 'Lavage set 2: Stage 1 on the newer EPIC revision'; 10-10 item 14 'Unblocks GSE206709'.",
    "legacy_ids": [
     "C5",
     "C7 (10-11)",
@@ -5642,7 +5642,7 @@
    "cost": "laptop",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_SYNTH_LEVERS_01.md simulation 7; TODO.md C6; next_jobs 'C6, sky'. Pasted wording: 10-09 schedule item 3; 10-10 item 15; C8 (10-11) 'Genome-wide reading, same-run references: write the commissioning bars'; 'Genome-wide reading: simulated'. | possible duplicate of CAN-013",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_SYNTH_LEVERS_01.md simulation 7; archive/retired_root_2026-10-19/TODO_to_2026-10-16.md C6; next_jobs 'C6, sky'. Pasted wording: 10-09 schedule item 3; 10-10 item 15; C8 (10-11) 'Genome-wide reading, same-run references: write the commissioning bars'; 'Genome-wide reading: simulated'. | possible duplicate of CAN-013",
    "legacy_ids": [
     "C6",
     "C8 (10-11)",
@@ -6058,7 +6058,7 @@
    "cost": "box",
    "impact": 4,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/CANDIDATES_2026-10-10.md; TODO.md C1, A4. None of the three accessions is in MASTER_INVENTORY.csv (repo rule requires it). Pasted wording: C1 (10-11), 10-10 item 6, 10-10 schedule item 1, A4. | possible duplicate of LEV-027",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/CANDIDATES_2026-10-10.md; archive/retired_root_2026-10-19/TODO_to_2026-10-16.md C1, A4. None of the three accessions is in MASTER_INVENTORY.csv (repo rule requires it). Pasted wording: C1 (10-11), 10-10 item 6, 10-10 schedule item 1, A4. | possible duplicate of LEV-027",
    "legacy_ids": [
     "C1",
     "A4",
@@ -6157,7 +6157,7 @@
     "L1",
     "next_jobs:C2, C9, C3"
    ],
-   "notes": "GSE199815 is a named candidate, public, not downloaded (inventory lists it only under DEV_SYNTH_LEVERS_01); data_status 'to_scout' because the 10-13 road-ahead says hibernator data 'may not be public; search first'. OPEN TENSION to resolve before sealing: CANON/levers.json falsifier says the same animal reading the SAME holding energy at 5 C and 37 C breaks the law, while the 2026-10-09 simulation labeled 'no torpor change' as the driven-bit PREDICTION (change only after renewal). TODO C2 says 'download and read as designed (B)'. Falsifier scope: law. | repo: Biological_Physics/MethylPhys/doors/DEV_SYNTH_LEVERS_01.md; Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md; CANON/levers.json temperature; TODO.md C2, L1. GSE199815 is in MASTER_INVENTORY.csv with no status. Pasted wording: C2 '(designed, 85 % odds)', 10-10 item 8, B5 '(85% odds)', 10-09 schedule item 7. The '85 %' figure was not found in the repo (the repo gives power 0.67 for the passive picture). | also listed as: Temperature lever: hamster hibernation (same animal warm and cold)",
+   "notes": "GSE199815 is a named candidate, public, not downloaded (inventory lists it only under DEV_SYNTH_LEVERS_01); data_status 'to_scout' because the 10-13 road-ahead says hibernator data 'may not be public; search first'. OPEN TENSION to resolve before sealing: CANON/levers.json falsifier says the same animal reading the SAME holding energy at 5 C and 37 C breaks the law, while the 2026-10-09 simulation labeled 'no torpor change' as the driven-bit PREDICTION (change only after renewal). TODO C2 says 'download and read as designed (B)'. Falsifier scope: law. | repo: Biological_Physics/MethylPhys/doors/DEV_SYNTH_LEVERS_01.md; Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md; CANON/levers.json temperature; archive/retired_root_2026-10-19/TODO_to_2026-10-16.md C2, L1. GSE199815 is in MASTER_INVENTORY.csv with no status. Pasted wording: C2 '(designed, 85 % odds)', 10-10 item 8, B5 '(85% odds)', 10-09 schedule item 7. The '85 %' figure was not found in the repo (the repo gives power 0.67 for the passive picture). | also listed as: Temperature lever: hamster hibernation (same animal warm and cold)",
    "id": "LEV-005",
    "sources_of_row": [
     "Friday notes",
@@ -6299,7 +6299,7 @@
    "cost": "search",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: TODO.md A4 (named only). Pasted wording: A4 'DNMT1-reduced mice'; 10-10 item 16 'Second-direction SAM levers: DNMT1-reduced mice; methyl-donor diets'; 'A direct lever on the copier, e.g. DNMT1-reduced mice: IAM-A should rise with no change in SAM'.",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md A4 (named only). Pasted wording: A4 'DNMT1-reduced mice'; 10-10 item 16 'Second-direction SAM levers: DNMT1-reduced mice; methyl-donor diets'; 'A direct lever on the copier, e.g. DNMT1-reduced mice: IAM-A should rise with no change in SAM'.",
    "legacy_ids": [
     "A4",
     "16 (10-10)"
@@ -6358,7 +6358,7 @@
    "cost": "search",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md; TODO.md C10, L3; next_jobs help_wanted[3]. Pasted wording: B3 (10-09 list) 'Methionine restriction in cultured cells'; 'Methionine depletion (PRJDB12471): parked, underpowered by the physics'. Repo correction note 2026-10-13 rewords 'written only when DNA is copied' per the balance derivation.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md; archive/retired_root_2026-10-19/TODO_to_2026-10-16.md C10, L3; next_jobs help_wanted[3]. Pasted wording: B3 (10-09 list) 'Methionine restriction in cultured cells'; 'Methionine depletion (PRJDB12471): parked, underpowered by the physics'. Repo correction note 2026-10-13 rewords 'written only when DNA is copied' per the balance derivation.",
    "legacy_ids": [
     "C10",
     "L3",
@@ -6382,7 +6382,7 @@
    "cost": "search",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: TODO.md A4; CANON/levers.json methyl_supply (folate and B12 intervention arrays named). Pasted wording: 'Methyl-donor diets (betaine or folate up or down): SAM pushed both ways in one study'.",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md A4; CANON/levers.json methyl_supply (folate and B12 intervention arrays named). Pasted wording: 'Methyl-donor diets (betaine or folate up or down): SAM pushed both ways in one study'.",
    "legacy_ids": [
     "A4",
     "16 (10-10)",
@@ -6474,7 +6474,7 @@
    "cost": "laptop",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/CANDIDATES_2026-10-10.md (66 EPIC arrays, hTERT, arrays only: no IAM-A); Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md; TODO.md C4. GSE268145 in MASTER_INVENTORY.csv with no status. Pasted wording: C5 (10-11), 10-10 item 12, B4 (10-09 list) 'tests whether held error builds the way the law says' - the repo's 2026-10-13 balance correction changes this expectation.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/CANDIDATES_2026-10-10.md (66 EPIC arrays, hTERT, arrays only: no IAM-A); Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md; archive/retired_root_2026-10-19/TODO_to_2026-10-16.md C4. GSE268145 in MASTER_INVENTORY.csv with no status. Pasted wording: C5 (10-11), 10-10 item 12, B4 (10-09 list) 'tests whether held error builds the way the law says' - the repo's 2026-10-13 balance correction changes this expectation.",
    "legacy_ids": [
     "C4",
     "C5 (10-11)",
@@ -8446,7 +8446,7 @@
    "cost": "search",
    "impact": 2,
    "depends_on": [],
-   "notes": "repo: TODO.md C11; next_jobs ideas 'Memory of damage'; Biological_Physics/MethylPhys/doors/DEV_HORIZON_01.md mentions degron. Pasted wording: C12 'Washout memory (DNMT1 degron): needs a lab'; 10-10 item 22; 10-09 schedule item 8 'Point of no return (washout memory)'.",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md C11; next_jobs ideas 'Memory of damage'; Biological_Physics/MethylPhys/doors/DEV_HORIZON_01.md mentions degron. Pasted wording: C12 'Washout memory (DNMT1 degron): needs a lab'; 10-10 item 22; 10-09 schedule item 8 'Point of no return (washout memory)'.",
    "legacy_ids": [
     "C11",
     "C12 (10-11)",
@@ -9078,7 +9078,7 @@
    "legacy_ids": [
     "C1 (next_jobs label for this job)"
    ],
-   "notes": "next_jobs.json labels this job todo 'C1', which in TODO.md is the fatty-liver item; the label looks like a reuse and should be checked. The gap can only have cost detections, never manufactured one (direction argument). First use of the composition-aware flag: GSE184269 whole bloods, none past.",
+   "notes": "next_jobs.json labels this job todo 'C1', which in archive/retired_root_2026-10-19/TODO_to_2026-10-16.md is the fatty-liver item; the label looks like a reuse and should be checked. The gap can only have cost detections, never manufactured one (direction argument). First use of the composition-aware flag: GSE184269 whole bloods, none past.",
    "depends_on": [],
    "id": "TIS-003",
    "sources_of_row": [
@@ -9375,7 +9375,7 @@
    "cost": "search",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: TODO.md B8; next_jobs job 'B8, B6, B13'. No doors note found. Pasted wording: B8 (10-11), 10-10 item 10, D9 (10-09 list), 'Detection-limit test before any blood or stool early-detection claim', R5 'constructed mixtures for the detection limit'.",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md B8; next_jobs job 'B8, B6, B13'. No doors note found. Pasted wording: B8 (10-11), 10-10 item 10, D9 (10-09 list), 'Detection-limit test before any blood or stool early-detection claim', R5 'constructed mixtures for the detection limit'.",
    "legacy_ids": [
     "B8",
     "10 (10-10)",
@@ -9461,7 +9461,7 @@
    "depends_on": [
     "COM-METAA: Met-A on other purified blood cells"
    ],
-   "notes": "repo: TODO.md B7; data_spent.csv (all unspent, S3 A_blood_immune, IDAT). Pasted wording: B7 (10-11); R5 blood cancers (adds GSE315451; 'marrow and lymphoid healthy references').",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md B7; data_spent.csv (all unspent, S3 A_blood_immune, IDAT). Pasted wording: B7 (10-11); R5 blood cancers (adds GSE315451; 'marrow and lymphoid healthy references').",
    "legacy_ids": [
     "B7",
     "R5"
@@ -9564,7 +9564,7 @@
     "TIS: tumor dilution series",
     "SCO: healthy plasma reference"
    ],
-   "notes": "repo: TODO.md B6; data_spent.csv (GSE207998 and GSE292312 partly spent by class-era records; others unspent). Pasted wording: B6 (10-11) list as given; R5 early detection. GSE303825 and GSE303826 are expanded from the pasted 'GSE303824-26'; only GSE303824 was confirmed in the inventory.",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md B6; data_spent.csv (GSE207998 and GSE292312 partly spent by class-era records; others unspent). Pasted wording: B6 (10-11) list as given; R5 early detection. GSE303825 and GSE303826 are expanded from the pasted 'GSE303824-26'; only GSE303824 was confirmed in the inventory.",
    "legacy_ids": [
     "B6",
     "R5"
@@ -9623,7 +9623,7 @@
    "depends_on": [
     "TIS: colorectal replication"
    ],
-   "notes": "repo: TODO.md B4; data_spent.csv (partly spent: PROC-E2E-01 read 2 arrays, 2026-09-23). Pasted wording: B4 (10-11).",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md B4; data_spent.csv (partly spent: PROC-E2E-01 read 2 arrays, 2026-09-23). Pasted wording: B4 (10-11).",
    "legacy_ids": [
     "B4"
    ],
@@ -9679,7 +9679,7 @@
    "depends_on": [
     "hepatocytes into the atlas (next_jobs 'B5, B11, R4')"
    ],
-   "notes": "Both in S3 under downloads/C_tissue_tests/. GSE166212 partly spent (PROC-E2E-01 read 2 arrays); GSE304513 unspent. No doors note defines this test yet; the record is TODO.md B5. | repo: TODO.md B5; data_spent.csv (GSE166212 partly spent: PROC-E2E-01 read 2 arrays; GSE304513 unspent). Pasted wording: B5 (10-11). | also listed as: Colorectal GSE166212 (EPIC) and liver tissue GSE304513: read the designs",
+   "notes": "Both in S3 under downloads/C_tissue_tests/. GSE166212 partly spent (PROC-E2E-01 read 2 arrays); GSE304513 unspent. No doors note defines this test yet; the record is archive/retired_root_2026-10-19/TODO_to_2026-10-16.md B5. | repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md B5; data_spent.csv (GSE166212 partly spent: PROC-E2E-01 read 2 arrays; GSE304513 unspent). Pasted wording: B5 (10-11). | also listed as: Colorectal GSE166212 (EPIC) and liver tissue GSE304513: read the designs",
    "runs": [],
    "id": "TIS-021",
    "sources_of_row": [
@@ -9882,7 +9882,7 @@
    "cost": "box",
    "impact": 2,
    "depends_on": [],
-   "notes": "repo: TODO.md B10; Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_03.md (candidates, not designed). Pasted wording: 'Fingerprint replication: ... gain meter built after HepG2/A549'; 'These are cell lines. LNCaP, HepG2 and A549 have been cultured for decades'.",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md B10; Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_03.md (candidates, not designed). Pasted wording: 'Fingerprint replication: ... gain meter built after HepG2/A549'; 'These are cell lines. LNCaP, HepG2 and A549 have been cultured for decades'.",
    "legacy_ids": [
     "B10"
    ],
@@ -9978,7 +9978,7 @@
    "depends_on": [
     "COM-IAMA: IAM-A commissioning on identical DNA"
    ],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_PREREG.md (secondary, descriptive: oral SCC GSE212634/PRJNA876296, 4 pairs, WGBS and oxWGBS; class-era prereg - its results not opened here); TODO.md A7. Pasted wording: A7 '(S3 downloads/tumour_work: per-site tables only)'; 'The tumour_work/ provenance is in the repo (PROC_TUMOUR_01_PREREG.md)'. GSE212634 is in MASTER_INVENTORY.csv with no status; data_spent.csv lists GSE284325 as spent by PROC-Tumor-01.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_PREREG.md (secondary, descriptive: oral SCC GSE212634/PRJNA876296, 4 pairs, WGBS and oxWGBS; class-era prereg - its results not opened here); archive/retired_root_2026-10-19/TODO_to_2026-10-16.md A7. Pasted wording: A7 '(S3 downloads/tumour_work: per-site tables only)'; 'The tumour_work/ provenance is in the repo (PROC_TUMOUR_01_PREREG.md)'. GSE212634 is in MASTER_INVENTORY.csv with no status; data_spent.csv lists GSE284325 as spent by PROC-Tumor-01.",
    "legacy_ids": [
     "A7"
    ],
@@ -10825,7 +10825,7 @@
     "TIS: colon adenomas",
     "TIS: colorectal replication"
    ],
-   "notes": "repo: TODO.md G1; next_jobs ideas 'Where on the scale does cancer begin?'. Related repo test DEV-BREACH-01 (DCIS, scored 2026-10-13, B1 not met) is covered by other rows. Pasted wording: G1 (10-11). GSE199057 was later ruled not suitable (DEV-TISSUE-COLON-02).",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md G1; next_jobs ideas 'Where on the scale does cancer begin?'. Related repo test DEV-BREACH-01 (DCIS, scored 2026-10-13, B1 not met) is covered by other rows. Pasted wording: G1 (10-11). GSE199057 was later ruled not suitable (DEV-TISSUE-COLON-02).",
    "legacy_ids": [
     "G1",
     "AT8",
@@ -11103,7 +11103,7 @@
    "depends_on": [
     "BRE: where on the gauge does cancer begin (G1)"
    ],
-   "notes": "repo: TODO.md G2; next_jobs job 'G2, G3'. Class-era PROC_WARBURG_01 notes exist in doors (not opened, class era). Pasted wording: G2 (10-11).",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md G2; next_jobs job 'G2, G3'. Class-era PROC_WARBURG_01 notes exist in doors (not opened, class era). Pasted wording: G2 (10-11).",
    "legacy_ids": [
     "G2"
    ],
@@ -11387,7 +11387,7 @@
    "cost": "search",
    "impact": 2,
    "depends_on": [],
-   "notes": "repo: TODO.md G3; next_jobs ideas 'What reads below the healthy range?'. Pasted wording: G3 (10-11).",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md G3; next_jobs ideas 'What reads below the healthy range?'. Pasted wording: G3 (10-11).",
    "legacy_ids": [
     "G3"
    ],
@@ -17250,7 +17250,7 @@
    "purpose": "Checks which class-era test data sets can be reused under the current chain; the data can often be reused, the conclusions cannot. It matters because reuse saves downloads, and any reuse through the chain is a new measurement disclosed in one line.",
    "instrument_or_term": "data inventory",
    "sources": [
-    "old_val_datasets.csv"
+    "CANON/data_spent.csv"
    ],
    "data_status": "none_needed",
    "record": "CANON/data_spent.csv",
@@ -17266,7 +17266,7 @@
    "cost": "none",
    "impact": 2,
    "depends_on": [],
-   "notes": "repo: CANON/data_spent.csv (source 'old_val_reuse 2026-10-11'). Counts as stated in the pasted notes; class-era VAL results were not opened (author blinding). TODO V1-V2 blind class-era results until current testing is done.",
+   "notes": "repo: CANON/data_spent.csv (source 'old_val_reuse 2026-10-11'). Counts as stated in the pasted notes; class-era VAL results were not opened (author blinding). TODO V1-V2 blind class-era results until current testing is done. | source list: old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv)",
    "legacy_ids": [
     "V1",
     "V2"
@@ -17297,7 +17297,7 @@
    "cost": "none",
    "impact": 2,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [
     "B2"
    ],
@@ -17327,7 +17327,7 @@
    "cost": "laptop",
    "impact": 2,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [
     "B11"
    ],
@@ -17351,7 +17351,7 @@
    "cost": "laptop",
    "impact": 2,
    "depends_on": [],
-   "notes": "Test outcome: NOT SUITABLE (data in hand, tumors unread). | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "Test outcome: NOT SUITABLE (data in hand, tumors unread). | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [
     "B12",
     "N5"
@@ -17376,7 +17376,7 @@
    "cost": "laptop",
    "impact": 2,
    "depends_on": [],
-   "notes": "Test outcome: NOT SUITABLE (data in hand, tumors unread). | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "Test outcome: NOT SUITABLE (data in hand, tumors unread). | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [
     "B12"
    ],
@@ -17492,7 +17492,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "Inventory entry is a named group or derived product, not a single accession. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "Inventory entry is a named group or derived product, not a single accession. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-163",
    "sources_of_row": [
@@ -17586,7 +17586,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-167",
    "sources_of_row": [
@@ -17669,7 +17669,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-170",
    "sources_of_row": [
@@ -17691,7 +17691,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-171",
    "sources_of_row": [
@@ -17761,7 +17761,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "Listed in CANON/data_spent.csv but not in the S3 register: not downloaded under the current chain. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "Listed in CANON/data_spent.csv but not in the S3 register: not downloaded under the current chain. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-174",
    "sources_of_row": [
@@ -17783,7 +17783,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-175",
    "sources_of_row": [
@@ -17805,7 +17805,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-176",
    "sources_of_row": [
@@ -17851,7 +17851,7 @@
    "cost": "none",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-178",
    "sources_of_row": [
@@ -17952,7 +17952,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-182",
    "sources_of_row": [
@@ -18074,7 +18074,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-187",
    "sources_of_row": [
@@ -18096,7 +18096,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-188",
    "sources_of_row": [
@@ -18142,7 +18142,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-190",
    "sources_of_row": [
@@ -18186,7 +18186,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-192",
    "sources_of_row": [
@@ -18208,7 +18208,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-193",
    "sources_of_row": [
@@ -18230,7 +18230,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-194",
    "sources_of_row": [
@@ -18252,7 +18252,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-195",
    "sources_of_row": [
@@ -18298,7 +18298,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-197",
    "sources_of_row": [
@@ -18372,7 +18372,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-200",
    "sources_of_row": [
@@ -18394,7 +18394,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "Listed in CANON/data_spent.csv but not in the S3 register: not downloaded under the current chain. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "Listed in CANON/data_spent.csv but not in the S3 register: not downloaded under the current chain. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-201",
    "sources_of_row": [
@@ -18444,7 +18444,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-203",
    "sources_of_row": [
@@ -18466,7 +18466,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-204",
    "sources_of_row": [
@@ -18516,7 +18516,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-206",
    "sources_of_row": [
@@ -18538,7 +18538,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-207",
    "sources_of_row": [
@@ -18566,7 +18566,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-208",
    "sources_of_row": [
@@ -18610,7 +18610,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-210",
    "sources_of_row": [
@@ -18656,7 +18656,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-212",
    "sources_of_row": [
@@ -18726,7 +18726,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-214",
    "sources_of_row": [
@@ -18748,7 +18748,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-215",
    "sources_of_row": [
@@ -18798,7 +18798,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-217",
    "sources_of_row": [
@@ -18820,7 +18820,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-218",
    "sources_of_row": [
@@ -18898,7 +18898,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-221",
    "sources_of_row": [
@@ -18920,7 +18920,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "Gold-mine map use: not usable (cultured with no uncultured comparison). Independent of atlas groups: yes. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "Gold-mine map use: not usable (cultured with no uncultured comparison). Independent of atlas groups: yes. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-222",
    "sources_of_row": [
@@ -19040,7 +19040,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-224",
    "sources_of_row": [
@@ -19062,7 +19062,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-225",
    "sources_of_row": [
@@ -19112,7 +19112,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "Gold-mine map use: not usable (not purified (cervico-vaginal self-samples)). Independent of atlas groups: yes. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "Gold-mine map use: not usable (not purified (cervico-vaginal self-samples)). Independent of atlas groups: yes. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-227",
    "sources_of_row": [
@@ -19591,7 +19591,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "Inventory entry is a named group or derived product, not a single accession. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "Inventory entry is a named group or derived product, not a single accession. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-246",
    "sources_of_row": [
@@ -19637,7 +19637,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "Inventory entry is a named group or derived product, not a single accession. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "Inventory entry is a named group or derived product, not a single accession. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-248",
    "sources_of_row": [
@@ -19659,7 +19659,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-249",
    "sources_of_row": [
@@ -19681,7 +19681,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-250",
    "sources_of_row": [
@@ -19703,7 +19703,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-251",
    "sources_of_row": [
@@ -19725,7 +19725,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-252",
    "sources_of_row": [
@@ -19747,7 +19747,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-253",
    "sources_of_row": [
@@ -19769,7 +19769,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-254",
    "sources_of_row": [
@@ -19791,7 +19791,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-255",
    "sources_of_row": [
@@ -19813,7 +19813,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-256",
    "sources_of_row": [
@@ -19835,7 +19835,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "Listed in CANON/data_spent.csv but not in the S3 register: not downloaded under the current chain. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "Listed in CANON/data_spent.csv but not in the S3 register: not downloaded under the current chain. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-257",
    "sources_of_row": [
@@ -19879,7 +19879,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "Inventory entry is a named group or derived product, not a single accession. Listed in CANON/data_spent.csv but not in the S3 register: not downloaded under the current chain. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv)); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "Inventory entry is a named group or derived product, not a single accession. Listed in CANON/data_spent.csv but not in the S3 register: not downloaded under the current chain. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (old VAL / H_min tests (old_val_datasets.csv (the author's pasted list of earlier validation sets, not in the repository; its rows are in CANON/data_spent.csv))); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [],
    "id": "DAT-259",
    "sources_of_row": [
@@ -20185,7 +20185,7 @@
     "A11",
     "L2"
    ],
-   "notes": "Exeter sets GSE234520/GSE279509: healthy subset not in GEO; possible donor overlap with the Maastricht sets. GSE96612 donor age, sex and PMI are in the paper supplement only. BA9 alone is 6 runs, 188 GB; GSE107729 is 3.0 TB (DEV_IAMA_NEURON_01.md). None of the listed accessions is in CANON/data_spent.csv. Candidates from candidate_datasets_2026-10-13.csv subline B2 (4 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). None flagged spent.",
+   "notes": "Exeter sets GSE234520/GSE279509: healthy subset not in GEO; possible donor overlap with the Maastricht sets. GSE96612 donor age, sex and PMI are in the paper supplement only. BA9 alone is 6 runs, 188 GB; GSE107729 is 3.0 TB (DEV_IAMA_NEURON_01.md). None of the listed accessions is in CANON/data_spent.csv. Candidates from candidate_datasets_2026-10-13.csv (a search file named in DEV_FIELD_01.md, not in the repository) subline B2 (4 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). None flagged spent.",
    "depends_on": [],
    "id": "SCO-006",
    "sources_of_row": [
@@ -20417,7 +20417,7 @@
    "legacy_ids": [
     "AT12"
    ],
-   "notes": "TODO.md still shows AT12 as \"sub-agent running\"; the development log of 2026-10-12 records the map as committed.",
+   "notes": "archive/retired_root_2026-10-19/TODO_to_2026-10-16.md still shows AT12 as \"sub-agent running\"; the development log of 2026-10-12 records the map as committed.",
    "depends_on": [],
    "cost": "search",
    "id": "SCO-012",
@@ -20686,13 +20686,13 @@
      "note": "current committed table: 447 data sets (89 in S3, 39 chain-readable, 187 public not downloaded, 189 read before)"
     }
    ],
-   "next_step": "Close the register gaps found in this manifest pass: reads not in CANON/data_spent.csv (GSE184269, GSE133062, GSE94785, GSE197512, GSE179847, GSE82234, and sets read only per outcome notes such as GSE87571, GSE63409); accessions named in TODO.md or doors notes but not in the inventory.",
+   "next_step": "Close the register gaps found in this manifest pass: reads not in CANON/data_spent.csv (GSE184269, GSE133062, GSE94785, GSE197512, GSE179847, GSE82234, and sets read only per outcome notes such as GSE87571, GSE63409); accessions named in archive/retired_root_2026-10-19/TODO_to_2026-10-16.md or doors notes but not in the inventory.",
    "cost": "laptop",
    "impact": 4,
    "legacy_ids": [
     "AT13"
    ],
-   "notes": "Accessions named in doors notes, TODO.md or the log but absent from MASTER_INVENTORY.csv (this pass): E-MTAB-7309, GSE112611, GSE116482, GSE182919, GSE184202, GSE186383, GSE215353, GSE231727, GSE2333, GSE233768, GSE237503, GSE291053, GSE297935, GSE34838, GSE48684, GSE61151, GSE63027, GSE63062, GSE85772, GSE9809, PRJNA193508, SRP101887, SRP356148, SRP403075. ENCODE file and experiment IDs (ENCFF/ENCSR) are covered only by the inventory's grouped \"ENCODE\" entries.",
+   "notes": "Accessions named in doors notes, archive/retired_root_2026-10-19/TODO_to_2026-10-16.md or the log but absent from MASTER_INVENTORY.csv (this pass): E-MTAB-7309, GSE112611, GSE116482, GSE182919, GSE184202, GSE186383, GSE215353, GSE231727, GSE2333, GSE233768, GSE237503, GSE291053, GSE297935, GSE34838, GSE48684, GSE61151, GSE63027, GSE63062, GSE85772, GSE9809, PRJNA193508, SRP101887, SRP356148, SRP403075. ENCODE file and experiment IDs (ENCFF/ENCSR) are covered only by the inventory's grouped \"ENCODE\" entries.",
    "depends_on": [],
    "id": "SCO-020",
    "sources_of_row": [
@@ -21070,7 +21070,7 @@
    "legacy_ids": [
     "H3"
    ],
-   "notes": "Candidates from candidate_datasets_2026-10-13.csv subline B1 (13 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). None flagged spent.; possible duplicate of PHY-006 (same test, DEV-ERASE-01)",
+   "notes": "Candidates from candidate_datasets_2026-10-13.csv (a search file named in DEV_FIELD_01.md, not in the repository) subline B1 (13 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). None flagged spent.; possible duplicate of PHY-006 (same test, DEV-ERASE-01)",
    "depends_on": [],
    "cost": "search",
    "id": "SCO-033",
@@ -21126,7 +21126,7 @@
    "depends_on": [
     "ATL: atlas commissioning as a healthy-reference source"
    ],
-   "notes": "repo: TODO.md B6 ('needs healthy cfDNA references first'); CANON/instruments.json FRAGMENT-TAIL ('a healthy plasma reference does not exist yet'). Pasted wording: B6 'Needs a healthy plasma reference and a composition model (blood cells plus shed tissue)'.",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md B6 ('needs healthy cfDNA references first'); CANON/instruments.json FRAGMENT-TAIL ('a healthy plasma reference does not exist yet'). Pasted wording: B6 'Needs a healthy plasma reference and a composition model (blood cells plus shed tissue)'.",
    "legacy_ids": [
     "B6"
    ],
@@ -21294,7 +21294,7 @@
    "legacy_ids": [
     "H3"
    ],
-   "notes": "Candidates from candidate_datasets_2026-10-13.csv subline B3 (3 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). SPENT or spent-adjacent: GSE98732 (spent-adjacent (WGBS may duplicate SPENT GSE86833/PRJNA342657)).",
+   "notes": "Candidates from candidate_datasets_2026-10-13.csv (a search file named in DEV_FIELD_01.md, not in the repository) subline B3 (3 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). SPENT or spent-adjacent: GSE98732 (spent-adjacent (WGBS may duplicate SPENT GSE86833/PRJNA342657)).",
    "depends_on": [],
    "cost": "search",
    "id": "SCO-041",
@@ -21384,7 +21384,7 @@
    ],
    "next_step": "Find kinetics data whose strand assignment does not depend on methylation, or test GSE116482 (DNMT1-only cells) after a synthetic check.",
    "impact": 3,
-   "notes": "GSE131098 data checked (event files 64-106 MB each), nothing scored. GSE116482 is listed in CANDIDATES_2026-10-10.md and in candidate_datasets_2026-10-13.csv but not in MASTER_INVENTORY.csv.",
+   "notes": "GSE131098 data checked (event files 64-106 MB each), nothing scored. GSE116482 is listed in CANDIDATES_2026-10-10.md and in candidate_datasets_2026-10-13.csv (a search file named in DEV_FIELD_01.md, not in the repository) but not in MASTER_INVENTORY.csv.",
    "depends_on": [],
    "legacy_ids": [],
    "cost": "search",
@@ -21532,7 +21532,7 @@
    "legacy_ids": [
     "H2"
    ],
-   "notes": "Candidates from candidate_datasets_2026-10-13.csv subline A1 (8 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). SPENT or spent-adjacent: GSE281307 (now spent).",
+   "notes": "Candidates from candidate_datasets_2026-10-13.csv (a search file named in DEV_FIELD_01.md, not in the repository) subline A1 (8 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). SPENT or spent-adjacent: GSE281307 (now spent).",
    "depends_on": [],
    "cost": "search",
    "id": "SCO-049",
@@ -21635,7 +21635,7 @@
    "legacy_ids": [
     "H1"
    ],
-   "notes": "Candidates from candidate_datasets_2026-10-13.csv subline D1 (6 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). SPENT or spent-adjacent: GSE287331 (now spent); GSE69914 (SPENT: GSE69914; now partly spent); GSE131013 (SPENT: GSE131013; now partly spent). Candidates from candidate_datasets_2026-10-13.csv subline D2 (8 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). None flagged spent.",
+   "notes": "Candidates from candidate_datasets_2026-10-13.csv (a search file named in DEV_FIELD_01.md, not in the repository) subline D1 (6 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). SPENT or spent-adjacent: GSE287331 (now spent); GSE69914 (SPENT: GSE69914; now partly spent); GSE131013 (SPENT: GSE131013; now partly spent). Candidates from candidate_datasets_2026-10-13.csv (a search file named in DEV_FIELD_01.md, not in the repository) subline D2 (8 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). None flagged spent.",
    "depends_on": [],
    "cost": "search",
    "id": "SCO-052",
@@ -21758,7 +21758,7 @@
    "legacy_ids": [
     "H7"
    ],
-   "notes": "Only TODO.md names this item; no design note yet.",
+   "notes": "Only archive/retired_root_2026-10-19/TODO_to_2026-10-16.md names this item; no design note yet.",
    "depends_on": [],
    "runs": [],
    "cost": "search",
@@ -21886,7 +21886,7 @@
    "depends_on": [
     "IAM-A commissioning (falsifier 7)"
    ],
-   "notes": "Candidates from candidate_datasets_2026-10-13.csv subline A2 (13 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). None flagged spent. GSE48684 (normal, adenoma, carcinoma, 450K) is also named in SUBSTRATE_STRATEGY.md. Spent check (CANON/data_spent.csv and log): GSE288652: partly spent.",
+   "notes": "Candidates from candidate_datasets_2026-10-13.csv (a search file named in DEV_FIELD_01.md, not in the repository) subline A2 (13 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). None flagged spent. GSE48684 (normal, adenoma, carcinoma, 450K) is also named in SUBSTRATE_STRATEGY.md. Spent check (CANON/data_spent.csv and log): GSE288652: partly spent.",
    "cost": "search",
    "id": "SCO-060",
    "sources_of_row": [
@@ -22002,7 +22002,7 @@
    "legacy_ids": [
     "H8"
    ],
-   "notes": "Candidates from candidate_datasets_2026-10-13.csv subline C3 (4 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). None flagged spent.",
+   "notes": "Candidates from candidate_datasets_2026-10-13.csv (a search file named in DEV_FIELD_01.md, not in the repository) subline C3 (4 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). None flagged spent.",
    "depends_on": [],
    "cost": "search",
    "id": "SCO-064",
@@ -22033,7 +22033,7 @@
    "legacy_ids": [
     "H8"
    ],
-   "notes": "Candidates from candidate_datasets_2026-10-13.csv subline C2 (2 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). None flagged spent.",
+   "notes": "Candidates from candidate_datasets_2026-10-13.csv (a search file named in DEV_FIELD_01.md, not in the repository) subline C2 (2 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). None flagged spent.",
    "depends_on": [],
    "cost": "search",
    "id": "SCO-065",
@@ -22071,7 +22071,7 @@
    "legacy_ids": [
     "H8"
    ],
-   "notes": "Candidates from candidate_datasets_2026-10-13.csv subline C1 (9 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). None flagged spent.",
+   "notes": "Candidates from candidate_datasets_2026-10-13.csv (a search file named in DEV_FIELD_01.md, not in the repository) subline C1 (9 rows, metadata only, GEO-centric search with declared limits; that file is a session artifact, not committed to the repo; the search is summarized in the development log 2026-10-13). None flagged spent.",
    "depends_on": [],
    "cost": "search",
    "id": "SCO-066",
@@ -22484,7 +22484,7 @@
    "depends_on": [
     "COM-IAMA: IAM-A commissioning on identical DNA"
    ],
-   "notes": "repo: TODO.md B9, R3, R4; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 'Roadmap: replication goal replaces the outside-lab item'. Pasted wording: B9 (10-11); E11 (10-09 list) 'One commissioning record per instrument... reproducible from the repo with one command'.",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md B9, R3, R4; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 'Roadmap: replication goal replaces the outside-lab item'. Pasted wording: B9 (10-11); E11 (10-09 list) 'One commissioning record per instrument... reproducible from the repo with one command'.",
    "legacy_ids": [
     "B9",
     "R3",
@@ -22517,7 +22517,7 @@
    "depends_on": [
     "COM-METAA: Met-A on 450K purified neutrophils"
    ],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_METAA_450K_01.md; TODO.md C8. Pasted wording: 10-09 schedule item 2; C11 (10-11) 'blocked (slide batch)'; 10-10 item 19.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_METAA_450K_01.md; archive/retired_root_2026-10-19/TODO_to_2026-10-16.md C8. Pasted wording: 10-09 schedule item 2; C11 (10-11) 'blocked (slide batch)'; 10-10 item 19.",
    "legacy_ids": [
     "C8",
     "C11 (10-11)",
@@ -22541,7 +22541,7 @@
    "cost": "",
    "impact": 2,
    "record": "",
-   "notes": "carried from TODO.md, not matched by the sub-agents",
+   "notes": "carried from archive/retired_root_2026-10-19/TODO_to_2026-10-16.md, not matched by the sub-agents",
    "legacy_ids": [
     "R6"
    ],
@@ -22600,7 +22600,7 @@
    "cost": "",
    "impact": 2,
    "record": "",
-   "notes": "carried from TODO.md, not matched by the sub-agents",
+   "notes": "carried from archive/retired_root_2026-10-19/TODO_to_2026-10-16.md, not matched by the sub-agents",
    "legacy_ids": [
     "N3"
    ],
@@ -22628,7 +22628,7 @@
     "COM-METAA: Met-A on isolated neutrophils",
     "COM-IAMA: IAM-A commissioning on identical DNA"
    ],
-   "notes": "repo: TODO.md C9; next_jobs later (dogs, fish). Pasted wording: C13 (10-11), 10-10 item 23, 10-09 schedule item 9, 10-08 'your order: blood diseases, plasma, tissue, stool, animals and fish'.",
+   "notes": "repo: archive/retired_root_2026-10-19/TODO_to_2026-10-16.md C9; next_jobs later (dogs, fish). Pasted wording: C13 (10-11), 10-10 item 23, 10-09 schedule item 9, 10-08 'your order: blood diseases, plasma, tissue, stool, animals and fish'.",
    "legacy_ids": [
     "C9",
     "C13 (10-11)",
@@ -22652,7 +22652,7 @@
    "cost": "",
    "impact": 2,
    "record": "",
-   "notes": "carried from TODO.md, not matched by the sub-agents",
+   "notes": "carried from archive/retired_root_2026-10-19/TODO_to_2026-10-16.md, not matched by the sub-agents",
    "legacy_ids": [
     "O4"
    ],
@@ -22674,7 +22674,7 @@
    "cost": "",
    "impact": 2,
    "record": "",
-   "notes": "carried from TODO.md, not matched by the sub-agents",
+   "notes": "carried from archive/retired_root_2026-10-19/TODO_to_2026-10-16.md, not matched by the sub-agents",
    "legacy_ids": [
     "N4"
    ],
@@ -22725,7 +22725,7 @@
    "cost": "",
    "impact": 2,
    "record": "",
-   "notes": "carried from TODO.md, not matched by the sub-agents",
+   "notes": "carried from archive/retired_root_2026-10-19/TODO_to_2026-10-16.md, not matched by the sub-agents",
    "legacy_ids": [
     "O3"
    ],
@@ -22782,7 +22782,7 @@
    "cost": "",
    "impact": 2,
    "record": "",
-   "notes": "carried from TODO.md, not matched by the sub-agents",
+   "notes": "carried from archive/retired_root_2026-10-19/TODO_to_2026-10-16.md, not matched by the sub-agents",
    "legacy_ids": [
     "R7"
    ],
@@ -22804,7 +22804,7 @@
    "cost": "",
    "impact": 2,
    "record": "",
-   "notes": "carried from TODO.md, not matched by the sub-agents",
+   "notes": "carried from archive/retired_root_2026-10-19/TODO_to_2026-10-16.md, not matched by the sub-agents",
    "legacy_ids": [
     "O2"
    ],
@@ -22837,7 +22837,7 @@
    "cost": "laptop",
    "impact": 2,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10 'Chain Stage 1 limit found'; TODO.md C5. Pasted wording: C7/14 'Add the manifest revision'; 'IDAT revision check first' (GSE153712, GSE283951).",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10 'Chain Stage 1 limit found'; archive/retired_root_2026-10-19/TODO_to_2026-10-16.md C5. Pasted wording: C7/14 'Add the manifest revision'; 'IDAT revision check first' (GSE153712, GSE283951).",
    "legacy_ids": [
     "C5",
     "C7 (10-11)",
@@ -22939,7 +22939,7 @@
    "cost": "",
    "impact": 2,
    "record": "",
-   "notes": "carried from TODO.md, not matched by the sub-agents",
+   "notes": "carried from archive/retired_root_2026-10-19/TODO_to_2026-10-16.md, not matched by the sub-agents",
    "legacy_ids": [
     "O5"
    ],
@@ -23053,7 +23053,7 @@
    "cost": "none",
    "impact": 1,
    "depends_on": [],
-   "notes": "Pasted only. Pasted wording: 'Readiness stages for data sets are on the board Biological_Physics/MethylPhys/doors/READY_TO_TEST.md.' The file was not found in the repo snapshot read for this task (commit 03ba881 tarball); it may have been replaced by MASTER_INVENTORY.md - not confirmed. | record named but not found in the repository: pasted notes vcb9d0412_pasted-text-2026-10-13T18-37-41.txt (no repo record)",
+   "notes": "Pasted only. Pasted wording: 'Readiness stages for data sets are on the board Biological_Physics/MethylPhys/doors/READY_TO_TEST.md (deleted 2026-10-12, commit 3d59ce7b; not in the repository).' The file was not found in the repo snapshot read for this task (commit 03ba881 tarball); it may have been replaced by MASTER_INVENTORY.md - not confirmed. | record named but not found in the repository: pasted notes vcb9d0412_pasted-text-2026-10-13T18-37-41.txt (no repo record)",
    "legacy_ids": [],
    "id": "OTH-023",
    "sources_of_row": [
@@ -27284,7 +27284,8 @@
      "chain": "15c31c203bf7",
      "latest_utc": "2026-10-17T01:09:35Z"
     }
-   ]
+   ],
+   "notes": null
   },
   {
    "id": "ATL-066",
@@ -27386,7 +27387,8 @@
    "legacy_ids": [],
    "sources_of_row": [
     "author request 2026-10-13"
-   ]
+   ],
+   "notes": null
   },
   {
    "title": "The first commissioned chain (chain v4): one run reads a sample through every commissioned instrument",
@@ -27414,7 +27416,8 @@
    "id": "OTH-068",
    "sources_of_row": [
     "session 2026-10-16"
-   ]
+   ],
+   "notes": null
   },
   {
    "title": "The report, professional, with the C-score drawn on the sphere (HEALPix)",
@@ -27517,7 +27520,8 @@
    "id": "OTH-070",
    "sources_of_row": [
     "session 2026-10-16"
-   ]
+   ],
+   "notes": null
   },
   {
    "title": "Front page and repository: the commissioned chain front and center",
@@ -27538,7 +27542,7 @@
    "sources_of_row": [
     "session 2026-10-16"
    ],
-   "notes": "2026-10-18: bit-tables link to a moved file removed (one link to FOUR_DOMAINS); commissioning plan no longer on the site; moved files and working documents kept off every site page (LESSONS C25) | 2026-10-18: README Start here links TRY_TO_BREAK_IT.md, the example reports and SOP v4; the atlas section no longer says v2.1 is being built | 2026-10-19: no time-relative wording on the page (author: \"we cant have things that must be constantly updated\"): 'The last 24 hours' is now 'The most recent day log' with its date; four other phrases (today, tonight, this week) reworded at their sources; build_home.py --check refuses such wording | 2026-10-19: 'The most recent day log' is one line (date, title, link to the day log), not the day's list (author: the list goes stale and repeats the day log) | 2026-10-19: the campaign numbers had frozen at 2026-10-17 (compute_snapshot.py ran only from checkpoint.sh, which pushes do not call). Now every day log carries a computing-and-cost block from AWS daily billing (CANON/day_compute.py); daylog.py refuses a closed day without it, a block not final and not read since yesterday, or campaign counts older than the day; the page's billing numbers read the latest day log"
+   "notes": "2026-10-18: bit-tables link to a moved file removed (one link to FOUR_DOMAINS); commissioning plan no longer on the site; moved files and working documents kept off every site page (LESSONS C25) | 2026-10-18: README Start here linked TRY_TO_BREAK_IT.md (replaced the same day by Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md), the example reports and SOP v4; the atlas section no longer says v2.1 is being built | 2026-10-19: no time-relative wording on the page (author: \"we cant have things that must be constantly updated\"): 'The last 24 hours' is now 'The most recent day log' with its date; four other phrases (today, tonight, this week) reworded at their sources; build_home.py --check refuses such wording | 2026-10-19: 'The most recent day log' is one line (date, title, link to the day log), not the day's list (author: the list goes stale and repeats the day log) | 2026-10-19: the campaign numbers had frozen at 2026-10-17 (compute_snapshot.py ran only from checkpoint.sh, which pushes do not call). Now every day log carries a computing-and-cost block from AWS daily billing (CANON/day_compute.py); daylog.py refuses a closed day without it, a block not final and not read since yesterday, or campaign counts older than the day; the page's billing numbers read the latest day log"
   },
   {
    "title": "Book audit: the cellular part (AstroGenetics, the cosmic methylome, the cell, DNA, the instruments, the atlas)",
@@ -27627,7 +27631,8 @@
    "sources_of_row": [
     "session 2026-10-17 (author)"
    ],
-   "runs": []
+   "runs": [],
+   "notes": null
   },
   {
    "title": "Precancer against healthy tissue: polyps and adenomas (colon), CIN lesions (cervix), DCIS (breast)",
@@ -27645,7 +27650,8 @@
    "sources_of_row": [
     "session 2026-10-17 (author)"
    ],
-   "runs": []
+   "runs": [],
+   "notes": null
   },
   {
    "title": "Short-fragment synthetic: does IAM-A's held-error count hold on cfDNA and stool DNA (about 167 letters)?",
@@ -27703,7 +27709,8 @@
    "sources_of_row": [
     "session 2026-10-17 (author)"
    ],
-   "runs": []
+   "runs": [],
+   "notes": null
   },
   {
    "title": "One person over time: IAM-A on the same person's cells across years",
@@ -27721,7 +27728,8 @@
    "sources_of_row": [
     "session 2026-10-17 (author)"
    ],
-   "runs": []
+   "runs": [],
+   "notes": null
   },
   {
    "id": "TIS-055",
@@ -27741,7 +27749,8 @@
    "runs": [],
    "sources_of_row": [
     "session 2026-10-17 (author)"
-   ]
+   ],
+   "notes": null
   },
   {
    "instrument_or_term": "all",
@@ -27910,6 +27919,7 @@
   "archive/retired_root_2026-10-19/ROADMAP.md": "a81a9fd51c5e797eb440b3c50ccc748cee7b313e4760fabc348b6c7ab514d9bf",
   "CANON/todo_closed.json": "34821f1b7a291a9f7c22e9af69d2f0d69a4516832e5aa7de0dbab884e199773e",
   "Biological_Physics/MethylPhys/archive/history_2026-10-16/STATUS_to_2026-10-15.md": "06e5357301b6b72aaf9c009649a312bb86a7a13e68a918aca0af0bac65150e59",
-  "Biological_Physics/MethylPhys/archive/history_2026-10-16/COMMISSIONING_PLAN_to_2026-10-15.md": "a82ce39f69d851c1da902456b07e8a859c9b70ffc994ec955f7e46ef5431d345"
+  "Biological_Physics/MethylPhys/archive/history_2026-10-16/COMMISSIONING_PLAN_to_2026-10-15.md": "a82ce39f69d851c1da902456b07e8a859c9b70ffc994ec955f7e46ef5431d345",
+  "archive/retired_root_2026-10-19/TODO_to_2026-10-16.md": "b911430a95d32c8105e0109f8c362d80a298f7237d4702b1d30ed52b1672216f"
  }
 }

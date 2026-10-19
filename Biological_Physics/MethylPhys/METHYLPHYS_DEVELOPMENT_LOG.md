@@ -2693,3 +2693,6 @@ Showcase scenario 4 (healthy colon through the atlas's tissue scorer) was sealed
 ### 2026-10-19 · Showcase scenario 4 written (OTH-073, to-do step 1)
 The reading of three healthy colon arrays (GSE151732, adenoma history No, first 3 by accession) by IAM-Atlas v2.1's commissioned colon tissue use is written before any of the files is opened: chain Stage 1, then the U2 scorer unchanged at the 6,000 sealed composition-blind sites (tolerance 0.05, bar 0.90), per array and the three together. A showcase reading, not a test.
 Launched: job i-0eef1a24ec243aee7 (spot m7a.xlarge, 90-minute timer, about $0.10); results to results/SHOWCASE_V4/s4/.
+
+### 2026-10-19 · Manifest record names repointed (OTH-078, to-do step 4)
+The last full TODO.md (commit 9a29c6ef, 2026-10-16, 883 lines) is frozen at archive/retired_root_2026-10-19/TODO_to_2026-10-16.md and the 54 notes citing "TODO.md <item>" now name it; the 52 rows citing old_val_datasets.csv and 11 citing candidate_datasets_2026-10-13.csv now say those were pasted or search files never committed, and where their rows are; ATL-010, OTH-023 and OTH-071 named a relative, a deleted and a replaced file. doc_audit.py now accepts text that itself says a file is not in the repository, and checks dated run notes against the repository history.
