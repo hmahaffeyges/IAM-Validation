@@ -3234,6 +3234,29 @@
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: commit confirmed on origin; code in S3 first; timer sized from the work (100 min index + 38 runs x 12 min + 25 %); watcher; about $10",
    "note": "termination-protected; stops itself after 14 hours at most"
+  },
+  {
+   "job_id": "i-04db6debe64b4d107",
+   "name": "Clean clone of Biological_Physics only: release check v4 and the C-Score band reproduction (OTH-077)",
+   "date": "2026-10-19",
+   "commit": "549ab877",
+   "s3_code_prefix": "results/CHAIN_V4_CLEANCLONE/code/bio1/",
+   "state": "running",
+   "log": "results/CHAIN_V4_CLEANCLONE/bio1/status.txt",
+   "machine": "spot m7a.xlarge, self-terminating (150-min timer)",
+   "purpose": "a partial sparse clone of Biological_Physics only, as a researcher would download it: no other folder may come down; the release check and one reproduction must pass",
+   "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_bio.sh",
+   "manifest": [
+    "OTH-077"
+   ],
+   "outputs": [
+    "results/CHAIN_V4_CLEANCLONE/bio1/status.txt"
+   ],
+   "files": [
+    "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_bio.sh"
+   ],
+   "chain_commit": "549ab877",
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch: commit confirmed on origin, code copy in S3 first, timer sized from the work (about 45 min of 150), system tools by full path"
   }
  ],
  "not_jobs": {

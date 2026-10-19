@@ -1939,5 +1939,17 @@
    "results/REPRODUCE_V1/run13/status.txt": true
   },
   "state_at_verify": "running"
+ },
+ "i-04db6debe64b4d107": {
+  "s3": {
+   "cleanclone_bio.sh": "5db686857ee641d3c70d41d94c542ca7af48e57d1dcd491e5b860ab2d299e476"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/CHAIN_V4_CLEANCLONE/bio1/status.txt": false
+  },
+  "state_at_verify": "running"
  }
 }

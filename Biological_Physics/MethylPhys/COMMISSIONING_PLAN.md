@@ -62,6 +62,7 @@ The first commissioned chain is built (IAM-Atlas v2.1, IAM-Deconvolver, Met-A, C
 |---|---|---|
 | IAM-Atlas v2.1 Zenodo large-file upload, run 2 (ATL-005) | spot m7a.large, self-terminating (600-min timer) | ATL-005 |
 | reproduce/ from a fresh public clone, run 13: the mouse prediction (OTH-076) | on-demand m7a.4xlarge (16 cores, 64 GB), self-terminating (14-hour timer) | OTH-076 |
+| Clean clone of Biological_Physics only: release check v4 and the C-Score band reproduction (OTH-077) | spot m7a.xlarge, self-terminating (150-min timer) | OTH-077 |
 
 ## Decisions waiting for the author
 
