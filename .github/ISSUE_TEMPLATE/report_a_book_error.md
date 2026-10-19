@@ -1,8 +1,8 @@
 ---
-name: I tried to break it
+name: Report an error in the book
 about: A derivation, number, sign or check in the book that you think is wrong
-title: "[break] "
-labels: break-attempt
+title: "[book] "
+labels: book-error
 ---
 
 **Where:** chapter or equation number, and the check label if there is one (e.g. `ch:iams_law:L152`).
