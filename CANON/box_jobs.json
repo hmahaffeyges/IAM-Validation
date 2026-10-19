@@ -3275,7 +3275,7 @@
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch: commit on origin (temporary branch audit-2026-10-19), code copy in S3 first, timer sized from the work (about 10 min of 90)",
    "job_id": "i-0fba10a06761a1c4b",
    "name": "Book check on a full clone, run 1 (OTH-072)",
-   "commit": "PENDING",
+   "commit": "e1079113",
    "chain_commit": "862930f2",
    "s3_code_prefix": "results/BOOK_CHECK/code/run1/",
    "log": "results/BOOK_CHECK/862930f2/status.txt",
