@@ -2210,7 +2210,7 @@
     {
      "date": "2026-10-11",
      "outcome": "success",
-     "note": "Synthetic tests 2-4 passed (same-run tare removes a run artefact; EpiQC depth about 2x per library; TruSeq at the 0.98 conversion limit).",
+     "note": "Synthetic tests 2-4 passed (same-run tare removes a run artifact; EpiQC depth about 2x per library; TruSeq at the 0.98 conversion limit).",
      "commit": "2e5e0f7"
     },
     {
@@ -7963,7 +7963,7 @@
    ]
   },
   {
-   "title": "Aging across species: DEV-SPECIES-AGEING-01 (30 mammal species, consortium blood arrays)",
+   "title": "Aging across species: DEV-SPECIES-Aging-01 (30 mammal species, consortium blood arrays)",
    "purpose": "Reads each species against its own young adults to see whether fidelity falls with age and whether species reach similar readings at similar fractions of their lifespan. It is a cross-species check of the physics, with known confounds.",
    "instrument_or_term": "Met-A within species",
    "sources": [
@@ -8653,7 +8653,7 @@
    "depends_on": [
     "COM-METAA: whole blood back into scope"
    ],
-   "notes": "repo: data_spent.csv (partly spent: old VAL / H_min tests; class-era result blinded, not opened). Pasted only as reuse plan: 'GSE243529 EPIC v1 blood, 256 breast cancer / 268 controls; blood result after R4a; analysed by old T11; specimen to confirm'. Repo GRP context: DEV_GROUP_01.md, DEV_BLOOD_SENSITIVITY_01.md (per person no, per group yes).",
+   "notes": "repo: data_spent.csv (partly spent: old VAL / H_min tests; class-era result blinded, not opened). Pasted only as reuse plan: 'GSE243529 EPIC v1 blood, 256 breast cancer / 268 controls; blood result after R4a; analyzed by old T11; specimen to confirm'. Repo GRP context: DEV_GROUP_01.md, DEV_BLOOD_SENSITIVITY_01.md (per person no, per group yes).",
    "legacy_ids": [],
    "id": "GRP-001",
    "sources_of_row": [
@@ -8771,7 +8771,7 @@
    "depends_on": [
     "COM-METAA: whole blood back into scope"
    ],
-   "notes": "repo: data_spent.csv (partly spent: old VAL / H_min tests). Pasted only as reuse plan: 'GSE281691 EPIC v1 blood, 221 liver cancer / 260 controls; after R4a; multicentre, tare per centre; old VAL-059; specimen to confirm'. Related repo item TODO B13 (liver in blood).",
+   "notes": "repo: data_spent.csv (partly spent: old VAL / H_min tests). Pasted only as reuse plan: 'GSE281691 EPIC v1 blood, 221 liver cancer / 260 controls; after R4a; multicentre, tare per center; old VAL-059; specimen to confirm'. Related repo item TODO B13 (liver in blood).",
    "legacy_ids": [
     "B13"
    ],
@@ -9978,7 +9978,7 @@
    "depends_on": [
     "COM-IAMA: IAM-A commissioning on identical DNA"
    ],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_PREREG.md (secondary, descriptive: oral SCC GSE212634/PRJNA876296, 4 pairs, WGBS and oxWGBS; class-era prereg - its results not opened here); TODO.md A7. Pasted wording: A7 '(S3 downloads/tumour_work: per-site tables only)'; 'The tumour_work/ provenance is in the repo (PROC_TUMOUR_01_PREREG.md)'. GSE212634 is in MASTER_INVENTORY.csv with no status; data_spent.csv lists GSE284325 as spent by PROC-TUMOUR-01.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_PREREG.md (secondary, descriptive: oral SCC GSE212634/PRJNA876296, 4 pairs, WGBS and oxWGBS; class-era prereg - its results not opened here); TODO.md A7. Pasted wording: A7 '(S3 downloads/tumour_work: per-site tables only)'; 'The tumour_work/ provenance is in the repo (PROC_TUMOUR_01_PREREG.md)'. GSE212634 is in MASTER_INVENTORY.csv with no status; data_spent.csv lists GSE284325 as spent by PROC-Tumor-01.",
    "legacy_ids": [
     "A7"
    ],
@@ -10002,7 +10002,7 @@
    "depends_on": [
     "COM-IAMA: IAM-A commissioning on identical DNA"
    ],
-   "notes": "Pasted wording: 10-10 item 20 'Patient-matched tumour and normal, both platforms: from cell lines to people; after 4'; D10 (10-09 list). Repo: no dedicated note; the single-platform patient tests (TCGA-BRCA, GSE131013, TCGA-LIHC) are done on arrays.",
+   "notes": "Pasted wording: 10-10 item 20 'Patient-matched tumor and normal, both platforms: from cell lines to people; after 4'; D10 (10-09 list). Repo: no dedicated note; the single-platform patient tests (TCGA-BRCA, GSE131013, TCGA-LIHC) are done on arrays.",
    "legacy_ids": [
     "20 (10-10)",
     "D10 (10-09 list)"
@@ -10055,7 +10055,7 @@
    "depends_on": [
     "COM-METAA: Met-A on 450K purified neutrophils"
    ],
-   "notes": "repo: data_spent.csv (TCGA-COAD partly spent: old VAL / H_min tests, processed betas; class-era results not opened). Pasted only as a reuse plan: 'TCGA-COAD/READ open 450K IDATs, second colorectal tissue set, analysed by old VALs (processed betas)'.",
+   "notes": "repo: data_spent.csv (TCGA-COAD partly spent: old VAL / H_min tests, processed betas; class-era results not opened). Pasted only as a reuse plan: 'TCGA-COAD/READ open 450K IDATs, second colorectal tissue set, analyzed by old VALs (processed betas)'.",
    "legacy_ids": [],
    "id": "TIS-033",
    "sources_of_row": [
@@ -10311,7 +10311,7 @@
    ]
   },
   {
-   "title": "PROC-TUMOUR-01: held error in early-onset colorectal and oral tumors against own adjacent normal (WGBS)",
+   "title": "PROC-Tumor-01: held error in early-onset colorectal and oral tumors against own adjacent normal (WGBS)",
    "purpose": "Historical first test of whether single-molecule held error rises in primary tumors without culture. It rose in every true colorectal pair.",
    "instrument_or_term": "IAM-A held error epsilon_corr (pre-commissioning statistic)",
    "sources": [
@@ -12171,7 +12171,7 @@
     {
      "date": "2026-10-09",
      "outcome": "progressed",
-     "note": "read by (per CANON/data_spent.csv) DEV-IAMA-KIT-01: DEV-IAMA-KIT-01 — is the Swift kit's high IAM-A a read-end artefact? (development, 2026-10-09)"
+     "note": "read by (per CANON/data_spent.csv) DEV-IAMA-KIT-01: DEV-IAMA-KIT-01 — is the Swift kit's high IAM-A a read-end artifact? (development, 2026-10-09)"
     },
     {
      "date": "2026-10-09",
@@ -12224,7 +12224,7 @@
     {
      "date": "2026-10-09",
      "outcome": "progressed",
-     "note": "read by (per CANON/data_spent.csv) DEV-IAMA-KIT-01: DEV-IAMA-KIT-01 — is the Swift kit's high IAM-A a read-end artefact? (development, 2026-10-09)"
+     "note": "read by (per CANON/data_spent.csv) DEV-IAMA-KIT-01: DEV-IAMA-KIT-01 — is the Swift kit's high IAM-A a read-end artifact? (development, 2026-10-09)"
     },
     {
      "date": "2026-10-09",
@@ -13753,7 +13753,7 @@
   },
   {
    "title": "GSE212634",
-   "purpose": "Public methylation data set listed in the inventory (GSE212634). It has been read by PROC-TUMOUR-01, DEV-STOOL-01, PROC-DNMT-01-PREREG, PROC-TUMOUR-01-PREREG, so it can no longer serve as an unseen held-out test.",
+   "purpose": "Public methylation data set listed in the inventory (GSE212634). It has been read by PROC-Tumor-01, DEV-STOOL-01, PROC-DNMT-01-PREREG, PROC-Tumor-01-PREREG, so it can no longer serve as an unseen held-out test.",
    "instrument_or_term": "physics lever",
    "sources": [
     "GSE212634"
@@ -13765,7 +13765,7 @@
     {
      "date": "2026-10-01",
      "outcome": "progressed",
-     "note": "read by (per CANON/data_spent.csv) PROC-TUMOUR-01-OUTCOME: PROC-TUMOUR-01 — outcome (2026-10-01). Scored exactly as pre-registered (sha 5ab460cf5af368d5)"
+     "note": "read by (per CANON/data_spent.csv) PROC-Tumor-01-OUTCOME: PROC-Tumor-01 — outcome (2026-10-01). Scored exactly as pre-registered (sha 5ab460cf5af368d5)"
     },
     {
      "date": "2026-10-01",
@@ -13775,7 +13775,7 @@
     {
      "date": "2026-10-01",
      "outcome": "progressed",
-     "note": "read by (per CANON/data_spent.csv) PROC-TUMOUR-01-PREREG: PROC-TUMOUR-01 — pre-registration (written 2026-10-01, before any read of these datasets is aligned)"
+     "note": "read by (per CANON/data_spent.csv) PROC-Tumor-01-PREREG: PROC-Tumor-01 — pre-registration (written 2026-10-01, before any read of these datasets is aligned)"
     },
     {
      "date": "2026-10-02",
@@ -13787,7 +13787,7 @@
    "cost": "none",
    "impact": 3,
    "depends_on": [],
-   "notes": "data_spent.csv entry: \"GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876296 (OSCC), DNMT EM-seq - derived\" (spent: PROC-TUMOUR-01 (prereg names GSE284325 and GSE212634), DEV-STOOL-01 (b) tumor tiles, PROC-DNMT-01 Part B. Provenance IS ).",
+   "notes": "data_spent.csv entry: \"GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876296 (OSCC), DNMT EM-seq - derived\" (spent: PROC-Tumor-01 (prereg names GSE284325 and GSE212634), DEV-STOOL-01 (b) tumor tiles, PROC-DNMT-01 Part B. Provenance IS ).",
    "legacy_ids": [],
    "id": "DAT-050",
    "sources_of_row": [
@@ -13796,7 +13796,7 @@
   },
   {
    "title": "GSE284325",
-   "purpose": "Public methylation data set listed in the inventory (GSE284325). It has been read by PROC-TUMOUR-01, DEV-STOOL-01, PROC-DNMT-01-PREREG, PROC-TUMOUR-01-PREREG, so it can no longer serve as an unseen held-out test.",
+   "purpose": "Public methylation data set listed in the inventory (GSE284325). It has been read by PROC-Tumor-01, DEV-STOOL-01, PROC-DNMT-01-PREREG, PROC-Tumor-01-PREREG, so it can no longer serve as an unseen held-out test.",
    "instrument_or_term": "physics lever",
    "sources": [
     "GSE284325"
@@ -13808,7 +13808,7 @@
     {
      "date": "2026-10-01",
      "outcome": "progressed",
-     "note": "read by (per CANON/data_spent.csv) PROC-TUMOUR-01-OUTCOME: PROC-TUMOUR-01 — outcome (2026-10-01). Scored exactly as pre-registered (sha 5ab460cf5af368d5)"
+     "note": "read by (per CANON/data_spent.csv) PROC-Tumor-01-OUTCOME: PROC-Tumor-01 — outcome (2026-10-01). Scored exactly as pre-registered (sha 5ab460cf5af368d5)"
     },
     {
      "date": "2026-10-01",
@@ -13818,7 +13818,7 @@
     {
      "date": "2026-10-01",
      "outcome": "progressed",
-     "note": "read by (per CANON/data_spent.csv) PROC-TUMOUR-01-PREREG: PROC-TUMOUR-01 — pre-registration (written 2026-10-01, before any read of these datasets is aligned)"
+     "note": "read by (per CANON/data_spent.csv) PROC-Tumor-01-PREREG: PROC-Tumor-01 — pre-registration (written 2026-10-01, before any read of these datasets is aligned)"
     },
     {
      "date": "2026-10-02",
@@ -13830,7 +13830,7 @@
    "cost": "none",
    "impact": 3,
    "depends_on": [],
-   "notes": "data_spent.csv entry: \"GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876296 (OSCC), DNMT EM-seq - derived\" (spent: PROC-TUMOUR-01 (prereg names GSE284325 and GSE212634), DEV-STOOL-01 (b) tumor tiles, PROC-DNMT-01 Part B. Provenance IS ).",
+   "notes": "data_spent.csv entry: \"GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876296 (OSCC), DNMT EM-seq - derived\" (spent: PROC-Tumor-01 (prereg names GSE284325 and GSE212634), DEV-STOOL-01 (b) tumor tiles, PROC-DNMT-01 Part B. Provenance IS ).",
    "legacy_ids": [],
    "id": "DAT-051",
    "sources_of_row": [
@@ -13839,7 +13839,7 @@
   },
   {
    "title": "GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876296 (OSCC), DNMT EM-seq - derived",
-   "purpose": "Public methylation data set listed in the inventory (GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876296 (OSCC), DNMT EM-seq - derived). It has been read by PROC-TUMOUR-01, DEV-STOOL-01, PROC-DNMT-01-PREREG, PROC-TUMOUR-01-PREREG, so it can no longer serve as an unseen held-out test.",
+   "purpose": "Public methylation data set listed in the inventory (GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876296 (OSCC), DNMT EM-seq - derived). It has been read by PROC-Tumor-01, DEV-STOOL-01, PROC-DNMT-01-PREREG, PROC-Tumor-01-PREREG, so it can no longer serve as an unseen held-out test.",
    "instrument_or_term": "physics lever",
    "sources": [
     "GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876296 (OSCC), DNMT EM-seq - derived"
@@ -13851,7 +13851,7 @@
     {
      "date": "2026-10-01",
      "outcome": "progressed",
-     "note": "read by (per CANON/data_spent.csv) PROC-TUMOUR-01-OUTCOME: PROC-TUMOUR-01 — outcome (2026-10-01). Scored exactly as pre-registered (sha 5ab460cf5af368d5)"
+     "note": "read by (per CANON/data_spent.csv) PROC-Tumor-01-OUTCOME: PROC-Tumor-01 — outcome (2026-10-01). Scored exactly as pre-registered (sha 5ab460cf5af368d5)"
     },
     {
      "date": "2026-10-01",
@@ -13861,7 +13861,7 @@
     {
      "date": "2026-10-01",
      "outcome": "progressed",
-     "note": "read by (per CANON/data_spent.csv) PROC-TUMOUR-01-PREREG: PROC-TUMOUR-01 — pre-registration (written 2026-10-01, before any read of these datasets is aligned)"
+     "note": "read by (per CANON/data_spent.csv) PROC-Tumor-01-PREREG: PROC-Tumor-01 — pre-registration (written 2026-10-01, before any read of these datasets is aligned)"
     },
     {
      "date": "2026-10-02",
@@ -14050,7 +14050,7 @@
   },
   {
    "title": "PRJNA1198593",
-   "purpose": "Public methylation data set listed in the inventory (PRJNA1198593). It has been read by PROC-TUMOUR-01, DEV-STOOL-01, PROC-DNMT-01-PREREG, PROC-TUMOUR-01-PREREG, so it can no longer serve as an unseen held-out test.",
+   "purpose": "Public methylation data set listed in the inventory (PRJNA1198593). It has been read by PROC-Tumor-01, DEV-STOOL-01, PROC-DNMT-01-PREREG, PROC-Tumor-01-PREREG, so it can no longer serve as an unseen held-out test.",
    "instrument_or_term": "physics lever",
    "sources": [
     "PRJNA1198593"
@@ -14062,7 +14062,7 @@
     {
      "date": "2026-10-01",
      "outcome": "progressed",
-     "note": "read by (per CANON/data_spent.csv) PROC-TUMOUR-01-OUTCOME: PROC-TUMOUR-01 — outcome (2026-10-01). Scored exactly as pre-registered (sha 5ab460cf5af368d5)"
+     "note": "read by (per CANON/data_spent.csv) PROC-Tumor-01-OUTCOME: PROC-Tumor-01 — outcome (2026-10-01). Scored exactly as pre-registered (sha 5ab460cf5af368d5)"
     },
     {
      "date": "2026-10-01",
@@ -14072,7 +14072,7 @@
     {
      "date": "2026-10-01",
      "outcome": "progressed",
-     "note": "read by (per CANON/data_spent.csv) PROC-TUMOUR-01-PREREG: PROC-TUMOUR-01 — pre-registration (written 2026-10-01, before any read of these datasets is aligned)"
+     "note": "read by (per CANON/data_spent.csv) PROC-Tumor-01-PREREG: PROC-Tumor-01 — pre-registration (written 2026-10-01, before any read of these datasets is aligned)"
     },
     {
      "date": "2026-10-02",
@@ -14084,7 +14084,7 @@
    "cost": "none",
    "impact": 3,
    "depends_on": [],
-   "notes": "data_spent.csv entry: \"GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876296 (OSCC), DNMT EM-seq - derived\" (spent: PROC-TUMOUR-01 (prereg names GSE284325 and GSE212634), DEV-STOOL-01 (b) tumor tiles, PROC-DNMT-01 Part B. Provenance IS ).",
+   "notes": "data_spent.csv entry: \"GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876296 (OSCC), DNMT EM-seq - derived\" (spent: PROC-Tumor-01 (prereg names GSE284325 and GSE212634), DEV-STOOL-01 (b) tumor tiles, PROC-DNMT-01 Part B. Provenance IS ).",
    "legacy_ids": [],
    "id": "DAT-058",
    "sources_of_row": [
@@ -14160,7 +14160,7 @@
   },
   {
    "title": "PRJNA876296",
-   "purpose": "Public methylation data set listed in the inventory (PRJNA876296). It has been read by PROC-TUMOUR-01, DEV-STOOL-01, PROC-DNMT-01-PREREG, PROC-TUMOUR-01-PREREG, so it can no longer serve as an unseen held-out test.",
+   "purpose": "Public methylation data set listed in the inventory (PRJNA876296). It has been read by PROC-Tumor-01, DEV-STOOL-01, PROC-DNMT-01-PREREG, PROC-Tumor-01-PREREG, so it can no longer serve as an unseen held-out test.",
    "instrument_or_term": "physics lever",
    "sources": [
     "PRJNA876296"
@@ -14172,7 +14172,7 @@
     {
      "date": "2026-10-01",
      "outcome": "progressed",
-     "note": "read by (per CANON/data_spent.csv) PROC-TUMOUR-01-OUTCOME: PROC-TUMOUR-01 — outcome (2026-10-01). Scored exactly as pre-registered (sha 5ab460cf5af368d5)"
+     "note": "read by (per CANON/data_spent.csv) PROC-Tumor-01-OUTCOME: PROC-Tumor-01 — outcome (2026-10-01). Scored exactly as pre-registered (sha 5ab460cf5af368d5)"
     },
     {
      "date": "2026-10-01",
@@ -14182,7 +14182,7 @@
     {
      "date": "2026-10-01",
      "outcome": "progressed",
-     "note": "read by (per CANON/data_spent.csv) PROC-TUMOUR-01-PREREG: PROC-TUMOUR-01 — pre-registration (written 2026-10-01, before any read of these datasets is aligned)"
+     "note": "read by (per CANON/data_spent.csv) PROC-Tumor-01-PREREG: PROC-Tumor-01 — pre-registration (written 2026-10-01, before any read of these datasets is aligned)"
     },
     {
      "date": "2026-10-02",
@@ -14194,7 +14194,7 @@
    "cost": "none",
    "impact": 3,
    "depends_on": [],
-   "notes": "data_spent.csv entry: \"GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876296 (OSCC), DNMT EM-seq - derived\" (spent: PROC-TUMOUR-01 (prereg names GSE284325 and GSE212634), DEV-STOOL-01 (b) tumor tiles, PROC-DNMT-01 Part B. Provenance IS ).",
+   "notes": "data_spent.csv entry: \"GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876296 (OSCC), DNMT EM-seq - derived\" (spent: PROC-Tumor-01 (prereg names GSE284325 and GSE212634), DEV-STOOL-01 (b) tumor tiles, PROC-DNMT-01 Part B. Provenance IS ).",
    "legacy_ids": [],
    "id": "DAT-061",
    "sources_of_row": [
@@ -15760,7 +15760,7 @@
   },
   {
    "title": "GSE223748 - Dog and other mammal arrays",
-   "purpose": "Dog and other mammal arrays (GSE223748). It has been read by DEV-SPECIES-AGEING-01; it was also read by the class-era VAL / H_min tests; planned use: Track E: dogs and other mammals; species aging (DEV-SPECIES-AGEING-01), so it can no longer serve as an unseen held-out test.",
+   "purpose": "Dog and other mammal arrays (GSE223748). It has been read by DEV-SPECIES-Aging-01; it was also read by the class-era VAL / H_min tests; planned use: Track E: dogs and other mammals; species aging (DEV-SPECIES-Aging-01), so it can no longer serve as an unseen held-out test.",
    "instrument_or_term": "",
    "sources": [
     "GSE223748"
@@ -15772,14 +15772,14 @@
     {
      "date": "2026-10-03",
      "outcome": "progressed",
-     "note": "read by (per CANON/data_spent.csv) DEV-SPECIES-AGEING-01: DEV_SPECIES_AGEING_01 — within-species aging on the consortium blood arrays"
+     "note": "read by (per CANON/data_spent.csv) DEV-SPECIES-Aging-01: DEV_SPECIES_AGEING_01 — within-species aging on the consortium blood arrays"
     }
    ],
    "next_step": "None for the data: spent; development or build use only under the split rule.",
    "cost": "none",
    "impact": 2,
    "depends_on": [],
-   "notes": "S3: downloads/E_dog_animal/GSE223748/ (16.33 GB). Register status: KEEP: tests planned, not yet run. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (DEV-SPECIES-AGEING-01 (2026-10-03; blood arrays via species_mmc rebuild); also old VAL record); date not in the record; result blinded, not opened (TODO V1)",
+   "notes": "S3: downloads/E_dog_animal/GSE223748/ (16.33 GB). Register status: KEEP: tests planned, not yet run. | read, date not recorded: class-era VAL / H_min reading listed in CANON/data_spent.csv (DEV-SPECIES-Aging-01 (2026-10-03; blood arrays via species_mmc rebuild); also old VAL record); date not in the record; result blinded, not opened (TODO V1)",
    "legacy_ids": [
     "C3"
    ],
@@ -17724,7 +17724,7 @@
   },
   {
    "title": "GSE146920 - Dog and other mammal arrays",
-   "purpose": "Dog and other mammal arrays (GSE146920). It is in storage for Track E: dogs and other mammals; species aging (DEV-SPECIES-AGEING-01), so its status decides whether a future sealed test may use it.",
+   "purpose": "Dog and other mammal arrays (GSE146920). It is in storage for Track E: dogs and other mammals; species aging (DEV-SPECIES-Aging-01), so its status decides whether a future sealed test may use it.",
    "instrument_or_term": "",
    "sources": [
     "GSE146920"
@@ -17733,7 +17733,7 @@
    "record": "Biological_Physics/MethylPhys/doors/DATA_REGISTER.csv",
    "status": "planned",
    "runs": [],
-   "next_step": "Design and seal before reading: Track E: dogs and other mammals; species aging (DEV-SPECIES-AGEING-01)",
+   "next_step": "Design and seal before reading: Track E: dogs and other mammals; species aging (DEV-SPECIES-Aging-01)",
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
@@ -17882,7 +17882,7 @@
   },
   {
    "title": "GSE173330 - Dog and other mammal arrays",
-   "purpose": "Dog and other mammal arrays (GSE173330). It is in storage for Track E: dogs and other mammals; species aging (DEV-SPECIES-AGEING-01), so its status decides whether a future sealed test may use it.",
+   "purpose": "Dog and other mammal arrays (GSE173330). It is in storage for Track E: dogs and other mammals; species aging (DEV-SPECIES-Aging-01), so its status decides whether a future sealed test may use it.",
    "instrument_or_term": "",
    "sources": [
     "GSE173330"
@@ -17891,7 +17891,7 @@
    "record": "Biological_Physics/MethylPhys/doors/DATA_REGISTER.csv",
    "status": "planned",
    "runs": [],
-   "next_step": "Design and seal before reading: Track E: dogs and other mammals; species aging (DEV-SPECIES-AGEING-01)",
+   "next_step": "Design and seal before reading: Track E: dogs and other mammals; species aging (DEV-SPECIES-Aging-01)",
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
@@ -18261,7 +18261,7 @@
   },
   {
    "title": "GSE307447 - Dog and other mammal arrays",
-   "purpose": "Dog and other mammal arrays (GSE307447). It is in storage for Track E: dogs and other mammals; species aging (DEV-SPECIES-AGEING-01), so its status decides whether a future sealed test may use it.",
+   "purpose": "Dog and other mammal arrays (GSE307447). It is in storage for Track E: dogs and other mammals; species aging (DEV-SPECIES-Aging-01), so its status decides whether a future sealed test may use it.",
    "instrument_or_term": "",
    "sources": [
     "GSE307447"
@@ -18270,7 +18270,7 @@
    "record": "Biological_Physics/MethylPhys/doors/DATA_REGISTER.csv",
    "status": "planned",
    "runs": [],
-   "next_step": "Design and seal before reading: Track E: dogs and other mammals; species aging (DEV-SPECIES-AGEING-01)",
+   "next_step": "Design and seal before reading: Track E: dogs and other mammals; species aging (DEV-SPECIES-Aging-01)",
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
@@ -18307,7 +18307,7 @@
   },
   {
    "title": "GSE316492 - Dog and other mammal arrays",
-   "purpose": "Dog and other mammal arrays (GSE316492). It is in storage for Track E: dogs and other mammals; species aging (DEV-SPECIES-AGEING-01), so its status decides whether a future sealed test may use it.",
+   "purpose": "Dog and other mammal arrays (GSE316492). It is in storage for Track E: dogs and other mammals; species aging (DEV-SPECIES-Aging-01), so its status decides whether a future sealed test may use it.",
    "instrument_or_term": "",
    "sources": [
     "GSE316492"
@@ -18316,7 +18316,7 @@
    "record": "Biological_Physics/MethylPhys/doors/DATA_REGISTER.csv",
    "status": "planned",
    "runs": [],
-   "next_step": "Design and seal before reading: Track E: dogs and other mammals; species aging (DEV-SPECIES-AGEING-01)",
+   "next_step": "Design and seal before reading: Track E: dogs and other mammals; species aging (DEV-SPECIES-Aging-01)",
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
@@ -21262,7 +21262,7 @@
    "legacy_ids": [
     "A7"
    ],
-   "notes": "Read as a secondary descriptive set in PROC-TUMOUR-01 (4 tumor/adjacent-normal pairs, WGBS and oxWGBS). Spent check (CANON/data_spent.csv and log): GSE212634: spent (via data_spent entry \"GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876\"); PRJNA876296: spent (via data_spent entry \"GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876\").",
+   "notes": "Read as a secondary descriptive set in PROC-Tumor-01 (4 tumor/adjacent-normal pairs, WGBS and oxWGBS). Spent check (CANON/data_spent.csv and log): GSE212634: spent (via data_spent entry \"GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876\"); PRJNA876296: spent (via data_spent entry \"GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876\").",
    "depends_on": [],
    "runs": [],
    "id": "SCO-040",
@@ -23552,7 +23552,7 @@
   },
   {
    "id": "HIS-006",
-   "title": "PROC-BRAIN-01 — can the instrument find terminal-class cells in a liquid specimen from a CNS tumour patient?",
+   "title": "PROC-BRAIN-01 — can the instrument find terminal-class cells in a liquid specimen from a CNS tumor patient?",
    "purpose": "PROC-BRAIN-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
    "instrument_or_term": "class era / chain v1-v2",
    "sources": [],
@@ -24452,7 +24452,7 @@
   },
   {
    "id": "HIS-051",
-   "title": "PROC-TISSUE-01 — does the gauge place healthy, adjacent-normal and tumour colon in order, without being shown the order?",
+   "title": "PROC-TISSUE-01 — does the gauge place healthy, adjacent-normal and tumor colon in order, without being shown the order?",
    "purpose": "PROC-TISSUE-01: a test written and kept in the repository's records; added by the coverage rule so it is not lost.",
    "instrument_or_term": "class era / chain v1-v2",
    "sources": [],
@@ -25152,7 +25152,7 @@
    "purpose": "whether a tumor's firmly held territory reads worse than nameplate while its normal reads at it",
    "instrument_or_term": "IAM-A",
    "sources": [
-    "GSE284325 (early-onset CRC, 6 pairs, PROC-TUMOUR-01 tables)"
+    "GSE284325 (early-onset CRC, 6 pairs, PROC-Tumor-01 tables)"
    ],
    "data_status": "spent",
    "record": "Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md",
@@ -25170,7 +25170,7 @@
      "page": "not headline: inconclusive by its rule; the firm-territory result goes to the day log as a finding"
     }
    ],
-   "next_step": "healthy firm-territory range counted with PROC-TUMOUR-01's counter (56 cell types' own reads), written before comparison; then N and T2 re-read",
+   "next_step": "healthy firm-territory range counted with PROC-Tumor-01's counter (56 cell types' own reads), written before comparison; then N and T2 re-read",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -27435,7 +27435,7 @@
    "sources_of_row": [
     "session 2026-10-16"
    ],
-   "notes": "2026-10-18: a withheld Met-A prints no number in the sky or plain view | 2026-10-18: sky drawn in units of the sample's own spread (the C-Score is unchanged by it) | 2026-10-18: an above-band C-Score crashed the report (C27), fixed with release check V6; far-right example (PLANTED) added to the example run | 2026-10-18 (author review): gauges printed as 0, healthy 1 (with the value it is measured against) and saturation; the sky is one overlay, the sample laid on its healthy reference with matches in grey and only the changes in color; IAM-A example on a grand-test sample through --bam (C28, V7) | 2026-10-18 (author): out-of-scope label is 'This score is preliminary until <instrument> is officially commissioned on <specimen>.'"
+   "notes": "2026-10-18: a withheld Met-A prints no number in the sky or plain view | 2026-10-18: sky drawn in units of the sample's own spread (the C-Score is unchanged by it) | 2026-10-18: an above-band C-Score crashed the report (C27), fixed with release check V6; far-right example (PLANTED) added to the example run | 2026-10-18 (author review): gauges printed as 0, healthy 1 (with the value it is measured against) and saturation; the sky is one overlay, the sample laid on its healthy reference with matches in gray and only the changes in color; IAM-A example on a grand-test sample through --bam (C28, V7) | 2026-10-18 (author): out-of-scope label is 'This score is preliminary until <instrument> is officially commissioned on <specimen>.'"
   },
   {
    "title": "One-button test from a fresh clone",
@@ -27551,7 +27551,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "running",
    "runs": [],
-   "next_step": "pass 3 2026-10-18: the last Part 6 chapters (toolbox, sky tools, serial, separation, atlas) read; fixed: the atlas chapter's v2 limits list read as current (it now says atlas v2, and that the chain reads v2.1), its 'reference does not yet do' section named as Met-A's, the serial chapter's chain v3. Part 6 audit complete",
+   "next_step": "pass 3 2026-10-18: the last Part 6 chapters (toolbox, sky tools, serial, separation, atlas) read; fixed: the atlas chapter's v2 limits list read as current (it now says atlas v2, and that the chain reads v2.1), its 'reference does not yet do' section named as Met-A's, the serial chapter's chain v3. Part 6 audit complete; 2026-10-19: glossary's 18 chain v3 entries brought to chain v4 (two solvers, the sky on the sphere, SOP and manual generated); 77 British spellings fixed in the book, MANIFEST and SOP, and the spelling check now covers every public text. Next: Part 7 chapters",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

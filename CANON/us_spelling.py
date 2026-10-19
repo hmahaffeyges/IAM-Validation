@@ -16,8 +16,14 @@ RX = re.compile(r"(?<![_\w])(" + "|".join(sorted(MAP, key=len, reverse=True)) + 
 def us(m):
     w = m.group(0); r = MAP[w.lower()]; return r.capitalize() if w[0].isupper() else r
 FILES = ["README.md", "FOLLOW.md", "Biological_Physics/README.md"] + sorted(os.path.join("fundraiser", f) for f in os.listdir("fundraiser") if f.endswith(".txt"))
+# 2026-10-19: the check covered only these; the book, the top-level documents the site renders (MANIFEST.md among them), the SOP and the
+# reproduce README held 77 British spellings. Every public text is now in the list.
+import glob as _g
+FILES += sorted(_g.glob("*.md")) + sorted(_g.glob("docs/book/**/*.tex", recursive=True)) + sorted(_g.glob("Biological_Physics/MethylPhys/sop/*.md")) \
+    + ["reproduce/README.md", "Biological_Physics/MethylPhys/README.md", "Biological_Physics/MethylPhys/START_HERE.md"]
+FILES = sorted(set(FILES))
 def prose(t):   # skip inline code and link targets
-    return re.sub(r"`[^`]*`|\]\([^)]*\)|https?://\S+", "", t)
+    return re.sub(r"`[^`]*`|\]\([^)]*\)|https?://\S+|\\(?:label|ref|cite|eqref|includegraphics|input)\{[^}]*\}", "", t)
 mode = sys.argv[1] if len(sys.argv) > 1 else "check"; bad = []
 for f in FILES:
     if not os.path.exists(f): continue

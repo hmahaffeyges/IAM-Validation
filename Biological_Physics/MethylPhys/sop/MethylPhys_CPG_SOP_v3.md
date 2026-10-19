@@ -193,7 +193,7 @@ Applied to monocytes and B cells on 2026-10-04 (DEV-NEWCELL-01): neither meets i
 ### Development flags (author decision N, 2026-10-04)
 
 `run_sample.py --dev-selftare-ii --dev-direction --dev-trace --dev-foreign --dev-brightness --dev-nilc --dev-atlas-e --dev-percell-b --dev-sky --dev-epic-v2`
-(`chain/dev_stages.py`). Each writes `bundle["development"][<stage>]` and a report section, labelled DEVELOPMENT - not commissioned. None changes the
+(`chain/dev_stages.py`). Each writes `bundle["development"][<stage>]` and a report section, labeled DEVELOPMENT - not commissioned. None changes the
 reading, the gauge or the tare (`--dev-selftare-ii` is a no-op alias since 2026-10-04: the adopted Stage T step 1 is wired in and always runs; the flag only copies `tare.selftare_ii` to `development.selftare_ii`) (DEV-FLAGS-01: 63 of 63 readings identical with every flag on; release check E10). `--dev-atlas-e`, `--dev-nilc`,
 `--dev-percell-b` and `--dev-sky` need `--atlas-v2 <IAMAtlas_v2.parquet>` (not stored in the repository); `--dev-sky` needs healpy;
 `--dev-epic-v2` needs `--sesame-rscript <Rscript>` of an environment with Bioconductor sesame.
@@ -418,7 +418,7 @@ T4: 570 whole bloods, tared healthy SD 0.052, untared ≈ 1.22; T4a passed as wr
 | `PROC_CEIL_01_OUTCOME.md` | Finding 1 (absent cells read near the far end, 318 arrays); Finding 3 (whole-array sky, 1.31×, 57σ); ceiling guard 492 readings / 318 arrays **[new]** |
 | `PROC_MF_01_OUTCOME.md` | trace-cell detection from 2–5 % **[new]** |
 | `PROC_OUTSPAN_01_PREREG.md` | out-of-span map tests, pre-registered, not run **[new]** |
-| `PROC_TUMOUR_01_OUTCOME.md`, `doors/data/tumour_pairs.csv` | tumour–normal pairs on single molecules **[new]** |
+| `PROC_TUMOUR_01_OUTCOME.md`, `doors/data/tumour_pairs.csv` | tumor–normal pairs on single molecules **[new]** |
 | `PROC_MOLECULE_01_OUTCOME.md` | one statistic for floor and reading; plasma constructed mixtures **[new]** |
 | `PROC_CHANNEL_01_OUTCOME.md` | 399 windows, 153 samples, 56 cell types; 3.41 ± 0.12 kT **[new]** |
 | `PROC_V5_HELDOUT_OUTCOME.md`; `atlas/v2/postbuild/README.md` (check V12) | atlas v2 held-out coverage (V5); identity sites of later cell types (V12) **[new]** |

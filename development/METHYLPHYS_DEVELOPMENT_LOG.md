@@ -2628,3 +2628,6 @@ The author: "we cant have things that must be constantly updated "last 24 hours"
 
 ### 2026-10-19 · Plan item 20 and OTH-075 renamed; book site tagline (OTH-075, OTH-071)
 The plan and manifest still called the Q&A "'Try to break it' guide" (the author replaced it on 2026-10-18: "that sounds bad and unprofessional"); both now say questions and answers for outside labs. The book site's tagline ended "try to break it"; it now says every derivation is checked by one command that anyone can run.
+
+### 2026-10-19 · Book audit: glossary on chain v4; American spelling everywhere public (OTH-072)
+The glossary (generated 2026-10-03) still defined 18 terms against chain v3: the sky "not drawn", the SOP and operations manual "written by hand", one solver. Each now states chain v4 (two solvers, Stage SKY in every report, SOP and manual generated from the chain's files), checked against stage_v4.py. The spelling check covered only the README, FOLLOW and the fundraiser text; the book, MANIFEST.md, the SOP and the other public documents held 77 British spellings (tumour 43, centred 10, ageing 5, ...). All fixed; CANON/us_spelling.py now checks every public text, tested with a planted word.
