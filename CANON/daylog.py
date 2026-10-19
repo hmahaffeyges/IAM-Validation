@@ -65,6 +65,7 @@ def render(d):
             if e.get("record"): L.append(f"  [the record]({os.path.relpath(os.path.join(ROOT, e['record']), OUT)})")
         L.append("")
     L += ["## Open at turnover", "", d["open_at_turnover"], ""]
+    if d.get("corrected"): L += ["## Corrected", "", d["corrected"], ""]   # a later audit of this day log, dated (author 2026-10-19)
     if d.get("closing"): L += ["---", "", f"_{d['closing']}_", ""]
     return "\n".join(L)
 
