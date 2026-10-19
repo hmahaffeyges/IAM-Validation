@@ -58,7 +58,7 @@ CAT = json.load(open("CANON/catalogue.json", encoding="utf-8"))
 NUM = re.compile(r"(?<![\w.])(\d+\.\d+|\d{2,}(?:,\d{3})*)(?![\w.])")
 for ins in CAT["instruments"]:
     t = text_of(ins); cites = [resolve(p) for p in (m.group(1) for m in PATH.finditer(t))] + [ins.get("record")]; cites = [c for c in cites if c]
-    t = re.sub(r"\b\d{4}-\d{2}-\d{2}\b|\b[A-Z]{3}-[A-Z0-9-]+\b|\b(GSE|GSM|SRR|ENCFF)\w+|\bch:\w+", "", t)   # dates, row ids, accessions, labels are not measurements
+    t = re.sub(r"\b10\.\d{4,}/[\w.]+|\b\d{4}-\d{2}-\d{2}\b|\b[A-Z]{3}-[A-Z0-9-]+\b|\b(GSE|GSM|SRR|ENCFF)\w+|\bch:\w+", "", t)   # dates, row ids, accessions, labels are not measurements
     for m in PATH.finditer(t):
         if resolve(m.group(1)) is None and len(BASE.get(os.path.basename(m.group(1)), [])) == 0: add("A missing path (catalogue)", ins["name"], m.group(1))
     corpus = ""

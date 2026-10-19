@@ -17,7 +17,8 @@
     "stat": "Found",
     "head": "The cancer fingerprint, in prostate cancer",
     "sub": "Whole stretches of the DNA's switch pattern wiped out, far beyond the everyday wear healthy cells show, seen by both of our instruments on the same cells."
-   }
+   },
+   "sealed": true
   },
   {
    "id": "DEV-SAM-LEVER-01",
@@ -40,7 +41,8 @@
     "stat": "Predicted",
     "head": "Physics called it in advance, in living mice",
     "sub": "We wrote down where the reading must land if the methyl supply is cut ({low:.3f} to {high:.3f}). The mice read {ratio:.3f}, inside the window."
-   }
+   },
+   "sealed": true
   },
   {
    "id": "DEV-EPIQC-ARRAY-01",
@@ -58,7 +60,8 @@
     "stat": "{labs} labs",
     "head": "The same DNA gives the same answer in three laboratories",
     "sub": "Identical reference DNA, {arrays} arrays across {labs} laboratories, read alike by Met-A."
-   }
+   },
+   "sealed": true
   },
   {
    "id": "DEV-CSCORE-MOSS-01",
@@ -76,13 +79,14 @@
     "stat": "{ok} of {n}",
     "head": "No false alarms",
     "sub": "Foreign DNA mixed into healthy blood: every mixture still read healthy."
-   }
+   },
+   "sealed": true
   },
   {
    "id": "REPRO-PUBLIC-2026-10-10",
    "date": "2026-10-10",
    "kind": "milestone",
-   "status": "commissioned",
+   "status": "reproduced",
    "book": false,
    "record": "Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md",
    "also": [
@@ -96,7 +100,8 @@
     "head": "Everything it reads rebuilds from public data",
     "sub": "Every number the commissioned instrument uses, rebuilt from public samples, identical."
    },
-   "title": "Everything the commissioned chain reads rebuilds from public data"
+   "title": "Everything the commissioned chain reads rebuilds from public data",
+   "correction": "2026-10-19: status was 'commissioned'; a reproduction is 'reproduced'."
   },
   {
    "id": "COMMISSIONING-METAA-NEUTROPHILS",
@@ -121,7 +126,7 @@
    "id": "BOOK-V1.0",
    "date": "2026-10-05",
    "kind": "milestone",
-   "status": "commissioned",
+   "status": "published",
    "book": false,
    "record": "docs/book",
    "link_text": "docs/book",
@@ -132,7 +137,9 @@
     "stat": "Published",
     "head": "The book is out, with a DOI",
     "sub": "IAM's Law and Order, every derivation checked by one command."
-   }
+   },
+   "title": "The book, IAM's Law and Order, published with a DOI",
+   "correction": "2026-10-19: the title was empty and the status 'commissioned'."
   },
   {
    "id": "DEV-TISSUE-BREAST-01",
@@ -150,7 +157,8 @@
     "stat": "{xchance}x chance",
     "head": "Breast cancer: patients' tumors leave the healthy range far more often than chance",
     "sub": "Each woman's tumor was read against her own healthy breast tissue. Chance alone puts about {exp} of {n} outside the healthy range; {k} were, and {up} of {n} tumors read above the woman's own tissue. The rule was sealed before a single tumor was opened."
-   }
+   },
+   "sealed": true
   },
   {
    "id": "DEV-TISSUE-COLON-01",
@@ -168,7 +176,8 @@
     "stat": "{xchance}x chance",
     "head": "Colorectal cancer: the same signal, in a second cancer",
     "sub": "Chance alone puts about {exp} of {n} outside the healthy range; {k} were, and {up} of {n} tumors read above the patient's own healthy colon. Sealed in advance, scored once."
-   }
+   },
+   "sealed": true
   },
   {
    "id": "DEV-FINGERPRINT-02-PROSTATE",
@@ -186,7 +195,8 @@
     "stat": "{above} of {n}",
     "head": "Found again: the fingerprint in a second laboratory's prostate cancer",
     "sub": "Different cells, a different lab, every cancer sample. The weakest still {ratio:.1f} times the difference between two healthy people."
-   }
+   },
+   "sealed": true
   },
   {
    "id": "DEV-FINGERPRINT-02-BREAST",
@@ -204,7 +214,8 @@
     "stat": "{gain} of {n}",
     "head": "Breast cancer cell lines carry a fingerprint of their own",
     "sub": "Seen in every comparison with normal breast cells."
-   }
+   },
+   "sealed": true
   },
   {
    "id": "DEV-TISSUE-LIVER-01",
@@ -222,7 +233,8 @@
     "stat": "{xchance}x chance",
     "head": "Liver cancer: a third cancer, the same result",
     "sub": "Chance alone puts about {exp} of {n} outside the healthy range; {k} were, and {up} of {n} tumors read above the patient's own healthy liver."
-   }
+   },
+   "sealed": true
   },
   {
    "id": "DEV-CSCORE-BAND-01",
@@ -294,7 +306,7 @@
     "rank": 16,
     "stat": "{within} of {n} on one line",
     "head": "Every healthy cell follows the same simple rule",
-    "sub": "Cells tag their DNA to remember what kind of cell they are, and make a few tagging mistakes. Across {n} kinds of healthy human cells, the number of mistakes depends on one thing: how much of the DNA the cell keeps loosely tagged. So what a healthy cell should look like comes from its own sample, not a library of other cells. Early result, one laboratory's data; a second lab is next."
+    "sub": "Cells tag their DNA to remember what kind of cell they are, and make a few tagging mistakes. Across {n} kinds of healthy human cells, the number of mistakes depends on one thing: how much of the DNA the cell keeps loosely tagged. So what a healthy cell should look like comes from its own sample, not a library of other cells. Early result, one laboratory's data, counted with the earlier held-error counter. Since then: the line was rebuilt in the chain on the per-opportunity count and IAM-A was commissioned on it (2026-10-17, COMMISSIONING_NOTE_IAMA.md)."
    },
    "headline": "**Every healthy cell follows the same simple rule.** Across 56 kinds of healthy human cells, the number of DNA-tagging mistakes depends on one thing, how much of the DNA the cell keeps loosely tagged, so a healthy cell's expected reading comes from its own sample (early result, one laboratory)"
   },

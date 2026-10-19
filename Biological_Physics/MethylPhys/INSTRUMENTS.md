@@ -40,7 +40,7 @@ A map of 79 kinds of healthy human cells, built from 21 public sources on arrays
 
 **Record:** [COMMISSIONING_NOTE_ATLAS_V21.md](doors/COMMISSIONING_NOTE_ATLAS_V21.md)
 
-**Next:** Deposit IAM-Atlas v2.1 with its DOI, with its complementary additions: noise maps, the information sphere and the guidebook.
+**Next:** Deposited with its DOI (10.5281/zenodo.23441999, 2026-10-19). Its complementary additions: the posterior noise maps in the chain and the report, the 3D information sphere, and the guidebook (to-do step 13 of the commissioning plan).
 
 ## IAM-Deconvolver
 

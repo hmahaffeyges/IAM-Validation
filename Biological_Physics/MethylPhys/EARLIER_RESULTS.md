@@ -8,7 +8,7 @@ runs every sample existed. Each keeps its record; none is withdrawn.*
 
 **2026-10-15** · commissioned, early result (data already read) · 53 of 56 on one line
 
-Cells tag their DNA to remember what kind of cell they are, and make a few tagging mistakes. Across 56 kinds of healthy human cells, the number of mistakes depends on one thing: how much of the DNA the cell keeps loosely tagged. So what a healthy cell should look like comes from its own sample, not a library of other cells. Early result, one laboratory's data; a second lab is next.
+Cells tag their DNA to remember what kind of cell they are, and make a few tagging mistakes. Across 56 kinds of healthy human cells, the number of mistakes depends on one thing: how much of the DNA the cell keeps loosely tagged. So what a healthy cell should look like comes from its own sample, not a library of other cells. Early result, one laboratory's data, counted with the earlier held-error counter. Since then: the line was rebuilt in the chain on the per-opportunity count and IAM-A was commissioned on it (2026-10-17, COMMISSIONING_NOTE_IAMA.md).
 
 Record: [loose_end_line.py](../../development/loose_end_2026-10-15/loose_end_line.py)
 
@@ -118,7 +118,7 @@ Record: [DEV_CSCORE_MOSS_01_OUTCOME.md](doors/DEV_CSCORE_MOSS_01_OUTCOME.md)
 
 ## Everything it reads rebuilds from public data
 
-**2026-10-10** · commissioned · Rebuilt
+**2026-10-10** · reproduced · Rebuilt
 
 Every number the commissioned instrument uses, rebuilt from public samples, identical.
 
@@ -126,7 +126,7 @@ Record: [PROC_CHANNEL_01_OUTCOME.md](doors/PROC_CHANNEL_01_OUTCOME.md)
 
 ## The book is out, with a DOI
 
-**2026-10-05** · commissioned · Published
+**2026-10-05** · published · Published
 
 IAM's Law and Order, every derivation checked by one command.
 

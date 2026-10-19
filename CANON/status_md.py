@@ -17,8 +17,8 @@ L = ["# STATUS: MethylPhys instruments, what is commissioned, what is in develop
      "| Instrument | Status | Scope |", "|---|---|---|"] + [i["status_line"] for i in C["instruments"] if i.get("status_line")]
 L += ["", "## Every instrument", "", "| Instrument | Where it stands | Next |", "|---|---|---|"]
 L += [f"| **{E(i['name'])}** | {E(CAT.stage(i, M))} | {E(i['next'])} |" for i in K["instruments"]]
-L += ["", "## Results in the last 14 days (results register)", "", "| Date | Result | Status | Record |", "|---|---|---|---|"]
-cut = (datetime.date.fromisoformat(max(e["date"] for e in G)) - datetime.timedelta(days=14)).isoformat()
+cut = (datetime.date.fromisoformat(max(e["date"] for e in G)) - datetime.timedelta(days=14)).isoformat()   # no time-relative heading (author 2026-10-19): the dates are printed
+L += ["", f"## Results from {cut} to {max(e['date'] for e in G)} (results register)", "", "| Date | Result | Status | Record |", "|---|---|---|---|"]
 L += [f"| {e['date']} | {E(e.get('title'))} | {E(e.get('status'))} | [{os.path.basename(e['record'])}]({os.path.relpath(os.path.join(R, e['record']), os.path.dirname(OUT))}) |"
       for e in sorted(G, key=lambda e: e["date"], reverse=True) if e["date"] >= cut and e.get("status") != "withdrawn"]
 txt = "\n".join(L) + "\n"

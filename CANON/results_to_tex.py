@@ -232,6 +232,7 @@ def write_plain(R):
 def root_row(e, v):
     r = readme_row(e, v).split(" | "); rec = e["record"]
     lab = {"commissioned": "COMMISSIONED", "development": "MEASURED, sealed before reading; development"}.get(e["status"], e["status"].upper())
+    if e.get("sealed") is False: lab = "MEASURED, early result (data already read); development" if e["status"] == "development" else lab + "; early result (data already read)"   # 2026-10-19: the label ignored the register's own flag
     if e.get("compute") == "sam": lab = "PREDICTION met (sealed); development"
     return f"| {e['date']} | {r[1]} | {lab} | [record]({rec}) |"
 def build():

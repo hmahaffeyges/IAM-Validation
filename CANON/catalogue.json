@@ -14,7 +14,7 @@
     "ATL-060",
     "ATL-001"
    ],
-   "next": "Deposit IAM-Atlas v2.1 with its DOI, with its complementary additions: noise maps, the information sphere and the guidebook.",
+   "next": "Deposited with its DOI (10.5281/zenodo.23441999, 2026-10-19). Its complementary additions: the posterior noise maps in the chain and the report, the 3D information sphere, and the guidebook (to-do step 13 of the commissioning plan).",
    "book_chapter": "ch:atlas",
    "specialty": "It is the map every other instrument reads against: for 79 healthy cell types, the expected tagging at every site with its range of error, so a sample can be split into its cells and each cell compared with its own healthy kind.",
    "commissioned": "79 cell types; met all three sealed bars against both published reference atlases, 2026-10-16; commissioned for three cell references and the colon and lung tissue tests",
