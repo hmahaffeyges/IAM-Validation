@@ -17,8 +17,13 @@ grep -q "wgbstools 0\.1\.0" logs/versions.txt || exit 22
 grep -q "0\.2\.0" logs/versions.txt || exit 17
 REF=$S/ref/mm10.fa
 if [ ! -s $REF.bwameth.c2t.sa ]; then
-  curl -sL -o ref/mm10.fa.gz https://hgdownload.soe.ucsc.edu/goldenPath/mm10/bigZips/mm10.fa.gz && gunzip -f ref/mm10.fa.gz && bgzip -@ 8 -c $REF > ref/mm10.fa.gz \
-   && wgbstools init_genome mm10 --fasta_path $S/ref/mm10.fa.gz -@ 8 -f > logs/init_genome.log 2>&1 && bwameth.py index $REF > logs/index.log 2>&1 || exit 18
+  # 2026-10-18 run 7 stopped here within a minute with no log: each part now logs and has its own exit code (18 download, 23 unpack, 24 bgzip,
+  # 25 init_genome, 26 index); the download fails on an HTTP error instead of saving an error page
+  curl -fsSL --retry 5 --retry-delay 30 -o ref/mm10.fa.gz https://hgdownload.soe.ucsc.edu/goldenPath/mm10/bigZips/mm10.fa.gz 2> logs/genome_download.log || exit 18
+  ls -l ref/mm10.fa.gz >> logs/genome_download.log; gunzip -f ref/mm10.fa.gz 2>> logs/genome_download.log || exit 23
+  command -v bgzip >> logs/genome_download.log; bgzip -@ 8 -c $REF > ref/mm10.fa.gz 2>> logs/genome_download.log || exit 24
+  wgbstools init_genome mm10 --fasta_path $S/ref/mm10.fa.gz -@ 8 -f > logs/init_genome.log 2>&1 || exit 25
+  bwameth.py index $REF > logs/index.log 2>&1 || exit 26
 fi
 for r in $(tail -n +2 $RUNS_CSV | cut -d, -f1); do
   [ -s pat/$r.pat.gz ] && continue; f=fq/$r.fastq.gz

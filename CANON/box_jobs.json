@@ -3065,7 +3065,7 @@
    "date": "2026-10-18",
    "commit": "7c1fa2e3",
    "chain_commit": "7c1fa2e3",
-   "state": "running",
+   "state": "done",
    "s3_code_prefix": "results/REPRODUCE_V1/code/run7/",
    "log": "results/REPRODUCE_V1/run7/status.txt",
    "machine": "on-demand c7a.4xlarge, self-terminating (7-hour timer)",
@@ -3075,13 +3075,14 @@
     "OTH-076"
    ],
    "outputs": [
-    "results/REPRODUCE_V1/run7/status.txt"
+    "results/REPRODUCE_V1/run7/status.txt",
+    "results/REPRODUCE_V1/run7/out/mice/seq/logs/versions.txt"
    ],
    "files": [
     "reproduce/box/reproduce_fresh.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: commit confirmed on origin; code in S3 first; status and progress to S3; watcher; tools installed first so an install error shows in minutes; about $5",
-   "note": "stops itself after 7 hours at most"
+   "note": "tools installed at the committed versions; stopped in the mm10 genome step (exit 18, no log); step split and logged, rerun as run 8"
   }
  ],
  "not_jobs": {
