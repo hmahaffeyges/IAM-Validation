@@ -3044,7 +3044,7 @@
    "date": "2026-10-18",
    "commit": "d27b4956",
    "chain_commit": "d27b4956",
-   "state": "running",
+   "state": "done",
    "s3_code_prefix": "results/REPRODUCE_V1/code/run6/",
    "log": "results/REPRODUCE_V1/run6/status.txt",
    "machine": "on-demand c7a.4xlarge, self-terminating (6-hour timer)",
@@ -3054,13 +3054,14 @@
     "OTH-076"
    ],
    "outputs": [
-    "results/REPRODUCE_V1/run6/status.txt"
+    "results/REPRODUCE_V1/run6/status.txt",
+    "results/REPRODUCE_V1/run6/out/iama_line/verdict.json"
    ],
    "files": [
     "reproduce/box/reproduce_fresh.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: commit confirmed on origin; code in S3 first; status and progress to S3; watcher; image+150 GB; about $4",
-   "note": "stops itself after 6 hours at most"
+   "note": "iama_line PASS, all 158 files counted (168 min)"
   },
   {
    "job_id": "i-04892b0da73153d90",

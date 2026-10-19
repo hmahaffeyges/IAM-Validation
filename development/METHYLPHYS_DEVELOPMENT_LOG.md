@@ -2604,3 +2604,6 @@ Job i-0dcadc1b4ac48b899.
 
 ### 2026-10-18 · reproduce/ breast and liver PASS (OTH-076)
 Run 4, fresh clone, IAM-Atlas v2 from Zenodo and TCGA 450K arrays from the NCI GDC: breast 53 pairs, 23 above the bar (6 needed), FINGERPRINT; liver PASS; every scored number identical to the committed results.
+
+### 2026-10-18 · reproduce/ iama_line PASS (OTH-076)
+Run 6, fresh clone: all 153 GEO .pat files (first pass, 8 parallel downloads) and the 5 ENCODE BAMs counted through chain Stage Q2; every count, the self-reference line and the sample-shape reference identical to the committed ones.

@@ -61,5 +61,14 @@
   "minutes": 139.1,
   "commit": "211e26c0",
   "job": "results/REPRODUCE_V1/run4/out/liver/verdict.json"
+ },
+ "iama_line": {
+  "verdict": "PASS",
+  "date": "2026-10-18",
+  "checks": 3,
+  "checks_ok": 3,
+  "minutes": 168.1,
+  "commit": "d27b4956",
+  "job": "results/REPRODUCE_V1/run6/out/iama_line/verdict.json"
  }
 }

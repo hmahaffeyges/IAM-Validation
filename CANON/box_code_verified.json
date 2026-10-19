@@ -1849,9 +1849,10 @@
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
-   "results/REPRODUCE_V1/run6/status.txt": true
+   "results/REPRODUCE_V1/run6/status.txt": true,
+   "results/REPRODUCE_V1/run6/out/iama_line/verdict.json": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "done"
  },
  "i-04892b0da73153d90": {
   "s3": {
