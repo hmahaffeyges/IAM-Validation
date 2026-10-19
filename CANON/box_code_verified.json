@@ -1977,5 +1977,17 @@
    "results/BOOK_CHECK/3957f0b9/verify_book_output.txt": true
   },
   "state_at_verify": "done"
+ },
+ "i-0e48c47699a37bba0": {
+  "s3": {
+   "verify_book_full.sh": "7879d41de6d99e0aef10e2236640425f30f50a5563e049736d28ae3ebe9785a5"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/BOOK_CHECK/fdf5a2f2/verify_book_output.txt": true
+  },
+  "state_at_verify": "done"
  }
 }

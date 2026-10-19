@@ -4298,7 +4298,7 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 65 | ch:landauer:L65 | measured | `0.033` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: healthy held error, lowest of 56 cell types | PASS |
 | 65 | ch:landauer:L65:0.042 | measured | `0.055` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: highest | PASS |
 | 70 | ch:landauer:L70 | calc | `0.69` | numeric: ln 2 | PASS |
-| 71 | ch:landauer:L71 | calc | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy per site (figure caption) | PASS |
+| 71 | ch:landauer:L71 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy per site (figure caption) | PASS |
 | 71 | ch:landauer:L71:20.94 | calc | `20.94` | numeric: M = dG_ATP/(R T) per ATP (figure caption) | PASS |
 | 72 | ch:landauer:L72 | calc | `1.00` | numeric: Landauer floor in Landauer units | PASS |
 | 72 | ch:landauer:L72:4.92 | calc | `4.45` | numeric: E_hold/ln2 (E_hold canon) | PASS |
@@ -4334,7 +4334,7 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 176 | ch:landauer:L176:3.9 | calc | `3.9` | numeric: ln(1/0.02) | PASS |
 | 176 |  | calc | `0.10` | not run: input: failure rate 10 % = 1 - 0.90, the lower maintenance efficiency of line 173 restated; ln(1/0.10) is checked at ch:landauer:L176 | - |
 | 178 | ch:landauer:L178 | calc | `21` | numeric: kT per ATP | PASS |
-| 186 | ch:landauer:L186 | measured | `3.41` | heavy numeric `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy across 56 cell types (Loyfer read-level) | PASS |
+| 186 | ch:landauer:L186 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy across 56 cell types (Loyfer read-level) | PASS |
 | 186 | ch:landauer:L186:3.13 | measured | `2.85` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy across 56 cell types (Loyfer read-level) | PASS |
 | 186 | ch:landauer:L186:3.71 | measured | `3.37` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy across 56 cell types (Loyfer read-level) | PASS |
 | 187 | ch:landauer:L187 | calc | `4.45` | numeric: 3.41/ln2 | PASS |
@@ -4353,7 +4353,7 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 263 |  | calc | `9950` | not run: not a number: part of the processor name (AMD 9950X) | - |
 | 264 | ch:landauer:L264 | calc | `8.38\times10^{-14}` | numeric: floor for all CpGs, J | PASS |
 | 264 | ch:landauer:L264:9.3\times10^5 | calc | `9.3\times10^5` | numeric: floor in ATP at 54 kJ/mol | PASS |
-| 267 | ch:landauer:L267 | measured | `3.41` | heavy numeric `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy, 56 cell types | PASS |
+| 267 | ch:landauer:L267 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy, 56 cell types | PASS |
 | 267 | ch:landauer:L267:56 | calc | `56` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy read in 56 cell types | PASS |
 | 268 | ch:landauer:L268 | measured | `0.163` | heavy numeric `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: phi, committed record | PASS |
 | 269 |  | calc | `450` | not run: not a number: array platform name (450K) | - |
@@ -4569,7 +4569,7 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 84 | ch:iama:L74 | calc | `1.149` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: P in the curve of the figure | PASS |
 | 90 | ch:iama:L90 | measured | `0.033` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: held error across 56 healthy cell types, lowest | PASS |
 | 90 | ch:iama:L90:0.042 | measured | `0.042` | numeric `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: held error across 56 healthy cell types, highest | PASS |
-| 90 | ch:iama:L90:3.41 | measured | `3.41` | numeric `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy across 56 cell types, mean | PASS |
+| 90 | ch:iama:L90:3.41 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy across 56 cell types, mean | PASS |
 | 91 | ch:iama:L91 | measured | `0.79` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: healthy cell types on one physics floor, lowest | PASS |
 | 91 | ch:iama:L91:1.23 | measured | `1.18` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: healthy cell types on one physics floor, highest | PASS |
 | 91 | ch:iama:L91:1.01 | measured | `1.02` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: healthy cell types on one physics floor, median | PASS |
@@ -5066,7 +5066,7 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 42 | ch:onegauge:L42 | calc | `0.259` | numeric: same value as p6_00b_astrogenetics:63 (H(eps0), bits) | PASS |
 | 42 | ch:onegauge:L42:3.03 | calc | `3.03` | numeric: full surface on Met-A: 1/(healthy reference) | PASS |
 | 42 | ch:onegauge:L42:0.032 | calc | `0.044` | numeric: eps0 = 1/(1 + exp(phi M)) | PASS |
-| 63 | ch:onegauge:L63 | openprob | `3.41` | heavy numeric `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy E_hold from the PROC-CHANNEL-01 record | PASS |
+| 63 | ch:onegauge:L63 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy E_hold from the PROC-CHANNEL-01 record | PASS |
 | 64 | ch:onegauge:L64 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: eps0 from the measured holding energy | PASS |
 | 66 | ch:onegauge:L66 | openprob | `1.9` | numeric: Hopfield energy gap ln 7 (low end) | PASS |
 | 66 | ch:onegauge:L66:4.4 | openprob | `4.4` | numeric: Hopfield energy gap ln 80 (high end) | PASS |
@@ -5080,14 +5080,14 @@ Totals: 4650 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 110 | ch:onegauge:L110:0.664 | measured | `0.664` | heavy file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: IMR90 SV40, unmethylated channel, upper end | PASS |
 | 110 | ch:onegauge:L110:0.975 | measured | `0.975` | heavy file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: IMR90 SV40, both channels, upper end | PASS |
 | 110 | ch:onegauge:L110:0.95 | measured | `0.95` | file `CANON/iam_canon.json`: Normal band lower edge (CANON) | PASS |
-| 143 | ch:onegauge:L143 | measured | `3.41` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
+| 143 | ch:onegauge:L143 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 143 | ch:onegauge:L143:1.9 | observed | `1.9` | numeric: Hopfield gap ln 7 (figure caption) | PASS |
 | 143 | ch:onegauge:L143:4.4 | observed | `4.4` | numeric: Hopfield gap ln 80 (figure caption) | PASS |
 | 154 |  | observed | `21` | not run: measured, source not named | - |
 | 154 |  | observed | `30` | not run: measured, source not named | - |
 | 154 |  | observed | `40` | not run: measured, source not named | - |
 | 154 |  | observed | `80` | not run: measured, source not named | - |
-| 156 | ch:onegauge:L156 | observed | `3.41` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
+| 156 | ch:onegauge:L156 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 156 | ch:onegauge:L156:1.9 | observed | `1.9` | numeric: Delta E = ln 7 (Hopfield) | PASS |
 | 156 | ch:onegauge:L156:4.4 | observed | `4.4` | numeric: Delta E = ln 80 (Hopfield) | PASS |
 

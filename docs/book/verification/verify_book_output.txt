@@ -4016,8 +4016,7 @@ PASS  eq:bitsperATP                      ch:landauer:p6_02_landauer:48  printed 
 PASS  ch:landauer:L65                    ch:landauer:p6_02_landauer:65  printed 0.033  recomputed 0.0333  tol 5.000005e-04  [measured] healthy held error, lowest of 56 cell types  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:landauer:L65:0.042              ch:landauer:p6_02_landauer:65  printed 0.055  recomputed 0.0549  tol 5.000005e-04  [measured] highest  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:landauer:L70                    ch:landauer:p6_02_landauer:70  printed 0.69  recomputed 0.693147  tol 0.00500001  [calc] ln 2
-PASS  ch:landauer:L71                    ch:landauer:p6_02_landauer:71  printed 3.41  recomputed 3.41  tol 0.00500001  [calc] holding energy per site (figure caption)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:landauer:L71                    ch:landauer:p6_02_landauer:71  printed 3.08  recomputed 3.084  tol 0.00500001  [measured] holding energy per site (figure caption)  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:landauer:L71:20.94              ch:landauer:p6_02_landauer:71  printed 20.94  recomputed 20.9405  tol 0.00500001  [calc] M = dG_ATP/(R T) per ATP (figure caption)
 PASS  ch:landauer:L72                    ch:landauer:p6_02_landauer:72  printed 1.00  recomputed 1  tol 0.00500001  [calc] Landauer floor in Landauer units
 PASS  ch:landauer:L72:4.92               ch:landauer:p6_02_landauer:72  printed 4.45  recomputed 4.44927  tol 0.00500001  [calc] E_hold/ln2 (E_hold canon)
@@ -4046,8 +4045,7 @@ PASS  ch:landauer:L158                   ch:landauer:p6_02_landauer:158  printed
 PASS  ch:landauer:L176                   ch:landauer:p6_02_landauer:176  printed 2.3  recomputed 2.30259  tol 0.05  [calc] ln(1/0.10)
 PASS  ch:landauer:L176:3.9               ch:landauer:p6_02_landauer:176  printed 3.9  recomputed 3.91202  tol 0.05  [calc] ln(1/0.02)
 PASS  ch:landauer:L178                   ch:landauer:p6_02_landauer:178  printed 21  recomputed 20.9405  tol 0.5  [calc] kT per ATP
-PASS  ch:landauer:L186                   ch:landauer:p6_02_landauer:186  printed 3.41  recomputed 3.41052  tol 0.00500001  [measured] holding energy across 56 cell types (Loyfer read-level)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
+PASS  ch:landauer:L186                   ch:landauer:p6_02_landauer:186  printed 3.08  recomputed 3.084  tol 0.00500001  [measured] holding energy across 56 cell types (Loyfer read-level)  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:landauer:L186:3.13              ch:landauer:p6_02_landauer:186  printed 2.85  recomputed 2.85  tol 0.00500001  [measured] holding energy across 56 cell types (Loyfer read-level)  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:landauer:L186:3.71              ch:landauer:p6_02_landauer:186  printed 3.37  recomputed 3.37  tol 0.00500001  [measured] holding energy across 56 cell types (Loyfer read-level)  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:landauer:L187                   ch:landauer:p6_02_landauer:187  printed 4.45  recomputed 4.44927  tol 0.00500001  [calc] 3.41/ln2
@@ -4065,8 +4063,7 @@ PASS  ch:landauer:L263                   ch:landauer:p6_02_landauer:263  printed
 PASS  ch:landauer:L263:411               ch:landauer:p6_02_landauer:263  printed 411  recomputed 411.245  tol 0.5  [calc] M, lower count
 PASS  ch:landauer:L264                   ch:landauer:p6_02_landauer:264  printed 8.38\times10^{-14}  recomputed 8.375259e-14  tol 5.000005e-17  [calc] floor for all CpGs, J
 PASS  ch:landauer:L264:9.3\times10^5     ch:landauer:p6_02_landauer:264  printed 9.3\times10^5  recomputed 9.340183e+05  tol 5000  [calc] floor in ATP at 54 kJ/mol
-PASS  ch:landauer:L267                   ch:landauer:p6_02_landauer:267  printed 3.41  recomputed 3.41052  tol 0.00500001  [measured] holding energy, 56 cell types  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
+PASS  ch:landauer:L267                   ch:landauer:p6_02_landauer:267  printed 3.08  recomputed 3.084  tol 0.00500001  [measured] holding energy, 56 cell types  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:landauer:L267:56                ch:landauer:p6_02_landauer:267  printed 56  recomputed 56  tol 0.5  [calc] holding energy read in 56 cell types  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
       heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
 PASS  ch:landauer:L268                   ch:landauer:p6_02_landauer:268  printed 0.163  recomputed 0.162867  tol 5.000005e-04  [measured] phi, committed record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
@@ -4272,7 +4269,7 @@ PASS  ch:iama:L74                        ch:iama:p6_08_iama:84  printed 1.149  r
 PASS  ch:iama:L75                        ch:iama:p6_08_iama:75  printed 0.3  recomputed 0.288599  tol 0.05  [calc] a 2 % rise in held error moves the reading by about 0.3  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
 PASS  ch:iama:L90                        ch:iama:p6_08_iama:90  printed 0.033  recomputed 0.0333  tol 5.000005e-04  [measured] held error across 56 healthy cell types, lowest  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:iama:L90:0.042                  ch:iama:p6_08_iama:90  printed 0.042  recomputed 0.0417364  tol 5.000005e-04  [measured] held error across 56 healthy cell types, highest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-PASS  ch:iama:L90:3.41                   ch:iama:p6_08_iama:90  printed 3.41  recomputed 3.41052  tol 0.00500001  [measured] holding energy across 56 cell types, mean  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  ch:iama:L90:3.41                   ch:iama:p6_08_iama:90  printed 3.08  recomputed 3.084  tol 0.00500001  [measured] holding energy across 56 cell types, mean  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:iama:L91                        ch:iama:p6_08_iama:91  printed 0.79  recomputed 0.794  tol 0.00500001  [measured] healthy cell types on one physics floor, lowest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
 PASS  ch:iama:L91:1.23                   ch:iama:p6_08_iama:91  printed 1.18  recomputed 1.18  tol 0.00500001  [measured] healthy cell types on one physics floor, highest  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:iama:L91:1.01                   ch:iama:p6_08_iama:91  printed 1.02  recomputed 1.02  tol 0.00500001  [measured] healthy cell types on one physics floor, median  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
@@ -4696,8 +4693,7 @@ PASS  ch:onegauge:L41                    ch:onegauge:p7_08_one_gauge:41  printed
 PASS  ch:onegauge:L42                    ch:onegauge:p7_08_one_gauge:42  printed 0.259  recomputed 0.259274  tol 5.000005e-04  [calc] same value as p6_00b_astrogenetics:63 (H(eps0), bits)
 PASS  ch:onegauge:L42:3.03               ch:onegauge:p7_08_one_gauge:42  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] full surface on Met-A: 1/(healthy reference)
 PASS  ch:onegauge:L42:0.032              ch:onegauge:p7_08_one_gauge:42  printed 0.044  recomputed 0.0437494  tol 5.000005e-04  [calc] eps0 = 1/(1 + exp(phi M))
-PASS  ch:onegauge:L63                    ch:onegauge:p7_08_one_gauge:63  printed 3.41  recomputed 3.41052  tol 0.00500001  [openprob] holding energy E_hold from the PROC-CHANNEL-01 record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending
+PASS  ch:onegauge:L63                    ch:onegauge:p7_08_one_gauge:63  printed 3.08  recomputed 3.084  tol 0.00500001  [measured] holding energy E_hold from the PROC-CHANNEL-01 record  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:onegauge:L64                    ch:onegauge:p7_08_one_gauge:64  printed 0.044  recomputed 0.04376  tol 5.000005e-04  [measured] eps0 from the measured holding energy  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:onegauge:L66                    ch:onegauge:p7_08_one_gauge:66  printed 1.9  recomputed 1.94591  tol 0.05  [openprob] Hopfield energy gap ln 7 (low end)
 PASS  ch:onegauge:L66:4.4                ch:onegauge:p7_08_one_gauge:66  printed 4.4  recomputed 4.38203  tol 0.05  [openprob] Hopfield energy gap ln 80 (high end)
@@ -4714,10 +4710,10 @@ PASS  ch:onegauge:L110:0.664             ch:onegauge:p7_08_one_gauge:110  printe
 PASS  ch:onegauge:L110:0.975             ch:onegauge:p7_08_one_gauge:110  printed 0.975  recomputed 0.974939  tol 5.000005e-04  [measured] IMR90 SV40, both channels, upper end  file Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv
       heavy: python3 Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.py (needs the GSE48580 WGBS files)
 PASS  ch:onegauge:L110:0.95              ch:onegauge:p7_08_one_gauge:110  printed 0.95  recomputed 0.95  tol 0.00500001  [measured] Normal band lower edge (CANON)  file CANON/iam_canon.json
-PASS  ch:onegauge:L143                   ch:onegauge:p7_08_one_gauge:143  printed 3.41  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  ch:onegauge:L143                   ch:onegauge:p7_08_one_gauge:143  printed 3.08  recomputed 3.084  tol 0.00500001  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:onegauge:L143:1.9               ch:onegauge:p7_08_one_gauge:143  printed 1.9  recomputed 1.94591  tol 0.05  [observed] Hopfield gap ln 7 (figure caption)
 PASS  ch:onegauge:L143:4.4               ch:onegauge:p7_08_one_gauge:143  printed 4.4  recomputed 4.38203  tol 0.05  [observed] Hopfield gap ln 80 (figure caption)
-PASS  ch:onegauge:L156                   ch:onegauge:p7_08_one_gauge:156  printed 3.41  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  ch:onegauge:L156                   ch:onegauge:p7_08_one_gauge:156  printed 3.08  recomputed 3.084  tol 0.00500001  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:onegauge:L156:1.9               ch:onegauge:p7_08_one_gauge:156  printed 1.9  recomputed 1.94591  tol 0.05  [observed] Delta E = ln 7 (Hopfield)
 PASS  ch:onegauge:L156:4.4               ch:onegauge:p7_08_one_gauge:156  printed 4.4  recomputed 4.38203  tol 0.05  [observed] Delta E = ln 80 (Hopfield)
 
@@ -5782,4 +5778,4 @@ PASS  app:register:L73:1.55 \%           app:register:app_G_predictions_register
 PASS  app:register:L73:0.78 \%           app:register:app_G_predictions_register:73  printed 0.78 \%  recomputed 0.776789  tol 0.00500001  [openprob] COS-357: D lowered at z = 0, per cent
 PASS  app:register:L74:1.03              app:register:app_G_predictions_register:74  printed 1.03  recomputed 1.03045  tol 0.00500001  [openprob] COS-365: ISW amplitude ratio A_ISW
 
-SUMMARY  PASS 4650  FAIL 0  (heavy, read from committed outputs: 943)  inventoried-not-run 1342  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4650  FAIL 0  (heavy, read from committed outputs: 939)  inventoried-not-run 1342  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

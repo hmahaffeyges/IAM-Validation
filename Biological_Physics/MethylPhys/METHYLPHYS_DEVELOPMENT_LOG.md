@@ -2685,3 +2685,4 @@ Author asked whether FOUR_DOMAINS was stale after IAM-A and the C-Score were com
 
 ### 2026-10-19 · Book check record on a full clone: 4,650 checks, 0 failures (OTH-072)
 Jobs i-0fba10a06761a1c4b and i-0df7613ea2dfb0d24 (spot m7a.xlarge): verify_book.py on a full clone of the audit commit (temporary branch audit-2026-10-19), since the laptop's sparse checkout lacks the committed data files. 4,691 checks before the audit; 41 that held numbers their chapters no longer print were removed and 35 rewritten to the commissioned record. REFERENCE.md count updated.
+Job i-0e48c47699a37bba0 (run 3) repeated the full-clone book check after four last passages on the old holding energy were found on the live site (two figure captions, the one-gauge holding-energy paragraph) and seven checks still held 3.41: 4,650 checks, 0 failures.

@@ -3308,6 +3308,30 @@
     "results/BOOK_CHECK/3957f0b9/verify_book_output.txt"
    ],
    "note": "PASS 4650, FAIL 0"
+  },
+  {
+   "date": "2026-10-19",
+   "state": "done",
+   "machine": "spot m7a.xlarge, self-terminating (90-min timer)",
+   "manifest": [
+    "OTH-072"
+   ],
+   "files": [
+    "docs/book/verification/verify_book_full.sh"
+   ],
+   "record": "docs/book/verification/verify_book_full.sh",
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch: commit on origin (temporary branch audit-2026-10-19), code copy in S3 first, timer sized from the work (about 10 min of 90)",
+   "job_id": "i-0e48c47699a37bba0",
+   "name": "Book check on a full clone, run 3: after the last four passages (OTH-072)",
+   "commit": "fdf5a2f2",
+   "chain_commit": "fdf5a2f2",
+   "s3_code_prefix": "results/BOOK_CHECK/code/run3/",
+   "log": "results/BOOK_CHECK/fdf5a2f2/status.txt",
+   "purpose": "verify_book.py, --json and --inventory-md on a full clone; the three record files committed",
+   "outputs": [
+    "results/BOOK_CHECK/fdf5a2f2/verify_book_output.txt"
+   ],
+   "note": "PASS 4650, FAIL 0"
   }
  ],
  "not_jobs": {
