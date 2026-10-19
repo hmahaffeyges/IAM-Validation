@@ -89,7 +89,7 @@
    "instrument_or_term": "Met-A",
    "sources": [],
    "data_status": "to_scout",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "parked",
    "runs": [],
    "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
@@ -762,7 +762,7 @@
     "GSE87640"
    ],
    "data_status": "in_hand",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "parked",
    "runs": [],
    "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
@@ -1234,7 +1234,7 @@
    "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "none",
    "impact": 4,
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "notes": "Pasted M3 'open problem in book'. Reference series id GSE226298 taken from data_spent.csv (read by the commissioned Met-A neutrophil bars 10-11).",
    "legacy_ids": [
     "M3"
@@ -3394,7 +3394,7 @@
    "instrument_or_term": "IAM-A",
    "sources": [],
    "data_status": "partial",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "idea",
    "runs": [],
    "next_step": "Trace the source, re-fetch read-level files, after A1.",
@@ -3514,7 +3514,7 @@
    "next_step": "Verify GSE59163 from its files (RRBS, donor count, sorting); design.",
    "cost": "search",
    "impact": 5,
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "notes": "Pasted A3: 'lead from atlas search: GSE59163 (RRBS, 13 healthy) - verify from files; design'. help_wanted in CANON/next_jobs.json asks for WGBS/EM-seq neutrophils from another lab (record Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01.md). GSE59163 not found in any doors note or data_spent.csv. | possible duplicate of COM-IAMA-022",
    "legacy_ids": [
     "A3"
@@ -3538,7 +3538,7 @@
    "next_step": "Seal a prediction on MCF-7 territories before reading.",
    "cost": "laptop",
    "impact": 3,
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "notes": "Pasted A5: 'reader built and passed'. No dedicated doors note found for the per-territory prediction; repo: TODO.md A5 only. | possible duplicate of COM-IAMA-040",
    "legacy_ids": [
     "A5"
@@ -3597,7 +3597,7 @@
    "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
    "cost": "laptop",
    "impact": 4,
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "notes": "Pasted A10: 'not checked'. next_jobs division-rate job says 'post-mortem time checked first' (record Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md). data_status in_hand is from the pasted wording; not confirmed in S3. | possible duplicate of COM-IAMA-023",
    "legacy_ids": [
     "A10"
@@ -3621,7 +3621,7 @@
    "next_step": "Trace the source and re-fetch read-level files, after A1.",
    "cost": "search",
    "impact": 2,
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "notes": "Pasted A7 only names it; no accession given in the notes. repo: TODO.md A7. | possible duplicate of COM-IAMA-043",
    "legacy_ids": [
     "A7"
@@ -5030,7 +5030,7 @@
    "next_step": "After AT7.",
    "cost": "laptop",
    "impact": 3,
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "notes": "Pasted AT9. None of these accessions appears in a doors note or data_spent.csv. | possible duplicate of ATL-025",
    "legacy_ids": [
     "AT9"
@@ -5092,7 +5092,7 @@
    "next_step": "Next search due by 2027-04-12.",
    "cost": "search",
    "impact": 2,
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "notes": "Pasted AT10. | possible duplicate of ATL-030",
    "legacy_ids": [
     "AT10"
@@ -6292,7 +6292,7 @@
    "instrument_or_term": "IAM-A",
    "sources": [],
    "data_status": "to_scout",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "idea",
    "runs": [],
    "next_step": "Search for public DNMT1-reduced mouse methylomes.",
@@ -8368,7 +8368,7 @@
     "literature, metadata only"
    ],
    "data_status": "to_scout",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "idea",
    "next_step": "Literature search, metadata only (TODO H7).",
    "cost": "search",
@@ -8813,7 +8813,7 @@
     "class-era VAL results (blinded)"
    ],
    "data_status": "spent",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "idea",
    "next_step": "When the author calls it.",
    "cost": "laptop",
@@ -8893,7 +8893,7 @@
    "instrument_or_term": "Met-A group comparison (same-series rule)",
    "sources": [],
    "data_status": "partial",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "idea",
    "next_step": "After V1, when the author calls it.",
    "cost": "laptop",
@@ -9346,7 +9346,7 @@
     "TCGA (all cancers with open 450K IDATs)"
    ],
    "data_status": "partial",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "planned",
    "next_step": "Write the split and commit it before opening any further TCGA cancer.",
    "cost": "laptop",
@@ -9368,7 +9368,7 @@
    "instrument_or_term": "Met-A, IAM-A, C-score",
    "sources": [],
    "data_status": "to_scout",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "planned",
    "runs": [],
    "next_step": "Search for a dilution or spike-in series, or construct mixtures (TODO B8).",
@@ -9614,7 +9614,7 @@
     "GSE288652"
    ],
    "data_status": "partial",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "planned",
    "runs": [],
    "next_step": "After the colorectal replication; sealed test of where adenomas sit between healthy and tumor (TODO B4, G1).",
@@ -9668,7 +9668,7 @@
     "GSE304513"
    ],
    "data_status": "in_hand",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "planned",
    "next_step": "Read GEO metadata and slide layout only (no array opened), then decide suitability by the same synthetic-test rules.",
    "cost": "laptop",
@@ -9993,7 +9993,7 @@
    "instrument_or_term": "IAM-A and Met-A",
    "sources": [],
    "data_status": "to_scout",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "idea",
    "runs": [],
    "next_step": "Search for both-platform patient sets; the oral cancer WGBS pairs are one candidate.",
@@ -10018,7 +10018,7 @@
    "instrument_or_term": "",
    "sources": [],
    "data_status": "none_needed",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "planned",
    "next_step": "After R3 (replication page per result) and R4 (clean-room rerun).",
    "cost": "laptop",
@@ -10666,7 +10666,7 @@
     "GSE108123"
    ],
    "data_status": "to_scout",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "idea",
    "next_step": "Verify layout from GEO metadata only (slides, groups, IDATs); design with bars and planted test before any array is read.",
    "cost": "laptop",
@@ -10815,7 +10815,7 @@
     "GSE199057"
    ],
    "data_status": "partial",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "planned",
    "runs": [],
    "next_step": "After the colorectal replication: sealed test of where adenomas sit between healthy and tumor (TODO G1).",
@@ -11094,7 +11094,7 @@
    "instrument_or_term": "Met-A gauge",
    "sources": [],
    "data_status": "none_needed",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "idea",
    "runs": [],
    "next_step": "Author derivation first; then a sealed prediction on the G1 series (TODO G2).",
@@ -11120,7 +11120,7 @@
     "TET-knockout sets (search pending)"
    ],
    "data_status": "to_scout",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "idea",
    "next_step": "Search TET-knockout sets and declare them spent; design (TODO H3, S).",
    "cost": "search",
@@ -11380,7 +11380,7 @@
    "instrument_or_term": "Met-A gauge",
    "sources": [],
    "data_status": "to_scout",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "idea",
    "runs": [],
    "next_step": "Search a public senescence set with raw IDATs; sealed test only if a set qualifies (TODO G3).",
@@ -11472,7 +11472,7 @@
    "instrument_or_term": "drive fraction phi",
    "sources": [],
    "data_status": "none_needed",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "idea",
    "next_step": "Literature search, metadata only (TODO H7, S).",
    "cost": "search",
@@ -11494,7 +11494,7 @@
    "instrument_or_term": "IAM-A and Met-A on neurons",
    "sources": [],
    "data_status": "partial",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "planned",
    "next_step": "Via A8-A11 (neuron reference, held error, post-mortem time, Met-A on neurons).",
    "cost": "laptop",
@@ -11521,7 +11521,7 @@
    "instrument_or_term": "cell gauge, left side",
    "sources": [],
    "data_status": "to_scout",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "idea",
    "next_step": "Search a public senescence set with raw IDATs (TODO G3).",
    "cost": "search",
@@ -11552,7 +11552,7 @@
    "next_step": "Commit before opening any.",
    "cost": "laptop",
    "impact": 3,
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "notes": "Pasted H1-H8 item 3 'TCGA split: written before we open more cancers'.",
    "legacy_ids": [
     "H6"
@@ -21117,7 +21117,7 @@
    "instrument_or_term": "Met-A / IAM-A (cfDNA)",
    "sources": [],
    "data_status": "to_scout",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "planned",
    "runs": [],
    "next_step": "Search; build after the atlas is commissioned.",
@@ -21751,7 +21751,7 @@
    "instrument_or_term": "physics (balance)",
    "sources": [],
    "data_status": "to_scout",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "idea",
    "next_step": "Literature search, metadata only (TODO H7).",
    "impact": 2,
@@ -22246,7 +22246,7 @@
     "CANON/data_spent.csv (old_val_reuse rows)"
    ],
    "data_status": "partial",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "idea",
    "next_step": "After V1, when the author calls it (TODO V2).",
    "cost": "none",
@@ -22469,7 +22469,7 @@
    "instrument_or_term": "replication kit",
    "sources": [],
    "data_status": "none_needed",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "planned",
    "runs": [
     {
@@ -22618,7 +22618,7 @@
     "S3 fish and animal sets"
    ],
    "data_status": "in_hand",
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "status": "planned",
    "runs": [],
    "next_step": "After commissioning (TODO C9).",
@@ -23100,7 +23100,7 @@
    "next_step": "Confirm in the live PDF.",
    "cost": "none",
    "impact": 1,
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "notes": "Pasted N4 'website rebuild was pending'. | possible duplicate of OTH-009",
    "legacy_ids": [
     "N4"
@@ -23232,7 +23232,7 @@
    "next_step": "Separate pass with every book check rerun.",
    "cost": "laptop",
    "impact": 1,
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "notes": "Pasted R6. | possible duplicate of OTH-004",
    "legacy_ids": [
     "R6"
@@ -23254,7 +23254,7 @@
    "next_step": "Update after R4.",
    "cost": "none",
    "impact": 1,
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "notes": "Pasted R7. | possible duplicate of OTH-013",
    "legacy_ids": [
     "R7"
@@ -23276,7 +23276,7 @@
    "next_step": "After R3-R4.",
    "cost": "laptop",
    "impact": 3,
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "notes": "Pasted B9. | possible duplicate of OTH-002",
    "legacy_ids": [
     "B9"
@@ -23300,7 +23300,7 @@
    "next_step": "Activate the 'run' cost-allocation tag once AWS lists it; consider multi-type launch.",
    "cost": "none",
    "impact": 1,
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "notes": "Pasted O1, O2, O3. The trim calibration log says 'Box stopped after the run'.",
    "legacy_ids": [
     "O1",
@@ -23324,7 +23324,7 @@
    "next_step": "Paste the 5 American-spelling lines if not done; decide the workstation when funded.",
    "cost": "none",
    "impact": 1,
-   "record": "TODO.md",
+   "record": "MANIFEST.md",
    "notes": "Pasted O4, O5.",
    "legacy_ids": [
     "O4",
@@ -27864,7 +27864,7 @@
    "record": "Biological_Physics/MethylPhys/doors/data/ZENODO_V4/zenodo_v4_box.sh",
    "runs": [],
    "next_step": "2026-10-19: new-version drafts made (package 10.5281/zenodo.23479280, version 4.0 of the biology package; book 10.5281/zenodo.23479288, v2.0.0); IAM-Atlas v2.1 records published by the author (10.5281/zenodo.23441999, 10.5281/zenodo.23422688). Next: once the mouse reproduction lands, the AWS job packages the repository at that commit, tests the archive as a researcher receives it, runs the book checks and uploads; the author publishes; once the package and book records are published, add their DOIs to the Q&A's 'Where everything is'; 2026-10-19: MethylPhys documents moved into Biological_Physics/MethylPhys; Biological_Physics-only clean clone running: job i-04db6debe64b4d107",
-   "notes": "author 2026-10-19: 'researcher package as a whole with the questions and answers section and whatever else we agreed to add? The deconvolver, etc.' | 2026-10-19: Biological_Physics/MethylPhys/RESEARCHER_PACKAGE.md (the package's front door: look, run, reproduce; what is where), the first file on the Zenodo record as README.md, linked from the repository README and the page; START_HERE.md corrected (it named the chain v3 procedure and 'Part 4' of the book; the methylome is Part VI)"
+   "notes": "author 2026-10-19: 'researcher package as a whole with the questions and answers section and whatever else we agreed to add? The deconvolver, etc.' | 2026-10-19: Biological_Physics/MethylPhys/RESEARCHER_PACKAGE.md (the package's front door: look, run, reproduce; what is where), the first file on the Zenodo record as README.md, linked from the repository README and the page; START_HERE.md corrected (it named the chain v3 procedure and 'Part 4' of the book; the methylome is Part VI) | 2026-10-19: root cleared (TODO and PRIORITY pointers removed, ROADMAP to the archive)"
   }
  ],
  "not_tests": {
@@ -27886,7 +27886,7 @@
  },
  "frozen": {
   "CANON/next_jobs.json": "f89949ec7890afd9c40d944098f7564eb5181247bac1ebf0e671049a4680a6ea",
-  "ROADMAP.md": "a81a9fd51c5e797eb440b3c50ccc748cee7b313e4760fabc348b6c7ab514d9bf",
+  "archive/retired_root_2026-10-19/ROADMAP.md": "a81a9fd51c5e797eb440b3c50ccc748cee7b313e4760fabc348b6c7ab514d9bf",
   "CANON/todo_closed.json": "34821f1b7a291a9f7c22e9af69d2f0d69a4516832e5aa7de0dbab884e199773e",
   "Biological_Physics/MethylPhys/archive/history_2026-10-16/STATUS_to_2026-10-15.md": "06e5357301b6b72aaf9c009649a312bb86a7a13e68a918aca0af0bac65150e59",
   "Biological_Physics/MethylPhys/archive/history_2026-10-16/COMMISSIONING_PLAN_to_2026-10-15.md": "a82ce39f69d851c1da902456b07e8a859c9b70ffc994ec955f7e46ef5431d345"

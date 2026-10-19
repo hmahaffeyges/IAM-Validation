@@ -2670,3 +2670,6 @@ Author: "a lot of files in the main tree of the repo, when they should be in the
 
 ### 2026-10-19 · Biological_Physics-only clean clone launched (OTH-077)
 Job i-04db6debe64b4d107 at 549ab877: a partial sparse clone of Biological_Physics only, the chain v4 release check, then the C-Score band reproduction; any other folder coming down fails the test.
+
+### 2026-10-19 · Root cleared of retired files (OTH-077)
+TODO.md and PRIORITY_2026-10-13.md were one-line "Moved" pointers kept for old links; removed, and the 40 manifest fields and one day-log record that named them now name the document itself (MANIFEST.md, Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md). ROADMAP.md, retired 2026-10-13 and frozen, moved unchanged to archive/retired_root_2026-10-19/ (its checksum unchanged, its frozen entry renamed). manifest.py no longer writes the TODO pointer.

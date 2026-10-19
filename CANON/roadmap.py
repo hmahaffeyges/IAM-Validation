@@ -8,7 +8,7 @@ stands and its record; then the gaps public data cannot close ("where a research
 ROADMAP.md that differs, a job without plain/needs/estimate/record, a record that does not exist, and the voice and hype words of the field
 notes (CANON/now_running.py). Usage: python3 CANON/roadmap.py [--check]"""
 import os, sys, json, importlib.util
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."); OUT = os.path.join(ROOT, "ROADMAP.md")
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."); OUT = os.path.join(ROOT, "archive", "retired_root_2026-10-19", "ROADMAP.md")   # retired 2026-10-13; out of the root 2026-10-19
 spec = importlib.util.spec_from_file_location("nr", os.path.join(ROOT, "CANON", "now_running.py")); NR = importlib.util.module_from_spec(spec); spec.loader.exec_module(NR)
 KIND = {"replication": "Replicate it yourself", "commissioning": "Making the instruments trustworthy", "atlas": "The map of healthy cells", "public result": "Cancer results",
         "physics": "Testing the physics", "research": "Filling gaps in the reference"}
