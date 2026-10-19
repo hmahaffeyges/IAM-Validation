@@ -25,5 +25,14 @@
   "minutes": 35.5,
   "commit": "0654f813",
   "job": "results/REPRODUCE_V1/run2b/out/three_labs/verdict.json"
+ },
+ "colon": {
+  "verdict": "PASS",
+  "date": "2026-10-18",
+  "checks": 6,
+  "checks_ok": 6,
+  "minutes": 188.9,
+  "commit": "0a4dc7aa",
+  "job": "results/REPRODUCE_V1/run3/out/colon/verdict.json"
  }
 }

@@ -2919,7 +2919,7 @@
    "date": "2026-10-18",
    "commit": "0a4dc7aa",
    "chain_commit": "0a4dc7aa",
-   "state": "running",
+   "state": "done",
    "s3_code_prefix": "results/REPRODUCE_V1/code/run3/",
    "log": "results/REPRODUCE_V1/run3/status.txt",
    "machine": "on-demand m7a.xlarge, self-terminating (5-hour timer)",
@@ -2929,13 +2929,14 @@
     "OTH-076"
    ],
    "outputs": [
-    "results/REPRODUCE_V1/run3/status.txt"
+    "results/REPRODUCE_V1/run3/status.txt",
+    "results/REPRODUCE_V1/run3/out/colon/verdict.json"
    ],
    "files": [
     "reproduce/box/reproduce_fresh.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: code in S3 first; results and 5-minute progress to S3; watcher; image+40 GB disk; self-terminating; about $1",
-   "note": "stops itself after 5 hours at most"
+   "note": "colon PASS from a fresh clone (atlas v2 from Zenodo, GSE131013 from GEO), 189 min"
   },
   {
    "job_id": "i-0173a92945aecb068",
