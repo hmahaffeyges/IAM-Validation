@@ -2970,7 +2970,7 @@
    "date": "2026-10-18",
    "commit": "211e26c0",
    "chain_commit": "211e26c0",
-   "state": "running",
+   "state": "done",
    "s3_code_prefix": "results/REPRODUCE_V1/code/run4/",
    "log": "results/REPRODUCE_V1/run4/status.txt",
    "machine": "on-demand m7a.xlarge, self-terminating (9-hour timer)",
@@ -2980,13 +2980,15 @@
     "OTH-076"
    ],
    "outputs": [
-    "results/REPRODUCE_V1/run4/status.txt"
+    "results/REPRODUCE_V1/run4/status.txt",
+    "results/REPRODUCE_V1/run4/out/breast/verdict.json",
+    "results/REPRODUCE_V1/run4/out/liver/verdict.json"
    ],
    "files": [
     "reproduce/box/reproduce_fresh.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: code in S3 first; status and 5-minute progress to S3; watcher; the Zenodo atlas route already proven by run 3; self-terminating; about $2",
-   "note": "breast PASS (6 of 6 identical, 113 min); liver running"
+   "note": "breast PASS (6 of 6, 113 min); liver PASS (139 min)"
   },
   {
    "job_id": "i-057e21ce87336144c",

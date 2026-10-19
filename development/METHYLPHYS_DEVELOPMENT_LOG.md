@@ -2601,3 +2601,6 @@ The genome download, the mm10 bwa-meth index (6,010 s) and trimming of the first
 
 ### 2026-10-18 · reproduce/ run 10 launched: mice on 64 GB (OTH-076)
 Job i-0dcadc1b4ac48b899.
+
+### 2026-10-18 · reproduce/ breast and liver PASS (OTH-076)
+Run 4, fresh clone, IAM-Atlas v2 from Zenodo and TCGA 450K arrays from the NCI GDC: breast 53 pairs, 23 above the bar (6 needed), FINGERPRINT; liver PASS; every scored number identical to the committed results.

@@ -1814,9 +1814,11 @@
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
-   "results/REPRODUCE_V1/run4/status.txt": true
+   "results/REPRODUCE_V1/run4/status.txt": true,
+   "results/REPRODUCE_V1/run4/out/breast/verdict.json": true,
+   "results/REPRODUCE_V1/run4/out/liver/verdict.json": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "done"
  },
  "i-057e21ce87336144c": {
   "s3": {
@@ -1897,9 +1899,9 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/REPRODUCE_V1/run10/status.txt": false
+   "results/REPRODUCE_V1/run10/status.txt": true
   },
   "state_at_verify": "running"
  }
