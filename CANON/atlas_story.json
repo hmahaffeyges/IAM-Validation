@@ -86,7 +86,7 @@
    "name": "Noise maps from the posterior draws",
    "status": "gift",
    "sky": "Planck released noise simulations alongside its sky maps, so others could tell signal from noise.",
-   "cell": "Maps of where the atlas is unsure, drawn from its own posterior.",
+   "cell": "Maps of where the atlas is unsure. Built: every cell's uncertainty map (the width of each value's 95 % range, pixel by pixel), on every cell page. Next: noise maps drawn from the fit's own posterior draws, published with the fit.",
    "them": "See where a reference can and cannot be leaned on, site by site.",
    "record": "CANON/v21_release.json (M03)"
   },
@@ -94,7 +94,7 @@
    "name": "The information sphere, with masks and apodization",
    "status": "gift",
    "sky": "The sky is stored on the HEALPix sphere, with masks and smooth mask edges (apodization) so the edges do not create false structure.",
-   "cell": "The atlas drawn on a sphere, so its structure can be studied with the sky's own tools.",
+   "cell": "The atlas drawn on a sphere, so its structure can be studied with the sky's own tools. Built: all 79 cells on one HEALPix sphere, unmeasured pixels masked. Next: the 3D sphere, and apodized masks once statistics are computed on the maps.",
    "them": "A picture of healthy order across all 79 cells at once.",
    "record": "CANON/v21_release.json (M01, M02, G05)"
   },
@@ -102,7 +102,7 @@
    "name": "The guidebook",
    "status": "gift",
    "sky": "Every tool above, with its origin and history in cosmology.",
-   "cell": "How each one applies to the methylome, how it differs from what geneticists use now (such as the bootstrap), and its limits.",
+   "cell": "How each tool applies to the methylome, how it differs from what geneticists use now (such as the bootstrap), and its limits. Built: the short form, the tools on this page. Next: the full guidebook.",
    "them": "An instruction manual for the new tools.",
    "record": "CANON/v21_release.json (G08)"
   },

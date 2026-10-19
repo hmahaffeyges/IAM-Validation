@@ -25047,7 +25047,7 @@
    "instrument_or_term": "atlas",
    "data_status": "partial",
    "status": "designed",
-   "next_step": "guidebook v1 = the 13-tool story (CANON/atlas_story.json), shipped with the gift; full manual after (limits study 2026-10-17)",
+   "next_step": "2026-10-19 status: short form = the tools on the page (CANON/atlas_story.json); guidebook.json and build_guidebook.py were never written (G08). Next, after the researcher package and book records: write the full guidebook, then add it to the atlas's Zenodo record as a new version",
    "cost": "laptop",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
