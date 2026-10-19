@@ -27820,7 +27820,7 @@
    "record": "QUESTIONS_AND_ANSWERS.md",
    "runs": [],
    "next_step": "2026-10-18 author: 'Try to break it' replaced by QUESTIONS_AND_ANSWERS.md (every question a researcher or reviewer will ask; answers point to their test; open questions named; checking on known samples is one section; issue form 'Report a result'). 2026-10-18: 'Questions the field is asking now' added (from recent reviews of methylation cancer detection and epigenetic drift: entropy measures, tumor variability, proliferation, age confounding, fixed atlases, cfDNA dilution, validation, QC reporting), three new open questions named",
-   "notes": "2026-10-19: title and plan item 20 renamed from 'Try to break it' to the Q&A"
+   "notes": "2026-10-19: title and plan item 20 renamed from 'Try to break it' to the Q&A | 2026-10-19: four questions from recent atlases of purified cells and of cell-free DNA (imprinted and allele-specific regions, answered from the counter's rule; cfDNA fragmentation; library chemistry; one person over time), and a source list for the section"
   },
   {
    "instrument_or_term": "all",

@@ -134,7 +134,8 @@ sets, other cell types and other laboratories for IAM-A.
 
 ## Questions the field is asking now
 
-These come from recent reviews of methylation-based cancer detection and of epigenetic drift (2024 to 2026).
+These come from recent reviews of methylation-based cancer detection and of epigenetic drift, and from recent atlases of purified human
+cells and of cell-free DNA (2024 to 2026).
 
 **Methylation entropy and stochastic drift are already measured. What is different here?**
 Published entropy measures are statistical: they summarize how disordered a sample's pattern is and compare it with a cohort. IAM puts the
@@ -169,9 +170,42 @@ dilution in plasma has to be measured.
 Agreed. IAM does not claim a validated predictor. Each instrument is commissioned for a named use, on a sealed test, and every reading
 outside that use is labeled preliminary. Each new use needs its own test.
 
+**A recent atlas of the same purified cell types finds about 11 % of CpGs half-methylated inside a pure cell, from imprinting and
+allele-specific methylation. Does IAM-A count those as errors?**
+No. IAM-A's held error is counted only inside molecules with at least 6 CpG calls that are at least 80 % methylated, and only as an
+isolated unmethylated call between methylated neighbors. A molecule from the unmethylated allele is far below 80 % and is never counted;
+molecules from the methylated allele are read like any other. The healthy self-reference line was also measured on purified healthy cells,
+which carry the same regions.
+
+**In plasma, how cell-free DNA breaks apart depends on its methylation and its cell of origin. Does that affect IAM-A on cell-free DNA?**
+It could, because IAM-A counts along single molecules and cell-free fragments are short (about 167 letters). A synthetic check of the
+count at that fragment length came back within 0.3 % of the planted value (bar 3 %). **Open question:** whether the self-reference line
+holds on real plasma, where fragments from different cells break differently. The first real plasma set is the next test.
+
+**Library preparation can change methylation within a read (one study saw it in urine cell-free DNA with a double-stranded method). Is
+IAM-A exposed to that?**
+Yes, in principle: held error is a within-read quantity, so chemistry matters. IAM-A is commissioned on whole-genome bisulfite
+sequencing. The meter's own error has been measured in a second laboratory's data (sequencing error 0.002 to 0.006, conversion failure
+1.8 to 5.1 %). **Open question:** enzymatic conversion, single-stranded libraries and urine, each of which needs its own check.
+
+**Is one person steady enough over time to be their own reference?**
+A recent study that followed healthy people's plasma over time found each person's cell-of-origin profile stable, which its authors
+attribute to set points in blood-cell production. IAM-A already reads each sample against its own reference, with no other person
+involved. **Open question:** IAM-A on the same person's cells across years, which is a planned track.
+
 **There is no standard for reporting quality control in these studies.**
 Every report carries its quality record: Stage 0's checks on the raw file (detection, bead counts, call rate, channel checksums), the noise
 gate, the chain's commit, the checksum of every frozen file it read, and one row in an evidence ledger.
+
+**Sources for this section** (recent reviews and atlases the questions come from):
+- On epigenetic stochasticity, entropy and cancer risk (2024): https://pubmed.ncbi.nlm.nih.gov/38432318/
+- DNA methylation variability defines a fundamental dimension of tumor epigenomes (preprint, 2026): https://www.biorxiv.org/content/10.64898/2026.03.12.711303v1
+- Mapping the temporal landscape of breast cancer using epigenetic entropy (2025): https://www.nature.com/articles/s42003-025-08867-2
+- Current challenges of methylation-based liquid biopsies in cancer diagnostics (2024): https://doi.org/10.3390/cancers16112001
+- Computational methods and challenges in cell-free DNA analysis for multi-cancer early detection (preprint, 2026): https://arxiv.org/abs/2606.20174
+- Atlas of imprinted and allele-specific DNA methylation in the human body (2025): https://doi.org/10.1038/s41467-025-57433-1
+- Longitudinal cell-free DNA methylome and fragmentome profiles in health (preprint, 2025): https://www.biorxiv.org/content/10.1101/2025.10.25.684551v1
+- Library preparation and tissue-of-origin deconvolution methods for urine and plasma cell-free DNA methylomes: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10417284/
 
 ## Checking it on samples you already know
 
