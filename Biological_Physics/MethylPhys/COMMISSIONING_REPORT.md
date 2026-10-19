@@ -87,7 +87,7 @@ Note: [COMMISSIONING_NOTE_DECONV_V21.md](doors/COMMISSIONING_NOTE_DECONV_V21.md)
 
 **IAM-A commissioned** on healthy blood CD8 T cells, each sample read against its own reference: 7 of 8 read samples from a laboratory it had never seen inside Normal, on a rule sealed before any read was downloaded
 
-IAM-A reads how well each DNA molecule kept its marks and compares that with what the same sample's own loose ends predict, so it needs no outside reference. On healthy immune cells from a new laboratory, 7 of the 8 samples it read came out Normal, as sealed in advance.
+IAM-A reads how well each DNA molecule kept its marks and compares that with what the same sample's own loose share predicts, so it needs no outside reference. On healthy immune cells from a new laboratory, 7 of the 8 samples it read came out Normal, as sealed in advance.
 
 Results it rests on: Every healthy cell follows the same simple rule (2026-10-15).
 

@@ -117,7 +117,7 @@ L += ["", "## Upcoming", "", "Every run is listed here with its estimate before 
 L += ["", "## Completed runs", "", "| run | purpose | log | start (UTC) | job hours | vCPUs | end | record |", "|---|---|---|---|---|---|---|---|"]
 for r in R.itertuples():
     n, p, rec = RUNS_PURPOSE[r.prefix]
-    _rl = os.path.relpath(os.path.join(HERE, "..", "..", "..", rec), os.path.join(HERE, "..")) if rec.startswith(("Biological_Physics/", "development/", "CANON/")) else rec   # repo-root record -> relative to RUNS.md
+    _rl = os.path.relpath(os.path.join(HERE, "..", "..", "..", rec), os.path.join(HERE, "..")) if rec.startswith(("Biological_Physics/", "development/", "CANON/", "docs/")) else rec   # repo-root record -> relative to RUNS.md
     rec = _rl.replace(os.sep, "/")
     L.append(f"| {n} | {p} | `{r.log}` | {r.start[:16].replace('T', ' ')} | {'' if pd.isna(r.hours) else f'{r.hours:.1f}'} | {r.vcpu} | {r.status} | [{rec}]({rec}) |")
 L += ["", f"Job hours are the time each job's own log covers, a lower bound on billed hours (the machine is also billed for setup and between jobs). Total job hours: {R.hours.sum():.1f}."]

@@ -414,24 +414,6 @@
 "text": "- OTH-059 (planned): for each instrument: healthy band from healthy readings (Met-A's 0.95-1.05 was set by hand on 2026-10-01 and confirmed, 525 of 541 healthy "
 },
 {
-"file": "Biological_Physics/MethylPhys/boxruns/PRELAUNCH_CHECKLIST.md",
-"line": 36,
-"pattern": "3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
-"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
-"severity": "block",
-"status": "LIVE",
-"text": "- **One counter, one definition, everywhere.** The held error is isolated errors over interior opportunities (an end CpG has one neighbor and cannot be isolated"
-},
-{
-"file": "Biological_Physics/MethylPhys/boxruns/PRELAUNCH_CHECKLIST.md",
-"line": 36,
-"pattern": "0\\.2043",
-"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
-"severity": "block",
-"status": "LIVE",
-"text": "- **One counter, one definition, everywhere.** The held error is isolated errors over interior opportunities (an end CpG has one neighbor and cannot be isolated"
-},
-{
 "file": "Biological_Physics/MethylPhys/chain/toolkit_surface_brightness.py",
 "line": 60,
 "pattern": "\\bA[- ]score",

@@ -1,0 +1,81 @@
+{
+ "date": "2026-10-19",
+ "title": "The holding energy on the commissioned counter; the package as the biology folder alone",
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "set_out": "Audit FOUR_DOMAINS and the book against what was commissioned, make the researcher package a clone of the biology folder alone, and finish the mouse reproduction.",
+ "open_at_turnover": "Open: the mouse reproduction (running on AWS); every other table audited the same way as FOUR_DOMAINS; the researcher-package and book Zenodo records once the audit is done.",
+ "closing": "The cells' holding energy now comes from the commissioned counter at every source, and a clone of the biology folder alone runs the release check and a reproduction.",
+ "sections": [
+  {
+   "kind": "ran",
+   "entries": [
+    {
+     "title": "A clone of the biology folder alone",
+     "status": "audit",
+     "what": "A partial clone of Biological_Physics only (843 MB) passed the chain v4 release check (29 of 29) and the C-Score band reproduction; no other folder came down.",
+     "why": "A researcher should need only the biology folder.",
+     "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_bio.sh"
+    },
+    {
+     "title": "The holding energy recounted on the commissioned counter",
+     "status": "audit",
+     "what": "On chain Stage Q2's counts of 153 public samples, 56 healthy cell types: holding energy 3.08 ± 0.12 kT (2.85-3.37), healthy held error 0.044, 0.147 of one ATP, healthy height 0.259 bits.",
+     "why": "The earlier counter divided by every CpG on a molecule, ends included, and read about 0.75 of the per-opportunity rate.",
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json"
+    },
+    {
+     "title": "The book check on a full clone",
+     "status": "audit",
+     "what": "4,650 checks, 0 failures, after 35 checks were rewritten to the commissioned record and 41 that held numbers their chapters no longer print were removed.",
+     "why": "The laptop's partial checkout lacks the committed data files.",
+     "record": "docs/book/verification/verify_book_output.txt"
+    }
+   ],
+   "heading": "What ran, and how each came out",
+   "lead": "Each count runs through the chain."
+  },
+  {
+   "kind": "learned",
+   "entries": [
+    {
+     "title": "One energy in every cell type, on the true count too",
+     "status": "audit",
+     "what": "The spread across 56 healthy cell types stays 0.12 kT, inside the copying enzyme's measured Hopfield gap (1.9-4.4 kT); the firm rate (0.0403, 3.17 kT) is not the writer's own error alone (0.0123-0.0207).",
+     "why": "Counting only real opportunities.",
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json"
+    }
+   ],
+   "heading": "What we learned that we did not know yesterday",
+   "lead": ""
+  },
+  {
+   "kind": "loss",
+   "entries": [
+    {
+     "title": "Constants from a superseded counter stayed in the public record",
+     "status": "audit",
+     "what": "FOUR_DOMAINS, the canon and the book kept the 2026-10-15 holding-energy values after the chain was commissioned on the per-opportunity count. Caught when IAMPerformance asked whether FOUR_DOMAINS was stale. Fixed at the canon; the old values are blocked patterns, and a push check refuses any book check whose number its chapter no longer prints.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ],
+   "heading": "Our own mistakes today, and what caught each",
+   "lead": ""
+  },
+  {
+   "kind": "changed",
+   "entries": [
+    {
+     "title": "The package is the biology folder",
+     "status": "structure",
+     "what": "The Zenodo researcher package and the download instructions now take Biological_Physics only, with the repository's license, README and citation.",
+     "why": "",
+     "record": "Biological_Physics/MethylPhys/RESEARCHER_PACKAGE.md"
+    }
+   ],
+   "heading": "What changed in the plan",
+   "lead": ""
+  }
+ ]
+}
