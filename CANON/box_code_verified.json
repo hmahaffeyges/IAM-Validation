@@ -1826,9 +1826,10 @@
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
-   "results/REPRODUCE_V1/run5/status.txt": true
+   "results/REPRODUCE_V1/run5/status.txt": true,
+   "results/REPRODUCE_V1/run5/out/metaa_rebuild/verdict.json": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "done"
  },
  "i-02265f88bdcce1fa6": {
   "s3": null,
@@ -1882,9 +1883,9 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/REPRODUCE_V1/run9/status.txt": false
+   "results/REPRODUCE_V1/run9/status.txt": true
   },
   "state_at_verify": "running"
  }

@@ -2592,3 +2592,6 @@ The split genome step logged the cause: curl (60), certificate problem. The PATH
 
 ### 2026-10-18 · reproduce/ run 9 launched: mice (OTH-076)
 Job i-0cfe3c22a9c7dfde1.
+
+### 2026-10-18 · reproduce/ metaa_rebuild PASS (OTH-076)
+Run 5: Met-A's whole commissioned reference rebuilt from the public GEO arrays in a fresh clone: the 48,528 noise sites (same set), the noise gate (N_max 0.149), the floor, the healthy reference and the blood-composition matrix, every difference 0. 8 of 8 checks, 110 minutes.

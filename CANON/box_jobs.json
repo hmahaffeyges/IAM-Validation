@@ -2994,7 +2994,7 @@
    "date": "2026-10-18",
    "commit": "79a267d2",
    "chain_commit": "79a267d2",
-   "state": "running",
+   "state": "done",
    "s3_code_prefix": "results/REPRODUCE_V1/code/run5/",
    "log": "results/REPRODUCE_V1/run5/status.txt",
    "machine": "on-demand m7a.xlarge, self-terminating (6-hour timer)",
@@ -3004,13 +3004,14 @@
     "OTH-076"
    ],
    "outputs": [
-    "results/REPRODUCE_V1/run5/status.txt"
+    "results/REPRODUCE_V1/run5/status.txt",
+    "results/REPRODUCE_V1/run5/out/metaa_rebuild/verdict.json"
    ],
    "files": [
     "reproduce/box/reproduce_fresh.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: commit confirmed on origin before launch; code in S3 first; status and progress to S3; watcher; about $1",
-   "note": "stops itself after 6 hours at most"
+   "note": "metaa_rebuild PASS, 8 of 8: noise sites, noise gate, floor, reference and blood composition all identical (110 min)"
   },
   {
    "job_id": "i-02265f88bdcce1fa6",

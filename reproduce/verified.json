@@ -43,5 +43,14 @@
   "minutes": 112.6,
   "commit": "211e26c0",
   "job": "results/REPRODUCE_V1/run4/out/breast/verdict.json"
+ },
+ "metaa_rebuild": {
+  "verdict": "PASS",
+  "date": "2026-10-18",
+  "checks": 8,
+  "checks_ok": 8,
+  "minutes": 110.1,
+  "commit": "79a267d2",
+  "job": "results/REPRODUCE_V1/run5/out/metaa_rebuild/verdict.json"
  }
 }
