@@ -10,7 +10,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 376,
+"line": 382,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -19,7 +19,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 380,
+"line": 386,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
@@ -28,7 +28,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 415,
+"line": 424,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -37,7 +37,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 487,
+"line": 500,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -46,7 +46,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 927,
+"line": 940,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -55,7 +55,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 928,
+"line": 941,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
@@ -64,7 +64,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 930,
+"line": 943,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -73,21 +73,12 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 935,
+"line": 948,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
 "text": "| **OTH-059** | Three lines and a margin on every gauge: healthy band, concern line, tumor line, all from data; margin larger than the worst measured lab shift "
-},
-{
-"file": "COMMISSIONING_PLAN.md",
-"line": 5,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "Commission IAM-A first and foremost, then the C-score, Met-A on its own loose share, and Group-A; build the A-score database; derivations only where they improv"
 },
 {
 "file": "COMMISSIONING_PLAN.md",
@@ -271,7 +262,7 @@
 },
 {
 "file": "docs/book/part6/p6_09_cscore.tex",
-"line": 31,
+"line": 30,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -280,7 +271,7 @@
 },
 {
 "file": "docs/book/part6/p6_22_leukocyte.tex",
-"line": 59,
+"line": 57,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -289,7 +280,7 @@
 },
 {
 "file": "docs/book/part6/p6_22_leukocyte.tex",
-"line": 64,
+"line": 62,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -298,16 +289,7 @@
 },
 {
 "file": "docs/book/part6/p6_01_bridge.tex",
-"line": 109,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "across the specimen. Each A score carries one C-score beside it, computed from the same sites, which says where along the genome the"
-},
-{
-"file": "docs/book/part6/p6_01_bridge.tex",
-"line": 113,
+"line": 110,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -316,7 +298,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/README.md",
-"line": 26,
+"line": 29,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -1090,7 +1072,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/daylogs/2026-10-13.md",
-"line": 254,
+"line": 251,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",

@@ -2619,3 +2619,6 @@ Job i-0293335867c24f8c0 (m7a.4xlarge, 16 cores, 64 GB). Expected to finish about
 
 ### 2026-10-19 · reproduce/ mice run 11 terminated from outside at 20 of 38 (OTH-076)
 The alignment ran cleanly to 20 of 38 runs; AWS then records a terminate call ("User initiated"), not the machine's own timer and not from this session. Rerun as run 12 with termination protection; checklist line added.
+
+### 2026-10-19 · reproduce/ run 12 launched: mice, termination-protected (OTH-076)
+Job i-08774f6b5ef3593f6 at commit 04eded42 (the commit on GitHub; the GitHub token stopped working, so the record commits wait to be pushed).
