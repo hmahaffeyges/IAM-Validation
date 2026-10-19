@@ -3032,6 +3032,30 @@
    "note": "checklist line added",
    "no_outputs_reason": "terminated within a minute: launched in the same cell as a refused push, at a commit not on GitHub",
    "code_in_s3": "none: terminated within a minute, before it could fetch code; the code it would have run is results/REPRODUCE_V1/code/run5/ (job i-057e21ce87336144c)"
+  },
+  {
+   "job_id": "i-00f5d19a1eca54c78",
+   "name": "reproduce/ from a fresh public clone, run 6: IAM-A line with GEO retries (OTH-076)",
+   "date": "2026-10-18",
+   "commit": "d27b4956",
+   "chain_commit": "d27b4956",
+   "state": "running",
+   "s3_code_prefix": "results/REPRODUCE_V1/code/run6/",
+   "log": "results/REPRODUCE_V1/run6/status.txt",
+   "machine": "on-demand c7a.4xlarge, self-terminating (6-hour timer)",
+   "purpose": "iama_line rerun with the GEO retry loop; compared with the committed counts, line and shape reference",
+   "record": "reproduce/box/reproduce_fresh.sh",
+   "manifest": [
+    "OTH-076"
+   ],
+   "outputs": [
+    "results/REPRODUCE_V1/run6/status.txt"
+   ],
+   "files": [
+    "reproduce/box/reproduce_fresh.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: commit confirmed on origin; code in S3 first; status and progress to S3; watcher; image+150 GB; about $4",
+   "note": "stops itself after 6 hours at most"
   }
  ],
  "not_jobs": {

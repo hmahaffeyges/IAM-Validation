@@ -1835,5 +1835,17 @@
   "log_in_s3": true,
   "outputs_in_s3": {},
   "state_at_verify": "cancelled"
+ },
+ "i-00f5d19a1eca54c78": {
+  "s3": {
+   "reproduce_fresh.sh": "031208dbc7fc1f38a9e067391fb164b6f0d1c7cf37f735e63e0fba7bee200aae"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/REPRODUCE_V1/run6/status.txt": false
+  },
+  "state_at_verify": "running"
  }
 }
