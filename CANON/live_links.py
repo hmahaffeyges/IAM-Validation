@@ -5,7 +5,7 @@ is retried with a pause and only a link that fails every attempt counts as broke
 """
 import re, sys, time, urllib.request, urllib.error
 U = "https://hmahaffeyges.github.io/IAM-Validation/"
-SECTIONS = ["Start here: the daily log", "Recent Accomplishments", "Every test, numbered", "The road ahead", "How we test the physics", "Who is doing this, and why"]
+SECTIONS = ["Start here: the daily log", "The first commissioned IAM chain", "Every test, numbered", "The road ahead", "How we test the physics", "Who is doing this, and why"]
 def get(u, tries=4):
     for i in range(tries):
         try:

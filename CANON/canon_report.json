@@ -1,12 +1,12 @@
 [
 {
 "file": "README.md",
-"line": 31,
+"line": 33,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "| **Every reading, by instrument** | [the A-score database](ASCORES/README.md): healthy and tumor readings side by side |"
+"text": "| **Every reading, by instrument** | [the A-score database](Biological_Physics/MethylPhys/ASCORES/README.md): healthy and tumor readings side by side |"
 },
 {
 "file": "MANIFEST.md",
@@ -79,69 +79,6 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "| **OTH-059** | Three lines and a margin on every gauge: healthy band, concern line, tumor line, all from data; margin larger than the worst measured lab shift "
-},
-{
-"file": "COMMISSIONING_PLAN.md",
-"line": 31,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "- OTH-059 (planned): for each instrument: healthy band from healthy readings (Met-A's 0.95-1.05 was set by hand on 2026-10-01 and confirmed, 525 of 541 healthy "
-},
-{
-"file": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
-"line": 974,
-"pattern": "class H_min",
-"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
-"severity": "warn",
-"status": "LIVE",
-"text": "The 8-class H_min version chased many cancers before each chain link was established; the roadmap, the one-cancer-at-a-time check and gate rule 7 now prevent it"
-},
-{
-"file": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
-"line": 1332,
-"pattern": "class H_min",
-"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
-"severity": "warn",
-"status": "RECORD",
-"text": "Retired foundations: the eight-class H_min floors are recorded as RETIRED with their origin record (doors/CLASS_HISTORY.md), so the lever chapter cannot re-impo"
-},
-{
-"file": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
-"line": 1475,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "The author: describing cancer as identity loss is wrong - identity that cannot be held is the left side, below H_min, where identity can no longer be held. To t"
-},
-{
-"file": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
-"line": 1632,
-"pattern": "Mahaffey ratio",
-"use": "Mahaffey number (M)",
-"severity": "warn",
-"status": "LIVE",
-"text": "The author asked whether the held pattern against the writing it takes is the Mahaffey ratio. The book's counterpart is phi = E_hold/(M k_B T) = 0.163 +/- 0.006"
-},
-{
-"file": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
-"line": 1918,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "COMMISSIONING_PLAN.md: three decisions waiting for the author, the two running jobs with their watchers, and 21 steps in four stages (tonight; when the atlas la"
-},
-{
-"file": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
-"line": 1953,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "RECORD",
-"text": "### 2026-10-15 \u00b7 The A-score database started (OTH-051)"
 },
 {
 "file": "development/WHITEBOARD_2026-10-15.md",
@@ -297,6 +234,60 @@
 "text": "ATP at 310\\,K it is about 21 ($\\mathcal M=20.94$). \\calc{} The chip gauge is the efficiency one, how far above $\\kB T\\ln2$ each switch runs; the Mahaffey number"
 },
 {
+"file": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+"line": 974,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "LIVE",
+"text": "The 8-class H_min version chased many cancers before each chain link was established; the roadmap, the one-cancer-at-a-time check and gate rule 7 now prevent it"
+},
+{
+"file": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+"line": 1332,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "RECORD",
+"text": "Retired foundations: the eight-class H_min floors are recorded as RETIRED with their origin record (doors/CLASS_HISTORY.md), so the lever chapter cannot re-impo"
+},
+{
+"file": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+"line": 1475,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The author: describing cancer as identity loss is wrong - identity that cannot be held is the left side, below H_min, where identity can no longer be held. To t"
+},
+{
+"file": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+"line": 1632,
+"pattern": "Mahaffey ratio",
+"use": "Mahaffey number (M)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The author asked whether the held pattern against the writing it takes is the Mahaffey ratio. The book's counterpart is phi = E_hold/(M k_B T) = 0.163 +/- 0.006"
+},
+{
+"file": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+"line": 1918,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "COMMISSIONING_PLAN.md: three decisions waiting for the author, the two running jobs with their watchers, and 21 steps in four stages (tonight; when the atlas la"
+},
+{
+"file": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+"line": 1953,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "### 2026-10-15 \u00b7 The A-score database started (OTH-051)"
+},
+{
 "file": "Biological_Physics/MethylPhys/README.md",
 "line": 29,
 "pattern": "\\bA[- ]score",
@@ -322,6 +313,15 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "| T12 | The earlier 8-class H_min version chased detection across many cancers before the physics and the repeatability of each link in the chain were establish"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 31,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- OTH-059 (planned): for each instrument: healthy band from healthy readings (Met-A's 0.95-1.05 was set by hand on 2026-10-01 and confirmed, 525 of 541 healthy "
 },
 {
 "file": "Biological_Physics/MethylPhys/archive/docs_consolidated_2026-10-09/CHAIN_CHANGELOG.md",
@@ -1080,6 +1080,15 @@
 "text": "- **\"Can the atlas not help us sort the whole blood enough... or is that old IAM's class h_min illusion?\"**"
 },
 {
+"file": "Biological_Physics/MethylPhys/ASCORES/README.md",
+"line": 1,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "# The A-score database"
+},
+{
 "file": "Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md",
 "line": 3,
 "pattern": "gate-error reading",
@@ -1087,14 +1096,5 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "**Question.** Can the gate-error reading \u2014 how faithfully a cell holds its methylation pattern, counted on single DNA molecules \u2014 be read for each"
-},
-{
-"file": "ASCORES/README.md",
-"line": 1,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "# The A-score database"
 }
 ]
