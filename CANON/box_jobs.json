@@ -3135,6 +3135,30 @@
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: commit confirmed on origin; code in S3 first; status and progress to S3; watcher; tools installed first so an install error shows in minutes; about $5",
    "note": "download, unpack, mm10 index (100 min) and trimming all worked; bwa mem killed by the memory limit (-9) on the first sample at 32 GB; rerun on 64 GB as run 10"
+  },
+  {
+   "job_id": "i-0dcadc1b4ac48b899",
+   "name": "reproduce/ from a fresh public clone, run 10: the mouse prediction on 64 GB (OTH-076)",
+   "date": "2026-10-18",
+   "commit": "730763c2",
+   "chain_commit": "730763c2",
+   "state": "running",
+   "s3_code_prefix": "results/REPRODUCE_V1/code/run10/",
+   "log": "results/REPRODUCE_V1/run10/status.txt",
+   "machine": "on-demand m7a.4xlarge (16 cores, 64 GB), self-terminating (8-hour timer)",
+   "purpose": "mice rerun with the wgbs_tools tag fixed; ENA reads to .pat to the sealed scorer, compared with the committed result",
+   "record": "reproduce/box/reproduce_fresh.sh",
+   "manifest": [
+    "OTH-076"
+   ],
+   "outputs": [
+    "results/REPRODUCE_V1/run10/status.txt"
+   ],
+   "files": [
+    "reproduce/box/reproduce_fresh.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: commit confirmed on origin; code in S3 first; status and progress to S3; watcher; tools installed first so an install error shows in minutes; about $5",
+   "note": "stops itself after 8 hours at most"
   }
  ],
  "not_jobs": {

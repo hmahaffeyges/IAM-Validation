@@ -2598,3 +2598,6 @@ Run 5: Met-A's whole commissioned reference rebuilt from the public GEO arrays i
 
 ### 2026-10-18 · reproduce/ mice run 9: out of memory at alignment (OTH-076)
 The genome download, the mm10 bwa-meth index (6,010 s) and trimming of the first run (SRR3111449, 9,074,427 reads) worked; bwa mem was then killed (return code -9, the memory limit) on the 32 GB machine. Rerun on 64 GB (m7a.4xlarge) with the same 16 threads as run 10; the registry and checklist now state the memory.
+
+### 2026-10-18 · reproduce/ run 10 launched: mice on 64 GB (OTH-076)
+Job i-0dcadc1b4ac48b899.
