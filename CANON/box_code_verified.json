@@ -1910,10 +1910,8 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
-  "outputs_in_s3": {
-   "results/REPRODUCE_V1/run11/status.txt": false
-  },
-  "state_at_verify": "running"
+  "log_in_s3": true,
+  "outputs_in_s3": {},
+  "state_at_verify": "cancelled"
  }
 }

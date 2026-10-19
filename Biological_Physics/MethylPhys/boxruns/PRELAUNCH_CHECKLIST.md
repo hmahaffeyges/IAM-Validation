@@ -30,6 +30,7 @@ comes from (`../LESSONS.md`).
 - **Tool environments put first on PATH shadow system programs.** A bioconda environment can carry its own old curl (bwa-meth 0.2.0 brings curl 7.87) that cannot find the system certificates; call system programs by full path (/usr/bin/curl) in any script that also puts tool environments on PATH (2026-10-18, reproduce/mice_rrbs.sh run 8).
 - **bwa-meth on mm10 with 16 threads needs more than 32 GB.** On a c7a.4xlarge (32 GB) bwa mem was killed (return code -9) on the first sample after a 100-minute index build; use 64 GB (m7a.4xlarge) and keep 16 threads, the committed run's count (2026-10-18, reproduce/ run 9).
 - **Size the self-stop timer from the work, not a guess.** Timer = setup + index + (samples x minutes per sample) + 25 %. reproduce/ run 10 had an 8-hour timer for about 10 hours of work (38 mouse runs, not the 8 mice I had in mind) and was terminated at 11 of 38 rather than cut off; SSM is not permitted for this AWS user, so a running machine's timer cannot be extended (2026-10-18).
+- **Long runs get termination protection** (DisableApiTermination): a stray terminate call is refused, while the machine's own shutdown still terminates it. reproduce/ run 11 was terminated by an outside call at 20 of 38 (2026-10-19).
 ## Known facts, by data
 
 **Plants (Arabidopsis whole-genome bisulfite).** Methylation in three contexts: CG, CHG and CHH; the IAM-A counter reads CG only. Much of the
