@@ -2649,3 +2649,6 @@ Job i-0f11653042c6b82bf at commit e12c5a24, termination-protected, 14-hour timer
 
 ### 2026-10-19 · Book: "The commissioning record, reproduced" (OTH-072)
 Author: "Are those tests in the book yet? with the report as a visual". A generated chapter after the walkthrough: the pages of two real chain v4 researcher reports (healthy whole blood; healthy CD8 T cells, IAM-A) as figures, captions checked against each page's printed text, and every test in reproduce/tests.json with its public data, command, machine needs and fresh-clone result from reproduce/verified.json. docs/book/build_repro_chapter.py writes it; checkpoint.sh regenerates it and checked_push.sh refuses it stale, so the mouse result updates it by itself.
+
+### 2026-10-19 · Q&A: the hard questions first, every answer linked; its own section on the page (OTH-075)
+Author: head off what a skeptical researcher attacks first, each answer linked to its data, the button that rebuilds it, the book and Zenodo. Added "Where everything is" and "The hard questions first" (6 questions, every number from the canon, the manifest or data_spent.csv), book-chapter and Zenodo links in the answers, and a front-page section, "For researchers: the questions first", right after the commissioned chain. The page links the repository documents (author 2026-10-19: more professional).

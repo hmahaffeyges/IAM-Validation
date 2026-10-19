@@ -252,10 +252,17 @@ def page(art):
 {campaign}
 <section class="wrap" id="wins"><h2>{E(CF["title"])}</h2>{chain_lead}<div class="grid">{results}</div>
 <p class="sub">Each card links to its record. <a href="{rec("EARLIER_RESULTS.md")}">{E(CF["earlier"])}</a> ({n_earlier}, each with its record).</p>
-<p class="sub"><b>For researchers.</b> <a href="{rec("QUESTIONS_AND_ANSWERS.md")}">Questions and answers</a>: what a researcher will ask, answered with the test behind each answer, and the open questions.
-<a href="{rec("reproduce/README.md")}">Reproduce the results</a>: each test rebuilt from public data with one command.
-<a href="{rec("Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/README.md")}">The showcase</a>: public samples read once through the one command.
-<a href="{rec("Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md")}">The operating procedure</a>.</p></section>
+</section>
+<section class="wrap" id="researchers"><h2>For researchers: the questions first</h2>
+<p class="sub">What a reviewer will ask first, answered from the record: each answer links to the test behind it, the one command that rebuilds it from public data, its chapter in the book and its data on Zenodo. Where there is no answer yet, it says so.</p>
+<p class="cta"><a class="btn" href="{rec("QUESTIONS_AND_ANSWERS.md")}">Questions and answers</a><a class="btn ghost" href="{rec("reproduce/README.md")}">Reproduce every result</a></p>
+<div class="grid links">
+<a class="tile" href="book/ch_reproduced.html">The commissioning record, reproduced: real report pages and every test, in the book</a>
+<a class="tile" href="https://doi.org/10.5281/zenodo.23441999">IAM-Atlas v2.1 on Zenodo</a>
+<a class="tile" href="{rec("Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md")}">The operating procedure</a>
+<a class="tile" href="{rec("Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/README.md")}">The showcase: public samples read once through the one command</a>
+<a class="tile" href="https://github.com/hmahaffeyges/IAM-Validation/issues/new/choose">Report a result from your own samples</a>
+</div></section>
 {v21_banner}
 {last24}
 <section class="wrap" id="daylogs"><h2>Start here: the daily log</h2>

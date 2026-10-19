@@ -8,6 +8,59 @@ All of this work was done with public data alone, without funding or institution
 new samples, no clinical cohorts, no repeated draws from the same people over years. The open questions below are open for that reason, and
 each is one a funded laboratory could answer. What is here was built to show they are worth asking.
 
+## Where everything is
+
+- **The book**, read online: https://hmahaffeyges.github.io/IAM-Validation/book/ (each answer below names its chapter).
+- **Every headline result, rebuilt from public data by one command:** [reproduce/README.md](reproduce/README.md), and in the book,
+  [The commissioning record, reproduced](https://hmahaffeyges.github.io/IAM-Validation/book/ch_reproduced.html), with the pages of real reports.
+- **IAM-Atlas v2.1 on Zenodo:** the atlas, https://doi.org/10.5281/zenodo.23441999 , and the fit's full outputs,
+  https://doi.org/10.5281/zenodo.23422688 .
+- **The chain and its procedures:** [START_HERE.md](Biological_Physics/MethylPhys/START_HERE.md), the
+  [operating procedure](Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md) and the
+  [operations manual](Biological_Physics/MethylPhys/manual/MethylPhys_CPG_Operations_Manual.pdf).
+- **Every test, its outcome and its record:** the Master Testing Manifest, [MANIFEST.md](MANIFEST.md); every rented-computer run with
+  the code it ran, [RUNS.md](Biological_Physics/MethylPhys/RUNS.md).
+- **A result from your own samples:** the **Report a result** form,
+  https://github.com/hmahaffeyges/IAM-Validation/issues/new/choose
+
+## The hard questions first
+
+**Is "healthy" defined on the same data the instruments are then tested on?**
+No. Each reference was set on one set of healthy samples and commissioned on samples it had not seen: the C-Score's band held in three
+laboratories, read after it was fixed (34 of 35, 22 of 23, 172 of 173); purified neutrophils from other laboratories read Met-A Normal
+68 of 68; the Deconvolver was scored on 200 mixtures from a laboratory the atlas never saw; IAM-A on CD8 T-cell samples from a laboratory
+it had never seen. The record also tracks every public dataset already read ([CANON/data_spent.csv](CANON/data_spent.csv), 203 datasets),
+and the push gate refuses a new prediction on one of them unless it states what was read before.
+
+**How can anyone check that a rule was sealed before its data was read?**
+Each rule is a note committed to the public repository, and git keeps the order of every change, so the commit of a rule can be checked
+against the dated record of the run that read its data and the commit of its scoring. The push gate refuses a new seal that has not first passed a synthetic test, and a prediction on an already-read
+dataset without its disclosure. **Open question:** commit times come from the committer's machine, so the order of commits and the dated
+machine records are the evidence. An outside timestamp for each seal, such as a Zenodo deposit, would make the order checkable without
+trusting the repository.
+
+**How many tests were tried before the ones reported?**
+All of them are listed. The Master Testing Manifest ([MANIFEST.md](MANIFEST.md)) holds 908 rows, each with its status, and 969 dated runs
+with their outcomes, the 148 that failed and the 19 found invalid among them. The instruments that are commissioned are the ones whose
+sealed tests passed; a test that failed stays in the record beside the claim it tested.
+
+**Why should Landauer's bound matter to a cell that pays about one ATP to hold a mark, far more than k_B T ln 2?**
+It sets the scale, not the price. k_B T ln 2 at body temperature (1.79 kJ/mol) is the least any record can cost per bit. One ATP is 54 kJ/mol,
+M = 20.94 k_B T (30.2 in Landauer units). The gauge's floor is where thermal kicks would win even against one full ATP per site: a held
+error of 8.1 × 10⁻¹⁰, or 2.5 × 10⁻⁸ bits. Healthy cells, measured on single molecules, hold their marks at 3.41 to 3.77 k_B T per site, so a
+healthy reading sits far above that floor. Book: [the Landauer chapter](https://hmahaffeyges.github.io/IAM-Validation/book/ch_landauer.html), [the gauge](https://hmahaffeyges.github.io/IAM-Validation/book/ch_gauge.html).
+
+**The work says the gauge is not fitted, but the atlas is a fitted model and IAM-A uses a line.**
+Both are measured references, and the distinction matters. IAM-Atlas v2.1 is a statistical fit to public healthy cells, and IAM-A's line is
+drawn once through 56 kinds of healthy cells. The gauge's ends are derived from physics. Nothing is fitted to the samples being read or to
+any cancer: every reference is a frozen file with a checksum, fixed before the samples it reads were opened.
+
+**One author, outside an institution, not yet peer-reviewed. Why spend time on it?**
+Because checking it costs little. Every headline result has a one-command rebuild from public data, each run from a fresh clone on a new
+machine and compared number for number with the committed result ([reproduce/README.md](reproduce/README.md)), and the chain's release
+check runs on any machine in minutes. The code, the records and the reports are public. A result from your own known samples, agreeing or
+not, is the most useful thing that can come back.
+
 ## What it is
 
 **What does the chain measure?**
@@ -16,7 +69,7 @@ How well a cell holds the DNA methylation pattern that makes it the cell it is, 
 Four commissioned instruments read one sample: Met-A (drift of a cell's identity sites), the C-Score (whether that drift is scattered, as
 aging leaves it, or clustered along the genome), IAM-A (a sequencing sample's own error rate, read against itself), and the IAM-Deconvolver
 (which cells are in a mixed sample), all against IAM-Atlas v2.1, a reference of 79 healthy cell types.
-Evidence: [INSTRUMENTS.md](INSTRUMENTS.md), [COMMISSIONING_REPORT.md](COMMISSIONING_REPORT.md).
+Evidence: [INSTRUMENTS.md](INSTRUMENTS.md), [COMMISSIONING_REPORT.md](COMMISSIONING_REPORT.md). Book: [reading a report, step by step](https://hmahaffeyges.github.io/IAM-Validation/book/ch_walkthrough.html).
 
 **Is it a diagnostic test?**
 No. These are research instruments. They print readings and states, not diagnoses. Where on the gauge disease begins is for cancer
@@ -32,13 +85,13 @@ commissioned on [specimen]*. Evidence: the commissioning notes in [Biological_Ph
 **Where do the gauge's ends come from? Are they fitted?**
 They are derived, not fitted. The floor comes from Landauer's bound, k_B T ln 2 per bit, at body temperature, with the cell paying about one
 ATP per site to hold a mark (the Mahaffey number, M = 20.94). The saturation end is every identity site fully scrambled: 3.03 for Met-A, and
-0.5 / ε_pred(L) for IAM-A, the sample's own. Evidence: the book, Part 6 (the gauge chapter), and its one-command derivation check.
+0.5 / ε_pred(L) for IAM-A, the sample's own. Evidence: the book, [the gauge chapter](https://hmahaffeyges.github.io/IAM-Validation/book/ch_gauge.html), and its one-command derivation check (`python3 docs/book/verify_book.py`).
 
 **Is there a test where the physics predicted a number before the data were read?**
 Yes, in living mice. Mice that cannot make enough of the methyl donor should hold their marks worse by an amount the law fixes. The window
 was written down first (1.016 to 1.135); the knockout mice read 1.124 against wild type (p 0.0003).
 Evidence: [DEV_SAM_LEVER_01_OUTCOME.md](Biological_Physics/MethylPhys/doors/DEV_SAM_LEVER_01_OUTCOME.md); rerun with
-`python3 reproduce/reproduce.py mice`.
+`python3 reproduce/reproduce.py mice`; book: [the reproduced record](https://hmahaffeyges.github.io/IAM-Validation/book/ch_reproduced.html).
 
 **Why should the same law apply to cosmology, qubits, chips and cells?**
 Each domain stands on its own tests, and none of the cell instruments depends on the others. In cosmology the coupling is derived with no
@@ -60,7 +113,7 @@ how much of its DNA it keeps loosely tagged (53 of 56 on the line), so the healt
 C-Score on arrays are tared by three or more healthy arrays from the same run, so the laboratory's habits cancel. **Open question:** a
 person's own earlier sample would be the strongest baseline of all; reading a person over years needs repeated draws that public data do not
 hold. Evidence: [COMMISSIONING_NOTE_IAMA.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md);
-rerun the line with `python3 reproduce/reproduce.py iama_line`.
+rerun the line with `python3 reproduce/reproduce.py iama_line`; book: [IAM-A](https://hmahaffeyges.github.io/IAM-Validation/book/ch_iama.html).
 
 **Whole-blood differences are mostly differences in cell proportions. How does IAM handle that?**
 It measures the mix and reads each cell on its own terms. The IAM-Deconvolver reports each cell's share with its 95 % interval; on 200
@@ -76,7 +129,8 @@ arrays that did not. When a mixture holds cells outside the reference, the raw s
 It says so, site by site. Every value carries its 95 % range and the person-to-person spread, and every cell's page states how many healthy
 samples it was built from. Certainty follows that number: 17 cells rest on more than ten samples (median half-width ±0.012), 36 on one to three
 (±0.067). On the jobs a reference atlas is used for, v2.1 met every bar against both published references. Evidence:
-[COMMISSIONING_NOTE_ATLAS_V21.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md), the cell pages on the website.
+[COMMISSIONING_NOTE_ATLAS_V21.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md), the cell pages on the website, the atlas on Zenodo
+(https://doi.org/10.5281/zenodo.23441999); book: [the atlas](https://hmahaffeyges.github.io/IAM-Validation/book/ch_atlas.html).
 **Open question:** more healthy samples of the cells with one to three would narrow their ranges.
 
 ## Measurement quality
@@ -90,7 +144,7 @@ laboratories' readings of the same DNA spread by at most 0.006 (bar 0.02, 3 of 3
 **Does the healthy range hold in laboratories that did not set it?**
 Yes, for the C-Score: 34 of 35, 22 of 23 and 172 of 173 healthy people in three laboratories read inside a range fixed before any of them
 was read, and the same person measured twice read the same (spread 0.038, bar 0.125). Evidence:
-[COMMISSIONING_NOTE_CSCORE.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md); `python3 reproduce/reproduce.py cscore_band`.
+[COMMISSIONING_NOTE_CSCORE.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md); `python3 reproduce/reproduce.py cscore_band`; book: [the C-Score](https://hmahaffeyges.github.io/IAM-Validation/book/ch_cscore.html).
 
 **Arrays detect changes of about 20 to 30 %. How can it see less?**
 The C-Score reads the pattern across many sites at once, not one site at a time. Its commissioned detection limit is C_rel 1.5 when 5 % of
@@ -104,7 +158,7 @@ other sequencing chemistries each need their own reference and commissioning tes
 **Is everything reproducible?**
 Every reference the commissioned instruments read is rebuilt from public data, identical, by committed code: `python3 reproduce/reproduce.py
 metaa_rebuild`. Each test in [reproduce/](reproduce/README.md) starts from public accessions, runs the chain, and compares with the committed
-result. Every rule was sealed before its data, every scoring was done once, and every run is listed with its code in the run ledger.
+result; the book lists each one with its fresh-clone result ([the reproduced record](https://hmahaffeyges.github.io/IAM-Validation/book/ch_reproduced.html)). Every rule was sealed before its data, every scoring was done once, and every run is listed with its code in the run ledger.
 
 ## Results so far
 
@@ -119,7 +173,7 @@ On tissue, with the rule sealed before any tumor was opened, each tumor read aga
 
 In prostate cancer cells, both instruments found whole stretches of the pattern wiped out, far beyond healthy wear, and a second laboratory's
 prostate cancer showed the same in 6 of 6 samples. These are development results: the instruments were not commissioned on tissue.
-Evidence: the outcome records in [Biological_Physics/MethylPhys/doors/](Biological_Physics/MethylPhys/doors/); `python3 reproduce/reproduce.py colon`.
+Evidence: the outcome records in [Biological_Physics/MethylPhys/doors/](Biological_Physics/MethylPhys/doors/); `python3 reproduce/reproduce.py colon`, `breast` or `liver`.
 **Open question:** where the lines on the gauge belong for each cancer, set by cancer researchers on cohorts with known outcomes.
 
 **What about early detection, precancer, cell-free DNA?**
