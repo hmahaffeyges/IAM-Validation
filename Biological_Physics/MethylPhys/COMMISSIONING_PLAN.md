@@ -13,7 +13,7 @@ _Worked one step at a time. A step is closed only with its date and the record t
 3. **Now:** Mouse reproduction (run 13): read the verdict and record it. *Done when:* reproduce/verified.json holds the mice verdict; the reproduce README and book chapter regenerated (OTH-076)
 4. ~~Manifest: the 14 record names that do not exist (TODO.md in 56 rows, old_val_datasets.csv in 52, candidate_datasets_2026-10-13.csv in 12, and 11 single ones) repointed to the record that holds the fact, or marked never committed~~ Done 2026-10-19: [doc_audit.py](../../CANON/doc_audit.py)
 5. ~~Manifest: the 5 status wordings ('stays development', 'in development') and the 5 running rows naming no machine job, each read and corrected against the commissioning record and the job register (read: the 5 wordings are right and are listed in doc_audit.py REVIEWED; 'running' rows are document work, so only a named job that has finished is a finding)~~ Done 2026-10-19: [doc_audit.py](../../CANON/doc_audit.py)
-6. The 16 finished or running rows with a pending next step: each put on this plan, reopened, or its follow-up recorded done. *Done when:* plan_md.py --check passes with no exemptions (OTH-078, COM-CSCORE-005, COM-CSCORE-011, ...)
+6. ~~The 16 finished or running rows with a pending next step: each put on this plan, reopened, or its follow-up recorded done (5 placed on plan items, 5 pointed at where their follow-up lives, 4 parked with the reason in the row, 1 scheduled for 2027-04-12)~~ Done 2026-10-19: [plan_md.py](../../CANON/plan_md.py)
 7. ~~Instrument catalogue (INSTRUMENTS.md): each instrument entry cites its commissioning note and runtime matrices, and every number it prints is found in them (each entry now names its commissioning record, shown on INSTRUMENTS.md; tested: a planted number is refused)~~ Done 2026-10-19: [doc_audit.py](../../CANON/doc_audit.py)
 8. Every number printed in the public documents (README, REFERENCE, Q&A, package README, commissioning report, SOP, reproduce README, atlas v2.1 README, showcase README) traced to a measurement record. *Done when:* the untraced list is empty or each remaining number is labeled with its source (OTH-078)
 9. Every other table audited the way FOUR_DOMAINS was: bit tables, COMMISSIONING_REPORT, STATUS, EARLIER_RESULTS, and the book's tables. *Done when:* each table's rows read against their records; corrections committed with a before/after record (OTH-078, OTH-072)
@@ -41,10 +41,11 @@ _Worked one step at a time. A step is closed only with its date and the record t
 7. **Backbone: healthy range on the same counter; tumor-adjacent against truly healthy colon**
    - PHY-071 (parked): parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships
    - PHY-072 (parked): parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships
+   - PHY-043 (run; last run 2026-10-15: progressed): healthy firm-territory range counted with PROC-Tumor-01's counter (56 cell types' own reads), written before comparison; then N and T2 re-read
 8. **Probe-position check**
    - PHY-070 (parked): parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships
 9. **C-score on real tumors, with a sealed bar**
-   - OTH-054 (planned): read real tumors with the C-Score under a sealed bar (its next test) and add the rows as their own section
+   - OTH-054 (planned): read real tumors with the C-Score under a sealed bar (its next test) and add the rows as their own section. Also on this row (2026-10-19): the C-Score on isolated neutrophils from an independent laboratory.
 10. **Gauge lines from evidence (reporting marks, not a commissioning gate)**
    - OTH-059 (planned): for each instrument: healthy band from healthy readings (Met-A's 0.95-1.05 was set by hand on 2026-10-01 and confirmed, 525 of 541 healthy arrays inside, medians 0.994-1.005: rebuild it from the spread); tumor line from tumor-over-own-normal readings (A-score database); worst lab shift measured (ENCODE B cell for IAM-A); margin stated
    - OTH-058 (planned): define, per specimen, which instruments read it and what agreement means; report agreement beside the readings, never folded into them
@@ -54,6 +55,7 @@ _Worked one step at a time. A step is closed only with its date and the record t
 12. **Record keeping: the manifest kept current by the chain; document consolidation**
    - OTH-063 (run; last run 2026-10-16: met): none: live; the chain names rows in every stamp and the gate refuses stale rows. Document consolidation is OTH-064
    - OTH-064 (run; last run 2026-10-16: met): done: hand-kept living documents are now the development log and the day log (both written as work happens and checked by the gate); the book is the toolbox, checked by verify_book; sealed records are history. Everything else is generated or a pointer
+   - OTH-051 (running): add each new test's per-sample rows as a source (tumor island pairs, C-score repeats, open-sea own reads); then read PHY-069 (is there a concern line) off the tables
 13. **Showcase runs of the commissioned chain (plan: development/TEST_PLAN_TRACKS_2026-10-17.md)**
    - OTH-073 (run; last run 2026-10-19: met): 2026-10-19: all seven scenarios shown. Scenario 4: three healthy colon biopsies (GSE151732) read by IAM-Atlas v2.1's colon tissue scorer, shares 0.911, 0.941, 0.943 of 6,000 sealed sites within 0.05 (the three together 0.942; commissioned bar 0.90); scenarios 2 and 5 are the example reports.
 14. **Field: normal tissue of patients against healthy people, same slides**
@@ -61,6 +63,9 @@ _Worked one step at a time. A step is closed only with its date and the record t
 15. **Precancer and before diagnosis**
    - BRE-010 (planned): scout public sets with raw files
    - GRP-008 (run; last run 2026-10-01: progressed): 2026-10-17: replicate on a fresh pre-diagnosis set (TEST_PLAN_TRACKS_2026-10-17.md, track 3)
+   - PHY-008 (run; last run 2026-10-13: progressed): Measure the breach mark (DEV-BREACH-01 scored 2026-10-13: not visible at DCIS on the blind-site average; next breach reading per-site surface share or clustering, sealed first - H2, other section).
+   - BRE-003 (run; last run 2026-10-13: not met): Next breach reading on a different quantity (per-site surface share or clustering), sealed first, on a fresh set.
+   - SCO-049 (run; last run 2026-10-13: not met): Next breach reading: surface share or clustering, sealed first (TODO H2); GSE108123 (lung precancer: 36 progressed, 18 regressed, 33 controls) is the second series.
 16. **Immune track, organ by organ (Group-A)**
    - GRP-013 (planned): pre-register on the breast and lung sets in hand (GRP-001, GRP-006); scout colon and pancreas blood sets
 17. **cfDNA and shed-cell routes (short-fragment synthetic first)**
@@ -73,6 +78,10 @@ _Worked one step at a time. A step is closed only with its date and the record t
    - OTH-074 (run; last run 2026-10-18: met): wording fix confirmed by clean clone run 9 (25 of 25)
 20. **Questions and answers for outside labs (researcher package)**
    - OTH-075 (run): 2026-10-18 author: 'Try to break it' replaced by Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md (every question a researcher or reviewer will ask; answers point to their test; open questions named; checking on known samples is one section; issue form 'Report a result'). 2026-10-18: 'Questions the field is asking now' added (from recent reviews of methylation cancer detection and epigenetic drift: entropy measures, tumor variability, proliferation, age confounding, fixed atlases, cfDNA dilution, validation, QC reporting), three new open questions named
+
+## Scheduled
+
+- 2027-04-12: the next atlas and lung-stroma source search (rule 19) (SCO-075)
 
 ## Machines running now (machine ledger)
 

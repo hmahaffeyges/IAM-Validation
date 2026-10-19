@@ -1563,7 +1563,7 @@
      "page": "headline: DEV-CSCORE-REPEAT-01"
     }
    ],
-   "next_step": "commissioned on whole blood 2026-10-15; next: isolated neutrophils from an independent laboratory, then real cancers with a sealed bar",
+   "next_step": "Done: C-Score commissioned on whole blood 2026-10-15. Its further work (isolated neutrophils from an independent laboratory, real tumors with a sealed bar, 450K, EPIC v2, plasma) is OTH-054 on the plan and the catalogue's C-Score entry.",
    "cost": "search",
    "impact": 5,
    "legacy_ids": [
@@ -1755,7 +1755,7 @@
      "commit": "4153c68"
     }
    ],
-   "next_step": "commissioned on whole blood 2026-10-15; next: isolated neutrophils from an independent laboratory, then real cancers with a sealed bar",
+   "next_step": "Done: C-Score commissioned on whole blood 2026-10-15. Its further work (isolated neutrophils from an independent laboratory, real tumors with a sealed bar, 450K, EPIC v2, plasma) is OTH-054 on the plan and the catalogue's C-Score entry.",
    "cost": "none",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md",
@@ -1797,7 +1797,7 @@
      "page": "headline: DEV-CSCORE-REPEAT-01"
     }
    ],
-   "next_step": "commissioned on whole blood 2026-10-15; next: isolated neutrophils from an independent laboratory, then real cancers with a sealed bar",
+   "next_step": "Done: C-Score commissioned on whole blood 2026-10-15. Its further work (isolated neutrophils from an independent laboratory, real tumors with a sealed bar, 450K, EPIC v2, plasma) is OTH-054 on the plan and the catalogue's C-Score entry.",
    "cost": "search",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md",
@@ -1890,7 +1890,7 @@
    ],
    "data_status": "spent",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md",
-   "status": "run",
+   "status": "parked",
    "runs": [
     {
      "date": "2026-10-13",
@@ -1918,7 +1918,7 @@
      "note": "Lead: duplicates at the file head separate controls from suspects (3 vs 2, chance 1 in 5); not a finding."
     }
    ],
-   "next_step": "Independent diagnostic from saved quality files, bar first; then seal and re-read the stage.",
+   "next_step": "parked 2026-10-19 (to-do step 6): the across-laboratory failure was of IAM-A's retired position form; the commissioned IAM-A (2026-10-17) reads each sample against its own line, so this diagnosis is not needed for it. Kept as an open question about the sequencing files. Previous next step: Independent diagnostic from saved quality files, bar first; then seal and re-read the stage.",
    "cost": "box",
    "impact": 5,
    "depends_on": [],
@@ -5197,7 +5197,7 @@
    ],
    "data_status": "partial",
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_TRIM_01.md",
-   "status": "run",
+   "status": "parked",
    "runs": [
     {
      "date": "2026-10-13",
@@ -5217,7 +5217,7 @@
      "note": "Lead: both controls have about 4 points more duplicates at the head than deeper, the suspects do not; 3 against 2 separates by luck 1 time in 5 - a lead to test on unused libraries."
     }
    ],
-   "next_step": "An independent diagnostic from the saved quality files, bar first (e.g. head duplicates on unused libraries); then rerun the across-laboratory check on the WHOLE stage.",
+   "next_step": "parked 2026-10-19 (to-do step 6): the trim rule gated the retired position form across laboratories; the commissioned IAM-A reads each sample against itself. Kept as an open question. Previous next step: An independent diagnostic from the saved quality files, bar first (e.g. head duplicates on unused libraries); then rerun the across-laboratory check on the WHOLE stage.",
    "cost": "box",
    "impact": 5,
    "depends_on": [
@@ -5522,7 +5522,7 @@
    ],
    "data_status": "none_needed",
    "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORY_01.md",
-   "status": "synthetic_done",
+   "status": "parked",
    "runs": [
     {
      "date": "2026-10-13",
@@ -5537,7 +5537,7 @@
      "commit": "3759bfd"
     }
    ],
-   "next_step": "Author decision: v3 that raises precision (more simulated people) or restated bars decided before running - or retire (TODO L6); then one real array set with known composition.",
+   "next_step": "parked 2026-10-19 (to-do step 6): a candidate instrument (territory contrast); its v3 design waits until after the researcher package. Previous next step: Author decision: v3 that raises precision (more simulated people) or restated bars decided before running - or retire (TODO L6); then one real array set with known composition.",
    "cost": "laptop",
    "impact": 4,
    "legacy_ids": [
@@ -22755,7 +22755,7 @@
      "note": "Code of 8 tier-1 results recovered from the session record; reruns pending."
     }
    ],
-   "next_step": "Next tier (TODO C7).",
+   "next_step": "Done: continued by Biological_Physics/MethylPhys/reproduce/ (OTH-076), one command per headline result, each tested from a fresh clone.",
    "cost": "laptop",
    "impact": 2,
    "depends_on": [],
@@ -25991,7 +25991,7 @@
    ],
    "data_status": "not yet searched",
    "record": "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
-   "status": "run",
+   "status": "parked",
    "runs": [
     {
      "date": "2026-10-18",
@@ -26002,7 +26002,7 @@
      "page": "not headline: recorded automatically from a chain result; any front-page call is made in its record"
     }
    ],
-   "next_step": "NOT MET on the plants (an informative null: the interval excludes the predicted shift). Next: name which assumption failed (fixed holding energy, the mark's effective temperature, the process that sets held error), each with a synthetic; then the hamster torpor set under its own rule",
+   "next_step": "parked 2026-10-19 (to-do step 6): exploratory and off every public page (author 2026-10-18); resumes after the researcher package. Previous next step: NOT MET on the plants (an informative null: the interval excludes the predicted shift). Next: name which assumption failed (fixed holding energy, the mark's effective temperature, the process that sets held error), each with a synthetic; then the hamster torpor set under its own rule",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [
@@ -26517,7 +26517,7 @@
    "record": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
    "status": "planned",
    "runs": [],
-   "next_step": "read real tumors with the C-Score under a sealed bar (its next test) and add the rows as their own section",
+   "next_step": "read real tumors with the C-Score under a sealed bar (its next test) and add the rows as their own section. Also on this row (2026-10-19): the C-Score on isolated neutrophils from an independent laboratory.",
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
@@ -27430,7 +27430,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "run",
    "runs": [],
-   "next_step": "built and tested 2026-10-18: Researcher and Plain views, two PDFs, physics panel, the sample's sky beside the healthy atlas sky; clean clone run 13 PASS 27 of 27; real example reports (GSE235717_GSM7508429, healthy) and the far-right example (PLANTED, C_rel 2.66) from i-0e16b64e60f88f0ab; after review: arrays run 4 done; IAM-A example reproduced its grand-test reading exactly (A 0.9083 Normal, one command from the BAM); Final reports made (i-06fd497326090626e, i-03e9e5160b5fea273): real healthy blood, the planted clustered example, and IAM-A on grand-test GSM4293895 (A 0.9083, equal to its grand test); no retired wording anywhere. Next: the book chapter on the chain and the report.",
+   "next_step": "Done: built and tested 2026-10-18 (Researcher and Plain views, two PDFs, the physics panel, the sample's sky beside the healthy atlas sky; clean clone PASS); final example reports in doors/data/REPORT_EXAMPLES_V4/final.",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
@@ -27900,7 +27900,7 @@
    "record": "CANON/doc_audit.py",
    "runs": [],
    "next_step": "Steps 6 and 8-10 of the to-do list (CANON/plan.json).",
-   "notes": "2026-10-19 first pass: 135 path findings (14 distinct names), 5 status wordings, 5 running rows naming no job, 16 finished rows with a pending next step not on the plan | 2026-10-19 later: steps 4, 5 and 7 done (every named record exists or says it does not, the old to-do list frozen at archive/retired_root_2026-10-19/TODO_to_2026-10-16.md; status wordings read and right; catalogue entries name their commissioning records, every number traced; doc_audit.py --check in the push gate)",
+   "notes": "2026-10-19 first pass: 135 path findings (14 distinct names), 5 status wordings, 5 running rows naming no job, 16 finished rows with a pending next step not on the plan | 2026-10-19 later: steps 4, 5 and 7 done (every named record exists or says it does not, the old to-do list frozen at archive/retired_root_2026-10-19/TODO_to_2026-10-16.md; status wordings read and right; catalogue entries name their commissioning records, every number traced; doc_audit.py --check in the push gate) | step 6 done: the 16 finished rows with pending next steps placed on plan items (PHY-008, BRE-003, SCO-049, PHY-043, OTH-051), pointed at their follow-up (COM-CSCORE-005, -011, -012 to OTH-054; OTH-012 to OTH-076; OTH-069 done), parked with reasons (COM-IAMA-001, CAN-002, CAN-012, PHY-057), or scheduled (SCO-075, 2027-04-12)",
    "register_ids": []
   }
  ],

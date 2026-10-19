@@ -44,7 +44,8 @@
    "label": "Backbone: healthy range on the same counter; tumor-adjacent against truly healthy colon",
    "rows": [
     "PHY-071",
-    "PHY-072"
+    "PHY-072",
+    "PHY-043"
    ]
   },
   {
@@ -77,7 +78,8 @@
    "label": "Record keeping: the manifest kept current by the chain; document consolidation",
    "rows": [
     "OTH-063",
-    "OTH-064"
+    "OTH-064",
+    "OTH-051"
    ]
   },
   {
@@ -96,7 +98,10 @@
    "label": "Precancer and before diagnosis",
    "rows": [
     "BRE-010",
-    "GRP-008"
+    "GRP-008",
+    "PHY-008",
+    "BRE-003",
+    "SCO-049"
    ]
   },
   {
@@ -186,7 +191,7 @@
    "record": "CANON/doc_audit.py"
   },
   {
-   "task": "The 16 finished or running rows with a pending next step: each put on this plan, reopened, or its follow-up recorded done",
+   "task": "The 16 finished or running rows with a pending next step: each put on this plan, reopened, or its follow-up recorded done (5 placed on plan items, 5 pointed at where their follow-up lives, 4 parked with the reason in the row, 1 scheduled for 2027-04-12)",
    "done_when": "plan_md.py --check passes with no exemptions",
    "rows": [
     "OTH-078",
@@ -207,9 +212,9 @@
     "OTH-069",
     "OTH-072"
    ],
-   "status": "open",
-   "done_date": "",
-   "record": ""
+   "status": "done",
+   "done_date": "2026-10-19",
+   "record": "CANON/plan_md.py"
   },
   {
    "task": "Instrument catalogue (INSTRUMENTS.md): each instrument entry cites its commissioning note and runtime matrices, and every number it prints is found in them (each entry now names its commissioning record, shown on INSTRUMENTS.md; tested: a planted number is refused)",
@@ -282,5 +287,13 @@
    "done_date": "",
    "record": ""
   }
- ]
+ ],
+ "scheduled": [
+  {
+   "row": "SCO-075",
+   "date": "2027-04-12",
+   "what": "the next atlas and lung-stroma source search (rule 19)"
+  }
+ ],
+ "_scheduled_rule": "Dated work that is not due yet; plan_md.py lists it and counts its rows as on the plan."
 }

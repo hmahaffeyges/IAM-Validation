@@ -24,13 +24,14 @@ for n, it in enumerate(P["items"], 1):
         last = (r.get("runs") or [None])[-1]; lr = f"; last run {last['date']}: {OUTCOME.get(last['outcome'], last['outcome'])}" if isinstance(last, dict) else ""
         L.append(f"   - {rid} ({r['status']}{lr}): {str(r.get('next_step') or '').strip()}")
 run = [j for j in B if j.get("state") == "running"]
+L += ["", "## Scheduled", ""] + ([f"- {x['date']}: {x['what']} ({x['row']})" for x in P.get("scheduled", [])] or ["None."])
 L += ["", "## Machines running now (machine ledger)", "", "| Job | Machine | Rows |", "|---|---|---|"] + [f"| {j['name']} | {j.get('machine','')} | {', '.join(j.get('manifest', []))} |" for j in run]
 L += ["", "## Decisions waiting for the author", ""] + ([f"- {d}" for d in P["decisions_waiting"]] or ["None."])
 txt = _rl.fix("\n".join(L) + "\n", OUT)   # links resolve from the document's folder (2026-10-19)
 bad = [rid for it in P["items"] for rid in it["rows"] if rid not in M]
 import re as _re
 bad += [f"to-do step {n} closed without a record" for n, t in enumerate(P.get("todo", []), 1) if t["status"] == "done" and not (t.get("record") and os.path.exists(os.path.join(R, t["record"])))]
-_on = {x for it in P["items"] for x in it["rows"]} | {x for t in P.get("todo", []) if t["status"] != "done" for x in t["rows"]}
+_on = {x for it in P["items"] for x in it["rows"]} | {x for t in P.get("todo", []) if t["status"] != "done" for x in t["rows"]} | {x["row"] for x in P.get("scheduled", [])}
 _pend = _re.compile(r"(^|[.;:] )(Next|Then|still to|to come|remaining|not yet run)\b", _re.I)   # 2026-10-19: scenario 4 was lost in a finished row's 'Next'
 bad += [f"{r['id']} ({r['status']}) has pending work in its next step but is not on the plan" for r in M.values()
         if r["status"] in ("run", "synthetic_done", "sealed", "running") and _pend.search(str(r.get("next_step") or "")) and r["id"] not in _on]
