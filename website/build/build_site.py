@@ -95,7 +95,7 @@ def front_page(site, parts, sub="read"):
 <div class="cap"><h1>{TITLE}</h1><p>{SUBTITLE} &mdash; {SUBSUB}</p></div></div>
 <main class="iam-main iam-front" id="content">
 <p><b>{AUTHOR}</b></p>
-<p class="iam-claim">One law of physics from the qubit to the genome to the cosmic horizon. Every derivation in the book is checked in one command \u2014 try to break it.</p>
+<p class="iam-claim">One law of physics from the qubit to the genome to the cosmic horizon. Every derivation in the book is checked by one command that anyone can run.</p>
 <div class="iam-runall-front"><p><button class="iam-run iam-btn" type="button" data-part="all">Run every check</button></p>
 <p class="iam-local">Or on your own machine: <code>python3 docs/book/verify_book.py</code></p></div>
 <p>IAM, the Informational Actualization Model</p>

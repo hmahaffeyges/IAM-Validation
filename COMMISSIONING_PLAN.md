@@ -53,7 +53,7 @@ The first commissioned chain is built (IAM-Atlas v2.1, IAM-Deconvolver, Met-A, C
    - COM-IAMA-056 (planned): scout public longitudinal sequencing sets of the same donors
 19. **Operating procedure and manual for chain v4 (researcher package)**
    - OTH-074 (run; last run 2026-10-18: met): wording fix confirmed by clean clone run 9 (25 of 25)
-20. **'Try to break it' guide for outside labs (researcher package)**
+20. **Questions and answers for outside labs (researcher package)**
    - OTH-075 (run): 2026-10-18 author: 'Try to break it' replaced by QUESTIONS_AND_ANSWERS.md (every question a researcher or reviewer will ask; answers point to their test; open questions named; checking on known samples is one section; issue form 'Report a result'). 2026-10-18: 'Questions the field is asking now' added (from recent reviews of methylation cancer detection and epigenetic drift: entropy measures, tumor variability, proliferation, age confounding, fixed atlases, cfDNA dilution, validation, QC reporting), three new open questions named
 
 ## Machines running now (machine ledger)

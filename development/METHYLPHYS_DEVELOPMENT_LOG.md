@@ -2625,3 +2625,6 @@ Job i-08774f6b5ef3593f6 at commit 04eded42 (the commit on GitHub; the GitHub tok
 
 ### 2026-10-19 · Page: no wording that goes stale (OTH-071)
 The author: "we cant have things that must be constantly updated "last 24 hours"". The section heading is now "The most recent day log", followed by its date; "where it stands today" (twice), "tonight's losses" and "this week's corrections" were reworded at their sources (build_home.py, author.json, assistant.json, the 2026-10-18 day log). build_home.py --check now refuses time-relative wording (last N hours or days, today, tonight, this morning, yesterday, this week, right now, hours ago); the cosmology convention "a = 1 today" is allowed.
+
+### 2026-10-19 · Plan item 20 and OTH-075 renamed; book site tagline (OTH-075, OTH-071)
+The plan and manifest still called the Q&A "'Try to break it' guide" (the author replaced it on 2026-10-18: "that sounds bad and unprofessional"); both now say questions and answers for outside labs. The book site's tagline ended "try to break it"; it now says every derivation is checked by one command that anyone can run.

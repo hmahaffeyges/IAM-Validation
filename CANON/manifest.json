@@ -27530,7 +27530,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "running",
    "runs": [],
-   "next_step": "2026-10-18: the chain section links Try to break it, the showcase and SOP v4; site build fixed (caption syntax) and its check now loads the cell-page code",
+   "next_step": "2026-10-18: the chain section links the Q&A for researchers, the showcase and SOP v4; site build fixed (caption syntax) and its check now loads the cell-page code; 2026-10-19: no time-relative wording on the page (check added); book site tagline no longer says 'try to break it'",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],
@@ -27814,12 +27814,13 @@
    "sources_of_row": [
     "session 2026-10-16"
    ],
-   "title": "'Try to break it': predictions on known samples, failure criteria and a public report form, for outside labs (researcher package)",
+   "title": "Questions and answers for outside labs: what a researcher will ask, answered from the record, open questions stated as open, and a public report form",
    "purpose": "author 2026-10-18: outside labs should test the chain on their own known samples and try to break it",
    "status": "run",
    "record": "QUESTIONS_AND_ANSWERS.md",
    "runs": [],
-   "next_step": "2026-10-18 author: 'Try to break it' replaced by QUESTIONS_AND_ANSWERS.md (every question a researcher or reviewer will ask; answers point to their test; open questions named; checking on known samples is one section; issue form 'Report a result'). 2026-10-18: 'Questions the field is asking now' added (from recent reviews of methylation cancer detection and epigenetic drift: entropy measures, tumor variability, proliferation, age confounding, fixed atlases, cfDNA dilution, validation, QC reporting), three new open questions named"
+   "next_step": "2026-10-18 author: 'Try to break it' replaced by QUESTIONS_AND_ANSWERS.md (every question a researcher or reviewer will ask; answers point to their test; open questions named; checking on known samples is one section; issue form 'Report a result'). 2026-10-18: 'Questions the field is asking now' added (from recent reviews of methylation cancer detection and epigenetic drift: entropy measures, tumor variability, proliferation, age confounding, fixed atlases, cfDNA dilution, validation, QC reporting), three new open questions named",
+   "notes": "2026-10-19: title and plan item 20 renamed from 'Try to break it' to the Q&A"
   },
   {
    "instrument_or_term": "all",
