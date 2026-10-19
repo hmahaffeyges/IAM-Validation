@@ -2567,7 +2567,7 @@ Job i-057e21ce87336144c. A first launch (i-02265f88bdcce1fa6) went out in the sa
 Eight questions drawn from recent reviews (2024-2026) of methylation-based cancer detection and epigenetic drift, each answered from the record; three named open: proliferation versus holding error, healthy age dependence of Met-A and the C-Score, cell-free DNA dilution.
 
 ### 2026-10-18 · reproduce/ iama_line: 127 of 127 recounted files identical; 31 refused by GEO (OTH-076)
-Run 2b counted 127 of the 153 GEO .pat files and all 5 ENCODE BAMs; every one of the 132 is identical to the committed count (DEV_CHAIN_Q2_01/shape_out, every field but the stamp). GEO answered 503 (server busy) to the other 31 after the driver's 4 tries, so the line was rebuilt from 127 and the compare said DIFFERS. reproduce/iama_line.sh now reruns the driver (it skips counted samples) with 8 parallel downloads and a pause, until all 153 are counted. Rerun as run 6.
+Run 2b counted 122 of the 153 GEO .pat files and all 5 ENCODE BAMs; every one of the 127 is identical to the committed count (DEV_CHAIN_Q2_01/shape_out, every field but the stamp). GEO answered 503 (server busy) to the other 31 after the driver's 4 tries, so the line was rebuilt from 127 and the compare said DIFFERS. reproduce/iama_line.sh now reruns the driver (it skips counted samples) with 8 parallel downloads and a pause, until all 153 are counted. Rerun as run 6.
 
 ### 2026-10-18 · reproduce/ run 6 launched: IAM-A line (OTH-076)
 Job i-00f5d19a1eca54c78.
@@ -2577,3 +2577,6 @@ Run 2b stopped installing the mouse pipeline (exit 16): the script checked out w
 
 ### 2026-10-18 · reproduce/ run 7 launched: mice (OTH-076)
 Job i-04892b0da73153d90.
+
+### 2026-10-18 · Correction: 127 recounted files, not 132 (OTH-076)
+The iama_line entry above and its commit message (d27b4956) said 132 of 132; the run counted 122 GEO files and 5 ENCODE files, 127 in all, every one identical. 153 - 31 refused = 122. Corrected in the log and the manifest; the commit message cannot be changed.
