@@ -82,3 +82,4 @@ This file is the single source of truth for constants and names. To change a val
 | `(varepsilon_0|varepsilon_\{0\}|eps0|ε₀|eps_0)[^0-9\n]{0,18}0\.032(?!\d)` | the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19) | block |
 | `0\.0212(?!\d)|0\.0497(?!\d)|\bD *= *46\b` | the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19) | block |
 | `[Ff]irm end` | firm rate (the gauge's only ends are the floor and the ceiling; author 2026-10-15) | block |
+| `3\.41 to 3\.77|3\.41--3\.77|ln\[\(1-\\varepsilon\)/\\varepsilon\]=3\.41|=3\.41/20\.94|e\^\{3\.41\}|\(\$3\.41\$` | the commissioned counter's holding energy (CANON E_hold_meth, 3.08 kT; superseded 2026-10-19) | block |

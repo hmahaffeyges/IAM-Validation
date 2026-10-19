@@ -7725,7 +7725,7 @@
   },
   {
    "title": "Holding energy and eps0 rebuilt from public data (153 samples)",
-   "purpose": "Rebuilds IAM-A's physical anchor, the holding energy 3.41 kT and eps0 = 0.032, from public data. It matters because IAM-A's 'healthy' is tied to this energy, so it must be reproducible.",
+   "purpose": "Rebuilds IAM-A's physical anchor, the holding energy 3.41 kT and eps0 = 0.032, from public data. It matters because IAM-A's 'healthy' is tied to this energy, so it must be reproducible. [2026-10-19: values on the earlier counter, which counted end CpGs as opportunities; on the commissioned counter the holding energy is 3.08 kT, eps0 0.044, phi 0.147 (holding_energy_q2.json)]",
    "instrument_or_term": "IAM-A anchor (E_hold, eps0)",
    "sources": [
     "GSE186458"
@@ -7813,8 +7813,8 @@
    ]
   },
   {
-   "title": "phi and the height of E_hold (open item D1): a physics-only derivation of 3.41 kT",
-   "purpose": "Seeks the height of the healthy holding energy (3.41 kT, phi = 0.1628 of one ATP) from physics alone rather than from the cells' own measurement. Until it is derived, the middle of the gauge is a measured reference, not a prediction.",
+   "title": "phi and the height of E_hold (open item D1): a physics-only derivation of the healthy holding energy (3.08 kT)",
+   "purpose": "Seeks the height of the healthy holding energy (3.08 kT, phi = 0.147 of one ATP, on the commissioned counter; 3.41 on the earlier one) from physics alone rather than from the cells' own measurement. Until it is derived, the middle of the gauge is a measured reference, not a prediction.",
    "instrument_or_term": "phi, M = 20.94, eps_0 = 0.032",
    "sources": [],
    "data_status": "none_needed",
@@ -8271,7 +8271,7 @@
   },
   {
    "title": "DEV-WRITER-02: does held error follow DNMT1 discrimination across 256 flanking contexts?",
-   "purpose": "Tested per sequence context whether the held error follows the writer's selectivity. It showed the genome-wide agreement in DEV-WRITER-01 was a coincidence of size.",
+   "purpose": "Tested per sequence context whether the held error follows the writer's selectivity. It showed the genome-wide agreement in DEV-WRITER-01 was a coincidence of size. [2026-10-19: values on the earlier counter, which counted end CpGs as opportunities; on the commissioned counter the holding energy is 3.08 kT, eps0 0.044, phi 0.147 (holding_energy_q2.json)]",
    "instrument_or_term": "Model A'",
    "sources": [
     "153 healthy sequencing-atlas window files (PROC-CHANNEL-01; GSE186458)",

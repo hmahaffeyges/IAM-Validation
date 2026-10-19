@@ -30199,13 +30199,11 @@ def check_2457():
     return locals()
 
 @check(label='ch:landauer:L71', chapter='ch:landauer', part=6, title='holding energy per site (figure caption)',
-       file='part6/p6_02_landauer', line=71, status='calc', kind='file', printed='3.41', tol=0.0, source=_B08_PC,
-       heavy=True, rerun=_B08_PC_RERUN)
+       file='part6/p6_02_landauer', line=71, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_3798():
-    'Holding energy per methylated site measured on single molecules, in k_B T (Figure fig:budget caption). Book line 71, printed 3.41. '\
-    'Source: the held-error row of the PROC-CHANNEL-01 record table (E_hold column).'
-    m = re.search(r"methylated sites \((?:copy|held) error\)\s*\|[^|]*\|\s*([\d.]+)\s*±", file_text(_B08_PC))
-    value = float(m.group(1))
+    'holding energy per site (figure caption) (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 71, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='ch:landauer:L71:20.94', chapter='ch:landauer', part=6, title='M = dG_ATP/(R T) per ATP (figure caption)',
@@ -30416,11 +30414,11 @@ def check_2480():
     return locals()
 
 @check(label='ch:landauer:L186', chapter='ch:landauer', part=6, title='holding energy across 56 cell types (Loyfer read-level)',
-       file='part6/p6_02_landauer', line=186, status='measured', kind='num', printed='3.41', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
+       file='part6/p6_02_landauer', line=186, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2481():
-    'holding energy across 56 cell types (Loyfer read-level). Book line 186, printed 3.41.'
-    value=_b00_hold_energy()
+    'holding energy across 56 cell types (Loyfer read-level) (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 186, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='ch:landauer:L186:3.13', chapter='ch:landauer', part=6, title='holding energy across 56 cell types (Loyfer read-level)',
@@ -30559,11 +30557,11 @@ def check_2493():
     return locals()
 
 @check(label='ch:landauer:L267', chapter='ch:landauer', part=6, title='holding energy, 56 cell types',
-       file='part6/p6_02_landauer', line=267, status='measured', kind='num', printed='3.41', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
+       file='part6/p6_02_landauer', line=267, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2494():
-    'holding energy, 56 cell types. Book line 267, printed 3.41.'
-    value=_b00_hold_energy()
+    'holding energy, 56 cell types (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 267, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='ch:landauer:L267:56', chapter='ch:landauer', part=6, title='holding energy read in 56 cell types',
@@ -31945,10 +31943,11 @@ def check_3933():
     return locals()
 
 @check(label='ch:iama:L90:3.41', chapter='ch:iama', part=6, title='holding energy across 56 cell types, mean',
-       file='part6/p6_08_iama', line=90, status='measured', kind='num', printed='3.41', tol=0.0, source=_B09_PC)
+       file='part6/p6_08_iama', line=90, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_3934():
-    'Holding energy per methylated site across the 56 cell types, mean (in kT), from the methylated-sites row of the record. Book line 90, printed 3.41. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
-    value=_b00_hold_energy()
+    'holding energy across 56 cell types, mean (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 90, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='ch:iama:L91', chapter='ch:iama', part=6, title='healthy cell types on one physics floor, lowest',
@@ -34965,11 +34964,11 @@ def check_4408():
     return locals()
 
 @check(label='ch:onegauge:L63', chapter='ch:onegauge', part=7, title='holding energy E_hold from the PROC-CHANNEL-01 record',
-       file='part7/p7_08_one_gauge', line=63, status='openprob', kind='num', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
+       file='part7/p7_08_one_gauge', line=63, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_4409():
-    'E_hold = ln((1-eps)/eps) kT of the copy channel, read from the table row "methylated sites (copy error)" of PROC_CHANNEL_01_OUTCOME.md. Book line 63, printed 3.41.'  # matches a dated record's wording (retired term)
-    value=_b00_hold_energy()
+    'holding energy E_hold from the PROC-CHANNEL-01 record (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 63, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='ch:onegauge:L64', chapter='ch:onegauge', part=7, title='eps0 from the measured holding energy',
@@ -35074,10 +35073,11 @@ def check_4419():
     return locals()
 
 @check(label='ch:onegauge:L143', chapter='ch:onegauge', part=7, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='part7/p7_08_one_gauge', line=143, status='measured', kind='file', printed='3.41', tol=0.0, source='CANON/iam_canon.json')
+       file='part7/p7_08_one_gauge', line=143, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2601():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 143, printed 3.41.'
-    ok = file_has('CANON/iam_canon.json', '3.41')
+    'measured: printed value found in iam_canon.json, a file the chapter names (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 143, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='ch:onegauge:L143:1.9', chapter='ch:onegauge', part=7, title='Hopfield gap ln 7 (figure caption)',
@@ -35097,10 +35097,11 @@ def check_4421():
     return locals()
 
 @check(label='ch:onegauge:L156', chapter='ch:onegauge', part=7, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='part7/p7_08_one_gauge', line=156, status='observed', kind='file', printed='3.41', tol=0.0, source='CANON/iam_canon.json')
+       file='part7/p7_08_one_gauge', line=156, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2603():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 156, printed 3.41.'
-    ok = file_has('CANON/iam_canon.json', '3.41')
+    'measured: printed value found in iam_canon.json, a file the chapter names (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 156, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='ch:onegauge:L156:1.9', chapter='ch:onegauge', part=7, title='Delta E = ln 7 (Hopfield)',

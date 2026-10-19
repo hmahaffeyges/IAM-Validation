@@ -47,7 +47,7 @@ sealed tests passed; a test that failed stays in the record beside the claim it 
 **Why should Landauer's bound matter to a cell that pays about one ATP to hold a mark, far more than k_B T ln 2?**
 It sets the scale, not the price. k_B T ln 2 at body temperature (1.79 kJ/mol) is the least any record can cost per bit. One ATP is 54 kJ/mol,
 M = 20.94 k_B T (30.2 in Landauer units). The gauge's floor is where thermal kicks would win even against one full ATP per site: a held
-error of 8.1 × 10⁻¹⁰, or 2.5 × 10⁻⁸ bits. Healthy cells, measured on single molecules, hold their marks at 3.41 to 3.77 k_B T per site, so a
+error of 8.1 × 10⁻¹⁰, or 2.5 × 10⁻⁸ bits. Healthy cells, measured on single molecules, hold their marks at 3.08 ± 0.12 k_B T per site (56 healthy cell types, counted by the chain), so a
 healthy reading sits far above that floor. Book: [the Landauer chapter](https://hmahaffeyges.github.io/IAM-Validation/book/ch_landauer.html), [the gauge](https://hmahaffeyges.github.io/IAM-Validation/book/ch_gauge.html).
 
 **The work says the gauge is not fitted, but the atlas is a fitted model and IAM-A uses a line.**
