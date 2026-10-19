@@ -27,6 +27,7 @@ comes from (`../LESSONS.md`).
 - **The site check loads every module the live build loads** (website/build/build_home.py --check imports atlas_pages). An apostrophe in a caption string broke atlas_pages.py; --check never imported it, so the push passed and every live site build failed for about 20 minutes (2026-10-18).
 - **A runner that compares results runs inside the environment it built** (reproduce/reproduce.py re-executes under reproduce/.venv). Fresh-clone run 2 (2026-10-18): three_labs reproduced every number, then the comparison failed on the machine's own python3, which has no pandas; the C-Score test had passed only because its comparison is JSON.
 - **Launch only after the push is confirmed** (the launch cell checks `git ls-remote origin` holds the commit). 2026-10-18 run 5 was launched in the same cell as a refused push, at a commit not on GitHub; terminated within a minute.
+- **Tool environments put first on PATH shadow system programs.** A bioconda environment can carry its own old curl (bwa-meth 0.2.0 brings curl 7.87) that cannot find the system certificates; call system programs by full path (/usr/bin/curl) in any script that also puts tool environments on PATH (2026-10-18, reproduce/mice_rrbs.sh run 8).
 ## Known facts, by data
 
 **Plants (Arabidopsis whole-genome bisulfite).** Methylation in three contexts: CG, CHG and CHH; the IAM-A counter reads CG only. Much of the

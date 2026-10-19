@@ -2986,7 +2986,7 @@
     "reproduce/box/reproduce_fresh.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: code in S3 first; status and 5-minute progress to S3; watcher; the Zenodo atlas route already proven by run 3; self-terminating; about $2",
-   "note": "stops itself after 9 hours at most"
+   "note": "breast PASS (6 of 6 identical, 113 min); liver running"
   },
   {
    "job_id": "i-057e21ce87336144c",
@@ -3090,7 +3090,7 @@
    "date": "2026-10-18",
    "commit": "814e25ae",
    "chain_commit": "814e25ae",
-   "state": "running",
+   "state": "done",
    "s3_code_prefix": "results/REPRODUCE_V1/code/run8/",
    "log": "results/REPRODUCE_V1/run8/status.txt",
    "machine": "on-demand c7a.4xlarge, self-terminating (7-hour timer)",
@@ -3100,13 +3100,14 @@
     "OTH-076"
    ],
    "outputs": [
-    "results/REPRODUCE_V1/run8/status.txt"
+    "results/REPRODUCE_V1/run8/status.txt",
+    "results/REPRODUCE_V1/run8/out/mice/seq/logs/genome_download.log"
    ],
    "files": [
     "reproduce/box/reproduce_fresh.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: commit confirmed on origin; code in S3 first; status and progress to S3; watcher; tools installed first so an install error shows in minutes; about $5",
-   "note": "stops itself after 7 hours at most"
+   "note": "genome download refused: bwa-meth's environment curl 7.87 could not find certificates (curl 60); system curl pinned, rerun as run 9"
   }
  ],
  "not_jobs": {
