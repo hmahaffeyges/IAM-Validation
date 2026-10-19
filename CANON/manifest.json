@@ -27596,7 +27596,7 @@
    "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
    "record": "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/README.md",
    "status": "run",
-   "next_step": "2026-10-18 shown: one person's buffy coat read by every array instrument (Met-A A_rel 1.039 Normal, C_rel 1.067 not above, shares), every decline with its reason, three nine-cell mixtures labeled outside the Deconvolver's scope; scenarios 2 and 5 are the example reports. Next: scenario 4 (colon) through the atlas's own tissue scorer",
+   "next_step": "2026-10-18 shown: one person's buffy coat read by every array instrument (Met-A A_rel 1.039 Normal, C_rel 1.067 not above, shares), every decline with its reason, three nine-cell mixtures labeled outside the Deconvolver's scope; scenarios 2 and 5 are the example reports. Scenario 4 (healthy colon, the atlas's own tissue scorer) not yet run: step 1 of the to-do list (CANON/plan.json)",
    "cost": "AWS, small",
    "impact": 5,
    "legacy_ids": [],
@@ -27865,6 +27865,26 @@
    "runs": [],
    "next_step": "2026-10-19: new-version drafts made (package 10.5281/zenodo.23479280, version 4.0 of the biology package; book 10.5281/zenodo.23479288, v2.0.0); IAM-Atlas v2.1 records published by the author (10.5281/zenodo.23441999, 10.5281/zenodo.23422688). Next: once the mouse reproduction lands, the AWS job packages the repository at that commit, tests the archive as a researcher receives it, runs the book checks and uploads; the author publishes; once the package and book records are published, add their DOIs to the Q&A's 'Where everything is'; 2026-10-19: MethylPhys documents moved into Biological_Physics/MethylPhys; Biological_Physics-only clean clone running: job i-04db6debe64b4d107; Biological_Physics-only clean clone PASS (job i-04db6debe64b4d107: 843 MB checkout, release check 29 of 29, cscore_band PASS); the Zenodo package is now the Biological_Physics folder with the license, README and citation",
    "notes": "author 2026-10-19: 'researcher package as a whole with the questions and answers section and whatever else we agreed to add? The deconvolver, etc.' | 2026-10-19: Biological_Physics/MethylPhys/RESEARCHER_PACKAGE.md (the package's front door: look, run, reproduce; what is where), the first file on the Zenodo record as README.md, linked from the repository README and the page; START_HERE.md corrected (it named the chain v3 procedure and 'Part 4' of the book; the methylome is Part VI) | 2026-10-19: root cleared (TODO and PRIORITY pointers removed, ROADMAP to the archive)"
+  },
+  {
+   "instrument_or_term": "all",
+   "sources": [],
+   "data_status": "",
+   "cost": "one AWS machine, about $2; Zenodo free",
+   "impact": 5,
+   "legacy_ids": [],
+   "id": "OTH-078",
+   "sources_of_row": [
+    "session 2026-10-19"
+   ],
+   "title": "Documentation audit: every manifest cell, the instrument catalogue and every referenced document checked against its records",
+   "purpose": "Before any researcher reviews anything (author 2026-10-19: 'double check that every cell of the testing manifest and the equipment document (table) and ANY of our referenced docs are accurate too'): every path a row names exists, every status agrees with the commissioning record and the job register, every number a public document prints traces to a measurement record. CANON/doc_audit.py does the mechanical part; a person reads every finding.",
+   "status": "running",
+   "record": "CANON/doc_audit.py",
+   "runs": [],
+   "next_step": "Executed as steps 4-10 of the to-do list (CANON/plan.json, Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md).",
+   "notes": "2026-10-19 first pass: 135 path findings (14 distinct names), 5 status wordings, 5 running rows naming no job, 16 finished rows with a pending next step not on the plan",
+   "register_ids": []
   }
  ],
  "not_tests": {

@@ -132,5 +132,155 @@
    ]
   }
  ],
- "decisions_waiting": []
+ "decisions_waiting": [],
+ "_todo_rule": "The to-do list (author 2026-10-19: 'make sure all this stuff above makes it onto a to do list that can be executed one by one until complete so nothing is forgotten'). Steps are worked in order; a step is closed only by setting status 'done' with its date and the record that shows it done, which must exist in the repository. plan_md.py --check (in the push gate) refuses a closed step without a record, and refuses any finished or running manifest row whose next step names pending work unless that row is on this plan (a to-do step or an item below). Scenario 4 of the showcase was lost exactly that way: its 'Next' sat in a row marked run.",
+ "todo": [
+  {
+   "task": "Showcase scenario 4: the three healthy colon samples (GSE151732: GSM4589141, GSM4589144, GSM4589145) through IAM-Atlas v2.1's commissioned tissue scorer, once, by the sealed rule",
+   "done_when": "their reports and the scorer's reading committed in doors/data/SHOWCASE_V4, and its README section written",
+   "rows": [
+    "OTH-073"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
+  },
+  {
+   "task": "Showcase README: scenarios 2 and 5 stated as covered by the example reports, with scenario 5's reason (no fresh public whole-genome set of healthy resting CD8 T cells found)",
+   "done_when": "the README has no 'still to show' section",
+   "rows": [
+    "OTH-073"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
+  },
+  {
+   "task": "Mouse reproduction (run 13): read the verdict and record it",
+   "done_when": "reproduce/verified.json holds the mice verdict; the reproduce README and book chapter regenerated",
+   "rows": [
+    "OTH-076"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
+  },
+  {
+   "task": "Manifest: the 14 record names that do not exist (TODO.md in 56 rows, old_val_datasets.csv in 52, candidate_datasets_2026-10-13.csv in 12, and 11 single ones) repointed to the record that holds the fact, or marked never committed",
+   "done_when": "CANON/doc_audit.py finds no missing path",
+   "rows": [
+    "OTH-078"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
+  },
+  {
+   "task": "Manifest: the 5 status wordings ('stays development', 'in development') and the 5 running rows naming no machine job, each read and corrected against the commissioning record and the job register",
+   "done_when": "doc_audit.py kinds B and C empty, or each remaining one explained in its row",
+   "rows": [
+    "OTH-078"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
+  },
+  {
+   "task": "The 16 finished or running rows with a pending next step: each put on this plan, reopened, or its follow-up recorded done",
+   "done_when": "plan_md.py --check passes with no exemptions",
+   "rows": [
+    "OTH-078",
+    "COM-CSCORE-005",
+    "COM-CSCORE-011",
+    "COM-CSCORE-012",
+    "COM-IAMA-001",
+    "CAN-002",
+    "CAN-012",
+    "PHY-008",
+    "BRE-003",
+    "SCO-049",
+    "SCO-075",
+    "OTH-012",
+    "PHY-043",
+    "PHY-057",
+    "OTH-051",
+    "OTH-069",
+    "OTH-072"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
+  },
+  {
+   "task": "Instrument catalogue (INSTRUMENTS.md): each instrument entry cites its commissioning note and runtime matrices, and every number it prints is found in them",
+   "done_when": "doc_audit.py kind D empty",
+   "rows": [
+    "OTH-078"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
+  },
+  {
+   "task": "Every number printed in the public documents (README, REFERENCE, Q&A, package README, commissioning report, SOP, reproduce README, atlas v2.1 README, showcase README) traced to a measurement record",
+   "done_when": "the untraced list is empty or each remaining number is labeled with its source",
+   "rows": [
+    "OTH-078"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
+  },
+  {
+   "task": "Every other table audited the way FOUR_DOMAINS was: bit tables, COMMISSIONING_REPORT, STATUS, EARLIER_RESULTS, and the book's tables",
+   "done_when": "each table's rows read against their records; corrections committed with a before/after record",
+   "rows": [
+    "OTH-078",
+    "OTH-072"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
+  },
+  {
+   "task": "The 88 book checks whose printed number their chapter no longer prints: the cell ones fixed; the cosmology, quantum and chip ones shown to IAMPerformance with what each chapter says now, changed only on his word",
+   "done_when": "docs/book/stale_checks_baseline.json empty",
+   "rows": [
+    "OTH-072"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
+  },
+  {
+   "task": "The book's Zenodo record, after steps 9 and 10",
+   "done_when": "the draft uploaded by the box job with every book check passing; IAMPerformance publishes",
+   "rows": [
+    "OTH-077"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
+  },
+  {
+   "task": "The researcher package's Zenodo record (the biology folder), after step 11",
+   "done_when": "the draft uploaded by the box job after the archive passes the release check; IAMPerformance publishes",
+   "rows": [
+    "OTH-077"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
+  },
+  {
+   "task": "Sky-map additions: the posterior noise maps into the chain and the report, the 3D sphere, the guidebook",
+   "done_when": "each built and in the release check, the report and the page",
+   "rows": [
+    "ATL-063"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
+  }
+ ]
 }
