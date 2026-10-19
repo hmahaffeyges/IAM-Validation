@@ -27846,18 +27846,19 @@
   {
    "instrument_or_term": "all",
    "sources": [
-    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+    "the repository at the packaged commit",
+    "IAM-Atlas v2.1 records 10.5281/zenodo.23441999 and 10.5281/zenodo.23422688"
    ],
    "data_status": "",
-   "cost": "laptop",
+   "cost": "one AWS machine, about $2; Zenodo free",
    "impact": 5,
    "legacy_ids": [],
    "id": "OTH-077",
    "sources_of_row": [
-    "session 2026-10-16"
+    "session 2026-10-19"
    ],
    "title": "The researcher package and the book on Zenodo: chain v4 at one commit (tested as received), with the Q&A, SOP, operations manual, commissioning notes, example reports and the reproduction record; the book v2.0.0",
-   "purpose": "author 2026-10-18: outside labs should test the chain on their own known samples and try to break it",
+   "purpose": "author 2026-10-19: a permanent official copy of everything a researcher may want: the chain, its commissioning, the Q&A, the procedures, the reproductions and the book",
    "status": "planned",
    "record": "Biological_Physics/MethylPhys/doors/data/ZENODO_V4/zenodo_v4_box.sh",
    "runs": [],
