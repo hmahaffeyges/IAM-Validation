@@ -27,16 +27,17 @@ def show(tag, txt):  # a recomputed number reported against a printed one (no pa
 
 print("=== K: numbers proposed for the book ===")
 # K1 floor of the copy error at other temperatures, fixed holding energy (book eq:eps0T)
-Eh = 3.41
+import json, pathlib
+Eh = json.load(open(pathlib.Path(__file__).resolve().parents[3] / "CANON" / "iam_canon.json"))["constants"]["E_hold_meth"]["value"]   # 3.08 kT (2026-10-19)
 eps = lambda Tc: 1/(1+math.exp(Eh*T0/(Tc+273.15)))
 r = lambda Tc: H(eps(Tc))/H(eps(37.0))
-chk("K1a", eps(37.0), 0.0320, 5e-4, "eps0 at 37 C (book p3_08: 0.032)")
-chk("K1b", H(eps(37.0)), 0.2043, 5e-4, "H(eps0) at 37 C (book 0.2043)")
-chk("K1c", eps(10.0), 0.0233, 5e-4, "eps0 at 10 C (book p4_10: 0.0233)")
-chk("K1d", r(10.0), 0.78, 5e-3, "floor ratio at 10 C (book p4_10: 0.78)")
-for Tc, ref in ((15, 0.821), (25, 0.902), (32, 0.959), (40, 1.025), (42, 1.041)):
+chk("K1a", eps(37.0), 0.0438, 5e-4, "eps0 at 37 C (book: 0.044)")
+chk("K1b", H(eps(37.0)), 0.259, 5e-4, "H(eps0) at 37 C (book 0.259)")
+chk("K1c", eps(10.0), 0.0330, 5e-4, "eps0 at 10 C (book p6_10: 0.0330)")
+chk("K1d", r(10.0), 0.81, 5e-3, "floor ratio at 10 C (book p6_10: 0.81)")
+for Tc, ref in ((15, 0.842), (25, 0.914), (32, 0.964), (40, 1.021), (42, 1.036)):
     chk(f"K1{Tc}", r(Tc), ref, 1.5e-3, f"floor ratio at {Tc} C, fixed holding energy")
-for Tc, ref in ((15, 0.0248), (25, 0.0280), (32, 0.0303), (40, 0.0330), (42, 0.0337)):
+for Tc, ref in (((15, 0.0349), (25, 0.0389), (32, 0.0417), (40, 0.0450), (42, 0.0459))):
     chk(f"K2{Tc}", eps(Tc), ref, 2e-4, f"eps0 at {Tc} C")
 # K3 in vitro DNMT1 preference at a fixed discrimination energy: S(T) = S37 ** (T0/T)
 for S37 in (7, 21, 80):

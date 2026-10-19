@@ -40,7 +40,7 @@
   },
   {
    "id": "e_hold",
-   "statement": "E_hold = kT ln[(1-eps)/eps], read from the held error; 3.41 kT at Loyfer read level (3.41-3.77 across data sets).",
+   "statement": "E_hold = kT ln[(1-eps)/eps], read from the held error; 3.08 kT per interior opportunity at Loyfer read level (56 healthy cell types; chain Stage Q2, holding_energy_q2.json; 3.41 on the earlier counter, superseded 2026-10-19).",
    "status": "measured",
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
    "anchor": "read from the held error as $\\kB T\\ln[(1-\\varepsilon)/\\varepsilon]$",
@@ -49,10 +49,10 @@
   },
   {
    "id": "eps0",
-   "statement": "eps_0 = 1/(1+e^{phi M}) = 0.032 with phi M = E_hold = 3.41 kT, the holding energy measured across 56 healthy cell types.",
+   "statement": "eps_0 = 1/(1+e^{phi M}) = 0.044 with phi M = E_hold = 3.08 kT, the holding energy measured across 56 healthy cell types.",
    "status": "derived from the measured holding energy",
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
-   "anchor": "\\varepsilon_0=1/(1+e^{\\varphi\\mathcal M})=0.032",
+   "anchor": "\\varepsilon_0=1/(1+e^{\\varphi\\mathcal M})=0.044",
    "commit": "2c737a57",
    "layer": "core"
   },
@@ -86,10 +86,10 @@
   },
   {
    "id": "drive_fraction_phi",
-   "statement": "phi is the fraction of the drive that ends up holding one site: phi x M = E_hold. With M = 20.94 and E_hold = 3.41 kT, phi M = 3.41 and eps_0 = 1/(1 + e^{phi M}) = 0.032. A lever that changes the drive changes M; a lever that changes how much of the drive reaches the site changes phi; both act on the holding energy through this product.",
+   "statement": "phi is the fraction of the drive that ends up holding one site: phi x M = E_hold. With M = 20.94 and E_hold = 3.08 kT, phi M = 3.08 and eps_0 = 1/(1 + e^{phi M}) = 0.044. A lever that changes the drive changes M; a lever that changes how much of the drive reaches the site changes phi; both act on the holding energy through this product.",
    "status": "definition in force (phi M is the measured holding energy)",
    "derived_in": "docs/book/appendices/app_F_glossary.tex",
-   "anchor": "\\varepsilon_0=1/(1+e^{\\varphi\\mathcal M})=0.032",
+   "anchor": "\\varepsilon_0=1/(1+e^{\\varphi\\mathcal M})=0.044",
    "commit": "2c737a57",
    "layer": "core"
   },
@@ -104,7 +104,7 @@
   },
   {
    "id": "three_energies",
-   "statement": "eps_min = 1/(1+e^M) from M and temperature ALONE - the error one ATP of holding energy still allows against thermal kicks, NOT a copying error, and the same whether the cell divides or not (the floor, a calculation); eps_0 = 1/(1+e^{phi M}) with phi M = 3.41 kT measured across 56 healthy cell types (the middle, measured, phi = 0.1628 of one ATP); H_min = H(eps_min); H_ref = H(eps_0). Ceiling: no energy holding the site, error 1/2, one bit per site, set by physics.",
+   "statement": "eps_min = 1/(1+e^M) from M and temperature ALONE - the error one ATP of holding energy still allows against thermal kicks, NOT a copying error, and the same whether the cell divides or not (the floor, a calculation); eps_0 = 1/(1+e^{phi M}) with phi M = 3.08 kT measured across 56 healthy cell types (the middle, measured, phi = 0.147 of one ATP); H_min = H(eps_min); H_ref = H(eps_0). Ceiling: no energy holding the site, error 1/2, one bit per site, set by physics.",
    "status": "DERIVED from the holding energies; only eps_0's energy is measured",
    "derived_in": "docs/book/part6/p6_08_iama.tex",
    "anchor": "\\varepsilon_{\\min}=\\frac{1}{1+e^{M}},\\qquad \\varepsilon_0=\\frac{1}{1+e^{\\phi M}}",

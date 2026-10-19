@@ -596,7 +596,8 @@ def main(argv=None):
 
 
 # ---------------------------------------------------------------- data files the checks read (all < 5 MB)
-DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md'] = 'holding-energy record, 56 cell types'   # 11 kB
+DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md'] = 'holding-energy record on the earlier counter (superseded 2026-10-19)'   # 11 kB
+DATA_FILES['Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json'] = 'holding energy per interior opportunity, 56 cell types (chain Stage Q2; 2026-10-19)'
 DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md'] = 'committed data file'   # 2 kB
 DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md'] = 'committed data file'   # 2 kB
 DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md'] = 'committed data file'   # 3 kB
@@ -3114,17 +3115,17 @@ def check_3134():
     return locals()
 
 @check(label='ch:giants:L176', chapter='ch:giants', part=0, title='holding energy from the PROC-CHANNEL-01 record',
-       file='front/p0_giants', line=176, status='measured', kind='num', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
+       file='front/p0_giants', line=176, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_3135():
-    'Holding energy per maintained site, E_hold = ln((1-eps)/eps) kT across 56 healthy cell types, read from the table row of the copy channel. Book line 176, printed 3.41.'
-    value=_b00_hold_energy()
+    'holding energy from the PROC-CHANNEL-01 record (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 176, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='ch:giants:L177', chapter='ch:giants', part=0, title='Boltzmann floor computed from holding energy input',
-       file='front/p0_giants', line=177, status='derived', kind='num', printed='0.032', tol=0.015625)
+       file='front/p0_giants', line=177, status='derived', kind='num', printed='0.044', tol=0.015625)
 def check_0012():
-    'Boltzmann floor computed from holding energy input. Book line 177, printed 0.032.'
+    'Boltzmann floor computed from holding energy input. Book line 177, printed 0.044.'
     pass; value = 1/(1+math.exp(E_hold))
     return locals()
 
@@ -23880,9 +23881,9 @@ def check_1936():
     return locals()
 
 @check(label='ch:saturation:L44:3.41', chapter='ch:saturation', part=3, title='E_hold from the canon record',
-       file='part3/p3_07_saturation', line=44, status='derived', kind='file', printed='3.41', tol=0, source='CANON/iam_canon.json')
+       file='part3/p3_07_saturation', line=44, status='derived', kind='file', printed='3.08', tol=0, source='CANON/iam_canon.json')
 def check_1938():
-    'E_hold from the canon record. Book line 44, printed 3.41.'
+    'E_hold from the canon record. Book line 44, printed 3.08.'
     value=load_json('CANON/iam_canon.json')['constants']['E_hold_meth']['value']
     return locals()
 
@@ -23907,73 +23908,31 @@ def check_1940():
     value = swing_mV
     return locals()
 
-@check(label='ch:saturation:L44:0.032', chapter='ch:saturation', part=3, title='held-error floor 1/(1+exp(E_hold/k_BT)) at E_hold = 3.41 k_BT',
-       file='part3/p3_07_saturation', line=44, status='derived', kind='num', printed='0.032', tol=0.0)
+@check(label='ch:saturation:L44:0.032', chapter='ch:saturation', part=3, title='held-error floor 1/(1+exp(E_hold/k_BT)) at E_hold = 3.08 k_BT',
+       file='part3/p3_07_saturation', line=44, status='derived', kind='num', printed='0.044', tol=0.0)
 def check_3060():
-    'Held-error floor eps0 = 1/(1 + exp(E_hold/k_B T)) (figure caption, panel d). Book line 44, printed 0.032. Input: E_hold = 3.41 k_B T, measured '         '(CANON E_hold_meth, PROC-CHANNEL-01).'
+    'Held-error floor eps0 = 1/(1 + exp(E_hold/k_B T)) (figure caption, panel d). Book line 44, printed 0.044. Input: E_hold = 3.08 k_B T, measured '         '(CANON E_hold_meth, PROC-CHANNEL-01).'
     value = 1 / (1 + math.exp(E_hold))
     return locals()
 
-@check(label='ch:saturation:L66', chapter='ch:saturation', part=3, title='P_neutrophil from the canon record',
-       file='part3/p3_07_saturation', line=66, status='measured', kind='file', printed='1.149', tol=0, source='CANON/iam_canon.json')
-def check_1941():
-    'P_neutrophil from the canon record. Book line 66, printed 1.149.'
-    value=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    return locals()
-
-@check(label='ch:saturation:L66:0.032', chapter='ch:saturation', part=3, title='eps0 = 1/(1+e^E_hold), E_hold = 3.41 kT (canon, measured)',
-       file='part3/p3_07_saturation', line=66, status='measured', kind='num', printed='0.032', tol=0)
+@check(label='ch:saturation:L66:0.032', chapter='ch:saturation', part=3, title='eps0 = 1/(1+e^E_hold), E_hold = 3.08 kT (canon, measured)',
+       file='part3/p3_07_saturation', line=66, status='measured', kind='num', printed='0.044', tol=0)
 def check_1942():
-    'eps0 = 1/(1+e^E_hold), E_hold = 3.41 kT (canon, measured). Book line 66, printed 0.032.'
+    'eps0 = 1/(1+e^E_hold), E_hold = 3.08 kT (canon, measured). Book line 66, printed 0.044.'
     value=1/(1+math.exp(E_hold))
     return locals()
 
 @check(label='ch:saturation:L66:3.41', chapter='ch:saturation', part=3, title='E_hold from the canon record',
-       file='part3/p3_07_saturation', line=66, status='measured', kind='file', printed='3.41', tol=0, source='CANON/iam_canon.json')
+       file='part3/p3_07_saturation', line=66, status='measured', kind='file', printed='3.08', tol=0, source='CANON/iam_canon.json')
 def check_1943():
-    'E_hold from the canon record. Book line 66, printed 3.41.'
+    'E_hold from the canon record. Book line 66, printed 3.08.'
     value=load_json('CANON/iam_canon.json')['constants']['E_hold_meth']['value']
     return locals()
 
-@check(label='ch:saturation:L66:0.870', chapter='ch:saturation', part=3, title='1/P',
-       file='part3/p3_07_saturation', line=66, status='derived', kind='file', printed='0.870', tol=0, source='CANON/iam_canon.json')
-def check_1944():
-    '1/P. Book line 66, printed 0.870.'
-    value=1/load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    return locals()
-
-@check(label='ch:saturation:L66:0.0384', chapter='ch:saturation', part=3, title='eps where IAM-A = H(eps)/(P H(eps0)) = 1',
-       file='part3/p3_07_saturation', line=66, status='derived', kind='file', printed='0.0384', tol=0, source='CANON/iam_canon.json')
-def check_1945():
-    'eps where IAM-A = H(eps)/(P H(eps0)) = 1. Book line 66, printed 0.0384.'
-    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
-    P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    value=brentq(lambda e: Hb(e)-P_*Hb(eps0), 1e-4, 0.5)
-    return locals()
-
-@check(label='ch:saturation:L66:4.26', chapter='ch:saturation', part=3, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_07_saturation', line=66, status='derived', kind='num', printed='4.26', tol=0.0)
-def check_1946():
-    'drafted check, screened (runs; negative control fails). Book line 66, printed 4.26.'
-    # Line 66: "the full surface, every identity site at ε=1/2, reads 4.45"
-    # Given: P = CANON['P_neutrophil_IAM_A']['value'], epsilon_0 = 0.032, E_hold = 3.41 kT
-    # IAM-A = H(ε) / (P * H(ε_0))
-    # H(ε) = -ε ln(ε) - (1-ε) ln(1-ε)  (binary entropy)
-
-    eps_full = 0.5
-    eps_0 = 0.032
-    P = CANON['P_neutrophil_IAM_A']['value']
-
-    H_full = -eps_full * np.log(eps_full) - (1 - eps_full) * np.log(1 - eps_full)
-    H_eps0 = -eps_0 * np.log(eps_0) - (1 - eps_0) * np.log(1 - eps_0)
-    A_full = H_full / (P * H_eps0)
-    value = A_full
-    return locals()
-
 @check(label='ch:saturation:L71', chapter='ch:saturation', part=3, title='E_hold from the canon record',
-       file='part3/p3_07_saturation', line=71, status='measured', kind='file', printed='3.41', tol=0, source='CANON/iam_canon.json')
+       file='part3/p3_07_saturation', line=71, status='measured', kind='file', printed='3.08', tol=0, source='CANON/iam_canon.json')
 def check_1947():
-    'E_hold from the canon record. Book line 71, printed 3.41.'
+    'E_hold from the canon record. Book line 71, printed 3.08.'
     value=load_json('CANON/iam_canon.json')['constants']['E_hold_meth']['value']
     return locals()
 
@@ -29810,11 +29769,11 @@ def check_2414():
 
 # ======== Part 6 | ch:bridge | docs/book/part6/p6_01_bridge.tex
 @check(label='ch:bridge:L26', chapter='ch:bridge', part=6, title='holding energy per maintained site',
-       file='part6/p6_01_bridge', line=26, status='measured', kind='num', printed='3.41', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
+       file='part6/p6_01_bridge', line=26, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2415():
-    'holding energy per maintained site. Book line 26, printed 3.41.'
-    value=_b00_hold_energy()
+    'holding energy per maintained site (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 26, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='eq:landauer', chapter='ch:bridge', part=6, title='E_bit = k_B T ln 2 from erasing one bit',
@@ -29996,17 +29955,17 @@ def check_3788():
 
 # ======== Part 6 | ch:astrogenetics | docs/book/part6/p6_00b_astrogenetics.tex
 @check(label='ch:astrogenetics:L40', chapter='ch:astrogenetics', part=6, title='holding energy',
-       file='part6/p6_00b_astrogenetics', line=40, status='measured', kind='num', printed='3.41', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
+       file='part6/p6_00b_astrogenetics', line=40, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2431():
-    'holding energy. Book line 40, printed 3.41.'
-    value=_b00_hold_energy()
+    'holding energy (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 40, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='ch:astrogenetics:L40:4.9', chapter='ch:astrogenetics', part=6, title='Landauer units',
-       file='part6/p6_00b_astrogenetics', line=40, status='measured', kind='num', printed='4.9', tol=0)
+       file='part6/p6_00b_astrogenetics', line=40, status='measured', kind='num', printed='4.45', tol=0)
 def check_2432():
-    'Landauer units. Book line 40, printed 4.9.'
+    'Landauer units. Book line 40, printed 4.45.'
     value=E_hold/LN2
     return locals()
 
@@ -30016,24 +29975,6 @@ def check_2433():
     'Met-A at a coin flip: 1/0.330263 (canon floor). Book line 63, printed 3.03.'
     value=1/load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
     return locals()
-
-@check(label='ch:astrogenetics:L63:4.26', chapter='ch:astrogenetics', part=6, title='IAM-A at a coin flip: 1/(P H(eps0))',
-       file='part6/p6_00b_astrogenetics', line=63, status='calc', kind='file', printed='4.26', tol=0, source='CANON/iam_canon.json')
-def check_2434():
-    'IAM-A at a coin flip: 1/(P H(eps0)). Book line 63, printed 4.26.'
-    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
-    P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    value=1/(P_*Hb(eps0))
-    return locals()
-
-@check(label='ch:astrogenetics:L63:0.2043', chapter='ch:astrogenetics', part=6, title='H(eps0), bits',
-       file='part6/p6_00b_astrogenetics', line=63, status='calc', kind='num', printed='0.2043', tol=0)
-def check_2435():
-    'H(eps0), bits. Book line 63, printed 0.2043.'
-    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
-    value=Hb(eps0)
-    return locals()
-
 
 @check(label='ch:astrogenetics:L88:Hmin', chapter='ch:astrogenetics', part=6, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
        file='part6/p6_00b_astrogenetics', line=85, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
@@ -30066,15 +30007,6 @@ def check_2438():
 def check_2439():
     'Met-A at a coin flip. Book line 90, printed 3.03.'
     value=1/load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
-    return locals()
-
-@check(label='ch:astrogenetics:L90:4.26', chapter='ch:astrogenetics', part=6, title='IAM-A at a coin flip',
-       file='part6/p6_00b_astrogenetics', line=87, status='calc', kind='file', printed='4.26', tol=0, source='CANON/iam_canon.json')
-def check_2440():
-    'IAM-A at a coin flip. Book line 87, printed 4.26.'
-    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
-    P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    value=1/(P_*Hb(eps0))
     return locals()
 
 @check(label='ch:astrogenetics:L98', chapter='ch:astrogenetics', part=6, title='H(beta) is symmetric: H(beta) = H(1 - beta)',
@@ -30244,19 +30176,19 @@ def check_2454():
     return locals()
 
 @check(label='ch:landauer:L65', chapter='ch:landauer', part=6, title='healthy held error, lowest of 56 cell types',
-       file='part6/p6_02_landauer', line=65, status='measured', kind='num', printed='0.024', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
+       file='part6/p6_02_landauer', line=65, status='measured', kind='file', printed='0.033', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2455():
-    'healthy held error, lowest of 56 cell types. Book line 65, printed 0.024.'
-    value=_chan()['eps_min']
+    'healthy held error, lowest of 56 cell types (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 65, printed 0.033.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['held_error_range'][0]
     return locals()
 
 @check(label='ch:landauer:L65:0.042', chapter='ch:landauer', part=6, title='highest',
-       file='part6/p6_02_landauer', line=65, status='measured', kind='num', printed='0.042', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
+       file='part6/p6_02_landauer', line=65, status='measured', kind='file', printed='0.055', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2456():
-    'highest. Book line 65, printed 0.042.'
-    value=_chan()['eps_max']
+    'highest (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 65, printed 0.055.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['held_error_range'][1]
     return locals()
 
 @check(label='ch:landauer:L70', chapter='ch:landauer', part=6, title='ln 2',
@@ -30266,7 +30198,7 @@ def check_2457():
     value=LN2
     return locals()
 
-@check(label='ch:landauer:L71', chapter='ch:landauer', part=6, title='holding energy per site 3.41 k_B T (figure caption)',
+@check(label='ch:landauer:L71', chapter='ch:landauer', part=6, title='holding energy per site (figure caption)',
        file='part6/p6_02_landauer', line=71, status='calc', kind='file', printed='3.41', tol=0.0, source=_B08_PC,
        heavy=True, rerun=_B08_PC_RERUN)
 def check_3798():
@@ -30292,9 +30224,9 @@ def check_2458():
     return locals()
 
 @check(label='ch:landauer:L72:4.92', chapter='ch:landauer', part=6, title='E_hold/ln2 (E_hold canon)',
-       file='part6/p6_02_landauer', line=72, status='calc', kind='num', printed='4.92', tol=0)
+       file='part6/p6_02_landauer', line=72, status='calc', kind='num', printed='4.45', tol=0)
 def check_2459():
-    'E_hold/ln2 (E_hold canon). Book line 72, printed 4.92.'
+    'E_hold/ln2 (E_hold canon). Book line 72, printed 4.45.'
     value=E_hold/LN2
     return locals()
 
@@ -30492,25 +30424,25 @@ def check_2481():
     return locals()
 
 @check(label='ch:landauer:L186:3.13', chapter='ch:landauer', part=6, title='holding energy across 56 cell types (Loyfer read-level)',
-       file='part6/p6_02_landauer', line=186, status='measured', kind='num', printed='3.13', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
+       file='part6/p6_02_landauer', line=186, status='measured', kind='file', printed='2.85', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2482():
-    'holding energy across 56 cell types (Loyfer read-level). Book line 186, printed 3.13.'
-    value=_chan()['E_min']
+    'holding energy across 56 cell types (Loyfer read-level) (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 186, printed 2.85.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_range_kT'][0]
     return locals()
 
 @check(label='ch:landauer:L186:3.71', chapter='ch:landauer', part=6, title='holding energy across 56 cell types (Loyfer read-level)',
-       file='part6/p6_02_landauer', line=186, status='measured', kind='num', printed='3.71', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
+       file='part6/p6_02_landauer', line=186, status='measured', kind='file', printed='3.37', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2483():
-    'holding energy across 56 cell types (Loyfer read-level). Book line 186, printed 3.71.'
-    value=_chan()['E_max']
+    'holding energy across 56 cell types (Loyfer read-level) (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 186, printed 3.37.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_range_kT'][1]
     return locals()
 
 @check(label='ch:landauer:L187', chapter='ch:landauer', part=6, title='3.41/ln2',
-       file='part6/p6_02_landauer', line=187, status='calc', kind='num', printed='4.92', tol=0)
+       file='part6/p6_02_landauer', line=187, status='calc', kind='num', printed='4.45', tol=0)
 def check_2484():
-    '3.41/ln2. Book line 187, printed 4.92.'
+    '3.41/ln2. Book line 187, printed 4.45.'
     value=E_hold/LN2
     return locals()
 
@@ -30970,14 +30902,12 @@ def check_3825():
 
 
 # ======== Part 6 | ch:floorbreach | docs/book/part6/p6_05_floorbreach.tex
-@check(label='ch:floorbreach:L25', chapter='ch:floorbreach', part=6, title='holding energy 3.41 k_B T per site on molecules',
-       file='part6/p6_05_floorbreach', line=25, status='measured', kind='file', printed='3.41', tol=0.0, source=_B08_PC5,
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
+@check(label='ch:floorbreach:L25', chapter='ch:floorbreach', part=6, title='holding energy 3.08 k_B T per site on molecules',
+       file='part6/p6_05_floorbreach', line=25, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_3826():
-    'Holding energy per maintained site measured on single molecules, k_B T. Book line 25, printed 3.41. Source: the held-error row of '\
-    'the PROC-CHANNEL-01 record table (E_hold column).'
-    m = re.search(r"methylated sites \((?:copy|held) error\)\s*\|[^|]*\|\s*([\d.]+)\s*±", file_text(_B08_PC5))
-    value = float(m.group(1))
+    'holding energy 3.08 k_B T per site on molecules (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 25, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='ch:floorbreach:L42', chapter='ch:floorbreach', part=6, title='bits of 1 M_sun horizon over CpG bits',
@@ -31004,16 +30934,6 @@ def check_2517():
     value=1/F0
     return locals()
 
-@check(label='ch:floorbreach:L63', chapter='ch:floorbreach', part=6, title='IAM-A full surface',
-       file='part6/p6_05_floorbreach', line=63, status='calc', kind='file', printed='4.26', tol=0, source='CANON/iam_canon.json')
-def check_2518():
-    'IAM-A full surface. Book line 63, printed 4.26.'
-    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
-    P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
-    value=1/(P_*Hb(eps0))
-    return locals()
-
 @check(label='ch:floorbreach:L72', chapter='ch:floorbreach', part=6, title='Met-A full surface',
        file='part6/p6_05_floorbreach', line=72, status='calc', kind='file', printed='3.03', tol=0, source='CANON/iam_canon.json')
 def check_2519():
@@ -31022,52 +30942,6 @@ def check_2519():
     P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
     value=1/F0
-    return locals()
-
-@check(label='ch:floorbreach:L72:1.149', chapter='ch:floorbreach', part=6, title='P = 1.099 of IAM-A (figure caption)',
-       file='part6/p6_05_floorbreach', line=72, status='calc', kind='file', printed='1.149', tol=0.0, source='CANON/iam_canon.json')
-def check_3828():
-    'Calibration P = H(eps_healthy)/H(eps0) of IAM-A for neutrophils in Figure fig:p4_fullsurface (b). Book line 72, printed 1.149. Source: '\
-    'CANON P_neutrophil_IAM_A (mean over three granulocyte donors, frozen in iama_positions_v1.json).'
-    value = load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    return locals()
-
-@check(label='ch:floorbreach:L73', chapter='ch:floorbreach', part=6, title='1/P',
-       file='part6/p6_05_floorbreach', line=73, status='calc', kind='file', printed='0.870', tol=0, source='CANON/iam_canon.json')
-def check_2520():
-    '1/P. Book line 73, printed 0.870.'
-    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
-    P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
-    value=1/P_
-    return locals()
-
-@check(label='ch:floorbreach:L73:0.0384', chapter='ch:floorbreach', part=6, title='eps at IAM-A = 1',
-       file='part6/p6_05_floorbreach', line=73, status='calc', kind='file', printed='0.0384', tol=0, source='CANON/iam_canon.json')
-def check_2521():
-    'eps at IAM-A = 1. Book line 73, printed 0.0384.'
-    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
-    P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
-    value=brentq(lambda e: Hb(e)-P_*Hb(eps0), 1e-4, 0.5)
-    return locals()
-
-@check(label='ch:floorbreach:L73:0.032', chapter='ch:floorbreach', part=6, title='eps0 = 1/(1 + e^(E_hold/k_B T))',
-       file='part6/p6_05_floorbreach', line=73, status='calc', kind='num', printed='0.032', tol=0.0)
-def check_3829():
-    'Held-error floor eps0 = 1/(1 + exp(E_hold/k_B T)) in Figure fig:p4_fullsurface (b). Book line 73, printed 0.032. Input: E_hold = '\
-    '3.41 k_B T (CANON E_hold_meth, PROC-CHANNEL-01).'
-    value = 1 / (1 + math.exp(E_hold))
-    return locals()
-
-@check(label='ch:floorbreach:L74', chapter='ch:floorbreach', part=6, title='IAM-A at eps = 1/2',
-       file='part6/p6_05_floorbreach', line=74, status='calc', kind='file', printed='4.26', tol=0, source='CANON/iam_canon.json')
-def check_2522():
-    'IAM-A at eps = 1/2. Book line 74, printed 4.26.'
-    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
-    P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
-    value=1/(P_*Hb(eps0))
     return locals()
 
 @check(label='ch:floorbreach:L80', chapter='ch:floorbreach', part=6, title='methylation maintenance share of the cell ATP, order 1e-7',
@@ -31110,16 +30984,6 @@ def check_2524():
     value=1/F0
     return locals()
 
-@check(label='ch:gauge:L24:4.26', chapter='ch:gauge', part=6, title='IAM-A full surface',
-       file='part6/p6_06_gauge', line=24, status='calc', kind='file', printed='4.26', tol=0, source='CANON/iam_canon.json')
-def check_2525():
-    'IAM-A full surface. Book line 24, printed 4.26.'
-    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
-    P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
-    value=1/(P_*Hb(eps0))
-    return locals()
-
 @check(label='ch:gauge:L34:Hmin', chapter='ch:gauge', part=6, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
        file='part6/p6_06_gauge', line=34, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_2526():
@@ -31138,16 +31002,6 @@ def check_2527():
     P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
     value=1/F0
-    return locals()
-
-@check(label='ch:gauge:L38:4.26', chapter='ch:gauge', part=6, title='IAM-A full surface',
-       file='part6/p6_06_gauge', line=39, status='calc', kind='file', printed='4.26', tol=0, source='CANON/iam_canon.json')
-def check_2528():
-    'IAM-A full surface. Book line 39, printed 4.26.'
-    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
-    P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
-    value=1/(P_*Hb(eps0))
     return locals()
 
 @check(label='ch:gauge:L39', chapter='ch:gauge', part=6, title='C-score far end: var ratio 50 over the baseline',
@@ -31314,24 +31168,10 @@ def check_gauge_healthy_L123_0p330263():
     return locals()
 
 @check(label='ch:gauge:L123:3.41', chapter='ch:gauge', part=6, title='Holding energy shared by healthy cell types, from the canon record.',
-       file='part6/p6_06_gauge', line=123, status='measured', kind='file', printed='3.41', tol=0.0, source='CANON/iam_canon.json')
+       file='part6/p6_06_gauge', line=123, status='measured', kind='file', printed='3.08', tol=0.0, source='CANON/iam_canon.json')
 def check_gauge_healthy_L123_3p41():
-    'Holding energy shared by healthy cell types, from the canon record. Book line 123, printed 3.41.'
+    'Holding energy shared by healthy cell types, from the canon record. Book line 123, printed 3.08.'
     value = load_json('CANON/iam_canon.json')['constants']['E_hold_meth']['value']
-    return locals()
-
-@check(label='ch:gauge:L123:0.032', chapter='ch:gauge', part=6, title='eps0 = 1/(1+e^E_hold), E_hold = 3.41 kT (canon).',
-       file='part6/p6_06_gauge', line=123, status='derived', kind='num', printed='0.032', tol=0.0)
-def check_gauge_healthy_L123_0p032():
-    'eps0 = 1/(1+e^E_hold), E_hold = 3.41 kT (canon). Book line 123, printed 0.032.'
-    value = 1 / (1 + math.exp(E_hold))
-    return locals()
-
-@check(label='ch:gauge:L123:1.149', chapter='ch:gauge', part=6, title='Neutrophil IAM-A position P, from the canon record.',
-       file='part6/p6_06_gauge', line=123, status='measured', kind='file', printed='1.149', tol=0.0, source='CANON/iam_canon.json')
-def check_gauge_healthy_L123_1p149():
-    'Neutrophil IAM-A position P, from the canon record. Book line 123, printed 1.149.'
-    value = load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     return locals()
 
 @check(label='ch:gauge:L125:20', chapter='ch:gauge', part=6, title='Youngest Met-A reference donor.',
@@ -31379,9 +31219,9 @@ def check_gauge_healthy_L125_56_age():
     return locals()
 
 @check(label='ch:gauge:L131:3.41', chapter='ch:gauge', part=6, title='Holding energy (open problem sentence), from the canon record.',
-       file='part6/p6_06_gauge', line=131, status='measured', kind='file', printed='3.41', tol=0.0, source='CANON/iam_canon.json')
+       file='part6/p6_06_gauge', line=131, status='measured', kind='file', printed='3.08', tol=0.0, source='CANON/iam_canon.json')
 def check_gauge_healthy_L131_3p41():
-    'Holding energy (open problem sentence), from the canon record. Book line 131, printed 3.41.'
+    'Holding energy (open problem sentence), from the canon record. Book line 131, printed 3.08.'
     value = load_json('CANON/iam_canon.json')['constants']['E_hold_meth']['value']
     return locals()
 
@@ -31887,27 +31727,27 @@ def check_2531():
     value=dG_ATP/(R_gas*T_cell)
     return locals()
 
-@check(label='ch:iama:L31:0.1628', chapter='ch:iama', part=6, title='phi = E_hold/M',
-       file='part6/p6_08_iama', line=31, status='derived', kind='num', printed='0.1628', tol=0)
+@check(label='ch:iama:L31:phi', chapter='ch:iama', part=6, title='phi = E_hold/M',
+       file='part6/p6_08_iama', line=31, status='derived', kind='num', printed='0.147', tol=0)
 def check_2532():
-    'phi = E_hold/M. Book line 31, printed 0.1628.'
+    'phi = E_hold/M. Book line 31, printed 0.147.'
     value=E_hold/(dG_ATP/(R_gas*T_cell))
     return locals()
 
 @check(label='ch:iama:L32', chapter='ch:iama', part=6, title='eps0 = 1/(1+e^(phi M))',
-       file='part6/p6_08_iama', line=32, status='measured', kind='num', printed='0.032', tol=0.0)
+       file='part6/p6_08_iama', line=32, status='measured', kind='num', printed='0.044', tol=0.0)
 def check_3915():
-    'The floor held error eps0 = 1/(1+exp(phi M)) with M = dG_ATP/(R T_cell) and phi = 0.1628 (canon, measured holding energy over M). Book line 32, printed 0.032. Inputs: CANON dG_ATP, R, T_cell, phi.'
+    'The floor held error eps0 = 1/(1+exp(phi M)) with M = dG_ATP/(R T_cell) and phi (canon, measured holding energy over M). Book line 32, printed 0.044. Inputs: CANON dG_ATP, R, T_cell, phi.'
     M = dG_ATP / (R_gas * T_cell)
     value = 1 / (1 + math.exp(phi_hold * M))
     return locals()
 
-@check(label='ch:iama:L32:0.2043', chapter='ch:iama', part=6, title='H_min = H(eps0) at the frozen eps0',
-       file='part6/p6_08_iama', line=32, status='measured', kind='file', printed='0.2043', tol=0.0, source=_B09_POS)
+@check(label='ch:iama:L32:Href', chapter='ch:iama', part=6, title='H_min = H(eps0) at the frozen eps0',
+       file='part6/p6_08_iama', line=32, status='measured', kind='file', printed='0.259', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_3916():
-    'H_min = H(eps0) in bits, with eps0 = 0.032 as the chain freezes it (iama_positions_v1.json; canon eps0_meth). Note: with eps0 unrounded, 1/(1+exp(phi M)) = 0.032012, H = 0.20438. Book line 32, printed 0.2043. Inputs: eps0 of iama_positions_v1.json.'
-    e0 = load_json(_B09_POS)['eps0']
-    value = _b09_Hb(e0)
+    'H_min = H(eps0) at the frozen eps0 (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 32, printed 0.259.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['H_ref_bits']
     return locals()
 
 @check(label='eq:iama', chapter='ch:iama', part=6, title='P of neutrophils from the three granulocyte donors',
@@ -31963,9 +31803,9 @@ def check_floor_1():
     return locals()
 
 @check(label='ch:iama:ref_kicks', chapter='ch:iama', part=6, title='1/eps0 at the healthy reference',
-       file='part6/p6_08_iama', line=35, status='calc', kind='file', printed='31', tol=0.02, source='CANON/iam_canon.json')
+       file='part6/p6_08_iama', line=35, status='calc', kind='file', printed='23', tol=0.02, source='CANON/iam_canon.json')
 def check_floor_2():
-    '1/eps0 at the healthy reference; M and eps0 from the canon. Book line 35, printed 31.'
+    '1/eps0 at the healthy reference; M and eps0 from the canon. Book line 35, printed 23.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     K=load_json('CANON/iam_canon.json')['constants']
     M_=K['M_cell']['value']; e0=K['eps0_meth']['value']
@@ -32090,10 +31930,11 @@ def check_3931():
     return locals()
 
 @check(label='ch:iama:L90', chapter='ch:iama', part=6, title='held error across 56 healthy cell types, lowest',
-       file='part6/p6_08_iama', line=90, status='measured', kind='num', printed='0.024', tol=0.0, source=_B09_PC)
+       file='part6/p6_08_iama', line=90, status='measured', kind='file', printed='0.033', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_3932():
-    'Held error across the 56 healthy cell types (Loyfer 2023, 399 windows): lower end, from the methylated-sites row of the record. Book line 90, printed 0.024. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
-    value=_chan()['eps_min']
+    'held error across 56 healthy cell types, lowest (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 90, printed 0.033.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['held_error_range'][0]
     return locals()
 
 @check(label='ch:iama:L90:0.042', chapter='ch:iama', part=6, title='held error across 56 healthy cell types, highest',
@@ -32118,17 +31959,19 @@ def check_3935():
     return locals()
 
 @check(label='ch:iama:L91:1.23', chapter='ch:iama', part=6, title='healthy cell types on one physics floor, highest',
-       file='part6/p6_08_iama', line=91, status='measured', kind='file', printed='1.23', tol=0.0, source=_B09_PC)
+       file='part6/p6_08_iama', line=91, status='measured', kind='file', printed='1.18', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_3936():
-    'The 56 healthy cell types on the one physics floor: highest A (1.225). Book line 91, printed 1.23. Inputs: PROC_CHANNEL_01_OUTCOME.md section 3.'
-    value = _b09_nums(_b09_md_line(_B09_PC, '| methylated |'))[3]
+    'healthy cell types on one physics floor, highest (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 91, printed 1.18.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['one_floor']['max']
     return locals()
 
 @check(label='ch:iama:L91:1.01', chapter='ch:iama', part=6, title='healthy cell types on one physics floor, median',
-       file='part6/p6_08_iama', line=91, status='measured', kind='file', printed='1.01', tol=0.0, source=_B09_PC)
+       file='part6/p6_08_iama', line=91, status='measured', kind='file', printed='1.02', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_3937():
-    'The 56 healthy cell types on the one physics floor: median A (1.009). Book line 91, printed 1.01. Inputs: PROC_CHANNEL_01_OUTCOME.md section 3.'
-    value = _b09_nums(_b09_md_line(_B09_PC, '| methylated |'))[4]
+    'healthy cell types on one physics floor, median (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 91, printed 1.02.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['one_floor']['median']
     return locals()
 
 @check(label='ch:iama:L94', chapter='ch:iama', part=6, title='held error on the common sites, highest over lowest',
@@ -32154,15 +31997,12 @@ def check_3940():
     return locals()
 
 @check(label='ch:iama:L97', chapter='ch:iama', part=6, title='held error of colon epithelium and cardiomyocytes',
-       file='part6/p6_08_iama', line=97, status='measured', kind='file', printed='0.031', tol=0.0, source=_B09_PC)
+       file='part6/p6_08_iama', line=97, status='measured', kind='file', printed='0.042', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_3941():
-    'Held error of colon epithelium, the same as that of cardiomyocytes, from the record of the turnover test. Book line 97, printed 0.031. Inputs: PROC_CHANNEL_01_OUTCOME.md section 4.'
-    m = re.search(r"lifespan\) carries (?:copy|held) error (\d+\.\d+), cardiomyocytes \([\d,]+ days\) (\d+\.\d+)", file_text(_B09_PC))
-    colon, cardio = float(m.group(1)), float(m.group(2))
-    same = colon == cardio
-    value = colon
+    'held error of colon epithelium and cardiomyocytes (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 97, printed 0.042.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['per_cell']['colon epithelium']['held_error']
     return locals()
-
 
 # ======== Part 6 | ch:cscore | docs/book/part6/p6_09_cscore.tex
 @check(label='eq:C', chapter='ch:cscore', part=6, title='c_healthy: median of the six leave-one-out clustering values',
@@ -32360,9 +32200,9 @@ def check_2538():
     return locals()
 
 @check(label='ch:temperature:L16', chapter='ch:temperature', part=6, title='eps0 at 10 C',
-       file='part6/p6_10_temperature', line=16, status='derived', kind='num', printed='0.0233', tol=0)
+       file='part6/p6_10_temperature', line=16, status='derived', kind='num', printed='0.0330', tol=0)
 def check_2539():
-    'eps0 at 10 C. Book line 16, printed 0.0233.'
+    'eps0 at 10 C. Book line 16, printed 0.0330.'
     Mt=lambda TC: dG_ATP/(R_gas*(TC+273.15))
     EJ=E_hold*kB*T_cell  # holding energy held fixed in joules
     e0=lambda TC: 1/(1+math.exp(EJ/(kB*(TC+273.15))))
@@ -32372,9 +32212,9 @@ def check_2539():
     return locals()
 
 @check(label='ch:temperature:L17', chapter='ch:temperature', part=6, title='floor H(eps0) at 10 C over the human',
-       file='part6/p6_10_temperature', line=17, status='calc', kind='num', printed='0.78', tol=0)
+       file='part6/p6_10_temperature', line=17, status='calc', kind='num', printed='0.81', tol=0)
 def check_2540():
-    'floor H(eps0) at 10 C over the human. Book line 17, printed 0.78.'
+    'floor H(eps0) at 10 C over the human. Book line 17, printed 0.81.'
     Mt=lambda TC: dG_ATP/(R_gas*(TC+273.15))
     EJ=E_hold*kB*T_cell  # holding energy held fixed in joules
     e0=lambda TC: 1/(1+math.exp(EJ/(kB*(TC+273.15))))
@@ -32384,9 +32224,9 @@ def check_2540():
     return locals()
 
 @check(label='ch:temperature:L17:1.012', chapter='ch:temperature', part=6, title='floor at 38.5 C',
-       file='part6/p6_10_temperature', line=17, status='calc', kind='num', printed='1.012', tol=0)
+       file='part6/p6_10_temperature', line=17, status='calc', kind='num', printed='1.011', tol=0)
 def check_2541():
-    'floor at 38.5 C. Book line 17, printed 1.012.'
+    'floor at 38.5 C. Book line 17, printed 1.011.'
     Mt=lambda TC: dG_ATP/(R_gas*(TC+273.15))
     EJ=E_hold*kB*T_cell  # holding energy held fixed in joules
     e0=lambda TC: 1/(1+math.exp(EJ/(kB*(TC+273.15))))
@@ -32396,16 +32236,17 @@ def check_2541():
     return locals()
 
 @check(label='ch:temperature:L23', chapter='ch:temperature', part=6, title='holding energy of human cells at 37 C',
-       file='part6/p6_10_temperature', line=23, status='calc', kind='num', printed='3.41', tol=0.0, source=_B09_PC)
+       file='part6/p6_10_temperature', line=23, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_3959():
-    'The fixed holding energy the solid curve carries, measured at 37 C across the 56 healthy cell types (mean, kT), from the methylated-sites row of the record. Book line 23, printed 3.41. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
-    value=_b00_hold_energy()
+    'holding energy of human cells at 37 C (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 23, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='ch:temperature:L30', chapter='ch:temperature', part=6, title='floor at 40 C',
-       file='part6/p6_10_temperature', line=30, status='calc', kind='num', printed='1.025', tol=0)
+       file='part6/p6_10_temperature', line=30, status='calc', kind='num', printed='1.021', tol=0)
 def check_2542():
-    'floor at 40 C. Book line 30, printed 1.025.'
+    'floor at 40 C. Book line 30, printed 1.021.'
     Mt=lambda TC: dG_ATP/(R_gas*(TC+273.15))
     EJ=E_hold*kB*T_cell  # holding energy held fixed in joules
     e0=lambda TC: 1/(1+math.exp(EJ/(kB*(TC+273.15))))
@@ -32415,9 +32256,9 @@ def check_2542():
     return locals()
 
 @check(label='ch:temperature:L30:1.041', chapter='ch:temperature', part=6, title='floor at 42 C',
-       file='part6/p6_10_temperature', line=30, status='calc', kind='num', printed='1.041', tol=0)
+       file='part6/p6_10_temperature', line=30, status='calc', kind='num', printed='1.036', tol=0)
 def check_2543():
-    'floor at 42 C. Book line 30, printed 1.041.'
+    'floor at 42 C. Book line 30, printed 1.036.'
     Mt=lambda TC: dG_ATP/(R_gas*(TC+273.15))
     EJ=E_hold*kB*T_cell  # holding energy held fixed in joules
     e0=lambda TC: 1/(1+math.exp(EJ/(kB*(TC+273.15))))
@@ -32427,9 +32268,9 @@ def check_2543():
     return locals()
 
 @check(label='ch:temperature:L31', chapter='ch:temperature', part=6, title='floor at 25 C',
-       file='part6/p6_10_temperature', line=31, status='calc', kind='num', printed='0.902', tol=0)
+       file='part6/p6_10_temperature', line=31, status='calc', kind='num', printed='0.914', tol=0)
 def check_2544():
-    'floor at 25 C. Book line 31, printed 0.902.'
+    'floor at 25 C. Book line 31, printed 0.914.'
     Mt=lambda TC: dG_ATP/(R_gas*(TC+273.15))
     EJ=E_hold*kB*T_cell  # holding energy held fixed in joules
     e0=lambda TC: 1/(1+math.exp(EJ/(kB*(TC+273.15))))
@@ -32439,9 +32280,9 @@ def check_2544():
     return locals()
 
 @check(label='ch:temperature:L31:0.959', chapter='ch:temperature', part=6, title='floor at 32 C',
-       file='part6/p6_10_temperature', line=31, status='calc', kind='num', printed='0.959', tol=0)
+       file='part6/p6_10_temperature', line=31, status='calc', kind='num', printed='0.964', tol=0)
 def check_2545():
-    'floor at 32 C. Book line 31, printed 0.959.'
+    'floor at 32 C. Book line 31, printed 0.964.'
     Mt=lambda TC: dG_ATP/(R_gas*(TC+273.15))
     EJ=E_hold*kB*T_cell  # holding energy held fixed in joules
     e0=lambda TC: 1/(1+math.exp(EJ/(kB*(TC+273.15))))
@@ -32451,9 +32292,9 @@ def check_2545():
     return locals()
 
 @check(label='ch:temperature:L32', chapter='ch:temperature', part=6, title='floor at 15 C',
-       file='part6/p6_10_temperature', line=32, status='calc', kind='num', printed='0.821', tol=0)
+       file='part6/p6_10_temperature', line=32, status='calc', kind='num', printed='0.842', tol=0)
 def check_2546():
-    'floor at 15 C. Book line 32, printed 0.821.'
+    'floor at 15 C. Book line 32, printed 0.842.'
     Mt=lambda TC: dG_ATP/(R_gas*(TC+273.15))
     EJ=E_hold*kB*T_cell  # holding energy held fixed in joules
     e0=lambda TC: 1/(1+math.exp(EJ/(kB*(TC+273.15))))
@@ -32482,14 +32323,12 @@ def check_2548():
 
 
 @check(label='ch:temperature:L76', chapter='ch:temperature', part=6, title='human cells at 37 C (dashed line)',
-       file='part6/p6_10_temperature', line=76, status='measured', kind='num', printed='3.41', tol=0.0, source=_B09_PC)
+       file='part6/p6_10_temperature', line=76, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_3965():
-    'Holding energy of human cells at 37 C, the dashed line of the figure: mean over the 56 healthy cell types, from the record. Book line 76, printed 3.41. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
-    value=_b00_hold_energy()
+    'human cells at 37 C (dashed line) (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 76, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
-
-
-
 
 @check(label='ch:temperature:L111', chapter='ch:temperature', part=6, title='M for a dog at 38.5 C',
        file='part6/p6_10_temperature', line=87, status='prediction', kind='num', printed='20.84', tol=0.0)
@@ -33682,16 +33521,6 @@ def check_4122():
     value = float(np.median(loo)) if abs(float(np.median(loo)) - stored) < 1e-9 else float('nan')
     return locals()
 
-@check(label='ch:chain:L25', chapter='ch:chain', part=6, title='Stage Q neutrophil position P',
-       file='part6/p6_19_chain', line=25, status='calibrated', kind='file', printed='1.149', tol=0.0,
-       source='Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json')
-def check_4123():
-    'Table tab:p4_gates, Stage Q: neutrophil position P = H(eps_healthy)/H(eps0), frozen in iama_positions_v1.json (mean of 3 Loyfer granulocyte donors, range 1.0841-1.1079; per-donor values not committed); also checked to agree with CANON P_neutrophil_IAM_A and to lie inside the stored per-donor range. Book line 25, printed 1.149. Inputs: iama_positions_v1.json.'
-    neu = load_json('Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json')['cells']['neutrophils']
-    P = float(neu['P']); lo, hi = neu['P_range']
-    value = P if (lo <= P <= hi and abs(P - _cv('P_neutrophil_IAM_A')) < 1e-12) else float('nan')
-    return locals()
-
 @check(label='ch:chain:L72', chapter='ch:chain', part=6, title='C-score healthy baseline (Stage MC text)',
        file='part6/p6_19_chain', line=72, status='openprob', kind='file', printed='1.1104', tol=0.0,
        source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json')
@@ -34478,24 +34307,24 @@ def check_4330():
     return locals()
 
 @check(label='ch:status:L22', chapter='ch:status', part=6, title='holding energy E_hold',
-       file='part6/p6_24_status', line=22, status='measured', kind='num', printed='3.41', tol=0.0, source=_B12_CHAN,
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the record is the PROC-CHANNEL-01 outcome')
+       file='part6/p6_24_status', line=22, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_4331():
-    'Holding energy per methylated site on single molecules, k_B T: the held-error row of the PROC-CHANNEL-01 record table (also CANON E_hold_meth). Book line 22, printed 3.41.'
-    value=_b00_hold_energy()
+    'holding energy E_hold (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 22, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='ch:status:L22:0.032', chapter='ch:status', part=6, title='eps0 = 1/(1+e^(E_hold/k_B T))',
-       file='part6/p6_24_status', line=22, status='measured', kind='num', printed='0.032', tol=0.0)
+       file='part6/p6_24_status', line=22, status='measured', kind='num', printed='0.044', tol=0.0)
 def check_4332():
-    'Held-error floor eps0 = 1/(1 + exp(E_hold/k_B T)) with E_hold = 3.41 k_B T (CANON E_hold_meth). Book line 22, printed 0.032.'
+    'Held-error floor eps0 = 1/(1 + exp(E_hold/k_B T)) with E_hold = 3.08 k_B T (CANON E_hold_meth). Book line 22, printed 0.044.'
     value = 1 / (1 + math.exp(E_hold))
     return locals()
 
 @check(label='ch:status:L22:0.163', chapter='ch:status', part=6, title='phi = E_hold/M',
-       file='part6/p6_24_status', line=22, status='measured', kind='num', printed='0.163', tol=0.0)
+       file='part6/p6_24_status', line=22, status='measured', kind='num', printed='0.147', tol=0.0)
 def check_4333():
-    'phi = E_hold/M: holding energy (CANON E_hold_meth, 3.41 k_B T) over M = dG_ATP/(R T_cell). Book line 22, printed 0.163.'
+    'phi = E_hold/M: holding energy (CANON E_hold_meth) over M = dG_ATP/(R T_cell). Book line 22, printed 0.147.'
     value = E_hold / (dG_ATP / (R_gas * T_cell))
     return locals()
 
@@ -34517,33 +34346,6 @@ def check_4335():
     value = load_json(_B12_POS)['cells']['neutrophils']['P_range'][0]
     return locals()
 
-@check(label='ch:status:L24', chapter='ch:status', part=6, title='C-score healthy baseline',
-       file='part6/p6_24_status', line=24, status='calc', kind='file', printed='1.1104', tol=0.0, source=_B12_NREF,
-       heavy=True, rerun='Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices')
-def check_4336():
-    'Met-A C-score baseline c_healthy: median of the leave-one-out clustering statistic c of the six reference arrays, neutrophil_reference_v1_1.json healthy_clustering_LOO. Book line 24, printed 1.1104.'
-    block, loo, med = _b12_cscore()
-    value = med
-    return locals()
-
-@check(label='ch:status:L24:0.70', chapter='ch:status', part=6, title='C-score of the healthy arrays, lowest',
-       file='part6/p6_24_status', line=24, status='calc', kind='file', printed='0.70', tol=0.0, source=_B12_NREF,
-       heavy=True, rerun='Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices')
-def check_4337():
-    'Healthy reference arrays read C = c/c_healthy from 0.70: lowest leave-one-out c over the median, neutrophil_reference_v1_1.json. Book line 24, printed 0.70.'
-    block, loo, med = _b12_cscore()
-    value = float(loo.min() / med)
-    return locals()
-
-@check(label='ch:status:L24:1.23', chapter='ch:status', part=6, title='C-score of the healthy arrays, highest',
-       file='part6/p6_24_status', line=24, status='calc', kind='file', printed='1.23', tol=0.0, source=_B12_NREF,
-       heavy=True, rerun='Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices')
-def check_4338():
-    'Healthy reference arrays read C up to 1.23: highest leave-one-out c over the median, neutrophil_reference_v1_1.json. (The inventory row read the range 0.70--1.23 as -1.23; the printed number is 1.23.) Book line 24, printed 1.23.'
-    block, loo, med = _b12_cscore()
-    value = float(loo.max() / med)
-    return locals()
-
 @check(label='ch:status:L26:Hmin', chapter='ch:status', part=6, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
        file='part6/p6_24_status', line=26, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_4339():
@@ -34561,14 +34363,6 @@ def check_4340():
     value = _b12_Hb(0.5) / load_json(_B12_FLOORS)['platforms']['EPIC']['neutrophils']['floor']
     return locals()
 
-@check(label='ch:status:L26:4.26', chapter='ch:status', part=6, title='IAM-A at the full surface',
-       file='part6/p6_24_status', line=26, status='calc', kind='file', printed='4.26', tol=0.0, source=_B12_POS)
-def check_4341():
-    'IAM-A when the held error reaches one half: H(1/2)/(P H(eps0)), eps0 = 1/(1+e^E_hold) (CANON), P from iama_positions_v1.json. Book line 26, printed 4.26.'
-    P_ = load_json(_B12_POS)['cells']['neutrophils']['P']
-    value = _b12_Hb(0.5) / (P_ * _b12_Hb(1 / (1 + math.exp(E_hold))))
-    return locals()
-
 @check(label='ch:status:L26:45', chapter='ch:status', part=6, title='C-score far end',
        file='part6/p6_24_status', line=26, status='calc', kind='file', printed='45', tol=0.0, source=_B12_NREF)
 def check_4342():
@@ -34578,16 +34372,16 @@ def check_4342():
     return locals()
 
 @check(label='ch:status:L29', chapter='ch:status', part=6, title='held-error floor at 10 C, fixed holding energy',
-       file='part6/p6_24_status', line=29, status='calc', kind='num', printed='0.78', tol=0.0)
+       file='part6/p6_24_status', line=29, status='calc', kind='num', printed='0.81', tol=0.0)
 def check_4343():
-    'Held-error floor at 10 C with the holding energy held fixed in joules (E_hold = 3.41 k_B T at 310.15 K): H(eps0(10 C))/H(eps0(37 C)), as in Chapter ch:temperature. Book line 29, printed 0.78.'
+    'Held-error floor at 10 C with the holding energy held fixed in joules (E_hold = 3.08 k_B T at 310.15 K): H(eps0(10 C))/H(eps0(37 C)), as in Chapter ch:temperature. Book line 29, printed 0.81.'
     value = _b12_floor_at(10.0)
     return locals()
 
 @check(label='ch:status:L29:1.012', chapter='ch:status', part=6, title='held-error floor at 38.5 C, fixed holding energy',
-       file='part6/p6_24_status', line=29, status='calc', kind='num', printed='1.012', tol=0.0)
+       file='part6/p6_24_status', line=29, status='calc', kind='num', printed='1.011', tol=0.0)
 def check_4344():
-    'Held-error floor at 38.5 C with the holding energy held fixed in joules: H(eps0(38.5 C))/H(eps0(37 C)). Book line 29, printed 1.012.'
+    'Held-error floor at 38.5 C with the holding energy held fixed in joules: H(eps0(38.5 C))/H(eps0(37 C)). Book line 29, printed 1.011.'
     value = _b12_floor_at(38.5)
     return locals()
 
@@ -35148,9 +34942,9 @@ def check_4405():
     return locals()
 
 @check(label='ch:onegauge:L42', chapter='ch:onegauge', part=7, title='same value as p6_00b_astrogenetics:63 (H(eps0), bits)',
-       file='part7/p7_08_one_gauge', line=42, status='calc', kind='num', printed='0.2043', tol=0)
+       file='part7/p7_08_one_gauge', line=42, status='calc', kind='num', printed='0.259', tol=0)
 def check_2598():
-    'same value as p6_00b_astrogenetics:63 (H(eps0), bits). Book line 42, printed 0.2043.'
+    'same value as p6_00b_astrogenetics:63 (H(eps0), bits). Book line 42, printed 0.259.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     value=Hb(eps0)
     return locals()
@@ -35162,17 +34956,10 @@ def check_4406():
     value = 1.0 / _cv('Met_A_floor_EPIC_neutrophil')
     return locals()
 
-@check(label='ch:onegauge:L42:4.26', chapter='ch:onegauge', part=7, title='full surface on IAM-A: 1/(P H(eps0)), neutrophils',
-       file='part7/p7_08_one_gauge', line=43, status='calc', kind='num', printed='4.26', tol=0.0)
-def check_4407():
-    'Full surface on IAM-A for neutrophils: 1/(P_cell H(eps0)), P_cell = 1.099 (CANON P_neutrophil_IAM_A), H the binary entropy in bits at eps0 (CANON eps0_meth). Book line 43, printed 4.26.'
-    value = 1.0 / (_cv('P_neutrophil_IAM_A') * _b13_Hbits(eps0))
-    return locals()
-
 @check(label='ch:onegauge:L42:0.032', chapter='ch:onegauge', part=7, title='eps0 = 1/(1 + exp(phi M))',
-       file='part7/p7_08_one_gauge', line=42, status='calc', kind='num', printed='0.032', tol=0.0)
+       file='part7/p7_08_one_gauge', line=42, status='calc', kind='num', printed='0.044', tol=0.0)
 def check_4408():
-    'eps0 = 1/(1 + exp(phi M)) with phi = E_hold/M (CANON phi) and M = dG_ATP/(R T_cell) recomputed from CANON dG_ATP, R, T_cell. Book line 42, printed 0.032.'
+    'eps0 = 1/(1 + exp(phi M)) with phi = E_hold/M (CANON phi) and M = dG_ATP/(R T_cell) recomputed from CANON dG_ATP, R, T_cell. Book line 42, printed 0.044.'
     M = dG_ATP / (R_gas * T_cell)
     value = 1 / (1 + math.exp(phi_hold * M))
     return locals()
@@ -35186,11 +34973,11 @@ def check_4409():
     return locals()
 
 @check(label='ch:onegauge:L64', chapter='ch:onegauge', part=7, title='eps0 from the measured holding energy',
-       file='part7/p7_08_one_gauge', line=64, status='openprob', kind='num', printed='0.032', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
+       file='part7/p7_08_one_gauge', line=64, status='measured', kind='file', printed='0.044', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_4410():
-    'eps0 = 1/(1 + exp(E_hold/kT)) with E_hold read from PROC_CHANNEL_01_OUTCOME.md (copy channel). Book line 64, printed 0.032.'
-    value=1 / (1 + math.exp(_b00_hold_energy()))
+    'eps0 from the measured holding energy (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 64, printed 0.044.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['eps0']
     return locals()
 
 @check(label='ch:onegauge:L66', chapter='ch:onegauge', part=7, title='Hopfield energy gap ln 7 (low end)',
@@ -35233,9 +35020,9 @@ def check_2599():
     return locals()
 
 @check(label='ch:onegauge:L94', chapter='ch:onegauge', part=7, title='IAM-A floor eps0 = 1/(1 + e^{phi M})',
-       file='part7/p7_08_one_gauge', line=94, status='derived', kind='num', printed='0.032', tol=0.0)
+       file='part7/p7_08_one_gauge', line=94, status='derived', kind='num', printed='0.044', tol=0.0)
 def check_4414():
-    'Eq. at line 94: eps0 = 1/(1 + e^{phi M}) with phi = 0.1628 (CANON phi) and M recomputed as dG_ATP/(R T_cell) (CANON inputs). Book line 94, printed 0.032.'
+    'Eq. at line 94: eps0 = 1/(1 + e^{phi M}) with phi (CANON phi) and M recomputed as dG_ATP/(R T_cell) (CANON inputs). Book line 94, printed 0.044.'
     M = dG_ATP / (R_gas * T_cell)
     value = 1 / (1 + math.exp(phi_hold * M))
     return locals()
@@ -35293,13 +35080,6 @@ def check_2601():
     ok = file_has('CANON/iam_canon.json', '3.41')
     return locals()
 
-@check(label='ch:onegauge:L143:3.77', chapter='ch:onegauge', part=7, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='part7/p7_08_one_gauge', line=143, status='measured', kind='file', printed='3.77', tol=0.0, source='CANON/iam_canon.json')
-def check_2602():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 143, printed 3.77.'
-    ok = file_has('CANON/iam_canon.json', '3.77')
-    return locals()
-
 @check(label='ch:onegauge:L143:1.9', chapter='ch:onegauge', part=7, title='Hopfield gap ln 7 (figure caption)',
        file='part7/p7_08_one_gauge', line=143, status='observed', kind='num', printed='1.9', tol=0.0)
 def check_4420():
@@ -35321,13 +35101,6 @@ def check_4421():
 def check_2603():
     'measured: printed value found in iam_canon.json, a file the chapter names. Book line 156, printed 3.41.'
     ok = file_has('CANON/iam_canon.json', '3.41')
-    return locals()
-
-@check(label='ch:onegauge:L156:3.77', chapter='ch:onegauge', part=7, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='part7/p7_08_one_gauge', line=156, status='observed', kind='file', printed='3.77', tol=0.0, source='CANON/iam_canon.json')
-def check_2604():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 156, printed 3.77.'
-    ok = file_has('CANON/iam_canon.json', '3.77')
     return locals()
 
 @check(label='ch:onegauge:L156:1.9', chapter='ch:onegauge', part=7, title='Delta E = ln 7 (Hopfield)',
@@ -35392,9 +35165,9 @@ def check_4428():
     return locals()
 
 @check(label='ch:synthesis:L33', chapter='ch:synthesis', part=7, title='cell floor eps0 = 1/(1 + exp(phi M))',
-       file='part7/p7_08_synthesis', line=33, status='derived', kind='num', printed='0.032', tol=0.0)
+       file='part7/p7_08_synthesis', line=33, status='derived', kind='num', printed='0.044', tol=0.0)
 def check_4429():
-    'eps0 = 1/(1 + exp(phi M)), phi from CANON, M = dG_ATP/(R T_cell) recomputed from CANON inputs. Book line 33, printed 0.032.'
+    'eps0 = 1/(1 + exp(phi M)), phi from CANON, M = dG_ATP/(R T_cell) recomputed from CANON inputs. Book line 33, printed 0.044.'
     value = 1 / (1 + math.exp(phi_hold * dG_ATP / (R_gas * T_cell)))
     return locals()
 
@@ -35413,13 +35186,6 @@ def check_4430():
 def check_4431():
     'Every identity site at beta = 1/2 (H = 1 bit) over the neutrophil healthy reference 0.330263 bits (CANON Met_A_floor_EPIC_neutrophil). Book line 33, printed 3.03.'
     value = _b13_Hb2(0.5) / _cv('Met_A_floor_EPIC_neutrophil')
-    return locals()
-
-@check(label='ch:synthesis:L33:4.26', chapter='ch:synthesis', part=7, title='full surface on IAM-A, 1/(P H(eps0))',
-       file='part7/p7_08_synthesis', line=33, status='derived', kind='num', printed='4.26', tol=0.0)
-def check_4432():
-    'H(1/2) = 1 bit over P_cell H(eps0), P_cell = 1.099 and eps0 from CANON. Book line 33, printed 4.26.'
-    value = _b13_Hb2(0.5) / (_cv('P_neutrophil_IAM_A') * _b13_Hb2(eps0))
     return locals()
 
 @check(label='ch:synthesis:L51', chapter='ch:synthesis', part=7, title='Al superconducting gap expressed as temperature',
@@ -35445,19 +35211,19 @@ def check_2607():
     return locals()
 
 @check(label='ch:synthesis:L53:0.032', chapter='ch:synthesis', part=7, title='eps0 from the measured holding energy',
-       file='part7/p7_08_synthesis', line=53, status='measured', kind='num', printed='0.032', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
+       file='part7/p7_08_synthesis', line=53, status='measured', kind='file', printed='0.044', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_4434():
-    'eps0 = 1/(1 + exp(E_hold/kT)) with E_hold read from the copy-channel row of PROC_CHANNEL_01_OUTCOME.md. Book line 53, printed 0.032.'
-    value=1 / (1 + math.exp(_b00_hold_energy()))
+    'eps0 from the measured holding energy (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 53, printed 0.044.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['eps0']
     return locals()
 
 @check(label='ch:synthesis:L53:3.41', chapter='ch:synthesis', part=7, title='holding energy E_hold, PROC-CHANNEL-01',
-       file='part7/p7_08_synthesis', line=53, status='measured', kind='num', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
+       file='part7/p7_08_synthesis', line=53, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_4435():
-    'E_hold = ln((1-eps)/eps) kT of the copy channel, from PROC_CHANNEL_01_OUTCOME.md. Book line 53, printed 3.41.'
-    value=_b00_hold_energy()
+    'holding energy E_hold, PROC-CHANNEL-01 (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 53, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='ch:synthesis:L54', chapter='ch:synthesis', part=7, title='mu0 = mu(a=1) - 1 (slot table)',
@@ -35578,9 +35344,9 @@ def check_4446():
 
 
 @check(label='ch:reach:L68', chapter='ch:reach', part=7, title='same value as p6_10_temperature:17 (floor at 38.5 C)',
-       file='part7/p7_09_reach', line=68, status='calc', kind='num', printed='1.012', tol=0)
+       file='part7/p7_09_reach', line=68, status='calc', kind='num', printed='1.011', tol=0)
 def check_2625():
-    'same value as p6_10_temperature:17 (floor at 38.5 C). Book line 68, printed 1.012.'
+    'same value as p6_10_temperature:17 (floor at 38.5 C). Book line 68, printed 1.011.'
     Mt=lambda TC: dG_ATP/(R_gas*(TC+273.15))
     EJ=E_hold*kB*T_cell  # holding energy held fixed in joules
     e0=lambda TC: 1/(1+math.exp(EJ/(kB*(TC+273.15))))
@@ -35590,9 +35356,9 @@ def check_2625():
     return locals()
 
 @check(label='ch:reach:L68:0.78', chapter='ch:reach', part=7, title='held-error floor at 10 C relative to 37 C, fixed holding energy',
-       file='part7/p7_09_reach', line=68, status='calc', kind='num', printed='0.78', tol=0.0)
+       file='part7/p7_09_reach', line=68, status='calc', kind='num', printed='0.81', tol=0.0)
 def check_4458():
-    'H(eps0(T))/H(eps0(T_cell)) with eps0 = 1/(1 + exp(E/k_B T)), E = E_hold k_B T_cell held fixed in joules (CANON E_hold_meth, T_cell), at T = 10 C. Book line 68, printed 0.78.'
+    'H(eps0(T))/H(eps0(T_cell)) with eps0 = 1/(1 + exp(E/k_B T)), E = E_hold k_B T_cell held fixed in joules (CANON E_hold_meth, T_cell), at T = 10 C. Book line 68, printed 0.81.'
     value = _b13_floor_ratio(10.0)
     return locals()
 
@@ -37373,11 +37139,11 @@ def check_4605():
     return locals()
 
 @check(label='ch:statusall:L88:3.41', chapter='ch:statusall', part=7, title='measured holding energy, k_B T',
-       file='part7/p7_11_status_all', line=87, status='calc', kind='num', printed='3.41', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
+       file='part7/p7_11_status_all', line=87, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_4606():
-    'E_hold of the copy channel, row methylated sites (held error) of the PROC-CHANNEL-01 record. Book line 87, printed 3.41.'
-    value=_b00_hold_energy()
+    'measured holding energy, k_B T (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 87, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 # ---------------------------------------------------------------- lines 92-95: the cell gauge
@@ -37404,45 +37170,31 @@ def check_2673():
     return locals()
 
 @check(label='ch:statusall:L92', chapter='ch:statusall', part=7, title='holding energy of a methylated site',
-       file='part7/p7_11_status_all', line=91, status='measured', kind='num', printed='3.41', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
+       file='part7/p7_11_status_all', line=91, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_4607():
-    'E_hold of the copy channel, row methylated sites (held error) of the PROC-CHANNEL-01 record. Book line 91, printed 3.41.'
-    value=_b00_hold_energy()
+    'holding energy of a methylated site (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 91, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='ch:statusall:L92:0.032', chapter='ch:statusall', part=7, title='held-error floor eps0',
-       file='part7/p7_11_status_all', line=91, status='measured', kind='num', printed='0.032', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
+       file='part7/p7_11_status_all', line=91, status='measured', kind='file', printed='0.044', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_4608():
-    'eps0 = 1/(1 + exp(E_hold)) with E_hold read from the PROC-CHANNEL-01 record. Book line 91, printed 0.032.'
-    value=1 / (1 + math.exp(_b00_hold_energy()))
+    'held-error floor eps0 (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 91, printed 0.044.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['eps0']
     return locals()
 
 @check(label='ch:statusall:L92:0.163', chapter='ch:statusall', part=7, title='phi = E_hold / M',
-       file='part7/p7_11_status_all', line=91, status='measured', kind='num', printed='0.163', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
+       file='part7/p7_11_status_all', line=91, status='measured', kind='file', printed='0.147', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_4609():
-    'phi = E_hold / M_cell, E_hold from the PROC-CHANNEL-01 record and M = dG_ATP/(R T_cell) from the canon inputs. Book line 91, printed 0.163.'
-    value=_b00_hold_energy() / (dG_ATP / (R_gas * T_cell))
+    'phi = E_hold / M (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 91, printed 0.147.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['phi']
     return locals()
 
 _B15_IAMA = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json'
 _B15_METAF = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json'
-
-@check(label='ch:statusall:L93', chapter='ch:statusall', part=7, title='neutrophil position P on IAM-A',
-       file='part7/p7_11_status_all', line=92, status='measured', kind='file', printed='1.149', tol=0.0, source=_B15_IAMA, heavy=True, rerun=_B15_METH_RERUN)
-def check_4610():
-    'P of neutrophils in the frozen IAM-A positions (3 Loyfer granulocyte donors). Book line 92, printed 1.149.'
-    value = load_json(_B15_IAMA)['cells']['neutrophils']['P']
-    return locals()
-
-@check(label='ch:statusall:L93:1.140', chapter='ch:statusall', part=7, title='lowest donor P',
-       file='part7/p7_11_status_all', line=92, status='calc', kind='file', printed='1.140', tol=0.0, source=_B15_IAMA, heavy=True, rerun=_B15_METH_RERUN)
-def check_4611():
-    'Lower end of the donor range P_range of neutrophils in the frozen IAM-A positions. Book line 92, printed 1.140.'
-    value = load_json(_B15_IAMA)['cells']['neutrophils']['P_range'][0]
-    return locals()
 
 @check(label='ch:statusall:L94', chapter='ch:statusall', part=7, title='Met-A neutrophil reference floor, bits',
        file='part7/p7_11_status_all', line=93, status='calibrated', kind='file', printed='0.330263', tol=0.0, source=_B15_METAF, heavy=True, rerun=_B15_METH_RERUN)
@@ -37490,20 +37242,10 @@ def check_2675():
     value=1/F0
     return locals()
 
-@check(label='ch:statusall:L96:4.26', chapter='ch:statusall', part=7, title='IAM-A full',
-       file='part7/p7_11_status_all', line=95, status='calc', kind='file', printed='4.26', tol=0, source='CANON/iam_canon.json')
-def check_2676():
-    'IAM-A full. Book line 95, printed 4.26.'
-    Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
-    P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
-    value=1/(P_*Hb(eps0))
-    return locals()
-
 @check(label='ch:statusall:L98', chapter='ch:statusall', part=7, title='floor at 10 C',
-       file='part7/p7_11_status_all', line=97, status='calc', kind='num', printed='0.78', tol=0)
+       file='part7/p7_11_status_all', line=97, status='calc', kind='num', printed='0.81', tol=0)
 def check_2677():
-    'floor at 10 C. Book line 97, printed 0.78.'
+    'floor at 10 C. Book line 97, printed 0.81.'
     Mt=lambda TC: dG_ATP/(R_gas*(TC+273.15))
     EJ=E_hold*kB*T_cell  # holding energy held fixed in joules
     e0=lambda TC: 1/(1+math.exp(EJ/(kB*(TC+273.15))))
@@ -37513,9 +37255,9 @@ def check_2677():
     return locals()
 
 @check(label='ch:statusall:L98:1.012', chapter='ch:statusall', part=7, title='same value as p6_10_temperature:17 (floor at 38.5 C)',
-       file='part7/p7_11_status_all', line=97, status='calc', kind='num', printed='1.012', tol=0)
+       file='part7/p7_11_status_all', line=97, status='calc', kind='num', printed='1.011', tol=0)
 def check_2678():
-    'same value as p6_10_temperature:17 (floor at 38.5 C). Book line 97, printed 1.012.'
+    'same value as p6_10_temperature:17 (floor at 38.5 C). Book line 97, printed 1.011.'
     Mt=lambda TC: dG_ATP/(R_gas*(TC+273.15))
     EJ=E_hold*kB*T_cell  # holding energy held fixed in joules
     e0=lambda TC: 1/(1+math.exp(EJ/(kB*(TC+273.15))))
@@ -37525,9 +37267,9 @@ def check_2678():
     return locals()
 
 @check(label="ch:statusall:L98:1.012'", chapter='ch:statusall', part=7, title='floor at 38.5 C',
-       file='part7/p7_11_status_all', line=97, status='calc', kind='num', printed='1.012', tol=0)
+       file='part7/p7_11_status_all', line=97, status='calc', kind='num', printed='1.011', tol=0)
 def check_2679():
-    'floor at 38.5 C. Book line 97, printed 1.012.'
+    'floor at 38.5 C. Book line 97, printed 1.011.'
     Mt=lambda TC: dG_ATP/(R_gas*(TC+273.15))
     EJ=E_hold*kB*T_cell  # holding energy held fixed in joules
     e0=lambda TC: 1/(1+math.exp(EJ/(kB*(TC+273.15))))
@@ -37782,16 +37524,17 @@ def check_4641():
     return locals()
 
 @check(label='app:constants:L16', chapter='app:constants', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='appendices/app_A2_frozen_values', line=16, status='observed', kind='file', printed='3.41', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_A2_frozen_values', line=16, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2690():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 16, printed 3.41.'
-    ok = file_has('CANON/iam_canon.json', '3.41')
+    'measured: printed value found in iam_canon.json, a file the chapter names (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 16, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='app:constants:L16:0.032', chapter='app:constants', part=8, title='held-error floor eps0 from E_hold',
-       file='appendices/app_A2_frozen_values', line=16, status='observed', kind='file', printed='0.032', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_A2_frozen_values', line=16, status='observed', kind='file', printed='0.044', tol=0.0, source='CANON/iam_canon.json')
 def check_4642():
-    'eps0 = 1/(1 + exp(E_hold)) with E_hold = 3.41 kT read from the canon (Boltzmann form). Book line 16, printed 0.032.'
+    'eps0 = 1/(1 + exp(E_hold)) with E_hold = 3.08 kT read from the canon (Boltzmann form). Book line 16, printed 0.044.'
     value = 1 / (1 + math.exp(_cv('E_hold_meth')))
     return locals()
 
@@ -37809,28 +37552,6 @@ def check_4643():
     'Length of the site list of the EPIC neutrophil floor in metA_floors_v1_3.json (n_sites must agree). Book line 17, printed 6,000.'
     d = load_json(_B15A_RM + 'Met_A_Floors/metA_floors_v1_3.json')['platforms']['EPIC']['neutrophils']
     value = len(d['sites']) if d['n_sites'] == len(d['sites']) else float('nan')
-    return locals()
-
-@check(label='app:constants:L18', chapter='app:constants', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='appendices/app_A2_frozen_values', line=18, status='measured', kind='file', printed='1.149', tol=0.0, source='CANON/iam_canon.json')
-def check_2692():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 18, printed 1.149.'
-    ok = file_has('CANON/iam_canon.json', '1.1492')
-    return locals()
-
-@check(label='app:constants:L18:1.140', chapter='app:constants', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='appendices/app_A2_frozen_values', line=18, status='measured', kind='file', printed='1.140', tol=0.0, source='CANON/iam_canon.json')
-def check_2693():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 18, printed 1.140.'
-    ok = file_has('CANON/iam_canon.json', '1.1396')
-    return locals()
-
-@check(label='app:constants:L19', chapter='app:constants', part=8, title='C-score healthy clustering baseline',
-       file='appendices/app_A2_frozen_values', line=19, status='calibrated', kind='file', printed='1.1104', tol=0.0,
-       source=_B15A_RM + 'Met_A_Floors/neutrophil_reference_v1_1.json', heavy=True, rerun=_B15A_METH_RERUN)
-def check_4644():
-    'Median of the six held-out clustering values healthy_clustering_LOO of neutrophil_reference_v1_1.json. Book line 19, printed 1.1104.'
-    value = float(np.median(load_json(_B15A_RM + 'Met_A_Floors/neutrophil_reference_v1_1.json')['healthy_clustering_LOO']))
     return locals()
 
 @check(label='app:constants:L20', chapter='app:constants', part=8, title='intake quarantine call-rate line',
@@ -37893,37 +37614,32 @@ def check_2698():
     return locals()
 
 @check(label='app:notation:L108', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='appendices/app_N_notation', line=108, status='measured', kind='file', printed='3.41', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_N_notation', line=108, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2699():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 108, printed 3.41.'
-    ok = file_has('CANON/iam_canon.json', '3.41')
+    'measured: printed value found in iam_canon.json, a file the chapter names (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 108, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='app:notation:L109', chapter='app:notation', part=8, title='E_hold in Landauer units',
-       file='appendices/app_N_notation', line=109, status='observed', kind='file', printed='4.9', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_N_notation', line=109, status='observed', kind='file', printed='4.45', tol=0.0, source='CANON/iam_canon.json')
 def check_4648():
-    'E_hold / ln 2 with E_hold = 3.41 kT read from the canon. Book line 109, printed 4.9.'
+    'E_hold / ln 2 with E_hold = 3.08 kT read from the canon. Book line 109, printed 4.45.'
     value = _cv('E_hold_meth') / LN2
     return locals()
 
 @check(label='app:notation:L110', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='appendices/app_N_notation', line=110, status='measured', kind='file', printed='0.1628', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_N_notation', line=110, status='measured', kind='file', printed='0.147', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2700():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 110, printed 0.1628.'
-    ok = file_has('CANON/iam_canon.json', '0.1628')
-    return locals()
-
-@check(label='app:notation:L111', chapter='app:notation', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_N_notation', line=111, status='derived', kind='num', printed='0.032', tol=0.0)
-def check_2701():
-    'drafted check, screened (runs; negative control fails). Book line 111, printed 0.032.'
-    value = 1 / (1 + np.exp(phi_hold * M_cell))
+    'measured: printed value found in iam_canon.json, a file the chapter names (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 110, printed 0.147.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['phi']
     return locals()
 
 @check(label='app:notation:L112', chapter='app:notation', part=8, title='same value as p6_00b_astrogenetics:63 (H(eps0), bits)',
-       file='appendices/app_N_notation', line=112, status='calc', kind='num', printed='0.2043', tol=0)
+       file='appendices/app_N_notation', line=112, status='calc', kind='num', printed='0.259', tol=0)
 def check_2702():
-    'same value as p6_00b_astrogenetics:63 (H(eps0), bits). Book line 112, printed 0.2043.'
+    'same value as p6_00b_astrogenetics:63 (H(eps0), bits). Book line 112, printed 0.259.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     value=Hb(eps0)
     return locals()
@@ -37933,37 +37649,6 @@ def check_2702():
 def check_2703():
     'measured: printed value found in iam_canon.json, a file the chapter names. Book line 115, printed 1.149.'
     ok = file_has('CANON/iam_canon.json', '1.1492')
-    return locals()
-
-@check(label='app:notation:L113:1.140', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='appendices/app_N_notation', line=115, status='measured', kind='file', printed='1.140', tol=0.0, source='CANON/iam_canon.json')
-def check_2704():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 115, printed 1.140.'
-    ok = file_has('CANON/iam_canon.json', '1.1396')
-    return locals()
-
-@check(label='app:notation:L113:-1.155', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='appendices/app_N_notation', line=115, status='measured', kind='file', printed='-1.155', tol=0.0, source='CANON/iam_canon.json')
-def check_2705():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 115, printed -1.155.'
-    ok = file_has('CANON/iam_canon.json', '1.1554')
-    return locals()
-
-@check(label='app:notation:L114', chapter='app:notation', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_N_notation', line=116, status='calc', kind='num', printed='0.2348', tol=0.0)
-def check_2706():
-    'drafted check, screened (runs; negative control fails). Book line 116, printed 0.2348.'
-    H_floor = -eps0 * np.log2(eps0) - (1 - eps0) * np.log2(1 - eps0)
-    value = CANON['P_neutrophil_IAM_A']['value'] * H_floor
-    return locals()
-
-@check(label='app:notation:L115', chapter='app:notation', part=8, title='1/P, position of H_min on the IAM-A gauge',
-       file='appendices/app_N_notation', line=117, status='calc', kind='file', printed='0.870', tol=0.0,
-       source=_B15N_RM + 'IAM_A_Positions/iama_positions_v2.json', heavy=True, rerun=_B15N_METH_RERUN)
-def check_4649():
-    'Position of H_min on the IAM-A gauge, 1/P, with P of neutrophils read from the frozen iama_positions_v1.json. Book line 117, printed 0.870.'
-    P = load_json(_B15N_RM + 'IAM_A_Positions/iama_positions_v2.json')['cells']['neutrophils']['P']
-    value = 1 / P
     return locals()
 
 @check(label='app:notation:L116', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
@@ -38003,15 +37688,6 @@ def check_4652():
     'A_max on Met-A: every identity site at a coin flip, H = 1 bit per site, over the reference floor read from metA_floors_v1_3.json. Book line 118, printed 3.03.'
     H_ref = load_json(_B15N_RM + 'Met_A_Floors/metA_floors_v1_3.json')['platforms']['EPIC']['neutrophils']['floor']
     value = _b15n_Hb(0.5) / H_ref
-    return locals()
-
-@check(label='app:notation:L118:4.26', chapter='app:notation', part=8, title='full surface on IAM-A',
-       file='appendices/app_N_notation', line=120, status='calc', kind='file', printed='4.26', tol=0.0,
-       source=_B15N_RM + 'IAM_A_Positions/iama_positions_v2.json', heavy=True, rerun=_B15N_METH_RERUN)
-def check_4653():
-    'A_max on IAM-A: H(1/2) = 1 bit over P H(eps0), P and eps0 read from iama_positions_v1.json. Book line 120, printed 4.26.'
-    d = load_json(_B15N_RM + 'IAM_A_Positions/iama_positions_v2.json')
-    value = _b15n_Hb(0.5) / (d['cells']['neutrophils']['P'] * _b15n_Hb(d['eps0']))
     return locals()
 
 @check(label='app:notation:L119', chapter='app:notation', part=8, title='C-score healthy clustering baseline',
@@ -38509,10 +38185,10 @@ def check_4687():
     value=1 / (1 + math.exp(_b00_hold_energy()))
     return locals()
 
-@check(label='app:formulas:L642:0.2043', chapter='app:formulas', part=8, title='H_min = H(eps0), bits',
-       file='appendices/app_E_formulas', line=633, status='measured', kind='file', printed='0.2043', tol=0.0, source='CANON/iam_canon.json')
+@check(label='app:formulas:L642:Href', chapter='app:formulas', part=8, title='H_min = H(eps0), bits',
+       file='appendices/app_E_formulas', line=633, status='measured', kind='file', printed='0.259', tol=0.0, source='CANON/iam_canon.json')
 def check_4688():
-    'Binary entropy of the canon eps0 (0.032). Book line 633, printed 0.2043.'
+    'Binary entropy of the canon eps0. Book line 633, printed 0.259.'
     value = _b15e_Hb(_cv('eps0_meth'))
     return locals()
 
@@ -38541,9 +38217,9 @@ def check_4691():
     return locals()
 
 @check(label='app:formulas:L682', chapter='app:formulas', part=8, title='eps0 from phi and M',
-       file='appendices/app_E_formulas', line=673, status='derived', kind='file', printed='0.032', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_E_formulas', line=673, status='derived', kind='file', printed='0.044', tol=0.0, source='CANON/iam_canon.json')
 def check_4692():
-    'eps0 = 1/(1 + exp(phi M)) with phi = 0.1628 and M = dG_ATP/(R T_cell) from the canon inputs. Book line 673, printed 0.032.'
+    'eps0 = 1/(1 + exp(phi M)) with phi (canon) and M = dG_ATP/(R T_cell) from the canon inputs. Book line 673, printed 0.044.'
     value = 1 / (1 + math.exp(_cv('phi') * dG_ATP / (R_gas * T_cell)))
     return locals()
 
@@ -40468,12 +40144,12 @@ def check_4774():
 
 
 # ======== Part 8 | app:saturation | docs/book/appendices/app_S_saturation.tex
-@check(label='app:saturation:L29:0.2043', chapter='app:saturation', part=8, title='H_min = H(eps0) at the frozen eps0',
-       file='appendices/app_S_saturation', line=29, status='measured', kind='file', printed='0.2043', tol=0.0, source=_B09_POS)
+@check(label='app:saturation:L29:Href', chapter='app:saturation', part=8, title='H_min = H(eps0) at the frozen eps0',
+       file='appendices/app_S_saturation', line=29, status='measured', kind='file', printed='0.259', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_sat_h29():
-    'H_min = H(eps0) in bits, the single-molecule thermal floor, with eps0 = 0.032 as the chain freezes it (iama_positions_v1.json; canon eps0_meth); same source and method as ch:iama:L32:0.2043. Book line 29, printed 0.2043.'
-    e0 = load_json(_B09_POS)['eps0']
-    value = _b09_Hb(e0)
+    'H_min = H(eps0) at the frozen eps0 (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 29, printed 0.259.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['H_ref_bits']
     return locals()
 
 @check(label='app:saturation:L43', chapter='app:saturation', part=8, title='one bit per 4 ln2 l_P^2, in Planck areas',
@@ -40530,12 +40206,12 @@ def _sat_bh(Ms=1.0):
     M = Ms * Msun
     return hbar * c**3 / (8 * math.pi * G * M * kB), 4 * math.pi * G * M**2 / (hbar * c)
 
-@check(label='app:saturation:L153:0.2043', chapter='app:saturation', part=8, title='H_min = H(eps0) at the frozen eps0',
-       file='appendices/app_S_saturation', line=153, status='measured', kind='file', printed='0.2043', tol=0.0, source=_B09_POS)
+@check(label='app:saturation:L153:Href', chapter='app:saturation', part=8, title='H_min = H(eps0) at the frozen eps0',
+       file='appendices/app_S_saturation', line=153, status='measured', kind='file', printed='0.259', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_sat_h153():
-    'H_min = H(eps0) in bits, the single-molecule thermal floor, with eps0 = 0.032 as the chain freezes it (iama_positions_v1.json; canon eps0_meth); same source and method as ch:iama:L32:0.2043. Book line 153, printed 0.2043.'
-    e0 = load_json(_B09_POS)['eps0']
-    value = _b09_Hb(e0)
+    'H_min = H(eps0) at the frozen eps0 (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 153, printed 0.259.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['H_ref_bits']
     return locals()
 
 @check(label='app:saturation:L169', chapter='app:saturation', part=8, title='T_body / T_BH, 1 M_sun',
@@ -40618,14 +40294,13 @@ def check_sat_12():
     value = kB * T_cell * LN2
     return locals()
 
-@check(label='app:saturation:L182:0.2043', chapter='app:saturation', part=8, title='H_min = H(eps0) at the frozen eps0',
-       file='appendices/app_S_saturation', line=182, status='measured', kind='file', printed='0.2043', tol=0.0, source=_B09_POS)
+@check(label='app:saturation:L182:Href', chapter='app:saturation', part=8, title='H_min = H(eps0) at the frozen eps0',
+       file='appendices/app_S_saturation', line=182, status='measured', kind='file', printed='0.259', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_sat_h182():
-    'H_min = H(eps0) in bits, the single-molecule thermal floor, with eps0 = 0.032 as the chain freezes it (iama_positions_v1.json; canon eps0_meth); same source and method as ch:iama:L32:0.2043. Book line 182, printed 0.2043.'
-    e0 = load_json(_B09_POS)['eps0']
-    value = _b09_Hb(e0)
+    'H_min = H(eps0) at the frozen eps0 (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 182, printed 0.259.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['H_ref_bits']
     return locals()
-
 
 # ======== Part 8 | app:glossary | docs/book/appendices/app_F_glossary.tex
 @check(label='app:glossary:L18:0.067', title='6dFGS f sigma8 redshift', line=18, status='observed', kind='file', printed='0.067', tol=0.0,
@@ -40665,15 +40340,6 @@ def check_4779():
     'A_max on Met-A: every identity site at a coin flip, H(1/2) = 1 bit, over the healthy neutrophil floor (canon Met_A_floor_EPIC_neutrophil). Book line 46, printed 3.03.'
     F0 = CANON['Met_A_floor_EPIC_neutrophil']['value']
     value = _b17_Hb(0.5) / F0
-    return locals()
-
-@check(label='app:glossary:L46:4.26', title='IAM-A at the full surface, neutrophils', line=46, status='observed', kind='file', printed='4.26', tol=0.0,
-       source='CANON/iam_canon.json', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
-def check_4780():
-    'A_max on IAM-A: H(1/2)/(P H(eps0)), P = canon P_neutrophil_IAM_A, eps0 = 1/(1 + e^E_hold) with the canon holding energy. Book line 46, printed 4.26.'
-    P_ = CANON['P_neutrophil_IAM_A']['value']
-    e0 = 1 / (1 + math.exp(E_hold))
-    value = _b17_Hb(0.5) / (P_ * _b17_Hb(e0))
     return locals()
 
 @check(label='app:glossary:L48:576', title='9950X switching energy over k_B T_j ln 2, upper transistor count', line=48, status='observed', kind='num', printed='576', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
@@ -40984,13 +40650,6 @@ def check_4812():
     value = math.exp(brentq(gap, math.log(1e-14), math.log(1e-6)))
     return locals()
 
-@check(label='app:glossary:L189', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=187, status='observed', kind='file', printed='1.1104', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
-def check_2866():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 189, printed 1.1104.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.1104')
-    return locals()
-
 @check(label='app:glossary:L193:84.4', title='dark-matter share of beta_m, per cent', line=191, status='observed', kind='num', printed='84.4', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4813():
     'Share of beta_m = Omega_m/2 carried by dark matter, (Omega_m - Omega_b)/Omega_m, Planck 2018 (Aghanim et al. 2020: Omega_m 0.3153, Omega_b 0.0493), in per cent. Book line 193, printed 84.4.'
@@ -41042,29 +40701,24 @@ def check_4818():
 
 
 @check(label='app:glossary:L230', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=227, status='observed', kind='file', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=227, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2868():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 230, printed 3.41.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '3.41')
-    return locals()
-
-@check(label='app:glossary:L230:-3.77', chapter='app:glossary', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='appendices/app_F_glossary', line=227, status='observed', kind='file', printed='-3.77', tol=0.0, source='CANON/iam_canon.json')
-def check_2869():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 230, printed -3.77.'
-    ok = file_has('CANON/iam_canon.json', '-3.77')
+    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 227, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
 @check(label='app:glossary:L230:0.163', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=227, status='observed', kind='file', printed='0.163', tol=0.0, source='CANON/GLOSSARY.md')
+       file='appendices/app_F_glossary', line=227, status='measured', kind='file', printed='0.147', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2870():
-    'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 230, printed 0.163.'
-    ok = file_has('CANON/GLOSSARY.md', '0.163')
+    'measured: printed value found in GLOSSARY.md, a file the chapter names (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 227, printed 0.147.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['phi']
     return locals()
 
-@check(label='app:glossary:L230:4.9', title='holding energy in Landauer units', line=227, status='observed', kind='num', printed='4.9', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L230:4.9', title='holding energy in Landauer units', line=227, status='observed', kind='num', printed='4.45', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4822():
-    'E_hold = 3.41 k_B T (canon, measured) in Landauer units, E_hold/ln 2. Book line 230, printed 4.9.'
+    'E_hold = 3.08 k_B T (canon, measured) in Landauer units, E_hold/ln 2. Book line 230, printed 4.45.'
     value = E_hold / LN2
     return locals()
 
@@ -41148,15 +40802,16 @@ def check_2874():
     return locals()
 
 @check(label='app:glossary:L262', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=259, status='observed', kind='file', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=259, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2876():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 262, printed 3.41.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '3.41')
+    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 259, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
-@check(label='app:glossary:L262:0.032', title='held-error floor eps0', line=259, status='observed', kind='num', printed='0.032', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L262:0.032', title='held-error floor eps0', line=259, status='observed', kind='num', printed='0.044', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4831():
-    'eps0 = 1/(1 + e^(phi M)) with phi M = E_hold = 3.41 k_B T; phi and M from the canon. Book line 262, printed 0.032.'
+    'eps0 = 1/(1 + e^(phi M)) with phi M = E_hold = 3.08 k_B T; phi and M from the canon. Book line 262, printed 0.044.'
     value = 1 / (1 + math.exp(phi_hold * M_cell))
     return locals()
 
@@ -41418,10 +41073,11 @@ def check_4860():
 # ---------------------------------------------------------------- L354-L413
 
 @check(label='app:glossary:L348', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=340, status='observed', kind='file', printed='0.2043', tol=0.0, source='CANON/GLOSSARY.md')
+       file='appendices/app_F_glossary', line=340, status='measured', kind='file', printed='0.259', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2885():
-    'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 347, printed 0.2043.'
-    ok = file_has('CANON/GLOSSARY.md', '0.2043')
+    'measured: printed value found in GLOSSARY.md, a file the chapter names (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 340, printed 0.259.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['H_ref_bits']
     return locals()
 
 @check(label='app:glossary:L348:Hmin', chapter='app:glossary', part=8, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
@@ -41490,9 +41146,9 @@ def check_2889():
     value = float(_cv('Normal_band')[1])
     return locals()
 
-@check(label='app:glossary:L368:0.032', title='held-error floor eps0 (IAM-A entry)', line=360, status='observed', kind='num', printed='0.032', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L368:0.032', title='held-error floor eps0 (IAM-A entry)', line=360, status='observed', kind='num', printed='0.044', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4866():
-    'eps0 = 1/(1 + e^(phi M)) with phi and M from the canon (phi M = E_hold). Book line 368, printed 0.032.'
+    'eps0 = 1/(1 + e^(phi M)) with phi and M from the canon (phi M = E_hold). Book line 368, printed 0.044.'
     value = 1 / (1 + math.exp(phi_hold * M_cell))
     return locals()
 
@@ -41593,15 +41249,16 @@ def check_2894():
     return locals()
 
 @check(label='app:glossary:L413:3.41', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=405, status='observed', kind='file', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=405, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2895():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 412, printed 3.41.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '3.41')
+    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 405, printed 3.08.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['E_hold_kT']
     return locals()
 
-@check(label='app:glossary:L413:4.9', title='holding energy in Landauer units', line=405, status='observed', kind='num', printed='4.9', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L413:4.9', title='holding energy in Landauer units', line=405, status='observed', kind='num', printed='4.45', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4877():
-    'E_hold = 3.41 k_B T (canon) is E_hold/ln 2 Landauer units. Book line 413, printed 4.9.'
+    'E_hold = 3.08 k_B T (canon) is E_hold/ln 2 Landauer units. Book line 413, printed 4.45.'
     value = E_hold / LN2
     return locals()
 
@@ -42248,10 +41905,11 @@ def check_4938():
     return locals()
 
 @check(label='app:glossary:L708', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=697, status='observed', kind='file', printed='0.1628', tol=0.0, source='CANON/GLOSSARY.md')
+       file='appendices/app_F_glossary', line=697, status='measured', kind='file', printed='0.147', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2918():
-    'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 707, printed 0.1628.'
-    ok = file_has('CANON/GLOSSARY.md', '0.1628')
+    'measured: printed value found in GLOSSARY.md, a file the chapter names (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 697, printed 0.147.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['phi']
     return locals()
 
 @check(label='app:glossary:L714', chapter='app:glossary', part=8, title='virial ratio with surface pressure, lower end (Klypin 2016)',

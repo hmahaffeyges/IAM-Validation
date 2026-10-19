@@ -229,9 +229,9 @@
    },
    "cells": {
     "native": "one CpG on one strand of one DNA copy",
-    "formula": "28,217,009 CpG sites per haploid genome (counted from hg19); a diploid cell has about 112 million methyl positions (about 14 MB), about 89 million bits held at the healthy held error; M = 20.94 kT per ATP = 30.2 bits; the firm mark's holding 4.15 kT = 6.0 bits",
+    "formula": "28,217,009 CpG sites per haploid genome (counted from hg19); a diploid cell has about 112 million methyl positions (about 14 MB), about 83 million bits held at the healthy held error (0.044); M = 20.94 kT per ATP = 30.2 bits; the writer's discrimination ln D = 4.15 kT = 6.0 bits",
     "status": "calculated",
-    "source": "development/WHITEBOARD_2026-10-15.md part 6"
+    "source": "App. E #484; Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json (healthy held error); writer D: DEV-WRITER-01"
    }
   },
   {
@@ -430,14 +430,14 @@
    },
    "cells": {
     "native": "healthy",
-    "formula": "eps0 = 0.032, E_hold = 3.41 k_B T; candidate derivation ln D - ln 2 (DEV-ERASE-01, sealed) | ADDED 2026-10-15 (whiteboard): DEV-ERASE-01 NOT MET on all five units (eraser removed over control 0.96, 0.79, 0.86, 0.89, 0.85), so ln D - ln 2 is not supported. Candidate in its place: on the 26,800 sites every cell keeps fully methylated, cells read eps 0.0136-0.0226 (median 0.0165), inside the writer's own limit 1/(1 + D) = 0.0123-0.0207 (median 0.0155, 4.15 kT); the genome-wide 3.41 kT is that limit diluted by the loosely held share L (eps = 0.0222 + 0.0248 L across 56 cell types, exploration, rank correlation +0.87)",
+    "formula": "eps0 = 0.044, E_hold = 3.08 k_B T (2.85-3.37 across 56 healthy cell types, SD 0.12), H_ref = 0.259 bits; per interior opportunity on single molecules, counted by chain Stage Q2. The commissioned IAM-A reads each sample against its own line instead, eps_pred(L) = 0.0403 + 0.0346 L. Not derived: ln D - ln 2 was not supported (DEV-ERASE-01 NOT MET on all five units); the fully held sites' reading against the writer's limit was made (on the earlier counter, which counted end CpGs as opportunities and read about 0.75 of the per-opportunity rate; superseded 2026-10-19, not recomputed)",
     "status": "measured",
-    "source": "Part VI; DEV_ERASE_01.md"
+    "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json; Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json; DEV_ERASE_01.md"
    }
   },
   {
    "id": "gate_error",
-   "name": "Gate error (the firm end)",
+   "name": "Gate error (the firm rate)",
    "definition": "The error of the writing or switching step itself, where the record is held firm: the device's nameplate. Added 2026-10-15 from the whiteboard.",
    "cosmos": {
     "native": "none named",
@@ -459,14 +459,14 @@
    },
    "cells": {
     "native": "the writer's discrimination (backbone)",
-    "formula": "eps_W = 1/(1 + D), E = ln D = 4.15 kT (3.86-4.38), H = 0.115 bits; D measured on two enzymes (47.4 to 80). Cells on fully held sites read inside it (median 0.0165). Island side (a gained mark between unmethylated neighbors): 56 healthy cell types read 0.0094-0.0162, median 0.0124: 29 of 56 inside the writer's band and 27 just below it (more accurate than the writer alone, which the eraser or a second writer could explain), and independent of the loose share (rank correlation 0.00); 2026-10-15: read off the line through 56 healthy cell types (held error against loose share), the firm end is 0.0212 (95 % 0.019-0.024), equal to a writer with D = 46, the slow edge of the published range",
-    "status": "candidate",
-    "source": "WHITEBOARD_2026-10-15 parts 2 and 5; PROC-CHANNEL-01 section 7; development/loose_end_2026-10-15/loose_end_line.py"
+    "formula": "the writer's own error, eps_W = 1/(1 + D), E = ln D = 4.15 kT (3.86-4.38), H = 0.115 bits; D measured on two enzymes (47.4 to 80). The firm rate read off the commissioned line (a sample with no loose tiles) is 0.0403 = 3.17 kT, outside the writer's band (eps_W 0.0123-0.0207): on the per-opportunity count the firm rate is not the writer's error alone, and what adds to it is open. The fully held and island readings of 2026-10-15 were made (on the earlier counter, which counted end CpGs as opportunities and read about 0.75 of the per-opportunity rate; superseded 2026-10-19, not recomputed)",
+    "status": "open",
+    "source": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md; Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json; DEV-WRITER-01 (writer D)"
    }
   },
   {
    "id": "leakage",
-   "name": "Leakage (the loose end)",
+   "name": "Leakage (the loose rate)",
    "definition": "Loss outside the held states, where the record is not held at nameplate. Added 2026-10-15 from the whiteboard.",
    "cosmos": {
     "native": "none named",
@@ -488,9 +488,9 @@
    },
    "cells": {
     "native": "loosely held territory",
-    "formula": "L, the share of the genome held loosely, read from the sample itself (0.20 in naive T cells to 0.93 in red-cell progenitors). Its level is OPEN and waits by author decision; the 0.042 at the top of the measured range is the meter's read limit (few molecules qualify there), not the ceiling; 2026-10-15: the loose end read off the same line is ONE level for every cell class, 0.0497 (0.046-0.053) as the meter sees it; 53 of 56 cells within 0.003 of the line. Measured, not derived; one laboratory",
+    "formula": "L, the share of the genome held loosely, read from the sample itself (0.20 in naive T cells to 0.93 in red-cell progenitors). On the commissioned line the loose rate (a sample all loose) is 0.0749 = 2.51 kT, one level for every cell class; 34 of 56 healthy cell types within 0.003 of the line (median distance 0.0025). Measured, not derived; one laboratory's samples, recounted identically from public files by a fresh clone",
     "status": "measured",
-    "source": "WHITEBOARD_2026-10-15 parts 3-5; DEV-ARCH-01; development/loose_end_2026-10-15/loose_end_line.py"
+    "source": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md; Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json; reproduce/ iama_line"
    }
   },
   {
@@ -517,9 +517,9 @@
    },
    "cells": {
     "native": "territory-weighted reading",
-    "formula": "A = (1 - L) x A_backbone + L x A_loose; each territory read separately on the gauge first, because H is concave: a pooled reading overstates disorder (median +3.8 percent at loose eps 0.05, +10.5 percent at 0.10, over 56 cell types)",
+    "formula": "the commissioned IAM-A gives one reading per sample, A = eps / eps_pred(L), the held error over what its own loose share predicts; the loose share enters through the line, not as a second reading. Normal band v1 0.779-1.055. The territory-weighted pooling of 2026-10-15 belonged to the retired position form",
     "status": "definition",
-    "source": "author 2026-10-15; WHITEBOARD part 5"
+    "source": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md; author 2026-10-15 (one reading per instrument)"
    }
   },
   {
@@ -557,9 +557,9 @@
    },
    "cells": {
     "native": "full surface",
-    "formula": "coin flip, eps = 1/2 at every identity site, A = 4.26",
+    "formula": "coin flip, eps = 1/2 at every identity site: IAM-A reads 0.5/eps_pred(L), 6.68 (all loose) to 12.42 (no loose tiles); Met-A reads 1/0.330263 = 3.03",
     "status": "derived",
-    "source": "Ch. Four saturation events"
+    "source": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md; Ch. Four saturation events"
    }
   },
   {
@@ -668,7 +668,7 @@
    },
    "cells": {
     "native": "eraser",
-    "formula": "TET, on O2 and 2-oxoglutarate (author, 2026-10-14); 2026-10-15: removing it barely changes the 1s (DEV-ERASE-01) and raises the island gain error only 1.07x (median, six sets), so it is not what holds the 0s; the islands' 0s are held by a shield, holding 4.38 kT against 3.83 kT for the firm 1s | ADDED 2026-10-15 (author): fuel of the eraser is oxygen: TET enzymes are Fe(II)/2-oxoglutarate dioxygenases that need O2; tumor hypoxia slows TET and leaves hypermethylation (Thienpont et al. 2016, Nature 537, 63-68, 10.1038/nature19081). In computer terms: losing the eraser's oxygen is a crash from lost erasing, not from extra writing (candidate). Not since the first cells: oxygen-powered erasure post-dates the rise of atmospheric oxygen; plants lack TET (ROS1/DME glycosylases)",
+    "formula": "TET, on O2 and 2-oxoglutarate (author, 2026-10-14); 2026-10-15: removing it barely changes the 1s (DEV-ERASE-01) and raises the island gain error only 1.07x (median, six sets), so it is not what holds the 0s; the islands' 0s are held by a shield (4.38 kT against 3.83 kT for the firm 1s (on the earlier counter, which counted end CpGs as opportunities and read about 0.75 of the per-opportunity rate; superseded 2026-10-19, not recomputed)) | ADDED 2026-10-15 (author): fuel of the eraser is oxygen: TET enzymes are Fe(II)/2-oxoglutarate dioxygenases that need O2; tumor hypoxia slows TET and leaves hypermethylation (Thienpont et al. 2016, Nature 537, 63-68, 10.1038/nature19081). In computer terms: losing the eraser's oxygen is a crash from lost erasing, not from extra writing (candidate). Not since the first cells: oxygen-powered erasure post-dates the rise of atmospheric oxygen; plants lack TET (ROS1/DME glycosylases)",
     "status": "candidate",
     "source": "PHY-040"
    }
@@ -755,9 +755,9 @@
    },
    "cells": {
     "native": "phi, the fraction of one ATP spent per held bit",
-    "formula": "phi = E_hold/(M k_B T) = 3.41/20.94 = 0.163 +/- 0.006; why 0.163 (when a black hole holds 1/2) is the open problem D1. ADDED 2026-10-14: equivalently the cell holds its marks as if at T_b/phi = 1905 K. Conditional derivation: if the writer and the eraser contribute equal loss (DEV-ERASE-01), E_hold = ln D - ln2 and phi = (ln D - ln2)/M = 0.165 (0.151-0.176 over the writer's published D 47.4-80), against 0.163 +/- 0.006 measured. TESTED 2026-10-15, DEV-ERASE-01 NOT MET: removing the eraser lowers the held error by 4-21 percent, not by half, so the equal split does not hold site by site where we count",
-    "status": "open",
-    "source": "App. E #491; p7_08; p7_11"
+    "formula": "phi = E_hold/(M k_B T) = 3.08/20.94 = 0.147 +/- 0.006; why 0.147 (when a black hole holds 1/2) is the open problem D1. Equivalently the cell holds its marks as if at T_b/phi = 2106 K. The conditional derivation phi = (ln D - ln 2)/M = 0.165 (0.151-0.176 over D 47.4-80) rested on equal writer and eraser loss, and DEV-ERASE-01 was NOT MET (removing the eraser lowers the held error by 4-21 percent, not by half); it is also above the measured 0.147",
+    "status": "measured",
+    "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json; App. E #491"
    }
   },
   {
@@ -796,7 +796,7 @@
    },
    "cells": {
     "native": "R",
-    "formula": "(writer + eraser loss) / eraser loss: 1.90 (1.61-2.76 over the writer's range), after the fact. Caution (2026-10-14): each bit splits its cost 1/2 and 1/2 at the write, but R is a population ratio (what fills the space against what has been written), which in the cosmos slides from infinity to 2 despite the per-event half. Whether the writer-to-eraser loss balance is the cell's R depends on which cell quantity is the potential population and which the kinetic; open",
+    "formula": "(writer + eraser loss) / eraser loss: 1.90 (1.61-2.76 over the writer's range), after the fact, computed from the earlier holding energy 3.41 kT (on the earlier counter, which counted end CpGs as opportunities and read about 0.75 of the per-opportunity rate; superseded 2026-10-19, not recomputed). Caution (2026-10-14): R is a population ratio, which in the cosmos slides from infinity to 2 despite the per-event half; which cell quantity is the potential population and which the kinetic is open",
     "status": "candidate",
     "source": "development"
    }
@@ -918,9 +918,9 @@
    },
    "cells": {
     "native": "IAM-A and Met-A",
-    "formula": "IAM-A = H(eps)/(P H(eps0)); Met-A = reading / healthy of the same kind",
+    "formula": "IAM-A = eps / eps_pred(L), each sample against its own line (commissioned 2026-10-17, band v1 0.779-1.055); Met-A = reading / healthy of the same kind (commissioned); C-Score, clustering of the change over the healthy baseline (commissioned 2026-10-15, upper limit 1.152)",
     "status": "derived",
-    "source": "Part VI"
+    "source": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md; Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md"
    }
   },
   {

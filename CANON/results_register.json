@@ -88,7 +88,7 @@
    "also": [
     "Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/README.md"
    ],
-   "headline": "**Everything the commissioned chain reads rebuilds from public data**, identical: the holding energy 3.41 k_BT and ε₀ = 0.032 (153 public samples), the Met-A floor and its 6,000 sites, the C-score baseline, whole-blood composition, the IAM-A neutrophil position",
+   "headline": "**Everything the commissioned chain reads rebuilds from public data**, identical: the holding energy and ε₀ (153 public samples; then 3.41 k_BT and 0.032 on the earlier counter, superseded 2026-10-19 by 3.08 k_BT and 0.044 per interior opportunity), the Met-A floor and its 6,000 sites, the C-score baseline, whole-blood composition, the IAM-A neutrophil position",
    "plain": "Nothing here depends on trusting us. Every value the instrument uses was rebuilt from scratch from public data by committed code, and came out identical. Anyone can run the same code and get the same numbers.",
    "win": {
     "rank": 11,
@@ -449,7 +449,7 @@
    "covers": [
     "DEV-LOOSE-LINE-01"
    ],
-   "plain": "IAM-A reads how well each DNA molecule kept its marks and compares that with what the same sample's own loose ends predict, so it needs no outside reference. On healthy immune cells from a new laboratory, 7 of the 8 samples it read came out Normal, as sealed in advance.",
+   "plain": "IAM-A reads how well each DNA molecule kept its marks and compares that with what the same sample's own loose share predicts, so it needs no outside reference. On healthy immune cells from a new laboratory, 7 of the 8 samples it read came out Normal, as sealed in advance.",
    "win": {
     "rank": 1,
     "stat": "7 of 8 Normal",

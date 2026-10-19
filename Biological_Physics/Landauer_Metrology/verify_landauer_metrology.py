@@ -86,8 +86,10 @@ for f in (0.02, 0.10):
     say(f"  ln(1/{f}) = {math.log(1/f):.2f} k_B T")
 for s in (7, 21, 80):
     say(f"  Hopfield ln({s}) = {math.log(s):.2f} k_B T")
-allok &= check("phi = 3.41/M", 3.41 / M, 0.163, 0.0005)
-say(f"  sigma(phi) = 0.12/M = {0.12/M:.4f}; E_hold in Landauer units 3.41/ln2 = {3.41/ln2:.2f}")
+import json as _j, pathlib as _pl
+_EH = _j.load(open(_pl.Path(__file__).resolve().parents[2] / "CANON" / "iam_canon.json"))["constants"]["E_hold_meth"]["value"]   # 3.08 kT per interior opportunity (2026-10-19)
+allok &= check("phi = E_hold/M", _EH / M, 0.147, 0.0005)
+say(f"  sigma(phi) = 0.12/M = {0.12/M:.4f}; E_hold in Landauer units E_hold/ln2 = {_EH/ln2:.2f}")
 
 say("6. The pipeline scale map [record PHASE1_OUTCOME.md addendum]: beta_S1 = 1.0127 beta_ref + 0.0662")
 a, b = 1.0127, 0.0662

@@ -1,0 +1,4 @@
+{"what": "one public file counted both ways: the same reads and the same isolated unmethylated calls; only the denominator differs",
+ "file": "GSM5652176_Adipocytes-Z000000T7.hg38.pat.gz (GEO, first 1,500,000 lines)", "rule": "mostly-methylated molecules (>= 6 CpG calls, >= 80 % methylated)",
+ "isolated_calls": 122985, "held_error_every_cpg": 0.04093, "held_error_interior": 0.05453, "ratio": 0.7506, "mean_cpgs_per_molecule": 8.02,
+ "reading": "an end CpG has one neighbor and cannot be isolated; counting it as an opportunity (PROC-CHANNEL-01, channel.py nC_m += len) reads (L-2)/L of the true rate, 0.75 at 8 CpGs per molecule"}

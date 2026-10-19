@@ -135,7 +135,7 @@ Given a blood sample read on an array, the tool says how much of it came from ea
 
 **2026-10-17 · IAM-A commissioned: each sample read against its own reference** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md)
 
-IAM-A reads how well each DNA molecule kept its marks and compares that with what the same sample's own loose ends predict, so it needs no outside reference. On healthy immune cells from a new laboratory, 7 of the 8 samples it read came out Normal, as sealed in advance.
+IAM-A reads how well each DNA molecule kept its marks and compares that with what the same sample's own loose share predicts, so it needs no outside reference. On healthy immune cells from a new laboratory, 7 of the 8 samples it read came out Normal, as sealed in advance.
 
 **2026-10-16 · IAM-Atlas v2.1 against the published array reference atlas of human cell types, on the jobs a reference atlas is used for** · [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_01.md)
 

@@ -3,7 +3,9 @@ import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.patheffects as pe
-import math
+import math, json, pathlib
+_SRD = pathlib.Path(__file__).resolve().parents[3] / "Biological_Physics" / "MethylPhys" / "chain" / "Runtime Matrices" / "IAM_A_SelfRef"
+_SR = json.load(open(_SRD / "selfref_line_v1.json")); _BD = json.load(open(_SRD / "band_v1.json"))
 from matplotlib.colors import LinearSegmentedColormap
 from matplotlib.patches import Rectangle
 from matplotlib.ticker import FixedLocator, FixedFormatter, NullLocator
@@ -22,11 +24,12 @@ _peq = 1 / (1 + math.exp(_h * 5e9 / (_k * 0.035)))
 QF = _peq * 40e-9 / 68e-6 / e(1e-3)          # thermal floor of the transmon reading on its own gauge (6.2e-4)
 
 G = [
-    dict(title="Cell · neutrophil · IAM-A", sub="held error at each CpG, read on single molecules", lim=(1/5.6, 5.6), hmin=1/5.6, cmap=cm_cell,
-         band=None, hmin_lab="H$_{\\min}$ 1×10⁻⁷, off the left edge\n(thermal kicks win against one ATP)", fail=1/(1.1492*0.20433), fail_lab=f"surface full {1/(1.1492*0.20433):.2f}",
-         zones=[(1.35, 4.0, "more error · breach, cancer: to be measured →")],
-         marks=[(1.0, "healthy granulocytes, 3 donors", "#1d7a46"), (1/1.1492, "   H$_{\\rm ref}$ 0.870, average healthy cell type", "#555555")],
-         ticks=[0.3, 0.5, 1, 2, 4.26]),
+    # Cell: commissioned IAM-A (2026-10-17), each sample against its own line; band v1 and the line from the chain's runtime matrices
+    dict(title="Cell · CD8 T cells · IAM-A", sub="held error over what the sample's own loose share predicts, on single molecules", lim=(1/14, 14), hmin=1/14, cmap=cm_cell,
+         band=(_BD["lo"], _BD["hi"]), hmin_lab="H$_{\\min}$ 1–2×10⁻⁸, off the left edge\n(thermal kicks win against one ATP)", fail=0.5/_SR["firm"], fail_lab=f"surface full {0.5/(_SR['firm']+_SR['slope']):.2f}–{0.5/_SR['firm']:.2f}",
+         zones=[(1.35, 6.0, "more error · breach, cancer: to be measured →")],
+         marks=[(1.0, "healthy, its own line", "#1d7a46")],
+         ticks=[0.1, 0.3, 1, 3, round(0.5/(_SR["firm"]+_SR["slope"]), 2), round(0.5/_SR["firm"], 2)]),
     # Qubit: transmon reading of Chapter ch:ascoreqc (5 GHz, own 35 mK, T1 68 us, 40 ns gate, p = 1e-3, illustrative);
     # thermal floor p_eq t_g / T1 with p_eq = 1/(1+exp(hf/kT)) (Chapter ch:qplatforms).
     dict(title="Qubit · transmon reading · two-qubit gate", sub="ε = −ln(1 − p); 5 GHz at its own 35 mK, T1 68 µs, 40 ns gate, p = 10⁻³",
@@ -88,7 +91,7 @@ def draw_onegauge(path):
         [ax.spines[s].set_visible(False) for s in ax.spines]
         ax.text(0, 0.99, g["title"], transform=ax.transAxes, fontsize=9, fontweight="bold", color=NAVY, va="top")
         ax.text(1, 0.99, g["sub"], transform=ax.transAxes, fontsize=6.8, color="0.42", va="top", ha="right", style="italic")
-    fig.text(0.5, 0.01, "A = reading ÷ the same system's healthy reading  (log scale, each gauge centred on 1)",
+    fig.text(0.5, 0.01, "A = reading ÷ the same system's healthy reading  (log scale, each gauge centered on 1)",
              ha="center", fontsize=8, color=NAVY)
     fig.subplots_adjust(left=0.03, right=0.97, top=0.92, bottom=0.05, hspace=0.18)
     fig.savefig(path + ".png", dpi=220)

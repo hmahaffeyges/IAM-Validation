@@ -81,7 +81,10 @@ def nums(s):
 K = canon()
 T0 = K["T_cell"]
 LN2 = np.log(2)
-EPS0 = 1 / (1 + np.exp(K["E_hold_meth"]))            # 3.41 kT -> 0.032
+EPS0 = 1 / (1 + np.exp(K["E_hold_meth"]))            # canon E_hold (3.08 kT) -> 0.044
+# the retired position form (p6_08 'The earlier form', Figures p4_08 donors and curve) was measured against the holding energy of the earlier
+# counter; its figures keep that value, read from the canon's superseded record, so they show what was measured then (2026-10-19)
+EPS0_POS = 1 / (1 + np.exp(json.load(open(S.REPO / "CANON" / "iam_canon.json"))["superseded"]["E_hold_meth"]["value"]))
 P_NEU = iama()["cells"]["neutrophils"]["P"]
 HREF = floors()["floor"]
 CPG_BITS = 2.8e7                                     # Chapter ch:surface: one bit per CpG copy, haploid genome
@@ -280,8 +283,8 @@ def fig_iama():
     g["shift"] = [float(g0.loc[k, "eps_damaged"] - g0.loc[k, "eps"]) for k in g.gsm]
     g["eps_damaged"] = g.eps + g["shift"]
     g["eps_ref_loo"] = [g.eps.drop(i).mean() for i in g.index]
-    g["P_position"] = H(g.eps_ref_loo) / H(EPS0)
-    g["A_phys"] = H(g.eps) / H(EPS0); g["A_own"] = H(g.eps) / (g.P_position * H(EPS0)); g["A_own_damaged"] = H(g.eps_damaged) / (g.P_position * H(EPS0))
+    g["P_position"] = H(g.eps_ref_loo) / H(EPS0_POS)
+    g["A_phys"] = H(g.eps) / H(EPS0_POS); g["A_own"] = H(g.eps) / (g.P_position * H(EPS0_POS)); g["A_own_damaged"] = H(g.eps_damaged) / (g.P_position * H(EPS0_POS))
     fig, ax = plt.subplots(figsize=(0.6 * S.TEXTW, 2.4))
     normal_band(ax)
     x = np.arange(len(g))
@@ -291,12 +294,12 @@ def fig_iama():
     ax.set_xticks(x, g.gsm, fontsize=6.5); ax.set_ylabel("IAM-A"); ax.set_ylim(0.9, 1.5); ax.set_xlim(-0.5, 2.5)
     ax.legend(loc="upper left", fontsize=6); ax.set_title("Three granulocyte donors on single molecules")
     S.save(fig, "part6", "fig_p4_08_donors")
-    e = np.logspace(np.log10(0.015), np.log10(0.08), 300); iam = H(e) / (P_NEU * H(EPS0))
+    e = np.logspace(np.log10(0.015), np.log10(0.08), 300); iam = H(e) / (P_NEU * H(EPS0_POS))
     fig, ax = plt.subplots(figsize=(0.6 * S.TEXTW, 2.4))
     normal_band(ax); ax.plot(e, iam, color=S.IAM)
-    ax.plot(EPS0, 1 / P_NEU, "s", color="k", ms=4); ax.annotate(r"$\varepsilon_0$" + f" = {EPS0:.4f}", (EPS0, 1 / P_NEU), xytext=(-48, -12), textcoords="offset points", fontsize=6.5)
-    ax.plot(g.eps, H(g.eps) / (P_NEU * H(EPS0)), "o", color=S.GR, ms=4, label="donor held error (own reading on this curve)")
-    ax.plot(g.eps_damaged, H(g.eps_damaged) / (P_NEU * H(EPS0)), "^", color=S.DATA, ms=4, label="same molecules with 2 % added")
+    ax.plot(EPS0_POS, 1 / P_NEU, "s", color="k", ms=4); ax.annotate(r"$\varepsilon_0$" + f" = {EPS0_POS:.4f}", (EPS0_POS, 1 / P_NEU), xytext=(-48, -12), textcoords="offset points", fontsize=6.5)
+    ax.plot(g.eps, H(g.eps) / (P_NEU * H(EPS0_POS)), "o", color=S.GR, ms=4, label="donor held error (own reading on this curve)")
+    ax.plot(g.eps_damaged, H(g.eps_damaged) / (P_NEU * H(EPS0_POS)), "^", color=S.DATA, ms=4, label="same molecules with 2 % added")
     ax.set_xscale("log"); ax.set_xlabel(r"held error $\varepsilon$"); ax.set_ylabel(r"$H(\varepsilon)/(P\,H(\varepsilon_0))$")
     ax.legend(loc="upper left", fontsize=6); ax.set_title("IAM-A is steep near the healthy reference")
     S.save(fig, "part6", "fig_p4_08_curve")
@@ -356,7 +359,7 @@ def fig_fish():
             ("Atlantic salmon fin, F1 (WGBS)", ri[ri.generation == "F1"].E_kT)]
     efix = K["E_hold_meth"] * T0 / 283.15
     fig, (a1, a2, a3) = plt.subplots(1, 3, figsize=(S.TEXTW, 2.6), gridspec_kw=dict(width_ratios=[1.6, 0.8, 0.8], wspace=0.45))
-    a1.axvline(K["E_hold_meth"], color=S.GR, lw=0.8, ls="--"); a1.text(K["E_hold_meth"] - 0.02, 4.55, "human cells,\n37 °C: 3.41", fontsize=6, ha="right", color=S.GR)
+    a1.axvline(K["E_hold_meth"], color=S.GR, lw=0.8, ls="--"); a1.text(K["E_hold_meth"] - 0.02, 4.55, f"human cells,\n37 °C: {K['E_hold_meth']:.2f}", fontsize=6, ha="right", color=S.GR)
     a1.axvline(efix, color=S.IAM, lw=0.8, ls=":"); a1.text(efix + 0.02, 4.55, f"fixed energy\nat 10 °C: {efix:.2f}", fontsize=6, color=S.IAM)
     med = {}
     for i, (lab, v) in enumerate(sets):

@@ -36,13 +36,13 @@ $\varepsilon=1/(1+e^{E/\kB T})$. \derived{} Three energies mark the gauge:
 \begin{tabular}{@{}llllll@{}}\toprule
 mark & where & energy holding each site & thermal kicks win & entropy per site & set by \\\midrule
 floor $\Hmin$ & left & one full ATP, $M=20.94\,\kB T$ & 1 in $1.24\times10^{9}$ & $2.5\times10^{-8}$ bits & $M$ alone \calc \\
-healthy reference $\Href$ & middle & $3.41\,\kB T$ & 1 in 31 ($\varepsilon_0=0.032$) & $0.2043$ bits & healthy cells \measured \\
+healthy reference $\Href$ & middle & $3.08\,\kB T$ & 1 in 23 ($\varepsilon_0=0.044$) & $0.259$ bits & healthy cells \measured \\
 ceiling & right & none & every other time ($\varepsilon=\tfrac12$) & 1 bit & physics \derived \\\bottomrule
 \end{tabular}\end{center}
 The floor is where thermal kicks win against everything one ATP can buy, and no cell comes near it. The healthy reference is where healthy
-cells actually hold their sites: the holding energy measured across 56 healthy cell types, $3.41\,\kB T$ (public single-molecule files, rebuilt from them by one committed
-script), gives $\phi=0.1628$ of one ATP
-(Chapter~\ref{ch:landauer}), $\varepsilon_0=0.032$ and $\Href=0.2043$ bits. Healthy cell types spread around it (held error 0.024--0.042),
+cells actually hold their sites: the holding energy measured across 56 healthy cell types, $3.08\,\kB T$ (public single-molecule files counted by chain Stage Q2, rebuilt by one committed
+script), gives $\phi=0.147$ of one ATP
+(Chapter~\ref{ch:landauer}), $\varepsilon_0=0.044$ and $\Href=0.259$ bits. Healthy cell types spread around it (held error 0.033--0.055),
 so about half hold their sites better than $\Href$; none approaches $\Hmin$. The distance between floor and reference is the cell's
 efficiency, $\phi$. Thermodynamics bounds the holding energy by the free energy spent per renewal (one ATP sets the floor); the height
 the cell actually holds is set by the kinetics of maintenance, the balance of restore and loss, $E_{\rm hold}=\kB T\ln(g/f)$
@@ -74,7 +74,7 @@ machine (158 of 158). Other cell types and chemistries are development.
 
 \subsection*{The earlier form: a frozen position (retired to a development flag)}
 
-Before the self-reference line, each healthy cell type was given its own position $P$ relative to the healthy reference, measured once
+Its numbers are kept as they were measured, on the earlier counter (superseded 2026-10-19). Before the self-reference line, each healthy cell type was given its own position $P$ relative to the healthy reference, measured once
 per cell type and per read pipeline, and frozen. This form is kept in the chain behind a development flag only:
 \begin{equation}
   \text{IAM-A}_{\rm position}=\frac{H(\varepsilon)}{P_{\rm cell}\,H(\varepsilon_0)},\qquad P_{\rm neutrophil}=1.149 .
@@ -124,16 +124,16 @@ different statistic (all-site held error, with no filter on methylated molecules
 
 \section{One energy, many cells}
 
-Read on the same 399 genomic windows for 153 samples of 56 healthy cell types, with no labels and no floor:
+Read for 153 samples of 56 healthy cell types by chain Stage Q2 on whole files (the third item on 399 genomic windows, PROC-CHANNEL-01), with no labels and no floor:
 \begin{itemize}
-\item the held error ranges 0.024--0.042 and the holding energy $3.41\pm0.12\,\kB T$: close to one energy in every cell type;
-\item on one physics floor (Eq.~\eqref{eq:eps0}) healthy cell types read 0.79--1.23, median 1.01; 27 of 56 inside Normal. One
+\item the held error ranges 0.033--0.055 and the holding energy $3.08\pm0.12\,\kB T$: close to one energy in every cell type;
+\item on one physics floor (Eq.~\eqref{eq:eps0}) healthy cell types read 0.81--1.18, median 1.02; 27 of 56 inside Normal. One
       floor is not yet precise enough for an individual reading, which is why each cell type carries its own $P$;
 \item on the 26,800 CpGs that all 56 cell types keep methylated, the same bits in every cell, the held error still differs
       1.66-fold from the lowest (naive CD8 T cells, lung macrophages, B cells) to the highest (smooth muscle, heart
       fibroblasts, erythroid progenitors), and the difference is stable across donors (intraclass correlation 0.80);
-\item cells do not sort by turnover: colon epithelium (a 3.4-day lifespan) and cardiomyocytes (56,000 days)~\cite{Sender2021} carry the same
-      held error, 0.031.
+\item cells do not sort by turnover: colon epithelium (a 3.4-day lifespan) and cardiomyocytes (56,000 days)~\cite{Sender2021} carry about the same
+      held error, 0.042 and 0.043.
 \end{itemize}
 \measured{} for all four. The architecture of each cell's maintenance, not how often it is replaced, sets its position.
 

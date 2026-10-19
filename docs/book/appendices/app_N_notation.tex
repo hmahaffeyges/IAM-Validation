@@ -12,7 +12,7 @@ its own conventions where they differ, so several letters carry more than one me
 particles and gaps in eV, meV or $\mu$eV ($1~\mathrm{eV}=1.602176634\times10^{-19}$~J, exact).
 \item $\ln$ is the natural logarithm and $\log_2$ the logarithm to base 2. One bit is $\ln2=0.693147$ nats. A Shannon entropy written $H$ is in bits; a
 thermodynamic entropy written $S$ is in J\,K$^{-1}$, that is in units of $\kB$ (nats times $\kB$). A horizon entropy in bits is $S/(\kB\ln2)$.
-\item $\kB T$ is the thermal energy quantum; ``$3.41\,\kB T$'' means $3.41$ times $\kB T$ at the stated temperature. \emph{Landauer units} measure an energy in units
+\item $\kB T$ is the thermal energy quantum; ``$3.08\,\kB T$'' means $3.08$ times $\kB T$ at the stated temperature. \emph{Landauer units} measure an energy in units
 of $\kB T\ln2$, the Landauer cost of one bit: an energy $x\,\kB T$ is $x/\ln2$ Landauer units.
 \item The Mahaffey number $\mathcal M=E_{\rm drive}/\kB T$ (also written $M$) is defined without a factor $\ln2$; $\mathcal M/\ln2$ is the same quantity in Landauer units. For
 the cell $\mathcal M=\dGATP/(R\Tb)=20.94$, which is $30.21$ in Landauer units (canon value 30.2).
@@ -105,16 +105,16 @@ $\dGATP$ & cytosolic free energy of ATP hydrolysis & 54~kJ\,mol$^{-1}$ & inside 
 $\kB\Tb\ln2$ & Landauer cost of one bit at body temperature & $2.968\times10^{-21}$~J & $=1.787$~kJ\,mol$^{-1}$; \calc \\\iamrowrule
 $\mathcal M$, $M_{\rm cell}$ & Mahaffey number of the cell & 20.94 & $\dGATP/(R\Tb)$, no $\ln2$; \calc \\\iamrowrule
 $\mathcal M/\ln2$ & the same in Landauer units (bits one ATP can pay for) & 30.2 (30.21) & a unit conversion, not a second definition \\\iamrowrule
-$E_{\rm hold}$ & holding energy per methylated site & $3.41\,\kB T$ & $\ln[(1-\varepsilon)/\varepsilon]$ on single molecules; \measured \\\iamrowrule
-$E_{\rm hold}/\ln2$ & the same in Landauer units & 4.9 & conversion \\\iamrowrule
-$\varphi$ (also $\phi$) & fraction of one ATP spent per held bit & 0.1628 & $E_{\rm hold}/\mathcal M$; \measured \\\iamrowrule
+$E_{\rm hold}$ & holding energy per methylated site & $3.08\,\kB T$ & $\ln[(1-\varepsilon)/\varepsilon]$ on single molecules; \measured \\\iamrowrule
+$E_{\rm hold}/\ln2$ & the same in Landauer units & 4.45 & conversion \\\iamrowrule
+$\varphi$ (also $\phi$) & fraction of one ATP spent per held bit & 0.147 & $E_{\rm hold}/\mathcal M$; \measured \\\iamrowrule
 $\varepsilon_{\min}$ & the error one ATP of holding energy allows against thermal kicks (not a copying error; it is the same whether the cell divides or not), $1/(1+e^{\mathcal M})$ & $8.1\times10^{-10}$ & \calc \\\iamrowrule
 $\Hmin$ & the floor, $H(\varepsilon_{\min})$ & $2.5\times10^{-8}$ bits & \calc; on the gauge $1\times10^{-7}$ (IAM-A), $8\times10^{-8}$ (Met-A) \\\iamrowrule
 $\varepsilon_0$ & healthy reference held error & 0.032 & $1/(1+e^{\varphi\mathcal M})$: form \derived, height \measured \\\iamrowrule
-$\Href=H(\varepsilon_0)$ & healthy reference height, 56 healthy cell types & 0.2043 bits & \calc \\\iamrowrule
-$P_{\rm cell}$ & healthy cell type's position relative to $\Href$ (neutrophils) & 1.149 & 3 donors, whole files, 1.140--1.155; pipeline \texttt{loyfer\_pat\_v1}; \measured \\\iamrowrule
-$P_{\rm cell}\Href$ & IAM-A healthy reference (neutrophils) & 0.2348 bits & \calc \\\iamrowrule
-$1/P_{\rm cell}$ & position of $\Href$ on the neutrophil IAM-A gauge & 0.870 & \calc \\\iamrowrule
+$\Href=H(\varepsilon_0)$ & healthy reference height, 56 healthy cell types & 0.259 bits & \calc \\\iamrowrule
+$P_{\rm cell}$ & retired 2026-10-17 with the position form of IAM-A (development flag only); neutrophils & 1.149 & as measured then, earlier counter, pipeline \texttt{loyfer\_pat\_v1} \\\iamrowrule
+% row removed 2026-10-19: P_cell H_ref belonged to the retired position form
+% row removed 2026-10-19: 1/P_cell belonged to the retired position form
 Met-A reference & Met-A healthy reference, EPIC v1 neutrophils & 0.330263 bits & 6 purified arrays, 6,000 sites; \calibrated \\\iamrowrule
 Normal & the healthy band of a reading & Met-A $0.95$--$1.05$; IAM-A $0.779$--$1.055$ & Met-A a design tolerance, $A=1\pm5\,\%$; IAM-A band v1, measured \\\iamrowrule
 $A_{\max}$ & full surface: every identity site at a coin flip & 3.03 (Met-A); 6.68--12.42 (IAM-A) & $1/0.330263$; $0.5/\varepsilon_{\rm pred}(L)$, the sample's own; \calc \\\iamrowrule

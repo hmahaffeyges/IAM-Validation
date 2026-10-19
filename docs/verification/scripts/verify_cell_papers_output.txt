@@ -1,18 +1,18 @@
 === K: numbers proposed for the book ===
-K1a    PASS  value=0.0319844  expected=0.032  eps0 at 37 C (book p3_08: 0.032)
-K1b    PASS  value=0.204248  expected=0.2043  H(eps0) at 37 C (book 0.2043)
-K1c    PASS  value=0.0233128  expected=0.0233  eps0 at 10 C (book p4_10: 0.0233)
-K1d    PASS  value=0.781684  expected=0.78  floor ratio at 10 C (book p4_10: 0.78)
-K115   PASS  value=0.821493  expected=0.821  floor ratio at 15 C, fixed holding energy
-K125   PASS  value=0.902077  expected=0.902  floor ratio at 25 C, fixed holding energy
-K132   PASS  value=0.959074  expected=0.959  floor ratio at 32 C, fixed holding energy
-K140   PASS  value=1.02462  expected=1.025  floor ratio at 40 C, fixed holding energy
-K142   PASS  value=1.04105  expected=1.041  floor ratio at 42 C, fixed holding energy
-K215   PASS  value=0.0248351  expected=0.0248  eps0 at 15 C
-K225   PASS  value=0.0279974  expected=0.028  eps0 at 25 C
-K232   PASS  value=0.030299  expected=0.0303  eps0 at 32 C
-K240   PASS  value=0.0330115  expected=0.033  eps0 at 40 C
-K242   PASS  value=0.0337025  expected=0.0337  eps0 at 42 C
+K1a    PASS  value=0.0437721  expected=0.0438  eps0 at 37 C (book: 0.044)
+K1b    PASS  value=0.259327  expected=0.259  H(eps0) at 37 C (book 0.259)
+K1c    PASS  value=0.0329877  expected=0.033  eps0 at 10 C (book p6_10: 0.0330)
+K1d    PASS  value=0.806549  expected=0.81  floor ratio at 10 C (book p6_10: 0.81)
+K115   PASS  value=0.842351  expected=0.842  floor ratio at 15 C, fixed holding energy
+K125   PASS  value=0.914079  expected=0.914  floor ratio at 25 C, fixed holding energy
+K132   PASS  value=0.964248  expected=0.964  floor ratio at 32 C, fixed holding energy
+K140   PASS  value=1.0214  expected=1.021  floor ratio at 40 C, fixed holding energy
+K142   PASS  value=1.03564  expected=1.036  floor ratio at 42 C, fixed holding energy
+K215   PASS  value=0.0349096  expected=0.0349  eps0 at 15 C
+K225   PASS  value=0.0388611  expected=0.0389  eps0 at 25 C
+K232   PASS  value=0.0417051  expected=0.0417  eps0 at 32 C
+K240   PASS  value=0.0450255  expected=0.045  eps0 at 40 C
+K242   PASS  value=0.0458664  expected=0.0459  eps0 at 42 C
 K3     INFO  S37=7: S(15 C)=8.1  S(42 C)=6.8
 K3     INFO  S37=21: S(15 C)=26.5  S(42 C)=20.0
 K3     INFO  S37=80: S(15 C)=111.8  S(42 C)=74.6

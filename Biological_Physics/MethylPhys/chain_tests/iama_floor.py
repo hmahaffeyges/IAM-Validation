@@ -4,7 +4,7 @@ Data: Loyfer 2023 blood granulocytes (>= 90 % neutrophils), 3 donors, read-level
 Copy error eps = isolated unmethylated CpG between two methylated CpGs on reads with >= 6 CpGs and >= 80 % methylated, per opportunity (uncorrected:
 .pat files carry no sequence, so no sequencing-error term; same as PROC-CHANNEL-01).
 Readings compared (H = binary entropy):
-  (a) physics floor:        IAM-A = H(eps) / H(eps0),  eps0 = 1/(1+exp(phi*M)), phi*M = 3.41 kT (canon)
+  (a) physics floor:        IAM-A = H(eps) / H(eps0),  eps0 = 1/(1+exp(phi*M)), phi*M = E_hold_meth (canon; 3.08 kT since 2026-10-19)
   (b) own healthy baseline: IAM-A = H(eps) / H(eps_ref), eps_ref = the other donors' pooled eps (leave-one-donor-out)
   (c) physics x position:   IAM-A = H(eps) / (P * H(eps0)), P = H(eps_ref)/H(eps0) frozen and printed  [numerically = (b); differs in what is reported]
 Checks: healthy in Normal; repeat (odd vs even reads of each donor); known damage: 2 % of methylated CpGs on qualifying reads set to T at random."""

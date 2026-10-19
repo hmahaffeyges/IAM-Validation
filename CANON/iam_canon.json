@@ -49,37 +49,34 @@
    "also": "1.787 kJ/mol"
   },
   "E_hold_meth": {
-   "value": 3.41,
+   "value": 3.084,
    "units": "kT per methylated site",
-   "derivation": "ln((1-eps)/eps) of the measured held error on single molecules (read-level files of the published sequencing atlas, uncorrected)",
-   "source": "PROC-CHANNEL-01",
-   "range_note": "3.41-3.77 kT across datasets (ENCODE, instrument-corrected, upper end)"
+   "sd": 0.12,
+   "range": [
+    2.85,
+    3.37
+   ],
+   "derivation": "ln((1-eps)/eps) of the held error per interior opportunity on single molecules, mean over 56 healthy cell types (SD across types 0.12 kT)",
+   "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json (holding_energy_q2.py; chain Stage Q2 counts of 153 healthy samples, 56 cell types)",
+   "note": "the instrument-corrected upper value 3.77 kT (ENCODE) was computed on the earlier counter and is not carried; it is to be recomputed on this counter"
   },
   "E_hold_meth_Landauer": {
-   "value": 4.9,
+   "value": 4.45,
    "units": "Landauer units",
    "derivation": "E_hold_meth / ln 2"
   },
   "phi": {
-   "value": 0.1628,
+   "value": 0.1473,
    "units": "fraction of one ATP per held bit",
    "derivation": "E_hold_meth / M_cell",
-   "source": "PROC-CHANNEL-01",
-   "accept": [
-    0.16,
-    0.163,
-    0.1629
-   ]
+   "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json (holding_energy_q2.py; chain Stage Q2 counts of 153 healthy samples, 56 cell types)",
+   "sd": 0.0057
   },
   "eps0_meth": {
-   "value": 0.032,
+   "value": 0.04376,
    "units": "held error per methylated site",
-   "derivation": "1/(1+exp(phi*M_cell)) with phi*M_cell = E_hold_meth = 3.41 kT MEASURED from cells' held error: the HEALTHY REFERENCE held error (not the floor). The form is physics (Boltzmann), the height is measured; about half of healthy cell types hold better than it",
-   "source": "PROC-CHANNEL-01; a physics-only height (phi derived from the writer's discrimination measured outside the cell) is open",
-   "accept": [
-    0.032,
-    0.032
-   ]
+   "derivation": "1/(1+exp(phi*M_cell)) with phi*M_cell = E_hold_meth = 3.084 kT MEASURED from cells' held error: the HEALTHY REFERENCE held error (not the floor). The form is physics (Boltzmann), the height is measured; about half of healthy cell types hold better than it",
+   "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json (holding_energy_q2.py; chain Stage Q2 counts of 153 healthy samples, 56 cell types); a physics-only height (phi derived from the writer's discrimination measured outside the cell) is open"
   },
   "Normal_band": {
    "value": [
@@ -133,10 +130,10 @@
    "status": "retired (2026-10-17): the position form of IAM-A; development flag only"
   },
   "H_ref_cell": {
-   "value": 0.2043,
+   "value": 0.2593,
    "units": "bits",
    "derivation": "H(eps0_meth): the healthy reference height, where healthy cells actually hold their methylated sites (56 healthy cell types)",
-   "source": "PROC-CHANNEL-01 (holding energy measured across 56 healthy cell types)"
+   "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json (holding_energy_q2.py; chain Stage Q2 counts of 153 healthy samples, 56 cell types)"
   },
   "H_min_cell": {
    "value": 2.5e-08,
@@ -220,7 +217,7 @@
   },
   "H_min (the floor)": {
    "status": "current",
-   "definition": "The absolute lowest error a system can hold before thermal kicks win; below it the system no longer exists as itself. It is NOT the denominator of A and NOT 1: it sits below 1 at H_min / healthy reference. Cells: thermal kicks win against one full ATP per site, held error 1/(1+e^M) = 8.1e-10, H_min = 2.5e-8 bits (1e-7 on the IAM-A gauge, 8e-8 on Met-A, neutrophils). It is NOT the healthy reference height H_ref = H(eps0) = 0.2043 bits. Qubits: the thermal floor p_eq t_g/T1, p_eq = 1/(1+exp(hf/(k_B T))) at the temperature the qubit's record sees. Chips: the Landauer floor k_B T_j ln 2.",
+   "definition": "The absolute lowest error a system can hold before thermal kicks win; below it the system no longer exists as itself. It is NOT the denominator of A and NOT 1: it sits below 1 at H_min / healthy reference. Cells: thermal kicks win against one full ATP per site, held error 1/(1+e^M) = 8.1e-10, H_min = 2.5e-8 bits (1e-7 on the IAM-A gauge, 8e-8 on Met-A, neutrophils). It is NOT the healthy reference height H_ref = H(eps0) = 0.2593 bits. Qubits: the thermal floor p_eq t_g/T1, p_eq = 1/(1+exp(hf/(k_B T))) at the temperature the qubit's record sees. Chips: the Landauer floor k_B T_j ln 2.",
    "note": "The absolute lowest point a system can operate at before thermal kicks win."
   },
   "eps (gate error in nats)": {
@@ -244,7 +241,7 @@
   },
   "H_ref (healthy reference height)": {
    "status": "current",
-   "definition": "Cells: where healthy cells actually hold their methylated sites, H(eps0) = 0.2043 bits (E_hold 3.41 kT, measured across 56 healthy cell types; about half hold better than it). Each cell type's own IAM-A healthy reference is P_cell H_ref (neutrophils 0.2348 bits). Measured, not a limit; the floor is H_min. The distance from H_min to H_ref in energy is phi = 0.16 of one ATP."
+   "definition": "Cells: where healthy cells actually hold their methylated sites, H(eps0) = 0.2593 bits (E_hold 3.084 kT, measured per interior opportunity across 56 healthy cell types; about half hold better than it). Measured, not a limit; the floor is H_min. The distance from H_min to H_ref in energy is phi = 0.1473 of one ATP."
   }
  },
  "retired": {
@@ -309,6 +306,34 @@
   "zero adjustable parameters": {
    "replaced_by": "state which quantities are measured and which are assumed",
    "severity": "warn"
+  },
+  "3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)": {
+   "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+   "severity": "block"
+  },
+  "0\\.2043": {
+   "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+   "severity": "block"
+  },
+  "0\\.1628|\\bphi *= *0\\.163|varphi *= *0\\.16[23]?\\b|0\\.163 of (one|an) ATP": {
+   "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+   "severity": "block"
+  },
+  "1905 ?K|1905\\\\,|1,905 ?K": {
+   "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+   "severity": "block"
+  },
+  "(varepsilon_0|varepsilon_\\{0\\}|eps0|ε₀|eps_0)[^0-9\\n]{0,18}0\\.032(?!\\d)": {
+   "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+   "severity": "block"
+  },
+  "0\\.0212(?!\\d)|0\\.0497(?!\\d)|\\bD *= *46\\b": {
+   "replaced_by": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
+   "severity": "block"
+  },
+  "[Ff]irm end": {
+   "replaced_by": "firm rate (the gauge's only ends are the floor and the ceiling; author 2026-10-15)",
+   "severity": "block"
   }
  },
  "scope": {
@@ -348,9 +373,30 @@
    "Biological_Physics/MethylPhys/doors/CLASS_HISTORY.md",
    "Biological_Physics/MethylPhys/atlas/v2/COMMUNICATION.md",
    "Biological_Physics/MethylPhys/kit/ROW9_WORKING_NOTE.md",
-   "docs/book/appendices/app_A_canon.tex"
+   "docs/book/appendices/app_A_canon.tex",
+   "development/",
+   "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "Biological_Physics/MethylPhys/whiteboard/",
+   "Biological_Physics/MethylPhys/archive/",
+   "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
+   "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
+   "docs/book/verification/verify_book_output.txt",
+   "docs/book/verification/VERIFY_BOOK_INVENTORY.md",
+   "Biological_Physics/MethylPhys/doors/DEV_FLOOR_HEIGHT_01.md",
+   "Biological_Physics/MethylPhys/doors/DEV_FLOOR_HEIGHT_02.md",
+   "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
+   "Biological_Physics/MethylPhys/doors/DEV_WRITER_01.md",
+   "Biological_Physics/MethylPhys/doors/DEV_WRITER_01_OUTCOME.md",
+   "Biological_Physics/MethylPhys/doors/DEV_WRITER_02.md",
+   "Biological_Physics/MethylPhys/doors/DEV_WRITER_02_OUTCOME.md",
+   "Biological_Physics/MethylPhys/doors/DEV_IAMA_P_WHOLE_01.md",
+   "Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_02.md",
+   "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
+   "Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_OUTCOME.md",
+   "Biological_Physics/MethylPhys/doors/DEV_LINK_IAMA_METAA_01.md",
+   "Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md"
   ],
-  "record_files_note": "Published editions, provenance scripts and verbatim records: kept as written, never edited to current language.",
+  "record_files_note": "Published editions, provenance scripts and verbatim records: kept as written, never edited to current language. 2026-10-19: dated records of the earlier held-error counter (every CpG in the denominator) keep the values they were sealed or written with; PROC_CHANNEL_01_OUTCOME.md carries the correction.",
   "cell_scope": {
    "value": [
     "neutrophils"
@@ -358,5 +404,56 @@
    "rule": "The chain reports Met-A, IAM-A and both C-scores for neutrophils only until commissioned with new VALs; cell types are added one at a time, in order of abundance in blood, each after passing healthy-in-Normal, known-2%-damage detection and same-person repeat (author, 2026-10-01)."
   }
  },
- "hierarchy": "IAM's law -> applications: cosmology; qubits; semiconductors; the methylation report (biology) -> the methylation report chains: MethylPhys CPG (cells), salmonid chain (in development)."
+ "hierarchy": "IAM's law -> applications: cosmology; qubits; semiconductors; the methylation report (biology) -> the methylation report chains: MethylPhys CPG (cells), salmonid chain (in development).",
+ "superseded": {
+  "E_hold_meth": {
+   "value": 3.41,
+   "units": "kT per methylated site",
+   "derivation": "ln((1-eps)/eps) of the measured held error on single molecules (read-level files of the published sequencing atlas, uncorrected)",
+   "source": "PROC-CHANNEL-01",
+   "range_note": "3.41-3.77 kT across datasets (ENCODE, instrument-corrected, upper end)",
+   "superseded": "2026-10-19",
+   "reason": "2026-10-19: PROC-CHANNEL-01's counter divided isolated errors by every CpG on a molecule, ends included; an end CpG has one neighbor and cannot be isolated, so the count read about 0.75 of the per-opportunity rate (denominator_check_2026-10-19.json). The commissioned chain (Stage Q2) counts interior opportunities."
+  },
+  "E_hold_meth_Landauer": {
+   "value": 4.9,
+   "units": "Landauer units",
+   "derivation": "E_hold_meth / ln 2",
+   "superseded": "2026-10-19",
+   "reason": "2026-10-19: PROC-CHANNEL-01's counter divided isolated errors by every CpG on a molecule, ends included; an end CpG has one neighbor and cannot be isolated, so the count read about 0.75 of the per-opportunity rate (denominator_check_2026-10-19.json). The commissioned chain (Stage Q2) counts interior opportunities."
+  },
+  "phi": {
+   "value": 0.1628,
+   "units": "fraction of one ATP per held bit",
+   "derivation": "E_hold_meth / M_cell",
+   "source": "PROC-CHANNEL-01",
+   "accept": [
+    0.16,
+    0.163,
+    0.1629
+   ],
+   "superseded": "2026-10-19",
+   "reason": "2026-10-19: PROC-CHANNEL-01's counter divided isolated errors by every CpG on a molecule, ends included; an end CpG has one neighbor and cannot be isolated, so the count read about 0.75 of the per-opportunity rate (denominator_check_2026-10-19.json). The commissioned chain (Stage Q2) counts interior opportunities."
+  },
+  "eps0_meth": {
+   "value": 0.032,
+   "units": "held error per methylated site",
+   "derivation": "1/(1+exp(phi*M_cell)) with phi*M_cell = E_hold_meth = 3.41 kT MEASURED from cells' held error: the HEALTHY REFERENCE held error (not the floor). The form is physics (Boltzmann), the height is measured; about half of healthy cell types hold better than it",
+   "source": "PROC-CHANNEL-01; a physics-only height (phi derived from the writer's discrimination measured outside the cell) is open",
+   "accept": [
+    0.032,
+    0.032
+   ],
+   "superseded": "2026-10-19",
+   "reason": "2026-10-19: PROC-CHANNEL-01's counter divided isolated errors by every CpG on a molecule, ends included; an end CpG has one neighbor and cannot be isolated, so the count read about 0.75 of the per-opportunity rate (denominator_check_2026-10-19.json). The commissioned chain (Stage Q2) counts interior opportunities."
+  },
+  "H_ref_cell": {
+   "value": 0.2043,
+   "units": "bits",
+   "derivation": "H(eps0_meth): the healthy reference height, where healthy cells actually hold their methylated sites (56 healthy cell types)",
+   "source": "PROC-CHANNEL-01 (holding energy measured across 56 healthy cell types)",
+   "superseded": "2026-10-19",
+   "reason": "2026-10-19: PROC-CHANNEL-01's counter divided isolated errors by every CpG on a molecule, ends included; an end CpG has one neighbor and cannot be isolated, so the count read about 0.75 of the per-opportunity rate (denominator_check_2026-10-19.json). The commissioned chain (Stage Q2) counts interior opportunities."
+  }
+ }
 }

@@ -1,5 +1,12 @@
 # PROC-CHANNEL-01 — each cell type's error budget and holding energy, from single DNA molecules (2026-09-30)
 
+> **Correction, 2026-10-19.** This record's held error divided isolated errors by every CpG on a molecule, ends included. An end CpG has one
+> neighbor and cannot be isolated, so it is no opportunity; the count read about 0.75 of the per-opportunity rate (one public file counted both
+> ways: doors/data/DEV_CHAIN_Q2_01/denominator_check_2026-10-19.json). On the commissioned chain's counter (Stage Q2, interior opportunities) the same
+> 153 samples and 56 cell types give E_hold 3.08 ± 0.12 kT (2.85-3.37), ε₀ 0.044, φ 0.147, H_ref 0.259 bits (doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json),
+> and those are the values in CANON/iam_canon.json and the book. The numbers below are kept as they were measured. Still true on the true count: one
+> energy in every healthy cell type (SD 0.12 kT), inside DNMT1's Hopfield gap (1.9-4.4 kT), and no sorting by turnover.
+
 Loyfer 2023 read-level WGBS (hg19 .pat), 56 cell types, 153 samples, the same 399 windows (798,000 CpGs across all autosomes) read for every sample:
 median 2.96 M read-patterns and 561,000 adjacent CpG pairs per sample. No labels and no floor used in the measurement.
 

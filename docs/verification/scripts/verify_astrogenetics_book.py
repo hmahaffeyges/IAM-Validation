@@ -22,18 +22,20 @@ H = lambda x: -x*math.log2(x) - (1-x)*math.log2(1-x)
 
 # --- gauge points (book: p6_05_floorbreach, p6_06_gauge, p7_08_one_gauge) ---
 Href = 0.330263          # metA_floors_v1_3.json floor, bits (p6_14_atlas l.20)
-P = 1.099                # neutrophil position (p6_24_status)
-Ehold = 3.41             # k_BT, measured holding energy (p4_06 l.129)
+import json, pathlib
+_ROOT = pathlib.Path(__file__).resolve().parents[3]
+Ehold = json.load(open(_ROOT / "CANON" / "iam_canon.json"))["constants"]["E_hold_meth"]["value"]   # k_BT, per interior opportunity (2026-10-19)
+_SR = json.load(open(_ROOT / "Biological_Physics" / "MethylPhys" / "chain" / "Runtime Matrices" / "IAM_A_SelfRef" / "selfref_line_v1.json"))
 M = 54000/(8.314*310.15) # Delta G_ATP / R T_body (p3_08 l.138-139)
 eps0 = 1/(1+math.exp(Ehold))
 check("Met-A full surface 1/0.330263", 1/Href, 3.03, 0.005)
-check("eps0 = 1/(1+e^3.41)", eps0, 0.032, 0.0005)
-check("H(eps0) at 0.032, bits", H(0.032), 0.2043, 0.00005)
-check("IAM-A full surface 1/(P H(eps0))", 1/(P*H(0.032)), 4.45, 0.005)
-check("IAM-A floor 1/P", 1/P, 0.910, 0.0005)
+check("eps0 = 1/(1+e^E_hold)", eps0, 0.0438, 0.0005)
+check("H(eps0), bits", H(eps0), 0.2593, 0.00005)
+check("IAM-A full surface 0.5/eps_pred(0)", 0.5/_SR["firm"], 12.42, 0.005)
+check("IAM-A full surface 0.5/eps_pred(1)", 0.5/(_SR["firm"]+_SR["slope"]), 6.68, 0.005)
 check("M = 54000/(8.314*310.15)", M, 20.94, 0.005)
-check("holding energy in Landauer units 3.41/ln2", Ehold/math.log(2), 4.9, 0.05)
-check("phi = 3.41/20.94", Ehold/M, 0.163, 0.0005)
+check("holding energy in Landauer units E_hold/ln2", Ehold/math.log(2), 4.45, 0.005)
+check("phi = E_hold/20.94", Ehold/M, 0.147, 0.0005)
 kB = 1.380649e-23
 check("Landauer cost at 310.15 K (1e-21 J)", kB*310.15*math.log(2)/1e-21, 2.97, 0.005)
 

@@ -23,10 +23,10 @@ H = lambda x: -(x*np.log2(x) + (1-x)*np.log2(1-x))
 print(kB*T*math.log(2))                          # 2.968e-21 J per bit
 M = 54000/(R*T); print(M, M/math.log(2))          # 20.94 ; 30.21 in Landauer units
 print(28217448*kB*T*math.log(2)/(54000/NA))       # 9.3e5 ATP: Landauer floor of one methylome copy (28,217,448 CpGs, hg19)
-Ehold = 3.41; print(1/(1+math.exp(Ehold)))       # 0.03198 before rounding
-eps0 = 0.032                                      # frozen value (Appendix A2)
-print(Ehold/M, eps0)                              # phi = 0.163 ; eps0 = 0.032
-print(H(eps0))                                    # H_ref 0.2043
+Ehold = json.load(open("CANON/iam_canon.json"))["constants"]["E_hold_meth"]["value"]; print(Ehold)   # 3.084 kT (holding_energy_q2.json)
+eps0 = 1/(1+math.exp(Ehold))                      # 0.04377 (Appendix A2: 0.044)
+print(Ehold/M, eps0)                              # phi = 0.147 ; eps0 = 0.0438
+print(H(eps0))                                    # H_ref 0.2593
 print(H(1/(1 + math.exp(M))))                     # H_min, the floor: 2.5e-08
 print(1/0.330263, 0.5/0.040265, 0.5/(0.040265+0.034625)) # A_max: 3.03 (Met-A) ; IAM-A 0.5/eps_pred(L): 12.42 (L=0) to 6.68 (L=1)
 d = "Biological_Physics/MethylPhys/chain/Runtime Matrices/"

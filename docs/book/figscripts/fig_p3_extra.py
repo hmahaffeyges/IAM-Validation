@@ -1,6 +1,6 @@
 """Part 3 figures and tables added for TODO 9.2 (at least two figures and one table per chapter).
 Every number is computed here from physical constants (scipy.constants) or from repository files:
-  CANON/iam_canon.json                                  (E_hold_meth = 3.41 kT, P_neutrophil_IAM_A = 1.1492, whole files)
+  CANON/iam_canon.json                                  (E_hold_meth, 3.08 kT per interior opportunity since 2026-10-19)
   Hughes et al. arXiv:2510.17286 and Ransford et al. arXiv:2511.05465 (abstract values, typed with the sentence quoted)
   Jin et al. PRL 114, 240501 (2015) (transmon effective temperature 35 mK); Google Quantum AI, Nature 638, 920 (2025) (mean T1 = 68 us)
   Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md (per-patient held errors, parsed)
@@ -151,7 +151,7 @@ for TT in (0.035, 0.015):                       # transmon at 5 GHz: own tempera
     print(f"qubit thermal floor at {TT*1e3:.0f} mK: M {mm:.2f}, p_eq {pe:.3e}")
 ax[2].set_xlabel(r"$M=hf/k_BT$"); ax[2].set_ylabel(r"$p_{\rm eq}$"); ax[2].set_title(r"qubit: $1/(1+e^{M})$", fontsize=7)
 x = np.linspace(0, 6, 200); e0 = 1 / (1 + np.exp(x)); ax[3].plot(x, e0, color=S.GR)
-e0m = CANON["eps0_meth"]["value"]; ax[3].plot(EH, e0m, "o", color=S.DATA, ms=3.5)   # chain eps0 = 0.032
+e0m = CANON["eps0_meth"]["value"]; ax[3].plot(EH, e0m, "o", color=S.DATA, ms=3.5)   # canon eps0 (0.044 since 2026-10-19)
 ax[3].annotate(f"{EH} $k_BT$: {e0m:.3f}", (EH, e0m), xytext=(-4, 12), textcoords="offset points", fontsize=6)
 ax[3].set_xlabel(r"$E_{\rm hold}/k_BT$"); ax[3].set_ylabel(r"$\varepsilon_0$"); ax[3].set_title("chromatin: Boltzmann", fontsize=7)
 print(f"eps0 = {e0m:.4f}, H(eps0) = {H2(e0m):.4f} bits")
@@ -159,23 +159,18 @@ for i, a in enumerate(ax):
     S.panel_letter(a, "abcd"[i], dx=-0.30)
 fig.tight_layout(w_pad=0.6); S.save(fig, "part3", "fig_four_floors")
 
-# ============ p3_07 figure 2: the cell gauge A = H(eps)/(P H(eps0)) ============
-Hf = H2(e0m); eh = 1e-3 + np.linspace(0, 0.499, 600)
-A = H2(eh) / (P * Hf)
-from scipy.optimize import brentq
-e_h = brentq(lambda e: H2(e) - P * Hf, e0m, 0.5)
-fig, ax = plt.subplots(figsize=(0.62 * S.TEXTW, 2.7))
-ax.plot(eh, A, color=S.IAM)
-for e, a_, lab_ in ((e0m, 1 / P, f"healthy reference $H_{{\\rm ref}}$: $\\varepsilon_0$ = {e0m:.3f}, A = {1/P:.3f}"),
-                    (e_h, 1.0, f"healthy neutrophil: $\\varepsilon$ = {e_h:.4f}, A = 1"),
-                    (0.5, 1 / (P * Hf), f"full surface: $\\varepsilon$ = 1/2, A = {1/(P*Hf):.2f}")):
-    ax.plot(e, a_, "o", color=S.DATA, ms=4)
-    ax.annotate(lab_, (e, a_), xytext={0: (10, -12), 1: (10, 10), 2: (-150, 4)}[[e0m, e_h, 0.5].index(e)], textcoords="offset points", fontsize=6.5)
-print(f"healthy eps {e_h:.4f}; H_ref A {1/P:.3f}; full A {1/(P*Hf):.3f}")
-ax.axhspan(0.95, 1.05, color=S.ALT, alpha=0.15, lw=0)
-ax.set_xlabel(r"held error per site $\varepsilon$"); ax.set_ylabel(r"IAM-A $=H(\varepsilon)/(P\,H(\varepsilon_0))$")
-ax.set_xlim(0, 0.52); ax.set_ylim(0, 4.9)
-ax.set_title("The cell gauge: healthy at 1, full surface right; the floor is off the left edge")
+# ============ p3_07 figure 2: the cell gauge, commissioned IAM-A = eps / eps_pred(L) (2026-10-19; the position form is retired) ============
+_SRD = REPO / "Biological_Physics" / "MethylPhys" / "chain" / "Runtime Matrices" / "IAM_A_SelfRef"
+_SR = json.load(open(_SRD / "selfref_line_v1.json")); _BD = json.load(open(_SRD / "band_v1.json"))
+eh = np.linspace(1e-3, 0.5, 600); fig, ax = plt.subplots(figsize=(0.62 * S.TEXTW, 2.7))
+for Lq, ls in ((0, "-"), (1, "--")):
+    ep = _SR["firm"] + _SR["slope"] * Lq; ax.plot(eh, eh / ep, color=S.IAM, ls=ls, label=f"L = {Lq}: healthy at ε = {ep:.4f}, full surface {0.5/ep:.2f}")
+    ax.plot(0.5, 0.5 / ep, "o", color=S.DATA, ms=4); ax.plot(ep, 1.0, "o", color=S.DATA, ms=3)
+    print(f"L={Lq}: eps_pred {ep:.4f}; full surface {0.5/ep:.2f}")
+ax.axhspan(_BD["lo"], _BD["hi"], color=S.ALT, alpha=0.25, lw=0)
+ax.set_xlabel(r"held error per site $\varepsilon$"); ax.set_ylabel(r"IAM-A $=\varepsilon/\varepsilon_{\rm pred}(L)$")
+ax.set_xlim(0, 0.52); ax.set_ylim(0, 13.2); ax.legend(fontsize=6.5, frameon=False, loc="upper left")
+ax.set_title("The cell gauge: each sample against its own line; the floor is off the left edge")
 fig.tight_layout(); S.save(fig, "part3", "fig_cell_gauge")
 
 # p3_09 fig_reach_cell retired 2026-10-04 (development readings; author ruling)

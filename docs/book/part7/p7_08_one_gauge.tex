@@ -15,7 +15,7 @@ symbol & meaning & in every domain\\\midrule
 $A$ & reading $/$ healthy reference & dimensionless; $A=1$ is the system working as itself, the middle of the gauge\\
 healthy reference & the denominator & the same system's healthy reading, on the same instrument\\
 $H_{\min}$ & the floor & the lowest error the system can hold before thermal kicks win; it sits below 1, and nothing reads below it\\
-$H_{\rm ref}$ & cells: the healthy reference height & where healthy cells actually hold their sites, $H(\varepsilon_0)=0.2043$ bits; measured, not a limit\\
+$H_{\rm ref}$ & cells: the healthy reference height & where healthy cells actually hold their sites, $H(\varepsilon_0)=0.259$ bits; measured, not a limit\\
 $M$ & $E/k_BT$ & drive energy over the thermal noise quantum; $M/\ln2$ in Landauer units\\
 $T$ & the temperature the record sees & the bath that writes on the record: the chip junction, the qubit's own mode, the cell; every floor is computed there\\\bottomrule
 \end{tabular}\end{center}
@@ -54,14 +54,14 @@ read by one instrument. The predictive novelty is on the biological side, where 
 
 \begin{figure}[htbp]\centering\includegraphics[width=\textwidth]{figures/part7/one_gauge.pdf}
 \caption{One gauge for every score. $A=1$ is the healthy reading of that same system (green); $H_{\min}$ (gray line) is the lowest error it can hold
-before thermal kicks win, and nothing reads below it (gray zone). Cell: IAM-A in its earlier position form (neutrophils, healthy granulocytes from three donors at 1; now a development flag), $H_{\min}$ far off the left edge ($1\times10^{-7}$), surface full at 4.26 in that form; the commissioned IAM-A reads each sample against its own line, band v1 0.779--1.055, surface full at $0.5/\varepsilon_{\rm pred}(L)$; breach to be measured. Qubit: a transmon at 5\,GHz and its own 35\,mK~\cite{Jin2015}, $T_1=68\,\mu$s~\cite{GoogleWillow2025}, an
+before thermal kicks win, and nothing reads below it (gray zone). Cell: the commissioned IAM-A, each sample read against what its own loose share predicts (commissioned on healthy CD8 T cells), band v1 0.779--1.055 (white box), $H_{\min}$ far off the left edge ($1$--$2\times10^{-8}$), surface full at $0.5/\varepsilon_{\rm pred}(L)$, 6.68--12.42; breach to be measured. Qubit: a transmon at 5\,GHz and its own 35\,mK~\cite{Jin2015}, $T_1=68\,\mu$s~\cite{GoogleWillow2025}, an
 illustrative 40\,ns gate and two-qubit error $10^{-3}$, against its thermal floor $p_{\rm eq}t_g/T_1=6.2\times10^{-7}$ (at $6.2\times10^{-4}$); error correction fails near
 $p=1\,\%$. Chip: AMD Ryzen 9 9950X (170\,W, $(20.0\text{--}20.6)\times10^9$ transistors, 4.3\,GHz, $T_j=75\,^\circ$C) against the Landauer floor.
 Each row has its own log scale, centered on 1.}\label{fig:onegauge}\end{figure}
 
 \paragraph{Where $H_{\min}$ comes from.} For the cell, the form of the floor is IAM's Law: a holding energy $E_{\rm hold}$ against $k_BT$ allows
-an error $\varepsilon_0=1/(1+e^{E_{\rm hold}/k_BT})$. Its height is at present measured: $E_{\rm hold}=\varphi M=3.41\,k_BT$ is read from the cells' own
-held error, read on the sorted-cell sequencing of the methylation atlas~\cite{Loyfer2023} (Chapter~\ref{ch:iama}), so $\varepsilon_0=0.032$ is the measured error expressed through the Boltzmann form, as a thermometer whose zero was set by a measurement
+an error $\varepsilon_0=1/(1+e^{E_{\rm hold}/k_BT})$. Its height is at present measured: $E_{\rm hold}=\varphi M=3.08\,k_BT$ is read from the cells' own
+held error, read on the sorted-cell sequencing of the methylation atlas~\cite{Loyfer2023} (Chapter~\ref{ch:iama}), so $\varepsilon_0=0.044$ is the measured error expressed through the Boltzmann form, as a thermometer whose zero was set by a measurement
 rather than by absolute zero. Three routes would make it absolute: the copying enzyme's own discrimination energy, $k_BT\ln(\text{selectivity})$ of
 DNMT1 measured precisely in vitro (published values bracket $1.9$--$4.4\,k_BT$~\cite{Pradhan1999,Goyal2006,Adam2023}); a derivation of $\varphi$, the fraction of one ATP spent per held bit,
 from the maintenance chemistry, since $M=20.94$ is already set by ATP; and the temperature test in ectotherms, where a fixed holding energy predicts a
@@ -140,7 +140,7 @@ decay leave behind together. $A$ says how much error there is; read-level data s
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part7/fig_holding_energy.pdf}
-\caption{Hopfield's energy gap $k_BT\ln({\rm selectivity})$ for the published in-vitro preferences of DNMT1 for hemimethylated CpG (7--21$\times$, about 30--40$\times$, 80$\times$~\cite{Pradhan1999,Goyal2006,Adam2023}): 1.9--4.4\,$k_BT$ \observed. Lines: the holding energy measured from the cells' held error, 3.41\,$k_BT$ (copy channel, uncorrected) and 3.77\,$k_BT$ (instrument error removed) \measured. A consistency check: the published range is tenfold.}\label{fig:holding_energy}
+\caption{Hopfield's energy gap $k_BT\ln({\rm selectivity})$ for the published in-vitro preferences of DNMT1 for hemimethylated CpG (7--21$\times$, about 30--40$\times$, 80$\times$~\cite{Pradhan1999,Goyal2006,Adam2023}): 1.9--4.4\,$k_BT$ \observed. Lines: the holding energy measured from the cells' held error, 3.08\,$k_BT$, per interior opportunity on single molecules of 56 healthy cell types \measured. A consistency check: the published range is tenfold.}\label{fig:holding_energy}
 \end{figure}
 Met-A and IAM-A both measure in bits. Only IAM-A prices those bits against thermal noise, and that adds three things a reference standard
 cannot give.
@@ -153,8 +153,8 @@ bit, the same in either unit.
 errs at about $e^{-\Delta E/k_BT}$, so $\Delta E=k_BT\ln(\text{selectivity})$. Published in-vitro preferences of DNMT1 for hemimethylated over
 unmethylated CpG: $7$--$21\times$ (purified recombinant enzyme~\cite{Pradhan1999}), about $30$--$40\times$ on short substrates~\cite{Goyal2006}, and $80\times$ on average across
 flanking sequences~\cite{Adam2023}:
-$\Delta E=\ln7$ to $\ln80=1.9$--$4.4\,k_BT$ \observed. The measured holding energy, $3.41\,k_BT$ (copy channel, uncorrected) and $3.77\,k_BT$ (instrument error
-removed), lies inside that range. This is a consistency check, not a confirmation: the published range is tenfold, the selectivity maps most
+$\Delta E=\ln7$ to $\ln80=1.9$--$4.4\,k_BT$ \observed. The measured holding energy, $3.08\,k_BT$ per interior opportunity on single molecules,
+lies inside that range. This is a consistency check, not a confirmation: the published range is tenfold, the selectivity maps most
 directly onto the de novo channel, and UHRF1~\cite{Bostick2007,Sharif2007}, DNMT3 and TET also act in the cell.
 \paragraph{Temperature.}\label{sec:og_temperature} IAM's Law prices a bit at the local temperature, so ectotherms are the natural test: the same cell type read at two recorded
 temperatures on one pipeline, each specimen against its own floor (Chapter~\ref{ch:temperature}). \prediction

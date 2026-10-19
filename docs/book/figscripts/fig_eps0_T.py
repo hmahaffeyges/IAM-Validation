@@ -1,9 +1,10 @@
 """fig_eps0_T: held-error floor against body temperature (Part 4, temperature chapter).
-E_hold = 3.41 kT at 310.15 K (CANON/iam_canon.json). Solid: fixed holding energy, eps0(T) = 1/(1+exp(E_hold/kT)).
+E_hold from CANON/iam_canon.json (3.08 kT at 310.15 K, per interior opportunity, 2026-10-19). Solid: fixed holding energy, eps0(T) = 1/(1+exp(E_hold/kT)).
 Dashed: error held fixed in units of kT (eps0 constant). Floor plotted as H(eps0(T))/H(eps0(310.15 K))."""
 import numpy as np, matplotlib as mpl, matplotlib.pyplot as plt
 mpl.rcParams.update({"font.size": 8, "font.family": "DejaVu Sans", "axes.spines.top": False, "axes.spines.right": False})
-E, T0 = 3.41, 310.15
+import json, pathlib
+E, T0 = json.load(open(pathlib.Path(__file__).resolve().parents[3] / "CANON" / "iam_canon.json"))["constants"]["E_hold_meth"]["value"], 310.15
 H = lambda x: -(x*np.log2(x) + (1-x)*np.log2(1-x))
 eps = lambda T: 1/(1+np.exp(E*T0/T))
 T = np.linspace(273.15+0, 273.15+42, 300); r = H(eps(T))/H(eps(T0))

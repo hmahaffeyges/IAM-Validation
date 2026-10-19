@@ -27,7 +27,7 @@ N_CPG = 28_217_448
 # 1. Energy per event at body temperature, in k_B T
 fig, ax = plt.subplots(figsize=(0.62 * bs.TEXTW, 1.9))
 labels = ["Landauer floor,\none bit", "holding energy\nper site (molecules)", "one ATP\n(cytosolic)"]
-vals = [ln2, 3.41, M]
+import json; vals = [ln2, json.load(open(pathlib.Path(__file__).resolve().parents[3] / "CANON" / "iam_canon.json"))["constants"]["E_hold_meth"]["value"], M]   # holding energy from the canon (2026-10-19)
 cols = [bs.GR, bs.DATA, bs.IAM]
 ax.barh(range(3), vals, color=cols, height=0.55)
 for i, v in enumerate(vals):

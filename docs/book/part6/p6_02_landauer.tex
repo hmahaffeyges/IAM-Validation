@@ -61,13 +61,13 @@ one, is \interp.
 involved. Thermal motion, on the scale $R\Tb$, randomizes marks; it is the denominator of $M$. The free energy of ATP is what the
 cell spends to hold its pattern against that motion; it is the numerator. The pattern, which sites are held methylated and which are
 held unmethylated, is the information, and it is what an array or a sequencing read records. The first two are the same in every
-human cell at 37~\textdegree C. \derived{} The third differs from one cell type to the next: on single molecules the healthy held error ranges 0.024--0.042 across 56 cell types (Chapter~\ref{ch:iama}). \measured{} That is why a cell is read against its own reference and not against one number for the body: on arrays, the healthy reading of its type (Met-A); on single molecules, the held error its own loose share predicts (IAM-A).
+human cell at 37~\textdegree C. \derived{} The third differs from one cell type to the next: on single molecules the healthy held error ranges 0.033--0.055 across 56 cell types (Chapter~\ref{ch:iama}). \measured{} That is why a cell is read against its own reference and not against one number for the body: on arrays, the healthy reading of its type (Met-A); on single molecules, the held error its own loose share predicts (IAM-A).
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part6/fig_cell_budget.pdf}
 \caption{Energy per event at body temperature in units of $\kB T$: the Landauer floor for one bit ($\ln2=0.69$), the holding energy per
 site measured on single molecules ($3.41$, Section~\ref{sec:p4holding}) and one ATP hydrolysis under cytosolic conditions ($M=20.94$). In
-Landauer units, $E/\kB T\ln2$, the same three are 1.00, 4.92 and 30.21. \calc{} (the holding energy is \measured)}
+Landauer units, $E/\kB T\ln2$, the same three are 1.00, 4.45 and 30.21. \calc{} (the holding energy is \measured)}
 \label{fig:budget}
 \end{figure}
 
@@ -180,10 +180,10 @@ lives.
 On read-level whole-genome bisulfite data from a public atlas of sorted healthy human cells~\cite{Loyfer2023}, 153 of its 205 samples
 grouped here into 56 cell types (the atlas paper groups its 205 samples into 39), the held error $\varepsilon$
 (an unmethylated CpG isolated between methylated neighbors, on molecules that are otherwise methylated) gives, through
-$E_{\rm hold}=\kB T\ln[(1-\varepsilon)/\varepsilon]$, a holding energy of $3.41\pm0.12\,\kB T$ per site, range 3.13--3.71, in
-every cell type. \measured{} In Landauer units that is $3.41/\ln2=4.92$. \calc{} As a fraction of one ATP it is
+$E_{\rm hold}=\kB T\ln[(1-\varepsilon)/\varepsilon]$, a holding energy of $3.08\pm0.12\,\kB T$ per site, range 2.85--3.37, in
+every cell type. \measured{} In Landauer units that is $3.08/\ln2=4.45$. \calc{} As a fraction of one ATP it is
 \begin{equation}
-  \phi=\frac{E_{\rm hold}}{M\,\kB T}=0.163\pm0.006 .
+  \phi=\frac{E_{\rm hold}}{M\,\kB T}=0.147\pm0.006 .
   \label{eq:phi}
 \end{equation}
 The value sits inside the range implied by the copying enzyme's own measured preference for hemimethylated over unmethylated
@@ -214,7 +214,7 @@ factor $1-f-g$ per interval, so the balance is reached in about $1/(f+g)$ interv
 in a cell that no longer divides, it is the time its upkeep rates set. One consequence can be tested: in a cell type whose upkeep has reached
 its balance, the held error does not rise with age, and a rise would mean the rates themselves change with age. \prediction{} Neurons, which
 stop dividing early in life, are where this is tested (Chapter~\ref{ch:open}). What sets $g/f$ in each cell type, and so the measured
-$3.41\,\kB T$, is open. \openprob
+$3.08\,\kB T$, is open. \openprob
 
 \section{Where this stands: the information thermodynamics of methylation}\label{sec:sanchez}
 
@@ -292,7 +292,7 @@ CMOS, AMD 9950X, whole-chip average & $M=399$--$411$ & \calc \\
 floor for all 28,217,448 CpGs & $8.38\times10^{-14}$ J $=9.3\times10^5$ ATP & \calc \\
 chemical cost per mark / floor & $\gtrsim30$ & \calc \\
 maintenance discrimination & 2--4 $\kB T$ & \calc{} from~\cite{Genereux2005} \\
-holding energy on molecules, 56 cell types & $3.41\pm0.12\,\kB T$ (4.92 Landauer units) & \measured \\
+holding energy on molecules, 56 cell types & $3.08\pm0.12\,\kB T$ (4.45 Landauer units) & \measured \\
 $\phi=E_{\rm hold}/M\kB T$ & $0.163\pm0.006$ & \measured \\
 pipeline offset on immune identity sites, 450K & $\approx0.075$ in $\beta$ & \measured \\\bottomrule
 \end{tabularx}

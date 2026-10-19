@@ -78,8 +78,9 @@ for i, (lab, lo, hi) in enumerate(sel[::-1]):
         ax.plot([a, b], [i, i], color=S.DATA, lw=3.0, solid_capstyle="butt")
     else:
         ax.plot(a, i, "s", color=S.DATA, ms=5)
-ax.axvline(3.41, color=S.IAM, lw=1.2); ax.axvline(3.77, color=S.IAM, lw=1.0, ls="--")
-ax.text(3.41 - 0.05, 2.55, "3.41", fontsize=7, color=S.IAM, ha="right", va="bottom"); ax.text(3.77 + 0.05, 2.55, "3.77", fontsize=7, color=S.IAM, ha="left", va="bottom")
+import json; _EH = json.load(open(pathlib.Path(__file__).resolve().parents[3] / "CANON" / "iam_canon.json"))["constants"]["E_hold_meth"]["value"]   # 3.08 kT, per interior opportunity (2026-10-19)
+ax.axvline(_EH, color=S.IAM, lw=1.2)
+ax.text(_EH - 0.05, 2.55, f"{_EH:.2f}", fontsize=7, color=S.IAM, ha="right", va="bottom")
 ax.set_yticks(range(3)); ax.set_yticklabels([s[0] for s in sel[::-1]], fontsize=7)
 ax.set_xlim(1.5, 5.0); ax.set_ylim(-0.5, 2.95)
 ax.set_xlabel("energy gap $k_BT\\ln$(selectivity) or measured $E_{\\rm hold}$ ($k_BT$)")

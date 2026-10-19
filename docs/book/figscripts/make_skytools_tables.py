@@ -52,8 +52,9 @@ tum = (MP / "doors" / "PROC_TUMOUR_01_OUTCOME.md").read_text()
 assert re.search(r"tumour higher in \*\*3/4\*\*", tum)                                         # row 49
 sop = (MP / "sop" / "MethylPhys_CPG_SOP_v3.md").read_text()
 assert "8 blood groups by NNLS" in sop                                                         # row 1
-eps0, M = 1 / (1 + math.exp(3.41)), 54000 / (8.314462618 * 310.15)                             # row 33
-assert abs(eps0 - 0.0320) < 5e-4 and f"{M:.2f}" == "20.94", (eps0, M)
+import json; _EH = json.load(open(REPO / "CANON" / "iam_canon.json"))["constants"]["E_hold_meth"]["value"]
+eps0, M = 1 / (1 + math.exp(_EH)), 54000 / (8.314462618 * 310.15)                              # row 33 (canon E_hold, 2026-10-19)
+assert abs(eps0 - 0.0438) < 5e-4 and f"{M:.2f}" == "20.94", (eps0, M)
 chk = subprocess.run([sys.executable, str(REPO / "docs/verification/scripts/verify_astrogenetics_book.py")], cwd=REPO,
                      capture_output=True, text=True).stdout                                    # rows 33, 79
 n_ok, n_fail = len(re.findall(r"^OK ", chk, re.M)), re.search(r"FAILURES: (\d+)", chk)

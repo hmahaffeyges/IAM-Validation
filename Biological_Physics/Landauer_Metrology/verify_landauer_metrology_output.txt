@@ -24,8 +24,8 @@
   Hopfield ln(7) = 1.95 k_B T
   Hopfield ln(21) = 3.04 k_B T
   Hopfield ln(80) = 4.38 k_B T
-  [OK ] phi = 3.41/M: 0.162842 (book 0.163, tol 0.0005)
-  sigma(phi) = 0.12/M = 0.0057; E_hold in Landauer units 3.41/ln2 = 4.92
+  [OK ] phi = E_hold/M: 0.147274 (book 0.147, tol 0.0005)
+  sigma(phi) = 0.12/M = 0.0057; E_hold in Landauer units E_hold/ln2 = 4.45
 6. The pipeline scale map [record PHASE1_OUTCOME.md addendum]: beta_S1 = 1.0127 beta_ref + 0.0662
   H(0.7318) = 0.8389 bits (reference beta of the test; reference entropy 0.8389)
   noob beta-bar 0.815 -> mapped 0.7394; A unmapped 0.824; A mapped 0.987
