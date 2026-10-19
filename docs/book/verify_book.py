@@ -29986,14 +29986,6 @@ def check_2437():
     value=Hb(1/(1+math.exp(M_)))/(P_*Hb(e0))
     return locals()
 
-@check(label='ch:astrogenetics:L88:310', chapter='ch:astrogenetics', part=6, title='the floor is set at 310 K (cell temperature)',
-       file='part6/p6_00b_astrogenetics', line=88, status='derived', kind='file', printed='310', tol=0.0, source='CANON/iam_canon.json')
-def check_3789():
-    'The floor H_min holds against thermal kicks at 310 K: the cell temperature T_cell = 310.15 K (37 C) to the kelvin. Book line 88, '\
-    'printed 310. Source: CANON T_cell.'
-    value = load_json('CANON/iam_canon.json')['constants']['T_cell']['value']
-    return locals()
-
 @check(label='ch:astrogenetics:L89', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names',
        file='part6/p6_00b_astrogenetics', line=89, status='calibrated', kind='file', printed='0.330263', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_book_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')
@@ -30444,12 +30436,12 @@ def check_2484():
     value=E_hold/LN2
     return locals()
 
-@check(label='eq:phi', chapter='ch:landauer', part=6, title='phi = E_hold/(M k T): committed record and E_hold/M (canon)',
-       file='part6/p6_02_landauer', line=188, status='measured', kind='num', printed='0.163', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
+@check(label='eq:phi', chapter='ch:landauer', part=6, title='phi, fraction of one ATP per held bit',
+       file='part6/p6_02_landauer', line=188, status='measured', kind='file', printed='0.147', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2485():
-    'phi = E_hold/(M k T): committed record and E_hold/M (canon) (Eq. eq:phi). Book line 188, printed 0.163.'
-    value=_b00_hold_energy() / (dG_ATP / (R_gas * T_cell))
+    'phi on the commissioned counter (2026-10-19). Book line 188, printed 0.147.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['phi']
     return locals()
 
 @check(label='ch:landauer:L194', chapter='ch:landauer', part=6, title='Hopfield discrimination ln(7) from the enzyme selectivity',
@@ -30573,14 +30565,13 @@ def check_3808():
     value = int(re.search(r"(\d+) cell types, (\d+) samples", file_text(_B08_PC)).group(1))
     return locals()
 
-@check(label='ch:landauer:L268', chapter='ch:landauer', part=6, title='phi, committed record',
-       file='part6/p6_02_landauer', line=268, status='measured', kind='num', printed='0.163', tol=0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
-       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); doors/data/PROC_CHANNEL_01: per-cell table committed, derive_constants.py; channel.py rebuilt, per-sample rerun pending')
+@check(label='ch:landauer:L268', chapter='ch:landauer', part=6, title='phi, fraction of one ATP per held bit',
+       file='part6/p6_02_landauer', line=268, status='measured', kind='file', printed='0.147', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_2495():
-    'phi, committed record. Book line 268, printed 0.163.'
-    value=_b00_hold_energy() / (dG_ATP / (R_gas * T_cell))
+    'phi on the commissioned counter (2026-10-19). Book line 268, printed 0.147.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['phi']
     return locals()
-
 
 # ======== Part 6 | ch:surface | docs/book/part6/p6_03_surface.tex
 @check(label='eq:H', chapter='ch:surface', part=6, title='binary entropy: 1 bit at 1/2, symmetric',
@@ -31687,18 +31678,6 @@ def check_3870():
 
 
 
-@check(label='ch:meta:L111:1.002', chapter='ch:meta', part=6, title='DNMT-inhibitor series: inactive analogue, lowest',
-       file='part6/p6_07_meta', line=111, status='measured', kind='file', printed='1.002', tol=0.0, source=_B09_DN)
-def check_3873():
-    'Inactive analogue (GSK477, the compound that does not move Met-A at 10 uM): lowest Met-A. Book line 111, printed 1.002. Inputs: dnmt_arrays_readings.csv.'
-    value = min(_b09_dnmt(lambda r: r['cmpd'] == 'GSK477'))
-    return locals()
-
-
-
-
-
-
 # ======== Part 6 | ch:iama | docs/book/part6/p6_08_iama.tex
 @check(label='eq:eps', chapter='ch:iama', part=6, title='E_hold = kT ln((1-eps)/eps) solves the two-state Boltzmann error',
        file='part6/p6_08_iama', line=14, status='derived', kind='sym', printed='', tol=0.0)
@@ -32420,33 +32399,6 @@ def _b10_lowsig_ratios():
     others, low = [(v[0], v[1]), (v[2], v[3]), (v[4], v[5])], (v[6], v[7])
     return [low[ch] / o[ch] for o in others for ch in (0, 1)]
 
-@check(label='ch:instrument:L50:0.15', title='low-signal laboratory: lowest control-signal ratio', line=50, status='measured', printed='0.15', tol=0.0,
-       source=_B10_LOW, chapter='ch:instrument', part=6, file='part6/p6_12_instrument', kind='file')
-def check_3980():
-    'One laboratory carried 0.15-0.31 of three other laboratories\' median signal on the methylation-independent control probes. Lower end '\
-    'recomputed as the smallest ratio of its median non-polymorphic control signal to each other laboratory\'s, over both colour channels. '\
-    'Book line 50, printed 0.15. Inputs: control-probe medians of the four laboratories, committed finding record (table row '\
-    '"non-polymorphic control G / R").'
-    value = min(_b10_lowsig_ratios())
-    return locals()
-
-@check(label='ch:instrument:L50:0.31', title='low-signal laboratory: highest control-signal ratio', line=50, status='measured', printed='0.31', tol=0.0,
-       source=_B10_LOW, chapter='ch:instrument', part=6, file='part6/p6_12_instrument', kind='file')
-def check_3981():
-    'Upper end of the 0.15-0.31 range: the largest ratio of the low-signal laboratory\'s median non-polymorphic control signal to another '\
-    'laboratory\'s median, over both colour channels. Book line 50, printed 0.31. Inputs: committed finding record, same table row.'
-    value = max(_b10_lowsig_ratios())
-    return locals()
-
-@check(label='ch:instrument:L51', title='low-signal laboratory: probes at background', line=51, status='measured', printed='12.5', tol=0.0,
-       source=_B10_LOW, chapter='ch:instrument', part=6, file='part6/p6_12_instrument', kind='file')
-def check_3982():
-    'Per cent of probes at background (detection p > 0.05) on the low-signal laboratory\'s arrays, median. Book line 51, printed 12.5 %. '\
-    'Read from the committed finding record, row "probes at background", fourth laboratory column.'
-    v = _b10_nums(_B10_LOW, '| probes at background, poobah p > 0.05 |', 4)
-    value = v[3]
-    return locals()
-
 @check(label='ch:instrument:L55:0.33', title='beta of probes at background, lower end', line=55, status='measured', printed='0.33', tol=0.0,
        source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part6/p6_12_instrument', kind='file')
 def check_3983():
@@ -32807,14 +32759,6 @@ def check_4025():
     value = min(_b10_xp('intercept'))
     return locals()
 
-@check(label='ch:atlas:L148', title='joint fit did not converge: largest R-hat', line=148, status='measured', printed='4.35', tol=0.0,
-       source='Biological_Physics/MethylPhys/atlas/v2/records/11c_stageA_report_NOT_CONVERGED.json', chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
-def check_4026():
-    'A first attempt to fit the source terms jointly with every cell mean did not converge (R-hat up to 4.35). Read from the committed '\
-    'report of that fit, key mu_rhat_max. Book line 148, printed 4.35.'
-    value = load_json('Biological_Physics/MethylPhys/atlas/v2/records/11c_stageA_report_NOT_CONVERGED.json')['mu_rhat_max']
-    return locals()
-
 _B10_TB = 'Biological_Physics/MethylPhys/atlas/v2/records/14_stageB_timing_block.log'
 
 @check(label='ch:atlas:L150:1.005', title='test block converged: R-hat 99th percentile', line=150, status='measured', printed='1.005', tol=0.0,
@@ -32900,22 +32844,6 @@ def check_4036():
     return locals()
 
 _B10_PB = 'Biological_Physics/MethylPhys/atlas/v2/postbuild/README.md'
-
-@check(label='ch:atlas:L181', title='atlas v2 identity sites, array to array in Normal', line=181, status='measured', printed='87.7', tol=0.0,
-       source=_B10_PB, chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
-def check_4037():
-    'Identity sites of the cell types after neutrophils, read on held-out samples: array to array 87.7 % in Normal. Read from the committed '\
-    'atlas v2 post-build record (V12 row). Book line 181, printed 87.7.'
-    value = _b10_nums(_B10_PB, 'array→array ', 1)[0]
-    return locals()
-
-@check(label='ch:atlas:L182', title='atlas v2 identity sites, sequencing to array in Normal', line=182, status='measured', printed='73.1', tol=0.0,
-       source=_B10_PB, chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
-def check_4038():
-    'Sequencing to array, after a per-locus correction, 73.1 % of held-out readings in Normal. Read from the atlas v2 post-build record. '\
-    'Book line 182, printed 73.1.'
-    value = _b10_nums(_B10_PB, 'sequencing→array ', 1)[0]
-    return locals()
 
 @check(label='ch:atlas:L223:1.062', title='six DNA mixtures against the neutrophil floor alone, lowest', line=223, status='measured', printed='1.062', tol=0.0,
        source=_B10_WB, chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
@@ -33377,27 +33305,6 @@ def check_4096():
 
 
 # ======== Part 6 | ch:serial | docs/book/part6/p6_17_serial.tex
-@check(label='ch:serial:L31', chapter='ch:serial', part=6, title='within-person SD, donor 1 (GSE247195), untared isolated neutrophils',
-       file='part6/p6_17_serial', line=31, status='measured', kind='file', printed='0.045', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
-def check_4097():
-    'Within-person SD of untared Met-A, donor 1 (GSE247195, 24 arrays read), computed from the T2 diagnostic (A_own column). Book line 31, printed 0.045. Inputs: t2_diag.csv (figure script fig_p4.fig_repeats uses the same rows: donor 1 = GSE247195).'
-    a = np.array(_b11_t2_A('GSE247195'))
-    value = float(np.std(a, ddof=1))
-    return locals()
-
-
-
-
-
-
-
-
-
-
-
-
-
 @check(label='ch:serial:L71', chapter='ch:serial', part=6, title='E-MTAB-7309 Stage 1: median call rate',
        file='part6/p6_17_serial', line=35, status='measured', kind='file', printed='0.894', tol=0.0,
        source='Biological_Physics/MethylPhys/archive/history_2026-10-16/STATUS_to_2026-10-15.md')
@@ -34252,17 +34159,6 @@ def check_4323():
     en, et, ratio, cd = _b12_tum_pair('OSCC4', 'oxWGBS')
     value = cd
     return locals()
-
-@check(label='part4:ch:reach:L82', chapter='part4:ch:reach', part=6, title='constructed mixtures: fewest molecules',
-       file='part6/p6_23_reach', line=82, status='measured', kind='file', printed='0.5', tol=0.0, source=_B12_MOL,
-       heavy=True, rerun=_B12_RR_MOL)
-def check_4324():
-    'Constructed cancer-in-healthy DNA mixtures (PROC-MOLECULE-01, exploratory total isolated-error count): the mixtures carried 0.5-1.5 million qualifying molecules; lower end read from the outcome record. Book line 82, printed 0.5.'
-    m = re.search(r'with ([\d.]+)[\u2013-]([\d.]+) M molecules', file_text(_B12_MOL))
-    value = float(m.group(1))
-    return locals()
-
-
 
 # ======== Part 6 | ch:status | docs/book/part6/p6_24_status.tex
 @check(label='ch:status:L9', chapter='ch:status', part=6, title='Landauer cost per bit at 37 C',
@@ -38152,12 +38048,12 @@ def check_4683():
     value = math.log(1 / 0.02)
     return locals()
 
-@check(label='app:formulas:L619', chapter='app:formulas', part=8, title='phi = E_hold / M',
-       file='appendices/app_E_formulas', line=610, status='measured', kind='num', printed='0.163', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
+@check(label='app:formulas:L619', chapter='app:formulas', part=8, title='phi, fraction of one ATP per held bit (formula sheet)',
+       file='appendices/app_E_formulas', line=610, status='measured', kind='file', printed='0.147', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_4684():
-    'E_hold of the copy channel (PROC-CHANNEL-01 record) over M = dG_ATP/(R T_cell). Book line 610, printed 0.163.'
-    value=_b00_hold_energy() / (dG_ATP / (R_gas * T_cell))
+    'phi on the commissioned counter (2026-10-19). Formula sheet line 610, printed 0.147.'
+    R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+    value=R['phi']
     return locals()
 
 # ---------------------------------------------------------------- lines 622-673: the gauges
@@ -38216,14 +38112,6 @@ def check_4691():
     'M_eq = c^3/(4 G H) at the photon-sector H0 = 67.16 (locked), in solar masses. Book line 655, printed 2.3e22.'
     value = c**3 / (4 * G * Hsi(H0_photon)) / Msun
     return locals()
-
-@check(label='app:formulas:L682', chapter='app:formulas', part=8, title='eps0 from phi and M',
-       file='appendices/app_E_formulas', line=673, status='derived', kind='file', printed='0.044', tol=0.0, source='CANON/iam_canon.json')
-def check_4692():
-    'eps0 = 1/(1 + exp(phi M)) with phi (canon) and M = dG_ATP/(R T_cell) from the canon inputs. Book line 673, printed 0.044.'
-    value = 1 / (1 + math.exp(_cv('phi') * dG_ATP / (R_gas * T_cell)))
-    return locals()
-
 
 # ======== Part 8 | app:derivations | docs/book/appendices/app_C3_derivations.tex
 @check(label='app:derivations:L33', chapter='app:derivations', part=8, title="dG/dt = sum p^2/m + sum F.r (one degree of freedom, F = m r'')",

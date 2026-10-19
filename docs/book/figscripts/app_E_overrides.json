@@ -647,12 +647,6 @@
    "sheet": "\\calc{} (from the healthy reference alone)",
    "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
   },
-  "ch:gauge|eq:A": {
-   "entry": 509,
-   "chapter": "no status label attached in the chapter",
-   "sheet": "definition",
-   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
-  },
   "ch:gauge|body:A=\\frac{H(\\text{errornow})}{H(\\text{errorinthesamecellwhenhealthy})},": {
    "entry": 510,
    "chapter": "\\derived{}",
@@ -669,12 +663,6 @@
    "entry": 513,
    "chapter": "\\derived{}",
    "sheet": "definition; \\derived{} for the form, selection rules \\calibrated",
-   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
-  },
-  "ch:iama|eq:eps0": {
-   "entry": 514,
-   "chapter": "\\derived{}",
-   "sheet": "\\derived{} for the form; height \\measured{} ($\\varepsilon_0=0.032$, $H_{\\min}=0.2043$ bits)",
    "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
   },
   "ch:cscore|eq:z": {
@@ -754,6 +742,12 @@
    "chapter": "\\derived{}",
    "sheet": "definition; the reference is \\calibrated{} (Stage~1)",
    "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:iama|eq:iamapos": {
+   "entry": 510,
+   "chapter": "\\measured{}",
+   "sheet": "retired",
+   "why": "2026-10-19: the form was retired 2026-10-17; its P was measured, the form is no longer read"
   }
  },
  "intext": {
@@ -1281,7 +1275,8 @@
   },
   "ch:iama|eq:eps0": {
    "entry": 514,
-   "sheet": "The thermal floor of the held error from a two-state Boltzmann factor, and $H_{\\min}=H(\\varepsilon_0)$."
+   "sheet": "The thermal floor of the held error from a two-state Boltzmann factor, $H_{\\min}=H(\\varepsilon_{\\min})$, and the healthy reference height $H_{\\rm ref}=H(\\varepsilon_0)$, 0.259 bits at $E_{\\rm hold}=\\phi M=3.08\\,\\kB T$.",
+   "why": "2026-10-19: the earlier wording called H(eps0) the floor; the holding energy is the commissioned counter's"
   },
   "ch:iama|eq:iama": {
    "entry": 515,
@@ -1338,6 +1333,11 @@
   "ch:onegauge|body:\\text{Met-A}=\\frac{\\langleH(\\beta)\\rangle_{\\rmidentity\\sites}}{\\langleH(\\beta)\\rangle_{\\rmhealthy\\reference}}.": {
    "entry": 536,
    "sheet": "Met-A: mean binary entropy over the cell's identity sites over the same quantity on purified healthy cells (same type, same platform)."
+  },
+  "ch:iama|eq:iamapos": {
+   "entry": 510,
+   "sheet": "The earlier position form of IAM-A, retired 2026-10-17 to a development flag; $P$ as measured on the earlier counter.",
+   "why": "2026-10-19: the sheet listed the retired form as current"
   }
  }
 }

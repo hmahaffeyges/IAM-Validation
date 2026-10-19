@@ -338,6 +338,10 @@
   "3\\.41 to 3\\.77|3\\.41--3\\.77|ln\\[\\(1-\\\\varepsilon\\)/\\\\varepsilon\\]=3\\.41|=3\\.41/20\\.94|e\\^\\{3\\.41\\}|\\(\\$3\\.41\\$": {
    "replaced_by": "the commissioned counter's holding energy (CANON E_hold_meth, 3.08 kT; superseded 2026-10-19)",
    "severity": "block"
+  },
+  "0\\.163\\s*(\\\\pm|±)|=0\\.163(?!\\d)": {
+   "replaced_by": "phi = 0.147 on the commissioned counter (CANON phi; superseded 2026-10-19)",
+   "severity": "block"
   }
  },
  "scope": {
