@@ -2,6 +2,7 @@
 # The mouse prediction's reads, from ENA to .pat files, with the pinned pipeline of the committed run (boxruns/run6_sam/session6.sh,
 # without its storage steps): ENA fastq (md5 checked) -> Trim Galore 0.6.10 --rrbs -> bwa-meth 0.2.0 on UCSC mm10 -> SAMtools 1.9 sort/index
 # -> wgbstools 0.1.0 bam2pat. Tools come from bioconda through micromamba into $WORK/tools. Run by reproduce.py (REPO, WORK, PY, MP set).
+# 2026-10-18: the wgbs_tools tag is 0.1.0 (no v); the committed run's box image already held wgbs_tools 0.1.0, so its checkout line never ran.
 set -uo pipefail; S=$WORK/seq; T=${NW:-$(nproc)}; mkdir -p $S/fq $S/trim $S/bam $S/pat $S/ref $S/logs; cd $S
 RUNS_CSV=$MP/boxruns/run6_sam/GSE77079_runs.csv; MM="$S/bin/micromamba -r $S/mamba"
 [ -x $S/bin/micromamba ] || curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xj -C $S bin/micromamba || exit 11
@@ -9,9 +10,10 @@ RUNS_CSV=$MP/boxruns/run6_sam/GSE77079_runs.csv; MM="$S/bin/micromamba -r $S/mam
 [ -d $S/e_wgbs ] || $MM create -y -q -p $S/e_wgbs -c conda-forge -c bioconda python=3.8 numpy pandas scipy htslib bedtools >> logs/install.log 2>&1 || exit 13
 [ -d $S/e_st19 ] || $MM create -y -q -p $S/e_st19 -c conda-forge -c bioconda samtools=1.9 >> logs/install.log 2>&1 || exit 14
 [ -d $S/e_tg ]   || $MM create -y -q -p $S/e_tg -c conda-forge -c bioconda trim-galore=0.6.10 >> logs/install.log 2>&1 || exit 15
-[ -d $S/wgbs_tools ] || { git clone -q https://github.com/nloyfer/wgbs_tools.git $S/wgbs_tools && git -C $S/wgbs_tools checkout -q v0.1.0 && (cd $S/wgbs_tools && PATH=$S/e_wgbs/bin:$PATH python setup.py >> $S/logs/install.log 2>&1); } || exit 16
+[ -d $S/wgbs_tools ] || { git clone -q https://github.com/nloyfer/wgbs_tools.git $S/wgbs_tools && git -C $S/wgbs_tools checkout -q 0.1.0 && (cd $S/wgbs_tools && PATH=$S/e_wgbs/bin:$PATH python setup.py >> $S/logs/install.log 2>&1); } || exit 16
 export PATH=$S/e_st19/bin:$S/e_wgbs/bin:$S/e_bm/bin:$S/e_tg/bin:$S/wgbs_tools:$PATH
 { bwameth.py --version 2>&1 | head -1; samtools --version | head -1; trim_galore --version | grep -m1 version; echo "wgbstools $(git -C $S/wgbs_tools describe --tags)"; } | tee logs/versions.txt
+grep -q "wgbstools 0\.1\.0" logs/versions.txt || exit 22
 grep -q "0\.2\.0" logs/versions.txt || exit 17
 REF=$S/ref/mm10.fa
 if [ ! -s $REF.bwameth.c2t.sa ]; then

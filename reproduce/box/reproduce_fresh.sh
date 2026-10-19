@@ -11,6 +11,7 @@ s=boto3.client("s3"); r,b,p=sys.argv[1:4]
 for d,_,fs in os.walk(r):
     for f in fs:
         q=os.path.join(d,f)
+        if any(x in q for x in ("/seq/e_", "/seq/mamba", "/seq/bin", "/seq/wgbs_tools", "/q2/chain/")): continue   # installed tools and the chain copy
         if os.path.getsize(q)<5_000_000 and (f.endswith((".json",".log",".csv",".txt"))): s.upload_file(q,b,p+"/"+os.path.relpath(q,r))
 PY
 }
