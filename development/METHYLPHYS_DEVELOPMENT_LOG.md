@@ -2565,3 +2565,6 @@ Job i-057e21ce87336144c. A first launch (i-02265f88bdcce1fa6) went out in the sa
 
 ### 2026-10-18 · Q&A: questions the field is asking now (OTH-075)
 Eight questions drawn from recent reviews (2024-2026) of methylation-based cancer detection and epigenetic drift, each answered from the record; three named open: proliferation versus holding error, healthy age dependence of Met-A and the C-Score, cell-free DNA dilution.
+
+### 2026-10-18 · reproduce/ iama_line: 127 of 127 recounted files identical; 31 refused by GEO (OTH-076)
+Run 2b counted 127 of the 153 GEO .pat files and all 5 ENCODE BAMs; every one of the 132 is identical to the committed count (DEV_CHAIN_Q2_01/shape_out, every field but the stamp). GEO answered 503 (server busy) to the other 31 after the driver's 4 tries, so the line was rebuilt from 127 and the compare said DIFFERS. reproduce/iama_line.sh now reruns the driver (it skips counted samples) with 8 parallel downloads and a pause, until all 153 are counted. Rerun as run 6.

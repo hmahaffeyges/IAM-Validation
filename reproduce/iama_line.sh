@@ -5,7 +5,14 @@
 # Run by reproduce.py (REPO, WORK, PY, MP set). Workers: $NW (default: all cores).
 set -euo pipefail; NW=${NW:-$(nproc 2>/dev/null || sysctl -n hw.ncpu)}; Q=$MP/doors/data/DEV_CHAIN_Q2_01
 mkdir -p $WORK/q2 && cd $WORK/q2 && rm -rf chain && cp -r $MP/chain ./chain && cp $Q/box_q2_line.py $Q/loyfer_samples.csv $Q/encode_samples.tsv .
-$PY box_q2_line.py loyfer $NW
+# GEO's file server answers 503 when busy (fresh-clone run 2b, 2026-10-18: 31 of 153 refused, the other 127 counted identical). The driver
+# skips every sample already counted, so it is rerun with fewer parallel downloads and a pause until all 153 are counted.
+GW=$(( NW < 8 ? NW : 8 ))
+for pass in 1 2 3 4 5 6; do
+  $PY box_q2_line.py loyfer $GW
+  n=$(ls out/GSM*.json 2>/dev/null | wc -l); echo "pass $pass: $n of $(( $(wc -l < loyfer_samples.csv) - 1 )) counted"
+  [ "$n" -ge "$(( $(wc -l < loyfer_samples.csv) - 1 ))" ] && break; sleep $(( pass * 120 ))
+done
 [ -s ref.fa ] || { curl -sfL --retry 5 -o ref.fa.gz "https://www.encodeproject.org/files/GRCh38_no_alt_analysis_set_GCA_000001405.15/@@download/GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.gz" && gunzip -f ref.fa.gz; }
 $PY -c "import pysam; pysam.faidx('ref.fa')"
 tail -n +2 encode_samples.tsv | while IFS=$'\t' read cell lc exp acc url; do
