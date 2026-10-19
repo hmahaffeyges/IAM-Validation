@@ -21,7 +21,7 @@ pkg = dict(title="MethylPhys chain v4: the commissioned IAM cell instruments and
     f"<p><b>This record</b> holds the whole repository at commit {S} (IAM-Validation-{S}.zip), because the chain reads files across it. Before upload, "
     "this exact archive was unpacked on a fresh machine, given a new Python 3.11 environment from the chain's requirements file only, and passed "
     f"the chain v4 release check: {RC} (release_check_v4_from_archive.json).</p>"
-    "<p><b>To run it:</b> unzip; in the folder run <code>git init &amp;&amp; git add -A &amp;&amp; git commit -m archive</code> (the release check lists "
+    "<p><b>Start with README.md</b> (the researcher package: look, run, reproduce). <b>To run it:</b> unzip; in the folder run <code>git init &amp;&amp; git add -A &amp;&amp; git commit -m archive</code> (the release check lists "
     "files with git); create the environment from <code>Biological_Physics/MethylPhys/chain/requirements.txt</code>; then follow START_HERE.md. "
     f"The same commit is on GitHub: {GH}/tree/{C}.</p>"
     f"<p><b>Reproduction.</b> {RP} of {RT} headline results, the commissioning tests among them, were rebuilt from public data (GEO, ENCODE, the NCI "

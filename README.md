@@ -6,6 +6,8 @@
 
 **One law of physics from the qubit to the genome to the cosmic horizon.**
 
+**For researchers:** [the researcher package](RESEARCHER_PACKAGE.md): read the reports, run the commissioned chain on your own samples, and rebuild every headline result from public data with one command. The hard questions first: [QUESTIONS_AND_ANSWERS.md](QUESTIONS_AND_ANSWERS.md).
+
 IAM is a model of how reality begins with a bit and the cost that comes with it: how information and entropy keep their balance, the thermodynamics of informational fidelity. It is not a new theory of gravity; it reads reality, from the quantum to the classical, through the bit and its price.
 
 <p align="center">

@@ -256,7 +256,7 @@ def page(art):
 </section>
 <section class="wrap" id="researchers"><h2>For researchers: the questions first</h2>
 <p class="sub">What a reviewer will ask first, answered from the record: each answer links to the test behind it, the one command that rebuilds it from public data, its chapter in the book and its data on Zenodo. Where there is no answer yet, it says so.</p>
-<p class="cta"><a class="btn" href="{rec("QUESTIONS_AND_ANSWERS.md")}">Questions and answers</a><a class="btn ghost" href="{rec("reproduce/README.md")}">Reproduce every result</a></p>
+<p class="cta"><a class="btn" href="{rec("RESEARCHER_PACKAGE.md")}">The researcher package</a><a class="btn ghost" href="{rec("QUESTIONS_AND_ANSWERS.md")}">Questions and answers</a><a class="btn ghost" href="{rec("reproduce/README.md")}">Reproduce every result</a></p>
 <div class="grid links">
 <a class="tile" href="book/ch_reproduced.html">The commissioning record, reproduced: real report pages and every test, in the book</a>
 <a class="tile" href="https://doi.org/10.5281/zenodo.23441999">IAM-Atlas v2.1 on Zenodo</a>

@@ -25,7 +25,7 @@ for f in pdf/IAMs_Law_and_Order.pdf:IAMs_Law_and_Order_v2.0.0.pdf epub/IAMs_Law_
   curl -sfL --retry 5 -o up/book/${f#*:} https://hmahaffeyges.github.io/IAM-Validation/${f%%:*} || { st "FAILED fetching ${f%%:*}"; exit 1; }; done
 R=repo; M=$R/Biological_Physics/MethylPhys
 cp $R/QUESTIONS_AND_ANSWERS.md $M/START_HERE.md $M/sop/MethylPhys_CPG_SOP_v4.md $M/manual/MethylPhys_CPG_Operations_Manual.pdf $R/reproduce/README.md up/package/
-mv up/package/README.md up/package/REPRODUCE_README.md; cp $R/reproduce/verified.json up/package/reproduce_verified.json
+mv up/package/README.md up/package/REPRODUCE_README.md; cp $R/RESEARCHER_PACKAGE.md up/package/README.md; cp $R/reproduce/verified.json up/package/reproduce_verified.json
 cp $M/doors/COMMISSIONING_NOTE_*.md up/package/; cp $M/doors/data/REPORT_EXAMPLES_V4/final/*_researcher.pdf up/package/
 for d in package book; do (cd up/$d && sha256sum * > SHA256SUMS.txt); done
 st "uploading"; $PYB $(dirname $(readlink -f $0))/zenodo_v4_upload.py $(dirname $(readlink -f $0))/zenodo_v4_drafts.json $W/up "$BS" >> $W/upload.log 2>&1; rc=$?
