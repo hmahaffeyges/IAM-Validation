@@ -28,6 +28,7 @@ comes from (`../LESSONS.md`).
 - **A runner that compares results runs inside the environment it built** (reproduce/reproduce.py re-executes under reproduce/.venv). Fresh-clone run 2 (2026-10-18): three_labs reproduced every number, then the comparison failed on the machine's own python3, which has no pandas; the C-Score test had passed only because its comparison is JSON.
 - **Launch only after the push is confirmed** (the launch cell checks `git ls-remote origin` holds the commit). 2026-10-18 run 5 was launched in the same cell as a refused push, at a commit not on GitHub; terminated within a minute.
 - **Tool environments put first on PATH shadow system programs.** A bioconda environment can carry its own old curl (bwa-meth 0.2.0 brings curl 7.87) that cannot find the system certificates; call system programs by full path (/usr/bin/curl) in any script that also puts tool environments on PATH (2026-10-18, reproduce/mice_rrbs.sh run 8).
+- **bwa-meth on mm10 with 16 threads needs more than 32 GB.** On a c7a.4xlarge (32 GB) bwa mem was killed (return code -9) on the first sample after a 100-minute index build; use 64 GB (m7a.4xlarge) and keep 16 threads, the committed run's count (2026-10-18, reproduce/ run 9).
 ## Known facts, by data
 
 **Plants (Arabidopsis whole-genome bisulfite).** Methylation in three contexts: CG, CHG and CHH; the IAM-A counter reads CG only. Much of the

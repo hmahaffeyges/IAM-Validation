@@ -2595,3 +2595,6 @@ Job i-0cfe3c22a9c7dfde1.
 
 ### 2026-10-18 · reproduce/ metaa_rebuild PASS (OTH-076)
 Run 5: Met-A's whole commissioned reference rebuilt from the public GEO arrays in a fresh clone: the 48,528 noise sites (same set), the noise gate (N_max 0.149), the floor, the healthy reference and the blood-composition matrix, every difference 0. 8 of 8 checks, 110 minutes.
+
+### 2026-10-18 · reproduce/ mice run 9: out of memory at alignment (OTH-076)
+The genome download, the mm10 bwa-meth index (6,010 s) and trimming of the first run (SRR3111449, 9,074,427 reads) worked; bwa mem was then killed (return code -9, the memory limit) on the 32 GB machine. Rerun on 64 GB (m7a.4xlarge) with the same 16 threads as run 10; the registry and checklist now state the memory.

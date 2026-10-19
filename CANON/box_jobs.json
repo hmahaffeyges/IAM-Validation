@@ -3116,7 +3116,7 @@
    "date": "2026-10-18",
    "commit": "9fd7071f",
    "chain_commit": "9fd7071f",
-   "state": "running",
+   "state": "done",
    "s3_code_prefix": "results/REPRODUCE_V1/code/run9/",
    "log": "results/REPRODUCE_V1/run9/status.txt",
    "machine": "on-demand c7a.4xlarge, self-terminating (7-hour timer)",
@@ -3126,13 +3126,15 @@
     "OTH-076"
    ],
    "outputs": [
-    "results/REPRODUCE_V1/run9/status.txt"
+    "results/REPRODUCE_V1/run9/status.txt",
+    "results/REPRODUCE_V1/run9/out/mice/seq/logs/SRR3111449_align.log",
+    "results/REPRODUCE_V1/run9/out/mice/seq/logs/index.log"
    ],
    "files": [
     "reproduce/box/reproduce_fresh.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: commit confirmed on origin; code in S3 first; status and progress to S3; watcher; tools installed first so an install error shows in minutes; about $5",
-   "note": "stops itself after 7 hours at most"
+   "note": "download, unpack, mm10 index (100 min) and trimming all worked; bwa mem killed by the memory limit (-9) on the first sample at 32 GB; rerun on 64 GB as run 10"
   }
  ],
  "not_jobs": {

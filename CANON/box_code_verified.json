@@ -1885,8 +1885,10 @@
   "matches_repo": true,
   "log_in_s3": true,
   "outputs_in_s3": {
-   "results/REPRODUCE_V1/run9/status.txt": true
+   "results/REPRODUCE_V1/run9/status.txt": true,
+   "results/REPRODUCE_V1/run9/out/mice/seq/logs/SRR3111449_align.log": true,
+   "results/REPRODUCE_V1/run9/out/mice/seq/logs/index.log": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "done"
  }
 }

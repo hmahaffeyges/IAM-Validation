@@ -188,7 +188,8 @@
       "\"shape_reference_identical\": true"
      ]
     }
-   ]
+   ],
+   "memory": "32 GB"
   },
   {
    "id": "three_labs",
@@ -240,7 +241,7 @@
     "GSE77079 (38 RRBS runs, ENA)",
     "UCSC mm10"
    ],
-   "time": "about 4 h on 16 cores",
+   "time": "about 5 h on 16 cores",
    "disk": "40 GB",
    "record": "Biological_Physics/MethylPhys/doors/DEV_SAM_LEVER_01_OUTCOME.md",
    "steps": [
@@ -271,7 +272,8 @@
      ]
     }
    ],
-   "tolerance_note": "The aligner (bwa-meth, on bwa mem) can place a few reads differently with a different thread count, so per-run error rates are compared within 0.0005 and the verdict must be PASS with the ratio 1.10 to 1.139; the committed run gives 1.1238."
+   "tolerance_note": "The aligner (bwa-meth, on bwa mem) can place a few reads differently with a different thread count, so per-run error rates are compared within 0.0005 and the verdict must be PASS with the ratio 1.10 to 1.139; the committed run gives 1.1238.",
+   "memory": "64 GB (bwa mem on the converted mm10 index with 16 threads is killed at 32 GB)"
   },
   {
    "id": "colon",
