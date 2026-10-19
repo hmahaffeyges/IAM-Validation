@@ -2574,3 +2574,6 @@ Job i-00f5d19a1eca54c78.
 
 ### 2026-10-18 · reproduce/ mice: wgbs_tools tag (OTH-076)
 Run 2b stopped installing the mouse pipeline (exit 16): the script checked out wgbs_tools v0.1.0, but the tag is 0.1.0. The committed run (boxruns/run6_sam/session6.sh) has the same line; it never ran there because the box image already held wgbs_tools 0.1.0 (its recorded version). reproduce/mice_rrbs.sh now checks out 0.1.0 and refuses any other version. Result uploads now skip installed tool folders. Rerun as run 7. three_labs on run 2b PASS (recorded earlier).
+
+### 2026-10-18 · reproduce/ run 7 launched: mice (OTH-076)
+Job i-04892b0da73153d90.
