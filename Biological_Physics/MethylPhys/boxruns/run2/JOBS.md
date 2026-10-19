@@ -1,6 +1,6 @@
 # Box Run 2: job sheet (single-molecule sequencing; IAM-A on the paired neutrophils)
 
-Prepared 2026-10-05. Development mode: readings go in `development/METHYLPHYS_DEVELOPMENT_LOG.md`; no bars are set here.
+Prepared 2026-10-05. Development mode: readings go in `Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md`; no bars are set here.
 
 ## Goal
 Read IAM-A (Stage Q) and the IAM-A C-score on the purified neutrophils of GSE128731 (WGBS), whose same specimens were read for

@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""COMMISSIONING_PLAN.md, generated from CANON/plan.json (the order) and the Master Testing Manifest (each row's live status and next step),
+"""Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md, generated from CANON/plan.json (the order) and the Master Testing Manifest (each row's live status and next step),
 with the machines running now from CANON/box_jobs.json. The hand-kept plan up to 2026-10-15 is frozen in
 Biological_Physics/MethylPhys/archive/history_2026-10-16/. Usage: python3 CANON/plan_md.py [--check]"""
+import sys as _s, os as _o; _s.path.insert(0, _o.path.join(_o.path.dirname(_o.path.abspath(__file__)), "CANON") if _o.path.basename(_o.path.dirname(_o.path.abspath(__file__))) != "CANON" else _o.path.dirname(_o.path.abspath(__file__))); import relink as _rl
 import os, sys, json
-H = os.path.dirname(os.path.abspath(__file__)); R = os.path.dirname(H); OUT = os.path.join(R, "COMMISSIONING_PLAN.md")
+H = os.path.dirname(os.path.abspath(__file__)); R = os.path.dirname(H); OUT = os.path.join(R, "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md")
 J = lambda p: json.load(open(os.path.join(R, p), encoding="utf-8"))
 P = J("CANON/plan.json"); M = {r["id"]: r for r in J("CANON/manifest.json")["rows"]}; B = J("CANON/box_jobs.json")["jobs"]
 OUTCOME = {"success": "met", "fail": "not met", "progressed": "progressed"}
@@ -20,9 +21,9 @@ for n, it in enumerate(P["items"], 1):
 run = [j for j in B if j.get("state") == "running"]
 L += ["", "## Machines running now (machine ledger)", "", "| Job | Machine | Rows |", "|---|---|---|"] + [f"| {j['name']} | {j.get('machine','')} | {', '.join(j.get('manifest', []))} |" for j in run]
 L += ["", "## Decisions waiting for the author", ""] + ([f"- {d}" for d in P["decisions_waiting"]] or ["None."])
-txt = "\n".join(L) + "\n"
+txt = _rl.fix("\n".join(L) + "\n", OUT)   # links resolve from the document's folder (2026-10-19)
 bad = [rid for it in P["items"] for rid in it["rows"] if rid not in M]
 if "--check" in sys.argv:
     ok = not bad and os.path.exists(OUT) and open(OUT, encoding="utf-8").read() == txt
-    print("plan_md: " + ("ok" if ok else "REFUSED: " + (f"rows missing {bad}" if bad else "COMMISSIONING_PLAN.md differs (run python3 CANON/plan_md.py)"))); sys.exit(0 if ok else 1)
-open(OUT, "w", encoding="utf-8").write(txt); print("plan_md: wrote COMMISSIONING_PLAN.md" + (f" (rows missing: {bad})" if bad else ""))
+    print("plan_md: " + ("ok" if ok else "REFUSED: " + (f"rows missing {bad}" if bad else "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md differs (run python3 CANON/plan_md.py)"))); sys.exit(0 if ok else 1)
+open(OUT, "w", encoding="utf-8").write(txt); print("plan_md: wrote Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md" + (f" (rows missing: {bad})" if bad else ""))

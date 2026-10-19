@@ -1,9 +1,10 @@
 """Now running board (author 2026-10-12: give followers a show; most are not scientists). Writes the block between NOW_RUNNING markers in
 README.md and FOLLOW.md from CANON/now_running.json. --check (run by status_check) refuses: a block that differs from the file; a status outside
 the allowed set; an update without a date or with a record that does not exist; a story whose newest update is more than 7 days old unless its
-status is 'result'; hype words; the wrong voice (the notes are ours, written as "we"); FIELD_NOTES.md differing from the file; and (append-only, author 2026-10-12) any update published on
-origin/main that is now edited or missing. The board shows the newest three updates per story; FIELD_NOTES.md keeps every update with its note.
+status is 'result'; hype words; the wrong voice (the notes are ours, written as "we"); Biological_Physics/MethylPhys/FIELD_NOTES.md differing from the file; and (append-only, author 2026-10-12) any update published on
+origin/main that is now edited or missing. The board shows the newest three updates per story; Biological_Physics/MethylPhys/FIELD_NOTES.md keeps every update with its note.
 Usage: python3 CANON/now_running.py [--check]"""
+import sys as _s, os as _o; _s.path.insert(0, _o.path.join(_o.path.dirname(_o.path.abspath(__file__)), "CANON") if _o.path.basename(_o.path.dirname(_o.path.abspath(__file__))) != "CANON" else _o.path.dirname(_o.path.abspath(__file__))); import relink as _rl
 import subprocess
 import os, re, sys, json, datetime
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
@@ -32,11 +33,11 @@ def block(J, rel):
         L += [f"### {s['headline']}", "", f"**{STATUS[s['status']]}.** {s['why']}", "", f"- **What we hope:** {s['hope']}", f"- **What could go wrong:** {s['risk']}", ""]
         U = sorted(enumerate(s["updates"]), key=lambda t: (t[1]["date"], t[0]), reverse=True)[:3]
         L += ["| date | update |", "|---|---|"] + [f"| {u['date']} | {u['text']} [record]({rel}{u['record']}) |" for _, u in U]
-        L += ["", f"*The full story so far, every update in plain words: [field notes]({rel}FIELD_NOTES.md#{s['id'].replace('_', '-')}).*", ""]
+        L += ["", f"*The full story so far, every update in plain words: [field notes]({rel}Biological_Physics/MethylPhys/FIELD_NOTES.md#{s['id'].replace('_', '-')}).*", ""]
     return "\n".join(L + [E])
 def compact(J):
     """README form (author 2026-10-15: the front README should be short): one line per story, its newest update; the full board is FOLLOW.md."""
-    L = [B, "", "## Now running", "", "*Each line is the newest update in plain words; the full board is [FOLLOW.md](FOLLOW.md), every update in [FIELD_NOTES.md](FIELD_NOTES.md).*", "",
+    L = [B, "", "## Now running", "", "*Each line is the newest update in plain words; the full board is [FOLLOW.md](FOLLOW.md), every update in [Biological_Physics/MethylPhys/FIELD_NOTES.md](Biological_Physics/MethylPhys/FIELD_NOTES.md).*", "",
          "| experiment | status | newest update |", "|---|---|---|"]
     for s in J["stories"]:
         u = sorted(enumerate(s["updates"]), key=lambda t: (t[1]["date"], t[0]))[-1][1]
@@ -77,10 +78,10 @@ def apply(path, J, write):
 if __name__ == "__main__":
     J = json.load(open(os.path.join(ROOT, "CANON", "now_running.json"), encoding="utf-8")); P = problems(J)
     files = [os.path.join(ROOT, f) for f in ("README.md", "FOLLOW.md")]
-    FN = os.path.join(ROOT, "FIELD_NOTES.md")
+    FN = os.path.join(ROOT, "Biological_Physics/MethylPhys/FIELD_NOTES.md")
     if "--check" in sys.argv:
         P += appendonly(J)
-        if not os.path.exists(FN) or open(FN, encoding="utf-8").read() != notes(J): P.append("FIELD_NOTES.md differs from CANON/now_running.json (run python3 CANON/now_running.py)")
+        if not os.path.exists(FN) or open(FN, encoding="utf-8").read() != _rl.fix(notes(J), FN): P.append("Biological_Physics/MethylPhys/FIELD_NOTES.md differs from CANON/now_running.json (run python3 CANON/now_running.py)")
         for f in files:
             r = apply(f, J, False)
             if r is None: P.append(f"{os.path.basename(f)}: no NOW_RUNNING markers")
@@ -90,4 +91,4 @@ if __name__ == "__main__":
     P = appendonly(J)
     if P: raise SystemExit("now_running: " + "; ".join(P))
     for f in files: apply(f, J, True)
-    open(FN, "w", encoding="utf-8").write(notes(J)); print("now_running: written (board and FIELD_NOTES.md)")
+    open(FN, "w", encoding="utf-8").write(_rl.fix(notes(J), FN)); print("now_running: written (board and Biological_Physics/MethylPhys/FIELD_NOTES.md)")

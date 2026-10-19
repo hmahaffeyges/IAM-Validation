@@ -109,7 +109,7 @@ def pacific_heads():
     actually committed, not the date written in its heading (2026-10-14 finding)."""
     import subprocess, datetime, zoneinfo
     PT = zoneinfo.ZoneInfo("America/Los_Angeles")
-    lp = os.path.join("development", "METHYLPHYS_DEVELOPMENT_LOG.md")
+    lp = os.path.join("Biological_Physics", "MethylPhys", "METHYLPHYS_DEVELOPMENT_LOG.md")
     out, t = [], None
     try: B = subprocess.run(["git", "blame", "--line-porcelain", lp], cwd=ROOT, capture_output=True, text=True, timeout=300).stdout.split("\n")
     except Exception: B = []
@@ -131,7 +131,7 @@ def coverage(d):
     Mechanical, not clever: it reports what to look at, so a day log cannot silently omit a thread that was committed that day.
     """
     import re
-    lp = os.path.join(ROOT, "development", "METHYLPHYS_DEVELOPMENT_LOG.md")
+    lp = os.path.join(ROOT, "Biological_Physics", "MethylPhys", "METHYLPHYS_DEVELOPMENT_LOG.md")
     if not os.path.isfile(lp): return []
     heads = sorted({h for day, _, h in pacific_heads() if day == d["date"]})
     # author 2026-10-18 ("dont broadcast the temp test anywhere, it was exploratory and has no bearing on our instruments"): threads of the

@@ -37,7 +37,7 @@ def later(J):
 def render(J):
     L = ["# The road ahead", "", "*Every job still in front of us, in order, in plain words: what it is, what it needs, what it is expected to cost and where it",
          "stands. Generated from CANON/next_jobs.json by CANON/roadmap.py; do not edit by hand. What is running right now: the Now running board",
-         "on the [main page](README.md); every experiment's story: the [field notes](FIELD_NOTES.md); every machine run and its cost: the",
+         "on the [main page](README.md); every experiment's story: the [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md); every machine run and its cost: the",
          "[run ledger](Biological_Physics/MethylPhys/RUNS.md).*", ""]
     # One list, in the author's priority order (CANON/next_jobs.json is ordered; PRIORITY_2026-10-13.md says why)
     L += ["## The order of work", "", "*In priority order: each job is what most strengthens the two instruments and the law at that point.*", ""]

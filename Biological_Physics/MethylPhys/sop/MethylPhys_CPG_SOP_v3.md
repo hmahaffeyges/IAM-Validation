@@ -124,7 +124,7 @@ Every push goes through `CANON/checked_push.sh`, which runs `CANON/repro_check.p
 
 ### Record rule and status rule (2026-10-10)
 The same gate also refuses a push when the record or a status falls behind:
-- **Record:** an outcome note (`doors/*_OUTCOME.md`) new or changed in the push is not named in `development/METHYLPHYS_DEVELOPMENT_LOG.md`
+- **Record:** an outcome note (`doors/*_OUTCOME.md`) new or changed in the push is not named in `Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md`
   in the same push; a note marked `**Milestone:**` is not linked from the Advancements table of `Biological_Physics/README.md`, or a link
   there is broken; a day with log entries has no `### <date> · Day summary` once the next day has begun (Pacific time).
 - **Status:** every status fact repeated across the repo is held once, in `CANON/status_facts.json` (what is commissioned, the

@@ -6,7 +6,7 @@
 Notes still listed as 'open' in development/REPRODUCIBILITY_BACKLOG.md are reported but not refused (the backlog is being closed).
 Pre-registrations (*_PREREG.md) are exempt: their numbers are bars set in advance.
 Rule 9 (2026-10-11): laboratory independence from GEO contributors (CANON/independence_check.py).\nRule 8 (2026-10-11): a note that adds a prediction, bar or seal and names a dataset analysed earlier by another record (CANON/data_spent.csv) must\ncarry a one-line '**Prior reading:**' disclosure naming each such dataset (what analysed it, and that it was a different quantity where so).\nDisclosure only: it does not change a result's status.\nRule 7 (2026-10-10): a note that adds a prediction, bar or seal must name its committed synthetic test (script + output).\nRule 6 (2026-10-10): a number in a new or changed note that no committed output of its data folder carries (see below).\nRecord rule (2026-10-10). Also refuses a push when
-  3. an outcome note (doors/*_OUTCOME.md) new or changed in this push is not named in development/METHYLPHYS_DEVELOPMENT_LOG.md,
+  3. an outcome note (doors/*_OUTCOME.md) new or changed in this push is not named in Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md,
      or the log did not change in the same push;
   4. a note that carries a "**Milestone:**" line is not linked from the Advancements table of Biological_Physics/README.md,
      or a link in that table points at a file that does not exist;
@@ -46,7 +46,7 @@ for f in changed:
 # ---- record rule (checks 3-5)
 import os, datetime
 from zoneinfo import ZoneInfo
-LOGF = "development/METHYLPHYS_DEVELOPMENT_LOG.md"; README = "Biological_Physics/README.md"
+LOGF = "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"; README = "Biological_Physics/README.md"
 alld = git("diff", "--name-only", base, "HEAD").split("\n")
 log = open(LOGF, encoding="utf-8").read() if os.path.exists(LOGF) else ""
 for f in changed:
@@ -226,7 +226,7 @@ _LF = "Biological_Physics/MethylPhys/LESSONS.md"
 _FROZEN = {"Biological_Physics/MethylPhys/atlas/IAMAtlas_FLATNESS_LESSON.md", "Biological_Physics/MethylPhys/atlas/v2/IAMAtlas_FLATNESS_LESSON_v1.md",
            "Biological_Physics/MethylPhys/atlas/v2/LESSONS.md", "Biological_Physics/MethylPhys/chain/CPG_Lessons_Learned_2026-06-29.md"}
 _rows = set(re.findall(r"^\| ([A-Z]{1,2}\d{1,2}) \|", git("show", "HEAD:" + _LF), re.M))
-_ids = set(re.findall(r"\b(?:LESSONS|[Ll]esson) ([A-Z]{1,2}\d{1,2})\b", git("show", "HEAD:development/METHYLPHYS_DEVELOPMENT_LOG.md")))
+_ids = set(re.findall(r"\b(?:LESSONS|[Ll]esson) ([A-Z]{1,2}\d{1,2})\b", git("show", "HEAD:Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md")))
 if _ids - _rows: fail.append(f"{_LF}: lessons named in the development log have no row: {sorted(_ids - _rows)} (rule 17)")
 _all = [f for f in git("diff", "--name-only", base, "HEAD").split("\n") if f]
 for _f in _all:

@@ -523,7 +523,7 @@
    "group": "Record of every run",
    "what": "Development log and atlas note covering every step",
    "repo": [
-    "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+    "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
     "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
    ],
    "s3": [],

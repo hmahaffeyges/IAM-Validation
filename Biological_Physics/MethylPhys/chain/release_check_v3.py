@@ -383,8 +383,8 @@ def D1():
 def D2():
     """Documents: every frozen input is named in the LOG (its introduction or change is a dated entry), and STATUS.md exists."""
     F = json.load(open(os.path.join(HERE, "FROZEN_INPUTS_v3.json")))["files"]
-    lp = os.path.join(HERE, "..", "..", "..", "development", "METHYLPHYS_DEVELOPMENT_LOG.md")
-    if not os.path.exists(lp): rec("D2", False, "LOG not found: development/METHYLPHYS_DEVELOPMENT_LOG.md"); return
+    lp = os.path.join(HERE, "..", "METHYLPHYS_DEVELOPMENT_LOG.md")
+    if not os.path.exists(lp): rec("D2", False, "LOG not found: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"); return
     log = open(lp, encoding="utf-8").read(); miss = [os.path.basename(f) for f in F if os.path.basename(f) not in log]
     st = os.path.exists(os.path.join(HERE, "..", "STATUS.md"))
     rec("D2", not miss and st, f"{len(F) - len(miss)} of {len(F)} frozen inputs named in the LOG; STATUS.md {'present' if st else 'MISSING'}" + (f"; missing: {miss}" if miss else ""))

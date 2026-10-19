@@ -232,7 +232,7 @@
    "cost": "none",
    "impact": 5,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09 and 2026-10-11 entries. Pasted wording: 'Met-A commissioned 10-09', 'Met-A on neutrophils: commissioned 10-09; commissioning record written, donors added', 'Clean-room rebuild of commissioned Met-A: identical', 10-08 schedule steps 1-4 (job B re-read, commissioning review and note). The pasted healthy-definition answer (6 Salas arrays, 6,000 identity sites, healthy height 0.330263 bits, leave-one-out 6/6 Normal with spread 0.020) describes this commissioning's reference. Healthy-reference caveat in pasted notes (six arrays from one group's donor recruitment) is tracked in the second-laboratory reference row. | possible duplicate of COM-METAA-003",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09 and 2026-10-11 entries. Pasted wording: 'Met-A commissioned 10-09', 'Met-A on neutrophils: commissioned 10-09; commissioning record written, donors added', 'Clean-room rebuild of commissioned Met-A: identical', 10-08 schedule steps 1-4 (job B re-read, commissioning review and note). The pasted healthy-definition answer (6 Salas arrays, 6,000 identity sites, healthy height 0.330263 bits, leave-one-out 6/6 Normal with spread 0.020) describes this commissioning's reference. Healthy-reference caveat in pasted notes (six arrays from one group's donor recruitment) is tracked in the second-laboratory reference row. | possible duplicate of COM-METAA-003",
    "legacy_ids": [
     "E11",
     "R4",
@@ -335,7 +335,7 @@
    "depends_on": [
     "ATL: atlas v2.1 build and commissioning"
    ],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md; TODO.md M2, M3; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-13. Pasted wording: reviewer challenge 'Six arrays from one group's donor recruitment... A larger reference from more labs would be stronger.' TODO M2 names GSE224807 granulocytes as held-out; the 10-13 log names GSE72338 - check which is current. | possible duplicate of COM-METAA-008",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md; TODO.md M2, M3; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-13. Pasted wording: reviewer challenge 'Six arrays from one group's donor recruitment... A larger reference from more labs would be stronger.' TODO M2 names GSE224807 granulocytes as held-out; the 10-13 log names GSE72338 - check which is current. | possible duplicate of COM-METAA-008",
    "legacy_ids": [
     "M2",
     "M3"
@@ -453,7 +453,7 @@
     "Atlas use U3: blood composition (atlas_e) commissioning, bars 1-2",
     "SCO: composition truth set from another laboratory"
    ],
-   "notes": "TODO M1 names GSE127824 as the new lead; atlas_v21_plan.md assigns it as a U3 truth set (24 cord bloods, FACS). help_wanted asks for independent whole-blood EPIC arrays with flow counts. GSE167202 is unspent in data_spent.csv. | repo: Biological_Physics/MethylPhys/doors/DEV_COMPOSITION_TRUTH_04.md; TODO.md M1; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11. Pasted wording: 'R4a Met-A in whole blood back into the commissioned scope' (top priority 10-11), 'Whole blood (top priority) has no truth set yet', '1. Whole-blood Met-A back into the commissioned scope (new top priority, as you asked)'. GSE167202 inventory: in S3, IDAT, unspent, use truth set. GSE127824 inventory: use truth set, not in S3. | also listed as: Met-A whole blood back into the commissioned scope (bar 7 on an independent truth set)",
+   "notes": "TODO M1 names GSE127824 as the new lead; atlas_v21_plan.md assigns it as a U3 truth set (24 cord bloods, FACS). help_wanted asks for independent whole-blood EPIC arrays with flow counts. GSE167202 is unspent in data_spent.csv. | repo: Biological_Physics/MethylPhys/doors/DEV_COMPOSITION_TRUTH_04.md; TODO.md M1; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11. Pasted wording: 'R4a Met-A in whole blood back into the commissioned scope' (top priority 10-11), 'Whole blood (top priority) has no truth set yet', '1. Whole-blood Met-A back into the commissioned scope (new top priority, as you asked)'. GSE167202 inventory: in S3, IDAT, unspent, use truth set. GSE127824 inventory: use truth set, not in S3. | also listed as: Met-A whole blood back into the commissioned scope (bar 7 on an independent truth set)",
    "id": "COM-METAA-009",
    "sources_of_row": [
     "Commissioning",
@@ -555,7 +555,7 @@
    "instrument_or_term": "Met-A",
    "sources": [],
    "data_status": "to_scout",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "parked",
    "runs": [
     {
@@ -570,7 +570,7 @@
    "depends_on": [
     "ATL: atlas commissioning as a healthy-reference source"
    ],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 'Commissioning roadmap in STATUS (author)'. Pasted wording: 'Is it our goal to commission both instruments on each individual cell...'; 'Met-A: one cell type or tissue at a time'; 'Order: blood cells first..., then the tissues the cancer tests need.'",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 'Commissioning roadmap in STATUS (author)'. Pasted wording: 'Is it our goal to commission both instruments on each individual cell...'; 'Met-A: one cell type or tissue at a time'; 'Order: blood cells first..., then the tissues the cancer tests need.'",
    "legacy_ids": [
     "R4"
    ],
@@ -629,7 +629,7 @@
    "cost": "none",
    "impact": 4,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_DIRECTION_AUDIT_01.md; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11. Pasted wording: 'Met-A's \"sees both directions\" is true by how it's built. It hasn't been tested with a planted gain yet. That's the next item in the direction audit'; 10-11 closed list 'direction audit (Met-A sees gain and loss about equally...)'.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_DIRECTION_AUDIT_01.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11. Pasted wording: 'Met-A's \"sees both directions\" is true by how it's built. It hasn't been tested with a planted gain yet. That's the next item in the direction audit'; 10-11 closed list 'direction audit (Met-A sees gain and loss about equally...)'.",
    "legacy_ids": [],
    "id": "COM-METAA-015",
    "sources_of_row": [
@@ -685,7 +685,7 @@
     "1 (10-09 schedule)",
     "M4"
    ],
-   "notes": "TODO M4 says 'build and freeze'; the note shows it built and failing bar 2b. GSE318669 platform (894,182 probes) to be checked before use. | repo: Biological_Physics/MethylPhys/doors/DEV_METAA_450K_01.md; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09. Pasted wording: 10-09 schedule item 1 '450K Met-A: find why the second lab failed (slide effects, eosinophils in the CD15 sort)'; '450K second-lab failure: diagnosed (slide batch)'. | also listed as: Met-A on 450K purified neutrophils (DEV-METAA-450K-01) and the slide-batch diagnosis",
+   "notes": "TODO M4 says 'build and freeze'; the note shows it built and failing bar 2b. GSE318669 platform (894,182 probes) to be checked before use. | repo: Biological_Physics/MethylPhys/doors/DEV_METAA_450K_01.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09. Pasted wording: 10-09 schedule item 1 '450K Met-A: find why the second lab failed (slide effects, eosinophils in the CD15 sort)'; '450K second-lab failure: diagnosed (slide batch)'. | also listed as: Met-A on 450K purified neutrophils (DEV-METAA-450K-01) and the slide-batch diagnosis",
    "depends_on": [],
    "id": "COM-METAA-016",
    "sources_of_row": [
@@ -744,7 +744,7 @@
    "cost": "laptop",
    "impact": 4,
    "depends_on": [],
-   "notes": "repo: TODO.md A11; Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11. Pasted wording: G4 'neuron check running (... arrays searched)'. | possible duplicate of COM-METAA-006",
+   "notes": "repo: TODO.md A11; Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11. Pasted wording: G4 'neuron check running (... arrays searched)'. | possible duplicate of COM-METAA-006",
    "legacy_ids": [
     "A11",
     "G4"
@@ -771,7 +771,7 @@
    "depends_on": [
     "COM-METAA: Met-A 450K purified neutrophils"
    ],
-   "notes": "repo: CANON/data_spent.csv (GSE87640 unspent, S3 A_blood_immune, IDAT, use held-out test). Pasted only as a stage: 'R4 Met-A other blood cells: purified healthy cells, new laboratory; all EPIC sorted-cell sets spent; GSE87640 (450K, unread); after 450K settles.' Roadmap R4 'Met-A cell by cell' in development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11.",
+   "notes": "repo: CANON/data_spent.csv (GSE87640 unspent, S3 A_blood_immune, IDAT, use held-out test). Pasted only as a stage: 'R4 Met-A other blood cells: purified healthy cells, new laboratory; all EPIC sorted-cell sets spent; GSE87640 (450K, unread); after 450K settles.' Roadmap R4 'Met-A cell by cell' in Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11.",
    "legacy_ids": [
     "R4"
    ],
@@ -825,7 +825,7 @@
     "GSM3074480"
    ],
    "data_status": "spent",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "run",
    "runs": [
     {
@@ -838,7 +838,7 @@
    "cost": "none",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 'CHAIN CHANGE · Met-A commissioned scope narrowed'. Pasted wording: 'Before I push, I'll run the chain end to end on one isolated-neutrophil array and one whole-blood array.'",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 'CHAIN CHANGE · Met-A commissioned scope narrowed'. Pasted wording: 'Before I push, I'll run the chain end to end on one isolated-neutrophil array and one whole-blood array.'",
    "legacy_ids": [],
    "id": "COM-METAA-021",
    "sources_of_row": [
@@ -872,7 +872,7 @@
    "cost": "none",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09 'Box Run 1 job B complete; job E read the 12 mixtures' and 2026-10-11 rule 9 entry; Biological_Physics/MethylPhys/doors/DEV_NILC_01.md lists GSE182379 and GSE112618 as in-sample. Pasted wording (10-08 schedule): 'Today, job E on the 12 mixtures: the composition step's second truth test, after the 6 FACS bloods.'",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09 'Box Run 1 job B complete; job E read the 12 mixtures' and 2026-10-11 rule 9 entry; Biological_Physics/MethylPhys/doors/DEV_NILC_01.md lists GSE182379 and GSE112618 as in-sample. Pasted wording (10-08 schedule): 'Today, job E on the 12 mixtures: the composition step's second truth test, after the 6 FACS bloods.'",
    "legacy_ids": [],
    "id": "COM-METAA-022",
    "sources_of_row": [
@@ -1398,7 +1398,7 @@
    "cost": "search",
    "impact": 5,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md; CANON/instruments.json CSCORE-LAST-CHECK; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09, 2026-10-13. Pasted wording: 'C4 C-score: band on held-out labs (arrays)', 10-10 item 9 'C-score commissioning: EpiQC C-score repeats and tared spread met; band on held-out labs still to set', 10-08 'wire the tared C-score and set its band on labs that weren't used to build it (0.75-1.41)'. | possible duplicate of COM-CSCORE-002 | possible duplicate of COM-CSCORE-004",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md; CANON/instruments.json CSCORE-LAST-CHECK; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09, 2026-10-13. Pasted wording: 'C4 C-score: band on held-out labs (arrays)', 10-10 item 9 'C-score commissioning: EpiQC C-score repeats and tared spread met; band on held-out labs still to set', 10-08 'wire the tared C-score and set its band on labs that weren't used to build it (0.75-1.41)'. | possible duplicate of COM-CSCORE-002 | possible duplicate of COM-CSCORE-004",
    "legacy_ids": [
     "M5",
     "L5",
@@ -1635,7 +1635,7 @@
    "cost": "none",
    "impact": 4,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_CSCORE_MOSS_01_OUTCOME.md. Pasted wording: 'The Moss 2018 mixes (GSE122126)... ideal for the C-score' (C6, 10-09); 'array-reference mixes: Met-A specificity met; untared C-score not met'. GSE122126 is not a neutrophil truth set (development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09).",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_CSCORE_MOSS_01_OUTCOME.md. Pasted wording: 'The Moss 2018 mixes (GSE122126)... ideal for the C-score' (C6, 10-09); 'array-reference mixes: Met-A specificity met; untared C-score not met'. GSE122126 is not a neutrophil truth set (Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09).",
    "legacy_ids": [
     "C6 (10-09 list)",
     "DEV-CSCORE-MOSS-01"
@@ -1922,7 +1922,7 @@
    "cost": "box",
    "impact": 5,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md, DEV_IAMA_READACROSS_01.md, DEV_IAMA_TRIM_01.md; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-13. Not in the pasted notes (follow-up to A1/A2); included so the A1/A2 thread is complete. | possible duplicate of COM-IAMA-002 | possible duplicate of COM-IAMA-014",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md, DEV_IAMA_READACROSS_01.md, DEV_IAMA_TRIM_01.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-13. Not in the pasted notes (follow-up to A1/A2); included so the A1/A2 thread is complete. | possible duplicate of COM-IAMA-002 | possible duplicate of COM-IAMA-014",
    "legacy_ids": [
     "N4b",
     "L9",
@@ -2530,7 +2530,7 @@
     "GSE128731"
    ],
    "data_status": "spent",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "run",
    "runs": [
     {
@@ -2548,7 +2548,7 @@
    "cost": "none",
    "impact": 4,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09 'Box Run 2 session 2 complete'; Biological_Physics/MethylPhys/doors/DEV_IAMA_KIT_01.md (Swift vs TruSeq read-end clipping). Pasted wording (10-08): 'Run 2 session 2... both neutrophil donors from the new lab'; 'repeat runs of the same donor agree, which the 4 runs per donor, across kits and sequencers, test (session 3)'; 'library kits shift IAM-A by up to 16 % (Swift vs TruSeq)'.",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09 'Box Run 2 session 2 complete'; Biological_Physics/MethylPhys/doors/DEV_IAMA_KIT_01.md (Swift vs TruSeq read-end clipping). Pasted wording (10-08): 'Run 2 session 2... both neutrophil donors from the new lab'; 'repeat runs of the same donor agree, which the 4 runs per donor, across kits and sequencers, test (session 3)'; 'library kits shift IAM-A by up to 16 % (Swift vs TruSeq)'.",
    "legacy_ids": [],
    "id": "COM-IAMA-017",
    "sources_of_row": [
@@ -2586,7 +2586,7 @@
    "cost": "none",
    "impact": 4,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_CONVERSION_01_OUTCOME.md; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10, 2026-10-11. Pasted wording: 10-10 plan item 2 'The conversion limit: work out from physics how much a 0.979 conversion actually biases the held error'; 'Conversion limit: tested, not met; chain unchanged'; 'R1 C1 intake: conversion limit on identical DNA'.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_CONVERSION_01_OUTCOME.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10, 2026-10-11. Pasted wording: 10-10 plan item 2 'The conversion limit: work out from physics how much a 0.979 conversion actually biases the held error'; 'Conversion limit: tested, not met; chain unchanged'; 'R1 C1 intake: conversion limit on identical DNA'.",
    "legacy_ids": [
     "C1 (IAM-A bar)"
    ],
@@ -2656,7 +2656,7 @@
    "cost": "none",
    "impact": 4,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_P_WHOLE_01.md; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10. Pasted wording: 'For neutrophils, P = 1.149, measured on 3 healthy donors, whole files. Held out, each donor reads 0.984-1.025'.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_P_WHOLE_01.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10. Pasted wording: 'For neutrophils, P = 1.149, measured on 3 healthy donors, whole files. Held out, each donor reads 0.984-1.025'.",
    "legacy_ids": [],
    "id": "COM-IAMA-020",
    "sources_of_row": [
@@ -3087,7 +3087,7 @@
     "GSE186458"
    ],
    "data_status": "spent",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "run",
    "runs": [
     {
@@ -3100,7 +3100,7 @@
    "cost": "none",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-08/09 'Box Run 2 session 1' entries. Pasted wording (10-08 schedule): 'Run 2 session 1: pinned tools, the genome index, and a 1-million-read check that our files match the sequencing atlas's exactly.'",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-08/09 'Box Run 2 session 1' entries. Pasted wording (10-08 schedule): 'Run 2 session 1: pinned tools, the genome index, and a 1-million-read check that our files match the sequencing atlas's exactly.'",
    "legacy_ids": [],
    "id": "COM-IAMA-033",
    "sources_of_row": [
@@ -3163,7 +3163,7 @@
    "cost": "none",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_INTAKE_01.md, DEV_Q0_HEALTHY_01.md; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-08. Pasted wording (10-08): 'wire the IAM-A intake stage (Q0) from the spec... each a named refusal. Set its limits on healthy files.' Outcome detail of DEV-Q0-HEALTHY-01 not checked here.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_INTAKE_01.md, DEV_Q0_HEALTHY_01.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-08. Pasted wording (10-08): 'wire the IAM-A intake stage (Q0) from the spec... each a named refusal. Set its limits on healthy files.' Outcome detail of DEV-Q0-HEALTHY-01 not checked here.",
    "legacy_ids": [],
    "id": "COM-IAMA-035",
    "sources_of_row": [
@@ -3212,7 +3212,7 @@
     "GSE186458"
    ],
    "data_status": "spent",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "idea",
    "runs": [
     {
@@ -3225,7 +3225,7 @@
    "cost": "search",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10 'IAM-A position of prostate epithelium measured'. Pasted wording: 'Commissioning IAM-A on neutrophils, then a second, very different cell type (prostate, where we already measured its position)'. The repo later chose neurons (DEV-IAMA-NEURON-01).",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10 'IAM-A position of prostate epithelium measured'. Pasted wording: 'Commissioning IAM-A on neutrophils, then a second, very different cell type (prostate, where we already measured its position)'. The repo later chose neurons (DEV-IAMA-NEURON-01).",
    "legacy_ids": [],
    "id": "COM-IAMA-037",
    "sources_of_row": [
@@ -3432,7 +3432,7 @@
    "cost": "box",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01_OUTCOME.md",
-   "notes": "Pasted N1/A2/O1: 'on an on-demand c6a.32xlarge after four spot reclaims; 55 of 71 at about 1 PM Pacific'; 'score once; TruSeq may fail C2, recorded not adjusted'; 'terminate the machine (spot_from_box.py release i-08550fe70a8e58348)'. Pasted summary: 'Held: 4 of 5 commissioning checks passed'. repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01_OUTCOME.md; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-12. | possible duplicate of COM-IAMA-010",
+   "notes": "Pasted N1/A2/O1: 'on an on-demand c6a.32xlarge after four spot reclaims; 55 of 71 at about 1 PM Pacific'; 'score once; TruSeq may fail C2, recorded not adjusted'; 'terminate the machine (spot_from_box.py release i-08550fe70a8e58348)'. Pasted summary: 'Held: 4 of 5 commissioning checks passed'. repo: Biological_Physics/MethylPhys/doors/DEV_IAMA_COMMISSION_01_OUTCOME.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-12. | possible duplicate of COM-IAMA-010",
    "legacy_ids": [
     "N1",
     "A2",
@@ -3909,7 +3909,7 @@
    "cost": "none",
    "impact": 5,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-12. Pasted wording: 'The atlas. A reference of 74 healthy human cell types... The atlas's 90% intervals caught 92.7% of them. To our knowledge, no other public atlas...'. TODO.md N2 (10-13) still lists the deposit as awaiting author approval while the log says deposited 2026-10-12 - check.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-12. Pasted wording: 'The atlas. A reference of 74 healthy human cell types... The atlas's 90% intervals caught 92.7% of them. To our knowledge, no other public atlas...'. TODO.md N2 (10-13) still lists the deposit as awaiting author approval while the log says deposited 2026-10-12 - check.",
    "legacy_ids": [
     "N2",
     "AT1",
@@ -4774,7 +4774,7 @@
    "cost": "none",
    "impact": 4,
    "record": "Biological_Physics/MethylPhys/atlas/",
-   "notes": "Pasted N2/AT2 (pending in the notes); pasted summary 'v2 published with its DOI'. repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-12. | possible duplicate of ATL-011",
+   "notes": "Pasted N2/AT2 (pending in the notes); pasted summary 'v2 published with its DOI'. repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-12. | possible duplicate of ATL-011",
    "legacy_ids": [
     "N2",
     "AT2"
@@ -5612,7 +5612,7 @@
    "cost": "none",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11; Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_02_OUTCOME.md. Pasted wording: 'gain meter built after HepG2/A549'.",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11; Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_02_OUTCOME.md. Pasted wording: 'gain meter built after HepG2/A549'.",
    "legacy_ids": [],
    "id": "CAN-014",
    "sources_of_row": [
@@ -5986,7 +5986,7 @@
    "cost": "laptop",
    "impact": 2,
    "record": "Biological_Physics/MethylPhys/INSTRUMENTS.md",
-   "notes": "Pasted: 'Two instruments disagreeing on one sample is therefore a diagnosis of which channel failed, not a contradiction'; 'the held-error meter is blind to clustered loss because it only matches isolated losses'. repo: INSTRUMENTS.md closing text (generated from CANON/instruments.json).",
+   "notes": "Pasted: 'Two instruments disagreeing on one sample is therefore a diagnosis of which channel failed, not a contradiction'; 'the held-error meter is blind to clustered loss because it only matches isolated losses'. repo: Biological_Physics/MethylPhys/INSTRUMENTS.md closing text (generated from CANON/instruments.json).",
    "legacy_ids": [],
    "depends_on": [
     "C-score last check: same-person repeatability on unspent replicate arrays"
@@ -6434,7 +6434,7 @@
     "fish species reads (S3)"
    ],
    "data_status": "partial",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "planned",
    "runs": [
     {
@@ -6449,7 +6449,7 @@
    "depends_on": [
     "LEV: temperature lever: hamster hibernation"
    ],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09 'Fish water-temperature reading (development)' and 2026-10-13 'Temperature lever reordered'. Pasted wording: 10-09 schedule item 7 'One-species temperature test (+1% per C): >=20 C range, about 40 animals'; 'a one-species design over 20 C would test whether the cell's holding scales with M'.",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09 'Fish water-temperature reading (development)' and 2026-10-13 'Temperature lever reordered'. Pasted wording: 10-09 schedule item 7 'One-species temperature test (+1% per C): >=20 C range, about 40 animals'; 'a one-species design over 20 C would test whether the cell's holding scales with M'.",
    "legacy_ids": [
     "7 (10-09 schedule)",
     "C9"
@@ -7749,7 +7749,7 @@
    "cost": "none",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md; results_register REPRO-PUBLIC-2026-10-10; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09/10. Pasted wording: 'eps0 = 0.032, comes from... 3.41 kT, measured on 153 public samples and reproduced exactly from the repo today'.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md; results_register REPRO-PUBLIC-2026-10-10; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09/10. Pasted wording: 'eps0 = 0.032, comes from... 3.41 kT, measured on 153 public samples and reproduced exactly from the repo today'.",
    "legacy_ids": [
     "REPRO-PUBLIC-2026-10-10"
    ],
@@ -8021,7 +8021,7 @@
    "instrument_or_term": "eps0 (healthy held error)",
    "sources": [],
    "data_status": "none_needed",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "run",
    "runs": [
     {
@@ -8034,7 +8034,7 @@
    "cost": "none",
    "impact": 2,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10 'Open item D1 restated (author approved)'. Pasted wording: '1. The book's open item D1... I'd reword it to \"derive eps0 from the writer's discrimination measured outside the cell\"... it's your call.'",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10 'Open item D1 restated (author approved)'. Pasted wording: '1. The book's open item D1... I'd reword it to \"derive eps0 from the writer's discrimination measured outside the cell\"... it's your call.'",
    "legacy_ids": [
     "D1"
    ],
@@ -18776,7 +18776,7 @@
    "cost": "none",
    "impact": 1,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 'GSE69914 (breast tissue): format check and a blinding breach'; data_spent.csv (partly spent). Pasted wording: 'GSE69914 set aside (no IDAT, no patient IDs)'.",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 'GSE69914 (breast tissue): format check and a blinding breach'; data_spent.csv (partly spent). Pasted wording: 'GSE69914 set aside (no IDAT, no patient IDs)'.",
    "legacy_ids": [],
    "id": "DAT-216",
    "sources_of_row": [
@@ -19981,7 +19981,7 @@
    "cost": "search",
    "impact": 5,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_COMPOSITION_TRUTH_04.md; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09, 2026-10-11; next_jobs help_wanted[2]. Pasted duplicates: 'Search for whole bloods of known composition (FACS or constructed mixtures) from a laboratory independent of Salas/Koestler/Butler'; C6 'Atlas composition truth, another lab: deeper search'; 10-10 item 13; C8 (10-09 list) 'Blood composition from another lab... needs a deeper search'; 'Whole-blood truth-set search (R4a)'.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_COMPOSITION_TRUTH_04.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09, 2026-10-11; next_jobs help_wanted[2]. Pasted duplicates: 'Search for whole bloods of known composition (FACS or constructed mixtures) from a laboratory independent of Salas/Koestler/Butler'; C6 'Atlas composition truth, another lab: deeper search'; 10-10 item 13; C8 (10-09 list) 'Blood composition from another lab... needs a deeper search'; 'Whole-blood truth-set search (R4a)'.",
    "legacy_ids": [
     "R4a",
     "C6 (10-11)",
@@ -21056,7 +21056,7 @@
     "GSE116482"
    ],
    "data_status": "public_not_downloaded",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "idea",
    "runs": [
     {
@@ -21280,7 +21280,7 @@
     "GSE297847 (WGBS sub-series GSE297777)"
    ],
    "data_status": "public_not_downloaded",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "idea",
    "runs": [
     {
@@ -22328,7 +22328,7 @@
    "next_step": "Finish the TET-knockout and primary/metastasis parts; declare spent before reading.",
    "cost": "search",
    "impact": 2,
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "notes": "Pasted 'Searches, metadata only: precancer lesions with known outcome (the breach line), TET-knockout data (erasure), paired primary/metastasis sets (spread)' and 'Searches, run as one sub-agent in parallel'.",
    "legacy_ids": [
     "H2",
@@ -22435,7 +22435,7 @@
     "CANON/reference_sets.txt"
    ],
    "data_status": "none_needed",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "run",
    "runs": [
     {
@@ -22453,7 +22453,7 @@
    "cost": "none",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 entries (rule 9, widened); Biological_Physics/MethylPhys/LESSONS.md. Pasted wording: 'A new gate check will fetch the GEO contributor list... It goes into the lessons file as T14.'",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 entries (rule 9, widened); Biological_Physics/MethylPhys/LESSONS.md. Pasted wording: 'A new gate check will fetch the GEO contributor list... It goes into the lessons file as T14.'",
    "legacy_ids": [
     "T14",
     "rule 9"
@@ -22484,7 +22484,7 @@
    "depends_on": [
     "COM-IAMA: IAM-A commissioning on identical DNA"
    ],
-   "notes": "repo: TODO.md B9, R3, R4; development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 'Roadmap: replication goal replaces the outside-lab item'. Pasted wording: B9 (10-11); E11 (10-09 list) 'One commissioning record per instrument... reproducible from the repo with one command'.",
+   "notes": "repo: TODO.md B9, R3, R4; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 'Roadmap: replication goal replaces the outside-lab item'. Pasted wording: B9 (10-11); E11 (10-09 list) 'One commissioning record per instrument... reproducible from the repo with one command'.",
    "legacy_ids": [
     "B9",
     "R3",
@@ -22557,7 +22557,7 @@
    "instrument_or_term": "roadmap",
    "sources": [],
    "data_status": "none_needed",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "run",
    "runs": [
     {
@@ -22575,7 +22575,7 @@
    "cost": "none",
    "impact": 2,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11, 2026-10-13. Pasted wording: 'I can write this into STATUS as the commissioning roadmap, so every future test is placed against it.'",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11, 2026-10-13. Pasted wording: 'I can write this into STATUS as the commissioning roadmap, so every future test is placed against it.'",
    "legacy_ids": [
     "R1",
     "R2",
@@ -22690,7 +22690,7 @@
    "instrument_or_term": "replication",
    "sources": [],
    "data_status": "none_needed",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "retired",
    "runs": [
     {
@@ -22703,7 +22703,7 @@
    "cost": "none",
    "impact": 2,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 'Roadmap: replication goal replaces the outside-lab item (author)'. Pasted wording: 10-10 item 21 'Outside lab runs the kit... your contact'; E12 (10-09 list).",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 'Roadmap: replication goal replaces the outside-lab item (author)'. Pasted wording: 10-10 item 21 'Outside lab runs the kit... your contact'; E12 (10-09 list).",
    "legacy_ids": [
     "21 (10-10)",
     "E12 (10-09 list)"
@@ -22759,7 +22759,7 @@
    "cost": "laptop",
    "impact": 2,
    "depends_on": [],
-   "notes": "repo: development/REPRODUCIBILITY_BACKLOG.md (not read here); development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09/10. Pasted wording: C10 (10-11), 10-10 item 18, 10-10 plan item 5 'Backlog: keep recovering the remaining tier-1 scripts'.",
+   "notes": "repo: development/REPRODUCIBILITY_BACKLOG.md (not read here); Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09/10. Pasted wording: C10 (10-11), 10-10 item 18, 10-10 plan item 5 'Backlog: keep recovering the remaining tier-1 scripts'.",
    "legacy_ids": [
     "C7",
     "C10 (10-11)",
@@ -22824,7 +22824,7 @@
     "GSE153712"
    ],
    "data_status": "none_needed",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "planned",
    "runs": [
     {
@@ -22837,7 +22837,7 @@
    "cost": "laptop",
    "impact": 2,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10 'Chain Stage 1 limit found'; TODO.md C5. Pasted wording: C7/14 'Add the manifest revision'; 'IDAT revision check first' (GSE153712, GSE283951).",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10 'Chain Stage 1 limit found'; TODO.md C5. Pasted wording: C7/14 'Add the manifest revision'; 'IDAT revision check first' (GSE153712, GSE283951).",
    "legacy_ids": [
     "C5",
     "C7 (10-11)",
@@ -22854,7 +22854,7 @@
    "instrument_or_term": "push gate",
    "sources": [],
    "data_status": "none_needed",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "run",
    "runs": [
     {
@@ -22872,7 +22872,7 @@
    "cost": "none",
    "impact": 2,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10 and 2026-10-11. Pasted wording: 'One cancer at a time enforced in code. Synthetic tests mandatory (push-gate rule 7).'",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10 and 2026-10-11. Pasted wording: 'One cancer at a time enforced in code. Synthetic tests mandatory (push-gate rule 7).'",
    "legacy_ids": [
     "rule 7"
    ],
@@ -22900,7 +22900,7 @@
    "cost": "none",
    "impact": 2,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 'Two-instrument table added'. Pasted wording: the table at the top of the notes and 'two-instrument table in book, SOP, OM'.",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 'Two-instrument table added'. Pasted wording: the table at the top of the notes and 'two-instrument table in book, SOP, OM'.",
    "legacy_ids": [],
    "id": "OTH-017",
    "sources_of_row": [
@@ -22955,7 +22955,7 @@
    "instrument_or_term": "wording",
    "sources": [],
    "data_status": "none_needed",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "run",
    "runs": [
     {
@@ -22973,7 +22973,7 @@
    "cost": "laptop",
    "impact": 1,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 'READMEs: informational fidelity...'. Pasted wording: 'I'll use \"informational fidelity\" as the standard term. Once Stage A is scored, I'll check the book, README and notes for consistent wording.' Whether the book pass was completed was not confirmed.",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 'READMEs: informational fidelity...'. Pasted wording: 'I'll use \"informational fidelity\" as the standard term. Once Stage A is scored, I'll check the book, README and notes for consistent wording.' Whether the book pass was completed was not confirmed.",
    "legacy_ids": [],
    "id": "OTH-020",
    "sources_of_row": [
@@ -22986,7 +22986,7 @@
    "instrument_or_term": "operations",
    "sources": [],
    "data_status": "none_needed",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "run",
    "runs": [
     {
@@ -23005,7 +23005,7 @@
    "cost": "none",
    "impact": 1,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 entries and day summary. Pasted wording: 'Done 2026-10-11 evening: 10-10 reviewer findings cleared (two number errors fixed, 112ce4a); box scratch disk deleted...; day summary written'; C14 'Delete the box's 600 GB scratch disk after T47D'. Commit 112ce4a is from the pasted notes, not verified in git.",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-11 entries and day summary. Pasted wording: 'Done 2026-10-11 evening: 10-10 reviewer findings cleared (two number errors fixed, 112ce4a); box scratch disk deleted...; day summary written'; C14 'Delete the box's 600 GB scratch disk after T47D'. Commit 112ce4a is from the pasted notes, not verified in git.",
    "legacy_ids": [
     "C14 (10-11)"
    ],
@@ -23020,7 +23020,7 @@
    "instrument_or_term": "book",
    "sources": [],
    "data_status": "none_needed",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "run",
    "runs": [
     {
@@ -23033,7 +23033,7 @@
    "cost": "none",
    "impact": 1,
    "depends_on": [],
-   "notes": "repo: development/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10 'Book review against the record'. Pasted wording: 'What isn't new, and a reviewer will know it... So the safe claim isn't \"IAM invented methylation entropy\"'. Sanchez and Mackenzie (2016) appears in the pasted notes as already cited in the README; not checked here.",
+   "notes": "repo: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-10 'Book review against the record'. Pasted wording: 'What isn't new, and a reviewer will know it... So the safe claim isn't \"IAM invented methylation entropy\"'. Sanchez and Mackenzie (2016) appears in the pasted notes as already cited in the README; not checked here.",
    "legacy_ids": [],
    "id": "OTH-022",
    "sources_of_row": [
@@ -23078,7 +23078,7 @@
    "next_step": "None.",
    "cost": "none",
    "impact": 1,
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "notes": "Pasted N3. | possible duplicate of OTH-006",
    "legacy_ids": [
     "N3"
@@ -25069,7 +25069,7 @@
    "instrument_or_term": "Mahaffey number M = dG_ATP/kT; phi = E_hold/M",
    "sources": [],
    "data_status": "none_needed",
-   "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "status": "idea",
    "runs": [],
    "next_step": "Tested by DEV-ERASE-01 (PHY-006, sealed 2026-10-14); a physical reason why writing and erasing are the virial K and Q is still to be derived.",
@@ -26335,7 +26335,7 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "ASCORES/README.md",
+   "record": "Biological_Physics/MethylPhys/ASCORES/README.md",
    "status": "running",
    "runs": [],
    "next_step": "add each new test's per-sample rows as a source (tumor island pairs, C-score repeats, open-sea own reads); then read PHY-069 (is there a concern line) off the tables",
@@ -26357,7 +26357,7 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
+   "record": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
    "status": "idea",
    "runs": [],
    "next_step": "after the A-score database and the tumor pairs on both sides (PHY-043); precancer sets from the manifest (DEV-BREACH-01 found no breach at the precancer stage)",
@@ -26382,7 +26382,7 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
+   "record": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
    "status": "parked",
    "runs": [],
    "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
@@ -26404,7 +26404,7 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
+   "record": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
    "status": "parked",
    "runs": [],
    "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
@@ -26426,7 +26426,7 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
+   "record": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
    "status": "parked",
    "runs": [],
    "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
@@ -26448,7 +26448,7 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
+   "record": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
    "status": "parked",
    "runs": [],
    "next_step": "parked by the limits study (development/LIMITS_STUDY_2026-10-17.md): off the critical path until IAM-A is commissioned and the gift ships",
@@ -26470,7 +26470,7 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
+   "record": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
    "status": "planned",
    "runs": [],
    "next_step": "list each earlier signal with its record; pick the commissioned instrument that can read it; plan order",
@@ -26492,7 +26492,7 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
+   "record": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
    "status": "planned",
    "runs": [],
    "next_step": "inventory what report_v3 prints and what the sky stages (11, 12) can draw for the C-Score; design the page template",
@@ -26514,7 +26514,7 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
+   "record": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
    "status": "planned",
    "runs": [],
    "next_step": "read real tumors with the C-Score under a sealed bar (its next test) and add the rows as their own section",
@@ -26536,7 +26536,7 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
+   "record": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
    "status": "planned",
    "runs": [],
    "next_step": "list every result, commissioning and rule change since 2026-10-08 (register, manifest, development log) and check each document the page links to",
@@ -26558,7 +26558,7 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
+   "record": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
    "status": "run",
    "runs": [
     {
@@ -26801,7 +26801,7 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
+   "record": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
    "status": "planned",
    "runs": [],
    "next_step": "define, per specimen, which instruments read it and what agreement means; report agreement beside the readings, never folded into them",
@@ -26906,7 +26906,7 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
+   "record": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
    "status": "planned",
    "runs": [],
    "next_step": "for each instrument: healthy band from healthy readings (Met-A's 0.95-1.05 was set by hand on 2026-10-01 and confirmed, 525 of 541 healthy arrays inside, medians 0.994-1.005: rebuild it from the spread); tumor line from tumor-over-own-normal readings (A-score database); worst lab shift measured (ENCODE B cell for IAM-A); margin stated",
@@ -26928,7 +26928,7 @@
     "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
    ],
    "data_status": "",
-   "record": "COMMISSIONING_PLAN.md",
+   "record": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
    "status": "planned",
    "runs": [],
    "next_step": "move each reference builder into the chain as a builder command whose output reproduces the frozen runtime matrix byte for byte; fold the drivers into a chain command",
@@ -27044,13 +27044,13 @@
     {
      "date": "2026-10-16",
      "outcome": "progressed",
-     "note": "batch 1: candidates board merged into INSTRUMENTS.md; NOT_CHAIN_VERIFIED into REPLICATE.md; BIT_TABLES, the bit paper OUTLINE and PIECES into FOUR_DOMAINS.md (pieces now data); TODO.md and PRIORITY_2026-10-13.md retired to pointers",
+     "note": "batch 1: candidates board merged into Biological_Physics/MethylPhys/INSTRUMENTS.md; NOT_CHAIN_VERIFIED into REPLICATE.md; BIT_TABLES, the bit paper OUTLINE and PIECES into FOUR_DOMAINS.md (pieces now data); TODO.md and PRIORITY_2026-10-13.md retired to pointers",
      "page": "not headline: record keeping"
     },
     {
      "date": "2026-10-16",
      "outcome": "progressed",
-     "note": "batch 2: STATUS.md generated by CANON/status_md.py, COMMISSIONING_PLAN.md by CANON/plan_md.py from CANON/plan.json and the manifest; the hand-kept versions frozen in Biological_Physics/MethylPhys/archive/history_2026-10-16/",
+     "note": "batch 2: STATUS.md generated by CANON/status_md.py, Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md by CANON/plan_md.py from CANON/plan.json and the manifest; the hand-kept versions frozen in Biological_Physics/MethylPhys/archive/history_2026-10-16/",
      "page": "not headline: record keeping"
     },
     {
@@ -27191,7 +27191,7 @@
     {
      "date": "2026-10-16",
      "outcome": "success",
-     "note": "Section written as data in CANON/catalogue.json, generated into INSTRUMENTS.md (linked from the README and the page); no new document.",
+     "note": "Section written as data in CANON/catalogue.json, generated into Biological_Physics/MethylPhys/INSTRUMENTS.md (linked from the README and the page); no new document.",
      "page": "not headline: reference explainer, linked from the catalogue"
     }
    ],
@@ -27559,7 +27559,7 @@
    "sources_of_row": [
     "session 2026-10-16"
    ],
-   "notes": "2026-10-19: new chapter 'The commissioning record, reproduced' (part6/p6_20c_reproduced.tex), generated by docs/book/build_repro_chapter.py from reproduce/tests.json, reproduce/verified.json and the committed reports: real report pages as figures, and every reproduction test with its fresh-clone result; push gate refuses it stale"
+   "notes": "2026-10-19: new chapter 'The commissioning record, reproduced' (part6/p6_20c_reproduced.tex), generated by docs/book/build_repro_chapter.py from Biological_Physics/MethylPhys/reproduce/tests.json, Biological_Physics/MethylPhys/reproduce/verified.json and the committed reports: real report pages as figures, and every reproduction test with its fresh-clone result; push gate refuses it stale"
   },
   {
    "title": "Tumor pairs rescored with the counter's response-curve meter correction",
@@ -27818,9 +27818,9 @@
    "title": "Questions and answers for outside labs: what a researcher will ask, answered from the record, open questions stated as open, and a public report form",
    "purpose": "author 2026-10-18: outside labs should test the chain on their own known samples and try to break it",
    "status": "run",
-   "record": "QUESTIONS_AND_ANSWERS.md",
+   "record": "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md",
    "runs": [],
-   "next_step": "2026-10-18 author: 'Try to break it' replaced by QUESTIONS_AND_ANSWERS.md (every question a researcher or reviewer will ask; answers point to their test; open questions named; checking on known samples is one section; issue form 'Report a result'). 2026-10-18: 'Questions the field is asking now' added (from recent reviews of methylation cancer detection and epigenetic drift: entropy measures, tumor variability, proliferation, age confounding, fixed atlases, cfDNA dilution, validation, QC reporting), three new open questions named",
+   "next_step": "2026-10-18 author: 'Try to break it' replaced by Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md (every question a researcher or reviewer will ask; answers point to their test; open questions named; checking on known samples is one section; issue form 'Report a result'). 2026-10-18: 'Questions the field is asking now' added (from recent reviews of methylation cancer detection and epigenetic drift: entropy measures, tumor variability, proliferation, age confounding, fixed atlases, cfDNA dilution, validation, QC reporting), three new open questions named",
    "notes": "2026-10-19: title and plan item 20 renamed from 'Try to break it' to the Q&A | 2026-10-19: four questions from recent atlases of purified cells and of cell-free DNA (imprinted and allele-specific regions, answered from the counter's rule; cfDNA fragmentation; library chemistry; one person over time), and a source list for the section | 2026-10-19 (author: head off a skeptic's first questions, each answer linked to its data, its one-command rebuild, the book, Zenodo): 'Where everything is' and 'The hard questions first' (circularity, how a seal can be checked, how many tests were tried, why Landauer at one ATP per mark, fitted references, one author not yet peer-reviewed); book chapter and Zenodo links added to the answers; its own front-page section, 'For researchers: the questions first'"
   },
   {
@@ -27836,13 +27836,13 @@
    "sources_of_row": [
     "session 2026-10-16"
    ],
-   "title": "One-command reproduction of the commissioning tests and headline results from public data (reproduce/)",
+   "title": "One-command reproduction of the commissioning tests and headline results from public data (Biological_Physics/MethylPhys/reproduce/)",
    "purpose": "author 2026-10-18: outside labs should test the chain on their own known samples and try to break it",
    "status": "planned",
-   "record": "reproduce/README.md",
+   "record": "Biological_Physics/MethylPhys/reproduce/README.md",
    "runs": [],
    "next_step": "2026-10-18 fresh-clone run 1: cscore_band PASS (every compared number identical, 42 min, methylprep manifests fetched fresh); deconv and metaa_rebuild running; run 2 stopped (runner ran outside its environment; fixed), relaunched as 2b, job i-0173a92945aecb068; run 4 running: job i-0ec4b93905093cf2c (breast, liver); run 5 running: job i-057e21ce87336144c (metaa_rebuild); run 6 running: job i-00f5d19a1eca54c78 (iama_line); run 7 running: job i-04892b0da73153d90 (mice); run 8 running: job i-05b0f0f23a841f8fa (mice); run 9 running: job i-0cfe3c22a9c7dfde1 (mice); run 10 running: job i-0dcadc1b4ac48b899 (mice, 64 GB); run 11 running: job i-0293335867c24f8c0 (mice, 14-hour timer); run 12 running: job i-08774f6b5ef3593f6 (mice, termination-protected); run 13 running: job i-0f11653042c6b82bf (mice, termination-protected, addresses from the run list)",
-   "notes": "2026-10-18: colon entry added (atlas v2 from Zenodo, GSE131013 from GEO; extract_posterior.py reads local blocks with BLOCKS_DIR) | 2026-10-18: deconv PASS from a fresh clone (5 of 5 identical, 67 min); it exposed that the Deconvolver's error was described as a median everywhere while the sealed bar and the code use a mean; corrected at every source | 2026-10-18: three_labs PASS (4 of 4 identical); breast and liver entries added (TCGA from the NCI GDC, atlas v2 from Zenodo; reproduce/tcga_tissue.sh), launched once the colon run proves the Zenodo route | 2026-10-18: metaa_rebuild run 1 stopped at the floor step on a clean-room path guard (noise sites and gate identical); guard fixed, rerun as run 5 | 2026-10-18: colon PASS from a fresh clone (6 of 6 identical; atlas v2 from Zenodo, GSE131013 from GEO; 189 min) | 2026-10-18: iama_line run 2b: 127 of 127 counted files identical to the committed counts (122 GEO, 5 ENCODE), 31 GEO downloads refused (503); retry loop added, rerun as run 6 | 2026-10-18: mice run 2b stopped at install (wgbs_tools tag is 0.1.0, not v0.1.0); fixed, rerun as run 7 | 2026-10-18: mice run 7 tools right, stopped silent in the genome step; step split and logged, rerun as run 8 | 2026-10-18: breast PASS from a fresh clone (6 of 6 identical; atlas v2 from Zenodo, TCGA-BRCA from the NCI GDC; 113 min) | 2026-10-18: mice run 8: the genome download used bwa-meth's environment's old curl (certificate error); system curl pinned, rerun as run 9 | 2026-10-18: metaa_rebuild PASS from a fresh clone (8 of 8: noise sites, noise gate, floor, reference, blood composition; every difference 0; 110 min) | 2026-10-18: mice run 9: genome, index and trimming worked; bwa mem out of memory at 32 GB; rerun on 64 GB, same 16 threads, as run 10 | 2026-10-18: liver PASS from a fresh clone (6 of 6 identical; TCGA-LIHC from the NCI GDC; 139 min) | 2026-10-18: iama_line PASS from a fresh clone (153 GEO + 5 ENCODE counted; 3 of 3 checks; 168 min) | 2026-10-18: mice run 10 on 64 GB aligned 11 of 38 runs without error, terminated because its 8-hour timer was short of the ~10 hours; rerun as run 11 with a 14-hour timer | 2026-10-19: mice run 11 terminated by an outside call at 20 of 38 runs aligned (no error); rerun as run 12 with termination protection | 2026-10-19: mice run 12 stopped at 5 of 38 when ENA's lookup service failed (HTTP 500); the script now reads addresses and MD5s from the committed run list; rerun as run 13"
+   "notes": "2026-10-18: colon entry added (atlas v2 from Zenodo, GSE131013 from GEO; extract_posterior.py reads local blocks with BLOCKS_DIR) | 2026-10-18: deconv PASS from a fresh clone (5 of 5 identical, 67 min); it exposed that the Deconvolver's error was described as a median everywhere while the sealed bar and the code use a mean; corrected at every source | 2026-10-18: three_labs PASS (4 of 4 identical); breast and liver entries added (TCGA from the NCI GDC, atlas v2 from Zenodo; Biological_Physics/MethylPhys/reproduce/tcga_tissue.sh), launched once the colon run proves the Zenodo route | 2026-10-18: metaa_rebuild run 1 stopped at the floor step on a clean-room path guard (noise sites and gate identical); guard fixed, rerun as run 5 | 2026-10-18: colon PASS from a fresh clone (6 of 6 identical; atlas v2 from Zenodo, GSE131013 from GEO; 189 min) | 2026-10-18: iama_line run 2b: 127 of 127 counted files identical to the committed counts (122 GEO, 5 ENCODE), 31 GEO downloads refused (503); retry loop added, rerun as run 6 | 2026-10-18: mice run 2b stopped at install (wgbs_tools tag is 0.1.0, not v0.1.0); fixed, rerun as run 7 | 2026-10-18: mice run 7 tools right, stopped silent in the genome step; step split and logged, rerun as run 8 | 2026-10-18: breast PASS from a fresh clone (6 of 6 identical; atlas v2 from Zenodo, TCGA-BRCA from the NCI GDC; 113 min) | 2026-10-18: mice run 8: the genome download used bwa-meth's environment's old curl (certificate error); system curl pinned, rerun as run 9 | 2026-10-18: metaa_rebuild PASS from a fresh clone (8 of 8: noise sites, noise gate, floor, reference, blood composition; every difference 0; 110 min) | 2026-10-18: mice run 9: genome, index and trimming worked; bwa mem out of memory at 32 GB; rerun on 64 GB, same 16 threads, as run 10 | 2026-10-18: liver PASS from a fresh clone (6 of 6 identical; TCGA-LIHC from the NCI GDC; 139 min) | 2026-10-18: iama_line PASS from a fresh clone (153 GEO + 5 ENCODE counted; 3 of 3 checks; 168 min) | 2026-10-18: mice run 10 on 64 GB aligned 11 of 38 runs without error, terminated because its 8-hour timer was short of the ~10 hours; rerun as run 11 with a 14-hour timer | 2026-10-19: mice run 11 terminated by an outside call at 20 of 38 runs aligned (no error); rerun as run 12 with termination protection | 2026-10-19: mice run 12 stopped at 5 of 38 when ENA's lookup service failed (HTTP 500); the script now reads addresses and MD5s from the committed run list; rerun as run 13"
   },
   {
    "instrument_or_term": "all",
@@ -27864,7 +27864,7 @@
    "record": "Biological_Physics/MethylPhys/doors/data/ZENODO_V4/zenodo_v4_box.sh",
    "runs": [],
    "next_step": "2026-10-19: new-version drafts made (package 10.5281/zenodo.23479280, version 4.0 of the biology package; book 10.5281/zenodo.23479288, v2.0.0); IAM-Atlas v2.1 records published by the author (10.5281/zenodo.23441999, 10.5281/zenodo.23422688). Next: once the mouse reproduction lands, the AWS job packages the repository at that commit, tests the archive as a researcher receives it, runs the book checks and uploads; the author publishes; once the package and book records are published, add their DOIs to the Q&A's 'Where everything is'",
-   "notes": "author 2026-10-19: 'researcher package as a whole with the questions and answers section and whatever else we agreed to add? The deconvolver, etc.' | 2026-10-19: RESEARCHER_PACKAGE.md (the package's front door: look, run, reproduce; what is where), the first file on the Zenodo record as README.md, linked from the repository README and the page; START_HERE.md corrected (it named the chain v3 procedure and 'Part 4' of the book; the methylome is Part VI)"
+   "notes": "author 2026-10-19: 'researcher package as a whole with the questions and answers section and whatever else we agreed to add? The deconvolver, etc.' | 2026-10-19: Biological_Physics/MethylPhys/RESEARCHER_PACKAGE.md (the package's front door: look, run, reproduce; what is where), the first file on the Zenodo record as README.md, linked from the repository README and the page; START_HERE.md corrected (it named the chain v3 procedure and 'Part 4' of the book; the methylome is Part VI)"
   }
  ],
  "not_tests": {

@@ -288,7 +288,7 @@
  },
  "P02": {
   "repo": {
-   "development/METHYLPHYS_DEVELOPMENT_LOG.md": true,
+   "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md": true,
    "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md": true
   },
   "s3": {},

@@ -40,5 +40,5 @@ An EPIC v2 or 450K array is refused with one sentence (`PLATFORM_REFUSED`); the 
 
 ## Reproducing the commissioning
 
-The commissioning tests and the headline results rebuild from public data with one command each: `reproduce/README.md` at the top of the
+The commissioning tests and the headline results rebuild from public data with one command each: `Biological_Physics/MethylPhys/reproduce/README.md` at the top of the
 repository.

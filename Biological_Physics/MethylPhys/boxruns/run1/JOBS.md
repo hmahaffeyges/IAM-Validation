@@ -1,6 +1,6 @@
 # Box Run 1: job list (arrays only)
 
-Prepared 2026-10-04. Development mode: readings are logged in `development/METHYLPHYS_DEVELOPMENT_LOG.md`. The one commissioning
+Prepared 2026-10-04. Development mode: readings are logged in `Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md`. The one commissioning
 check (job A) uses the bars already written in `STATUS.md` (section 8, commissioning record); no new bars are set here.
 
 All inputs are already in `s3://methylphys-data-945451304272-us-west-2-an/`. All outputs go to `results/BOXRUN1/<job>/`, with a
@@ -127,5 +127,5 @@ behind `blood_composition_EPIC_v1` (GSE110554).
    scipy, healpy, methylprep'` with numpy 1.26.4, pandas 1.5.3, scipy 1.17.1, healpy 1.17.3. Never `pip install` without pinning numpy < 2.
 4. **Run:** `run1_driver.py --work /mnt/scratch/boxrun1 --only B,E --force B --force E --workers 8
    --job-e-prefix downloads/G_chain_tests/healthy_repeat/GSE182379/` (B plus E on the 12 GSE182379 mixtures).
-5. **After:** add the results to `development/METHYLPHYS_DEVELOPMENT_LOG.md`, update `STATUS.md` (section 8, commissioning record), `STATUS.md`,
+5. **After:** add the results to `Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md`, update `STATUS.md` (section 8, commissioning record), `STATUS.md`,
    `doors/DATA_REGISTER.csv`, then detach and delete the scratch disk and confirm the box is stopped.

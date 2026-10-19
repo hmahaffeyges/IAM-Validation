@@ -1,9 +1,9 @@
-"""The A-score database (OTH-051): ASCORES/<instrument>.csv and ASCORES/README.md, generated from CANON/ascore_sources.json. Every row is
+"""The A-score database (OTH-051): Biological_Physics/MethylPhys/ASCORES/<instrument>.csv and Biological_Physics/MethylPhys/ASCORES/README.md, generated from CANON/ascore_sources.json. Every row is
 read from a committed per-sample file; nothing is typed by hand. Run by checkpoint.sh; checked_push.sh refuses drift.
 Usage: python3 CANON/ascore_db.py [--check]"""
 import os, sys, json, io, re
 import pandas as pd
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."); OUT = os.path.join(ROOT, "ASCORES")
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."); OUT = os.path.join(ROOT, "Biological_Physics", "MethylPhys", "ASCORES")
 def load(s):
     f = os.path.join(ROOT, s["file"])
     d = pd.DataFrame(json.load(open(f, encoding="utf-8"))[s["rows"]]) if s.get("rows") else pd.read_csv(f, low_memory=False)

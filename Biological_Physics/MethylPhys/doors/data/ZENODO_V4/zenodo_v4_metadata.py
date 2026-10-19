@@ -27,7 +27,7 @@ pkg = dict(title="MethylPhys chain v4: the commissioned IAM cell instruments and
     f"<p><b>Reproduction.</b> {RP} of {RT} headline results, the commissioning tests among them, were rebuilt from public data (GEO, ENCODE, the NCI "
     "GDC, ENA and Zenodo) with one command each on fresh clones, every compared number identical to the committed result (REPRODUCE_README.md, "
     "reproduce_verified.json). The reproduction runner compares against the committed files with git, so it runs from a clone.</p>"
-    "<p><b>Also here, to read without unpacking:</b> QUESTIONS_AND_ANSWERS.md (what a researcher will ask, answered from the record, with the "
+    "<p><b>Also here, to read without unpacking:</b> Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md (what a researcher will ask, answered from the record, with the "
     "open questions stated as open), the operating procedure (MethylPhys_CPG_SOP_v4.md), the operations manual (PDF), the five commissioning notes, "
     "and example reports on real healthy whole blood, real healthy CD8 T cells, and a labeled planted example. SHA256SUMS.txt lists every file.</p>"
     f"<p>Results from your own samples, including ones that disagree, are welcome through the repository's issue form: {GH}/issues/new/choose</p>"

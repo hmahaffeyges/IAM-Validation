@@ -80,8 +80,8 @@ def atlas_sky_png(out, ids, cell, atlas_dir, nest_pix2ang, title=""):
     lon = np.pi * X / (2 * np.cos(np.where(inside, t, 0)))
     q = np.c_[(np.cos(lat) * np.cos(-lon)).ravel(), (np.cos(lat) * np.sin(-lon)).ravel(), np.sin(lat).ravel()]
     img = np.where(inside, sky[cKDTree(xyz).query(q)[1]].reshape(X.shape), np.nan)
-    rgb = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "..", "website", "art", "data", "Planck_Parchment_RGB.txt")
-    cm = ListedColormap(np.loadtxt(rgb) / 255.0) if os.path.exists(rgb) else plt.get_cmap("RdYlBu_r"); cm = cm.copy() if hasattr(cm, "copy") else cm; cm.set_bad("#d9d9d9")
+    rgb = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Planck_Parchment_RGB.txt")   # inside the chain, so a Biological_Physics-only clone draws the same sky (2026-10-19)
+    cm = ListedColormap(np.loadtxt(rgb) / 255.0); cm = cm.copy() if hasattr(cm, "copy") else cm; cm.set_bad("#d9d9d9")
     fig, ax = plt.subplots(figsize=(7.2, 4.2)); fig.patch.set_facecolor("white")
     im = ax.imshow(np.ma.masked_invalid(img), cmap=cm, vmin=0, vmax=1, origin="lower", interpolation="nearest", extent=(-2, 2, -1, 1))
     e = Ellipse((0, 0), 4, 2, transform=ax.transData, fc="none", ec="#555555", lw=0.5); ax.add_patch(e); im.set_clip_path(e)

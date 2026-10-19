@@ -17,7 +17,8 @@
   "CANON/status_facts\\.json$",
   "CANON/repro_check\\.py$",
   "/chain_tests/",
-  "dev_stages\\.py$"
+  "dev_stages\\.py$",
+  "^Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG\\.md$"
  ],
  "facts": [
   {

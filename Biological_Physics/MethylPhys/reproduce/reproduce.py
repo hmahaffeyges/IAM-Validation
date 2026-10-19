@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 """Reproduce IAM's results from public data with one command (2026-10-18).
 
-Every test in reproduce/tests.json starts from public accessions only (GEO, SRA/ENA), runs the committed code of the chain on them, and
+Every test in Biological_Physics/MethylPhys/reproduce/tests.json starts from public accessions only (GEO, SRA/ENA), runs the committed code of the chain on them, and
 compares what it makes with the result committed in this repository. Nothing is read from our own storage.
 
-  bash reproduce/setup.sh                      # once: the chain's pinned environment in reproduce/.venv
-  python3 reproduce/reproduce.py --list        # the tests, with time, disk and what each shows
-  python3 reproduce/reproduce.py cscore_band   # one test; writes reproduce/out/<test>/verdict.json and prints PASS or DIFF
-  python3 reproduce/reproduce.py --all         # every test, in order
+  bash Biological_Physics/MethylPhys/reproduce/setup.sh                      # once: the chain's pinned environment in Biological_Physics/MethylPhys/reproduce/.venv
+  python3 Biological_Physics/MethylPhys/reproduce/reproduce.py --list        # the tests, with time, disk and what each shows
+  python3 Biological_Physics/MethylPhys/reproduce/reproduce.py cscore_band   # one test; writes Biological_Physics/MethylPhys/reproduce/out/<test>/verdict.json and prints PASS or DIFF
+  python3 Biological_Physics/MethylPhys/reproduce/reproduce.py --all         # every test, in order
 
 A test passes when every compared number equals the committed one within the stated tolerance (most are exact).
 """
 import json, os, re, subprocess, sys, time, datetime
-HERE = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.dirname(HERE)
+HERE = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.abspath(os.path.join(HERE, "..", "..", ".."))   # reproduce/ lives in Biological_Physics/MethylPhys (2026-10-19)
 T = json.load(open(os.path.join(HERE, "tests.json"), encoding="utf-8"))
 PY = os.environ.get("REPRO_PY") or os.path.join(HERE, ".venv", "bin", "python")
 # 2026-10-18 (fresh-clone run 2): the runner itself compares tables with pandas, so it runs inside the environment setup.sh made, whichever

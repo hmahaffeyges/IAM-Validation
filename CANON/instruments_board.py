@@ -1,11 +1,11 @@
-"""The candidate-instrument board: writes INSTRUMENTS.md from CANON/instruments.json, so the priority list has one source.
+"""The candidate-instrument board: writes Biological_Physics/MethylPhys/INSTRUMENTS.md from CANON/instruments.json, so the priority list has one source.
 
 Checks (run by status_check): every record named exists, every entry has a falsifier ("breaks") and a next step, and the generated
 board matches the register. Usage: python3 CANON/instruments_board.py [--check]
 """
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
-SRC = os.path.join(HERE, "instruments.json"); OUT = os.path.join(ROOT, "Biological_Physics", "MethylPhys", "INSTRUMENTS.md")
+SRC = os.path.join(HERE, "instruments.json"); OUT = os.path.join(ROOT, "Biological_Physics", "MethylPhys", "Biological_Physics/MethylPhys/INSTRUMENTS.md")
 
 def build(base=None):
     J = json.load(open(SRC, encoding="utf-8"))
@@ -33,11 +33,7 @@ def build(base=None):
     return "\n".join(L), P
 
 if __name__ == "__main__":
-    sys.path.insert(0, HERE); import pointer
-    _, P = build(); md = pointer.text(OUT, os.path.join(ROOT, "INSTRUMENTS.md"), "The candidate instruments board")   # merged into the catalogue 2026-10-16
-    if "--check" in sys.argv:
-        cur = open(OUT, encoding="utf-8").read() if os.path.isfile(OUT) else ""
-        if cur.strip() != md.strip(): P.append("[instruments] Biological_Physics/MethylPhys/INSTRUMENTS.md is not the pointer: run python3 CANON/instruments_board.py")
-        print("instruments_board: " + ("ok" if not P else "REFUSED:\n  " + "\n  ".join(P))); sys.exit(1 if P else 0)
-    open(OUT, "w", encoding="utf-8").write(md)
-    print("instruments_board: wrote INSTRUMENTS.md" + ("" if not P else " WITH PROBLEMS:\n  " + "\n  ".join(P)))
+    # 2026-10-19: the catalogue (CANON/catalogue.py) now lives at Biological_Physics/MethylPhys/INSTRUMENTS.md, where this board's pointer was
+    # written, so nothing is written here any more; the board's sources are still built and checked.
+    _, P = build()
+    print("instruments_board: " + ("ok" if not P else "REFUSED:\n  " + "\n  ".join(P))); sys.exit(1 if P and "--check" in sys.argv else 0)

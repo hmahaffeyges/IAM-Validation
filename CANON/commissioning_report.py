@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""COMMISSIONING_REPORT.md, generated (author 2026-10-16: the commissioning report, kept current by code). For each commissioned instrument:
+"""Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md, generated (author 2026-10-16: the commissioning report, kept current by code). For each commissioned instrument:
 its scope, what it passed (results register), what it does not yet cover, its note. Then every instrument not yet commissioned, with where it
 stands and what is next (catalogue + manifest). Sources: CANON/commissioning.json, results_register.json, catalogue.json, manifest.json.
 Usage: python3 CANON/commissioning_report.py [--check]"""
 def _root(p): return p if p.startswith(("Biological_Physics/", "CANON/", "development/", "docs/")) else "Biological_Physics/MethylPhys/" + p
+import sys as _s, os as _o; _s.path.insert(0, _o.path.join(_o.path.dirname(_o.path.abspath(__file__)), "CANON") if _o.path.basename(_o.path.dirname(_o.path.abspath(__file__))) != "CANON" else _o.path.dirname(_o.path.abspath(__file__))); import relink as _rl
 import os, sys, json, re
 H = os.path.dirname(os.path.abspath(__file__)); R = os.path.dirname(H); sys.path.insert(0, H); import catalogue as CAT
 J = lambda p: json.load(open(os.path.join(R, p), encoding="utf-8"))
 C = J("CANON/commissioning.json")["instruments"]; G = {e["id"]: e for e in J("CANON/results_register.json")["entries"]}; K, M = CAT.load()
-OUT = os.path.join(R, "COMMISSIONING_REPORT.md"); E = lambda t: re.sub(r"\s+", " ", str(t or "")).replace("|", "/")
+OUT = os.path.join(R, "Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md"); E = lambda t: re.sub(r"\s+", " ", str(t or "")).replace("|", "/")
 def section(note, name):
     t = open(os.path.join(R, note), encoding="utf-8").read(); m = re.search(r"\*\*" + re.escape(name) + r"[^*]*\*\*(.*?)(?=\n\n\*\*|\n\n#|\n\n<!--|\Z)", t, re.S)
     return m.group(1).strip().lstrip(":. ") if m else ""   # as written in the note, tables kept
@@ -25,8 +26,8 @@ for i in C:
     L += [f"Note: [{os.path.basename(i['note'])}]({_root(i['note'])})"]
 L += ["", "## Not yet commissioned", "", "| Instrument | Where it stands | Next |", "|---|---|---|"]
 L += [f"| **{E(k['name'])}** | {E(CAT.stage(k, M))} | {E(k['next'])} |" for k in K["instruments"] if not k.get("commissioned") and k["id"] != "meta"]
-txt = "\n".join(L) + "\n"
+txt = _rl.fix("\n".join(L) + "\n", OUT)   # links resolve from the document's folder (2026-10-19)
 if "--check" in sys.argv:
     ok = os.path.exists(OUT) and open(OUT, encoding="utf-8").read() == txt
-    print("commissioning_report: " + ("ok" if ok else "REFUSED: COMMISSIONING_REPORT.md differs (run python3 CANON/commissioning_report.py)")); sys.exit(0 if ok else 1)
+    print("commissioning_report: " + ("ok" if ok else "REFUSED: Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md differs (run python3 CANON/commissioning_report.py)")); sys.exit(0 if ok else 1)
 open(OUT, "w", encoding="utf-8").write(txt); print("commissioning_report: wrote", len(C), "commissioned instruments")

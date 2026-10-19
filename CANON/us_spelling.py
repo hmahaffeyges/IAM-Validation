@@ -20,7 +20,7 @@ FILES = ["README.md", "FOLLOW.md", "Biological_Physics/README.md"] + sorted(os.p
 # reproduce README held 77 British spellings. Every public text is now in the list.
 import glob as _g
 FILES += sorted(_g.glob("*.md")) + sorted(_g.glob("docs/book/**/*.tex", recursive=True)) + sorted(_g.glob("Biological_Physics/MethylPhys/sop/*.md")) \
-    + ["RESEARCHER_PACKAGE.md", "reproduce/README.md", "Biological_Physics/MethylPhys/README.md", "Biological_Physics/MethylPhys/START_HERE.md"]
+    + ["Biological_Physics/MethylPhys/RESEARCHER_PACKAGE.md", "Biological_Physics/MethylPhys/reproduce/README.md", "Biological_Physics/MethylPhys/README.md", "Biological_Physics/MethylPhys/START_HERE.md"]
 FILES = sorted(set(FILES))
 def prose(t):   # skip inline code and link targets
     return re.sub(r"`[^`]*`|\]\([^)]*\)|https?://\S+|\\(?:label|ref|cite|eqref|includegraphics|input)\{[^}]*\}", "", t)

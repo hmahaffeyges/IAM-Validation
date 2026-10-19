@@ -1,5 +1,5 @@
 {
- "_rule": "The front of the public page (author 2026-10-17: only the commissioned chain and the tests it passed, front and center; everything else to the repository). build_home.py shows the register entries named in 'front', in this order, under 'title' and 'lead'. Every other register entry is listed in EARLIER_RESULTS.md (CANON/earlier_results.py), linked from the page. A new commissioning is added here when it is written. Edit here only.",
+ "_rule": "The front of the public page (author 2026-10-17: only the commissioned chain and the tests it passed, front and center; everything else to the repository). build_home.py shows the register entries named in 'front', in this order, under 'title' and 'lead'. Every other register entry is listed in Biological_Physics/MethylPhys/EARLIER_RESULTS.md (CANON/earlier_results.py), linked from the page. A new commissioning is added here when it is written. Edit here only.",
  "title": "The first commissioned IAM chain",
  "lead": [
   "One sample goes in. Five instruments read it, and every one of them passed a test that was written and sealed before its data was seen.",

@@ -118,7 +118,7 @@
      "status": "structure",
      "what": "Document audit pass 1 (OTH-055): the 35 repository documents the page links to, checked against the week's results. README audit (author): stale statements corrected.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   },
@@ -158,7 +158,7 @@
   {
    "kind": "table",
    "heading": "Every candidate instrument: what ran today, what remains",
-   "lead": "The instrument catalogue was written today (INSTRUMENTS.md), and the commissioning plan orders the work.",
+   "lead": "The instrument catalogue was written today (Biological_Physics/MethylPhys/INSTRUMENTS.md), and the commissioning plan orders the work.",
    "table": {
     "columns": [
      "instrument",
@@ -328,7 +328,7 @@
      "status": "structure",
      "what": "Twenty-one steps in four stages: tonight's work; scoring the atlas when it lands; commissioning IAM-A without an atlas, ending in one grand sealed test on fresh data; then the C-Score, Met-A cell by cell, Group-A, whole blood and plasma. Two new manifest rows: a database of every instrument's readings (OTH-051), and the concern line, where a reading first leaves the healthy line before it reaches tumor territory (PHY-069). Only three derivations stay on the near list, because they improve accuracy now; the rest wait until the catalogue is commissioned.",
      "why": "So the work runs in order without being pulled sideways.",
-     "record": "COMMISSIONING_PLAN.md"
+     "record": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md"
     },
     {
      "title": "The front README made short; the long sections moved to REFERENCE.md (author)",

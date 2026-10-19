@@ -31,63 +31,63 @@
      "status": "audit",
      "what": "Every Part 6 chapter was checked against a facts sheet (development/book_audit_2026-10-17_facts.md); 65 flags (development/book_audit_2026-10-17_flags.json), each reviewed by hand.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Book audit pass 1 continued (OTH-072)",
      "status": "audit",
      "what": "The C-score band was set on 617 healthy arrays from 19 GEO series, which come from 17 institutions (two each from Dartmouth and Vilnius): \"19 laboratories\" (introduced with the 641-to-617 correction) corrected to \"19 studies (17 institutions)\" in the chapter, the SOP and the conductor comment.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Chain v4 clean clone run 1: 18 of 25 passed; one cause for all 7 failures (OTH-068)",
      "status": "audit",
      "what": "Job i-0d4559e967ace0f61 (fresh public clone at f6c74bb3, new environment from chain/requirements.txt).",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Chain v4 clean clone run 2 launched; report and clean-clone rows brought up to date (OTH-0",
      "status": "audit",
      "what": "Job i-0fdf1258fb10dd30c at f7f448c2 (pyarrow and matplotlib pinned).",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Chain v4 clean-clone test launched (OTH-068)",
      "status": "audit",
      "what": "Job i-0d4559e967ace0f61 (spot m7a.xlarge, self-terminating within 150 minutes): a fresh public clone at f6c74bb3, a new environment from chain/requirements.txt, then release_check_v4.py.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Chain v4 passes from a fresh public clone: 25 of 25 (OTH-068, OTH-069, OTH-070)",
      "status": "audit",
      "what": "Run 4 (job i-0e980d41f06e19212): a fresh clone of the public repository, a new Python 3.11 environment from chain/requirements.txt only, then one command (release_check_v4.py): every check passed, among them real IDAT arrays end to end, the IAM-A grand test reproduced exactly (8 of 8), the Deconvolv",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Clean clone run 5: 23 of 25; the gauge change broke the position-form record (OTH-070)",
      "status": "audit",
      "what": "Removing 4.26 left the retired position-form IAM-A gauge in the v3 technical record with no end; the report crashed and E4/E9 failed.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Clean clone run 6 passes 25 of 25; book pass 2 continued (OTH-070, OTH-072)",
      "status": "audit",
      "what": "Run 6 confirms the per-sample IAM-A gauge end and the position-form fix.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Clean clone run 7 PASS 25 of 25 (OTH-069, OTH-070); Zenodo deposit staged (ATL-005)",
      "status": "audit",
      "what": "Run 7 (job i-0d514d933409c720f) confirms the untested-scope wording.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   },
@@ -171,42 +171,42 @@
      "status": "diagnosis",
      "what": "Run 2 (pyarrow and matplotlib pinned) passed 23 of 25.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Correction: the run-2 entry called the E8 fix done before it was tested (OTH-070)",
      "status": "diagnosis",
      "what": "Run 3 still failed E8.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Counter fix (LESSONS C23; TIS-053)",
      "status": "diagnosis",
      "what": "The cfDNA synthetic (DEV-CFDNA-SHORT-01) found the held-error counter's correction weighted by every molecule, including unmethylated ones; fixed in the chain, with a release check.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Lesson C20: verdict words are matched in uppercase (OTH-068)",
      "status": "diagnosis",
      "what": "Rule 22 of repro_check matched \": MET\" without case, so the generated chain map (a stage description \"Whole blood: Met-A\") was read as a recorded outcome.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Page: no links to moved files or the working plan (OTH-071, LESSONS C25)",
      "status": "diagnosis",
      "what": "The connections table linked BIT_TABLES.md, which only says it moved; now one link to FOUR_DOMAINS.md, where the tables live.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "The Commissioning Campaign in numbers on the page (OTH-071); page build fixed (LESSONS C22",
      "status": "diagnosis",
      "what": "CANON/compute_snapshot.py (run by checkpoint, from AWS billing and the committed and S3 chain counts; values only grow) feeds a box at the top of the page: 36,490 processor-core hours (4.2 core-years), 8.9 billion CpG readings at least (7.7 billion on single molecules from 222 sequenced samples, 1.2",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   },
@@ -220,7 +220,7 @@
      "status": "in progress",
      "what": "The AWS upload machine (job i-03ebc30fc11ccb741) was stopped after an hour: Zenodo was degraded (about 33 KB/s out of the machine; a 20 MB test upload from the laptop ran 4 minutes and ended in a gateway error).",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   },
@@ -248,56 +248,56 @@
      "status": "structure",
      "what": "Commissioning statements now say what each instrument was tested and commissioned on, without lists of what it was not (commissioning record, catalogue, status table, commissioning report).",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Chain v4 report: readings outside the tested scope worded plainly (author decision; OTH-06",
      "status": "structure",
      "what": "report_v4 now prints \"reading shown; <cell type> has not yet been tested with <instrument>\" where it printed \"development\" (Met-A, C-Score, IAM-A, IAM-Deconvolver shares); the run record keeps status development, so every check and the scoring are unchanged; the v3 technical record below it is uncha",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Dated and sealed records kept in the repository, not rendered on the site (author decision",
      "status": "structure",
      "what": "The site renders 28 document pages; the development log, day logs, field notes, box-run job lists, the archive and the sealed records under doors/ (commissioning notes excepted) stay in the repository as written and are linked there.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "IAM-A gauge ends brought to the commissioned reading; AstroGenetics chapter pass 2 (OTH-07",
      "status": "structure",
      "what": "IAM-A reads A = eps/eps_pred(L), so its ends are the sample own: full surface 0.5/eps_pred(L), 12.41 (no loose tiles) to 6.68 (all loose); floor 8.06e-10/eps_pred(L), 1-2e-8.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Public wording (author review of the page; OTH-071, ATL-005, ATL-060, ATL-067)",
      "status": "structure",
      "what": "No other researcher named in public prose: the two published reference atlases are described by their work (the published array reference atlas, the published sequencing atlas of human cell types) and cited formally; code, file and record identifiers keep their names, and dated records (development ",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Run ledger rebuilt from AWS billing (author review 2; OTH-071, PHY-043, COM-IAMA-052, PHY-",
      "status": "structure",
      "what": "RUNS.md now opens with what AWS billed (Cost Explorer, cost and hours per day and usage type): total, on-demand, spot, disks, storage; the actual price per hour of each machine type as rented; every day with the runs started that day; the runs now running with their spot and on-demand prices; and wh",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Test plan: showcase and tracks (manifest rows added; FLD-002, TIS-018, GRP-008 updated)",
      "status": "structure",
      "what": "Showcase of the commissioned chain (7 scenarios, unused public sets) and the tracks after it, from the author's direction: field, precancer, before diagnosis, the immune track organ by organ (Group-A), one person over time, and the collection routes (plasma, stool, sputum, urine, swab).",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Zenodo large-file upload script (ATL-005)",
      "status": "structure",
      "what": "doors/data/ZENODO_V21/zenodo_upload_box.py, committed before it runs: on an AWS machine, streams the assembled atlas and the 10 raw-fit bundles from S3 to the two Zenodo drafts with retries and an MD5 check per file; the key is read from the AWS secret store and deleted after.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   }

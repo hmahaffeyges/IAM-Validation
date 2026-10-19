@@ -1,5 +1,5 @@
 name: Report a result
-description: What the chain read on samples you know, against what QUESTIONS_AND_ANSWERS.md says it should.
+description: What the chain read on samples you know, against what Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md says it should.
 title: "[result] <instrument>: <one line>"
 labels: ["result-report"]
 body:
@@ -13,7 +13,7 @@ body:
     validations: {required: true}
   - type: textarea
     id: got
-    attributes: {label: What the chain reported, description: "The readings and states, and which line of QUESTIONS_AND_ANSWERS.md it tests."}
+    attributes: {label: What the chain reported, description: "The readings and states, and which line of Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md it tests."}
     validations: {required: true}
   - type: input
     id: data

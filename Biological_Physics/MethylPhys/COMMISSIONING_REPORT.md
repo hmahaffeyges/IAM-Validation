@@ -5,11 +5,11 @@ Master Testing Manifest; do not edit by hand. Commissioned means a use is allowe
 
 | Instrument | Commissioned | Scope |
 |---|---|---|
-| **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)) | tested and commissioned on isolated neutrophils against their own healthy profile; detection limit 2 % |
-| **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md)) | tested and commissioned on whole blood; one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered |
-| **IAM-Atlas v2.1** | **COMMISSIONED 2026-10-16** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)) | 79 cell types; met all three sealed bars against both published reference atlases on 731 held-out arrays (markers, mixtures, cells a reference lacks); cell profiles confirmed on held-out cortical neurons, lung bronchus epithelium and naive CD4 T cells; blind sites of the colon and lung tissue tests |
-| **IAM-Deconvolver (atlas v2.1)** | **COMMISSIONED 2026-10-17** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md)) | blood-cell shares on arrays, tested on mixtures of neutrophils, monocytes, CD4 T and CD8 T cells from a laboratory the atlas never saw: mean share error 0.016 |
-| **IAM-A, own reference** | **COMMISSIONED 2026-10-17** ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md)) | each sample against its own loose share, on a self-reference line from 56 healthy cell types; sealed test on healthy blood CD8 T cells, whole-genome bisulfite: 7 of 8 read Normal |
+| **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)) | tested and commissioned on isolated neutrophils against their own healthy profile; detection limit 2 % |
+| **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](doors/COMMISSIONING_NOTE_CSCORE.md)) | tested and commissioned on whole blood; one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered |
+| **IAM-Atlas v2.1** | **COMMISSIONED 2026-10-16** ([note](doors/COMMISSIONING_NOTE_ATLAS_V21.md)) | 79 cell types; met all three sealed bars against both published reference atlases on 731 held-out arrays (markers, mixtures, cells a reference lacks); cell profiles confirmed on held-out cortical neurons, lung bronchus epithelium and naive CD4 T cells; blind sites of the colon and lung tissue tests |
+| **IAM-Deconvolver (atlas v2.1)** | **COMMISSIONED 2026-10-17** ([note](doors/COMMISSIONING_NOTE_DECONV_V21.md)) | blood-cell shares on arrays, tested on mixtures of neutrophils, monocytes, CD4 T and CD8 T cells from a laboratory the atlas never saw: mean share error 0.016 |
+| **IAM-A, own reference** | **COMMISSIONED 2026-10-17** ([note](doors/COMMISSIONING_NOTE_IAMA.md)) | each sample against its own loose share, on a self-reference line from 56 healthy cell types; sealed test on healthy blood CD8 T cells, whole-genome bisulfite: 7 of 8 read Normal |
 
 ## Met-A, isolated neutrophils, EPIC v1 (2026-10-09)
 
@@ -17,7 +17,7 @@ Master Testing Manifest; do not edit by hand. Commissioned means a use is allowe
 
 Commissioned means a reading is allowed to report results, not just development readings. For Met-A on purified white blood cells (neutrophils), the tests for repeatability, agreement between laboratories, no false alarms on healthy samples, refusing what it cannot read, and responding to known damage by the predicted amount were all met. Its sensitivity to the very smallest damage fell short of the bar, so instead of hiding that, every report prints its measured detection limit: the smallest damage it reliably sees.
 
-Note: [COMMISSIONING_NOTE_METAA_NEUTROPHILS.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)
+Note: [COMMISSIONING_NOTE_METAA_NEUTROPHILS.md](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)
 
 ## Met-A C-score, whole blood, EPIC v1 (2026-10-15)
 
@@ -44,7 +44,7 @@ majority of tumor arrays against their own normals), then the same healthy-band 
 
 Results it rests on: The clustering meter's healthy range holds in two new laboratories (2026-10-13); The clustering meter passes its last check: the same person reads the same (2026-10-15).
 
-Note: [COMMISSIONING_NOTE_CSCORE.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md)
+Note: [COMMISSIONING_NOTE_CSCORE.md](doors/COMMISSIONING_NOTE_CSCORE.md)
 
 ## IAM-Atlas v2.1, per use (2026-10-16)
 
@@ -73,7 +73,7 @@ adult healthy truth set. Breast and liver blind sites: held-out epithelium.
 
 Results it rests on: IAM-Atlas v2.1 against the published array reference atlas of human cell types, on the jobs a reference atlas is used for (2026-10-16); IAM-Atlas v2.1 against the published sequencing atlas of human cell types, on the jobs a reference atlas is used for (2026-10-16).
 
-Note: [COMMISSIONING_NOTE_ATLAS_V21.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)
+Note: [COMMISSIONING_NOTE_ATLAS_V21.md](doors/COMMISSIONING_NOTE_ATLAS_V21.md)
 
 ## Deconvolution tool, blood-cell shares, arrays (2026-10-17)
 
@@ -81,7 +81,7 @@ Note: [COMMISSIONING_NOTE_ATLAS_V21.md](Biological_Physics/MethylPhys/doors/COMM
 
 Given a blood sample read on an array, the tool says how much of it came from each kind of blood cell. On mixtures made from healthy cells of a laboratory it had never seen, it was off by 1.6 percentage points on average, and it refused the samples it could not read instead of guessing.
 
-Note: [COMMISSIONING_NOTE_DECONV_V21.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md)
+Note: [COMMISSIONING_NOTE_DECONV_V21.md](doors/COMMISSIONING_NOTE_DECONV_V21.md)
 
 ## IAM-A, healthy blood CD8 T cells, sequencing (2026-10-17)
 
@@ -91,7 +91,7 @@ IAM-A reads how well each DNA molecule kept its marks and compares that with wha
 
 Results it rests on: Every healthy cell follows the same simple rule (2026-10-15).
 
-Note: [COMMISSIONING_NOTE_IAMA.md](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md)
+Note: [COMMISSIONING_NOTE_IAMA.md](doors/COMMISSIONING_NOTE_IAMA.md)
 
 ## Not yet commissioned
 

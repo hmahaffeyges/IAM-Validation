@@ -1,5 +1,5 @@
 {
- "_rule": "Each test starts from public accessions only and runs committed code; 'compare' names what must equal the committed result. Edit here; reproduce/README.md is generated from this file by reproduce/readme.py.",
+ "_rule": "Each test starts from public accessions only and runs committed code; 'compare' names what must equal the committed result. Edit here; Biological_Physics/MethylPhys/reproduce/README.md is generated from this file by Biological_Physics/MethylPhys/reproduce/readme.py.",
  "tests": [
   {
    "id": "metaa_rebuild",
@@ -95,7 +95,7 @@
    "steps": [
     {
      "name": "arrays",
-     "run": "$PY reproduce/heldout_arrays.py $WORK/shards E-MTAB-2145"
+     "run": "$PY Biological_Physics/MethylPhys/reproduce/heldout_arrays.py $WORK/shards E-MTAB-2145"
     },
     {
      "name": "score",
@@ -175,7 +175,7 @@
    "steps": [
     {
      "name": "count_and_compare",
-     "run": "NW=${NW:-} bash reproduce/iama_line.sh"
+     "run": "NW=${NW:-} bash Biological_Physics/MethylPhys/reproduce/iama_line.sh"
     }
    ],
    "compare": [
@@ -247,7 +247,7 @@
    "steps": [
     {
      "name": "reads_to_pat",
-     "run": "bash reproduce/mice_rrbs.sh"
+     "run": "bash Biological_Physics/MethylPhys/reproduce/mice_rrbs.sh"
     },
     {
      "name": "score",
@@ -290,7 +290,7 @@
    "steps": [
     {
      "name": "atlas_arrays_score",
-     "run": "bash reproduce/colon_tissue.sh"
+     "run": "bash Biological_Physics/MethylPhys/reproduce/colon_tissue.sh"
     }
    ],
    "compare": [
@@ -324,7 +324,7 @@
    "steps": [
     {
      "name": "atlas_arrays_score",
-     "run": "bash reproduce/tcga_tissue.sh breast"
+     "run": "bash Biological_Physics/MethylPhys/reproduce/tcga_tissue.sh breast"
     }
    ],
    "compare": [
@@ -358,7 +358,7 @@
    "steps": [
     {
      "name": "atlas_arrays_score",
-     "run": "bash reproduce/tcga_tissue.sh liver"
+     "run": "bash Biological_Physics/MethylPhys/reproduce/tcga_tissue.sh liver"
     }
    ],
    "compare": [

@@ -6,7 +6,7 @@ whose section names the dataset folder or a GSE accession under it. 'what', 'pla
 import argparse, collections, os, re, sys
 import pandas as pd
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-REG = os.path.join(ROOT, "doors", "DATA_REGISTER.csv"); LOG = os.path.join(ROOT, "..", "..", "development", "METHYLPHYS_DEVELOPMENT_LOG.md")
+REG = os.path.join(ROOT, "doors", "DATA_REGISTER.csv"); LOG = os.path.join(ROOT, "METHYLPHYS_DEVELOPMENT_LOG.md")
 ap = argparse.ArgumentParser(); ap.add_argument("--bucket", default="methylphys-data-945451304272-us-west-2-an"); ap.add_argument("--status", action="append", default=[])
 ap.add_argument("--no-s3", action="store_true", help="keep sizes from the previous file (offline)"); a = ap.parse_args()
 old = pd.read_csv(REG)

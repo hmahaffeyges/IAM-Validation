@@ -15,175 +15,175 @@
      "status": "structure",
      "what": "All 79 cell types drawn on one HEALPix sphere (NSIDE 256, NESTED, genome order), with a per-cell uncertainty map (half-width of the 95 % range).",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Chain v4 report redesign",
      "status": "structure",
      "what": "One HTML report with a Researcher view (results table; AstroGenetics, the physics behind each reading; the sample's sky beside the healthy IAM-Atlas v2.1 sky at the same sites and pixels, with the atlas's 95 % range there; one section per instrument) and a Plain view (floor-to-ceiling gauges with a magnified strip for ",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Machines launched: clean clone run 10 and real example reports",
      "status": "audit",
      "what": "Clean clone run 10: i-0a0beda9c8f4d562c.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Report: a withheld Met-A prints no number anywhere",
      "status": "structure",
      "what": "The sky caption printed the untared Met-A beside a withheld state, and the plain view said only \"No gauge\".",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Report sky drawn in units of the sample's own spread",
      "status": "structure",
      "what": "The first real whole-blood report (GSE235717_GSM7508429) drew its sky at the color limits everywhere: in whole blood the departures from pure neutrophils are large at most sites (57 % beyond 3).",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Clean clone run 11 PASS 26 of 26; run 12 and example run 2 launched",
      "status": "audit",
      "what": "Run 11 (i-0721df7b2f292508b) passed every check from a fresh public clone.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Clean clone run 12 PASS 27 of 27; real example reports",
      "status": "audit",
      "what": "Run 12 (i-0a90224fe480361ec) passed every check, V5 and V6 included.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Chain v4 report finished; clean clone run 13 PASS 27 of 27",
      "status": "audit",
      "what": "Run 13 (i-0cddc10d0fb321550) passed every check on the finished report.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "The atlas sky's bright patch is chromosome X",
      "status": "audit",
      "what": "The uncertainty map shows one bright stretch in every cell type: chromosome X, 53-109 Mb (4,239 sites).",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Clean clone run 14 PASS 28 of 28; overlay sky on real arrays",
      "status": "audit",
      "what": "Run 14 (i-0b470176e0d90e0b5) passed every check including V7 (IAM-A from a BAM).",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Report: \"This score is preliminary until ... is officially commissioned on ...\" ",
      "status": "structure",
      "what": "The label \"reading shown; not yet tested with Met-A on whole blood\" read badly beside the state (\"...",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "IAM-A through the one command reproduces its grand test",
      "status": "audit",
      "what": "Grand-test sample GSM4293895 (healthy CD8 T cells), read from its committed alignment by run_sample.py --bam on a clean install, gave A 0.9083, Normal: equal to the committed grand-test reading.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "The page shows IAM-Atlas v2.1 on the sky",
      "status": "structure",
      "what": "The front page's sky section now shows v2.1 only: the measured Planck sky beside v2.1 neutrophils, the 79-cell plate, two cells, six cells with the neutrophil uncertainty map (dark = certain), and what a researcher sees: a real healthy blood array and the same array with a planted clustered change, each laid over its h",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Final report set; clean clone run 16 PASS 28 of 28",
      "status": "audit",
      "what": "The last set (arrays and IAM-A) carries no retired wording in either view, either PDF or the technical record.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Book: \"Reading a report, step by step\"",
      "status": "structure",
      "what": "New Part 6 chapter after The report: the one command, then three real reports from the commissioned chain, stage by stage (healthy whole blood GSE235717 GSM7508429; the same array with a planted clustered change; healthy CD8 T cells GSM4293895 through IAM-A), every number from the run bundles, two figures composed from",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
-     "title": "Guide for outside laboratories, first version (now QUESTIONS_AND_ANSWERS.md)",
+     "title": "Guide for outside laboratories, first version (now Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md)",
      "status": "structure",
-     "what": "The first version of the guide (replaced the same day by QUESTIONS_AND_ANSWERS.md): install and the release check; how to read arrays (references first, then the sample against them) and sequencing; for each instrument its commissioned scope, what it should do on samples a laboratory already knows, the line past which it is broken (each from its own commissioning bar), and its comm",
+     "what": "The first version of the guide (replaced the same day by Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md): install and the release check; how to read arrays (references first, then the sample against them) and sequencing; for each instrument its commissioned scope, what it should do on samples a laboratory already knows, the line past which it is broken (each from its own commissioning bar), and its comm",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Showcase picks applied to the labels; three findings for IAMPerformance",
      "status": "audit",
      "what": "The sealed rules were applied to the GEO labels only (plan Part 7).",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "README and catalogue for the researcher package",
      "status": "structure",
      "what": "The root README said IAM-Atlas v2.1 \"is being built now\" (stale since its commissioning) and its instrument table, generated from the catalogue, left out the commissioned IAM-Deconvolver, which was filed as a support tool.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Researcher package: operations manual for chain v4 and SOP reference-table columns (OTH-074)",
      "status": "structure",
      "what": "The operations manual now covers chain v4; the SOP and run_sample help named the reference-table columns too narrowly (A and C are both needed) and were corrected.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Questions and answers for outside laboratories; questions the field is asking now (OTH-075)",
      "status": "structure",
-     "what": "QUESTIONS_AND_ANSWERS.md answers what a researcher will ask, open questions stated as open; eight questions from recent reviews of methylation cancer detection and epigenetic drift added. The reproduce README is generated from the registry.",
+     "what": "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md answers what a researcher will ask, open questions stated as open; eight questions from recent reviews of methylation cancer detection and epigenetic drift added. The reproduce README is generated from the registry.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Showcase run 1 read; scenario 3 refused by the report's own claim guard, rerun",
      "status": "audit",
      "what": "Public samples read once through the one command; the mixture reports were refused by the report's claim guard over banner wording, reworded and rerun.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Zenodo upload run 2 launched; IAM-Atlas v2.1 drafts uploaded (ATL-005)",
      "status": "structure",
      "what": "Both v2.1 records uploaded from AWS with every checksum matching; plan and chain v4 rows current (OTH-068); awaiting Publish. Both records were published by IAMPerformance on 2026-10-19 (10.5281/zenodo.23441999, 10.5281/zenodo.23422688).",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
-     "title": "reproduce/ fresh-clone tests launched: runs 1, 2, 2b, 3, 4, 5, 6 (OTH-076)",
+     "title": "Biological_Physics/MethylPhys/reproduce/ fresh-clone tests launched: runs 1, 2, 2b, 3, 4, 5, 6 (OTH-076)",
      "status": "audit",
      "what": "One command per test in a fresh public clone, public data only, compared with the committed result.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
-     "title": "reproduce/ PASS: metaa_rebuild, deconv, cscore_band, three_labs, colon, breast and liver, iama_line",
+     "title": "Biological_Physics/MethylPhys/reproduce/ PASS: metaa_rebuild, deconv, cscore_band, three_labs, colon, breast and liver, iama_line",
      "status": "audit",
      "what": "Eight of nine reproduced with every compared number identical: Met-A reference rebuild (8 of 8), Deconvolver, C-Score band, three labs, colon (88 pairs), breast (53), liver (50), IAM-A line (127 then all 158 files counted).",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
-     "title": "reproduce/ mice: runs 7, 8, 9 and 10 launched; tools right, genome step, the environment's curl, out of memory at alignment",
+     "title": "Biological_Physics/MethylPhys/reproduce/ mice: runs 7, 8, 9 and 10 launched; tools right, genome step, the environment's curl, out of memory at alignment",
      "status": "in progress",
      "what": "The mouse pipeline from ENA reads: wgbs_tools tag, a silent genome step split and logged, an old curl inside a tool environment, and bwa mem out of memory at 32 GB were fixed in turn; on 64 GB it aligned 11 of 38 runs cleanly. Continued on 2026-10-19 (runs 11 to 13).",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ],
    "heading": "What ran, and how each came out",
@@ -267,49 +267,49 @@
      "status": "audit",
      "what": "The cfDNA synthetic (DEV-CFDNA-SHORT-01) found the held-error counter's correction weighted by every molecule, including unmethylated ones; fixed in the chain, with a release check.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Pre-launch checklist",
      "status": "audit",
      "what": "Two of the losses on the night of 2026-10-17 came from information already in hand (spot reclaims among them).",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Page: no links to moved files or the working plan",
      "status": "audit",
      "what": "The connections table linked BIT_TABLES.md, which only says it moved; now one link to FOUR_DOMAINS.md, where the tables live.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "C-Score same-run tare reached through the one-command run",
      "status": "audit",
      "what": "run_sample read --ref-table but kept only column A, so the C-Score tare never saw the references' C.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "CHAIN FIX: an above-band C-Score crashed the report",
      "status": "audit",
      "what": "The C-Score's clustered-departure flag used level FLAG, missing from the report's order: every above-band reading crashed the report.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Report after IAMPerformance's review; IAM-A from a BAM",
      "status": "audit",
      "what": "Gauges now print 0 (floor: below it a cell can no longer hold its identity), healthy 1 with the reference it is measured against, and saturation (the most the scale can register); no 1e-7 and no \"coin flip\".",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Final report batch; technical-record wording; MethylPhys README brought to chain v4",
      "status": "audit",
      "what": "Clean clone run 15 PASS 28 of 28; arrays (14 PDFs) and the IAM-A example (A 0.9083, equal to its grand test) at the final report.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ],
    "heading": "What we learned that we did not know yesterday",
@@ -337,42 +337,42 @@
      "status": "audit",
      "what": "'About one ATP per site' was taken off the page without checking the canon, which defines M = 20.94 that way; restored with its source.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "A rate written without its unit",
      "status": "audit",
      "what": "'55-60 an hour' read as dollars; it was samples. Every rate now carries its unit.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Correction: the Deconvolver error is a mean, not a median (ATL-066)",
      "status": "audit",
      "what": "The commissioning note said median; the sealed rule and the code use a mean. Caught by reading the field name while reproducing it; corrected at every source.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
-     "title": "reproduce/ iama_line: 127 of 127 recounted files identical; 31 refused by GEO",
+     "title": "Biological_Physics/MethylPhys/reproduce/ iama_line: 127 of 127 recounted files identical; 31 refused by GEO",
      "status": "audit",
      "what": "GEO answered busy to 31 downloads; the driver now retries. We first wrote 132 of 132 (122 GEO + 5 ENCODE is 127); the reviewer caught it.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
-     "title": "reproduce/ run 1 finished; Met-A rebuild guard fixed; run 2 stopped and fixed",
+     "title": "Biological_Physics/MethylPhys/reproduce/ run 1 finished; Met-A rebuild guard fixed; run 2 stopped and fixed",
      "status": "audit",
      "what": "A clean-room path guard refused a fresh clone's folder; run 2 ran its comparison without pandas; both fixed in the runner.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
-     "title": "reproduce/ run 10 launched: mice on 64 GB, terminated at 11 of 38 by its own timer",
+     "title": "Biological_Physics/MethylPhys/reproduce/ run 10 launched: mice on 64 GB, terminated at 11 of 38 by its own timer",
      "status": "audit",
      "what": "We set an 8-hour timer for about 10 hours of work (38 runs, not 8) and could not extend it; terminated early and relaunched with 14 hours. Checklist line added.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ],
    "heading": "Our own mistakes today, and what caught each",
@@ -386,21 +386,21 @@
      "status": "structure",
      "what": "CANON/iam_canon.json still defined IAM-A in the retired position form (P = 1.149) and the C-score as development on 50-site blocks with baseline 1.1104 and no band; every document drawing on the canon carried it.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Clean clone run 10: 24 of 26; one cause",
      "status": "audit",
      "what": "E4 and E9 failed: the new physics panel assumed an own-reference prediction, and the retired IAM-A position form (development flag) has none, so its report did not build (E9 reads the same report). Fixed the same day; run 11 passed 26 of 26.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     },
     {
      "title": "Outreach reference: what methylation researchers ask",
      "status": "structure",
      "what": "IAMPerformance shared an expert Q&A on methylation studies.",
      "why": "",
-     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ],
    "heading": "What changed in the plan",

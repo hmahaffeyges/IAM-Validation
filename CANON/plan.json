@@ -1,5 +1,5 @@
 {
- "_rule": "The order of work (author 2026-10-16: one source per fact). Each item names its Master Testing Manifest rows; COMMISSIONING_PLAN.md is generated from this order and the rows' live status and next step by CANON/plan_md.py. Edit the order here; edit a row's state in the manifest.",
+ "_rule": "The order of work (author 2026-10-16: one source per fact). Each item names its Master Testing Manifest rows; Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md is generated from this order and the rows' live status and next step by CANON/plan_md.py. Edit the order here; edit a row's state in the manifest.",
  "mandate": "The first commissioned chain is built (IAM-Atlas v2.1, IAM-Deconvolver, Met-A, C-Score, IAM-A). What remains is the researcher package (report, showcase runs, SOP, Zenodo, the book audit). Every step is a manifest row, runs synthetic first, writes its rule before its data, runs through the chain, and is pushed through the gate. A working document: not shown on the public site.",
  "items": [
   {

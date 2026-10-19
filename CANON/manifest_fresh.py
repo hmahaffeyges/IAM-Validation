@@ -10,7 +10,7 @@ A row 'changed' means its JSON differs from origin/main (new rows count as chang
 Usage: python3 CANON/manifest_fresh.py check [base]"""
 import os, sys, json, re, subprocess
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LOG = "development/METHYLPHYS_DEVELOPMENT_LOG.md"; ID = re.compile(r"\b(?:[A-Z]{2,5}(?:-[A-Z0-9]+)*-\d{2,3})\b")
+LOG = "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"; ID = re.compile(r"\b(?:[A-Z]{2,5}(?:-[A-Z0-9]+)*-\d{2,3})\b")
 CUT = "2026-10-16"
 def findings(old_rows, new_rows, old_log, new_log, old_jobs, new_jobs, changed, stamps):
     """old/new_rows: {id: row}; *_log: text; *_jobs: {job_id: job}; changed: repo paths changed; stamps: [(path, stamp)] added or changed."""
@@ -52,7 +52,7 @@ if __name__ == "__main__" and sys.argv[1:2] == ["check"]:
             try: o = json.load(open(os.path.join(R, p), encoding="utf-8"))
             except Exception: continue
             if isinstance(o, dict) and isinstance(o.get("chain_stamp"), dict): stamps.append((p, o["chain_stamp"]))
-    F = findings(rows_of(at(base, "CANON/manifest.json")), rows_of(at("HEAD", "CANON/manifest.json")), at(base, LOG), at("HEAD", LOG),
+    F = findings(rows_of(at(base, "CANON/manifest.json")), rows_of(at("HEAD", "CANON/manifest.json")), (at(base, LOG) or at(base, "development/METHYLPHYS_DEVELOPMENT_LOG.md")), at("HEAD", LOG),
                  jobs_of(at(base, "CANON/box_jobs.json")), jobs_of(at("HEAD", "CANON/box_jobs.json")), changed, stamps)
     ce = subprocess.run([sys.executable, os.path.join(R, "CANON/chain_events.py"), "--check"], capture_output=True, text=True)
     if ce.returncode: F.append("[e] " + ce.stdout.strip().replace("\n", " | ")[:200])

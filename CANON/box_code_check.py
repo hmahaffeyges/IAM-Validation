@@ -62,7 +62,7 @@ def problems():
                 if miss or (not j.get("outputs") and not j.get("no_outputs_reason")): P.append(f"{sid}: outputs missing from S3: {miss or 'none listed'}")
         if sid not in open(os.path.join(ROOT, "Biological_Physics", "MethylPhys", "RUNS.md"), encoding="utf-8").read():
             P.append(f"{sid}: no row in RUNS.md (python3 Biological_Physics/MethylPhys/boxruns/make_runs_ledger.py)")
-        if sid not in open(os.path.join(ROOT, "development", "METHYLPHYS_DEVELOPMENT_LOG.md"), encoding="utf-8").read():
+        if sid not in open(os.path.join(ROOT, "Biological_Physics", "MethylPhys", "METHYLPHYS_DEVELOPMENT_LOG.md"), encoding="utf-8").read():
             P.append(f"{sid}: not named in the development log")
     back = {os.path.normpath(p) for j in J if j.get("backfilled") for p in j["files"]}
     back |= {os.path.normpath(p) for p in json.load(open(REG)).get("not_jobs", {})}

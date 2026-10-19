@@ -6,7 +6,7 @@
 
 **One law of physics from the qubit to the genome to the cosmic horizon.**
 
-**For researchers:** [the researcher package](RESEARCHER_PACKAGE.md): read the reports, run the commissioned chain on your own samples, and rebuild every headline result from public data with one command. The hard questions first: [QUESTIONS_AND_ANSWERS.md](QUESTIONS_AND_ANSWERS.md).
+**For researchers:** [the researcher package](Biological_Physics/MethylPhys/RESEARCHER_PACKAGE.md): read the reports, run the commissioned chain on your own samples, and rebuild every headline result from public data with one command. The hard questions first: [Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md](Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md).
 
 IAM is a model of how reality begins with a bit and the cost that comes with it: how information and entropy keep their balance, the thermodynamics of informational fidelity. It is not a new theory of gravity; it reads reality, from the quantum to the classical, through the bit and its price.
 
@@ -30,13 +30,13 @@ Heath W. Mahaffey, IAMPerformance (independent research).
 | | |
 |---|---|
 | **Follow along, live** | the front page: <https://hmahaffeyges.github.io/IAM-Validation/> |
-| **Every reading, by instrument** | [the A-score database](ASCORES/README.md): healthy and tumor readings side by side |
+| **Every reading, by instrument** | [the A-score database](Biological_Physics/MethylPhys/ASCORES/README.md): healthy and tumor readings side by side |
 | **What happened each day** | [the daily logs](Biological_Physics/MethylPhys/daylogs/) |
-| **Questions and answers** | [QUESTIONS_AND_ANSWERS.md](QUESTIONS_AND_ANSWERS.md): what a researcher or reviewer will ask, answered with the test behind each answer, the open questions, and how to check the chain on samples you already know |
-| **Reproduce the results** | [reproduce/](reproduce/README.md): each commissioning test and headline result rebuilt from public data with one command, compared with the committed result |
+| **Questions and answers** | [Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md](Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md): what a researcher or reviewer will ask, answered with the test behind each answer, the open questions, and how to check the chain on samples you already know |
+| **Reproduce the results** | [Biological_Physics/MethylPhys/reproduce/](Biological_Physics/MethylPhys/reproduce/README.md): each commissioning test and headline result rebuilt from public data with one command, compared with the committed result |
 | **Example reports** | three real reports from the commissioned chain, with their bundles: [REPORT_EXAMPLES_V4/final](Biological_Physics/MethylPhys/doors/data/REPORT_EXAMPLES_V4/final); the operating procedure: [SOP v4](Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md) |
-| **What is commissioned** | [COMMISSIONING_REPORT.md](COMMISSIONING_REPORT.md): every commissioned instrument, its scope, what it passed and what is next |
-| **The instruments** | [INSTRUMENTS.md](INSTRUMENTS.md): what each one reads, how it works, where it stands |
+| **What is commissioned** | [Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md](Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md): every commissioned instrument, its scope, what it passed and what is next |
+| **The instruments** | [Biological_Physics/MethylPhys/INSTRUMENTS.md](Biological_Physics/MethylPhys/INSTRUMENTS.md): what each one reads, how it works, where it stands |
 | **One law, four applications** | [FOUR_DOMAINS.md](FOUR_DOMAINS.md): the same slots in the cosmos, qubits, chips and cells, each with its source and status |
 | **IAM in bits** | [FOUR_DOMAINS.md, IAM in bits](FOUR_DOMAINS.md#iam-in-bits-a-guidebook-to-computational-reality): the four applications in computer language, one term per row |
 | **Every test, numbered** | [MANIFEST.md](MANIFEST.md), the Master Testing Manifest (generated; a push is refused if it drifts) |
@@ -63,7 +63,7 @@ gravity follows from the thermodynamics of such surfaces.
 | **IAM-A** | Is each mark still held at its own healthy rate? | commissioned (each sample against its own reference; sealed test on healthy blood CD8 T cells, whole-genome bisulfite, 2026-10-17) |
 | **Group-A** | Has a whole group moved (a trial arm, an exposure, a cohort)? | in development |
 
-How each one works, why it matters, and every test behind it: [INSTRUMENTS.md](INSTRUMENTS.md).
+How each one works, why it matters, and every test behind it: [Biological_Physics/MethylPhys/INSTRUMENTS.md](Biological_Physics/MethylPhys/INSTRUMENTS.md).
 
 <!-- CATALOGUE:END -->
 
@@ -78,7 +78,7 @@ use ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)
 
 ## Now running
 
-*Each line is the newest update in plain words; the full board is [FOLLOW.md](FOLLOW.md), every update in [FIELD_NOTES.md](FIELD_NOTES.md).*
+*Each line is the newest update in plain words; the full board is [FOLLOW.md](FOLLOW.md), every update in [Biological_Physics/MethylPhys/FIELD_NOTES.md](Biological_Physics/MethylPhys/FIELD_NOTES.md).*
 
 | experiment | status | newest update |
 |---|---|---|

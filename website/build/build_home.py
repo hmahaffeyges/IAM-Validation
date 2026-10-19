@@ -1,5 +1,5 @@
 """Front page for followers (PREVIEW; author request 2026-10-12). Writes SITE/preview/index.html from the committed records only:
-  CANON/now_running.json   the Now running stories (newest update each; full story in FIELD_NOTES.md)
+  CANON/now_running.json   the Now running stories (newest update each; full story in Biological_Physics/MethylPhys/FIELD_NOTES.md)
   CANON/results_register.json   results in plain words, with status and record
   Biological_Physics/MethylPhys/RUNS.md   actual AWS charges (month totals, daily line)
   CANON/funding.json   the fundraiser link
@@ -125,7 +125,7 @@ def page(art):
                 + (f'<br><span class="meta">Simulated: {done}</span>' if done else "") + '</li>')
     levers_list = "\n".join(lever_row(x) for x in LV["levers"])
     # the front (author 2026-10-17): only the commissioned chain and the tests it passed, in CANON/chain_front.json order; every other
-    # register entry is in EARLIER_RESULTS.md (CANON/earlier_results.py), rendered as a site page and linked below the cards
+    # register entry is in Biological_Physics/MethylPhys/EARLIER_RESULTS.md (CANON/earlier_results.py), rendered as a site page and linked below the cards
     # The Commissioning Campaign in numbers (author 2026-10-17: "somewhere up top easy to see"); CANON/compute_snapshot.py, run by checkpoint
     CS = J("CANON/compute_snapshot.json")
     # billing numbers from the latest day log with a computing-and-cost block (CANON/day_compute.py; author 2026-10-19: auto update from there)
@@ -199,7 +199,7 @@ def page(art):
                  f'Every status below is computed from the Master Testing Manifest.</p>'
                  f'<p><b>Why a self-reference matters.</b> {E(_C["why_self_reference"])}</p><p><b>How they work together.</b> {E(_C["together"])}</p>'
                  f'<details class="fold"><summary>Open the catalogue: what each instrument does, and what it was commissioned on</summary>'
-                 f'<div class="grid">{_cards}</div><p class="more"><a href="{rec("INSTRUMENTS.md")}">The catalogue as a document</a></p></details></section>')
+                 f'<div class="grid">{_cards}</div><p class="more"><a href="{rec("Biological_Physics/MethylPhys/INSTRUMENTS.md")}">The catalogue as a document</a></p></details></section>')
     _bs = importlib.util.spec_from_file_location("bits", os.path.join(REPO, "CANON", "bit_tables.py")); BT = importlib.util.module_from_spec(_bs); _bs.loader.exec_module(BT)
     _bits_rows = "".join(f'<tr><th>{E(t)}<br><span class="sub">{E(m)}</span></th>' + "".join(f'<td>{E(BT.short(BT.S[k][d].get("native") or BT.S[k][d].get("formula"), 120))} <span class="chip st-b">{E(BT.S[k][d].get("status"))}</span></td>' for d in BT.DOM) + "</tr>"
                          for t, k, m in BT.ROWS)
@@ -258,11 +258,11 @@ def page(art):
 <main>
 {campaign}
 <section class="wrap" id="wins"><h2>{E(CF["title"])}</h2>{chain_lead}<div class="grid">{results}</div>
-<p class="sub">Each card links to its record. <a href="{rec("EARLIER_RESULTS.md")}">{E(CF["earlier"])}</a> ({n_earlier}, each with its record).</p>
+<p class="sub">Each card links to its record. <a href="{rec("Biological_Physics/MethylPhys/EARLIER_RESULTS.md")}">{E(CF["earlier"])}</a> ({n_earlier}, each with its record).</p>
 </section>
 <section class="wrap" id="researchers"><h2>For researchers: the questions first</h2>
 <p class="sub">What a reviewer will ask first, answered from the record: each answer links to the test behind it, the one command that rebuilds it from public data, its chapter in the book and its data on Zenodo. Where there is no answer yet, it says so.</p>
-<p class="cta"><a class="btn" href="{rec("RESEARCHER_PACKAGE.md")}">The researcher package</a><a class="btn ghost" href="{rec("QUESTIONS_AND_ANSWERS.md")}">Questions and answers</a><a class="btn ghost" href="{rec("reproduce/README.md")}">Reproduce every result</a></p>
+<p class="cta"><a class="btn" href="{rec("Biological_Physics/MethylPhys/RESEARCHER_PACKAGE.md")}">The researcher package</a><a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md")}">Questions and answers</a><a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/reproduce/README.md")}">Reproduce every result</a></p>
 <div class="grid links">
 <a class="tile" href="book/ch_reproduced.html">The commissioning record, reproduced: real report pages and every test, in the book</a>
 <a class="tile" href="https://doi.org/10.5281/zenodo.23441999">IAM-Atlas v2.1 on Zenodo</a>
@@ -386,7 +386,7 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 <div class="card"><p class="big">${wsum:,.2f}</p><p>rented computing, last 7 billed days ({E(week[0][0])} to {E(week[-1][0])})</p><p class="small">Every run, its purpose, its estimate before it starts and its actual cost: <a href="{rec("Biological_Physics/MethylPhys/RUNS.md")}">the run ledger</a>.</p></div></div></details></section>
 <section class="wrap"><h2>Check it yourself</h2><div class="grid links">
 <a class="tile" href="read/">The book, every number checked by a script</a><a class="tile" href="book/">Run every check in your browser</a>
-<a class="tile" href="{rec("FOUR_DOMAINS.md")}">One law, four applications, and IAM in bits</a><a class="tile" href="{rec("COMMISSIONING_REPORT.md")}">Commissioning report: what is commissioned and what it passed</a><a class="tile" href="{rec("INSTRUMENTS.md")}">The instrument catalogue</a>
+<a class="tile" href="{rec("FOUR_DOMAINS.md")}">One law, four applications, and IAM in bits</a><a class="tile" href="{rec("Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md")}">Commissioning report: what is commissioned and what it passed</a><a class="tile" href="{rec("Biological_Physics/MethylPhys/INSTRUMENTS.md")}">The instrument catalogue</a>
 <a class="tile" href="https://github.com/hmahaffeyges/IAM-Validation">The repository: every script and record</a><a class="tile" href="{E(FUND["url"])}">The fundraiser</a></div>
 <p class="more"><b>Cite this work.</b> The book: Mahaffey, H. W. <i>IAM's Law and Order: The Actualization of Reality</i>, version 1.0, 2026, DOI <a href="https://doi.org/10.5281/zenodo.23151068">10.5281/zenodo.23151068</a>. The atlas: IAM-Atlas v2, DOI <a href="https://doi.org/10.5281/zenodo.23325865">10.5281/zenodo.23325865</a>. Code and records carry the MIT license, in the repository. A preprint follows the first replication kit.</p>
 <p class="more"><b>Questions, or think something here is wrong?</b> Open an <a href="https://github.com/hmahaffeyges/IAM-Validation/issues">issue</a> or a <a href="https://github.com/hmahaffeyges/IAM-Validation/discussions">discussion</a>. Finding an error in our numbers is the most useful thing anyone can do with this page.</p>
@@ -435,8 +435,8 @@ footer{padding:50px 22px 60px;color:var(--muted);font-size:14px}
 # style with each ## section collapsible, and the page links there. Documents those pages link to are rendered too (two levels).
 # Non-document files (code, data) still link to the repository.
 sys.path.insert(0, HERE); import md_lite
-INLINE = [("doc-commissioning", "Commissioning report: what is commissioned, its scope and what it passed", "COMMISSIONING_REPORT.md"),
-          ("doc-instruments", "The instrument catalogue", "INSTRUMENTS.md"),
+INLINE = [("doc-commissioning", "Commissioning report: what is commissioned, its scope and what it passed", "Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md"),
+          ("doc-instruments", "The instrument catalogue", "Biological_Physics/MethylPhys/INSTRUMENTS.md"),
           ("doc-four", "One law, four applications, and IAM in bits", "FOUR_DOMAINS.md"),
           ("doc-runs", "Every rented-computer run and what AWS billed", "Biological_Physics/MethylPhys/RUNS.md"),
           ("doc-status", "Status of every instrument", "Biological_Physics/MethylPhys/STATUS.md")]
@@ -482,7 +482,7 @@ def _moved(p):
     f = os.path.join(REPO, p)
     try: return os.path.exists(f) and open(f, encoding="utf-8").readline().strip().lower() in ("# moved", "# moved.")
     except Exception: return False
-NOT_ON_SITE = {"COMMISSIONING_PLAN.md"} | {os.path.relpath(os.path.join(r, f), REPO).replace(os.sep, "/") for r, _, fs in os.walk(REPO)
+NOT_ON_SITE = {"Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md"} | {os.path.relpath(os.path.join(r, f), REPO).replace(os.sep, "/") for r, _, fs in os.walk(REPO)
               if "/.git" not in r for f in fs if f.endswith(".md") and _moved(os.path.relpath(os.path.join(r, f), REPO))}
 def off_site(h):   # a link to a NOT_ON_SITE document (GitHub path or its rendered page) keeps only its text (author 2026-10-18; LESSONS C25)
     forms = [re.escape(GH + p) for p in NOT_ON_SITE] + [r"(?:\.\./)?(?:docs/)?" + re.escape(p.replace("/", "__")[:-3] + ".html") for p in NOT_ON_SITE]
