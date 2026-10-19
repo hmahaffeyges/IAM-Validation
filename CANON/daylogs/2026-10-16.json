@@ -441,5 +441,24 @@
     }
    ]
   }
- ]
+ ],
+ "compute": {
+  "billed_usd": 243.35,
+  "by_category": {
+   "machines": 230.17,
+   "machine disks and snapshots": 7.91,
+   "other": 2.93,
+   "S3 storage": 2.3,
+   "data transfer": 0.05
+  },
+  "machine_hours": 44.8,
+  "core_hours": 5152,
+  "since": "2026-09-28",
+  "total_billed_usd": 1524.43,
+  "total_machine_hours": 353.8,
+  "total_core_hours": 34985,
+  "source": "AWS billing (Cost Explorer, daily, UTC day)",
+  "final": true,
+  "read": "2026-10-19"
+ }
 }

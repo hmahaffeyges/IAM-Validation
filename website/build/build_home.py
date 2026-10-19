@@ -128,9 +128,15 @@ def page(art):
     # register entry is in EARLIER_RESULTS.md (CANON/earlier_results.py), rendered as a site page and linked below the cards
     # The Commissioning Campaign in numbers (author 2026-10-17: "somewhere up top easy to see"); CANON/compute_snapshot.py, run by checkpoint
     CS = J("CANON/compute_snapshot.json")
+    # billing numbers from the latest day log with a computing-and-cost block (CANON/day_compute.py; author 2026-10-19: auto update from there)
+    _dlc = [J("CANON/daylogs/" + f) for f in sorted(os.listdir(os.path.join(REPO, "CANON", "daylogs"))) if re.fullmatch(r"\d{4}-\d\d-\d\d\.json", f)]
+    _dlc = [d for d in _dlc if d.get("compute")][-1]; _C = _dlc["compute"]
+    CS = dict(CS, machine_hours=_C["total_machine_hours"], core_hours=_C["total_core_hours"], billed_usd=_C["total_billed_usd"],
+              core_years=round(_C["total_core_hours"] / 8766, 1), since=_C["since"], billed_through=_dlc["date"])
     campaign = (f'<section class="wrap" id="campaign"><h2>{E(CS["name"])}: the final stretch</h2>'
         f'<p class="sub">Since {E(CS["since"])}, nearly every rented computer hour has gone to one goal: commissioning the instruments, packaging them into one chain '
-        f'anyone can run, and testing the physics underneath. Paid for out of our own pocket. Updated {E(CS["as_of"])} from AWS billing and the committed records.</p>'
+        f'anyone can run, and testing the physics underneath. Paid for out of our own pocket. Computing and cost from AWS billing through {E(CS["billed_through"])} '
+        f'(<a href="{rec("Biological_Physics/MethylPhys/daylogs/" + CS["billed_through"] + ".md")}">that day&rsquo;s log</a>, which gives each day&rsquo;s bill); DNA sites and the fit from the committed records.</p>'
         f'<div class="grid costs"><div class="card"><p class="big">{CS["core_hours"]:,}</p><p>processor-core hours, about {CS["core_years"]} years of one computer core running non-stop</p></div>'
         f'<div class="card"><p class="big">{CS["cpg_total"] / 1e9:.1f} billion</p><p>DNA sites (CpGs) read: {CS["seq_calls"] / 1e9:.1f} billion on single molecules from '
         f'{CS["seq_samples"]} sequenced samples, {CS["array_reads"] / 1e9:.1f} billion on {CS["arrays"]:,} arrays (at least)</p></div>'

@@ -622,5 +622,23 @@
  "open_at_turnover": "Nothing is running. The sequencing instrument remains HELD - four of five commissioning checks passed and the fifth is still not met, and the note's own stopping rule keeps the whole instrument held until it is; its fix now has six planted bars met and needs one cheap reading pass on a rented machine to calibrate, after which the laboratory check must be rerun on the whole set because the five diagnostic libraries are spent. Both rented machines are terminated, so that pass needs one to be started. The array instrument is unaffected and is what scored the tissue results; the clustering meter now reads healthy blood correctly in two laboratories that had no part in setting its range, and needs one more check. Free work waiting, in order: the ceiling position in the sequenced pure cancer cell lines, re-reading the three sealed tissue sets with the ceiling check recorded, and the search for same-person repeat arrays. Nothing is waiting on a decision.",
  "closing": "No rented-machine money was spent today. Six results, four of our own errors found and recorded, and one question from the author that turned into a measured limit. The instrument is still held, which is the correct state for it to be in.",
  "_convention": "Section names are fixed so a reader can compare one day with another: What we set out to do; What ran, and how each came out; What we learned that we did not know yesterday; Our own mistakes today, and what caught each; Coffee and a whiteboard (the back-and-forth that produced the day's work, bad ideas included); What changed in the plan; Open at turnover.",
- "check_completeness": true
+ "check_completeness": true,
+ "compute": {
+  "billed_usd": 19.86,
+  "by_category": {
+   "machines": 16.15,
+   "S3 storage": 2.06,
+   "machine disks and snapshots": 1.49,
+   "other": 0.16
+  },
+  "machine_hours": 9.0,
+  "core_hours": 940,
+  "since": "2026-09-28",
+  "total_billed_usd": 1067.8,
+  "total_machine_hours": 251.4,
+  "total_core_hours": 26012,
+  "source": "AWS billing (Cost Explorer, daily, UTC day)",
+  "final": true,
+  "read": "2026-10-19"
+ }
 }

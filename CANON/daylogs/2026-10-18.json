@@ -410,5 +410,24 @@
  "off_page_rows": [
   "PHY-057"
  ],
- "corrected": "2026-10-19: statuses brought up to date (entries finished on 2026-10-18 had stayed 'in progress'), the guide's retired name replaced, and the Zenodo and mouse entries given what followed. The guide's first version and its retired name are named only in the development log."
+ "corrected": "2026-10-19: statuses brought up to date (entries finished on 2026-10-18 had stayed 'in progress'), the guide's retired name replaced, and the Zenodo and mouse entries given what followed. The guide's first version and its retired name are named only in the development log.",
+ "compute": {
+  "billed_usd": 64.74,
+  "by_category": {
+   "machines": 43.95,
+   "machine disks and snapshots": 15.12,
+   "S3 storage": 2.38,
+   "data transfer": 2.37,
+   "other": 0.91
+  },
+  "machine_hours": 48.0,
+  "core_hours": 2243,
+  "since": "2026-09-28",
+  "total_billed_usd": 1702.31,
+  "total_machine_hours": 430.1,
+  "total_core_hours": 39450,
+  "source": "AWS billing (Cost Explorer, daily, UTC day)",
+  "final": false,
+  "read": "2026-10-19"
+ }
 }

@@ -315,5 +315,24 @@
  "open_at_turnover": "The atlas v2.1 fit is running (700 blocks, finishing about 11:30 PM Pacific on 2026-10-15). Next: write and seal the Loyfer and Moss use tests; steps 1 to 3 on paper before DEV-BACKBONE-01 runs; the island-side counts for the tumor pairs (not saved; recovery needs the raw files).",
  "closing": "Nine sealed or synthetic results, two NOT MET outcomes that stand as written, six of our own errors found and recorded, and the atlas fit launched on the plan's budget.",
  "_convention": "see 2026-10-13.json",
- "check_completeness": true
+ "check_completeness": true,
+ "compute": {
+  "billed_usd": 58.1,
+  "by_category": {
+   "machines": 51.61,
+   "other": 2.23,
+   "S3 storage": 2.15,
+   "machine disks and snapshots": 2.07,
+   "data transfer": 0.04
+  },
+  "machine_hours": 25.4,
+  "core_hours": 1137,
+  "since": "2026-09-28",
+  "total_billed_usd": 1125.9,
+  "total_machine_hours": 276.9,
+  "total_core_hours": 27149,
+  "source": "AWS billing (Cost Explorer, daily, UTC day)",
+  "final": true,
+  "read": "2026-10-19"
+ }
 }

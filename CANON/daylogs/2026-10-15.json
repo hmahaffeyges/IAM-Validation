@@ -385,5 +385,23 @@
  "open_at_turnover": "Running at midnight: the atlas v2.1 fit (512 of 700 blocks); the Hansen healthy B-cell alignment (DEV-SECONDLAB-02, run 4). Next: count Hansen through the chain with the sample-shape check first, then the second-laboratory rule; the bit translation tables.",
  "closing": "A second instrument commissioned, the IAM-A self-reference moved into the chain, and a sample-shape check that refuses unusual samples instead of reading them.",
  "_convention": "see 2026-10-13.json",
- "check_completeness": true
+ "check_completeness": true,
+ "compute": {
+  "billed_usd": 155.18,
+  "by_category": {
+   "machines": 147.99,
+   "other": 3.39,
+   "S3 storage": 2.11,
+   "machine disks and snapshots": 1.69
+  },
+  "machine_hours": 32.1,
+  "core_hours": 2685,
+  "since": "2026-09-28",
+  "total_billed_usd": 1281.08,
+  "total_machine_hours": 309.0,
+  "total_core_hours": 29834,
+  "source": "AWS billing (Cost Explorer, daily, UTC day)",
+  "final": true,
+  "read": "2026-10-19"
+ }
 }

@@ -64,6 +64,13 @@ def render(d):
             if e.get("why"): L.append(f"  _Why it matters:_ {e['why']}  ")
             if e.get("record"): L.append(f"  [the record]({os.path.relpath(os.path.join(ROOT, e['record']), OUT)})")
         L.append("")
+    c = d.get("compute")
+    if c:   # CANON/day_compute.py, from AWS billing (author 2026-10-19: show day to day the work put in and the money spent)
+        cats = ", ".join(f"{k} ${v:,.2f}" for k, v in c.get("by_category", {}).items())
+        L += ["## Computing and cost", "",
+              f"This day: **${c['billed_usd']:,.2f}** billed by AWS ({cats}); {c['machine_hours']:,} machine hours, {c['core_hours']:,} processor-core hours.  ",
+              f"Since {c['since']}: **${c['total_billed_usd']:,.2f}**; {c['total_machine_hours']:,} machine hours, {c['total_core_hours']:,} processor-core hours.  ",
+              f"_{c['source']}; " + ("final._" if c.get("final") else f"read {c['read']}, AWS bills about a day behind, so it is updated until final._"), ""]
     L += ["## Open at turnover", "", d["open_at_turnover"], ""]
     if d.get("corrected"): L += ["## Corrected", "", d["corrected"], ""]   # a later audit of this day log, dated (author 2026-10-19)
     if d.get("closing"): L += ["---", "", f"_{d['closing']}_", ""]
@@ -172,6 +179,13 @@ if __name__ == "__main__":
         if re.search(r"(?i)in progress", (d.get("title", "") + " " + str(d.get("open_at_turnover", "")) + " " + d.get("set_out", ""))):
             P.append(f"[daylog] {day}: the day is over and its log still says in progress")
         for h in coverage(d): P.append(f"[daylog] {day}: committed thread missing from the day log: {h[:80]}")
+        try: _cs = json.load(open(os.path.join(ROOT, "CANON", "compute_snapshot.json"))).get("as_of", "")
+        except Exception: _cs = ""
+        if _cs < day: P.append(f"[daylog] {day}: the campaign counts (CANON/compute_snapshot.json, as of {_cs}) predate this closed day: run python3 CANON/compute_snapshot.py")
+        c = d.get("compute")   # author 2026-10-19: the day's computing and cost, demanded with the day log; the page reads it
+        if not c: P.append(f"[daylog] {day}: the day is over and has no computing-and-cost block: run python3 CANON/day_compute.py")
+        elif not c.get("final") and c.get("read", "") < (__import__("datetime").date.fromisoformat(tp) - __import__("datetime").timedelta(days=1)).isoformat():
+            P.append(f"[daylog] {day}: its computing-and-cost block was read {c.get('read')} and is not final: run python3 CANON/day_compute.py")
     if "--check" in sys.argv:
         for f, t in files.items():
             cur = open(f, encoding="utf-8").read() if os.path.isfile(f) else ""

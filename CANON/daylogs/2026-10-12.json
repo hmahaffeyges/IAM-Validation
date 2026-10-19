@@ -498,5 +498,23 @@
   }
  ],
  "open_at_turnover": "The second instrument is HELD with four of five commissioning checks met. The cause test is designed and committed, nothing read. Liver is sealed and scored; lung is parked; the atlas has a DOI and a v2.1 plan. The front page carries the results, the failures and the reviewer's list, and it is still a preview at this point - it goes live the next day. Hours covered: roughly 06:00 Pacific on 10-12 through midnight.",
- "closing": "The day's best results were refusals: four lung attempts and one colorectal set stopped by their own designs before a single tumor was opened, and a commissioning run that stopped itself when one check of five failed."
+ "closing": "The day's best results were refusals: four lung attempts and one colorectal set stopped by their own designs before a single tumor was opened, and a commissioning run that stopped itself when one check of five failed.",
+ "compute": {
+  "billed_usd": 67.02,
+  "by_category": {
+   "machines": 62.64,
+   "S3 storage": 2.05,
+   "machine disks and snapshots": 2.01,
+   "other": 0.31
+  },
+  "machine_hours": 23.7,
+  "core_hours": 2369,
+  "since": "2026-09-28",
+  "total_billed_usd": 1047.94,
+  "total_machine_hours": 242.4,
+  "total_core_hours": 25072,
+  "source": "AWS billing (Cost Explorer, daily, UTC day)",
+  "final": true,
+  "read": "2026-10-19"
+ }
 }

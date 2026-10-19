@@ -304,5 +304,23 @@
  ],
  "off_page_rows": [
   "PHY-057"
- ]
+ ],
+ "compute": {
+  "billed_usd": 113.14,
+  "by_category": {
+   "machines": 97.17,
+   "machine disks and snapshots": 12.59,
+   "S3 storage": 2.39,
+   "other": 0.98
+  },
+  "machine_hours": 28.3,
+  "core_hours": 2221,
+  "since": "2026-09-28",
+  "total_billed_usd": 1637.57,
+  "total_machine_hours": 382.1,
+  "total_core_hours": 37206,
+  "source": "AWS billing (Cost Explorer, daily, UTC day)",
+  "final": false,
+  "read": "2026-10-19"
+ }
 }
