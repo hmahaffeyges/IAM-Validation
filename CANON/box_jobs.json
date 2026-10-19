@@ -3161,6 +3161,30 @@
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: commit confirmed on origin; code in S3 first; status and progress to S3; watcher; tools installed first so an install error shows in minutes; about $5",
    "note": "relaunched as run 11 with a 14-hour timer",
    "no_outputs_reason": "terminated at 11 of 38 runs aligned: its 8-hour self-stop timer was shorter than the ~10 hours of work and cannot be extended (no SSM); 64 GB held, no memory error"
+  },
+  {
+   "job_id": "i-0293335867c24f8c0",
+   "name": "reproduce/ from a fresh public clone, run 11: the mouse prediction (OTH-076)",
+   "date": "2026-10-19",
+   "commit": "ac2a93bf",
+   "chain_commit": "ac2a93bf",
+   "state": "running",
+   "s3_code_prefix": "results/REPRODUCE_V1/code/run11/",
+   "log": "results/REPRODUCE_V1/run11/status.txt",
+   "machine": "on-demand m7a.4xlarge (16 cores, 64 GB), self-terminating (14-hour timer)",
+   "purpose": "mice rerun with the wgbs_tools tag fixed; ENA reads to .pat to the sealed scorer, compared with the committed result",
+   "record": "reproduce/box/reproduce_fresh.sh",
+   "manifest": [
+    "OTH-076"
+   ],
+   "outputs": [
+    "results/REPRODUCE_V1/run11/status.txt"
+   ],
+   "files": [
+    "reproduce/box/reproduce_fresh.sh"
+   ],
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: commit confirmed on origin; code in S3 first; timer sized from the work (100 min index + 38 runs x 12 min + 25 %); watcher; about $10",
+   "note": "stops itself after 14 hours at most"
   }
  ],
  "not_jobs": {
