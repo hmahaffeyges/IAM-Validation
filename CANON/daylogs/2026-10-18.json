@@ -135,6 +135,55 @@
      "what": "The root README said IAM-Atlas v2.1 \"is being built now\" (stale since its commissioning) and its instrument table, generated from the catalogue, left out the commissioned IAM-Deconvolver, which was filed as a support tool.",
      "why": "",
      "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Researcher package: operations manual for chain v4 and SOP reference-table columns (OTH-074)",
+     "status": "structure",
+     "what": "The operations manual now covers chain v4; the SOP and run_sample help named the reference-table columns too narrowly (A and C are both needed) and were corrected.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Questions and answers replace \"Try to break it\"; questions the field is asking now (OTH-075)",
+     "status": "structure",
+     "what": "QUESTIONS_AND_ANSWERS.md answers what a researcher will ask, open questions stated as open; eight questions from recent reviews of methylation cancer detection and epigenetic drift added. The reproduce README is generated from the registry.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Showcase run 1 read; scenario 3 refused by the report's own claim guard, rerun",
+     "status": "audit",
+     "what": "Public samples read once through the one command; the mixture reports were refused by the report's claim guard over banner wording, reworded and rerun.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Zenodo upload run 2 launched; IAM-Atlas v2.1 drafts uploaded (ATL-005)",
+     "status": "in progress",
+     "what": "Both v2.1 records uploaded from AWS with every checksum matching; plan and chain v4 rows current (OTH-068); awaiting Publish.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "reproduce/ fresh-clone tests launched: runs 1, 2, 2b, 3, 4, 5, 6 (OTH-076)",
+     "status": "audit",
+     "what": "One command per test in a fresh public clone, public data only, compared with the committed result.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "reproduce/ PASS: metaa_rebuild, deconv, cscore_band, three_labs, colon, breast and liver, iama_line",
+     "status": "audit",
+     "what": "Eight of nine reproduced with every compared number identical: Met-A reference rebuild (8 of 8), Deconvolver, C-Score band, three labs, colon (88 pairs), breast (53), liver (50), IAM-A line (127 then all 158 files counted).",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "reproduce/ mice: runs 7, 8, 9 and 10 launched; tools right, genome step, the environment's curl, out of memory at alignment",
+     "status": "in progress",
+     "what": "The mouse pipeline from ENA reads: wgbs_tools tag, a silent genome step split and logged, an old curl inside a tool environment, and bwa mem out of memory at 32 GB were fixed in turn; on 64 GB it aligned 11 of 38 runs cleanly.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ],
    "heading": "What ran, and how each came out",
@@ -294,6 +343,34 @@
      "title": "A rate written without its unit",
      "status": "audit",
      "what": "'55-60 an hour' read as dollars; it was samples. Every rate now carries its unit.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Correction: the Deconvolver error is a mean, not a median (ATL-066)",
+     "status": "audit",
+     "what": "The commissioning note said median; the sealed rule and the code use a mean. Caught by reading the field name while reproducing it; corrected at every source.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "reproduce/ iama_line: 127 of 127 recounted files identical; 31 refused by GEO",
+     "status": "audit",
+     "what": "GEO answered busy to 31 downloads; the driver now retries. We first wrote 132 of 132 (122 GEO + 5 ENCODE is 127); the reviewer caught it.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "reproduce/ run 1 finished; Met-A rebuild guard fixed; run 2 stopped and fixed",
+     "status": "audit",
+     "what": "A clean-room path guard refused a fresh clone's folder; run 2 ran its comparison without pandas; both fixed in the runner.",
+     "why": "",
+     "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "reproduce/ run 10 launched: mice on 64 GB, terminated at 11 of 38 by its own timer",
+     "status": "audit",
+     "what": "We set an 8-hour timer for about 10 hours of work (38 runs, not 8) and could not extend it; terminated early and relaunched with 14 hours. Checklist line added.",
      "why": "",
      "record": "development/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
