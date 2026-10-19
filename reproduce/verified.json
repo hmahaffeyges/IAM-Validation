@@ -34,5 +34,14 @@
   "minutes": 188.9,
   "commit": "0a4dc7aa",
   "job": "results/REPRODUCE_V1/run3/out/colon/verdict.json"
+ },
+ "breast": {
+  "verdict": "PASS",
+  "date": "2026-10-18",
+  "checks": 6,
+  "checks_ok": 6,
+  "minutes": 112.6,
+  "commit": "211e26c0",
+  "job": "results/REPRODUCE_V1/run4/out/breast/verdict.json"
  }
 }
