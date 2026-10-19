@@ -1953,5 +1953,29 @@
    "results/CHAIN_V4_CLEANCLONE/bio1/cscore_band_verdict.json": true
   },
   "state_at_verify": "done"
+ },
+ "i-0fba10a06761a1c4b": {
+  "s3": {
+   "verify_book_full.sh": "6a3a70736dc74bdde8bf8d9c1bc713cd94bbf6caa7ce353ca641d4d56f06e04f"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": false,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/BOOK_CHECK/862930f2/vb.log": true
+  },
+  "state_at_verify": "done"
+ },
+ "i-0df7613ea2dfb0d24": {
+  "s3": {
+   "verify_book_full.sh": "7879d41de6d99e0aef10e2236640425f30f50a5563e049736d28ae3ebe9785a5"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/BOOK_CHECK/3957f0b9/verify_book_output.txt": true
+  },
+  "state_at_verify": "done"
  }
 }

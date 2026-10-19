@@ -3260,6 +3260,54 @@
    "chain_commit": "549ab877",
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch: commit confirmed on origin, code copy in S3 first, timer sized from the work (about 45 min of 150), system tools by full path",
    "note": "PASS: only Biological_Physics came down (843 MB checkout); release check v4 PASS 29 of 29 (333 s); cscore_band PASS (41.7 min)"
+  },
+  {
+   "date": "2026-10-19",
+   "state": "done",
+   "machine": "spot m7a.xlarge, self-terminating (90-min timer)",
+   "manifest": [
+    "OTH-072"
+   ],
+   "files": [
+    "docs/book/verification/run1/verify_book_full.sh"
+   ],
+   "record": "docs/book/verification/run1/verify_book_full.sh",
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch: commit on origin (temporary branch audit-2026-10-19), code copy in S3 first, timer sized from the work (about 10 min of 90)",
+   "job_id": "i-0fba10a06761a1c4b",
+   "name": "Book check on a full clone, run 1 (OTH-072)",
+   "commit": "PENDING",
+   "chain_commit": "862930f2",
+   "s3_code_prefix": "results/BOOK_CHECK/code/run1/",
+   "log": "results/BOOK_CHECK/862930f2/status.txt",
+   "purpose": "verify_book.py on a full clone at the audit commit; the laptop's sparse checkout lacks the committed data files",
+   "outputs": [
+    "results/BOOK_CHECK/862930f2/vb.log"
+   ],
+   "note": "PASS 4650, FAIL 0; its script wrote the result only to its log (the record files it uploaded were the committed copies), so run 2 writes all three; its exact script is kept at docs/book/verification/run1/"
+  },
+  {
+   "date": "2026-10-19",
+   "state": "done",
+   "machine": "spot m7a.xlarge, self-terminating (90-min timer)",
+   "manifest": [
+    "OTH-072"
+   ],
+   "files": [
+    "docs/book/verification/verify_book_full.sh"
+   ],
+   "record": "docs/book/verification/verify_book_full.sh",
+   "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md before launch: commit on origin (temporary branch audit-2026-10-19), code copy in S3 first, timer sized from the work (about 10 min of 90)",
+   "job_id": "i-0df7613ea2dfb0d24",
+   "name": "Book check on a full clone, run 2: the record files (OTH-072)",
+   "commit": "3957f0b9",
+   "chain_commit": "3957f0b9",
+   "s3_code_prefix": "results/BOOK_CHECK/code/run2/",
+   "log": "results/BOOK_CHECK/3957f0b9/status.txt",
+   "purpose": "verify_book.py, --json and --inventory-md on a full clone; the three record files committed",
+   "outputs": [
+    "results/BOOK_CHECK/3957f0b9/verify_book_output.txt"
+   ],
+   "note": "PASS 4650, FAIL 0"
   }
  ],
  "not_jobs": {
