@@ -27600,7 +27600,7 @@
    "data_status": "unspent (checked against CANON/data_spent.csv 2026-10-17)",
    "record": "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/README.md",
    "status": "run",
-   "next_step": "2026-10-18 shown: one person's buffy coat read by every array instrument (Met-A A_rel 1.039 Normal, C_rel 1.067 not above, shares), every decline with its reason, three nine-cell mixtures labeled outside the Deconvolver's scope; scenarios 2 and 5 are the example reports. Scenario 4 (healthy colon, the atlas's own tissue scorer) running now: job i-0eef1a24ec243aee7 (step 1 of the to-do list, CANON/plan.json)",
+   "next_step": "2026-10-19: all seven scenarios shown. Scenario 4: three healthy colon biopsies (GSE151732) read by IAM-Atlas v2.1's colon tissue scorer, shares 0.911, 0.941, 0.943 of 6,000 sealed sites within 0.05 (the three together 0.942; commissioned bar 0.90); scenarios 2 and 5 are the example reports.",
    "cost": "AWS, small",
    "impact": 5,
    "legacy_ids": [],
@@ -27608,7 +27608,14 @@
    "sources_of_row": [
     "session 2026-10-17 (author)"
    ],
-   "runs": [],
+   "runs": [
+    {
+     "date": "2026-10-19",
+     "outcome": "success",
+     "note": "scenario 4 read once by the atlas's commissioned colon tissue scorer: 0.911, 0.941, 0.943, together 0.942 (doors/data/SHOWCASE_V4/s4/scenario4_colon.json)",
+     "page": "not headline: showcase"
+    }
+   ],
    "notes": "2026-10-19: scenario 4 reading written before its files are opened (doors/data/SHOWCASE_V4/scenario4_colon.py: the atlas's commissioned colon tissue scorer, unchanged, at the 6,000 sealed blind sites, tolerance 0.05; box script showcase_v4_s4.sh)"
   },
   {

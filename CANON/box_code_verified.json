@@ -1996,12 +1996,12 @@
   },
   "s3_inputs_sha": {},
   "matches_repo": true,
-  "log_in_s3": false,
+  "log_in_s3": true,
   "outputs_in_s3": {
-   "results/SHOWCASE_V4/s4/status.txt": false,
-   "results/SHOWCASE_V4/s4/scenario4_colon.json": false,
-   "results/SHOWCASE_V4/s4/s4.log": false
+   "results/SHOWCASE_V4/s4/status.txt": true,
+   "results/SHOWCASE_V4/s4/scenario4_colon.json": true,
+   "results/SHOWCASE_V4/s4/s4.log": true
   },
-  "state_at_verify": "running"
+  "state_at_verify": "done"
  }
 }

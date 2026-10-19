@@ -41,8 +41,26 @@ reference it has, and shows the departures across the whole sphere.
 | mix 2 | cd4 t cells 44.7 %, b cells 22.0 %, nk cells 15.8 %, neutrophils 14.9 %, monocytes 2.6 % |
 | mix 3 | cd4 t cells 46.3 %, b cells 20.3 %, nk cells 15.3 %, neutrophils 15.1 %, monocytes 3.0 % |
 
-## Scenarios still to show
+## Healthy colon tissue read by IAM-Atlas v2.1 (scenario 4)
 
-- 2 (Met-A on isolated neutrophils) and 5 (IAM-A): their demonstrations are the example reports in
-  [REPORT_EXAMPLES_V4/final](../REPORT_EXAMPLES_V4/final) (a held-out healthy array and a grand-test CD8 sample, read 0.9083 Normal).
-- 4 (IAM-Atlas on healthy colon): runs through the atlas's own commissioned tissue scorer, next.
+Three healthy colon biopsies (GSE151732, adenoma history "No", the first three by accession; EPIC v1), read by the atlas's commissioned colon
+tissue use through its own scorer, unchanged: chain Stage 1, then the 6,000 sealed composition-blind sites of the colon tissue test,
+where every colon cell type the atlas holds agrees, so a healthy tissue sample should match the atlas whatever its mix of cells. The reading
+is the share of those sites within 0.05 of the atlas's colon-epithelium value; the atlas was commissioned on colon tissue at 0.90.
+Tissue has no route through the one command yet, so this runs through the scorer directly
+([scenario4_colon.py](scenario4_colon.py), [showcase_v4_s4.sh](showcase_v4_s4.sh); record [s4/scenario4_colon.json](s4/scenario4_colon.json)).
+
+| sample | sites measured | share within 0.05 | median difference from the atlas |
+|---|---|---|---|
+| GSM4589141 | 5,997 of 6,000 | 0.911 | 0.011 |
+| GSM4589144 | 5,997 of 6,000 | 0.941 | 0.010 |
+| GSM4589145 | 5,998 of 6,000 | 0.943 | 0.010 |
+| the three together | | 0.942 | |
+
+Each healthy colon sample reads above the commissioned bar, and the three together read 0.942.
+
+## Scenarios 2 and 5
+
+Both are shown by the example reports in [REPORT_EXAMPLES_V4/final](../REPORT_EXAMPLES_V4/final): scenario 2 (Met-A on isolated neutrophils) by a
+held-out healthy array, and scenario 5 (IAM-A) by a sample of its grand test, healthy CD8 T cells, read 0.9083 Normal. Scenario 5 has no
+separate showcase sample because no fresh public whole-genome set of healthy resting CD8 T cells was found on GEO (searched 2026-10-18).

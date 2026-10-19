@@ -2699,3 +2699,6 @@ The last full TODO.md (commit 9a29c6ef, 2026-10-16, 883 lines) is frozen at arch
 
 ### 2026-10-19 · Manifest statuses and the instrument catalogue checked; the audit joins the push gate (OTH-078, to-do steps 5 and 7)
 The five "development" wordings were read against the commissioning record and are right (listed as reviewed in doc_audit.py). Each instrument in CANON/catalogue.json now names its commissioning record, shown on INSTRUMENTS.md, and every number an entry prints is found in that record; the first version also searched the runtime matrices, which hold almost every short decimal, so a planted 0.013 passed; restricted to the record, a planted 0.0177 is refused. CANON/doc_audit.py --check is in the push gate.
+
+### 2026-10-19 · Showcase scenario 4: healthy colon read by IAM-Atlas v2.1 (OTH-073, to-do steps 1 and 2)
+Job i-0eef1a24ec243aee7: three healthy colon biopsies (GSE151732) through chain Stage 1 and the atlas's colon tissue scorer, unchanged: 0.911, 0.941 and 0.943 of the 6,000 sealed composition-blind sites within 0.05 of the atlas (median difference 0.010-0.012); the three together 0.942, above the commissioned bar 0.90. The showcase README states that scenarios 2 and 5 are the example reports, and why. All seven scenarios are shown.

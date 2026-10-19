@@ -1,0 +1,10 @@
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.72s/it]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.72s/it]
+Processing samples:   0%|          | 0/1 [00:00<?, ?it/s]Processing samples: 100%|██████████| 1/1 [00:46<00:00, 46.99s/it]Processing samples: 100%|██████████| 1/1 [00:46<00:00, 46.99s/it]
+{'sample': 'GSM4589141', 'base': 'GSM4589141_204081560140_R01C01', 'probes': 845648, 'blind_sites': 6000, 'blind_sites_measured': 5997, 'share_within_tolerance': 0.9108, 'median_abs_diff': 0.0115}
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.65s/it]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.65s/it]
+Processing samples:   0%|          | 0/1 [00:00<?, ?it/s]Processing samples: 100%|██████████| 1/1 [00:46<00:00, 46.90s/it]Processing samples: 100%|██████████| 1/1 [00:46<00:00, 46.90s/it]
+{'sample': 'GSM4589144', 'base': 'GSM4589144_204081560140_R05C01', 'probes': 848454, 'blind_sites': 6000, 'blind_sites_measured': 5997, 'share_within_tolerance': 0.9413, 'median_abs_diff': 0.0104}
+Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.68s/it]Reading IDATs: 100%|██████████| 1/1 [00:08<00:00,  8.68s/it]
+Processing samples:   0%|          | 0/1 [00:00<?, ?it/s]Processing samples: 100%|██████████| 1/1 [00:45<00:00, 45.75s/it]Processing samples: 100%|██████████| 1/1 [00:45<00:00, 45.75s/it]
+{'sample': 'GSM4589145', 'base': 'GSM4589145_204081560140_R06C01', 'probes': 811591, 'blind_sites': 6000, 'blind_sites_measured': 5998, 'share_within_tolerance': 0.9433, 'median_abs_diff': 0.0104}
+{"share_epithelium": 0.942, "arrays": {"epithelium": 3}, "verdict_by_the_scorer": "COMMISSIONED", "panel_cells_not_assessed": ["fibroblast", "macrophage", "smooth_muscle", "endothelium", "neutrophil", "adipocytes", "T", "B"]}

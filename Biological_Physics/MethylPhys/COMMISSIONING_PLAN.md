@@ -8,9 +8,9 @@ The first commissioned chain is built (IAM-Atlas v2.1, IAM-Deconvolver, Met-A, C
 
 _Worked one step at a time. A step is closed only with its date and the record that shows it done._
 
-1. **Now:** Showcase scenario 4: the three healthy colon samples (GSE151732: GSM4589141, GSM4589144, GSM4589145) through IAM-Atlas v2.1's commissioned tissue scorer, once, by the sealed rule. *Done when:* their reports and the scorer's reading committed in doors/data/SHOWCASE_V4, and its README section written (OTH-073)
-2. Showcase README: scenarios 2 and 5 stated as covered by the example reports, with scenario 5's reason (no fresh public whole-genome set of healthy resting CD8 T cells found). *Done when:* the README has no 'still to show' section (OTH-073)
-3. Mouse reproduction (run 13): read the verdict and record it. *Done when:* reproduce/verified.json holds the mice verdict; the reproduce README and book chapter regenerated (OTH-076)
+1. ~~Showcase scenario 4: the three healthy colon samples (GSE151732: GSM4589141, GSM4589144, GSM4589145) through IAM-Atlas v2.1's commissioned tissue scorer, once, by the sealed rule~~ Done 2026-10-19: [scenario4_colon.json](doors/data/SHOWCASE_V4/s4/scenario4_colon.json)
+2. ~~Showcase README: scenarios 2 and 5 stated as covered by the example reports, with scenario 5's reason (no fresh public whole-genome set of healthy resting CD8 T cells found)~~ Done 2026-10-19: [README.md](doors/data/SHOWCASE_V4/README.md)
+3. **Now:** Mouse reproduction (run 13): read the verdict and record it. *Done when:* reproduce/verified.json holds the mice verdict; the reproduce README and book chapter regenerated (OTH-076)
 4. ~~Manifest: the 14 record names that do not exist (TODO.md in 56 rows, old_val_datasets.csv in 52, candidate_datasets_2026-10-13.csv in 12, and 11 single ones) repointed to the record that holds the fact, or marked never committed~~ Done 2026-10-19: [doc_audit.py](../../CANON/doc_audit.py)
 5. ~~Manifest: the 5 status wordings ('stays development', 'in development') and the 5 running rows naming no machine job, each read and corrected against the commissioning record and the job register (read: the 5 wordings are right and are listed in doc_audit.py REVIEWED; 'running' rows are document work, so only a named job that has finished is a finding)~~ Done 2026-10-19: [doc_audit.py](../../CANON/doc_audit.py)
 6. The 16 finished or running rows with a pending next step: each put on this plan, reopened, or its follow-up recorded done. *Done when:* plan_md.py --check passes with no exemptions (OTH-078, COM-CSCORE-005, COM-CSCORE-011, ...)
@@ -55,7 +55,7 @@ _Worked one step at a time. A step is closed only with its date and the record t
    - OTH-063 (run; last run 2026-10-16: met): none: live; the chain names rows in every stamp and the gate refuses stale rows. Document consolidation is OTH-064
    - OTH-064 (run; last run 2026-10-16: met): done: hand-kept living documents are now the development log and the day log (both written as work happens and checked by the gate); the book is the toolbox, checked by verify_book; sealed records are history. Everything else is generated or a pointer
 13. **Showcase runs of the commissioned chain (plan: development/TEST_PLAN_TRACKS_2026-10-17.md)**
-   - OTH-073 (run): 2026-10-18 shown: one person's buffy coat read by every array instrument (Met-A A_rel 1.039 Normal, C_rel 1.067 not above, shares), every decline with its reason, three nine-cell mixtures labeled outside the Deconvolver's scope; scenarios 2 and 5 are the example reports. Scenario 4 (healthy colon, the atlas's own tissue scorer) running now: job i-0eef1a24ec243aee7 (step 1 of the to-do list, CANON/plan.json)
+   - OTH-073 (run; last run 2026-10-19: met): 2026-10-19: all seven scenarios shown. Scenario 4: three healthy colon biopsies (GSE151732) read by IAM-Atlas v2.1's colon tissue scorer, shares 0.911, 0.941, 0.943 of 6,000 sealed sites within 0.05 (the three together 0.942; commissioned bar 0.90); scenarios 2 and 5 are the example reports.
 14. **Field: normal tissue of patients against healthy people, same slides**
    - FLD-002 (planned): 2026-10-17: first in line after the showcase (TEST_PLAN_TRACKS_2026-10-17.md, track 1); scout a set with healthy donors and patients on the same slides, ages known; candidate reserved 2026-10-18: GSE216024 (140 normal rectal biopsies, adenoma history yes/no, ages, EPIC v1, unspent)
 15. **Precancer and before diagnosis**
@@ -80,7 +80,6 @@ _Worked one step at a time. A step is closed only with its date and the record t
 |---|---|---|
 | IAM-Atlas v2.1 Zenodo large-file upload, run 2 (ATL-005) | spot m7a.large, self-terminating (600-min timer) | ATL-005 |
 | reproduce/ from a fresh public clone, run 13: the mouse prediction (OTH-076) | on-demand m7a.4xlarge (16 cores, 64 GB), self-terminating (14-hour timer) | OTH-076 |
-| Showcase scenario 4: healthy colon through IAM-Atlas v2.1's commissioned tissue scorer (OTH-073) | spot m7a.xlarge, self-terminating (90-min timer) | OTH-073 |
 
 ## Decisions waiting for the author
 

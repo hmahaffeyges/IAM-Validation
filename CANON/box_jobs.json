@@ -3339,7 +3339,7 @@
    "date": "2026-10-19",
    "commit": "8b603822",
    "chain_commit": "8b603822",
-   "state": "running",
+   "state": "done",
    "s3_code_prefix": "results/SHOWCASE_V4/code/s4/",
    "log": "results/SHOWCASE_V4/s4/status.txt",
    "machine": "spot m7a.xlarge, self-terminating (90-min timer)",
@@ -3357,7 +3357,7 @@
     "results/SHOWCASE_V4/s4/scenario4_colon.json",
     "results/SHOWCASE_V4/s4/s4.log"
    ],
-   "note": ""
+   "note": "finished rc 0: shares 0.911, 0.941, 0.943; the three together 0.942"
   }
  ],
  "not_jobs": {

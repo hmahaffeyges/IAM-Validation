@@ -141,9 +141,9 @@
    "rows": [
     "OTH-073"
    ],
-   "status": "open",
-   "done_date": "",
-   "record": ""
+   "status": "done",
+   "done_date": "2026-10-19",
+   "record": "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/s4/scenario4_colon.json"
   },
   {
    "task": "Showcase README: scenarios 2 and 5 stated as covered by the example reports, with scenario 5's reason (no fresh public whole-genome set of healthy resting CD8 T cells found)",
@@ -151,9 +151,9 @@
    "rows": [
     "OTH-073"
    ],
-   "status": "open",
-   "done_date": "",
-   "record": ""
+   "status": "done",
+   "done_date": "2026-10-19",
+   "record": "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/README.md"
   },
   {
    "task": "Mouse reproduction (run 13): read the verdict and record it",

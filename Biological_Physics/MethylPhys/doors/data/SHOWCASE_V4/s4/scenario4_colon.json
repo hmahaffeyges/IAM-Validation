@@ -1,0 +1,55 @@
+{
+ "scenario": 4,
+ "what": "healthy colon tissue read by IAM-Atlas v2.1's commissioned colon tissue use (U2 scorer, unchanged)",
+ "series": "GSE151732",
+ "rule": "development/TEST_PLAN_TRACKS_2026-10-17.md Part 7 #4; selected.json s4",
+ "tolerance": 0.05,
+ "commissioned_bar": 0.9,
+ "per_sample": [
+  {
+   "sample": "GSM4589141",
+   "base": "GSM4589141_204081560140_R01C01",
+   "probes": 845648,
+   "blind_sites": 6000,
+   "blind_sites_measured": 5997,
+   "share_within_tolerance": 0.9108,
+   "median_abs_diff": 0.0115
+  },
+  {
+   "sample": "GSM4589144",
+   "base": "GSM4589144_204081560140_R05C01",
+   "probes": 848454,
+   "blind_sites": 6000,
+   "blind_sites_measured": 5997,
+   "share_within_tolerance": 0.9413,
+   "median_abs_diff": 0.0104
+  },
+  {
+   "sample": "GSM4589145",
+   "base": "GSM4589145_204081560140_R06C01",
+   "probes": 811591,
+   "blind_sites": 6000,
+   "blind_sites_measured": 5998,
+   "share_within_tolerance": 0.9433,
+   "median_abs_diff": 0.0104
+  }
+ ],
+ "three_together": {
+  "share_epithelium": 0.942,
+  "arrays": {
+   "epithelium": 3
+  },
+  "verdict_by_the_scorer": "COMMISSIONED",
+  "panel_cells_not_assessed": [
+   "fibroblast",
+   "macrophage",
+   "smooth_muscle",
+   "endothelium",
+   "neutrophil",
+   "adipocytes",
+   "T",
+   "B"
+  ]
+ },
+ "note": "A showcase reading, not a test. The scorer's own planted test: doors/data/DEV_ATLAS_V21_01/planted_u2_v21_summary.txt (PASSED)."
+}
