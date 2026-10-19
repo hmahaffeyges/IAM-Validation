@@ -38,6 +38,8 @@ A map of 79 kinds of healthy human cells, built from 21 public sources on arrays
 - ATL-060 Head to head: atlas v2.1 against the source atlases' own references, on their own job: run; last run 2026-10-16: met
 - ATL-001 Atlas commissioning as a source of healthy references: run; last run 2026-10-16: met
 
+**Record:** [COMMISSIONING_NOTE_ATLAS_V21.md](doors/COMMISSIONING_NOTE_ATLAS_V21.md)
+
 **Next:** Deposit IAM-Atlas v2.1 with its DOI, with its complementary additions: noise maps, the information sphere and the guidebook.
 
 ## IAM-Deconvolver
@@ -50,6 +52,8 @@ Reads a mixed sample against IAM-Atlas v2.1 and reports each cell's share with i
 
 - ATL-065 Deconvolution tool on atlas v2.1: run; last run 2026-10-17: not met
 - ATL-066 Deconvolution tool version 2 on fresh mixtures: run; last run 2026-10-16: not met
+
+**Record:** [COMMISSIONING_NOTE_DECONV_V21.md](doors/COMMISSIONING_NOTE_DECONV_V21.md)
 
 **Next:** B and NK cell shares, tissue cells, then cell-free DNA.
 
@@ -65,6 +69,8 @@ Reads the methylation level at sites a healthy cell holds firmly, against a heal
 - COM-METAA-039 Met-A read against the sample's own line: run; last run 2026-10-15: not met
 - COM-METAA-032 Whole blood back into Met-A scope: designed
 
+**Record:** [COMMISSIONING_NOTE_METAA_NEUTROPHILS.md](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)
+
 **Next:** More cell types, each against its own healthy profile.
 
 ## C-Score (the clustering meter)
@@ -77,6 +83,8 @@ Cancer does not only shift tagging levels; it clumps them into runs. The C-Score
 
 - COM-CSCORE-011 C-score healthy band test: run; last run 2026-10-13: met
 - COM-CSCORE-012 C-score last check: same-person repeatability on unspent replicate arrays: run; last run 2026-10-15: met
+
+**Record:** [COMMISSIONING_NOTE_CSCORE.md](doors/COMMISSIONING_NOTE_CSCORE.md)
 
 **Next:** Real cancers read on the gauge; then 450K, EPIC v2 and plasma.
 
@@ -94,6 +102,8 @@ Counts tagging mistakes one DNA molecule at a time, the most direct reading of i
 - PHY-043 Tumor backbone against the writer's nameplate: run; last run 2026-10-15: progressed
 - COM-IAMA-052 IAM-A atlas-free commissioning: one grand sealed test on fresh data: run; last run 2026-10-17: met
 
+**Record:** [COMMISSIONING_NOTE_IAMA.md](doors/COMMISSIONING_NOTE_IAMA.md)
+
 **Next:** Other healthy blood cells, then tissue and cell-free DNA; the tumor pairs read on the gauge.
 
 ## Group-A
@@ -105,6 +115,8 @@ Single blood readings are too noisy for one person on arrays, but a group averag
 **Reads:** arrays. **Where it stands:** in development.
 
 - GRP-004 DEV-GROUP-01 step 2: group comparison, one cancer at a time, patients and healthy controls in the same series: planned
+
+**Record:** [DEV_GROUP_01.md](doors/DEV_GROUP_01.md)
 
 **Next:** One cancer at a time, patients and healthy controls from the same series.
 

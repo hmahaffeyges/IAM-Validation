@@ -34,7 +34,7 @@ def markdown(C, M):
         L += [f"| **{m['name']}** | {m['what']} | {m['molecules']} | {m['industry']} | {m['readers']} |" for m in C["methods"]] + ["", C.get("cohort_note", ""), ""]
     for i in C["instruments"]:
         L += [f"## {i['name']}", "", f"**The question:** {i['question']}", "", i["how"], "", f"**Reads:** {i['reads']}. **Where it stands:** {stage(i, M)}.", ""]
-        L += [f"- {row_line(M[r])}" for r in i["rows"] if r in M] + ["", f"**Next:** {i['next']}", ""]
+        L += [f"- {row_line(M[r])}" for r in i["rows"] if r in M] + ["", f"**Record:** [{os.path.basename(i['record'])}]({i['record']})", "", f"**Next:** {i['next']}", ""]
     import instruments_board as IB   # the candidates board, merged here 2026-10-16 (one catalogue)
     cb, _ = IB.build(base=ROOT); cb = cb.split("\n")
     L += ["## Candidate instruments", ""] + [("#" + x) if x.startswith("## ") else x for x in cb if not x.startswith("# ") and "do not edit by hand" not in x] + [""]
@@ -46,7 +46,7 @@ def table(C, M):
     return "\n".join(L)
 def problems(C, M):
     sys.path.insert(0, os.path.join(ROOT, "CANON")); import now_running as NR
-    P = [f"{i['id']}: manifest row {r} does not exist" for i in C["instruments"] for r in i["rows"] if r not in M]
+    P = [f"{i['id']}: manifest row {r} does not exist" for i in C["instruments"] for r in i["rows"] if r not in M] + [f"{i['id']}: record {i.get('record')} does not exist" for i in C["instruments"] if not (i.get("record") and os.path.exists(os.path.join(ROOT, i["record"])))]
     txt = " ".join([C["why_self_reference"], C["together"]] + [i[k] for i in C["instruments"] for k in ("question", "how", "next")])
     if NR.HYPE.search(txt): P.append(f"hype word '{NR.HYPE.search(txt).group(0)}'")
     if NR.VOICE.search(txt): P.append(f"voice '{NR.VOICE.search(txt).group(0)}' (write as we)")

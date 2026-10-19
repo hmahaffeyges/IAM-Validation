@@ -171,19 +171,19 @@
    "rows": [
     "OTH-078"
    ],
-   "status": "open",
-   "done_date": "",
-   "record": ""
+   "status": "done",
+   "done_date": "2026-10-19",
+   "record": "CANON/doc_audit.py"
   },
   {
-   "task": "Manifest: the 5 status wordings ('stays development', 'in development') and the 5 running rows naming no machine job, each read and corrected against the commissioning record and the job register",
+   "task": "Manifest: the 5 status wordings ('stays development', 'in development') and the 5 running rows naming no machine job, each read and corrected against the commissioning record and the job register (read: the 5 wordings are right and are listed in doc_audit.py REVIEWED; 'running' rows are document work, so only a named job that has finished is a finding)",
    "done_when": "doc_audit.py kinds B and C empty, or each remaining one explained in its row",
    "rows": [
     "OTH-078"
    ],
-   "status": "open",
-   "done_date": "",
-   "record": ""
+   "status": "done",
+   "done_date": "2026-10-19",
+   "record": "CANON/doc_audit.py"
   },
   {
    "task": "The 16 finished or running rows with a pending next step: each put on this plan, reopened, or its follow-up recorded done",
@@ -212,14 +212,14 @@
    "record": ""
   },
   {
-   "task": "Instrument catalogue (INSTRUMENTS.md): each instrument entry cites its commissioning note and runtime matrices, and every number it prints is found in them",
+   "task": "Instrument catalogue (INSTRUMENTS.md): each instrument entry cites its commissioning note and runtime matrices, and every number it prints is found in them (each entry now names its commissioning record, shown on INSTRUMENTS.md; tested: a planted number is refused)",
    "done_when": "doc_audit.py kind D empty",
    "rows": [
     "OTH-078"
    ],
-   "status": "open",
-   "done_date": "",
-   "record": ""
+   "status": "done",
+   "done_date": "2026-10-19",
+   "record": "CANON/doc_audit.py"
   },
   {
    "task": "Every number printed in the public documents (README, REFERENCE, Q&A, package README, commissioning report, SOP, reproduce README, atlas v2.1 README, showcase README) traced to a measurement record",

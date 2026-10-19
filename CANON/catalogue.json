@@ -17,7 +17,8 @@
    "next": "Deposit IAM-Atlas v2.1 with its DOI, with its complementary additions: noise maps, the information sphere and the guidebook.",
    "book_chapter": "ch:atlas",
    "specialty": "It is the map every other instrument reads against: for 79 healthy cell types, the expected tagging at every site with its range of error, so a sample can be split into its cells and each cell compared with its own healthy kind.",
-   "commissioned": "79 cell types; met all three sealed bars against both published reference atlases, 2026-10-16; commissioned for three cell references and the colon and lung tissue tests"
+   "commissioned": "79 cell types; met all three sealed bars against both published reference atlases, 2026-10-16; commissioned for three cell references and the colon and lung tissue tests",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md"
   },
   {
    "id": "deconv",
@@ -32,7 +33,8 @@
    "commissioned": "blood-cell shares on arrays, tested on neutrophils, monocytes, CD4 T and CD8 T cells, 2026-10-17",
    "next": "B and NK cell shares, tissue cells, then cell-free DNA.",
    "book_chapter": "ch:atlas",
-   "specialty": "It turns a whole-blood array into its cells, so each instrument reads the cell it was built for and a change in the mix is not mistaken for a change in the cells."
+   "specialty": "It turns a whole-blood array into its cells, so each instrument reads the cell it was built for and a change in the mix is not mistaken for a change in the cells.",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md"
   },
   {
    "id": "meta",
@@ -48,7 +50,8 @@
    "next": "More cell types, each against its own healthy profile.",
    "book_chapter": "ch:meta",
    "specialty": "Cost and reach: a single array, the most common methylation measurement in the world, read on the gauge against the same cell type's healthy reference, with its detection limit printed.",
-   "commissioned": "tested and commissioned on isolated neutrophils, EPIC v1, 2026-10-09"
+   "commissioned": "tested and commissioned on isolated neutrophils, EPIC v1, 2026-10-09",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md"
   },
   {
    "id": "cscore",
@@ -63,7 +66,8 @@
    "next": "Real cancers read on the gauge; then 450K, EPIC v2 and plasma.",
    "commissioned": "tested and commissioned on whole blood, EPIC v1, 2026-10-15",
    "book_chapter": "ch:cscore",
-   "specialty": "The shape of a change, not its size: whether a sample's departures from healthy are scattered like ordinary wear or packed together in stretches, the way a tumor that silences or loses a region leaves them. It is the clustering step of the cosmic microwave background analysis chain, carried over to the genome."
+   "specialty": "The shape of a change, not its size: whether a sample's departures from healthy are scattered like ordinary wear or packed together in stretches, the way a tumor that silences or loses a region leaves them. It is the clustering step of the cosmic microwave background analysis chain, carried over to the genome.",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md"
   },
   {
    "id": "iama",
@@ -81,7 +85,8 @@
    "next": "Other healthy blood cells, then tissue and cell-free DNA; the tumor pairs read on the gauge.",
    "book_chapter": "ch:iama",
    "specialty": "That it reads single molecules and carries its own reference: how well each molecule held its marks, compared with the healthy level set by the cell's own loose share, with no library of other people's cells.",
-   "commissioned": "each sample against its own reference; sealed test on healthy blood CD8 T cells, whole-genome bisulfite, 2026-10-17"
+   "commissioned": "each sample against its own reference; sealed test on healthy blood CD8 T cells, whole-genome bisulfite, 2026-10-17",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md"
   },
   {
    "id": "groupa",
@@ -94,7 +99,8 @@
    ],
    "next": "One cancer at a time, patients and healthy controls from the same series.",
    "book_chapter": null,
-   "specialty": "Groups: whether a whole cohort, trial arm or exposure has moved, read as one, with patients and healthy comparisons run in the same laboratory series."
+   "specialty": "Groups: whether a whole cohort, trial arm or exposure has moved, read as one, with patients and healthy comparisons run in the same laboratory series.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_GROUP_01.md"
   }
  ],
  "support_tools": [

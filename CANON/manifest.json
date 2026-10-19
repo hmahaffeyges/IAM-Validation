@@ -6358,7 +6358,7 @@
    "cost": "search",
    "impact": 3,
    "depends_on": [],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md; archive/retired_root_2026-10-19/TODO_to_2026-10-16.md C10, L3; next_jobs help_wanted[3]. Pasted wording: B3 (10-09 list) 'Methionine restriction in cultured cells'; 'Methionine depletion (PRJDB12471): parked, underpowered by the physics'. Repo correction note 2026-10-13 rewords 'written only when DNA is copied' per the balance derivation.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md; archive/retired_root_2026-10-19/TODO_to_2026-10-16.md C10, L3; next_jobs help_wanted[3]. Pasted wording: B3 (10-09 list) 'Methionine restriction in cultured cells'; 'Methionine depletion (PRJDB12471): parked, underpowered by the physics'. Repo correction note 2026-10-13 rewords an earlier phrase that tied methyl writing to DNA copying, per the balance derivation (the held balance is independent of division).",
    "legacy_ids": [
     "C10",
     "L3",
@@ -23041,7 +23041,7 @@
    ]
   },
   {
-   "title": "Readiness board READY_TO_TEST.md",
+   "title": "Readiness board (READY_TO_TEST.md, deleted 2026-10-12; not in the repository)",
    "purpose": "A board of readiness stages for each data set, referenced in the 10-11 to-do list. It matters as the place where data readiness was tracked.",
    "instrument_or_term": "records",
    "sources": [],
@@ -27892,8 +27892,8 @@
    "status": "running",
    "record": "CANON/doc_audit.py",
    "runs": [],
-   "next_step": "Executed as steps 4-10 of the to-do list (CANON/plan.json, Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md).",
-   "notes": "2026-10-19 first pass: 135 path findings (14 distinct names), 5 status wordings, 5 running rows naming no job, 16 finished rows with a pending next step not on the plan",
+   "next_step": "Steps 6 and 8-10 of the to-do list (CANON/plan.json).",
+   "notes": "2026-10-19 first pass: 135 path findings (14 distinct names), 5 status wordings, 5 running rows naming no job, 16 finished rows with a pending next step not on the plan | 2026-10-19 later: steps 4, 5 and 7 done (every named record exists or says it does not, the old to-do list frozen at archive/retired_root_2026-10-19/TODO_to_2026-10-16.md; status wordings read and right; catalogue entries name their commissioning records, every number traced; doc_audit.py --check in the push gate)",
    "register_ids": []
   }
  ],
