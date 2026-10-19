@@ -1862,5 +1862,17 @@
    "results/REPRODUCE_V1/run7/out/mice/seq/logs/versions.txt": true
   },
   "state_at_verify": "done"
+ },
+ "i-05b0f0f23a841f8fa": {
+  "s3": {
+   "reproduce_fresh.sh": "cd456e6525af96b9c668f1b9ab56e41d95c81aca2b5120eb63126a17177e3af8"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/REPRODUCE_V1/run8/status.txt": false
+  },
+  "state_at_verify": "running"
  }
 }

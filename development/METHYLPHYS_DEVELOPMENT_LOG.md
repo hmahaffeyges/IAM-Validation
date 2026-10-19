@@ -2583,3 +2583,6 @@ The iama_line entry above and its commit message (d27b4956) said 132 of 132; the
 
 ### 2026-10-18 · reproduce/ mice run 7: tools right, genome step silent (OTH-076)
 Run 7 installed every tool at the committed versions (bwa-meth 0.2.0, SAMtools 1.9, Trim Galore 0.6.10, wgbstools 0.1.0) and stopped about a minute later in the mm10 genome step (exit 18) with no log: download, unpack, bgzip, init_genome and index shared one exit code, and curl had no -f. Each part now logs and has its own code; the download retries and fails on an HTTP error. The UCSC file answers (200, 870,141,360 bytes). Rerun as run 8.
+
+### 2026-10-18 · reproduce/ run 8 launched: mice (OTH-076)
+Job i-05b0f0f23a841f8fa.
