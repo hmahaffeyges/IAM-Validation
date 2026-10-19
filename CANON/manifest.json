@@ -27819,7 +27819,7 @@
    "status": "run",
    "record": "QUESTIONS_AND_ANSWERS.md",
    "runs": [],
-   "next_step": "2026-10-18 author: 'Try to break it' replaced by QUESTIONS_AND_ANSWERS.md (every question a researcher or reviewer will ask; answers point to their test; open questions named; checking on known samples is one section; issue form 'Report a result'). Next: add recent questions found online"
+   "next_step": "2026-10-18 author: 'Try to break it' replaced by QUESTIONS_AND_ANSWERS.md (every question a researcher or reviewer will ask; answers point to their test; open questions named; checking on known samples is one section; issue form 'Report a result'). 2026-10-18: 'Questions the field is asking now' added (from recent reviews of methylation cancer detection and epigenetic drift: entropy measures, tumor variability, proliferation, age confounding, fixed atlases, cfDNA dilution, validation, QC reporting), three new open questions named"
   },
   {
    "instrument_or_term": "all",

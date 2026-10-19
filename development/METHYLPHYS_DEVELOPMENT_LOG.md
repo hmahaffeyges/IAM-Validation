@@ -2562,3 +2562,6 @@ Run 1 (job i-012c3ce1a8fdb5c08) ended: cscore_band PASS, deconv PASS, metaa_rebu
 
 ### 2026-10-18 · reproduce/ run 5 launched: Met-A rebuild (OTH-076)
 Job i-057e21ce87336144c. A first launch (i-02265f88bdcce1fa6) went out in the same cell as a refused push, at a commit not on GitHub, and was terminated within a minute; the launch now checks the commit is on origin first (checklist line).
+
+### 2026-10-18 · Q&A: questions the field is asking now (OTH-075)
+Eight questions drawn from recent reviews (2024-2026) of methylation-based cancer detection and epigenetic drift, each answered from the record; three named open: proliferation versus holding error, healthy age dependence of Met-A and the C-Score, cell-free DNA dilution.

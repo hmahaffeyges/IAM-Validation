@@ -132,6 +132,47 @@ Stated with each: 541 healthy neutrophil arrays from 18 series for Met-A; three 
 Deconvolver; for IAM-A, 8 healthy CD8 T-cell samples read (7 Normal) after the sample-shape check declined 5 of 13. **Open question:** larger
 sets, other cell types and other laboratories for IAM-A.
 
+## Questions the field is asking now
+
+These come from recent reviews of methylation-based cancer detection and of epigenetic drift (2024 to 2026).
+
+**Methylation entropy and stochastic drift are already measured. What is different here?**
+Published entropy measures are statistical: they summarize how disordered a sample's pattern is and compare it with a cohort. IAM puts the
+measurement on a physical scale. The gauge's ends are derived (the floor from Landauer's bound and the cost of holding a mark, the
+saturation end from every identity site fully scrambled), and healthy is read from the sample's own reference or same-run references, not
+from a cohort average. The two can be compared site for site; that comparison has not been done.
+
+**Tumors are more variable than matched normal tissue. Is IAM just measuring that?**
+In part, and it is meant to. Each tumor is read against the same patient's own healthy tissue, so the reading is how far that tumor's
+pattern has moved from its own healthy state, at sites chosen so that cell mix cannot produce the signal. What IAM adds is the C-Score's
+distinction between change scattered across the genome, as aging leaves it, and change clustered along it.
+
+**Much age-related change tracks cell division. Is the signal just proliferation?**
+**Open question.** IAM has not separated how often a cell divides from how well it holds its marks at each division. The mouse prediction
+changed the methyl supply, not the division rate. A test that varies division at a fixed supply is the next experiment, and needs
+controlled samples.
+
+**Models trained on cancer and control samples can learn age or menopause instead of cancer. Is IAM exposed to that?**
+The instruments are not trained on cancer at all: every reference is healthy, and every rule was fixed before any tumor was read. Age is
+still a factor in what a healthy reading looks like. **Open question:** how Met-A and the C-Score move with age in healthy people,
+measured across ages in one study.
+
+**A fixed reference atlas cannot hold the variability between people.**
+IAM-Atlas v2.1 stores, at every site, the spread a new person's cell shows around the average, and the Deconvolver uses that spread in its
+95 % intervals. IAM-A does not use an atlas for its reading: it reads the sample against itself.
+
+**Cell-free DNA from early tumors is a tiny fraction of the total. Can IAM see it?**
+**Open question**, not yet tested (see above). The tissue results show the signal where tumor DNA is most of the sample; how far it survives
+dilution in plasma has to be measured.
+
+**Prediction models are never "validated" once and for all.**
+Agreed. IAM does not claim a validated predictor. Each instrument is commissioned for a named use, on a sealed test, and every reading
+outside that use is labeled preliminary. Each new use needs its own test.
+
+**There is no standard for reporting quality control in these studies.**
+Every report carries its quality record: Stage 0's checks on the raw file (detection, bead counts, call rate, channel checksums), the noise
+gate, the chain's commit, the checksum of every frozen file it read, and one row in an evidence ledger.
+
 ## Checking it on samples you already know
 
 Run the chain on samples whose answer you know, and see whether it does what is written here. If it does not, that is a result, and it
