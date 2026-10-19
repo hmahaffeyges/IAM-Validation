@@ -25,6 +25,7 @@ python3 CANON/earlier_results.py --check || { echo "checked_push.sh: EARLIER_RES
 python3 Biological_Physics/MethylPhys/sop/build_sop_v4.py --check || { echo "checked_push.sh: the chain v4 SOP differs from the chain's files - push refused"; exit 1; }
 python3 CANON/atlas_story.py --check || { echo "checked_push.sh: ATLAS STORY (README or book) differs from CANON/atlas_story.json - push refused"; exit 1; }
 python3 CANON/book_bits.py --check || { echo "checked_push.sh: BOOK BITS CHAPTER differs from CANON/four_domains.json - push refused"; exit 1; }
+python3 docs/book/build_repro_chapter.py --check || { echo "checked_push.sh: THE REPRODUCED CHAPTER differs from reproduce/tests.json or verified.json - run python3 docs/book/build_repro_chapter.py - push refused"; exit 1; }
 python3 CANON/catalogue.py --check || { echo "checked_push.sh: CATALOGUE CHECK FAILED - INSTRUMENTS.md or the README catalogue differs from CANON/catalogue.json - push refused"; exit 1; }
 python3 CANON/bib_check.py > /dev/null || { python3 CANON/bib_check.py | tail -20; echo "checked_push.sh: BIBLIOGRAPHY CHECK FAILED - a citation does not match its CrossRef record - push refused"; exit 1; }
 n=$(grep -rl "COMMISSIONING-RETURN" docs/book --include=*.tex 2>/dev/null | wc -l | tr -d " ")

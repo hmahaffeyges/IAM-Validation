@@ -2646,3 +2646,6 @@ Run 12 aligned 4 runs, then stopped (exit 19): ENA's filereport service answered
 
 ### 2026-10-19 · reproduce/ run 13 launched: mice (OTH-076)
 Job i-0f11653042c6b82bf at commit e12c5a24, termination-protected, 14-hour timer.
+
+### 2026-10-19 · Book: "The commissioning record, reproduced" (OTH-072)
+Author: "Are those tests in the book yet? with the report as a visual". A generated chapter after the walkthrough: the pages of two real chain v4 researcher reports (healthy whole blood; healthy CD8 T cells, IAM-A) as figures, captions checked against each page's printed text, and every test in reproduce/tests.json with its public data, command, machine needs and fresh-clone result from reproduce/verified.json. docs/book/build_repro_chapter.py writes it; checkpoint.sh regenerates it and checked_push.sh refuses it stale, so the mouse result updates it by itself.
