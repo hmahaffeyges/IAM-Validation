@@ -208,7 +208,7 @@ def page(art):
     _lrn = next((x for x in _DL["sections"] if x.get("kind") == "learned"), {"entries": []})
     _hl = "".join(f'<li><b>{E(e["title"])}</b> <span class="chip st-b">{E(e["status"])}</span> {E(e["what"])} <a href="{rec(e["record"])}">record</a></li>'
                   for e in [x for x in _lrn["entries"] if x["status"] not in ("failed", "diagnosis")] + [x for x in _ran["entries"] if x["status"] in ("sealed", "in progress")])   # wins and work under way only (author 2026-10-15: the page is for progress; exploratory misses stay in the research record)
-    last24 = (f'<section class="wrap" id="today"><h2>The last 24 hours</h2><p class="sub">{E(_DL["date"])}: {E(_DL["title"])}. '
+    last24 = (f'<section class="wrap" id="today"><h2>The most recent day log</h2><p class="sub">{E(_DL["date"])}: {E(_DL["title"])}. '
               f'From the day log, which is written as the work happens; every line links to its record.</p><ul class="road">{_hl}</ul>'
               f'<p class="more"><a href="{rec("Biological_Physics/MethylPhys/daylogs/" + _DL["date"] + ".md")}">The whole day log</a></p></section>')
     MF = J("CANON/manifest.json"); _CLOSED = {"run", "retired"}
@@ -294,7 +294,7 @@ def page(art):
 </details></section>
 <section class="wrap"><h2>Our instruments are the telescopes. The atlas is the sky map.</h2>
 <details class="fold"><summary>How it works, and all {len(BT)} cosmology tools, in use and in the pipeline</summary>
-<p>Met-A and IAM-A are the two instruments; each is commissioned once, on its own tests. The atlas, a map of what healthy human cells look like, is the sky map they read against. Like each release of the microwave-sky maps, every atlas version is refitted whole, gets its own DOI and is checked again by the same tests on data it never saw. This is not a metaphor: it is the same mathematics applied to a different signal. Each tool, with where it stands today:</p>
+<p>Met-A and IAM-A are the two instruments; each is commissioned once, on its own tests. The atlas, a map of what healthy human cells look like, is the sky map they read against. Like each release of the microwave-sky maps, every atlas version is refitted whole, gets its own DOI and is checked again by the same tests on data it never saw. This is not a metaphor: it is the same mathematics applied to a different signal. Each tool, with where it stands:</p>
 <p>All {len(BT)} cosmology tools mapped onto the cell, from the table in {ch("skytools")}, grouped by where each stands. <b>next</b> marks the chapter's order for what to employ next.</p>
 <table class="tools"><thead><tr><th>#</th><th>The cosmology tool</th><th>Its counterpart in the cell</th><th>Status</th><th>Where</th></tr></thead><tbody>{tools}</tbody></table>
 <p class="more">Read it in full in the book: {ch("astro")} and {ch("landauer")} are the physics, {ch("translation")} is why cosmology's tools apply, {ch("skytools")} is the tool list. Sky data: Planck 2018 SMICA map from the Planck Legacy Archive (ESA and the Planck Collaboration, Planck 2018 results IV, A&A 641, A4, 2020), colors from the Planck Collaboration's own color scale. Every tool, built or not yet built: the <a href="read/">book's sky-tools chapter</a>. The atlas itself, free to download: <a href="https://doi.org/{E(AT["doi"])}">DOI {E(AT["doi"])}</a> ({AT["total_bytes"] / 1e9:.2f} GB in {AT["files"]} files, every file checked against its fingerprint).</p></details></section>
@@ -488,6 +488,13 @@ def moved_links(body):   # author 2026-10-18: a page link must never land on a f
         if os.path.exists(f) and open(f, encoding="utf-8").readline().strip().lower() in ("# moved", "# moved."): bad.append(p)
     return bad
 def problems(body):
+    # author 2026-10-19: "we cant have things that must be constantly updated 'last 24 hours'". Wording that is only true until the page
+    # ages is refused; say what happened and when. Allowed: the cosmology convention "a = 1 today" (scale factor at the present epoch).
+    _t = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", body)))
+    _t = re.sub(r"(?i)today \(a = 1", "", _t); _pt = []
+    for _m in re.finditer(r"(?i)\b(last|past) \d+ (hours|days)\b|\b(today|tonight|this morning|this evening|yesterday|this week|right now|so far today|hours ago|minutes ago)\b", _t):
+        _pt.append("time-relative wording on the page (say what happened and its date instead): ..." + _t[max(0, _m.start() - 50):_m.end() + 30] + "...")
+    if _pt: return _pt
     if re.search(r"<details[^>]* open", body): return ["a fold set to open by default; every fold starts closed (build.sh rule)"]
     if moved_links(body): return ["a link to a file that only says it moved (link the new home instead): " + ", ".join(moved_links(body))]
     # The voice check skips exactly two marked blocks: the author's own words, and the block that describes the research

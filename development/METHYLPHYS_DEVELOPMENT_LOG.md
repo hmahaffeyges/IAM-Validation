@@ -2622,3 +2622,6 @@ The alignment ran cleanly to 20 of 38 runs; AWS then records a terminate call ("
 
 ### 2026-10-19 · reproduce/ run 12 launched: mice, termination-protected (OTH-076)
 Job i-08774f6b5ef3593f6 at commit 04eded42 (the commit on GitHub; the GitHub token stopped working, so the record commits wait to be pushed).
+
+### 2026-10-19 · Page: no wording that goes stale (OTH-071)
+The author: "we cant have things that must be constantly updated "last 24 hours"". The section heading is now "The most recent day log", followed by its date; "where it stands today" (twice), "tonight's losses" and "this week's corrections" were reworded at their sources (build_home.py, author.json, assistant.json, the 2026-10-18 day log). build_home.py --check now refuses time-relative wording (last N hours or days, today, tonight, this morning, yesterday, this week, right now, hours ago); the cosmology convention "a = 1 today" is allowed.
