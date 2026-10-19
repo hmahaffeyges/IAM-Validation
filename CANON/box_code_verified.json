@@ -1927,5 +1927,17 @@
    "results/REPRODUCE_V1/run12/out/mice/logs/reads_to_pat.log": true
   },
   "state_at_verify": "failed"
+ },
+ "i-0f11653042c6b82bf": {
+  "s3": {
+   "reproduce_fresh.sh": "cd456e6525af96b9c668f1b9ab56e41d95c81aca2b5120eb63126a17177e3af8"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": false,
+  "outputs_in_s3": {
+   "results/REPRODUCE_V1/run13/status.txt": false
+  },
+  "state_at_verify": "running"
  }
 }

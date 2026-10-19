@@ -2643,3 +2643,6 @@ From a search for work following the 2022 sequencing atlas of purified human cel
 
 ### 2026-10-19 · reproduce/ mice run 12: ENA lookup down (OTH-076)
 Run 12 aligned 4 runs, then stopped (exit 19): ENA's filereport service answered HTTP 500 for SRR3111454, so the five download tries had no address. ENA's file server was up (the file answers 200, 369,993,367 bytes). Every address and MD5 is already in the committed run list (GSE77079_runs.csv), so mice_rrbs.sh now reads them from it and retries downloads with growing pauses. Rerun as run 13, termination-protected. Checklist line added.
+
+### 2026-10-19 · reproduce/ run 13 launched: mice (OTH-076)
+Job i-0f11653042c6b82bf at commit e12c5a24, termination-protected, 14-hour timer.
