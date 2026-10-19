@@ -71,36 +71,6 @@
    "reason": "75 degrees C in kelvin (chip junction temperature)"
   }
  ],
- "for_the_author": [
-  {
-   "file": "part2/p2_13b_baryon_chain.tex",
-   "table_line": 101,
-   "num": "21560",
-   "reason": "Part 2 baryon-chain table: internally consistent (third column = 0.8 x first in every row) but in no committed record; cosmology, for IAMPerformance (to-do step 10)"
-  },
-  {
-   "file": "part2/p2_13b_baryon_chain.tex",
-   "table_line": 101,
-   "num": "17248",
-   "reason": "Part 2 baryon-chain table: internally consistent (third column = 0.8 x first in every row) but in no committed record; cosmology, for IAMPerformance (to-do step 10)"
-  },
-  {
-   "file": "part2/p2_13b_baryon_chain.tex",
-   "table_line": 101,
-   "num": "17472",
-   "reason": "Part 2 baryon-chain table: internally consistent (third column = 0.8 x first in every row) but in no committed record; cosmology, for IAMPerformance (to-do step 10)"
-  },
-  {
-   "file": "part2/p2_13b_baryon_chain.tex",
-   "table_line": 101,
-   "num": "17696",
-   "reason": "Part 2 baryon-chain table: internally consistent (third column = 0.8 x first in every row) but in no committed record; cosmology, for IAMPerformance (to-do step 10)"
-  },
-  {
-   "file": "part2/p2_13b_baryon_chain.tex",
-   "table_line": 101,
-   "num": "17248",
-   "reason": "Part 2 baryon-chain table: internally consistent (third column = 0.8 x first in every row) but in no committed record; cosmology, for IAMPerformance (to-do step 10)"
-  }
- ]
+ "for_the_author": [],
+ "resolved_2026-10-19": "the 5 numbers of tab:bc_conv are in the committed progress file Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress (the complete run); five book checks now read them, and the chapter names the file and says the chains/ copy is an earlier snapshot"
 }

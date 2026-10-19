@@ -97,7 +97,7 @@ Stop & \multicolumn{3}{l}{$R-1<0.01$ (means), $R-1<0.15$ (95\,\% bounds)}\\\bott
 \subsection{Run and convergence}
 The chain ran from 19 March 2026, 22:52, to 20 March 2026, 04:35. The run log records the last convergence tests:
 \begin{table}[htbp]\centering\small
-\caption[Convergence of the 18th chain]{The last convergence tests of the 18th chain, from its run log. $R-1$ is the Gelman--Rubin statistic of the means over the last part of the chain.}\label{tab:bc_conv}
+\caption[Convergence of the 18th chain]{The last convergence tests of the 18th chain, from its run log, the sampler's progress file \texttt{mgcamb\_validation/\allowbreak{}iam\_baryon\_test.progress}. $R-1$ is the Gelman--Rubin statistic of the means over the last part of the chain.}\label{tab:bc_conv}
 \begin{tabular}{rrl}\toprule
 Accepted samples at test & $R-1$ (means) & over the last\\\midrule
 (21{,}560)$^{a}$ & 0.012617 & 17{,}248 \\
@@ -201,7 +201,7 @@ constant problem and the baryon-asymmetry problem are then one measured relation
 $\Omega_b/\Omega_m=\tfrac3{16}\sqrt{\Omega_\Lambda}$. \observed
 
 All chains, the YAML configuration and the analysis scripts are in the repository: the chain files are
-\texttt{mgcamb\_validation/\allowbreak{}chains/\allowbreak{}iam\_baryon\_test.*} (a copy in \texttt{mgcamb\_validation/}), the configuration
+\texttt{mgcamb\_validation/\allowbreak{}chains/\allowbreak{}iam\_baryon\_test.*}, a snapshot of the run at 21,366 rows (04:18) from which this chapter's densities are taken, and \texttt{mgcamb\_validation/\allowbreak{}iam\_baryon\_test.*}, the complete run to 22,400 rows (04:35) whose progress file gives Table~\ref{tab:bc_conv}, the configuration
 \texttt{mgcamb\_validation/\allowbreak{}yaml\_configs/\allowbreak{}iam\_baryon\_test.updated.yaml}, and every number of this chapter is
 recomputed by \texttt{docs/verification/\allowbreak{}scripts/\allowbreak{}verify\_lambda\_baryon\_book.py}.
 

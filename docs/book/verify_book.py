@@ -69,6 +69,7 @@ def load_csv_rows(relpath):
 DATA_FILES = {}                       # filled below: relpath -> what it is
 CANON_PATH = "CANON/iam_canon.json"
 DATA_FILES[CANON_PATH] = "IAM's constants (single source of truth)"
+DATA_FILES['Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress'] = 'the 18th chain sampler progress file, complete run to 04:35 (chains/ holds an earlier snapshot to 04:18): N, time, acceptance, R-1 of the means, R-1 of the bounds'
 CANON = load_json(CANON_PATH)["constants"]
 
 def _cv(key):
@@ -44031,6 +44032,50 @@ INVENTORY = [
     (8, 'app:glossary', 'appendices/app_F_glossary', 243, '', 'observed', '0.3', 'printed value 0.3 % has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.320 %; the precise 0.32 % is checked at ch:electronmass:L188)'),
     (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 224, '', 'calc', '0', 'definition: the row is labelled 36.8 % (today), so its time from now is zero by definition; the check computed t(a(1/e)) - t(1) with a(1/e) = 1 exactly, i.e. t(1) - t(1), identically zero whatever the inputs. The one non-trivial step, a(1/e) = 1 from Eq. de_af, is checked at ch:darkenergy:L224:1.000'),
 ]
+
+
+# 2026-10-19: tab:bc_conv, every number from the sampler's progress file (was a stale-check finding: the table named only 'its run log')
+def _bc_progress():
+    out = {}
+    for l in load_data("Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress").split("\n"):
+        p = l.split()
+        if p and not p[0].startswith("#"): out[str(int(float(p[0])))] = p
+    return out
+
+@check(label='ch:baryon_chain:bc_conv:17248', chapter='ch:baryon_chain', part=2, title='18th chain: R-1 of the means at the test over the last 17248 samples',
+       file='part2/p2_13b_baryon_chain', line=103, status='measured', kind='file', printed='0.012617', tol=0, source='Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress')
+def check_bc_conv_17248():
+    'tab:bc_conv row: R-1 0.012617 over the last 17248 samples, from the progress file.'
+    value = float(_bc_progress()["17248"][3])
+    return locals()
+
+@check(label='ch:baryon_chain:bc_conv:17472', chapter='ch:baryon_chain', part=2, title='18th chain: R-1 of the means at the test over the last 17472 samples',
+       file='part2/p2_13b_baryon_chain', line=104, status='measured', kind='file', printed='0.011284', tol=0, source='Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress')
+def check_bc_conv_17472():
+    'tab:bc_conv row: R-1 0.011284 over the last 17472 samples, from the progress file.'
+    value = float(_bc_progress()["17472"][3])
+    return locals()
+
+@check(label='ch:baryon_chain:bc_conv:17696', chapter='ch:baryon_chain', part=2, title='18th chain: R-1 of the means at the test over the last 17696 samples',
+       file='part2/p2_13b_baryon_chain', line=105, status='measured', kind='file', printed='0.009664', tol=0, source='Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress')
+def check_bc_conv_17696():
+    'tab:bc_conv row: R-1 0.009664 over the last 17696 samples, from the progress file.'
+    value = float(_bc_progress()["17696"][3])
+    return locals()
+
+@check(label='ch:baryon_chain:bc_conv:17920', chapter='ch:baryon_chain', part=2, title='18th chain: R-1 of the means at the test over the last 17920 samples',
+       file='part2/p2_13b_baryon_chain', line=106, status='measured', kind='file', printed='0.009273', tol=0, source='Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress')
+def check_bc_conv_17920():
+    'tab:bc_conv row: R-1 0.009273 over the last 17920 samples, from the progress file.'
+    value = float(_bc_progress()["17920"][3])
+    return locals()
+
+@check(label='ch:baryon_chain:bc_conv:bounds', chapter='ch:baryon_chain', part=2, title='18th chain: R-1 of the bounds at the last test',
+       file='part2/p2_13b_baryon_chain', line=107, status='measured', kind='file', printed='0.063629', tol=0, source='Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress')
+def check_bc_conv_bounds():
+    'tab:bc_conv: R-1 of the bounds 0.063629 at the last test, from the progress file.'
+    value = float(_bc_progress()["17920"][4])
+    return locals()
 
 if __name__ == "__main__":
     sys.exit(main())
