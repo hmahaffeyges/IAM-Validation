@@ -2962,7 +2962,7 @@
     "reproduce/box/reproduce_fresh.sh"
    ],
    "prelaunch": "read boxruns/PRELAUNCH_CHECKLIST.md: code in S3 first; results and 5-minute progress lines to S3; watcher from launch; disk image+150 GB for the 54 GB ENCODE file and mm10; self-terminating; about $8 on-demand",
-   "note": "three_labs PASS; iama_line DIFF only from 31 GEO downloads refused 503 (132 of 132 counted identical; rerun as run 6); mice stopped at install (wgbs_tools tag; rerun as run 7)"
+   "note": "three_labs PASS; iama_line DIFF only from 31 GEO downloads refused 503 (127 of 127 counted identical: 122 GEO, 5 ENCODE; rerun as run 6); mice stopped at install (wgbs_tools tag; rerun as run 7)"
   },
   {
    "job_id": "i-0ec4b93905093cf2c",
