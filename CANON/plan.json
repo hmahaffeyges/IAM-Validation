@@ -417,7 +417,8 @@
    ],
    "status": "open",
    "done_date": "",
-   "record": ""
+   "record": "",
+   "design": "Order (author 2026-10-20: 'each piece should be explained in detail in the order the chain reads them and the scripts that call on them should be dissected too'): the Decoder follows a traced run of run_sample.py, not a reading of the code: the one command; Stage 0 (10 steps); Stage 1; Stage A; Stage M (Met-A); Stage MC (C-Score); Stage T (tare); IAM-Atlas v2.1 (79 cells, 813,951 sites, its tables and how they are read); IAM-Deconvolver (Stage D21); the skies; IAM-A (Q0, Q, QT, Q2); serial mode (12b); development readings; the report. Within each stage: the calling script, then each function in call order, then every data file it opens. Behind each reference, the builder that made it (atlas fit, blood composition markers, neutrophil reference, floors and identity sites, IAM-A position), what it was built from and what it was tested on. Inventory as of 2026-10-20: the one command loads 21 Python files, 228 functions, and 35 data and matrix files sit in the chain folder (chain/chain_inventory_2026-10-20.txt)."
   }
  ],
  "scheduled": [
