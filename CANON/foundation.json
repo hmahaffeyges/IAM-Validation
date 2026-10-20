@@ -95,7 +95,7 @@
   },
   {
    "id": "gauge_three_marks",
-   "statement": "The gauge has three marks and they are not the same kind of thing. BOTH ENDS ARE FIXED BY PHYSICS AND DERIVED: the floor by thermal kicks against one ATP, the ceiling by a coin flip at every identity site. ONLY THE MIDDLE - the healthy reference - IS MEASURED, on purified healthy cells of the same type. A = reading / healthy reference; A = 1 is the cell working as itself; above 1 it makes more error than when healthy.",
+   "statement": "The gauge has three marks and they are not the same kind of thing. BOTH ENDS ARE FIXED BY PHYSICS AND DERIVED: the floor by thermal kicks against one ATP, the ceiling by a coin flip at every identity site. THE MIDDLE - the healthy reference - is where the instruments differ: for Met-A it IS MEASURED, on purified healthy cells of the same type; for IAM-A it is COMPUTED FROM THE SAMPLE ITSELF, eps_pred(L) = firm rate + slope x L from the sample's own loose share, on a line whose form follows from the cell's design and whose two constants were measured once on 56 healthy cell types (2026-10-20). A = reading / healthy reference; A = 1 is the cell working as itself; above 1 it makes more error than when healthy.",
    "status": "DERIVED (both ends) and MEASURED (the middle only)",
    "derived_in": "docs/book/part6/p6_06_gauge.tex",
    "anchor": "The two ends of the gauge are fixed by physics: the floor by thermal kicks against one ATP,",

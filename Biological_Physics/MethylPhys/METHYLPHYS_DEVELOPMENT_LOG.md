@@ -2765,3 +2765,6 @@ Author: did we retry the firm-rate derivation with the corrected values? Not unt
 
 ### 2026-10-20 · To-do list: the four AWS-return items added, steps 15-18 (OTH-078)
 The mouse verdict detail, the clean-clone check after the gray change, the pending cost blocks, and the idle IP address and disks were promised in chat but not on the list; now steps 15-18.
+
+### 2026-10-20 · The page's method text and the foundation entry on the middle mark (OTH-075, PHY-037)
+Author: the page still says only the ends are derived. Two sources still said the middle mark is measured on purified healthy cells for every instrument: the page's method section (CANON/method.json) and foundation entry 10 (CANON/foundation.json). Both now give each instrument's middle: Met-A measured on healthy references, IAM-A computed from the sample's own loose share. The Q&A's first answer says the same. The corrected introduction went live at 09:49 Pacific (two builds before it were cancelled by newer pushes), not 09:25 as first reported. Dated records (DEV_CEILING_02, PHY-037's purpose) keep their wording.

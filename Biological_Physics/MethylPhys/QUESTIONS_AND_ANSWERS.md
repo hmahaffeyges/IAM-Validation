@@ -67,7 +67,8 @@ not, is the most useful thing that can come back.
 
 **What does the chain measure?**
 How well a cell holds the DNA methylation pattern that makes it the cell it is, in bits, on a gauge whose ends come from physics: a floor
-(the least a cell can spend holding its marks against heat) and a saturation point (every identity site fully scrambled). Healthy reads 1.
+(the least a cell can spend holding its marks against heat) and a saturation point (every identity site fully scrambled). Healthy reads 1:
+for IAM-A that 1 is computed from the sample itself, for Met-A it is measured on healthy references run beside it.
 Four commissioned instruments read one sample: Met-A (drift of a cell's identity sites), the C-Score (whether that drift is scattered, as
 aging leaves it, or clustered along the genome), IAM-A (a sequencing sample's own error rate, read against itself), and the IAM-Deconvolver
 (which cells are in a mixed sample), all against IAM-Atlas v2.1, a reference of 79 healthy cell types.
