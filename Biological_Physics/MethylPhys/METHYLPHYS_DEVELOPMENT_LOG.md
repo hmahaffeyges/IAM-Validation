@@ -2762,3 +2762,6 @@ Author: check the repository and the book represent IAM-A's derived status. Sear
 
 ### 2026-10-20 · IAM-A firm rate on the corrected counter: exploration, and a recount scheduled (PHY-006, PHY-049)
 Author: did we retry the firm-rate derivation with the corrected values? Not until now, and only as exploration (nothing sealed): on the commissioned line, firm 0.0403 implies D 23.8 if it is the writer alone, 1/(1+D), outside the measured 47.4-80; it implies D 47.7 if the writer and an equal eraser share the loss, 2/(D+2) (the author's write-half / erase-half reading), at the edge of the measured range. That is a match found after the fact. The direct sealed test of equal halves, DEV-ERASE-01 (eraser removed, copy error should halve), was NOT MET on 2026-10-15 (4 of 5 units 0.85-0.96), but it was counted with the earlier counter; a ratio of two counts mostly cancels that counter's bias, which has not been checked. To-do step 14: recount its five units with Stage Q2 when AWS returns, scored by its sealed rule unchanged.
+
+### 2026-10-20 · To-do list: the four AWS-return items added, steps 15-18 (OTH-078)
+The mouse verdict detail, the clean-clone check after the gray change, the pending cost blocks, and the idle IP address and disks were promised in chat but not on the list; now steps 15-18.

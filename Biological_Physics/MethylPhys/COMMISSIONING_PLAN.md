@@ -22,6 +22,10 @@ _Worked one step at a time. A step is closed only with its date and the record t
 12. The researcher package's Zenodo record (the biology folder), after step 11. *Done when:* the draft uploaded by the box job after the archive passes the release check; IAMPerformance publishes (OTH-077)
 13. Sky-map additions: the posterior noise maps into the chain and the report, the 3D sphere, the guidebook. *Done when:* each built and in the release check, the report and the page (ATL-063)
 14. IAM-A's firm rate, derived again on the commissioned counter: (1) recount the five DEV-ERASE-01 primary units (eraser-removed vs same-lab control molecules, already in S3) with chain Stage Q2, which counts interior opportunities; the sealed ratio rule stays as written (MET 0.40-0.60, NOT MET >= 0.85). (2) Only if the equal-halves reading survives, seal 'firm rate = 2/(D+2)' on single-molecule data the line was not built from, before reading it. *Done when:* the recount scored once and recorded; a sealed prediction written or the derivation recorded as not supported (PHY-006, PHY-049)
+15. When AWS returns: the mouse reproduction's per-number detail copied from its verdict file in S3 (results/REPRODUCE_V1/run13/out/mice/) into reproduce/verified.json. *Done when:* verified.json holds the mice checks; the reproduce README and book chapter regenerated (OTH-076)
+16. When AWS returns: clean-clone check of the chain after the report's American-spelling change (gray), and the example reports rebuilt. *Done when:* a clean clone passes every release check; the example reports print gray (OTH-071)
+17. When AWS returns: delete CANON/billing_unreadable.json and fill the pending computing-and-cost blocks from billing (day_compute.py, compute_snapshot.py). *Done when:* no day log carries a pending block; costs_fresh.py passes without the declaration (OTH-071)
+18. When AWS returns: remove idle standing charges (the unattached public IP address, about 1 TB of machine disks and snapshots kept between jobs) after checking each holds nothing not already in S3 or the repository. *Done when:* nothing idle billed; each removal recorded (OTH-071)
 
 ## The order of work
 

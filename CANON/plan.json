@@ -298,6 +298,46 @@
    "status": "open",
    "done_date": "",
    "record": ""
+  },
+  {
+   "task": "When AWS returns: the mouse reproduction's per-number detail copied from its verdict file in S3 (results/REPRODUCE_V1/run13/out/mice/) into reproduce/verified.json",
+   "done_when": "verified.json holds the mice checks; the reproduce README and book chapter regenerated",
+   "rows": [
+    "OTH-076"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
+  },
+  {
+   "task": "When AWS returns: clean-clone check of the chain after the report's American-spelling change (gray), and the example reports rebuilt",
+   "done_when": "a clean clone passes every release check; the example reports print gray",
+   "rows": [
+    "OTH-071"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
+  },
+  {
+   "task": "When AWS returns: delete CANON/billing_unreadable.json and fill the pending computing-and-cost blocks from billing (day_compute.py, compute_snapshot.py)",
+   "done_when": "no day log carries a pending block; costs_fresh.py passes without the declaration",
+   "rows": [
+    "OTH-071"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
+  },
+  {
+   "task": "When AWS returns: remove idle standing charges (the unattached public IP address, about 1 TB of machine disks and snapshots kept between jobs) after checking each holds nothing not already in S3 or the repository",
+   "done_when": "nothing idle billed; each removal recorded",
+   "rows": [
+    "OTH-071"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
   }
  ],
  "scheduled": [
