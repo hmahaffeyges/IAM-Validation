@@ -130,7 +130,7 @@ def stage_m_blood(beta, comp):
         rec["reason"] = f"{comp.get('reason')}: A withheld"; return rec, None
     fn = fractions.get("NEU", 0.0); rec["fraction"] = round(fn, 4)
     if fn <= 0:
-        rec["reason"] = "no neutrophils in the composition: fraction reported, A withheld"; return rec, None
+        rec["reason"] = f"neutrophil share {fn:.3f} in this blood's composition (above 0 needed to read neutrophils): fraction reported, A withheld"; return rec, None
     x = beta.reindex(S); e = sum(v * P[g] for g, v in fractions.items() if g in P); ok = x.notna() & e.notna()
     need = int(np.ceil(SM.SITE_COVERAGE_MIN * len(S)))
     if ok.sum() < need:
@@ -199,7 +199,8 @@ def stage_t_tare(A, ref_A, shift_1pct=None, sample_id=None):
     recs, n_self = _ref_records(ref_A, sample_id)
     if A is None: return {"stage": "T", "A_rel": None, "reason": "no A"}
     if len(recs) < MIN_REFS:
-        return {"stage": "T", "A_rel": None, "n_self_excluded": n_self, "reason": f"untared: {len(recs)} same-run reference arrays (>= {MIN_REFS} required)"}
+        return {"stage": "T", "A_rel": None, "n_self_excluded": n_self, "reason": f"untared: {len(recs)} same-run reference arrays (>= {MIN_REFS} required); "
+                "the tare divides by healthy arrays run the same way, so give --ref-table with at least that many (same slide, else same batch)"}
     a_ = np.array([r["A"] for r in recs]); m = float(np.median(a_)); Ar = A / m; sd = float(np.std(a_ / m, ddof=1))
     dl = (2 * sd / shift_1pct) if shift_1pct and shift_1pct > 0 else None
     return {"stage": "T", "n_refs": len(recs), "n_self_excluded": n_self, "method": "median tare (same-run healthy references)",
@@ -272,6 +273,7 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
         m, z = stage_m_blood(b_st, a)
     m.update(noise_index(beta))   # the noise index reads the betas before self-tare II (step 1): N and the noise gate are unchanged by Stage T
     t = stage_t_tare(m.get("A"), ref_A, m.get("shift_per_1pct_loss"), sample_id=sample_id)   # Stage T step 2, the median tare
+    if m.get("A") is None: t["reason"] = f"not tared: Met-A gave no number on this array ({m.get('reason') or m.get('state') or 'no reason recorded'})"   # every stop says why (2026-10-20)
     t["selftare_ii"] = st1
     if t.get("A_rel") is not None: m["state"] = "tared: read A_rel (Stage T)"
     g = noise_gate(); N = m.get("noise_index"); m["noise_gate_N_max"] = g["N_max"]
@@ -291,7 +293,9 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
     if m.get("A") is not None and _sp == "isolated neutrophils": m["commissioning"] = METAA_COMMISSIONING   # isolated neutrophils only (2026-10-11; explicit 2026-10-18)
     elif m.get("A") is not None and _sp == "buffy coat": m["development"] = "DEVELOPMENT - not commissioned: buffy coat (read on the whole-blood path; Met-A is commissioned on isolated neutrophils, the C-Score on whole blood)"
     elif m.get("A") is not None: m["development"] = ("DEVELOPMENT - not commissioned: whole blood (composition, bar 7, met only on the reference laboratory's own truth sets; commissioned when met on whole bloods of known composition from an independent laboratory). Detection limit at this fraction: 5 % loss (DEV-METAA-SENS-01).")
-    out["met_a"] = m; out["met_a_cscore"] = stage_t_cscore(stage_mc_cscore(z), ref_A, sample_id); out["_cscore_z"] = z   # v4 sky; popped before the bundle
+    _mc = stage_mc_cscore(z)
+    if z is None and _mc.get("C") is None: _mc["reason"] = f"not computed: the C-Score reads Met-A's departure map, and Met-A gave none on this array ({m.get('reason') or m.get('state') or 'no reason recorded'})"
+    out["met_a"] = m; out["met_a_cscore"] = stage_t_cscore(_mc, ref_A, sample_id); out["_cscore_z"] = z   # v4 sky; popped before the bundle
     if out["met_a_cscore"].get("C_rel") is not None and m.get("specimen") in CSCORE_COMMISSIONING["specimens"]: out["met_a_cscore"]["commissioning"] = CSCORE_COMMISSIONING
     elif out["met_a_cscore"].get("C_rel") is not None: out["met_a_cscore"]["status"] = "development: specimen outside the commissioned C-score scope"
     out["tare"] = t   # every specimen (2026-10-17): from 2026-10-15 this sat inside the elif above, so in-scope (whole blood) runs lost their tare record (LESSONS C21)

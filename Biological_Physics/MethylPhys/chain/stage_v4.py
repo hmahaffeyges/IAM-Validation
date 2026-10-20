@@ -83,7 +83,7 @@ def nest_pix2ang(nside, ipix):
 
 def cscore_sky(z, out_png, title="", vlim=3.0, readings=""):
     """z: the C-Score's per-site departure map (pd.Series by site, in the C-Score's genomic order). Writes a Mollweide view; returns a summary."""
-    if z is None: return {"stage": "SKY", "drawn": False, "reason": "no departure map (the C-Score was not computed)"}
+    if z is None: return {"stage": "SKY", "drawn": False, "reason": "no departure map: the C-Score was not computed on this array (its reason is printed with the C-Score)"}
     zz = pd.Series(z, dtype="float64"); n = len(zz)
     if zz.notna().sum() == 0: return {"stage": "SKY", "drawn": False, "reason": "no measured departures"}
     nside = 1

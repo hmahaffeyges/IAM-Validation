@@ -17,7 +17,8 @@ with F1 reading FROZEN_INPUTS_v4.json and S2 leaving verbatim run transcripts (d
   V6  a planted clustered departure gives a full report: C_rel above the band, the CSCORE_CLUSTERED flag, both PDFs (C27)
   V7  IAM-A from an aligned BAM through the one command (--bam; pysam pinned): exit 0, report written, molecules counted (C28)
   V9  every Stage 0 stop is explained (author rule 2026-10-20): for each way Stage 0 can stop an array, a constructed record is stopped AND
-      carries an explanation with what was measured, the limit, where the limit comes from, what it means and what to do"""
+      carries an explanation with what was measured, the limit, where the limit comes from, what it means and what to do; and an array too
+      thin to read gives Met-A, the tare and the C-Score each a reason with the measured count and what is required"""
 import os, sys, json, gzip, glob, hashlib, re, time, subprocess, tempfile
 import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path[:0] = [HERE]
@@ -182,8 +183,13 @@ def V9(tmp):
         full = [x for x in X if x.get("outcome", "").startswith("stopped") and all(str(x.get(k) or "").strip() for k in ("measured", "limit", "limit_source", "means", "what_to_do"))]
         if r.get("stage0_verdict") != "QUARANTINE" or not full: bad.append(f"{name}: verdict {r.get('stage0_verdict')}, {len(full)} full explanation(s)")
     r = dict(ok_rec); S0.step_0_9_decision_gate(r); clean = r.get("stage0_verdict") == "PROCEED" and not r.get("stage0_explained")
+    import conductor_v3 as C3_, re as _re   # downstream: a thin EPIC-sized vector; Met-A, the tare and the C-Score each say why, with the measured count
+    _ix = [f"cg{i:08d}" for i in range(860000)]; _o = C3_.run_neutrophil(pd.Series(np.random.default_rng(1).uniform(0.05, 0.95, len(_ix)), index=_ix), specimen="whole blood")
+    for k in ("met_a", "tare", "met_a_cscore"):
+        why = str((_o.get(k) or {}).get("reason") or "")
+        if not _re.search(r"\d+ of \d+", why) or "required" not in why: bad.append(f"{k} gives no measured reason: {why[:80]!r}")
     rec("V9", not bad and clean and hyb["ctrl_qc"].startswith("FAIL") and ext["ctrl_qc"].startswith("FAIL"),
-        f"{len(cases) - len(bad)} of {len(cases)} kinds of Stage 0 stop explained in full; a clean array proceeds with nothing to explain: {clean}" + (f"; MISSING: {bad}" if bad else ""))
+        f"{len(cases)} kinds of Stage 0 stop and 3 downstream stops (Met-A, tare, C-Score) checked; {len(bad)} unexplained; a clean array proceeds with nothing to explain: {clean}" + (f"; MISSING: {bad}" if bad else ""))
 
 def main():
     t0 = time.time(); files = R3.tracked(); tmp = tempfile.mkdtemp(prefix="rc_v4_")

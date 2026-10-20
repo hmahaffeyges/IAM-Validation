@@ -2810,3 +2810,6 @@ Author rule after the Group-A rehearsal, whose quarantines said only "hard failu
 
 ### 2026-10-20 · Release check v4 PASS on GitHub, 30 of 30 (OTH-078)
 Run 39503756018 at commit 8e376a40 (Stage 0 explanations and V9 included): every check passed from a fresh checkout on GitHub's machines in 415 s, the first release check that did not need AWS. Rows in issue 32.
+
+### 2026-10-20 · Every block explained, downstream stops (OTH-078, step 24)
+When Met-A gives no number, the tare said only "no A" and the C-Score "no residual map". Both now carry Met-A's own reason with its measured count (e.g. "only 27 of 963 composition markers measured (>= 867 required)"); an untared reading says what the tare needs and how to give it; a zero neutrophil share prints the share. Text only, no reading changed. V9 now also builds a thin EPIC-sized array and fails unless Met-A, the tare and the C-Score each give a measured reason.
