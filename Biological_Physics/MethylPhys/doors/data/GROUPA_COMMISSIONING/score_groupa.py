@@ -1,7 +1,8 @@
 """Group-A commissioning, scoring (2026-10-20). Reads every rows_*.csv once, applies the same-run tare of the C-score band test (tare(), checked
 below against doors/data/CSCORE_COMMISSIONING/read_band_test.py, which carries the verbatim copy of boxruns/run3/run3.py), and scores the three
-sealed bars of sealed_groupa_01.json. Reported, not scored: what the tare does to the slide, plate and laboratory offsets, and the IAM-Atlas v2.1
-cell shares (IAM-Deconvolver) by sex. Usage: python3 score_groupa.py ROWS_DIR [SAMPLES_CSV NAME]   -> NAME.json and NAME_summary.txt here
+sealed bars of sealed_groupa_01.json. Reported, not scored: what the tare does to the slide, plate and laboratory offsets, the IAM-Atlas v2.1
+cell shares (IAM-Deconvolver) by sex, the C-Score of the healthy arrays against its upper limit, and the C-Score of the planted half (a scattered
+loss, which Met-A should see and the C-Score should not call clustered). Usage: python3 score_groupa.py ROWS_DIR [SAMPLES_CSV NAME]   -> NAME.json and NAME_summary.txt here
 (defaults: groupa_samples.csv, scored_groupa_01). A samples file with a "set" column (the rehearsal on spent sets) is tared within each set."""
 import os, sys, glob, json, ast, numpy as np, pandas as pd
 H = os.path.dirname(os.path.abspath(__file__)); D = os.path.join(H, "..")
@@ -55,6 +56,10 @@ if __name__ == "__main__":
                tared_plate_means={k: round(float(v), 4) for k, v in I.groupby("amp_plate").A_rel.mean().items()},
                ref_scope=I.ref_scope.value_counts().to_dict(), healthy_relative_sd_tared=round(float(I.A_rel.std()), 5),
                cscore_above_band=int((I.C_rel > 1.152).sum()), cscore_read=int(I.C_rel.notna().sum()),
+               cscore_planted_scattered=dict(what="the planted 1 % loss is scattered; the C-Score flags clustered loss only, so the planted half should stay under its upper limit 1.152",
+                   planted_above_band=int((V[V.planted.astype(bool)].C_rel > 1.152).sum()), planted_read=int(V[V.planted.astype(bool)].C_rel.notna().sum()),
+                   unplanted_above_band=int((V[~V.planted.astype(bool)].C_rel > 1.152).sum()), unplanted_read=int(V[~V.planted.astype(bool)].C_rel.notna().sum()),
+                   C_rel_planted_vs_unplanted=welch(V[V.planted.astype(bool)].C_rel.dropna(), V[~V.planted.astype(bool)].C_rel.dropna())),
                atlas_shares_by_sex={c: welch(I[I.sex == "female"][c].dropna(), I[I.sex == "male"][c].dropna()) for c in I.columns if c.startswith("share_") and I[c].notna().sum() > 10},
                withheld=I[I.A.isna()][["gsm", "withheld", "error"]].astype(str).values.tolist())
     out = dict(sealed=SEAL["sealed"], read_on=SEAL["data"], B1=dict(n_read=n_read, of=len(S), met=b1), B2=dict(**s2, met=b2), B3=dict(**s3, met=b3),

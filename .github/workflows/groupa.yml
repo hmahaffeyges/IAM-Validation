@@ -59,12 +59,16 @@ jobs:
         with: {pattern: "rows-*", path: rows, merge-multiple: true}
       - uses: actions/download-artifact@v4
         with: {name: smoke, path: smoke}
-      - run: python3 $G/score_groupa.py rows $SAMPLES $NAME
-      - name: Results to the groupa-results branch (the record; the main branch is updated by hand through the push gate)
+      - name: Score (its log and exit code are kept with the results)
+        run: python3 $G/score_groupa.py rows $SAMPLES $NAME > score.log 2>&1; echo $? > score_rc.txt; tail -40 score.log
+      - name: Results to the results branch over git (the record; main is updated by hand through the push gate)
         if: always()
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
         run: |
-          mkdir -p /tmp/res && cp -r rows smoke $G/${NAME}* /tmp/res/ 2>/dev/null || true
-          git config user.name "groupa workflow"; git config user.email "actions@users.noreply.github.com"
-          git checkout --orphan $BRANCH && git rm -rq --cached . && git clean -fdq -e /tmp
-          cp -r /tmp/res/* . && echo "run ${{ github.run_id }} at commit ${{ github.sha }}" > RUN.txt
-          git add -A . && git commit -qm "Group-A results, run ${{ github.run_id }}, commit ${{ github.sha }}" && git push -f origin $BRANCH
+          mkdir -p /tmp/res && cp -r rows smoke score.log score_rc.txt /tmp/res/ 2>/dev/null; cp $G/${NAME}* /tmp/res/ 2>/dev/null; true
+          cd /tmp/res && echo "run ${{ github.run_id }} at commit ${{ github.sha }}, mode ${{ inputs.mode }}" > RUN.txt
+          git init -q && git config user.name "groupa workflow" && git config user.email "actions@users.noreply.github.com"
+          git add -A && git commit -qm "Group-A ${{ inputs.mode }}, run ${{ github.run_id }}, commit ${{ github.sha }}"
+          git push -qf "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" HEAD:refs/heads/$BRANCH
+      - name: Fail the run if scoring failed
+        run: test "$(cat score_rc.txt)" = "0"
