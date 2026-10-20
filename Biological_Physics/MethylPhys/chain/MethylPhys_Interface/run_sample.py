@@ -384,6 +384,9 @@ def main():
             rec = S0.step_0_9_decision_gate(rec, a.intake_log)
             if rec.get("stage0_verdict") == "QUARANTINE":
                 print(f"Stage 0 verdict: QUARANTINE  hard failures: {rec.get('stage0_hard_fail')}", flush=True)
+                for _x in rec.get("stage0_explained") or []:   # every stop explained (author rule 2026-10-20)
+                    print(f"\n  WHY: {_x['check']} - {_x['outcome']}\n    measured on this array: {_x['measured']}\n    limit: {_x['limit']}\n"
+                          f"    limit comes from: {_x['limit_source']}{' (PROVISIONAL)' if _x['provisional'] else ''}\n    what it means: {_x['means']}\n    what to do: {_x['what_to_do']}", flush=True)
                 print("\nQUARANTINE - the chain stops here and nothing is scored. "
                       "Stage 0 rejected the specimen before calibration.", flush=True)
                 sys.exit(2)

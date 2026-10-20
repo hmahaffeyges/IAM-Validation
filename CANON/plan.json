@@ -395,6 +395,17 @@
    "status": "open",
    "done_date": "",
    "record": ""
+  },
+  {
+   "task": "Every block explained (author rule 2026-10-20: 'they should indicate exactly what flagged it ... Imagine being a researcher and not even understanding the code or the physics and getting blocks like this'): every point in the chain that stops, withholds or quarantines prints what was measured, the limit, where the limit comes from and whether it is provisional, what it means and what to do; release check V9 enforces it for Stage 0; the push gate names the exact failing script. Stage 0 done 2026-10-20 (explain_stage0, V9); next: the conductor's and the report's withheld/refused lines read against the same five parts",
+   "done_when": "every stop in the chain carries the five parts; V9 extended to every stage; release check passes from a fresh checkout",
+   "rows": [
+    "OTH-078",
+    "GRP-004"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
   }
  ],
  "scheduled": [

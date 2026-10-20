@@ -15,7 +15,9 @@ with F1 reading FROZEN_INPUTS_v4.json and S2 leaving verbatim run transcripts (d
   V8  buffy coat: read on the whole-blood path, labeled as its own specimen, preliminary on Met-A and the C-Score (2026-10-18)
   V5  the same-run reference table reaches the C-Score tare (C_rel = C / median of three references) and both report PDFs are written (C26)
   V6  a planted clustered departure gives a full report: C_rel above the band, the CSCORE_CLUSTERED flag, both PDFs (C27)
-  V7  IAM-A from an aligned BAM through the one command (--bam; pysam pinned): exit 0, report written, molecules counted (C28)"""
+  V7  IAM-A from an aligned BAM through the one command (--bam; pysam pinned): exit 0, report written, molecules counted (C28)
+  V9  every Stage 0 stop is explained (author rule 2026-10-20): for each way Stage 0 can stop an array, a constructed record is stopped AND
+      carries an explanation with what was measured, the limit, where the limit comes from, what it means and what to do"""
 import os, sys, json, gzip, glob, hashlib, re, time, subprocess, tempfile
 import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path[:0] = [HERE]
@@ -163,12 +165,32 @@ def V8(tmp):
     ok = code == 0 and m.get("specimen") == "buffy coat" and not m.get("commissioning") and not c.get("commissioning") and all(lines) and pdf
     rec("V8", ok, f"exit {code} | specimen {m.get('specimen')} | Met-A commissioned label: {bool(m.get('commissioning'))} | C-Score: {bool(c.get('commissioning'))} | preliminary lines {lines} | PDFs {pdf}")
 
+def V9(tmp):
+    import stage_0_intake as S0
+    ok_rec = dict(status="IDAT_OK", integrity_status="INTEGRITY_OK", ctrl_qc="PASS", ctrl_qc_metrics={}, detection_qc="PASS", call_rate_status="CALL_RATE_PASS",
+                  call_rate=0.99, hm450_coverage_gate="NA_EPIC", sex_check="MATCH", bead_qc="PASS")
+    hyb = S0.validate_control_probes(dict(bisulfite_conversion_I_median=3e4, bisulfite_conversion_II_median=1e3, hyb_high_median=7300., hyb_low_median=21170., extension_meth_median=1e4, extension_unmeth_median=1e4))
+    ext = S0.validate_control_probes(dict(bisulfite_conversion_I_median=3e4, bisulfite_conversion_II_median=1e3, hyb_high_median=2e4, hyb_low_median=5e3, extension_meth_median=1e4, extension_unmeth_median=1e3))
+    cases = {"intake files": dict(status="QUARANTINE_MISSING_CHANNEL", flags=["MISSING_CHANNEL:red"]), "integrity": dict(integrity_status="RE_TRANSMISSION_DETECTED"),
+             "hybridization controls": dict(ctrl_qc=hyb["ctrl_qc"], ctrl_qc_metrics=hyb["metrics"]), "extension controls": dict(ctrl_qc=ext["ctrl_qc"], ctrl_qc_metrics=ext["metrics"]),
+             "detection": dict(detection_qc="FAIL_LOW_DETECTION", pct_probes_detected_p_le_01=0.80), "detection not measured": dict(detection_qc="DEFERRED_PENDING_STAGE1_DECODER"),
+             "call rate": dict(call_rate_status="CALL_RATE_FAIL", call_rate=0.85), "450K coverage": dict(hm450_coverage_gate="FAIL", hm450_reference_coverage=0.5),
+             "sex": dict(sex_check="MISMATCH", declared_sex="F", predicted_sex="M")}
+    bad = []
+    for name, chg in cases.items():
+        r = dict(ok_rec, **chg); S0.step_0_9_decision_gate(r); X = r.get("stage0_explained") or []
+        full = [x for x in X if x.get("outcome", "").startswith("stopped") and all(str(x.get(k) or "").strip() for k in ("measured", "limit", "limit_source", "means", "what_to_do"))]
+        if r.get("stage0_verdict") != "QUARANTINE" or not full: bad.append(f"{name}: verdict {r.get('stage0_verdict')}, {len(full)} full explanation(s)")
+    r = dict(ok_rec); S0.step_0_9_decision_gate(r); clean = r.get("stage0_verdict") == "PROCEED" and not r.get("stage0_explained")
+    rec("V9", not bad and clean and hyb["ctrl_qc"].startswith("FAIL") and ext["ctrl_qc"].startswith("FAIL"),
+        f"{len(cases) - len(bad)} of {len(cases)} kinds of Stage 0 stop explained in full; a clean array proceeds with nothing to explain: {clean}" + (f"; MISSING: {bad}" if bad else ""))
+
 def main():
     t0 = time.time(); files = R3.tracked(); tmp = tempfile.mkdtemp(prefix="rc_v4_")
     print(f"release_check_v4 @ {subprocess.run(['git', '-C', R3.ROOT, 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()}  python {PY}")
     steps = [("F1", F1, ()), ("F1b", F1b, ()), ("F2", F2, ()), ("S1", R3.S1, (files,)), ("S2", S2, (files,)), ("S3", R3.S3, ()), ("S4", R3.S4, ())] + \
             [(n, getattr(R3, n), (tmp,)) for n in ("E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "E10", "E11")] + \
-            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V8", V8, (tmp,)), ("V6", V6, (tmp,)), ("V7", V7, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
+            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V8", V8, (tmp,)), ("V6", V6, (tmp,)), ("V7", V7, (tmp,)), ("V9", V9, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
     for name, fn, args in steps:
         try: fn(*args)
         except Exception as e: rec(name, False, f"could not run: {type(e).__name__}: {str(e)[:200]}")

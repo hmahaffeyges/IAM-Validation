@@ -1,0 +1,30 @@
+name: release
+# The chain v4 release check (release_check_v4.py) from a fresh checkout on GitHub's machines, without AWS (2026-10-20). Manual only.
+on: {workflow_dispatch: {}}
+permissions: {contents: read, issues: write}
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - name: Release check
+        run: |
+          set +e
+          python3 Biological_Physics/MethylPhys/chain/release_check_v4.py --json rc.json > rc.log 2>&1; echo $? > rc_rc.txt; tail -45 rc.log; true
+      - name: Result to issue 32
+        if: always()
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: |
+          python3 - <<'EOF'
+          import json, os, urllib.request
+          rows = open("rc.log").read().split("\n"); keep = [l for l in rows if l.strip().startswith(("PASS", "FAIL")) or "RELEASE CHECK" in l or "release_check_v4 @" in l]
+          b = "run ${{ github.run_id }}, commit ${{ github.sha }}, exit " + open("rc_rc.txt").read().strip() + "\n\n```\n" + "\n".join(keep)[-60000:] + "\n```"
+          rq = urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/issues/32/comments", data=json.dumps({"body": b}).encode(), headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"}, method="POST")
+          print(urllib.request.urlopen(rq).status)
+          EOF
+      - run: test "$(cat rc_rc.txt)" = "0"

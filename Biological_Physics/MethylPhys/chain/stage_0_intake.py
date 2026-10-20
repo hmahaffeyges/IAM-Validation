@@ -552,6 +552,8 @@ def validate_control_probes(control_summary: dict) -> dict:
     hl = control_summary.get("hyb_low_median")
     if hh is not None and hl is not None:
         metrics["hyb_signal"] = round(hh - hl, 2)
+        metrics["hyb_high_median"] = round(float(hh), 1); metrics["hyb_low_median"] = round(float(hl), 1)
+        metrics["hyb_high_low_ratio"] = round(float(hh) / float(hl), 3) if hl > 0 else None
         if not (hl > 0 and hh / hl >= HYB_HIGH_LOW_MIN_RATIO):
             flags.append("HYB_FAIL")
 
@@ -560,6 +562,7 @@ def validate_control_probes(control_summary: dict) -> dict:
     if em is not None and eu is not None and eu > 0:
         ratio = em / eu
         metrics["extension_ratio"] = round(ratio, 3)
+        metrics["extension_meth_median"] = round(float(em), 1); metrics["extension_unmeth_median"] = round(float(eu), 1)
         lo, hi = EXTENSION_BALANCE_RANGE
         if not (lo <= ratio <= hi):
             flags.append("EXT_FAIL")
@@ -826,6 +829,70 @@ def step_0_8_sex_check(record, sex_intensities=None) -> dict:
 # -> proceed with penalty; deferred QC (pending Stage 1 decoder) noted, non-blocking.
 # ============================================================================
 
+# ============================================================================
+# Every decision Stage 0 makes, explained (author rule, 2026-10-20: a gate that blocks must say exactly what flagged it). For each check
+# that stopped, penalized or deferred the array: what was measured on THIS array, the limit, where the limit comes from and whether it is
+# provisional, what it means, and what the user can do. release_check_v4.py (V9) fails if any Stage 0 stop has no entry here.
+# ============================================================================
+_TH_SRC = "Runtime Matrices/Intake/intake_thresholds_v1.json (PROC-INTAKE-01, measured on 48 commissioning-laboratory arrays)"
+def _fmt(x, nd=3):
+    return "not measured" if x is None else (f"{x:,.{nd}f}" if isinstance(x, float) else str(x))
+def explain_stage0(record, hard_fail, borderline, deferred):
+    out = []
+    def add(check, outcome, measured, limit, source, provisional, means, todo):
+        out.append(dict(check=check, outcome=outcome, measured=measured, limit=limit, limit_source=source, provisional=bool(provisional), means=means, what_to_do=todo))
+    st = str(record.get("status") or ""); fl = record.get("flags") or []
+    if st.startswith("QUARANTINE"):
+        add("intake files and manifest (Steps 0.1-0.2)", "stopped", st + ("; flags: " + ", ".join(fl) if fl else ""), "a complete manifest, both IDAT channels, each IDAT at least 1 MB, the declared array type matching the IDAT header",
+            "SOP sections 11-12 (fixed rules, not measured limits)", False, "the files or the manifest are incomplete or do not match; nothing about the biology was looked at",
+            "check the flag named above: re-upload the missing or truncated IDAT, or correct the manifest field")
+    if record.get("integrity_status") and record.get("integrity_status") != "INTEGRITY_OK":
+        add("file integrity (Step 0.3)", "stopped", str(record.get("integrity_status")), "the IDAT pair's sha256 not already seen under another sample", "SOP section 13 (fixed rule)", False,
+            "this exact pair of files was submitted before", "confirm the sample identifier; a true re-run of the same array is not a new specimen")
+    m = record.get("ctrl_qc_metrics") or {}; cq = str(record.get("ctrl_qc") or "")
+    if cq.startswith(("FAIL", "PROVISIONAL")):
+        hr = m.get("hyb_high_low_ratio"); er = m.get("extension_ratio"); bs = m.get("bisulfite_conversion_efficiency")
+        if "HYB_FAIL" in cq:
+            inv = hr is not None and hr < 1
+            add("hybridization control probes (Step 0.4)", "stopped",
+                f"high-concentration control {_fmt(m.get('hyb_high_median'),0)}, low-concentration control {_fmt(m.get('hyb_low_median'),0)}, ratio high/low {_fmt(hr)}",
+                f"high at least {HYB_HIGH_LOW_MIN_RATIO:g} times low", "stage_0_intake.HYB_HIGH_LOW_MIN_RATIO", True,
+                ("the high control reads BELOW the low one, the reverse of what the chemistry gives; on whole slides this is more often a control-address or labeling difference in the files than a failed hybridization, and the array's methylation values may still be sound"
+                 if inv else "the hybridization controls are weaker than the array chemistry should give; the array may have hybridized poorly"),
+                "this limit is provisional (not yet set from healthy arrays, to-do PROC-STAGE0-04); if a whole slide is stopped this way, report it; the calibrated values can still be read with run_sample.py --betas, marked as having bypassed this check")
+        if "EXT_FAIL" in cq:
+            lo, hi = EXTENSION_BALANCE_RANGE
+            add("extension control probes (Step 0.4)", "stopped", f"methylated {_fmt(m.get('extension_meth_median'),0)}, unmethylated {_fmt(m.get('extension_unmeth_median'),0)}, ratio {_fmt(er)}",
+                f"ratio between {lo:g} and {hi:g}", "stage_0_intake.EXTENSION_BALANCE_RANGE", True, "the single-base extension step is unbalanced between the two colors",
+                "this limit is provisional (PROC-STAGE0-04); report the array and its slide")
+        if "BS_CONVERSION_LOW" in cq or cq.startswith("PROVISIONAL"):
+            add("bisulfite conversion control probes (Step 0.4)", "printed, not used to stop" if cq.startswith("PROVISIONAL") or not BS_THRESHOLD_CALIBRATED else "stopped",
+                f"conversion efficiency {_fmt(bs)}", f"at least {BS_CONVERSION_MIN:g}", _TH_SRC + "; status PROVISIONAL", True,
+                "as written this limit refuses 731 of 731 healthy arrays, so it is printed and never stops an array on its own",
+                "nothing; it waits to be set from healthy arrays (PROC-STAGE0-04)")
+    dq = str(record.get("detection_qc") or "")
+    if dq == "FAIL_LOW_DETECTION" or dq == "DETECTION_BORDERLINE" or (dq.startswith("DEFERRED") and "detection" in deferred):
+        add("probe detection (Step 0.5)", {"FAIL_LOW_DETECTION": "stopped", "DETECTION_BORDERLINE": "read with a penalty flag"}.get(dq, "stopped (could not be measured)"),
+            f"{_fmt(record.get('pct_probes_detected_p_le_01'))} of probes detected above background" if not dq.startswith("DEFERRED") else "detection could not be measured on this file",
+            f"at least {DETECTION_PASS_FRACTION:g} to pass; below {DETECTION_BORDERLINE_FRACTION:g} stops", _TH_SRC, False,
+            "too many probes read at background level, so the methylation values are unreliable", "re-scan or re-hybridize the array; a low-signal laboratory batch shows up as many arrays stopped together")
+    crs = str(record.get("call_rate_status") or "")
+    if crs in ("CALL_RATE_FAIL", "CALL_RATE_BORDERLINE") or (crs.startswith("DEFERRED") and "call_rate" in deferred):
+        add("call rate (Step 0.6)", {"CALL_RATE_FAIL": "stopped", "CALL_RATE_BORDERLINE": "read with a penalty flag"}.get(crs, "stopped (could not be measured)"),
+            f"call rate {_fmt(record.get('call_rate'))}", f"at least {CALL_RATE_PASS:g} to pass; below {CALL_RATE_BORDERLINE:g} stops", _TH_SRC + "; the 0.93 line was set by the author on 2026-09-27", False,
+            "too few sites give a usable value", "re-scan or re-hybridize the array")
+    if str(record.get("bead_qc") or "").startswith("WARN"):
+        add("bead counts (Step 0.5b)", "read with a penalty flag", f"{_fmt(record.get('pct_probes_bead_count_ge_3'))} of probes with at least {BEAD_COUNT_MIN} beads", f"at least {BEAD_PASS_FRACTION:g}", _TH_SRC, False,
+            "some probes rest on few beads, so their values are noisier", "nothing required; the flag is printed on the report")
+    if str(record.get("hm450_coverage_gate") or "") == "FAIL":
+        add("450K reference coverage (Step 0.7)", "stopped", f"coverage {_fmt(record.get('hm450_reference_coverage'))}", "the 450K coverage floor in stage_0_intake", "stage_0_intake (fixed rule)", False,
+            "the array lacks too many of the sites the references use", "the chain reads EPIC v1 arrays")
+    if str(record.get("sex_check") or "") == "MISMATCH":
+        add("sex check (Step 0.8)", "stopped", f"declared {record.get('declared_sex')}, the array's X and Y signals say {record.get('predicted_sex')}", f"declared and measured sex agree (getSex cutoff {SEX_GETSEX_CUTOFF:g})",
+            "SOP section 18 (fixed rule)", False, "the array may belong to another person (a sample swap) or the manifest is wrong", "check the sample identity and the declared sex in the manifest")
+    return out
+
+
 def step_0_9_decision_gate(record, verdict_log_path=None) -> dict:
     flags = record.setdefault("flags", [])
     hard_fail, borderline, deferred = [], [], []
@@ -894,6 +961,7 @@ def step_0_9_decision_gate(record, verdict_log_path=None) -> dict:
         verdict, advance = "PROCEED", True
 
     record["stage0_verdict"] = verdict
+    record["stage0_explained"] = explain_stage0(record, hard_fail, borderline, deferred)
     record["stage0_hard_fail"] = hard_fail
     record["stage0_borderline"] = borderline
     record["stage0_deferred_qc"] = deferred
