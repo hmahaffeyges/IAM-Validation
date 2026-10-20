@@ -26342,7 +26342,7 @@
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
-   "notes": "author 2026-10-15 overnight mandate",
+   "notes": "author 2026-10-15 overnight mandate | 2026-10-19 (author: is it current, does it show departure from healthy?): IAM-A's healthy row moved to the commissioned counter (holding_energy_q2.json; it held the superseded earlier-counter values); the tumor held errors labeled as the earlier counter; new column 'past the healthy line' per reading, with the line it was set on (Met-A band, C-Score upper 1.152 on the chain tare, each tissue test's sealed line): healthy C-Score 3 of 231, tumors past their own tissue's line 23 of 53 breast, 28 of 88 colon, 22 of 50 liver",
    "legacy_ids": [],
    "id": "OTH-051",
    "sources_of_row": [

@@ -62,7 +62,12 @@
    "condition": "tumor",
    "platform": "450K",
    "status": "development (sealed test met)",
-   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md"
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md",
+   "line": {
+    "from_file": "bar",
+    "side": "above",
+    "what": "above the sealed test's healthy line (normal-tissue pairs)"
+   }
   },
   {
    "id": "METAA-COLON",
@@ -76,7 +81,12 @@
    "condition": "tumor",
    "platform": "450K",
    "status": "development (sealed test met)",
-   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md"
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md",
+   "line": {
+    "from_file": "bar",
+    "side": "above",
+    "what": "above the sealed test's healthy line (normal-tissue pairs)"
+   }
   },
   {
    "id": "METAA-LIVER",
@@ -90,7 +100,12 @@
    "condition": "tumor",
    "platform": "450K",
    "status": "development",
-   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md"
+   "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md",
+   "line": {
+    "from_file": "bar",
+    "side": "above",
+    "what": "above the sealed test's healthy line (normal-tissue pairs)"
+   }
   },
   {
    "id": "CSCORE-BAND",
@@ -166,15 +181,16 @@
   {
    "id": "IAMA-CELLS",
    "instrument": "IAM-A",
-   "file": "Biological_Physics/MethylPhys/doors/data/DEV_ARCH_01/arch_vs_held.csv",
-   "sample": "klass",
-   "value": "held_err",
-   "kind": "held error eps, pooled per cell type",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json",
+   "sample": "cell",
+   "value": "held_error",
+   "kind": "held error eps, per interior opportunity (commissioned counter)",
    "specimen": "purified cell types (56)",
    "condition": "healthy",
    "platform": "WGBS",
-   "status": "development",
-   "record": "development/loose_end_2026-10-15/loose_end_line.py"
+   "status": "commissioned counter (chain Stage Q2)",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json",
+   "dict_rows": "per_cell"
   },
   {
    "id": "IAMA-TUMOR-N",
@@ -187,7 +203,7 @@
     "assay"
    ],
    "value": "eps_corr_normal",
-   "kind": "held error eps, conversion-corrected",
+   "kind": "held error eps, earlier counter (end CpGs counted), conversion-corrected",
    "specimen_col": "study",
    "specimen_map": {
     "EOCRC": "colon tissue",
@@ -209,7 +225,7 @@
     "assay"
    ],
    "value": "eps_corr_tumour",
-   "kind": "held error eps, conversion-corrected",
+   "kind": "held error eps, earlier counter (end CpGs counted), conversion-corrected",
    "specimen_col": "study",
    "specimen_map": {
     "EOCRC": "colon tissue",
@@ -248,5 +264,19 @@
    "status": "development",
    "record": "Biological_Physics/MethylPhys/doors/DEV_BACKBONE_01.md"
   }
- ]
+ ],
+ "lines": {
+  "A, untared": {
+   "lo": 0.95,
+   "hi": 1.05,
+   "what": "outside Met-A's Normal band 0.95 to 1.05",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md"
+  },
+  "C_rel, chain tare": {
+   "hi": 1.152,
+   "what": "above the C-Score's healthy band, upper 1.152",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md"
+  }
+ },
+ "_lines_rule": "2026-10-19 (author: show the instruments at work): each reading kind's healthy line, from its commissioning record or the sealed test's own file; every row, healthy ones included, shows how many samples fall past it. A line applies only to the reading it was set on: Met-A's band to its reading against the same-run healthy references, the C-Score's upper limit to the chain's tare; earlier tares show 'no line set for this reading'."
 }
