@@ -37,6 +37,7 @@ The LIVE column is computed by walking imports from the commissioned entry point
 | `stage_v4.py` | yes | live |
 | `toolkit_foreign_detection.py` | no | tool |
 | `toolkit_surface_brightness.py` | no | class_era |
+| `trace_chain.py` | no | tool |
 
 **class_era** files are from the retired class gauge (eight per-class floors fitted by MCMC; `CANON/foundation.json`, `retired_foundations`). They are not used by any reading and must never be cited. They are kept so the history stays readable, not because anything depends on them.
 

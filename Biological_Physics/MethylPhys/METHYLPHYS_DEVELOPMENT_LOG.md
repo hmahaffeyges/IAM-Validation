@@ -2822,3 +2822,6 @@ Author: the SOP becomes the Official IAM Chain Operator Guide (using our chain a
 
 ### 2026-10-20 · To-do step 26: the blood references rebuilt from GEO, one button (OTH-076)
 The 91 purified arrays behind Stage A and the neutrophil reference stay in GEO (GSE110554, GSE167998); the repository holds the built matrices, the builders and the accessions. The 2026-10-03 rebuild matched to 5e-6 but ran on AWS; step 26 makes it a one-button reproduction on GitHub's machines. Recorded for the Decoder: Met-A's three layers (profiles and mix from the 91 arrays; sites, floor and spread from 6 neutrophil arrays; the middle line from the tare on the person's own run).
+
+### 2026-10-20 · The traced run for the Chain Decoder (OTH-072, step 25)
+chain/trace_chain.py runs run_sample.py unchanged with a profiler attached and records, in first-call order, every chain function called and every file opened; .github/workflows/trace.yml runs it on the example-report array GSE235717 GSM7508429 (raw files, its three same-run references), results to issue 32. The Decoder follows this order.

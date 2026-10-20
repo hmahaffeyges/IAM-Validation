@@ -1,0 +1,42 @@
+name: trace
+# The order the chain runs, for the Chain Decoder (2026-10-20): trace_chain.py on the example-report array GSE235717 GSM7508429 (IDAT route,
+# with its three same-run references), results to issue 32. Manual only.
+on: {workflow_dispatch: {}}
+permissions: {contents: read, issues: write}
+jobs:
+  trace:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: Biological_Physics}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - name: Fetch the four arrays and read the three references (as report_examples_v4.sh does)
+        run: |
+          mkdir -p arr out; RS=Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py
+          for g in GSM7508426 GSM7508427 GSM7508428 GSM7508429; do u="https://ftp.ncbi.nlm.nih.gov/geo/samples/${g:0:7}nnn/$g/suppl/"
+            for f in $(curl -s $u | grep -o "${g}_[^\"]*_\(Grn\|Red\)\.idat\.gz" | sort -u); do curl -s -o arr/$f $u$f; done; done; ls arr
+          for g in GSM7508426 GSM7508427 GSM7508428; do python3 $RS --grn $(ls arr/${g}_*Grn.idat.gz) --red $(ls arr/${g}_*Red.idat.gz) --specimen "whole blood" --id ${g}_pass1 --out out/${g}_pass1.html --ledger out/ledger.jsonl > out/${g}.log 2>&1; echo "$g $?"; done
+          python3 -c "
+          import json
+          rows=[(g,(json.load(open(f'out/{g}_pass1_bundle.json')).get('met_a') or {}).get('A'),(json.load(open(f'out/{g}_pass1_bundle.json')).get('met_a_cscore') or {}).get('C')) for g in ('GSM7508426','GSM7508427','GSM7508428')]
+          open('out/same_run_refs.csv','w').write('id,A,C\n'+''.join(f'{g},{a},{c}\n' for g,a,c in rows)); print(rows)"
+      - name: Trace
+        run: |
+          set +e
+          C=Biological_Physics/MethylPhys/chain; g=GSM7508429
+          python3 $C/trace_chain.py trace -- --grn $(ls arr/${g}_*Grn.idat.gz) --red $(ls arr/${g}_*Red.idat.gz) --specimen "whole blood" --id GSE235717_$g \
+            --ref-table out/same_run_refs.csv --out trace_report.html --ledger ledger.jsonl > trace.log 2>&1; echo $? > rc.txt; tail -5 trace.log; true
+      - name: Result to issue 32
+        if: always()
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          rd = lambda p: open(p).read() if os.path.exists(p) else "(missing)"
+          b = "trace run ${{ github.run_id }}, commit ${{ github.sha }}, exit " + rd("rc.txt").strip() + "\n\n```\n" + rd("trace.log")[-1500:] + "\n```\n\ncalls\n```\n" + rd("trace_calls.csv")[:30000] + "\n```\nfiles\n```\n" + rd("trace_files.csv")[:20000] + "\n```"
+          rq = urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/issues/32/comments", data=json.dumps({"body": b[:65000]}).encode(), headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"}, method="POST")
+          print(urllib.request.urlopen(rq).status)
+          PY

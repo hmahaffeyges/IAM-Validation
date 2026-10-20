@@ -7,7 +7,7 @@ ROOT="$(git rev-parse --show-toplevel)"; cd "$ROOT"
 python3 CANON/canon_check.py || { echo "checked_push.sh: CANON CHECK FAILED - push refused"; exit 1; }
 git fetch -q origin main
 python3 CANON/repro_check.py || { echo "checked_push.sh: REPRODUCIBILITY CHECK FAILED - push refused"; exit 1; }
-python3 CANON/status_check.py || { echo "checked_push.sh: STATUS CHECK FAILED - an old status is still printed somewhere - push refused"; exit 1; }
+python3 CANON/status_check.py || { echo "checked_push.sh: STATUS CHECK FAILED [failed: CANON/status_check.py; each finding is printed above with its check name in brackets] - push refused"; exit 1; }
 python3 CANON/book_toolbox.py --check || { echo "checked_push.sh: BOOK TOOLBOX CHECK FAILED - run python3 CANON/book_toolbox.py - push refused"; exit 1; }
 python3 CANON/chain_gate_controls.py > /dev/null || { echo "checked_push.sh: CHAIN GATE CONTROLS FAILED - CANON/chain_gate_controls.py (the gate's own planted cases) did not pass; its output is above - push refused"; exit 1; }
 python3 CANON/chain_gate.py check || { echo "checked_push.sh: CHAIN GATE FAILED - CANON/chain_gate.py: a logged test did not run through the chain (rule 23b); the file and rule are named above - push refused"; exit 1; }
