@@ -84,6 +84,15 @@ commissioned on [specimen]*. Evidence: the commissioning notes in [Biological_Ph
 
 ## The physics
 
+**And the middle mark, where healthy sits?**
+For Met-A it is measured: the median of healthy reference arrays run beside the sample. For IAM-A it comes from the sample itself. A cell's
+design holds part of its genome firmly and leaves a share L loosely held; the sample's own L sets its expected held error,
+ε_pred(L) = firm rate + slope × L, and that is the healthy 1 on its gauge. The form of that line comes from the physics of a design that
+holds firm only what it uses (the reasoning is in the [coffee and whiteboard session](whiteboard/2026-10-14_coffee_and_whiteboard.md)); its two
+constants were counted once on 56 healthy cell types and are frozen ([selfref_line_v1.json](chain/Runtime%20Matrices/IAM_A_SelfRef/selfref_line_v1.json)).
+An attempt to derive the firm rate from the copying enzyme's own error did not hold on the commissioned counter, so it stays measured. This is
+what lets each person be read against their own sample.
+
 **Where do the gauge's ends come from? Are they fitted?**
 They are derived, not fitted. The floor comes from Landauer's bound, k_B T ln 2 per bit, at body temperature, with the cell paying about one
 ATP per site to hold a mark (the Mahaffey number, M = 20.94). The saturation end is every identity site fully scrambled: 3.03 for Met-A, and

@@ -25,8 +25,10 @@ where a sample sits on that scale, in bits, and whether it has moved.
 - **What the cell actually spends.** Counting single DNA molecules in 56 healthy human cell types, the energy that holds a methyl mark
   is 3.08 k_B T, the same in every cell type to within its spread: about 0.147 of one ATP
   ([holding_energy_q2.json](doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json)). One energy, across every healthy cell type measured.
-- **The gauge.** From that energy, the healthy error rate follows, and so does the healthy reference height on the gauge. The floor and
-  the ceiling come from physics; only the middle mark, where healthy cells sit, is measured
+- **The gauge.** The floor and the ceiling come from physics. The middle mark, where a healthy sample sits, is where the instruments
+  differ. For Met-A it is measured on healthy reference samples. For IAM-A it is computed from the sample itself: a cell's design holds
+  part of its genome firmly and leaves a share L loosely held, so its expected error follows from its own L, on a line whose form comes
+  from that physics and whose two constants were counted once on 56 healthy cell types. No control group sets it
   ([the gauge chapter](https://hmahaffeyges.github.io/IAM-Validation/book/ch_gauge.html)).
 - **A prediction made before the data.** Cutting the supply of methyl groups should move the reading by a calculable amount. We wrote
   down the window, 1.016 to 1.135, before reading the mice. The mice read 1.1239, inside it
@@ -34,8 +36,9 @@ where a sample sits on that scale, in bits, and whether it has moved.
   prediction, checked.
 
 **Why this is different.** Most methylation measures are learned from data: a clock or a classifier is trained on cases and controls,
-and its scale means whatever the training set made it mean. IAM's scale comes from thermodynamics. Its ends are derived, so a reading
-means the same thing in any laboratory, for any cell type, before anyone has trained anything.
+and its scale means whatever the training set made it mean. IAM's scale comes from thermodynamics. Its ends are derived, and for IAM-A
+even the middle mark comes from the sample itself, so a reading means the same thing in any laboratory, for any cell type, before anyone
+has trained anything.
 
 ## 3. AstroGenetics: reading the genome with the tools of the sky
 
@@ -85,7 +88,8 @@ thousands of sites at once, so it sees far smaller changes, and it tells ordinar
 ### IAM-A: each person read against themselves
 
 IAM-A counts, on single DNA molecules from sequencing, how often a held mark has been lost where its neighbors kept theirs, and compares
-that with what the same sample's own loose share predicts on the healthy line. No control group enters the reading.
+that with what the same sample's own loose share predicts on the healthy line. Its middle mark, the healthy 1 on the gauge, is computed
+from the sample itself, so no control group enters the reading.
 **Commissioned** 2026-10-17. The self-reference line comes from 56 healthy cell types. On a sealed test with healthy CD8 T cells from a
 laboratory it had never seen, 7 of 8 read Normal (band 0.779 to 1.055). The one command a researcher runs reproduces the reading of
 a test sample exactly, 0.9083 ([commissioning note](doors/COMMISSIONING_NOTE_IAMA.md)).
@@ -171,7 +175,7 @@ laboratories, and the breast, colon and liver results ([reproduce](reproduce/REA
 
 | The usual approach | IAM |
 |---|---|
-| A scale learned from a training cohort | A scale from thermodynamics: the floor and the ceiling are derived |
+| A scale learned from a training cohort | A scale from thermodynamics: the floor and the ceiling are derived; IAM-A's healthy mark is computed from the sample itself |
 | A healthy baseline from a control group's average | IAM-A: the reference is inside the sample itself |
 | Batch effects corrected afterward | Each array calibrated on its own; the same-run tare cancels the batch |
 | Cell mix removed by statistics | Cell mix measured, with its uncertainty; samples it cannot trust are declined |
