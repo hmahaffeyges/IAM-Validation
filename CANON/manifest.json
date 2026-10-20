@@ -27555,7 +27555,7 @@
    "record": "development/LIMITS_STUDY_2026-10-17.md",
    "status": "running",
    "runs": [],
-   "next_step": "Audit complete 2026-10-19 (book check on a full clone: 4,639 checks, 0 failures; 0 stale checks). Next: the book's Zenodo record (to-do step 11).",
+   "next_step": "Audit complete 2026-10-19 (book check on a full clone: 4,644 checks, 0 failures; 0 stale checks; tab:bc_conv traced to its progress file). Next: the book's Zenodo record (to-do step 11).",
    "cost": "laptop",
    "impact": 5,
    "legacy_ids": [],

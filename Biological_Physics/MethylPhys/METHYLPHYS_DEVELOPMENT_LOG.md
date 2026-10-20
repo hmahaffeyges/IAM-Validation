@@ -2722,3 +2722,4 @@ Book check record on a full clone (job i-0e1f7fe83760ba763): 4,639 checks, 0 fai
 
 ### 2026-10-19 · Part 2 convergence table traced; the two baryon-chain files are not copies (OTH-072, OTH-078)
 Author: "those chains and code are in the cosmology files". Table tab:bc_conv is the sampler progress file Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress (the complete run, 22,400 rows, to 04:35); five book checks now read its R-1 values. The chapter called that folder "a copy" of mgcamb_validation/chains/, which is an earlier snapshot of the same run (21,366 rows, to 04:18) and the source of the chapter's densities; the sentence now says which file holds what. No number changed.
+Book check record on a full clone (job i-0cf07f080ccead64b): 4,644 checks, 0 failures.

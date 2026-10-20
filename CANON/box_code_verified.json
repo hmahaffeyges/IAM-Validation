@@ -2015,5 +2015,17 @@
    "results/BOOK_CHECK/3781976b/verify_book_output.txt": true
   },
   "state_at_verify": "done"
+ },
+ "i-0cf07f080ccead64b": {
+  "s3": {
+   "verify_book_full.sh": "7879d41de6d99e0aef10e2236640425f30f50a5563e049736d28ae3ebe9785a5"
+  },
+  "s3_inputs_sha": {},
+  "matches_repo": true,
+  "log_in_s3": true,
+  "outputs_in_s3": {
+   "results/BOOK_CHECK/68d148b6/verify_book_output.txt": true
+  },
+  "state_at_verify": "done"
  }
 }

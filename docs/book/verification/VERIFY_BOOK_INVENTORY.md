@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4639 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/front/p0_preface.tex`
@@ -2293,6 +2293,11 @@ Totals: 4639 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 69 | eq:bc_std | calc | `0.00014` | file `Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml`: other runs: Omega_b h^2 flat on [0.020, 0.025], start N(0.02242, 0.00014^2), from the four LambdaCDM YAML files | PASS |
 | 73 | ch:baryon_chain:L73 | calc | `0.030` | numeric: 18th-chain prior width | PASS |
 | 73 | ch:baryon_chain:L73:0.005 | calc | `0.005` | numeric: other runs' prior width | PASS |
+| 103 | ch:baryon_chain:bc_conv:17248 | measured | `0.012617` | file `Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress`: 18th chain: R-1 of the means at the test over the last 17248 samples | PASS |
+| 104 | ch:baryon_chain:bc_conv:17472 | measured | `0.011284` | file `Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress`: 18th chain: R-1 of the means at the test over the last 17472 samples | PASS |
+| 105 | ch:baryon_chain:bc_conv:17696 | measured | `0.009664` | file `Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress`: 18th chain: R-1 of the means at the test over the last 17696 samples | PASS |
+| 106 | ch:baryon_chain:bc_conv:17920 | measured | `0.009273` | file `Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress`: 18th chain: R-1 of the means at the test over the last 17920 samples | PASS |
+| 107 | ch:baryon_chain:bc_conv:bounds | measured | `0.063629` | file `Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress`: 18th chain: R-1 of the bounds at the last test | PASS |
 | 115 | eq:bc_ob | none | `0.022320` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain Omega_b h^2 and sd | PASS |
 | 117 | eq:bc_etares | measured | `6.113` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: eta = 2.739e-8 Omega_b h^2 from the 18th chain | PASS |
 | 118 | ch:baryon_chain:L118 | measured | `0.022319` | heavy file `docs/book/verification/sources/bl_MANIFEST.md`: the run record's Omega_b h^2 (30 % burn-in on the chain copy) | PASS |
