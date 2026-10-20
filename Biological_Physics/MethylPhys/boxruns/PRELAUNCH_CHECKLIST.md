@@ -7,6 +7,11 @@ comes from (`../LESSONS.md`).
 
 ## The checklist
 
+0. **GitHub first** (author, 2026-10-20: "We save AWS for the jobs that are to much for GitHub"). Before any AWS launch, say why the job cannot run
+   on GitHub's free machines (about 4 processors, 16 GB memory, 14 GB disk, 6 hours a job, about 20 jobs at once): more disk or memory than
+   that, more than 6 hours that cannot be split into shards, or inputs that live only in our S3. Array work (Met-A, the C-Score, Group-A, the
+   deconvolution, the release check) runs on GitHub; results post to an issue comment (branch creation is blocked by the repository ruleset).
+
 1. **The synthetic plants everything the real data holds** for this organism and substrate (the known facts below): unmethylated regions,
    every methylation context, the real length mix, sequencer error, conversion failure. It runs through the exact scoring path the real
    run will use, and passes, before launch. (T6, T15, C23)

@@ -2825,3 +2825,6 @@ The 91 purified arrays behind Stage A and the neutrophil reference stay in GEO (
 
 ### 2026-10-20 · The traced run for the Chain Decoder (OTH-072, step 25)
 chain/trace_chain.py runs run_sample.py unchanged with a profiler attached and records, in first-call order, every chain function called and every file opened; .github/workflows/trace.yml runs it on the example-report array GSE235717 GSM7508429 (raw files, its three same-run references), results to issue 32. The Decoder follows this order.
+
+### 2026-10-20 · GitHub first (author rule; OTH-076)
+Compute runs on GitHub's free machines by default; AWS only for jobs too big for them (disk, memory, unsplittable time) or with inputs only in S3. Item 0 of PRELAUNCH_CHECKLIST.md.
