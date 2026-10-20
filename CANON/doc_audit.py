@@ -16,7 +16,7 @@ for p in TREE: BASE.setdefault(os.path.basename(p), []).append(p)
 MP = "Biological_Physics/MethylPhys/"
 PATH = re.compile(r"(?<![\w/.-])((?:[\w.-]+/)*[\w.-]+\.(?:md|py|json|csv|tsv|tex|sh|parquet|txt|yml|pdf|html|ipynb))(?![\w/])")
 def resolve(p):
-    p = p.strip("./`*()[]")
+    p = p.strip("`*()[]"); p = p[2:] if p.startswith("./") else p; p = p.rstrip(".")   # 2026-10-20: keep a leading dot (.github/ ...)
     for c in (p, MP + p, MP + "doors/" + p, MP + "doors/data/" + p, "docs/book/" + p, MP + "chain/" + p, MP + "boxruns/" + p):
         if c in TREE: return c
     return None

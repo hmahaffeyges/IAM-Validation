@@ -8747,7 +8747,7 @@
     "DEV-GROUP-01 step 1",
     "tared blood spread (next_jobs M1-labeled job)"
    ],
-   "notes": "DEV_GROUP_01.md is internally inconsistent: the design paragraph says the healthy group should come from a laboratory that did not produce the cancer arrays; the rule written after the outcome says a comparison is admissible only when patients and healthy arrays were run in the SAME series. The later rule is the one TODO L7 and CANON/instruments.json carry. | 2026-10-20: commissioning plan written in DEV_GROUP_01.md (three bars: laboratory null, sex null, planted 1 % shift found; not sealed until the data is chosen); synthetic first done (groupa_synthetic_01_summary.txt); to-do step 20",
+   "notes": "DEV_GROUP_01.md is internally inconsistent: the design paragraph says the healthy group should come from a laboratory that did not produce the cancer arrays; the rule written after the outcome says a comparison is admissible only when patients and healthy arrays were run in the SAME series. The later rule is the one TODO L7 and CANON/instruments.json carry. | 2026-10-20: commissioning plan written in DEV_GROUP_01.md (three bars: laboratory null, sex null, planted 1 % shift found; not sealed until the data is chosen); synthetic first done (groupa_synthetic_01_summary.txt); to-do step 20 | 2026-10-20: data chosen (GSE318173 healthy controls, declared); read_groupa.py, score_groupa.py and .github/workflows/groupa.yml committed before reading; smoke test next, then seal",
    "runs": [],
    "id": "GRP-004",
    "sources_of_row": [

@@ -1,0 +1,57 @@
+name: groupa
+# Group-A commissioning on GitHub's free machines (2026-10-20, while the AWS account is suspended). Manual only.
+#   mode smoke: the reading script on the spent example-report array (GSE235717 GSM7508429); must reproduce its committed report.
+#   mode read:  the sealed reading of the 278 healthy controls of GSE318173 in 10 shards, then the sealed scorer, once.
+on:
+  workflow_dispatch:
+    inputs:
+      mode: {description: "smoke or read", required: true, default: "smoke"}
+env:
+  G: Biological_Physics/MethylPhys/doors/data/GROUPA_COMMISSIONING
+jobs:
+  smoke:
+    if: inputs.mode == 'smoke'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: Biological_Physics}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - run: python3 $G/read_groupa.py smoke out
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: smoke, path: out/smoke.json}
+  read:
+    if: inputs.mode == 'read'
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      matrix: {shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: Biological_Physics}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - run: python3 $G/read_groupa.py read $G/groupa_samples.csv out ${{ matrix.shard }} 10
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: "rows-${{ matrix.shard }}", path: "out/rows_*.csv"}
+  score:
+    if: inputs.mode == 'read'
+    needs: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: Biological_Physics}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - uses: actions/download-artifact@v4
+        with: {pattern: "rows-*", path: rows, merge-multiple: true}
+      - run: python3 $G/score_groupa.py rows
+      - uses: actions/upload-artifact@v4
+        with: {name: scored, path: "${{ env.G }}/scored_groupa_01*\n${{ env.G }}/groupa_rows_*.csv"}
