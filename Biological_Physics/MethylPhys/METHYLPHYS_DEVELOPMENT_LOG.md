@@ -2813,3 +2813,6 @@ Run 39503756018 at commit 8e376a40 (Stage 0 explanations and V9 included): every
 
 ### 2026-10-20 · Every block explained, downstream stops (OTH-078, step 24)
 When Met-A gives no number, the tare said only "no A" and the C-Score "no residual map". Both now carry Met-A's own reason with its measured count (e.g. "only 27 of 963 composition markers measured (>= 867 required)"); an untared reading says what the tare needs and how to give it; a zero neutrophil share prints the share. Text only, no reading changed. V9 now also builds a thin EPIC-sized array and fails unless Met-A, the tare and the C-Score each give a measured reason.
+
+### 2026-10-20 · Step 21 designed: every major blood cell read in whole blood (GRP-013)
+Each cell (monocytes, CD4 T, CD8 T, B, NK) gets the neutrophils' construction: identity sites by the same rule from the same 91 purified arrays (re-read from GEO on GitHub's machines), the same floor and spread construction, the same formula, a detection limit at the person's share, and the preliminary label. Synthetic first: a 1 % loss planted in one cell must move that cell's reading and not the others'. Built after the Group-A reading. Step 14 (the firm-rate recount) waits for AWS: its molecules are only in our S3, and re-aligning them needs about 30 GB of genome index, more than GitHub's 14 GB disk.

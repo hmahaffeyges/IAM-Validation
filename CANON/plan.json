@@ -370,7 +370,8 @@
    ],
    "status": "open",
    "done_date": "",
-   "record": ""
+   "record": "",
+   "design": "The instrument's job: in a healthy whole blood, each major cell the Deconvolver finds reads Normal on its own gauge, beside its share. Built exactly as the neutrophils' reading, one cell at a time (monocytes, CD4 T, CD8 T, B, NK): (1) identity sites by the rule that chose the neutrophils' 6,000, from the same 91 purified arrays (GSE110554, GSE167998; the chain's composition references), re-read from GEO raw files through Stage 1 on GitHub's machines; (2) floor and healthy spread by the same leave-one-out construction; (3) Met-A for cell c = H(beta at c's sites) / H(the mixture expectation there), the neutrophil formula, with the composition from Stage A; (4) each reading's detection limit at that person's share of c (small shares give wide limits, printed). Every new reading printed with 'This score is preliminary until Met-A is officially commissioned on <cell> in whole blood'. Synthetic first, through the chain: mixtures of purified profiles with a 1 % loss planted in one cell must move that cell's reading and not the others' (the test of reading the cells at the same time); release check V10; then the Group-A arrays re-read for every cell, reported."
   },
   {
    "task": "Documents updated for Group-A, every blood cell scored and the firm-rate result (author 2026-10-20: 'Lots of updating as the last thing'): the operations manual and SOP (their builders), the book (a Group-A chapter, whole-blood per-cell scoring, the firm-rate outcome either way), the web page and introduction (instrument cards, the comparison table, the tested results), the guidebook, the Q&A, the instrument catalogue and the commissioning report; generated documents changed at their sources; the number trace, documentation audit and stale-check scan must pass",
