@@ -84,3 +84,26 @@ comparisons must be measured in the same run, or the comparison is not worth mak
 **Why there is no planted test here.** This step compares readings the chain has already produced; there is no new reading to plant a known answer into. Its honesty rests on the bars having been committed before the comparison (`ba45a71d`), and on the script that performs it being committed before it ran.
 
 **Not a milestone:** a design and a method check; nothing sealed, no detection claim.
+
+## Commissioning plan for Group-A (2026-10-20; a plan, NOT sealed: the bars are sealed with the data choice, before any array is read)
+
+**The instrument's job:** two groups of healthy people read as no different after the tare, and a group shift planted into healthy arrays is found.
+This plan replaces the design paragraph above where they differ: a comparison is admissible only when the groups were run in the SAME series.
+
+**Synthetic first: done** (`data/DEV_GROUP_01/groupa_synthetic_01.py`, output `groupa_synthetic_01_summary.txt`). Groups drawn from the 58 real tared
+healthy readings of the sham arm, a planted loss applied through the chain's leverage (2.12 % per 1 %): healthy against healthy is flagged in about
+5 % of draws, as a two-standard-error test should be, and a planted loss of 0.95 % (20 per group), 0.70 % (35), 0.60 % (50) or 0.45 % (100) is
+found in at least 80 % of draws.
+
+**The three bars (to be sealed):**
+1. **Laboratory null.** Healthy whole bloods from a fresh set, never read, against healthy whole bloods from another laboratory, both tared within
+   their own series: difference under 2 % and under two standard errors (the sham's bar, now on unspent data).
+2. **Sex null.** Healthy women against healthy men within that one series, tared: difference under two standard errors. The pre-diagnosis reading
+   of 2026-10-01 was fooled by a sex and slide confound; this bar shows the tare removes it.
+3. **A planted shift is found.** A 1 % pattern loss planted in the betas of half the fresh healthy set, then read by the chain unchanged: the planted
+   half reads above the other half by more than two standard errors.
+
+**Data needed:** one healthy whole-blood EPIC v1 set on GEO with raw intensity files, sex recorded, several arrays per slide, and at least 35 people,
+not in `CANON/data_spent.csv`. Found by a metadata-only search, declared in `CANON/data_spent.csv` before any file is opened.
+**Computing:** the chain on about 70 arrays, one at a time; it runs on the laptop at low load or on the repository's free GitHub machines, not AWS.
+**Scope if commissioned:** whole blood, EPIC v1, groups compared within one laboratory series.

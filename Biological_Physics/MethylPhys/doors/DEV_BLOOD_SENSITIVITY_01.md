@@ -96,3 +96,24 @@ tighter reading (the tare, or a self-taring contrast) or the molecule-by-molecul
 **Synthetic test:** DEV_BLOOD_SENSITIVITY_01/blood_sensitivity_01.py, DEV_BLOOD_SENSITIVITY_01/blood_sensitivity_01_summary.txt
 
 **Not a milestone:** a measured property of the reading, with its detection limit not yet established.
+
+## Correction, 2026-10-20: part 2 did not read whole blood the way the chain does
+
+Part 2 (`blood_spread_01.py`) called the chain's composition and whole-blood stages directly and skipped Stage T step 1, self-tare II (probe-design
+mapping), which `conductor_v3.run_neutrophil` applies before reading whole blood. So its spread is not the chain's reading, and the sentence above that
+"a researcher pressing the button gets this" was wrong. The chain did read the same 23 healthy whole bloods, unchanged, in the C-score band test
+(`CSCORE_COMMISSIONING/band_test_GSE184269_rows.csv`); the two readings of the same arrays correlate at only 0.34. Recomputed from the chain's own
+reading by `blood_spread_02_chain.py` (output `blood_spread_02_chain_summary.txt`), arithmetic over committed chain outputs only:
+
+| | part 2 (withdrawn) | the chain's reading |
+|---|---|---|
+| spread between healthy people (relative SD) | 6.36 % | **2.01 %** |
+| 95th percentile above the median | +15.02 % | **+3.33 %** |
+| leverage per 1 % pattern loss | 2.09 % | **2.12 %** (chain v4, one healthy whole blood) |
+| loss that clears the healthy 95th percentile, one person | about 7.2 % | **about 1.57 %** |
+| mean loss that separates a group of 50 | 0.86 % | **about 0.27 %** |
+
+The leverage was right; the spread was not. Part 2's conclusion that one person cannot be read in whole blood is withdrawn: per-person detection in
+whole blood is OPEN, to be decided by a sealed test across laboratories. These remain development numbers on arrays already spent (one laboratory,
+one leverage array; no bar, no verdict).
+

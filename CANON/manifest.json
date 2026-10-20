@@ -809,7 +809,7 @@
     "M1",
     "L7"
    ],
-   "notes": "next_jobs job 'measure the TARED spread' carries todo M1. The group-instrument side (DEV-GROUP-01) and the candidate-instrument entry belong to other section groups; listed here because M1 and the whole-blood commissioning scope depend on it.",
+   "notes": "next_jobs job 'measure the TARED spread' carries todo M1. The group-instrument side (DEV-GROUP-01) and the candidate-instrument entry belong to other section groups; listed here because M1 and the whole-blood commissioning scope depend on it. | 2026-10-20 CORRECTION: the 6.36 % spread (and the ~7.2 % and 0.86 % limits from it) came from a script that skipped the chain's self-tare step; the chain's own reading of the same 23 arrays has relative SD 2.01 %, so one person needs about a 1.57 % loss and groups of 50 about 0.27 % (DEV_BLOOD_SENSITIVITY_01/blood_spread_02_chain_summary.txt)",
    "depends_on": [],
    "id": "COM-METAA-020",
    "sources_of_row": [
@@ -5505,7 +5505,7 @@
    "legacy_ids": [
     "next_jobs:M1"
    ],
-   "notes": "next_jobs.json job tagged M1 ('measure the TARED spread...'); TODO M1 itself is 'Whole blood back into scope (bar 7)' with GSE167202/GSE127824, carried by the Met-A section. Road-ahead item 7 (day log 10-13).",
+   "notes": "next_jobs.json job tagged M1 ('measure the TARED spread...'); TODO M1 itself is 'Whole blood back into scope (bar 7)' with GSE167202/GSE127824, carried by the Met-A section. Road-ahead item 7 (day log 10-13). | 2026-10-20 CORRECTION: the 6.36 % spread (and the ~7.2 % and 0.86 % limits from it) came from a script that skipped the chain's self-tare step; the chain's own reading of the same 23 arrays has relative SD 2.01 %, so one person needs about a 1.57 % loss and groups of 50 about 0.27 % (DEV_BLOOD_SENSITIVITY_01/blood_spread_02_chain_summary.txt)",
    "runs": [],
    "id": "CAN-011",
    "sources_of_row": [
@@ -5822,7 +5822,7 @@
    "cost": "laptop",
    "impact": 4,
    "record": "Biological_Physics/MethylPhys/doors/DEV_BLOOD_SENSITIVITY_01.md",
-   "notes": "Pasted candidate 3 and L7 'per-person is out; group comparisons work within one series'; 'Blood on arrays is a real group instrument today. With 50 people per side, a mean loss under 1% separates'. These arrays were spent as the C-score test, so this was development use. repo: Biological_Physics/MethylPhys/doors/DEV_BLOOD_SENSITIVITY_01.md.",
+   "notes": "Pasted candidate 3 and L7 'per-person is out; group comparisons work within one series'; 'Blood on arrays is a real group instrument today. With 50 people per side, a mean loss under 1% separates'. These arrays were spent as the C-score test, so this was development use. repo: Biological_Physics/MethylPhys/doors/DEV_BLOOD_SENSITIVITY_01.md. | 2026-10-20 CORRECTION: the 6.36 % spread (and the ~7.2 % and 0.86 % limits from it) came from a script that skipped the chain's self-tare step; the chain's own reading of the same 23 arrays has relative SD 2.01 %, so one person needs about a 1.57 % loss and groups of 50 about 0.27 % (DEV_BLOOD_SENSITIVITY_01/blood_spread_02_chain_summary.txt)",
    "legacy_ids": [
     "L7",
     "M1"
@@ -5847,7 +5847,7 @@
    "cost": "search",
    "impact": 4,
    "record": "Biological_Physics/MethylPhys/doors/DEV_BLOOD_SENSITIVITY_01.md",
-   "notes": "Pasted item 6: 'The tared blood spread - free, needs a healthy set with several arrays per slide'. next_jobs lists it under todo M1. | possible duplicate of CAN-011",
+   "notes": "Pasted item 6: 'The tared blood spread - free, needs a healthy set with several arrays per slide'. next_jobs lists it under todo M1. | possible duplicate of CAN-011 | 2026-10-20 CORRECTION: the 6.36 % spread (and the ~7.2 % and 0.86 % limits from it) came from a script that skipped the chain's self-tare step; the chain's own reading of the same 23 arrays has relative SD 2.01 %, so one person needs about a 1.57 % loss and groups of 50 about 0.27 % (DEV_BLOOD_SENSITIVITY_01/blood_spread_02_chain_summary.txt)",
    "legacy_ids": [
     "M1",
     "L7"
@@ -7479,7 +7479,7 @@
    "legacy_ids": [
     "L7"
    ],
-   "notes": "Readings are untared (one array per slide). Use of the spent GSE184269 was declared development use in advance.",
+   "notes": "Readings are untared (one array per slide). Use of the spent GSE184269 was declared development use in advance. | 2026-10-20 CORRECTION: the 6.36 % spread (and the ~7.2 % and 0.86 % limits from it) came from a script that skipped the chain's self-tare step; the chain's own reading of the same 23 arrays has relative SD 2.01 %, so one person needs about a 1.57 % loss and groups of 50 about 0.27 % (DEV_BLOOD_SENSITIVITY_01/blood_spread_02_chain_summary.txt)",
    "depends_on": [],
    "id": "PHY-001",
    "sources_of_row": [
@@ -8688,7 +8688,7 @@
    "impact": 3,
    "legacy_ids": [],
    "depends_on": [],
-   "notes": "Overlaps candidate instrument 3 (BLOOD-METAA-LIMIT) and the Met-A whole-blood track, which may be listed in another section. Readings untared (one array per slide). Ceiling flag recorded on all 23, none past.",
+   "notes": "Overlaps candidate instrument 3 (BLOOD-METAA-LIMIT) and the Met-A whole-blood track, which may be listed in another section. Readings untared (one array per slide). Ceiling flag recorded on all 23, none past. | 2026-10-20 CORRECTION: the 6.36 % spread (and the ~7.2 % and 0.86 % limits from it) came from a script that skipped the chain's self-tare step; the chain's own reading of the same 23 arrays has relative SD 2.01 %, so one person needs about a 1.57 % loss and groups of 50 about 0.27 % (DEV_BLOOD_SENSITIVITY_01/blood_spread_02_chain_summary.txt)",
    "id": "GRP-002",
    "sources_of_row": [
     "Tissue and theory"
@@ -8737,7 +8737,7 @@
    "data_status": "to_scout",
    "record": "Biological_Physics/MethylPhys/doors/DEV_GROUP_01.md",
    "status": "planned",
-   "next_step": "Search for cancer cohorts with same-series healthy controls (TODO L7, S); design and seal one cancer at a time.",
+   "next_step": "To-do step 20: metadata search for one unspent healthy whole-blood EPIC v1 set (sex recorded, several arrays per slide, >= 35 people); seal the bars; read once without AWS.",
    "cost": "search",
    "impact": 3,
    "legacy_ids": [
@@ -8747,7 +8747,7 @@
     "DEV-GROUP-01 step 1",
     "tared blood spread (next_jobs M1-labeled job)"
    ],
-   "notes": "DEV_GROUP_01.md is internally inconsistent: the design paragraph says the healthy group should come from a laboratory that did not produce the cancer arrays; the rule written after the outcome says a comparison is admissible only when patients and healthy arrays were run in the SAME series. The later rule is the one TODO L7 and CANON/instruments.json carry.",
+   "notes": "DEV_GROUP_01.md is internally inconsistent: the design paragraph says the healthy group should come from a laboratory that did not produce the cancer arrays; the rule written after the outcome says a comparison is admissible only when patients and healthy arrays were run in the SAME series. The later rule is the one TODO L7 and CANON/instruments.json carry. | 2026-10-20: commissioning plan written in DEV_GROUP_01.md (three bars: laboratory null, sex null, planted 1 % shift found; not sealed until the data is chosen); synthetic first done (groupa_synthetic_01_summary.txt); to-do step 20",
    "runs": [],
    "id": "GRP-004",
    "sources_of_row": [
@@ -13249,7 +13249,7 @@
    "cost": "none",
    "impact": 4,
    "depends_on": [],
-   "notes": "Gold-mine map use: atlas build. Independent of atlas groups: yes. Read per the development log/notes but not listed in CANON/data_spent.csv: a register gap the author should close.",
+   "notes": "Gold-mine map use: atlas build. Independent of atlas groups: yes. Read per the development log/notes but not listed in CANON/data_spent.csv: a register gap the author should close. | 2026-10-20 CORRECTION: the 6.36 % spread (and the ~7.2 % and 0.86 % limits from it) came from a script that skipped the chain's self-tare step; the chain's own reading of the same 23 arrays has relative SD 2.01 %, so one person needs about a 1.57 % loss and groups of 50 about 0.27 % (DEV_BLOOD_SENSITIVITY_01/blood_spread_02_chain_summary.txt)",
    "legacy_ids": [
     "AT4"
    ],
@@ -20447,7 +20447,7 @@
    "legacy_ids": [
     "M1"
    ],
-   "notes": "The Master Inventory next-jobs table lists this job under to-do M1 (CANON/next_jobs.json \"later\", Track B). GSE184269 is spent (read 2026-10-13) and is not yet in CANON/data_spent.csv. The healthy whole bloods in hand were spent as the C-score band held-out test, so they cannot serve.",
+   "notes": "The Master Inventory next-jobs table lists this job under to-do M1 (CANON/next_jobs.json \"later\", Track B). GSE184269 is spent (read 2026-10-13) and is not yet in CANON/data_spent.csv. The healthy whole bloods in hand were spent as the C-score band held-out test, so they cannot serve. | 2026-10-20 CORRECTION: the 6.36 % spread (and the ~7.2 % and 0.86 % limits from it) came from a script that skipped the chain's self-tare step; the chain's own reading of the same 23 arrays has relative SD 2.01 %, so one person needs about a 1.57 % loss and groups of 50 about 0.27 % (DEV_BLOOD_SENSITIVITY_01/blood_spread_02_chain_summary.txt)",
    "depends_on": [],
    "cost": "search",
    "id": "SCO-013",

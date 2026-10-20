@@ -1,0 +1,6 @@
+Group-A synthetic: 58 real tared healthy readings (relative SD 2.20 %), leverage 2.12 % per 1 % loss, 4000 draws per point
+
+n  20 per group: healthy vs healthy flagged 5.3 % of draws | smallest planted loss found in >= 80 % of draws: 0.95 %
+n  35 per group: healthy vs healthy flagged 5.8 % of draws | smallest planted loss found in >= 80 % of draws: 0.70 %
+n  50 per group: healthy vs healthy flagged 5.0 % of draws | smallest planted loss found in >= 80 % of draws: 0.60 %
+n 100 per group: healthy vs healthy flagged 4.7 % of draws | smallest planted loss found in >= 80 % of draws: 0.45 %

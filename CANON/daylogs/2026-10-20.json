@@ -1,0 +1,71 @@
+{
+ "date": "2026-10-20",
+ "title": "The researcher package on the front page; where every input lives; Group-A planned",
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "set_out": "Make the web page the researcher package, state IAM-A's healthy mark as it is everywhere, record where every input lives outside our cloud account, and plan Group-A's commissioning while AWS is unavailable.",
+ "open_at_turnover": "In progress: Group-A's data search and sealed bars (to-do step 20); the Zenodo records for the book and the package, the eraser recount and the AWS-side steps wait for the account.",
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Group-A, synthetic first",
+     "status": "synthetic only",
+     "what": "Groups drawn from 58 real tared healthy whole-blood readings: healthy against healthy is flagged in about 5 % of draws, and a planted loss of 0.70 % is found in at least 80 % of draws with 35 people per group.",
+     "why": "The group instrument has to stay quiet on healthy groups and see a small shift before any real data is opened.",
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_GROUP_01/groupa_synthetic_01_summary.txt"
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": [
+    {
+     "title": "The chain's whole-blood spread is 2.01 %, not 6.36 %",
+     "what": "An earlier development script skipped the chain's self-tare step; read by the chain itself, healthy whole bloods differ by 2.01 %, so one person needs about a 1.57 % loss to clear the healthy range. Per-person reading in whole blood is open again.",
+     "why": "The earlier figure had closed a question the chain itself had not answered.",
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_BLOOD_SENSITIVITY_01/blood_spread_02_chain_summary.txt",
+     "status": "development"
+    }
+   ]
+  },
+  {
+   "kind": "changed",
+   "heading": "What changed in the plan",
+   "entries": [
+    {
+     "title": "The front page is the researcher package",
+     "what": "The page opens with the introduction, the nine results rebuilt from public data with their commands, the clone of the biology folder and the Zenodo records, under the header The Physics of Methylation.",
+     "why": "A researcher should be able to start from the web address alone.",
+     "record": "Biological_Physics/MethylPhys/INTRODUCTION.md",
+     "status": "audit"
+    },
+    {
+     "title": "IAM-A's healthy mark stated as it is",
+     "what": "The introduction, the Q&A, the page and the book's gauge, bridge and IAM-A chapters now say the floor and ceiling are derived and IAM-A's healthy mark is computed from the sample itself.",
+     "why": "IAM-A needs no control group, and the documents now say so.",
+     "record": "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md",
+     "status": "audit"
+    },
+    {
+     "title": "Where every input lives",
+     "what": "DATA_HOMES.md lists every chain input, every reproduction input with its public archive, and what the cloud bucket holds; the push is refused if any chain or test code reads the bucket.",
+     "why": "Nothing a researcher needs may depend on one cloud account.",
+     "record": "Biological_Physics/MethylPhys/DATA_HOMES.md",
+     "status": "audit"
+    },
+    {
+     "title": "The cloud canon check passes again",
+     "what": "The old-value guards had matched digits inside the cosmology sampler output; they now match whole numbers only, and the push gate scans the whole committed tree.",
+     "why": "A partial checkout had let the check fail on GitHub unnoticed.",
+     "record": "CANON/canon_tree.py",
+     "status": "audit"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+DEV-BLOOD-SENSITIVITY-01 part 2, corrected: the spread of the CHAIN's whole-blood reading between real healthy people
+
+arrays 23 (GSE184269 whole blood, read by conductor_v3.run_neutrophil in the C-score band test)
+median 0.9731 | relative SD 2.01 % | 95th percentile +3.33 % above the median
+part 2 (blood_spread_01, Stage T step 1 skipped) gave relative SD 6.36 % on the same arrays; correlation of the two readings 0.34
+
+leverage, chain v4 (GSE235717 GSM7508429, healthy whole blood, neutrophil share 0.5106): 2.12 % of the reading per 1 % pattern loss
+  (part 2's leverage, median over its 23 arrays: 2.04 %; the two agree)
+
+one person: a loss of about 1.57 % clears the healthy 95th percentile
+a group of  20: two standard errors is 0.90 % of the median, so a mean loss of about 0.42 % separates that group from healthy
+a group of  50: two standard errors is 0.57 % of the median, so a mean loss of about 0.27 % separates that group from healthy
+a group of 100: two standard errors is 0.40 % of the median, so a mean loss of about 0.19 % separates that group from healthy
+
+Development numbers on arrays already spent (no bar, no verdict): one laboratory, one leverage array. They replace part 2's limits;
+part 2's conclusion that one person cannot be read in whole blood is withdrawn and the question is OPEN (a sealed per-person test decides it).

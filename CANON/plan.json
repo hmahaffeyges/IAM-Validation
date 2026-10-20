@@ -349,6 +349,17 @@
    "status": "open",
    "done_date": "",
    "record": ""
+  },
+  {
+   "task": "Commission Group-A (whole blood, EPIC v1, groups within one series): synthetic first done 2026-10-20; next: a metadata search for one unspent healthy whole-blood set (sex recorded, several arrays per slide, 35 or more people), declared before opening; seal the three bars in DEV_GROUP_01.md (laboratory null, sex null, planted 1 % shift found); read once by the chain without AWS",
+   "done_when": "the three bars scored once; Group-A commissioned or the shortfall recorded",
+   "rows": [
+    "GRP-004",
+    "GRP-003"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
   }
  ],
  "scheduled": [
