@@ -2792,3 +2792,6 @@ Run 39491507753: the smoke test and all ten reading machines succeeded; the scor
 
 ### 2026-10-20 · To-do step 21: every major blood cell scored in whole blood (GRP-013)
 Author: each cell the Deconvolver finds in whole blood should get its share and its own score, since what the cells do together (T cells falling while neutrophils rise) may carry the signature; uncommissioned cells are read and labeled preliminary, as in the example reports. Built after the sealed Group-A reading, so the chain that seal names is not changed mid-test.
+
+### 2026-10-20 · To-do step 22: the documentation pass, last (OTH-072)
+Author: after Group-A, every blood cell scored and the firm-rate result, update the operations manual, SOP, book, web page, guidebook, Q&A, catalogue and commissioning report, generated documents at their sources, with the push checks passing.

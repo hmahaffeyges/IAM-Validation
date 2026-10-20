@@ -371,6 +371,20 @@
    "status": "open",
    "done_date": "",
    "record": ""
+  },
+  {
+   "task": "Documents updated for Group-A, every blood cell scored and the firm-rate result (author 2026-10-20: 'Lots of updating as the last thing'): the operations manual and SOP (their builders), the book (a Group-A chapter, whole-blood per-cell scoring, the firm-rate outcome either way), the web page and introduction (instrument cards, the comparison table, the tested results), the guidebook, the Q&A, the instrument catalogue and the commissioning report; generated documents changed at their sources; the number trace, documentation audit and stale-check scan must pass",
+   "done_when": "every listed document describes the three results as recorded; all push checks pass; the site and book build",
+   "rows": [
+    "GRP-004",
+    "GRP-013",
+    "PHY-006",
+    "OTH-072",
+    "OTH-075"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
   }
  ],
  "scheduled": [
