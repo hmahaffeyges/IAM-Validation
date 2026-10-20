@@ -6,15 +6,37 @@ name: groupa
 on:
   workflow_dispatch:
     inputs:
-      mode: {description: "smoke, rehearsal or read", required: true, default: "smoke"}
-permissions: {contents: write}
+      mode: {description: "smoke, rehearsal, diag or read", required: true, default: "smoke"}
+permissions: {contents: read, issues: write}
 env:
   G: Biological_Physics/MethylPhys/doors/data/GROUPA_COMMISSIONING
   SAMPLES: ${{ inputs.mode == 'read' && 'groupa_samples.csv' || 'rehearsal_samples.csv' }}
   NAME: ${{ inputs.mode == 'read' && 'scored_groupa_01' || 'rehearsal_groupa' }}
   BRANCH: ${{ inputs.mode == 'read' && 'groupa-results' || 'groupa-rehearsal' }}
 jobs:
+  diag:
+    if: inputs.mode == 'diag'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: Biological_Physics}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - run: python3 $G/diag_ctrl.py $G/rehearsal_samples.csv diag_ctrl.csv 2>&1 | grep -v -i warning | tee diag.log
+      - name: Results to issue 31
+        if: always()
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: |
+          python3 - <<'EOF'
+          import json, os, urllib.request
+          b = "diag run ${{ github.run_id }}, commit ${{ github.sha }}\n\n```\n" + open("diag_ctrl.csv").read()[:60000] + "\n```"
+          rq = urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/issues/31/comments", data=json.dumps({"body": b}).encode(), headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"}, method="POST")
+          print(urllib.request.urlopen(rq).status)
+          EOF
   smoke:
+    if: inputs.mode != 'diag'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -64,15 +86,23 @@ jobs:
         run: |
           set +e
           python3 $G/score_groupa.py rows $SAMPLES $NAME > score.log 2>&1; echo $? > score_rc.txt; tail -40 score.log; true
-      - name: Results to the results branch over git (the record; main is updated by hand through the push gate)
+      - name: Results to issue 31 (the record; artifact storage is not relied on, and main is updated by hand through the push gate)
         if: always()
         env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
         run: |
           set +e
-          mkdir -p /tmp/res && cp -r rows smoke score.log score_rc.txt /tmp/res/ 2>/dev/null; cp $G/${NAME}* /tmp/res/ 2>/dev/null; true
-          cd /tmp/res && echo "run ${{ github.run_id }} at commit ${{ github.sha }}, mode ${{ inputs.mode }}" > RUN.txt
-          git init -q && git config user.name "groupa workflow" && git config user.email "actions@users.noreply.github.com"
-          git add -A && git commit -qm "Group-A ${{ inputs.mode }}, run ${{ github.run_id }}, commit ${{ github.sha }}"
-          set -e; git push -qf "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" HEAD:refs/heads/$BRANCH
+          mkdir -p /tmp/res && cp -r rows smoke score.log score_rc.txt /tmp/res/ 2>/dev/null; cp $G/${NAME}* /tmp/res/ 2>/dev/null
+          cd /tmp/res && tar czf /tmp/res.tgz . && B=$(base64 -w0 /tmp/res.tgz)
+          python3 - "$B" <<'EOF'
+          import json, os, sys, urllib.request
+          b = sys.argv[1]; head = f"run ${{ github.run_id }}, commit ${{ github.sha }}, mode ${{ inputs.mode }}, scorer exit {open('/tmp/res/score_rc.txt').read().strip() if os.path.exists('/tmp/res/score_rc.txt') else 'none'}"
+          tail = open("/tmp/res/score.log").read()[-1500:] if os.path.exists("/tmp/res/score.log") else ""
+          parts = [b[k:k + 60000] for k in range(0, len(b), 60000)] or [""]
+          for n, p in enumerate(parts, 1):
+              body = f"{head}\n\n```\n{tail}\n```\n\npart {n} of {len(parts)}, base64 tar.gz:\n\n```\n{p}\n```" if n == 1 else f"{head}\n\npart {n} of {len(parts)}, base64 tar.gz:\n\n```\n{p}\n```"
+              rq = urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/issues/31/comments", data=json.dumps({"body": body}).encode(),
+                  headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"}, method="POST")
+              print(urllib.request.urlopen(rq).status)
+          EOF
       - name: Fail the run if scoring failed
         run: test "$(cat score_rc.txt)" = "0"
