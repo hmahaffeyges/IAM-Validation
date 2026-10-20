@@ -2828,3 +2828,6 @@ chain/trace_chain.py runs run_sample.py unchanged with a profiler attached and r
 
 ### 2026-10-20 · GitHub first (author rule; OTH-076)
 Compute runs on GitHub's free machines by default; AWS only for jobs too big for them (disk, memory, unsplittable time) or with inputs only in S3. Item 0 of PRELAUNCH_CHECKLIST.md.
+
+### 2026-10-20 · The chain traced (OTH-072, step 25)
+GitHub run 39512708986: run_sample.py on GSM7508429 called 220 chain functions (2,309 calls) in 15 files and opened 89 files, now in chain/trace/. Order of first entry: run_sample, Stage 0 (intake, QC handoff), Stage 1, conductor (A, M, MC, T), Met-A, the report modules, development readings, stage_v4, the Deconvolver, IAM-A self-reference, the atlas commission table, the PDFs. Found: the chain reads one runtime input from a test record folder (doors/data/DEV_ATLAS_V21_01/transfer_v21_final.json); to move under chain/Runtime Matrices with its provenance (step 25).

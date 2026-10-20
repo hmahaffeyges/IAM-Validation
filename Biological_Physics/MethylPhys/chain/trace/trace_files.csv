@@ -1,0 +1,90 @@
+order,file,mode
+1,Biological_Physics/MethylPhys/chain/Runtime Matrices/Intake/intake_thresholds_v1.json,r
+2,arr/GSM7508429_207241010046_R02C01_Grn.idat.gz,rb
+3,arr/GSM7508429_207241010046_R02C01_Red.idat.gz,rb
+4,/usr/share/zoneinfo/UTC,rb
+5,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/methylprep/models/qualityMask450.txt.gz,rb
+6,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/methylprep/models/qualityMaskEPIC.txt.gz,rb
+7,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/methylprep/models/qualityMaskEPICPLUS.txt.gz,rb
+8,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/methylprep/models/qualityMaskmouse.txt.gz,rb
+9,/home/runner/.methylprep_manifest_files/HumanMethylationEPIC_manifest_v2.csv.gz,rb
+10,/tmp/cpg_stage1_ievuehey/207241010046_R01C01_Grn.idat,wb
+11,/tmp/cpg_stage1_ievuehey/207241010046_R01C01_Red.idat,wb
+12,/tmp/cpg_stage1_ievuehey/samplesheet.csv,w
+13,/tmp/cpg_stage1_ievuehey/207241010046/207241010046_R01C01_processed.csv,w
+14,/tmp/cpg_stage1_ievuehey/beta_values.pkl,wb
+15,/tmp/cpg_stage1_ievuehey/noob_meth_values.pkl,wb
+16,/tmp/cpg_stage1_ievuehey/noob_unmeth_values.pkl,wb
+17,/tmp/cpg_stage1_ievuehey/_temp_data_1.pkl,wb
+18,/tmp/cpg_stage1_ievuehey/sample_sheet_meta_data.pkl,wb
+19,/tmp/cpg_stage1_ievuehey/control_probes.pkl,wb
+20,Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json,r
+21,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/matplotlibrc,r
+22,/home/runner/.cache/matplotlib/fontlist-v390.json,r
+23,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/seaborn-v0_8-poster.mplstyle,r
+24,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/seaborn-v0_8-deep.mplstyle,r
+25,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/_mpl-gallery-nogrid.mplstyle,r
+26,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/ggplot.mplstyle,r
+27,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/seaborn-v0_8-pastel.mplstyle,r
+28,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/fivethirtyeight.mplstyle,r
+29,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/seaborn-v0_8-ticks.mplstyle,r
+30,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/tableau-colorblind10.mplstyle,r
+31,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/seaborn-v0_8-talk.mplstyle,r
+32,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/seaborn-v0_8-dark.mplstyle,r
+33,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/seaborn-v0_8-dark-palette.mplstyle,r
+34,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/seaborn-v0_8-notebook.mplstyle,r
+35,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/seaborn-v0_8-colorblind.mplstyle,r
+36,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/seaborn-v0_8-bright.mplstyle,r
+37,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/seaborn-v0_8-paper.mplstyle,r
+38,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/seaborn-v0_8-darkgrid.mplstyle,r
+39,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/seaborn-v0_8.mplstyle,r
+40,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/fast.mplstyle,r
+41,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/seaborn-v0_8-white.mplstyle,r
+42,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/seaborn-v0_8-muted.mplstyle,r
+43,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/bmh.mplstyle,r
+44,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/_mpl-gallery.mplstyle,r
+45,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/_classic_test_patch.mplstyle,r
+46,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/Solarize_Light2.mplstyle,r
+47,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/grayscale.mplstyle,r
+48,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/dark_background.mplstyle,r
+49,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/seaborn-v0_8-whitegrid.mplstyle,r
+50,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/stylelib/classic.mplstyle,r
+51,out/same_run_refs.csv,r
+52,Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json,r
+53,Biological_Physics/MethylPhys/chain/Runtime Matrices/Development/dev_selftare_typeII_EPIC_v1.json,r
+54,Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json,r
+55,Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json,r
+56,Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json,r
+57,Biological_Physics/MethylPhys/atlas/v2.1/sites.parquet,rb
+58,Biological_Physics/MethylPhys/atlas/v2.1/mu_part1.parquet,rb
+59,Biological_Physics/MethylPhys/atlas/v2.1/mu_part2.parquet,rb
+60,Biological_Physics/MethylPhys/atlas/v2.1/mu_part3.parquet,rb
+61,Biological_Physics/MethylPhys/atlas/v2.1/mu_lo_part1.parquet,rb
+62,Biological_Physics/MethylPhys/atlas/v2.1/mu_lo_part2.parquet,rb
+63,Biological_Physics/MethylPhys/atlas/v2.1/mu_lo_part3.parquet,rb
+64,Biological_Physics/MethylPhys/atlas/v2.1/mu_hi_part1.parquet,rb
+65,Biological_Physics/MethylPhys/atlas/v2.1/mu_hi_part2.parquet,rb
+66,Biological_Physics/MethylPhys/atlas/v2.1/mu_hi_part3.parquet,rb
+67,Biological_Physics/MethylPhys/atlas/v2.1/donor_sd_part1.parquet,rb
+68,Biological_Physics/MethylPhys/atlas/v2.1/donor_sd_part2.parquet,rb
+69,Biological_Physics/MethylPhys/atlas/v2.1/donor_sd_part3.parquet,rb
+70,Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_v21_final.json,r
+71,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf,rb
+72,trace_report_cscore_sky.png,w+b
+73,trace_report_atlas_sky.png,w+b
+74,trace_report_changes_sky.png,w+b
+75,ledger.jsonl,r
+76,Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv,rb
+77,Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json,rb
+78,Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/hg19_cpg_chrom_ranges.json,rb
+79,Biological_Physics/MethylPhys/chain/Runtime Matrices/Gauge/cell_gauge_marks_v1.json,r
+80,trace_report_v3record.tmp.html,w
+81,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf,rb
+82,trace_report_gauge_met_a.png,w+b
+83,trace_report_gauge_cscore.png,w+b
+84,trace_report.html,w
+85,/home/runner/.reportlab_settings,rb
+86,/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Oblique.ttf,rb
+87,trace_report_researcher.pdf,wb
+88,trace_report_plain.pdf,wb
+89,trace_report_bundle.json,w
