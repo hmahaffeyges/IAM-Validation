@@ -196,7 +196,7 @@ def physics_rows(o):
                      "617 healthy arrays from 19 studies and held in two laboratories that had no part in setting it. The sky below shows the same departures."))
     return rows
 
-SKY_CAP = "Grey is where this sample matches healthy neutrophils from IAM-Atlas v2.1 (the shade is the healthy cell's own tagging). Color marks only the sites that differ from healthy by more than 2 of this sample's own spread: red where its pattern is more disordered than healthy (marks lost), blue where it is more ordered. Every site keeps one place on a HEALPix sphere, set by its position in the genome, so a few scattered colored points are ordinary, and colored patches are changes that run along the genome, which is what the C-Score measures. A picture of the reading; nothing is scored from it."
+SKY_CAP = "Gray is where this sample matches healthy neutrophils from IAM-Atlas v2.1 (the shade is the healthy cell's own tagging). Color marks only the sites that differ from healthy by more than 2 of this sample's own spread: red where its pattern is more disordered than healthy (marks lost), blue where it is more ordered. Every site keeps one place on a HEALPix sphere, set by its position in the genome, so a few scattered colored points are ordinary, and colored patches are changes that run along the genome, which is what the C-Score measures. A picture of the reading; nothing is scored from it."
 def _skypair(o):   # the overlay replaces the side-by-side pair (author 2026-10-18: "quieten the matches and showcase the changes")
     c, a = o.get("changes_sky") or {}, o.get("atlas_sky") or {}
     if not c.get("drawn"): return ""

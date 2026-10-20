@@ -101,7 +101,7 @@ def atlas_sky_png(out, ids, cell, atlas_dir, nest_pix2ang, title=""):
 
 def changes_sky_png(out, z, cell, atlas_dir, nest_pix2ang, readings="", thr=2.0, title=""):
     """The sample laid over its healthy reference (author 2026-10-18: overlay the two, quiet the matches, show the changes). Same sites, same
-    order, same pixels as the C-Score sky. Background: the healthy cell from IAM-Atlas v2.1 in greys (darker = more tagged). Color only where
+    order, same pixels as the C-Score sky. Background: the healthy cell from IAM-Atlas v2.1 in grays (darker = more tagged). Color only where
     the sample's pattern (entropy per site, the Met-A departure) differs from healthy by more than `thr` of its own spread (the C-Score's departures, scaled as on the C-Score sky). Scattered
     single colored pixels are ordinary; colored patches are changes that run along the genome, which is what the C-Score measures."""
     import pyarrow.parquet as pq, pandas as pd
@@ -125,7 +125,7 @@ def changes_sky_png(out, z, cell, atlas_dir, nest_pix2ang, readings="", thr=2.0,
     lon = np.pi * X / (2 * np.cos(np.where(inside, t, 0)))
     q = np.c_[(np.cos(lat) * np.cos(-lon)).ravel(), (np.cos(lat) * np.sin(-lon)).ravel(), np.sin(lat).ravel()]
     idx = cKDTree(xyz).query(q)[1].reshape(X.shape); di, hi = D[idx], H[idx]
-    g = np.where(np.isfinite(hi), 0.95 - 0.30 * np.nan_to_num(hi), 0.97)          # healthy backdrop: light greys
+    g = np.where(np.isfinite(hi), 0.95 - 0.30 * np.nan_to_num(hi), 0.97)          # healthy backdrop: light grays
     rgb = np.dstack([g, g, g]); cm = plt.get_cmap("RdBu_r"); ch = np.isfinite(di) & (np.abs(di) > thr) & inside
     col = cm(np.clip((di + 4) / 8, 0, 1))[..., :3]; rgb[ch] = col[ch]; rgb[~inside] = 1.0
     fig, ax = plt.subplots(figsize=(7.2, 4.3)); fig.patch.set_facecolor("white")
@@ -134,7 +134,7 @@ def changes_sky_png(out, z, cell, atlas_dir, nest_pix2ang, readings="", thr=2.0,
     ax.set_xlim(-2.02, 2.02); ax.set_ylim(-1.02, 1.02); ax.set_aspect("equal"); ax.set_axis_off()
     ax.set_title(title or "What changed: this sample laid over healthy " + cell, loc="left", fontsize=9.5)
     nch = int((np.isfinite(D) & (np.abs(D) > thr)).sum()); nd = int(np.isfinite(D).sum())
-    ax.legend(handles=[Patch(color="#c8c8c8", label="matches healthy (grey shade: the healthy cell's tagging)"),
+    ax.legend(handles=[Patch(color="#c8c8c8", label="matches healthy (gray shade: the healthy cell's tagging)"),
                        Patch(color=cm(0.92), label=f"more disorder than healthy: pattern lost (beyond +{thr:g} of its own spread)"),
                        Patch(color=cm(0.08), label=f"more order than healthy (beyond \u2212{thr:g})")],
               loc="upper center", bbox_to_anchor=(0.5, -0.02), ncol=1, fontsize=7.2, frameon=False)

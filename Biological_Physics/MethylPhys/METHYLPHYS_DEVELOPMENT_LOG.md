@@ -2747,3 +2747,6 @@ Author: a researcher should get everything from the web address alone. The front
 
 ### 2026-10-20 · Cloud canon check fixed; the gate scans the whole tree (OTH-072)
 The canon check on GitHub had failed on every push since 2026-10-19 20:34 UTC (24 pushes). The old-value guards added that day (0.1628, 0.0212) matched digits inside the 18th chain's raw sampler output, Cosmological_Physics/mgcamb_validation/iam_baryon_test.1.txt, a folder this partial checkout does not hold, so the local gate passed. Number patterns now match only a whole number, the sampler output is listed as a record file, and CANON/canon_tree.py runs the canon rules over the whole committed tree in the push gate. Nothing in the book or the page was affected.
+
+### 2026-10-20 · Report text in American spelling (OTH-071)
+The sky caption, its legend and the plain report said "grey"; now "gray" in report_figs_v4.py, report_pdf_v4.py, report_v4.py and stage_v4.py (text and comments only, no computation). The clean-clone check runs when AWS is back; the committed example reports keep their printed text until then.

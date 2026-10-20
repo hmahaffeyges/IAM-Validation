@@ -93,7 +93,7 @@ def build_pdfs(o, F, out, sid, when):
     c = o.get("changes_sky") or {}
     if c.get("drawn") and c.get("png") and os.path.exists(c["png"]):
         st += [KeepTogether([P("The sample on the sphere", "h2"), _img(c["png"], 5.6),
-                             P("Each point is one place in the genome. Grey means the same as a healthy cell. Color means different: a few scattered "
+                             P("Each point is one place in the genome. Gray means the same as a healthy cell. Color means different: a few scattered "
                                "colored points are ordinary; colored patches mean the changes are bunched together along the genome.")])]
     res["plain"] = doc(base + "_plain.pdf", st)
     return res

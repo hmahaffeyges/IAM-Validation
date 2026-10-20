@@ -98,7 +98,7 @@ def cscore_sky(z, out_png, title="", vlim=3.0, readings=""):
     from matplotlib.patches import Ellipse
     from scipy.spatial import cKDTree
     # Drawn in the style of the sky figures on the public page and in the book (2026-10-18; reference_floors_v1/sky/make_sky_figs.py):
-    # Mollweide, RdBu_r from -4 to +4 (departures in units of the sample's own spread), no smoothing, nearest-pixel fill, unmeasured sky grey, a thin outline, the
+    # Mollweide, RdBu_r from -4 to +4 (departures in units of the sample's own spread), no smoothing, nearest-pixel fill, unmeasured sky gray, a thin outline, the
     # readings printed under the map. The pixel layout (NSIDE, NESTED, genome order) is unchanged.
     th, ph = nest_pix2ang(nside, np.arange(npix)); xyz = np.c_[np.sin(th) * np.cos(ph), np.sin(th) * np.sin(ph), np.cos(th)]
     xs, ys = 1600, 800; X, Y = np.meshgrid((np.arange(xs) + 0.5) / xs * 4 - 2, (np.arange(ys) + 0.5) / ys * 2 - 1)
