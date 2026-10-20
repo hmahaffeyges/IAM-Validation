@@ -92,15 +92,17 @@
    "id": "groupa",
    "name": "Group-A",
    "question": "Has a whole group moved (a trial arm, an exposure, a cohort)?",
-   "how": "Single blood readings are too noisy for one person on arrays, but a group average is not. Group-A compares groups run in the same series, so a laboratory's own habits cancel out.",
+   "how": "Single blood readings are too noisy for one person on arrays, but a group average is not. Group-A reads each person with the one command, tares each reading against healthy arrays run the same way, and compares the groups. On 278 healthy people from a laboratory it had never read, women and men came out 0.36 % apart, and a 1 % loss planted into half of them was found at 7.253 standard errors.",
    "reads": "arrays",
    "rows": [
     "GRP-004"
    ],
    "next": "One cancer at a time, patients and healthy controls from the same series.",
-   "book_chapter": null,
+   "book_chapter": "ch:groupa",
    "specialty": "Groups: whether a whole cohort, trial arm or exposure has moved, read as one, with patients and healthy comparisons run in the same laboratory series.",
-   "record": "Biological_Physics/MethylPhys/doors/DEV_GROUP_01.md"
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_GROUPA.md",
+   "commissioned": "groups of whole bloods run in one series, EPIC v1, 2026-10-20",
+   "chain": "Biological_Physics/MethylPhys/chain/stage_groupa.py"
   }
  ],
  "support_tools": [

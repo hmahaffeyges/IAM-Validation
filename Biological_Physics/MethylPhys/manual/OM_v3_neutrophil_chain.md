@@ -59,6 +59,7 @@ Manual: `python manual/build_manual_v3.py` rebuilds the PDF.
 | Development stages | only with a development flag: one row per flagged stage, labelled DEVELOPMENT - not commissioned |
 | Withheld | what the build does not print, and why |
 | Stage 12b difference map | only with `--prior-betas`/`--prior-bundle`: per-address difference to an earlier draw of the same person, or the refusal naming what differs (identifier hash, array type, pipeline) |
+| Stage G Group-A | groups, not one person: `chain/stage_groupa.py collect` makes one row per person from the run_sample.py bundles; `compare` tares each reading against same-run healthy references (>= 3 on the slide, else the series) and compares the two groups' tared means (Welch t). **COMMISSIONED 2026-10-20 on groups of whole bloods run in one series**: |t| >= 2 is a group that moved; the smallest findable difference (2 x SE) and the tare scope are printed; other specimens labeled preliminary |
 | Red flags | STOP / WITHHELD / CAUTION / NOTE, from the bundle; also written to the bundle as `red_flags` |
 | Safeguards | rendered-claim scan (no disease, cohort or population words in the prose), formula self-test, anchors (Normal band, floor, C baseline, N_max read from the frozen files), deconvolver conformance, atlas separability (NOT_RUN until stage 3 is wired) |
 | Troubleshooting, Integrity, Chain file inventory, Run it yourself | what to do for each condition on this specimen; IDAT hashes and chain commit; every frozen input and module with its hash; the exact command |

@@ -431,6 +431,72 @@
      "pattern": "\"IAM-A\", \"running \\(development\\)\""
     }
    ]
+  },
+  {
+   "register_id": "COMMISSIONING-GROUPA",
+   "name": "Group-A, groups of whole bloods in one series, EPIC v1",
+   "date": "2026-10-20",
+   "status_line": "| **Group-A, groups of whole bloods** | **COMMISSIONED 2026-10-20** ([note](doors/COMMISSIONING_NOTE_GROUPA.md)) | two groups within one series, each person tared against same-run healthy references; sealed test on 278 healthy controls: women and men -0.36 %, a planted 1 % loss found at 7.253 SE |",
+   "summary": "Group-A on groups of whole bloods run in one series, EPIC v1",
+   "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_GROUPA.md",
+   "places": [
+    {
+     "kind": "note",
+     "file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_GROUPA.md",
+     "pattern": "\\*\\*Status: COMMISSIONED 2026-10-20\\*\\* for comparing two groups of whole bloods"
+    },
+    {
+     "kind": "chain",
+     "file": "Biological_Physics/MethylPhys/chain/stage_groupa.py",
+     "pattern": "GROUPA_COMMISSIONING = \\{\"status\": \"COMMISSIONED\", \"date\": \"2026-10-20\""
+    },
+    {
+     "kind": "report",
+     "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v3.py",
+     "pattern": "\"G\", \"Group-A\", \"COMMISSIONED 2026-10-20 for groups of whole bloods"
+    },
+    {
+     "kind": "sop",
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
+     "pattern": "Group-A on groups of whole bloods in one series, EPIC v1, commissioned 2026-10-20"
+    },
+    {
+     "kind": "sop_full",
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
+     "pattern": "Group-A \\(arrays; COMMISSIONED 2026-10-20 on groups of whole bloods"
+    },
+    {
+     "kind": "om",
+     "file": "Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md",
+     "pattern": "Stage G Group-A \\|[^\\n]*COMMISSIONED 2026-10-20 on groups of whole bloods"
+    },
+    {
+     "kind": "status",
+     "file": "Biological_Physics/MethylPhys/STATUS.md",
+     "pattern": "\\*\\*Group-A, groups of whole bloods\\*\\* \\| \\*\\*COMMISSIONED 2026-10-20"
+    },
+    {
+     "kind": "book",
+     "file": "docs/book/part6/p6_09b_groupa.tex",
+     "pattern": "\\\\textbf\\{Group-A is commissioned on groups of whole bloods run in one series\\}"
+    },
+    {
+     "kind": "book_status",
+     "file": "docs/book/part6/p6_24_status.tex",
+     "pattern": "Group-A \\(groups of whole bloods in one series\\): commissioned 2026-10-20"
+    },
+    {
+     "kind": "catalogue",
+     "file": "CANON/catalogue.json",
+     "pattern": "\"commissioned\": \"groups of whole bloods run in one series, EPIC v1, 2026-10-20\""
+    },
+    {
+     "kind": "readme",
+     "file": "Biological_Physics/README.md",
+     "pattern": "Group-A on groups of whole bloods run in one series"
+    }
+   ],
+   "forbid": []
   }
  ]
 }

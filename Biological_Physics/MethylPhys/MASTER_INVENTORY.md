@@ -9,7 +9,7 @@ Candidates found by search are metadata only and their counts are provisional un
 - data sets: 479; in S3: 89; chain-readable in S3 (IDAT): 39
 - public, not downloaded: 187
 - read before (spent or partly spent): 203
-- by test status: scored 11, sealed 0, not suitable 4, designed 0, candidate 0
+- by test status: scored 12, sealed 0, not suitable 4, designed 0, candidate 0
 - by use (gold-mine map): atlas build 28, held-out test 35, truth set 2, research 17, not usable 87
 
 ## What is next
@@ -30,6 +30,7 @@ Every test, open and done, with the data each one needs: the Master Testing Mani
 | GSE237553 | scored | DEV_LINK_IAMA_METAA_02 | no |  |
 | GSE237662 | scored | DEV_LINK_IAMA_METAA_02 | no |  |
 | GSE237665 | scored | DEV_LINK_IAMA_METAA_02 | no |  |
+| GSE318173 | scored | DEV_GROUPA_COMMISSION_01 | no |  |
 | GSE77079 | scored | DEV_SAM_LEVER_01 | no |  |
 | GSE86833 | scored | DEV_FINGERPRINT_01 | no |  |
 | GSE94785 | scored | DEV_TISSUE_LUNG_01 | no |  |

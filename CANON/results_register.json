@@ -469,6 +469,25 @@
     "sub": "Healthy CD8 T cells from a laboratory it never saw, on a rule sealed before the data was downloaded."
    },
    "title": "IAM-A commissioned: each sample read against its own reference"
+  },
+  {
+   "id": "COMMISSIONING-GROUPA",
+   "date": "2026-10-20",
+   "kind": "commissioning",
+   "instrument": "Group-A",
+   "status": "commissioned",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_GROUPA.md",
+   "headline": "**Group-A commissioned** for groups of whole bloods run in one series: on 278 healthy people from a laboratory it had never read, women and men 0.36 % apart, and a planted 1 % loss found at 7.253 standard errors",
+   "covers": [],
+   "plain": "One blood sample cannot show a 1 % change, but a group can. Group-A reads each person with the same command as every report, centers each reading on healthy people run the same way, and compares the groups. On 278 healthy people from a laboratory we had never read, women and men came out the same, and a 1 % loss planted into half of them was found at more than seven times the noise. It ran on free public computers, from a rule written before any of the data was opened.",
+   "win": {
+    "rank": 1,
+    "stat": "Commissioned",
+    "head": "Group-A is commissioned: reading whole groups of people",
+    "sub": "On 278 healthy people from a new laboratory, a 1 % change planted into half of them was found at more than seven times the noise."
+   },
+   "title": "Group-A commissioned for groups of whole bloods"
   }
  ],
  "losses": [

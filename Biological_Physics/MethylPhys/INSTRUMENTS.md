@@ -110,13 +110,13 @@ Counts tagging mistakes one DNA molecule at a time, the most direct reading of i
 
 **The question:** Has a whole group moved (a trial arm, an exposure, a cohort)?
 
-Single blood readings are too noisy for one person on arrays, but a group average is not. Group-A compares groups run in the same series, so a laboratory's own habits cancel out.
+Single blood readings are too noisy for one person on arrays, but a group average is not. Group-A reads each person with the one command, tares each reading against healthy arrays run the same way, and compares the groups. On 278 healthy people from a laboratory it had never read, women and men came out 0.36 % apart, and a 1 % loss planted into half of them was found at 7.253 standard errors.
 
-**Reads:** arrays. **Where it stands:** in development.
+**Reads:** arrays. **Where it stands:** commissioned (groups of whole bloods run in one series, EPIC v1, 2026-10-20).
 
-- GRP-004 DEV-GROUP-01 step 2: group comparison, one cancer at a time, patients and healthy controls in the same series: planned
+- GRP-004 DEV-GROUP-01 step 2: group comparison, one cancer at a time, patients and healthy controls in the same series: run
 
-**Record:** [DEV_GROUP_01.md](doors/DEV_GROUP_01.md)
+**Record:** [COMMISSIONING_NOTE_GROUPA.md](doors/COMMISSIONING_NOTE_GROUPA.md)
 
 **Next:** One cancer at a time, patients and healthy controls from the same series.
 

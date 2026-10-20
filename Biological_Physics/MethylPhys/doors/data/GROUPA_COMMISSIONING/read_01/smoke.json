@@ -1,0 +1,32 @@
+{
+ "got": {
+  "A": 0.9845,
+  "f_neu": 0.5106,
+  "shift_1pct": 0.02089,
+  "N": 0.17179,
+  "C": 0.9686,
+  "withheld": "",
+  "share_neutrophils": 0.4656,
+  "share_monocytes": 0.0627,
+  "share_b_cells": 0.0565,
+  "share_cd4_t_cells": 0.233,
+  "share_cd8_t_cells": 0.1016,
+  "share_nk_cells": 0.0807
+ },
+ "want": {
+  "A": 0.9845,
+  "f_neu": 0.5106,
+  "shift_1pct": 0.02089,
+  "N": 0.17179,
+  "C": 0.9686,
+  "withheld": "",
+  "share_neutrophils": 0.4656,
+  "share_monocytes": 0.0627,
+  "share_b_cells": 0.0565,
+  "share_cd4_t_cells": 0.233,
+  "share_cd8_t_cells": 0.1016,
+  "share_nk_cells": 0.0807
+ },
+ "differs": {},
+ "error": ""
+}

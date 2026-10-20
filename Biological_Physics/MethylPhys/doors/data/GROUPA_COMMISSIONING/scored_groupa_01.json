@@ -1,0 +1,240 @@
+{
+ "sealed": "2026-10-20T21:44:13Z",
+ "read_on": "GSE318173, the 278 healthy controls in groupa_samples.csv (Parkinson's cases and the processed-values file not opened)",
+ "B1": {
+  "n_read": 263,
+  "admitted_by_stage0": 278,
+  "of": 278,
+  "quarantined": {
+   "n": 0,
+   "gsm": [],
+   "by_slide": {},
+   "reasons": []
+  },
+  "met": true
+ },
+ "B2": {
+  "n1": 75,
+  "n2": 188,
+  "mean1": 0.99698,
+  "mean2": 1.00059,
+  "difference": -0.00361,
+  "rel_difference": -0.00362,
+  "se": 0.003,
+  "t": -1.206,
+  "met": true
+ },
+ "B3": {
+  "n1": 136,
+  "n2": 127,
+  "mean1": 1.01883,
+  "mean2": 0.99868,
+  "difference": 0.02015,
+  "rel_difference": 0.01997,
+  "se": 0.00278,
+  "t": 7.253,
+  "met": true
+ },
+ "all_met": true,
+ "reported": {
+  "untared_set_means": {
+   "one series": 1.0013
+  },
+  "tared_set_means": {
+   "one series": 0.9996
+  },
+  "untared_by_sex": {
+   "n1": 75,
+   "n2": 188,
+   "mean1": 0.99836,
+   "mean2": 1.00247,
+   "difference": -0.0041,
+   "rel_difference": -0.0041,
+   "se": 0.00288,
+   "t": -1.425
+  },
+  "untared_slide_spread": 0.016,
+  "tared_slide_spread": 0.01283,
+  "untared_plate_means": {
+   "WG6998309-MSA4": 1.0014,
+   "WG6998310-MSA4": 0.9978,
+   "WG6998383-MSA4": 1.0039,
+   "WG6998384-MSA4": 1.0001,
+   "WG6998530-MSA4": 1.0081,
+   "WG7000114-MSA4": 0.9953,
+   "WG7000115-MSA4": 0.9957
+  },
+  "tared_plate_means": {
+   "WG6998309-MSA4": 0.9997,
+   "WG6998310-MSA4": 0.9989,
+   "WG6998383-MSA4": 1.0028,
+   "WG6998384-MSA4": 1.0011,
+   "WG6998530-MSA4": 1.0001,
+   "WG7000114-MSA4": 0.9943,
+   "WG7000115-MSA4": 0.9947
+  },
+  "ref_scope": {
+   "slide": 176,
+   "series": 87
+  },
+  "healthy_relative_sd_tared": 0.02225,
+  "cscore_above_band": 4,
+  "cscore_read": 263,
+  "cscore_planted_scattered": {
+   "what": "the planted 1 % loss is scattered; the C-Score flags clustered loss only, so the planted half should stay under its upper limit 1.152",
+   "planted_above_band": 0,
+   "planted_read": 136,
+   "unplanted_above_band": 1,
+   "unplanted_read": 127,
+   "C_rel_planted_vs_unplanted": {
+    "n1": 136,
+    "n2": 127,
+    "mean1": 1.00681,
+    "mean2": 0.99553,
+    "difference": 0.01127,
+    "rel_difference": 0.01126,
+    "se": 0.00743,
+    "t": 1.516
+   }
+  },
+  "atlas_shares_by_sex": {
+   "share_neutrophils": {
+    "n1": 80,
+    "n2": 198,
+    "mean1": 0.42849,
+    "mean2": 0.43281,
+    "difference": -0.00432,
+    "rel_difference": -0.01,
+    "se": 0.02182,
+    "t": -0.198
+   },
+   "share_monocytes": {
+    "n1": 80,
+    "n2": 198,
+    "mean1": 0.11719,
+    "mean2": 0.1349,
+    "difference": -0.01771,
+    "rel_difference": -0.13642,
+    "se": 0.00564,
+    "t": -3.141
+   },
+   "share_b_cells": {
+    "n1": 80,
+    "n2": 198,
+    "mean1": 0.0577,
+    "mean2": 0.05716,
+    "difference": 0.00054,
+    "rel_difference": 0.00939,
+    "se": 0.00229,
+    "t": 0.235
+   },
+   "share_cd4_t_cells": {
+    "n1": 80,
+    "n2": 198,
+    "mean1": 0.20597,
+    "mean2": 0.18194,
+    "difference": 0.02402,
+    "rel_difference": 0.12721,
+    "se": 0.00932,
+    "t": 2.578
+   },
+   "share_cd8_t_cells": {
+    "n1": 80,
+    "n2": 198,
+    "mean1": 0.11582,
+    "mean2": 0.1095,
+    "difference": 0.00632,
+    "rel_difference": 0.0568,
+    "se": 0.00739,
+    "t": 0.855
+   },
+   "share_nk_cells": {
+    "n1": 80,
+    "n2": 198,
+    "mean1": 0.07483,
+    "mean2": 0.08369,
+    "difference": -0.00886,
+    "rel_difference": -0.10925,
+    "se": 0.00354,
+    "t": -2.503
+   }
+  },
+  "withheld": [
+   [
+    "GSM9488285",
+    "only 5345 of 6000 neutrophil sites measured (>= 5400 required): A withheld",
+    "nan"
+   ],
+   [
+    "GSM9488122",
+    "only 5362 of 6000 neutrophil sites measured (>= 5400 required): A withheld",
+    "nan"
+   ],
+   [
+    "GSM9488094",
+    "only 5391 of 6000 neutrophil sites measured (>= 5400 required): A withheld",
+    "nan"
+   ],
+   [
+    "GSM9488173",
+    "only 5370 of 6000 neutrophil sites measured (>= 5400 required): A withheld",
+    "nan"
+   ],
+   [
+    "GSM9488306",
+    "only 4976 of 6000 neutrophil sites measured (>= 5400 required): A withheld",
+    "nan"
+   ],
+   [
+    "GSM9488290",
+    "only 5394 of 6000 neutrophil sites measured (>= 5400 required): A withheld",
+    "nan"
+   ],
+   [
+    "GSM9488137",
+    "only 4712 of 6000 neutrophil sites measured (>= 5400 required): A withheld",
+    "nan"
+   ],
+   [
+    "GSM9488293",
+    "only 5353 of 6000 neutrophil sites measured (>= 5400 required): A withheld",
+    "nan"
+   ],
+   [
+    "GSM9488267",
+    "only 5317 of 6000 neutrophil sites measured (>= 5400 required): A withheld",
+    "nan"
+   ],
+   [
+    "GSM9488298",
+    "only 4893 of 6000 neutrophil sites measured (>= 5400 required): A withheld",
+    "nan"
+   ],
+   [
+    "GSM9488283",
+    "only 5276 of 6000 neutrophil sites measured (>= 5400 required): A withheld",
+    "nan"
+   ],
+   [
+    "GSM9488384",
+    "only 5337 of 6000 neutrophil sites measured (>= 5400 required): A withheld",
+    "nan"
+   ],
+   [
+    "GSM9488394",
+    "only 5350 of 6000 neutrophil sites measured (>= 5400 required): A withheld",
+    "nan"
+   ],
+   [
+    "GSM9488337",
+    "only 5083 of 6000 neutrophil sites measured (>= 5400 required): A withheld",
+    "nan"
+   ],
+   [
+    "GSM9487965",
+    "only 5325 of 6000 neutrophil sites measured (>= 5400 required): A withheld",
+    "nan"
+   ]
+  ]
+ }
+}

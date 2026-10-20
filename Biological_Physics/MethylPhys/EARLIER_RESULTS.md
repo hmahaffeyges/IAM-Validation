@@ -4,6 +4,14 @@
 commissioned chain (CANON/chain_front.json). These results came before it: most were development tests, read before the chain that now
 runs every sample existed. Each keeps its record; none is withdrawn.*
 
+## Group-A is commissioned: reading whole groups of people
+
+**2026-10-20** · commissioned · Commissioned
+
+On 278 healthy people from a new laboratory, a 1 % change planted into half of them was found at more than seven times the noise.
+
+Record: [COMMISSIONING_NOTE_GROUPA.md](doors/COMMISSIONING_NOTE_GROUPA.md)
+
 ## Every healthy cell follows the same simple rule
 
 **2026-10-15** · commissioned, early result (data already read) · 53 of 56 on one line

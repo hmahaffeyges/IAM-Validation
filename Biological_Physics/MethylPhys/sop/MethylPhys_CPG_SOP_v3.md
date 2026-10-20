@@ -112,6 +112,9 @@ Commissioning record (stage, check, result, wired): `STATUS.md` (section 8, comm
   tare of the C-score (>= 3 healthy references on the slide, else the series). Every report prints C_rel, the one-sided call (above 1.152:
   clustered departure) and the detection limit (C_rel 1.5 at 5 % of sites clustered). Isolated-neutrophil C-scores, IAM-A and every other
   stage remain development.
+- **Group-A on groups of whole bloods in one series, EPIC v1, commissioned 2026-10-20** (`doors/COMMISSIONING_NOTE_GROUPA.md`): each person
+  read by run_sample.py, tared against same-run healthy references (>= 3 on the slide, else the series), the two groups' tared means compared
+  (`chain/stage_groupa.py compare`); |t| >= 2 is a group that moved, and the smallest difference the design could find is printed.
 
 ### Reproducibility rule (2026-10-09)
 Every number in the book, a note in `doors/`, STATUS or the development log must be reproducible from this repository alone:

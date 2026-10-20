@@ -10,6 +10,7 @@ Master Testing Manifest; do not edit by hand. Commissioned means a use is allowe
 | **IAM-Atlas v2.1** | **COMMISSIONED 2026-10-16** ([note](doors/COMMISSIONING_NOTE_ATLAS_V21.md)) | 79 cell types; met all three sealed bars against both published reference atlases on 731 held-out arrays (markers, mixtures, cells a reference lacks); cell profiles confirmed on held-out cortical neurons, lung bronchus epithelium and naive CD4 T cells; blind sites of the colon and lung tissue tests |
 | **IAM-Deconvolver (atlas v2.1)** | **COMMISSIONED 2026-10-17** ([note](doors/COMMISSIONING_NOTE_DECONV_V21.md)) | blood-cell shares on arrays, tested on mixtures of neutrophils, monocytes, CD4 T and CD8 T cells from a laboratory the atlas never saw: mean share error 0.016 |
 | **IAM-A, own reference** | **COMMISSIONED 2026-10-17** ([note](doors/COMMISSIONING_NOTE_IAMA.md)) | each sample against its own loose share, on a self-reference line from 56 healthy cell types; sealed test on healthy blood CD8 T cells, whole-genome bisulfite: 7 of 8 read Normal |
+| **Group-A, groups of whole bloods** | **COMMISSIONED 2026-10-20** ([note](doors/COMMISSIONING_NOTE_GROUPA.md)) | two groups within one series, each person tared against same-run healthy references; sealed test on 278 healthy controls: women and men -0.36 %, a planted 1 % loss found at 7.253 SE |
 
 ## Met-A, isolated neutrophils, EPIC v1 (2026-10-09)
 
@@ -93,8 +94,26 @@ Results it rests on: Every healthy cell follows the same simple rule (2026-10-15
 
 Note: [COMMISSIONING_NOTE_IAMA.md](doors/COMMISSIONING_NOTE_IAMA.md)
 
+## Group-A, groups of whole bloods in one series, EPIC v1 (2026-10-20)
+
+**Group-A commissioned** for groups of whole bloods run in one series: on 278 healthy people from a laboratory it had never read, women and men 0.36 % apart, and a planted 1 % loss found at 7.253 standard errors
+
+One blood sample cannot show a 1 % change, but a group can. Group-A reads each person with the same command as every report, centers each reading on healthy people run the same way, and compares the groups. On 278 healthy people from a laboratory we had never read, women and men came out the same, and a 1 % loss planted into half of them was found at more than seven times the noise. It ran on free public computers, from a rule written before any of the data was opened.
+
+**What it has passed.** (GSE318173, the 278 healthy controls of a study run in one laboratory that no IAM instrument had read before; scored once):
+
+| bar | sealed | result |
+|---|---|---|
+| 1. the arrays are read | Stage 0 admits at least half; at least 90 % of those read | Stage 0 admitted 278 of 278; **263 read** (15 withheld for coverage, each with its reason) - met |
+| 2. two healthy groups read the same (women, men) | difference under 2 % and under 2 standard errors | women 0.99698 (n 75), men 1.00059 (n 188): **-0.36 %, -1.206 SE** - met |
+| 3. a planted 1 % loss of the neutrophils' pattern is found | planted half above unplanted by more than 2 standard errors | planted 1.01883 (n 136), unplanted 0.99868 (n 127): **+2.00 %, 7.253 SE** - met |
+
+**What it would take to go further.** Patients and healthy controls run in the same series, one cancer at a time, under a rule sealed
+before the arrays are read (GRP-004's next step); other specimens and platforms each need their own sealed test.
+
+Note: [COMMISSIONING_NOTE_GROUPA.md](doors/COMMISSIONING_NOTE_GROUPA.md)
+
 ## Not yet commissioned
 
 | Instrument | Where it stands | Next |
 |---|---|---|
-| **Group-A** | in development | One cancer at a time, patients and healthy controls from the same series. |

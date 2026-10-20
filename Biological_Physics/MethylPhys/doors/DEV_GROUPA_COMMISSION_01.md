@@ -6,6 +6,8 @@
 slide, else same series; the C-score band test's tare, checked word for word), then two groups compared by the difference of their means against
 two standard errors (Welch). Scope if commissioned: whole blood, EPIC v1, groups compared within one laboratory series.
 
+**Test data:** GSE318173 (the 278 healthy controls in GROUPA_COMMISSIONING/groupa_samples.csv), read once by this test and spent by it (CANON/data_spent.csv); line added after scoring, 2026-10-20, naming the set the seal already named
+
 **Synthetic test:** GROUPA_COMMISSIONING/read_groupa.py, GROUPA_COMMISSIONING/rehearsal_groupa_summary.txt
 
 **Dress rehearsal (the synthetic test, through the chain):** the same workflow, read_groupa.py, run_sample.py and score_groupa.py on the spent

@@ -1,0 +1,55 @@
+\chapter{Group-A: has a whole group moved?}\label{ch:groupa}
+
+\section{One person, and a group}
+
+In whole blood, healthy people differ from one another by about 2\,\% after the tare (Chapter~\ref{ch:meta}). A 1\,\% loss of the
+neutrophils' pattern moves one person's reading by about 2\,\%, which sits inside that spread: one person cannot be called on it. A group can.
+The standard error of a group's mean falls as the square root of its size, so a hundred people read a shift ten times smaller than one person
+can. Group-A reads that: whether a trial arm, an exposure or a cohort has moved as a whole.
+
+\section{How it reads}
+
+Each person is read by the one command, unchanged: Stage~0, Stage~1, the composition, Met-A against the person's own expected reading.
+Each reading is then tared against healthy arrays run the same way, on the same slide when the slide holds at least three, else in the same
+series:
+\begin{equation}
+  A_{\rm rel}=\frac{A}{\mathrm{median}(A_{\rm ref})}.
+  \label{eq:groupa_tare}
+\end{equation}
+The two groups' tared means are compared,
+\begin{equation}
+  t=\frac{\bar A_{\rm rel,1}-\bar A_{\rm rel,2}}{\sqrt{s_1^2/n_1+s_2^2/n_2}},
+  \label{eq:groupa_t}
+\end{equation}
+and a group that moved is one with $|t|\ge 2$. Nothing is fitted: no model is trained on either group, and the reading of each person is
+the same reading the report prints. The groups must be run in the same series, because across laboratories the untared readings differ by
+several percent while the tare only removes what is shared by one run. \measured{}
+
+\section{The commissioning test}
+
+The rule was sealed before any array was opened: two healthy groups (women and men) read the same after the tare, under 2\,\% and under
+2 standard errors apart, and a 1\,\% loss planted by the chain's own rule into half of the healthy arrays is found at more than 2 standard
+errors. The data were the 278 healthy controls of a study run in one laboratory no IAM instrument had read before (GSE318173), read on
+GitHub's machines and scored once.
+
+\begin{center}
+\begin{tabular}{lll}
+\hline
+bar & result & \\
+\hline
+arrays read & 263 of 278 (15 withheld for coverage) & met \\
+women against men & $-0.36$\,\%, $-1.206$ standard errors & met \\
+planted 1\,\% loss & $+2.00$\,\%, $7.253$ standard errors & met \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Group-A is commissioned on groups of whole bloods run in one series} (EPIC v1, 2026-10-20). The healthy spread after the tare in
+this new laboratory was 2.2\,\%, the same as before. The planted loss is scattered, and the clustering meter (Chapter~\ref{ch:cscore}) did
+not call it: on each planted array Met-A moved by up to 0.036 and the C-score by at most 0.006. The cell mixes of women and men differ, and
+Met-A still read the two groups the same, because each person's expected reading follows that person's own mix. Record:
+\texttt{doors/COMMISSIONING\_NOTE\_GROUPA.md}.
+
+\section{What comes next}
+
+One cancer at a time: patients and healthy controls from the same series, read the same way.

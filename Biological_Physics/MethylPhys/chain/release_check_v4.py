@@ -18,7 +18,9 @@ with F1 reading FROZEN_INPUTS_v4.json and S2 leaving verbatim run transcripts (d
   V7  IAM-A from an aligned BAM through the one command (--bam; pysam pinned): exit 0, report written, molecules counted (C28)
   V9  every Stage 0 stop is explained (author rule 2026-10-20): for each way Stage 0 can stop an array, a constructed record is stopped AND
       carries an explanation with what was measured, the limit, where the limit comes from, what it means and what to do; and an array too
-      thin to read gives Met-A, the tare and the C-Score each a reason with the measured count and what is required"""
+      thin to read gives Met-A, the tare and the C-Score each a reason with the measured count and what is required
+  V10 Group-A in the chain (stage_groupa.py, commissioned 2026-10-20): on the committed readings of DEV-GROUPA-COMMISSION-01 it gives the sealed
+      bars 2 and 3 to every printed digit; its tare is word for word the sealed scorer's; groups in other specimens are labeled preliminary"""
 import os, sys, json, gzip, glob, hashlib, re, time, subprocess, tempfile
 import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path[:0] = [HERE]
@@ -191,12 +193,26 @@ def V9(tmp):
     rec("V9", not bad and clean and hyb["ctrl_qc"].startswith("FAIL") and ext["ctrl_qc"].startswith("FAIL"),
         f"{len(cases)} kinds of Stage 0 stop and 3 downstream stops (Met-A, tare, C-Score) checked; {len(bad)} unexplained; a clean array proceeds with nothing to explain: {clean}" + (f"; MISSING: {bad}" if bad else ""))
 
+def V10(tmp):
+    import stage_groupa as GA, ast as _ast
+    G = os.path.join(HERE, "..", "doors", "data", "GROUPA_COMMISSIONING"); S = json.load(open(os.path.join(G, "scored_groupa_01.json")))
+    I = pd.read_csv(os.path.join(G, "scored_groupa_01_rows_idat.csv"))[["gsm", "A", "C", "slide", "sex"]]
+    V = pd.read_csv(os.path.join(G, "scored_groupa_01_rows_values.csv"))[["gsm", "A", "C", "slide", "planted", "half"]]
+    b2 = GA.compare(I, "sex", "female", "male"); b3 = GA.compare(V, "half", "planted", "unplanted", healthy=~V.planted.astype(bool))
+    K = ("n1", "n2", "mean1", "mean2", "difference", "rel_difference", "se", "t"); same = all(b2[k] == S["B2"][k] for k in K) and all(b3[k] == S["B3"][k] for k in K)
+    def body(path):
+        src = open(path).read(); f = next(n for n in _ast.walk(_ast.parse(src)) if isinstance(n, _ast.FunctionDef) and n.name == "tare")
+        return "\n".join(l.strip() for l in _ast.get_source_segment(src, f).split("\n") if l.strip() and not l.strip().startswith("#"))
+    tare_same = body(os.path.join(HERE, "stage_groupa.py")) == body(os.path.join(G, "score_groupa.py"))
+    pre = "preliminary" in str(GA.compare(I, "sex", "female", "male", specimen="buffy coat").get("commissioning", ""))
+    rec("V10", same and tare_same and pre, f"sealed bars reproduced: {same} (B2 t {b2['t']}, B3 t {b3['t']}); tare identical to the sealed scorer: {tare_same}; other specimens labeled preliminary: {pre}")
+
 def main():
     t0 = time.time(); files = R3.tracked(); tmp = tempfile.mkdtemp(prefix="rc_v4_")
     print(f"release_check_v4 @ {subprocess.run(['git', '-C', R3.ROOT, 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()}  python {PY}")
     steps = [("F1", F1, ()), ("F1b", F1b, ()), ("F2", F2, ()), ("S1", R3.S1, (files,)), ("S2", S2, (files,)), ("S3", R3.S3, ()), ("S4", R3.S4, ())] + \
             [(n, getattr(R3, n), (tmp,)) for n in ("E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "E10", "E11")] + \
-            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V8", V8, (tmp,)), ("V6", V6, (tmp,)), ("V7", V7, (tmp,)), ("V9", V9, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
+            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V8", V8, (tmp,)), ("V6", V6, (tmp,)), ("V7", V7, (tmp,)), ("V9", V9, (tmp,)), ("V10", V10, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
     for name, fn, args in steps:
         try: fn(*args)
         except Exception as e: rec(name, False, f"could not run: {type(e).__name__}: {str(e)[:200]}")

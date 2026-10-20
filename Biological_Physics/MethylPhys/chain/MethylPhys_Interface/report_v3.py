@@ -22,6 +22,7 @@ STAGES_2B = [("0", "Intake", "running (specimen rule; sex and age optional; iden
              ("3", "Atlas deconvolution", "development flag --dev-atlas-e; IAM-Atlas v2.1 COMMISSIONED 2026-10-16 for three cell references (cortical neurons, lung bronchus epithelium, naive CD4 T cells; 450K) and the colon and lung blind sites; its composition (U3) development; Deconvolution tool COMMISSIONED 2026-10-17 for blood-cell shares (neutrophils, monocytes, CD4 T, CD8 T; arrays), error bars information"), ("4", "NILC component separation", "development flag --dev-nilc"),
              ("5", "Met-A", "running (neutrophils); B cells behind --dev-percell-b"),
              ("6", "C-score", "COMMISSIONED 2026-10-15 on whole blood (one-sided band, upper 1.152); IAM-A C-score in Stage Q (development)"), ("7", "IAM-A", "COMMISSIONED 2026-10-17 on healthy blood CD8 T cells (whole-genome bisulfite), read against its own reference; other specimens development"),
+             ("G", "Group-A", "COMMISSIONED 2026-10-20 for groups of whole bloods run in one series (chain/stage_groupa.py): compares groups, not one person"),
              ("8", "Same-run tare", "running (self-tare II, then the median tare; self-tare II wired 2026-10-04)"),
              ("9", "Noise gate", "running (state withheld above N_max untared, and below 90 % noise-site coverage)"),
              ("10", "Directional decomposition", "development flag --dev-direction"), ("11", "Sky map", "development flag --dev-sky"),
