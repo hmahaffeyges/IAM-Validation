@@ -360,6 +360,17 @@
    "status": "open",
    "done_date": "",
    "record": ""
+  },
+  {
+   "task": "Every major blood cell scored in whole blood (author 2026-10-20: 'to be able to filter and find each cell in the blood and score each one it finds is what we should be able to offer at a minimum'; what the cells do at the same time may carry the signature, e.g. T cells falling while neutrophils rise): for each cell the Deconvolver finds (neutrophils, monocytes, CD4 T, CD8 T, B, NK), its share and its own Met-A-style reading at its IAM-Atlas v2.1 identity sites against what the mixture predicts, each with its own detection limit at that person's share; every cell not commissioned printed with the existing wording ('This score is preliminary until ... is officially commissioned on ...'). Synthetic first, release check, clean clone; built AFTER the sealed Group-A reading so the seal's chain is not changed mid-test",
+   "done_when": "a whole-blood report prints a share and a labeled score for every panel cell; release check and clean clone pass",
+   "rows": [
+    "GRP-013",
+    "CAN-007"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
   }
  ],
  "scheduled": [

@@ -2789,3 +2789,6 @@ The smoke test passed on GitHub (run 39490274637): GSE235717 GSM7508429 read thr
 
 ### 2026-10-20 · Group-A rehearsal run 1: all 59 read in 16 minutes; the scorer failed, and its results could not be saved (GRP-004)
 Run 39491507753: the smoke test and all ten reading machines succeeded; the scoring step failed, and the step that saves results to the branch failed too (git refuses to add files outside the sparse checkout of Biological_Physics). GitHub keeps logs and artifacts on storage hosts that change from run to run, so the workflow now pushes the readings, the scorer's log and its exit code to the results branch over git from a fresh directory, and fails the run afterward if scoring failed. The scorer now also reports the C-Score of the planted half (scattered loss: Met-A should see it, the C-Score should not call it clustered).
+
+### 2026-10-20 · To-do step 21: every major blood cell scored in whole blood (GRP-013)
+Author: each cell the Deconvolver finds in whole blood should get its share and its own score, since what the cells do together (T cells falling while neutrophils rise) may carry the signature; uncommissioned cells are read and labeled preliminary, as in the example reports. Built after the sealed Group-A reading, so the chain that seal names is not changed mid-test.
