@@ -8,7 +8,7 @@ Usage: python3 CANON/number_trace.py [--check]   (writes CANON/number_trace.json
 import json, re, os, subprocess, sys, collections
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); os.chdir(ROOT); MP = "Biological_Physics/MethylPhys/"
 DOCS = ["README.md", "REFERENCE.md", "FOUR_DOMAINS.md", "Biological_Physics/README.md", MP + "README.md", MP + "START_HERE.md", MP + "QUESTIONS_AND_ANSWERS.md",
-        MP + "RESEARCHER_PACKAGE.md", MP + "COMMISSIONING_REPORT.md", MP + "INSTRUMENTS.md", MP + "sop/MethylPhys_CPG_SOP_v4.md", MP + "reproduce/README.md",
+        MP + "RESEARCHER_PACKAGE.md", MP + "INTRODUCTION.md", MP + "COMMISSIONING_REPORT.md", MP + "INSTRUMENTS.md", MP + "sop/MethylPhys_CPG_SOP_v4.md", MP + "reproduce/README.md",
         MP + "atlas/v2.1/README.md", MP + "doors/data/SHOWCASE_V4/README.md"]
 EXPLAINED = {"348.15": "75 degrees C, the chip junction temperature, in kelvin (a unit conversion)", "1206.4916": "an arXiv identifier", "2507.05237": "an arXiv identifier",
              "237901": "a journal article number (Phys. Rev. Lett. 88)", "095206": "a journal article number (AIP Adv. 9)", "085014": "a journal article number (AIP Adv. 10)",

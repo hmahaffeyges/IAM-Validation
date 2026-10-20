@@ -8,6 +8,8 @@ All of this work was done with public data alone, without funding or institution
 new samples, no clinical cohorts, no repeated draws from the same people over years. The open questions below are open for that reason, and
 each is one a funded laboratory could answer. What is here was built to show they are worth asking.
 
+**Start with [An Introduction to IAM and the Physics of Methylation](INTRODUCTION.md):** what each instrument and the atlas does, what every test showed, and how it differs from the usual methods. This Q&A answers the questions that follow.
+
 ## Where everything is
 
 - **The book**, read online: https://hmahaffeyges.github.io/IAM-Validation/book/ (each answer below names its chapter).
@@ -121,6 +123,19 @@ mixtures from a laboratory the atlas never saw, the shares came back within 0.01
 neutrophils for exactly this reason, and the C-Score on whole blood, where its band was set. Evidence:
 [COMMISSIONING_NOTE_DECONV_V21.md](doors/COMMISSIONING_NOTE_DECONV_V21.md); `python3 Biological_Physics/MethylPhys/reproduce/reproduce.py deconv`.
 
+**Ancestry, sex and age?**
+
+IAM-A reads each sample against the line its own loose share predicts, so no population reference enters its reading; it has not yet been
+tested across ancestries, and that test needs only healthy samples. Sex: Met-A's identity sites were required to agree on male and female
+reference arrays, and its 32 identity sites on the X chromosome read the same on both. The reference donors were aged 20 to 39
+([COMMISSIONING_NOTE_METAA_NEUTROPHILS.md](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)).
+
+**X inactivation?**
+
+The sky map found it without being asked: one of the six reference arrays read as female, with 40 % of her X chromosome sites between
+β = 0.3 and 0.7 against 8 % in the other five. The CMB's lesson applies: a whole-array map needs a sex mask, or a reference of the same sex,
+before its structure means anything ([the sky tools chapter](https://hmahaffeyges.github.io/IAM-Validation/book/ch_skytools.html)).
+
 **What if a sample holds a cell the reference does not?**
 The tool checks before it reports. Each pure array must read as its own cell before it is used; in its commissioning test it refused six B-cell
 arrays that did not. When a mixture holds cells outside the reference, the raw shares no longer sum to one, and the report shows it.
@@ -149,6 +164,27 @@ was read, and the same person measured twice read the same (spread 0.038, bar 0.
 **Arrays detect changes of about 20 to 30 %. How can it see less?**
 The C-Score reads the pattern across many sites at once, not one site at a time. Its commissioned detection limit is C_rel 1.5 when 5 % of
 sites change together in clusters, and 0 of 120 planted scattered changes read above its band.
+
+**What does the chain do with the raw intensity files?**
+
+Stage 1 calibrates each array on its own: background and dye-bias correction and probe-type handling (noob), using only that array's
+control probes, so no array changes another array's numbers. Every probe is tested against the same array's negative controls, and a probe
+at background is removed before any stage reads its value. The array's own SNP probes measure its noise, which the sky maps use. Stage 0
+refuses an array the chain cannot read (wrong platform, too few sites, a cell mix it cannot trust) and says why, instead of reading it.
+Code: [stage_1_idat_calibration.py](chain/stage_1_idat_calibration.py); procedure: [the SOP](sop/MethylPhys_CPG_SOP_v4.md).
+
+**Do I need technical replicates?**
+
+Repeatability was measured, so each sample does not need its own replicate. Identical reference DNA on 30 arrays in three laboratories:
+Met-A's spread between repeats was 0.0114, and after the same-run tare the laboratories differed by 0.006
+([DEV_EPIQC_ARRAY_01_OUTCOME.md](doors/DEV_EPIQC_ARRAY_01_OUTCOME.md)). The C-Score on the same person measured twice: a spread of 0.0379
+over 13 pairs ([COMMISSIONING_NOTE_CSCORE.md](doors/COMMISSIONING_NOTE_CSCORE.md)). The healthy references run beside a sample act as its
+controls.
+
+**FFPE tissue, or a small amount of DNA?**
+
+Not yet read through the chain. Stage 0 measures each array's detected fraction and the noise of its own SNP probes, so a degraded array is
+seen as degraded instead of being read as biology. Whether FFPE arrays pass intake is an open test, and a good one to run on samples you know.
 
 **Which platforms?**
 Met-A and the C-Score read Illumina EPIC v1 arrays; 450K and EPIC v2 are refused with one sentence, because no frozen reference exists for them.
@@ -196,6 +232,13 @@ Published entropy measures are statistical: they summarize how disordered a samp
 measurement on a physical scale. The gauge's ends are derived (the floor from Landauer's bound and the cost of holding a mark, the
 saturation end from every identity site fully scrambled), and healthy is read from the sample's own reference or same-run references, not
 from a cohort average. The two can be compared site for site; that comparison has not been done.
+
+**How is this different from an epigenetic clock?**
+
+A clock estimates age from sites chosen because they track age in a cohort. IAM does not estimate age. The C-Score separates the two kinds
+of change: scattered loss, the pattern of ordinary aging and wear, and clustered loss, the pattern tumors leave. Planted scattered losses in
+real healthy arrays never read as a departure: 0 of 120 above the band
+([COMMISSIONING_NOTE_CSCORE.md](doors/COMMISSIONING_NOTE_CSCORE.md)).
 
 **Tumors are more variable than matched normal tissue. Is IAM just measuring that?**
 In part, and it is meant to. Each tumor is read against the same patient's own healthy tissue, so the reading is how far that tumor's

@@ -260,9 +260,9 @@ def page(art):
 <section class="wrap" id="wins"><h2>{E(CF["title"])}</h2>{chain_lead}<div class="grid">{results}</div>
 <p class="sub">Each card links to its record. <a href="{rec("Biological_Physics/MethylPhys/EARLIER_RESULTS.md")}">{E(CF["earlier"])}</a> ({n_earlier}, each with its record).</p>
 </section>
-<section class="wrap" id="researchers"><h2>For researchers: the questions first</h2>
-<p class="sub">What a reviewer will ask first, answered from the record: each answer links to the test behind it, the one command that rebuilds it from public data, its chapter in the book and its data on Zenodo. Where there is no answer yet, it says so.</p>
-<p class="cta"><a class="btn" href="{rec("Biological_Physics/MethylPhys/RESEARCHER_PACKAGE.md")}">The researcher package</a><a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md")}">Questions and answers</a><a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/reproduce/README.md")}">Reproduce every result</a></p>
+<section class="wrap" id="researchers"><h2>For researchers</h2>
+<p class="sub">Start with the introduction: how IAM's instruments and the atlas work, what each test showed, and what makes them different from the usual methods of methylation research. Then the questions a reviewer asks first, each answered from the record and linked to the test behind it, the one command that rebuilds it from public data, its chapter in the book and its data on Zenodo.</p>
+<p class="cta"><a class="btn" href="{rec("Biological_Physics/MethylPhys/INTRODUCTION.md")}">An Introduction to IAM and the Physics of Methylation</a><a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/RESEARCHER_PACKAGE.md")}">The researcher package</a><a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md")}">Questions and answers</a><a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/reproduce/README.md")}">Reproduce every result</a></p>
 <div class="grid links">
 <a class="tile" href="book/ch_reproduced.html">The commissioning record, reproduced: real report pages and every test, in the book</a>
 <a class="tile" href="https://doi.org/10.5281/zenodo.23441999">IAM-Atlas v2.1 on Zenodo</a>

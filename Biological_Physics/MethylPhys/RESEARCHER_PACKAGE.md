@@ -1,5 +1,7 @@
 # The researcher package: MethylPhys chain v4
 
+**Read first: [An Introduction to IAM and the Physics of Methylation](INTRODUCTION.md)**, how the instruments work, what each test showed, and what makes them different.
+
 One command reads a DNA methylation sample through the commissioned IAM cell instruments and writes a report. This package is everything
 needed to read the reports, run the chain on your own samples, and rebuild every headline result from public data. It is the
 Biological_Physics folder of the repository at one commit, with the repository's license, README and citation: the cosmology, quantum and

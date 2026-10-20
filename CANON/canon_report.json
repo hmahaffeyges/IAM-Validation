@@ -230,7 +230,7 @@
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
-"status": "LIVE",
+"status": "RECORD",
 "text": "| **OTH-051** | The A-score database: one table per instrument, one row per sample read | every reading of every instrument (Met-A, C-Score, IAM-A, Group-A, atl"
 },
 {
@@ -239,7 +239,7 @@
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
-"status": "LIVE",
+"status": "RECORD",
 "text": "| **OTH-052** | Re-read the class h_min era's signals with the commissioned instruments | The earlier wide-area signals, checked one by one with instruments tha"
 },
 {
@@ -248,7 +248,7 @@
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
-"status": "LIVE",
+"status": "RECORD",
 "text": "| **OTH-054** | C-Score tumor line in the A-score database | Where on the C-Score's scale tumors begin | C-Score | Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-"
 },
 {
@@ -257,7 +257,7 @@
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
-"status": "LIVE",
+"status": "RECORD",
 "text": "| **OTH-059** | Three lines and a margin on every gauge: healthy band, concern line, tumor line, all from data; margin larger than the worst measured lab shift "
 },
 {
