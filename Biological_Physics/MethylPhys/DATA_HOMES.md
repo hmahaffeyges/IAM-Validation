@@ -70,13 +70,12 @@ Working copies and our own outputs. Nothing a researcher needs is only here; wha
 | `results/DEV_IAMA_GRAND_01/` | 22 | the committed record of each job (doors/) | full outputs and logs: deposit (step 19) |
 | `results/REPORT_EXAMPLES_V4/` | 15 | final reports and bundles in doors/data/REPORT_EXAMPLES_V4 | full outputs and logs: deposit (step 19) |
 | `results/DEV_BACKBONE_01/` | 12 | the committed record of each job (doors/) | full outputs and logs: deposit (step 19) |
-| `results/PRED_TEMPERATURE_01/` | 11 | the committed record of each job (doors/) | full outputs and logs: deposit (step 19) |
 | `results/DEV_SECONDLAB_02/` | 9 | the committed record of each job (doors/) | full outputs and logs: deposit (step 19) |
 | `results/SHOWCASE_V4/` | 5 | readings in doors/data/SHOWCASE_V4 | full outputs and logs: deposit (step 19) |
 | `results/BOOK_CHECK/` | 5 | book-check records in docs/book/verification | full outputs and logs: deposit (step 19) |
 | `results/DEV_ERASE_01/` | 4 | the committed record of each job (doors/) | full outputs and logs: deposit (step 19) |
 | `results/LOOSE_SHARE_2026-10-15/` | 4 | the committed record of each job (doors/) | full outputs and logs: deposit (step 19) |
 | `results/CLEANROOM_IAMA_01/` | 4 | the committed record of each job (doors/) | full outputs and logs: deposit (step 19) |
-| `results/DEV_ARCH_01/` | 2 | the committed record of each job (doors/) | full outputs and logs: deposit (step 19) |
 | `results/DEV_CHAIN_Q2_01/` | 2 | the committed record of each job (doors/) | full outputs and logs: deposit (step 19) |
 | `results/DEV_SECONDLAB_01/` | 1 | the committed record of each job (doors/) | full outputs and logs: deposit (step 19) |
+| exploratory runs | 13 | the development log | full outputs and logs: deposit (step 19) |

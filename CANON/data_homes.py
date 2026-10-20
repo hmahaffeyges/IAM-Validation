@@ -85,7 +85,10 @@ def held():
     REPO = {"results/REPRODUCE_V1/": "verdict summaries in reproduce/verified.json", "results/CHAIN_V4_CLEANCLONE/": "release-check records in doors/data/CHAIN_V4_CLEANCLONE",
             "results/REPORT_EXAMPLES_V4/": "final reports and bundles in doors/data/REPORT_EXAMPLES_V4", "results/SHOWCASE_V4/": "readings in doors/data/SHOWCASE_V4",
             "results/BOOK_CHECK/": "book-check records in docs/book/verification"}
-    out = [(p, n, ZEN.get(p) or REPO.get(p) or "the committed record of each job (doors/)", "full outputs and logs: deposit (step 19)") for p, n in sorted(jobs.items(), key=lambda x: -x[1])]
+    EXPL = {"results/PRED_TEMPERATURE_01/", "results/DEV_ARCH_01/"}   # exploratory runs, kept off public surfaces by name (author 2026-10-18)
+    ne = sum(n for p, n in jobs.items() if p in EXPL)
+    out = [(f"`{p}`", n, ZEN.get(p) or REPO.get(p) or "the committed record of each job (doors/)", "full outputs and logs: deposit (step 19)") for p, n in sorted(jobs.items(), key=lambda x: -x[1]) if p not in EXPL]
+    if ne: out.append(("exploratory runs", ne, "the development log", "full outputs and logs: deposit (step 19)"))
     return dl, out
 
 def text():
@@ -101,7 +104,7 @@ def text():
          "", f"Code that reads our S3 bucket, in the chain or any reproduction test: **{'none' if not C else ', '.join(C)}**. (The AWS run wrapper, reproduce/box/, only uploads a run's status and results.)",
          "", "## C. What we hold in our S3 bucket", "", "Working copies and our own outputs. Nothing a researcher needs is only here; what is only here is our history, and step 19 deposits it on Zenodo.", "",
          "| downloads (doors/DATA_REGISTER.csv) | folders | GB | other home |", "|---|---|---|---|"] + [f"| {k} | {v[0]} | {v[1]:.1f} | {o} |" for (k, o), v in dl.items()] + [
-         "", "| job outputs (CANON/box_jobs.json) | jobs | already outside S3 | still only in S3 |", "|---|---|---|---|"] + [f"| `{p}` | {n} | {z} | {s} |" for p, n, z, s in out] + [""]
+         "", "| job outputs (CANON/box_jobs.json) | jobs | already outside S3 | still only in S3 |", "|---|---|---|---|"] + [f"| {p} | {n} | {z} | {s} |" for p, n, z, s in out] + [""]
     return "\n".join(L)
 
 if __name__ == "__main__":
