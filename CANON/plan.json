@@ -166,9 +166,9 @@
    "rows": [
     "OTH-076"
    ],
-   "status": "open",
-   "done_date": "",
-   "record": ""
+   "status": "done",
+   "done_date": "2026-10-19",
+   "record": "Biological_Physics/MethylPhys/reproduce/verified.json"
   },
   {
    "task": "Manifest: the 14 record names that do not exist (TODO.md in 56 rows, old_val_datasets.csv in 52, candidate_datasets_2026-10-13.csv in 12, and 11 single ones) repointed to the record that holds the fact, or marked never committed",

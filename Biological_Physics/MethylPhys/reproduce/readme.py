@@ -14,9 +14,12 @@ L = ["# Reproduce IAM's results from public data", "",
  "python3 Biological_Physics/MethylPhys/reproduce/reproduce.py --all          # every test", "```", "",
  "Each run writes `Biological_Physics/MethylPhys/reproduce/out/<test>/verdict.json` (every comparison, the commit, the time) and a log per step. The last column is the",
  "test's own run from a fresh public clone on a clean machine.", "",
- "| test | what it shows | public inputs | time, disk | record | from a fresh clone |", "|---|---|---|---|---|---|"]
+ "## What each test shows, in plain words", ""]
 for t in T:
-    v = V.get(t["id"]); ok = f"**{v['verdict']}** {v['date']}, {v['checks_ok']} of {v['checks']} numbers identical" if v else "being run"
+    L += [f"**{t['title']}.** {t['plain']} *Why it matters:* {t['why']}", ""]
+L += ["## The tests", "", "| test | what it shows | public inputs | time, disk | record | from a fresh clone |", "|---|---|---|---|---|---|"]
+for t in T:
+    v = V.get(t["id"]); ok = (f"**{v['verdict']}** {v['date']}, " + (f"{v['checks_ok']} of {v['checks']} numbers identical" if v.get("checks") else "compared numbers to be recorded")) if v else "being run"
     L.append(f"| `{t['id']}` | **{t['title']}.** {t['shows']} | {'; '.join(t['public_inputs'])} | {t['time']}, {t['disk']} | "
              f"[record](../{t['record']}) | {ok} |")
 L += ["", "Tolerances: numbers are compared exactly (to the stored precision) except where a test's `tolerance_note` in [tests.json](tests.json)",

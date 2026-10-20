@@ -130,7 +130,7 @@ def page(art):
     CS = J("CANON/compute_snapshot.json")
     # billing numbers from the latest day log with a computing-and-cost block (CANON/day_compute.py; author 2026-10-19: auto update from there)
     _dlc = [J("CANON/daylogs/" + f) for f in sorted(os.listdir(os.path.join(REPO, "CANON", "daylogs"))) if re.fullmatch(r"\d{4}-\d\d-\d\d\.json", f)]
-    _dlc = [d for d in _dlc if d.get("compute")][-1]; _C = _dlc["compute"]
+    _dlc = [d for d in _dlc if d.get("compute") and not d["compute"].get("pending")][-1]; _C = _dlc["compute"]
     CS = dict(CS, machine_hours=_C["total_machine_hours"], core_hours=_C["total_core_hours"], billed_usd=_C["total_billed_usd"],
               core_years=round(_C["total_core_hours"] / 8766, 1), since=_C["since"], billed_through=_dlc["date"])
     campaign = (f'<section class="wrap" id="campaign"><h2>{E(CS["name"])}: the final stretch</h2>'

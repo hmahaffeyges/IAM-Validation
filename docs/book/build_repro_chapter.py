@@ -57,18 +57,19 @@ def text():
     for t in T:
         v = V.get(t["id"]) or {}
         res = f"{v['verdict']}, {v['date']}" if v.get("verdict") else "not yet recorded"
-        chk = f"{v['checks_ok']} of {v['checks']}" if v.get("checks") else "--"
+        chk = f"{v['checks_ok']} of {v['checks']}" if v.get("checks") else "to be recorded"
         L.append(rf"\texttt{{{tex(t['id'])}}} & {tex(t.get('instrument', ''))} & {chk} & {res}\\")
     L += [r"\hline\end{tabular}\end{center}", ""]
     for t in T:
         v = V.get(t["id"]) or {}
-        L += [rf"\subsection*{{{tex(t['title'])}}}", "", tex(t.get("shows", "")), "",
+        L += [rf"\subsection*{{{tex(t['title'])}}}", "", tex(t.get("plain", t.get("shows", ""))), "", r"\textit{Why it matters.} " + tex(t.get("why", "")), "", tex(t.get("shows", "")), "",
               r"\begin{itemize}\setlength\itemsep{1pt}",
               rf"\item \textbf{{Public data:}} {tex('; '.join(t.get('public_inputs', [])))}.",
               rf"\item \textbf{{Command:}} \texttt{{python3 Biological\_Physics/MethylPhys/reproduce/reproduce.py {tex(t['id'])}}} ({tex(t.get('time', ''))}; {tex(t.get('disk', ''))} of disk"
               + (f"; {tex(t['memory'])} of memory" if t.get("memory") else "") + ").",
               (rf"\item \textbf{{Fresh-clone result:}} {v['verdict']} on {v['date']}, {v['checks_ok']} of {v['checks']} compared numbers identical, "
-               rf"{round(v['minutes'])} minutes, repository commit \texttt{{{tex(v['commit'])}}}." if v.get("verdict") else
+               rf"{round(v['minutes'])} minutes, repository commit \texttt{{{tex(v['commit'])}}}." if v.get("checks") else
+               rf"\item \textbf{{Fresh-clone result:}} {v['verdict']} on {v['date']}, {round(v['minutes'])} minutes." if v.get("verdict") else
                r"\item \textbf{Fresh-clone result:} not yet recorded."),
               rf"\item \textbf{{Record:}} \url{{{GH}{t['record']}}}", r"\end{itemize}", ""]
     return "\n".join(L) + "\n"

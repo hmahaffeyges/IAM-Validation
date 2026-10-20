@@ -70,5 +70,15 @@
   "minutes": 168.1,
   "commit": "d27b4956",
   "job": "results/REPRODUCE_V1/run6/out/iama_line/verdict.json"
+ },
+ "mice": {
+  "verdict": "PASS",
+  "date": "2026-10-19",
+  "checks": null,
+  "checks_ok": null,
+  "minutes": 655.4,
+  "commit": null,
+  "job": "results/REPRODUCE_V1/run13/out/mice/verdict.json",
+  "note": "recorded from the run's status line ('mice rc 0: PASS (655.4 min)', 2026-10-20 04:22 UTC); the compared numbers and commit to be copied from verdict.json"
  }
 }

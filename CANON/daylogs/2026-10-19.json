@@ -30,6 +30,26 @@
      "what": "4,650 checks, 0 failures, after 35 checks were rewritten to the commissioned record and 41 that held numbers their chapters no longer print were removed.",
      "why": "The laptop's partial checkout lacks the committed data files.",
      "record": "docs/book/verification/verify_book_output.txt"
+    },
+    {
+     "title": "Every headline result rebuilt from public data, the mouse prediction included",
+     "status": "audit",
+     "what": "On fresh clones the mouse prediction passed in the evening (reproduce/ run 13, 655.4 minutes), after runs 10, 11 and 12 stopped for machine reasons: a timer too short at 11 of 38, a terminate from outside at 20 of 38, an ENA lookup outage. With it, all nine reproduction tests pass (OTH-076).",
+     "why": "Anyone can rebuild every headline number from public accessions with one command.",
+     "record": "Biological_Physics/MethylPhys/reproduce/README.md"
+    },
+    {
+     "title": "Showcase scenario 4: healthy colon read by IAM-Atlas v2.1",
+     "status": "sealed",
+     "what": "Three healthy colon biopsies through the atlas's commissioned tissue scorer, once and unchanged: 0.911, 0.941 and 0.943 of sites within tolerance, above the bar 0.90; written into the showcase (OTH-073).",
+     "why": "All seven showcase scenarios are now shown.",
+     "record": "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/README.md"
+    },
+    {
+     "title": "Biological_Physics-only clean clone",
+     "status": "audit",
+     "what": "A clone of the biology folder alone launched and passed the release check and a reproduction (OTH-077).",
+     "record": "Biological_Physics/MethylPhys/doors/data/CHAIN_V4_CLEANCLONE/cleanclone_bio.sh"
     }
    ],
    "heading": "What ran, and how each came out",
@@ -72,10 +92,30 @@
      "what": "The Zenodo researcher package and the download instructions now take Biological_Physics only, with the repository's license, README and citation.",
      "why": "",
      "record": "Biological_Physics/MethylPhys/RESEARCHER_PACKAGE.md"
+    },
+    {
+     "title": "An ordered to-do list, and a gate against lost follow-ups",
+     "what": "The documentation audit (OTH-078) ran as a numbered to-do list in the plan: manifest record names repointed (step 4), statuses and the instrument catalogue checked and the audit joined the push (steps 5 and 7), no follow-up left untracked (step 6), every printed number traced (step 8), status, commissioning report and earlier results read row by row and the book's tables traced (step 9), stale book checks: none left (step 10). The Part 2 convergence table was traced to its progress file; the two baryon-chain files are not copies."
+    },
+    {
+     "title": "The book",
+     "what": "Book audit (OTH-072): glossary on chain v4, American spelling everywhere public, the new chapter \"The commissioning record, reproduced\", and the book build fixed (escaped paths in the reproduced chapter)."
+    },
+    {
+     "title": "The researcher package",
+     "what": "The researcher package gets its front door; root cleared of retired files (OTH-077). The researcher introduction was written and linked first, and the experts' questions were checked against the Q&A; the Q&A puts the hard questions first, every answer linked, with its own section on the page, and four questions from recent atlases (OTH-075). Plan item 20 and OTH-075 renamed; the book site tagline. The A-score database is current and shows departure from healthy (OTH-051)."
+    },
+    {
+     "title": "The page",
+     "what": "No wording that goes stale; the sky section's three additions stated as they are (ATL-063); the day log 2026-10-18 audited and the page shows one line for it; computing and cost, day by day, demanded with the day log (OTH-071)."
     }
    ],
    "heading": "What changed in the plan",
    "lead": ""
   }
- ]
+ ],
+ "compute": {
+  "pending": "AWS billing could not be read from 2026-10-20; this block is filled by CANON/day_compute.py once it can be",
+  "since": "2026-10-20"
+ }
 }

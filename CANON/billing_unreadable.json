@@ -1,0 +1,5 @@
+{
+ "since": "2026-10-20",
+ "why": "AWS rejects every stored access key (InvalidClientTokenId); billing and storage cannot be read until the account is restored",
+ "rule": "While this file exists, a closed day log may carry a pending computing-and-cost block and the campaign counts may lag. Delete it, then run CANON/day_compute.py and CANON/compute_snapshot.py, as soon as AWS answers."
+}

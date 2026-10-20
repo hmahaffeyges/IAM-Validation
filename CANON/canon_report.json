@@ -351,6 +351,33 @@
 "text": "| 2026-10-10 | **Everything the commissioned chain reads rebuilds from public data**, identical: the holding energy and \u03b5\u2080 (153 public samples; then 3.41 k_BT a"
 },
 {
+"file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
+"line": 10,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "the [A-score database](ASCORES/README.md) hold the details."
+},
+{
+"file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
+"line": 154,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "([the A-score database](ASCORES/README.md); [breast](doors/DEV_TISSUE_BREAST_01_OUTCOME.md),"
+},
+{
+"file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
+"line": 195,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- [The A-score database](ASCORES/README.md): every sample each instrument has read, healthy and tumor, and how many cross the healthy line."
+},
+{
 "file": "Biological_Physics/MethylPhys/README.md",
 "line": 29,
 "pattern": "\\bA[- ]score",
@@ -1060,6 +1087,15 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "compressed (~0.85 instead of ~0.95) and inflates every downstream A-score. The"
+},
+{
+"file": "Biological_Physics/MethylPhys/daylogs/2026-10-19.md",
+"line": 60,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "The researcher package gets its front door; root cleared of retired files (OTH-077). The researcher introduction was written and linked first, and the experts' "
 },
 {
 "file": "Biological_Physics/MethylPhys/daylogs/2026-10-13.md",

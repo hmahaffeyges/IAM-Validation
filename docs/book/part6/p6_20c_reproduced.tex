@@ -37,7 +37,7 @@ The pages below are the researcher view of two real reports, exactly as the chai
 \section{Every result, rebuilt from public data}
 
 Each test below is one entry in the repository's reproduction registry (Biological\_Physics/MethylPhys/reproduce/tests.json). The command \texttt{python3 Biological\_Physics/MethylPhys/reproduce/reproduce.py <test>} downloads only public files (GEO, ArrayExpress, ENCODE, the NCI Genomic Data Commons, ENA, Zenodo), runs the steps, and compares every number with the committed result, taken from git so a script cannot compare a file with itself. Each was run from a fresh clone of the public repository on a new machine.
- 8 of the 9 tests have passed that way with every compared number identical.
+ 9 of the 9 tests have passed that way with every compared number identical.
 
 \begin{center}\small\begin{tabular}{p{0.34\textwidth}p{0.22\textwidth}p{0.12\textwidth}p{0.18\textwidth}}\hline
 \textbf{Test} & \textbf{Instrument} & \textbf{Checks} & \textbf{Fresh-clone result}\\\hline
@@ -46,13 +46,17 @@ Each test below is one entry in the repository's reproduction registry (Biologic
 \texttt{cscore\_band} & C-Score (commissioned) & 7 of 7 & PASS, 2026-10-18\\
 \texttt{iama\_line} & IAM-A (commissioned) & 3 of 3 & PASS, 2026-10-18\\
 \texttt{three\_labs} & Met-A and C-Score & 4 of 4 & PASS, 2026-10-18\\
-\texttt{mice} & IAM-A (physics prediction) & -- & not yet recorded\\
+\texttt{mice} & IAM-A (physics prediction) & to be recorded & PASS, 2026-10-19\\
 \texttt{colon} & Met-A on tissue, with IAM-Atlas v2 & 6 of 6 & PASS, 2026-10-18\\
 \texttt{breast} & Met-A on tissue, with IAM-Atlas v2 & 6 of 6 & PASS, 2026-10-18\\
 \texttt{liver} & Met-A on tissue, with IAM-Atlas v2 & 6 of 6 & PASS, 2026-10-18\\
 \hline\end{tabular}\end{center}
 
 \subsection*{Met-A's reference, rebuilt from public arrays: noise sites and gate, the floor, the 6,000 identity sites, the healthy spread and the blood-composition markers}
+
+Met-A reads every sample against a reference: the sites that define a healthy neutrophil, the sites that measure an array's noise, and the floor. Every piece of that reference was rebuilt from 91 public arrays of purified blood cells with the repository's own code, and every number came out identical to the reference the chain reads.
+
+\textit{Why it matters.} Nothing in Met-A's reference was set by hand: it follows from public data and the code, and anyone can rebuild it.
 
 Every reference matrix Met-A reads is rebuilt from 91 public purified-blood arrays and comes out identical to the frozen file the chain reads.
 
@@ -65,6 +69,10 @@ Every reference matrix Met-A reads is rebuilt from 91 public purified-blood arra
 
 \subsection*{Blood-cell shares in 200 mixtures from a laboratory the atlas never saw (E-MTAB-2145)}
 
+A laboratory the atlas never saw mixed purified blood cells in known amounts. The Deconvolver read 200 of these mixtures and recovered each cell's share within 0.016 on average, and it refused the arrays whose cells did not read as the cell they were labeled.
+
+\textit{Why it matters.} The usual tools estimate the cell mix only to remove it as a nuisance. This one measures it, and was tested on mixtures whose true shares were known.
+
 The Deconvolver reads 200 mixtures of purified cells from an unseen laboratory within 0.016 of the true shares, and its sample check refuses the arrays that do not read as their own cell.
 
 \begin{itemize}\setlength\itemsep{1pt}
@@ -75,6 +83,10 @@ The Deconvolver reads 200 mixtures of purified cells from an unseen laboratory w
 \end{itemize}
 
 \subsection*{The C-Score's healthy range holds in a laboratory that did not set it (GSE184269)}
+
+The C-Score's healthy range was set on other laboratories' healthy blood and sealed. Then the healthy blood of a laboratory that took no part in setting it was read: 22 of 23 people fell inside the range.
+
+\textit{Why it matters.} A healthy range that holds only where it was set is no use to a new laboratory. This one held in a laboratory it had never seen.
 
 Healthy whole bloods from a second laboratory read inside the C-Score band: 22 of 23 not above 1.152, the bar sealed before the arrays were fetched.
 
@@ -87,6 +99,10 @@ Healthy whole bloods from a second laboratory read inside the C-Score band: 22 o
 
 \subsection*{IAM-A's self-reference line, rebuilt from 158 public healthy-cell sequencing files}
 
+IAM-A needs no control group because healthy cells of every type follow one line: how often a cell loses a held mark goes with how much of its DNA it keeps loosely marked. That line was recounted from 158 public sequencing files, and every count, and the line itself, came out identical.
+
+\textit{Why it matters.} This line is what lets each person be read against their own sample instead of against an average of other people.
+
 Every healthy cell type's held error falls on one simple line; recounted from GEO and ENCODE files through chain Stage Q2, every count, the line and the sample-shape reference come out identical.
 
 \begin{itemize}\setlength\itemsep{1pt}
@@ -97,6 +113,10 @@ Every healthy cell type's held error falls on one simple line; recounted from GE
 \end{itemize}
 
 \subsection*{The same DNA gives the same reading in three laboratories (SEQC2 EpiQC, GSE230132)}
+
+The same cell-line DNA was measured in three laboratories. Met-A's repeats agreed within 0.0114, and the same DNA in different laboratories within 0.0084, without any correction afterward.
+
+\textit{Why it matters.} Batch effects between laboratories are the field's most common problem, usually corrected after the fact. Here the instrument shows almost none to begin with.
 
 Identical cell-line DNA run at three laboratories: Met-A's technical repeats agree within 0.0114 and the same DNA across laboratories within 0.0084.
 
@@ -109,16 +129,24 @@ Identical cell-line DNA run at three laboratories: Met-A's technical repeats agr
 
 \subsection*{Physics called it in advance, in living mice (GSE77079)}
 
+The law predicts that a cell short of methyl donor holds its marks less well, and by how much. Before the data were read, the window was written down: mice that cannot make enough methyl donor, over normal mice, between 1.016 and 1.135. They read 1.124 (p 0.0003).
+
+\textit{Why it matters.} Most methylation findings are associations found after looking at the data. This was a number predicted by physics first and measured afterward, in living animals.
+
 Mice that cannot make enough of the methyl donor hold their marks worse, by the amount the law predicted before the data were read: knockout over wild type 1.124, inside the sealed window 1.016 to 1.135 (p 0.0003).
 
 \begin{itemize}\setlength\itemsep{1pt}
 \item \textbf{Public data:} GSE77079 (38 RRBS runs, ENA); UCSC mm10.
 \item \textbf{Command:} \texttt{python3 Biological\_Physics/MethylPhys/reproduce/reproduce.py mice} (about 10 h on 16 cores (mm10 index 100 min, then 38 runs at about 12 min each); 40 GB of disk; 64 GB (bwa mem on the converted mm10 index with 16 threads is killed at 32 GB) of memory).
-\item \textbf{Fresh-clone result:} not yet recorded.
+\item \textbf{Fresh-clone result:} PASS on 2026-10-19, 655 minutes.
 \item \textbf{Record:} \url{https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/doors/DEV_SAM_LEVER_01_OUTCOME.md}
 \end{itemize}
 
 \subsection*{Colorectal tumors leave their own healthy tissue's range (GSE131013, 88 patients)}
+
+Each patient's colon tumor was read against the same patient's own normal tissue. A line set only from pairs of normal tissue puts about 5 \% of tumors past it by chance, about 4 of these 88. Past it: 28 of 88.
+
+\textit{Why it matters.} Each patient is their own control, so differences between people, ages and laboratories cancel; what is left is the tumor's departure from that person's own healthy tissue.
 
 Each tumor read against the same patient's adjacent normal tissue at the atlas's composition-blind sites: 28 of 88 pairs above the bar fixed on normal pairs alone (11 needed), the sealed fingerprint verdict.
 
@@ -131,6 +159,10 @@ Each tumor read against the same patient's adjacent normal tissue at the atlas's
 
 \subsection*{Breast cancer: tumors leave the patient's own healthy range far more often than chance}
 
+Each patient's breast tumor was read against the same patient's own healthy tissue. A line set only from pairs of normal tissue puts about 3 of these 53 tumors past it by chance. Past it: 23 of 53.
+
+\textit{Why it matters.} The same reading as colon, in a second cancer, scored once on a rule sealed before the data were read.
+
 Each tumor read against the same patient's healthy tissue at the atlas's composition-blind sites: 23 of 53 pairs above the bar fixed on normal pairs alone (about 3 expected by chance), the sealed fingerprint verdict.
 
 \begin{itemize}\setlength\itemsep{1pt}
@@ -141,6 +173,10 @@ Each tumor read against the same patient's healthy tissue at the atlas's composi
 \end{itemize}
 
 \subsection*{Liver cancer: a third cancer, the same result}
+
+Each patient's liver tumor was read against the same patient's own healthy tissue. A line set only from pairs of normal tissue puts about 2 of these 50 tumors past it by chance. Past it: 22 of 50.
+
+\textit{Why it matters.} A third cancer, the same reading, the same result.
 
 Each tumor read against the same patient's healthy tissue at the atlas's composition-blind sites: 22 of 50 pairs above the bar fixed on normal pairs alone (about 2 expected by chance), the sealed fingerprint verdict.
 
