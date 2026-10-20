@@ -419,6 +419,17 @@
    "done_date": "",
    "record": "",
    "design": "Order (author 2026-10-20: 'each piece should be explained in detail in the order the chain reads them and the scripts that call on them should be dissected too'): the Decoder follows a traced run of run_sample.py, not a reading of the code: the one command; Stage 0 (10 steps); Stage 1; Stage A; Stage M (Met-A); Stage MC (C-Score); Stage T (tare); IAM-Atlas v2.1 (79 cells, 813,951 sites, its tables and how they are read); IAM-Deconvolver (Stage D21); the skies; IAM-A (Q0, Q, QT, Q2); serial mode (12b); development readings; the report. Within each stage: the calling script, then each function in call order, then every data file it opens. Behind each reference, the builder that made it (atlas fit, blood composition markers, neutrophil reference, floors and identity sites, IAM-A position), what it was built from and what it was tested on. Inventory as of 2026-10-20: the one command loads 21 Python files, 228 functions, and 35 data and matrix files sit in the chain folder (chain/chain_inventory_2026-10-20.txt)."
+  },
+  {
+   "task": "Rebuild the chain's blood references from GEO, one button, on GitHub's machines (author question 2026-10-20: do researchers see the 91 arrays or download them?): download the purified-cell arrays of GSE110554 and GSE167998 by accession, run chain Stage 1, rebuild blood_composition_EPIC_v1.json (chain_tests/blood_comp.py) and the neutrophil reference (chain_tests/neut_ref.py, with the floors and the 6,000 sites), and confirm each matches the committed file to stated precision; added to reproduce/tests.json as the 11th reproduction. The 2026-10-03 rebuild matched to 5e-6 but ran on AWS and is not a reproduction",
+   "done_when": "reproduce.py rebuilds both reference files from GEO on a fresh machine and matches them; verified.json records it",
+   "rows": [
+    "OTH-076",
+    "OTH-072"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
   }
  ],
  "scheduled": [

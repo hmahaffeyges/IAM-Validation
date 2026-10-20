@@ -2819,3 +2819,6 @@ Each cell (monocytes, CD4 T, CD8 T, B, NK) gets the neutrophils' construction: i
 
 ### 2026-10-20 · To-do step 25: the Operator Guide and the Chain Decoder (OTH-072)
 Author: the SOP becomes the Official IAM Chain Operator Guide (using our chain as built); the OM becomes the Official IAM Operations Manual: Instrument Diagnostics and Chain Decoder, the line-by-line deep dive (physics, formula, code, every gate and limit with its source, where each reference came from and what was held out, a worked example by hand, the circularity check, how to break each piece). The guidebook folds into the two. A release check will fail when a chain function has no Decoder section. Built before the documentation pass of step 22.
+
+### 2026-10-20 · To-do step 26: the blood references rebuilt from GEO, one button (OTH-076)
+The 91 purified arrays behind Stage A and the neutrophil reference stay in GEO (GSE110554, GSE167998); the repository holds the built matrices, the builders and the accessions. The 2026-10-03 rebuild matched to 5e-6 but ran on AWS; step 26 makes it a one-button reproduction on GitHub's machines. Recorded for the Decoder: Met-A's three layers (profiles and mix from the 91 arrays; sites, floor and spread from 6 neutrophil arrays; the middle line from the tare on the person's own run).
