@@ -307,19 +307,19 @@
    "replaced_by": "state which quantities are measured and which are assumed",
    "severity": "warn"
   },
-  "3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)": {
+  "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)": {
    "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
    "severity": "block"
   },
-  "0\\.2043": {
+  "(?<![\\d.])0\\.2043": {
    "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
    "severity": "block"
   },
-  "0\\.1628|\\bphi *= *0\\.163|varphi *= *0\\.16[23]?\\b|0\\.163 of (one|an) ATP": {
+  "(?<![\\d.])0\\.1628|\\bphi *= *0\\.163|varphi *= *0\\.16[23]?\\b|(?<![\\d.])0\\.163 of (one|an) ATP": {
    "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
    "severity": "block"
   },
-  "1905 ?K|1905\\\\,|1,905 ?K": {
+  "(?<![\\d.])1905 ?K|(?<![\\d.])1905\\\\,|(?<![\\d.])1,905 ?K": {
    "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
    "severity": "block"
   },
@@ -327,7 +327,7 @@
    "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
    "severity": "block"
   },
-  "0\\.0212(?!\\d)|0\\.0497(?!\\d)|\\bD *= *46\\b": {
+  "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b": {
    "replaced_by": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
    "severity": "block"
   },
@@ -335,11 +335,11 @@
    "replaced_by": "firm rate (the gauge's only ends are the floor and the ceiling; author 2026-10-15)",
    "severity": "block"
   },
-  "3\\.41 to 3\\.77|3\\.41--3\\.77|ln\\[\\(1-\\\\varepsilon\\)/\\\\varepsilon\\]=3\\.41|=3\\.41/20\\.94|e\\^\\{3\\.41\\}|\\(\\$3\\.41\\$": {
+  "(?<![\\d.])3\\.41 to 3\\.77|(?<![\\d.])3\\.41--3\\.77|ln\\[\\(1-\\\\varepsilon\\)/\\\\varepsilon\\]=3\\.41|=3\\.41/20\\.94|e\\^\\{3\\.41\\}|\\(\\$3\\.41\\$": {
    "replaced_by": "the commissioned counter's holding energy (CANON E_hold_meth, 3.08 kT; superseded 2026-10-19)",
    "severity": "block"
   },
-  "0\\.163\\s*(\\\\pm|±)|=0\\.163(?!\\d)": {
+  "(?<![\\d.])0\\.163\\s*(\\\\pm|±)|=0\\.163(?!\\d)": {
    "replaced_by": "phi = 0.147 on the commissioned counter (CANON phi; superseded 2026-10-19)",
    "severity": "block"
   }
@@ -403,9 +403,10 @@
    "Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_OUTCOME.md",
    "Biological_Physics/MethylPhys/doors/DEV_LINK_IAMA_METAA_01.md",
    "Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md",
-   "archive/retired_root_2026-10-19/TODO_to_2026-10-16.md"
+   "archive/retired_root_2026-10-19/TODO_to_2026-10-16.md",
+   "Cosmological_Physics/mgcamb_validation/iam_baryon_test.1.txt"
   ],
-  "record_files_note": "Published editions, provenance scripts and verbatim records: kept as written, never edited to current language. 2026-10-19: dated records of the earlier held-error counter (every CpG in the denominator) keep the values they were sealed or written with; PROC_CHANNEL_01_OUTCOME.md carries the correction.",
+  "record_files_note": "Published editions, provenance scripts and verbatim records: kept as written, never edited to current language. 2026-10-19: dated records of the earlier held-error counter (every CpG in the denominator) keep the values they were sealed or written with; PROC_CHANNEL_01_OUTCOME.md carries the correction. 2026-10-20: the 18th chain's raw sampler output is data, not prose; number patterns match only a whole number (never digits inside a longer one).",
   "cell_scope": {
    "value": [
     "neutrophils"

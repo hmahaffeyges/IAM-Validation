@@ -2,7 +2,7 @@
 {
 "file": "FOUR_DOMAINS.md",
 "line": 36,
-"pattern": "3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
+"pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
@@ -20,7 +20,7 @@
 {
 "file": "README.md",
 "line": 119,
-"pattern": "3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
+"pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
@@ -29,7 +29,7 @@
 {
 "file": "MANIFEST.md",
 "line": 322,
-"pattern": "3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
+"pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
@@ -38,7 +38,7 @@
 {
 "file": "MANIFEST.md",
 "line": 322,
-"pattern": "3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
+"pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
@@ -74,7 +74,7 @@
 {
 "file": "MANIFEST.md",
 "line": 334,
-"pattern": "0\\.2043",
+"pattern": "(?<![\\d.])0\\.2043",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
@@ -83,7 +83,7 @@
 {
 "file": "MANIFEST.md",
 "line": 338,
-"pattern": "3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
+"pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
@@ -92,7 +92,7 @@
 {
 "file": "MANIFEST.md",
 "line": 339,
-"pattern": "3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
+"pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
@@ -101,7 +101,7 @@
 {
 "file": "MANIFEST.md",
 "line": 350,
-"pattern": "3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
+"pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
@@ -119,7 +119,7 @@
 {
 "file": "MANIFEST.md",
 "line": 358,
-"pattern": "0\\.0212(?!\\d)|0\\.0497(?!\\d)|\\bD *= *46\\b",
+"pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
 "use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
@@ -128,7 +128,7 @@
 {
 "file": "MANIFEST.md",
 "line": 358,
-"pattern": "0\\.0212(?!\\d)|0\\.0497(?!\\d)|\\bD *= *46\\b",
+"pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
 "use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
@@ -137,7 +137,7 @@
 {
 "file": "MANIFEST.md",
 "line": 361,
-"pattern": "0\\.0212(?!\\d)|0\\.0497(?!\\d)|\\bD *= *46\\b",
+"pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
 "use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
@@ -146,7 +146,7 @@
 {
 "file": "MANIFEST.md",
 "line": 362,
-"pattern": "0\\.0212(?!\\d)|0\\.0497(?!\\d)|\\bD *= *46\\b",
+"pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
 "use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
@@ -155,7 +155,7 @@
 {
 "file": "MANIFEST.md",
 "line": 363,
-"pattern": "0\\.0212(?!\\d)|0\\.0497(?!\\d)|\\bD *= *46\\b",
+"pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
 "use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
@@ -164,7 +164,7 @@
 {
 "file": "MANIFEST.md",
 "line": 363,
-"pattern": "0\\.0212(?!\\d)|0\\.0497(?!\\d)|\\bD *= *46\\b",
+"pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
 "use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
@@ -173,7 +173,7 @@
 {
 "file": "MANIFEST.md",
 "line": 370,
-"pattern": "0\\.0212(?!\\d)|0\\.0497(?!\\d)|\\bD *= *46\\b",
+"pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
 "use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
@@ -182,7 +182,7 @@
 {
 "file": "MANIFEST.md",
 "line": 370,
-"pattern": "0\\.0212(?!\\d)|0\\.0497(?!\\d)|\\bD *= *46\\b",
+"pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
 "use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
@@ -344,7 +344,7 @@
 {
 "file": "Biological_Physics/README.md",
 "line": 58,
-"pattern": "3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
+"pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
