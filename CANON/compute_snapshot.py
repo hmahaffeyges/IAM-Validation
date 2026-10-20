@@ -8,13 +8,14 @@ Writes CANON/compute_snapshot.json, which the page builder reads. Run by checkpo
   CpG readings on arrays              : arrays stored in S3 (one green IDAT each) x 485,577 sites (450K size); a lower bound (EPIC arrays,
                                         arrays read from GEO archives and repeat reads are not counted)
 Numbers only grow: a value lower than the committed one keeps the committed one."""
+import sys as _s, os as _o; _s.path.insert(0, _o.path.join(_o.path.dirname(_o.path.abspath(__file__)), "..", "Biological_Physics", "MethylPhys", "boxruns")); from ce_cache import cost_and_usage as _ce   # cached: Cost Explorer bills per request (2026-10-20)
 import os, re, json, glob, datetime, collections, boto3
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."); OUT = os.path.join(ROOT, "CANON", "compute_snapshot.json")
 B = "methylphys-data-945451304272-us-west-2-an"; START = "2026-09-28"
 ce = boto3.client("ce", region_name="us-east-1"); ec2 = boto3.client("ec2", region_name="us-west-2"); s3 = boto3.client("s3")
 end = (datetime.date.today() + datetime.timedelta(days=1)).isoformat()
 H = collections.Counter(); cost = 0.0
-for x in ce.get_cost_and_usage(TimePeriod={"Start": "2026-09-01", "End": end}, Granularity="MONTHLY", Metrics=["UsageQuantity", "UnblendedCost"],
+for x in _ce(TimePeriod={"Start": "2026-09-01", "End": end}, Granularity="MONTHLY", Metrics=["UsageQuantity", "UnblendedCost"],
                                GroupBy=[{"Type": "DIMENSION", "Key": "USAGE_TYPE"}])["ResultsByTime"]:
     for g in x["Groups"]:
         u = g["Keys"][0]; cost += float(g["Metrics"]["UnblendedCost"]["Amount"])

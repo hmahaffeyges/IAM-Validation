@@ -3,6 +3,7 @@ start, end, job hours, vCPUs used, end status, and the purpose and record from R
 covers; the machine also runs for setup and between jobs, so job hours are a LOWER bound on billed hours. The page opens with what AWS billed
 (Cost Explorer: cost and hours per day and usage type), split into on-demand, spot, disks and storage, with the reclaims that forced on-demand.
 Upcoming runs are listed with their estimate before they start. Usage: python3 make_runs_ledger.py   (needs read access to the bucket)"""
+import sys as _s, os as _o; _s.path.insert(0, _o.path.dirname(_o.path.abspath(__file__))); from ce_cache import cost_and_usage as _ce   # cached: Cost Explorer bills per request (2026-10-20)
 import os, re, boto3, pandas as pd
 B = "methylphys-data-945451304272-us-west-2-an"; HERE = os.path.dirname(os.path.abspath(__file__)); s3 = boto3.client("s3")
 RUNS_PURPOSE = {   # prefix -> (run, purpose, record)
@@ -60,7 +61,7 @@ R = pd.DataFrame(rows).sort_values("start"); R["hours"] = (pd.to_datetime(R.end.
 # on-demand). Everything below comes from AWS billing (Cost Explorer: cost and hours per day, per usage type), so it adds up to the bill exactly.
 ce = boto3.client("ce", region_name="us-east-1"); import datetime as _dt, collections as _co
 _end = (_dt.date.today() + _dt.timedelta(days=1)).isoformat()
-_D = ce.get_cost_and_usage(TimePeriod={"Start": "2026-09-01", "End": _end}, Granularity="DAILY", Metrics=["UnblendedCost", "UsageQuantity"],
+_D = _ce(TimePeriod={"Start": "2026-09-01", "End": _end}, Granularity="DAILY", Metrics=["UnblendedCost", "UsageQuantity"],
                            GroupBy=[{"Type": "DIMENSION", "Key": "USAGE_TYPE"}])["ResultsByTime"]
 def _cat(u):
     u = u.split("-", 1)[1] if re.match(r"^[A-Z]{2,4}\d?-", u) else u

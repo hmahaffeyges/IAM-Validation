@@ -1,5 +1,22 @@
 {
  "since": "2026-10-20",
  "why": "AWS rejects every stored access key (InvalidClientTokenId); billing and storage cannot be read until the account is restored",
- "rule": "While this file exists, a closed day log may carry a pending computing-and-cost block and the campaign counts may lag. Delete it, then run CANON/day_compute.py and CANON/compute_snapshot.py, as soon as AWS answers."
+ "rule": "While this file exists, a closed day log may carry a pending computing-and-cost block and the campaign counts may lag. Delete it, then run CANON/day_compute.py and CANON/compute_snapshot.py, as soon as AWS answers.",
+ "last_reading": {
+  "source": "AWS Billing console, Bills page, printed 2026-10-20 by the author (estimated, bill pending)",
+  "period": "2026-10-01 to 2026-10-20",
+  "pretax_usd": 1602.23,
+  "tax_usd": 132.64,
+  "total_usd": 1734.87,
+  "by_service_pretax_usd": {
+   "EC2 machines": 1477.13,
+   "EC2 disks and snapshots (EBS)": 72.55,
+   "S3 storage": 36.39,
+   "Cost Explorer requests": 9.53,
+   "public IPv4 addresses": 3.98,
+   "data transfer": 2.66
+  },
+  "largest_line": "on-demand m7a.32xlarge, 136.365 hours, USD 1,011.67",
+  "cost_explorer": "953 requests at USD 0.01: the ledger and snapshot scripts asked on nearly every commit; from 2026-10-20 they go through boxruns/ce_cache.py, one request per question per 12 hours"
+ }
 }

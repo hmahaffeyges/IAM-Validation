@@ -5,6 +5,7 @@ block from AWS billing (Cost Explorer, DAILY): that day's bill by category, mach
 type x its vCPUs), and the running totals since the campaign began (2026-09-28). AWS bills about a day behind, so every run rewrites the last
 three days' blocks; a block is marked final once the day is more than two days old. daylog.py refuses a closed day log without its block,
 and the page's campaign numbers read the latest one. Cost Explorer dates are UTC days. Usage: python3 CANON/day_compute.py"""
+import sys as _s, os as _o; _s.path.insert(0, _o.path.join(_o.path.dirname(_o.path.abspath(__file__)), "..", "Biological_Physics", "MethylPhys", "boxruns")); from ce_cache import cost_and_usage as _ce   # cached: Cost Explorer bills per request (2026-10-20)
 import os, re, json, glob, datetime, collections, boto3
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."); DL = os.path.join(ROOT, "CANON", "daylogs"); START = "2026-09-28"
 def cat(k):
@@ -20,7 +21,7 @@ def days():
         kw = dict(TimePeriod={"Start": START, "End": end}, Granularity="DAILY", Metrics=["UsageQuantity", "UnblendedCost"],
                   GroupBy=[{"Type": "DIMENSION", "Key": "USAGE_TYPE"}])
         if tok: kw["NextPageToken"] = tok
-        r = ce.get_cost_and_usage(**kw)
+        r = _ce(**kw)
         for p in r["ResultsByTime"]:
             d = D.setdefault(p["TimePeriod"]["Start"], dict(cost=collections.Counter(), hours=collections.Counter()))
             for g in p["Groups"]:

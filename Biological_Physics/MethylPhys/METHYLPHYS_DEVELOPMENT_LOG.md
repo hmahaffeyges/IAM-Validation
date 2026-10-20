@@ -2738,3 +2738,6 @@ The mouse prediction rebuilt from ENA reads on a fresh clone: PASS (run 13, 655.
 
 ### 2026-10-20 · AWS unreadable; closed day logs may carry a declared pending cost block (OTH-071)
 Every stored AWS key is rejected from 2026-10-20 (the account is on a verification hold); billing cannot be read, so the 2026-10-19 day log could not get its computing-and-cost block. CANON/billing_unreadable.json declares it, dated, and only while that file exists may a closed day carry a pending block. Delete the file and run day_compute.py and compute_snapshot.py once AWS answers.
+
+### 2026-10-20 · The bill read by hand; Cost Explorer calls cached (OTH-071)
+The author printed the October bill from the AWS console (estimated, pending): USD 1,602.23 before tax, 132.64 tax, 1,734.87 total for 2026-10-01 to 2026-10-20; machines 1,477.13 (on-demand m7a.32xlarge alone 1,011.67 over 136 hours), disks 72.55, storage 36.39. It showed 953 Cost Explorer requests, USD 9.53 before tax: the runs ledger and the snapshot scripts asked AWS billing on nearly every commit, and each request costs USD 0.01. All four now go through boxruns/ce_cache.py: one request per distinct question per 12 hours. The reading is recorded in CANON/billing_unreadable.json.
