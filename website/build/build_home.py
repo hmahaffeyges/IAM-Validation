@@ -60,6 +60,51 @@ def costs():   # reads the run ledger as rebuilt 2026-10-17 (month table: catego
     week = days[-7:]
     return months, days, week, sum(float(v.replace(",", "")) for _, v in week)
 
+def intro_instruments():
+    """Each instrument's plain summary and what makes it different, read from INTRODUCTION.md's ### sections (author 2026-10-20: every mention of
+    an instrument carries the same plain language summary), keyed by catalogue id."""
+    t = open(os.path.join(REPO, "Biological_Physics", "MethylPhys", "INTRODUCTION.md"), encoding="utf-8").read()
+    K = {"Met-A": "meta", "C-Score": "cscore", "IAM-A": "iama", "IAM-Atlas": "atlas", "IAM-Deconvolver": "deconv"}; out = {}
+    for m in re.finditer(r"(?m)^### (.+?)\n(.*?)(?=^### |^## |\Z)", t, re.S):
+        k = next((v for n, v in K.items() if m.group(1).startswith(n + ":") or m.group(1).startswith(n + " ")), None)
+        if not k: continue
+        paras = [re.sub(r"\s+", " ", x).strip() for x in m.group(2).strip().split("\n\n")]
+        dif = next((x for x in " ".join(paras).split("**Different because**")[1:]), "")
+        out[k] = (paras[0].split("**Commissioned**")[0].strip(), "Different because" + dif.split("**")[0].rstrip() if dif else "")
+    assert set(out) == set(K.values()), f"INTRODUCTION.md is missing an instrument section: {set(K.values()) - set(out)}"
+    return out
+
+def researcher_section(onpage=None):
+    """The researcher package on the page (author 2026-10-20). Rendered from the package's own files, so the page and the package cannot differ."""
+    RP = J("CANON/researcher_page.json"); MP = "Biological_Physics/MethylPhys/"
+    intro, S = md_lite.sections(MP + "INTRODUCTION.md", REPO, onpage or {})
+    sec = "".join(f'<details><summary><b>{E(t)}</b></summary>{h}</details>' for k, (t, h) in enumerate(S))
+    T = J(MP + "reproduce/tests.json")["tests"]; V = J(MP + "reproduce/verified.json")
+    def card(t):
+        v = V.get(t["id"]) or {}
+        res = (f'<span class="chip st-c">{E(v["verdict"])} {E(v["date"])}</span>' if v.get("verdict") else "")
+        n = (f' {v["checks_ok"]} of {v["checks"]} compared numbers identical.' if v.get("checks") else "")
+        return (f'<article class="card"><h3>{E(t["title"])}</h3><p class="stat">{E(t["instrument"])} {res}</p>'
+                f'<p>{E(t.get("plain", t["shows"]))}</p><p><i>Why it matters.</i> {E(t.get("why", ""))}</p>'
+                f'<p class="sub">Rebuilt on a fresh machine from public data only ({E("; ".join(t["public_inputs"]))}).{n} '
+                f'Run it yourself: <code>python3 Biological_Physics/MethylPhys/reproduce/reproduce.py {E(t["id"])}</code> ({E(t["time"])}).</p>'
+                f'<p class="more"><a href="{rec(t["record"])}">The record</a></p></article>')
+    zen = "".join(f'<a class="tile" href="https://doi.org/{E(z["doi"])}">{E(z["what"])}<br><small>doi.org/{E(z["doi"])}</small></a>' for z in RP["zenodo"])
+    docs = "".join(f'<a class="tile" href="{rec(p)}">{E(t)}</a>' for t, p in RP["documents"])
+    npass = sum(1 for t in T if (V.get(t["id"]) or {}).get("verdict") == "PASS")
+    return (f'<section class="wrap" id="researchers"><h2>{E(RP["title"])}</h2><p class="sub">{E(RP["lead"])}</p>'
+            f'<p class="cta"><a class="btn" href="#rp-intro">The introduction</a><a class="btn ghost" href="#rp-results">The nine results</a>'
+            f'<a class="btn ghost" href="#rp-get">Download the package</a><a class="btn ghost" href="{rec(MP + "QUESTIONS_AND_ANSWERS.md")}">Questions and answers</a></p>'
+            f'<h3 id="rp-intro">An Introduction to IAM and the Physics of Methylation</h3>{intro}{sec}'
+            f'<h3 id="rp-results">The results, rebuilt from public data with one command each ({npass} of {len(T)} passed on a fresh machine)</h3>'
+            f'<p class="sub">Each test starts from public accessions only, runs the committed code of the chain, and compares every number it makes with the committed result. <a href="{rec(MP + "reproduce/README.md")}">How to run them</a>.</p>'
+            f'<div class="grid">{"".join(card(t) for t in T)}</div>'
+            f'<h3 id="rp-get">Download the package</h3><p class="sub">Clone the biology folder of the public repository:</p>'
+            f'<pre><code>{E(chr(10).join(RP["clone"]))}</code></pre><p class="sub">{E(RP["clone_note"])}</p>'
+            f'<p class="sub">Deposited on Zenodo, each with a permanent DOI:</p><div class="grid links">{zen}</div>'
+            f'<p class="sub">The documents to dig deeper:</p><div class="grid links">{docs}'
+            f'<a class="tile" href="https://github.com/hmahaffeyges/IAM-Validation/issues/new/choose">Report a result from your own samples</a></div></section>')
+
 def page(art):
     NRJ = J("CANON/now_running.json"); REG = J("CANON/results_register.json"); FUND = J("CANON/funding.json")
     months, days, week, wsum = costs()
@@ -192,8 +237,10 @@ def page(art):
         + f'<p><b>What is commissioned.</b> {E(_ST["commissioned"])}</p><p class="sub"><i>{E(_ST["closing"])}</i></p></div></section>')
     _cs = importlib.util.spec_from_file_location("cat", os.path.join(REPO, "CANON", "catalogue.py")); CAT = importlib.util.module_from_spec(_cs); _cs.loader.exec_module(CAT)
     _C, _M = CAT.load()
+    _II = intro_instruments()
     _cards = "".join(f'<article class="card"><span class="chip st-b">{E(CAT.stage(i, _M))}</span><h3>{E(i["name"])}</h3><p><b>{E(i["question"])}</b></p>'
-                     f'<p>{E(i["how"])}</p><p class="sub">Reads: {E(i["reads"])}.</p><p class="sub"><b>Next:</b> {E(i["next"])}</p></article>'
+                     + (f'<p>{E(_II[i["id"]][0])}</p><p><i>{E(_II[i["id"]][1])}</i></p>' if i["id"] in _II else "") +
+                     f'<p class="sub">{E(i["how"])}</p><p class="sub">Reads: {E(i["reads"])}.</p><p class="sub"><b>Next:</b> {E(i["next"])}</p></article>'
                      for i in _C["instruments"])
     catalogue = (f'<section class="wrap" id="instruments"><h2>The instruments</h2><p class="sub">Five readings, five different questions about the same sample. '
                  f'Every status below is computed from the Master Testing Manifest.</p>'
@@ -254,22 +301,13 @@ def page(art):
 <h1>Two telescopes.<br>One sky map.</h1>
 <p class="lead">It is all about the physics. One candidate law, IAM's Law, is followed across 37 orders of magnitude, from the atom to the cosmic horizon, and because the same law writes the record in the sky and in the cell, we come bearing cosmology's toolbox. <b>AstroGenetics</b> imports the measurement tools cosmologists built for the microwave background into DNA methylation: calibration against a reference, null tests, simulations with known answers, and analysis written down before the data is opened. <b>The Cosmic Methylome</b> is the methylome read the way that sky is read: what a cell's healthy reference cannot explain, mapped site by site. <a href="{PDF}#page={CH['astro'][1]}">Learn more: the chapter &rarr;</a></p>
 <p class="lead">We read the methylation of human DNA with the same mathematics cosmologists use to map the sky, to measure how faithfully a cell holds its information. The goal is early cancer detection from a blood or stool sample. Every test is written down before its data is read, and every result is recorded in the open, win or lose: <a href="#daylogs">the daily log</a>.</p>
-<p class="cta"><a class="btn" href="#daylogs">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
+<p class="cta"><a class="btn" href="#researchers">For researchers: the package</a><a class="btn ghost" href="#daylogs">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
 <main>
+{researcher_section()}
 {campaign}
 <section class="wrap" id="wins"><h2>{E(CF["title"])}</h2>{chain_lead}<div class="grid">{results}</div>
 <p class="sub">Each card links to its record. <a href="{rec("Biological_Physics/MethylPhys/EARLIER_RESULTS.md")}">{E(CF["earlier"])}</a> ({n_earlier}, each with its record).</p>
 </section>
-<section class="wrap" id="researchers"><h2>For researchers</h2>
-<p class="sub">Start with the introduction: how IAM's instruments and the atlas work, what each test showed, and what makes them different from the usual methods of methylation research. Then the questions a reviewer asks first, each answered from the record and linked to the test behind it, the one command that rebuilds it from public data, its chapter in the book and its data on Zenodo.</p>
-<p class="cta"><a class="btn" href="{rec("Biological_Physics/MethylPhys/INTRODUCTION.md")}">An Introduction to IAM and the Physics of Methylation</a><a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/RESEARCHER_PACKAGE.md")}">The researcher package</a><a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md")}">Questions and answers</a><a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/reproduce/README.md")}">Reproduce every result</a></p>
-<div class="grid links">
-<a class="tile" href="book/ch_reproduced.html">The commissioning record, reproduced: real report pages and every test, in the book</a>
-<a class="tile" href="https://doi.org/10.5281/zenodo.23441999">IAM-Atlas v2.1 on Zenodo</a>
-<a class="tile" href="{rec("Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md")}">The operating procedure</a>
-<a class="tile" href="{rec("Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/README.md")}">The showcase: public samples read once through the one command</a>
-<a class="tile" href="https://github.com/hmahaffeyges/IAM-Validation/issues/new/choose">Report a result from your own samples</a>
-</div></section>
 {v21_banner}
 {last24}
 <section class="wrap" id="daylogs"><h2>Start here: the daily log</h2>

@@ -1,0 +1,21 @@
+{
+ "_rule": "The researcher package on the front page (author 2026-10-20: 'I can just email a web address to any researcher ... THAT is where they see the researcher package with ALL their information linked and an option to download the entire thing'). build_home.py renders, first after the header: the introduction (Biological_Physics/MethylPhys/INTRODUCTION.md, each section collapsible), the nine reproduction tests (reproduce/tests.json and verified.json), and the downloads below. A Zenodo record is listed only once it is published; add the package record here when its DOI is minted. Edit here only.",
+ "title": "The IAM researcher package",
+ "lead": "Everything a researcher needs to read, run and rebuild IAM's instruments, on this page: the introduction, the nine results rebuilt from public data with one command each, and the package to download.",
+ "clone": ["git clone --filter=blob:none --sparse https://github.com/hmahaffeyges/IAM-Validation.git && cd IAM-Validation", "git sparse-checkout set Biological_Physics"],
+ "clone_note": "Downloads only the biology folder (about 850 MB); the chain's release check and every reproduction run from it.",
+ "zenodo": [
+  {"what": "IAM-Atlas v2.1: 79 purified healthy human cell types (fitted atlas)", "doi": "10.5281/zenodo.23441999"},
+  {"what": "IAM-Atlas v2.1: posterior draws and per-block outputs of the fit", "doi": "10.5281/zenodo.23422688"},
+  {"what": "The book, IAM's Law and Order: The Actualization of Reality", "doi": "10.5281/zenodo.23151068"}
+ ],
+ "documents": [
+  ["Questions and answers for researchers", "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md"],
+  ["What is in the package", "Biological_Physics/MethylPhys/RESEARCHER_PACKAGE.md"],
+  ["The instrument catalogue", "Biological_Physics/MethylPhys/INSTRUMENTS.md"],
+  ["The commissioning report", "Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md"],
+  ["The A-score database: every sample each instrument has read", "Biological_Physics/MethylPhys/ASCORES/README.md"],
+  ["The operating procedure", "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md"],
+  ["The showcase: public samples read once through the one command", "Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/README.md"]
+ ]
+}

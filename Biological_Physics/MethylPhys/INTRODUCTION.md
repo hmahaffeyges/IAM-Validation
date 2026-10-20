@@ -49,7 +49,7 @@ What that brings, each from the sky to the cell:
 - **Map-making with a posterior.** The atlas was fitted the way a sky map is made: every source of data fitted at once, each source's
   own offset fitted beside the biology (what cosmologists call destriping), and an uncertainty at every value.
 - **Masks and foregrounds.** The sky map found the X chromosome by itself: one reference array read as female, with 40 % of her X
-  chromosome sites between β = 0.3 and 0.7 against 8 % in the other five. In the sky, that is a foreground, and the cure is the same: a
+  chromosome sites between β = 0.3 and 0.7 against 8 % in the other five. In the sky, that is a foreground, and the answer is the same: a
   mask, or a reference of the same sex ([the sky tools chapter](https://hmahaffeyges.github.io/IAM-Validation/book/ch_skytools.html)).
 - **Pattern, not single points.** A power spectrum asks whether changes are scattered or clustered. That question became the C-Score.
 
