@@ -21,6 +21,7 @@ _Worked one step at a time. A step is closed only with its date and the record t
 11. **Now:** The book's Zenodo record, after steps 9 and 10. *Done when:* the draft uploaded by the box job with every book check passing; IAMPerformance publishes (OTH-077, OTH-072)
 12. The researcher package's Zenodo record (the biology folder), after step 11. *Done when:* the draft uploaded by the box job after the archive passes the release check; IAMPerformance publishes (OTH-077)
 13. Sky-map additions: the posterior noise maps into the chain and the report, the 3D sphere, the guidebook. *Done when:* each built and in the release check, the report and the page (ATL-063)
+14. IAM-A's firm rate, derived again on the commissioned counter: (1) recount the five DEV-ERASE-01 primary units (eraser-removed vs same-lab control molecules, already in S3) with chain Stage Q2, which counts interior opportunities; the sealed ratio rule stays as written (MET 0.40-0.60, NOT MET >= 0.85). (2) Only if the equal-halves reading survives, seal 'firm rate = 2/(D+2)' on single-molecule data the line was not built from, before reading it. *Done when:* the recount scored once and recorded; a sealed prediction written or the derivation recorded as not supported (PHY-006, PHY-049)
 
 ## The order of work
 

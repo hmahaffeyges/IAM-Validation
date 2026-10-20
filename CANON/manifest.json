@@ -7636,7 +7636,7 @@
    "legacy_ids": [
     "H3"
    ],
-   "notes": "No DEV_ERASE_01.md exists in the repo; the gap is defined in Biological_Physics/MethylPhys/doors/DEV_WRITER_01_OUTCOME.md. The 'missed restores on newly copied strands' route is HYP-SATURATION-01 falsifier 7 (DEV_METHIONINE_01 correction note).; 2026-10-14 sealed as the test of the author's write-half / erase-half reading: ratio 0.40-0.60 MET, >= 0.85 NOT MET; erase-side arms to search with TET knockouts: IDH1/2-mutant, SDH- and FH-deficient tumors, hypoxia (each with same-lab controls)",
+   "notes": "No DEV_ERASE_01.md exists in the repo; the gap is defined in Biological_Physics/MethylPhys/doors/DEV_WRITER_01_OUTCOME.md. The 'missed restores on newly copied strands' route is HYP-SATURATION-01 falsifier 7 (DEV_METHIONINE_01 correction note).; 2026-10-14 sealed as the test of the author's write-half / erase-half reading: ratio 0.40-0.60 MET, >= 0.85 NOT MET; erase-side arms to search with TET knockouts: IDH1/2-mutant, SDH- and FH-deficient tumors, hypoxia (each with same-lab controls) | 2026-10-20 (author: did we retry the firm-rate derivation on the corrected values?): not yet. Exploration, not sealed: on the commissioned line the firm rate 0.0403 implies D 23.8 for the writer alone (measured D 47.4-80: no), and D 47.7 for writer plus an equal eraser, 2/(D+2), at the edge of the measured range (post hoc). This test (eraser removed, ratio) was counted with the earlier counter; to-do step 14 recounts it with Stage Q2 when AWS returns",
    "runs": [
     {
      "date": "2026-10-15",
