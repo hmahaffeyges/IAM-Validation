@@ -6,6 +6,7 @@ x times the chain's leverage (2.12 % of the reading per 1 %, DEV_BLOOD_SENSITIVI
 the case group. The group test is the chain's own comparison of tared readings: difference of means against two standard errors (Welch).
 Reports, per group size, the false-positive rate on healthy-versus-healthy draws and the smallest planted loss found in at least 80 % of draws.
 No new reading. Writes groupa_synthetic_01_summary.txt. Usage: python3 groupa_synthetic_01.py"""
+# NO CHAIN: arithmetic over readings the chain already produced (A_rel, tared) and the chain's measured leverage; no physics and no new reading here.
 import os, numpy as np, pandas as pd
 H = os.path.dirname(os.path.abspath(__file__)); rng = np.random.default_rng(20261020)
 C = os.path.join(H, "..", "CSCORE_COMMISSIONING")
