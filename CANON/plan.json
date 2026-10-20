@@ -338,6 +338,17 @@
    "status": "open",
    "done_date": "",
    "record": ""
+  },
+  {
+   "task": "Independence from AWS (author 2026-10-20, after the account suspension: 'pull what we need to replicate or test our physics from Zenodo and not have to rely on AWS'): (1) a committed data register, one line per input any test or instrument reads: kind (public accession / our product / code), size, checksum, permanent home; a push check refuses an input whose only home is our S3. (2) When AWS is back: inventory the bucket against it, deposit every product of ours that exists only in S3 (counts, verdicts, logs, report bundles, the mouse verdict, the laptop backup's unique files) as a working-data Zenodo record, uploaded from an AWS machine, split to Zenodo's per-record limits. (3) Point the reproduction tests at Zenodo for every non-public input, and link the repository to Zenodo so each release is archived with a DOI",
+   "done_when": "the register has no input whose only home is S3; a fresh clone rebuilds every test from public archives and Zenodo with AWS credentials absent",
+   "rows": [
+    "OTH-077",
+    "OTH-076"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
   }
  ],
  "scheduled": [

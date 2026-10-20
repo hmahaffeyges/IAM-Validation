@@ -2771,3 +2771,6 @@ Author: the page still says only the ends are derived. Two sources still said th
 
 ### 2026-10-20 · Result cards: commands wrap inside the card (OTH-075)
 Author: the command in each of the nine result cards ran off the page. Code and code blocks on the page now wrap; each card prints the short form, python3 reproduce/reproduce.py <test>, run from Biological_Physics/MethylPhys (checked: --list runs from there), and the clone block ends with that cd.
+
+### 2026-10-20 · To-do step 19: independence from AWS (OTH-077)
+Author, after the account suspension: everything needed to replicate or test the physics must be retrievable from Zenodo, not AWS. Public raw data stays in its public archive, recorded by accession and checksum; our own products that exist only in S3 go to a working-data Zenodo record; the reproduction tests read Zenodo for every non-public input; the repository is linked to Zenodo so each release is archived. First part (the data register and its push check) needs only the repository.
