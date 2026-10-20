@@ -92,7 +92,7 @@ It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 | DEV_FINGERPRINT_02 | `DEV_FINGERPRINT_02/donor_null_02.py` | no chain import | DAT-063, SCO-048 |
 | DEV_FINGERPRINT_02 | `DEV_FINGERPRINT_02/prep_normal.sh` | no chain import | DAT-063, SCO-048 |
 | DEV_FINGERPRINT_02 | `DEV_FINGERPRINT_02/score_gain_02c.py` | no chain import | DAT-063, SCO-048 |
-| DEV_GROUP_01 | `DEV_GROUP_01/sham_01.py` | declares NO CHAIN | GRP-003, GRP-004, GRP-011 |
+| DEV_GROUP_01 | `DEV_GROUP_01/sham_01.py` | declares NO CHAIN | GRP-003, GRP-011 |
 | DEV_IAMA_CAUSE_01 | `DEV_IAMA_CAUSE_01/decide_cause_01.py` | declares NO CHAIN | COM-IAMA-001, COM-IAMA-002, COM-IAMA-014, COM-IAMA-046 |
 | DEV_IAMA_NEURON_01 | `DEV_LEVERS_01/levers_synth_04.py` | no chain import | COM-METAA-006, COM-METAA-018, COM-METAA-031, COM-IAMA-013, COM-IAMA-015, COM-IAMA-019 |
 | DEV_IAMA_READACROSS_01 | `DEV_IAMA_READACROSS_01/planted_readacross_01.py` | declares NO CHAIN | COM-IAMA-012, COM-IAMA-024 |

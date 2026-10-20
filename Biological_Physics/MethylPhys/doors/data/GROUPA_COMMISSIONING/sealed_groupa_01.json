@@ -1,0 +1,32 @@
+{
+ "test": "DEV-GROUPA-COMMISSION-01",
+ "instrument": "Group-A",
+ "sealed": "2026-10-20T21:44:13Z",
+ "job": "two groups of healthy people read as no different after the tare, and a group shift planted into healthy arrays is found",
+ "data": "GSE318173, the 278 healthy controls in groupa_samples.csv (Parkinson's cases and the processed-values file not opened)",
+ "bars": {
+  "B1": {
+   "rule": "Stage 0 admits at least half of the 278, and at least 90 % of the admitted arrays receive a tared reading"
+  },
+  "B2": {
+   "rule": "women vs men, tared: |difference| < 2 standard errors (Welch) and < 2 %"
+  },
+  "B3": {
+   "rule": "planted 1 % neutrophil-pattern loss in the planted half, both halves by the values route, tared against the unplanted half: planted above unplanted by more than 2 standard errors"
+  }
+ },
+ "sha256": {
+  "Biological_Physics/MethylPhys/doors/data/GROUPA_COMMISSIONING/read_groupa.py": "f5801944b4903cc0f9979a9dc414868cbf7148fd90b938072d01106cb4f718f7",
+  "Biological_Physics/MethylPhys/doors/data/GROUPA_COMMISSIONING/score_groupa.py": "6785d9a35102e646c4ae24d0dccd9141764a708f104556f217ce33a2dd295ca2",
+  "Biological_Physics/MethylPhys/doors/data/GROUPA_COMMISSIONING/groupa_samples.csv": "ca7aa3971d7479200d862c024a24a4addc5877cd7f5e6bd3f20403cf4a3fd5ea",
+  ".github/workflows/groupa.yml": "8548c3be73db8554a45ba1e2c0ec96298e1ff6e4fc2fedbc8fbd3c2f9f53e85b"
+ },
+ "smoke": {
+  "run": "39490274637",
+  "result": "GSM7508429 read through read_groupa.py equals its committed chain v4 report"
+ },
+ "rehearsal": {
+  "run": "39498047678",
+  "result": "46 of 47 admitted read; sex +0.12 % (0.12 SE); planted +2.07 % (2.9 SE)"
+ }
+}

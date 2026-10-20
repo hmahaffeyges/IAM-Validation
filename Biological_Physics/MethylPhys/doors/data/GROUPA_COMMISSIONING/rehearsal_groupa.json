@@ -1,10 +1,35 @@
 {
- "sealed": null,
- "read_on": "rehearsal_samples.csv",
+ "sealed": "2026-10-20T21:44:13Z",
+ "read_on": "GSE318173, the 278 healthy controls in groupa_samples.csv (Parkinson's cases and the processed-values file not opened)",
  "B1": {
   "n_read": 46,
+  "admitted_by_stage0": 47,
   "of": 59,
-  "met": false
+  "quarantined": {
+   "n": 12,
+   "gsm": [
+    "GSM5583004",
+    "GSM5583005",
+    "GSM5583006",
+    "GSM5583007",
+    "GSM5583008",
+    "GSM5583017",
+    "GSM5583018",
+    "GSM5583019",
+    "GSM5583020",
+    "GSM5583021",
+    "GSM5583026",
+    "GSM5583027"
+   ],
+   "by_slide": {
+    "200607130085": 4,
+    "200607130086": 8
+   },
+   "reasons": [
+    "hard failures: ['ctrl_qc']"
+   ]
+  },
+  "met": true
  },
  "B2": {
   "n1": 9,
@@ -28,7 +53,7 @@
   "t": 2.875,
   "met": true
  },
- "all_met": false,
+ "all_met": true,
  "reported": {
   "untared_set_means": {
    "GSE184269": 0.9762,
@@ -142,22 +167,22 @@
    [
     "GSM5583006",
     "nan",
-    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+    " || h groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n  array type: EPIC_v1 (header: EPIC_v1, 1,052,641 addresses)\nStage 0: intake gates (SOP 11-19)\nStage 0 verdict: QUARANTINE  hard failures: ['ctrl_qc']\n\nQUARANTINE - the chain stops here and nothing is scored. Stage 0 rejected the specimen before calibration.\n"
    ],
    [
     "GSM5583007",
     "nan",
-    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+    " || h groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n  array type: EPIC_v1 (header: EPIC_v1, 1,052,641 addresses)\nStage 0: intake gates (SOP 11-19)\nStage 0 verdict: QUARANTINE  hard failures: ['ctrl_qc']\n\nQUARANTINE - the chain stops here and nothing is scored. Stage 0 rejected the specimen before calibration.\n"
    ],
    [
     "GSM5583008",
     "nan",
-    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+    " || h groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n  array type: EPIC_v1 (header: EPIC_v1, 1,052,641 addresses)\nStage 0: intake gates (SOP 11-19)\nStage 0 verdict: QUARANTINE  hard failures: ['ctrl_qc']\n\nQUARANTINE - the chain stops here and nothing is scored. Stage 0 rejected the specimen before calibration.\n"
    ],
    [
     "GSM5583017",
     "nan",
-    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+    " || h groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n  array type: EPIC_v1 (header: EPIC_v1, 1,052,641 addresses)\nStage 0: intake gates (SOP 11-19)\nStage 0 verdict: QUARANTINE  hard failures: ['ctrl_qc']\n\nQUARANTINE - the chain stops here and nothing is scored. Stage 0 rejected the specimen before calibration.\n"
    ],
    [
     "GSM5583025",
@@ -167,42 +192,42 @@
    [
     "GSM5583018",
     "nan",
-    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+    " || h groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n  array type: EPIC_v1 (header: EPIC_v1, 1,052,641 addresses)\nStage 0: intake gates (SOP 11-19)\nStage 0 verdict: QUARANTINE  hard failures: ['ctrl_qc']\n\nQUARANTINE - the chain stops here and nothing is scored. Stage 0 rejected the specimen before calibration.\n"
    ],
    [
     "GSM5583019",
     "nan",
-    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+    " || h groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n  array type: EPIC_v1 (header: EPIC_v1, 1,052,641 addresses)\nStage 0: intake gates (SOP 11-19)\nStage 0 verdict: QUARANTINE  hard failures: ['ctrl_qc']\n\nQUARANTINE - the chain stops here and nothing is scored. Stage 0 rejected the specimen before calibration.\n"
    ],
    [
     "GSM5583020",
     "nan",
-    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+    " || h groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n  array type: EPIC_v1 (header: EPIC_v1, 1,052,641 addresses)\nStage 0: intake gates (SOP 11-19)\nStage 0 verdict: QUARANTINE  hard failures: ['ctrl_qc']\n\nQUARANTINE - the chain stops here and nothing is scored. Stage 0 rejected the specimen before calibration.\n"
    ],
    [
     "GSM5583021",
     "nan",
-    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+    " || h groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n  array type: EPIC_v1 (header: EPIC_v1, 1,052,641 addresses)\nStage 0: intake gates (SOP 11-19)\nStage 0 verdict: QUARANTINE  hard failures: ['ctrl_qc']\n\nQUARANTINE - the chain stops here and nothing is scored. Stage 0 rejected the specimen before calibration.\n"
    ],
    [
     "GSM5583004",
     "nan",
-    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+    " || h groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n  array type: EPIC_v1 (header: EPIC_v1, 1,052,641 addresses)\nStage 0: intake gates (SOP 11-19)\nStage 0 verdict: QUARANTINE  hard failures: ['ctrl_qc']\n\nQUARANTINE - the chain stops here and nothing is scored. Stage 0 rejected the specimen before calibration.\n"
    ],
    [
     "GSM5583026",
     "nan",
-    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+    " || h groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n  array type: EPIC_v1 (header: EPIC_v1, 1,052,641 addresses)\nStage 0: intake gates (SOP 11-19)\nStage 0 verdict: QUARANTINE  hard failures: ['ctrl_qc']\n\nQUARANTINE - the chain stops here and nothing is scored. Stage 0 rejected the specimen before calibration.\n"
    ],
    [
     "GSM5583005",
     "nan",
-    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+    " || h groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n  array type: EPIC_v1 (header: EPIC_v1, 1,052,641 addresses)\nStage 0: intake gates (SOP 11-19)\nStage 0 verdict: QUARANTINE  hard failures: ['ctrl_qc']\n\nQUARANTINE - the chain stops here and nothing is scored. Stage 0 rejected the specimen before calibration.\n"
    ],
    [
     "GSM5583027",
     "nan",
-    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+    " || h groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n  array type: EPIC_v1 (header: EPIC_v1, 1,052,641 addresses)\nStage 0: intake gates (SOP 11-19)\nStage 0 verdict: QUARANTINE  hard failures: ['ctrl_qc']\n\nQUARANTINE - the chain stops here and nothing is scored. Stage 0 rejected the specimen before calibration.\n"
    ]
   ]
  }

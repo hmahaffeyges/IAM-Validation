@@ -4,7 +4,7 @@ sealed bars of sealed_groupa_01.json. Reported, not scored: what the tare does t
 cell shares (IAM-Deconvolver) by sex, the C-Score of the healthy arrays against its upper limit, and the C-Score of the planted half (a scattered
 loss, which Met-A should see and the C-Score should not call clustered). Usage: python3 score_groupa.py ROWS_DIR [SAMPLES_CSV NAME]   -> NAME.json and NAME_summary.txt here
 (defaults: groupa_samples.csv, scored_groupa_01). A samples file with a "set" column (the rehearsal on spent sets) is tared within each set."""
-import os, sys, glob, json, ast, numpy as np, pandas as pd
+import os, re, sys, glob, json, ast, numpy as np, pandas as pd
 H = os.path.dirname(os.path.abspath(__file__)); D = os.path.join(H, "..")
 def tare(r, healthy):
     import conductor_v3 as C
@@ -45,7 +45,11 @@ if __name__ == "__main__":
     R = pd.concat([pd.read_csv(f) for f in sorted(glob.glob(os.path.join(sys.argv[1], "rows_*.csv")))], ignore_index=True).merge(S, on="gsm", how="left")
     I = R[R.route == "idat"].drop_duplicates("gsm").copy(); I = TS(I, pd.Series(True, index=I.index))
     V = R[R.route == "values"].drop_duplicates("gsm").copy(); V = TS(V, ~V.planted.astype(bool))
-    n_read = int(I.A_rel.notna().sum()); b1 = n_read >= SEAL["bars"]["B1"]["min_read"]
+    Q = R[(R.route == "idat") & R.error.fillna("").str.contains("QUARANTINE")].drop_duplicates("gsm")   # stopped by Stage 0 before calibration
+    admitted = len(S) - len(Q); n_read = int(I.A_rel.notna().sum())
+    b1 = bool(admitted >= len(S) / 2 and n_read >= np.ceil(0.9 * admitted))   # bar 1 (sealed 2026-10-20): Stage 0 admits at least half; >= 90 % of those read
+    quarantined = dict(n=len(Q), gsm=sorted(Q.gsm), by_slide=S[S.gsm.isin(Q.gsm)].groupby("slide").size().astype(int).to_dict() if "slide" in S else {},
+                       reasons=sorted(set(re.findall(r"hard failures: \[[^\]]*\]", " ".join(Q.error)))))
     w = I[I.sex == "female"].A_rel.dropna(); m = I[I.sex == "male"].A_rel.dropna(); s2 = welch(w, m)
     b2 = abs(s2["t"]) < 2 and abs(s2["rel_difference"]) < 0.02
     p = V[V.planted.astype(bool)].A_rel.dropna(); u = V[~V.planted.astype(bool)].A_rel.dropna(); s3 = welch(p, u); b3 = s3["t"] > 2
@@ -62,11 +66,11 @@ if __name__ == "__main__":
                    C_rel_planted_vs_unplanted=welch(V[V.planted.astype(bool)].C_rel.dropna(), V[~V.planted.astype(bool)].C_rel.dropna())),
                atlas_shares_by_sex={c: welch(I[I.sex == "female"][c].dropna(), I[I.sex == "male"][c].dropna()) for c in I.columns if c.startswith("share_") and I[c].notna().sum() > 10},
                withheld=I[I.A.isna()][["gsm", "withheld", "error"]].astype(str).values.tolist())
-    out = dict(sealed=SEAL["sealed"], read_on=SEAL["data"], B1=dict(n_read=n_read, of=len(S), met=b1), B2=dict(**s2, met=b2), B3=dict(**s3, met=b3),
+    out = dict(sealed=SEAL["sealed"], read_on=SEAL["data"], B1=dict(n_read=n_read, admitted_by_stage0=admitted, of=len(S), quarantined=quarantined, met=b1), B2=dict(**s2, met=b2), B3=dict(**s3, met=b3),
                all_met=bool(b1 and b2 and b3), reported=rep)
     json.dump(out, open(os.path.join(H, NAME + ".json"), "w"), indent=1, default=str)
     I.to_csv(os.path.join(H, NAME + "_rows_idat.csv"), index=False); V.to_csv(os.path.join(H, NAME + "_rows_values.csv"), index=False)
-    L = [f"Group-A {'commissioning, scored once' if SEAL.get('sealed') else 'REHEARSAL on spent sets (no bar, no verdict)'}: {n_read} of {len(S)} healthy whole bloods read (B1 {'MET' if b1 else 'NOT MET'})",
+    L = [f"Group-A {'commissioning, scored once' if SEAL.get('sealed') else 'REHEARSAL on spent sets (no bar, no verdict)'}: {n_read} of the {admitted} arrays Stage 0 admitted read ({len(Q)} of {len(S)} quarantined by Stage 0) (B1 {'MET' if b1 else 'NOT MET'})",
          f"B2 sex null, tared: women {s2['mean1']} (n {s2['n1']}) men {s2['mean2']} (n {s2['n2']}), difference {100*s2['rel_difference']:+.2f} %, {s2['t']} SE -> {'MET' if b2 else 'NOT MET'}",
          f"B3 planted 1 % loss: planted {s3['mean1']} (n {s3['n1']}) unplanted {s3['mean2']} (n {s3['n2']}), difference {100*s3['rel_difference']:+.2f} %, {s3['t']} SE -> {'MET' if b3 else 'NOT MET'}",
          f"ALL BARS {'MET' if out['all_met'] else 'NOT MET'}"]

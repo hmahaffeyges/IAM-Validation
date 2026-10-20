@@ -385,6 +385,16 @@
    "status": "open",
    "done_date": "",
    "record": ""
+  },
+  {
+   "task": "Stage 0 control-probe limits set from healthy arrays (PROC-STAGE0-04): the bisulfite-conversion minimum (every rehearsal array, 0.66 to 0.70, falls below the provisional value), the hybridization high/low ratio and the extension band; first find why two whole slides of GSE184269 (200607130085, 200607130086) read hybridization high below low while their methylation reads normally (a control-address or labeling difference, or a real hybridization fault). After the sealed Group-A reading; release check and clean clone",
+   "done_when": "the three limits come from a stated healthy distribution, the inverted-hybridization slides are explained, and the release check passes",
+   "rows": [
+    "GRP-004"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
   }
  ],
  "scheduled": [
