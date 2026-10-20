@@ -296,11 +296,14 @@ def page(art):
                     for g, sts in GROUPS)
     assert sum(1 for r in BT if any(r[3] in sts for _, sts in GROUPS)) == len(BT), "a tool status the page does not group"
     cur = months[-1]
+    _RPV = J("Biological_Physics/MethylPhys/reproduce/verified.json"); _RPTT = J("Biological_Physics/MethylPhys/reproduce/tests.json")["tests"]
+    _RPN = sum(1 for t in _RPTT if (_RPV.get(t["id"]) or {}).get("verdict") == "PASS"); _RPT = len(_RPTT)
     body = f'''<header class="hero" style="background-image:linear-gradient(rgba(10,12,16,.55),rgba(10,12,16,.85)),url({art("web_banner.jpg")})">
-<div class="wrap"><p class="kicker">IAMPerformance · AstroGenetics and the Cosmic Methylome</p>
-<h1>Two telescopes.<br>One sky map.</h1>
-<p class="lead">It is all about the physics. One candidate law, IAM's Law, is followed across 37 orders of magnitude, from the atom to the cosmic horizon, and because the same law writes the record in the sky and in the cell, we come bearing cosmology's toolbox. <b>AstroGenetics</b> imports the measurement tools cosmologists built for the microwave background into DNA methylation: calibration against a reference, null tests, simulations with known answers, and analysis written down before the data is opened. <b>The Cosmic Methylome</b> is the methylome read the way that sky is read: what a cell's healthy reference cannot explain, mapped site by site. <a href="{PDF}#page={CH['astro'][1]}">Learn more: the chapter &rarr;</a></p>
-<p class="lead">We read the methylation of human DNA with the same mathematics cosmologists use to map the sky, to measure how faithfully a cell holds its information. The goal is early cancer detection from a blood or stool sample. Every test is written down before its data is read, and every result is recorded in the open, win or lose: <a href="#daylogs">the daily log</a>.</p>
+<div class="wrap"><p class="kicker">IAMPerformance · An Introduction to IAM</p>
+<h1>The Physics of Methylation</h1>
+<p class="lead"><b>How our instruments work, and what makes them different.</b> A methyl mark on DNA is a record, and a cell pays to keep it against the kicks of heat: about one ATP per site. That price is set by physics, not learned from a training set. IAM's instruments read, in bits, how well a cell is holding its marks, on a gauge whose ends are derived from thermodynamics, and each one was commissioned on a test written and sealed before its data was read.</p>
+<p class="lead">The goal is early cancer detection from a blood or stool sample. {_RPN} of {_RPT} headline results rebuild from public data on a fresh machine, one command each, and every result is recorded in the open: <a href="#researchers">the researcher package</a> and <a href="#daylogs">the daily log</a>.</p>
+<p class="sub">To read the genome, we use the measurement methods cosmologists built for the microwave sky: calibration against a reference, null tests, simulations with known answers, and maps with an uncertainty at every point. <a href="{PDF}#page={CH['astro'][1]}">AstroGenetics, the chapter &rarr;</a></p>
 <p class="cta"><a class="btn" href="#researchers">For researchers: the package</a><a class="btn ghost" href="#daylogs">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
 <main>
 {researcher_section()}
@@ -590,7 +593,7 @@ def full(art, css_tag):
     _i = body.rfind("<footer"); body = (body[:_i] + _tab + body[_i:]) if _i >= 0 else body + _tab
     DOCS[:] = []
     head = f'''<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IAMPerformance: two telescopes, one sky map</title>{css_tag}<style>{CSS}</style></head><body>'''
+<title>IAMPerformance: the physics of methylation</title>{css_tag}<style>{CSS}</style></head><body>'''
     return head + body + "</body></html>", body
 
 if __name__ == "__main__":

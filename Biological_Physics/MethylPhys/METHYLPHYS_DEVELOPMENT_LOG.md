@@ -2750,3 +2750,6 @@ The canon check on GitHub had failed on every push since 2026-10-19 20:34 UTC (2
 
 ### 2026-10-20 · Report text in American spelling (OTH-071)
 The sky caption, its legend and the plain report said "grey"; now "gray" in report_figs_v4.py, report_pdf_v4.py, report_v4.py and stage_v4.py (text and comments only, no computation). The clean-clone check runs when AWS is back; the committed example reports keep their printed text until then.
+
+### 2026-10-20 · Page header: The Physics of Methylation (OTH-075)
+Author: the first thing a researcher reads should be what makes the approach unique, the physics, not a line that raises more skepticism than the results. The header was "Two telescopes. One sky map." It is now the introduction's title, "The Physics of Methylation", with the price of holding a mark, the gauge derived from thermodynamics and the sealed tests first, then the goal and the reproduced count (read from reproduce/verified.json), and the cosmology methods last, as the analysis toolkit. Page title to match.
