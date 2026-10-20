@@ -62,7 +62,7 @@ and $L$ is the share of tiles (each with at least 200 calls) whose mean methylat
   \label{eq:iama}
 \end{equation}
 fitted once (Theil--Sen, across cell types) and frozen in the chain (self-reference line v1). \measured{} A sample is read against what its
-own loose share predicts: 1 is on the healthy line, above 1 is more held sites lost than its own state predicts (right on the gauge).
+own loose share predicts: 1 is on the healthy line, above 1 is more held sites lost than its own state predicts (right on the gauge). So the middle mark of IAM-A's gauge is not an average of other people: it is computed from the sample itself. The form of the line follows from the cell's design, which holds firm the part of the genome it uses and leaves the share $L$ loose; its two constants are the measured part, counted once. An attempt to derive the firm rate from the copying enzyme's own error, $1/(1+D)$, did not hold on the commissioned counter (DEV-WRITER-01 and -02), so it stays measured. \measured{}
 Before reading, a sample-shape check compares the sample's tile distribution with the healthy samples of its cell type and refuses
 a sample whose shape lies outside them; a refused sample is listed with its reason and not read. The healthy band, v1, is
 $0.779$--$1.055$, set on healthy samples only.
