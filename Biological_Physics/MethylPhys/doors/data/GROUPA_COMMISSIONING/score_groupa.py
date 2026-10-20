@@ -31,7 +31,7 @@ def tare(r, healthy):
 def _body(src, name):
     f = next(n for n in ast.walk(ast.parse(src)) if isinstance(n, ast.FunctionDef) and n.name == name)
     return "\n".join(l.strip() for l in ast.get_source_segment(src, f).split("\n") if l.strip() and not l.strip().startswith("#"))
-assert _body(open(__file__).read(), "tare") == _body(open(os.path.join(D, "CSCORE_COMMISSIONING", "read_band_test.py")).read(), "tare"), "tare drifted"
+assert _body(open(__file__).read(), "tare").split("\n", 1)[1] == _body(open(os.path.join(D, "CSCORE_COMMISSIONING", "read_band_test.py")).read(), "tare").split("\n", 1)[1], "tare drifted"   # body after the def line, as read_band_test.py checks run3.py
 def welch(a, b):
     a, b = np.asarray(a, float), np.asarray(b, float); se = float(np.sqrt(a.var(ddof=1) / len(a) + b.var(ddof=1) / len(b)))
     d = float(a.mean() - b.mean()); return dict(n1=len(a), n2=len(b), mean1=round(float(a.mean()), 5), mean2=round(float(b.mean()), 5), difference=round(d, 5),

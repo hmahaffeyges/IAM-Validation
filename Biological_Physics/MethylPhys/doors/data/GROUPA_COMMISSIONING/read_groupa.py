@@ -6,23 +6,32 @@
        so both halves of bar 3 are read by the same values route. Writes OUTDIR/rows_SHARD.csv. The IDATs are deleted after each array.
   smoke OUTDIR   the same path on the four spent GSE235717 arrays of the example reports: GSM7508429's untared reading must equal its committed
        report (doors/data/REPORT_EXAMPLES_V4/final/GSE235717_GSM7508429_bundle.json), or the run stops (environment or script not the chain's)."""
-import os, sys, json, csv, subprocess, urllib.request, time, numpy as np, pandas as pd
+import os, re, sys, json, csv, subprocess, urllib.request, time, numpy as np, pandas as pd
 H = os.path.dirname(os.path.abspath(__file__)); MP = os.path.abspath(os.path.join(H, "..", "..", ".."))
 CH = os.path.join(MP, "chain"); RS = os.path.join(CH, "MethylPhys_Interface", "run_sample.py"); PY = sys.executable
 sys.path.insert(0, CH)
 
 def fetch(gsm, name, out):
-    u = f"https://www.ncbi.nlm.nih.gov/geo/download/?acc={gsm}&format=file&file={name}"
-    for t in range(6):
-        try: urllib.request.urlretrieve(u, out); return out
-        except Exception: time.sleep(20 * (t + 1))
-    raise RuntimeError(f"could not fetch {name}")
+    """the file as GEO serves it, checked: a real IDAT here is gzip (first bytes 1f 8b) and over 1 MB; an error page is retried (2026-10-20:
+    rehearsal run 2 lost 12 arrays of one series, most likely to throttled downloads saved as files)"""
+    us = [f"https://www.ncbi.nlm.nih.gov/geo/download/?acc={gsm}&format=file&file={name}",
+          f"https://ftp.ncbi.nlm.nih.gov/geo/samples/{gsm[:-3]}nnn/{gsm}/suppl/{name}"]
+    for t in range(8):
+        try:
+            urllib.request.urlretrieve(us[t % 2], out)
+            with open(out, "rb") as f: head = f.read(2)
+            if head == b"\x1f\x8b" and os.path.getsize(out) > 1_000_000: return out
+        except Exception: pass
+        time.sleep(15 * (t + 1))
+    raise RuntimeError(f"could not fetch {name} as a valid file")
 
 def run(args, tag, out):
     b = os.path.join(out, tag + "_bundle.json")
     r = subprocess.run([PY, RS] + args + ["--specimen", "whole blood", "--id", tag, "--out", os.path.join(out, tag + ".html"), "--bundle", b,
                        "--ledger", os.path.join(out, "ledger.jsonl")], capture_output=True, text=True)
-    if r.returncode != 0 or not os.path.exists(b): return None, (r.stderr or r.stdout)[-300:]
+    if r.returncode != 0 or not os.path.exists(b):
+        t = (r.stderr or "") + (r.stdout or ""); k = [l for l in t.split("\n") if re.search(r"Error|Exception|Traceback|refus", l)]
+        return None, (" | ".join(k[-4:]) + " || " + t[-400:])[-900:]
     return json.load(open(b)), ""
 
 def row(b):
@@ -59,12 +68,13 @@ if __name__ == "__main__":
         S = pd.read_csv(sys.argv[2]); out = sys.argv[3]; k, n = int(sys.argv[4]), int(sys.argv[5]); os.makedirs(out, exist_ok=True)
         work = os.path.join(out, "_work"); os.makedirs(work, exist_ok=True); R = []
         for i, s in S.iloc[k::n].iterrows():
-            R += one(s.gsm, s.grn, s.red, s.half, out, work); print(s.gsm, R[-1].get("A"), R[-1].get("error", "")[:80], flush=True)
+            try: R += one(s.gsm, s.grn, s.red, s.half, out, work)
+            except Exception as e: R.append(dict(gsm=s.gsm, route="idat", planted=False, error=f"{type(e).__name__}: {e}"[:900])); print(s.gsm, R[-1].get("A"), R[-1].get("error", "")[:80], flush=True)
             pd.DataFrame(R).to_csv(os.path.join(out, f"rows_{k}.csv"), index=False)
     elif mode == "smoke":
         out = sys.argv[2]; os.makedirs(out, exist_ok=True); work = os.path.join(out, "_work"); os.makedirs(work, exist_ok=True)
         u = "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7508nnn/GSM7508429/suppl/"; L = urllib.request.urlopen(u).read().decode()
-        import re; f = sorted(set(re.findall(r"GSM7508429_[^\"]*_(?:Grn|Red)\.idat\.gz", L)))
+        f = sorted(set(re.findall(r"GSM7508429_[^\"]*_(?:Grn|Red)\.idat\.gz", L)))
         g = os.path.join(work, f[0]); r = os.path.join(work, f[1]); urllib.request.urlretrieve(u + f[0], g); urllib.request.urlretrieve(u + f[1], r)
         b, err = run(["--grn", g, "--red", r], "SMOKE_GSM7508429", out)
         ref = json.load(open(os.path.join(MP, "doors", "data", "REPORT_EXAMPLES_V4", "final", "GSE235717_GSM7508429_bundle.json")))

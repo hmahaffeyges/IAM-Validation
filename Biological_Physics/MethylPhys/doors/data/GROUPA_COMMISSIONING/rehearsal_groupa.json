@@ -1,0 +1,209 @@
+{
+ "sealed": null,
+ "read_on": "rehearsal_samples.csv",
+ "B1": {
+  "n_read": 46,
+  "of": 59,
+  "met": false
+ },
+ "B2": {
+  "n1": 9,
+  "n2": 37,
+  "mean1": 1.00216,
+  "mean2": 1.00093,
+  "difference": 0.00123,
+  "rel_difference": 0.00123,
+  "se": 0.01005,
+  "t": 0.122,
+  "met": true
+ },
+ "B3": {
+  "n1": 24,
+  "n2": 22,
+  "mean1": 1.0236,
+  "mean2": 1.00266,
+  "difference": 0.02093,
+  "rel_difference": 0.02065,
+  "se": 0.00728,
+  "t": 2.875,
+  "met": true
+ },
+ "all_met": false,
+ "reported": {
+  "untared_set_means": {
+   "GSE184269": 0.9762,
+   "GSE315366": 1.0088
+  },
+  "tared_set_means": {
+   "GSE184269": 1.0023,
+   "GSE315366": 1.0008
+  },
+  "untared_by_sex": {
+   "n1": 9,
+   "n2": 37,
+   "mean1": 0.9989,
+   "mean2": 1.00155,
+   "difference": -0.00265,
+   "rel_difference": -0.00264,
+   "se": 0.01154,
+   "t": -0.229
+  },
+  "untared_slide_spread": 0.02197,
+  "tared_slide_spread": 0.01838,
+  "untared_plate_means": {},
+  "tared_plate_means": {},
+  "ref_scope": {
+   "series": 34,
+   "slide": 12
+  },
+  "healthy_relative_sd_tared": 0.0221,
+  "cscore_above_band": 3,
+  "cscore_read": 46,
+  "cscore_planted_scattered": {
+   "what": "the planted 1 % loss is scattered; the C-Score flags clustered loss only, so the planted half should stay under its upper limit 1.152",
+   "planted_above_band": 2,
+   "planted_read": 24,
+   "unplanted_above_band": 2,
+   "unplanted_read": 22,
+   "C_rel_planted_vs_unplanted": {
+    "n1": 24,
+    "n2": 22,
+    "mean1": 1.05338,
+    "mean2": 1.0256,
+    "difference": 0.02778,
+    "rel_difference": 0.02671,
+    "se": 0.02418,
+    "t": 1.149
+   }
+  },
+  "atlas_shares_by_sex": {
+   "share_neutrophils": {
+    "n1": 10,
+    "n2": 37,
+    "mean1": 0.52622,
+    "mean2": 0.57788,
+    "difference": -0.05166,
+    "rel_difference": -0.09114,
+    "se": 0.06559,
+    "t": -0.788
+   },
+   "share_monocytes": {
+    "n1": 10,
+    "n2": 37,
+    "mean1": 0.10403,
+    "mean2": 0.09658,
+    "difference": 0.00745,
+    "rel_difference": 0.07585,
+    "se": 0.01605,
+    "t": 0.464
+   },
+   "share_b_cells": {
+    "n1": 10,
+    "n2": 37,
+    "mean1": 0.04418,
+    "mean2": 0.04012,
+    "difference": 0.00406,
+    "rel_difference": 0.09916,
+    "se": 0.00705,
+    "t": 0.576
+   },
+   "share_cd4_t_cells": {
+    "n1": 10,
+    "n2": 37,
+    "mean1": 0.18883,
+    "mean2": 0.15385,
+    "difference": 0.03498,
+    "rel_difference": 0.2169,
+    "se": 0.03193,
+    "t": 1.096
+   },
+   "share_cd8_t_cells": {
+    "n1": 10,
+    "n2": 37,
+    "mean1": 0.07574,
+    "mean2": 0.072,
+    "difference": 0.00374,
+    "rel_difference": 0.05138,
+    "se": 0.01765,
+    "t": 0.212
+   },
+   "share_nk_cells": {
+    "n1": 10,
+    "n2": 37,
+    "mean1": 0.06095,
+    "mean2": 0.05956,
+    "difference": 0.00139,
+    "rel_difference": 0.02319,
+    "se": 0.0084,
+    "t": 0.165
+   }
+  },
+  "withheld": [
+   [
+    "GSM5583006",
+    "nan",
+    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+   ],
+   [
+    "GSM5583007",
+    "nan",
+    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+   ],
+   [
+    "GSM5583008",
+    "nan",
+    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+   ],
+   [
+    "GSM5583017",
+    "nan",
+    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+   ],
+   [
+    "GSM5583025",
+    "only 5325 of 6000 neutrophil sites measured (>= 5400 required): A withheld",
+    "nan"
+   ],
+   [
+    "GSM5583018",
+    "nan",
+    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+   ],
+   [
+    "GSM5583019",
+    "nan",
+    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+   ],
+   [
+    "GSM5583020",
+    "nan",
+    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+   ],
+   [
+    "GSM5583021",
+    "nan",
+    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+   ],
+   [
+    "GSM5583004",
+    "nan",
+    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+   ],
+   [
+    "GSM5583026",
+    "nan",
+    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+   ],
+   [
+    "GSM5583005",
+    "nan",
+    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+   ],
+   [
+    "GSM5583027",
+    "nan",
+    "n/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  sub = sub[et.str.replace(\"-\", \" \", regex=False).str.contains(contains, case=False)]\n"
+   ]
+  ]
+ }
+}

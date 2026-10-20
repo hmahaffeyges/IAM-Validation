@@ -1,0 +1,4 @@
+Group-A REHEARSAL on spent sets (no bar, no verdict): 46 of 59 healthy whole bloods read (B1 NOT MET)
+B2 sex null, tared: women 1.00216 (n 9) men 1.00093 (n 37), difference +0.12 %, 0.122 SE -> MET
+B3 planted 1 % loss: planted 1.0236 (n 24) unplanted 1.00266 (n 22), difference +2.07 %, 2.875 SE -> MET
+ALL BARS NOT MET
