@@ -61,8 +61,8 @@ The 79 cells are split into three files in alphabetical order so every file stay
 
 Checked 2026-10-16: every file matches its checksum, and on three cells at every site the copy differs from the full atlas by at most 0.00005
 (the rounding). Made by `../../doors/data/DEV_ATLAS_V21_01/export_compact_v21.py` (rounding only). The full atlas file (2.4 GB, with donor
-spread, R-hat and ESS per site) and the 100 posterior draws per block (24 GB) are in S3 (`results/ATLAS_V21/assembly/`, `results/ATLAS_V21/fit/blocks/`)
-and go to Zenodo with the release.
+spread, R-hat and ESS per site) and the 100 posterior draws per block (24 GB) are public in Zenodo record [10.5281/zenodo.23422688](https://doi.org/10.5281/zenodo.23422688)
+(ten bundles of 70 blocks, each file checked by `output_manifest_v21.json`); the fitted atlas is record [10.5281/zenodo.23441999](https://doi.org/10.5281/zenodo.23441999).
 
 ```python
 import pandas as pd

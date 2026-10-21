@@ -1,0 +1,39 @@
+name: noise
+# IAM-Atlas v2.1 noise maps for the globe (2026-10-21, step 28): the posterior draws from Zenodo record 10.5281/zenodo.23422688, one bundle per
+# job (each MD5-checked against the record, every draws file SHA-256-checked against output_manifest_v21.json), then one job draws the textures.
+on: {workflow_dispatch: {}}
+jobs:
+  block:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        lo: ["00000", "00070", "00140", "00210", "00280", "00350", "00420", "00490", "00560", "00630"]
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: "Biological_Physics/MethylPhys\nwebsite/art/data"}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt requests
+      - name: Average the draws
+        run: |
+          HI=$(printf "%05d" $((10#${{ matrix.lo }} + 69)))
+          python3 Biological_Physics/MethylPhys/atlas/tools/noise_maps_v21.py block iam_atlas_v21_fit_blocks_${{ matrix.lo }}-$HI.tar $HOME/nz
+      - uses: actions/upload-artifact@v4
+        with: {name: "noise-${{ matrix.lo }}", path: "~/nz/noise_*.npz"}
+  combine:
+    needs: block
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: "Biological_Physics/MethylPhys\nwebsite/art/data"}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt requests
+      - uses: actions/download-artifact@v4
+        with: {pattern: "noise-*", path: parts, merge-multiple: true}
+      - run: python3 Biological_Physics/MethylPhys/atlas/tools/noise_maps_v21.py combine parts out 2>&1 | tee out.log
+      - uses: actions/upload-artifact@v4
+        with: {name: noise-textures, path: "out\nout.log"}
