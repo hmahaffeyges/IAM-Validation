@@ -6,7 +6,7 @@ reference (its own loose share). Every other cell type, specimen, chemistry and 
 **The instrument's job:** a healthy sample from a laboratory IAM-A has never seen reads Normal on IAM-A's gauge, read against itself.
 
 **The evidence:** DEV-IAMA-GRAND-01, sealed by the author 2026-10-16 before any read was downloaded, scored once 2026-10-17: 7 of 8 read
-healthy CD8 T-cell samples (GSE144691, Youngblood laboratory, St. Jude) inside Normal; bar 0.75 with at least 8 read.
+healthy CD8 T-cell samples (GSE144691, a published whole-genome bisulfite study of sorted human CD8 T-cell subsets) inside Normal; bar 0.75 with at least 8 read.
 Band v1 is Normal 0.7787 to 1.0551 (DEV-IAMA-GRAND-01, grand_rule.json). The sample-shape check declined 5 of 13 (all four naive, one central memory), as the rule allows; they are listed in the record.
 
 **The gates before it:** the self-reference line (PHY-049) and the island prediction (PHY-043) met; the clean room reproduced every

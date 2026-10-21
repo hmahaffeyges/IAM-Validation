@@ -1,0 +1,37 @@
+{
+ "date": "2026-10-21",
+ "title": "The Stage 0 limits from healthy arrays of three laboratories",
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "set_out": "Set Stage 0's control-probe limits from healthy EPIC v1 arrays of three laboratories with the corrected measurements, then score every blood cell in whole blood and finish the documentation pass.",
+ "open_at_turnover": "In progress: the Stage 0 control metrics read on 337 healthy arrays on GitHub (to-do step 23).",
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Stage 0 control metrics on 337 healthy arrays (GRP-004)",
+     "status": "in progress",
+     "what": "The bisulfite, hybridization and extension controls of 337 healthy whole-blood arrays from three laboratories (GSE318173, GSE315366, GSE184269), read with the corrected Stage 0 on GitHub.",
+     "why": "A check that refuses a sample has to be set from what healthy samples actually look like, in more than one laboratory.",
+     "record": "Biological_Physics/MethylPhys/doors/data/PROC_STAGE0_04/stage0_healthy_epic_samples.csv"
+    }
+   ]
+  },
+  {
+   "kind": "changed",
+   "heading": "What changed in the plan",
+   "entries": [
+    {
+     "title": "The IAM-A commissioning note describes its CD8 study by its work (OTH-072)",
+     "status": "audit",
+     "what": "The note names the study by its accession and what it measured, not by its laboratory.",
+     "why": "Public text describes a reference by its work.",
+     "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md"
+    }
+   ]
+  }
+ ]
+}

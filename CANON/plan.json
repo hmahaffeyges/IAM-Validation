@@ -572,8 +572,8 @@
     },
     {
      "id": "F33",
-     "status": "open",
-     "text": "COMMISSIONING_NOTE_IAMA.md names a laboratory and its investigator ('Youngblood laboratory, St. Jude'); the naming rule says describe by the work and accession (GSE144691). Check the commissioning registry's places before editing."
+     "status": "fixed 2026-10-21",
+     "text": "COMMISSIONING_NOTE_IAMA.md names a laboratory and its investigator ('Youngblood laboratory, St. Jude'); the naming rule says describe by the work and accession (GSE144691). Check the commissioning registry's places before editing. | FIXED: the note describes the study by its work and accession; the sealed DEV_IAMA_GRAND_01.md keeps its source citations (DOIs) unchanged."
     },
     {
      "id": "F34",
