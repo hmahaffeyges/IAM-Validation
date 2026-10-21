@@ -5739,7 +5739,7 @@
    "legacy_ids": [
     "next_jobs:ideas (information sphere; whole-genome sky map)"
    ],
-   "notes": "Design record 2026-10-13 (fb62a74); the DNA-address version is named as weak. The hatchery-fish question is an application, separate from the temperature law.",
+   "notes": "Design record 2026-10-13 (fb62a74); the DNA-address version is named as weak. The hatchery-fish question is an application, separate from the temperature law. | 2026-10-21 (author: the information sphere is what to build): construction v3 and planted test 4 written as DEV_SPHERE_01.md specified on 2026-10-13 and committed before running (sphere_construction_03.py, planted_sphere_04.py; bars P1-P6)",
    "runs": [],
    "depends_on": [],
    "id": "CAN-018",
