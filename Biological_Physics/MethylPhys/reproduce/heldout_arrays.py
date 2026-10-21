@@ -6,7 +6,8 @@ Each downloaded IDAT is checked against the SHA-256 the atlas job recorded (iden
 file. Usage: python3 heldout_arrays.py SHARD_DIR SERIES [SERIES ...]   (or a comma list of sample names after --samples)"""
 import os, sys, re, json, hashlib, subprocess, tarfile
 import pandas as pd
-R0 = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); MP = os.path.join(R0, "Biological_Physics", "MethylPhys")
+MP = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # Biological_Physics/MethylPhys (reproduce/ moved here 2026-10-19; a counted repo root broke the deconv reproduction)
+assert os.path.isdir(os.path.join(MP, "chain")), f"{MP}: not the MethylPhys folder"
 sys.path.insert(0, os.path.join(MP, "chain")); D = os.path.join(MP, "doors", "data", "DEV_ATLAS_V21_01")
 from stage_1_idat_calibration import calibrate_idat_to_beta, _check_pins
 out = sys.argv[1]; arg = sys.argv[2:]; idd = os.path.join(out, "_idats"); os.makedirs(idd, exist_ok=True)

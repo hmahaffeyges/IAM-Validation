@@ -39,6 +39,7 @@ python3 CANON/data_homes.py --check || { echo "REFUSED: an input of the chain or
 python3 CANON/doc_audit.py --check || { echo "REFUSED: the documentation audit has findings (CANON/doc_audit.py)"; exit 1; }
 python3 docs/book/figscripts/make_app_E.py --check || { echo "REFUSED: Appendix E differs from what make_app_E.py writes; edit docs/book/figscripts/app_E_overrides.json, not the appendix"; exit 1; }
 python3 docs/book/stale_checks.py --check || { echo "REFUSED: a book check holds a number its chapter no longer prints (docs/book/stale_checks.py)"; exit 1; }
+python3 CANON/path_check.py || { echo "checked_push.sh: PATH CHECK FAILED [failed: CANON/path_check.py; each path a script finds from its own location that does not exist is printed above] - push refused"; exit 1; }
 python3 docs/book/build_repro_chapter.py --check || { echo "checked_push.sh: THE REPRODUCED CHAPTER differs from Biological_Physics/MethylPhys/reproduce/tests.json or verified.json - run python3 docs/book/build_repro_chapter.py - push refused"; exit 1; }
 python3 CANON/catalogue.py --check || { echo "checked_push.sh: CATALOGUE CHECK FAILED - Biological_Physics/MethylPhys/INSTRUMENTS.md or the README catalogue differs from CANON/catalogue.json - push refused"; exit 1; }
 python3 CANON/bib_check.py > /dev/null || { python3 CANON/bib_check.py | tail -20; echo "checked_push.sh: BIBLIOGRAPHY CHECK FAILED - a citation does not match its CrossRef record - push refused"; exit 1; }
