@@ -406,7 +406,7 @@
    ],
    "status": "done",
    "done_date": "",
-   "record": ""
+   "record": "Biological_Physics/MethylPhys/chain/release_check_v4.py"
   },
   {
    "task": "The two chain documents (author 2026-10-20: 'researchers are not going to just want to trust us ... they are gonna want to dissect it and try and break it'): the SOP becomes the Official IAM Chain Operator Guide (how to use our chain as built: where the IDAT files go, the one command, each stage in plain words, reading the report and every refusal); the OM becomes the Official IAM Operations Manual: Instrument Diagnostics and Chain Decoder (every stage, step, gate and chain file: the physics in words then the formula, the code file and function and what it decides line by line, every gate's measured value, limit, source and provisional status, where every reference number came from and what was held out, a worked example by hand on one real healthy array, the circularity check (built from what, tested on what), and how to break each piece). The guidebook folds into these two. A release check fails when a chain function has no Decoder section. Built before step 22, which then updates both",

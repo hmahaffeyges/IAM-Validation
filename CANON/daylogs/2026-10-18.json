@@ -428,6 +428,7 @@
   "total_core_hours": 39450,
   "source": "AWS billing (Cost Explorer, daily, UTC day)",
   "final": false,
-  "read": "2026-10-19"
+  "read": "2026-10-19",
+  "pending": "read 2026-10-19 before the last billing day settled; made final by CANON/day_compute.py once AWS billing can be read (CANON/billing_unreadable.json)"
  }
 }

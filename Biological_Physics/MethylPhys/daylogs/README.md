@@ -4,7 +4,7 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
-| [2026-10-20](2026-10-20.md) | The researcher package on the front page; where every input lives; Group-A planned |
+| [2026-10-20](2026-10-20.md) | Group-A commissioned; the Chain Decoder; every stop explained |
 | [2026-10-19](2026-10-19.md) | The holding energy on the commissioned counter; the package as the biology folder alone |
 | [2026-10-18](2026-10-18.md) | The commissioned chain's report, finished on real samples; IAM-Atlas v2.1 on the sky |
 | [2026-10-17](2026-10-17.md) | Tools held to their job; the deconvolution tool commissioned; IAM-A's grand test scored |
