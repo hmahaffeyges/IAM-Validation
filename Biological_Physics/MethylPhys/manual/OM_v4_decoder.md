@@ -56,6 +56,11 @@ is the healthy reference: Met-A's is measured once on purified healthy cells of 
 sample's own loose share. Some file names in the chain predate these names: `Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`
 holds Met-A's healthy middle reference, not the floor. The Decoder uses the canon's names and says which file holds what.
 
+**One reference per reading.** An entropy is read only against a reference made the same way, or after a same-run tare. Met-A's healthy
+reference is purified arrays read by Stage 1; IAM-Atlas v2.1 blends 21 sources, and on Met-A's sites its neutrophil reads 1.062 against
+Met-A's reference although the values differ by 0.007 on average (`doors/data/DEV_REFERENCES_01/`): the entropy of a blend is higher than
+the average entropy of its parts.
+
 **Built from what, tested on what.** A reviewer's first question about any reference is whether it was tested on the data it was
 built from. Every reference entry names both.
 
