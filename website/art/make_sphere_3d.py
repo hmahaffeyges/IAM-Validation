@@ -35,7 +35,7 @@ def manifests():
     except Exception as e: print("manifest table route:", type(e).__name__, str(e)[:200], flush=True)
     d = os.path.join("/tmp", "iam_manifests"); os.makedirs(d, exist_ok=True)
     roots = [os.path.expanduser("~"), os.getcwd(), "/tmp"]   # methylprep's download folder differs between installs: find the files by name
-    alt = {"MethylationEPIC_v-1-0_B4.CoreColumns.csv.gz": ("MethylationEPIC_v-1-0_B4.CoreColumns.csv.gz", "MethylationEPIC_v-1-0_B4.csv.gz", "HumanMethylationEPIC_manifest_v1.csv.gz"),
+    alt = {"MethylationEPIC_v-1-0_B4.CoreColumns.csv.gz": ("MethylationEPIC_v-1-0_B4.CoreColumns.csv.gz", "MethylationEPIC_v-1-0_B4.csv.gz", "HumanMethylationEPIC_manifest_v2.csv.gz"),   # methylprep 1.7.1 names its EPIC v1 manifest ..._manifest_v2 (the chain pins it)
            "HumanMethylation450k_15017482_v3.csv.gz": ("HumanMethylation450k_15017482_v3.csv.gz",)}   # the EPIC v1 B4 manifest under the names methylprep versions use
     for name in alt:
         f = [os.path.join(dp, n) for n in alt[name] for r in roots for dp, _, fs in os.walk(r) if n in fs and not dp.startswith(d)]
@@ -61,6 +61,11 @@ def main(out, atlas, man):
             s = slug(c); tex(mu, CM, 0.0, 1.0, os.path.join(out, s + "_v.jpg")); tex(hw, UC, 0.0, HW_MAX, os.path.join(out, s + "_u.jpg"))
             cells.append(dict(cell=c, slug=s, pixels_measured=int(np.isfinite(mu).sum()))); print(c, flush=True)
     cells.sort(key=lambda x: x["cell"].lower())
+    # the layout must be the cell pages' own: every cell's measured-pixel count equal to website/art/out/cells/index.json
+    ix = {c["slug"]: c.get("pixels_measured") for c in json.load(open(os.path.join(H, "out", "cells", "index.json")))["cells"]}
+    bad = [(c["slug"], c["pixels_measured"], ix.get(c["slug"])) for c in cells if ix.get(c["slug"]) != c["pixels_measured"]]
+    print(f"layout check against the cell pages: {len(cells) - len(bad)} of {len(cells)} cells identical" + (f"; DIFFER: {bad[:5]}" if bad else ""), flush=True)
+    if bad: sys.exit("make_sphere_3d: the layout differs from the cell pages' maps; textures not written as the record")
     json.dump(dict(atlas="IAM-Atlas v2.1", nside=SM.NSIDE, order="NESTED", pixels=SM.NPIX, sites=len(ids), unplaced=unplaced, texture=[W, HT],
                    value_scale=[0, 1], uncertainty_scale=[0, HW_MAX], source="website/art/make_sphere_3d.py", cells=cells),
               open(os.path.join(out, "sphere.json"), "w"), indent=1)
