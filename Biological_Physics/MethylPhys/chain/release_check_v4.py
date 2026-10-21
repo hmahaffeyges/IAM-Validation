@@ -19,6 +19,8 @@ with F1 reading FROZEN_INPUTS_v4.json and S2 leaving verbatim run transcripts (d
   V9  every Stage 0 stop is explained (author rule 2026-10-20): for each way Stage 0 can stop an array, a constructed record is stopped AND
       carries an explanation with what was measured, the limit, where the limit comes from, what it means and what to do; and an array too
       thin to read gives Met-A, the tare and the C-Score each a reason with the measured count and what is required
+  V13 the globe as a browser draws it: the one command on a real healthy blood and its planted copy, each globe page opened in Chromium,
+      the slider moved as a reader would; at the right end a healthy blood lights under 1 % of the globe, the plant lights Met-A's layer more
   V12 the report's globe: the atlas's healthy neutrophil against itself shows no difference; blood weights rescale to 1; the script parses
   V10 Group-A in the chain (stage_groupa.py, commissioned 2026-10-20): on the committed readings of DEV-GROUPA-COMMISSION-01 it gives the sealed
       bars 2 and 3 to every printed digit; its tare is word for word the sealed scorer's; groups in other specimens are labeled preliminary
@@ -267,12 +269,64 @@ def V12(tmp):
     rec("V12", bool(zero and weights and js != "SYNTAX ERROR"), f"healthy atlas neutrophil against itself: drawn {r.get('drawn')}, median difference {r.get('median_abs_difference')}, "
         f"share above 0.05 {(r.get('share_above') or {}).get('0.05')}, sites changed {r.get('sites_changed')}; blood weights sum to 1 and rescale: {weights}; page script: {js}")
 
+def V13(tmp):
+    """The globe as a reader's browser draws it (2026-10-21, lesson C32: "if the chain didn't do it, it didn't happen"). The one command runs on
+    a real healthy whole blood (GSE235717 GSM7508429, its IDATs from GEO) and on the same array with the C-Score's positive-control plant
+    (doors/data/REPORT_EXAMPLES_V4/plant_clustered.py); each run's own globe page is opened in Chromium (playwright), the layer chosen and the
+    slider moved as a reader would, and the canvas screenshotted at left, middle and right (written to GLOBE_SHOTS or tmp/globe_shots). Bars:
+    at the right end a healthy blood lights under 1 % of the globe on both change layers; the plant lights its Met-A layer more than the
+    healthy blood does. Without a browser (a laptop): not checked; on GitHub (GITHUB_ACTIONS) a missing browser is a failure."""
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        need = bool(os.environ.get("GITHUB_ACTIONS")); rec("V13", not need, "not checked (playwright not installed)" + ("; required on GitHub" if need else "")); return
+    import urllib.request
+    from PIL import Image
+    shots = os.environ.get("GLOBE_SHOTS") or os.path.join(tmp, "globe_shots"); os.makedirs(shots, exist_ok=True)
+    g = "GSM7508429"; u = f"https://ftp.ncbi.nlm.nih.gov/geo/samples/{g[:-3]}nnn/{g}/suppl/"; idat = {}
+    for f in sorted(set(re.findall(rf"{g}_[^\"]*_(?:Grn|Red)\.idat\.gz", urllib.request.urlopen(u, timeout=120).read().decode()))):
+        q = os.path.join(tmp, f); urllib.request.urlretrieve(u + f, q); idat["Grn" if "_Grn" in f else "Red"] = q
+    RS = os.path.join(HERE, "MethylPhys_Interface", "run_sample.py"); PL = os.path.join(HERE, "..", "doors", "data", "REPORT_EXAMPLES_V4", "plant_clustered.py")
+    hb = os.path.join(tmp, "h_betas.csv"); pb = os.path.join(tmp, "p_betas.csv")
+    r1 = subprocess.run([sys.executable, RS, "--grn", idat["Grn"], "--red", idat["Red"], "--specimen", "whole blood", "--id", g, "--save-betas", hb, "--out", os.path.join(tmp, "h.html")], capture_output=True, text=True)
+    subprocess.run([sys.executable, PL, hb, pb, HERE], capture_output=True, text=True, check=True)
+    r2 = subprocess.run([sys.executable, RS, "--betas", pb, "--specimen", "whole blood", "--id", g + "_PLANTED", "--banner", "PLANTED: a constructed example, not a person.",
+                         "--out", os.path.join(tmp, "p.html")], capture_output=True, text=True)
+    if r1.returncode or r2.returncode or not all(os.path.exists(os.path.join(tmp, x)) for x in ("h_globe.html", "p_globe.html")):
+        rec("V13", False, f"the one command did not write both globe pages (exit {r1.returncode}, {r2.returncode}): {(r1.stderr or r2.stderr)[-200:]}"); return
+    def lit(png):   # share of the globe's disk that is a change color (saturated red or blue)
+        a = np.asarray(Image.open(png).convert("RGB")).astype(int); r, gg, b = a[..., 0], a[..., 1], a[..., 2]
+        disk = (a.sum(-1) > 0) | True; n = a.shape[0]; yy, xx = np.mgrid[0:n, 0:a.shape[1]]
+        disk = (yy - n / 2) ** 2 + (xx - a.shape[1] / 2) ** 2 < (min(n, a.shape[1]) / 2 - 2) ** 2
+        col = ((r > 150) & (gg < 110) & (b < 110)) | ((b > 150) & (r < 110))
+        return float(col[disk].mean())
+    out = {}
+    with sync_playwright() as P:
+        br = P.chromium.launch(); pg = br.new_page(viewport={"width": 1100, "height": 760})
+        for tag in ("h", "p"):
+            pg.goto("file://" + os.path.join(tmp, f"{tag}_globe.html")); pg.wait_for_timeout(2500)
+            pg.click(".g-spin"); n = pg.eval_on_selector(".g-layer", "e => e.options.length")
+            for i in range(n):
+                name = pg.eval_on_selector(".g-layer", f"e => e.options[{i}].text")
+                if not name.startswith("the change"): continue
+                pg.select_option(".g-layer", index=i); pg.wait_for_timeout(1500)
+                for t in (0, 50, 100):
+                    pg.eval_on_selector(".g-range", f"e => {{ e.value = {t}; e.dispatchEvent(new Event('input')); }}"); pg.wait_for_timeout(1500)
+                    f = os.path.join(shots, f"{tag}_layer{i}_slider{t}.png"); pg.locator(".g-canvas").screenshot(path=f)
+                    out[(tag, i, t)] = (name, lit(f))
+        br.close()
+    H = [v[1] for k, v in out.items() if k[0] == "h" and k[2] == 100]; Pm = [v[1] for k, v in out.items() if k[0] == "p" and k[2] == 100 and "Met-A" in v[0]]
+    Hm = [v[1] for k, v in out.items() if k[0] == "h" and k[2] == 100 and "Met-A" in v[0]]
+    ok = bool(H) and max(H) < 0.01 and bool(Pm) and bool(Hm) and Pm[0] > Hm[0]
+    json.dump({f"{k[0]}_layer{k[1]}_slider{k[2]}": {"layer": v[0], "lit": round(v[1], 5)} for k, v in out.items()}, open(os.path.join(shots, "lit.json"), "w"), indent=1)
+    rec("V13", ok, "in Chromium, right end: healthy lit " + ", ".join(f"{x:.4f}" for x in H) + f"; Met-A layer healthy {Hm[0] if Hm else None:.4f} vs planted {Pm[0] if Pm else float('nan'):.4f}; screenshots in {shots}")
+
 def main():
     t0 = time.time(); files = R3.tracked(); tmp = tempfile.mkdtemp(prefix="rc_v4_")
     print(f"release_check_v4 @ {subprocess.run(['git', '-C', R3.ROOT, 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()}  python {PY}")
     steps = [("F1", F1, ()), ("F1b", F1b, ()), ("F2", F2, ()), ("S1", R3.S1, (files,)), ("S2", S2, (files,)), ("S3", R3.S3, ()), ("S4", R3.S4, ())] + \
             [(n, getattr(R3, n), (tmp,)) for n in ("E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "E10", "E11")] + \
-            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V8", V8, (tmp,)), ("V6", V6, (tmp,)), ("V7", V7, (tmp,)), ("V9", V9, (tmp,)), ("V10", V10, (tmp,)), ("V11", V11, (tmp,)), ("V12", V12, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
+            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V8", V8, (tmp,)), ("V6", V6, (tmp,)), ("V7", V7, (tmp,)), ("V9", V9, (tmp,)), ("V10", V10, (tmp,)), ("V11", V11, (tmp,)), ("V12", V12, (tmp,), ("V13", V13, (tmp,))), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
     for name, fn, args in steps:
         try: fn(*args)
         except Exception as e: rec(name, False, f"could not run: {type(e).__name__}: {str(e)[:200]}")

@@ -1,7 +1,7 @@
 """globe_viewer.py - the one viewer for every IAM globe (2026-10-21): a report's globe, a report's own full page, and the site's Globe Explorer.
 A globe is a spec: {id, name, about, assets: {name: picture}, groups: [{name, layers: [layer]}]}; a layer is
   {kind: "image", src}                        a picture shown as it is
-  {kind: "change", src, base, full, hint, fixed} the fixed change (2026-10-21): code 0 no site, 128 unchanged, 128 +/- k changed (size k/127 x
+  {kind: "change", src, base, full, hint, fixed} the fixed change (2026-10-21): code 0 no site, 128 unchanged, 128 +/- (48 + 79 x size/full) changed (read in bands, so a browser's color handling cannot turn unchanged into changed; size k/127 x
                                               full); the slider fades only the background (unchanged sites and the base picture) from full to none;
                                               the changed sites and their count (fixed) never move
   {kind: "diff", src, base, scale, above}     a coded difference (0 no site; 1..255 = -0.5..+0.5 x scale); a slider fades everything below the
@@ -60,11 +60,11 @@ function IAMExplorer(root, specs) { const q = c => root.querySelector(c), G = IA
       rv.textContent = t === 0 ? 'the full healthy map, with the change on it' : t === 100 ? 'only the change' : t < 50 ? 'background draining to gray' : 'background fading to dark'; nt.textContent = L.note || '';
       // the background quiets as the slider moves right: the healthy map in its own colors (left), drained to gray (middle), dark (right)
       const toGray = Math.min(1, t / 50), toDark = Math.max(0, (t - 50) / 50);
-      G.set(k => { const c = T.d[k]; if (c === 0) { const q = 30 * (1 - toDark); return [q, q, q + 8 * (1 - toDark)]; } if (c === 128) {
+      G.set(k => { const c = T.d[k]; if (c < 24) { const q = 30 * (1 - toDark); return [q, q, q + 8 * (1 - toDark)]; } if (Math.abs(c - 128) < 24) {   // bands, not exact values: a browser may shift them
           let r = 120, gg = 120, bb = 120; if (B) { r = B.d[k]; gg = B.d[k + 1]; bb = B.d[k + 2]; }
           const y = 0.3 * r + 0.59 * gg + 0.11 * bb, mix = (v) => { const g1 = v + (y - v) * toGray; return g1 * (1 - toDark); };   // to pure black at the right end
           return [mix(r), mix(gg), mix(bb)]; }
-        const v = (c - 128) / 127, b = 0.8 + 0.2 * Math.abs(v); return v > 0 ? [255 * b, 45 * b, 40 * b] : [45 * b, 110 * b, 255 * b]; }, T.w, T.h); return; }
+        const v = c > 128 ? 1 : -1, a = Math.min(1, Math.max(0, (Math.abs(c - 128) - 48) / 79)), b = 0.8 + 0.2 * a; return v > 0 ? [255 * b, 45 * b, 40 * b] : [45 * b, 110 * b, 255 * b]; }, T.w, T.h); return; }
     if (L.kind !== 'diff') { const T = await IAMTex(U(L.kind === 'steps' ? L.srcs[t] : L.src)); if (my !== tok) return;
       if (L.kind === 'steps') rv.textContent = L.labels[t]; nt.textContent = L.kind === 'steps' ? ((L.notes || [])[t] || '') + ' ' + (L.note || '') : (L.note || '');
       G.set(k => [T.d[k], T.d[k + 1], T.d[k + 2]], T.w, T.h); return; }

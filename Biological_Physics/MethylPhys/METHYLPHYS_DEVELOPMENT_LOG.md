@@ -2915,3 +2915,6 @@ On the planted clustered example the site-by-site rule lit 68 sites against 63 i
 
 ### 2026-10-21 · The globe goes dark for a healthy blood (ATL-063)
 The author saw the whole globe lit at the far right. Single sites beyond 3 lit 14 % of the globe for a healthy blood. Both change layers now read the C-Score's blocks of 10 neighboring sites against the line pure chance crosses less than once in 20 genomes: the healthy blood lights 45 of 77,355 genome blocks and none of Met-A's 597; the planted clustered example lights 44 Met-A blocks, in clumps.
+
+### 2026-10-21 · The globe as the browser draws it (ATL-063, lesson C32)
+The author's browser showed a healthy blood's globe lit everywhere while my previews, drawn in Python, showed it dark. Safari color-manages a grayscale image, so unchanged pixels stored as exactly 128 came back a few steps off and were drawn as changes. The change code now has wide bands and is stored as RGB, and release check V13 screenshots the chain's own globe pages in Chromium on GitHub. A picture of a chain output is shown only as the chain's page draws it.

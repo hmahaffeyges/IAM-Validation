@@ -28,7 +28,7 @@ Read from the code at build time: the one command can load **24 Python files** h
 | `stage_q_iam_a.py` | 174 | 9 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
-| `MethylPhys_Interface/report_globe_v4.py` | 244 | 13 | 0 | 0 |
+| `MethylPhys_Interface/report_globe_v4.py` | 247 | 13 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 114 | 6 | 0 | 0 |
 
 ## How to read the Decoder
@@ -2044,7 +2044,7 @@ The fixed line for n blocks: the size a normal block crosses by chance less than
 Codes a change map for the page: 0 where no site was measured, 128 where the sites are unchanged, and 128 plus or minus at least one step for a
 changed site, its size up to a fixed full scale (10 spreads), so the page can fade the unchanged background without ever touching the change.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 158 (3 lines) · arguments: v, full · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 158 (6 lines) · arguments: v, full · calls: not called on the traced runs
 
 ### `report_globe_v4.py::_to_sky_extreme`
 
@@ -2083,7 +2083,7 @@ to 1; refuses with the reason when there are no shares or no specimen.
 Checks the frozen layout against the atlas site list, builds the four layers, the shares above each size, and the page fragment (canvas,
 controls and script, no outside library). Returns the record kept in the bundle, marked `scored: False`.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 116 (120 lines) · arguments: beta, specimen, shares, out_html, z, fractions · calls: not called on the traced runs · constants read: `ABOUT`, `ATLAS`, `BLOCK`, `CH`, `HERE`, `ORDER`, `PANEL`, `R_DOT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `neutrophil_reference_v1_2.json`, `sites.parquet`, `sky_order_v21.npz`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 116 (123 lines) · arguments: beta, specimen, shares, out_html, z, fractions · calls: not called on the traced runs · constants read: `ABOUT`, `ATLAS`, `BLOCK`, `CH`, `HERE`, `ORDER`, `PANEL`, `R_DOT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `neutrophil_reference_v1_2.json`, `sites.parquet`, `sky_order_v21.npz`
 
 ### `report_globe_v4.py::build.rgb`
 

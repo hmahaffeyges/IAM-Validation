@@ -12,10 +12,11 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
       - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - run: pip install -q playwright && python -m playwright install --with-deps chromium   # V13: the globe as a browser draws it (lesson C32)
       - name: Release check
         run: |
           set +e
-          python3 Biological_Physics/MethylPhys/chain/release_check_v4.py --json rc.json > rc.log 2>&1; echo $? > rc_rc.txt; tail -45 rc.log; true
+          mkdir -p globe_shots; GLOBE_SHOTS=$PWD/globe_shots python3 Biological_Physics/MethylPhys/chain/release_check_v4.py --json rc.json > rc.log 2>&1; echo $? > rc_rc.txt; tail -45 rc.log; true
       - name: Result to issue 32
         if: always()
         env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
@@ -27,4 +28,7 @@ jobs:
           rq = urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/issues/32/comments", data=json.dumps({"body": b}).encode(), headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"}, method="POST")
           print(urllib.request.urlopen(rq).status)
           EOF
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: globe-shots, path: globe_shots/}
       - run: test "$(cat rc_rc.txt)" = "0"

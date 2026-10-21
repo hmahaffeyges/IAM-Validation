@@ -156,8 +156,11 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
         v = m[look].reshape(HT, W); x = (cm(np.clip(np.nan_to_num(v, nan=0), 0, 1))[..., :3] * 255).astype(np.uint8); x[~np.isfinite(v)] = (42, 45, 51); return x
     dv = ex_s[look].reshape(HT, W)   # the change code: 0 no site, 128 unchanged, 128 +/- 127 x size/0.5 changed (at least one step from 128)
     def _code(v, full):
-        c = np.where(np.isfinite(v), 128 + np.sign(v) * np.maximum(np.abs(v) > 0, np.round(np.clip(np.abs(v) / full, 0, 1) * 127)), 0)
-        return np.clip(c, 0, 255).astype(np.uint8)
+        # 2026-10-21: a browser may color-manage an image and shift its values by a few steps (seen in Safari: every "unchanged" 128 drawn as a
+        # faint change), so the code keeps wide gaps: 0 no site; 128 unchanged; a change 128 +/- (48 + 79 x size/full), never within 48 of 128.
+        # The page reads below 24 as no site, within 24 of 128 as unchanged.
+        a = np.clip(np.abs(v) / full, 0, 1); c = np.where(np.isfinite(v), np.where(v != 0, 128 + np.sign(v) * np.round(48 + 79 * a), 128), 0)
+        c = np.clip(c, 0, 255).astype(np.uint8); return np.repeat(c[..., None], 3, -1)   # stored as RGB, read the same way by every browser
     code = _code(dv, 10)
     zcode, zabove = None, None
     if z is not None and len(z):
@@ -202,7 +205,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
            "layout": "IAM-Atlas v2.1 genome-order sky, NSIDE 256 NESTED (sky_order_v21.npz)", "scored": False}
     J = lambda b: "data:image/jpeg;base64," + b; P_ = lambda b: "data:image/png;base64," + b
     R_ = J(_jpg_b64(rgb(ref_s)))
-    L = [dict(name="the change from the healthy reference", kind="change", src=P_(_png_b64(code, "L")), base=R_, full=10,
+    L = [dict(name="the change from the healthy reference", kind="change", src=P_(_png_b64(code, "RGB")), base=R_, full=10,
               hint="Slide right to quiet the healthy background: its colors drain to gray, then to dark, until only the change is left lit. Slide left to bring the full map back.",
               fixed=f"Changed: {n_changed:,} of {n_ranged:,} blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
               note=(f"Against {name}. Each site's difference is measured in that site's healthy width (how much healthy people vary there, and how "
@@ -213,7 +216,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
          dict(name="the sample", kind="image", src=J(_jpg_b64(rgb(smp_s))), note="The sample's methylation at every atlas site, 0 to 1."),
          dict(name="the healthy reference", kind="image", src=R_, note=f"{name}, 0 to 1.")]
     if zcode is not None:
-        L.append(dict(name="the change at Met-A's 6,000 sites (against its purified reference)", kind="change", src=P_(_png_b64(zcode, "L")), full=10,
+        L.append(dict(name="the change at Met-A's 6,000 sites (against its purified reference)", kind="change", src=P_(_png_b64(zcode, "RGB")), full=10,
                       hint="Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
                       fixed=f"Changed: {zabove[0]:,} of {zabove[1]:,} blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
                       note=("The C-Score's departure map against Met-A's commissioned purified-array reference, read as the C-Score reads it: in blocks "

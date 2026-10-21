@@ -5212,7 +5212,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 244,
+   "lines": 247,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
@@ -5392,7 +5392,7 @@
      "function": "build",
      "name": "build",
      "line": 116,
-     "end": 235,
+     "end": 238,
      "args": [
       "beta",
       "specimen",
@@ -5401,7 +5401,7 @@
       "z",
       "fractions"
      ],
-     "lines": 120,
+     "lines": 123,
      "doc": "",
      "constants": [
       "ABOUT",
@@ -5442,12 +5442,12 @@
      "function": "build._code",
      "name": "_code",
      "line": 158,
-     "end": 160,
+     "end": 163,
      "args": [
       "v",
       "full"
      ],
-     "lines": 3,
+     "lines": 6,
      "doc": "",
      "constants": [],
      "data_files": [],
