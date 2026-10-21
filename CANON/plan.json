@@ -418,7 +418,160 @@
    "status": "open",
    "done_date": "",
    "record": "",
-   "design": "Order (author 2026-10-20: 'each piece should be explained in detail in the order the chain reads them and the scripts that call on them should be dissected too'): the Decoder follows a traced run of run_sample.py, not a reading of the code: the one command; Stage 0 (10 steps); Stage 1; Stage A; Stage M (Met-A); Stage MC (C-Score); Stage T (tare); IAM-Atlas v2.1 (79 cells, 813,951 sites, its tables and how they are read); IAM-Deconvolver (Stage D21); the skies; IAM-A (Q0, Q, QT, Q2); serial mode (12b); development readings; the report. Within each stage: the calling script, then each function in call order, then every data file it opens. Behind each reference, the builder that made it (atlas fit, blood composition markers, neutrophil reference, floors and identity sites, IAM-A position), what it was built from and what it was tested on. Inventory as of 2026-10-20: the one command loads 21 Python files, 228 functions, and 35 data and matrix files sit in the chain folder (chain/chain_inventory_2026-10-20.txt). Names (found 2026-10-20 tracing Met-A's 0.330): the chain's code and runtime matrices still call Met-A's healthy MIDDLE reference a 'floor' (metA_floors_v1_3.json, stage_m_met_a.py 'Met-A = mean H(beta) / floor', constant Met_A_floor_*), while the canon (foundation gauge_three_marks) defines the floor as H_min, thermal kicks against one ATP (2.5e-8 bits; 8e-8 on Met-A) and the middle as MEASURED on purified healthy cells (0.330263 bits). The Decoder uses the canon's names; the code's docstrings and printed text are renamed to 'healthy reference' with the file names kept and explained (the canon's planned SOP rename). Each step also carries one line: standard method used elsewhere, or from IAM's physics with its derivation and the test that could have failed (the ends of the gauge are bounds; the holding energy and the firm rate are the predictions that can fail). The middles: Met-A's is measured once on purified healthy cells of the same type; IAM-A's is computed from the sample's own loose ending (eps_pred(L) = firm rate + slope x L at the sample's own loose share; the line's form follows from the cell's design, its two constants measured once on 56 healthy cell types), so the sample is its own reference (author correction 2026-10-20). Code names (author 2026-10-20: 'things in the code that have the wrong names ... We dont want a researcher finding that'): the canon's retired and replaced terms are scanned in the chain's code too (comments, docstrings, every printed or report string), by a push check, so no wrong name can be pushed; the middle reference called 'floor' is the first."
+   "design": "Order (author 2026-10-20: 'each piece should be explained in detail in the order the chain reads them and the scripts that call on them should be dissected too'): the Decoder follows a traced run of run_sample.py, not a reading of the code: the one command; Stage 0 (10 steps); Stage 1; Stage A; Stage M (Met-A); Stage MC (C-Score); Stage T (tare); IAM-Atlas v2.1 (79 cells, 813,951 sites, its tables and how they are read); IAM-Deconvolver (Stage D21); the skies; IAM-A (Q0, Q, QT, Q2); serial mode (12b); development readings; the report. Within each stage: the calling script, then each function in call order, then every data file it opens. Behind each reference, the builder that made it (atlas fit, blood composition markers, neutrophil reference, floors and identity sites, IAM-A position), what it was built from and what it was tested on. Inventory as of 2026-10-20: the one command loads 21 Python files, 228 functions, and 35 data and matrix files sit in the chain folder (chain/chain_inventory_2026-10-20.txt). Names (found 2026-10-20 tracing Met-A's 0.330): the chain's code and runtime matrices still call Met-A's healthy MIDDLE reference a 'floor' (metA_floors_v1_3.json, stage_m_met_a.py 'Met-A = mean H(beta) / floor', constant Met_A_floor_*), while the canon (foundation gauge_three_marks) defines the floor as H_min, thermal kicks against one ATP (2.5e-8 bits; 8e-8 on Met-A) and the middle as MEASURED on purified healthy cells (0.330263 bits). The Decoder uses the canon's names; the code's docstrings and printed text are renamed to 'healthy reference' with the file names kept and explained (the canon's planned SOP rename). Each step also carries one line: standard method used elsewhere, or from IAM's physics with its derivation and the test that could have failed (the ends of the gauge are bounds; the holding energy and the firm rate are the predictions that can fail). The middles: Met-A's is measured once on purified healthy cells of the same type; IAM-A's is computed from the sample's own loose ending (eps_pred(L) = firm rate + slope x L at the sample's own loose share; the line's form follows from the cell's design, its two constants measured once on 56 healthy cell types), so the sample is its own reference (author correction 2026-10-20). Code names (author 2026-10-20: 'things in the code that have the wrong names ... We dont want a researcher finding that'): the canon's retired and replaced terms are scanned in the chain's code too (comments, docstrings, every printed or report string), by a push check, so no wrong name can be pushed; the middle reference called 'floor' is the first.",
+   "findings": [
+    {
+     "id": "F1",
+     "text": "run_sample.py module docstring: says \"Chain v3 (Met-A ... COMMISSIONED 2026-10-09; every other stage DEVELOPMENT)\", \"Any other specimen is refused\" (buffy coat accepted since 10-18), names --slide-ref-table/--slide-ref-A (check which flags exist; workflows use --ref-table). Rewrite to chain v4 with every commissioned instrument.",
+     "status": "open"
+    },
+    {
+     "id": "F2",
+     "text": "run_sample._versions(): the fingerprinted inputs omit the v4 stages and their matrices (stage_v4.py, stage_deconv_v21.py, stage_q2_selfref.py, stage_atlas_commission.py, selfref_line_v1.json, atlas v2.1 tables, cell_gauge_marks, composition_guard, stage_groupa.py). A reading's provenance hash does not cover every file that can change it.",
+     "status": "open"
+    },
+    {
+     "id": "F3",
+     "text": "run_sample --bam route: Stage Q0 (intake checks: conversion rate, duplicates, specimen, cell) runs only for --pat; a BAM reaches Stage Q2 with no intake record. Either run Q0's applicable checks on the BAM or print that Q0 did not run and why.",
+     "status": "open"
+    },
+    {
+     "id": "F4",
+     "text": "run_sample stops outside Stage 0 (SPECIMEN_REFUSED, PLATFORM_REFUSED EPIC v2, ENVIRONMENT_MISSING_MANIFEST exit 3, QUARANTINE_CORRUPT_IDAT at decode or Stage 1) print one reason line, not the five-part explanation (measured, limit, source, meaning, what to do) that Stage 0 gates now carry; the every-block-explained rule (author 2026-10-20) covers them.",
+     "status": "open"
+    },
+    {
+     "id": "F5",
+     "text": "Names in run_sample: refusal records say scope \"neutrophils only\" (the chain reads cell shares for 6 cells, IAM-A on CD8 etc.); ledger rows say engine \"v3\" and \"floors_version\"; the closing line prints \"neutrophil Met-A\"; the EPIC v2 refusal says \"no frozen neutrophil floor\" (the file holds the healthy middle reference); --engine choices (\"v3\",); --array-type help \"v3 reads EPIC_v1 only\"; --age help \"read by no v3 stage\".",
+     "status": "open"
+    },
+    {
+     "id": "F6",
+     "text": "specimen_refusal text lists \"Accepted: whole blood, isolated / sorted / purified neutrophils\" - omits buffy coat (accepted since 10-18) and constructed DNA mixture; a stray comment on the buffy-coat line belongs to the mixture entry.",
+     "status": "open"
+    },
+    {
+     "id": "F7",
+     "text": "stage_0_intake COVARIATE_FIELDS / parse_questionnaire map answers to \"Stage 7 stratification\", \"Stage 7 TREATMENT_RESPONSE\", \"Stage 8 progenitor card\" etc. - stages of the retired class-era engine; no stage reads stage7_context_modes. Relabel as recorded only, or retire.",
+     "status": "open"
+    },
+    {
+     "id": "F9",
+     "text": "Step 0.7b on EPIC always passes (NA_EPIC): run_sample computes the neutrophil-site coverage and hands it in, and 0.7b ignores it on the chain's only platform. Either record the number on EPIC or say in the Decoder and SOP that 0.7b gates 450K only (and 450K is refused by the conductor anyway).",
+     "status": "open"
+    },
+    {
+     "id": "F10",
+     "text": "stage_0_intake module docstring: \"Built one step at a time ... Implemented so far\", \"minfi getSex\", \"No math in this stage\" (0.5 computes normal survival p-values, 0.8 a sex call): stale.",
+     "status": "open"
+    },
+    {
+     "id": "F11",
+     "text": "explain_stage0 (my 2026-10-20 work) prints wrong step numbers: call rate labeled \"Step 0.6\" (it is 0.7), bead counts \"Step 0.5b\" (0.6), 450K coverage \"Step 0.7\" (0.7b). The 450K entry's limit says \"the 450K coverage floor in stage_0_intake\" without the number (0.80, HM450_COVERAGE_MIN).",
+     "status": "open"
+    },
+    {
+     "id": "F12",
+     "text": "explain_stage0 integrity entry: limit text \"not already seen under another sample\" - the rule is the same Sentrix ID with identical bytes already in this intake log (re-transmission); a same-Sentrix different-bytes re-run passes.",
+     "status": "open"
+    },
+    {
+     "id": "F13",
+     "text": "stage_0_intake self-test footer prints \"all intensity-dependent extraction ... is deferred to the shared Stage 1 IDAT decoder\" - stale: stage_0_1_qc_handoff now extracts them before Stage 1.",
+     "status": "open"
+    },
+    {
+     "id": "F14",
+     "text": "intake_thresholds_v1.json: the detection (0.99 / 0.93) and call-rate (0.98 / 0.93) lines were measured on 48 arrays with poobah p <= 0.05 (Stage 1's statistic), but Step 0.5/0.7 apply them to a different statistic: detection_p = 1 - Phi((I - mu_bg)/sigma_bg) at p <= 0.01 (the code's own note says it is \"to be reconciled to minfi\"). Belongs with step 23 (Stage 0 limits from healthy arrays): one statistic, measured and applied the same way.",
+     "status": "open"
+    },
+    {
+     "id": "F8",
+     "text": "qc_handoff bisulfite: computed correctly as the median over matched BS Conversion I pairs of C/(C+U), but passed to Stage 0 as eff and 1-eff under keys named bisulfite_conversion_I_median / _II_median (misleading names). HYPOTHESIS for step 23: every pair is read in the GREEN channel (gm); on Illumina arrays BS Conversion I C4/C5 (and U4/U5) are red-channel probes, so in green they read background and pull the pair median toward 0.5 - a likely reason the 0.95 limit \"refuses 731 of 731 healthy arrays\". Test on the rehearsal arrays (diag workflow) per pair and per channel before any limit is set.",
+     "status": "open"
+    },
+    {
+     "id": "F15",
+     "text": "Extension controls: green (C, G) over red (A, T) is a two-color balance; the record and explain_stage0 call them \"methylated\" / \"unmethylated\" (extension_meth_median / extension_unmeth_median). Rename in text (keys can stay, explained).",
+     "status": "open"
+    },
+    {
+     "id": "F16",
+     "text": "Stage 1 controls: calibrate_idat_to_beta records bisulfite_conversion_I_median = median of ALL BS Conversion I controls in green and _II_median = median of BS Conversion II controls in red; run_sample then grades them with S0.validate_control_probes -> \"bs1/(bs1+bs2)\" of two different control sets (not a conversion efficiency), recorded as intake.stage1_qc.ctrl_qc. The bundle thus carries two different \"bisulfite efficiencies\" (Stage 0's matched-pair C/(C+U) and this). Decide which is printed; the Stage 1 one should be renamed or dropped. Find which one the \"731 of 731\" statement measured.",
+     "status": "open"
+    },
+    {
+     "id": "F17",
+     "text": "stage_1_idat_calibration._ensure_methylprep pip-installs methylprep by itself, and its fallback advice tells the user to \"pip install methylprep numpy pandas scipy scikit-learn matplotlib\" unpinned, against the pinned chain/requirements.txt and _check_pins. Point to requirements.txt instead. Module docstring names \"idat_decoder_pure\", \"the chain's run_pipeline\" and \"inflates every downstream A-score\" (retired engine).",
+     "status": "open"
+    },
+    {
+     "id": "F18",
+     "text": "conductor_v3 text: module docstring line 2 \"Met-A on isolated neutrophils commissioned; whole blood and other stages development\", \"IAM-A (sequencing) is Stage Q, stage_q_iam_a.py\" (it is Stage Q2), \"isolated: Met-A = mean H / floor\"; stage_a_composition docstring names a researcher (\"Salas\"); stage_mc_cscore docstring \"development (band not set)\" though commissioned 2026-10-15; CSCORE_DEV_BAND comment \"development, not commissioned\"; run_neutrophil \"Returns the v3 bundle\"; METAA_COMMISSIONING.not_commissioned lists IAM-A (commissioned 10-17); out[\"withheld\"] \"other cell types (outside commissioning scope)\" (read-and-flag rule); platform_refusal \"no frozen neutrophil floor\", \"450K neutrophil floor pending\".",
+     "status": "open"
+    },
+    {
+     "id": "F19",
+     "text": "conductor_v3 whole-blood development note prints a fixed \"Detection limit at this fraction: 5 % loss (DEV-METAA-SENS-01)\" on every whole-blood reading, while Stage T computes this specimen's own detection limit (2 x spread / shift per 1 %); the corrected whole-blood figure is about 1.57 % per person. A constant number contradicting the computed one.",
+     "status": "open"
+    },
+    {
+     "id": "F22",
+     "text": "stage_m_met_a: module docstring \"Development build v3. Not commissioned.\" and every isolated-neutrophil record carries build=\"development v3 (not commissioned)\" although Met-A on isolated neutrophils is COMMISSIONED 2026-10-09 (the conductor adds the commissioning record beside it): a commissioned reading whose own record says not commissioned. \"floor\" used for the healthy middle reference throughout (floor key, 'no {platform} floor', floor_precision).",
+     "status": "open"
+    },
+    {
+     "id": "F23",
+     "text": "Stage T step 1 (self-tare II), adopted 2026-10-04 and run on EVERY reading including commissioned ones, lives in dev_stages.py (\"DEVELOPMENT - not commissioned\") and reads Runtime Matrices/Development/dev_selftare_typeII_EPIC_v1.json. Move selftare_map/anchors into the conductor (or a stage_t module) and the matrix out of Development, with its provenance, keeping it byte-identical (frozen input); the release check pins it.",
+     "status": "open"
+    },
+    {
+     "id": "F24",
+     "text": "Researcher names in code and runtime matrices: stage_q2_selfref docstring \"(Loyfer, hg19 ...)\"; band_v1.json labs {\"Loyfer 2023\": 153, \"Hansen GSE49627\": 3}; selfref_line_v1.json / shape_reference_v1.json built_from \"Loyfer 2023 (GSE186458)\"; stage_a_composition docstring \"Salas\"; stage_q2 stamp comment \"Hansen count run 2\". Naming rule: describe by the work and accession (GSE186458, GSE49627). Runtime matrices are frozen and payload-hashed: relabel only through a new version or a stamp-preserving note; docstrings can change now.",
+     "status": "open"
+    },
+    {
+     "id": "F25",
+     "text": "IAM-A band v1 (0.7787-1.0551) was built from 156 healthy readings, 153 of them the very samples the line was fitted on (GSE186458) plus 3 of GSE49627; the commissioning grand test was on held-out CD8 samples. The Decoder must state that the band's healthy spread is in-sample for 153 of 156 (a reviewer will find it), and that the held-out test is what commissioned it.",
+     "status": "open"
+    },
+    {
+     "id": "F26",
+     "text": "stage_v4.stage_q2 grants the commissioned label to any cell named in CD8_TYPES incl. \"naive cd8 t cells\", \"effector memory cd8 t cells\", \"t effector cell cd8\" when chemistry is WGBS: check this matches COMMISSIONING_NOTE_IAMA.md's scope (\"healthy blood CD8 T cells\"): subsets were in the grand test as shape types (CD8_SHAPE_TYPE), so likely right, but the note must say subsets are included.",
+     "status": "open"
+    },
+    {
+     "id": "F27",
+     "text": "(FIXED 2026-10-20) reproduce/heldout_arrays.py counted two levels up to the repo root; after the 2026-10-19 move of reproduce/ into Biological_Physics/MethylPhys it pointed at Biological_Physics/MethylPhys/Biological_Physics/MethylPhys and the deconv reproduction failed on GitHub (import of stage 1). The move's link gate checked documents, not script paths. Lesson: after any move, run every reproduction's first step (or a path check) - add a check that every reproduce step's script resolves its own folders.",
+     "status": "fixed"
+    },
+    {
+     "id": "F28",
+     "text": "Retired term \"copy error(s)\" (canon: RETIRED, \"NOT what IAM measures\") is still in stage_q_iam_a.py's docstring (\"isolated copy errors / opportunities\") and in Q0's text; stage_q_iam_a is the retired position reading (development, --dev-iama-position) - its docstring should open with RETIRED and point to Stage Q2. Q0 docstring: \"purified cells of a type with a frozen position P (IAM-A reads purified cells only)\" describes the retired route; the v4 branch (selfref_cells) is the live one. Q0 record says \"development - not commissioned\" on every commissioned IAM-A .pat run: Q0 is part of the commissioned route (it ran in the grand test? check) - if so the label is wrong.",
+     "status": "open"
+    },
+    {
+     "id": "F29",
+     "text": "serial_mode.delta_cells / trajectory / snp_noise_floor_A read bundle keys of the retired class-era engine (cells_all, pci_entry[\"loci\"]) that chain v4 bundles do not have: on v4 bundles they return nothing. Either port them to v4 (met_a, cell shares) or mark them retired; Stage 12b itself (check_same_person, delta_sky) works.",
+     "status": "open"
+    },
+    {
+     "id": "F30",
+     "text": "report_v3.troubleshooting (printed in every report's technical record): \"A withheld for fraction: the neutrophil fraction is below the read line (0.20)\" - the 0.20 cut was retired 2026-10-10 (DEV-LOWFRAC-01; the chain now withholds only at a share of 0); \"intake reads whole blood and isolated / sorted / purified neutrophils\" omits buffy coat; \"v3 reads EPIC v1 arrays only; a 450K or EPIC v2 array needs its own frozen floor first\" (v3, floor). Researcher-facing and wrong.",
+     "status": "open"
+    },
+    {
+     "id": "F31",
+     "text": "report_v3 module docstring \"Report for conductor v3 (Met-A on neutrophils commissioned 2026-10-09; other stages development; neutrophils only)\" - it is the technical record inside every v4 report.",
+     "status": "open"
+    },
+    {
+     "id": "F32",
+     "text": "report_v4.physics_rows types the Met-A healthy reference as 0.330 / 0.330263 in code instead of reading metA_floors_v1_3.json (the rule: nothing typed in drawing/report code). report_v3 page title \"CPG v3 - <id>\".",
+     "status": "open"
+    }
+   ],
+   "notes": " | 2026-10-20: Chain Decoder written (manual/decoder_text.md -> OM_v4_decoder.md; all 257 functions of the 22 loaded files have entries; gated). OM PDF retitled 'Official IAM Operations Manual: Instrument Diagnostics and Chain Decoder' (Decoder + diagnostics + chain sequence); SOP retitled 'Official IAM Chain Operator Guide'. Reading the code line by line found the items under findings; each is fixed in the chain, not in the text."
   },
   {
    "task": "Reproductions on GitHub's machines (author 2026-10-20: GitHub first): (a) metaa_rebuild, already verified PASS from a fresh clone on AWS on 2026-10-18 (the blood references rebuilt from the 91 public purified arrays of GSE110554 and GSE167998, identical), moved to a GitHub workflow; (b) Group-A added to reproduce/tests.json as the 10th reproduction: the groupa workflow rerun from a later commit gives the committed numbers. Correction 2026-10-20: this step first said the reference rebuild was not a reproduction; it is one (reproduce/verified.json)",

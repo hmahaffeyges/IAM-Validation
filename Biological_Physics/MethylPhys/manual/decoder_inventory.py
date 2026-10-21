@@ -43,10 +43,14 @@ def build():
     calls, order = traced(); files = []
     for f in sorted(LOADED, key=lambda f: order.get(f, (2, LOADED.index(f)))):
         F, n = functions(f)
-        for x in F:   # by name; when a name repeats in a file, the traced line nearest this one (lines shift when a file is edited after a trace)
-            c = [(abs(k[2] - x["line"]), v) for k, v in calls.items() if k[0] == f and k[1] == x["name"]]
-            same = [y for y in F if y["name"] == x["name"]]
-            x["traced_calls"] = (min(c, key=lambda z: z[0])[1] if len(same) == 1 or min(c)[0] < 15 else {}) if c else {}
+        for x in F:   # by name, each traced run on its own; when a name repeats in a file, that run's traced line nearest this one
+            same = [y for y in F if y["name"] == x["name"]]; tc = {}   # (lines shift when a file is edited between traces)
+            for route in sorted({r for v in calls.values() for r in v}):
+                c = [(abs(k[2] - x["line"]), v[route]) for k, v in calls.items() if k[0] == f and k[1] == x["name"] and route in v]
+                if c:
+                    dist, cnt = min(c, key=lambda z: z[0])
+                    if len(same) == 1 or dist < 15: tc[route] = cnt
+            x["traced_calls"] = tc
         files.append(dict(file=f, lines=n, functions=F, first_entered=dict(zip(("route", "order"), ("bam" if order[f][0] else "array", order[f][1]))) if f in order else None))
     return dict(_about=__doc__.split("\n")[0], files=files, n_files=len(files), n_functions=sum(len(x["functions"]) for x in files))
 

@@ -2173,6 +2173,7 @@
       "drawn from Runtime Matrices/Gauge/cell_gauge_marks_v1.json"
      ],
      "traced_calls": {
+      "array": 1,
       "bam": 2
      }
     },
@@ -2190,6 +2191,7 @@
      "constants": [],
      "data_files": [],
      "traced_calls": {
+      "array": 3,
       "bam": 3
      }
     },
@@ -2209,6 +2211,7 @@
      ],
      "data_files": [],
      "traced_calls": {
+      "array": 3,
       "bam": 3
      }
     },
@@ -2226,6 +2229,7 @@
      "constants": [],
      "data_files": [],
      "traced_calls": {
+      "array": 1,
       "bam": 1
      }
     },
@@ -2250,6 +2254,7 @@
       "Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json"
      ],
      "traced_calls": {
+      "array": 1,
       "bam": 1
      }
     },
@@ -2267,6 +2272,7 @@
      "constants": [],
      "data_files": [],
      "traced_calls": {
+      "array": 1,
       "bam": 1
      }
     },
@@ -2287,6 +2293,7 @@
      ],
      "data_files": [],
      "traced_calls": {
+      "array": 1,
       "bam": 1
      }
     },
@@ -2305,6 +2312,7 @@
      "constants": [],
      "data_files": [],
      "traced_calls": {
+      "array": 7,
       "bam": 7
      }
     },
@@ -2329,6 +2337,7 @@
       "cell_gauge_marks_v1.json"
      ],
      "traced_calls": {
+      "array": 1,
       "bam": 1
      }
     }

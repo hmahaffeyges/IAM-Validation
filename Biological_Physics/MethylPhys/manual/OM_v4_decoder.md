@@ -1,6 +1,33 @@
 # The Chain Decoder
 
-The chain the one command loads: **22 files, 257 functions**; 141 of them have their entry here.
+## The chain in numbers
+
+Read from the code at build time: the one command can load **22 Python files** holding **257 functions** (nested ones included); 257 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+
+| file | lines | functions | called, array run | called, sequencing run |
+|---|---|---|---|---|
+| `MethylPhys_Interface/run_sample.py` | 629 | 12 | 11 | 10 |
+| `stage_0_intake.py` | 1,129 | 38 | 33 | 1 |
+| `stage_0_1_qc_handoff.py` | 180 | 7 | 7 | 0 |
+| `stage_1_idat_calibration.py` | 233 | 6 | 6 | 0 |
+| `conductor_v3.py` | 304 | 19 | 18 | 0 |
+| `stage_m_met_a.py` | 80 | 6 | 3 | 0 |
+| `MethylPhys_Interface/report_v4.py` | 256 | 19 | 17 | 17 |
+| `MethylPhys_Interface/report_v3.py` | 287 | 9 | 9 | 9 |
+| `MethylPhys_Interface/report_figs_v4.py` | 145 | 7 | 6 | 2 |
+| `dev_stages.py` | 336 | 28 | 3 | 0 |
+| `stage_v4.py` | 125 | 7 | 4 | 2 |
+| `stage_deconv_v21.py` | 198 | 6 | 4 | 0 |
+| `stage_q2_selfref.py` | 270 | 29 | 0 | 11 |
+| `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
+| `MethylPhys_Interface/report_pdf_v4.py` | 100 | 6 | 6 | 6 |
+| `dev_comp_methods.py` | 216 | 17 | 0 | 0 |
+| `deconv_v2.py` | 74 | 3 | 0 | 0 |
+| `sky_statistics.py` | 108 | 6 | 0 | 0 |
+| `stage_q0_intake.py` | 119 | 5 | 0 | 0 |
+| `stage_q_iam_a.py` | 170 | 9 | 0 | 0 |
+| `serial_mode.py` | 64 | 6 | 0 | 0 |
+| `stage_groupa.py` | 100 | 4 | 0 | 0 |
 
 ## How to read the Decoder
 
@@ -93,7 +120,7 @@ Finds the `Biological_Physics` folder by walking up from this file until it find
 counting levels. Written after a 2026-09-22 move changed every script's depth by one and a counted path silently stopped finding
 the record folder. Decides nothing about a sample.
 
-<sub>`MethylPhys_Interface/run_sample.py` line 35 (16 lines) · arguments: start · calls: array run 1, bam run 1</sub>
+*Code:* `MethylPhys_Interface/run_sample.py` line 35 (16 lines) · arguments: start · calls: array run 1, bam run 1
 
 ### `run_sample.py::_assign_run_id`
 
@@ -101,21 +128,21 @@ Gives the run its identifier, `RUN-YYYYMMDD-NN`: the UTC date and the next numbe
 about to append to. A run makes no claim and passes no bar; it is one execution on one specimen, and the identifier lets a reading be
 found again.
 
-<sub>`MethylPhys_Interface/run_sample.py` line 55 (19 lines) · arguments: ledger_path · calls: array run 1, bam run 1</sub>
+*Code:* `MethylPhys_Interface/run_sample.py` line 55 (19 lines) · arguments: ledger_path · calls: array run 1, bam run 1
 
 ### `run_sample.py::_covariates`
 
 Collects the phenotype and covariates for the run: a JSON object from `--covariates`, then each `--covariate KEY=VALUE` on top. They
 are kept in the bundle and the custody record and are never printed in the report's prose. No stage reads them.
 
-<sub>`MethylPhys_Interface/run_sample.py` line 76 (16 lines) · arguments: a · calls: array run 1, bam run 1</sub>
+*Code:* `MethylPhys_Interface/run_sample.py` line 76 (16 lines) · arguments: a · calls: array run 1, bam run 1
 
 ### `run_sample.py::_sha12`
 
 The first 12 hexadecimal characters of a file's SHA-256, used to fingerprint each frozen input in `_versions`. Returns nothing if the
 file cannot be read.
 
-<sub>`MethylPhys_Interface/run_sample.py` line 94 (10 lines) · arguments: path · calls: array run 18, bam run 18</sub>
+*Code:* `MethylPhys_Interface/run_sample.py` line 94 (10 lines) · arguments: path · calls: array run 18, bam run 18
 
 ### `run_sample.py::_versions`
 
@@ -123,27 +150,27 @@ Records everything that can change a reading: the UTC time, the Python and methy
 the working copy had uncommitted changes, and a short hash and size of each frozen matrix and stage file. Two runs months apart can
 be pooled only if these match.
 
-<sub>`MethylPhys_Interface/run_sample.py` line 106 (37 lines) · arguments: chain_dir · calls: array run 1, bam run 1 · files named: `Runtime Matrices/IAM_A_Positions/hg19_cpg_chrom_ranges.json`, `Runtime Matrices/IAM_A_Positions/iama_positions_v2.json`, `Runtime Matrices/Intake/intake_thresholds_v1.json`, `Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json`, `Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`, `Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json`, `Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json`, `Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json`</sub>
+*Code:* `MethylPhys_Interface/run_sample.py` line 106 (37 lines) · arguments: chain_dir · calls: array run 1, bam run 1 · files named: `Runtime Matrices/IAM_A_Positions/hg19_cpg_chrom_ranges.json`, `Runtime Matrices/IAM_A_Positions/iama_positions_v2.json`, `Runtime Matrices/Intake/intake_thresholds_v1.json`, `Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json`, `Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`, `Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json`, `Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json`, `Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json`
 
 ### `run_sample.py::_hash_id`
 
 Replaces a typed identifier with the first 32 characters of its SHA-256. An identifier that already looks like a hash (16 or more
 hexadecimal characters) is kept. The engine never stores a cleartext identifier.
 
-<sub>`MethylPhys_Interface/run_sample.py` line 145 (5 lines) · arguments: x · calls: array run 1, bam run 1</sub>
+*Code:* `MethylPhys_Interface/run_sample.py` line 145 (5 lines) · arguments: x · calls: array run 1, bam run 1
 
 ### `run_sample.py::_redact`
 
 Walks the whole bundle (every string, dictionary key and list) and replaces each whole-token occurrence of the typed identifier with
 its hash, so neither the bundle nor the ledger carries the typed name. The printed report keeps the typed name for the operator.
 
-<sub>`MethylPhys_Interface/run_sample.py` line 152 (11 lines) · arguments: obj, typed, hid · calls: array run 4, bam run 4</sub>
+*Code:* `MethylPhys_Interface/run_sample.py` line 152 (11 lines) · arguments: obj, typed, hid · calls: array run 4, bam run 4
 
 ### `run_sample.py::_redact.f`
 
 The recursive step of `_redact`: a string gets the replacement, a dictionary and a list are walked, anything else is returned as is.
 
-<sub>`MethylPhys_Interface/run_sample.py` line 157 (5 lines) · arguments: v · calls: array run 865, bam run 359</sub>
+*Code:* `MethylPhys_Interface/run_sample.py` line 157 (5 lines) · arguments: v · calls: array run 865, bam run 359
 
 ### `run_sample.py::_dev_run`
 
@@ -151,7 +178,7 @@ Runs the development readings named by `--dev-*` flags (direction, trace cell, f
 B-cell reading, sky with the block-shuffle null, EPIC v2 through SeSAMe). Each writes its own record under `bundle["development"]`,
 labeled DEVELOPMENT, and an error in one is caught and recorded. None of them changes the reading, the gauge or the tare.
 
-<sub>`MethylPhys_Interface/run_sample.py` line 165 (40 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1</sub>
+*Code:* `MethylPhys_Interface/run_sample.py` line 165 (40 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
 
 ### `run_sample.py::main`
 
@@ -159,7 +186,7 @@ The orchestration described above, from parsing the command to writing the ledge
 exit code 2 or 3 at the stops listed, carries the same-run references (columns A and C) into the conductor, adds the v4 stages, and
 hands everything to the report.
 
-<sub>`MethylPhys_Interface/run_sample.py` line 207 (420 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`</sub>
+*Code:* `MethylPhys_Interface/run_sample.py` line 207 (420 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`
 
 ### `run_sample.py::main._stopped`
 
@@ -167,13 +194,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-<sub>`MethylPhys_Interface/run_sample.py` line 303 (5 lines) · arguments: r · calls: array run 3</sub>
+*Code:* `MethylPhys_Interface/run_sample.py` line 303 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-<sub>`MethylPhys_Interface/run_sample.py` line 573 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs</sub>
+*Code:* `MethylPhys_Interface/run_sample.py` line 573 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -224,34 +251,34 @@ file's own self-test (`python3 stage_0_intake.py`) runs every gate on constructe
 Loads `intake_thresholds_v1.json` from the chain's `Runtime Matrices/Intake` folder (never from a RETIRED folder) when the module is
 imported. Stage 0 refuses to start without it, so no gate can run on a number typed into the code.
 
-<sub>`stage_0_intake.py` line 37 (8 lines) · arguments: none · calls: array run 1, bam run 1 · files named: `intake_thresholds_v1.json`</sub>
+*Code:* `stage_0_intake.py` line 37 (8 lines) · arguments: none · calls: array run 1, bam run 1 · files named: `intake_thresholds_v1.json`
 
 ### `stage_0_intake.py::normalise_specimen`
 
 Lowercases the specimen text, turns underscores into spaces and collapses repeated spaces, so `Whole_Blood` and `whole blood` are the
 same specimen.
 
-<sub>`stage_0_intake.py` line 79 (2 lines) · arguments: specimen · calls: array run 5</sub>
+*Code:* `stage_0_intake.py` line 79 (2 lines) · arguments: specimen · calls: array run 5
 
 ### `stage_0_intake.py::specimen_refusal`
 
 Returns nothing when the specimen is accepted, otherwise the plain refusal: which specimen, why the chain has no reference for it,
 and what is accepted. Called by `run_sample.py` before any file is read.
 
-<sub>`stage_0_intake.py` line 83 (8 lines) · arguments: specimen · calls: array run 2 · constants read: `ACCEPTED_SPECIMENS`, `REFUSED_SPECIMEN_REASONS`</sub>
+*Code:* `stage_0_intake.py` line 83 (8 lines) · arguments: specimen · calls: array run 2 · constants read: `ACCEPTED_SPECIMENS`, `REFUSED_SPECIMEN_REASONS`
 
 ### `stage_0_intake.py::_infer_platform`
 
 Turns the IDAT header's address count into a platform: below 800,000 is 450K, below 1,080,000 EPIC v1, otherwise EPIC v2.
 
-<sub>`stage_0_intake.py` line 103 (8 lines) · arguments: nsnps · calls: array run 2</sub>
+*Code:* `stage_0_intake.py` line 103 (8 lines) · arguments: nsnps · calls: array run 2
 
 ### `stage_0_intake.py::read_idat_nsnps`
 
 Reads only the start of the green IDAT: the four-byte `IDAT` mark, the field table, and field 1000 (the number of addresses). It never
 decodes intensities. Returns the count and a status (OK, NOT_IDAT, NO_NSNPS_FIELD, FILE_NOT_FOUND or a read error).
 
-<sub>`stage_0_intake.py` line 115 (24 lines) · arguments: path · calls: array run 2</sub>
+*Code:* `stage_0_intake.py` line 115 (24 lines) · arguments: path · calls: array run 2
 
 ### `stage_0_intake.py::step_0_1_idat_arrival`
 
@@ -259,39 +286,39 @@ Step 0.1: checks the manifest's required fields and array type, that both channe
 header's platform family agrees with the declared one; warns on a repeat intake within 24 hours. Stamps a run identifier and the
 arrival time, and logs the result.
 
-<sub>`stage_0_intake.py` line 143 (89 lines) · arguments: manifest_entry, grn_path, red_path, intake_log_path · calls: array run 1 · constants read: `MIN_PLAUSIBLE_IDAT_BYTES`, `REQUIRED_MANIFEST_FIELDS`, `VALID_ARRAY_TYPES`</sub>
+*Code:* `stage_0_intake.py` line 143 (89 lines) · arguments: manifest_entry, grn_path, red_path, intake_log_path · calls: array run 1 · constants read: `MIN_PLAUSIBLE_IDAT_BYTES`, `REQUIRED_MANIFEST_FIELDS`, `VALID_ARRAY_TYPES`
 
 ### `stage_0_intake.py::_log_intake`
 
 Appends one row per intake step to the intake log, when one is given: time, run identifier, Sentrix ID, declared and detected array
 type, specimen, declared sex and age, status and flags.
 
-<sub>`stage_0_intake.py` line 236 (10 lines) · arguments: intake_log_path, result · calls: array run 1</sub>
+*Code:* `stage_0_intake.py` line 236 (10 lines) · arguments: intake_log_path, result · calls: array run 1
 
 ### `stage_0_intake.py::_is_duplicate_within_24h`
 
 True when the intake log already holds the same Sentrix ID from the last 24 hours. Only a warning; the array still advances.
 
-<sub>`stage_0_intake.py` line 248 (21 lines) · arguments: intake_log_path, sentrix_id · calls: array run 1</sub>
+*Code:* `stage_0_intake.py` line 248 (21 lines) · arguments: intake_log_path, sentrix_id · calls: array run 1
 
 ### `stage_0_intake.py::_is_null_answer`
 
 For storing questionnaire answers: a blank or "prefer not to say" becomes no answer; "No" is kept as a real answer.
 
-<sub>`stage_0_intake.py` line 328 (3 lines) · arguments: v · calls: not called on the traced runs · constants read: `_NULL_FOR_STORAGE`</sub>
+*Code:* `stage_0_intake.py` line 328 (3 lines) · arguments: v · calls: not called on the traced runs · constants read: `_NULL_FOR_STORAGE`
 
 ### `stage_0_intake.py::_answer_present`
 
 For the questionnaire's context modes: true only for an affirmative answer (not blank, not "prefer not to say", not No, none or not
 applicable).
 
-<sub>`stage_0_intake.py` line 333 (5 lines) · arguments: v · calls: not called on the traced runs · constants read: `_NEGATIVE`, `_NULL_FOR_STORAGE`</sub>
+*Code:* `stage_0_intake.py` line 333 (5 lines) · arguments: v · calls: not called on the traced runs · constants read: `_NEGATIVE`, `_NULL_FOR_STORAGE`
 
 ### `stage_0_intake.py::_age_from_dob`
 
 Age in decimal years from a date of birth and the intake date, rounded to 0.1.
 
-<sub>`stage_0_intake.py` line 340 (8 lines) · arguments: dob, on_date · calls: not called on the traced runs</sub>
+*Code:* `stage_0_intake.py` line 340 (8 lines) · arguments: dob, on_date · calls: not called on the traced runs
 
 ### `stage_0_intake.py::parse_questionnaire`
 
@@ -299,59 +326,59 @@ Maps a digital questionnaire's answers to the stored covariate record: each fiel
 a list of context modes. The record is stored with the manifest. No stage of the current chain reads these covariates or modes; the
 stage names in its field table belong to an earlier engine.
 
-<sub>`stage_0_intake.py` line 350 (18 lines) · arguments: answers, intake_date · calls: not called on the traced runs · constants read: `COVARIATE_FIELDS`, `_CONTEXT_MODE_TRIGGERS`</sub>
+*Code:* `stage_0_intake.py` line 350 (18 lines) · arguments: answers, intake_date · calls: not called on the traced runs · constants read: `COVARIATE_FIELDS`, `_CONTEXT_MODE_TRIGGERS`
 
 ### `stage_0_intake.py::_looks_like_cleartext_pii`
 
 True when an identifier looks like a name rather than a hash: empty, containing a space or an @, shorter than 16 characters once
 dashes and underscores are removed, or not purely letters and digits.
 
-<sub>`stage_0_intake.py` line 370 (9 lines) · arguments: patient_id · calls: array run 1</sub>
+*Code:* `stage_0_intake.py` line 370 (9 lines) · arguments: patient_id · calls: array run 1
 
 ### `stage_0_intake.py::_write_manifest`
 
 Writes the per-sample manifest as `patient_manifest_<run id>.json` in the manifest folder, when one is given.
 
-<sub>`stage_0_intake.py` line 381 (8 lines) · arguments: manifest_dir, record · calls: array run 1 · files named: `Write the immutable per-sample patient_manifest.json`</sub>
+*Code:* `stage_0_intake.py` line 381 (8 lines) · arguments: manifest_dir, record · calls: array run 1 · files named: `Write the immutable per-sample patient_manifest.json`
 
 ### `stage_0_intake.py::step_0_2_manifest_creation`
 
 Step 0.2: builds the immutable manifest from the 0.1 record (and questionnaire answers, when given), quarantines a cleartext
 identifier or a missing core field, and writes the file.
 
-<sub>`stage_0_intake.py` line 391 (40 lines) · arguments: step_0_1_result, questionnaire_answers, manifest_dir, intake_date · calls: array run 1</sub>
+*Code:* `stage_0_intake.py` line 391 (40 lines) · arguments: step_0_1_result, questionnaire_answers, manifest_dir, intake_date · calls: array run 1
 
 ### `stage_0_intake.py::_sha256_file`
 
 The SHA-256 of a whole file, read in 1 MB pieces.
 
-<sub>`stage_0_intake.py` line 439 (6 lines) · arguments: path · calls: array run 2</sub>
+*Code:* `stage_0_intake.py` line 439 (6 lines) · arguments: path · calls: array run 2
 
 ### `stage_0_intake.py::_prior_hashes_for_sentrix`
 
 The pairs of file hashes earlier intakes recorded for the same Sentrix ID in the integrity log.
 
-<sub>`stage_0_intake.py` line 447 (14 lines) · arguments: integrity_log_path, sentrix_id · calls: array run 1</sub>
+*Code:* `stage_0_intake.py` line 447 (14 lines) · arguments: integrity_log_path, sentrix_id · calls: array run 1
 
 ### `stage_0_intake.py::_log_integrity`
 
 Appends one row to the integrity log (also used for the decision gate's verdict row).
 
-<sub>`stage_0_intake.py` line 463 (6 lines) · arguments: integrity_log_path, row · calls: array run 1</sub>
+*Code:* `stage_0_intake.py` line 463 (6 lines) · arguments: integrity_log_path, row · calls: array run 1
 
 ### `stage_0_intake.py::step_0_3_integrity_hash`
 
 Step 0.3: hashes both files and compares them with earlier intakes of the same Sentrix ID. Identical bytes again is a re-transmission
 and stops the run; the same Sentrix ID with different bytes is flagged as a fresh re-run and advances.
 
-<sub>`stage_0_intake.py` line 471 (37 lines) · arguments: record, grn_path, red_path, integrity_log_path · calls: array run 1</sub>
+*Code:* `stage_0_intake.py` line 471 (37 lines) · arguments: record, grn_path, red_path, integrity_log_path · calls: array run 1
 
 ### `stage_0_intake.py::extract_control_probes`
 
 Gets the control-probe medians by class from the IDAT pair through the QC hand-off (`stage_0_1_qc_handoff.decode_qc_inputs`), the
 same decoder Stage 1 uses. The array's own controls only.
 
-<sub>`stage_0_intake.py` line 529 (7 lines) · arguments: grn_path, red_path, array_type · calls: not called on the traced runs</sub>
+*Code:* `stage_0_intake.py` line 529 (7 lines) · arguments: grn_path, red_path, array_type · calls: not called on the traced runs
 
 ### `stage_0_intake.py::validate_control_probes`
 
@@ -362,107 +389,107 @@ median, at least 2. Extension: the green-channel (C and G) extension median over
 the record calls these "meth" and "unmeth", which they are not. When the bisulfite number is the only failure, the verdict is PROVISIONAL and the array advances, because that limit has not been
 set from healthy arrays. Records the raw medians the gates tested.
 
-<sub>`stage_0_intake.py` line 538 (41 lines) · arguments: control_summary · calls: array run 2 · constants read: `BS_CONVERSION_MIN`, `BS_THRESHOLD_CALIBRATED`, `EXTENSION_BALANCE_RANGE`, `HYB_HIGH_LOW_MIN_RATIO`</sub>
+*Code:* `stage_0_intake.py` line 538 (41 lines) · arguments: control_summary · calls: array run 2 · constants read: `BS_CONVERSION_MIN`, `BS_THRESHOLD_CALIBRATED`, `EXTENSION_BALANCE_RANGE`, `HYB_HIGH_LOW_MIN_RATIO`
 
 ### `stage_0_intake.py::step_0_4_control_probe_validation`
 
 Step 0.4: runs `validate_control_probes` on the hand-off's control summary and stamps the verdict and its numbers. With no decoder
 available it marks the check deferred rather than inventing a pass.
 
-<sub>`stage_0_intake.py` line 581 (20 lines) · arguments: record, grn_path, red_path, control_summary · calls: array run 1</sub>
+*Code:* `stage_0_intake.py` line 581 (20 lines) · arguments: record, grn_path, red_path, control_summary · calls: array run 1
 
 ### `stage_0_intake.py::_normal_sf`
 
 The normal survival function, 1 − Φ(z), from scipy when it is installed, otherwise from the complementary error function.
 
-<sub>`stage_0_intake.py` line 620 (9 lines) · arguments: z · calls: array run 2</sub>
+*Code:* `stage_0_intake.py` line 620 (9 lines) · arguments: z · calls: array run 2
 
 ### `stage_0_intake.py::compute_detection_p`
 
 Per probe, the detection p-value 1 − Φ((I − μ_bg)/σ_bg), with μ_bg and σ_bg this array's negative-control background.
 
-<sub>`stage_0_intake.py` line 631 (6 lines) · arguments: probe_intensities, mu_bg, sigma_bg · calls: array run 2</sub>
+*Code:* `stage_0_intake.py` line 631 (6 lines) · arguments: probe_intensities, mu_bg, sigma_bg · calls: array run 2
 
 ### `stage_0_intake.py::validate_detection_p`
 
 The share of probes with detection p ≤ 0.01, graded against the thresholds file: above 0.99 PASS, from 0.93 BORDERLINE, below FAIL.
 
-<sub>`stage_0_intake.py` line 639 (15 lines) · arguments: detection_p_array · calls: array run 2 · constants read: `DETECTION_BORDERLINE_FRACTION`, `DETECTION_PASS_FRACTION`, `DETECTION_P_THRESHOLD` · files named: `intake_thresholds_v1.json`</sub>
+*Code:* `stage_0_intake.py` line 639 (15 lines) · arguments: detection_p_array · calls: array run 2 · constants read: `DETECTION_BORDERLINE_FRACTION`, `DETECTION_PASS_FRACTION`, `DETECTION_P_THRESHOLD` · files named: `intake_thresholds_v1.json`
 
 ### `stage_0_intake.py::step_0_5_detection_pvalue_qc`
 
 Step 0.5: computes and grades detection. Without intensities the check is deferred, and a deferred detection never advances.
 
-<sub>`stage_0_intake.py` line 656 (22 lines) · arguments: record, probe_intensities, neg_control_stats · calls: array run 1</sub>
+*Code:* `stage_0_intake.py` line 656 (22 lines) · arguments: record, probe_intensities, neg_control_stats · calls: array run 1
 
 ### `stage_0_intake.py::validate_bead_count`
 
 The share of probes with at least 3 beads: 0.995 or more PASS, otherwise a warning. Never stops an array.
 
-<sub>`stage_0_intake.py` line 688 (8 lines) · arguments: bead_counts, min_beads · calls: array run 1 · constants read: `BEAD_COUNT_MIN`, `BEAD_PASS_FRACTION`</sub>
+*Code:* `stage_0_intake.py` line 688 (8 lines) · arguments: bead_counts, min_beads · calls: array run 1 · constants read: `BEAD_COUNT_MIN`, `BEAD_PASS_FRACTION`
 
 ### `stage_0_intake.py::step_0_6_bead_count_qc`
 
 Step 0.6: grades the bead counts and flags a low count. Always advances.
 
-<sub>`stage_0_intake.py` line 698 (14 lines) · arguments: record, bead_counts · calls: array run 1</sub>
+*Code:* `stage_0_intake.py` line 698 (14 lines) · arguments: record, bead_counts · calls: array run 1
 
 ### `stage_0_intake.py::validate_call_rate`
 
 The share of probes passing both detection and bead count, graded: 0.98 or more PASS, from 0.93 BORDERLINE, below FAIL.
 
-<sub>`stage_0_intake.py` line 722 (9 lines) · arguments: n_passing_both, n_total · calls: array run 2 · constants read: `CALL_RATE_BORDERLINE`, `CALL_RATE_PASS`</sub>
+*Code:* `stage_0_intake.py` line 722 (9 lines) · arguments: n_passing_both, n_total · calls: array run 2 · constants read: `CALL_RATE_BORDERLINE`, `CALL_RATE_PASS`
 
 ### `stage_0_intake.py::step_0_7_call_rate`
 
 Step 0.7: combines the detection and bead masks probe by probe and grades the call rate. Without masks the check is deferred, and a
 deferred call rate never advances.
 
-<sub>`stage_0_intake.py` line 733 (22 lines) · arguments: record, detection_pass_mask, bead_pass_mask · calls: array run 1</sub>
+*Code:* `stage_0_intake.py` line 733 (22 lines) · arguments: record, detection_pass_mask, bead_pass_mask · calls: array run 1
 
 ### `stage_0_intake.py::step_0_7b_platform_coverage`
 
 Step 0.7b: stamps the platform tag. On a 450K array it stops below 80 % of the reference sites; on EPIC it records `NA_EPIC` and passes.
 
-<sub>`stage_0_intake.py` line 764 (23 lines) · arguments: record, reference_cpg_coverage · calls: array run 2 · constants read: `HM450_COVERAGE_MIN`</sub>
+*Code:* `stage_0_intake.py` line 764 (23 lines) · arguments: record, reference_cpg_coverage · calls: array run 2 · constants read: `HM450_COVERAGE_MIN`
 
 ### `stage_0_intake.py::predict_sex`
 
 Female when the median log2 Y intensity minus the median log2 X intensity is below −2, otherwise male (minfi's getSex rule).
 
-<sub>`stage_0_intake.py` line 796 (2 lines) · arguments: log2_x_median, log2_y_median, cutoff · calls: array run 1 · constants read: `SEX_GETSEX_CUTOFF`</sub>
+*Code:* `stage_0_intake.py` line 796 (2 lines) · arguments: log2_x_median, log2_y_median, cutoff · calls: array run 1 · constants read: `SEX_GETSEX_CUTOFF`
 
 ### `stage_0_intake.py::validate_sex`
 
 Compares the predicted sex with a declared one. No declared sex: the array's sex is recorded and nothing is compared. A mismatch stops
 the array.
 
-<sub>`stage_0_intake.py` line 800 (7 lines) · arguments: log2_x_median, log2_y_median, declared_sex · calls: array run 1</sub>
+*Code:* `stage_0_intake.py` line 800 (7 lines) · arguments: log2_x_median, log2_y_median, declared_sex · calls: array run 1
 
 ### `stage_0_intake.py::step_0_8_sex_check`
 
 Step 0.8: runs the sex check on the hand-off's X and Y medians and stamps the result.
 
-<sub>`stage_0_intake.py` line 809 (15 lines) · arguments: record, sex_intensities · calls: array run 1</sub>
+*Code:* `stage_0_intake.py` line 809 (15 lines) · arguments: record, sex_intensities · calls: array run 1
 
 ### `stage_0_intake.py::_fmt`
 
 Formats a measured number for an explanation, or says "not measured".
 
-<sub>`stage_0_intake.py` line 838 (2 lines) · arguments: x, nd · calls: array run 2</sub>
+*Code:* `stage_0_intake.py` line 838 (2 lines) · arguments: x, nd · calls: array run 2
 
 ### `stage_0_intake.py::explain_stage0`
 
 Builds the five-part explanation of every check that stopped, penalized or deferred the array (measured on this array, the limit, the
 limit's source and whether it is provisional, what it means, what to do). Changes no decision.
 
-<sub>`stage_0_intake.py` line 840 (54 lines) · arguments: record, hard_fail, borderline, deferred · calls: array run 2 · constants read: `BEAD_COUNT_MIN`, `BEAD_PASS_FRACTION`, `BS_CONVERSION_MIN`, `BS_THRESHOLD_CALIBRATED`, `CALL_RATE_BORDERLINE`, `CALL_RATE_PASS`, `DETECTION_BORDERLINE_FRACTION`, `DETECTION_PASS_FRACTION`, `EXTENSION_BALANCE_RANGE`, `HYB_HIGH_LOW_MIN_RATIO`, `SEX_GETSEX_CUTOFF`, `_TH_SRC`</sub>
+*Code:* `stage_0_intake.py` line 840 (54 lines) · arguments: record, hard_fail, borderline, deferred · calls: array run 2 · constants read: `BEAD_COUNT_MIN`, `BEAD_PASS_FRACTION`, `BS_CONVERSION_MIN`, `BS_THRESHOLD_CALIBRATED`, `CALL_RATE_BORDERLINE`, `CALL_RATE_PASS`, `DETECTION_BORDERLINE_FRACTION`, `DETECTION_PASS_FRACTION`, `EXTENSION_BALANCE_RANGE`, `HYB_HIGH_LOW_MIN_RATIO`, `SEX_GETSEX_CUTOFF`, `_TH_SRC`
 
 ### `stage_0_intake.py::explain_stage0.add`
 
 Adds one explanation to the list.
 
-<sub>`stage_0_intake.py` line 842 (2 lines) · arguments: check, outcome, measured, limit, source, provisional, means, todo · calls: array run 2</sub>
+*Code:* `stage_0_intake.py` line 842 (2 lines) · arguments: check, outcome, measured, limit, source, provisional, means, todo · calls: array run 2
 
 ### `stage_0_intake.py::step_0_9_decision_gate`
 
@@ -470,7 +497,7 @@ Step 0.9: sorts every step's outcome into hard failures, penalties and deferrals
 or PROCEED). A deferred detection or call rate is a hard failure; a deferred bead count or provisional bisulfite number is recorded.
 Attaches the explanations and logs the verdict.
 
-<sub>`stage_0_intake.py` line 896 (80 lines) · arguments: record, verdict_log_path · calls: array run 2</sub>
+*Code:* `stage_0_intake.py` line 896 (80 lines) · arguments: record, verdict_log_path · calls: array run 2
 
 ## 3. The QC hand-off: `stage_0_1_qc_handoff.py`
 
@@ -501,44 +528,44 @@ A missing manifest on the machine is an environment failure (exit code 3), never
 
 Loads the array type's manifest from methylprep once and keeps it for the rest of the run.
 
-<sub>`stage_0_1_qc_handoff.py` line 26 (9 lines) · arguments: array_type · calls: array run 2 · constants read: `_MANIFEST`</sub>
+*Code:* `stage_0_1_qc_handoff.py` line 26 (9 lines) · arguments: array_type · calls: array run 2 · constants read: `_MANIFEST`
 
 ### `stage_0_1_qc_handoff.py::_channel_means`
 
 Reads one IDAT file (gzipped or plain) with methylprep and returns the mean intensity at every address and, when asked, the bead count.
 
-<sub>`stage_0_1_qc_handoff.py` line 37 (11 lines) · arguments: path, channel, want_beads · calls: array run 2</sub>
+*Code:* `stage_0_1_qc_handoff.py` line 37 (11 lines) · arguments: path, channel, want_beads · calls: array run 2
 
 ### `stage_0_1_qc_handoff.py::_median`
 
 The median intensity over a list of control addresses, ignoring addresses the file lacks; nothing if none are present.
 
-<sub>`stage_0_1_qc_handoff.py` line 50 (3 lines) · arguments: series, addresses · calls: array run 4</sub>
+*Code:* `stage_0_1_qc_handoff.py` line 50 (3 lines) · arguments: series, addresses · calls: array run 4
 
 ### `stage_0_1_qc_handoff.py::decode_qc_inputs`
 
 Builds everything Stage 0's gates read, as listed above, from the two files and the manifest. Returns the probe identifiers in the same
 order as the intensities and bead counts, so Stage 1's call rate can line them up later.
 
-<sub>`stage_0_1_qc_handoff.py` line 55 (125 lines) · arguments: grn_path, red_path, array_type · calls: array run 1</sub>
+*Code:* `stage_0_1_qc_handoff.py` line 55 (125 lines) · arguments: grn_path, red_path, array_type · calls: array run 1
 
 ### `stage_0_1_qc_handoff.py::decode_qc_inputs.ctl_addr`
 
 The manifest addresses of one control type, optionally narrowed to extended types containing (or not containing) a word.
 
-<sub>`stage_0_1_qc_handoff.py` line 62 (9 lines) · arguments: control_type, contains, excludes · calls: array run 5</sub>
+*Code:* `stage_0_1_qc_handoff.py` line 62 (9 lines) · arguments: control_type, contains, excludes · calls: array run 5
 
 ### `stage_0_1_qc_handoff.py::decode_qc_inputs._at`
 
 The intensity at each probe's address, with a gap where the probe has no such address.
 
-<sub>`stage_0_1_qc_handoff.py` line 135 (6 lines) · arguments: series, addr · calls: array run 8</sub>
+*Code:* `stage_0_1_qc_handoff.py` line 135 (6 lines) · arguments: series, addr · calls: array run 8
 
 ### `stage_0_1_qc_handoff.py::decode_qc_inputs.sex_median`
 
 log2 of the median total intensity over the X (or Y) probes the array measured, and how many probes that was.
 
-<sub>`stage_0_1_qc_handoff.py` line 166 (5 lines) · arguments: which · calls: array run 2</sub>
+*Code:* `stage_0_1_qc_handoff.py` line 166 (5 lines) · arguments: which · calls: array run 2
 
 ## 4. Stage 1, calibration: `stage_1_idat_calibration.py`
 
@@ -571,20 +598,20 @@ Stage 1 is refused as an array type it does not calibrate; a truncated file is q
 Refuses to run unless methylprep is version 1.7.1 and every cached manifest matches its pinned SHA-256 (or the development override is
 set). Called before calibration and again after methylprep fetches any missing manifest.
 
-<sub>`stage_1_idat_calibration.py` line 39 (11 lines) · arguments: none · calls: array run 2 · constants read: `MANIFEST_SHA256`, `METHYLPREP_VERSION`</sub>
+*Code:* `stage_1_idat_calibration.py` line 39 (11 lines) · arguments: none · calls: array run 2 · constants read: `MANIFEST_SHA256`, `METHYLPREP_VERSION`
 
 ### `stage_1_idat_calibration.py::_ensure_methylprep`
 
 Imports methylprep, installing the pinned version into the running Python once if it is missing, and explains what to do when the
 install or import fails.
 
-<sub>`stage_1_idat_calibration.py` line 50 (43 lines) · arguments: none · calls: array run 1 · constants read: `METHYLPREP_VERSION`</sub>
+*Code:* `stage_1_idat_calibration.py` line 50 (43 lines) · arguments: none · calls: array run 1 · constants read: `METHYLPREP_VERSION`
 
 ### `stage_1_idat_calibration.py::_detect_array_type`
 
 Reads the green IDAT with methylprep and maps its address count to methylprep's array type; also returns the barcode.
 
-<sub>`stage_1_idat_calibration.py` line 95 (10 lines) · arguments: grn_path · calls: array run 1</sub>
+*Code:* `stage_1_idat_calibration.py` line 95 (10 lines) · arguments: grn_path · calls: array run 1
 
 ### `stage_1_idat_calibration.py::calibrate_idat_to_beta`
 
@@ -592,19 +619,19 @@ Copies the pair into a private temporary folder with a one-row sample sheet (so 
 poobah detection and the control and SNP probes exported, keeps the cg probes with poobah p ≤ 0.05, and returns the betas with the
 record described above. The temporary folder is always deleted.
 
-<sub>`stage_1_idat_calibration.py` line 107 (106 lines) · arguments: grn_path, red_path, array_type, verbose, mask_detection, return_mask, return_snp · calls: array run 1 · files named: `_processed.csv`, `control_probes.pkl`, `samplesheet.csv`, `the tag beta_scale_maps_v1.json`</sub>
+*Code:* `stage_1_idat_calibration.py` line 107 (106 lines) · arguments: grn_path, red_path, array_type, verbose, mask_detection, return_mask, return_snp · calls: array run 1 · files named: `_processed.csv`, `control_probes.pkl`, `samplesheet.csv`, `the tag beta_scale_maps_v1.json`
 
 ### `stage_1_idat_calibration.py::calibrate_idat_to_beta.med`
 
 The median of one control type in one channel, from methylprep's exported control table.
 
-<sub>`stage_1_idat_calibration.py` line 177 (2 lines) · arguments: t, col · calls: array run 7</sub>
+*Code:* `stage_1_idat_calibration.py` line 177 (2 lines) · arguments: t, col · calls: array run 7
 
 ### `stage_1_idat_calibration.py::_stage_idat`
 
 Copies an IDAT into the staging folder under the name methylprep expects, unzipping it if it is gzipped.
 
-<sub>`stage_1_idat_calibration.py` line 215 (8 lines) · arguments: src, dst · calls: array run 2</sub>
+*Code:* `stage_1_idat_calibration.py` line 215 (8 lines) · arguments: src, dst · calls: array run 2
 
 ## 5. The conductor: `conductor_v3.py`, and Met-A's reading: `stage_m_met_a.py`
 
@@ -727,58 +754,58 @@ were measured.
 Loads the neutrophil reference (`neutrophil_reference_v1_2.json`) once: the 6,000 sites in genomic order, the healthy mean and shrunk SD
 of H at each, and the C-Score's block length and healthy baseline.
 
-<sub>`conductor_v3.py` line 58 (4 lines) · arguments: none · calls: array run 4 · constants read: `RM`, `_REF` · files named: `neutrophil_reference_v1_2.json`</sub>
+*Code:* `conductor_v3.py` line 58 (4 lines) · arguments: none · calls: array run 4 · constants read: `RM`, `_REF` · files named: `neutrophil_reference_v1_2.json`
 
 ### `conductor_v3.py::noise_sites`
 
 Loads the 48,528 noise sites once.
 
-<sub>`conductor_v3.py` line 66 (6 lines) · arguments: none · calls: array run 1 · constants read: `RM`, `_NS` · files named: `Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json`, `noise_sites_EPIC_v1.json`</sub>
+*Code:* `conductor_v3.py` line 66 (6 lines) · arguments: none · calls: array run 1 · constants read: `RM`, `_NS` · files named: `Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json`, `noise_sites_EPIC_v1.json`
 
 ### `conductor_v3.py::noise_gate`
 
 Loads N_max and its rule once.
 
-<sub>`conductor_v3.py` line 74 (5 lines) · arguments: none · calls: array run 1 · constants read: `RM`, `_NG` · files named: `Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json`, `noise_gate_EPIC_v1.json`</sub>
+*Code:* `conductor_v3.py` line 74 (5 lines) · arguments: none · calls: array run 1 · constants read: `RM`, `_NG` · files named: `Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json`, `noise_gate_EPIC_v1.json`
 
 ### `conductor_v3.py::noise_index`
 
 N = mean H(β) over the noise sites this array measured, or nothing when fewer than 90 % were measured; with the counts.
 
-<sub>`conductor_v3.py` line 80 (6 lines) · arguments: beta · calls: array run 1 · constants read: `H`, `MIN_NOISE_FRACTION`</sub>
+*Code:* `conductor_v3.py` line 80 (6 lines) · arguments: beta · calls: array run 1 · constants read: `H`, `MIN_NOISE_FRACTION`
 
 ### `conductor_v3.py::_bc`
 
 Loads the blood composition matrix (`blood_composition_EPIC_v1.json`) once: the 963 markers and 8 group means at each, and the 8 groups'
 healthy means at the 6,000 identity sites.
 
-<sub>`conductor_v3.py` line 88 (4 lines) · arguments: none · calls: array run 4 · constants read: `RM`, `_BC` · files named: `blood_composition_EPIC_v1.json`</sub>
+*Code:* `conductor_v3.py` line 88 (4 lines) · arguments: none · calls: array run 4 · constants read: `RM`, `_BC` · files named: `blood_composition_EPIC_v1.json`
 
 ### `conductor_v3.py::min_markers`
 
 The number of markers Stage A needs: 90 % of 963, rounded up (867).
 
-<sub>`conductor_v3.py` line 93 (2 lines) · arguments: none · calls: array run 2 · constants read: `MIN_MARKER_FRACTION`</sub>
+*Code:* `conductor_v3.py` line 93 (2 lines) · arguments: none · calls: array run 2 · constants read: `MIN_MARKER_FRACTION`
 
 ### `conductor_v3.py::stage_a_composition`
 
 Stage A: solves the 8 shares by non-negative least squares on the measured markers and scales them to sum to 1; records the fit's mean
 absolute residual. Refuses, with the count, below 867 markers.
 
-<sub>`conductor_v3.py` line 96 (15 lines) · arguments: beta · calls: array run 1</sub>
+*Code:* `conductor_v3.py` line 96 (15 lines) · arguments: beta · calls: array run 1
 
 ### `conductor_v3.py::_clustering`
 
 The C-Score's statistic on a departure map: variance of block means of 10 sites (× √10) over the site variance; nothing with fewer than 10
 blocks.
 
-<sub>`conductor_v3.py` line 112 (5 lines) · arguments: z, w · calls: array run 1</sub>
+*Code:* `conductor_v3.py` line 112 (5 lines) · arguments: z, w · calls: array run 1
 
 ### `conductor_v3.py::_state`
 
 Normal from 0.95 to 1.05, otherwise above or below Normal.
 
-<sub>`conductor_v3.py` line 118 (2 lines) · arguments: A · calls: array run 1</sub>
+*Code:* `conductor_v3.py` line 118 (2 lines) · arguments: A · calls: array run 1
 
 ### `conductor_v3.py::stage_m_blood`
 
@@ -786,121 +813,121 @@ Stage M in whole blood: the expectation e for this blood's mix, Met-A = mean H(�
 1 % loss would make at this neutrophil share, the ceiling check and the departure map. Withholds the reading, with the reason, when there is
 no mix, no neutrophils, or under 90 % of the sites.
 
-<sub>`conductor_v3.py` line 121 (26 lines) · arguments: beta, comp · calls: array run 1 · constants read: `BUILD`, `H`</sub>
+*Code:* `conductor_v3.py` line 121 (26 lines) · arguments: beta, comp · calls: array run 1 · constants read: `BUILD`, `H`
 
 ### `conductor_v3.py::_ceiling`
 
 The mean β of the neutrophil's methylated identity sites, and whether it has fallen below 0.5, past which Met-A no longer rises with loss.
 
-<sub>`conductor_v3.py` line 148 (7 lines) · arguments: x, mu · calls: array run 1</sub>
+*Code:* `conductor_v3.py` line 148 (7 lines) · arguments: x, mu · calls: array run 1
 
 ### `conductor_v3.py::stage_m_isolated`
 
 Stage M on isolated neutrophils: Met-A against the healthy reference (`stage_m_met_a.read`), the 1 % shift, the ceiling check and the
 departure map against the healthy neutrophil. Keeps the untared state as `state_own_floor` and marks the reading untared until Stage T.
 
-<sub>`conductor_v3.py` line 156 (12 lines) · arguments: beta · calls: not called on the traced runs · constants read: `H`</sub>
+*Code:* `conductor_v3.py` line 156 (12 lines) · arguments: beta · calls: not called on the traced runs · constants read: `H`
 
 ### `conductor_v3.py::stage_mc_cscore`
 
 Stage MC: the C-Score from the departure map, divided by the healthy baseline, with the share of sites more than 3 SD out. With no map,
 no C-Score and the reason.
 
-<sub>`conductor_v3.py` line 169 (11 lines) · arguments: z · calls: array run 1 · files named: `divided by the healthy median clustering of neutrophil_reference_v1_2.json`</sub>
+*Code:* `conductor_v3.py` line 169 (11 lines) · arguments: z · calls: array run 1 · files named: `divided by the healthy median clustering of neutrophil_reference_v1_2.json`
 
 ### `conductor_v3.py::_ref_records`
 
 Turns the same-run references into records (A, neutrophil share, N, C), skipping empty values and the sample itself.
 
-<sub>`conductor_v3.py` line 181 (13 lines) · arguments: ref_A, sample_id · calls: array run 2</sub>
+*Code:* `conductor_v3.py` line 181 (13 lines) · arguments: ref_A, sample_id · calls: array run 2
 
 ### `conductor_v3.py::stage_t_tare`
 
 Stage T step 2: the median tare of Met-A, the reference spread and the detection limit; untared, with the reason, under 3 references.
 
-<sub>`conductor_v3.py` line 195 (16 lines) · arguments: A, ref_A, shift_1pct, sample_id · calls: array run 1 · constants read: `MIN_REFS`</sub>
+*Code:* `conductor_v3.py` line 195 (16 lines) · arguments: A, ref_A, shift_1pct, sample_id · calls: array run 1 · constants read: `MIN_REFS`
 
 ### `conductor_v3.py::stage_t_cscore`
 
 The C-Score's same-run tare and its call against the band (above 1.152 a clustered departure).
 
-<sub>`conductor_v3.py` line 214 (18 lines) · arguments: cs, ref_A, sample_id · calls: array run 1 · constants read: `CSCORE_COMMISSIONING`, `CSCORE_DEV_BAND`, `MIN_REFS`</sub>
+*Code:* `conductor_v3.py` line 214 (18 lines) · arguments: cs, ref_A, sample_id · calls: array run 1 · constants read: `CSCORE_COMMISSIONING`, `CSCORE_DEV_BAND`, `MIN_REFS`
 
 ### `conductor_v3.py::stage_t_selftare_ii`
 
 Stage T step 1: runs `dev_stages.selftare_map` on the array and returns the mapped values with the anchors and maps; unmapped values and a
 NOT_RUN record if the map file is missing.
 
-<sub>`conductor_v3.py` line 233 (9 lines) · arguments: beta · calls: array run 1</sub>
+*Code:* `conductor_v3.py` line 233 (9 lines) · arguments: beta · calls: array run 1
 
 ### `conductor_v3.py::platform_refusal`
 
 Nothing for an EPIC v1 array; otherwise the refusal: another array type from Stage 0, EPIC v2 probe names, or 700,000 probes or fewer.
 
-<sub>`conductor_v3.py` line 243 (10 lines) · arguments: beta, array_type · calls: array run 1 · constants read: `ACCEPTED_ARRAY_TYPES`</sub>
+*Code:* `conductor_v3.py` line 243 (10 lines) · arguments: beta, array_type · calls: array run 1 · constants read: `ACCEPTED_ARRAY_TYPES`
 
 ### `conductor_v3.py::run_neutrophil`
 
 The whole conductor, in the order above. Returns the array reading's records (mix, Met-A, tare, C-Score) and the departure map for the sky.
 
-<sub>`conductor_v3.py` line 254 (50 lines) · arguments: beta, specimen, ref_A, array_type, sample_id · calls: array run 1 · constants read: `BUILD`, `CSCORE_COMMISSIONING`, `METAA_COMMISSIONING`, `MIN_NOISE_FRACTION`</sub>
+*Code:* `conductor_v3.py` line 254 (50 lines) · arguments: beta, specimen, ref_A, array_type, sample_id · calls: array run 1 · constants read: `BUILD`, `CSCORE_COMMISSIONING`, `METAA_COMMISSIONING`, `MIN_NOISE_FRACTION`
 
 ### `dev_stages.py::_json`
 
 Loads a file from `Runtime Matrices/Development` once and keeps it.
 
-<sub>`dev_stages.py` line 37 (5 lines) · arguments: name · calls: array run 1 · constants read: `DEVDIR`, `_C`</sub>
+*Code:* `dev_stages.py` line 37 (5 lines) · arguments: name · calls: array run 1 · constants read: `DEVDIR`, `_C`
 
 ### `dev_stages.py::anchors`
 
 This array's mean β over each of the four fixed-site sets (type I low and high, type II low and high), with how many it measured.
 
-<sub>`dev_stages.py` line 54 (7 lines) · arguments: beta, st · calls: array run 1 · files named: `dev_selftare_typeII_EPIC_v1.json`</sub>
+*Code:* `dev_stages.py` line 54 (7 lines) · arguments: beta, st · calls: array run 1 · files named: `dev_selftare_typeII_EPIC_v1.json`
 
 ### `dev_stages.py::selftare_map`
 
 Stage T step 1, as described above: maps each design's values by β' = L_r + (β − L)(U_r − L_r)/(U − L) at the sites whose design is
 recorded and returns the maps' anchors and slopes.
 
-<sub>`dev_stages.py` line 63 (12 lines) · arguments: beta, st · calls: array run 1 · files named: `dev_selftare_typeII_EPIC_v1.json`</sub>
+*Code:* `dev_stages.py` line 63 (12 lines) · arguments: beta, st · calls: array run 1 · files named: `dev_selftare_typeII_EPIC_v1.json`
 
 ### `stage_m_met_a.py::_floors`
 
 Loads `metA_floors_v1_3.json` (the 6,000 identity sites and the healthy reference H_ref) once.
 
-<sub>`stage_m_met_a.py` line 28 (4 lines) · arguments: none · calls: array run 1 · constants read: `FLOORS`, `_F`</sub>
+*Code:* `stage_m_met_a.py` line 28 (4 lines) · arguments: none · calls: array run 1 · constants read: `FLOORS`, `_F`
 
 ### `stage_m_met_a.py::_H`
 
 The entropy of a beta value in bits, with β clipped to [10⁻⁶, 1 − 10⁻⁶] so a value of exactly 0 or 1 gives 0, not an error.
 
-<sub>`stage_m_met_a.py` line 33 (3 lines) · arguments: b · calls: array run 7</sub>
+*Code:* `stage_m_met_a.py` line 33 (3 lines) · arguments: b · calls: array run 7
 
 ### `stage_m_met_a.py::platform_of`
 
 The platform from the values themselves: EPIC v2 when any probe name carries the v2 design suffix; else EPIC when more than 700,000 probes,
 else 450K.
 
-<sub>`stage_m_met_a.py` line 39 (6 lines) · arguments: beta · calls: array run 2 · constants read: `_V2_NAME`</sub>
+*Code:* `stage_m_met_a.py` line 39 (6 lines) · arguments: beta · calls: array run 2 · constants read: `_V2_NAME`
 
 ### `stage_m_met_a.py::available`
 
 The cell types with a healthy reference on each platform that are in scope (neutrophils).
 
-<sub>`stage_m_met_a.py` line 46 (3 lines) · arguments: platform · calls: not called on the traced runs · constants read: `CELLS_IN_SCOPE`</sub>
+*Code:* `stage_m_met_a.py` line 46 (3 lines) · arguments: platform · calls: not called on the traced runs · constants read: `CELLS_IN_SCOPE`
 
 ### `stage_m_met_a.py::precision`
 
 The held-out readings of the reference arrays for one cell type: how many, the share in Normal, the SD and the range.
 
-<sub>`stage_m_met_a.py` line 50 (6 lines) · arguments: platform, cell · calls: not called on the traced runs · constants read: `LOO`, `NORMAL`</sub>
+*Code:* `stage_m_met_a.py` line 50 (6 lines) · arguments: platform, cell · calls: not called on the traced runs · constants read: `LOO`, `NORMAL`
 
 ### `stage_m_met_a.py::read`
 
 Met-A on a purified specimen of one cell type: refuses a cell outside scope, a platform without a reference, or under 90 % of the sites;
 otherwise A = mean H(β) / H_ref with its state and the held-out precision.
 
-<sub>`stage_m_met_a.py` line 57 (19 lines) · arguments: beta, cell, platform, specimen · calls: not called on the traced runs · constants read: `CELLS_IN_SCOPE`, `NORMAL`, `SITE_COVERAGE_MIN`</sub>
+*Code:* `stage_m_met_a.py` line 57 (19 lines) · arguments: beta, cell, platform, specimen · calls: not called on the traced runs · constants read: `CELLS_IN_SCOPE`, `NORMAL`, `SITE_COVERAGE_MIN`
 
 ## 6. Chain v4: the cell shares, IAM-A and the sky: `stage_v4.py`
 
@@ -930,44 +957,44 @@ display). Nothing is scored from the picture.
 Stage D21: loads the panel's reference and markers once, counts the markers measured, withholds below half, otherwise runs the
 Deconvolver and labels each cell's share commissioned or development.
 
-<sub>`stage_v4.py` line 23 (17 lines) · arguments: beta, panel · calls: array run 1 · constants read: `MIN_MARKER_SHARE`, `_REF`</sub>
+*Code:* `stage_v4.py` line 23 (17 lines) · arguments: beta, panel · calls: array run 1 · constants read: `MIN_MARKER_SHARE`, `_REF`
 
 ### `stage_v4.py::count_sequencing`
 
 Counts a `.pat` file (gzipped or plain) on the hg19 tiles, or an aligned BAM against its reference FASTA, with Stage Q2's one counter.
 
-<sub>`stage_v4.py` line 42 (5 lines) · arguments: pat, bam, ref_fasta, workers, assembly · calls: bam run 1</sub>
+*Code:* `stage_v4.py` line 42 (5 lines) · arguments: pat, bam, ref_fasta, workers, assembly · calls: bam run 1
 
 ### `stage_v4.py::stage_q2`
 
 Stage Q2 as above: the refusals, the shape check, the reading A with its predicted value, and the commissioned or development label.
 
-<sub>`stage_v4.py` line 48 (15 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES`</sub>
+*Code:* `stage_v4.py` line 48 (15 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES`
 
 ### `stage_v4.py::_compress`
 
 Takes every other bit of an integer: the step of the HEALPix algorithm that splits a NESTED pixel index into its x and y coordinates.
 
-<sub>`stage_v4.py` line 70 (3 lines) · arguments: v · calls: array run 6</sub>
+*Code:* `stage_v4.py` line 70 (3 lines) · arguments: v · calls: array run 6
 
 ### `stage_v4.py::nest_pix2ang`
 
 HEALPix NESTED pixel centers to colatitude and longitude.
 
-<sub>`stage_v4.py` line 73 (10 lines) · arguments: nside, ipix · calls: array run 3 · constants read: `JPLL`, `JRLL`</sub>
+*Code:* `stage_v4.py` line 73 (10 lines) · arguments: nside, ipix · calls: array run 3 · constants read: `JPLL`, `JRLL`
 
 ### `stage_v4.py::cscore_sky`
 
 Draws the C-Score's departures on the sphere in a Mollweide view and returns a summary (NSIDE, sites, pixels drawn, the share of
 departures beyond 3). Without a departure map it draws nothing and says why.
 
-<sub>`stage_v4.py` line 84 (38 lines) · arguments: z, out_png, title, vlim, readings · calls: array run 1</sub>
+*Code:* `stage_v4.py` line 84 (38 lines) · arguments: z, out_png, title, vlim, readings · calls: array run 1
 
 ### `stage_v4.py::png_data_uri`
 
 Embeds a figure in the HTML report as a data URI.
 
-<sub>`stage_v4.py` line 123 (2 lines) · arguments: path · calls: not called on the traced runs</sub>
+*Code:* `stage_v4.py` line 123 (2 lines) · arguments: path · calls: not called on the traced runs
 
 ## 7. The IAM-Deconvolver: `stage_deconv_v21.py`
 
@@ -1006,38 +1033,38 @@ its interval should exclude 0 in most mixtures. Remove half the markers: the sha
 Reads μ, its range and the donor spread for the named cells from the atlas's compact parquet files (only those columns; 65,535 marks a
 missing value) and builds sd as above.
 
-<sub>`stage_deconv_v21.py` line 26 (23 lines) · arguments: cells, atlas, spread · calls: array run 1 · constants read: `ATLAS`, `SPREAD` · files named: `import pyarrow.parquet`, `sites.parquet`</sub>
+*Code:* `stage_deconv_v21.py` line 26 (23 lines) · arguments: cells, atlas, spread · calls: array run 1 · constants read: `ATLAS`, `SPREAD` · files named: `import pyarrow.parquet`, `sites.parquet`
 
 ### `stage_deconv_v21.py::markers`
 
 The marker sites for the panel, as above.
 
-<sub>`stage_deconv_v21.py` line 49 (8 lines) · arguments: R, per_cell · calls: array run 1 · constants read: `PER_CELL`</sub>
+*Code:* `stage_deconv_v21.py` line 49 (8 lines) · arguments: R, per_cell · calls: array run 1 · constants read: `PER_CELL`
 
 ### `stage_deconv_v21.py::_solve`
 
 The three-pass weighted non-negative least squares.
 
-<sub>`stage_deconv_v21.py` line 57 (5 lines) · arguments: y, A, S, lab_sd, passes · calls: array run 201</sub>
+*Code:* `stage_deconv_v21.py` line 57 (5 lines) · arguments: y, A, S, lab_sd, passes · calls: array run 201
 
 ### `stage_deconv_v21.py::deconvolve`
 
 The shares, raw sum, 95 % intervals and sites used for one sample.
 
-<sub>`stage_deconv_v21.py` line 62 (14 lines) · arguments: beta, R, M, lab_sd, boot, seed · calls: array run 1 · constants read: `BOOT`, `LAB_SD`, `SEED`</sub>
+*Code:* `stage_deconv_v21.py` line 62 (14 lines) · arguments: beta, R, M, lab_sd, boot, seed · calls: array run 1 · constants read: `BOOT`, `LAB_SD`, `SEED`
 
 ### `stage_deconv_v21.py::sample`
 
 Inside the planted test only: builds a planted array, each cell's DNA drawn from the atlas's donor spread, mixed in known shares, plus a
 laboratory shift and array noise.
 
-<sub>`stage_deconv_v21.py` line 93 (2 lines) · arguments: f, lab · calls: not called on the traced runs</sub>
+*Code:* `stage_deconv_v21.py` line 93 (2 lines) · arguments: f, lab · calls: not called on the traced runs
 
 ### `stage_deconv_v21.py::sample_check`
 
 For the second sealed test: a pure array passes when it reads at least 0.80 of its own cell. Failing arrays are listed and not mixed.
 
-<sub>`stage_deconv_v21.py` line 170 (2 lines) · arguments: x, cell, R, M · calls: not called on the traced runs · constants read: `SELF_MIN`</sub>
+*Code:* `stage_deconv_v21.py` line 170 (2 lines) · arguments: x, cell, R, M · calls: not called on the traced runs · constants read: `SELF_MIN`
 
 ## 8. IAM-Atlas v2.1's commissioning rules: `stage_atlas_commission.py`
 
@@ -1059,50 +1086,50 @@ samples within 0.05. A sample the chain withholds is listed, not scored.
 
 The SD of the atlas fit's array-laboratory offsets, read from `transfer_v21_final.json` at run time, never typed.
 
-<sub>`stage_atlas_commission.py` line 17 (4 lines) · arguments: terms · calls: array run 1 · constants read: `TERMS`</sub>
+*Code:* `stage_atlas_commission.py` line 17 (4 lines) · arguments: terms · calls: array run 1 · constants read: `TERMS`
 
 ### `stage_atlas_commission.py::predictive_interval`
 
 The 90 % predictive range for a new sample from a new laboratory. Arrays: N(μ, sd² + lab² + floor). Sequencing: the array value carried
 through the platform map, plus binomial counting noise at the sample's coverage, the laboratory scatter and the floor.
 
-<sub>`stage_atlas_commission.py` line 21 (11 lines) · arguments: draws, sd_draws, kind, g, cov, scatter, level, seed, lab · calls: not called on the traced runs · constants read: `FLOOR`, `NOISE`, `RNG_SEED`</sub>
+*Code:* `stage_atlas_commission.py` line 21 (11 lines) · arguments: draws, sd_draws, kind, g, cov, scatter, level, seed, lab · calls: not called on the traced runs · constants read: `FLOOR`, `NOISE`, `RNG_SEED`
 
 ### `stage_atlas_commission.py::u1_coverage`
 
 The share of a sample's sites that fall inside the predictive range.
 
-<sub>`stage_atlas_commission.py` line 32 (2 lines) · arguments: lo, hi, y · calls: not called on the traced runs</sub>
+*Code:* `stage_atlas_commission.py` line 32 (2 lines) · arguments: lo, hi, y · calls: not called on the traced runs
 
 ### `stage_atlas_commission.py::u1_verdict`
 
 U1's verdict for one cell: commissioned when at least 95 % of its scored samples have coverage between 0.80 and 0.97.
 
-<sub>`stage_atlas_commission.py` line 34 (6 lines) · arguments: cov_by_sample, withheld, lo_bar, hi_bar · calls: not called on the traced runs · constants read: `SHARE`</sub>
+*Code:* `stage_atlas_commission.py` line 34 (6 lines) · arguments: cov_by_sample, withheld, lo_bar, hi_bar · calls: not called on the traced runs · constants read: `SHARE`
 
 ### `stage_atlas_commission.py::u2_share`
 
 The share of a tissue set's sites within tolerance of the anchor.
 
-<sub>`stage_atlas_commission.py` line 40 (2 lines) · arguments: set_mean, anchor, tol · calls: not called on the traced runs</sub>
+*Code:* `stage_atlas_commission.py` line 40 (2 lines) · arguments: set_mean, anchor, tol · calls: not called on the traced runs
 
 ### `stage_atlas_commission.py::u2_verdict`
 
 U2's verdict for one tissue.
 
-<sub>`stage_atlas_commission.py` line 42 (4 lines) · arguments: shares, bar, epithelium · calls: not called on the traced runs · constants read: `SHARE`</sub>
+*Code:* `stage_atlas_commission.py` line 42 (4 lines) · arguments: shares, bar, epithelium · calls: not called on the traced runs · constants read: `SHARE`
 
 ### `stage_atlas_commission.py::u3_neutrophil`
 
 U3's neutrophil error: the mean absolute error, the share within 0.05, the largest error, and whether both bars are met.
 
-<sub>`stage_atlas_commission.py` line 46 (4 lines) · arguments: est, truth, withheld_mask · calls: not called on the traced runs · constants read: `SHARE`</sub>
+*Code:* `stage_atlas_commission.py` line 46 (4 lines) · arguments: est, truth, withheld_mask · calls: not called on the traced runs · constants read: `SHARE`
 
 ### `stage_atlas_commission.py::atlas_v21_use_status`
 
 Commissioned or development for one use of the atlas, read from the table above.
 
-<sub>`stage_atlas_commission.py` line 56 (6 lines) · arguments: use, key · calls: not called on the traced runs · constants read: `ATLAS_V21_COMMISSIONING`</sub>
+*Code:* `stage_atlas_commission.py` line 56 (6 lines) · arguments: use, key · calls: not called on the traced runs · constants read: `ATLAS_V21_COMMISSIONING`
 
 ## 9. IAM-A, each sample against its own reference: `stage_q2_selfref.py`
 
@@ -1162,74 +1189,74 @@ the one command). Hand it a cell type with no healthy reference: it must not rea
 
 The SHA-256 over every `.py` file of the chain folder, names and contents, in sorted order.
 
-<sub>`stage_q2_selfref.py` line 28 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `HERE`</sub>
+*Code:* `stage_q2_selfref.py` line 28 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `HERE`
 
 ### `stage_q2_selfref.py::_canon`
 
 A result in canonical JSON (sorted keys, no spaces), so the same result always hashes the same.
 
-<sub>`stage_q2_selfref.py` line 32 (1 lines) · arguments: obj · calls: bam run 4</sub>
+*Code:* `stage_q2_selfref.py` line 32 (1 lines) · arguments: obj · calls: bam run 4
 
 ### `stage_q2_selfref.py::payload_sha`
 
 The SHA-256 of a result without its stamp.
 
-<sub>`stage_q2_selfref.py` line 33 (1 lines) · arguments: obj · calls: bam run 4</sub>
+*Code:* `stage_q2_selfref.py` line 33 (1 lines) · arguments: obj · calls: bam run 4
 
 ### `stage_q2_selfref.py::file_sha`
 
 The SHA-256 of a file, read in 16 MB pieces.
 
-<sub>`stage_q2_selfref.py` line 34 (5 lines) · arguments: path, chunk · calls: not called on the traced runs</sub>
+*Code:* `stage_q2_selfref.py` line 34 (5 lines) · arguments: path, chunk · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::_rows`
 
 The manifest rows a result belongs to, given directly or through the `IAM_MANIFEST` environment variable.
 
-<sub>`stage_q2_selfref.py` line 44 (3 lines) · arguments: manifest · calls: not called on the traced runs</sub>
+*Code:* `stage_q2_selfref.py` line 44 (3 lines) · arguments: manifest · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::stamp`
 
 Attaches the chain stamp to a result, hashing it exactly as it will be stored (JSON turns number keys into text).
 
-<sub>`stage_q2_selfref.py` line 47 (8 lines) · arguments: obj, inputs, manifest · calls: not called on the traced runs · constants read: `STAGE`</sub>
+*Code:* `stage_q2_selfref.py` line 47 (8 lines) · arguments: obj, inputs, manifest · calls: not called on the traced runs · constants read: `STAGE`
 
 ### `stage_q2_selfref.py::write_json`
 
 Writes a stamped result and reads it back to confirm the stored file verifies.
 
-<sub>`stage_q2_selfref.py` line 55 (6 lines) · arguments: obj, path, inputs, manifest · calls: not called on the traced runs</sub>
+*Code:* `stage_q2_selfref.py` line 55 (6 lines) · arguments: obj, path, inputs, manifest · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::write_csv`
 
 Writes a table and its stamp beside it, as `<file>.stamp.json`.
 
-<sub>`stage_q2_selfref.py` line 61 (4 lines) · arguments: df, path, inputs, manifest · calls: not called on the traced runs · constants read: `STAGE`</sub>
+*Code:* `stage_q2_selfref.py` line 61 (4 lines) · arguments: df, path, inputs, manifest · calls: not called on the traced runs · constants read: `STAGE`
 
 ### `stage_q2_selfref.py::hg19_tiles`
 
 The hg19 tiles of 2,000 consecutive CpGs on each autosome, in CpG-index coordinates; a partial last tile is dropped.
 
-<sub>`stage_q2_selfref.py` line 67 (7 lines) · arguments: none · calls: not called on the traced runs · constants read: `HG19_CPGS`</sub>
+*Code:* `stage_q2_selfref.py` line 67 (7 lines) · arguments: none · calls: not called on the traced runs · constants read: `HG19_CPGS`
 
 ### `stage_q2_selfref.py::_finish`
 
 Turns tile counts and hole counts into the record: L, the number of tiles, ε and its opportunities, and the 10th, 50th and 90th
 percentiles of the tile means for the shape check.
 
-<sub>`stage_q2_selfref.py` line 74 (9 lines) · arguments: tile_calls, e_iso, e_opp, extra · calls: bam run 1</sub>
+*Code:* `stage_q2_selfref.py` line 74 (9 lines) · arguments: tile_calls, e_iso, e_opp, extra · calls: bam run 1
 
 ### `stage_q2_selfref.py::count_pat`
 
 The `.pat` reader: even lines are added to their tile; odd lines that qualify as held runs add their interior calls and isolated holes.
 
-<sub>`stage_q2_selfref.py` line 83 (16 lines) · arguments: lines, tiles · calls: not called on the traced runs</sub>
+*Code:* `stage_q2_selfref.py` line 83 (16 lines) · arguments: lines, tiles · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::_cpg_index`
 
 The positions of every CpG in a chromosome's sequence.
 
-<sub>`stage_q2_selfref.py` line 102 (2 lines) · arguments: seq · calls: not called on the traced runs</sub>
+*Code:* `stage_q2_selfref.py` line 102 (2 lines) · arguments: seq · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::_calls_of`
 
@@ -1237,103 +1264,934 @@ One aligned read's methylation calls at CpGs, from the Bismark XM tag or, for ge
 and last 3 aligned bases. Also counts non-CpG conversion (a check on bisulfite conversion) and, on every 20th read, A/T mismatches (a check
 on sequencing error).
 
-<sub>`stage_q2_selfref.py` line 104 (27 lines) · arguments: r, ref, ref0, sub · calls: not called on the traced runs</sub>
+*Code:* `stage_q2_selfref.py` line 104 (27 lines) · arguments: r, ref, ref0, sub · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::_merge`
 
 Merges the calls of the two reads of a pair into one molecule; a CpG on which they disagree is dropped.
 
-<sub>`stage_q2_selfref.py` line 131 (6 lines) · arguments: a, b · calls: not called on the traced runs</sub>
+*Code:* `stage_q2_selfref.py` line 131 (6 lines) · arguments: a, b · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::count_bam_region`
 
 Counts one 10 Mb region of an alignment file: primary, mapped, non-duplicate reads with mapping quality at least 10, pairs merged, then
 the same alternation and the same two counts as the `.pat` reader. Also counts calls per qualifying molecule for the response curve.
 
-<sub>`stage_q2_selfref.py` line 137 (34 lines) · arguments: args · calls: not called on the traced runs</sub>
+*Code:* `stage_q2_selfref.py` line 137 (34 lines) · arguments: args · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::count_bam_region.done`
 
 Counts one finished molecule: even molecules to their tile, odd held runs to ε.
 
-<sub>`stage_q2_selfref.py` line 144 (14 lines) · arguments: calls · calls: not called on the traced runs</sub>
+*Code:* `stage_q2_selfref.py` line 144 (14 lines) · arguments: calls · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::combine_bam`
 
 Adds the regions' counts into one record, with the conversion-failure and substitution rates.
 
-<sub>`stage_q2_selfref.py` line 171 (8 lines) · arguments: parts, assembly · calls: bam run 1</sub>
+*Code:* `stage_q2_selfref.py` line 171 (8 lines) · arguments: parts, assembly · calls: bam run 1
 
 ### `stage_q2_selfref.py::count_bam`
 
 Splits the autosomes into 10 Mb regions and counts them in parallel.
 
-<sub>`stage_q2_selfref.py` line 179 (5 lines) · arguments: bam, fa, workers, assembly, chroms, span · calls: bam run 1 · constants read: `AUTOSOMES`</sub>
+*Code:* `stage_q2_selfref.py` line 179 (5 lines) · arguments: bam, fa, workers, assembly, chroms, span · calls: bam run 1 · constants read: `AUTOSOMES`
 
 ### `stage_q2_selfref.py::build_line`
 
 How the line was built: per cell type, the median L and the opportunity-weighted ε, then a Theil–Sen line across cell types. Not called at
 run time; the line is read from its frozen file.
 
-<sub>`stage_q2_selfref.py` line 186 (10 lines) · arguments: per_sample · calls: not called on the traced runs</sub>
+*Code:* `stage_q2_selfref.py` line 186 (10 lines) · arguments: per_sample · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::line`
 
 Loads the frozen line and refuses it if it was edited after the chain wrote it.
 
-<sub>`stage_q2_selfref.py` line 196 (6 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`</sub>
+*Code:* `stage_q2_selfref.py` line 196 (6 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
 
 ### `stage_q2_selfref.py::predict`
 
 ε predicted at a loose share: firm + slope × L.
 
-<sub>`stage_q2_selfref.py` line 202 (2 lines) · arguments: loose_share, version · calls: not called on the traced runs</sub>
+*Code:* `stage_q2_selfref.py` line 202 (2 lines) · arguments: loose_share, version · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::residual`
 
 A count against the line: measured ε, predicted ε, and their difference.
 
-<sub>`stage_q2_selfref.py` line 204 (5 lines) · arguments: rec, version · calls: bam run 1</sub>
+*Code:* `stage_q2_selfref.py` line 204 (5 lines) · arguments: rec, version · calls: bam run 1
 
 ### `stage_q2_selfref.py::build_shape_reference`
 
 How the shape reference was built: per cell type, the lowest healthy 10th percentile, and the margin. Not called at run time.
 
-<sub>`stage_q2_selfref.py` line 215 (8 lines) · arguments: records · calls: not called on the traced runs · constants read: `SHAPE_Q`</sub>
+*Code:* `stage_q2_selfref.py` line 215 (8 lines) · arguments: records · calls: not called on the traced runs · constants read: `SHAPE_Q`
 
 ### `stage_q2_selfref.py::shape_reference`
 
 Loads the frozen shape reference and refuses it if edited.
 
-<sub>`stage_q2_selfref.py` line 223 (6 lines) · arguments: version · calls: bam run 2 · constants read: `LINE_DIR`</sub>
+*Code:* `stage_q2_selfref.py` line 223 (6 lines) · arguments: version · calls: bam run 2 · constants read: `LINE_DIR`
 
 ### `stage_q2_selfref.py::shape_check`
 
 The sample-shape gate described above, with the measured percentile, the limit and the reason.
 
-<sub>`stage_q2_selfref.py` line 229 (9 lines) · arguments: rec, cell, version, ref · calls: bam run 1</sub>
+*Code:* `stage_q2_selfref.py` line 229 (9 lines) · arguments: rec, cell, version, ref · calls: bam run 1
 
 ### `stage_q2_selfref.py::reading`
 
 IAM-A = measured ε / predicted ε.
 
-<sub>`stage_q2_selfref.py` line 240 (4 lines) · arguments: rec, version · calls: bam run 1</sub>
+*Code:* `stage_q2_selfref.py` line 240 (4 lines) · arguments: rec, version · calls: bam run 1
 
 ### `stage_q2_selfref.py::build_band`
 
 How band v1 was built: the 2.5th to 97.5th percentile of pooled healthy readings. Not called at run time.
 
-<sub>`stage_q2_selfref.py` line 244 (6 lines) · arguments: healthy, version · calls: not called on the traced runs</sub>
+*Code:* `stage_q2_selfref.py` line 244 (6 lines) · arguments: healthy, version · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::band`
 
 Loads band v1 and refuses it if edited.
 
-<sub>`stage_q2_selfref.py` line 254 (2 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`</sub>
+*Code:* `stage_q2_selfref.py` line 254 (2 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
 
 ### `stage_q2_selfref.py::grand_verdict`
 
 The sealed grand test's scorer: each healthy sample shape-checked, each read sample inside or outside the band; met when at least 75 % of at
 least 8 read samples are inside.
 
-<sub>`stage_q2_selfref.py` line 258 (12 lines) · arguments: records, version, B, ref · calls: not called on the traced runs · constants read: `GRAND_MIN_READ`, `GRAND_SHARE`</sub>
+*Code:* `stage_q2_selfref.py` line 258 (12 lines) · arguments: records, version, B, ref · calls: not called on the traced runs · constants read: `GRAND_MIN_READ`, `GRAND_SHARE`
+
+## 10. Stage Q0, intake for sequencing files: `stage_q0_intake.py`
+
+**What it is for.** Stage 0 for a `.pat` file: an array cannot reach Met-A without Stage 0, and a `.pat` file cannot reach IAM-A without
+Stage Q0. Each check stops the file with a named reason, and every measured value is recorded whether or not it stops the file.
+
+**Label: standard method** (file integrity, genome build, coverage and conversion checks, as in the ENCODE whole-genome bisulfite standard).
+
+| Check | What it measures | Stops the file when | Limit and source |
+|---|---|---|---|
+| Q0.7 specimen | the cell type | on the chain v4 route, the cell type has no healthy shape reference | rule |
+| Q0.1 readable | the file decompresses to its end; every line has 4 fields (chromosome, CpG index, a pattern of C, T and dots, a count) | any malformed line or a truncated file | rule |
+| Q0.2 build | every line's CpG index lies inside its chromosome's range in the hg19 CpG dictionary (`hg19_cpg_chrom_ranges.json`) | any line outside | rule |
+| Q0.4 whole genome | molecules on every autosome | an autosome has none | rule |
+| Q0.4 coverage | interior calls on molecules with at least 6 calls | never (recorded) | — |
+| Q0.5 read length | the share of molecules with at least 6 calls | not set: recorded only | to be set on healthy files |
+| Q0.3 conversion | the bisulfite conversion rate from the alignment record, when one is given | below 0.98 | the ENCODE whole-genome bisulfite standard |
+| Q0.6 duplicates | the duplicate fraction from the alignment record, when given | not set: recorded only | to be set on healthy files |
+
+**Not run on a BAM.** The `--bam` route goes straight to Stage Q2's counter, which itself records the conversion failure (from non-CpG
+calls) and the substitution rate on A and T. Q0's file checks are written for the `.pat` format.
+
+### `stage_q0_intake.py::_ranges`
+
+Loads the hg19 CpG-index range of each chromosome, if the file is present.
+
+*Code:* `stage_q0_intake.py` line 34 (3 lines) · arguments: none · calls: not called on the traced runs · constants read: `RANGES`
+
+### `stage_q0_intake.py::scan_pat`
+
+One pass over the file, gzipped (including multi-member bgzip) or plain: completeness, malformed lines, molecules per chromosome, calls,
+molecules with at least 6 calls, interior opportunities, and lines outside their chromosome's range.
+
+*Code:* `stage_q0_intake.py` line 39 (36 lines) · arguments: path · calls: not called on the traced runs · constants read: `MIN_CALLS` · files named: `hg19_cpg_chrom_ranges.json`
+
+### `stage_q0_intake.py::scan_pat.line`
+
+Parses and counts one line.
+
+*Code:* `stage_q0_intake.py` line 44 (11 lines) · arguments: l · calls: not called on the traced runs · constants read: `MIN_CALLS`
+
+### `stage_q0_intake.py::intake`
+
+Runs the checks in the table and returns the record with each check's value, rule and result, and the decision: stop at the first
+refusal, or proceed.
+
+*Code:* `stage_q0_intake.py` line 77 (42 lines) · arguments: path, specimen, cell, alignment_qc, selfref_cells · calls: not called on the traced runs · constants read: `ACCEPTED`, `AUTOSOMES`, `MIN_CALLS`, `Q0_LIMITS`
+
+### `stage_q0_intake.py::intake.chk`
+
+Records one check and, when it stops the file, the first refusal's code and reason.
+
+*Code:* `stage_q0_intake.py` line 81 (3 lines) · arguments: step, ok, value, rule, code, stop · calls: not called on the traced runs
+
+## 11. Group-A, has a whole group moved: `stage_groupa.py`
+
+**What it is for.** One person's whole-blood Met-A cannot show a 1 % change: healthy people differ by about 2 % after the tare. The
+average of a group can. Group-A compares two groups read in one series.
+
+**Label: standard method** (two tared means, Welch's standard error), applied to one physical reading per person, each against its own
+expected value for that person's cell mix.
+
+**How it reads.** Each person is read by the one command, unchanged. Each reading is tared against healthy arrays run the same way: the
+median of the healthy references on the same slide when the slide holds at least 3, else of the same series. A sample is never its own
+reference. Then the two groups' tared means are compared:
+
+  difference d = mean₁ − mean₂, standard error SE = √(s₁²/n₁ + s₂²/n₂), t = d / SE.
+
+|t| ≥ 2 is a group that moved. |t| < 2 is no difference found, and the smallest difference the design could have found (2 × SE) is
+printed. Nothing is fitted.
+
+**Built from, tested on.** Sealed before any array was opened, then scored once on 278 healthy controls of a laboratory no instrument had
+read (GSE318173): 263 read; women and men 0.36 % apart at 1.2 standard errors; a 1 % loss planted into half of them found at 7.3 standard
+errors. Commissioned 2026-10-20 for groups of whole bloods run in one series, EPIC v1. Release check V10 reproduces bars 2 and 3 to every
+printed digit from the committed rows. Groups in any other specimen are read and labeled preliminary.
+
+**Why one series.** Across laboratories, untared readings differ by several percent. Two groups from two laboratories would differ by
+their laboratories.
+
+### `stage_groupa.py::tare`
+
+Each reading over the median of its healthy references (same slide when there are at least 3 there, else the series), excluding itself;
+records which scope was used.
+
+*Code:* `stage_groupa.py` line 28 (22 lines) · arguments: r, healthy · calls: not called on the traced runs
+
+### `stage_groupa.py::welch`
+
+The two groups' means, counts, difference, standard error and t.
+
+*Code:* `stage_groupa.py` line 51 (4 lines) · arguments: a, b · calls: not called on the traced runs
+
+### `stage_groupa.py::compare`
+
+Tares, compares and calls the result, with the smallest findable difference and the commissioning label.
+
+*Code:* `stage_groupa.py` line 56 (17 lines) · arguments: rows, group_col, a, b, healthy, specimen, platform · calls: not called on the traced runs · constants read: `PRELIMINARY`
+
+### `stage_groupa.py::collect`
+
+Builds one row per person from the run's report bundles and the researcher's sample list (id, slide, group column, optional
+healthy_reference).
+
+*Code:* `stage_groupa.py` line 74 (8 lines) · arguments: bundle_dir, samples_csv, out_csv · calls: not called on the traced runs · files named: `_bundle.json`
+
+## 12. The retired position reading, Stage Q: `stage_q_iam_a.py`
+
+**Retired.** IAM-A was first read against a frozen position P per cell type, measured on purified granulocytes. That reading was replaced
+on 2026-10-17 by Stage Q2, each sample against its own reference. The one command runs Stage Q only with `--site-table` or
+`--dev-iama-position`, and labels it development. It is kept so earlier records can be reproduced. Its text still uses the retired term
+"copy error"; what it counts is the held error described in section 9.
+
+### `stage_q_iam_a.py::positions`
+
+Loads the frozen positions file (`iama_positions_v2.json`).
+
+*Code:* `stage_q_iam_a.py` line 31 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `POS`, `_P`
+
+### `stage_q_iam_a.py::_H`
+
+The entropy of a rate in bits.
+
+*Code:* `stage_q_iam_a.py` line 36 (1 lines) · arguments: e · calls: not called on the traced runs
+
+### `stage_q_iam_a.py::_pat_lines`
+
+Streams the lines of a `.pat` file, gzipped or plain, optionally cut at a byte count (the retired version 1 read only part of each file).
+
+*Code:* `stage_q_iam_a.py` line 38 (27 lines) · arguments: path, max_bytes, chunk · calls: not called on the traced runs
+
+### `stage_q_iam_a.py::pat_site_table`
+
+The per-site table (opportunities and holes in two halves of the molecules) from a `.pat` file.
+
+*Code:* `stage_q_iam_a.py` line 68 (22 lines) · arguments: path, max_bytes · calls: not called on the traced runs · constants read: `PAT_PIPELINE`
+
+### `stage_q_iam_a.py::_genomic_order`
+
+Sorts a site table by chromosome and CpG index.
+
+*Code:* `stage_q_iam_a.py` line 91 (8 lines) · arguments: T · calls: not called on the traced runs
+
+### `stage_q_iam_a.py::cscore`
+
+The retired IAM-A clustering score over the site table, pooled and per half.
+
+*Code:* `stage_q_iam_a.py` line 101 (14 lines) · arguments: site_table, eps, halves · calls: not called on the traced runs · constants read: `CSCORE_BLOCK_SITES`, `CSCORE_MIN_BLOCKS`
+
+### `stage_q_iam_a.py::cscore.one`
+
+The clustering score of one table.
+
+*Code:* `stage_q_iam_a.py` line 104 (8 lines) · arguments: o, k · calls: not called on the traced runs · constants read: `CSCORE_BLOCK_SITES`, `CSCORE_MIN_BLOCKS`
+
+### `stage_q_iam_a.py::read`
+
+The retired reading, IAM-A = H(ε) / (P × H(ε₀)), refused for a pipeline other than the one P was measured on, or for part of a file.
+
+*Code:* `stage_q_iam_a.py` line 117 (27 lines) · arguments: site_table, cell, pipeline, mask, allow_partial · calls: not called on the traced runs · constants read: `IAMA_BAND_STATE`, `MIN_HALF_OPPORTUNITIES`, `MIN_OPPORTUNITIES`
+
+### `stage_q_iam_a.py::tare`
+
+The retired reading's same-run tare.
+
+*Code:* `stage_q_iam_a.py` line 148 (22 lines) · arguments: rec, refs, sample_id · calls: not called on the traced runs · constants read: `IAMA_BAND_STATE`, `MIN_REFS`
+
+## 13. Two draws of one person, Stage 12b: `serial_mode.py`
+
+**What it is for.** Comparing two draws of the same person. `run_sample.py` calls two of these functions when `--prior-betas` is given;
+the rest are tools.
+
+**Label: standard method.**
+
+### `serial_mode.py::check_same_person`
+
+Refuses unless the two draws carry the same identifier hash, array type and pipeline.
+
+*Code:* `serial_mode.py` line 7 (8 lines) · arguments: now, prior · calls: not called on the traced runs
+
+### `serial_mode.py::delta_cells`
+
+The change in each cell's A for cells present in both draws; cells that appeared or disappeared are listed, not differenced. Reads the
+per-cell layout of an older bundle (`cells_all`); a tool, not called by the one command.
+
+*Code:* `serial_mode.py` line 16 (15 lines) · arguments: now, prior, floor · calls: not called on the traced runs
+
+### `serial_mode.py::delta_sky`
+
+β now minus β before, at the sites both draws measured. No expectation, no composition.
+
+*Code:* `serial_mode.py` line 32 (8 lines) · arguments: beta_now, beta_prior, floor_beta · calls: not called on the traced runs
+
+### `serial_mode.py::snp_noise_floor_A`
+
+The two arrays' own noise (Stage 1's SNP-probe model, σ²(β) = a + b·β(1 − β)) carried through to A over the cell's identity sites:
+ΔA ≈ 2.576 × |dH/dβ| × √(var_now + var_prior) / H_ref at the mean β, the 99 % two-sided change the noise alone could make. A lower bound
+on the smallest change that means anything. It reads the identity sites from an older bundle layout (`loci` of a per-cell entry)
+that chain v4 bundles do not carry; it is a tool, not a stage.
+
+*Code:* `serial_mode.py` line 41 (12 lines) · arguments: pci_entry, beta_now, beta_prior, snp_now, snp_prior, hmin · calls: not called on the traced runs
+
+### `serial_mode.py::snp_noise_floor_A.var_mean`
+
+For one array, the variance of the mean β over the identity sites from its noise model, Σ(a + b·β(1 − β)) / n², and the mean β.
+
+*Code:* `serial_mode.py` line 47 (3 lines) · arguments: beta, snp · calls: not called on the traced runs
+
+### `serial_mode.py::trajectory`
+
+A person's readings in draw order with their dates and the step between draws: numbers in order, no fit, no slope. Reads the same older
+per-cell layout as `delta_cells`.
+
+*Code:* `serial_mode.py` line 54 (10 lines) · arguments: bundles · calls: not called on the traced runs
+
+## 14. The report: `report_v4.py`, `report_v3.py`, `report_figs_v4.py`, `report_pdf_v4.py`
+
+**What it is for.** Writing what the stages measured, and nothing they did not. One self-contained HTML page per sample, and the same
+report as two PDFs, built from the same rows and pictures so the formats cannot disagree.
+
+**Label: standard method** (presentation). The report computes no reading. Every number it prints comes from the run's bundle or from
+a committed reference file.
+
+**Its parts, in page order.**
+
+1. **The researcher view**: the reading at a glance (each instrument, the question it answers, its reading, its state and its
+   commissioning status); AstroGenetics, the physics behind each reading with this run's own numbers; the cell shares; Met-A on its
+   gauge; the C-Score with its sky and the overlay of the sample on its healthy reference; IAM-A on its gauge.
+2. **The plain view**: one gauge and one sentence per reading, and the sky.
+3. **The technical record** (`report_v3.build`): every stage's record, the red flags, the safeguards, troubleshooting, and the
+   development toolkit table.
+
+**The gauge** (`report_figs_v4.gauge_png`). Left end the floor (derived), the Normal band around healthy 1 (measured), right end
+saturation, every identity site fully scrambled (derived). Every mark is read from `Runtime Matrices/Gauge/cell_gauge_marks_v1.json`;
+nothing is typed in the drawing code. On IAM-A's scale healthy sits close to the floor, so a magnified strip shows the band. A withheld
+state draws no gauge at all. The C-Score has no derived ends, because it is a clustering ratio: its bar runs from scattered to clustered,
+with its band.
+
+**Commissioned or not, on every line.** A commissioned reading carries its record. Anything else is still shown and says so: "This score
+is preliminary until [instrument] is officially commissioned on [cell]" (`report_v4.untested`).
+
+**Red flags** (`report_v3.red_flags`): STOP (refused), FLAG (a commissioned call such as a clustered departure), WITHHELD (a reading not
+given, with its reason), CAUTION and NOTE. They are written into the bundle as well as the page.
+
+**Safeguards** (`report_v3.safeguards`), each PASS, FAIL or NOT_RUN on this run:
+- **Rendered-claim scan:** no disease, cohort or population words in the report's prose.
+- **Formula self-test:** H(0.5) = 1, H(0.25) = 0.81128, H(10⁻⁶) under 3 × 10⁻⁵.
+- **Anchors**, **deconvolver conformance** and **atlas separability.**
+
+**How to break it.** Write a disease word into a reading's text: the claim scan must fail. Remove a mark from the gauge file: the gauge
+must not draw.
+
+### `report_v4.py::_uri`
+
+A figure file as a data URI, so the page is self-contained.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 38 (1 lines) · arguments: path · calls: array run 6, bam run 2
+
+### `report_v4.py::_H`
+
+The entropy of a rate in bits, for the physics rows.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 39 (1 lines) · arguments: p · calls: bam run 2
+
+### `report_v4.py::_sci`
+
+A number in HTML scientific notation (×10ⁿ).
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 40 (2 lines) · arguments: v · calls: bam run 2
+
+### `report_v4.py::_marks`
+
+Loads the gauge marks file.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 42 (1 lines) · arguments: none · calls: array run 3, bam run 3 · constants read: `CH` · files named: `cell_gauge_marks_v1.json`
+
+### `report_v4.py::cellname`
+
+A cell type's display name.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 45 (2 lines) · arguments: c · calls: array run 30, bam run 1 · constants read: `_NAMES`
+
+### `report_v4.py::untested`
+
+The line printed beside a reading outside what its instrument was commissioned on.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 47 (5 lines) · arguments: what, inst, shown, noun · calls: array run 7 · constants read: `_NAMES`
+
+### `report_v4.py::chip`
+
+The colored status label: commissioned, refused or withheld, not run, or development.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 52 (4 lines) · arguments: status · calls: array run 12, bam run 5 · constants read: `E`
+
+### `report_v4.py::_glance`
+
+The at-a-glance table as HTML.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 57 (3 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
+
+### `report_v4.py::glance_rows`
+
+The at-a-glance rows, from the bundle: the Deconvolver's top three shares, Met-A (tared when it can be), the C-Score, and IAM-A, each
+with its state and status. The PDFs use the same rows.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 61 (30 lines) · arguments: o · calls: array run 2, bam run 2
+
+### `report_v4.py::_shares`
+
+The cell-shares section: each share with its 95 % interval and status, or the reason they were withheld.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 92 (12 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
+
+### `report_v4.py::_meta`
+
+The Met-A section: its gauge (tared reading; an untared whole-blood reading has no gauge position) and its numbers.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 105 (9 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
+
+### `report_v4.py::_cscore`
+
+The C-Score section: its bar, its sky and the overlay.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 115 (9 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
+
+### `report_v4.py::_iama`
+
+The IAM-A section: its gauge, or the refusal.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 125 (10 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
+
+### `report_v4.py::_figs`
+
+Draws this sample's gauge and C-Score pictures beside the report.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 137 (17 lines) · arguments: o, base · calls: array run 1, bam run 1
+
+### `report_v4.py::_physics`
+
+The AstroGenetics section as HTML.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 159 (6 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`, `PHYS_INTRO`
+
+### `report_v4.py::physics_rows`
+
+Each reading set in the physics it rests on, with this run's numbers. IAM-A: ε measured, ε predicted at the sample's own L, saturation
+0.5/ε_pred, and the floor 1/(1 + e^M) as a fraction of ε_pred. Met-A: the mean entropy over the identity sites against its expectation,
+what healthy 1 is on this run (the median of the same-run references, or the committed healthy reference), and on isolated neutrophils
+the reading in bits per site. The C-Score: the clustering ratio and its band. The 0.330263 bits per site it prints is typed in this
+function rather than read from `metA_floors_v1_3.json` (a fix on the Decoder's list).
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 166 (32 lines) · arguments: o · calls: array run 2, bam run 2 · constants read: `E`
+
+### `report_v4.py::_skypair`
+
+The overlay of the sample on its healthy reference, with how sure the healthy reference is at those sites.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 200 (8 lines) · arguments: o · calls: array run 1 · constants read: `SKY_CAP`
+
+### `report_v4.py::_plain`
+
+The plain view: one gauge and one sentence per reading.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 209 (19 lines) · arguments: o, F · calls: array run 1, bam run 1 · constants read: `E`
+
+### `report_v4.py::build`
+
+Builds the whole page: the technical record from `report_v3.build`, the figures, both views, and the two PDFs.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 229 (27 lines) · arguments: o, out, sid · calls: array run 1, bam run 1 · constants read: `CSS`, `E`
+
+### `report_v3.py::_gauge`
+
+The gauge as inline HTML, drawn from the gauge marks file.
+
+*Code:* `MethylPhys_Interface/report_v3.py` line 50 (38 lines) · arguments: A, lo, hi, w, label, instrument, top · calls: array run 1, bam run 2 · files named: `CANON/foundation.json`, `Runtime Matrices/Gauge/cell_gauge_marks_v1.json`, `drawn from Runtime Matrices/Gauge/cell_gauge_marks_v1.json`
+
+### `report_v3.py::_H`
+
+The entropy of a rate in bits, for the formula self-test.
+
+*Code:* `MethylPhys_Interface/report_v3.py` line 89 (3 lines) · arguments: b · calls: array run 3, bam run 3
+
+### `report_v3.py::_load`
+
+Loads a chain file, or nothing if it is missing.
+
+*Code:* `MethylPhys_Interface/report_v3.py` line 94 (3 lines) · arguments: rel · calls: array run 3, bam run 3 · constants read: `CHAIN`
+
+### `report_v3.py::red_flags`
+
+The red flags, from the bundle only.
+
+*Code:* `MethylPhys_Interface/report_v3.py` line 100 (26 lines) · arguments: o · calls: array run 1, bam run 1
+
+### `report_v3.py::safeguards`
+
+The safeguards listed above.
+
+*Code:* `MethylPhys_Interface/report_v3.py` line 128 (44 lines) · arguments: o, prose · calls: array run 1, bam run 1 · constants read: `CLAIM_SCAN` · files named: `Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json`, `Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json`
+
+### `report_v3.py::troubleshooting`
+
+For each stop on this run, what it usually means and what to do.
+
+*Code:* `MethylPhys_Interface/report_v3.py` line 174 (17 lines) · arguments: o · calls: array run 1, bam run 1
+
+### `report_v3.py::toolkit_table`
+
+The development stages and whether each ran on this sample.
+
+*Code:* `MethylPhys_Interface/report_v3.py` line 193 (12 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `NOT_BUILT`, `TOOLKIT_STAGES`
+
+### `report_v3.py::_table`
+
+A plain HTML table.
+
+*Code:* `MethylPhys_Interface/report_v3.py` line 207 (4 lines) · arguments: rows, head · calls: array run 7, bam run 7
+
+### `report_v3.py::build`
+
+The technical record: intake, Stage 1, the mix, Met-A, the tare, the noise gate, the C-Score, IAM-A, the red flags, the safeguards,
+troubleshooting and the toolkit table, the run-it-yourself command, and a copy of the bundle inside the page. Returns the page's path,
+size and any refusals; the bundle file itself is written by `run_sample.py`.
+
+*Code:* `MethylPhys_Interface/report_v3.py` line 213 (74 lines) · arguments: o, out, sid · calls: array run 1, bam run 1 · constants read: `FLAG_ORDER`, `STAGES_2B` · files named: `cell_gauge_marks_v1.json`
+
+### `report_figs_v4.py::sci`
+
+A number in scientific notation for a figure.
+
+*Code:* `MethylPhys_Interface/report_figs_v4.py` line 13 (2 lines) · arguments: v · calls: not called on the traced runs
+
+### `report_figs_v4.py::_bar`
+
+Draws one gauge bar: the gradient from the floor through healthy to the ceiling, the band, the needle and the ticks.
+
+*Code:* `MethylPhys_Interface/report_figs_v4.py` line 15 (13 lines) · arguments: ax, lo_v, hi_v, band, A, fl, cl, y0, h, grad, ticks, mid · calls: array run 2, bam run 2
+
+### `report_figs_v4.py::gauge_png`
+
+The floor-to-ceiling gauge for Met-A or IAM-A, with the magnified strip when healthy sits near the floor.
+
+*Code:* `MethylPhys_Interface/report_figs_v4.py` line 29 (20 lines) · arguments: out, name, A, floor, ceiling, band, subject, state, unit · calls: array run 1, bam run 1
+
+### `report_figs_v4.py::cscore_png`
+
+The C-Score bar, scattered to clustered; the scale stretches to hold the reading.
+
+*Code:* `MethylPhys_Interface/report_figs_v4.py` line 50 (10 lines) · arguments: out, C, band_hi, band_lo, subject, state · calls: array run 1
+
+### `report_figs_v4.py::atlas_sky_png`
+
+The healthy reference of the sample's cell from IAM-Atlas v2.1, at the same sites, in the same order and on the same pixels as the
+sample's C-Score sky, so the two line up site for site.
+
+*Code:* `MethylPhys_Interface/report_figs_v4.py` line 61 (40 lines) · arguments: out, ids, cell, atlas_dir, nest_pix2ang, title · calls: array run 1 · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `sites.parquet`
+
+### `report_figs_v4.py::changes_sky_png`
+
+The sample laid over its healthy reference: the healthy cell in grays, color only where the sample departs by more than a threshold of
+its own spread. Single colored pixels are ordinary; colored patches are changes that run along the genome, which is what the C-Score
+measures.
+
+*Code:* `MethylPhys_Interface/report_figs_v4.py` line 102 (43 lines) · arguments: out, z, cell, atlas_dir, nest_pix2ang, readings, thr, title · calls: array run 1 · files named: `import pyarrow.parquet`, `sites.parquet`
+
+### `report_figs_v4.py::changes_sky_png.pmean`
+
+The mean of the values falling in each pixel.
+
+*Code:* `MethylPhys_Interface/report_figs_v4.py` line 119 (2 lines) · arguments: x · calls: array run 2
+
+### `report_pdf_v4.py::P`
+
+A paragraph for the PDF, keeping only the tags the PDF library understands.
+
+*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 25 (4 lines) · arguments: t, st · calls: array run 90, bam run 49 · constants read: `S`
+
+### `report_pdf_v4.py::_img`
+
+A figure scaled to a width, or nothing if missing.
+
+*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 30 (4 lines) · arguments: path, w · calls: array run 8, bam run 6
+
+### `report_pdf_v4.py::_head`
+
+The PDF's heading block, with the research-use line and how to read the commissioning status.
+
+*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 35 (8 lines) · arguments: o, sid, when, view · calls: array run 2, bam run 2
+
+### `report_pdf_v4.py::_tbl`
+
+A PDF table.
+
+*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 44 (5 lines) · arguments: rows, widths, head · calls: array run 3, bam run 2
+
+### `report_pdf_v4.py::build_pdfs`
+
+The researcher and plain PDFs, from the same rows and pictures as the page.
+
+*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 50 (50 lines) · arguments: o, F, out, sid, when · calls: array run 1, bam run 1
+
+### `report_pdf_v4.py::build_pdfs.doc`
+
+Writes one PDF.
+
+*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 53 (3 lines) · arguments: path, story · calls: array run 2, bam run 2
+
+## 15. The development readings: `dev_stages.py`, `dev_comp_methods.py`, `deconv_v2.py`, `sky_statistics.py`
+
+**What they are for.** Readings under development, run only when a `--dev-*` flag asks for them. Each writes its own record under
+`bundle["development"]`, labeled "DEVELOPMENT - not commissioned", and none changes the reading, the gauge or the tare. They are in the
+chain so a development result is made by the same code a researcher can run. The one exception is `dev_stages.selftare_map` (section 5),
+which has been Stage T step 1 on every reading since 2026-10-04 and still lives in this file.
+
+**Labels.** Direction, brightness and the per-cell B reading follow Met-A's physics; the composition methods and the sky statistics
+are standard methods (deconvolution, the angular power spectrum of a sphere with a shuffled null).
+
+### `dev_stages.py::_H`
+
+The entropy of a beta value in bits.
+
+*Code:* `dev_stages.py` line 32 (3 lines) · arguments: b · calls: not called on the traced runs
+
+### `dev_stages.py::_bc`
+
+Loads the blood composition matrix once.
+
+*Code:* `dev_stages.py` line 44 (3 lines) · arguments: none · calls: not called on the traced runs · constants read: `RM`, `_C` · files named: `blood_composition_EPIC_v1.json`
+
+### `dev_stages.py::_rec`
+
+A development record with its label.
+
+*Code:* `dev_stages.py` line 49 (2 lines) · arguments: stage · calls: not called on the traced runs · constants read: `DEV_LABEL`
+
+### `dev_stages.py::selftare_ii`
+
+The development form of self-tare II: Met-A re-read on the mapped values beside the reading. Kept for its earlier records; the one command
+no longer calls it, because step 1 now runs on every reading.
+
+*Code:* `dev_stages.py` line 77 (9 lines) · arguments: beta, specimen · calls: not called on the traced runs
+
+### `dev_stages.py::site_uncertainty`
+
+This array's own per-site uncertainty: the SD of β against the reference value over its fixed sites, per design and state.
+
+*Code:* `dev_stages.py` line 89 (8 lines) · arguments: beta, st · calls: not called on the traced runs · files named: `dev_selftare_typeII_EPIC_v1.json`
+
+### `dev_stages.py::s_for`
+
+The per-site uncertainty for a list of sites, by design and state (low when the reference value is below 0.5).
+
+*Code:* `dev_stages.py` line 99 (6 lines) · arguments: sites, ref_values, su, st · calls: not called on the traced runs · files named: `dev_selftare_typeII_EPIC_v1.json`
+
+### `dev_stages.py::direction`
+
+D = mean over the identity sites of |r − 0.5| − |β − 0.5|: above 0, the sites have moved toward 0.5, toward disorder; below 0, away from it.
+
+*Code:* `dev_stages.py` line 108 (6 lines) · arguments: beta, ref, sites · calls: not called on the traced runs
+
+### `dev_stages.py::direction_record`
+
+The direction record at the neutrophil identity sites against the cell's own reference (the expectation in whole blood), tared on the
+same-run references' D.
+
+*Code:* `dev_stages.py` line 116 (15 lines) · arguments: beta, specimen, comp, refs_D · calls: not called on the traced runs
+
+### `dev_stages.py::trace_cell`
+
+In an isolated-neutrophil specimen, another blood group's contamination, called above 3 × this array's own standard error.
+
+*Code:* `dev_stages.py` line 134 (15 lines) · arguments: beta, su, line · calls: not called on the traced runs · files named: `dev_selftare_typeII_EPIC_v1.json`
+
+### `dev_stages.py::foreign_cell`
+
+In whole blood, a non-blood template solved beside the 8 blood groups, called above 3 × this array's own standard error.
+
+*Code:* `dev_stages.py` line 152 (22 lines) · arguments: beta, template, su, line · calls: not called on the traced runs · files named: `dev_foreign_placenta_EPIC_v1.json`, `dev_selftare_typeII_EPIC_v1.json`
+
+### `dev_stages.py::brightness`
+
+A 95 % interval on Met-A by Monte Carlo from this array's per-site uncertainty.
+
+*Code:* `dev_stages.py` line 177 (17 lines) · arguments: beta, specimen, comp, n_draw, su, seed · calls: not called on the traced runs · files named: `dev_selftare_typeII_EPIC_v1.json`
+
+### `dev_stages.py::_mapping`
+
+Loads the CpG-to-HEALPix map of the development sky (NSIDE 128).
+
+*Code:* `dev_stages.py` line 197 (6 lines) · arguments: none · calls: not called on the traced runs · constants read: `RM`, `_C` · files named: `iamatlas_cpg_to_healpix_nside128.npz`
+
+### `dev_stages.py::residual_z`
+
+The development sky's per-site departure: z = (β − Σ f_g μ_g) / √(Σ f_g² (sd² + s_bp²) + 0.02²), with s_bp the atlas's between-person SD.
+
+*Code:* `dev_stages.py` line 205 (6 lines) · arguments: beta, fractions, AP · calls: not called on the traced runs · constants read: `PARENTS`
+
+### `dev_stages.py::_pixmap`
+
+The mean departure in each pixel.
+
+*Code:* `dev_stages.py` line 213 (3 lines) · arguments: zs, pix, npix · calls: not called on the traced runs
+
+### `dev_stages.py::block_shuffle_order`
+
+A permutation that moves whole runs of consecutive sites within each chromosome: the null keeps short-range structure along the genome and
+breaks where it sits.
+
+*Code:* `dev_stages.py` line 218 (7 lines) · arguments: chr_keys, run, rng · calls: not called on the traced runs · constants read: `SKY_RUN`
+
+### `dev_stages.py::sky_from_z`
+
+The development sky's band powers against the block-shuffle null and the look-elsewhere statistic by simulation.
+
+*Code:* `dev_stages.py` line 227 (14 lines) · arguments: z, n_null, n_lee, seed, free_null · calls: not called on the traced runs · constants read: `SKY_LEE_N`, `SKY_NULL_N`, `SKY_RUN`
+
+### `dev_stages.py::sky_from_z.shuf`
+
+The band powers of one block-shuffled sky.
+
+*Code:* `dev_stages.py` line 232 (2 lines) · arguments: none · calls: not called on the traced runs
+
+### `dev_stages.py::_has_cols`
+
+Whether a parquet file holds the named columns.
+
+*Code:* `dev_stages.py` line 243 (4 lines) · arguments: path, cols · calls: not called on the traced runs · files named: `import pyarrow.parquet`
+
+### `dev_stages.py::load_atlas_parents`
+
+Loads the atlas v2 parent blood cells' means, SDs and between-person SDs.
+
+*Code:* `dev_stages.py` line 249 (8 lines) · arguments: atlas_parquet · calls: not called on the traced runs · constants read: `PARENTS`, `_C`
+
+### `dev_stages.py::sky`
+
+The development residual sky of one whole blood, with its null.
+
+*Code:* `dev_stages.py` line 259 (7 lines) · arguments: beta, fractions, atlas_parquet · calls: not called on the traced runs
+
+### `dev_stages.py::_atlas_e`
+
+Builds the atlas_e solver once on the 12 array-measured circulating cells of atlas v2, with the neutrophil identity sites removed.
+
+*Code:* `dev_stages.py` line 273 (9 lines) · arguments: atlas_parquet · calls: not called on the traced runs · constants read: `ATLAS_E_CELLS`, `_C`
+
+### `dev_stages.py::atlas_e`
+
+The atlas_e composition, summed into the 8 blood groups.
+
+*Code:* `dev_stages.py` line 284 (5 lines) · arguments: beta, atlas_parquet · calls: not called on the traced runs · constants read: `BLOOD8`
+
+### `dev_stages.py::nilc_e`
+
+The NILC-e composition on the atlas_e templates, with each share's noise.
+
+*Code:* `dev_stages.py` line 291 (5 lines) · arguments: beta, atlas_parquet · calls: not called on the traced runs · constants read: `BLOOD8`
+
+### `dev_stages.py::percell_b`
+
+A B-cell Met-A against the expectation for this blood's mix, on the development B-cell reference.
+
+*Code:* `dev_stages.py` line 298 (13 lines) · arguments: beta, fractions, atlas_parquet · calls: not called on the traced runs · constants read: `PARENTS`, `RM` · files named: `metA_floors_v1_2_ALLCELLS_development.json`
+
+### `dev_stages.py::epicv2_calibrate`
+
+An EPIC v2 IDAT pair through SeSAMe (an R package, run in its own environment) to β values on EPIC v1 probe names, replicate probes of one
+CpG averaged and background-masked probes dropped. Development only: the chain's references are EPIC v1.
+
+*Code:* `dev_stages.py` line 317 (19 lines) · arguments: grn, red, rscript, prep · calls: not called on the traced runs · constants read: `SESAME_R` · files named: `betas.csv`
+
+### `dev_comp_methods.py::load_atlas`
+
+Loads an atlas parquet file indexed by site.
+
+*Code:* `dev_comp_methods.py` line 46 (4 lines) · arguments: path · calls: not called on the traced runs
+
+### `dev_comp_methods.py::atlas_cells`
+
+The cell names in an atlas table.
+
+*Code:* `dev_comp_methods.py` line 52 (2 lines) · arguments: A · calls: not called on the traced runs
+
+### `dev_comp_methods.py::subset_atlas`
+
+The columns of the named cells.
+
+*Code:* `dev_comp_methods.py` line 56 (3 lines) · arguments: A, keep · calls: not called on the traced runs
+
+### `dev_comp_methods.py::build_deconv`
+
+An atlas v2 solver on the named cells, with the neutrophil identity sites removed from its pool.
+
+*Code:* `dev_comp_methods.py` line 61 (4 lines) · arguments: A, keep, exclude_sites · calls: not called on the traced runs · constants read: `POOL1`, `SOLVER`
+
+### `dev_comp_methods.py::twin_merge`
+
+The atlas's own twin rule: a cell with no array measurement whose marker profile correlates with an array-measured cell above the
+threshold is that cell on another platform, and the two merge.
+
+*Code:* `dev_comp_methods.py` line 67 (28 lines) · arguments: A, D, roster, twin_tab, thr, candidates · calls: not called on the traced runs · files named: `records/10_twin_test_sample_level.csv`, `twin_family_thresholds_v1.json`
+
+### `dev_comp_methods.py::mixture_twin`
+
+A cell whose template is reproduced by a non-negative, sum-to-1 mix of the other cells, above the twin correlation, cannot be told apart
+from that mix in a specimen.
+
+*Code:* `dev_comp_methods.py` line 97 (18 lines) · arguments: D, candidates, r_thr · calls: not called on the traced runs
+
+### `dev_comp_methods.py::crlb`
+
+The Cramér–Rao bound on each share's SD for a solver's design at its markers.
+
+*Code:* `dev_comp_methods.py` line 117 (10 lines) · arguments: D, f, sigma · calls: not called on the traced runs
+
+### `dev_comp_methods.py::NNLS8.__init__`
+
+Stage A's solver as a class: the 963 markers and 8 groups.
+
+*Code:* `dev_comp_methods.py` line 130 (2 lines) · arguments: self, bc · calls: not called on the traced runs
+
+### `dev_comp_methods.py::NNLS8.deconvolve`
+
+Stage A's shares, for comparison with the other methods.
+
+*Code:* `dev_comp_methods.py` line 132 (4 lines) · arguments: self, beta · calls: not called on the traced runs
+
+### `dev_comp_methods.py::ledoit_wolf`
+
+Analytic Ledoit–Wolf shrinkage of a covariance toward a multiple of the identity; no parameter to choose.
+
+*Code:* `dev_comp_methods.py` line 138 (7 lines) · arguments: X · calls: not called on the traced runs
+
+### `dev_comp_methods.py::NILC.__init__`
+
+The NILC solver: sites, cells, means, variances and the noise model.
+
+*Code:* `dev_comp_methods.py` line 150 (4 lines) · arguments: self, sites, cells, mu, v, cov, sigma, tech_var, tech_cov, offset · calls: not called on the traced runs
+
+### `dev_comp_methods.py::NILC._solve`
+
+One weighted, constrained solve.
+
+*Code:* `dev_comp_methods.py` line 154 (11 lines) · arguments: self, m, f · calls: not called on the traced runs
+
+### `dev_comp_methods.py::NILC.deconvolve`
+
+The NILC shares in two passes.
+
+*Code:* `dev_comp_methods.py` line 165 (9 lines) · arguments: self, beta, passes · calls: not called on the traced runs
+
+### `dev_comp_methods.py::to_groups`
+
+Sums atlas cells into the 8 blood groups.
+
+*Code:* `dev_comp_methods.py` line 176 (7 lines) · arguments: fr · calls: not called on the traced runs · constants read: `SUBGROUP`
+
+### `dev_comp_methods.py::met_a`
+
+Whole-blood Met-A with another method's shares and profiles, for comparison with Stage M.
+
+*Code:* `dev_comp_methods.py` line 185 (8 lines) · arguments: beta, fractions, profiles, ns · calls: not called on the traced runs · constants read: `H`
+
+### `dev_comp_methods.py::ceiling_flag`
+
+The entropy-ceiling flag for that comparison reading.
+
+*Code:* `dev_comp_methods.py` line 195 (16 lines) · arguments: beta, profiles, fractions, ns · calls: not called on the traced runs
+
+### `dev_comp_methods.py::read_beta`
+
+Reads one β file.
+
+*Code:* `dev_comp_methods.py` line 213 (3 lines) · arguments: path · calls: not called on the traced runs
+
+### `deconv_v2.py::DeconvV2.__init__`
+
+The atlas v2 solver: loci measured by every modeled cell; for each cell, markers chosen against its nearest other cell (margin at least
+0.20, the top 200 by margin over pooled SD); variance v = μ_sd² + donor_sd².
+
+*Code:* `deconv_v2.py` line 11 (34 lines) · arguments: self, atlas_parquet, pooled_one_sample, margin, top, min_markers, sigma, drop, markers, k_near, per_pair, pair_margin, A · calls: not called on the traced runs
+
+### `deconv_v2.py::DeconvV2._solve`
+
+One joint solve with f ≥ 0 and Σ f = 1, weights 1 / (Σ_c f_c² v_ci + σ²) iterated 5 times.
+
+*Code:* `deconv_v2.py` line 46 (7 lines) · arguments: self, y, M, V · calls: not called on the traced runs
+
+### `deconv_v2.py::DeconvV2.deconvolve`
+
+The shares, and each cell's presence by 200 bootstrap resamples of the markers.
+
+*Code:* `deconv_v2.py` line 54 (20 lines) · arguments: self, beta, n_boot, seed, present_floor, affine · calls: not called on the traced runs
+
+### `sky_statistics.py::bandpowers`
+
+The mean power in each of six bands of the angular spectrum.
+
+*Code:* `sky_statistics.py` line 30 (3 lines) · arguments: cl, bands · calls: not called on the traced runs · constants read: `BANDS`
+
+### `sky_statistics.py::apodised_mask`
+
+A pixel weight that rises smoothly from 0 at the edge of the measured footprint to 1 a set angle inside it, so a sharp edge does not
+spread power between multipoles.
+
+*Code:* `sky_statistics.py` line 35 (20 lines) · arguments: good, apod_deg, taper · calls: not called on the traced runs
+
+### `sky_statistics.py::_weights`
+
+Keeps the last mask's weights.
+
+*Code:* `sky_statistics.py` line 57 (5 lines) · arguments: good, apod_deg, taper · calls: not called on the traced runs · constants read: `_W`
+
+### `sky_statistics.py::masked_spectrum`
+
+The pseudo angular power spectrum of a sky with masked pixels, with a hard or apodized mask.
+
+*Code:* `sky_statistics.py` line 64 (13 lines) · arguments: pix, lmax, mask, apod_deg, taper · calls: not called on the traced runs · constants read: `MASKS`
+
+### `sky_statistics.py::shuffled_null`
+
+The band powers of skies made by shuffling the sky's own measured pixel values among its measured pixels: the mask, the count and the
+distribution are kept, and only the arrangement is destroyed, so a difference from this null is spatial structure.
+
+*Code:* `sky_statistics.py` line 79 (16 lines) · arguments: pix, n_perm, lmax, rng, bands, mask, apod_deg, taper · calls: not called on the traced runs · constants read: `BANDS`, `MASKS`
+
+### `sky_statistics.py::sky_spectrum_record`
+
+One sky's spectrum, band powers, measured fraction, share of pixels with |z| above 2, and its null.
+
+*Code:* `sky_statistics.py` line 97 (11 lines) · arguments: pix, n_perm, lmax, rng, mask, apod_deg, taper · calls: not called on the traced runs · constants read: `BANDS`

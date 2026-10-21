@@ -25,15 +25,22 @@ def facts(x):
     L = [f"`{x['file']}` line {x['line']} ({x['lines']} lines) · arguments: {', '.join(x['args']) or 'none'} · calls: {calls}"]
     if x["constants"]: L.append("constants read: " + ", ".join(f"`{c}`" for c in x["constants"]))
     if x["data_files"]: L.append("files named: " + ", ".join(f"`{d}`" for d in x["data_files"]))
-    return "<sub>" + " · ".join(L) + "</sub>"
+    return "*Code:* " + " · ".join(L)
 
 def build():
     head, stages = parse(); inv = json.load(open(INV, encoding="utf-8"))
     key = {f"{f['file'].split('/')[-1]}::{x['function']}": x for f in inv["files"] for x in f["functions"]}
     have = {k for s in stages for k in s["entries"]}
     missing = [k for k in key if k not in have]; unknown = sorted(have - set(key))
-    out = [head, "", f"The chain the one command loads: **{inv['n_files']} files, {inv['n_functions']} functions**; "
-           f"{len(key) - len(missing)} of them have their entry here.", ""]
+    out = [head, "", "## The chain in numbers", "",
+           f"Read from the code at build time: the one command can load **{inv['n_files']} Python files** holding **{inv['n_functions']} functions** "
+           f"(nested ones included); {len(key) - len(missing)} of them have their entry in this Decoder, and a push is refused when one does not. "
+           "Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the "
+           "release check's planted BAM).", "",
+           "| file | lines | functions | called, array run | called, sequencing run |", "|---|---|---|---|---|"]
+    for f in inv["files"]:
+        fn = f["functions"]; out.append(f"| `{f['file']}` | {f['lines']:,} | {len(fn)} | {sum(1 for x in fn if x['traced_calls'].get('array'))} | {sum(1 for x in fn if x['traced_calls'].get('bam'))} |")
+    out.append("")
     for s in stages:
         out += ["## " + s["title"], "", s["prose"], ""]
         for k, txt in s["entries"].items():

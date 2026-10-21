@@ -916,3 +916,486 @@ Loads band v1 and refuses it if edited.
 ### stage_q2_selfref.py::grand_verdict
 The sealed grand test's scorer: each healthy sample shape-checked, each read sample inside or outside the band; met when at least 75 % of at
 least 8 read samples are inside.
+
+## 10. Stage Q0, intake for sequencing files: `stage_q0_intake.py`
+
+**What it is for.** Stage 0 for a `.pat` file: an array cannot reach Met-A without Stage 0, and a `.pat` file cannot reach IAM-A without
+Stage Q0. Each check stops the file with a named reason, and every measured value is recorded whether or not it stops the file.
+
+**Label: standard method** (file integrity, genome build, coverage and conversion checks, as in the ENCODE whole-genome bisulfite standard).
+
+| Check | What it measures | Stops the file when | Limit and source |
+|---|---|---|---|
+| Q0.7 specimen | the cell type | on the chain v4 route, the cell type has no healthy shape reference | rule |
+| Q0.1 readable | the file decompresses to its end; every line has 4 fields (chromosome, CpG index, a pattern of C, T and dots, a count) | any malformed line or a truncated file | rule |
+| Q0.2 build | every line's CpG index lies inside its chromosome's range in the hg19 CpG dictionary (`hg19_cpg_chrom_ranges.json`) | any line outside | rule |
+| Q0.4 whole genome | molecules on every autosome | an autosome has none | rule |
+| Q0.4 coverage | interior calls on molecules with at least 6 calls | never (recorded) | — |
+| Q0.5 read length | the share of molecules with at least 6 calls | not set: recorded only | to be set on healthy files |
+| Q0.3 conversion | the bisulfite conversion rate from the alignment record, when one is given | below 0.98 | the ENCODE whole-genome bisulfite standard |
+| Q0.6 duplicates | the duplicate fraction from the alignment record, when given | not set: recorded only | to be set on healthy files |
+
+**Not run on a BAM.** The `--bam` route goes straight to Stage Q2's counter, which itself records the conversion failure (from non-CpG
+calls) and the substitution rate on A and T. Q0's file checks are written for the `.pat` format.
+
+### stage_q0_intake.py::_ranges
+Loads the hg19 CpG-index range of each chromosome, if the file is present.
+
+### stage_q0_intake.py::scan_pat
+One pass over the file, gzipped (including multi-member bgzip) or plain: completeness, malformed lines, molecules per chromosome, calls,
+molecules with at least 6 calls, interior opportunities, and lines outside their chromosome's range.
+
+### stage_q0_intake.py::scan_pat.line
+Parses and counts one line.
+
+### stage_q0_intake.py::intake
+Runs the checks in the table and returns the record with each check's value, rule and result, and the decision: stop at the first
+refusal, or proceed.
+
+### stage_q0_intake.py::intake.chk
+Records one check and, when it stops the file, the first refusal's code and reason.
+
+## 11. Group-A, has a whole group moved: `stage_groupa.py`
+
+**What it is for.** One person's whole-blood Met-A cannot show a 1 % change: healthy people differ by about 2 % after the tare. The
+average of a group can. Group-A compares two groups read in one series.
+
+**Label: standard method** (two tared means, Welch's standard error), applied to one physical reading per person, each against its own
+expected value for that person's cell mix.
+
+**How it reads.** Each person is read by the one command, unchanged. Each reading is tared against healthy arrays run the same way: the
+median of the healthy references on the same slide when the slide holds at least 3, else of the same series. A sample is never its own
+reference. Then the two groups' tared means are compared:
+
+  difference d = mean₁ − mean₂, standard error SE = √(s₁²/n₁ + s₂²/n₂), t = d / SE.
+
+|t| ≥ 2 is a group that moved. |t| < 2 is no difference found, and the smallest difference the design could have found (2 × SE) is
+printed. Nothing is fitted.
+
+**Built from, tested on.** Sealed before any array was opened, then scored once on 278 healthy controls of a laboratory no instrument had
+read (GSE318173): 263 read; women and men 0.36 % apart at 1.2 standard errors; a 1 % loss planted into half of them found at 7.3 standard
+errors. Commissioned 2026-10-20 for groups of whole bloods run in one series, EPIC v1. Release check V10 reproduces bars 2 and 3 to every
+printed digit from the committed rows. Groups in any other specimen are read and labeled preliminary.
+
+**Why one series.** Across laboratories, untared readings differ by several percent. Two groups from two laboratories would differ by
+their laboratories.
+
+### stage_groupa.py::tare
+Each reading over the median of its healthy references (same slide when there are at least 3 there, else the series), excluding itself;
+records which scope was used.
+
+### stage_groupa.py::welch
+The two groups' means, counts, difference, standard error and t.
+
+### stage_groupa.py::compare
+Tares, compares and calls the result, with the smallest findable difference and the commissioning label.
+
+### stage_groupa.py::collect
+Builds one row per person from the run's report bundles and the researcher's sample list (id, slide, group column, optional
+healthy_reference).
+
+## 12. The retired position reading, Stage Q: `stage_q_iam_a.py`
+
+**Retired.** IAM-A was first read against a frozen position P per cell type, measured on purified granulocytes. That reading was replaced
+on 2026-10-17 by Stage Q2, each sample against its own reference. The one command runs Stage Q only with `--site-table` or
+`--dev-iama-position`, and labels it development. It is kept so earlier records can be reproduced. Its text still uses the retired term
+"copy error"; what it counts is the held error described in section 9.
+
+### stage_q_iam_a.py::positions
+Loads the frozen positions file (`iama_positions_v2.json`).
+
+### stage_q_iam_a.py::_H
+The entropy of a rate in bits.
+
+### stage_q_iam_a.py::_pat_lines
+Streams the lines of a `.pat` file, gzipped or plain, optionally cut at a byte count (the retired version 1 read only part of each file).
+
+### stage_q_iam_a.py::pat_site_table
+The per-site table (opportunities and holes in two halves of the molecules) from a `.pat` file.
+
+### stage_q_iam_a.py::_genomic_order
+Sorts a site table by chromosome and CpG index.
+
+### stage_q_iam_a.py::cscore
+The retired IAM-A clustering score over the site table, pooled and per half.
+
+### stage_q_iam_a.py::cscore.one
+The clustering score of one table.
+
+### stage_q_iam_a.py::read
+The retired reading, IAM-A = H(ε) / (P × H(ε₀)), refused for a pipeline other than the one P was measured on, or for part of a file.
+
+### stage_q_iam_a.py::tare
+The retired reading's same-run tare.
+
+## 13. Two draws of one person, Stage 12b: `serial_mode.py`
+
+**What it is for.** Comparing two draws of the same person. `run_sample.py` calls two of these functions when `--prior-betas` is given;
+the rest are tools.
+
+**Label: standard method.**
+
+### serial_mode.py::check_same_person
+Refuses unless the two draws carry the same identifier hash, array type and pipeline.
+
+### serial_mode.py::delta_cells
+The change in each cell's A for cells present in both draws; cells that appeared or disappeared are listed, not differenced. Reads the
+per-cell layout of an older bundle (`cells_all`); a tool, not called by the one command.
+
+### serial_mode.py::delta_sky
+β now minus β before, at the sites both draws measured. No expectation, no composition.
+
+### serial_mode.py::snp_noise_floor_A
+The two arrays' own noise (Stage 1's SNP-probe model, σ²(β) = a + b·β(1 − β)) carried through to A over the cell's identity sites:
+ΔA ≈ 2.576 × |dH/dβ| × √(var_now + var_prior) / H_ref at the mean β, the 99 % two-sided change the noise alone could make. A lower bound
+on the smallest change that means anything. It reads the identity sites from an older bundle layout (`loci` of a per-cell entry)
+that chain v4 bundles do not carry; it is a tool, not a stage.
+
+### serial_mode.py::snp_noise_floor_A.var_mean
+For one array, the variance of the mean β over the identity sites from its noise model, Σ(a + b·β(1 − β)) / n², and the mean β.
+
+### serial_mode.py::trajectory
+A person's readings in draw order with their dates and the step between draws: numbers in order, no fit, no slope. Reads the same older
+per-cell layout as `delta_cells`.
+
+## 14. The report: `report_v4.py`, `report_v3.py`, `report_figs_v4.py`, `report_pdf_v4.py`
+
+**What it is for.** Writing what the stages measured, and nothing they did not. One self-contained HTML page per sample, and the same
+report as two PDFs, built from the same rows and pictures so the formats cannot disagree.
+
+**Label: standard method** (presentation). The report computes no reading. Every number it prints comes from the run's bundle or from
+a committed reference file.
+
+**Its parts, in page order.**
+
+1. **The researcher view**: the reading at a glance (each instrument, the question it answers, its reading, its state and its
+   commissioning status); AstroGenetics, the physics behind each reading with this run's own numbers; the cell shares; Met-A on its
+   gauge; the C-Score with its sky and the overlay of the sample on its healthy reference; IAM-A on its gauge.
+2. **The plain view**: one gauge and one sentence per reading, and the sky.
+3. **The technical record** (`report_v3.build`): every stage's record, the red flags, the safeguards, troubleshooting, and the
+   development toolkit table.
+
+**The gauge** (`report_figs_v4.gauge_png`). Left end the floor (derived), the Normal band around healthy 1 (measured), right end
+saturation, every identity site fully scrambled (derived). Every mark is read from `Runtime Matrices/Gauge/cell_gauge_marks_v1.json`;
+nothing is typed in the drawing code. On IAM-A's scale healthy sits close to the floor, so a magnified strip shows the band. A withheld
+state draws no gauge at all. The C-Score has no derived ends, because it is a clustering ratio: its bar runs from scattered to clustered,
+with its band.
+
+**Commissioned or not, on every line.** A commissioned reading carries its record. Anything else is still shown and says so: "This score
+is preliminary until [instrument] is officially commissioned on [cell]" (`report_v4.untested`).
+
+**Red flags** (`report_v3.red_flags`): STOP (refused), FLAG (a commissioned call such as a clustered departure), WITHHELD (a reading not
+given, with its reason), CAUTION and NOTE. They are written into the bundle as well as the page.
+
+**Safeguards** (`report_v3.safeguards`), each PASS, FAIL or NOT_RUN on this run:
+- **Rendered-claim scan:** no disease, cohort or population words in the report's prose.
+- **Formula self-test:** H(0.5) = 1, H(0.25) = 0.81128, H(10⁻⁶) under 3 × 10⁻⁵.
+- **Anchors**, **deconvolver conformance** and **atlas separability.**
+
+**How to break it.** Write a disease word into a reading's text: the claim scan must fail. Remove a mark from the gauge file: the gauge
+must not draw.
+
+### report_v4.py::_uri
+A figure file as a data URI, so the page is self-contained.
+
+### report_v4.py::_H
+The entropy of a rate in bits, for the physics rows.
+
+### report_v4.py::_sci
+A number in HTML scientific notation (×10ⁿ).
+
+### report_v4.py::_marks
+Loads the gauge marks file.
+
+### report_v4.py::cellname
+A cell type's display name.
+
+### report_v4.py::untested
+The line printed beside a reading outside what its instrument was commissioned on.
+
+### report_v4.py::chip
+The colored status label: commissioned, refused or withheld, not run, or development.
+
+### report_v4.py::_glance
+The at-a-glance table as HTML.
+
+### report_v4.py::glance_rows
+The at-a-glance rows, from the bundle: the Deconvolver's top three shares, Met-A (tared when it can be), the C-Score, and IAM-A, each
+with its state and status. The PDFs use the same rows.
+
+### report_v4.py::_shares
+The cell-shares section: each share with its 95 % interval and status, or the reason they were withheld.
+
+### report_v4.py::_meta
+The Met-A section: its gauge (tared reading; an untared whole-blood reading has no gauge position) and its numbers.
+
+### report_v4.py::_cscore
+The C-Score section: its bar, its sky and the overlay.
+
+### report_v4.py::_iama
+The IAM-A section: its gauge, or the refusal.
+
+### report_v4.py::_figs
+Draws this sample's gauge and C-Score pictures beside the report.
+
+### report_v4.py::_physics
+The AstroGenetics section as HTML.
+
+### report_v4.py::physics_rows
+Each reading set in the physics it rests on, with this run's numbers. IAM-A: ε measured, ε predicted at the sample's own L, saturation
+0.5/ε_pred, and the floor 1/(1 + e^M) as a fraction of ε_pred. Met-A: the mean entropy over the identity sites against its expectation,
+what healthy 1 is on this run (the median of the same-run references, or the committed healthy reference), and on isolated neutrophils
+the reading in bits per site. The C-Score: the clustering ratio and its band. The 0.330263 bits per site it prints is typed in this
+function rather than read from `metA_floors_v1_3.json` (a fix on the Decoder's list).
+
+### report_v4.py::_skypair
+The overlay of the sample on its healthy reference, with how sure the healthy reference is at those sites.
+
+### report_v4.py::_plain
+The plain view: one gauge and one sentence per reading.
+
+### report_v4.py::build
+Builds the whole page: the technical record from `report_v3.build`, the figures, both views, and the two PDFs.
+
+### report_v3.py::_gauge
+The gauge as inline HTML, drawn from the gauge marks file.
+
+### report_v3.py::_H
+The entropy of a rate in bits, for the formula self-test.
+
+### report_v3.py::_load
+Loads a chain file, or nothing if it is missing.
+
+### report_v3.py::red_flags
+The red flags, from the bundle only.
+
+### report_v3.py::safeguards
+The safeguards listed above.
+
+### report_v3.py::troubleshooting
+For each stop on this run, what it usually means and what to do.
+
+### report_v3.py::toolkit_table
+The development stages and whether each ran on this sample.
+
+### report_v3.py::_table
+A plain HTML table.
+
+### report_v3.py::build
+The technical record: intake, Stage 1, the mix, Met-A, the tare, the noise gate, the C-Score, IAM-A, the red flags, the safeguards,
+troubleshooting and the toolkit table, the run-it-yourself command, and a copy of the bundle inside the page. Returns the page's path,
+size and any refusals; the bundle file itself is written by `run_sample.py`.
+
+### report_figs_v4.py::sci
+A number in scientific notation for a figure.
+
+### report_figs_v4.py::_bar
+Draws one gauge bar: the gradient from the floor through healthy to the ceiling, the band, the needle and the ticks.
+
+### report_figs_v4.py::gauge_png
+The floor-to-ceiling gauge for Met-A or IAM-A, with the magnified strip when healthy sits near the floor.
+
+### report_figs_v4.py::cscore_png
+The C-Score bar, scattered to clustered; the scale stretches to hold the reading.
+
+### report_figs_v4.py::atlas_sky_png
+The healthy reference of the sample's cell from IAM-Atlas v2.1, at the same sites, in the same order and on the same pixels as the
+sample's C-Score sky, so the two line up site for site.
+
+### report_figs_v4.py::changes_sky_png
+The sample laid over its healthy reference: the healthy cell in grays, color only where the sample departs by more than a threshold of
+its own spread. Single colored pixels are ordinary; colored patches are changes that run along the genome, which is what the C-Score
+measures.
+
+### report_figs_v4.py::changes_sky_png.pmean
+The mean of the values falling in each pixel.
+
+### report_pdf_v4.py::P
+A paragraph for the PDF, keeping only the tags the PDF library understands.
+
+### report_pdf_v4.py::_img
+A figure scaled to a width, or nothing if missing.
+
+### report_pdf_v4.py::_head
+The PDF's heading block, with the research-use line and how to read the commissioning status.
+
+### report_pdf_v4.py::_tbl
+A PDF table.
+
+### report_pdf_v4.py::build_pdfs
+The researcher and plain PDFs, from the same rows and pictures as the page.
+
+### report_pdf_v4.py::build_pdfs.doc
+Writes one PDF.
+
+## 15. The development readings: `dev_stages.py`, `dev_comp_methods.py`, `deconv_v2.py`, `sky_statistics.py`
+
+**What they are for.** Readings under development, run only when a `--dev-*` flag asks for them. Each writes its own record under
+`bundle["development"]`, labeled "DEVELOPMENT - not commissioned", and none changes the reading, the gauge or the tare. They are in the
+chain so a development result is made by the same code a researcher can run. The one exception is `dev_stages.selftare_map` (section 5),
+which has been Stage T step 1 on every reading since 2026-10-04 and still lives in this file.
+
+**Labels.** Direction, brightness and the per-cell B reading follow Met-A's physics; the composition methods and the sky statistics
+are standard methods (deconvolution, the angular power spectrum of a sphere with a shuffled null).
+
+### dev_stages.py::_H
+The entropy of a beta value in bits.
+
+### dev_stages.py::_bc
+Loads the blood composition matrix once.
+
+### dev_stages.py::_rec
+A development record with its label.
+
+### dev_stages.py::selftare_ii
+The development form of self-tare II: Met-A re-read on the mapped values beside the reading. Kept for its earlier records; the one command
+no longer calls it, because step 1 now runs on every reading.
+
+### dev_stages.py::site_uncertainty
+This array's own per-site uncertainty: the SD of β against the reference value over its fixed sites, per design and state.
+
+### dev_stages.py::s_for
+The per-site uncertainty for a list of sites, by design and state (low when the reference value is below 0.5).
+
+### dev_stages.py::direction
+D = mean over the identity sites of |r − 0.5| − |β − 0.5|: above 0, the sites have moved toward 0.5, toward disorder; below 0, away from it.
+
+### dev_stages.py::direction_record
+The direction record at the neutrophil identity sites against the cell's own reference (the expectation in whole blood), tared on the
+same-run references' D.
+
+### dev_stages.py::trace_cell
+In an isolated-neutrophil specimen, another blood group's contamination, called above 3 × this array's own standard error.
+
+### dev_stages.py::foreign_cell
+In whole blood, a non-blood template solved beside the 8 blood groups, called above 3 × this array's own standard error.
+
+### dev_stages.py::brightness
+A 95 % interval on Met-A by Monte Carlo from this array's per-site uncertainty.
+
+### dev_stages.py::_mapping
+Loads the CpG-to-HEALPix map of the development sky (NSIDE 128).
+
+### dev_stages.py::residual_z
+The development sky's per-site departure: z = (β − Σ f_g μ_g) / √(Σ f_g² (sd² + s_bp²) + 0.02²), with s_bp the atlas's between-person SD.
+
+### dev_stages.py::_pixmap
+The mean departure in each pixel.
+
+### dev_stages.py::block_shuffle_order
+A permutation that moves whole runs of consecutive sites within each chromosome: the null keeps short-range structure along the genome and
+breaks where it sits.
+
+### dev_stages.py::sky_from_z
+The development sky's band powers against the block-shuffle null and the look-elsewhere statistic by simulation.
+
+### dev_stages.py::sky_from_z.shuf
+The band powers of one block-shuffled sky.
+
+### dev_stages.py::_has_cols
+Whether a parquet file holds the named columns.
+
+### dev_stages.py::load_atlas_parents
+Loads the atlas v2 parent blood cells' means, SDs and between-person SDs.
+
+### dev_stages.py::sky
+The development residual sky of one whole blood, with its null.
+
+### dev_stages.py::_atlas_e
+Builds the atlas_e solver once on the 12 array-measured circulating cells of atlas v2, with the neutrophil identity sites removed.
+
+### dev_stages.py::atlas_e
+The atlas_e composition, summed into the 8 blood groups.
+
+### dev_stages.py::nilc_e
+The NILC-e composition on the atlas_e templates, with each share's noise.
+
+### dev_stages.py::percell_b
+A B-cell Met-A against the expectation for this blood's mix, on the development B-cell reference.
+
+### dev_stages.py::epicv2_calibrate
+An EPIC v2 IDAT pair through SeSAMe (an R package, run in its own environment) to β values on EPIC v1 probe names, replicate probes of one
+CpG averaged and background-masked probes dropped. Development only: the chain's references are EPIC v1.
+
+### dev_comp_methods.py::load_atlas
+Loads an atlas parquet file indexed by site.
+
+### dev_comp_methods.py::atlas_cells
+The cell names in an atlas table.
+
+### dev_comp_methods.py::subset_atlas
+The columns of the named cells.
+
+### dev_comp_methods.py::build_deconv
+An atlas v2 solver on the named cells, with the neutrophil identity sites removed from its pool.
+
+### dev_comp_methods.py::twin_merge
+The atlas's own twin rule: a cell with no array measurement whose marker profile correlates with an array-measured cell above the
+threshold is that cell on another platform, and the two merge.
+
+### dev_comp_methods.py::mixture_twin
+A cell whose template is reproduced by a non-negative, sum-to-1 mix of the other cells, above the twin correlation, cannot be told apart
+from that mix in a specimen.
+
+### dev_comp_methods.py::crlb
+The Cramér–Rao bound on each share's SD for a solver's design at its markers.
+
+### dev_comp_methods.py::NNLS8.__init__
+Stage A's solver as a class: the 963 markers and 8 groups.
+
+### dev_comp_methods.py::NNLS8.deconvolve
+Stage A's shares, for comparison with the other methods.
+
+### dev_comp_methods.py::ledoit_wolf
+Analytic Ledoit–Wolf shrinkage of a covariance toward a multiple of the identity; no parameter to choose.
+
+### dev_comp_methods.py::NILC.__init__
+The NILC solver: sites, cells, means, variances and the noise model.
+
+### dev_comp_methods.py::NILC._solve
+One weighted, constrained solve.
+
+### dev_comp_methods.py::NILC.deconvolve
+The NILC shares in two passes.
+
+### dev_comp_methods.py::to_groups
+Sums atlas cells into the 8 blood groups.
+
+### dev_comp_methods.py::met_a
+Whole-blood Met-A with another method's shares and profiles, for comparison with Stage M.
+
+### dev_comp_methods.py::ceiling_flag
+The entropy-ceiling flag for that comparison reading.
+
+### dev_comp_methods.py::read_beta
+Reads one β file.
+
+### deconv_v2.py::DeconvV2.__init__
+The atlas v2 solver: loci measured by every modeled cell; for each cell, markers chosen against its nearest other cell (margin at least
+0.20, the top 200 by margin over pooled SD); variance v = μ_sd² + donor_sd².
+
+### deconv_v2.py::DeconvV2._solve
+One joint solve with f ≥ 0 and Σ f = 1, weights 1 / (Σ_c f_c² v_ci + σ²) iterated 5 times.
+
+### deconv_v2.py::DeconvV2.deconvolve
+The shares, and each cell's presence by 200 bootstrap resamples of the markers.
+
+### sky_statistics.py::bandpowers
+The mean power in each of six bands of the angular spectrum.
+
+### sky_statistics.py::apodised_mask
+A pixel weight that rises smoothly from 0 at the edge of the measured footprint to 1 a set angle inside it, so a sharp edge does not
+spread power between multipoles.
+
+### sky_statistics.py::_weights
+Keeps the last mask's weights.
+
+### sky_statistics.py::masked_spectrum
+The pseudo angular power spectrum of a sky with masked pixels, with a hard or apodized mask.
+
+### sky_statistics.py::shuffled_null
+The band powers of skies made by shuffling the sky's own measured pixel values among its measured pixels: the mask, the count and the
+distribution are kept, and only the arrangement is destroyed, so a difference from this null is spatial structure.
+
+### sky_statistics.py::sky_spectrum_record
+One sky's spectrum, band powers, measured fraction, share of pixels with |z| above 2, and its null.
