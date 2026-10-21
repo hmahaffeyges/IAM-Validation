@@ -1,0 +1,57 @@
+name: iama_split
+# IAM-A's self-reference line reproduced on GitHub's machines, split (2026-10-21; the one-machine run needs 70 GB and 16 cores): 8 jobs share
+# the 153 healthy-cell samples streamed from GEO, 5 jobs take one ENCODE file each, and a last job compares every count, the line and the shape
+# reference with the committed ones (reproduce/iama_line_shard.sh; the counting is the committed driver and chain Stage Q2, unchanged).
+on: {workflow_dispatch: {}}
+permissions: {contents: read, issues: write}
+jobs:
+  count:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      matrix:
+        part: ["loyfer 0 8", "loyfer 1 8", "loyfer 2 8", "loyfer 3 8", "loyfer 4 8", "loyfer 5 8", "loyfer 6 8", "loyfer 7 8",
+               "encode ENCFF092SBB", "encode ENCFF605NRU", "encode ENCFF133QNK", "encode ENCFF704SCQ", "encode ENCFF969NGH"]
+    steps:
+      - name: Free disk
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost || true
+          sudo mkdir -p /mnt/q2 && sudo chown $USER /mnt/q2; df -h / /mnt | tail -2
+      - uses: actions/checkout@v4
+      - run: bash Biological_Physics/MethylPhys/reproduce/setup.sh
+      - name: Count
+        run: |
+          W=$HOME/q2w   # the root disk: about 100 GB free after the cleanup above (the largest ENCODE file is 54.4 GB)
+          bash Biological_Physics/MethylPhys/reproduce/iama_line_shard.sh ${{ matrix.part }} $W
+          mkdir -p counts && cp $W/out/*.json counts/; echo "PART=$(echo '${{ matrix.part }}' | tr ' ' '_')" >> $GITHUB_ENV
+      - uses: actions/upload-artifact@v4
+        with: {name: "counts-${{ env.PART }}", path: counts/}
+  compare:
+    needs: count
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash Biological_Physics/MethylPhys/reproduce/setup.sh
+      - uses: actions/download-artifact@v4
+        with: {pattern: "counts-*", path: counts, merge-multiple: true}
+      - name: Compare with the committed counts, line and shape reference
+        run: |
+          set +e; ls counts | wc -l; bash Biological_Physics/MethylPhys/reproduce/iama_line_shard.sh compare $PWD/counts > cmp.log 2>&1; echo $? > rc.txt; tail -40 cmp.log; true
+      - name: Result to issue 32
+        if: always()
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request, glob
+          r = glob.glob("**/cleanroom_iama_result.json", recursive=True)
+          b = ("reproduce iama_line (split), run ${{ github.run_id }}, commit ${{ github.sha }}, exit " + open("rc.txt").read().strip() + f", counts {len(os.listdir('counts'))}\n\n```\n"
+               + open("cmp.log").read()[-5000:] + "\n```\n\n" + ("```\n" + open(r[0]).read()[:40000] + "\n```" if r else "(no cleanroom_iama_result.json)"))
+          rq = urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/issues/32/comments", data=json.dumps({"body": b[:65000]}).encode(), headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"})
+          print(urllib.request.urlopen(rq).status)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: compare, path: "cmp.log\n**/cleanroom_iama_result.json"}
+      - run: test "$(cat rc.txt)" = 0
