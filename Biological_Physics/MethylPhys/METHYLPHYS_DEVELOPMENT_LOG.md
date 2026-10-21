@@ -2918,3 +2918,6 @@ The author saw the whole globe lit at the far right. Single sites beyond 3 lit 1
 
 ### 2026-10-21 · The globe as the browser draws it (ATL-063, lesson C32)
 The author's browser showed a healthy blood's globe lit everywhere while my previews, drawn in Python, showed it dark. Safari color-manages a grayscale image, so unchanged pixels stored as exactly 128 came back a few steps off and were drawn as changes. The change code now has wide bands and is stored as RGB, and release check V13 screenshots the chain's own globe pages in Chromium on GitHub. A picture of a chain output is shown only as the chain's page draws it.
+
+### 2026-10-21 · Met-A against the atlas: the chain stage and its synthetic test, before running (GRP-014, DEV-METAA-ATLAS-01)
+chain/stage_metaa_atlas.py reads Met-A against any IAM-Atlas v2.1 cell with Met-A's own site rule and the same-run tare, every record flagged not commissioned. Synthetic test 1 is committed before it runs: six blood cells, four laboratory offsets, two bars.

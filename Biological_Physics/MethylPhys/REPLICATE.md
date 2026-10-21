@@ -13,7 +13,7 @@ refused by the push gate otherwise (`CANON/chain_gate.py`).
    `--grn`, `--red`, `--betas`, `--age`, `--specimen`, `--banner`, `--out`, `--id`, `--bundle`, `--covariate`, `--covariates`, `--no-bundle`, `--ledger`, `--sex`, `--patient-id`, `--array-type`, `--intake-log`, `--manifest-dir`, `--no-intake`, `--engine`, `--slide-ref-A`, `--slide-ref-table`, `--bam`, `--ref-fasta`, `--assembly`, `--workers`, `--seq-chemistry`, `--dev-iama-position`, `--pat`, `--pat-max-bytes`, `--alignment-qc`, `--iama-ref-table`, `--dev-allow-partial`, `--site-table`, `--seq-pipeline`, `--seq-cell`, `--prior-betas`, `--prior-bundle`, `--save-betas`, `--dev-selftare-ii`, `--atlas-v2`, `--sesame-rscript`.
 4. Every result the chain writes for a logged test carries a chain stamp (chain version, payload hash, inputs); compare yours with ours.
 
-Chain entry points: `chain/conductor_v3.py`, `chain/stage_v4.py`, `chain/stage_groupa.py`, `chain/stage_1_idat_calibration.py`, `chain/stage_q_iam_a.py`, `chain/stage_q0_intake.py`, `chain/stage_q2_selfref.py`, `chain/stage_atlas_commission.py`, `chain/stage_atlas_u1.py`, `chain/stage_atlas_u1_planted.py`, `chain/stage_atlas_u2.py`, `chain/stage_atlas_u3.py`, `chain/stage_deconv_v21.py`, `chain/stage_temperature.py`.
+Chain entry points: `chain/conductor_v3.py`, `chain/stage_v4.py`, `chain/stage_groupa.py`, `chain/stage_metaa_atlas.py`, `chain/stage_1_idat_calibration.py`, `chain/stage_q_iam_a.py`, `chain/stage_q0_intake.py`, `chain/stage_q2_selfref.py`, `chain/stage_atlas_commission.py`, `chain/stage_atlas_u1.py`, `chain/stage_atlas_u1_planted.py`, `chain/stage_atlas_u2.py`, `chain/stage_atlas_u3.py`, `chain/stage_deconv_v21.py`, `chain/stage_temperature.py`.
 
 ## Commissioned instruments
 
