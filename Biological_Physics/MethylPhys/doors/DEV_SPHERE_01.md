@@ -171,3 +171,16 @@ The per-site square-root geometry is already used on methylation, so it is not o
 Not found in these searches: methylation sites PLACED on a sphere by how they behave together, or methylation read with sky-map scale
 statistics. Three searches is not a review; the check continues before step 1, and any paper found later is added here.
 
+
+## Construction v3 and planted test 4, run once (2026-10-21; synthetic only)
+
+`data/DEV_SPHERE_01/sphere_construction_03.py` and `planted_sphere_04.py`, committed before running (`0957a047`), run on GitHub (explore
+run 39648325392); output `planted_sphere_04_summary.txt`. v3 keeps v1's projection and re-spaces each site's height and longitude by rank
+(the equal-area condition, neighbors kept). **Four of six bars met; not passed.** Met: the planted group is found (R 0.998 against a 99th
+percentile of 0.332), nothing is found when nothing is planted (0 of 20), the two big classes sit 125.9 degrees apart, and the grid's edges
+are gone (edge ratio 1.10; v2 21.78). Not met: the globe is 46.9 % covered (bar 90 %), and distances agree at rho 0.567 (bar 0.7; v1 0.89,
+v2 0.418). Why: height and longitude are re-spaced separately, but the sites lie along a curved band of the projection, so each coordinate
+comes out uniform while the pairs stay bunched. Not adopted. The record so far: v1 keeps distances but covers little, v2 covers but draws
+edges, v3 removes the edges but neither covers nor keeps distances well enough. Next, written before it is run: a construction that fills
+the sphere jointly rather than one coordinate at a time, and the question whether a three-dimensional globe can hold both bars at once
+for a methylome, which is itself a measured answer.

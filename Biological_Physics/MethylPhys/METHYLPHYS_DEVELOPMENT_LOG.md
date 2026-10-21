@@ -2882,3 +2882,6 @@ At Met-A's 6,000 neutrophil identity sites IAM-Atlas v2.1 and Met-A's purified-a
 
 ### 2026-10-21 · Hard-to-map regions against our instruments (OTH-079, DEV-MAPPABILITY-01)
 27,117 of 862,927 EPIC v1 CpG probes (3.14 %) cannot be placed uniquely (probe mapQ below 10 or unmapped, public per-probe annotation; list committed with its source checksum). Met-A and C-Score identity sites 1.60 %, noise sites 1.90 %, Stage A markers 1.25 %, Deconvolver markers 0.86 %, self-tare anchors 1.56 %. IAM-A already drops reads below MAPQ 10. A re-read of healthy Group-A bloods without those probes runs on GitHub.
+
+### 2026-10-21 · Information sphere construction v3, planted test 4 (PHY-035, DEV-SPHERE-01)
+Run once on GitHub, committed before running: 4 of 6 bars met. The grid edges of v2 are gone (edge ratio 1.10), the planted group is found and nothing is found when nothing is planted; the globe is only 46.9 % covered (bar 90 %) and distances agree at 0.567 (bar 0.7). Not adopted; next a joint filling rule, written before it is run.

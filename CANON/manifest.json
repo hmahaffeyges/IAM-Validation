@@ -8528,7 +8528,7 @@
    "cost": "laptop",
    "impact": 2,
    "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md",
-   "notes": "Pasted lines 197-204. Four open questions: does healthy order have a stable shape across people; is cancer's blurring at one scale or all; which version shows the fingerprint more sharply; has anyone published this. | 2026-10-21 (author: the information sphere is what to build): construction v3 and planted test 4 written as DEV_SPHERE_01.md specified on 2026-10-13 and committed before running (sphere_construction_03.py, planted_sphere_04.py; bars P1-P6)",
+   "notes": "Pasted lines 197-204. Four open questions: does healthy order have a stable shape across people; is cancer's blurring at one scale or all; which version shows the fingerprint more sharply; has anyone published this. | 2026-10-21 (author: the information sphere is what to build): construction v3 and planted test 4 written as DEV_SPHERE_01.md specified on 2026-10-13 and committed before running (sphere_construction_03.py, planted_sphere_04.py; bars P1-P6) | 2026-10-21: planted test 4 (construction v3) run once on GitHub: 4 of 6 bars met; not met: coverage 46.9 % (bar 90 %) and distance agreement 0.567 (bar 0.7); edges gone (1.10). Not adopted (DEV_SPHERE_01.md)",
    "legacy_ids": [
     "sky"
    ],

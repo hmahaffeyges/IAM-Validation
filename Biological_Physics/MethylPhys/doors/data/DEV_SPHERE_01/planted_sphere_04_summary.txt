@@ -1,0 +1,8 @@
+continuous methylome (test 3's): 60000 sites, 13622 variable; construction v3; NSIDE 64
+P1 planted group R 0.998 | 99th percentile of 500 random groups 0.332 -> MET
+P3 island-like vs held-methylated mean directions 125.9 deg -> MET
+P4 pixels holding a site 46.9% (bar 90 %) -> NOT MET
+P5 edge ratio 1.10 (bar below 1.5; test 3: 21.78) -> MET
+P6 distance agreement rho 0.567 (bar at least 0.7; test 3: 0.418) -> NOT MET
+P2 nothing planted: exceeded in 0 of 20 maps (bar at most 1) -> MET
+PLANTED TEST 4 FAILED: P4, P6 not met
