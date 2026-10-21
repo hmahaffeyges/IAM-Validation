@@ -36,8 +36,8 @@
      "src": "a3",
      "full": 10,
      "hint": "Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
-     "fixed": "Changed: 66 of 5,525 sites depart by more than 3 spreads. This count is fixed; the slider never changes it.",
-     "note": "The C-Score's departure map against Met-A's commissioned purified-array reference, in the sample's own spread, as in the report's overlay; a site has changed beyond 3 spreads, the C-Score's own rule. A run of changed neighbors shows as a patch.",
+     "fixed": "Changed: 57 of 597 blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
+     "note": "The C-Score's departure map against Met-A's commissioned purified-array reference, read as the C-Score reads it: in blocks of 10 neighboring sites along the genome, a block changed when its average departure is beyond 3 of its standard errors. Ordinary wear is scattered and seldom moves a whole block; a loss that runs along the genome does, so it shows as clumps.",
      "base": null
     },
     {

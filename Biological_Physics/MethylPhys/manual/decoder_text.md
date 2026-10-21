@@ -1339,6 +1339,12 @@ One value per site in genome order to a NESTED map: the mean per pixel, nothing 
 ### report_globe_v4.py::_mu
 Reads the atlas best values of the named cells from the compact copy (`atlas/v2.1/mu_part*.parquet`), 65535 decoded as no value.
 
+**The change at Met-A's sites is read in the C-Score's blocks.** A loss that runs along the genome is many small moves the same way, so no
+single site passes 3 spreads (the planted clustered example: 63 single sites beyond 3 in the healthy blood, 68 with the plant). Read as the
+C-Score reads it, in blocks of 10 neighboring measured sites, a block changed when its mean departure is beyond 3 of its standard errors:
+the healthy blood has 7 of 597 blocks changed, the planted loss 57, and they lie in clumps. Ordinary wear is scattered and seldom moves a
+whole block. The slider ends on pure black, so only the changes stay lit.
+
 ### report_globe_v4.py::build._code
 Codes a change map for the page: 0 where no site was measured, 128 where the sites are unchanged, and 128 plus or minus at least one step for a
 changed site, its size up to a fixed full scale (10 spreads), so the page can fade the unchanged background without ever touching the change.

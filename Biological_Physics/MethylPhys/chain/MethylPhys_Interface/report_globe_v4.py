@@ -158,6 +158,15 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
     if z is not None and len(z):
         z = pd.Series(z, dtype="float64"); med = float(z.median()); mad = float((z - med).abs().median()) * 1.4826 or float(z.std()) or 1.0
         z = (z - med) / mad   # in the sample's own spread at these sites, exactly as the report's overlay (report_figs_v4.changes_sky_png)
+        # 2026-10-21 (author: "shouldn't they still be in clumps ... if they are truly other than aging"): the change at Met-A's sites is read as
+        # the C-Score reads it, in blocks of 10 neighboring measured sites in genome order (neutrophil_reference_v1_2.json clustering_block):
+        # a block has changed when its mean departure, in standard errors (mean x sqrt(10)), is beyond 3, and every site of a changed block is
+        # lit with the block's value. Scattered wear seldom moves a whole block; a clustered loss does (healthy blood: 7 of 597 blocks;
+        # the planted clustered loss: 57). A single site is not judged alone: a small loss spread along a run never passes 3 at one site.
+        _R = json.load(open(os.path.join(CH, "Runtime Matrices", "Met_A_Floors", "neutrophil_reference_v1_2.json"))); _k = int(_R["clustering_block"])
+        _zo = z.reindex(_R["sites_ordered"]).dropna(); _nb = len(_zo) // _k
+        _bz = _zo.to_numpy()[:_nb * _k].reshape(_nb, _k).mean(1) * np.sqrt(_k); _lit = np.repeat(np.where(np.abs(_bz) > 3, _bz, 0.0), _k)
+        z = pd.Series(np.r_[_lit, np.zeros(len(_zo) - _nb * _k)], index=_zo.index); blocks = (int((np.abs(_bz) > 3).sum()), int(_nb))
         zz = z.reindex(ids[order]).to_numpy(); zs = _to_sky(zz, npix); zv = zs[look].reshape(HT, W)
         # 6,000 sites hold about one texture pixel each, too small to see: each is drawn as a dot of radius R_DOT pixels at its own place, the
         # larger departure winning where two dots meet, so a run of neighboring departing sites shows as a patch. Positions are unchanged.
@@ -168,7 +177,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
         has = ndimage.maximum_filter(np.isfinite(zv).astype(np.uint8), footprint=fp, mode="wrap") > 0
         zv = np.where(has, np.where(pos >= neg, np.maximum(pos, 0), -neg), np.nan); zv[has & ~np.isfinite(zv)] = 0.0
         zcode = _code(np.where(np.isfinite(zv) & (np.abs(zv) > 3), zv, np.where(np.isfinite(zv), 0.0, np.nan)), 10)   # changed: beyond 3 spreads, the C-Score's fixed rule
-        zabove = (int((zz[np.isfinite(zz)] ** 2 > 9).sum()), int(np.isfinite(zz).sum()))   # (changed sites, sites)
+        zabove = blocks   # (changed blocks, blocks)
     pcode = prgb = pabove = None; pe = purified(fractions, specimen)
     if pe is not None:
         pv = pe.reindex(ids[order]).to_numpy(); sv = pd.Series(beta, dtype="float64").reindex(ids[order]).to_numpy()
@@ -199,9 +208,10 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
     if zcode is not None:
         L.append(dict(name="the change at Met-A's 6,000 sites (against its purified reference)", kind="change", src=P_(_png_b64(zcode, "L")), full=10,
                       hint="Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
-                      fixed=f"Changed: {zabove[0]:,} of {zabove[1]:,} sites depart by more than 3 spreads. This count is fixed; the slider never changes it.",
-                      note=("The C-Score's departure map against Met-A's commissioned purified-array reference, in the sample's own spread, as in the "
-                            "report's overlay; a site has changed beyond 3 spreads, the C-Score's own rule. A run of changed neighbors shows as a patch.")))
+                      fixed=f"Changed: {zabove[0]:,} of {zabove[1]:,} blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
+                      note=("The C-Score's departure map against Met-A's commissioned purified-array reference, read as the C-Score reads it: in blocks "
+                            "of 10 neighboring sites along the genome, a block changed when its average departure is beyond 3 of its standard errors. "
+                            "Ordinary wear is scattered and seldom moves a whole block; a loss that runs along the genome does, so it shows as clumps.")))
     if pcode is not None:
         Pr = J(_jpg_b64(prgb))
         L += [dict(name="Met-A's purified-array reference", kind="image", src=Pr, note="Met-A's own healthy reference at its 6,000 sites, weighted by this blood's Stage A fractions; the change against it is the layer above.")]
@@ -209,7 +219,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
     if cellmaps: groups.append(dict(name="the cells the IAM-Deconvolver read", layers=[dict(name="healthy " + c["name"], kind="image", src=J(c["t"]),
                                      note="This cell's healthy map in IAM-Atlas v2.1; the share is the IAM-Deconvolver's reading of this sample.") for c in cellmaps]))
     rec["layers"] = [x["name"] for g in groups for x in g["layers"]]
-    if zabove: rec["metaa_sites_changed"] = {"rule": "beyond 3 spreads", "changed": zabove[0], "sites": zabove[1]}
+    if zabove: rec["metaa_blocks_changed"] = {"rule": "blocks of 10 neighboring sites, mean departure beyond 3 standard errors (the C-Score's blocks)", "changed": zabove[0], "blocks": zabove[1]}
     spec = dedupe(dict(id="sample", name="This sample", about=ABOUT.replace("__REF__", name).replace("__N__", f"{rec['sites_compared']:,}"), groups=groups))
     rec["fragment"] = fragment([spec])
     if out_html: open(out_html, "w", encoding="utf-8").write(page([spec], "The sample on the globe")); rec["html"] = os.path.abspath(out_html)

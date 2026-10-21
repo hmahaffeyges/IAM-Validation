@@ -2909,3 +2909,6 @@ The report's globe no longer asks the reader to pick a size. A site has changed 
 
 ### 2026-10-21 · The atlas plan gains the healthy width (GRP-014, DEV-METAA-ATLAS-01)
 From the globe's change rule: identity sites chosen and optionally weighted by each site's healthy width; no self-centering for Met-A, because centering a sample on its own spread hides a loss at every site; and a C-Score run on the globe's change map against the atlas, since the C-Score reads layout, not size. Written before any reading.
+
+### 2026-10-21 · The globe shows clumps the way the C-Score reads them (ATL-063)
+On the planted clustered example the site-by-site rule lit 68 sites against 63 in the healthy blood: a loss that runs along the genome is many small moves, none past 3 at one site. Read in the C-Score's own blocks of 10 neighboring sites, the healthy blood shows 7 of 597 blocks changed, scattered, and the planted loss 57, in clumps. The slider now ends on pure black.

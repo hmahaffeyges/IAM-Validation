@@ -28,7 +28,7 @@ Read from the code at build time: the one command can load **24 Python files** h
 | `stage_q_iam_a.py` | 174 | 9 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
-| `MethylPhys_Interface/report_globe_v4.py` | 227 | 12 | 0 | 0 |
+| `MethylPhys_Interface/report_globe_v4.py` | 237 | 12 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 114 | 6 | 0 | 0 |
 
 ## How to read the Decoder
@@ -2020,6 +2020,12 @@ One value per site in genome order to a NESTED map: the mean per pixel, nothing 
 
 Reads the atlas best values of the named cells from the compact copy (`atlas/v2.1/mu_part*.parquet`), 65535 decoded as no value.
 
+**The change at Met-A's sites is read in the C-Score's blocks.** A loss that runs along the genome is many small moves the same way, so no
+single site passes 3 spreads (the planted clustered example: 63 single sites beyond 3 in the healthy blood, 68 with the plant). Read as the
+C-Score reads it, in blocks of 10 neighboring measured sites, a block changed when its mean departure is beyond 3 of its standard errors:
+the healthy blood has 7 of 597 blocks changed, the planted loss 57, and they lie in clumps. Ordinary wear is scattered and seldom moves a
+whole block. The slider ends on pure black, so only the changes stay lit.
+
 *Code:* `MethylPhys_Interface/report_globe_v4.py` line 47 (12 lines) · arguments: cells, stem · calls: not called on the traced runs · constants read: `ATLAS`, `NA` · files named: `import pyarrow.parquet`
 
 ### `report_globe_v4.py::build._code`
@@ -2066,7 +2072,7 @@ to 1; refuses with the reason when there are no shares or no specimen.
 Checks the frozen layout against the atlas site list, builds the four layers, the shares above each size, and the page fragment (canvas,
 controls and script, no outside library). Returns the record kept in the bundle, marked `scored: False`.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 112 (107 lines) · arguments: beta, specimen, shares, out_html, z, fractions · calls: not called on the traced runs · constants read: `ABOUT`, `ATLAS`, `CH`, `HERE`, `ORDER`, `PANEL`, `R_DOT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `sites.parquet`, `sky_order_v21.npz`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 112 (117 lines) · arguments: beta, specimen, shares, out_html, z, fractions · calls: not called on the traced runs · constants read: `ABOUT`, `ATLAS`, `CH`, `HERE`, `ORDER`, `PANEL`, `R_DOT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `neutrophil_reference_v1_2.json`, `sites.parquet`, `sky_order_v21.npz`
 
 ### `report_globe_v4.py::build.rgb`
 
