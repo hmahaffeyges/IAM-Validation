@@ -2879,3 +2879,6 @@ On 55 real healthy bloods (GSE318173) the commissioned self-tare erases a plante
 
 ### 2026-10-21 · The two healthy references compared (ATL-070, DEV-REFERENCES-01)
 At Met-A's 6,000 neutrophil identity sites IAM-Atlas v2.1 and Met-A's purified-array reference agree closely in value (neutrophils: mean gap 0.007, r 0.9998), but the atlas sits about 0.006 closer to 0.5 at nearly every site, at both ends; entropy is steep there, so Met-A read on the atlas neutrophil as a sample gives 1.062 (Normal 0.95 to 1.05) against 0.998 for the purified profile itself. Met-A keeps its purified-array reference; a comparison on the sphere names its reference. Exploration, not sealed; the purified studies are among the atlas sources.
+
+### 2026-10-21 · Hard-to-map regions against our instruments (OTH-079, DEV-MAPPABILITY-01)
+27,117 of 862,927 EPIC v1 CpG probes (3.14 %) cannot be placed uniquely (probe mapQ below 10 or unmapped, public per-probe annotation; list committed with its source checksum). Met-A and C-Score identity sites 1.60 %, noise sites 1.90 %, Stage A markers 1.25 %, Deconvolver markers 0.86 %, self-tare anchors 1.56 %. IAM-A already drops reads below MAPQ 10. A re-read of healthy Group-A bloods without those probes runs on GitHub.

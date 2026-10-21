@@ -27941,6 +27941,24 @@
    "legacy_ids": [],
    "notes": "2026-10-21: at Met-A's 6,000 neutrophil sites the two agree closely in value (neutrophils mean gap 0.007, r 0.9998) but the atlas sits ~0.006 closer to 0.5 at nearly every site, so its entropy is higher (0.351 vs 0.330) and Met-A read on the atlas neutrophil as a sample gives 1.062, just above Normal. Met-A keeps its purified-array reference; every comparison on the sphere names its reference. The purified studies are among the atlas's sources (not independent). | Likely cause (to be tested): the atlas value is a blend of 21 sources, and the entropy of an average exceeds the average of the entropies (Jensen), so the spread between sources reads as apparent disorder. Rule: an entropy is never read against a reference made another way without a same-run tare (Met-A follows it; the per-cell stage of step 21 must).",
    "sources_of_row": []
+  },
+  {
+   "title": "Hard-to-map regions: do the commissioned readings lean on probes that cannot be placed uniquely? (DEV-MAPPABILITY-01)",
+   "purpose": "Author 2026-10-21 (an article on hard-to-map parts of the genome): check our instruments against regions of near-identical copies. Exploration, not sealed.",
+   "instrument_or_term": "Met-A, C-Score, Stage A, IAM-Deconvolver; IAM-A",
+   "data_status": "",
+   "status": "run",
+   "next_step": "score the masked re-read; if nothing moves, the mask goes into the chain as a recorded protection, and a 'hard to map' layer on the globe (step 28)",
+   "cost": "",
+   "impact": 5,
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_MAPPABILITY_01/masked_reread_01.py",
+   "depends_on": [],
+   "id": "OTH-079",
+   "sources": [],
+   "runs": [],
+   "legacy_ids": [],
+   "notes": "2026-10-21: 27,117 of 862,927 EPIC v1 CpG probes (3.14 %) map poorly (mapQ < 10 or unmapped; public per-probe annotation). Our sets sit below that: Met-A/C-Score identity 96 of 6,000 (1.60 %), noise 1.90 %, Stage A markers 1.25 %, Deconvolver markers 0.86 %, self-tare anchors 1.56 %. IAM-A drops reads below MAPQ 10. Masked re-read of Group-A healthy bloods on GitHub (masked_reread_01.py).",
+   "sources_of_row": []
   }
  ],
  "not_tests": {
