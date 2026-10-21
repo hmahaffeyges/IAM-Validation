@@ -274,7 +274,7 @@
   },
   {
    "file": "stage_0_intake.py",
-   "lines": 1132,
+   "lines": 1152,
    "functions": [
     {
      "file": "stage_0_intake.py",
@@ -647,11 +647,11 @@
      "function": "validate_control_probes",
      "name": "validate_control_probes",
      "line": 539,
-     "end": 579,
+     "end": 591,
      "args": [
       "control_summary"
      ],
-     "lines": 41,
+     "lines": 53,
      "doc": "SOP §14 control-probe math + gates. Input: per-control-class intensity medians extracted from the IDAT pair. Returns the CTRL_QC verdict.",
      "constants": [
       "BS_CONVERSION_MIN",
@@ -668,8 +668,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_4_control_probe_validation",
      "name": "step_0_4_control_probe_validation",
-     "line": 582,
-     "end": 601,
+     "line": 594,
+     "end": 613,
      "args": [
       "record",
       "grn_path",
@@ -688,8 +688,8 @@
      "file": "stage_0_intake.py",
      "function": "_normal_sf",
      "name": "_normal_sf",
-     "line": 621,
-     "end": 629,
+     "line": 633,
+     "end": 641,
      "args": [
       "z"
      ],
@@ -705,8 +705,8 @@
      "file": "stage_0_intake.py",
      "function": "compute_detection_p",
      "name": "compute_detection_p",
-     "line": 632,
-     "end": 637,
+     "line": 644,
+     "end": 649,
      "args": [
       "probe_intensities",
       "mu_bg",
@@ -724,8 +724,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_detection_p",
      "name": "validate_detection_p",
-     "line": 640,
-     "end": 654,
+     "line": 652,
+     "end": 666,
      "args": [
       "detection_p_array"
      ],
@@ -747,8 +747,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_5_detection_pvalue_qc",
      "name": "step_0_5_detection_pvalue_qc",
-     "line": 657,
-     "end": 678,
+     "line": 669,
+     "end": 690,
      "args": [
       "record",
       "probe_intensities",
@@ -766,8 +766,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_bead_count",
      "name": "validate_bead_count",
-     "line": 689,
-     "end": 696,
+     "line": 701,
+     "end": 708,
      "args": [
       "bead_counts",
       "min_beads"
@@ -787,8 +787,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_6_bead_count_qc",
      "name": "step_0_6_bead_count_qc",
-     "line": 699,
-     "end": 712,
+     "line": 711,
+     "end": 724,
      "args": [
       "record",
       "bead_counts"
@@ -805,8 +805,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_call_rate",
      "name": "validate_call_rate",
-     "line": 723,
-     "end": 731,
+     "line": 735,
+     "end": 743,
      "args": [
       "n_passing_both",
       "n_total"
@@ -826,8 +826,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_7_call_rate",
      "name": "step_0_7_call_rate",
-     "line": 734,
-     "end": 755,
+     "line": 746,
+     "end": 767,
      "args": [
       "record",
       "detection_pass_mask",
@@ -845,8 +845,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_7b_platform_coverage",
      "name": "step_0_7b_platform_coverage",
-     "line": 765,
-     "end": 789,
+     "line": 777,
+     "end": 801,
      "args": [
       "record",
       "reference_cpg_coverage"
@@ -865,8 +865,8 @@
      "file": "stage_0_intake.py",
      "function": "predict_sex",
      "name": "predict_sex",
-     "line": 799,
-     "end": 800,
+     "line": 811,
+     "end": 812,
      "args": [
       "log2_x_median",
       "log2_y_median",
@@ -886,8 +886,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_sex",
      "name": "validate_sex",
-     "line": 803,
-     "end": 809,
+     "line": 815,
+     "end": 821,
      "args": [
       "log2_x_median",
       "log2_y_median",
@@ -905,8 +905,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_8_sex_check",
      "name": "step_0_8_sex_check",
-     "line": 812,
-     "end": 826,
+     "line": 824,
+     "end": 838,
      "args": [
       "record",
       "sex_intensities"
@@ -923,8 +923,8 @@
      "file": "stage_0_intake.py",
      "function": "_fmt",
      "name": "_fmt",
-     "line": 841,
-     "end": 842,
+     "line": 853,
+     "end": 854,
      "args": [
       "x",
       "nd"
@@ -941,15 +941,15 @@
      "file": "stage_0_intake.py",
      "function": "explain_stage0",
      "name": "explain_stage0",
-     "line": 843,
-     "end": 896,
+     "line": 855,
+     "end": 914,
      "args": [
       "record",
       "hard_fail",
       "borderline",
       "deferred"
      ],
-     "lines": 54,
+     "lines": 60,
      "doc": "",
      "constants": [
       "BEAD_COUNT_MIN",
@@ -975,8 +975,8 @@
      "file": "stage_0_intake.py",
      "function": "explain_stage0.add",
      "name": "add",
-     "line": 845,
-     "end": 846,
+     "line": 857,
+     "end": 858,
      "args": [
       "check",
       "outcome",
@@ -999,8 +999,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_9_decision_gate",
      "name": "step_0_9_decision_gate",
-     "line": 899,
-     "end": 978,
+     "line": 917,
+     "end": 996,
      "args": [
       "record",
       "verdict_log_path"
@@ -1021,7 +1021,7 @@
   },
   {
    "file": "stage_0_1_qc_handoff.py",
-   "lines": 180,
+   "lines": 194,
    "functions": [
     {
      "file": "stage_0_1_qc_handoff.py",
@@ -1084,13 +1084,13 @@
      "function": "decode_qc_inputs",
      "name": "decode_qc_inputs",
      "line": 55,
-     "end": 179,
+     "end": 193,
      "args": [
       "grn_path",
       "red_path",
       "array_type"
      ],
-     "lines": 125,
+     "lines": 139,
      "doc": "",
      "constants": [],
      "data_files": [],
@@ -1121,8 +1121,8 @@
      "file": "stage_0_1_qc_handoff.py",
      "function": "decode_qc_inputs._at",
      "name": "_at",
-     "line": 135,
-     "end": 140,
+     "line": 149,
+     "end": 154,
      "args": [
       "series",
       "addr"
@@ -1139,8 +1139,8 @@
      "file": "stage_0_1_qc_handoff.py",
      "function": "decode_qc_inputs.sex_median",
      "name": "sex_median",
-     "line": 166,
-     "end": 170,
+     "line": 180,
+     "end": 184,
      "args": [
       "which"
      ],

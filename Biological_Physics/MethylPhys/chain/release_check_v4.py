@@ -175,7 +175,7 @@ def V9(tmp):
     import stage_0_intake as S0
     ok_rec = dict(status="IDAT_OK", integrity_status="INTEGRITY_OK", ctrl_qc="PASS", ctrl_qc_metrics={}, detection_qc="PASS", call_rate_status="CALL_RATE_PASS",
                   call_rate=0.99, hm450_coverage_gate="NA_EPIC", sex_check="MATCH", bead_qc="PASS")
-    hyb = S0.validate_control_probes(dict(bisulfite_conversion_I_median=3e4, bisulfite_conversion_II_median=1e3, hyb_high_median=7300., hyb_low_median=21170., extension_meth_median=1e4, extension_unmeth_median=1e4))
+    hyb = S0.validate_control_probes(dict(bisulfite_conversion_I_median=3e4, bisulfite_conversion_II_median=1e3, hyb_high_median=9000., hyb_low_median=7000., hyb_medium_median=8000., extension_meth_median=1e4, extension_unmeth_median=1e4))
     ext = S0.validate_control_probes(dict(bisulfite_conversion_I_median=3e4, bisulfite_conversion_II_median=1e3, hyb_high_median=2e4, hyb_low_median=5e3, extension_meth_median=1e4, extension_unmeth_median=1e3))
     cases = {"intake files": dict(status="QUARANTINE_MISSING_CHANNEL", flags=["MISSING_CHANNEL:red"]), "integrity": dict(integrity_status="RE_TRANSMISSION_DETECTED"),
              "hybridization controls": dict(ctrl_qc=hyb["ctrl_qc"], ctrl_qc_metrics=hyb["metrics"]), "extension controls": dict(ctrl_qc=ext["ctrl_qc"], ctrl_qc_metrics=ext["metrics"]),
@@ -193,8 +193,12 @@ def V9(tmp):
     for k in ("met_a", "tare", "met_a_cscore"):
         why = str((_o.get(k) or {}).get("reason") or "")
         if not _re.search(r"\d+ of \d+", why) or "required" not in why: bad.append(f"{k} gives no measured reason: {why[:80]!r}")
+    swp = S0.validate_control_probes(dict(bisulfite_conversion_I_median=0.97, bisulfite_conversion_II_median=0.03, hyb_high_median=6845., hyb_low_median=20040.,
+                                          hyb_medium_median=12834., extension_meth_median=1e4, extension_unmeth_median=1e4))   # the swapped GSE184269 slides
+    swap_ok = "HYB_FAIL" not in swp["flags"] and str(swp["metrics"].get("hyb_order", "")).startswith("swapped")
+    if not swap_ok: bad.append(f"a High/Low label swap (spread intact, medium between) is stopped or not recorded: {swp['ctrl_qc']}")
     rec("V9", not bad and clean and hyb["ctrl_qc"].startswith("FAIL") and ext["ctrl_qc"].startswith("FAIL"),
-        f"{len(cases)} kinds of Stage 0 stop and 3 downstream stops (Met-A, tare, C-Score) checked; {len(bad)} unexplained; a clean array proceeds with nothing to explain: {clean}" + (f"; MISSING: {bad}" if bad else ""))
+        f"{len(cases)} kinds of Stage 0 stop and 3 downstream stops (Met-A, tare, C-Score) checked; {len(bad)} unexplained; a clean array proceeds with nothing to explain: {clean}; a High/Low swap proceeds, recorded: {swap_ok}" + (f"; MISSING: {bad}" if bad else ""))
 
 def V10(tmp):
     import stage_groupa as GA, ast as _ast

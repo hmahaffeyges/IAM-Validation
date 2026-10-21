@@ -7,8 +7,8 @@ Read from the code at build time: the one command can load **22 Python files** h
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
 | `MethylPhys_Interface/run_sample.py` | 702 | 13 | 11 | 10 |
-| `stage_0_intake.py` | 1,132 | 38 | 33 | 1 |
-| `stage_0_1_qc_handoff.py` | 180 | 7 | 7 | 0 |
+| `stage_0_intake.py` | 1,152 | 38 | 33 | 1 |
+| `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
 | `conductor_v3.py` | 309 | 19 | 18 | 0 |
 | `stage_m_met_a.py` | 81 | 6 | 3 | 0 |
@@ -234,7 +234,7 @@ anything else are refused with the reason, and nothing is read.
 | 0.1 arrival | the manifest's required fields (Sentrix ID, array type, identifier, intake date, specimen); both channels present; each IDAT at least 1 MB; the array type in the IDAT header against the declared one | quarantine on a missing field, a missing channel, a truncated file, or a 450K/EPIC family swap; a note on an EPIC v1/v2 subtype difference; a soft warning on the same Sentrix ID taken in within 24 h | fixed rules (SOP 11): `MIN_PLAUSIBLE_IDAT_BYTES` 1,000,000; header address count below 800,000 is 450K, below 1,080,000 EPIC v1, above EPIC v2 |
 | 0.2 manifest | builds the immutable per-sample record; the identifier must already be a hash | quarantine on a cleartext identifier (spaces, an @, under 16 characters) or a missing core field | fixed rules (SOP 12) |
 | 0.3 integrity | SHA-256 of both files against earlier intakes of the same Sentrix ID in this intake log | identical bytes again: re-transmission, the run stops; same Sentrix ID with different bytes: a re-run of a fresh array, read | fixed rule (SOP 13) |
-| 0.4 control probes | bisulfite conversion (C/(C+U) per matched BS Conversion I pair, median over pairs), hybridization (high against low concentration, green) and extension (green C and G against red A and T) controls, from the array's own control addresses | a failed hybridization or extension stops the array; the bisulfite number is printed and never stops an array on its own | `HYB_HIGH_LOW_MIN_RATIO` 2.0 and `EXTENSION_BALANCE_RANGE` 0.2 to 5.0, both **provisional**; bisulfite at least 0.95, **provisional** (as written it refuses 731 of 731 healthy arrays) |
+| 0.4 control probes | bisulfite conversion (C/(C+U) per matched BS Conversion I pair, each pair in its own channel, median over pairs), hybridization (the spread between the high and low concentration controls, with medium between them, green) and extension (green C and G against red A and T) controls, from the array's own control addresses | a failed hybridization or extension stops the array; a high/low swap with the spread intact is recorded, not a stop; the bisulfite number is printed and never stops an array on its own | `HYB_HIGH_LOW_MIN_RATIO` 2.0 and `EXTENSION_BALANCE_RANGE` 0.2 to 5.0, both **provisional**; bisulfite at least 0.95, **provisional** (healthy arrays read 0.927 to 0.978 since the channel fix of 2026-10-20; the limit is to be set from them) |
 | 0.5 detection | per probe, p = 1 − Φ((I − μ_bg)/σ_bg) against this array's negative-control background; the share of probes with p ≤ 0.01 | above 0.99 passes; 0.93 to 0.99 is read with a penalty flag; below 0.93 stops | `intake_thresholds_v1.json` detection |
 | 0.6 bead counts | the share of probes resting on at least 3 beads | below 0.995 a penalty flag; never stops | `BEAD_COUNT_MIN` 3; `intake_thresholds_v1.json` bead |
 | 0.7 call rate | the share of probes passing both detection and bead count | 0.98 or more passes; 0.93 to 0.98 penalty; below 0.93 stops | `intake_thresholds_v1.json` call_rate; the 0.93 line was set by the author on 2026-09-27 from 48 arrays, 12 from each of four commissioning laboratories |
@@ -394,112 +394,114 @@ same decoder Stage 1 uses. The array's own controls only.
 
 Step 0.4's arithmetic. Bisulfite: `bs1 / (bs1 + bs2)` against 0.95, where the QC hand-off passes in the matched-pair conversion
 efficiency and its complement under the keys `bisulfite_conversion_I_median` and `bisulfite_conversion_II_median` (so the ratio is the
-efficiency itself; the key names are older than the pair method). Hybridization: the high-concentration median over the low-concentration
-median, at least 2. Extension: the green-channel (C and G) extension median over the red-channel (A and T) median, between 0.2 and 5;
+efficiency itself; the key names are older than the pair method). Hybridization: the spread, the larger of the high- and low-concentration
+medians over the smaller, at least 2, with the medium control between them. A high control reading where the low one should (and the
+reverse) with the spread intact is recorded as a swapped order, not a stop: on two whole slides of GSE184269 High and Low trade values
+exactly (21,304 and 20,040; 6,514 and 6,845) while Medium is unchanged (12,822 and 12,834), which a failed hybridization cannot do. Extension: the green-channel (C and G) extension median over the red-channel (A and T) median, between 0.2 and 5;
 the record calls these "meth" and "unmeth", which they are not. When the bisulfite number is the only failure, the verdict is PROVISIONAL and the array advances, because that limit has not been
 set from healthy arrays. Records the raw medians the gates tested.
 
-*Code:* `stage_0_intake.py` line 539 (41 lines) · arguments: control_summary · calls: array run 2 · constants read: `BS_CONVERSION_MIN`, `BS_THRESHOLD_CALIBRATED`, `EXTENSION_BALANCE_RANGE`, `HYB_HIGH_LOW_MIN_RATIO`
+*Code:* `stage_0_intake.py` line 539 (53 lines) · arguments: control_summary · calls: array run 2 · constants read: `BS_CONVERSION_MIN`, `BS_THRESHOLD_CALIBRATED`, `EXTENSION_BALANCE_RANGE`, `HYB_HIGH_LOW_MIN_RATIO`
 
 ### `stage_0_intake.py::step_0_4_control_probe_validation`
 
 Step 0.4: runs `validate_control_probes` on the hand-off's control summary and stamps the verdict and its numbers. With no decoder
 available it marks the check deferred rather than inventing a pass.
 
-*Code:* `stage_0_intake.py` line 582 (20 lines) · arguments: record, grn_path, red_path, control_summary · calls: array run 1
+*Code:* `stage_0_intake.py` line 594 (20 lines) · arguments: record, grn_path, red_path, control_summary · calls: array run 1
 
 ### `stage_0_intake.py::_normal_sf`
 
 The normal survival function, 1 − Φ(z), from scipy when it is installed, otherwise from the complementary error function.
 
-*Code:* `stage_0_intake.py` line 621 (9 lines) · arguments: z · calls: array run 2
+*Code:* `stage_0_intake.py` line 633 (9 lines) · arguments: z · calls: array run 2
 
 ### `stage_0_intake.py::compute_detection_p`
 
 Per probe, the detection p-value 1 − Φ((I − μ_bg)/σ_bg), with μ_bg and σ_bg this array's negative-control background.
 
-*Code:* `stage_0_intake.py` line 632 (6 lines) · arguments: probe_intensities, mu_bg, sigma_bg · calls: array run 2
+*Code:* `stage_0_intake.py` line 644 (6 lines) · arguments: probe_intensities, mu_bg, sigma_bg · calls: array run 2
 
 ### `stage_0_intake.py::validate_detection_p`
 
 The share of probes with detection p ≤ 0.01, graded against the thresholds file: above 0.99 PASS, from 0.93 BORDERLINE, below FAIL.
 
-*Code:* `stage_0_intake.py` line 640 (15 lines) · arguments: detection_p_array · calls: array run 2 · constants read: `DETECTION_BORDERLINE_FRACTION`, `DETECTION_PASS_FRACTION`, `DETECTION_P_THRESHOLD` · files named: `intake_thresholds_v1.json`
+*Code:* `stage_0_intake.py` line 652 (15 lines) · arguments: detection_p_array · calls: array run 2 · constants read: `DETECTION_BORDERLINE_FRACTION`, `DETECTION_PASS_FRACTION`, `DETECTION_P_THRESHOLD` · files named: `intake_thresholds_v1.json`
 
 ### `stage_0_intake.py::step_0_5_detection_pvalue_qc`
 
 Step 0.5: computes and grades detection. Without intensities the check is deferred, and a deferred detection never advances.
 
-*Code:* `stage_0_intake.py` line 657 (22 lines) · arguments: record, probe_intensities, neg_control_stats · calls: array run 1
+*Code:* `stage_0_intake.py` line 669 (22 lines) · arguments: record, probe_intensities, neg_control_stats · calls: array run 1
 
 ### `stage_0_intake.py::validate_bead_count`
 
 The share of probes with at least 3 beads: 0.995 or more PASS, otherwise a warning. Never stops an array.
 
-*Code:* `stage_0_intake.py` line 689 (8 lines) · arguments: bead_counts, min_beads · calls: array run 1 · constants read: `BEAD_COUNT_MIN`, `BEAD_PASS_FRACTION`
+*Code:* `stage_0_intake.py` line 701 (8 lines) · arguments: bead_counts, min_beads · calls: array run 1 · constants read: `BEAD_COUNT_MIN`, `BEAD_PASS_FRACTION`
 
 ### `stage_0_intake.py::step_0_6_bead_count_qc`
 
 Step 0.6: grades the bead counts and flags a low count. Always advances.
 
-*Code:* `stage_0_intake.py` line 699 (14 lines) · arguments: record, bead_counts · calls: array run 1
+*Code:* `stage_0_intake.py` line 711 (14 lines) · arguments: record, bead_counts · calls: array run 1
 
 ### `stage_0_intake.py::validate_call_rate`
 
 The share of probes passing both detection and bead count, graded: 0.98 or more PASS, from 0.93 BORDERLINE, below FAIL.
 
-*Code:* `stage_0_intake.py` line 723 (9 lines) · arguments: n_passing_both, n_total · calls: array run 2 · constants read: `CALL_RATE_BORDERLINE`, `CALL_RATE_PASS`
+*Code:* `stage_0_intake.py` line 735 (9 lines) · arguments: n_passing_both, n_total · calls: array run 2 · constants read: `CALL_RATE_BORDERLINE`, `CALL_RATE_PASS`
 
 ### `stage_0_intake.py::step_0_7_call_rate`
 
 Step 0.7: combines the detection and bead masks probe by probe and grades the call rate. Without masks the check is deferred, and a
 deferred call rate never advances.
 
-*Code:* `stage_0_intake.py` line 734 (22 lines) · arguments: record, detection_pass_mask, bead_pass_mask · calls: array run 1
+*Code:* `stage_0_intake.py` line 746 (22 lines) · arguments: record, detection_pass_mask, bead_pass_mask · calls: array run 1
 
 ### `stage_0_intake.py::step_0_7b_platform_coverage`
 
 Step 0.7b: stamps the platform tag. On a 450K array it stops below 80 % of the reference sites; on EPIC it records `NA_EPIC` and passes.
 
-*Code:* `stage_0_intake.py` line 765 (25 lines) · arguments: record, reference_cpg_coverage · calls: array run 2 · constants read: `HM450_COVERAGE_MIN`
+*Code:* `stage_0_intake.py` line 777 (25 lines) · arguments: record, reference_cpg_coverage · calls: array run 2 · constants read: `HM450_COVERAGE_MIN`
 
 ### `stage_0_intake.py::predict_sex`
 
 Female when the median log2 Y intensity minus the median log2 X intensity is below −2, otherwise male (minfi's getSex rule).
 
-*Code:* `stage_0_intake.py` line 799 (2 lines) · arguments: log2_x_median, log2_y_median, cutoff · calls: array run 1 · constants read: `SEX_GETSEX_CUTOFF`
+*Code:* `stage_0_intake.py` line 811 (2 lines) · arguments: log2_x_median, log2_y_median, cutoff · calls: array run 1 · constants read: `SEX_GETSEX_CUTOFF`
 
 ### `stage_0_intake.py::validate_sex`
 
 Compares the predicted sex with a declared one. No declared sex: the array's sex is recorded and nothing is compared. A mismatch stops
 the array.
 
-*Code:* `stage_0_intake.py` line 803 (7 lines) · arguments: log2_x_median, log2_y_median, declared_sex · calls: array run 1
+*Code:* `stage_0_intake.py` line 815 (7 lines) · arguments: log2_x_median, log2_y_median, declared_sex · calls: array run 1
 
 ### `stage_0_intake.py::step_0_8_sex_check`
 
 Step 0.8: runs the sex check on the hand-off's X and Y medians and stamps the result.
 
-*Code:* `stage_0_intake.py` line 812 (15 lines) · arguments: record, sex_intensities · calls: array run 1
+*Code:* `stage_0_intake.py` line 824 (15 lines) · arguments: record, sex_intensities · calls: array run 1
 
 ### `stage_0_intake.py::_fmt`
 
 Formats a measured number for an explanation, or says "not measured".
 
-*Code:* `stage_0_intake.py` line 841 (2 lines) · arguments: x, nd · calls: array run 2
+*Code:* `stage_0_intake.py` line 853 (2 lines) · arguments: x, nd · calls: array run 2
 
 ### `stage_0_intake.py::explain_stage0`
 
 Builds the five-part explanation of every check that stopped, penalized or deferred the array (measured on this array, the limit, the
 limit's source and whether it is provisional, what it means, what to do). Changes no decision.
 
-*Code:* `stage_0_intake.py` line 843 (54 lines) · arguments: record, hard_fail, borderline, deferred · calls: array run 2 · constants read: `BEAD_COUNT_MIN`, `BEAD_PASS_FRACTION`, `BS_CONVERSION_MIN`, `BS_THRESHOLD_CALIBRATED`, `CALL_RATE_BORDERLINE`, `CALL_RATE_PASS`, `DETECTION_BORDERLINE_FRACTION`, `DETECTION_PASS_FRACTION`, `EXTENSION_BALANCE_RANGE`, `HM450_COVERAGE_MIN`, `HYB_HIGH_LOW_MIN_RATIO`, `SEX_GETSEX_CUTOFF`, `_TH_SRC`
+*Code:* `stage_0_intake.py` line 855 (60 lines) · arguments: record, hard_fail, borderline, deferred · calls: array run 2 · constants read: `BEAD_COUNT_MIN`, `BEAD_PASS_FRACTION`, `BS_CONVERSION_MIN`, `BS_THRESHOLD_CALIBRATED`, `CALL_RATE_BORDERLINE`, `CALL_RATE_PASS`, `DETECTION_BORDERLINE_FRACTION`, `DETECTION_PASS_FRACTION`, `EXTENSION_BALANCE_RANGE`, `HM450_COVERAGE_MIN`, `HYB_HIGH_LOW_MIN_RATIO`, `SEX_GETSEX_CUTOFF`, `_TH_SRC`
 
 ### `stage_0_intake.py::explain_stage0.add`
 
 Adds one explanation to the list.
 
-*Code:* `stage_0_intake.py` line 845 (2 lines) · arguments: check, outcome, measured, limit, source, provisional, means, todo · calls: array run 2
+*Code:* `stage_0_intake.py` line 857 (2 lines) · arguments: check, outcome, measured, limit, source, provisional, means, todo · calls: array run 2
 
 ### `stage_0_intake.py::step_0_9_decision_gate`
 
@@ -507,7 +509,7 @@ Step 0.9: sorts every step's outcome into hard failures, penalties and deferrals
 or PROCEED). A deferred detection or call rate is a hard failure; a deferred bead count or provisional bisulfite number is recorded.
 Attaches the explanations and logs the verdict.
 
-*Code:* `stage_0_intake.py` line 899 (80 lines) · arguments: record, verdict_log_path · calls: array run 2
+*Code:* `stage_0_intake.py` line 917 (80 lines) · arguments: record, verdict_log_path · calls: array run 2
 
 ## 3. The QC hand-off: `stage_0_1_qc_handoff.py`
 
@@ -520,8 +522,12 @@ the control addresses of the array's own manifest. Nothing from any other sample
 **What it returns.**
 
 - **Control summary.** Bisulfite conversion: for each matched BS Conversion I pair (C1 with U1, C2 with U2, ...), the converted signal
-  over converted plus unconverted, C/(C+U), and the median over the pairs. Hybridization: the medians of the high- and
-  low-concentration controls (green). Extension: the median of the C and G controls (green) and of the A and T controls (red).
+  over converted plus unconverted, C/(C+U), and the median over the pairs. Each pair is read in its own channel, the one where the pair's
+  total C + U is brighter: on EPIC v1, pairs 1 and 2 are green probes and 3 to 5 red. Until 2026-10-20 every pair was read in green, which
+  put three of five at background on both probes and gave every healthy array about 0.7 (0.738 median on 61 healthy arrays; 0.970 read
+  correctly, range 0.927 to 0.978; `doors/data/PROC_STAGE0_04/bs_channel_explore.py`). The sum C + U is used to find the channel because
+  it stays bright whether conversion worked (C bright) or failed (U bright). Each pair's channel and contrast are recorded. Hybridization:
+  the medians of the high-, medium- and low-concentration controls (green). Extension: the median of the C and G controls (green) and of the A and T controls (red).
 - **Negative-control background.** The negative controls summed over both channels, summarized robustly as the median and 1.4826 times
   the median absolute deviation (MAD). The mean and standard deviation are returned beside them. The robust form was adopted on
   2026-09-23 after a few EPIC negative controls carrying real signal (one at 29,110 against a median of 134) pushed the standard
@@ -557,7 +563,7 @@ The median intensity over a list of control addresses, ignoring addresses the fi
 Builds everything Stage 0's gates read, as listed above, from the two files and the manifest. Returns the probe identifiers in the same
 order as the intensities and bead counts, so Stage 1's call rate can line them up later.
 
-*Code:* `stage_0_1_qc_handoff.py` line 55 (125 lines) · arguments: grn_path, red_path, array_type · calls: array run 1
+*Code:* `stage_0_1_qc_handoff.py` line 55 (139 lines) · arguments: grn_path, red_path, array_type · calls: array run 1
 
 ### `stage_0_1_qc_handoff.py::decode_qc_inputs.ctl_addr`
 
@@ -569,13 +575,13 @@ The manifest addresses of one control type, optionally narrowed to extended type
 
 The intensity at each probe's address, with a gap where the probe has no such address.
 
-*Code:* `stage_0_1_qc_handoff.py` line 135 (6 lines) · arguments: series, addr · calls: array run 8
+*Code:* `stage_0_1_qc_handoff.py` line 149 (6 lines) · arguments: series, addr · calls: array run 8
 
 ### `stage_0_1_qc_handoff.py::decode_qc_inputs.sex_median`
 
 log2 of the median total intensity over the X (or Y) probes the array measured, and how many probes that was.
 
-*Code:* `stage_0_1_qc_handoff.py` line 166 (5 lines) · arguments: which · calls: array run 2
+*Code:* `stage_0_1_qc_handoff.py` line 180 (5 lines) · arguments: which · calls: array run 2
 
 ## 4. Stage 1, calibration: `stage_1_idat_calibration.py`
 

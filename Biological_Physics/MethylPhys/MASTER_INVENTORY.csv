@@ -218,7 +218,7 @@ GSE230850,,,,,spent,,,,not usable (not purified (PBMC)),,yes,IDAT listed for 189
 GSE231417,,,,,spent,,,,not usable (same group as the atlas (Salas/Koestler/Christensen/Kelsey/Wiencke); gMDSC),,no,IDAT listed for 14/14 samples,A core of differentially methylated CpG loci in gMDSCs isolated from neonatal and adult sources,gold-mine map
 GSE234520,,,,,,,,DEV_IAMA_NEURON_01,atlas build,cortical neurons | oligodendrocytes | microglia,yes,IDAT listed for 112/112 samples,Quantifying the neuronal and glial composition of the brain using DNA methylation profiles,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE235414,,,,,,,,DEV_FINGERPRINT_03,,,,,Genome-wide DNA methylation analysis of driver gene-negative and EGFR-mutation lung adenocarcinoma and ajacent normal tissue,candidates DEV_FINGERPRINT_03
-GSE235717,,,,,spent,,,COMMISSIONING_NOTE_CSCORE; DEV_GROUPA_COMMISSION_01,,,,,,
+GSE235717,,,,,spent,,,COMMISSIONING_NOTE_CSCORE; DEV_GROUPA_COMMISSION_01; PROC_STAGE0_04_PREREG,,,,,,
 GSE236026,,,,,,,,DEV_HORIZON_01,,,,,,
 GSE237299,downloads/A_blood_immune/GSE237299/,39.61,IDAT,yes,unspent,,,,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE237553,,,,,,scored,DEV_LINK_IAMA_METAA_02,DEV_LINK_IAMA_METAA_02,,,,,,
@@ -299,7 +299,7 @@ GSE315367,downloads/A_blood_immune/GSE315367/,1.28,IDAT,yes,spent,,,PROC_AML_SER
 GSE315451,downloads/A_blood_immune/GSE315451/,3.08,IDAT,yes,unspent,,,,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE316309,,,,,,,,,,,,,Characterization of DNA methylation patterns in early-stage NSCLC,candidates DEV_FINGERPRINT_03
 GSE316492,downloads/E_dog_animal/GSE316492/,0.59,,,unspent,,,,,,,,Dog and other mammal arrays,S3 register
-GSE318173,,,,,"partly spent (the 278 healthy controls read once, 2026-10-20)",scored,DEV_GROUPA_COMMISSION_01,COMMISSIONING_NOTE_GROUPA; DEV_GROUPA_COMMISSION_01,,,,,,
+GSE318173,,,,,"partly spent (the 278 healthy controls read once, 2026-10-20)",scored,DEV_GROUPA_COMMISSION_01,COMMISSIONING_NOTE_GROUPA; DEV_GROUPA_COMMISSION_01; PROC_STAGE0_04_PREREG,,,,,,
 GSE318453,,,,,,,,,research,tonsil NK developmental intermediates,yes,IDAT listed for 66/66 samples,IL-15 Signaling During a Critical NK Cell Developmental Window Subverts Maturation and KIR Acquisition [Methylation array],gold-mine map
 GSE318669,,,,,,,,DEV_METAA_450K_01,research,monocytes | granulocytes | b cells | cd4 t cells | cd8 t cells | nk cells,yes,IDAT listed for 54/54 samples,Smoking effect on DNA methylation in human blood cell types (1),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE324619,,,,,,,,,not usable (controlled access (raw WGBS going to NIH Aging Research Biobank; GEO has matrices only)),monocytes,yes,no per-sample IDAT or SRA link (series files: GSE324619_AFA_chr10_methylation_matrix.tsv.gz; GSE324619_AFA_chr11_methylation_m),An atlas of genetic effects on the monocyte methylome across European and African populations,gold-mine map; candidates DEV_ATLAS_COMMISSION_01

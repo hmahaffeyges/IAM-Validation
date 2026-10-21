@@ -170,7 +170,7 @@ anything else are refused with the reason, and nothing is read.
 | 0.1 arrival | the manifest's required fields (Sentrix ID, array type, identifier, intake date, specimen); both channels present; each IDAT at least 1 MB; the array type in the IDAT header against the declared one | quarantine on a missing field, a missing channel, a truncated file, or a 450K/EPIC family swap; a note on an EPIC v1/v2 subtype difference; a soft warning on the same Sentrix ID taken in within 24 h | fixed rules (SOP 11): `MIN_PLAUSIBLE_IDAT_BYTES` 1,000,000; header address count below 800,000 is 450K, below 1,080,000 EPIC v1, above EPIC v2 |
 | 0.2 manifest | builds the immutable per-sample record; the identifier must already be a hash | quarantine on a cleartext identifier (spaces, an @, under 16 characters) or a missing core field | fixed rules (SOP 12) |
 | 0.3 integrity | SHA-256 of both files against earlier intakes of the same Sentrix ID in this intake log | identical bytes again: re-transmission, the run stops; same Sentrix ID with different bytes: a re-run of a fresh array, read | fixed rule (SOP 13) |
-| 0.4 control probes | bisulfite conversion (C/(C+U) per matched BS Conversion I pair, median over pairs), hybridization (high against low concentration, green) and extension (green C and G against red A and T) controls, from the array's own control addresses | a failed hybridization or extension stops the array; the bisulfite number is printed and never stops an array on its own | `HYB_HIGH_LOW_MIN_RATIO` 2.0 and `EXTENSION_BALANCE_RANGE` 0.2 to 5.0, both **provisional**; bisulfite at least 0.95, **provisional** (as written it refuses 731 of 731 healthy arrays) |
+| 0.4 control probes | bisulfite conversion (C/(C+U) per matched BS Conversion I pair, each pair in its own channel, median over pairs), hybridization (the spread between the high and low concentration controls, with medium between them, green) and extension (green C and G against red A and T) controls, from the array's own control addresses | a failed hybridization or extension stops the array; a high/low swap with the spread intact is recorded, not a stop; the bisulfite number is printed and never stops an array on its own | `HYB_HIGH_LOW_MIN_RATIO` 2.0 and `EXTENSION_BALANCE_RANGE` 0.2 to 5.0, both **provisional**; bisulfite at least 0.95, **provisional** (healthy arrays read 0.927 to 0.978 since the channel fix of 2026-10-20; the limit is to be set from them) |
 | 0.5 detection | per probe, p = 1 − Φ((I − μ_bg)/σ_bg) against this array's negative-control background; the share of probes with p ≤ 0.01 | above 0.99 passes; 0.93 to 0.99 is read with a penalty flag; below 0.93 stops | `intake_thresholds_v1.json` detection |
 | 0.6 bead counts | the share of probes resting on at least 3 beads | below 0.995 a penalty flag; never stops | `BEAD_COUNT_MIN` 3; `intake_thresholds_v1.json` bead |
 | 0.7 call rate | the share of probes passing both detection and bead count | 0.98 or more passes; 0.93 to 0.98 penalty; below 0.93 stops | `intake_thresholds_v1.json` call_rate; the 0.93 line was set by the author on 2026-09-27 from 48 arrays, 12 from each of four commissioning laboratories |
@@ -269,8 +269,10 @@ same decoder Stage 1 uses. The array's own controls only.
 ### stage_0_intake.py::validate_control_probes
 Step 0.4's arithmetic. Bisulfite: `bs1 / (bs1 + bs2)` against 0.95, where the QC hand-off passes in the matched-pair conversion
 efficiency and its complement under the keys `bisulfite_conversion_I_median` and `bisulfite_conversion_II_median` (so the ratio is the
-efficiency itself; the key names are older than the pair method). Hybridization: the high-concentration median over the low-concentration
-median, at least 2. Extension: the green-channel (C and G) extension median over the red-channel (A and T) median, between 0.2 and 5;
+efficiency itself; the key names are older than the pair method). Hybridization: the spread, the larger of the high- and low-concentration
+medians over the smaller, at least 2, with the medium control between them. A high control reading where the low one should (and the
+reverse) with the spread intact is recorded as a swapped order, not a stop: on two whole slides of GSE184269 High and Low trade values
+exactly (21,304 and 20,040; 6,514 and 6,845) while Medium is unchanged (12,822 and 12,834), which a failed hybridization cannot do. Extension: the green-channel (C and G) extension median over the red-channel (A and T) median, between 0.2 and 5;
 the record calls these "meth" and "unmeth", which they are not. When the bisulfite number is the only failure, the verdict is PROVISIONAL and the array advances, because that limit has not been
 set from healthy arrays. Records the raw medians the gates tested.
 
@@ -342,8 +344,12 @@ the control addresses of the array's own manifest. Nothing from any other sample
 **What it returns.**
 
 - **Control summary.** Bisulfite conversion: for each matched BS Conversion I pair (C1 with U1, C2 with U2, ...), the converted signal
-  over converted plus unconverted, C/(C+U), and the median over the pairs. Hybridization: the medians of the high- and
-  low-concentration controls (green). Extension: the median of the C and G controls (green) and of the A and T controls (red).
+  over converted plus unconverted, C/(C+U), and the median over the pairs. Each pair is read in its own channel, the one where the pair's
+  total C + U is brighter: on EPIC v1, pairs 1 and 2 are green probes and 3 to 5 red. Until 2026-10-20 every pair was read in green, which
+  put three of five at background on both probes and gave every healthy array about 0.7 (0.738 median on 61 healthy arrays; 0.970 read
+  correctly, range 0.927 to 0.978; `doors/data/PROC_STAGE0_04/bs_channel_explore.py`). The sum C + U is used to find the channel because
+  it stays bright whether conversion worked (C bright) or failed (U bright). Each pair's channel and contrast are recorded. Hybridization:
+  the medians of the high-, medium- and low-concentration controls (green). Extension: the median of the C and G controls (green) and of the A and T controls (red).
 - **Negative-control background.** The negative controls summed over both channels, summarized robustly as the median and 1.4826 times
   the median absolute deviation (MAD). The mean and standard deviation are returned beside them. The robust form was adopted on
   2026-09-23 after a few EPIC negative controls carrying real signal (one at 29,110 against a median of 134) pushed the standard

@@ -523,7 +523,7 @@ def step_0_3_integrity_hash(record: dict, grn_path: str, red_path: str,
 
 BS_CONVERSION_MIN = float(_TH["bisulfite_conversion"]["min"])   # intake_thresholds_v1.json bisulfite_conversion.min (provisional)
 BS_THRESHOLD_CALIBRATED = False        # set True when PROC-STAGE0-04 fixes it on healthy arrays
-HYB_HIGH_LOW_MIN_RATIO = 2.0           # provisional — confirm vs Illumina control spec
+HYB_HIGH_LOW_MIN_RATIO = 2.0           # provisional: the spread between the high and low hybridization controls (larger over smaller)
 EXTENSION_BALANCE_RANGE = (0.2, 5.0)   # provisional: green (C, G) over red (A, T) extension controls; the record keys say meth/unmeth, which they are not
 
 
@@ -546,6 +546,7 @@ def validate_control_probes(control_summary: dict) -> dict:
     if bs1 is not None and bs2 is not None and (bs1 + bs2) > 0:
         bs_eff = bs1 / (bs1 + bs2)
         metrics["bisulfite_conversion_efficiency"] = round(bs_eff, 4)
+        if control_summary.get("bisulfite_pairs"): metrics["bisulfite_pairs"] = control_summary["bisulfite_pairs"]   # each pair's channel (2026-10-20, F8)
         if bs_eff < BS_CONVERSION_MIN:
             flags.append("BS_CONVERSION_LOW")
 
@@ -555,8 +556,19 @@ def validate_control_probes(control_summary: dict) -> dict:
         metrics["hyb_signal"] = round(hh - hl, 2)
         metrics["hyb_high_median"] = round(float(hh), 1); metrics["hyb_low_median"] = round(float(hl), 1)
         metrics["hyb_high_low_ratio"] = round(float(hh) / float(hl), 3) if hl > 0 else None
-        if not (hl > 0 and hh / hl >= HYB_HIGH_LOW_MIN_RATIO):
+        # 2026-10-20 (PROC-STAGE0-04 exploration, 24 arrays of GSE184269): on two whole slides High and Low trade values exactly (21,304 <-> 20,040;
+        # 6,514 <-> 6,845) while Medium is unchanged (12,822 vs 12,834). A failed hybridization squeezes all three together; a swap keeps the
+        # spread. The gate tests the spread (larger over smaller, with Medium between them); a swapped order is recorded, not a stop.
+        hm = control_summary.get("hyb_medium_median")
+        lo_, hi_ = min(float(hh), float(hl)), max(float(hh), float(hl))
+        spread = hi_ / lo_ if lo_ > 0 else None
+        metrics["hyb_spread"] = round(spread, 3) if spread else None
+        if hm is not None: metrics["hyb_medium_median"] = round(float(hm), 1)
+        between = hm is None or lo_ <= float(hm) <= hi_
+        if not (spread and spread >= HYB_HIGH_LOW_MIN_RATIO and between):
             flags.append("HYB_FAIL")
+        elif hh < hl:
+            metrics["hyb_order"] = "swapped: the high control reads where the low one should and the reverse, with the medium control between them and the spread intact (a label or reagent swap, not a failed hybridization)"
 
     em = control_summary.get("extension_meth_median")
     eu = control_summary.get("extension_unmeth_median")
@@ -853,13 +865,19 @@ def explain_stage0(record, hard_fail, borderline, deferred):
         add("file integrity (Step 0.3)", "stopped", str(record.get("integrity_status")), "the same Sentrix ID with identical bytes not already taken in under this intake log (a re-transmission); a re-run with new bytes is read", "SOP section 13 (fixed rule)", False,
             "this exact pair of files was submitted before", "confirm the sample identifier; a true re-run of the same array is not a new specimen")
     m = record.get("ctrl_qc_metrics") or {}; cq = str(record.get("ctrl_qc") or "")
+    if str(m.get("hyb_order") or "").startswith("swapped"):
+        add("hybridization control order (Step 0.4)", "recorded, not used to stop",
+            f"high-concentration control {_fmt(m.get('hyb_high_median'),0)}, medium {_fmt(m.get('hyb_medium_median'),0)}, low {_fmt(m.get('hyb_low_median'),0)}",
+            "high above medium above low", "the Illumina hybridization control design (fixed rule)", False,
+            "high and low have traded places while the medium control sits between them and the spread is intact: a label or reagent swap on this array, not a failed hybridization (seen on whole slides of GSE184269)",
+            "nothing; if a whole slide shows it, note it with the laboratory")
     if cq.startswith(("FAIL", "PROVISIONAL")):
         hr = m.get("hyb_high_low_ratio"); er = m.get("extension_ratio"); bs = m.get("bisulfite_conversion_efficiency")
         if "HYB_FAIL" in cq:
             inv = hr is not None and hr < 1
             add("hybridization control probes (Step 0.4)", "stopped",
-                f"high-concentration control {_fmt(m.get('hyb_high_median'),0)}, low-concentration control {_fmt(m.get('hyb_low_median'),0)}, ratio high/low {_fmt(hr)}",
-                f"high at least {HYB_HIGH_LOW_MIN_RATIO:g} times low", "stage_0_intake.HYB_HIGH_LOW_MIN_RATIO", True,
+                f"high-concentration control {_fmt(m.get('hyb_high_median'),0)}, medium {_fmt(m.get('hyb_medium_median'),0)}, low-concentration control {_fmt(m.get('hyb_low_median'),0)}, spread {_fmt(m.get('hyb_spread'))}",
+                f"the larger of high and low at least {HYB_HIGH_LOW_MIN_RATIO:g} times the smaller, with medium between them", "stage_0_intake.HYB_HIGH_LOW_MIN_RATIO", True,
                 ("the high control reads BELOW the low one, the reverse of what the chemistry gives; on whole slides this is more often a control-address or labeling difference in the files than a failed hybridization, and the array's methylation values may still be sound"
                  if inv else "the hybridization controls are weaker than the array chemistry should give; the array may have hybridized poorly"),
                 "this limit is provisional (not yet set from healthy arrays, to-do PROC-STAGE0-04); if a whole slide is stopped this way, report it; the calibrated values can still be read with run_sample.py --betas, marked as having bypassed this check")
@@ -871,7 +889,7 @@ def explain_stage0(record, hard_fail, borderline, deferred):
         if "BS_CONVERSION_LOW" in cq or cq.startswith("PROVISIONAL"):
             add("bisulfite conversion control probes (Step 0.4)", "printed, not used to stop" if cq.startswith("PROVISIONAL") or not BS_THRESHOLD_CALIBRATED else "stopped",
                 f"conversion efficiency {_fmt(bs)}", f"at least {BS_CONVERSION_MIN:g}", _TH_SRC + "; status PROVISIONAL", True,
-                "as written this limit refuses 731 of 731 healthy arrays, so it is printed and never stops an array on its own",
+                "the conversion of this array's DNA is below the provisional line; healthy arrays read 0.927 to 0.978 (61 arrays, since the channel fix of 2026-10-20), and the line is printed, not used to stop, until it is set from them",
                 "nothing; it waits to be set from healthy arrays (PROC-STAGE0-04)")
     dq = str(record.get("detection_qc") or "")
     if dq == "FAIL_LOW_DETECTION" or dq == "DETECTION_BORDERLINE" or (dq.startswith("DEFERRED") and "detection" in deferred):
@@ -1060,6 +1078,8 @@ if __name__ == "__main__":
 
     bad_hyb = dict(passing, hyb_high_median=4200, hyb_low_median=4000)
     assert "HYB_FAIL" in validate_control_probes(bad_hyb)["flags"]
+    swap = validate_control_probes(dict(passing, hyb_high_median=6845, hyb_low_median=20040, hyb_medium_median=12834))   # the GSE184269 slides
+    assert "HYB_FAIL" not in swap["flags"] and swap["metrics"].get("hyb_order", "").startswith("swapped"), swap
 
     # deferred path (no summary, no decoder) -> advances with CTRL_QC_DEFERRED, no fake pass.
     r4 = step_0_4_control_probe_validation({"array_type": "EPIC_v1", "flags": []}, "g", "r")

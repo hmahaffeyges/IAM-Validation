@@ -85,12 +85,22 @@ def decode_qc_inputs(grn_path, red_path, array_type="HM450K"):
             pairs_ce[t[1:].strip() or "1"] = addr
         elif t.startswith("U"):
             pairs_ue[t[1:].strip() or "1"] = addr
-    effs = []
+    # 2026-10-20 (Chain Decoder finding F8, PROC-STAGE0-04 exploration on 21 healthy arrays): the BS Conversion I pairs are not all green
+    # probes. On EPIC v1, pairs 1-2 are read in green and 3-5 in red; reading every pair in green put three of five at background on both
+    # probes (C/(C+U) near 0.66-0.74), so every healthy array read about 0.7 against the 0.95 line. Each pair is now read in its own channel:
+    # the channel where the pair's total template, C + U, is brighter. Both probes of a pair share a channel, and their sum stays bright
+    # whether conversion worked (C bright) or failed (U bright), so a failed array cannot hide by being dropped. Channel and contrast recorded.
+    effs, bs_pairs = [], []
     for k in sorted(set(pairs_ce) & set(pairs_ue)):
-        c = gm.get(pairs_ce[k], np.nan)
-        u = gm.get(pairs_ue[k], np.nan)
-        if np.isfinite(c) and np.isfinite(u) and (c + u) > 0:
+        cg, ug = gm.get(pairs_ce[k], np.nan), gm.get(pairs_ue[k], np.nan)
+        cr, ur = rm.get(pairs_ce[k], np.nan), rm.get(pairs_ue[k], np.nan)
+        if not all(np.isfinite(v) for v in (cg, ug, cr, ur)): continue
+        ch = "green" if (cg + ug) >= (cr + ur) else "red"
+        c, u = (cg, ug) if ch == "green" else (cr, ur)
+        if (c + u) > 0:
             effs.append(c / (c + u))
+            bs_pairs.append(dict(pair=k, channel=ch, efficiency=round(float(c / (c + u)), 4),
+                                 contrast=round(float(max(cg + ug, cr + ur) / max(min(cg + ug, cr + ur), 1.0)), 1)))
     bs_c = float(np.median([gm.get(v, np.nan) for v in pairs_ce.values()])) if pairs_ce else None
     bs_u = float(np.median([gm.get(v, np.nan) for v in pairs_ue.values()])) if pairs_ue else None
     if effs:
@@ -98,10 +108,14 @@ def decode_qc_inputs(grn_path, red_path, array_type="HM450K"):
         eff = float(np.median(effs))
         bs_c, bs_u = eff, 1.0 - eff
     control_summary = {
+        "bisulfite_conversion_efficiency": float(np.median(effs)) if effs else None,   # the median over pairs of C/(C+U), each in its own channel
+        "bisulfite_pairs": bs_pairs,
+        # the two keys the validator divides (bs1/(bs1+bs2) = the efficiency); their names predate the matched-pair metric
         "bisulfite_conversion_I_median": bs_c,
         "bisulfite_conversion_II_median": bs_u,
         "hyb_high_median": _median(gm, ctl_addr("HYBRIDIZATION", contains="high")),
         "hyb_low_median":  _median(gm, ctl_addr("HYBRIDIZATION", contains="low")),
+        "hyb_medium_median": _median(gm, ctl_addr("HYBRIDIZATION", contains="medium")),   # 2026-10-20: the middle control, to tell a label swap from a failure
         # EXTENSION: C and G extend in green, A and T in red; a balanced array sits near 1
         "extension_meth_median":   _median(gm, ctl_addr("EXTENSION", contains=r"\((C|G)\)")),
         "extension_unmeth_median": _median(rm, ctl_addr("EXTENSION", contains=r"\((A|T)\)")),

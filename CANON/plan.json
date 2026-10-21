@@ -388,7 +388,7 @@
    "record": ""
   },
   {
-   "task": "Stage 0 control-probe limits set from healthy arrays (PROC-STAGE0-04): the bisulfite-conversion minimum (every rehearsal array, 0.66 to 0.70, falls below the provisional value), the hybridization high/low ratio and the extension band; first find why two whole slides of GSE184269 (200607130085, 200607130086) read hybridization high below low while their methylation reads normally (a control-address or labeling difference, or a real hybridization fault). After the sealed Group-A reading; release check and clean clone",
+   "task": "Stage 0 control-probe limits set from healthy arrays (PROC-STAGE0-04): the bisulfite-conversion minimum (2026-10-20: the low readings were the metric reading pairs 3-5 in the wrong channel; fixed in the chain; healthy now 0.927-0.978 on 61 arrays; the limit is the author's to set from the corrected distribution on more than one cohort), the hybridization high/low ratio and the extension band; the two GSE184269 slides (200607130085, 200607130086) with hybridization high below low: EXPLAINED 2026-10-20 - High and Low trade values exactly while Medium is unchanged, a label or reagent swap; the gate now tests the spread with Medium between and records a swapped order (V9 checks both). After the sealed Group-A reading; release check and clean clone",
    "done_when": "the three limits come from a stated healthy distribution, the inverted-hybridization slides are explained, and the release check passes",
    "rows": [
     "GRP-004"
@@ -487,8 +487,8 @@
     },
     {
      "id": "F8",
-     "text": "qc_handoff bisulfite: computed correctly as the median over matched BS Conversion I pairs of C/(C+U), but passed to Stage 0 as eff and 1-eff under keys named bisulfite_conversion_I_median / _II_median (misleading names). HYPOTHESIS for step 23: every pair is read in the GREEN channel (gm); on Illumina arrays BS Conversion I C4/C5 (and U4/U5) are red-channel probes, so in green they read background and pull the pair median toward 0.5 - a likely reason the 0.95 limit \"refuses 731 of 731 healthy arrays\". Test on the rehearsal arrays (diag workflow) per pair and per channel before any limit is set.",
-     "status": "open"
+     "text": "qc_handoff bisulfite: computed correctly as the median over matched BS Conversion I pairs of C/(C+U), but passed to Stage 0 as eff and 1-eff under keys named bisulfite_conversion_I_median / _II_median (misleading names). HYPOTHESIS for step 23: every pair is read in the GREEN channel (gm); on Illumina arrays BS Conversion I C4/C5 (and U4/U5) are red-channel probes, so in green they read background and pull the pair median toward 0.5 - a likely reason the 0.95 limit \"refuses 731 of 731 healthy arrays\". Test on the rehearsal arrays (diag workflow) per pair and per channel before any limit is set. | CONFIRMED AND FIXED: pairs 3-5 are red probes; read in their own channel 61 healthy arrays give 0.927-0.978 (old metric 0.618-0.914). The hand-off reads each pair where its C + U is brighter and records channel and contrast; the value is passed under a new key bisulfite_conversion_efficiency.",
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F15",
@@ -574,6 +574,11 @@
      "id": "F33",
      "status": "open",
      "text": "COMMISSIONING_NOTE_IAMA.md names a laboratory and its investigator ('Youngblood laboratory, St. Jude'); the naming rule says describe by the work and accession (GSE144691). Check the commissioning registry's places before editing."
+    },
+    {
+     "id": "F34",
+     "status": "open",
+     "text": "Runtime Matrices/Intake/intake_thresholds_v1.json (a frozen input, hashed by release check F1) still says the bisulfite line 'refuses 731/731 healthy arrays as written' - true only of the old metric. Its next version (intake_thresholds_v2, when step 23 sets the limits) must replace the text."
     }
    ],
    "notes": " | 2026-10-20: Chain Decoder written (manual/decoder_text.md -> OM_v4_decoder.md; all 257 functions of the 22 loaded files have entries; gated). OM PDF retitled 'Official IAM Operations Manual: Instrument Diagnostics and Chain Decoder' (Decoder + diagnostics + chain sequence); SOP retitled 'Official IAM Chain Operator Guide'. Reading the code line by line found the items under findings; each is fixed in the chain, not in the text."
