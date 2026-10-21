@@ -1,0 +1,13 @@
+Met-A's healthy reference (metA_floors_v1_3.json): 0.330263 bits per site
+neutrophils: 5553 sites; mean |gap| 0.0073, 95th percentile 0.0183, mean gap +0.0009, r 0.9998; mean entropy atlas 0.3508, purified arrays 0.3296
+monocytes: 5553 sites; mean |gap| 0.0124, 95th percentile 0.0296, mean gap -0.0017, r 0.9996; mean entropy atlas 0.3653, purified arrays 0.3250
+b cells: 5553 sites; mean |gap| 0.0134, 95th percentile 0.0523, mean gap +0.0052, r 0.9985; mean entropy atlas 0.4219, purified arrays 0.4365
+cd4 t cells: 5552 sites; mean |gap| 0.0137, 95th percentile 0.0425, mean gap +0.0021, r 0.9988; mean entropy atlas 0.4403, purified arrays 0.4626
+cd8 t cells: 5552 sites; mean |gap| 0.0106, 95th percentile 0.0289, mean gap -0.0023, r 0.9993; mean entropy atlas 0.4525, purified arrays 0.4401
+nk cells: 5551 sites; mean |gap| 0.0085, 95th percentile 0.0286, mean gap +0.0003, r 0.9995; mean entropy atlas 0.3909, purified arrays 0.3817
+neutrophils, purified level (-0.001, 0.05]: 39 sites, gap +0.0066, entropy 0.2864 -> 0.3131, share of the entropy gap 0.01
+neutrophils, purified level (0.05, 0.1]: 2507 sites, gap +0.0069, entropy 0.3307 -> 0.3568, share of the entropy gap 0.55
+neutrophils, purified level (0.1, 0.3]: 76 sites, gap +0.0056, entropy 0.5596 -> 0.5745, share of the entropy gap 0.01
+neutrophils, purified level (0.7, 0.9]: 58 sites, gap +0.0082, entropy 0.5492 -> 0.5249, share of the entropy gap -0.01
+neutrophils, purified level (0.9, 0.95]: 2873 sites, gap -0.0046, entropy 0.3186 -> 0.3367, share of the entropy gap 0.44
+Met-A read on the atlas neutrophil as a sample: 1.0623 (Normal 0.95 to 1.05); the purified profile on itself: 0.9979

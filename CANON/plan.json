@@ -620,10 +620,11 @@
    "design": "The instrument's job: a healthy 450K whole blood reads Normal on Met-A, as on EPIC. Starts from dev_metA_450K_neutrophils_v0.json (8 GSE88824 purified neutrophils) and dev_selftare_450K_v0.json. On GitHub."
   },
   {
-   "task": "The genome on a globe with layers (author 2026-10-21: 'map the entire genome that way ... change the colors depending on what a researcher is looking for, so they are all highlighted while anything unrelated quietens down'). (1) layers and highlighting on the 813,951-site sky sphere (CpG islands, promoters, gene bodies, a cell's identity sites, the Deconvolver's markers, X, imprinted regions, a sample's departures, the C-Score's clusters, a pasted gene list), each pattern shown beside its shuffled null (sky_statistics.shuffled_null); GitHub. (2) after DEV-SPHERE-01 v2: the same viewer with the information sphere and a switch between the two views. (3) when AWS is back: the whole genome (~28 million CpGs, NSIDE 2048) as zoomable HEALPix tiles in the HiPS format astronomers use, address sphere then information sphere.",
+   "task": "The genome on a globe with layers (author 2026-10-21: 'map the entire genome that way ... change the colors depending on what a researcher is looking for, so they are all highlighted while anything unrelated quietens down'). (1) layers and highlighting on the 813,951-site sky sphere (CpG islands, promoters, gene bodies, a cell's identity sites, the Deconvolver's markers, X, imprinted regions, a sample's departures, the C-Score's clusters, a pasted gene list), each pattern shown beside its shuffled null (sky_statistics.shuffled_null); GitHub. (2) after DEV-SPHERE-01 v2: the same viewer with the information sphere and a switch between the two views. (3) when AWS is back: the whole genome (~28 million CpGs, NSIDE 2048) as zoomable HEALPix tiles in the HiPS format astronomers use, address sphere then information sphere. | 2026-10-21 (author): two reference spheres, IAM-Atlas v2.1 and Met-A's purified-array reference, with their difference map; every comparison names its reference (ATL-070)",
    "done_when": "a researcher can turn the globe, pick a layer, and see the highlighted sites with their shuffled null; then the whole-genome tiles",
    "rows": [
-    "ATL-063"
+    "ATL-063",
+    "ATL-070"
    ],
    "status": "open",
    "done_date": "",

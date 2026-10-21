@@ -28,7 +28,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 322,
+"line": 323,
 "pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
@@ -37,7 +37,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 322,
+"line": 323,
 "pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
@@ -46,7 +46,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 322,
+"line": 323,
 "pattern": "(varepsilon_0|varepsilon_\\{0\\}|eps0|\u03b5\u2080|eps_0)[^0-9\\n]{0,18}0\\.032(?!\\d)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
@@ -55,7 +55,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 322,
+"line": 323,
 "pattern": "(varepsilon_0|varepsilon_\\{0\\}|eps0|\u03b5\u2080|eps_0)[^0-9\\n]{0,18}0\\.032(?!\\d)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
@@ -64,7 +64,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 325,
+"line": 326,
 "pattern": "(varepsilon_0|varepsilon_\\{0\\}|eps0|\u03b5\u2080|eps_0)[^0-9\\n]{0,18}0\\.032(?!\\d)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
@@ -73,7 +73,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 334,
+"line": 335,
 "pattern": "(?<![\\d.])0\\.2043",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
@@ -82,7 +82,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 338,
+"line": 339,
 "pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
@@ -91,7 +91,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 339,
+"line": 340,
 "pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
@@ -100,7 +100,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 350,
+"line": 351,
 "pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
@@ -109,7 +109,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 350,
+"line": 351,
 "pattern": "(varepsilon_0|varepsilon_\\{0\\}|eps0|\u03b5\u2080|eps_0)[^0-9\\n]{0,18}0\\.032(?!\\d)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
@@ -118,7 +118,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 358,
+"line": 359,
 "pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
 "use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
 "severity": "block",
@@ -127,21 +127,12 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 358,
+"line": 359,
 "pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
 "use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
 "text": "| **PHY-045** | The loose rate read off the line: every healthy cell's held error from its own loose share | the firm and loose rates of the healthy band, measu"
-},
-{
-"file": "MANIFEST.md",
-"line": 361,
-"pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
-"use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
-"severity": "block",
-"status": "RECORD",
-"text": "| **PHY-048** | The loose-end line at the one-Landauer-bit cut (beta 2/3) | replace the borrowed 0.70 cut with the physics cut: a stretch held by at least one L"
 },
 {
 "file": "MANIFEST.md",
@@ -150,11 +141,20 @@
 "use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
+"text": "| **PHY-048** | The loose-end line at the one-Landauer-bit cut (beta 2/3) | replace the borrowed 0.70 cut with the physics cut: a stretch held by at least one L"
+},
+{
+"file": "MANIFEST.md",
+"line": 363,
+"pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
+"use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
 "text": "| **PHY-049** | The loose share from each sample's own molecules (atlas-free) | read the loose share from the sample's own reads, not the arrays, half the reads"
 },
 {
 "file": "MANIFEST.md",
-"line": 363,
+"line": 364,
 "pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
 "use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
 "severity": "block",
@@ -163,7 +163,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 363,
+"line": 364,
 "pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
 "use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
 "severity": "block",
@@ -172,7 +172,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 370,
+"line": 371,
 "pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
 "use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
 "severity": "block",
@@ -181,7 +181,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 370,
+"line": 371,
 "pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
 "use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
 "severity": "block",
@@ -190,7 +190,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 382,
+"line": 383,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -199,7 +199,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 386,
+"line": 387,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
@@ -208,7 +208,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 425,
+"line": 426,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -217,7 +217,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 501,
+"line": 502,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -226,7 +226,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 941,
+"line": 942,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -235,7 +235,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 942,
+"line": 943,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
@@ -244,7 +244,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 944,
+"line": 945,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -253,7 +253,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 949,
+"line": 950,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -406,7 +406,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 64,
+"line": 65,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",

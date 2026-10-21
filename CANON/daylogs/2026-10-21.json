@@ -24,6 +24,13 @@
      "what": "On 55 real healthy bloods the self-tare removes a 1 % loss of the neutrophils' pattern that reaches every site, and keeps the same loss at the identity sites. A version that keeps it fails the replicate and other-laboratory bars, so the commissioned self-tare stays. The number it corrects each array by carries that loss and becomes the next reading to build.",
      "why": "A real loss of held marks may reach every site; the reading must not erase it.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_SELFTARE_03_OUTCOME.md"
+    },
+    {
+     "title": "The two healthy references compared (ATL-070)",
+     "status": "diagnosis",
+     "what": "IAM-Atlas v2.1 and Met-A's purified-array reference agree closely value by value, but the atlas sits slightly closer to 0.5 at nearly every site, so Met-A read on the atlas neutrophil gives 1.062. Met-A keeps its own reference.",
+     "why": "Two references made different ways are not interchangeable on an entropy reading.",
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_REFERENCES_01/atlas_vs_purified_01_summary.txt"
     }
    ]
   },
@@ -41,5 +48,7 @@
    ]
   }
  ],
- "off_page_rows": []
+ "off_page_rows": [
+  "ATL-070"
+ ]
 }
