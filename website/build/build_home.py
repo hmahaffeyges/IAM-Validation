@@ -64,7 +64,7 @@ def intro_instruments():
     """Each instrument's plain summary and what makes it different, read from INTRODUCTION.md's ### sections (author 2026-10-20: every mention of
     an instrument carries the same plain language summary), keyed by catalogue id."""
     t = open(os.path.join(REPO, "Biological_Physics", "MethylPhys", "INTRODUCTION.md"), encoding="utf-8").read()
-    K = {"Met-A": "meta", "C-Score": "cscore", "IAM-A": "iama", "IAM-Atlas": "atlas", "IAM-Deconvolver": "deconv"}; out = {}
+    K = {"Met-A": "meta", "C-Score": "cscore", "IAM-A": "iama", "IAM-Atlas": "atlas", "IAM-Deconvolver": "deconv", "Group-A": "groupa"}; out = {}
     for m in re.finditer(r"(?m)^### (.+?)\n(.*?)(?=^### |^## |\Z)", t, re.S):
         k = next((v for n, v in K.items() if m.group(1).startswith(n + ":") or m.group(1).startswith(n + " ")), None)
         if not k: continue

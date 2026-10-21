@@ -119,6 +119,17 @@ was 0.016 ([commissioning note](doors/COMMISSIONING_NOTE_DECONV_V21.md)).
 **Different because** composition is usually removed as a nuisance by statistics. Here it is measured, with its uncertainty, and the
 chain declines a sample whose mix it cannot trust instead of reading a cell-mix shift as biology.
 
+### Group-A: has a whole group moved?
+
+One person's whole-blood reading cannot show a 1 % change, but a group can. Group-A reads each person with the same command as every
+report, centers each reading on healthy people run the same way, and compares the two groups' averages.
+**Commissioned** 2026-10-20 on groups of whole bloods run in one series: on 278 healthy people from a laboratory it had never read, women
+and men came out 0.36 % apart, and a 1 % loss planted into half of them was found at 7.253 standard errors
+([commissioning note](doors/COMMISSIONING_NOTE_GROUPA.md)).
+**Different because** group studies usually fit a statistical model across thousands of sites between cohorts. Group-A compares one
+physical reading per person, each against its own expected value for that person's cell mix, with nothing fitted, and prints the
+smallest difference the study could have found.
+
 ### The chain: one command
 
 The instruments run as one chain: intake, calibration of each array on its own, the readings, and a report with a plain view and a
@@ -145,7 +156,7 @@ tested where it is hardest: on laboratories that did not set the range.
 ### Departures are seen, at measured limits
 
 Each instrument's detection limit was measured on planted samples, where the amount of change is known exactly: Met-A sees a 2 % change;
-the C-Score sees a change on 5 % of sites when clustered. A researcher knows how small a change an instrument can see before reading a
+the C-Score sees a change on 5 % of sites when clustered; Group-A sees a 1 % loss across a group of about 130 people at more than seven times the noise. A researcher knows how small a change an instrument can see before reading a
 single patient.
 
 ### Real tumors

@@ -34,6 +34,14 @@ laboratories, read after it was fixed (34 of 35, 22 of 23, 172 of 173); purified
 it had never seen. The record also tracks every public dataset already read ([CANON/data_spent.csv](../../CANON/data_spent.csv), 203 datasets),
 and the push gate refuses a new prediction on one of them unless it states what was read before.
 
+**Isn't Group-A just a group statistic anyone could run?**
+The comparison is: two tared means and their standard error, a test any statistician would recognize. What it compares is different.
+Each person contributes one physical reading, Met-A, against an expected value built for that person's own cell mix, centered on healthy
+arrays of the same run; nothing is fitted to either group and no site is selected by looking at the groups. On 278 healthy people from a
+laboratory no IAM instrument had read, women and men read 0.36 % apart although their cell mixes differ, and a 1 % loss planted into half
+of them was found at 7.253 standard errors ([commissioning note](doors/COMMISSIONING_NOTE_GROUPA.md)). Both groups must come from the
+same series: across laboratories untared readings differ by several percent.
+
 **How can anyone check that a rule was sealed before its data was read?**
 Each rule is a note committed to the public repository, and git keeps the order of every change, so the commit of a rule can be checked
 against the dated record of the run that read its data and the commit of its scoring. The push gate refuses a new seal that has not first passed a synthetic test, and a prediction on an already-read
@@ -228,8 +236,9 @@ lung cancer) is chosen but not yet read. For precancer, 140 public rectal biopsi
 not yet run. Early detection needs samples with known follow-up, which public data rarely give.
 
 **How large are the commissioning sets?**
-Stated with each: 541 healthy neutrophil arrays from 18 series for Met-A; three laboratories for the C-Score; 200 mixtures for the
-Deconvolver; for IAM-A, 8 healthy CD8 T-cell samples read (7 Normal) after the sample-shape check declined 5 of 13. **Open question:** larger
+Stated with each: 541 healthy neutrophil arrays from 18 series for Met-A; three laboratories for the C-Score; 731 held-out arrays for IAM-Atlas v2.1; 200 mixtures for the
+Deconvolver; for IAM-A, 8 healthy CD8 T-cell samples read (7 Normal) after the sample-shape check declined 5 of 13; for Group-A, 278 healthy
+people from one new laboratory (263 read). **Open question:** larger
 sets, other cell types and other laboratories for IAM-A.
 
 ## Questions the field is asking now

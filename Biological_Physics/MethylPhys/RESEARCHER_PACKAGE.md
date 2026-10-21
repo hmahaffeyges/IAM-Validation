@@ -50,6 +50,15 @@ python3 run_sample.py --grn S_Grn.idat --red S_Red.idat --specimen "whole blood"
 python3 run_sample.py --pat S.pat.gz --seq-cell "cd8 t cells" --id S002 --out S002.html                         # whole-genome bisulfite
 ```
 
+Two groups run in one series (Group-A): read each person with `run_sample.py` as above, list them in a CSV (`id`, `slide`, your group
+column, optionally `healthy_reference`), then
+
+```
+cd ..
+python3 stage_groupa.py collect MethylPhys_Interface/ samples.csv readings.csv    # one row per person from the report bundles
+python3 stage_groupa.py compare readings.csv group patients controls             # the tared comparison and the call
+```
+
 The full procedure, with every option, what the chain declines and why, and every frozen file with its checksum:
 [the operating procedure](sop/MethylPhys_CPG_SOP_v4.md) and
 [the operations manual](manual/MethylPhys_CPG_Operations_Manual.pdf).

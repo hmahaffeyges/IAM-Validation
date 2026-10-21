@@ -1,5 +1,5 @@
 {
- "_rule": "Commissioning registry (author 2026-10-15: 'The code should not allow us to commission anything without a verification that all the correct docs have been updated'). Every results-register entry of kind 'commissioning' must appear here, with every required place (kinds: note, chain, report, sop, sop_full, om, status, book, book_status, catalogue, readme), each a file and a pattern that must be found; 'forbid' lists stale statements that must not remain. CANON/commissioning_check.py runs in checked_push.sh; a missing place or a stale statement refuses the push.",
+ "_rule": "Commissioning registry (author 2026-10-15: 'The code should not allow us to commission anything without a verification that all the correct docs have been updated'). Every results-register entry of kind 'commissioning' must appear here, with every required place (kinds: note, chain, report, sop, sop_full, om, status, book, book_status, catalogue, readme, intro, qa; intro and qa added 2026-10-20 so the researcher package's INTRODUCTION.md and Q&A cannot go stale), each a file and a pattern that must be found; 'forbid' lists stale statements that must not remain. CANON/commissioning_check.py runs in checked_push.sh; a missing place or a stale statement refuses the push.",
  "required_kinds": [
   "note",
   "chain",
@@ -11,7 +11,9 @@
   "book",
   "book_status",
   "catalogue",
-  "readme"
+  "readme",
+  "intro",
+  "qa"
  ],
  "instruments": [
   {
@@ -73,6 +75,16 @@
      "kind": "readme",
      "file": "Biological_Physics/README.md",
      "pattern": "Met-A on isolated neutrophils \\(EPIC v1\\) is commissioned"
+    },
+    {
+     "kind": "intro",
+     "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
+     "pattern": "### Met-A:[^#]*?\\*\\*Commissioned\\*\\* 2026-10-09"
+    },
+    {
+     "kind": "qa",
+     "file": "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md",
+     "pattern": "541 healthy neutrophil arrays from 18 series for Met-A"
     }
    ],
    "forbid": [
@@ -148,6 +160,16 @@
      "kind": "readme",
      "file": "Biological_Physics/README.md",
      "pattern": "clustering meter \\(Met-A C-score\\) on whole blood \\(EPIC v1, 2026-10-15\\)"
+    },
+    {
+     "kind": "intro",
+     "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
+     "pattern": "### C-Score:[^#]*?\\*\\*Commissioned\\*\\* 2026-10-15"
+    },
+    {
+     "kind": "qa",
+     "file": "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md",
+     "pattern": "three laboratories for the C-Score"
     }
    ],
    "forbid": [
@@ -282,6 +304,16 @@
      "kind": "readme",
      "file": "Biological_Physics/README.md",
      "pattern": "IAM-Atlas v2.1 for three cell references \\(450K\\)"
+    },
+    {
+     "kind": "intro",
+     "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
+     "pattern": "### IAM-Atlas v2\\.1:[^#]*?\\*\\*Commissioned\\*\\* 2026-10-16"
+    },
+    {
+     "kind": "qa",
+     "file": "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md",
+     "pattern": "731 held-out arrays for IAM-Atlas v2\\.1"
     }
    ],
    "forbid": [
@@ -350,6 +382,16 @@
      "kind": "readme",
      "file": "Biological_Physics/README.md",
      "pattern": "Deconvolution tool"
+    },
+    {
+     "kind": "intro",
+     "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
+     "pattern": "### IAM-Deconvolver:[^#]*?\\*\\*Commissioned\\*\\* 2026-10-17"
+    },
+    {
+     "kind": "qa",
+     "file": "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md",
+     "pattern": "200 mixtures for the\\s+Deconvolver"
     }
    ],
    "forbid": [],
@@ -419,6 +461,16 @@
      "kind": "readme",
      "file": "Biological_Physics/README.md",
      "pattern": "IAM-A on healthy blood CD8 T cells"
+    },
+    {
+     "kind": "intro",
+     "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
+     "pattern": "### IAM-A:[^#]*?\\*\\*Commissioned\\*\\* 2026-10-17"
+    },
+    {
+     "kind": "qa",
+     "file": "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md",
+     "pattern": "for IAM-A, 8 healthy CD8 T-cell samples"
     }
    ],
    "forbid": [
@@ -494,6 +546,16 @@
      "kind": "readme",
      "file": "Biological_Physics/README.md",
      "pattern": "Group-A on groups of whole bloods run in one series"
+    },
+    {
+     "kind": "intro",
+     "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
+     "pattern": "### Group-A:[^#]*?\\*\\*Commissioned\\*\\* 2026-10-20"
+    },
+    {
+     "kind": "qa",
+     "file": "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md",
+     "pattern": "for Group-A, 278 healthy\\s+people"
     }
    ],
    "forbid": []
