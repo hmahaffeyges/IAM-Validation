@@ -2900,3 +2900,6 @@ The site's atlas globe page became the Globe Explorer: IAM-Atlas v2.1 (79 cells,
 
 ### 2026-10-21 · Documentation pass: glossary, book appendix, Q&A (OTH-078)
 The glossary gained ten entries (IAM-Atlas v2.1, IAM-Deconvolver, Group-A, the tare, the sky sphere, the information sphere, the Globe Explorer, noise maps, the anchor range, hard-to-map probes). Two stale entries were corrected in the canon and in book Appendix F: Met-A divides by the healthy reference, not H_min; IAM-A's reference is the sample's own predicted held error, not the retired P_cell H(eps0) form. Appendix F's healthy held-error range 0.024-0.042 (the superseded counter) is now 0.0333-0.0549, and the old range is a blocked pattern. The Q&A had said every instrument reads against the atlas; only the Deconvolver does.
+
+### 2026-10-21 · Met-A against the atlas, planned (GRP-014, DEV-METAA-ATLAS-01)
+The author asked that Met-A be able to read any cell against IAM-Atlas v2.1, since purified arrays exist for few cell types. The plan is written before any reading: identity sites per cell from the atlas, the same-run tare to cancel the atlas offset (which differs by cell, -5 % to +12 %), synthetic first, then sorted cells and whole bloods the atlas never saw. The purified-blood studies the atlas was fitted on are excluded as test data.
