@@ -41,7 +41,9 @@ The construction above ("C / (C + U) in the green channel") is wrong for EPIC v1
 BS Conversion I pairs, pairs 1 and 2 are green probes and pairs 3 to 5 red: on 61 healthy arrays (60 of GSE318173 and GSE235717 GSM7508429) the
 C probes of pairs 3 to 5 read 203 to 287 in green and 14,220 to 16,139 in red. Read in green they sit at background on both probes and give
 0.67 to 0.70, which pulls the median down. Read each in its own channel (the channel where the pair's C + U is brighter; it agrees with the
-design on every pair of all 61 arrays), the healthy distribution is **median 0.970, range 0.927 to 0.978**; the metric as written gave median
+design on every pair of all 61 arrays), the healthy distribution of that laboratory is **median 0.970, range 0.927 to 0.978**; read the same
+way, two other laboratories' healthy arrays give 0.899 to 0.941 (GSE315366, 35 arrays) and 0.576 to 0.975 (GSE184269, 24 arrays), so the
+limit has to be set across laboratories; the metric as written gave median
 0.738 (0.618 to 0.914). Exploratory, not sealed: `doors/data/PROC_STAGE0_04/bs_channel_explore.py`, GitHub runs 39535433627, 39536291479,
 39537230609 (issue 32). The chain reads each pair in its own channel from 2026-10-20 (`stage_0_1_qc_handoff.py`; Chain Decoder finding F8).
 The number above (median 0.7979 on 731 arrays) is the old metric's and is kept as recorded. The threshold is still the author's to set, by the

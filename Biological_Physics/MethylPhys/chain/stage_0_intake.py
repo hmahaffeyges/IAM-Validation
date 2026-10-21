@@ -889,7 +889,7 @@ def explain_stage0(record, hard_fail, borderline, deferred):
         if "BS_CONVERSION_LOW" in cq or cq.startswith("PROVISIONAL"):
             add("bisulfite conversion control probes (Step 0.4)", "printed, not used to stop" if cq.startswith("PROVISIONAL") or not BS_THRESHOLD_CALIBRATED else "stopped",
                 f"conversion efficiency {_fmt(bs)}", f"at least {BS_CONVERSION_MIN:g}", _TH_SRC + "; status PROVISIONAL", True,
-                "the conversion of this array's DNA is below the provisional line; healthy arrays read 0.927 to 0.978 (61 arrays, since the channel fix of 2026-10-20), and the line is printed, not used to stop, until it is set from them",
+                "the conversion of this array's DNA is below the provisional line; since the channel fix of 2026-10-20 healthy arrays read 0.927 to 0.978 in one laboratory (GSE318173) and 0.899 to 0.941 in another (GSE315366), so the line is printed, not used to stop, until it is set from several laboratories",
                 "nothing; it waits to be set from healthy arrays (PROC-STAGE0-04)")
     dq = str(record.get("detection_qc") or "")
     if dq == "FAIL_LOW_DETECTION" or dq == "DETECTION_BORDERLINE" or (dq.startswith("DEFERRED") and "detection" in deferred):

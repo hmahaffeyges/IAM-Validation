@@ -170,7 +170,7 @@ GSE180970,,,,,,,,DEV_COMPOSITION_TRUTH_02; DEV_SYNTH_LEVERS_01,not usable (same 
 GSE181034,,,,,spent,,,DEV_BASE_CHAIN_01; DEV_COMPOSITION_TRUTH_02; DEV_NEWCELL_01; DEV_NILC_01,,,,,,
 GSE182379,,,,,spent,,,COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_COMMISSION_01; DEV_ATLAS_EPIC_01; DEV_BASE_CHAIN_01; DEV_COMPOSITION_TRUTH_02; DEV_DECONV_V21_01; DEV_NILC_01; D,,,,,,
 GSE184047,,,,,spent,,,,,,,,,
-GSE184269,,,,,partly spent,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_CSCORE; DEV_BLOOD_SENSITIVITY_01; DEV_GROUPA_COMMISSION_01; DEV_GROUP_01,atlas build,monocytes | naive cd4 t cells | naive cd8 t cells | naive b cells | nk cells | granulocytes,yes,IDAT listed for 167/167 samples,Specification of human immune cell epigenetic identity by combinations of transcription factors (MethylationEPIC),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE184269,,,,,partly spent,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_CSCORE; DEV_BLOOD_SENSITIVITY_01; DEV_GROUPA_COMMISSION_01; DEV_GROUP_01; PROC_STAGE0_04_PREREG,atlas build,monocytes | naive cd4 t cells | naive cd8 t cells | naive b cells | nk cells | granulocytes,yes,IDAT listed for 167/167 samples,Specification of human immune cell epigenetic identity by combinations of transcription factors (MethylationEPIC),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE185556,,,,,,,,DEV_ATLAS_V21_01,not usable (not healthy (cystic fibrosis children)),lung alveolar macrophages | granulocytes | lung alveolar epithelium,yes,IDAT listed for 20/20 samples,DNA methylation profiles of cells commonly found in bronchoalveolar lavage,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE186458,,,,,,,,COMMISSIONING_NOTE_DECONV_V21; COMMISSIONING_NOTE_IAMA; DEV_ATLAS_USE_02; DEV_IAMA_NEURON_01; DEV_IAMA_P_WHOLE_01; DEV_IAMA_REAL_01; DEV_POSITION_EXPR_01,,,,,,
 GSE187291,,,,,spent,,,DEV_DIRECTION_01; DEV_DIRECTION_02,,,,,,
@@ -294,7 +294,7 @@ GSE307447,downloads/E_dog_animal/GSE307447/,0.16,,,unspent,,,,,,,,Dog and other 
 GSE307998,,,,,,,,DEV_EPIC_V2_01,,,,,,
 GSE311578,downloads/B_cfDNA_plasma/GSE311578/,1.5,IDAT,yes,unspent,,,,,,,,Plasma cell-free DNA arrays,S3 register
 GSE314261,,,,,partly spent,,,,,,,,,
-GSE315366,downloads/A_blood_immune/GSE315366/,1.67,IDAT,yes,spent,,,COMMISSIONING_NOTE_CSCORE; DEV_BLOOD_SENSITIVITY_01; DEV_GROUPA_COMMISSION_01; DEV_GROUP_01,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
+GSE315366,downloads/A_blood_immune/GSE315366/,1.67,IDAT,yes,spent,,,COMMISSIONING_NOTE_CSCORE; DEV_BLOOD_SENSITIVITY_01; DEV_GROUPA_COMMISSION_01; DEV_GROUP_01; PROC_STAGE0_04_PREREG,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE315367,downloads/A_blood_immune/GSE315367/,1.28,IDAT,yes,spent,,,PROC_AML_SERIAL_01_PREREG,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE315451,downloads/A_blood_immune/GSE315451/,3.08,IDAT,yes,unspent,,,,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE316309,,,,,,,,,,,,,Characterization of DNA methylation patterns in early-stage NSCLC,candidates DEV_FINGERPRINT_03
