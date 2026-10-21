@@ -685,7 +685,7 @@
     "1 (10-09 schedule)",
     "M4"
    ],
-   "notes": "TODO M4 says 'build and freeze'; the note shows it built and failing bar 2b. GSE318669 platform (894,182 probes) to be checked before use. | repo: Biological_Physics/MethylPhys/doors/DEV_METAA_450K_01.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09. Pasted wording: 10-09 schedule item 1 '450K Met-A: find why the second lab failed (slide effects, eosinophils in the CD15 sort)'; '450K second-lab failure: diagnosed (slide batch)'. | also listed as: Met-A on 450K purified neutrophils (DEV-METAA-450K-01) and the slide-batch diagnosis",
+   "notes": "TODO M4 says 'build and freeze'; the note shows it built and failing bar 2b. GSE318669 platform (894,182 probes) to be checked before use. | repo: Biological_Physics/MethylPhys/doors/DEV_METAA_450K_01.md; Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md 2026-10-09. Pasted wording: 10-09 schedule item 1 '450K Met-A: find why the second lab failed (slide effects, eosinophils in the CD15 sort)'; '450K second-lab failure: diagnosed (slide batch)'. | also listed as: Met-A on 450K purified neutrophils (DEV-METAA-450K-01) and the slide-batch diagnosis | 2026-10-21: to-do step 27 (author): 450K through the chain, after DEV-SELFTARE-03",
    "depends_on": [],
    "id": "COM-METAA-016",
    "sources_of_row": [
