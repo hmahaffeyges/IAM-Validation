@@ -1921,9 +1921,10 @@ Writes one PDF.
 **What it is for.** A reviewer turns a globe in the HTML report and sees where the sample differs from its healthy reference, with a
 slider that fades only the healthy background, so the change can be seen by itself. The change is fixed by the measurement: each site's
 difference from the healthy reference in that site's healthy width (the atlas's person-to-person spread and its own uncertainty), centered
-and scaled by the sample's own spread, changed beyond 3 (the C-Score's rule, on the whole genome). Healthy blood: 16,372 of 773,556 sites
-(2.1 %). Tried first and dropped: the atlas's 95 % range alone flagged 84 % of a healthy blood, because it is how sure the atlas is of the
-healthy average, not how much a healthy person varies. **A picture, not a reading:** nothing is scored from it, and Met-A and the
+and scaled by the sample's own spread, then read in blocks of 10 neighboring sites against the fixed 5 % family-wise line (below). Healthy
+blood: 45 of 77,355 blocks. Tried first and dropped the same day: the atlas's 95 % range alone flagged 84 % of a healthy blood (it is how
+sure the atlas is of the healthy average, not how much a healthy person varies), and single sites beyond 3 lit 2.1 % of a healthy blood's
+sites across the whole globe. **A picture, not a reading:** nothing is scored from it, and Met-A and the
 C-Score keep their commissioned purified-array reference.
 
 **Label: standard method** (display). The layout is the atlas's sky sphere: every IAM-Atlas v2.1 site in genome order at NESTED pixel
