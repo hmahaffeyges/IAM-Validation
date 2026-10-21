@@ -1346,7 +1346,7 @@ way) passes 3 at hardly any single site. So both change layers read blocks of 10
 block. On the whole genome each block's mean is taken in the sample's own block spread (neighboring CpGs move together, so a healthy block
 spreads about twice as wide as independent sites would); on Met-A's 6,000 nearly independent sites the block mean is in standard errors. A
 block has changed beyond the line pure chance crosses less than once in 20 genomes (5 % family-wise, two-sided; 4.98 for the genome's 77,355
-blocks, 3.76 for Met-A's 597): FW_LINE. Healthy blood: 45 of 77,355 genome blocks and 0 of 597 Met-A blocks; the planted clustered example:
+blocks, 3.93 for Met-A's 597): FW_LINE. Healthy blood: 45 of 77,355 genome blocks and 0 of 597 Met-A blocks; the planted clustered example:
 44 Met-A blocks, in clumps; 200 planted runs of 30 sites in a copy of the healthy blood: 229 of their 756 blocks found. The slider ends on
 pure black, so only the changes stay lit.
 
