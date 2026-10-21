@@ -1,7 +1,16 @@
-rows 159; arrays not read: 0
+rows 888; arrays not read: 0
 == self-tare absolute, then the median tare
+  replicates: within-person SD 0.0158 (bar <= 0.020) | in Normal 62/63 (bar >= 95 %)
   other-laboratory neutrophils: in Normal 49/49 (bar: all), range 0.982-1.029
+  Group-A healthy, 1 % neutrophil loss at every site: tared change -0.0001 (SE 0.0000, n 55) -> not found; healthy spread after the tare 0.0228
+  Group-A healthy, 1 % neutrophil loss at identity sites: tared change +0.0167 (SE 0.0008, n 55) -> found; healthy spread after the tare 0.0228
 == self-tare relative, then the median tare
+  replicates: within-person SD 0.0296 (bar <= 0.020) | in Normal 57/63 (bar >= 95 %)
   other-laboratory neutrophils: in Normal 48/49 (bar: all), range 0.893-1.045
+  Group-A healthy, 1 % neutrophil loss at every site: tared change +0.0139 (SE 0.0007, n 55) -> found; healthy spread after the tare 0.0287
+  Group-A healthy, 1 % neutrophil loss at identity sites: tared change +0.0174 (SE 0.0009, n 55) -> found; healthy spread after the tare 0.0287
 == self-tare none, then the median tare
+  replicates: within-person SD 0.0367 (bar <= 0.020) | in Normal 48/63 (bar >= 95 %)
   other-laboratory neutrophils: in Normal 42/49 (bar: all), range 0.810-1.068
+  Group-A healthy, 1 % neutrophil loss at every site: tared change +0.0150 (SE 0.0007, n 55) -> found; healthy spread after the tare 0.0392
+  Group-A healthy, 1 % neutrophil loss at identity sites: tared change +0.0158 (SE 0.0008, n 55) -> found; healthy spread after the tare 0.0392

@@ -17,6 +17,13 @@
      "what": "The bisulfite, hybridization and extension controls of 337 healthy whole-blood arrays from three laboratories, read with the corrected Stage 0 on GitHub. The limits are now set from them: bisulfite conversion at least 0.80 (the author's choice, the 2.5th percentile with each laboratory counted equally), hybridization spread at least 2.0, extension balance 0.2 to 5.0. One healthy array is stopped, a real low conversion; the rest pass.",
      "why": "A check that refuses a sample has to be set from what healthy samples actually look like, in more than one laboratory.",
      "record": "Biological_Physics/MethylPhys/doors/PROC_STAGE0_04_OUTCOME.md"
+    },
+    {
+     "title": "The self-tare on real arrays (GRP-014, DEV-SELFTARE-03)",
+     "status": "diagnosis",
+     "what": "On 55 real healthy bloods the self-tare removes a 1 % loss of the neutrophils' pattern that reaches every site, and keeps the same loss at the identity sites. A version that keeps it fails the replicate and other-laboratory bars, so the commissioned self-tare stays. The number it corrects each array by carries that loss and becomes the next reading to build.",
+     "why": "A real loss of held marks may reach every site; the reading must not erase it.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SELFTARE_03_OUTCOME.md"
     }
    ]
   },
@@ -34,7 +41,5 @@
    ]
   }
  ],
- "off_page_rows": [
-  "GRP-014"
- ]
+ "off_page_rows": []
 }

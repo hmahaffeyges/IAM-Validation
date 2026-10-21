@@ -1,0 +1,4 @@
+anchor range against the same slide's other arrays: 63 arrays, SD 0.0120
+a 1 % loss of the neutrophils' pattern at every site narrows it by f_neu x 1 % = 0.0042 (median neutrophil share 0.4228)
+smallest loss at every site one array could show (2 SD): 5.7 % of the neutrophils' pattern
+a group of 55 (Group-A's planted half): 0.76 %

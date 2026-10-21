@@ -583,8 +583,8 @@
     },
     {
      "id": "F35",
-     "status": "open",
-     "text": "Stage T step 1 (self-tare II) maps each array by its anchor sites; a loss of the cell's pattern at EVERY site, anchors included, is mapped away (synthetic, 2026-10-21: whole-blood Met-A +0.021 without it, -0.0003 with it). Every commissioning test planted the loss at the identity sites only. Needs the author's decision and a real-array test (GRP-014)."
+     "status": "confirmed 2026-10-21",
+     "text": "Stage T step 1 (self-tare II) maps each array by its anchor sites; a loss of the cell's pattern at EVERY site, anchors included, is mapped away (synthetic, 2026-10-21: whole-blood Met-A +0.021 without it, -0.0003 with it). Every commissioning test planted the loss at the identity sites only. Needs the author's decision and a real-array test (GRP-014). | CONFIRMED on real arrays (DEV_SELFTARE_03_OUTCOME.md): -0.0001 for a 1 % loss at every site on 55 Group-A bloods. A relative self-tare keeps it (+0.0139) but fails the replicate bars (SD 0.0296, 57/63), so the commissioned self-tare stays; next, the anchor range as its own companion reading."
     },
     {
      "id": "F36",

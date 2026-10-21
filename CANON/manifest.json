@@ -27911,9 +27911,9 @@
     "IAM-Atlas v2.1 (synthetic bloods)"
    ],
    "data_status": "synthetic only",
-   "record": "Biological_Physics/MethylPhys/doors/data/DEV_CELLS_01/selftare_uniform_loss_01_summary.txt",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_SELFTARE_03_OUTCOME.md",
    "status": "synthetic_done",
-   "next_step": "author's decision on the self-tare and share findings (2026-10-21); then the same planted test on real healthy arrays on GitHub",
+   "next_step": "the anchor range as a companion reading of a loss at every site, labeled preliminary; synthetic through the chain, then the planted test on real healthy arrays",
    "cost": "GitHub, small",
    "impact": 5,
    "legacy_ids": [],
@@ -27922,7 +27922,7 @@
     "to-do step 21 (author 2026-10-20)"
    ],
    "runs": [],
-   "notes": "2026-10-21 exploration, not sealed: (1) the per-cell reading recovers a planted 25 % loss exactly (+0.250) when the shares are right, but a loss at every site lowers the Deconvolver's share of that cell by about 20 % and the loss is absorbed into the share; (2) Met-A in whole blood: a 1 % neutrophil loss at identity sites moves it +0.021 to +0.023, the same loss at every site -0.0003, and +0.019 to +0.021 with Stage T step 1 (self-tare II) switched off: the self-tare's anchor map undoes a uniform loss. The draft stage is kept out of the chain (stage_cells_draft.patch) until decided. | 2026-10-21 (author: fix it now, a design improvement): DEV-SELFTARE-03 exploration on GitHub, doors/data/DEV_SELFTARE_03/selftare_relative_explore.py: a relative self-tare (type II put on the array's own type I scale, the shared squeeze left to the median tare) against the current one and none, on the DEV-SELFTARE-02 replicates and other-laboratory neutrophils (its bars) and 60 Group-A healthy bloods with a planted 1 % neutrophil loss at every site and at identity sites. Synthetic: relative keeps a uniform loss (+0.020 to +0.022) and removes a type-II-only offset exactly."
+   "notes": "2026-10-21 exploration, not sealed: (1) the per-cell reading recovers a planted 25 % loss exactly (+0.250) when the shares are right, but a loss at every site lowers the Deconvolver's share of that cell by about 20 % and the loss is absorbed into the share; (2) Met-A in whole blood: a 1 % neutrophil loss at identity sites moves it +0.021 to +0.023, the same loss at every site -0.0003, and +0.019 to +0.021 with Stage T step 1 (self-tare II) switched off: the self-tare's anchor map undoes a uniform loss. The draft stage is kept out of the chain (stage_cells_draft.patch) until decided. | 2026-10-21 (author: fix it now, a design improvement): DEV-SELFTARE-03 exploration on GitHub, doors/data/DEV_SELFTARE_03/selftare_relative_explore.py: a relative self-tare (type II put on the array's own type I scale, the shared squeeze left to the median tare) against the current one and none, on the DEV-SELFTARE-02 replicates and other-laboratory neutrophils (its bars) and 60 Group-A healthy bloods with a planted 1 % neutrophil loss at every site and at identity sites. Synthetic: relative keeps a uniform loss (+0.020 to +0.022) and removes a type-II-only offset exactly. | 2026-10-21 DEV-SELFTARE-03 on real arrays: commissioned self-tare erases a 1 % loss at every site (-0.0001, 55 bloods); relative self-tare keeps it (+0.0139) but fails the replicate bars (SD 0.0296 vs 0.020; 57/63 vs 95 %) and other-lab 48/49; not adopted. Next: the anchor range as a companion reading (per array limit ~5.7 %, group of 55 ~0.76 %). doors/DEV_SELFTARE_03_OUTCOME.md"
   }
  ],
  "not_tests": {
