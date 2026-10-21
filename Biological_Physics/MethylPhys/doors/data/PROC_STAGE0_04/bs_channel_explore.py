@@ -6,7 +6,9 @@ Color column says which), so in green they sit at background on both probes and 
 For each spent healthy array: every BS Conversion I control with its manifest color, its green and red intensity, then the efficiency
 three ways: (a) as the chain does it, (b) each pair in its own manifest color, (c) the green pairs only. Uses the chain's own manifest
 loader and IDAT reader. Writes bs_channel_explore.json and _summary.txt.
-Usage: python3 bs_channel_explore.py OUTDIR N   (the first N arrays of the Group-A healthy list, plus GSE235717 GSM7508429)"""
+Usage: python3 bs_channel_explore.py OUTDIR N   (the first N arrays of the Group-A healthy list, plus GSE235717 GSM7508429)
+Run 2 (2026-10-20) showed the manifest's Color column is a plot color (Green, Lime, Purple, Red, Tomato ...), not the channel: method (b) is
+kept as recorded but is not the channel; (d) 'design' reads pairs 1-2 in green and 3-5 in red, checked on each array from the intensities."""
 import os, sys, json, re, urllib.request, numpy as np, pandas as pd
 H = os.path.dirname(os.path.abspath(__file__)); MP = os.path.abspath(os.path.join(H, "..", "..", ".."))
 sys.path.insert(0, os.path.join(MP, "chain")); sys.path.insert(0, os.path.join(MP, "doors", "data", "GROUPA_COMMISSIONING"))
@@ -36,9 +38,18 @@ for gsm, gn, rn in arrays:
         C, U = p["C"], p["U"]; a.append(C["grn"] / (C["grn"] + U["grn"]))
         ch = "red" if "red" in C["color"].lower() else "grn"; b.append(C[ch] / (C[ch] + U[ch]))
         if ch == "grn": c.append(C["grn"] / (C["grn"] + U["grn"]))
+    # 2026-10-20, run 2 found the manifest's Color column is a plot color, not the channel. The channel by design, read from the data: the
+    # converted (C) probe of each pair is bright in exactly one channel; on EPIC v1 pairs 1-2 are green and 3-5 red. Checked per array.
+    d, chk, e_, agree = [], [], [], []
+    for num, p in sorted(P.items()):
+        if "C" not in p or "U" not in p: continue
+        C, U = p["C"], p["U"]; ch = "grn" if num in ("1", "2") else "red"; other = "red" if ch == "grn" else "grn"
+        d.append(C[ch] / (C[ch] + U[ch])); chk.append(C[ch] > 10 * C[other])
+        ch2 = "grn" if C["grn"] + U["grn"] >= C["red"] + U["red"] else "red"   # (e) the pair's channel = where its total template (C + U) is
+        e_.append(C[ch2] / (C[ch2] + U[ch2])); agree.append(ch2 == ch)           #     brighter; independent of how well conversion worked
     q = QC.decode_qc_inputs(g, r, "EPIC_V1")["control_summary"]
     res.append(dict(gsm=gsm, pairs=len(a), chain_as_is=round(float(np.median(a)), 4), chain_record=round(float(q["bisulfite_conversion_I_median"]), 4),
-                    own_color=round(float(np.median(b)), 4), green_only=round(float(np.median(c)), 4) if c else None,
+                    own_color=round(float(np.median(b)), 4), design=round(float(np.median(d)), 4), design_min_pair=round(float(min(d)), 4), design_check=f"{sum(chk)} of {len(chk)}", sum_rule=round(float(np.median(e_)), 4), sum_rule_agrees=all(agree), green_only=round(float(np.median(c)), 4) if c else None,
                     per_pair_as_is=[round(v, 3) for v in a], per_pair_own_color=[round(v, 3) for v in b]))
     for p_ in (g, r): os.remove(p_)
     print(res[-1], flush=True)
@@ -47,7 +58,11 @@ T = pd.DataFrame(res)
 L = [f"arrays {len(T)}; manifest color column: {colcol}",
      f"chain as it is (every pair in green): median {T.chain_as_is.median():.4f}, range {T.chain_as_is.min():.4f}-{T.chain_as_is.max():.4f}; equals the chain's record: {bool((T.chain_as_is - T.chain_record).abs().max() < 1e-4)}",
      f"each pair in its own manifest color: median {T.own_color.median():.4f}, range {T.own_color.min():.4f}-{T.own_color.max():.4f}",
-     f"green pairs only: median {T.green_only.median():.4f}" if T.green_only.notna().any() else "green pairs only: none"]
+     f"green pairs only: median {T.green_only.median():.4f}" if T.green_only.notna().any() else "green pairs only: none",
+     f"EACH PAIR IN ITS DESIGN CHANNEL (pairs 1-2 green, 3-5 red): median {T.design.median():.4f}, range {T.design.min():.4f}-{T.design.max():.4f}; lowest single pair {T.design_min_pair.min():.4f}; "
+     f"arrays where every C probe is over 10x brighter in its design channel: {int((T.design_check == T.design_check.iloc[0]).sum() if T.design_check.str.startswith('5 of 5').all() else T.design_check.str.startswith('5 of 5').sum())} of {len(T)}",
+     f"(e) channel by the pair's total C + U: median {T.sum_rule.median():.4f}, range {T.sum_rule.min():.4f}-{T.sum_rule.max():.4f}; same channel as the design on every pair: {int(T.sum_rule_agrees.sum())} of {len(T)} arrays",
+     "per array (design channel): " + ", ".join(f"{g}:{v:.4f}" for g, v in zip(T.gsm, T.design))]
 Pr = pd.DataFrame(rows)   # per probe, the median over arrays of each channel (2026-10-20: the per-pair table, so the summary alone answers it)
 L.append("per probe, median over arrays: probe | manifest color | green | red")
 for (pr, col), g in Pr.groupby(["probe", "color"], sort=True): L.append(f"  {pr} | {col} | {g.grn.median():.0f} | {g.red.median():.0f}")
