@@ -1,7 +1,9 @@
 name: mice_test
 # One GitHub machine runs the mouse pipeline's index build and the first read set (2026-10-21), with memory and time logged every 30 s, to
 # decide how the 38-run mouse reproduction can be split across GitHub machines. Nothing is scored. Manual only.
-on: {workflow_dispatch: {inputs: {runs: {description: "comma-separated run accessions", required: true, default: "SRR3111449"}}}}
+on: {workflow_dispatch: {inputs: {runs: {description: "comma-separated run accessions", required: true, default: "SRR3111449"}, threads: {description: "aligner threads (NW)", required: false, default: "1"}}}}
+# 2026-10-21 run 39677265744: the index built (peak 8.9 GB), then bwa-meth with 4 threads rose to 15.8 GB and 1.5 GB of swap and GitHub stopped
+# the machine (16 GB). Each aligner thread holds its own read batch, so this run tries 1 thread.
 permissions: {contents: read}
 jobs:
   test:
@@ -18,7 +20,7 @@ jobs:
           sudo fallocate -l 8G /swapfile && sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile; free -m | head -3
           mkdir -p mt; ( while true; do echo "MEM $(date -u +%H:%M:%S) used $(free -m | awk '/Mem:/{print $3}') MB swap $(free -m | awk '/Swap:/{print $3}') MB disk $(df -BG --output=used / | tail -1 | tr -d ' ') top $(ps -eo rss,comm --sort=-rss | sed -n 2p | awk '{print int($1/1024)"MB",$2}')"; sleep 60; done ) | tee mt/memory.log &
           set +e; export REPO=$PWD MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/mw PY=python3 NW=4 RUNS="${{ inputs.runs }}"
-          /usr/bin/time -v bash $MP/reproduce/mice_rrbs.sh > mt/run.log 2> mt/time.log; echo $? > mt/rc.txt
+          NW=${{ inputs.threads }} /usr/bin/time -v bash $MP/reproduce/mice_rrbs.sh > mt/run.log 2> mt/time.log; echo $? > mt/rc.txt
           cp -r $WORK/seq/logs mt/logs 2>/dev/null; ls -la $WORK/seq/pat > mt/pat_list.txt 2>&1; cp $WORK/seq/pat/*.pat.gz mt/ 2>/dev/null
           echo "peak MB: $(awk '{print $2}' mt/memory.log | sort -n | tail -1)"; grep -E "Maximum resident|Elapsed" mt/time.log; cat mt/rc.txt; true
       - uses: actions/upload-artifact@v4

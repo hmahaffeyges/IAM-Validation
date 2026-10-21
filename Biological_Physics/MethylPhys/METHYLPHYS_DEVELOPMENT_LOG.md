@@ -2936,3 +2936,6 @@ Three colon and three breast tumors against their own adjacent normal, drawn by 
 
 ### 2026-10-21 · All 191 tissue pairs on the globe (ATL-063, DEV-TISSUE-GLOBE-01)
 In breast and liver, a tumor against its own normal lights about three times what two people's normal tissue lights; leaving out the X and Y lowers the mixed-sex controls, as the X's biology predicts. Colon's controls light nearly as much as its tumors, likely because they compare different slides; controls matched on slide are next.
+
+### 2026-10-21 · The mouse alignment on GitHub: the memory limit found (OTH-076)
+The live memory log showed the reference index build fits a GitHub machine (8.9 GB at its peak, about two hours), but the bisulfite aligner with 4 threads rose to 15.8 GB of the machine's 16 GB, and GitHub stopped it. Rerun with 1 thread; if it still does not fit, the mouse reproduction is a job for AWS.
