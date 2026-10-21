@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **22 Python files** holding **260 functions** (nested ones included); 260 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **22 Python files** holding **261 functions** (nested ones included); 261 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -15,7 +15,7 @@ Read from the code at build time: the one command can load **22 Python files** h
 | `MethylPhys_Interface/report_v4.py` | 258 | 20 | 17 | 17 |
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
 | `MethylPhys_Interface/report_figs_v4.py` | 145 | 7 | 6 | 2 |
-| `dev_stages.py` | 336 | 28 | 3 | 0 |
+| `dev_stages.py` | 356 | 29 | 3 | 0 |
 | `stage_v4.py` | 143 | 8 | 4 | 2 |
 | `stage_deconv_v21.py` | 198 | 6 | 4 | 0 |
 | `stage_q2_selfref.py` | 270 | 29 | 0 | 11 |
@@ -1944,134 +1944,143 @@ no longer calls it, because step 1 now runs on every reading.
 
 *Code:* `dev_stages.py` line 77 (9 lines) · arguments: beta, specimen · calls: not called on the traced runs
 
+### `dev_stages.py::anchor_range`
+
+Development (DEV-SELFTARE-03, preliminary): the span between the array's type II fixed-site anchors, R = U − L, the number the self-tare
+divides by. A loss of the neutrophils' pattern that reaches every site is mapped away by the self-tare but narrows this span: tared against at
+least 3 same-run healthy references, R_rel = R / median(R_refs), and the loss is (1 − R_rel) / f_neu with a limit of 2 × the references' spread /
+f_neu. On synthetic bloods planted 1, 2 and 5 % read back as 0.97, 1.95 and 4.94 %. Not called by the one command yet; changes no reading.
+
+*Code:* `dev_stages.py` line 89 (18 lines) · arguments: beta, f_neu, refs, st · calls: not called on the traced runs · files named: `dev_selftare_typeII_EPIC_v1.json`
+
 ### `dev_stages.py::site_uncertainty`
 
 This array's own per-site uncertainty: the SD of β against the reference value over its fixed sites, per design and state.
 
-*Code:* `dev_stages.py` line 89 (8 lines) · arguments: beta, st · calls: not called on the traced runs · files named: `dev_selftare_typeII_EPIC_v1.json`
+*Code:* `dev_stages.py` line 109 (8 lines) · arguments: beta, st · calls: not called on the traced runs · files named: `dev_selftare_typeII_EPIC_v1.json`
 
 ### `dev_stages.py::s_for`
 
 The per-site uncertainty for a list of sites, by design and state (low when the reference value is below 0.5).
 
-*Code:* `dev_stages.py` line 99 (6 lines) · arguments: sites, ref_values, su, st · calls: not called on the traced runs · files named: `dev_selftare_typeII_EPIC_v1.json`
+*Code:* `dev_stages.py` line 119 (6 lines) · arguments: sites, ref_values, su, st · calls: not called on the traced runs · files named: `dev_selftare_typeII_EPIC_v1.json`
 
 ### `dev_stages.py::direction`
 
 D = mean over the identity sites of |r − 0.5| − |β − 0.5|: above 0, the sites have moved toward 0.5, toward disorder; below 0, away from it.
 
-*Code:* `dev_stages.py` line 108 (6 lines) · arguments: beta, ref, sites · calls: not called on the traced runs
+*Code:* `dev_stages.py` line 128 (6 lines) · arguments: beta, ref, sites · calls: not called on the traced runs
 
 ### `dev_stages.py::direction_record`
 
 The direction record at the neutrophil identity sites against the cell's own reference (the expectation in whole blood), tared on the
 same-run references' D.
 
-*Code:* `dev_stages.py` line 116 (15 lines) · arguments: beta, specimen, comp, refs_D · calls: not called on the traced runs
+*Code:* `dev_stages.py` line 136 (15 lines) · arguments: beta, specimen, comp, refs_D · calls: not called on the traced runs
 
 ### `dev_stages.py::trace_cell`
 
 In an isolated-neutrophil specimen, another blood group's contamination, called above 3 × this array's own standard error.
 
-*Code:* `dev_stages.py` line 134 (15 lines) · arguments: beta, su, line · calls: not called on the traced runs · files named: `dev_selftare_typeII_EPIC_v1.json`
+*Code:* `dev_stages.py` line 154 (15 lines) · arguments: beta, su, line · calls: not called on the traced runs · files named: `dev_selftare_typeII_EPIC_v1.json`
 
 ### `dev_stages.py::foreign_cell`
 
 In whole blood, a non-blood template solved beside the 8 blood groups, called above 3 × this array's own standard error.
 
-*Code:* `dev_stages.py` line 152 (22 lines) · arguments: beta, template, su, line · calls: not called on the traced runs · files named: `dev_foreign_placenta_EPIC_v1.json`, `dev_selftare_typeII_EPIC_v1.json`
+*Code:* `dev_stages.py` line 172 (22 lines) · arguments: beta, template, su, line · calls: not called on the traced runs · files named: `dev_foreign_placenta_EPIC_v1.json`, `dev_selftare_typeII_EPIC_v1.json`
 
 ### `dev_stages.py::brightness`
 
 A 95 % interval on Met-A by Monte Carlo from this array's per-site uncertainty.
 
-*Code:* `dev_stages.py` line 177 (17 lines) · arguments: beta, specimen, comp, n_draw, su, seed · calls: not called on the traced runs · files named: `dev_selftare_typeII_EPIC_v1.json`
+*Code:* `dev_stages.py` line 197 (17 lines) · arguments: beta, specimen, comp, n_draw, su, seed · calls: not called on the traced runs · files named: `dev_selftare_typeII_EPIC_v1.json`
 
 ### `dev_stages.py::_mapping`
 
 Loads the CpG-to-HEALPix map of the development sky (NSIDE 128).
 
-*Code:* `dev_stages.py` line 197 (6 lines) · arguments: none · calls: not called on the traced runs · constants read: `RM`, `_C` · files named: `iamatlas_cpg_to_healpix_nside128.npz`
+*Code:* `dev_stages.py` line 217 (6 lines) · arguments: none · calls: not called on the traced runs · constants read: `RM`, `_C` · files named: `iamatlas_cpg_to_healpix_nside128.npz`
 
 ### `dev_stages.py::residual_z`
 
 The development sky's per-site departure: z = (β − Σ f_g μ_g) / √(Σ f_g² (sd² + s_bp²) + 0.02²), with s_bp the atlas's between-person SD.
 
-*Code:* `dev_stages.py` line 205 (6 lines) · arguments: beta, fractions, AP · calls: not called on the traced runs · constants read: `PARENTS`
+*Code:* `dev_stages.py` line 225 (6 lines) · arguments: beta, fractions, AP · calls: not called on the traced runs · constants read: `PARENTS`
 
 ### `dev_stages.py::_pixmap`
 
 The mean departure in each pixel.
 
-*Code:* `dev_stages.py` line 213 (3 lines) · arguments: zs, pix, npix · calls: not called on the traced runs
+*Code:* `dev_stages.py` line 233 (3 lines) · arguments: zs, pix, npix · calls: not called on the traced runs
 
 ### `dev_stages.py::block_shuffle_order`
 
 A permutation that moves whole runs of consecutive sites within each chromosome: the null keeps short-range structure along the genome and
 breaks where it sits.
 
-*Code:* `dev_stages.py` line 218 (7 lines) · arguments: chr_keys, run, rng · calls: not called on the traced runs · constants read: `SKY_RUN`
+*Code:* `dev_stages.py` line 238 (7 lines) · arguments: chr_keys, run, rng · calls: not called on the traced runs · constants read: `SKY_RUN`
 
 ### `dev_stages.py::sky_from_z`
 
 The development sky's band powers against the block-shuffle null and the look-elsewhere statistic by simulation.
 
-*Code:* `dev_stages.py` line 227 (14 lines) · arguments: z, n_null, n_lee, seed, free_null · calls: not called on the traced runs · constants read: `SKY_LEE_N`, `SKY_NULL_N`, `SKY_RUN`
+*Code:* `dev_stages.py` line 247 (14 lines) · arguments: z, n_null, n_lee, seed, free_null · calls: not called on the traced runs · constants read: `SKY_LEE_N`, `SKY_NULL_N`, `SKY_RUN`
 
 ### `dev_stages.py::sky_from_z.shuf`
 
 The band powers of one block-shuffled sky.
 
-*Code:* `dev_stages.py` line 232 (2 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `dev_stages.py` line 252 (2 lines) · arguments: none · calls: not called on the traced runs
 
 ### `dev_stages.py::_has_cols`
 
 Whether a parquet file holds the named columns.
 
-*Code:* `dev_stages.py` line 243 (4 lines) · arguments: path, cols · calls: not called on the traced runs · files named: `import pyarrow.parquet`
+*Code:* `dev_stages.py` line 263 (4 lines) · arguments: path, cols · calls: not called on the traced runs · files named: `import pyarrow.parquet`
 
 ### `dev_stages.py::load_atlas_parents`
 
 Loads the atlas v2 parent blood cells' means, SDs and between-person SDs.
 
-*Code:* `dev_stages.py` line 249 (8 lines) · arguments: atlas_parquet · calls: not called on the traced runs · constants read: `PARENTS`, `_C`
+*Code:* `dev_stages.py` line 269 (8 lines) · arguments: atlas_parquet · calls: not called on the traced runs · constants read: `PARENTS`, `_C`
 
 ### `dev_stages.py::sky`
 
 The development residual sky of one whole blood, with its null.
 
-*Code:* `dev_stages.py` line 259 (7 lines) · arguments: beta, fractions, atlas_parquet · calls: not called on the traced runs
+*Code:* `dev_stages.py` line 279 (7 lines) · arguments: beta, fractions, atlas_parquet · calls: not called on the traced runs
 
 ### `dev_stages.py::_atlas_e`
 
 Builds the atlas_e solver once on the 12 array-measured circulating cells of atlas v2, with the neutrophil identity sites removed.
 
-*Code:* `dev_stages.py` line 273 (9 lines) · arguments: atlas_parquet · calls: not called on the traced runs · constants read: `ATLAS_E_CELLS`, `_C`
+*Code:* `dev_stages.py` line 293 (9 lines) · arguments: atlas_parquet · calls: not called on the traced runs · constants read: `ATLAS_E_CELLS`, `_C`
 
 ### `dev_stages.py::atlas_e`
 
 The atlas_e composition, summed into the 8 blood groups.
 
-*Code:* `dev_stages.py` line 284 (5 lines) · arguments: beta, atlas_parquet · calls: not called on the traced runs · constants read: `BLOOD8`
+*Code:* `dev_stages.py` line 304 (5 lines) · arguments: beta, atlas_parquet · calls: not called on the traced runs · constants read: `BLOOD8`
 
 ### `dev_stages.py::nilc_e`
 
 The NILC-e composition on the atlas_e templates, with each share's noise.
 
-*Code:* `dev_stages.py` line 291 (5 lines) · arguments: beta, atlas_parquet · calls: not called on the traced runs · constants read: `BLOOD8`
+*Code:* `dev_stages.py` line 311 (5 lines) · arguments: beta, atlas_parquet · calls: not called on the traced runs · constants read: `BLOOD8`
 
 ### `dev_stages.py::percell_b`
 
 A B-cell Met-A against the expectation for this blood's mix, on the development B-cell reference.
 
-*Code:* `dev_stages.py` line 298 (13 lines) · arguments: beta, fractions, atlas_parquet · calls: not called on the traced runs · constants read: `PARENTS`, `RM` · files named: `metA_floors_v1_2_ALLCELLS_development.json`
+*Code:* `dev_stages.py` line 318 (13 lines) · arguments: beta, fractions, atlas_parquet · calls: not called on the traced runs · constants read: `PARENTS`, `RM` · files named: `metA_floors_v1_2_ALLCELLS_development.json`
 
 ### `dev_stages.py::epicv2_calibrate`
 
 An EPIC v2 IDAT pair through SeSAMe (an R package, run in its own environment) to β values on EPIC v1 probe names, replicate probes of one
 CpG averaged and background-masked probes dropped. Development only: the chain's references are EPIC v1.
 
-*Code:* `dev_stages.py` line 317 (19 lines) · arguments: grn, red, rscript, prep · calls: not called on the traced runs · constants read: `SESAME_R` · files named: `betas.csv`
+*Code:* `dev_stages.py` line 337 (19 lines) · arguments: grn, red, rscript, prep · calls: not called on the traced runs · constants read: `SESAME_R` · files named: `betas.csv`
 
 ### `dev_comp_methods.py::load_atlas`
 

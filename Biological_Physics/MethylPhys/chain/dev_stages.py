@@ -85,6 +85,26 @@ def selftare_ii(beta, specimen="whole blood"):
                 note="Met-A re-read on this array's betas mapped onto the reference arrays' scale by its own fixed-site anchors; the reading above is unchanged")
 
 
+# ---------------------------------------------------------------- the anchor range: a loss at every site (DEV-SELFTARE-03, 2026-10-21)
+def anchor_range(beta, f_neu, refs=None, st=None):
+    """The span between this array's type II fixed-site anchors, R = U_II - L_II: the number self-tare II divides by, so a loss of a cell's
+    pattern that reaches every site (which self-tare II maps away, DEV_SELFTARE_03_OUTCOME.md) shows here instead. Tared like Met-A against
+    same-run healthy references (at least 3): R_rel = R / median(R_refs). A loss of a fraction p of the neutrophils' pattern at every site moves
+    each anchor toward 0.5 by f_neu x p x (anchor - 0.5), so R_rel = 1 - f_neu x p and p = (1 - R_rel) / f_neu. Preliminary; changes no reading."""
+    st = st or _json("dev_selftare_typeII_EPIC_v1.json")
+    if st is None: return _rec("anchor_range", status="NOT_RUN", reason="dev_selftare_typeII_EPIC_v1.json not found")
+    an = anchors(beta, st); L, U = an["II_low"]["mean"], an["II_high"]["mean"]
+    if L is None or U is None: return _rec("anchor_range", status="NOT_RUN", reason="the type II anchors were not measured on this array")
+    R = U - L; out = dict(status="OK", R=round(R, 5), f_neu=None if f_neu is None else round(float(f_neu), 4))
+    refs = [float(x) for x in (refs or []) if x is not None]
+    if len(refs) < 3:
+        return _rec("anchor_range", **out, tare=f"untared: {len(refs)} same-run healthy references (at least 3 needed)")
+    med = float(np.median(refs)); rel = R / med; spread = float(np.std(np.array(refs) / med, ddof=1)) if len(refs) > 1 else None
+    out.update(R_rel=round(rel, 5), refs=len(refs), spread=None if spread is None else round(spread, 5))
+    if f_neu and f_neu > 0:
+        out.update(loss_every_site_pct=round(100 * (1 - rel) / f_neu, 2), detection_limit_pct=None if spread is None else round(100 * 2 * spread / f_neu, 2))
+    return _rec("anchor_range", **out, note="preliminary (not yet commissioned): a loss of the neutrophils' pattern that reaches every site, read from the self-tare's own anchor range")
+
 # ---------------------------------------------------------------- v3 per-site uncertainty (DEV-TOOLKIT-ADDED-02)
 def site_uncertainty(beta, st=None):
     """SD of (beta - frozen reference value) over this array's own fixed sites, per design and state. Returns {I_low: sd, ...}."""

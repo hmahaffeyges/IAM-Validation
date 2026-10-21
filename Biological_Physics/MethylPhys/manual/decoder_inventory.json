@@ -2568,7 +2568,7 @@
   },
   {
    "file": "dev_stages.py",
-   "lines": 336,
+   "lines": 356,
    "functions": [
     {
      "file": "dev_stages.py",
@@ -2698,10 +2698,30 @@
     },
     {
      "file": "dev_stages.py",
+     "function": "anchor_range",
+     "name": "anchor_range",
+     "line": 89,
+     "end": 106,
+     "args": [
+      "beta",
+      "f_neu",
+      "refs",
+      "st"
+     ],
+     "lines": 18,
+     "doc": "The span between this array's type II fixed-site anchors, R = U_II - L_II: the number self-tare II divides by, so a loss of a cell's pattern that reaches every site (which self-tare II maps away, DEV_SELFTARE_03_OUTCOME.md) shows here instead. Tared like Met-A against same-run healthy references (at least 3): R_rel = R / median(R_refs). A loss of a fraction p of the neutrophils' pattern at every s",
+     "constants": [],
+     "data_files": [
+      "dev_selftare_typeII_EPIC_v1.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
      "function": "site_uncertainty",
      "name": "site_uncertainty",
-     "line": 89,
-     "end": 96,
+     "line": 109,
+     "end": 116,
      "args": [
       "beta",
       "st"
@@ -2718,8 +2738,8 @@
      "file": "dev_stages.py",
      "function": "s_for",
      "name": "s_for",
-     "line": 99,
-     "end": 104,
+     "line": 119,
+     "end": 124,
      "args": [
       "sites",
       "ref_values",
@@ -2738,8 +2758,8 @@
      "file": "dev_stages.py",
      "function": "direction",
      "name": "direction",
-     "line": 108,
-     "end": 113,
+     "line": 128,
+     "end": 133,
      "args": [
       "beta",
       "ref",
@@ -2755,8 +2775,8 @@
      "file": "dev_stages.py",
      "function": "direction_record",
      "name": "direction_record",
-     "line": 116,
-     "end": 130,
+     "line": 136,
+     "end": 150,
      "args": [
       "beta",
       "specimen",
@@ -2773,8 +2793,8 @@
      "file": "dev_stages.py",
      "function": "trace_cell",
      "name": "trace_cell",
-     "line": 134,
-     "end": 148,
+     "line": 154,
+     "end": 168,
      "args": [
       "beta",
       "su",
@@ -2792,8 +2812,8 @@
      "file": "dev_stages.py",
      "function": "foreign_cell",
      "name": "foreign_cell",
-     "line": 152,
-     "end": 173,
+     "line": 172,
+     "end": 193,
      "args": [
       "beta",
       "template",
@@ -2813,8 +2833,8 @@
      "file": "dev_stages.py",
      "function": "brightness",
      "name": "brightness",
-     "line": 177,
-     "end": 193,
+     "line": 197,
+     "end": 213,
      "args": [
       "beta",
       "specimen",
@@ -2835,8 +2855,8 @@
      "file": "dev_stages.py",
      "function": "_mapping",
      "name": "_mapping",
-     "line": 197,
-     "end": 202,
+     "line": 217,
+     "end": 222,
      "args": [],
      "lines": 6,
      "doc": "",
@@ -2853,8 +2873,8 @@
      "file": "dev_stages.py",
      "function": "residual_z",
      "name": "residual_z",
-     "line": 205,
-     "end": 210,
+     "line": 225,
+     "end": 230,
      "args": [
       "beta",
       "fractions",
@@ -2872,8 +2892,8 @@
      "file": "dev_stages.py",
      "function": "_pixmap",
      "name": "_pixmap",
-     "line": 213,
-     "end": 215,
+     "line": 233,
+     "end": 235,
      "args": [
       "zs",
       "pix",
@@ -2889,8 +2909,8 @@
      "file": "dev_stages.py",
      "function": "block_shuffle_order",
      "name": "block_shuffle_order",
-     "line": 218,
-     "end": 224,
+     "line": 238,
+     "end": 244,
      "args": [
       "chr_keys",
       "run",
@@ -2908,8 +2928,8 @@
      "file": "dev_stages.py",
      "function": "sky_from_z",
      "name": "sky_from_z",
-     "line": 227,
-     "end": 240,
+     "line": 247,
+     "end": 260,
      "args": [
       "z",
       "n_null",
@@ -2931,8 +2951,8 @@
      "file": "dev_stages.py",
      "function": "sky_from_z.shuf",
      "name": "shuf",
-     "line": 232,
-     "end": 233,
+     "line": 252,
+     "end": 253,
      "args": [],
      "lines": 2,
      "doc": "",
@@ -2944,8 +2964,8 @@
      "file": "dev_stages.py",
      "function": "_has_cols",
      "name": "_has_cols",
-     "line": 243,
-     "end": 246,
+     "line": 263,
+     "end": 266,
      "args": [
       "path",
       "cols"
@@ -2962,8 +2982,8 @@
      "file": "dev_stages.py",
      "function": "load_atlas_parents",
      "name": "load_atlas_parents",
-     "line": 249,
-     "end": 256,
+     "line": 269,
+     "end": 276,
      "args": [
       "atlas_parquet"
      ],
@@ -2980,8 +3000,8 @@
      "file": "dev_stages.py",
      "function": "sky",
      "name": "sky",
-     "line": 259,
-     "end": 265,
+     "line": 279,
+     "end": 285,
      "args": [
       "beta",
       "fractions",
@@ -2997,8 +3017,8 @@
      "file": "dev_stages.py",
      "function": "_atlas_e",
      "name": "_atlas_e",
-     "line": 273,
-     "end": 281,
+     "line": 293,
+     "end": 301,
      "args": [
       "atlas_parquet"
      ],
@@ -3015,8 +3035,8 @@
      "file": "dev_stages.py",
      "function": "atlas_e",
      "name": "atlas_e",
-     "line": 284,
-     "end": 288,
+     "line": 304,
+     "end": 308,
      "args": [
       "beta",
       "atlas_parquet"
@@ -3033,8 +3053,8 @@
      "file": "dev_stages.py",
      "function": "nilc_e",
      "name": "nilc_e",
-     "line": 291,
-     "end": 295,
+     "line": 311,
+     "end": 315,
      "args": [
       "beta",
       "atlas_parquet"
@@ -3051,8 +3071,8 @@
      "file": "dev_stages.py",
      "function": "percell_b",
      "name": "percell_b",
-     "line": 298,
-     "end": 310,
+     "line": 318,
+     "end": 330,
      "args": [
       "beta",
       "fractions",
@@ -3073,8 +3093,8 @@
      "file": "dev_stages.py",
      "function": "epicv2_calibrate",
      "name": "epicv2_calibrate",
-     "line": 317,
-     "end": 335,
+     "line": 337,
+     "end": 355,
      "args": [
       "grn",
       "red",
@@ -5192,5 +5212,5 @@
   }
  ],
  "n_files": 22,
- "n_functions": 260
+ "n_functions": 261
 }

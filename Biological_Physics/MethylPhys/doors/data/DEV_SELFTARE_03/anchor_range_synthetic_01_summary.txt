@@ -1,0 +1,5 @@
+12 healthy bloods: anchor range R 0.8849, 0.8844, 0.8844, 0.8847, 0.8846, 0.8846, 0.8845, 0.8846, 0.8844, 0.8846, 0.8846, 0.8851
+planted 0 % at every site: loss read +0.01 % (range -0.12 to +0.11); change from the donor's healthy reading +0.00 %; Met-A change +0.0000; limit 0.08 %
+planted 1 % at every site: loss read +0.97 % (range +0.85 to +1.06); change from the donor's healthy reading +0.97 %; Met-A change -0.0003; limit 0.08 %
+planted 2 % at every site: loss read +1.95 % (range +1.83 to +2.04); change from the donor's healthy reading +1.95 %; Met-A change -0.0007; limit 0.08 %
+planted 5 % at every site: loss read +4.94 % (range +4.78 to +5.06); change from the donor's healthy reading +4.93 %; Met-A change -0.0017; limit 0.09 %

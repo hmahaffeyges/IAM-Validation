@@ -1280,6 +1280,12 @@ A development record with its label.
 The development form of self-tare II: Met-A re-read on the mapped values beside the reading. Kept for its earlier records; the one command
 no longer calls it, because step 1 now runs on every reading.
 
+### dev_stages.py::anchor_range
+Development (DEV-SELFTARE-03, preliminary): the span between the array's type II fixed-site anchors, R = U − L, the number the self-tare
+divides by. A loss of the neutrophils' pattern that reaches every site is mapped away by the self-tare but narrows this span: tared against at
+least 3 same-run healthy references, R_rel = R / median(R_refs), and the loss is (1 − R_rel) / f_neu with a limit of 2 × the references' spread /
+f_neu. On synthetic bloods planted 1, 2 and 5 % read back as 0.97, 1.95 and 4.94 %. Not called by the one command yet; changes no reading.
+
 ### dev_stages.py::site_uncertainty
 This array's own per-site uncertainty: the SD of β against the reference value over its fixed sites, per design and state.
 
