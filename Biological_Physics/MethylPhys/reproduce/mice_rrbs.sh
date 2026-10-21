@@ -27,7 +27,9 @@ if [ ! -s $REF.bwameth.c2t.sa ]; then
   wgbstools init_genome mm10 --fasta_path $S/ref/mm10.fa.gz -@ 8 -f > logs/init_genome.log 2>&1 || exit 25
   bwameth.py index $REF > logs/index.log 2>&1 || exit 26
 fi
-for r in $(tail -n +2 $RUNS_CSV | cut -d, -f1); do
+# 2026-10-21: RUNS (optional, comma-separated run accessions) aligns only those runs, so the 38 can be split across GitHub machines;
+# unset, every run is aligned as before. The pipeline per run is unchanged.
+for r in $( [ -n "${RUNS:-}" ] && echo "$RUNS" | tr "," " " || tail -n +2 $RUNS_CSV | cut -d, -f1 ); do
   [ -s pat/$r.pat.gz ] && continue; f=fq/$r.fastq.gz
   # 2026-10-19 run 12: ENA's lookup service failed (HTTP 500) and the run stopped at 5 of 38. The address and MD5 of every file are in the
   # committed run list (GSE77079_runs.csv, columns fastq_ftp and fastq_md5), so they are read from there; downloads retry with growing pauses.
