@@ -26,3 +26,16 @@ GSE167998, 56 arrays), including the 6 neutrophil arrays of Met-A's own referenc
 
 **What this is not.** Not a commissioning: the bars of a sealed test are written only when the exploration shows the route works ("We explore
 WITHOUT sealing until we are certain"). Not a replacement of the commissioned neutrophil reading.
+
+**Design additions (2026-10-21, before any reading; from the globe's change rule, ATL-063).** The report globe found that the atlas's 95 %
+range is how sure the atlas is of the healthy average, not how much a healthy person varies (it flagged 84 % of a healthy blood), and that
+each site's healthy width (the person-to-person spread, donor_sd, with the atlas's own uncertainty) is the right yardstick (2.1 % of a
+healthy blood beyond 3 widths in its own spread). For this test:
+1. **Identity sites by width.** Each cell's identity sites are chosen where that cell's healthy width is small, by one rule fixed before reading.
+2. **Weighting by width, tested not assumed.** Met-A read with every site equal (as commissioned) and with sites weighted by one over the
+   healthy width squared; both reported, synthetic first.
+3. **No self-centering for Met-A.** Centering a sample on its own spread cancels a loss at every site (as the self-tare does,
+   DEV-SELFTARE-03); Met-A's offset from the atlas is cancelled only by the same-run tare against healthy references of the same cell.
+4. **The C-Score on the atlas.** The C-Score reads how change is laid out, not its size, so the globe's change map (each site in its healthy
+   width, in the sample's own spread) is a whole-genome departure map against the atlas; the C-Score's clustering statistic runs on it
+   unchanged, with healthy and planted clustered losses, and is compared with the commissioned C-Score on the same arrays.

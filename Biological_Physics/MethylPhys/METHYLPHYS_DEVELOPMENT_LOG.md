@@ -2906,3 +2906,6 @@ The author asked that Met-A be able to read any cell against IAM-Atlas v2.1, sin
 
 ### 2026-10-21 · The globe shows a fixed change (ATL-063)
 The report's globe no longer asks the reader to pick a size. A site has changed when its difference from the healthy reference, in that site's healthy width and the sample's own spread, is beyond 3: the C-Score's rule on the whole genome. A healthy blood shows 16,372 of 773,556 sites changed (2.1 %). The slider only fades the healthy background. A first rule, the atlas's 95 % range alone, flagged 84 % of a healthy blood because that range is how sure the atlas is of the healthy average, not how much a person varies; it was dropped the same day.
+
+### 2026-10-21 · The atlas plan gains the healthy width (GRP-014, DEV-METAA-ATLAS-01)
+From the globe's change rule: identity sites chosen and optionally weighted by each site's healthy width; no self-centering for Met-A, because centering a sample on its own spread hides a loss at every site; and a C-Score run on the globe's change map against the atlas, since the C-Score reads layout, not size. Written before any reading.
