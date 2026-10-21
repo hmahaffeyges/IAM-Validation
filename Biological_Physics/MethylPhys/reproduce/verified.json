@@ -89,5 +89,13 @@
   "commit": null,
   "job": "results/REPRODUCE_V1/run13/out/mice/verdict.json",
   "note": "recorded from the run's status line ('mice rc 0: PASS (655.4 min)', 2026-10-20 04:22 UTC); the compared numbers and commit to be copied from verdict.json"
+ },
+ "groupa": {
+  "verdict": "PASS",
+  "date": "2026-10-20",
+  "checks": 3,
+  "checks_ok": 3,
+  "commit": "ce44f9ef",
+  "job": "GitHub Actions groupa.yml run 39531208991 (scored numbers in issue 31): B1 263 of 278, B2 -0.36 % at -1.206 SE, B3 +2.00 % at 7.253 SE, identical to scored_groupa_01.json"
  }
 }

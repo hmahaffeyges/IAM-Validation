@@ -398,13 +398,13 @@
    "record": ""
   },
   {
-   "task": "Every block explained (author rule 2026-10-20: 'they should indicate exactly what flagged it ... Imagine being a researcher and not even understanding the code or the physics and getting blocks like this'): every point in the chain that stops, withholds or quarantines prints what was measured, the limit, where the limit comes from and whether it is provisional, what it means and what to do; release check V9 enforces it for Stage 0; the push gate names the exact failing script. Stage 0 done 2026-10-20 (explain_stage0, V9); 2026-10-20: every stop outside Stage 0's gates too (run_sample._why: specimen, early intake, EPIC v2, missing manifest, corrupt IDAT, Stage 1 platform, the quarantine after calibration), the cell shares, IAM-A's count and shape check and Stage Q0, each with the five parts in the bundle and in the report's 'Why the chain stopped' table; release check V11 enforces it (planted gap refused); next: the release check from a fresh checkout",
+   "task": "Every block explained (author rule 2026-10-20: 'they should indicate exactly what flagged it ... Imagine being a researcher and not even understanding the code or the physics and getting blocks like this'): every point in the chain that stops, withholds or quarantines prints what was measured, the limit, where the limit comes from and whether it is provisional, what it means and what to do; release check V9 enforces it for Stage 0; the push gate names the exact failing script. Stage 0 done 2026-10-20 (explain_stage0, V9); 2026-10-20: every stop outside Stage 0's gates too (run_sample._why: specimen, early intake, EPIC v2, missing manifest, corrupt IDAT, Stage 1 platform, the quarantine after calibration), the cell shares, IAM-A's count and shape check and Stage Q0, each with the five parts in the bundle and in the report's 'Why the chain stopped' table; release check V11 enforces it (planted gap refused); next: the release check from a fresh checkout | DONE 2026-10-20: release check 32 of 32 from GitHub's fresh checkout (run 39539147162, commit 8d4006e2), V9 and V11 included",
    "done_when": "every stop in the chain carries the five parts; V9 extended to every stage; release check passes from a fresh checkout",
    "rows": [
     "OTH-078",
     "GRP-004"
    ],
-   "status": "open",
+   "status": "done",
    "done_date": "",
    "record": ""
   },
@@ -584,7 +584,7 @@
    "notes": " | 2026-10-20: Chain Decoder written (manual/decoder_text.md -> OM_v4_decoder.md; all 257 functions of the 22 loaded files have entries; gated). OM PDF retitled 'Official IAM Operations Manual: Instrument Diagnostics and Chain Decoder' (Decoder + diagnostics + chain sequence); SOP retitled 'Official IAM Chain Operator Guide'. Reading the code line by line found the items under findings; each is fixed in the chain, not in the text."
   },
   {
-   "task": "Reproductions on GitHub's machines (author 2026-10-20: GitHub first): (a) metaa_rebuild, already verified PASS from a fresh clone on AWS on 2026-10-18 (the blood references rebuilt from the 91 public purified arrays of GSE110554 and GSE167998, identical), moved to a GitHub workflow; (b) Group-A added to reproduce/tests.json as the 10th reproduction: the groupa workflow rerun from a later commit gives the committed numbers. Correction 2026-10-20: this step first said the reference rebuild was not a reproduction; it is one (reproduce/verified.json)",
+   "task": "Reproductions on GitHub's machines (author 2026-10-20: GitHub first): (a) metaa_rebuild, already verified PASS from a fresh clone on AWS on 2026-10-18 (the blood references rebuilt from the 91 public purified arrays of GSE110554 and GSE167998, identical), moved to a GitHub workflow; (b) Group-A added to reproduce/tests.json as the 10th reproduction: the groupa workflow rerun from a later commit gives the committed numbers. Correction 2026-10-20: this step first said the reference rebuild was not a reproduction; it is one (reproduce/verified.json) | (b) DONE 2026-10-20: groupa re-read run 39531208991 from ce44f9ef, every sealed number identical; recorded in verified.json",
    "done_when": "both run on GitHub from a fresh checkout with every number identical; verified.json records them",
    "rows": [
     "OTH-076",

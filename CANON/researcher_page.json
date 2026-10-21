@@ -44,8 +44,12 @@
    "Biological_Physics/MethylPhys/ASCORES/README.md"
   ],
   [
-   "The operating procedure",
+   "The Official IAM Chain Operator Guide: how to run the chain",
    "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md"
+  ],
+  [
+   "The Official IAM Operations Manual: Instrument Diagnostics and Chain Decoder (every stage, gate and function, line by line)",
+   "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md"
   ],
   [
    "The showcase: public samples read once through the one command",
