@@ -5,13 +5,13 @@ A globe is a spec: {id, name, about, assets: {name: picture}, groups: [{name, la
                                               full); the slider fades only the background (unchanged sites and the base picture) from full to none;
                                               the changed sites and their count (fixed) never move
   {kind: "diff", src, base, scale, above}     a coded difference (0 no site; 1..255 = -0.5..+0.5 x scale); a slider fades everything below the
-                                              chosen size into the base picture's grey; above[t] = share of the measured globe beyond step t
+                                              chosen size into the base picture's gray; above[t] = share of the measured globe beyond step t
   {kind: "steps", srcs, labels, notes}        a slider steps through pictures (the noise maps: 1, 2, 4 ... 100 draws averaged)
 No data dependency: the site build imports it with the standard library only."""
 import os, json, base64
 
 def dedupe(spec):
-    """Every picture stored once, in spec["assets"]; layers name it (a reference is both a layer and a difference's grey background)."""
+    """Every picture stored once, in spec["assets"]; layers name it (a reference is both a layer and a difference's gray background)."""
     A, ix = {}, {}
     def one(v):
         if not isinstance(v, str) or not v.startswith("data:image/"): return v
@@ -57,9 +57,13 @@ function IAMExplorer(root, specs) { const q = c => root.querySelector(c), G = IA
   let tok = 0;
   async function render() { const L = lay(), t = +rg.value, my = ++tok;
     if (L.kind === 'change') { const T = await IAMTex(U(L.src)), B = L.base ? await IAMTex(U(L.base)) : null; if (my !== tok) return; const f = 1 - t / 100;
-      rv.textContent = t === 0 ? 'full healthy background' : t === 100 ? 'only the change' : 'background ' + (100 - t) + ' %'; nt.textContent = L.note || '';
-      G.set(k => { const c = T.d[k]; if (c === 0) return [30, 32, 38]; if (c === 128) { let g = 120; if (B) g = 105 + 0.55 * (0.3 * B.d[k] + 0.59 * B.d[k + 1] + 0.11 * B.d[k + 2]);
-          const q = 22 + (g - 22) * f; return [q, q, q]; }
+      rv.textContent = t === 0 ? 'the full healthy map, with the change on it' : t === 100 ? 'only the change' : t < 50 ? 'background draining to gray' : 'background fading to dark'; nt.textContent = L.note || '';
+      // the background quiets as the slider moves right: the healthy map in its own colors (left), drained to gray (middle), dark (right)
+      const toGray = Math.min(1, t / 50), toDark = Math.max(0, (t - 50) / 50);
+      G.set(k => { const c = T.d[k]; if (c === 0) return [30, 32, 38]; if (c === 128) {
+          let r = 120, gg = 120, bb = 120; if (B) { r = B.d[k]; gg = B.d[k + 1]; bb = B.d[k + 2]; }
+          const y = 0.3 * r + 0.59 * gg + 0.11 * bb, mix = (v) => { const g1 = v + (y - v) * toGray; return g1 + (22 - g1) * toDark; };
+          return [mix(r), mix(gg), mix(bb)]; }
         const v = (c - 128) / 127, b = 0.55 + 0.45 * Math.abs(v); return v > 0 ? [255 * b, 50 * b, 45 * b] : [40 * b, 95 * b, 255 * b]; }, T.w, T.h); return; }
     if (L.kind !== 'diff') { const T = await IAMTex(U(L.kind === 'steps' ? L.srcs[t] : L.src)); if (my !== tok) return;
       if (L.kind === 'steps') rv.textContent = L.labels[t]; nt.textContent = L.kind === 'steps' ? ((L.notes || [])[t] || '') + ' ' + (L.note || '') : (L.note || '');

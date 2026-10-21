@@ -28,8 +28,8 @@ Read from the code at build time: the one command can load **24 Python files** h
 | `stage_q_iam_a.py` | 174 | 9 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
-| `MethylPhys_Interface/report_globe_v4.py` | 221 | 12 | 0 | 0 |
-| `MethylPhys_Interface/globe_viewer.py` | 110 | 6 | 0 | 0 |
+| `MethylPhys_Interface/report_globe_v4.py` | 227 | 12 | 0 | 0 |
+| `MethylPhys_Interface/globe_viewer.py` | 114 | 6 | 0 | 0 |
 
 ## How to read the Decoder
 
@@ -1976,7 +1976,7 @@ the standard library, so the site build imports it unchanged; release check V12 
 
 ### `globe_viewer.py::dedupe`
 
-Stores every picture of a spec once under a short name; layers refer to it by name (a reference is both a layer and a difference's grey).
+Stores every picture of a spec once under a short name; layers refer to it by name (a reference is both a layer and a difference's gray).
 
 *Code:* `MethylPhys_Interface/globe_viewer.py` line 13 (13 lines) · arguments: spec · calls: not called on the traced runs
 
@@ -1990,25 +1990,25 @@ Gives one inlined picture its name, reusing the name if the same picture was alr
 
 The globe inside a report: one section with the controls, the viewer and the specs inlined, so the report stays one file that works offline.
 
-*Code:* `MethylPhys_Interface/globe_viewer.py` line 83 (4 lines) · arguments: specs, size · calls: not called on the traced runs · constants read: `CONTROLS`, `VIEWER_JS`
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 87 (4 lines) · arguments: specs, size · calls: not called on the traced runs · constants read: `CONTROLS`, `VIEWER_JS`
 
 ### `globe_viewer.py::page`
 
 A full dark page for one or more globes with a globe chooser: a report's own globe page, or the site's Globe Explorer.
 
-*Code:* `MethylPhys_Interface/globe_viewer.py` line 88 (8 lines) · arguments: specs, title, back, size, intro · calls: not called on the traced runs · constants read: `CONTROLS`, `VIEWER_JS`
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 92 (8 lines) · arguments: specs, title, back, size, intro · calls: not called on the traced runs · constants read: `CONTROLS`, `VIEWER_JS`
 
 ### `globe_viewer.py::write_files`
 
 Writes a spec's inlined pictures as files for the site and returns the spec pointing at them, so each globe loads only when it is chosen.
 
-*Code:* `MethylPhys_Interface/globe_viewer.py` line 97 (13 lines) · arguments: spec, d, url · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 101 (13 lines) · arguments: spec, d, url · calls: not called on the traced runs
 
 ### `globe_viewer.py::write_files.one`
 
 Writes one inlined picture to its file and returns its address.
 
-*Code:* `MethylPhys_Interface/globe_viewer.py` line 100 (4 lines) · arguments: v · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 104 (4 lines) · arguments: v · calls: not called on the traced runs
 
 ### `report_globe_v4.py::_to_sky`
 
@@ -2066,11 +2066,11 @@ to 1; refuses with the reason when there are no shares or no specimen.
 Checks the frozen layout against the atlas site list, builds the four layers, the shares above each size, and the page fragment (canvas,
 controls and script, no outside library). Returns the record kept in the bundle, marked `scored: False`.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 112 (101 lines) · arguments: beta, specimen, shares, out_html, z, fractions · calls: not called on the traced runs · constants read: `ABOUT`, `ATLAS`, `CH`, `HERE`, `ORDER`, `PANEL`, `R_DOT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `sites.parquet`, `sky_order_v21.npz`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 112 (107 lines) · arguments: beta, specimen, shares, out_html, z, fractions · calls: not called on the traced runs · constants read: `ABOUT`, `ATLAS`, `CH`, `HERE`, `ORDER`, `PANEL`, `R_DOT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `sites.parquet`, `sky_order_v21.npz`
 
 ### `report_globe_v4.py::build.rgb`
 
-Colors a sky map for the texture with the atlas pages' parchment scale, 0 to 1; grey where no site was measured.
+Colors a sky map for the texture with the atlas pages' parchment scale, 0 to 1; gray where no site was measured.
 
 *Code:* `MethylPhys_Interface/report_globe_v4.py` line 144 (2 lines) · arguments: m · calls: not called on the traced runs
 

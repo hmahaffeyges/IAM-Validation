@@ -5212,7 +5212,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 221,
+   "lines": 227,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
@@ -5377,7 +5377,7 @@
      "function": "build",
      "name": "build",
      "line": 112,
-     "end": 212,
+     "end": 218,
      "args": [
       "beta",
       "specimen",
@@ -5386,7 +5386,7 @@
       "z",
       "fractions"
      ],
-     "lines": 101,
+     "lines": 107,
      "doc": "",
      "constants": [
       "ABOUT",
@@ -5441,7 +5441,7 @@
   },
   {
    "file": "MethylPhys_Interface/globe_viewer.py",
-   "lines": 110,
+   "lines": 114,
    "functions": [
     {
      "file": "MethylPhys_Interface/globe_viewer.py",
@@ -5453,7 +5453,7 @@
       "spec"
      ],
      "lines": 13,
-     "doc": "Every picture stored once, in spec[\"assets\"]; layers name it (a reference is both a layer and a difference's grey background).",
+     "doc": "Every picture stored once, in spec[\"assets\"]; layers name it (a reference is both a layer and a difference's gray background).",
      "constants": [],
      "data_files": [],
      "traced_calls": {}
@@ -5477,8 +5477,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "fragment",
      "name": "fragment",
-     "line": 83,
-     "end": 86,
+     "line": 87,
+     "end": 90,
      "args": [
       "specs",
       "size"
@@ -5496,8 +5496,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "page",
      "name": "page",
-     "line": 88,
-     "end": 95,
+     "line": 92,
+     "end": 99,
      "args": [
       "specs",
       "title",
@@ -5518,8 +5518,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "write_files",
      "name": "write_files",
-     "line": 97,
-     "end": 109,
+     "line": 101,
+     "end": 113,
      "args": [
       "spec",
       "d",
@@ -5535,8 +5535,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "write_files.one",
      "name": "one",
-     "line": 100,
-     "end": 103,
+     "line": 104,
+     "end": 107,
      "args": [
       "v"
      ],

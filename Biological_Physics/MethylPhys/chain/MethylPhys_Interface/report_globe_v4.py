@@ -147,6 +147,12 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
     def _code(v, full):
         c = np.where(np.isfinite(v), 128 + np.sign(v) * np.maximum(np.abs(v) > 0, np.round(np.clip(np.abs(v) / full, 0, 1) * 127)), 0)
         return np.clip(c, 0, 255).astype(np.uint8)
+    # a changed site is one texture pixel, too small to see once the background is dark: each changed pixel also lights its 8 neighbors (the
+    # larger change winning where two meet); only unchanged pixels are overwritten, so every changed site keeps its own place and color
+    from scipy import ndimage as _nd
+    ch = np.isfinite(dv) & (dv != 0); big = np.where(ch, np.abs(dv), 0); grow = _nd.maximum_filter(big, size=3, mode="wrap")
+    sgn = _nd.maximum_filter(np.where(ch, np.abs(dv) * (1 + (dv > 0)), 0), size=3, mode="wrap")
+    take = (~ch) & np.isfinite(dv) & (grow > 0); dv = np.where(take, np.where(sgn > grow * 1.5, grow, -grow), dv)
     code = _code(dv, 10)
     zcode, zabove = None, None
     if z is not None and len(z):
@@ -183,7 +189,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
     J = lambda b: "data:image/jpeg;base64," + b; P_ = lambda b: "data:image/png;base64," + b
     R_ = J(_jpg_b64(rgb(ref_s)))
     L = [dict(name="the change from the healthy reference", kind="change", src=P_(_png_b64(code, "L")), base=R_, full=10,
-              hint="Slide right to fade the healthy background away until only the change is left; slide left to bring it back.",
+              hint="Slide right to quiet the healthy background: its colors drain to gray, then to dark, until only the change is left lit. Slide left to bring the full map back.",
               fixed=f"Changed: {n_changed:,} of {n_ranged:,} sites. This count is fixed; the slider never changes it.",
               note=(f"Against {name}. Each site's difference is measured in that site's healthy width (how much healthy people vary there, and how "
                     "sure the atlas is), in this sample's own spread; a site has changed beyond 3, the C-Score's rule. The line is set by the "
@@ -192,7 +198,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
          dict(name="the healthy reference", kind="image", src=R_, note=f"{name}, 0 to 1.")]
     if zcode is not None:
         L.append(dict(name="the change at Met-A's 6,000 sites (against its purified reference)", kind="change", src=P_(_png_b64(zcode, "L")), full=10,
-                      hint="Slide right to fade the unchanged sites away until only the changed ones are left.",
+                      hint="Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
                       fixed=f"Changed: {zabove[0]:,} of {zabove[1]:,} sites depart by more than 3 spreads. This count is fixed; the slider never changes it.",
                       note=("The C-Score's departure map against Met-A's commissioned purified-array reference, in the sample's own spread, as in the "
                             "report's overlay; a site has changed beyond 3 spreads, the C-Score's own rule. A run of changed neighbors shows as a patch.")))

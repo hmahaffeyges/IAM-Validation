@@ -5,7 +5,7 @@ The instrument's job: draw every cell type of the commissioned atlas on one HEAL
 own map) can be laid side by side.
  - layout: every atlas site placed in genome order (chr1..chr22, chrX, chrY, then position; Illumina EPIC v1 B4 and 450K manifests, hg19) at
    pixel floor(i * npix / n), HEALPix NSIDE 256, NESTED order (genome neighbors share small patches), as the v2 page art
-   (website/art/make_atlas_sky.py); a pixel that holds two sites shows their mean; a pixel with no measured site is masked (grey).
+   (website/art/make_atlas_sky.py); a pixel that holds two sites shows their mean; a pixel with no measured site is masked (gray).
  - values: the atlas's best value per site and cell (compact copy atlas/v2.1/mu_part*.parquet; uint16 x 1e-4, 65535 = not measured) and its
    uncertainty, the half-width of the 95 % range, (mu_hi - mu_lo) / 2.
  - writes (OUT): sky_v21_mu_nside256_nest.npz and sky_v21_halfwidth_nside256_nest.npz (one float16 map per cell, NaN = masked), the 79-cell

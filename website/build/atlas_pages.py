@@ -40,7 +40,7 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
     specs = [atlas]
     for g in sorted(glob.glob(os.path.join(ART_, "explorer", "*.json"))): specs.append(json.load(open(g)))
     intro = (f'<p><a href="index.html">&larr; all {len(cells)} cells</a> &middot; <a href="{back}">front page</a></p><p>Choose a globe, then what to show. '
-             'Drag to turn it. Each globe brings its own layers and sliders. Grey or dark pixels hold no measured site.</p>')
+             'Drag to turn it. Each globe brings its own layers and sliders. Gray or dark pixels hold no measured site.</p>')
     d = os.path.join(out, "atlas"); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "sphere.html"), "w", encoding="utf-8").write(V.page(specs, "The IAM Globe Explorer", intro=intro))
     return len(cells)

@@ -12,7 +12,7 @@
      "src": "a0",
      "base": "a1",
      "full": 10,
-     "hint": "Slide right to fade the healthy background away until only the change is left; slide left to bring it back.",
+     "hint": "Slide right to quiet the healthy background: its colors drain to gray, then to dark, until only the change is left lit. Slide left to bring the full map back.",
      "fixed": "Changed: 16,516 of 773,556 sites. This count is fixed; the slider never changes it.",
      "note": "Against healthy blood for this person's own cell mix (IAM-Atlas v2.1, Stage D21 shares). Each site's difference is measured in that site's healthy width (how much healthy people vary there, and how sure the atlas is), in this sample's own spread; a site has changed beyond 3, the C-Score's rule. The line is set by the measurement, not by the reader. Red: more methylation than healthy; blue: less; brighter: further out."
     },
@@ -35,7 +35,7 @@
      "kind": "change",
      "src": "a3",
      "full": 10,
-     "hint": "Slide right to fade the unchanged sites away until only the changed ones are left.",
+     "hint": "Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
      "fixed": "Changed: 66 of 5,525 sites depart by more than 3 spreads. This count is fixed; the slider never changes it.",
      "note": "The C-Score's departure map against Met-A's commissioned purified-array reference, in the sample's own spread, as in the report's overlay; a site has changed beyond 3 spreads, the C-Score's own rule. A run of changed neighbors shows as a patch.",
      "base": null

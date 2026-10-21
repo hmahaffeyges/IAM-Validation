@@ -2,7 +2,7 @@
 can turn: every atlas site keeps its one place on the HEALPix sphere (NSIDE 256, NESTED, genome order; atlas/tools/sky_maps_v21.py, whose
 layout, decoding and pixel rule are imported here unchanged), drawn as an equirectangular texture per cell: the atlas's best value (the
 Planck parchment scale, 0 to 1) and how sure it is (half-width of the 95 % range, magma, the cell pages' shared 0 to 0.15). Unmeasured
-pixels grey. The page (website/build/atlas_pages.py, atlas/sphere.html) turns the texture on a sphere in the browser, no outside library.
+pixels gray. The page (website/build/atlas_pages.py, atlas/sphere.html) turns the texture on a sphere in the browser, no outside library.
 A picture of the atlas: nothing is read, fitted or scored from it.
 Usage: python3 website/art/make_sphere_3d.py OUT [ATLAS_DIR MANIFEST_DIR]   (needs the Illumina EPIC v1 B4 and 450K v3 manifests for genome order;
 when MANIFEST_DIR is not given, methylprep's own downloads are used). Writes OUT/<slug>_v.jpg, OUT/<slug>_u.jpg and OUT/sphere.json."""

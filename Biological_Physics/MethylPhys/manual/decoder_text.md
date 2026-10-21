@@ -1316,7 +1316,7 @@ series of pictures a slider steps through (the noise maps). The same code draws 
 the standard library, so the site build imports it unchanged; release check V12 and the site build both check that its script parses.
 
 ### globe_viewer.py::dedupe
-Stores every picture of a spec once under a short name; layers refer to it by name (a reference is both a layer and a difference's grey).
+Stores every picture of a spec once under a short name; layers refer to it by name (a reference is both a layer and a difference's gray).
 
 ### globe_viewer.py::dedupe.one
 Gives one inlined picture its name, reusing the name if the same picture was already stored.
@@ -1365,7 +1365,7 @@ Checks the frozen layout against the atlas site list, builds the four layers, th
 controls and script, no outside library). Returns the record kept in the bundle, marked `scored: False`.
 
 ### report_globe_v4.py::build.rgb
-Colors a sky map for the texture with the atlas pages' parchment scale, 0 to 1; grey where no site was measured.
+Colors a sky map for the texture with the atlas pages' parchment scale, 0 to 1; gray where no site was measured.
 
 ## 15. The development readings: `dev_stages.py`, `dev_comp_methods.py`, `deconv_v2.py`, `sky_statistics.py`
 
