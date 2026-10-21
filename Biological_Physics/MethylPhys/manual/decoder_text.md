@@ -1358,6 +1358,8 @@ DEVELOPMENT, not commissioned: one person's sample (a tumor) against the same pe
 layout, by the globe's block rule without the atlas: each site's difference in the pair's own spread, blocks of 10 neighboring sites, the
 block mean in its own block spread, changed beyond the 5 % family-wise line. Run as `python3 report_globe_v4.py pair SAMPLE REFERENCE NAME
 OUT.html` on chain Stage 1 values. A pair with no change lights 0 of 77,356 blocks; 200 planted regional runs of 30 sites light 620.
+`drop` leaves listed sites out before anything is computed (the X and Y, so a difference of sex is not counted as a change). The record also
+gives the changed blocks above and below the reference and the share of the globe's measured pixels the change lights.
 
 ### report_globe_v4.py::build_pair.rgb
 Draws a methylation map for the pair's globe on the atlas pages' parchment scale; gray where no site was measured.

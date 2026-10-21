@@ -23,3 +23,12 @@ colon; the control falls inside the tumors' range. Differences between people (i
 change at this resolution. This is why the instruments read a tumor by what is lost (Met-A, the tissue scorer's sealed rule), not by how much
 differs. What would separate them is a question for a test, not this picture: the direction of the change at a cell's identity sites, the
 X removed, or a person's own two normals as the control.
+
+## Run 2, planned (written 2026-10-21 before it runs; exploratory, nothing sealed or scored)
+
+The author asked to run every pair we have. `data/DEV_TISSUE_GLOBE_01/all_pairs_02.py` on GitHub (`.github/workflows/tissue_globe.yml`, 10
+machines and a combine job): all 191 sealed pairs (colon 88, breast 53, liver 50), each tumor against its own adjacent normal; as many
+controls, one person's adjacent normal against another's of the same organ; and colon's 48 healthy donors' mucosa, one against the next.
+Every comparison counted with all sites and with the X and Y left out. Reported per tissue: changed blocks (above and below) and the share of
+the globe lit, the median and range of each kind, and the share of tumors above the largest control. The question it answers: does a tumor
+against its own normal light more than the differences between two people, by which measure, and in which tissue.

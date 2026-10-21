@@ -5212,7 +5212,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 299,
+   "lines": 306,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
@@ -5458,15 +5458,16 @@
      "function": "build_pair",
      "name": "build_pair",
      "line": 255,
-     "end": 288,
+     "end": 295,
      "args": [
       "beta",
       "ref_beta",
       "ref_name",
       "out_html",
-      "title"
+      "title",
+      "drop"
      ],
-     "lines": 34,
+     "lines": 41,
      "doc": "DEVELOPMENT (2026-10-21, author: test the globe on the breast and colon tissue results): one person's sample (a tumor) against the same person's own other sample (its adjacent normal), on the atlas's layout, by the globe's block rule without the atlas: each site's difference, centered and scaled by the pair's own spread (MAD x 1.4826), blocks of BLOCK neighboring measured sites, the block mean in ",
      "constants": [
       "ATLAS",
@@ -5486,8 +5487,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair.rgb",
      "name": "rgb",
-     "line": 273,
-     "end": 274,
+     "line": 277,
+     "end": 278,
      "args": [
       "m"
      ],

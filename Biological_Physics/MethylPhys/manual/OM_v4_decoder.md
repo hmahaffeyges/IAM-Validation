@@ -28,7 +28,7 @@ Read from the code at build time: the one command can load **24 Python files** h
 | `stage_q_iam_a.py` | 174 | 9 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
-| `MethylPhys_Interface/report_globe_v4.py` | 299 | 15 | 0 | 0 |
+| `MethylPhys_Interface/report_globe_v4.py` | 306 | 15 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 114 | 6 | 0 | 0 |
 
 ## How to read the Decoder
@@ -2045,14 +2045,16 @@ DEVELOPMENT, not commissioned: one person's sample (a tumor) against the same pe
 layout, by the globe's block rule without the atlas: each site's difference in the pair's own spread, blocks of 10 neighboring sites, the
 block mean in its own block spread, changed beyond the 5 % family-wise line. Run as `python3 report_globe_v4.py pair SAMPLE REFERENCE NAME
 OUT.html` on chain Stage 1 values. A pair with no change lights 0 of 77,356 blocks; 200 planted regional runs of 30 sites light 620.
+`drop` leaves listed sites out before anything is computed (the X and Y, so a difference of sex is not counted as a change). The record also
+gives the changed blocks above and below the reference and the share of the globe's measured pixels the change lights.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 255 (34 lines) · arguments: beta, ref_beta, ref_name, out_html, title · calls: not called on the traced runs · constants read: `ATLAS`, `BLOCK`, `HERE`, `ORDER`, `PAIR_ABOUT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `sites.parquet`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 255 (41 lines) · arguments: beta, ref_beta, ref_name, out_html, title, drop · calls: not called on the traced runs · constants read: `ATLAS`, `BLOCK`, `HERE`, `ORDER`, `PAIR_ABOUT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `sites.parquet`
 
 ### `report_globe_v4.py::build_pair.rgb`
 
 Draws a methylation map for the pair's globe on the atlas pages' parchment scale; gray where no site was measured.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 273 (2 lines) · arguments: m · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 277 (2 lines) · arguments: m · calls: not called on the traced runs
 
 ### `report_globe_v4.py::build._code`
 

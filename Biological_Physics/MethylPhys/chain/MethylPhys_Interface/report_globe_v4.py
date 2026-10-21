@@ -252,15 +252,19 @@ PAIR_ABOUT = ("<b>DEVELOPMENT: one person's two samples, not commissioned by our
               "the genome lights up in clumps; scattered differences stay dark. The slider only quiets the background. A picture: nothing is "
               "scored from it.")
 
-def build_pair(beta, ref_beta, ref_name, out_html=None, title="This sample against the same person's own other sample"):
+def build_pair(beta, ref_beta, ref_name, out_html=None, title="This sample against the same person's own other sample", drop=None):
     """DEVELOPMENT (2026-10-21, author: test the globe on the breast and colon tissue results): one person's sample (a tumor) against the same
     person's own other sample (its adjacent normal), on the atlas's layout, by the globe's block rule without the atlas: each site's
     difference, centered and scaled by the pair's own spread (MAD x 1.4826), blocks of BLOCK neighboring measured sites, the block mean in its
-    own block spread, changed beyond FW_LINE. Layers: the change (slider quiets the reference sample's map), the sample, the reference."""
+    own block spread, changed beyond FW_LINE. Layers: the change (slider quiets the reference sample's map), the sample, the reference.
+    drop: CpG ids left out before anything is computed (e.g. the X and Y, so a difference of sex is not counted as a change).
+    The record also gives the share of the globe's measured pixels the change lights, and the changed blocks above and below the reference."""
     import pyarrow.parquet as pq
     ids = np.array(pq.read_table(os.path.join(ATLAS, "sites.parquet")).column("cpg").to_pylist(), dtype=object)
     Z = np.load(ORDER); order = Z["order"]; nside = int(Z["nside"]); npix = 12 * nside * nside; look = _lookup(nside)
     smp = pd.Series(beta, dtype="float64").reindex(ids).to_numpy(); ref = pd.Series(ref_beta, dtype="float64").reindex(ids).to_numpy()
+    if drop is not None:
+        dm = pd.Index(ids).isin(list(drop)); smp[dm] = np.nan; ref[dm] = np.nan
     d = (smp - ref)[order]; ok = np.isfinite(d); v = d[ok]; med = float(np.median(v)); mad = float(np.median(np.abs(v - med))) * 1.4826 or 1.0
     zg = np.where(ok, (d - med) / mad, np.nan); mi = np.where(ok)[0]; nb = len(mi) // BLOCK
     bm_ = zg[mi[:nb * BLOCK]].reshape(nb, BLOCK).mean(1); c_ = float(np.median(bm_)); s_ = float(np.median(np.abs(bm_ - c_))) * 1.4826 or 1.0
@@ -282,7 +286,10 @@ def build_pair(beta, ref_beta, ref_name, out_html=None, title="This sample again
          dict(name="the same person's own " + ref_name, kind="image", src=R_, note="The reference sample's methylation, 0 to 1.")]
     spec = dedupe(dict(id="pair", name=title, about=PAIR_ABOUT.replace("__REF__", ref_name).replace("__N__", f"{int(ok.sum()):,}"),
                        groups=[dict(name="this person", layers=L)]))
+    meas = np.isfinite(dv); lit = float((meas & (dv != 0)).sum() / max(1, meas.sum()))
     rec = dict(drawn=True, mode="pair (development)", sites_compared=int(ok.sum()), blocks=int(nb), blocks_changed=n_ch, line=round(line, 3),
+               blocks_up=int((bz > line).sum()), blocks_down=int((bz < -line).sum()), pixels_lit_share=round(lit, 5),
+               sites_dropped=int(pd.Index(ids).isin(list(drop)).sum()) if drop is not None else 0,
                change_rule="the pair's own difference, blocks of 10 neighboring sites, 5 % family-wise line", flag="development: not commissioned by our standards")
     if out_html: open(out_html, "w", encoding="utf-8").write(page([spec], title)); rec["html"] = os.path.abspath(out_html)
     rec["spec"] = spec; return rec

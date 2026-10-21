@@ -1,0 +1,42 @@
+name: tissue_globe
+# DEV-TISSUE-GLOBE-01 run 2 (2026-10-21): every sealed tissue pair on the chain's globe, split across 10 of GitHub's free machines, then one
+# combine job. Development, exploratory: nothing sealed or scored. Summary to issue 32.
+on: {workflow_dispatch: {}}
+permissions: {contents: read, issues: write}
+env: {S: Biological_Physics/MethylPhys/doors/data/DEV_TISSUE_GLOBE_01/all_pairs_02.py}
+jobs:
+  shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy: {fail-fast: false, matrix: {k: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - run: mkdir -p out && python3 $S shard ${{ matrix.k }} 10 out 2>&1 | tail -40
+      - uses: actions/upload-artifact@v4
+        with: {name: "rows-${{ matrix.k }}", path: "out/rows_*.csv"}
+  combine:
+    needs: shard
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q pandas numpy
+      - uses: actions/download-artifact@v4
+        with: {pattern: "rows-*", path: rows, merge-multiple: true}
+      - run: mkdir -p xout && python3 $S combine rows xout
+      - uses: actions/upload-artifact@v4
+        with: {name: combined, path: "xout/*"}
+      - name: Result to issue 32
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          b = "tissue_globe run ${{ github.run_id }}, commit ${{ github.sha }}\n\n```\n" + open("xout/all_pairs_02_summary.txt").read() + "\n```"
+          rq = urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/issues/32/comments", data=json.dumps({"body": b}).encode(), headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"})
+          print(urllib.request.urlopen(rq).status)
+          PY
