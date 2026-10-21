@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **24 Python files** holding **285 functions** (nested ones included); 282 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **24 Python files** holding **285 functions** (nested ones included); 285 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -2038,6 +2038,25 @@ pure black, so only the changes stay lit.
 The fixed line for n blocks: the size a normal block crosses by chance less than once in 20 genomes, two-sided (5 % family-wise).
 
 *Code:* `MethylPhys_Interface/report_globe_v4.py` line 62 (4 lines) · arguments: n · calls: not called on the traced runs
+
+### `report_globe_v4.py::sex_sites`
+
+Loads the frozen list of IAM-Atlas v2.1's sites on the X (14,759) and Y (3) chromosomes, `Runtime Matrices/Atlas_V21/sex_chromosome_sites_v21.json`,
+built by `atlas/tools/sex_sites_v21.py` from the two Illumina manifests Stage 1 is pinned to (it refuses any other manifest).
+
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 40 (6 lines) · arguments: none · calls: not called on the traced runs · constants read: `SEX_SITES`, `_XY`
+
+### `report_globe_v4.py::_xy_blocks`
+
+How many changed blocks hold at least one X or Y site. Every change count on the globe is printed with this count beside it.
+
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 47 (5 lines) · arguments: ids_in_order, mi, nb, changed · calls: not called on the traced runs · constants read: `BLOCK`
+
+### `report_globe_v4.py::key_css`
+
+The parchment scale of the methylation maps as a color bar, for the color key under every map layer.
+
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 53 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `HERE` · files named: `Planck_Parchment_RGB.txt`
 
 ### `report_globe_v4.py::build_pair`
 

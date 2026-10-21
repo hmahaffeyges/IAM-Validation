@@ -1353,6 +1353,16 @@ pure black, so only the changes stay lit.
 ### report_globe_v4.py::FW_LINE
 The fixed line for n blocks: the size a normal block crosses by chance less than once in 20 genomes, two-sided (5 % family-wise).
 
+### report_globe_v4.py::sex_sites
+Loads the frozen list of IAM-Atlas v2.1's sites on the X (14,759) and Y (3) chromosomes, `Runtime Matrices/Atlas_V21/sex_chromosome_sites_v21.json`,
+built by `atlas/tools/sex_sites_v21.py` from the two Illumina manifests Stage 1 is pinned to (it refuses any other manifest).
+
+### report_globe_v4.py::_xy_blocks
+How many changed blocks hold at least one X or Y site. Every change count on the globe is printed with this count beside it.
+
+### report_globe_v4.py::key_css
+The parchment scale of the methylation maps as a color bar, for the color key under every map layer.
+
 ### report_globe_v4.py::build_pair
 DEVELOPMENT, not commissioned: one person's sample (a tumor) against the same person's own other sample (its adjacent normal) on the atlas's
 layout, by the globe's block rule without the atlas: each site's difference in the pair's own spread, blocks of 10 neighboring sites, the
