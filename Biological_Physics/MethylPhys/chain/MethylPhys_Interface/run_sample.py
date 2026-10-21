@@ -503,8 +503,14 @@ def main():
             # 0.6 bead counts, 0.7 call rate on both). Stage 1 adds: control medians, poobah (p <= 0.05) detection, and a call rate
             # on poobah AND the extracted bead mask. Recorded, not gated.
             import stage_0_intake as S0, numpy as _np
-            cv = S0.validate_control_probes(meta.get("controls") or {})
-            s1 = {"ctrl_qc": cv["ctrl_qc"], "ctrl_metrics": cv["metrics"], "ctrl_flags": cv["flags"], "detection_statistic": "poobah p <= 0.05"}
+            # 2026-10-21 (Chain Decoder finding F16): Stage 1's two "bisulfite" medians are of two different control sets (all BS Conversion I
+            # probes in green, all BS Conversion II in red), not a matched-pair conversion efficiency, so they are recorded and not graded here;
+            # the conversion efficiency is Stage 0's, from each matched pair in its own channel (stage_0_1_qc_handoff).
+            _c1 = {k: v for k, v in (meta.get("controls") or {}).items() if not k.startswith("bisulfite_conversion_")}
+            _gradable = any(k in _c1 for k in ("hyb_high_median", "hyb_low_median", "extension_meth_median", "extension_unmeth_median"))
+            cv = S0.validate_control_probes(_c1) if _gradable else {"ctrl_qc": "recorded, not graded (Stage 1 records control medians that no Stage 0 rule reads)", "metrics": _c1, "flags": []}
+            s1 = {"ctrl_qc": cv["ctrl_qc"], "ctrl_metrics": cv["metrics"], "ctrl_flags": cv["flags"], "detection_statistic": "poobah p <= 0.05",
+                  "bisulfite_note": "Stage 1's bisulfite medians (two different control sets) are recorded in intake.controls and not graded; the conversion efficiency is Stage 0's"}
             intake["controls"] = meta.get("controls")
             dm = meta.get("_detected_mask")
             if det.get("detection_available") and dm is not None:

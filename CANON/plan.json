@@ -498,8 +498,8 @@
     },
     {
      "id": "F16",
-     "text": "Stage 1 controls: calibrate_idat_to_beta records bisulfite_conversion_I_median = median of ALL BS Conversion I controls in green and _II_median = median of BS Conversion II controls in red; run_sample then grades them with S0.validate_control_probes -> \"bs1/(bs1+bs2)\" of two different control sets (not a conversion efficiency), recorded as intake.stage1_qc.ctrl_qc. The bundle thus carries two different \"bisulfite efficiencies\" (Stage 0's matched-pair C/(C+U) and this). Decide which is printed; the Stage 1 one should be renamed or dropped. Find which one the \"731 of 731\" statement measured.",
-     "status": "open"
+     "text": "Stage 1 controls: calibrate_idat_to_beta records bisulfite_conversion_I_median = median of ALL BS Conversion I controls in green and _II_median = median of BS Conversion II controls in red; run_sample then grades them with S0.validate_control_probes -> \"bs1/(bs1+bs2)\" of two different control sets (not a conversion efficiency), recorded as intake.stage1_qc.ctrl_qc. The bundle thus carries two different \"bisulfite efficiencies\" (Stage 0's matched-pair C/(C+U) and this). Decide which is printed; the Stage 1 one should be renamed or dropped. Find which one the \"731 of 731\" statement measured. | FIXED: run_sample no longer grades Stage 1's two bisulfite medians (recorded in intake.controls with a note); with nothing gradable left, Stage 1's control verdict reads 'recorded, not graded'. Also seen: Stage 1's 'BISULFITE CONVERSION I' pattern matches the type II probes too; the medians are recorded only, so it changes no decision.",
+     "status": "fixed 2026-10-21"
     },
     {
      "id": "F17",
@@ -585,6 +585,11 @@
      "id": "F35",
      "status": "open",
      "text": "Stage T step 1 (self-tare II) maps each array by its anchor sites; a loss of the cell's pattern at EVERY site, anchors included, is mapped away (synthetic, 2026-10-21: whole-blood Met-A +0.021 without it, -0.0003 with it). Every commissioning test planted the loss at the identity sites only. Needs the author's decision and a real-array test (GRP-014)."
+    },
+    {
+     "id": "F36",
+     "status": "open",
+     "text": "The two chain documents keep earlier file names (manual/MethylPhys_CPG_Operations_Manual.pdf, sop/MethylPhys_CPG_SOP_v4.md) under their official titles; about 30 files link them. Rename in the documentation pass (step 22) with CANON/relink.py and the link gate."
     }
    ],
    "notes": " | 2026-10-20: Chain Decoder written (manual/decoder_text.md -> OM_v4_decoder.md; all 257 functions of the 22 loaded files have entries; gated). OM PDF retitled 'Official IAM Operations Manual: Instrument Diagnostics and Chain Decoder' (Decoder + diagnostics + chain sequence); SOP retitled 'Official IAM Chain Operator Guide'. Reading the code line by line found the items under findings; each is fixed in the chain, not in the text."

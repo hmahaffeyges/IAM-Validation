@@ -59,7 +59,9 @@ run, in what order, and stops the run the moment a stage refuses the sample. It 
    coverage, then 0.9 the decision gate. A quarantine prints every reason in five parts (measured, limit, where the limit comes from,
    what it means, what to do) and stops the run.
 6. **Stage 1, calibration** (`stage_1_idat_calibration.calibrate_idat_to_beta`): the IDAT pair becomes one beta value per site, with
-   the probes at background removed. Stage 1's own quality numbers are recorded beside Stage 0's, never over them, and never gate.
+   the probes at background removed. Stage 1's own quality numbers are recorded beside Stage 0's, never over them, and never gate. Its
+   control medians (hybridization, negative and non-polymorphic controls, and two medians over all BS Conversion I and II probes) are
+   recorded and not graded: the two bisulfite medians are of different control sets, not a conversion efficiency, which is Stage 0's.
 7. **Stage 0.7b again**, now with the calibrated values: `run_sample.py` counts the share of Met-A's 6,000 neutrophil identity sites
    the array measured and hands it to 0.7b. On a 450K array 0.7b quarantines below 80 %; on EPIC, the only platform the chain reads,
    it records `NA_EPIC` and passes. Met-A itself withholds its reading when fewer than 90 % of its sites were measured (Stage M).
