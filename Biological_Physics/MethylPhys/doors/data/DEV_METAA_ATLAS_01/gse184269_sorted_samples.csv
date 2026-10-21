@@ -1,0 +1,110 @@
+gsm,src,atlas_cell,title,donor
+GSM5583029,Monocytes,monocytes,Mono_Gestalt_Expt_2_phase1 Gt001,GT001
+GSM5583030,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_3_phase1 Gt016,GT016
+GSM5583031,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_3_phase1 Gt016,GT016
+GSM5583032,Naïve B,naive b cells,BN_Gestalt_Expt_3_phase1 Gt016,GT016
+GSM5583033,Monocytes,monocytes,Mono_Gestalt_Expt_3_phase1 Gt016,GT016
+GSM5583034,Natural Killer cells,nk cells,NK_Gestalt_Expt_3_phase1 Gt016,GT016
+GSM5583036,Natural Killer cells,nk cells,NK_Gestalt_Expt_2_phase1 Gt001,GT001
+GSM5583037,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_3_phase1 Gt017,GT017
+GSM5583038,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_3_phase1 Gt017,GT017
+GSM5583039,Naïve B,naive b cells,BN_Gestalt_Expt_3_phase1 Gt017,GT017
+GSM5583040,Monocytes,monocytes,Mono_Gestalt_Expt_3_phase1 Gt017,GT017
+GSM5583041,Natural Killer cells,nk cells,NK_Gestalt_Expt_3_phase1 Gt017,GT017
+GSM5583044,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_3_phase1 Gt020,GT020
+GSM5583045,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_3_phase1 Gt020,GT020
+GSM5583046,Naïve B,naive b cells,BN_Gestalt_Expt_3_phase1 Gt020,GT020
+GSM5583047,Monocytes,monocytes,Mono_Gestalt_Expt_3_phase1 Gt020,GT020
+GSM5583048,Natural Killer cells,nk cells,NK_Gestalt_Expt_3_phase1 Gt020,GT020
+GSM5583051,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_3_phase1 Gt025,GT025
+GSM5583052,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_3_phase1 Gt025,GT025
+GSM5583053,Naïve B,naive b cells,BN_Gestalt_Expt_3_phase1 Gt025,GT025
+GSM5583054,Monocytes,monocytes,Mono_Gestalt_Expt_3_phase1 Gt025,GT025
+GSM5583055,Natural Killer cells,nk cells,NK_Gestalt_Expt_3_phase1 Gt025,GT025
+GSM5583058,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_2_phase1 Gt002,GT002
+GSM5583059,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_3_phase1 Gt018,GT018
+GSM5583060,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_3_phase1 Gt018,GT018
+GSM5583061,Naïve B,naive b cells,BN_Gestalt_Expt_3_phase1 Gt018,GT018
+GSM5583062,Monocytes,monocytes,Mono_Gestalt_Expt_3_phase1 Gt018,GT018
+GSM5583063,Natural Killer cells,nk cells,NK_Gestalt_Expt_3_phase1 Gt018,GT018
+GSM5583066,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_3_phase1 Gt022,GT022
+GSM5583067,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_3_phase1 Gt022,GT022
+GSM5583068,Naïve B,naive b cells,BN_Gestalt_Expt_3_phase1 Gt022,GT022
+GSM5583069,Monocytes,monocytes,Mono_Gestalt_Expt_3_phase1 Gt022,GT022
+GSM5583070,Natural Killer cells,nk cells,NK_Gestalt_Expt_3_phase1 Gt022,GT022
+GSM5583073,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_3_phase1 Gt024,GT024
+GSM5583074,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_3_phase1 Gt024,GT024
+GSM5583075,Naïve B,naive b cells,BN_Gestalt_Expt_3_phase1 Gt024,GT024
+GSM5583076,Monocytes,monocytes,Mono_Gestalt_Expt_3_phase1 Gt024,GT024
+GSM5583077,Natural Killer cells,nk cells,NK_Gestalt_Expt_3_phase1 Gt024,GT024
+GSM5583078,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_2_phase1 Gt002,GT002
+GSM5583081,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_3_phase1 Gt027,GT027
+GSM5583082,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_3_phase1 Gt027,GT027
+GSM5583083,Naïve B,naive b cells,BN_Gestalt_Expt_3_phase1 Gt027,GT027
+GSM5583084,Monocytes,monocytes,Mono_Gestalt_Expt_3_phase1 Gt027,GT027
+GSM5583087,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_3_phase1 Gt030,GT030
+GSM5583088,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_3_phase1 Gt030,GT030
+GSM5583089,Naïve B,naive b cells,BN_Gestalt_Expt_3_phase1 Gt030,GT030
+GSM5583090,Naïve B,naive b cells,BN_Gestalt_Expt_2_phase1 Gt002,GT002
+GSM5583091,Monocytes,monocytes,Mono_Gestalt_Expt_3_phase1 Gt030,GT030
+GSM5583092,Natural Killer cells,nk cells,NK_Gestalt_Expt_3_phase1 Gt030,GT030
+GSM5583094,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_4_phase1 Gt029,GT029
+GSM5583095,Monocytes,monocytes,Mono_Gestalt_Expt_2_phase1 Gt002,GT002
+GSM5583096,Naïve B,naive b cells,BN_Gestalt_Expt_4_phase1 Gt029,GT029
+GSM5583097,Monocytes,monocytes,Mono_Gestalt_Expt_4_phase1 Gt029,GT029
+GSM5583098,Natural Killer cells,nk cells,NK_Gestalt_Expt_4_phase1 Gt029,GT029
+GSM5583101,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_4_phase1 Gt032,GT032
+GSM5583102,Naïve B,naive b cells,BN_Gestalt_Expt_4_phase1 Gt032,GT032
+GSM5583103,Monocytes,monocytes,Mono_Gestalt_Expt_4_phase1 Gt032,GT032
+GSM5583104,Natural Killer cells,nk cells,NK_Gestalt_Expt_4_phase1 Gt032,GT032
+GSM5583105,Natural Killer cells,nk cells,NK_Gestalt_Expt_2_phase1 Gt002,GT002
+GSM5583108,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_4_phase1 Gt035,GT035
+GSM5583109,Naïve B,naive b cells,BN_Gestalt_Expt_4_phase1 Gt035,GT035
+GSM5583110,Monocytes,monocytes,Mono_Gestalt_Expt_4_phase1 Gt035,GT035
+GSM5583113,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_4_phase1 Gt033,GT033
+GSM5583115,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_4_phase1 Gt033,GT033
+GSM5583116,Naïve B,naive b cells,BN_Gestalt_Expt_4_phase1 Gt033,GT033
+GSM5583117,Monocytes,monocytes,Mono_Gestalt_Expt_4_phase1 Gt033,GT033
+GSM5583119,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_4_phase1 Gt026,GT026
+GSM5583120,Naïve B,naive b cells,BN_Gestalt_Expt_4_phase1 Gt026,GT026
+GSM5583121,Monocytes,monocytes,Mono_Gestalt_Expt_4_phase1 Gt026,GT026
+GSM5583123,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_2_phase1 Gt003,GT003
+GSM5583124,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_2_phase1 Gt003,GT003
+GSM5583125,Naïve B,naive b cells,BN_Gestalt_Expt_2_phase1 Gt003,GT003
+GSM5583126,Monocytes,monocytes,Mono_Gestalt_Expt_2_phase1 Gt003,GT003
+GSM5583127,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_2_phase1 Gt001,GT001
+GSM5583128,Natural Killer cells,nk cells,NK_Gestalt_Expt_2_phase1 Gt003,GT003
+GSM5583130,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_2_phase1 Gt004,GT004
+GSM5583131,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_2_phase1 Gt004,GT004
+GSM5583132,Naïve B,naive b cells,BN_Gestalt_Expt_2_phase1 Gt004,GT004
+GSM5583133,Monocytes,monocytes,Mono_Gestalt_Expt_2_phase1 Gt004,GT004
+GSM5583134,Natural Killer cells,nk cells,NK_Gestalt_Expt_2_phase1 Gt004,GT004
+GSM5583136,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_2_phase1 Gt005,GT005
+GSM5583137,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_2_phase1 Gt005,GT005
+GSM5583138,Naïve B,naive b cells,BN_Gestalt_Expt_2_phase1 Gt005,GT005
+GSM5583139,Monocytes,monocytes,Mono_Gestalt_Expt_2_phase1 Gt005,GT005
+GSM5583140,Natural Killer cells,nk cells,NK_Gestalt_Expt_2_phase1 Gt005,GT005
+GSM5583142,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_2_phase1 Gt007,GT007
+GSM5583143,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_2_phase1 Gt007,GT007
+GSM5583144,Monocytes,monocytes,Mono_Gestalt_Expt_2_phase1 Gt007,GT007
+GSM5583145,Natural Killer cells,nk cells,NK_Gestalt_Expt_2_phase1 Gt007,GT007
+GSM5583147,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_2_phase1 Gt001,GT001
+GSM5583148,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_2_phase1 Gt013,GT013
+GSM5583149,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_2_phase1 Gt013,GT013
+GSM5583150,Naïve B,naive b cells,BN_Gestalt_Expt_2_phase1 Gt013,GT013
+GSM5583151,Monocytes,monocytes,Mono_Gestalt_Expt_2_phase1 Gt013,GT013
+GSM5583152,Natural Killer cells,nk cells,NK_Gestalt_Expt_2_phase1 Gt013,GT013
+GSM5583154,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_2_phase1 Gt011,GT011
+GSM5583155,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_2_phase1 Gt011,GT011
+GSM5583156,Naïve B,naive b cells,BN_Gestalt_Expt_2_phase1 Gt011,GT011
+GSM5583157,Monocytes,monocytes,Mono_Gestalt_Expt_2_phase1 Gt011,GT011
+GSM5583158,Natural Killer cells,nk cells,NK_Gestalt_Expt_2_phase1 Gt011,GT011
+GSM5583159,Naïve B,naive b cells,BN_Gestalt_Expt_2_phase1 Gt001,GT001
+GSM5583161,Naïve B,naive b cells,BN_Gestalt_Expt_2_phase1 Gt014,GT014
+GSM5583162,Monocytes,monocytes,Mono_Gestalt_Expt_2_phase1 Gt014,GT014
+GSM5583163,Natural Killer cells,nk cells,NK_Gestalt_Expt_2_phase1 Gt014,GT014
+GSM5583165,Naïve CD4,naive cd4 t cells,CD4N_Gestalt_Expt_2_phase1 Gt015,GT015
+GSM5583166,Naïve CD8,naive cd8 t cells,CD8N_Gestalt_Expt_2_phase1 Gt015,GT015
+GSM5583167,Naïve B,naive b cells,BN_Gestalt_Expt_2_phase1 Gt015,GT015
+GSM5583168,Monocytes,monocytes,Mono_Gestalt_Expt_3_phase1 Gt015,GT015
+GSM5583169,Natural Killer cells,nk cells,NK_Gestalt_Expt_3_phase1 Gt015,GT015
