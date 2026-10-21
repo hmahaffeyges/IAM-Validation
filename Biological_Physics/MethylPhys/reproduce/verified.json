@@ -6,7 +6,16 @@
   "checks_ok": 7,
   "minutes": 42.4,
   "commit": "537984a4",
-  "job": "results/REPRODUCE_V1/out/cscore_band/verdict.json"
+  "job": "results/REPRODUCE_V1/out/cscore_band/verdict.json",
+  "github": {
+   "verdict": "PASS",
+   "date": "2026-10-21",
+   "checks": 7,
+   "checks_ok": 7,
+   "minutes": 54.3,
+   "commit": "403b2bea",
+   "job": "GitHub Actions reproduce.yml run 39649311209 (verdict in issue 32)"
+  }
  },
  "deconv": {
   "verdict": "PASS",
