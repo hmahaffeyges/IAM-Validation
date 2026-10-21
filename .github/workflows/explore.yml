@@ -1,0 +1,36 @@
+name: explore
+# Exploratory runs on GitHub's free machines (2026-10-20): one committed script, the chain's pinned environment, results to issue 32 and as
+# an artifact. Manual only. Nothing here is sealed or scored; a result becomes a test only through a sealed pre-registration.
+on:
+  workflow_dispatch:
+    inputs:
+      script: {description: "script path from the repository root", required: true}
+      args: {description: "arguments", required: false, default: ""}
+permissions: {contents: read, issues: write}
+jobs:
+  explore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - name: Run
+        run: |
+          set +e; mkdir -p xout
+          python3 "${{ inputs.script }}" ${{ inputs.args }} > xout/run.log 2>&1; echo $? > xout/rc.txt; tail -60 xout/run.log; true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: explore-out, path: "xout/*.json\nxout/*.txt\nxout/*.csv\nxout/run.log"}
+      - name: Result to issue 32
+        if: always()
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: |
+          python3 - <<'PY'
+          import json, os, glob, urllib.request
+          s = "".join(open(f).read() for f in sorted(glob.glob("xout/*_summary.txt")))
+          b = "explore run ${{ github.run_id }}, commit ${{ github.sha }}, ${{ inputs.script }} ${{ inputs.args }}, exit " + open("xout/rc.txt").read().strip() + "\n\n```\n" + (s or open("xout/run.log").read()[-6000:]) + "\n```"
+          rq = urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/issues/32/comments", data=json.dumps({"body": b}).encode(), headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"})
+          print(urllib.request.urlopen(rq).status)
+          PY

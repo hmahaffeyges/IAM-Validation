@@ -24308,7 +24308,7 @@
    "sources_of_row": [
     "coverage rule"
    ],
-   "notes": "records: PROC_STAGE0_04_PREREG.md; first committed 2026-09-22"
+   "notes": "records: PROC_STAGE0_04_PREREG.md; first committed 2026-09-22 | 2026-10-20: exploratory, not sealed: doors/data/PROC_STAGE0_04/bs_channel_explore.py on GitHub (explore.yml) tests whether the hand-off reads the red BS Conversion I pairs in green (Chain Decoder finding F8), the likely reason every healthy array sits at 0.64-0.83 against 0.95"
   },
   {
    "id": "HIS-044",
