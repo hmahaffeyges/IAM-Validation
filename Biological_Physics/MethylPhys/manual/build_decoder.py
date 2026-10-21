@@ -14,7 +14,7 @@ def parse():
     head, *rest = re.split(r"(?m)^(?=## )", t); stages = []
     for block in rest:
         title = block.split("\n", 1)[0][3:].strip(); body = block.split("\n", 1)[1] if "\n" in block else ""
-        prose, *ents = re.split(r"(?m)^### ", body); E = {}
+        prose, *ents = re.split(r"(?m)^### (?=\S+\.(?:py|R)::)", body); E = {}   # an entry is '### file::function'; other ### headings are prose
         for e in ents:
             k, _, txt = e.partition("\n"); E[k.strip()] = txt.strip()
         stages.append(dict(title=title, prose=prose.strip(), entries=E))
