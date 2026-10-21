@@ -262,6 +262,15 @@ def build(o, out, sid):
     F = red_flags(o); o["red_flags"] = F
     P.append("<h2 id='sec-red-flags'>Red flags</h2>" + _table([(f["level"], f["code"], f["text"]) for f in sorted(F, key=lambda f: FLAG_ORDER.index(f["level"]))], ("level", "code", "what")))
     TS = troubleshooting(o)
+    WX = list((o.get("intake") or {}).get("stage0_explained") or [])   # every stop explained, in the report as well as on screen (author rule 2026-10-20)
+    for k in ("cell_shares", "iam_a_intake", "iam_a"):
+        x = (o.get(k) or {}).get("explained") if isinstance(o.get(k), dict) else None
+        if x and x not in WX: WX.append(x)
+    if WX:
+        P.append("<h2 id='sec-why-stopped'>Why the chain stopped or flagged this sample</h2>" + _table(
+            [(x.get("check"), x.get("outcome"), x.get("measured"), x.get("limit"), str(x.get("limit_source")) + (" (provisional)" if x.get("provisional") else ""),
+              x.get("means"), x.get("what_to_do")) for x in WX],
+            ("check", "outcome", "measured on this sample", "limit", "where the limit comes from", "what it means", "what to do")))
     P.append("<h2 id='sec-troubleshooting'>Troubleshooting</h2>" + _table(TS, ("condition", "what to do")))
     v = o.get("versions") or {}
     integ = [("Grn IDAT", intake.get("grn_sha256", "intake not run")), ("Red IDAT", intake.get("red_sha256", "intake not run")),

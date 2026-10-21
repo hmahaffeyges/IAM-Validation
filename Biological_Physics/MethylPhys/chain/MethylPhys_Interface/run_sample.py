@@ -164,6 +164,16 @@ def _versions(chain_dir):
     return out
 
 
+def _why(rec, check, outcome, measured, limit, source, means, todo, provisional=False):
+    """Every stop explained (author rule 2026-10-20; Chain Decoder finding F4): the same five parts Stage 0's gates print - what was measured,
+    the limit, where the limit comes from, what it means, what to do - printed and kept in the record (stage0_explained)."""
+    x = dict(check=check, outcome=outcome, measured=measured, limit=limit, limit_source=source, provisional=provisional, means=means, what_to_do=todo)
+    if isinstance(rec, dict): rec.setdefault("stage0_explained", []).append(x)
+    print(f"\n  WHY: {check} - {outcome}\n    measured on this sample: {measured}\n    limit: {limit}\n    limit comes from: {source}"
+          f"{' (PROVISIONAL)' if provisional else ''}\n    what it means: {means}\n    what to do: {todo}", flush=True)
+    return x
+
+
 def _hash_id(x):
     """sha256 (first 32 hex) of a typed identifier; an identifier that is already a hash (>= 16 alphanumerics) is kept (SOP 12)."""
     import hashlib as _h
@@ -279,6 +289,7 @@ def main():
     seq = bool(a.pat or a.site_table or a.bam)
     if not (a.betas or (a.grn and a.red) or seq): ap.error("give --betas, both --grn and --red, or --pat / --bam / --site-table")
     if sum(bool(x) for x in (a.pat, a.site_table, a.bam)) > 1: ap.error("give one of --pat, --bam or --site-table")
+    if a.out and os.path.isdir(a.out): ap.error(f"--out {a.out} is a folder; give the report's file name, e.g. --out {os.path.join(a.out, 'report.html')} (the bundle and PDFs are written beside it)")
     if a.bam and not a.ref_fasta: ap.error("--bam needs --ref-fasta: the reference it was aligned to")
     if a.site_table and not a.seq_pipeline: ap.error("--site-table needs --seq-pipeline: the pipeline that produced the table")
     if a.slide_ref_A and a.slide_ref_table: ap.error("give --slide-ref-A or --slide-ref-table, not both")
@@ -295,6 +306,11 @@ def main():
             intake = {"status": "SPECIMEN_REFUSED", "stage0_verdict": "REFUSED_SPECIMEN", "substrate": a.specimen,
                       "flags": [f"SPECIMEN_REFUSED:{_S0spec.normalise_specimen(a.specimen) or 'not stated'}"], "declared_sex": a.sex,
                       "declared_chronological_age": float(a.age) if a.age is not None else None}
+            _why(intake, "specimen (before Stage 0)", "refused", f"specimen given: {a.specimen!r}",
+                 "whole blood, buffy coat, isolated / sorted / purified neutrophils, or a constructed DNA mixture of blood cells",
+                 "stage_0_intake.ACCEPTED_SPECIMENS (fixed rule: the specimens the chain has a healthy reference for)",
+                 "the chain has no healthy reference for this specimen, so any number it printed would have nothing to be read against",
+                 "check the spelling of --specimen; for another specimen a healthy reference has to be built and commissioned first")
     if a.grn and a.red and not a.no_intake and not specimen_stop:
         # Stage 0 runs BEFORE calibration, and a quarantine stops the run: the gauge never sees a specimen
         # the chain of custody rejected. SOP sections 11-19.
@@ -339,6 +355,13 @@ def main():
             rec = S0.step_0_9_decision_gate(rec, a.intake_log)
             print(f"Stage 0 verdict: {rec.get('stage0_verdict')}  "
                   f"hard failures: {rec.get('stage0_hard_fail')}", flush=True)
+            for _x in rec.get("stage0_explained") or []:
+                print(f"\n  WHY: {_x['check']} - {_x['outcome']}\n    measured on this array: {_x['measured']}\n    limit: {_x['limit']}\n"
+                      f"    limit comes from: {_x['limit_source']}{' (PROVISIONAL)' if _x['provisional'] else ''}\n    what it means: {_x['means']}\n    what to do: {_x['what_to_do']}", flush=True)
+            if not rec.get("stage0_explained"):
+                _why(rec, "intake (Steps 0.1 to 0.3)", "stopped", f"status {rec.get('status')}; flags {rec.get('flags')}", "the rule named in the flag",
+                     "stage_0_intake (fixed rules: both files present, a complete manifest, bytes not already taken in)",
+                     "the files or their record failed a custody rule before anything was measured", "read the flag; correct the files or the intake log and re-run")
             print("\nQUARANTINE - the chain stops here and nothing is scored. "
                   "Stage 0 rejected the specimen before calibration.", flush=True)
             sys.exit(2)
@@ -349,6 +372,10 @@ def main():
                              "(methylprep 1.7.1) does not calibrate EPIC v2. Intake stopped before the QC decode; nothing is scored.")
             rec["status"] = "PLATFORM_REFUSED"; rec.setdefault("flags", []).append("PLATFORM_REFUSED:EPIC_v2"); rec["stage0_verdict"] = "REFUSED_PLATFORM"
             print("  PLATFORM_REFUSED - " + platform_stop, flush=True)
+            _why(rec, "platform (Step 0.1, IDAT header)", "refused", "EPIC v2 (from the IDAT header)", "EPIC v1",
+                 "the chain's frozen references (Runtime Matrices) are built on EPIC v1 probes, and Stage 1's calibrator (methylprep 1.7.1) reads EPIC v1",
+                 "an EPIC v2 array has different probes, so its values cannot be read against EPIC v1 references",
+                 "read an EPIC v1 array; EPIC v2 needs its own references built and commissioned (development: dev_stages.epicv2_calibrate)")
             intake = rec
         if platform_stop is None:
             try:
@@ -365,6 +392,10 @@ def main():
                     rec.setdefault("flags", []).append(f"ENVIRONMENT_FAILURE:{type(e).__name__}")
                     print(f"  ENVIRONMENT_MISSING_MANIFEST - the methylprep manifest for {rec.get('array_type_detected') or declared} could not be "
                           f"loaded on this machine ({type(e).__name__}: {str(e)[:200]}). The array is not judged; fix the environment and re-run.", flush=True)
+                    _why(rec, "environment (before the QC decode)", "stopped, exit code 3 (the machine, not the array)", f"{type(e).__name__}: {str(e)[:160]}",
+                         "the array manifest loads", "stage_0_1_qc_handoff._manifest (methylprep's manifest file for the array type)",
+                         "this machine is missing the file that says which probe is which; the array was not examined",
+                         "install the chain's environment (pip install -r Biological_Physics/MethylPhys/chain/requirements.txt) with network access once, so methylprep can fetch its manifest, and re-run")
                     sys.exit(3)
             try:
                 if decode_qc_inputs is None: raise ImportError("stage_0_1_qc_handoff not importable")
@@ -398,6 +429,10 @@ def main():
                 rec = S0.step_0_9_decision_gate(rec, a.intake_log)
                 print(f"Stage 0 verdict: {rec.get('stage0_verdict')}  hard failures: {rec.get('stage0_hard_fail')}",
                       flush=True)
+                _why(rec, "IDAT decode (QC hand-off)", "stopped", f"{type(e).__name__}: {str(e)[:160]}", "both IDAT files decode to their end",
+                     "fixed rule: a file the decoder cannot read has no trustworthy intensities",
+                     "the files are truncated or damaged (seen: a gzip cut short that still passed the 1 MB size check)",
+                     "download the pair again and compare its checksum with the source's; re-run")
                 print("\nQUARANTINE - the chain stops here and nothing is scored.", flush=True)
                 sys.exit(2)
             # every hard intake failure stops the run here, before calibration (0.7b's 450K coverage needs the calibrated
@@ -443,9 +478,14 @@ def main():
             b = meta = None   # an array type methylprep cannot calibrate (EPIC v2 read without intake): refused, not a crash
             platform_stop = f"array type not calibrated by Stage 1 ({e}): the chain reads EPIC v1 arrays only; nothing is scored."
             print("  PLATFORM_REFUSED - " + platform_stop, flush=True)
+            _why(intake, "platform (Stage 1)", "refused", str(e)[:160], "an EPIC v1 array", "Stage 1's calibrator and the chain's EPIC v1 references",
+                 "Stage 1 could not calibrate this array type, so there are no values to read", "read an EPIC v1 array")
         except (EOFError, OSError) as e:
             # the IDAT bytes could not be read (truncated or corrupt file): the specimen's files, not the chain - a named stop, not a traceback
             print(f"  QUARANTINE_CORRUPT_IDAT - Stage 1 could not read the IDAT pair: {type(e).__name__}: {e}", flush=True)
+            _why(intake, "Stage 1 calibration (reading the IDAT pair)", "stopped", f"{type(e).__name__}: {str(e)[:160]}", "both IDAT files read to their end",
+                 "fixed rule: a file the calibrator cannot read has no trustworthy values", "the files are truncated or damaged",
+                 "download the pair again and compare its checksum with the source's; re-run")
             print("\nQUARANTINE - the chain stops here and nothing is scored.", flush=True)
             sys.exit(2)
         if b is None:
@@ -507,8 +547,14 @@ def main():
               + (f"  hard failures: {intake.get('stage0_hard_fail')}" if intake.get("stage0_hard_fail") else "")
               + (f"  deferred: {intake.get('stage0_deferred_qc')}" if intake.get("stage0_deferred_qc") else ""), flush=True)
         if v == "QUARANTINE":
+            for _x in intake.get("stage0_explained") or []:   # every stop explained (author rule 2026-10-20; Decoder finding F4)
+                print(f"\n  WHY: {_x['check']} - {_x['outcome']}\n    measured on this array: {_x['measured']}\n    limit: {_x['limit']}\n"
+                      f"    limit comes from: {_x['limit_source']}{' (PROVISIONAL)' if _x['provisional'] else ''}\n    what it means: {_x['means']}\n    what to do: {_x['what_to_do']}", flush=True)
+            if not intake.get("stage0_explained"):
+                _why(intake, "Stage 0 after calibration (Step 0.7b)", "stopped", f"hard failures {intake.get('stage0_hard_fail')}", "the rule named in the failure",
+                     "stage_0_intake", "the calibrated array failed an intake rule", "read the named failure; re-run on a complete EPIC v1 array")
             print("\nQUARANTINE - the chain stops here and nothing is scored. "
-                  "Stage 0 rejected the specimen; see the flags above.", flush=True)
+                  "Stage 0 rejected the specimen; see the reasons above.", flush=True)
             sys.exit(2)
 
     import pandas as _pd, json as _json, datetime as _dt, conductor_v3 as C3, report_v4 as R3

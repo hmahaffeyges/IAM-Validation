@@ -81,7 +81,14 @@ def intake(path, specimen, cell="neutrophils", alignment_qc=None, selfref_cells=
     rec = {"stage": "Q0", "status": "intake: rule checks stop the file; limit checks record only until their limits are set", "limits": Q0_LIMITS, "checks": []}
     def chk(step, ok, value, rule, code=None, stop=True):
         rec["checks"].append({"step": step, "value": value, "rule": rule, "result": ("pass" if ok else ("REFUSED" if stop else "recorded"))})
-        if not ok and stop and "refusal_code" not in rec: rec["refusal_code"] = code; rec["refusal"] = f"{step}: {value} ({rule})"
+        if not ok and stop and "refusal_code" not in rec:
+            rec["refusal_code"] = code; rec["refusal"] = f"{step}: {value} ({rule})"
+            rec["explained"] = dict(check=f"sequencing intake ({step})", outcome="stopped", measured=str(value), limit=rule, limit_source="stage_q0_intake (fixed rule)" if step != "Q0.3 conversion" else "the ENCODE whole-genome bisulfite standard",
+                                    provisional=False, means={"Q0.1 readable": "the file is damaged or not a .pat file", "Q0.2 build": "the file was made on another genome build than the references",
+                                    "Q0.4 whole genome": "the file does not cover the whole genome, so its loose share is not the cell's", "Q0.7 specimen": "IAM-A has no healthy shape reference for this cell type",
+                                    "Q0.3 conversion": "too much DNA was left unconverted, so unmethylated sites read as methylated"}.get(step, "the file failed an intake rule"),
+                                    what_to_do={"Q0.1 readable": "download the file again", "Q0.2 build": "use an hg19 .pat file (wgbstools)", "Q0.4 whole genome": "give the whole-genome file",
+                                    "Q0.7 specimen": "check --seq-cell", "Q0.3 conversion": "re-run the bisulfite conversion"}.get(step, "read the rule and correct the input"))
     if selfref_cells is not None:   # chain v4, Stage Q2: the self-reference reads any purified cell type with a healthy shape reference
         chk("Q0.7 specimen", str(cell).strip().lower() in selfref_cells, cell, "a purified cell type with a healthy shape reference (Stage Q2)", "SPECIMEN_REFUSED")
     else:

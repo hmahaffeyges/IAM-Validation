@@ -112,6 +112,13 @@ Records everything that can change a reading: the UTC time, the Python and methy
 the working copy had uncommitted changes, and a short hash and size of each frozen matrix and stage file. Two runs months apart can
 be pooled only if these match.
 
+### run_sample.py::_why
+Prints and keeps one stop's explanation in five parts (what was measured, the limit, where the limit comes from and whether it is
+provisional, what it means, what to do), for every stop outside Stage 0's own gates: a refused specimen, the early intake stops, EPIC v2,
+a missing manifest (exit code 3), a corrupt IDAT, Stage 1's platform refusal and the quarantine after calibration. The report shows the same
+rows under "Why the chain stopped or flagged this sample". Release check V11 fails if any exit with code 2 or 3 has no explanation in its
+own block.
+
 ### run_sample.py::_hash_id
 Replaces a typed identifier with the first 32 characters of its SHA-256. An identifier that already looks like a hash (16 or more
 hexadecimal characters) is kept. The engine never stores a cleartext identifier.
@@ -654,6 +661,9 @@ departure. The pixel-to-angle conversion is the standard HEALPix NESTED algorith
 does not need healpy; it matches healpy to 10⁻¹⁴ radians. **Label: standard method** (the HEALPix sphere of cosmology, used as a
 display). Nothing is scored from the picture.
 
+### stage_v4.py::_ex
+The five-part explanation of a stop, for the cell shares and IAM-A (the same parts as `run_sample._why`).
+
 ### stage_v4.py::stage_d21
 Stage D21: loads the panel's reference and markers once, counts the markers measured, withholds below half, otherwise runs the
 Deconvolver and labels each cell's share commissioned or development.
@@ -954,7 +964,7 @@ Runs the checks in the table and returns the record with each check's value, rul
 refusal, or proceed.
 
 ### stage_q0_intake.py::intake.chk
-Records one check and, when it stops the file, the first refusal's code and reason.
+Records one check and, when it stops the file, the first refusal's code and reason, with its five-part explanation.
 
 ## 11. Group-A, has a whole group moved: `stage_groupa.py`
 

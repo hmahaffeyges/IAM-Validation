@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 656,
+   "lines": 702,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -110,10 +110,33 @@
     },
     {
      "file": "MethylPhys_Interface/run_sample.py",
+     "function": "_why",
+     "name": "_why",
+     "line": 167,
+     "end": 174,
+     "args": [
+      "rec",
+      "check",
+      "outcome",
+      "measured",
+      "limit",
+      "source",
+      "means",
+      "todo",
+      "provisional"
+     ],
+     "lines": 8,
+     "doc": "Every stop explained (author rule 2026-10-20; Chain Decoder finding F4): the same five parts Stage 0's gates print - what was measured, the limit, where the limit comes from, what it means, what to do - printed and kept in the record (stage0_explained).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
      "function": "_hash_id",
      "name": "_hash_id",
-     "line": 167,
-     "end": 171,
+     "line": 177,
+     "end": 181,
      "args": [
       "x"
      ],
@@ -130,8 +153,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_redact",
      "name": "_redact",
-     "line": 174,
-     "end": 184,
+     "line": 184,
+     "end": 194,
      "args": [
       "obj",
       "typed",
@@ -150,8 +173,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_redact.f",
      "name": "f",
-     "line": 179,
-     "end": 183,
+     "line": 189,
+     "end": 193,
      "args": [
       "v"
      ],
@@ -168,8 +191,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 187,
-     "end": 226,
+     "line": 197,
+     "end": 236,
      "args": [
       "a",
       "o",
@@ -189,10 +212,10 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 229,
-     "end": 653,
+     "line": 239,
+     "end": 699,
      "args": [],
-     "lines": 425,
+     "lines": 461,
      "doc": "",
      "constants": [
       "BIO",
@@ -201,7 +224,8 @@
      "data_files": [
       "MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json",
       "_bundle.json",
-      "a wgbstools .pat / .pat.gz"
+      "a wgbstools .pat / .pat.gz",
+      "pip install -r Biological_Physics/MethylPhys/chain/requirements.txt"
      ],
      "traced_calls": {
       "array": 1,
@@ -212,8 +236,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 325,
-     "end": 329,
+     "line": 341,
+     "end": 345,
      "args": [
       "r"
      ],
@@ -229,8 +253,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 600,
-     "end": 601,
+     "line": 646,
+     "end": 647,
      "args": [
       "b",
       "it",
@@ -2168,7 +2192,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_v3.py",
-   "lines": 288,
+   "lines": 297,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_v3.py",
@@ -2342,13 +2366,13 @@
      "function": "build",
      "name": "build",
      "line": 214,
-     "end": 287,
+     "end": 296,
      "args": [
       "o",
       "out",
       "sid"
      ],
-     "lines": 74,
+     "lines": 83,
      "doc": "",
      "constants": [
       "FLAG_ORDER",
@@ -3073,19 +3097,41 @@
   },
   {
    "file": "stage_v4.py",
-   "lines": 125,
+   "lines": 143,
    "functions": [
+    {
+     "file": "stage_v4.py",
+     "function": "_ex",
+     "name": "_ex",
+     "line": 22,
+     "end": 23,
+     "args": [
+      "check",
+      "outcome",
+      "measured",
+      "limit",
+      "source",
+      "means",
+      "todo",
+      "provisional"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
     {
      "file": "stage_v4.py",
      "function": "stage_d21",
      "name": "stage_d21",
-     "line": 23,
-     "end": 39,
+     "line": 27,
+     "end": 46,
      "args": [
       "beta",
       "panel"
      ],
-     "lines": 17,
+     "lines": 20,
      "doc": "",
      "constants": [
       "MIN_MARKER_SHARE",
@@ -3100,8 +3146,8 @@
      "file": "stage_v4.py",
      "function": "count_sequencing",
      "name": "count_sequencing",
-     "line": 42,
-     "end": 46,
+     "line": 49,
+     "end": 53,
      "args": [
       "pat",
       "bam",
@@ -3121,20 +3167,22 @@
      "file": "stage_v4.py",
      "function": "stage_q2",
      "name": "stage_q2",
-     "line": 48,
-     "end": 62,
+     "line": 55,
+     "end": 80,
      "args": [
       "rec",
       "cell",
       "chemistry",
       "source"
      ],
-     "lines": 15,
+     "lines": 26,
      "doc": "",
      "constants": [
       "CD8_TYPES"
      ],
-     "data_files": [],
+     "data_files": [
+      "Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json"
+     ],
      "traced_calls": {
       "bam": 1
      }
@@ -3143,8 +3191,8 @@
      "file": "stage_v4.py",
      "function": "_compress",
      "name": "_compress",
-     "line": 70,
-     "end": 72,
+     "line": 88,
+     "end": 90,
      "args": [
       "v"
      ],
@@ -3160,8 +3208,8 @@
      "file": "stage_v4.py",
      "function": "nest_pix2ang",
      "name": "nest_pix2ang",
-     "line": 73,
-     "end": 82,
+     "line": 91,
+     "end": 100,
      "args": [
       "nside",
       "ipix"
@@ -3181,8 +3229,8 @@
      "file": "stage_v4.py",
      "function": "cscore_sky",
      "name": "cscore_sky",
-     "line": 84,
-     "end": 121,
+     "line": 102,
+     "end": 139,
      "args": [
       "z",
       "out_png",
@@ -3202,8 +3250,8 @@
      "file": "stage_v4.py",
      "function": "png_data_uri",
      "name": "png_data_uri",
-     "line": 123,
-     "end": 124,
+     "line": 141,
+     "end": 142,
      "args": [
       "path"
      ],
@@ -4681,7 +4729,7 @@
   },
   {
    "file": "stage_q0_intake.py",
-   "lines": 120,
+   "lines": 127,
    "functions": [
     {
      "file": "stage_q0_intake.py",
@@ -4739,7 +4787,7 @@
      "function": "intake",
      "name": "intake",
      "line": 78,
-     "end": 119,
+     "end": 126,
      "args": [
       "path",
       "specimen",
@@ -4747,7 +4795,7 @@
       "alignment_qc",
       "selfref_cells"
      ],
-     "lines": 42,
+     "lines": 49,
      "doc": "Stage Q0 on one .pat(.gz). alignment_qc: dict (or JSON path) from the alignment step with 'conversion_rate' and/or 'duplicate_fraction'; None = not measured here. Returns {stage, checks:[...], decision, refusal_code?, refusal?, measured}.",
      "constants": [
       "ACCEPTED",
@@ -4763,7 +4811,7 @@
      "function": "intake.chk",
      "name": "chk",
      "line": 82,
-     "end": 84,
+     "end": 91,
      "args": [
       "step",
       "ok",
@@ -4772,7 +4820,7 @@
       "code",
       "stop"
      ],
-     "lines": 3,
+     "lines": 10,
      "doc": "",
      "constants": [],
      "data_files": [],
@@ -5142,5 +5190,5 @@
   }
  ],
  "n_files": 22,
- "n_functions": 258
+ "n_functions": 260
 }

@@ -20,7 +20,10 @@ with F1 reading FROZEN_INPUTS_v4.json and S2 leaving verbatim run transcripts (d
       carries an explanation with what was measured, the limit, where the limit comes from, what it means and what to do; and an array too
       thin to read gives Met-A, the tare and the C-Score each a reason with the measured count and what is required
   V10 Group-A in the chain (stage_groupa.py, commissioned 2026-10-20): on the committed readings of DEV-GROUPA-COMMISSION-01 it gives the sealed
-      bars 2 and 3 to every printed digit; its tare is word for word the sealed scorer's; groups in other specimens are labeled preliminary"""
+      bars 2 and 3 to every printed digit; its tare is word for word the sealed scorer's; groups in other specimens are labeled preliminary
+  V11 Every stop of the one command explained (Chain Decoder finding F4, 2026-10-20): a refused specimen run through run_sample.py prints and keeps
+      the five-part explanation and the report shows it; and in run_sample.py every exit with code 2 or 3 is preceded, in its block, by an
+      explanation (_why, or Stage 0's stage0_explained)"""
 import os, sys, json, gzip, glob, hashlib, re, time, subprocess, tempfile
 import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path[:0] = [HERE]
@@ -207,12 +210,47 @@ def V10(tmp):
     pre = "preliminary" in str(GA.compare(I, "sex", "female", "male", specimen="buffy coat").get("commissioning", ""))
     rec("V10", same and tare_same and pre, f"sealed bars reproduced: {same} (B2 t {b2['t']}, B3 t {b3['t']}); tare identical to the sealed scorer: {tare_same}; other specimens labeled preliminary: {pre}")
 
+def V11(tmp):
+    import re as _re
+    b = os.path.join(tmp, "v11_b.csv"); pd.DataFrame({"beta": [0.5, 0.6]}, index=["cg00000029", "cg00000108"]).to_csv(b)
+    out = os.path.join(tmp, "v11", "r.html"); os.makedirs(os.path.dirname(out), exist_ok=True)
+    rs = os.path.join(HERE, "MethylPhys_Interface", "run_sample.py")
+    r = subprocess.run([sys.executable, rs, "--betas", b, "--specimen", "saliva", "--id", "v11", "--out", out], capture_output=True, text=True)
+    bp = out[:-5] + "_bundle.json"; bun = json.load(open(bp)) if os.path.exists(bp) else {}   # the bundle is named after the report file
+    ex = (bun.get("intake") or {}).get("stage0_explained") or []
+    parts = bool(ex) and all(ex[0].get(k) for k in ("measured", "limit", "limit_source", "means", "what_to_do"))
+    shown = os.path.exists(out) and "sec-why-stopped" in open(out, encoding="utf-8").read() and "WHY: specimen" in r.stdout
+    import ast as _ast
+    src = open(rs, encoding="utf-8").read(); bare = []
+    def _is_exit(st):
+        c = st.value if isinstance(st, _ast.Expr) else None
+        return (isinstance(c, _ast.Call) and _ast.unparse(c.func) == "sys.exit" and c.args and isinstance(c.args[0], _ast.Constant) and c.args[0].value in (2, 3))
+    for node in _ast.walk(_ast.parse(src)):   # every statement list (a block); an exit's explanation must come before it IN THE SAME BLOCK
+        for field in ("body", "orelse", "finalbody"):
+            B = getattr(node, field, None)
+            if not isinstance(B, list): continue
+            for i, st in enumerate(B):
+                if _is_exit(st):
+                    before = "\n".join(_ast.get_source_segment(src, x) or "" for x in B[:i])
+                    if "_why(" not in before and "stage0_explained" not in before: bare.append(st.lineno)
+    import stage_v4 as _V4, stage_q0_intake as _Q0
+    K = ("measured", "limit", "limit_source", "means", "what_to_do")
+    d21 = _V4.stage_d21(pd.Series([0.5] * 10, index=[f"cg{i:08d}" for i in range(10)])).get("explained") or {}
+    q2a = _V4.stage_q2({"held_opp": 0, "loose_share": None}, "cd8 t cells").get("explained") or {}
+    q2b = _V4.stage_q2({"held_opp": 100, "loose_share": 0.3, "held_err": 0.05, "tiles": 10, "tile_p10": 0.01}, "cd8 t cells").get("explained") or {}
+    bad = os.path.join(tmp, "v11_bad.pat"); open(bad, "w").write("chr1\tnot-a-number\n")
+    q0 = _Q0.intake(bad, specimen="purified", cell="cd8 t cells", selfref_cells={"cd8 t cells"}).get("explained") or {}
+    stages = {n: all(x.get(k) for k in K) for n, x in (("D21 withheld", d21), ("Q2 no molecules", q2a), ("Q2 shape", q2b), ("Q0 unreadable", q0))}
+    rec("V11", r.returncode == 0 and parts and shown and not bare and all(stages.values()),
+        f"refused specimen: exit {r.returncode}, five parts kept {parts}, printed and in the report {shown}; exits 2/3 without an explanation: {bare or 'none'}; "
+        f"stage stops with all five parts: {stages}")
+
 def main():
     t0 = time.time(); files = R3.tracked(); tmp = tempfile.mkdtemp(prefix="rc_v4_")
     print(f"release_check_v4 @ {subprocess.run(['git', '-C', R3.ROOT, 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()}  python {PY}")
     steps = [("F1", F1, ()), ("F1b", F1b, ()), ("F2", F2, ()), ("S1", R3.S1, (files,)), ("S2", S2, (files,)), ("S3", R3.S3, ()), ("S4", R3.S4, ())] + \
             [(n, getattr(R3, n), (tmp,)) for n in ("E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "E10", "E11")] + \
-            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V8", V8, (tmp,)), ("V6", V6, (tmp,)), ("V7", V7, (tmp,)), ("V9", V9, (tmp,)), ("V10", V10, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
+            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V8", V8, (tmp,)), ("V6", V6, (tmp,)), ("V7", V7, (tmp,)), ("V9", V9, (tmp,)), ("V10", V10, (tmp,)), ("V11", V11, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
     for name, fn, args in steps:
         try: fn(*args)
         except Exception as e: rec(name, False, f"could not run: {type(e).__name__}: {str(e)[:200]}")

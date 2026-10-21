@@ -398,7 +398,7 @@
    "record": ""
   },
   {
-   "task": "Every block explained (author rule 2026-10-20: 'they should indicate exactly what flagged it ... Imagine being a researcher and not even understanding the code or the physics and getting blocks like this'): every point in the chain that stops, withholds or quarantines prints what was measured, the limit, where the limit comes from and whether it is provisional, what it means and what to do; release check V9 enforces it for Stage 0; the push gate names the exact failing script. Stage 0 done 2026-10-20 (explain_stage0, V9); next: the conductor's and the report's withheld/refused lines read against the same five parts",
+   "task": "Every block explained (author rule 2026-10-20: 'they should indicate exactly what flagged it ... Imagine being a researcher and not even understanding the code or the physics and getting blocks like this'): every point in the chain that stops, withholds or quarantines prints what was measured, the limit, where the limit comes from and whether it is provisional, what it means and what to do; release check V9 enforces it for Stage 0; the push gate names the exact failing script. Stage 0 done 2026-10-20 (explain_stage0, V9); 2026-10-20: every stop outside Stage 0's gates too (run_sample._why: specimen, early intake, EPIC v2, missing manifest, corrupt IDAT, Stage 1 platform, the quarantine after calibration), the cell shares, IAM-A's count and shape check and Stage Q0, each with the five parts in the bundle and in the report's 'Why the chain stopped' table; release check V11 enforces it (planted gap refused); next: the release check from a fresh checkout",
    "done_when": "every stop in the chain carries the five parts; V9 extended to every stage; release check passes from a fresh checkout",
    "rows": [
     "OTH-078",
@@ -437,8 +437,8 @@
     },
     {
      "id": "F4",
-     "text": "run_sample stops outside Stage 0 (SPECIMEN_REFUSED, PLATFORM_REFUSED EPIC v2, ENVIRONMENT_MISSING_MANIFEST exit 3, QUARANTINE_CORRUPT_IDAT at decode or Stage 1) print one reason line, not the five-part explanation (measured, limit, source, meaning, what to do) that Stage 0 gates now carry; the every-block-explained rule (author 2026-10-20) covers them.",
-     "status": "open"
+     "text": "run_sample stops outside Stage 0 (SPECIMEN_REFUSED, PLATFORM_REFUSED EPIC v2, ENVIRONMENT_MISSING_MANIFEST exit 3, QUARANTINE_CORRUPT_IDAT at decode or Stage 1) print one reason line, not the five-part explanation (measured, limit, source, meaning, what to do) that Stage 0 gates now carry; the every-block-explained rule (author 2026-10-20) covers them. | FIXED: run_sample._why at every such stop; release check V11.",
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F5",

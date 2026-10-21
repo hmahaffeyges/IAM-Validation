@@ -19,6 +19,10 @@ MIN_MARKER_SHARE = 0.5   # operational: below half the marker sites measured, th
 CD8_TYPES = ("cd8 t cells", "naive cd8 t cells", "effector memory cd8 t cells", "t effector cell cd8")
 _REF = {}
 
+def _ex(check, outcome, measured, limit, source, means, todo, provisional=False):   # the five parts of every stop (author rule 2026-10-20)
+    return dict(check=check, outcome=outcome, measured=measured, limit=limit, limit_source=source, provisional=provisional, means=means, what_to_do=todo)
+
+
 # ---------------------------------------------------------------- D21: cell shares
 def stage_d21(beta, panel=None):
     panel = list(panel or D21.BLOOD6)
@@ -31,6 +35,9 @@ def stage_d21(beta, panel=None):
         "commissioning": D21.DECONV_V21_COMMISSIONING, "error_bars": "information, not calibrated"}
     if have < MIN_MARKER_SHARE * len(M):
         rec["withheld"] = f"only {have} of {len(M)} marker sites measured (at least {int(np.ceil(MIN_MARKER_SHARE * len(M)))} needed): shares withheld"
+        rec["explained"] = _ex("cell shares (Stage D21)", "withheld", f"{have} of {len(M)} marker sites measured", f"at least {int(np.ceil(MIN_MARKER_SHARE * len(M)))} (half)",
+                               "stage_v4.MIN_MARKER_SHARE (operational, not measured)", "too few of the sites that tell the six blood cells apart were measured to solve the shares",
+                               "check Stage 1 detection (probes at background are removed); a complete EPIC v1 array measures nearly all of them", provisional=True)
         return rec
     d = D21.deconvolve(b, R, M); com = set(D21.DECONV_V21_COMMISSIONING["cells"])
     rec["cells"] = [{"cell": c, "share": round(d["shares"][c], 4), "interval_95": [round(x, 4) for x in d["interval_95"][c]],
@@ -51,9 +58,20 @@ def stage_q2(rec, cell, chemistry="whole-genome bisulfite", source=None):
            "chemistry": chemistry, "band": {"lo": B["lo"], "hi": B["hi"]}, "count": {k: rec.get(k) for k in ("loose_share", "held_err", "held_opp", "tiles", "tile_p10")},
            "input": source, "A": None}
     if not rec.get("held_opp") or rec.get("loose_share") is None:
-        out["refusal"] = "no qualifying molecules or tiles in this file: IAM-A not read"; return out
+        out["refusal"] = "no qualifying molecules or tiles in this file: IAM-A not read"
+        out["explained"] = _ex("IAM-A count (Stage Q2)", "not read", f"held-error opportunities {rec.get('held_opp')}; tiles {rec.get('tiles')}",
+                               "at least one held run (6 or more CpG calls, at least 80 % methylated) and one tile of 2,000 CpGs with 200 calls", "stage_q2_selfref (fixed counting rules)",
+                               "the file holds no molecules IAM-A can count, so there is neither a held error nor a loose share", "check that the file is whole-genome bisulfite of the right build (hg19 CpG index) and not a small region")
+        return out
     s = Q2.shape_check(rec, cell); out["shape_check"] = s
-    if not s["read"]: out["refusal"] = s["reason"]; return out
+    if not s["read"]:
+        out["refusal"] = s["reason"]
+        out["explained"] = _ex("sample shape (Stage Q2)", "not read", f"tile 10th percentile {s.get('tile_p10')}" if s.get("tile_p10") is not None else s["reason"],
+                               f"at least {s['limit']:.4f} (the lowest healthy {cell} minus the margin {s['margin']:.4f})" if s.get("limit") is not None else "a healthy shape reference for this cell type",
+                               "Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json (healthy samples of GSE186458; the margin is computed from them, never typed)",
+                               "the sample's spread of methylation across the genome is outside what healthy samples of its type show, so its own loose share is not a healthy state the line can be read from",
+                               "check the cell type given with --seq-cell; a sample outside the healthy shape is reported, not read")
+        return out
     r = Q2.reading(rec); A = float(r["A"])
     out.update(A=round(A, 4), predicted=round(r["predicted"], 6), held_err=round(r["held_err"], 6), loose_share=round(r["loose_share"], 4),
                state="Normal" if B["lo"] <= A <= B["hi"] else ("above Normal" if A > B["hi"] else "below Normal"))
