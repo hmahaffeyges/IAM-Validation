@@ -21,11 +21,24 @@ def manifests():
     """methylprep's EPIC and 450K manifests under the names sky_maps_v21.genome_order reads."""
     from methylprep.files import Manifest
     from methylprep.models import ArrayType
-    for t in ("epic", "450k"): Manifest(ArrayType(t), verbose=False) if "verbose" in Manifest.__init__.__code__.co_varnames else Manifest(ArrayType(t))
+    for t in ("epic", "450k"):
+        try: Manifest(ArrayType(t))
+        except Exception as e: print("methylprep Manifest", t, "->", type(e).__name__, str(e)[:200], flush=True)
+    try:   # the EPIC v1 B4 manifest straight from methylprep's own source, by methylprep's own file table (2026-10-21)
+        import methylprep.files.manifests as MM, urllib.request
+        tab = {str(k): v for k, v in getattr(MM, "ARRAY_TYPE_MANIFEST_FILENAMES", {}).items()}; remote = getattr(MM, "MANIFEST_REMOTE_PATH", "")
+        print("methylprep manifest table:", tab, "| remote:", remote, flush=True)
+        dd = os.path.expanduser("~/.methylprep_manifest_files"); os.makedirs(dd, exist_ok=True)
+        for fn in tab.values():
+            if ("B4" in fn or "450k" in fn) and not os.path.exists(os.path.join(dd, fn)) and remote:
+                urllib.request.urlretrieve(remote + fn, os.path.join(dd, fn)); print("downloaded", fn, flush=True)
+    except Exception as e: print("manifest table route:", type(e).__name__, str(e)[:200], flush=True)
     d = os.path.join("/tmp", "iam_manifests"); os.makedirs(d, exist_ok=True)
     roots = [os.path.expanduser("~"), os.getcwd(), "/tmp"]   # methylprep's download folder differs between installs: find the files by name
-    for name in ("MethylationEPIC_v-1-0_B4.CoreColumns.csv.gz", "HumanMethylation450k_15017482_v3.csv.gz"):
-        f = [os.path.join(dp, name) for r in roots for dp, _, fs in os.walk(r) if name in fs and not dp.startswith(d)]
+    alt = {"MethylationEPIC_v-1-0_B4.CoreColumns.csv.gz": ("MethylationEPIC_v-1-0_B4.CoreColumns.csv.gz", "MethylationEPIC_v-1-0_B4.csv.gz", "HumanMethylationEPIC_manifest_v1.csv.gz"),
+           "HumanMethylation450k_15017482_v3.csv.gz": ("HumanMethylation450k_15017482_v3.csv.gz",)}   # the EPIC v1 B4 manifest under the names methylprep versions use
+    for name in alt:
+        f = [os.path.join(dp, n) for n in alt[name] for r in roots for dp, _, fs in os.walk(r) if n in fs and not dp.startswith(d)]
         assert f, f"manifest {name} not found under {roots}; methylprep folder holds: {sorted(glob.glob(os.path.expanduser('~/.methylprep_manifest_files/*')))}"
         if not os.path.exists(os.path.join(d, name)): os.symlink(f[0], os.path.join(d, name))
         print("manifest", name, "from", f[0], flush=True)
