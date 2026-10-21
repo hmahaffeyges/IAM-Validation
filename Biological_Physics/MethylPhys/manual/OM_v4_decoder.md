@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **24 Python files** holding **280 functions** (nested ones included); 280 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **24 Python files** holding **282 functions** (nested ones included); 282 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -28,7 +28,7 @@ Read from the code at build time: the one command can load **24 Python files** h
 | `stage_q_iam_a.py` | 174 | 9 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
-| `MethylPhys_Interface/report_globe_v4.py` | 247 | 13 | 0 | 0 |
+| `MethylPhys_Interface/report_globe_v4.py` | 299 | 15 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 114 | 6 | 0 | 0 |
 
 ## How to read the Decoder
@@ -2038,6 +2038,21 @@ pure black, so only the changes stay lit.
 The fixed line for n blocks: the size a normal block crosses by chance less than once in 20 genomes, two-sided (5 % family-wise).
 
 *Code:* `MethylPhys_Interface/report_globe_v4.py` line 38 (4 lines) · arguments: n · calls: not called on the traced runs
+
+### `report_globe_v4.py::build_pair`
+
+DEVELOPMENT, not commissioned: one person's sample (a tumor) against the same person's own other sample (its adjacent normal) on the atlas's
+layout, by the globe's block rule without the atlas: each site's difference in the pair's own spread, blocks of 10 neighboring sites, the
+block mean in its own block spread, changed beyond the 5 % family-wise line. Run as `python3 report_globe_v4.py pair SAMPLE REFERENCE NAME
+OUT.html` on chain Stage 1 values. A pair with no change lights 0 of 77,356 blocks; 200 planted regional runs of 30 sites light 620.
+
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 255 (34 lines) · arguments: beta, ref_beta, ref_name, out_html, title · calls: not called on the traced runs · constants read: `ATLAS`, `BLOCK`, `HERE`, `ORDER`, `PAIR_ABOUT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `sites.parquet`
+
+### `report_globe_v4.py::build_pair.rgb`
+
+Draws a methylation map for the pair's globe on the atlas pages' parchment scale; gray where no site was measured.
+
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 273 (2 lines) · arguments: m · calls: not called on the traced runs
 
 ### `report_globe_v4.py::build._code`
 

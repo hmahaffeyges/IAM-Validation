@@ -2924,3 +2924,6 @@ chain/stage_metaa_atlas.py reads Met-A against any IAM-Atlas v2.1 cell with Met-
 
 ### 2026-10-21 · Met-A against the atlas, synthetic test 1 (GRP-014, DEV-METAA-ATLAS-01)
 Both bars met. Untared, Met-A against the atlas ran from 0.813 to 1.324 across four laboratory offsets; after the same-run tare every healthy array read Normal. The planted-loss bar only shows the tare keeps a real loss, since its prediction is the same arithmetic. Next: sorted cells from an independent laboratory on GitHub.
+
+### 2026-10-21 · The tissue results on the globe, planned (ATL-063, DEV-TISSUE-GLOBE-01)
+The chain's globe gains a development pair mode: one person's tumor against the same person's own adjacent normal, by the same block rule. A pair with no change lights none of 77,356 blocks; 200 planted regional runs light 620. Three colon and three breast pairs, already scored and spent, and a two-person control run on GitHub, each page screenshotted in Chromium.

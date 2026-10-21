@@ -238,9 +238,61 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
     return rec
 
 ABOUT = ("Every site of IAM-Atlas v2.1 has one fixed place on this globe, the same as on the atlas's cell pages. Drag to turn it. The healthy "
-         "reference is <b>__REF__</b>, compared at __N__ sites. The change is fixed by the measurement: a site has changed when it lies outside the "
-         "healthy range. The slider only fades the healthy background, so you can see the change by itself. A picture: nothing is scored from it; Met-A and the C-Score read against "
-         "their own commissioned reference, which is also a layer. The atlas blends 21 sources and sits slightly closer to 0.5 than one array, so a "
-         "healthy sample shows a faint even difference. In a woman one X chromosome is held methylated, so her X shows as a patch against a reference "
-         "that pools both sexes. A small loss spread over many sites shows on the departures layer, not the whole genome.")
+         "reference is <b>__REF__</b>, compared at __N__ sites. The change is fixed by the measurement, never by the reader: each site's difference "
+         "is measured in that site's healthy width and the sample's own spread, and read in blocks of 10 neighboring sites, as the C-Score reads "
+         "them; a block has changed beyond the line pure chance crosses less than once in 20 genomes. Ordinary wear is scattered and seldom moves a "
+         "whole block, so a healthy sample stays nearly dark; a change that runs along the genome lights up in clumps. The slider only quiets the "
+         "background. A picture: nothing is scored from it; Met-A and the C-Score read against their own commissioned reference, which is also a "
+         "layer. In a woman one X chromosome is held methylated, so her X can differ from a reference that pools both sexes.")
+
+PAIR_ABOUT = ("<b>DEVELOPMENT: one person's two samples, not commissioned by our standards.</b> Every site of IAM-Atlas v2.1 has one fixed place on "
+              "this globe. The sample is compared with the same person's own __REF__, at __N__ sites both arrays measured: self-reference, no "
+              "other person enters. The change is fixed by the measurement: each site's difference in the pair's own spread, read in blocks of "
+              "10 neighboring sites, a block changed beyond the line pure chance crosses less than once in 20 genomes. A change that runs along "
+              "the genome lights up in clumps; scattered differences stay dark. The slider only quiets the background. A picture: nothing is "
+              "scored from it.")
+
+def build_pair(beta, ref_beta, ref_name, out_html=None, title="This sample against the same person's own other sample"):
+    """DEVELOPMENT (2026-10-21, author: test the globe on the breast and colon tissue results): one person's sample (a tumor) against the same
+    person's own other sample (its adjacent normal), on the atlas's layout, by the globe's block rule without the atlas: each site's
+    difference, centered and scaled by the pair's own spread (MAD x 1.4826), blocks of BLOCK neighboring measured sites, the block mean in its
+    own block spread, changed beyond FW_LINE. Layers: the change (slider quiets the reference sample's map), the sample, the reference."""
+    import pyarrow.parquet as pq
+    ids = np.array(pq.read_table(os.path.join(ATLAS, "sites.parquet")).column("cpg").to_pylist(), dtype=object)
+    Z = np.load(ORDER); order = Z["order"]; nside = int(Z["nside"]); npix = 12 * nside * nside; look = _lookup(nside)
+    smp = pd.Series(beta, dtype="float64").reindex(ids).to_numpy(); ref = pd.Series(ref_beta, dtype="float64").reindex(ids).to_numpy()
+    d = (smp - ref)[order]; ok = np.isfinite(d); v = d[ok]; med = float(np.median(v)); mad = float(np.median(np.abs(v - med))) * 1.4826 or 1.0
+    zg = np.where(ok, (d - med) / mad, np.nan); mi = np.where(ok)[0]; nb = len(mi) // BLOCK
+    bm_ = zg[mi[:nb * BLOCK]].reshape(nb, BLOCK).mean(1); c_ = float(np.median(bm_)); s_ = float(np.median(np.abs(bm_ - c_))) * 1.4826 or 1.0
+    bz = (bm_ - c_) / s_; line = FW_LINE(nb); ex = np.where(ok, 0.0, np.nan); ex[mi[:nb * BLOCK]] = np.repeat(np.where(np.abs(bz) > line, bz, 0.0), BLOCK)
+    dv = _to_sky_extreme(ex, npix)[look].reshape(HT, W)
+    a = np.clip(np.abs(dv) / 10, 0, 1); c = np.where(np.isfinite(dv), np.where(dv != 0, 128 + np.sign(dv) * np.round(48 + 79 * a), 128), 0)
+    code = np.repeat(np.clip(c, 0, 255).astype(np.uint8)[..., None], 3, -1)
+    from matplotlib.colors import ListedColormap
+    cm = ListedColormap(np.loadtxt(os.path.join(HERE, "Planck_Parchment_RGB.txt")) / 255.0)
+    def rgb(m):
+        x = (cm(np.clip(np.nan_to_num(m, nan=0), 0, 1))[..., :3] * 255).astype(np.uint8); x[~np.isfinite(m)] = (42, 45, 51); return x
+    sm = _to_sky(smp[order], npix)[look].reshape(HT, W); rm = _to_sky(ref[order], npix)[look].reshape(HT, W)
+    J = lambda b: "data:image/jpeg;base64," + b; R_ = J(_jpg_b64(rgb(rm))); n_ch = int((np.abs(bz) > line).sum())
+    L = [dict(name="the change from the same person's own " + ref_name, kind="change", src="data:image/png;base64," + _png_b64(code, "RGB"), base=R_, full=10,
+              hint="Slide right to quiet the reference sample's map: its colors drain to gray, then to dark, until only the change is left lit.",
+              fixed=f"Changed: {n_ch:,} of {nb:,} blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
+              note="Red: more methylation than the same person's own " + ref_name + "; blue: less. Development: not commissioned by our standards."),
+         dict(name="the sample", kind="image", src=J(_jpg_b64(rgb(sm))), note="The sample's methylation at every atlas site its array measured, 0 to 1."),
+         dict(name="the same person's own " + ref_name, kind="image", src=R_, note="The reference sample's methylation, 0 to 1.")]
+    spec = dedupe(dict(id="pair", name=title, about=PAIR_ABOUT.replace("__REF__", ref_name).replace("__N__", f"{int(ok.sum()):,}"),
+                       groups=[dict(name="this person", layers=L)]))
+    rec = dict(drawn=True, mode="pair (development)", sites_compared=int(ok.sum()), blocks=int(nb), blocks_changed=n_ch, line=round(line, 3),
+               change_rule="the pair's own difference, blocks of 10 neighboring sites, 5 % family-wise line", flag="development: not commissioned by our standards")
+    if out_html: open(out_html, "w", encoding="utf-8").write(page([spec], title)); rec["html"] = os.path.abspath(out_html)
+    rec["spec"] = spec; return rec
+
+if __name__ == "__main__":
+    # python3 report_globe_v4.py pair SAMPLE_BETAS REFERENCE_BETAS "reference name" OUT.html ["title"]   (betas: chain Stage 1, cpg_id,beta)
+    import sys as _s
+    if len(_s.argv) >= 6 and _s.argv[1] == "pair":
+        rd = lambda f: (pd.read_parquet(f).iloc[:, 0] if f.endswith(".parquet") else pd.read_csv(f, index_col=0).iloc[:, 0])
+        r = build_pair(rd(_s.argv[2]), rd(_s.argv[3]), _s.argv[4], _s.argv[5], *(_s.argv[6:7]))
+        print(json.dumps({k: v for k, v in r.items() if k != "spec"}))
+    else: print(__doc__)
 
