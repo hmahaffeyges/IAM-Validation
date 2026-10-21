@@ -34,7 +34,11 @@ from globe_viewer import dedupe, fragment, page, write_files, VIEWER_JS   # the 
 HERE = os.path.dirname(os.path.abspath(__file__)); CH = os.path.join(HERE, "..")
 ATLAS = os.path.join(CH, "..", "atlas", "v2.1")
 ORDER = os.path.join(CH, "Runtime Matrices", "Atlas_V21", "sky_order_v21.npz")
-W, HT = 1024, 512; NA = 65535; R_DOT = 3
+W, HT = 1024, 512; NA = 65535; R_DOT = 3; BLOCK = 10   # the C-Score's block (neutrophil_reference_v1_2.json clustering_block)
+def FW_LINE(n):
+    """The fixed line for n blocks: the size pure chance (a normal block) crosses less than once in 20 genomes, two-sided, 5 % family-wise."""
+    from scipy.stats import norm
+    return float(norm.isf(0.05 / max(n, 1) / 2))
 PANEL = {"neutrophils": "neutrophils", "monocytes": "monocytes", "b cells": "b cells", "cd4 t cells": "cd4 t cells", "cd8 t cells": "cd8 t cells", "nk cells": "nk cells"}
 BLOOD = ("whole blood", "buffy coat", "peripheral blood")
 
@@ -137,8 +141,15 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
     un = sum(w[c] * (hi_[c] - lo_[c]) / 3.92 for c in w); width = np.sqrt(sum(w[c] * sd_[c] ** 2 for c in w) + un ** 2)[order]
     x = np.where(both & np.isfinite(width) & (width > 0), d / np.where(width > 0, width, np.nan), np.nan); xv = x[np.isfinite(x)]
     med = float(np.median(xv)); mad = float(np.median(np.abs(xv - med))) * 1.4826 or 1.0; zg = (x - med) / mad
-    ex = np.where(np.isfinite(zg), np.where(np.abs(zg) > 3, zg, 0.0), np.nan)
-    n_changed = int((np.isfinite(ex) & (ex != 0)).sum()); n_ranged = int(np.isfinite(ex).sum()); ex_s = _to_sky_extreme(ex, npix)   # a site with no width is not counted
+    # Blocks, not single sites (2026-10-21, author: "no way the entire globe is lit up"): one site beyond 3 lit 2.1 % of a healthy blood's
+    # sites across the whole globe. The change is read in blocks of 10 neighboring measured sites in genome order (the C-Score's block), each
+    # block's mean in the sample's own block spread (neighboring CpGs move together, so a healthy block's spread is about twice that of
+    # independent sites); a block has changed beyond the line pure chance crosses less than once in 20 genomes (5 % family-wise over all blocks,
+    # FW_LINE). Healthy blood: 45 of 77,355 blocks; 200 planted runs of 30 sites: 229 of their 756 blocks found.
+    mi = np.where(np.isfinite(zg))[0]; nb = len(mi) // BLOCK; bm_ = zg[mi[:nb * BLOCK]].reshape(nb, BLOCK).mean(1)
+    c_ = float(np.median(bm_)); s_ = float(np.median(np.abs(bm_ - c_))) * 1.4826 or 1.0; bz = (bm_ - c_) / s_; line = FW_LINE(nb)
+    ex = np.where(np.isfinite(zg), 0.0, np.nan); ex[mi[:nb * BLOCK]] = np.repeat(np.where(np.abs(bz) > line, bz, 0.0), BLOCK)
+    n_changed = int((np.abs(bz) > line).sum()); n_ranged = int(nb); ex_s = _to_sky_extreme(ex, npix)
     look = _lookup(nside)
     cm = ListedColormap(np.loadtxt(os.path.join(HERE, "Planck_Parchment_RGB.txt")) / 255.0)
     def rgb(m):
@@ -147,12 +158,6 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
     def _code(v, full):
         c = np.where(np.isfinite(v), 128 + np.sign(v) * np.maximum(np.abs(v) > 0, np.round(np.clip(np.abs(v) / full, 0, 1) * 127)), 0)
         return np.clip(c, 0, 255).astype(np.uint8)
-    # a changed site is one texture pixel, too small to see once the background is dark: each changed pixel also lights its 8 neighbors (the
-    # larger change winning where two meet); only unchanged pixels are overwritten, so every changed site keeps its own place and color
-    from scipy import ndimage as _nd
-    ch = np.isfinite(dv) & (dv != 0); big = np.where(ch, np.abs(dv), 0); grow = _nd.maximum_filter(big, size=3, mode="wrap")
-    sgn = _nd.maximum_filter(np.where(ch, np.abs(dv) * (1 + (dv > 0)), 0), size=3, mode="wrap")
-    take = (~ch) & np.isfinite(dv) & (grow > 0); dv = np.where(take, np.where(sgn > grow * 1.5, grow, -grow), dv)
     code = _code(dv, 10)
     zcode, zabove = None, None
     if z is not None and len(z):
@@ -165,8 +170,8 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
         # the planted clustered loss: 57). A single site is not judged alone: a small loss spread along a run never passes 3 at one site.
         _R = json.load(open(os.path.join(CH, "Runtime Matrices", "Met_A_Floors", "neutrophil_reference_v1_2.json"))); _k = int(_R["clustering_block"])
         _zo = z.reindex(_R["sites_ordered"]).dropna(); _nb = len(_zo) // _k
-        _bz = _zo.to_numpy()[:_nb * _k].reshape(_nb, _k).mean(1) * np.sqrt(_k); _lit = np.repeat(np.where(np.abs(_bz) > 3, _bz, 0.0), _k)
-        z = pd.Series(np.r_[_lit, np.zeros(len(_zo) - _nb * _k)], index=_zo.index); blocks = (int((np.abs(_bz) > 3).sum()), int(_nb))
+        _bz = _zo.to_numpy()[:_nb * _k].reshape(_nb, _k).mean(1) * np.sqrt(_k); _ml = FW_LINE(_nb); _lit = np.repeat(np.where(np.abs(_bz) > _ml, _bz, 0.0), _k)
+        z = pd.Series(np.r_[_lit, np.zeros(len(_zo) - _nb * _k)], index=_zo.index); blocks = (int((np.abs(_bz) > _ml).sum()), int(_nb))
         zz = z.reindex(ids[order]).to_numpy(); zs = _to_sky(zz, npix); zv = zs[look].reshape(HT, W)
         # 6,000 sites hold about one texture pixel each, too small to see: each is drawn as a dot of radius R_DOT pixels at its own place, the
         # larger departure winning where two dots meet, so a run of neighboring departing sites shows as a patch. Positions are unchanged.
@@ -193,16 +198,18 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
     rec = {"drawn": True, "reference": name, "weights": {c: round(v, 4) for c, v in w.items()}, "sites_compared": int(both.sum()),
            "pixels_compared": int(len(m)), "median_abs_difference": round(float(np.median(m)), 4) if len(m) else None,
            "share_above": {"0.05": above[5], "0.10": above[10], "0.20": above[20], "0.30": above[30]},
-           "change_rule": "beyond 3 of the sample's own spreads, each site's difference in units of its healthy width in IAM-Atlas v2.1", "sites_changed": n_changed, "sites_with_range": n_ranged,
+           "change_rule": "blocks of 10 neighboring sites, each site's difference in its healthy width in IAM-Atlas v2.1, the block mean in the sample's own block spread, beyond the 5 % family-wise line", "sites_changed": n_changed, "sites_with_range": n_ranged,
            "layout": "IAM-Atlas v2.1 genome-order sky, NSIDE 256 NESTED (sky_order_v21.npz)", "scored": False}
     J = lambda b: "data:image/jpeg;base64," + b; P_ = lambda b: "data:image/png;base64," + b
     R_ = J(_jpg_b64(rgb(ref_s)))
     L = [dict(name="the change from the healthy reference", kind="change", src=P_(_png_b64(code, "L")), base=R_, full=10,
               hint="Slide right to quiet the healthy background: its colors drain to gray, then to dark, until only the change is left lit. Slide left to bring the full map back.",
-              fixed=f"Changed: {n_changed:,} of {n_ranged:,} sites. This count is fixed; the slider never changes it.",
+              fixed=f"Changed: {n_changed:,} of {n_ranged:,} blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
               note=(f"Against {name}. Each site's difference is measured in that site's healthy width (how much healthy people vary there, and how "
-                    "sure the atlas is), in this sample's own spread; a site has changed beyond 3, the C-Score's rule. The line is set by the "
-                    "measurement, not by the reader. Red: more methylation than healthy; blue: less; brighter: further out.")),
+                    "sure the atlas is), in this sample's own spread, and read in blocks of 10 neighboring sites, as the C-Score reads them. A block "
+                    "has changed beyond the line pure chance crosses less than once in 20 genomes. Ordinary wear is scattered and seldom moves a whole "
+                    "block, so a healthy sample stays nearly dark; a change that runs along the genome lights up in clumps. Red: more methylation "
+                    "than healthy; blue: less.")),
          dict(name="the sample", kind="image", src=J(_jpg_b64(rgb(smp_s))), note="The sample's methylation at every atlas site, 0 to 1."),
          dict(name="the healthy reference", kind="image", src=R_, note=f"{name}, 0 to 1.")]
     if zcode is not None:
@@ -210,7 +217,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
                       hint="Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
                       fixed=f"Changed: {zabove[0]:,} of {zabove[1]:,} blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
                       note=("The C-Score's departure map against Met-A's commissioned purified-array reference, read as the C-Score reads it: in blocks "
-                            "of 10 neighboring sites along the genome, a block changed when its average departure is beyond 3 of its standard errors. "
+                            "of 10 neighboring sites along the genome, a block changed beyond the line pure chance crosses less than once in 20 genomes. "
                             "Ordinary wear is scattered and seldom moves a whole block; a loss that runs along the genome does, so it shows as clumps.")))
     if pcode is not None:
         Pr = J(_jpg_b64(prgb))
@@ -219,7 +226,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
     if cellmaps: groups.append(dict(name="the cells the IAM-Deconvolver read", layers=[dict(name="healthy " + c["name"], kind="image", src=J(c["t"]),
                                      note="This cell's healthy map in IAM-Atlas v2.1; the share is the IAM-Deconvolver's reading of this sample.") for c in cellmaps]))
     rec["layers"] = [x["name"] for g in groups for x in g["layers"]]
-    if zabove: rec["metaa_blocks_changed"] = {"rule": "blocks of 10 neighboring sites, mean departure beyond 3 standard errors (the C-Score's blocks)", "changed": zabove[0], "blocks": zabove[1]}
+    if zabove: rec["metaa_blocks_changed"] = {"rule": "blocks of 10 neighboring sites, mean departure in standard errors beyond the 5 % family-wise line (the C-Score's blocks)", "changed": zabove[0], "blocks": zabove[1]}
     spec = dedupe(dict(id="sample", name="This sample", about=ABOUT.replace("__REF__", name).replace("__N__", f"{rec['sites_compared']:,}"), groups=groups))
     rec["fragment"] = fragment([spec])
     if out_html: open(out_html, "w", encoding="utf-8").write(page([spec], "The sample on the globe")); rec["html"] = os.path.abspath(out_html)

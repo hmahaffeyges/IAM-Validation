@@ -13,8 +13,8 @@
      "base": "a1",
      "full": 10,
      "hint": "Slide right to quiet the healthy background: its colors drain to gray, then to dark, until only the change is left lit. Slide left to bring the full map back.",
-     "fixed": "Changed: 16,372 of 773,556 sites. This count is fixed; the slider never changes it.",
-     "note": "Against healthy blood for this person's own cell mix (IAM-Atlas v2.1, Stage D21 shares). Each site's difference is measured in that site's healthy width (how much healthy people vary there, and how sure the atlas is), in this sample's own spread; a site has changed beyond 3, the C-Score's rule. The line is set by the measurement, not by the reader. Red: more methylation than healthy; blue: less; brighter: further out."
+     "fixed": "Changed: 45 of 77,355 blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
+     "note": "Against healthy blood for this person's own cell mix (IAM-Atlas v2.1, Stage D21 shares). Each site's difference is measured in that site's healthy width (how much healthy people vary there, and how sure the atlas is), in this sample's own spread, and read in blocks of 10 neighboring sites, as the C-Score reads them. A block has changed beyond the line pure chance crosses less than once in 20 genomes. Ordinary wear is scattered and seldom moves a whole block, so a healthy sample stays nearly dark; a change that runs along the genome lights up in clumps. Red: more methylation than healthy; blue: less."
     },
     {
      "name": "the sample",
@@ -36,8 +36,8 @@
      "src": "a3",
      "full": 10,
      "hint": "Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
-     "fixed": "Changed: 7 of 597 blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
-     "note": "The C-Score's departure map against Met-A's commissioned purified-array reference, read as the C-Score reads it: in blocks of 10 neighboring sites along the genome, a block changed when its average departure is beyond 3 of its standard errors. Ordinary wear is scattered and seldom moves a whole block; a loss that runs along the genome does, so it shows as clumps.",
+     "fixed": "Changed: 0 of 597 blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
+     "note": "The C-Score's departure map against Met-A's commissioned purified-array reference, read as the C-Score reads it: in blocks of 10 neighboring sites along the genome, a block changed beyond the line pure chance crosses less than once in 20 genomes. Ordinary wear is scattered and seldom moves a whole block; a loss that runs along the genome does, so it shows as clumps.",
      "base": null
     },
     {

@@ -1339,11 +1339,18 @@ One value per site in genome order to a NESTED map: the mean per pixel, nothing 
 ### report_globe_v4.py::_mu
 Reads the atlas best values of the named cells from the compact copy (`atlas/v2.1/mu_part*.parquet`), 65535 decoded as no value.
 
-**The change at Met-A's sites is read in the C-Score's blocks.** A loss that runs along the genome is many small moves the same way, so no
-single site passes 3 spreads (the planted clustered example: 63 single sites beyond 3 in the healthy blood, 68 with the plant). Read as the
-C-Score reads it, in blocks of 10 neighboring measured sites, a block changed when its mean departure is beyond 3 of its standard errors:
-the healthy blood has 7 of 597 blocks changed, the planted loss 57, and they lie in clumps. Ordinary wear is scattered and seldom moves a
-whole block. The slider ends on pure black, so only the changes stay lit.
+**The change is read in the C-Score's blocks, beyond a fixed family-wise line.** Judged site by site, a change beyond 3 spreads lit 2.1 %
+of a healthy blood's sites, spread over the whole globe (16,372 of 773,556), while a loss that runs along the genome (many small moves the same
+way) passes 3 at hardly any single site. So both change layers read blocks of 10 neighboring measured sites in genome order, the C-Score's
+block. On the whole genome each block's mean is taken in the sample's own block spread (neighboring CpGs move together, so a healthy block
+spreads about twice as wide as independent sites would); on Met-A's 6,000 nearly independent sites the block mean is in standard errors. A
+block has changed beyond the line pure chance crosses less than once in 20 genomes (5 % family-wise, two-sided; 4.98 for the genome's 77,355
+blocks, 3.76 for Met-A's 597): FW_LINE. Healthy blood: 45 of 77,355 genome blocks and 0 of 597 Met-A blocks; the planted clustered example:
+44 Met-A blocks, in clumps; 200 planted runs of 30 sites in a copy of the healthy blood: 229 of their 756 blocks found. The slider ends on
+pure black, so only the changes stay lit.
+
+### report_globe_v4.py::FW_LINE
+The fixed line for n blocks: the size a normal block crosses by chance less than once in 20 genomes, two-sided (5 % family-wise).
 
 ### report_globe_v4.py::build._code
 Codes a change map for the page: 0 where no site was measured, 128 where the sites are unchanged, and 128 plus or minus at least one step for a

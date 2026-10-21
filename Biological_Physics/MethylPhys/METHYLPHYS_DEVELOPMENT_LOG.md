@@ -2912,3 +2912,6 @@ From the globe's change rule: identity sites chosen and optionally weighted by e
 
 ### 2026-10-21 · The globe shows clumps the way the C-Score reads them (ATL-063)
 On the planted clustered example the site-by-site rule lit 68 sites against 63 in the healthy blood: a loss that runs along the genome is many small moves, none past 3 at one site. Read in the C-Score's own blocks of 10 neighboring sites, the healthy blood shows 7 of 597 blocks changed, scattered, and the planted loss 57, in clumps. The slider now ends on pure black.
+
+### 2026-10-21 · The globe goes dark for a healthy blood (ATL-063)
+The author saw the whole globe lit at the far right. Single sites beyond 3 lit 14 % of the globe for a healthy blood. Both change layers now read the C-Score's blocks of 10 neighboring sites against the line pure chance crosses less than once in 20 genomes: the healthy blood lights 45 of 77,355 genome blocks and none of Met-A's 597; the planted clustered example lights 44 Met-A blocks, in clumps.

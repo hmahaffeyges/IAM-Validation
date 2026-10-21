@@ -5212,14 +5212,29 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 237,
+   "lines": 244,
    "functions": [
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "FW_LINE",
+     "name": "FW_LINE",
+     "line": 38,
+     "end": 41,
+     "args": [
+      "n"
+     ],
+     "lines": 4,
+     "doc": "The fixed line for n blocks: the size pure chance (a normal block) crosses less than once in 20 genomes, two-sided, 5 % family-wise.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_to_sky",
      "name": "_to_sky",
-     "line": 41,
-     "end": 45,
+     "line": 45,
+     "end": 49,
      "args": [
       "v",
       "npix"
@@ -5234,8 +5249,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_mu",
      "name": "_mu",
-     "line": 47,
-     "end": 58,
+     "line": 51,
+     "end": 62,
      "args": [
       "cells",
       "stem"
@@ -5255,8 +5270,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_to_sky_extreme",
      "name": "_to_sky_extreme",
-     "line": 60,
-     "end": 65,
+     "line": 64,
+     "end": 69,
      "args": [
       "v",
       "npix"
@@ -5271,8 +5286,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_lookup",
      "name": "_lookup",
-     "line": 67,
-     "end": 73,
+     "line": 71,
+     "end": 77,
      "args": [
       "nside"
      ],
@@ -5288,8 +5303,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_png_b64",
      "name": "_png_b64",
-     "line": 75,
-     "end": 77,
+     "line": 79,
+     "end": 81,
      "args": [
       "arr",
       "mode"
@@ -5304,8 +5319,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_jpg_b64",
      "name": "_jpg_b64",
-     "line": 79,
-     "end": 81,
+     "line": 83,
+     "end": 85,
      "args": [
       "rgb"
      ],
@@ -5319,8 +5334,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "reference",
      "name": "reference",
-     "line": 83,
-     "end": 92,
+     "line": 87,
+     "end": 96,
      "args": [
       "specimen",
       "shares"
@@ -5338,8 +5353,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_dots",
      "name": "_dots",
-     "line": 94,
-     "end": 100,
+     "line": 98,
+     "end": 104,
      "args": [
       "v"
      ],
@@ -5355,8 +5370,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "purified",
      "name": "purified",
-     "line": 102,
-     "end": 110,
+     "line": 106,
+     "end": 114,
      "args": [
       "fractions",
       "specimen"
@@ -5376,8 +5391,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build",
      "name": "build",
-     "line": 112,
-     "end": 228,
+     "line": 116,
+     "end": 235,
      "args": [
       "beta",
       "specimen",
@@ -5386,11 +5401,12 @@
       "z",
       "fractions"
      ],
-     "lines": 117,
+     "lines": 120,
      "doc": "",
      "constants": [
       "ABOUT",
       "ATLAS",
+      "BLOCK",
       "CH",
       "HERE",
       "ORDER",
@@ -5410,8 +5426,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build.rgb",
      "name": "rgb",
-     "line": 144,
-     "end": 145,
+     "line": 155,
+     "end": 156,
      "args": [
       "m"
      ],
@@ -5425,8 +5441,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build._code",
      "name": "_code",
-     "line": 147,
-     "end": 149,
+     "line": 158,
+     "end": 160,
      "args": [
       "v",
       "full"
@@ -5552,5 +5568,5 @@
   }
  ],
  "n_files": 24,
- "n_functions": 279
+ "n_functions": 280
 }
