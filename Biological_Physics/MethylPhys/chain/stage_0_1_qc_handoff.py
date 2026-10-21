@@ -117,8 +117,8 @@ def decode_qc_inputs(grn_path, red_path, array_type="HM450K"):
         "hyb_low_median":  _median(gm, ctl_addr("HYBRIDIZATION", contains="low")),
         "hyb_medium_median": _median(gm, ctl_addr("HYBRIDIZATION", contains="medium")),   # 2026-10-20: the middle control, to tell a label swap from a failure
         # EXTENSION: C and G extend in green, A and T in red; a balanced array sits near 1
-        "extension_meth_median":   _median(gm, ctl_addr("EXTENSION", contains=r"\((C|G)\)")),
-        "extension_unmeth_median": _median(rm, ctl_addr("EXTENSION", contains=r"\((A|T)\)")),
+        "extension_meth_median":   _median(gm, ctl_addr("EXTENSION", contains=r"\((?:C|G)\)")),
+        "extension_unmeth_median": _median(rm, ctl_addr("EXTENSION", contains=r"\((?:A|T)\)")),
         "bs_pairs_used": len(effs),
     }
     neg = ctl_addr("NEGATIVE")

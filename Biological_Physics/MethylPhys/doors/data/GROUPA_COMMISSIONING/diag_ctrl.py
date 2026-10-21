@@ -18,7 +18,7 @@ def get(gsm, name):
 for _, s in S.iterrows():
     try:
         g, r = get(s.gsm, s.grn), get(s.gsm, s.red); cs = S0.extract_control_probes(g, r, "EPIC_v1"); v = S0.validate_control_probes(cs)
-        rows.append(dict(gsm=s.gsm, set=s.set, verdict=v["ctrl_qc"], **v["metrics"], **{k: round(float(x), 1) for k, x in cs.items() if isinstance(x, (int, float))}))
+        rows.append(dict(gsm=s.gsm, set=s.set, verdict=v["ctrl_qc"], **v["metrics"], **{k: round(float(x), 1) for k, x in cs.items() if isinstance(x, (int, float)) and k not in v["metrics"]}))   # 2026-10-20: the summary now carries the efficiency too
         os.remove(g); os.remove(r)
     except Exception as e: rows.append(dict(gsm=s.gsm, set=s.set, verdict="ERROR " + str(e)[:200]))
     print(rows[-1]["gsm"], rows[-1]["verdict"], {k: rows[-1].get(k) for k in ("bisulfite_conversion_efficiency", "hyb_signal", "extension_ratio")}, flush=True)
