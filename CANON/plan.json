@@ -629,6 +629,46 @@
    "status": "open",
    "done_date": "",
    "record": ""
+  },
+  {
+   "task": "The IAM-A globe: Stage Q2's counter keeps its held-error and loose-share counts per atlas block (not only totals), tested to give the same totals to every digit; then an IAM-A layer on the report globe, the sample's own predicted error as its reference, through the chain, screenshotted in a browser (V13).",
+   "done_when": "the counter's per-block counts sum to the committed totals on the release check's BAM and on one grand-test sample; the IAM-A layer is drawn by the one command and checked in Chromium",
+   "rows": [
+    "ATL-063",
+    "ATL-070"
+   ],
+   "status": "open",
+   "done_date": ""
+  },
+  {
+   "task": "What the panel cannot explain: the Deconvolver's leftover at each site after the fit (measured minus the fitted mix) as a globe layer and one report number; first list which blood cells IAM-Atlas v2.1 holds and which the six-cell panel leaves out; synthetic first (plant a cell the panel lacks, e.g. from the atlas, and see the leftover rise at its marker sites, in clumps), then real bloods. Author 2026-10-21 asked whether CpG locations alone could tell which cells are present: they cannot (every cell carries every CpG; the array measures all of them); the leftover is the measurable version.",
+   "done_when": "synthetic: a planted missing cell raises the leftover at its own marker sites and is named; real healthy bloods: the leftover reported per sample",
+   "rows": [
+    "ATL-063",
+    "ATL-070"
+   ],
+   "status": "open",
+   "done_date": ""
+  },
+  {
+   "task": "The whole-genome address globe: every CpG of the genome (about 28 million) from the healthy sequencing samples IAM-A's line was built from, as map tiles (HiPS), the same address rule as the array globe; every visible pattern checked against a shuffled genome.",
+   "done_when": "tiles built on GitHub from public data; a shuffled-genome control shows no pattern the real one shows",
+   "rows": [
+    "ATL-063",
+    "ATL-070"
+   ],
+   "status": "open",
+   "done_date": ""
+  },
+  {
+   "task": "The information globe, DEV-SPHERE-01 construction v4: one fixed filling rule written before running, the planted test rerun with the coverage and distance bars that v3 failed (v3 met 4 of 6), synthetic only.",
+   "done_when": "the v4 rule committed before the run; planted test 5 scored once",
+   "rows": [
+    "ATL-063",
+    "ATL-070"
+   ],
+   "status": "open",
+   "done_date": ""
   }
  ],
  "scheduled": [
