@@ -2888,3 +2888,6 @@ Run once on GitHub, committed before running: 4 of 6 bars met. The grid edges of
 
 ### 2026-10-21 · The turning globe in the report (ATL-063, step 13d)
 The HTML report carries a globe a reader can turn: the sample, its healthy reference (the atlas cell for an isolated cell; for blood, the atlas healthy blood for the person's own Stage D21 mix), their difference at about 774,000 sites with a slider that fades smaller differences, and Met-A's 6,000 sites as the C-Score's departures. A picture: nothing is scored from it. On the real healthy blood the median difference is 0.018 and the X chromosome shows as a patch (the array reads as a woman; the reference pools both sexes). Release check V12: the atlas neutrophil against itself shows no difference.
+
+### 2026-10-21 · Hard-to-map probes removed: nothing moves (OTH-079, DEV-MAPPABILITY-01)
+On 60 healthy Group-A bloods read again without the 26,413 poor-mapping probes, Met-A moved by at most 0.0011, every cell share by at most 0.0020, and the C-Score by -0.006 on average (at most 0.103 on one array, the size of its own repeat noise). No instrument leans on those regions; the mask is not added to the chain. three_labs reproduced on GitHub, 4 of 4 identical (OTH-076).

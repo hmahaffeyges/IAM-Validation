@@ -35,9 +35,9 @@
     {
      "title": "Hard-to-map regions against our instruments (OTH-079)",
      "status": "diagnosis",
-     "what": "Of the array's probes, 3.14 % cannot be placed uniquely in the genome; every instrument's sites fall on them less often (0.86 to 1.90 %). A re-read without them runs on GitHub.",
+     "what": "Of the array's probes, 3.14 % cannot be placed uniquely in the genome; every instrument's sites fall on them less often (0.86 to 1.90 %). A re-read without them runs on GitHub. Result: Met-A and the cell shares did not move (at most 0.002); the C-Score moved only by its own repeat noise. The mask is not needed.",
      "why": "A probe that reads two near-identical places mixes their signals.",
-     "record": "Biological_Physics/MethylPhys/doors/data/DEV_MAPPABILITY_01/masked_reread_01.py"
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_MAPPABILITY_01/masked_reread_01_summary.txt"
     }
    ]
   },

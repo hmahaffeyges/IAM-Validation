@@ -33,7 +33,16 @@
   "checks_ok": 4,
   "minutes": 35.5,
   "commit": "0654f813",
-  "job": "results/REPRODUCE_V1/run2b/out/three_labs/verdict.json"
+  "job": "results/REPRODUCE_V1/run2b/out/three_labs/verdict.json",
+  "github": {
+   "verdict": "PASS",
+   "date": "2026-10-21",
+   "checks": 4,
+   "checks_ok": 4,
+   "minutes": 42.9,
+   "commit": "403b2bea",
+   "job": "GitHub Actions reproduce.yml run 39649330760 (verdict in issue 32)"
+  }
  },
  "colon": {
   "verdict": "PASS",
