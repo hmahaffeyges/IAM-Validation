@@ -38,8 +38,8 @@ def _intake_thresholds():
     for root in (here, _o.path.join(here,"Runtime Matrices","Intake")):
         for dp,_,fs in _o.walk(root):
             if "RETIRED" in dp: continue
-            if "intake_thresholds_v1.json" in fs: return _j.load(open(_o.path.join(dp,"intake_thresholds_v1.json")))
-    raise FileNotFoundError("intake_thresholds_v1.json (Runtime Matrices/Intake) - the intake gate has no thresholds without it")
+            if "intake_thresholds_v2.json" in fs: return _j.load(open(_o.path.join(dp,"intake_thresholds_v2.json")))   # v2 2026-10-21 (PROC-STAGE0-04); v1 kept as the record
+    raise FileNotFoundError("intake_thresholds_v2.json (Runtime Matrices/Intake) - the intake gate has no thresholds without it")
 _TH=_intake_thresholds()
 
 # --- SOP §11 spec constants -------------------------------------------------
@@ -516,15 +516,15 @@ def step_0_3_integrity_hash(record: dict, grn_path: str, red_path: str,
 # summary and no decoder are available, the step marks CTRL_QC DEFERRED and
 # advances (honest gap marker) instead of fabricating a pass.
 #
-# Thresholds: BS conversion 0.95 is the SOP §14 explicit value. The hybridization
-# and extension thresholds are provisional and must be confirmed against the
-# Illumina control-probe specification.
+# Thresholds (intake_thresholds_v2.json, calibrated 2026-10-21, PROC-STAGE0-04, on 337 healthy whole-blood arrays of three
+# laboratories): bisulfite conversion at least 0.80 (the author's choice: the 2.5th percentile with each laboratory counted
+# equally); hybridization spread at least 2.0 and extension balance 0.2 to 5.0 (no healthy array outside either).
 # ============================================================================
 
-BS_CONVERSION_MIN = float(_TH["bisulfite_conversion"]["min"])   # intake_thresholds_v1.json bisulfite_conversion.min (provisional)
-BS_THRESHOLD_CALIBRATED = False        # set True when PROC-STAGE0-04 fixes it on healthy arrays
-HYB_HIGH_LOW_MIN_RATIO = 2.0           # provisional: the spread between the high and low hybridization controls (larger over smaller)
-EXTENSION_BALANCE_RANGE = (0.2, 5.0)   # provisional: green (C, G) over red (A, T) extension controls; the record keys say meth/unmeth, which they are not
+BS_CONVERSION_MIN = float(_TH["bisulfite_conversion"]["min"])   # intake_thresholds_v2.json: 0.80, calibrated 2026-10-21 on 337 healthy arrays of 3 laboratories
+BS_THRESHOLD_CALIBRATED = str(_TH["bisulfite_conversion"].get("status", "")).startswith("CALIBRATED")   # True since 2026-10-21 (PROC-STAGE0-04)
+HYB_HIGH_LOW_MIN_RATIO = float(_TH["hybridization"]["min_spread"])   # 2.0, calibrated 2026-10-21: the spread between the high and low hybridization controls
+EXTENSION_BALANCE_RANGE = tuple(_TH["extension"]["range"])   # (0.2, 5.0), calibrated 2026-10-21: green (C, G) over red (A, T); the record keys say meth/unmeth, which they are not
 
 
 def extract_control_probes(grn_path, red_path, array_type):
@@ -849,7 +849,7 @@ def step_0_8_sex_check(record, sex_intensities=None) -> dict:
 # that stopped, penalized or deferred the array: what was measured on THIS array, the limit, where the limit comes from and whether it is
 # provisional, what it means, and what the user can do. release_check_v4.py (V9) fails if any Stage 0 stop has no entry here.
 # ============================================================================
-_TH_SRC = "Runtime Matrices/Intake/intake_thresholds_v1.json (PROC-INTAKE-01, measured on 48 commissioning-laboratory arrays)"
+_TH_SRC = "Runtime Matrices/Intake/intake_thresholds_v2.json (detection, bead and call rate: PROC-INTAKE-01, 48 arrays; control probes: PROC-STAGE0-04, 337 healthy arrays of 3 laboratories)"
 def _fmt(x, nd=3):
     return "not measured" if x is None else (f"{x:,.{nd}f}" if isinstance(x, float) else str(x))
 def explain_stage0(record, hard_fail, borderline, deferred):
@@ -877,20 +877,20 @@ def explain_stage0(record, hard_fail, borderline, deferred):
             inv = hr is not None and hr < 1
             add("hybridization control probes (Step 0.4)", "stopped",
                 f"high-concentration control {_fmt(m.get('hyb_high_median'),0)}, medium {_fmt(m.get('hyb_medium_median'),0)}, low-concentration control {_fmt(m.get('hyb_low_median'),0)}, spread {_fmt(m.get('hyb_spread'))}",
-                f"the larger of high and low at least {HYB_HIGH_LOW_MIN_RATIO:g} times the smaller, with medium between them", "stage_0_intake.HYB_HIGH_LOW_MIN_RATIO", True,
+                f"the larger of high and low at least {HYB_HIGH_LOW_MIN_RATIO:g} times the smaller, with medium between them", "Runtime Matrices/Intake/intake_thresholds_v2.json (PROC-STAGE0-04: 337 healthy arrays of 3 laboratories; 0 of them stopped)", False,
                 ("the high control reads BELOW the low one, the reverse of what the chemistry gives; on whole slides this is more often a control-address or labeling difference in the files than a failed hybridization, and the array's methylation values may still be sound"
                  if inv else "the hybridization controls are weaker than the array chemistry should give; the array may have hybridized poorly"),
-                "this limit is provisional (not yet set from healthy arrays, to-do PROC-STAGE0-04); if a whole slide is stopped this way, report it; the calibrated values can still be read with run_sample.py --betas, marked as having bypassed this check")
+                "healthy arrays read a spread of 2.69 or more (337 arrays, 3 laboratories); rerun the array, and if a whole slide is stopped this way report it; the calibrated values can still be read with run_sample.py --betas, marked as having bypassed this check")
         if "EXT_FAIL" in cq:
             lo, hi = EXTENSION_BALANCE_RANGE
             add("extension control probes (Step 0.4)", "stopped", f"green (C and G) {_fmt(m.get('extension_meth_median'),0)}, red (A and T) {_fmt(m.get('extension_unmeth_median'),0)}, ratio {_fmt(er)}",
-                f"ratio between {lo:g} and {hi:g}", "stage_0_intake.EXTENSION_BALANCE_RANGE", True, "the single-base extension step is unbalanced between the two colors",
-                "this limit is provisional (PROC-STAGE0-04); report the array and its slide")
+                f"ratio between {lo:g} and {hi:g}", "Runtime Matrices/Intake/intake_thresholds_v2.json (PROC-STAGE0-04: 337 healthy arrays of 3 laboratories; 0 of them stopped)", False, "the single-base extension step is unbalanced between the two colors",
+                "healthy arrays read 0.45 to 1.22 (337 arrays, 3 laboratories); rerun the array, and report it with its slide")
         if "BS_CONVERSION_LOW" in cq or cq.startswith("PROVISIONAL"):
             add("bisulfite conversion control probes (Step 0.4)", "printed, not used to stop" if cq.startswith("PROVISIONAL") or not BS_THRESHOLD_CALIBRATED else "stopped",
-                f"conversion efficiency {_fmt(bs)}", f"at least {BS_CONVERSION_MIN:g}", _TH_SRC + "; status PROVISIONAL", True,
-                "the conversion of this array's DNA is below the provisional line; since the channel fix of 2026-10-20 healthy arrays read 0.927 to 0.978 in one laboratory (GSE318173) and 0.899 to 0.941 in another (GSE315366), so the line is printed, not used to stop, until it is set from several laboratories",
-                "nothing; it waits to be set from healthy arrays (PROC-STAGE0-04)")
+                f"conversion efficiency {_fmt(bs)}", f"at least {BS_CONVERSION_MIN:g}", _TH_SRC + ("" if BS_THRESHOLD_CALIBRATED else "; status PROVISIONAL"), not BS_THRESHOLD_CALIBRATED,
+                "the bisulfite step converted too little of this array's DNA: unconverted DNA reads as methylated, so every value is pushed up; healthy arrays read a median of 0.93 to 0.97 by laboratory, and 1 of 337 healthy arrays read below 0.80",
+                "convert and hybridize the sample again; the calibrated values can still be read with run_sample.py --betas, marked as having bypassed this check")
     dq = str(record.get("detection_qc") or "")
     if dq == "FAIL_LOW_DETECTION" or dq == "DETECTION_BORDERLINE" or (dq.startswith("DEFERRED") and "detection" in deferred):
         add("probe detection (Step 0.5)", {"FAIL_LOW_DETECTION": "stopped", "DETECTION_BORDERLINE": "read with a penalty flag"}.get(dq, "stopped (could not be measured)"),
@@ -971,7 +971,7 @@ def step_0_9_decision_gate(record, verdict_log_path=None) -> dict:
     # 2026-09-27 PROC-INTAKE-01 B5: a DEFERRED detection or call-rate check is not a pass. The gate had recorded 'deferred'
     # and advanced for months, which is how a low-signal laboratory was read (FINDING_GSE125105_LOW_SIGNAL.md). Now a
     # deferred detection or call rate quarantines the specimen (QUARANTINE_INTAKE_DEFERRED). Bead count (not extracted by
-    # Stage 1) and the provisional bisulfite threshold remain recorded-deferred, as the SOP states for them.
+    # Stage 1) remains recorded-deferred, as the SOP states for it. The bisulfite threshold is calibrated since 2026-10-21 (PROC-STAGE0-04).
     if "detection" in deferred or "call_rate" in deferred:
         hard_fail.append("intake_deferred:" + "+".join(x for x in ("detection", "call_rate") if x in deferred))
     if hard_fail:

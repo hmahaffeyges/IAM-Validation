@@ -1,0 +1,97 @@
+{
+ "_meta": {
+  "version": "v2",
+  "built": "2026-10-21",
+  "provenance": "PROC-INTAKE-01. The call-rate QUARANTINE line was the SOP's 0.95, written for a different detection statistic. Measured on 48 panel arrays (12 per commissioning laboratory) with poobah p<=0.05 against each array's own negative controls: Uppsala 0.985 (min 0.979), Karolinska 0.975 (min 0.891), UCLA 0.953 (min 0.932), Munich 0.878 (max 0.928). Signal-to-background does not separate the laboratories (an Uppsala array at s2b 7.1 detects 99.4 %); the detected fraction does, with a gap 0.894 -> 0.928 -> 0.932. The author set the line at 0.93 (2026-09-27): refuses 12/12 Munich and one Karolinska array at 0.891; 0 UCLA, 0 Uppsala. These are instrument constants read by stage_0_intake; they describe the array, never a person.",
+  "author": "Heath W. Mahaffey",
+  "decision": "call_rate_quarantine_below = 0.93 (2026-09-27)",
+  "provenance_v2": "PROC-STAGE0-04 (to-do step 23). The three control-probe limits set from 337 healthy whole-blood EPIC v1 arrays of three laboratories (doors/data/PROC_STAGE0_04/stage0_healthy_epic_samples.csv: GSE318173 278, GSE315366 35, GSE184269 24), read with Stage 0 after the 2026-10-20 channel fix (each BS Conversion I pair in its own color channel) and the hybridization spread rule; per-array values in stage0_healthy_epic.csv (GitHub explore run 39611932552). Rule of the pre-registration: healthy arrays only, more than one laboratory, a percentile of the healthy distribution; each laboratory counted equally. The author chose the bisulfite line 2026-10-21.",
+  "decision_v2": "bisulfite_conversion.min = 0.80 (author, 2026-10-21): the 2.5th percentile with each laboratory counted equally (0.8045); stops 1 of 337 healthy arrays (GSM5583015, 0.576, low on every pair in its own channel)",
+  "v1_kept": "intake_thresholds_v1.json stays frozen as the record of the earlier limits; Stage 0 reads this file"
+ },
+ "call_rate": {
+  "proceed_at_or_above": 0.98,
+  "quarantine_below": 0.93,
+  "note": "0.93 <= call rate < 0.98 -> PROCEED_WITH_PENALTY, flag printed on the Reading tab"
+ },
+ "detection": {
+  "pass_fraction": 0.99,
+  "borderline_fraction": 0.93,
+  "note": "per-probe detection poobah p<=0.05 against this array's negative controls; probes failing are removed before any stage reads a beta"
+ },
+ "bead": {
+  "pass_fraction": 0.995
+ },
+ "bisulfite_conversion": {
+  "min": 0.8,
+  "status": "CALIBRATED 2026-10-21 (PROC-STAGE0-04)",
+  "healthy_by_lab_min_median_max": {
+   "GSE184269": [
+    0.5762,
+    0.9559,
+    0.9746
+   ],
+   "GSE315366": [
+    0.8991,
+    0.9277,
+    0.941
+   ],
+   "GSE318173": [
+    0.8846,
+    0.9692,
+    0.9804
+   ]
+  },
+  "stopped_healthy": "1 of 337 (GSM5583015, 0.5762)",
+  "metric": "median over the five BS Conversion I matched pairs of C/(C+U), each pair in its own color channel"
+ },
+ "hybridization": {
+  "min_spread": 2.0,
+  "status": "CALIBRATED 2026-10-21 (PROC-STAGE0-04)",
+  "healthy_by_lab_min_median_max": {
+   "GSE184269": [
+    2.69,
+    3.115,
+    3.645
+   ],
+   "GSE315366": [
+    2.828,
+    3.006,
+    3.14
+   ],
+   "GSE318173": [
+    3.01,
+    3.4635,
+    3.891
+   ]
+  },
+  "stopped_healthy": "0 of 337",
+  "metric": "larger over smaller of the high- and low-concentration controls (green), medium between them; a swapped order is recorded, not stopped"
+ },
+ "extension": {
+  "range": [
+   0.2,
+   5.0
+  ],
+  "status": "CALIBRATED 2026-10-21 (PROC-STAGE0-04)",
+  "healthy_by_lab_min_median_max": {
+   "GSE184269": [
+    0.652,
+    0.879,
+    1.186
+   ],
+   "GSE315366": [
+    0.929,
+    1.009,
+    1.218
+   ],
+   "GSE318173": [
+    0.45,
+    0.946,
+    1.174
+   ]
+  },
+  "stopped_healthy": "0 of 337",
+  "metric": "green (C, G) over red (A, T) extension controls: a two-color balance"
+ }
+}

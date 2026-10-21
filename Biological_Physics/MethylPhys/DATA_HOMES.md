@@ -24,6 +24,7 @@ Every reference file the chain loads, with the checksum it is frozen at (chain/F
 | `Runtime Matrices/IAM_A_SelfRef/band_v1.json` | `d4c32f760d98` | repository |
 | `Runtime Matrices/Gauge/cell_gauge_marks_v1.json` | `d23916d54a8f` | repository |
 | `../atlas/v2.1/compact_manifest.json` | `fafb600b4545` | repository |
+| `Runtime Matrices/Intake/intake_thresholds_v2.json` | `c0941e5a58d2` | repository |
 
 ## B. What each reproduction test reads
 

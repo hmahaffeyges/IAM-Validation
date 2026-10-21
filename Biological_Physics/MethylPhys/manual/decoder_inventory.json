@@ -287,7 +287,7 @@
      "doc": "",
      "constants": [],
      "data_files": [
-      "intake_thresholds_v1.json"
+      "intake_thresholds_v2.json"
      ],
      "traced_calls": {
       "array": 1,
@@ -966,7 +966,9 @@
       "SEX_GETSEX_CUTOFF",
       "_TH_SRC"
      ],
-     "data_files": [],
+     "data_files": [
+      "Runtime Matrices/Intake/intake_thresholds_v2.json"
+     ],
      "traced_calls": {
       "array": 2
      }

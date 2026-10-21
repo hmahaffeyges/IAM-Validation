@@ -389,14 +389,14 @@
    "record": ""
   },
   {
-   "task": "Stage 0 control-probe limits set from healthy arrays (PROC-STAGE0-04): the bisulfite-conversion minimum (2026-10-20: the low readings were the metric reading pairs 3-5 in the wrong channel; fixed in the chain; healthy now 0.927-0.978 in GSE318173, 0.899-0.941 in GSE315366, 0.576-0.975 in GSE184269; the limit is the author's to set from the corrected distribution on more than one cohort), the hybridization high/low ratio and the extension band; the two GSE184269 slides (200607130085, 200607130086) with hybridization high below low: EXPLAINED 2026-10-20 - High and Low trade values exactly while Medium is unchanged, a label or reagent swap; the gate now tests the spread with Medium between and records a swapped order (V9 checks both). After the sealed Group-A reading; release check and clean clone | 2026-10-20 rerun on the rehearsal arrays: none quarantined; the swapped slides pass (0.966-0.972); low bisulfite sits by slide (GSE184269 slide 200607130067 median 0.857, GSM5583015 0.576 low on every pair in its own channel: a real low conversion). Next: the limit, by the pre-registered rule, from the corrected distribution across laboratories (the 731-array set of PROC-STAGE0-02 re-read with the fixed hand-off, on GitHub)",
+   "task": "Stage 0 control-probe limits set from healthy arrays (PROC-STAGE0-04): the bisulfite-conversion minimum (2026-10-20: the low readings were the metric reading pairs 3-5 in the wrong channel; fixed in the chain; healthy now 0.927-0.978 in GSE318173, 0.899-0.941 in GSE315366, 0.576-0.975 in GSE184269; the limit is the author's to set from the corrected distribution on more than one cohort), the hybridization high/low ratio and the extension band; the two GSE184269 slides (200607130085, 200607130086) with hybridization high below low: EXPLAINED 2026-10-20 - High and Low trade values exactly while Medium is unchanged, a label or reagent swap; the gate now tests the spread with Medium between and records a swapped order (V9 checks both). After the sealed Group-A reading; release check and clean clone | 2026-10-20 rerun on the rehearsal arrays: none quarantined; the swapped slides pass (0.966-0.972); low bisulfite sits by slide (GSE184269 slide 200607130067 median 0.857, GSM5583015 0.576 low on every pair in its own channel: a real low conversion). Next: the limit, by the pre-registered rule, from the corrected distribution across laboratories (the 731-array set of PROC-STAGE0-02 re-read with the fixed hand-off, on GitHub) | DONE 2026-10-21: limits set on 337 healthy arrays of 3 laboratories: bisulfite at least 0.80 (author), hybridization spread 2.0, extension 0.2-5.0; intake_thresholds_v2.json; 1 of 337 healthy arrays stopped (a real low conversion)",
    "done_when": "the three limits come from a stated healthy distribution, the inverted-hybridization slides are explained, and the release check passes",
    "rows": [
     "GRP-004"
    ],
-   "status": "open",
-   "done_date": "",
-   "record": ""
+   "status": "done",
+   "done_date": "2026-10-21",
+   "record": "Biological_Physics/MethylPhys/doors/PROC_STAGE0_04_OUTCOME.md"
   },
   {
    "task": "Every block explained (author rule 2026-10-20: 'they should indicate exactly what flagged it ... Imagine being a researcher and not even understanding the code or the physics and getting blocks like this'): every point in the chain that stops, withholds or quarantines prints what was measured, the limit, where the limit comes from and whether it is provisional, what it means and what to do; release check V9 enforces it for Stage 0; the push gate names the exact failing script. Stage 0 done 2026-10-20 (explain_stage0, V9); 2026-10-20: every stop outside Stage 0's gates too (run_sample._why: specimen, early intake, EPIC v2, missing manifest, corrupt IDAT, Stage 1 platform, the quarantine after calibration), the cell shares, IAM-A's count and shape check and Stage Q0, each with the five parts in the bundle and in the report's 'Why the chain stopped' table; release check V11 enforces it (planted gap refused); next: the release check from a fresh checkout | DONE 2026-10-20: release check 32 of 32 from GitHub's fresh checkout (run 39539147162, commit 8d4006e2), V9 and V11 included",
@@ -578,8 +578,8 @@
     },
     {
      "id": "F34",
-     "status": "open",
-     "text": "Runtime Matrices/Intake/intake_thresholds_v1.json (a frozen input, hashed by release check F1) still says the bisulfite line 'refuses 731/731 healthy arrays as written' - true only of the old metric. Its next version (intake_thresholds_v2, when step 23 sets the limits) must replace the text."
+     "status": "fixed 2026-10-21",
+     "text": "Runtime Matrices/Intake/intake_thresholds_v1.json (a frozen input, hashed by release check F1) still says the bisulfite line 'refuses 731/731 healthy arrays as written' - true only of the old metric. Its next version (intake_thresholds_v2, when step 23 sets the limits) must replace the text. | FIXED: intake_thresholds_v2.json carries the calibrated limits and their provenance; v1 stays as the record."
     },
     {
      "id": "F35",

@@ -122,6 +122,7 @@ Every reference the chain reads is a committed file; nothing is fitted at run ti
 | `Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json` | `540157559b9e27bb…` |
 | `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json` | `41470faf73551699…` |
 | `Runtime Matrices/Intake/intake_thresholds_v1.json` | `58f7e6073e8f2a5c…` |
+| `Runtime Matrices/Intake/intake_thresholds_v2.json` | `c0941e5a58d2f95f…` |
 | `Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json` | `6ad3dfb0e01a70ee…` |
 | `Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json` | `2f64f8846f8a4b0d…` |
 | `Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv` | `73f090a7004bc7c7…` |

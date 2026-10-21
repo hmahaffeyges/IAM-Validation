@@ -172,7 +172,7 @@ anything else are refused with the reason, and nothing is read.
 | 0.1 arrival | the manifest's required fields (Sentrix ID, array type, identifier, intake date, specimen); both channels present; each IDAT at least 1 MB; the array type in the IDAT header against the declared one | quarantine on a missing field, a missing channel, a truncated file, or a 450K/EPIC family swap; a note on an EPIC v1/v2 subtype difference; a soft warning on the same Sentrix ID taken in within 24 h | fixed rules (SOP 11): `MIN_PLAUSIBLE_IDAT_BYTES` 1,000,000; header address count below 800,000 is 450K, below 1,080,000 EPIC v1, above EPIC v2 |
 | 0.2 manifest | builds the immutable per-sample record; the identifier must already be a hash | quarantine on a cleartext identifier (spaces, an @, under 16 characters) or a missing core field | fixed rules (SOP 12) |
 | 0.3 integrity | SHA-256 of both files against earlier intakes of the same Sentrix ID in this intake log | identical bytes again: re-transmission, the run stops; same Sentrix ID with different bytes: a re-run of a fresh array, read | fixed rule (SOP 13) |
-| 0.4 control probes | bisulfite conversion (C/(C+U) per matched BS Conversion I pair, each pair in its own channel, median over pairs), hybridization (the spread between the high and low concentration controls, with medium between them, green) and extension (green C and G against red A and T) controls, from the array's own control addresses | a failed hybridization or extension stops the array; a high/low swap with the spread intact is recorded, not a stop; the bisulfite number is printed and never stops an array on its own | `HYB_HIGH_LOW_MIN_RATIO` 2.0 and `EXTENSION_BALANCE_RANGE` 0.2 to 5.0, both **provisional**; bisulfite at least 0.95, **provisional** (since the channel fix of 2026-10-20 healthy arrays read 0.927 to 0.978 in GSE318173, 0.899 to 0.941 in GSE315366 and 0.576 to 0.975 in GSE184269; the limit is to be set from several laboratories) |
+| 0.4 control probes | bisulfite conversion (C/(C+U) per matched BS Conversion I pair, each pair in its own channel, median over pairs), hybridization (the spread between the high and low concentration controls, with medium between them, green) and extension (green C and G against red A and T) controls, from the array's own control addresses | a failed hybridization or extension stops the array; a high/low swap with the spread intact is recorded, not a stop; a bisulfite conversion below the line stops the array | from `intake_thresholds_v2.json`, set 2026-10-21 (PROC-STAGE0-04) on 337 healthy whole-blood arrays of three laboratories (GSE318173, GSE315366, GSE184269): bisulfite at least **0.80** (the author's choice, the 2.5th percentile with each laboratory counted equally; healthy medians 0.93 to 0.97 by laboratory; stops 1 of the 337, GSM5583015 at 0.576, low on every pair in its own channel); hybridization spread at least 2.0 (healthy 2.69 and above) and extension balance 0.2 to 5.0 (healthy 0.45 to 1.22), stopping none of the 337 |
 | 0.5 detection | per probe, p = 1 − Φ((I − μ_bg)/σ_bg) against this array's negative-control background; the share of probes with p ≤ 0.01 | above 0.99 passes; 0.93 to 0.99 is read with a penalty flag; below 0.93 stops | `intake_thresholds_v1.json` detection |
 | 0.6 bead counts | the share of probes resting on at least 3 beads | below 0.995 a penalty flag; never stops | `BEAD_COUNT_MIN` 3; `intake_thresholds_v1.json` bead |
 | 0.7 call rate | the share of probes passing both detection and bead count | 0.98 or more passes; 0.93 to 0.98 penalty; below 0.93 stops | `intake_thresholds_v1.json` call_rate; the 0.93 line was set by the author on 2026-09-27 from 48 arrays, 12 from each of four commissioning laboratories |
@@ -269,14 +269,15 @@ Gets the control-probe medians by class from the IDAT pair through the QC hand-o
 same decoder Stage 1 uses. The array's own controls only.
 
 ### stage_0_intake.py::validate_control_probes
-Step 0.4's arithmetic. Bisulfite: `bs1 / (bs1 + bs2)` against 0.95, where the QC hand-off passes in the matched-pair conversion
+Step 0.4's arithmetic. Bisulfite: `bs1 / (bs1 + bs2)` against 0.80, where the QC hand-off passes in the matched-pair conversion
 efficiency and its complement under the keys `bisulfite_conversion_I_median` and `bisulfite_conversion_II_median` (so the ratio is the
 efficiency itself; the key names are older than the pair method). Hybridization: the spread, the larger of the high- and low-concentration
 medians over the smaller, at least 2, with the medium control between them. A high control reading where the low one should (and the
 reverse) with the spread intact is recorded as a swapped order, not a stop: on two whole slides of GSE184269 High and Low trade values
 exactly (21,304 and 20,040; 6,514 and 6,845) while Medium is unchanged (12,822 and 12,834), which a failed hybridization cannot do. Extension: the green-channel (C and G) extension median over the red-channel (A and T) median, between 0.2 and 5;
-the record calls these "meth" and "unmeth", which they are not. When the bisulfite number is the only failure, the verdict is PROVISIONAL and the array advances, because that limit has not been
-set from healthy arrays. Records the raw medians the gates tested.
+the record calls these "meth" and "unmeth", which they are not. The three limits are read from `intake_thresholds_v2.json`; while a bisulfite
+limit is marked provisional in that file, a bisulfite failure alone is recorded and the array advances (the rule before 2026-10-21). Records the
+raw medians the gates tested.
 
 ### stage_0_intake.py::step_0_4_control_probe_validation
 Step 0.4: runs `validate_control_probes` on the hand-off's control summary and stamps the verdict and its numbers. With no decoder
@@ -332,7 +333,7 @@ Adds one explanation to the list.
 
 ### stage_0_intake.py::step_0_9_decision_gate
 Step 0.9: sorts every step's outcome into hard failures, penalties and deferrals and gives the verdict (QUARANTINE, PROCEED_WITH_PENALTY
-or PROCEED). A deferred detection or call rate is a hard failure; a deferred bead count or provisional bisulfite number is recorded.
+or PROCEED). A deferred detection or call rate is a hard failure; a deferred bead count is recorded.
 Attaches the explanations and logs the verdict.
 
 ## 3. The QC hand-off: `stage_0_1_qc_handoff.py`

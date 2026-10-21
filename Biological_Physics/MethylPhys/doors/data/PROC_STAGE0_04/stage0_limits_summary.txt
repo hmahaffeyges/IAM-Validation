@@ -1,0 +1,9 @@
+337 healthy arrays: GSE318173 278, GSE315366 35, GSE184269 24
+bisulfite conversion: GSE184269 min 0.5762 median 0.9559 max 0.9746; GSE315366 min 0.8991 median 0.9277 max 0.9410; GSE318173 min 0.8846 median 0.9692 max 0.9804
+hybridization spread: GSE184269 min 2.6900 median 3.1150 max 3.6450; GSE315366 min 2.8280 median 3.0060 max 3.1400; GSE318173 min 3.0100 median 3.4635 max 3.8910
+extension balance: GSE184269 min 0.6520 median 0.8790 max 1.1860; GSE315366 min 0.9290 median 1.0090 max 1.2180; GSE318173 min 0.4500 median 0.9460 max 1.1740
+bisulfite, laboratories counted equally, 2.5th percentile: 0.8045
+bisulfite, laboratories counted equally, 5.0th percentile: 0.8364
+stopped by bisulfite >= 0.8: 1 (GSM5583015)
+stopped by hybridization spread >= 2.0: 0
+stopped by extension 0.2 to 5.0: 0
