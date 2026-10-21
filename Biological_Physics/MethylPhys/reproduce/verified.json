@@ -15,7 +15,16 @@
   "checks_ok": 5,
   "minutes": 66.8,
   "commit": "537984a4",
-  "job": "results/REPRODUCE_V1/out/deconv/verdict.json"
+  "job": "results/REPRODUCE_V1/out/deconv/verdict.json",
+  "github": {
+   "verdict": "PASS",
+   "date": "2026-10-20",
+   "checks": 5,
+   "checks_ok": 5,
+   "minutes": 26.5,
+   "commit": "f3018011",
+   "job": "GitHub Actions reproduce.yml run 39533039303 (verdict in issue 32)"
+  }
  },
  "three_labs": {
   "verdict": "PASS",
