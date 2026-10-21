@@ -96,7 +96,16 @@
   "checks_ok": 6,
   "minutes": 139.1,
   "commit": "211e26c0",
-  "job": "results/REPRODUCE_V1/run4/out/liver/verdict.json"
+  "job": "results/REPRODUCE_V1/run4/out/liver/verdict.json",
+  "github": {
+   "verdict": "PASS",
+   "date": "2026-10-21",
+   "checks": 6,
+   "checks_ok": 6,
+   "minutes": 70.4,
+   "commit": "403b2bea",
+   "job": "GitHub Actions reproduce.yml run 39649390946 (verdict in issue 32)"
+  }
  },
  "iama_line": {
   "verdict": "PASS",
