@@ -603,8 +603,11 @@ def main():
         try:   # the turning globe in the HTML report (2026-10-21, step 13d): sample, its healthy reference, the difference, Met-A's departures
             import report_globe_v4 as RG
             _g = RG.build(_pd.Series(beta, dtype="float64"), a.specimen, {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or []}, z=_z,
-                           fractions=(o.get("composition") or {}).get("fractions"))
-            o["_globe_html"] = _g.pop("fragment", ""); o["globe"] = _g
+                           fractions=(o.get("composition") or {}).get("fractions"), out_html=os.path.splitext(os.path.abspath(a.out))[0] + "_globe.html")
+            _fr = _g.pop("fragment", ""); _g.pop("spec", None); o["_globe_prose"] = _g.pop("prose", "")
+            if _g.get("html"): _fr = _fr.replace("<h2>The sample on the globe, against its healthy reference</h2>", "<h2>The sample on the globe, against its healthy reference</h2>"
+                                                 f"<p><a href='{os.path.basename(_g['html'])}'>Open the globe on its own full page</a> (the same layers, larger, on a dark background).</p>", 1)
+            o["_globe_html"] = _fr; o["globe"] = _g
         except Exception as e: o["globe"] = {"drawn": False, "reason": f"{type(e).__name__}: {e}"[:200]}
     if seq and (a.pat or a.bam) and not a.dev_iama_position:   # chain v4 Stage Q2 - IAM-A against the sample's own reference (commissioned 2026-10-17)
         import stage_v4 as V4, stage_q2_selfref as _Q2

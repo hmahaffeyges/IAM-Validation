@@ -41,7 +41,7 @@ def text():
           "- A sequencing sample whose shape is outside the healthy shape of its declared cell type, or with too few qualifying molecules: IAM-A declines and says why.",
           "- A noisy array (the noise gate): the Met-A state is withheld and no gauge is drawn.", "",
           "## 6. Outputs", "",
-          "- `S001.html`: the report. At a glance; cell shares (IAM-Deconvolver against IAM-Atlas v2.1); Met-A; the C-score with its HEALPix sky plate; IAM-A; the turning globe (the sample, its healthy reference, the difference and Met-A's departures, with a slider that fades the smaller differences; a picture, nothing scored from it); the technical record.",
+          "- `S001.html`: the report. At a glance; cell shares (IAM-Deconvolver against IAM-Atlas v2.1); Met-A; the C-score with its HEALPix sky plate; IAM-A; the turning globe (the sample, its healthy reference, the difference and Met-A's departures, with a slider that fades the smaller differences; a picture, nothing scored from it; the same globe on its own full page is written beside the report as `S001_globe.html`); the technical record.",
           "- `S001_bundle.json`: every stage's output, with the chain's commit.", "- one row appended to `evidence_ledger.jsonl` beside the report.", "",
           "## 7. Stages in the live path", "", f"{len(S['live_path'])} steps, in order (from `chain/chain_sequence.json`):", "", "| Step | Code |", "|---|---|"]
     L += [f"| {x['step']} | `{x['where']}` |" for x in S["live_path"]]

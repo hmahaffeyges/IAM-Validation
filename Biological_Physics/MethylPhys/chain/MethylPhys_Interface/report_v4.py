@@ -229,6 +229,7 @@ def _plain(o, F):
     return "".join(P)
 
 def build(o, out, sid):
+    G, GP = o.pop("_globe_html", "") or "", o.pop("_globe_prose", "") or ""   # taken out first: the technical record must not print the globe's data
     tech = os.path.splitext(out)[0] + "_v3record.tmp.html"
     r = R3.build(o, tech, sid); t = open(tech, encoding="utf-8").read(); os.remove(tech)
     body = re.search(r"<body[^>]*>(.*)</body>", t, re.S).group(1)
@@ -246,8 +247,8 @@ def build(o, out, sid):
              "<div class='plain'>", _plain(o, F), "</div></div>"]
     prose = re.sub(r"<[^>]+>", " ", re.sub(r"src='data:[^']+'", "", re.sub(r"<!--GAUGE-->.*?<!--/GAUGE-->", " ", "\n".join(front), flags=re.S)))   # as report_v3: the gauge's fixed legend is a scale, not prose
     if re.search(CLAIM_SCAN, prose, re.I): raise ValueError("report_v4: front prose carries a word the report may not print: " + re.search(CLAIM_SCAN, prose, re.I).group(0))
-    G = o.pop("_globe_html", "") or ""   # the turning globe, inside the researcher view; its own prose is scanned without its script
-    gp = re.sub(r"<[^>]+>", " ", re.sub(r"<script>.*?</script>", " ", G, flags=re.S))
+    # the turning globe, inside the researcher view; its own prose (outside and inside its script's data) is scanned
+    gp = re.sub(r"<[^>]+>", " ", re.sub(r"<script>.*?</script>", " ", G, flags=re.S)) + " " + GP
     if re.search(CLAIM_SCAN, gp, re.I): raise ValueError("report_v4: the globe's prose carries a word the report may not print: " + re.search(CLAIM_SCAN, gp, re.I).group(0))
     if G: front.insert(front.index("</div>"), G)
     H = (f"<html><head><meta charset='utf-8'><title>IAM chain v4 - {E(sid)}</title>{CSS}</head><body>" + "\n".join(front)

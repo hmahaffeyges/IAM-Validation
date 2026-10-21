@@ -17,74 +17,33 @@ HOW = ("Every site of the atlas keeps one place on a HEALPix sphere, the pixel g
        "set by where the site sits in the genome (chromosome 1 through Y). The layout is the same for every cell, so any two cells, and a person's "
        "sample, can be compared site for site.")
 
-SPHERE_JS = r"""
-const C = JSON.parse(document.getElementById('cells').textContent), cv = document.getElementById('globe'), cx = cv.getContext('2d');
-const sel = document.getElementById('cell'), mode = document.getElementById('mode'), note = document.getElementById('note');
-let yaw = 0, pitch = 0.35, spin = true, tex = null, TW = 0, TH = 0, drag = null;
-for (const c of C) { const o = document.createElement('option'); o.value = c.slug; o.textContent = c.name; sel.appendChild(o); }
-const q = new URLSearchParams(location.search).get('cell'); sel.value = C.some(c => c.slug === q) ? q : 'neutrophils';
-function load() {
-  const im = new Image(); im.onload = () => { const o = document.createElement('canvas'); o.width = TW = im.width; o.height = TH = im.height;
-    const g = o.getContext('2d'); g.drawImage(im, 0, 0); tex = g.getImageData(0, 0, TW, TH).data; draw(); };
-  im.src = ART + 'sphere/' + sel.value + (mode.value === 'u' ? '_u.jpg' : '_v.jpg');
-  const c = C.find(c => c.slug === sel.value); note.textContent = c.name + ': ' + c.pixels_measured.toLocaleString() + ' of ' + PIX.toLocaleString() + ' pixels hold a measured site.';
-}
-function draw() {
-  if (!tex) return; const N = cv.width, img = cx.createImageData(N, N), d = img.data, ca = Math.cos(yaw), sa = Math.sin(yaw), cb = Math.cos(pitch), sb = Math.sin(pitch);
-  for (let py = 0; py < N; py++) for (let px = 0; px < N; px++) {
-    const sx = 2 * (px + 0.5) / N - 1, sy = 1 - 2 * (py + 0.5) / N, r2 = sx * sx + sy * sy, k = 4 * (py * N + px);
-    if (r2 > 1) { d[k + 3] = 0; continue; }
-    const x = Math.sqrt(1 - r2), y = sx, z = sy;                       // viewer on +x; screen right = +y, up = +z
-    const x1 = x * cb - z * sb, z1 = x * sb + z * cb;                   // tilt
-    const x2 = x1 * ca - y * sa, y2 = x1 * sa + y * ca;                 // turn about the poles
-    const th = Math.acos(Math.max(-1, Math.min(1, z1))); let ph = Math.atan2(y2, x2); if (ph < 0) ph += 2 * Math.PI;
-    const i = Math.min(TH - 1, Math.floor(th / Math.PI * TH)), j = Math.min(TW - 1, Math.floor(ph / (2 * Math.PI) * TW)), t = 4 * (i * TW + j);
-    const sh = 0.55 + 0.45 * x;                                         // light from the viewer, so the curve reads
-    d[k] = tex[t] * sh; d[k + 1] = tex[t + 1] * sh; d[k + 2] = tex[t + 2] * sh; d[k + 3] = 255;
-  }
-  cx.putImageData(img, 0, 0);
-}
-cv.addEventListener('pointerdown', e => { drag = [e.clientX, e.clientY, yaw, pitch]; spin = false; cv.setPointerCapture(e.pointerId); });
-cv.addEventListener('pointermove', e => { if (!drag) return; yaw = drag[2] - (e.clientX - drag[0]) * 0.01;
-  pitch = Math.max(-1.5, Math.min(1.5, drag[3] + (e.clientY - drag[1]) * 0.01)); draw(); });
-cv.addEventListener('pointerup', () => drag = null);
-document.getElementById('spin').onclick = () => { spin = !spin; };
-sel.onchange = load; mode.onchange = load; load();
-(function tick() { if (spin) { yaw += 0.006; draw(); } requestAnimationFrame(tick); })();
-"""
+# the globe viewer lives in chain/MethylPhys_Interface/globe_viewer.py (2026-10-21), one code for every globe
 
 def write_sphere(out, art_rel, css_tag, style, back, names):
-    """atlas/sphere.html: every cell's map wrapped on a globe the reader can turn (to-do step 13). Written only when the textures exist."""
-    f = os.path.join(os.path.dirname(__file__), "..", "art", "out", "sphere", "sphere.json")
+    """atlas/sphere.html: the Globe Explorer (2026-10-21, author: "the webpage to show ALL the versions"). Every globe is drawn by the chain's one
+    viewer (chain/MethylPhys_Interface/globe_viewer.py), the same code as a report's globe; each globe's pictures load only when it is chosen.
+    The first globe is IAM-Atlas v2.1 (every cell, its methylation or how sure the atlas is); then every spec in website/art/out/explorer/*.json
+    (website/art/make_explorer.py: Met-A's purified-array reference, the example samples; noise maps when built). Written only when the atlas
+    textures exist."""
+    import glob, sys as _s
+    H_ = os.path.dirname(os.path.abspath(__file__)); ART_ = os.path.join(H_, "..", "art", "out")
+    f = os.path.join(ART_, "sphere", "sphere.json")
     if not os.path.exists(f): return 0
-    S = json.load(open(f)); cells = [dict(slug=c["slug"], name=names.get(c["slug"], c["cell"]), pixels_measured=c["pixels_measured"]) for c in S["cells"]]
-    cells.sort(key=lambda c: c["name"].lower())
-    import numpy as np, matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
-    rgb = np.loadtxt(os.path.join(os.path.dirname(__file__), "..", "art", "data", "Planck_Parchment_RGB.txt"))
-    pv = ",".join("rgb(%d,%d,%d)" % tuple(rgb[int(round(i * (len(rgb) - 1) / 10))]) for i in range(11))
-    pu = ",".join("rgb(%d,%d,%d)" % tuple(int(255 * x) for x in plt.get_cmap("magma")(i / 10)[:3]) for i in range(11))
+    _s.path.insert(0, os.path.join(H_, "..", "..", "Biological_Physics", "MethylPhys", "chain", "MethylPhys_Interface")); import globe_viewer as V
+    S = json.load(open(f)); cells = sorted(({"slug": c["slug"], "name": names.get(c["slug"], c["cell"])} for c in S["cells"]), key=lambda c: c["name"].lower())
+    atlas = dict(id="atlas", name="IAM-Atlas v2.1: 79 healthy cell types", groups=[dict(id=c["slug"], name=c["name"], layers=[
+        dict(name="methylation", kind="image", src=f"{art_rel}sphere/{c['slug']}_v.jpg", note="The atlas's best value at every site, 0 (never tagged) to 1 (always tagged)."),
+        dict(name="how sure the atlas is", kind="image", src=f"{art_rel}sphere/{c['slug']}_u.jpg", note="Half-width of the 95 % range at every site: dark is certain, bright is +/-0.15 or wider.")]) for c in cells],
+        about=(f"{E(HOW)} Every one of the {S['sites']:,} atlas sites has one fixed place, the same on every globe here and in every report: HEALPix "
+               f"NSIDE {S['nside']}, {S['order']} order, sites in genome order. Its benefits as a map: every pixel the same area, no edges, and change that "
+               f"runs along the genome shows as a patch while scattered noise shows as speckle. A picture of the atlas: nothing is read or scored from it."))
+    specs = [atlas]
+    for g in sorted(glob.glob(os.path.join(ART_, "explorer", "*.json"))): specs.append(json.load(open(g)))
+    intro = (f'<p><a href="index.html">&larr; all {len(cells)} cells</a> &middot; <a href="{back}">front page</a></p><p>Choose a globe, then what to show. '
+             'Drag to turn it. Each globe brings its own layers and sliders. Grey or dark pixels hold no measured site.</p>')
     d = os.path.join(out, "atlas"); os.makedirs(d, exist_ok=True)
-    html_ = (f'<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
-             f'<title>IAM-Atlas v2.1 on the globe</title>{css_tag}<style>{style}#globe{{width:min(560px,92vw);height:min(560px,92vw);touch-action:none;cursor:grab;display:block;margin:12px auto}}'
-             f'.bar{{height:12px;border-radius:3px;max-width:560px;margin:4px auto}}.ctl{{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center}}'
-             f'.lab{{display:flex;justify-content:space-between;max-width:560px;margin:0 auto;font-size:13px}}</style></head><body><section class="wrap">'
-             f'<p><a href="index.html">&larr; all {len(cells)} cells</a> &middot; <a href="{back}">front page</a></p><h1>IAM-Atlas v2.1 on the globe</h1>'
-             f'<p>{E(HOW)} Here the same map is wrapped on a globe. Drag it to turn it; choose a cell and whether to see its methylation or how sure '
-             f'the atlas is of it. Grey pixels hold no measured site.</p>'
-             f'<div class="ctl"><select id="cell" aria-label="cell"></select><select id="mode" aria-label="map"><option value="v">methylation</option>'
-             f'<option value="u">how sure the atlas is</option></select><button id="spin" type="button">turn / stop</button></div>'
-             f'<canvas id="globe" width="560" height="560" aria-label="the selected cell on a globe"></canvas><p id="note" style="text-align:center"></p>'
-             f'<div class="bar" style="background:linear-gradient(90deg,{pv})"></div><div class="lab"><span>methylation 0 (never tagged)</span><span>1 (always tagged)</span></div>'
-             f'<div class="bar" style="background:linear-gradient(90deg,{pu})"></div><div class="lab"><span>certain</span><span>&plusmn;0.15 or wider</span></div>'
-             f'<p>Every report of the chain carries the same globe for its sample: the sample, its healthy reference, their difference, and a slider that '
-             f'fades the smaller differences. <a href="../art/examples/globe_healthy_blood.html#sec-globe">A real healthy whole blood on the globe</a> '
-             f'(a report from the one command; open the Researcher view).</p>'
-             f'<p>The layout is HEALPix NSIDE {S["nside"]}, {S["order"]} order ({S["pixels"]:,} pixels) for {S["sites"]:,} sites; each pixel shows the mean of the sites it '
-             f'holds. The globe is drawn in the browser from one picture per cell, made by <code>website/art/make_sphere_3d.py</code>. A picture of the atlas: '
-             f'nothing is read or scored from it.</p>'
-             f'<script id="cells" type="application/json">{json.dumps(cells)}</script><script>const ART = {json.dumps(art_rel)}, PIX = {S["pixels"]};' + SPHERE_JS
-             + '</script></section></body></html>')
-    open(os.path.join(d, "sphere.html"), "w", encoding="utf-8").write(html_); return len(cells)
+    open(os.path.join(d, "sphere.html"), "w", encoding="utf-8").write(V.page(specs, "The IAM Globe Explorer", intro=intro))
+    return len(cells)
 
 def write(out, art_rel, css_tag, style, back):
     I = json.load(open(os.path.join(os.path.dirname(__file__), "..", "art", "out", "cells", "index.json")))["cells"]

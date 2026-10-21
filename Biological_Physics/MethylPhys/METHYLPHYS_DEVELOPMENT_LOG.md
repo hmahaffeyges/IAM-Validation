@@ -2894,3 +2894,6 @@ On 60 healthy Group-A bloods read again without the 26,413 poor-mapping probes, 
 
 ### 2026-10-21 · The anchor range on real bloods (GRP-014, DEV-SELFTARE-03)
 On 100 healthy Group-A bloods (72 tared on their own slide), the anchor range reads healthy at -0.03 % (SD 1.23 %; per-array limit 2.4 %). A loss planted at every site reads +1.84 % at 2 % (21 of 72 arrays above the limit; the group found) and +4.61 % at 5 % (70 of 72), while Met-A moves by at most 0.0004. It sees the every-site loss the self-tare cancels; preliminary until a sealed test.
+
+### 2026-10-21 · The IAM Globe Explorer (ATL-063, step 28)
+The site's atlas globe page became the Globe Explorer: IAM-Atlas v2.1 (79 cells, methylation or how sure), Met-A's purified-array reference (eight blood groups at its 6,000 sites), and the two example samples with every layer and slider. One viewer draws every globe (globe_viewer.py), in a report, on a report's own full page (written beside every report and linked from it), and on the site. Each globe's pictures load only when chosen.

@@ -1305,6 +1305,30 @@ Draws a sparse texture as dots: every texture pixel within 3 of a measured one t
 Met-A's purified-array reference at its 6,000 sites: the Stage A fractions times the purified group profiles for blood, the neutrophil profile
 for isolated neutrophils; nothing for other specimens.
 
+**One viewer for every globe (`globe_viewer.py`, 2026-10-21).** A globe is a spec: its pictures (each stored once), and groups of layers. A
+layer is a picture shown as it is, a coded difference with a slider that fades the smaller differences into the reference's grey, or a
+series of pictures a slider steps through (the noise maps). The same code draws the globe inside a report, the report's own full page
+(written beside the report as `<name>_globe.html` and linked from it), and the site's Globe Explorer (`atlas/sphere.html`). It needs only
+the standard library, so the site build imports it unchanged; release check V12 and the site build both check that its script parses.
+
+### globe_viewer.py::dedupe
+Stores every picture of a spec once under a short name; layers refer to it by name (a reference is both a layer and a difference's grey).
+
+### globe_viewer.py::dedupe.one
+Gives one inlined picture its name, reusing the name if the same picture was already stored.
+
+### globe_viewer.py::fragment
+The globe inside a report: one section with the controls, the viewer and the specs inlined, so the report stays one file that works offline.
+
+### globe_viewer.py::page
+A full dark page for one or more globes with a globe chooser: a report's own globe page, or the site's Globe Explorer.
+
+### globe_viewer.py::write_files
+Writes a spec's inlined pictures as files for the site and returns the spec pointing at them, so each globe loads only when it is chosen.
+
+### globe_viewer.py::write_files.one
+Writes one inlined picture to its file and returns its address.
+
 ### report_globe_v4.py::_to_sky
 One value per site in genome order to a NESTED map: the mean per pixel, nothing where no site was measured (the atlas tools' own rule).
 

@@ -28,7 +28,7 @@ python3 "$REPO/website/art/make_banners.py" > /dev/null
 python3 "$REPO/website/build/themes.py"
 
 # 3c. the atlas globe page's script must parse (2026-10-21): a broken script would reach the live page with no error
-python3 -c "import sys; sys.path.insert(0, '$REPO/website/build'); import atlas_pages as A; open('$B/globe.js', 'w').write('const ART=\"\", PIX=1;' + A.SPHERE_JS)"
+python3 -c "import sys; sys.path.insert(0, '$REPO/Biological_Physics/MethylPhys/chain/MethylPhys_Interface'); import globe_viewer as V; open('$B/globe.js', 'w').write(V.VIEWER_JS)"
 node --check "$B/globe.js" && echo "globe script: parses"
 
 # 4. site: front page, Part pages, chapter chrome, check buttons, verify_book.py + data for the browser

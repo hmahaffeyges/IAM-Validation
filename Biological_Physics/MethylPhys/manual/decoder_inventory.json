@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 714,
+   "lines": 717,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -213,9 +213,9 @@
      "function": "main",
      "name": "main",
      "line": 239,
-     "end": 711,
+     "end": 714,
      "args": [],
-     "lines": 473,
+     "lines": 476,
      "doc": "",
      "constants": [
       "BIO",
@@ -253,8 +253,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 658,
-     "end": 659,
+     "line": 661,
+     "end": 662,
      "args": [
       "b",
       "it",
@@ -1794,7 +1794,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_v4.py",
-   "lines": 262,
+   "lines": 263,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_v4.py",
@@ -2168,13 +2168,13 @@
      "function": "build",
      "name": "build",
      "line": 231,
-     "end": 261,
+     "end": 262,
      "args": [
       "o",
       "out",
       "sid"
      ],
-     "lines": 31,
+     "lines": 32,
      "doc": "",
      "constants": [
       "CSS",
@@ -5212,14 +5212,14 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 219,
+   "lines": 193,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_to_sky",
      "name": "_to_sky",
-     "line": 40,
-     "end": 44,
+     "line": 41,
+     "end": 45,
      "args": [
       "v",
       "npix"
@@ -5234,8 +5234,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_mu",
      "name": "_mu",
-     "line": 46,
-     "end": 56,
+     "line": 47,
+     "end": 57,
      "args": [
       "cells"
      ],
@@ -5254,8 +5254,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_lookup",
      "name": "_lookup",
-     "line": 58,
-     "end": 64,
+     "line": 59,
+     "end": 65,
      "args": [
       "nside"
      ],
@@ -5271,8 +5271,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_png_b64",
      "name": "_png_b64",
-     "line": 66,
-     "end": 68,
+     "line": 67,
+     "end": 69,
      "args": [
       "arr",
       "mode"
@@ -5287,8 +5287,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_jpg_b64",
      "name": "_jpg_b64",
-     "line": 70,
-     "end": 72,
+     "line": 71,
+     "end": 73,
      "args": [
       "rgb"
      ],
@@ -5302,8 +5302,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "reference",
      "name": "reference",
-     "line": 74,
-     "end": 83,
+     "line": 75,
+     "end": 84,
      "args": [
       "specimen",
       "shares"
@@ -5321,8 +5321,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_dots",
      "name": "_dots",
-     "line": 85,
-     "end": 91,
+     "line": 86,
+     "end": 92,
      "args": [
       "v"
      ],
@@ -5338,8 +5338,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "purified",
      "name": "purified",
-     "line": 93,
-     "end": 101,
+     "line": 94,
+     "end": 102,
      "args": [
       "fractions",
       "specimen"
@@ -5359,8 +5359,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build",
      "name": "build",
-     "line": 103,
-     "end": 167,
+     "line": 104,
+     "end": 184,
      "args": [
       "beta",
       "specimen",
@@ -5369,14 +5369,14 @@
       "z",
       "fractions"
      ],
-     "lines": 65,
+     "lines": 81,
      "doc": "",
      "constants": [
+      "ABOUT",
       "ATLAS",
       "CH",
       "HERE",
       "ORDER",
-      "PAGE",
       "PANEL",
       "R_DOT"
      ],
@@ -5392,8 +5392,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build.rgb",
      "name": "rgb",
-     "line": 122,
-     "end": 123,
+     "line": 123,
+     "end": 124,
      "args": [
       "m"
      ],
@@ -5405,8 +5405,118 @@
     }
    ],
    "first_entered": null
+  },
+  {
+   "file": "MethylPhys_Interface/globe_viewer.py",
+   "lines": 101,
+   "functions": [
+    {
+     "file": "MethylPhys_Interface/globe_viewer.py",
+     "function": "dedupe",
+     "name": "dedupe",
+     "line": 10,
+     "end": 22,
+     "args": [
+      "spec"
+     ],
+     "lines": 13,
+     "doc": "Every picture stored once, in spec[\"assets\"]; layers name it (a reference is both a layer and a difference's grey background).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/globe_viewer.py",
+     "function": "dedupe.one",
+     "name": "one",
+     "line": 13,
+     "end": 16,
+     "args": [
+      "v"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/globe_viewer.py",
+     "function": "fragment",
+     "name": "fragment",
+     "line": 74,
+     "end": 77,
+     "args": [
+      "specs",
+      "size"
+     ],
+     "lines": 4,
+     "doc": "The globe inside a report: one section, data and viewer inlined (the report stays one file that works offline).",
+     "constants": [
+      "CONTROLS",
+      "VIEWER_JS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/globe_viewer.py",
+     "function": "page",
+     "name": "page",
+     "line": 79,
+     "end": 86,
+     "args": [
+      "specs",
+      "title",
+      "back",
+      "size",
+      "intro"
+     ],
+     "lines": 8,
+     "doc": "A full dark page for one or more globes (a report's own globe page, or the site's Globe Explorer); the specs are inlined.",
+     "constants": [
+      "CONTROLS",
+      "VIEWER_JS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/globe_viewer.py",
+     "function": "write_files",
+     "name": "write_files",
+     "line": 88,
+     "end": 100,
+     "args": [
+      "spec",
+      "d",
+      "url"
+     ],
+     "lines": 13,
+     "doc": "Writes a spec's inlined pictures as files under d (served at url) and returns the spec pointing at them, for the site's explorer.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/globe_viewer.py",
+     "function": "write_files.one",
+     "name": "one",
+     "line": 91,
+     "end": 94,
+     "args": [
+      "v"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
   }
  ],
- "n_files": 23,
- "n_functions": 271
+ "n_files": 24,
+ "n_functions": 277
 }

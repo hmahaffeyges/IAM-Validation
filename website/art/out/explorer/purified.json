@@ -1,0 +1,78 @@
+{
+ "id": "purified",
+ "name": "Met-A's purified-array reference",
+ "groups": [
+  {
+   "name": "purified healthy blood groups",
+   "layers": [
+    {
+     "name": "B cells",
+     "kind": "image",
+     "src": "a0",
+     "note": "The purified healthy B cells profile at Met-A's 5,553 identity sites placed on the atlas's layout, 0 to 1.",
+     "base": null
+    },
+    {
+     "name": "basophils",
+     "kind": "image",
+     "src": "a1",
+     "note": "The purified healthy basophils profile at Met-A's 5,548 identity sites placed on the atlas's layout, 0 to 1.",
+     "base": null
+    },
+    {
+     "name": "CD4 T cells",
+     "kind": "image",
+     "src": "a2",
+     "note": "The purified healthy CD4 T cells profile at Met-A's 5,552 identity sites placed on the atlas's layout, 0 to 1.",
+     "base": null
+    },
+    {
+     "name": "CD8 T cells",
+     "kind": "image",
+     "src": "a3",
+     "note": "The purified healthy CD8 T cells profile at Met-A's 5,552 identity sites placed on the atlas's layout, 0 to 1.",
+     "base": null
+    },
+    {
+     "name": "eosinophils",
+     "kind": "image",
+     "src": "a4",
+     "note": "The purified healthy eosinophils profile at Met-A's 5,553 identity sites placed on the atlas's layout, 0 to 1.",
+     "base": null
+    },
+    {
+     "name": "monocytes",
+     "kind": "image",
+     "src": "a5",
+     "note": "The purified healthy monocytes profile at Met-A's 5,553 identity sites placed on the atlas's layout, 0 to 1.",
+     "base": null
+    },
+    {
+     "name": "neutrophils",
+     "kind": "image",
+     "src": "a6",
+     "note": "The purified healthy neutrophils profile at Met-A's 5,553 identity sites placed on the atlas's layout, 0 to 1.",
+     "base": null
+    },
+    {
+     "name": "NK cells",
+     "kind": "image",
+     "src": "a7",
+     "note": "The purified healthy NK cells profile at Met-A's 5,551 identity sites placed on the atlas's layout, 0 to 1.",
+     "base": null
+    }
+   ]
+  }
+ ],
+ "about": "The reference Met-A and the C-Score read against: purified healthy cell arrays, at Met-A's 6,000 neutrophil identity sites only, so it is drawn as dots, each at the same place as on the atlas globes. A blood sample is compared with these profiles mixed in its own proportions. IAM-Atlas v2.1 is a different reference, built from 21 sources over the whole genome; the two agree closely value by value.",
+ "assets": {
+  "a0": "../art/explorer/purified_001.jpg",
+  "a1": "../art/explorer/purified_002.jpg",
+  "a2": "../art/explorer/purified_003.jpg",
+  "a3": "../art/explorer/purified_004.jpg",
+  "a4": "../art/explorer/purified_005.jpg",
+  "a5": "../art/explorer/purified_006.jpg",
+  "a6": "../art/explorer/purified_007.jpg",
+  "a7": "../art/explorer/purified_008.jpg"
+ }
+}

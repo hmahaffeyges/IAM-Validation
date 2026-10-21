@@ -29,6 +29,7 @@ Known offset (DEV-REFERENCES-01, ATL-070): the atlas blends 21 sources and sits 
 so a healthy array shows a faint even difference everywhere; that is the reference's make, not biology.
 build(beta, specimen, shares, out_html) -> record; the page fragment is written to out_html and also returned in the record."""
 import os, io, json, base64, numpy as np, pandas as pd
+from globe_viewer import dedupe, fragment, page, write_files, VIEWER_JS   # the one viewer
 
 HERE = os.path.dirname(os.path.abspath(__file__)); CH = os.path.join(HERE, "..")
 ATLAS = os.path.join(CH, "..", "atlas", "v2.1")
@@ -156,63 +157,36 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
            "pixels_compared": int(len(m)), "median_abs_difference": round(float(np.median(m)), 4) if len(m) else None,
            "share_above": {"0.05": above[5], "0.10": above[10], "0.20": above[20], "0.30": above[30]},
            "layout": "IAM-Atlas v2.1 genome-order sky, NSIDE 256 NESTED (sky_order_v21.npz)", "scored": False}
-    data = dict(s=_jpg_b64(rgb(smp_s)), r=_jpg_b64(rgb(ref_s)), d=_png_b64(code, "L"), above=above, ref=name,
-                z=_png_b64(zcode, "L") if zcode is not None else None, zabove=zabove,
-                p=_jpg_b64(prgb) if prgb is not None else None, pd=_png_b64(pcode, "L") if pcode is not None else None, pabove=pabove, cells=cellmaps)
-    rec["layers"] = ["sample", "reference", "difference"] + (["departures"] if zcode is not None else []) + (["purified", "purified difference"] if pcode is not None else []) + [c["name"] for c in cellmaps]
+    J = lambda b: "data:image/jpeg;base64," + b; P_ = lambda b: "data:image/png;base64," + b
+    R_ = J(_jpg_b64(rgb(ref_s)))
+    L = [dict(name="difference from the healthy reference", kind="diff", src=P_(_png_b64(code, "L")), base=R_, scale=1, above=above, start=10,
+              note=f"Against {name}, at {int(both.sum()):,} sites. Red: more methylation than healthy; blue: less; grey: within the chosen size (the reference's own shade)."),
+         dict(name="the sample", kind="image", src=J(_jpg_b64(rgb(smp_s))), note="The sample's methylation at every atlas site, 0 to 1."),
+         dict(name="the healthy reference", kind="image", src=R_, note=f"{name}, 0 to 1.")]
+    if zcode is not None:
+        L.append(dict(name="departures at Met-A's 6,000 sites", kind="diff", src=P_(_png_b64(zcode, "L")), scale=10, unit="spreads", above=zabove, start=20,
+                      share_text="of the pixels holding Met-A's sites depart by more than this", note="The C-Score's departure map, in the sample's own spread, as in the report's overlay."))
+    if pcode is not None:
+        Pr = J(_jpg_b64(prgb))
+        L += [dict(name="Met-A's purified-array reference", kind="image", src=Pr, note="Met-A's own healthy reference at its 6,000 sites, weighted by this blood's Stage A fractions."),
+              dict(name="difference from Met-A's purified reference", kind="diff", src=P_(_png_b64(pcode, "L")), base=Pr, scale=1, above=pabove, start=5,
+                   share_text="of Met-A's sites differ by more than this", note="Against the reference Met-A and the C-Score read against.")]
+    groups = [dict(name="this sample against its references", layers=L)]
+    if cellmaps: groups.append(dict(name="the cells the IAM-Deconvolver read", layers=[dict(name="healthy " + c["name"], kind="image", src=J(c["t"]),
+                                     note="This cell's healthy map in IAM-Atlas v2.1; the share is the IAM-Deconvolver's reading of this sample.") for c in cellmaps]))
+    rec["layers"] = [x["name"] for g in groups for x in g["layers"]]
     if zabove: rec["departure_share_above"] = {"2 spreads": zabove[20], "3 spreads": zabove[30]}
-    html = PAGE.replace("__DATA__", json.dumps(data)).replace("__REF__", name).replace("__N__", f"{rec['sites_compared']:,}")
-    if out_html: open(out_html, "w", encoding="utf-8").write(html); rec["html"] = os.path.abspath(out_html)
-    rec["fragment"] = html
+    spec = dedupe(dict(id="sample", name="This sample", about=ABOUT.replace("__REF__", name).replace("__N__", f"{rec['sites_compared']:,}"), groups=groups))
+    rec["fragment"] = fragment([spec])
+    if out_html: open(out_html, "w", encoding="utf-8").write(page([spec], "The sample on the globe")); rec["html"] = os.path.abspath(out_html)
+    rec["prose"] = " ".join([spec["about"]] + [g["name"] for g in groups] + [x.get(k, "") for g in groups for x in g["layers"] for k in ("name", "note", "share_text")])
+    rec["spec"] = spec
     return rec
 
-PAGE = r"""<section id="sec-globe"><h2>The sample on the globe, against its healthy reference</h2>
-<p>Every site of IAM-Atlas v2.1 has one fixed place on this globe, the same as on the atlas's cell pages. Drag to turn it. Three layers: the
-sample, its healthy reference (<b>__REF__</b>), and their difference at __N__ sites. In the difference layer, choose the smallest difference to
-show: everything smaller fades into the background, so only the larger differences stay lit, red where the sample holds more methylation than
-healthy and blue where it holds less. A picture: nothing is scored from it. Met-A and the C-Score read against their own commissioned
-reference, which is also shown: "Met-A's purified-array reference", at its 6,000 sites, and the sample's difference from it. Each cell the
-IAM-Deconvolver read is its own layer, with its share of this sample. The atlas blends 21 sources and sits slightly closer to 0.5 than one array, so a healthy sample shows a faint even difference.
-In a woman one X chromosome is held methylated, so her X shows as a patch of difference against a reference that pools both sexes. The last
-layer shows only Met-A's 6,000 neutrophil identity sites, each as its departure in the sample's own spread (the C-Score's view, as in the overlay above): a small loss spread over
-many sites is easier to see there than on the whole genome.</p>
-<div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start"><canvas id="gl" width="520" height="520" style="max-width:100%;touch-action:none;cursor:grab"></canvas>
-<div style="min-width:240px"><p><label>Layer <select id="gl-layer"><option value="d">difference</option><option value="s">sample</option><option value="r">healthy reference</option><option value="z">departures at Met-A's sites</option><option value="p">Met-A's purified-array reference</option><option value="pd">difference from Met-A's purified reference</option></select></label></p>
-<p><label>Show differences larger than <input id="gl-t" type="range" min="0" max="50" value="10"> <span id="gl-tv">0.10</span></label></p>
-<p id="gl-share"></p><p><button id="gl-spin" type="button">Stop or start turning</button></p>
-<p style="font-size:0.9em">Difference layers: grey is where the sample matches its healthy reference (the shade is the reference's own methylation);
-red, more methylation than healthy; blue, less; dark: no measured site. Sample and reference layers: methylation 0 to 1, the atlas pages' scale.</p></div></div>
-<script>(function(){
-const D = __DATA__, cv = document.getElementById('gl'), cx = cv.getContext('2d'), L = document.getElementById('gl-layer'), T = document.getElementById('gl-t');
-let yaw = 0, pitch = 0.35, spin = true, drag = null; const tex = {}; let TW = 0, TH = 0;
-function load(k, src) { return new Promise(r => { const im = new Image(); im.onload = () => { const o = document.createElement('canvas'); o.width = TW = im.width; o.height = TH = im.height;
-  const g = o.getContext('2d'); g.drawImage(im, 0, 0); tex[k] = g.getImageData(0, 0, TW, TH).data; r(); }; im.src = src; }); }
-for (const [k, c] of (D.cells || []).entries()) { const o = document.createElement('option'); o.value = 'c' + k; o.textContent = 'healthy ' + c.name; L.appendChild(o); }
-function share() { const t = +T.value, zl = L.value === 'z';
-  document.getElementById('gl-tv').textContent = zl ? (t / 10).toFixed(1) + ' spreads' : (t / 100).toFixed(2);
-  const a = zl ? (D.zabove || [])[t] : L.value === 'pd' ? (D.pabove || [])[t] : D.above[t];
-  document.getElementById('gl-share').textContent = a == null ? '' : zl ? (100 * a).toFixed(1) + " % of the pixels holding Met-A's sites depart by more than " + (t / 10).toFixed(1) + ' of the sample\'s own spreads.'
-    : (100 * a).toFixed(1) + ' % of the measured globe differs from the reference by more than ' + (t / 100).toFixed(2) + '.'; }
-function px(t, k) { const L_ = L.value;
-  if (L_ === 's' || L_ === 'r' || L_ === 'p' || L_[0] === 'c') { const s = tex[L_]; return [s[t], s[t + 1], s[t + 2]]; }
-  const c = (L_ === 'z' ? tex.z : L_ === 'pd' ? tex.pd : tex.d)[t]; if (c === 0) return [42, 45, 51]; const v = (c - 128) / 254, a = Math.abs(v), th = L_ === 'z' ? +T.value / 500 : +T.value / 100;
-  if (a <= th) { const r = tex.r, g = 0.3 * r[t] + 0.59 * r[t + 1] + 0.11 * r[t + 2], q = 105 + 0.55 * g; return [q, q, q]; }   // quiet: the healthy reference in greys
-  const f = Math.min(1, 0.45 + 0.55 * a / (L_ === 'z' ? 1 : 0.3));
-  return v > 0 ? [235 * f + 20, 40, 40] : [30, 80, 230 * f + 25]; }
-function draw() { if (!tex.d) return; const N = cv.width, img = cx.createImageData(N, N), d = img.data, ca = Math.cos(yaw), sa = Math.sin(yaw), cb = Math.cos(pitch), sb = Math.sin(pitch);
-  for (let py = 0; py < N; py++) for (let qx = 0; qx < N; qx++) { const sx = 2 * (qx + 0.5) / N - 1, sy = 1 - 2 * (py + 0.5) / N, r2 = sx * sx + sy * sy, k = 4 * (py * N + qx);
-    if (r2 > 1) { d[k + 3] = 0; continue; } const x = Math.sqrt(1 - r2), y = sx, z = sy, x1 = x * cb - z * sb, z1 = x * sb + z * cb, x2 = x1 * ca - y * sa, y2 = x1 * sa + y * ca;
-    const th = Math.acos(Math.max(-1, Math.min(1, z1))); let ph = Math.atan2(y2, x2); if (ph < 0) ph += 2 * Math.PI;
-    const i = Math.min(TH - 1, Math.floor(th / Math.PI * TH)), j = Math.min(TW - 1, Math.floor(ph / (2 * Math.PI) * TW)), t = 4 * (i * TW + j), c = px(t), sh = 0.55 + 0.45 * x;
-    d[k] = c[0] * sh; d[k + 1] = c[1] * sh; d[k + 2] = c[2] * sh; d[k + 3] = 255; }
-  cx.putImageData(img, 0, 0); }
-cv.addEventListener('pointerdown', e => { drag = [e.clientX, e.clientY, yaw, pitch]; spin = false; cv.setPointerCapture(e.pointerId); });
-cv.addEventListener('pointermove', e => { if (!drag) return; yaw = drag[2] - (e.clientX - drag[0]) * 0.01; pitch = Math.max(-1.5, Math.min(1.5, drag[3] + (e.clientY - drag[1]) * 0.01)); draw(); });
-cv.addEventListener('pointerup', () => drag = null); document.getElementById('gl-spin').onclick = () => { spin = !spin; };
-if (!D.z) L.querySelector('option[value="z"]').remove(); if (!D.p) { L.querySelector('option[value="p"]').remove(); L.querySelector('option[value="pd"]').remove(); } L.onchange = () => { share(); draw(); }; T.oninput = () => { share(); draw(); }; share();
-Promise.all([load('s', 'data:image/jpeg;base64,' + D.s), load('r', 'data:image/jpeg;base64,' + D.r), load('d', 'data:image/png;base64,' + D.d)].concat(D.z ? [load('z', 'data:image/png;base64,' + D.z)] : [])
-  .concat(D.p ? [load('p', 'data:image/jpeg;base64,' + D.p), load('pd', 'data:image/png;base64,' + D.pd)] : [])
-  .concat((D.cells || []).map((c, k) => load('c' + k, 'data:image/jpeg;base64,' + c.t)))).then(draw);
-(function tick() { if (spin) { yaw += 0.006; draw(); } requestAnimationFrame(tick); })();
-})();</script></section>
-"""
+ABOUT = ("Every site of IAM-Atlas v2.1 has one fixed place on this globe, the same as on the atlas's cell pages. Drag to turn it. The healthy "
+         "reference is <b>__REF__</b>; the difference is shown at __N__ sites. Choose the smallest difference to show: everything smaller fades into the "
+         "reference's own grey, so only the larger differences stay lit. A picture: nothing is scored from it; Met-A and the C-Score read against "
+         "their own commissioned reference, which is also a layer. The atlas blends 21 sources and sits slightly closer to 0.5 than one array, so a "
+         "healthy sample shows a faint even difference. In a woman one X chromosome is held methylated, so her X shows as a patch against a reference "
+         "that pools both sexes. A small loss spread over many sites shows on the departures layer, not the whole genome.")
+
