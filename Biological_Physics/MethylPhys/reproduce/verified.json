@@ -60,7 +60,16 @@
   "checks_ok": 6,
   "minutes": 188.9,
   "commit": "0a4dc7aa",
-  "job": "results/REPRODUCE_V1/run3/out/colon/verdict.json"
+  "job": "results/REPRODUCE_V1/run3/out/colon/verdict.json",
+  "github": {
+   "verdict": "PASS",
+   "date": "2026-10-21",
+   "checks": 6,
+   "checks_ok": 6,
+   "minutes": 181.5,
+   "commit": "403b2bea",
+   "job": "GitHub Actions reproduce.yml run 39649351099 (verdict in issue 32)"
+  }
  },
  "breast": {
   "verdict": "PASS",
