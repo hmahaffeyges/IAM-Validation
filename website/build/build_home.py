@@ -242,7 +242,7 @@ def page(art):
                      + (f'<p>{E(_II[i["id"]][0])}</p><p><i>{E(_II[i["id"]][1])}</i></p>' if i["id"] in _II else "") +
                      f'<p class="sub">{E(i["how"])}</p><p class="sub">Reads: {E(i["reads"])}.</p><p class="sub"><b>Next:</b> {E(i["next"])}</p></article>'
                      for i in _C["instruments"])
-    catalogue = (f'<section class="wrap" id="instruments"><h2>The instruments</h2><p class="sub">Five readings, five different questions about the same sample. '
+    catalogue = (f'<section class="wrap" id="instruments"><h2>The instruments</h2><p class="sub">Six instruments: five readings of the same sample, five different questions, and Group-A, which reads whole groups of people. '
                  f'Every status below is computed from the Master Testing Manifest.</p>'
                  f'<p><b>Why a self-reference matters.</b> {E(_C["why_self_reference"])}</p><p><b>How they work together.</b> {E(_C["together"])}</p>'
                  f'<details class="fold"><summary>Open the catalogue: what each instrument does, and what it was commissioned on</summary>'
@@ -304,8 +304,20 @@ def page(art):
 <p class="lead"><b>How our instruments work, and what makes them different.</b> A methyl mark on DNA is a record, and a cell pays to keep it against the kicks of heat: about one ATP per site. That price is set by physics, not learned from a training set. IAM's instruments read, in bits, how well a cell is holding its marks, on a gauge whose ends are derived from thermodynamics (for IAM-A, even the healthy mark comes from the sample itself), and each one was commissioned on a test written and sealed before its data was read.</p>
 <p class="lead">The goal is early cancer detection from a blood or stool sample. {_RPN} of {_RPT} headline results rebuild from public data on a fresh machine, one command each, and every result is recorded in the open: <a href="#researchers">the researcher package</a> and <a href="#daylogs">the daily log</a>.</p>
 <p class="sub">To read the genome, we use the measurement methods cosmologists built for the microwave sky: calibration against a reference, null tests, simulations with known answers, and maps with an uncertainty at every point. <a href="{PDF}#page={CH['astro'][1]}">AstroGenetics, the chapter &rarr;</a></p>
-<p class="cta"><a class="btn" href="#researchers">For researchers: the package</a><a class="btn ghost" href="#daylogs">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
+<p class="cta"><a class="btn" href="#researchers">For researchers: the package</a><a class="btn ghost" href="{art("")[:-4]}atlas/sphere.html">Turn the genome on a globe</a><a class="btn ghost" href="#daylogs">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
 <main>
+<section class="wrap" id="globes"><div class="banner" style="display:flex;gap:24px;flex-wrap:wrap;align-items:center">
+<a href="{art("")[:-4]}atlas/sphere.html"><img src="{art("explorer/globe_still.jpg")}" alt="IAM-Atlas v2.1's healthy neutrophil map on a globe" style="width:min(300px,80vw);border-radius:50%"></a>
+<div style="flex:1;min-width:280px"><p class="kicker">The IAM Globe Explorer</p><h2>See the genome the way cosmologists see the sky</h2>
+<p>Every site our instruments read has one fixed place on a sphere, laid out the way the microwave sky is mapped: every pixel the same area,
+no edges, and a change that runs along the genome shows as a patch while ordinary scattered wear shows as speckle. That is why we can use the
+sky's own methods: calibration against a reference, null tests, and a map with its uncertainty at every point. Turn the globes, switch the
+layers, and fade away everything but the differences.</p>
+<p class="cta"><a class="btn" href="{art("")[:-4]}atlas/sphere.html">Open the Globe Explorer: IAM-Atlas v2.1, 79 healthy cell types</a></p>
+<p>Or go straight to: <a href="{art("")[:-4]}atlas/sphere.html?globe=purified">Met-A's purified-cell reference</a> &middot;
+<a href="{art("")[:-4]}atlas/sphere.html?globe=healthy-blood">a real healthy blood against its healthy reference</a> &middot;
+<a href="{art("")[:-4]}atlas/sphere.html?globe=planted-blood">the same blood with a planted loss</a>. Pictures, not readings: every
+number stays with its instrument.</p></div></div></section>
 {researcher_section()}
 {campaign}
 <section class="wrap" id="wins"><h2>{E(CF["title"])}</h2>{chain_lead}<div class="grid">{results}</div>
