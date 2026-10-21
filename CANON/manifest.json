@@ -25058,7 +25058,7 @@
    "sources": [],
    "runs": [],
    "legacy_ids": [],
-   "notes": "author 2026-10-14",
+   "notes": "author 2026-10-14 | 2026-10-21: to-do step 13, the 3D sphere: website/art/make_sphere_3d.py (the cell pages' exact layout, imported from atlas/tools/sky_maps_v21.py) writes one value and one uncertainty texture per cell; the site's globe page, written by website/build/atlas_pages.py, turns it in the browser with no outside library; textures built on GitHub. The noise maps from the posterior draws (24 GB) wait for AWS.",
    "sources_of_row": [
     "author request 2026-10-13"
    ]
