@@ -37,7 +37,7 @@ The pages below are the researcher view of two real reports, exactly as the chai
 \section{Every result, rebuilt from public data}
 
 Each test below is one entry in the repository's reproduction registry (Biological\_Physics/MethylPhys/reproduce/tests.json). The command \texttt{python3 Biological\_Physics/MethylPhys/reproduce/reproduce.py <test>} downloads only public files (GEO, ArrayExpress, ENCODE, the NCI Genomic Data Commons, ENA, Zenodo), runs the steps, and compares every number with the committed result, taken from git so a script cannot compare a file with itself. Each was run from a fresh clone of the public repository on a new machine.
- 9 of the 9 tests have passed that way with every compared number identical.
+ 9 of the 10 tests have passed that way with every compared number identical.
 
 \begin{center}\small\begin{tabular}{p{0.34\textwidth}p{0.22\textwidth}p{0.12\textwidth}p{0.18\textwidth}}\hline
 \textbf{Test} & \textbf{Instrument} & \textbf{Checks} & \textbf{Fresh-clone result}\\\hline
@@ -50,6 +50,7 @@ Each test below is one entry in the repository's reproduction registry (Biologic
 \texttt{colon} & Met-A on tissue, with IAM-Atlas v2 & 6 of 6 & PASS, 2026-10-18\\
 \texttt{breast} & Met-A on tissue, with IAM-Atlas v2 & 6 of 6 & PASS, 2026-10-18\\
 \texttt{liver} & Met-A on tissue, with IAM-Atlas v2 & 6 of 6 & PASS, 2026-10-18\\
+\texttt{groupa} & Group-A (commissioned) & to be recorded & not yet recorded\\
 \hline\end{tabular}\end{center}
 
 \subsection*{Met-A's reference, rebuilt from public arrays: noise sites and gate, the floor, the 6,000 identity sites, the healthy spread and the blood-composition markers}
@@ -185,5 +186,20 @@ Each tumor read against the same patient's healthy tissue at the atlas's composi
 \item \textbf{Command:} \texttt{python3 Biological\_Physics/MethylPhys/reproduce/reproduce.py liver} (about 2 h; 20 GB of disk).
 \item \textbf{Fresh-clone result:} PASS on 2026-10-18, 6 of 6 compared numbers identical, 139 minutes, repository commit \texttt{211e26c0}.
 \item \textbf{Record:} \url{https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md}
+\end{itemize}
+
+\subsection*{Group-A's commissioning test, read again from GEO: 278 healthy controls, women against men and a planted 1 \% loss}
+
+Group-A reads whether a whole group has moved. Its commissioning test is read again from the public files: the same 278 healthy people, the same command, the same sealed scorer, and every scored number must come out the same.
+
+\textit{Why it matters.} It shows the commissioning result does not depend on our machines or our copies of the data: anyone with the public files gets the same three bars.
+
+The 278 healthy controls of GSE318173 are downloaded from GEO and read again by the one command; the sealed scorer gives the same three bars.
+
+\begin{itemize}\setlength\itemsep{1pt}
+\item \textbf{Public data:} GSE318173 (the 278 healthy controls only).
+\item \textbf{Command:} \texttt{python3 Biological\_Physics/MethylPhys/reproduce/reproduce.py groupa} (about 12 h on one machine; set SHARD and NSHARDS to split the reading (GitHub reads it in 10 parts in about 2 h, .github/workflows/groupa.yml mode read); 2 GB of disk).
+\item \textbf{Fresh-clone result:} not yet recorded.
+\item \textbf{Record:} \url{https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_GROUPA.md}
 \end{itemize}
 

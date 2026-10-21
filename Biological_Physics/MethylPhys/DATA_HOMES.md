@@ -49,6 +49,7 @@ The inputs of each test in reproduce/tests.json, and the archive each comes from
 | breast | IAM-Atlas v2, Zenodo 10.5281/zenodo.23325865 | Zenodo |
 | liver | TCGA-LIHC 450K (NCI GDC open access) | NCI GDC (TCGA, open access) |
 | liver | IAM-Atlas v2, Zenodo 10.5281/zenodo.23325865 | Zenodo |
+| groupa | GSE318173 (the 278 healthy controls only) | GEO (NCBI) |
 
 Code that reads our S3 bucket, in the chain or any reproduction test: **none**. (The AWS run wrapper, reproduce/box/, only uploads a run's status and results.)
 

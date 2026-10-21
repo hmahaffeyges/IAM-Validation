@@ -2837,3 +2837,6 @@ Scored once (GitHub run 39503114606 at the sealed commit a9b94b07): bar 1, 263 o
 
 ### 2026-10-20 · Group-A in the researcher package; the gate now covers it (GRP-004)
 INTRODUCTION.md gains Group-A's section (the page's instrument card reads it) and its detection line; RESEARCHER_PACKAGE.md the two stage_groupa.py commands; the Q&A a hard question ("Isn't Group-A just a group statistic?") and Group-A and the atlas in the commissioning-sets answer. The commissioning gate now requires INTRODUCTION.md and the Q&A for every commissioned instrument (kinds intro and qa, all six entered); a planted removal was refused.
+
+### 2026-10-20 · Reproductions on GitHub; Group-A the 10th (OTH-076)
+.github/workflows/reproduce.yml runs any reproduction by name on GitHub's machines from a fresh checkout (about 30 GB of preinstalled tools freed, work on /mnt), verdict to issue 32. Seven of the nine fit: deconv, cscore_band, three_labs, colon, breast, liver, metaa_rebuild; iama_line (70 GB) and mice (64 GB memory) stay on AWS. Group-A added to reproduce/tests.json as the 10th: its commissioning test read again from GEO by the same command and scored by the sealed scorer; on GitHub it is read in 10 parts by the groupa workflow.

@@ -394,6 +394,48 @@
    ],
    "plain": "Each patient's liver tumor was read against the same patient's own healthy tissue. A line set only from pairs of normal tissue puts about 2 of these 50 tumors past it by chance. Past it: 22 of 50.",
    "why": "A third cancer, the same reading, the same result."
+  },
+  {
+   "id": "groupa",
+   "instrument": "Group-A (commissioned)",
+   "title": "Group-A's commissioning test, read again from GEO: 278 healthy controls, women against men and a planted 1 % loss",
+   "shows": "The 278 healthy controls of GSE318173 are downloaded from GEO and read again by the one command; the sealed scorer gives the same three bars.",
+   "public_inputs": [
+    "GSE318173 (the 278 healthy controls only)"
+   ],
+   "time": "about 12 h on one machine; set SHARD and NSHARDS to split the reading (GitHub reads it in 10 parts in about 2 h, .github/workflows/groupa.yml mode read)",
+   "disk": "2 GB",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_GROUPA.md",
+   "steps": [
+    {
+     "name": "read",
+     "run": "$PY $MP/doors/data/GROUPA_COMMISSIONING/read_groupa.py read $MP/doors/data/GROUPA_COMMISSIONING/groupa_samples.csv $WORK/rows ${SHARD:-0} ${NSHARDS:-1}"
+    },
+    {
+     "name": "score",
+     "run": "$PY $MP/doors/data/GROUPA_COMMISSIONING/score_groupa.py $WORK/rows groupa_samples.csv repro_groupa_01"
+    }
+   ],
+   "compare": [
+    {
+     "kind": "json",
+     "produced": "repo:Biological_Physics/MethylPhys/doors/data/GROUPA_COMMISSIONING/repro_groupa_01.json",
+     "committed": "Biological_Physics/MethylPhys/doors/data/GROUPA_COMMISSIONING/scored_groupa_01.json",
+     "fields": {
+      "B1.n_read": null,
+      "B1.admitted_by_stage0": null,
+      "B2.mean1": null,
+      "B2.mean2": null,
+      "B2.t": null,
+      "B3.mean1": null,
+      "B3.mean2": null,
+      "B3.t": null,
+      "all_met": null
+     }
+    }
+   ],
+   "plain": "Group-A reads whether a whole group has moved. Its commissioning test is read again from the public files: the same 278 healthy people, the same command, the same sealed scorer, and every scored number must come out the same.",
+   "why": "It shows the commissioning result does not depend on our machines or our copies of the data: anyone with the public files gets the same three bars."
   }
  ]
 }

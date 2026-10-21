@@ -1,0 +1,43 @@
+name: reproduce
+# One reproduction from Biological_Physics/MethylPhys/reproduce/tests.json on GitHub's machines (author 2026-10-20: GitHub first, AWS only for
+# jobs too big for GitHub). Frees about 30 GB of preinstalled tools, works on the runner's /mnt disk, runs reproduce.py <test> from a fresh
+# checkout, and posts the verdict and every compared number to issue 32. Too big here (AWS): iama_line (70 GB), mice (64 GB memory).
+on:
+  workflow_dispatch:
+    inputs:
+      test: {description: "test id from reproduce/tests.json", required: true}
+permissions: {contents: read, issues: write}
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - name: Free disk
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost || true
+          sudo mkdir -p /mnt/repro && sudo chown $USER /mnt/repro; df -h / /mnt | tail -2
+      - uses: actions/checkout@v4
+      - name: Setup
+        run: |
+          ln -s /mnt/repro Biological_Physics/MethylPhys/reproduce/out
+          bash Biological_Physics/MethylPhys/reproduce/setup.sh
+      - name: Reproduce
+        run: |
+          set +e
+          python3 Biological_Physics/MethylPhys/reproduce/reproduce.py "${{ inputs.test }}" > repro.log 2>&1; echo $? > rc.txt; tail -40 repro.log; df -h /mnt | tail -1; true
+      - name: Result to issue 32
+        if: always()
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          t = "${{ inputs.test }}"; p = f"/mnt/repro/{t}/verdict.json"
+          v = open(p).read() if os.path.exists(p) else "(no verdict.json)"
+          log = open("repro.log").read() if os.path.exists("repro.log") else ""
+          b = f"reproduce {t}, run ${{ github.run_id }}, commit ${{ github.sha }}, exit " + (open("rc.txt").read().strip() if os.path.exists("rc.txt") else "?") + "\n\n```\n" + log[-4000:] + "\n```\n\nverdict.json\n```\n" + v[:50000] + "\n```"
+          rq = urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/issues/32/comments", data=json.dumps({"body": b[:65000]}).encode(), headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"}, method="POST")
+          print(urllib.request.urlopen(rq).status)
+          PY
+      - name: Fail unless PASS
+        run: |
+          grep -q '"verdict": "PASS"' /mnt/repro/${{ inputs.test }}/verdict.json
