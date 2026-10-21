@@ -38,6 +38,13 @@
      "what": "Of the array's probes, 3.14 % cannot be placed uniquely in the genome; every instrument's sites fall on them less often (0.86 to 1.90 %). A re-read without them runs on GitHub. Result: Met-A and the cell shares did not move (at most 0.002); the C-Score moved only by its own repeat noise. The mask is not needed.",
      "why": "A probe that reads two near-identical places mixes their signals.",
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_MAPPABILITY_01/masked_reread_01_summary.txt"
+    },
+    {
+     "title": "An every-site loss seen on real bloods (GRP-014)",
+     "status": "diagnosis",
+     "what": "A new preliminary reading, the anchor range, read a 2 % loss planted at every site of 72 real healthy bloods as 1.84 % and a 5 % loss as 4.61 %; healthy bloods read 0.0 %.",
+     "why": "Met-A's self-tare cancels a loss spread evenly over every site; this reading keeps it.",
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_SELFTARE_03/anchor_range_real_01_summary.txt"
     }
    ]
   },

@@ -1,0 +1,4 @@
+arrays read 100, tared on their slide 72; healthy R_rel spread 0.0057; median neutrophil share 0.483
+healthy: loss read -0.03 % (SD 1.23); per-array limit (2 x spread / share) 2.4 %
+planted 2 % at every site (72 arrays): change in the loss read +1.84 % (SE 0.00); arrays above the per-array limit 21 of 72; group of 72: found; Met-A change -0.0001
+planted 5 % at every site (72 arrays): change in the loss read +4.61 % (SE 0.00); arrays above the per-array limit 70 of 72; group of 72: found; Met-A change -0.0004

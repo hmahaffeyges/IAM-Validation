@@ -2891,3 +2891,6 @@ The HTML report carries a globe a reader can turn: the sample, its healthy refer
 
 ### 2026-10-21 · Hard-to-map probes removed: nothing moves (OTH-079, DEV-MAPPABILITY-01)
 On 60 healthy Group-A bloods read again without the 26,413 poor-mapping probes, Met-A moved by at most 0.0011, every cell share by at most 0.0020, and the C-Score by -0.006 on average (at most 0.103 on one array, the size of its own repeat noise). No instrument leans on those regions; the mask is not added to the chain. three_labs reproduced on GitHub, 4 of 4 identical (OTH-076).
+
+### 2026-10-21 · The anchor range on real bloods (GRP-014, DEV-SELFTARE-03)
+On 100 healthy Group-A bloods (72 tared on their own slide), the anchor range reads healthy at -0.03 % (SD 1.23 %; per-array limit 2.4 %). A loss planted at every site reads +1.84 % at 2 % (21 of 72 arrays above the limit; the group found) and +4.61 % at 5 % (70 of 72), while Met-A moves by at most 0.0004. It sees the every-site loss the self-tare cancels; preliminary until a sealed test.
