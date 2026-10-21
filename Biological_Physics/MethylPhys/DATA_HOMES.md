@@ -26,6 +26,7 @@ Every reference file the chain loads, with the checksum it is frozen at (chain/F
 | `../atlas/v2.1/compact_manifest.json` | `fafb600b4545` | repository |
 | `Runtime Matrices/Intake/intake_thresholds_v2.json` | `c0941e5a58d2` | repository |
 | `Runtime Matrices/Atlas_V21/sky_order_v21.npz` | `c61c2f7efd8e` | repository |
+| `Runtime Matrices/Atlas_V21/sex_chromosome_sites_v21.json` | `096a3647e008` | repository |
 
 ## B. What each reproduction test reads
 

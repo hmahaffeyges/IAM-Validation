@@ -117,6 +117,7 @@ Every reference the chain reads is a committed file; nothing is fitted at run ti
 | File (in `chain/`) | SHA-256 |
 |---|---|
 | `../atlas/v2.1/compact_manifest.json` | `fafb600b4545dabb…` |
+| `Runtime Matrices/Atlas_V21/sex_chromosome_sites_v21.json` | `096a3647e008e8d3…` |
 | `Runtime Matrices/Atlas_V21/sky_order_v21.npz` | `c61c2f7efd8e6b2c…` |
 | `Runtime Matrices/Gauge/cell_gauge_marks_v1.json` | `d23916d54a8fe7b0…` |
 | `Runtime Matrices/IAM_A_SelfRef/band_v1.json` | `d4c32f760d98ad14…` |

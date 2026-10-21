@@ -603,7 +603,8 @@ def main():
         try:   # the turning globe in the HTML report (2026-10-21, step 13d): sample, its healthy reference, the difference, Met-A's departures
             import report_globe_v4 as RG
             _g = RG.build(_pd.Series(beta, dtype="float64"), a.specimen, {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or []}, z=_z,
-                           fractions=(o.get("composition") or {}).get("fractions"), out_html=os.path.splitext(os.path.abspath(a.out))[0] + "_globe.html")
+                           fractions=(o.get("composition") or {}).get("fractions"),
+                           sex=(intake or {}).get("declared_sex") or (intake or {}).get("predicted_sex"), out_html=os.path.splitext(os.path.abspath(a.out))[0] + "_globe.html")
             _fr = _g.pop("fragment", ""); _g.pop("spec", None); o["_globe_prose"] = _g.pop("prose", "")
             if _g.get("html"): _fr = _fr.replace("<h2>The sample on the globe, against its healthy reference</h2>", "<h2>The sample on the globe, against its healthy reference</h2>"
                                                  f"<p><a href='{os.path.basename(_g['html'])}'>Open the globe on its own full page</a> (the same layers, larger, on a dark background).</p>", 1)

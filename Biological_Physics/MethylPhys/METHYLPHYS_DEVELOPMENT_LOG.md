@@ -2933,3 +2933,6 @@ The 70 GB IAM-A line reproduction, which had needed one large cloud machine, ran
 
 ### 2026-10-21 · Tumors on the globe, and what the count cannot tell (ATL-063, DEV-TISSUE-GLOBE-01)
 Three colon and three breast tumors against their own adjacent normal, drawn by the chain and screenshotted in a browser, light 298 to 1,570 changed blocks. Two different people's normal colon light 741, inside that range, so the count of changed blocks does not separate a tumor from ordinary differences between people.
+
+### 2026-10-21 · All 191 tissue pairs on the globe (ATL-063, DEV-TISSUE-GLOBE-01)
+In breast and liver, a tumor against its own normal lights about three times what two people's normal tissue lights; leaving out the X and Y lowers the mixed-sex controls, as the X's biology predicts. Colon's controls light nearly as much as its tumors, likely because they compare different slides; controls matched on slide are next.

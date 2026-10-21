@@ -259,7 +259,12 @@ def V12(tmp):
     import report_globe_v4 as RG, pyarrow.parquet as pq, shutil, subprocess as sp
     ids = pq.read_table(os.path.join(RG.ATLAS, "sites.parquet")).column("cpg").to_pylist(); mu = RG._mu(["neutrophils"])["neutrophils"]
     r = RG.build(pd.Series(mu, index=ids), "isolated neutrophils", None, os.path.join(tmp, "globe.html"))
-    zero = r.get("drawn") and r["median_abs_difference"] == 0 and r["share_above"]["0.05"] == 0 and r.get("sites_changed") == 0   # and no site changed
+    # sex (2026-10-21): the X and Y list is the one frozen from Stage 1's pinned manifests, every change count is also given on the X and Y,
+    # and a planted change on the X alone is counted there and nowhere else
+    import json as _j; XY = _j.load(open(RG.SEX_SITES)); sexok = XY["x_sites"] == len(XY["X"]) > 10000 and XY["sites_without_chromosome"] == 0 and "blocks_changed_on_XY" in r
+    xs = [i for i in ids if i in set(XY["X"])][:3000]; m2 = pd.Series(mu, index=ids).copy(); m2.loc[xs] = np.clip(m2.loc[xs] + 0.4, 0, 1)
+    r2 = RG.build(m2, "isolated neutrophils", None); sexok = sexok and r2["blocks_changed"] > 0 and r2["blocks_changed_on_XY"] == r2["blocks_changed"]
+    zero = sexok and r.get("drawn") and r["median_abs_difference"] == 0 and r["share_above"]["0.05"] == 0 and r.get("sites_changed") == 0   # and no site changed
     name, w = RG.reference("whole blood", {"neutrophils": 0.5, "monocytes": 0.1, "cd4 t cells": 0.2})
     weights = abs(sum(w.values()) - 1) < 1e-9 and abs(w["neutrophils"] - 0.625) < 1e-9
     js = "not checked (node not installed)"
@@ -267,7 +272,7 @@ def V12(tmp):
         f = os.path.join(tmp, "globe.js"); open(f, "w").write(re.search(r"<script>(.*?)</script>", r["fragment"], re.S).group(1))
         js = "parses" if sp.run(["node", "--check", f], capture_output=True).returncode == 0 else "SYNTAX ERROR"
     rec("V12", bool(zero and weights and js != "SYNTAX ERROR"), f"healthy atlas neutrophil against itself: drawn {r.get('drawn')}, median difference {r.get('median_abs_difference')}, "
-        f"share above 0.05 {(r.get('share_above') or {}).get('0.05')}, sites changed {r.get('sites_changed')}; blood weights sum to 1 and rescale: {weights}; page script: {js}")
+        f"share above 0.05 {(r.get('share_above') or {}).get('0.05')}, sites changed {r.get('sites_changed')}; X and Y counted apart: {sexok} (planted on the X: {r2['blocks_changed']} changed, {r2['blocks_changed_on_XY']} on the X and Y); blood weights sum to 1 and rescale: {weights}; page script: {js}")
 
 def V13(tmp):
     """The globe as a reader's browser draws it (2026-10-21, lesson C32: "if the chain didn't do it, it didn't happen"). The one command runs on

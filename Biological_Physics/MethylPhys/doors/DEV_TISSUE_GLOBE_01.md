@@ -32,3 +32,21 @@ controls, one person's adjacent normal against another's of the same organ; and 
 Every comparison counted with all sites and with the X and Y left out. Reported per tissue: changed blocks (above and below) and the share of
 the globe lit, the median and range of each kind, and the share of tumors above the largest control. The question it answers: does a tumor
 against its own normal light more than the differences between two people, by which measure, and in which tissue.
+
+## Run 2, run once (2026-10-21; tissue_globe run 39686195039, commit 94bbc421; 430 comparisons, no errors)
+
+Output: `data/DEV_TISSUE_GLOBE_01/run_02/all_pairs_02_summary.txt` and `all_pairs_02_rows.csv`. Changed blocks, X and Y left out (median, range):
+
+| Tissue | Tumor vs own normal | Two people's normal | Two healthy people | Tumors above the largest control |
+|---|---|---|---|---|
+| Breast (53) | 859 (239-1,948) | 298 (27-602) | | 74 % |
+| Liver (50) | 898 (3-2,485) | 316 (41-651) | | 60 % (42 % with the X and Y in) |
+| Colon (88) | 917 (49-2,245) | 542 (94-1,358) | 518 (234-1,879) | 15 % (6 % with the X and Y in) |
+
+**What it shows.**
+- In breast and liver a tumor against its own normal lights about three times what the difference between two people lights.
+- Leaving out the X and Y lowers the controls where women and men are mixed (colon, liver) and not where all are women (breast), as the X's biology predicts; in liver it raised the share of tumors above every control from 42 % to 60 %.
+- Direction: colon tumors gain methylation in three blocks for every one they lose (58,658 against 20,363); liver tumors lose more than they gain (26,921 against 16,881); breast is balanced.
+- Colon's controls light nearly as much as its tumors. The seven-pair run's two-person control was not a fair yardstick for colon; run 2's colon controls compare people on different slides of the series, while each tumor sits beside its own normal, so a slide difference is likely counted in the controls and not the pairs. Not yet checked: colon controls matched on slide.
+
+Still a picture, not a reading: nothing here is sealed or scored, and no instrument uses it.

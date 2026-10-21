@@ -1,7 +1,7 @@
 {
  "id": "planted-blood",
  "name": "The same blood with a clustered loss planted",
- "about": "<b>PLANTED: a constructed example, not a person.</b> A clustered loss was planted in a healthy array. Every site of IAM-Atlas v2.1 has one fixed place on this globe, the same as on the atlas's cell pages. Drag to turn it. The healthy reference is <b>healthy blood for this person's own cell mix (IAM-Atlas v2.1, Stage D21 shares)</b>, compared at 773,556 sites. The change is fixed by the measurement: a site has changed when it lies outside the healthy range. The slider only fades the healthy background, so you can see the change by itself. A picture: nothing is scored from it; Met-A and the C-Score read against their own commissioned reference, which is also a layer. The atlas blends 21 sources and sits slightly closer to 0.5 than one array, so a healthy sample shows a faint even difference. In a woman one X chromosome is held methylated, so her X shows as a patch against a reference that pools both sexes. A small loss spread over many sites shows on the departures layer, not the whole genome.",
+ "about": "<b>PLANTED: a constructed example, not a person.</b> A clustered loss was planted in a healthy array. Every site of IAM-Atlas v2.1 has one fixed place on this globe, the same as on the atlas's cell pages. Drag to turn it. The healthy reference is <b>healthy blood for this person's own cell mix (IAM-Atlas v2.1, Stage D21 shares)</b>, compared at 773,556 sites. The change is fixed by the measurement, never by the reader: each site's difference is measured in that site's healthy width and the sample's own spread, and read in blocks of 10 neighboring sites, as the C-Score reads them; a block has changed beyond the line pure chance crosses less than once in 20 genomes. Ordinary wear is scattered and seldom moves a whole block, so a healthy sample stays nearly dark; a change that runs along the genome lights up in clumps. The slider only quiets the background. A picture: nothing is scored from it; Met-A and the C-Score read against their own commissioned reference, which is also a layer. In a woman one X chromosome is held methylated, so her X can differ from a reference that pools both sexes.",
  "groups": [
   {
    "name": "this sample against its references",
@@ -13,14 +13,17 @@
      "base": "a1",
      "full": 10,
      "hint": "Slide right to quiet the healthy background: its colors drain to gray, then to dark, until only the change is left lit. Slide left to bring the full map back.",
-     "fixed": "Changed: 45 of 77,355 blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
-     "note": "Against healthy blood for this person's own cell mix (IAM-Atlas v2.1, Stage D21 shares). Each site's difference is measured in that site's healthy width (how much healthy people vary there, and how sure the atlas is), in this sample's own spread, and read in blocks of 10 neighboring sites, as the C-Score reads them. A block has changed beyond the line pure chance crosses less than once in 20 genomes. Ordinary wear is scattered and seldom moves a whole block, so a healthy sample stays nearly dark; a change that runs along the genome lights up in clumps. Red: more methylation than healthy; blue: less."
+     "fixed": "Changed: 45 of 77,355 blocks of 10 neighboring sites, 1 of them on the X and Y chromosomes. This count is fixed; the slider never changes it. Sex not read by Stage 0. The atlas's healthy reference pools women and men. A woman holds one X methylated, so her X can differ from it by nature; the count on the X and Y is shown so a reader can see how much of the change sits there. At Met-A's 6,000 neutrophil sites alone: 44 of 597 blocks changed. A loss of the neutrophils' pattern sits there, too few sites to show on the whole genome: choose the layer \"the change at Met-A's 6,000 sites\" to see it.",
+     "note": "Against healthy blood for this person's own cell mix (IAM-Atlas v2.1, Stage D21 shares). Each site's difference is measured in that site's healthy width (how much healthy people vary there, and how sure the atlas is), in this sample's own spread, and read in blocks of 10 neighboring sites, as the C-Score reads them. A block has changed beyond the line pure chance crosses less than once in 20 genomes. Ordinary wear is scattered and seldom moves a whole block, so a healthy sample stays nearly dark; a change that runs along the genome lights up in clumps. Red: more methylation than healthy; blue: less.",
+     "id": "genome",
+     "ref_word": "the healthy reference"
     },
     {
      "name": "the sample",
      "kind": "image",
      "src": "a2",
      "note": "The sample's methylation at every atlas site, 0 to 1.",
+     "key_css": "linear-gradient(to right, rgb(0,0,255) 0%, rgb(0,66,255) 10%, rgb(0,134,255) 20%, rgb(0,198,255) 30%, rgb(103,227,239) 40%, rgb(255,237,217) 50%, rgb(255,202,85) 60%, rgb(255,160,0) 70%, rgb(255,95,0) 80%, rgb(193,45,0) 90%, rgb(100,0,0) 100%)",
      "base": null
     },
     {
@@ -28,6 +31,7 @@
      "kind": "image",
      "src": "a1",
      "note": "healthy blood for this person's own cell mix (IAM-Atlas v2.1, Stage D21 shares), 0 to 1.",
+     "key_css": "linear-gradient(to right, rgb(0,0,255) 0%, rgb(0,66,255) 10%, rgb(0,134,255) 20%, rgb(0,198,255) 30%, rgb(103,227,239) 40%, rgb(255,237,217) 50%, rgb(255,202,85) 60%, rgb(255,160,0) 70%, rgb(255,95,0) 80%, rgb(193,45,0) 90%, rgb(100,0,0) 100%)",
      "base": null
     },
     {
@@ -38,6 +42,8 @@
      "hint": "Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
      "fixed": "Changed: 44 of 597 blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
      "note": "The C-Score's departure map against Met-A's commissioned purified-array reference, read as the C-Score reads it: in blocks of 10 neighboring sites along the genome, a block changed beyond the line pure chance crosses less than once in 20 genomes. Ordinary wear is scattered and seldom moves a whole block; a loss that runs along the genome does, so it shows as clumps.",
+     "id": "metaa",
+     "ref_word": "Met-A's purified-array reference",
      "base": null
     },
     {
@@ -45,6 +51,7 @@
      "kind": "image",
      "src": "a4",
      "note": "Met-A's own healthy reference at its 6,000 sites, weighted by this blood's Stage A fractions; the change against it is the layer above.",
+     "key_css": "linear-gradient(to right, rgb(0,0,255) 0%, rgb(0,66,255) 10%, rgb(0,134,255) 20%, rgb(0,198,255) 30%, rgb(103,227,239) 40%, rgb(255,237,217) 50%, rgb(255,202,85) 60%, rgb(255,160,0) 70%, rgb(255,95,0) 80%, rgb(193,45,0) 90%, rgb(100,0,0) 100%)",
      "base": null
     }
    ]
@@ -57,6 +64,7 @@
      "kind": "image",
      "src": "a5",
      "note": "This cell's healthy map in IAM-Atlas v2.1; the share is the IAM-Deconvolver's reading of this sample.",
+     "key_css": "linear-gradient(to right, rgb(0,0,255) 0%, rgb(0,66,255) 10%, rgb(0,134,255) 20%, rgb(0,198,255) 30%, rgb(103,227,239) 40%, rgb(255,237,217) 50%, rgb(255,202,85) 60%, rgb(255,160,0) 70%, rgb(255,95,0) 80%, rgb(193,45,0) 90%, rgb(100,0,0) 100%)",
      "base": null
     },
     {
@@ -64,6 +72,7 @@
      "kind": "image",
      "src": "a6",
      "note": "This cell's healthy map in IAM-Atlas v2.1; the share is the IAM-Deconvolver's reading of this sample.",
+     "key_css": "linear-gradient(to right, rgb(0,0,255) 0%, rgb(0,66,255) 10%, rgb(0,134,255) 20%, rgb(0,198,255) 30%, rgb(103,227,239) 40%, rgb(255,237,217) 50%, rgb(255,202,85) 60%, rgb(255,160,0) 70%, rgb(255,95,0) 80%, rgb(193,45,0) 90%, rgb(100,0,0) 100%)",
      "base": null
     },
     {
@@ -71,6 +80,7 @@
      "kind": "image",
      "src": "a7",
      "note": "This cell's healthy map in IAM-Atlas v2.1; the share is the IAM-Deconvolver's reading of this sample.",
+     "key_css": "linear-gradient(to right, rgb(0,0,255) 0%, rgb(0,66,255) 10%, rgb(0,134,255) 20%, rgb(0,198,255) 30%, rgb(103,227,239) 40%, rgb(255,237,217) 50%, rgb(255,202,85) 60%, rgb(255,160,0) 70%, rgb(255,95,0) 80%, rgb(193,45,0) 90%, rgb(100,0,0) 100%)",
      "base": null
     },
     {
@@ -78,6 +88,7 @@
      "kind": "image",
      "src": "a8",
      "note": "This cell's healthy map in IAM-Atlas v2.1; the share is the IAM-Deconvolver's reading of this sample.",
+     "key_css": "linear-gradient(to right, rgb(0,0,255) 0%, rgb(0,66,255) 10%, rgb(0,134,255) 20%, rgb(0,198,255) 30%, rgb(103,227,239) 40%, rgb(255,237,217) 50%, rgb(255,202,85) 60%, rgb(255,160,0) 70%, rgb(255,95,0) 80%, rgb(193,45,0) 90%, rgb(100,0,0) 100%)",
      "base": null
     },
     {
@@ -85,6 +96,7 @@
      "kind": "image",
      "src": "a9",
      "note": "This cell's healthy map in IAM-Atlas v2.1; the share is the IAM-Deconvolver's reading of this sample.",
+     "key_css": "linear-gradient(to right, rgb(0,0,255) 0%, rgb(0,66,255) 10%, rgb(0,134,255) 20%, rgb(0,198,255) 30%, rgb(103,227,239) 40%, rgb(255,237,217) 50%, rgb(255,202,85) 60%, rgb(255,160,0) 70%, rgb(255,95,0) 80%, rgb(193,45,0) 90%, rgb(100,0,0) 100%)",
      "base": null
     },
     {
@@ -92,6 +104,7 @@
      "kind": "image",
      "src": "a10",
      "note": "This cell's healthy map in IAM-Atlas v2.1; the share is the IAM-Deconvolver's reading of this sample.",
+     "key_css": "linear-gradient(to right, rgb(0,0,255) 0%, rgb(0,66,255) 10%, rgb(0,134,255) 20%, rgb(0,198,255) 30%, rgb(103,227,239) 40%, rgb(255,237,217) 50%, rgb(255,202,85) 60%, rgb(255,160,0) 70%, rgb(255,95,0) 80%, rgb(193,45,0) 90%, rgb(100,0,0) 100%)",
      "base": null
     }
    ]

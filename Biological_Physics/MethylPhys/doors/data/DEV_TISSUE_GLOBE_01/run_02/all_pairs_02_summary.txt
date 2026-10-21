@@ -1,0 +1,19 @@
+comparisons 430 (each counted twice), errors 0
+colon all changed: tumor n 88 median 946 range 62-2329 | control n 88 median 696.5 range 91-1673 | healthy n 48 median 727 range 258-2171 | tumors above the largest control 0.06
+colon all lit: tumor n 88 median 0.02301 range 0.00121-0.05918 | control n 88 median 0.01617 range 0.0021-0.03867 | healthy n 48 median 0.01695 range 0.00697-0.05218 | tumors above the largest control 0.08
+colon all tumors: blocks above the normal 59359, below 20533
+colon noXY changed: tumor n 88 median 917 range 49-2245 | control n 88 median 542 range 94-1358 | healthy n 48 median 518 range 234-1879 | tumors above the largest control 0.15
+colon noXY lit: tumor n 88 median 0.02372 range 0.00107-0.06149 | control n 88 median 0.01428 range 0.00233-0.03407 | healthy n 48 median 0.01319 range 0.0055-0.0481 | tumors above the largest control 0.18
+colon noXY tumors: blocks above the normal 58658, below 20363
+breast all changed: tumor n 53 median 820 range 231-1876 | control n 53 median 278 range 33-594 | tumors above the largest control 0.70
+breast all lit: tumor n 53 median 0.02038 range 0.00592-0.04746 | control n 53 median 0.00718 range 0.00075-0.01536 | tumors above the largest control 0.70
+breast all tumors: blocks above the normal 22477, below 24454
+breast noXY changed: tumor n 53 median 859 range 239-1948 | control n 53 median 298 range 27-602 | tumors above the largest control 0.74
+breast noXY lit: tumor n 53 median 0.02149 range 0.00565-0.0486 | control n 53 median 0.0078 range 0.00064-0.01637 | tumors above the largest control 0.68
+breast noXY tumors: blocks above the normal 22726, below 25458
+liver all changed: tumor n 50 median 880 range 1-2366 | control n 50 median 411 range 52-968 | tumors above the largest control 0.42
+liver all lit: tumor n 50 median 0.01973 range 2e-05-0.05467 | control n 50 median 0.009285 range 0.00116-0.01983 | tumors above the largest control 0.50
+liver all tumors: blocks above the normal 16997, below 26172
+liver noXY changed: tumor n 50 median 897.5 range 3-2485 | control n 50 median 315.5 range 41-651 | tumors above the largest control 0.60
+liver noXY lit: tumor n 50 median 0.02139 range 6e-05-0.05781 | control n 50 median 0.008025 range 0.00102-0.01531 | tumors above the largest control 0.60
+liver noXY tumors: blocks above the normal 16881, below 26921

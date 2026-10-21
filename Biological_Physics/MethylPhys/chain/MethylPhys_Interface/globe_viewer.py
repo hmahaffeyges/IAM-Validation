@@ -44,15 +44,25 @@ function IAMGlobe(cv) { const cx = cv.getContext('2d'), s = { yaw: 0, pitch: 0.3
   (function tick() { if (s.spin && s.px) { s.yaw += 0.006; draw(); } requestAnimationFrame(tick); })();
   return { draw, set(px, w, h) { s.px = px; s.w = w; s.h = h; draw(); }, toggle() { s.spin = !s.spin; } }; }
 function IAMExplorer(root, specs) { const q = c => root.querySelector(c), G = IAMGlobe(q('.g-canvas'));
-  const sg = q('.g-globe'), sp = q('.g-group'), sl = q('.g-layer'), rg = q('.g-range'), rv = q('.g-rv'), nt = q('.g-note'), ab = q('.g-about'), sw = q('.g-slide'), hn = q('.g-hint'), fx = q('.g-fixed');
+  const sg = q('.g-globe'), sp = q('.g-group'), sl = q('.g-layer'), rg = q('.g-range'), rv = q('.g-rv'), nt = q('.g-note'), ab = q('.g-about'), sw = q('.g-slide'), hn = q('.g-hint'), fx = q('.g-fixed'), ky = q('.g-key');
   q('.g-spin').onclick = () => G.toggle();
   const fill = (sel, items) => { sel.innerHTML = ''; items.forEach((x, i) => sel.add(new Option(x.name, i))); sel.parentNode.style.display = items.length > 1 ? '' : 'none'; };
   fill(sg, specs); const want = new URLSearchParams(location.search).get('globe'); specs.forEach((x, i) => { if (x.id === want) sg.value = i; });
   const spec = () => specs[+sg.value], U = v => (spec().assets || {})[v] || v, grp = () => spec().groups[+sp.value], lay = () => grp().layers[+sl.value];
   function onGlobe() { fill(sp, spec().groups); ab.innerHTML = spec().about || ''; const c = new URLSearchParams(location.search).get('cell');
     spec().groups.forEach((g, i) => { if (c && g.id === c) sp.value = i; }); onGroup(); }
-  function onGroup() { fill(sl, grp().layers); onLayer(); }
-  function onLayer() { const L = lay(); sw.style.display = L.kind === 'image' ? 'none' : ''; hn.textContent = L.hint || ''; fx.textContent = L.fixed || '';
+  function onGroup() { fill(sl, grp().layers); const w = new URLSearchParams(location.search).get('layer'); grp().layers.forEach((x, i) => { if (w && x.id === w) sl.value = i; }); onLayer(); }
+  // the color key under every layer (2026-10-21, author: "it's not obvious for someone who doesn't know the difference between blue and red")
+  const sw_ = (c, t) => `<div style="display:flex;align-items:center;gap:8px;margin:3px 0"><span style="display:inline-block;width:18px;height:12px;background:${c};border:1px solid #555"></span><span>${t}</span></div>`;
+  function key(L) { if (L.kind === 'change' || L.kind === 'diff') return '<b>Color key</b>' +
+      sw_('rgb(255,45,40)', 'Red: more methylation here than ' + (L.ref_word || 'the reference') + ' (methylation gained)') +
+      sw_('rgb(45,110,255)', 'Blue: less methylation here than ' + (L.ref_word || 'the reference') + ' (methylation lost)') +
+      sw_('rgb(120,120,120)', 'Gray, then dark as you slide right: unchanged (the reference\'s own map, quieted)') +
+      sw_('rgb(30,32,38)', 'Charcoal: no site measured there') +
+      '<div style="margin-top:4px">A colored patch is a block of 10 neighboring sites that changed beyond the fixed line; brighter means a larger change. Red and blue are the direction of the change, not sites added or missing.</div>';
+    if (L.key_css) return '<b>Color key</b><div style="height:12px;margin:4px 0;border:1px solid #555;background:' + L.key_css + '"></div><div style="display:flex;justify-content:space-between"><span>0: unmethylated</span><span>1: fully methylated</span></div>' + sw_('rgb(42,45,51)', 'Charcoal: no site measured there');
+    return L.key_html || ''; }
+  function onLayer() { const L = lay(); sw.style.display = L.kind === 'image' ? 'none' : ''; hn.textContent = L.hint || ''; fx.textContent = L.fixed || ''; ky.innerHTML = key(L);
     if (L.kind === 'diff') { rg.max = 50; rg.value = L.start ?? 10; } else if (L.kind === 'change') { rg.max = 100; rg.value = 0; } else if (L.kind === 'steps') { rg.max = L.srcs.length - 1; rg.value = 0; } render(); }
   let tok = 0;
   async function render() { const L = lay(), t = +rg.value, my = ++tok;
@@ -82,6 +92,7 @@ CONTROLS = """<div class="g-wrap" style="display:flex;gap:18px;flex-wrap:wrap;al
 <div style="min-width:260px;max-width:420px"><p><label>Globe <select class="g-globe"></select></label></p><p><label>Show <select class="g-group"></select></label></p>
 <p><label>Layer <select class="g-layer"></select></label></p><p class="g-slide"><input class="g-range" type="range" min="0" max="50" value="10" style="width:100%"> <span class="g-rv"></span><br><i class="g-hint"></i></p>
 <p class="g-fixed" style="font-weight:600"></p>
+<div class="g-key" style="font-size:0.92em;margin:0 0 10px 0"></div>
 <p class="g-note"></p><p><button class="g-spin" type="button">Stop or start turning</button></p><div class="g-about" style="font-size:0.92em"></div></div></div>"""
 
 def fragment(specs, size=520):

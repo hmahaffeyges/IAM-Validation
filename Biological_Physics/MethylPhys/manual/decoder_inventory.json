@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 717,
+   "lines": 718,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -213,9 +213,9 @@
      "function": "main",
      "name": "main",
      "line": 239,
-     "end": 714,
+     "end": 715,
      "args": [],
-     "lines": 476,
+     "lines": 477,
      "doc": "",
      "constants": [
       "BIO",
@@ -253,8 +253,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 661,
-     "end": 662,
+     "line": 662,
+     "end": 663,
      "args": [
       "b",
       "it",
@@ -5212,14 +5212,67 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 306,
+   "lines": 349,
    "functions": [
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "sex_sites",
+     "name": "sex_sites",
+     "line": 40,
+     "end": 45,
+     "args": [],
+     "lines": 6,
+     "doc": "The atlas sites on the X and Y chromosomes (frozen list). Every change count on the globe is also given for these sites alone, so a reader sees how much of a change sits where women and men differ by nature (one X held methylated in women; the Y only in men).",
+     "constants": [
+      "SEX_SITES",
+      "_XY"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "_xy_blocks",
+     "name": "_xy_blocks",
+     "line": 47,
+     "end": 51,
+     "args": [
+      "ids_in_order",
+      "mi",
+      "nb",
+      "changed"
+     ],
+     "lines": 5,
+     "doc": "How many changed blocks hold at least one X or Y site.",
+     "constants": [
+      "BLOCK"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "key_css",
+     "name": "key_css",
+     "line": 53,
+     "end": 56,
+     "args": [],
+     "lines": 4,
+     "doc": "The parchment scale of every methylation map as a CSS gradient, for the color key under an image layer.",
+     "constants": [
+      "HERE"
+     ],
+     "data_files": [
+      "Planck_Parchment_RGB.txt"
+     ],
+     "traced_calls": {}
+    },
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "FW_LINE",
      "name": "FW_LINE",
-     "line": 38,
-     "end": 41,
+     "line": 62,
+     "end": 65,
      "args": [
       "n"
      ],
@@ -5233,8 +5286,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_to_sky",
      "name": "_to_sky",
-     "line": 45,
-     "end": 49,
+     "line": 69,
+     "end": 73,
      "args": [
       "v",
       "npix"
@@ -5249,8 +5302,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_mu",
      "name": "_mu",
-     "line": 51,
-     "end": 62,
+     "line": 75,
+     "end": 86,
      "args": [
       "cells",
       "stem"
@@ -5270,8 +5323,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_to_sky_extreme",
      "name": "_to_sky_extreme",
-     "line": 64,
-     "end": 69,
+     "line": 88,
+     "end": 93,
      "args": [
       "v",
       "npix"
@@ -5286,8 +5339,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_lookup",
      "name": "_lookup",
-     "line": 71,
-     "end": 77,
+     "line": 95,
+     "end": 101,
      "args": [
       "nside"
      ],
@@ -5303,8 +5356,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_png_b64",
      "name": "_png_b64",
-     "line": 79,
-     "end": 81,
+     "line": 103,
+     "end": 105,
      "args": [
       "arr",
       "mode"
@@ -5319,8 +5372,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_jpg_b64",
      "name": "_jpg_b64",
-     "line": 83,
-     "end": 85,
+     "line": 107,
+     "end": 109,
      "args": [
       "rgb"
      ],
@@ -5334,8 +5387,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "reference",
      "name": "reference",
-     "line": 87,
-     "end": 96,
+     "line": 111,
+     "end": 120,
      "args": [
       "specimen",
       "shares"
@@ -5353,8 +5406,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_dots",
      "name": "_dots",
-     "line": 98,
-     "end": 104,
+     "line": 122,
+     "end": 128,
      "args": [
       "v"
      ],
@@ -5370,8 +5423,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "purified",
      "name": "purified",
-     "line": 106,
-     "end": 114,
+     "line": 130,
+     "end": 138,
      "args": [
       "fractions",
       "specimen"
@@ -5391,17 +5444,18 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build",
      "name": "build",
-     "line": 116,
-     "end": 238,
+     "line": 140,
+     "end": 278,
      "args": [
       "beta",
       "specimen",
       "shares",
       "out_html",
       "z",
-      "fractions"
+      "fractions",
+      "sex"
      ],
-     "lines": 123,
+     "lines": 139,
      "doc": "",
      "constants": [
       "ABOUT",
@@ -5411,7 +5465,9 @@
       "HERE",
       "ORDER",
       "PANEL",
-      "R_DOT"
+      "R_DOT",
+      "SEXNOTE",
+      "SEXWORD"
      ],
      "data_files": [
       "Planck_Parchment_RGB.txt",
@@ -5426,8 +5482,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build.rgb",
      "name": "rgb",
-     "line": 155,
-     "end": 156,
+     "line": 180,
+     "end": 181,
      "args": [
       "m"
      ],
@@ -5441,8 +5497,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build._code",
      "name": "_code",
-     "line": 158,
-     "end": 163,
+     "line": 183,
+     "end": 188,
      "args": [
       "v",
       "full"
@@ -5457,8 +5513,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair",
      "name": "build_pair",
-     "line": 255,
-     "end": 295,
+     "line": 295,
+     "end": 338,
      "args": [
       "beta",
       "ref_beta",
@@ -5467,7 +5523,7 @@
       "title",
       "drop"
      ],
-     "lines": 41,
+     "lines": 44,
      "doc": "DEVELOPMENT (2026-10-21, author: test the globe on the breast and colon tissue results): one person's sample (a tumor) against the same person's own other sample (its adjacent normal), on the atlas's layout, by the globe's block rule without the atlas: each site's difference, centered and scaled by the pair's own spread (MAD x 1.4826), blocks of BLOCK neighboring measured sites, the block mean in ",
      "constants": [
       "ATLAS",
@@ -5487,8 +5543,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair.rgb",
      "name": "rgb",
-     "line": 277,
-     "end": 278,
+     "line": 317,
+     "end": 318,
      "args": [
       "m"
      ],
@@ -5503,7 +5559,7 @@
   },
   {
    "file": "MethylPhys_Interface/globe_viewer.py",
-   "lines": 114,
+   "lines": 125,
    "functions": [
     {
      "file": "MethylPhys_Interface/globe_viewer.py",
@@ -5539,8 +5595,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "fragment",
      "name": "fragment",
-     "line": 87,
-     "end": 90,
+     "line": 98,
+     "end": 101,
      "args": [
       "specs",
       "size"
@@ -5558,8 +5614,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "page",
      "name": "page",
-     "line": 92,
-     "end": 99,
+     "line": 103,
+     "end": 110,
      "args": [
       "specs",
       "title",
@@ -5580,8 +5636,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "write_files",
      "name": "write_files",
-     "line": 101,
-     "end": 113,
+     "line": 112,
+     "end": 124,
      "args": [
       "spec",
       "d",
@@ -5597,8 +5653,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "write_files.one",
      "name": "one",
-     "line": 104,
-     "end": 107,
+     "line": 115,
+     "end": 118,
      "args": [
       "v"
      ],
@@ -5613,5 +5669,5 @@
   }
  ],
  "n_files": 24,
- "n_functions": 282
+ "n_functions": 285
 }

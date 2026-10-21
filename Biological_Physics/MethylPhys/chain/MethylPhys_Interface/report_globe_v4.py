@@ -35,6 +35,30 @@ HERE = os.path.dirname(os.path.abspath(__file__)); CH = os.path.join(HERE, "..")
 ATLAS = os.path.join(CH, "..", "atlas", "v2.1")
 ORDER = os.path.join(CH, "Runtime Matrices", "Atlas_V21", "sky_order_v21.npz")
 W, HT = 1024, 512; NA = 65535; R_DOT = 3; BLOCK = 10   # the C-Score's block (neutrophil_reference_v1_2.json clustering_block)
+SEX_SITES = os.path.join(CH, "Runtime Matrices", "Atlas_V21", "sex_chromosome_sites_v21.json")   # atlas/tools/sex_sites_v21.py, from Stage 1's pinned manifests
+_XY = []
+def sex_sites():
+    """The atlas sites on the X and Y chromosomes (frozen list). Every change count on the globe is also given for these sites alone, so a reader
+    sees how much of a change sits where women and men differ by nature (one X held methylated in women; the Y only in men)."""
+    if not _XY:
+        J = json.load(open(SEX_SITES)); _XY.append(set(J["X"]) | set(J["Y"]))
+    return _XY[0]
+
+def _xy_blocks(ids_in_order, mi, nb, changed):
+    """How many changed blocks hold at least one X or Y site."""
+    if nb == 0: return 0
+    b = np.isin(ids_in_order[mi[:nb * BLOCK]].reshape(nb, BLOCK), list(sex_sites())).any(1)
+    return int((b & changed).sum())
+
+def key_css():
+    """The parchment scale of every methylation map as a CSS gradient, for the color key under an image layer."""
+    c = np.loadtxt(os.path.join(HERE, "Planck_Parchment_RGB.txt")); ix = np.linspace(0, len(c) - 1, 11).astype(int)
+    return "linear-gradient(to right, " + ", ".join(f"rgb({int(c[i][0])},{int(c[i][1])},{int(c[i][2])}) {k * 10}%" for k, i in enumerate(ix)) + ")"
+
+SEXWORD = {"F": "female", "M": "male"}
+SEXNOTE = ("The atlas's healthy reference pools women and men. A woman holds one X methylated, so her X can differ from it by nature; the "
+           "count on the X and Y is shown so a reader can see how much of the change sits there.")
+
 def FW_LINE(n):
     """The fixed line for n blocks: the size pure chance (a normal block) crosses less than once in 20 genomes, two-sided, 5 % family-wise."""
     from scipy.stats import norm
@@ -113,7 +137,7 @@ def purified(fractions, specimen):
         t = sum(f.values()); return pd.Series(sum(P[g] * (x / t) for g, x in f.items()), index=S)
     return pd.Series(P["NEU"], index=S) if "neutrophil" in str(specimen).lower() else None
 
-def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
+def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=None):
     import pyarrow.parquet as pq
     from matplotlib.colors import ListedColormap
     if not os.path.exists(ORDER): return {"drawn": False, "reason": f"the frozen layout {os.path.relpath(ORDER, CH)} is missing"}
@@ -150,6 +174,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
     c_ = float(np.median(bm_)); s_ = float(np.median(np.abs(bm_ - c_))) * 1.4826 or 1.0; bz = (bm_ - c_) / s_; line = FW_LINE(nb)
     ex = np.where(np.isfinite(zg), 0.0, np.nan); ex[mi[:nb * BLOCK]] = np.repeat(np.where(np.abs(bz) > line, bz, 0.0), BLOCK)
     n_changed = int((np.abs(bz) > line).sum()); n_ranged = int(nb); ex_s = _to_sky_extreme(ex, npix)
+    n_xy = _xy_blocks(ids[order], mi, nb, np.abs(bz) > line)
     look = _lookup(nside)
     cm = ListedColormap(np.loadtxt(os.path.join(HERE, "Planck_Parchment_RGB.txt")) / 255.0)
     def rgb(m):
@@ -207,7 +232,8 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
     R_ = J(_jpg_b64(rgb(ref_s)))
     L = [dict(name="the change from the healthy reference", kind="change", src=P_(_png_b64(code, "RGB")), base=R_, full=10,
               hint="Slide right to quiet the healthy background: its colors drain to gray, then to dark, until only the change is left lit. Slide left to bring the full map back.",
-              fixed=f"Changed: {n_changed:,} of {n_ranged:,} blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
+              fixed=f"Changed: {n_changed:,} of {n_ranged:,} blocks of 10 neighboring sites, {n_xy:,} of them on the X and Y chromosomes. This count is fixed; the slider never changes it."
+                    + (f" Sex from Stage 0: {SEXWORD.get(str(sex).upper()[:1], str(sex))}. {SEXNOTE}" if sex else f" Sex not read by Stage 0. {SEXNOTE}"),
               note=(f"Against {name}. Each site's difference is measured in that site's healthy width (how much healthy people vary there, and how "
                     "sure the atlas is), in this sample's own spread, and read in blocks of 10 neighboring sites, as the C-Score reads them. A block "
                     "has changed beyond the line pure chance crosses less than once in 20 genomes. Ordinary wear is scattered and seldom moves a whole "
@@ -229,7 +255,21 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
     if cellmaps: groups.append(dict(name="the cells the IAM-Deconvolver read", layers=[dict(name="healthy " + c["name"], kind="image", src=J(c["t"]),
                                      note="This cell's healthy map in IAM-Atlas v2.1; the share is the IAM-Deconvolver's reading of this sample.") for c in cellmaps]))
     rec["layers"] = [x["name"] for g in groups for x in g["layers"]]
+    rec["blocks_changed"] = n_changed; rec["blocks"] = n_ranged; rec["blocks_changed_on_XY"] = n_xy; rec["sex"] = sex
     if zabove: rec["metaa_blocks_changed"] = {"rule": "blocks of 10 neighboring sites, mean departure in standard errors beyond the 5 % family-wise line (the C-Score's blocks)", "changed": zabove[0], "blocks": zabove[1]}
+    # every layer: an id a link can open (?layer=), the color key's words, and the whole-genome layer pointing at the Met-A layer
+    kc = key_css()
+    for g in groups:
+        for x in g["layers"]:
+            if x["kind"] == "image": x["key_css"] = kc
+            elif "Met-A" in x["name"]: x["id"] = "metaa"; x["ref_word"] = "Met-A's purified-array reference"
+            elif x["kind"] == "change": x["id"] = "genome"; x["ref_word"] = "the healthy reference"
+    if zabove:
+        for g in groups:
+            for x in g["layers"]:
+                if x.get("id") == "genome": x["fixed"] += (f" At Met-A's 6,000 neutrophil sites alone: {zabove[0]:,} of {zabove[1]:,} blocks changed. A loss "
+                                                          "of the neutrophils' pattern sits there, too few sites to show on the whole genome: choose the layer "
+                                                          "\"the change at Met-A's 6,000 sites\" to see it.")
     spec = dedupe(dict(id="sample", name="This sample", about=ABOUT.replace("__REF__", name).replace("__N__", f"{rec['sites_compared']:,}"), groups=groups))
     rec["fragment"] = fragment([spec])
     if out_html: open(out_html, "w", encoding="utf-8").write(page([spec], "The sample on the globe")); rec["html"] = os.path.abspath(out_html)
@@ -280,15 +320,18 @@ def build_pair(beta, ref_beta, ref_name, out_html=None, title="This sample again
     J = lambda b: "data:image/jpeg;base64," + b; R_ = J(_jpg_b64(rgb(rm))); n_ch = int((np.abs(bz) > line).sum())
     L = [dict(name="the change from the same person's own " + ref_name, kind="change", src="data:image/png;base64," + _png_b64(code, "RGB"), base=R_, full=10,
               hint="Slide right to quiet the reference sample's map: its colors drain to gray, then to dark, until only the change is left lit.",
-              fixed=f"Changed: {n_ch:,} of {nb:,} blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
+              fixed=f"Changed: {n_ch:,} of {nb:,} blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",  # X and Y count: in the record
               note="Red: more methylation than the same person's own " + ref_name + "; blue: less. Development: not commissioned by our standards."),
          dict(name="the sample", kind="image", src=J(_jpg_b64(rgb(sm))), note="The sample's methylation at every atlas site its array measured, 0 to 1."),
          dict(name="the same person's own " + ref_name, kind="image", src=R_, note="The reference sample's methylation, 0 to 1.")]
+    for x in L:
+        if x["kind"] == "image": x["key_css"] = key_css()
+        else: x["id"] = "genome"; x["ref_word"] = "the same person's own " + ref_name
     spec = dedupe(dict(id="pair", name=title, about=PAIR_ABOUT.replace("__REF__", ref_name).replace("__N__", f"{int(ok.sum()):,}"),
                        groups=[dict(name="this person", layers=L)]))
-    meas = np.isfinite(dv); lit = float((meas & (dv != 0)).sum() / max(1, meas.sum()))
+    meas = np.isfinite(dv); lit = float((meas & (dv != 0)).sum() / max(1, meas.sum())); n_xy = _xy_blocks(ids[order], mi, nb, np.abs(bz) > line)
     rec = dict(drawn=True, mode="pair (development)", sites_compared=int(ok.sum()), blocks=int(nb), blocks_changed=n_ch, line=round(line, 3),
-               blocks_up=int((bz > line).sum()), blocks_down=int((bz < -line).sum()), pixels_lit_share=round(lit, 5),
+               blocks_up=int((bz > line).sum()), blocks_down=int((bz < -line).sum()), pixels_lit_share=round(lit, 5), blocks_changed_on_XY=n_xy,
                sites_dropped=int(pd.Index(ids).isin(list(drop)).sum()) if drop is not None else 0,
                change_rule="the pair's own difference, blocks of 10 neighboring sites, 5 % family-wise line", flag="development: not commissioned by our standards")
     if out_html: open(out_html, "w", encoding="utf-8").write(page([spec], title)); rec["html"] = os.path.abspath(out_html)
