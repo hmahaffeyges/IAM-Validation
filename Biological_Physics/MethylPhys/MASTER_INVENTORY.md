@@ -6,7 +6,7 @@ Candidates found by search are metadata only and their counts are provisional un
 
 ## Totals
 
-- data sets: 479; in S3: 89; chain-readable in S3 (IDAT): 39
+- data sets: 480; in S3: 89; chain-readable in S3 (IDAT): 39
 - public, not downloaded: 187
 - read before (spent or partly spent): 203
 - by test status: scored 12, sealed 0, not suitable 4, designed 0, candidate 0

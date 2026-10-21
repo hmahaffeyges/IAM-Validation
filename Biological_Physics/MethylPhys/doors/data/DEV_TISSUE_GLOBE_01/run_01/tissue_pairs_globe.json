@@ -1,0 +1,114 @@
+{
+ "colon_A2004": {
+  "drawn": true,
+  "mode": "pair (development)",
+  "sites_compared": 388577,
+  "blocks": 38857,
+  "blocks_changed": 1109,
+  "line": 4.842,
+  "change_rule": "the pair's own difference, blocks of 10 neighboring sites, 5 % family-wise line",
+  "flag": "development: not commissioned by our standards",
+  "html": "/home/runner/work/IAM-Validation/IAM-Validation/xout/colon_A2004.html",
+  "lit": {
+   "0": 0.05825,
+   "50": 0.01401,
+   "100": 0.01401
+  }
+ },
+ "colon_A2027": {
+  "drawn": true,
+  "mode": "pair (development)",
+  "sites_compared": 380971,
+  "blocks": 38097,
+  "blocks_changed": 1289,
+  "line": 4.838,
+  "change_rule": "the pair's own difference, blocks of 10 neighboring sites, 5 % family-wise line",
+  "flag": "development: not commissioned by our standards",
+  "html": "/home/runner/work/IAM-Validation/IAM-Validation/xout/colon_A2027.html",
+  "lit": {
+   "0": 0.06107,
+   "50": 0.01727,
+   "100": 0.01727
+  }
+ },
+ "colon_A2050": {
+  "drawn": true,
+  "mode": "pair (development)",
+  "sites_compared": 392096,
+  "blocks": 39209,
+  "blocks_changed": 298,
+  "line": 4.844,
+  "change_rule": "the pair's own difference, blocks of 10 neighboring sites, 5 % family-wise line",
+  "flag": "development: not commissioned by our standards",
+  "html": "/home/runner/work/IAM-Validation/IAM-Validation/xout/colon_A2050.html",
+  "lit": {
+   "0": 0.05018,
+   "50": 0.0038,
+   "100": 0.0038
+  }
+ },
+ "breast_TCGA-A7-A13E": {
+  "drawn": true,
+  "mode": "pair (development)",
+  "sites_compared": 387575,
+  "blocks": 38757,
+  "blocks_changed": 1134,
+  "line": 4.841,
+  "change_rule": "the pair's own difference, blocks of 10 neighboring sites, 5 % family-wise line",
+  "flag": "development: not commissioned by our standards",
+  "html": "/home/runner/work/IAM-Validation/IAM-Validation/xout/breast_TCGA-A7-A13E.html",
+  "lit": {
+   "0": 0.05713,
+   "50": 0.01537,
+   "100": 0.01537
+  }
+ },
+ "breast_TCGA-A7-A13F": {
+  "drawn": true,
+  "mode": "pair (development)",
+  "sites_compared": 396690,
+  "blocks": 39669,
+  "blocks_changed": 912,
+  "line": 4.846,
+  "change_rule": "the pair's own difference, blocks of 10 neighboring sites, 5 % family-wise line",
+  "flag": "development: not commissioned by our standards",
+  "html": "/home/runner/work/IAM-Validation/IAM-Validation/xout/breast_TCGA-A7-A13F.html",
+  "lit": {
+   "0": 0.05275,
+   "50": 0.01066,
+   "100": 0.01066
+  }
+ },
+ "breast_TCGA-AC-A23H": {
+  "drawn": true,
+  "mode": "pair (development)",
+  "sites_compared": 378197,
+  "blocks": 37819,
+  "blocks_changed": 1570,
+  "line": 4.836,
+  "change_rule": "the pair's own difference, blocks of 10 neighboring sites, 5 % family-wise line",
+  "flag": "development: not commissioned by our standards",
+  "html": "/home/runner/work/IAM-Validation/IAM-Validation/xout/breast_TCGA-AC-A23H.html",
+  "lit": {
+   "0": 0.06351,
+   "50": 0.01904,
+   "100": 0.01904
+  }
+ },
+ "control_two_people": {
+  "drawn": true,
+  "mode": "pair (development)",
+  "sites_compared": 385750,
+  "blocks": 38575,
+  "blocks_changed": 741,
+  "line": 4.84,
+  "change_rule": "the pair's own difference, blocks of 10 neighboring sites, 5 % family-wise line",
+  "flag": "development: not commissioned by our standards",
+  "html": "/home/runner/work/IAM-Validation/IAM-Validation/xout/control_two_people.html",
+  "lit": {
+   "0": 0.05177,
+   "50": 0.00403,
+   "100": 0.00403
+  }
+ }
+}

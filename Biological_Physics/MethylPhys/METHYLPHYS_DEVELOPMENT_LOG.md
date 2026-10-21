@@ -2930,3 +2930,6 @@ The chain's globe gains a development pair mode: one person's tumor against the 
 
 ### 2026-10-21 · IAM-A's line reproduced on GitHub (OTH-076)
 The 70 GB IAM-A line reproduction, which had needed one large cloud machine, ran split across 13 of GitHub's free machines: 158 of 158 counts identical to the committed ones, the line and the shape reference identical. Nine of the ten reproductions now run without AWS.
+
+### 2026-10-21 · Tumors on the globe, and what the count cannot tell (ATL-063, DEV-TISSUE-GLOBE-01)
+Three colon and three breast tumors against their own adjacent normal, drawn by the chain and screenshotted in a browser, light 298 to 1,570 changed blocks. Two different people's normal colon light 741, inside that range, so the count of changed blocks does not separate a tumor from ordinary differences between people.
