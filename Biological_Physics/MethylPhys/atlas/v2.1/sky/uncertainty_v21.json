@@ -1,0 +1,39 @@
+{
+ "k": [
+  1,
+  2,
+  4,
+  8,
+  16,
+  32,
+  64,
+  100
+ ],
+ "cells": [
+  "neutrophils",
+  "monocytes",
+  "b cells",
+  "cd4 t cells",
+  "cd8 t cells",
+  "nk cells"
+ ],
+ "scale": 0.01722,
+ "source": "atlas/tools/noise_maps_v21.py uncertainty",
+ "rule": "noise in a k-draw average = the site's posterior spread / sqrt(k); spread = (mu_hi - mu_lo) / 3.92; drawn on a log scale, dark at scale/10, full at scale",
+ "median_spread": {
+  "neutrophils": 0.00293,
+  "monocytes": 0.00329,
+  "b cells": 0.00441,
+  "cd4 t cells": 0.00416,
+  "cd8 t cells": 0.00503,
+  "nk cells": 0.00602
+ },
+ "xy_median_spread": {
+  "neutrophils": 0.01051,
+  "monocytes": 0.01033,
+  "b cells": 0.01136,
+  "cd4 t cells": 0.01105,
+  "cd8 t cells": 0.01276,
+  "nk cells": 0.01712
+ }
+}

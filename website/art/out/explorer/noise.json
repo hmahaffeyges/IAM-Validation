@@ -1,12 +1,12 @@
 {
  "id": "noise",
- "name": "The atlas's noise, beaten down by averaging",
+ "name": "How sure the atlas is: its noise, beaten down by averaging",
  "groups": [
   {
    "name": "neutrophils",
    "layers": [
     {
-     "name": "the noise, as more draws are averaged",
+     "name": "how sure the atlas is, every site",
      "kind": "steps",
      "srcs": [
       "a0",
@@ -18,6 +18,9 @@
       "a6",
       "a7"
      ],
+     "key_html": "<b>Color key</b><div style='height:12px;margin:4px 0;border:1px solid #555;background:linear-gradient(to right, rgb(0,0,3) 0%, rgb(22,11,57) 10%, rgb(65,9,103) 20%, rgb(106,23,110) 30%, rgb(147,37,103) 40%, rgb(187,55,84) 50%, rgb(220,80,57) 60%, rgb(243,119,25) 70%, rgb(251,164,10) 80%, rgb(245,215,69) 90%, rgb(252,254,164) 100%)'></div><div style='display:flex;justify-content:space-between'><span>dark: noise 0.0017 or less (sure)</span><span>bright: 0.0172 or more (least sure)</span></div><div style='margin-top:4px'>The noise is in methylation (0 to 1). Each doubling of the draws dims every site by the same step, so what stays lit longest is where the atlas is least sure. Charcoal: no site there, or the X and Y hidden.</div>",
+     "hint": "Slide right to average more draws: sure sites go dark first; the least sure stay lit to the end.",
+     "fixed": "How sure the atlas is at each site: the noise left in an average of k draws. Median spread 0.0029 on the autosomes, 0.0105 on the X and Y.",
      "labels": [
       "1 draw averaged",
       "2 draws averaged",
@@ -28,24 +31,45 @@
       "64 draws averaged",
       "100 draws averaged"
      ],
-     "notes": [
-      "On average 0.0037 from the 100-draw map.",
-      "On average 0.0026 from the 100-draw map.",
-      "On average 0.0018 from the 100-draw map.",
-      "On average 0.0013 from the 100-draw map.",
-      "On average 0.0008 from the 100-draw map.",
-      "On average 0.0005 from the 100-draw map.",
-      "On average 0.0003 from the 100-draw map.",
-      "On average 0.0000 from the 100-draw map."
+     "note": "Each frame is the site's posterior spread (from the atlas's 95 % range) over the square root of the number of draws averaged. The X and Y stay lit longest: the atlas's donors are women and men, and a woman holds one X methylated.",
+     "src": null,
+     "base": null
+    },
+    {
+     "name": "how sure the atlas is, X and Y hidden",
+     "kind": "steps",
+     "srcs": [
+      "a8",
+      "a9",
+      "a10",
+      "a11",
+      "a12",
+      "a13",
+      "a14",
+      "a15"
      ],
-     "note": "Red: this average sits above the 100-draw map; blue: below; dark: they agree (scale +/-0.01). Each doubling of the draws cuts the noise by about the square root of 2.",
+     "key_html": "<b>Color key</b><div style='height:12px;margin:4px 0;border:1px solid #555;background:linear-gradient(to right, rgb(0,0,3) 0%, rgb(22,11,57) 10%, rgb(65,9,103) 20%, rgb(106,23,110) 30%, rgb(147,37,103) 40%, rgb(187,55,84) 50%, rgb(220,80,57) 60%, rgb(243,119,25) 70%, rgb(251,164,10) 80%, rgb(245,215,69) 90%, rgb(252,254,164) 100%)'></div><div style='display:flex;justify-content:space-between'><span>dark: noise 0.0017 or less (sure)</span><span>bright: 0.0172 or more (least sure)</span></div><div style='margin-top:4px'>The noise is in methylation (0 to 1). Each doubling of the draws dims every site by the same step, so what stays lit longest is where the atlas is least sure. Charcoal: no site there, or the X and Y hidden.</div>",
+     "hint": "Slide right to average more draws: sure sites go dark first; the least sure stay lit to the end.",
+     "fixed": "How sure the atlas is at each site: the noise left in an average of k draws. Median spread 0.0029 on the autosomes, 0.0105 on the X and Y.",
+     "labels": [
+      "1 draw averaged",
+      "2 draws averaged",
+      "4 draws averaged",
+      "8 draws averaged",
+      "16 draws averaged",
+      "32 draws averaged",
+      "64 draws averaged",
+      "100 draws averaged"
+     ],
+     "note": "Each frame is the site's posterior spread (from the atlas's 95 % range) over the square root of the number of draws averaged. With the X and Y hidden, the rest of the genome is easier to read.",
      "src": null,
      "base": null
     },
     {
      "name": "the atlas's best value (100 draws)",
      "kind": "image",
-     "src": "a8",
+     "src": "a16",
+     "key_css": null,
      "note": "The mean of all 100 draws, 0 to 1: the atlas's map of this cell.",
      "base": null
     }
@@ -55,18 +79,21 @@
    "name": "monocytes",
    "layers": [
     {
-     "name": "the noise, as more draws are averaged",
+     "name": "how sure the atlas is, every site",
      "kind": "steps",
      "srcs": [
-      "a9",
-      "a10",
-      "a11",
-      "a12",
-      "a13",
-      "a14",
-      "a15",
-      "a16"
+      "a17",
+      "a18",
+      "a19",
+      "a20",
+      "a21",
+      "a22",
+      "a23",
+      "a24"
      ],
+     "key_html": "<b>Color key</b><div style='height:12px;margin:4px 0;border:1px solid #555;background:linear-gradient(to right, rgb(0,0,3) 0%, rgb(22,11,57) 10%, rgb(65,9,103) 20%, rgb(106,23,110) 30%, rgb(147,37,103) 40%, rgb(187,55,84) 50%, rgb(220,80,57) 60%, rgb(243,119,25) 70%, rgb(251,164,10) 80%, rgb(245,215,69) 90%, rgb(252,254,164) 100%)'></div><div style='display:flex;justify-content:space-between'><span>dark: noise 0.0017 or less (sure)</span><span>bright: 0.0172 or more (least sure)</span></div><div style='margin-top:4px'>The noise is in methylation (0 to 1). Each doubling of the draws dims every site by the same step, so what stays lit longest is where the atlas is least sure. Charcoal: no site there, or the X and Y hidden.</div>",
+     "hint": "Slide right to average more draws: sure sites go dark first; the least sure stay lit to the end.",
+     "fixed": "How sure the atlas is at each site: the noise left in an average of k draws. Median spread 0.0033 on the autosomes, 0.0103 on the X and Y.",
      "labels": [
       "1 draw averaged",
       "2 draws averaged",
@@ -77,24 +104,45 @@
       "64 draws averaged",
       "100 draws averaged"
      ],
-     "notes": [
-      "On average 0.0042 from the 100-draw map.",
-      "On average 0.0029 from the 100-draw map.",
-      "On average 0.0021 from the 100-draw map.",
-      "On average 0.0014 from the 100-draw map.",
-      "On average 0.0010 from the 100-draw map.",
-      "On average 0.0006 from the 100-draw map.",
-      "On average 0.0003 from the 100-draw map.",
-      "On average 0.0000 from the 100-draw map."
+     "note": "Each frame is the site's posterior spread (from the atlas's 95 % range) over the square root of the number of draws averaged. The X and Y stay lit longest: the atlas's donors are women and men, and a woman holds one X methylated.",
+     "src": null,
+     "base": null
+    },
+    {
+     "name": "how sure the atlas is, X and Y hidden",
+     "kind": "steps",
+     "srcs": [
+      "a25",
+      "a26",
+      "a27",
+      "a28",
+      "a29",
+      "a30",
+      "a31",
+      "a32"
      ],
-     "note": "Red: this average sits above the 100-draw map; blue: below; dark: they agree (scale +/-0.01). Each doubling of the draws cuts the noise by about the square root of 2.",
+     "key_html": "<b>Color key</b><div style='height:12px;margin:4px 0;border:1px solid #555;background:linear-gradient(to right, rgb(0,0,3) 0%, rgb(22,11,57) 10%, rgb(65,9,103) 20%, rgb(106,23,110) 30%, rgb(147,37,103) 40%, rgb(187,55,84) 50%, rgb(220,80,57) 60%, rgb(243,119,25) 70%, rgb(251,164,10) 80%, rgb(245,215,69) 90%, rgb(252,254,164) 100%)'></div><div style='display:flex;justify-content:space-between'><span>dark: noise 0.0017 or less (sure)</span><span>bright: 0.0172 or more (least sure)</span></div><div style='margin-top:4px'>The noise is in methylation (0 to 1). Each doubling of the draws dims every site by the same step, so what stays lit longest is where the atlas is least sure. Charcoal: no site there, or the X and Y hidden.</div>",
+     "hint": "Slide right to average more draws: sure sites go dark first; the least sure stay lit to the end.",
+     "fixed": "How sure the atlas is at each site: the noise left in an average of k draws. Median spread 0.0033 on the autosomes, 0.0103 on the X and Y.",
+     "labels": [
+      "1 draw averaged",
+      "2 draws averaged",
+      "4 draws averaged",
+      "8 draws averaged",
+      "16 draws averaged",
+      "32 draws averaged",
+      "64 draws averaged",
+      "100 draws averaged"
+     ],
+     "note": "Each frame is the site's posterior spread (from the atlas's 95 % range) over the square root of the number of draws averaged. With the X and Y hidden, the rest of the genome is easier to read.",
      "src": null,
      "base": null
     },
     {
      "name": "the atlas's best value (100 draws)",
      "kind": "image",
-     "src": "a17",
+     "src": "a33",
+     "key_css": null,
      "note": "The mean of all 100 draws, 0 to 1: the atlas's map of this cell.",
      "base": null
     }
@@ -104,18 +152,21 @@
    "name": "b cells",
    "layers": [
     {
-     "name": "the noise, as more draws are averaged",
+     "name": "how sure the atlas is, every site",
      "kind": "steps",
      "srcs": [
-      "a18",
-      "a19",
-      "a20",
-      "a21",
-      "a22",
-      "a23",
-      "a24",
-      "a25"
+      "a34",
+      "a35",
+      "a36",
+      "a37",
+      "a38",
+      "a39",
+      "a40",
+      "a41"
      ],
+     "key_html": "<b>Color key</b><div style='height:12px;margin:4px 0;border:1px solid #555;background:linear-gradient(to right, rgb(0,0,3) 0%, rgb(22,11,57) 10%, rgb(65,9,103) 20%, rgb(106,23,110) 30%, rgb(147,37,103) 40%, rgb(187,55,84) 50%, rgb(220,80,57) 60%, rgb(243,119,25) 70%, rgb(251,164,10) 80%, rgb(245,215,69) 90%, rgb(252,254,164) 100%)'></div><div style='display:flex;justify-content:space-between'><span>dark: noise 0.0017 or less (sure)</span><span>bright: 0.0172 or more (least sure)</span></div><div style='margin-top:4px'>The noise is in methylation (0 to 1). Each doubling of the draws dims every site by the same step, so what stays lit longest is where the atlas is least sure. Charcoal: no site there, or the X and Y hidden.</div>",
+     "hint": "Slide right to average more draws: sure sites go dark first; the least sure stay lit to the end.",
+     "fixed": "How sure the atlas is at each site: the noise left in an average of k draws. Median spread 0.0044 on the autosomes, 0.0114 on the X and Y.",
      "labels": [
       "1 draw averaged",
       "2 draws averaged",
@@ -126,24 +177,45 @@
       "64 draws averaged",
       "100 draws averaged"
      ],
-     "notes": [
-      "On average 0.0050 from the 100-draw map.",
-      "On average 0.0035 from the 100-draw map.",
-      "On average 0.0025 from the 100-draw map.",
-      "On average 0.0017 from the 100-draw map.",
-      "On average 0.0011 from the 100-draw map.",
-      "On average 0.0007 from the 100-draw map.",
-      "On average 0.0004 from the 100-draw map.",
-      "On average 0.0000 from the 100-draw map."
+     "note": "Each frame is the site's posterior spread (from the atlas's 95 % range) over the square root of the number of draws averaged. The X and Y stay lit longest: the atlas's donors are women and men, and a woman holds one X methylated.",
+     "src": null,
+     "base": null
+    },
+    {
+     "name": "how sure the atlas is, X and Y hidden",
+     "kind": "steps",
+     "srcs": [
+      "a42",
+      "a43",
+      "a44",
+      "a45",
+      "a46",
+      "a47",
+      "a48",
+      "a49"
      ],
-     "note": "Red: this average sits above the 100-draw map; blue: below; dark: they agree (scale +/-0.01). Each doubling of the draws cuts the noise by about the square root of 2.",
+     "key_html": "<b>Color key</b><div style='height:12px;margin:4px 0;border:1px solid #555;background:linear-gradient(to right, rgb(0,0,3) 0%, rgb(22,11,57) 10%, rgb(65,9,103) 20%, rgb(106,23,110) 30%, rgb(147,37,103) 40%, rgb(187,55,84) 50%, rgb(220,80,57) 60%, rgb(243,119,25) 70%, rgb(251,164,10) 80%, rgb(245,215,69) 90%, rgb(252,254,164) 100%)'></div><div style='display:flex;justify-content:space-between'><span>dark: noise 0.0017 or less (sure)</span><span>bright: 0.0172 or more (least sure)</span></div><div style='margin-top:4px'>The noise is in methylation (0 to 1). Each doubling of the draws dims every site by the same step, so what stays lit longest is where the atlas is least sure. Charcoal: no site there, or the X and Y hidden.</div>",
+     "hint": "Slide right to average more draws: sure sites go dark first; the least sure stay lit to the end.",
+     "fixed": "How sure the atlas is at each site: the noise left in an average of k draws. Median spread 0.0044 on the autosomes, 0.0114 on the X and Y.",
+     "labels": [
+      "1 draw averaged",
+      "2 draws averaged",
+      "4 draws averaged",
+      "8 draws averaged",
+      "16 draws averaged",
+      "32 draws averaged",
+      "64 draws averaged",
+      "100 draws averaged"
+     ],
+     "note": "Each frame is the site's posterior spread (from the atlas's 95 % range) over the square root of the number of draws averaged. With the X and Y hidden, the rest of the genome is easier to read.",
      "src": null,
      "base": null
     },
     {
      "name": "the atlas's best value (100 draws)",
      "kind": "image",
-     "src": "a26",
+     "src": "a50",
+     "key_css": null,
      "note": "The mean of all 100 draws, 0 to 1: the atlas's map of this cell.",
      "base": null
     }
@@ -153,18 +225,21 @@
    "name": "cd4 t cells",
    "layers": [
     {
-     "name": "the noise, as more draws are averaged",
+     "name": "how sure the atlas is, every site",
      "kind": "steps",
      "srcs": [
-      "a27",
-      "a28",
-      "a29",
-      "a30",
-      "a31",
-      "a32",
-      "a33",
-      "a16"
+      "a51",
+      "a52",
+      "a53",
+      "a54",
+      "a55",
+      "a56",
+      "a57",
+      "a58"
      ],
+     "key_html": "<b>Color key</b><div style='height:12px;margin:4px 0;border:1px solid #555;background:linear-gradient(to right, rgb(0,0,3) 0%, rgb(22,11,57) 10%, rgb(65,9,103) 20%, rgb(106,23,110) 30%, rgb(147,37,103) 40%, rgb(187,55,84) 50%, rgb(220,80,57) 60%, rgb(243,119,25) 70%, rgb(251,164,10) 80%, rgb(245,215,69) 90%, rgb(252,254,164) 100%)'></div><div style='display:flex;justify-content:space-between'><span>dark: noise 0.0017 or less (sure)</span><span>bright: 0.0172 or more (least sure)</span></div><div style='margin-top:4px'>The noise is in methylation (0 to 1). Each doubling of the draws dims every site by the same step, so what stays lit longest is where the atlas is least sure. Charcoal: no site there, or the X and Y hidden.</div>",
+     "hint": "Slide right to average more draws: sure sites go dark first; the least sure stay lit to the end.",
+     "fixed": "How sure the atlas is at each site: the noise left in an average of k draws. Median spread 0.0042 on the autosomes, 0.0111 on the X and Y.",
      "labels": [
       "1 draw averaged",
       "2 draws averaged",
@@ -175,24 +250,45 @@
       "64 draws averaged",
       "100 draws averaged"
      ],
-     "notes": [
-      "On average 0.0047 from the 100-draw map.",
-      "On average 0.0033 from the 100-draw map.",
-      "On average 0.0024 from the 100-draw map.",
-      "On average 0.0016 from the 100-draw map.",
-      "On average 0.0011 from the 100-draw map.",
-      "On average 0.0007 from the 100-draw map.",
-      "On average 0.0004 from the 100-draw map.",
-      "On average 0.0000 from the 100-draw map."
+     "note": "Each frame is the site's posterior spread (from the atlas's 95 % range) over the square root of the number of draws averaged. The X and Y stay lit longest: the atlas's donors are women and men, and a woman holds one X methylated.",
+     "src": null,
+     "base": null
+    },
+    {
+     "name": "how sure the atlas is, X and Y hidden",
+     "kind": "steps",
+     "srcs": [
+      "a59",
+      "a60",
+      "a61",
+      "a62",
+      "a63",
+      "a64",
+      "a65",
+      "a66"
      ],
-     "note": "Red: this average sits above the 100-draw map; blue: below; dark: they agree (scale +/-0.01). Each doubling of the draws cuts the noise by about the square root of 2.",
+     "key_html": "<b>Color key</b><div style='height:12px;margin:4px 0;border:1px solid #555;background:linear-gradient(to right, rgb(0,0,3) 0%, rgb(22,11,57) 10%, rgb(65,9,103) 20%, rgb(106,23,110) 30%, rgb(147,37,103) 40%, rgb(187,55,84) 50%, rgb(220,80,57) 60%, rgb(243,119,25) 70%, rgb(251,164,10) 80%, rgb(245,215,69) 90%, rgb(252,254,164) 100%)'></div><div style='display:flex;justify-content:space-between'><span>dark: noise 0.0017 or less (sure)</span><span>bright: 0.0172 or more (least sure)</span></div><div style='margin-top:4px'>The noise is in methylation (0 to 1). Each doubling of the draws dims every site by the same step, so what stays lit longest is where the atlas is least sure. Charcoal: no site there, or the X and Y hidden.</div>",
+     "hint": "Slide right to average more draws: sure sites go dark first; the least sure stay lit to the end.",
+     "fixed": "How sure the atlas is at each site: the noise left in an average of k draws. Median spread 0.0042 on the autosomes, 0.0111 on the X and Y.",
+     "labels": [
+      "1 draw averaged",
+      "2 draws averaged",
+      "4 draws averaged",
+      "8 draws averaged",
+      "16 draws averaged",
+      "32 draws averaged",
+      "64 draws averaged",
+      "100 draws averaged"
+     ],
+     "note": "Each frame is the site's posterior spread (from the atlas's 95 % range) over the square root of the number of draws averaged. With the X and Y hidden, the rest of the genome is easier to read.",
      "src": null,
      "base": null
     },
     {
      "name": "the atlas's best value (100 draws)",
      "kind": "image",
-     "src": "a34",
+     "src": "a67",
+     "key_css": null,
      "note": "The mean of all 100 draws, 0 to 1: the atlas's map of this cell.",
      "base": null
     }
@@ -202,18 +298,21 @@
    "name": "cd8 t cells",
    "layers": [
     {
-     "name": "the noise, as more draws are averaged",
+     "name": "how sure the atlas is, every site",
      "kind": "steps",
      "srcs": [
-      "a35",
-      "a36",
-      "a37",
-      "a38",
-      "a39",
-      "a40",
-      "a41",
-      "a16"
+      "a68",
+      "a69",
+      "a70",
+      "a71",
+      "a72",
+      "a73",
+      "a74",
+      "a75"
      ],
+     "key_html": "<b>Color key</b><div style='height:12px;margin:4px 0;border:1px solid #555;background:linear-gradient(to right, rgb(0,0,3) 0%, rgb(22,11,57) 10%, rgb(65,9,103) 20%, rgb(106,23,110) 30%, rgb(147,37,103) 40%, rgb(187,55,84) 50%, rgb(220,80,57) 60%, rgb(243,119,25) 70%, rgb(251,164,10) 80%, rgb(245,215,69) 90%, rgb(252,254,164) 100%)'></div><div style='display:flex;justify-content:space-between'><span>dark: noise 0.0017 or less (sure)</span><span>bright: 0.0172 or more (least sure)</span></div><div style='margin-top:4px'>The noise is in methylation (0 to 1). Each doubling of the draws dims every site by the same step, so what stays lit longest is where the atlas is least sure. Charcoal: no site there, or the X and Y hidden.</div>",
+     "hint": "Slide right to average more draws: sure sites go dark first; the least sure stay lit to the end.",
+     "fixed": "How sure the atlas is at each site: the noise left in an average of k draws. Median spread 0.0050 on the autosomes, 0.0128 on the X and Y.",
      "labels": [
       "1 draw averaged",
       "2 draws averaged",
@@ -224,24 +323,45 @@
       "64 draws averaged",
       "100 draws averaged"
      ],
-     "notes": [
-      "On average 0.0058 from the 100-draw map.",
-      "On average 0.0041 from the 100-draw map.",
-      "On average 0.0029 from the 100-draw map.",
-      "On average 0.0020 from the 100-draw map.",
-      "On average 0.0013 from the 100-draw map.",
-      "On average 0.0009 from the 100-draw map.",
-      "On average 0.0004 from the 100-draw map.",
-      "On average 0.0000 from the 100-draw map."
+     "note": "Each frame is the site's posterior spread (from the atlas's 95 % range) over the square root of the number of draws averaged. The X and Y stay lit longest: the atlas's donors are women and men, and a woman holds one X methylated.",
+     "src": null,
+     "base": null
+    },
+    {
+     "name": "how sure the atlas is, X and Y hidden",
+     "kind": "steps",
+     "srcs": [
+      "a76",
+      "a77",
+      "a78",
+      "a79",
+      "a80",
+      "a81",
+      "a82",
+      "a83"
      ],
-     "note": "Red: this average sits above the 100-draw map; blue: below; dark: they agree (scale +/-0.01). Each doubling of the draws cuts the noise by about the square root of 2.",
+     "key_html": "<b>Color key</b><div style='height:12px;margin:4px 0;border:1px solid #555;background:linear-gradient(to right, rgb(0,0,3) 0%, rgb(22,11,57) 10%, rgb(65,9,103) 20%, rgb(106,23,110) 30%, rgb(147,37,103) 40%, rgb(187,55,84) 50%, rgb(220,80,57) 60%, rgb(243,119,25) 70%, rgb(251,164,10) 80%, rgb(245,215,69) 90%, rgb(252,254,164) 100%)'></div><div style='display:flex;justify-content:space-between'><span>dark: noise 0.0017 or less (sure)</span><span>bright: 0.0172 or more (least sure)</span></div><div style='margin-top:4px'>The noise is in methylation (0 to 1). Each doubling of the draws dims every site by the same step, so what stays lit longest is where the atlas is least sure. Charcoal: no site there, or the X and Y hidden.</div>",
+     "hint": "Slide right to average more draws: sure sites go dark first; the least sure stay lit to the end.",
+     "fixed": "How sure the atlas is at each site: the noise left in an average of k draws. Median spread 0.0050 on the autosomes, 0.0128 on the X and Y.",
+     "labels": [
+      "1 draw averaged",
+      "2 draws averaged",
+      "4 draws averaged",
+      "8 draws averaged",
+      "16 draws averaged",
+      "32 draws averaged",
+      "64 draws averaged",
+      "100 draws averaged"
+     ],
+     "note": "Each frame is the site's posterior spread (from the atlas's 95 % range) over the square root of the number of draws averaged. With the X and Y hidden, the rest of the genome is easier to read.",
      "src": null,
      "base": null
     },
     {
      "name": "the atlas's best value (100 draws)",
      "kind": "image",
-     "src": "a42",
+     "src": "a84",
+     "key_css": null,
      "note": "The mean of all 100 draws, 0 to 1: the atlas's map of this cell.",
      "base": null
     }
@@ -251,18 +371,21 @@
    "name": "nk cells",
    "layers": [
     {
-     "name": "the noise, as more draws are averaged",
+     "name": "how sure the atlas is, every site",
      "kind": "steps",
      "srcs": [
-      "a43",
-      "a44",
-      "a45",
-      "a46",
-      "a47",
-      "a48",
-      "a49",
-      "a16"
+      "a85",
+      "a86",
+      "a87",
+      "a88",
+      "a89",
+      "a90",
+      "a91",
+      "a92"
      ],
+     "key_html": "<b>Color key</b><div style='height:12px;margin:4px 0;border:1px solid #555;background:linear-gradient(to right, rgb(0,0,3) 0%, rgb(22,11,57) 10%, rgb(65,9,103) 20%, rgb(106,23,110) 30%, rgb(147,37,103) 40%, rgb(187,55,84) 50%, rgb(220,80,57) 60%, rgb(243,119,25) 70%, rgb(251,164,10) 80%, rgb(245,215,69) 90%, rgb(252,254,164) 100%)'></div><div style='display:flex;justify-content:space-between'><span>dark: noise 0.0017 or less (sure)</span><span>bright: 0.0172 or more (least sure)</span></div><div style='margin-top:4px'>The noise is in methylation (0 to 1). Each doubling of the draws dims every site by the same step, so what stays lit longest is where the atlas is least sure. Charcoal: no site there, or the X and Y hidden.</div>",
+     "hint": "Slide right to average more draws: sure sites go dark first; the least sure stay lit to the end.",
+     "fixed": "How sure the atlas is at each site: the noise left in an average of k draws. Median spread 0.0060 on the autosomes, 0.0171 on the X and Y.",
      "labels": [
       "1 draw averaged",
       "2 draws averaged",
@@ -273,31 +396,52 @@
       "64 draws averaged",
       "100 draws averaged"
      ],
-     "notes": [
-      "On average 0.0069 from the 100-draw map.",
-      "On average 0.0049 from the 100-draw map.",
-      "On average 0.0034 from the 100-draw map.",
-      "On average 0.0024 from the 100-draw map.",
-      "On average 0.0016 from the 100-draw map.",
-      "On average 0.0010 from the 100-draw map.",
-      "On average 0.0005 from the 100-draw map.",
-      "On average 0.0000 from the 100-draw map."
+     "note": "Each frame is the site's posterior spread (from the atlas's 95 % range) over the square root of the number of draws averaged. The X and Y stay lit longest: the atlas's donors are women and men, and a woman holds one X methylated.",
+     "src": null,
+     "base": null
+    },
+    {
+     "name": "how sure the atlas is, X and Y hidden",
+     "kind": "steps",
+     "srcs": [
+      "a93",
+      "a94",
+      "a95",
+      "a96",
+      "a97",
+      "a98",
+      "a99",
+      "a100"
      ],
-     "note": "Red: this average sits above the 100-draw map; blue: below; dark: they agree (scale +/-0.01). Each doubling of the draws cuts the noise by about the square root of 2.",
+     "key_html": "<b>Color key</b><div style='height:12px;margin:4px 0;border:1px solid #555;background:linear-gradient(to right, rgb(0,0,3) 0%, rgb(22,11,57) 10%, rgb(65,9,103) 20%, rgb(106,23,110) 30%, rgb(147,37,103) 40%, rgb(187,55,84) 50%, rgb(220,80,57) 60%, rgb(243,119,25) 70%, rgb(251,164,10) 80%, rgb(245,215,69) 90%, rgb(252,254,164) 100%)'></div><div style='display:flex;justify-content:space-between'><span>dark: noise 0.0017 or less (sure)</span><span>bright: 0.0172 or more (least sure)</span></div><div style='margin-top:4px'>The noise is in methylation (0 to 1). Each doubling of the draws dims every site by the same step, so what stays lit longest is where the atlas is least sure. Charcoal: no site there, or the X and Y hidden.</div>",
+     "hint": "Slide right to average more draws: sure sites go dark first; the least sure stay lit to the end.",
+     "fixed": "How sure the atlas is at each site: the noise left in an average of k draws. Median spread 0.0060 on the autosomes, 0.0171 on the X and Y.",
+     "labels": [
+      "1 draw averaged",
+      "2 draws averaged",
+      "4 draws averaged",
+      "8 draws averaged",
+      "16 draws averaged",
+      "32 draws averaged",
+      "64 draws averaged",
+      "100 draws averaged"
+     ],
+     "note": "Each frame is the site's posterior spread (from the atlas's 95 % range) over the square root of the number of draws averaged. With the X and Y hidden, the rest of the genome is easier to read.",
      "src": null,
      "base": null
     },
     {
      "name": "the atlas's best value (100 draws)",
      "kind": "image",
-     "src": "a50",
+     "src": "a101",
+     "key_css": null,
      "note": "The mean of all 100 draws, 0 to 1: the atlas's map of this cell.",
      "base": null
     }
    ]
   }
  ],
- "about": "IAM-Atlas v2.1 was fitted the way a sky map is: every site carries 100 equally likely versions of each cell's healthy map (posterior draws, Zenodo 10.5281/zenodo.23422688). Any one draw is speckled with noise; averaging more draws beats it down, about as one over the square root of their number, which is how the microwave sky's noise is beaten down by more observing. Slide from 1 draw to 100 and watch the speckle fade; what stays bright longest is where the atlas is least sure. Draws are taken in turn from the fit's four sampling chains.",
+ "about": "IAM-Atlas v2.1 was fitted the way a sky map is: every site carries 100 equally likely versions of each cell's healthy map (posterior draws, Zenodo 10.5281/zenodo.23422688). Averaging more draws beats the noise down, about as one over the square root of their number, which is how the microwave sky's noise is beaten down by more observing. Slide from 1 draw to 100: sure places go dark first, and what stays lit longest is where the atlas is least sure. Why it is here: before trusting a change a sample shows against the atlas, check that the atlas is sure at that place.",
  "assets": {
   "a0": "../art/explorer/noise_001.jpg",
   "a1": "../art/explorer/noise_002.jpg",
@@ -349,6 +493,57 @@
   "a47": "../art/explorer/noise_048.jpg",
   "a48": "../art/explorer/noise_049.jpg",
   "a49": "../art/explorer/noise_050.jpg",
-  "a50": "../art/explorer/noise_051.jpg"
+  "a50": "../art/explorer/noise_051.jpg",
+  "a51": "../art/explorer/noise_052.jpg",
+  "a52": "../art/explorer/noise_053.jpg",
+  "a53": "../art/explorer/noise_054.jpg",
+  "a54": "../art/explorer/noise_055.jpg",
+  "a55": "../art/explorer/noise_056.jpg",
+  "a56": "../art/explorer/noise_057.jpg",
+  "a57": "../art/explorer/noise_058.jpg",
+  "a58": "../art/explorer/noise_059.jpg",
+  "a59": "../art/explorer/noise_060.jpg",
+  "a60": "../art/explorer/noise_061.jpg",
+  "a61": "../art/explorer/noise_062.jpg",
+  "a62": "../art/explorer/noise_063.jpg",
+  "a63": "../art/explorer/noise_064.jpg",
+  "a64": "../art/explorer/noise_065.jpg",
+  "a65": "../art/explorer/noise_066.jpg",
+  "a66": "../art/explorer/noise_067.jpg",
+  "a67": "../art/explorer/noise_068.jpg",
+  "a68": "../art/explorer/noise_069.jpg",
+  "a69": "../art/explorer/noise_070.jpg",
+  "a70": "../art/explorer/noise_071.jpg",
+  "a71": "../art/explorer/noise_072.jpg",
+  "a72": "../art/explorer/noise_073.jpg",
+  "a73": "../art/explorer/noise_074.jpg",
+  "a74": "../art/explorer/noise_075.jpg",
+  "a75": "../art/explorer/noise_076.jpg",
+  "a76": "../art/explorer/noise_077.jpg",
+  "a77": "../art/explorer/noise_078.jpg",
+  "a78": "../art/explorer/noise_079.jpg",
+  "a79": "../art/explorer/noise_080.jpg",
+  "a80": "../art/explorer/noise_081.jpg",
+  "a81": "../art/explorer/noise_082.jpg",
+  "a82": "../art/explorer/noise_083.jpg",
+  "a83": "../art/explorer/noise_084.jpg",
+  "a84": "../art/explorer/noise_085.jpg",
+  "a85": "../art/explorer/noise_086.jpg",
+  "a86": "../art/explorer/noise_087.jpg",
+  "a87": "../art/explorer/noise_088.jpg",
+  "a88": "../art/explorer/noise_089.jpg",
+  "a89": "../art/explorer/noise_090.jpg",
+  "a90": "../art/explorer/noise_091.jpg",
+  "a91": "../art/explorer/noise_092.jpg",
+  "a92": "../art/explorer/noise_093.jpg",
+  "a93": "../art/explorer/noise_094.jpg",
+  "a94": "../art/explorer/noise_095.jpg",
+  "a95": "../art/explorer/noise_096.jpg",
+  "a96": "../art/explorer/noise_097.jpg",
+  "a97": "../art/explorer/noise_098.jpg",
+  "a98": "../art/explorer/noise_099.jpg",
+  "a99": "../art/explorer/noise_100.jpg",
+  "a100": "../art/explorer/noise_101.jpg",
+  "a101": "../art/explorer/noise_102.jpg"
  }
 }

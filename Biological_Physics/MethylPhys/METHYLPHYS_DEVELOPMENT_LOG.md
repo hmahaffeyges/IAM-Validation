@@ -2939,3 +2939,6 @@ In breast and liver, a tumor against its own normal lights about three times wha
 
 ### 2026-10-21 · The mouse alignment on GitHub: the memory limit found (OTH-076)
 The live memory log showed the reference index build fits a GitHub machine (8.9 GB at its peak, about two hours), but the bisulfite aligner with 4 threads rose to 15.8 GB of the machine's 16 GB, and GitHub stopped it. Rerun with 1 thread; if it still does not fit, the mouse reproduction is a job for AWS.
+
+### 2026-10-21 · The noise globe shows how sure the atlas is (ATL-063)
+Redrawn so the least certain sites stay lit longest: each frame is a site's spread over the square root of the draws averaged, on one log scale. From 1 draw to 100, the share of the globe still lit falls from 62 % to 0.6 %; the X and Y stay lit longest, where the atlas is about three times less sure than elsewhere because its donors are women and men. A layer with the X and Y hidden and a color key were added.

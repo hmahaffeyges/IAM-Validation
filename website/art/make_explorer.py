@@ -1,3 +1,4 @@
+import numpy as np
 """The Globe Explorer's globes beyond the atlas (2026-10-21, to-do step 28; author: "the webpage to show ALL the versions").
 Writes website/art/out/explorer/<id>.json (a globe spec, chain/MethylPhys_Interface/globe_viewer.py) and its pictures beside it:
   purified   Met-A's own healthy reference: the purified-array group profiles at its 6,000 neutrophil identity sites
@@ -33,30 +34,37 @@ def purified():
     return spec
 
 def noise(d):
-    """The noise maps (atlas/tools/noise_maps_v21.py combine, run on the public posterior draws): per blood cell, the noise itself (the k-draw map
-    minus the 100-draw map, dark where the draws agree) as a slider over k, and the atlas's best value."""
+    """The noise maps of IAM-Atlas v2.1 (atlas/tools/noise_maps_v21.py): per blood cell, how sure the atlas is at every site, as the noise left
+    in an average of k draws (the site's posterior spread over the square root of k, on one log scale), with every site and with the X and Y
+    hidden; and the atlas's best value. Rebuilt 2026-10-21 (author: "make it stay lighter longer if it is less certain"): the earlier frames,
+    each k-draw average minus the 100-draw average, faded every site at the same rate."""
     import base64
-    J = json.load(open(os.path.join(d, "noise.json"))); K = J["k"]; groups = []
+    J = json.load(open(os.path.join(d, "noise.json"))); U = json.load(open(os.path.join(d, "uncertainty.json"))); K = U["k"]; groups = []
     b64 = lambda f: "data:image/jpeg;base64," + base64.b64encode(open(os.path.join(d, f), "rb").read()).decode()
-    for cell in J["cells"]:
-        c = cell.replace(" ", "_"); st = J["settle"][cell]
-        groups.append(dict(name=cell, layers=[
-            dict(name="the noise, as more draws are averaged", kind="steps", srcs=[b64(f"resid_{c}_k{k}.jpg") for k in K],
-                 hint="Slide right to average more draws: the noise fades until the globe goes dark, where every draw agrees. Slide left for fewer draws and more noise.",
-                 fixed="What stays bright longest is where the atlas is least sure: a difference a sample shows there deserves the least trust.",
+    from matplotlib import colormaps
+    cm = colormaps["inferno"]; css = "linear-gradient(to right, " + ", ".join(f"rgb({int(255*cm(t)[0])},{int(255*cm(t)[1])},{int(255*cm(t)[2])}) {int(100*t)}%" for t in np.linspace(0, 1, 11)) + ")"
+    key = ("<b>Color key</b><div style='height:12px;margin:4px 0;border:1px solid #555;background:" + css + "'></div><div style='display:flex;justify-content:space-between'>"
+           f"<span>dark: noise {U['scale']/10:.4f} or less (sure)</span><span>bright: {U['scale']:.4f} or more (least sure)</span></div>"
+           "<div style='margin-top:4px'>The noise is in methylation (0 to 1). Each doubling of the draws dims every site by the same step, so what stays lit "
+           "longest is where the atlas is least sure. Charcoal: no site there, or the X and Y hidden.</div>")
+    for cell in U["cells"]:
+        c = cell.replace(" ", "_"); m, mx = U["median_spread"][cell], U["xy_median_spread"][cell]
+        lay = lambda tag, nm, extra: dict(name=nm, kind="steps", srcs=[b64(f"unc_{c}{tag}_k{k}.jpg") for k in K], key_html=key,
+                 hint="Slide right to average more draws: sure sites go dark first; the least sure stay lit to the end.",
+                 fixed=f"How sure the atlas is at each site: the noise left in an average of k draws. Median spread {m:.4f} on the autosomes, {mx:.4f} on the X and Y.",
                  labels=[f"{k} draw{'s' if k > 1 else ''} averaged" for k in K],
-                 notes=[f"On average {st[str(k)]:.4f} from the 100-draw map." for k in K],
-                 note=(f"Red: this average sits above the 100-draw map; blue: below; dark: they agree (scale +/-{J['residual_scale']}). "
-                       "Each doubling of the draws cuts the noise by about the square root of 2.")),
-            dict(name="the atlas's best value (100 draws)", kind="image", src=b64(f"noise_{c}_k100.jpg"),
+                 note="Each frame is the site's posterior spread (from the atlas's 95 % range) over the square root of the number of draws averaged. " + extra)
+        groups.append(dict(name=cell, layers=[
+            lay("", "how sure the atlas is, every site", "The X and Y stay lit longest: the atlas's donors are women and men, and a woman holds one X methylated."),
+            lay("_noXY", "how sure the atlas is, X and Y hidden", "With the X and Y hidden, the rest of the genome is easier to read."),
+            dict(name="the atlas's best value (100 draws)", kind="image", src=b64(f"noise_{c}_k100.jpg"), key_css=None,
                  note="The mean of all 100 draws, 0 to 1: the atlas's map of this cell.")]))
     about = ("IAM-Atlas v2.1 was fitted the way a sky map is: every site carries 100 equally likely versions of each cell's healthy map (posterior "
-             f"draws, Zenodo {J['record']}). Any one draw is speckled with noise; averaging more draws beats it down, about as one over the square "
-             "root of their number, which is how the microwave sky's noise is beaten down by more observing. Slide from 1 draw to 100 and watch the "
-             "speckle fade; what stays bright longest is where the atlas is least sure. Draws are taken in turn from the fit's four sampling chains. "
-             "Why it is here: every value on the atlas globe is an average of many equally likely healthy maps, and this is how sure that average is. "
-             "When to use it: before trusting a change a sample shows against the atlas, check that the atlas is sure at that place.")
-    return V.dedupe(dict(id="noise", name="The atlas's noise, beaten down by averaging", groups=groups, about=about))
+             f"draws, Zenodo {J['record']}). Averaging more draws beats the noise down, about as one over the square root of their number, which is "
+             "how the microwave sky's noise is beaten down by more observing. Slide from 1 draw to 100: sure places go dark first, and what stays lit "
+             "longest is where the atlas is least sure. Why it is here: before trusting a change a sample shows against the atlas, check that the atlas "
+             "is sure at that place.")
+    return V.dedupe(dict(id="noise", name="How sure the atlas is: its noise, beaten down by averaging", groups=groups, about=about))
 
 def sample(sid, title, betas, bundle, planted=False):
     import conductor_v3 as C

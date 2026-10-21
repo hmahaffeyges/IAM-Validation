@@ -87,5 +87,40 @@ def combine(d, out):
         print(cell, info["settle"][cell], flush=True)
     json.dump(info, open(os.path.join(out, "noise.json"), "w"), indent=1)
 
+UNC_K = [1, 2, 4, 8, 16, 32, 64, 100]
+
+def uncertainty(out):
+    """2026-10-21 (author: "make it stay lighter longer if it is less certain"): per blood cell, the noise expected in an average of k draws at
+    every site, the site's posterior spread over the square root of k (spread = the atlas's committed 95 % range / 3.92; draws treated as
+    independent, so this is the smallest the noise can be). One fixed scale for every frame and cell (the 95th percentile of the spread over
+    the autosomes) on a log scale from S/10 (dark) to S (full): every doubling of the draws dims every site by the same step, so a sure
+    site falls below the dark line early and an unsure one stays lit to the end (an even scale only dims all sites together). Each cell twice: every
+    site, and the X and Y hidden (the atlas is least sure there because its donors are women and men). Light: built from the committed atlas,
+    no draws needed. Writes unc_{cell}_k{k}.jpg, unc_{cell}_noXY_k{k}.jpg and uncertainty.json."""
+    import json as _j
+    from PIL import Image
+    from matplotlib import colormaps
+    sys.path[:0] = [os.path.join(R, "Biological_Physics", "MethylPhys", "chain", "MethylPhys_Interface")]
+    import report_globe_v4 as G, pyarrow.parquet as pq
+    os.makedirs(out, exist_ok=True)
+    ids = np.array(pq.read_table(os.path.join(G.ATLAS, "sites.parquet")).column("cpg").to_pylist(), dtype=object)
+    O = np.load(G.ORDER); order = O["order"]; nside = int(O["nside"]); npix = 12 * nside * nside; look = G._lookup(nside)
+    xy = np.isin(ids, list(G.sex_sites())); lo, hi = G._mu(CELLS, "mu_lo"), G._mu(CELLS, "mu_hi")
+    SD = {c: (hi[c] - lo[c]) / 3.92 for c in CELLS}; S = float(np.nanpercentile(np.concatenate([SD[c][~xy] for c in CELLS]), 95))
+    cm = colormaps["inferno"]; info = dict(k=UNC_K, cells=list(CELLS), scale=round(S, 5), source="atlas/tools/noise_maps_v21.py uncertainty",
+                                          rule="noise in a k-draw average = the site's posterior spread / sqrt(k); spread = (mu_hi - mu_lo) / 3.92; drawn on a log scale, dark at scale/10, full at scale", median_spread={}, xy_median_spread={})
+    for c in CELLS:
+        info["median_spread"][c] = round(float(np.nanmedian(SD[c][~xy])), 5); info["xy_median_spread"][c] = round(float(np.nanmedian(SD[c][xy])), 5)
+        for hide, tag in ((False, ""), (True, "_noXY")):
+            v = SD[c].copy()
+            if hide: v[xy] = np.nan
+            for k in UNC_K:
+                m = G._to_sky((v / np.sqrt(k))[order], npix)[look].reshape(G.HT, G.W); z = np.clip((np.log10(np.maximum(np.nan_to_num(m, nan=0), 1e-9)) - np.log10(S / 10)), 0, 1)   # log scale: S lights fully, S/10 and below dark
+                y = (cm(z)[..., :3] * 255).astype(np.uint8); y[~np.isfinite(m)] = (42, 45, 51)
+                Image.fromarray(y).save(os.path.join(out, f"unc_{c.replace(' ', '_')}{tag}_k{k}.jpg"), quality=78, optimize=True, progressive=True)
+        print(c, info["median_spread"][c], "X and Y", info["xy_median_spread"][c], flush=True)
+    _j.dump(info, open(os.path.join(out, "uncertainty.json"), "w"), indent=1)
+
 if __name__ == "__main__":
+    if sys.argv[1] == "uncertainty": uncertainty(sys.argv[2]); sys.exit()
     {"block": lambda: block(sys.argv[2], sys.argv[3]), "combine": lambda: combine(sys.argv[2], sys.argv[3])}[sys.argv[1]]()
