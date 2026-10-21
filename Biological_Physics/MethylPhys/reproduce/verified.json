@@ -60,7 +60,16 @@
   "checks_ok": 8,
   "minutes": 110.1,
   "commit": "79a267d2",
-  "job": "results/REPRODUCE_V1/run5/out/metaa_rebuild/verdict.json"
+  "job": "results/REPRODUCE_V1/run5/out/metaa_rebuild/verdict.json",
+  "github": {
+   "verdict": "PASS",
+   "date": "2026-10-21",
+   "checks": 8,
+   "checks_ok": 8,
+   "minutes": 93.2,
+   "commit": "a2ee6b9c",
+   "job": "GitHub Actions reproduce.yml run 39625569255 (verdict in issue 32)"
+  }
  },
  "liver": {
   "verdict": "PASS",
