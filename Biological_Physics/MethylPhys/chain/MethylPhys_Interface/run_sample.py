@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 """run_sample.py - one command: IDAT pair (or a beta table, or single-molecule reads) to a MethylPhys report.
 
-Chain v3 (Met-A on neutrophils, EPIC v1, COMMISSIONED 2026-10-09; every other stage DEVELOPMENT) - the only engine: Stage 0 intake -> Stage 1 IDAT calibration -> conductor_v3
-(platform check, Stage A composition, Stage M Met-A, Stage MC C-score, Stage T same-run tare) -> report_v3, plus Stage Q IAM-A
-when single-molecule input is given.
+Chain v4. Commissioned: Met-A on isolated neutrophils (2026-10-09), the C-Score on whole blood (2026-10-15), IAM-Atlas v2.1 (2026-10-16), the
+IAM-Deconvolver's shares of neutrophils, monocytes, CD4 T and CD8 T cells (2026-10-17), IAM-A on healthy blood CD8 T cells by whole-genome
+bisulfite (2026-10-17) and Group-A (2026-10-20, chain/stage_groupa.py). A reading outside an instrument's commissioned scope is printed and
+labeled preliminary. The order: Stage 0 intake -> Stage 1 IDAT calibration -> conductor_v3 (platform check, Stage T step 1, Stage A, Stage M,
+the noise gate, Stage T step 2, Stage MC) -> Stage D21 cell shares and the sky (stage_v4) -> report_v4, plus Stage Q2 IAM-A when sequencing
+input is given. Every stage, gate and function is explained in the Chain Decoder, manual/OM_v4_decoder.md.
 
     # an Illumina EPIC v1 IDAT pair (needs methylprep for Stage 1); --sex and --age are optional (recorded when given)
     python3 run_sample.py --grn S_Grn.idat.gz --red S_Red.idat.gz --specimen "whole blood" --id S001 --out S001.html
 
-    # specimens: whole blood, isolated / sorted / purified neutrophils. Any other specimen is refused at intake with a report.
+    # specimens: whole blood, buffy coat (whole-blood path, preliminary), isolated / sorted / purified neutrophils, constructed DNA mixtures of
+    # blood cells (test material). Any other specimen is refused at intake with the reason.
     # identifiers: the bundle and the ledger carry the sha256 hash of --id (and of --patient-id); the printed report keeps the typed id.
     # development flags (DEVELOPMENT - not commissioned; written under bundle["development"], never part of the reading):
     #   --dev-direction --dev-trace --dev-foreign --dev-brightness --dev-nilc --dev-atlas-e --dev-percell-b --dev-sky
@@ -138,6 +142,24 @@ def _versions(chain_dir):
                 "stage_1_idat_calibration.py", "MethylPhys_Interface/report_v3.py", "MethylPhys_Interface/run_sample.py"):
         for p in _glob.glob(os.path.join(chain_dir, pat), recursive=True):
             files[os.path.relpath(p, chain_dir)] = {"sha256_12": _sha12(p), "bytes": os.path.getsize(p)}
+    # 2026-10-20 (Chain Decoder finding F2): the list above predates chain v4. Also every chain module this run actually loaded, every file
+    # in Runtime Matrices, the lab-spread file the Deconvolver reads, and IAM-Atlas v2.1 by its manifest (which holds each part's hash; the
+    # 408 MB of parts are checked by size, not re-hashed on every run).
+    import sys as _sys
+    cd = os.path.realpath(chain_dir)
+    for m in list(_sys.modules.values()):
+        f = os.path.realpath(getattr(m, "__file__", "") or "")
+        if f.startswith(cd + os.sep) and f.endswith(".py"): files.setdefault(os.path.relpath(f, cd), {"sha256_12": _sha12(f), "bytes": os.path.getsize(f)})
+    for p in sorted(_glob.glob(os.path.join(chain_dir, "Runtime Matrices", "**", "*"), recursive=True)):
+        if os.path.isfile(p): files.setdefault(os.path.relpath(p, chain_dir), {"sha256_12": _sha12(p), "bytes": os.path.getsize(p)})
+    for rel in (os.path.join("..", "doors", "data", "DEV_ATLAS_V21_01", "transfer_v21_final.json"), os.path.join("..", "atlas", "v2.1", "compact_manifest.json")):
+        p = os.path.join(chain_dir, rel)
+        if os.path.exists(p): files[os.path.normpath(rel)] = {"sha256_12": _sha12(p), "bytes": os.path.getsize(p)}
+    ad = os.path.join(chain_dir, "..", "atlas", "v2.1")
+    if os.path.isdir(ad):
+        parts = sorted(x for x in os.listdir(ad) if x.endswith(".parquet"))
+        files[os.path.normpath(os.path.join("..", "atlas", "v2.1")) + "/*.parquet"] = {"parts": len(parts), "bytes": sum(os.path.getsize(os.path.join(ad, x)) for x in parts),
+                                                                                   "hashes": "in compact_manifest.json"}
     out["inputs"] = files
     return out
 
@@ -207,7 +229,7 @@ def _dev_run(a, o, beta, intake):
 def main():
     ap=argparse.ArgumentParser(description="IDAT pair or beta table -> MethylPhys report")
     ap.add_argument("--grn"); ap.add_argument("--red"); ap.add_argument("--betas")
-    ap.add_argument("--age", type=float, help="declared age in years (optional; recorded when given, read by no v3 stage). Float: records carry 72.0 and 54.5 as readily as 72")
+    ap.add_argument("--age", type=float, help="declared age in years (optional; recorded when given, read by no stage). Float: records carry 72.0 and 54.5 as readily as 72")
     ap.add_argument("--specimen", default="whole blood")
     ap.add_argument("--banner", default=None, help="a statement printed at the top of the report and both PDFs, e.g. that a known change was planted into a real array for an example (2026-10-18)")
     ap.add_argument("--out", default="methylphys_report.html"); ap.add_argument("--id", default=None)
@@ -219,11 +241,11 @@ def main():
     ap.add_argument("--ledger", default=None, help="append one flat row per run to this JSONL evidence ledger; defaults to evidence_ledger.jsonl beside the report")
     ap.add_argument("--sex", default=None, help="declared sex (F/M), optional; when given Stage 0.8 compares it with the array, otherwise the array's sex is recorded")
     ap.add_argument("--patient-id", default=None, help="already-hashed identifier; a cleartext one is hashed here")
-    ap.add_argument("--array-type", default=None, choices=("HM450K", "EPIC_v1", "EPIC_v2"), help="declared array type; omit to take it from the IDAT header (Stage 0.1). v3 reads EPIC_v1 only")
+    ap.add_argument("--array-type", default=None, choices=("HM450K", "EPIC_v1", "EPIC_v2"), help="declared array type; omit to take it from the IDAT header (Stage 0.1). The chain reads EPIC_v1 only")
     ap.add_argument("--intake-log", default=None, help="append intake and integrity records here")
     ap.add_argument("--manifest-dir", default=None, help="write the immutable per-sample manifest here")
     ap.add_argument("--no-intake", action="store_true", help="skip Stage 0 (recorded in the report as skipped)")
-    ap.add_argument("--engine", default="v3", choices=("v3",), help="v3 is the only engine (the class-floor engine was retired 2026-10-03); the flag is kept so recorded v3 commands still run")
+    ap.add_argument("--engine", default="v3", choices=("v3",), help="kept so recorded commands still run: v3 names the conductor (conductor_v3.py), which chain v4 runs; the class-floor engine was retired 2026-10-03")
     ap.add_argument("--slide-ref-A", "--ref-A", dest="slide_ref_A", default=None, help="comma-separated Met-A before the median tare (met_a.A, self-tared since 2026-10-04) of >= 3 same-run healthy reference arrays (same slide, else same batch) - v3 Stage T median tare, whole blood and isolated neutrophils")
     ap.add_argument("--slide-ref-table", "--ref-table", dest="slide_ref_table", default=None, help="CSV of same-run healthy references with columns A and C (optional id): Met-A and the C-score from pass 1 (met_a.A, self-tared since 2026-10-04; before the median tare). >= 3 rows -> median tare (nothing is fitted)")
     ap.add_argument("--bam", default=None, help="chain v4 Stage Q2: an aligned whole-genome bisulfite BAM (bwa-meth or Bismark), counted by the chain (needs --ref-fasta)")
@@ -323,7 +345,7 @@ def main():
         if (rec.get("array_type_detected") or declared) == "EPIC_v2":
             # unhandled platform (2026-10-03, DEV-BASE-CHAIN-01): an EPIC v2 array is refused here, before the QC decode, instead of being
             # judged by EPIC v1 rules (sex mismatch) or crashing in Stage 1. v3 reads EPIC v1 only.
-            platform_stop = ("EPIC v2 array (IDAT header): the chain reads EPIC v1 arrays only - no frozen neutrophil floor for EPIC v2, and Stage 1 "
+            platform_stop = ("EPIC v2 array (IDAT header): the chain reads EPIC v1 arrays only - its healthy references are frozen for EPIC v1, and Stage 1 "
                              "(methylprep 1.7.1) does not calibrate EPIC v2. Intake stopped before the QC decode; nothing is scored.")
             rec["status"] = "PLATFORM_REFUSED"; rec.setdefault("flags", []).append("PLATFORM_REFUSED:EPIC_v2"); rec["stage0_verdict"] = "REFUSED_PLATFORM"
             print("  PLATFORM_REFUSED - " + platform_stop, flush=True)
@@ -498,15 +520,15 @@ def main():
     it = intake or {}
     array_type = it.get("array_type_detected") or it.get("array_type") or a.array_type   # header first, then declared
     if specimen_stop:
-        o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "neutrophils only", "array_type": array_type, "refusal": specimen_stop,
+        o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "Met-A and the C-Score read the neutrophils; the cell shares cover six blood cells", "array_type": array_type, "refusal": specimen_stop,
              "refusal_code": "SPECIMEN_REFUSED"}
     elif platform_stop:
-        o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "neutrophils only", "platform": "EPIC_v2" if "EPIC v2" in platform_stop else None,
+        o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "Met-A and the C-Score read the neutrophils; the cell shares cover six blood cells", "platform": "EPIC_v2" if "EPIC v2" in platform_stop else None,
              "array_type": array_type, "refusal": platform_stop}
     elif beta is not None:
         o = C3.run_neutrophil(_pd.Series(beta, dtype="float64"), specimen=a.specimen, ref_A=refs, array_type=array_type, sample_id=sid)
     else:
-        o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "neutrophils only", "note": "sequencing input only: no array reading"}
+        o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "Met-A and the C-Score read the neutrophils; the cell shares cover six blood cells", "note": "sequencing input only: no array reading"}
     _z = o.pop("_cscore_z", None)
     if beta is not None and not o.get("refusal"):   # chain v4: the cell shares (D21) and the C-Score drawn on the sphere
         import stage_v4 as V4
@@ -533,6 +555,11 @@ def main():
             import stage_q0_intake as Q0
             print(f"Stage Q0: intake checks on {os.path.basename(a.pat)}", flush=True)
             o["iam_a_intake"] = Q0.intake(a.pat, specimen=a.specimen, cell=a.seq_cell, alignment_qc=a.alignment_qc, selfref_cells=cells)
+        else:   # 2026-10-20 (Chain Decoder finding F3): say that Stage Q0 did not run and why, instead of leaving no intake record
+            o["iam_a_intake"] = {"stage": "Q0", "status": "not run", "reason": "Stage Q0's file checks are written for the .pat format; on an aligned BAM, "
+                                 "Stage Q2's counter records the bisulfite conversion failure (non-CpG calls) and the substitution rate (A and T), and the "
+                                 "sample-shape check refuses a cell type with no healthy reference"}
+            print("Stage Q0: not run on a BAM (its checks are for .pat files); Stage Q2 records conversion and substitution rates", flush=True)
         qi = o.get("iam_a_intake") or {}
         if qi.get("refusal_code"):
             o["iam_a"] = {"stage": "Q2", "reading": "IAM-A", "cell": a.seq_cell, "A": None, "refusal_code": qi["refusal_code"], "refusal": f"Stage Q0 stopped the file: {qi['refusal']}", "input": src}
@@ -602,12 +629,12 @@ def main():
     r = R3.build(o, a.out, typed)    # the printed report keeps the operator's typed id (author decision B, 2026-10-04)
     o = _redact(o, typed, hid); o["sample_id"] = hid; o["sample_id_hashed"] = True   # bundle and ledger carry the hash only
     m = o.get("met_a") or {}; t = o.get("tare") or {}; q_ = o.get("iam_a") or {}
-    print(f"\n{sid}: neutrophil Met-A {m.get('A')} ({m.get('state', m.get('reason', o.get('refusal')))}) | C {(o.get('met_a_cscore') or {}).get('C')} | "
+    print(f"\n{sid}: Met-A (neutrophils) {m.get('A')} ({m.get('state', m.get('reason', o.get('refusal')))}) | C {(o.get('met_a_cscore') or {}).get('C')} | "
           f"tare {t.get('A_rel')}" + (f" | IAM-A {q_.get('A')} ({q_.get('state', q_.get('refusal'))})" if q_ else ""))
     if not a.no_bundle:
         bundle_path = a.bundle or (os.path.splitext(a.out)[0] + "_bundle.json")
         _json.dump(o, open(bundle_path, "w"), default=str)
-        row = {"run_id": o["run_id"], "engine": "v3", "sample_id": hid, "utc": _dt.datetime.utcnow().isoformat(timespec="seconds"),
+        row = {"run_id": o["run_id"], "engine": "v4 (conductor_v3)", "sample_id": hid, "utc": _dt.datetime.utcnow().isoformat(timespec="seconds"),
                "report": _redact(os.path.abspath(a.out), typed, hid), "bundle": _redact(os.path.abspath(bundle_path), typed, hid), "specimen": a.specimen,
                "label": C3.BUILD, "refusal_code": o.get("refusal_code"),
                "platform": o.get("platform"), "array_type": o.get("array_type"), "refusal": o.get("refusal"),

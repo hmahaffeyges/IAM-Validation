@@ -3,14 +3,14 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 629,
+   "lines": 656,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_bio_root",
      "name": "_bio_root",
-     "line": 35,
-     "end": 50,
+     "line": 39,
+     "end": 54,
      "args": [
       "start"
      ],
@@ -27,8 +27,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_assign_run_id",
      "name": "_assign_run_id",
-     "line": 55,
-     "end": 73,
+     "line": 59,
+     "end": 77,
      "args": [
       "ledger_path"
      ],
@@ -45,8 +45,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_covariates",
      "name": "_covariates",
-     "line": 76,
-     "end": 91,
+     "line": 80,
+     "end": 95,
      "args": [
       "a"
      ],
@@ -63,8 +63,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_sha12",
      "name": "_sha12",
-     "line": 94,
-     "end": 103,
+     "line": 98,
+     "end": 107,
      "args": [
       "path"
      ],
@@ -81,12 +81,12 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_versions",
      "name": "_versions",
-     "line": 106,
-     "end": 142,
+     "line": 110,
+     "end": 164,
      "args": [
       "chain_dir"
      ],
-     "lines": 37,
+     "lines": 55,
      "doc": "Every input that can change a reading, with a short hash - so runs months apart are poolable.",
      "constants": [],
      "data_files": [
@@ -98,7 +98,10 @@
       "Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv",
       "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json",
       "Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json",
-      "Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json"
+      "Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json",
+      "compact_manifest.json",
+      "in compact_manifest.json",
+      "transfer_v21_final.json"
      ],
      "traced_calls": {
       "array": 1,
@@ -109,8 +112,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_hash_id",
      "name": "_hash_id",
-     "line": 145,
-     "end": 149,
+     "line": 167,
+     "end": 171,
      "args": [
       "x"
      ],
@@ -127,8 +130,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_redact",
      "name": "_redact",
-     "line": 152,
-     "end": 162,
+     "line": 174,
+     "end": 184,
      "args": [
       "obj",
       "typed",
@@ -147,8 +150,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_redact.f",
      "name": "f",
-     "line": 157,
-     "end": 161,
+     "line": 179,
+     "end": 183,
      "args": [
       "v"
      ],
@@ -165,8 +168,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 165,
-     "end": 204,
+     "line": 187,
+     "end": 226,
      "args": [
       "a",
       "o",
@@ -186,10 +189,10 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 207,
-     "end": 626,
+     "line": 229,
+     "end": 653,
      "args": [],
-     "lines": 420,
+     "lines": 425,
      "doc": "",
      "constants": [
       "BIO",
@@ -209,8 +212,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 303,
-     "end": 307,
+     "line": 325,
+     "end": 329,
      "args": [
       "r"
      ],
@@ -226,8 +229,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 573,
-     "end": 574,
+     "line": 600,
+     "end": 601,
      "args": [
       "b",
       "it",
@@ -247,14 +250,14 @@
   },
   {
    "file": "stage_0_intake.py",
-   "lines": 1129,
+   "lines": 1127,
    "functions": [
     {
      "file": "stage_0_intake.py",
      "function": "_intake_thresholds",
      "name": "_intake_thresholds",
-     "line": 37,
-     "end": 44,
+     "line": 35,
+     "end": 42,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -271,8 +274,8 @@
      "file": "stage_0_intake.py",
      "function": "normalise_specimen",
      "name": "normalise_specimen",
-     "line": 79,
-     "end": 80,
+     "line": 77,
+     "end": 78,
      "args": [
       "specimen"
      ],
@@ -288,8 +291,8 @@
      "file": "stage_0_intake.py",
      "function": "specimen_refusal",
      "name": "specimen_refusal",
-     "line": 83,
-     "end": 90,
+     "line": 81,
+     "end": 88,
      "args": [
       "specimen"
      ],
@@ -308,8 +311,8 @@
      "file": "stage_0_intake.py",
      "function": "_infer_platform",
      "name": "_infer_platform",
-     "line": 103,
-     "end": 110,
+     "line": 101,
+     "end": 108,
      "args": [
       "nsnps"
      ],
@@ -325,8 +328,8 @@
      "file": "stage_0_intake.py",
      "function": "read_idat_nsnps",
      "name": "read_idat_nsnps",
-     "line": 115,
-     "end": 138,
+     "line": 113,
+     "end": 136,
      "args": [
       "path"
      ],
@@ -342,8 +345,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_1_idat_arrival",
      "name": "step_0_1_idat_arrival",
-     "line": 143,
-     "end": 231,
+     "line": 141,
+     "end": 229,
      "args": [
       "manifest_entry",
       "grn_path",
@@ -366,8 +369,8 @@
      "file": "stage_0_intake.py",
      "function": "_log_intake",
      "name": "_log_intake",
-     "line": 236,
-     "end": 245,
+     "line": 234,
+     "end": 243,
      "args": [
       "intake_log_path",
       "result"
@@ -384,8 +387,8 @@
      "file": "stage_0_intake.py",
      "function": "_is_duplicate_within_24h",
      "name": "_is_duplicate_within_24h",
-     "line": 248,
-     "end": 268,
+     "line": 246,
+     "end": 266,
      "args": [
       "intake_log_path",
       "sentrix_id"
@@ -402,8 +405,8 @@
      "file": "stage_0_intake.py",
      "function": "_is_null_answer",
      "name": "_is_null_answer",
-     "line": 328,
-     "end": 330,
+     "line": 326,
+     "end": 328,
      "args": [
       "v"
      ],
@@ -419,8 +422,8 @@
      "file": "stage_0_intake.py",
      "function": "_answer_present",
      "name": "_answer_present",
-     "line": 333,
-     "end": 337,
+     "line": 331,
+     "end": 335,
      "args": [
       "v"
      ],
@@ -437,8 +440,8 @@
      "file": "stage_0_intake.py",
      "function": "_age_from_dob",
      "name": "_age_from_dob",
-     "line": 340,
-     "end": 347,
+     "line": 338,
+     "end": 345,
      "args": [
       "dob",
       "on_date"
@@ -453,8 +456,8 @@
      "file": "stage_0_intake.py",
      "function": "parse_questionnaire",
      "name": "parse_questionnaire",
-     "line": 350,
-     "end": 367,
+     "line": 348,
+     "end": 365,
      "args": [
       "answers",
       "intake_date"
@@ -472,8 +475,8 @@
      "file": "stage_0_intake.py",
      "function": "_looks_like_cleartext_pii",
      "name": "_looks_like_cleartext_pii",
-     "line": 370,
-     "end": 378,
+     "line": 368,
+     "end": 376,
      "args": [
       "patient_id"
      ],
@@ -489,8 +492,8 @@
      "file": "stage_0_intake.py",
      "function": "_write_manifest",
      "name": "_write_manifest",
-     "line": 381,
-     "end": 388,
+     "line": 379,
+     "end": 386,
      "args": [
       "manifest_dir",
       "record"
@@ -509,8 +512,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_2_manifest_creation",
      "name": "step_0_2_manifest_creation",
-     "line": 391,
-     "end": 430,
+     "line": 389,
+     "end": 428,
      "args": [
       "step_0_1_result",
       "questionnaire_answers",
@@ -529,8 +532,8 @@
      "file": "stage_0_intake.py",
      "function": "_sha256_file",
      "name": "_sha256_file",
-     "line": 439,
-     "end": 444,
+     "line": 437,
+     "end": 442,
      "args": [
       "path"
      ],
@@ -546,8 +549,8 @@
      "file": "stage_0_intake.py",
      "function": "_prior_hashes_for_sentrix",
      "name": "_prior_hashes_for_sentrix",
-     "line": 447,
-     "end": 460,
+     "line": 445,
+     "end": 458,
      "args": [
       "integrity_log_path",
       "sentrix_id"
@@ -564,8 +567,8 @@
      "file": "stage_0_intake.py",
      "function": "_log_integrity",
      "name": "_log_integrity",
-     "line": 463,
-     "end": 468,
+     "line": 461,
+     "end": 466,
      "args": [
       "integrity_log_path",
       "row"
@@ -582,8 +585,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_3_integrity_hash",
      "name": "step_0_3_integrity_hash",
-     "line": 471,
-     "end": 507,
+     "line": 469,
+     "end": 505,
      "args": [
       "record",
       "grn_path",
@@ -602,8 +605,8 @@
      "file": "stage_0_intake.py",
      "function": "extract_control_probes",
      "name": "extract_control_probes",
-     "line": 529,
-     "end": 535,
+     "line": 527,
+     "end": 533,
      "args": [
       "grn_path",
       "red_path",
@@ -619,8 +622,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_control_probes",
      "name": "validate_control_probes",
-     "line": 538,
-     "end": 578,
+     "line": 536,
+     "end": 576,
      "args": [
       "control_summary"
      ],
@@ -641,8 +644,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_4_control_probe_validation",
      "name": "step_0_4_control_probe_validation",
-     "line": 581,
-     "end": 600,
+     "line": 579,
+     "end": 598,
      "args": [
       "record",
       "grn_path",
@@ -661,8 +664,8 @@
      "file": "stage_0_intake.py",
      "function": "_normal_sf",
      "name": "_normal_sf",
-     "line": 620,
-     "end": 628,
+     "line": 618,
+     "end": 626,
      "args": [
       "z"
      ],
@@ -678,8 +681,8 @@
      "file": "stage_0_intake.py",
      "function": "compute_detection_p",
      "name": "compute_detection_p",
-     "line": 631,
-     "end": 636,
+     "line": 629,
+     "end": 634,
      "args": [
       "probe_intensities",
       "mu_bg",
@@ -697,8 +700,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_detection_p",
      "name": "validate_detection_p",
-     "line": 639,
-     "end": 653,
+     "line": 637,
+     "end": 651,
      "args": [
       "detection_p_array"
      ],
@@ -720,8 +723,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_5_detection_pvalue_qc",
      "name": "step_0_5_detection_pvalue_qc",
-     "line": 656,
-     "end": 677,
+     "line": 654,
+     "end": 675,
      "args": [
       "record",
       "probe_intensities",
@@ -739,8 +742,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_bead_count",
      "name": "validate_bead_count",
-     "line": 688,
-     "end": 695,
+     "line": 686,
+     "end": 693,
      "args": [
       "bead_counts",
       "min_beads"
@@ -760,8 +763,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_6_bead_count_qc",
      "name": "step_0_6_bead_count_qc",
-     "line": 698,
-     "end": 711,
+     "line": 696,
+     "end": 709,
      "args": [
       "record",
       "bead_counts"
@@ -778,8 +781,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_call_rate",
      "name": "validate_call_rate",
-     "line": 722,
-     "end": 730,
+     "line": 720,
+     "end": 728,
      "args": [
       "n_passing_both",
       "n_total"
@@ -799,8 +802,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_7_call_rate",
      "name": "step_0_7_call_rate",
-     "line": 733,
-     "end": 754,
+     "line": 731,
+     "end": 752,
      "args": [
       "record",
       "detection_pass_mask",
@@ -818,8 +821,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_7b_platform_coverage",
      "name": "step_0_7b_platform_coverage",
-     "line": 764,
-     "end": 786,
+     "line": 762,
+     "end": 784,
      "args": [
       "record",
       "reference_cpg_coverage"
@@ -838,8 +841,8 @@
      "file": "stage_0_intake.py",
      "function": "predict_sex",
      "name": "predict_sex",
-     "line": 796,
-     "end": 797,
+     "line": 794,
+     "end": 795,
      "args": [
       "log2_x_median",
       "log2_y_median",
@@ -859,8 +862,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_sex",
      "name": "validate_sex",
-     "line": 800,
-     "end": 806,
+     "line": 798,
+     "end": 804,
      "args": [
       "log2_x_median",
       "log2_y_median",
@@ -878,8 +881,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_8_sex_check",
      "name": "step_0_8_sex_check",
-     "line": 809,
-     "end": 823,
+     "line": 807,
+     "end": 821,
      "args": [
       "record",
       "sex_intensities"
@@ -896,8 +899,8 @@
      "file": "stage_0_intake.py",
      "function": "_fmt",
      "name": "_fmt",
-     "line": 838,
-     "end": 839,
+     "line": 836,
+     "end": 837,
      "args": [
       "x",
       "nd"
@@ -914,8 +917,8 @@
      "file": "stage_0_intake.py",
      "function": "explain_stage0",
      "name": "explain_stage0",
-     "line": 840,
-     "end": 893,
+     "line": 838,
+     "end": 891,
      "args": [
       "record",
       "hard_fail",
@@ -934,6 +937,7 @@
       "DETECTION_BORDERLINE_FRACTION",
       "DETECTION_PASS_FRACTION",
       "EXTENSION_BALANCE_RANGE",
+      "HM450_COVERAGE_MIN",
       "HYB_HIGH_LOW_MIN_RATIO",
       "SEX_GETSEX_CUTOFF",
       "_TH_SRC"
@@ -947,8 +951,8 @@
      "file": "stage_0_intake.py",
      "function": "explain_stage0.add",
      "name": "add",
-     "line": 842,
-     "end": 843,
+     "line": 840,
+     "end": 841,
      "args": [
       "check",
       "outcome",
@@ -971,8 +975,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_9_decision_gate",
      "name": "step_0_9_decision_gate",
-     "line": 896,
-     "end": 975,
+     "line": 894,
+     "end": 973,
      "args": [
       "record",
       "verdict_log_path"
@@ -1132,14 +1136,14 @@
   },
   {
    "file": "stage_1_idat_calibration.py",
-   "lines": 233,
+   "lines": 232,
    "functions": [
     {
      "file": "stage_1_idat_calibration.py",
      "function": "_check_pins",
      "name": "_check_pins",
-     "line": 39,
-     "end": 49,
+     "line": 38,
+     "end": 48,
      "args": [],
      "lines": 11,
      "doc": "",
@@ -1156,15 +1160,17 @@
      "file": "stage_1_idat_calibration.py",
      "function": "_ensure_methylprep",
      "name": "_ensure_methylprep",
-     "line": 50,
-     "end": 92,
+     "line": 49,
+     "end": 91,
      "args": [],
      "lines": 43,
      "doc": "Make sure methylprep is importable; pip-install it once if it isn't.",
      "constants": [
       "METHYLPREP_VERSION"
      ],
-     "data_files": [],
+     "data_files": [
+      "pip install -r Biological_Physics/MethylPhys/chain/requirements.txt"
+     ],
      "traced_calls": {
       "array": 1
      }
@@ -1173,8 +1179,8 @@
      "file": "stage_1_idat_calibration.py",
      "function": "_detect_array_type",
      "name": "_detect_array_type",
-     "line": 95,
-     "end": 104,
+     "line": 94,
+     "end": 103,
      "args": [
       "grn_path"
      ],
@@ -1190,8 +1196,8 @@
      "file": "stage_1_idat_calibration.py",
      "function": "calibrate_idat_to_beta",
      "name": "calibrate_idat_to_beta",
-     "line": 107,
-     "end": 212,
+     "line": 106,
+     "end": 211,
      "args": [
       "grn_path",
       "red_path",
@@ -1218,8 +1224,8 @@
      "file": "stage_1_idat_calibration.py",
      "function": "calibrate_idat_to_beta.med",
      "name": "med",
-     "line": 177,
-     "end": 178,
+     "line": 176,
+     "end": 177,
      "args": [
       "t",
       "col"
@@ -1236,8 +1242,8 @@
      "file": "stage_1_idat_calibration.py",
      "function": "_stage_idat",
      "name": "_stage_idat",
-     "line": 215,
-     "end": 222,
+     "line": 214,
+     "end": 221,
      "args": [
       "src",
       "dst"
@@ -1258,14 +1264,14 @@
   },
   {
    "file": "conductor_v3.py",
-   "lines": 304,
+   "lines": 309,
    "functions": [
     {
      "file": "conductor_v3.py",
      "function": "ref",
      "name": "ref",
-     "line": 58,
-     "end": 61,
+     "line": 62,
+     "end": 65,
      "args": [],
      "lines": 4,
      "doc": "",
@@ -1284,8 +1290,8 @@
      "file": "conductor_v3.py",
      "function": "noise_sites",
      "name": "noise_sites",
-     "line": 66,
-     "end": 71,
+     "line": 70,
+     "end": 75,
      "args": [],
      "lines": 6,
      "doc": "Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json: 48,528 EPIC sites every purified blood group holds fixed (group mean <= 0.03 or >= 0.97, group SD <= 0.02; no neutrophil identity site). Their entropy is the array's own noise.",
@@ -1305,8 +1311,8 @@
      "file": "conductor_v3.py",
      "function": "noise_gate",
      "name": "noise_gate",
-     "line": 74,
-     "end": 78,
+     "line": 78,
+     "end": 82,
      "args": [],
      "lines": 5,
      "doc": "Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json: N_max = top of the reference arrays' noise range (DEV-NOISE-01).",
@@ -1326,8 +1332,8 @@
      "file": "conductor_v3.py",
      "function": "noise_index",
      "name": "noise_index",
-     "line": 80,
-     "end": 85,
+     "line": 84,
+     "end": 89,
      "args": [
       "beta"
      ],
@@ -1346,8 +1352,8 @@
      "file": "conductor_v3.py",
      "function": "_bc",
      "name": "_bc",
-     "line": 88,
-     "end": 91,
+     "line": 92,
+     "end": 95,
      "args": [],
      "lines": 4,
      "doc": "",
@@ -1366,8 +1372,8 @@
      "file": "conductor_v3.py",
      "function": "min_markers",
      "name": "min_markers",
-     "line": 93,
-     "end": 94,
+     "line": 97,
+     "end": 98,
      "args": [],
      "lines": 2,
      "doc": "",
@@ -1383,13 +1389,13 @@
      "file": "conductor_v3.py",
      "function": "stage_a_composition",
      "name": "stage_a_composition",
-     "line": 96,
-     "end": 110,
+     "line": 100,
+     "end": 114,
      "args": [
       "beta"
      ],
      "lines": 15,
-     "doc": "EPIC blood composition (blood_composition_EPIC_v1): 8 groups from Salas purified EPIC cells; markers exclude the neutrophil sites; NNLS, sum 1. Same platform and same reference as the expectation profiles. Refused (fractions None) when fewer than MIN_MARKER_FRACTION of the markers are measured.",
+     "doc": "EPIC blood composition (blood_composition_EPIC_v1): 8 groups from 91 purified-cell EPIC arrays (GSE110554, GSE167998); markers exclude the neutrophil sites; NNLS, sum 1. Same platform and same reference as the expectation profiles. Refused (fractions None) when fewer than MIN_MARKER_FRACTION of the markers are measured.",
      "constants": [],
      "data_files": [],
      "traced_calls": {
@@ -1400,8 +1406,8 @@
      "file": "conductor_v3.py",
      "function": "_clustering",
      "name": "_clustering",
-     "line": 112,
-     "end": 116,
+     "line": 116,
+     "end": 120,
      "args": [
       "z",
       "w"
@@ -1418,8 +1424,8 @@
      "file": "conductor_v3.py",
      "function": "_state",
      "name": "_state",
-     "line": 118,
-     "end": 119,
+     "line": 122,
+     "end": 123,
      "args": [
       "A"
      ],
@@ -1435,8 +1441,8 @@
      "file": "conductor_v3.py",
      "function": "stage_m_blood",
      "name": "stage_m_blood",
-     "line": 121,
-     "end": 146,
+     "line": 125,
+     "end": 150,
      "args": [
       "beta",
       "comp"
@@ -1456,8 +1462,8 @@
      "file": "conductor_v3.py",
      "function": "_ceiling",
      "name": "_ceiling",
-     "line": 148,
-     "end": 154,
+     "line": 152,
+     "end": 158,
      "args": [
       "x",
       "mu"
@@ -1474,8 +1480,8 @@
      "file": "conductor_v3.py",
      "function": "stage_m_isolated",
      "name": "stage_m_isolated",
-     "line": 156,
-     "end": 167,
+     "line": 160,
+     "end": 171,
      "args": [
       "beta"
      ],
@@ -1491,13 +1497,13 @@
      "file": "conductor_v3.py",
      "function": "stage_mc_cscore",
      "name": "stage_mc_cscore",
-     "line": 169,
-     "end": 179,
+     "line": 173,
+     "end": 184,
      "args": [
       "z"
      ],
-     "lines": 11,
-     "doc": "Met-A C-score (stage 6): clustering of the residual z map in genomic order - variance of the means of blocks of clustering_block consecutive sites (x sqrt(block)) over the site variance, divided by the healthy median clustering of neutrophil_reference_v1_2.json. Healthy = 1; development (band not set). No residual map -> C None with the reason.",
+     "lines": 12,
+     "doc": "Met-A C-score (stage 6): clustering of the residual z map in genomic order - variance of the means of blocks of clustering_block consecutive sites (x sqrt(block)) over the site variance, divided by the healthy median clustering of neutrophil_reference_v1_2.json. Healthy = 1; read against its band after the same-run tare (stage_t_cscore; commissioned on whole blood 2026-10-15). No residual map -> C",
      "constants": [],
      "data_files": [
       "divided by the healthy median clustering of neutrophil_reference_v1_2.json"
@@ -1510,8 +1516,8 @@
      "file": "conductor_v3.py",
      "function": "_ref_records",
      "name": "_ref_records",
-     "line": 181,
-     "end": 193,
+     "line": 186,
+     "end": 198,
      "args": [
       "ref_A",
       "sample_id"
@@ -1528,8 +1534,8 @@
      "file": "conductor_v3.py",
      "function": "stage_t_tare",
      "name": "stage_t_tare",
-     "line": 195,
-     "end": 210,
+     "line": 200,
+     "end": 215,
      "args": [
       "A",
       "ref_A",
@@ -1550,8 +1556,8 @@
      "file": "conductor_v3.py",
      "function": "stage_t_cscore",
      "name": "stage_t_cscore",
-     "line": 214,
-     "end": 231,
+     "line": 219,
+     "end": 236,
      "args": [
       "cs",
       "ref_A",
@@ -1573,8 +1579,8 @@
      "file": "conductor_v3.py",
      "function": "stage_t_selftare_ii",
      "name": "stage_t_selftare_ii",
-     "line": 233,
-     "end": 241,
+     "line": 238,
+     "end": 246,
      "args": [
       "beta"
      ],
@@ -1590,8 +1596,8 @@
      "file": "conductor_v3.py",
      "function": "platform_refusal",
      "name": "platform_refusal",
-     "line": 243,
-     "end": 252,
+     "line": 248,
+     "end": 257,
      "args": [
       "beta",
       "array_type"
@@ -1610,8 +1616,8 @@
      "file": "conductor_v3.py",
      "function": "run_neutrophil",
      "name": "run_neutrophil",
-     "line": 254,
-     "end": 303,
+     "line": 259,
+     "end": 308,
      "args": [
       "beta",
       "specimen",
@@ -1640,14 +1646,14 @@
   },
   {
    "file": "stage_m_met_a.py",
-   "lines": 80,
+   "lines": 81,
    "functions": [
     {
      "file": "stage_m_met_a.py",
      "function": "_floors",
      "name": "_floors",
-     "line": 28,
-     "end": 31,
+     "line": 29,
+     "end": 32,
      "args": [],
      "lines": 4,
      "doc": "",
@@ -1664,8 +1670,8 @@
      "file": "stage_m_met_a.py",
      "function": "_H",
      "name": "_H",
-     "line": 33,
-     "end": 35,
+     "line": 34,
+     "end": 36,
      "args": [
       "b"
      ],
@@ -1681,8 +1687,8 @@
      "file": "stage_m_met_a.py",
      "function": "platform_of",
      "name": "platform_of",
-     "line": 39,
-     "end": 44,
+     "line": 40,
+     "end": 45,
      "args": [
       "beta"
      ],
@@ -1700,8 +1706,8 @@
      "file": "stage_m_met_a.py",
      "function": "available",
      "name": "available",
-     "line": 46,
-     "end": 48,
+     "line": 47,
+     "end": 49,
      "args": [
       "platform"
      ],
@@ -1717,8 +1723,8 @@
      "file": "stage_m_met_a.py",
      "function": "precision",
      "name": "precision",
-     "line": 50,
-     "end": 55,
+     "line": 51,
+     "end": 56,
      "args": [
       "platform",
       "cell"
@@ -1736,8 +1742,8 @@
      "file": "stage_m_met_a.py",
      "function": "read",
      "name": "read",
-     "line": 57,
-     "end": 75,
+     "line": 58,
+     "end": 76,
      "args": [
       "beta",
       "cell",
@@ -1762,7 +1768,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_v4.py",
-   "lines": 256,
+   "lines": 258,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_v4.py",
@@ -1838,10 +1844,25 @@
     },
     {
      "file": "MethylPhys_Interface/report_v4.py",
-     "function": "cellname",
-     "name": "cellname",
+     "function": "_href",
+     "name": "_href",
      "line": 45,
      "end": 46,
+     "args": [],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [
+      "metA_floors_v1_3.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "cellname",
+     "name": "cellname",
+     "line": 47,
+     "end": 48,
      "args": [
       "c"
      ],
@@ -1860,8 +1881,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "untested",
      "name": "untested",
-     "line": 47,
-     "end": 51,
+     "line": 49,
+     "end": 53,
      "args": [
       "what",
       "inst",
@@ -1882,8 +1903,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "chip",
      "name": "chip",
-     "line": 52,
-     "end": 55,
+     "line": 54,
+     "end": 57,
      "args": [
       "status"
      ],
@@ -1902,8 +1923,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_glance",
      "name": "_glance",
-     "line": 57,
-     "end": 59,
+     "line": 59,
+     "end": 61,
      "args": [
       "o"
      ],
@@ -1922,8 +1943,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "glance_rows",
      "name": "glance_rows",
-     "line": 61,
-     "end": 90,
+     "line": 63,
+     "end": 92,
      "args": [
       "o"
      ],
@@ -1940,8 +1961,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_shares",
      "name": "_shares",
-     "line": 92,
-     "end": 103,
+     "line": 94,
+     "end": 105,
      "args": [
       "o"
      ],
@@ -1960,8 +1981,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_meta",
      "name": "_meta",
-     "line": 105,
-     "end": 113,
+     "line": 107,
+     "end": 115,
      "args": [
       "o"
      ],
@@ -1980,8 +2001,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_cscore",
      "name": "_cscore",
-     "line": 115,
-     "end": 123,
+     "line": 117,
+     "end": 125,
      "args": [
       "o"
      ],
@@ -2000,8 +2021,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_iama",
      "name": "_iama",
-     "line": 125,
-     "end": 134,
+     "line": 127,
+     "end": 136,
      "args": [
       "o"
      ],
@@ -2020,8 +2041,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_figs",
      "name": "_figs",
-     "line": 137,
-     "end": 153,
+     "line": 139,
+     "end": 155,
      "args": [
       "o",
       "base"
@@ -2039,8 +2060,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_physics",
      "name": "_physics",
-     "line": 159,
-     "end": 164,
+     "line": 161,
+     "end": 166,
      "args": [
       "o"
      ],
@@ -2060,8 +2081,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "physics_rows",
      "name": "physics_rows",
-     "line": 166,
-     "end": 197,
+     "line": 168,
+     "end": 199,
      "args": [
       "o"
      ],
@@ -2080,8 +2101,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_skypair",
      "name": "_skypair",
-     "line": 200,
-     "end": 207,
+     "line": 202,
+     "end": 209,
      "args": [
       "o"
      ],
@@ -2099,8 +2120,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_plain",
      "name": "_plain",
-     "line": 209,
-     "end": 227,
+     "line": 211,
+     "end": 229,
      "args": [
       "o",
       "F"
@@ -2120,8 +2141,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "build",
      "name": "build",
-     "line": 229,
-     "end": 255,
+     "line": 231,
+     "end": 257,
      "args": [
       "o",
       "out",
@@ -2147,14 +2168,14 @@
   },
   {
    "file": "MethylPhys_Interface/report_v3.py",
-   "lines": 287,
+   "lines": 288,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_v3.py",
      "function": "_gauge",
      "name": "_gauge",
-     "line": 50,
-     "end": 87,
+     "line": 51,
+     "end": 88,
      "args": [
       "A",
       "lo",
@@ -2181,8 +2202,8 @@
      "file": "MethylPhys_Interface/report_v3.py",
      "function": "_H",
      "name": "_H",
-     "line": 89,
-     "end": 91,
+     "line": 90,
+     "end": 92,
      "args": [
       "b"
      ],
@@ -2199,8 +2220,8 @@
      "file": "MethylPhys_Interface/report_v3.py",
      "function": "_load",
      "name": "_load",
-     "line": 94,
-     "end": 96,
+     "line": 95,
+     "end": 97,
      "args": [
       "rel"
      ],
@@ -2219,8 +2240,8 @@
      "file": "MethylPhys_Interface/report_v3.py",
      "function": "red_flags",
      "name": "red_flags",
-     "line": 100,
-     "end": 125,
+     "line": 101,
+     "end": 126,
      "args": [
       "o"
      ],
@@ -2237,8 +2258,8 @@
      "file": "MethylPhys_Interface/report_v3.py",
      "function": "safeguards",
      "name": "safeguards",
-     "line": 128,
-     "end": 171,
+     "line": 129,
+     "end": 172,
      "args": [
       "o",
       "prose"
@@ -2262,8 +2283,8 @@
      "file": "MethylPhys_Interface/report_v3.py",
      "function": "troubleshooting",
      "name": "troubleshooting",
-     "line": 174,
-     "end": 190,
+     "line": 175,
+     "end": 191,
      "args": [
       "o"
      ],
@@ -2280,8 +2301,8 @@
      "file": "MethylPhys_Interface/report_v3.py",
      "function": "toolkit_table",
      "name": "toolkit_table",
-     "line": 193,
-     "end": 204,
+     "line": 194,
+     "end": 205,
      "args": [
       "o"
      ],
@@ -2301,8 +2322,8 @@
      "file": "MethylPhys_Interface/report_v3.py",
      "function": "_table",
      "name": "_table",
-     "line": 207,
-     "end": 210,
+     "line": 208,
+     "end": 211,
      "args": [
       "rows",
       "head"
@@ -2320,8 +2341,8 @@
      "file": "MethylPhys_Interface/report_v3.py",
      "function": "build",
      "name": "build",
-     "line": 213,
-     "end": 286,
+     "line": 214,
+     "end": 287,
      "args": [
       "o",
       "out",
@@ -4660,14 +4681,14 @@
   },
   {
    "file": "stage_q0_intake.py",
-   "lines": 119,
+   "lines": 120,
    "functions": [
     {
      "file": "stage_q0_intake.py",
      "function": "_ranges",
      "name": "_ranges",
-     "line": 34,
-     "end": 36,
+     "line": 35,
+     "end": 37,
      "args": [],
      "lines": 3,
      "doc": "",
@@ -4681,8 +4702,8 @@
      "file": "stage_q0_intake.py",
      "function": "scan_pat",
      "name": "scan_pat",
-     "line": 39,
-     "end": 74,
+     "line": 40,
+     "end": 75,
      "args": [
       "path"
      ],
@@ -4700,8 +4721,8 @@
      "file": "stage_q0_intake.py",
      "function": "scan_pat.line",
      "name": "line",
-     "line": 44,
-     "end": 54,
+     "line": 45,
+     "end": 55,
      "args": [
       "l"
      ],
@@ -4717,8 +4738,8 @@
      "file": "stage_q0_intake.py",
      "function": "intake",
      "name": "intake",
-     "line": 77,
-     "end": 118,
+     "line": 78,
+     "end": 119,
      "args": [
       "path",
       "specimen",
@@ -4741,8 +4762,8 @@
      "file": "stage_q0_intake.py",
      "function": "intake.chk",
      "name": "chk",
-     "line": 81,
-     "end": 83,
+     "line": 82,
+     "end": 84,
      "args": [
       "step",
       "ok",
@@ -4762,14 +4783,14 @@
   },
   {
    "file": "stage_q_iam_a.py",
-   "lines": 170,
+   "lines": 174,
    "functions": [
     {
      "file": "stage_q_iam_a.py",
      "function": "positions",
      "name": "positions",
-     "line": 31,
-     "end": 34,
+     "line": 35,
+     "end": 38,
      "args": [],
      "lines": 4,
      "doc": "",
@@ -4784,8 +4805,8 @@
      "file": "stage_q_iam_a.py",
      "function": "_H",
      "name": "_H",
-     "line": 36,
-     "end": 36,
+     "line": 40,
+     "end": 40,
      "args": [
       "e"
      ],
@@ -4799,8 +4820,8 @@
      "file": "stage_q_iam_a.py",
      "function": "_pat_lines",
      "name": "_pat_lines",
-     "line": 38,
-     "end": 64,
+     "line": 42,
+     "end": 68,
      "args": [
       "path",
       "max_bytes",
@@ -4816,8 +4837,8 @@
      "file": "stage_q_iam_a.py",
      "function": "pat_site_table",
      "name": "pat_site_table",
-     "line": 68,
-     "end": 89,
+     "line": 72,
+     "end": 93,
      "args": [
       "path",
       "max_bytes"
@@ -4834,8 +4855,8 @@
      "file": "stage_q_iam_a.py",
      "function": "_genomic_order",
      "name": "_genomic_order",
-     "line": 91,
-     "end": 98,
+     "line": 95,
+     "end": 102,
      "args": [
       "T"
      ],
@@ -4849,8 +4870,8 @@
      "file": "stage_q_iam_a.py",
      "function": "cscore",
      "name": "cscore",
-     "line": 101,
-     "end": 114,
+     "line": 105,
+     "end": 118,
      "args": [
       "site_table",
       "eps",
@@ -4869,8 +4890,8 @@
      "file": "stage_q_iam_a.py",
      "function": "cscore.one",
      "name": "one",
-     "line": 104,
-     "end": 111,
+     "line": 108,
+     "end": 115,
      "args": [
       "o",
       "k"
@@ -4888,8 +4909,8 @@
      "file": "stage_q_iam_a.py",
      "function": "read",
      "name": "read",
-     "line": 117,
-     "end": 143,
+     "line": 121,
+     "end": 147,
      "args": [
       "site_table",
       "cell",
@@ -4911,8 +4932,8 @@
      "file": "stage_q_iam_a.py",
      "function": "tare",
      "name": "tare",
-     "line": 148,
-     "end": 169,
+     "line": 152,
+     "end": 173,
      "args": [
       "rec",
       "refs",
@@ -5121,5 +5142,5 @@
   }
  ],
  "n_files": 22,
- "n_functions": 257
+ "n_functions": 258
 }

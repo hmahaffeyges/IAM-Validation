@@ -1,7 +1,5 @@
-"""Stage 0 — Sample intake (L1).
-
-Built one step at a time against MethylPhys_CPG_SOP.md.
-Implemented so far:
+"""Stage 0 - sample intake for an IDAT pair (chain v4). Every step and gate is explained in the Chain Decoder, manual/OM_v4_decoder.md,
+section 2. The steps:
   Step 0.1 (SOP §11) — IDAT file arrival on server.
   Step 0.2 (SOP §12) — Sample manifest creation (patient_manifest.json + covariates).
   Step 0.3 (SOP §13) — IDAT integrity hash check (SHA-256 + re-transmission/re-run detection).
@@ -10,7 +8,7 @@ Implemented so far:
   Step 0.6 (SOP §16) — Bead count QC (>= 3 beads/probe, warn-only gate).
   Step 0.7 (SOP §17) — Sample-level call rate (detection AND bead; 0.98 / 0.93 lines from intake_thresholds_v1.json).
   Step 0.7b           — HM450 >= 80% reference-CpG coverage gate + platform tag (VAL-091).
-  Step 0.8 (SOP §18) — Sex check vs metadata (minfi getSex; mismatch -> quarantine).
+  Step 0.8 (SOP §18) — Sex check vs metadata (the minfi getSex rule; mismatch -> quarantine).
   Step 0.9 (SOP §19) — Stage 0 decision gate (PROCEED / PROCEED_WITH_PENALTY / QUARANTINE).
 
 Design choices flagged for review (SOP marked these "TBD per orchestrator design"):
@@ -20,7 +18,7 @@ Design choices flagged for review (SOP marked these "TBD per orchestrator design
   - Array-type verification reads only nSNPsRead from the IDAT header; full IDAT
     decoding is Stage 1's responsibility and is not duplicated here.
 
-No math in this stage. Pure I/O + metadata + decision gate.
+The intensities come from the QC hand-off (stage_0_1_qc_handoff.py), the same decoder Stage 1 uses; the arithmetic of each gate is here.
 """
 from __future__ import annotations
 
@@ -63,8 +61,8 @@ ACCEPTED_SPECIMENS = {
     "whole blood": "whole blood", "blood": "whole blood", "peripheral blood": "whole blood", "venous blood": "whole blood",
     "isolated neutrophils": "isolated neutrophils", "sorted neutrophils": "isolated neutrophils",
     "purified neutrophils": "isolated neutrophils", "neutrophils": "isolated neutrophils",
-    "constructed dna mixture": "constructed DNA mixture",
-    "buffy coat": "buffy coat",   # 2026-10-18: the white-cell layer of whole blood; read on the whole-blood path, labeled as its own specimen (not commissioned)   # test material: DNA of purified blood cells mixed in known amounts; read as whole blood
+    "constructed dna mixture": "constructed DNA mixture",   # test material: DNA of purified blood cells mixed in known amounts; read as whole blood
+    "buffy coat": "buffy coat",   # 2026-10-18: the white-cell layer of whole blood; read on the whole-blood path, labeled as its own specimen (not commissioned)
 }
 REFUSED_SPECIMEN_REASONS = (
     (("pbmc", "mononuclear"), "PBMC (peripheral blood mononuclear cells) has no reference in the chain: the neutrophil reading needs whole blood or isolated neutrophils"),
@@ -86,7 +84,7 @@ def specimen_refusal(specimen):
     if s in ACCEPTED_SPECIMENS: return None
     why = next((r for keys, r in REFUSED_SPECIMEN_REASONS if any(k and k in s for k in keys) or (s == "" and "" in keys)), None)
     why = why or f"'{specimen}' is not a blood specimen the chain has a reference for (tissue, placenta and other specimens each need their own reference)"
-    return (f"specimen '{specimen}' refused at intake: {why}. Accepted: whole blood, isolated / sorted / purified neutrophils. "
+    return (f"specimen '{specimen}' refused at intake: {why}. Accepted: whole blood, buffy coat, isolated / sorted / purified neutrophils, and constructed DNA mixtures of blood cells (test material). "
             f"Nothing is read; this specimen can be read once it has its own reference.")
 
 VALID_ARRAY_TYPES = ("HM450K", "EPIC_v1", "EPIC_v2")
@@ -523,7 +521,7 @@ def step_0_3_integrity_hash(record: dict, grn_path: str, red_path: str,
 BS_CONVERSION_MIN = float(_TH["bisulfite_conversion"]["min"])   # intake_thresholds_v1.json bisulfite_conversion.min (provisional)
 BS_THRESHOLD_CALIBRATED = False        # set True when PROC-STAGE0-04 fixes it on healthy arrays
 HYB_HIGH_LOW_MIN_RATIO = 2.0           # provisional — confirm vs Illumina control spec
-EXTENSION_BALANCE_RANGE = (0.2, 5.0)   # provisional meth/unmeth ratio sanity band
+EXTENSION_BALANCE_RANGE = (0.2, 5.0)   # provisional: green (C, G) over red (A, T) extension controls; the record keys say meth/unmeth, which they are not
 
 
 def extract_control_probes(grn_path, red_path, array_type):
@@ -605,7 +603,7 @@ def step_0_4_control_probe_validation(record, grn_path, red_path,
 # Per-probe detection_p = 1 - Φ((I - μ_bg)/σ_bg) vs the negative-control background;
 # probes with detection_p > 0.01 are undetected. Gate on the detected fraction.
 # Math + summary + gates built and tested here; per-probe intensity + negative-control
-# extraction is deferred to the shared Stage 1 IDAT decoder (same as Step 0.4).
+# extraction comes from the QC hand-off (stage_0_1_qc_handoff.decode_qc_inputs), the same decoder Stage 1 uses.
 #
 # NOTE: this mirrors the SOP's stated formula. The exact minfi detectionP (M+U total
 # vs median/MAD negative-control background) is the production target and is flagged
@@ -847,7 +845,7 @@ def explain_stage0(record, hard_fail, borderline, deferred):
             "SOP sections 11-12 (fixed rules, not measured limits)", False, "the files or the manifest are incomplete or do not match; nothing about the biology was looked at",
             "check the flag named above: re-upload the missing or truncated IDAT, or correct the manifest field")
     if record.get("integrity_status") and record.get("integrity_status") != "INTEGRITY_OK":
-        add("file integrity (Step 0.3)", "stopped", str(record.get("integrity_status")), "the IDAT pair's sha256 not already seen under another sample", "SOP section 13 (fixed rule)", False,
+        add("file integrity (Step 0.3)", "stopped", str(record.get("integrity_status")), "the same Sentrix ID with identical bytes not already taken in under this intake log (a re-transmission); a re-run with new bytes is read", "SOP section 13 (fixed rule)", False,
             "this exact pair of files was submitted before", "confirm the sample identifier; a true re-run of the same array is not a new specimen")
     m = record.get("ctrl_qc_metrics") or {}; cq = str(record.get("ctrl_qc") or "")
     if cq.startswith(("FAIL", "PROVISIONAL")):
@@ -862,7 +860,7 @@ def explain_stage0(record, hard_fail, borderline, deferred):
                 "this limit is provisional (not yet set from healthy arrays, to-do PROC-STAGE0-04); if a whole slide is stopped this way, report it; the calibrated values can still be read with run_sample.py --betas, marked as having bypassed this check")
         if "EXT_FAIL" in cq:
             lo, hi = EXTENSION_BALANCE_RANGE
-            add("extension control probes (Step 0.4)", "stopped", f"methylated {_fmt(m.get('extension_meth_median'),0)}, unmethylated {_fmt(m.get('extension_unmeth_median'),0)}, ratio {_fmt(er)}",
+            add("extension control probes (Step 0.4)", "stopped", f"green (C and G) {_fmt(m.get('extension_meth_median'),0)}, red (A and T) {_fmt(m.get('extension_unmeth_median'),0)}, ratio {_fmt(er)}",
                 f"ratio between {lo:g} and {hi:g}", "stage_0_intake.EXTENSION_BALANCE_RANGE", True, "the single-base extension step is unbalanced between the two colors",
                 "this limit is provisional (PROC-STAGE0-04); report the array and its slide")
         if "BS_CONVERSION_LOW" in cq or cq.startswith("PROVISIONAL"):
@@ -878,14 +876,14 @@ def explain_stage0(record, hard_fail, borderline, deferred):
             "too many probes read at background level, so the methylation values are unreliable", "re-scan or re-hybridize the array; a low-signal laboratory batch shows up as many arrays stopped together")
     crs = str(record.get("call_rate_status") or "")
     if crs in ("CALL_RATE_FAIL", "CALL_RATE_BORDERLINE") or (crs.startswith("DEFERRED") and "call_rate" in deferred):
-        add("call rate (Step 0.6)", {"CALL_RATE_FAIL": "stopped", "CALL_RATE_BORDERLINE": "read with a penalty flag"}.get(crs, "stopped (could not be measured)"),
+        add("call rate (Step 0.7)", {"CALL_RATE_FAIL": "stopped", "CALL_RATE_BORDERLINE": "read with a penalty flag"}.get(crs, "stopped (could not be measured)"),
             f"call rate {_fmt(record.get('call_rate'))}", f"at least {CALL_RATE_PASS:g} to pass; below {CALL_RATE_BORDERLINE:g} stops", _TH_SRC + "; the 0.93 line was set by the author on 2026-09-27", False,
             "too few sites give a usable value", "re-scan or re-hybridize the array")
     if str(record.get("bead_qc") or "").startswith("WARN"):
-        add("bead counts (Step 0.5b)", "read with a penalty flag", f"{_fmt(record.get('pct_probes_bead_count_ge_3'))} of probes with at least {BEAD_COUNT_MIN} beads", f"at least {BEAD_PASS_FRACTION:g}", _TH_SRC, False,
+        add("bead counts (Step 0.6)", "read with a penalty flag", f"{_fmt(record.get('pct_probes_bead_count_ge_3'))} of probes with at least {BEAD_COUNT_MIN} beads", f"at least {BEAD_PASS_FRACTION:g}", _TH_SRC, False,
             "some probes rest on few beads, so their values are noisier", "nothing required; the flag is printed on the report")
     if str(record.get("hm450_coverage_gate") or "") == "FAIL":
-        add("450K reference coverage (Step 0.7)", "stopped", f"coverage {_fmt(record.get('hm450_reference_coverage'))}", "the 450K coverage floor in stage_0_intake", "stage_0_intake (fixed rule)", False,
+        add("450K reference coverage (Step 0.7b)", "stopped", f"coverage {_fmt(record.get('hm450_reference_coverage'))}", f"at least {HM450_COVERAGE_MIN:g} of the reference sites measured", "stage_0_intake.HM450_COVERAGE_MIN (fixed rule)", False,
             "the array lacks too many of the sites the references use", "the chain reads EPIC v1 arrays")
     if str(record.get("sex_check") or "") == "MISMATCH":
         add("sex check (Step 0.8)", "stopped", f"declared {record.get('declared_sex')}, the array's X and Y signals say {record.get('predicted_sex')}", f"declared and measured sex agree (getSex cutoff {SEX_GETSEX_CUTOFF:g})",
@@ -1124,5 +1122,5 @@ if __name__ == "__main__":
         and "intake_deferred:detection" in gd["stage0_hard_fail"], gd
 
     print("Step 0.6-0.9 self-tests: PASS (bead / call-rate / platform-coverage / sex / decision gate)")
-    print("  NOTE: all intensity-dependent extraction (control, detection, bead, call-rate, sex, 450K coverage)")
-    print("        is deferred to the shared Stage 1 IDAT decoder; the decision gate marks those deferred QCs honestly.")
+    print("  NOTE: these self-tests run the gates on constructed inputs; on a real array the intensities come from stage_0_1_qc_handoff.py,")
+    print("        and a check that cannot be measured is marked deferred, never passed.")

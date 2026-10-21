@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Stage Q0 - intake for single-molecule files before Stage Q (IAM-A). DEVELOPMENT - not commissioned (doors/DEV_IAMA_INTAKE_01.md).
+"""Stage Q0 - intake for a .pat file before IAM-A (Stage Q2; the retired position reading, Stage Q, also reads it). Its rule checks stop a
+file; its limit checks record until a limit is set from healthy files (doors/DEV_IAMA_INTAKE_01.md). The Chain Decoder, section 10.
 
 An array cannot reach Met-A without Stage 0; a single-molecule file now cannot reach IAM-A without Stage Q0. Each check stops the file
 with a named reason, as Stage 0 does for arrays, and every measured value is recorded whether or not it stops the file.
@@ -10,8 +11,8 @@ Q0.2 build       every line's CpG index lies inside its chromosome's index range
 Q0.3 conversion  bisulfite conversion rate from the alignment record (lambda spike-in or non-CpG C), when one is given -> QUARANTINE_CONVERSION
 Q0.4 coverage    whole genome: molecules on every autosome -> QUARANTINE_NOT_WHOLE_GENOME (opportunities recorded; Stage Q keeps its minimum)
 Q0.5 read length share of molecules with >= 6 CpG calls (Stage Q's qualifying length) -> QUARANTINE_SHORT_READS
-Q0.6 duplicates  duplicate fraction from the alignment record (marked by Sambamba 0.6.5, as Loyfer 2023), when one is given -> QUARANTINE_DUPLICATES
-Q0.7 specimen    purified cells of a type with a frozen position P (IAM-A reads purified cells only) -> SPECIMEN_REFUSED
+Q0.6 duplicates  duplicate fraction from the alignment record (marked by Sambamba 0.6.5, as in the healthy atlas GSE186458), when one is given -> QUARANTINE_DUPLICATES
+Q0.7 specimen    purified cells of a type with a healthy shape reference (Stage Q2; a frozen position P for the retired Stage Q) -> SPECIMEN_REFUSED
 Q0.8 gate        proceed, or stop at the first refusal; every value recorded.
 
 Limits for Q0.3-Q0.6 are set from healthy files (the edge of their own range), written in a dated note before any test file is read
@@ -77,7 +78,7 @@ def scan_pat(path):
 def intake(path, specimen, cell="neutrophils", alignment_qc=None, selfref_cells=None):
     """Stage Q0 on one .pat(.gz). alignment_qc: dict (or JSON path) from the alignment step with 'conversion_rate' and/or
     'duplicate_fraction'; None = not measured here. Returns {stage, checks:[...], decision, refusal_code?, refusal?, measured}."""
-    rec = {"stage": "Q0", "status": "development - not commissioned", "limits": Q0_LIMITS, "checks": []}
+    rec = {"stage": "Q0", "status": "intake: rule checks stop the file; limit checks record only until their limits are set", "limits": Q0_LIMITS, "checks": []}
     def chk(step, ok, value, rule, code=None, stop=True):
         rec["checks"].append({"step": step, "value": value, "rule": rule, "result": ("pass" if ok else ("REFUSED" if stop else "recorded"))})
         if not ok and stop and "refusal_code" not in rec: rec["refusal_code"] = code; rec["refusal"] = f"{step}: {value} ({rule})"

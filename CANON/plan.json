@@ -423,17 +423,17 @@
     {
      "id": "F1",
      "text": "run_sample.py module docstring: says \"Chain v3 (Met-A ... COMMISSIONED 2026-10-09; every other stage DEVELOPMENT)\", \"Any other specimen is refused\" (buffy coat accepted since 10-18), names --slide-ref-table/--slide-ref-A (check which flags exist; workflows use --ref-table). Rewrite to chain v4 with every commissioned instrument.",
-     "status": "open"
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F2",
      "text": "run_sample._versions(): the fingerprinted inputs omit the v4 stages and their matrices (stage_v4.py, stage_deconv_v21.py, stage_q2_selfref.py, stage_atlas_commission.py, selfref_line_v1.json, atlas v2.1 tables, cell_gauge_marks, composition_guard, stage_groupa.py). A reading's provenance hash does not cover every file that can change it.",
-     "status": "open"
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F3",
      "text": "run_sample --bam route: Stage Q0 (intake checks: conversion rate, duplicates, specimen, cell) runs only for --pat; a BAM reaches Stage Q2 with no intake record. Either run Q0's applicable checks on the BAM or print that Q0 did not run and why.",
-     "status": "open"
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F4",
@@ -443,12 +443,12 @@
     {
      "id": "F5",
      "text": "Names in run_sample: refusal records say scope \"neutrophils only\" (the chain reads cell shares for 6 cells, IAM-A on CD8 etc.); ledger rows say engine \"v3\" and \"floors_version\"; the closing line prints \"neutrophil Met-A\"; the EPIC v2 refusal says \"no frozen neutrophil floor\" (the file holds the healthy middle reference); --engine choices (\"v3\",); --array-type help \"v3 reads EPIC_v1 only\"; --age help \"read by no v3 stage\".",
-     "status": "open"
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F6",
      "text": "specimen_refusal text lists \"Accepted: whole blood, isolated / sorted / purified neutrophils\" - omits buffy coat (accepted since 10-18) and constructed DNA mixture; a stray comment on the buffy-coat line belongs to the mixture entry.",
-     "status": "open"
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F7",
@@ -463,22 +463,22 @@
     {
      "id": "F10",
      "text": "stage_0_intake module docstring: \"Built one step at a time ... Implemented so far\", \"minfi getSex\", \"No math in this stage\" (0.5 computes normal survival p-values, 0.8 a sex call): stale.",
-     "status": "open"
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F11",
      "text": "explain_stage0 (my 2026-10-20 work) prints wrong step numbers: call rate labeled \"Step 0.6\" (it is 0.7), bead counts \"Step 0.5b\" (0.6), 450K coverage \"Step 0.7\" (0.7b). The 450K entry's limit says \"the 450K coverage floor in stage_0_intake\" without the number (0.80, HM450_COVERAGE_MIN).",
-     "status": "open"
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F12",
      "text": "explain_stage0 integrity entry: limit text \"not already seen under another sample\" - the rule is the same Sentrix ID with identical bytes already in this intake log (re-transmission); a same-Sentrix different-bytes re-run passes.",
-     "status": "open"
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F13",
      "text": "stage_0_intake self-test footer prints \"all intensity-dependent extraction ... is deferred to the shared Stage 1 IDAT decoder\" - stale: stage_0_1_qc_handoff now extracts them before Stage 1.",
-     "status": "open"
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F14",
@@ -492,8 +492,8 @@
     },
     {
      "id": "F15",
-     "text": "Extension controls: green (C, G) over red (A, T) is a two-color balance; the record and explain_stage0 call them \"methylated\" / \"unmethylated\" (extension_meth_median / extension_unmeth_median). Rename in text (keys can stay, explained).",
-     "status": "open"
+     "text": "Extension controls: green (C, G) over red (A, T) is a two-color balance; the record and explain_stage0 call them \"methylated\" / \"unmethylated\" (extension_meth_median / extension_unmeth_median). Rename in text (keys can stay, explained). | PARTLY: text and the record's labels fixed; the record keys extension_meth_median / extension_unmeth_median keep their names until a bundle-format change",
+     "status": "partly fixed 2026-10-20"
     },
     {
      "id": "F16",
@@ -502,23 +502,23 @@
     },
     {
      "id": "F17",
-     "text": "stage_1_idat_calibration._ensure_methylprep pip-installs methylprep by itself, and its fallback advice tells the user to \"pip install methylprep numpy pandas scipy scikit-learn matplotlib\" unpinned, against the pinned chain/requirements.txt and _check_pins. Point to requirements.txt instead. Module docstring names \"idat_decoder_pure\", \"the chain's run_pipeline\" and \"inflates every downstream A-score\" (retired engine).",
-     "status": "open"
+     "text": "stage_1_idat_calibration._ensure_methylprep pip-installs methylprep by itself, and its fallback advice tells the user to \"pip install methylprep numpy pandas scipy scikit-learn matplotlib\" unpinned, against the pinned chain/requirements.txt and _check_pins. Point to requirements.txt instead. Module docstring names \"idat_decoder_pure\", \"the chain's run_pipeline\" and \"inflates every downstream A-score\" (retired engine). | PARTLY: the fallback advice now installs chain/requirements.txt (pinned); the automatic install of methylprep itself is unchanged",
+     "status": "partly fixed 2026-10-20"
     },
     {
      "id": "F18",
      "text": "conductor_v3 text: module docstring line 2 \"Met-A on isolated neutrophils commissioned; whole blood and other stages development\", \"IAM-A (sequencing) is Stage Q, stage_q_iam_a.py\" (it is Stage Q2), \"isolated: Met-A = mean H / floor\"; stage_a_composition docstring names a researcher (\"Salas\"); stage_mc_cscore docstring \"development (band not set)\" though commissioned 2026-10-15; CSCORE_DEV_BAND comment \"development, not commissioned\"; run_neutrophil \"Returns the v3 bundle\"; METAA_COMMISSIONING.not_commissioned lists IAM-A (commissioned 10-17); out[\"withheld\"] \"other cell types (outside commissioning scope)\" (read-and-flag rule); platform_refusal \"no frozen neutrophil floor\", \"450K neutrophil floor pending\".",
-     "status": "open"
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F19",
      "text": "conductor_v3 whole-blood development note prints a fixed \"Detection limit at this fraction: 5 % loss (DEV-METAA-SENS-01)\" on every whole-blood reading, while Stage T computes this specimen's own detection limit (2 x spread / shift per 1 %); the corrected whole-blood figure is about 1.57 % per person. A constant number contradicting the computed one.",
-     "status": "open"
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F22",
      "text": "stage_m_met_a: module docstring \"Development build v3. Not commissioned.\" and every isolated-neutrophil record carries build=\"development v3 (not commissioned)\" although Met-A on isolated neutrophils is COMMISSIONED 2026-10-09 (the conductor adds the commissioning record beside it): a commissioned reading whose own record says not commissioned. \"floor\" used for the healthy middle reference throughout (floor key, 'no {platform} floor', floor_precision).",
-     "status": "open"
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F23",
@@ -527,18 +527,18 @@
     },
     {
      "id": "F24",
-     "text": "Researcher names in code and runtime matrices: stage_q2_selfref docstring \"(Loyfer, hg19 ...)\"; band_v1.json labs {\"Loyfer 2023\": 153, \"Hansen GSE49627\": 3}; selfref_line_v1.json / shape_reference_v1.json built_from \"Loyfer 2023 (GSE186458)\"; stage_a_composition docstring \"Salas\"; stage_q2 stamp comment \"Hansen count run 2\". Naming rule: describe by the work and accession (GSE186458, GSE49627). Runtime matrices are frozen and payload-hashed: relabel only through a new version or a stamp-preserving note; docstrings can change now.",
-     "status": "open"
+     "text": "Researcher names in code and runtime matrices: stage_q2_selfref docstring \"(Loyfer, hg19 ...)\"; band_v1.json labs {\"Loyfer 2023\": 153, \"Hansen GSE49627\": 3}; selfref_line_v1.json / shape_reference_v1.json built_from \"Loyfer 2023 (GSE186458)\"; stage_a_composition docstring \"Salas\"; stage_q2 stamp comment \"Hansen count run 2\". Naming rule: describe by the work and accession (GSE186458, GSE49627). Runtime matrices are frozen and payload-hashed: relabel only through a new version or a stamp-preserving note; docstrings can change now. | PARTLY: docstrings fixed; the frozen runtime matrices (band_v1.json labs, built_from fields) keep their stamped text until their next version",
+     "status": "partly fixed 2026-10-20"
     },
     {
      "id": "F25",
-     "text": "IAM-A band v1 (0.7787-1.0551) was built from 156 healthy readings, 153 of them the very samples the line was fitted on (GSE186458) plus 3 of GSE49627; the commissioning grand test was on held-out CD8 samples. The Decoder must state that the band's healthy spread is in-sample for 153 of 156 (a reviewer will find it), and that the held-out test is what commissioned it.",
-     "status": "open"
+     "text": "IAM-A band v1 (0.7787-1.0551) was built from 156 healthy readings, 153 of them the very samples the line was fitted on (GSE186458) plus 3 of GSE49627; the commissioning grand test was on held-out CD8 samples. The Decoder must state that the band's healthy spread is in-sample for 153 of 156 (a reviewer will find it), and that the held-out test is what commissioned it. | FIXED in the Decoder text (section 9 states it).",
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F26",
-     "text": "stage_v4.stage_q2 grants the commissioned label to any cell named in CD8_TYPES incl. \"naive cd8 t cells\", \"effector memory cd8 t cells\", \"t effector cell cd8\" when chemistry is WGBS: check this matches COMMISSIONING_NOTE_IAMA.md's scope (\"healthy blood CD8 T cells\"): subsets were in the grand test as shape types (CD8_SHAPE_TYPE), so likely right, but the note must say subsets are included.",
-     "status": "open"
+     "text": "stage_v4.stage_q2 grants the commissioned label to any cell named in CD8_TYPES incl. \"naive cd8 t cells\", \"effector memory cd8 t cells\", \"t effector cell cd8\" when chemistry is WGBS: check this matches COMMISSIONING_NOTE_IAMA.md's scope (\"healthy blood CD8 T cells\"): subsets were in the grand test as shape types (CD8_SHAPE_TYPE), so likely right, but the note must say subsets are included. | RESOLVED: the grand test's 13 samples were CD8 T cells and subsets (the shape check declined four naive and one central memory), so the label is right.",
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F27",
@@ -548,7 +548,7 @@
     {
      "id": "F28",
      "text": "Retired term \"copy error(s)\" (canon: RETIRED, \"NOT what IAM measures\") is still in stage_q_iam_a.py's docstring (\"isolated copy errors / opportunities\") and in Q0's text; stage_q_iam_a is the retired position reading (development, --dev-iama-position) - its docstring should open with RETIRED and point to Stage Q2. Q0 docstring: \"purified cells of a type with a frozen position P (IAM-A reads purified cells only)\" describes the retired route; the v4 branch (selfref_cells) is the live one. Q0 record says \"development - not commissioned\" on every commissioned IAM-A .pat run: Q0 is part of the commissioned route (it ran in the grand test? check) - if so the label is wrong.",
-     "status": "open"
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F29",
@@ -558,17 +558,22 @@
     {
      "id": "F30",
      "text": "report_v3.troubleshooting (printed in every report's technical record): \"A withheld for fraction: the neutrophil fraction is below the read line (0.20)\" - the 0.20 cut was retired 2026-10-10 (DEV-LOWFRAC-01; the chain now withholds only at a share of 0); \"intake reads whole blood and isolated / sorted / purified neutrophils\" omits buffy coat; \"v3 reads EPIC v1 arrays only; a 450K or EPIC v2 array needs its own frozen floor first\" (v3, floor). Researcher-facing and wrong.",
-     "status": "open"
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F31",
      "text": "report_v3 module docstring \"Report for conductor v3 (Met-A on neutrophils commissioned 2026-10-09; other stages development; neutrophils only)\" - it is the technical record inside every v4 report.",
-     "status": "open"
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F32",
      "text": "report_v4.physics_rows types the Met-A healthy reference as 0.330 / 0.330263 in code instead of reading metA_floors_v1_3.json (the rule: nothing typed in drawing/report code). report_v3 page title \"CPG v3 - <id>\".",
-     "status": "open"
+     "status": "fixed 2026-10-20"
+    },
+    {
+     "id": "F33",
+     "status": "open",
+     "text": "COMMISSIONING_NOTE_IAMA.md names a laboratory and its investigator ('Youngblood laboratory, St. Jude'); the naming rule says describe by the work and accession (GSE144691). Check the commissioning registry's places before editing."
     }
    ],
    "notes": " | 2026-10-20: Chain Decoder written (manual/decoder_text.md -> OM_v4_decoder.md; all 257 functions of the 22 loaded files have entries; gated). OM PDF retitled 'Official IAM Operations Manual: Instrument Diagnostics and Chain Decoder' (Decoder + diagnostics + chain sequence); SOP retitled 'Official IAM Chain Operator Guide'. Reading the code line by line found the items under findings; each is fixed in the chain, not in the text."

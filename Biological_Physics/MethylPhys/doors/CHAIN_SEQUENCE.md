@@ -23,7 +23,7 @@ Chain v3 is the only engine; the class-floor engine (v2) was retired on 2026-10-
 | 13 | `platform_refusal` | `conductor_v3.py` | None when the specimen is EPIC v1; otherwise the refusal text |
 | 14 | `stage_t_selftare_ii` | `conductor_v3.py` | Stage T step 1, self-tare II (adopted 2026-10-04, DEV-SELFTARE-02): per probe design, beta' = Lr + (beta - L)(Ur - Lr)/(U - L) from this |
 | 15 | `stage_m_isolated` | `conductor_v3.py` | Isolated / sorted neutrophils against their healthy reference. The healthy-reference state is kept as state_own_floor; the reading's state is |
-| 16 | `stage_a_composition` | `conductor_v3.py` | EPIC blood composition (blood_composition_EPIC_v1): 8 groups from Salas purified EPIC cells; markers exclude the neutrophil sites; |
+| 16 | `stage_a_composition` | `conductor_v3.py` | EPIC blood composition (blood_composition_EPIC_v1): 8 groups from 91 purified-cell EPIC arrays (GSE110554, GSE167998); markers exclude the neutrophil sites; |
 | 17 | `stage_m_blood` | `conductor_v3.py` | Whole blood: Met-A = mean H(beta) / mean H(e) at the neutrophil sites, e = sum_g f_g mu_g (EPIC purified group profiles) |
 | 18 | `noise_index` | `conductor_v3.py` | N = mean H(beta) over the noise sites measured on this array; None when fewer than MIN_NOISE_FRACTION are measured _stage 9: the array's noise index N over the noise sites_ |
 | 19 | `stage_t_tare` | `conductor_v3.py` | Same-run tare against >= MIN_REFS healthy references of the same specimen type run the same way (same slide, else same batch) |
@@ -54,7 +54,6 @@ Chain v3 is the only engine; the class-floor engine (v2) was retired on 2026-10-
 | `stage_atlas_u2.py` | Atlas v2.1 U2a, blind sites of the four sealed tissue tests (sealed_commission_v21.json U2; bar B2 of amendment_v21b.json; chain Stage A21 | module present; neither run_sample.py nor conductor_v3.py calls it (toolkit, chain/TOOLKIT.md) |
 | `stage_atlas_u3.py` | Atlas v2.1 U3, blood composition (sealed bar B3, amendment_v21b.json; scorer chain Stage A21 u3_neutrophil). Written 2026-10-16 before any | module present; neither run_sample.py nor conductor_v3.py calls it (toolkit, chain/TOOLKIT.md) |
 | `stage_deconv_v21.py` | Stage D21 - the deconvolution tool (IAM-Deconvolver) on IAM-Atlas v2.1. Written 2026-10-16; COMMISSIONED 2026-10-17 for the shares of | module present; neither run_sample.py nor conductor_v3.py calls it (toolkit, chain/TOOLKIT.md) |
-| `stage_groupa.py` | stage_groupa.py - Group-A: has a whole group moved? (commissioned 2026-10-20, doors/COMMISSIONING_NOTE_GROUPA.md) | module present; neither run_sample.py nor conductor_v3.py calls it (toolkit, chain/TOOLKIT.md) |
 | `stage_temperature.py` | Chain stage TL: the temperature law on single molecules (PRED-TEMPERATURE-01, PHY-057). Written 2026-10-17, before any read is opened | module present; neither run_sample.py nor conductor_v3.py calls it (toolkit, chain/TOOLKIT.md) |
 
 ## Behind development flags (DEVELOPMENT - not commissioned; never part of a reading)

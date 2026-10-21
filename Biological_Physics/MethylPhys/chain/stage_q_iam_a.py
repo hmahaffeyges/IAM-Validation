@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Stage Q - IAM-A (single-molecule sequencing), development build, NOT commissioned. Scope: neutrophils.
+"""RETIRED 2026-10-17: the position reading of IAM-A, replaced by Stage Q2 (stage_q2_selfref.py; each sample against its own reference).
+Run only with --site-table or --dev-iama-position, labeled development; kept so earlier records reproduce. "Copy error" below is a retired
+term: what is counted is the held error (CANON/foundation.json). The Chain Decoder, section 12.
+
+Stage Q - IAM-A (single-molecule sequencing), development build, NOT commissioned. Scope: neutrophils.
 IAM-A = H(eps) / (P_cell * H(eps0)). eps0 (canon eps0_meth = 1/(1+exp(phi*M)) = 0.032) and P_cell are read from
 Runtime Matrices/IAM_A_Positions/iama_positions_v2.json (keys "eps0", "cells.<cell>.P", "cells.<cell>.pipeline"). v2 (2026-10-08,
 DEV-IAMA-P-WHOLE-01): P measured on WHOLE files; a reading of part of a file is refused, because it reads other sites than P was measured on.

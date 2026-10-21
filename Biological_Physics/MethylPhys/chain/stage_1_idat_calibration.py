@@ -8,10 +8,9 @@ matrix, no external lookup of any kind enters this step.
 
 Why this exists: the raw decoder (idat_decoder_pure) computes beta = M/(M+U+100)
 with no dye-bias or probe-type normalization, which leaves the methylated peak
-compressed (~0.85 instead of ~0.95) and inflates every downstream A-score. The
-chain's run_pipeline is designed to receive ALREADY-CALIBRATED beta; this module
-is the calibration that the SOP specifies and the 2026-06-10 audit flagged as the
-outstanding Stage 1.
+compressed (~0.85 instead of ~0.95) and inflates every downstream reading. Every stage
+after this one reads ALREADY-CALIBRATED beta; this module is that calibration (the
+Chain Decoder, manual/OM_v4_decoder.md, section 4).
 
 Array type (450k vs EPIC) is auto-detected from the IDAT probe count, so the
 operator drops any IDAT pair and the step adapts.
@@ -81,7 +80,7 @@ def _ensure_methylprep():
                 "already in this environment. Fastest fix is a clean env for the chain:\n\n"
                 "    conda create -n cpg python=3.11 -y\n"
                 "    conda activate cpg\n"
-                "    pip install methylprep numpy pandas scipy scikit-learn matplotlib\n\n"
+                "    pip install -r Biological_Physics/MethylPhys/chain/requirements.txt\n\n"
                 "then run the chain from that env. (Or simply close and re-run once - sometimes "
                 "enough if numpy was only loaded earlier in the session.)\n"
                 f"(detail: {e})")

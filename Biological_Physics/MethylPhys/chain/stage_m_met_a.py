@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
-"""Stage M — Met-A (Metrology A). Development build v3. Not commissioned.
+"""Stage M - Met-A. COMMISSIONED 2026-10-09 on isolated neutrophils, EPIC v1 (doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md).
 
-Met-A reads ONE cell type in ONE specimen against that cell type's own healthy floor on the SAME platform:
+Met-A reads ONE cell type in ONE specimen against that cell type's own healthy reference on the SAME platform:
 
-    Met-A = mean over the cell's identity sites of H(beta)  /  floor,     H(b) = -b log2 b - (1-b) log2(1-b)
+    Met-A = mean over the cell's identity sites of H(beta)  /  H_ref,     H(b) = -b log2 b - (1-b) log2(1-b)
 
-SCOPE: neutrophils on EPIC v1 only (author ruling 2026-10-01). Identity sites and the floor are frozen in
+SCOPE: neutrophils on EPIC v1 (author ruling 2026-10-01). Identity sites and the healthy reference H_ref (key 'floor', a name older than the
+gauge's marks; it is the healthy middle mark, not the floor) are frozen in
 Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json (EPIC neutrophils; 6 purified healthy arrays, each physical array counted once,
-calibrated by this chain's own Stage 1). Floors of other cell types and of 450K are kept for development only in
+calibrated by this chain's own Stage 1). Healthy references of other cell types and of 450K are kept for development only in
 metA_floors_v1_2_ALLCELLS_development.json and are not read here. Site rule: across-array SD <= 0.05 and mean beta 0.75-0.95
-(methylated) or 0.05-0.25 (unmethylated), up to 3,000 per channel. The held-out precision of the floor (sites re-chosen on the other
+(methylated) or 0.05-0.25 (unmethylated), up to 3,000 per channel. The held-out precision of the healthy reference (sites re-chosen on the other
 arrays) is in metA_floors_v1_3_loo.csv and is printed with each reading.
 
 One ruler: Normal = 0.95-1.05. This module reads a purified / sorted specimen of one cell type. In a mixture (whole blood) the reading is
@@ -60,11 +61,11 @@ def read(beta, cell, platform=None, specimen="purified"):
     platform = platform or platform_of(beta)
     F = _floors()["platforms"].get(platform, {})
     rec = dict(stage="M", reading="Met-A", cell=cell, platform=platform, specimen=specimen, fraction=None, A=None,
-               band="Normal 0.95-1.05", build="development v3 (not commissioned)", floors_version=_floors()["version"])
+               band="Normal 0.95-1.05", build="chain v4 Stage M (Met-A commissioned on isolated neutrophils, EPIC v1, 2026-10-09)", floors_version=_floors()["version"])
     if cell not in CELLS_IN_SCOPE:
         rec["reason"] = f"'{cell}' is outside the commissioning scope (neutrophils only, 2026-10-01)"; return rec
     if cell not in F:
-        rec["reason"] = f"no {platform} floor for '{cell}' (floors exist for: {', '.join(sorted(F))})"; return rec
+        rec["reason"] = f"no {platform} healthy reference for '{cell}' (references exist for: {', '.join(sorted(F))})"; return rec
     f = F[cell]; s = pd.Index(f["sites"]).intersection(beta.dropna().index)
     if len(s) < SITE_COVERAGE_MIN * f["n_sites"]:
         rec["reason"] = f"only {len(s)} of {f['n_sites']} identity sites measured"; return rec

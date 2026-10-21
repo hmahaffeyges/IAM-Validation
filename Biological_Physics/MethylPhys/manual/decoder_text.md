@@ -935,8 +935,9 @@ Stage Q0. Each check stops the file with a named reason, and every measured valu
 | Q0.3 conversion | the bisulfite conversion rate from the alignment record, when one is given | below 0.98 | the ENCODE whole-genome bisulfite standard |
 | Q0.6 duplicates | the duplicate fraction from the alignment record, when given | not set: recorded only | to be set on healthy files |
 
-**Not run on a BAM.** The `--bam` route goes straight to Stage Q2's counter, which itself records the conversion failure (from non-CpG
-calls) and the substitution rate on A and T. Q0's file checks are written for the `.pat` format.
+**Not run on a BAM.** Q0's file checks are written for the `.pat` format. On the `--bam` route the intake record says so and why, and
+Stage Q2's counter records the bisulfite conversion failure (from non-CpG calls) and the substitution rate on A and T; the sample-shape
+check refuses a cell type with no healthy reference.
 
 ### stage_q0_intake.py::_ranges
 Loads the hg19 CpG-index range of each chromosome, if the file is present.
@@ -1106,6 +1107,9 @@ A number in HTML scientific notation (×10ⁿ).
 
 ### report_v4.py::_marks
 Loads the gauge marks file.
+
+### report_v4.py::_href
+Met-A's healthy reference in bits per site (0.33026), read from `metA_floors_v1_3.json`, never typed.
 
 ### report_v4.py::cellname
 A cell type's display name.

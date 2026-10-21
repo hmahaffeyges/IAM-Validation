@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Cellular Performance Gauge — conductor v3. Met-A on isolated neutrophils (EPIC v1) commissioned 2026-10-09; whole blood and other stages development. Scope: isolated neutrophils, EPIC v1 arrays.
+"""conductor_v3.py - the array reading of chain v4 (EPIC v1; the file keeps its chain v3 name). Met-A COMMISSIONED 2026-10-09 on isolated
+neutrophils (whole blood read on the same path and labeled preliminary); the C-Score COMMISSIONED 2026-10-15 on whole blood. The Chain Decoder
+(manual/OM_v4_decoder.md, section 5) explains every line.
 
 Runs after Stage 0 (intake) and Stage 1 (IDAT calibration), both driven by MethylPhys_Interface/run_sample.py:
   platform  EPIC v1 only: refused when Stage 0 reports another array type, when probe names carry the EPIC v2 design suffix,
@@ -20,10 +22,12 @@ Runs after Stage 0 (intake) and Stage 1 (IDAT calibration), both driven by Methy
   Specimen  whole blood and isolated / sorted / purified neutrophils only (stage_0_intake.specimen_refusal, author decision L, 2026-10-04).
 Frozen inputs (Runtime Matrices/Met_A_Floors): metA_floors_v1_3.json, metA_floors_v1_3_loo.csv, neutrophil_reference_v1_2.json,
 blood_composition_EPIC_v1.json, noise_sites_EPIC_v1.json, noise_gate_EPIC_v1.json. neutrophil_reference_v1_2.json keys profiles_mean_beta and profile_map are record only (not read).
-IAM-A (sequencing) is Stage Q, stage_q_iam_a.py, called by run_sample.py with --pat or --site-table.
+IAM-A (sequencing) is Stage Q2 (stage_q2_selfref.py through stage_v4.py), called by run_sample.py with --pat or --bam; the retired position
+reading, Stage Q (stage_q_iam_a.py), runs only with --site-table or --dev-iama-position.
 Formulas (canon: Met-A, C-score):
   H(b) = -b log2 b - (1-b) log2(1-b)
-  isolated:    Met-A = mean_i H(beta_i) / floor
+  isolated:    Met-A = mean_i H(beta_i) / H_ref  (H_ref the healthy reference, 0.33026 bits; stored under the key 'floor' of metA_floors_v1_3.json,
+               a name older than the gauge's three marks: it is the healthy middle mark, not the floor)
   whole blood: Met-A = mean_i H(beta_i) / mean_i H(e_i),  e_i = sum_g f_g mu_g,i  (f: this specimen's fractions; mu: purified healthy profiles)
   residual z_i = (H(beta_i) - H(ref_i)) / s_i  (ref_i = neutrophil mean H, or H(e_i) in blood; s_i = shrunk healthy SD of H among neutrophils)
   C = var(block means of clustering_block consecutive sites x sqrt(block)) / var(z)  /  healthy median clustering
@@ -41,7 +45,7 @@ METAA_COMMISSIONING = {   # doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md (autho
     "stages": "0, 1, 2, 5, 6, 8 (self-tare II then the median tare), 9, 13",
     "detection_limit_pct_loss": {"isolated neutrophils": 2.0},
     "detection_basis": "DEV-METAA-SENS-01: every healthy array left Normal at these losses of the neutrophil pattern, through the whole chain",
-    "not_commissioned": "whole blood (bar 7 met only on the reference laboratory's own truth sets; commissioned when met on an independent one), IAM-A, sky (11/12), direction (10), trace/foreign cells (3b/3c), other cell types",
+    "not_commissioned": "whole blood (bar 7 met only on the reference laboratory's own truth sets; commissioned when met on an independent one), sky (11/12), direction (10), trace/foreign cells (3b/3c), other cell types",
     "note": "doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md"}
 CSCORE_COMMISSIONING = {   # doors/COMMISSIONING_NOTE_CSCORE.md (2026-10-15; plan rule: tests (a) and (b) met)
     "status": "COMMISSIONED", "date": "2026-10-15", "reading": "Met-A C-score", "platform": "EPIC v1",
@@ -94,7 +98,7 @@ def min_markers():
     return int(np.ceil(MIN_MARKER_FRACTION * len(_bc()["markers"])))
 
 def stage_a_composition(beta):
-    """EPIC blood composition (blood_composition_EPIC_v1): 8 groups from Salas purified EPIC cells; markers exclude the neutrophil sites;
+    """EPIC blood composition (blood_composition_EPIC_v1): 8 groups from 91 purified-cell EPIC arrays (GSE110554, GSE167998); markers exclude the neutrophil sites;
     NNLS, sum 1. Same platform and same reference as the expectation profiles. Refused (fractions None) when fewer than
     MIN_MARKER_FRACTION of the markers are measured."""
     from scipy.optimize import nnls
@@ -169,7 +173,8 @@ def stage_m_isolated(beta):
 def stage_mc_cscore(z):
     """Met-A C-score (stage 6): clustering of the residual z map in genomic order - variance of the means of blocks of clustering_block
     consecutive sites (x sqrt(block)) over the site variance, divided by the healthy median clustering of neutrophil_reference_v1_2.json.
-    Healthy = 1; development (band not set). No residual map -> C None with the reason."""
+    Healthy = 1; read against its band after the same-run tare (stage_t_cscore; commissioned on whole blood 2026-10-15). No residual map ->
+    C None with the reason."""
     R = ref(); c = _clustering(z) if z is not None else None
     if c is None: return {"stage": "MC", "reading": "Met-A C-score", "C": None, "reason": "no residual map"}
     return {"stage": "MC", "reading": "Met-A C-score", "C": round(c / R["healthy_clustering_median"], 4), "clustering": round(c, 4),
@@ -209,7 +214,7 @@ def stage_t_tare(A, ref_A, shift_1pct=None, sample_id=None):
             "detection_note": "smallest loss of the cell's pattern (percent) this specimen could show: 2 x reference spread / shift per 1 % loss",
             "state": _state(Ar)}
 
-CSCORE_DEV_BAND = (0.877, 1.152)   # blocks of 10 (2026-10-09): 2.5-97.5 % of tared C on 617 healthy arrays, 19 studies (17 institutions); development, not commissioned (CSCORE_COMMISSIONING_PLAN)
+CSCORE_DEV_BAND = (0.877, 1.152)   # blocks of 10 (2026-10-09): 2.5-97.5 % of tared C on 617 healthy arrays, 19 studies (17 institutions); the band of the C-Score commissioned on whole blood 2026-10-15 (CSCORE_COMMISSIONING); the name is older than the commission
 
 def stage_t_cscore(cs, ref_A, sample_id=None):
     """Same-run tare of the Met-A C-score, the same rule as the median tare of A (DEV-CSCORE-TARE-01): C_rel = C / median(C of >= MIN_REFS
@@ -243,21 +248,21 @@ def stage_t_selftare_ii(beta):
 def platform_refusal(beta, array_type=None):
     """None when the specimen is EPIC v1; otherwise the refusal text."""
     if array_type is not None and array_type not in ACCEPTED_ARRAY_TYPES:
-        return f"array type {array_type}: the chain reads EPIC v1 arrays only (no frozen neutrophil floor for this platform)"
+        return f"array type {array_type}: the chain reads EPIC v1 arrays only (its healthy neutrophil reference is frozen for EPIC v1)"
     p = SM.platform_of(beta)
     if p == "EPIC_v2":
-        return "EPIC v2 probe names (design suffix, e.g. cg..._TC21): the chain reads EPIC v1 arrays only (no frozen neutrophil floor for this platform)"
+        return "EPIC v2 probe names (design suffix, e.g. cg..._TC21): the chain reads EPIC v1 arrays only (its healthy neutrophil reference is frozen for EPIC v1)"
     if p != "EPIC":
-        return f"{len(beta):,} probes (450K or incomplete vector): the chain reads EPIC v1 arrays only (450K neutrophil floor pending)"
+        return f"{len(beta):,} probes (450K or incomplete vector): the chain reads EPIC v1 arrays only (no 450K healthy neutrophil reference yet)"
     return None
 
 def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sample_id=None):
     """beta: pd.Series from Stage 1 (EPIC v1). ref_A: same-run healthy references - their Met-A before the median tare (met_a.A, which
     carries Stage T step 1, self-tare II, since 2026-10-04), or records {A, f_neu, N[, id]}
     (Stage T; plain A values or records with A). array_type: Stage 0's array type (header, else declared), or None for a beta table. sample_id: excluded from the
-    references if a record carries it. Returns the v3 bundle."""
+    references if a record carries it. Returns the array reading's records (Decoder section 5)."""
     beta = beta.copy(); beta.index = beta.index.astype(str)
-    out = {"build": BUILD, "specimen": specimen, "platform": SM.platform_of(beta), "array_type": array_type, "scope": "neutrophils only",
+    out = {"build": BUILD, "specimen": specimen, "platform": SM.platform_of(beta), "array_type": array_type, "scope": "Met-A and the C-Score read the neutrophils; the cell shares cover six blood cells",
            "floors_version": SM._floors()["version"], "reference_version": ref()["version"]}
     import stage_0_intake as S0
     r = S0.specimen_refusal(specimen)
@@ -292,12 +297,12 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
     if _sp == "buffy coat": m["specimen"] = "buffy coat"   # 2026-10-18: whole-blood path, its own name, so no commissioned label attaches to it
     if m.get("A") is not None and _sp == "isolated neutrophils": m["commissioning"] = METAA_COMMISSIONING   # isolated neutrophils only (2026-10-11; explicit 2026-10-18)
     elif m.get("A") is not None and _sp == "buffy coat": m["development"] = "DEVELOPMENT - not commissioned: buffy coat (read on the whole-blood path; Met-A is commissioned on isolated neutrophils, the C-Score on whole blood)"
-    elif m.get("A") is not None: m["development"] = ("DEVELOPMENT - not commissioned: whole blood (composition, bar 7, met only on the reference laboratory's own truth sets; commissioned when met on whole bloods of known composition from an independent laboratory). Detection limit at this fraction: 5 % loss (DEV-METAA-SENS-01).")
+    elif m.get("A") is not None: m["development"] = ("DEVELOPMENT - not commissioned: whole blood (composition, bar 7, met only on the reference laboratory's own truth sets; commissioned when met on whole bloods of known composition from an independent laboratory). This person's detection limit at their own neutrophil share is printed with the tare (Stage T).")
     _mc = stage_mc_cscore(z)
     if z is None and _mc.get("C") is None: _mc["reason"] = f"not computed: the C-Score reads Met-A's departure map, and Met-A gave none on this array ({m.get('reason') or m.get('state') or 'no reason recorded'})"
     out["met_a"] = m; out["met_a_cscore"] = stage_t_cscore(_mc, ref_A, sample_id); out["_cscore_z"] = z   # v4 sky; popped before the bundle
     if out["met_a_cscore"].get("C_rel") is not None and m.get("specimen") in CSCORE_COMMISSIONING["specimens"]: out["met_a_cscore"]["commissioning"] = CSCORE_COMMISSIONING
     elif out["met_a_cscore"].get("C_rel") is not None: out["met_a_cscore"]["status"] = "development: specimen outside the commissioned C-score scope"
     out["tare"] = t   # every specimen (2026-10-17): from 2026-10-15 this sat inside the elif above, so in-scope (whole blood) runs lost their tare record (LESSONS C21)
-    out["withheld"] = ["tier lines beyond Normal (not yet measured on this scale)", "other cell types (outside commissioning scope)"]
+    out["withheld"] = ["tier lines beyond Normal (not yet measured on this scale)", "Met-A of blood cells other than neutrophils (not yet read by this chain)"]
     return out

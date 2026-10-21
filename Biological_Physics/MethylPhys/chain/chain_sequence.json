@@ -91,7 +91,7 @@
   {
    "step": "stage_a_composition",
    "where": "conductor_v3.py",
-   "implements": "EPIC blood composition (blood_composition_EPIC_v1): 8 groups from Salas purified EPIC cells; markers exclude the neutrophil sites;"
+   "implements": "EPIC blood composition (blood_composition_EPIC_v1): 8 groups from 91 purified-cell EPIC arrays (GSE110554, GSE167998); markers exclude the neutrophil sites;"
   },
   {
    "step": "stage_m_blood",
@@ -238,12 +238,6 @@
    "step": "stage_deconv_v21.py",
    "where": "stage_deconv_v21.py",
    "implements": "Stage D21 - the deconvolution tool (IAM-Deconvolver) on IAM-Atlas v2.1. Written 2026-10-16; COMMISSIONED 2026-10-17 for the shares of",
-   "status": "module present; neither run_sample.py nor conductor_v3.py calls it (toolkit, chain/TOOLKIT.md)"
-  },
-  {
-   "step": "stage_groupa.py",
-   "where": "stage_groupa.py",
-   "implements": "stage_groupa.py - Group-A: has a whole group moved? (commissioned 2026-10-20, doors/COMMISSIONING_NOTE_GROUPA.md)",
    "status": "module present; neither run_sample.py nor conductor_v3.py calls it (toolkit, chain/TOOLKIT.md)"
   },
   {
@@ -400,7 +394,7 @@
  ],
  "counts": {
   "live": 32,
-  "not_wired": 11,
+  "not_wired": 10,
   "toolkit_rows": 13,
   "development_flags": 9
  }

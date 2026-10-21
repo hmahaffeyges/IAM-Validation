@@ -4,7 +4,7 @@ error and the self-reference line out of side scripts (development/loose_share_2
 Author's rule (2026-10-15): side scripts are for exploration only; every logged test runs through the chain, and the gate checks the stamp.
 
 ONE COUNTER, two readers of the same molecules:
-  count_pat(lines, tiles)          wgbstools .pat lines (Loyfer, hg19 CpG-index tiles): an exact port of own_reads_loose.one()
+  count_pat(lines, tiles)          wgbstools .pat lines (hg19 CpG-index tiles): an exact port of own_reads_loose.one()
   count_bam(bam, ref, ...)         aligned reads (gemBS tag XB, or Bismark tag XM), GRCh38 or hg19, read pairs merged: port of secondlab.py
 Both: molecules alternate EVEN -> loose share, ODD -> held error (no molecule used twice).
   loose share = tiles of 2,000 consecutive CpGs whose molecules' mean call is below CUT (0.70), over tiles with >= MIN_TILE_CALLS calls
@@ -48,7 +48,7 @@ def stamp(obj, inputs=(), manifest=None):
     """Attach the chain stamp to a result dict. inputs: [{'name':..., 'sha256':..., 'size':...}] (file_sha of each input where possible).
     manifest: the Master Testing Manifest row IDs this result belongs to."""
     obj = {k: v for k, v in obj.items() if k != "chain_stamp"}
-    obj = json.loads(json.dumps(obj, default=float))   # hash what will be stored: JSON turns number keys into text (2026-10-16, Hansen count run 2)
+    obj = json.loads(json.dumps(obj, default=float))   # hash what will be stored: JSON turns number keys into text (2026-10-16, found on the GSE49627 count, run 2)
     obj["chain_stamp"] = dict(stage=STAGE, chain_sha=chain_sha(), payload_sha256=payload_sha(obj), inputs=list(inputs), manifest=_rows(manifest),
                               utc=datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
     return obj

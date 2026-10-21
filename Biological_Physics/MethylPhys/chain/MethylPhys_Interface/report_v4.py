@@ -42,6 +42,8 @@ def _sci(v):
 def _marks(): return json.load(open(os.path.join(CH, "Runtime Matrices", "Gauge", "cell_gauge_marks_v1.json"), encoding="utf-8"))
 
 _NAMES = {"cd4 t cells": "CD4 T cells", "cd8 t cells": "CD8 T cells", "b cells": "B cells", "nk cells": "NK cells", "neutrophils": "Neutrophils", "monocytes": "Monocytes"}
+def _href():   # Met-A's healthy reference in bits per site, read from its frozen file (key 'floor'; it is the middle mark), never typed
+    import json as _j; return float(_j.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Runtime Matrices", "Met_A_Floors", "metA_floors_v1_3.json")))["platforms"]["EPIC"]["neutrophils"]["floor"])
 def cellname(c):   # 2026-10-18: cell types printed as a reader writes them (the data keeps the atlas's own names)
     c = str(c); return _NAMES.get(c.lower(), c[:1].upper() + c[1:])
 def untested(what, inst, shown=True, noun="score"):   # author 2026-10-18: one plain sentence for a reading outside the commissioned scope
@@ -182,7 +184,7 @@ def physics_rows(o):
         a = t.get("A_rel") if t.get("A_rel") is not None else m["A"]
         ref_txt = (f"Healthy 1 is the median of this run's {t.get('n_refs')} healthy references (their own Met-A {float(t['reference_median']):.3f}). "
                    if t.get("A_rel") is not None and t.get("reference_median") is not None else "Healthy 1 is the committed healthy reference of the cell type. ")
-        bits = (f"On isolated neutrophils the healthy reference is 0.330 bits per site, so this reading is {float(a) * 0.330263:.3f} bits per site. "
+        bits = (f"On isolated neutrophils the healthy reference is {_href():.3f} bits per site, so this reading is {float(a) * _href():.3f} bits per site. "
                 if m.get("specimen") not in ("whole blood", "buffy coat") else "In whole blood the expectation is the healthy profile of each cell type, weighted by this sample's cell shares. ")
         rows.append(("Met-A", f"&lang;H(&beta;)&rang; over {m.get('n_sites', '')} identity sites of the neutrophil, divided by its healthy expectation; "
                      f"<b>{'A_rel' if t.get('A_rel') is not None else 'A'} = {float(a):.3f}</b>.",

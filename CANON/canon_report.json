@@ -432,15 +432,6 @@
 "text": "The CI is computed over the SAME \u00a741 markers the A-score used (handed through from"
 },
 {
-"file": "Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py",
-"line": 11,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "compressed (~0.85 instead of ~0.95) and inflates every downstream A-score. The"
-},
-{
 "file": "Biological_Physics/MethylPhys/chain/ROADMAP_TaskTracker.md",
 "line": 8,
 "pattern": "\\bA[- ]score",

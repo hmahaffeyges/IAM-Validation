@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Report for conductor v3 (Met-A on neutrophils commissioned 2026-10-09; other stages development; neutrophils only). One self-contained HTML page from the v3 bundle.
+"""The technical record of every chain v4 report (report_v4.build calls build() here): one self-contained HTML page from the bundle, every stage's
+record, the red flags, the safeguards and troubleshooting. Explained in the Chain Decoder, manual/OM_v4_decoder.md, section 14.
 The gauge marker is the tared reading (tare.A_rel) whenever Stage T produced one, for whole blood and isolated neutrophils alike.
 Untared isolated neutrophils: the A against the healthy reference, labelled untared. Untared whole blood: no gauge position (the number is printed).
 
@@ -174,13 +175,13 @@ def safeguards(o, prose):
 def troubleshooting(o):
     m, t, it = o.get("met_a") or {}, o.get("tare") or {}, o.get("intake") or {}
     T = []
-    if o.get("refusal_code") == "SPECIMEN_REFUSED": T.append(("specimen refused", "intake reads whole blood and isolated / sorted / purified neutrophils; this specimen needs its own reference before it can be read"))
-    elif o.get("refusal"): T.append(("platform refused", "v3 reads EPIC v1 arrays only; a 450K or EPIC v2 array needs its own frozen floor first"))
-    if "fraction" in str(m.get("reason", "")): T.append(("A withheld for fraction", "the neutrophil fraction is below the read line (0.20); the fraction is printed; no action changes this on this specimen"))
+    if o.get("refusal_code") == "SPECIMEN_REFUSED": T.append(("specimen refused", "intake reads whole blood, buffy coat, isolated / sorted / purified neutrophils and constructed DNA mixtures of blood cells; this specimen needs its own healthy reference before it can be read"))
+    elif o.get("refusal"): T.append(("platform refused", "the chain reads EPIC v1 arrays only; a 450K or EPIC v2 array needs its own frozen healthy reference first"))
+    if "neutrophil share" in str(m.get("reason", "")): T.append(("no neutrophils to read", "the composition found no neutrophils in this blood (a share of 0); the shares are printed; there is no fixed share cut: any share above 0 is read with its own detection limit"))
     if "sites measured" in str(m.get("reason", "")) or "markers measured" in str(m.get("reason", "")):
         T.append(("too few sites or markers measured", "check Stage 1 detection: probes at background are removed before the reading; re-hybridize if the array is low-signal"))
     if m.get("A") is not None and t.get("A_rel") is None:
-        T.append(("untared", "run >= 3 healthy references of the same specimen type on the same slide (else the same batch) and pass their untared A with --slide-ref-A or --slide-ref-table"))
+        T.append(("untared", "run >= 3 healthy references of the same specimen type on the same slide (else the same batch) and give their untared readings with --ref-table (column A, and C for the C-Score)"))
     if str(m.get("state", "")).startswith("withheld: only"): T.append(("noise sites not measured", "fewer than 90 % of the noise sites were measured, so the array's own noise is unknown and no state is shown; re-hybridize or check the array's signal"))
     elif str(m.get("state", "")).startswith("withheld"): T.append(("noise gate", "the array's noise index is above the reference arrays' range; tare it against same-run references to get a gauge state"))
     if m.get("past_entropy_ceiling"): T.append(("entropy ceiling", "the methylated sites have fallen past beta 0.5; read the mean beta, not A"))
@@ -279,7 +280,7 @@ def build(o, out, sid):
         F.append({"level": "CAUTION", "code": "SAFEGUARD_FAIL", "text": "; ".join(f"{s[0]}: {s[2]}" for s in SG if s[1] == "FAIL")})
         P[P.index(next(x for x in P if x.startswith("<h2 id='sec-red-flags'>")))] = "<h2 id='sec-red-flags'>Red flags</h2>" + _table([(f["level"], f["code"], f["text"]) for f in sorted(F, key=lambda f: FLAG_ORDER.index(f["level"]))], ("level", "code", "what"))
     P.insert(P.index(next(x for x in P if x.startswith("<h2 id='sec-troubleshooting'>"))), "<h2 id='sec-safeguards'>Safeguards</h2>" + _table(SG, ("safeguard", "result", "detail")))
-    H = [f"<html><head><meta charset='utf-8'><title>CPG v3 - {e(sid)}</title></head><body style='font-family:sans-serif;max-width:900px'>"] + P + [
+    H = [f"<html><head><meta charset='utf-8'><title>IAM chain v4, technical record - {e(sid)}</title></head><body style='font-family:sans-serif;max-width:900px'>"] + P + [
          "<details id='sec-bundle'><summary>bundle (JSON, also written beside this page)</summary><pre>" + e(json.dumps({k: v for k, v in o.items() if k != 'intake'}, indent=1, default=str)[:20000]) + "</pre></details></body></html>"]
     open(out, "w", encoding="utf-8").write("\n".join(H))
     ref = [x for x in (o.get("refusal"), q.get("refusal")) if x]
