@@ -1,7 +1,11 @@
 name: trace
 # The order the chain runs, for the Chain Decoder (2026-10-20): trace_chain.py on the example-report array GSE235717 GSM7508429 (IDAT route,
-# with its three same-run references), results to issue 32. Manual only.
-on: {workflow_dispatch: {}}
+# with its three same-run references), or (route bam) on the release check's planted BAM (V7's construction: IAM-A's whole path,
+# nothing downloaded); results to issue 32. Manual only.
+on:
+  workflow_dispatch:
+    inputs:
+      route: {description: "array or bam", required: true, default: array}
 permissions: {contents: read, issues: write}
 jobs:
   trace:
@@ -14,6 +18,7 @@ jobs:
         with: {python-version: "3.11"}
       - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
       - name: Fetch the four arrays and read the three references (as report_examples_v4.sh does)
+        if: inputs.route == 'array'
         run: |
           mkdir -p arr out; RS=Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py
           for g in GSM7508426 GSM7508427 GSM7508428 GSM7508429; do u="https://ftp.ncbi.nlm.nih.gov/geo/samples/${g:0:7}nnn/$g/suppl/"
@@ -23,7 +28,24 @@ jobs:
           import json
           rows=[(g,(json.load(open(f'out/{g}_pass1_bundle.json')).get('met_a') or {}).get('A'),(json.load(open(f'out/{g}_pass1_bundle.json')).get('met_a_cscore') or {}).get('C')) for g in ('GSM7508426','GSM7508427','GSM7508428')]
           open('out/same_run_refs.csv','w').write('id,A,C\n'+''.join(f'{g},{a},{c}\n' for g,a,c in rows)); print(rows)"
+      - name: Build the planted BAM (release check V7's construction, unchanged)
+        if: inputs.route == 'bam'
+        run: |
+          cd Biological_Physics/MethylPhys/chain && python3 - <<'PY'
+          import release_check_v4 as RC
+          RC.R3.run = lambda cmd, *a, **k: (0, "")
+          RC.V7("/tmp/v7")
+          PY
+          ls -la /tmp/v7/V7
+      - name: Trace (bam)
+        if: inputs.route == 'bam'
+        run: |
+          set +e
+          C=Biological_Physics/MethylPhys/chain
+          python3 $C/trace_chain.py trace -- --bam /tmp/v7/V7/planted.bam --ref-fasta /tmp/v7/V7/ref.fa --assembly hg38 --workers 2 --seq-cell "cd8 t cells" \
+            --specimen "sorted cells" --id PLANTED_BAM --out trace_report.html --ledger ledger.jsonl > trace.log 2>&1; echo $? > rc.txt; tail -5 trace.log; true
       - name: Trace
+        if: inputs.route == 'array'
         run: |
           set +e
           C=Biological_Physics/MethylPhys/chain; g=GSM7508429
@@ -36,7 +58,7 @@ jobs:
           python3 - <<'PY'
           import json, os, urllib.request
           rd = lambda p: open(p).read() if os.path.exists(p) else "(missing)"
-          b = "trace run ${{ github.run_id }}, commit ${{ github.sha }}, exit " + rd("rc.txt").strip() + "\n\n```\n" + rd("trace.log")[-1500:] + "\n```\n\ncalls\n```\n" + rd("trace_calls.csv")[:30000] + "\n```\nfiles\n```\n" + rd("trace_files.csv")[:20000] + "\n```"
+          b = "trace run ${{ github.run_id }} route ${{ inputs.route }}, commit ${{ github.sha }}, exit " + rd("rc.txt").strip() + "\n\n```\n" + rd("trace.log")[-1500:] + "\n```\n\ncalls\n```\n" + rd("trace_calls.csv")[:30000] + "\n```\nfiles\n```\n" + rd("trace_files.csv")[:20000] + "\n```"
           rq = urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/issues/32/comments", data=json.dumps({"body": b[:65000]}).encode(), headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"}, method="POST")
           print(urllib.request.urlopen(rq).status)
           PY
