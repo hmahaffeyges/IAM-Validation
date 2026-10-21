@@ -132,7 +132,16 @@
   "checks_ok": 3,
   "minutes": 168.1,
   "commit": "d27b4956",
-  "job": "results/REPRODUCE_V1/run6/out/iama_line/verdict.json"
+  "job": "results/REPRODUCE_V1/run6/out/iama_line/verdict.json",
+  "github": {
+   "verdict": "PASS",
+   "date": "2026-10-21",
+   "checks": 3,
+   "checks_ok": 3,
+   "minutes": 159.7,
+   "commit": "acbd030a",
+   "job": "GitHub Actions iama_split.yml run 39655155141, split across 13 machines (153 healthy samples in shards, 5 ENCODE files one per job) plus a compare job: 158 of 158 counts identical, line and shape reference identical (verdict in issue 32)"
+  }
  },
  "mice": {
   "verdict": "PASS",

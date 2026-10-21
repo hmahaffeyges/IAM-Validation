@@ -2927,3 +2927,6 @@ Both bars met. Untared, Met-A against the atlas ran from 0.813 to 1.324 across f
 
 ### 2026-10-21 · The tissue results on the globe, planned (ATL-063, DEV-TISSUE-GLOBE-01)
 The chain's globe gains a development pair mode: one person's tumor against the same person's own adjacent normal, by the same block rule. A pair with no change lights none of 77,356 blocks; 200 planted regional runs light 620. Three colon and three breast pairs, already scored and spent, and a two-person control run on GitHub, each page screenshotted in Chromium.
+
+### 2026-10-21 · IAM-A's line reproduced on GitHub (OTH-076)
+The 70 GB IAM-A line reproduction, which had needed one large cloud machine, ran split across 13 of GitHub's free machines: 158 of 158 counts identical to the committed ones, the line and the shape reference identical. Nine of the ten reproductions now run without AWS.
