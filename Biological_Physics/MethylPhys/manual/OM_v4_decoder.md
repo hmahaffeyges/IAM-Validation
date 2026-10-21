@@ -28,7 +28,7 @@ Read from the code at build time: the one command can load **23 Python files** h
 | `stage_q_iam_a.py` | 174 | 9 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
-| `MethylPhys_Interface/report_globe_v4.py` | 176 | 8 | 0 | 0 |
+| `MethylPhys_Interface/report_globe_v4.py` | 178 | 8 | 0 | 0 |
 
 ## How to read the Decoder
 

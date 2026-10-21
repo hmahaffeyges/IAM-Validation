@@ -142,7 +142,8 @@ many sites is easier to see there than on the whole genome.</p>
 <div style="min-width:240px"><p><label>Layer <select id="gl-layer"><option value="d">difference</option><option value="s">sample</option><option value="r">healthy reference</option><option value="z">departures at Met-A's sites</option></select></label></p>
 <p><label>Show differences larger than <input id="gl-t" type="range" min="0" max="50" value="10"> <span id="gl-tv">0.10</span></label></p>
 <p id="gl-share"></p><p><button id="gl-spin" type="button">Stop or start turning</button></p>
-<p style="font-size:0.9em">Methylation 0 to 1 (sample and reference layers, the atlas pages' scale); grey: no measured site.</p></div></div>
+<p style="font-size:0.9em">Difference layers: grey is where the sample matches its healthy reference (the shade is the reference's own methylation);
+red, more methylation than healthy; blue, less; dark: no measured site. Sample and reference layers: methylation 0 to 1, the atlas pages' scale.</p></div></div>
 <script>(function(){
 const D = __DATA__, cv = document.getElementById('gl'), cx = cv.getContext('2d'), L = document.getElementById('gl-layer'), T = document.getElementById('gl-t');
 let yaw = 0, pitch = 0.35, spin = true, drag = null; const tex = {}; let TW = 0, TH = 0;
@@ -156,8 +157,9 @@ function share() { const t = +T.value, zl = L.value === 'z';
 function px(t, k) { const L_ = L.value;
   if (L_ === 's' || L_ === 'r') { const s = tex[L_]; return [s[t], s[t + 1], s[t + 2]]; }
   const c = (L_ === 'z' ? tex.z : tex.d)[t]; if (c === 0) return [42, 45, 51]; const v = (c - 128) / 254, a = Math.abs(v), th = L_ === 'z' ? +T.value / 500 : +T.value / 100;
-  if (a <= th) return [58, 60, 66]; const f = Math.min(1, 0.35 + 0.65 * a / 0.5);
-  return v > 0 ? [255 * f, 70 * (1 - f) + 40, 50] : [50, 90 * (1 - f) + 60, 255 * f]; }
+  if (a <= th) { const r = tex.r, g = 0.3 * r[t] + 0.59 * r[t + 1] + 0.11 * r[t + 2], q = 105 + 0.55 * g; return [q, q, q]; }   // quiet: the healthy reference in greys
+  const f = Math.min(1, 0.45 + 0.55 * a / (L_ === 'z' ? 1 : 0.3));
+  return v > 0 ? [235 * f + 20, 40, 40] : [30, 80, 230 * f + 25]; }
 function draw() { if (!tex.d) return; const N = cv.width, img = cx.createImageData(N, N), d = img.data, ca = Math.cos(yaw), sa = Math.sin(yaw), cb = Math.cos(pitch), sb = Math.sin(pitch);
   for (let py = 0; py < N; py++) for (let qx = 0; qx < N; qx++) { const sx = 2 * (qx + 0.5) / N - 1, sy = 1 - 2 * (py + 0.5) / N, r2 = sx * sx + sy * sy, k = 4 * (py * N + qx);
     if (r2 > 1) { d[k + 3] = 0; continue; } const x = Math.sqrt(1 - r2), y = sx, z = sy, x1 = x * cb - z * sb, z1 = x * sb + z * cb, x2 = x1 * ca - y * sa, y2 = x1 * sa + y * ca;
