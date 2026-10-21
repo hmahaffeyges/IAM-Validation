@@ -1,0 +1,418 @@
+{
+ "atlas": "IAM-Atlas v2.1",
+ "nside": 256,
+ "order": "NESTED",
+ "pixels": 786432,
+ "sites": 813951,
+ "unplaced": 1,
+ "texture": [
+  1024,
+  512
+ ],
+ "value_scale": [
+  0,
+  1
+ ],
+ "uncertainty_scale": [
+  0,
+  0.15
+ ],
+ "source": "website/art/make_sphere_3d.py",
+ "cells": [
+  {
+   "cell": "adipocytes",
+   "slug": "adipocytes",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "aorta endothelium",
+   "slug": "aorta-endothelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "astrocytes",
+   "slug": "astrocytes",
+   "pixels_measured": 766332
+  },
+  {
+   "cell": "b cells",
+   "slug": "b-cells",
+   "pixels_measured": 786428
+  },
+  {
+   "cell": "basophils",
+   "slug": "basophils",
+   "pixels_measured": 755784
+  },
+  {
+   "cell": "bladder epithelium",
+   "slug": "bladder-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "breast basal epithelium",
+   "slug": "breast-basal-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "breast luminal epithelium",
+   "slug": "breast-luminal-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "cardiomyocyte",
+   "slug": "cardiomyocyte",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "cd4 t cells",
+   "slug": "cd4-t-cells",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "cd56bright nk cells",
+   "slug": "cd56bright-nk-cells",
+   "pixels_measured": 754583
+  },
+  {
+   "cell": "cd8 central memory t cells",
+   "slug": "cd8-central-memory-t-cells",
+   "pixels_measured": 755131
+  },
+  {
+   "cell": "cd8 t cells",
+   "slug": "cd8-t-cells",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "cd8 temra t cells",
+   "slug": "cd8-temra-t-cells",
+   "pixels_measured": 754569
+  },
+  {
+   "cell": "central memory th1 cells",
+   "slug": "central-memory-th1-cells",
+   "pixels_measured": 404614
+  },
+  {
+   "cell": "CMP (bone marrow)",
+   "slug": "cmp-bone-marrow",
+   "pixels_measured": 403154
+  },
+  {
+   "cell": "colon enteroendocrine",
+   "slug": "colon-enteroendocrine",
+   "pixels_measured": 786431
+  },
+  {
+   "cell": "colon epithelium",
+   "slug": "colon-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "colon fibroblasts",
+   "slug": "colon-fibroblasts",
+   "pixels_measured": 786427
+  },
+  {
+   "cell": "colon macrophages",
+   "slug": "colon-macrophages",
+   "pixels_measured": 786397
+  },
+  {
+   "cell": "cortical neurons",
+   "slug": "cortical-neurons",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "cytotoxic cd4 t cells (cd28-)",
+   "slug": "cytotoxic-cd4-t-cells-cd28",
+   "pixels_measured": 404810
+  },
+  {
+   "cell": "effector memory cd8 t cells",
+   "slug": "effector-memory-cd8-t-cells",
+   "pixels_measured": 786424
+  },
+  {
+   "cell": "embryonic stem cells",
+   "slug": "embryonic-stem-cells",
+   "pixels_measured": 785930
+  },
+  {
+   "cell": "endometrium epithelium",
+   "slug": "endometrium-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "eosinophils",
+   "slug": "eosinophils",
+   "pixels_measured": 755426
+  },
+  {
+   "cell": "erythrocyte progenitors",
+   "slug": "erythrocyte-progenitors",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "fallopien tubes epithelium",
+   "slug": "fallopien-tubes-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "gastric antrum epithelium",
+   "slug": "gastric-antrum-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "gastric body epithelium",
+   "slug": "gastric-body-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "gastric fundus epithelium",
+   "slug": "gastric-fundus-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "GMP (bone marrow)",
+   "slug": "gmp-bone-marrow",
+   "pixels_measured": 397169
+  },
+  {
+   "cell": "heart fibroblasts",
+   "slug": "heart-fibroblasts",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "hepatocyte",
+   "slug": "hepatocyte",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "HSC (bone marrow)",
+   "slug": "hsc-bone-marrow",
+   "pixels_measured": 404636
+  },
+  {
+   "cell": "kidney glomerular endothelium",
+   "slug": "kidney-glomerular-endothelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "kidney glomerular epithelium",
+   "slug": "kidney-glomerular-epithelium",
+   "pixels_measured": 786416
+  },
+  {
+   "cell": "kidney tubular endothelium",
+   "slug": "kidney-tubular-endothelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "kidney tubular epithelium",
+   "slug": "kidney-tubular-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "L-MPP (bone marrow)",
+   "slug": "l-mpp-bone-marrow",
+   "pixels_measured": 397623
+  },
+  {
+   "cell": "lung alveolar endothelium",
+   "slug": "lung-alveolar-endothelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "lung alveolar epithelium",
+   "slug": "lung-alveolar-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "lung alveolar macrophages",
+   "slug": "lung-alveolar-macrophages",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "lung bronchus epithelium",
+   "slug": "lung-bronchus-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "lung interstitial macrophages",
+   "slug": "lung-interstitial-macrophages",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "memory b cells",
+   "slug": "memory-b-cells",
+   "pixels_measured": 786426
+  },
+  {
+   "cell": "memory cd4 t cells",
+   "slug": "memory-cd4-t-cells",
+   "pixels_measured": 752956
+  },
+  {
+   "cell": "MEP (bone marrow)",
+   "slug": "mep-bone-marrow",
+   "pixels_measured": 402071
+  },
+  {
+   "cell": "microglia",
+   "slug": "microglia",
+   "pixels_measured": 785585
+  },
+  {
+   "cell": "monocytes",
+   "slug": "monocytes",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "MPP (bone marrow)",
+   "slug": "mpp-bone-marrow",
+   "pixels_measured": 401887
+  },
+  {
+   "cell": "naive b cells",
+   "slug": "naive-b-cells",
+   "pixels_measured": 755396
+  },
+  {
+   "cell": "naive cd4 t cells",
+   "slug": "naive-cd4-t-cells",
+   "pixels_measured": 786431
+  },
+  {
+   "cell": "naive cd8 t cells",
+   "slug": "naive-cd8-t-cells",
+   "pixels_measured": 786431
+  },
+  {
+   "cell": "neutrophils",
+   "slug": "neutrophils",
+   "pixels_measured": 785718
+  },
+  {
+   "cell": "nk cells",
+   "slug": "nk-cells",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "oligodendrocyte precursors",
+   "slug": "oligodendrocyte-precursors",
+   "pixels_measured": 766301
+  },
+  {
+   "cell": "oligodendrocytes",
+   "slug": "oligodendrocytes",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "pancreas endothelium",
+   "slug": "pancreas-endothelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "pancreatic acinar",
+   "slug": "pancreatic-acinar",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "pancreatic alpha",
+   "slug": "pancreatic-alpha",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "pancreatic beta",
+   "slug": "pancreatic-beta",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "pancreatic delta",
+   "slug": "pancreatic-delta",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "pancreatic duct",
+   "slug": "pancreatic-duct",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "prostate epithelium",
+   "slug": "prostate-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "regulatory t cells",
+   "slug": "regulatory-t-cells",
+   "pixels_measured": 749587
+  },
+  {
+   "cell": "small intestine epithelium",
+   "slug": "small-intestine-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "smooth muscle",
+   "slug": "smooth-muscle",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "striated muscle",
+   "slug": "striated-muscle",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "t central memory cd4",
+   "slug": "t-central-memory-cd4",
+   "pixels_measured": 786431
+  },
+  {
+   "cell": "t effector cell cd8",
+   "slug": "t-effector-cell-cd8",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "t effector memory cd4",
+   "slug": "t-effector-memory-cd4",
+   "pixels_measured": 786431
+  },
+  {
+   "cell": "thyroid epithelium",
+   "slug": "thyroid-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "tongue epithelium",
+   "slug": "tongue-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "tonsil palatine epithelium",
+   "slug": "tonsil-palatine-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "tonsil pharyngeal epithelium",
+   "slug": "tonsil-pharyngeal-epithelium",
+   "pixels_measured": 786432
+  },
+  {
+   "cell": "vascular endothelium",
+   "slug": "vascular-endothelium",
+   "pixels_measured": 738086
+  },
+  {
+   "cell": "vascular leptomeningeal cells",
+   "slug": "vascular-leptomeningeal-cells",
+   "pixels_measured": 764219
+  },
+  {
+   "cell": "vascular saphenous endothelium",
+   "slug": "vascular-saphenous-endothelium",
+   "pixels_measured": 786432
+  }
+ ]
+}

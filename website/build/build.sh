@@ -27,6 +27,10 @@ python3 "$REPO/website/art/make_banners.py" > /dev/null
 # 3b. reading themes (Paper, Dark, Sepia): writes website/static/themes.css; fails the build if a text colour misses WCAG AA
 python3 "$REPO/website/build/themes.py"
 
+# 3c. the atlas globe page's script must parse (2026-10-21): a broken script would reach the live page with no error
+python3 -c "import sys; sys.path.insert(0, '$REPO/website/build'); import atlas_pages as A; open('$B/globe.js', 'w').write('const ART=\"\", PIX=1;' + A.SPHERE_JS)"
+node --check "$B/globe.js" && echo "globe script: parses"
+
 # 4. site: front page, Part pages, chapter chrome, check buttons, verify_book.py + data for the browser
 python3 "$REPO/website/build/build_site.py" "$B" "$SITE"
 # The project front page at the site root (author approved 2026-10-13). It reads only committed records; its own checks
