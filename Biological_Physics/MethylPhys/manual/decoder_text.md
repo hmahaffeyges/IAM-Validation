@@ -1262,6 +1262,63 @@ The researcher and plain PDFs, from the same rows and pictures as the page.
 ### report_pdf_v4.py::build_pdfs.doc
 Writes one PDF.
 
+
+## 14b. The report's globe: `report_globe_v4.py`
+
+**What it is for.** A reviewer turns a globe in the HTML report and sees where the sample differs from its healthy reference, with a
+slider that fades every difference smaller than a chosen size. **A picture, not a reading:** nothing is scored from it, and Met-A and the
+C-Score keep their commissioned purified-array reference.
+
+**Label: standard method** (display). The layout is the atlas's sky sphere: every IAM-Atlas v2.1 site in genome order at NESTED pixel
+floor(i × NPIX / n), NSIDE 256, the same pixels as the atlas's cell pages and the public globe. The order is frozen in
+`Runtime Matrices/Atlas_V21/sky_order_v21.npz` (built by `atlas/tools/sky_order_v21.py` with Illumina's EPIC v1 B4 and 450K manifests,
+checked against the cell pages: 785,718 measured neutrophil pixels on both), so the chain draws it without downloading a manifest.
+
+**The reference, by specimen.** An isolated cell type is compared with that cell in the atlas. Whole blood and buffy coat are compared
+with the atlas's healthy blood for this person's own mix: the six panel cells weighted by their Stage D21 shares, scaled to sum to 1.
+Comparing blood with one cell would light up every site where blood differs from that cell.
+
+**Four layers.** The sample; the reference; the difference (sample minus reference) at every site both hold; and Met-A's 6,000 neutrophil
+identity sites as the C-Score's departure map, centered and scaled by the sample's own median and spread as the report's overlay, drawn as
+dots of radius 3 texture pixels at their own places so that a run of departing sites shows as a patch. The page prints the share of the
+measured globe above the chosen size, from the equal-area sky pixels.
+
+**What a reader will see on healthy blood.** The atlas blends 21 sources and sits about 0.006 closer to 0.5 than one array
+(DEV-REFERENCES-01), so a faint even difference everywhere (median 0.018 on the real healthy example, 2.9 % of the globe above 0.10). In a
+woman, the X chromosome as a patch: one X is held methylated, and the reference pools both sexes (the last 2 % of the genome order differed 7
+to 11 times as often as the rest on the first real blood). A small loss spread over many sites does not show on the whole-genome layer; it
+shows on the departure layer.
+
+**How to break it.** Lay the atlas's own healthy neutrophil on the globe as an isolated neutrophil sample: every difference must be 0
+(release check V12). Give whole-blood shares that do not sum to 1: the weights must rescale. Edit the atlas site list: the globe must refuse
+to draw, because the frozen order no longer matches.
+
+### report_globe_v4.py::_to_sky
+One value per site in genome order to a NESTED map: the mean per pixel, nothing where no site was measured (the atlas tools' own rule).
+
+### report_globe_v4.py::_mu
+Reads the atlas best values of the named cells from the compact copy (`atlas/v2.1/mu_part*.parquet`), 65535 decoded as no value.
+
+### report_globe_v4.py::_lookup
+For each pixel of the 1024 × 512 texture, the nearest sky pixel center (the chain's `stage_v4.nest_pix2ang`).
+
+### report_globe_v4.py::_png_b64
+A grayscale texture as base64 PNG, for the difference and departure codes (0 = no site; 1 to 255 = −0.5 to +0.5, or −5 to +5 spreads).
+
+### report_globe_v4.py::_jpg_b64
+A color texture as base64 JPEG, for the sample and reference layers.
+
+### report_globe_v4.py::reference
+The healthy reference for a specimen: the matching atlas cell, or for blood the six panel cells weighted by the Stage D21 shares and scaled
+to 1; refuses with the reason when there are no shares or no specimen.
+
+### report_globe_v4.py::build
+Checks the frozen layout against the atlas site list, builds the four layers, the shares above each size, and the page fragment (canvas,
+controls and script, no outside library). Returns the record kept in the bundle, marked `scored: False`.
+
+### report_globe_v4.py::build.rgb
+Colors a sky map for the texture with the atlas pages' parchment scale, 0 to 1; grey where no site was measured.
+
 ## 15. The development readings: `dev_stages.py`, `dev_comp_methods.py`, `deconv_v2.py`, `sky_statistics.py`
 
 **What they are for.** Readings under development, run only when a `--dev-*` flag asks for them. Each writes its own record under

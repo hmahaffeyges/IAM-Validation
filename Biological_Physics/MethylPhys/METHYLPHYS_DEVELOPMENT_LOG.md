@@ -2885,3 +2885,6 @@ At Met-A's 6,000 neutrophil identity sites IAM-Atlas v2.1 and Met-A's purified-a
 
 ### 2026-10-21 · Information sphere construction v3, planted test 4 (PHY-035, DEV-SPHERE-01)
 Run once on GitHub, committed before running: 4 of 6 bars met. The grid edges of v2 are gone (edge ratio 1.10), the planted group is found and nothing is found when nothing is planted; the globe is only 46.9 % covered (bar 90 %) and distances agree at 0.567 (bar 0.7). Not adopted; next a joint filling rule, written before it is run.
+
+### 2026-10-21 · The turning globe in the report (ATL-063, step 13d)
+The HTML report carries a globe a reader can turn: the sample, its healthy reference (the atlas cell for an isolated cell; for blood, the atlas healthy blood for the person's own Stage D21 mix), their difference at about 774,000 sites with a slider that fades smaller differences, and Met-A's 6,000 sites as the C-Score's departures. A picture: nothing is scored from it. On the real healthy blood the median difference is 0.018 and the X chromosome shows as a patch (the array reads as a woman; the reference pools both sexes). Release check V12: the atlas neutrophil against itself shows no difference.

@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 708,
+   "lines": 713,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -213,9 +213,9 @@
      "function": "main",
      "name": "main",
      "line": 239,
-     "end": 705,
+     "end": 710,
      "args": [],
-     "lines": 467,
+     "lines": 472,
      "doc": "",
      "constants": [
       "BIO",
@@ -253,8 +253,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 652,
-     "end": 653,
+     "line": 657,
+     "end": 658,
      "args": [
       "b",
       "it",
@@ -1794,7 +1794,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_v4.py",
-   "lines": 258,
+   "lines": 262,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_v4.py",
@@ -2168,13 +2168,13 @@
      "function": "build",
      "name": "build",
      "line": 231,
-     "end": 257,
+     "end": 261,
      "args": [
       "o",
       "out",
       "sid"
      ],
-     "lines": 27,
+     "lines": 31,
      "doc": "",
      "constants": [
       "CSS",
@@ -5209,8 +5209,164 @@
     }
    ],
    "first_entered": null
+  },
+  {
+   "file": "MethylPhys_Interface/report_globe_v4.py",
+   "lines": 176,
+   "functions": [
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "_to_sky",
+     "name": "_to_sky",
+     "line": 35,
+     "end": 39,
+     "args": [
+      "v",
+      "npix"
+     ],
+     "lines": 5,
+     "doc": "One value per site, in genome order -> NESTED map, mean per pixel, NaN where no site was measured (sky_maps_v21.to_sky, the same rule).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "_mu",
+     "name": "_mu",
+     "line": 41,
+     "end": 51,
+     "args": [
+      "cells"
+     ],
+     "lines": 11,
+     "doc": "Atlas best values for `cells` at every atlas site (atlas row order); NaN where the atlas has none.",
+     "constants": [
+      "ATLAS",
+      "NA"
+     ],
+     "data_files": [
+      "import pyarrow.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "_lookup",
+     "name": "_lookup",
+     "line": 53,
+     "end": 59,
+     "args": [
+      "nside"
+     ],
+     "lines": 7,
+     "doc": "For every texture pixel (equirectangular W x HT), the NESTED sky pixel it shows (nearest pixel center).",
+     "constants": [
+      "CH"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "_png_b64",
+     "name": "_png_b64",
+     "line": 61,
+     "end": 63,
+     "args": [
+      "arr",
+      "mode"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "_jpg_b64",
+     "name": "_jpg_b64",
+     "line": 65,
+     "end": 67,
+     "args": [
+      "rgb"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "reference",
+     "name": "reference",
+     "line": 69,
+     "end": 78,
+     "args": [
+      "specimen",
+      "shares"
+     ],
+     "lines": 10,
+     "doc": "(name, {atlas cell: weight}) of the healthy reference for this specimen, or (None, reason).",
+     "constants": [
+      "BLOOD",
+      "PANEL"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "build",
+     "name": "build",
+     "line": 80,
+     "end": 130,
+     "args": [
+      "beta",
+      "specimen",
+      "shares",
+      "out_html",
+      "z"
+     ],
+     "lines": 51,
+     "doc": "",
+     "constants": [
+      "ATLAS",
+      "CH",
+      "HERE",
+      "ORDER",
+      "PAGE",
+      "R_DOT"
+     ],
+     "data_files": [
+      "Planck_Parchment_RGB.txt",
+      "import pyarrow.parquet",
+      "sites.parquet",
+      "sky_order_v21.npz"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "build.rgb",
+     "name": "rgb",
+     "line": 99,
+     "end": 100,
+     "args": [
+      "m"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
   }
  ],
- "n_files": 22,
- "n_functions": 261
+ "n_files": 23,
+ "n_functions": 269
 }

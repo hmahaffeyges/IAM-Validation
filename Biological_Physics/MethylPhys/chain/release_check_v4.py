@@ -19,6 +19,7 @@ with F1 reading FROZEN_INPUTS_v4.json and S2 leaving verbatim run transcripts (d
   V9  every Stage 0 stop is explained (author rule 2026-10-20): for each way Stage 0 can stop an array, a constructed record is stopped AND
       carries an explanation with what was measured, the limit, where the limit comes from, what it means and what to do; and an array too
       thin to read gives Met-A, the tare and the C-Score each a reason with the measured count and what is required
+  V12 the report's globe: the atlas's healthy neutrophil against itself shows no difference; blood weights rescale to 1; the script parses
   V10 Group-A in the chain (stage_groupa.py, commissioned 2026-10-20): on the committed readings of DEV-GROUPA-COMMISSION-01 it gives the sealed
       bars 2 and 3 to every printed digit; its tare is word for word the sealed scorer's; groups in other specimens are labeled preliminary
   V11 Every stop of the one command explained (Chain Decoder finding F4, 2026-10-20): a refused specimen run through run_sample.py prints and keeps
@@ -26,7 +27,7 @@ with F1 reading FROZEN_INPUTS_v4.json and S2 leaving verbatim run transcripts (d
       explanation (_why, or Stage 0's stage0_explained)"""
 import os, sys, json, gzip, glob, hashlib, re, time, subprocess, tempfile
 import numpy as np, pandas as pd
-HERE = os.path.dirname(os.path.abspath(__file__)); sys.path[:0] = [HERE]
+HERE = os.path.dirname(os.path.abspath(__file__)); sys.path[:0] = [HERE, os.path.join(HERE, "MethylPhys_Interface")]
 import release_check_v3 as R3
 MP = R3.MP; RS = R3.RS; PY = R3.PY; R = R3.R; rec = R3.rec
 
@@ -249,12 +250,29 @@ def V11(tmp):
         f"refused specimen: exit {r.returncode}, five parts kept {parts}, printed and in the report {shown}; exits 2/3 without an explanation: {bare or 'none'}; "
         f"stage stops with all five parts: {stages}")
 
+def V12(tmp):
+    """The report's globe (report_globe_v4, 2026-10-21): the atlas's own healthy neutrophil, laid on the globe as if it were an isolated
+    neutrophil sample, must show no difference anywhere; a whole-blood reference must weigh the Stage D21 shares to 1; the layout must match
+    the atlas site list it was frozen on; and, where node is installed, the page's script must parse."""
+    import report_globe_v4 as RG, pyarrow.parquet as pq, shutil, subprocess as sp
+    ids = pq.read_table(os.path.join(RG.ATLAS, "sites.parquet")).column("cpg").to_pylist(); mu = RG._mu(["neutrophils"])["neutrophils"]
+    r = RG.build(pd.Series(mu, index=ids), "isolated neutrophils", None, os.path.join(tmp, "globe.html"))
+    zero = r.get("drawn") and r["median_abs_difference"] == 0 and r["share_above"]["0.05"] == 0
+    name, w = RG.reference("whole blood", {"neutrophils": 0.5, "monocytes": 0.1, "cd4 t cells": 0.2})
+    weights = abs(sum(w.values()) - 1) < 1e-9 and abs(w["neutrophils"] - 0.625) < 1e-9
+    js = "not checked (node not installed)"
+    if shutil.which("node"):
+        f = os.path.join(tmp, "globe.js"); open(f, "w").write(re.search(r"<script>(.*?)</script>", r["fragment"], re.S).group(1))
+        js = "parses" if sp.run(["node", "--check", f], capture_output=True).returncode == 0 else "SYNTAX ERROR"
+    rec("V12", bool(zero and weights and js != "SYNTAX ERROR"), f"healthy atlas neutrophil against itself: drawn {r.get('drawn')}, median difference {r.get('median_abs_difference')}, "
+        f"share above 0.05 {(r.get('share_above') or {}).get('0.05')}; blood weights sum to 1 and rescale: {weights}; page script: {js}")
+
 def main():
     t0 = time.time(); files = R3.tracked(); tmp = tempfile.mkdtemp(prefix="rc_v4_")
     print(f"release_check_v4 @ {subprocess.run(['git', '-C', R3.ROOT, 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()}  python {PY}")
     steps = [("F1", F1, ()), ("F1b", F1b, ()), ("F2", F2, ()), ("S1", R3.S1, (files,)), ("S2", S2, (files,)), ("S3", R3.S3, ()), ("S4", R3.S4, ())] + \
             [(n, getattr(R3, n), (tmp,)) for n in ("E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "E10", "E11")] + \
-            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V8", V8, (tmp,)), ("V6", V6, (tmp,)), ("V7", V7, (tmp,)), ("V9", V9, (tmp,)), ("V10", V10, (tmp,)), ("V11", V11, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
+            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V8", V8, (tmp,)), ("V6", V6, (tmp,)), ("V7", V7, (tmp,)), ("V9", V9, (tmp,)), ("V10", V10, (tmp,)), ("V11", V11, (tmp,)), ("V12", V12, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
     for name, fn, args in steps:
         try: fn(*args)
         except Exception as e: rec(name, False, f"could not run: {type(e).__name__}: {str(e)[:200]}")

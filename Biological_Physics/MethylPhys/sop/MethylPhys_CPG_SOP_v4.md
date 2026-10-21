@@ -67,7 +67,7 @@ python3 run_sample.py --bam S.bam --ref-fasta hg19.fa --assembly hg19 --seq-cell
 
 ## 6. Outputs
 
-- `S001.html`: the report. At a glance; cell shares (IAM-Deconvolver against IAM-Atlas v2.1); Met-A; the C-score with its HEALPix sky plate; IAM-A; the technical record.
+- `S001.html`: the report. At a glance; cell shares (IAM-Deconvolver against IAM-Atlas v2.1); Met-A; the C-score with its HEALPix sky plate; IAM-A; the turning globe (the sample, its healthy reference, the difference and Met-A's departures, with a slider that fades the smaller differences; a picture, nothing scored from it); the technical record.
 - `S001_bundle.json`: every stage's output, with the chain's commit.
 - one row appended to `evidence_ledger.jsonl` beside the report.
 
@@ -117,6 +117,7 @@ Every reference the chain reads is a committed file; nothing is fitted at run ti
 | File (in `chain/`) | SHA-256 |
 |---|---|
 | `../atlas/v2.1/compact_manifest.json` | `fafb600b4545dabb…` |
+| `Runtime Matrices/Atlas_V21/sky_order_v21.npz` | `c61c2f7efd8e6b2c…` |
 | `Runtime Matrices/Gauge/cell_gauge_marks_v1.json` | `d23916d54a8fe7b0…` |
 | `Runtime Matrices/IAM_A_SelfRef/band_v1.json` | `d4c32f760d98ad14…` |
 | `Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json` | `540157559b9e27bb…` |

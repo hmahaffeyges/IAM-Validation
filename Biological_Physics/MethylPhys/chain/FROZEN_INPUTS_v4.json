@@ -1,55 +1,56 @@
 {
-  "_rule": "Chain v4 frozen inputs (2026-10-17): every file the commissioned v4 run reads, with its sha256. release_check_v4.py F1 fails if any differs. The v3 list minus the retired IAM-A position file (v4 reads it only behind --dev-iama-position), plus IAM-A's self-reference line, shape reference and band v1, the gauge marks (IAM-A band v1 added 2026-10-17) and the atlas v2.1 compact manifest, which carries the sha256 of every atlas table.",
-  "files": {
-    "Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json": "2f64f8846f8a4b0d5d66964347807dde03067130f17d9ce97a8e4dc7efe7c9ae",
-    "Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv": "73f090a7004bc7c79b0d761000eb49c86f61e0865fa1823458feaa095ec1eda0",
-    "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json": "6ad3dfb0e01a70eed0e71df28c0b62170f7730d261f1d51aa4691758027fc0ab",
-    "Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json": "3531561783261c577e436a0ac6b83799adbb791fe4ed40be7d0a48ec83f7aeb0",
-    "Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json": "825f64f7b6c7077a6ff17ce44c28b5470ad55d4347d64edb57055b793f808480",
-    "Runtime Matrices/Intake/intake_thresholds_v1.json": "58f7e6073e8f2a5c249c921c325e8b1f1478151bfbd5fd0bedbbd7638c2a58e2",
-    "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json": "820c9b1ecf82456169dfea20a943620bf060e845b520d460779790c50dee48b1",
-    "Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json": "540157559b9e27bb7ea1a52b51f5be10575312868716a5e530f7bd30a3b9403c",
-    "Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json": "41470faf735516995b9ff41fcf92181d4f4bf692e3f07d592f4459cc010d586a",
-    "Runtime Matrices/IAM_A_SelfRef/band_v1.json": "d4c32f760d98ad149135d1614689d40c1f0a3f15e398cd25c93a895cdfa2dfdd",
-    "Runtime Matrices/Gauge/cell_gauge_marks_v1.json": "d23916d54a8fe7b002c6544fef63393a9bf21d989d3363ce36ddffa885726c8b",
-    "../atlas/v2.1/compact_manifest.json": "fafb600b4545dabba663c808e04db34ccb5fceaa5a4042e4d106dc23f6117b01",
-    "Runtime Matrices/Intake/intake_thresholds_v2.json": "c0941e5a58d2f95f1d1bbdc9023e8f964beaed4458fa9be94d1af868fa1b06b4"
+ "_rule": "Chain v4 frozen inputs (2026-10-17): every file the commissioned v4 run reads, with its sha256. release_check_v4.py F1 fails if any differs. The v3 list minus the retired IAM-A position file (v4 reads it only behind --dev-iama-position), plus IAM-A's self-reference line, shape reference and band v1, the gauge marks (IAM-A band v1 added 2026-10-17) and the atlas v2.1 compact manifest, which carries the sha256 of every atlas table.",
+ "files": {
+  "Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json": "2f64f8846f8a4b0d5d66964347807dde03067130f17d9ce97a8e4dc7efe7c9ae",
+  "Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv": "73f090a7004bc7c79b0d761000eb49c86f61e0865fa1823458feaa095ec1eda0",
+  "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json": "6ad3dfb0e01a70eed0e71df28c0b62170f7730d261f1d51aa4691758027fc0ab",
+  "Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json": "3531561783261c577e436a0ac6b83799adbb791fe4ed40be7d0a48ec83f7aeb0",
+  "Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json": "825f64f7b6c7077a6ff17ce44c28b5470ad55d4347d64edb57055b793f808480",
+  "Runtime Matrices/Intake/intake_thresholds_v1.json": "58f7e6073e8f2a5c249c921c325e8b1f1478151bfbd5fd0bedbbd7638c2a58e2",
+  "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json": "820c9b1ecf82456169dfea20a943620bf060e845b520d460779790c50dee48b1",
+  "Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json": "540157559b9e27bb7ea1a52b51f5be10575312868716a5e530f7bd30a3b9403c",
+  "Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json": "41470faf735516995b9ff41fcf92181d4f4bf692e3f07d592f4459cc010d586a",
+  "Runtime Matrices/IAM_A_SelfRef/band_v1.json": "d4c32f760d98ad149135d1614689d40c1f0a3f15e398cd25c93a895cdfa2dfdd",
+  "Runtime Matrices/Gauge/cell_gauge_marks_v1.json": "d23916d54a8fe7b002c6544fef63393a9bf21d989d3363ce36ddffa885726c8b",
+  "../atlas/v2.1/compact_manifest.json": "fafb600b4545dabba663c808e04db34ccb5fceaa5a4042e4d106dc23f6117b01",
+  "Runtime Matrices/Intake/intake_thresholds_v2.json": "c0941e5a58d2f95f1d1bbdc9023e8f964beaed4458fa9be94d1af868fa1b06b4",
+  "Runtime Matrices/Atlas_V21/sky_order_v21.npz": "c61c2f7efd8e6b2c2e2669913d0ce1614db5370d1d0ec540521b3b3758844230"
+ },
+ "superseded": {
+  "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json": {
+   "sha256_before": "5616b95e2095e1a5a771436a616b218489798f5fe8b5089cec7c6e4f46ff8693",
+   "data_sha256_canonical": "4142e7353c108471f544507cc59795e36aec0cf4a44e0f2cc2ed63b162381951",
+   "why": "2026-10-03: _meta (per-group marker counts) added; data keys unchanged. Canonical data hash = sha256 of json.dumps(file minus _meta, sort_keys=True, separators=(',',':'))."
   },
-  "superseded": {
-    "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json": {
-      "sha256_before": "5616b95e2095e1a5a771436a616b218489798f5fe8b5089cec7c6e4f46ff8693",
-      "data_sha256_canonical": "4142e7353c108471f544507cc59795e36aec0cf4a44e0f2cc2ed63b162381951",
-      "why": "2026-10-03: _meta (per-group marker counts) added; data keys unchanged. Canonical data hash = sha256 of json.dumps(file minus _meta, sort_keys=True, separators=(',',':'))."
-    },
-    "Runtime Matrices/IAM_A_Positions/iama_positions_v1.json": {
-      "file": "Runtime Matrices/IAM_A_Positions/iama_positions_v1.json",
-      "sha256": "0bfaefa272739108e79115f4cdfe18cafd308f8f20f358e0e508cf1afdad7eae",
-      "superseded_by": "Runtime Matrices/IAM_A_Positions/iama_positions_v2.json",
-      "date": "2026-10-08",
-      "why": "P re-frozen on whole files (DEV-IAMA-P-WHOLE-01); v1 was measured on the first 60 MB of each file"
-    },
-    "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json": {
-      "file": "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json",
-      "sha256": "a03531f07369d90bc96ce32ebc723bc59abb060ff9bc7b93042a28df47d9c023",
-      "superseded_by": "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json",
-      "date": "2026-10-09",
-      "why": "C-score block 50 -> 10 (CSCORE_COMMISSIONING_PLAN)"
-    },
-    "Runtime Matrices/Gauge/cell_gauge_marks_v1.json (2026-10-17 b)": {
-      "sha256_before": "a4cafadf2e340657abcf90a375b5306642150d53bbe90bd0a5e7943ba3d8ea0f",
-      "why": "IAM-A's full surface 4.26 was the retired position form's; the commissioned self-reference reading's ends are per sample, 0.5/eps_pred(L), drawn by the report"
-    },
-    "Biological_Physics/MethylPhys/chain/Runtime Matrices/Gauge/cell_gauge_marks_v1.json (2026-10-18)": {
-      "sha256_before": "94bc02cbabcfb11ce3127283b81a5dba9de9bc7465a4be3ee7b9a0f1106ee641",
-      "why": "IAM-A full surface at loose share 0 is 0.5/0.040265 = 12.418, printed 12.42; 12.41 came from rounding the line's intercept to 0.0403 first"
-    },
-    "Runtime Matrices/Gauge/cell_gauge_marks_v1.json (2026-10-18)": {
-      "sha256_before": "238069526df5a618d29e6077c082f5b01f914892f12a568b28977a5517c238d4",
-      "why": "M_cell added for the report's physics panel; no existing mark changed"
-    },
-    "Runtime Matrices/Gauge/cell_gauge_marks_v1.json (2026-10-18 c)": {
-      "sha256_before": "bc30fdd41fcc3d180b5bf163878d9f2c181471d6f5b44b115a0c1d840c6c8643",
-      "why": "wording only (author 2026-10-18: no 'coin flip' in the report): 'every identity site fully scrambled'; no value changed"
-    }
+  "Runtime Matrices/IAM_A_Positions/iama_positions_v1.json": {
+   "file": "Runtime Matrices/IAM_A_Positions/iama_positions_v1.json",
+   "sha256": "0bfaefa272739108e79115f4cdfe18cafd308f8f20f358e0e508cf1afdad7eae",
+   "superseded_by": "Runtime Matrices/IAM_A_Positions/iama_positions_v2.json",
+   "date": "2026-10-08",
+   "why": "P re-frozen on whole files (DEV-IAMA-P-WHOLE-01); v1 was measured on the first 60 MB of each file"
+  },
+  "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json": {
+   "file": "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json",
+   "sha256": "a03531f07369d90bc96ce32ebc723bc59abb060ff9bc7b93042a28df47d9c023",
+   "superseded_by": "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json",
+   "date": "2026-10-09",
+   "why": "C-score block 50 -> 10 (CSCORE_COMMISSIONING_PLAN)"
+  },
+  "Runtime Matrices/Gauge/cell_gauge_marks_v1.json (2026-10-17 b)": {
+   "sha256_before": "a4cafadf2e340657abcf90a375b5306642150d53bbe90bd0a5e7943ba3d8ea0f",
+   "why": "IAM-A's full surface 4.26 was the retired position form's; the commissioned self-reference reading's ends are per sample, 0.5/eps_pred(L), drawn by the report"
+  },
+  "Biological_Physics/MethylPhys/chain/Runtime Matrices/Gauge/cell_gauge_marks_v1.json (2026-10-18)": {
+   "sha256_before": "94bc02cbabcfb11ce3127283b81a5dba9de9bc7465a4be3ee7b9a0f1106ee641",
+   "why": "IAM-A full surface at loose share 0 is 0.5/0.040265 = 12.418, printed 12.42; 12.41 came from rounding the line's intercept to 0.0403 first"
+  },
+  "Runtime Matrices/Gauge/cell_gauge_marks_v1.json (2026-10-18)": {
+   "sha256_before": "238069526df5a618d29e6077c082f5b01f914892f12a568b28977a5517c238d4",
+   "why": "M_cell added for the report's physics panel; no existing mark changed"
+  },
+  "Runtime Matrices/Gauge/cell_gauge_marks_v1.json (2026-10-18 c)": {
+   "sha256_before": "bc30fdd41fcc3d180b5bf163878d9f2c181471d6f5b44b115a0c1d840c6c8643",
+   "why": "wording only (author 2026-10-18: no 'coin flip' in the report): 'every identity site fully scrambled'; no value changed"
   }
+ }
 }
