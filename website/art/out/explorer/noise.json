@@ -1,0 +1,354 @@
+{
+ "id": "noise",
+ "name": "The atlas's noise, beaten down by averaging",
+ "groups": [
+  {
+   "name": "neutrophils",
+   "layers": [
+    {
+     "name": "the noise, as more draws are averaged",
+     "kind": "steps",
+     "srcs": [
+      "a0",
+      "a1",
+      "a2",
+      "a3",
+      "a4",
+      "a5",
+      "a6",
+      "a7"
+     ],
+     "labels": [
+      "1 draw averaged",
+      "2 draws averaged",
+      "4 draws averaged",
+      "8 draws averaged",
+      "16 draws averaged",
+      "32 draws averaged",
+      "64 draws averaged",
+      "100 draws averaged"
+     ],
+     "notes": [
+      "On average 0.0037 from the 100-draw map.",
+      "On average 0.0026 from the 100-draw map.",
+      "On average 0.0018 from the 100-draw map.",
+      "On average 0.0013 from the 100-draw map.",
+      "On average 0.0008 from the 100-draw map.",
+      "On average 0.0005 from the 100-draw map.",
+      "On average 0.0003 from the 100-draw map.",
+      "On average 0.0000 from the 100-draw map."
+     ],
+     "note": "Red: this average sits above the 100-draw map; blue: below; dark: they agree (scale +/-0.01). Each doubling of the draws cuts the noise by about the square root of 2.",
+     "src": null,
+     "base": null
+    },
+    {
+     "name": "the atlas's best value (100 draws)",
+     "kind": "image",
+     "src": "a8",
+     "note": "The mean of all 100 draws, 0 to 1: the atlas's map of this cell.",
+     "base": null
+    }
+   ]
+  },
+  {
+   "name": "monocytes",
+   "layers": [
+    {
+     "name": "the noise, as more draws are averaged",
+     "kind": "steps",
+     "srcs": [
+      "a9",
+      "a10",
+      "a11",
+      "a12",
+      "a13",
+      "a14",
+      "a15",
+      "a16"
+     ],
+     "labels": [
+      "1 draw averaged",
+      "2 draws averaged",
+      "4 draws averaged",
+      "8 draws averaged",
+      "16 draws averaged",
+      "32 draws averaged",
+      "64 draws averaged",
+      "100 draws averaged"
+     ],
+     "notes": [
+      "On average 0.0042 from the 100-draw map.",
+      "On average 0.0029 from the 100-draw map.",
+      "On average 0.0021 from the 100-draw map.",
+      "On average 0.0014 from the 100-draw map.",
+      "On average 0.0010 from the 100-draw map.",
+      "On average 0.0006 from the 100-draw map.",
+      "On average 0.0003 from the 100-draw map.",
+      "On average 0.0000 from the 100-draw map."
+     ],
+     "note": "Red: this average sits above the 100-draw map; blue: below; dark: they agree (scale +/-0.01). Each doubling of the draws cuts the noise by about the square root of 2.",
+     "src": null,
+     "base": null
+    },
+    {
+     "name": "the atlas's best value (100 draws)",
+     "kind": "image",
+     "src": "a17",
+     "note": "The mean of all 100 draws, 0 to 1: the atlas's map of this cell.",
+     "base": null
+    }
+   ]
+  },
+  {
+   "name": "b cells",
+   "layers": [
+    {
+     "name": "the noise, as more draws are averaged",
+     "kind": "steps",
+     "srcs": [
+      "a18",
+      "a19",
+      "a20",
+      "a21",
+      "a22",
+      "a23",
+      "a24",
+      "a25"
+     ],
+     "labels": [
+      "1 draw averaged",
+      "2 draws averaged",
+      "4 draws averaged",
+      "8 draws averaged",
+      "16 draws averaged",
+      "32 draws averaged",
+      "64 draws averaged",
+      "100 draws averaged"
+     ],
+     "notes": [
+      "On average 0.0050 from the 100-draw map.",
+      "On average 0.0035 from the 100-draw map.",
+      "On average 0.0025 from the 100-draw map.",
+      "On average 0.0017 from the 100-draw map.",
+      "On average 0.0011 from the 100-draw map.",
+      "On average 0.0007 from the 100-draw map.",
+      "On average 0.0004 from the 100-draw map.",
+      "On average 0.0000 from the 100-draw map."
+     ],
+     "note": "Red: this average sits above the 100-draw map; blue: below; dark: they agree (scale +/-0.01). Each doubling of the draws cuts the noise by about the square root of 2.",
+     "src": null,
+     "base": null
+    },
+    {
+     "name": "the atlas's best value (100 draws)",
+     "kind": "image",
+     "src": "a26",
+     "note": "The mean of all 100 draws, 0 to 1: the atlas's map of this cell.",
+     "base": null
+    }
+   ]
+  },
+  {
+   "name": "cd4 t cells",
+   "layers": [
+    {
+     "name": "the noise, as more draws are averaged",
+     "kind": "steps",
+     "srcs": [
+      "a27",
+      "a28",
+      "a29",
+      "a30",
+      "a31",
+      "a32",
+      "a33",
+      "a16"
+     ],
+     "labels": [
+      "1 draw averaged",
+      "2 draws averaged",
+      "4 draws averaged",
+      "8 draws averaged",
+      "16 draws averaged",
+      "32 draws averaged",
+      "64 draws averaged",
+      "100 draws averaged"
+     ],
+     "notes": [
+      "On average 0.0047 from the 100-draw map.",
+      "On average 0.0033 from the 100-draw map.",
+      "On average 0.0024 from the 100-draw map.",
+      "On average 0.0016 from the 100-draw map.",
+      "On average 0.0011 from the 100-draw map.",
+      "On average 0.0007 from the 100-draw map.",
+      "On average 0.0004 from the 100-draw map.",
+      "On average 0.0000 from the 100-draw map."
+     ],
+     "note": "Red: this average sits above the 100-draw map; blue: below; dark: they agree (scale +/-0.01). Each doubling of the draws cuts the noise by about the square root of 2.",
+     "src": null,
+     "base": null
+    },
+    {
+     "name": "the atlas's best value (100 draws)",
+     "kind": "image",
+     "src": "a34",
+     "note": "The mean of all 100 draws, 0 to 1: the atlas's map of this cell.",
+     "base": null
+    }
+   ]
+  },
+  {
+   "name": "cd8 t cells",
+   "layers": [
+    {
+     "name": "the noise, as more draws are averaged",
+     "kind": "steps",
+     "srcs": [
+      "a35",
+      "a36",
+      "a37",
+      "a38",
+      "a39",
+      "a40",
+      "a41",
+      "a16"
+     ],
+     "labels": [
+      "1 draw averaged",
+      "2 draws averaged",
+      "4 draws averaged",
+      "8 draws averaged",
+      "16 draws averaged",
+      "32 draws averaged",
+      "64 draws averaged",
+      "100 draws averaged"
+     ],
+     "notes": [
+      "On average 0.0058 from the 100-draw map.",
+      "On average 0.0041 from the 100-draw map.",
+      "On average 0.0029 from the 100-draw map.",
+      "On average 0.0020 from the 100-draw map.",
+      "On average 0.0013 from the 100-draw map.",
+      "On average 0.0009 from the 100-draw map.",
+      "On average 0.0004 from the 100-draw map.",
+      "On average 0.0000 from the 100-draw map."
+     ],
+     "note": "Red: this average sits above the 100-draw map; blue: below; dark: they agree (scale +/-0.01). Each doubling of the draws cuts the noise by about the square root of 2.",
+     "src": null,
+     "base": null
+    },
+    {
+     "name": "the atlas's best value (100 draws)",
+     "kind": "image",
+     "src": "a42",
+     "note": "The mean of all 100 draws, 0 to 1: the atlas's map of this cell.",
+     "base": null
+    }
+   ]
+  },
+  {
+   "name": "nk cells",
+   "layers": [
+    {
+     "name": "the noise, as more draws are averaged",
+     "kind": "steps",
+     "srcs": [
+      "a43",
+      "a44",
+      "a45",
+      "a46",
+      "a47",
+      "a48",
+      "a49",
+      "a16"
+     ],
+     "labels": [
+      "1 draw averaged",
+      "2 draws averaged",
+      "4 draws averaged",
+      "8 draws averaged",
+      "16 draws averaged",
+      "32 draws averaged",
+      "64 draws averaged",
+      "100 draws averaged"
+     ],
+     "notes": [
+      "On average 0.0069 from the 100-draw map.",
+      "On average 0.0049 from the 100-draw map.",
+      "On average 0.0034 from the 100-draw map.",
+      "On average 0.0024 from the 100-draw map.",
+      "On average 0.0016 from the 100-draw map.",
+      "On average 0.0010 from the 100-draw map.",
+      "On average 0.0005 from the 100-draw map.",
+      "On average 0.0000 from the 100-draw map."
+     ],
+     "note": "Red: this average sits above the 100-draw map; blue: below; dark: they agree (scale +/-0.01). Each doubling of the draws cuts the noise by about the square root of 2.",
+     "src": null,
+     "base": null
+    },
+    {
+     "name": "the atlas's best value (100 draws)",
+     "kind": "image",
+     "src": "a50",
+     "note": "The mean of all 100 draws, 0 to 1: the atlas's map of this cell.",
+     "base": null
+    }
+   ]
+  }
+ ],
+ "about": "IAM-Atlas v2.1 was fitted the way a sky map is: every site carries 100 equally likely versions of each cell's healthy map (posterior draws, Zenodo 10.5281/zenodo.23422688). Any one draw is speckled with noise; averaging more draws beats it down, about as one over the square root of their number, which is how the microwave sky's noise is beaten down by more observing. Slide from 1 draw to 100 and watch the speckle fade; what stays bright longest is where the atlas is least sure. Draws are taken in turn from the fit's four sampling chains.",
+ "assets": {
+  "a0": "../art/explorer/noise_001.jpg",
+  "a1": "../art/explorer/noise_002.jpg",
+  "a2": "../art/explorer/noise_003.jpg",
+  "a3": "../art/explorer/noise_004.jpg",
+  "a4": "../art/explorer/noise_005.jpg",
+  "a5": "../art/explorer/noise_006.jpg",
+  "a6": "../art/explorer/noise_007.jpg",
+  "a7": "../art/explorer/noise_008.jpg",
+  "a8": "../art/explorer/noise_009.jpg",
+  "a9": "../art/explorer/noise_010.jpg",
+  "a10": "../art/explorer/noise_011.jpg",
+  "a11": "../art/explorer/noise_012.jpg",
+  "a12": "../art/explorer/noise_013.jpg",
+  "a13": "../art/explorer/noise_014.jpg",
+  "a14": "../art/explorer/noise_015.jpg",
+  "a15": "../art/explorer/noise_016.jpg",
+  "a16": "../art/explorer/noise_017.jpg",
+  "a17": "../art/explorer/noise_018.jpg",
+  "a18": "../art/explorer/noise_019.jpg",
+  "a19": "../art/explorer/noise_020.jpg",
+  "a20": "../art/explorer/noise_021.jpg",
+  "a21": "../art/explorer/noise_022.jpg",
+  "a22": "../art/explorer/noise_023.jpg",
+  "a23": "../art/explorer/noise_024.jpg",
+  "a24": "../art/explorer/noise_025.jpg",
+  "a25": "../art/explorer/noise_026.jpg",
+  "a26": "../art/explorer/noise_027.jpg",
+  "a27": "../art/explorer/noise_028.jpg",
+  "a28": "../art/explorer/noise_029.jpg",
+  "a29": "../art/explorer/noise_030.jpg",
+  "a30": "../art/explorer/noise_031.jpg",
+  "a31": "../art/explorer/noise_032.jpg",
+  "a32": "../art/explorer/noise_033.jpg",
+  "a33": "../art/explorer/noise_034.jpg",
+  "a34": "../art/explorer/noise_035.jpg",
+  "a35": "../art/explorer/noise_036.jpg",
+  "a36": "../art/explorer/noise_037.jpg",
+  "a37": "../art/explorer/noise_038.jpg",
+  "a38": "../art/explorer/noise_039.jpg",
+  "a39": "../art/explorer/noise_040.jpg",
+  "a40": "../art/explorer/noise_041.jpg",
+  "a41": "../art/explorer/noise_042.jpg",
+  "a42": "../art/explorer/noise_043.jpg",
+  "a43": "../art/explorer/noise_044.jpg",
+  "a44": "../art/explorer/noise_045.jpg",
+  "a45": "../art/explorer/noise_046.jpg",
+  "a46": "../art/explorer/noise_047.jpg",
+  "a47": "../art/explorer/noise_048.jpg",
+  "a48": "../art/explorer/noise_049.jpg",
+  "a49": "../art/explorer/noise_050.jpg",
+  "a50": "../art/explorer/noise_051.jpg"
+ }
+}

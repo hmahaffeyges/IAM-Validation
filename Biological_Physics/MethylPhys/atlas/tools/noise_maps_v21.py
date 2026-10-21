@@ -52,6 +52,8 @@ def block(tarname, out):
     np.savez_compressed(os.path.join(out, f"noise_{lo}-{hi}.npz"), cpg=np.array(cpg, dtype=object), k=np.array(K), cells=np.array(CELLS), mean=np.concatenate(means, axis=2))
     print(f"{tarname}: {len(cpg)} sites, {checked} draws files checked against the manifest", flush=True)
 
+RES = 0.01   # the residual frames' color scale, in methylation (0-1)
+
 def combine(d, out):
     import glob, pyarrow.parquet as pq
     from matplotlib.colors import ListedColormap
@@ -67,7 +69,7 @@ def combine(d, out):
     O = np.load(G.ORDER); order = O["order"]; nside = int(O["nside"]); npix = 12 * nside * nside; look = G._lookup(nside)
     cm = ListedColormap(np.loadtxt(os.path.join(R, "website", "art", "data", "Planck_Parchment_RGB.txt")) / 255.0)
     info = dict(record=f"10.5281/zenodo.{REC}", k=list(K), cells=list(CELLS), order="draws taken in turn from the 4 chains",
-                layout="IAM-Atlas v2.1 genome-order sky, NSIDE 256 NESTED (sky_order_v21.npz)", settle={}, source="atlas/tools/noise_maps_v21.py")
+                layout="IAM-Atlas v2.1 genome-order sky, NSIDE 256 NESTED (sky_order_v21.npz)", settle={}, residual_scale=RES, source="atlas/tools/noise_maps_v21.py")
     for c, cell in enumerate(CELLS):
         info["settle"][cell] = {}
         for a, k in enumerate(K):
@@ -75,6 +77,13 @@ def combine(d, out):
             x = (cm(np.clip(np.nan_to_num(m, nan=0), 0, 1))[..., :3] * 255).astype(np.uint8); x[~np.isfinite(m)] = (42, 45, 51)
             Image.fromarray(x).save(os.path.join(out, f"noise_{cell.replace(' ', '_')}_k{k}.jpg"), quality=72, optimize=True, progressive=True)
             info["settle"][cell][str(k)] = round(float(np.nanmean(np.abs(M[a, c] - M[-1, c]))), 5)
+            # 2026-10-21: the noise itself, visible: the k-draw map minus the 100-draw map on a fixed scale of +/- RES (it shrinks about as
+            # one over the square root of k; on the 0-1 methylation scale it is under one percent and cannot be seen)
+            d = G._to_sky((M[a, c] - M[-1, c])[order], npix)[look].reshape(G.HT, G.W); z = np.clip(np.nan_to_num(d, nan=0) / RES, -1, 1)
+            f = np.abs(z) ** 0.7; y = np.full(z.shape + (3,), 22.0)   # dark where the draws agree; red above, blue below the 100-draw map
+            y[..., 0] += np.where(z > 0, 233 * f, 30 * f); y[..., 1] += 45 * f; y[..., 2] += np.where(z < 0, 233 * f, 30 * f)
+            y = y.astype(np.uint8); y[~np.isfinite(d)] = (42, 45, 51)
+            Image.fromarray(y).save(os.path.join(out, f"resid_{cell.replace(' ', '_')}_k{k}.jpg"), quality=72, optimize=True, progressive=True)
         print(cell, info["settle"][cell], flush=True)
     json.dump(info, open(os.path.join(out, "noise.json"), "w"), indent=1)
 

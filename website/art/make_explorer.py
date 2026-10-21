@@ -4,6 +4,7 @@ Writes website/art/out/explorer/<id>.json (a globe spec, chain/MethylPhys_Interf
              (Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json), one layer per group, drawn as dots on the atlas's layout
   samples    the report globe of each example sample, from the one command's own globe module (report_globe_v4.build), unchanged
 Usage: python3 website/art/make_explorer.py purified
+       python3 website/art/make_explorer.py noise NOISE_DIR   (output of atlas/tools/noise_maps_v21.py combine)
        python3 website/art/make_explorer.py sample ID "TITLE" BETAS.csv BUNDLE.json [planted]"""
 import os, sys, json, numpy as np, pandas as pd
 H = os.path.dirname(os.path.abspath(__file__)); R = os.path.abspath(os.path.join(H, "..", ".."))
@@ -31,6 +32,28 @@ def purified():
                "proportions. IAM-Atlas v2.1 is a different reference, built from 21 sources over the whole genome; the two agree closely value by value.")))
     return spec
 
+def noise(d):
+    """The noise maps (atlas/tools/noise_maps_v21.py combine, run on the public posterior draws): per blood cell, the noise itself (the k-draw map
+    minus the 100-draw map, dark where the draws agree) as a slider over k, and the atlas's best value."""
+    import base64
+    J = json.load(open(os.path.join(d, "noise.json"))); K = J["k"]; groups = []
+    b64 = lambda f: "data:image/jpeg;base64," + base64.b64encode(open(os.path.join(d, f), "rb").read()).decode()
+    for cell in J["cells"]:
+        c = cell.replace(" ", "_"); st = J["settle"][cell]
+        groups.append(dict(name=cell, layers=[
+            dict(name="the noise, as more draws are averaged", kind="steps", srcs=[b64(f"resid_{c}_k{k}.jpg") for k in K],
+                 labels=[f"{k} draw{'s' if k > 1 else ''} averaged" for k in K],
+                 notes=[f"On average {st[str(k)]:.4f} from the 100-draw map." for k in K],
+                 note=(f"Red: this average sits above the 100-draw map; blue: below; dark: they agree (scale +/-{J['residual_scale']}). "
+                       "Each doubling of the draws cuts the noise by about the square root of 2.")),
+            dict(name="the atlas's best value (100 draws)", kind="image", src=b64(f"noise_{c}_k100.jpg"),
+                 note="The mean of all 100 draws, 0 to 1: the atlas's map of this cell.")]))
+    about = ("IAM-Atlas v2.1 was fitted the way a sky map is: every site carries 100 equally likely versions of each cell's healthy map (posterior "
+             f"draws, Zenodo {J['record']}). Any one draw is speckled with noise; averaging more draws beats it down, about as one over the square "
+             "root of their number, which is how the microwave sky's noise is beaten down by more observing. Slide from 1 draw to 100 and watch the "
+             "speckle fade; what stays bright longest is where the atlas is least sure. Draws are taken in turn from the fit's four sampling chains.")
+    return V.dedupe(dict(id="noise", name="The atlas's noise, beaten down by averaging", groups=groups, about=about))
+
 def sample(sid, title, betas, bundle, planted=False):
     import conductor_v3 as C
     b = pd.read_csv(betas, index_col=0).iloc[:, 0]; o = C.run_neutrophil(b, specimen="whole blood")
@@ -41,6 +64,6 @@ def sample(sid, title, betas, bundle, planted=False):
     return s
 
 if __name__ == "__main__":
-    spec = purified() if sys.argv[1] == "purified" else sample(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], len(sys.argv) > 6)
+    spec = purified() if sys.argv[1] == "purified" else noise(sys.argv[2]) if sys.argv[1] == "noise" else sample(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], len(sys.argv) > 6)
     os.makedirs(OUT, exist_ok=True); s = V.write_files(spec, OUT, URL)
     json.dump(s, open(os.path.join(OUT, spec["id"] + ".json"), "w"), indent=1); print("wrote", spec["id"], len(s["assets"]), "pictures")
