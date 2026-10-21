@@ -48,4 +48,13 @@ L = [f"arrays {len(T)}; manifest color column: {colcol}",
      f"chain as it is (every pair in green): median {T.chain_as_is.median():.4f}, range {T.chain_as_is.min():.4f}-{T.chain_as_is.max():.4f}; equals the chain's record: {bool((T.chain_as_is - T.chain_record).abs().max() < 1e-4)}",
      f"each pair in its own manifest color: median {T.own_color.median():.4f}, range {T.own_color.min():.4f}-{T.own_color.max():.4f}",
      f"green pairs only: median {T.green_only.median():.4f}" if T.green_only.notna().any() else "green pairs only: none"]
+Pr = pd.DataFrame(rows)   # per probe, the median over arrays of each channel (2026-10-20: the per-pair table, so the summary alone answers it)
+L.append("per probe, median over arrays: probe | manifest color | green | red")
+for (pr, col), g in Pr.groupby(["probe", "color"], sort=True): L.append(f"  {pr} | {col} | {g.grn.median():.0f} | {g.red.median():.0f}")
+L.append("per pair, median over arrays of C/(C+U): pair | in green | in red")
+for k in sorted({str(x)[-1] for x in Pr.probe}):
+    c = Pr[Pr.probe.str.replace("-", " ").str.upper().str.endswith("C" + k)]; u = Pr[Pr.probe.str.replace("-", " ").str.upper().str.endswith("U" + k)]
+    if len(c) and len(u):
+        m = c.merge(u, on="gsm", suffixes=("_c", "_u"))
+        L.append(f"  pair {k} | {(m.grn_c / (m.grn_c + m.grn_u)).median():.4f} | {(m.red_c / (m.red_c + m.red_u)).median():.4f}")
 open(os.path.join(out, "bs_channel_explore_summary.txt"), "w").write("\n".join(L) + "\n"); print("\n".join(L))
