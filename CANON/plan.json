@@ -406,7 +406,7 @@
     "GRP-004"
    ],
    "status": "done",
-   "done_date": "",
+   "done_date": "2026-10-20",
    "record": "Biological_Physics/MethylPhys/chain/release_check_v4.py"
   },
   {
@@ -595,15 +595,15 @@
    "notes": " | 2026-10-20: Chain Decoder written (manual/decoder_text.md -> OM_v4_decoder.md; all 257 functions of the 22 loaded files have entries; gated). OM PDF retitled 'Official IAM Operations Manual: Instrument Diagnostics and Chain Decoder' (Decoder + diagnostics + chain sequence); SOP retitled 'Official IAM Chain Operator Guide'. Reading the code line by line found the items under findings; each is fixed in the chain, not in the text."
   },
   {
-   "task": "Reproductions on GitHub's machines (author 2026-10-20: GitHub first): (a) metaa_rebuild, already verified PASS from a fresh clone on AWS on 2026-10-18 (the blood references rebuilt from the 91 public purified arrays of GSE110554 and GSE167998, identical), moved to a GitHub workflow; (b) Group-A added to reproduce/tests.json as the 10th reproduction: the groupa workflow rerun from a later commit gives the committed numbers. Correction 2026-10-20: this step first said the reference rebuild was not a reproduction; it is one (reproduce/verified.json) | (b) DONE 2026-10-20: groupa re-read run 39531208991 from ce44f9ef, every sealed number identical; recorded in verified.json | (a) DONE 2026-10-21: metaa_rebuild reproduced on GitHub, 8 of 8 identical (run 39625569255, 93.2 min)",
+   "task": "Reproductions on GitHub's machines (author 2026-10-20: GitHub first): (a) metaa_rebuild, already verified PASS from a fresh clone on AWS on 2026-10-18 (the blood references rebuilt from the 91 public purified arrays of GSE110554 and GSE167998, identical), moved to a GitHub workflow; (b) Group-A added to reproduce/tests.json as the 10th reproduction: the groupa workflow rerun from a later commit gives the committed numbers. Correction 2026-10-20: this step first said the reference rebuild was not a reproduction; it is one (reproduce/verified.json) | (b) DONE 2026-10-20: groupa re-read run 39531208991 from ce44f9ef, every sealed number identical; recorded in verified.json | (a) DONE 2026-10-21: metaa_rebuild reproduced on GitHub, 8 of 8 identical (run 39625569255, 93.2 min) | Beyond (a) and (b), 2026-10-21: nine of the ten reproductions now run on GitHub (cscore_band, three_labs, colon, breast, liver, deconv, metaa_rebuild, groupa, and iama_line split across 13 machines, 158 of 158 identical); the mouse run is in step 15's memory test",
    "done_when": "both run on GitHub from a fresh checkout with every number identical; verified.json records them",
    "rows": [
     "OTH-076",
     "OTH-072"
    ],
-   "status": "open",
-   "done_date": "",
-   "record": ""
+   "status": "done",
+   "done_date": "2026-10-21",
+   "record": "Biological_Physics/MethylPhys/reproduce/verified.json"
   },
   {
    "task": "450K arrays read by the chain (author 2026-10-21: 'What would it take for us to get the 450K working? ... after the self tare test'). After DEV-SELFTARE-03: (1) the 450K self-tare rebuilt by the relative rule; (2) GSE224807 (spent) re-read as a diagnosis of the slide offset that failed bar 2b of DEV-METAA-450K-01; (3) a sealed test on an unspent 450K healthy whole-blood set with several healthy arrays per slide and raw IDATs, by the bars already written; (4) each instrument's site coverage on 450K (C-Score, Deconvolver, Group-A); (5) the 450K refusal lifted, release checks, Decoder and Operator Guide.",
@@ -659,6 +659,15 @@
    ],
    "status": "open",
    "done_date": ""
+  },
+  {
+   "task": "A Globe Explorer chapter in the book (author 2026-10-21: 'we are going to have a whole new chapter to write'), written when the Explorer is complete: what each globe is (the sky sphere's address layout and its benefits; the information sphere; the atlas cells; the purified reference; the noise globe; a sample against the atlas; a tumor against the same person's normal; IAM-A; what the panel cannot explain; the whole genome), the fixed change rule and why it is read in blocks, the browser check (release check V13), and each layer's shuffled null; figures from the chain's own pages in a browser.",
+   "done_when": "the chapter builds in the book; every number in it traces to a committed output; its figures are screenshots of the chain's own pages",
+   "rows": [
+    "ATL-063",
+    "ATL-070"
+   ],
+   "status": "open"
   }
  ],
  "scheduled": [
