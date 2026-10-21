@@ -1,0 +1,5116 @@
+{
+ "_about": "decoder_inventory.py - the mechanical layer of the Chain Decoder (Operations Manual, to-do step 25, 2026-10-20).",
+ "files": [
+  {
+   "file": "MethylPhys_Interface/run_sample.py",
+   "lines": 629,
+   "functions": [
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
+     "function": "_bio_root",
+     "name": "_bio_root",
+     "line": 35,
+     "end": 50,
+     "args": [
+      "start"
+     ],
+     "lines": 16,
+     "doc": "The directory that CONTAINS MethylPhys/ - i.e. Biological_Physics.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
+     "function": "_assign_run_id",
+     "name": "_assign_run_id",
+     "line": 55,
+     "end": 73,
+     "args": [
+      "ledger_path"
+     ],
+     "lines": 19,
+     "doc": "RUN-YYYYMMDD-NN, sequential within the day, read from the ledger this run is about to append to.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
+     "function": "_covariates",
+     "name": "_covariates",
+     "line": 76,
+     "end": 91,
+     "args": [
+      "a"
+     ],
+     "lines": 16,
+     "doc": "Phenotype and covariates for this run: --covariates JSON first, then --covariate key=value on top.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
+     "function": "_sha12",
+     "name": "_sha12",
+     "line": 94,
+     "end": 103,
+     "args": [
+      "path"
+     ],
+     "lines": 10,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 18,
+      "bam": 18
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
+     "function": "_versions",
+     "name": "_versions",
+     "line": 106,
+     "end": 142,
+     "args": [
+      "chain_dir"
+     ],
+     "lines": 37,
+     "doc": "Every input that can change a reading, with a short hash - so runs months apart are poolable.",
+     "constants": [],
+     "data_files": [
+      "Runtime Matrices/IAM_A_Positions/hg19_cpg_chrom_ranges.json",
+      "Runtime Matrices/IAM_A_Positions/iama_positions_v2.json",
+      "Runtime Matrices/Intake/intake_thresholds_v1.json",
+      "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json",
+      "Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json",
+      "Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv",
+      "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json",
+      "Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json",
+      "Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json"
+     ],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
+     "function": "_hash_id",
+     "name": "_hash_id",
+     "line": 145,
+     "end": 149,
+     "args": [
+      "x"
+     ],
+     "lines": 5,
+     "doc": "sha256 (first 32 hex) of a typed identifier; an identifier that is already a hash (>= 16 alphanumerics) is kept (SOP 12).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
+     "function": "_redact",
+     "name": "_redact",
+     "line": 152,
+     "end": 162,
+     "args": [
+      "obj",
+      "typed",
+      "hid"
+     ],
+     "lines": 11,
+     "doc": "Every whole-token occurrence of the typed id in strings of obj replaced by its hash (decision B: no typed id in bundle or ledger).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 4,
+      "bam": 4
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
+     "function": "_redact.f",
+     "name": "f",
+     "line": 157,
+     "end": 161,
+     "args": [
+      "v"
+     ],
+     "lines": 5,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 865,
+      "bam": 359
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
+     "function": "_dev_run",
+     "name": "_dev_run",
+     "line": 165,
+     "end": 204,
+     "args": [
+      "a",
+      "o",
+      "beta",
+      "intake"
+     ],
+     "lines": 40,
+     "doc": "Development flags (doors/DEV_FLAGS_01.md): each writes bundle['development'][stage], labelled DEVELOPMENT - not commissioned. None of them changes the reading, the gauge or the tare.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
+     "function": "main",
+     "name": "main",
+     "line": 207,
+     "end": 626,
+     "args": [],
+     "lines": 420,
+     "doc": "",
+     "constants": [
+      "BIO",
+      "ENG"
+     ],
+     "data_files": [
+      "MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json",
+      "_bundle.json",
+      "a wgbstools .pat / .pat.gz"
+     ],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
+     "function": "main._stopped",
+     "name": "_stopped",
+     "line": 303,
+     "end": 307,
+     "args": [
+      "r"
+     ],
+     "lines": 5,
+     "doc": "A quarantine ends intake. Without this the next step overwrites the status and the verdict names a downstream symptom instead of the cause (seen 2026-09-23: an array-type mismatch was reported as a detection failure because step 0.2 had already written MANIFEST_COMPLETE).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 3
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
+     "function": "main._ctx",
+     "name": "_ctx",
+     "line": 573,
+     "end": 574,
+     "args": [
+      "b",
+      "it",
+      "pipe"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": {
+    "route": "array",
+    "order": 1
+   }
+  },
+  {
+   "file": "stage_0_intake.py",
+   "lines": 1129,
+   "functions": [
+    {
+     "file": "stage_0_intake.py",
+     "function": "_intake_thresholds",
+     "name": "_intake_thresholds",
+     "line": 37,
+     "end": 44,
+     "args": [],
+     "lines": 8,
+     "doc": "",
+     "constants": [],
+     "data_files": [
+      "intake_thresholds_v1.json"
+     ],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "normalise_specimen",
+     "name": "normalise_specimen",
+     "line": 79,
+     "end": 80,
+     "args": [
+      "specimen"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 5
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "specimen_refusal",
+     "name": "specimen_refusal",
+     "line": 83,
+     "end": 90,
+     "args": [
+      "specimen"
+     ],
+     "lines": 8,
+     "doc": "None when intake accepts the specimen (ACCEPTED_SPECIMENS); otherwise the plain refusal text naming the specimen (decision L).",
+     "constants": [
+      "ACCEPTED_SPECIMENS",
+      "REFUSED_SPECIMEN_REASONS"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "_infer_platform",
+     "name": "_infer_platform",
+     "line": 103,
+     "end": 110,
+     "args": [
+      "nsnps"
+     ],
+     "lines": 8,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "read_idat_nsnps",
+     "name": "read_idat_nsnps",
+     "line": 115,
+     "end": 138,
+     "args": [
+      "path"
+     ],
+     "lines": 24,
+     "doc": "Read only the magic + nSNPsRead (field code 1000) from an IDAT file. Returns (nsnps:int|None, status:str). Does NOT decode intensities (Stage 1).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "step_0_1_idat_arrival",
+     "name": "step_0_1_idat_arrival",
+     "line": 143,
+     "end": 231,
+     "args": [
+      "manifest_entry",
+      "grn_path",
+      "red_path",
+      "intake_log_path"
+     ],
+     "lines": 89,
+     "doc": "SOP §11. Verify the Grn+Red IDAT pair + manifest, stamp arrival, gate.",
+     "constants": [
+      "MIN_PLAUSIBLE_IDAT_BYTES",
+      "REQUIRED_MANIFEST_FIELDS",
+      "VALID_ARRAY_TYPES"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "_log_intake",
+     "name": "_log_intake",
+     "line": 236,
+     "end": 245,
+     "args": [
+      "intake_log_path",
+      "result"
+     ],
+     "lines": 10,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "_is_duplicate_within_24h",
+     "name": "_is_duplicate_within_24h",
+     "line": 248,
+     "end": 268,
+     "args": [
+      "intake_log_path",
+      "sentrix_id"
+     ],
+     "lines": 21,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "_is_null_answer",
+     "name": "_is_null_answer",
+     "line": 328,
+     "end": 330,
+     "args": [
+      "v"
+     ],
+     "lines": 3,
+     "doc": "For storage: blank or 'prefer not to say' -> None. 'No' is preserved as a real answer.",
+     "constants": [
+      "_NULL_FOR_STORAGE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "_answer_present",
+     "name": "_answer_present",
+     "line": 333,
+     "end": 337,
+     "args": [
+      "v"
+     ],
+     "lines": 5,
+     "doc": "For context-mode triggers: an affirmative answer (not null, PNTS, or a No/NA).",
+     "constants": [
+      "_NEGATIVE",
+      "_NULL_FOR_STORAGE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "_age_from_dob",
+     "name": "_age_from_dob",
+     "line": 340,
+     "end": 347,
+     "args": [
+      "dob",
+      "on_date"
+     ],
+     "lines": 8,
+     "doc": "Decimal-year chronological age from DOB and intake date (ISO yyyy-mm-dd).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "parse_questionnaire",
+     "name": "parse_questionnaire",
+     "line": 350,
+     "end": 367,
+     "args": [
+      "answers",
+      "intake_date"
+     ],
+     "lines": 18,
+     "doc": "Map a digital questionnaire submission (keyed by the engine-use field names the questionnaire defines) to the canonical covariate record. Missing or 'prefer not to say' answers become None (engine handles them conservatively). Derives chronological_age, smoking_bin, and the Stage 7 context-mode list.",
+     "constants": [
+      "COVARIATE_FIELDS",
+      "_CONTEXT_MODE_TRIGGERS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "_looks_like_cleartext_pii",
+     "name": "_looks_like_cleartext_pii",
+     "line": 370,
+     "end": 378,
+     "args": [
+      "patient_id"
+     ],
+     "lines": 9,
+     "doc": "SOP §12: patient_id must be hashed before the engine. Cleartext (spaces, email, or too-short/non-token) -> quarantine.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "_write_manifest",
+     "name": "_write_manifest",
+     "line": 381,
+     "end": 388,
+     "args": [
+      "manifest_dir",
+      "record"
+     ],
+     "lines": 8,
+     "doc": "Write the immutable per-sample patient_manifest.json (one per sample_run_id).",
+     "constants": [],
+     "data_files": [
+      "Write the immutable per-sample patient_manifest.json"
+     ],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "step_0_2_manifest_creation",
+     "name": "step_0_2_manifest_creation",
+     "line": 391,
+     "end": 430,
+     "args": [
+      "step_0_1_result",
+      "questionnaire_answers",
+      "manifest_dir",
+      "intake_date"
+     ],
+     "lines": 40,
+     "doc": "SOP §12. Build the canonical immutable patient_manifest.json from the staged Step 0.1 record + parsed questionnaire. Validate, PII-check, write, gate to 0.3.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "_sha256_file",
+     "name": "_sha256_file",
+     "line": 439,
+     "end": 444,
+     "args": [
+      "path"
+     ],
+     "lines": 6,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "_prior_hashes_for_sentrix",
+     "name": "_prior_hashes_for_sentrix",
+     "line": 447,
+     "end": 460,
+     "args": [
+      "integrity_log_path",
+      "sentrix_id"
+     ],
+     "lines": 14,
+     "doc": "(grn_sha, red_sha) from prior integrity-log rows for this Sentrix ID.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "_log_integrity",
+     "name": "_log_integrity",
+     "line": 463,
+     "end": 468,
+     "args": [
+      "integrity_log_path",
+      "row"
+     ],
+     "lines": 6,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "step_0_3_integrity_hash",
+     "name": "step_0_3_integrity_hash",
+     "line": 471,
+     "end": 507,
+     "args": [
+      "record",
+      "grn_path",
+      "red_path",
+      "integrity_log_path"
+     ],
+     "lines": 37,
+     "doc": "SOP §13. SHA-256 both IDATs, compare to prior intakes of the same Sentrix ID, register in the integrity log, stamp integrity_status, gate to 0.4.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "extract_control_probes",
+     "name": "extract_control_probes",
+     "line": 529,
+     "end": 535,
+     "args": [
+      "grn_path",
+      "red_path",
+      "array_type"
+     ],
+     "lines": 7,
+     "doc": "Extract Illumina control-probe intensities grouped by control class from the IDAT pair.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "validate_control_probes",
+     "name": "validate_control_probes",
+     "line": 538,
+     "end": 578,
+     "args": [
+      "control_summary"
+     ],
+     "lines": 41,
+     "doc": "SOP §14 control-probe math + gates. Input: per-control-class intensity medians extracted from the IDAT pair. Returns the CTRL_QC verdict.",
+     "constants": [
+      "BS_CONVERSION_MIN",
+      "BS_THRESHOLD_CALIBRATED",
+      "EXTENSION_BALANCE_RANGE",
+      "HYB_HIGH_LOW_MIN_RATIO"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "step_0_4_control_probe_validation",
+     "name": "step_0_4_control_probe_validation",
+     "line": 581,
+     "end": 600,
+     "args": [
+      "record",
+      "grn_path",
+      "red_path",
+      "control_summary"
+     ],
+     "lines": 20,
+     "doc": "SOP §14. Validate control probes, stamp CTRL_QC, gate to 0.5. If no control summary is supplied, attempt extraction (deferred to the Stage 1 decoder); when that is unavailable, mark CTRL_QC DEFERRED and advance rather than fabricate a pass.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "_normal_sf",
+     "name": "_normal_sf",
+     "line": 620,
+     "end": 628,
+     "args": [
+      "z"
+     ],
+     "lines": 9,
+     "doc": "Survival function 1 - Φ(z), vectorized. scipy if available, else erfc fallback.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "compute_detection_p",
+     "name": "compute_detection_p",
+     "line": 631,
+     "end": 636,
+     "args": [
+      "probe_intensities",
+      "mu_bg",
+      "sigma_bg"
+     ],
+     "lines": 6,
+     "doc": "detection_p = 1 - Φ((I - μ_bg)/σ_bg) per probe (SOP §15 stated formula).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "validate_detection_p",
+     "name": "validate_detection_p",
+     "line": 639,
+     "end": 653,
+     "args": [
+      "detection_p_array"
+     ],
+     "lines": 15,
+     "doc": "Gate on the detected fraction (intake_thresholds_v1.json detection): > pass_fraction PASS, >= borderline_fraction BORDERLINE, else FAIL.",
+     "constants": [
+      "DETECTION_BORDERLINE_FRACTION",
+      "DETECTION_PASS_FRACTION",
+      "DETECTION_P_THRESHOLD"
+     ],
+     "data_files": [
+      "intake_thresholds_v1.json"
+     ],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "step_0_5_detection_pvalue_qc",
+     "name": "step_0_5_detection_pvalue_qc",
+     "line": 656,
+     "end": 677,
+     "args": [
+      "record",
+      "probe_intensities",
+      "neg_control_stats"
+     ],
+     "lines": 22,
+     "doc": "SOP §15. Compute per-probe detection p, summarize, gate to 0.6. If intensities or negative-control stats are absent (extraction deferred to the Stage 1 decoder), mark DETECTION_QC deferred and advance rather than fabricate a pass.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "validate_bead_count",
+     "name": "validate_bead_count",
+     "line": 688,
+     "end": 695,
+     "args": [
+      "bead_counts",
+      "min_beads"
+     ],
+     "lines": 8,
+     "doc": "",
+     "constants": [
+      "BEAD_COUNT_MIN",
+      "BEAD_PASS_FRACTION"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "step_0_6_bead_count_qc",
+     "name": "step_0_6_bead_count_qc",
+     "line": 698,
+     "end": 711,
+     "args": [
+      "record",
+      "bead_counts"
+     ],
+     "lines": 14,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "validate_call_rate",
+     "name": "validate_call_rate",
+     "line": 722,
+     "end": 730,
+     "args": [
+      "n_passing_both",
+      "n_total"
+     ],
+     "lines": 9,
+     "doc": "",
+     "constants": [
+      "CALL_RATE_BORDERLINE",
+      "CALL_RATE_PASS"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "step_0_7_call_rate",
+     "name": "step_0_7_call_rate",
+     "line": 733,
+     "end": 754,
+     "args": [
+      "record",
+      "detection_pass_mask",
+      "bead_pass_mask"
+     ],
+     "lines": 22,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "step_0_7b_platform_coverage",
+     "name": "step_0_7b_platform_coverage",
+     "line": 764,
+     "end": 786,
+     "args": [
+      "record",
+      "reference_cpg_coverage"
+     ],
+     "lines": 23,
+     "doc": "",
+     "constants": [
+      "HM450_COVERAGE_MIN"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "predict_sex",
+     "name": "predict_sex",
+     "line": 796,
+     "end": 797,
+     "args": [
+      "log2_x_median",
+      "log2_y_median",
+      "cutoff"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [
+      "SEX_GETSEX_CUTOFF"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "validate_sex",
+     "name": "validate_sex",
+     "line": 800,
+     "end": 806,
+     "args": [
+      "log2_x_median",
+      "log2_y_median",
+      "declared_sex"
+     ],
+     "lines": 7,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "step_0_8_sex_check",
+     "name": "step_0_8_sex_check",
+     "line": 809,
+     "end": 823,
+     "args": [
+      "record",
+      "sex_intensities"
+     ],
+     "lines": 15,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "_fmt",
+     "name": "_fmt",
+     "line": 838,
+     "end": 839,
+     "args": [
+      "x",
+      "nd"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "explain_stage0",
+     "name": "explain_stage0",
+     "line": 840,
+     "end": 893,
+     "args": [
+      "record",
+      "hard_fail",
+      "borderline",
+      "deferred"
+     ],
+     "lines": 54,
+     "doc": "",
+     "constants": [
+      "BEAD_COUNT_MIN",
+      "BEAD_PASS_FRACTION",
+      "BS_CONVERSION_MIN",
+      "BS_THRESHOLD_CALIBRATED",
+      "CALL_RATE_BORDERLINE",
+      "CALL_RATE_PASS",
+      "DETECTION_BORDERLINE_FRACTION",
+      "DETECTION_PASS_FRACTION",
+      "EXTENSION_BALANCE_RANGE",
+      "HYB_HIGH_LOW_MIN_RATIO",
+      "SEX_GETSEX_CUTOFF",
+      "_TH_SRC"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "explain_stage0.add",
+     "name": "add",
+     "line": 842,
+     "end": 843,
+     "args": [
+      "check",
+      "outcome",
+      "measured",
+      "limit",
+      "source",
+      "provisional",
+      "means",
+      "todo"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "step_0_9_decision_gate",
+     "name": "step_0_9_decision_gate",
+     "line": 896,
+     "end": 975,
+     "args": [
+      "record",
+      "verdict_log_path"
+     ],
+     "lines": 80,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    }
+   ],
+   "first_entered": {
+    "route": "array",
+    "order": 5
+   }
+  },
+  {
+   "file": "stage_0_1_qc_handoff.py",
+   "lines": 180,
+   "functions": [
+    {
+     "file": "stage_0_1_qc_handoff.py",
+     "function": "_manifest",
+     "name": "_manifest",
+     "line": 26,
+     "end": 34,
+     "args": [
+      "array_type"
+     ],
+     "lines": 9,
+     "doc": "The array's own manifest, cached per array type.",
+     "constants": [
+      "_MANIFEST"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_0_1_qc_handoff.py",
+     "function": "_channel_means",
+     "name": "_channel_means",
+     "line": 37,
+     "end": 47,
+     "args": [
+      "path",
+      "channel",
+      "want_beads"
+     ],
+     "lines": 11,
+     "doc": "Per-address mean intensity (and bead count) from one IDAT file, gzip or plain.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_0_1_qc_handoff.py",
+     "function": "_median",
+     "name": "_median",
+     "line": 50,
+     "end": 52,
+     "args": [
+      "series",
+      "addresses"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 4
+     }
+    },
+    {
+     "file": "stage_0_1_qc_handoff.py",
+     "function": "decode_qc_inputs",
+     "name": "decode_qc_inputs",
+     "line": 55,
+     "end": 179,
+     "args": [
+      "grn_path",
+      "red_path",
+      "array_type"
+     ],
+     "lines": 125,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_0_1_qc_handoff.py",
+     "function": "decode_qc_inputs.ctl_addr",
+     "name": "ctl_addr",
+     "line": 62,
+     "end": 70,
+     "args": [
+      "control_type",
+      "contains",
+      "excludes"
+     ],
+     "lines": 9,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 5
+     }
+    },
+    {
+     "file": "stage_0_1_qc_handoff.py",
+     "function": "decode_qc_inputs._at",
+     "name": "_at",
+     "line": 135,
+     "end": 140,
+     "args": [
+      "series",
+      "addr"
+     ],
+     "lines": 6,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 8
+     }
+    },
+    {
+     "file": "stage_0_1_qc_handoff.py",
+     "function": "decode_qc_inputs.sex_median",
+     "name": "sex_median",
+     "line": 166,
+     "end": 170,
+     "args": [
+      "which"
+     ],
+     "lines": 5,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    }
+   ],
+   "first_entered": {
+    "route": "array",
+    "order": 26
+   }
+  },
+  {
+   "file": "stage_1_idat_calibration.py",
+   "lines": 233,
+   "functions": [
+    {
+     "file": "stage_1_idat_calibration.py",
+     "function": "_check_pins",
+     "name": "_check_pins",
+     "line": 39,
+     "end": 49,
+     "args": [],
+     "lines": 11,
+     "doc": "",
+     "constants": [
+      "MANIFEST_SHA256",
+      "METHYLPREP_VERSION"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_1_idat_calibration.py",
+     "function": "_ensure_methylprep",
+     "name": "_ensure_methylprep",
+     "line": 50,
+     "end": 92,
+     "args": [],
+     "lines": 43,
+     "doc": "Make sure methylprep is importable; pip-install it once if it isn't.",
+     "constants": [
+      "METHYLPREP_VERSION"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_1_idat_calibration.py",
+     "function": "_detect_array_type",
+     "name": "_detect_array_type",
+     "line": 95,
+     "end": 104,
+     "args": [
+      "grn_path"
+     ],
+     "lines": 10,
+     "doc": "Read the IDAT bead-address count and map it to methylprep's array type.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_1_idat_calibration.py",
+     "function": "calibrate_idat_to_beta",
+     "name": "calibrate_idat_to_beta",
+     "line": 107,
+     "end": 212,
+     "args": [
+      "grn_path",
+      "red_path",
+      "array_type",
+      "verbose",
+      "mask_detection",
+      "return_mask",
+      "return_snp"
+     ],
+     "lines": 106,
+     "doc": "Calibrate one IDAT pair to noob-normalized beta.",
+     "constants": [],
+     "data_files": [
+      "_processed.csv",
+      "control_probes.pkl",
+      "samplesheet.csv",
+      "the tag beta_scale_maps_v1.json"
+     ],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_1_idat_calibration.py",
+     "function": "calibrate_idat_to_beta.med",
+     "name": "med",
+     "line": 177,
+     "end": 178,
+     "args": [
+      "t",
+      "col"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 7
+     }
+    },
+    {
+     "file": "stage_1_idat_calibration.py",
+     "function": "_stage_idat",
+     "name": "_stage_idat",
+     "line": 215,
+     "end": 222,
+     "args": [
+      "src",
+      "dst"
+     ],
+     "lines": 8,
+     "doc": "Copy (or gunzip) an IDAT into the staging dir under the methylprep name.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    }
+   ],
+   "first_entered": {
+    "route": "array",
+    "order": 54
+   }
+  },
+  {
+   "file": "conductor_v3.py",
+   "lines": 304,
+   "functions": [
+    {
+     "file": "conductor_v3.py",
+     "function": "ref",
+     "name": "ref",
+     "line": 58,
+     "end": 61,
+     "args": [],
+     "lines": 4,
+     "doc": "",
+     "constants": [
+      "RM",
+      "_REF"
+     ],
+     "data_files": [
+      "neutrophil_reference_v1_2.json"
+     ],
+     "traced_calls": {
+      "array": 4
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "noise_sites",
+     "name": "noise_sites",
+     "line": 66,
+     "end": 71,
+     "args": [],
+     "lines": 6,
+     "doc": "Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json: 48,528 EPIC sites every purified blood group holds fixed (group mean <= 0.03 or >= 0.97, group SD <= 0.02; no neutrophil identity site). Their entropy is the array's own noise.",
+     "constants": [
+      "RM",
+      "_NS"
+     ],
+     "data_files": [
+      "Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json",
+      "noise_sites_EPIC_v1.json"
+     ],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "noise_gate",
+     "name": "noise_gate",
+     "line": 74,
+     "end": 78,
+     "args": [],
+     "lines": 5,
+     "doc": "Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json: N_max = top of the reference arrays' noise range (DEV-NOISE-01).",
+     "constants": [
+      "RM",
+      "_NG"
+     ],
+     "data_files": [
+      "Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json",
+      "noise_gate_EPIC_v1.json"
+     ],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "noise_index",
+     "name": "noise_index",
+     "line": 80,
+     "end": 85,
+     "args": [
+      "beta"
+     ],
+     "lines": 6,
+     "doc": "N = mean H(beta) over the noise sites measured on this array; None when fewer than MIN_NOISE_FRACTION are measured.",
+     "constants": [
+      "H",
+      "MIN_NOISE_FRACTION"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "_bc",
+     "name": "_bc",
+     "line": 88,
+     "end": 91,
+     "args": [],
+     "lines": 4,
+     "doc": "",
+     "constants": [
+      "RM",
+      "_BC"
+     ],
+     "data_files": [
+      "blood_composition_EPIC_v1.json"
+     ],
+     "traced_calls": {
+      "array": 4
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "min_markers",
+     "name": "min_markers",
+     "line": 93,
+     "end": 94,
+     "args": [],
+     "lines": 2,
+     "doc": "",
+     "constants": [
+      "MIN_MARKER_FRACTION"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "stage_a_composition",
+     "name": "stage_a_composition",
+     "line": 96,
+     "end": 110,
+     "args": [
+      "beta"
+     ],
+     "lines": 15,
+     "doc": "EPIC blood composition (blood_composition_EPIC_v1): 8 groups from Salas purified EPIC cells; markers exclude the neutrophil sites; NNLS, sum 1. Same platform and same reference as the expectation profiles. Refused (fractions None) when fewer than MIN_MARKER_FRACTION of the markers are measured.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "_clustering",
+     "name": "_clustering",
+     "line": 112,
+     "end": 116,
+     "args": [
+      "z",
+      "w"
+     ],
+     "lines": 5,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "_state",
+     "name": "_state",
+     "line": 118,
+     "end": 119,
+     "args": [
+      "A"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "stage_m_blood",
+     "name": "stage_m_blood",
+     "line": 121,
+     "end": 146,
+     "args": [
+      "beta",
+      "comp"
+     ],
+     "lines": 26,
+     "doc": "Whole blood: Met-A = mean H(beta) / mean H(e) at the neutrophil sites, e = sum_g f_g mu_g (EPIC purified group profiles). The untared value carries a composition and laboratory offset; the gauge state is printed only after the tare against healthy whole bloods run the same way (Stage T).",
+     "constants": [
+      "BUILD",
+      "H"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "_ceiling",
+     "name": "_ceiling",
+     "line": 148,
+     "end": 154,
+     "args": [
+      "x",
+      "mu"
+     ],
+     "lines": 7,
+     "doc": "Entropy ceiling: per-site H peaks at beta = 0.5. Met-A is monotone in pattern loss only while the cell's methylated sites stay above 0.5 (DNMT-01: A_meth saturates at 1/H(floor) once the methylated sites reach beta ~0.5).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "stage_m_isolated",
+     "name": "stage_m_isolated",
+     "line": 156,
+     "end": 167,
+     "args": [
+      "beta"
+     ],
+     "lines": 12,
+     "doc": "Isolated / sorted neutrophils against their healthy reference. The healthy-reference state is kept as state_own_floor; the reading's state is 'untared' until Stage T reads it against >= 3 same-run references.",
+     "constants": [
+      "H"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "stage_mc_cscore",
+     "name": "stage_mc_cscore",
+     "line": 169,
+     "end": 179,
+     "args": [
+      "z"
+     ],
+     "lines": 11,
+     "doc": "Met-A C-score (stage 6): clustering of the residual z map in genomic order - variance of the means of blocks of clustering_block consecutive sites (x sqrt(block)) over the site variance, divided by the healthy median clustering of neutrophil_reference_v1_2.json. Healthy = 1; development (band not set). No residual map -> C None with the reason.",
+     "constants": [],
+     "data_files": [
+      "divided by the healthy median clustering of neutrophil_reference_v1_2.json"
+     ],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "_ref_records",
+     "name": "_ref_records",
+     "line": 181,
+     "end": 193,
+     "args": [
+      "ref_A",
+      "sample_id"
+     ],
+     "lines": 13,
+     "doc": "References as plain A values or as records {A, f_neu, N[, id]}. Returns (records, n_self_excluded).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "stage_t_tare",
+     "name": "stage_t_tare",
+     "line": 195,
+     "end": 210,
+     "args": [
+      "A",
+      "ref_A",
+      "shift_1pct",
+      "sample_id"
+     ],
+     "lines": 16,
+     "doc": "Same-run tare against >= MIN_REFS healthy references of the same specimen type run the same way (same slide, else same batch). references: untared A values, or records {A[, id]}. A_rel = A / median(reference A); spread = SD of reference A / median. Nothing is fitted. Detection limit = 2 x reference spread / shift per 1 % loss.",
+     "constants": [
+      "MIN_REFS"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "stage_t_cscore",
+     "name": "stage_t_cscore",
+     "line": 214,
+     "end": 231,
+     "args": [
+      "cs",
+      "ref_A",
+      "sample_id"
+     ],
+     "lines": 18,
+     "doc": "Same-run tare of the Met-A C-score, the same rule as the median tare of A (DEV-CSCORE-TARE-01): C_rel = C / median(C of >= MIN_REFS same-run healthy references, records carrying C). The untared C depends on the laboratory; the tared C does not. Nothing is fitted.",
+     "constants": [
+      "CSCORE_COMMISSIONING",
+      "CSCORE_DEV_BAND",
+      "MIN_REFS"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "stage_t_selftare_ii",
+     "name": "stage_t_selftare_ii",
+     "line": 233,
+     "end": 241,
+     "args": [
+      "beta"
+     ],
+     "lines": 9,
+     "doc": "Stage T step 1, self-tare II (adopted 2026-10-04, DEV-SELFTARE-02): per probe design, beta' = Lr + (beta - L)(Ur - Lr)/(U - L) from this array's own fixed-site anchors L, U and the reference arrays' Lr, Ur (dev_stages.selftare_map; a design with anchors missing or U - L <= 0.1 is left unmapped). Returns (beta', record); when the runtime file is missing, (beta, record with status NOT_RUN).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "platform_refusal",
+     "name": "platform_refusal",
+     "line": 243,
+     "end": 252,
+     "args": [
+      "beta",
+      "array_type"
+     ],
+     "lines": 10,
+     "doc": "None when the specimen is EPIC v1; otherwise the refusal text.",
+     "constants": [
+      "ACCEPTED_ARRAY_TYPES"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "run_neutrophil",
+     "name": "run_neutrophil",
+     "line": 254,
+     "end": 303,
+     "args": [
+      "beta",
+      "specimen",
+      "ref_A",
+      "array_type",
+      "sample_id"
+     ],
+     "lines": 50,
+     "doc": "beta: pd.Series from Stage 1 (EPIC v1). ref_A: same-run healthy references - their Met-A before the median tare (met_a.A, which carries Stage T step 1, self-tare II, since 2026-10-04), or records {A, f_neu, N[, id]} (Stage T; plain A values or records with A). array_type: Stage 0's array type (header, else declared), or None for a beta table. sample_id: excluded from the references if a record car",
+     "constants": [
+      "BUILD",
+      "CSCORE_COMMISSIONING",
+      "METAA_COMMISSIONING",
+      "MIN_NOISE_FRACTION"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    }
+   ],
+   "first_entered": {
+    "route": "array",
+    "order": 66
+   }
+  },
+  {
+   "file": "stage_m_met_a.py",
+   "lines": 80,
+   "functions": [
+    {
+     "file": "stage_m_met_a.py",
+     "function": "_floors",
+     "name": "_floors",
+     "line": 28,
+     "end": 31,
+     "args": [],
+     "lines": 4,
+     "doc": "",
+     "constants": [
+      "FLOORS",
+      "_F"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_m_met_a.py",
+     "function": "_H",
+     "name": "_H",
+     "line": 33,
+     "end": 35,
+     "args": [
+      "b"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 7
+     }
+    },
+    {
+     "file": "stage_m_met_a.py",
+     "function": "platform_of",
+     "name": "platform_of",
+     "line": 39,
+     "end": 44,
+     "args": [
+      "beta"
+     ],
+     "lines": 6,
+     "doc": "Platform from the calibrated beta vector itself: 'EPIC_v2' if any probe name carries the EPIC v2 design suffix; otherwise 'EPIC' (v1) when the vector holds more than 700,000 probes, else '450K'.",
+     "constants": [
+      "_V2_NAME"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    },
+    {
+     "file": "stage_m_met_a.py",
+     "function": "available",
+     "name": "available",
+     "line": 46,
+     "end": 48,
+     "args": [
+      "platform"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [
+      "CELLS_IN_SCOPE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_m_met_a.py",
+     "function": "precision",
+     "name": "precision",
+     "line": 50,
+     "end": 55,
+     "args": [
+      "platform",
+      "cell"
+     ],
+     "lines": 6,
+     "doc": "",
+     "constants": [
+      "LOO",
+      "NORMAL"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_m_met_a.py",
+     "function": "read",
+     "name": "read",
+     "line": 57,
+     "end": 75,
+     "args": [
+      "beta",
+      "cell",
+      "platform",
+      "specimen"
+     ],
+     "lines": 19,
+     "doc": "beta: pandas Series (probe -> beta) from Stage 1 of a purified / sorted specimen of one cell type. cell: floor name (see available()). Returns the Met-A record; A is None (with a reason) when the reading is not permitted.",
+     "constants": [
+      "CELLS_IN_SCOPE",
+      "NORMAL",
+      "SITE_COVERAGE_MIN"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": {
+    "route": "array",
+    "order": 67
+   }
+  },
+  {
+   "file": "MethylPhys_Interface/report_v4.py",
+   "lines": 256,
+   "functions": [
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_uri",
+     "name": "_uri",
+     "line": 38,
+     "end": 38,
+     "args": [
+      "path"
+     ],
+     "lines": 1,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 6,
+      "bam": 2
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_H",
+     "name": "_H",
+     "line": 39,
+     "end": 39,
+     "args": [
+      "p"
+     ],
+     "lines": 1,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 2
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_sci",
+     "name": "_sci",
+     "line": 40,
+     "end": 41,
+     "args": [
+      "v"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 2
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_marks",
+     "name": "_marks",
+     "line": 42,
+     "end": 42,
+     "args": [],
+     "lines": 1,
+     "doc": "",
+     "constants": [
+      "CH"
+     ],
+     "data_files": [
+      "cell_gauge_marks_v1.json"
+     ],
+     "traced_calls": {
+      "array": 3,
+      "bam": 3
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "cellname",
+     "name": "cellname",
+     "line": 45,
+     "end": 46,
+     "args": [
+      "c"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [
+      "_NAMES"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 30,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "untested",
+     "name": "untested",
+     "line": 47,
+     "end": 51,
+     "args": [
+      "what",
+      "inst",
+      "shown",
+      "noun"
+     ],
+     "lines": 5,
+     "doc": "",
+     "constants": [
+      "_NAMES"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 7
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "chip",
+     "name": "chip",
+     "line": 52,
+     "end": 55,
+     "args": [
+      "status"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 12,
+      "bam": 5
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_glance",
+     "name": "_glance",
+     "line": 57,
+     "end": 59,
+     "args": [
+      "o"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "glance_rows",
+     "name": "glance_rows",
+     "line": 61,
+     "end": 90,
+     "args": [
+      "o"
+     ],
+     "lines": 30,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2,
+      "bam": 2
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_shares",
+     "name": "_shares",
+     "line": 92,
+     "end": 103,
+     "args": [
+      "o"
+     ],
+     "lines": 12,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_meta",
+     "name": "_meta",
+     "line": 105,
+     "end": 113,
+     "args": [
+      "o"
+     ],
+     "lines": 9,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_cscore",
+     "name": "_cscore",
+     "line": 115,
+     "end": 123,
+     "args": [
+      "o"
+     ],
+     "lines": 9,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_iama",
+     "name": "_iama",
+     "line": 125,
+     "end": 134,
+     "args": [
+      "o"
+     ],
+     "lines": 10,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_figs",
+     "name": "_figs",
+     "line": 137,
+     "end": 153,
+     "args": [
+      "o",
+      "base"
+     ],
+     "lines": 17,
+     "doc": "The gauge pictures for this sample (PNG beside the report); a withheld or unread instrument gets none.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_physics",
+     "name": "_physics",
+     "line": 159,
+     "end": 164,
+     "args": [
+      "o"
+     ],
+     "lines": 6,
+     "doc": "",
+     "constants": [
+      "E",
+      "PHYS_INTRO"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "physics_rows",
+     "name": "physics_rows",
+     "line": 166,
+     "end": 197,
+     "args": [
+      "o"
+     ],
+     "lines": 32,
+     "doc": "AstroGenetics: each reading in the physics it rests on. Every number from this run's record or a committed reference file.",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2,
+      "bam": 2
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_skypair",
+     "name": "_skypair",
+     "line": 200,
+     "end": 207,
+     "args": [
+      "o"
+     ],
+     "lines": 8,
+     "doc": "",
+     "constants": [
+      "SKY_CAP"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_plain",
+     "name": "_plain",
+     "line": 209,
+     "end": 227,
+     "args": [
+      "o",
+      "F"
+     ],
+     "lines": 19,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "build",
+     "name": "build",
+     "line": 229,
+     "end": 255,
+     "args": [
+      "o",
+      "out",
+      "sid"
+     ],
+     "lines": 27,
+     "doc": "",
+     "constants": [
+      "CSS",
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    }
+   ],
+   "first_entered": {
+    "route": "array",
+    "order": 68
+   }
+  },
+  {
+   "file": "MethylPhys_Interface/report_v3.py",
+   "lines": 287,
+   "functions": [
+    {
+     "file": "MethylPhys_Interface/report_v3.py",
+     "function": "_gauge",
+     "name": "_gauge",
+     "line": 50,
+     "end": 87,
+     "args": [
+      "A",
+      "lo",
+      "hi",
+      "w",
+      "label",
+      "instrument",
+      "top"
+     ],
+     "lines": 38,
+     "doc": "The whole cell gauge, drawn from Runtime Matrices/Gauge/cell_gauge_marks_v1.json (the book's marks) - never a bare band. Left to right: the floor (off the left edge), more order than healthy, Normal, over-writing, the full surface. The direction is CANON/foundation.json gauge_direction, remembered by the black hole: right is over-writing toward the full surface.",
+     "constants": [],
+     "data_files": [
+      "CANON/foundation.json",
+      "Runtime Matrices/Gauge/cell_gauge_marks_v1.json",
+      "drawn from Runtime Matrices/Gauge/cell_gauge_marks_v1.json"
+     ],
+     "traced_calls": {
+      "bam": 2
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v3.py",
+     "function": "_H",
+     "name": "_H",
+     "line": 89,
+     "end": 91,
+     "args": [
+      "b"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 3
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v3.py",
+     "function": "_load",
+     "name": "_load",
+     "line": 94,
+     "end": 96,
+     "args": [
+      "rel"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [
+      "CHAIN"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 3
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v3.py",
+     "function": "red_flags",
+     "name": "red_flags",
+     "line": 100,
+     "end": 125,
+     "args": [
+      "o"
+     ],
+     "lines": 26,
+     "doc": "STOP / FLAG / WITHHELD / CAUTION / NOTE, from the bundle only. Returned as a list of {level, code, text}.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v3.py",
+     "function": "safeguards",
+     "name": "safeguards",
+     "line": 128,
+     "end": 171,
+     "args": [
+      "o",
+      "prose"
+     ],
+     "lines": 44,
+     "doc": "Rendered-claim scan, formula self-test, anchors, deconvolver conformance, atlas separability. Each PASS / FAIL / NOT_RUN.",
+     "constants": [
+      "CLAIM_SCAN"
+     ],
+     "data_files": [
+      "Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json",
+      "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json",
+      "Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json"
+     ],
+     "traced_calls": {
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v3.py",
+     "function": "troubleshooting",
+     "name": "troubleshooting",
+     "line": 174,
+     "end": 190,
+     "args": [
+      "o"
+     ],
+     "lines": 17,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v3.py",
+     "function": "toolkit_table",
+     "name": "toolkit_table",
+     "line": 193,
+     "end": 204,
+     "args": [
+      "o"
+     ],
+     "lines": 12,
+     "doc": "",
+     "constants": [
+      "NOT_BUILT",
+      "TOOLKIT_STAGES"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v3.py",
+     "function": "_table",
+     "name": "_table",
+     "line": 207,
+     "end": 210,
+     "args": [
+      "rows",
+      "head"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 7
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v3.py",
+     "function": "build",
+     "name": "build",
+     "line": 213,
+     "end": 286,
+     "args": [
+      "o",
+      "out",
+      "sid"
+     ],
+     "lines": 74,
+     "doc": "",
+     "constants": [
+      "FLAG_ORDER",
+      "STAGES_2B"
+     ],
+     "data_files": [
+      "cell_gauge_marks_v1.json"
+     ],
+     "traced_calls": {
+      "bam": 1
+     }
+    }
+   ],
+   "first_entered": {
+    "route": "array",
+    "order": 69
+   }
+  },
+  {
+   "file": "MethylPhys_Interface/report_figs_v4.py",
+   "lines": 145,
+   "functions": [
+    {
+     "file": "MethylPhys_Interface/report_figs_v4.py",
+     "function": "sci",
+     "name": "sci",
+     "line": 13,
+     "end": 14,
+     "args": [
+      "v"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_figs_v4.py",
+     "function": "_bar",
+     "name": "_bar",
+     "line": 15,
+     "end": 27,
+     "args": [
+      "ax",
+      "lo_v",
+      "hi_v",
+      "band",
+      "A",
+      "fl",
+      "cl",
+      "y0",
+      "h",
+      "grad",
+      "ticks",
+      "mid"
+     ],
+     "lines": 13,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2,
+      "bam": 2
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_figs_v4.py",
+     "function": "gauge_png",
+     "name": "gauge_png",
+     "line": 29,
+     "end": 48,
+     "args": [
+      "out",
+      "name",
+      "A",
+      "floor",
+      "ceiling",
+      "band",
+      "subject",
+      "state",
+      "unit"
+     ],
+     "lines": 20,
+     "doc": "A floor-to-ceiling gauge for Met-A or IAM-A; A None draws no needle (a withheld state draws no gauge at all in the HTML).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_figs_v4.py",
+     "function": "cscore_png",
+     "name": "cscore_png",
+     "line": 50,
+     "end": 59,
+     "args": [
+      "out",
+      "C",
+      "band_hi",
+      "band_lo",
+      "subject",
+      "state"
+     ],
+     "lines": 10,
+     "doc": "The C-Score bar: scattered on the left, clustered on the right; its Normal band; no derived ends (it is a clustering ratio).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_figs_v4.py",
+     "function": "atlas_sky_png",
+     "name": "atlas_sky_png",
+     "line": 61,
+     "end": 100,
+     "args": [
+      "out",
+      "ids",
+      "cell",
+      "atlas_dir",
+      "nest_pix2ang",
+      "title"
+     ],
+     "lines": 40,
+     "doc": "The healthy reference of `cell` from IAM-Atlas v2.1 at the same sites, in the same order and on the same pixels as the sample's C-Score sky (stage_v4.cscore_sky), so the two pictures line up site for site. A picture; nothing is scored from it.",
+     "constants": [],
+     "data_files": [
+      "Planck_Parchment_RGB.txt",
+      "import pyarrow.parquet",
+      "sites.parquet"
+     ],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_figs_v4.py",
+     "function": "changes_sky_png",
+     "name": "changes_sky_png",
+     "line": 102,
+     "end": 144,
+     "args": [
+      "out",
+      "z",
+      "cell",
+      "atlas_dir",
+      "nest_pix2ang",
+      "readings",
+      "thr",
+      "title"
+     ],
+     "lines": 43,
+     "doc": "The sample laid over its healthy reference (author 2026-10-18: overlay the two, quiet the matches, show the changes). Same sites, same order, same pixels as the C-Score sky. Background: the healthy cell from IAM-Atlas v2.1 in grays (darker = more tagged). Color only where the sample's pattern (entropy per site, the Met-A departure) differs from healthy by more than `thr` of its own spread (the C-S",
+     "constants": [],
+     "data_files": [
+      "import pyarrow.parquet",
+      "sites.parquet"
+     ],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_figs_v4.py",
+     "function": "changes_sky_png.pmean",
+     "name": "pmean",
+     "line": 119,
+     "end": 120,
+     "args": [
+      "x"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2
+     }
+    }
+   ],
+   "first_entered": {
+    "route": "array",
+    "order": 70
+   }
+  },
+  {
+   "file": "dev_stages.py",
+   "lines": 336,
+   "functions": [
+    {
+     "file": "dev_stages.py",
+     "function": "_H",
+     "name": "_H",
+     "line": 32,
+     "end": 34,
+     "args": [
+      "b"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "_json",
+     "name": "_json",
+     "line": 37,
+     "end": 41,
+     "args": [
+      "name"
+     ],
+     "lines": 5,
+     "doc": "",
+     "constants": [
+      "DEVDIR",
+      "_C"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "_bc",
+     "name": "_bc",
+     "line": 44,
+     "end": 46,
+     "args": [],
+     "lines": 3,
+     "doc": "",
+     "constants": [
+      "RM",
+      "_C"
+     ],
+     "data_files": [
+      "blood_composition_EPIC_v1.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "_rec",
+     "name": "_rec",
+     "line": 49,
+     "end": 50,
+     "args": [
+      "stage"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [
+      "DEV_LABEL"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "anchors",
+     "name": "anchors",
+     "line": 54,
+     "end": 60,
+     "args": [
+      "beta",
+      "st"
+     ],
+     "lines": 7,
+     "doc": "This array's anchors: mean beta over each fixed-site set (I_low, I_high, II_low, II_high) it measures, with the count.",
+     "constants": [],
+     "data_files": [
+      "dev_selftare_typeII_EPIC_v1.json"
+     ],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "selftare_map",
+     "name": "selftare_map",
+     "line": 63,
+     "end": 74,
+     "args": [
+      "beta",
+      "st"
+     ],
+     "lines": 12,
+     "doc": "beta' = Lr + (beta - L)(Ur - Lr)/(U - L) per design at the sites whose design is recorded; other sites unchanged. Returns (beta', record).",
+     "constants": [],
+     "data_files": [
+      "dev_selftare_typeII_EPIC_v1.json"
+     ],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "selftare_ii",
+     "name": "selftare_ii",
+     "line": 77,
+     "end": 85,
+     "args": [
+      "beta",
+      "specimen"
+     ],
+     "lines": 9,
+     "doc": "Met-A re-read after the type II self-tare: each design mapped onto the reference arrays' scale by this array's own fixed-site anchors (DEV-SELFTARE-02).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "site_uncertainty",
+     "name": "site_uncertainty",
+     "line": 89,
+     "end": 96,
+     "args": [
+      "beta",
+      "st"
+     ],
+     "lines": 8,
+     "doc": "SD of (beta - frozen reference value) over this array's own fixed sites, per design and state. Returns {I_low: sd, ...}.",
+     "constants": [],
+     "data_files": [
+      "dev_selftare_typeII_EPIC_v1.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "s_for",
+     "name": "s_for",
+     "line": 99,
+     "end": 104,
+     "args": [
+      "sites",
+      "ref_values",
+      "su",
+      "st"
+     ],
+     "lines": 6,
+     "doc": "Per-site s_i for `sites` given their reference values (design from the runtime file; low state if ref < 0.5).",
+     "constants": [],
+     "data_files": [
+      "dev_selftare_typeII_EPIC_v1.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "direction",
+     "name": "direction",
+     "line": 108,
+     "end": 113,
+     "args": [
+      "beta",
+      "ref",
+      "sites"
+     ],
+     "lines": 6,
+     "doc": "D = mean over sites of |r - 0.5| - |beta - 0.5| (> 0: toward 0.5, toward disorder). ref: Series of reference values.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "direction_record",
+     "name": "direction_record",
+     "line": 116,
+     "end": 130,
+     "args": [
+      "beta",
+      "specimen",
+      "comp",
+      "refs_D"
+     ],
+     "lines": 15,
+     "doc": "Signed move toward or away from 0.5 at the neutrophil identity sites against the cell's own reference, tared on same-run references (DEV-DIRECTION-02).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "trace_cell",
+     "name": "trace_cell",
+     "line": 134,
+     "end": 148,
+     "args": [
+      "beta",
+      "su",
+      "line"
+     ],
+     "lines": 15,
+     "doc": "3b: another blood group in an isolated-neutrophil specimen, called above 3 x this array's own standard error (DEV-TOOLKIT-ADDED-02).",
+     "constants": [],
+     "data_files": [
+      "dev_selftare_typeII_EPIC_v1.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "foreign_cell",
+     "name": "foreign_cell",
+     "line": 152,
+     "end": 173,
+     "args": [
+      "beta",
+      "template",
+      "su",
+      "line"
+     ],
+     "lines": 22,
+     "doc": "3c: a non-blood template in whole blood by NNLS with the blood groups, called above 3 x this array's own standard error (DEV-TOOLKIT-ADDED-02).",
+     "constants": [],
+     "data_files": [
+      "dev_foreign_placenta_EPIC_v1.json",
+      "dev_selftare_typeII_EPIC_v1.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "brightness",
+     "name": "brightness",
+     "line": 177,
+     "end": 193,
+     "args": [
+      "beta",
+      "specimen",
+      "comp",
+      "n_draw",
+      "su",
+      "seed"
+     ],
+     "lines": 17,
+     "doc": "11b: 95 % interval on Met-A from the v3 per-site uncertainty (this array's own fixed-site noise), by Monte Carlo (DEV-TOOLKIT-ADDED-02).",
+     "constants": [],
+     "data_files": [
+      "dev_selftare_typeII_EPIC_v1.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "_mapping",
+     "name": "_mapping",
+     "line": 197,
+     "end": 202,
+     "args": [],
+     "lines": 6,
+     "doc": "",
+     "constants": [
+      "RM",
+      "_C"
+     ],
+     "data_files": [
+      "iamatlas_cpg_to_healpix_nside128.npz"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "residual_z",
+     "name": "residual_z",
+     "line": 205,
+     "end": 210,
+     "args": [
+      "beta",
+      "fractions",
+      "AP"
+     ],
+     "lines": 6,
+     "doc": "z_i = (beta_i - sum_g f_g mu_g,i) / sqrt(sum_g f_g^2 (sd^2 + s_bp^2) + 0.02^2), s_bp the between-person SD (atlas column `donor_sd`) (DEV-SKY-01 wrapper). AP: atlas parent columns.",
+     "constants": [
+      "PARENTS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "_pixmap",
+     "name": "_pixmap",
+     "line": 213,
+     "end": 215,
+     "args": [
+      "zs",
+      "pix",
+      "npix"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "block_shuffle_order",
+     "name": "block_shuffle_order",
+     "line": 218,
+     "end": 224,
+     "args": [
+      "chr_keys",
+      "run",
+      "rng"
+     ],
+     "lines": 7,
+     "doc": "Permutation of positions (already in genomic order) that moves whole runs of `run` consecutive sites within each chromosome.",
+     "constants": [
+      "SKY_RUN"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "sky_from_z",
+     "name": "sky_from_z",
+     "line": 227,
+     "end": 240,
+     "args": [
+      "z",
+      "n_null",
+      "n_lee",
+      "seed",
+      "free_null"
+     ],
+     "lines": 14,
+     "doc": "",
+     "constants": [
+      "SKY_LEE_N",
+      "SKY_NULL_N",
+      "SKY_RUN"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "sky_from_z.shuf",
+     "name": "shuf",
+     "line": 232,
+     "end": 233,
+     "args": [],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "_has_cols",
+     "name": "_has_cols",
+     "line": 243,
+     "end": 246,
+     "args": [
+      "path",
+      "cols"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [],
+     "data_files": [
+      "import pyarrow.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "load_atlas_parents",
+     "name": "load_atlas_parents",
+     "line": 249,
+     "end": 256,
+     "args": [
+      "atlas_parquet"
+     ],
+     "lines": 8,
+     "doc": "",
+     "constants": [
+      "PARENTS",
+      "_C"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "sky",
+     "name": "sky",
+     "line": 259,
+     "end": 265,
+     "args": [
+      "beta",
+      "fractions",
+      "atlas_parquet"
+     ],
+     "lines": 7,
+     "doc": "Residual sky with the within-chromosome block-shuffle null and the look-elsewhere statistic by simulation (DEV-SKY-02).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "_atlas_e",
+     "name": "_atlas_e",
+     "line": 273,
+     "end": 281,
+     "args": [
+      "atlas_parquet"
+     ],
+     "lines": 9,
+     "doc": "",
+     "constants": [
+      "ATLAS_E_CELLS",
+      "_C"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "atlas_e",
+     "name": "atlas_e",
+     "line": 284,
+     "end": 288,
+     "args": [
+      "beta",
+      "atlas_parquet"
+     ],
+     "lines": 5,
+     "doc": "Stage 3 atlas_e composition (12 array-measured circulating atlas v2 cells, DEV-ATLAS-EPIC-02 method), 8-group sums.",
+     "constants": [
+      "BLOOD8"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "nilc_e",
+     "name": "nilc_e",
+     "line": 291,
+     "end": 295,
+     "args": [
+      "beta",
+      "atlas_parquet"
+     ],
+     "lines": 5,
+     "doc": "Stage 4 NILC-e composition on the atlas_e templates (DEV-NILC-01 method), 8-group sums and the noise per fraction.",
+     "constants": [
+      "BLOOD8"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "percell_b",
+     "name": "percell_b",
+     "line": 298,
+     "end": 310,
+     "args": [
+      "beta",
+      "fractions",
+      "atlas_parquet"
+     ],
+     "lines": 13,
+     "doc": "Stage 5 B-cell Met-A against the composition-matched expectation on the development B-cell floor (DEV-PERCELL-01 method).",
+     "constants": [
+      "PARENTS",
+      "RM"
+     ],
+     "data_files": [
+      "metA_floors_v1_2_ALLCELLS_development.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "epicv2_calibrate",
+     "name": "epicv2_calibrate",
+     "line": 317,
+     "end": 335,
+     "args": [
+      "grn",
+      "red",
+      "rscript",
+      "prep"
+     ],
+     "lines": 19,
+     "doc": "EPIC v2 IDAT pair -> beta Series on EPIC v1 probe names (replicate v2 probes of one CpG averaged). SeSAMe openSesame(prep), pOOBAH-masked probes dropped. Returns (beta, meta).",
+     "constants": [
+      "SESAME_R"
+     ],
+     "data_files": [
+      "betas.csv"
+     ],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": {
+    "route": "array",
+    "order": 79
+   }
+  },
+  {
+   "file": "stage_v4.py",
+   "lines": 125,
+   "functions": [
+    {
+     "file": "stage_v4.py",
+     "function": "stage_d21",
+     "name": "stage_d21",
+     "line": 23,
+     "end": 39,
+     "args": [
+      "beta",
+      "panel"
+     ],
+     "lines": 17,
+     "doc": "",
+     "constants": [
+      "MIN_MARKER_SHARE",
+      "_REF"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_v4.py",
+     "function": "count_sequencing",
+     "name": "count_sequencing",
+     "line": 42,
+     "end": 46,
+     "args": [
+      "pat",
+      "bam",
+      "ref_fasta",
+      "workers",
+      "assembly"
+     ],
+     "lines": 5,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 1
+     }
+    },
+    {
+     "file": "stage_v4.py",
+     "function": "stage_q2",
+     "name": "stage_q2",
+     "line": 48,
+     "end": 62,
+     "args": [
+      "rec",
+      "cell",
+      "chemistry",
+      "source"
+     ],
+     "lines": 15,
+     "doc": "",
+     "constants": [
+      "CD8_TYPES"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 1
+     }
+    },
+    {
+     "file": "stage_v4.py",
+     "function": "_compress",
+     "name": "_compress",
+     "line": 70,
+     "end": 72,
+     "args": [
+      "v"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 6
+     }
+    },
+    {
+     "file": "stage_v4.py",
+     "function": "nest_pix2ang",
+     "name": "nest_pix2ang",
+     "line": 73,
+     "end": 82,
+     "args": [
+      "nside",
+      "ipix"
+     ],
+     "lines": 10,
+     "doc": "HEALPix NESTED pixel centres -> (theta, phi); the standard nest2xyf / xyf2ang algorithm (Gorski et al. 2005).",
+     "constants": [
+      "JPLL",
+      "JRLL"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 3
+     }
+    },
+    {
+     "file": "stage_v4.py",
+     "function": "cscore_sky",
+     "name": "cscore_sky",
+     "line": 84,
+     "end": 121,
+     "args": [
+      "z",
+      "out_png",
+      "title",
+      "vlim",
+      "readings"
+     ],
+     "lines": 38,
+     "doc": "z: the C-Score's per-site departure map (pd.Series by site, in the C-Score's genomic order). Writes a Mollweide view; returns a summary.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_v4.py",
+     "function": "png_data_uri",
+     "name": "png_data_uri",
+     "line": 123,
+     "end": 124,
+     "args": [
+      "path"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": {
+    "route": "array",
+    "order": 104
+   }
+  },
+  {
+   "file": "stage_deconv_v21.py",
+   "lines": 198,
+   "functions": [
+    {
+     "file": "stage_deconv_v21.py",
+     "function": "reference",
+     "name": "reference",
+     "line": 26,
+     "end": 48,
+     "args": [
+      "cells",
+      "atlas",
+      "spread"
+     ],
+     "lines": 23,
+     "doc": "",
+     "constants": [
+      "ATLAS",
+      "SPREAD"
+     ],
+     "data_files": [
+      "import pyarrow.parquet",
+      "sites.parquet"
+     ],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_deconv_v21.py",
+     "function": "markers",
+     "name": "markers",
+     "line": 49,
+     "end": 56,
+     "args": [
+      "R",
+      "per_cell"
+     ],
+     "lines": 8,
+     "doc": "",
+     "constants": [
+      "PER_CELL"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_deconv_v21.py",
+     "function": "_solve",
+     "name": "_solve",
+     "line": 57,
+     "end": 61,
+     "args": [
+      "y",
+      "A",
+      "S",
+      "lab_sd",
+      "passes"
+     ],
+     "lines": 5,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 201
+     }
+    },
+    {
+     "file": "stage_deconv_v21.py",
+     "function": "deconvolve",
+     "name": "deconvolve",
+     "line": 62,
+     "end": 75,
+     "args": [
+      "beta",
+      "R",
+      "M",
+      "lab_sd",
+      "boot",
+      "seed"
+     ],
+     "lines": 14,
+     "doc": "beta: pd.Series of readings by site id. Returns shares (normalized), raw sum, 95 % intervals, sites used.",
+     "constants": [
+      "BOOT",
+      "LAB_SD",
+      "SEED"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_deconv_v21.py",
+     "function": "sample",
+     "name": "sample",
+     "line": 93,
+     "end": 94,
+     "args": [
+      "f",
+      "lab"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_deconv_v21.py",
+     "function": "sample_check",
+     "name": "sample_check",
+     "line": 170,
+     "end": 171,
+     "args": [
+      "x",
+      "cell",
+      "R",
+      "M"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [
+      "SELF_MIN"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": {
+    "route": "array",
+    "order": 105
+   }
+  },
+  {
+   "file": "stage_q2_selfref.py",
+   "lines": 270,
+   "functions": [
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "chain_sha",
+     "name": "chain_sha",
+     "line": 28,
+     "end": 31,
+     "args": [],
+     "lines": 4,
+     "doc": "",
+     "constants": [
+      "HERE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "_canon",
+     "name": "_canon",
+     "line": 32,
+     "end": 32,
+     "args": [
+      "obj"
+     ],
+     "lines": 1,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 4
+     }
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "payload_sha",
+     "name": "payload_sha",
+     "line": 33,
+     "end": 33,
+     "args": [
+      "obj"
+     ],
+     "lines": 1,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 4
+     }
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "file_sha",
+     "name": "file_sha",
+     "line": 34,
+     "end": 38,
+     "args": [
+      "path",
+      "chunk"
+     ],
+     "lines": 5,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "_rows",
+     "name": "_rows",
+     "line": 44,
+     "end": 46,
+     "args": [
+      "manifest"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "stamp",
+     "name": "stamp",
+     "line": 47,
+     "end": 54,
+     "args": [
+      "obj",
+      "inputs",
+      "manifest"
+     ],
+     "lines": 8,
+     "doc": "Attach the chain stamp to a result dict. inputs: [{'name':..., 'sha256':..., 'size':...}] (file_sha of each input where possible). manifest: the Master Testing Manifest row IDs this result belongs to.",
+     "constants": [
+      "STAGE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "write_json",
+     "name": "write_json",
+     "line": 55,
+     "end": 60,
+     "args": [
+      "obj",
+      "path",
+      "inputs",
+      "manifest"
+     ],
+     "lines": 6,
+     "doc": "Write a stamped result. A result with a 'verdict' field (MET, NOT MET, INCONCLUSIVE, NOT ASSESSED, REPRODUCED, DIFFERS) is recorded as a run on each named manifest row by CANON/chain_events.py.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "write_csv",
+     "name": "write_csv",
+     "line": 61,
+     "end": 64,
+     "args": [
+      "df",
+      "path",
+      "inputs",
+      "manifest"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [
+      "STAGE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "hg19_tiles",
+     "name": "hg19_tiles",
+     "line": 67,
+     "end": 73,
+     "args": [],
+     "lines": 7,
+     "doc": "{chrom: array of [start, end) CpG-index tiles}, consecutive 2,000-CpG tiles, partial last tile dropped (own_reads_genome.tiles).",
+     "constants": [
+      "HG19_CPGS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "_finish",
+     "name": "_finish",
+     "line": 74,
+     "end": 82,
+     "args": [
+      "tile_calls",
+      "e_iso",
+      "e_opp",
+      "extra"
+     ],
+     "lines": 9,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 1
+     }
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "count_pat",
+     "name": "count_pat",
+     "line": 83,
+     "end": 98,
+     "args": [
+      "lines",
+      "tiles"
+     ],
+     "lines": 16,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "_cpg_index",
+     "name": "_cpg_index",
+     "line": 102,
+     "end": 103,
+     "args": [
+      "seq"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "_calls_of",
+     "name": "_calls_of",
+     "line": 104,
+     "end": 130,
+     "args": [
+      "r",
+      "ref",
+      "ref0",
+      "sub"
+     ],
+     "lines": 27,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "_merge",
+     "name": "_merge",
+     "line": 131,
+     "end": 136,
+     "args": [
+      "a",
+      "b"
+     ],
+     "lines": 6,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "count_bam_region",
+     "name": "count_bam_region",
+     "line": 137,
+     "end": 170,
+     "args": [
+      "args"
+     ],
+     "lines": 34,
+     "doc": "One region of one alignment file -> partial counts. args = (bam, ref_fasta, chrom, start, end).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "count_bam_region.done",
+     "name": "done",
+     "line": 144,
+     "end": 157,
+     "args": [
+      "calls"
+     ],
+     "lines": 14,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "combine_bam",
+     "name": "combine_bam",
+     "line": 171,
+     "end": 178,
+     "args": [
+      "parts",
+      "assembly"
+     ],
+     "lines": 8,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 1
+     }
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "count_bam",
+     "name": "count_bam",
+     "line": 179,
+     "end": 183,
+     "args": [
+      "bam",
+      "fa",
+      "workers",
+      "assembly",
+      "chroms",
+      "span"
+     ],
+     "lines": 5,
+     "doc": "",
+     "constants": [
+      "AUTOSOMES"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 1
+     }
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "build_line",
+     "name": "build_line",
+     "line": 186,
+     "end": 195,
+     "args": [
+      "per_sample"
+     ],
+     "lines": 10,
+     "doc": "per_sample: DataFrame with cell, loose_share, held_err, held_opp (RAW counter output). Per cell: median loose share, opportunity-weighted held error; Theil-Sen line across cells (as opensea_line.py, without its scale factor).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "line",
+     "name": "line",
+     "line": 196,
+     "end": 201,
+     "args": [
+      "version"
+     ],
+     "lines": 6,
+     "doc": "",
+     "constants": [
+      "LINE_DIR"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 1
+     }
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "predict",
+     "name": "predict",
+     "line": 202,
+     "end": 203,
+     "args": [
+      "loose_share",
+      "version"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "residual",
+     "name": "residual",
+     "line": 204,
+     "end": 208,
+     "args": [
+      "rec",
+      "version"
+     ],
+     "lines": 5,
+     "doc": "rec: a count from count_pat / count_bam (RAW). Returns the self-reference reading against the chain's line.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 1
+     }
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "build_shape_reference",
+     "name": "build_shape_reference",
+     "line": 215,
+     "end": 222,
+     "args": [
+      "records"
+     ],
+     "lines": 8,
+     "doc": "records: chain counts (count_pat/count_bam output with cell and tile_p10). Returns the reference dict (write it with write_json).",
+     "constants": [
+      "SHAPE_Q"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "shape_reference",
+     "name": "shape_reference",
+     "line": 223,
+     "end": 228,
+     "args": [
+      "version"
+     ],
+     "lines": 6,
+     "doc": "",
+     "constants": [
+      "LINE_DIR"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 2
+     }
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "shape_check",
+     "name": "shape_check",
+     "line": 229,
+     "end": 237,
+     "args": [
+      "rec",
+      "cell",
+      "version",
+      "ref"
+     ],
+     "lines": 9,
+     "doc": "Returns dict(read=bool, reason, ...). ref: a reference dict (for tests); else the chain's stored reference.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 1
+     }
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "reading",
+     "name": "reading",
+     "line": 240,
+     "end": 243,
+     "args": [
+      "rec",
+      "version"
+     ],
+     "lines": 4,
+     "doc": "IAM-A self-reference reading: A = measured held error / what the sample's own loose share predicts on the line. 1 = on the healthy line; above 1 = more holes than its own line predicts (right on the gauge).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 1
+     }
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "build_band",
+     "name": "build_band",
+     "line": 244,
+     "end": 249,
+     "args": [
+      "healthy",
+      "version"
+     ],
+     "lines": 6,
+     "doc": "healthy: counts of healthy samples from every laboratory, each already through the shape check (a refused sample is not passed in). Band = 2.5th to 97.5th percentile of their readings, pooled (sealed 2026-10-16: 'Seal as drafted'). Returns the band with its counts.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "band",
+     "name": "band",
+     "line": 254,
+     "end": 255,
+     "args": [
+      "version"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [
+      "LINE_DIR"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 1
+     }
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "grand_verdict",
+     "name": "grand_verdict",
+     "line": 258,
+     "end": 269,
+     "args": [
+      "records",
+      "version",
+      "B",
+      "ref"
+     ],
+     "lines": 12,
+     "doc": "records: [(count, shape type)] for each healthy sample. Each is shape-checked first (refused = listed, not counted); each read sample's reading A must lie inside IAM-A's band v1. MET if at least GRAND_SHARE of the read samples are inside and at least GRAND_MIN_READ were read; NOT ASSESSED if fewer were read.",
+     "constants": [
+      "GRAND_MIN_READ",
+      "GRAND_SHARE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": {
+    "route": "array",
+    "order": 106
+   }
+  },
+  {
+   "file": "stage_atlas_commission.py",
+   "lines": 62,
+   "functions": [
+    {
+     "file": "stage_atlas_commission.py",
+     "function": "lab_sd",
+     "name": "lab_sd",
+     "line": 17,
+     "end": 20,
+     "args": [
+      "terms"
+     ],
+     "lines": 4,
+     "doc": "SD of the fit's own array-laboratory offsets d (measured, never typed).",
+     "constants": [
+      "TERMS"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1
+     }
+    },
+    {
+     "file": "stage_atlas_commission.py",
+     "function": "predictive_interval",
+     "name": "predictive_interval",
+     "line": 21,
+     "end": 31,
+     "args": [
+      "draws",
+      "sd_draws",
+      "kind",
+      "g",
+      "cov",
+      "scatter",
+      "level",
+      "seed",
+      "lab"
+     ],
+     "lines": 11,
+     "doc": "Posterior predictive for one new sample from a new laboratory. Array: N(mu, sd^2 + lab^2 + FLOOR) (amendment 1). Sequencing: N(g(mu), slope^2 sd^2 + g(1-g)/cov + s(mu)^2 + FLOOR), unchanged (its laboratory scatter s(mu) was already in).",
+     "constants": [
+      "FLOOR",
+      "NOISE",
+      "RNG_SEED"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_atlas_commission.py",
+     "function": "u1_coverage",
+     "name": "u1_coverage",
+     "line": 32,
+     "end": 33,
+     "args": [
+      "lo",
+      "hi",
+      "y"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_atlas_commission.py",
+     "function": "u1_verdict",
+     "name": "u1_verdict",
+     "line": 34,
+     "end": 39,
+     "args": [
+      "cov_by_sample",
+      "withheld",
+      "lo_bar",
+      "hi_bar"
+     ],
+     "lines": 6,
+     "doc": "cov_by_sample: {sample: coverage} for one cell and platform, all laboratories pooled. withheld: samples the chain withheld (listed, not scored).",
+     "constants": [
+      "SHARE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_atlas_commission.py",
+     "function": "u2_share",
+     "name": "u2_share",
+     "line": 40,
+     "end": 41,
+     "args": [
+      "set_mean",
+      "anchor",
+      "tol"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_atlas_commission.py",
+     "function": "u2_verdict",
+     "name": "u2_verdict",
+     "line": 42,
+     "end": 45,
+     "args": [
+      "shares",
+      "bar",
+      "epithelium"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [
+      "SHARE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_atlas_commission.py",
+     "function": "u3_neutrophil",
+     "name": "u3_neutrophil",
+     "line": 46,
+     "end": 49,
+     "args": [
+      "est",
+      "truth",
+      "withheld_mask"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [
+      "SHARE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_atlas_commission.py",
+     "function": "atlas_v21_use_status",
+     "name": "atlas_v21_use_status",
+     "line": 56,
+     "end": 61,
+     "args": [
+      "use",
+      "key"
+     ],
+     "lines": 6,
+     "doc": "'COMMISSIONED' or 'development' for a use of atlas v2.1: use 'U1' with key (cell, platform family), 'U2a' with a tissue, 'U3'.",
+     "constants": [
+      "ATLAS_V21_COMMISSIONING"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": {
+    "route": "array",
+    "order": 112
+   }
+  },
+  {
+   "file": "MethylPhys_Interface/report_pdf_v4.py",
+   "lines": 100,
+   "functions": [
+    {
+     "file": "MethylPhys_Interface/report_pdf_v4.py",
+     "function": "P",
+     "name": "P",
+     "line": 25,
+     "end": 28,
+     "args": [
+      "t",
+      "st"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [
+      "S"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 90,
+      "bam": 49
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_pdf_v4.py",
+     "function": "_img",
+     "name": "_img",
+     "line": 30,
+     "end": 33,
+     "args": [
+      "path",
+      "w"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 8,
+      "bam": 6
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_pdf_v4.py",
+     "function": "_head",
+     "name": "_head",
+     "line": 35,
+     "end": 42,
+     "args": [
+      "o",
+      "sid",
+      "when",
+      "view"
+     ],
+     "lines": 8,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2,
+      "bam": 2
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_pdf_v4.py",
+     "function": "_tbl",
+     "name": "_tbl",
+     "line": 44,
+     "end": 48,
+     "args": [
+      "rows",
+      "widths",
+      "head"
+     ],
+     "lines": 5,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 3,
+      "bam": 2
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_pdf_v4.py",
+     "function": "build_pdfs",
+     "name": "build_pdfs",
+     "line": 50,
+     "end": 99,
+     "args": [
+      "o",
+      "F",
+      "out",
+      "sid",
+      "when"
+     ],
+     "lines": 50,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_pdf_v4.py",
+     "function": "build_pdfs.doc",
+     "name": "doc",
+     "line": 53,
+     "end": 55,
+     "args": [
+      "path",
+      "story"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "array": 2,
+      "bam": 2
+     }
+    }
+   ],
+   "first_entered": {
+    "route": "array",
+    "order": 202
+   }
+  },
+  {
+   "file": "dev_comp_methods.py",
+   "lines": 216,
+   "functions": [
+    {
+     "file": "dev_comp_methods.py",
+     "function": "load_atlas",
+     "name": "load_atlas",
+     "line": 46,
+     "end": 49,
+     "args": [
+      "path"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_comp_methods.py",
+     "function": "atlas_cells",
+     "name": "atlas_cells",
+     "line": 52,
+     "end": 53,
+     "args": [
+      "A"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_comp_methods.py",
+     "function": "subset_atlas",
+     "name": "subset_atlas",
+     "line": 56,
+     "end": 58,
+     "args": [
+      "A",
+      "keep"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_comp_methods.py",
+     "function": "build_deconv",
+     "name": "build_deconv",
+     "line": 61,
+     "end": 64,
+     "args": [
+      "A",
+      "keep",
+      "exclude_sites"
+     ],
+     "lines": 4,
+     "doc": "DeconvV2 on the cells in `keep` (frozen SOLVER), with the neutrophil identity sites removed from the locus pool.",
+     "constants": [
+      "POOL1",
+      "SOLVER"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_comp_methods.py",
+     "function": "twin_merge",
+     "name": "twin_merge",
+     "line": 67,
+     "end": 94,
+     "args": [
+      "A",
+      "D",
+      "roster",
+      "twin_tab",
+      "thr",
+      "candidates"
+     ],
+     "lines": 28,
+     "doc": "The atlas's own rule (twin_family_thresholds_v1.json; records/10_twin_test_sample_level.csv) applied on the markers of solver D. Returns (merge map {cell: into}, pair table).",
+     "constants": [],
+     "data_files": [
+      "records/10_twin_test_sample_level.csv",
+      "twin_family_thresholds_v1.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_comp_methods.py",
+     "function": "mixture_twin",
+     "name": "mixture_twin",
+     "line": 97,
+     "end": 114,
+     "args": [
+      "D",
+      "candidates",
+      "r_thr"
+     ],
+     "lines": 18,
+     "doc": "Identifiability in a mixture (atlas only): a cell whose template, at solver D's markers, is reproduced by a non-negative, sum-1 combination of the other candidate cells with correlation >= r_thr (the atlas twin_r) cannot be told apart from that mixture of cells in a specimen: it is a twin of a mixture (the D6 rule: mixtures out). Removed one at a time, highest r first, re-tested. Returns (removed ",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_comp_methods.py",
+     "function": "crlb",
+     "name": "crlb",
+     "line": 117,
+     "end": 126,
+     "args": [
+      "D",
+      "f",
+      "sigma"
+     ],
+     "lines": 10,
+     "doc": "Fraction SD bound for solver D's design at the markers (one array, noise v + sigma^2, equality sum f = 1 by elimination).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_comp_methods.py",
+     "function": "NNLS8.__init__",
+     "name": "__init__",
+     "line": 130,
+     "end": 131,
+     "args": [
+      "self",
+      "bc"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_comp_methods.py",
+     "function": "NNLS8.deconvolve",
+     "name": "deconvolve",
+     "line": 132,
+     "end": 135,
+     "args": [
+      "self",
+      "beta"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_comp_methods.py",
+     "function": "ledoit_wolf",
+     "name": "ledoit_wolf",
+     "line": 138,
+     "end": 144,
+     "args": [
+      "X"
+     ],
+     "lines": 7,
+     "doc": "Analytic Ledoit-Wolf shrinkage of the sample covariance of rows of X (n x p, centred) toward mu*I. Parameter-free.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_comp_methods.py",
+     "function": "NILC.__init__",
+     "name": "__init__",
+     "line": 150,
+     "end": 153,
+     "args": [
+      "self",
+      "sites",
+      "cells",
+      "mu",
+      "v",
+      "cov",
+      "sigma",
+      "tech_var",
+      "tech_cov",
+      "offset"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_comp_methods.py",
+     "function": "NILC._solve",
+     "name": "_solve",
+     "line": 154,
+     "end": 164,
+     "args": [
+      "self",
+      "m",
+      "f"
+     ],
+     "lines": 11,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_comp_methods.py",
+     "function": "NILC.deconvolve",
+     "name": "deconvolve",
+     "line": 165,
+     "end": 173,
+     "args": [
+      "self",
+      "beta",
+      "passes"
+     ],
+     "lines": 9,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_comp_methods.py",
+     "function": "to_groups",
+     "name": "to_groups",
+     "line": 176,
+     "end": 182,
+     "args": [
+      "fr"
+     ],
+     "lines": 7,
+     "doc": "",
+     "constants": [
+      "SUBGROUP"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_comp_methods.py",
+     "function": "met_a",
+     "name": "met_a",
+     "line": 185,
+     "end": 192,
+     "args": [
+      "beta",
+      "fractions",
+      "profiles",
+      "ns"
+     ],
+     "lines": 8,
+     "doc": "Whole-blood Met-A = mean H(beta) / mean H(e) at the neutrophil sites, e = sum f_g mu_g; profiles: dict cell -> Series over ns. Cells with f < 1e-4 are skipped; sites unmeasured in any used profile are dropped.",
+     "constants": [
+      "H"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_comp_methods.py",
+     "function": "ceiling_flag",
+     "name": "ceiling_flag",
+     "line": 195,
+     "end": 210,
+     "args": [
+      "beta",
+      "profiles",
+      "fractions",
+      "ns"
+     ],
+     "lines": 16,
+     "doc": "The entropy-ceiling diagnostic for the composition-aware reading, recorded alongside it (2026-10-13).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_comp_methods.py",
+     "function": "read_beta",
+     "name": "read_beta",
+     "line": 213,
+     "end": 215,
+     "args": [
+      "path"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
+  },
+  {
+   "file": "deconv_v2.py",
+   "lines": 74,
+   "functions": [
+    {
+     "file": "deconv_v2.py",
+     "function": "DeconvV2.__init__",
+     "name": "__init__",
+     "line": 11,
+     "end": 44,
+     "args": [
+      "self",
+      "atlas_parquet",
+      "pooled_one_sample",
+      "margin",
+      "top",
+      "min_markers",
+      "sigma",
+      "drop",
+      "markers",
+      "k_near",
+      "per_pair",
+      "pair_margin",
+      "A"
+     ],
+     "lines": 34,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "deconv_v2.py",
+     "function": "DeconvV2._solve",
+     "name": "_solve",
+     "line": 46,
+     "end": 52,
+     "args": [
+      "self",
+      "y",
+      "M",
+      "V"
+     ],
+     "lines": 7,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "deconv_v2.py",
+     "function": "DeconvV2.deconvolve",
+     "name": "deconvolve",
+     "line": 54,
+     "end": 73,
+     "args": [
+      "self",
+      "beta",
+      "n_boot",
+      "seed",
+      "present_floor",
+      "affine"
+     ],
+     "lines": 20,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
+  },
+  {
+   "file": "sky_statistics.py",
+   "lines": 108,
+   "functions": [
+    {
+     "file": "sky_statistics.py",
+     "function": "bandpowers",
+     "name": "bandpowers",
+     "line": 30,
+     "end": 32,
+     "args": [
+      "cl",
+      "bands"
+     ],
+     "lines": 3,
+     "doc": "Mean C_l in each band - six numbers that a person can compare, from 254 that they cannot.",
+     "constants": [
+      "BANDS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "sky_statistics.py",
+     "function": "apodised_mask",
+     "name": "apodised_mask",
+     "line": 35,
+     "end": 54,
+     "args": [
+      "good",
+      "apod_deg",
+      "taper"
+     ],
+     "lines": 20,
+     "doc": "Weight in [0, 1] per pixel: 0 outside the footprint `good` (bool HEALPix RING array), rising to 1 at an angular distance apod_deg inside it. theta is the distance from a footprint pixel centre to the centre of the nearest masked pixel that touches the footprint; x = sqrt((1 - cos theta) / (1 - cos apod_deg)) (= theta / apod_deg at small angles). Tapers (Grain et al. 2009): \"C1\"  w = x - sin(2 pi x",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "sky_statistics.py",
+     "function": "_weights",
+     "name": "_weights",
+     "line": 57,
+     "end": 61,
+     "args": [
+      "good",
+      "apod_deg",
+      "taper"
+     ],
+     "lines": 5,
+     "doc": "",
+     "constants": [
+      "_W"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "sky_statistics.py",
+     "function": "masked_spectrum",
+     "name": "masked_spectrum",
+     "line": 64,
+     "end": 76,
+     "args": [
+      "pix",
+      "lmax",
+      "mask",
+      "apod_deg",
+      "taper"
+     ],
+     "lines": 13,
+     "doc": "(C_l, f_sky, good-pixel mask) of a HEALPix map whose masked pixels are NaN; masked pixels are set to 0 (healpy.anafast). mask=\"hard\" (default): the raw pseudo-C_l of the cut map, as before. mask=\"apodised\": the map times apodised_mask(good, apod_deg, taper), pseudo-C_l divided by w2 = mean(weight^2). f_sky is the footprint fraction (good.mean()) in both cases.",
+     "constants": [
+      "MASKS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "sky_statistics.py",
+     "function": "shuffled_null",
+     "name": "shuffled_null",
+     "line": 79,
+     "end": 94,
+     "args": [
+      "pix",
+      "n_perm",
+      "lmax",
+      "rng",
+      "bands",
+      "mask",
+      "apod_deg",
+      "taper"
+     ],
+     "lines": 16,
+     "doc": "Band powers of n_perm within-mask permutations of the map's own unmasked pixel values (shape n_perm x len(bands)); each permuted map's spectrum is taken with the same mask as masked_spectrum(mask=...).",
+     "constants": [
+      "BANDS",
+      "MASKS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "sky_statistics.py",
+     "function": "sky_spectrum_record",
+     "name": "sky_spectrum_record",
+     "line": 97,
+     "end": 107,
+     "args": [
+      "pix",
+      "n_perm",
+      "lmax",
+      "rng",
+      "mask",
+      "apod_deg",
+      "taper"
+     ],
+     "lines": 11,
+     "doc": "One sky: its spectrum, band powers, f_sky, the fraction of unmasked pixels with |z| > 2, and its shuffled null. With mask=\"apodised\" the record also carries the mask (\"apodised C2 2.0 deg\") and w2; the hard-mask record is unchanged.",
+     "constants": [
+      "BANDS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
+  },
+  {
+   "file": "stage_q0_intake.py",
+   "lines": 119,
+   "functions": [
+    {
+     "file": "stage_q0_intake.py",
+     "function": "_ranges",
+     "name": "_ranges",
+     "line": 34,
+     "end": 36,
+     "args": [],
+     "lines": 3,
+     "doc": "",
+     "constants": [
+      "RANGES"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q0_intake.py",
+     "function": "scan_pat",
+     "name": "scan_pat",
+     "line": 39,
+     "end": 74,
+     "args": [
+      "path"
+     ],
+     "lines": 36,
+     "doc": "One pass over a .pat(.gz): integrity, per-chromosome molecules, index-range breaches, call-length counts, opportunities.",
+     "constants": [
+      "MIN_CALLS"
+     ],
+     "data_files": [
+      "hg19_cpg_chrom_ranges.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q0_intake.py",
+     "function": "scan_pat.line",
+     "name": "line",
+     "line": 44,
+     "end": 54,
+     "args": [
+      "l"
+     ],
+     "lines": 11,
+     "doc": "",
+     "constants": [
+      "MIN_CALLS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q0_intake.py",
+     "function": "intake",
+     "name": "intake",
+     "line": 77,
+     "end": 118,
+     "args": [
+      "path",
+      "specimen",
+      "cell",
+      "alignment_qc",
+      "selfref_cells"
+     ],
+     "lines": 42,
+     "doc": "Stage Q0 on one .pat(.gz). alignment_qc: dict (or JSON path) from the alignment step with 'conversion_rate' and/or 'duplicate_fraction'; None = not measured here. Returns {stage, checks:[...], decision, refusal_code?, refusal?, measured}.",
+     "constants": [
+      "ACCEPTED",
+      "AUTOSOMES",
+      "MIN_CALLS",
+      "Q0_LIMITS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q0_intake.py",
+     "function": "intake.chk",
+     "name": "chk",
+     "line": 81,
+     "end": 83,
+     "args": [
+      "step",
+      "ok",
+      "value",
+      "rule",
+      "code",
+      "stop"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
+  },
+  {
+   "file": "stage_q_iam_a.py",
+   "lines": 170,
+   "functions": [
+    {
+     "file": "stage_q_iam_a.py",
+     "function": "positions",
+     "name": "positions",
+     "line": 31,
+     "end": 34,
+     "args": [],
+     "lines": 4,
+     "doc": "",
+     "constants": [
+      "POS",
+      "_P"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q_iam_a.py",
+     "function": "_H",
+     "name": "_H",
+     "line": 36,
+     "end": 36,
+     "args": [
+      "e"
+     ],
+     "lines": 1,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q_iam_a.py",
+     "function": "_pat_lines",
+     "name": "_pat_lines",
+     "line": 38,
+     "end": 64,
+     "args": [
+      "path",
+      "max_bytes",
+      "chunk"
+     ],
+     "lines": 27,
+     "doc": "Lines of a .pat or .pat.gz file; a gzip file may be multi-member (bgzip) and may be cut at max_bytes. Streamed (2026-10-04, DEV-IAMA-REAL-01: the earlier whole-file read joined every bgzip member into one buffer, which does not finish on a whole file). Same lines as before: every byte that decompresses is read, a member cut at max_bytes gives what it holds, the last piece is dropped.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q_iam_a.py",
+     "function": "pat_site_table",
+     "name": "pat_site_table",
+     "line": 68,
+     "end": 89,
+     "args": [
+      "path",
+      "max_bytes"
+     ],
+     "lines": 22,
+     "doc": "Per-site table (pos, opp_A, err_A, opp_B, err_B) from one .pat(.gz) file, pipeline loyfer_pat_v1. pos = 'chrom:CpG index'. Sum of err / sum of opp over the table equals iama_floor.py's eps for the same file and byte range.",
+     "constants": [
+      "PAT_PIPELINE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q_iam_a.py",
+     "function": "_genomic_order",
+     "name": "_genomic_order",
+     "line": 91,
+     "end": 98,
+     "args": [
+      "T"
+     ],
+     "lines": 8,
+     "doc": "Rows of a site table in genomic order: pos 'chrom:index' sorted by chromosome then index; plain integer pos sorted numerically.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q_iam_a.py",
+     "function": "cscore",
+     "name": "cscore",
+     "line": 101,
+     "end": 114,
+     "args": [
+      "site_table",
+      "eps",
+      "halves"
+     ],
+     "lines": 14,
+     "doc": "IAM-A C-score for the pooled table (opp = opp_A + opp_B) and for each half. Returns {C, n_blocks, se_null, halves: {...}}.",
+     "constants": [
+      "CSCORE_BLOCK_SITES",
+      "CSCORE_MIN_BLOCKS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q_iam_a.py",
+     "function": "cscore.one",
+     "name": "one",
+     "line": 104,
+     "end": 111,
+     "args": [
+      "o",
+      "k"
+     ],
+     "lines": 8,
+     "doc": "",
+     "constants": [
+      "CSCORE_BLOCK_SITES",
+      "CSCORE_MIN_BLOCKS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q_iam_a.py",
+     "function": "read",
+     "name": "read",
+     "line": 117,
+     "end": 143,
+     "args": [
+      "site_table",
+      "cell",
+      "pipeline",
+      "mask",
+      "allow_partial"
+     ],
+     "lines": 27,
+     "doc": "site_table: per-site table (see module doc). cell: e.g. 'neutrophils'. pipeline: the read-level pipeline that produced the table (required). mask: positions to drop. allow_partial: development only - read a table cut at max_bytes (to reproduce v1). Returns the IAM-A record; A is None with a refusal when the reading is not permitted.",
+     "constants": [
+      "IAMA_BAND_STATE",
+      "MIN_HALF_OPPORTUNITIES",
+      "MIN_OPPORTUNITIES"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q_iam_a.py",
+     "function": "tare",
+     "name": "tare",
+     "line": 148,
+     "end": 169,
+     "args": [
+      "rec",
+      "refs",
+      "sample_id"
+     ],
+     "lines": 22,
+     "doc": "IAM-A same-run tare (author decision 2026-10-09, option a; DEVELOPMENT - not commissioned; doors/DEV_IAMA_KIT_01.md). A_rel = A / median(A of >= MIN_REFS healthy references of the same cell read the same way: same laboratory, same library kit, same pipeline). refs: plain A values, or records {A, id[, pipeline]}; a record whose id equals sample_id is excluded; a record with a different pipeline is ",
+     "constants": [
+      "IAMA_BAND_STATE",
+      "MIN_REFS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
+  },
+  {
+   "file": "serial_mode.py",
+   "lines": 64,
+   "functions": [
+    {
+     "file": "serial_mode.py",
+     "function": "check_same_person",
+     "name": "check_same_person",
+     "line": 7,
+     "end": 14,
+     "args": [
+      "now",
+      "prior"
+     ],
+     "lines": 8,
+     "doc": "Refuse unless patient hash, array type and pipeline match. Returns (ok, reason).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "serial_mode.py",
+     "function": "delta_cells",
+     "name": "delta_cells",
+     "line": 16,
+     "end": 30,
+     "args": [
+      "now",
+      "prior",
+      "floor"
+     ],
+     "lines": 15,
+     "doc": "Per-cell dA for cells present in both draws; appeared / disappeared listed, not differenced.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "serial_mode.py",
+     "function": "delta_sky",
+     "name": "delta_sky",
+     "line": 32,
+     "end": 39,
+     "args": [
+      "beta_now",
+      "beta_prior",
+      "floor_beta"
+     ],
+     "lines": 8,
+     "doc": "beta_now - beta_prior per address on the addresses both draws measured. No expectation, no sigma, no composition.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "serial_mode.py",
+     "function": "snp_noise_floor_A",
+     "name": "snp_noise_floor_A",
+     "line": 41,
+     "end": 52,
+     "args": [
+      "pci_entry",
+      "beta_now",
+      "beta_prior",
+      "snp_now",
+      "snp_prior",
+      "hmin"
+     ],
+     "lines": 12,
+     "doc": "F2: the SNP-probe noise of the two arrays propagated to A over the cell's identity loci - a LOWER BOUND on the change floor. var(mean beta) = sum(a + b*beta(1-beta)) / n^2 per array; dA ~ |dH/dbeta| * sqrt(var_now + var_prior) / H_min at the mean.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "serial_mode.py",
+     "function": "snp_noise_floor_A.var_mean",
+     "name": "var_mean",
+     "line": 47,
+     "end": 49,
+     "args": [
+      "beta",
+      "snp"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "serial_mode.py",
+     "function": "trajectory",
+     "name": "trajectory",
+     "line": 54,
+     "end": 63,
+     "args": [
+      "bundles"
+     ],
+     "lines": 10,
+     "doc": "Bundles in draw order; per-cell A_1..A_N with dates. Numbers in order - no fit, no slope.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
+  },
+  {
+   "file": "stage_groupa.py",
+   "lines": 100,
+   "functions": [
+    {
+     "file": "stage_groupa.py",
+     "function": "tare",
+     "name": "tare",
+     "line": 28,
+     "end": 49,
+     "args": [
+      "r",
+      "healthy"
+     ],
+     "lines": 22,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_groupa.py",
+     "function": "welch",
+     "name": "welch",
+     "line": 51,
+     "end": 54,
+     "args": [
+      "a",
+      "b"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_groupa.py",
+     "function": "compare",
+     "name": "compare",
+     "line": 56,
+     "end": 72,
+     "args": [
+      "rows",
+      "group_col",
+      "a",
+      "b",
+      "healthy",
+      "specimen",
+      "platform"
+     ],
+     "lines": 17,
+     "doc": "rows: one row per person with gsm, A (untared Met-A), C (optional), slide, group_col. healthy: boolean Series of the arrays the tare may use as references (default: every array). Returns the comparison, the call and, when needed, the preliminary label.",
+     "constants": [
+      "PRELIMINARY"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_groupa.py",
+     "function": "collect",
+     "name": "collect",
+     "line": 74,
+     "end": 81,
+     "args": [
+      "bundle_dir",
+      "samples_csv",
+      "out_csv"
+     ],
+     "lines": 8,
+     "doc": "",
+     "constants": [],
+     "data_files": [
+      "_bundle.json"
+     ],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
+  }
+ ],
+ "n_files": 22,
+ "n_functions": 257
+}

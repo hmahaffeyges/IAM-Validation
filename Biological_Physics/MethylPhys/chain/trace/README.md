@@ -1,1 +1,3 @@
 The order the chain runs (2026-10-20): chain/trace_chain.py on GSE235717 GSM7508429 (raw files, three same-run references), GitHub run 39512708986 at commit 2d6661bc, exit 0. 220 chain functions called (2,309 calls) in 15 files; 89 files opened. trace_calls.csv: every chain function in first-call order. trace_files.csv: every file opened, in order. The Chain Decoder (to-do step 25) follows this order.
+
+The sequencing route (2026-10-20): chain/trace_chain.py on the release check's planted BAM (V7's construction), GitHub run 39531456859 at commit dd265ea4, exit 0, IAM-A 0.815 Normal. 107 chain functions called (1,142 calls); 207 files opened. trace_bam_calls.csv, trace_bam_files.csv.

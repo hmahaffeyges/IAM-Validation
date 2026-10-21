@@ -33,6 +33,10 @@ jobs:
           import json, os, urllib.request
           t = "${{ inputs.test }}"; p = f"/mnt/repro/{t}/verdict.json"
           v = open(p).read() if os.path.exists(p) else "(no verdict.json)"
+          try: st = json.load(open(p)).get("step")
+          except Exception: st = None
+          lg = f"/mnt/repro/{t}/logs/{st}.log" if st else ""
+          if lg and os.path.exists(lg): v += "\n\nlog of the failed step (last 6000 characters)\n" + open(lg, errors="replace").read()[-6000:]
           log = open("repro.log").read() if os.path.exists("repro.log") else ""
           b = f"reproduce {t}, run ${{ github.run_id }}, commit ${{ github.sha }}, exit " + (open("rc.txt").read().strip() if os.path.exists("rc.txt") else "?") + "\n\n```\n" + log[-4000:] + "\n```\n\nverdict.json\n```\n" + v[:50000] + "\n```"
           rq = urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/issues/32/comments", data=json.dumps({"body": b[:65000]}).encode(), headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"}, method="POST")
