@@ -2921,3 +2921,6 @@ The author's browser showed a healthy blood's globe lit everywhere while my prev
 
 ### 2026-10-21 · Met-A against the atlas: the chain stage and its synthetic test, before running (GRP-014, DEV-METAA-ATLAS-01)
 chain/stage_metaa_atlas.py reads Met-A against any IAM-Atlas v2.1 cell with Met-A's own site rule and the same-run tare, every record flagged not commissioned. Synthetic test 1 is committed before it runs: six blood cells, four laboratory offsets, two bars.
+
+### 2026-10-21 · Met-A against the atlas, synthetic test 1 (GRP-014, DEV-METAA-ATLAS-01)
+Both bars met. Untared, Met-A against the atlas ran from 0.813 to 1.324 across four laboratory offsets; after the same-run tare every healthy array read Normal. The planted-loss bar only shows the tare keeps a real loss, since its prediction is the same arithmetic. Next: sorted cells from an independent laboratory on GitHub.

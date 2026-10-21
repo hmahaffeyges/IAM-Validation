@@ -39,3 +39,19 @@ healthy blood beyond 3 widths in its own spread). For this test:
 4. **The C-Score on the atlas.** The C-Score reads how change is laid out, not its size, so the globe's change map (each site in its healthy
    width, in the sample's own spread) is a whole-genome departure map against the atlas; the C-Score's clustering statistic runs on it
    unchanged, with healthy and planted clustered losses, and is compared with the commissioned C-Score on the same arrays.
+
+## Synthetic test 1, run once (2026-10-21)
+
+`data/DEV_METAA_ATLAS_01/synthetic_01.py`, committed before it ran (`cfc419fc`), through `chain/stage_metaa_atlas.py`; output
+`synthetic_01_summary.txt`, rows `synthetic_01_rows.csv`.
+
+- 6,000 identity sites for each of the six panel cells, by Met-A's own rule on the atlas.
+- **The offset is real and large before the tare:** untared A was 0.813, 0.998, 1.168 and 1.324 for laboratory offsets of -0.03, 0, +0.03
+  and +0.06.
+- **B1 met:** after the same-run tare every healthy array of every cell and laboratory read Normal (lowest share 1.000).
+- **B2 met, and weaker than it looks:** the planted 1 % loss changed A_rel by exactly the predicted amount in every cell (1.000). The
+  prediction is the same arithmetic on the same array, so this shows the tare does not absorb a real loss; it does not test the size
+  independently. Synthetic sites are independent and noise is only the healthy spread, so real arrays will be harder.
+
+Next (design step 3): the sorted cells of GSE184269, an independent laboratory the atlas never saw, on GitHub, each array read against
+its atlas cell and tared against the other arrays of the same cell in that series.

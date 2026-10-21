@@ -1,0 +1,6 @@
+DEV-METAA-ATLAS-01 synthetic test 1 (chain/stage_metaa_atlas.py)
+identity sites per cell: neutrophils 6000, monocytes 6000, b cells 6000, cd4 t cells 6000, cd8 t cells 6000, nk cells 6000
+untared A by laboratory offset (the offset the tare must cancel): d -0.03: 0.8130; d +0.00: 0.9984; d +0.03: 1.1677; d +0.06: 1.3238
+B1 healthy Normal after the tare, lowest share over cell x laboratory: 1.000 (bar >= 0.95) -> MET
+B2 planted 1 % loss, measured / predicted change per cell: neutrophils 1.000, monocytes 1.000, b cells 1.000, cd4 t cells 1.000, cd8 t cells 1.000, nk cells 1.000 (bar within 0.75-1.25) -> MET
+ALL BARS MET
