@@ -69,7 +69,16 @@
   "checks_ok": 6,
   "minutes": 112.6,
   "commit": "211e26c0",
-  "job": "results/REPRODUCE_V1/run4/out/breast/verdict.json"
+  "job": "results/REPRODUCE_V1/run4/out/breast/verdict.json",
+  "github": {
+   "verdict": "PASS",
+   "date": "2026-10-21",
+   "checks": 6,
+   "checks_ok": 6,
+   "minutes": 106.6,
+   "commit": "403b2bea",
+   "job": "GitHub Actions reproduce.yml run 39649369815 (verdict in issue 32)"
+  }
  },
  "metaa_rebuild": {
   "verdict": "PASS",
