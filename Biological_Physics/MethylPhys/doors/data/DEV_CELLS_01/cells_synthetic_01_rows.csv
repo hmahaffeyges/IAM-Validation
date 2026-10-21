@@ -1,0 +1,91 @@
+run,donor,planted_cell,planted_loss,cell,true_share,share,pattern_lost,se,se_share,detection_limit_pct,state
+d0,0,,0.0,neutrophils,0.5867,0.5878,0.0026,0.0088,0.0085,1.8,no loss found
+d0,0,,0.0,monocytes,0.0685,0.0683,-0.0235,0.0843,0.0796,16.9,no loss found
+d0,0,,0.0,b cells,0.067,0.0664,-0.025,0.0492,0.0453,9.8,no loss found
+d0,0,,0.0,cd4 t cells,0.1482,0.1548,0.0703,0.0565,0.0499,11.3,no loss found
+d0,0,,0.0,cd8 t cells,0.0664,0.068,0.0811,0.1522,0.1058,30.4,no loss found
+d0,0,,0.0,nk cells,0.0632,0.0547,-0.1489,0.0969,0.0919,19.4,no loss found
+d1,1,,0.0,neutrophils,0.5402,0.5391,-0.0027,0.0096,0.0093,1.9,no loss found
+d1,1,,0.0,monocytes,0.0554,0.0549,0.0067,0.0997,0.0939,19.9,no loss found
+d1,1,,0.0,b cells,0.0703,0.0674,-0.044,0.0533,0.05,10.7,no loss found
+d1,1,,0.0,cd4 t cells,0.2567,0.2632,-0.0147,0.0332,0.029,6.6,no loss found
+d1,1,,0.0,cd8 t cells,0.0345,0.0254,-0.2837,0.4389,0.3204,87.8,no loss found
+d1,1,,0.0,nk cells,0.0428,0.05,0.08,0.1141,0.1092,22.8,no loss found
+d2,2,,0.0,neutrophils,0.5929,0.5934,0.002,0.0091,0.0088,1.8,no loss found
+d2,2,,0.0,monocytes,0.0859,0.0903,0.0525,0.066,0.0624,13.2,no loss found
+d2,2,,0.0,b cells,0.0491,0.0478,-0.0435,0.0613,0.055,12.3,no loss found
+d2,2,,0.0,cd4 t cells,0.1107,0.0999,-0.0341,0.0825,0.0718,16.5,no loss found
+d2,2,,0.0,cd8 t cells,0.1414,0.1496,-0.0817,0.0763,0.0532,15.3,no loss found
+d2,2,,0.0,nk cells,0.0201,0.0191,-0.0096,0.2851,0.2711,57.0,no loss found
+d3,3,,0.0,neutrophils,0.5092,0.5087,-0.001,0.0091,0.0088,1.8,no loss found
+d3,3,,0.0,monocytes,0.1068,0.1081,0.0149,0.0524,0.0496,10.5,no loss found
+d3,3,,0.0,b cells,0.0959,0.0916,-0.0607,0.0329,0.0301,6.6,no loss found
+d3,3,,0.0,cd4 t cells,0.1431,0.1442,-0.0456,0.0508,0.0439,10.2,no loss found
+d3,3,,0.0,cd8 t cells,0.1011,0.1012,-0.0466,0.0956,0.0615,19.1,no loss found
+d3,3,,0.0,nk cells,0.0439,0.0463,0.0835,0.1114,0.1058,22.3,no loss found
+d4,4,,0.0,neutrophils,0.6378,0.634,-0.0078,0.0079,0.0076,1.6,no loss found
+d4,4,,0.0,monocytes,0.105,0.1056,0.0029,0.0534,0.05,10.7,no loss found
+d4,4,,0.0,b cells,0.0876,0.0837,-0.0504,0.0398,0.0366,8.0,no loss found
+d4,4,,0.0,cd4 t cells,0.106,0.1137,0.022,0.074,0.0653,14.8,no loss found
+d4,4,,0.0,cd8 t cells,0.0517,0.0522,0.1884,0.2042,0.1378,40.8,no loss found
+d4,4,,0.0,nk cells,0.0119,0.0107,0.099,0.5121,0.4864,102.4,no loss found
+d5,5,,0.0,neutrophils,0.5857,0.5861,-0.0012,0.0083,0.0079,1.7,no loss found
+d5,5,,0.0,monocytes,0.0983,0.0971,0.0053,0.059,0.0557,11.8,no loss found
+d5,5,,0.0,b cells,0.0318,0.0284,-0.1011,0.1257,0.1177,25.1,no loss found
+d5,5,,0.0,cd4 t cells,0.1567,0.1577,0.0083,0.0485,0.0417,9.7,no loss found
+d5,5,,0.0,cd8 t cells,0.0973,0.096,-0.1531,0.1088,0.0728,21.8,no loss found
+d5,5,,0.0,nk cells,0.0303,0.0349,0.1037,0.1505,0.1425,30.1,no loss found
+d6,6,,0.0,neutrophils,0.5623,0.5615,0.0009,0.0086,0.0082,1.7,no loss found
+d6,6,,0.0,monocytes,0.183,0.182,-0.0192,0.0315,0.0297,6.3,no loss found
+d6,6,,0.0,b cells,0.0455,0.0461,-0.0289,0.0737,0.0686,14.7,no loss found
+d6,6,,0.0,cd4 t cells,0.1629,0.1673,0.0375,0.0459,0.0395,9.2,no loss found
+d6,6,,0.0,cd8 t cells,0.0285,0.0268,-0.3964,0.3965,0.2694,79.3,no loss found
+d6,6,,0.0,nk cells,0.0178,0.0162,-0.1463,0.3327,0.3165,66.5,no loss found
+d7,7,,0.0,neutrophils,0.6783,0.6747,-0.0003,0.0073,0.0069,1.5,no loss found
+d7,7,,0.0,monocytes,0.0897,0.0988,0.1497,0.0553,0.0511,11.1,loss of pattern
+d7,7,,0.0,b cells,0.0068,0.0,,,,,
+d7,7,,0.0,cd4 t cells,0.1619,0.1598,-0.0183,0.0475,0.0405,9.5,no loss found
+d7,7,,0.0,cd8 t cells,0.041,0.0516,-0.1464,0.187,0.1182,37.4,no loss found
+d7,7,,0.0,nk cells,0.0224,0.015,-0.2957,0.3098,0.2857,62.0,no loss found
+d1_neutrophils_25,1,neutrophils,0.25,neutrophils,0.5402,0.4333,0.0578,0.0139,0.0131,2.8,loss of pattern
+d1_neutrophils_25,1,neutrophils,0.0,monocytes,0.0554,0.0455,-1.1238,0.1887,0.1766,37.7,more pattern than predicted
+d1_neutrophils_25,1,neutrophils,0.0,b cells,0.0703,0.0997,0.2263,0.044,0.0391,8.8,loss of pattern
+d1_neutrophils_25,1,neutrophils,0.0,cd4 t cells,0.2567,0.3049,0.2691,0.0376,0.0316,7.5,loss of pattern
+d1_neutrophils_25,1,neutrophils,0.0,cd8 t cells,0.0345,0.0229,2.2518,0.6913,0.4634,138.3,loss of pattern
+d1_neutrophils_25,1,neutrophils,0.0,nk cells,0.0428,0.0938,0.547,0.0753,0.071,15.1,loss of pattern
+d2_monocytes_25,2,monocytes,0.0,neutrophils,0.5929,0.5976,0.008,0.0091,0.0088,1.8,no loss found
+d2_monocytes_25,2,monocytes,0.25,monocytes,0.0859,0.0668,-0.0619,0.0839,0.0787,16.8,no loss found
+d2_monocytes_25,2,monocytes,0.0,b cells,0.0491,0.0527,0.036,0.0588,0.0532,11.8,no loss found
+d2_monocytes_25,2,monocytes,0.0,cd4 t cells,0.1107,0.1095,0.1009,0.0738,0.0631,14.8,no loss found
+d2_monocytes_25,2,monocytes,0.0,cd8 t cells,0.1414,0.1475,-0.0184,0.0747,0.0493,14.9,no loss found
+d2_monocytes_25,2,monocytes,0.0,nk cells,0.0201,0.0257,0.2696,0.2131,0.2025,42.6,no loss found
+d3_bcells_25,3,b cells,0.0,neutrophils,0.5092,0.5127,0.0057,0.0093,0.0089,1.9,no loss found
+d3_bcells_25,3,b cells,0.0,monocytes,0.1068,0.1061,-0.0801,0.057,0.0541,11.4,no loss found
+d3_bcells_25,3,b cells,0.25,b cells,0.0959,0.0734,-0.0108,0.0448,0.0414,9.0,no loss found
+d3_bcells_25,3,b cells,0.0,cd4 t cells,0.1431,0.1539,0.0621,0.048,0.0413,9.6,no loss found
+d3_bcells_25,3,b cells,0.0,cd8 t cells,0.1011,0.1,0.0647,0.0977,0.0622,19.5,no loss found
+d3_bcells_25,3,b cells,0.0,nk cells,0.0439,0.0538,0.2254,0.0983,0.0934,19.7,loss of pattern
+d4_cd4tcells_25,4,cd4 t cells,0.0,neutrophils,0.6378,0.6385,-0.0023,0.0079,0.0076,1.6,no loss found
+d4_cd4tcells_25,4,cd4 t cells,0.0,monocytes,0.105,0.1027,-0.1205,0.0556,0.0519,11.1,more pattern than predicted
+d4_cd4tcells_25,4,cd4 t cells,0.0,b cells,0.0876,0.0902,0.0109,0.0361,0.0328,7.2,no loss found
+d4_cd4tcells_25,4,cd4 t cells,0.25,cd4 t cells,0.106,0.0977,0.2145,0.088,0.0781,17.6,loss of pattern
+d4_cd4tcells_25,4,cd4 t cells,0.0,cd8 t cells,0.0517,0.0525,0.4468,0.1981,0.1288,39.6,loss of pattern
+d4_cd4tcells_25,4,cd4 t cells,0.0,nk cells,0.0119,0.0184,0.5377,0.3011,0.2856,60.2,no loss found
+d5_cd8tcells_25,5,cd8 t cells,0.0,neutrophils,0.5857,0.5904,0.0047,0.0084,0.0081,1.7,no loss found
+d5_cd8tcells_25,5,cd8 t cells,0.0,monocytes,0.0983,0.0946,-0.1094,0.0603,0.0566,12.1,no loss found
+d5_cd8tcells_25,5,cd8 t cells,0.0,b cells,0.0318,0.034,0.0487,0.1082,0.1013,21.6,no loss found
+d5_cd8tcells_25,5,cd8 t cells,0.0,cd4 t cells,0.1567,0.1678,0.1072,0.0454,0.0388,9.1,loss of pattern
+d5_cd8tcells_25,5,cd8 t cells,0.25,cd8 t cells,0.0973,0.0708,-0.0413,0.1488,0.098,29.8,no loss found
+d5_cd8tcells_25,5,cd8 t cells,0.0,nk cells,0.0303,0.0424,0.2829,0.1251,0.1185,25.0,loss of pattern
+d6_nkcells_25,6,nk cells,0.0,neutrophils,0.5623,0.5621,0.0017,0.0087,0.0084,1.7,no loss found
+d6_nkcells_25,6,nk cells,0.0,monocytes,0.183,0.1815,-0.0315,0.0311,0.0292,6.2,no loss found
+d6_nkcells_25,6,nk cells,0.0,b cells,0.0455,0.0472,-0.0092,0.072,0.067,14.4,no loss found
+d6_nkcells_25,6,nk cells,0.0,cd4 t cells,0.1629,0.1691,0.0556,0.0459,0.0397,9.2,no loss found
+d6_nkcells_25,6,nk cells,0.0,cd8 t cells,0.0285,0.0269,-0.3068,0.3963,0.2693,79.3,no loss found
+d6_nkcells_25,6,nk cells,0.25,nk cells,0.0178,0.0131,-0.0608,0.4133,0.3934,82.7,no loss found
+d7_neutrophils_1,7,neutrophils,0.01,neutrophils,0.6783,0.6693,0.0015,0.0073,0.007,1.5,no loss found
+d7_neutrophils_1,7,neutrophils,0.0,monocytes,0.0897,0.0983,0.1202,0.0539,0.0496,10.8,loss of pattern
+d7_neutrophils_1,7,neutrophils,0.0,b cells,0.0068,0.001,-3.3316,2.5103,2.1173,502.1,no loss found
+d7_neutrophils_1,7,neutrophils,0.0,cd4 t cells,0.1619,0.1626,0.0118,0.0463,0.0394,9.3,no loss found
+d7_neutrophils_1,7,neutrophils,0.0,cd8 t cells,0.041,0.0518,-0.0779,0.1851,0.1152,37.0,no loss found
+d7_neutrophils_1,7,neutrophils,0.0,nk cells,0.0224,0.017,-0.1276,0.2708,0.2491,54.2,no loss found

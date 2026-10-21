@@ -27902,6 +27902,27 @@
    "next_step": "Steps 3 (mouse), 11 (book Zenodo), 12 (package Zenodo), 13 (sky-map additions).",
    "notes": "2026-10-19 first pass: 135 path findings (14 distinct names), 5 status wordings, 5 running rows naming no job, 16 finished rows with a pending next step not on the plan | 2026-10-19 later: steps 4, 5 and 7 done (every named record exists or says it does not, the old to-do list frozen at archive/retired_root_2026-10-19/TODO_to_2026-10-16.md; status wordings read and right; catalogue entries name their commissioning records, every number traced; doc_audit.py --check in the push gate) | step 6 done: the 16 finished rows with pending next steps placed on plan items (PHY-008, BRE-003, SCO-049, PHY-043, OTH-051), pointed at their follow-up (COM-CSCORE-005, -011, -012 to OTH-054; OTH-012 to OTH-076; OTH-069 done), parked with reasons (COM-IAMA-001, CAN-002, CAN-012, PHY-057), or scheduled (SCO-075, 2027-04-12) | step 8 done: CANON/number_trace.py traces every number of three or more significant figures in 14 public documents to a measurement record (the documents' own CANON sources excluded); 8 non-measurements explained; tested with a planted value; in the push gate | step 9 part 1 (2026-10-19): COMMISSIONING_REPORT, STATUS and EARLIER_RESULTS read row by row; every count traced to its note; fixed at the register, catalogue and generators: the early loose line's text now says it was counted on the earlier counter and that IAM-A was commissioned on the chain's rebuilt line (its status stays commissioned: COMMISSIONING-IAMA covers it, the register's rule for results a commissioning closes), the public-data rebuild labeled commissioned (now reproduced), the book entry had no title and was labeled commissioned (now published), STATUS's 'last 14 days' heading (now its dates), the atlas still to be deposited (done 2026-10-19), and README labeled an unsealed early result 'sealed before reading' (the label now follows the register's sealed flag, set explicitly for the nine sealed results) | step 9 done: the book's 212 tables traced (docs/book/verification/table_trace_2026-10-19.json): every number checked or in a record except 11 physical constants and conversions (correct) and the Part 2 baryon-chain table (to the author, step 10) | step 10 done: stale book checks 0 (15 cell/appendix checks fixed; 72 were a comparison flaw in stale_checks.py, now fixed and tested with a planted value); Appendix E fixes moved into app_E_overrides.json and make_app_E.py --check put in the push gate; the Landauer table's phi corrected to 0.147. tab:bc_conv traced to the committed progress file (author: 'those chains and code are in the cosmology files'); the chapter's 'a copy' corrected: the chains/ files are an earlier snapshot of the same run | 2026-10-20: steps 14-18 added (firm-rate recount; four AWS-return items) | 2026-10-20 (author rule): every block explained; Stage 0 explain_stage0 + release check V9 (planted gap caught); push gate names the exact failing script; release check workflow on GitHub (.github/workflows/release.yml); to-do step 24 | 2026-10-20: release check v4 PASS, 30 of 30, from a fresh checkout on GitHub's machines (run 39503756018, commit 8e376a40, issue 32), the first without AWS | 2026-10-20: downstream stops (tare, C-Score, sky, zero neutrophil share) carry Met-A's measured reason; V9 extended",
    "register_ids": []
+  },
+  {
+   "title": "Every panel cell scored in whole blood, and whether a uniform loss of a cell's pattern is seen (DEV-CELLS-01)",
+   "purpose": "To-do step 21: each of the six Deconvolver cells gets the share of its pattern lost, read against the person's own mix at its IAM-Atlas v2.1 identity sites; exploration of what the whole-blood readings see when a loss happens at every site, not only at identity sites.",
+   "instrument_or_term": "per-cell scores (development), Met-A whole blood, IAM-Deconvolver, Stage T self-tare II",
+   "sources": [
+    "IAM-Atlas v2.1 (synthetic bloods)"
+   ],
+   "data_status": "synthetic only",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_CELLS_01/selftare_uniform_loss_01_summary.txt",
+   "status": "synthetic_done",
+   "next_step": "author's decision on the self-tare and share findings (2026-10-21); then the same planted test on real healthy arrays on GitHub",
+   "cost": "GitHub, small",
+   "impact": 5,
+   "legacy_ids": [],
+   "id": "GRP-014",
+   "sources_of_row": [
+    "to-do step 21 (author 2026-10-20)"
+   ],
+   "runs": [],
+   "notes": "2026-10-21 exploration, not sealed: (1) the per-cell reading recovers a planted 25 % loss exactly (+0.250) when the shares are right, but a loss at every site lowers the Deconvolver's share of that cell by about 20 % and the loss is absorbed into the share; (2) Met-A in whole blood: a 1 % neutrophil loss at identity sites moves it +0.021 to +0.023, the same loss at every site -0.0003, and +0.019 to +0.021 with Stage T step 1 (self-tare II) switched off: the self-tare's anchor map undoes a uniform loss. The draft stage is kept out of the chain (stage_cells_draft.patch) until decided."
   }
  ],
  "not_tests": {

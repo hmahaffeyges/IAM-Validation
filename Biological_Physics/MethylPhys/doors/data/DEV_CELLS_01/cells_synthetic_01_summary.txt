@@ -1,0 +1,15 @@
+healthy: 48 cell readings on 8 bloods; inside 2 SE (no loss found): 46 of 48
+  neutrophils: share 0.587, pattern lost mean -0.001 (SD 0.003), detection limit median 1.8 %
+  monocytes: share 0.099, pattern lost mean +0.024 (SD 0.056), detection limit median 11.4 %
+  b cells: share 0.057, pattern lost mean -0.051 (SD 0.025), detection limit median 10.7 %
+  cd4 t cells: share 0.156, pattern lost mean +0.003 (SD 0.039), detection limit median 9.9 %
+  cd8 t cells: share 0.070, pattern lost mean -0.105 (SD 0.187), detection limit median 33.9 %
+  nk cells: share 0.032, pattern lost mean -0.029 (SD 0.150), detection limit median 43.5 %
+planted (the planted cell only; its reading against the same donor's healthy reading):
+  neutrophils 25 % loss at share 0.540: read +0.058 (healthy -0.003, change +0.060), limit 2.8 % -> loss of pattern
+  monocytes 25 % loss at share 0.086: read -0.062 (healthy +0.052, change -0.114), limit 16.8 % -> no loss found
+  b cells 25 % loss at share 0.096: read -0.011 (healthy -0.061, change +0.050), limit 9.0 % -> no loss found
+  cd4 t cells 25 % loss at share 0.106: read +0.214 (healthy +0.022, change +0.193), limit 17.6 % -> loss of pattern
+  cd8 t cells 25 % loss at share 0.097: read -0.041 (healthy -0.153, change +0.112), limit 29.8 % -> no loss found
+  nk cells 25 % loss at share 0.018: read -0.061 (healthy -0.146, change +0.086), limit 82.7 % -> no loss found
+  neutrophils 1 % loss at share 0.678: read +0.002 (healthy -0.000, change +0.002), limit 1.5 % -> no loss found

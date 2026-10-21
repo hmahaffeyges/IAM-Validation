@@ -1,0 +1,104 @@
+diff --git a/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py b/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py
+index 7f52c2a1..2a7b2d82 100644
+--- a/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py
++++ b/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py
+@@ -257,7 +257,7 @@ def main():
+     ap.add_argument("--no-intake", action="store_true", help="skip Stage 0 (recorded in the report as skipped)")
+     ap.add_argument("--engine", default="v3", choices=("v3",), help="kept so recorded commands still run: v3 names the conductor (conductor_v3.py), which chain v4 runs; the class-floor engine was retired 2026-10-03")
+     ap.add_argument("--slide-ref-A", "--ref-A", dest="slide_ref_A", default=None, help="comma-separated Met-A before the median tare (met_a.A, self-tared since 2026-10-04) of >= 3 same-run healthy reference arrays (same slide, else same batch) - v3 Stage T median tare, whole blood and isolated neutrophils")
+-    ap.add_argument("--slide-ref-table", "--ref-table", dest="slide_ref_table", default=None, help="CSV of same-run healthy references with columns A and C (optional id): Met-A and the C-score from pass 1 (met_a.A, self-tared since 2026-10-04; before the median tare). >= 3 rows -> median tare (nothing is fitted)")
++    ap.add_argument("--slide-ref-table", "--ref-table", dest="slide_ref_table", default=None, help="CSV of same-run healthy references with columns A and C (optional id; optional L_<cell> columns, e.g. L_monocytes, the pattern_lost of each cell, for the per-cell scores' tare): Met-A and the C-score from pass 1 (met_a.A, self-tared since 2026-10-04; before the median tare). >= 3 rows -> median tare (nothing is fitted)")
+     ap.add_argument("--bam", default=None, help="chain v4 Stage Q2: an aligned whole-genome bisulfite BAM (bwa-meth or Bismark), counted by the chain (needs --ref-fasta)")
+     ap.add_argument("--ref-fasta", default=None, help="the reference FASTA the --bam was aligned to (indexed)")
+     ap.add_argument("--assembly", default="hg19", choices=("hg19", "hg38"), help="assembly of --bam")
+@@ -580,6 +580,12 @@ def main():
+         import stage_v4 as V4
+         print("Stage D21: cell shares against IAM-Atlas v2.1", flush=True)
+         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"))
++        _cr = None   # per-cell tare references: columns A_<cell> of the same reference table Met-A's tare reads (to-do step 21, 2026-10-21)
++        if a.slide_ref_table:
++            _t2 = _pd.read_csv(a.slide_ref_table)
++            _cr = {c: [float(v) for v in _t2[f"L_{c}"].dropna()] for c in V4.D21.BLOOD6 if f"L_{c}" in _t2.columns}
++        print("Stage CELLS: every panel cell scored (preliminary)", flush=True)
++        o["cell_scores"] = V4.stage_cells(_pd.Series(beta, dtype="float64"), o["cell_shares"], _cr)
+         _m, _c, _t = o.get("met_a") or {}, o.get("met_a_cscore") or {}, o.get("tare") or {}
+         _rd = "    ".join(x for x in (("" if str(_m.get("state", "")).startswith("withheld") else f"Met-A {_t['A_rel']:.3f} (tared)" if _t.get("A_rel") is not None else (f"Met-A {_m['A']:.3f}" if _m.get("A") is not None else "")),
+                                      (f"C-score {_c['C_rel']:.2f} (tared)" if _c.get("C_rel") is not None else (f"C-score {_c['C']:.2f}" if _c.get("C") is not None else ""))) if x)
+diff --git a/Biological_Physics/MethylPhys/chain/stage_v4.py b/Biological_Physics/MethylPhys/chain/stage_v4.py
+index 35e283c3..e0997a49 100644
+--- a/Biological_Physics/MethylPhys/chain/stage_v4.py
++++ b/Biological_Physics/MethylPhys/chain/stage_v4.py
+@@ -45,6 +45,73 @@ def stage_d21(beta, panel=None):
+     rec.update(sites_used=d["sites_used"], raw_sum=round(d["raw_sum"], 4))
+     return rec
+ 
++# ---------------------------------------------------------------- CELLS: every panel cell scored in whole blood (to-do step 21, 2026-10-21)
++# The instrument's job: each blood cell the Deconvolver finds gets its own reading; a healthy cell reads no loss, and a loss of that cell's
++# pattern is read as that loss. Nothing fitted. At cell c's identity sites the person's values depart from what their own mix predicts,
++# e = sum_g f_g mu_g (shares f from Stage D21, healthy means mu from IAM-Atlas v2.1). Signed toward 0.5 (a held mark drifting to the
++# random state) and divided by the cell's share and its pattern depth, the departure is the share of that cell's pattern lost:
++#     L_c = mean[(x - e) * sign(0.5 - mu_c)] / (f_c * mean|0.5 - mu_c|)      (healthy about 0; a 1 % loss of c's pattern adds exactly 0.01)
++# Its own noise: the sites, SE_sites = SD[(x - e) * sign(0.5 - mu_c)] / sqrt(n) / (f_c * mean|0.5 - mu_c|), and the share itself: a share
++# read too low looks exactly like a lost pattern at the cell's identity sites (L moves by about -df/f), so SE_share = sigma_f / f_c, sigma_f
++# from Stage D21's 95 % interval / 3.92. The detection limit is 2 x sqrt(SE_sites^2 + SE_share^2), in percent of the cell's pattern, at this
++# person's share. For a cell at a few percent of the blood the share's uncertainty sets the limit (found 2026-10-21 on a synthetic blood). Same-run healthy references, when given, tare it (L_c minus their median)
++# and give the reference-based limit (2 x their SD). Explored 2026-10-21: the entropy ratio Met-A uses is nearly blind for a minority cell in
++# a mixture (a 1 % B-cell loss at a 5 % share moved it by -0.00003), because the other cells dominate the value at its sites.
++# Identity sites: every site where c sits at least IDENTITY_SEP combined SD above or below EVERY other panel cell in the atlas, the
++# Deconvolver's own marker sites excluded (they set the shares, so reading on them would be circular). PRELIMINARY until commissioned.
++IDENTITY_SEP = 2.0      # the atlas's separation, in combined SD, to the nearest other panel cell (fixed rule, not tuned)
++MIN_SITES_SHARE = 0.9   # the same 90 % of identity sites Met-A requires
++CELLS_PRELIMINARY = "This score is preliminary until per-cell scoring in whole blood is officially commissioned on whole blood (EPIC v1)."
++_ID = {}
++
++def identity_sites(panel=None):
++    """({cell: sites}, mu) from IAM-Atlas v2.1, the Deconvolver's markers excluded. Cached."""
++    panel = list(panel or D21.BLOOD6)
++    if tuple(panel) in _ID: return _ID[tuple(panel)]
++    if tuple(panel) not in _REF:
++        R = D21.reference(panel); _REF[tuple(panel)] = (R, D21.markers(R))
++    R, M = _REF[tuple(panel)]; Ms = set(M)
++    mu, sd = R["mu"], R["sd"]; ok = mu.notna().all(1) & sd.notna().all(1); mu, sd = mu[ok], sd[ok]; out = {}
++    for c in panel:
++        o = [x for x in panel if x != c]; d = mu[o].sub(mu[c], axis=0); sp = np.sqrt(sd[o].pow(2).add(sd[c].pow(2), axis=0))
++        hi = (-d / sp).min(1); lo = (d / sp).min(1); keep = ((hi >= IDENTITY_SEP) | (lo >= IDENTITY_SEP)) & ~mu.index.isin(list(Ms))
++        out[c] = list(mu.index[keep])
++    _ID[tuple(panel)] = (out, mu); return _ID[tuple(panel)]
++
++def stage_cells(beta, d21, refs=None):
++    """One reading per panel cell: the share of its pattern lost. d21: Stage D21's record. refs: optional {cell: [L_c of same-run healthy arrays]}."""
++    rec = {"stage": "CELLS", "reading": "share of each panel cell's pattern lost, in whole blood", "reference": "IAM-Atlas v2.1 healthy means x this person's shares (Stage D21)",
++           "status": "preliminary", "label": CELLS_PRELIMINARY, "identity_sep": IDENTITY_SEP, "cells": []}
++    if not d21 or not d21.get("cells"):
++        rec["withheld"] = "no cell shares (Stage D21 withheld them), so there is no expectation to read against"
++        rec["explained"] = _ex("per-cell scores (Stage CELLS)", "withheld", "no shares from Stage D21", "the six shares from Stage D21",
++                               "stage_v4.stage_cells (fixed rule)", "each cell's expectation is built from this person's own shares",
++                               "see the cell-share record for why the shares were withheld"); return rec
++    panel = [x["cell"] for x in d21["cells"]]; f = {x["cell"]: float(x["share"]) for x in d21["cells"]}
++    sf = {x["cell"]: (float(x["interval_95"][1]) - float(x["interval_95"][0])) / 3.92 for x in d21["cells"] if x.get("interval_95")}
++    S, mu = identity_sites(panel); b = pd.Series(beta, dtype="float64"); b.index = b.index.astype(str)
++    for c in panel:
++        sc = pd.Index(S[c]); x = b.reindex(sc); e = sum(f[g] * mu[g].reindex(sc) for g in panel); ok = x.notna() & e.notna()
++        r = {"cell": c, "share": round(f[c], 4), "identity_sites": len(sc), "sites_measured": int(ok.sum()), "status": "preliminary"}
++        need = int(np.ceil(MIN_SITES_SHARE * len(sc)))
++        if f[c] <= 0:
++            r["reason"] = "share 0: the Deconvolver found none of this cell, so it has nothing to score"
++        elif ok.sum() < need:
++            r["reason"] = f"only {int(ok.sum())} of {len(sc)} identity sites measured ({need} required): score withheld"
++        else:
++            m = mu[c].reindex(sc)[ok]; w = np.sign(0.5 - m); depth = float((0.5 - m).abs().mean())
++            dw = (x[ok] - e[ok]) * w; L = float(dw.mean() / (f[c] * depth)); se = float(dw.std(ddof=1) / np.sqrt(len(dw)) / (f[c] * depth))
++            ses = sf.get(c, 0.0) / f[c]; tot = float(np.hypot(se, ses))
++            r.update(pattern_lost=round(L, 4), se_sites=round(se, 4), se_share=round(ses, 4), se=round(tot, 4), detection_limit_pct=round(200 * tot, 1),
++                     pattern_depth=round(depth, 4), state="no loss found" if abs(L) < 2 * tot else ("loss of pattern" if L > 0 else "more pattern than predicted"))
++            R_ = [v for v in ((refs or {}).get(c) or []) if v is not None and np.isfinite(v)]
++            if len(R_) >= 3:
++                med = float(np.median(R_)); r.update(pattern_lost_tared=round(L - med, 4), refs=len(R_), detection_limit_refs_pct=round(200 * float(np.std(R_, ddof=1)), 2))
++            else:
++                r["tare"] = f"untared: {len(R_)} same-run healthy references for this cell (at least 3 needed)"
++        rec["cells"].append(r)
++    return rec
++
+ # ---------------------------------------------------------------- Q2: IAM-A against the sample's own reference
+ def count_sequencing(pat=None, bam=None, ref_fasta=None, workers=4, assembly="hg19"):
+     if pat:

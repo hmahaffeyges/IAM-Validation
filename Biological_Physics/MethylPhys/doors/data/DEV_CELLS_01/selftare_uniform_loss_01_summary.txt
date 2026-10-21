@@ -1,0 +1,4 @@
+blood 0 (neutrophil share 0.556): 1 % loss at identity sites +0.0233; at every site -0.0003; at every site with self-tare II off +0.0213
+blood 1 (neutrophil share 0.547): 1 % loss at identity sites +0.0226; at every site -0.0003; at every site with self-tare II off +0.0207
+blood 2 (neutrophil share 0.509): 1 % loss at identity sites +0.0211; at every site -0.0003; at every site with self-tare II off +0.0193
+blood 3 (neutrophil share 0.525): 1 % loss at identity sites +0.0223; at every site -0.0004; at every site with self-tare II off +0.0204

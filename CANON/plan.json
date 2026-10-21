@@ -362,11 +362,12 @@
    "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_GROUPA.md"
   },
   {
-   "task": "Every major blood cell scored in whole blood (author 2026-10-20: 'to be able to filter and find each cell in the blood and score each one it finds is what we should be able to offer at a minimum'; what the cells do at the same time may carry the signature, e.g. T cells falling while neutrophils rise): for each cell the Deconvolver finds (neutrophils, monocytes, CD4 T, CD8 T, B, NK), its share and its own Met-A-style reading at its IAM-Atlas v2.1 identity sites against what the mixture predicts, each with its own detection limit at that person's share; every cell not commissioned printed with the existing wording ('This score is preliminary until ... is officially commissioned on ...'). Synthetic first, release check, clean clone; built AFTER the sealed Group-A reading so the seal's chain is not changed mid-test",
+   "task": "Every major blood cell scored in whole blood (author 2026-10-20: 'to be able to filter and find each cell in the blood and score each one it finds is what we should be able to offer at a minimum'; what the cells do at the same time may carry the signature, e.g. T cells falling while neutrophils rise): for each cell the Deconvolver finds (neutrophils, monocytes, CD4 T, CD8 T, B, NK), its share and its own Met-A-style reading at its IAM-Atlas v2.1 identity sites against what the mixture predicts, each with its own detection limit at that person's share; every cell not commissioned printed with the existing wording ('This score is preliminary until ... is officially commissioned on ...'). Synthetic first, release check, clean clone; built AFTER the sealed Group-A reading so the seal's chain is not changed mid-test | 2026-10-21 (GRP-014, exploration): the per-cell reading (share of the cell's pattern lost, against the person's own mix, with its own detection limit) is exact when the shares are right, but a loss at every site is absorbed into the Deconvolver's share; and the self-tare (Stage T step 1) undoes a uniform loss in whole-blood Met-A. Waiting for the author's decision before the stage goes into the chain.",
    "done_when": "a whole-blood report prints a share and a labeled score for every panel cell; release check and clean clone pass",
    "rows": [
     "GRP-013",
-    "CAN-007"
+    "CAN-007",
+    "GRP-014"
    ],
    "status": "open",
    "done_date": "",
@@ -579,6 +580,11 @@
      "id": "F34",
      "status": "open",
      "text": "Runtime Matrices/Intake/intake_thresholds_v1.json (a frozen input, hashed by release check F1) still says the bisulfite line 'refuses 731/731 healthy arrays as written' - true only of the old metric. Its next version (intake_thresholds_v2, when step 23 sets the limits) must replace the text."
+    },
+    {
+     "id": "F35",
+     "status": "open",
+     "text": "Stage T step 1 (self-tare II) maps each array by its anchor sites; a loss of the cell's pattern at EVERY site, anchors included, is mapped away (synthetic, 2026-10-21: whole-blood Met-A +0.021 without it, -0.0003 with it). Every commissioning test planted the loss at the identity sites only. Needs the author's decision and a real-array test (GRP-014)."
     }
    ],
    "notes": " | 2026-10-20: Chain Decoder written (manual/decoder_text.md -> OM_v4_decoder.md; all 257 functions of the 22 loaded files have entries; gated). OM PDF retitled 'Official IAM Operations Manual: Instrument Diagnostics and Chain Decoder' (Decoder + diagnostics + chain sequence); SOP retitled 'Official IAM Chain Operator Guide'. Reading the code line by line found the items under findings; each is fixed in the chain, not in the text."
