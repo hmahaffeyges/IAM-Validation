@@ -21,11 +21,14 @@ def manifests():
     """methylprep's EPIC and 450K manifests under the names sky_maps_v21.genome_order reads."""
     from methylprep.files import Manifest
     from methylprep.models import ArrayType
-    for t in ("epic", "450k"): Manifest(ArrayType(t))
-    src = os.path.expanduser("~/.methylprep_manifest_files"); d = os.path.join("/tmp", "iam_manifests"); os.makedirs(d, exist_ok=True)
-    for pat, name in (("*EPIC*B4*", "MethylationEPIC_v-1-0_B4.CoreColumns.csv.gz"), ("*450k*", "HumanMethylation450k_15017482_v3.csv.gz")):
-        f = sorted(glob.glob(os.path.join(src, pat))); assert f, f"no {pat} manifest in {src}"
+    for t in ("epic", "450k"): Manifest(ArrayType(t), verbose=False) if "verbose" in Manifest.__init__.__code__.co_varnames else Manifest(ArrayType(t))
+    d = os.path.join("/tmp", "iam_manifests"); os.makedirs(d, exist_ok=True)
+    roots = [os.path.expanduser("~"), os.getcwd(), "/tmp"]   # methylprep's download folder differs between installs: find the files by name
+    for name in ("MethylationEPIC_v-1-0_B4.CoreColumns.csv.gz", "HumanMethylation450k_15017482_v3.csv.gz"):
+        f = [os.path.join(dp, name) for r in roots for dp, _, fs in os.walk(r) if name in fs and not dp.startswith(d)]
+        assert f, f"manifest {name} not found under {roots}; methylprep folder holds: {sorted(glob.glob(os.path.expanduser('~/.methylprep_manifest_files/*')))}"
         if not os.path.exists(os.path.join(d, name)): os.symlink(f[0], os.path.join(d, name))
+        print("manifest", name, "from", f[0], flush=True)
     return d
 def main(out, atlas, man):
     import pyarrow.parquet as pq
