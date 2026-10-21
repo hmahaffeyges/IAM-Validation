@@ -67,7 +67,7 @@ python3 run_sample.py --bam S.bam --ref-fasta hg19.fa --assembly hg19 --seq-cell
 
 ## 6. Outputs
 
-- `S001.html`: the report. At a glance; cell shares (IAM-Deconvolver against IAM-Atlas v2.1); Met-A; the C-score with its HEALPix sky plate; IAM-A; the turning globe (the sample, its healthy reference, the difference and Met-A's departures, with a slider that fades the smaller differences; a picture, nothing scored from it; the same globe on its own full page is written beside the report as `S001_globe.html`); the technical record.
+- `S001.html`: the report. At a glance; cell shares (IAM-Deconvolver against IAM-Atlas v2.1); Met-A; the C-score with its HEALPix sky plate; IAM-A; the turning globe (the sample, its healthy reference, the difference and Met-A's departures, the fixed change with a slider that fades only the healthy background; a picture, nothing scored from it; the same globe on its own full page is written beside the report as `S001_globe.html`); the technical record.
 - `S001_bundle.json`: every stage's output, with the chain's commit.
 - one row appended to `evidence_ledger.jsonl` beside the report.
 

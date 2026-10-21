@@ -1,6 +1,9 @@
 """globe_viewer.py - the one viewer for every IAM globe (2026-10-21): a report's globe, a report's own full page, and the site's Globe Explorer.
 A globe is a spec: {id, name, about, assets: {name: picture}, groups: [{name, layers: [layer]}]}; a layer is
   {kind: "image", src}                        a picture shown as it is
+  {kind: "change", src, base, full, hint, fixed} the fixed change (2026-10-21): code 0 no site, 128 unchanged, 128 +/- k changed (size k/127 x
+                                              full); the slider fades only the background (unchanged sites and the base picture) from full to none;
+                                              the changed sites and their count (fixed) never move
   {kind: "diff", src, base, scale, above}     a coded difference (0 no site; 1..255 = -0.5..+0.5 x scale); a slider fades everything below the
                                               chosen size into the base picture's grey; above[t] = share of the measured globe beyond step t
   {kind: "steps", srcs, labels, notes}        a slider steps through pictures (the noise maps: 1, 2, 4 ... 100 draws averaged)
@@ -41,7 +44,7 @@ function IAMGlobe(cv) { const cx = cv.getContext('2d'), s = { yaw: 0, pitch: 0.3
   (function tick() { if (s.spin && s.px) { s.yaw += 0.006; draw(); } requestAnimationFrame(tick); })();
   return { draw, set(px, w, h) { s.px = px; s.w = w; s.h = h; draw(); }, toggle() { s.spin = !s.spin; } }; }
 function IAMExplorer(root, specs) { const q = c => root.querySelector(c), G = IAMGlobe(q('.g-canvas'));
-  const sg = q('.g-globe'), sp = q('.g-group'), sl = q('.g-layer'), rg = q('.g-range'), rv = q('.g-rv'), nt = q('.g-note'), ab = q('.g-about'), sw = q('.g-slide');
+  const sg = q('.g-globe'), sp = q('.g-group'), sl = q('.g-layer'), rg = q('.g-range'), rv = q('.g-rv'), nt = q('.g-note'), ab = q('.g-about'), sw = q('.g-slide'), hn = q('.g-hint'), fx = q('.g-fixed');
   q('.g-spin').onclick = () => G.toggle();
   const fill = (sel, items) => { sel.innerHTML = ''; items.forEach((x, i) => sel.add(new Option(x.name, i))); sel.parentNode.style.display = items.length > 1 ? '' : 'none'; };
   fill(sg, specs); const want = new URLSearchParams(location.search).get('globe'); specs.forEach((x, i) => { if (x.id === want) sg.value = i; });
@@ -49,10 +52,15 @@ function IAMExplorer(root, specs) { const q = c => root.querySelector(c), G = IA
   function onGlobe() { fill(sp, spec().groups); ab.innerHTML = spec().about || ''; const c = new URLSearchParams(location.search).get('cell');
     spec().groups.forEach((g, i) => { if (c && g.id === c) sp.value = i; }); onGroup(); }
   function onGroup() { fill(sl, grp().layers); onLayer(); }
-  function onLayer() { const L = lay(); sw.style.display = L.kind === 'image' ? 'none' : '';
-    if (L.kind === 'diff') { rg.max = 50; rg.value = L.start ?? 10; } else if (L.kind === 'steps') { rg.max = L.srcs.length - 1; rg.value = 0; } render(); }
+  function onLayer() { const L = lay(); sw.style.display = L.kind === 'image' ? 'none' : ''; hn.textContent = L.hint || ''; fx.textContent = L.fixed || '';
+    if (L.kind === 'diff') { rg.max = 50; rg.value = L.start ?? 10; } else if (L.kind === 'change') { rg.max = 100; rg.value = 0; } else if (L.kind === 'steps') { rg.max = L.srcs.length - 1; rg.value = 0; } render(); }
   let tok = 0;
   async function render() { const L = lay(), t = +rg.value, my = ++tok;
+    if (L.kind === 'change') { const T = await IAMTex(U(L.src)), B = L.base ? await IAMTex(U(L.base)) : null; if (my !== tok) return; const f = 1 - t / 100;
+      rv.textContent = t === 0 ? 'full healthy background' : t === 100 ? 'only the change' : 'background ' + (100 - t) + ' %'; nt.textContent = L.note || '';
+      G.set(k => { const c = T.d[k]; if (c === 0) return [30, 32, 38]; if (c === 128) { let g = 120; if (B) g = 105 + 0.55 * (0.3 * B.d[k] + 0.59 * B.d[k + 1] + 0.11 * B.d[k + 2]);
+          const q = 22 + (g - 22) * f; return [q, q, q]; }
+        const v = (c - 128) / 127, b = 0.55 + 0.45 * Math.abs(v); return v > 0 ? [255 * b, 50 * b, 45 * b] : [40 * b, 95 * b, 255 * b]; }, T.w, T.h); return; }
     if (L.kind !== 'diff') { const T = await IAMTex(U(L.kind === 'steps' ? L.srcs[t] : L.src)); if (my !== tok) return;
       if (L.kind === 'steps') rv.textContent = L.labels[t]; nt.textContent = L.kind === 'steps' ? ((L.notes || [])[t] || '') + ' ' + (L.note || '') : (L.note || '');
       G.set(k => [T.d[k], T.d[k + 1], T.d[k + 2]], T.w, T.h); return; }
@@ -68,7 +76,8 @@ function IAMExplorer(root, specs) { const q = c => root.querySelector(c), G = IA
 CONTROLS = """<div class="g-wrap" style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;justify-content:center">
 <canvas class="g-canvas" width="__N__" height="__N__" style="max-width:100%;touch-action:none;cursor:grab"></canvas>
 <div style="min-width:260px;max-width:420px"><p><label>Globe <select class="g-globe"></select></label></p><p><label>Show <select class="g-group"></select></label></p>
-<p><label>Layer <select class="g-layer"></select></label></p><p class="g-slide"><input class="g-range" type="range" min="0" max="50" value="10" style="width:100%"> <span class="g-rv"></span></p>
+<p><label>Layer <select class="g-layer"></select></label></p><p class="g-slide"><input class="g-range" type="range" min="0" max="50" value="10" style="width:100%"> <span class="g-rv"></span><br><i class="g-hint"></i></p>
+<p class="g-fixed" style="font-weight:600"></p>
 <p class="g-note"></p><p><button class="g-spin" type="button">Stop or start turning</button></p><div class="g-about" style="font-size:0.92em"></div></div></div>"""
 
 def fragment(specs, size=520):

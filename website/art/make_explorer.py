@@ -42,6 +42,8 @@ def noise(d):
         c = cell.replace(" ", "_"); st = J["settle"][cell]
         groups.append(dict(name=cell, layers=[
             dict(name="the noise, as more draws are averaged", kind="steps", srcs=[b64(f"resid_{c}_k{k}.jpg") for k in K],
+                 hint="Slide right to average more draws: the noise fades until the globe goes dark, where every draw agrees. Slide left for fewer draws and more noise.",
+                 fixed="What stays bright longest is where the atlas is least sure: a difference a sample shows there deserves the least trust.",
                  labels=[f"{k} draw{'s' if k > 1 else ''} averaged" for k in K],
                  notes=[f"On average {st[str(k)]:.4f} from the 100-draw map." for k in K],
                  note=(f"Red: this average sits above the 100-draw map; blue: below; dark: they agree (scale +/-{J['residual_scale']}). "
@@ -51,7 +53,9 @@ def noise(d):
     about = ("IAM-Atlas v2.1 was fitted the way a sky map is: every site carries 100 equally likely versions of each cell's healthy map (posterior "
              f"draws, Zenodo {J['record']}). Any one draw is speckled with noise; averaging more draws beats it down, about as one over the square "
              "root of their number, which is how the microwave sky's noise is beaten down by more observing. Slide from 1 draw to 100 and watch the "
-             "speckle fade; what stays bright longest is where the atlas is least sure. Draws are taken in turn from the fit's four sampling chains.")
+             "speckle fade; what stays bright longest is where the atlas is least sure. Draws are taken in turn from the fit's four sampling chains. "
+             "Why it is here: every value on the atlas globe is an average of many equally likely healthy maps, and this is how sure that average is. "
+             "When to use it: before trusting a change a sample shows against the atlas, check that the atlas is sure at that place.")
     return V.dedupe(dict(id="noise", name="The atlas's noise, beaten down by averaging", groups=groups, about=about))
 
 def sample(sid, title, betas, bundle, planted=False):

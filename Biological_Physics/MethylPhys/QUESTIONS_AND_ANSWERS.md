@@ -86,7 +86,8 @@ IAM-Atlas v2.1, a reference of 79 healthy cell types. A fifth, Group-A, compares
 Every site the instruments read has one fixed place on a sphere laid out the way the microwave sky is mapped (HEALPix, equal-area pixels,
 sites in genome order), so every cell, reference and sample can be compared pixel for pixel. The site's Globe Explorer turns IAM-Atlas
 v2.1's 79 cells, Met-A's purified-array reference and example samples; every report carries its own sample on the same globe against its
-healthy reference, with a slider that fades the smaller differences. They are pictures: nothing is scored from a globe, and each layer is
+healthy reference. The change is fixed by the measurement (each site's difference in its healthy width, in the sample's own spread;
+changed beyond 3, the C-Score's rule), and its count never moves; a slider only fades the healthy background so the change can be seen by itself. They are pictures: nothing is scored from a globe, and each layer is
 labeled with the reference its instrument reads against
 ([the Globe Explorer](https://hmahaffeyges.github.io/IAM-Validation/atlas/sphere.html)).
 Evidence: [Biological_Physics/MethylPhys/INSTRUMENTS.md](INSTRUMENTS.md), [Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md](COMMISSIONING_REPORT.md). Book: [reading a report, step by step](https://hmahaffeyges.github.io/IAM-Validation/book/ch_walkthrough.html).

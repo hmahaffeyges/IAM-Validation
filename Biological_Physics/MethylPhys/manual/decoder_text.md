@@ -1266,7 +1266,11 @@ Writes one PDF.
 ## 14b. The report's globe: `report_globe_v4.py`
 
 **What it is for.** A reviewer turns a globe in the HTML report and sees where the sample differs from its healthy reference, with a
-slider that fades every difference smaller than a chosen size. **A picture, not a reading:** nothing is scored from it, and Met-A and the
+slider that fades only the healthy background, so the change can be seen by itself. The change is fixed by the measurement: each site's
+difference from the healthy reference in that site's healthy width (the atlas's person-to-person spread and its own uncertainty), centered
+and scaled by the sample's own spread, changed beyond 3 (the C-Score's rule, on the whole genome). Healthy blood: 16,372 of 773,556 sites
+(2.1 %). Tried first and dropped: the atlas's 95 % range alone flagged 84 % of a healthy blood, because it is how sure the atlas is of the
+healthy average, not how much a healthy person varies. **A picture, not a reading:** nothing is scored from it, and Met-A and the
 C-Score keep their commissioned purified-array reference.
 
 **Label: standard method** (display). The layout is the atlas's sky sphere: every IAM-Atlas v2.1 site in genome order at NESTED pixel
@@ -1306,7 +1310,7 @@ Met-A's purified-array reference at its 6,000 sites: the Stage A fractions times
 for isolated neutrophils; nothing for other specimens.
 
 **One viewer for every globe (`globe_viewer.py`, 2026-10-21).** A globe is a spec: its pictures (each stored once), and groups of layers. A
-layer is a picture shown as it is, a coded difference with a slider that fades the smaller differences into the reference's grey, or a
+layer is a picture shown as it is, the fixed change with a slider that fades only the background (the change and its count never move), or a
 series of pictures a slider steps through (the noise maps). The same code draws the globe inside a report, the report's own full page
 (written beside the report as `<name>_globe.html` and linked from it), and the site's Globe Explorer (`atlas/sphere.html`). It needs only
 the standard library, so the site build imports it unchanged; release check V12 and the site build both check that its script parses.
@@ -1334,6 +1338,14 @@ One value per site in genome order to a NESTED map: the mean per pixel, nothing 
 
 ### report_globe_v4.py::_mu
 Reads the atlas best values of the named cells from the compact copy (`atlas/v2.1/mu_part*.parquet`), 65535 decoded as no value.
+
+### report_globe_v4.py::build._code
+Codes a change map for the page: 0 where no site was measured, 128 where the sites are unchanged, and 128 plus or minus at least one step for a
+changed site, its size up to a fixed full scale (10 spreads), so the page can fade the unchanged background without ever touching the change.
+
+### report_globe_v4.py::_to_sky_extreme
+One value per site to the sky map, keeping in each pixel the value of largest size with its sign, so a changed site is never averaged away by
+an unchanged neighbor sharing its pixel.
 
 ### report_globe_v4.py::_lookup
 For each pixel of the 1024 × 512 texture, the nearest sky pixel center (the chain's `stage_v4.nest_pix2ang`).

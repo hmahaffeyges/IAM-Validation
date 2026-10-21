@@ -257,7 +257,7 @@ def V12(tmp):
     import report_globe_v4 as RG, pyarrow.parquet as pq, shutil, subprocess as sp
     ids = pq.read_table(os.path.join(RG.ATLAS, "sites.parquet")).column("cpg").to_pylist(); mu = RG._mu(["neutrophils"])["neutrophils"]
     r = RG.build(pd.Series(mu, index=ids), "isolated neutrophils", None, os.path.join(tmp, "globe.html"))
-    zero = r.get("drawn") and r["median_abs_difference"] == 0 and r["share_above"]["0.05"] == 0
+    zero = r.get("drawn") and r["median_abs_difference"] == 0 and r["share_above"]["0.05"] == 0 and r.get("sites_changed") == 0   # and no site changed
     name, w = RG.reference("whole blood", {"neutrophils": 0.5, "monocytes": 0.1, "cd4 t cells": 0.2})
     weights = abs(sum(w.values()) - 1) < 1e-9 and abs(w["neutrophils"] - 0.625) < 1e-9
     js = "not checked (node not installed)"
@@ -265,7 +265,7 @@ def V12(tmp):
         f = os.path.join(tmp, "globe.js"); open(f, "w").write(re.search(r"<script>(.*?)</script>", r["fragment"], re.S).group(1))
         js = "parses" if sp.run(["node", "--check", f], capture_output=True).returncode == 0 else "SYNTAX ERROR"
     rec("V12", bool(zero and weights and js != "SYNTAX ERROR"), f"healthy atlas neutrophil against itself: drawn {r.get('drawn')}, median difference {r.get('median_abs_difference')}, "
-        f"share above 0.05 {(r.get('share_above') or {}).get('0.05')}; blood weights sum to 1 and rescale: {weights}; page script: {js}")
+        f"share above 0.05 {(r.get('share_above') or {}).get('0.05')}, sites changed {r.get('sites_changed')}; blood weights sum to 1 and rescale: {weights}; page script: {js}")
 
 def main():
     t0 = time.time(); files = R3.tracked(); tmp = tempfile.mkdtemp(prefix="rc_v4_")

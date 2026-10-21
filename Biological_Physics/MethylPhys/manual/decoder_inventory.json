@@ -5212,7 +5212,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 193,
+   "lines": 221,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
@@ -5235,12 +5235,13 @@
      "function": "_mu",
      "name": "_mu",
      "line": 47,
-     "end": 57,
+     "end": 58,
      "args": [
-      "cells"
+      "cells",
+      "stem"
      ],
-     "lines": 11,
-     "doc": "Atlas best values for `cells` at every atlas site (atlas row order); NaN where the atlas has none.",
+     "lines": 12,
+     "doc": "Atlas values for `cells` at every atlas site (atlas row order); NaN where the atlas has none. stem: mu (best value), mu_lo / mu_hi (the 95 % range from the fit).",
      "constants": [
       "ATLAS",
       "NA"
@@ -5252,10 +5253,26 @@
     },
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "_to_sky_extreme",
+     "name": "_to_sky_extreme",
+     "line": 60,
+     "end": 65,
+     "args": [
+      "v",
+      "npix"
+     ],
+     "lines": 6,
+     "doc": "One value per site -> NESTED map, per pixel the value of largest size (sign kept): a changed site is never averaged away by an unchanged neighbor in the same pixel. 0 where every site of the pixel is unchanged; NaN where none was measured.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_lookup",
      "name": "_lookup",
-     "line": 59,
-     "end": 65,
+     "line": 67,
+     "end": 73,
      "args": [
       "nside"
      ],
@@ -5271,8 +5288,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_png_b64",
      "name": "_png_b64",
-     "line": 67,
-     "end": 69,
+     "line": 75,
+     "end": 77,
      "args": [
       "arr",
       "mode"
@@ -5287,8 +5304,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_jpg_b64",
      "name": "_jpg_b64",
-     "line": 71,
-     "end": 73,
+     "line": 79,
+     "end": 81,
      "args": [
       "rgb"
      ],
@@ -5302,8 +5319,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "reference",
      "name": "reference",
-     "line": 75,
-     "end": 84,
+     "line": 83,
+     "end": 92,
      "args": [
       "specimen",
       "shares"
@@ -5321,8 +5338,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_dots",
      "name": "_dots",
-     "line": 86,
-     "end": 92,
+     "line": 94,
+     "end": 100,
      "args": [
       "v"
      ],
@@ -5338,8 +5355,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "purified",
      "name": "purified",
-     "line": 94,
-     "end": 102,
+     "line": 102,
+     "end": 110,
      "args": [
       "fractions",
       "specimen"
@@ -5359,8 +5376,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build",
      "name": "build",
-     "line": 104,
-     "end": 184,
+     "line": 112,
+     "end": 212,
      "args": [
       "beta",
       "specimen",
@@ -5369,7 +5386,7 @@
       "z",
       "fractions"
      ],
-     "lines": 81,
+     "lines": 101,
      "doc": "",
      "constants": [
       "ABOUT",
@@ -5392,12 +5409,28 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build.rgb",
      "name": "rgb",
-     "line": 123,
-     "end": 124,
+     "line": 144,
+     "end": 145,
      "args": [
       "m"
      ],
      "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "build._code",
+     "name": "_code",
+     "line": 147,
+     "end": 149,
+     "args": [
+      "v",
+      "full"
+     ],
+     "lines": 3,
      "doc": "",
      "constants": [],
      "data_files": [],
@@ -5408,14 +5441,14 @@
   },
   {
    "file": "MethylPhys_Interface/globe_viewer.py",
-   "lines": 101,
+   "lines": 110,
    "functions": [
     {
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "dedupe",
      "name": "dedupe",
-     "line": 10,
-     "end": 22,
+     "line": 13,
+     "end": 25,
      "args": [
       "spec"
      ],
@@ -5429,8 +5462,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "dedupe.one",
      "name": "one",
-     "line": 13,
-     "end": 16,
+     "line": 16,
+     "end": 19,
      "args": [
       "v"
      ],
@@ -5444,8 +5477,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "fragment",
      "name": "fragment",
-     "line": 74,
-     "end": 77,
+     "line": 83,
+     "end": 86,
      "args": [
       "specs",
       "size"
@@ -5463,8 +5496,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "page",
      "name": "page",
-     "line": 79,
-     "end": 86,
+     "line": 88,
+     "end": 95,
      "args": [
       "specs",
       "title",
@@ -5485,8 +5518,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "write_files",
      "name": "write_files",
-     "line": 88,
-     "end": 100,
+     "line": 97,
+     "end": 109,
      "args": [
       "spec",
       "d",
@@ -5502,8 +5535,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "write_files.one",
      "name": "one",
-     "line": 91,
-     "end": 94,
+     "line": 100,
+     "end": 103,
      "args": [
       "v"
      ],
@@ -5518,5 +5551,5 @@
   }
  ],
  "n_files": 24,
- "n_functions": 277
+ "n_functions": 279
 }

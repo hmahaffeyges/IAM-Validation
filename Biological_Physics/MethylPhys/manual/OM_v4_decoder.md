@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **24 Python files** holding **277 functions** (nested ones included); 277 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **24 Python files** holding **279 functions** (nested ones included); 279 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -28,8 +28,8 @@ Read from the code at build time: the one command can load **24 Python files** h
 | `stage_q_iam_a.py` | 174 | 9 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
-| `MethylPhys_Interface/report_globe_v4.py` | 193 | 10 | 0 | 0 |
-| `MethylPhys_Interface/globe_viewer.py` | 101 | 6 | 0 | 0 |
+| `MethylPhys_Interface/report_globe_v4.py` | 221 | 12 | 0 | 0 |
+| `MethylPhys_Interface/globe_viewer.py` | 110 | 6 | 0 | 0 |
 
 ## How to read the Decoder
 
@@ -1919,7 +1919,11 @@ Writes one PDF.
 ## 14b. The report's globe: `report_globe_v4.py`
 
 **What it is for.** A reviewer turns a globe in the HTML report and sees where the sample differs from its healthy reference, with a
-slider that fades every difference smaller than a chosen size. **A picture, not a reading:** nothing is scored from it, and Met-A and the
+slider that fades only the healthy background, so the change can be seen by itself. The change is fixed by the measurement: each site's
+difference from the healthy reference in that site's healthy width (the atlas's person-to-person spread and its own uncertainty), centered
+and scaled by the sample's own spread, changed beyond 3 (the C-Score's rule, on the whole genome). Healthy blood: 16,372 of 773,556 sites
+(2.1 %). Tried first and dropped: the atlas's 95 % range alone flagged 84 % of a healthy blood, because it is how sure the atlas is of the
+healthy average, not how much a healthy person varies. **A picture, not a reading:** nothing is scored from it, and Met-A and the
 C-Score keep their commissioned purified-array reference.
 
 **Label: standard method** (display). The layout is the atlas's sky sphere: every IAM-Atlas v2.1 site in genome order at NESTED pixel
@@ -1955,7 +1959,7 @@ reading is shown against the reference its instrument reads against.
 
 Draws a sparse texture as dots: every texture pixel within 3 of a measured one takes the nearest one's value.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 86 (7 lines) · arguments: v · calls: not called on the traced runs · constants read: `R_DOT`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 94 (7 lines) · arguments: v · calls: not called on the traced runs · constants read: `R_DOT`
 
 ### `report_globe_v4.py::purified`
 
@@ -1963,48 +1967,48 @@ Met-A's purified-array reference at its 6,000 sites: the Stage A fractions times
 for isolated neutrophils; nothing for other specimens.
 
 **One viewer for every globe (`globe_viewer.py`, 2026-10-21).** A globe is a spec: its pictures (each stored once), and groups of layers. A
-layer is a picture shown as it is, a coded difference with a slider that fades the smaller differences into the reference's grey, or a
+layer is a picture shown as it is, the fixed change with a slider that fades only the background (the change and its count never move), or a
 series of pictures a slider steps through (the noise maps). The same code draws the globe inside a report, the report's own full page
 (written beside the report as `<name>_globe.html` and linked from it), and the site's Globe Explorer (`atlas/sphere.html`). It needs only
 the standard library, so the site build imports it unchanged; release check V12 and the site build both check that its script parses.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 94 (9 lines) · arguments: fractions, specimen · calls: not called on the traced runs · constants read: `BLOOD`, `CH` · files named: `blood_composition_EPIC_v1.json`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 102 (9 lines) · arguments: fractions, specimen · calls: not called on the traced runs · constants read: `BLOOD`, `CH` · files named: `blood_composition_EPIC_v1.json`
 
 ### `globe_viewer.py::dedupe`
 
 Stores every picture of a spec once under a short name; layers refer to it by name (a reference is both a layer and a difference's grey).
 
-*Code:* `MethylPhys_Interface/globe_viewer.py` line 10 (13 lines) · arguments: spec · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 13 (13 lines) · arguments: spec · calls: not called on the traced runs
 
 ### `globe_viewer.py::dedupe.one`
 
 Gives one inlined picture its name, reusing the name if the same picture was already stored.
 
-*Code:* `MethylPhys_Interface/globe_viewer.py` line 13 (4 lines) · arguments: v · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 16 (4 lines) · arguments: v · calls: not called on the traced runs
 
 ### `globe_viewer.py::fragment`
 
 The globe inside a report: one section with the controls, the viewer and the specs inlined, so the report stays one file that works offline.
 
-*Code:* `MethylPhys_Interface/globe_viewer.py` line 74 (4 lines) · arguments: specs, size · calls: not called on the traced runs · constants read: `CONTROLS`, `VIEWER_JS`
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 83 (4 lines) · arguments: specs, size · calls: not called on the traced runs · constants read: `CONTROLS`, `VIEWER_JS`
 
 ### `globe_viewer.py::page`
 
 A full dark page for one or more globes with a globe chooser: a report's own globe page, or the site's Globe Explorer.
 
-*Code:* `MethylPhys_Interface/globe_viewer.py` line 79 (8 lines) · arguments: specs, title, back, size, intro · calls: not called on the traced runs · constants read: `CONTROLS`, `VIEWER_JS`
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 88 (8 lines) · arguments: specs, title, back, size, intro · calls: not called on the traced runs · constants read: `CONTROLS`, `VIEWER_JS`
 
 ### `globe_viewer.py::write_files`
 
 Writes a spec's inlined pictures as files for the site and returns the spec pointing at them, so each globe loads only when it is chosen.
 
-*Code:* `MethylPhys_Interface/globe_viewer.py` line 88 (13 lines) · arguments: spec, d, url · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 97 (13 lines) · arguments: spec, d, url · calls: not called on the traced runs
 
 ### `globe_viewer.py::write_files.one`
 
 Writes one inlined picture to its file and returns its address.
 
-*Code:* `MethylPhys_Interface/globe_viewer.py` line 91 (4 lines) · arguments: v · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 100 (4 lines) · arguments: v · calls: not called on the traced runs
 
 ### `report_globe_v4.py::_to_sky`
 
@@ -2016,45 +2020,59 @@ One value per site in genome order to a NESTED map: the mean per pixel, nothing 
 
 Reads the atlas best values of the named cells from the compact copy (`atlas/v2.1/mu_part*.parquet`), 65535 decoded as no value.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 47 (11 lines) · arguments: cells · calls: not called on the traced runs · constants read: `ATLAS`, `NA` · files named: `import pyarrow.parquet`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 47 (12 lines) · arguments: cells, stem · calls: not called on the traced runs · constants read: `ATLAS`, `NA` · files named: `import pyarrow.parquet`
+
+### `report_globe_v4.py::build._code`
+
+Codes a change map for the page: 0 where no site was measured, 128 where the sites are unchanged, and 128 plus or minus at least one step for a
+changed site, its size up to a fixed full scale (10 spreads), so the page can fade the unchanged background without ever touching the change.
+
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 147 (3 lines) · arguments: v, full · calls: not called on the traced runs
+
+### `report_globe_v4.py::_to_sky_extreme`
+
+One value per site to the sky map, keeping in each pixel the value of largest size with its sign, so a changed site is never averaged away by
+an unchanged neighbor sharing its pixel.
+
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 60 (6 lines) · arguments: v, npix · calls: not called on the traced runs
 
 ### `report_globe_v4.py::_lookup`
 
 For each pixel of the 1024 × 512 texture, the nearest sky pixel center (the chain's `stage_v4.nest_pix2ang`).
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 59 (7 lines) · arguments: nside · calls: not called on the traced runs · constants read: `CH`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 67 (7 lines) · arguments: nside · calls: not called on the traced runs · constants read: `CH`
 
 ### `report_globe_v4.py::_png_b64`
 
 A grayscale texture as base64 PNG, for the difference and departure codes (0 = no site; 1 to 255 = −0.5 to +0.5, or −5 to +5 spreads).
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 67 (3 lines) · arguments: arr, mode · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 75 (3 lines) · arguments: arr, mode · calls: not called on the traced runs
 
 ### `report_globe_v4.py::_jpg_b64`
 
 A color texture as base64 JPEG, for the sample and reference layers.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 71 (3 lines) · arguments: rgb · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 79 (3 lines) · arguments: rgb · calls: not called on the traced runs
 
 ### `report_globe_v4.py::reference`
 
 The healthy reference for a specimen: the matching atlas cell, or for blood the six panel cells weighted by the Stage D21 shares and scaled
 to 1; refuses with the reason when there are no shares or no specimen.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 75 (10 lines) · arguments: specimen, shares · calls: not called on the traced runs · constants read: `BLOOD`, `PANEL`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 83 (10 lines) · arguments: specimen, shares · calls: not called on the traced runs · constants read: `BLOOD`, `PANEL`
 
 ### `report_globe_v4.py::build`
 
 Checks the frozen layout against the atlas site list, builds the four layers, the shares above each size, and the page fragment (canvas,
 controls and script, no outside library). Returns the record kept in the bundle, marked `scored: False`.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 104 (81 lines) · arguments: beta, specimen, shares, out_html, z, fractions · calls: not called on the traced runs · constants read: `ABOUT`, `ATLAS`, `CH`, `HERE`, `ORDER`, `PANEL`, `R_DOT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `sites.parquet`, `sky_order_v21.npz`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 112 (101 lines) · arguments: beta, specimen, shares, out_html, z, fractions · calls: not called on the traced runs · constants read: `ABOUT`, `ATLAS`, `CH`, `HERE`, `ORDER`, `PANEL`, `R_DOT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `sites.parquet`, `sky_order_v21.npz`
 
 ### `report_globe_v4.py::build.rgb`
 
 Colors a sky map for the texture with the atlas pages' parchment scale, 0 to 1; grey where no site was measured.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 123 (2 lines) · arguments: m · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 144 (2 lines) · arguments: m · calls: not called on the traced runs
 
 ## 15. The development readings: `dev_stages.py`, `dev_comp_methods.py`, `deconv_v2.py`, `sky_statistics.py`
 

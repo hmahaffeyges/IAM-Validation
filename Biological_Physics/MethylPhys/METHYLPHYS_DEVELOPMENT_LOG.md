@@ -2903,3 +2903,6 @@ The glossary gained ten entries (IAM-Atlas v2.1, IAM-Deconvolver, Group-A, the t
 
 ### 2026-10-21 · Met-A against the atlas, planned (GRP-014, DEV-METAA-ATLAS-01)
 The author asked that Met-A be able to read any cell against IAM-Atlas v2.1, since purified arrays exist for few cell types. The plan is written before any reading: identity sites per cell from the atlas, the same-run tare to cancel the atlas offset (which differs by cell, -5 % to +12 %), synthetic first, then sorted cells and whole bloods the atlas never saw. The purified-blood studies the atlas was fitted on are excluded as test data.
+
+### 2026-10-21 · The globe shows a fixed change (ATL-063)
+The report's globe no longer asks the reader to pick a size. A site has changed when its difference from the healthy reference, in that site's healthy width and the sample's own spread, is beyond 3: the C-Score's rule on the whole genome. A healthy blood shows 16,372 of 773,556 sites changed (2.1 %). The slider only fades the healthy background. A first rule, the atlas's 95 % range alone, flagged 84 % of a healthy blood because that range is how sure the atlas is of the healthy average, not how much a person varies; it was dropped the same day.
