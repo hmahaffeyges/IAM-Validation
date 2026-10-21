@@ -326,7 +326,7 @@ def main():
     print(f"release_check_v4 @ {subprocess.run(['git', '-C', R3.ROOT, 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()}  python {PY}")
     steps = [("F1", F1, ()), ("F1b", F1b, ()), ("F2", F2, ()), ("S1", R3.S1, (files,)), ("S2", S2, (files,)), ("S3", R3.S3, ()), ("S4", R3.S4, ())] + \
             [(n, getattr(R3, n), (tmp,)) for n in ("E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "E10", "E11")] + \
-            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V8", V8, (tmp,)), ("V6", V6, (tmp,)), ("V7", V7, (tmp,)), ("V9", V9, (tmp,)), ("V10", V10, (tmp,)), ("V11", V11, (tmp,)), ("V12", V12, (tmp,), ("V13", V13, (tmp,))), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
+            [("V1", V1, (tmp,)), ("V2", V2, (tmp,)), ("V3", V3, (tmp,)), ("V4", V4_, (tmp,)), ("V5", V5, (tmp,)), ("V8", V8, (tmp,)), ("V6", V6, (tmp,)), ("V7", V7, (tmp,)), ("V9", V9, (tmp,)), ("V10", V10, (tmp,)), ("V11", V11, (tmp,)), ("V12", V12, (tmp,)), ("V13", V13, (tmp,)), ("D1", R3.D1, ()), ("D2", R3.D2, ()), ("M1", R3.M1, (tmp,))]
     for name, fn, args in steps:
         try: fn(*args)
         except Exception as e: rec(name, False, f"could not run: {type(e).__name__}: {str(e)[:200]}")
