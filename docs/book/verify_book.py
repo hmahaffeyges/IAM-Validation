@@ -40496,16 +40496,19 @@ def check_4806():
 
 # ---------------------------------------------------------------- L171-L198
 
-@check(label='app:glossary:L171:0.024', title='healthy held error, lowest of 56 cell types', line=169, status='observed', kind='num', printed='0.024', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+_HE_Q2 = 'Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json'
+def _he_q2(): return json.load(open(pathlib.Path(__file__).resolve().parents[2] / _HE_Q2))
+
+@check(label='app:glossary:L171:0.0333', title='healthy held error, lowest of 56 cell types (Stage Q2 counter)', line=169, status='observed', kind='num', printed='0.0333', tol=0.0, source=_HE_Q2, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4807():
-    'Held error of the 56 healthy cell types (Loyfer 2023), lower end, from the methylated-sites row of the PROC-CHANNEL-01 record. Book line 171, printed 0.024.'
-    value=_chan()['eps_min']
+    'Held error of the 56 healthy cell types, lower end, counted by chain Stage Q2 over interior opportunities (holding_energy_q2.json, 2026-10-19; replaces the PROC-CHANNEL-01 range, whose counter divided by every CpG, ends included).'
+    value=_he_q2()['held_error_range'][0]
     return locals()
 
-@check(label='app:glossary:L171:0.042', title='healthy held error, highest of 56 cell types', line=169, status='observed', kind='num', printed='0.042', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L171:0.0549', title='healthy held error, highest of 56 cell types (Stage Q2 counter)', line=169, status='observed', kind='num', printed='0.0549', tol=0.0, source=_HE_Q2, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4808():
-    'Held error of the 56 healthy cell types, upper end, from the methylated-sites row of the PROC-CHANNEL-01 record. Book line 171, printed 0.042.'
-    value=_chan()['eps_max']
+    'Held error of the 56 healthy cell types, upper end, counted by chain Stage Q2 (holding_energy_q2.json).'
+    value=_he_q2()['held_error_range'][1]
     return locals()
 
 @check(label='app:glossary:L178:0.7', title='Omega_b/Omega_m against (3/16) sqrt(Omega_Lambda), in sigma', line=176, status='observed', kind='file', printed='0.7', tol=0.0,
@@ -40902,13 +40905,6 @@ def check_4856():
 def check_2880():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 335, printed 0.330263.'
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '0.330263')
-    return locals()
-
-@check(label='app:glossary:L336:0.2348', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=328, status='observed', kind='file', printed='0.2348', tol=0.0, source='CANON/GLOSSARY.md')
-def check_2881():
-    'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 328, printed 0.2348.'
-    ok = file_has('CANON/GLOSSARY.md', '0.2348')
     return locals()
 
 @check(label='app:glossary:L338', chapter='app:glossary', part=8, title='held-out neutrophil reference arrays, lowest Met-A',

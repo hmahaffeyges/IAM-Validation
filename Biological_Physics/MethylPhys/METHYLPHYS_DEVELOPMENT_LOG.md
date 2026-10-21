@@ -2897,3 +2897,6 @@ On 100 healthy Group-A bloods (72 tared on their own slide), the anchor range re
 
 ### 2026-10-21 · The IAM Globe Explorer (ATL-063, step 28)
 The site's atlas globe page became the Globe Explorer: IAM-Atlas v2.1 (79 cells, methylation or how sure), Met-A's purified-array reference (eight blood groups at its 6,000 sites), and the two example samples with every layer and slider. One viewer draws every globe (globe_viewer.py), in a report, on a report's own full page (written beside every report and linked from it), and on the site. Each globe's pictures load only when chosen.
+
+### 2026-10-21 · Documentation pass: glossary, book appendix, Q&A (OTH-078)
+The glossary gained ten entries (IAM-Atlas v2.1, IAM-Deconvolver, Group-A, the tare, the sky sphere, the information sphere, the Globe Explorer, noise maps, the anchor range, hard-to-map probes). Two stale entries were corrected in the canon and in book Appendix F: Met-A divides by the healthy reference, not H_min; IAM-A's reference is the sample's own predicted held error, not the retired P_cell H(eps0) form. Appendix F's healthy held-error range 0.024-0.042 (the superseded counter) is now 0.0333-0.0549, and the old range is a blocked pattern. The Q&A had said every instrument reads against the atlas; only the Deconvolver does.

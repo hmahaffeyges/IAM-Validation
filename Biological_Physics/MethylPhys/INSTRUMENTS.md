@@ -40,7 +40,7 @@ A map of 79 kinds of healthy human cells, built from 21 public sources on arrays
 
 **Record:** [COMMISSIONING_NOTE_ATLAS_V21.md](doors/COMMISSIONING_NOTE_ATLAS_V21.md)
 
-**Next:** Deposited with its DOI (10.5281/zenodo.23441999, 2026-10-19). Its complementary additions: the posterior noise maps in the chain and the report, the 3D globe of the sky sphere, the information sphere (DEV-SPHERE-01, in development), and the guidebook (to-do step 13 of the commissioning plan).
+**Next:** Deposited with its DOIs (fitted atlas 10.5281/zenodo.23441999; posterior draws 10.5281/zenodo.23422688). On the site, every cell turns on the Globe Explorer, and every report carries the sample on the same globe against its healthy reference. In the works: the noise maps from the public draws, the information sphere (DEV-SPHERE-01), and the sky's tools on the globe, each with its null beside it (to-do step 28).
 
 ## IAM-Deconvolver
 

@@ -142,6 +142,15 @@
   "checks_ok": 3,
   "commit": "ce44f9ef",
   "job": "GitHub Actions groupa.yml run 39531208991 (scored numbers in issue 31): B1 263 of 278, B2 -0.36 % at -1.206 SE, B3 +2.00 % at 7.253 SE, identical to scored_groupa_01.json",
-  "minutes": 121.4
+  "minutes": 121.4,
+  "github": {
+   "verdict": "PASS",
+   "date": "2026-10-20",
+   "checks": 3,
+   "checks_ok": 3,
+   "commit": "ce44f9ef",
+   "job": "GitHub Actions groupa.yml run 39531208991 (scored numbers in issue 31): B1 263 of 278, B2 -0.36 % at -1.206 SE, B3 +2.00 % at 7.253 SE, identical to scored_groupa_01.json",
+   "minutes": 121.4
+  }
  }
 }

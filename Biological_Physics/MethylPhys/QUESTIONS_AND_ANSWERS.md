@@ -77,9 +77,18 @@ not, is the most useful thing that can come back.
 How well a cell holds the DNA methylation pattern that makes it the cell it is, in bits, on a gauge whose ends come from physics: a floor
 (the least a cell can spend holding its marks against heat) and a saturation point (every identity site fully scrambled). Healthy reads 1:
 for IAM-A that 1 is computed from the sample itself, for Met-A it is measured on healthy references run beside it.
-Four commissioned instruments read one sample: Met-A (drift of a cell's identity sites), the C-Score (whether that drift is scattered, as
-aging leaves it, or clustered along the genome), IAM-A (a sequencing sample's own error rate, read against itself), and the IAM-Deconvolver
-(which cells are in a mixed sample), all against IAM-Atlas v2.1, a reference of 79 healthy cell types.
+Four commissioned instruments read one sample: Met-A (drift of a cell's identity sites) and the C-Score (whether that drift is scattered, as
+aging leaves it, or clustered along the genome), both against purified healthy arrays of the same cell type run through the same chain;
+IAM-A (a sequencing sample's own error rate, read against itself); and the IAM-Deconvolver (which cells are in a mixed sample), against
+IAM-Atlas v2.1, a reference of 79 healthy cell types. A fifth, Group-A, compares whole groups of people run in the same series.
+
+**What do the globes show, and is anything read from them?**
+Every site the instruments read has one fixed place on a sphere laid out the way the microwave sky is mapped (HEALPix, equal-area pixels,
+sites in genome order), so every cell, reference and sample can be compared pixel for pixel. The site's Globe Explorer turns IAM-Atlas
+v2.1's 79 cells, Met-A's purified-array reference and example samples; every report carries its own sample on the same globe against its
+healthy reference, with a slider that fades the smaller differences. They are pictures: nothing is scored from a globe, and each layer is
+labeled with the reference its instrument reads against
+([the Globe Explorer](https://hmahaffeyges.github.io/IAM-Validation/atlas/sphere.html)).
 Evidence: [Biological_Physics/MethylPhys/INSTRUMENTS.md](INSTRUMENTS.md), [Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md](COMMISSIONING_REPORT.md). Book: [reading a report, step by step](https://hmahaffeyges.github.io/IAM-Validation/book/ch_walkthrough.html).
 
 **Is it a diagnostic test?**

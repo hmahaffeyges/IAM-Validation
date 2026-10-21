@@ -118,6 +118,15 @@
 },
 {
 "file": "MANIFEST.md",
+"line": 355,
+"pattern": "0\\.024 ?(--|\u2013|-|to) ?0\\.042",
+"use": "0.0333-0.0549: the healthy held-error range of 56 cell types on chain Stage Q2's counter (holding_energy_q2.json); 0.024-0.042 came from PROC-CHANNEL-01's counter, which divided by every CpG, ends included (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "| **PHY-041** | Each healthy cell type's held error from eraser/writer RNA (DEV-POSITION-EXPR-01) | derive a cell type's healthy IAM-A position from public RNA "
+},
+{
+"file": "MANIFEST.md",
 "line": 359,
 "pattern": "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b",
 "use": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
@@ -261,6 +270,15 @@
 "text": "| **OTH-059** | Three lines and a margin on every gauge: healthy band, concern line, tumor line, all from data; margin larger than the worst measured lab shift "
 },
 {
+"file": "MANIFEST.md",
+"line": 969,
+"pattern": "0\\.024 ?(--|\u2013|-|to) ?0\\.042",
+"use": "0.0333-0.0549: the healthy held-error range of 56 cell types on chain Stage Q2's counter (holding_energy_q2.json); 0.024-0.042 came from PROC-CHANNEL-01's counter, which divided by every CpG, ends included (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "| **OTH-078** | Documentation audit: every manifest cell, the instrument catalogue and every referenced document checked against its records | Before any resear"
+},
+{
 "file": "docs/verification/PAPER_ERRATA.md",
 "line": 285,
 "pattern": "class H_min",
@@ -361,7 +379,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-"line": 176,
+"line": 178,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -370,7 +388,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-"line": 217,
+"line": 219,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",

@@ -49,7 +49,9 @@ at a fixed place set by where it sits in the genome, so every cell and every sam
 The sphere is chosen for what it does: every pixel has the same area, so no part of the genome is stretched; there are no edges or seams;
 neighbors in the genome share small patches, so clustered change shows as patches and scattered noise as speckle; and the sky's masks
 apply unchanged. That map's layout is the genome's address, so a spectrum on it measures bookkeeping, not the order a cell holds
-([turn it on the globe](https://hmahaffeyges.github.io/IAM-Validation/atlas/sphere.html)). A second sphere, in development, maps the order itself: information is
+([turn it on the globe](https://hmahaffeyges.github.io/IAM-Validation/atlas/sphere.html): the Globe Explorer, where every cell of the atlas,
+Met-A's purified-array reference and example samples can be turned, and every report carries its own sample on the same globe against
+its healthy reference). A second sphere, in development, maps the order itself: information is
 spherical in a strict sense (a site at methylation level b is the point (√b, √(1−b)) on a circle of radius 1, and the distance between two
 states is the angle between their points, the Fisher–Rao distance), so sites that are held in order together can be placed together, the
 way a brain scan maps activity rather than wiring ([DEV-SPHERE-01](doors/DEV_SPHERE_01.md)).

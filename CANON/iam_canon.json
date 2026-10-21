@@ -180,7 +180,7 @@
   },
   "Met-A (Metrology A)": {
    "status": "current",
-   "definition": "Array reading of ONE cell type in one specimen (chain Stage M): Met-A = mean over the cell's identity sites of H(beta) / H_min(cell), H(b) = -b log2 b - (1-b) log2(1-b). H_min(cell) = the same quantity on purified healthy cells of the same type on the same platform, through the chain's own Stage 1 (constant Met_A_floor_EPIC_neutrophil; site rule Met_A_site_rule); >= 90 % of the identity sites must be measured. Whole blood: the denominator is the composition-matched healthy expectation mean_i H(sum_c f_c mu_c,i), with the specimen's own fractions f (Stage A, EPIC blood NNLS) and purified healthy profiles mu (no group comparison; PROC-WB-NEUT-01); read at any neutrophil fraction with its own detection limit (DEV-LOWFRAC-01; no fixed fraction cut). Stage T tare: against >= 3 healthy references run the same way (same slide, else same batch), A_rel = A / median(reference A); with >= 20 reference records the noise-corrected tare A = a + b f_neu + c N (N = noise index, mean H(beta) over 48,528 fixed sites; DEV-NOISE-02). The gauge state is printed on A_rel only; without references the reading is reported as untared. Each reading carries its detection limit (smallest loss of the cell's pattern the specimen could show). Commissioned 2026-10-09 on isolated neutrophils, EPIC v1; whole blood is read and printed with the note that it has not yet been tested with Met-A; 450K and EPIC v2 refused. Normal 0.95-1.05. Information theory only; no energy content. Expansion: Informational Metrology A score."
+   "definition": "Array reading of ONE cell type in one specimen (chain Stage M): Met-A = mean over the cell's identity sites of H(beta) / H_ref(cell), H(b) = -b log2 b - (1-b) log2(1-b). H_ref(cell), the healthy reference (the gauge's middle mark, healthy = 1; not the floor H_min) = the same quantity on purified healthy cells of the same type on the same platform, through the chain's own Stage 1 (constant Met_A_floor_EPIC_neutrophil; site rule Met_A_site_rule); >= 90 % of the identity sites must be measured. Whole blood: the denominator is the composition-matched healthy expectation mean_i H(sum_c f_c mu_c,i), with the specimen's own fractions f (Stage A, EPIC blood NNLS) and purified healthy profiles mu (no group comparison; PROC-WB-NEUT-01); read at any neutrophil fraction with its own detection limit (DEV-LOWFRAC-01; no fixed fraction cut). Stage T tare: against >= 3 healthy references run the same way (same slide, else same batch), A_rel = A / median(reference A); with >= 20 reference records the noise-corrected tare A = a + b f_neu + c N (N = noise index, mean H(beta) over 48,528 fixed sites; DEV-NOISE-02). The gauge state is printed on A_rel only; without references the reading is reported as untared. Each reading carries its detection limit (smallest loss of the cell's pattern the specimen could show). Commissioned 2026-10-09 on isolated neutrophils, EPIC v1; whole blood is read and printed with the note that it has not yet been tested with Met-A; 450K and EPIC v2 refused. Normal 0.95-1.05. Information theory only; no energy content. Expansion: Informational Metrology A score."
   },
   "IAM-A": {
    "status": "current",
@@ -233,7 +233,7 @@
   },
   "Healthy reference": {
    "status": "current",
-   "definition": "The denominator of A: the same system's healthy reading on the same instrument. Cells: Met-A, the purified healthy cells of that type on that platform (EPIC neutrophils 0.330263 bits; constant name Met_A_floor_* kept for the chain until the SOP rename); IAM-A, P_cell H_ref = P_cell H(eps0) (neutrophils 0.2348 bits). Devices: the device as built."
+   "definition": "The denominator of A: the same system's healthy reading on the same instrument. Cells: Met-A, the purified healthy cells of that type on that platform (EPIC neutrophils 0.330263 bits; constant name Met_A_floor_* kept for the chain until the SOP rename); IAM-A, the sample's own predicted held error eps_pred(L) from its own loose share (commissioned 2026-10-17; no other person enters; the earlier P_cell H(eps0) form is retired). Devices: the device as built."
   },
   "Thermal floor (qubit)": {
    "status": "current",
@@ -242,6 +242,46 @@
   "H_ref (healthy reference height)": {
    "status": "current",
    "definition": "Cells: where healthy cells actually hold their methylated sites, H(eps0) = 0.2593 bits (E_hold 3.084 kT, measured per interior opportunity across 56 healthy cell types; about half hold better than it). Measured, not a limit; the floor is H_min. The distance from H_min to H_ref in energy is phi = 0.1473 of one ATP."
+  },
+  "IAM-Atlas v2.1": {
+   "status": "current",
+   "definition": "The reference map of 79 purified healthy human cell types: 813,951 sites, built from 21 public array and sequencing sources fitted as one Bayesian model, so every site carries a best value and a 95 % range. Commissioned use by use (COMMISSIONING_NOTE_ATLAS_V21.md). Published: fitted atlas 10.5281/zenodo.23441999; 100 posterior draws per block 10.5281/zenodo.23422688."
+  },
+  "IAM-Deconvolver": {
+   "status": "current",
+   "definition": "Reads which blood cells are in a sample and in what shares (chain Stage D21), against IAM-Atlas v2.1's six-cell blood panel; commissioned on the mean share error (0.016, bar 0.03) in a laboratory it never saw."
+  },
+  "Group-A": {
+   "status": "current",
+   "definition": "The group instrument (chain stage_groupa.py, commissioned 2026-10-20): each person's whole-blood Met-A, tared against healthy arrays of the same run, and the two groups' tared means compared (difference, standard error, t). Groups must be run in the same series."
+  },
+  "Tare (same-run tare)": {
+   "status": "current",
+   "definition": "Dividing a reading by the median of at least 3 healthy references run the same way (same slide, else same series), so a laboratory's offset cancels: A_rel = A / median(A_refs). Met-A, the C-Score and Group-A use it."
+  },
+  "Sky sphere (address sphere)": {
+   "status": "current",
+   "definition": "The globe layout every IAM map uses: every atlas site in genome order placed on HEALPix NSIDE 256, NESTED order, site i of n at pixel floor(i x NPIX / n) (atlas/tools/sky_maps_v21.py; frozen for the chain in sky_order_v21.npz). A site's place is its genome address; the information is in the color. Benefits: equal-area pixels, no edges, change along the genome shows as patches, and the sky's tools (masks, nulls, maps with uncertainty) apply."
+  },
+  "Information sphere": {
+   "status": "current",
+   "definition": "In development (DEV-SPHERE-01): a globe on which a site's place comes from how it behaves, not where it sits. Each methylation level b maps to the point (sqrt b, sqrt(1-b)) on a circle of radius 1, and the distance between two states is the Fisher-Rao angle; the whole methylome lies on one high-dimensional sphere. Not adopted until its construction passes its sealed bars."
+  },
+  "Globe Explorer": {
+   "status": "current",
+   "definition": "The site's page of interactive globes (IAM-Atlas v2.1 first; Met-A's purified-array reference; example samples; noise maps), drawn by the chain's one viewer (globe_viewer.py), the same code as every report's globe. Pictures, not readings: nothing is scored from a globe."
+  },
+  "Noise map (posterior draws)": {
+   "status": "current",
+   "definition": "The atlas's uncertainty shown as its own pictures: the average of the first k of a cell's 100 posterior draws at every site (k = 1, 2, 4 ... 100, draws taken in turn from the four sampling chains); the map settles onto the atlas's value as k grows (atlas/tools/noise_maps_v21.py)."
+  },
+  "Anchor range (preliminary)": {
+   "status": "current",
+   "definition": "A whole-blood reading of the span between an array's low and high fixed-site anchors, tared on its slide, that keeps a loss spread evenly over every site, which Met-A's self-tare cancels (GRP-014, DEV-SELFTARE-03). Preliminary: read and flagged, not commissioned."
+  },
+  "Hard-to-map probes": {
+   "status": "current",
+   "definition": "EPIC v1 probes whose sequence matches the genome with mapping quality under 10 or not at all (3.14 % of the array). Removing them moves no IAM instrument beyond its own repeat noise (DEV-MAPPABILITY-01, OTH-079); IAM-A's read counter already drops reads with mapping quality under 10."
   }
  },
  "retired": {
@@ -341,6 +381,10 @@
   },
   "(?<![\\d.])0\\.163\\s*(\\\\pm|±)|=0\\.163(?!\\d)": {
    "replaced_by": "phi = 0.147 on the commissioned counter (CANON phi; superseded 2026-10-19)",
+   "severity": "block"
+  },
+  "0\\.024 ?(--|–|-|to) ?0\\.042": {
+   "replaced_by": "0.0333-0.0549: the healthy held-error range of 56 cell types on chain Stage Q2's counter (holding_energy_q2.json); 0.024-0.042 came from PROC-CHANNEL-01's counter, which divided by every CpG, ends included (superseded 2026-10-19)",
    "severity": "block"
   }
  },
