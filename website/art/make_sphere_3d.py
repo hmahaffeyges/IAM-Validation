@@ -35,7 +35,14 @@ def manifests():
     except Exception as e: print("manifest table route:", type(e).__name__, str(e)[:200], flush=True)
     d = os.path.join("/tmp", "iam_manifests"); os.makedirs(d, exist_ok=True)
     roots = [os.path.expanduser("~"), os.getcwd(), "/tmp"]   # methylprep's download folder differs between installs: find the files by name
-    alt = {"MethylationEPIC_v-1-0_B4.CoreColumns.csv.gz": ("MethylationEPIC_v-1-0_B4.CoreColumns.csv.gz", "MethylationEPIC_v-1-0_B4.csv.gz", "HumanMethylationEPIC_manifest_v2.csv.gz"),   # methylprep 1.7.1 names its EPIC v1 manifest ..._manifest_v2 (the chain pins it)
+    # 2026-10-21: the cell pages' maps were laid out from Illumina's B4 manifest itself; methylprep's own EPIC table moves ~170 pixels in 27 cells,
+    # so only the B4 file is accepted, fetched from methylprep's manifest store and checked against Stage 1's pin (MANIFEST_SHA256)
+    import hashlib, urllib.request, stage_1_idat_calibration as S1
+    b4 = "MethylationEPIC_v-1-0_B4.CoreColumns.csv.gz"; dd = os.path.expanduser("~/.methylprep_manifest_files"); os.makedirs(dd, exist_ok=True)
+    if not os.path.exists(os.path.join(dd, b4)): urllib.request.urlretrieve("https://s3.amazonaws.com/array-manifest-files/" + b4, os.path.join(dd, b4))
+    h = hashlib.sha256(open(os.path.join(dd, b4), "rb").read()).hexdigest(); assert h == S1.MANIFEST_SHA256[b4], f"{b4}: sha256 {h[:16]} is not Stage 1's pin"
+    print("manifest", b4, "matches Stage 1's pin", flush=True)
+    alt = {b4: (b4,),
            "HumanMethylation450k_15017482_v3.csv.gz": ("HumanMethylation450k_15017482_v3.csv.gz",)}   # the EPIC v1 B4 manifest under the names methylprep versions use
     for name in alt:
         f = [os.path.join(dp, n) for n in alt[name] for r in roots for dp, _, fs in os.walk(r) if n in fs and not dp.startswith(d)]
