@@ -13,7 +13,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Index and align, with a memory log
         run: |
-          mkdir -p mt; ( while true; do echo "$(date -u +%H:%M:%S) $(free -m | awk '/Mem:/{print $3}') MB used $(df -BG --output=used / | tail -1)"; sleep 30; done ) > mt/memory.log &
+          # 2026-10-21: run 39651029751 was cut off by the runner about 100 minutes in and its memory log was lost with it, so every line is
+          # also printed into the job's own log as it is taken (kept by GitHub even when the machine is stopped); 8 GB of swap as a cushion
+          sudo fallocate -l 8G /swapfile && sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile; free -m | head -3
+          mkdir -p mt; ( while true; do echo "MEM $(date -u +%H:%M:%S) used $(free -m | awk '/Mem:/{print $3}') MB swap $(free -m | awk '/Swap:/{print $3}') MB disk $(df -BG --output=used / | tail -1 | tr -d ' ') top $(ps -eo rss,comm --sort=-rss | sed -n 2p | awk '{print int($1/1024)"MB",$2}')"; sleep 60; done ) | tee mt/memory.log &
           set +e; export REPO=$PWD MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/mw PY=python3 NW=4 RUNS="${{ inputs.runs }}"
           /usr/bin/time -v bash $MP/reproduce/mice_rrbs.sh > mt/run.log 2> mt/time.log; echo $? > mt/rc.txt
           cp -r $WORK/seq/logs mt/logs 2>/dev/null; ls -la $WORK/seq/pat > mt/pat_list.txt 2>&1; cp $WORK/seq/pat/*.pat.gz mt/ 2>/dev/null
