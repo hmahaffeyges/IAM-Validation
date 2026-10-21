@@ -46,6 +46,12 @@ Cosmologists solved a problem that methylation research shares: how to read a fa
 through noisy instruments that each have their own offsets, and still say how sure you are at every point. The Planck and WMAP missions
 mapped the microwave sky on a sphere divided into equal pixels (HEALPix). We place every CpG site of the genome on that same sphere,
 at a fixed place set by where it sits in the genome, so every cell and every sample shares one map and can be compared site for site.
+The sphere is chosen for what it does: every pixel has the same area, so no part of the genome is stretched; there are no edges or seams;
+neighbors in the genome share small patches, so clustered change shows as patches and scattered noise as speckle; and the sky's own tools
+apply unchanged. That map's layout is the genome's address. A second sphere, in development, maps the order itself: information is
+spherical in a strict sense (a site at methylation level b is the point (√b, √(1−b)) on a circle of radius 1, and the distance between two
+states is the angle between their points, the Fisher–Rao distance), so sites that are held in order together can be placed together, the
+way a brain scan maps activity rather than wiring ([DEV-SPHERE-01](doors/DEV_SPHERE_01.md)).
 
 What that brings, each from the sky to the cell:
 

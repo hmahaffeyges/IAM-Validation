@@ -47,7 +47,7 @@ A box is ticked only when code finds the file there. The Zenodo upload refuses w
 | 1 | M01 | Sphere construction adopted: synthetic methylome and the noise-map check met | no | [ ] | - | [ ] |
 | 2 | M02 | Atlas maps on the sphere, with masks and apodization | no | - | [ ] | [ ] |
 | 3 | M03 | Noise maps from the posterior draws (the half-difference maps are M03H, after the gift) | no | - | [ ] | [ ] |
-| 4 | G05 | 3D information sphere of the atlas, with noise maps | no | - | [ ] | [ ] |
+| 4 | G05 | 3D globe of the atlas sky sphere, with noise maps | no | - | [ ] | [ ] |
 
 ## D. The gift and the release
 

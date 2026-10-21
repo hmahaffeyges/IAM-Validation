@@ -361,7 +361,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-"line": 169,
+"line": 175,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -370,7 +370,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-"line": 210,
+"line": 216,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",

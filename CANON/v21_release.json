@@ -400,7 +400,7 @@
   {
    "id": "G05",
    "group": "Gift package",
-   "what": "3D information sphere of the atlas, with noise maps",
+   "what": "3D globe of the atlas sky sphere, with noise maps",
    "repo": [],
    "s3": [
     "atlas_v21/sphere/"
