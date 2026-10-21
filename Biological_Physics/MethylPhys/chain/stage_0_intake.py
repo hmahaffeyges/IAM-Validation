@@ -280,6 +280,9 @@ def _is_duplicate_within_24h(intake_log_path: str | None, sentrix_id: str) -> bo
 # ============================================================================
 
 # Canonical covariate field -> consuming stage (from the questionnaire's own tags).
+# 2026-10-20 (Chain Decoder finding F7): the stage names below (Stage 7 stratification and context modes, Stage 8, Stage 9) are the
+# questionnaire's tags for the class-floor engine retired 2026-10-03. No chain v4 stage reads these answers: they are recorded with the run
+# (patient_manifest.json) and change no reading. Only the field names are used, as the set of answers to keep.
 COVARIATE_FIELDS = {
     "sex_at_birth": "Stage 7 stratification",
     "smoking_status": "Stage 7 bin + Stage 3 foreground",
@@ -306,7 +309,7 @@ COVARIATE_FIELDS = {
     "current_medications_systemic": "Stage 9 report context",
 }
 
-# Covariate (when answered and not a No/null) -> Stage 7 interpretation mode.
+# Covariate (when answered and not a No/null) -> Stage 7 interpretation mode (recorded only: the retired engine's Stage 7 is not in chain v4).
 _CONTEXT_MODE_TRIGGERS = [
     ("current_cancer_in_treatment", "TREATMENT_RESPONSE"),
     ("current_immunosuppression", "EXPECTED_SUPPRESSION"),
@@ -766,6 +769,8 @@ def step_0_7b_platform_coverage(record, reference_cpg_coverage=None) -> dict:
     record["platform_tag"] = platform
     if platform != "450K":
         record["hm450_coverage_gate"] = "NA_EPIC"
+        if reference_cpg_coverage is not None:   # 2026-10-20 (Decoder finding F9): recorded, not gated; Stage M withholds Met-A below 90 % of its sites
+            record["epic_identity_site_coverage"] = round(reference_cpg_coverage, 4)
         record["advance"] = True
         return record
     if reference_cpg_coverage is None:

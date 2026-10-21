@@ -250,7 +250,7 @@
   },
   {
    "file": "stage_0_intake.py",
-   "lines": 1127,
+   "lines": 1132,
    "functions": [
     {
      "file": "stage_0_intake.py",
@@ -405,8 +405,8 @@
      "file": "stage_0_intake.py",
      "function": "_is_null_answer",
      "name": "_is_null_answer",
-     "line": 326,
-     "end": 328,
+     "line": 329,
+     "end": 331,
      "args": [
       "v"
      ],
@@ -422,8 +422,8 @@
      "file": "stage_0_intake.py",
      "function": "_answer_present",
      "name": "_answer_present",
-     "line": 331,
-     "end": 335,
+     "line": 334,
+     "end": 338,
      "args": [
       "v"
      ],
@@ -440,8 +440,8 @@
      "file": "stage_0_intake.py",
      "function": "_age_from_dob",
      "name": "_age_from_dob",
-     "line": 338,
-     "end": 345,
+     "line": 341,
+     "end": 348,
      "args": [
       "dob",
       "on_date"
@@ -456,8 +456,8 @@
      "file": "stage_0_intake.py",
      "function": "parse_questionnaire",
      "name": "parse_questionnaire",
-     "line": 348,
-     "end": 365,
+     "line": 351,
+     "end": 368,
      "args": [
       "answers",
       "intake_date"
@@ -475,8 +475,8 @@
      "file": "stage_0_intake.py",
      "function": "_looks_like_cleartext_pii",
      "name": "_looks_like_cleartext_pii",
-     "line": 368,
-     "end": 376,
+     "line": 371,
+     "end": 379,
      "args": [
       "patient_id"
      ],
@@ -492,8 +492,8 @@
      "file": "stage_0_intake.py",
      "function": "_write_manifest",
      "name": "_write_manifest",
-     "line": 379,
-     "end": 386,
+     "line": 382,
+     "end": 389,
      "args": [
       "manifest_dir",
       "record"
@@ -512,8 +512,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_2_manifest_creation",
      "name": "step_0_2_manifest_creation",
-     "line": 389,
-     "end": 428,
+     "line": 392,
+     "end": 431,
      "args": [
       "step_0_1_result",
       "questionnaire_answers",
@@ -532,8 +532,8 @@
      "file": "stage_0_intake.py",
      "function": "_sha256_file",
      "name": "_sha256_file",
-     "line": 437,
-     "end": 442,
+     "line": 440,
+     "end": 445,
      "args": [
       "path"
      ],
@@ -549,8 +549,8 @@
      "file": "stage_0_intake.py",
      "function": "_prior_hashes_for_sentrix",
      "name": "_prior_hashes_for_sentrix",
-     "line": 445,
-     "end": 458,
+     "line": 448,
+     "end": 461,
      "args": [
       "integrity_log_path",
       "sentrix_id"
@@ -567,8 +567,8 @@
      "file": "stage_0_intake.py",
      "function": "_log_integrity",
      "name": "_log_integrity",
-     "line": 461,
-     "end": 466,
+     "line": 464,
+     "end": 469,
      "args": [
       "integrity_log_path",
       "row"
@@ -585,8 +585,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_3_integrity_hash",
      "name": "step_0_3_integrity_hash",
-     "line": 469,
-     "end": 505,
+     "line": 472,
+     "end": 508,
      "args": [
       "record",
       "grn_path",
@@ -605,8 +605,8 @@
      "file": "stage_0_intake.py",
      "function": "extract_control_probes",
      "name": "extract_control_probes",
-     "line": 527,
-     "end": 533,
+     "line": 530,
+     "end": 536,
      "args": [
       "grn_path",
       "red_path",
@@ -622,8 +622,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_control_probes",
      "name": "validate_control_probes",
-     "line": 536,
-     "end": 576,
+     "line": 539,
+     "end": 579,
      "args": [
       "control_summary"
      ],
@@ -644,8 +644,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_4_control_probe_validation",
      "name": "step_0_4_control_probe_validation",
-     "line": 579,
-     "end": 598,
+     "line": 582,
+     "end": 601,
      "args": [
       "record",
       "grn_path",
@@ -664,8 +664,8 @@
      "file": "stage_0_intake.py",
      "function": "_normal_sf",
      "name": "_normal_sf",
-     "line": 618,
-     "end": 626,
+     "line": 621,
+     "end": 629,
      "args": [
       "z"
      ],
@@ -681,8 +681,8 @@
      "file": "stage_0_intake.py",
      "function": "compute_detection_p",
      "name": "compute_detection_p",
-     "line": 629,
-     "end": 634,
+     "line": 632,
+     "end": 637,
      "args": [
       "probe_intensities",
       "mu_bg",
@@ -700,8 +700,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_detection_p",
      "name": "validate_detection_p",
-     "line": 637,
-     "end": 651,
+     "line": 640,
+     "end": 654,
      "args": [
       "detection_p_array"
      ],
@@ -723,8 +723,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_5_detection_pvalue_qc",
      "name": "step_0_5_detection_pvalue_qc",
-     "line": 654,
-     "end": 675,
+     "line": 657,
+     "end": 678,
      "args": [
       "record",
       "probe_intensities",
@@ -742,8 +742,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_bead_count",
      "name": "validate_bead_count",
-     "line": 686,
-     "end": 693,
+     "line": 689,
+     "end": 696,
      "args": [
       "bead_counts",
       "min_beads"
@@ -763,8 +763,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_6_bead_count_qc",
      "name": "step_0_6_bead_count_qc",
-     "line": 696,
-     "end": 709,
+     "line": 699,
+     "end": 712,
      "args": [
       "record",
       "bead_counts"
@@ -781,8 +781,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_call_rate",
      "name": "validate_call_rate",
-     "line": 720,
-     "end": 728,
+     "line": 723,
+     "end": 731,
      "args": [
       "n_passing_both",
       "n_total"
@@ -802,8 +802,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_7_call_rate",
      "name": "step_0_7_call_rate",
-     "line": 731,
-     "end": 752,
+     "line": 734,
+     "end": 755,
      "args": [
       "record",
       "detection_pass_mask",
@@ -821,13 +821,13 @@
      "file": "stage_0_intake.py",
      "function": "step_0_7b_platform_coverage",
      "name": "step_0_7b_platform_coverage",
-     "line": 762,
-     "end": 784,
+     "line": 765,
+     "end": 789,
      "args": [
       "record",
       "reference_cpg_coverage"
      ],
-     "lines": 23,
+     "lines": 25,
      "doc": "",
      "constants": [
       "HM450_COVERAGE_MIN"
@@ -841,8 +841,8 @@
      "file": "stage_0_intake.py",
      "function": "predict_sex",
      "name": "predict_sex",
-     "line": 794,
-     "end": 795,
+     "line": 799,
+     "end": 800,
      "args": [
       "log2_x_median",
       "log2_y_median",
@@ -862,8 +862,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_sex",
      "name": "validate_sex",
-     "line": 798,
-     "end": 804,
+     "line": 803,
+     "end": 809,
      "args": [
       "log2_x_median",
       "log2_y_median",
@@ -881,8 +881,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_8_sex_check",
      "name": "step_0_8_sex_check",
-     "line": 807,
-     "end": 821,
+     "line": 812,
+     "end": 826,
      "args": [
       "record",
       "sex_intensities"
@@ -899,8 +899,8 @@
      "file": "stage_0_intake.py",
      "function": "_fmt",
      "name": "_fmt",
-     "line": 836,
-     "end": 837,
+     "line": 841,
+     "end": 842,
      "args": [
       "x",
       "nd"
@@ -917,8 +917,8 @@
      "file": "stage_0_intake.py",
      "function": "explain_stage0",
      "name": "explain_stage0",
-     "line": 838,
-     "end": 891,
+     "line": 843,
+     "end": 896,
      "args": [
       "record",
       "hard_fail",
@@ -951,8 +951,8 @@
      "file": "stage_0_intake.py",
      "function": "explain_stage0.add",
      "name": "add",
-     "line": 840,
-     "end": 841,
+     "line": 845,
+     "end": 846,
      "args": [
       "check",
       "outcome",
@@ -975,8 +975,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_9_decision_gate",
      "name": "step_0_9_decision_gate",
-     "line": 894,
-     "end": 973,
+     "line": 899,
+     "end": 978,
      "args": [
       "record",
       "verdict_log_path"
@@ -4953,7 +4953,7 @@
   },
   {
    "file": "serial_mode.py",
-   "lines": 64,
+   "lines": 67,
    "functions": [
     {
      "file": "serial_mode.py",
@@ -4976,14 +4976,14 @@
      "function": "delta_cells",
      "name": "delta_cells",
      "line": 16,
-     "end": 30,
+     "end": 31,
      "args": [
       "now",
       "prior",
       "floor"
      ],
-     "lines": 15,
-     "doc": "Per-cell dA for cells present in both draws; appeared / disappeared listed, not differenced.",
+     "lines": 16,
+     "doc": "RETIRED LAYOUT (Chain Decoder finding F29, 2026-10-20): reads the per-cell bundle of the class-floor engine (cells_all / loci), which chain v4 bundles do not carry; on a v4 bundle it returns nothing. Kept for the earlier records. Per-cell dA for cells present in both draws; appeared / disappeared listed, not differenced.",
      "constants": [],
      "data_files": [],
      "traced_calls": {}
@@ -4992,8 +4992,8 @@
      "file": "serial_mode.py",
      "function": "delta_sky",
      "name": "delta_sky",
-     "line": 32,
-     "end": 39,
+     "line": 33,
+     "end": 40,
      "args": [
       "beta_now",
       "beta_prior",
@@ -5009,8 +5009,8 @@
      "file": "serial_mode.py",
      "function": "snp_noise_floor_A",
      "name": "snp_noise_floor_A",
-     "line": 41,
-     "end": 52,
+     "line": 42,
+     "end": 54,
      "args": [
       "pci_entry",
       "beta_now",
@@ -5019,8 +5019,8 @@
       "snp_prior",
       "hmin"
      ],
-     "lines": 12,
-     "doc": "F2: the SNP-probe noise of the two arrays propagated to A over the cell's identity loci - a LOWER BOUND on the change floor. var(mean beta) = sum(a + b*beta(1-beta)) / n^2 per array; dA ~ |dH/dbeta| * sqrt(var_now + var_prior) / H_min at the mean.",
+     "lines": 13,
+     "doc": "RETIRED LAYOUT (Chain Decoder finding F29, 2026-10-20): reads the per-cell bundle of the class-floor engine (cells_all / loci), which chain v4 bundles do not carry; on a v4 bundle it returns nothing. Kept for the earlier records. F2: the SNP-probe noise of the two arrays propagated to A over the cell's identity loci - a LOWER BOUND on the change floor. var(mean beta) = sum(a + b*beta(1-beta)) / n^",
      "constants": [],
      "data_files": [],
      "traced_calls": {}
@@ -5029,8 +5029,8 @@
      "file": "serial_mode.py",
      "function": "snp_noise_floor_A.var_mean",
      "name": "var_mean",
-     "line": 47,
-     "end": 49,
+     "line": 49,
+     "end": 51,
      "args": [
       "beta",
       "snp"
@@ -5045,13 +5045,13 @@
      "file": "serial_mode.py",
      "function": "trajectory",
      "name": "trajectory",
-     "line": 54,
-     "end": 63,
+     "line": 56,
+     "end": 66,
      "args": [
       "bundles"
      ],
-     "lines": 10,
-     "doc": "Bundles in draw order; per-cell A_1..A_N with dates. Numbers in order - no fit, no slope.",
+     "lines": 11,
+     "doc": "RETIRED LAYOUT (Chain Decoder finding F29, 2026-10-20): reads the per-cell bundle of the class-floor engine (cells_all / loci), which chain v4 bundles do not carry; on a v4 bundle it returns nothing. Kept for the earlier records. Bundles in draw order; per-cell A_1..A_N with dates. Numbers in order - no fit, no slope.",
      "constants": [],
      "data_files": [],
      "traced_calls": {}

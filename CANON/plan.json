@@ -452,13 +452,13 @@
     },
     {
      "id": "F7",
-     "text": "stage_0_intake COVARIATE_FIELDS / parse_questionnaire map answers to \"Stage 7 stratification\", \"Stage 7 TREATMENT_RESPONSE\", \"Stage 8 progenitor card\" etc. - stages of the retired class-era engine; no stage reads stage7_context_modes. Relabel as recorded only, or retire.",
-     "status": "open"
+     "text": "stage_0_intake COVARIATE_FIELDS / parse_questionnaire map answers to \"Stage 7 stratification\", \"Stage 7 TREATMENT_RESPONSE\", \"Stage 8 progenitor card\" etc. - stages of the retired class-era engine; no stage reads stage7_context_modes. Relabel as recorded only, or retire. | PARTLY: the code now says no chain v4 stage reads these answers (recorded only); the questionnaire's own tags are unchanged.",
+     "status": "partly fixed 2026-10-20"
     },
     {
      "id": "F9",
-     "text": "Step 0.7b on EPIC always passes (NA_EPIC): run_sample computes the neutrophil-site coverage and hands it in, and 0.7b ignores it on the chain's only platform. Either record the number on EPIC or say in the Decoder and SOP that 0.7b gates 450K only (and 450K is refused by the conductor anyway).",
-     "status": "open"
+     "text": "Step 0.7b on EPIC always passes (NA_EPIC): run_sample computes the neutrophil-site coverage and hands it in, and 0.7b ignores it on the chain's only platform. Either record the number on EPIC or say in the Decoder and SOP that 0.7b gates 450K only (and 450K is refused by the conductor anyway). | FIXED: on EPIC 0.7b now records epic_identity_site_coverage (not gated; Stage M withholds Met-A below 90 % of its sites).",
+     "status": "fixed 2026-10-20"
     },
     {
      "id": "F10",
@@ -552,8 +552,8 @@
     },
     {
      "id": "F29",
-     "text": "serial_mode.delta_cells / trajectory / snp_noise_floor_A read bundle keys of the retired class-era engine (cells_all, pci_entry[\"loci\"]) that chain v4 bundles do not have: on v4 bundles they return nothing. Either port them to v4 (met_a, cell shares) or mark them retired; Stage 12b itself (check_same_person, delta_sky) works.",
-     "status": "open"
+     "text": "serial_mode.delta_cells / trajectory / snp_noise_floor_A read bundle keys of the retired class-era engine (cells_all, pci_entry[\"loci\"]) that chain v4 bundles do not have: on v4 bundles they return nothing. Either port them to v4 (met_a, cell shares) or mark them retired; Stage 12b itself (check_same_person, delta_sky) works. | PARTLY: the three functions are labeled RETIRED LAYOUT; a port to v4 bundles is open.",
+     "status": "partly fixed 2026-10-20"
     },
     {
      "id": "F30",

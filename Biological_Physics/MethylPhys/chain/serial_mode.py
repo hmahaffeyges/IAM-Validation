@@ -14,7 +14,8 @@ def check_same_person(now: dict, prior: dict):
     return True, "same person, same array type, same pipeline"
 
 def delta_cells(now: dict, prior: dict, floor: dict | None = None):
-    """Per-cell dA for cells present in both draws; appeared / disappeared listed, not differenced."""
+    """RETIRED LAYOUT (Chain Decoder finding F29, 2026-10-20): reads the per-cell bundle of the class-floor engine (cells_all / loci), which chain v4
+    bundles do not carry; on a v4 bundle it returns nothing. Kept for the earlier records. Per-cell dA for cells present in both draws; appeared / disappeared listed, not differenced."""
     cn, cp = now.get("cells_all") or {}, prior.get("cells_all") or {}
     rows, appeared, gone = [], [], []
     for c in sorted(set(cn) | set(cp)):
@@ -39,7 +40,8 @@ def delta_sky(beta_now: pd.Series, beta_prior: pd.Series, floor_beta: float | No
     return d, out
 
 def snp_noise_floor_A(pci_entry: dict, beta_now: pd.Series, beta_prior: pd.Series, snp_now: dict | None, snp_prior: dict | None, hmin: float):
-    """F2: the SNP-probe noise of the two arrays propagated to A over the cell's identity loci - a LOWER BOUND on the change floor.
+    """RETIRED LAYOUT (Chain Decoder finding F29, 2026-10-20): reads the per-cell bundle of the class-floor engine (cells_all / loci), which chain v4
+    bundles do not carry; on a v4 bundle it returns nothing. Kept for the earlier records. F2: the SNP-probe noise of the two arrays propagated to A over the cell's identity loci - a LOWER BOUND on the change floor.
     var(mean beta) = sum(a + b*beta(1-beta)) / n^2 per array; dA ~ |dH/dbeta| * sqrt(var_now + var_prior) / H_min at the mean."""
     if not snp_now or not snp_prior: return None
     loci = [l for l in pci_entry["loci"] if l in beta_now.index and l in beta_prior.index]
@@ -52,7 +54,8 @@ def snp_noise_floor_A(pci_entry: dict, beta_now: pd.Series, beta_prior: pd.Serie
     return float(2.576 * dH * np.sqrt(vn + vp) / hmin)   # 99 % two-sided
 
 def trajectory(bundles: list[dict]):
-    """Bundles in draw order; per-cell A_1..A_N with dates. Numbers in order - no fit, no slope."""
+    """RETIRED LAYOUT (Chain Decoder finding F29, 2026-10-20): reads the per-cell bundle of the class-floor engine (cells_all / loci), which chain v4
+    bundles do not carry; on a v4 bundle it returns nothing. Kept for the earlier records. Bundles in draw order; per-cell A_1..A_N with dates. Numbers in order - no fit, no slope."""
     cells = sorted({c for b in bundles for c, v in (b.get("cells_all") or {}).items() if v.get("present") and v.get("A") is not None})
     dates = [((b.get("context") or {}).get("intake_date") or b.get("run_id")) for b in bundles]
     rows = []
