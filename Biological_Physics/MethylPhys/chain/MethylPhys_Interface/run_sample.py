@@ -602,7 +602,8 @@ def main():
             except Exception as e: o["changes_sky"] = {"drawn": False, "reason": f"{type(e).__name__}: {e}"[:200]}
         try:   # the turning globe in the HTML report (2026-10-21, step 13d): sample, its healthy reference, the difference, Met-A's departures
             import report_globe_v4 as RG
-            _g = RG.build(_pd.Series(beta, dtype="float64"), a.specimen, {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or []}, z=_z)
+            _g = RG.build(_pd.Series(beta, dtype="float64"), a.specimen, {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or []}, z=_z,
+                           fractions=(o.get("composition") or {}).get("fractions"))
             o["_globe_html"] = _g.pop("fragment", ""); o["globe"] = _g
         except Exception as e: o["globe"] = {"drawn": False, "reason": f"{type(e).__name__}: {e}"[:200]}
     if seq and (a.pat or a.bam) and not a.dev_iama_position:   # chain v4 Stage Q2 - IAM-A against the sample's own reference (commissioned 2026-10-17)

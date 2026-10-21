@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 713,
+   "lines": 714,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -213,9 +213,9 @@
      "function": "main",
      "name": "main",
      "line": 239,
-     "end": 710,
+     "end": 711,
      "args": [],
-     "lines": 472,
+     "lines": 473,
      "doc": "",
      "constants": [
       "BIO",
@@ -253,8 +253,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 657,
-     "end": 658,
+     "line": 658,
+     "end": 659,
      "args": [
       "b",
       "it",
@@ -5212,14 +5212,14 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 178,
+   "lines": 219,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_to_sky",
      "name": "_to_sky",
-     "line": 35,
-     "end": 39,
+     "line": 40,
+     "end": 44,
      "args": [
       "v",
       "npix"
@@ -5234,8 +5234,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_mu",
      "name": "_mu",
-     "line": 41,
-     "end": 51,
+     "line": 46,
+     "end": 56,
      "args": [
       "cells"
      ],
@@ -5254,8 +5254,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_lookup",
      "name": "_lookup",
-     "line": 53,
-     "end": 59,
+     "line": 58,
+     "end": 64,
      "args": [
       "nside"
      ],
@@ -5271,8 +5271,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_png_b64",
      "name": "_png_b64",
-     "line": 61,
-     "end": 63,
+     "line": 66,
+     "end": 68,
      "args": [
       "arr",
       "mode"
@@ -5287,8 +5287,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_jpg_b64",
      "name": "_jpg_b64",
-     "line": 65,
-     "end": 67,
+     "line": 70,
+     "end": 72,
      "args": [
       "rgb"
      ],
@@ -5302,8 +5302,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "reference",
      "name": "reference",
-     "line": 69,
-     "end": 78,
+     "line": 74,
+     "end": 83,
      "args": [
       "specimen",
       "shares"
@@ -5319,18 +5319,57 @@
     },
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "_dots",
+     "name": "_dots",
+     "line": 85,
+     "end": 91,
+     "args": [
+      "v"
+     ],
+     "lines": 7,
+     "doc": "A sparse texture (most pixels NaN) drawn as dots: every pixel within R_DOT of a site takes that site's value (nearest site).",
+     "constants": [
+      "R_DOT"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "purified",
+     "name": "purified",
+     "line": 93,
+     "end": 101,
+     "args": [
+      "fractions",
+      "specimen"
+     ],
+     "lines": 9,
+     "doc": "Met-A's own reference at its 6,000 sites: Series by site, or None. Blood: the Stage A fractions times the purified group profiles.",
+     "constants": [
+      "BLOOD",
+      "CH"
+     ],
+     "data_files": [
+      "blood_composition_EPIC_v1.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build",
      "name": "build",
-     "line": 80,
-     "end": 130,
+     "line": 103,
+     "end": 167,
      "args": [
       "beta",
       "specimen",
       "shares",
       "out_html",
-      "z"
+      "z",
+      "fractions"
      ],
-     "lines": 51,
+     "lines": 65,
      "doc": "",
      "constants": [
       "ATLAS",
@@ -5338,6 +5377,7 @@
       "HERE",
       "ORDER",
       "PAGE",
+      "PANEL",
       "R_DOT"
      ],
      "data_files": [
@@ -5352,8 +5392,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build.rgb",
      "name": "rgb",
-     "line": 99,
-     "end": 100,
+     "line": 122,
+     "end": 123,
      "args": [
       "m"
      ],
@@ -5368,5 +5408,5 @@
   }
  ],
  "n_files": 23,
- "n_functions": 269
+ "n_functions": 271
 }

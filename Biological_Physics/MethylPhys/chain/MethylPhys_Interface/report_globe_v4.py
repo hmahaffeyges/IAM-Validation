@@ -18,6 +18,11 @@ NSIDE 256; a pixel holding two sites shows their mean):
   departures  only Met-A's 6,000 neutrophil identity sites: the C-Score's departure map (conductor_v3, unchanged), centered and scaled by the
               sample's own median and spread at those sites, exactly as the report's overlay (changes_sky_png); the reader sets the size. A small loss
               spread over many sites is not visible on the whole-genome layer; this layer shows the instrument's own view of it.
+  purified    Met-A's own reference (2026-10-21, author: "the purified cell reference globe ... the appropriate one for the appropriate test"):
+              at Met-A's 6,000 identity sites only, the purified-array group profiles (Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json)
+              weighted by this blood's Stage A fractions (conductor_v3.stage_a_composition), or the neutrophil profile for isolated neutrophils;
+              with the sample's difference from it. Dots, as the departures layer.
+  cells       each Stage D21 cell as its own layer, named with this sample's share: the cell's healthy map in IAM-Atlas v2.1.
 Sex: in women one X chromosome is held methylated, so a woman's X differs from a reference that pools both sexes (seen on the first real
 blood, 2026-10-21: the last 2 % of the genome order, where X sits, differs 7 to 11 times as often as the rest). The page names it.
 Known offset (DEV-REFERENCES-01, ATL-070): the atlas blends 21 sources and sits about 0.006 closer to 0.5 than a single array at most sites,
@@ -77,7 +82,25 @@ def reference(specimen, shares):
     c = {"neutrophil": "neutrophils", "cd8": "cd8 t cells", "cd8 t cell": "cd8 t cells", "cd4 t cell": "cd4 t cells", "monocyte": "monocytes", "b cell": "b cells", "nk cell": "nk cells"}.get(c, c)
     return (f"healthy {c} (IAM-Atlas v2.1)", {c: 1.0}) if c else (None, "no specimen given")
 
-def build(beta, specimen, shares, out_html=None, z=None):
+def _dots(v):
+    """A sparse texture (most pixels NaN) drawn as dots: every pixel within R_DOT of a site takes that site's value (nearest site)."""
+    from scipy import ndimage
+    miss = ~np.isfinite(v)
+    if miss.all(): return v
+    d, (i, j) = ndimage.distance_transform_edt(miss, return_indices=True)
+    return np.where(d <= R_DOT, v[i, j], np.nan)
+
+def purified(fractions, specimen):
+    """Met-A's own reference at its 6,000 sites: Series by site, or None. Blood: the Stage A fractions times the purified group profiles."""
+    B = json.load(open(os.path.join(CH, "Runtime Matrices", "Met_A_Floors", "blood_composition_EPIC_v1.json")))
+    S = B["neutrophil_sites"]; P = {g: np.asarray(v, float) for g, v in B["profiles_at_neutrophil_sites"].items()}
+    if str(specimen or "").strip().lower() in BLOOD:
+        f = {g: float(x) for g, x in (fractions or {}).items() if g in P and x is not None}
+        if not f or sum(f.values()) <= 0: return None
+        t = sum(f.values()); return pd.Series(sum(P[g] * (x / t) for g, x in f.items()), index=S)
+    return pd.Series(P["NEU"], index=S) if "neutrophil" in str(specimen).lower() else None
+
+def build(beta, specimen, shares, out_html=None, z=None, fractions=None):
     import pyarrow.parquet as pq
     from matplotlib.colors import ListedColormap
     if not os.path.exists(ORDER): return {"drawn": False, "reason": f"the frozen layout {os.path.relpath(ORDER, CH)} is missing"}
@@ -115,6 +138,18 @@ def build(beta, specimen, shares, out_html=None, z=None):
         zv = np.where(has, np.where(pos >= neg, np.maximum(pos, 0), -neg), np.nan); zv[has & ~np.isfinite(zv)] = 0.0
         zcode = np.where(np.isfinite(zv), np.clip(np.round(128 + np.clip(zv / 10, -0.5, 0.5) * 254), 1, 255), 0).astype(np.uint8)
         zm = np.abs(zs[np.isfinite(zs)]); zabove = [round(float((zm > t / 10).mean()), 4) for t in range(51)]
+    pcode = prgb = pabove = None; pe = purified(fractions, specimen)
+    if pe is not None:
+        pv = pe.reindex(ids[order]).to_numpy(); sv = pd.Series(beta, dtype="float64").reindex(ids[order]).to_numpy()
+        ps = _to_sky(pv, npix); pdif = _to_sky(np.where(np.isfinite(pv) & np.isfinite(sv), sv - pv, np.nan), npix)
+        pt = _dots(ps[look].reshape(HT, W)); prgb = (cm(np.clip(np.nan_to_num(pt, nan=0), 0, 1))[..., :3] * 255).astype(np.uint8); prgb[~np.isfinite(pt)] = (42, 45, 51)
+        pdv = _dots(pdif[look].reshape(HT, W))
+        pcode = np.where(np.isfinite(pdv), np.clip(np.round(128 + np.clip(pdv, -0.5, 0.5) * 254), 1, 255), 0).astype(np.uint8)
+        pm = np.abs(pdif[np.isfinite(pdif)]); pabove = [round(float((pm > t / 100).mean()), 4) for t in range(51)]
+    cellmaps = []
+    for c, wt in sorted((shares or {}).items(), key=lambda x: -(x[1] or 0)):
+        if c in PANEL and wt is not None:
+            mc = _mu([PANEL[c]])[PANEL[c]]; cellmaps.append(dict(name=f"{c}: {100 * wt:.0f} % of this sample", t=_jpg_b64(rgb(_to_sky(mc[order], npix)))))
     m = np.abs(dif_s[np.isfinite(dif_s)]); steps = np.round(np.arange(0, 0.51, 0.01), 2)
     above = [round(float((m > t).mean()), 4) if len(m) else None for t in steps]   # share of measured sky pixels above each size (equal-area)
     rec = {"drawn": True, "reference": name, "weights": {c: round(v, 4) for c, v in w.items()}, "sites_compared": int(both.sum()),
@@ -122,7 +157,9 @@ def build(beta, specimen, shares, out_html=None, z=None):
            "share_above": {"0.05": above[5], "0.10": above[10], "0.20": above[20], "0.30": above[30]},
            "layout": "IAM-Atlas v2.1 genome-order sky, NSIDE 256 NESTED (sky_order_v21.npz)", "scored": False}
     data = dict(s=_jpg_b64(rgb(smp_s)), r=_jpg_b64(rgb(ref_s)), d=_png_b64(code, "L"), above=above, ref=name,
-                z=_png_b64(zcode, "L") if zcode is not None else None, zabove=zabove)
+                z=_png_b64(zcode, "L") if zcode is not None else None, zabove=zabove,
+                p=_jpg_b64(prgb) if prgb is not None else None, pd=_png_b64(pcode, "L") if pcode is not None else None, pabove=pabove, cells=cellmaps)
+    rec["layers"] = ["sample", "reference", "difference"] + (["departures"] if zcode is not None else []) + (["purified", "purified difference"] if pcode is not None else []) + [c["name"] for c in cellmaps]
     if zabove: rec["departure_share_above"] = {"2 spreads": zabove[20], "3 spreads": zabove[30]}
     html = PAGE.replace("__DATA__", json.dumps(data)).replace("__REF__", name).replace("__N__", f"{rec['sites_compared']:,}")
     if out_html: open(out_html, "w", encoding="utf-8").write(html); rec["html"] = os.path.abspath(out_html)
@@ -134,12 +171,13 @@ PAGE = r"""<section id="sec-globe"><h2>The sample on the globe, against its heal
 sample, its healthy reference (<b>__REF__</b>), and their difference at __N__ sites. In the difference layer, choose the smallest difference to
 show: everything smaller fades into the background, so only the larger differences stay lit, red where the sample holds more methylation than
 healthy and blue where it holds less. A picture: nothing is scored from it. Met-A and the C-Score read against their own commissioned
-reference. The atlas blends 21 sources and sits slightly closer to 0.5 than one array, so a healthy sample shows a faint even difference.
+reference, which is also shown: "Met-A's purified-array reference", at its 6,000 sites, and the sample's difference from it. Each cell the
+IAM-Deconvolver read is its own layer, with its share of this sample. The atlas blends 21 sources and sits slightly closer to 0.5 than one array, so a healthy sample shows a faint even difference.
 In a woman one X chromosome is held methylated, so her X shows as a patch of difference against a reference that pools both sexes. The last
 layer shows only Met-A's 6,000 neutrophil identity sites, each as its departure in the sample's own spread (the C-Score's view, as in the overlay above): a small loss spread over
 many sites is easier to see there than on the whole genome.</p>
 <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start"><canvas id="gl" width="520" height="520" style="max-width:100%;touch-action:none;cursor:grab"></canvas>
-<div style="min-width:240px"><p><label>Layer <select id="gl-layer"><option value="d">difference</option><option value="s">sample</option><option value="r">healthy reference</option><option value="z">departures at Met-A's sites</option></select></label></p>
+<div style="min-width:240px"><p><label>Layer <select id="gl-layer"><option value="d">difference</option><option value="s">sample</option><option value="r">healthy reference</option><option value="z">departures at Met-A's sites</option><option value="p">Met-A's purified-array reference</option><option value="pd">difference from Met-A's purified reference</option></select></label></p>
 <p><label>Show differences larger than <input id="gl-t" type="range" min="0" max="50" value="10"> <span id="gl-tv">0.10</span></label></p>
 <p id="gl-share"></p><p><button id="gl-spin" type="button">Stop or start turning</button></p>
 <p style="font-size:0.9em">Difference layers: grey is where the sample matches its healthy reference (the shade is the reference's own methylation);
@@ -149,14 +187,15 @@ const D = __DATA__, cv = document.getElementById('gl'), cx = cv.getContext('2d')
 let yaw = 0, pitch = 0.35, spin = true, drag = null; const tex = {}; let TW = 0, TH = 0;
 function load(k, src) { return new Promise(r => { const im = new Image(); im.onload = () => { const o = document.createElement('canvas'); o.width = TW = im.width; o.height = TH = im.height;
   const g = o.getContext('2d'); g.drawImage(im, 0, 0); tex[k] = g.getImageData(0, 0, TW, TH).data; r(); }; im.src = src; }); }
+for (const [k, c] of (D.cells || []).entries()) { const o = document.createElement('option'); o.value = 'c' + k; o.textContent = 'healthy ' + c.name; L.appendChild(o); }
 function share() { const t = +T.value, zl = L.value === 'z';
   document.getElementById('gl-tv').textContent = zl ? (t / 10).toFixed(1) + ' spreads' : (t / 100).toFixed(2);
-  const a = zl ? (D.zabove || [])[t] : D.above[t];
+  const a = zl ? (D.zabove || [])[t] : L.value === 'pd' ? (D.pabove || [])[t] : D.above[t];
   document.getElementById('gl-share').textContent = a == null ? '' : zl ? (100 * a).toFixed(1) + " % of the pixels holding Met-A's sites depart by more than " + (t / 10).toFixed(1) + ' of the sample\'s own spreads.'
     : (100 * a).toFixed(1) + ' % of the measured globe differs from the reference by more than ' + (t / 100).toFixed(2) + '.'; }
 function px(t, k) { const L_ = L.value;
-  if (L_ === 's' || L_ === 'r') { const s = tex[L_]; return [s[t], s[t + 1], s[t + 2]]; }
-  const c = (L_ === 'z' ? tex.z : tex.d)[t]; if (c === 0) return [42, 45, 51]; const v = (c - 128) / 254, a = Math.abs(v), th = L_ === 'z' ? +T.value / 500 : +T.value / 100;
+  if (L_ === 's' || L_ === 'r' || L_ === 'p' || L_[0] === 'c') { const s = tex[L_]; return [s[t], s[t + 1], s[t + 2]]; }
+  const c = (L_ === 'z' ? tex.z : L_ === 'pd' ? tex.pd : tex.d)[t]; if (c === 0) return [42, 45, 51]; const v = (c - 128) / 254, a = Math.abs(v), th = L_ === 'z' ? +T.value / 500 : +T.value / 100;
   if (a <= th) { const r = tex.r, g = 0.3 * r[t] + 0.59 * r[t + 1] + 0.11 * r[t + 2], q = 105 + 0.55 * g; return [q, q, q]; }   // quiet: the healthy reference in greys
   const f = Math.min(1, 0.45 + 0.55 * a / (L_ === 'z' ? 1 : 0.3));
   return v > 0 ? [235 * f + 20, 40, 40] : [30, 80, 230 * f + 25]; }
@@ -170,8 +209,10 @@ function draw() { if (!tex.d) return; const N = cv.width, img = cx.createImageDa
 cv.addEventListener('pointerdown', e => { drag = [e.clientX, e.clientY, yaw, pitch]; spin = false; cv.setPointerCapture(e.pointerId); });
 cv.addEventListener('pointermove', e => { if (!drag) return; yaw = drag[2] - (e.clientX - drag[0]) * 0.01; pitch = Math.max(-1.5, Math.min(1.5, drag[3] + (e.clientY - drag[1]) * 0.01)); draw(); });
 cv.addEventListener('pointerup', () => drag = null); document.getElementById('gl-spin').onclick = () => { spin = !spin; };
-if (!D.z) L.querySelector('option[value="z"]').remove(); L.onchange = () => { share(); draw(); }; T.oninput = () => { share(); draw(); }; share();
-Promise.all([load('s', 'data:image/jpeg;base64,' + D.s), load('r', 'data:image/jpeg;base64,' + D.r), load('d', 'data:image/png;base64,' + D.d)].concat(D.z ? [load('z', 'data:image/png;base64,' + D.z)] : [])).then(draw);
+if (!D.z) L.querySelector('option[value="z"]').remove(); if (!D.p) { L.querySelector('option[value="p"]').remove(); L.querySelector('option[value="pd"]').remove(); } L.onchange = () => { share(); draw(); }; T.oninput = () => { share(); draw(); }; share();
+Promise.all([load('s', 'data:image/jpeg;base64,' + D.s), load('r', 'data:image/jpeg;base64,' + D.r), load('d', 'data:image/png;base64,' + D.d)].concat(D.z ? [load('z', 'data:image/png;base64,' + D.z)] : [])
+  .concat(D.p ? [load('p', 'data:image/jpeg;base64,' + D.p), load('pd', 'data:image/png;base64,' + D.pd)] : [])
+  .concat((D.cells || []).map((c, k) => load('c' + k, 'data:image/jpeg;base64,' + c.t)))).then(draw);
 (function tick() { if (spin) { yaw += 0.006; draw(); } requestAnimationFrame(tick); })();
 })();</script></section>
 """

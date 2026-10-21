@@ -1293,6 +1293,18 @@ shows on the departure layer.
 (release check V12). Give whole-blood shares that do not sum to 1: the weights must rescale. Edit the atlas site list: the globe must refuse
 to draw, because the frozen order no longer matches.
 
+**Two more layers (2026-10-21).** Met-A's own reference, the purified arrays: at its 6,000 identity sites, the purified group profiles
+weighted by this blood's Stage A fractions (or the neutrophil profile for isolated neutrophils), with the sample's difference from it, drawn
+as dots. And each cell the IAM-Deconvolver read, named with its share of this sample, as that cell's healthy map in IAM-Atlas v2.1. Each
+reading is shown against the reference its instrument reads against.
+
+### report_globe_v4.py::_dots
+Draws a sparse texture as dots: every texture pixel within 3 of a measured one takes the nearest one's value.
+
+### report_globe_v4.py::purified
+Met-A's purified-array reference at its 6,000 sites: the Stage A fractions times the purified group profiles for blood, the neutrophil profile
+for isolated neutrophils; nothing for other specimens.
+
 ### report_globe_v4.py::_to_sky
 One value per site in genome order to a NESTED map: the mean per pixel, nothing where no site was measured (the atlas tools' own rule).
 
