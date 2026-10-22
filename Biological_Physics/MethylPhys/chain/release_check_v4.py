@@ -280,7 +280,7 @@ def V13(tmp):
     (doors/data/REPORT_EXAMPLES_V4/plant_clustered.py); each run's own globe page is opened in Chromium (playwright), the layer chosen and the
     slider moved as a reader would, and the canvas screenshotted at left, middle and right (written to GLOBE_SHOTS or tmp/globe_shots), for
     every group and every layer (2026-10-21). Bars: every layer has a slider; a change layer starts on a visible map, a healthy blood is dark
-    at its right end, and the Met-A layer's key says disorder; a map layer's slider removes most of the map (or, for a layer drawn as dots, at least four fifths of its color); the plant lights the Met-A layer
+    at its right end, and the Met-A layer's key says disorder; every map layer is dark (at least 90 % of the disk) at its slider's right end; the plant lights the Met-A layer
     more than the healthy blood does. Without a browser (a laptop): not checked; on GitHub (GITHUB_ACTIONS) a missing browser is a failure."""
     try:
         from playwright.sync_api import sync_playwright
@@ -334,10 +334,11 @@ def V13(tmp):
             if d > 0.5: bad.append(f"{tag} '{name}': left end is not a visible map (dark {d:.2f})")
             if tag == "h" and out[(tag, gi, i, mx)][1] >= 0.01: bad.append(f"{tag} '{name}': healthy blood not dark at the right end (lit {out[(tag, gi, i, mx)][1]:.4f})")
             if "Met-A" in name and "disorder" not in key: bad.append(f"{tag} '{name}': key does not say disorder")
-        elif mx and dr - d < 0.2 and not (out[(tag, gi, i, 0)][1] > 0 and out[(tag, gi, i, mx)][1] <= 0.2 * out[(tag, gi, i, 0)][1]):
-            # 2026-10-21 (release run 39713293743): a layer drawn as dots on a gray globe (Met-A's 6,000-site purified reference) cannot go
-            # mostly dark; it passes when the drawn color falls to a fifth or less (that layer: 0.067 -> 0.005 of the disk)
-            bad.append(f"{tag} '{name}': the slider removes too little (dark {d:.2f} -> {dr:.2f}, color {out[(tag, gi, i, 0)][1]:.4f} -> {out[(tag, gi, i, mx)][1]:.4f})")
+        elif mx and dr < 0.9:
+            # 2026-10-22 (author: the purified layer "does NOT go dark, it just covers the red with black patches"): every map layer's slider
+            # must leave the globe dark at its right end, at least 90 % of the disk; dots on a gray sky included. The 2026-10-21 exemption
+            # (color falls to a fifth) passed a layer whose gray sky and dot rims never went dark; it is withdrawn.
+            bad.append(f"{tag} '{name}': not dark at the slider's right end (dark {d:.2f} -> {dr:.2f}; at least 0.90 needed)")
     H = [v[1] for k, v in out.items() if k[0] == "h" and k[3] == v[3] and v[0].startswith("the change")]
     Pm = [v[1] for k, v in out.items() if k[0] == "p" and k[3] == v[3] and "Met-A" in v[0] and v[0].startswith("the change")]
     Hm = [v[1] for k, v in out.items() if k[0] == "h" and k[3] == v[3] and "Met-A" in v[0] and v[0].startswith("the change")]

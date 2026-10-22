@@ -1403,6 +1403,11 @@ series of pictures a slider steps through (the noise maps). The same code draws 
 (written beside the report as `<name>_globe.html` and linked from it), and the site's Globe Explorer (`atlas/sphere.html`). It needs only
 the standard library, so the site build imports it unchanged; release check V12 and the site build both check that its script parses.
 
+**The map-layer slider (2026-10-22, lesson C35).** A map layer (a value picture: a cell's methylation, how sure the atlas is) carries a
+lossless value picture beside it. Sliding right keeps only the sites at or above the chosen value; **every other pixel goes dark**, the sites
+below the value, the sky with no site, and the rim of each dot alike, so at the right end the globe is dark. Release check V13 requires at
+least 90 % of the globe dark at every map layer's right end, layers drawn as dots included.
+
 ### globe_viewer.py::inline
 The reverse of dedupe: each layer's picture written back in place of its asset name, so groups taken from several globes can be joined into one.
 

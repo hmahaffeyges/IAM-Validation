@@ -92,7 +92,7 @@ function IAMExplorer(root, specs) { const q = c => root.querySelector(c), G = IA
       const lo = (L.vscale || [0, 1])[0], hi = (L.vscale || [0, 1])[1], th = lo + (hi - lo) * t / 100, sx = M.w / T.w, sy = M.h / T.h; let kept = 0, meas = 0;
       const val = (k) => { const i = k / 4, x = i % T.w, y = (i - x) / T.w, j = 4 * (Math.floor(y * sy) * M.w + Math.floor(x * sx)), c = M.d[j]; return c < 1 ? null : lo + (hi - lo) * (c - 1) / 254; };
       for (let j = 0; j < M.d.length; j += 4) { const c = M.d[j]; if (c >= 1) { meas++; if (lo + (hi - lo) * (c - 1) / 254 >= th) kept++; } }   // the share, once, over the whole map
-      G.set(k => { const v = val(k); return (v === null || v >= th) ? [T.d[k], T.d[k + 1], T.d[k + 2]] : [8, 8, 11]; }, T.w, T.h);
+      G.set(k => { const v = val(k); return ((v !== null && v >= th) || (v === null && t === 0)) ? [T.d[k], T.d[k + 1], T.d[k + 2]] : [8, 8, 11]; }, T.w, T.h);   // 2026-10-22 (author: the purified layer "does NOT go dark"): once the slider moves, every pixel without a kept site goes dark, the empty sky and a dot's rim included
       rv.textContent = t === 0 ? 'every site' : (L.vword ? 'only sites ' + L.vword.replace('above the chosen value', '') + ' ' : 'at least ') + th.toFixed(hi - lo > 0.5 ? 2 : 3) + (L.vunit ? ' ' + L.vunit : '') + (meas ? ': ' + (100 * kept / meas).toFixed(1) + ' % of the measured globe kept' : '');
       nt.textContent = L.note || ''; return; }
     if (L.kind !== 'diff') { const T = await IAMTex(U(L.kind === 'steps' ? L.srcs[t] : L.src)); if (my !== tok) return;
