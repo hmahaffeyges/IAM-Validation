@@ -63,6 +63,8 @@ What that brings, each from the sky to the cell:
 - **Masks and foregrounds.** The sky map found the X chromosome by itself: one reference array read as female, with 40 % of her X
   chromosome sites between β = 0.3 and 0.7 against 8 % in the other five. In the sky, that is a foreground, and the answer is the same: a
   mask, or a reference of the same sex ([the sky tools chapter](https://hmahaffeyges.github.io/IAM-Validation/book/ch_skytools.html)).
+  Every instrument accounts for sex and the X chromosome, each in its own way, with every count computed from the chain's files: see
+  [Does each instrument account for sex and the X chromosome?](QUESTIONS_AND_ANSWERS.md#does-each-instrument-account-for-sex-and-the-x-chromosome).
 - **Pattern, not single points.** A power spectrum asks whether changes are scattered or clustered. That question became the C-Score.
 
 No other methylation method we know of reads the genome as a map with these tools.

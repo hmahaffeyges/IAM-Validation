@@ -58,6 +58,24 @@ python3 run_sample.py --bam S.bam --ref-fasta hg19.fa --assembly hg19 --seq-cell
 
 `--seq-cell` names the cell type; the sample-shape check has a healthy shape for 56 cell types: adipocytes, aorta endothelium, b cells, bladder epithelium, breast basal epithelium, breast luminal epithelium, cardiomyocyte, cd4 t cells, cd8 t cells, colon enteroendocrine, colon epithelium, colon fibroblasts, colon macrophages, cortical neurons, effector memory cd8 t cells, endometrium epithelium, erythrocyte progenitors, fallopien tubes epithelium, gastric antrum epithelium, gastric body epithelium, gastric fundus epithelium, heart fibroblasts, hepatocyte, kidney glomerular endothelium, kidney glomerular epithelium, kidney tubular endothelium, kidney tubular epithelium, lung alveolar endothelium, lung alveolar epithelium, lung alveolar macrophages, lung bronchus epithelium, lung interstitial macrophages, memory b cells, monocytes, naive cd4 t cells, naive cd8 t cells, nk cells, oligodendrocytes, pancreas endothelium, pancreatic acinar, pancreatic alpha, pancreatic beta, pancreatic delta, pancreatic duct, prostate epithelium, small intestine epithelium, smooth muscle, striated muscle, t central memory cd4, t effector cell cd8, t effector memory cd4, thyroid epithelium, tongue epithelium, tonsil palatine epithelium, tonsil pharyngeal epithelium, vascular saphenous endothelium.
 
+**Sex.** Give `--sex F` or `--sex M` when the sample's sex is known: Stage 0 compares it with the array's own X and Y signals and stops a mismatch (a swapped sample). Without it, the array's sex is recorded and printed on the report and the globe. How each instrument handles the X and Y:
+
+<!-- SEX-SECTION:BEGIN -->
+**Why sex matters to a methylation reading.** A woman has two X chromosomes and silences one in every cell by methylating it (X inactivation). At the switch sites of hundreds of X genes a man's single X reads near 0 and a woman's two copies average about 0.5. The Y exists only in men. A comparison between people of different sex can therefore light up the X without any disease. Each instrument handles this as follows (numbers computed from the chain's own files by `CANON/sex_chromosomes.py`):
+
+| Instrument | X and Y |
+|---|---|
+| Stage 0, intake | Predicts the array's sex from its X and Y probe brightness (step 0.8: female when log2 Y minus log2 X is below -2.0). When a sex is declared and the array disagrees, the array is stopped and the reason printed: a swapped sample is caught before any reading. |
+| Met-A | 6,000 neutrophil identity sites: 32 on the X, 0 on the Y. They were chosen where the six purified reference arrays, one of them a woman's, agree. Group-A's sealed test read 75 women and 188 men the same after the tare (-0.36 %, 1.2 standard errors). |
+| C-Score | The same 6,000 sites (32 on the X, 0 on the Y), in genome order; it reads how departures cluster, read against the same healthy reference. |
+| Noise index | 48,528 sites, 95 on the X and 15 on the Y. Even if every one of them read at maximum noise, the index could move by at most 0.0023 bits (0.23 % of its 1-bit scale). |
+| Stage A, the blood mix | 963 markers, 0 on the X or Y. |
+| IAM-Deconvolver | 600 markers, 0 on the X, 0 on the Y. |
+| IAM-A | Each sample is read against its own predicted error, so no other person, of either sex, enters its reading. Aligned files (BAM) are counted on chromosomes 1 to 22 only. From a .pat file the loose share is counted on chromosomes 1 to 22, and the held error on every chromosome the file holds (the route IAM-A was commissioned on; a recount with the X and Y left out is on the to-do list, Decoder finding F37). |
+| Group-A | Compares groups run in the same series; its sealed bar 2 is a women-against-men null (above). |
+| IAM-Atlas v2.1 and the globes | 813,951 atlas sites, 14,759 on the X and 3 on the Y. The atlas's donors are women and men, so it is 2.5 to 3.6 times less sure on the X and Y than elsewhere (the noise globe shows it). Every change count on a globe is also given on the X and Y, the page prints the sex Stage 0 read, and a tumor against its own normal tissue (same person, same sex) is counted with and without the X and Y: in a tumor an X change can be real biology. |
+<!-- SEX-SECTION:END -->
+
 ## 5. What the chain declines, and why
 
 - An EPIC v2 or 450K array: refused at intake with one sentence (no frozen Met-A reference for that platform).
@@ -117,7 +135,7 @@ Every reference the chain reads is a committed file; nothing is fitted at run ti
 | File (in `chain/`) | SHA-256 |
 |---|---|
 | `../atlas/v2.1/compact_manifest.json` | `fafb600b4545dabb…` |
-| `Runtime Matrices/Atlas_V21/sex_chromosome_sites_v21.json` | `096a3647e008e8d3…` |
+| `Runtime Matrices/Atlas_V21/sex_chromosome_sites_v21.json` | `7cbb4a517fe4ce66…` |
 | `Runtime Matrices/Atlas_V21/sky_order_v21.npz` | `c61c2f7efd8e6b2c…` |
 | `Runtime Matrices/Gauge/cell_gauge_marks_v1.json` | `d23916d54a8fe7b0…` |
 | `Runtime Matrices/IAM_A_SelfRef/band_v1.json` | `d4c32f760d98ad14…` |

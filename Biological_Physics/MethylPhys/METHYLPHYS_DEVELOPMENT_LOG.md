@@ -2942,3 +2942,6 @@ The live memory log showed the reference index build fits a GitHub machine (8.9 
 
 ### 2026-10-21 · The noise globe shows how sure the atlas is (ATL-063)
 Redrawn so the least certain sites stay lit longest: each frame is a site's spread over the square root of the draws averaged, on one log scale. From 1 draw to 100, the share of the globe still lit falls from 62 % to 0.6 %; the X and Y stay lit longest, where the atlas is about three times less sure than elsewhere because its donors are women and men. A layer with the X and Y hidden and a color key were added.
+
+### 2026-10-21 · Sex and the X chromosome, stated for every instrument (OTH-072)
+One generator, CANON/sex_chromosomes.py, computes from the chain's own files how each instrument handles the X and Y and writes the same section into the Chain Decoder, the Operator Guide, the instrument catalogue, the Q&A and the book; the push refuses any copy that differs. Met-A and the C-Score have 32 of their 6,000 sites on the X and none on the Y; the blood-mix and Deconvolver markers have none; the noise index can move by at most 0.0023 bits from its X and Y sites; Stage 0 stops a sex mismatch. Found while writing it: IAM-A counts the held error on every chromosome from a .pat file but on chromosomes 1 to 22 from a BAM (finding F37); stated, not changed, with a recount on the list.

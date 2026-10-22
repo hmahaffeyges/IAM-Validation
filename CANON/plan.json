@@ -590,6 +590,11 @@
      "id": "F36",
      "status": "open",
      "text": "The two chain documents keep earlier file names (manual/MethylPhys_CPG_Operations_Manual.pdf, sop/MethylPhys_CPG_SOP_v4.md) under their official titles; about 30 files link them. Rename in the documentation pass (step 22) with CANON/relink.py and the link gate."
+    },
+    {
+     "id": "F37",
+     "status": "open",
+     "text": "IAM-A's two sequencing routes treat the X and Y differently: count_bam counts the held error and the loose share on chr1-22 (AUTOSOMES); count_pat counts the loose share on chr1-22 tiles (HG19_CPGS) but the held error on every chromosome the .pat file holds. IAM-A was commissioned on the .pat route, so nothing is changed; next: recount the held error with the X and Y left out on the grand-test samples (GitHub), report the difference, and make the two routes agree only through a recorded, re-tested change. Stated in every document by CANON/sex_chromosomes.py."
     }
    ],
    "notes": " | 2026-10-20: Chain Decoder written (manual/decoder_text.md -> OM_v4_decoder.md; all 257 functions of the 22 loaded files have entries; gated). OM PDF retitled 'Official IAM Operations Manual: Instrument Diagnostics and Chain Decoder' (Decoder + diagnostics + chain sequence); SOP retitled 'Official IAM Chain Operator Guide'. Reading the code line by line found the items under findings; each is fixed in the chain, not in the text."

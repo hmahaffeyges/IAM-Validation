@@ -9,7 +9,7 @@ semiconductor work is not needed to run or rebuild anything here.
 
 **Book:** https://hmahaffeyges.github.io/IAM-Validation/ (Part VI, *Cellular Physics: Thermodynamics of the Methylome*).
 **IAM-Atlas v2.1:** https://doi.org/10.5281/zenodo.23441999 (the atlas) and https://doi.org/10.5281/zenodo.23422688 (the fit's full outputs).
-**Questions:** [Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md](QUESTIONS_AND_ANSWERS.md), the hard questions first, every answer linked to its record.
+**Questions:** [Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md](QUESTIONS_AND_ANSWERS.md), the hard questions first, every answer linked to its record; among them how each instrument accounts for sex and the X chromosome.
 
 ## Three ways in
 

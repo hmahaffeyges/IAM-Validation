@@ -37,6 +37,8 @@ def markdown(C, M):
         L += [f"- {row_line(M[r])}" for r in i["rows"] if r in M] + ["", f"**Record:** [{os.path.basename(i['record'])}]({i['record']})", "", f"**Next:** {i['next']}", ""]
     import instruments_board as IB   # the candidates board, merged here 2026-10-16 (one catalogue)
     cb, _ = IB.build(base=ROOT); cb = cb.split("\n")
+    import sex_chromosomes as _sx   # the X and Y in every instrument, from the chain's own files (author 2026-10-21)
+    L += ["## Sex and the X chromosome", "", "<!-- SEX-SECTION:BEGIN -->", _sx.section(_sx.facts())[0], "<!-- SEX-SECTION:END -->", ""]
     L += ["## Candidate instruments", ""] + [("#" + x) if x.startswith("## ") else x for x in cb if not x.startswith("# ") and "do not edit by hand" not in x] + [""]
     return "\n".join(L)
 def table(C, M):

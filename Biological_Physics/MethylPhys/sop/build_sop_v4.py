@@ -3,6 +3,7 @@
 CANON/commissioning.json (what is commissioned, for what), chain/FROZEN_INPUTS_v4.json (every frozen file and its checksum),
 chain/chain_sequence.json (the live stages), and the IAM-A shape reference (the cell types IAM-A can be declared for).
 Nothing in the generated file is typed twice. --check refuses drift. Run by CANON/checkpoint.sh."""
+import sys as _sys, os as _os; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'CANON')); import sex_chromosomes as _sx
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); MP = os.path.dirname(HERE); ROOT = os.path.dirname(os.path.dirname(MP)); CH = os.path.join(MP, "chain")
 OUT = os.path.join(HERE, "MethylPhys_CPG_SOP_v4.md")
@@ -35,6 +36,9 @@ def text():
           "python3 run_sample.py --pat S.pat.gz --seq-cell \"cd8 t cells\" --id S002 --out S002.html",
           "python3 run_sample.py --bam S.bam --ref-fasta hg19.fa --assembly hg19 --seq-cell \"cd8 t cells\" --id S003 --out S003.html", "```", "",
           f"`--seq-cell` names the cell type; the sample-shape check has a healthy shape for {len(SH)} cell types: " + ", ".join(SH) + ".", "",
+          "**Sex.** Give `--sex F` or `--sex M` when the sample's sex is known: Stage 0 compares it with the array's own X and Y signals and stops a "
+          "mismatch (a swapped sample). Without it, the array's sex is recorded and printed on the report and the globe. How each instrument handles "
+          "the X and Y:", "", "<!-- SEX-SECTION:BEGIN -->", _sx.section(_sx.facts())[0], "<!-- SEX-SECTION:END -->", "",
           "## 5. What the chain declines, and why", "",
           "- An EPIC v2 or 450K array: refused at intake with one sentence (no frozen Met-A reference for that platform).",
           "- A failed array (Stage 0 quarantine): exit 2, no report.",

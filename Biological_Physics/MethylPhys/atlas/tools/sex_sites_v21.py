@@ -19,8 +19,10 @@ def main(d):
     C = pd.concat([chrom(os.path.join(d, n)) for n in reversed(NAMES)]); C = C[~C.index.duplicated()]
     ids = pq.read_table(os.path.join(MP, "atlas", "v2.1", "sites.parquet")).column("cpg").to_pylist(); c = C.reindex(ids)
     X = sorted(c.index[c == "X"]); Y = sorted(c.index[c == "Y"])
+    # 2026-10-21: every probe of the two pinned array manifests too, so instrument site lists that are not atlas sites (447 of them) are placed
+    XA = sorted(C.index[C == "X"]); YA = sorted(C.index[C == "Y"])
     out = dict(about=__doc__.split("\n")[0], atlas_sites=len(ids), x_sites=len(X), y_sites=len(Y), sites_without_chromosome=int(c.isna().sum()),
-               manifests_sha256=sha, source="atlas/tools/sex_sites_v21.py", X=X, Y=Y)
+               manifests_sha256=sha, array_probes=int(len(C)), X_array=XA, Y_array=YA, source="atlas/tools/sex_sites_v21.py", X=X, Y=Y)
     p = os.path.join(CH, "Runtime Matrices", "Atlas_V21", "sex_chromosome_sites_v21.json"); json.dump(out, open(p, "w"), indent=0); open(p, "a").write("\n")
     print({k: v for k, v in out.items() if k not in ("X", "Y", "manifests_sha256")})
 if __name__ == "__main__": main(sys.argv[1])

@@ -15,7 +15,7 @@
     "../atlas/v2.1/compact_manifest.json": "fafb600b4545dabba663c808e04db34ccb5fceaa5a4042e4d106dc23f6117b01",
     "Runtime Matrices/Intake/intake_thresholds_v2.json": "c0941e5a58d2f95f1d1bbdc9023e8f964beaed4458fa9be94d1af868fa1b06b4",
     "Runtime Matrices/Atlas_V21/sky_order_v21.npz": "c61c2f7efd8e6b2c2e2669913d0ce1614db5370d1d0ec540521b3b3758844230",
-    "Runtime Matrices/Atlas_V21/sex_chromosome_sites_v21.json": "096a3647e008e8d3d7ee2c5c1eb9d065c6d1979e82a91006edc23d722e166c7b"
+    "Runtime Matrices/Atlas_V21/sex_chromosome_sites_v21.json": "7cbb4a517fe4ce66100e8c5af519dc33a47b853af09e354ce148555834cd50ab"
   },
   "superseded": {
     "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json": {

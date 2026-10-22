@@ -164,6 +164,26 @@ The sky map found it without being asked: one of the six reference arrays read a
 β = 0.3 and 0.7 against 8 % in the other five. The CMB's lesson applies: a whole-array map needs a sex mask, or a reference of the same sex,
 before its structure means anything ([the sky tools chapter](https://hmahaffeyges.github.io/IAM-Validation/book/ch_skytools.html)).
 
+**Does each instrument account for sex and the X chromosome?**
+
+Yes, and each one differently.
+
+<!-- SEX-SECTION:BEGIN -->
+**Why sex matters to a methylation reading.** A woman has two X chromosomes and silences one in every cell by methylating it (X inactivation). At the switch sites of hundreds of X genes a man's single X reads near 0 and a woman's two copies average about 0.5. The Y exists only in men. A comparison between people of different sex can therefore light up the X without any disease. Each instrument handles this as follows (numbers computed from the chain's own files by `CANON/sex_chromosomes.py`):
+
+| Instrument | X and Y |
+|---|---|
+| Stage 0, intake | Predicts the array's sex from its X and Y probe brightness (step 0.8: female when log2 Y minus log2 X is below -2.0). When a sex is declared and the array disagrees, the array is stopped and the reason printed: a swapped sample is caught before any reading. |
+| Met-A | 6,000 neutrophil identity sites: 32 on the X, 0 on the Y. They were chosen where the six purified reference arrays, one of them a woman's, agree. Group-A's sealed test read 75 women and 188 men the same after the tare (-0.36 %, 1.2 standard errors). |
+| C-Score | The same 6,000 sites (32 on the X, 0 on the Y), in genome order; it reads how departures cluster, read against the same healthy reference. |
+| Noise index | 48,528 sites, 95 on the X and 15 on the Y. Even if every one of them read at maximum noise, the index could move by at most 0.0023 bits (0.23 % of its 1-bit scale). |
+| Stage A, the blood mix | 963 markers, 0 on the X or Y. |
+| IAM-Deconvolver | 600 markers, 0 on the X, 0 on the Y. |
+| IAM-A | Each sample is read against its own predicted error, so no other person, of either sex, enters its reading. Aligned files (BAM) are counted on chromosomes 1 to 22 only. From a .pat file the loose share is counted on chromosomes 1 to 22, and the held error on every chromosome the file holds (the route IAM-A was commissioned on; a recount with the X and Y left out is on the to-do list, Decoder finding F37). |
+| Group-A | Compares groups run in the same series; its sealed bar 2 is a women-against-men null (above). |
+| IAM-Atlas v2.1 and the globes | 813,951 atlas sites, 14,759 on the X and 3 on the Y. The atlas's donors are women and men, so it is 2.5 to 3.6 times less sure on the X and Y than elsewhere (the noise globe shows it). Every change count on a globe is also given on the X and Y, the page prints the sex Stage 0 read, and a tumor against its own normal tissue (same person, same sex) is counted with and without the X and Y: in a tumor an X change can be real biology. |
+<!-- SEX-SECTION:END -->
+
 **What if a sample holds a cell the reference does not?**
 The tool checks before it reports. Each pure array must read as its own cell before it is used; in its commissioning test it refused six B-cell
 arrays that did not. When a mixture holds cells outside the reference, the raw shares no longer sum to one, and the report shows it.
