@@ -2951,3 +2951,6 @@ On 109 sorted cells of five types, read through the chain against IAM-Atlas v2.1
 
 ### 2026-10-21 · Every globe layer gets a tool (ATL-063)
 The audit showed the atlas globe's two layers per cell, and every plain map in the reports and the Explorer, had no slider. Each now has one that keeps only the sites above a chosen methylation (or, on the certainty maps, only the sites the atlas is least sure of), with the share of the globe kept printed. The Met-A layer's key now says what its red means: more disorder than the healthy reference, the held pattern being lost.
+
+### 2026-10-21 · The mouse reproduction fits GitHub with one aligner thread (OTH-076)
+The 1-thread test finished in 3 h 10 min at a peak of 12.5 GB, and its counts for SRR3111449 equal the committed 16-thread run's to the last digit. All 38 read sets now run on GitHub in 13 parallel jobs, then the committed scorer and comparison.

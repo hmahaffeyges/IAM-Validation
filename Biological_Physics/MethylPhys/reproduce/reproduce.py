@@ -62,7 +62,11 @@ def run(tid):
     work = os.path.join(HERE, "out", tid); os.makedirs(os.path.join(work, "logs"), exist_ok=True)
     env = dict(os.environ, REPO=REPO, WORK=work, PY=PY, MP=os.path.join(REPO, "Biological_Physics", "MethylPhys"))
     t0 = time.time(); print(f"== {tid}: {t['title']}")
+    # 2026-10-21: REPRO_DONE_ELSEWHERE names steps already run on other machines of the same commit (a split run on GitHub: the mouse
+    # alignment in 13 jobs), whose outputs are already in WORK; the verdict records them, so a reader sees which steps ran here
+    elsewhere = [x for x in os.environ.get("REPRO_DONE_ELSEWHERE", "").split(",") if x]
     for s in t["steps"]:
+        if s["name"] in elsewhere: print(f"   {s['name']}: run on other machines of this commit (REPRO_DONE_ELSEWHERE)"); continue
         print(f"   {s['name']} ...", flush=True); lp = os.path.join(work, "logs", s["name"] + ".log")
         open(os.path.join(HERE, "out", "progress.txt"), "a").write(f"{datetime.datetime.utcnow().isoformat(timespec='seconds')}Z {tid} {s['name']} started\n")
         with open(lp, "w") as L: rc = subprocess.run(s["run"], shell=True, cwd=REPO, env=env, stdout=L, stderr=subprocess.STDOUT, executable="/bin/bash").returncode
@@ -74,7 +78,7 @@ def run(tid):
         if c.get("produced", "").startswith("repo:"): subprocess.run(["git", "-C", REPO, "checkout", "-q", "--", c["produced"][5:]])
     commit = subprocess.run(["git", "-C", REPO, "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
     v = dict(test=tid, title=t["title"], verdict="PASS" if ok else "DIFF", commit=commit, utc=datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z",
-             minutes=round((time.time() - t0) / 60, 1), checks=rows)
+             minutes=round((time.time() - t0) / 60, 1), checks=rows, **({"steps_run_elsewhere": elsewhere} if elsewhere else {}))
     json.dump(v, open(os.path.join(work, "verdict.json"), "w"), indent=1, default=str)
     for r in rows: print(f"   {'ok  ' if r['ok'] else 'DIFF'} {r['check']}: committed {r['committed']} | reproduced {r['reproduced']}")
     print(f"   {v['verdict']} ({v['minutes']} min)"); return v
