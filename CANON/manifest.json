@@ -27965,18 +27965,18 @@
    "purpose": "Measure how much counting the X and Y in IAM-A's held error (the .pat route) moves IAM-A against an autosome-only count, before deciding whether the two reading routes should match.",
    "instrument_or_term": "IAM-A",
    "data_status": "",
-   "status": "running",
-   "next_step": "read the result; if the shift is within the band's healthy width, record it; if not, plan an autosome-only line and band",
-   "cost": "GitHub, free",
-   "impact": "IAM-A's two reading routes counted on the same genome",
+   "status": "run",
+   "next_step": "read the result; record the shift; an autosome-only line and band only if it is larger than the band allows",
+   "cost": "",
+   "impact": 3,
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_SEX_01.md",
-   "depends_on": "",
+   "depends_on": [],
    "id": "OTH-080",
-   "sources": "",
-   "runs": "",
-   "legacy_ids": "",
+   "sources": [],
+   "runs": [],
+   "legacy_ids": [],
    "notes": "2026-10-21 exploratory, not sealed: the committed line's healthy blood samples counted by Stage Q2 count_pat as committed and with non-autosome lines blanked in place; explore.yml on GitHub. Record: Biological_Physics/MethylPhys/doors/DEV_IAMA_SEX_01.md",
-   "sources_of_row": ""
+   "sources_of_row": []
   }
  ],
  "not_tests": {
