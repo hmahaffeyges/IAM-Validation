@@ -1,0 +1,38 @@
+name: erase_test
+# DEV-ERASE-01 recount on GitHub (to-do step 14, 2026-10-22): one sample from public SRA to .pat and both counters (erase_gh.sh), with its
+# memory and the time of each part logged, to learn whether a sample fits one GitHub machine (16 GB, 6 h). Manual only.
+on:
+  workflow_dispatch:
+    inputs:
+      gsm: {description: "sample (erase_samples.csv)", required: true, default: "GSM1372649"}
+      threads: {description: "aligner threads", required: true, default: "2"}
+permissions: {contents: read, issues: write}
+jobs:
+  one:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost || true; df -h / | tail -1
+      - uses: actions/checkout@v4
+      - name: One sample, SRA to both counts
+        run: |
+          sudo fallocate -l 8G /swapfile && sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile
+          pip install -q numpy pandas scipy
+          ( while true; do echo "MEM $(date -u +%H:%M:%S) used $(free -m | awk '/Mem:/{print $3}') MB swap $(free -m | awk '/Swap:/{print $3}') MB disk $(df -h / | awk 'NR==2{print $3}')"; sleep 300; done ) &
+          set +e; export MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=${{ inputs.threads }}
+          bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh ${{ inputs.gsm }} > run.log 2>&1; echo $? > rc.txt; tail -30 run.log; true
+      - name: Result to issue 32
+        if: always()
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: |
+          python3 - <<'PY'
+          import json, os, glob, urllib.request
+          rc = open("rc.txt").read().strip() if os.path.exists("rc.txt") else "stopped (time limit or cancelled)"
+          body = [open(f).read() for f in sorted(glob.glob("eout/*.json"))]
+          b = "erase_test ${{ inputs.gsm }} (${{ inputs.threads }} threads), run ${{ github.run_id }}, commit ${{ github.sha }}, exit " + rc + "\n\n```\n" + "\n".join(body)[-20000:] + "\n" + (open("run.log").read()[-4000:] if os.path.exists("run.log") else "") + "\n```"
+          rq = urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/issues/32/comments", data=json.dumps({"body": b}).encode(), headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"})
+          print(urllib.request.urlopen(rq).status)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: "erase-${{ inputs.gsm }}", path: "eout/\nrun.log"}
