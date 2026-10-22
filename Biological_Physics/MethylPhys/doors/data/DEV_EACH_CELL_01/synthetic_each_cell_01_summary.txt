@@ -1,0 +1,6 @@
+DEV-EACH-CELL-01 synthetic test 1 (every reading by run_sample.py; a 5 % loss planted at one cell's sites, at its share)
+healthy: neutrophils A 1.12282 (share 0.4656), monocytes A 1.09718 (share 0.0627), b cells A 1.17816 (share 0.0565), cd4 t cells A 1.18423 (share 0.233), cd8 t cells A 1.19169 (share 0.1016), nk cells A 1.17133 (share 0.0807)
+planted monocytes: moved +0.01248 (predicted +0.01360 for 5 %, 92% of it) | largest other move cd4 t cells 0.00075 | monocytes share 0.0627 -> 0.0626
+   every cell's move: neutrophils +0.00047, monocytes +0.01248, b cells +0.00064, cd4 t cells +0.00075, cd8 t cells +0.00031, nk cells +0.00036
+planted cd4 t cells: moved +0.05785 (predicted +0.05855 for 5 %, 99% of it) | largest other move cd8 t cells 0.01491 | cd4 t cells share 0.233 -> 0.2329
+   every cell's move: neutrophils +0.00676, monocytes +0.00701, b cells +0.01106, cd4 t cells +0.05785, cd8 t cells +0.01491, nk cells +0.00812
