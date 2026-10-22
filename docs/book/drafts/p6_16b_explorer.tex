@@ -1,0 +1,96 @@
+% DRAFT (2026-10-22, to-do step 32). Not loaded by main.tex until the Globe Explorer is complete. Every number below is printed by the
+% chain itself in a committed file: website/art/out/explorer/{healthy-blood,planted-blood,purified,noise}.json (the globes run_sample.py
+% drew) and website/art/out/sphere/sphere.json (run_sample.py --build atlas-sphere).
+% Still to write before this chapter goes into the book (each from the one command's own output):
+%   - the information sphere (after its test on IAM-Atlas v2.1's healthy cells; DEV_SPHERE_01.md)
+%   - a tumor against the same person's own normal tissue (the tumor-pair globe, redrawn by the one command)
+%   - IAM-A on the whole genome (DEV_IAMA_GLOBE_01.md, run 6 through the one command)
+%   - what the panel cannot explain (the Deconvolver's leftover, step 30)
+%   - each layer's shuffled null
+%   - figures: screenshots of the chain's own pages from release check V13 (GLOBE_SHOTS)
+%   - the atlas globes and the noise globe redrawn by run_sample.py --build atlas-sphere / explorer-noise and checked identical to the
+%     site's files, as the purified globe was (sphere.json still names its old builder, website/art/make_sphere_3d.py)
+
+\chapter{The Globe Explorer}\label{ch:explorer}
+
+\section{What it is}
+
+The Globe Explorer is a turning globe in a web page. Every globe in it is drawn by the chain's one command,
+\texttt{run\_sample.py}: a reference globe by its build mode, a sample's globe by the reading itself. The Explorer only shows them;
+it reads, tares and draws nothing of its own. The same drawing goes into every report, so a researcher sees a sample exactly as the
+chain measured it.
+
+\section{The address layout}
+
+Every site of IAM-Atlas v2.1 has one fixed place on the globe, set by where the site sits on the genome: the chromosomes in order,
+wrapped onto the sphere by a frozen rule (the chain's sky order). The sphere is cut into 786{,}432 equal pieces (HEALPix,
+$N_\mathrm{side}=256$, the pixelization the microwave-sky maps use), and 813{,}950 of the atlas's 813{,}951 sites have a place. The
+layout is the same on every globe, for every cell and every sample, so any two globes can be laid over each other pixel for pixel.
+
+Four things follow from putting the genome on a sphere instead of a flat strip:
+\begin{itemize}
+\item \textbf{Equal area.} Every piece of the sphere is the same size, so no part of the genome is stretched.
+\item \textbf{No edges.} There is no seam where the map starts and ends.
+\item \textbf{Clustered change shows as patches.} Neighbors on the genome are neighbors on the globe, so a loss running along a
+stretch of DNA draws as a patch, and scattered wear draws as speckle.
+\item \textbf{The microwave sky's tools apply unchanged.} Masks, power spectra and the other methods of Chapter~\ref{ch:skytools} were
+built for exactly this kind of map.
+\end{itemize}
+This globe is a map of the genome's addresses. The map of how the sites behave, the information sphere
+(Section~\ref{sec:ag_infosphere}), is a different globe.
+
+\section{The globes}
+
+\paragraph{The atlas.} One globe for each of IAM-Atlas v2.1's 79 cell types: the atlas's best value at every site, and how sure
+the atlas is of it.
+
+\paragraph{Met-A's purified reference.} The reference Met-A and the C-Score read against: purified healthy arrays of eight blood
+groups, at Met-A's 6{,}000 neutrophil identity sites. Between 5{,}548 and 5{,}553 of the 6{,}000 have a place on the layout, depending
+on the group, so this globe is drawn as dots, each at the same place as on the atlas globes.
+
+\paragraph{How sure the atlas is.} IAM-Atlas v2.1 was fitted the way a sky map is: every site carries 100 equally likely versions of
+each cell's healthy map (posterior draws, deposited as Zenodo record 10.5281/zenodo.23422688). Averaging more draws beats the noise
+down, about as one over the square root of their number, as more observing beats down the noise of the microwave sky. Sliding from 1
+draw to 100 shows where the atlas is sure (it goes dark first) and where it is least sure (it stays lit). For neutrophils the median
+spread is 0.0029 on the autosomes and 0.0105 on the X and Y; for monocytes, 0.0033 and 0.0103. The X and Y stay lit longest because
+the atlas's donors are women and men.
+
+\paragraph{A sample against the atlas.} A real healthy whole blood (GEO sample GSM7508429), read by the one command. Its healthy
+reference is healthy blood mixed in this person's own cell shares, as the IAM-Deconvolver read them (47\,\% neutrophils, 23\,\% CD4 T
+cells, 10\,\% CD8 T cells, 8\,\% NK cells, 6\,\% monocytes, 6\,\% B cells), compared at the 773{,}556 atlas sites the array measured.
+The globe holds the sample, its healthy reference, the change between them, the change at Met-A's 6{,}000 sites against its purified
+reference, and each cell's healthy map.
+
+\paragraph{A constructed loss.} The same blood with a clustered loss planted at Met-A's neutrophil sites, labeled on its page as
+constructed, not a person.
+
+\section{The change, fixed by the measurement}
+
+What counts as changed is decided by the measurement, never by the reader. Each site's difference from the healthy reference is
+measured in that site's healthy width (how much healthy people vary there, and how sure the atlas is) and in the sample's own spread.
+The differences are then read in blocks of 10 neighboring sites, as the C-Score reads them, and a block has changed when it passes the
+line that pure chance crosses less than once in 20 genomes.
+
+Blocks, because ordinary wear is scattered: it seldom moves a whole block, so a healthy sample stays nearly dark. A change that runs
+along the genome moves whole blocks and lights up.
+
+\begin{itemize}
+\item The healthy blood: 45 of 77{,}355 blocks changed across the atlas, 1 of them on the X and Y; at Met-A's sites, 0 of 597.
+\item The constructed loss: at Met-A's sites, 44 of 597 blocks changed. Across the whole atlas the count stays at 45 of 77{,}355,
+because the loss was planted only at Met-A's 6{,}000 sites, which are spread thinly through the atlas's 773{,}556.
+\end{itemize}
+Each count is printed beside its layer and never moves.
+
+\section{The slider}
+
+The slider is a viewing tool. On a change layer it fades the unchanged background, so the change can be seen by itself; the changed
+blocks and their count never move. On a map layer (a cell's methylation, or how sure the atlas is) it keeps only the sites at or above
+the chosen value, and every other part of the globe goes dark: the lower sites, the sky with no site, and the rim of each dot alike.
+At the right end of the slider, a map layer is dark.
+
+\section{Checked in a browser}
+
+The chain's release check opens every globe page in a browser, moves every slider on every layer as a reader would, and photographs
+the globe at the left, middle and right of the slider (check V13). It requires that every layer has a slider; that every map layer is
+at least 90\,\% dark at its slider's right end; that a healthy blood's change layers are dark at their right end; that the Met-A
+layer's key says it shows disorder; and that the constructed loss lights the Met-A layer more than the healthy blood does.
