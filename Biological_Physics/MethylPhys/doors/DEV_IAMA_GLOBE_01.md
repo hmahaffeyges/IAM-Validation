@@ -80,3 +80,13 @@ file; the download took the first name in alphabetical order, the hg38 one. The 
 their chromosome's hg19 index range), and nothing was drawn. The withdrawn steps 2 to 5 used the same download and counted hg38 files on
 hg19 positions, so their numbers were wrong as well as outside the chain. The download now takes the hg19 file, as the IAM-A line's own
 counting does (`DEV_CHAIN_Q2_01/box_q2_line.py`); step 6 runs again unchanged otherwise.
+
+## Step 6, run once through the one command (2026-10-22; commit f25b52bb; explore runs 39830139396, 39830162195, 39830183898, 39830206307)
+
+Output: `data/DEV_IAMA_GLOBE_01/run_06/genome_globes_06_summary.txt` and each view's `development.genome_globe`. The chain fetched the hg19
+files itself (`--geo-pat`). One healthy sample against its own prediction: **10 of 26,229 regions changed**; the same sample read twice:
+**2 of 25,472**; read twice with the constructed loss between: **108 of 25,465**; two healthy people: **1 of 26,102**. IAM-A read Normal in
+every view (0.952; 0.964 for the half carrying the plant). These replace the withdrawn steps 2 to 5, which counted hg38 files on hg19 positions.
+The bundles of this run show the sample's typed id hashed inside the download record too (its address pointed nowhere); the record is now
+kept as fetched (a public GEO accession is the file's address, not a person's id). Next: the planted stretch's own count (inside and outside)
+reported by the one command, then the globes on the Globe Explorer, labeled development.

@@ -1058,7 +1058,8 @@ own probe names and have no build question.
 **How the chain enforces it, three times over.**
 1. **The chain fetches the file.** `run_sample.py --geo-pat GSM` (and `--prior-geo-pat` for a second reading) lists the sample's files on
    GEO and takes the one that declares no other build (`stage_q0_intake.geo_pat`); if none or several remain it stops and lists what GEO holds.
-   The bundle records which file it took, the others it saw, and the file's checksum (`geo_fetch`).
+   The bundle records which file it took, the others it saw, and the file's checksum (`geo_fetch`). This record is the one place a typed id
+   is not hashed: a public GEO accession is the file's address, not a person's id, and hashing it would leave an address that points nowhere.
 2. **Stage Q0 stops a wrong build twice.** First by the name: a file named as hg38, GRCh38, hg18 or a mouse build is stopped before a line is
    read, and the refusal says which build it is and what to do (`stage_q0_intake.build_named`). Then by the content: every line's CpG index
    must lie inside its chromosome's hg19 range (check Q0.2); the hg38 file of the withdrawn steps had 48,859,268 lines outside them.

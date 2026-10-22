@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 835,
+   "lines": 837,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -261,9 +261,9 @@
      "function": "main",
      "name": "main",
      "line": 309,
-     "end": 832,
+     "end": 834,
      "args": [],
-     "lines": 524,
+     "lines": 526,
      "doc": "",
      "constants": [
       "BIO",

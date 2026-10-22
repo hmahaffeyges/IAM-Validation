@@ -1,0 +1,27 @@
+{
+ "label": "DEVELOPMENT - not commissioned",
+ "status": "OK",
+ "region_cpgs": 1000,
+ "loose_share": 0.2381365284565663,
+ "self": {
+  "regions_drawn": 25707,
+  "line": 4.759,
+  "own_spread": 1.744,
+  "changed": 5,
+  "more_loss": 5,
+  "less_loss": 0,
+  "predicted": 0.04851,
+  "loose_share": 0.2381,
+  "measured": 0.04596
+ },
+ "against_prior": {
+  "regions_drawn": 25472,
+  "line": 4.757,
+  "own_spread": 1.102,
+  "changed": 2,
+  "more_loss": 1,
+  "less_loss": 1,
+  "prior": "half1.pat.gz"
+ },
+ "explorer_spec": "twice_explorer.json"
+}

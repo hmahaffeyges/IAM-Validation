@@ -1,0 +1,18 @@
+{
+ "label": "DEVELOPMENT - not commissioned",
+ "status": "OK",
+ "region_cpgs": 1000,
+ "loose_share": 0.23794136191677176,
+ "self": {
+  "regions_drawn": 26229,
+  "line": 4.763,
+  "own_spread": 2.151,
+  "changed": 10,
+  "more_loss": 7,
+  "less_loss": 3,
+  "predicted": 0.0485,
+  "loose_share": 0.2379,
+  "measured": 0.04595
+ },
+ "explorer_spec": "self_explorer.json"
+}

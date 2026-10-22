@@ -1,0 +1,5 @@
+DEV-IAMA-GLOBE-01 step 6: every view drawn by run_sample.py --dev-genome-globe (hg19 files, fetched by the chain); regions of 1,000 CpGs; the numbers are the bundles' development.genome_globe
+self (explore run 39830139396): IAM-A 0.9518 Normal | against its own prediction: 10 of 26229 regions changed (own spread 2.151)
+twice (explore run 39830162195): IAM-A 0.9519 Normal | against its own prediction: 5 of 25707 regions changed (own spread 1.744) | against half1.pat.gz: 2 of 25472 changed (own spread 1.102)
+twice_planted (explore run 39830183898): IAM-A 0.9638 Normal | against its own prediction: 86 of 25698 regions changed (own spread 1.763) | against half1.pat.gz: 108 of 25465 changed (own spread 1.116)
+people (explore run 39830206307): IAM-A 0.9518 Normal | against its own prediction: 10 of 26229 regions changed (own spread 2.151) | against GSM5652283_Blood-T-CD8-Z000000U5.pat.gz: 1 of 26102 changed (own spread 1.022)

@@ -1,0 +1,27 @@
+{
+ "label": "DEVELOPMENT - not commissioned",
+ "status": "OK",
+ "region_cpgs": 1000,
+ "loose_share": 0.23794136191677176,
+ "self": {
+  "regions_drawn": 26229,
+  "line": 4.763,
+  "own_spread": 2.151,
+  "changed": 10,
+  "more_loss": 7,
+  "less_loss": 3,
+  "predicted": 0.0485,
+  "loose_share": 0.2379,
+  "measured": 0.04595
+ },
+ "against_prior": {
+  "regions_drawn": 26102,
+  "line": 4.762,
+  "own_spread": 1.022,
+  "changed": 1,
+  "more_loss": 0,
+  "less_loss": 1,
+  "prior": "GSM5652283_Blood-T-CD8-Z000000U5.pat.gz"
+ },
+ "explorer_spec": "people_explorer.json"
+}

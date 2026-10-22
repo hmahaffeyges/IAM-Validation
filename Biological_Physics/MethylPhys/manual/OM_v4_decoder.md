@@ -6,7 +6,7 @@ Read from the code at build time: the one command can load **29 Python files** h
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 835 | 16 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 837 | 16 | 11 | 10 |
 | `stage_0_intake.py` | 1,172 | 40 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -252,7 +252,7 @@ The orchestration described above, from parsing the command to writing the ledge
 exit code 2 or 3 at the stops listed, carries the same-run references (columns A and C) into the conductor, adds the v4 stages, and
 hands everything to the report.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 309 (524 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`
+*Code:* `MethylPhys_Interface/run_sample.py` line 309 (526 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`
 
 ### `run_sample.py::main._stopped`
 
@@ -1550,7 +1550,8 @@ own probe names and have no build question.
 **How the chain enforces it, three times over.**
 1. **The chain fetches the file.** `run_sample.py --geo-pat GSM` (and `--prior-geo-pat` for a second reading) lists the sample's files on
    GEO and takes the one that declares no other build (`stage_q0_intake.geo_pat`); if none or several remain it stops and lists what GEO holds.
-   The bundle records which file it took, the others it saw, and the file's checksum (`geo_fetch`).
+   The bundle records which file it took, the others it saw, and the file's checksum (`geo_fetch`). This record is the one place a typed id
+   is not hashed: a public GEO accession is the file's address, not a person's id, and hashing it would leave an address that points nowhere.
 2. **Stage Q0 stops a wrong build twice.** First by the name: a file named as hg38, GRCh38, hg18 or a mouse build is stopped before a line is
    read, and the refusal says which build it is and what to do (`stage_q0_intake.build_named`). Then by the content: every line's CpG index
    must lie inside its chromosome's hg19 range (check Q0.2); the hg38 file of the withdrawn steps had 48,859,268 lines outside them.

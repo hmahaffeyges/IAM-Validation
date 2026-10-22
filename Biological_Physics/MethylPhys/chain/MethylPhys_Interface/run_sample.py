@@ -806,7 +806,9 @@ def main():
     o["versions"] = _versions(ENG)   # every frozen input and chain module, with a short hash, so runs months apart are poolable
     typed = sid; hid = _hash_id(sid)
     r = R3.build(o, a.out, typed)    # the printed report keeps the operator's typed id (author decision B, 2026-10-04)
+    _gf = o.pop("geo_fetch", None)   # 2026-10-22: a public GEO accession is the file's source address, not a person's id; kept as fetched so it can be re-fetched and checked
     o = _redact(o, typed, hid); o["sample_id"] = hid; o["sample_id_hashed"] = True   # bundle and ledger carry the hash only
+    if _gf: o["geo_fetch"] = _gf
     m = o.get("met_a") or {}; t = o.get("tare") or {}; q_ = o.get("iam_a") or {}
     print(f"\n{sid}: Met-A (neutrophils) {m.get('A')} ({m.get('state', m.get('reason', o.get('refusal')))}) | C {(o.get('met_a_cscore') or {}).get('C')} | "
           f"tare {t.get('A_rel')}" + (f" | IAM-A {q_.get('A')} ({q_.get('state', q_.get('refusal'))})" if q_ else ""))
