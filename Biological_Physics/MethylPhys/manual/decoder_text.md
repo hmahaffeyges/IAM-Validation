@@ -155,6 +155,12 @@ its hash, so neither the bundle nor the ledger carries the typed name. The print
 ### run_sample.py::_redact.f
 The recursive step of `_redact`: a string gets the replacement, a dictionary and a list are walked, anything else is returned as is.
 
+### run_sample.py::_metaa_atlas
+`--dev-metaa-atlas CELL` (development, not commissioned): maps the values by Stage T step 1 (the self-tare the commissioned Met-A reads), refuses
+unless both designs were mapped, reads Met-A against CELL in IAM-Atlas v2.1 (`stage_metaa_atlas.read`) and, with `--metaa-atlas-ref-A` (at least
+3 healthy samples of the same cell run the same way, never this one), tares it (`stage_metaa_atlas.tare`). Written under bundle
+`development.metaa_atlas`; the reading, gauge and tare are untouched.
+
 ### run_sample.py::_dev_run
 Runs the development readings named by `--dev-*` flags (direction, trace cell, foreign cell, brightness interval, NILC-e, atlas e,
 B-cell reading, sky with the block-shuffle null, EPIC v2 through SeSAMe). Each writes its own record under `bundle["development"]`,

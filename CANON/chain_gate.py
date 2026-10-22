@@ -9,6 +9,12 @@ seal or an outcome (older notes are not re-judged until such a line is added to 
  c. no record cites a scratch/ path (scratch/ is for exploration and is never evidence)
 e. a line added to a commissioning note may cite only chain code (CANON/ scripts excepted)
  d. no changed script outside chain/ types the self-reference line's numbers (they live only in chain Stage Q2's runtime matrix)
+ f. (2026-10-22, author: "the only way to do this right is to ALWAYS use the chain for everything so a researcher can replicate it using our
+    own chain and we dont have to explain why it wasnt used or have to worry about missing steps.") Every script a push adds or changes under
+    doors/data/ or website/art/ that uses chain code must run the one command, chain/MethylPhys_Interface/run_sample.py. Importing chain
+    stages and calling them directly is refused: that is how Stage 0 and Stage T's self-tare were skipped (METAA-ATLAS-SEAL-01). Rule a now asks
+    the same of every script on a synthetic-test line. A script may still import chain code (to plant a loss by the chain's own rule) if it
+    also runs the one command, which makes every reading.
 Usage: chain_gate.py register (add the working chain's sha; checkpoint.sh runs it) | check [base] (default origin/main)"""
 import os, sys, re, json, glob, hashlib, subprocess
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
@@ -16,6 +22,15 @@ CHAIN = "Biological_Physics/MethylPhys/chain"; DOORS = "Biological_Physics/Methy
 ADDS = re.compile(r"(?i)^\*\*Synthetic test:\*\*|^\*\*Bars?\b|^## Outcome|^\*\*Status: rule|^\*\*Sealed|^## Bars?\b")
 LINE_NUMS = re.compile(r"(?<![\d.])(0\.0298|0\.0555|0\.74128\d*|0\.0402|0\.0347)(?!\d)")
 CHAIN_IMPORT = re.compile(r"(?m)^\s*(from|import)\s+(conductor_v3|stage_\w+|dev_stages|cmb_tools|sky_statistics)\b")
+PIECES = re.compile(r"(?m)^\s*(?:from|import)\s+(conductor_v3|stage_\w+|dev_stages|cmb_tools|sky_statistics|report_globe_v4|globe_viewer|report_v\w+|run_sample)\b")
+ONE_COMMAND = re.compile(r"run_sample\.py")
+SCOPE_F = ("Biological_Physics/MethylPhys/doors/data/", "website/art/")
+def one_command_refusal(f, text):
+    """Rule 23b-f: chain code used without the one command."""
+    p = sorted(set(PIECES.findall(text)))
+    if p and not ONE_COMMAND.search(text):
+        return f"{f}: calls chain pieces ({', '.join(p)}) instead of running the one command, chain/MethylPhys_Interface/run_sample.py; every reading must come from it (rule 23b-f)"
+    return None
 def chain_sha(root=ROOT):
     h = hashlib.sha256()
     for f in sorted(glob.glob(os.path.join(root, CHAIN, "*.py"))): h.update(os.path.basename(f).encode()); h.update(open(f, "rb").read())
@@ -43,6 +58,9 @@ def check(changed, added, root=ROOT, known=None):
     """changed: repo-relative paths changed by the push; added: {path: [added lines]}. Returns a list of refusals."""
     known = registry(root) if known is None else known; F = []
     for f in changed:
+        if f.startswith(SCOPE_F) and f.endswith((".py", ".sh")) and os.path.isfile(os.path.join(root, f)):
+            m = one_command_refusal(f, open(os.path.join(root, f), encoding="utf-8", errors="replace").read())
+            if m: F.append(m)
         if f.endswith(".py") and not f.startswith(CHAIN + "/") and f not in ("CANON/chain_gate_controls.py",) and os.path.isfile(os.path.join(root, f)):   # the controls must contain the numbers they test
             hits = set(LINE_NUMS.findall(open(os.path.join(root, f), encoding="utf-8", errors="replace").read()))
             if len(hits) >= 2: F.append(f"{f}: types the self-reference line's numbers {sorted(hits)} outside the chain; ask chain Stage Q2 (rule 23b-d)")
@@ -61,8 +79,8 @@ def check(changed, added, root=ROOT, known=None):
                 if x.startswith("chain/") and os.path.isfile(os.path.join(root, CHAIN, x[len("chain/"):])): continue   # chain code is chain code (2026-10-16)
                 p = os.path.join(root, DOORS, "data", x)
                 if not os.path.isfile(p): F.append(f"{f}: synthetic test {x} is not under doors/data/ (rule 23b-a)"); continue
-                if not CHAIN_IMPORT.search(open(p, encoding="utf-8", errors="replace").read()):
-                    F.append(f"{f}: synthetic test {x} does not run through the chain (no chain import; '# NO CHAIN' is no longer accepted for new tests) (rule 23b-a)")
+                if not ONE_COMMAND.search(open(p, encoding="utf-8", errors="replace").read()):
+                    F.append(f"{f}: synthetic test {x} does not run the one command (chain/MethylPhys_Interface/run_sample.py; importing chain stages is not enough since 2026-10-22) (rule 23b-a)")
         dd = os.path.join(DOORS, "data", nid)
         inputs = set()
         ip = os.path.join(root, dd, "INPUTS.txt")

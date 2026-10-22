@@ -715,6 +715,18 @@
    "status": "open",
    "done_date": "",
    "record": ""
+  },
+  {
+   "task": "Chain only: every reading, reproduction, picture and globe comes from the one command, chain/MethylPhys_Interface/run_sample.py (author 2026-10-22: 'the only way to do this right is to ALWAYS use the chain for everything so a researcher can replicate it using our own chain'). (a) gate rule 23b-f refuses changed test or picture scripts that call chain pieces without the one command (done, 12 controls); (b) the one command gains --dev-metaa-atlas and --explorer-spec (done), the reference globes (atlas cells, purified, noise), the whole-genome globe from --pat (methylation level and IAM-A, a second --pat for read twice) and the information sphere as development stages; (c) the withdrawn work is rerun through it: atlas Met-A explorations and the sealed test (on a fresh series), the IAM-A genome globes, the tumor pairs; (d) every reproduction rewired so each reading is run_sample.py and each scorer only reads its bundles (Group-A's tare by --slide-ref-A; the deconvolver, C-Score band, three labs, colon, breast, liver and mouse readings; Met-A's reference and IAM-A's line rebuilt by chain build commands), each giving its committed numbers again on GitHub before it counts; (e) all of it on every GitHub machine",
+   "done_when": "every reproduction and every published globe is produced by run_sample.py on GitHub and matches; the gate covers every reproduction step",
+   "status": "open",
+   "rows": [
+    "GRP-014",
+    "ATL-063",
+    "ATL-070",
+    "GRP-004",
+    "OTH-076"
+   ]
   }
  ],
  "scheduled": [

@@ -55,3 +55,5 @@ of one cell type per slide.
 **Found after scoring (2026-10-22).** The read script took chain Stage 1 and the atlas Met-A stage but not Stage T step 1, the self-tare the
 commissioned chain runs before every Met-A reading. The result stands as scored; whether that step changes the spread is exploration 7
 (DEV_METAA_ATLAS_01.md), and any next sealed test runs it.
+
+**WITHDRAWN 2026-10-22: not a chain result.** The script called chain stages directly instead of running the one command (chain/MethylPhys_Interface/run_sample.py), so Stage 0 and Stage T step 1 were skipped. Author: "If the chain didnt produce it, it did NOT happen." Every number above is withdrawn; the work is rerun through the one command (to-do step 35).

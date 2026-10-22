@@ -9,7 +9,10 @@ tree and feeds the gate the mistakes it must refuse, plus one correct test it mu
  C6 a record citing scratch/                                                                                 -> REFUSE
  C7 a correct test: chain-importing synthetic, stamped result, committed chain version                      -> ACCEPT
  C8 a commissioning note adding a side script as evidence                                                   -> REFUSE
- C9 a commissioning note adding chain code                                                                  -> ACCEPT"""
+ C9 a commissioning note adding chain code                                                                  -> ACCEPT
+ C10 a test script calling chain stages directly, not the one command (the METAA-ATLAS-SEAL-01 pattern)    -> REFUSE
+ C11 a test script that runs the one command                                                                -> ACCEPT
+ C12 a website picture script calling the globe code directly                                               -> REFUSE"""
 import os, sys, json, tempfile, hashlib, importlib.util
 H = os.path.dirname(os.path.abspath(__file__)); spec = importlib.util.spec_from_file_location("cg", os.path.join(H, "chain_gate.py")); CG = importlib.util.module_from_spec(spec); spec.loader.exec_module(CG)
 def tree():
@@ -19,7 +22,7 @@ def w(r, p, s): open(os.path.join(r, p), "w").write(s)
 def stamped(o, sha):
     o = dict(o); o["chain_stamp"] = {"chain_sha": sha, "payload_sha256": hashlib.sha256(CG._canon(o)).hexdigest()}; return o
 NOTE = CG.DOORS + "DEV_X_01.md"; SYN = "**Synthetic test:** DEV_X_01/t.py, DEV_X_01/out.json"; OUT = CG.DOORS + "data/DEV_X_01/out.json"; T = CG.DOORS + "data/DEV_X_01/t.py"
-GOOD = "import sys\nsys.path.insert(0, 'chain')\nimport stage_q2_selfref as Q2\n"
+GOOD = "import subprocess, sys\nsubprocess.run([sys.executable, 'chain/MethylPhys_Interface/run_sample.py', '--pat', 'S.pat.gz'])\n"
 def run(r, changed, added_note=(SYN,), known=None):
     return CG.check(changed, {NOTE: list(added_note)}, root=r, known=known if known is not None else {CG.chain_sha(r)})
 res = {}
@@ -41,7 +44,13 @@ r = tree(); CN = CG.DOORS + "COMMISSIONING_NOTE_X.md"; w(r, CN, "Evidence: data/
 res["C8 commissioning cites side code"] = CG.check([CN], {CN: ["Evidence: data/X/side_reader.py"]}, root=r, known={CG.chain_sha(r)})
 r = tree(); w(r, CN, "Evidence: chain/conductor_v3.py\n")
 res["C9 commissioning cites chain"] = CG.check([CN], {CN: ["Evidence: chain/conductor_v3.py"]}, root=r, known={CG.chain_sha(r)})
-want = {k: (k.startswith(("C7", "C9"))) for k in res}
+r = tree(); S1 = CG.DOORS + "data/DEV_X_01/read.py"; w(r, S1, "import sys\nimport stage_metaa_atlas as SA\nfrom stage_1_idat_calibration import calibrate_idat_to_beta\n")
+res["C10 chain pieces, no one command"] = CG.check([S1], {}, root=r, known={CG.chain_sha(r)})
+r = tree(); w(r, S1, "import subprocess\nimport conductor_v3 as C3   # planting rule only\nsubprocess.run(['python3', 'chain/MethylPhys_Interface/run_sample.py', '--betas', 'b.csv'])\n")
+res["C11 runs the one command"] = CG.check([S1], {}, root=r, known={CG.chain_sha(r)})
+r = tree(); os.makedirs(os.path.join(r, "website/art")); S2 = "website/art/make_x.py"; w(r, S2, "import report_globe_v4 as G\n")
+res["C12 website picture from globe code"] = CG.check([S2], {}, root=r, known={CG.chain_sha(r)})
+want = {k: (k.startswith(("C7", "C9", "C11"))) for k in res}
 bad = [k for k, F in res.items() if (len(F) == 0) != want[k]]
 for k, F in res.items(): print(f"  {k}: {'ACCEPTED' if not F else 'REFUSED'} (want {'ACCEPT' if want[k] else 'REFUSE'})" + ("" if not F else f" - {F[0][-110:]}"))
 print("chain_gate_controls: " + (f"ok ({len(res)} of {len(res)})" if not bad else "FAILED: " + ", ".join(bad))); sys.exit(1 if bad else 0)

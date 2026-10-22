@@ -241,12 +241,6 @@
    "status": "module present; neither run_sample.py nor conductor_v3.py calls it (toolkit, chain/TOOLKIT.md)"
   },
   {
-   "step": "stage_metaa_atlas.py",
-   "where": "stage_metaa_atlas.py",
-   "implements": "stage_metaa_atlas.py - Met-A read against IAM-Atlas v2.1, for any atlas cell (DEVELOPMENT, DEV-METAA-ATLAS-01, written 2026-10-21)",
-   "status": "module present; neither run_sample.py nor conductor_v3.py calls it (toolkit, chain/TOOLKIT.md)"
-  },
-  {
    "step": "stage_q2_globe.py",
    "where": "stage_q2_globe.py",
    "implements": "The IAM-A globe (DEVELOPMENT, 2026-10-22; to-do step 29; not commissioned by our standards). IAM-A read region by region on the atlas's",
@@ -406,7 +400,7 @@
  ],
  "counts": {
   "live": 32,
-  "not_wired": 12,
+  "not_wired": 11,
   "toolkit_rows": 13,
   "development_flags": 9
  }

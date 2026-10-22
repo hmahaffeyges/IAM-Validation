@@ -141,3 +141,5 @@ so they did not run the whole chain. The sealed result stands as scored. `data/D
 to learn whether the chain's own step shrinks the spread across slides. Only if it does does a sealed test with step 1 and the laboratory
 tare come next; public series rarely hold the four or more healthy arrays per slide a same-slide test needs (screened 2026-10-22: GSE201754,
 GSE252024, GSE189426 have at most 4, 3 and 2 healthy arrays on any slide).
+
+**WITHDRAWN 2026-10-22: not a chain result.** The script called chain stages directly instead of running the one command (chain/MethylPhys_Interface/run_sample.py), so Stage 0 and Stage T step 1 were skipped. Author: "If the chain didnt produce it, it did NOT happen." Every number above is withdrawn; the work is rerun through the one command (to-do step 35).

@@ -67,12 +67,16 @@ def noise(d):
              "is sure at that place.")
     return V.dedupe(dict(id="noise", name="How sure the atlas is: its noise, beaten down by averaging", groups=groups, about=about))
 
-def sample(sid, title, betas, bundle, planted=False):
-    import conductor_v3 as C
-    b = pd.read_csv(betas, index_col=0).iloc[:, 0]; o = C.run_neutrophil(b, specimen="whole blood")
-    sh = {c["cell"]: c["share"] for c in json.load(open(bundle))["cell_shares"]["cells"]}
-    r = G.build(b, "whole blood", sh, None, z=o["_cscore_z"], fractions=(o.get("composition") or {}).get("fractions"))
-    s = r["spec"]; s["id"] = sid; s["name"] = title
+def sample(sid, title, betas, bundle=None, planted=False):
+    """A sample globe exactly as the one command draws it (2026-10-22, rule 23b-f): runs chain/MethylPhys_Interface/run_sample.py on the
+    sample's values with --explorer-spec and only renames the spec; nothing is read or drawn here. bundle is kept so recorded commands run."""
+    import subprocess, tempfile
+    d = tempfile.mkdtemp(); sp = os.path.join(d, "spec.json")
+    rs = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "Biological_Physics", "MethylPhys", "chain", "MethylPhys_Interface", "run_sample.py")
+    r = subprocess.run([sys.executable, rs, "--betas", betas, "--specimen", "whole blood", "--id", sid, "--out", os.path.join(d, sid + ".html"),
+                        "--explorer-spec", sp] + (["--banner", "PLANTED: a constructed example, not a person."] if planted else []), capture_output=True, text=True)
+    if r.returncode != 0 or not os.path.exists(sp): sys.exit(f"run_sample.py did not write the globe ({r.returncode}): {r.stdout[-400:]} {r.stderr[-400:]}")
+    s = json.load(open(sp)); s["id"] = sid; s["name"] = title
     if planted: s["about"] = "<b>PLANTED: a constructed example, not a person.</b> A clustered loss was planted in a healthy array. " + s["about"]
     return s
 

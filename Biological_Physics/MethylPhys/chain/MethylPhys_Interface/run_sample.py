@@ -194,11 +194,29 @@ def _redact(obj, typed, hid):
     return f(obj)
 
 
+def _metaa_atlas(a, b):
+    """--dev-metaa-atlas (DEV-METAA-ATLAS-01): Met-A against IAM-Atlas v2.1 on the values Stage T step 1 maps (dev_stages.selftare_map, the map the
+    commissioned Met-A reads), then the same-run tare when >= 3 references are given. Development; the reading, gauge and tare are untouched."""
+    import dev_stages as DV, stage_metaa_atlas as SA
+    bs, info = DV.selftare_map(b)
+    if bs is None: return {"label": DV.DEV_LABEL, "status": "NOT_RUN", "reason": "Stage T step 1 could not run: " + str(info.get("reason"))}
+    maps = info.get("maps") or {}
+    if not all(maps.get(d) for d in ("I", "II")):
+        return {"label": DV.DEV_LABEL, "status": "NOT_RUN", "reason": "Stage T step 1 mapped " + ", ".join(d for d in ("I", "II") if maps.get(d)) + " only; both designs are needed", "selftare": maps}
+    r = SA.read(bs, a.dev_metaa_atlas, specimen=a.specimen)
+    rec = {"label": DV.DEV_LABEL, "status": "OK" if r.get("A") is not None else "NOT_READ", **r, "selftare": {d: maps[d]["slope"] for d in ("I", "II")},
+           "values": "Stage 1, then Stage T step 1 (self-tare II)"}
+    if a.metaa_atlas_ref_A:
+        rec["tare"] = SA.tare(r.get("A"), [float(x) for x in a.metaa_atlas_ref_A.split(",") if x.strip()])
+    return rec
+
+
 def _dev_run(a, o, beta, intake):
     """Development flags (doors/DEV_FLAGS_01.md): each writes bundle['development'][stage], labelled DEVELOPMENT - not commissioned.
     None of them changes the reading, the gauge or the tare."""
     flags = [k for k in ("selftare_ii", "direction", "trace", "foreign", "brightness", "nilc", "atlas_e", "percell_b", "sky") if getattr(a, "dev_" + k, False)]
     if a.dev_epic_v2: flags.append("epic_v2")
+    if getattr(a, "dev_metaa_atlas", None): flags.append("metaa_atlas")
     if not flags: return
     import pandas as _pd, dev_stages as DV, traceback as _tb
     dev = o.setdefault("development", {"label": DV.DEV_LABEL, "flags": flags})
@@ -229,7 +247,7 @@ def _dev_run(a, o, beta, intake):
              "direction": lambda: DV.direction_record(b, sp, comp),
              "trace": lambda: DV.trace_cell(b), "foreign": lambda: DV.foreign_cell(b), "brightness": lambda: DV.brightness(b, sp, comp),
              "nilc": lambda: DV.nilc_e(b, a.atlas_v2), "atlas_e": lambda: DV.atlas_e(b, a.atlas_v2), "percell_b": lambda: DV.percell_b(b, fr, a.atlas_v2),
-             "sky": lambda: DV.sky(b, fr, a.atlas_v2)}
+             "sky": lambda: DV.sky(b, fr, a.atlas_v2), "metaa_atlas": lambda: _metaa_atlas(a, b)}
     for k in flags:
         if k == "epic_v2": continue
         try: dev[k] = calls[k]()
@@ -283,6 +301,14 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
+    ap.add_argument("--explorer-spec", default=None, help="also write the report globe's layers as a Globe Explorer spec (JSON) to this path, for the site's "
+                    "Globe Explorer (website/art/make_explorer.py sample), so every sample globe on the site is the one this command drew")
+    ap.add_argument("--dev-metaa-atlas", default=None, metavar="CELL",
+                    help="DEVELOPMENT - not commissioned (DEV-METAA-ATLAS-01, 2026-10-22): Met-A of an isolated CELL (an IAM-Atlas v2.1 cell name, e.g. monocytes) "
+                         "against that cell in IAM-Atlas v2.1, read on the self-tared values (Stage T step 1, the same map the commissioned Met-A reads); "
+                         "written under bundle['development']['metaa_atlas'], not part of the reading")
+    ap.add_argument("--metaa-atlas-ref-A", default=None, help="with --dev-metaa-atlas: comma-separated development.metaa_atlas.A of >= 3 healthy samples of the same "
+                    "cell run the same way (never this sample); gives A_rel and its state (stage_metaa_atlas.tare)")
     ap.add_argument("--atlas-v2", default=os.environ.get("CPG_ATLAS_V2_PARQUET"), help="atlas v2 parquet for the atlas-based development flags (not stored in the repository)")
     ap.add_argument("--sesame-rscript", default=os.environ.get("METHYLPHYS_SESAME_RSCRIPT"), help="Rscript of an environment with Bioconductor sesame (--dev-epic-v2)")
     a=ap.parse_args()
@@ -605,7 +631,9 @@ def main():
             _g = RG.build(_pd.Series(beta, dtype="float64"), a.specimen, {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or []}, z=_z,
                            fractions=(o.get("composition") or {}).get("fractions"),
                            sex=(intake or {}).get("declared_sex") or (intake or {}).get("predicted_sex"), out_html=os.path.splitext(os.path.abspath(a.out))[0] + "_globe.html")
-            _fr = _g.pop("fragment", ""); _g.pop("spec", None); o["_globe_prose"] = _g.pop("prose", "")
+            _fr = _g.pop("fragment", ""); _spec = _g.pop("spec", None); o["_globe_prose"] = _g.pop("prose", "")
+            if a.explorer_spec and _spec:   # 2026-10-22: the Globe Explorer takes this file as written; it never redraws a sample itself (rule 23b-f)
+                json.dump(_spec, open(a.explorer_spec, "w")); _g["explorer_spec"] = os.path.basename(a.explorer_spec)
             if _g.get("html"): _fr = _fr.replace("<h2>The sample on the globe, against its healthy reference</h2>", "<h2>The sample on the globe, against its healthy reference</h2>"
                                                  f"<p><a href='{os.path.basename(_g['html'])}'>Open the globe on its own full page</a> (the same layers, larger, on a dark background).</p>", 1)
             o["_globe_html"] = _fr; o["globe"] = _g

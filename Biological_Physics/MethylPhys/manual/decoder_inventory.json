@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 718,
+   "lines": 746,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -189,17 +189,33 @@
     },
     {
      "file": "MethylPhys_Interface/run_sample.py",
+     "function": "_metaa_atlas",
+     "name": "_metaa_atlas",
+     "line": 197,
+     "end": 211,
+     "args": [
+      "a",
+      "b"
+     ],
+     "lines": 15,
+     "doc": "--dev-metaa-atlas (DEV-METAA-ATLAS-01): Met-A against IAM-Atlas v2.1 on the values Stage T step 1 maps (dev_stages.selftare_map, the map the commissioned Met-A reads), then the same-run tare when >= 3 references are given. Development; the reading, gauge and tare are untouched.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 197,
-     "end": 236,
+     "line": 214,
+     "end": 254,
      "args": [
       "a",
       "o",
       "beta",
       "intake"
      ],
-     "lines": 40,
+     "lines": 41,
      "doc": "Development flags (doors/DEV_FLAGS_01.md): each writes bundle['development'][stage], labelled DEVELOPMENT - not commissioned. None of them changes the reading, the gauge or the tare.",
      "constants": [],
      "data_files": [],
@@ -212,10 +228,10 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 239,
-     "end": 715,
+     "line": 257,
+     "end": 743,
      "args": [],
-     "lines": 477,
+     "lines": 487,
      "doc": "",
      "constants": [
       "BIO",
@@ -236,8 +252,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 341,
-     "end": 345,
+     "line": 367,
+     "end": 371,
      "args": [
       "r"
      ],
@@ -253,8 +269,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 662,
-     "end": 663,
+     "line": 690,
+     "end": 691,
      "args": [
       "b",
       "it",
@@ -5701,5 +5717,5 @@
   }
  ],
  "n_files": 24,
- "n_functions": 287
+ "n_functions": 288
 }

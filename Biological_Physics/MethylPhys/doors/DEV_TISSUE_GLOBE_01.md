@@ -81,3 +81,5 @@ stop if no picture is written) and run again.
 Step 4, run again (explore run 39804625160, commit bb35f2a3): 6 of 7 pictures drawn (one breast download dropped after four tries), 16
 pictures written; output `data/DEV_TISSUE_GLOBE_01/explorer_pairs_04_summary.txt`. The globe `tumor-pairs` is on the Globe Explorer,
 labeled development.
+
+**WITHDRAWN 2026-10-22: not a chain result.** The script called chain stages directly instead of running the one command (chain/MethylPhys_Interface/run_sample.py), so Stage 0 and Stage T step 1 were skipped. Author: "If the chain didnt produce it, it did NOT happen." Every number above is withdrawn; the work is rerun through the one command (to-do step 35).
