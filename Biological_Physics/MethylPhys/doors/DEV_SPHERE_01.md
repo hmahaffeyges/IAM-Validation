@@ -184,3 +184,11 @@ comes out uniform while the pairs stay bunched. Not adopted. The record so far: 
 edges, v3 removes the edges but neither covers nor keeps distances well enough. Next, written before it is run: a construction that fills
 the sphere jointly rather than one coordinate at a time, and the question whether a three-dimensional globe can hold both bars at once
 for a methylome, which is itself a measured answer.
+
+## Construction v4 and planted test 5, written before running (2026-10-22; synthetic only; to-do step 31)
+
+`data/DEV_SPHERE_01/sphere_construction_04.py` and `planted_sphere_05.py`. v4 fills the sphere jointly instead of one coordinate at a time:
+the pole goes on the axis along which v1's points vary least, so the band they lie along runs around the equator; then height by rank, and
+longitude by rank within each of round(sqrt(n)) equal-count height bands (a Rosenblatt transform: uniform height and, at every height,
+uniform longitude, which is the equal-area condition for the joint spread). Nothing is tuned. Test 5 is test 4 unchanged (test 3's
+continuous methylome, the same six checks P1 to P6) with this construction. Run once on GitHub (explore.yml).

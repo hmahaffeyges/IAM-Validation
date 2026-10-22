@@ -24609,7 +24609,7 @@
    "sources": [],
    "runs": [],
    "legacy_ids": [],
-   "notes": "2026-10-18: per-cell uncertainty maps built from the 95 % range (ATL-069); noise realizations from the posterior draws still to do",
+   "notes": "2026-10-18: per-cell uncertainty maps built from the 95 % range (ATL-069); noise realizations from the posterior draws still to do | 2026-10-22 DEV-SPHERE-01 construction v4 (joint equal-area fill) and planted test 5 written before running; run on GitHub.",
    "sources_of_row": [
     "author request 2026-10-13"
    ]
