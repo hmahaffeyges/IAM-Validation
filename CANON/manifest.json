@@ -24609,7 +24609,7 @@
    "sources": [],
    "runs": [],
    "legacy_ids": [],
-   "notes": "2026-10-18: per-cell uncertainty maps built from the 95 % range (ATL-069); noise realizations from the posterior draws still to do | 2026-10-22 DEV-SPHERE-01 construction v4 (joint equal-area fill) and planted test 5 written before running; run on GitHub. | 2026-10-22 planted test 5 (v4): 4 of 6; the information sphere keeps v1's distances and masks the empty sky next. | 2026-10-22: the information sphere moved into the chain (stage_info_sphere.py, run_sample.py --build info-sphere); planted test 6 written before running (three bars, the empty sky masked). | 2026-10-22 test 6 first run stopped by a test-file bug before the nulls (no verdict); fixed, run again.",
+   "notes": "2026-10-18: per-cell uncertainty maps built from the 95 % range (ATL-069); noise realizations from the posterior draws still to do | 2026-10-22 DEV-SPHERE-01 construction v4 (joint equal-area fill) and planted test 5 written before running; run on GitHub. | 2026-10-22 planted test 5 (v4): 4 of 6; the information sphere keeps v1's distances and masks the empty sky next. | 2026-10-22: the information sphere moved into the chain (stage_info_sphere.py, run_sample.py --build info-sphere); planted test 6 written before running (three bars, the empty sky masked). | 2026-10-22 test 6 first run stopped by a test-file bug before the nulls (no verdict); fixed, run again. | 2026-10-22 test 6 (run 39827830762): C1 met (R 0.9995 vs 0.2553), C3 met (rho 0.9324), C2 NOT met (2 of 20 nulls, both by hairs): FAILED. Test 7 written before running: 100 nulls, bar at most 4 (binomial at 1 %).",
    "sources_of_row": [
     "author request 2026-10-13"
    ]

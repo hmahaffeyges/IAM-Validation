@@ -10,7 +10,7 @@ refused by the push gate otherwise (`CANON/chain_gate.py`).
    [`chain/requirements.txt`](chain/requirements.txt) (Python 3.11). Full cold start: [`chain/RUN_MANIFEST_and_README.md`](chain/RUN_MANIFEST_and_README.md).
 2. Check the chain on its constructed tests: `python3 Biological_Physics/MethylPhys/chain/release_check_v3.py`.
 3. Read a specimen: `python3 Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py` with
-   `--grn`, `--red`, `--betas`, `--age`, `--specimen`, `--banner`, `--out`, `--id`, `--bundle`, `--covariate`, `--covariates`, `--no-bundle`, `--ledger`, `--sex`, `--patient-id`, `--array-type`, `--intake-log`, `--manifest-dir`, `--no-intake`, `--engine`, `--slide-ref-A`, `--slide-ref-table`, `--bam`, `--ref-fasta`, `--assembly`, `--workers`, `--seq-chemistry`, `--dev-iama-position`, `--pat`, `--pat-max-bytes`, `--alignment-qc`, `--iama-ref-table`, `--dev-allow-partial`, `--site-table`, `--seq-pipeline`, `--seq-cell`, `--prior-betas`, `--prior-bundle`, `--save-betas`, `--dev-selftare-ii`, `--build`, `--build-input`, `--build-groups`, `--build-out`, `--explorer-spec`, `--dev-genome-globe`, `--prior-pat`, `--prior-name`, `--genome-region`, `--dev-metaa-atlas`, `--metaa-atlas-ref-A`, `--atlas-v2`, `--sesame-rscript`.
+   `--grn`, `--red`, `--betas`, `--age`, `--specimen`, `--banner`, `--out`, `--id`, `--bundle`, `--covariate`, `--covariates`, `--no-bundle`, `--ledger`, `--sex`, `--patient-id`, `--array-type`, `--intake-log`, `--manifest-dir`, `--no-intake`, `--engine`, `--slide-ref-A`, `--slide-ref-table`, `--bam`, `--ref-fasta`, `--assembly`, `--workers`, `--seq-chemistry`, `--dev-iama-position`, `--pat`, `--pat-max-bytes`, `--alignment-qc`, `--iama-ref-table`, `--dev-allow-partial`, `--site-table`, `--seq-pipeline`, `--seq-cell`, `--prior-betas`, `--prior-bundle`, `--save-betas`, `--dev-selftare-ii`, `--build`, `--build-input`, `--build-groups`, `--build-random`, `--build-out`, `--explorer-spec`, `--dev-genome-globe`, `--prior-pat`, `--prior-name`, `--genome-region`, `--dev-metaa-atlas`, `--metaa-atlas-ref-A`, `--atlas-v2`, `--sesame-rscript`.
 4. Every result the chain writes for a logged test carries a chain stamp (chain version, payload hash, inputs); compare yours with ours.
 
 Chain entry points: `chain/conductor_v3.py`, `chain/stage_v4.py`, `chain/stage_groupa.py`, `chain/stage_metaa_atlas.py`, `chain/stage_q2_globe.py`, `chain/stage_info_sphere.py`, `chain/stage_1_idat_calibration.py`, `chain/stage_q_iam_a.py`, `chain/stage_q0_intake.py`, `chain/stage_q2_selfref.py`, `chain/stage_atlas_commission.py`, `chain/stage_atlas_u1.py`, `chain/stage_atlas_u1_planted.py`, `chain/stage_atlas_u2.py`, `chain/stage_atlas_u3.py`, `chain/stage_deconv_v21.py`, `chain/stage_temperature.py`.
@@ -53,7 +53,7 @@ test from 2026-10-15 on is held to the rule by the push gate (CANON/chain_gate.p
 **Also not chain-verified: the self-reference line itself** (development/loose_share_2026-10-15/, own-read counts of the 153 samples of the published sequencing atlas).
 It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 
-**51 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
+**52 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
 
 | record | synthetic script | why | manifest rows |
 |---|---|---|---|
@@ -99,6 +99,7 @@ It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 | DEV_IAMA_READACROSS_01 | `DEV_IAMA_READACROSS_01/planted_readacross_01.py` | declares NO CHAIN | COM-IAMA-012, COM-IAMA-024 |
 | DEV_IAMA_TRIM_01 | `DEV_IAMA_TRIM_01/planted_trim_01.py` | declares NO CHAIN | COM-IAMA-016, CAN-002, CAN-008, CAN-010, CAN-024, CAN-025 |
 | DEV_POSITION_EXPR_01 | `DEV_POSITION_EXPR_01/planted_position_expr_01.py` | declares NO CHAIN | PHY-041 |
+| DEV_SPHERE_01 | `DEV_SPHERE_01/planted_sphere_07.py` | no chain import | CAN-018, PHY-035, SCO-059, ATL-046, ATL-047, ATL-048 |
 | DEV_TERRITORY_01 | `DEV_TERRITORY_01/territory_synth_01.py` | declares NO CHAIN | CAN-012 |
 | DEV_TERRITORY_02 | `DEV_TERRITORY_02/territory_synth_02.py` | declares NO CHAIN |  |
 | DEV_TISSUE_BREAST_01 | `DEV_TISSUE_BREAST_01/power_pairs.py` | no chain import | DAT-155, DAT-216 |

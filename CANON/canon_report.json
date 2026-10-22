@@ -1098,6 +1098,24 @@
 "text": "**Question.** With one lab, one kit, one sequencer and every fish prepared the same way, is the gate-error reading a property of each fish"
 },
 {
+"file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
+"line": 2784,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "or slide. It reads, tares and scores nothing itself; a scorer reads only the bundles."
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
+"line": 1787,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "or slide. It reads, tares and scores nothing itself; a scorer reads only the bundles."
+},
+{
 "file": "Biological_Physics/MethylPhys/atlas/v2/scripts/stage_1_idat_calibration.py",
 "line": 11,
 "pattern": "\\bA[- ]score",

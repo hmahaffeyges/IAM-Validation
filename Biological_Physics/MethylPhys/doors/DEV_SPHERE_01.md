@@ -219,3 +219,18 @@ planted, together in at most 1 of 20; C3 distance agreement rho at least 0.7. Sk
 
 Test 6, first run (explore run 39826214477): stopped by a bug in the test file before the null methylomes (a loop variable named N overwrote
 the methylome's site count). No verdict. Renamed; nothing else changed; run again.
+
+## Planted test 6, run once (2026-10-22; explore run 39827830762, commit 2f271ede): FAILED on C2
+
+Output: `data/DEV_SPHERE_01/planted_sphere_06_summary.txt` and `planted_sphere_06_nulls.txt`. Every globe was built by the one command.
+**C1 met:** the planted group lands together (R 0.9995; the random groups' 99th percentile 0.2553). **C3 met:** distances kept (rho 0.9324).
+**C2 not met:** with nothing planted, 2 of 20 groups passed the line (0.2517 against 0.2487; 0.2456 against 0.2456). Reported: variance kept
+0.9493, sky covered 7.1 % (92.9 % masked), edge ratio 0.6. The test stands as failed.
+
+**What the failure says.** Each null group is a random set of the methylome's variable sites, so it passes a 99th-percentile line by chance
+1 time in 100; 2 or more of 20 happens about 1.7 % of the time, and both passes were by hairs. The test was too small to tell chance from a
+construction that makes groups out of nothing. **Planted test 7, written before it runs** (`data/DEV_SPHERE_01/planted_sphere_07.py`): test 6
+unchanged except in size: 100 null methylomes, each line from 1,000 random groups, C2's bar from the binomial at 1 %: at most 4 of 100
+(chance gives 5 or more 0.3 % of the time). C1 and C3 unchanged.
+
+**Synthetic test:** DEV_SPHERE_01/planted_sphere_07.py

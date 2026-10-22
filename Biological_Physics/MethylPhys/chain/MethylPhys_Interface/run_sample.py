@@ -221,7 +221,7 @@ def _build(a):
         if a.build_groups:
             G = {n: [pos[str(x)] for x in v if str(x) in pos] for n, v in json.load(open(a.build_groups)).items()}
         print(f"Build: information sphere from {os.path.basename(a.build_input)} ({B.shape[0]:,} sites x {B.shape[1]} cell types)", flush=True)
-        L, rep = IS.build(B.values, G)
+        L, rep = IS.build(B.values, G, n_random=a.build_random)
         _np.savez_compressed(a.build_out, sites=_np.array(B.index.astype(str)), cells=_np.array(B.columns.astype(str)), **L)
         rep.update(input=os.path.basename(a.build_input), groups_file=os.path.basename(a.build_groups) if a.build_groups else None, output=os.path.basename(a.build_out),
                    command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (DEV-SPHERE-01)")
@@ -361,6 +361,7 @@ def main():
     ap.add_argument("--build-input", default=None, help="with --build info-sphere: a matrix of methylation levels, sites x cell types (.parquet or .csv, site id first)")
     ap.add_argument("--build-groups", default=None, help="with --build info-sphere: JSON {name: [site ids]} of site groups to test for landing together "
                     "('pool': the sites random groups are drawn from)")
+    ap.add_argument("--build-random", type=int, default=500, help="with --build info-sphere: random groups per named group for its line (default 500)")
     ap.add_argument("--build-out", default=None, help="with --build: where the built reference is written (.npz)")
     ap.add_argument("--explorer-spec", default=None, help="also write the report globe's layers as a Globe Explorer spec (JSON) to this path, for the site's "
                     "Globe Explorer (website/art/make_explorer.py sample), so every sample globe on the site is the one this command drew")
