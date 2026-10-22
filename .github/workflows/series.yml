@@ -25,9 +25,9 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
       - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
-      - run: python3 -u $RS read "${{ inputs.samples }}" out ${{ matrix.shard }} 10 --specimen "${{ inputs.specimen }}" --pass 1 2>&1 | grep -v -i warning
+      - run: python3 -u $RS read "${{ inputs.samples }}" out ${{ matrix.shard }} 10 --specimen "${{ inputs.specimen }}" --pass 1 2>&1 | { grep -v -i warning || true; }; exit ${PIPESTATUS[0]}
       - uses: actions/upload-artifact@v4
-        with: {name: "pass1-${{ matrix.shard }}", path: out/pass1/}
+        with: {name: "pass1-${{ matrix.shard }}", path: out/pass1/, if-no-files-found: ignore}
   pass2:
     needs: pass1
     runs-on: ubuntu-24.04
@@ -40,12 +40,13 @@ jobs:
         with: {python-version: "3.11"}
       - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
       - uses: actions/download-artifact@v4
+        continue-on-error: true
         with: {pattern: "pass1-*", path: out/pass1, merge-multiple: true}
       - run: |
           P=""; [ "${{ inputs.plant }}" != "none" ] && P="--plant ${{ inputs.plant }}"
-          python3 -u $RS read "${{ inputs.samples }}" out ${{ matrix.shard }} 10 --specimen "${{ inputs.specimen }}" --pass 2 --scope ${{ matrix.scope }} $P 2>&1 | grep -v -i warning
+          python3 -u $RS read "${{ inputs.samples }}" out ${{ matrix.shard }} 10 --specimen "${{ inputs.specimen }}" --pass 2 --scope ${{ matrix.scope }} $P 2>&1 | { grep -v -i warning || true; }; exit ${PIPESTATUS[0]}
       - uses: actions/upload-artifact@v4
-        with: {name: "pass2-${{ matrix.scope }}-${{ matrix.shard }}", path: "out/pass2_${{ matrix.scope }}/"}
+        with: {name: "pass2-${{ matrix.scope }}-${{ matrix.shard }}", path: "out/pass2_${{ matrix.scope }}/", if-no-files-found: ignore}
   table:
     needs: pass2
     if: always()
@@ -58,6 +59,7 @@ jobs:
         with: {python-version: "3.11"}
       - run: pip install -q pandas pyarrow
       - uses: actions/download-artifact@v4
+        continue-on-error: true
         with: {pattern: "pass1-*", path: out/pass1, merge-multiple: true}
       - uses: actions/download-artifact@v4
         continue-on-error: true

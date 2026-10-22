@@ -48,6 +48,7 @@ def bundle_row(p):
 
 def read(a, extra):
     S = pd.read_csv(a.samples, dtype={"slide": str}); S = S.iloc[a.shard::a.nshards]
+    if S.empty: print(f"shard {a.shard} of {a.nshards}: no arrays in this shard"); return
     out = os.path.abspath(a.out); d1, d2, W = (os.path.join(out, x) for x in ("pass1", f"pass2_{a.scope}", f"work_{a.scope}_{a.shard}")); [os.makedirs(x, exist_ok=True) for x in (d1, d2, W)]
     P1 = None
     if a.pass_ == 2:
