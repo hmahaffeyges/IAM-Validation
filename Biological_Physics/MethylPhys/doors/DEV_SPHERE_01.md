@@ -192,3 +192,17 @@ the pole goes on the axis along which v1's points vary least, so the band they l
 longitude by rank within each of round(sqrt(n)) equal-count height bands (a Rosenblatt transform: uniform height and, at every height,
 uniform longitude, which is the equal-area condition for the joint spread). Nothing is tuned. Test 5 is test 4 unchanged (test 3's
 continuous methylome, the same six checks P1 to P6) with this construction. Run once on GitHub (explore.yml).
+
+## Planted test 5, run once (2026-10-22; explore run 39798660165, commit 8d1219c4; synthetic only)
+
+Output: `data/DEV_SPHERE_01/planted_sphere_05_summary.txt`. **Four of six checks met; not passed.** Met: the planted group is found (R 0.975
+against a 99th percentile of 0.175), nothing is found when nothing is planted (0 of 20), the two big classes sit 108.9 degrees apart, no grid
+edges (edge ratio 1.09). Not met: the globe is 78.5 % covered (bar 90 %; v3 46.9 %), and distances agree at rho 0.189 (bar 0.7; v3 0.567).
+Filling the sphere jointly covered more of it and cost almost all of the distances.
+
+**What the four constructions now show together.** v1 kept distances (rho 0.89) and covered little; every step toward covering the whole
+sphere (v2, v3, v4) lost distances. A methylome's information lies on a thin, low-dimensional shape; pressed onto a three-dimensional
+sphere, it can be drawn faithfully (v1) or spread over the whole surface (v4), not both. That is the measured answer this note asked for on
+2026-10-21. Next, a design choice recorded before any further run: the information sphere is for how far apart states are, so it keeps v1's
+distance-faithful projection, and the empty sky is masked the way microwave-sky maps mask the galaxy (the masks and apodization are already
+in the sky tools). The coverage check is replaced by a masked-sky check, written down before it runs. Not adopted for reading real data.
