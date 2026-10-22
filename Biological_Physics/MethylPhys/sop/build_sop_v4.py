@@ -5,6 +5,7 @@ chain/chain_sequence.json (the live stages), and the IAM-A shape reference (the 
 Nothing in the generated file is typed twice. --check refuses drift. Run by CANON/checkpoint.sh."""
 import sys as _sys, os as _os; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'CANON')); import sex_chromosomes as _sx
 import json, os, sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'chain')); import stage_0_intake as _S0   # the specimens intake accepts, read from the chain
 HERE = os.path.dirname(os.path.abspath(__file__)); MP = os.path.dirname(HERE); ROOT = os.path.dirname(os.path.dirname(MP)); CH = os.path.join(MP, "chain")
 OUT = os.path.join(HERE, "MethylPhys_CPG_SOP_v4.md")
 J = lambda p: json.load(open(p, encoding="utf-8"))
@@ -39,8 +40,39 @@ def text():
           "**Sex.** Give `--sex F` or `--sex M` when the sample's sex is known: Stage 0 compares it with the array's own X and Y signals and stops a "
           "mismatch (a swapped sample). Without it, the array's sex is recorded and printed on the report and the globe. How each instrument handles "
           "the X and Y:", "", "<!-- SEX-SECTION:BEGIN -->", _sx.section(_sx.facts())[0], "<!-- SEX-SECTION:END -->", "",
+          "## 4b. What the chain works out for itself, and what you tell it", "",
+          "**The chain reads from the files:** the array type, from the IDAT header (450K, EPIC v1, EPIC v2); the platform of a values file, "
+          "from its probe names and count; the array's sex, from its X and Y signals; and a sequencing file's genome build, from its name and "
+          "its CpG index ranges (Stage Q0). Nothing has to be switched by hand for the chain to pick its stages.", "",
+          "**You tell it:** the specimen (`--specimen`); the file (`--grn` and `--red`, `--betas`, `--pat` or `--bam`); for sequencing, the "
+          "cell type (`--seq-cell`); and, for a tared reading, three or more healthy references read the same way (`--ref-table`).", "",
+          "**Laboratories.** There is no list of approved laboratories. A laboratory's offset is canceled by the same-run tare: three or more "
+          "healthy arrays of the same specimen, run with the sample. The tare is never the sample itself.", "",
+          "**Specimens intake accepts:** " + ", ".join(f"`{x}`" for x in sorted(set(_S0.ACCEPTED_SPECIMENS.values()))) + "; and an "
+          "isolated, sorted or purified cell of any IAM-Atlas v2.1 type, read by Met-A against the atlas and flagged as not commissioned.", "",
+          "## 4c. Public samples and whole series", "",
+          "A public sequencing sample, fetched by the chain on the genome build it reads (Decoder, genome builds):", "", "```",
+          "python3 run_sample.py --geo-pat GSM5652282 --seq-cell \"cd8 t cells\" --id S004 --out S004.html", "```", "",
+          "A public series of arrays: `run_series.py` runs the one command on every array of a list (columns `gsm` and `slide`): pass 1 reads "
+          "each array; pass 2 reads it again tared against the other healthy arrays of its series or slide. `run_series.py table` writes one "
+          "row per bundle for a scorer, which reads the bundles only.", "",
+          "## 4d. On GitHub's machines", "",
+          "**Public data.** Fork the repository, turn on Actions, and run `series` (a list of GEO arrays) or `reproduce_all` (every "
+          "reproduction). Each job runs up to six hours; up to twenty jobs run at once.", "",
+          "**Your own samples.** A fork of a public repository stays public, so for samples that are not public make a private copy "
+          "(GitHub's Import repository, or a copy pushed to a new private repository). Put each array's two IDAT files in one folder, "
+          "commit, and run `my_samples` with that folder and the specimen (and, for a tared reading, a CSV of three or more same-run healthy "
+          "references). Every array is read by `run_sample.py`, unchanged; the reports, bundles and ledgers come back as the run's artifacts. "
+          "A private repository uses the account's included Actions minutes. Tested on a public array (GSM7508429): one array took about 18 "
+          "minutes on its machine, most of it installing the chain's packages, and read the same Met-A and C-Score as the committed example report.", "",
+          "## 4e. Development readings (flagged in the report, not commissioned)", "",
+          "- `--dev-metaa-atlas CELL` (with `--metaa-atlas-ref-A` for its tare): Met-A against a cell in IAM-Atlas v2.1, on the self-tared values.",
+          "- `--dev-genome-globe` with `--pat` or `--geo-pat` (and `--prior-pat` / `--prior-geo-pat`, `--prior-name`): the whole-genome globe.",
+          "- `--build info-sphere | explorer-purified | explorer-noise | atlas-sphere | atlas-masks`: the chain builds a reference or a reference globe.",
+          "- `--explorer-spec FILE`: the report globe's layers as a Globe Explorer file.", "",
           "## 5. What the chain declines, and why", "",
           "- An EPIC v2 or 450K array: refused at intake with one sentence (no frozen Met-A reference for that platform).",
+          "- A sequencing file on another genome build than hg19: stopped at intake, by its name before any line is read, then by its CpG index ranges.",
           "- A failed array (Stage 0 quarantine): exit 2, no report.",
           "- A sequencing sample whose shape is outside the healthy shape of its declared cell type, or with too few qualifying molecules: IAM-A declines and says why.",
           "- A noisy array (the noise gate): the Met-A state is withheld and no gauge is drawn.", "",
