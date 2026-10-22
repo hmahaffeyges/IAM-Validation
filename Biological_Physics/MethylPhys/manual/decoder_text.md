@@ -1722,6 +1722,14 @@ make; refuses, with the reason, a cell with no qualifying site or a sample measu
 ### stage_metaa_atlas.py::tare
 A_rel = A over the median of at least 3 same-run healthy references (never the sample), the references' spread and the detection limit.
 
+### stage_metaa_atlas.py::read_in_mix
+Met-A for each cell of a whole blood (development, flagged in the report as preliminary until commissioned): for each cell the IAM-Deconvolver
+read, its identity sites by Met-A's rule on the atlas; the healthy expectation at those sites, IAM-Atlas v2.1's best values mixed in this
+person's own cell shares; A = mean entropy of the sample over mean entropy of the expectation; and the shift a 1 % loss of that cell's pattern
+would make at this person's share of it, so a cell present in small numbers shows a small shift. Read on the values Stage T step 1 maps, as
+the commissioned Met-A is; untared. Known from exploration (GRP-014): a loss at every one of a cell's sites is partly taken up by the
+Deconvolver's share of that cell, so the reading sees less loss than was planted.
+
 ### stage_metaa_atlas.py::plant
 A constructed loss for tests: every identity site the array measured moved 1 % of the way to 0.5, the shift `read` predicts. Used by the
 series runner's `--plant metaa_atlas`; never by a reading.

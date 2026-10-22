@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 837,
+   "lines": 844,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -261,9 +261,9 @@
      "function": "main",
      "name": "main",
      "line": 309,
-     "end": 834,
+     "end": 841,
      "args": [],
-     "lines": 526,
+     "lines": 533,
      "doc": "",
      "constants": [
       "BIO",
@@ -301,8 +301,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 778,
-     "end": 779,
+     "line": 785,
+     "end": 786,
      "args": [
       "b",
       "it",
@@ -1891,7 +1891,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_v4.py",
-   "lines": 263,
+   "lines": 269,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_v4.py",
@@ -2067,11 +2067,11 @@
      "function": "glance_rows",
      "name": "glance_rows",
      "line": 63,
-     "end": 92,
+     "end": 98,
      "args": [
       "o"
      ],
-     "lines": 30,
+     "lines": 36,
      "doc": "",
      "constants": [],
      "data_files": [],
@@ -2084,8 +2084,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_shares",
      "name": "_shares",
-     "line": 94,
-     "end": 105,
+     "line": 100,
+     "end": 111,
      "args": [
       "o"
      ],
@@ -2104,8 +2104,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_meta",
      "name": "_meta",
-     "line": 107,
-     "end": 115,
+     "line": 113,
+     "end": 121,
      "args": [
       "o"
      ],
@@ -2124,8 +2124,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_cscore",
      "name": "_cscore",
-     "line": 117,
-     "end": 125,
+     "line": 123,
+     "end": 131,
      "args": [
       "o"
      ],
@@ -2144,8 +2144,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_iama",
      "name": "_iama",
-     "line": 127,
-     "end": 136,
+     "line": 133,
+     "end": 142,
      "args": [
       "o"
      ],
@@ -2164,8 +2164,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_figs",
      "name": "_figs",
-     "line": 139,
-     "end": 155,
+     "line": 145,
+     "end": 161,
      "args": [
       "o",
       "base"
@@ -2183,8 +2183,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_physics",
      "name": "_physics",
-     "line": 161,
-     "end": 166,
+     "line": 167,
+     "end": 172,
      "args": [
       "o"
      ],
@@ -2204,8 +2204,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "physics_rows",
      "name": "physics_rows",
-     "line": 168,
-     "end": 199,
+     "line": 174,
+     "end": 205,
      "args": [
       "o"
      ],
@@ -2224,8 +2224,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_skypair",
      "name": "_skypair",
-     "line": 202,
-     "end": 209,
+     "line": 208,
+     "end": 215,
      "args": [
       "o"
      ],
@@ -2243,8 +2243,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_plain",
      "name": "_plain",
-     "line": 211,
-     "end": 229,
+     "line": 217,
+     "end": 235,
      "args": [
       "o",
       "F"
@@ -2264,8 +2264,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "build",
      "name": "build",
-     "line": 231,
-     "end": 262,
+     "line": 237,
+     "end": 268,
      "args": [
       "o",
       "out",
@@ -5859,7 +5859,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 94,
+   "lines": 122,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -5983,6 +5983,25 @@
      "lines": 5,
      "doc": "A CONSTRUCTED loss of the cell's pattern, for tests only (the rule read() predicts its shift by): every identity site of the cell this array measured moved loss of the way to 0.5, x + loss (0.5 - mu). Returns a new Series; the input is unchanged.",
      "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "read_in_mix",
+     "name": "read_in_mix",
+     "line": 96,
+     "end": 121,
+     "args": [
+      "beta",
+      "shares"
+     ],
+     "lines": 26,
+     "doc": "Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written 2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21). For each cell c: its identity sites (identity_sites, Met-A's rule on the atlas); the healthy expectation e = sum_k f_k mu_k at t",
+     "constants": [
+      "FLAG",
+      "RULE"
+     ],
      "data_files": [],
      "traced_calls": {}
     }
@@ -6695,5 +6714,5 @@
   }
  ],
  "n_files": 30,
- "n_functions": 340
+ "n_functions": 341
 }

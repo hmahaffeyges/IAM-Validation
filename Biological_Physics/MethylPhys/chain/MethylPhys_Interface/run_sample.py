@@ -698,6 +698,13 @@ def main():
         import stage_v4 as V4
         print("Stage D21: cell shares against IAM-Atlas v2.1", flush=True)
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"))
+        if (o["cell_shares"] or {}).get("cells") and str(a.specimen).lower() == "whole blood":   # 2026-10-22: Met-A for each cell, read and flagged (development)
+            try:
+                import stage_metaa_atlas as SA, stage_t_selftare as _ST; _bs, _inf = _ST.selftare_map(_pd.Series(beta, dtype="float64"))
+                o["met_a_each_cell"] = SA.read_in_mix(_bs if _bs is not None else _pd.Series(beta, dtype="float64"),
+                                                      {r["cell"]: r["share"] for r in o["cell_shares"]["cells"]})
+                o["met_a_each_cell"]["values"] = "Stage 1, then Stage T step 1 (self-tare II)" if _bs is not None else "Stage 1 (Stage T step 1 could not run)"
+            except Exception as e: o["met_a_each_cell"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
         _m, _c, _t = o.get("met_a") or {}, o.get("met_a_cscore") or {}, o.get("tare") or {}
         _rd = "    ".join(x for x in (("" if str(_m.get("state", "")).startswith("withheld") else f"Met-A {_t['A_rel']:.3f} (tared)" if _t.get("A_rel") is not None else (f"Met-A {_m['A']:.3f}" if _m.get("A") is not None else "")),
                                      (f"C-score {_c['C_rel']:.2f} (tared)" if _c.get("C_rel") is not None else (f"C-score {_c['C']:.2f}" if _c.get("C") is not None else ""))) if x)

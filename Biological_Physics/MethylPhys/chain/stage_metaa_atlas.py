@@ -91,3 +91,31 @@ def plant(beta, cell, loss=0.01):
     array measured moved loss of the way to 0.5, x + loss (0.5 - mu). Returns a new Series; the input is unchanged."""
     S = identity_sites(cell); b = beta.copy(); x = b.reindex(S); mu = _col("mu", cell).reindex(S); ok = x.notna() & mu.notna()
     b.loc[x[ok].index] = (x[ok] + loss * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6); return b
+
+
+def read_in_mix(beta, shares):
+    """Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written
+    2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21).
+    For each cell c: its identity sites (identity_sites, Met-A's rule on the atlas); the healthy expectation e = sum_k f_k mu_k at those sites,
+    the atlas's best values mixed in this sample's shares; A_c = mean H(beta) / mean H(e) over the sites both measured; and the shift a 1 % loss
+    of c's pattern would make at this sample's share of c, beta + f_c x 0.01 x (0.5 - mu_c) (the rule conductor_v3.stage_m_blood uses for
+    neutrophils), so a small share shows as a small shift. Untared: the same-run tare against healthy samples of the same specimen is the step
+    that makes A_c read 1 when healthy. Known from exploration (GRP-014, 2026-10-21): a loss at every one of a cell's sites is partly absorbed
+    into the Deconvolver's share of that cell, so A_c reads a loss smaller than planted; the record says so."""
+    cells = [c for c, f in shares.items() if f is not None]
+    out = dict(stage="M-atlas-mix", reading="Met-A for each cell, against IAM-Atlas v2.1 in this sample's own cell shares", flag=FLAG, cells=[],
+               shares_from="IAM-Deconvolver (Stage D21)",
+               note="untared; a loss at every site of a cell is partly absorbed into that cell's share (GRP-014), so a loss reads smaller than planted")
+    if not cells: out["reason"] = "no cell shares"; return out
+    for c in cells:
+        S = identity_sites(c); r = dict(cell=c, share=round(float(shares[c]), 4), n_identity_sites=len(S), A=None)
+        if not S: r["reason"] = "no site meets Met-A's site rule in the atlas"; out["cells"].append(r); continue
+        e = sum(float(shares[k]) * _col("mu", k).reindex(S) for k in cells); x = beta.reindex(S); mu = _col("mu", c).reindex(S)
+        ok = x.notna() & e.notna() & mu.notna()
+        if ok.sum() < RULE["coverage_min"] * len(S):
+            r["reason"] = f"only {int(ok.sum())} of {len(S)} identity sites measured (at least {RULE['coverage_min']:.0%} needed)"; out["cells"].append(r); continue
+        he = float(_H(e[ok]).mean()); A = float(_H(x[ok]).mean() / he); xd = (x[ok] + float(shares[c]) * 0.01 * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6)
+        r.update(A=round(A, 5), n_sites=int(ok.sum()), H_expectation=round(he, 5),
+                 shift_per_1pct_loss=round(float(_H(xd).mean() / he - A), 5), state="untared")
+        out["cells"].append(r)
+    return out

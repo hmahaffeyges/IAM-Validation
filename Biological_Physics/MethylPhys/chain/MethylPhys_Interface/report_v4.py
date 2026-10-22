@@ -78,6 +78,12 @@ def glance_rows(o):
     elif o.get("met_a") is not None or o.get("refusal"):
         rows.append(("Met-A", "How far the neutrophil's tagging level has moved", "", "", "refused: " + str(o.get("refusal") or m.get("reason", ""))))
     else: rows.append(("Met-A", "How far the neutrophil's tagging level has moved", "", "", "not run (no array input)"))
+    ec = o.get("met_a_each_cell") or {}
+    if ec.get("cells"):   # 2026-10-22: Met-A for each cell of a whole blood, against IAM-Atlas v2.1 in the person's own shares (development, flagged)
+        rd = [x for x in ec["cells"] if x.get("A") is not None]
+        rows.append(("Met-A, each cell", "How far each blood cell's tagging level has moved (against IAM-Atlas v2.1 in this person's own cell mix)",
+                     ", ".join(f"{cellname(x['cell'])} {x['A']:.3f}" for x in rd) + (" (untared)" if rd else ""), "",
+                     untested("each blood cell in whole blood", "Met-A")))
     if c.get("C") is not None:
         val = f"C_rel {c['C_rel']}" if c.get("C_rel") is not None else f"C {c['C']} (untared)"
         st = ("commissioned" if c.get("commissioning") else "not tared: needs 3 same-run healthy references" if c.get("C_rel") is None and o.get("specimen") == "whole blood"
