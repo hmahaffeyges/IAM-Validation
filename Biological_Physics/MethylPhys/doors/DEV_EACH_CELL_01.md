@@ -9,7 +9,7 @@ assumptions". Every reading is the one command (`chain/MethylPhys_Interface/run_
 ## Synthetic test 1 (2026-10-22; `data/DEV_EACH_CELL_01/synthetic_each_cell_01.py`, output `synthetic_each_cell_01_summary.txt`)
 
 The healthy example blood (GSM7508429) and the same blood with a constructed 5 % loss of one cell's pattern at its identity sites, at its share.
-Monocytes (6.27 % of the blood) moved 92 % of the predicted shift, every other cell less than a twentieth of it. CD4 T cells (23.3 %) moved
+Monocytes (share 0.0627) moved 92 % of the predicted shift, every other cell less than a twentieth of it. CD4 T cells (share 0.233) moved
 99 % of the predicted shift; CD8 T cells moved about a quarter as much, B and NK cells less, because lymphocytes share identity sites: the
 readings of close relatives are not independent, and the report must say so. The planted cell's share did not move (a loss at the identity
 sites is not taken up by the Deconvolver). Healthy readings untared sit 1.10 to 1.19 (the atlas's offset; the same-run tare cancels it).
