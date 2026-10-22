@@ -311,6 +311,10 @@ def main():
     ap.add_argument("--grn"); ap.add_argument("--red"); ap.add_argument("--betas")
     ap.add_argument("--age", type=float, help="declared age in years (optional; recorded when given, read by no stage). Float: records carry 72.0 and 54.5 as readily as 72")
     ap.add_argument("--specimen", default="whole blood")
+    ap.add_argument("--dev-plant", default=None, metavar="CELL:LOSS",
+                    help="TESTS ONLY (2026-10-22, author: tests run through the chain): plant a CONSTRUCTED loss of CELL's pattern (an IAM-Atlas v2.1 cell) in this "
+                         "array's values after Stage 1, before every reading, by stage_metaa_atlas.plant; in whole blood the loss is scaled by CELL's share as the "
+                         "IAM-Deconvolver reads it on the unplanted values. Every report and bundle says PLANTED; the bundle records the plant (key 'planted')")
     ap.add_argument("--banner", default=None, help="a statement printed at the top of the report and both PDFs, e.g. that a known change was planted into a real array for an example (2026-10-18)")
     ap.add_argument("--out", default="methylphys_report.html"); ap.add_argument("--id", default=None)
     ap.add_argument("--bundle", help="also write the full bundle as JSON - every stage's output, for a test harness or an integration that needs more than the report")
@@ -671,6 +675,18 @@ def main():
             sys.exit(2)
 
     import pandas as _pd, json as _json, datetime as _dt, conductor_v3 as C3, report_v4 as R3
+    planted_rec = None
+    if a.dev_plant and beta is not None:   # 2026-10-22: a constructed loss planted by the chain itself, so a test is the one command end to end
+        import stage_metaa_atlas as _SAp, stage_v4 as _V4p
+        _pc, _, _pl = a.dev_plant.partition(":"); _pl = float(_pl or 0.01); _b0 = _pd.Series(beta, dtype="float64")
+        _mix = str(a.specimen).lower() in ("whole blood", "blood", "peripheral blood", "venous blood", "buffy coat")
+        _sh = {r["cell"]: r["share"] for r in (_V4p.stage_d21(_b0).get("cells") or [])} if _mix else {}
+        _f = float(_sh.get(_pc, 0.0)) if _mix else 1.0
+        if _mix and _pc not in _sh: sys.exit(f"--dev-plant {a.dev_plant}: '{_pc}' is not among the cells the IAM-Deconvolver read ({sorted(_sh)})")
+        _bp = _SAp.plant(_b0, _pc, _pl * _f); _n = int((_bp != _b0).sum()); beta = _bp.to_dict()
+        planted_rec = dict(cell=_pc, loss=_pl, share=round(_f, 4), applied=round(_pl * _f, 6), sites_moved=_n, rule="stage_metaa_atlas.plant (x + loss (0.5 - mu) at the cell's identity sites)")
+        a.banner = (a.banner + " | " if a.banner else "") + f"PLANTED (constructed for a test): a {_pl:.0%} loss of the {_pc} pattern" + (f" at its share {_f:.4f}" if _mix else "") + f", {_n} sites"
+        print(f"PLANTED: {a.banner}", flush=True)
     refs = [float(x) for x in a.slide_ref_A.split(",") if x.strip()] if a.slide_ref_A else None
     if a.slide_ref_table:
         rt = _pd.read_csv(a.slide_ref_table)
@@ -709,6 +725,7 @@ def main():
         _rd = "    ".join(x for x in (("" if str(_m.get("state", "")).startswith("withheld") else f"Met-A {_t['A_rel']:.3f} (tared)" if _t.get("A_rel") is not None else (f"Met-A {_m['A']:.3f}" if _m.get("A") is not None else "")),
                                      (f"C-score {_c['C_rel']:.2f} (tared)" if _c.get("C_rel") is not None else (f"C-score {_c['C']:.2f}" if _c.get("C") is not None else ""))) if x)
         o["banner"] = a.banner
+        if planted_rec: o["planted"] = planted_rec
         o["cscore_sky"] = V4.cscore_sky(_z, os.path.splitext(os.path.abspath(a.out))[0] + "_cscore_sky.png", title=f"{sid}: C-Score departures on the sphere", readings=_rd)
         if _z is not None:   # 2026-10-18: the healthy neutrophil of IAM-Atlas v2.1 at the same sites, same pixels, drawn beside the sample's sky
             import report_figs_v4 as RF

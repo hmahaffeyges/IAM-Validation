@@ -6,7 +6,15 @@ assumptions". Every reading is the one command (`chain/MethylPhys_Interface/run_
 
 **The instrument's job:** each cell's reading moves for the cell whose pattern was lost, by the shift it predicts at that person's share.
 
-## Synthetic test 1 (2026-10-22; `data/DEV_EACH_CELL_01/synthetic_each_cell_01.py`, output `synthetic_each_cell_01_summary.txt`)
+## Synthetic test 2, replacing test 1 (written 2026-10-22 before it runs)
+
+**Test 1 below does not count** (author: "it MUST use the chain or it didnt happen"): its readings were the one command, but the loss was
+planted by the test script. The one command now plants a constructed loss itself (`run_sample.py --dev-plant CELL:LOSS`, after Stage 1,
+scaled by the cell's share, recorded in the bundle and bannered PLANTED). `data/DEV_EACH_CELL_01/synthetic_each_cell_02.py` only downloads
+the raw IDAT pair from GEO and runs the one command: as it is, and with a 5 % loss planted in monocytes, CD4 T cells, B cells and NK cells in
+turn. Run on GitHub's machines from the repository as committed.
+
+## Synthetic test 1, superseded: the plant was made outside the one command (2026-10-22; `data/DEV_EACH_CELL_01/synthetic_each_cell_01.py`, output `synthetic_each_cell_01_summary.txt`)
 
 The healthy example blood (GSM7508429) and the same blood with a constructed 5 % loss of one cell's pattern at its identity sites, at its share.
 Monocytes (share 0.0627) moved 92 % of the predicted shift, every other cell less than a twentieth of it. CD4 T cells (share 0.233) moved
