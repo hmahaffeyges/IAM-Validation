@@ -151,7 +151,16 @@
   "minutes": 655.4,
   "commit": null,
   "job": "results/REPRODUCE_V1/run13/out/mice/verdict.json",
-  "note": "recorded from the run's status line ('mice rc 0: PASS (655.4 min)', 2026-10-20 04:22 UTC); the compared numbers and commit to be copied from verdict.json"
+  "note": "recorded from the run's status line ('mice rc 0: PASS (655.4 min)', 2026-10-20 04:22 UTC); the compared numbers and commit to be copied from verdict.json",
+  "github": {
+   "verdict": "PASS",
+   "date": "2026-10-22",
+   "checks": 3,
+   "checks_ok": 3,
+   "minutes": 338.1,
+   "commit": "eb609c2c",
+   "job": "GitHub Actions mice_split.yml run 39751763935, split across 19 machines (1 aligner thread each; verdict in issue 32): all 38 read sets, every copy error identical to the committed run (largest difference 0.0), KO vehicle / WT ratio inside the sealed window 1.016-1.135, PASS"
+  }
  },
  "groupa": {
   "verdict": "PASS",
