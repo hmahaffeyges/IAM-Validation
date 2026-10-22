@@ -74,3 +74,11 @@ always; age; sites where this laboratory's arrays differ from the atlas), before
 `data/DEV_METAA_ATLAS_01/sorted_purity_03.py` on GitHub: is the sorted cells' spread their sorting purity? Each array again through chain
 Stage 1, `stage_metaa_atlas.read` and the commissioned IAM-Deconvolver (`stage_v4.stage_d21`); per cell type the correlation of the tared
 reading with the off-target share, and Normal in the purest half against the rest. Nothing is fitted or corrected.
+
+**Exploration 3 outcome (2026-10-21, GitHub explore run 39704005104; `data/DEV_METAA_ATLAS_01/sorted_purity_03/`).** Is the spread of the
+sorted cells against the atlas their sorting purity? No, not in four of the five cell types. The arrays are nearly pure by the
+IAM-Deconvolver (median own-group share 0.98 to 1.00). Off-target share and the tared reading are not related in monocytes, naive CD4 T,
+naive CD8 T or NK cells (Spearman +0.13 to +0.24, p 0.32 to 0.59). Naive B cells show a weak relation (+0.46, p 0.026). And the purest half
+of each type is as wide as the whole: its spread is 0.9 to 1.8 times what a planted 1 % loss moves. So a purity cut would not make Met-A on the
+atlas sensitive enough; the spread comes from between people or between runs, not from contamination. Next in this plan: the healthy-width
+site choice and weighting (design additions above), synthetic first.

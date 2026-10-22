@@ -1,0 +1,7 @@
+GitHub explore run 39704005104, commit 94a9a296 (issue 32)
+DEV-METAA-ATLAS-01 exploration 3: is the spread of sorted cells against the atlas their sorting purity? (not sealed)
+monocytes: n 24 | own-group share median 1.000 (range 0.727-1.000) | Spearman(off-target, A_rel) +0.15 (p 0.493) | Normal: purest half 0.68, less pure half 1.00 | purest half spread 0.0445, planted 1 % = 1.6 x
+naive b cells: n 23 | own-group share median 1.000 (range 0.905-1.000) | Spearman(off-target, A_rel) +0.46 (p 0.026) | Normal: purest half 0.52, less pure half 0.00 | purest half spread 0.0570, planted 1 % = 1.2 x
+naive cd4 t cells: n 23 | own-group share median 1.000 (range 0.967-1.000) | Spearman(off-target, A_rel) +0.16 (p 0.477) | Normal: purest half 0.50, less pure half 0.60 | purest half spread 0.0761, planted 1 % = 0.9 x
+naive cd8 t cells: n 19 | own-group share median 1.000 (range 0.981-1.000) | Spearman(off-target, A_rel) +0.24 (p 0.322) | Normal: purest half 0.38, less pure half 0.33 | purest half spread 0.0765, planted 1 % = 1.0 x
+nk cells: n 20 | own-group share median 0.982 (range 0.824-1.000) | Spearman(off-target, A_rel) +0.13 (p 0.593) | Normal: purest half 0.80, less pure half 0.60 | purest half spread 0.0337, planted 1 % = 1.8 x
