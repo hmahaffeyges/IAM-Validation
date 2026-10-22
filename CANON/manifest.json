@@ -27959,6 +27959,24 @@
    "legacy_ids": [],
    "notes": "2026-10-21: 27,117 of 862,927 EPIC v1 CpG probes (3.14 %) map poorly (mapQ < 10 or unmapped; public per-probe annotation). Our sets sit below that: Met-A/C-Score identity 96 of 6,000 (1.60 %), noise 1.90 %, Stage A markers 1.25 %, Deconvolver markers 0.86 %, self-tare anchors 1.56 %. IAM-A drops reads below MAPQ 10. Masked re-read of Group-A healthy bloods on GitHub (masked_reread_01.py). | 2026-10-21 masked re-read (60 healthy Group-A bloods, explore run 39642580922; masked_reread_01_summary.txt): with the 26,413 poor-mapping probes removed, Met-A moved by at most 0.0011 (mean +0.0008), every cell share by at most 0.0020, the C-Score by -0.006 on average and at most 0.103 on one array, the size of its own repeat noise (commissioned repeat bar 0.10; about 70 identity sites leave and its blocks of 10 regroup). No instrument leans on hard-to-map probes; the mask is not added to the chain (it would change the C-Score's method with no reason found). Kept as a layer for the globe (step 28).",
    "sources_of_row": []
+  },
+  {
+   "title": "DEV-IAMA-SEX-01: X and Y in IAM-A's held error on the .pat route (Decoder finding F37)",
+   "purpose": "",
+   "instrument_or_term": "",
+   "data_status": "",
+   "status": "running",
+   "next_step": "",
+   "cost": "",
+   "impact": "",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_SEX_01.md",
+   "depends_on": "",
+   "id": "OTH-080",
+   "sources": "",
+   "runs": "",
+   "legacy_ids": "",
+   "notes": "2026-10-21 exploratory, not sealed: the committed line's healthy blood samples counted by Stage Q2 count_pat as committed and with non-autosome lines blanked in place; explore.yml on GitHub. Record: Biological_Physics/MethylPhys/doors/DEV_IAMA_SEX_01.md",
+   "sources_of_row": ""
   }
  ],
  "not_tests": {
