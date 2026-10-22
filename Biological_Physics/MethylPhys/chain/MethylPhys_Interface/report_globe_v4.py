@@ -194,8 +194,8 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
         # 2026-10-21 (author: "shouldn't they still be in clumps ... if they are truly other than aging"): the change at Met-A's sites is read as
         # the C-Score reads it, in blocks of 10 neighboring measured sites in genome order (neutrophil_reference_v1_2.json clustering_block):
         # a block has changed when its mean departure, in standard errors (mean x sqrt(10)), is beyond 3, and every site of a changed block is
-        # lit with the block's value. Scattered wear seldom moves a whole block; a clustered loss does (healthy blood: 7 of 597 blocks;
-        # the planted clustered loss: 57). A single site is not judged alone: a small loss spread along a run never passes 3 at one site.
+        # lit with the block's value. Scattered wear seldom moves a whole block; a clustered loss does (healthy blood GSM7508429: 0 of 597
+        # blocks beyond the 5 % family-wise line; the planted clustered loss: 44). A single site is not judged alone: a small loss spread along a run never passes 3 at one site.
         _R = json.load(open(os.path.join(CH, "Runtime Matrices", "Met_A_Floors", "neutrophil_reference_v1_2.json"))); _k = int(_R["clustering_block"])
         _zo = z.reindex(_R["sites_ordered"]).dropna(); _nb = len(_zo) // _k
         _bz = _zo.to_numpy()[:_nb * _k].reshape(_nb, _k).mean(1) * np.sqrt(_k); _ml = FW_LINE(_nb); _lit = np.repeat(np.where(np.abs(_bz) > _ml, _bz, 0.0), _k)
@@ -262,7 +262,13 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
     for g in groups:
         for x in g["layers"]:
             if x["kind"] == "image": x["key_css"] = kc
-            elif "Met-A" in x["name"]: x["id"] = "metaa"; x["ref_word"] = "Met-A's purified-array reference"
+            elif "Met-A" in x["name"]:
+                # 2026-10-21 (author: the layer "starts with red and gray only"): this layer is the C-Score's departure map, in entropy (disorder),
+                # not methylation: losing the held pattern raises the disorder at a site whether it started methylated or not, so a loss is red
+                # at both kinds of site. Its key says so.
+                x["id"] = "metaa"; x["ref_word"] = "Met-A's purified-array reference"
+                x["key_up"] = "Red: more disorder (entropy) here than Met-A's purified-array reference: the held pattern is being lost, whether the sites started methylated or unmethylated"
+                x["key_down"] = "Blue: less disorder than the reference: the pattern held more tightly than healthy (rare)"
             elif x["kind"] == "change": x["id"] = "genome"; x["ref_word"] = "the healthy reference"
     if zabove:
         for g in groups:

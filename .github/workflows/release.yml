@@ -5,7 +5,7 @@ permissions: {contents: read, issues: write}
 jobs:
   release:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 300   # 2026-10-21: run 39693612024 hit 120 with V12's X test and V13's browser runs added
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
@@ -16,15 +16,15 @@ jobs:
       - name: Release check
         run: |
           set +e
-          mkdir -p globe_shots; GLOBE_SHOTS=$PWD/globe_shots python3 Biological_Physics/MethylPhys/chain/release_check_v4.py --json rc.json > rc.log 2>&1; echo $? > rc_rc.txt; tail -45 rc.log; true
+          mkdir -p globe_shots; GLOBE_SHOTS=$PWD/globe_shots python3 -u Biological_Physics/MethylPhys/chain/release_check_v4.py --json rc.json 2>&1 | tee rc.log | sed -u 's/^/RC /'; echo ${PIPESTATUS[0]} > rc_rc.txt; true   # each check printed into the job log as it finishes
       - name: Result to issue 32
         if: always()
         env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
         run: |
           python3 - <<'EOF'
           import json, os, urllib.request
-          rows = open("rc.log").read().split("\n"); keep = [l for l in rows if l.strip().startswith(("PASS", "FAIL")) or "RELEASE CHECK" in l or "release_check_v4 @" in l]
-          b = "run ${{ github.run_id }}, commit ${{ github.sha }}, exit " + open("rc_rc.txt").read().strip() + "\n\n```\n" + "\n".join(keep)[-60000:] + "\n```"
+          rows = (open("rc.log").read() if os.path.exists("rc.log") else "release check stopped before writing its log").split("\n"); keep = [l for l in rows if l.strip().startswith(("PASS", "FAIL")) or "RELEASE CHECK" in l or "release_check_v4 @" in l]
+          b = "run ${{ github.run_id }}, commit ${{ github.sha }}, exit " + (open("rc_rc.txt").read().strip() if os.path.exists("rc_rc.txt") else "stopped (time limit or cancelled)") + "\n\n```\n" + "\n".join(keep)[-60000:] + "\n```"
           rq = urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/issues/32/comments", data=json.dumps({"body": b}).encode(), headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"}, method="POST")
           print(urllib.request.urlopen(rq).status)
           EOF

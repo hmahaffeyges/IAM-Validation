@@ -55,8 +55,8 @@ function IAMExplorer(root, specs) { const q = c => root.querySelector(c), G = IA
   // the color key under every layer (2026-10-21, author: "it's not obvious for someone who doesn't know the difference between blue and red")
   const sw_ = (c, t) => `<div style="display:flex;align-items:center;gap:8px;margin:3px 0"><span style="display:inline-block;width:18px;height:12px;background:${c};border:1px solid #555"></span><span>${t}</span></div>`;
   function key(L) { if (L.kind === 'change' || L.kind === 'diff') return '<b>Color key</b>' +
-      sw_('rgb(255,45,40)', 'Red: more methylation here than ' + (L.ref_word || 'the reference') + ' (methylation gained)') +
-      sw_('rgb(45,110,255)', 'Blue: less methylation here than ' + (L.ref_word || 'the reference') + ' (methylation lost)') +
+      sw_('rgb(255,45,40)', L.key_up || ('Red: more methylation here than ' + (L.ref_word || 'the reference') + ' (methylation gained)')) +
+      sw_('rgb(45,110,255)', L.key_down || ('Blue: less methylation here than ' + (L.ref_word || 'the reference') + ' (methylation lost)')) +
       sw_('rgb(120,120,120)', 'Gray, then dark as you slide right: unchanged (the reference\'s own map, quieted)') +
       sw_('rgb(30,32,38)', 'Charcoal: no site measured there') +
       '<div style="margin-top:4px">A colored patch is a block of 10 neighboring sites that changed beyond the fixed line; brighter means a larger change. Red and blue are the direction of the change, not sites added or missing.</div>';
