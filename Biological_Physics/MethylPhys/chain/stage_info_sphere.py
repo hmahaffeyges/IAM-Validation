@@ -54,6 +54,7 @@ def to_pixels(X, nside=NSIDE):
     th = np.arccos(np.clip(X[:, 2], -1, 1)); ph = np.arctan2(X[:, 1], X[:, 0]); return ang2pix_nest(nside, th, ph)
 
 def concentration(X, idx):
+    """The mean resultant length of the group's globe points (directional statistics' standard measure of concentration on a sphere)."""
     return float(np.linalg.norm(X[idx].mean(0)))
 
 def edge_ratio(mb, nside=NSIDE):

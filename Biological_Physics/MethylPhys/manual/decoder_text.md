@@ -1814,6 +1814,9 @@ The pixel of each globe point.
 
 ### stage_info_sphere.py::concentration
 How tightly a group of sites lands together: the length of the mean of its globe points (1 = one point, near 0 = spread over the sphere).
+**Label: standard.** This is the mean resultant length of directional statistics, the field's usual measure of how concentrated points on a
+sphere are; it is not ours. What the information sphere adds is where the points come from (the square-root map of each site's methylation
+across cell types) and the tools that read the map.
 
 ### stage_info_sphere.py::edge_ratio
 The mean jump of the mean-level map across HEALPix base-face edges over the jump within a face (about 1: no grid edges).

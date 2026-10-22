@@ -6255,7 +6255,7 @@
   },
   {
    "file": "stage_info_sphere.py",
-   "lines": 94,
+   "lines": 95,
    "functions": [
     {
      "file": "stage_info_sphere.py",
@@ -6359,13 +6359,13 @@
      "function": "concentration",
      "name": "concentration",
      "line": 56,
-     "end": 57,
+     "end": 58,
      "args": [
       "X",
       "idx"
      ],
-     "lines": 2,
-     "doc": "",
+     "lines": 3,
+     "doc": "The mean resultant length of the group's globe points (directional statistics' standard measure of concentration on a sphere).",
      "constants": [],
      "data_files": [],
      "traced_calls": {}
@@ -6374,8 +6374,8 @@
      "file": "stage_info_sphere.py",
      "function": "edge_ratio",
      "name": "edge_ratio",
-     "line": 59,
-     "end": 72,
+     "line": 60,
+     "end": 73,
      "args": [
       "mb",
       "nside"
@@ -6392,8 +6392,8 @@
      "file": "stage_info_sphere.py",
      "function": "build",
      "name": "build",
-     "line": 74,
-     "end": 93,
+     "line": 75,
+     "end": 94,
      "args": [
       "B",
       "groups",

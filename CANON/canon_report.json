@@ -432,6 +432,24 @@
 "text": "- OTH-059 (planned): for each instrument: healthy band from healthy readings (Met-A's 0.95-1.05 was set by hand on 2026-10-01 and confirmed, 525 of 541 healthy "
 },
 {
+"file": "Biological_Physics/MethylPhys/sop/build_sop_v4.py",
+"line": 58,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\"row per bundle for a scorer, which reads the bundles only.\", \"\","
+},
+{
+"file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+"line": 97,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "A public series of arrays: `run_series.py` runs the one command on every array of a list (columns `gsm` and `slide`): pass 1 reads each array; pass 2 reads it a"
+},
+{
 "file": "Biological_Physics/MethylPhys/chain/toolkit_surface_brightness.py",
 "line": 60,
 "pattern": "\\bA[- ]score",
@@ -1099,7 +1117,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 2838,
+"line": 2841,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -1108,7 +1126,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1831,
+"line": 1834,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",

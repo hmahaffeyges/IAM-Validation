@@ -33,7 +33,7 @@ Read from the code at build time: the one command can load **30 Python files** h
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
 | `stage_metaa_atlas.py` | 94 | 7 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
-| `stage_info_sphere.py` | 94 | 9 | 0 | 0 |
+| `stage_info_sphere.py` | 95 | 9 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 155 | 8 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 123 | 6 | 0 | 0 |
 
@@ -2813,21 +2813,24 @@ The pixel of each globe point.
 ### `stage_info_sphere.py::concentration`
 
 How tightly a group of sites lands together: the length of the mean of its globe points (1 = one point, near 0 = spread over the sphere).
+**Label: standard.** This is the mean resultant length of directional statistics, the field's usual measure of how concentrated points on a
+sphere are; it is not ours. What the information sphere adds is where the points come from (the square-root map of each site's methylation
+across cell types) and the tools that read the map.
 
-*Code:* `stage_info_sphere.py` line 56 (2 lines) · arguments: X, idx · calls: not called on the traced runs
+*Code:* `stage_info_sphere.py` line 56 (3 lines) · arguments: X, idx · calls: not called on the traced runs
 
 ### `stage_info_sphere.py::edge_ratio`
 
 The mean jump of the mean-level map across HEALPix base-face edges over the jump within a face (about 1: no grid edges).
 
-*Code:* `stage_info_sphere.py` line 59 (14 lines) · arguments: mb, nside · calls: not called on the traced runs · constants read: `NSIDE`
+*Code:* `stage_info_sphere.py` line 60 (14 lines) · arguments: mb, nside · calls: not called on the traced runs · constants read: `NSIDE`
 
 ### `stage_info_sphere.py::build`
 
 The layout and its report: variance kept, sky covered and masked, distance agreement on 5,000 seeded pairs, edge ratio, and for each named
 group its concentration against the 99th percentile of 500 random groups of the same size.
 
-*Code:* `stage_info_sphere.py` line 74 (20 lines) · arguments: B, groups, n_random, seed, nside · calls: not called on the traced runs · constants read: `NSIDE`
+*Code:* `stage_info_sphere.py` line 75 (20 lines) · arguments: B, groups, n_random, seed, nside · calls: not called on the traced runs · constants read: `NSIDE`
 
 ## 19. The reference globes and the series runner: `reference_globes.py`, `run_series.py`
 
