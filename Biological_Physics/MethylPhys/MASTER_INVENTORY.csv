@@ -178,6 +178,7 @@ GSE187291,,,,,spent,,,DEV_DIRECTION_01; DEV_DIRECTION_02,,,,,,
 GSE188573,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,monocytes,yes,IDAT listed for 59/59 samples,Epigenetic and transcriptomic remodeling in monocytes of severe COVID-19 patients mirrors systemic changes in cytokines and immune cell crosstalk,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE189255,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,cd4 t cells,yes,IDAT listed for 14/14 samples,Genome-wide DNA methylation profiling identifies epigenetic changes in CD4+ and CD14+ cells of multiple sclerosis patients [CD4],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE189256,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,monocytes,yes,IDAT listed for 14/14 samples,Genome-wide DNA methylation profiling identifies epigenetic changes in CD4+ and CD14+ cells of multiple sclerosis patients [CD14],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE189426,,,,,,,,DEV_METAA_ATLAS_01,,,,,,
 GSE190164,,,,,,,,,not usable (not purified),,yes,IDAT listed for 48/48 samples,DNA methylation profiling in blood of OSA patients and controls,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE191200,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,microglia,yes,IDAT listed for 56/56 samples,"Contribution of Age, Brain Region, Mood Disorder Pathology, and Interindividual Factors on the Methylome of Human Microglia",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE191297,,,,,spent,,,DEV_INTAKE_02,,,,,,
@@ -189,6 +190,7 @@ GSE199057,downloads/C_tissue_tests/GSE199057/,5.79,IDAT,yes,unspent,not suitable
 GSE199815,,,,,,,,DEV_SYNTH_LEVERS_01,,,,,,
 GSE200376,,,,,spent,,,COMMISSIONING_NOTE_CSCORE,,,,,,
 GSE201689,,,,,spent,,,,,,,,,
+GSE201754,,,,,,,,DEV_METAA_ATLAS_01,,,,,,
 GSE201872,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,lung bronchus epithelium,yes,IDAT listed for 142/142 samples,DNA methylation signatures in airway cells from adult children of asthmatic mothers reflect subtypes of severe asthma (DNA methylation),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE202067,,,,,,,,,not usable (cultured; tumor series),osteoblasts,yes,IDAT listed for 45/45 samples,"Genome-wide DNA methylation profiling of GCTB, ABC, CB, NOF, BT, MSC, OB",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE206709,,,,,,,,DEV_ATLAS_COMMISSION_01; DEV_ATLAS_LAVAGE_02; DEV_SYNTH_LEVERS_01,,,,,,
@@ -238,6 +240,7 @@ GSE247524,,,,,spent,,,,,,,,,
 GSE248933,,,,,partly spent (declared before reading),,,DEV_ERASE_01,,,,,,
 GSE250556,downloads/G_chain_tests/GSE250556/,1.12,,,spent,,,COMMISSIONING_NOTE_CSCORE; DEV_ATLAS_EPIC_01; DEV_ATLAS_EPIC_02; DEV_BASE_CHAIN_01; DEV_CHAIN_V3_RUN2; DEV_CHAIN_V3_RUN3; DEV_DETECTION_01; DEV_DIRECTION_01; DE,,,,,Chain test sets (commissioning and development),S3 register
 GSE251932,,,,,,,,DEV_HORIZON_01,,,,,,
+GSE252024,,,,,,,,DEV_METAA_ATLAS_01,,,,,,
 GSE252045,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21,atlas build,naive cd8 t cells | effector memory cd8 t cells | t central memory cd4 | naive cd4 t cells | nk cells | monocytes | naive b cells | memory b cells,yes,IDAT listed for 130/130 samples,Development of an Epigenetic Clock Resistant to Changes in Immune Composition,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE255057,,,,,spent,,,DEV_BASE_CHAIN_01; DEV_DETECTION_01,not usable (not purified (PBMC)),,yes,IDAT listed for 24/24 samples,Transcriptome and DNA methylation cell-type deconvolutions produce similar estimates of bulk differential gene expression and differential methylation [bead arr,gold-mine map
 GSE255776,,,,,spent,,,,,,,,,
@@ -246,7 +249,7 @@ GSE262273,downloads/B_cfDNA_plasma/GSE262273/,11.53,"other (beta, csi, pat)",no,
 GSE262274,downloads/B_cfDNA_plasma/GSE262274/,1.69,"other (beta, csi, pat)",no,unspent,,,,,,,,Plasma cell-free DNA arrays,S3 register
 GSE262275,,,,,,,,PROC_PARTIALCOV_01_PREREG,not usable (same group as the atlas (Dor/Kaplan collaboration); no SRA reads),gallbladder epithelium | liver endothelium | liver macrophages | keratinocyte,no,no per-sample IDAT or SRA link (series files: GSE262275_RAW.tar),"Circulating, cell-free methylated DNA reveals cellular sources of allograft injury after liver transplant",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE265854,,,,,partly spent (declared before reading),,,DEV_ERASE_01,,,,,,
-GSE267660,,,,,partly spent (declared before reading),,,,,,,,,
+GSE267660,,,,,partly spent (declared before reading),,,DEV_METAA_ATLAS_01,,,,,,
 GSE268145,,,,,,,,DEV_LEVERS_01,,,,,,
 GSE269087,downloads/F_salmonid/GSE269087/,0.03,,,unspent,,,,,,,,Steelhead and other salmonid sets,S3 register
 GSE269244,,,,,partly spent,,,,,,,,,

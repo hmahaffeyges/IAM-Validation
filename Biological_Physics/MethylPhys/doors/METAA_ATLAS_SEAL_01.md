@@ -51,3 +51,7 @@ alone widens the spread. The same-slide tare, reported and not scored, read 9 ar
 in exploration 6 (3.6). Both tests point the same way: against the atlas, Met-A needs references from the same slide, and a laboratory-wide
 tare is too loose. Next, written before any reading: a sealed test with the same-slide tare scored, on a series with enough healthy arrays
 of one cell type per slide.
+
+**Found after scoring (2026-10-22).** The read script took chain Stage 1 and the atlas Met-A stage but not Stage T step 1, the self-tare the
+commissioned chain runs before every Met-A reading. The result stands as scored; whether that step changes the spread is exploration 7
+(DEV_METAA_ATLAS_01.md), and any next sealed test runs it.

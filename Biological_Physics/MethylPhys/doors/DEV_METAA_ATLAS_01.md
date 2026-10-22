@@ -132,3 +132,12 @@ The 42 vaccinated children tared on their slide: median 1.0016, 98 % Normal.
 monocyte from an independent laboratory reads Normal, though the atlas's monocytes are adults' and these are infants'. The tare cancels both
 gaps. The slide matters: the same-slide tare is tighter than the cross-slide tare and makes a 1 % loss stand out more. This answers step 3's
 open question (GSE184269 had one donor per slide, so it could only tare across slides). Not sealed; a sealed test on a new series comes next.
+
+**Exploration 7, written before it runs (2026-10-22).** Found while planning the next sealed test: the chain's commissioned Met-A reads every
+array only after Stage T step 1, the self-tare (each design mapped onto the reference arrays' scale by the array's own fixed-site anchors;
+no other person; adopted 2026-10-04). Explorations 6 and the sealed test METAA-ATLAS-SEAL-01 read Met-A against the atlas without that step,
+so they did not run the whole chain. The sealed result stands as scored. `data/DEV_METAA_ATLAS_01/selftare_07.py` reads both spent series
+(GSE168779's 67 unvaccinated controls, GSE267660's 31 healthy donors) with and without step 1, each tared on the laboratory and on the slide,
+to learn whether the chain's own step shrinks the spread across slides. Only if it does does a sealed test with step 1 and the laboratory
+tare come next; public series rarely hold the four or more healthy arrays per slide a same-slide test needs (screened 2026-10-22: GSE201754,
+GSE252024, GSE189426 have at most 4, 3 and 2 healthy arrays on any slide).
