@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 751,
+   "lines": 781,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -205,10 +205,27 @@
     },
     {
      "file": "MethylPhys_Interface/run_sample.py",
+     "function": "_genome_globe",
+     "name": "_genome_globe",
+     "line": 214,
+     "end": 234,
+     "args": [
+      "a",
+      "cnt",
+      "sid"
+     ],
+     "lines": 21,
+     "doc": "--dev-genome-globe (DEV-IAMA-GLOBE-01, development, not commissioned): the whole genome from the --pat file's molecules, cut into regions of --genome-region CpGs on the autosomes (stage_q2_globe), each drawn on every pixel of its span: the sample against its own predicted held error (its loose share, the self-reference line), and, with --prior-pat, against an earlier reading. Layers: methylation l",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 214,
-     "end": 254,
+     "line": 237,
+     "end": 277,
      "args": [
       "a",
       "o",
@@ -228,10 +245,10 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 257,
-     "end": 748,
+     "line": 280,
+     "end": 778,
      "args": [],
-     "lines": 492,
+     "lines": 499,
      "doc": "",
      "constants": [
       "BIO",
@@ -252,8 +269,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 367,
-     "end": 371,
+     "line": 395,
+     "end": 399,
      "args": [
       "r"
      ],
@@ -269,8 +286,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 695,
-     "end": 696,
+     "line": 725,
+     "end": 726,
      "args": [
       "b",
       "it",
@@ -5749,5 +5766,5 @@
   }
  ],
  "n_files": 24,
- "n_functions": 290
+ "n_functions": 291
 }

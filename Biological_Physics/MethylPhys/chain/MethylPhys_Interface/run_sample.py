@@ -211,6 +211,29 @@ def _metaa_atlas(a, b):
     return rec
 
 
+def _genome_globe(a, cnt, sid):
+    """--dev-genome-globe (DEV-IAMA-GLOBE-01, development, not commissioned): the whole genome from the --pat file's molecules, cut into regions
+    of --genome-region CpGs on the autosomes (stage_q2_globe), each drawn on every pixel of its span: the sample against its own predicted held
+    error (its loose share, the self-reference line), and, with --prior-pat, against an earlier reading. Layers: methylation level, held error
+    and the change. Written under bundle development.genome_globe; with --explorer-spec, the globe for the site's Globe Explorer."""
+    import gzip, stage_q2_globe as S, dev_stages as DV
+    if not a.pat: return {"label": DV.DEV_LABEL, "status": "NOT_RUN", "reason": "needs --pat (the regions are counted from molecules)"}
+    S.REGION = a.genome_region; op = (lambda f: gzip.open(f, "rt")) if a.pat.endswith(".gz") else (lambda f: open(f))
+    print(f"Development: whole-genome globe, regions of {a.genome_region} CpGs", flush=True)
+    R = S.count_pat_regions(op(a.pat)); groups = []; rec = {"label": DV.DEV_LABEL, "status": "OK", "region_cpgs": a.genome_region, "loose_share": cnt.get("loose_share")}
+    if cnt.get("loose_share") is not None:
+        sp, r1 = S.self_globe(R, cnt["loose_share"], "self", f"{sid} against its own prediction"); groups += sp["groups"]; rec["self"] = r1
+    if a.prior_pat:
+        Rb = S.count_pat_regions(op(a.prior_pat)); sp, r2 = S.pair_globe(R, Rb, "prior", f"{sid} against {a.prior_name}", a.prior_name)
+        groups += sp["groups"]; rec["against_prior"] = dict(r2, prior=os.path.basename(a.prior_pat))
+    if a.explorer_spec and groups:
+        import globe_viewer as GV
+        json.dump(GV.dedupe(dict(id=sid, name=f"{sid}: the whole genome, molecule by molecule (development)", groups=groups,
+                                 about=S.ABOUT.replace("__R__", str(a.genome_region)).replace("__WHAT__", "The sample against its own prediction" + (f", and against {a.prior_name}." if a.prior_pat else ".")))),
+                  open(a.explorer_spec, "w")); rec["explorer_spec"] = os.path.basename(a.explorer_spec)
+    return rec
+
+
 def _dev_run(a, o, beta, intake):
     """Development flags (doors/DEV_FLAGS_01.md): each writes bundle['development'][stage], labelled DEVELOPMENT - not commissioned.
     None of them changes the reading, the gauge or the tare."""
@@ -303,6 +326,11 @@ def main():
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
     ap.add_argument("--explorer-spec", default=None, help="also write the report globe's layers as a Globe Explorer spec (JSON) to this path, for the site's "
                     "Globe Explorer (website/art/make_explorer.py sample), so every sample globe on the site is the one this command drew")
+    ap.add_argument("--dev-genome-globe", action="store_true", help="DEVELOPMENT - not commissioned (DEV-IAMA-GLOBE-01): with --pat, the whole-genome globe "
+                    "(methylation level, held error and the change against the sample's own prediction; with --prior-pat, against an earlier reading too)")
+    ap.add_argument("--prior-pat", default=None, help="with --dev-genome-globe: a .pat file of an earlier reading of the same person or specimen")
+    ap.add_argument("--prior-name", default="the earlier reading", help="with --prior-pat: what the other file is, as the globe names it")
+    ap.add_argument("--genome-region", type=int, default=1000, help="with --dev-genome-globe: CpGs per region (default 1000)")
     ap.add_argument("--dev-metaa-atlas", default=None, metavar="CELL",
                     help="DEVELOPMENT - not commissioned (DEV-METAA-ATLAS-01, 2026-10-22): Met-A of an isolated CELL (an IAM-Atlas v2.1 cell name, e.g. monocytes) "
                          "against that cell in IAM-Atlas v2.1, read on the self-tared values (Stage T step 1, the same map the commissioned Met-A reads); "
@@ -660,8 +688,10 @@ def main():
             o["iam_a"] = {"stage": "Q2", "reading": "IAM-A", "cell": a.seq_cell, "A": None, "refusal_code": qi["refusal_code"], "refusal": f"Stage Q0 stopped the file: {qi['refusal']}", "input": src}
         else:
             print(f"Stage Q2: counting {os.path.basename(a.pat or a.bam)} (held error and loose share, one pass)", flush=True)
-            o["iam_a"] = V4.stage_q2(V4.count_sequencing(pat=a.pat, bam=a.bam, ref_fasta=a.ref_fasta, workers=a.workers, assembly=a.assembly),
-                                     a.seq_cell, chemistry=a.seq_chemistry, source=src)
+            _cnt = V4.count_sequencing(pat=a.pat, bam=a.bam, ref_fasta=a.ref_fasta, workers=a.workers, assembly=a.assembly)
+            o["iam_a"] = V4.stage_q2(_cnt, a.seq_cell, chemistry=a.seq_chemistry, source=src)
+            if a.dev_genome_globe:   # 2026-10-22: the whole-genome globe, drawn by the one command (development)
+                o.setdefault("development", {})["genome_globe"] = _genome_globe(a, _cnt, sid)
     elif seq:   # Stage Q (v3, retired position reading): --site-table, or --pat with --dev-iama-position
         import stage_q_iam_a as Q
         if a.pat:

@@ -639,6 +639,15 @@
 "text": "- Pooled A-score is near baseline (within `pooled_near_baseline_tolerance` of 1.0)"
 },
 {
+"file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_series.py",
+"line": 4,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "for Met-A against the atlas), and a scorer reads only the bundles."
+},
+{
 "file": "Biological_Physics/MethylPhys/chain/CPG_Null_Runner/cpg_null_runner.py",
 "line": 535,
 "pattern": "\\bA[- ]score",

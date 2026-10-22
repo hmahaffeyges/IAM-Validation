@@ -68,3 +68,9 @@ value (tested on synthetic counts: the planted stretch draws as a solid patch). 
 way, with the region counts saved.
 
 **WITHDRAWN 2026-10-22: not a chain result.** The script called chain stages directly instead of running the one command (chain/MethylPhys_Interface/run_sample.py), so Stage 0 and Stage T step 1 were skipped. Author: "If the chain didnt produce it, it did NOT happen." Every number above is withdrawn; the work is rerun through the one command (to-do step 35).
+
+**Step 6, written before it runs (2026-10-22; the chain's way).** The one command now draws the whole-genome globe: `run_sample.py --pat FILE
+--dev-genome-globe` (regions of 1,000 CpGs on the autosomes; layers methylation level, held error and the change against the sample's own
+predicted held error), with `--prior-pat` for a second reading (`--prior-name` says what it is). `data/DEV_IAMA_GLOBE_01/genome_globes_06.py`
+only downloads and prepares the input files (the two halves and the constructed plant, as step 4) and runs the one command, once per view:
+self, twice, twice_planted, people, each on its own GitHub machine. The numbers recorded are the bundles' `development.genome_globe`.

@@ -161,6 +161,12 @@ unless both designs were mapped, reads Met-A against CELL in IAM-Atlas v2.1 (`st
 3 healthy samples of the same cell run the same way, never this one), tares it (`stage_metaa_atlas.tare`). Written under bundle
 `development.metaa_atlas`; the reading, gauge and tare are untouched.
 
+### run_sample.py::_genome_globe
+`--dev-genome-globe` with `--pat` (development, not commissioned): counts the file's molecules into regions of `--genome-region` CpGs on the
+autosomes (`stage_q2_globe.count_pat_regions`) and draws the sample against its own predicted held error (`self_globe`) and, with `--prior-pat`,
+against that second file (`pair_globe`, named by `--prior-name`). Written under bundle `development.genome_globe`; with `--explorer-spec`,
+the Globe Explorer file.
+
 ### run_sample.py::_dev_run
 Runs the development readings named by `--dev-*` flags (direction, trace cell, foreign cell, brightness interval, NILC-e, atlas e,
 B-cell reading, sky with the block-shuffle null, EPIC v2 through SeSAMe). Each writes its own record under `bundle["development"]`,
