@@ -255,10 +255,4 @@ to separate a change of the blood mix from a change of the cells. (4) The dipole
 (5) Spherical wavelets (needlets) and matched filters: compact spots at every size. (6) Minkowski functionals: the shape of the changed
 areas, structured change against random wear. (7) Stacking: the map averaged around every site of one kind, for a signal too weak to see alone.
 
-**Outside methylation.** The square-root geometry itself is long established (the Bhattacharyya distance; in population genetics, the chord
-distance on allele frequencies); what is ours is the sphere as a masked sky of a whole system, read with the sky's tools, one individual
-against itself. Wherever many units each carry probabilities across conditions: qubit states (this distance is the classical form of quantum
-fidelity, a bridge to QAPE); allele frequencies of fish stocks; species proportions in a microbiome; failure rates across a fab's process
-conditions; a power grid's substation states across operating conditions.
-
 **First in line once the sphere passes on real healthy cells:** the cross-spectrum of two readings and the dipole of one individual.
