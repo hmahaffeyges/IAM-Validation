@@ -267,3 +267,12 @@ sites where it sits furthest below every other of the six and the 100 where it s
 from the other sites with the same distribution of mean methylation as a marker group (level-matched). **Checks:** C1 at least 10 of the 12
 marker groups land together (concentration above the 99th percentile of 1,000 random groups of the same size); C2 at most 4 of the 100
 level-matched groups do (a shared level alone is not enough); C3 distance agreement at least 0.7.
+
+**Test 8, run once (2026-10-22; explore run 39850864062, commit b7144078): FAILED on C2.** Output: `data/DEV_SPHERE_01/run_08/`.
+On IAM-Atlas v2.1's 79 healthy cell types (191,458 variable sites): C1 met, 12 of 12 marker groups land together; C3 met, distance agreement
+0.8473; C2 not met, 88 of 100 level-matched groups also pass the line set by random groups of the pool. On real cells a site's place is set
+largely by how methylated it is: the random groups mix every level, so any group of one level looks concentrated against them. Reported
+after scoring, not a bar (`atlas_sphere_08_twins.txt`): every marker group is tighter than every one of its own level-matched twins (12 of 12),
+so the sphere carries behavior beyond level, but level dominates the place. Next, written before it runs: a construction that takes the level
+out (each site's profile across the cell types centered on its own mean before the square-root geometry's directions are taken), with the
+level-matched twins as the null.

@@ -1,0 +1,705 @@
+{
+ "stage": "information sphere (development)",
+ "construction": "v1: three leading principal directions of the square-root vectors, scaled to 1",
+ "sites": 191458,
+ "cell_types": 79,
+ "variance_kept": 0.7914,
+ "nside": 128,
+ "sky_covered": 0.3739,
+ "sky_masked": 0.6261,
+ "distance_rho": 0.8473,
+ "edge_ratio": 1.074,
+ "groups": {
+  "neutrophils: below every other blood cell": {
+   "n": 100,
+   "R": 0.8428,
+   "random_q99": 0.3926,
+   "together": true
+  },
+  "neutrophils: above every other blood cell": {
+   "n": 100,
+   "R": 0.7274,
+   "random_q99": 0.3664,
+   "together": true
+  },
+  "monocytes: below every other blood cell": {
+   "n": 100,
+   "R": 0.6664,
+   "random_q99": 0.3646,
+   "together": true
+  },
+  "monocytes: above every other blood cell": {
+   "n": 100,
+   "R": 0.7185,
+   "random_q99": 0.3767,
+   "together": true
+  },
+  "b cells: below every other blood cell": {
+   "n": 100,
+   "R": 0.804,
+   "random_q99": 0.3763,
+   "together": true
+  },
+  "b cells: above every other blood cell": {
+   "n": 100,
+   "R": 0.7849,
+   "random_q99": 0.375,
+   "together": true
+  },
+  "cd4 t cells: below every other blood cell": {
+   "n": 100,
+   "R": 0.5156,
+   "random_q99": 0.3758,
+   "together": true
+  },
+  "cd4 t cells: above every other blood cell": {
+   "n": 100,
+   "R": 0.8034,
+   "random_q99": 0.375,
+   "together": true
+  },
+  "cd8 t cells: below every other blood cell": {
+   "n": 100,
+   "R": 0.603,
+   "random_q99": 0.3721,
+   "together": true
+  },
+  "cd8 t cells: above every other blood cell": {
+   "n": 100,
+   "R": 0.868,
+   "random_q99": 0.3815,
+   "together": true
+  },
+  "nk cells: below every other blood cell": {
+   "n": 100,
+   "R": 0.8391,
+   "random_q99": 0.3895,
+   "together": true
+  },
+  "nk cells: above every other blood cell": {
+   "n": 100,
+   "R": 0.7777,
+   "random_q99": 0.3633,
+   "together": true
+  },
+  "level-matched 000 (as neutrophils: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8122,
+   "random_q99": 0.386,
+   "together": true
+  },
+  "level-matched 001 (as neutrophils: above every other blood cell)": {
+   "n": 100,
+   "R": 0.4464,
+   "random_q99": 0.3823,
+   "together": true
+  },
+  "level-matched 002 (as monocytes: below every other blood cell)": {
+   "n": 100,
+   "R": 0.6239,
+   "random_q99": 0.3715,
+   "together": true
+  },
+  "level-matched 003 (as monocytes: above every other blood cell)": {
+   "n": 100,
+   "R": 0.2947,
+   "random_q99": 0.3607,
+   "together": false
+  },
+  "level-matched 004 (as b cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.731,
+   "random_q99": 0.3788,
+   "together": true
+  },
+  "level-matched 005 (as b cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.5042,
+   "random_q99": 0.3756,
+   "together": true
+  },
+  "level-matched 006 (as cd4 t cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.3883,
+   "random_q99": 0.3784,
+   "together": true
+  },
+  "level-matched 007 (as cd4 t cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.5835,
+   "random_q99": 0.3711,
+   "together": true
+  },
+  "level-matched 008 (as cd8 t cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.5272,
+   "random_q99": 0.368,
+   "together": true
+  },
+  "level-matched 009 (as cd8 t cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.8527,
+   "random_q99": 0.3599,
+   "together": true
+  },
+  "level-matched 010 (as nk cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8138,
+   "random_q99": 0.3887,
+   "together": true
+  },
+  "level-matched 011 (as nk cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.6432,
+   "random_q99": 0.3839,
+   "together": true
+  },
+  "level-matched 012 (as neutrophils: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8151,
+   "random_q99": 0.3849,
+   "together": true
+  },
+  "level-matched 013 (as neutrophils: above every other blood cell)": {
+   "n": 100,
+   "R": 0.4348,
+   "random_q99": 0.3796,
+   "together": true
+  },
+  "level-matched 014 (as monocytes: below every other blood cell)": {
+   "n": 100,
+   "R": 0.613,
+   "random_q99": 0.3756,
+   "together": true
+  },
+  "level-matched 015 (as monocytes: above every other blood cell)": {
+   "n": 100,
+   "R": 0.2838,
+   "random_q99": 0.3785,
+   "together": false
+  },
+  "level-matched 016 (as b cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.7491,
+   "random_q99": 0.3612,
+   "together": true
+  },
+  "level-matched 017 (as b cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.5348,
+   "random_q99": 0.388,
+   "together": true
+  },
+  "level-matched 018 (as cd4 t cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.3473,
+   "random_q99": 0.378,
+   "together": false
+  },
+  "level-matched 019 (as cd4 t cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.6113,
+   "random_q99": 0.3639,
+   "together": true
+  },
+  "level-matched 020 (as cd8 t cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.5431,
+   "random_q99": 0.3882,
+   "together": true
+  },
+  "level-matched 021 (as cd8 t cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.8496,
+   "random_q99": 0.3658,
+   "together": true
+  },
+  "level-matched 022 (as nk cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8299,
+   "random_q99": 0.3702,
+   "together": true
+  },
+  "level-matched 023 (as nk cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.6915,
+   "random_q99": 0.3764,
+   "together": true
+  },
+  "level-matched 024 (as neutrophils: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8041,
+   "random_q99": 0.3809,
+   "together": true
+  },
+  "level-matched 025 (as neutrophils: above every other blood cell)": {
+   "n": 100,
+   "R": 0.4385,
+   "random_q99": 0.372,
+   "together": true
+  },
+  "level-matched 026 (as monocytes: below every other blood cell)": {
+   "n": 100,
+   "R": 0.606,
+   "random_q99": 0.3699,
+   "together": true
+  },
+  "level-matched 027 (as monocytes: above every other blood cell)": {
+   "n": 100,
+   "R": 0.3368,
+   "random_q99": 0.3817,
+   "together": false
+  },
+  "level-matched 028 (as b cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.7494,
+   "random_q99": 0.387,
+   "together": true
+  },
+  "level-matched 029 (as b cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.4734,
+   "random_q99": 0.3897,
+   "together": true
+  },
+  "level-matched 030 (as cd4 t cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.3915,
+   "random_q99": 0.3695,
+   "together": true
+  },
+  "level-matched 031 (as cd4 t cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.6071,
+   "random_q99": 0.3675,
+   "together": true
+  },
+  "level-matched 032 (as cd8 t cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.5711,
+   "random_q99": 0.3852,
+   "together": true
+  },
+  "level-matched 033 (as cd8 t cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.8505,
+   "random_q99": 0.3672,
+   "together": true
+  },
+  "level-matched 034 (as nk cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8248,
+   "random_q99": 0.374,
+   "together": true
+  },
+  "level-matched 035 (as nk cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.6573,
+   "random_q99": 0.3789,
+   "together": true
+  },
+  "level-matched 036 (as neutrophils: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8159,
+   "random_q99": 0.3813,
+   "together": true
+  },
+  "level-matched 037 (as neutrophils: above every other blood cell)": {
+   "n": 100,
+   "R": 0.4824,
+   "random_q99": 0.3689,
+   "together": true
+  },
+  "level-matched 038 (as monocytes: below every other blood cell)": {
+   "n": 100,
+   "R": 0.605,
+   "random_q99": 0.3839,
+   "together": true
+  },
+  "level-matched 039 (as monocytes: above every other blood cell)": {
+   "n": 100,
+   "R": 0.2623,
+   "random_q99": 0.3783,
+   "together": false
+  },
+  "level-matched 040 (as b cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.7592,
+   "random_q99": 0.3917,
+   "together": true
+  },
+  "level-matched 041 (as b cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.485,
+   "random_q99": 0.3819,
+   "together": true
+  },
+  "level-matched 042 (as cd4 t cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.3707,
+   "random_q99": 0.3632,
+   "together": true
+  },
+  "level-matched 043 (as cd4 t cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.6083,
+   "random_q99": 0.3711,
+   "together": true
+  },
+  "level-matched 044 (as cd8 t cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.5518,
+   "random_q99": 0.3836,
+   "together": true
+  },
+  "level-matched 045 (as cd8 t cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.8395,
+   "random_q99": 0.383,
+   "together": true
+  },
+  "level-matched 046 (as nk cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8281,
+   "random_q99": 0.3727,
+   "together": true
+  },
+  "level-matched 047 (as nk cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.6685,
+   "random_q99": 0.3603,
+   "together": true
+  },
+  "level-matched 048 (as neutrophils: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8164,
+   "random_q99": 0.3737,
+   "together": true
+  },
+  "level-matched 049 (as neutrophils: above every other blood cell)": {
+   "n": 100,
+   "R": 0.4378,
+   "random_q99": 0.3641,
+   "together": true
+  },
+  "level-matched 050 (as monocytes: below every other blood cell)": {
+   "n": 100,
+   "R": 0.6239,
+   "random_q99": 0.3754,
+   "together": true
+  },
+  "level-matched 051 (as monocytes: above every other blood cell)": {
+   "n": 100,
+   "R": 0.2725,
+   "random_q99": 0.3738,
+   "together": false
+  },
+  "level-matched 052 (as b cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.7406,
+   "random_q99": 0.3822,
+   "together": true
+  },
+  "level-matched 053 (as b cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.4934,
+   "random_q99": 0.384,
+   "together": true
+  },
+  "level-matched 054 (as cd4 t cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.39,
+   "random_q99": 0.3624,
+   "together": true
+  },
+  "level-matched 055 (as cd4 t cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.627,
+   "random_q99": 0.3929,
+   "together": true
+  },
+  "level-matched 056 (as cd8 t cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.534,
+   "random_q99": 0.3808,
+   "together": true
+  },
+  "level-matched 057 (as cd8 t cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.8305,
+   "random_q99": 0.3785,
+   "together": true
+  },
+  "level-matched 058 (as nk cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8365,
+   "random_q99": 0.3833,
+   "together": true
+  },
+  "level-matched 059 (as nk cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.6673,
+   "random_q99": 0.3737,
+   "together": true
+  },
+  "level-matched 060 (as neutrophils: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8114,
+   "random_q99": 0.3716,
+   "together": true
+  },
+  "level-matched 061 (as neutrophils: above every other blood cell)": {
+   "n": 100,
+   "R": 0.4363,
+   "random_q99": 0.3711,
+   "together": true
+  },
+  "level-matched 062 (as monocytes: below every other blood cell)": {
+   "n": 100,
+   "R": 0.6019,
+   "random_q99": 0.3596,
+   "together": true
+  },
+  "level-matched 063 (as monocytes: above every other blood cell)": {
+   "n": 100,
+   "R": 0.2782,
+   "random_q99": 0.3787,
+   "together": false
+  },
+  "level-matched 064 (as b cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.7532,
+   "random_q99": 0.3841,
+   "together": true
+  },
+  "level-matched 065 (as b cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.5266,
+   "random_q99": 0.3784,
+   "together": true
+  },
+  "level-matched 066 (as cd4 t cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.3812,
+   "random_q99": 0.3828,
+   "together": false
+  },
+  "level-matched 067 (as cd4 t cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.6422,
+   "random_q99": 0.3745,
+   "together": true
+  },
+  "level-matched 068 (as cd8 t cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.5621,
+   "random_q99": 0.3703,
+   "together": true
+  },
+  "level-matched 069 (as cd8 t cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.8625,
+   "random_q99": 0.3733,
+   "together": true
+  },
+  "level-matched 070 (as nk cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8151,
+   "random_q99": 0.3659,
+   "together": true
+  },
+  "level-matched 071 (as nk cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.6994,
+   "random_q99": 0.3718,
+   "together": true
+  },
+  "level-matched 072 (as neutrophils: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8167,
+   "random_q99": 0.3755,
+   "together": true
+  },
+  "level-matched 073 (as neutrophils: above every other blood cell)": {
+   "n": 100,
+   "R": 0.4219,
+   "random_q99": 0.3725,
+   "together": true
+  },
+  "level-matched 074 (as monocytes: below every other blood cell)": {
+   "n": 100,
+   "R": 0.6058,
+   "random_q99": 0.3801,
+   "together": true
+  },
+  "level-matched 075 (as monocytes: above every other blood cell)": {
+   "n": 100,
+   "R": 0.2712,
+   "random_q99": 0.3807,
+   "together": false
+  },
+  "level-matched 076 (as b cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.7416,
+   "random_q99": 0.3788,
+   "together": true
+  },
+  "level-matched 077 (as b cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.4671,
+   "random_q99": 0.3672,
+   "together": true
+  },
+  "level-matched 078 (as cd4 t cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.3799,
+   "random_q99": 0.367,
+   "together": true
+  },
+  "level-matched 079 (as cd4 t cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.5673,
+   "random_q99": 0.3769,
+   "together": true
+  },
+  "level-matched 080 (as cd8 t cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.5587,
+   "random_q99": 0.375,
+   "together": true
+  },
+  "level-matched 081 (as cd8 t cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.8418,
+   "random_q99": 0.3912,
+   "together": true
+  },
+  "level-matched 082 (as nk cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8122,
+   "random_q99": 0.3809,
+   "together": true
+  },
+  "level-matched 083 (as nk cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.6826,
+   "random_q99": 0.3853,
+   "together": true
+  },
+  "level-matched 084 (as neutrophils: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8035,
+   "random_q99": 0.3926,
+   "together": true
+  },
+  "level-matched 085 (as neutrophils: above every other blood cell)": {
+   "n": 100,
+   "R": 0.4463,
+   "random_q99": 0.3699,
+   "together": true
+  },
+  "level-matched 086 (as monocytes: below every other blood cell)": {
+   "n": 100,
+   "R": 0.6113,
+   "random_q99": 0.3687,
+   "together": true
+  },
+  "level-matched 087 (as monocytes: above every other blood cell)": {
+   "n": 100,
+   "R": 0.2512,
+   "random_q99": 0.3696,
+   "together": false
+  },
+  "level-matched 088 (as b cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.7485,
+   "random_q99": 0.3736,
+   "together": true
+  },
+  "level-matched 089 (as b cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.4857,
+   "random_q99": 0.3705,
+   "together": true
+  },
+  "level-matched 090 (as cd4 t cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.3668,
+   "random_q99": 0.3771,
+   "together": false
+  },
+  "level-matched 091 (as cd4 t cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.6058,
+   "random_q99": 0.381,
+   "together": true
+  },
+  "level-matched 092 (as cd8 t cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.5478,
+   "random_q99": 0.3679,
+   "together": true
+  },
+  "level-matched 093 (as cd8 t cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.8546,
+   "random_q99": 0.3757,
+   "together": true
+  },
+  "level-matched 094 (as nk cells: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8212,
+   "random_q99": 0.3818,
+   "together": true
+  },
+  "level-matched 095 (as nk cells: above every other blood cell)": {
+   "n": 100,
+   "R": 0.6784,
+   "random_q99": 0.3886,
+   "together": true
+  },
+  "level-matched 096 (as neutrophils: below every other blood cell)": {
+   "n": 100,
+   "R": 0.8097,
+   "random_q99": 0.3799,
+   "together": true
+  },
+  "level-matched 097 (as neutrophils: above every other blood cell)": {
+   "n": 100,
+   "R": 0.4269,
+   "random_q99": 0.369,
+   "together": true
+  },
+  "level-matched 098 (as monocytes: below every other blood cell)": {
+   "n": 100,
+   "R": 0.5919,
+   "random_q99": 0.3711,
+   "together": true
+  },
+  "level-matched 099 (as monocytes: above every other blood cell)": {
+   "n": 100,
+   "R": 0.2553,
+   "random_q99": 0.3775,
+   "together": false
+  }
+ },
+ "input": "atlas_pool.parquet",
+ "groups_file": "atlas_groups.json",
+ "output": "atlas_sphere.npz",
+ "command": [
+  "run_sample.py",
+  "--build",
+  "info-sphere",
+  "--build-input",
+  "xout/atlas_pool.parquet",
+  "--build-groups",
+  "xout/atlas_groups.json",
+  "--build-out",
+  "xout/atlas_sphere.npz",
+  "--build-random",
+  "1000",
+  "--bundle",
+  "xout/atlas_sphere.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned (DEV-SPHERE-01)"
+}

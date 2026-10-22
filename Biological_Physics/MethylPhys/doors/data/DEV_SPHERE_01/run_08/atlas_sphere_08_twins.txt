@@ -1,0 +1,14 @@
+DEV-SPHERE-01 test 8, reported after scoring (not a bar): each marker group's concentration against its own level-matched twins
+neutrophils: below every other blood cell: R 0.843 | twins median 0.812, largest 0.817 (n 9)
+neutrophils: above every other blood cell: R 0.727 | twins median 0.438, largest 0.482 (n 9)
+monocytes: below every other blood cell: R 0.666 | twins median 0.606, largest 0.624 (n 9)
+monocytes: above every other blood cell: R 0.719 | twins median 0.273, largest 0.337 (n 9)
+b cells: below every other blood cell: R 0.804 | twins median 0.749, largest 0.759 (n 8)
+b cells: above every other blood cell: R 0.785 | twins median 0.490, largest 0.535 (n 8)
+cd4 t cells: below every other blood cell: R 0.516 | twins median 0.381, largest 0.392 (n 8)
+cd4 t cells: above every other blood cell: R 0.803 | twins median 0.608, largest 0.642 (n 8)
+cd8 t cells: below every other blood cell: R 0.603 | twins median 0.550, largest 0.571 (n 8)
+cd8 t cells: above every other blood cell: R 0.868 | twins median 0.850, largest 0.863 (n 8)
+nk cells: below every other blood cell: R 0.839 | twins median 0.823, largest 0.837 (n 8)
+nk cells: above every other blood cell: R 0.778 | twins median 0.673, largest 0.699 (n 8)
+marker groups tighter than every one of their twins: 12 of 12
