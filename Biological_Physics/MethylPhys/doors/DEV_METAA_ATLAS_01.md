@@ -92,3 +92,12 @@ cannot come from: per-site person-to-person variation of this size averages away
 it moves with the slide). The same-run tare exists to cancel exactly that, but in GSE184269 each slide holds one donor, so every array could
 only be tared against other slides. **Next:** a sorted-cell series where several donors' cells of one type share a run, so the tare is
 tested the way the chain uses it.
+
+## Exploration 5, planned (written 2026-10-21 before it runs; not sealed)
+
+`data/DEV_METAA_ATLAS_01/same_slide_05.py` on GitHub: GSE166844, purified blood cells of 30 volunteers from a general-population cohort
+(an independent laboratory, not among the atlas's sources, never read before). 141 sorted arrays (B, CD4 T, CD8 T, monocytes, granulocytes
+against the atlas's neutrophils), and each slide holds two donors. Each array goes through chain Stage 1 and `stage_metaa_atlas.read`,
+unchanged. Two tares are compared, and neither uses the array's own donor: across runs (as step 3), and against the other donor on the same
+slide. The second tests the same-run tare the way the chain means it, without the self-tare trap. Reported for each: Normal share, spread,
+and what a planted 1 % loss moves the reading by, in spreads. Each array's values at the identity sites are kept for later explorations.
