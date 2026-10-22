@@ -4,7 +4,7 @@
  "_convention": "see 2026-10-13.json",
  "check_completeness": false,
  "set_out": "Set Stage 0's control-probe limits from healthy EPIC v1 arrays of three laboratories with the corrected measurements, then score every blood cell in whole blood and finish the documentation pass.",
- "open_at_turnover": "Open: the self-tare test on real arrays (GRP-014); the 3D sphere's textures on GitHub (step 13).",
+ "open_at_turnover": "Open: the mouse reproduction in 13 parallel jobs (OTH-076); Met-A against the atlas with the same-slide tare (GRP-014, exploration 6); the release check on the extended V13.",
  "closing": "",
  "sections": [
   {
@@ -45,6 +45,118 @@
      "what": "A new preliminary reading, the anchor range, read a 2 % loss planted at every site of 72 real healthy bloods as 1.84 % and a 5 % loss as 4.61 %; healthy bloods read 0.0 %.",
      "why": "Met-A's self-tare cancels a loss spread evenly over every site; this reading keeps it.",
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_SELFTARE_03/anchor_range_real_01_summary.txt"
+    },
+    {
+     "title": "All 191 tissue pairs on the globe (ATL-063, DEV-TISSUE-GLOBE-01)",
+     "status": "development",
+     "what": "In breast and liver, a tumor against its own normal lights about three times what two people's normal tissue lights; leaving out the X and Y lowers the mixed-sex controls, as the X's biology predicts. Colon's controls light nearly as much as its tumors, likely because they compare different slides; controls matched on slide are next.",
+     "why": "Shows where a person's own normal tissue is the reference that separates a tumor, and where a comparison between two people does not.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Documentation pass: glossary, book appendix, Q&A (OTH-078)",
+     "status": "structure",
+     "what": "The glossary gained ten entries (IAM-Atlas v2.1, IAM-Deconvolver, Group-A, the tare, the sky sphere, the information sphere, the Globe Explorer, noise maps, the anchor range, hard-to-map probes). Two stale entries were corrected in the canon and in book Appendix F: Met-A divides by the healthy reference, not H_min; IAM-A's reference is the sample's own predicted held error, not the retired P_cell H(eps0) form. Appendix F's healthy held-error range 0.024-0.042 (the superseded counter) is now 0.0333-0.0549, and the old range is a blocked pattern. The Q&A had said every instrument reads against the atlas; only the Deconvolver does.",
+     "why": "A researcher reading any document finds the same definitions as the code.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Every globe layer gets a tool (ATL-063)",
+     "status": "structure",
+     "what": "The audit showed the atlas globe's two layers per cell, and every plain map in the reports and the Explorer, had no slider. Each now has one that keeps only the sites above a chosen methylation (or, on the certainty maps, only the sites the atlas is least sure of), with the share of the globe kept printed. The Met-A layer's key now says what its red means: more disorder than the healthy reference, the held pattern being lost.",
+     "why": "Every map a reader opens can be narrowed to what matters, not just looked at.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "IAM-A's line reproduced on GitHub (OTH-076)",
+     "status": "audit",
+     "what": "The 70 GB IAM-A line reproduction, which had needed one large cloud machine, ran split across 13 of GitHub's free machines: 158 of 158 counts identical to the committed ones, the line and the shape reference identical. Nine of the ten reproductions now run without AWS.",
+     "why": "Anyone can rerun the result on free machines and get the same numbers.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Information sphere construction v3, planted test 4 (PHY-035, DEV-SPHERE-01)",
+     "status": "diagnosis",
+     "what": "Run once on GitHub, committed before running: 4 of 6 bars met. The grid edges of v2 are gone (edge ratio 1.10), the planted group is found and nothing is found when nothing is planted; the globe is only 46.9 % covered (bar 90 %) and distances agree at 0.567 (bar 0.7). Not adopted; next a joint filling rule, written before it is run.",
+     "why": "The map of the order itself has to cover the whole globe before it can be read.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The IAM Globe Explorer (ATL-063, step 28)",
+     "status": "structure",
+     "what": "The site's atlas globe page became the Globe Explorer: IAM-Atlas v2.1 (79 cells, methylation or how sure), Met-A's purified-array reference (eight blood groups at its 6,000 sites), and the two example samples with every layer and slider. One viewer draws every globe (globe_viewer.py), in a report, on a report's own full page (written beside every report and linked from it), and on the site. Each globe's pictures load only when chosen.",
+     "why": "One viewer for every globe, so a sample, its healthy reference and the atlas are seen the same way everywhere.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The globe as the browser draws it (ATL-063, lesson C32)",
+     "status": "diagnosis",
+     "what": "The author's browser showed a healthy blood's globe lit everywhere while the previews, drawn in Python, showed it dark. Safari color-manages a grayscale image, so unchanged pixels stored as exactly 128 came back a few steps off and were drawn as changes. The change code now has wide bands and is stored as RGB, and release check V13 screenshots the chain's own globe pages in Chromium on GitHub. A picture of a chain output is shown only as the chain's page draws it.",
+     "why": "A picture is only right if it is right in the reader's own browser; the release check now looks at it there.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The globe goes dark for a healthy blood (ATL-063)",
+     "status": "structure",
+     "what": "The author saw the whole globe lit at the far right. Single sites beyond 3 lit 14 % of the globe for a healthy blood. Both change layers now read the C-Score's blocks of 10 neighboring sites against the line pure chance crosses less than once in 20 genomes: the healthy blood lights 45 of 77,355 genome blocks and none of Met-A's 597; the planted clustered example lights 44 Met-A blocks, in clumps.",
+     "why": "A healthy person's globe should show nothing, so that a change, when there is one, stands out.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The globe shows a fixed change (ATL-063)",
+     "status": "structure",
+     "what": "The report's globe no longer asks the reader to pick a size. A site has changed when its difference from the healthy reference, in that site's healthy width and the sample's own spread, is beyond 3: the C-Score's rule on the whole genome. A healthy blood shows 16,372 of 773,556 sites changed (2.1 %). The slider only fades the healthy background. A first rule, the atlas's 95 % range alone, flagged 84 % of a healthy blood because that range is how sure the atlas is of the healthy average, not how much a person varies; it was dropped the same day.",
+     "why": "The change is set by the measurement, not by where a reader moves a slider.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The globe shows clumps the way the C-Score reads them (ATL-063)",
+     "status": "structure",
+     "what": "On the planted clustered example the site-by-site rule lit 68 sites against 63 in the healthy blood: a loss that runs along the genome is many small moves, none past 3 at one site. Read in the C-Score's own blocks of 10 neighboring sites, the healthy blood shows 7 of 597 blocks changed, scattered, and the planted loss 57, in clumps. The slider now ends on pure black.",
+     "why": "The picture shows the same clustered loss the C-Score measures.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The mouse alignment on GitHub: the memory limit found (OTH-076)",
+     "status": "diagnosis",
+     "what": "The live memory log showed the reference index build fits a GitHub machine (8.9 GB at its peak, about two hours), but the bisulfite aligner with 4 threads rose to 15.8 GB of the machine's 16 GB, and GitHub stopped it. Rerun with 1 thread; if it still does not fit, the mouse reproduction is a job for AWS.",
+     "why": "Finding the limit told us how to fit the run on free machines.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The mouse reproduction fits GitHub with one aligner thread (OTH-076)",
+     "status": "in progress",
+     "what": "The 1-thread test finished in 3 h 10 min at a peak of 12.5 GB, and its counts for SRR3111449 equal the committed 16-thread run's to the last digit. All 38 read sets now run on GitHub in 13 parallel jobs, then the committed scorer and comparison.",
+     "why": "The last reproduction that needed a paid machine runs on free ones.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The noise globe shows how sure the atlas is (ATL-063)",
+     "status": "structure",
+     "what": "Redrawn so the least certain sites stay lit longest: each frame is a site's spread over the square root of the draws averaged, on one log scale. From 1 draw to 100, the share of the globe still lit falls from 62 % to 0.6 %; the X and Y stay lit longest, where the atlas is about three times less sure than elsewhere because its donors are women and men. A layer with the X and Y hidden and a color key were added.",
+     "why": "A reader sees where the atlas is certain and where it is not, before trusting a difference.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The tissue results on the globe, planned (ATL-063, DEV-TISSUE-GLOBE-01)",
+     "status": "development",
+     "what": "The chain's globe gains a development pair mode: one person's tumor against the same person's own adjacent normal, by the same block rule. A pair with no change lights none of 77,356 blocks; 200 planted regional runs light 620. Three colon and three breast pairs, already scored and spent, and a two-person control run on GitHub, each page screenshotted in Chromium.",
+     "why": "A tumor is read against the same person's own normal tissue.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The turning globe in the report (ATL-063, step 13d)",
+     "status": "structure",
+     "what": "The HTML report carries a globe a reader can turn: the sample, its healthy reference (the atlas cell for an isolated cell; for blood, the atlas healthy blood for the person's own Stage D21 mix), their difference at about 774,000 sites with a slider that fades smaller differences, and Met-A's 6,000 sites as the C-Score's departures. A picture: nothing is scored from it. On the real healthy blood the median difference is 0.018 and the X chromosome shows as a patch (the array reads as a woman; the reference pools both sexes). Release check V12: the atlas neutrophil against itself shows no difference.",
+     "why": "Every report shows the person's whole methylome beside their healthy reference.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Tumors on the globe, and what the count cannot tell (ATL-063, DEV-TISSUE-GLOBE-01)",
+     "status": "development",
+     "what": "Three colon and three breast tumors against their own adjacent normal, drawn by the chain and screenshotted in a browser, light 298 to 1,570 changed blocks. Two different people's normal colon light 741, inside that range, so the count of changed blocks does not separate a tumor from ordinary differences between people.",
+     "why": "Tells us which comparison means something before anyone reads a tumor from the picture.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   },
@@ -65,5 +177,9 @@
  "off_page_rows": [
   "ATL-070",
   "OTH-079"
- ]
+ ],
+ "compute": {
+  "pending": "AWS billing could not be read from 2026-10-20; this block is filled by CANON/day_compute.py once it can be",
+  "since": "2026-10-20"
+ }
 }

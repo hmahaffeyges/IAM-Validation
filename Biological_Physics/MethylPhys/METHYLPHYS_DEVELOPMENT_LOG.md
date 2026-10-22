@@ -2954,3 +2954,24 @@ The audit showed the atlas globe's two layers per cell, and every plain map in t
 
 ### 2026-10-21 · The mouse reproduction fits GitHub with one aligner thread (OTH-076)
 The 1-thread test finished in 3 h 10 min at a peak of 12.5 GB, and its counts for SRR3111449 equal the committed 16-thread run's to the last digit. All 38 read sets now run on GitHub in 13 parallel jobs, then the committed scorer and comparison.
+
+### 2026-10-21 · Sorting purity does not explain the sorted cells' spread (GRP-014, DEV-METAA-ATLAS-01 exploration 3)
+Even the purest half of each sorted cell type of GSE184269 reads as widely against IAM-Atlas v2.1 as the rest; the spread is not from impure sorting.
+
+### 2026-10-21 · Width weighting closed on the atlas alone (GRP-014, DEV-METAA-ATLAS-01)
+Each cell's 6,000 identity sites are already the tightest by healthy width, so weighting them by that width changes almost nothing (5,322 to 5,825 effective sites of 6,000; a 1 % loss's signal changes by under 1 %). Not added to the chain. The spread is array-wide, so the next test needs several healthy arrays on each slide.
+
+### 2026-10-21 · Colon's controls matched on the slide (ATL-070, DEV-TISSUE-GLOBE-01 run 3)
+Two people's adjacent normal colon on the same slide light as much as across slides (575 changed blocks; two healthy donors 722; tumor against its own normal 917). In colon the difference between two people is nearly as large as a tumor's from its own normal; the person's own reference is the comparison that means something.
+
+### 2026-10-21 · Every globe layer has a working slider: the audit after the fix (ATL-063)
+On the live site, 651 frames over every globe of the Globe Explorer and the healthy report: 217 layers, every one with a slider; every change layer goes dark at the right end. Release check V13 now runs the same test on every group and layer of the chain's two globe pages.
+
+### 2026-10-21 · The X and Y in IAM-A's held error (OTH-080, DEV-IAMA-SEX-01)
+On 17 healthy samples of the committed line, counting the held error on the autosomes only moves IAM-A by a mean of -0.32 % (range -0.71 % to +0.09 %), at most about 2.5 % of the band's width. The commissioned line and band stay; recorded in the Chain Decoder (finding F37).
+
+### 2026-10-21 · Day summary
+Every layer of every globe got a working slider, checked in the browser on the live site, and the release check now tests every layer. The mouse reproduction was found to fit GitHub with one aligner thread (counts identical to the committed run) and runs in 13 parallel jobs. For Met-A against IAM-Atlas v2.1: sorting purity and site weighting were ruled out as the cause of the sorted cells' spread, which pointed to the slide; colon's tissue controls matched on the slide light as much as across slides; the X and Y were measured to move IAM-A by under 1 %, so its line and band stay.
+
+### 2026-10-22 · Met-A against the atlas, tared on the same slide: healthy monocytes read Normal (GRP-014, DEV-METAA-ATLAS-01 exploration 6)
+GSE168779, an independent laboratory: 67 healthy children's monocytes read against the atlas's adult monocytes and tared against healthy monocytes on the same slide read 100 % Normal (spread 0.0151); a planted 1 % loss moves the reading by 3.6 spreads. Tared across slides: 96 % Normal, 2.6 spreads. The 42 vaccinated children read Normal too (98 %). Not sealed; a sealed test on a new series comes next.

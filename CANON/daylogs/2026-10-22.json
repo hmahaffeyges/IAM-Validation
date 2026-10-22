@@ -1,0 +1,29 @@
+{
+ "date": "2026-10-22",
+ "title": "Met-A reads healthy cells Normal against the atlas",
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "set_out": "Test Met-A against IAM-Atlas v2.1 with the chain's same-run tare on an independent laboratory's healthy cells, and finish the open GitHub runs.",
+ "open_at_turnover": "Open: the release check on the corrected V13; the mouse reproduction in 13 parallel jobs (OTH-076); a sealed Met-A atlas test on a new series (GRP-014).",
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Met-A against the atlas, tared on the same slide (GRP-014, DEV-METAA-ATLAS-01 exploration 6)",
+     "status": "development",
+     "what": "An independent laboratory's healthy children's monocytes, read against the atlas's adult monocytes and tared against healthy monocytes run on the same slide: all 67 read Normal, and a planted 1 % loss of their pattern stands out at 3.6 times the healthy spread. Children given BCG at birth read Normal too.",
+     "why": "Met-A read against the atlas lets any cell type in the atlas be read, not only the ones with a purified-array reference; the same-run tare cancels the laboratory and age gaps.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_01.md"
+    }
+   ]
+  }
+ ],
+ "off_page_rows": [],
+ "compute": {
+  "pending": "AWS billing could not be read from 2026-10-20; this block is filled by CANON/day_compute.py once it can be",
+  "since": "2026-10-20"
+ }
+}

@@ -1,0 +1,7 @@
+DEV-METAA-ATLAS-01 exploration 6: GSE168779 healthy monocytes, the chain's same-run tare against the atlas (not sealed)
+arrays read 130 of 130 (unvaccinated 67 of 67)
+tare slide_controls : n 50 | Normal 1.00 | median 1.0010 | spread 0.0151 | planted 1 % moves +0.0538 = 3.6 spreads
+tare slide_all      : n 67 | Normal 1.00 | median 0.9999 | spread 0.0155 | planted 1 % moves +0.0539 = 3.5 spreads
+tare runs_controls  : n 67 | Normal 0.96 | median 0.9988 | spread 0.0208 | planted 1 % moves +0.0540 = 2.6 spreads
+tare runs_all       : n 67 | Normal 0.96 | median 0.9987 | spread 0.0205 | planted 1 % moves +0.0540 = 2.6 spreads
+vaccinated, tared against the controls on their slide: n 42 | median A_rel 1.0016 | Normal 0.98

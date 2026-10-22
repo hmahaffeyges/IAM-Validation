@@ -1098,6 +1098,15 @@
 "text": "compressed (~0.85 instead of ~0.95) and inflates every downstream A-score. The"
 },
 {
+"file": "Biological_Physics/MethylPhys/daylogs/2026-10-21.md",
+"line": 36,
+"pattern": "0\\.024 ?(--|\u2013|-|to) ?0\\.042",
+"use": "0.0333-0.0549: the healthy held-error range of 56 cell types on chain Stage Q2's counter (holding_energy_q2.json); 0.024-0.042 came from PROC-CHANNEL-01's counter, which divided by every CpG, ends included (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "The glossary gained ten entries (IAM-Atlas v2.1, IAM-Deconvolver, Group-A, the tare, the sky sphere, the information sphere, the Globe Explorer, noise maps, the"
+},
+{
 "file": "Biological_Physics/MethylPhys/daylogs/2026-10-19.md",
 "line": 60,
 "pattern": "\\bA[- ]score",

@@ -116,15 +116,15 @@ reading by, in spreads.
 
 ## Exploration 6, run once (2026-10-21; explore run 39723551088, commit 54390f59; 130 of 130 arrays read)
 
-Output: `data/DEV_METAA_ATLAS_01/same_run_06/same_run_06_summary.txt` (the per-array rows and values are in the run's GitHub output). The
+Output: `data/DEV_METAA_ATLAS_01/same_run_06/same_run_06_summary.txt` (copied from the run's report in issue 32; the per-array rows and values are in the run's GitHub output). The
 67 unvaccinated children's monocytes, read against the atlas's (adult) monocytes:
 
 | Tare (never the array itself) | Tared | Normal | Spread | Planted 1 % loss |
 |---|---|---|---|---|
-| Same slide, healthy controls (at least 3) | 50 | 100 % | 1.51 % | +0.0538, 3.6 spreads |
-| Same slide, every array | 67 | 100 % | 1.55 % | +0.0539, 3.5 spreads |
-| Other slides, controls | 67 | 96 % | 2.08 % | +0.0540, 2.6 spreads |
-| Other slides, every array | 67 | 96 % | 2.05 % | +0.0540, 2.6 spreads |
+| Same slide, healthy controls (at least 3) | 50 | 100 % | 0.0151 | +0.0538, 3.6 spreads |
+| Same slide, every array | 67 | 100 % | 0.0155 | +0.0539, 3.5 spreads |
+| Other slides, controls | 67 | 96 % | 0.0208 | +0.0540, 2.6 spreads |
+| Other slides, every array | 67 | 96 % | 0.0205 | +0.0540, 2.6 spreads |
 
 The 42 vaccinated children tared on their slide: median 1.0016, 98 % Normal.
 
