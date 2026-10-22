@@ -1,0 +1,47 @@
+"""globe_audit.py - every globe, group and layer the public site shows, as a reader's browser draws it (2026-10-21; author: "You need to
+really go through each one and do your dilligence"). Opens the live Globe Explorer and the live example report globes in Chromium
+(playwright), selects each globe, each group and each layer, moves the slider to its left end, middle and right end, screenshots the globe,
+and counts the screenshot's pixels by color: red, blue, gray, dark, other (the globe's disk only). Writes OUT/audit.csv (one row per frame,
+with the layer's kind, hint, fixed line and key text) and OUT/shots/*.png. Nothing is scored; the table is read by hand and by the checks
+that follow it. Usage: python3 website/audit/globe_audit.py OUT [BASE_URL]"""
+import os, sys, csv, re, numpy as np
+from playwright.sync_api import sync_playwright
+from PIL import Image
+OUT = sys.argv[1]; BASE = (sys.argv[2] if len(sys.argv) > 2 else "https://hmahaffeyges.github.io/IAM-Validation/").rstrip("/") + "/"
+PAGES = [("explorer", "atlas/sphere.html"), ("report_healthy", "art/out/examples/globe_healthy_blood.html")]
+os.makedirs(os.path.join(OUT, "shots"), exist_ok=True)
+def classes(p):
+    a = np.asarray(Image.open(p).convert("RGB")).astype(int); h, w, _ = a.shape; yy, xx = np.mgrid[:h, :w]
+    disk = (xx - w / 2) ** 2 + (yy - h / 2) ** 2 <= (0.47 * min(h, w)) ** 2; r, g, b = a[..., 0][disk], a[..., 1][disk], a[..., 2][disk]
+    red = (r > 140) & (r > g + 60) & (r > b + 60); blue = (b > 140) & (b > r + 60) & (b > g + 30); dark = (r + g + b) < 75
+    gray = ~red & ~blue & ~dark & (np.abs(r - g) < 14) & (np.abs(g - b) < 16); n = disk.sum()
+    return {k: round(float(v.sum()) / n, 4) for k, v in (("red", red), ("blue", blue), ("gray", gray), ("dark", dark))} | {"other": round(float((~(red | blue | gray | dark)).sum()) / n, 4)}
+rows = []
+with sync_playwright() as P:
+    br = P.chromium.launch(); pg = br.new_page(viewport={"width": 1300, "height": 1000})
+    for tag, path in PAGES:
+        pg.goto(BASE + path, wait_until="networkidle", timeout=180000); pg.wait_for_timeout(3000)
+        if pg.locator(".g-spin").count(): pg.evaluate("document.querySelectorAll('.g-spin').forEach(b => b.click())")   # stop the spin for stable shots
+        roots = pg.locator(".g-canvas").count()
+        for ri in range(roots):
+            gsel, ssel, lsel = pg.locator(".g-globe").nth(ri), pg.locator(".g-group").nth(ri), pg.locator(".g-layer").nth(ri)
+            globes = gsel.locator("option").all_inner_texts() or [""]
+            for gi, gname in enumerate(globes):
+                if gname: gsel.select_option(index=gi); pg.wait_for_timeout(800)
+                for si, sname in enumerate(ssel.locator("option").all_inner_texts()):
+                    ssel.select_option(index=si); pg.wait_for_timeout(500)
+                    for li, lname in enumerate(lsel.locator("option").all_inner_texts()):
+                        lsel.select_option(index=li); pg.wait_for_timeout(1500)
+                        rg = pg.locator(".g-range").nth(ri); vis = pg.locator(".g-slide").nth(ri).is_visible()
+                        mx = int(rg.get_attribute("max") or 0) if vis else 0
+                        for pos in ((0, mx // 2, mx) if vis else (None,)):
+                            if pos is not None: rg.evaluate(f"(e) => {{ e.value = {pos}; e.dispatchEvent(new Event('input')); }}"); pg.wait_for_timeout(1800)
+                            f = re.sub(r"[^A-Za-z0-9]+", "_", f"{tag}_{gi}_{si}_{li}_{pos}")[:120] + ".png"; pg.locator(".g-canvas").nth(ri).screenshot(path=os.path.join(OUT, "shots", f))
+                            t = lambda c: (pg.locator(c).nth(ri).inner_text() if pg.locator(c).nth(ri).count() else "").replace("\n", " ")[:400]
+                            rows.append(dict(page=tag, globe=gname, group=sname, layer=lname, slider=("none" if pos is None else f"{pos}/{mx}"), shot=f,
+                                             readout=t(".g-rv"), hint=t(".g-hint"), fixed=t(".g-fixed"), key=t(".g-key"), note=t(".g-note"), **classes(os.path.join(OUT, "shots", f))))
+                            print(tag, gname[:20], sname[:20], lname[:40], rows[-1]["slider"], {k: rows[-1][k] for k in ("red", "blue", "gray", "dark")}, flush=True)
+    br.close()
+with open(os.path.join(OUT, "audit.csv"), "w", newline="") as fh:
+    w = csv.DictWriter(fh, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
+print("frames", len(rows))

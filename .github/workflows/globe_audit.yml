@@ -1,0 +1,18 @@
+name: globe_audit
+# Every globe, group and layer of the public site as Chromium draws it (website/audit/globe_audit.py, 2026-10-21). Manual only.
+on: {workflow_dispatch: {}}
+permissions: {contents: read}
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: website/audit}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q playwright pillow numpy && python -m playwright install --with-deps chromium
+      - run: python3 website/audit/globe_audit.py xout 2>&1 | tail -400 | tee xout_log.txt; cp xout_log.txt xout/run.log || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: globe-audit, path: xout}
