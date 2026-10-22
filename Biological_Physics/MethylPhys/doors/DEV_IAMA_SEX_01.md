@@ -18,8 +18,8 @@ commissioned in the usual way.
 
 ## Outcome (2026-10-21; explore run 39717648496, commit 5b693693; 17 of 17 samples read)
 
-Output: `data/DEV_IAMA_SEX_01/run_01/held_err_autosomes_01_summary.txt` and `held_err_autosomes_01_rows.csv`. The loose share is identical on
+Output: `data/DEV_IAMA_SEX_01/run_01/held_err_autosomes_01_summary.txt` (the per-sample rows are in the run's GitHub output). The loose share is identical on
 both counts, as it must be. Counting the held error on the autosomes only moves it, and so IAM-A, by a mean of **−0.32 %** (range −0.71 %
-to +0.09 %); the X and Y hold 2.74 % of the held-error opportunities. Band v1 runs from 0.779 to 1.055, so the largest shift is about
-2.5 % of the band's width. **Decision:** the commissioned line and band stay as they are; the two reading routes differ here by under 1 %,
+to +0.09 %); the X and Y hold 2.74 % of the held-error opportunities. Band v1 (`chain/Runtime Matrices/IAM_A_SelfRef/band_v1.json`) is about 28 % wide, so the
+largest shift is about 2.5 % of the band's width. **Decision:** the commissioned line and band stay as they are; the two reading routes differ here by under 1 %,
 recorded in the Chain Decoder (finding F37). No new line or band is needed.
