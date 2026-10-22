@@ -28,3 +28,16 @@ exactly (6,097 errors over 164,034 opportunities).
 **Step 2, real molecules (pictures, nothing scored).** `data/DEV_IAMA_GLOBE_01/genome_globes_02.py`: two healthy CD8 T-cell samples of
 the committed line (spent; they built the line, so the pictures show the method and test nothing): one against its own prediction; the same
 one with held-mark loss planted in one stretch of chr2 (constructed); the two people against each other. On GitHub (explore.yml).
+
+**Step 2, run once (2026-10-22; explore run 39804153955, commit f2701c95).** Output: `data/DEV_IAMA_GLOBE_01/genome_globes_02_summary.txt`.
+Two people against each other: 20 of 99,221 regions changed, a quiet globe. One healthy sample against its own prediction: 337 of 116,311
+changed (314 more loss), not dark; and the planted stretch lit only 13 of its 1,233 regions. Why, both: a region of 100 CpGs holds only a
+few hundred chances to lose a held mark, so counting noise hides a doubled loss there; and healthy regions differ from one another by nature
+(the genome-wide prediction is one number for every region), which counting noise alone does not cover. Two people share that natural
+pattern, so their comparison is quiet.
+
+**Step 3, written before it runs.** `genome_globes_03.py`: regions of 1,000 CpGs (about ten times the chances per region), and each
+departure scaled by the sample's own spread of regions (the robust standard deviation from the median absolute deviation, never below counting noise), as the array globes scale by the
+sample's own spread; still centered on the sample's own predicted held error, so a genome-wide loss still shows. The constructed plant is
+made stronger (probability 0.08, about triple the held error) so the picture shows what a clear change looks like; it remains a constructed
+picture, not a test.

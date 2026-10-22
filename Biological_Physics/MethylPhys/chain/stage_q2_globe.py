@@ -64,9 +64,9 @@ def departures(err, opp, p):
 # CpG instead of the array sites. Nothing is fitted; the layout needs no manifest.
 REGION = 100
 N_CPG = sum(n for _, n in Q2.HG19_CPGS)
-def count_pat_regions(lines, region=REGION):
+def count_pat_regions(lines, region=None):
     """count_pat's rule and line split, per region of `region` consecutive CpG indexes: held errors and opportunities, methylated calls and calls."""
-    n = N_CPG // region + 1; E = np.zeros(n); O = np.zeros(n); MC = np.zeros(n); C = np.zeros(n); tot_e = tot_o = 0
+    region = region or REGION; n = N_CPG // region + 1; E = np.zeros(n); O = np.zeros(n); MC = np.zeros(n); C = np.zeros(n); tot_e = tot_o = 0
     bE, bO, bM, bC = [], [], [], []
     def flush():
         for b, a in ((bE, E), (bO, O), (bM, MC), (bC, C)):
@@ -88,15 +88,21 @@ def count_pat_regions(lines, region=REGION):
     flush(); return dict(err=E, opp=O, meth=MC, calls=C, total_err=float(E.sum()), total_opp=float(O.sum()), region=region)   # autosomes
 MIN_OPP = 200   # a region is drawn when it holds at least this many held-error opportunities
 def _z_self(R, p):
-    o = R["opp"]; ok = o >= MIN_OPP; z = np.where(ok, (R["err"] - o * p) / np.sqrt(np.maximum(o * p * (1 - p), 1e-12)), np.nan); return z, ok
+    o = R["opp"][:len(R["err"])]; ok = o >= MIN_OPP; z = np.where(ok, (R["err"] - o * p) / np.sqrt(np.maximum(o * p * (1 - p), 1e-12)), np.nan); return z, ok
 def _z_pair(A, B):
     ok = (A["opp"] >= MIN_OPP) & (B["opp"] >= MIN_OPP); ea, eb = A["err"] / np.maximum(A["opp"], 1), B["err"] / np.maximum(B["opp"], 1)
     pp = (A["err"] + B["err"]) / np.maximum(A["opp"] + B["opp"], 1)
     z = np.where(ok, (ea - eb) / np.sqrt(np.maximum(pp * (1 - pp) * (1 / np.maximum(A["opp"], 1) + 1 / np.maximum(B["opp"], 1)), 1e-12)), np.nan); return z, ok
-def _page_layers(z, ok, err_rate, meth, p, change_name, about_ref):
+def _own_spread(z, ok):
+    """The sample's (or pair's) own spread of region departures: MAD x 1.4826 over every drawn region, never below 1 (counting noise is the
+    floor). Healthy regions differ from one another by nature as well as by counting; this measures both from the sample itself, as the
+    array globes scale by the sample's own spread (2026-10-22, step 2: counting noise alone lit 337 regions of a healthy sample)."""
+    x = z[ok]; return max(1.0, float(1.4826 * np.median(np.abs(x - np.median(x))))) if len(x) else 1.0
+def _page_layers(z, ok, err_rate, meth, p, change_name, about_ref, scale=True):
     from report_globe_v4 import FW_LINE, _to_sky, _to_sky_extreme, _lookup, _png_b64, _jpg_b64, _vmask, key_css, HT, W
     from matplotlib.colors import ListedColormap
-    nside = 256; npix = 12 * nside * nside; look = _lookup(nside); nb = int(ok.sum()); line = FW_LINE(nb); ch = ok & (np.abs(z) > line)
+    nside = 256; npix = 12 * nside * nside; look = _lookup(nside); nb = int(ok.sum()); line = FW_LINE(nb)
+    sp = _own_spread(z, ok) if scale else 1.0; z = z / sp; ch = ok & (np.abs(z) > line)
     ex = np.where(ok, np.where(ch, z, 0.0), np.nan); dv = _to_sky_extreme(ex, npix)[look].reshape(HT, W)
     a = np.clip(np.abs(dv) / 20, 0, 1); c = np.where(np.isfinite(dv), np.where(dv != 0, 128 + np.sign(dv) * np.round(48 + 79 * a), 128), 0)
     code = np.repeat(np.clip(c, 0, 255).astype(np.uint8)[..., None], 3, -1)
@@ -109,14 +115,14 @@ def _page_layers(z, ok, err_rate, meth, p, change_name, about_ref):
     L = [dict(id="genome", name=change_name, kind="change", src="data:image/png;base64," + _png_b64(code, "RGB"), base=Hm, full=10, ref_word=about_ref,
               key_up="Red: more held marks lost here than " + about_ref + " (held order lost)", key_down="Blue: fewer held marks lost here than " + about_ref,
               hint="Slide right to quiet everything that is not a change: the map drains to gray, then to dark, until only the change is left lit.",
-              fixed=f"Changed: {int(ch.sum()):,} of {nb:,} regions of {REGION} CpGs ({up:,} more loss, {dn:,} less), each beyond {line:.1f} of its own counting wobbles, the line pure chance crosses less than once in 20 genomes. This count is fixed; the slider never changes it.",
+              fixed=f"Changed: {int(ch.sum()):,} of {nb:,} regions of {REGION} CpGs ({up:,} more loss, {dn:,} less), each beyond {line:.1f} of the sample's own spread of regions ({sp:.2f} counting wobbles), the line pure chance crosses less than once in 20 genomes. This count is fixed; the slider never changes it.",
               note="Each region's isolated losses on held molecules, counted against " + about_ref + ". Development: not commissioned by our standards."),
          dict(name="held error, region by region", kind="image", src=Hm, mask=_vmask(hm), vscale=[0, round(2 * p, 4)], vword="held error at least:",
               hint="Slide right to keep only the regions that lose held marks most often; the rest go dark.", key_css=key_css(),
               note=f"Isolated losses on held molecules over the chances to lose one, 0 to {2 * p:.3f} (twice the sample's predicted {p:.4f})."),
          dict(name="methylation, region by region", kind="image", src=J(_jpg_b64(rgb(mm))), mask=_vmask(mm), vscale=[0, 1], vword="at least this methylated:",
               hint="Slide right to keep only the regions at least this methylated; the rest go dark.", key_css=key_css(), note="The share of methylated calls in each region, 0 to 1.")]
-    return L, dict(regions_drawn=nb, line=round(line, 3), changed=int(ch.sum()), more_loss=up, less_loss=dn)
+    return L, dict(regions_drawn=nb, line=round(line, 3), own_spread=round(sp, 3), changed=int(ch.sum()), more_loss=up, less_loss=dn)
 ABOUT = ("<b>DEVELOPMENT: not commissioned by our standards.</b> Every CpG of the genome has one fixed place on this globe, set only by where it "
          "sits in the genome (regions of __R__ CpGs, chr1 to chr22 in order; the X and Y are left off, so a difference of sex is never drawn as a change). IAM-A counts, on single DNA molecules that hold their marks, how "
          "often one mark is lost between two held ones. __WHAT__ A region is changed only when the difference is too big to be chance: beyond "
