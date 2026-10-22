@@ -81,7 +81,7 @@ their chromosome's hg19 index range), and nothing was drawn. The withdrawn steps
 hg19 positions, so their numbers were wrong as well as outside the chain. The download now takes the hg19 file, as the IAM-A line's own
 counting does (`DEV_CHAIN_Q2_01/box_q2_line.py`); step 6 runs again unchanged otherwise.
 
-## Step 6, run once through the one command (2026-10-22; commit f25b52bb; explore runs 39830139396, 39830162195, 39830183898, 39830206307)
+## Step 6, run once through the one command (2026-10-22; the runs ran on chain commit f25b52bb; explore runs 39830139396, 39830162195, 39830183898, 39830206307; recorded in commit a579732a)
 
 Output: `data/DEV_IAMA_GLOBE_01/run_06/genome_globes_06_summary.txt` and each view's `development.genome_globe`. The chain fetched the hg19
 files itself (`--geo-pat`). One healthy sample against its own prediction: **10 of 26,229 regions changed**; the same sample read twice:

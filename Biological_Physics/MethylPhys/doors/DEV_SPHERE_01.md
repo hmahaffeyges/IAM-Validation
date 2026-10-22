@@ -245,3 +245,20 @@ distance agreement rho 0.9324. Reported: variance kept 0.9493; sky covered 7.1 %
 **What it shows, and what it does not.** On a synthetic methylome, the information sphere keeps how far apart states are, finds a group of
 sites that behave alike, and does not invent one when there is none. It is synthetic only: nothing real has been read on it. **Next, written
 before it runs:** the null on real healthy references (IAM-Atlas v2.1's healthy cells), then known groups of real sites.
+
+## Whiteboard: ideas for the information sphere (2026-10-22; ideas only, nothing tested; each would start from "The instrument's job:" and a synthetic test)
+
+**Microwave-sky tools that fit it.** (1) The angular power spectrum, estimated on the masked sky (93 % masked), as the sky teams do around
+the galaxy: at what scale a state varies. (2) The cross-spectrum of two readings of one individual: counting noise does not repeat between
+them, so only shared structure is left; the natural tool for "read twice". (3) Component separation: cell types as the sky's frequencies,
+to separate a change of the blood mix from a change of the cells. (4) The dipole: the net direction one individual's state has moved.
+(5) Spherical wavelets (needlets) and matched filters: compact spots at every size. (6) Minkowski functionals: the shape of the changed
+areas, structured change against random wear. (7) Stacking: the map averaged around every site of one kind, for a signal too weak to see alone.
+
+**Outside methylation.** The square-root geometry itself is long established (the Bhattacharyya distance; in population genetics, the chord
+distance on allele frequencies); what is ours is the sphere as a masked sky of a whole system, read with the sky's tools, one individual
+against itself. Wherever many units each carry probabilities across conditions: qubit states (this distance is the classical form of quantum
+fidelity, a bridge to QAPE); allele frequencies of fish stocks; species proportions in a microbiome; failure rates across a fab's process
+conditions; a power grid's substation states across operating conditions.
+
+**First in line once the sphere passes on real healthy cells:** the cross-spectrum of two readings and the dipole of one individual.
