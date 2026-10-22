@@ -10,6 +10,17 @@ A globe is a spec: {id, name, about, assets: {name: picture}, groups: [{name, la
 No data dependency: the site build imports it with the standard library only."""
 import os, json, base64
 
+def inline(spec):
+    """The reverse of dedupe: every layer's picture written back in place of its asset name, so groups of several specs can be joined
+    (2026-10-22: explore run 39797301768 joined deduped pair specs and lost every picture)."""
+    import copy; s = copy.deepcopy(spec); A = s.pop("assets", None) or {}
+    for g in s["groups"]:
+        for L in g["layers"]:
+            for k in ("src", "base"):
+                if isinstance(L.get(k), str) and L[k] in A: L[k] = A[L[k]]
+            if L.get("srcs"): L["srcs"] = [A.get(x, x) for x in L["srcs"]]
+    return s
+
 def dedupe(spec):
     """Every picture stored once, in spec["assets"]; layers name it (a reference is both a layer and a difference's gray background)."""
     A, ix = {}, {}

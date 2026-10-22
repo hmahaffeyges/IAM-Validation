@@ -5,7 +5,7 @@ people's normal colon). Each pair is drawn by the chain (report_globe_v4.build_p
 by chain Stage 1, and all seven go into one Explorer globe, one group per pair, written by the Explorer's own writer (globe_viewer.write_files).
 Usage: python3 explorer_pairs_04.py OUTDIR   (writes OUTDIR/explorer/tumor-pairs.json, its pictures, explorer_pairs_04_summary.txt and a
 .tar.gz of the explorer folder)"""
-import os, sys, json, tarfile, runpy
+import os, sys, json, tarfile, runpy, time
 H_ = os.path.dirname(os.path.abspath(__file__)); MP = os.path.abspath(os.path.join(H_, "..", "..", "..")); CH = os.path.join(MP, "chain")
 sys.path[:0] = [CH, os.path.join(CH, "MethylPhys_Interface")]
 import report_globe_v4 as G, globe_viewer as V
@@ -16,7 +16,12 @@ ns = {"__file__": os.path.join(H_, "tissue_pairs_globe.py")}; sys.argv = [sys.ar
 groups, L = [], []
 for tag, title, fs, fr, rn in ns["jobs"]:
     try:
-        r = G.build_pair(fs(), fr(), rn, None, title); s = r["spec"]
+        for k in range(4):   # 2026-10-22: run 39797301768 lost two breast pairs to a dropped download; retry before giving up
+            try: r = G.build_pair(fs(), fr(), rn, None, title); break
+            except Exception as e:
+                if k == 3: raise
+                print(tag, "retry", type(e).__name__, flush=True); time.sleep(60 * (k + 1))
+        s = V.inline(r["spec"])   # its pictures back in place, so the groups can be joined
         for g in s["groups"]:
             g["name"] = title.replace(" against the same person's adjacent normal", "") + f" ({tag.split('_', 1)[1].replace('_', ' ')})" + ("" if len(s["groups"]) == 1 else ": " + g["name"])
             groups.append(g)
@@ -32,5 +37,6 @@ about = ("<b>Development: not commissioned by our standards.</b> Each tumor read
 spec = V.dedupe(dict(id="tumor-pairs", name="Tumors against the same person's own normal tissue (development)", groups=groups, about=about))
 s = V.write_files(spec, E, "../art/explorer"); json.dump(s, open(os.path.join(E, "tumor-pairs.json"), "w"), indent=1)
 L.append(f"globe tumor-pairs: {len(groups)} groups, {len(s['assets'])} pictures")
+assert s["assets"], "no pictures written"
 open(os.path.join(out, "explorer_pairs_04_summary.txt"), "w").write("\n".join(L) + "\n"); print("\n".join(L))
 with tarfile.open(os.path.join(out, "explorer_pairs_04.tar.gz"), "w:gz") as t: t.add(E, arcname="explorer")

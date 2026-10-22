@@ -5576,14 +5576,29 @@
   },
   {
    "file": "MethylPhys_Interface/globe_viewer.py",
-   "lines": 134,
+   "lines": 145,
    "functions": [
+    {
+     "file": "MethylPhys_Interface/globe_viewer.py",
+     "function": "inline",
+     "name": "inline",
+     "line": 13,
+     "end": 22,
+     "args": [
+      "spec"
+     ],
+     "lines": 10,
+     "doc": "The reverse of dedupe: every layer's picture written back in place of its asset name, so groups of several specs can be joined (2026-10-22: explore run 39797301768 joined deduped pair specs and lost every picture).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
     {
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "dedupe",
      "name": "dedupe",
-     "line": 13,
-     "end": 25,
+     "line": 24,
+     "end": 36,
      "args": [
       "spec"
      ],
@@ -5597,8 +5612,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "dedupe.one",
      "name": "one",
-     "line": 16,
-     "end": 19,
+     "line": 27,
+     "end": 30,
      "args": [
       "v"
      ],
@@ -5612,8 +5627,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "fragment",
      "name": "fragment",
-     "line": 107,
-     "end": 110,
+     "line": 118,
+     "end": 121,
      "args": [
       "specs",
       "size"
@@ -5631,8 +5646,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "page",
      "name": "page",
-     "line": 112,
-     "end": 119,
+     "line": 123,
+     "end": 130,
      "args": [
       "specs",
       "title",
@@ -5653,8 +5668,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "write_files",
      "name": "write_files",
-     "line": 121,
-     "end": 133,
+     "line": 132,
+     "end": 144,
      "args": [
       "spec",
       "d",
@@ -5670,8 +5685,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "write_files.one",
      "name": "one",
-     "line": 124,
-     "end": 127,
+     "line": 135,
+     "end": 138,
      "args": [
       "v"
      ],
@@ -5686,5 +5701,5 @@
   }
  ],
  "n_files": 24,
- "n_functions": 286
+ "n_functions": 287
 }

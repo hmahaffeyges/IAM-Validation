@@ -1343,6 +1343,9 @@ series of pictures a slider steps through (the noise maps). The same code draws 
 (written beside the report as `<name>_globe.html` and linked from it), and the site's Globe Explorer (`atlas/sphere.html`). It needs only
 the standard library, so the site build imports it unchanged; release check V12 and the site build both check that its script parses.
 
+### globe_viewer.py::inline
+The reverse of dedupe: each layer's picture written back in place of its asset name, so groups taken from several globes can be joined into one.
+
 ### globe_viewer.py::dedupe
 Stores every picture of a spec once under a short name; layers refer to it by name (a reference is both a layer and a difference's gray).
 

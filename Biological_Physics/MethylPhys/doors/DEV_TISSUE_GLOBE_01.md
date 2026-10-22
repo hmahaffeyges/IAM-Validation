@@ -73,3 +73,7 @@ read against its own normal, the person's own reference, remains the comparison 
 `data/DEV_TISSUE_GLOBE_01/explorer_pairs_04.py` draws run 1's seven pictures (3 colon pairs, 3 breast pairs, the two-person control) again
 through the chain's pair mode and writes them as one Globe Explorer globe, `tumor-pairs`, labeled development. Run on GitHub (explore.yml);
 its pictures are committed under `website/art/out/explorer/` when it lands.
+
+Step 4, first run (explore run 39797301768): drew 5 of 7 pictures (two breast downloads dropped) and wrote no picture files, because the
+pairs' already-deduplicated pictures were dropped when the groups were joined. Fixed (`globe_viewer.inline`, retries on download, and a
+stop if no picture is written) and run again.

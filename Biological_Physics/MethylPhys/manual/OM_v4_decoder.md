@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **24 Python files** holding **286 functions** (nested ones included); 286 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **24 Python files** holding **287 functions** (nested ones included); 287 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -29,7 +29,7 @@ Read from the code at build time: the one command can load **24 Python files** h
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 365 | 19 | 0 | 0 |
-| `MethylPhys_Interface/globe_viewer.py` | 134 | 6 | 0 | 0 |
+| `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
 
 ## How to read the Decoder
 
@@ -2000,41 +2000,47 @@ the standard library, so the site build imports it unchanged; release check V12 
 
 *Code:* `MethylPhys_Interface/report_globe_v4.py` line 138 (9 lines) · arguments: fractions, specimen · calls: not called on the traced runs · constants read: `BLOOD`, `CH` · files named: `blood_composition_EPIC_v1.json`
 
+### `globe_viewer.py::inline`
+
+The reverse of dedupe: each layer's picture written back in place of its asset name, so groups taken from several globes can be joined into one.
+
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 13 (10 lines) · arguments: spec · calls: not called on the traced runs
+
 ### `globe_viewer.py::dedupe`
 
 Stores every picture of a spec once under a short name; layers refer to it by name (a reference is both a layer and a difference's gray).
 
-*Code:* `MethylPhys_Interface/globe_viewer.py` line 13 (13 lines) · arguments: spec · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 24 (13 lines) · arguments: spec · calls: not called on the traced runs
 
 ### `globe_viewer.py::dedupe.one`
 
 Gives one inlined picture its name, reusing the name if the same picture was already stored.
 
-*Code:* `MethylPhys_Interface/globe_viewer.py` line 16 (4 lines) · arguments: v · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 27 (4 lines) · arguments: v · calls: not called on the traced runs
 
 ### `globe_viewer.py::fragment`
 
 The globe inside a report: one section with the controls, the viewer and the specs inlined, so the report stays one file that works offline.
 
-*Code:* `MethylPhys_Interface/globe_viewer.py` line 107 (4 lines) · arguments: specs, size · calls: not called on the traced runs · constants read: `CONTROLS`, `VIEWER_JS`
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 118 (4 lines) · arguments: specs, size · calls: not called on the traced runs · constants read: `CONTROLS`, `VIEWER_JS`
 
 ### `globe_viewer.py::page`
 
 A full dark page for one or more globes with a globe chooser: a report's own globe page, or the site's Globe Explorer.
 
-*Code:* `MethylPhys_Interface/globe_viewer.py` line 112 (8 lines) · arguments: specs, title, back, size, intro · calls: not called on the traced runs · constants read: `CONTROLS`, `VIEWER_JS`
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 123 (8 lines) · arguments: specs, title, back, size, intro · calls: not called on the traced runs · constants read: `CONTROLS`, `VIEWER_JS`
 
 ### `globe_viewer.py::write_files`
 
 Writes a spec's inlined pictures as files for the site and returns the spec pointing at them, so each globe loads only when it is chosen.
 
-*Code:* `MethylPhys_Interface/globe_viewer.py` line 121 (13 lines) · arguments: spec, d, url · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 132 (13 lines) · arguments: spec, d, url · calls: not called on the traced runs
 
 ### `globe_viewer.py::write_files.one`
 
 Writes one inlined picture to its file and returns its address.
 
-*Code:* `MethylPhys_Interface/globe_viewer.py` line 124 (4 lines) · arguments: v · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/globe_viewer.py` line 135 (4 lines) · arguments: v · calls: not called on the traced runs
 
 ### `report_globe_v4.py::_to_sky`
 
