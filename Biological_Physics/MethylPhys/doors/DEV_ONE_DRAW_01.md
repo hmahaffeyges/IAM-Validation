@@ -25,3 +25,8 @@ found, the commissioned whole-blood readings not applied. `data/DEV_ONE_DRAW_01/
 cell-free DNA arrays (spent), run through the one command by the series runner (`plasma_gse122126_samples.csv`): 12 healthy, 23 sepsis,
 15 cancers, and 9 from pancreatic islet transplant recipients before and 1 and 2 hours after the transplant, where donor pancreatic DNA is
 expected in the blood (a positive control). Reported by group: the sources found, the non-blood share, pancreatic sources, Met-A of each.
+
+## Exploration 3, written before it runs: known mixtures (2026-10-22)
+`data/DEV_ONE_DRAW_01/mixes_03_score.py` reads GSE122126's 9 laboratory mixtures (spent): hepatocyte, lung, colon and neuron DNA mixed into
+blood DNA at 3.5 to 10 %, each read by the one command on the full atlas panel (series.yml, `--cell-panel atlas`). Reported: each tissue's known
+amount against the share found and whether its 95 % interval holds it; the largest share found for a tissue that was not put in.

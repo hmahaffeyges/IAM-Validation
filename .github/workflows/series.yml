@@ -12,6 +12,7 @@ on:
       plant:    {description: "metaa_atlas or none", required: true, default: "none"}
       scorer:   {description: "optional script run on rows.csv (repo path), or none", required: true, default: "none"}
       nshards:  {description: "machines per pass (10 or 20)", required: true, default: "10"}
+      rsflags:  {description: "extra run_sample.py flags for every reading (e.g. --cell-panel atlas), or none", required: true, default: "none"}
 permissions: {contents: read, issues: write}
 env:
   RS: Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_series.py
@@ -28,7 +29,8 @@ jobs:
       - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
       - run: |
           P1=""; [ "${{ inputs.plant }}" = "neutrophil" ] && P1="--plant neutrophil"
-          python3 -u $RS read "${{ inputs.samples }}" out ${{ matrix.shard }} ${{ inputs.nshards }} --specimen "${{ inputs.specimen }}" --pass 1 $P1 2>&1 | { grep -v -i warning || true; }; exit ${PIPESTATUS[0]}
+          X=""; [ "${{ inputs.rsflags }}" != "none" ] && X="-- ${{ inputs.rsflags }}"
+          python3 -u $RS read "${{ inputs.samples }}" out ${{ matrix.shard }} ${{ inputs.nshards }} --specimen "${{ inputs.specimen }}" --pass 1 $P1 $X 2>&1 | { grep -v -i warning || true; }; exit ${PIPESTATUS[0]}
       - uses: actions/upload-artifact@v4
         with: {name: "pass1-${{ matrix.shard }}", path: out/pass1/, if-no-files-found: ignore}
   pass2:
@@ -47,7 +49,8 @@ jobs:
         with: {pattern: "pass1-*", path: out/pass1, merge-multiple: true}
       - run: |
           P=""; [ "${{ inputs.plant }}" != "none" ] && P="--plant ${{ inputs.plant }}"
-          python3 -u $RS read "${{ inputs.samples }}" out ${{ matrix.shard }} ${{ inputs.nshards }} --specimen "${{ inputs.specimen }}" --pass 2 --scope ${{ matrix.scope }} $P 2>&1 | { grep -v -i warning || true; }; exit ${PIPESTATUS[0]}
+          X=""; [ "${{ inputs.rsflags }}" != "none" ] && X="-- ${{ inputs.rsflags }}"
+          python3 -u $RS read "${{ inputs.samples }}" out ${{ matrix.shard }} ${{ inputs.nshards }} --specimen "${{ inputs.specimen }}" --pass 2 --scope ${{ matrix.scope }} $P $X 2>&1 | { grep -v -i warning || true; }; exit ${PIPESTATUS[0]}
       - uses: actions/upload-artifact@v4
         with: {name: "pass2-${{ matrix.scope }}-${{ matrix.shard }}", path: "out/pass2_${{ matrix.scope }}/", if-no-files-found: ignore}
   table:
