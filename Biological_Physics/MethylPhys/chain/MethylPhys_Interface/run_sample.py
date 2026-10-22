@@ -198,6 +198,11 @@ def _metaa_atlas(a, b):
     """--dev-metaa-atlas (DEV-METAA-ATLAS-01): Met-A against IAM-Atlas v2.1 on the values Stage T step 1 maps (stage_t_selftare.selftare_map, the map the
     commissioned Met-A reads), then the same-run tare when >= 3 references are given. Development; the reading, gauge and tare are untouched."""
     import dev_stages as DV, stage_metaa_atlas as SA
+    if getattr(a, "_seqv", None):   # 2026-10-22 (step 40): sequencing values; the self-tare maps the two array designs, so it does not apply
+        r = SA.read(b, a.dev_metaa_atlas, specimen=a.specimen)
+        rec = {"label": DV.DEV_LABEL, "status": "OK" if r.get("A") is not None else "NOT_READ", **r, "values": "sequencing values (stage_seq_values); no self-tare (arrays only)"}
+        if a.metaa_atlas_ref_A: rec["tare"] = SA.tare(r.get("A"), [float(x) for x in a.metaa_atlas_ref_A.split(",") if x.strip()])
+        return rec
     import stage_t_selftare as _ST; bs, info = _ST.selftare_map(b)   # Stage T step 1 (F23: stage_t_selftare)
     if bs is None: return {"label": DV.DEV_LABEL, "status": "NOT_RUN", "reason": "Stage T step 1 could not run: " + str(info.get("reason"))}
     maps = info.get("maps") or {}
@@ -311,6 +316,14 @@ def main():
     ap.add_argument("--grn"); ap.add_argument("--red"); ap.add_argument("--betas")
     ap.add_argument("--age", type=float, help="declared age in years (optional; recorded when given, read by no stage). Float: records carry 72.0 and 54.5 as readily as 72")
     ap.add_argument("--specimen", default="whole blood")
+    ap.add_argument("--dev-seq-values", default=None, type=int, metavar="MIN_CALLS",
+                    help="DEVELOPMENT (to-do step 40): with --pat, also make a value at each IAM-Atlas v2.1 site from the molecules (methylated calls over "
+                         "calls, sites with at least MIN_CALLS calls; chain/stage_seq_values.py), so the IAM-Deconvolver, Met-A for each cell, Met-A against "
+                         "the atlas and the globe read the same sequencing run IAM-A reads. The commissioned array readings (Met-A on neutrophils, the C-Score) "
+                         "are not applied to sequencing values; every reading is flagged")
+    ap.add_argument("--dev-thin", default=None, type=float, metavar="FRACTION",
+                    help="TESTS ONLY (step 40): read a seeded thinned copy of --pat, each molecule kept with this probability (stage_seq_values.thin_pat), "
+                         "so a deep sample stands in for a shallow one; IAM-A and the sequencing values both read the thinned copy; recorded and bannered")
     ap.add_argument("--cell-panel", default="blood", metavar="PANEL",
                     help="the cells the IAM-Deconvolver splits the sample into: 'blood' (the six blood cells it is commissioned on, the default), 'atlas' (all of "
                          "IAM-Atlas v2.1's cell types, development: every share flagged), or a comma-separated list of atlas cell names (development); Met-A for "
@@ -401,6 +414,22 @@ def main():
             print(f"  {_r['name']} ({_r['size']:,} bytes; also on GEO: {', '.join(_r['other_files']) or 'nothing else'})", flush=True)
         a._geo_fetch = _geo
     seq = bool(a.pat or a.site_table or a.bam)
+    a._seqv = None; a._thin = None
+    if a.dev_thin is not None:   # 2026-10-22 (step 40): a deep sample thinned by the chain itself
+        if not a.pat: ap.error("--dev-thin needs --pat (or --geo-pat)")
+        import stage_seq_values as _SVt, tempfile as _tft
+        _tp, a._thin = _SVt.thin_pat(a.pat, a.dev_thin, os.path.join(_tft.mkdtemp(), "thinned_" + os.path.basename(a.pat).replace(".gz", "") + ".gz"))
+        a._thin["source"] = os.path.basename(a.pat); a.pat = _tp
+        a.banner = (a.banner + " | " if a.banner else "") + f"THINNED (constructed for a test): {a.dev_thin:g} of the molecules kept ({a._thin['molecules_kept']:,} of {a._thin['molecules_in']:,})"
+        print(a.banner, flush=True)
+    if a.dev_seq_values is not None:   # 2026-10-22 (step 40): the same molecules give a value at each atlas site
+        if not a.pat: ap.error("--dev-seq-values needs --pat (or --geo-pat)")
+        if a.betas or a.grn: ap.error("--dev-seq-values makes the values from --pat; do not also give --betas or IDATs")
+        import stage_seq_values as _SV, tempfile as _tf
+        print(f"Sequencing values: counting {os.path.basename(a.pat)} at IAM-Atlas v2.1's sites (at least {a.dev_seq_values} calls)", flush=True)
+        _vb, _vc, a._seqv = _SV.values_from_pat(a.pat, a.dev_seq_values)
+        a.betas = os.path.join(_tf.mkdtemp(), "sequencing_values.csv"); _vb.rename("beta").to_frame().to_csv(a.betas)
+        print(f"  {a._seqv['sites_with_value']:,} of {a._seqv['atlas_sites']:,} sites with a value; median {a._seqv['calls_per_site_median']:.0f} calls per site", flush=True)
     if a.build: sys.exit(_build(a))
     if not (a.betas or (a.grn and a.red) or seq): ap.error("give --betas, both --grn and --red, or --pat / --bam / --site-table")
     if sum(bool(x) for x in (a.pat, a.site_table, a.bam)) > 1: ap.error("give one of --pat, --bam or --site-table")
@@ -712,6 +741,11 @@ def main():
     elif platform_stop:
         o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "Met-A and the C-Score read the neutrophils; the cell shares cover six blood cells", "platform": "EPIC_v2" if "EPIC v2" in platform_stop else None,
              "array_type": array_type, "refusal": platform_stop}
+    elif beta is not None and a._seqv:   # 2026-10-22 (step 40): sequencing values; the commissioned array readings are not applied
+        o = {"build": C3.BUILD, "specimen": a.specimen, "array_type": "sequencing values (development)", "sequencing_values": a._seqv,
+             "scope": "values made from sequencing molecules at IAM-Atlas v2.1's sites (development): the cell shares, Met-A for each cell and the globe read "
+                      "them; the commissioned Met-A and C-Score read EPIC v1 arrays and are not applied"}
+        if _S0spec.atlas_cell_of(a.specimen) and not a.dev_metaa_atlas: a.dev_metaa_atlas = _S0spec.atlas_cell_of(a.specimen)
     elif beta is not None and _S0spec.atlas_cell_of(a.specimen):   # 2026-10-22: an isolated IAM-Atlas v2.1 cell other than neutrophils
         o = {"build": C3.BUILD, "specimen": a.specimen, "array_type": array_type, "atlas_cell": _S0spec.atlas_cell_of(a.specimen),
              "scope": "an isolated " + _S0spec.atlas_cell_of(a.specimen) + " specimen: read by Met-A against IAM-Atlas v2.1 (development.metaa_atlas, not commissioned); "
@@ -722,13 +756,15 @@ def main():
     else:
         o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "Met-A and the C-Score read the neutrophils; the cell shares cover six blood cells", "note": "sequencing input only: no array reading"}
     _z = o.pop("_cscore_z", None)
+    if getattr(a, "_thin", None): o["thinned"] = a._thin; o["banner"] = a.banner   # 2026-10-22: a thinned test copy is always recorded
     if beta is not None and not o.get("refusal"):   # chain v4: the cell shares (D21) and the C-Score drawn on the sphere
         import stage_v4 as V4
         print("Stage D21: cell shares against IAM-Atlas v2.1", flush=True)
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel())
         if (o["cell_shares"] or {}).get("cells") and str(a.specimen).lower() == "whole blood":   # 2026-10-22: Met-A for each cell, read and flagged (development)
             try:
-                import stage_metaa_atlas as SA, stage_t_selftare as _ST; _bs, _inf = _ST.selftare_map(_pd.Series(beta, dtype="float64"))
+                import stage_metaa_atlas as SA, stage_t_selftare as _ST
+                _bs, _inf = (None, None) if a._seqv else _ST.selftare_map(_pd.Series(beta, dtype="float64"))   # the self-tare maps array designs; not sequencing
                 o["met_a_each_cell"] = SA.read_in_mix(_bs if _bs is not None else _pd.Series(beta, dtype="float64"),
                                                       {r["cell"]: r["share"] for r in o["cell_shares"]["cells"]})
                 o["met_a_each_cell"]["values"] = "Stage 1, then Stage T step 1 (self-tare II)" if _bs is not None else "Stage 1 (Stage T step 1 could not run)"

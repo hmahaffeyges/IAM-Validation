@@ -27962,6 +27962,27 @@
    "notes": "2026-10-22 synthetic 1 through the one command: the planted cell moves 92-99 % of the predicted shift; lymphocytes share identity sites. | 2026-10-22: test 1 superseded (its plant was made outside the one command); run_sample.py --dev-plant added; test 2 runs only the one command from the raw IDATs on GitHub. | 2026-10-22: run_sample.py --cell-panel (blood / atlas / list; non-blood panels development); exploration 3 on the full atlas panel written before it runs."
   },
   {
+   "title": "Every panel cell scored in whole blood, and whether a uniform loss of a cell's pattern is seen (DEV-CELLS-01)",
+   "purpose": "To-do step 40 (author 2026-10-22, the priority): every instrument on one draw's buffy coat and plasma, one button; exploration: the lowest depth each instrument reads, told by the instruments.",
+   "instrument_or_term": "One blood draw, end to end (buffy coat and plasma; every instrument through the one command)",
+   "sources": [
+    "IAM-Atlas v2.1 (synthetic bloods)"
+   ],
+   "data_status": "synthetic only",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
+   "status": "run",
+   "next_step": "the anchor range as a companion reading of a loss at every site, labeled preliminary; synthetic through the chain, then the planted test on real healthy arrays",
+   "cost": "GitHub, small",
+   "impact": 5,
+   "legacy_ids": [],
+   "id": "GRP-016",
+   "sources_of_row": [
+    "to-do step 21 (author 2026-10-20)"
+   ],
+   "runs": [],
+   "notes": "2026-10-22: run_sample.py --dev-seq-values (values at the atlas's sites from sequencing molecules) and --dev-thin (seeded thinning, tests only); exploration 1, depth, on GSM5652282 (spent)."
+  },
+  {
    "title": "The two healthy references compared site by site: IAM-Atlas v2.1 against Met-A's purified-array reference (DEV-REFERENCES-01)",
    "purpose": "Author 2026-10-21: have we compared our 'healthy' from the purified cells with the 'healthy' of IAM-Atlas v2.1? Exploration, not sealed.",
    "instrument_or_term": "IAM-Atlas v2.1; Met-A healthy reference",

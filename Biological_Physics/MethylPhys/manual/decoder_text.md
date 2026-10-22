@@ -686,6 +686,23 @@ Loads the self-tare matrix once, `Runtime Matrices/Stage_T/selftare_typeII_EPIC_
 and the reference arrays' anchors. Moved unchanged from `Runtime Matrices/Development/` on 2026-10-22 (finding F23; the same sha256) and
 pinned by the release check as a frozen input (F1): Stage T step 1 runs on every reading, so its matrix is frozen like every other reference.
 
+### stage_seq_values.py::key
+Loads the frozen site key (`atlas/v2.1/sites_sequencing_key.parquet`: each IAM-Atlas v2.1 site's EPIC v1 probe name, hg19 position and CpG index
+in the .pat files' numbering) once, sorted by CpG index. Development (to-do step 40).
+
+### stage_seq_values.py::values_from_pat
+A value at each atlas site from sequencing molecules, for `--dev-seq-values MIN_CALLS`: every call at the exact CpG the site names is counted,
+and the value is methylated calls over calls, kept only where there are at least MIN_CALLS calls; the summary gives how many sites have a value
+and the calls per site, so a reading can say what depth it needed. Every line counts (IAM-A's own count keeps its line split). Development.
+
+### stage_seq_values.py::values_from_pat.flush
+Adds the buffered calls to their sites in one step, matching each call's CpG index to the key exactly; calls at CpGs that are not atlas sites
+are dropped.
+
+### stage_seq_values.py::thin_pat
+Tests only, for `--dev-thin FRACTION`: a seeded thinned copy of a .pat file, each molecule kept with probability FRACTION (a line counting w
+molecules keeps a binomial draw from w), so a deep sample stands in for a shallower one; it returns the molecules before and after.
+
 ### stage_t_selftare.py::anchors
 This array's mean β over each of the four fixed-site sets (type I low and high, type II low and high), with how many it measured.
 
