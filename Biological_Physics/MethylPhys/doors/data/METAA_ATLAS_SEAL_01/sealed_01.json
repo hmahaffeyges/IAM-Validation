@@ -1,0 +1,40 @@
+{
+ "test": "METAA-ATLAS-SEAL-01",
+ "instrument": "Met-A against IAM-Atlas v2.1 (monocytes)",
+ "sealed": "2026-10-22T14:59:37Z",
+ "job": "a healthy purified monocyte, read against the atlas's monocytes and tared against other healthy monocytes of the same laboratory, reads Normal; a 1 % loss of its pattern stands out",
+ "data": "GSE267660, the 31 healthy donors' CD14 monocytes in seal_samples.csv (the multiple sclerosis arrays and the dendritic cells not opened)",
+ "bars": {
+  "B1": {
+   "rule": "at least 90 % of the listed arrays receive a tared reading"
+  },
+  "B2": {
+   "rule": "at least 90 % of the tared healthy readings are Normal (0.95 to 1.05)"
+  },
+  "B3": {
+   "rule": "the planted 1 % loss moves the tared reading, on average, by at least 2 healthy spreads (spread: SD of the healthy A_rel)"
+  }
+ },
+ "reported_not_scored": "the same tare taken only from other healthy arrays on the same slide, where a slide holds at least 3 others",
+ "sha256": {
+  "Biological_Physics/MethylPhys/doors/data/METAA_ATLAS_SEAL_01/seal_read_01.py": "16cd0aa1ee6debbb98ec9a9bdcd7be7068a4ed24f7fbee26d54b83002e3d43f2",
+  "Biological_Physics/MethylPhys/doors/data/METAA_ATLAS_SEAL_01/seal_samples.csv": "e60a768c3140e2c18a8a6c5947398ca056cdefc626c9c7abdc786ba48069690b",
+  ".github/workflows/explore.yml": "af73ef547e9d4f72cac150d276322a105273817155b7c6c31c9b5187127db706",
+  "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py": "5f12cbdda79db229d2dfd5eab82c6cebfcac8352b79ecf9ec5f60c900bfe55e2"
+ },
+ "rehearsal": {
+  "run": "39793753455",
+  "data": "24 spent healthy monocytes of GSE168779 (rehearsal_samples.csv)",
+  "result": "24 of 24 tared; 100 % Normal; planted 1 % at 3.41 spreads; same-slide tare (8 arrays) 100 % Normal, 4.6 spreads"
+ },
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "25dac389c2b4d223b86780d89fdb4ae26e043c11c2c88d7b5c05400b71fd1ea1",
+  "payload_sha256": "76cea72fce4083eaa9ccad4e77afcb15c583b813870293edd8945b4ebfdaec2b",
+  "inputs": [],
+  "manifest": [
+   "GRP-014"
+  ],
+  "utc": "2026-10-22T14:59:37Z"
+ }
+}

@@ -13,6 +13,9 @@ holds at least three others.
 
 **Prior reading:** GSE168779 was read in exploration 6 (2026-10-21) and is used here only for the rehearsal; GSE267660, the sealed data, has not been read.
 
+**Sources:** GSE267660 (GEO, public): the raw IDATs of 31 healthy donors' CD14 monocytes, the sealed data; GSE168779 (GEO, public): the
+spent healthy monocytes of the rehearsal; IAM-Atlas v2.1 (Zenodo 10.5281/zenodo.23441999, public): the monocyte reference the arrays are read against.
+
 **Data, declared before opening (2026-10-22).** GSE267660: CD14-positive monocytes of 31 healthy donors (the series' HD_mono arrays, EPIC v1,
 raw IDATs on GEO; an independent laboratory, not among IAM-Atlas v2.1's sources, never read). The multiple sclerosis arrays and the dendritic
 cells are not opened. List: `data/METAA_ATLAS_SEAL_01/seal_samples.csv`.
@@ -26,3 +29,12 @@ reading; at least 90 % of the tared healthy readings are Normal (0.95 to 1.05); 
 
 **Rehearsal first.** The same script, through the chain, on 24 spent healthy arrays (GSE168779's unvaccinated controls,
 `rehearsal_samples.csv`). It must run cleanly end to end; its numbers do not set the bars.
+
+## Rehearsal, run once (2026-10-22; explore run 39793753455, commit 6a751add)
+
+The script through the chain on the 24 spent GSE168779 controls ran cleanly end to end: 24 of 24 tared, all Normal, a planted 1 % loss at
+3.41 healthy spreads (the same-slide tare, reported: 8 arrays, all Normal, 4.6 spreads). Its numbers set nothing.
+
+**Sealed 2026-10-22** in `data/METAA_ATLAS_SEAL_01/sealed_01.json` (the read script, the sample list, the workflow and the atlas
+Met-A stage frozen by SHA-256): B1 at least 90 % of the 31 listed arrays receive a tared reading; B2 at least 90 % of the tared readings are
+Normal (0.95 to 1.05); B3 the planted 1 % loss moves the tared reading by at least 2 healthy spreads on average. Read once on GitHub.
