@@ -1,7 +1,7 @@
 {
  "_rule": "The researcher package on the front page (author 2026-10-20: 'I can just email a web address to any researcher ... THAT is where they see the researcher package with ALL their information linked and an option to download the entire thing'). build_home.py renders, first after the header: the introduction (Biological_Physics/MethylPhys/INTRODUCTION.md, each section collapsible), the nine reproduction tests (reproduce/tests.json and verified.json), and the downloads below. A Zenodo record is listed only once it is published; add the package record here when its DOI is minted. Edit here only.",
  "title": "The IAM researcher package",
- "lead": "Everything a researcher needs to read, run and rebuild IAM's instruments, on this page: the introduction, the nine results rebuilt from public data with one command each, and the package to download.",
+ "lead": "Everything a researcher needs to read, run and rebuild IAM's instruments, on this page: the introduction, the {N} results rebuilt from public data with one command each, and the package to download.",
  "clone": [
   "git clone --filter=blob:none --sparse https://github.com/hmahaffeyges/IAM-Validation.git && cd IAM-Validation",
   "git sparse-checkout set Biological_Physics",

@@ -13,6 +13,7 @@ verify_book.py, and writes <site_dir>/:
   static/, art/                   CSS, JS, banner art
 The book's text is not changed: only page chrome is added around LaTeXML's output.
 """
+_NW = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten', 11: 'eleven', 12: 'twelve'}   # 2026-10-22: counts on the page are counted, never typed
 import sys, json, re, shutil, pathlib, html, importlib.util, dataclasses, inspect, urllib.parse
 from bs4 import BeautifulSoup
 
@@ -100,7 +101,7 @@ def front_page(site, parts, sub="read"):
 <p class="iam-local">Or on your own machine: <code>python3 docs/book/verify_book.py</code></p></div>
 <p>IAM, the Informational Actualization Model</p>
 <p><a class="iam-btn" href="{R}pdf/IAMs_Law_and_Order.pdf">Download the PDF</a><a class="iam-btn" href="{R}epub/IAMs_Law_and_Order.epub" type="application/epub+zip">Download for Apple Books (EPUB)</a><a class="iam-btn" href="https://github.com/hmahaffeyges/IAM-Validation/releases/download/v1.0.0/IAMs_Law_and_Order_LaTeX_source_v1.0.0.zip">LaTeX source (Overleaf)</a><a class="iam-btn secondary" href="book/">Read online</a></p>
-<h2>The seven Parts</h2>
+<h2>The {_NW.get(len(parts), len(parts))} Parts</h2>
 <div class="iam-tiles">{tiles}</div>
 <h2>Cite this book</h2>
 <div class="iam-cite">{html.escape(cite)}</div>

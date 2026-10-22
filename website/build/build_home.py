@@ -7,6 +7,7 @@ Nothing on the page is typed here except headings and the fixed explanation of t
 tool-board status. The page text is checked with the field-notes voice and hype rules (CANON/now_running.py) and every repository link must
 exist; --check runs those checks without writing. --standalone OUT.html writes one self-contained file (CSS and images inlined) for review.
 Usage: python3 website/build/build_home.py SITE_DIR | --check | --standalone OUT.html"""
+_NW = {1:'one',2:'two',3:'three',4:'four',5:'five',6:'six',7:'seven',8:'eight',9:'nine',10:'ten',11:'eleven',12:'twelve'}   # 2026-10-22: counts on the page are counted, never typed
 import glob, os, re, sys, json, html, base64, datetime, importlib.util
 
 HERE = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.abspath(os.path.join(HERE, "..", ".."))
@@ -92,8 +93,8 @@ def researcher_section(onpage=None):
     zen = "".join(f'<a class="tile" href="https://doi.org/{E(z["doi"])}">{E(z["what"])}<br><small>doi.org/{E(z["doi"])}</small></a>' for z in RP["zenodo"])
     docs = "".join(f'<a class="tile" href="{rec(p)}">{E(t)}</a>' for t, p in RP["documents"])
     npass = sum(1 for t in T if (V.get(t["id"]) or {}).get("verdict") == "PASS")
-    return (f'<section class="wrap" id="researchers"><h2>{E(RP["title"])}</h2><p class="sub">{E(RP["lead"])}</p>'
-            f'<p class="cta"><a class="btn" href="#rp-intro">The introduction</a><a class="btn ghost" href="#rp-results">The nine results</a>'
+    return (f'<section class="wrap" id="researchers"><h2>{E(RP["title"])}</h2><p class="sub">{E(RP["lead"].replace("{N}", _NW.get(len(T), str(len(T)))))}</p>'
+            f'<p class="cta"><a class="btn" href="#rp-intro">The introduction</a><a class="btn ghost" href="#rp-results">The {_NW.get(len(T), str(len(T)))} results</a>'
             f'<a class="btn ghost" href="#rp-get">Download the package</a><a class="btn ghost" href="{rec(MP + "QUESTIONS_AND_ANSWERS.md")}">Questions and answers</a></p>'
             f'<h3 id="rp-intro">An Introduction to IAM and the Physics of Methylation</h3>{intro}{sec}'
             f'<h3 id="rp-results">The results, rebuilt from public data with one command each ({npass} of {len(T)} passed on a fresh machine)</h3>'
@@ -328,7 +329,7 @@ number stays with its instrument.</p></div></div></section>
 <section class="wrap" id="daylogs"><h2>Start here: the daily log</h2>
 <p class="cta">{"".join(f'<a class="btn" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[:1])}{"".join(f'<a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[1:4])}</p>
 </section>
-<div class="wrap"><p class="continues">Running now: {going}. <a href="#road">The road ahead</a>.</p></div>
+<div class="wrap"><p class="continues">{("Running now: " + going + ". ") if going else ""}<a href="#road">The road ahead</a>.</p></div>
 {catalogue}
 {bits}
 <section class="wrap pic" id="sky"><h2>IAM-Atlas v2.1 on the sky</h2>
@@ -433,9 +434,9 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 <!-- ASSISTANT:END -->
 </section>
 <section class="wrap"><h2>What it costs</h2><p class="sub">Every dollar, from Amazon's own billing and our storage, refreshed every time the site is published. Everything is paid by us and by people who choose to help.</p>
-<details class="fold"><summary>See every cost: this month ${mtot:,.2f} so far</summary>
-<div class="grid costs"><div class="card"><p class="big">${mtot:,.2f}</p><p>this month so far ({E(mkey)}), all costs</p><p class="small">{E(mlines)}</p></div>
-<div class="card"><p class="big">{CO["s3"]["bytes"] / 1e12:.2f} TB</p><p>of public data stored for our tests ({CO["s3"]["objects"]:,} files), {E(s3c)} this month</p><p class="small">Amazon moves files we have not touched to cheaper storage on its own.</p></div>
+<details class="fold"><summary>See every cost: {E(mkey)} to {E(CO["as_of"])}, ${mtot:,.2f}</summary>
+<div class="grid costs"><div class="card"><p class="big">${mtot:,.2f}</p><p>{E(mkey)} to {E(CO["as_of"])}, all costs</p><p class="small">{E(mlines)}</p></div>
+<div class="card"><p class="big">{CO["s3"]["bytes"] / 1e12:.2f} TB</p><p>of public data stored for our tests ({CO["s3"]["objects"]:,} files), {E(s3c)} in {E(mkey)} to {E(CO["as_of"])}</p><p class="small">Amazon moves files we have not touched to cheaper storage on its own.</p></div>
 <div class="card"><p class="big">${wsum:,.2f}</p><p>rented computing, last 7 billed days ({E(week[0][0])} to {E(week[-1][0])})</p><p class="small">Every run, its purpose, its estimate before it starts and its actual cost: <a href="{rec("Biological_Physics/MethylPhys/RUNS.md")}">the run ledger</a>.</p></div></div></details></section>
 <section class="wrap"><h2>Check it yourself</h2><div class="grid links">
 <a class="tile" href="read/">The book, every number checked by a script</a><a class="tile" href="book/">Run every check in your browser</a>
@@ -559,8 +560,11 @@ def problems(body):
     # ages is refused; say what happened and when. Allowed: the cosmology convention "a = 1 today" (scale factor at the present epoch).
     _t = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", body)))
     _t = re.sub(r"(?i)today \(a = 1", "", _t); _pt = []
-    for _m in re.finditer(r"(?i)\b(last|past) \d+ (hours|days)\b|\b(today|tonight|this morning|this evening|yesterday|this week|right now|so far today|hours ago|minutes ago)\b", _t):
+    for _m in re.finditer(r"(?i)\b(last|past) \d+ (hours|days)\b|\b(today|tonight|this morning|this evening|yesterday|this week|this month|so far|right now|so far today|hours ago|minutes ago)\b", _t):
         _pt.append("time-relative wording on the page (say what happened and its date instead): ..." + _t[max(0, _m.start() - 50):_m.end() + 30] + "...")
+    _tn = len(json.load(open(os.path.join(REPO, "Biological_Physics/MethylPhys/reproduce/tests.json"), encoding="utf-8")).get("tests", []))   # 2026-10-22
+    for _m in re.finditer(r"(?i)\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|\d{1,2}) results\b", _t):
+        if _NW.get(_tn, str(_tn)) != _m.group(1).lower() and str(_tn) != _m.group(1): _pt.append(f"a typed count of the results ({_m.group(0)}); there are {_tn} (count it from reproduce/tests.json)")
     if _pt: return _pt
     if re.search(r"<details[^>]* open", body): return ["a fold set to open by default; every fold starts closed (build.sh rule)"]
     if moved_links(body): return ["a link to a file that only says it moved (link the new home instead): " + ", ".join(moved_links(body))]

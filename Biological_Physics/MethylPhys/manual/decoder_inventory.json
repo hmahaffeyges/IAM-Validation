@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 781,
+   "lines": 807,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -205,10 +205,25 @@
     },
     {
      "file": "MethylPhys_Interface/run_sample.py",
+     "function": "_build",
+     "name": "_build",
+     "line": 214,
+     "end": 230,
+     "args": [
+      "a"
+     ],
+     "lines": 17,
+     "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 214,
-     "end": 234,
+     "line": 233,
+     "end": 253,
      "args": [
       "a",
       "cnt",
@@ -224,8 +239,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 237,
-     "end": 277,
+     "line": 256,
+     "end": 296,
      "args": [
       "a",
       "o",
@@ -245,10 +260,10 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 280,
-     "end": 778,
+     "line": 299,
+     "end": 804,
      "args": [],
-     "lines": 499,
+     "lines": 506,
      "doc": "",
      "constants": [
       "BIO",
@@ -269,8 +284,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 395,
-     "end": 399,
+     "line": 421,
+     "end": 425,
      "args": [
       "r"
      ],
@@ -286,8 +301,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 725,
-     "end": 726,
+     "line": 751,
+     "end": 752,
      "args": [
       "b",
       "it",
@@ -5766,5 +5781,5 @@
   }
  ],
  "n_files": 24,
- "n_functions": 291
+ "n_functions": 292
 }

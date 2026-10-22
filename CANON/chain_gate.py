@@ -74,7 +74,7 @@ def check(changed, added, root=ROOT, known=None):
         if re.search(r"(?<![\w/])scratch/[\w.-]", text): F.append(f"{f}: cites a scratch/ path; scratch is exploration, never evidence (rule 23b-c)")
         if not any(ADDS.search(l) for l in added.get(f, [])): continue
         nid = os.path.basename(f)[:-3].replace("_OUTCOME", "").replace("_PREREG", "")
-        for l in text.split("\n"):
+        for l in added.get(f, []):   # 2026-10-22: the lines this push adds; older lines are history
             if not l.startswith("**Synthetic test:**"): continue
             for x in re.findall(r"[A-Za-z0-9_/.-]+\.(?:py|sh)", l):
                 if x.startswith("chain/") and os.path.isfile(os.path.join(root, CHAIN, x[len("chain/"):])): continue   # chain code is chain code (2026-10-16)

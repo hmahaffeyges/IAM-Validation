@@ -211,6 +211,25 @@ def _metaa_atlas(a, b):
     return rec
 
 
+def _build(a):
+    """--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out."""
+    import numpy as _np, pandas as _pd, stage_info_sphere as IS
+    if a.build == "info-sphere":
+        if not (a.build_input and a.build_out): print("--build info-sphere needs --build-input and --build-out"); return 2
+        B = _pd.read_parquet(a.build_input) if a.build_input.endswith(".parquet") else _pd.read_csv(a.build_input, index_col=0)
+        pos = {k: i for i, k in enumerate(B.index.astype(str))}; G = None
+        if a.build_groups:
+            G = {n: [pos[str(x)] for x in v if str(x) in pos] for n, v in json.load(open(a.build_groups)).items()}
+        print(f"Build: information sphere from {os.path.basename(a.build_input)} ({B.shape[0]:,} sites x {B.shape[1]} cell types)", flush=True)
+        L, rep = IS.build(B.values, G)
+        _np.savez_compressed(a.build_out, sites=_np.array(B.index.astype(str)), cells=_np.array(B.columns.astype(str)), **L)
+        rep.update(input=os.path.basename(a.build_input), groups_file=os.path.basename(a.build_groups) if a.build_groups else None, output=os.path.basename(a.build_out),
+                   command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (DEV-SPHERE-01)")
+        if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
+        print(json.dumps({k: v for k, v in rep.items() if k not in ("command",)}, default=str)[:1500]); return 0
+    return 2
+
+
 def _genome_globe(a, cnt, sid):
     """--dev-genome-globe (DEV-IAMA-GLOBE-01, development, not commissioned): the whole genome from the --pat file's molecules, cut into regions
     of --genome-region CpGs on the autosomes (stage_q2_globe), each drawn on every pixel of its span: the sample against its own predicted held
@@ -324,6 +343,12 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
+    ap.add_argument("--build", default=None, choices=("info-sphere",), help="build a reference instead of reading a sample (2026-10-22: the chain builds "
+                    "its own references): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01)")
+    ap.add_argument("--build-input", default=None, help="with --build info-sphere: a matrix of methylation levels, sites x cell types (.parquet or .csv, site id first)")
+    ap.add_argument("--build-groups", default=None, help="with --build info-sphere: JSON {name: [site ids]} of site groups to test for landing together "
+                    "('pool': the sites random groups are drawn from)")
+    ap.add_argument("--build-out", default=None, help="with --build: where the built reference is written (.npz)")
     ap.add_argument("--explorer-spec", default=None, help="also write the report globe's layers as a Globe Explorer spec (JSON) to this path, for the site's "
                     "Globe Explorer (website/art/make_explorer.py sample), so every sample globe on the site is the one this command drew")
     ap.add_argument("--dev-genome-globe", action="store_true", help="DEVELOPMENT - not commissioned (DEV-IAMA-GLOBE-01): with --pat, the whole-genome globe "
@@ -341,6 +366,7 @@ def main():
     ap.add_argument("--sesame-rscript", default=os.environ.get("METHYLPHYS_SESAME_RSCRIPT"), help="Rscript of an environment with Bioconductor sesame (--dev-epic-v2)")
     a=ap.parse_args()
     seq = bool(a.pat or a.site_table or a.bam)
+    if a.build: sys.exit(_build(a))
     if not (a.betas or (a.grn and a.red) or seq): ap.error("give --betas, both --grn and --red, or --pat / --bam / --site-table")
     if sum(bool(x) for x in (a.pat, a.site_table, a.bam)) > 1: ap.error("give one of --pat, --bam or --site-table")
     if a.out and os.path.isdir(a.out): ap.error(f"--out {a.out} is a folder; give the report's file name, e.g. --out {os.path.join(a.out, 'report.html')} (the bundle and PDFs are written beside it)")

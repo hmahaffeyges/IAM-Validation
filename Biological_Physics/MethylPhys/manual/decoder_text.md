@@ -167,6 +167,11 @@ autosomes (`stage_q2_globe.count_pat_regions`) and draws the sample against its 
 against that second file (`pair_globe`, named by `--prior-name`). Written under bundle `development.genome_globe`; with `--explorer-spec`,
 the Globe Explorer file.
 
+### run_sample.py::_build
+`--build`: the chain builds a reference instead of reading a sample. `info-sphere` (development): the information sphere's layout from a
+matrix of levels (sites x cell types), with its report (variance kept, sky covered and masked, distance agreement, edge ratio, and each named
+site group's concentration against random groups) to `--bundle` and the layout to `--build-out`.
+
 ### run_sample.py::_dev_run
 Runs the development readings named by `--dev-*` flags (direction, trace cell, foreign cell, brightness interval, NILC-e, atlas e,
 B-cell reading, sky with the block-shuffle null, EPIC v2 through SeSAMe). Each writes its own record under `bundle["development"]`,

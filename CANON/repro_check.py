@@ -289,17 +289,16 @@ for f in [x for x in changed if x.startswith("Biological_Physics/MethylPhys/door
 # direction backwards, and contradicted the derivation it was testing. A script named on a **Synthetic test:** line must either
 # import from Biological_Physics/MethylPhys/chain, or carry a line beginning "# NO CHAIN:" saying why it cannot.
 for f in [x for x in changed if x.startswith("Biological_Physics/MethylPhys/doors/") and x.endswith(".md") and os.path.isfile(x)]:
-    for _l in open(f, encoding="utf-8", errors="replace").read().split("\n"):
+    # 2026-10-22: judged on the lines this push adds (older lines are history); passes only a script that runs the one command,
+    # chain/MethylPhys_Interface/run_sample.py (author: "ALWAYS use the chain for everything"; '# NO CHAIN' and a bare import no longer pass)
+    _add = [l[1:] for l in subprocess.run(["git", "diff", "origin/main", "--", f], capture_output=True, text=True).stdout.split("\n") if l.startswith("+") and not l.startswith("+++")]
+    for _l in _add:
         if not _l.startswith("**Synthetic test:**"): continue
         for _x in re.findall(r"[A-Za-z0-9_/]+\.(?:py|sh)", _l):
             _p = "Biological_Physics/MethylPhys/doors/data/" + _x
             if not os.path.isfile(_p): continue
-            _src = open(_p, encoding="utf-8", errors="replace").read()
-            if "chain" in _src and re.search(r"(?m)^\s*(import|from)\s", _src) and re.search(r"chain|conductor|stage_", _src):
-                if re.search(r"(?m)^\s*(from|import)\s+(conductor_v3|stage_\w+|dev_stages|sky_map|cmb_tools)", _src) or "sys.path.insert" in _src and "chain" in _src:
-                    continue
-            if "# NO CHAIN:" in _src: continue
-            fail.append(f"{f}: synthetic test {_x} neither imports the chain nor declares '# NO CHAIN: <why>' (rule 23)")
+            if "run_sample.py" in open(_p, encoding="utf-8", errors="replace").read(): continue
+            fail.append(f"{f}: synthetic test {_x} does not run the one command, chain/MethylPhys_Interface/run_sample.py (rule 23, 2026-10-22)")
 
 # 24. The day log is the page's live status (2026-10-13, author: one stop shop; the hand-kept "running now" board went stale and
 # advertised a job that had not run for a day). If this push changes an outcome note or a doors/ record, there must be a day log

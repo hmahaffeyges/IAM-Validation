@@ -206,3 +206,13 @@ sphere, it can be drawn faithfully (v1) or spread over the whole surface (v4), n
 2026-10-21. Next, a design choice recorded before any further run: the information sphere is for how far apart states are, so it keeps v1's
 distance-faithful projection, and the empty sky is masked the way microwave-sky maps mask the galaxy (the masks and apodization are already
 in the sky tools). The coverage check is replaced by a masked-sky check, written down before it runs. Not adopted for reading real data.
+
+## Planted test 6, written before it runs (2026-10-22; synthetic only; the chain's way)
+
+Tests 1 to 5 ran the constructions from side scripts ("NO CHAIN"); they stay in this record as design history. From here every globe is built
+by the one command: `run_sample.py --build info-sphere` (chain/stage_info_sphere.py: construction v1, which kept distances; HEALPix pixels by
+the chain's own NESTED routine, checked by a round trip on all 196,608 pixels; the empty sky masked, not filled). `data/DEV_SPHERE_01/planted_sphere_06.py`
+writes test 3's continuous methylome as input files and reads the bundles. **The instrument's job:** the information sphere shows how far
+apart states are. **Checks (three, fixed before running):** C1 the planted group lands together (R above the 99th percentile of 500 random groups); C2 with nothing
+planted, together in at most 1 of 20; C3 distance agreement rho at least 0.7. Sky covered, edge ratio and variance kept are reported, not scored.
+
