@@ -49,3 +49,12 @@ blocks wholly inside the stretch changed (41 %), 3 of 5 edge blocks, and 2 outsi
 it was put. One thing the construction got wrong: its loss rate was meant to give the predicted held error 0.0403 and gave 0.0361 (the
 neighbor rule removes more chances than the formula allowed); a genome-wide offset of that size lit nothing at this block size, which is
 recorded, not adjusted.
+
+**Step 3, run once (2026-10-22; explore run 39807826992, commit f8a21efb).** Output: `data/DEV_IAMA_GLOBE_01/genome_globes_03_summary.txt`.
+Regions of 1,000 CpGs; 25,595 drawn. One sample against its own prediction: 33 changed (the sample's own spread of regions 2.467 counting
+wobbles: healthy regions do differ from one another by nature). Two people: 6 of 25,555 changed (their spread 1.187: their regional pattern
+is shared). The plant (probability 0.08) lit 11 of its 299 regions: still too weak against the spread to show clearly.
+
+**Step 4, written before it runs.** `genome_globes_04.py` adds the view that matters for one individual over time: the same sample read twice,
+its molecules split in two halves by a seeded coin, nothing changed, and then with a loss planted (probability 0.15, constructed) in one half
+only; plus the two earlier views. Two halves of one sample differ only by counting, so this is how one individual sampled twice looks.

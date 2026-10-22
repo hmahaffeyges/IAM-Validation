@@ -1,0 +1,6 @@
+GSM5652282: loose share 0.2319, held error 0.04797 (all chromosomes), autosomal regions counted in 976 s
+GSM5652283: loose share 0.3987, held error 0.04992 (all chromosomes), autosomal regions counted in 542 s
+one healthy sample against itself: {'regions_drawn': 25595, 'line': 4.758, 'own_spread': 2.467, 'changed': 33, 'more_loss': 31, 'less_loss': 2, 'predicted': 0.04829, 'loose_share': 0.2319, 'measured': 0.04768}
+the same sample, loss planted in one stretch (CONSTRUCTED, not a person): {'regions_drawn': 25595, 'line': 4.758, 'own_spread': 2.489, 'changed': 44, 'more_loss': 42, 'less_loss': 2, 'predicted': 0.04829, 'loose_share': 0.2319, 'measured': 0.0481}
+   planted stretch: 11 of 299 drawn regions inside it changed; changed outside it 33
+two healthy people against each other: {'regions_drawn': 25555, 'line': 4.758, 'own_spread': 1.187, 'changed': 6, 'more_loss': 4, 'less_loss': 2}
