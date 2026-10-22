@@ -231,6 +231,13 @@ imported. Stage 0 refuses to start without it, so no gate can run on a number ty
 Lowercases the specimen text, turns underscores into spaces and collapses repeated spaces, so `Whole_Blood` and `whole blood` are the
 same specimen.
 
+### stage_0_intake.py::atlas_cells
+The 79 cell names of IAM-Atlas v2.1 (its best-value columns), read once.
+
+### stage_0_intake.py::atlas_cell_of
+An isolated, sorted or purified cell of any IAM-Atlas v2.1 type other than neutrophils (case-insensitive): its atlas name, else nothing. Such a
+specimen is accepted at intake and read by Met-A against the atlas (development, not commissioned); the commissioned Met-A is not applied.
+
 ### stage_0_intake.py::specimen_refusal
 Returns nothing when the specimen is accepted, otherwise the plain refusal: which specimen, why the chain has no reference for it,
 and what is accepted. Called by `run_sample.py` before any file is read.

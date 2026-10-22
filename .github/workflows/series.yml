@@ -1,0 +1,83 @@
+name: series
+# The one command over a series of arrays on GitHub's machines (2026-10-22, chain only: every reading is run_sample.py, through run_series.py).
+#   pass 1: each array once (no references), NSHARDS machines. pass 2: each array again with its same-run references from pass 1, for each
+#   scope, NSHARDS machines per scope (with --plant, the constructed loss read too). table: one row per bundle; an optional scorer reads it.
+on:
+  workflow_dispatch:
+    inputs:
+      samples:  {description: "samples CSV (gsm, slide), repo path", required: true}
+      tag:      {description: "name for the results", required: true}
+      specimen: {description: "specimen given to run_sample.py", required: true, default: "whole blood"}
+      scopes:   {description: "JSON list of tare scopes for pass 2", required: true, default: '["series"]'}
+      plant:    {description: "metaa_atlas or none", required: true, default: "none"}
+      scorer:   {description: "optional script run on rows.csv (repo path), or none", required: true, default: "none"}
+permissions: {contents: read, issues: write}
+env:
+  RS: Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_series.py
+jobs:
+  pass1:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    strategy: {fail-fast: false, matrix: {shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}}
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: Biological_Physics}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - run: python3 -u $RS read "${{ inputs.samples }}" out ${{ matrix.shard }} 10 --specimen "${{ inputs.specimen }}" --pass 1 2>&1 | grep -v -i warning
+      - uses: actions/upload-artifact@v4
+        with: {name: "pass1-${{ matrix.shard }}", path: out/pass1/}
+  pass2:
+    needs: pass1
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    strategy: {fail-fast: false, matrix: {shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], scope: "${{ fromJSON(inputs.scopes) }}"}}
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: Biological_Physics}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - uses: actions/download-artifact@v4
+        with: {pattern: "pass1-*", path: out/pass1, merge-multiple: true}
+      - run: |
+          P=""; [ "${{ inputs.plant }}" != "none" ] && P="--plant ${{ inputs.plant }}"
+          python3 -u $RS read "${{ inputs.samples }}" out ${{ matrix.shard }} 10 --specimen "${{ inputs.specimen }}" --pass 2 --scope ${{ matrix.scope }} $P 2>&1 | grep -v -i warning
+      - uses: actions/upload-artifact@v4
+        with: {name: "pass2-${{ matrix.scope }}-${{ matrix.shard }}", path: "out/pass2_${{ matrix.scope }}/"}
+  table:
+    needs: pass2
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: Biological_Physics}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q pandas pyarrow
+      - uses: actions/download-artifact@v4
+        with: {pattern: "pass1-*", path: out/pass1, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with: {pattern: "pass2-series-*", path: out/pass2_series, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with: {pattern: "pass2-slide-*", path: out/pass2_slide, merge-multiple: true}
+      - run: python3 $RS table out
+      - if: inputs.scorer != 'none'
+        run: python3 "${{ inputs.scorer }}" out/rows.csv "${{ inputs.samples }}" out 2>&1 | tee out/scorer.log
+      - uses: actions/upload-artifact@v4
+        with: {name: "series-${{ inputs.tag }}", path: "out/rows.csv\nout/scorer*\nout/*summary*\nout/*.json"}
+      - name: Results to issue 32
+        if: always()
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request, glob
+          t = "".join(open(f).read() for f in glob.glob("out/*summary*.txt"))[:50000] or (open("out/scorer.log").read()[-20000:] if os.path.exists("out/scorer.log") else "no summary")
+          b = "series run ${{ github.run_id }}, commit ${{ github.sha }}, ${{ inputs.tag }}\n\n```\n" + t + "\n```"
+          rq = urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/issues/32/comments", data=json.dumps({"body": b}).encode(), headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"})
+          print(urllib.request.urlopen(rq).status)
+          PY

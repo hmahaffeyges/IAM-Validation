@@ -603,6 +603,11 @@ def main():
     elif platform_stop:
         o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "Met-A and the C-Score read the neutrophils; the cell shares cover six blood cells", "platform": "EPIC_v2" if "EPIC v2" in platform_stop else None,
              "array_type": array_type, "refusal": platform_stop}
+    elif beta is not None and _S0spec.atlas_cell_of(a.specimen):   # 2026-10-22: an isolated IAM-Atlas v2.1 cell other than neutrophils
+        o = {"build": C3.BUILD, "specimen": a.specimen, "array_type": array_type, "atlas_cell": _S0spec.atlas_cell_of(a.specimen),
+             "scope": "an isolated " + _S0spec.atlas_cell_of(a.specimen) + " specimen: read by Met-A against IAM-Atlas v2.1 (development.metaa_atlas, not commissioned); "
+                      "the commissioned Met-A and C-Score read neutrophils and whole blood and are not applied; the cell shares cover six blood cells"}
+        if not a.dev_metaa_atlas: a.dev_metaa_atlas = o["atlas_cell"]
     elif beta is not None:
         o = C3.run_neutrophil(_pd.Series(beta, dtype="float64"), specimen=a.specimen, ref_A=refs, array_type=array_type, sample_id=sid)
     else:

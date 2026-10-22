@@ -33,7 +33,8 @@ def one_command_refusal(f, text):
     return None
 def chain_sha(root=ROOT):
     h = hashlib.sha256()
-    for f in sorted(glob.glob(os.path.join(root, CHAIN, "*.py"))): h.update(os.path.basename(f).encode()); h.update(open(f, "rb").read())
+    for f in sorted(glob.glob(os.path.join(root, CHAIN, "*.py")) + glob.glob(os.path.join(root, CHAIN, "MethylPhys_Interface", "*.py"))):   # 2026-10-22: the one command is chain
+        h.update(os.path.relpath(f, os.path.join(root, CHAIN)).encode() if "MethylPhys_Interface" in f else os.path.basename(f).encode()); h.update(open(f, "rb").read())
     return h.hexdigest()
 def registry(root=ROOT):
     p = os.path.join(root, REG); return {v["chain_sha"] for v in json.load(open(p))["versions"]} if os.path.exists(p) else set()

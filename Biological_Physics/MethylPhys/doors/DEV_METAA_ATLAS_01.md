@@ -143,3 +143,13 @@ tare come next; public series rarely hold the four or more healthy arrays per sl
 GSE252024, GSE189426 have at most 4, 3 and 2 healthy arrays on any slide).
 
 **WITHDRAWN 2026-10-22: not a chain result.** The script called chain stages directly instead of running the one command (chain/MethylPhys_Interface/run_sample.py), so Stage 0 and Stage T step 1 were skipped. Author: "If the chain didnt produce it, it did NOT happen." Every number above is withdrawn; the work is rerun through the one command (to-do step 35).
+
+**Exploration 8, written before it runs (2026-10-22; exploratory, not sealed; both series spent).** Explorations 6 and 7 again, the chain's
+way. Every reading is the one command: `run_sample.py --specimen "isolated monocytes"` on each array's IDATs (Stage 0, Stage 1, Stage T step 1,
+then Met-A against IAM-Atlas v2.1 monocytes, `development.metaa_atlas`), run over each series by the chain's series runner
+(`chain/MethylPhys_Interface/run_series.py`, workflow `series.yml`: pass 1 without references; pass 2 with run_sample.py's own tare against
+the other healthy arrays of the series, and of the same slide; the constructed 1 % loss by `stage_metaa_atlas.plant`, read by run_sample.py).
+Scorer `data/DEV_METAA_ATLAS_01/chain_08_score.py` reads only the table of bundles. Series: GSE168779's 67 unvaccinated controls
+(`chain_08_gse168779.csv`) and GSE267660's 31 healthy donors (`chain_08_gse267660.csv`), each its own run; first a 4-array smoke run
+(`chain_08_smoke.csv`, one slide). Chain changes for it: intake accepts isolated, sorted or purified cells of any IAM-Atlas v2.1 type and
+reads them by Met-A against the atlas, flagged not commissioned (`stage_0_intake.atlas_cell_of`); the commissioned Met-A is not applied to them.

@@ -8,7 +8,7 @@ Chain v3 is the only engine; the class-floor engine (v2) was retired on 2026-10-
 
 | # | step | implemented in | what it does |
 |---|---|---|---|
-| 1 | `specimen_refusal` | `stage_0_intake.py` | None when intake accepts the specimen (ACCEPTED_SPECIMENS); otherwise the plain refusal text naming the specimen (decision L) |
+| 1 | `specimen_refusal` | `stage_0_intake.py` | None when intake accepts the specimen (ACCEPTED_SPECIMENS, or an isolated IAM-Atlas v2.1 cell); otherwise the plain refusal text naming the specimen (decision L) |
 | 2 | `step_0_1_idat_arrival` | `stage_0_intake.py` | SOP section 0.1_idat_arrival |
 | 3 | `step_0_2_manifest_creation` | `stage_0_intake.py` | SOP section 0.2_manifest_creation |
 | 4 | `step_0_3_integrity_hash` | `stage_0_intake.py` | SOP section 0.3_integrity_hash |

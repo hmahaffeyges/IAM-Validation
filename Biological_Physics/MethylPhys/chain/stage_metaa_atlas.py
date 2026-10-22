@@ -85,3 +85,9 @@ def tare(A, refs):
     out.update(A_rel=round(a, 5), reference_median=round(m, 5), reference_spread=round(sp, 5) if sp is not None else None,
                state="Normal" if RULE["normal"][0] <= a <= RULE["normal"][1] else ("above Normal" if a > RULE["normal"][1] else "below Normal"))
     return out
+
+def plant(beta, cell, loss=0.01):
+    """A CONSTRUCTED loss of the cell's pattern, for tests only (the rule read() predicts its shift by): every identity site of the cell this
+    array measured moved loss of the way to 0.5, x + loss (0.5 - mu). Returns a new Series; the input is unchanged."""
+    S = identity_sites(cell); b = beta.copy(); x = b.reindex(S); mu = _col("mu", cell).reindex(S); ok = x.notna() & mu.notna()
+    b.loc[x[ok].index] = (x[ok] + loss * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6); return b

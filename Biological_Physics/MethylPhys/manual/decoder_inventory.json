@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 746,
+   "lines": 751,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -229,9 +229,9 @@
      "function": "main",
      "name": "main",
      "line": 257,
-     "end": 743,
+     "end": 748,
      "args": [],
-     "lines": 487,
+     "lines": 492,
      "doc": "",
      "constants": [
       "BIO",
@@ -269,8 +269,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 690,
-     "end": 691,
+     "line": 695,
+     "end": 696,
      "args": [
       "b",
       "it",
@@ -290,7 +290,7 @@
   },
   {
    "file": "stage_0_intake.py",
-   "lines": 1152,
+   "lines": 1172,
    "functions": [
     {
      "file": "stage_0_intake.py",
@@ -329,15 +329,47 @@
     },
     {
      "file": "stage_0_intake.py",
-     "function": "specimen_refusal",
-     "name": "specimen_refusal",
-     "line": 81,
-     "end": 88,
+     "function": "atlas_cells",
+     "name": "atlas_cells",
+     "line": 83,
+     "end": 89,
+     "args": [],
+     "lines": 7,
+     "doc": "The cell names of IAM-Atlas v2.1 (its best-value columns), read once.",
+     "constants": [],
+     "data_files": [
+      "import pyarrow.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "atlas_cell_of",
+     "name": "atlas_cell_of",
+     "line": 91,
+     "end": 98,
      "args": [
       "specimen"
      ],
      "lines": 8,
-     "doc": "None when intake accepts the specimen (ACCEPTED_SPECIMENS); otherwise the plain refusal text naming the specimen (decision L).",
+     "doc": "2026-10-22 (author: read and flag): an isolated, sorted or purified cell of any IAM-Atlas v2.1 type other than neutrophils is accepted and read by Met-A against the atlas (development, not commissioned). Returns that atlas cell's name, else None.",
+     "constants": [
+      "ATLAS_CELL_WORDS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_0_intake.py",
+     "function": "specimen_refusal",
+     "name": "specimen_refusal",
+     "line": 100,
+     "end": 108,
+     "args": [
+      "specimen"
+     ],
+     "lines": 9,
+     "doc": "None when intake accepts the specimen (ACCEPTED_SPECIMENS, or an isolated IAM-Atlas v2.1 cell); otherwise the plain refusal text naming the specimen (decision L).",
      "constants": [
       "ACCEPTED_SPECIMENS",
       "REFUSED_SPECIMEN_REASONS"
@@ -351,8 +383,8 @@
      "file": "stage_0_intake.py",
      "function": "_infer_platform",
      "name": "_infer_platform",
-     "line": 101,
-     "end": 108,
+     "line": 121,
+     "end": 128,
      "args": [
       "nsnps"
      ],
@@ -368,8 +400,8 @@
      "file": "stage_0_intake.py",
      "function": "read_idat_nsnps",
      "name": "read_idat_nsnps",
-     "line": 113,
-     "end": 136,
+     "line": 133,
+     "end": 156,
      "args": [
       "path"
      ],
@@ -385,8 +417,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_1_idat_arrival",
      "name": "step_0_1_idat_arrival",
-     "line": 141,
-     "end": 229,
+     "line": 161,
+     "end": 249,
      "args": [
       "manifest_entry",
       "grn_path",
@@ -409,8 +441,8 @@
      "file": "stage_0_intake.py",
      "function": "_log_intake",
      "name": "_log_intake",
-     "line": 234,
-     "end": 243,
+     "line": 254,
+     "end": 263,
      "args": [
       "intake_log_path",
       "result"
@@ -427,8 +459,8 @@
      "file": "stage_0_intake.py",
      "function": "_is_duplicate_within_24h",
      "name": "_is_duplicate_within_24h",
-     "line": 246,
-     "end": 266,
+     "line": 266,
+     "end": 286,
      "args": [
       "intake_log_path",
       "sentrix_id"
@@ -445,8 +477,8 @@
      "file": "stage_0_intake.py",
      "function": "_is_null_answer",
      "name": "_is_null_answer",
-     "line": 329,
-     "end": 331,
+     "line": 349,
+     "end": 351,
      "args": [
       "v"
      ],
@@ -462,8 +494,8 @@
      "file": "stage_0_intake.py",
      "function": "_answer_present",
      "name": "_answer_present",
-     "line": 334,
-     "end": 338,
+     "line": 354,
+     "end": 358,
      "args": [
       "v"
      ],
@@ -480,8 +512,8 @@
      "file": "stage_0_intake.py",
      "function": "_age_from_dob",
      "name": "_age_from_dob",
-     "line": 341,
-     "end": 348,
+     "line": 361,
+     "end": 368,
      "args": [
       "dob",
       "on_date"
@@ -496,8 +528,8 @@
      "file": "stage_0_intake.py",
      "function": "parse_questionnaire",
      "name": "parse_questionnaire",
-     "line": 351,
-     "end": 368,
+     "line": 371,
+     "end": 388,
      "args": [
       "answers",
       "intake_date"
@@ -515,8 +547,8 @@
      "file": "stage_0_intake.py",
      "function": "_looks_like_cleartext_pii",
      "name": "_looks_like_cleartext_pii",
-     "line": 371,
-     "end": 379,
+     "line": 391,
+     "end": 399,
      "args": [
       "patient_id"
      ],
@@ -532,8 +564,8 @@
      "file": "stage_0_intake.py",
      "function": "_write_manifest",
      "name": "_write_manifest",
-     "line": 382,
-     "end": 389,
+     "line": 402,
+     "end": 409,
      "args": [
       "manifest_dir",
       "record"
@@ -552,8 +584,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_2_manifest_creation",
      "name": "step_0_2_manifest_creation",
-     "line": 392,
-     "end": 431,
+     "line": 412,
+     "end": 451,
      "args": [
       "step_0_1_result",
       "questionnaire_answers",
@@ -572,8 +604,8 @@
      "file": "stage_0_intake.py",
      "function": "_sha256_file",
      "name": "_sha256_file",
-     "line": 440,
-     "end": 445,
+     "line": 460,
+     "end": 465,
      "args": [
       "path"
      ],
@@ -589,8 +621,8 @@
      "file": "stage_0_intake.py",
      "function": "_prior_hashes_for_sentrix",
      "name": "_prior_hashes_for_sentrix",
-     "line": 448,
-     "end": 461,
+     "line": 468,
+     "end": 481,
      "args": [
       "integrity_log_path",
       "sentrix_id"
@@ -607,8 +639,8 @@
      "file": "stage_0_intake.py",
      "function": "_log_integrity",
      "name": "_log_integrity",
-     "line": 464,
-     "end": 469,
+     "line": 484,
+     "end": 489,
      "args": [
       "integrity_log_path",
       "row"
@@ -625,8 +657,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_3_integrity_hash",
      "name": "step_0_3_integrity_hash",
-     "line": 472,
-     "end": 508,
+     "line": 492,
+     "end": 528,
      "args": [
       "record",
       "grn_path",
@@ -645,8 +677,8 @@
      "file": "stage_0_intake.py",
      "function": "extract_control_probes",
      "name": "extract_control_probes",
-     "line": 530,
-     "end": 536,
+     "line": 550,
+     "end": 556,
      "args": [
       "grn_path",
       "red_path",
@@ -662,8 +694,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_control_probes",
      "name": "validate_control_probes",
-     "line": 539,
-     "end": 591,
+     "line": 559,
+     "end": 611,
      "args": [
       "control_summary"
      ],
@@ -684,8 +716,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_4_control_probe_validation",
      "name": "step_0_4_control_probe_validation",
-     "line": 594,
-     "end": 613,
+     "line": 614,
+     "end": 633,
      "args": [
       "record",
       "grn_path",
@@ -704,8 +736,8 @@
      "file": "stage_0_intake.py",
      "function": "_normal_sf",
      "name": "_normal_sf",
-     "line": 633,
-     "end": 641,
+     "line": 653,
+     "end": 661,
      "args": [
       "z"
      ],
@@ -721,8 +753,8 @@
      "file": "stage_0_intake.py",
      "function": "compute_detection_p",
      "name": "compute_detection_p",
-     "line": 644,
-     "end": 649,
+     "line": 664,
+     "end": 669,
      "args": [
       "probe_intensities",
       "mu_bg",
@@ -740,8 +772,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_detection_p",
      "name": "validate_detection_p",
-     "line": 652,
-     "end": 666,
+     "line": 672,
+     "end": 686,
      "args": [
       "detection_p_array"
      ],
@@ -763,8 +795,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_5_detection_pvalue_qc",
      "name": "step_0_5_detection_pvalue_qc",
-     "line": 669,
-     "end": 690,
+     "line": 689,
+     "end": 710,
      "args": [
       "record",
       "probe_intensities",
@@ -782,8 +814,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_bead_count",
      "name": "validate_bead_count",
-     "line": 701,
-     "end": 708,
+     "line": 721,
+     "end": 728,
      "args": [
       "bead_counts",
       "min_beads"
@@ -803,8 +835,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_6_bead_count_qc",
      "name": "step_0_6_bead_count_qc",
-     "line": 711,
-     "end": 724,
+     "line": 731,
+     "end": 744,
      "args": [
       "record",
       "bead_counts"
@@ -821,8 +853,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_call_rate",
      "name": "validate_call_rate",
-     "line": 735,
-     "end": 743,
+     "line": 755,
+     "end": 763,
      "args": [
       "n_passing_both",
       "n_total"
@@ -842,8 +874,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_7_call_rate",
      "name": "step_0_7_call_rate",
-     "line": 746,
-     "end": 767,
+     "line": 766,
+     "end": 787,
      "args": [
       "record",
       "detection_pass_mask",
@@ -861,8 +893,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_7b_platform_coverage",
      "name": "step_0_7b_platform_coverage",
-     "line": 777,
-     "end": 801,
+     "line": 797,
+     "end": 821,
      "args": [
       "record",
       "reference_cpg_coverage"
@@ -881,8 +913,8 @@
      "file": "stage_0_intake.py",
      "function": "predict_sex",
      "name": "predict_sex",
-     "line": 811,
-     "end": 812,
+     "line": 831,
+     "end": 832,
      "args": [
       "log2_x_median",
       "log2_y_median",
@@ -902,8 +934,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_sex",
      "name": "validate_sex",
-     "line": 815,
-     "end": 821,
+     "line": 835,
+     "end": 841,
      "args": [
       "log2_x_median",
       "log2_y_median",
@@ -921,8 +953,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_8_sex_check",
      "name": "step_0_8_sex_check",
-     "line": 824,
-     "end": 838,
+     "line": 844,
+     "end": 858,
      "args": [
       "record",
       "sex_intensities"
@@ -939,8 +971,8 @@
      "file": "stage_0_intake.py",
      "function": "_fmt",
      "name": "_fmt",
-     "line": 853,
-     "end": 854,
+     "line": 873,
+     "end": 874,
      "args": [
       "x",
       "nd"
@@ -957,8 +989,8 @@
      "file": "stage_0_intake.py",
      "function": "explain_stage0",
      "name": "explain_stage0",
-     "line": 855,
-     "end": 914,
+     "line": 875,
+     "end": 934,
      "args": [
       "record",
       "hard_fail",
@@ -993,8 +1025,8 @@
      "file": "stage_0_intake.py",
      "function": "explain_stage0.add",
      "name": "add",
-     "line": 857,
-     "end": 858,
+     "line": 877,
+     "end": 878,
      "args": [
       "check",
       "outcome",
@@ -1017,8 +1049,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_9_decision_gate",
      "name": "step_0_9_decision_gate",
-     "line": 917,
-     "end": 996,
+     "line": 937,
+     "end": 1016,
      "args": [
       "record",
       "verdict_log_path"
@@ -5717,5 +5749,5 @@
   }
  ],
  "n_files": 24,
- "n_functions": 288
+ "n_functions": 290
 }

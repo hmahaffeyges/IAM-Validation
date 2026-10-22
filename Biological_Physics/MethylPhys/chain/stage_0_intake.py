@@ -78,13 +78,33 @@ def normalise_specimen(specimen):
     return " ".join(str(specimen or "").strip().lower().replace("_", " ").split())
 
 
-def specimen_refusal(specimen):
-    """None when intake accepts the specimen (ACCEPTED_SPECIMENS); otherwise the plain refusal text naming the specimen (decision L)."""
+ATLAS_CELL_WORDS = ("isolated ", "sorted ", "purified ")
+_atlas_cells = []
+def atlas_cells():
+    """The cell names of IAM-Atlas v2.1 (its best-value columns), read once."""
+    if not _atlas_cells:
+        import pyarrow.parquet as pq
+        d = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "atlas", "v2.1")
+        for part in (1, 2, 3): _atlas_cells.extend(n for n in pq.read_schema(os.path.join(d, f"mu_part{part}.parquet")).names if n != "cpg")
+    return _atlas_cells
+
+def atlas_cell_of(specimen):
+    """2026-10-22 (author: read and flag): an isolated, sorted or purified cell of any IAM-Atlas v2.1 type other than neutrophils is accepted
+    and read by Met-A against the atlas (development, not commissioned). Returns that atlas cell's name, else None."""
     s = normalise_specimen(specimen)
-    if s in ACCEPTED_SPECIMENS: return None
+    for w in ATLAS_CELL_WORDS:
+        c = {x.lower(): x for x in atlas_cells()}.get(s[len(w):])
+        if s.startswith(w) and c and c != "neutrophils": return c
+    return None
+
+def specimen_refusal(specimen):
+    """None when intake accepts the specimen (ACCEPTED_SPECIMENS, or an isolated IAM-Atlas v2.1 cell); otherwise the plain refusal text naming the specimen (decision L)."""
+    s = normalise_specimen(specimen)
+    if s in ACCEPTED_SPECIMENS or atlas_cell_of(specimen): return None
     why = next((r for keys, r in REFUSED_SPECIMEN_REASONS if any(k and k in s for k in keys) or (s == "" and "" in keys)), None)
     why = why or f"'{specimen}' is not a blood specimen the chain has a reference for (tissue, placenta and other specimens each need their own reference)"
-    return (f"specimen '{specimen}' refused at intake: {why}. Accepted: whole blood, buffy coat, isolated / sorted / purified neutrophils, and constructed DNA mixtures of blood cells (test material). "
+    return (f"specimen '{specimen}' refused at intake: {why}. Accepted: whole blood, buffy coat, isolated / sorted / purified neutrophils, constructed DNA mixtures of blood cells (test material), and "
+            f"isolated / sorted / purified cells of any IAM-Atlas v2.1 type (read by Met-A against the atlas, not commissioned). "
             f"Nothing is read; this specimen can be read once it has its own reference.")
 
 VALID_ARRAY_TYPES = ("HM450K", "EPIC_v1", "EPIC_v2")

@@ -300,6 +300,16 @@
    "chain_sha": "ae89c165d298f05c9bff76f39c2efe05404459181a52a578a0aee94bf1b6330d",
    "first_commit_after": "3e8ce607",
    "date": "2026-10-22"
+  },
+  {
+   "chain_sha": "98888decb26f4bf29b8426847279c86e04760b98dd0e910ac7ae2f2ba884517f",
+   "first_commit_after": "f1b6472f",
+   "date": "2026-10-22"
+  },
+  {
+   "chain_sha": "1a7b7fe24693933bff517ca791e5e220b3550cb6c3f8a60536feddf3f0f55eb3",
+   "first_commit_after": "f1b6472f",
+   "date": "2026-10-22"
   }
  ]
 }

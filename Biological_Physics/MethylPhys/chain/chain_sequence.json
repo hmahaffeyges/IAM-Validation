@@ -4,7 +4,7 @@
   {
    "step": "specimen_refusal",
    "where": "stage_0_intake.py",
-   "implements": "None when intake accepts the specimen (ACCEPTED_SPECIMENS); otherwise the plain refusal text naming the specimen (decision L)",
+   "implements": "None when intake accepts the specimen (ACCEPTED_SPECIMENS, or an isolated IAM-Atlas v2.1 cell); otherwise the plain refusal text naming the specimen (decision L)",
    "status": "runs first; a refused specimen gets a report and nothing is read"
   },
   {
