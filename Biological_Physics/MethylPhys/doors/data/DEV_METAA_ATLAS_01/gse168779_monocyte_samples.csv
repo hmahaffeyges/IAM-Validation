@@ -1,0 +1,131 @@
+gsm,group,donor,slide,position,title
+GSM5169212,BCG vaccinated,Donor_1,204273190015,R04C01,BCG_vaccinated_donor_1
+GSM5169213,BCG vaccinated,Donor_2,204273190015,R02C01,BCG_vaccinated_donor_2
+GSM5169214,BCG vaccinated,Donor_3,204281260011,R08C01,BCG_vaccinated_donor_3
+GSM5169215,BCG vaccinated,Donor_4,204277200005,R04C01,BCG_vaccinated_donor_4
+GSM5169216,BCG vaccinated,Donor_5,204281260066,R01C01,BCG_vaccinated_donor_5
+GSM5169217,BCG vaccinated,Donor_6,204273190034,R01C01,BCG_vaccinated_donor_6
+GSM5169218,BCG vaccinated,Donor_7,204281260037,R04C01,BCG_vaccinated_donor_7
+GSM5169219,BCG vaccinated,Donor_8,204281260037,R03C01,BCG_vaccinated_donor_8
+GSM5169220,BCG vaccinated,Donor_9,204281260011,R01C01,BCG_vaccinated_donor_9
+GSM5169221,BCG vaccinated,Donor_10,204277200005,R08C01,BCG_vaccinated_donor_10
+GSM5169222,BCG vaccinated,Donor_11,204281260010,R03C01,BCG_vaccinated_donor_11
+GSM5169223,BCG vaccinated,Donor_12,204273190042,R08C01,BCG_vaccinated_donor_12
+GSM5169224,BCG vaccinated,Donor_13,204281260012,R01C01,BCG_vaccinated_donor_13
+GSM5169225,BCG vaccinated,Donor_14,204281260010,R02C01,BCG_vaccinated_donor_14
+GSM5169226,BCG vaccinated,Donor_15,204281260064,R08C01,BCG_vaccinated_donor_15
+GSM5169227,BCG vaccinated,Donor_16,204281260010,R04C01,BCG_vaccinated_donor_16
+GSM5169228,BCG vaccinated,Donor_17,204281260011,R02C01,BCG_vaccinated_donor_17
+GSM5169229,BCG vaccinated,Donor_18,204281260010,R05C01,BCG_vaccinated_donor_18
+GSM5169230,BCG vaccinated,Donor_19,204277200005,R05C01,BCG_vaccinated_donor_19
+GSM5169231,BCG vaccinated,Donor_20,204281260064,R06C01,BCG_vaccinated_donor_20
+GSM5169232,BCG vaccinated,Donor_21,204281260064,R07C01,BCG_vaccinated_donor_21
+GSM5169233,BCG vaccinated,Donor_22,204281260011,R04C01,BCG_vaccinated_donor_22
+GSM5169234,BCG vaccinated,Donor_23,204273190042,R01C01,BCG_vaccinated_donor_23
+GSM5169235,BCG vaccinated,Donor_24,204281260064,R03C01,BCG_vaccinated_donor_24
+GSM5169236,BCG vaccinated,Donor_25,204281260064,R04C01,BCG_vaccinated_donor_25
+GSM5169237,BCG vaccinated,Donor_26,204273190044,R07C01,BCG_vaccinated_donor_26
+GSM5169238,BCG vaccinated,Donor_27,204281260012,R02C01,BCG_vaccinated_donor_27
+GSM5169239,BCG vaccinated,Donor_28,204273190042,R04C01,BCG_vaccinated_donor_28
+GSM5169240,BCG vaccinated,Donor_29,204281260012,R08C01,BCG_vaccinated_donor_29
+GSM5169241,BCG vaccinated,Donor_30,204273190050,R08C01,BCG_vaccinated_donor_30
+GSM5169242,BCG vaccinated,Donor_31,204273190054,R06C01,BCG_vaccinated_donor_31
+GSM5169243,BCG vaccinated,Donor_32,204273190042,R03C01,BCG_vaccinated_donor_32
+GSM5169244,BCG vaccinated,Donor_33,204273190054,R05C01,BCG_vaccinated_donor_33
+GSM5169245,BCG vaccinated,Donor_34,204273190042,R02C01,BCG_vaccinated_donor_34
+GSM5169246,BCG vaccinated,Donor_35,204273190067,R03C01,BCG_vaccinated_donor_35
+GSM5169247,BCG vaccinated,Donor_36,204281260048,R05C01,BCG_vaccinated_donor_36
+GSM5169248,BCG vaccinated,Donor_37,204273190050,R05C01,BCG_vaccinated_donor_37
+GSM5169249,BCG vaccinated,Donor_38,204273190050,R03C01,BCG_vaccinated_donor_38
+GSM5169250,BCG vaccinated,Donor_39,204273190042,R05C01,BCG_vaccinated_donor_39
+GSM5169251,BCG vaccinated,Donor_40,204273190040,R06C01,BCG_vaccinated_donor_40
+GSM5169252,BCG vaccinated,Donor_41,204273190040,R02C01,BCG_vaccinated_donor_41
+GSM5169253,BCG vaccinated,Donor_42,204273190067,R06C01,BCG_vaccinated_donor_42
+GSM5169254,BCG vaccinated,Donor_43,204273190040,R01C01,BCG_vaccinated_donor_43
+GSM5169255,BCG vaccinated,Donor_44,204273190040,R05C01,BCG_vaccinated_donor_44
+GSM5169256,BCG vaccinated,Donor_45,204281260064,R02C01,BCG_vaccinated_donor_45
+GSM5169257,BCG vaccinated,Donor_46,204273190044,R01C01,BCG_vaccinated_donor_46
+GSM5169258,BCG vaccinated,Donor_47,204273190050,R02C01,BCG_vaccinated_donor_47
+GSM5169259,BCG vaccinated,Donor_48,204273190034,R02C01,BCG_vaccinated_donor_48
+GSM5169260,BCG vaccinated,Donor_49,204273190042,R06C01,BCG_vaccinated_donor_49
+GSM5169261,BCG vaccinated,Donor_50,204273190040,R08C01,BCG_vaccinated_donor_50
+GSM5169262,BCG vaccinated,Donor_51,204281260048,R03C01,BCG_vaccinated_donor_51
+GSM5169263,BCG vaccinated,Donor_52,204273190042,R07C01,BCG_vaccinated_donor_52
+GSM5169264,BCG vaccinated,Donor_53,204281260037,R07C01,BCG_vaccinated_donor_53
+GSM5169265,BCG vaccinated,Donor_54,204273190067,R01C01,BCG_vaccinated_donor_54
+GSM5169266,BCG vaccinated,Donor_55,204281260011,R05C01,BCG_vaccinated_donor_55
+GSM5169267,BCG vaccinated,Donor_56,204281260012,R03C01,BCG_vaccinated_donor_56
+GSM5169268,BCG vaccinated,Donor_57,204273190034,R03C01,BCG_vaccinated_donor_57
+GSM5169269,BCG vaccinated,Donor_58,204273190067,R08C01,BCG_vaccinated_donor_58
+GSM5169270,BCG vaccinated,Donor_59,204273190044,R03C01,BCG_vaccinated_donor_59
+GSM5169271,BCG vaccinated,Donor_60,204281260048,R07C01,BCG_vaccinated_donor_60
+GSM5169272,BCG vaccinated,Donor_61,204273190034,R05C01,BCG_vaccinated_donor_61
+GSM5169273,BCG vaccinated,Donor_62,204273190067,R04C01,BCG_vaccinated_donor_62
+GSM5169274,BCG vaccinated,Donor_63,204273190054,R01C01,BCG_vaccinated_donor_63
+GSM5169275,Non vaccinated control,Donor_64,204273190067,R07C01,Non_vaccinated_donor_64
+GSM5169276,Non vaccinated control,Donor_65,204277200005,R06C01,Non_vaccinated_donor_65
+GSM5169277,Non vaccinated control,Donor_66,204273190001,R04C01,Non_vaccinated_donor_66
+GSM5169278,Non vaccinated control,Donor_67,204277200005,R07C01,Non_vaccinated_donor_67
+GSM5169279,Non vaccinated control,Donor_68,204281260066,R02C01,Non_vaccinated_donor_68
+GSM5169280,Non vaccinated control,Donor_69,204273190015,R05C01,Non_vaccinated_donor_69
+GSM5169281,Non vaccinated control,Donor_70,204273190015,R03C01,Non_vaccinated_donor_70
+GSM5169282,Non vaccinated control,Donor_71,204273190015,R01C01,Non_vaccinated_donor_71
+GSM5169283,Non vaccinated control,Donor_72,204281260037,R05C01,Non_vaccinated_donor_72
+GSM5169284,Non vaccinated control,Donor_73,204273190014,R08C01,Non_vaccinated_donor_73
+GSM5169285,Non vaccinated control,Donor_74,204281260066,R04C01,Non_vaccinated_donor_74
+GSM5169286,Non vaccinated control,Donor_75,204281260037,R08C01,Non_vaccinated_donor_75
+GSM5169287,Non vaccinated control,Donor_76,204281260066,R07C01,Non_vaccinated_donor_76
+GSM5169288,Non vaccinated control,Donor_77,204281260010,R06C01,Non_vaccinated_donor_77
+GSM5169289,Non vaccinated control,Donor_78,204281260011,R06C01,Non_vaccinated_donor_78
+GSM5169290,Non vaccinated control,Donor_79,204281260064,R05C01,Non_vaccinated_donor_79
+GSM5169291,Non vaccinated control,Donor_80,204281260010,R07C01,Non_vaccinated_donor_80
+GSM5169292,Non vaccinated control,Donor_81,204281260010,R08C01,Non_vaccinated_donor_81
+GSM5169293,Non vaccinated control,Donor_82,204273190014,R07C01,Non_vaccinated_donor_82
+GSM5169294,Non vaccinated control,Donor_83,204281260010,R01C01,Non_vaccinated_donor_83
+GSM5169295,Non vaccinated control,Donor_84,204273190014,R06C01,Non_vaccinated_donor_84
+GSM5169296,Non vaccinated control,Donor_85,204281260012,R06C01,Non_vaccinated_donor_85
+GSM5169297,Non vaccinated control,Donor_86,204281260066,R06C01,Non_vaccinated_donor_86
+GSM5169298,Non vaccinated control,Donor_87,204281260011,R03C01,Non_vaccinated_donor_87
+GSM5169299,Non vaccinated control,Donor_88,204273190054,R08C01,Non_vaccinated_donor_88
+GSM5169300,Non vaccinated control,Donor_89,204281260066,R05C01,Non_vaccinated_donor_89
+GSM5169301,Non vaccinated control,Donor_90,204273190054,R03C01,Non_vaccinated_donor_90
+GSM5169302,Non vaccinated control,Donor_91,204281260064,R01C01,Non_vaccinated_donor_91
+GSM5169303,Non vaccinated control,Donor_92,204273190044,R02C01,Non_vaccinated_donor_92
+GSM5169304,Non vaccinated control,Donor_93,204273190050,R07C01,Non_vaccinated_donor_93
+GSM5169305,Non vaccinated control,Donor_94,204273190044,R05C01,Non_vaccinated_donor_94
+GSM5169306,Non vaccinated control,Donor_95,204281260012,R07C01,Non_vaccinated_donor_95
+GSM5169307,Non vaccinated control,Donor_96,204273190050,R04C01,Non_vaccinated_donor_96
+GSM5169308,Non vaccinated control,Donor_97,204273190044,R06C01,Non_vaccinated_donor_97
+GSM5169309,Non vaccinated control,Donor_98,204273190040,R04C01,Non_vaccinated_donor_98
+GSM5169310,Non vaccinated control,Donor_99,204273190014,R01C01,Non_vaccinated_donor_99
+GSM5169311,Non vaccinated control,Donor_100,204273190001,R01C01,Non_vaccinated_donor_100
+GSM5169312,Non vaccinated control,Donor_101,204273190034,R04C01,Non_vaccinated_donor_101
+GSM5169313,Non vaccinated control,Donor_102,204273190067,R02C01,Non_vaccinated_donor_102
+GSM5169314,Non vaccinated control,Donor_103,204281260011,R07C01,Non_vaccinated_donor_103
+GSM5169315,Non vaccinated control,Donor_104,204273190044,R04C01,Non_vaccinated_donor_104
+GSM5169316,Non vaccinated control,Donor_105,204273190040,R03C01,Non_vaccinated_donor_105
+GSM5169317,Non vaccinated control,Donor_106,204273190054,R07C01,Non_vaccinated_donor_106
+GSM5169318,Non vaccinated control,Donor_107,204281260037,R02C01,Non_vaccinated_donor_107
+GSM5169319,Non vaccinated control,Donor_108,204273190040,R07C01,Non_vaccinated_donor_108
+GSM5169320,Non vaccinated control,Donor_109,204273190050,R06C01,Non_vaccinated_donor_109
+GSM5169321,Non vaccinated control,Donor_110,204273190014,R05C01,Non_vaccinated_donor_110
+GSM5169322,Non vaccinated control,Donor_111,204273190001,R02C01,Non_vaccinated_donor_111
+GSM5169323,Non vaccinated control,Donor_112,204273190014,R04C01,Non_vaccinated_donor_112
+GSM5169324,Non vaccinated control,Donor_113,204273190044,R08C01,Non_vaccinated_donor_113
+GSM5169325,Non vaccinated control,Donor_114,204273190001,R03C01,Non_vaccinated_donor_114
+GSM5169326,Non vaccinated control,Donor_115,204273190014,R02C01,Non_vaccinated_donor_115
+GSM5169327,Non vaccinated control,Donor_116,204281260048,R08C01,Non_vaccinated_donor_116
+GSM5169328,Non vaccinated control,Donor_117,204281260037,R06C01,Non_vaccinated_donor_117
+GSM5169329,Non vaccinated control,Donor_118,204281260048,R01C01,Non_vaccinated_donor_118
+GSM5169330,Non vaccinated control,Donor_119,204273190054,R02C01,Non_vaccinated_donor_119
+GSM5169331,Non vaccinated control,Donor_120,204273190054,R04C01,Non_vaccinated_donor_120
+GSM5169332,Non vaccinated control,Donor_121,204281260037,R01C01,Non_vaccinated_donor_121
+GSM5169333,Non vaccinated control,Donor_122,204281260012,R04C01,Non_vaccinated_donor_122
+GSM5169334,Non vaccinated control,Donor_123,204281260048,R02C01,Non_vaccinated_donor_123
+GSM5169335,Non vaccinated control,Donor_124,204273190014,R03C01,Non_vaccinated_donor_124
+GSM5169336,Non vaccinated control,Donor_125,204281260066,R08C01,Non_vaccinated_donor_125
+GSM5169337,Non vaccinated control,Donor_126,204281260012,R05C01,Non_vaccinated_donor_126
+GSM5169338,Non vaccinated control,Donor_127,204273190067,R05C01,Non_vaccinated_donor_127
+GSM5169339,Non vaccinated control,Donor_128,204281260048,R06C01,Non_vaccinated_donor_128
+GSM5169340,Non vaccinated control,Donor_129,204281260048,R04C01,Non_vaccinated_donor_129
+GSM5169341,Non vaccinated control,Donor_130,204273190050,R01C01,Non_vaccinated_donor_130

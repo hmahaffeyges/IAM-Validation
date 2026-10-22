@@ -1,4 +1,6 @@
-"""DEV-METAA-ATLAS-01, exploration 5 (written and committed 2026-10-21 before it runs; not sealed: "we explore without sealing until we are
+"""WITHDRAWN 2026-10-21 before reading: GEO holds no IDATs for GSE166844 (signal tables only, without the control probes chain Stage 1
+needs); its first run stopped at the first three arrays, and nothing was read. Kept as written. See exploration 6 (same_run_06.py).
+DEV-METAA-ATLAS-01, exploration 5 (written and committed 2026-10-21 before it runs; not sealed: "we explore without sealing until we are
 certain"). The instrument's job: a healthy sorted cell, read against its cell in IAM-Atlas v2.1 and tared against healthy cells run the
 same way, reads Normal; a planted 1 % loss of its pattern stands out.
 Step 3 (GSE184269) could tare each array only against other slides (one donor per slide), and its spread moved with the slide. Here,

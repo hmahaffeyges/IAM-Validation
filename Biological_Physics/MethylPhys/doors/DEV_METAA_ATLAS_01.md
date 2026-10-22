@@ -101,3 +101,15 @@ against the atlas's neutrophils), and each slide holds two donors. Each array go
 unchanged. Two tares are compared, and neither uses the array's own donor: across runs (as step 3), and against the other donor on the same
 slide. The second tests the same-run tare the way the chain means it, without the self-tare trap. Reported for each: Normal share, spread,
 and what a planted 1 % loss moves the reading by, in spreads. Each array's values at the identity sites are kept for later explorations.
+
+**Exploration 5 withdrawn before reading (2026-10-21).** GEO holds no IDATs for GSE166844, only signal tables without the control probes
+chain Stage 1's calibration needs. The run stopped at its first three arrays, as written, and nothing was read.
+
+## Exploration 6, planned (written 2026-10-21 before it runs; not sealed)
+
+`data/DEV_METAA_ATLAS_01/same_run_06.py` on GitHub: GSE168779, purified monocytes of 130 healthy children (14 to 24 months), one array
+each, 67 not vaccinated and 63 given BCG at birth; an independent laboratory, not among the atlas's sources, never read. Ten slides hold
+four or more unvaccinated arrays, so each can be tared the way the chain tares: against at least three healthy monocytes on its own slide.
+Every array goes through chain Stage 1 and `stage_metaa_atlas.read`, unchanged. Scored on the unvaccinated arrays, with four tares compared
+(same slide or other slides; controls only or every array). Reported for each: Normal share, spread, and what a planted 1 % loss moves the
+reading by, in spreads.
