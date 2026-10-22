@@ -15,7 +15,7 @@ def fetch(g):
     base = f"https://ftp.ncbi.nlm.nih.gov/geo/samples/{g[:7]}nnn/{g}/suppl/"
     for t in range(5):
         try:
-            n = sorted(set(re.findall(rf"{g}_[^\"<>]*\.pat\.gz", urllib.request.urlopen(base, timeout=120).read().decode())))[0]
+            n = [x for x in sorted(set(re.findall(rf"{g}_[^\"<>]*\.pat\.gz", urllib.request.urlopen(base, timeout=120).read().decode()))) if ".hg38." not in x][0]   # the hg19 file (IAM-A reads hg19); 2026-10-22: the hg38 one sorts first
             f = os.path.join(out, n); urllib.request.urlretrieve(base + n, f); return f
         except Exception as e: print(g, "retry", type(e).__name__, flush=True); time.sleep(60 * (t + 1))
     raise RuntimeError(g + ": download failed")

@@ -74,3 +74,9 @@ way, with the region counts saved.
 predicted held error), with `--prior-pat` for a second reading (`--prior-name` says what it is). `data/DEV_IAMA_GLOBE_01/genome_globes_06.py`
 only downloads and prepares the input files (the two halves and the constructed plant, as step 4) and runs the one command, once per view:
 self, twice, twice_planted, people, each on its own GitHub machine. The numbers recorded are the bundles' `development.genome_globe`.
+
+**Step 6, first dispatch (2026-10-22): stopped by the chain, correctly.** GEO holds each of these samples as an hg19 and an hg38 `.pat`
+file; the download took the first name in alphabetical order, the hg38 one. The one command's Stage Q0 refused it (48,859,268 lines outside
+their chromosome's hg19 index range), and nothing was drawn. The withdrawn steps 2 to 5 used the same download and counted hg38 files on
+hg19 positions, so their numbers were wrong as well as outside the chain. The download now takes the hg19 file, as the IAM-A line's own
+counting does (`DEV_CHAIN_Q2_01/box_q2_line.py`); step 6 runs again unchanged otherwise.
