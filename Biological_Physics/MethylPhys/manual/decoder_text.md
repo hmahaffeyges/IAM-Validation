@@ -952,6 +952,11 @@ Loads the frozen shape reference and refuses it if edited.
 ### stage_q2_selfref.py::shape_check
 The sample-shape gate described above, with the measured percentile, the limit and the reason.
 
+**The X and Y on the two routes (Decoder finding F37, measured 2026-10-21).** On the `.pat` route the held error is counted on every
+chromosome and the loose share on the autosomes; the aligned-read route counts both on the autosomes. On 17 healthy samples of the committed
+line, counting the held error on the autosomes only moved IAM-A by a mean of −0.32 % (range −0.71 % to +0.09 %), at most about 2.5 % of the
+band's width (`doors/DEV_IAMA_SEX_01.md`). The commissioned line and band were built on the `.pat` route and are kept.
+
 ### stage_q2_selfref.py::reading
 IAM-A = measured ε / predicted ε.
 

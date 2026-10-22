@@ -1,0 +1,4 @@
+samples read: 17 of 17; loose share identical on both counts: True
+held error, autosomes only against every chromosome: mean -0.32 %, range -0.71 to +0.09 %
+IAM-A, autosomes only against every chromosome: mean -0.32 %, range -0.71 to +0.09 %
+held-error opportunities outside the autosomes: mean 2.74 %
