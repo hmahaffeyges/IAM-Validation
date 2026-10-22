@@ -523,8 +523,8 @@
     },
     {
      "id": "F23",
-     "text": "Stage T step 1 (self-tare II), adopted 2026-10-04 and run on EVERY reading including commissioned ones, lives in dev_stages.py (\"DEVELOPMENT - not commissioned\") and reads Runtime Matrices/Development/dev_selftare_typeII_EPIC_v1.json. Move selftare_map/anchors into the conductor (or a stage_t module) and the matrix out of Development, with its provenance, keeping it byte-identical (frozen input); the release check pins it.",
-     "status": "open"
+     "text": "Stage T step 1 (self-tare II), adopted 2026-10-04 and run on EVERY reading including commissioned ones, lives in dev_stages.py (\"DEVELOPMENT - not commissioned\") and reads Runtime Matrices/Development/dev_selftare_typeII_EPIC_v1.json. Move selftare_map/anchors into the conductor (or a stage_t module) and the matrix out of Development, with its provenance, keeping it byte-identical (frozen input); the release check pins it. | 2026-10-22 fixed: anchors and selftare_map moved unchanged to chain/stage_t_selftare.py (dev_stages keeps both names); the matrix moved unchanged (same sha256 652906df...) to Runtime Matrices/Stage_T/selftare_typeII_EPIC_v1.json and added to FROZEN_INPUTS_v4.json (release check F1); the example blood GSM7508429 read again by run_sample.py gives an identical bundle and identical sky pictures.",
+     "status": "fixed 2026-10-22"
     },
     {
      "id": "F24",

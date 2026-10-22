@@ -674,14 +674,21 @@ neutrophil fraction. Used by the series runner's `--plant neutrophil`; never by 
 The whole conductor, in the order above. Returns the array reading's records (mix, Met-A, tare, C-Score) and the departure map for the sky.
 
 ### dev_stages.py::_json
-Loads a file from `Runtime Matrices/Development` once and keeps it.
+Loads a file from `Runtime Matrices/Development` once and keeps it; the self-tare matrix's old name reads the moved file
+(`stage_t_selftare._json`), so older scripts still run.
 
-### dev_stages.py::anchors
+### stage_t_selftare.py::_json
+Loads the self-tare matrix once, `Runtime Matrices/Stage_T/selftare_typeII_EPIC_v1.json`: the four fixed-site sets, each site's probe design,
+and the reference arrays' anchors. Moved unchanged from `Runtime Matrices/Development/` on 2026-10-22 (finding F23; the same sha256) and
+pinned by the release check as a frozen input (F1): Stage T step 1 runs on every reading, so its matrix is frozen like every other reference.
+
+### stage_t_selftare.py::anchors
 This array's mean β over each of the four fixed-site sets (type I low and high, type II low and high), with how many it measured.
 
-### dev_stages.py::selftare_map
+### stage_t_selftare.py::selftare_map
 Stage T step 1, as described above: maps each design's values by β' = L_r + (β − L)(U_r − L_r)/(U − L) at the sites whose design is
-recorded and returns the maps' anchors and slopes.
+recorded and returns the maps' anchors and slopes. Moved unchanged from `dev_stages.py` on 2026-10-22 (finding F23); `dev_stages` keeps
+both names for older scripts.
 
 ### stage_m_met_a.py::_floors
 Loads `metA_floors_v1_3.json` (the 6,000 identity sites and the healthy reference H_ref) once.

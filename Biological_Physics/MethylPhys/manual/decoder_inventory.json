@@ -198,7 +198,7 @@
       "b"
      ],
      "lines": 15,
-     "doc": "--dev-metaa-atlas (DEV-METAA-ATLAS-01): Met-A against IAM-Atlas v2.1 on the values Stage T step 1 maps (dev_stages.selftare_map, the map the commissioned Met-A reads), then the same-run tare when >= 3 references are given. Development; the reading, gauge and tare are untouched.",
+     "doc": "--dev-metaa-atlas (DEV-METAA-ATLAS-01): Met-A against IAM-Atlas v2.1 on the values Stage T step 1 maps (stage_t_selftare.selftare_map, the map the commissioned Met-A reads), then the same-run tare when >= 3 references are given. Development; the reading, gauge and tare are untouched.",
      "constants": [],
      "data_files": [],
      "traced_calls": {}
@@ -1691,7 +1691,7 @@
       "beta"
      ],
      "lines": 9,
-     "doc": "Stage T step 1, self-tare II (adopted 2026-10-04, DEV-SELFTARE-02): per probe design, beta' = Lr + (beta - L)(Ur - Lr)/(U - L) from this array's own fixed-site anchors L, U and the reference arrays' Lr, Ur (dev_stages.selftare_map; a design with anchors missing or U - L <= 0.1 is left unmapped). Returns (beta', record); when the runtime file is missing, (beta, record with status NOT_RUN).",
+     "doc": "Stage T step 1, self-tare II (adopted 2026-10-04, DEV-SELFTARE-02): per probe design, beta' = Lr + (beta - L)(Ur - Lr)/(U - L) from this array's own fixed-site anchors L, U and the reference arrays' Lr, Ur (stage_t_selftare.selftare_map; a design with anchors missing or U - L <= 0.1 is left unmapped). Returns (beta', record); when the runtime file is missing, (beta, record with status NOT_RUN).",
      "constants": [],
      "data_files": [],
      "traced_calls": {
@@ -2665,14 +2665,14 @@
   },
   {
    "file": "dev_stages.py",
-   "lines": 356,
+   "lines": 339,
    "functions": [
     {
      "file": "dev_stages.py",
      "function": "_H",
      "name": "_H",
-     "line": 32,
-     "end": 34,
+     "line": 33,
+     "end": 35,
      "args": [
       "b"
      ],
@@ -2686,18 +2686,20 @@
      "file": "dev_stages.py",
      "function": "_json",
      "name": "_json",
-     "line": 37,
-     "end": 41,
+     "line": 38,
+     "end": 44,
      "args": [
       "name"
      ],
-     "lines": 5,
+     "lines": 7,
      "doc": "",
      "constants": [
       "DEVDIR",
       "_C"
      ],
-     "data_files": [],
+     "data_files": [
+      "dev_selftare_typeII_EPIC_v1.json"
+     ],
      "traced_calls": {
       "array": 1
      }
@@ -2706,8 +2708,8 @@
      "file": "dev_stages.py",
      "function": "_bc",
      "name": "_bc",
-     "line": 44,
-     "end": 46,
+     "line": 47,
+     "end": 49,
      "args": [],
      "lines": 3,
      "doc": "",
@@ -2724,8 +2726,8 @@
      "file": "dev_stages.py",
      "function": "_rec",
      "name": "_rec",
-     "line": 49,
-     "end": 50,
+     "line": 52,
+     "end": 53,
      "args": [
       "stage"
      ],
@@ -2739,50 +2741,10 @@
     },
     {
      "file": "dev_stages.py",
-     "function": "anchors",
-     "name": "anchors",
-     "line": 54,
-     "end": 60,
-     "args": [
-      "beta",
-      "st"
-     ],
-     "lines": 7,
-     "doc": "This array's anchors: mean beta over each fixed-site set (I_low, I_high, II_low, II_high) it measures, with the count.",
-     "constants": [],
-     "data_files": [
-      "dev_selftare_typeII_EPIC_v1.json"
-     ],
-     "traced_calls": {
-      "array": 1
-     }
-    },
-    {
-     "file": "dev_stages.py",
-     "function": "selftare_map",
-     "name": "selftare_map",
-     "line": 63,
-     "end": 74,
-     "args": [
-      "beta",
-      "st"
-     ],
-     "lines": 12,
-     "doc": "beta' = Lr + (beta - L)(Ur - Lr)/(U - L) per design at the sites whose design is recorded; other sites unchanged. Returns (beta', record).",
-     "constants": [],
-     "data_files": [
-      "dev_selftare_typeII_EPIC_v1.json"
-     ],
-     "traced_calls": {
-      "array": 1
-     }
-    },
-    {
-     "file": "dev_stages.py",
      "function": "selftare_ii",
      "name": "selftare_ii",
-     "line": 77,
-     "end": 85,
+     "line": 60,
+     "end": 68,
      "args": [
       "beta",
       "specimen"
@@ -2797,8 +2759,8 @@
      "file": "dev_stages.py",
      "function": "anchor_range",
      "name": "anchor_range",
-     "line": 89,
-     "end": 106,
+     "line": 72,
+     "end": 89,
      "args": [
       "beta",
       "f_neu",
@@ -2817,8 +2779,8 @@
      "file": "dev_stages.py",
      "function": "site_uncertainty",
      "name": "site_uncertainty",
-     "line": 109,
-     "end": 116,
+     "line": 92,
+     "end": 99,
      "args": [
       "beta",
       "st"
@@ -2835,8 +2797,8 @@
      "file": "dev_stages.py",
      "function": "s_for",
      "name": "s_for",
-     "line": 119,
-     "end": 124,
+     "line": 102,
+     "end": 107,
      "args": [
       "sites",
       "ref_values",
@@ -2855,8 +2817,8 @@
      "file": "dev_stages.py",
      "function": "direction",
      "name": "direction",
-     "line": 128,
-     "end": 133,
+     "line": 111,
+     "end": 116,
      "args": [
       "beta",
       "ref",
@@ -2872,8 +2834,8 @@
      "file": "dev_stages.py",
      "function": "direction_record",
      "name": "direction_record",
-     "line": 136,
-     "end": 150,
+     "line": 119,
+     "end": 133,
      "args": [
       "beta",
       "specimen",
@@ -2890,8 +2852,8 @@
      "file": "dev_stages.py",
      "function": "trace_cell",
      "name": "trace_cell",
-     "line": 154,
-     "end": 168,
+     "line": 137,
+     "end": 151,
      "args": [
       "beta",
       "su",
@@ -2909,8 +2871,8 @@
      "file": "dev_stages.py",
      "function": "foreign_cell",
      "name": "foreign_cell",
-     "line": 172,
-     "end": 193,
+     "line": 155,
+     "end": 176,
      "args": [
       "beta",
       "template",
@@ -2930,8 +2892,8 @@
      "file": "dev_stages.py",
      "function": "brightness",
      "name": "brightness",
-     "line": 197,
-     "end": 213,
+     "line": 180,
+     "end": 196,
      "args": [
       "beta",
       "specimen",
@@ -2952,8 +2914,8 @@
      "file": "dev_stages.py",
      "function": "_mapping",
      "name": "_mapping",
-     "line": 217,
-     "end": 222,
+     "line": 200,
+     "end": 205,
      "args": [],
      "lines": 6,
      "doc": "",
@@ -2970,8 +2932,8 @@
      "file": "dev_stages.py",
      "function": "residual_z",
      "name": "residual_z",
-     "line": 225,
-     "end": 230,
+     "line": 208,
+     "end": 213,
      "args": [
       "beta",
       "fractions",
@@ -2989,8 +2951,8 @@
      "file": "dev_stages.py",
      "function": "_pixmap",
      "name": "_pixmap",
-     "line": 233,
-     "end": 235,
+     "line": 216,
+     "end": 218,
      "args": [
       "zs",
       "pix",
@@ -3006,8 +2968,8 @@
      "file": "dev_stages.py",
      "function": "block_shuffle_order",
      "name": "block_shuffle_order",
-     "line": 238,
-     "end": 244,
+     "line": 221,
+     "end": 227,
      "args": [
       "chr_keys",
       "run",
@@ -3025,8 +2987,8 @@
      "file": "dev_stages.py",
      "function": "sky_from_z",
      "name": "sky_from_z",
-     "line": 247,
-     "end": 260,
+     "line": 230,
+     "end": 243,
      "args": [
       "z",
       "n_null",
@@ -3048,8 +3010,8 @@
      "file": "dev_stages.py",
      "function": "sky_from_z.shuf",
      "name": "shuf",
-     "line": 252,
-     "end": 253,
+     "line": 235,
+     "end": 236,
      "args": [],
      "lines": 2,
      "doc": "",
@@ -3061,8 +3023,8 @@
      "file": "dev_stages.py",
      "function": "_has_cols",
      "name": "_has_cols",
-     "line": 263,
-     "end": 266,
+     "line": 246,
+     "end": 249,
      "args": [
       "path",
       "cols"
@@ -3079,8 +3041,8 @@
      "file": "dev_stages.py",
      "function": "load_atlas_parents",
      "name": "load_atlas_parents",
-     "line": 269,
-     "end": 276,
+     "line": 252,
+     "end": 259,
      "args": [
       "atlas_parquet"
      ],
@@ -3097,8 +3059,8 @@
      "file": "dev_stages.py",
      "function": "sky",
      "name": "sky",
-     "line": 279,
-     "end": 285,
+     "line": 262,
+     "end": 268,
      "args": [
       "beta",
       "fractions",
@@ -3114,8 +3076,8 @@
      "file": "dev_stages.py",
      "function": "_atlas_e",
      "name": "_atlas_e",
-     "line": 293,
-     "end": 301,
+     "line": 276,
+     "end": 284,
      "args": [
       "atlas_parquet"
      ],
@@ -3132,8 +3094,8 @@
      "file": "dev_stages.py",
      "function": "atlas_e",
      "name": "atlas_e",
-     "line": 304,
-     "end": 308,
+     "line": 287,
+     "end": 291,
      "args": [
       "beta",
       "atlas_parquet"
@@ -3150,8 +3112,8 @@
      "file": "dev_stages.py",
      "function": "nilc_e",
      "name": "nilc_e",
-     "line": 311,
-     "end": 315,
+     "line": 294,
+     "end": 298,
      "args": [
       "beta",
       "atlas_parquet"
@@ -3168,8 +3130,8 @@
      "file": "dev_stages.py",
      "function": "percell_b",
      "name": "percell_b",
-     "line": 318,
-     "end": 330,
+     "line": 301,
+     "end": 313,
      "args": [
       "beta",
       "fractions",
@@ -3190,8 +3152,8 @@
      "file": "dev_stages.py",
      "function": "epicv2_calibrate",
      "name": "epicv2_calibrate",
-     "line": 337,
-     "end": 355,
+     "line": 320,
+     "end": 338,
      "args": [
       "grn",
       "red",
@@ -4338,6 +4300,67 @@
     "route": "array",
     "order": 202
    }
+  },
+  {
+   "file": "stage_t_selftare.py",
+   "lines": 42,
+   "functions": [
+    {
+     "file": "stage_t_selftare.py",
+     "function": "_json",
+     "name": "_json",
+     "line": 15,
+     "end": 18,
+     "args": [
+      "name"
+     ],
+     "lines": 4,
+     "doc": "The self-tare matrix, read once (any name for it, old or new, reads the same file).",
+     "constants": [
+      "MATRIX",
+      "_C"
+     ],
+     "data_files": [
+      "selftare_typeII_EPIC_v1.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_t_selftare.py",
+     "function": "anchors",
+     "name": "anchors",
+     "line": 21,
+     "end": 27,
+     "args": [
+      "beta",
+      "st"
+     ],
+     "lines": 7,
+     "doc": "This array's anchors: mean beta over each fixed-site set (I_low, I_high, II_low, II_high) it measures, with the count.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_t_selftare.py",
+     "function": "selftare_map",
+     "name": "selftare_map",
+     "line": 30,
+     "end": 41,
+     "args": [
+      "beta",
+      "st"
+     ],
+     "lines": 12,
+     "doc": "beta' = Lr + (beta - L)(Ur - Lr)/(U - L) per design at the sites whose design is recorded; other sites unchanged. Returns (beta', record).",
+     "constants": [],
+     "data_files": [
+      "Runtime Matrices/Stage_T/selftare_typeII_EPIC_v1.json"
+     ],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
   },
   {
    "file": "dev_comp_methods.py",
@@ -6671,6 +6694,6 @@
    "first_entered": null
   }
  ],
- "n_files": 29,
- "n_functions": 339
+ "n_files": 30,
+ "n_functions": 340
 }

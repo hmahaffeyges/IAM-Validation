@@ -12,7 +12,7 @@ Runs after Stage 0 (intake) and Stage 1 (IDAT calibration), both driven by Methy
             expectation, read at any neutrophil fraction above 0 with its own detection limit, when >= 90 % of the 6000 sites are measured
   Stage MC  Met-A C-score: clustering of the neutrophil residual map over the healthy baseline (commissioned 2026-10-15 on whole blood; band 0.877-1.152, one-sided)
   Stage T   step 1, self-tare II (adopted by the author 2026-10-04, DEV-SELFTARE-02; wired here 2026-10-04): each probe design mapped
-            onto the reference arrays' scale by this array's own low and high fixed-site anchors (dev_stages.selftare_map), before
+            onto the reference arrays' scale by this array's own low and high fixed-site anchors (stage_t_selftare.selftare_map), before
             Stages A, M and MC; no references; nothing is fitted. Step 2, the median tare against >= 3 healthy references run the same
             way (same slide, else same batch), whole blood and isolated alike: A_rel = A / median(reference A); nothing is fitted.
             Without references the reading is reported as untared (step 2 not run).
@@ -237,10 +237,10 @@ def stage_t_cscore(cs, ref_A, sample_id=None):
 
 def stage_t_selftare_ii(beta):
     """Stage T step 1, self-tare II (adopted 2026-10-04, DEV-SELFTARE-02): per probe design, beta' = Lr + (beta - L)(Ur - Lr)/(U - L) from this
-    array's own fixed-site anchors L, U and the reference arrays' Lr, Ur (dev_stages.selftare_map; a design with anchors missing or U - L <= 0.1
+    array's own fixed-site anchors L, U and the reference arrays' Lr, Ur (stage_t_selftare.selftare_map; a design with anchors missing or U - L <= 0.1
     is left unmapped). Returns (beta', record); when the runtime file is missing, (beta, record with status NOT_RUN)."""
     import dev_stages as DV
-    b2, info = DV.selftare_map(beta)
+    import stage_t_selftare as _ST; b2, info = _ST.selftare_map(beta)   # 2026-10-22 (F23): moved unchanged from dev_stages
     if b2 is None: return beta, {"step": "1 self-tare II", "status": "NOT_RUN", **info}
     return b2, {"step": "1 self-tare II", "status": "OK", **info,
                 "note": "Stages A, M and MC read this array's betas mapped onto the reference arrays' scale by its own fixed-site anchors; the noise index reads the unmapped betas"}

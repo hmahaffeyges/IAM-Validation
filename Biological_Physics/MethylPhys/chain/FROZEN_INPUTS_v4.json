@@ -1,5 +1,5 @@
 {
-  "_rule": "Chain v4 frozen inputs (2026-10-17): every file the commissioned v4 run reads, with its sha256. release_check_v4.py F1 fails if any differs. The v3 list minus the retired IAM-A position file (v4 reads it only behind --dev-iama-position), plus IAM-A's self-reference line, shape reference and band v1, the gauge marks (IAM-A band v1 added 2026-10-17) and the atlas v2.1 compact manifest, which carries the sha256 of every atlas table.",
+  "_rule": "Chain v4 frozen inputs (2026-10-17): every file the commissioned v4 run reads, with its sha256. release_check_v4.py F1 fails if any differs. The v3 list minus the retired IAM-A position file (v4 reads it only behind --dev-iama-position), plus IAM-A's self-reference line, shape reference and band v1, the gauge marks (IAM-A band v1 added 2026-10-17) and the atlas v2.1 compact manifest, which carries the sha256 of every atlas table. 2026-10-22 (Decoder finding F23): the self-tare matrix (Stage T step 1, run on every reading) added, moved unchanged from Runtime Matrices/Development/.",
   "files": {
     "Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json": "2f64f8846f8a4b0d5d66964347807dde03067130f17d9ce97a8e4dc7efe7c9ae",
     "Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv": "73f090a7004bc7c79b0d761000eb49c86f61e0865fa1823458feaa095ec1eda0",
@@ -15,7 +15,8 @@
     "../atlas/v2.1/compact_manifest.json": "fafb600b4545dabba663c808e04db34ccb5fceaa5a4042e4d106dc23f6117b01",
     "Runtime Matrices/Intake/intake_thresholds_v2.json": "c0941e5a58d2f95f1d1bbdc9023e8f964beaed4458fa9be94d1af868fa1b06b4",
     "Runtime Matrices/Atlas_V21/sky_order_v21.npz": "c61c2f7efd8e6b2c2e2669913d0ce1614db5370d1d0ec540521b3b3758844230",
-    "Runtime Matrices/Atlas_V21/sex_chromosome_sites_v21.json": "7cbb4a517fe4ce66100e8c5af519dc33a47b853af09e354ce148555834cd50ab"
+    "Runtime Matrices/Atlas_V21/sex_chromosome_sites_v21.json": "7cbb4a517fe4ce66100e8c5af519dc33a47b853af09e354ce148555834cd50ab",
+    "Runtime Matrices/Stage_T/selftare_typeII_EPIC_v1.json": "652906dff10a0c33d0b5d15c36a118ab2253655af0f46ba521b579faa1f00c50"
   },
   "superseded": {
     "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json": {

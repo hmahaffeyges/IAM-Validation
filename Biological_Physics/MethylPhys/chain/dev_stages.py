@@ -15,7 +15,8 @@ nothing is fitted to other arrays.
   sky(beta, fractions, atlas)        DEV-SKY-02        residual sky, within-chromosome block-shuffle null, look-elsewhere by simulation
   nilc_e / atlas_e(beta, atlas)      DEV-NILC-01 / DEV-ATLAS-EPIC-02 methods, as frozen
   percell_b(beta, fractions, atlas)  DEV-PERCELL-01    B-cell Met-A on the development floor
-Runtime files (development, not frozen): Runtime Matrices/Development/dev_selftare_typeII_EPIC_v1.json, dev_foreign_placenta_EPIC_v1.json."""
+Runtime files (development, not frozen): Runtime Matrices/Development/dev_foreign_placenta_EPIC_v1.json. The self-tare and its matrix moved to
+stage_t_selftare.py and Runtime Matrices/Stage_T/ on 2026-10-22 (F23)."""
 import json, os
 import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); RM = os.path.join(HERE, "Runtime Matrices"); DEVDIR = os.path.join(RM, "Development")
@@ -35,6 +36,8 @@ def _H(b):
 
 
 def _json(name):
+    if name == "dev_selftare_typeII_EPIC_v1.json":   # 2026-10-22 (F23): moved, unchanged, to Runtime Matrices/Stage_T/ (stage_t_selftare.MATRIX)
+        import stage_t_selftare as _ST; return _ST._json()
     if name not in _C:
         p = os.path.join(DEVDIR, name) if not os.path.isabs(name) else name
         _C[name] = json.load(open(p)) if os.path.exists(p) else None
@@ -51,27 +54,7 @@ def _rec(stage, **kw):
 
 
 # ---------------------------------------------------------------- self-tare on type II fixed sites (DEV-SELFTARE-02)
-def anchors(beta, st=None):
-    """This array's anchors: mean beta over each fixed-site set (I_low, I_high, II_low, II_high) it measures, with the count."""
-    st = st or _json("dev_selftare_typeII_EPIC_v1.json")
-    out = {}
-    for k, sites in st["sets"].items():
-        x = beta.reindex(sites).dropna(); out[k] = {"mean": float(x.mean()) if len(x) else None, "n": int(len(x))}
-    return out
-
-
-def selftare_map(beta, st=None):
-    """beta' = Lr + (beta - L)(Ur - Lr)/(U - L) per design at the sites whose design is recorded; other sites unchanged. Returns (beta', record)."""
-    st = st or _json("dev_selftare_typeII_EPIC_v1.json")
-    if st is None: return None, {"reason": "dev_selftare_typeII_EPIC_v1.json not found"}
-    an = anchors(beta, st); ra = st["ref_anchors"]; des = pd.Series(st["design"]); b2 = beta.copy(); maps = {}
-    for d in ("I", "II"):
-        L, U = an[f"{d}_low"]["mean"], an[f"{d}_high"]["mean"]; Lr, Ur = ra[f"{d}_low"], ra[f"{d}_high"]
-        if L is None or U is None or U - L <= 0.1: maps[d] = None; continue
-        s = des.index[des.values == d].intersection(b2.dropna().index)
-        b2.loc[s] = (Lr + (b2.loc[s] - L) * (Ur - Lr) / (U - L)).clip(1e-6, 1 - 1e-6)
-        maps[d] = {"L": round(L, 5), "U": round(U, 5), "L_ref": round(Lr, 5), "U_ref": round(Ur, 5), "slope": round((Ur - Lr) / (U - L), 5), "n_sites_mapped": int(len(s))}
-    return b2, {"anchors": an, "maps": maps}
+from stage_t_selftare import anchors, selftare_map   # 2026-10-22 (F23): Stage T step 1 lives in stage_t_selftare.py, unchanged; kept here by name for older scripts
 
 
 def selftare_ii(beta, specimen="whole blood"):

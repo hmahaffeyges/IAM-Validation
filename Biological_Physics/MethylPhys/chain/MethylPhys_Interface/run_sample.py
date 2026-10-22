@@ -195,10 +195,10 @@ def _redact(obj, typed, hid):
 
 
 def _metaa_atlas(a, b):
-    """--dev-metaa-atlas (DEV-METAA-ATLAS-01): Met-A against IAM-Atlas v2.1 on the values Stage T step 1 maps (dev_stages.selftare_map, the map the
+    """--dev-metaa-atlas (DEV-METAA-ATLAS-01): Met-A against IAM-Atlas v2.1 on the values Stage T step 1 maps (stage_t_selftare.selftare_map, the map the
     commissioned Met-A reads), then the same-run tare when >= 3 references are given. Development; the reading, gauge and tare are untouched."""
     import dev_stages as DV, stage_metaa_atlas as SA
-    bs, info = DV.selftare_map(b)
+    import stage_t_selftare as _ST; bs, info = _ST.selftare_map(b)   # Stage T step 1 (F23: stage_t_selftare)
     if bs is None: return {"label": DV.DEV_LABEL, "status": "NOT_RUN", "reason": "Stage T step 1 could not run: " + str(info.get("reason"))}
     maps = info.get("maps") or {}
     if not all(maps.get(d) for d in ("I", "II")):

@@ -149,6 +149,7 @@ Every reference the chain reads is a committed file; nothing is fitted at run ti
 | `Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json` | `820c9b1ecf824561…` |
 | `Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json` | `825f64f7b6c7077a…` |
 | `Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json` | `3531561783261c57…` |
+| `Runtime Matrices/Stage_T/selftare_typeII_EPIC_v1.json` | `652906dff10a0c33…` |
 
 ## 9. Rules
 
