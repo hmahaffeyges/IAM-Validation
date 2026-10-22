@@ -62,8 +62,9 @@ function IAMExplorer(root, specs) { const q = c => root.querySelector(c), G = IA
       '<div style="margin-top:4px">A colored patch is a block of 10 neighboring sites that changed beyond the fixed line; brighter means a larger change. Red and blue are the direction of the change, not sites added or missing.</div>';
     if (L.key_css) return '<b>Color key</b><div style="height:12px;margin:4px 0;border:1px solid #555;background:' + L.key_css + '"></div><div style="display:flex;justify-content:space-between"><span>0: unmethylated</span><span>1: fully methylated</span></div>' + sw_('rgb(42,45,51)', 'Charcoal: no site measured there');
     return L.key_html || ''; }
-  function onLayer() { const L = lay(); sw.style.display = L.kind === 'image' ? 'none' : ''; hn.textContent = L.hint || ''; fx.textContent = L.fixed || ''; ky.innerHTML = key(L);
-    if (L.kind === 'diff') { rg.max = 50; rg.value = L.start ?? 10; } else if (L.kind === 'change') { rg.max = 100; rg.value = 0; } else if (L.kind === 'steps') { rg.max = L.srcs.length - 1; rg.value = 0; } render(); }
+  function onLayer() { const L = lay(); sw.style.display = (L.kind === 'image' && !L.mask) ? 'none' : '';
+    if (L.kind === 'image' && L.mask && !L.hint) L.hint = 'Slide right to keep only the sites ' + (L.vword || 'above the chosen value') + '; the rest go dark. Slide back to see every site.'; hn.textContent = L.hint || ''; fx.textContent = L.fixed || ''; ky.innerHTML = key(L);
+    if (L.kind === 'diff') { rg.max = 50; rg.value = L.start ?? 10; } else if (L.kind === 'change') { rg.max = 100; rg.value = 0; } else if (L.kind === 'steps') { rg.max = L.srcs.length - 1; rg.value = 0; } else if (L.mask) { rg.max = 100; rg.value = 0; } render(); }
   let tok = 0;
   async function render() { const L = lay(), t = +rg.value, my = ++tok;
     if (L.kind === 'change') { const T = await IAMTex(U(L.src)), B = L.base ? await IAMTex(U(L.base)) : null; if (my !== tok) return; const f = 1 - t / 100;
@@ -75,6 +76,14 @@ function IAMExplorer(root, specs) { const q = c => root.querySelector(c), G = IA
           const y = 0.3 * r + 0.59 * gg + 0.11 * bb, mix = (v) => { const g1 = v + (y - v) * toGray; return g1 * (1 - toDark); };   // to pure black at the right end
           return [mix(r), mix(gg), mix(bb)]; }
         const v = c > 128 ? 1 : -1, a = Math.min(1, Math.max(0, (Math.abs(c - 128) - 48) / 79)), b = 0.8 + 0.2 * a; return v > 0 ? [255 * b, 45 * b, 40 * b] : [45 * b, 110 * b, 255 * b]; }, T.w, T.h); return; }
+    if (L.kind === 'image' && L.mask) {   // 2026-10-21 (author: "the other options dont even have a slider"): keep only the sites above a chosen value
+      const T = await IAMTex(U(L.src)), M = await IAMTex(U(L.mask)); if (my !== tok) return;
+      const lo = (L.vscale || [0, 1])[0], hi = (L.vscale || [0, 1])[1], th = lo + (hi - lo) * t / 100, sx = M.w / T.w, sy = M.h / T.h; let kept = 0, meas = 0;
+      const val = (k) => { const i = k / 4, x = i % T.w, y = (i - x) / T.w, j = 4 * (Math.floor(y * sy) * M.w + Math.floor(x * sx)), c = M.d[j]; return c < 1 ? null : lo + (hi - lo) * (c - 1) / 254; };
+      for (let j = 0; j < M.d.length; j += 4) { const c = M.d[j]; if (c >= 1) { meas++; if (lo + (hi - lo) * (c - 1) / 254 >= th) kept++; } }   // the share, once, over the whole map
+      G.set(k => { const v = val(k); return (v === null || v >= th) ? [T.d[k], T.d[k + 1], T.d[k + 2]] : [8, 8, 11]; }, T.w, T.h);
+      rv.textContent = t === 0 ? 'every site' : (L.vword ? 'only sites ' + L.vword.replace('above the chosen value', '') + ' ' : 'at least ') + th.toFixed(hi - lo > 0.5 ? 2 : 3) + (L.vunit ? ' ' + L.vunit : '') + (meas ? ': ' + (100 * kept / meas).toFixed(1) + ' % of the measured globe kept' : '');
+      nt.textContent = L.note || ''; return; }
     if (L.kind !== 'diff') { const T = await IAMTex(U(L.kind === 'steps' ? L.srcs[t] : L.src)); if (my !== tok) return;
       if (L.kind === 'steps') rv.textContent = L.labels[t]; nt.textContent = L.kind === 'steps' ? ((L.notes || [])[t] || '') + ' ' + (L.note || '') : (L.note || '');
       G.set(k => [T.d[k], T.d[k + 1], T.d[k + 2]], T.w, T.h); return; }

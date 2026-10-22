@@ -5212,7 +5212,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 355,
+   "lines": 363,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
@@ -5370,10 +5370,25 @@
     },
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "_vmask",
+     "name": "_vmask",
+     "line": 107,
+     "end": 112,
+     "args": [
+      "v"
+     ],
+     "lines": 6,
+     "doc": "A map's values (texture-shaped, 0 to 1) as a half-size 8-bit PNG data URL: 0 no site, 1 to 255 the value. The page keeps only the sites above a chosen value with it (2026-10-21). A browser that color-manages the image may shift a code by a step or two: about 1 % of the scale at the slider's line, a viewing tool, never a reading.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_jpg_b64",
      "name": "_jpg_b64",
-     "line": 107,
-     "end": 109,
+     "line": 115,
+     "end": 117,
      "args": [
       "rgb"
      ],
@@ -5387,8 +5402,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "reference",
      "name": "reference",
-     "line": 111,
-     "end": 120,
+     "line": 119,
+     "end": 128,
      "args": [
       "specimen",
       "shares"
@@ -5406,8 +5421,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_dots",
      "name": "_dots",
-     "line": 122,
-     "end": 128,
+     "line": 130,
+     "end": 136,
      "args": [
       "v"
      ],
@@ -5423,8 +5438,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "purified",
      "name": "purified",
-     "line": 130,
-     "end": 138,
+     "line": 138,
+     "end": 146,
      "args": [
       "fractions",
       "specimen"
@@ -5444,8 +5459,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build",
      "name": "build",
-     "line": 140,
-     "end": 284,
+     "line": 148,
+     "end": 292,
      "args": [
       "beta",
       "specimen",
@@ -5463,6 +5478,7 @@
       "BLOCK",
       "CH",
       "HERE",
+      "MV",
       "ORDER",
       "PANEL",
       "R_DOT",
@@ -5482,8 +5498,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build.rgb",
      "name": "rgb",
-     "line": 180,
-     "end": 181,
+     "line": 188,
+     "end": 189,
      "args": [
       "m"
      ],
@@ -5497,8 +5513,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build._code",
      "name": "_code",
-     "line": 183,
-     "end": 188,
+     "line": 191,
+     "end": 196,
      "args": [
       "v",
       "full"
@@ -5513,8 +5529,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair",
      "name": "build_pair",
-     "line": 301,
-     "end": 344,
+     "line": 309,
+     "end": 352,
      "args": [
       "beta",
       "ref_beta",
@@ -5529,6 +5545,7 @@
       "ATLAS",
       "BLOCK",
       "HERE",
+      "MV",
       "ORDER",
       "PAIR_ABOUT"
      ],
@@ -5543,8 +5560,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair.rgb",
      "name": "rgb",
-     "line": 323,
-     "end": 324,
+     "line": 331,
+     "end": 332,
      "args": [
       "m"
      ],
@@ -5559,7 +5576,7 @@
   },
   {
    "file": "MethylPhys_Interface/globe_viewer.py",
-   "lines": 125,
+   "lines": 134,
    "functions": [
     {
      "file": "MethylPhys_Interface/globe_viewer.py",
@@ -5595,8 +5612,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "fragment",
      "name": "fragment",
-     "line": 98,
-     "end": 101,
+     "line": 107,
+     "end": 110,
      "args": [
       "specs",
       "size"
@@ -5614,8 +5631,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "page",
      "name": "page",
-     "line": 103,
-     "end": 110,
+     "line": 112,
+     "end": 119,
      "args": [
       "specs",
       "title",
@@ -5636,8 +5653,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "write_files",
      "name": "write_files",
-     "line": 112,
-     "end": 124,
+     "line": 121,
+     "end": 133,
      "args": [
       "spec",
       "d",
@@ -5653,8 +5670,8 @@
      "file": "MethylPhys_Interface/globe_viewer.py",
      "function": "write_files.one",
      "name": "one",
-     "line": 115,
-     "end": 118,
+     "line": 124,
+     "end": 127,
      "args": [
       "v"
      ],
@@ -5669,5 +5686,5 @@
   }
  ],
  "n_files": 24,
- "n_functions": 285
+ "n_functions": 286
 }

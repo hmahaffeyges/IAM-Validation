@@ -25,7 +25,7 @@ def purified():
     for g, prof in B["profiles_at_neutrophil_sites"].items():
         v = pd.Series(np.asarray(prof, float), index=B["neutrophil_sites"]).reindex(ids[order]).to_numpy()
         t = G._dots(G._to_sky(v, npix)[look].reshape(G.HT, G.W)); x = (cm(np.clip(np.nan_to_num(t, nan=0), 0, 1))[..., :3] * 255).astype(np.uint8); x[~np.isfinite(t)] = (42, 45, 51)
-        L.append(dict(name=GROUP.get(g, g), kind="image", src="data:image/jpeg;base64," + G._jpg_b64(x),
+        L.append(dict(name=GROUP.get(g, g), kind="image", src="data:image/jpeg;base64," + G._jpg_b64(x), mask=G._vmask(t), **G.MV,
                       note=f"The purified healthy {GROUP.get(g, g)} profile at Met-A's {int(np.isfinite(v).sum()):,} identity sites placed on the atlas's layout, 0 to 1."))
     spec = V.dedupe(dict(id="purified", name="Met-A's purified-array reference", groups=[dict(name="purified healthy blood groups", layers=L)],
         about=("The reference Met-A and the C-Score read against: purified healthy cell arrays, at Met-A's 6,000 neutrophil identity sites only, "
@@ -58,6 +58,7 @@ def noise(d):
             lay("", "how sure the atlas is, every site", "The X and Y stay lit longest: the atlas's donors are women and men, and a woman holds one X methylated."),
             lay("_noXY", "how sure the atlas is, X and Y hidden", "With the X and Y hidden, the rest of the genome is easier to read."),
             dict(name="the atlas's best value (100 draws)", kind="image", src=b64(f"noise_{c}_k100.jpg"), key_css=None,
+                 **({"mask": "data:image/png;base64," + base64.b64encode(open(os.path.join(d, f"noise_{c}_k100_m.png"), "rb").read()).decode(), **G.MV} if os.path.exists(os.path.join(d, f"noise_{c}_k100_m.png")) else {}),
                  note="The mean of all 100 draws, 0 to 1: the atlas's map of this cell.")]))
     about = ("IAM-Atlas v2.1 was fitted the way a sky map is: every site carries 100 equally likely versions of each cell's healthy map (posterior "
              f"draws, Zenodo {J['record']}). Averaging more draws beats the noise down, about as one over the square root of their number, which is "

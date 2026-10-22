@@ -76,6 +76,7 @@ def combine(d, out):
             v = M[a, c][order]; m = G._to_sky(v, npix)[look].reshape(G.HT, G.W)
             x = (cm(np.clip(np.nan_to_num(m, nan=0), 0, 1))[..., :3] * 255).astype(np.uint8); x[~np.isfinite(m)] = (42, 45, 51)
             Image.fromarray(x).save(os.path.join(out, f"noise_{cell.replace(' ', '_')}_k{k}.jpg"), quality=72, optimize=True, progressive=True)
+            if k == K[-1]: Image.fromarray(np.where(np.isfinite(m), 1 + np.round(np.clip(m, 0, 1) * 254), 0).astype(np.uint8)[::2, ::2]).save(os.path.join(out, f"noise_{cell.replace(' ', '_')}_k{k}_m.png"), optimize=True)   # its values, for the slider
             info["settle"][cell][str(k)] = round(float(np.nanmean(np.abs(M[a, c] - M[-1, c]))), 5)
             # 2026-10-21: the noise itself, visible: the k-draw map minus the 100-draw map on a fixed scale of +/- RES (it shrinks about as
             # one over the square root of k; on the 0-1 methylation scale it is under one percent and cannot be seen)

@@ -1371,6 +1371,12 @@ pure black, so only the changes stay lit.
 ### report_globe_v4.py::FW_LINE
 The fixed line for n blocks: the size a normal block crosses by chance less than once in 20 genomes, two-sided (5 % family-wise).
 
+### report_globe_v4.py::_vmask
+A map's values (0 to 1) as a half-size 8-bit picture for the page: 0 where no site, 1 to 255 the value. With it every map layer has a slider
+that keeps only the sites at least as methylated as the chosen value, and prints the share of the measured globe kept (2026-10-21; before,
+the map layers had no tool). A browser that color-manages the picture may shift a code by a step or two, about 1 % of the scale at the
+slider's line: a viewing tool, never a reading.
+
 ### report_globe_v4.py::sex_sites
 Loads the frozen list of IAM-Atlas v2.1's sites on the X (14,759) and Y (3) chromosomes, `Runtime Matrices/Atlas_V21/sex_chromosome_sites_v21.json`,
 built by `atlas/tools/sex_sites_v21.py` from the two Illumina manifests Stage 1 is pinned to (it refuses any other manifest).

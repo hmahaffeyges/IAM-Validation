@@ -104,6 +104,14 @@ def _png_b64(arr, mode):
     from PIL import Image
     b = io.BytesIO(); Image.fromarray(arr, mode).save(b, "PNG", optimize=True); return base64.b64encode(b.getvalue()).decode()
 
+def _vmask(v):
+    """A map's values (texture-shaped, 0 to 1) as a half-size 8-bit PNG data URL: 0 no site, 1 to 255 the value. The page keeps only the sites
+    above a chosen value with it (2026-10-21). A browser that color-manages the image may shift a code by a step or two: about 1 % of the
+    scale at the slider's line, a viewing tool, never a reading."""
+    c = np.where(np.isfinite(v), 1 + np.round(np.clip(v, 0, 1) * 254), 0).astype(np.uint8)[::2, ::2]
+    return "data:image/png;base64," + _png_b64(c, "L")
+MV = dict(vscale=[0, 1], vword="at least this methylated:", hint="Slide right to keep only the sites at least this methylated; the rest go dark. Slide back to see every site.")
+
 def _jpg_b64(rgb):
     from PIL import Image
     b = io.BytesIO(); Image.fromarray(rgb).save(b, "JPEG", quality=84, optimize=True); return base64.b64encode(b.getvalue()).decode()
@@ -220,7 +228,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
     cellmaps = []
     for c, wt in sorted((shares or {}).items(), key=lambda x: -(x[1] or 0)):
         if c in PANEL and wt is not None:
-            mc = _mu([PANEL[c]])[PANEL[c]]; cellmaps.append(dict(name=f"{c}: {100 * wt:.0f} % of this sample", t=_jpg_b64(rgb(_to_sky(mc[order], npix)))))
+            mc = _mu([PANEL[c]])[PANEL[c]]; ms = _to_sky(mc[order], npix); cellmaps.append(dict(name=f"{c}: {100 * wt:.0f} % of this sample", t=_jpg_b64(rgb(ms)), m=_vmask(ms[look].reshape(HT, W))))
     m = np.abs(dif_s[np.isfinite(dif_s)]); steps = np.round(np.arange(0, 0.51, 0.01), 2)
     above = [round(float((m > t).mean()), 4) if len(m) else None for t in steps]   # share of measured sky pixels above each size (equal-area)
     rec = {"drawn": True, "reference": name, "weights": {c: round(v, 4) for c, v in w.items()}, "sites_compared": int(both.sum()),
@@ -239,8 +247,8 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
                     "has changed beyond the line pure chance crosses less than once in 20 genomes. Ordinary wear is scattered and seldom moves a whole "
                     "block, so a healthy sample stays nearly dark; a change that runs along the genome lights up in clumps. Red: more methylation "
                     "than healthy; blue: less.")),
-         dict(name="the sample", kind="image", src=J(_jpg_b64(rgb(smp_s))), note="The sample's methylation at every atlas site, 0 to 1."),
-         dict(name="the healthy reference", kind="image", src=R_, note=f"{name}, 0 to 1.")]
+         dict(name="the sample", kind="image", src=J(_jpg_b64(rgb(smp_s))), mask=_vmask(smp_s[look].reshape(HT, W)), **MV, note="The sample's methylation at every atlas site, 0 to 1."),
+         dict(name="the healthy reference", kind="image", src=R_, mask=_vmask(ref_s[look].reshape(HT, W)), **MV, note=f"{name}, 0 to 1.")]
     if zcode is not None:
         L.append(dict(name="the change at Met-A's 6,000 sites (against its purified reference)", kind="change", src=P_(_png_b64(zcode, "RGB")), full=10,
                       hint="Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
@@ -250,9 +258,9 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
                             "Ordinary wear is scattered and seldom moves a whole block; a loss that runs along the genome does, so it shows as clumps.")))
     if pcode is not None:
         Pr = J(_jpg_b64(prgb))
-        L += [dict(name="Met-A's purified-array reference", kind="image", src=Pr, note="Met-A's own healthy reference at its 6,000 sites, weighted by this blood's Stage A fractions; the change against it is the layer above.")]
+        L += [dict(name="Met-A's purified-array reference", kind="image", src=Pr, mask=_vmask(pt), **MV, note="Met-A's own healthy reference at its 6,000 sites, weighted by this blood's Stage A fractions; the change against it is the layer above.")]
     groups = [dict(name="this sample against its references", layers=L)]
-    if cellmaps: groups.append(dict(name="the cells the IAM-Deconvolver read", layers=[dict(name="healthy " + c["name"], kind="image", src=J(c["t"]),
+    if cellmaps: groups.append(dict(name="the cells the IAM-Deconvolver read", layers=[dict(name="healthy " + c["name"], kind="image", src=J(c["t"]), mask=c["m"], **MV,
                                      note="This cell's healthy map in IAM-Atlas v2.1; the share is the IAM-Deconvolver's reading of this sample.") for c in cellmaps]))
     rec["layers"] = [x["name"] for g in groups for x in g["layers"]]
     rec["blocks_changed"] = n_changed; rec["blocks"] = n_ranged; rec["blocks_changed_on_XY"] = n_xy; rec["sex"] = sex
@@ -328,8 +336,8 @@ def build_pair(beta, ref_beta, ref_name, out_html=None, title="This sample again
               hint="Slide right to quiet the reference sample's map: its colors drain to gray, then to dark, until only the change is left lit.",
               fixed=f"Changed: {n_ch:,} of {nb:,} blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",  # X and Y count: in the record
               note="Red: more methylation than the same person's own " + ref_name + "; blue: less. Development: not commissioned by our standards."),
-         dict(name="the sample", kind="image", src=J(_jpg_b64(rgb(sm))), note="The sample's methylation at every atlas site its array measured, 0 to 1."),
-         dict(name="the same person's own " + ref_name, kind="image", src=R_, note="The reference sample's methylation, 0 to 1.")]
+         dict(name="the sample", kind="image", src=J(_jpg_b64(rgb(sm))), mask=_vmask(sm), **MV, note="The sample's methylation at every atlas site its array measured, 0 to 1."),
+         dict(name="the same person's own " + ref_name, kind="image", src=R_, mask=_vmask(rm), **MV, note="The reference sample's methylation, 0 to 1.")]
     for x in L:
         if x["kind"] == "image": x["key_css"] = key_css()
         else: x["id"] = "genome"; x["ref_word"] = "the same person's own " + ref_name

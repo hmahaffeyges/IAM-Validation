@@ -2948,3 +2948,6 @@ One generator, CANON/sex_chromosomes.py, computes from the chain's own files how
 
 ### 2026-10-21 · Met-A against the atlas on an independent laboratory: not ready (GRP-014)
 On 109 sorted cells of five types, read through the chain against IAM-Atlas v2.1, only 37 to 75 % read Normal after the tare, and a planted 1 % loss is about one spread. Part of the spread is the slide: each donor's five cells share a slide and move together. The X is not the cause. Nothing changes in the commissioned Met-A.
+
+### 2026-10-21 · Every globe layer gets a tool (ATL-063)
+The audit showed the atlas globe's two layers per cell, and every plain map in the reports and the Explorer, had no slider. Each now has one that keeps only the sites above a chosen methylation (or, on the certainty maps, only the sites the atlas is least sure of), with the share of the globe kept printed. The Met-A layer's key now says what its red means: more disorder than the healthy reference, the held pattern being lost.

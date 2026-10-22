@@ -32,8 +32,12 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
     _s.path.insert(0, os.path.join(H_, "..", "..", "Biological_Physics", "MethylPhys", "chain", "MethylPhys_Interface")); import globe_viewer as V
     S = json.load(open(f)); cells = sorted(({"slug": c["slug"], "name": names.get(c["slug"], c["cell"])} for c in S["cells"]), key=lambda c: c["name"].lower())
     atlas = dict(id="atlas", name="IAM-Atlas v2.1: 79 healthy cell types", groups=[dict(id=c["slug"], name=c["name"], layers=[
-        dict(name="methylation", kind="image", src=f"{art_rel}sphere/{c['slug']}_v.jpg", note="The atlas's best value at every site, 0 (never tagged) to 1 (always tagged)."),
-        dict(name="how sure the atlas is", kind="image", src=f"{art_rel}sphere/{c['slug']}_u.jpg", note="Half-width of the 95 % range at every site: dark is certain, bright is +/-0.15 or wider.")]) for c in cells],
+        dict(name="methylation", kind="image", src=f"{art_rel}sphere/{c['slug']}_v.jpg", mask=f"{art_rel}sphere/{c['slug']}_vm.png", vscale=[0, 1], vword="at least this methylated:",
+             hint="Slide right to keep only the sites at least this methylated; the rest go dark. Slide back to see every site.",
+             note="The atlas's best value at every site, 0 (never tagged) to 1 (always tagged)."),
+        dict(name="how sure the atlas is", kind="image", src=f"{art_rel}sphere/{c['slug']}_u.jpg", mask=f"{art_rel}sphere/{c['slug']}_um.png", vscale=[0, 0.15], vword="less sure than +/-",
+             hint="Slide right to keep only the sites where the atlas is least sure; the sure ones go dark. Slide back to see every site.",
+             note="Half-width of the 95 % range at every site: dark is certain, bright is +/-0.15 or wider.")]) for c in cells],
         about=(f"{E(HOW)} Every one of the {S['sites']:,} atlas sites has one fixed place, the same on every globe here and in every report: HEALPix "
                f"NSIDE {S['nside']}, {S['order']} order, sites in genome order. Its benefits as a map: every pixel the same area, no edges, and change that "
                f"runs along the genome shows as a patch while scattered noise shows as speckle. A picture of the atlas: nothing is read or scored from it."))
