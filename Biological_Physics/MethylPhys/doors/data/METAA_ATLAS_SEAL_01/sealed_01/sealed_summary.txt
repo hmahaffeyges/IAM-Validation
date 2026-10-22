@@ -1,0 +1,6 @@
+METAA-ATLAS-SEAL-01 sealed: seal_samples.csv, Met-A against IAM-Atlas v2.1 monocytes, laboratory tare
+B1 tared 31 of 31 (bar: at least 90 %) -> MET
+B2 Normal 0.9032 of tared, median 0.99936 (bar: at least 0.90) -> MET
+B3 planted 1 % moves +0.05773 = 1.4 healthy spreads (spread 0.04119; bar: at least 2) -> NOT MET
+reported, not scored: same-slide tare {'n': 9, 'share_normal': 1.0, 'spread': 0.01468, 'planted_spreads': 4.01}
+ALL BARS NOT MET
