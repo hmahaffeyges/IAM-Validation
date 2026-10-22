@@ -2,11 +2,11 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **24 Python files** holding **293 functions** (nested ones included); 293 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **29 Python files** holding **337 functions** (nested ones included); 337 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 807 | 16 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 820 | 16 | 11 | 10 |
 | `stage_0_intake.py` | 1,172 | 40 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -30,6 +30,11 @@ Read from the code at build time: the one command can load **24 Python files** h
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 365 | 19 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
+| `stage_metaa_atlas.py` | 94 | 7 | 0 | 0 |
+| `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
+| `stage_info_sphere.py` | 94 | 9 | 0 | 0 |
+| `MethylPhys_Interface/reference_globes.py` | 155 | 8 | 0 | 0 |
+| `MethylPhys_Interface/run_series.py` | 123 | 6 | 0 | 0 |
 
 ## How to read the Decoder
 
@@ -223,7 +228,7 @@ autosomes (`stage_q2_globe.count_pat_regions`) and draws the sample against its 
 against that second file (`pair_globe`, named by `--prior-name`). Written under bundle `development.genome_globe`; with `--explorer-spec`,
 the Globe Explorer file.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 233 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 243 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
 
 ### `run_sample.py::_build`
 
@@ -231,7 +236,7 @@ the Globe Explorer file.
 matrix of levels (sites x cell types), with its report (variance kept, sky covered and masked, distance agreement, edge ratio, and each named
 site group's concentration against random groups) to `--bundle` and the layout to `--build-out`.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 214 (17 lines) · arguments: a · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 214 (27 lines) · arguments: a · calls: not called on the traced runs
 
 ### `run_sample.py::_dev_run`
 
@@ -239,7 +244,7 @@ Runs the development readings named by `--dev-*` flags (direction, trace cell, f
 B-cell reading, sky with the block-shuffle null, EPIC v2 through SeSAMe). Each writes its own record under `bundle["development"]`,
 labeled DEVELOPMENT, and an error in one is caught and recorded. None of them changes the reading, the gauge or the tare.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 256 (41 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
+*Code:* `MethylPhys_Interface/run_sample.py` line 266 (41 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
 
 ### `run_sample.py::main`
 
@@ -247,7 +252,7 @@ The orchestration described above, from parsing the command to writing the ledge
 exit code 2 or 3 at the stops listed, carries the same-run references (columns A and C) into the conductor, adds the v4 stages, and
 hands everything to the report.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 299 (506 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`
+*Code:* `MethylPhys_Interface/run_sample.py` line 309 (509 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`
 
 ### `run_sample.py::main._stopped`
 
@@ -255,13 +260,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 421 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 434 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 751 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 764 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -2546,3 +2551,321 @@ distribution are kept, and only the arrangement is destroyed, so a difference fr
 One sky's spectrum, band powers, measured fraction, share of pixels with |z| above 2, and its null.
 
 *Code:* `sky_statistics.py` line 97 (11 lines) · arguments: pix, n_perm, lmax, rng, mask, apod_deg, taper · calls: not called on the traced runs · constants read: `BANDS`
+
+## 16. Met-A against IAM-Atlas v2.1 (development): `stage_metaa_atlas.py`
+
+**What it is for.** Reading an isolated cell of any type the atlas holds by Met-A, against that cell in IAM-Atlas v2.1 instead of against
+purified arrays. Run by the one command with `--dev-metaa-atlas CELL`, and on its own when intake accepts an isolated, sorted or purified atlas
+cell (Section 1, `stage_0_intake.atlas_cell_of`). Development, not commissioned: written under `development.metaa_atlas`.
+
+**Label: from IAM's physics.** The same reading as Met-A: mean entropy H(β) at the cell's identity sites over the entropy the reference
+predicts there. A held site sits near 0 or 1; a loss moves it toward 0.5, where H is largest, so a loss raises the reading.
+
+**Label: standard.** The identity sites follow Met-A's own site rule, applied to the atlas: healthy width at most 0.05 (the person-to-person
+spread combined with the atlas's own uncertainty, half its 95 % range over 1.96), and a best value from 0.75 to 0.95 (methylated side) or 0.05
+to 0.25 (unmethylated side); where more than 3,000 qualify on a side, the 3,000 of smallest width. A reading needs at least 90 % of them
+measured. The tare is a median of at least 3 same-run healthy references, as Stage T step 2; never the sample itself.
+
+### `stage_metaa_atlas.py::_H`
+
+The entropy of a beta value in bits, clipped to [10⁻⁶, 1 − 10⁻⁶].
+
+*Code:* `stage_metaa_atlas.py` line 31 (2 lines) · arguments: b · calls: not called on the traced runs
+
+### `stage_metaa_atlas.py::_col`
+
+One cell's atlas column (best value, the ends of its 95 % range, or the person-to-person spread) over the atlas's sites, read once.
+
+*Code:* `stage_metaa_atlas.py` line 34 (12 lines) · arguments: stem, cell · calls: not called on the traced runs · constants read: `ATLAS`, `NA` · files named: `import pyarrow.parquet`, `sites.parquet`
+
+### `stage_metaa_atlas.py::width`
+
+Each site's healthy width: the person-to-person spread and the atlas's uncertainty (half the 95 % range over 1.96), combined in quadrature.
+
+*Code:* `stage_metaa_atlas.py` line 47 (4 lines) · arguments: cell · calls: not called on the traced runs
+
+### `stage_metaa_atlas.py::identity_sites`
+
+The cell's identity sites by the rule above (up to 3,000 per side): methylated side, then unmethylated side.
+
+*Code:* `stage_metaa_atlas.py` line 52 (10 lines) · arguments: cell · calls: not called on the traced runs · constants read: `RULE`
+
+### `stage_metaa_atlas.py::read`
+
+Met-A against the atlas cell, untared, on the values given (the one command passes the self-tared values), with the shift a 1 % loss would
+make; refuses, with the reason, a cell with no qualifying site or a sample measuring under 90 % of them.
+
+*Code:* `stage_metaa_atlas.py` line 63 (14 lines) · arguments: beta, cell, specimen · calls: not called on the traced runs · constants read: `FLAG`, `RULE`
+
+### `stage_metaa_atlas.py::tare`
+
+A_rel = A over the median of at least 3 same-run healthy references (never the sample), the references' spread and the detection limit.
+
+*Code:* `stage_metaa_atlas.py` line 78 (10 lines) · arguments: A, refs · calls: not called on the traced runs · constants read: `FLAG`, `RULE`
+
+### `stage_metaa_atlas.py::plant`
+
+A constructed loss for tests: every identity site the array measured moved 1 % of the way to 0.5, the shift `read` predicts. Used by the
+series runner's `--plant metaa_atlas`; never by a reading.
+
+*Code:* `stage_metaa_atlas.py` line 89 (5 lines) · arguments: beta, cell, loss · calls: not called on the traced runs
+
+## 17. The whole-genome globe (development): `stage_q2_globe.py`
+
+**What it is for.** Drawing a sequenced sample's whole genome, molecule by molecule, so where it holds its marks can be seen: the sample
+against its own predicted held error, and against a second reading. Run by the one command with `--pat FILE --dev-genome-globe`
+(`--prior-pat` for the second reading). Development: written under `development.genome_globe`.
+
+**Label: from IAM's physics.** The held error is counted exactly as Stage Q2 counts it (Section 9): on molecules that hold their marks, how
+often one unmethylated call sits between two methylated ones. The prediction is the sample's own: the self-reference line at its loose share.
+
+**Layout.** hg19's autosomal CpGs in the .pat files' own index order (chr1 to chr22; the X and Y are left off, as the loose share leaves them,
+so a difference of sex is never drawn), cut into regions of 1,000 CpGs; region i of n at NESTED pixel floor(i × NPIX / n), NSIDE 256, and every
+pixel of its span carries it. Nothing fitted. A region is drawn when it holds at least 200 held-error chances.
+
+**The change.** Each region's departure in counting noise, scaled by the sample's own spread of departures (never below 1: counting is the
+floor); changed beyond the family-wise line the report globes use.
+
+### `stage_q2_globe.py::site_owner`
+
+The atlas sites that have a CpG index, with their atlas rows, for counting on the atlas's layout.
+
+*Code:* `stage_q2_globe.py` line 19 (9 lines) · arguments: none · calls: not called on the traced runs · constants read: `ATLAS`, `_OWN` · files named: `import pyarrow.parquet`, `sites.parquet`, `sites_sequencing_key.parquet`
+
+### `stage_q2_globe.py::_owner_of`
+
+The atlas row of each CpG index, by binary search.
+
+*Code:* `stage_q2_globe.py` line 28 (3 lines) · arguments: cpg, idx, rows · calls: not called on the traced runs
+
+### `stage_q2_globe.py::count_pat_sites`
+
+Per atlas site: held errors, held-error chances, methylated calls and calls, by Stage Q2's rule and line split; with the genome totals.
+
+*Code:* `stage_q2_globe.py` line 31 (21 lines) · arguments: lines · calls: not called on the traced runs
+
+### `stage_q2_globe.py::count_pat_sites.flush`
+
+Adds the buffered counts to the site totals.
+
+*Code:* `stage_q2_globe.py` line 35 (4 lines) · arguments: none · calls: not called on the traced runs
+
+### `stage_q2_globe.py::departures`
+
+Blocks of neighboring counted atlas sites: each block's z of observed against predicted errors, and which pass the family-wise line.
+
+*Code:* `stage_q2_globe.py` line 52 (7 lines) · arguments: err, opp, p · calls: not called on the traced runs · constants read: `BLOCK`, `FLAG`, `ORDER`
+
+### `stage_q2_globe.py::count_pat_regions`
+
+The same counts per region of 1,000 consecutive CpG indexes on the autosomes.
+
+*Code:* `stage_q2_globe.py` line 67 (22 lines) · arguments: lines, region · calls: not called on the traced runs · constants read: `N_CPG`, `REGION`
+
+### `stage_q2_globe.py::count_pat_regions.flush`
+
+Adds the buffered counts to the region totals.
+
+*Code:* `stage_q2_globe.py` line 71 (3 lines) · arguments: none · calls: not called on the traced runs · constants read: `N_CPG`
+
+### `stage_q2_globe.py::_z_self`
+
+Each region's held errors against the number its chances predict at the sample's own predicted held error, in counting noise.
+
+*Code:* `stage_q2_globe.py` line 90 (2 lines) · arguments: R, p · calls: not called on the traced runs · constants read: `MIN_OPP`
+
+### `stage_q2_globe.py::_z_pair`
+
+Each region's held error against the other reading's, in both regions' counting noise; with which regions both readings drew.
+
+*Code:* `stage_q2_globe.py` line 92 (4 lines) · arguments: A, B · calls: not called on the traced runs · constants read: `MIN_OPP`
+
+### `stage_q2_globe.py::_own_spread`
+
+The sample's (or pair's) own spread of region departures: MAD × 1.4826 over the drawn regions, never below 1.
+
+*Code:* `stage_q2_globe.py` line 96 (5 lines) · arguments: z, ok · calls: not called on the traced runs
+
+### `stage_q2_globe.py::_page_layers`
+
+The globe's layers: methylation level, held error, and the change (departures over the own spread, beyond the line), with their keys.
+
+*Code:* `stage_q2_globe.py` line 101 (26 lines) · arguments: z, ok, err_rate, meth, p, change_name, about_ref, scale · calls: not called on the traced runs · constants read: `HERE`, `REGION` · files named: `Planck_Parchment_RGB.txt`
+
+### `stage_q2_globe.py::_page_layers.rgb`
+
+Turns a coded map into the page's colors.
+
+*Code:* `stage_q2_globe.py` line 111 (2 lines) · arguments: m · calls: not called on the traced runs
+
+### `stage_q2_globe.py::self_globe`
+
+The sample against itself (its own predicted held error), with the count of changed regions.
+
+*Code:* `stage_q2_globe.py` line 131 (7 lines) · arguments: R, loose_share, gid, title · calls: not called on the traced runs · constants read: `ABOUT`, `REGION`
+
+### `stage_q2_globe.py::pair_globe`
+
+The sample against another reading, with the count of changed regions.
+
+*Code:* `stage_q2_globe.py` line 138 (7 lines) · arguments: A, B, gid, title, name_b · calls: not called on the traced runs · constants read: `ABOUT`, `REGION`
+
+## 18. The information sphere (development): `stage_info_sphere.py`
+
+**What it is for.** Placing sites by how they behave across cell types instead of by their address, so how far apart states are can be seen.
+Built by the one command: `run_sample.py --build info-sphere` (Section 1, `_build`). Development (DEV-SPHERE-01).
+
+**Label: established mathematics.** Each site's levels b in S cell types become u = (√b₁…√b_S, √(1−b₁)…√(1−b_S))/√S, a point on a unit sphere;
+the distance between two sites is the Fisher-Rao (Bhattacharyya) angle arccos(u_i · u_j). The globe keeps the three leading principal
+directions of those points, scaled to length 1 (construction v1, the one that kept distances); nothing is tuned. The sky the sites do not
+cover is masked, as the microwave sky masks the galaxy.
+
+### `stage_info_sphere.py::info_vectors`
+
+The square-root vectors of a sites × cell types matrix.
+
+*Code:* `stage_info_sphere.py` line 18 (3 lines) · arguments: B · calls: not called on the traced runs
+
+### `stage_info_sphere.py::fr_angle`
+
+The Fisher-Rao angle between pairs of sites, in the full space.
+
+*Code:* `stage_info_sphere.py` line 22 (2 lines) · arguments: U, i, j · calls: not called on the traced runs
+
+### `stage_info_sphere.py::globe`
+
+Construction v1: centered, projected on the three leading directions, scaled to 1; with the share of the spread the three directions keep.
+
+*Code:* `stage_info_sphere.py` line 25 (4 lines) · arguments: U · calls: not called on the traced runs
+
+### `stage_info_sphere.py::_spread`
+
+Interleaves the bits of a pixel coordinate, for the NESTED pixel number.
+
+*Code:* `stage_info_sphere.py` line 31 (4 lines) · arguments: v · calls: not called on the traced runs
+
+### `stage_info_sphere.py::ang2pix_nest`
+
+The standard HEALPix NESTED angle to pixel; checked by a round trip through `stage_v4.nest_pix2ang` on all 196,608 pixels at NSIDE 128.
+
+*Code:* `stage_info_sphere.py` line 35 (17 lines) · arguments: nside, theta, phi · calls: not called on the traced runs
+
+### `stage_info_sphere.py::to_pixels`
+
+The pixel of each globe point.
+
+*Code:* `stage_info_sphere.py` line 53 (2 lines) · arguments: X, nside · calls: not called on the traced runs · constants read: `NSIDE`
+
+### `stage_info_sphere.py::concentration`
+
+How tightly a group of sites lands together: the length of the mean of its globe points (1 = one point, near 0 = spread over the sphere).
+
+*Code:* `stage_info_sphere.py` line 56 (2 lines) · arguments: X, idx · calls: not called on the traced runs
+
+### `stage_info_sphere.py::edge_ratio`
+
+The mean jump of the mean-level map across HEALPix base-face edges over the jump within a face (about 1: no grid edges).
+
+*Code:* `stage_info_sphere.py` line 59 (14 lines) · arguments: mb, nside · calls: not called on the traced runs · constants read: `NSIDE`
+
+### `stage_info_sphere.py::build`
+
+The layout and its report: variance kept, sky covered and masked, distance agreement on 5,000 seeded pairs, edge ratio, and for each named
+group its concentration against the 99th percentile of 500 random groups of the same size.
+
+*Code:* `stage_info_sphere.py` line 74 (20 lines) · arguments: B, groups, n_random, seed, nside · calls: not called on the traced runs · constants read: `NSIDE`
+
+## 19. The reference globes and the series runner: `reference_globes.py`, `run_series.py`
+
+**What they are for.** `reference_globes.py` draws the site's reference globes, so every globe on the site comes from the chain: Met-A's
+purified-array reference, the atlas's noise, the 79 atlas cells' textures and their slider pictures (`run_sample.py --build explorer-purified`,
+`explorer-noise`, `atlas-sphere`, `atlas-masks`). `run_series.py` runs the one command over a series of arrays on GitHub (`series.yml`):
+pass 1 reads each array without references; pass 2 reads it again with run_sample.py's own tare against the other healthy arrays of the series
+or slide. It reads, tares and scores nothing itself; a scorer reads only the bundles.
+
+### `reference_globes.py::slug`
+
+A cell name as a file name.
+
+*Code:* `MethylPhys_Interface/reference_globes.py` line 16 (1 lines) · arguments: c · calls: not called on the traced runs
+
+### `reference_globes.py::purified`
+
+Met-A's purified-array group profiles at its 6,000 neutrophil identity sites, drawn as dots on the atlas's layout.
+
+*Code:* `MethylPhys_Interface/reference_globes.py` line 18 (17 lines) · arguments: none · calls: not called on the traced runs · constants read: `CH`, `GROUP`, `HERE` · files named: `Planck_Parchment_RGB.txt`, `blood_composition_EPIC_v1.json`, `import pyarrow.parquet`, `sites.parquet`
+
+### `reference_globes.py::noise`
+
+The atlas's noise maps: per blood cell, the noise left in an average of k posterior draws at every site, on one log scale.
+
+*Code:* `MethylPhys_Interface/reference_globes.py` line 36 (33 lines) · arguments: d · calls: not called on the traced runs · files named: `noise.json`, `uncertainty.json`
+
+### `reference_globes.py::manifests`
+
+Finds Illumina's 450K and EPIC manifests in methylprep's download folder (it differs between installs).
+
+*Code:* `MethylPhys_Interface/reference_globes.py` line 70 (33 lines) · arguments: none · calls: not called on the traced runs
+
+### `reference_globes.py::atlas_sphere`
+
+The 79 cells' globe textures (best value and how sure), laid out by the frozen sky order; each cell's measured pixels must equal its cell
+page's count, or the build stops.
+
+*Code:* `MethylPhys_Interface/reference_globes.py` line 104 (32 lines) · arguments: out, atlas, man, cells_index · calls: not called on the traced runs · constants read: `GREY`, `HERE`, `HW_MAX`, `REPO` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `index.json`, `s measured-pixel count equal to website/art/out/cells/index.json`, `sites.parquet`, `sphere.json`
+
+### `reference_globes.py::atlas_sphere.tex`
+
+One texture from a sky map.
+
+*Code:* `MethylPhys_Interface/reference_globes.py` line 117 (3 lines) · arguments: m, cmap, lo, hi, path · calls: not called on the traced runs · constants read: `GREY`
+
+### `reference_globes.py::atlas_masks`
+
+The value pictures for the atlas globe's sliders (best value, and half-width of the 95 % range), losslessly coded; checked against the textures.
+
+*Code:* `MethylPhys_Interface/reference_globes.py` line 137 (18 lines) · arguments: OUT, A · calls: not called on the traced runs · constants read: `ATLAS`, `HW_MAX` · files named: `import pyarrow.parquet`, `sphere.json`
+
+### `reference_globes.py::atlas_masks.code`
+
+Codes a map 1 to 255 on its scale, 0 where no site.
+
+*Code:* `MethylPhys_Interface/reference_globes.py` line 143 (2 lines) · arguments: v, hi · calls: not called on the traced runs
+
+### `run_series.py::fetch`
+
+An array's two IDATs from GEO, retried.
+
+*Code:* `MethylPhys_Interface/run_series.py` line 24 (11 lines) · arguments: gsm, d · calls: not called on the traced runs
+
+### `run_series.py::run`
+
+Runs the one command with the given flags and keeps its log.
+
+*Code:* `MethylPhys_Interface/run_series.py` line 36 (3 lines) · arguments: args, log · calls: not called on the traced runs · constants read: `PY`, `RS`
+
+### `run_series.py::refs_for`
+
+The pass-1 readings of the other arrays of the scope (series, slide, or slide when it holds at least 3 others, else series), as the one
+command's reference inputs; never the array itself.
+
+*Code:* `MethylPhys_Interface/run_series.py` line 40 (7 lines) · arguments: gsm, slide, P1, scope, out · calls: not called on the traced runs
+
+### `run_series.py::bundle_row`
+
+One bundle's numbers for the table: Met-A, its tare, the C-Score, atlas Met-A and its tare, the intake verdict, the reason when not read.
+
+*Code:* `MethylPhys_Interface/run_series.py` line 48 (6 lines) · arguments: p · calls: not called on the traced runs
+
+### `run_series.py::read`
+
+One shard of a pass, as described above; with `--plant`, the constructed loss is planted in the array's own saved values and read by the one
+command with the same references (Group-A's design: the planted and unplanted halves both by the values route).
+
+*Code:* `MethylPhys_Interface/run_series.py` line 55 (51 lines) · arguments: a, extra · calls: not called on the traced runs · constants read: `HERE` · files named: `_betas.parquet`, `_planted.csv`, `_planted.json`, `_values.csv`, `_values.json`
+
+### `run_series.py::table`
+
+One row per bundle, for the scorer.
+
+*Code:* `MethylPhys_Interface/run_series.py` line 107 (7 lines) · arguments: a · calls: not called on the traced runs · files named: `rows.csv`

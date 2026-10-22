@@ -227,6 +227,16 @@ def _build(a):
                    command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (DEV-SPHERE-01)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps({k: v for k, v in rep.items() if k not in ("command",)}, default=str)[:1500]); return 0
+    import reference_globes as RG
+    if not a.build_out: print(f"--build {a.build} needs --build-out"); return 2
+    if a.build in ("explorer-purified", "explorer-noise"):
+        if a.build == "explorer-noise" and not a.build_input: print("--build explorer-noise needs --build-input (the noise maps folder)"); return 2
+        spec = RG.purified() if a.build == "explorer-purified" else RG.noise(a.build_input); json.dump(spec, open(a.build_out, "w"))
+        print(f"Build: {spec['id']} globe spec, {sum(len(g['layers']) for g in spec['groups'])} layers -> {a.build_out}"); return 0
+    if a.build == "atlas-sphere":
+        RG.atlas_sphere(a.build_out, a.build_input or RG.ATLAS, RG.manifests()); return 0
+    if a.build == "atlas-masks":
+        n, bad = RG.atlas_masks(a.build_out); return 1 if bad else 0
     return 2
 
 
@@ -343,8 +353,11 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere",), help="build a reference instead of reading a sample (2026-10-22: the chain builds "
-                    "its own references): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01)")
+    ap.add_argument("--build", default=None, choices=("info-sphere", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks"),
+                    help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
+                         "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
+                         "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "
+                         "atlas globe's textures and slider pictures (reference_globes.py)")
     ap.add_argument("--build-input", default=None, help="with --build info-sphere: a matrix of methylation levels, sites x cell types (.parquet or .csv, site id first)")
     ap.add_argument("--build-groups", default=None, help="with --build info-sphere: JSON {name: [site ids]} of site groups to test for landing together "
                     "('pool': the sites random groups are drawn from)")

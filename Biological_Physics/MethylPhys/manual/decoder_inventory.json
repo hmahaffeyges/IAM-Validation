@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 807,
+   "lines": 820,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -208,11 +208,11 @@
      "function": "_build",
      "name": "_build",
      "line": 214,
-     "end": 230,
+     "end": 240,
      "args": [
       "a"
      ],
-     "lines": 17,
+     "lines": 27,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [],
      "data_files": [],
@@ -222,8 +222,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 233,
-     "end": 253,
+     "line": 243,
+     "end": 263,
      "args": [
       "a",
       "cnt",
@@ -239,8 +239,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 256,
-     "end": 296,
+     "line": 266,
+     "end": 306,
      "args": [
       "a",
       "o",
@@ -260,10 +260,10 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 299,
-     "end": 804,
+     "line": 309,
+     "end": 817,
      "args": [],
-     "lines": 506,
+     "lines": 509,
      "doc": "",
      "constants": [
       "BIO",
@@ -284,8 +284,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 421,
-     "end": 425,
+     "line": 434,
+     "end": 438,
      "args": [
       "r"
      ],
@@ -301,8 +301,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 751,
-     "end": 752,
+     "line": 764,
+     "end": 765,
      "args": [
       "b",
       "it",
@@ -5795,8 +5795,844 @@
     }
    ],
    "first_entered": null
+  },
+  {
+   "file": "stage_metaa_atlas.py",
+   "lines": 94,
+   "functions": [
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "_H",
+     "name": "_H",
+     "line": 31,
+     "end": 32,
+     "args": [
+      "b"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "_col",
+     "name": "_col",
+     "line": 34,
+     "end": 45,
+     "args": [
+      "stem",
+      "cell"
+     ],
+     "lines": 12,
+     "doc": "One cell's atlas column (best value mu, mu_lo, mu_hi or donor_sd), as a Series over the atlas's sites; NaN where the atlas has none.",
+     "constants": [
+      "ATLAS",
+      "NA"
+     ],
+     "data_files": [
+      "import pyarrow.parquet",
+      "sites.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "width",
+     "name": "width",
+     "line": 47,
+     "end": 50,
+     "args": [
+      "cell"
+     ],
+     "lines": 4,
+     "doc": "The healthy width at each site: the person-to-person spread and the atlas's own uncertainty, combined.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "identity_sites",
+     "name": "identity_sites",
+     "line": 52,
+     "end": 61,
+     "args": [
+      "cell"
+     ],
+     "lines": 10,
+     "doc": "Met-A's site rule on the atlas (see the module text). Returns the site names, high side then low side.",
+     "constants": [
+      "RULE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "read",
+     "name": "read",
+     "line": 63,
+     "end": 76,
+     "args": [
+      "beta",
+      "cell",
+      "specimen"
+     ],
+     "lines": 14,
+     "doc": "Met-A against the atlas cell (untared). beta: Series probe -> beta from Stage 1.",
+     "constants": [
+      "FLAG",
+      "RULE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "tare",
+     "name": "tare",
+     "line": 78,
+     "end": 87,
+     "args": [
+      "A",
+      "refs"
+     ],
+     "lines": 10,
+     "doc": "The same-run tare: A_rel = A / median(refs); spread of the references and the detection limit as conductor_v3.stage_t_tare.",
+     "constants": [
+      "FLAG",
+      "RULE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "plant",
+     "name": "plant",
+     "line": 89,
+     "end": 93,
+     "args": [
+      "beta",
+      "cell",
+      "loss"
+     ],
+     "lines": 5,
+     "doc": "A CONSTRUCTED loss of the cell's pattern, for tests only (the rule read() predicts its shift by): every identity site of the cell this array measured moved loss of the way to 0.5, x + loss (0.5 - mu). Returns a new Series; the input is unchanged.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
+  },
+  {
+   "file": "stage_q2_globe.py",
+   "lines": 145,
+   "functions": [
+    {
+     "file": "stage_q2_globe.py",
+     "function": "site_owner",
+     "name": "site_owner",
+     "line": 19,
+     "end": 27,
+     "args": [],
+     "lines": 9,
+     "doc": "(sorted CpG indexes of the atlas sites that have one, their atlas row numbers, the number of atlas sites). Row numbers follow sites.parquet.",
+     "constants": [
+      "ATLAS",
+      "_OWN"
+     ],
+     "data_files": [
+      "import pyarrow.parquet",
+      "sites.parquet",
+      "sites_sequencing_key.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_globe.py",
+     "function": "_owner_of",
+     "name": "_owner_of",
+     "line": 28,
+     "end": 30,
+     "args": [
+      "cpg",
+      "idx",
+      "rows"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_globe.py",
+     "function": "count_pat_sites",
+     "name": "count_pat_sites",
+     "line": 31,
+     "end": 51,
+     "args": [
+      "lines"
+     ],
+     "lines": 21,
+     "doc": "Per atlas site: held errors, held opportunities, methylated calls, calls (count_pat's rule and line split), and the genome totals.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_globe.py",
+     "function": "count_pat_sites.flush",
+     "name": "flush",
+     "line": 35,
+     "end": 38,
+     "args": [],
+     "lines": 4,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_globe.py",
+     "function": "departures",
+     "name": "departures",
+     "line": 52,
+     "end": 58,
+     "args": [
+      "err",
+      "opp",
+      "p"
+     ],
+     "lines": 7,
+     "doc": "Blocks of BLOCK neighboring counted sites in the globe's order: z of observed against predicted errors; changed beyond FW_LINE.",
+     "constants": [
+      "BLOCK",
+      "FLAG",
+      "ORDER"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_globe.py",
+     "function": "count_pat_regions",
+     "name": "count_pat_regions",
+     "line": 67,
+     "end": 88,
+     "args": [
+      "lines",
+      "region"
+     ],
+     "lines": 22,
+     "doc": "count_pat's rule and line split, per region of `region` consecutive CpG indexes: held errors and opportunities, methylated calls and calls.",
+     "constants": [
+      "N_CPG",
+      "REGION"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_globe.py",
+     "function": "count_pat_regions.flush",
+     "name": "flush",
+     "line": 71,
+     "end": 73,
+     "args": [],
+     "lines": 3,
+     "doc": "",
+     "constants": [
+      "N_CPG"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_globe.py",
+     "function": "_z_self",
+     "name": "_z_self",
+     "line": 90,
+     "end": 91,
+     "args": [
+      "R",
+      "p"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [
+      "MIN_OPP"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_globe.py",
+     "function": "_z_pair",
+     "name": "_z_pair",
+     "line": 92,
+     "end": 95,
+     "args": [
+      "A",
+      "B"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [
+      "MIN_OPP"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_globe.py",
+     "function": "_own_spread",
+     "name": "_own_spread",
+     "line": 96,
+     "end": 100,
+     "args": [
+      "z",
+      "ok"
+     ],
+     "lines": 5,
+     "doc": "The sample's (or pair's) own spread of region departures: MAD x 1.4826 over every drawn region, never below 1 (counting noise is the floor). Healthy regions differ from one another by nature as well as by counting; this measures both from the sample itself, as the array globes scale by the sample's own spread (2026-10-22, step 2: counting noise alone lit 337 regions of a healthy sample).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_globe.py",
+     "function": "_page_layers",
+     "name": "_page_layers",
+     "line": 101,
+     "end": 126,
+     "args": [
+      "z",
+      "ok",
+      "err_rate",
+      "meth",
+      "p",
+      "change_name",
+      "about_ref",
+      "scale"
+     ],
+     "lines": 26,
+     "doc": "",
+     "constants": [
+      "HERE",
+      "REGION"
+     ],
+     "data_files": [
+      "Planck_Parchment_RGB.txt"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_globe.py",
+     "function": "_page_layers.rgb",
+     "name": "rgb",
+     "line": 111,
+     "end": 112,
+     "args": [
+      "m"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_globe.py",
+     "function": "self_globe",
+     "name": "self_globe",
+     "line": 131,
+     "end": 137,
+     "args": [
+      "R",
+      "loose_share",
+      "gid",
+      "title"
+     ],
+     "lines": 7,
+     "doc": "One sample against itself: each region's held error against the held error the sample's own loose share predicts (the self-reference line).",
+     "constants": [
+      "ABOUT",
+      "REGION"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_globe.py",
+     "function": "pair_globe",
+     "name": "pair_globe",
+     "line": 138,
+     "end": 144,
+     "args": [
+      "A",
+      "B",
+      "gid",
+      "title",
+      "name_b"
+     ],
+     "lines": 7,
+     "doc": "One sample against another: each region's held error against the other's, in both regions' counting noise.",
+     "constants": [
+      "ABOUT",
+      "REGION"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
+  },
+  {
+   "file": "stage_info_sphere.py",
+   "lines": 94,
+   "functions": [
+    {
+     "file": "stage_info_sphere.py",
+     "function": "info_vectors",
+     "name": "info_vectors",
+     "line": 18,
+     "end": 20,
+     "args": [
+      "B"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_info_sphere.py",
+     "function": "fr_angle",
+     "name": "fr_angle",
+     "line": 22,
+     "end": 23,
+     "args": [
+      "U",
+      "i",
+      "j"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_info_sphere.py",
+     "function": "globe",
+     "name": "globe",
+     "line": 25,
+     "end": 28,
+     "args": [
+      "U"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_info_sphere.py",
+     "function": "_spread",
+     "name": "_spread",
+     "line": 31,
+     "end": 34,
+     "args": [
+      "v"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_info_sphere.py",
+     "function": "ang2pix_nest",
+     "name": "ang2pix_nest",
+     "line": 35,
+     "end": 51,
+     "args": [
+      "nside",
+      "theta",
+      "phi"
+     ],
+     "lines": 17,
+     "doc": "The standard HEALPix NESTED angle -> pixel (Gorski et al. 2005), vectorized; checked by a round trip through stage_v4.nest_pix2ang.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_info_sphere.py",
+     "function": "to_pixels",
+     "name": "to_pixels",
+     "line": 53,
+     "end": 54,
+     "args": [
+      "X",
+      "nside"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [
+      "NSIDE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_info_sphere.py",
+     "function": "concentration",
+     "name": "concentration",
+     "line": 56,
+     "end": 57,
+     "args": [
+      "X",
+      "idx"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_info_sphere.py",
+     "function": "edge_ratio",
+     "name": "edge_ratio",
+     "line": 59,
+     "end": 72,
+     "args": [
+      "mb",
+      "nside"
+     ],
+     "lines": 14,
+     "doc": "Mean jump of a map between neighboring pixels on different HEALPix base faces over the same on one face (about 1 = no grid edges). Neighbors here: the four pixels sharing an edge in the NESTED x/y index grid of each face, and across faces by position (nearest center).",
+     "constants": [
+      "NSIDE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_info_sphere.py",
+     "function": "build",
+     "name": "build",
+     "line": 74,
+     "end": 93,
+     "args": [
+      "B",
+      "groups",
+      "n_random",
+      "seed",
+      "nside"
+     ],
+     "lines": 20,
+     "doc": "The layout of a reference matrix B (sites x cell types) and its report. groups: {name: site indices}; for each, the concentration R and the 99th percentile of n_random random groups of the same size drawn from groups['pool'] if given, else from all sites.",
+     "constants": [
+      "NSIDE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
+  },
+  {
+   "file": "MethylPhys_Interface/reference_globes.py",
+   "lines": 155,
+   "functions": [
+    {
+     "file": "MethylPhys_Interface/reference_globes.py",
+     "function": "slug",
+     "name": "slug",
+     "line": 16,
+     "end": 16,
+     "args": [
+      "c"
+     ],
+     "lines": 1,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/reference_globes.py",
+     "function": "purified",
+     "name": "purified",
+     "line": 18,
+     "end": 34,
+     "args": [],
+     "lines": 17,
+     "doc": "",
+     "constants": [
+      "CH",
+      "GROUP",
+      "HERE"
+     ],
+     "data_files": [
+      "Planck_Parchment_RGB.txt",
+      "blood_composition_EPIC_v1.json",
+      "import pyarrow.parquet",
+      "sites.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/reference_globes.py",
+     "function": "noise",
+     "name": "noise",
+     "line": 36,
+     "end": 68,
+     "args": [
+      "d"
+     ],
+     "lines": 33,
+     "doc": "The noise maps of IAM-Atlas v2.1 (atlas/tools/noise_maps_v21.py): per blood cell, how sure the atlas is at every site, as the noise left in an average of k draws (the site's posterior spread over the square root of k, on one log scale), with every site and with the X and Y hidden; and the atlas's best value. Rebuilt 2026-10-21 (author: \"make it stay lighter longer if it is less certain\"): the earl",
+     "constants": [],
+     "data_files": [
+      "noise.json",
+      "uncertainty.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/reference_globes.py",
+     "function": "manifests",
+     "name": "manifests",
+     "line": 70,
+     "end": 102,
+     "args": [],
+     "lines": 33,
+     "doc": "methylprep's EPIC and 450K manifests under the names sky_maps_v21.genome_order reads.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/reference_globes.py",
+     "function": "atlas_sphere",
+     "name": "atlas_sphere",
+     "line": 104,
+     "end": 135,
+     "args": [
+      "out",
+      "atlas",
+      "man",
+      "cells_index"
+     ],
+     "lines": 32,
+     "doc": "",
+     "constants": [
+      "GREY",
+      "HERE",
+      "HW_MAX",
+      "REPO"
+     ],
+     "data_files": [
+      "Planck_Parchment_RGB.txt",
+      "import pyarrow.parquet",
+      "index.json",
+      "s measured-pixel count equal to website/art/out/cells/index.json",
+      "sites.parquet",
+      "sphere.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/reference_globes.py",
+     "function": "atlas_sphere.tex",
+     "name": "tex",
+     "line": 117,
+     "end": 119,
+     "args": [
+      "m",
+      "cmap",
+      "lo",
+      "hi",
+      "path"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [
+      "GREY"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/reference_globes.py",
+     "function": "atlas_masks",
+     "name": "atlas_masks",
+     "line": 137,
+     "end": 154,
+     "args": [
+      "OUT",
+      "A"
+     ],
+     "lines": 18,
+     "doc": "",
+     "constants": [
+      "ATLAS",
+      "HW_MAX"
+     ],
+     "data_files": [
+      "import pyarrow.parquet",
+      "sphere.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/reference_globes.py",
+     "function": "atlas_masks.code",
+     "name": "code",
+     "line": 143,
+     "end": 144,
+     "args": [
+      "v",
+      "hi"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
+  },
+  {
+   "file": "MethylPhys_Interface/run_series.py",
+   "lines": 123,
+   "functions": [
+    {
+     "file": "MethylPhys_Interface/run_series.py",
+     "function": "fetch",
+     "name": "fetch",
+     "line": 24,
+     "end": 34,
+     "args": [
+      "gsm",
+      "d"
+     ],
+     "lines": 11,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/run_series.py",
+     "function": "run",
+     "name": "run",
+     "line": 36,
+     "end": 38,
+     "args": [
+      "args",
+      "log"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [
+      "PY",
+      "RS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/run_series.py",
+     "function": "refs_for",
+     "name": "refs_for",
+     "line": 40,
+     "end": 46,
+     "args": [
+      "gsm",
+      "slide",
+      "P1",
+      "scope",
+      "out"
+     ],
+     "lines": 7,
+     "doc": "The pass-1 readings of the other arrays of the scope, as run_sample.py's reference inputs (a table for Met-A and the C-Score; a list for atlas Met-A).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/run_series.py",
+     "function": "bundle_row",
+     "name": "bundle_row",
+     "line": 48,
+     "end": 53,
+     "args": [
+      "p"
+     ],
+     "lines": 6,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/run_series.py",
+     "function": "read",
+     "name": "read",
+     "line": 55,
+     "end": 105,
+     "args": [
+      "a",
+      "extra"
+     ],
+     "lines": 51,
+     "doc": "",
+     "constants": [
+      "HERE"
+     ],
+     "data_files": [
+      "_betas.parquet",
+      "_planted.csv",
+      "_planted.json",
+      "_values.csv",
+      "_values.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/run_series.py",
+     "function": "table",
+     "name": "table",
+     "line": 107,
+     "end": 113,
+     "args": [
+      "a"
+     ],
+     "lines": 7,
+     "doc": "",
+     "constants": [],
+     "data_files": [
+      "rows.csv"
+     ],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
   }
  ],
- "n_files": 24,
- "n_functions": 293
+ "n_files": 29,
+ "n_functions": 337
 }
