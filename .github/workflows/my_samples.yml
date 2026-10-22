@@ -1,0 +1,46 @@
+name: my_samples
+# The one command on a researcher's own arrays, on GitHub's machines (2026-10-22). Use it in a PRIVATE copy of this repository when the
+# samples are not public: put each array's two IDAT files (..._Grn.idat or .idat.gz and ..._Red.idat or .idat.gz) in one folder of that copy,
+# commit, then run this workflow from the Actions tab with that folder's path. Every array is read by
+# Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py, unchanged; nothing is read or scored outside it. The reports,
+# bundles and ledgers come back as the run's artifact "reports". Ten machines at most; one array takes a few minutes.
+on:
+  workflow_dispatch:
+    inputs:
+      folder:   {description: "folder of IDAT pairs in this repository", required: true, default: "samples"}
+      specimen: {description: "specimen given to run_sample.py (whole blood, isolated neutrophils, isolated monocytes, ...)", required: true, default: "whole blood"}
+      refs:     {description: "optional: a CSV in this repository of 3 or more same-run healthy references (columns A and C), or none", required: true, default: "none"}
+permissions: {contents: read}
+jobs:
+  list:
+    runs-on: ubuntu-24.04
+    outputs: {shards: "${{ steps.n.outputs.shards }}"}
+    steps:
+      - uses: actions/checkout@v4
+      - id: n
+        run: |
+          n=$(ls "${{ inputs.folder }}" | grep -c -i "_grn\.idat" || true)
+          [ "$n" -gt 0 ] || { echo "no *_Grn.idat files in ${{ inputs.folder }}"; exit 1; }
+          k=$(( n < 10 ? n : 10 )); echo "shards=$(python3 -c "print(list(range($k)))")" >> $GITHUB_OUTPUT; echo "$n arrays, $k machines"
+  read:
+    needs: list
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    strategy: {fail-fast: false, matrix: {shard: "${{ fromJSON(needs.list.outputs.shards) }}"}}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - run: |
+          N=${{ strategy.job-total }}; i=0; mkdir -p reports; RS=Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py
+          REF=""; [ "${{ inputs.refs }}" != "none" ] && REF="--ref-table ${{ inputs.refs }}"
+          for g in $(ls "${{ inputs.folder }}" | grep -i "_grn\.idat" | sort); do
+            if [ $(( i % N )) -eq ${{ matrix.shard }} ]; then
+              r=$(echo "$g" | sed -E 's/_[Gg]rn\.idat/_Red.idat/'); [ -f "${{ inputs.folder }}/$r" ] || r=$(ls "${{ inputs.folder }}" | grep -i "^$(echo $g | sed -E 's/_[Gg]rn\.idat.*//')_red\.idat" | head -1)
+              id=$(echo "$g" | sed -E 's/_[Gg]rn\.idat(\.gz)?$//')
+              python3 $RS --grn "${{ inputs.folder }}/$g" --red "${{ inputs.folder }}/$r" --specimen "${{ inputs.specimen }}" --id "$id" --out "reports/$id.html" $REF 2>&1 | tail -5 || true
+            fi; i=$((i+1))
+          done
+      - uses: actions/upload-artifact@v4
+        with: {name: "reports-${{ matrix.shard }}", path: reports/, if-no-files-found: warn}
