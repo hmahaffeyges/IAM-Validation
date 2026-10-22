@@ -16,22 +16,26 @@ def classes(p):
     red = (r > 140) & (r > g + 60) & (r > b + 60); blue = (b > 140) & (b > r + 60) & (b > g + 30); dark = (r + g + b) < 75
     gray = ~red & ~blue & ~dark & (np.abs(r - g) < 14) & (np.abs(g - b) < 16); n = disk.sum()
     return {k: round(float(v.sum()) / n, 4) for k, v in (("red", red), ("blue", blue), ("gray", gray), ("dark", dark))} | {"other": round(float((~(red | blue | gray | dark)).sum()) / n, 4)}
-rows = []
+rows = []; fh = open(os.path.join(OUT, "audit.csv"), "w", newline=""); W = None
+def pick(cls, ri, i):   # 2026-10-21: set a chooser directly, so a hidden one (a globe with one group) is set too
+    pg.evaluate(f"(() => {{ const e = document.querySelectorAll('{cls}')[{ri}]; e.selectedIndex = {i}; e.dispatchEvent(new Event('change')); }})()")
+def opts(cls, ri):
+    return pg.evaluate(f"Array.from(document.querySelectorAll('{cls}')[{ri}].options).map(o => o.textContent)")
 with sync_playwright() as P:
     br = P.chromium.launch(); pg = br.new_page(viewport={"width": 1300, "height": 1000})
     for tag, path in PAGES:
+        if tag == "explorer" and "--skip-atlas" in sys.argv: pass
         pg.goto(BASE + path, wait_until="networkidle", timeout=180000); pg.wait_for_timeout(3000)
         if pg.locator(".g-spin").count(): pg.evaluate("document.querySelectorAll('.g-spin').forEach(b => b.click())")   # stop the spin for stable shots
         roots = pg.locator(".g-canvas").count()
         for ri in range(roots):
-            gsel, ssel, lsel = pg.locator(".g-globe").nth(ri), pg.locator(".g-group").nth(ri), pg.locator(".g-layer").nth(ri)
-            globes = gsel.locator("option").all_inner_texts() or [""]
+            globes = opts(".g-globe", ri) or [""]
             for gi, gname in enumerate(globes):
-                if gname: gsel.select_option(index=gi); pg.wait_for_timeout(800)
-                for si, sname in enumerate(ssel.locator("option").all_inner_texts()):
-                    ssel.select_option(index=si); pg.wait_for_timeout(500)
-                    for li, lname in enumerate(lsel.locator("option").all_inner_texts()):
-                        lsel.select_option(index=li); pg.wait_for_timeout(1500)
+                if gname: pick(".g-globe", ri, gi); pg.wait_for_timeout(800)
+                for si, sname in enumerate(opts(".g-group", ri)):
+                    pick(".g-group", ri, si); pg.wait_for_timeout(500)
+                    for li, lname in enumerate(opts(".g-layer", ri)):
+                        pick(".g-layer", ri, li); pg.wait_for_timeout(1500)
                         rg = pg.locator(".g-range").nth(ri); vis = pg.locator(".g-slide").nth(ri).is_visible()
                         mx = int(rg.get_attribute("max") or 0) if vis else 0
                         for pos in ((0, mx // 2, mx) if vis else (None,)):
@@ -40,8 +44,9 @@ with sync_playwright() as P:
                             t = lambda c: (pg.locator(c).nth(ri).inner_text() if pg.locator(c).nth(ri).count() else "").replace("\n", " ")[:400]
                             rows.append(dict(page=tag, globe=gname, group=sname, layer=lname, slider=("none" if pos is None else f"{pos}/{mx}"), shot=f,
                                              readout=t(".g-rv"), hint=t(".g-hint"), fixed=t(".g-fixed"), key=t(".g-key"), note=t(".g-note"), **classes(os.path.join(OUT, "shots", f))))
+                            if W is None: W = csv.DictWriter(fh, fieldnames=list(rows[0])); W.writeheader()
+                            W.writerow(rows[-1]); fh.flush()
                             print(tag, gname[:20], sname[:20], lname[:40], rows[-1]["slider"], {k: rows[-1][k] for k in ("red", "blue", "gray", "dark")}, flush=True)
     br.close()
-with open(os.path.join(OUT, "audit.csv"), "w", newline="") as fh:
-    w = csv.DictWriter(fh, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
+fh.close()
 print("frames", len(rows))
