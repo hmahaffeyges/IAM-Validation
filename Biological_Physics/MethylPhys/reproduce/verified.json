@@ -159,7 +159,7 @@
    "checks_ok": 3,
    "minutes": 338.1,
    "commit": "eb609c2c",
-   "job": "GitHub Actions mice_split.yml run 39751763935, split across 19 machines (1 aligner thread each; verdict in issue 32): all 38 read sets, every copy error identical to the committed run (largest difference 0.0), KO vehicle / WT ratio inside the sealed window 1.016-1.135, PASS"
+   "job": "GitHub Actions mice_split.yml run 39751763935, split across 19 machines (1 aligner thread each; verdict in issue 32): all 38 read sets, every read set's error rate identical to the committed run (largest difference 0.0), KO vehicle / WT ratio inside the sealed window 1.016-1.135, PASS"
   }
  },
  "groupa": {
