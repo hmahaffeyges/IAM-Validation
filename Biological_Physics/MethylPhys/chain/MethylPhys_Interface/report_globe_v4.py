@@ -258,6 +258,8 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
                             "Ordinary wear is scattered and seldom moves a whole block; a loss that runs along the genome does, so it shows as clumps.")))
     if pcode is not None:
         Pr = J(_jpg_b64(prgb))
+        for x in L:   # the Met-A layer fades Met-A's purified reference map, not a flat gray (audit 2026-10-21)
+            if "Met-A" in x["name"] and x["kind"] == "change": x["base"] = Pr
         L += [dict(name="Met-A's purified-array reference", kind="image", src=Pr, mask=_vmask(pt), **MV, note="Met-A's own healthy reference at its 6,000 sites, weighted by this blood's Stage A fractions; the change against it is the layer above.")]
     groups = [dict(name="this sample against its references", layers=L)]
     if cellmaps: groups.append(dict(name="the cells the IAM-Deconvolver read", layers=[dict(name="healthy " + c["name"], kind="image", src=J(c["t"]), mask=c["m"], **MV,

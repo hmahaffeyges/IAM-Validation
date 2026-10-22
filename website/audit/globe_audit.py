@@ -8,7 +8,7 @@ import os, sys, csv, re, numpy as np
 from playwright.sync_api import sync_playwright
 from PIL import Image
 OUT = sys.argv[1]; BASE = (sys.argv[2] if len(sys.argv) > 2 else "https://hmahaffeyges.github.io/IAM-Validation/").rstrip("/") + "/"
-PAGES = [("explorer", "atlas/sphere.html"), ("report_healthy", "art/out/examples/globe_healthy_blood.html")]
+PAGES = [("explorer", "atlas/sphere.html"), ("report_healthy", "art/examples/globe_healthy_blood.html")]
 os.makedirs(os.path.join(OUT, "shots"), exist_ok=True)
 def classes(p):
     a = np.asarray(Image.open(p).convert("RGB")).astype(int); h, w, _ = a.shape; yy, xx = np.mgrid[:h, :w]
@@ -28,6 +28,7 @@ with sync_playwright() as P:
         pg.goto(BASE + path, wait_until="networkidle", timeout=180000); pg.wait_for_timeout(3000)
         if pg.locator(".g-spin").count(): pg.evaluate("document.querySelectorAll('.g-spin').forEach(b => b.click())")   # stop the spin for stable shots
         roots = pg.locator(".g-canvas").count()
+        assert roots, f"{BASE + path}: no globe on the page"   # a missing page must stop the audit, not be skipped
         for ri in range(roots):
             globes = opts(".g-globe", ri) or [""]
             for gi, gname in enumerate(globes):
@@ -35,7 +36,7 @@ with sync_playwright() as P:
                 for si, sname in enumerate(opts(".g-group", ri)):
                     pick(".g-group", ri, si); pg.wait_for_timeout(500)
                     for li, lname in enumerate(opts(".g-layer", ri)):
-                        pick(".g-layer", ri, li); pg.wait_for_timeout(1500)
+                        pick(".g-layer", ri, li); pg.wait_for_load_state("networkidle"); pg.wait_for_timeout(3000)   # every picture loaded before a screenshot
                         rg = pg.locator(".g-range").nth(ri); vis = pg.locator(".g-slide").nth(ri).is_visible()
                         mx = int(rg.get_attribute("max") or 0) if vis else 0
                         for pos in ((0, mx // 2, mx) if vis else (None,)):

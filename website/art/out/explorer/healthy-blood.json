@@ -56,11 +56,11 @@
      "hint": "Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
      "fixed": "Changed: 0 of 597 blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
      "note": "The C-Score's departure map against Met-A's commissioned purified-array reference, read as the C-Score reads it: in blocks of 10 neighboring sites along the genome, a block changed beyond the line pure chance crosses less than once in 20 genomes. Ordinary wear is scattered and seldom moves a whole block; a loss that runs along the genome does, so it shows as clumps.",
+     "base": "a4",
      "id": "metaa",
      "ref_word": "Met-A's purified-array reference",
      "key_up": "Red: more disorder (entropy) here than Met-A's purified-array reference: the held pattern is being lost, whether the sites started methylated or unmethylated",
-     "key_down": "Blue: less disorder than the reference: the pattern held more tightly than healthy (rare)",
-     "base": null
+     "key_down": "Blue: less disorder than the reference: the pattern held more tightly than healthy (rare)"
     },
     {
      "name": "Met-A's purified-array reference",

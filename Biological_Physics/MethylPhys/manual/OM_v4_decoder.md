@@ -28,7 +28,7 @@ Read from the code at build time: the one command can load **24 Python files** h
 | `stage_q_iam_a.py` | 174 | 9 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
-| `MethylPhys_Interface/report_globe_v4.py` | 363 | 19 | 0 | 0 |
+| `MethylPhys_Interface/report_globe_v4.py` | 365 | 19 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 134 | 6 | 0 | 0 |
 
 ## How to read the Decoder
@@ -2092,13 +2092,13 @@ OUT.html` on chain Stage 1 values. A pair with no change lights 0 of 77,356 bloc
 `drop` leaves listed sites out before anything is computed (the X and Y, so a difference of sex is not counted as a change). The record also
 gives the changed blocks above and below the reference and the share of the globe's measured pixels the change lights.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 309 (44 lines) · arguments: beta, ref_beta, ref_name, out_html, title, drop · calls: not called on the traced runs · constants read: `ATLAS`, `BLOCK`, `HERE`, `MV`, `ORDER`, `PAIR_ABOUT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `sites.parquet`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 311 (44 lines) · arguments: beta, ref_beta, ref_name, out_html, title, drop · calls: not called on the traced runs · constants read: `ATLAS`, `BLOCK`, `HERE`, `MV`, `ORDER`, `PAIR_ABOUT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `sites.parquet`
 
 ### `report_globe_v4.py::build_pair.rgb`
 
 Draws a methylation map for the pair's globe on the atlas pages' parchment scale; gray where no site was measured.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 331 (2 lines) · arguments: m · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 333 (2 lines) · arguments: m · calls: not called on the traced runs
 
 ### `report_globe_v4.py::build._code`
 
@@ -2144,7 +2144,7 @@ to 1; refuses with the reason when there are no shares or no specimen.
 Checks the frozen layout against the atlas site list, builds the four layers, the shares above each size, and the page fragment (canvas,
 controls and script, no outside library). Returns the record kept in the bundle, marked `scored: False`.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 148 (145 lines) · arguments: beta, specimen, shares, out_html, z, fractions, sex · calls: not called on the traced runs · constants read: `ABOUT`, `ATLAS`, `BLOCK`, `CH`, `HERE`, `MV`, `ORDER`, `PANEL`, `R_DOT`, `SEXNOTE`, `SEXWORD` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `neutrophil_reference_v1_2.json`, `sites.parquet`, `sky_order_v21.npz`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 148 (147 lines) · arguments: beta, specimen, shares, out_html, z, fractions, sex · calls: not called on the traced runs · constants read: `ABOUT`, `ATLAS`, `BLOCK`, `CH`, `HERE`, `MV`, `ORDER`, `PANEL`, `R_DOT`, `SEXNOTE`, `SEXWORD` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `neutrophil_reference_v1_2.json`, `sites.parquet`, `sky_order_v21.npz`
 
 ### `report_globe_v4.py::build.rgb`
 
