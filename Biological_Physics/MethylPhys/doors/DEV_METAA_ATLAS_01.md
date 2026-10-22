@@ -82,3 +82,13 @@ naive CD8 T or NK cells (Spearman +0.13 to +0.24, p 0.32 to 0.59). Naive B cells
 of each type is as wide as the whole: its spread is 0.9 to 1.8 times what a planted 1 % loss moves. So a purity cut would not make Met-A on the
 atlas sensitive enough; the spread comes from between people or between runs, not from contamination. Next in this plan: the healthy-width
 site choice and weighting (design additions above), synthetic first.
+
+**Design additions 1 and 2 closed (2026-10-21, on the atlas alone, no array read).** Addition 1 is already the stage's rule: each cell's
+6,000 identity sites are the tightest by healthy width. That leaves almost nothing for weighting (addition 2) to do. Across the six panel
+cells the widths at the identity sites run only from 0.0038 to 0.0091 (medians 0.0046 to 0.0066). Weighting by one over the width squared
+keeps 5,322 to 5,825 effective sites of 6,000, and it changes what a 1 % loss moves the reading by less than 1 % in every cell (for example
+neutrophils +0.05858 equal, +0.05907 weighted). The option was not added to the chain. This also shows where the sorted cells' 4 to 9 % spread
+cannot come from: per-site person-to-person variation of this size averages away over 6,000 sites. It is a whole-array offset (step 3 found
+it moves with the slide). The same-run tare exists to cancel exactly that, but in GSE184269 each slide holds one donor, so every array could
+only be tared against other slides. **Next:** a sorted-cell series where several donors' cells of one type share a run, so the tare is
+tested the way the chain uses it.
