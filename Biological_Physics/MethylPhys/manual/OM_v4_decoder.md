@@ -2494,3 +2494,8 @@ distribution are kept, and only the arrangement is destroyed, so a difference fr
 One sky's spectrum, band powers, measured fraction, share of pixels with |z| above 2, and its null.
 
 *Code:* `sky_statistics.py` line 97 (11 lines) · arguments: pix, n_perm, lmax, rng, mask, apod_deg, taper · calls: not called on the traced runs · constants read: `BANDS`
+
+## The IAM-A globe (development): `stage_q2_globe.py`
+
+**What it is for.** IAM-A read region by region on the globe, with no other person in the reading. Development: not commissioned by our
+standards (DEV-IAMA-GLOBE-01).

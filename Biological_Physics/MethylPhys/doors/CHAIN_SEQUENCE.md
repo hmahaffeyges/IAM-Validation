@@ -55,6 +55,7 @@ Chain v3 is the only engine; the class-floor engine (v2) was retired on 2026-10-
 | `stage_atlas_u3.py` | Atlas v2.1 U3, blood composition (sealed bar B3, amendment_v21b.json; scorer chain Stage A21 u3_neutrophil). Written 2026-10-16 before any | module present; neither run_sample.py nor conductor_v3.py calls it (toolkit, chain/TOOLKIT.md) |
 | `stage_deconv_v21.py` | Stage D21 - the deconvolution tool (IAM-Deconvolver) on IAM-Atlas v2.1. Written 2026-10-16; COMMISSIONED 2026-10-17 for the shares of | module present; neither run_sample.py nor conductor_v3.py calls it (toolkit, chain/TOOLKIT.md) |
 | `stage_metaa_atlas.py` | stage_metaa_atlas.py - Met-A read against IAM-Atlas v2.1, for any atlas cell (DEVELOPMENT, DEV-METAA-ATLAS-01, written 2026-10-21) | module present; neither run_sample.py nor conductor_v3.py calls it (toolkit, chain/TOOLKIT.md) |
+| `stage_q2_globe.py` | The IAM-A globe (DEVELOPMENT, 2026-10-22; to-do step 29; not commissioned by our standards). IAM-A read region by region on the atlas's | module present; neither run_sample.py nor conductor_v3.py calls it (toolkit, chain/TOOLKIT.md) |
 | `stage_temperature.py` | Chain stage TL: the temperature law on single molecules (PRED-TEMPERATURE-01, PHY-057). Written 2026-10-17, before any read is opened | module present; neither run_sample.py nor conductor_v3.py calls it (toolkit, chain/TOOLKIT.md) |
 
 ## Behind development flags (DEVELOPMENT - not commissioned; never part of a reading)

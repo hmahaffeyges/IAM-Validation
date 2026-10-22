@@ -636,14 +636,15 @@
    "record": ""
   },
   {
-   "task": "The IAM-A globe: Stage Q2's counter keeps its held-error and loose-share counts per atlas block (not only totals), tested to give the same totals to every digit; then an IAM-A layer on the report globe, the sample's own predicted error as its reference, through the chain, screenshotted in a browser (V13). | 2026-10-22: the layout is solved: IAM-Atlas v2.1's sites_sequencing_key.parquet gives each atlas site its CpG index in the .pat files, so per-region held-error and loose-share counts sit on the globe's own layout. Proposed reading (to be written before any run): each region's held error against the sample's own predicted value from its loose share (the self-reference line), counted in that region's own counting noise, changed beyond 3 (the other globes' rule); synthetic first",
+   "task": "The IAM-A globe: Stage Q2's counter keeps its held-error and loose-share counts per atlas block (not only totals), tested to give the same totals to every digit; then an IAM-A layer on the report globe, the sample's own predicted error as its reference, through the chain, screenshotted in a browser (V13). | 2026-10-22: the layout is solved: IAM-Atlas v2.1's sites_sequencing_key.parquet gives each atlas site its CpG index in the .pat files, so per-region held-error and loose-share counts sit on the globe's own layout. Proposed reading (to be written before any run): each region's held error against the sample's own predicted value from its loose share (the self-reference line), counted in that region's own counting noise, changed beyond 3 (the other globes' rule); synthetic first | 2026-10-22 (author): the full-genome globe is the IAM-A globe's home (IAM-A's held molecules lie mostly where the arrays have few probes); development stage chain/stage_q2_globe.py and synthetic test 1 written (DEV_IAMA_GLOBE_01.md); the array-layout version kept for comparison",
    "done_when": "the counter's per-block counts sum to the committed totals on the release check's BAM and on one grand-test sample; the IAM-A layer is drawn by the one command and checked in Chromium",
    "rows": [
     "ATL-063",
     "ATL-070"
    ],
    "status": "open",
-   "done_date": ""
+   "done_date": "",
+   "record": ""
   },
   {
    "task": "What the panel cannot explain: the Deconvolver's leftover at each site after the fit (measured minus the fitted mix) as a globe layer and one report number; first list which blood cells IAM-Atlas v2.1 holds and which the six-cell panel leaves out; synthetic first (plant a cell the panel lacks, e.g. from the atlas, and see the leftover rise at its marker sites, in clumps), then real bloods. Author 2026-10-21 asked whether CpG locations alone could tell which cells are present: they cannot (every cell carries every CpG; the array measures all of them); the leftover is the measurable version.",
