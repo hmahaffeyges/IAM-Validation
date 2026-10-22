@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **31 Python files** holding **349 functions** (nested ones included); 349 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **32 Python files** holding **354 functions** (nested ones included); 354 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -37,6 +37,7 @@ Read from the code at build time: the one command can load **31 Python files** h
 | `stage_info_sphere.py` | 95 | 9 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 155 | 8 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 123 | 6 | 0 | 0 |
+| `MethylPhys_Interface/run_draw.py` | 90 | 5 | 0 | 0 |
 
 ## How to read the Decoder
 
@@ -3002,3 +3003,42 @@ command with the same references (Group-A's design: the planted and unplanted ha
 One row per bundle, for the scorer.
 
 *Code:* `MethylPhys_Interface/run_series.py` line 107 (7 lines) · arguments: a · calls: not called on the traced runs · files named: `rows.csv`
+
+## 20. One blood draw: `run_draw.py` (development, to-do step 40)
+
+**What it is for.** One blood draw, split into its buffy coat (the person's own white cells) and its plasma (cell-free DNA), read end to end:
+`run_draw.py` runs the one command, `run_sample.py`, on each half with `--cell-panel atlas` (and `--dev-seq-values` for sequencing), so every
+instrument with enough to read reads, then writes the draw's joint record from the two bundles alone. The GitHub workflow `one_draw.yml` runs
+it from public GEO samples with one click. Nothing in it is commissioned; every reading keeps its own flag.
+
+### `run_draw.py::is_blood`
+
+Whether an atlas cell type is a blood or bone-marrow cell, by its name.
+
+*Code:* `MethylPhys_Interface/run_draw.py` line 21 (1 lines) · arguments: c · calls: not called on the traced runs · constants read: `BLOOD_WORDS`
+
+### `run_draw.py::half_args`
+
+The one command's input flags for one half: an IDAT pair, a values file, a .pat file or a GEO sample (the last two with sequencing values).
+
+*Code:* `MethylPhys_Interface/run_draw.py` line 23 (7 lines) · arguments: a, half · calls: not called on the traced runs
+
+### `run_draw.py::read_half`
+
+Runs the one command on one half, on the full atlas panel, and returns its bundle, or the reason it was not read.
+
+*Code:* `MethylPhys_Interface/run_draw.py` line 31 (10 lines) · arguments: a, half, specimen, extra · calls: not called on the traced runs · constants read: `HERE`, `RS` · files named: `bundle.json`
+
+### `run_draw.py::sources`
+
+A bundle's sources: each cell type's share with its 95 % interval, and its Met-A for each cell where read.
+
+*Code:* `MethylPhys_Interface/run_draw.py` line 42 (4 lines) · arguments: B · calls: not called on the traced runs
+
+### `run_draw.py::main`
+
+Reads both halves and writes `draw.json` and `draw_summary.txt`: each half's sources and Met-A, IAM-A with its counting range, and the
+plasma's sources the person's own buffy coat does not explain: every non-blood source, and every blood source whose plasma share is above
+its buffy-coat share by more than its 95 % interval.
+
+*Code:* `MethylPhys_Interface/run_draw.py` line 47 (41 lines) · arguments: none · calls: not called on the traced runs · files named: `draw.json`, `draw_summary.txt`

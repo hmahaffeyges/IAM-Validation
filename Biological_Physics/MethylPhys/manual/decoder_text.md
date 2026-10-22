@@ -1925,3 +1925,27 @@ command with the same references (Group-A's design: the planted and unplanted ha
 
 ### run_series.py::table
 One row per bundle, for the scorer.
+
+## 20. One blood draw: `run_draw.py` (development, to-do step 40)
+
+**What it is for.** One blood draw, split into its buffy coat (the person's own white cells) and its plasma (cell-free DNA), read end to end:
+`run_draw.py` runs the one command, `run_sample.py`, on each half with `--cell-panel atlas` (and `--dev-seq-values` for sequencing), so every
+instrument with enough to read reads, then writes the draw's joint record from the two bundles alone. The GitHub workflow `one_draw.yml` runs
+it from public GEO samples with one click. Nothing in it is commissioned; every reading keeps its own flag.
+
+### run_draw.py::is_blood
+Whether an atlas cell type is a blood or bone-marrow cell, by its name.
+
+### run_draw.py::half_args
+The one command's input flags for one half: an IDAT pair, a values file, a .pat file or a GEO sample (the last two with sequencing values).
+
+### run_draw.py::read_half
+Runs the one command on one half, on the full atlas panel, and returns its bundle, or the reason it was not read.
+
+### run_draw.py::sources
+A bundle's sources: each cell type's share with its 95 % interval, and its Met-A for each cell where read.
+
+### run_draw.py::main
+Reads both halves and writes `draw.json` and `draw_summary.txt`: each half's sources and Met-A, IAM-A with its counting range, and the
+plasma's sources the person's own buffy coat does not explain: every non-blood source, and every blood source whose plasma share is above
+its buffy-coat share by more than its 95 % interval.

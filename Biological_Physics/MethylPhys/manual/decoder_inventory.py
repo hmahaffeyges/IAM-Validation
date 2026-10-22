@@ -12,7 +12,7 @@ LOADED = ["MethylPhys_Interface/run_sample.py", "stage_0_intake.py", "stage_0_1_
           "MethylPhys_Interface/report_v3.py", "MethylPhys_Interface/report_v4.py", "MethylPhys_Interface/report_figs_v4.py", "MethylPhys_Interface/report_pdf_v4.py",
           "MethylPhys_Interface/report_globe_v4.py", "MethylPhys_Interface/globe_viewer.py",
           # 2026-10-22: loaded by the one command's development flags and build mode (--dev-metaa-atlas, --dev-genome-globe, --build), and the series runner
-          "stage_metaa_atlas.py", "stage_q2_globe.py", "stage_info_sphere.py", "MethylPhys_Interface/reference_globes.py", "MethylPhys_Interface/run_series.py"]
+          "stage_metaa_atlas.py", "stage_q2_globe.py", "stage_info_sphere.py", "MethylPhys_Interface/reference_globes.py", "MethylPhys_Interface/run_series.py", "MethylPhys_Interface/run_draw.py"]
 DATA = re.compile(r"[\w./ -]+\.(?:json|csv|parquet|txt|tsv|npz|pkl|xz|gz)\b")
 
 def traced():

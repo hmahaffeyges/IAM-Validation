@@ -1,0 +1,44 @@
+name: one_draw
+# One blood draw through the one command (2026-10-22, to-do step 40; development): the draw's buffy coat and plasma, each read by
+# run_sample.py on IAM-Atlas v2.1's full panel (chain/MethylPhys_Interface/run_draw.py), then the joint record. Give each half as a public GEO
+# sample (a sequencing GSM with a .pat file, or an array GSM with its IDAT pair). Results come back as the run's artifact "draw".
+on:
+  workflow_dispatch:
+    inputs:
+      id:     {description: "a name for the draw", required: true}
+      buffy:  {description: "buffy coat: GEO sample (GSM), or none", required: true, default: "none"}
+      plasma: {description: "plasma: GEO sample (GSM), or none", required: true, default: "none"}
+      kind:   {description: "seq (a .pat file on GEO) or array (an IDAT pair on GEO)", required: true, default: "seq"}
+permissions: {contents: read}
+jobs:
+  draw:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: Biological_Physics}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - name: fetch array IDATs from GEO
+        if: inputs.kind == 'array'
+        run: |
+          mkdir -p in
+          for h in buffy plasma; do
+            g="${{ inputs.buffy }}"; [ $h = plasma ] && g="${{ inputs.plasma }}"; [ "$g" = none ] && continue
+            u="https://ftp.ncbi.nlm.nih.gov/geo/samples/${g:0:${#g}-3}nnn/$g/suppl/"
+            for c in Grn Red; do f=$(curl -s "$u" | grep -o "${g}_[^\"<>]*_${c}.idat.gz" | head -1); curl -s -o in/${h}_${c}.idat.gz "$u$f"; done
+          done
+          ls -la in
+      - name: the draw through the one command
+        run: |
+          A=""
+          for h in buffy plasma; do
+            g="${{ inputs.buffy }}"; [ $h = plasma ] && g="${{ inputs.plasma }}"; [ "$g" = none ] && continue
+            if [ "${{ inputs.kind }}" = seq ]; then A="$A --$h-geo-pat $g"; else A="$A --$h-grn in/${h}_Grn.idat.gz --$h-red in/${h}_Red.idat.gz"; fi
+          done
+          python3 -u Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_draw.py --id "${{ inputs.id }}" --out draw $A 2>&1 | { grep -v -i warning || true; }
+          cat draw/draw_summary.txt >> $GITHUB_STEP_SUMMARY || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: draw, path: "draw/"}
