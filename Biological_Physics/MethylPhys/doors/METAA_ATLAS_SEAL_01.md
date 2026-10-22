@@ -41,12 +41,12 @@ Normal (0.95 to 1.05); B3 the planted 1 % loss moves the tared reading by at lea
 
 ## Outcome, scored once (2026-10-22; explore run 39801005038, commit f0cec636): NOT COMMISSIONED
 
-Output: `data/METAA_ATLAS_SEAL_01/sealed_01/sealed_summary.txt`. **Two of three sealed bars met.** B1 met: 31 of 31 arrays tared. B2 met:
+Output: `data/METAA_ATLAS_SEAL_01/sealed_01/sealed_summary.txt` and `sealed_rows.csv`. **Two of three sealed bars met.** B1 met: 31 of 31 arrays tared. B2 met:
 90.3 % Normal (bar 90 %), median 0.99936. **B3 not met:** a planted 1 % loss moves the tared reading by +0.05773, which is 1.4 healthy
 spreads (spread 0.04119; bar 2). Met-A against the atlas is not commissioned on this test, and the result stands as scored.
 
 **What the numbers show, recorded, not rescored.** The planted move (+0.058) matches the rehearsal (+0.054); what grew is the spread across
-this laboratory's healthy arrays: 0.041 here against 0.016 in the rehearsal. One array (GSM8272378) reads 0.810, far below the rest; it
+this laboratory's healthy arrays: 0.041 here against 0.016 in the rehearsal. One array (GSM8272378) reads 0.81018, far below the rest; it
 alone widens the spread. The same-slide tare, reported and not scored, read 9 arrays, all Normal, with the plant at 4.0 spreads, as it did
 in exploration 6 (3.6). Both tests point the same way: against the atlas, Met-A needs references from the same slide, and a laboratory-wide
 tare is too loose. Next, written before any reading: a sealed test with the same-slide tare scored, on a series with enough healthy arrays

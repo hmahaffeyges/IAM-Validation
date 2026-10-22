@@ -27930,6 +27930,13 @@
      "stage": "Q2 self-reference",
      "chain": "25dac389c2b4",
      "latest_utc": "2026-10-22T14:59:37Z"
+    },
+    {
+     "folder": "Biological_Physics/MethylPhys/doors/data/METAA_ATLAS_SEAL_01/sealed_01",
+     "files": 1,
+     "stage": "Q2 self-reference",
+     "chain": "39a75014afa6",
+     "latest_utc": "2026-10-22T15:41:17Z"
     }
    ]
   },
