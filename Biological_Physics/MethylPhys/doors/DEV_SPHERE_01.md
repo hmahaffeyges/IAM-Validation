@@ -256,3 +256,14 @@ to separate a change of the blood mix from a change of the cells. (4) The dipole
 areas, structured change against random wear. (7) Stacking: the map averaged around every site of one kind, for a signal too weak to see alone.
 
 **First in line once the sphere passes on real healthy cells:** the cross-spectrum of two readings and the dipole of one individual.
+
+## Test 8, written before it runs (2026-10-22): real healthy cells (exploratory, not sealed)
+
+**The instrument's job:** on real healthy cells, the information sphere places together the sites that behave alike, and not the sites that
+merely share a methylation level. `data/DEV_SPHERE_01/atlas_sphere_08.py` writes IAM-Atlas v2.1's best values for all 79 cell types at its
+variable sites (spread across the 79 above 0.08) and lets the one command build the globe (`run_sample.py --build info-sphere`, construction
+v1, unchanged). Groups are fixed from the atlas alone before the globe is built: for each of the Deconvolver panel's six blood cells, the 100
+sites where it sits furthest below every other of the six and the 100 where it sits furthest above (12 marker groups); and 100 groups drawn
+from the other sites with the same distribution of mean methylation as a marker group (level-matched). **Checks:** C1 at least 10 of the 12
+marker groups land together (concentration above the 99th percentile of 1,000 random groups of the same size); C2 at most 4 of the 100
+level-matched groups do (a shared level alone is not enough); C3 distance agreement at least 0.7.
