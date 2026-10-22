@@ -306,3 +306,11 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
     out["tare"] = t   # every specimen (2026-10-17): from 2026-10-15 this sat inside the elif above, so in-scope (whole blood) runs lost their tare record (LESSONS C21)
     out["withheld"] = ["tier lines beyond Normal (not yet measured on this scale)", "Met-A of blood cells other than neutrophils (not yet read by this chain)"]
     return out
+
+
+def plant_neutrophil_loss(beta, f_neu, loss=0.01):
+    """A CONSTRUCTED loss for tests (Group-A's sealed rule, GROUPA_COMMISSIONING; the shift stage_m_blood predicts): at the neutrophil sites,
+    beta + f_neu x loss x (0.5 - mu_NEU), f_neu this array's own neutrophil fraction. Returns a new Series and the number of sites moved."""
+    B = _bc(); S = pd.Index(B["neutrophil_sites"]); mu = pd.Series(B["profiles_at_neutrophil_sites"]["NEU"], index=S, dtype="float64")
+    x = beta.copy(); x.index = x.index.astype(str); k = S.intersection(x.index)
+    x.loc[k] = (x.loc[k] + f_neu * loss * (0.5 - mu.loc[k])).clip(0, 1); return x, int(len(k))

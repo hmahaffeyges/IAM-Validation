@@ -11,6 +11,7 @@ on:
       scopes:   {description: "JSON list of tare scopes for pass 2", required: true, default: '["series"]'}
       plant:    {description: "metaa_atlas or none", required: true, default: "none"}
       scorer:   {description: "optional script run on rows.csv (repo path), or none", required: true, default: "none"}
+      nshards:  {description: "machines per pass (10 or 20)", required: true, default: "10"}
 permissions: {contents: read, issues: write}
 env:
   RS: Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_series.py
@@ -18,21 +19,23 @@ jobs:
   pass1:
     runs-on: ubuntu-24.04
     timeout-minutes: 350
-    strategy: {fail-fast: false, matrix: {shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}}
+    strategy: {fail-fast: false, matrix: {shard: "${{ fromJSON(inputs.nshards == '20' && '[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]' || '[0,1,2,3,4,5,6,7,8,9]') }}"}}
     steps:
       - uses: actions/checkout@v4
         with: {sparse-checkout: Biological_Physics}
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
       - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
-      - run: python3 -u $RS read "${{ inputs.samples }}" out ${{ matrix.shard }} 10 --specimen "${{ inputs.specimen }}" --pass 1 2>&1 | { grep -v -i warning || true; }; exit ${PIPESTATUS[0]}
+      - run: |
+          P1=""; [ "${{ inputs.plant }}" = "neutrophil" ] && P1="--plant neutrophil"
+          python3 -u $RS read "${{ inputs.samples }}" out ${{ matrix.shard }} ${{ inputs.nshards }} --specimen "${{ inputs.specimen }}" --pass 1 $P1 2>&1 | { grep -v -i warning || true; }; exit ${PIPESTATUS[0]}
       - uses: actions/upload-artifact@v4
         with: {name: "pass1-${{ matrix.shard }}", path: out/pass1/, if-no-files-found: ignore}
   pass2:
     needs: pass1
     runs-on: ubuntu-24.04
     timeout-minutes: 350
-    strategy: {fail-fast: false, matrix: {shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], scope: "${{ fromJSON(inputs.scopes) }}"}}
+    strategy: {fail-fast: false, matrix: {shard: "${{ fromJSON(inputs.nshards == '20' && '[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]' || '[0,1,2,3,4,5,6,7,8,9]') }}", scope: "${{ fromJSON(inputs.scopes) }}"}}
     steps:
       - uses: actions/checkout@v4
         with: {sparse-checkout: Biological_Physics}
@@ -44,7 +47,7 @@ jobs:
         with: {pattern: "pass1-*", path: out/pass1, merge-multiple: true}
       - run: |
           P=""; [ "${{ inputs.plant }}" != "none" ] && P="--plant ${{ inputs.plant }}"
-          python3 -u $RS read "${{ inputs.samples }}" out ${{ matrix.shard }} 10 --specimen "${{ inputs.specimen }}" --pass 2 --scope ${{ matrix.scope }} $P 2>&1 | { grep -v -i warning || true; }; exit ${PIPESTATUS[0]}
+          python3 -u $RS read "${{ inputs.samples }}" out ${{ matrix.shard }} ${{ inputs.nshards }} --specimen "${{ inputs.specimen }}" --pass 2 --scope ${{ matrix.scope }} $P 2>&1 | { grep -v -i warning || true; }; exit ${PIPESTATUS[0]}
       - uses: actions/upload-artifact@v4
         with: {name: "pass2-${{ matrix.scope }}-${{ matrix.shard }}", path: "out/pass2_${{ matrix.scope }}/", if-no-files-found: ignore}
   table:
@@ -67,6 +70,9 @@ jobs:
       - uses: actions/download-artifact@v4
         continue-on-error: true
         with: {pattern: "pass2-slide-*", path: out/pass2_slide, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with: {pattern: "pass2-slide_else_series-*", path: out/pass2_slide_else_series, merge-multiple: true}
       - run: python3 $RS table out
       - if: inputs.scorer != 'none'
         run: python3 "${{ inputs.scorer }}" out/rows.csv "${{ inputs.samples }}" out 2>&1 | tee out/scorer.log

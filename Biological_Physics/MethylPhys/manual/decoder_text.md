@@ -666,6 +666,10 @@ NOT_RUN record if the map file is missing.
 ### conductor_v3.py::platform_refusal
 Nothing for an EPIC v1 array; otherwise the refusal: another array type from Stage 0, EPIC v2 probe names, or 700,000 probes or fewer.
 
+### conductor_v3.py::plant_neutrophil_loss
+A constructed 1 % loss for tests, Group-A's sealed rule: at the neutrophil sites, beta + f_neu x 1 % x (0.5 - mu_NEU), f_neu the array's own
+neutrophil fraction. Used by the series runner's `--plant neutrophil`; never by a reading.
+
 ### conductor_v3.py::run_neutrophil
 The whole conductor, in the order above. Returns the array reading's records (mix, Met-A, tare, C-Score) and the departure map for the sky.
 

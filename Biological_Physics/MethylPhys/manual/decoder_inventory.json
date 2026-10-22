@@ -1370,7 +1370,7 @@
   },
   {
    "file": "conductor_v3.py",
-   "lines": 309,
+   "lines": 317,
    "functions": [
     {
      "file": "conductor_v3.py",
@@ -1743,6 +1743,23 @@
      "traced_calls": {
       "array": 1
      }
+    },
+    {
+     "file": "conductor_v3.py",
+     "function": "plant_neutrophil_loss",
+     "name": "plant_neutrophil_loss",
+     "line": 311,
+     "end": 316,
+     "args": [
+      "beta",
+      "f_neu",
+      "loss"
+     ],
+     "lines": 6,
+     "doc": "A CONSTRUCTED loss for tests (Group-A's sealed rule, GROUPA_COMMISSIONING; the shift stage_m_blood predicts): at the neutrophil sites, beta + f_neu x loss x (0.5 - mu_NEU), f_neu this array's own neutrophil fraction. Returns a new Series and the number of sites moved.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
     }
    ],
    "first_entered": {
@@ -5781,5 +5798,5 @@
   }
  ],
  "n_files": 24,
- "n_functions": 292
+ "n_functions": 293
 }

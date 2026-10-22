@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **24 Python files** holding **292 functions** (nested ones included); 292 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **24 Python files** holding **293 functions** (nested ones included); 293 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -10,7 +10,7 @@ Read from the code at build time: the one command can load **24 Python files** h
 | `stage_0_intake.py` | 1,172 | 40 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
-| `conductor_v3.py` | 309 | 19 | 18 | 0 |
+| `conductor_v3.py` | 317 | 20 | 18 | 0 |
 | `stage_m_met_a.py` | 81 | 6 | 3 | 0 |
 | `MethylPhys_Interface/report_v4.py` | 263 | 20 | 17 | 17 |
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
@@ -951,6 +951,13 @@ NOT_RUN record if the map file is missing.
 Nothing for an EPIC v1 array; otherwise the refusal: another array type from Stage 0, EPIC v2 probe names, or 700,000 probes or fewer.
 
 *Code:* `conductor_v3.py` line 248 (10 lines) · arguments: beta, array_type · calls: array run 1 · constants read: `ACCEPTED_ARRAY_TYPES`
+
+### `conductor_v3.py::plant_neutrophil_loss`
+
+A constructed 1 % loss for tests, Group-A's sealed rule: at the neutrophil sites, beta + f_neu x 1 % x (0.5 - mu_NEU), f_neu the array's own
+neutrophil fraction. Used by the series runner's `--plant neutrophil`; never by a reading.
+
+*Code:* `conductor_v3.py` line 311 (6 lines) · arguments: beta, f_neu, loss · calls: not called on the traced runs
 
 ### `conductor_v3.py::run_neutrophil`
 
