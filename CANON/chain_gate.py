@@ -15,6 +15,9 @@ e. a line added to a commissioning note may cite only chain code (CANON/ scripts
     stages and calling them directly is refused: that is how Stage 0 and Stage T's self-tare were skipped (METAA-ATLAS-SEAL-01). Rule a now asks
     the same of every script on a synthetic-test line. A script may still import chain code (to plant a loss by the chain's own rule) if it
     also runs the one command, which makes every reading.
+ g. (2026-10-22, lesson C34; author: "make sure this is added to the chain ... so it doesnt happen again") No changed script under doors/data/ or
+    website/art/ downloads a sequencing file (.pat) itself: the chain fetches it (run_sample.py --geo-pat, or stage_q0_intake.geo_pat), always
+    on the build it reads. A script that picked GEO's first file name took the hg38 file and counted it on hg19 positions.
 Usage: chain_gate.py register (add the working chain's sha; checkpoint.sh runs it) | check [base] (default origin/main)"""
 import os, sys, re, json, glob, hashlib, subprocess
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
@@ -25,6 +28,14 @@ CHAIN_IMPORT = re.compile(r"(?m)^\s*(from|import)\s+(conductor_v3|stage_\w+|dev_
 PIECES = re.compile(r"(?m)^\s*(?:from|import)\s+(conductor_v3|stage_\w+|dev_stages|cmb_tools|sky_statistics|report_globe_v4|globe_viewer|report_v\w+|run_sample)\b")
 ONE_COMMAND = re.compile(r"run_sample\.py")
 SCOPE_F = ("Biological_Physics/MethylPhys/doors/data/", "website/art/")
+OWN_PAT = re.compile(r"\\\.pat\\\.gz|\.pat\.gz")
+OWN_FETCH = re.compile(r"urlopen|urlretrieve|requests\.get|curl |wget ")
+def own_pat_refusal(f, text):
+    """Rule 23b-g: a .pat file downloaded by the script instead of by the chain."""
+    if OWN_PAT.search(text) and OWN_FETCH.search(text) and not re.search(r"geo_pat|--geo-pat|--prior-geo-pat", text):
+        return f"{f}: downloads a .pat file itself; let the chain fetch it on the build it reads (run_sample.py --geo-pat GSM, or stage_q0_intake.geo_pat) (rule 23b-g)"
+    return None
+
 def one_command_refusal(f, text):
     """Rule 23b-f: chain code used without the one command."""
     p = sorted(set(PIECES.findall(text)))
@@ -60,8 +71,8 @@ def check(changed, added, root=ROOT, known=None):
     known = registry(root) if known is None else known; F = []
     for f in changed:
         if f.startswith(SCOPE_F) and f.endswith((".py", ".sh")) and os.path.isfile(os.path.join(root, f)):
-            m = one_command_refusal(f, open(os.path.join(root, f), encoding="utf-8", errors="replace").read())
-            if m: F.append(m)
+            _tx = open(os.path.join(root, f), encoding="utf-8", errors="replace").read()
+            F += [m for m in (one_command_refusal(f, _tx), own_pat_refusal(f, _tx)) if m]
         if f.endswith(".py") and not f.startswith(CHAIN + "/") and f not in ("CANON/chain_gate_controls.py",) and os.path.isfile(os.path.join(root, f)):   # the controls must contain the numbers they test
             hits = set(LINE_NUMS.findall(open(os.path.join(root, f), encoding="utf-8", errors="replace").read()))
             if len(hits) >= 2: F.append(f"{f}: types the self-reference line's numbers {sorted(hits)} outside the chain; ask chain Stage Q2 (rule 23b-d)")

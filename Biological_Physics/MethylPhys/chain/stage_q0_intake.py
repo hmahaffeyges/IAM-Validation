@@ -75,10 +75,57 @@ def scan_pat(path):
     return out
 
 
+GEO_BUILD = "hg19"   # the build Stage Q2's counter and IAM-A's references read (wgbstools 0.1.0 hg19 CpG index); see the Decoder, genome builds
+OTHER_BUILDS = (".hg38.", ".grch38.", "_hg38", "-hg38", ".hg18.", ".mm10.", ".mm9.", ".grcm38.", ".grcm39.")
+
+def build_named(path):
+    """The genome build a file's name declares, when it names one other than hg19 (e.g. GSM..._x.hg38.pat.gz), else None. Read from the
+    name only, before any line is read, so a wrong-build file is named for what it is instead of only failing the index ranges (2026-10-22)."""
+    n = os.path.basename(str(path)).lower()
+    return next((b.strip("._-") for b in OTHER_BUILDS if b in n), None)
+
+def geo_pat(gsm, dest, build=GEO_BUILD, retries=5):
+    """A sequencing sample's .pat file from GEO, on the build the chain reads (2026-10-22, lesson C34: a download that took the first file name
+    in alphabetical order got the hg38 file, which sorts before hg19). Lists the sample's supplementary files and keeps the .pat.gz names that
+    declare no other build; if more than one remain, the one naming hg19. Refuses, with what GEO holds, when none or several remain.
+    Returns {path, name, url, build, other_files, sha256, size}."""
+    import re, time, hashlib, urllib.request
+    base = f"https://ftp.ncbi.nlm.nih.gov/geo/samples/{gsm[:-3]}nnn/{gsm}/suppl/"
+    for t in range(retries):
+        try: names = sorted(set(re.findall(rf"{gsm}_[^\"<>/]*\.pat\.gz", urllib.request.urlopen(base, timeout=120).read().decode()))); break
+        except Exception:
+            if t == retries - 1: raise
+            time.sleep(30 * (t + 1))
+    keep = [n for n in names if build_named(n) is None]
+    if len(keep) > 1: keep = [n for n in keep if build in n.lower()] or keep
+    if len(keep) != 1:
+        raise RuntimeError(f"{gsm}: GEO holds {names or 'no .pat files'}; the chain reads {build} and could not pick exactly one {build} file. "
+                           f"Give the file with --pat after checking its build")
+    n = keep[0]; u = base + n; f = os.path.join(dest, n); h = hashlib.sha256()
+    for t in range(retries):
+        try:
+            with urllib.request.urlopen(u, timeout=900) as r, open(f, "wb") as o:
+                for c in iter(lambda: r.read(1 << 20), b""): o.write(c); h.update(c)
+            break
+        except Exception:
+            if t == retries - 1: raise
+            h = hashlib.sha256(); time.sleep(60 * (t + 1))
+    return dict(path=f, name=n, url=u, build=build, other_files=[x for x in names if x != n], sha256=h.hexdigest(), size=os.path.getsize(f))
+
 def intake(path, specimen, cell="neutrophils", alignment_qc=None, selfref_cells=None):
     """Stage Q0 on one .pat(.gz). alignment_qc: dict (or JSON path) from the alignment step with 'conversion_rate' and/or
     'duplicate_fraction'; None = not measured here. Returns {stage, checks:[...], decision, refusal_code?, refusal?, measured}."""
     rec = {"stage": "Q0", "status": "intake: rule checks stop the file; limit checks record only until their limits are set", "limits": Q0_LIMITS, "checks": []}
+    _nb = build_named(path)
+    if _nb:   # 2026-10-22 (lesson C34): the file's name says it is another build; stopped before reading, and named for what it is
+        rec["checks"].append(dict(step="Q0.2 build", ok=False, value=f"the file name declares {_nb}", rule=f"every file on {GEO_BUILD}, the build the counter and references read"))
+        rec["refusal_code"] = "GENOME_BUILD_MISMATCH"; rec["decision"] = "stopped"
+        rec["refusal"] = (f"Q0.2 build: {os.path.basename(path)} is named as a {_nb} file; the chain reads {GEO_BUILD} (the same CpG index points at a different CpG on "
+                          f"another build, so every count would land on the wrong site). Use the {GEO_BUILD} file of the same sample, or run_sample.py --geo-pat GSM...")
+        rec["explained"] = dict(check="sequencing intake (Q0.2 build)", outcome="stopped", measured=f"file name declares {_nb}", limit=f"{GEO_BUILD} only",
+                                limit_source="stage_q0_intake (fixed rule)", provisional=False, means="the file was made on another genome build than the references",
+                                what_to_do=f"use the {GEO_BUILD} .pat file of the same sample (GEO usually holds both), or let the chain fetch it: run_sample.py --geo-pat GSM...")
+        return rec
     def chk(step, ok, value, rule, code=None, stop=True):
         rec["checks"].append({"step": step, "value": value, "rule": rule, "result": ("pass" if ok else ("REFUSED" if stop else "recorded"))})
         if not ok and stop and "refusal_code" not in rec:
@@ -87,7 +134,7 @@ def intake(path, specimen, cell="neutrophils", alignment_qc=None, selfref_cells=
                                     provisional=False, means={"Q0.1 readable": "the file is damaged or not a .pat file", "Q0.2 build": "the file was made on another genome build than the references",
                                     "Q0.4 whole genome": "the file does not cover the whole genome, so its loose share is not the cell's", "Q0.7 specimen": "IAM-A has no healthy shape reference for this cell type",
                                     "Q0.3 conversion": "too much DNA was left unconverted, so unmethylated sites read as methylated"}.get(step, "the file failed an intake rule"),
-                                    what_to_do={"Q0.1 readable": "download the file again", "Q0.2 build": "use an hg19 .pat file (wgbstools)", "Q0.4 whole genome": "give the whole-genome file",
+                                    what_to_do={"Q0.1 readable": "download the file again", "Q0.2 build": "use the hg19 .pat file of the same sample: GEO usually holds both, named .hg19. and .hg38.; or let the chain fetch the right one: run_sample.py --geo-pat GSM... (Decoder: genome builds)", "Q0.4 whole genome": "give the whole-genome file",
                                     "Q0.7 specimen": "check --seq-cell", "Q0.3 conversion": "re-run the bisulfite conversion"}.get(step, "read the rule and correct the input"))
     if selfref_cells is not None:   # chain v4, Stage Q2: the self-reference reads any purified cell type with a healthy shape reference
         chk("Q0.7 specimen", str(cell).strip().lower() in selfref_cells, cell, "a purified cell type with a healthy shape reference (Stage Q2)", "SPECIMEN_REFUSED")

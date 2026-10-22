@@ -334,6 +334,10 @@ def main():
     ap.add_argument("--workers", type=int, default=4, help="processes for counting --bam")
     ap.add_argument("--seq-chemistry", default="whole-genome bisulfite", help="chemistry of the sequencing input (IAM-A is commissioned on whole-genome bisulfite)")
     ap.add_argument("--dev-iama-position", action="store_true", help="development: read --pat with the retired position reading (Stage Q) instead of the commissioned self-reference (Stage Q2)")
+    ap.add_argument("--geo-pat", default=None, metavar="GSM", help="fetch this GEO sample's .pat file and read it as --pat; the chain takes the file on the build it "
+                    "reads (hg19), never another build (stage_q0_intake.geo_pat; Decoder: genome builds)")
+    ap.add_argument("--prior-geo-pat", default=None, metavar="GSM", help="the same for --prior-pat")
+    ap.add_argument("--geo-dir", default=None, help="where --geo-pat files are written (default: a temporary folder)")
     ap.add_argument("--pat", default=None, help="chain v4 Stage Q2 (IAM-A against the sample's own reference); with --dev-iama-position the retired v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table)")
     ap.add_argument("--pat-max-bytes", type=int, default=None, help="development: read only the first N bytes of --pat; IAM-A is then refused (P is measured on whole files) unless --dev-allow-partial")
     ap.add_argument("--alignment-qc", default=None, help="Stage Q0: JSON from the alignment step with conversion_rate and/or duplicate_fraction")
@@ -379,6 +383,15 @@ def main():
     ap.add_argument("--atlas-v2", default=os.environ.get("CPG_ATLAS_V2_PARQUET"), help="atlas v2 parquet for the atlas-based development flags (not stored in the repository)")
     ap.add_argument("--sesame-rscript", default=os.environ.get("METHYLPHYS_SESAME_RSCRIPT"), help="Rscript of an environment with Bioconductor sesame (--dev-epic-v2)")
     a=ap.parse_args()
+    if a.geo_pat or a.prior_geo_pat:   # 2026-10-22 (lesson C34): the chain fetches sequencing files from GEO itself, always on the build it reads
+        import stage_q0_intake as _Q0g, tempfile as _tf
+        _gd = a.geo_dir or _tf.mkdtemp(prefix="geo_pat_"); os.makedirs(_gd, exist_ok=True); _geo = {}
+        for _attr, _g in (("pat", a.geo_pat), ("prior_pat", a.prior_geo_pat)):
+            if not _g: continue
+            if getattr(a, _attr): ap.error(f"give --{_attr.replace('_', '-')} or its --geo form, not both")
+            print(f"Fetching {_g}'s {_Q0g.GEO_BUILD} .pat file from GEO", flush=True); _r = _Q0g.geo_pat(_g, _gd); setattr(a, _attr, _r["path"]); _geo[_attr] = dict(_r, gsm=_g)
+            print(f"  {_r['name']} ({_r['size']:,} bytes; also on GEO: {', '.join(_r['other_files']) or 'nothing else'})", flush=True)
+        a._geo_fetch = _geo
     seq = bool(a.pat or a.site_table or a.bam)
     if a.build: sys.exit(_build(a))
     if not (a.betas or (a.grn and a.red) or seq): ap.error("give --betas, both --grn and --red, or --pat / --bam / --site-table")
@@ -782,7 +795,8 @@ def main():
         os.makedirs(os.path.dirname(os.path.abspath(a.save_betas)), exist_ok=True)
         (_bs.to_frame().to_parquet(a.save_betas) if a.save_betas.endswith(".parquet") else _bs.to_frame().to_csv(a.save_betas))
         o["betas_saved"] = os.path.abspath(a.save_betas)
-    o["command"] = [os.path.basename(sys.argv[0])] + sys.argv[1:]   # for the report's 'run it yourself' section
+    o["command"] = [os.path.basename(sys.argv[0])] + sys.argv[1:]
+    if getattr(a, "_geo_fetch", None): o["geo_fetch"] = a._geo_fetch   # which file the chain took from GEO, its build and checksum   # for the report's 'run it yourself' section
     cov = _covariates(a)
     o["intake"] = intake; o["intake_skipped"] = bool(a.no_intake); o["sample_id"] = sid; o["covariates"] = cov
     if intake is not None: intake.setdefault("covariates", {}).update(cov)

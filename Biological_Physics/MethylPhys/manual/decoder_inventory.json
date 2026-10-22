@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 821,
+   "lines": 835,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -261,9 +261,9 @@
      "function": "main",
      "name": "main",
      "line": 309,
-     "end": 818,
+     "end": 832,
      "args": [],
-     "lines": 510,
+     "lines": 524,
      "doc": "",
      "constants": [
       "BIO",
@@ -284,8 +284,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 435,
-     "end": 439,
+     "line": 448,
+     "end": 452,
      "args": [
       "r"
      ],
@@ -301,8 +301,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 765,
-     "end": 766,
+     "line": 778,
+     "end": 779,
      "args": [
       "b",
       "it",
@@ -4848,7 +4848,7 @@
   },
   {
    "file": "stage_q0_intake.py",
-   "lines": 127,
+   "lines": 174,
    "functions": [
     {
      "file": "stage_q0_intake.py",
@@ -4903,10 +4903,47 @@
     },
     {
      "file": "stage_q0_intake.py",
+     "function": "build_named",
+     "name": "build_named",
+     "line": 81,
+     "end": 85,
+     "args": [
+      "path"
+     ],
+     "lines": 5,
+     "doc": "The genome build a file's name declares, when it names one other than hg19 (e.g. GSM..._x.hg38.pat.gz), else None. Read from the name only, before any line is read, so a wrong-build file is named for what it is instead of only failing the index ranges (2026-10-22).",
+     "constants": [
+      "OTHER_BUILDS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q0_intake.py",
+     "function": "geo_pat",
+     "name": "geo_pat",
+     "line": 87,
+     "end": 113,
+     "args": [
+      "gsm",
+      "dest",
+      "build",
+      "retries"
+     ],
+     "lines": 27,
+     "doc": "A sequencing sample's .pat file from GEO, on the build the chain reads (2026-10-22, lesson C34: a download that took the first file name in alphabetical order got the hg38 file, which sorts before hg19). Lists the sample's supplementary files and keeps the .pat.gz names that declare no other build; if more than one remain, the one naming hg19. Refuses, with what GEO holds, when none or several rem",
+     "constants": [
+      "GEO_BUILD"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q0_intake.py",
      "function": "intake",
      "name": "intake",
-     "line": 78,
-     "end": 126,
+     "line": 115,
+     "end": 173,
      "args": [
       "path",
       "specimen",
@@ -4914,11 +4951,12 @@
       "alignment_qc",
       "selfref_cells"
      ],
-     "lines": 49,
+     "lines": 59,
      "doc": "Stage Q0 on one .pat(.gz). alignment_qc: dict (or JSON path) from the alignment step with 'conversion_rate' and/or 'duplicate_fraction'; None = not measured here. Returns {stage, checks:[...], decision, refusal_code?, refusal?, measured}.",
      "constants": [
       "ACCEPTED",
       "AUTOSOMES",
+      "GEO_BUILD",
       "MIN_CALLS",
       "Q0_LIMITS"
      ],
@@ -4929,8 +4967,8 @@
      "file": "stage_q0_intake.py",
      "function": "intake.chk",
      "name": "chk",
-     "line": 82,
-     "end": 91,
+     "line": 129,
+     "end": 138,
      "args": [
       "step",
       "ok",
@@ -6634,5 +6672,5 @@
   }
  ],
  "n_files": 29,
- "n_functions": 337
+ "n_functions": 339
 }

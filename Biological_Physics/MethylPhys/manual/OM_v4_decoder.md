@@ -2,11 +2,11 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **29 Python files** holding **337 functions** (nested ones included); 337 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **29 Python files** holding **339 functions** (nested ones included); 339 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 821 | 16 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 835 | 16 | 11 | 10 |
 | `stage_0_intake.py` | 1,172 | 40 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -24,7 +24,7 @@ Read from the code at build time: the one command can load **29 Python files** h
 | `dev_comp_methods.py` | 216 | 17 | 0 | 0 |
 | `deconv_v2.py` | 74 | 3 | 0 | 0 |
 | `sky_statistics.py` | 108 | 6 | 0 | 0 |
-| `stage_q0_intake.py` | 127 | 5 | 0 | 0 |
+| `stage_q0_intake.py` | 174 | 7 | 0 | 0 |
 | `stage_q_iam_a.py` | 174 | 9 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
@@ -223,7 +223,7 @@ unless both designs were mapped, reads Met-A against CELL in IAM-Atlas v2.1 (`st
 
 ### `run_sample.py::_genome_globe`
 
-`--dev-genome-globe` with `--pat` (development, not commissioned): counts the file's molecules into regions of `--genome-region` CpGs on the
+`--dev-genome-globe` with `--pat` or `--geo-pat` (development, not commissioned; the file must be hg19, Section 10b): counts the file's molecules into regions of `--genome-region` CpGs on the
 autosomes (`stage_q2_globe.count_pat_regions`) and draws the sample against its own predicted held error (`self_globe`) and, with `--prior-pat`,
 against that second file (`pair_globe`, named by `--prior-name`). Written under bundle `development.genome_globe`; with `--explorer-spec`,
 the Globe Explorer file.
@@ -252,7 +252,7 @@ The orchestration described above, from parsing the command to writing the ledge
 exit code 2 or 3 at the stops listed, carries the same-run references (columns A and C) into the conductor, adds the v4 stages, and
 hands everything to the report.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 309 (510 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`
+*Code:* `MethylPhys_Interface/run_sample.py` line 309 (524 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`
 
 ### `run_sample.py::main._stopped`
 
@@ -260,13 +260,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 435 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 448 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 765 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 778 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -1525,13 +1525,50 @@ Parses and counts one line.
 Runs the checks in the table and returns the record with each check's value, rule and result, and the decision: stop at the first
 refusal, or proceed.
 
-*Code:* `stage_q0_intake.py` line 78 (49 lines) · arguments: path, specimen, cell, alignment_qc, selfref_cells · calls: not called on the traced runs · constants read: `ACCEPTED`, `AUTOSOMES`, `MIN_CALLS`, `Q0_LIMITS`
+*Code:* `stage_q0_intake.py` line 115 (59 lines) · arguments: path, specimen, cell, alignment_qc, selfref_cells · calls: not called on the traced runs · constants read: `ACCEPTED`, `AUTOSOMES`, `GEO_BUILD`, `MIN_CALLS`, `Q0_LIMITS`
 
 ### `stage_q0_intake.py::intake.chk`
 
 Records one check and, when it stops the file, the first refusal's code and reason, with its five-part explanation.
 
-*Code:* `stage_q0_intake.py` line 82 (10 lines) · arguments: step, ok, value, rule, code, stop · calls: not called on the traced runs
+*Code:* `stage_q0_intake.py` line 129 (10 lines) · arguments: step, ok, value, rule, code, stop · calls: not called on the traced runs
+
+## 10b. Genome builds: which genome each reading counts on, and how the chain keeps them apart (2026-10-22, lesson C34)
+
+**Why it matters.** A sequencing file (.pat) names each CpG by its index in one genome assembly's list of CpGs. hg19 and hg38 number the
+genome differently, so the same index points at a different CpG on each. A file made on hg38 and counted on hg19 does not fail loudly: every
+count lands on the wrong site, and a globe drawn from it looks like a real picture. The withdrawn IAM-A genome globes (DEV-IAMA-GLOBE-01 steps
+2 to 5) did exactly this: GEO holds each healthy-cell sample of the published sequencing atlas twice, `..._name.hg38.pat.gz` and
+`..._name.pat.gz` (hg19); the test's own download took the first name in alphabetical order, the hg38 one, and counted it on hg19 positions.
+
+**The rule.** Every .pat file is read on **hg19** (wgbstools 0.1.0's CpG index, `stage_q0_intake.GEO_BUILD`): Stage Q0's index ranges, Stage
+Q2's tiles and the whole-genome globe's layout are all hg19 indexes. An aligned BAM is different: Stage Q2 reads the bases themselves against
+the reference sequence given, on hg19 or hg38 (`--assembly`, default hg19), so the only requirement is that the BAM and its reference are the
+same build (IAM-A's line was built this way from ENCODE's GRCh38 files and from the published atlas's hg19 .pat files). The arrays carry their
+own probe names and have no build question.
+
+**How the chain enforces it, three times over.**
+1. **The chain fetches the file.** `run_sample.py --geo-pat GSM` (and `--prior-geo-pat` for a second reading) lists the sample's files on
+   GEO and takes the one that declares no other build (`stage_q0_intake.geo_pat`); if none or several remain it stops and lists what GEO holds.
+   The bundle records which file it took, the others it saw, and the file's checksum (`geo_fetch`).
+2. **Stage Q0 stops a wrong build twice.** First by the name: a file named as hg38, GRCh38, hg18 or a mouse build is stopped before a line is
+   read, and the refusal says which build it is and what to do (`stage_q0_intake.build_named`). Then by the content: every line's CpG index
+   must lie inside its chromosome's hg19 range (check Q0.2); the hg38 file of the withdrawn steps had 48,859,268 lines outside them.
+3. **The push gate refuses side downloads.** Rule 23b-g: a changed test or picture script that downloads a .pat file itself, instead of
+   letting the chain fetch it, is refused (controls C13 and C14).
+
+### `stage_q0_intake.py::build_named`
+
+The build a file's name declares when it is not hg19 (hg38, GRCh38, hg18, mm9, mm10, GRCm38, GRCm39), else nothing; read from the name alone.
+
+*Code:* `stage_q0_intake.py` line 81 (5 lines) · arguments: path · calls: not called on the traced runs · constants read: `OTHER_BUILDS`
+
+### `stage_q0_intake.py::geo_pat`
+
+A GEO sample's .pat file on the build the chain reads, as described above, with its name, address, the other files GEO holds, its size
+and checksum; stops, with what GEO holds, when it cannot pick exactly one.
+
+*Code:* `stage_q0_intake.py` line 87 (27 lines) · arguments: gsm, dest, build, retries · calls: not called on the traced runs · constants read: `GEO_BUILD`
 
 ## 11. Group-A, has a whole group moved: `stage_groupa.py`
 

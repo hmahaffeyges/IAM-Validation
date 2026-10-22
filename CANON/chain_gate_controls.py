@@ -12,7 +12,9 @@ tree and feeds the gate the mistakes it must refuse, plus one correct test it mu
  C9 a commissioning note adding chain code                                                                  -> ACCEPT
  C10 a test script calling chain stages directly, not the one command (the METAA-ATLAS-SEAL-01 pattern)    -> REFUSE
  C11 a test script that runs the one command                                                                -> ACCEPT
- C12 a website picture script calling the globe code directly                                               -> REFUSE"""
+ C12 a website picture script calling the globe code directly                                               -> REFUSE
+ C13 a test script downloading a .pat file itself (the lesson C34 pattern), even though it runs the one command -> REFUSE
+ C14 a test script letting the chain fetch the .pat (--geo-pat)                                            -> ACCEPT"""
 import os, sys, json, tempfile, hashlib, importlib.util
 H = os.path.dirname(os.path.abspath(__file__)); spec = importlib.util.spec_from_file_location("cg", os.path.join(H, "chain_gate.py")); CG = importlib.util.module_from_spec(spec); spec.loader.exec_module(CG)
 def tree():
@@ -50,7 +52,11 @@ r = tree(); w(r, S1, "import subprocess\nimport conductor_v3 as C3   # planting 
 res["C11 runs the one command"] = CG.check([S1], {}, root=r, known={CG.chain_sha(r)})
 r = tree(); os.makedirs(os.path.join(r, "website/art")); S2 = "website/art/make_x.py"; w(r, S2, "import report_globe_v4 as G\n")
 res["C12 website picture from globe code"] = CG.check([S2], {}, root=r, known={CG.chain_sha(r)})
-want = {k: (k.startswith(("C7", "C9", "C11"))) for k in res}
+r = tree(); w(r, S1, "import subprocess, urllib.request, re\nn = re.findall(r'GSM1_[^<]*\\.pat\\.gz', urllib.request.urlopen('https://x/').read().decode())[0]\nsubprocess.run(['python3', 'chain/MethylPhys_Interface/run_sample.py', '--pat', n])\n")
+res["C13 own .pat download"] = CG.check([S1], {}, root=r, known={CG.chain_sha(r)})
+r = tree(); w(r, S1, "import subprocess\nsubprocess.run(['python3', 'chain/MethylPhys_Interface/run_sample.py', '--geo-pat', 'GSM1'])   # the .pat.gz is fetched by the chain\n")
+res["C14 chain fetches the .pat"] = CG.check([S1], {}, root=r, known={CG.chain_sha(r)})
+want = {k: (k.startswith(("C7", "C9", "C11", "C14"))) for k in res}
 bad = [k for k, F in res.items() if (len(F) == 0) != want[k]]
 for k, F in res.items(): print(f"  {k}: {'ACCEPTED' if not F else 'REFUSED'} (want {'ACCEPT' if want[k] else 'REFUSE'})" + ("" if not F else f" - {F[0][-110:]}"))
 print("chain_gate_controls: " + (f"ok ({len(res)} of {len(res)})" if not bad else "FAILED: " + ", ".join(bad))); sys.exit(1 if bad else 0)
