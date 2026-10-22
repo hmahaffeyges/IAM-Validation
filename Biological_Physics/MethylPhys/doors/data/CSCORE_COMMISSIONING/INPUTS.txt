@@ -1,0 +1,1 @@
+band_chain_samples.csv: the 24 whole bloods of band_test_GSE184269_samples.csv (gsm, and the slide the committed scorer used: the title's last word), for the one-command rerun (2026-10-22)

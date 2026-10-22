@@ -520,7 +520,7 @@
    "legacy_ids": [
     "AT6"
    ],
-   "notes": "next_jobs job 'A granulocyte reference' carries todo AT6.",
+   "notes": "next_jobs job 'A granulocyte reference' carries todo AT6. | 2026-10-22 (step 37): rerun through the one command (run_series.py, scope slide_else_series; score_band_chain.py reads only the bundles and compares with band_test_GSE184269.json).",
    "depends_on": [],
    "id": "COM-METAA-011",
    "sources_of_row": [
