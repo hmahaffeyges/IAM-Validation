@@ -834,6 +834,10 @@ The number of markers Stage A needs: 90 % of 963, rounded up (867).
 
 Stage A: solves the 8 shares by non-negative least squares on the measured markers and scales them to sum to 1; records the fit's mean
 absolute residual. Refuses, with the count, below 867 markers.
+How it agrees with the chain's other cell-mix reader, Stage D21 (the IAM-Deconvolver): on Group-A's 278 healthy whole bloods (GSE318173), the
+neutrophil shares correlate at 0.960; the Deconvolver reads 0.021 lower on average, and 95 % of arrays agree within -0.113 to +0.071
+(`doors/data/GROUPA_COMMISSIONING/two_readers_01_summary.txt`, 2026-10-22). Stage A's share sets Met-A's whole-blood expectation; the
+Deconvolver's shares are the ones printed on the report.
 
 *Code:* `conductor_v3.py` line 100 (15 lines) · arguments: beta · calls: array run 1
 

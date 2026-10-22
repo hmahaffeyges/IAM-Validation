@@ -1,0 +1,5 @@
+arrays with both readings: 278 of 278
+Stage A neutrophil share: median 0.462 (range 0.105 to 0.867)
+Deconvolver neutrophil share: median 0.421 (range 0.121 to 0.915)
+Deconvolver minus Stage A: mean -0.0208, SD 0.0468; 95 % of arrays within -0.1126 to +0.0709
+correlation 0.960; largest disagreement 0.1343

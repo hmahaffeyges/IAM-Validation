@@ -685,14 +685,14 @@
    "record": "Biological_Physics/MethylPhys/doors/METAA_ATLAS_SEAL_01.md"
   },
   {
-   "task": "The two cell-mix readers compared (author list 2026-10-20: 'Do your two cell-mix readers agree?'): Stage A's neutrophil share against the IAM-Deconvolver's (Stage D21) for every Group-A person (GSE318173, 263 read), from the committed Group-A rows; a reported line, not a bar; into the Decoder's Stage A section",
+   "task": "The two cell-mix readers compared (author list 2026-10-20: 'Do your two cell-mix readers agree?'): Stage A's neutrophil share against the IAM-Deconvolver's (Stage D21) for every Group-A person (GSE318173, 263 read), from the committed Group-A rows; a reported line, not a bar; into the Decoder's Stage A section | 2026-10-22 done: 278 healthy bloods, correlation 0.960, Deconvolver 0.021 lower on average, 95 % within -0.113 to +0.071; in the Decoder's Stage A entry",
    "done_when": "the comparison committed and quoted in the Decoder",
    "rows": [
     "GRP-004"
    ],
-   "status": "open",
-   "done_date": "",
-   "record": ""
+   "status": "done",
+   "done_date": "2026-10-22",
+   "record": "Biological_Physics/MethylPhys/doors/data/GROUPA_COMMISSIONING/two_readers_01_summary.txt"
   }
  ],
  "scheduled": [
