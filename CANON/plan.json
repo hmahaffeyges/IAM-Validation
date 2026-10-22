@@ -727,6 +727,14 @@
     "GRP-004",
     "OTH-076"
    ]
+  },
+  {
+   "task": "Commission the IAM-Globe (author 2026-10-22: 'hurry up and get the chain commissioned so we can use it'): the instrument's job: a healthy sample's globe stays nearly dark; a change planted along the genome lights up where it was planted. Plan: Biological_Physics/MethylPhys/doors/DEV_GLOBE_COMMISSION_01.md. Step 1 explores the 278 healthy bloods of the Group-A rerun through the one command (their bundles carry globe/blocks_changed); step 2 plants clustered losses synthetically; step 3 seals at most three bars on a laboratory none of it has read.",
+   "done_when": "the sealed test meets every bar and the globe is listed as commissioned with its scope; or it misses a bar and the outcome is recorded",
+   "status": "open",
+   "rows": [
+    "ATL-063"
+   ]
   }
  ],
  "scheduled": [
