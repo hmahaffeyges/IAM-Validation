@@ -234,3 +234,14 @@ unchanged except in size: 100 null methylomes, each line from 1,000 random group
 (chance gives 5 or more 0.3 % of the time). C1 and C3 unchanged.
 
 **Synthetic test:** DEV_SPHERE_01/planted_sphere_07.py
+
+## Planted test 7, run once (2026-10-22; explore run 39828871324, commit 8c757e3c): PASSED (synthetic only)
+
+Output: `data/DEV_SPHERE_01/planted_sphere_07_summary.txt` and `planted_sphere_07_nulls.txt`. Every globe built by the one command
+(`run_sample.py --build info-sphere`, construction v1). **C1 met:** the planted group lands together (R 0.9995; 99th percentile of 1,000
+random groups 0.2557). **C2 met:** with nothing planted, 2 of 100 groups past the line (bar at most 4; chance expects about 1). **C3 met:**
+distance agreement rho 0.9324. Reported: variance kept 0.9493; sky covered 7.1 %, the rest masked; edge ratio 0.6.
+
+**What it shows, and what it does not.** On a synthetic methylome, the information sphere keeps how far apart states are, finds a group of
+sites that behave alike, and does not invent one when there is none. It is synthetic only: nothing real has been read on it. **Next, written
+before it runs:** the null on real healthy references (IAM-Atlas v2.1's healthy cells), then known groups of real sites.
