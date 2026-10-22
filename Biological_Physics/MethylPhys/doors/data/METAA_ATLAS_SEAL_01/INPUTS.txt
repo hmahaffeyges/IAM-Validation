@@ -1,0 +1,3 @@
+# declared inputs (sample lists from GEO metadata, written before reading)
+seal_samples.csv
+rehearsal_samples.csv

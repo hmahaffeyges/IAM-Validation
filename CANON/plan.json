@@ -675,14 +675,14 @@
    "status": "open"
   },
   {
-   "task": "Met-A against IAM-Atlas v2.1, sealed (author 2026-10-22 'when do we do this?'): the instrument's job: a healthy purified cell, read against its atlas cell and tared against healthy cells of the same type on its own slide, reads Normal; a planted 1 % loss stands out. A metadata search for one unspent series (purified healthy blood cells, raw IDATs, EPIC v1, at least 4 healthy arrays of a cell type on most slides), declared before opening; at most three bars sealed from exploration 6's rule (healthy share in Normal; the planted loss in spreads; nothing tuned); rehearsal through the chain on a spent series; read once on GitHub",
+   "task": "Met-A against IAM-Atlas v2.1, sealed (author 2026-10-22 'when do we do this?'): the instrument's job: a healthy purified cell, read against its atlas cell and tared against healthy cells of the same type on its own slide, reads Normal; a planted 1 % loss stands out. A metadata search for one unspent series (purified healthy blood cells, raw IDATs, EPIC v1, at least 4 healthy arrays of a cell type on most slides), declared before opening; at most three bars sealed from exploration 6's rule (healthy share in Normal; the planted loss in spreads; nothing tuned); rehearsal through the chain on a spent series; read once on GitHub | 2026-10-22: series chosen and declared (GSE267660, 31 healthy CD14 monocytes); no candidate held 4+ healthy arrays of one cell per slide, so the laboratory tare is scored and the same-slide tare reported; rehearsal on spent GSE168779",
    "done_when": "the bars scored once; Met-A against the atlas commissioned for that cell type, or the shortfall recorded",
    "rows": [
     "GRP-014"
    ],
    "status": "open",
    "done_date": "",
-   "record": ""
+   "record": "Biological_Physics/MethylPhys/doors/METAA_ATLAS_SEAL_01.md"
   },
   {
    "task": "The two cell-mix readers compared (author list 2026-10-20: 'Do your two cell-mix readers agree?'): Stage A's neutrophil share against the IAM-Deconvolver's (Stage D21) for every Group-A person (GSE318173, 263 read), from the committed Group-A rows; a reported line, not a bar; into the Decoder's Stage A section",
