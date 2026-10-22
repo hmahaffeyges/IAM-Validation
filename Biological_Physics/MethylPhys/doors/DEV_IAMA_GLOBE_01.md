@@ -58,3 +58,11 @@ is shared). The plant (probability 0.08) lit 11 of its 299 regions: still too we
 **Step 4, written before it runs.** `genome_globes_04.py` adds the view that matters for one individual over time: the same sample read twice,
 its molecules split in two halves by a seeded coin, nothing changed, and then with a loss planted (probability 0.15, constructed) in one half
 only; plus the two earlier views. Two halves of one sample differ only by counting, so this is how one individual sampled twice looks.
+
+**Step 4, run once (2026-10-22; explore run 39812593849, commit 4d639a4d).** Output: `data/DEV_IAMA_GLOBE_01/genome_globes_04_summary.txt`.
+Regions hold a median 1,933 held-error chances (one half 970). **The same sample read twice, nothing changed: 6 of 25,302 regions** (the
+pair's own spread 1.179, close to pure counting). **The same sample read twice with a change planted between: 148 of the 293 regions inside
+the stretch lit, 6 outside it.** Two healthy people: 6 of 25,555. One sample against its genome-wide prediction: 33 of 25,595, as in step 3.
+The pictures drew one pixel per region, a sparse field of dots: `stage_q2_globe._page_layers` now gives every pixel of a region's span its
+value (tested on synthetic counts: the planted stretch draws as a solid patch). **Step 5** (`genome_globes_05.py`) is step 4 redrawn that
+way, with the region counts saved.

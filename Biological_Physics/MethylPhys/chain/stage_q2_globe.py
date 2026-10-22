@@ -103,13 +103,14 @@ def _page_layers(z, ok, err_rate, meth, p, change_name, about_ref, scale=True):
     from matplotlib.colors import ListedColormap
     nside = 256; npix = 12 * nside * nside; look = _lookup(nside); nb = int(ok.sum()); line = FW_LINE(nb)
     sp = _own_spread(z, ok) if scale else 1.0; z = z / sp; ch = ok & (np.abs(z) > line)
-    ex = np.where(ok, np.where(ch, z, 0.0), np.nan); dv = _to_sky_extreme(ex, npix)[look].reshape(HT, W)
+    up_ = lambda v: v[(np.arange(npix, dtype=np.int64) * len(v)) // npix]   # every pixel of a region's span carries it (2026-10-22: step 4 drew one pixel per region, a sparse field of dots)
+    ex = np.where(ok, np.where(ch, z, 0.0), np.nan); dv = _to_sky_extreme(up_(ex), npix)[look].reshape(HT, W)
     a = np.clip(np.abs(dv) / 20, 0, 1); c = np.where(np.isfinite(dv), np.where(dv != 0, 128 + np.sign(dv) * np.round(48 + 79 * a), 128), 0)
     code = np.repeat(np.clip(c, 0, 255).astype(np.uint8)[..., None], 3, -1)
     cm = ListedColormap(np.loadtxt(os.path.join(HERE, "MethylPhys_Interface", "Planck_Parchment_RGB.txt")) / 255.0)
     def rgb(m):
         x = (cm(np.clip(np.nan_to_num(m, nan=0), 0, 1))[..., :3] * 255).astype(np.uint8); x[~np.isfinite(m)] = (42, 45, 51); return x
-    hm = _to_sky(np.where(ok, np.clip(err_rate / (2 * p), 0, 1), np.nan), npix)[look].reshape(HT, W); mm = _to_sky(meth, npix)[look].reshape(HT, W)
+    hm = _to_sky(up_(np.where(ok, np.clip(err_rate / (2 * p), 0, 1), np.nan)), npix)[look].reshape(HT, W); mm = _to_sky(up_(meth), npix)[look].reshape(HT, W)
     J = lambda b: "data:image/jpeg;base64," + b; Hm = J(_jpg_b64(rgb(hm)))
     up, dn = int((ch & (z > 0)).sum()), int((ch & (z < 0)).sum())
     L = [dict(id="genome", name=change_name, kind="change", src="data:image/png;base64," + _png_b64(code, "RGB"), base=Hm, full=10, ref_word=about_ref,

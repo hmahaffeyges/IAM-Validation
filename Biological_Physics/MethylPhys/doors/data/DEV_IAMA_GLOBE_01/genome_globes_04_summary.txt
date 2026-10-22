@@ -1,0 +1,8 @@
+GSM5652282: loose share 0.2319, held error 0.04797; counted in 1349 s
+GSM5652283: loose share 0.3987, held error 0.04992; counted in 556 s
+median held-error chances per drawn region: whole sample 1933; one half 970
+one healthy sample against its own prediction: {'regions_drawn': 25595, 'line': 4.758, 'own_spread': 2.467, 'changed': 33, 'more_loss': 31, 'less_loss': 2, 'predicted': 0.04829, 'loose_share': 0.2319, 'measured': 0.04768}
+the same sample read twice, nothing changed (its molecules split in two halves): {'regions_drawn': 25302, 'line': 4.756, 'own_spread': 1.179, 'changed': 6, 'more_loss': 3, 'less_loss': 3}
+the same sample read twice, a change planted in one stretch (CONSTRUCTED): {'regions_drawn': 25301, 'line': 4.756, 'own_spread': 1.197, 'changed': 154, 'more_loss': 151, 'less_loss': 3}
+   planted stretch: 148 of 293 drawn regions inside it changed; changed outside it 6
+two healthy people against each other: {'regions_drawn': 25555, 'line': 4.758, 'own_spread': 1.187, 'changed': 6, 'more_loss': 4, 'less_loss': 2}
