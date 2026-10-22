@@ -1,0 +1,8 @@
+colon_A2004: 1109 of 38857 blocks changed, 388,577 sites compared
+colon_A2027: 1289 of 38097 blocks changed, 380,971 sites compared
+colon_A2050: 298 of 39209 blocks changed, 392,096 sites compared
+breast_TCGA-A7-A13E: not drawn (RemoteDisconnected: Remote end closed connection without response)
+breast_TCGA-A7-A13F: 912 of 39669 blocks changed, 396,690 sites compared
+breast_TCGA-AC-A23H: 1570 of 37819 blocks changed, 378,197 sites compared
+control_two_people: 741 of 38575 blocks changed, 385,750 sites compared
+globe tumor-pairs: 6 groups, 16 pictures
