@@ -68,3 +68,9 @@ about a third (Normal 72 to 92 %), so the slide (here also the donor) is part of
 identity sites hold 0 to 27 on the X. Such a correction is not a proposed reading: with one donor per slide it would also hide a loss
 shared by all of a donor's cells (the self-tare trap). Next: what is left (the sorted subsets are naive cells, the atlas cells are not
 always; age; sites where this laboratory's arrays differ from the atlas), before any sealed test.
+
+## Exploration 3, planned (written 2026-10-21 before it runs; not sealed)
+
+`data/DEV_METAA_ATLAS_01/sorted_purity_03.py` on GitHub: is the sorted cells' spread their sorting purity? Each array again through chain
+Stage 1, `stage_metaa_atlas.read` and the commissioned IAM-Deconvolver (`stage_v4.stage_d21`); per cell type the correlation of the tared
+reading with the off-target share, and Normal in the purest half against the rest. Nothing is fitted or corrected.
