@@ -735,6 +735,19 @@
    "rows": [
     "ATL-063"
    ]
+  },
+  {
+   "task": "Plasma cell-free DNA through the one command (author 2026-10-22: 'can the chain read cfDNA or plasma between all the instruments we have so far?'; whole blood may hold cells outside the six-cell panel, so the leftover and a wider panel matter too). Today Stage 0 refuses plasma and cfDNA (no healthy plasma reference). In order: (1) a healthy plasma reference (COM-METAA-038, SCO-035; choose the source); (2) a plasma intake: Stage 0 accepts it and the Deconvolver reads it against IAM-Atlas v2.1's full panel (tissue of origin), synthetic mixes first, then the dilution test (COM-CSCORE-007); (3) Met-A and the C-Score on plasma against the person's own mix, each with its own healthy band; IAM-A last (short fragments, PHY-065; synthetic TIS-053 done). Unread plasma array series stay unread for fresh tests (DAT-066 and others). After steps 33 and 38, which feed it.",
+   "done_when": "a plasma sample is read by run_sample.py with each reading commissioned or flagged; the healthy plasma reference committed with its sources",
+   "status": "open",
+   "rows": [
+    "COM-METAA-038",
+    "SCO-035",
+    "COM-CSCORE-007",
+    "TIS-018",
+    "PHY-065",
+    "TIS-053"
+   ]
   }
  ],
  "scheduled": [
