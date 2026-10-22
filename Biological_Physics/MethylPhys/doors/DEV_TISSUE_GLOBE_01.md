@@ -56,3 +56,14 @@ Still a picture, not a reading: nothing here is sealed or scored, and no instrum
 `data/DEV_TISSUE_GLOBE_01/colon_slide_03.py` on GitHub (`tissue_globe.yml`, script input): colon's controls matched on the slide. On each of
 GSE131013's 22 slides, each person's adjacent normal against the next person's on the same slide, and each healthy donor's mucosa against the
 next on the same slide; the same rule, with and without the X and Y; compared with run 2's 88 tumors, each already on its own normal's slide.
+
+## Run 3, run once (2026-10-21; tissue_globe run 39695940610, commit d60c37cd; 117 same-slide comparisons, no errors)
+
+Output: `data/DEV_TISSUE_GLOBE_01/run_03/colon_slide_03_summary.txt` and `colon_slide_03_rows.csv`. Changed blocks, X and Y left out (median,
+range): colon tumor against its own normal 917 (49-2,245); two people's adjacent normal **on the same slide** 575 (200-1,478); two healthy
+donors' mucosa on the same slide 722 (338-2,107). Tumors above the largest same-slide control: 8 % (5 % with the X and Y in).
+
+**What it shows.** The slide is not why colon's controls light so much: matched on the slide, they light as much as in run 2 (542 across
+slides). In colon the difference between two people's normal mucosa is nearly as large as a tumor's difference from its own normal, even
+between two healthy donors. So in colon a two-person yardstick cannot show a tumor by count alone, unlike breast and liver. A colon tumor
+read against its own normal, the person's own reference, remains the comparison that means something. Still a picture, not a reading.

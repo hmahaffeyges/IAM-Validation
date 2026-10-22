@@ -1,0 +1,5 @@
+same-slide comparisons 117 (each counted twice), errors 0
+colon all changed: tumor n 88 median 946 range 62-2329 | control n 86 median 714.5 range 196-1770 | healthy n 31 median 917 range 382-2100 | tumors above the largest same-slide control 0.05
+colon all lit: tumor n 88 median 0.02301 range 0.00121-0.05918 | control n 86 median 0.01652 range 0.00477-0.0431 | healthy n 31 median 0.02071 range 0.00921-0.05189 | tumors above the largest same-slide control 0.06
+colon noXY changed: tumor n 88 median 917 range 49-2245 | control n 86 median 575 range 200-1478 | healthy n 31 median 722 range 338-2107 | tumors above the largest same-slide control 0.08
+colon noXY lit: tumor n 88 median 0.02372 range 0.00107-0.06149 | control n 86 median 0.01461 range 0.00475-0.03665 | healthy n 31 median 0.01821 range 0.0092-0.05501 | tumors above the largest same-slide control 0.10
