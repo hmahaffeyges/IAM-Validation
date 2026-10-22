@@ -278,9 +278,10 @@ def V13(tmp):
     """The globe as a reader's browser draws it (2026-10-21, lesson C32: "if the chain didn't do it, it didn't happen"). The one command runs on
     a real healthy whole blood (GSE235717 GSM7508429, its IDATs from GEO) and on the same array with the C-Score's positive-control plant
     (doors/data/REPORT_EXAMPLES_V4/plant_clustered.py); each run's own globe page is opened in Chromium (playwright), the layer chosen and the
-    slider moved as a reader would, and the canvas screenshotted at left, middle and right (written to GLOBE_SHOTS or tmp/globe_shots). Bars:
-    at the right end a healthy blood lights under 1 % of the globe on both change layers; the plant lights its Met-A layer more than the
-    healthy blood does. Without a browser (a laptop): not checked; on GitHub (GITHUB_ACTIONS) a missing browser is a failure."""
+    slider moved as a reader would, and the canvas screenshotted at left, middle and right (written to GLOBE_SHOTS or tmp/globe_shots), for
+    every group and every layer (2026-10-21). Bars: every layer has a slider; a change layer starts on a visible map, a healthy blood is dark
+    at its right end, and the Met-A layer's key says disorder; a map layer's slider removes most of the map; the plant lights the Met-A layer
+    more than the healthy blood does. Without a browser (a laptop): not checked; on GitHub (GITHUB_ACTIONS) a missing browser is a failure."""
     try:
         from playwright.sync_api import sync_playwright
     except ImportError:
@@ -305,26 +306,42 @@ def V13(tmp):
         disk = (yy - n / 2) ** 2 + (xx - a.shape[1] / 2) ** 2 < (min(n, a.shape[1]) / 2 - 2) ** 2
         col = ((r > 150) & (gg < 110) & (b < 110)) | ((b > 150) & (r < 110))
         return float(col[disk].mean())
-    out = {}
+    def dark(png):   # share of the disk that is near black (the slider's "gone" color)
+        a = np.asarray(Image.open(png).convert("RGB")).astype(int); n = a.shape[0]; yy, xx = np.mgrid[0:n, 0:a.shape[1]]
+        disk = (yy - n / 2) ** 2 + (xx - a.shape[1] / 2) ** 2 < (min(n, a.shape[1]) / 2 - 2) ** 2; return float((a.sum(-1) < 75)[disk].mean())
+    out, bad = {}, []
     with sync_playwright() as P:
         br = P.chromium.launch(); pg = br.new_page(viewport={"width": 1100, "height": 760})
+        js_opts = lambda c: pg.evaluate(f"Array.from(document.querySelector('{c}').options).map(o => o.textContent)")
+        js_pick = lambda c, k: pg.evaluate(f"(() => {{ const e = document.querySelector('{c}'); e.selectedIndex = {k}; e.dispatchEvent(new Event('change')); }})()")
         for tag in ("h", "p"):
-            pg.goto("file://" + os.path.join(tmp, f"{tag}_globe.html")); pg.wait_for_timeout(2500)
-            pg.click(".g-spin"); n = pg.eval_on_selector(".g-layer", "e => e.options.length")
-            for i in range(n):
-                name = pg.eval_on_selector(".g-layer", f"e => e.options[{i}].text")
-                if not name.startswith("the change"): continue
-                pg.select_option(".g-layer", index=i); pg.wait_for_timeout(1500)
-                for t in (0, 50, 100):
-                    pg.eval_on_selector(".g-range", f"e => {{ e.value = {t}; e.dispatchEvent(new Event('input')); }}"); pg.wait_for_timeout(1500)
-                    f = os.path.join(shots, f"{tag}_layer{i}_slider{t}.png"); pg.locator(".g-canvas").screenshot(path=f)
-                    out[(tag, i, t)] = (name, lit(f))
+            pg.goto("file://" + os.path.join(tmp, f"{tag}_globe.html")); pg.wait_for_timeout(2500); pg.click(".g-spin")
+            for gi, gname in enumerate(js_opts(".g-group")):   # 2026-10-21 (author: "go through each one"): every group and every layer
+                js_pick(".g-group", gi); pg.wait_for_timeout(800)
+                for i, name in enumerate(js_opts(".g-layer")):
+                    js_pick(".g-layer", i); pg.wait_for_timeout(2500)
+                    if not pg.locator(".g-slide").is_visible(): bad.append(f"{tag} '{name}': no slider"); continue
+                    mx = int(pg.eval_on_selector(".g-range", "e => e.max")); key = pg.inner_text(".g-key")
+                    for t in (0, mx // 2, mx):
+                        pg.eval_on_selector(".g-range", f"e => {{ e.value = {t}; e.dispatchEvent(new Event('input')); }}"); pg.wait_for_timeout(1500)
+                        f = os.path.join(shots, f"{tag}_g{gi}_layer{i}_slider{t}.png"); pg.locator(".g-canvas").screenshot(path=f)
+                        out[(tag, gi, i, t)] = (name, lit(f), dark(f), mx, key)
         br.close()
-    H = [v[1] for k, v in out.items() if k[0] == "h" and k[2] == 100]; Pm = [v[1] for k, v in out.items() if k[0] == "p" and k[2] == 100 and "Met-A" in v[0]]
-    Hm = [v[1] for k, v in out.items() if k[0] == "h" and k[2] == 100 and "Met-A" in v[0]]
-    ok = bool(H) and max(H) < 0.01 and bool(Pm) and bool(Hm) and Pm[0] > Hm[0]
-    json.dump({f"{k[0]}_layer{k[1]}_slider{k[2]}": {"layer": v[0], "lit": round(v[1], 5)} for k, v in out.items()}, open(os.path.join(shots, "lit.json"), "w"), indent=1)
-    rec("V13", ok, "in Chromium, right end: healthy lit " + ", ".join(f"{x:.4f}" for x in H) + f"; Met-A layer healthy {Hm[0] if Hm else None:.4f} vs planted {Pm[0] if Pm else float('nan'):.4f}; screenshots in {shots}")
+    for (tag, gi, i, t), (name, l, d, mx, key) in out.items():
+        if t != 0: continue
+        dr = out[(tag, gi, i, mx)][2]
+        if name.startswith("the change"):
+            if d > 0.5: bad.append(f"{tag} '{name}': left end is not a visible map (dark {d:.2f})")
+            if tag == "h" and out[(tag, gi, i, mx)][1] >= 0.01: bad.append(f"{tag} '{name}': healthy blood not dark at the right end (lit {out[(tag, gi, i, mx)][1]:.4f})")
+            if "Met-A" in name and "disorder" not in key: bad.append(f"{tag} '{name}': key does not say disorder")
+        elif mx and dr - d < 0.2: bad.append(f"{tag} '{name}': the slider removes too little (dark {d:.2f} -> {dr:.2f})")
+    H = [v[1] for k, v in out.items() if k[0] == "h" and k[3] == v[3] and v[0].startswith("the change")]
+    Pm = [v[1] for k, v in out.items() if k[0] == "p" and k[3] == v[3] and "Met-A" in v[0] and v[0].startswith("the change")]
+    Hm = [v[1] for k, v in out.items() if k[0] == "h" and k[3] == v[3] and "Met-A" in v[0] and v[0].startswith("the change")]
+    if not (Pm and Hm and Pm[0] > Hm[0]): bad.append(f"the plant does not light the Met-A layer more than the healthy blood ({Pm} vs {Hm})")
+    json.dump({f"{k[0]}_g{k[1]}_layer{k[2]}_slider{k[3]}": {"layer": v[0], "lit": round(v[1], 5), "dark": round(v[2], 4)} for k, v in out.items()}, open(os.path.join(shots, "lit.json"), "w"), indent=1)
+    rec("V13", not bad, f"in Chromium, every group and layer of both globe pages ({len({k[:3] for k in out})} layers, {len(out)} frames): "
+        + ("all pass" if not bad else "FAILED: " + "; ".join(bad[:6])) + f"; Met-A layer right end healthy {Hm[0] if Hm else None} vs planted {Pm[0] if Pm else None}; screenshots in {shots}")
 
 def main():
     t0 = time.time(); files = R3.tracked(); tmp = tempfile.mkdtemp(prefix="rc_v4_")
