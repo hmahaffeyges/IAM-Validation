@@ -67,3 +67,9 @@ donors' mucosa on the same slide 722 (338-2,107). Tumors above the largest same-
 slides). In colon the difference between two people's normal mucosa is nearly as large as a tumor's difference from its own normal, even
 between two healthy donors. So in colon a two-person yardstick cannot show a tumor by count alone, unlike breast and liver. A colon tumor
 read against its own normal, the person's own reference, remains the comparison that means something. Still a picture, not a reading.
+
+## Step 4: the pairs on the Globe Explorer (2026-10-22; to-do step 28)
+
+`data/DEV_TISSUE_GLOBE_01/explorer_pairs_04.py` draws run 1's seven pictures (3 colon pairs, 3 breast pairs, the two-person control) again
+through the chain's pair mode and writes them as one Globe Explorer globe, `tumor-pairs`, labeled development. Run on GitHub (explore.yml);
+its pictures are committed under `website/art/out/explorer/` when it lands.
