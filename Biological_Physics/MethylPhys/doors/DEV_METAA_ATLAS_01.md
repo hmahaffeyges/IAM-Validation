@@ -83,7 +83,7 @@ of each type is as wide as the whole: its spread is 0.9 to 1.8 times what a plan
 atlas sensitive enough; the spread comes from between people or between runs, not from contamination. Next in this plan: the healthy-width
 site choice and weighting (design additions above), synthetic first.
 
-**Design additions 1 and 2 closed (2026-10-21, on the atlas alone, no array read).** Addition 1 is already the stage's rule: each cell's
+**Design additions 1 and 2 closed (2026-10-21, on the atlas alone, no array read; `data/DEV_METAA_ATLAS_01/width_weight_04.py`).** Addition 1 is already the stage's rule: each cell's
 6,000 identity sites are the tightest by healthy width. That leaves almost nothing for weighting (addition 2) to do. Across the six panel
 cells the widths at the identity sites run only from 0.0038 to 0.0091 (medians 0.0046 to 0.0066). Weighting by one over the width squared
 keeps 5,322 to 5,825 effective sites of 6,000, and it changes what a 1 % loss moves the reading by less than 1 % in every cell (for example

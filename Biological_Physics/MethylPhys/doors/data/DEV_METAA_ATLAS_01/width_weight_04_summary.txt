@@ -1,0 +1,7 @@
+DEV-METAA-ATLAS-01 width weighting, on the atlas alone
+neutrophils: width 0.0039-0.0064 (median 0.0046) | effective sites 5546 of 6000 | 1 % loss moves A: equal +0.05858, weighted +0.05907
+monocytes: width 0.0038-0.0079 (median 0.0052) | effective sites 5322 of 6000 | 1 % loss moves A: equal +0.05901, weighted +0.05944
+b cells: width 0.0040-0.0062 (median 0.0056) | effective sites 5825 of 6000 | 1 % loss moves A: equal +0.05791, weighted +0.05811
+cd4 t cells: width 0.0041-0.0067 (median 0.0056) | effective sites 5804 of 6000 | 1 % loss moves A: equal +0.05720, weighted +0.05768
+cd8 t cells: width 0.0043-0.0072 (median 0.0063) | effective sites 5787 of 6000 | 1 % loss moves A: equal +0.05766, weighted +0.05798
+nk cells: width 0.0051-0.0091 (median 0.0066) | effective sites 5537 of 6000 | 1 % loss moves A: equal +0.05697, weighted +0.05707
