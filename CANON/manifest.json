@@ -26217,7 +26217,7 @@
    "depends_on": [
     "PHY-049"
    ],
-   "notes": "author 2026-10-15",
+   "notes": "author 2026-10-15 | 2026-10-22 (F38): every IAM-A reading records its own counting error (stage_v4.counting_error), shown in the report; recorded only, the reading and its state unchanged.",
    "legacy_ids": [],
    "id": "PHY-065",
    "sources_of_row": [

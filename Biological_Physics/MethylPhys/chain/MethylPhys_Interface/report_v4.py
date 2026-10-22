@@ -140,7 +140,10 @@ def _iama(o):
     _f = (o.get("_figs") or {}).get("iam_a")
     return (h + (f"<img alt='IAM-A gauge' src='{_uri(_f)}'>" if _f else "")
             + f"<p>{chip(st)} <b>{E(str(q.get('state')))}</b> (Normal {q['band']['lo']:.3f} to {q['band']['hi']:.3f}). Held error {q.get('held_err')} against "
-            f"{q.get('predicted')} predicted by this sample's own loose share ({q.get('loose_share')}). No outside reference is used: the sample is read against itself.</p>")
+            f"{q.get('predicted')} predicted by this sample's own loose share ({q.get('loose_share')}). No outside reference is used: the sample is read against itself.</p>"
+            + (f"<p>Counting: {(q.get('counting') or {}).get('opportunities', 0):,} held-error chances counted; from counting alone A lies within "
+               f"{q['counting']['A_95'][0]:.3f} to {q['counting']['A_95'][1]:.3f} (95 %), {100 * q['counting']['share_of_band_width']:.0f} % of the Normal band's width.</p>"
+               if (q.get("counting") or {}).get("A_95") else ""))
 
 
 def _figs(o, base):

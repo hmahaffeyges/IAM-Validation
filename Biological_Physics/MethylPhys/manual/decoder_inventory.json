@@ -1922,7 +1922,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_v4.py",
-   "lines": 270,
+   "lines": 273,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_v4.py",
@@ -2176,11 +2176,11 @@
      "function": "_iama",
      "name": "_iama",
      "line": 134,
-     "end": 143,
+     "end": 146,
      "args": [
       "o"
      ],
-     "lines": 10,
+     "lines": 13,
      "doc": "",
      "constants": [
       "E"
@@ -2195,8 +2195,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_figs",
      "name": "_figs",
-     "line": 146,
-     "end": 162,
+     "line": 149,
+     "end": 165,
      "args": [
       "o",
       "base"
@@ -2214,8 +2214,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_physics",
      "name": "_physics",
-     "line": 168,
-     "end": 173,
+     "line": 171,
+     "end": 176,
      "args": [
       "o"
      ],
@@ -2235,8 +2235,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "physics_rows",
      "name": "physics_rows",
-     "line": 175,
-     "end": 206,
+     "line": 178,
+     "end": 209,
      "args": [
       "o"
      ],
@@ -2255,8 +2255,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_skypair",
      "name": "_skypair",
-     "line": 209,
-     "end": 216,
+     "line": 212,
+     "end": 219,
      "args": [
       "o"
      ],
@@ -2274,8 +2274,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_plain",
      "name": "_plain",
-     "line": 218,
-     "end": 236,
+     "line": 221,
+     "end": 239,
      "args": [
       "o",
       "F"
@@ -2295,8 +2295,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "build",
      "name": "build",
-     "line": 238,
-     "end": 269,
+     "line": 241,
+     "end": 272,
      "args": [
       "o",
       "out",
@@ -3209,7 +3209,7 @@
   },
   {
    "file": "stage_v4.py",
-   "lines": 148,
+   "lines": 162,
    "functions": [
     {
      "file": "stage_v4.py",
@@ -3292,17 +3292,34 @@
     },
     {
      "file": "stage_v4.py",
+     "function": "counting_error",
+     "name": "counting_error",
+     "line": 60,
+     "end": 71,
+     "args": [
+      "rec",
+      "A",
+      "B"
+     ],
+     "lines": 12,
+     "doc": "IAM-A's counting error, from its own count (finding F38, 2026-10-22; author: \"let the instrument tell us...not our assumptions\"). The held error is a count of holes among held-error opportunities, so its counting error is binomial: sd = sqrt(e (1 - e) / n), n the opportunities. A = e / prediction carries the same relative error (the prediction, from millions of tile calls, is counted far more fine",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_v4.py",
      "function": "stage_q2",
      "name": "stage_q2",
-     "line": 60,
-     "end": 85,
+     "line": 73,
+     "end": 99,
      "args": [
       "rec",
       "cell",
       "chemistry",
       "source"
      ],
-     "lines": 26,
+     "lines": 27,
      "doc": "",
      "constants": [
       "CD8_TYPES"
@@ -3318,8 +3335,8 @@
      "file": "stage_v4.py",
      "function": "_compress",
      "name": "_compress",
-     "line": 93,
-     "end": 95,
+     "line": 107,
+     "end": 109,
      "args": [
       "v"
      ],
@@ -3335,8 +3352,8 @@
      "file": "stage_v4.py",
      "function": "nest_pix2ang",
      "name": "nest_pix2ang",
-     "line": 96,
-     "end": 105,
+     "line": 110,
+     "end": 119,
      "args": [
       "nside",
       "ipix"
@@ -3356,8 +3373,8 @@
      "file": "stage_v4.py",
      "function": "cscore_sky",
      "name": "cscore_sky",
-     "line": 107,
-     "end": 144,
+     "line": 121,
+     "end": 158,
      "args": [
       "z",
       "out_png",
@@ -3377,8 +3394,8 @@
      "file": "stage_v4.py",
      "function": "png_data_uri",
      "name": "png_data_uri",
-     "line": 146,
-     "end": 147,
+     "line": 160,
+     "end": 161,
      "args": [
       "path"
      ],
@@ -6832,5 +6849,5 @@
   }
  ],
  "n_files": 31,
- "n_functions": 348
+ "n_functions": 349
 }

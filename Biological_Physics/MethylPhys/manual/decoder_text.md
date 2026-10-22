@@ -775,6 +775,14 @@ Deconvolver and labels each cell's share commissioned or development.
 ### stage_v4.py::count_sequencing
 Counts a `.pat` file (gzipped or plain) on the hg19 tiles, or an aligned BAM against its reference FASTA, with Stage Q2's one counter.
 
+### stage_v4.py::counting_error
+IAM-A's counting error, stated by every reading (finding F38, 2026-10-22): the held error is holes counted among held-error chances, so its
+counting error is binomial, √(ε(1 − ε)/n) for n chances, and A carries the same relative error. The record gives the chances, A's 95 % range
+from counting alone, and that range's width as a share of the Normal band's width. It is recorded only: it never refuses a reading and never
+changes A or its state, so a shallow sample, plasma included, is read and says itself how much of the band its counting uses (author: "let the
+instrument tell us...not our assumptions"). For example, at a held error of 0.02: ten million chances use 3 % of the band's width, one million
+9 %, a hundred thousand 30 %, ten thousand 94 % (`stage_v4.counting_error` on those counts).
+
 ### stage_v4.py::stage_q2
 Stage Q2 as above: the refusals, the shape check, the reading A with its predicted value, and the commissioned or development label.
 

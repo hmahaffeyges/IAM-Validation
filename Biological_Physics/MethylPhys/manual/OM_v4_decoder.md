@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **31 Python files** holding **348 functions** (nested ones included); 348 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **31 Python files** holding **349 functions** (nested ones included); 349 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -12,11 +12,11 @@ Read from the code at build time: the one command can load **31 Python files** h
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
 | `conductor_v3.py` | 317 | 20 | 18 | 0 |
 | `stage_m_met_a.py` | 81 | 6 | 3 | 0 |
-| `MethylPhys_Interface/report_v4.py` | 270 | 20 | 17 | 17 |
+| `MethylPhys_Interface/report_v4.py` | 273 | 20 | 17 | 17 |
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
 | `MethylPhys_Interface/report_figs_v4.py` | 145 | 7 | 6 | 2 |
 | `dev_stages.py` | 339 | 27 | 1 | 0 |
-| `stage_v4.py` | 148 | 9 | 4 | 2 |
+| `stage_v4.py` | 162 | 10 | 4 | 2 |
 | `stage_deconv_v21.py` | 198 | 6 | 4 | 0 |
 | `stage_q2_selfref.py` | 270 | 29 | 0 | 11 |
 | `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
@@ -1134,36 +1134,47 @@ Counts a `.pat` file (gzipped or plain) on the hg19 tiles, or an aligned BAM aga
 
 *Code:* `stage_v4.py` line 54 (5 lines) · arguments: pat, bam, ref_fasta, workers, assembly · calls: bam run 1
 
+### `stage_v4.py::counting_error`
+
+IAM-A's counting error, stated by every reading (finding F38, 2026-10-22): the held error is holes counted among held-error chances, so its
+counting error is binomial, √(ε(1 − ε)/n) for n chances, and A carries the same relative error. The record gives the chances, A's 95 % range
+from counting alone, and that range's width as a share of the Normal band's width. It is recorded only: it never refuses a reading and never
+changes A or its state, so a shallow sample, plasma included, is read and says itself how much of the band its counting uses (author: "let the
+instrument tell us...not our assumptions"). For example, at a held error of 0.02: ten million chances use 3 % of the band's width, one million
+9 %, a hundred thousand 30 %, ten thousand 94 % (`stage_v4.counting_error` on those counts).
+
+*Code:* `stage_v4.py` line 60 (12 lines) · arguments: rec, A, B · calls: not called on the traced runs
+
 ### `stage_v4.py::stage_q2`
 
 Stage Q2 as above: the refusals, the shape check, the reading A with its predicted value, and the commissioned or development label.
 
-*Code:* `stage_v4.py` line 60 (26 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES` · files named: `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json`
+*Code:* `stage_v4.py` line 73 (27 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES` · files named: `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json`
 
 ### `stage_v4.py::_compress`
 
 Takes every other bit of an integer: the step of the HEALPix algorithm that splits a NESTED pixel index into its x and y coordinates.
 
-*Code:* `stage_v4.py` line 93 (3 lines) · arguments: v · calls: array run 6
+*Code:* `stage_v4.py` line 107 (3 lines) · arguments: v · calls: array run 6
 
 ### `stage_v4.py::nest_pix2ang`
 
 HEALPix NESTED pixel centers to colatitude and longitude.
 
-*Code:* `stage_v4.py` line 96 (10 lines) · arguments: nside, ipix · calls: array run 3 · constants read: `JPLL`, `JRLL`
+*Code:* `stage_v4.py` line 110 (10 lines) · arguments: nside, ipix · calls: array run 3 · constants read: `JPLL`, `JRLL`
 
 ### `stage_v4.py::cscore_sky`
 
 Draws the C-Score's departures on the sphere in a Mollweide view and returns a summary (NSIDE, sites, pixels drawn, the share of
 departures beyond 3). Without a departure map it draws nothing and says why.
 
-*Code:* `stage_v4.py` line 107 (38 lines) · arguments: z, out_png, title, vlim, readings · calls: array run 1
+*Code:* `stage_v4.py` line 121 (38 lines) · arguments: z, out_png, title, vlim, readings · calls: array run 1
 
 ### `stage_v4.py::png_data_uri`
 
 Embeds a figure in the HTML report as a data URI.
 
-*Code:* `stage_v4.py` line 146 (2 lines) · arguments: path · calls: not called on the traced runs
+*Code:* `stage_v4.py` line 160 (2 lines) · arguments: path · calls: not called on the traced runs
 
 ## 7. The IAM-Deconvolver: `stage_deconv_v21.py`
 
@@ -1916,19 +1927,19 @@ The C-Score section: its bar, its sky and the overlay.
 
 The IAM-A section: its gauge, or the refusal.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 134 (10 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 134 (13 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
 
 ### `report_v4.py::_figs`
 
 Draws this sample's gauge and C-Score pictures beside the report.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 146 (17 lines) · arguments: o, base · calls: array run 1, bam run 1
+*Code:* `MethylPhys_Interface/report_v4.py` line 149 (17 lines) · arguments: o, base · calls: array run 1, bam run 1
 
 ### `report_v4.py::_physics`
 
 The AstroGenetics section as HTML.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 168 (6 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`, `PHYS_INTRO`
+*Code:* `MethylPhys_Interface/report_v4.py` line 171 (6 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`, `PHYS_INTRO`
 
 ### `report_v4.py::physics_rows`
 
@@ -1938,25 +1949,25 @@ what healthy 1 is on this run (the median of the same-run references, or the com
 the reading in bits per site. The C-Score: the clustering ratio and its band. The 0.330263 bits per site it prints is typed in this
 function rather than read from `metA_floors_v1_3.json` (a fix on the Decoder's list).
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 175 (32 lines) · arguments: o · calls: array run 2, bam run 2 · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 178 (32 lines) · arguments: o · calls: array run 2, bam run 2 · constants read: `E`
 
 ### `report_v4.py::_skypair`
 
 The overlay of the sample on its healthy reference, with how sure the healthy reference is at those sites.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 209 (8 lines) · arguments: o · calls: array run 1 · constants read: `SKY_CAP`
+*Code:* `MethylPhys_Interface/report_v4.py` line 212 (8 lines) · arguments: o · calls: array run 1 · constants read: `SKY_CAP`
 
 ### `report_v4.py::_plain`
 
 The plain view: one gauge and one sentence per reading.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 218 (19 lines) · arguments: o, F · calls: array run 1, bam run 1 · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 221 (19 lines) · arguments: o, F · calls: array run 1, bam run 1 · constants read: `E`
 
 ### `report_v4.py::build`
 
 Builds the whole page: the technical record from `report_v3.build`, the figures, both views, and the two PDFs.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 238 (32 lines) · arguments: o, out, sid · calls: array run 1, bam run 1 · constants read: `CSS`, `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 241 (32 lines) · arguments: o, out, sid · calls: array run 1, bam run 1 · constants read: `CSS`, `E`
 
 ### `report_v3.py::_gauge`
 

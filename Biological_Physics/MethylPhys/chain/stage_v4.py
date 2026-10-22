@@ -57,6 +57,19 @@ def count_sequencing(pat=None, bam=None, ref_fasta=None, workers=4, assembly="hg
         with op(pat, "rt") as fh: return Q2.count_pat(fh, Q2.hg19_tiles())
     return Q2.count_bam(bam, ref_fasta, workers, assembly)
 
+def counting_error(rec, A, B):
+    """IAM-A's counting error, from its own count (finding F38, 2026-10-22; author: "let the instrument tell us...not our assumptions"). The held
+    error is a count of holes among held-error opportunities, so its counting error is binomial: sd = sqrt(e (1 - e) / n), n the opportunities.
+    A = e / prediction carries the same relative error (the prediction, from millions of tile calls, is counted far more finely). Returns the
+    opportunities, A's counting sd and 95 % range, and that range's width as a share of the healthy band's width, so a shallow sample states how
+    much of the band its own counting uses. Recorded only: it never refuses a reading and never changes A or its state."""
+    n = int(rec.get("held_opp") or 0); e = float(rec.get("held_err") or 0.0)
+    if n <= 0 or e <= 0: return {"opportunities": n, "note": "no held errors counted: the counting error cannot be stated"}
+    sd = float(np.sqrt(e * (1 - e) / n)) / e * A; w = float(B["hi"] - B["lo"])
+    return {"opportunities": n, "holes": int(round(e * n)), "A_sd": round(sd, 5), "A_95": [round(A - 1.96 * sd, 4), round(A + 1.96 * sd, 4)],
+            "share_of_band_width": round(2 * 1.96 * sd / w, 4) if w > 0 else None,
+            "rule": "binomial counting error of the held error, carried to A (stage_v4.counting_error); recorded, not a gate"}
+
 def stage_q2(rec, cell, chemistry="whole-genome bisulfite", source=None):
     cell = str(cell).strip().lower(); B = Q2.band(1)
     out = {"stage": "Q2", "reading": "IAM-A", "reference": "the sample's own loose share (self-reference line v1)", "cell": cell,
@@ -80,6 +93,7 @@ def stage_q2(rec, cell, chemistry="whole-genome bisulfite", source=None):
     r = Q2.reading(rec); A = float(r["A"])
     out.update(A=round(A, 4), predicted=round(r["predicted"], 6), held_err=round(r["held_err"], 6), loose_share=round(r["loose_share"], 4),
                state="Normal" if B["lo"] <= A <= B["hi"] else ("above Normal" if A > B["hi"] else "below Normal"))
+    out["counting"] = counting_error(rec, A, B)   # 2026-10-22 (finding F38): the reading's own counting error; recorded, never a gate
     if cell in CD8_TYPES and chemistry == "whole-genome bisulfite": out["commissioning"] = Q2.IAMA_COMMISSIONING
     else: out["development"] = "DEVELOPMENT - not commissioned for this cell type or chemistry (commissioned: healthy blood CD8 T cells, whole-genome bisulfite)"
     return out
