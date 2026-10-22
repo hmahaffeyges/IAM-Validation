@@ -216,3 +216,6 @@ writes test 3's continuous methylome as input files and reads the bundles. **The
 apart states are. **Checks (three, fixed before running):** C1 the planted group lands together (R above the 99th percentile of 500 random groups); C2 with nothing
 planted, together in at most 1 of 20; C3 distance agreement rho at least 0.7. Sky covered, edge ratio and variance kept are reported, not scored.
 
+
+Test 6, first run (explore run 39826214477): stopped by a bug in the test file before the null methylomes (a loop variable named N overwrote
+the methylome's site count). No verdict. Renamed; nothing else changed; run again.

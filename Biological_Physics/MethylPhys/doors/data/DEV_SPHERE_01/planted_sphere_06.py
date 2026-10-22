@@ -41,7 +41,7 @@ P = one("planted", 1, True); g = P["groups"]["planted"]; L = [f"DEV-SPHERE-01 pl
 b1 = g["together"]; L.append(f"C1 planted group R {g['R']} | 99th percentile of 500 random groups {g['random_q99']} -> {'MET' if b1 else 'NOT MET'}")
 hits = 0
 for k in range(20):
-    N = one(f"null_{k:02d}", 1000 + k, False); hits += N["groups"]["planted"]["together"]; print("null", k, N["groups"]["planted"], flush=True)
+    Z = one(f"null_{k:02d}", 1000 + k, False); hits += Z["groups"]["planted"]["together"]; print("null", k, Z["groups"]["planted"], flush=True)   # 2026-10-22: was N, which overwrote the methylome's site count
 b2 = hits <= 1; L.append(f"C2 nothing planted: together in {hits} of 20 (bar at most 1) -> {'MET' if b2 else 'NOT MET'}")
 b3 = P["distance_rho"] >= 0.7; L.append(f"C3 distance agreement rho {P['distance_rho']} (bar at least 0.7) -> {'MET' if b3 else 'NOT MET'}")
 L.append("PLANTED TEST 6 " + ("PASSED (C1-C3)" if b1 and b2 and b3 else "FAILED: " + ", ".join(n for n, v in (("C1", b1), ("C2", b2), ("C3", b3)) if not v) + " not met"))
