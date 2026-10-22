@@ -1,0 +1,59 @@
+gsm,slide,position,title,source,disease
+GSM3455776,200526580085,R01C01,cfDNA_young_male_pool_rep1,"cfDNA of young males, pooled from multiple donors",Normal
+GSM3455777,200526580085,R02C01,cfDNA_young_male_pool_rep2,"cfDNA of young males, pooled from multiple donors",Normal
+GSM3455778,200526580085,R03C01,cfDNA_young_female_pool_rep1,"cfDNA of young females, pooled from multiple donors",Normal
+GSM3455779,200526580085,R04C01,cfDNA_young_female_pool_rep2,"cfDNA of young females, pooled from multiple donors",Normal
+GSM3455780,200526580085,R05C01,cfDNA_old_male_pool_rep1,"cfDNA of old males, pooled from multiple donors",Normal
+GSM3455781,200526580085,R06C01,cfDNA_old_male_pool_rep2,"cfDNA of old males, pooled from multiple donors",Normal
+GSM3455782,200526580085,R07C01,cfDNA_old_female_pool_rep1,"cfDNA of old females, pooled from multiple donors",Normal
+GSM3455783,200526580085,R08C01,cfDNA_old_female_pool_rep2,"cfDNA of old females, pooled from multiple donors",Normal
+GSM3455784,200526580086,R01C01,cfDNA_sepsis_2,"cfDNA, sepsis",Sepsis
+GSM3455785,200526580086,R02C01,cfDNA_sepsis_3,"cfDNA, sepsis",Sepsis
+GSM3455786,200687110064,R01C01,cfDNA_sepsis_26_250ng_rep1,"cfDNA, sepsis",Sepsis
+GSM3455787,200687110064,R02C01,cfDNA_sepsis_26_250ng_rep2,"cfDNA, sepsis",Sepsis
+GSM3455788,200687110064,R03C01,cfDNA_sepsis_26_100ng,"cfDNA, sepsis, 100 ng DNA used",Sepsis
+GSM3455789,200687110064,R04C01,cfDNA_sepsis_26_50ng,"cfDNA, sepsis, 50 ng DNA used",Sepsis
+GSM3455790,200687110064,R05C01,cfDNA_sepsis_17_250ng_rep1,"cfDNA, sepsis",Sepsis
+GSM3455791,200687110064,R06C01,cfDNA_sepsis_17_250ng_rep2,"cfDNA, sepsis",Sepsis
+GSM3455792,200687110064,R07C01,cfDNA_sepsis_17_50ng_rep2,"cfDNA, sepsis, 50 ng DNA used",Sepsis
+GSM3455793,200687110064,R08C01,cfDNA_sepsis_23_250ng_rep1,"cfDNA, sepsis",Sepsis
+GSM3455794,200687110069,R01C01,cfDNA_sepsis_23_250ng_rep2,"cfDNA, sepsis",Sepsis
+GSM3455795,200687110069,R02C01,cfDNA_sepsis_23_50ng,"cfDNA, sepsis, 50 ng DNA used",Sepsis
+GSM3455796,200687110069,R03C01,cfDNA_sepsis_16,"cfDNA, sepsis",Sepsis
+GSM3455797,200687110069,R04C01,cfDNA_sepsis_5,"cfDNA, sepsis",Sepsis
+GSM3455798,200687110069,R05C01,cfDNA_sepsis_31,"cfDNA, sepsis",Sepsis
+GSM3455799,200687110069,R06C01,cfDNA_sepsis_20,"cfDNA, sepsis",Sepsis
+GSM3455800,200687110069,R07C01,cfDNA_sepsis_45,"cfDNA, sepsis",Sepsis
+GSM3455801,200687110069,R08C01,cfDNA_sepsis_4,"cfDNA, sepsis",Sepsis
+GSM3455802,200687110097,R01C01,cfDNA_sepsis_18,"cfDNA, sepsis",Sepsis
+GSM3455803,200687110097,R02C01,cfDNA_sepsis_55,"cfDNA, sepsis",Sepsis
+GSM3455804,200687110097,R03C01,cfDNA_sepsis_49,"cfDNA, sepsis",Sepsis
+GSM3455805,200687110097,R04C01,cfDNA_sepsis_34,"cfDNA, sepsis",Sepsis
+GSM3455807,200687110099,R04C01,cfDNA_healthy_individual_1,"cfDNA, normal",Normal
+GSM3455808,200687110099,R05C01,cfDNA_colon_cancer_806,"cfDNA, colon adenocarcinoma",Colon adenocarcinoma
+GSM3455809,200687110099,R06C01,cfDNA_colon_cancer_684,"cfDNA, colon adenocarcinoma",Colon adenocarcinoma
+GSM3455810,200687110099,R07C01,cfDNA_colon_cancer_806_50ng,"cfDNA, colon adenocarcinoma, 50 ng DNA used",Colon adenocarcinoma
+GSM3455811,200687110099,R08C01,cfDNA_lung_cancer_1,"cfDNA, lung carcinoma",Non-small-cell lung carcinoma
+GSM3455812,201004820115,R01C01,cfDNA_pancreatic_islet_recipient_151_1_pre,"cfDNA, pancreatic islet transplant recipient, pre-transplant",Pancreatic islet transplant recipient
+GSM3455813,201004820115,R02C01,cfDNA_pancreatic_islet_recipient_151_1_1hr_post,"cfDNA, pancreatic islet transplant recipient, 1 hour post-transplant",Pancreatic islet transplant recipient
+GSM3455814,201004820115,R03C01,cfDNA_pancreatic_islet_recipient_151_1_2hr_post,"cfDNA, pancreatic islet transplant recipient, 2 hours post-transplant",Pancreatic islet transplant recipient
+GSM3455815,201004820115,R04C01,cfDNA_pancreatic_islet_recipient_151_2_pre,"cfDNA, pancreatic islet transplant recipient, pre-transplant",Pancreatic islet transplant recipient
+GSM3455816,201004820115,R05C01,cfDNA_pancreatic_islet_recipient_151_2_1hr_post,"cfDNA, pancreatic islet transplant recipient, 1 hour post-transplant",Pancreatic islet transplant recipient
+GSM3455817,201004820115,R06C01,cfDNA_pancreatic_islet_recipient_151_2_2hr_post,"cfDNA, pancreatic islet transplant recipient, 2 hours post-transplant",Pancreatic islet transplant recipient
+GSM3455818,201004820115,R08C01,cfDNA_pancreatic_islet_recipient_144_2_pre,"cfDNA, pancreatic islet transplant recipient, pre-transplant",Pancreatic islet transplant recipient
+GSM3455819,201004820143,R01C01,cfDNA_pancreatic_islet_recipient_144_2_1hr_post,"cfDNA, pancreatic islet transplant recipient, 1 hour post-transplant",Pancreatic islet transplant recipient
+GSM3455820,201004820143,R02C01,cfDNA_pancreatic_islet_recipient_144_2_2hr_post,"cfDNA, pancreatic islet transplant recipient, 2 hours post-transplant",Pancreatic islet transplant recipient
+GSM3455830,201502810024,R08C01,cfDNA_CUP_1302,"cfDNA, CUP",Cancer of Unkown Primary
+GSM3455831,201502810028,R01C01,cfDNA_CUP_1149,"cfDNA, CUP",Cancer of Unkown Primary
+GSM3455832,201502810028,R06C01,cfDNA_CUP_1322,"cfDNA, CUP",Cancer of Unkown Primary
+GSM3455836,202232290208,R08C01,cfDNA_CUP_1936_1994,"cfDNA, CUP",Cancer of Unkown Primary
+GSM3455840,202410280057,R04C01,cfDNA_healthy_individual_2,"cfDNA, normal",Normal
+GSM3455841,202410280057,R05C01,cfDNA_lung_cancer_1478,"cfDNA, lung carcinoma",Non-small-cell lung carcinoma
+GSM3455842,202410280057,R06C01,cfDNA_colon_cancer_2010,"cfDNA, colon adenocarcinoma",Colon adenocarcinoma
+GSM3455843,202410280057,R07C01,cfDNA_breast_cancer_1040,"cfDNA, breast adenocarcinoma",Breast adenocarcinoma
+GSM3455844,202410280057,R08C01,cfDNA_breast_cancer_1711,"cfDNA, breast adenocarcinoma",Breast adenocarcinoma
+GSM3455846,202410280077,R02C01,cfDNA_healthy_individual_3,"cfDNA, normal",Normal
+GSM3455848,202410280077,R04C01,cfDNA_healthy_individual_4,"cfDNA, normal",Normal
+GSM3455849,202410280077,R05C01,cfDNA_breast_cancer_1438,"cfDNA, breast adenocarcinoma",Breast adenocarcinoma
+GSM3455850,202410280077,R06C01,cfDNA_lung_cancer_2244,"cfDNA, lung carcinoma",Small-cell lung carcinoma
+GSM3455851,202410280077,R07C01,cfDNA_lung_cancer_1433,"cfDNA, lung carcinoma",Non-small-cell lung carcinoma

@@ -253,6 +253,12 @@ The 79 cell names of IAM-Atlas v2.1 (its best-value columns), read once.
 An isolated, sorted or purified cell of any IAM-Atlas v2.1 type other than neutrophils (case-insensitive): its atlas name, else nothing. Such a
 specimen is accepted at intake and read by Met-A against the atlas (development, not commissioned); the commissioned Met-A is not applied.
 
+### stage_0_intake.py::is_plasma
+True for plasma cell-free DNA (plasma, cfDNA, cell-free DNA): accepted at intake since 2026-10-22 and read as a development specimen. The
+IAM-Deconvolver splits it on IAM-Atlas v2.1's full panel (every cell and tissue type the atlas holds, since plasma DNA comes from cells all over
+the body) and Met-A reads each source it finds against the atlas in the sample's own shares; the commissioned Met-A and C-Score read whole
+blood and are not applied.
+
 ### stage_0_intake.py::specimen_refusal
 Returns nothing when the specimen is accepted, otherwise the plain refusal: which specimen, why the chain has no reference for it,
 and what is accepted. Called by `run_sample.py` before any file is read.

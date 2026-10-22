@@ -97,10 +97,15 @@ def atlas_cell_of(specimen):
         if s.startswith(w) and c and c != "neutrophils": return c
     return None
 
+PLASMA_WORDS = ("plasma", "cfdna", "cell-free dna", "cell free dna", "plasma cfdna", "plasma cell-free dna", "serum cfdna")
+def is_plasma(specimen):
+    """True for plasma cell-free DNA (2026-10-22, to-do steps 39-40): accepted at intake and read on IAM-Atlas v2.1's full panel; development."""
+    return normalise_specimen(specimen) in PLASMA_WORDS
+
 def specimen_refusal(specimen):
     """None when intake accepts the specimen (ACCEPTED_SPECIMENS, or an isolated IAM-Atlas v2.1 cell); otherwise the plain refusal text naming the specimen (decision L)."""
     s = normalise_specimen(specimen)
-    if s in ACCEPTED_SPECIMENS or atlas_cell_of(specimen): return None
+    if s in ACCEPTED_SPECIMENS or atlas_cell_of(specimen) or is_plasma(specimen): return None
     why = next((r for keys, r in REFUSED_SPECIMEN_REASONS if any(k and k in s for k in keys) or (s == "" and "" in keys)), None)
     why = why or f"'{specimen}' is not a blood specimen the chain has a reference for (tissue, placenta and other specimens each need their own reference)"
     return (f"specimen '{specimen}' refused at intake: {why}. Accepted: whole blood, buffy coat, isolated / sorted / purified neutrophils, constructed DNA mixtures of blood cells (test material), and "

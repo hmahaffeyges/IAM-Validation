@@ -741,6 +741,12 @@ def main():
     elif platform_stop:
         o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "Met-A and the C-Score read the neutrophils; the cell shares cover six blood cells", "platform": "EPIC_v2" if "EPIC v2" in platform_stop else None,
              "array_type": array_type, "refusal": platform_stop}
+    elif beta is not None and _S0spec.is_plasma(a.specimen):   # 2026-10-22 (steps 39-40): plasma cell-free DNA, read on the full atlas panel, flagged
+        o = {"build": C3.BUILD, "specimen": a.specimen, "array_type": array_type if not a._seqv else "sequencing values (development)",
+             "scope": "plasma cell-free DNA (development): the IAM-Deconvolver splits it on IAM-Atlas v2.1's full panel and Met-A reads each source it "
+                      "finds against the atlas in this sample's own shares; the commissioned Met-A and C-Score read whole blood and are not applied"}
+        if a._seqv: o["sequencing_values"] = a._seqv
+        if (a.cell_panel or "blood") == "blood": a.cell_panel = "atlas"
     elif beta is not None and a._seqv:   # 2026-10-22 (step 40): sequencing values; the commissioned array readings are not applied
         o = {"build": C3.BUILD, "specimen": a.specimen, "array_type": "sequencing values (development)", "sequencing_values": a._seqv,
              "scope": "values made from sequencing molecules at IAM-Atlas v2.1's sites (development): the cell shares, Met-A for each cell and the globe read "
@@ -761,7 +767,7 @@ def main():
         import stage_v4 as V4
         print("Stage D21: cell shares against IAM-Atlas v2.1", flush=True)
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel())
-        if (o["cell_shares"] or {}).get("cells") and str(a.specimen).lower() == "whole blood":   # 2026-10-22: Met-A for each cell, read and flagged (development)
+        if (o["cell_shares"] or {}).get("cells") and (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen)):   # 2026-10-22: Met-A for each cell, read and flagged (development)
             try:
                 import stage_metaa_atlas as SA, stage_t_selftare as _ST
                 _bs, _inf = (None, None) if a._seqv else _ST.selftare_map(_pd.Series(beta, dtype="float64"))   # the self-tare maps array designs; not sequencing
