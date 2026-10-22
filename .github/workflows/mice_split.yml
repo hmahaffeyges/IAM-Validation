@@ -1,7 +1,7 @@
 name: mice_split
 # The mouse reproduction (reproduce/tests.json "mice") on GitHub's free machines, split (2026-10-21). One machine (16 GB) fits the mm10 index
 # and the aligner with 1 thread (mice_test run 39695242010: peak 12.5 GB, index plus one read set 3 h 10 min; its SRR3111449 counts equal the
-# committed 16-thread run's to the last digit). 13 jobs each build the index and align about 3 of the 38 read sets (reproduce/mice_rrbs.sh,
+# committed 16-thread run's to the last digit). 19 jobs each build the index and align 2 of the 38 read sets (reproduce/mice_rrbs.sh,
 # unchanged, RUNS and NW=1); a last job gathers the 38 .pat files and runs the committed test with its alignment step marked as done on those
 # machines (reproduce.py, REPRO_DONE_ELSEWHERE=reads_to_pat): the committed scorer, then the comparison with the committed numbers. Manual only.
 on: {workflow_dispatch: {}}
@@ -17,8 +17,11 @@ jobs:
         run: |
           python3 - <<'PY' >> $GITHUB_OUTPUT
           import csv, json
-          r = [x["run_accession"] for x in csv.DictReader(open("Biological_Physics/MethylPhys/boxruns/run6_sam/GSE77079_runs.csv"))]
-          print("shards=" + json.dumps([",".join(r[i:i + 3]) for i in range(0, len(r), 3)]))
+          # 2026-10-22: two read sets per job, the largest paired with the smallest by bases (run 39714384304: three per job, 4 of 13 jobs
+          # reached the 355-minute limit; the index takes about 2 h and each read set about 1.1 h on 1 thread)
+          x = sorted(csv.DictReader(open("Biological_Physics/MethylPhys/boxruns/run6_sam/GSE77079_runs.csv")), key=lambda d: int(d["base_count"]))
+          r = [d["run_accession"] for d in x]; n = len(r)
+          print("shards=" + json.dumps([",".join([r[i], r[n - 1 - i]]) for i in range(n // 2)] + ([r[n // 2]] if n % 2 else [])))
           PY
   align:
     needs: plan
