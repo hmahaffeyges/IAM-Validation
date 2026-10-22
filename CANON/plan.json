@@ -705,6 +705,16 @@
    "status": "open",
    "done_date": "",
    "record": ""
+  },
+  {
+   "task": "Salmon: IAM-A on hatchery and wild coho (author 2026-10-22, for the fisheries biologists): public RRBS of 39 coho salmon smolts, white muscle, 20 hatchery-reared and 19 wild (SRA PRJNA389610, single-end, about 29 million reads each; labels from each sample's record: treatment hatchery or wild). Aligned to the coho genome, read by chain Stage Q2's counter unchanged; each fish against its own prediction, and hatchery against wild on the whole-genome globe. Synthetic first; exploratory before any seal; after the current list, on GitHub",
+   "done_when": "the plan written before any read; the exploratory read and its globes committed",
+   "rows": [
+    "ATL-063"
+   ],
+   "status": "open",
+   "done_date": "",
+   "record": ""
   }
  ],
  "scheduled": [
