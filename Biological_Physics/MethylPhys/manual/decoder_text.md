@@ -1613,23 +1613,3 @@ distribution are kept, and only the arrangement is destroyed, so a difference fr
 ### sky_statistics.py::sky_spectrum_record
 One sky's spectrum, band powers, measured fraction, share of pixels with |z| above 2, and its null.
 
-
-## The IAM-A globe (development): `stage_q2_globe.py`
-
-**What it is for.** IAM-A read region by region on the globe, with no other person in the reading. Development: not commissioned by our
-standards (DEV-IAMA-GLOBE-01).
-
-### stage_q2_globe.py::site_owner
-Loads IAM-Atlas v2.1's sites and their CpG indexes in the .pat files (sites_sequencing_key.parquet) once: the sorted indexes, the atlas rows
-they belong to, and the number of sites.
-
-### stage_q2_globe.py::_owner_of
-Gives each CpG index to the nearest atlas site along the genome, so every molecule counts on the globe's own layout.
-
-### stage_q2_globe.py::count_pat_sites
-Stage Q2's own count (count_pat's rule and its split of lines), kept per atlas site: held errors and opportunities, methylated calls and
-calls; with the genome totals, which equal count_pat's.
-
-### stage_q2_globe.py::departures
-Blocks of 10 neighboring counted sites in the globe's order: each block's errors against the errors the sample's own predicted held error
-gives, in the block's counting noise; changed beyond the 5 % family-wise line, the other globes' rule.
