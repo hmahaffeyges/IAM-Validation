@@ -2,21 +2,21 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **30 Python files** holding **341 functions** (nested ones included); 341 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **30 Python files** holding **343 functions** (nested ones included); 343 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 861 | 16 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 873 | 17 | 11 | 10 |
 | `stage_0_intake.py` | 1,172 | 40 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
 | `conductor_v3.py` | 317 | 20 | 18 | 0 |
 | `stage_m_met_a.py` | 81 | 6 | 3 | 0 |
-| `MethylPhys_Interface/report_v4.py` | 269 | 20 | 17 | 17 |
+| `MethylPhys_Interface/report_v4.py` | 270 | 20 | 17 | 17 |
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
 | `MethylPhys_Interface/report_figs_v4.py` | 145 | 7 | 6 | 2 |
 | `dev_stages.py` | 339 | 27 | 1 | 0 |
-| `stage_v4.py` | 143 | 8 | 4 | 2 |
+| `stage_v4.py` | 148 | 9 | 4 | 2 |
 | `stage_deconv_v21.py` | 198 | 6 | 4 | 0 |
 | `stage_q2_selfref.py` | 270 | 29 | 0 | 11 |
 | `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
@@ -253,7 +253,14 @@ The orchestration described above, from parsing the command to writing the ledge
 exit code 2 or 3 at the stops listed, carries the same-run references (columns A and C) into the conductor, adds the v4 stages, and
 hands everything to the report.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 309 (550 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`
+*Code:* `MethylPhys_Interface/run_sample.py` line 309 (562 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`
+
+### `run_sample.py::main._panel`
+
+Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
+`atlas`, or the named cells, refusing any name the atlas does not hold.
+
+*Code:* `MethylPhys_Interface/run_sample.py` line 683 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -261,13 +268,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 452 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 456 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 802 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 814 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -1067,49 +1074,57 @@ The five-part explanation of a stop, for the cell shares and IAM-A (the same par
 
 *Code:* `stage_v4.py` line 22 (2 lines) · arguments: check, outcome, measured, limit, source, means, todo, provisional · calls: not called on the traced runs
 
+### `stage_v4.py::atlas_panel`
+
+Every cell type of IAM-Atlas v2.1, read from the atlas's own columns, for `--cell-panel atlas`: the IAM-Deconvolver splits the sample into all
+of them instead of the six blood cells. Development: the Deconvolver is commissioned on the six-cell panel only, so every share from another
+panel is flagged.
+
+*Code:* `stage_v4.py` line 27 (4 lines) · arguments: none · calls: not called on the traced runs · files named: `import pyarrow.parquet`
+
 ### `stage_v4.py::stage_d21`
 
 Stage D21: loads the panel's reference and markers once, counts the markers measured, withholds below half, otherwise runs the
 Deconvolver and labels each cell's share commissioned or development.
 
-*Code:* `stage_v4.py` line 27 (20 lines) · arguments: beta, panel · calls: array run 1 · constants read: `MIN_MARKER_SHARE`, `_REF`
+*Code:* `stage_v4.py` line 32 (20 lines) · arguments: beta, panel · calls: array run 1 · constants read: `MIN_MARKER_SHARE`, `_REF`
 
 ### `stage_v4.py::count_sequencing`
 
 Counts a `.pat` file (gzipped or plain) on the hg19 tiles, or an aligned BAM against its reference FASTA, with Stage Q2's one counter.
 
-*Code:* `stage_v4.py` line 49 (5 lines) · arguments: pat, bam, ref_fasta, workers, assembly · calls: bam run 1
+*Code:* `stage_v4.py` line 54 (5 lines) · arguments: pat, bam, ref_fasta, workers, assembly · calls: bam run 1
 
 ### `stage_v4.py::stage_q2`
 
 Stage Q2 as above: the refusals, the shape check, the reading A with its predicted value, and the commissioned or development label.
 
-*Code:* `stage_v4.py` line 55 (26 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES` · files named: `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json`
+*Code:* `stage_v4.py` line 60 (26 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES` · files named: `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json`
 
 ### `stage_v4.py::_compress`
 
 Takes every other bit of an integer: the step of the HEALPix algorithm that splits a NESTED pixel index into its x and y coordinates.
 
-*Code:* `stage_v4.py` line 88 (3 lines) · arguments: v · calls: array run 6
+*Code:* `stage_v4.py` line 93 (3 lines) · arguments: v · calls: array run 6
 
 ### `stage_v4.py::nest_pix2ang`
 
 HEALPix NESTED pixel centers to colatitude and longitude.
 
-*Code:* `stage_v4.py` line 91 (10 lines) · arguments: nside, ipix · calls: array run 3 · constants read: `JPLL`, `JRLL`
+*Code:* `stage_v4.py` line 96 (10 lines) · arguments: nside, ipix · calls: array run 3 · constants read: `JPLL`, `JRLL`
 
 ### `stage_v4.py::cscore_sky`
 
 Draws the C-Score's departures on the sphere in a Mollweide view and returns a summary (NSIDE, sites, pixels drawn, the share of
 departures beyond 3). Without a departure map it draws nothing and says why.
 
-*Code:* `stage_v4.py` line 102 (38 lines) · arguments: z, out_png, title, vlim, readings · calls: array run 1
+*Code:* `stage_v4.py` line 107 (38 lines) · arguments: z, out_png, title, vlim, readings · calls: array run 1
 
 ### `stage_v4.py::png_data_uri`
 
 Embeds a figure in the HTML report as a data URI.
 
-*Code:* `stage_v4.py` line 141 (2 lines) · arguments: path · calls: not called on the traced runs
+*Code:* `stage_v4.py` line 146 (2 lines) · arguments: path · calls: not called on the traced runs
 
 ## 7. The IAM-Deconvolver: `stage_deconv_v21.py`
 
@@ -1838,43 +1853,43 @@ The at-a-glance table as HTML.
 The at-a-glance rows, from the bundle: the Deconvolver's top three shares, Met-A (tared when it can be), the C-Score, and IAM-A, each
 with its state and status. The PDFs use the same rows.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 63 (36 lines) · arguments: o · calls: array run 2, bam run 2
+*Code:* `MethylPhys_Interface/report_v4.py` line 63 (37 lines) · arguments: o · calls: array run 2, bam run 2
 
 ### `report_v4.py::_shares`
 
 The cell-shares section: each share with its 95 % interval and status, or the reason they were withheld.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 100 (12 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 101 (12 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
 
 ### `report_v4.py::_meta`
 
 The Met-A section: its gauge (tared reading; an untared whole-blood reading has no gauge position) and its numbers.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 113 (9 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 114 (9 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
 
 ### `report_v4.py::_cscore`
 
 The C-Score section: its bar, its sky and the overlay.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 123 (9 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 124 (9 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
 
 ### `report_v4.py::_iama`
 
 The IAM-A section: its gauge, or the refusal.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 133 (10 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 134 (10 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
 
 ### `report_v4.py::_figs`
 
 Draws this sample's gauge and C-Score pictures beside the report.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 145 (17 lines) · arguments: o, base · calls: array run 1, bam run 1
+*Code:* `MethylPhys_Interface/report_v4.py` line 146 (17 lines) · arguments: o, base · calls: array run 1, bam run 1
 
 ### `report_v4.py::_physics`
 
 The AstroGenetics section as HTML.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 167 (6 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`, `PHYS_INTRO`
+*Code:* `MethylPhys_Interface/report_v4.py` line 168 (6 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`, `PHYS_INTRO`
 
 ### `report_v4.py::physics_rows`
 
@@ -1884,25 +1899,25 @@ what healthy 1 is on this run (the median of the same-run references, or the com
 the reading in bits per site. The C-Score: the clustering ratio and its band. The 0.330263 bits per site it prints is typed in this
 function rather than read from `metA_floors_v1_3.json` (a fix on the Decoder's list).
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 174 (32 lines) · arguments: o · calls: array run 2, bam run 2 · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 175 (32 lines) · arguments: o · calls: array run 2, bam run 2 · constants read: `E`
 
 ### `report_v4.py::_skypair`
 
 The overlay of the sample on its healthy reference, with how sure the healthy reference is at those sites.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 208 (8 lines) · arguments: o · calls: array run 1 · constants read: `SKY_CAP`
+*Code:* `MethylPhys_Interface/report_v4.py` line 209 (8 lines) · arguments: o · calls: array run 1 · constants read: `SKY_CAP`
 
 ### `report_v4.py::_plain`
 
 The plain view: one gauge and one sentence per reading.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 217 (19 lines) · arguments: o, F · calls: array run 1, bam run 1 · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 218 (19 lines) · arguments: o, F · calls: array run 1, bam run 1 · constants read: `E`
 
 ### `report_v4.py::build`
 
 Builds the whole page: the technical record from `report_v3.build`, the figures, both views, and the two PDFs.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 237 (32 lines) · arguments: o, out, sid · calls: array run 1, bam run 1 · constants read: `CSS`, `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 238 (32 lines) · arguments: o, out, sid · calls: array run 1, bam run 1 · constants read: `CSS`, `E`
 
 ### `report_v3.py::_gauge`
 

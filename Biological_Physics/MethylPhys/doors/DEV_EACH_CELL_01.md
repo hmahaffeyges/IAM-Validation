@@ -27,3 +27,10 @@ sites is not taken up by the Deconvolver). Healthy readings untared sit 1.10 to 
 2. Group-A's 278 healthy bloods (spent): which cells appear and at what shares; each cell's healthy spread; the lowest share each can be scored at.
 3. Plasma, on plasma array series already read (unread ones stay unread).
 4. IAM-A depth: a spent deep CD8 sample thinned toward cell-free DNA depth and fragment length, read at each step (finding F38).
+
+## Exploration 3, written before it runs (2026-10-22): the whole atlas panel
+
+The one command now takes `--cell-panel`: `blood` (the six cells the IAM-Deconvolver is commissioned on, the default), `atlas` (all of
+IAM-Atlas v2.1's cell types) or a named list; any panel other than the six is development and every share is flagged. Met-A for each cell reads
+every cell the panel finds. `data/DEV_EACH_CELL_01/full_panel_03.py` runs the healthy example blood from its raw IDATs three times (six cells;
+the full atlas; the full atlas with a 5 % monocyte loss planted by the chain) and reports every cell found above a share of 0.001.

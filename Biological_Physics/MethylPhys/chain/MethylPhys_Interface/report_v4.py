@@ -66,7 +66,8 @@ def glance_rows(o):
     if sh.get("cells"):
         top = sorted(sh["cells"], key=lambda r: -r["share"])[:3]
         rows.append(("IAM-Deconvolver", "Which cells, in what shares", ", ".join(f"{cellname(r['cell'])} {100*r['share']:.1f} %" for r in top), "",
-                     "commissioned (neutrophils, monocytes, CD4 T, CD8 T)"))
+                     "commissioned (neutrophils, monocytes, CD4 T, CD8 T)" if any(x.get("status") == "commissioned" for x in sh["cells"])
+                     else untested(f"a panel of {len(sh['cells'])} cell types", "the IAM-Deconvolver", noun="shares")))
     elif sh: rows.append(("IAM-Deconvolver", "Which cells, in what shares", "", "", "withheld: " + str(sh.get("withheld", ""))))
     else: rows.append(("IAM-Deconvolver", "Which cells, in what shares", "", "", "not run (no array input)"))
     if m.get("A") is not None:

@@ -182,6 +182,10 @@ The orchestration described above, from parsing the command to writing the ledge
 exit code 2 or 3 at the stops listed, carries the same-run references (columns A and C) into the conductor, adds the v4 stages, and
 hands everything to the report.
 
+### run_sample.py::main._panel
+Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
+`atlas`, or the named cells, refusing any name the atlas does not hold.
+
 ### run_sample.py::main._stopped
 True when an intake record's status begins with QUARANTINE. Intake checks it after every step, so a quarantine ends intake at its
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
@@ -735,6 +739,11 @@ display). Nothing is scored from the picture.
 
 ### stage_v4.py::_ex
 The five-part explanation of a stop, for the cell shares and IAM-A (the same parts as `run_sample._why`).
+
+### stage_v4.py::atlas_panel
+Every cell type of IAM-Atlas v2.1, read from the atlas's own columns, for `--cell-panel atlas`: the IAM-Deconvolver splits the sample into all
+of them instead of the six blood cells. Development: the Deconvolver is commissioned on the six-cell panel only, so every share from another
+panel is flagged.
 
 ### stage_v4.py::stage_d21
 Stage D21: loads the panel's reference and markers once, counts the markers measured, withholds below half, otherwise runs the

@@ -311,6 +311,10 @@ def main():
     ap.add_argument("--grn"); ap.add_argument("--red"); ap.add_argument("--betas")
     ap.add_argument("--age", type=float, help="declared age in years (optional; recorded when given, read by no stage). Float: records carry 72.0 and 54.5 as readily as 72")
     ap.add_argument("--specimen", default="whole blood")
+    ap.add_argument("--cell-panel", default="blood", metavar="PANEL",
+                    help="the cells the IAM-Deconvolver splits the sample into: 'blood' (the six blood cells it is commissioned on, the default), 'atlas' (all of "
+                         "IAM-Atlas v2.1's cell types, development: every share flagged), or a comma-separated list of atlas cell names (development); Met-A for "
+                         "each cell reads every cell the panel finds (2026-10-22)")
     ap.add_argument("--dev-plant", default=None, metavar="CELL:LOSS",
                     help="TESTS ONLY (2026-10-22, author: tests run through the chain): plant a CONSTRUCTED loss of CELL's pattern (an IAM-Atlas v2.1 cell) in this "
                          "array's values after Stage 1, before every reading, by stage_metaa_atlas.plant; in whole blood the loss is scaled by CELL's share as the "
@@ -676,11 +680,19 @@ def main():
 
     import pandas as _pd, json as _json, datetime as _dt, conductor_v3 as C3, report_v4 as R3
     planted_rec = None
+    def _panel():   # --cell-panel (2026-10-22): the six blood cells (commissioned), every atlas cell, or a named list (development)
+        import stage_v4 as _V4c
+        p = (a.cell_panel or "blood").strip()
+        if p == "blood": return None
+        if p == "atlas": return _V4c.atlas_panel()
+        cells = [c.strip() for c in p.split(",") if c.strip()]; have = set(_V4c.atlas_panel()); bad = [c for c in cells if c not in have]
+        if bad: sys.exit(f"--cell-panel: not IAM-Atlas v2.1 cell names: {bad}")
+        return cells
     if a.dev_plant and beta is not None:   # 2026-10-22: a constructed loss planted by the chain itself, so a test is the one command end to end
         import stage_metaa_atlas as _SAp, stage_v4 as _V4p
         _pc, _, _pl = a.dev_plant.partition(":"); _pl = float(_pl or 0.01); _b0 = _pd.Series(beta, dtype="float64")
         _mix = str(a.specimen).lower() in ("whole blood", "blood", "peripheral blood", "venous blood", "buffy coat")
-        _sh = {r["cell"]: r["share"] for r in (_V4p.stage_d21(_b0).get("cells") or [])} if _mix else {}
+        _sh = {r["cell"]: r["share"] for r in (_V4p.stage_d21(_b0, _panel()).get("cells") or [])} if _mix else {}
         _f = float(_sh.get(_pc, 0.0)) if _mix else 1.0
         if _mix and _pc not in _sh: sys.exit(f"--dev-plant {a.dev_plant}: '{_pc}' is not among the cells the IAM-Deconvolver read ({sorted(_sh)})")
         _bp = _SAp.plant(_b0, _pc, _pl * _f); _n = int((_bp != _b0).sum()); beta = _bp.to_dict()
@@ -713,7 +725,7 @@ def main():
     if beta is not None and not o.get("refusal"):   # chain v4: the cell shares (D21) and the C-Score drawn on the sphere
         import stage_v4 as V4
         print("Stage D21: cell shares against IAM-Atlas v2.1", flush=True)
-        o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"))
+        o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel())
         if (o["cell_shares"] or {}).get("cells") and str(a.specimen).lower() == "whole blood":   # 2026-10-22: Met-A for each cell, read and flagged (development)
             try:
                 import stage_metaa_atlas as SA, stage_t_selftare as _ST; _bs, _inf = _ST.selftare_map(_pd.Series(beta, dtype="float64"))

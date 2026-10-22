@@ -27959,7 +27959,7 @@
     "to-do step 21 (author 2026-10-20)"
    ],
    "runs": [],
-   "notes": "2026-10-22 synthetic 1 through the one command: the planted cell moves 92-99 % of the predicted shift; lymphocytes share identity sites. | 2026-10-22: test 1 superseded (its plant was made outside the one command); run_sample.py --dev-plant added; test 2 runs only the one command from the raw IDATs on GitHub."
+   "notes": "2026-10-22 synthetic 1 through the one command: the planted cell moves 92-99 % of the predicted shift; lymphocytes share identity sites. | 2026-10-22: test 1 superseded (its plant was made outside the one command); run_sample.py --dev-plant added; test 2 runs only the one command from the raw IDATs on GitHub. | 2026-10-22: run_sample.py --cell-panel (blood / atlas / list; non-blood panels development); exploration 3 on the full atlas panel written before it runs."
   },
   {
    "title": "The two healthy references compared site by site: IAM-Atlas v2.1 against Met-A's purified-array reference (DEV-REFERENCES-01)",
