@@ -520,7 +520,7 @@
    "legacy_ids": [
     "AT6"
    ],
-   "notes": "next_jobs job 'A granulocyte reference' carries todo AT6. | 2026-10-22 (step 37): rerun through the one command (run_series.py, scope slide_else_series; score_band_chain.py reads only the bundles and compares with band_test_GSE184269.json).",
+   "notes": "next_jobs job 'A granulocyte reference' carries todo AT6.",
    "depends_on": [],
    "id": "COM-METAA-011",
    "sources_of_row": [
@@ -1759,7 +1759,7 @@
    "cost": "none",
    "impact": 5,
    "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md",
-   "notes": "Pasted: 'healthy band met in two independent laboratories (34/35 and 22/23 healthy, 95 % bar)'; '617 blood samples from 19 different studies'. GSE184269 is not listed in data_spent.csv though it was read on 2026-10-13. repo: Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md; log 2026-10-13. | possible duplicate of COM-CSCORE-004 | COMMISSIONING-CSCORE 2026-10-15: commissioned on whole blood, EPIC v1 (isolated neutrophils development: no independent laboratory read) (plan rule: tests a and b met) | 2026-10-17 author page review 2: plain-words heading from the register title; no number or bar changed",
+   "notes": "Pasted: 'healthy band met in two independent laboratories (34/35 and 22/23 healthy, 95 % bar)'; '617 blood samples from 19 different studies'. GSE184269 is not listed in data_spent.csv though it was read on 2026-10-13. repo: Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md; log 2026-10-13. | possible duplicate of COM-CSCORE-004 | COMMISSIONING-CSCORE 2026-10-15: commissioned on whole blood, EPIC v1 (isolated neutrophils development: no independent laboratory read) (plan rule: tests a and b met) | 2026-10-17 author page review 2: plain-words heading from the register title; no number or bar changed | 2026-10-22 (step 37): rerun through the one command queued (run_series.py, scope slide_else_series; score_band_chain.py reads only the bundles and compares with band_test_GSE184269.json).",
    "legacy_ids": [
     "L5",
     "M5"
