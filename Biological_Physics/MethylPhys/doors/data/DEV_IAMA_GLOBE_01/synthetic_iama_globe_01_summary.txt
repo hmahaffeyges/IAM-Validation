@@ -1,0 +1,6 @@
+DEV-IAMA-GLOBE-01 synthetic test 1 (exploratory, not sealed): chr1 and chr2, about 6 held-error opportunities per CpG, 8,897,610 molecules; predicted held error (line, loose share 0) 0.0403; planted: loss rate doubled over CpG 1,000,001 to 1,050,000
+healthy: per-site sums equal count_pat's totals: True (errors 939,299, opportunities 26,002,890; held error 0.0361)
+healthy: 14,212 blocks, median 1387 opportunities per block, line 4.64; changed 2
+planted: per-site sums equal count_pat's totals: True (errors 945,322, opportunities 25,982,322; held error 0.0364)
+planted: 14,212 blocks, median 1386 opportunities per block, line 4.64; changed 57
+planted: stretch blocks (all 10 sites inside) 127, changed 52 (41%); edge blocks changed 3 of 5; changed outside the stretch 2

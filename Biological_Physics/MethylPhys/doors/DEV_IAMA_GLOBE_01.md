@@ -41,3 +41,11 @@ departure scaled by the sample's own spread of regions (the robust standard devi
 sample's own spread; still centered on the sample's own predicted held error, so a genome-wide loss still shows. The constructed plant is
 made stronger (probability 0.08, about triple the held error) so the picture shows what a clear change looks like; it remains a constructed
 picture, not a test.
+
+**Synthetic test 1, run once (2026-10-22; explore run 39802161540, commit babac554).** Output:
+`data/DEV_IAMA_GLOBE_01/synthetic_iama_globe_01_summary.txt` (array layout, blocks of 10 sites). The per-site sums equal count_pat's own
+totals on both copies (healthy 939,299 errors over 26,002,890 opportunities). Healthy: 2 of 14,212 blocks changed. Planted: 52 of the 127
+blocks wholly inside the stretch changed (41 %), 3 of 5 edge blocks, and 2 outside it. The counting is right and a doubled loss lights where
+it was put. One thing the construction got wrong: its loss rate was meant to give the predicted held error 0.0403 and gave 0.0361 (the
+neighbor rule removes more chances than the formula allowed); a genome-wide offset of that size lit nothing at this block size, which is
+recorded, not adjusted.
