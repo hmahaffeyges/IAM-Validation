@@ -2945,3 +2945,6 @@ Redrawn so the least certain sites stay lit longest: each frame is a site's spre
 
 ### 2026-10-21 · Sex and the X chromosome, stated for every instrument (OTH-072)
 One generator, CANON/sex_chromosomes.py, computes from the chain's own files how each instrument handles the X and Y and writes the same section into the Chain Decoder, the Operator Guide, the instrument catalogue, the Q&A and the book; the push refuses any copy that differs. Met-A and the C-Score have 32 of their 6,000 sites on the X and none on the Y; the blood-mix and Deconvolver markers have none; the noise index can move by at most 0.0023 bits from its X and Y sites; Stage 0 stops a sex mismatch. Found while writing it: IAM-A counts the held error on every chromosome from a .pat file but on chromosomes 1 to 22 from a BAM (finding F37); stated, not changed, with a recount on the list.
+
+### 2026-10-21 · Met-A against the atlas on an independent laboratory: not ready (GRP-014)
+On 109 sorted cells of five types, read through the chain against IAM-Atlas v2.1, only 37 to 75 % read Normal after the tare, and a planted 1 % loss is about one spread. Part of the spread is the slide: each donor's five cells share a slide and move together. The X is not the cause. Nothing changes in the commissioned Met-A.

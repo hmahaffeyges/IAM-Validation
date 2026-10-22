@@ -1,0 +1,6 @@
+DEV-METAA-ATLAS-01 design step 3: GSE184269 sorted cells against IAM-Atlas v2.1 (exploration, not sealed)
+monocytes: read 24 of 24 | untared A median 0.8789 | after the tare Normal 0.75, spread 0.0423 | planted 1 % loss: change +0.0720 = 1.7 x the tared spread
+naive b cells: read 23 of 23 | untared A median 0.8185 | after the tare Normal 0.48, spread 0.0855 | planted 1 % loss: change +0.0698 = 0.8 x the tared spread
+naive cd4 t cells: read 23 of 23 | untared A median 0.8451 | after the tare Normal 0.52, spread 0.0729 | planted 1 % loss: change +0.0718 = 1.0 x the tared spread
+naive cd8 t cells: read 19 of 19 | untared A median 0.8296 | after the tare Normal 0.37, spread 0.0769 | planted 1 % loss: change +0.0742 = 1.0 x the tared spread
+nk cells: read 20 of 20 | untared A median 0.9727 | after the tare Normal 0.70, spread 0.0432 | planted 1 % loss: change +0.0601 = 1.4 x the tared spread

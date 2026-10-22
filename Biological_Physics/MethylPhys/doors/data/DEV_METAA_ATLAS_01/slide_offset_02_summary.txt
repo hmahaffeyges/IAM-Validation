@@ -1,0 +1,7 @@
+correlation of tared readings between cell types on the same slide: monocytes/naive b cells 0.77, monocytes/naive cd4 t cells 0.66, monocytes/naive cd8 t cells 0.81, monocytes/nk cells 0.53, naive b cells/naive cd4 t cells 0.59, naive b cells/naive cd8 t cells 0.73, naive b cells/nk cells 0.59, naive cd4 t cells/naive cd8 t cells 0.87, naive cd4 t cells/nk cells 0.74, naive cd8 t cells/nk cells 0.56
+
+monocytes: n 24 | as tared: spread 0.0423, Normal 0.75 | the other cells' slide offset removed: spread 0.0303, Normal 0.92, a planted 1 % loss 2.4 x the spread
+naive b cells: n 23 | as tared: spread 0.0855, Normal 0.48 | the other cells' slide offset removed: spread 0.0537, Normal 0.83, a planted 1 % loss 1.3 x the spread
+naive cd4 t cells: n 22 | as tared: spread 0.0724, Normal 0.50 | the other cells' slide offset removed: spread 0.0479, Normal 0.77, a planted 1 % loss 1.5 x the spread
+naive cd8 t cells: n 18 | as tared: spread 0.0767, Normal 0.44 | the other cells' slide offset removed: spread 0.0461, Normal 0.72, a planted 1 % loss 1.6 x the spread
+nk cells: n 20 | as tared: spread 0.0432, Normal 0.70 | the other cells' slide offset removed: spread 0.0438, Normal 0.85, a planted 1 % loss 1.4 x the spread

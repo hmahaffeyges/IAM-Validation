@@ -55,3 +55,16 @@ healthy blood beyond 3 widths in its own spread). For this test:
 
 Next (design step 3): the sorted cells of GSE184269, an independent laboratory the atlas never saw, on GitHub, each array read against
 its atlas cell and tared against the other arrays of the same cell in that series.
+
+## Design step 3, run once (2026-10-21; GitHub explore run 39680799865; exploration, not sealed)
+
+GSE184269's 109 sorted arrays (an independent laboratory, never read before) through chain Stage 1 and `chain/stage_metaa_atlas.py`, tared
+leave-one-out within each cell type: `data/DEV_METAA_ATLAS_01/sorted_01/sorted_cells_01_summary.txt`. Every array read. **Not ready:** after
+the tare only 37 to 75 % read Normal (tared spread 4.2 to 8.6 %), and a planted 1 % loss moves a reading by about one spread.
+
+**Why, measured (`slide_offset_02.py`, on the committed readings):** each donor's five cell types sit on one slide, and their readings move
+together (correlations 0.53 to 0.87). Removing each reading's slide offset, taken only from the same slide's other cells, cuts the spread by
+about a third (Normal 72 to 92 %), so the slide (here also the donor) is part of it, not all. The X is not the cause: each cell's 6,000
+identity sites hold 0 to 27 on the X. Such a correction is not a proposed reading: with one donor per slide it would also hide a loss
+shared by all of a donor's cells (the self-tare trap). Next: what is left (the sorted subsets are naive cells, the atlas cells are not
+always; age; sites where this laboratory's arrays differ from the atlas), before any sealed test.
