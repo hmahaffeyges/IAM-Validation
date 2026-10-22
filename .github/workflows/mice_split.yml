@@ -4,11 +4,11 @@ name: mice_split
 # committed 16-thread run's to the last digit). 19 jobs each build the index and align 2 of the 38 read sets (reproduce/mice_rrbs.sh,
 # unchanged, RUNS and NW=1); a last job gathers the 38 .pat files and runs the committed test with its alignment step marked as done on those
 # machines (reproduce.py, REPRO_DONE_ELSEWHERE=reads_to_pat): the committed scorer, then the comparison with the committed numbers. Manual only.
-on: {workflow_dispatch: {}}
+on: {workflow_dispatch: {}, workflow_call: {}}   # workflow_call: run by reproduce_all.yml
 permissions: {contents: read, issues: write}
 jobs:
   plan:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs: {shards: "${{ steps.p.outputs.shards }}"}
     steps:
       - uses: actions/checkout@v4
@@ -25,7 +25,7 @@ jobs:
           PY
   align:
     needs: plan
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 355
     strategy:
       fail-fast: false
@@ -46,7 +46,7 @@ jobs:
   compare:
     needs: align
     if: always()
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - run: bash Biological_Physics/MethylPhys/reproduce/setup.sh
@@ -57,7 +57,7 @@ jobs:
           set +e; ls Biological_Physics/MethylPhys/reproduce/out/mice/seq/pat | wc -l
           REPRO_DONE_ELSEWHERE=reads_to_pat python3 Biological_Physics/MethylPhys/reproduce/reproduce.py mice > cmp.log 2>&1; echo $? > rc.txt; tail -30 cmp.log; true
       - name: Result to issue 32
-        if: always()
+        if: always() && github.repository == 'hmahaffeyges/IAM-Validation'
         env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
         run: |
           python3 - <<'PY'

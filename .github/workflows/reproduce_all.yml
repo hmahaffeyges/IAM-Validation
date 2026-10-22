@@ -1,0 +1,103 @@
+name: reproduce_all
+# Every reproduction in Biological_Physics/MethylPhys/reproduce/tests.json, on GitHub's free machines, in one click (2026-10-22; author: "so a
+# researcher gets the same exact results on the same exact machines"). A researcher forks the repository, turns Actions on in the fork, and
+# runs this workflow (Actions > reproduce_all > Run workflow). Every input is downloaded from its public archive; nothing is read from our
+# storage. Each machine is the same fixed image (ubuntu-24.04) and prints its image version, so two runs can be compared machine to machine.
+#   seven tests on one machine each (reproduce.py <test>, unchanged)
+#   groupa: the reading in 10 parts, then the committed scorer and comparison (reproduce.py, its read step marked as done on those machines)
+#   iama_line and mice: their split workflows (iama_split.yml, 13 machines; mice_split.yml, 19 machines)
+#   a last job writes the table of every test's verdict to the run's summary page.
+# GitHub runs 20 machines at once on a free account; the rest wait their turn, so the whole set takes about 8 to 10 hours.
+on: {workflow_dispatch: {}}
+permissions: {contents: read, issues: write}
+jobs:
+  single:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      matrix: {test: [cscore_band, deconv, three_labs, metaa_rebuild, colon, breast, liver]}
+    steps:
+      - name: Free disk
+        run: |
+          echo "machine image: $ImageOS $ImageVersion"
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost || true
+          sudo mkdir -p /mnt/repro && sudo chown $USER /mnt/repro; df -h / /mnt | tail -2
+      - uses: actions/checkout@v4
+      - name: Setup
+        run: ln -s /mnt/repro Biological_Physics/MethylPhys/reproduce/out && bash Biological_Physics/MethylPhys/reproduce/setup.sh
+      - name: Reproduce
+        run: |
+          set +e; python3 Biological_Physics/MethylPhys/reproduce/reproduce.py ${{ matrix.test }} > repro.log 2>&1; echo $? > rc.txt; tail -40 repro.log; true
+          mkdir -p v && cp /mnt/repro/${{ matrix.test }}/verdict.json v/${{ matrix.test }}.json 2>/dev/null; echo "$ImageOS $ImageVersion" > v/${{ matrix.test }}.image
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: "verdict-${{ matrix.test }}", path: "v/\nrepro.log"}
+      - name: Fail unless PASS
+        run: |
+          grep -q '"verdict": "PASS"' v/${{ matrix.test }}.json
+  groupa_read:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      matrix: {shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          echo "machine image: $ImageOS $ImageVersion"; bash Biological_Physics/MethylPhys/reproduce/setup.sh
+      - name: Read one part of the 278 controls (the test's own read step)
+        run: |
+          export MP=$PWD/Biological_Physics/MethylPhys; R=$MP/reproduce/out/groupa/rows; mkdir -p $R
+          $MP/reproduce/.venv/bin/python $MP/doors/data/GROUPA_COMMISSIONING/read_groupa.py read $MP/doors/data/GROUPA_COMMISSIONING/groupa_samples.csv $R ${{ matrix.shard }} 10
+          ls $R
+      - uses: actions/upload-artifact@v4
+        with: {name: "groupa-rows-${{ matrix.shard }}", path: Biological_Physics/MethylPhys/reproduce/out/groupa/rows/}
+  groupa:
+    needs: groupa_read
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          echo "machine image: $ImageOS $ImageVersion"; bash Biological_Physics/MethylPhys/reproduce/setup.sh
+      - uses: actions/download-artifact@v4
+        with: {pattern: "groupa-rows-*", path: Biological_Physics/MethylPhys/reproduce/out/groupa/rows, merge-multiple: true}
+      - name: Score and compare with the committed numbers
+        run: |
+          set +e; REPRO_DONE_ELSEWHERE=read python3 Biological_Physics/MethylPhys/reproduce/reproduce.py groupa > repro.log 2>&1; tail -30 repro.log
+          mkdir -p v && cp Biological_Physics/MethylPhys/reproduce/out/groupa/verdict.json v/groupa.json 2>/dev/null; echo "$ImageOS $ImageVersion" > v/groupa.image; true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: verdict-groupa, path: "v/\nrepro.log"}
+      - name: Fail unless PASS
+        run: |
+          grep -q '"verdict": "PASS"' v/groupa.json
+  iama_line:
+    uses: ./.github/workflows/iama_split.yml
+  mice:
+    uses: ./.github/workflows/mice_split.yml
+  table:
+    needs: [single, groupa, iama_line, mice]
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/download-artifact@v4
+        with: {path: a}
+      - name: Every test's verdict
+        run: |
+          python3 - <<'PY' | tee -a $GITHUB_STEP_SUMMARY
+          import json, glob, os
+          V = {}
+          for f in glob.glob("a/**/*.json", recursive=True):
+              try: j = json.load(open(f))
+              except Exception: continue
+              if isinstance(j, dict) and "verdict" in j and "test" in j: V[j["test"]] = j
+          T = ["metaa_rebuild", "deconv", "cscore_band", "iama_line", "three_labs", "mice", "colon", "breast", "liver", "groupa"]
+          print("| test | verdict | checks passed | minutes |\n|---|---|---|---|")
+          for t in T:
+              j = V.get(t, {}); c = j.get("checks") or []
+              n = len(c) if isinstance(c, list) else c; ok = sum(1 for x in c if x.get("ok")) if isinstance(c, list) else j.get("checks_ok")
+              print(f"| {t} | {j.get('verdict', 'no verdict')} | {ok} of {n} | {j.get('minutes', '')} |")
+          print(f"\n**{sum(1 for t in T if V.get(t, {}).get('verdict') == 'PASS')} of {len(T)} PASS** (commit ${{ github.sha }})")
+          PY

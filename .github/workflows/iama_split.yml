@@ -2,11 +2,11 @@ name: iama_split
 # IAM-A's self-reference line reproduced on GitHub's machines, split (2026-10-21; the one-machine run needs 70 GB and 16 cores): 8 jobs share
 # the 153 healthy-cell samples streamed from GEO, 5 jobs take one ENCODE file each, and a last job compares every count, the line and the shape
 # reference with the committed ones (reproduce/iama_line_shard.sh; the counting is the committed driver and chain Stage Q2, unchanged).
-on: {workflow_dispatch: {}}
+on: {workflow_dispatch: {}, workflow_call: {}}   # workflow_call: run by reproduce_all.yml
 permissions: {contents: read, issues: write}
 jobs:
   count:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 355
     strategy:
       fail-fast: false
@@ -30,7 +30,7 @@ jobs:
   compare:
     needs: count
     if: always()
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - run: bash Biological_Physics/MethylPhys/reproduce/setup.sh
@@ -40,7 +40,7 @@ jobs:
         run: |
           set +e; ls counts | wc -l; bash Biological_Physics/MethylPhys/reproduce/iama_line_shard.sh compare $PWD/counts > cmp.log 2>&1; echo $? > rc.txt; tail -40 cmp.log; true
       - name: Result to issue 32
-        if: always()
+        if: always() && github.repository == 'hmahaffeyges/IAM-Validation'
         env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
         run: |
           python3 - <<'PY'

@@ -1,7 +1,7 @@
 name: reproduce
 # One reproduction from Biological_Physics/MethylPhys/reproduce/tests.json on GitHub's machines (author 2026-10-20: GitHub first, AWS only for
 # jobs too big for GitHub). Frees about 30 GB of preinstalled tools, works on the runner's /mnt disk, runs reproduce.py <test> from a fresh
-# checkout, and posts the verdict and every compared number to issue 32. Too big here (AWS): iama_line (70 GB), mice (64 GB memory).
+# checkout, and posts the verdict and every compared number to issue 32. iama_line and mice run split: iama_split.yml, mice_split.yml; all ten: reproduce_all.yml.
 on:
   workflow_dispatch:
     inputs:
@@ -9,7 +9,7 @@ on:
 permissions: {contents: read, issues: write}
 jobs:
   reproduce:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 350
     steps:
       - name: Free disk
@@ -26,7 +26,7 @@ jobs:
           set +e
           python3 Biological_Physics/MethylPhys/reproduce/reproduce.py "${{ inputs.test }}" > repro.log 2>&1; echo $? > rc.txt; tail -40 repro.log; df -h /mnt | tail -1; true
       - name: Result to issue 32
-        if: always()
+        if: always() && github.repository == 'hmahaffeyges/IAM-Validation'
         env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
         run: |
           python3 - <<'PY'

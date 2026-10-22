@@ -16,7 +16,7 @@ env:
 jobs:
   diag:
     if: inputs.mode == 'diag'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
@@ -37,7 +37,7 @@ jobs:
           EOF
   smoke:
     if: inputs.mode != 'diag'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
@@ -52,7 +52,7 @@ jobs:
   read:
     if: inputs.mode != 'smoke'
     needs: smoke
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 340
     strategy:
       fail-fast: false
@@ -71,7 +71,7 @@ jobs:
   score:
     if: inputs.mode != 'smoke'
     needs: read
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with: {sparse-checkout: Biological_Physics}

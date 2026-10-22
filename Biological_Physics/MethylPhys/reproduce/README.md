@@ -11,6 +11,12 @@ python3 Biological_Physics/MethylPhys/reproduce/reproduce.py cscore_band    # on
 python3 Biological_Physics/MethylPhys/reproduce/reproduce.py --all          # every test
 ```
 
+**On GitHub's free machines, the same ones we used.** Fork this repository, open the fork's Actions tab, turn workflows on, then run
+**reproduce_all** (`.github/workflows/reproduce_all.yml`). Every test runs on GitHub's fixed `ubuntu-24.04` machine image, the image our
+verified runs used; each job prints the image's exact version. Tests too big for one machine are split across many: IAM-A's line over 13
+machines, the mouse test over 19 and Group-A over 10. The run's summary page ends with a table of every test's verdict. A free account runs
+20 machines at once, so the whole set takes about 8 to 10 hours. One test alone: the **reproduce** workflow with the test's name.
+
 Each run writes `Biological_Physics/MethylPhys/reproduce/out/<test>/verdict.json` (every comparison, the commit, the time) and a log per step. The last column is the
 test's own run from a fresh public clone on a clean machine.
 
