@@ -2,11 +2,11 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **32 Python files** holding **360 functions** (nested ones included); 360 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **32 Python files** holding **361 functions** (nested ones included); 361 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 929 | 17 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 938 | 17 | 11 | 10 |
 | `stage_0_intake.py` | 1,177 | 41 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -22,7 +22,7 @@ Read from the code at build time: the one command can load **32 Python files** h
 | `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
 | `MethylPhys_Interface/report_pdf_v4.py` | 100 | 6 | 6 | 6 |
 | `stage_t_selftare.py` | 42 | 3 | 0 | 0 |
-| `stage_seq_values.py` | 66 | 4 | 0 | 0 |
+| `stage_seq_values.py` | 83 | 5 | 0 | 0 |
 | `dev_comp_methods.py` | 216 | 17 | 0 | 0 |
 | `deconv_v2.py` | 74 | 3 | 0 | 0 |
 | `sky_statistics.py` | 108 | 6 | 0 | 0 |
@@ -37,7 +37,7 @@ Read from the code at build time: the one command can load **32 Python files** h
 | `stage_info_sphere.py` | 95 | 9 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 155 | 8 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 123 | 6 | 0 | 0 |
-| `MethylPhys_Interface/run_draw.py` | 90 | 5 | 0 | 0 |
+| `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
 
 ## How to read the Decoder
 
@@ -255,14 +255,14 @@ The orchestration described above, from parsing the command to writing the ledge
 exit code 2 or 3 at the stops listed, carries the same-run references (columns A and C) into the conductor, adds the v4 stages, and
 hands everything to the report.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 314 (613 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `sequencing_values.csv`
+*Code:* `MethylPhys_Interface/run_sample.py` line 314 (622 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `sequencing_values.csv`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 715 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 724 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -270,13 +270,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 488 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 497 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 870 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 879 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -1015,6 +1015,15 @@ Loads the frozen site key (`atlas/v2.1/sites_sequencing_key.parquet`: each IAM-A
 in the .pat files' numbering) once, sorted by CpG index. Development (to-do step 40).
 
 *Code:* `stage_seq_values.py` line 23 (5 lines) · arguments: none · calls: not called on the traced runs · constants read: `KEY`
+
+### `stage_seq_values.py::values_from_beta`
+
+A value at each atlas site from a `.beta` file, the standard binary per-CpG count file (methylated reads and all reads at every CpG, hg19 CpG
+numbering, the numbering of the frozen site key); a file of another length is refused with both counts. Per-site counts only, so every reader
+runs but IAM-A, which needs molecules (`run_sample.py --dev-seq-beta`, `run_draw.py --buffy-seqbeta / --plasma-seqbeta`). Checked on a
+constructed file (the example blood GSM7508429 drawn at 30 reads per site): the IAM-Deconvolver's six shares within 1.2 points of the array's.
+
+*Code:* `stage_seq_values.py` line 69 (14 lines) · arguments: path, min_calls · calls: not called on the traced runs · constants read: `FLAG`, `HG19_CPGS`
 
 ### `stage_seq_values.py::values_from_pat`
 
@@ -3089,19 +3098,19 @@ Whether an atlas cell type is a blood or bone-marrow cell, by its name.
 
 The one command's input flags for one half: an IDAT pair, a values file, a .pat file or a GEO sample (the last two with sequencing values).
 
-*Code:* `MethylPhys_Interface/run_draw.py` line 23 (7 lines) · arguments: a, half · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_draw.py` line 23 (8 lines) · arguments: a, half · calls: not called on the traced runs
 
 ### `run_draw.py::read_half`
 
 Runs the one command on one half, on the full atlas panel, and returns its bundle, or the reason it was not read.
 
-*Code:* `MethylPhys_Interface/run_draw.py` line 31 (10 lines) · arguments: a, half, specimen, extra · calls: not called on the traced runs · constants read: `HERE`, `RS` · files named: `bundle.json`
+*Code:* `MethylPhys_Interface/run_draw.py` line 32 (10 lines) · arguments: a, half, specimen, extra · calls: not called on the traced runs · constants read: `HERE`, `RS` · files named: `bundle.json`
 
 ### `run_draw.py::sources`
 
 A bundle's sources: each cell type's share with its 95 % interval, and its Met-A for each cell where read.
 
-*Code:* `MethylPhys_Interface/run_draw.py` line 42 (4 lines) · arguments: B · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_draw.py` line 43 (4 lines) · arguments: B · calls: not called on the traced runs
 
 ### `run_draw.py::main`
 
@@ -3109,4 +3118,4 @@ Reads both halves and writes `draw.json` and `draw_summary.txt`: each half's sou
 plasma's sources the person's own buffy coat does not explain: every non-blood source, and every blood source whose plasma share is above
 its buffy-coat share by more than its 95 % interval.
 
-*Code:* `MethylPhys_Interface/run_draw.py` line 47 (41 lines) · arguments: none · calls: not called on the traced runs · files named: `draw.json`, `draw_summary.txt`
+*Code:* `MethylPhys_Interface/run_draw.py` line 48 (41 lines) · arguments: none · calls: not called on the traced runs · files named: `draw.json`, `draw_summary.txt`

@@ -25,6 +25,7 @@ def half_args(a, half):
     if g("grn") and g("red"): return ["--grn", g("grn"), "--red", g("red")]
     if g("betas"): return ["--betas", g("betas")]
     if g("pat"): return ["--pat", g("pat"), "--dev-seq-values", str(a.min_calls)]
+    if g("seqbeta"): return ["--dev-seq-beta", g("seqbeta"), "--dev-seq-values", str(a.min_calls)]   # 2026-10-22 (40.10): a .beta count file
     if g("geo_pat"): return ["--geo-pat", g("geo_pat"), "--dev-seq-values", str(a.min_calls)]
     return None
 
@@ -48,11 +49,11 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--id", required=True); ap.add_argument("--out", required=True); ap.add_argument("--min-calls", type=int, default=1)
     for h in ("buffy", "plasma"):
-        for k in ("grn", "red", "betas", "pat", "geo-pat"): ap.add_argument(f"--{h}-{k}", default=None)
+        for k in ("grn", "red", "betas", "pat", "geo-pat", "seqbeta"): ap.add_argument(f"--{h}-{k}", default=None)
     argv = sys.argv[1:]; extra = argv[argv.index("--") + 1:] if "--" in argv else []; argv = argv[:argv.index("--")] if "--" in argv else argv
     a = ap.parse_args(argv); a.out = os.path.abspath(a.out); os.makedirs(a.out, exist_ok=True)
     for h in ("buffy", "plasma"):   # run_sample.py runs from its own folder, so file paths are made absolute
-        for k in ("grn", "red", "betas", "pat"):
+        for k in ("grn", "red", "betas", "pat", "seqbeta"):
             v = getattr(a, f"{h}_{k}")
             if v: setattr(a, f"{h}_{k}", os.path.abspath(v))
     BC, ebc = read_half(a, "buffy", "buffy coat", extra); PL, epl = read_half(a, "plasma", "plasma", extra)

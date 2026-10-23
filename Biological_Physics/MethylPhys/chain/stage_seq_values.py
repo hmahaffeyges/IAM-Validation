@@ -63,3 +63,20 @@ def thin_pat(path, frac, dest, seed=20261022):
             w = int(f[3]); k = int(rng.binomial(w, frac)); kin += w
             if k: f[3] = str(k); o.write("\t".join(f) + "\n"); kout += k
     return dest, dict(fraction=frac, seed=seed, molecules_in=kin, molecules_kept=kout)
+
+
+HG19_CPGS = 28217448   # CpGs in the hg19 reference numbering the .pat and .beta files share (stated; a file of another length is refused)
+def values_from_beta(path, min_calls=1):
+    """A value at each atlas site from a .beta file (2026-10-22, to-do 40.10): the standard binary per-CpG count file (two numbers per CpG in the
+    hg19 CpG numbering, methylated reads and all reads; uint8, or uint16 for .lbeta), read at the CpG index each atlas site names in the frozen
+    key. Gives the same three things as values_from_pat. Per-site counts only: no molecules, so IAM-A cannot read it."""
+    raw = (gzip.open(path, "rb") if str(path).endswith(".gz") else open(path, "rb")).read()
+    dt = np.uint16 if ".lbeta" in str(path) else np.uint8; a = np.frombuffer(raw, dtype=dt)
+    if a.size % 2 or a.size // 2 != HG19_CPGS:
+        raise ValueError(f"{os.path.basename(path)}: {a.size // 2:,} CpGs, not the {HG19_CPGS:,} of the hg19 numbering the atlas key uses")
+    a = a.reshape(-1, 2).astype(np.int64); k = key(); r = a[k["idx"] - 1]   # CpG index is 1-based
+    M, C = r[:, 0], r[:, 1]; ok = C >= max(1, int(min_calls))
+    beta = pd.Series(np.where(ok, M / np.maximum(C, 1), np.nan), index=k["probe"]).dropna()
+    calls = pd.Series(C, index=k["probe"])[beta.index]
+    return beta, calls, dict(source=os.path.basename(path), format=".beta (per-CpG counts)", atlas_sites=int(len(k["idx"])), sites_with_value=int(ok.sum()),
+                             calls_per_site_median=float(np.median(C[ok])) if ok.any() else 0.0, min_calls=int(min_calls), flag=FLAG)

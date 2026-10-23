@@ -701,6 +701,12 @@ pinned by the release check as a frozen input (F1): Stage T step 1 runs on every
 Loads the frozen site key (`atlas/v2.1/sites_sequencing_key.parquet`: each IAM-Atlas v2.1 site's EPIC v1 probe name, hg19 position and CpG index
 in the .pat files' numbering) once, sorted by CpG index. Development (to-do step 40).
 
+### stage_seq_values.py::values_from_beta
+A value at each atlas site from a `.beta` file, the standard binary per-CpG count file (methylated reads and all reads at every CpG, hg19 CpG
+numbering, the numbering of the frozen site key); a file of another length is refused with both counts. Per-site counts only, so every reader
+runs but IAM-A, which needs molecules (`run_sample.py --dev-seq-beta`, `run_draw.py --buffy-seqbeta / --plasma-seqbeta`). Checked on a
+constructed file (the example blood GSM7508429 drawn at 30 reads per site): the IAM-Deconvolver's six shares within 1.2 points of the array's.
+
 ### stage_seq_values.py::values_from_pat
 A value at each atlas site from sequencing molecules, for `--dev-seq-values MIN_CALLS`: every call at the exact CpG the site names is counted,
 and the value is methylated calls over calls, kept only where there are at least MIN_CALLS calls; the summary gives how many sites have a value
