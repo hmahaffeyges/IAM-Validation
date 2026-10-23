@@ -751,6 +751,14 @@ def main():
         intake = S0.step_0_7b_platform_coverage(intake, ref)
         intake = S0.step_0_9_decision_gate(intake, a.intake_log)
         v = intake.get("stage0_verdict")
+        if v == "QUARANTINE" and list(intake.get("stage0_hard_fail") or []) == ["hm450_coverage"]:
+            # 2026-10-23 (author: read it and flag it; the EPIC-Italy smoke run): on a 450K array the coverage gate protects the commissioned
+            # Met-A and C-Score, whose EPIC references a 450K chip only half covers; those readers refuse 450K themselves (conductor_v3,
+            # PLATFORM_REFUSED), so the array goes on to the atlas readers, flagged, each with its own coverage. The gate's FAIL stays in the record.
+            intake["stage0_verdict"] = "ADVANCE_FLAGGED_450K"; intake["stage0_hard_fail"] = []
+            intake.setdefault("flags", []).append(f"HM450_COVERAGE_BELOW_COMMISSIONED_REFERENCE:{intake.get('hm450_reference_coverage')} (the commissioned readers refuse 450K; atlas readers only, flagged)")
+            print(f"Stage 0: 450K coverage of the commissioned references {intake.get('hm450_reference_coverage')} (below {S0.HM450_COVERAGE_MIN:g}): the commissioned "
+                  "Met-A and C-Score will refuse this array; the atlas readers read it, flagged", flush=True); v = intake["stage0_verdict"]
         print(f"Stage 0 verdict: {v}"
               + (f"  hard failures: {intake.get('stage0_hard_fail')}" if intake.get("stage0_hard_fail") else "")
               + (f"  deferred: {intake.get('stage0_deferred_qc')}" if intake.get("stage0_deferred_qc") else ""), flush=True)
