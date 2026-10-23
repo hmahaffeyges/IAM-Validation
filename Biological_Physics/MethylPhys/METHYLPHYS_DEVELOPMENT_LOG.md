@@ -3119,3 +3119,6 @@ The distance from the sample's own expected healthy self rises with a planted wh
 
 ### 2026-10-23 · Reading cancer's own territories, synthetic test 1 (GRP-014, DEV-TERRITORIES-01)
 Island gains and domain losses planted by the chain are read cleanly and kept apart (islands 1.176 to 1.629 at a 30 % gain; domains 1.115 to 1.323 at a 30 % loss; the other set unchanged). Healthy blood reads 1.176 and 1.115 untared, the array's scale against the atlas, so the atlas ruler comes first. Record: [DEV_TERRITORIES_01.md](../Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md).
+
+### 2026-10-23 · Each cell's healthy spread in 56 whole bloods (GRP-015, DEV-EACH-CELL-01 exploration 8)
+Neutrophils: identity sites spread 3.69 % with a 1 % loss moving 2.41 %; every site spread 1.98 % with the same loss moving 1.83 %, about 1.4 times as sensitive in one person. The every-site spread is nearly the same for every cell, one sample-wide factor for the atlas ruler to remove. Record: [DEV_EACH_CELL_01.md](../Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md).

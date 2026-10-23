@@ -178,6 +178,16 @@
       "GRP-014"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
+    },
+    {
+     "title": "Each cell's healthy spread in 56 whole bloods (GRP-015)",
+     "status": "development",
+     "what": "Each cell's Met-A, on its identity sites and on every atlas site, across 56 healthy bloods, through the one command.",
+     "outcome": "The every-site reading sees a loss in one person about 1.4 times as well; its spread looks like one sample-wide factor.",
+     "rows": [
+      "GRP-015"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md"
     }
    ]
   },

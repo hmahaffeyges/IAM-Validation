@@ -100,3 +100,11 @@ read by run_sample.py with `--cell-panel atlas --dev-metaa-allsites`: for each c
 
 ## Synthetic C-Score test 1, written and committed before it runs (plan 41.2, 41.3)
 `data/DEV_EACH_CELL_01/cscore_cell_01.py`: the C-Score for every cell the IAM-Deconvolver finds (flagged below 1 % of the sample) and for the whole genome (`chain/stage_metaa_atlas.cscore_in_mix`, the commissioned statistic on each cell's departure map), by run_sample.py --cell-panel atlas, on four spent arrays, one per run: GSE235717 GSM7508429 (healthy whole blood) and three of GSE122126's known mixtures (hepatocytes and lung; colon and neurons; lung and neurons in blood). Each array read clean, then for every cell the IAM-Deconvolver found a loss planted by the chain, clustered (50 % in 10 runs of 30 identity sites) and spread (20 % at every site the cell holds). Expected before it runs: a clustered loss raises the planted cell's C above its clean C, and more than a spread loss does. A first version planted in four blood cells only and was canceled before it ran (author: why not all of them?). Which cells are there is the IAM-Deconvolver's answer, never assumed.
+
+**Exploration 8, outcome (series run 39927627528; `data/DEV_EACH_CELL_01/run_08/spread_08_summary.txt`).** 56 of Group-A's healthy whole bloods,
+pass 1 (untared), every reading by run_sample.py. For neutrophils, the cell the planted loss reaches most: on the identity sites the spread
+between people is 3.69 % and a 1 % loss moves the reading 2.41 % (0.65 spreads); on every atlas site the spread is 1.98 % and the same loss moves
+it 1.83 % (0.92 spreads). So the every-site reading is about 1.4 times as able to see a loss in one person. Its spread is nearly the same for every
+cell (1.4 to 2.3 %) and its medians sit near 0.94, which points to one sample-wide factor (the array's scale against the atlas) rather than to
+each cell: the factor the atlas ruler is meant to remove. Small shares (the rarer cells) move well under one spread for a 1 % loss of their pattern.
+

@@ -1,0 +1,51 @@
+DEV-EACH-CELL-01 exploration 8: each cell's Met-A in 56 healthy whole bloods of one laboratory series, all by run_sample.py (pass 1, untared)
+identity sites  CMP (bone marrow) n  56 | median A 0.9503 | spread between people 1.42 % | a 1 % loss moves not recorded
+identity sites  GMP (bone marrow) n  56 | median A 0.9452 | spread between people 1.60 % | a 1 % loss moves 0.13 % = 0.08 spreads
+identity sites  HSC (bone marrow) n  56 | median A 0.9355 | spread between people 2.31 % | a 1 % loss moves not recorded
+identity sites  L-MPP (bone marrow) n  56 | median A 0.9482 | spread between people 1.45 % | a 1 % loss moves 0.04 % = 0.03 spreads
+identity sites  MPP (bone marrow) n  56 | median A 0.9279 | spread between people 2.73 % | a 1 % loss moves not recorded
+identity sites  adipocytes     n  56 | median A 0.9671 | spread between people 1.83 % | a 1 % loss moves not recorded
+identity sites  central memory th1 cells n  56 | median A 0.9717 | spread between people 2.96 % | a 1 % loss moves not recorded
+identity sites  colon epithelium n  56 | median A 0.9554 | spread between people 2.92 % | a 1 % loss moves not recorded
+identity sites  embryonic stem cells n  56 | median A 0.9667 | spread between people 3.06 % | a 1 % loss moves not recorded
+identity sites  hepatocyte     n  56 | median A 0.9623 | spread between people 1.28 % | a 1 % loss moves not recorded
+identity sites  naive cd4 t cells n  56 | median A 0.9354 | spread between people 3.41 % | a 1 % loss moves not recorded
+identity sites  naive cd8 t cells n  56 | median A 0.9354 | spread between people 3.10 % | a 1 % loss moves 0.04 % = 0.01 spreads
+identity sites  neutrophils    n  56 | median A 0.9499 | spread between people 3.69 % | a 1 % loss moves 2.41 % = 0.65 spreads
+identity sites  nk cells       n  56 | median A 0.9394 | spread between people 2.72 % | a 1 % loss moves not recorded
+identity sites  pancreatic acinar n  56 | median A 0.9484 | spread between people 1.37 % | a 1 % loss moves not recorded
+identity sites  pancreatic beta n  56 | median A 0.9628 | spread between people 2.07 % | a 1 % loss moves not recorded
+identity sites  pancreatic duct n  56 | median A 0.9341 | spread between people 1.41 % | a 1 % loss moves not recorded
+identity sites  small intestine epithelium n  56 | median A 0.9614 | spread between people 2.90 % | a 1 % loss moves not recorded
+identity sites  cytotoxic cd4 t cells (cd28-) n  54 | median A 0.9752 | spread between people 3.07 % | a 1 % loss moves not recorded
+identity sites  MEP (bone marrow) n  53 | median A 0.9571 | spread between people 1.74 % | a 1 % loss moves not recorded
+identity sites  t effector cell cd8 n  26 | median A 0.9545 | spread between people 2.04 % | a 1 % loss moves not recorded
+identity sites  lung bronchus epithelium n  24 | median A 0.9451 | spread between people 2.37 % | a 1 % loss moves not recorded
+every site      monocytes      n  56 | median A 0.9394 | spread between people 1.98 % | a 1 % loss moves 0.38 % = 0.19 spreads
+every site      neutrophils    n  56 | median A 0.9404 | spread between people 1.98 % | a 1 % loss moves 1.83 % = 0.92 spreads
+every site      cd4 t cells    n  55 | median A 0.9379 | spread between people 1.99 % | a 1 % loss moves 0.48 % = 0.24 spreads
+every site      cd56bright nk cells n  55 | median A 0.9370 | spread between people 1.96 % | a 1 % loss moves 0.16 % = 0.08 spreads
+every site      vascular endothelium n  51 | median A 0.9438 | spread between people 1.76 % | a 1 % loss moves 0.03 % = 0.02 spreads
+every site      eosinophils    n  50 | median A 0.9400 | spread between people 2.07 % | a 1 % loss moves 0.08 % = 0.04 spreads
+every site      effector memory cd8 t cells n  43 | median A 0.9392 | spread between people 2.10 % | a 1 % loss moves 0.10 % = 0.05 spreads
+every site      microglia      n  43 | median A 0.9412 | spread between people 1.69 % | a 1 % loss moves 0.02 % = 0.01 spreads
+every site      naive b cells  n  43 | median A 0.9374 | spread between people 2.03 % | a 1 % loss moves 0.08 % = 0.04 spreads
+every site      basophils      n  42 | median A 0.9388 | spread between people 2.05 % | a 1 % loss moves 0.02 % = 0.01 spreads
+every site      GMP (bone marrow) n  40 | median A 0.9404 | spread between people 1.89 % | a 1 % loss moves 0.25 % = 0.13 spreads
+every site      cd8 temra t cells n  39 | median A 0.9332 | spread between people 2.34 % | a 1 % loss moves 0.13 % = 0.06 spreads
+every site      L-MPP (bone marrow) n  38 | median A 0.9389 | spread between people 1.66 % | a 1 % loss moves 0.08 % = 0.05 spreads
+every site      b cells        n  34 | median A 0.9348 | spread between people 2.10 % | a 1 % loss moves 0.09 % = 0.04 spreads
+every site      naive cd8 t cells n  32 | median A 0.9443 | spread between people 1.95 % | a 1 % loss moves 0.10 % = 0.05 spreads
+every site      cortical neurons n  31 | median A 0.9461 | spread between people 1.40 % | a 1 % loss moves 0.01 % = 0.01 spreads
+every site      t central memory cd4 n  29 | median A 0.9492 | spread between people 1.40 % | a 1 % loss moves 0.06 % = 0.04 spreads
+every site      memory b cells n  27 | median A 0.9485 | spread between people 1.54 % | a 1 % loss moves 0.02 % = 0.01 spreads
+every site      memory cd4 t cells n  25 | median A 0.9275 | spread between people 2.04 % | a 1 % loss moves 0.08 % = 0.04 spreads
+every site      regulatory t cells n  23 | median A 0.9475 | spread between people 1.88 % | a 1 % loss moves 0.03 % = 0.01 spreads
+every site      naive cd4 t cells n  22 | median A 0.9471 | spread between people 2.03 % | a 1 % loss moves 0.12 % = 0.06 spreads
+every site      cd8 t cells    n  21 | median A 0.9284 | spread between people 1.92 % | a 1 % loss moves 0.12 % = 0.06 spreads
+every site      CMP (bone marrow) n  15 | median A 0.9314 | spread between people 1.63 % | a 1 % loss moves 0.05 % = 0.03 spreads
+every site      cd8 central memory t cells n  15 | median A 0.9282 | spread between people 1.71 % | a 1 % loss moves 0.05 % = 0.03 spreads
+every site      MEP (bone marrow) n  12 | median A 0.9204 | spread between people 2.15 % | a 1 % loss moves 0.06 % = 0.03 spreads
+every site      colon epithelium n   7 | median A 0.9442 | spread between people 1.71 % | a 1 % loss moves 0.01 % = 0.00 spreads
+every site      embryonic stem cells n   6 | median A 0.9582 | spread between people 1.42 % | a 1 % loss moves 0.00 % = 0.00 spreads
+every site      lung alveolar epithelium n   5 | median A 0.9468 | spread between people 0.90 % | a 1 % loss moves 0.00 % = 0.00 spreads

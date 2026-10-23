@@ -1198,9 +1198,10 @@
     {
      "id": "39.5",
      "date": "2026-10-22",
-     "status": "running",
+     "status": "done",
      "what": "Each cell's healthy spread in whole blood (its detection limit)",
-     "next": "exploration 8 (series run on 56 of Group-A's bloods); record the spreads"
+     "next": "exploration 8 (series run on 56 of Group-A's bloods); record the spreads",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md"
     },
     {
      "id": "39.6",

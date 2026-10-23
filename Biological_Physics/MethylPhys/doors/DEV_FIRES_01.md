@@ -10,7 +10,7 @@ draw to the diagnosis (0.02 to 14.4, median 5.4). The series is spent (CANON/dat
 against its controls. It is used here to explore, never to commission. List: `data/DEV_FIRES_01/gse51032_samples.csv` (from the sample labels).
 
 **The reading.** References for every tare: only the 424 who stayed cancer-free (the `ref` column; run_series.py uses only those). Every array by the one command (`chain/MethylPhys_Interface/run_series.py`, workflow `series.yml`) with `--cell-panel atlas`
-(the IAM-Deconvolver on all 79 atlas cells; Met-A for each cell found) and `--dev-metaa-allsites` (the every-site reading), and the C-Score for each cell and the whole genome (`stage_metaa_atlas.cscore_in_mix`, flagged; plan 41.2, 41.3). On a 450K array the
+(the IAM-Deconvolver on all 79 atlas cells; Met-A for each cell found) and `--dev-metaa-allsites` (the every-site reading), `--dev-territories` (cancer's own territories, DEV-TERRITORIES-01), and the C-Score for each cell and the whole genome (`stage_metaa_atlas.cscore_in_mix`, flagged; plan 41.2, 41.3). On a 450K array the
 commissioned Met-A and C-Score are refused by the chain (no 450K neutrophil reference) and the atlas readers run, flagged.
 
 **Smoke run first:** four arrays from one slide (two controls, one breast and one colorectal case; `smoke_samples.csv`): does a 450K IDAT pass
@@ -36,4 +36,14 @@ that is an answer too, and it decides where IAM is used next (blood, plasma, tis
 ---
 
 **Smoke run 1 (series run 39934797643).** Every 450K array stopped at Stage 0 (the one command's logs: `data/DEV_FIRES_01/smoke_01/`): the 450K coverage gate measured 0.525 and 0.534 of the commissioned Met-A references' sites (limit 0.8), so nothing was read (lesson C40). The gate protects the commissioned readers, which refuse 450K themselves; run_sample.py now lets a 450K array whose only intake failure is that coverage go on to the atlas readers, flagged (ADVANCE_FLAGGED_450K). Pass 2 also stopped on the empty first pass; run_series.py now says so plainly. Smoke run 2 follows on the same four arrays, with the information sphere.
+
+**Where the earlier signal sits, and what the chain compares (written 2026-10-23, before the full series is read).** The earlier instrument
+read six sites (`earlier_pattern.py`'s source). Four of them (cg03172595, cg05928286, cg17301223, cg11667314) are on the 450K chip but not in
+IAM-Atlas v2.1, so the chain cannot read them against the atlas. Of the two that are, cg26203572 is held near 0.97 by every blood cell type,
+and cg27091787 separates neutrophils (0.52) from lymphocytes (about 0.92), so it moves with the share of neutrophils to lymphocytes. None is
+among any blood cell's Met-A identity sites, and the earlier instrument removed no cell mix. So part of its signal may be a change in the
+blood's make-up, which the chain reads as the IAM-Deconvolver's cell shares and Met-A deliberately removes. The comparison is therefore read
+in three places, cases against the cancer-free references, window by window, by Group-A's rule (difference in standard errors): (1) the cell
+shares, the neutrophil share and the lymphocyte share first; (2) each cell's Met-A and the every-site reading; (3) the territories. A change
+in (1) alone says the blood's make-up moved; in (2) or (3) too, the cells themselves moved. Neither outcome is a failure of the chain.
 
