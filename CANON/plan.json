@@ -1001,9 +1001,10 @@
     {
      "id": "40.11",
      "date": "2026-10-22",
-     "status": "open",
+     "status": "running",
      "what": "Met-A on sequencing: the chemistry offset (0.757 at full depth against the array-built atlas) and the loss of sensitivity at few reads",
-     "next": "a planted loss at each depth through the chain (--dev-thin with --dev-plant) to measure what a loss still moves; then a tare against healthy sequencing samples of the same cell, read the same way"
+     "next": "record what a loss moves at 3, 10, 30, 60 reads; then a tare against healthy sequencing samples read the same way",
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/seq_plant_06.py"
     }
    ]
   }

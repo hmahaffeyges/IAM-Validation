@@ -82,20 +82,30 @@ def values_from_beta(path, min_calls=1):
                              calls_per_site_median=float(np.median(C[ok])) if ok.any() else 0.0, min_calls=int(min_calls), flag=FLAG)
 
 
-def construct_draw(blood, add, depth_buffy, depth_plasma, out_dir, seed=20261022):
+def construct_draw(blood, add, depth_buffy, depth_plasma, out_dir, seed=20261022, plant=None):
     """TESTS ONLY (2026-10-22, author: GSE186888 stays unread, "how are you going to explore without one?"): a CONSTRUCTED blood draw with a
     known answer, built from spent values. Buffy coat: the blood's own levels. Plasma: (1 - sum of add) x the blood's levels + each added atlas
     tissue's share x its IAM-Atlas v2.1 best value (where the tissue has none, the blood's). Each half is read as k of n reads at every atlas
     site, n = its depth and k ~ Binomial(n, level), seeded, and written as a .beta count file (hg19 CpG numbering) beside a truth record.
-    blood: Series of levels by probe; add: {atlas tissue: share}. Returns the truth record."""
+    blood: Series of levels by probe; add: {atlas tissue: share}. plant (to-do 40.11): (cell, loss), a loss of that cell's pattern planted in the
+    blood's levels BEFORE the reads are counted, scaled by the cell's share as run_sample.py --dev-plant scales it (the IAM-Deconvolver's six-cell
+    shares of the blood), so both halves carry it. Returns the truth record."""
     import json, sys
     sys.path.insert(0, HERE); import stage_metaa_atlas as SA
+    prec = None
+    if plant:
+        import stage_v4 as V4
+        b0 = pd.Series(blood, dtype="float64"); sh = {r["cell"]: r["share"] for r in (V4.stage_d21(b0).get("cells") or [])}
+        if plant[0] not in sh: raise ValueError(f"plant cell {plant[0]!r} is not among the six blood cells {sorted(sh)}")
+        bp = SA.plant(b0, plant[0], plant[1] * sh[plant[0]]); prec = dict(cell=plant[0], loss=plant[1], share=round(sh[plant[0]], 4),
+                                                                          applied=round(plant[1] * sh[plant[0]], 6), sites_moved=int((bp != b0).sum()))
+        blood = bp
     k = key(); lev = pd.Series(blood, dtype="float64").reindex(k["probe"]).to_numpy(); ok = np.isfinite(lev)
     tot = float(sum(add.values())); pl = lev * (1 - tot)
     for t, f in add.items():
         mu = SA._col("mu", t).reindex(k["probe"]).to_numpy(); pl = pl + f * np.where(np.isfinite(mu), mu, lev)
     rng = np.random.default_rng(seed); os.makedirs(out_dir, exist_ok=True); rec = dict(rule=construct_draw.__doc__.split("\n")[0], added=add, blood_share=round(1 - tot, 6),
-                                                                                      depth=dict(buffy=depth_buffy, plasma=depth_plasma), seed=seed, sites=int(ok.sum()), flag="CONSTRUCTED for a test, not a person")
+                                                                                      depth=dict(buffy=depth_buffy, plasma=depth_plasma), seed=seed, sites=int(ok.sum()), planted=prec, flag="CONSTRUCTED for a test, not a person")
     for half, L, n in (("buffy", lev, depth_buffy), ("plasma", pl, depth_plasma)):
         a = np.zeros((HG19_CPGS, 2), np.uint8); m = rng.binomial(n, np.clip(L[ok], 0, 1))
         a[k["idx"][ok] - 1, 0] = m; a[k["idx"][ok] - 1, 1] = n

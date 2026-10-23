@@ -731,7 +731,8 @@ in the .pat files' numbering) once, sorted by CpG index. Development (to-do step
 TESTS ONLY: a constructed blood draw with a known answer, built by the chain from spent values (`run_sample.py --build constructed-draw
 --build-input BLOOD_VALUES --build-mix TISSUE:SHARE,... --build-depth BUFFY,PLASMA --build-out DIR`). Buffy coat: the blood's own levels;
 plasma: that blood in the remaining share plus each named atlas tissue's best value at its share. Each half is drawn as k of n reads per atlas
-site (seeded) and written as a `.beta` count file with a truth record. Made because the open matched set (GSE186888) is reserved unread for
+site (seeded) and written as a `.beta` count file with a truth record. With `--dev-plant CELL:LOSS` a loss of that cell's pattern is planted in the blood's levels before the reads are counted, scaled by
+the cell's six-cell share as the one command scales a plant, so the counting noise falls on the planted levels as it would on a real loss. Made because the open matched set (GSE186888) is reserved unread for
 the one-draw test that counts (author 2026-10-22).
 
 ### stage_seq_values.py::values_from_beta

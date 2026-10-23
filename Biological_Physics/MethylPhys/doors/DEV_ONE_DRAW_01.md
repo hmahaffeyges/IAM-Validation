@@ -73,3 +73,9 @@ the gap between sequencing and the array-built atlas, a chemistry offset, which 
 cancel (same chemistry, same depth). (2) As reads fall, the reading moves toward 1, because with few reads both the measured disorder and its
 expectation are made mostly of counting; the reading is not wrong there, but it carries less of the sample. How much a loss still moves it at
 each depth is for a planted loss at each depth to show.
+
+## Exploration 6, written before it runs (2026-10-22; plan step 40): what a loss still moves at each depth
+`run_sample.py --build constructed-draw` now takes `--dev-plant CELL:LOSS`, planting the loss in the blood's values before the reads are counted,
+scaled by the cell's share as the one command scales a plant. `data/DEV_ONE_DRAW_01/seq_plant_06.py` builds a healthy draw and draws with CD4 T
+cells at 5 and 20 % and NK cells at 20 %, counts them at 3, 10, 30 and 60 reads per site (one GitHub run each), and reads the buffy-coat half by
+the one command. Reported: each planted cell's Met-A move, in the reading's own error over sites, and the largest move in another cell.

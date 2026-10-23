@@ -233,11 +233,12 @@ def _build(a):
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps({k: v for k, v in rep.items() if k not in ("command",)}, default=str)[:1500]); return 0
     if a.build == "constructed-draw":   # TESTS ONLY (2026-10-22): a constructed draw with a known answer, built by the chain from spent values
-        if not (a.build_input and a.build_out and a.build_mix): print("--build constructed-draw needs --build-input (blood values), --build-mix TISSUE:SHARE,... and --build-out DIR"); return 2
+        if not (a.build_input and a.build_out and a.build_mix is not None): print("--build constructed-draw needs --build-input (blood values), --build-mix TISSUE:SHARE,... ('' for none) and --build-out DIR"); return 2
         import stage_seq_values as _SVc
         bl = _pd.read_csv(a.build_input, index_col=0).iloc[:, 0]; add = {x.rsplit(":", 1)[0].strip(): float(x.rsplit(":", 1)[1]) for x in a.build_mix.split(",") if x.strip()}
         db, dp = (int(x) for x in (a.build_depth or "30,15").split(","))
-        rec = _SVc.construct_draw(bl, add, db, dp, a.build_out); rec["input"] = os.path.basename(a.build_input); rec["command"] = [os.path.basename(sys.argv[0])] + sys.argv[1:]
+        _pp = (a.dev_plant.split(":")[0], float(a.dev_plant.split(":")[1])) if a.dev_plant else None   # with --build: planted before the reads are counted (40.11)
+        rec = _SVc.construct_draw(bl, add, db, dp, a.build_out, plant=_pp); rec["input"] = os.path.basename(a.build_input); rec["command"] = [os.path.basename(sys.argv[0])] + sys.argv[1:]
         json.dump(rec, open(os.path.join(a.build_out, "truth.json"), "w"), indent=1); print("Build: constructed draw", json.dumps({k: v for k, v in rec.items() if k != "command"})[:600]); return 0
     import reference_globes as RG
     if not a.build_out: print(f"--build {a.build} needs --build-out"); return 2

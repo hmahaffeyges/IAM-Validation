@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 947,
+   "lines": 948,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -208,11 +208,11 @@
      "function": "_build",
      "name": "_build",
      "line": 219,
-     "end": 252,
+     "end": 253,
      "args": [
       "a"
      ],
-     "lines": 34,
+     "lines": 35,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [],
      "data_files": [
@@ -224,8 +224,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 255,
-     "end": 275,
+     "line": 256,
+     "end": 276,
      "args": [
       "a",
       "cnt",
@@ -241,8 +241,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 278,
-     "end": 318,
+     "line": 279,
+     "end": 319,
      "args": [
       "a",
       "o",
@@ -262,8 +262,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 321,
-     "end": 944,
+     "line": 322,
+     "end": 945,
      "args": [],
      "lines": 624,
      "doc": "",
@@ -287,8 +287,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 506,
-     "end": 510,
+     "line": 507,
+     "end": 511,
      "args": [
       "r"
      ],
@@ -304,8 +304,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 733,
-     "end": 740,
+     "line": 734,
+     "end": 741,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -317,8 +317,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 888,
-     "end": 889,
+     "line": 889,
+     "end": 890,
      "args": [
       "b",
       "it",
@@ -4429,7 +4429,7 @@
   },
   {
    "file": "stage_seq_values.py",
-   "lines": 104,
+   "lines": 114,
    "functions": [
     {
      "file": "stage_seq_values.py",
@@ -4520,16 +4520,17 @@
      "function": "construct_draw",
      "name": "construct_draw",
      "line": 85,
-     "end": 103,
+     "end": 113,
      "args": [
       "blood",
       "add",
       "depth_buffy",
       "depth_plasma",
       "out_dir",
-      "seed"
+      "seed",
+      "plant"
      ],
-     "lines": 19,
+     "lines": 29,
      "doc": "TESTS ONLY (2026-10-22, author: GSE186888 stays unread, \"how are you going to explore without one?\"): a CONSTRUCTED blood draw with a known answer, built from spent values. Buffy coat: the blood's own levels. Plasma: (1 - sum of add) x the blood's levels + each added atlas tissue's share x its IAM-Atlas v2.1 best value (where the tissue has none, the blood's). Each half is read as k of n reads at ",
      "constants": [
       "HERE",
