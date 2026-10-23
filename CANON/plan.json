@@ -507,6 +507,14 @@
      "status": "open",
      "what": "Met-A's healthy number from physics and the atlas, the independent test: predict healthy EPIC neutrophil arrays' level at methylated identity sites from neutrophil molecules sequenced in another laboratory (the held error from Stage Q2, the per-cell gap from IAM-Atlas v2.1, the array's blur from its own control probes), with nothing shared between the prediction and the arrays. The whiteboard check on the atlas (about half of the drop from 1 on the held error, half on a per-cell gap; both from the same molecules, so not independent) is the reason to run it",
      "next": "write the prediction and its bar before any array is read; synthetic first; after the atlas ruler (35.14), so the arrays are on the atlas's scale"
+    },
+    {
+     "id": "14.5",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "GSM3618718 in the firm-rate recount stopped at GitHub's 6-hour limit while downloading and aligning (run 39994316396, nothing saved): one machine is too small for it. It needs its read sets spread over machines, as the mouse test's were (mice_split.yml), with the human index built once and shared",
+     "run": "39994316396",
+     "next": "a general split workflow for one human sample (index once, read sets in parallel, counts gathered by the one command); then rerun GSM3618718"
     }
    ]
   },
