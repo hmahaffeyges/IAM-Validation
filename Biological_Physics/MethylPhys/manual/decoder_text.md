@@ -1815,6 +1815,11 @@ value dropped the site, and on the 79-cell panel most cells lost about half thei
 TESTS ONLY: a constructed loss of a cell's whole pattern, every atlas site the array measured where the cell has a value moved the given share of
 the way to 0.5 (`run_sample.py --dev-plant CELL:LOSS:all`). A real loss of hold reaches every held site, not only the identity sites.
 
+### stage_metaa_atlas.py::plant_runs
+TESTS ONLY: a constructed clustered loss, 10 runs of 30 neighboring identity sites of a cell in genome order (the frozen sky order), chosen by
+a seeded draw, each moved the given share of the way to 0.5 (`run_sample.py --dev-plant CELL:LOSS:runs`). The shape the globe's block rule is
+built to see.
+
 ### stage_metaa_atlas.py::plant
 A constructed loss for tests: every identity site the array measured moved 1 % of the way to 0.5, the shift `read` predicts. Used by the
 series runner's `--plant metaa_atlas`; never by a reading.

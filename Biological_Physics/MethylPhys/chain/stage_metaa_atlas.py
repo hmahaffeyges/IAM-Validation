@@ -109,6 +109,21 @@ def plant_all(beta, cell, loss=0.01):
     b = beta.copy(); mu = _col("mu", cell).reindex(b.index); ok = b.notna() & mu.notna()
     b.loc[ok] = (b[ok] + loss * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6); return b
 
+RUNS, RUN_LEN = 10, 30   # plant_runs: 10 runs of 30 neighboring identity sites (300 of 6,000), the shape of a clustered loss (stated)
+def plant_runs(beta, cell, loss=0.05, seed=20261022):
+    """A CONSTRUCTED clustered loss, for tests only (2026-10-22, to-do 38.1): RUNS runs of RUN_LEN neighboring identity sites of the cell, in genome
+    order (the frozen sky order, chain/Runtime Matrices/Atlas_V21/sky_order_v21.npz), chosen by a seeded draw; each site moved loss of the way to
+    0.5, x + loss (0.5 - mu). The loss is concentrated in those runs, as a loss that spreads along the genome would be."""
+    import pyarrow.parquet as pq
+    Z = np.load(os.path.join(HERE, "Runtime Matrices", "Atlas_V21", "sky_order_v21.npz"))
+    if "ids" not in _cache: _cache["ids"] = pq.read_table(os.path.join(ATLAS, "sites.parquet")).column("cpg").to_pylist()
+    io = np.array(_cache["ids"], dtype=object)[Z["order"]]; pos = pd.Series(np.arange(len(io)), index=io)
+    S = [x for x in identity_sites(cell) if x in pos.index and x in beta.index and pd.notna(beta.get(x))]
+    S = sorted(S, key=lambda x: pos[x]); n = len(S) // RUN_LEN; rng = np.random.default_rng(seed)
+    pick = sorted(rng.choice(n, size=min(RUNS, n), replace=False)); sites = [x for k in pick for x in S[k * RUN_LEN:(k + 1) * RUN_LEN]]
+    b = beta.copy(); mu = _col("mu", cell).reindex(sites); ok = mu.notna()
+    b.loc[mu[ok].index] = (b.loc[mu[ok].index] + loss * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6); return b
+
 def plant(beta, cell, loss=0.01):
     """A CONSTRUCTED loss of the cell's pattern, for tests only (the rule read() predicts its shift by): every identity site of the cell this
     array measured moved loss of the way to 0.5, x + loss (0.5 - mu). Returns a new Series; the input is unchanged."""

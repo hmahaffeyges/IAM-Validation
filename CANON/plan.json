@@ -792,7 +792,7 @@
      "status": "built",
      "what": "A change layer for each cell on the globe (healthy example blood: 0-5 of ~590 blocks per cell)",
      "record": "Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md",
-     "next": "test with a clustered plant in one cell (an even loss is canceled by the sample's own centering and shows in the Met-A number instead); needs --dev-plant with runs along the genome"
+     "next": "exploration 5 (globe_cell_05.py): clustered losses of 5, 20 and 50 % in four cells, read on each cell's layer; record"
     },
     {
      "id": "38.2",

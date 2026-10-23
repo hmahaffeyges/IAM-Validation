@@ -57,3 +57,8 @@ at their identity sites and once at every atlas site they hold (`--dev-plant CEL
 (I) and every site weighted by its shift (W, `--dev-metaa-allsites`). Reported for each: the planted cell's move in the reading's own error over
 sites, and the largest move of another cell as a share of it. Nothing scored. Known before it runs: the error over sites is within one sample,
 so it is smaller than the spread between healthy people; that spread comes from many healthy bloods read the same way (Group-A's 278).
+
+## Exploration 5, written before it runs (2026-10-22; to-do 38.1): does a clustered loss light its cell's globe layer?
+`data/DEV_EACH_CELL_01/globe_cell_05.py`, only the one command on the raw IDATs of GSM7508429: a loss planted by the chain in 10 runs of 30
+neighboring identity sites (`--dev-plant CELL:LOSS:runs`) of monocytes, CD4 T, B or NK cells, at 5, 20 and 50 %, scaled by the cell's share; each
+cell's changed blocks on the globe against healthy. An even loss was already shown not to light the layer (2 of 597 blocks before and after).

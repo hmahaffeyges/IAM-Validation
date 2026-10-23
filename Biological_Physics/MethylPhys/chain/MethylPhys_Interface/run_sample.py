@@ -331,7 +331,7 @@ def main():
     ap.add_argument("--dev-metaa-allsites", action="store_true",
                     help="DEVELOPMENT (2026-10-22): also read Met-A for each cell over every atlas site, each weighted by the shift a loss of that cell would make "
                          "(stage_metaa_atlas.read_in_mix_allsites), recorded beside the identity-site reading")
-    ap.add_argument("--dev-plant", default=None, metavar="CELL:LOSS[:all]",
+    ap.add_argument("--dev-plant", default=None, metavar="CELL:LOSS[:all|runs]",
                     help="TESTS ONLY (2026-10-22, author: tests run through the chain): plant a CONSTRUCTED loss of CELL's pattern (an IAM-Atlas v2.1 cell) in this "
                          "array's values after Stage 1, before every reading, by stage_metaa_atlas.plant; in whole blood the loss is scaled by CELL's share as the "
                          "IAM-Deconvolver reads it on the unplanted values. Every report and bundle says PLANTED; the bundle records the plant (key 'planted')")
@@ -727,9 +727,9 @@ def main():
         _sh = {r["cell"]: r["share"] for r in (_V4p.stage_d21(_b0, _panel()).get("cells") or [])} if _mix else {}
         _f = float(_sh.get(_pc, 0.0)) if _mix else 1.0
         if _mix and _pc not in _sh: sys.exit(f"--dev-plant {a.dev_plant}: '{_pc}' is not among the cells the IAM-Deconvolver read ({sorted(_sh)})")
-        _bp = (_SAp.plant_all if _scope == "all" else _SAp.plant)(_b0, _pc, _pl * _f); _n = int((_bp != _b0).sum()); beta = _bp.to_dict()
+        _bp = {"all": _SAp.plant_all, "runs": _SAp.plant_runs}.get(_scope, _SAp.plant)(_b0, _pc, _pl * _f); _n = int((_bp != _b0).sum()); beta = _bp.to_dict()
         planted_rec = dict(cell=_pc, loss=_pl, share=round(_f, 4), applied=round(_pl * _f, 6), sites_moved=_n, scope=_scope,
-                           rule="x + loss (0.5 - mu) at " + ("every atlas site the cell has a value (stage_metaa_atlas.plant_all)" if _scope == "all" else "the cell's identity sites (stage_metaa_atlas.plant)"))
+                           rule="x + loss (0.5 - mu) at " + {"all": "every atlas site the cell has a value (stage_metaa_atlas.plant_all)", "runs": "10 runs of 30 neighboring identity sites in genome order (stage_metaa_atlas.plant_runs)"}.get(_scope, "the cell's identity sites (stage_metaa_atlas.plant)"))
         a.banner = (a.banner + " | " if a.banner else "") + f"PLANTED (constructed for a test): a {_pl:.0%} loss of the {_pc} pattern" + (f" at its share {_f:.4f}" if _mix else "") + f", {_n} sites"
         print(f"PLANTED: {a.banner}", flush=True)
     refs = [float(x) for x in a.slide_ref_A.split(",") if x.strip()] if a.slide_ref_A else None

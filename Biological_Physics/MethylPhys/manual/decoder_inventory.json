@@ -6016,7 +6016,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 201,
+   "lines": 216,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -6164,10 +6164,36 @@
     },
     {
      "file": "stage_metaa_atlas.py",
+     "function": "plant_runs",
+     "name": "plant_runs",
+     "line": 113,
+     "end": 125,
+     "args": [
+      "beta",
+      "cell",
+      "loss",
+      "seed"
+     ],
+     "lines": 13,
+     "doc": "A CONSTRUCTED clustered loss, for tests only (2026-10-22, to-do 38.1): RUNS runs of RUN_LEN neighboring identity sites of the cell, in genome order (the frozen sky order, chain/Runtime Matrices/Atlas_V21/sky_order_v21.npz), chosen by a seeded draw; each site moved loss of the way to 0.5, x + loss (0.5 - mu). The loss is concentrated in those runs, as a loss that spreads along the genome would be.",
+     "constants": [
+      "ATLAS",
+      "HERE"
+     ],
+     "data_files": [
+      "chain/Runtime Matrices/Atlas_V21/sky_order_v21.npz",
+      "import pyarrow.parquet",
+      "sites.parquet",
+      "sky_order_v21.npz"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
      "function": "plant",
      "name": "plant",
-     "line": 112,
-     "end": 116,
+     "line": 127,
+     "end": 131,
      "args": [
       "beta",
       "cell",
@@ -6183,8 +6209,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix",
      "name": "read_in_mix",
-     "line": 120,
-     "end": 154,
+     "line": 135,
+     "end": 169,
      "args": [
       "beta",
       "shares",
@@ -6204,8 +6230,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "departure_in_mix",
      "name": "departure_in_mix",
-     "line": 157,
-     "end": 168,
+     "line": 172,
+     "end": 183,
      "args": [
       "beta",
       "shares",
@@ -6223,8 +6249,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix_allsites",
      "name": "read_in_mix_allsites",
-     "line": 171,
-     "end": 200,
+     "line": 186,
+     "end": 215,
      "args": [
       "beta",
       "shares"
@@ -7041,5 +7067,5 @@
   }
  ],
  "n_files": 32,
- "n_functions": 359
+ "n_functions": 360
 }
