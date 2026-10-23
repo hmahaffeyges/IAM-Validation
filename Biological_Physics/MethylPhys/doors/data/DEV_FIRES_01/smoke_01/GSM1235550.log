@@ -1,0 +1,24 @@
+  array type: HM450K (header: HM450K, 622,399 addresses)
+Stage 0: intake gates (SOP 11-19)
+Stage 1: calibrating the IDAT pair (methylprep noob) - about 25 s
+      array detected: 450k (622,399 bead addresses, barcode 6969568099)
+      calibrated: 467,314 CpGs (noob, per-sample dye-bias + probe-type norm)
+Stage 1: 467,314 of 482,421 probes detected (96.87 %); 15,107 at background removed
+Stage 0 verdict: QUARANTINE  hard failures: ['hm450_coverage']
+
+  WHY: 450K reference coverage (Step 0.7b) - stopped
+    measured on this array: coverage 0.534
+    limit: at least 0.8 of the reference sites measured
+    limit comes from: stage_0_intake.HM450_COVERAGE_MIN (fixed rule)
+    what it means: the array lacks too many of the sites the references use
+    what to do: the chain reads EPIC v1 arrays
+
+QUARANTINE - the chain stops here and nothing is scored. Stage 0 rejected the specimen; see the reasons above.
+
+--- stderr ---
+
+Reading IDATs: 100%|██████████| 1/1 [00:07<00:00,  7.27s/it]
+Reading IDATs: 100%|██████████| 1/1 [00:07<00:00,  7.27s/it]
+
+Processing samples: 100%|██████████| 1/1 [00:25<00:00, 25.47s/it]
+Processing samples: 100%|██████████| 1/1 [00:25<00:00, 25.47s/it]

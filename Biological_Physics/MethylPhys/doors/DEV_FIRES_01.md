@@ -35,5 +35,5 @@ that is an answer too, and it decides where IAM is used next (blood, plasma, tis
 
 ---
 
-**Smoke run 1 (series run 39934797643).** Every 450K array stopped at Stage 0: the 450K coverage gate measured 0.525 and 0.534 of the commissioned Met-A references' sites (limit 0.8), so nothing was read (lesson C40). The gate protects the commissioned readers, which refuse 450K themselves; run_sample.py now lets a 450K array whose only intake failure is that coverage go on to the atlas readers, flagged (ADVANCE_FLAGGED_450K). Pass 2 also stopped on the empty first pass; run_series.py now says so plainly. Smoke run 2 follows on the same four arrays, with the information sphere.
+**Smoke run 1 (series run 39934797643).** Every 450K array stopped at Stage 0 (the one command's logs: `data/DEV_FIRES_01/smoke_01/`): the 450K coverage gate measured 0.525 and 0.534 of the commissioned Met-A references' sites (limit 0.8), so nothing was read (lesson C40). The gate protects the commissioned readers, which refuse 450K themselves; run_sample.py now lets a 450K array whose only intake failure is that coverage go on to the atlas readers, flagged (ADVANCE_FLAGGED_450K). Pass 2 also stopped on the empty first pass; run_series.py now says so plainly. Smoke run 2 follows on the same four arrays, with the information sphere.
 
