@@ -199,16 +199,18 @@
     {
      "id": "43.2",
      "date": "2026-10-23",
-     "status": "open",
+     "status": "running",
      "what": "Tissue and unnamed specimens accepted on the full-atlas route, flagged (stage_0_intake.is_tissue); GSE149282 as the first real tissue arrays end to end (lesson C40)",
-     "next": "the series run on GSE149282, pass 1"
+     "next": "the series run on GSE149282, pass 1",
+     "run": "series 39991326676 (GSE149282, pass 1)"
     },
     {
      "id": "43.3",
      "date": "2026-10-23",
-     "status": "open",
+     "status": "built",
      "what": "blind_unblind.py: after the readings are committed, fetch the labels from GEO, compute each reading's AUC between the study's groups, and open the publication",
-     "next": "write before GSE149282's readings land"
+     "next": "run on GSE149282 once its readings land: readings, commit, then unblind",
+     "record": "CANON/blind_unblind.py"
     },
     {
      "id": "43.4",

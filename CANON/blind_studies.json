@@ -15,7 +15,8 @@
    "verdict": null,
    "arrays": 24,
    "samples": "Biological_Physics/MethylPhys/doors/data/BLIND_01/GSE149282_samples.csv",
-   "samples_sha256": "8dde77f9c591cb4b6c36427296edec0ae1115b7608bce850412ef6fd161aa2c6"
+   "samples_sha256": "8dde77f9c591cb4b6c36427296edec0ae1115b7608bce850412ef6fd161aa2c6",
+   "kind": "tumor"
   },
   {
    "gse": "GSE118694",
@@ -30,7 +31,8 @@
    "verdict": null,
    "arrays": 34,
    "samples": "Biological_Physics/MethylPhys/doors/data/BLIND_01/GSE118694_samples.csv",
-   "samples_sha256": "36ad4d4a889301aa6296abfb6df8fe79545166c49cdf7f1fa01cf9349285b347"
+   "samples_sha256": "36ad4d4a889301aa6296abfb6df8fe79545166c49cdf7f1fa01cf9349285b347",
+   "kind": "tumor"
   },
   {
    "gse": "GSE136583",
@@ -45,7 +47,8 @@
    "verdict": null,
    "arrays": 62,
    "samples": "Biological_Physics/MethylPhys/doors/data/BLIND_01/GSE136583_samples.csv",
-   "samples_sha256": "0b3d868c4cd9177acd59ad0feb2431c9a6eb639e5adb3f104af8b62f8ea3b3a3"
+   "samples_sha256": "0b3d868c4cd9177acd59ad0feb2431c9a6eb639e5adb3f104af8b62f8ea3b3a3",
+   "kind": "tumor"
   },
   {
    "gse": "GSE164269",
@@ -60,7 +63,8 @@
    "verdict": null,
    "arrays": 79,
    "samples": "Biological_Physics/MethylPhys/doors/data/BLIND_01/GSE164269_samples.csv",
-   "samples_sha256": "d6746ad7e35cd3acff72b92b5b0ef018c3e20e2839fe9cc58f58d1809c9c8672"
+   "samples_sha256": "d6746ad7e35cd3acff72b92b5b0ef018c3e20e2839fe9cc58f58d1809c9c8672",
+   "kind": "tumor"
   },
   {
    "gse": "GSE226764",
@@ -75,7 +79,8 @@
    "verdict": null,
    "arrays": 48,
    "samples": "Biological_Physics/MethylPhys/doors/data/BLIND_01/GSE226764_samples.csv",
-   "samples_sha256": "f15c228045bdfbce9b85e5bc4d16a815f94ed78d8025aadd31a953875b29434f"
+   "samples_sha256": "f15c228045bdfbce9b85e5bc4d16a815f94ed78d8025aadd31a953875b29434f",
+   "kind": "tumor"
   },
   {
    "gse": "GSE136791",
@@ -90,7 +95,8 @@
    "verdict": null,
    "arrays": 103,
    "samples": "Biological_Physics/MethylPhys/doors/data/BLIND_01/GSE136791_samples.csv",
-   "samples_sha256": "ba7daf491b21e5857dc2d80a8800712260c23d905d50e8b3576737ef9fcbe508"
+   "samples_sha256": "ba7daf491b21e5857dc2d80a8800712260c23d905d50e8b3576737ef9fcbe508",
+   "kind": "tumor"
   },
   {
    "gse": "GSE204943",
@@ -105,7 +111,8 @@
    "verdict": null,
    "arrays": 118,
    "samples": "Biological_Physics/MethylPhys/doors/data/BLIND_01/GSE204943_samples.csv",
-   "samples_sha256": "aef7b6f9b6de49568d883aa5b330aa396895aad7d4ee25a168ee698cb0072548"
+   "samples_sha256": "aef7b6f9b6de49568d883aa5b330aa396895aad7d4ee25a168ee698cb0072548",
+   "kind": "gradient"
   },
   {
    "gse": "GSE299925",
@@ -120,7 +127,8 @@
    "verdict": null,
    "arrays": 126,
    "samples": "Biological_Physics/MethylPhys/doors/data/BLIND_01/GSE299925_samples.csv",
-   "samples_sha256": "73b9505b93fe9515183b34d5ef962c6e0d346c6aab05f6706b2ae1e1be8afa3d"
+   "samples_sha256": "73b9505b93fe9515183b34d5ef962c6e0d346c6aab05f6706b2ae1e1be8afa3d",
+   "kind": "gradient"
   },
   {
    "gse": "GSE112047",
@@ -135,7 +143,8 @@
    "verdict": null,
    "arrays": 47,
    "samples": "Biological_Physics/MethylPhys/doors/data/BLIND_01/GSE112047_samples.csv",
-   "samples_sha256": "52a835b8583d57bb09a4bf22e72f88bd51551ed04bab49f207923cb46fde897a"
+   "samples_sha256": "52a835b8583d57bb09a4bf22e72f88bd51551ed04bab49f207923cb46fde897a",
+   "kind": "tumor"
   },
   {
    "gse": "GSE101764",
@@ -150,7 +159,8 @@
    "verdict": null,
    "arrays": 261,
    "samples": "Biological_Physics/MethylPhys/doors/data/BLIND_01/GSE101764_samples.csv",
-   "samples_sha256": "d6e5cb1585822d982ba78143feb357379f15e5aadfc763eb6675d5421cfc5a31"
+   "samples_sha256": "d6e5cb1585822d982ba78143feb357379f15e5aadfc763eb6675d5421cfc5a31",
+   "kind": "tumor"
   },
   {
    "gse": "GSE234379",
@@ -165,7 +175,8 @@
    "verdict": null,
    "arrays": 92,
    "samples": "Biological_Physics/MethylPhys/doors/data/BLIND_01/GSE234379_samples.csv",
-   "samples_sha256": "d970c9500c352898ea23244bc3549533bbb2438312cc5b54239cfa53c0366c5d"
+   "samples_sha256": "d970c9500c352898ea23244bc3549533bbb2438312cc5b54239cfa53c0366c5d",
+   "kind": "tumor"
   },
   {
    "gse": "GSE67170",
@@ -180,7 +191,8 @@
    "verdict": null,
    "arrays": 89,
    "samples": "Biological_Physics/MethylPhys/doors/data/BLIND_01/GSE67170_samples.csv",
-   "samples_sha256": "477b9aa9219e7cf54f925c9d745beb2213d64ca16e75d4ecfb88f47645313af1"
+   "samples_sha256": "477b9aa9219e7cf54f925c9d745beb2213d64ca16e75d4ecfb88f47645313af1",
+   "kind": "blood"
   },
   {
    "gse": "GSE237100",
@@ -195,7 +207,8 @@
    "verdict": null,
    "arrays": 176,
    "samples": "Biological_Physics/MethylPhys/doors/data/BLIND_01/GSE237100_samples.csv",
-   "samples_sha256": "636da922f9411677cb565fc48b6f436f15111d24206157453f6ed4f36b2c44d1"
+   "samples_sha256": "636da922f9411677cb565fc48b6f436f15111d24206157453f6ed4f36b2c44d1",
+   "kind": "blood"
   },
   {
    "gse": "GSE318669",
@@ -210,7 +223,8 @@
    "verdict": null,
    "arrays": 54,
    "samples": "Biological_Physics/MethylPhys/doors/data/BLIND_01/GSE318669_samples.csv",
-   "samples_sha256": "83e8c22971ce1d8ea6f8ad1311a963ea5149a32e797fa813167ebac47c6fceda"
+   "samples_sha256": "83e8c22971ce1d8ea6f8ad1311a963ea5149a32e797fa813167ebac47c6fceda",
+   "kind": "smoke"
   }
  ],
  "reserved": [
