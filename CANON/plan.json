@@ -305,6 +305,13 @@
      "status": "open",
      "what": "THE TOP PHYSICS ITEM (author 2026-10-22: 'the firm rate derivation is a bit more important than I realized. That could be the thing that makes MET-A not require all the extra calibrations'): with the firm rate derived, the healthy disorder at each site follows from IAM's Law (M = 20.94, E_hold = phi M), so healthy samples confirm the schedule rather than set it; the same-run tare or self-tare still zeros each laboratory's meter",
      "next": "one-sample human timing test running (GSM2387332, counted by run_sample.py --dev-count-only); then all 16 samples at once on 16 machines at night, then the sealed ratio rule once"
+    },
+    {
+     "id": "14.2",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "If one human sample needs more than GitHub's 6 hours: split it as the mouse run was split, each machine aligning a part of the reads, then one job merging the parts, marking duplicates on the whole and counting with run_sample.py --dev-count-only (duplicates must be marked on the whole sample, so the count is never summed from parts)",
+     "next": "decide from the one-sample human timing test (erase_test run 39911507208)"
     }
    ]
   },
@@ -840,6 +847,20 @@
      "status": "open",
      "what": "Two rules for 'changed' in one report: the flat picture at Met-A's 6,000 sites (report_figs_v4.changes_sky_png) marks a pixel beyond +/-2 of the sample's own spread, while the globe uses blocks of 10 against the family-wise line (report_globe_v4.FW_LINE)",
      "next": "give the flat picture the globe's block rule (one rule in the whole report), rebuild the example reports through the chain, release check V12 and V13"
+    },
+    {
+     "id": "38.5",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "The C-Score family (author 2026-10-22: 'it might be the star of the show'): (a) the commissioned C-Score at Met-A's neutrophil sites; (b) the C-Score on the globe's whole-genome change map against the atlas (DEV-METAA-ATLAS-01 design addition 3); (c) an IAM-A version, clustering of held-error departures along the genome from the IAM-A genome globe (DEV-IAMA-GLOBE-01). What the C-Score teaches: it reads how change is laid out, not how big it is, so centering on the sample's own spread costs it nothing and cancels lab offsets",
+     "next": "write the family into the catalogue (39.13); then a synthetic test for (b) through the one command, written before it runs"
+    },
+    {
+     "id": "39.13",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "Instrument catalogue, line by line (author 2026-10-22): update stale entries; review every candidate instrument (some started, in development or commissioned) for its true status and for deployment; add the globes (address sky sphere, Globe Explorer, per-cell change layers) and the information sphere (in development, explained in full); add the C-Score family (38.5)",
+     "next": "no machine needed: read CANON/catalogue.json entry by entry against the manifest, the plan and the records; list every change to the author before it is pushed"
     }
    ]
   },
