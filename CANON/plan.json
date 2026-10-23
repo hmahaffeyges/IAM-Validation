@@ -882,6 +882,14 @@
      "status": "built",
      "what": "Changed blocks drawn as patches on the globe (author: 'Those patches are exactly what should be seen, not the tiny specs'): Met-A's and each cell's changed blocks painted over the stretch of genome their 10 sites cover (report_globe_v4._paint_blocks); the whole-genome layer's changed blocks drawn at the dots' radius (_patch). Drawing only; every count unchanged (example blood 0 of 597, planted 44 of 597)",
      "next": "release check on GitHub; then done"
+    },
+    {
+     "id": "39.16",
+     "date": "2026-10-23",
+     "status": "built",
+     "what": "One master source, in code (author: 'All of this could be avoided by using code and keeping the master data source in ONE place'): (1) CANON/build_all.py rebuilds all 28 generated documents in data-flow order and runs the cross-document checks; the push gate runs its --check form first; (2) prose names numbers by key, filled from committed outputs; (3) commissioning status read only from CANON/commissioning.json",
+     "record": "CANON/build_all.py",
+     "next": "(2) numbers by key in the canon's prose; (3) the Introduction, the book's status chapter and the website read commissioning from CANON/commissioning.json"
     }
    ]
   },
@@ -1081,6 +1089,14 @@
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/seq_plant_06.py"
     }
    ]
+  },
+  {
+   "task": "The book, before outreach (author: 'the book is going to need some special attention once we get everything commissioned and the chain fully operational, before the outreach begins to researchers'): after commissioning and the chain settle, one pass over the whole book: (1) line by line, the actual book, every error reported to the author as found; (2) nothing that changes is hand-written: every number, status and result filled from the canon by the build; (3) every claim labeled derived, measured and frozen, or open, as the Decoder labels the chain; (4) one story and one notation from cosmology to cells, matching FOUR_DOMAINS.md; (5) the public rules: no dates, no names as endorsement, no exploratory results, American English, computer and qubit analogies; (6) every citation checked in Crossref or arXiv; (7) the full PDF built from a fresh clone on GitHub, every figure drawn by the chain",
+   "done_when": "every chapter reviewed line by line and its corrections pushed; build_all, no_dates, status_claims and the book build pass from a fresh clone",
+   "rows": [
+    "OTH-072"
+   ],
+   "status": "open"
   }
  ],
  "scheduled": [
