@@ -1390,6 +1390,23 @@
      "next": "with 43.6"
     }
    ]
+  },
+  {
+   "status": "open",
+   "rows": [
+    "ATL-046"
+   ],
+   "task": "The wide-angle matrix (author: 'multiple cell columns and multiple quantum computer columns for each of the variations ... then we could compare them more accurately and find the patterns'): every system as its own column on the same few rows, generated from one source (CANON/systems.json), every value from the book or a committed chain record: what holds the bit, the temperature it sees, the energy budget per operation in kT (M), the error it holds or makes (epsilon), the share of the budget that ends up holding (phi = ln((1-eps)/eps)/M), the floor, the as-built reading. Columns: the 56 healthy cell types (IAM-A, and Met-A where arrays exist), the qubit platforms and named devices of Part V, the chip generations of Part V, the bound systems of the ladder. A sortable page and one chart of phi against M across all of them",
+   "done_when": "the matrix and its chart are generated from CANON/systems.json by build_all, every value cited, and each status shown",
+   "branches": [
+    {
+     "id": "47.1",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "Mark which comparisons are true tests and which hold by construction: wherever an error and its energy are computed from each other (a cell's E_hold from its own eps; a qubit's occupation from its gap), the point lies on the Boltzmann curve by definition; the comparisons that can reveal a pattern use independent numbers, the energy budget (M) and the error held (eps), so phi is the cross-system quantity",
+     "next": "write CANON/systems.json from Part V's tables (tab:qp_which, tab:platforms, the chip-generation tables) and the 56-cell table; then the generator and the chart"
+    }
+   ]
   }
  ],
  "scheduled": [
