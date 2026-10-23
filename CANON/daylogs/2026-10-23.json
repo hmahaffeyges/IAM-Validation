@@ -48,6 +48,76 @@
       "CAN-007"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_FIRES_01.md"
+    },
+    {
+     "title": "The C-Score family's plan (GRP-015, plan 41)",
+     "status": "development",
+     "what": "41.1 IAM-A's C-Score version 2: each 1,000-CpG region's held error predicted from that region's OWN loose share by the self-reference line. Version 1 (one genome-wide rate) gave a healthy C of about 6 because healthy regions differ by nature; if IAM's law holds region by region, a healthy C falls toward 1, so it is a physics test too. 41.2 the whole-genome C-Score against the atlas. 41.3 each cell's C-Score in a mix.",
+     "outcome": null,
+     "rows": [
+      "GRP-015"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_CSCORE_01.md"
+    },
+    {
+     "title": "CHAIN CHANGE: the C-Score for every cell found and for the whole genome (GRP-015, plan 41.2, 41.3)",
+     "status": "development",
+     "what": "stage_metaa_atlas.cscore_in_mix, flagged: the commissioned C-Score's statistic (blocks of 10 neighboring sites in genome order) on each cell's departure map against the atlas mixed at the sample's own shares, and on every atlas site measured. Every cell the Deconvolver finds is scored; below 1 % of the sample the C is flagged, not withheld. On a check of the statistic: 0.96 for independent values, 2.34 with clustered runs. Synthetic test 1 plants in every cell found on a healthy blood and three known tissue mixtures.",
+     "outcome": null,
+     "rows": [
+      "GRP-015"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md"
+    },
+    {
+     "title": "Met-A against the atlas: the second sealed test written; its synthetic test run 1 refused by the chain (GRP-014, METAA-ATLAS-SEAL-02)",
+     "status": "synthetic only",
+     "what": "36 healthy monocyte arrays of two laboratories (GSE157611, GSE196007) chosen from metadata only; same-slide tare; the same three bars. The synthetic test through the one command: run 1 (explore run 39932749386) built arrays with only the 6,000 identity sites, and Stage T step 1 refused all 36 because both probe designs are needed, a fault of the construction; rebuilt at every atlas site and rerun. The seal waits on it.",
+     "outcome": null,
+     "rows": [
+      "GRP-014"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/data/METAA_ATLAS_SEAL_02/synthetic_02.py"
+    },
+    {
+     "title": "What public data exists for early detection (CAN-007, plan 42)",
+     "status": "development",
+     "what": "Metadata only. Rare sets kept unread for sealed tests: the same 20 people at baseline and year 6 (GSE130748), blood before a liver cancer diagnosis (GSE113392), a 15-year stroke cohort with later cancers (GSE280206), matched plasma and blood DNA (GSE325660). Plasma cfDNA on EPIC with IDATs at diagnosis: GSE277078, GSE298812, GSE157273, GSE220160. No public plasma drawn before a diagnosis was found. Stool: GSE212997 (newborn stool, including stool taken before illness, held unread).",
+     "outcome": null,
+     "rows": [
+      "CAN-007"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_FIRES_01.md"
+    },
+    {
+     "title": "Records checked against the logs (OTH-072)",
+     "status": "development",
+     "what": "Every result of 2026-10-22 and 2026-10-23 was checked against the development log, the day logs, the manifest and the plan; the development log had 2 entries for 2026-10-22 where 16 results stood in their records, and these entries were added from the records' own numbers.",
+     "outcome": null,
+     "rows": [
+      "OTH-072"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md"
+    },
+    {
+     "title": "Each cell's healthy spread in whole blood, written before it runs (GRP-015, DEV-EACH-CELL-01 exploration 8)",
+     "status": "development",
+     "what": "Every fifth of Group-A's 278 healthy bloods (56) through the one command on the full atlas panel, with the every-site reading: how much each cell's Met-A varies between healthy people, and so how large a loss must be before it shows for each cell. Running on GitHub.",
+     "outcome": null,
+     "rows": [
+      "GRP-015"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md"
+    },
+    {
+     "title": "Priority (CAN-007)",
+     "status": "development",
+     "what": "Author: human early cancer detection first, through the full chain on whole blood, buffy coat, plasma cell-free DNA and tissue, every tool that can fire scoring whatever is found; the remaining C-Scores and Met-A against the atlas commissioned. Salmon parked until then.",
+     "outcome": null,
+     "rows": [
+      "CAN-007"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_FIRES_01.md"
     }
    ]
   },
@@ -84,6 +154,44 @@
       "OTH-072"
      ],
      "record": "CANON/build_all.py"
+    }
+   ]
+  },
+  {
+   "kind": "mistakes",
+   "heading": "Our own mistakes, and what caught each",
+   "entries": [
+    {
+     "title": "The C-Score's synthetic test chose its cells by assumption",
+     "status": null,
+     "what": "The first version planted losses in four blood cells picked in advance. The author caught it: which cells are there is the IAM-Deconvolver's answer. It was canceled before it ran; the test now plants in every cell the Deconvolver finds, and every cell found gets a C-Score (flagged below 1 %).",
+     "outcome": null,
+     "rows": [],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md"
+    },
+    {
+     "title": "A synthetic array built with too few sites",
+     "status": null,
+     "what": "The second Met-A seal's synthetic arrays held only the 6,000 identity sites; the chain's own self-tare refused all 36 because a real array has both probe designs. Rebuilt at every atlas site.",
+     "outcome": null,
+     "rows": [],
+     "record": "Biological_Physics/MethylPhys/doors/data/METAA_ATLAS_SEAL_02/synthetic_02.py"
+    },
+    {
+     "title": "The sealed Met-A test stood unstarted",
+     "status": null,
+     "what": "The explorations it needed had finished unread; the author asked where the test was. Both were read and the second sealed test written the same hour.",
+     "outcome": null,
+     "rows": [],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_01.md"
+    },
+    {
+     "title": "Notes written on the wrong manifest row, and logs behind their records",
+     "status": null,
+     "what": "The firm-rate recount notes sat on PHY-049 instead of PHY-006 (moved). The development log carried 2 of 16 results for 2026-10-22; the author asked for a check of every report, and the entries were added from each record's numbers.",
+     "outcome": null,
+     "rows": [],
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   }
