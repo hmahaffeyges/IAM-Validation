@@ -3110,3 +3110,6 @@ The one command reads a sample on the frozen sphere (run_sample.py --dev-info-sp
 
 ### 2026-10-23 · The 6,000-site globe layers drawn on the full healthy map (ATL-063)
 The Met-A layer and each cell's change layer now fade the full healthy map (the person's own mix; each cell's own atlas map) instead of a flat gray, as the whole-genome layer does. Drawing only; counts unchanged.
+
+### 2026-10-23 · A human sequencing sample from raw reads to its count on GitHub (PHY-006, DEV-ERASE-01)
+The count from the saved molecules completed through the one command: held error 0.04198 over 343,973 chances, loose share 0.0765 (flagged; cultured cells). With the alignment earlier, a human sample now runs end to end on GitHub's machines. Record: [DEV_ERASE_01.md](../Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md).

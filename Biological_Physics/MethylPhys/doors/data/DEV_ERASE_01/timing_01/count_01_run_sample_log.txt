@@ -1,0 +1,5 @@
+Stage Q0: intake checks on GSM2387332.pat.gz
+Stage Q2: counting only (development, --dev-count-only): held error and its opportunities, flagged
+
+GSM2387332: Met-A (neutrophils) None (None) | C None | tare None | IAM-A None (Stage Q0 stopped the file: Q0.7 specimen: 33eb9481a184914f79a547ff38ff413b (a purified cell type with a healthy shape reference (Stage Q2)))
+report: /home/runner/work/IAM-Validation/IAM-Validation/eout/GSM2387332_report.html | bundle: /home/runner/work/IAM-Validation/IAM-Validation/eout/GSM2387332_bundle.json | evidence ledger: /home/runner/work/IAM-Validation/IAM-Validation/eout/evidence_ledger.jsonl (one row appended)

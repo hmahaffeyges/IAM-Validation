@@ -148,6 +148,16 @@
       "PHY-006"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "title": "A human sequencing sample from raw reads to its count on GitHub (PHY-006)",
+     "status": "development",
+     "what": "The count from the saved molecules, through the one command, after the alignment.",
+     "outcome": "Completed: held error 0.04198, flagged (cultured cells).",
+     "rows": [
+      "PHY-006"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
     }
    ]
   },
