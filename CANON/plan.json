@@ -446,6 +446,13 @@
      "status": "open",
      "what": "Held error and replication error are two routes with different physics (author: the held error 'requires a constant force to maintain it'; the error made when DNA is copied is separate, rarer in healthy cells, and rises as the A score rises and a tumor grows). Stage Q2 counts one total, eps_obs = eps_held + eps_replication, and E_hold = kT ln((1-eps)/eps) reads the total as holding. Healthy references: the replication part is small (turnover does not predict the error across 26 cell types, rho 0.03; colon epithelium and cardiomyocytes both about 0.031). Dividing tumors: a rise can be weaker holding or more replication, and the energy read from the total understates the holding energy. Temperature: the held balance follows the holding energy; the replication error follows the writer's discrimination at the fork, a different barrier",
      "next": "whiteboard: write the split as eps_obs = eps_held + (division rate x unrestored share at sampling); find a public pair of the same healthy cell type resting and dividing (e.g. resting and activated T cells) to measure the replication part; synthetic first. Temperature tests use non-dividing tissue so the replication part cannot enter"
+    },
+    {
+     "id": "14.4",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "Met-A's healthy number from physics and the atlas, the independent test: predict healthy EPIC neutrophil arrays' level at methylated identity sites from neutrophil molecules sequenced in another laboratory (the held error from Stage Q2, the per-cell gap from IAM-Atlas v2.1, the array's blur from its own control probes), with nothing shared between the prediction and the arrays. The whiteboard check on the atlas (about half of the drop from 1 on the held error, half on a per-cell gap; both from the same molecules, so not independent) is the reason to run it",
+     "next": "write the prediction and its bar before any array is read; synthetic first; after the atlas ruler (35.14), so the arrays are on the atlas's scale"
     }
    ]
   },
