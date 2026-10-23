@@ -833,6 +833,13 @@
      "status": "open",
      "what": "Globe commissioning on 278 healthy bloods",
      "next": "read the globe counts from Group-A's rerun (37.1), then synthetic plants, then a sealed test"
+    },
+    {
+     "id": "38.4",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "Two rules for 'changed' in one report: the flat picture at Met-A's 6,000 sites (report_figs_v4.changes_sky_png) marks a pixel beyond +/-2 of the sample's own spread, while the globe uses blocks of 10 against the family-wise line (report_globe_v4.FW_LINE)",
+     "next": "give the flat picture the globe's block rule (one rule in the whole report), rebuild the example reports through the chain, release check V12 and V13"
     }
    ]
   },
@@ -1028,7 +1035,7 @@
      "date": "2026-10-22",
      "status": "running",
      "what": "Met-A on sequencing: the chemistry offset (0.757 at full depth against the array-built atlas) and the loss of sensitivity at few reads",
-     "next": "record what a loss moves at 3, 10, 30, 60 reads; then a tare against healthy sequencing samples read the same way",
+     "next": "10 reads recorded (CD4 T 5 %: 6.2 of its own error; 20 %: 23.4; NK 20 %: 7.4; spill into the closest relative about a quarter); 3, 30, 60 reads running; then a tare against healthy sequencing samples",
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/seq_plant_06.py"
     }
    ]

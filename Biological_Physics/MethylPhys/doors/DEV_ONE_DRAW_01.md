@@ -90,3 +90,7 @@ best fit's mean absolute error is 0.0057 (resampled middle 0.0079); the largest 
 95 % range holds the known amount in 10 of 15. Reading: the full-atlas split finds tissue DNA at 3.5 % in blood and puts it at the right size,
 with almost nothing found that was not there. The best fit is the closer estimate; the resampled range is too narrow (it holds the truth 67 %
 of the time, not 95 %), so it is reported as the spread of the fit, not as a 95 % range, until widened by a rule tested on these mixtures.
+
+**Exploration 6 at 10 reads per site (2026-10-22; explore run 39904730217):** `data/DEV_ONE_DRAW_01/run_06/seq_plant_06_depth10_summary.txt`.
+A loss planted before counting moves the planted cell's Met-A clear of its own error at 10 reads: CD4 T cells 5 % by 6.2 of its error, 20 % by
+23.4; NK cells 20 % by 7.4. The closest relative moves about a quarter as much (CD8 T for CD4 T; CD4 T for NK). The other depths are running.
