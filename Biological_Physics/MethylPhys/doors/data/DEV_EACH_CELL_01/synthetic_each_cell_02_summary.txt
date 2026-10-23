@@ -1,0 +1,10 @@
+DEV-EACH-CELL-01 synthetic test 2: every reading and every plant by run_sample.py from the raw IDATs (GSM7508429); a 5 % loss of one cell's pattern at its share
+healthy, untared: neutrophils A 1.12282 (share 0.4656), monocytes A 1.09718 (share 0.0627), b cells A 1.17816 (share 0.0565), cd4 t cells A 1.18423 (share 0.233), cd8 t cells A 1.19169 (share 0.1016), nk cells A 1.17133 (share 0.0807)
+planted monocytes (chain record: share 0.0627, 5670 sites): moved +0.01248, predicted +0.01360 (92%) | largest other move cd4 t cells 0.00075 (6% of the planted cell's) | share 0.0627 -> 0.0626
+   every cell: neutrophils +0.00047, monocytes +0.01248, b cells +0.00064, cd4 t cells +0.00075, cd8 t cells +0.00031, nk cells +0.00036
+planted cd4 t cells (chain record: share 0.233, 5973 sites): moved +0.05785, predicted +0.05855 (99%) | largest other move cd8 t cells 0.01491 (26% of the planted cell's) | share 0.233 -> 0.2329
+   every cell: neutrophils +0.00676, monocytes +0.00701, b cells +0.01106, cd4 t cells +0.05785, cd8 t cells +0.01491, nk cells +0.00812
+planted b cells (chain record: share 0.0565, 5995 sites): moved +0.01270, predicted +0.01275 (100%) | largest other move cd8 t cells 0.00321 (25% of the planted cell's) | share 0.0565 -> 0.0565
+   every cell: neutrophils +0.00121, monocytes +0.00162, b cells +0.01270, cd4 t cells +0.00295, cd8 t cells +0.00321, nk cells +0.00229
+planted nk cells (chain record: share 0.0807, 5911 sites): moved +0.01831, predicted +0.01840 (100%) | largest other move b cells 0.00322 (18% of the planted cell's) | share 0.0807 -> 0.0807
+   every cell: neutrophils +0.00225, monocytes +0.00187, b cells +0.00322, cd4 t cells +0.00303, cd8 t cells +0.00320, nk cells +0.01831

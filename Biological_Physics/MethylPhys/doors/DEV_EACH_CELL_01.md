@@ -41,3 +41,11 @@ Output: the run's summary (`full_panel_03_summary.txt`, the run's artifact). Two
 their sites (fixed: the expectation is mixed over the cells with a value, kept at 99 % of the shares); (2) on 79 cells close relatives trade a
 share, so several best-fit shares fell outside their own 95 % range (now flagged not resolved; which estimate is closer to the truth is what
 the known mixtures, exploration 3 of DEV-ONE-DRAW-01, measure). The planted monocyte loss was not read, because monocytes were refused (1).
+
+## Synthetic test 2, run once (2026-10-22; explore run 39865611924): every reading and every plant by the one command
+Output: `data/DEV_EACH_CELL_01/synthetic_each_cell_02_summary.txt`. From the raw IDATs of GSM7508429, a 5 % loss of one cell's pattern planted
+by `run_sample.py --dev-plant` at that cell's share: the planted cell moved 92 % (monocytes), 99 % (CD4 T), 100 % (B) and 100 % (NK) of the
+shift predicted for it; the largest move of another cell was 6 % (monocyte plant) to 26 % (CD4 T plant, seen in CD8 T) of the planted cell's
+move, the lymphocytes sharing part of their pattern; the Deconvolver's share of the planted cell did not move. Read on the six-cell panel,
+untared. The globe in each report shows the change against healthy neutrophils, so a loss in another cell barely moves it (the changed
+pixels are in the report's own count): a globe for each cell is not built yet.
