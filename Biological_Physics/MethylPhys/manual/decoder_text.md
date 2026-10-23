@@ -269,6 +269,9 @@ IAM-Deconvolver splits it on IAM-Atlas v2.1's full panel (every cell and tissue 
 the body) and Met-A reads each source it finds against the atlas in the sample's own shares; the commissioned Met-A and C-Score read whole
 blood and are not applied.
 
+### stage_0_intake.py::is_tissue
+True for a solid tissue, a tumor, a biopsy, or a specimen not named ('unknown', for blind runs). Such a sample is read on IAM-Atlas v2.1's full panel, flagged, as plasma is: the IAM-Deconvolver says what it is made of, and Met-A reads each cell it finds against the atlas in the sample's own shares. The commissioned readers read blood and are not applied.
+
 ### stage_0_intake.py::specimen_refusal
 Returns nothing when the specimen is accepted, otherwise the plain refusal: which specimen, why the chain has no reference for it,
 and what is accepted. Called by `run_sample.py` before any file is read.

@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **33 Python files** holding **382 functions** (nested ones included); 381 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **33 Python files** holding **382 functions** (nested ones included); 382 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -368,6 +368,12 @@ the body) and Met-A reads each source it finds against the atlas in the sample's
 blood and are not applied.
 
 *Code:* `stage_0_intake.py` line 101 (3 lines) · arguments: specimen · calls: not called on the traced runs · constants read: `PLASMA_WORDS`
+
+### `stage_0_intake.py::is_tissue`
+
+True for a solid tissue, a tumor, a biopsy, or a specimen not named ('unknown', for blind runs). Such a sample is read on IAM-Atlas v2.1's full panel, flagged, as plasma is: the IAM-Deconvolver says what it is made of, and Met-A reads each cell it finds against the atlas in the sample's own shares. The commissioned readers read blood and are not applied.
+
+*Code:* `stage_0_intake.py` line 106 (6 lines) · arguments: specimen · calls: not called on the traced runs · constants read: `TISSUE_WORDS`
 
 ### `stage_0_intake.py::specimen_refusal`
 
