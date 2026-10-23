@@ -4,6 +4,7 @@
 _GATE_TMP="$(mktemp -d "${TMPDIR:-/tmp}/gate.XXXXXX")"; export TMPDIR="$_GATE_TMP"; trap 'rm -rf "$_GATE_TMP"' EXIT
 set -euo pipefail
 ROOT="$(git rev-parse --show-toplevel)"; cd "$ROOT"
+python3 CANON/compile_check.py || { echo "checked_push.sh: COMPILE CHECK FAILED [failed: CANON/compile_check.py; the file and line are printed above] - push refused"; exit 1; }
 python3 CANON/canon_check.py || { echo "checked_push.sh: CANON CHECK FAILED - push refused"; exit 1; }
 git fetch -q origin main
 python3 CANON/repro_check.py || { echo "checked_push.sh: REPRODUCIBILITY CHECK FAILED - push refused"; exit 1; }
