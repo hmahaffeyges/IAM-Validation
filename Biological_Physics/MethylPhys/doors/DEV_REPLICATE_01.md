@@ -40,3 +40,26 @@ specimen (tissue, plasma, unnamed), mixed over the cells with an atlas value at 
 word its claim check refuses, so the one command stopped at the report; reworded. Checked on the healthy blood GSM7508429 before the rerun: globe
 drawn, 45 of 77,355 blocks changed as before; the sphere read 27 territories.
 
+**R1, blood (series run 40027130915, chain commit 7dc86ca4; `data/DEV_REPLICATE_01/r1_blood/r1_blood_summary.txt`).** Seven 450K whole bloods,
+all read, flagged; the commissioned Met-A and C-Score refuse 450K (no frozen 450K neutrophil reference), as they should. The GSE87571 files are the
+author's files; the GSE42861 files are recompressed copies whose decompressed contents are the same (`r1_blood/GSE42861_content_check.txt`). Untared:
+
+| array | group | whole-sample Met-A | islands | domains |
+|---|---|---|---|---|
+| GSM1051525 | rheumatoid arthritis | 1.03598 | 0.99028 | 1.05523 |
+| GSM1051526 | rheumatoid arthritis | 1.0268 | 0.96407 | 1.05287 |
+| GSM1051533 | control | 1.01161 | 0.97932 | 1.03786 |
+| GSM1051534 | control | 1.02966 | 0.99519 | 1.06715 |
+| GSM2333901 | healthy | 0.96081 | 0.96839 | 0.94645 |
+| GSM2333905 | healthy | 0.96259 | 0.97307 | 0.95173 |
+| GSM2333950 | healthy | 0.97892 | 0.98739 | 0.94809 |
+
+The largest difference is between the two series, cases and controls alike: the per-array offset the atlas ruler is to remove. Two cases
+against two controls show no difference. The earlier engine's stem-cell elevation in GSM2333905: the IAM-Deconvolver finds bone-marrow stem
+cells (HSC) at 6.6 % there and 6.4 % in GSM2333901, and 450K bloods elsewhere (EPIC-Italy) also carry progenitor shares, so it reads as the 450K
+platform absorbed into a progenitor share rather than something of that person.
+
+**Speed (DEV-SPEED-01).** Profile 1 (explore run 40030041288): 585 of 837 s in the globe, 519 s of it in one site-name lookup (np.isin, 52 calls).
+A hashed lookup gives the same count (260 of the test blocks) in 0.04 s instead of 83 s; a whole blood through the one command took 29 s on the
+laptop afterwards.
+

@@ -1569,6 +1569,9 @@ slider's line: a viewing tool, never a reading.
 Loads the frozen list of IAM-Atlas v2.1's sites on the X (14,759) and Y (3) chromosomes, `Runtime Matrices/Atlas_V21/sex_chromosome_sites_v21.json`,
 built by `atlas/tools/sex_sites_v21.py` from the two Illumina manifests Stage 1 is pinned to (it refuses any other manifest).
 
+### report_globe_v4.py::_xy_index
+The X and Y site names as a pandas Index, built once, so a block's sex-chromosome check is a hashed lookup (DEV-SPEED-01: np.isin on site names had taken about 10 s per call).
+
 ### report_globe_v4.py::_xy_blocks
 How many changed blocks hold at least one X or Y site. Every change count on the globe is printed with this count beside it.
 

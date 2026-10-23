@@ -5929,7 +5929,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 439,
+   "lines": 445,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
@@ -5949,17 +5949,32 @@
     },
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "_xy_index",
+     "name": "_xy_index",
+     "line": 47,
+     "end": 50,
+     "args": [],
+     "lines": 4,
+     "doc": "The X and Y site names as a pandas Index, built once (hashed lookups).",
+     "constants": [
+      "_XY"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_xy_blocks",
      "name": "_xy_blocks",
-     "line": 47,
-     "end": 51,
+     "line": 52,
+     "end": 57,
      "args": [
       "ids_in_order",
       "mi",
       "nb",
       "changed"
      ],
-     "lines": 5,
+     "lines": 6,
      "doc": "How many changed blocks hold at least one X or Y site.",
      "constants": [
       "BLOCK"
@@ -5971,8 +5986,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "key_css",
      "name": "key_css",
-     "line": 53,
-     "end": 56,
+     "line": 59,
+     "end": 62,
      "args": [],
      "lines": 4,
      "doc": "The parchment scale of every methylation map as a CSS gradient, for the color key under an image layer.",
@@ -5988,8 +6003,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "FW_LINE",
      "name": "FW_LINE",
-     "line": 62,
-     "end": 65,
+     "line": 68,
+     "end": 71,
      "args": [
       "n"
      ],
@@ -6003,8 +6018,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_to_sky",
      "name": "_to_sky",
-     "line": 69,
-     "end": 73,
+     "line": 75,
+     "end": 79,
      "args": [
       "v",
       "npix"
@@ -6019,8 +6034,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_mu",
      "name": "_mu",
-     "line": 75,
-     "end": 86,
+     "line": 81,
+     "end": 92,
      "args": [
       "cells",
       "stem"
@@ -6040,8 +6055,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_to_sky_extreme",
      "name": "_to_sky_extreme",
-     "line": 88,
-     "end": 93,
+     "line": 94,
+     "end": 99,
      "args": [
       "v",
       "npix"
@@ -6056,8 +6071,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_lookup",
      "name": "_lookup",
-     "line": 95,
-     "end": 101,
+     "line": 101,
+     "end": 107,
      "args": [
       "nside"
      ],
@@ -6073,8 +6088,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_png_b64",
      "name": "_png_b64",
-     "line": 103,
-     "end": 105,
+     "line": 109,
+     "end": 111,
      "args": [
       "arr",
       "mode"
@@ -6089,8 +6104,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_vmask",
      "name": "_vmask",
-     "line": 107,
-     "end": 112,
+     "line": 113,
+     "end": 118,
      "args": [
       "v"
      ],
@@ -6104,8 +6119,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_jpg_b64",
      "name": "_jpg_b64",
-     "line": 115,
-     "end": 117,
+     "line": 121,
+     "end": 123,
      "args": [
       "rgb"
      ],
@@ -6119,8 +6134,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "reference",
      "name": "reference",
-     "line": 119,
-     "end": 129,
+     "line": 125,
+     "end": 135,
      "args": [
       "specimen",
       "shares"
@@ -6138,8 +6153,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_dots",
      "name": "_dots",
-     "line": 131,
-     "end": 137,
+     "line": 137,
+     "end": 143,
      "args": [
       "v"
      ],
@@ -6155,8 +6170,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "purified",
      "name": "purified",
-     "line": 139,
-     "end": 147,
+     "line": 145,
+     "end": 153,
      "args": [
       "fractions",
       "specimen"
@@ -6176,8 +6191,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_paint_blocks",
      "name": "_paint_blocks",
-     "line": 149,
-     "end": 162,
+     "line": 155,
+     "end": 168,
      "args": [
       "sky",
       "vals",
@@ -6195,8 +6210,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_patch",
      "name": "_patch",
-     "line": 164,
-     "end": 171,
+     "line": 170,
+     "end": 177,
      "args": [
       "v"
      ],
@@ -6212,8 +6227,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_cell_change",
      "name": "_cell_change",
-     "line": 173,
-     "end": 191,
+     "line": 179,
+     "end": 197,
      "args": [
       "d",
       "ids_ordered",
@@ -6233,8 +6248,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build",
      "name": "build",
-     "line": 193,
-     "end": 368,
+     "line": 199,
+     "end": 374,
      "args": [
       "beta",
       "specimen",
@@ -6273,8 +6288,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build.rgb",
      "name": "rgb",
-     "line": 236,
-     "end": 237,
+     "line": 242,
+     "end": 243,
      "args": [
       "m"
      ],
@@ -6288,8 +6303,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build._code",
      "name": "_code",
-     "line": 239,
-     "end": 244,
+     "line": 245,
+     "end": 250,
      "args": [
       "v",
       "full"
@@ -6304,8 +6319,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair",
      "name": "build_pair",
-     "line": 385,
-     "end": 428,
+     "line": 391,
+     "end": 434,
      "args": [
       "beta",
       "ref_beta",
@@ -6335,8 +6350,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair.rgb",
      "name": "rgb",
-     "line": 407,
-     "end": 408,
+     "line": 413,
+     "end": 414,
      "args": [
       "m"
      ],
@@ -7815,5 +7830,5 @@
   }
  ],
  "n_files": 33,
- "n_functions": 400
+ "n_functions": 401
 }

@@ -44,10 +44,16 @@ def sex_sites():
         J = json.load(open(SEX_SITES)); _XY.append(set(J["X"]) | set(J["Y"]))
     return _XY[0]
 
+def _xy_index():
+    """The X and Y site names as a pandas Index, built once (hashed lookups)."""
+    if len(_XY) < 2: sex_sites(); _XY.append(pd.Index(sorted(_XY[0])))
+    return _XY[1]
+
 def _xy_blocks(ids_in_order, mi, nb, changed):
     """How many changed blocks hold at least one X or Y site."""
     if nb == 0: return 0
-    b = np.isin(ids_in_order[mi[:nb * BLOCK]].reshape(nb, BLOCK), list(sex_sites())).any(1)
+    flat = ids_in_order[mi[:nb * BLOCK]]   # 2026-10-23 (DEV-SPEED-01): a hashed lookup; np.isin on site names took about 10 s per call
+    b = pd.Index(flat).isin(_xy_index()).reshape(nb, BLOCK).any(1)
     return int((b & changed).sum())
 
 def key_css():
@@ -394,7 +400,7 @@ def build_pair(beta, ref_beta, ref_name, out_html=None, title="This sample again
     Z = np.load(ORDER); order = Z["order"]; nside = int(Z["nside"]); npix = 12 * nside * nside; look = _lookup(nside)
     smp = pd.Series(beta, dtype="float64").reindex(ids).to_numpy(); ref = pd.Series(ref_beta, dtype="float64").reindex(ids).to_numpy()
     if drop is not None:
-        dm = pd.Index(ids).isin(list(drop)); smp[dm] = np.nan; ref[dm] = np.nan
+        dm = pd.Index(ids).isin(pd.Index(list(drop))); smp[dm] = np.nan; ref[dm] = np.nan
     d = (smp - ref)[order]; ok = np.isfinite(d); v = d[ok]; med = float(np.median(v)); mad = float(np.median(np.abs(v - med))) * 1.4826 or 1.0
     zg = np.where(ok, (d - med) / mad, np.nan); mi = np.where(ok)[0]; nb = len(mi) // BLOCK
     bm_ = zg[mi[:nb * BLOCK]].reshape(nb, BLOCK).mean(1); c_ = float(np.median(bm_)); s_ = float(np.median(np.abs(bm_ - c_))) * 1.4826 or 1.0
@@ -422,7 +428,7 @@ def build_pair(beta, ref_beta, ref_name, out_html=None, title="This sample again
     meas = np.isfinite(dv); lit = float((meas & (dv != 0)).sum() / max(1, meas.sum())); n_xy = _xy_blocks(ids[order], mi, nb, np.abs(bz) > line)
     rec = dict(drawn=True, mode="pair (development)", sites_compared=int(ok.sum()), blocks=int(nb), blocks_changed=n_ch, line=round(line, 3),
                blocks_up=int((bz > line).sum()), blocks_down=int((bz < -line).sum()), pixels_lit_share=round(lit, 5), blocks_changed_on_XY=n_xy,
-               sites_dropped=int(pd.Index(ids).isin(list(drop)).sum()) if drop is not None else 0,
+               sites_dropped=int(dm.sum()) if 'dm' in dir() else int(pd.Index(ids).isin(pd.Index(list(drop))).sum()) if drop is not None else 0,
                change_rule="the pair's own difference, blocks of 10 neighboring sites, 5 % family-wise line", flag="development: not commissioned by our standards")
     if out_html: open(out_html, "w", encoding="utf-8").write(page([spec], title)); rec["html"] = os.path.abspath(out_html)
     rec["spec"] = spec; return rec

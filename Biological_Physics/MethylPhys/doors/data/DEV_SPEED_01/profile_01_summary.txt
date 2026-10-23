@@ -1,0 +1,131 @@
+DEV-SPEED-01 profile 1: run_sample.py on GSM7508429, exit 1, wall 837 s
+--- by time including calls (cumulative) ---
+8 /home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py:350(main)
+        1    3.942    3.942  585.214  585.214 /home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_globe_v4.py:192(build)
+       52  518.733    9.976  518.737    9.976 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/numpy/lib/arraysetops.py:524(in1d)
+        1    0.024    0.024  518.603  518.603 /home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_globe_v4.py:47(_xy_blocks)
+       32    0.000    0.000  518.577   16.206 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/numpy/lib/arraysetops.py:766(isin)
+        1    0.078    0.078  100.840  100.840 /home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py:106(calibrate_idat_to_beta)
+        1    0.084    0.084   94.170   94.170 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/methylprep/processing/pipeline.py:43(run_pipeline)
+        1    0.008    0.008   52.699   52.699 /home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_v4.py:32(stage_d21)
+    15892    0.127    0.000   51.276    0.003 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/generic.py:5044(reindex)
+        1    0.726    0.726   49.934   49.934 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/methylprep/processing/pipeline.py:619(process_all)
+    15821    0.049    0.000   47.079    0.003 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/series.py:5077(reindex)
+     8418    0.057    0.000   45.719    0.005 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py:4318(reindex)
+     7974    0.044    0.000   43.049    0.005 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/generic.py:5293(_reindex_axes)
+       79    0.942    0.012   41.809    0.529 /home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_globe_v4.py:172(_cell_change)
+        1    0.246    0.246   41.111   41.111 /home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py:150(read_in_mix)
+        1    0.315    0.315   37.833   37.833 /home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_deconv_v21.py:49(markers)
+     9374    0.088    0.000   34.125    0.004 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py:3888(get_indexer)
+2929/1848    0.011    0.000   32.538    0.018 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/util/_decorators.py:323(wrapper)
+     9024    0.034    0.000   26.747    0.003 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py:3975(_get_indexer)
+     9024   26.669    0.003   26.669    0.003 {method 'get_indexer' of 'pandas._libs.index.IndexEngine' objects}
+       10    0.000    0.000   24.748    2.475 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/series.py:4661(apply)
+       10    0.031    0.003   24.748    2.475 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/apply.py:1108(apply)
+       10    0.000    0.000   24.717    2.472 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/apply.py:1159(apply_standard)
+       11    1.409    0.128   24.683    2.244 {pandas._libs.lib.map_infer}
+  218/196   24.121    0.111   24.596    0.125 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/algorithms.py:439(isin)
+  5196896    2.513    0.000   23.274    0.000 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/apply.py:141(f)
+    47662    0.158    0.000   22.888    0.000 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py:5464(equals)
+    36217    0.068    0.000   22.003    0.001 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/dtypes/missing.py:460(array_equivalent)
+    17686    0.046    0.000   21.895    0.001 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/dtypes/missing.py:564(_array_equivalent_object)
+     3720    0.014    0.000   21.850    0.006 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/ops/common.py:57(new_method)
+    17686   21.829    0.001   21.829    0.001 {pandas._libs.lib.array_equivalent_object}
+  5196952    6.074    0.000   21.572    0.000 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/tools/numeric.py:28(to_numeric)
+      172    0.236    0.001   20.692    0.120 /home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py:52(identity_sites)
+        2    0.000    0.000   19.072    9.536 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/methylprep/files/manifests.py:110(__init__)
+        1    0.011    0.011   18.814   18.814 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/methylprep/processing/pipeline.py:562(__init__)
+        1    0.176    0.176   18.453   18.453 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/methylprep/processing/preprocess.py:22(preprocess_noob)
+19154/10332    0.248    0.000   18.220    0.002 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py:430(__new__)
+     5539    0.022    0.000   18.084    0.003 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/frame.py:609(__init__)
+     9709    0.091    0.000   17.523    0.002 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py:708(_with_infer)
+    44103    0.050    0.000   17.511    0.000 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py:7277(ensure_index)
+        1    1.029    1.029   16.769   16.769 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/methylprep/models/sigset.py:191(__init__)
+       94    0.001    0.000   16.625    0.177 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py:6419(isin)
+       79    0.031    0.000   16.097    0.204 /home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py:171(<listcomp>)
+      899    0.018    0.000   16.084    0.018 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/frame.py:7599(_dispatch_frame_op)
+        1    1.278    1.278   16.083   16.083 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/methylprep/models/sigset.py:331(update_probe_means)
+     1088   15.781    0.015   15.797    0.015 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py:2381(is_unique)
+  686/350    0.002    0.000   15.417    0.044 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/util/_decorators.py:170(wrapper)
+        5    0.045    0.009   15.090    3.018 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/methylprep/files/idat.py:134(__init__)
+      182    0.006    0.000   15.044    0.083 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/PIL/Image.py:2593(save)
+        5    0.611    0.122   15.041    3.008 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/methylprep/files/idat.py:228(read)
+      182    0.003    0.000   15.019    0.083 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/PIL/ImageFile.py:650(_save)
+      182    0.004    0.000   15.015    0.082 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/PIL/ImageFile.py:678(_encode_tile)
+      196   15.000    0.077   15.000    0.077 {method 'encode' of 'ImagingEncoder' objects}
+    26798    0.009    0.000   14.262    0.001 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py:6193(_index_as_unique)
+       94    0.003    0.000   14.097    0.150 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/PIL/PngImagePlugin.py:1352(_save)
+       90    0.002    0.000   14.017    0.156 /home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_globe_v4.py:103(_png_b64)
+     3203    0.019    0.000   13.988    0.004 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/ops/array_ops.py:136(_na_arithmetic_op)
+     3203    0.007    0.000   13.960    0.004 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/computation/expressions.py:225(evaluate)
+
+
+
+--- by time inside the function itself ---
+Fri Oct 23 22:09:16 2026    xout/prof.out
+
+         153451566 function calls (153180408 primitive calls) in 834.537 seconds
+
+   Ordered by: internal time
+   List reduced from 11881 to 30 due to restriction <30>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+       52  518.733    9.976  518.737    9.976 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/numpy/lib/arraysetops.py:524(in1d)
+     9024   26.669    0.003   26.669    0.003 {method 'get_indexer' of 'pandas._libs.index.IndexEngine' objects}
+  218/196   24.121    0.111   24.596    0.125 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/algorithms.py:439(isin)
+    17686   21.829    0.001   21.829    0.001 {pandas._libs.lib.array_equivalent_object}
+     1088   15.781    0.015   15.797    0.015 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py:2381(is_unique)
+      196   15.000    0.077   15.000    0.077 {method 'encode' of 'ImagingEncoder' objects}
+    20174   13.689    0.001   13.870    0.001 {pandas._libs.lib.maybe_convert_objects}
+        1   12.152   12.152   12.153   12.153 /home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/info_sphere_viewer.py:16(territories)
+      604    6.342    0.010    6.342    0.010 {built-in method scipy.optimize._slsqplib.nnls}
+    21106    6.131    0.000    6.131    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+  5196952    6.074    0.000   21.572    0.000 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/tools/numeric.py:28(to_numeric)
+      654    5.558    0.008    5.558    0.008 {built-in method _operator.truediv}
+23186356/23143115    5.461    0.000   13.208    0.000 {built-in method builtins.isinstance}
+     8838    5.263    0.001    6.015    0.001 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/dtypes/cast.py:1763(construct_1d_object_array_from_listlike)
+      622    4.581    0.007    4.581    0.007 {method 'argsort' of 'numpy.ndarray' objects}
+     9742    4.438    0.000    4.480    0.000 {pandas._libs.lib.infer_dtype}
+    18023    4.332    0.000    4.332    0.000 {method 'copy' of 'numpy.ndarray' objects}
+      405    4.066    0.010    4.066    0.010 {pandas._libs.algos.take_2d_axis0_float32_float32}
+        1    3.942    3.942  585.214  585.214 /home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_globe_v4.py:192(build)
+        2    3.898    1.949    4.629    2.315 {method 'read' of 'pandas._libs.parsers.TextReader' objects}
+    13294    3.671    0.000    3.673    0.000 {method 'astype' of 'numpy.ndarray' objects}
+      358    3.402    0.010    3.404    0.010 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pyarrow/parquet/core.py:1420(read)
+      242    3.200    0.013    3.200    0.013 {built-in method scipy.ndimage._nd_image.min_or_max_filter}
+       12    3.085    0.257    4.877    0.406 {method 'read_low_memory' of 'pandas._libs.parsers.TextReader' objects}
+       32    2.776    0.087    6.048    0.189 {pandas._libs.lib.map_infer_mask}
+ 10834229    2.754    0.000    6.067    0.000 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/dtypes/generic.py:45(_instancecheck)
+      261    2.707    0.010    2.707    0.010 {built-in method _operator.add}
+    32456    2.630    0.000    2.630    0.000 {method 'decompress' of 'zlib.Decompress' objects}
+      342    2.589    0.008    2.589    0.008 {built-in method _operator.sub}
+     3681    2.562    0.001    3.318    0.001 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/dtypes/missing.py:268(_isna_array)
+
+
+
+--- last output ---
+  array type: EPIC_v1 (header: EPIC_v1, 1,052,641 addresses)
+Stage 0: intake gates (SOP 11-19)
+Stage 1: calibrating the IDAT pair (methylprep noob) - about 25 s
+      array detected: epic (1,052,641 bead addresses, barcode 207241010046)
+      calibrated: 847,972 CpGs (noob, per-sample dye-bias + probe-type norm)
+Stage 1: 847,972 of 862,927 probes detected (98.27 %); 14,955 at background removed
+Stage 0 verdict: PROCEED
+Stage D21: cell shares against IAM-Atlas v2.1
+
+file._Utils(Profile).runctx(statement, globals, locals,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/profile.py", line 63, in runctx
+    prof.runctx(statement, globals, locals)
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/cProfile.py", line 101, in runctx
+    exec(cmd, globals, locals)
+  File "/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 1042, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 1014, in main
+    r = R3.build(o, a.out, typed)    # the printed report keeps the operator's typed id (author decision B, 2026-10-04)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v4.py", line 351, in build
+    if re.search(CLAIM_SCAN, prose, re.I): raise ValueError("report_v4: front prose carries a word the report may not print: " + re.search(CLAIM_SCAN, prose, re.I).group(0))
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: report_v4: front prose carries a word the report may not print: cancer
