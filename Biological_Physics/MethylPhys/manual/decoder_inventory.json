@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 948,
+   "lines": 952,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -263,9 +263,9 @@
      "function": "main",
      "name": "main",
      "line": 322,
-     "end": 945,
+     "end": 949,
      "args": [],
-     "lines": 624,
+     "lines": 628,
      "doc": "",
      "constants": [
       "BIO",
@@ -287,8 +287,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 507,
-     "end": 511,
+     "line": 509,
+     "end": 513,
      "args": [
       "r"
      ],
@@ -304,8 +304,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 734,
-     "end": 741,
+     "line": 736,
+     "end": 743,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -317,8 +317,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 889,
-     "end": 890,
+     "line": 893,
+     "end": 894,
      "args": [
       "b",
       "it",
@@ -6063,7 +6063,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 216,
+   "lines": 233,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -6136,10 +6136,29 @@
     },
     {
      "file": "stage_metaa_atlas.py",
+     "function": "specific_sites",
+     "name": "specific_sites",
+     "line": 63,
+     "end": 76,
+     "args": [
+      "cell",
+      "others",
+      "delta"
+     ],
+     "lines": 14,
+     "doc": "Identity sites held by this cell and not by the others (development, 2026-10-22, to-do 39.9; written before any comparison): Met-A's site rule (healthy width at most spread_max, level in the held windows), and at each kept site the cell's atlas value differs by at least delta from every other cell named that has a value there; then the tightest per_side a side, as identity_sites. others: the other",
+     "constants": [
+      "RULE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
      "function": "expected_H_counts",
      "name": "expected_H_counts",
-     "line": 64,
-     "end": 74,
+     "line": 79,
+     "end": 89,
      "args": [
       "p",
       "n"
@@ -6156,8 +6175,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read",
      "name": "read",
-     "line": 76,
-     "end": 93,
+     "line": 91,
+     "end": 108,
      "args": [
       "beta",
       "cell",
@@ -6177,8 +6196,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "tare",
      "name": "tare",
-     "line": 95,
-     "end": 104,
+     "line": 110,
+     "end": 119,
      "args": [
       "A",
       "refs"
@@ -6196,8 +6215,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_all",
      "name": "plant_all",
-     "line": 106,
-     "end": 110,
+     "line": 121,
+     "end": 125,
      "args": [
       "beta",
       "cell",
@@ -6213,8 +6232,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_runs",
      "name": "plant_runs",
-     "line": 113,
-     "end": 125,
+     "line": 128,
+     "end": 140,
      "args": [
       "beta",
       "cell",
@@ -6239,8 +6258,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant",
      "name": "plant",
-     "line": 127,
-     "end": 131,
+     "line": 142,
+     "end": 146,
      "args": [
       "beta",
       "cell",
@@ -6256,14 +6275,15 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix",
      "name": "read_in_mix",
-     "line": 135,
-     "end": 169,
+     "line": 150,
+     "end": 186,
      "args": [
       "beta",
       "shares",
-      "counts"
+      "counts",
+      "specific"
      ],
-     "lines": 35,
+     "lines": 37,
      "doc": "Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written 2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21). For each cell c: its identity sites (identity_sites, Met-A's rule on the atlas); the healthy expectation e = sum_k f_k mu_k at t",
      "constants": [
       "FLAG",
@@ -6277,8 +6297,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "departure_in_mix",
      "name": "departure_in_mix",
-     "line": 172,
-     "end": 183,
+     "line": 189,
+     "end": 200,
      "args": [
       "beta",
       "shares",
@@ -6296,8 +6316,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix_allsites",
      "name": "read_in_mix_allsites",
-     "line": 186,
-     "end": 215,
+     "line": 203,
+     "end": 232,
      "args": [
       "beta",
       "shares"
@@ -7114,5 +7134,5 @@
   }
  ],
  "n_files": 32,
- "n_functions": 362
+ "n_functions": 363
 }

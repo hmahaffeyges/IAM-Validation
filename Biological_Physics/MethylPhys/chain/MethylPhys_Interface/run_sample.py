@@ -338,6 +338,8 @@ def main():
                          "each cell reads every cell the panel finds (2026-10-22)")
     ap.add_argument("--build-mix", default=None, metavar="TISSUE:SHARE,...", help="--build constructed-draw: atlas tissues added to the plasma half and their shares (tests only)")
     ap.add_argument("--build-depth", default=None, metavar="BUFFY,PLASMA", help="--build constructed-draw: reads per site in each half (default 30,15)")
+    ap.add_argument("--dev-metaa-specific", default=None, metavar="DELTA[,DELTA]",
+                    help="DEVELOPMENT (39.9): also read Met-A for each cell on sites held by that cell and differing by at least DELTA from every other cell of the panel")
     ap.add_argument("--dev-seq-beta", default=None, metavar="FILE.beta[.gz]",
                     help="DEVELOPMENT (40.10): read a .beta file of per-CpG counts (hg19 CpG numbering) as values at IAM-Atlas v2.1's sites; "
                          "every reader but IAM-A (no molecules); with --dev-seq-values N, sites with fewer than N reads have no value")
@@ -806,6 +808,8 @@ def main():
                 _vals = _bs if _bs is not None else _pd.Series(beta, dtype="float64"); _shr = {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or [] if r.get("share")}
                 a._cell_dep = {r["cell"]: SA.departure_in_mix(_vals, _shr, r["cell"]) for r in o["met_a_each_cell"].get("cells", []) if r.get("A") is not None}   # for the globe (2026-10-22)
                 if a.dev_metaa_allsites: o["met_a_each_cell_allsites"] = SA.read_in_mix_allsites(_vals, _shr)
+                if a.dev_metaa_specific:   # 2026-10-22 (39.9): the same reading on sites held by each cell and not by the others
+                    o["met_a_each_cell_specific"] = {d.strip(): SA.read_in_mix(_vals, _shr, counts=getattr(a, "_seqc", None), specific=float(d)) for d in a.dev_metaa_specific.split(",") if d.strip()}
             except Exception as e: o["met_a_each_cell"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
         _m, _c, _t = o.get("met_a") or {}, o.get("met_a_cscore") or {}, o.get("tare") or {}
         _rd = "    ".join(x for x in (("" if str(_m.get("state", "")).startswith("withheld") else f"Met-A {_t['A_rel']:.3f} (tared)" if _t.get("A_rel") is not None else (f"Met-A {_m['A']:.3f}" if _m.get("A") is not None else "")),

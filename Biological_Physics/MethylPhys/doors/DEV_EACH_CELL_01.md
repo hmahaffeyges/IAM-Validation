@@ -73,3 +73,10 @@ Reading: the every-site version is far more sensitive to a loss across a whole p
 reading); the identity sites say which cell only when the loss sits at that cell's own sites; a loss across a cell's whole pattern cannot be
 put on one cell by either, because most held sites are held by its relatives too. Kept: the identity sites for the reading of each cell.
 Next: identity sites chosen to be specific to each cell (to-do 39.9); the every-site version as a candidate whole-sample reading.
+
+## Exploration 7, written before it runs (2026-10-22): sites specific to each cell
+`stage_metaa_atlas.specific_sites` keeps Met-A's site rule and adds one condition: the cell's atlas value differs by at least a stated amount from
+every other cell of the panel (`run_sample.py --dev-metaa-specific`). On the six-cell blood panel the counts at 0.1 and 0.2 are: neutrophils
+5,001 and 2,658; monocytes 1,791 and 356; B cells 3,952 and 2,505; CD4 T 672 and 66; CD8 T 273 and 25; NK 2,616 and 553 (of 6,000). CD4 and
+CD8 T cells hold nearly the same sites. `data/DEV_EACH_CELL_01/specific_07.py` plants exploration 4's hard case, a 5 % loss at every site a cell
+holds, and reads it on identity sites and on both specific sets.

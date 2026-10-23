@@ -1839,6 +1839,11 @@ make; refuses, with the reason, a cell with no qualifying site or a sample measu
 ### stage_metaa_atlas.py::tare
 A_rel = A over the median of at least 3 same-run healthy references (never the sample), the references' spread and the detection limit.
 
+### stage_metaa_atlas.py::specific_sites
+DEVELOPMENT (to-do 39.9): Met-A's site rule plus one condition, that the cell's atlas value differs by at least a stated amount from every other
+cell of the panel, then the tightest 3,000 a side. The count is recorded and never padded: CD4 and CD8 T cells hold nearly the same sites (at a
+difference of 0.2 they keep 66 and 25 of 6,000). `read_in_mix(..., specific=DELTA)` reads on these sites (`run_sample.py --dev-metaa-specific`).
+
 ### stage_metaa_atlas.py::read_in_mix
 Met-A for each cell of a whole blood (development, flagged in the report as preliminary until commissioned): for each cell the IAM-Deconvolver
 read, its identity sites by Met-A's rule on the atlas; the healthy expectation at those sites, IAM-Atlas v2.1's best values mixed in this

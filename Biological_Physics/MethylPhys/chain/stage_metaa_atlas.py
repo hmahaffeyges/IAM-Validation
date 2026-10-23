@@ -60,6 +60,21 @@ def identity_sites(cell):
         out += list(s.index[:RULE["per_side"]])
     _cache[k] = out; return out
 
+def specific_sites(cell, others, delta):
+    """Identity sites held by this cell and not by the others (development, 2026-10-22, to-do 39.9; written before any comparison): Met-A's site
+    rule (healthy width at most spread_max, level in the held windows), and at each kept site the cell's atlas value differs by at least delta
+    from every other cell named that has a value there; then the tightest per_side a side, as identity_sites. others: the other cells of the
+    sample's panel. With related cells in the panel, few sites survive a large delta; the count is recorded, never padded."""
+    k = ("specific", cell, tuple(sorted(others)), float(delta))
+    if k in _cache: return _cache[k]
+    mu, w = _col("mu", cell), width(cell); ok = mu.notna() & w.notna() & (w <= RULE["spread_max"])
+    for o in others:
+        mo = _col("mu", o).reindex(mu.index); ok &= mo.isna() | ((mu - mo).abs() >= delta)
+    out = []
+    for lo, hi in (RULE["high"], RULE["low"]):
+        out += list(w[ok & (mu >= lo) & (mu <= hi)].sort_values(kind="mergesort").index[:RULE["per_side"]])
+    _cache[k] = out; return out
+
 N_EXACT = 400   # expected_H_counts: above this many reads the k-of-n bias is below 0.2 % of H and H(p) is used (stated)
 def expected_H_counts(p, n):
     """The exact expected entropy of a level measured as k of n reads when the true level is p (2026-10-22, to-do 40.3; derived, nothing fitted):
@@ -132,7 +147,7 @@ def plant(beta, cell, loss=0.01):
 
 
 MIX_COVER = 0.99   # read_in_mix: a site counts when the cells with an atlas value there hold at least this share of the sample (operational, stated)
-def read_in_mix(beta, shares, counts=None):
+def read_in_mix(beta, shares, counts=None, specific=None):
     """Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written
     2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21).
     For each cell c: its identity sites (identity_sites, Met-A's rule on the atlas); the healthy expectation e = sum_k f_k mu_k at those sites,
@@ -146,9 +161,11 @@ def read_in_mix(beta, shares, counts=None):
                shares_from="IAM-Deconvolver (Stage D21)",
                note="untared; a loss at every site of a cell is partly absorbed into that cell's share (GRP-014), so a loss reads smaller than planted")
     if not cells: out["reason"] = "no cell shares"; return out
+    if specific is not None: out.update(sites_rule=f"specific_sites: Met-A's site rule and at least {specific} from every other panel cell (development, 39.9)")
     for c in cells:
-        S = identity_sites(c); r = dict(cell=c, share=round(float(shares[c]), 4), n_identity_sites=len(S), A=None)
-        if not S: r["reason"] = "no site meets Met-A's site rule in the atlas"; out["cells"].append(r); continue
+        S = identity_sites(c) if specific is None else specific_sites(c, [k for k in cells if k != c], specific)
+        r = dict(cell=c, share=round(float(shares[c]), 4), n_identity_sites=len(S), A=None)
+        if len(S) < (1 if specific is None else 200): r["reason"] = f"{len(S)} sites meet the site rule" + ("" if specific is None else f" with {specific} from every other cell (at least 200 needed)"); out["cells"].append(r); continue
         # 2026-10-22: the expectation is mixed over the cells with an atlas value at each site, renormalized, and a site is kept when those cells
         # hold at least MIX_COVER of the shares (on the full 79-cell panel a single small cell without a value had dropped about half the sites)
         MU = pd.concat([_col("mu", k).reindex(S).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
