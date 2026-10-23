@@ -34,3 +34,10 @@ The one command now takes `--cell-panel`: `blood` (the six cells the IAM-Deconvo
 IAM-Atlas v2.1's cell types) or a named list; any panel other than the six is development and every share is flagged. Met-A for each cell reads
 every cell the panel finds. `data/DEV_EACH_CELL_01/full_panel_03.py` runs the healthy example blood from its raw IDATs three times (six cells;
 the full atlas; the full atlas with a 5 % monocyte loss planted by the chain) and reports every cell found above a share of 0.001.
+
+## Exploration 3, run once (2026-10-22; explore run 39868137014): the whole atlas panel
+Output: the run's summary (`full_panel_03_summary.txt`, the run's artifact). Two problems found, both fixed in the chain the same day:
+(1) Met-A for each cell read only the cells whose identity sites had an atlas value in all 79 cells; most cells were refused with about half
+their sites (fixed: the expectation is mixed over the cells with a value, kept at 99 % of the shares); (2) on 79 cells close relatives trade a
+share, so several best-fit shares fell outside their own 95 % range (now flagged not resolved; which estimate is closer to the truth is what
+the known mixtures, exploration 3 of DEV-ONE-DRAW-01, measure). The planted monocyte loss was not read, because monocytes were refused (1).

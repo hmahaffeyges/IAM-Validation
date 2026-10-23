@@ -777,6 +777,10 @@ panel is flagged.
 Stage D21: loads the panel's reference and markers once, counts the markers measured, withholds below half, otherwise runs the
 Deconvolver and labels each cell's share commissioned or development.
 
+Each share whose best fit lies outside its own 95 % range is marked `resolved: false` ("not resolved from its close relatives in the atlas").
+On the six-cell panel this does not happen; on the full panel close relatives (neutrophils, eosinophils and basophils; monocytes, macrophages
+and microglia; T-cell subsets) can trade a share between them, so the resampled range and the single best fit disagree (development).
+
 ### stage_v4.py::count_sequencing
 Counts a `.pat` file (gzipped or plain) on the hg19 tiles, or an aligned BAM against its reference FASTA, with Stage Q2's one counter.
 
@@ -1774,6 +1778,10 @@ person's own cell shares; A = mean entropy of the sample over mean entropy of th
 would make at this person's share of it, so a cell present in small numbers shows a small shift. Read on the values Stage T step 1 maps, as
 the commissioned Met-A is; untared. Known from exploration (GRP-014): a loss at every one of a cell's sites is partly taken up by the
 Deconvolver's share of that cell, so the reading sees less loss than was planted.
+
+On a wide panel (`--cell-panel atlas`) the expectation at each site is mixed over the cells that have an atlas value there, renormalized, and a
+site counts when those cells hold at least `MIX_COVER` (99 %) of the sample's shares: before this rule (2026-10-22), one small cell without a
+value dropped the site, and on the 79-cell panel most cells lost about half their identity sites.
 
 ### stage_metaa_atlas.py::plant
 A constructed loss for tests: every identity site the array measured moved 1 % of the way to 0.5, the shift `read` predicts. Used by the

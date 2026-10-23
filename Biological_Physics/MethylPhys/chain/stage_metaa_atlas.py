@@ -93,6 +93,7 @@ def plant(beta, cell, loss=0.01):
     b.loc[x[ok].index] = (x[ok] + loss * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6); return b
 
 
+MIX_COVER = 0.99   # read_in_mix: a site counts when the cells with an atlas value there hold at least this share of the sample (operational, stated)
 def read_in_mix(beta, shares):
     """Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written
     2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21).
@@ -110,12 +111,16 @@ def read_in_mix(beta, shares):
     for c in cells:
         S = identity_sites(c); r = dict(cell=c, share=round(float(shares[c]), 4), n_identity_sites=len(S), A=None)
         if not S: r["reason"] = "no site meets Met-A's site rule in the atlas"; out["cells"].append(r); continue
-        e = sum(float(shares[k]) * _col("mu", k).reindex(S) for k in cells); x = beta.reindex(S); mu = _col("mu", c).reindex(S)
-        ok = x.notna() & e.notna() & mu.notna()
+        # 2026-10-22: the expectation is mixed over the cells with an atlas value at each site, renormalized, and a site is kept when those cells
+        # hold at least MIX_COVER of the shares (on the full 79-cell panel a single small cell without a value had dropped about half the sites)
+        MU = pd.concat([_col("mu", k).reindex(S).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
+        have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12)
+        e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); x = beta.reindex(S); mu = _col("mu", c).reindex(S)
+        ok = x.notna() & e.notna() & mu.notna() & (cover >= MIX_COVER)
         if ok.sum() < RULE["coverage_min"] * len(S):
             r["reason"] = f"only {int(ok.sum())} of {len(S)} identity sites measured (at least {RULE['coverage_min']:.0%} needed)"; out["cells"].append(r); continue
         he = float(_H(e[ok]).mean()); A = float(_H(x[ok]).mean() / he); xd = (x[ok] + float(shares[c]) * 0.01 * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6)
-        r.update(A=round(A, 5), n_sites=int(ok.sum()), H_expectation=round(he, 5),
+        r.update(A=round(A, 5), n_sites=int(ok.sum()), H_expectation=round(he, 5), expectation_rule=f"mixed over the cells with an atlas value; site kept at >= {MIX_COVER:.0%} of the shares",
                  shift_per_1pct_loss=round(float(_H(xd).mean() / he - A), 5), state="untared")
         out["cells"].append(r)
     return out

@@ -3209,7 +3209,7 @@
   },
   {
    "file": "stage_v4.py",
-   "lines": 162,
+   "lines": 165,
    "functions": [
     {
      "file": "stage_v4.py",
@@ -3253,12 +3253,12 @@
      "function": "stage_d21",
      "name": "stage_d21",
      "line": 32,
-     "end": 51,
+     "end": 54,
      "args": [
       "beta",
       "panel"
      ],
-     "lines": 20,
+     "lines": 23,
      "doc": "",
      "constants": [
       "MIN_MARKER_SHARE",
@@ -3273,8 +3273,8 @@
      "file": "stage_v4.py",
      "function": "count_sequencing",
      "name": "count_sequencing",
-     "line": 54,
-     "end": 58,
+     "line": 57,
+     "end": 61,
      "args": [
       "pat",
       "bam",
@@ -3294,8 +3294,8 @@
      "file": "stage_v4.py",
      "function": "counting_error",
      "name": "counting_error",
-     "line": 60,
-     "end": 71,
+     "line": 63,
+     "end": 74,
      "args": [
       "rec",
       "A",
@@ -3311,8 +3311,8 @@
      "file": "stage_v4.py",
      "function": "stage_q2",
      "name": "stage_q2",
-     "line": 73,
-     "end": 99,
+     "line": 76,
+     "end": 102,
      "args": [
       "rec",
       "cell",
@@ -3335,8 +3335,8 @@
      "file": "stage_v4.py",
      "function": "_compress",
      "name": "_compress",
-     "line": 107,
-     "end": 109,
+     "line": 110,
+     "end": 112,
      "args": [
       "v"
      ],
@@ -3352,8 +3352,8 @@
      "file": "stage_v4.py",
      "function": "nest_pix2ang",
      "name": "nest_pix2ang",
-     "line": 110,
-     "end": 119,
+     "line": 113,
+     "end": 122,
      "args": [
       "nside",
       "ipix"
@@ -3373,8 +3373,8 @@
      "file": "stage_v4.py",
      "function": "cscore_sky",
      "name": "cscore_sky",
-     "line": 121,
-     "end": 158,
+     "line": 124,
+     "end": 161,
      "args": [
       "z",
       "out_png",
@@ -3394,8 +3394,8 @@
      "file": "stage_v4.py",
      "function": "png_data_uri",
      "name": "png_data_uri",
-     "line": 160,
-     "end": 161,
+     "line": 163,
+     "end": 164,
      "args": [
       "path"
      ],
@@ -5994,7 +5994,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 122,
+   "lines": 127,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -6125,16 +6125,17 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix",
      "name": "read_in_mix",
-     "line": 96,
-     "end": 121,
+     "line": 97,
+     "end": 126,
      "args": [
       "beta",
       "shares"
      ],
-     "lines": 26,
+     "lines": 30,
      "doc": "Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written 2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21). For each cell c: its identity sites (identity_sites, Met-A's rule on the atlas); the healthy expectation e = sum_k f_k mu_k at t",
      "constants": [
       "FLAG",
+      "MIX_COVER",
       "RULE"
      ],
      "data_files": [],

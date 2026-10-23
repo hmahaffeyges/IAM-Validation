@@ -16,7 +16,7 @@ Read from the code at build time: the one command can load **32 Python files** h
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
 | `MethylPhys_Interface/report_figs_v4.py` | 145 | 7 | 6 | 2 |
 | `dev_stages.py` | 339 | 27 | 1 | 0 |
-| `stage_v4.py` | 162 | 10 | 4 | 2 |
+| `stage_v4.py` | 165 | 10 | 4 | 2 |
 | `stage_deconv_v21.py` | 198 | 6 | 4 | 0 |
 | `stage_q2_selfref.py` | 270 | 29 | 0 | 11 |
 | `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
@@ -32,7 +32,7 @@ Read from the code at build time: the one command can load **32 Python files** h
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 365 | 19 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
-| `stage_metaa_atlas.py` | 122 | 8 | 0 | 0 |
+| `stage_metaa_atlas.py` | 127 | 8 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 95 | 9 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 155 | 8 | 0 | 0 |
@@ -1132,13 +1132,17 @@ panel is flagged.
 Stage D21: loads the panel's reference and markers once, counts the markers measured, withholds below half, otherwise runs the
 Deconvolver and labels each cell's share commissioned or development.
 
-*Code:* `stage_v4.py` line 32 (20 lines) · arguments: beta, panel · calls: array run 1 · constants read: `MIN_MARKER_SHARE`, `_REF`
+Each share whose best fit lies outside its own 95 % range is marked `resolved: false` ("not resolved from its close relatives in the atlas").
+On the six-cell panel this does not happen; on the full panel close relatives (neutrophils, eosinophils and basophils; monocytes, macrophages
+and microglia; T-cell subsets) can trade a share between them, so the resampled range and the single best fit disagree (development).
+
+*Code:* `stage_v4.py` line 32 (23 lines) · arguments: beta, panel · calls: array run 1 · constants read: `MIN_MARKER_SHARE`, `_REF`
 
 ### `stage_v4.py::count_sequencing`
 
 Counts a `.pat` file (gzipped or plain) on the hg19 tiles, or an aligned BAM against its reference FASTA, with Stage Q2's one counter.
 
-*Code:* `stage_v4.py` line 54 (5 lines) · arguments: pat, bam, ref_fasta, workers, assembly · calls: bam run 1
+*Code:* `stage_v4.py` line 57 (5 lines) · arguments: pat, bam, ref_fasta, workers, assembly · calls: bam run 1
 
 ### `stage_v4.py::counting_error`
 
@@ -1149,38 +1153,38 @@ changes A or its state, so a shallow sample, plasma included, is read and says i
 instrument tell us...not our assumptions"). For example, at a held error of 0.02: ten million chances use 3 % of the band's width, one million
 9 %, a hundred thousand 30 %, ten thousand 94 % (`stage_v4.counting_error` on those counts).
 
-*Code:* `stage_v4.py` line 60 (12 lines) · arguments: rec, A, B · calls: not called on the traced runs
+*Code:* `stage_v4.py` line 63 (12 lines) · arguments: rec, A, B · calls: not called on the traced runs
 
 ### `stage_v4.py::stage_q2`
 
 Stage Q2 as above: the refusals, the shape check, the reading A with its predicted value, and the commissioned or development label.
 
-*Code:* `stage_v4.py` line 73 (27 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES` · files named: `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json`
+*Code:* `stage_v4.py` line 76 (27 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES` · files named: `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json`
 
 ### `stage_v4.py::_compress`
 
 Takes every other bit of an integer: the step of the HEALPix algorithm that splits a NESTED pixel index into its x and y coordinates.
 
-*Code:* `stage_v4.py` line 107 (3 lines) · arguments: v · calls: array run 6
+*Code:* `stage_v4.py` line 110 (3 lines) · arguments: v · calls: array run 6
 
 ### `stage_v4.py::nest_pix2ang`
 
 HEALPix NESTED pixel centers to colatitude and longitude.
 
-*Code:* `stage_v4.py` line 110 (10 lines) · arguments: nside, ipix · calls: array run 3 · constants read: `JPLL`, `JRLL`
+*Code:* `stage_v4.py` line 113 (10 lines) · arguments: nside, ipix · calls: array run 3 · constants read: `JPLL`, `JRLL`
 
 ### `stage_v4.py::cscore_sky`
 
 Draws the C-Score's departures on the sphere in a Mollweide view and returns a summary (NSIDE, sites, pixels drawn, the share of
 departures beyond 3). Without a departure map it draws nothing and says why.
 
-*Code:* `stage_v4.py` line 121 (38 lines) · arguments: z, out_png, title, vlim, readings · calls: array run 1
+*Code:* `stage_v4.py` line 124 (38 lines) · arguments: z, out_png, title, vlim, readings · calls: array run 1
 
 ### `stage_v4.py::png_data_uri`
 
 Embeds a figure in the HTML report as a data URI.
 
-*Code:* `stage_v4.py` line 160 (2 lines) · arguments: path · calls: not called on the traced runs
+*Code:* `stage_v4.py` line 163 (2 lines) · arguments: path · calls: not called on the traced runs
 
 ## 7. The IAM-Deconvolver: `stage_deconv_v21.py`
 
@@ -2737,7 +2741,11 @@ would make at this person's share of it, so a cell present in small numbers show
 the commissioned Met-A is; untared. Known from exploration (GRP-014): a loss at every one of a cell's sites is partly taken up by the
 Deconvolver's share of that cell, so the reading sees less loss than was planted.
 
-*Code:* `stage_metaa_atlas.py` line 96 (26 lines) · arguments: beta, shares · calls: not called on the traced runs · constants read: `FLAG`, `RULE`
+On a wide panel (`--cell-panel atlas`) the expectation at each site is mixed over the cells that have an atlas value there, renormalized, and a
+site counts when those cells hold at least `MIX_COVER` (99 %) of the sample's shares: before this rule (2026-10-22), one small cell without a
+value dropped the site, and on the 79-cell panel most cells lost about half their identity sites.
+
+*Code:* `stage_metaa_atlas.py` line 97 (30 lines) · arguments: beta, shares · calls: not called on the traced runs · constants read: `FLAG`, `MIX_COVER`, `RULE`
 
 ### `stage_metaa_atlas.py::plant`
 
