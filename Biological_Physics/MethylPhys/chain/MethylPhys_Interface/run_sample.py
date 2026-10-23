@@ -780,6 +780,8 @@ def main():
                 o["met_a_each_cell"] = SA.read_in_mix(_bs if _bs is not None else _pd.Series(beta, dtype="float64"),
                                                       {r["cell"]: r["share"] for r in o["cell_shares"]["cells"]})
                 o["met_a_each_cell"]["values"] = "Stage 1, then Stage T step 1 (self-tare II)" if _bs is not None else "Stage 1 (Stage T step 1 could not run)"
+                _vals = _bs if _bs is not None else _pd.Series(beta, dtype="float64"); _shr = {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or [] if r.get("share")}
+                a._cell_dep = {r["cell"]: SA.departure_in_mix(_vals, _shr, r["cell"]) for r in o["met_a_each_cell"].get("cells", []) if r.get("A") is not None}   # for the globe (2026-10-22)
             except Exception as e: o["met_a_each_cell"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
         _m, _c, _t = o.get("met_a") or {}, o.get("met_a_cscore") or {}, o.get("tare") or {}
         _rd = "    ".join(x for x in (("" if str(_m.get("state", "")).startswith("withheld") else f"Met-A {_t['A_rel']:.3f} (tared)" if _t.get("A_rel") is not None else (f"Met-A {_m['A']:.3f}" if _m.get("A") is not None else "")),
@@ -800,7 +802,8 @@ def main():
             import report_globe_v4 as RG
             _g = RG.build(_pd.Series(beta, dtype="float64"), a.specimen, {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or []}, z=_z,
                            fractions=(o.get("composition") or {}).get("fractions"),
-                           sex=(intake or {}).get("declared_sex") or (intake or {}).get("predicted_sex"), out_html=os.path.splitext(os.path.abspath(a.out))[0] + "_globe.html")
+                           sex=(intake or {}).get("declared_sex") or (intake or {}).get("predicted_sex"), out_html=os.path.splitext(os.path.abspath(a.out))[0] + "_globe.html",
+                           cell_departures=getattr(a, "_cell_dep", None))
             _fr = _g.pop("fragment", ""); _spec = _g.pop("spec", None); o["_globe_prose"] = _g.pop("prose", "")
             if a.explorer_spec and _spec:   # 2026-10-22: the Globe Explorer takes this file as written; it never redraws a sample itself (rule 23b-f)
                 json.dump(_spec, open(a.explorer_spec, "w")); _g["explorer_spec"] = os.path.basename(a.explorer_spec)

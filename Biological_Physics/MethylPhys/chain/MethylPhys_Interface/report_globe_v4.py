@@ -145,7 +145,26 @@ def purified(fractions, specimen):
         t = sum(f.values()); return pd.Series(sum(P[g] * (x / t) for g, x in f.items()), index=S)
     return pd.Series(P["NEU"], index=S) if "neutrophil" in str(specimen).lower() else None
 
-def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=None):
+def _cell_change(d, ids_ordered, npix, look):
+    """One cell's change layer (development, 2026-10-22): the departure d (stage_metaa_atlas.departure_in_mix) at the cell's identity sites, in
+    the sample's own spread there, read in blocks of 10 of those sites in genome order (the same rule as the Met-A layer); a block changed beyond
+    the 5 % family-wise line lights its sites, drawn as dots. Returns (code image, changed blocks, blocks) or None."""
+    from scipy import ndimage
+    d = pd.Series(d, dtype="float64").dropna()
+    if len(d) < 10 * BLOCK: return None
+    med = float(d.median()); mad = float((d - med).abs().median()) * 1.4826 or float(d.std()) or 1.0; z = (d - med) / mad
+    pos = pd.Series(np.arange(len(ids_ordered)), index=ids_ordered); zo = z[z.index.isin(pos.index)]; zo = zo.iloc[np.argsort(pos.reindex(zo.index).to_numpy())]
+    nb = len(zo) // BLOCK; bz = zo.to_numpy()[:nb * BLOCK].reshape(nb, BLOCK).mean(1) * np.sqrt(BLOCK); line = FW_LINE(nb)
+    lit = pd.Series(np.r_[np.repeat(np.where(np.abs(bz) > line, bz, 0.0), BLOCK), np.zeros(len(zo) - nb * BLOCK)], index=zo.index)
+    zv = _to_sky(lit.reindex(ids_ordered).to_numpy(), npix)[look].reshape(HT, W)
+    fp = np.hypot(*np.mgrid[-R_DOT:R_DOT + 1, -R_DOT:R_DOT + 1]) <= R_DOT
+    P = ndimage.maximum_filter(np.where(zv > 0, zv, -np.inf), footprint=fp, mode="wrap"); N = ndimage.maximum_filter(np.where(zv < 0, -zv, -np.inf), footprint=fp, mode="wrap")
+    has = ndimage.maximum_filter(np.isfinite(zv).astype(np.uint8), footprint=fp, mode="wrap") > 0
+    zv = np.where(has, np.where(P >= N, np.maximum(P, 0), -N), np.nan); zv[has & ~np.isfinite(zv)] = 0.0
+    a = np.clip(np.abs(zv) / 10, 0, 1); c = np.where(np.isfinite(zv), np.where(zv != 0, 128 + np.sign(zv) * np.round(48 + 79 * a), 128), 0)
+    return np.repeat(np.clip(c, 0, 255).astype(np.uint8)[..., None], 3, -1), int((np.abs(bz) > line).sum()), int(nb)
+
+def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=None, cell_departures=None):
     import pyarrow.parquet as pq
     from matplotlib.colors import ListedColormap
     if not os.path.exists(ORDER): return {"drawn": False, "reason": f"the frozen layout {os.path.relpath(ORDER, CH)} is missing"}
@@ -264,6 +283,24 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
     groups = [dict(name="this sample against its references", layers=L)]
     if cellmaps: groups.append(dict(name="the cells the IAM-Deconvolver read", layers=[dict(name="healthy " + c["name"], kind="image", src=J(c["t"]), mask=c["m"], **MV,
                                      note="This cell's healthy map in IAM-Atlas v2.1; the share is the IAM-Deconvolver's reading of this sample.") for c in cellmaps]))
+    if cell_departures:   # 2026-10-22: a change layer for each cell the IAM-Deconvolver read (development, flagged)
+        CL, CR = [], {}
+        for c, dd in cell_departures.items():
+            r = _cell_change(dd, ids[order], npix, look)
+            if r is None: continue
+            CR[c] = {"changed": r[1], "blocks": r[2]}
+            CL.append(dict(name=f"{c}: the change at its identity sites (development)", kind="change", src=P_(_png_b64(r[0], "RGB")), full=10, id="cell-" + c.replace(" ", "-"),
+                           ref_word="this sample's own mix of healthy cells",
+                           key_up="Red: more disorder (entropy) here than this sample's own mix of healthy cells holds: this cell's pattern is being lost",
+                           key_down="Blue: less disorder than the healthy mix (rare)",
+                           hint="Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
+                           fixed=f"Changed: {r[1]:,} of {r[2]:,} blocks of 10 of this cell's identity sites. This count is fixed; the slider never changes it. "
+                                 "DEVELOPMENT: not commissioned by our own standards.",
+                           note=("Met-A's departure for this cell: at the cell's identity sites, the sample's disorder against the disorder of IAM-Atlas v2.1 "
+                                 "mixed in this sample's own cell shares, in the sample's own spread there, read in blocks of 10 neighboring sites; a block "
+                                 "changed beyond the line pure chance crosses less than once in 20 genomes. A loss of one cell's pattern is diluted by its "
+                                 "share of the sample, so a small cell needs a larger loss to show.")))
+        if CL: groups.append(dict(name="each cell's change (development)", layers=CL)); rec["cell_blocks_changed"] = CR
     rec["layers"] = [x["name"] for g in groups for x in g["layers"]]
     rec["blocks_changed"] = n_changed; rec["blocks"] = n_ranged; rec["blocks_changed_on_XY"] = n_xy; rec["sex"] = sex
     if zabove: rec["metaa_blocks_changed"] = {"rule": "blocks of 10 neighboring sites, mean departure in standard errors beyond the 5 % family-wise line (the C-Score's blocks)", "changed": zabove[0], "blocks": zabove[1]}

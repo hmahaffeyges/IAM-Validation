@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 921,
+   "lines": 924,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -261,9 +261,9 @@
      "function": "main",
      "name": "main",
      "line": 314,
-     "end": 918,
+     "end": 921,
      "args": [],
-     "lines": 605,
+     "lines": 608,
      "doc": "",
      "constants": [
       "BIO",
@@ -315,8 +315,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 862,
-     "end": 863,
+     "line": 865,
+     "end": 866,
      "args": [
       "b",
       "it",
@@ -5505,7 +5505,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 365,
+   "lines": 402,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
@@ -5750,10 +5750,31 @@
     },
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "_cell_change",
+     "name": "_cell_change",
+     "line": 148,
+     "end": 165,
+     "args": [
+      "d",
+      "ids_ordered",
+      "npix",
+      "look"
+     ],
+     "lines": 18,
+     "doc": "One cell's change layer (development, 2026-10-22): the departure d (stage_metaa_atlas.departure_in_mix) at the cell's identity sites, in the sample's own spread there, read in blocks of 10 of those sites in genome order (the same rule as the Met-A layer); a block changed beyond the 5 % family-wise line lights its sites, drawn as dots. Returns (code image, changed blocks, blocks) or None.",
+     "constants": [
+      "BLOCK",
+      "R_DOT"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build",
      "name": "build",
-     "line": 148,
-     "end": 294,
+     "line": 167,
+     "end": 331,
      "args": [
       "beta",
       "specimen",
@@ -5761,9 +5782,10 @@
       "out_html",
       "z",
       "fractions",
-      "sex"
+      "sex",
+      "cell_departures"
      ],
-     "lines": 147,
+     "lines": 165,
      "doc": "",
      "constants": [
       "ABOUT",
@@ -5791,8 +5813,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build.rgb",
      "name": "rgb",
-     "line": 188,
-     "end": 189,
+     "line": 207,
+     "end": 208,
      "args": [
       "m"
      ],
@@ -5806,8 +5828,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build._code",
      "name": "_code",
-     "line": 191,
-     "end": 196,
+     "line": 210,
+     "end": 215,
      "args": [
       "v",
       "full"
@@ -5822,8 +5844,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair",
      "name": "build_pair",
-     "line": 311,
-     "end": 354,
+     "line": 348,
+     "end": 391,
      "args": [
       "beta",
       "ref_beta",
@@ -5853,8 +5875,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair.rgb",
      "name": "rgb",
-     "line": 333,
-     "end": 334,
+     "line": 370,
+     "end": 371,
      "args": [
       "m"
      ],
@@ -5994,7 +6016,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 127,
+   "lines": 141,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -6137,6 +6159,25 @@
       "FLAG",
       "MIX_COVER",
       "RULE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "departure_in_mix",
+     "name": "departure_in_mix",
+     "line": 129,
+     "end": 140,
+     "args": [
+      "beta",
+      "shares",
+      "cell"
+     ],
+     "lines": 12,
+     "doc": "The per-site departure behind Met-A for one cell of a mixed sample (development, 2026-10-22, for the globe's layer for each cell): at the cell's identity sites, H(beta) - H(e), e the atlas mixed in this sample's shares by read_in_mix's rule (MIX_COVER). A pd.Series by site id, or None when the cell has no identity sites. Positive: more disorder than this mix of healthy cells holds there.",
+     "constants": [
+      "MIX_COVER"
      ],
      "data_files": [],
      "traced_calls": {}
@@ -6944,5 +6985,5 @@
   }
  ],
  "n_files": 32,
- "n_functions": 354
+ "n_functions": 356
 }

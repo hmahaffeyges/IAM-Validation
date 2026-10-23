@@ -124,3 +124,17 @@ def read_in_mix(beta, shares):
                  shift_per_1pct_loss=round(float(_H(xd).mean() / he - A), 5), state="untared")
         out["cells"].append(r)
     return out
+
+
+def departure_in_mix(beta, shares, cell):
+    """The per-site departure behind Met-A for one cell of a mixed sample (development, 2026-10-22, for the globe's layer for each cell): at the
+    cell's identity sites, H(beta) - H(e), e the atlas mixed in this sample's shares by read_in_mix's rule (MIX_COVER). A pd.Series by site id,
+    or None when the cell has no identity sites. Positive: more disorder than this mix of healthy cells holds there."""
+    S = identity_sites(cell)
+    if not S: return None
+    cells = [c for c, f in shares.items() if f is not None]
+    MU = pd.concat([_col("mu", k).reindex(S).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
+    have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12)
+    e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); x = beta.reindex(S)
+    ok = x.notna() & e.notna() & (cover >= MIX_COVER)
+    return pd.Series(np.asarray(_H(x[ok]), dtype="float64") - np.asarray(_H(e[ok]), dtype="float64"), index=x[ok].index)   # site ids kept
