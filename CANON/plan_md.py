@@ -15,6 +15,12 @@ _first = True
 for _n, _t in enumerate(P.get("todo", []), 1):
     if _t["status"] == "done": L.append(f"{_n}. ~~{_t['task']}~~ Done {_t['done_date']}: [{os.path.basename(_t['record'])}]({_t['record']})")
     else: L.append(f"{_n}. {'**Now:** ' if _first else ''}{_t['task']}. *Done when:* {_t['done_when']} ({', '.join(_t['rows'][:3])}{', ...' if len(_t['rows']) > 3 else ''})"); _first = False
+    for _b in _t.get("branches", []):   # 2026-10-22 (author: "keep the breadcrumbs coming so we can follow our way back"): each branch a step sprouted
+        _st = _b["status"]; _x = _b.get("record") or _b.get("run") or ""
+        L.append(f"   - **{_b['id']}** [{_st}] {_b['what']}" + (f" ({_x})" if _x else "") + (f" *Next:* {_b['next']}" if _st != "done" and _b.get("next") else ""))
+_open = sorted([(b.get("date", ""), n, b) for n, t in enumerate(P.get("todo", []), 1) for b in t.get("branches", []) if b["status"] != "done"], key=lambda x: x[0], reverse=True)
+L += ["", "## Breadcrumbs: every open branch, newest first", "", "_Each branch names the step it came from and its next action, so no path is lost._", ""]
+L += [f"- **{b['id']}** (step {n}, {b.get('date', '')}) [{b['status']}] {b['what']} *Next:* {b.get('next', '')}" for d, n, b in _open] or ["None."]
 L += ["", "## The order of work", ""]
 for n, it in enumerate(P["items"], 1):
     L.append(f"{n}. **{it['label']}**")
@@ -29,6 +35,8 @@ L += ["", "## Machines running now (machine ledger)", "", "| Job | Machine | Row
 L += ["", "## Decisions waiting for the author", ""] + ([f"- {d}" for d in P["decisions_waiting"]] or ["None."])
 txt = _rl.fix("\n".join(L) + "\n", OUT)   # links resolve from the document's folder (2026-10-19)
 bad = [rid for it in P["items"] for rid in it["rows"] if rid not in M]
+bad += [f"branch {b.get('id')} (step {n}) has no next action" for n, t in enumerate(P.get("todo", []), 1) for b in t.get("branches", []) if b.get("status") != "done" and not b.get("next")]
+bad += [f"branch {b.get('id')} (step {n}) is done without a record" for n, t in enumerate(P.get("todo", []), 1) for b in t.get("branches", []) if b.get("status") == "done" and not (b.get("record") or b.get("run"))]
 import re as _re
 bad += [f"to-do step {n} closed without a record" for n, t in enumerate(P.get("todo", []), 1) if t["status"] == "done" and not (t.get("record") and os.path.exists(os.path.join(R, t["record"])))]
 _on = {x for it in P["items"] for x in it["rows"]} | {x for t in P.get("todo", []) if t["status"] != "done" for x in t["rows"]} | {x["row"] for x in P.get("scheduled", [])}

@@ -138,7 +138,7 @@
   }
  ],
  "decisions_waiting": [],
- "_todo_rule": "The to-do list (author 2026-10-19: 'make sure all this stuff above makes it onto a to do list that can be executed one by one until complete so nothing is forgotten'). Steps are worked in order; a step is closed only by setting status 'done' with its date and the record that shows it done, which must exist in the repository. plan_md.py --check (in the push gate) refuses a closed step without a record, and refuses any finished or running manifest row whose next step names pending work unless that row is on this plan (a to-do step or an item below). Scenario 4 of the showcase was lost exactly that way: its 'Next' sat in a row marked run.",
+ "_todo_rule": "The to-do list (author 2026-10-19: 'make sure all this stuff above makes it onto a to do list that can be executed one by one until complete so nothing is forgotten'). Steps are worked in order; a step is closed only by setting status 'done' with its date and the record that shows it done, which must exist in the repository. plan_md.py --check (in the push gate) refuses a closed step without a record, and refuses any finished or running manifest row whose next step names pending work unless that row is on this plan (a to-do step or an item below). Scenario 4 of the showcase was lost exactly that way: its 'Next' sat in a row marked run. | 2026-10-22 (author: 'keep track of everything that we add ... keep the breadcrumbs coming so we can follow our way back'): every exploration, fix or idea a step sprouts is a branch under that step (id step.n, date, status open|running|built|done|parked, what, record or run, next); the plan page lists every open branch, newest first; plan_md refuses an open branch without a next action or a done branch without a record.",
  "todo": [
   {
    "task": "Showcase scenario 4: the three healthy colon samples (GSE151732: GSM4589141, GSM4589144, GSM4589145) through IAM-Atlas v2.1's commissioned tissue scorer, once, by the sealed rule",
@@ -627,7 +627,17 @@
    "status": "open",
    "done_date": "",
    "record": "",
-   "design": "The instrument's job: a healthy 450K whole blood reads Normal on Met-A, as on EPIC. Starts from dev_metA_450K_neutrophils_v0.json (8 GSE88824 purified neutrophils) and dev_selftare_450K_v0.json. On GitHub."
+   "design": "The instrument's job: a healthy 450K whole blood reads Normal on Met-A, as on EPIC. Starts from dev_metA_450K_neutrophils_v0.json (8 GSE88824 purified neutrophils) and dev_selftare_450K_v0.json. On GitHub.",
+   "branches": [
+    {
+     "id": "27.1",
+     "date": "2026-10-22",
+     "status": "built",
+     "what": "On a 450K array the atlas readers run, flagged; the commissioned Met-A and C-Score stay refused",
+     "record": "chain/MethylPhys_Interface/run_sample.py",
+     "next": "a real spent 450K array with raw IDATs through Stage 1 (GSE35069 has none on GEO)"
+    }
+   ]
   },
   {
    "task": "The genome on a globe with layers (author 2026-10-21: 'map the entire genome that way ... change the colors depending on what a researcher is looking for, so they are all highlighted while anything unrelated quietens down'). (1) layers and highlighting on the 813,951-site sky sphere (CpG islands, promoters, gene bodies, a cell's identity sites, the Deconvolver's markers, X, imprinted regions, a sample's departures, the C-Score's clusters, a pasted gene list), each pattern shown beside its shuffled null (sky_statistics.shuffled_null); GitHub. (2) after DEV-SPHERE-01 v2: the same viewer with the information sphere and a switch between the two views. (3) when AWS is back: the whole genome (~28 million CpGs, NSIDE 2048) as zoomable HEALPix tiles in the HiPS format astronomers use, address sphere then information sphere. | 2026-10-21 (author): two reference spheres, IAM-Atlas v2.1 and Met-A's purified-array reference, with their difference map; every comparison names its reference (ATL-070) | 2026-10-21 (author): the globe as the main view of every result, every CMB tool interactive with its null beside it; a noise-dampening layer (1, 2, 4 ... all posterior draws averaged). CORRECTED same day: the v2.1 draws are public (Zenodo 10.5281/zenodo.23422688); the layer is built on GitHub from the record (noise.yml), one bundle per job. Masks and smoothing live in the browser; spectra and shuffle nulls precomputed at set steps. | 2026-10-21 (author): one full-page Globe Explorer on the site (atlas v2.1 first; purified reference, noise dampening, example samples; later IAM-A, the information sphere, the tools), each globe with its own controls and data loaded only when chosen; every report also writes a standalone full-page globe beside it and links to it; one viewer code for all. | 2026-10-21: the noise-dampening globe built from the public draws and published in the Globe Explorer. | 2026-10-21 (author asked where it stands): not started. The array covers about 850K of the genome's 28 million CpGs, so the full genome comes from the healthy sequencing samples IAM-A's line was built from, as HiPS map tiles on the array globe's address rule, every pattern checked against a shuffled genome. | 2026-10-22: tumor pairs are drawn by the chain (development pair mode) and scored as pictures in DEV-TISSUE-GLOBE-01 runs 1-3 (191 pairs; breast and liver about three times the two-person control; colon's two people differ nearly as much as tumor from own normal, also on the same slide), but not yet in the Globe Explorer. Left: a tumor-against-own-normal globe in the Explorer, labeled development; the ideas still untested: the direction of change at each cell's identity sites, and a person's own two normals as the control; layers with highlighting and shuffled nulls; the whole genome",
@@ -689,7 +699,17 @@
    ],
    "status": "open",
    "done_date": "",
-   "record": "Biological_Physics/MethylPhys/doors/METAA_ATLAS_SEAL_01.md"
+   "record": "Biological_Physics/MethylPhys/doors/METAA_ATLAS_SEAL_01.md",
+   "branches": [
+    {
+     "id": "33.1",
+     "date": "2026-10-22",
+     "status": "running",
+     "what": "Exploration 8 on both monocyte series through the one command",
+     "run": "series runs chain08_gse168779, chain08_gse267660",
+     "next": "record; then the fresh sealed test"
+    }
+   ]
   },
   {
    "task": "The two cell-mix readers compared (author list 2026-10-20: 'Do your two cell-mix readers agree?'): Stage A's neutrophil share against the IAM-Deconvolver's (Stage D21) for every Group-A person (GSE318173, 263 read), from the committed Group-A rows; a reported line, not a bar; into the Decoder's Stage A section | 2026-10-22 done: 278 healthy bloods, correlation 0.960, Deconvolver 0.021 lower on average, 95 % within -0.113 to +0.071; in the Decoder's Stage A entry",
@@ -731,6 +751,31 @@
     "ATL-070",
     "GRP-004",
     "OTH-076"
+   ],
+   "branches": [
+    {
+     "id": "37.1",
+     "date": "2026-10-22",
+     "status": "running",
+     "what": "Group-A's 278 bloods through the one command",
+     "run": "series run groupa_chain (series_runs.json)",
+     "next": "pass 1 shard 17 lost its machine: rerun failed jobs when the pass completes, then pass 2 and the number-by-number comparison"
+    },
+    {
+     "id": "37.2",
+     "date": "2026-10-22",
+     "status": "running",
+     "what": "The C-Score band through the one command",
+     "run": "series run band_chain",
+     "next": "compare with band_test_GSE184269.json"
+    },
+    {
+     "id": "37.3",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "10 scripts still outside the one command (REPLICATE.md)",
+     "next": "move each, as Group-A and the band were"
+    }
    ]
   },
   {
@@ -739,6 +784,30 @@
    "status": "open",
    "rows": [
     "ATL-063"
+   ],
+   "branches": [
+    {
+     "id": "38.1",
+     "date": "2026-10-22",
+     "status": "built",
+     "what": "A change layer for each cell on the globe (healthy example blood: 0-5 of ~590 blocks per cell)",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md",
+     "next": "test with a clustered plant in one cell (an even loss is canceled by the sample's own centering and shows in the Met-A number instead); needs --dev-plant with runs along the genome"
+    },
+    {
+     "id": "38.2",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "The report's flat sky picture is titled 'laid over healthy neutrophils' for a whole blood",
+     "next": "title it by the reference actually used (the person's own mix of healthy cells)"
+    },
+    {
+     "id": "38.3",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "Globe commissioning on 278 healthy bloods",
+     "next": "read the globe counts from Group-A's rerun (37.1), then synthetic plants, then a sealed test"
+    }
    ]
   },
   {
@@ -752,6 +821,58 @@
     "TIS-018",
     "PHY-065",
     "TIS-053"
+   ],
+   "branches": [
+    {
+     "id": "39.1",
+     "date": "2026-10-22",
+     "status": "done",
+     "what": "--cell-panel atlas: the Deconvolver on all 79 cell types; Met-A for each cell found (site-dropping fault fixed)",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md"
+    },
+    {
+     "id": "39.2",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "On 79 cells close relatives trade a share: 9 of 79 best fits outside their own 95 % range (flagged not resolved)",
+     "next": "after 40.8, choose the estimate (best fit or resampled middle) that lands closer to known amounts, or a solver change; test before adopting"
+    },
+    {
+     "id": "39.3",
+     "date": "2026-10-22",
+     "status": "done",
+     "what": "Met-A for each cell, synthetic test 2 through the chain only: planted cell moves 92-100 % of its predicted shift; spillover up to 26 %",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md"
+    },
+    {
+     "id": "39.4",
+     "date": "2026-10-22",
+     "status": "running",
+     "what": "Exploration 4: Met-A on each cell's 6,000 identity sites against every atlas site weighted by its shift",
+     "run": "explore run 39885755066",
+     "next": "record; then write why the sites are chosen (derived vs operational) in the Decoder, the book's Met-A chapter and INSTRUMENTS.md"
+    },
+    {
+     "id": "39.5",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "Each cell's healthy spread in whole blood (its detection limit)",
+     "next": "read Group-A's 278 healthy bloods with Met-A for each cell, through the chain (after 37.1)"
+    },
+    {
+     "id": "39.6",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "The person's own buffy coat as the reference for their plasma (hypothesis)",
+     "next": "explore in run_draw on 40.6's data; synthetic first"
+    },
+    {
+     "id": "39.7",
+     "date": "2026-10-22",
+     "status": "done",
+     "what": "IAM-A states its own counting error on every reading (finding F38)",
+     "record": "CANON/plan.json (step 25, F38)"
+    }
    ]
   },
   {
@@ -763,6 +884,74 @@
     "COM-METAA-038",
     "PHY-065",
     "ATL-063"
+   ],
+   "branches": [
+    {
+     "id": "40.1",
+     "date": "2026-10-22",
+     "status": "built",
+     "what": "One-draw runner run_draw.py and the one_draw workflow (buffy coat and plasma, one joint record)",
+     "record": "chain/MethylPhys_Interface/run_draw.py",
+     "next": "first GitHub run on a real draw, once 40.6 finds one; until then on a published pair from different people, labeled as such"
+    },
+    {
+     "id": "40.2",
+     "date": "2026-10-22",
+     "status": "done",
+     "what": "Sequencing values (--dev-seq-values) and the depth test: IAM-A Normal down to 1 % of the molecules (~3.7 M), below at 0.3 %; Deconvolver reads CD8 down to 3 %",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "id": "40.3",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "Met-A on sequencing values reads low (few reads per site give 0 or 1)",
+     "next": "the exact expected entropy of a k-of-n value at each site's own depth (derived, binomial), then a same-chemistry healthy tare; rerun the depth test"
+    },
+    {
+     "id": "40.4",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "Depth test on real plasma (short fragments, low input, bisulfite damage)",
+     "next": "find a spent plasma WGBS sample in CANON/data_spent.csv (scarce-data rule), then the same thinning through the chain"
+    },
+    {
+     "id": "40.5",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "Smallest share each instrument reads at each depth",
+     "next": "thin a known tissue mixture step by step through the chain (sequencing mixtures; spent)"
+    },
+    {
+     "id": "40.6",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "Open, matched buffy coat and plasma sequencing from the same person",
+     "next": "keep searching GEO, ENCODE and SRA; GSE118690 reads only narrow sites; the large matched sets are controlled access"
+    },
+    {
+     "id": "40.7",
+     "date": "2026-10-22",
+     "status": "running",
+     "what": "58 plasma arrays (GSE122126, spent) through the chain on the full atlas panel",
+     "run": "series run 39879158638",
+     "next": "record the outcome in DEV_ONE_DRAW_01.md; the islet-transplant arrays should show donor pancreas DNA"
+    },
+    {
+     "id": "40.8",
+     "date": "2026-10-22",
+     "status": "running",
+     "what": "9 known tissue mixtures (GSE122126) on the full panel: best fit and resampled middle against the amounts put in",
+     "run": "series run 39879101605",
+     "next": "record; decide 39.2 from it"
+    },
+    {
+     "id": "40.9",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "What a departure predicts: GSE51032 is spent (usable for testing, not commissioning)",
+     "next": "find another series of blood drawn before diagnosis, kept unread, for the commissioning test; meanwhile GSE51032 may be read through the chain as a test"
+    }
    ]
   }
  ],

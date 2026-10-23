@@ -1117,7 +1117,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 2952,
+"line": 2968,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -1126,7 +1126,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1910,
+"line": 1920,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
