@@ -6114,7 +6114,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 280,
+   "lines": 281,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -6426,17 +6426,17 @@
      "function": "cscore_in_mix",
      "name": "cscore_in_mix",
      "line": 253,
-     "end": 279,
+     "end": 280,
      "args": [
       "beta",
       "shares",
       "deps"
      ],
-     "lines": 27,
-     "doc": "The C-Score for each cell found in a mixed sample, and for the whole genome (development, written 2026-10-23 before it runs; plan 41.2, 41.3; author: 'I wish we had the C-Scores wired in ... they could potentially shine here'). For each cell c with a share of at least CS_MIN_SHARE: its departure map at its identity sites (departure_in_mix: H(beta) - H(e), e the atlas mixed in this sample's own sha",
+     "lines": 28,
+     "doc": "The C-Score for each cell found in a mixed sample, and for the whole genome (development, written 2026-10-23 before it runs; plan 41.2, 41.3; author: 'I wish we had the C-Scores wired in ... they could potentially shine here'). For each cell c with a share of at least any share the IAM-Deconvolver found (the instrument says what is there; below CS_FLAG_SHARE the C is flagged, not withheld): its de",
      "constants": [
       "CS_BLOCK",
-      "CS_MIN_SHARE",
+      "CS_FLAG_SHARE",
       "FLAG",
       "MIX_COVER"
      ],

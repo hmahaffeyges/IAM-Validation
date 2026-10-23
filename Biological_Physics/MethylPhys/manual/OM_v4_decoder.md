@@ -32,7 +32,7 @@ Read from the code at build time: the one command can load **32 Python files** h
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 432 | 22 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
-| `stage_metaa_atlas.py` | 280 | 17 | 0 | 0 |
+| `stage_metaa_atlas.py` | 281 | 17 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 111 | 10 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 155 | 8 | 0 | 0 |
@@ -3216,6 +3216,6 @@ Sorts site ids into genome order, the order of IAM-Atlas v2.1's site list, which
 
 ### `stage_metaa_atlas.py::cscore_in_mix`
 
-The C-Score for each cell found in a mixed sample and for the whole genome (development, flagged). For each cell holding at least 1 % of the sample: its departure map at its identity sites (the map its globe layer draws), read by the commissioned statistic. The whole-genome version reads the same at every atlas site the sample measured. Untared: healthy samples of the same series are the comparison until a tare for these readings is built. The 1 % share floor is *stated*: below it a cell's departure map is mostly the other cells'.
+The C-Score for each cell found in a mixed sample and for the whole genome (development, flagged). For every cell the IAM-Deconvolver finds: its departure map at its identity sites (the map its globe layer draws), read by the commissioned statistic. The whole-genome version reads the same at every atlas site the sample measured. Untared: healthy samples of the same series are the comparison until a tare for these readings is built. Below 1 % of the sample the C is flagged, not withheld (*stated*): there a cell's departure map is mostly the other cells'. Which cells are there is the IAM-Deconvolver's answer.
 
-*Code:* `stage_metaa_atlas.py` line 253 (27 lines) · arguments: beta, shares, deps · calls: not called on the traced runs · constants read: `CS_BLOCK`, `CS_MIN_SHARE`, `FLAG`, `MIX_COVER`
+*Code:* `stage_metaa_atlas.py` line 253 (28 lines) · arguments: beta, shares, deps · calls: not called on the traced runs · constants read: `CS_BLOCK`, `CS_FLAG_SHARE`, `FLAG`, `MIX_COVER`

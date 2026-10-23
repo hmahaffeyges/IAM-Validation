@@ -233,7 +233,7 @@ def read_in_mix_allsites(beta, shares):
 
 
 CS_BLOCK = 10   # the commissioned C-Score's block: 10 neighboring sites (conductor_v3, clustering_block)
-CS_MIN_SHARE = 0.01   # a cell below 1 % of the sample is not given a C-Score (its departure map is mostly the other cells'); stated, not derived
+CS_FLAG_SHARE = 0.01   # every cell found is scored; below 1 % of the sample its C is flagged, because its departure map is then mostly the other cells' (stated, not derived)
 
 def _clustering(z, w=CS_BLOCK):
     """The commissioned C-Score's statistic (conductor_v3._clustering), unchanged: the departures in genome order, the variance of the means of
@@ -253,17 +253,18 @@ def _genome_order(ids):
 def cscore_in_mix(beta, shares, deps=None):
     """The C-Score for each cell found in a mixed sample, and for the whole genome (development, written 2026-10-23 before it runs; plan 41.2,
     41.3; author: 'I wish we had the C-Scores wired in ... they could potentially shine here'). For each cell c with a share of at least
-    CS_MIN_SHARE: its departure map at its identity sites (departure_in_mix: H(beta) - H(e), e the atlas mixed in this sample's own shares, the map
+    any share the IAM-Deconvolver found (the instrument says what is there; below CS_FLAG_SHARE the C is flagged, not withheld): its departure map at its identity sites (departure_in_mix: H(beta) - H(e), e the atlas mixed in this sample's own shares, the map
     the globe's layer for c draws), in genome order, read by the commissioned C-Score's statistic (_clustering, blocks of 10). Whole genome: the
     same at every atlas site the sample measured, e mixed by read_in_mix's rule. Untared: the commissioned C-Score reads after a same-run tare
     against healthy samples; here healthy samples of the same series are the comparison until a tare for these readings is built."""
     cells = [c for c, f in shares.items() if f is not None]
     out = dict(stage="C-atlas-mix", reading="C-Score for each cell and for the whole genome, against IAM-Atlas v2.1 in this sample's own shares",
-               flag=FLAG, block_sites=CS_BLOCK, min_share=CS_MIN_SHARE, cells=[], note="untared; healthy samples of the same series are the comparison")
+               flag=FLAG, block_sites=CS_BLOCK, flag_share=CS_FLAG_SHARE, cells=[], note="untared; healthy samples of the same series are the comparison")
     if not cells: out["reason"] = "no cell shares"; return out
     for c in cells:
         f = float(shares[c]); r = dict(cell=c, share=round(f, 4), C=None)
-        if f < CS_MIN_SHARE: r["reason"] = f"share below {CS_MIN_SHARE}"; out["cells"].append(r); continue
+        if f <= 0: continue   # a cell the Deconvolver did not find
+        if f < CS_FLAG_SHARE: r["share_flag"] = f"share below {CS_FLAG_SHARE}: the departure map at its sites is mostly the other cells'"
         d = (deps or {}).get(c)
         if d is None: d = departure_in_mix(beta, shares, c)
         d = None if d is None else pd.Series(d, dtype="float64").dropna()
