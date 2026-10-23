@@ -295,3 +295,8 @@ Construction v5 on IAM-Atlas v2.1's 79 healthy cell types: C1 met, 12 of 12 mark
 met, 29 of 100 level-matched groups past the line (test 8 with v1: 88). Taking the level out removed most of its hold on a site's place, not
 all of it. Next, written before it runs: the same with the line set by level-matched random groups (the null the question actually asks:
 does a group land together beyond what its level alone gives), so C2 asks the right question rather than one the random pool answers.
+
+**Test 11, written and committed before it runs (2026-10-22).** `data/DEV_SPHERE_01/atlas_sphere_11.py`. Test 10's line came from groups of any
+level, which answers a different question. Here every line comes from 1,000 level-matched groups per marker group (the same draw as test 10's
+twins, seeded): C1 at least 10 of 12 marker groups above their own level-matched line; C2 at most 4 of the 100 twins above their marker group's
+level-matched line; C3 distance agreement at least 0.7. Same data, pool, groups and construction (v5) as test 10; every R by the one command.

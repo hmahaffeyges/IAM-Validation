@@ -757,10 +757,10 @@
     {
      "id": "35.1",
      "date": "2026-10-22",
-     "status": "open",
+     "status": "running",
      "what": "Test 8 (real atlas cells) met C1 and C3 and failed C2: a site's level dominates its place. Construction v5 takes the level out",
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_SPHERE_01/atlas_sphere_10.py",
-     "next": "test 9 PASSED (synthetic); test 10 (real atlas) C1 and C3 met, C2 29 of 100 (v1: 88); next a test with the line set by level-matched random groups, written before it runs"
+     "next": "test 11 running (level-matched lines); if it passes, the information sphere of one person against their own healthy cells"
     }
    ]
   },
