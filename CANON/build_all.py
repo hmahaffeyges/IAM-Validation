@@ -11,7 +11,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); MP = "Biolog
 STEPS = [("CANON/chain_events.py", False), ("CANON/manifest.py", False), ("CANON/ascore_db.py", True), ("CANON/status_lines.py", True),
          ("CANON/four_domains.py", True), ("CANON/bit_tables.py", True), ("CANON/book_bits.py", True), ("CANON/atlas_story.py", True),
          ("CANON/results_to_tex.py", False), ("CANON/canon_to_tex.py", False), ("CANON/commissioning_report.py", True),
-         ("CANON/earlier_results.py", True), ("CANON/data_homes.py", True), ("CANON/now_running.py", True), ("CANON/catalogue.py", True),
+         ("CANON/earlier_results.py", True), ("CANON/data_homes.py", True), ("CANON/now_running.py", True), ("CANON/catalogue.py", True), ("CANON/report_text.py", True),
          ("CANON/sex_chromosomes.py", True), ("CANON/book_toolbox.py", True), ("CANON/replicate.py", True), ("CANON/blind_studies.py", True), (MP + "reproduce/readme.py", True),
          ("docs/book/build_repro_chapter.py", True), ("docs/book/figscripts/make_app_E.py", True), (MP + "manual/decoder_inventory.py", True),
          (MP + "manual/build_decoder.py", True), (MP + "sop/build_sop_v4.py", True), ("CANON/daylog.py", False), ("CANON/plan_md.py", True),

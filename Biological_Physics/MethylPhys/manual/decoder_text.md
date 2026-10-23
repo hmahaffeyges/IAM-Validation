@@ -1838,6 +1838,21 @@ The one source of the report's instrument sections, drawn by the HTML report and
 ### report_v4.py::_f
 Prints a number to a fixed number of decimals, or the value as text.
 
+### report_v4.py::report_text
+Loads the report's explanations from Runtime Matrices/Report/report_text.json, which CANON/report_text.py generates from CANON/catalogue.json (the one source); read once per run.
+
+### report_v4.py::explain
+The explanation of one report section as (label, text) pairs, in a fixed order: what it measures, where it comes from, what it is compared to, the physics, why it matters, the link to the sky where there is one, and its status.
+
+### report_v4.py::_explain_html
+Draws one section's explanation as a shaded block under its table in the HTML report.
+
+### report_v4.py::_intro_html
+Draws the report's 'How to read this report' section (the law, the ratio to healthy, the person's own reference, AstroGenetics, and what each status means) from the same source.
+
+### report_pdf_v4.py::_explain
+Draws one section's explanation in the researcher PDF, from the same source as the HTML report.
+
 ### report_v4.py::_sections_v5
 All the new sections in their order, after the cell shares.
 

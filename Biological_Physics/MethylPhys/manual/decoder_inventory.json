@@ -1961,7 +1961,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_v4.py",
-   "lines": 396,
+   "lines": 416,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_v4.py",
@@ -2379,14 +2379,81 @@
     },
     {
      "file": "MethylPhys_Interface/report_v4.py",
+     "function": "report_text",
+     "name": "report_text",
+     "line": 360,
+     "end": 363,
+     "args": [],
+     "lines": 4,
+     "doc": "The report's explanations, generated from CANON/catalogue.json by CANON/report_text.py (one source; never written in this file).",
+     "constants": [
+      "REPORT_TEXT",
+      "_RT"
+     ],
+     "data_files": [
+      "generated from CANON/catalogue.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "explain",
+     "name": "explain",
+     "line": 364,
+     "end": 367,
+     "args": [
+      "sec"
+     ],
+     "lines": 4,
+     "doc": "[(label, text)] for one report section, in the fixed order of EXPLAIN_LABELS; empty when the section has no entry.",
+     "constants": [
+      "EXPLAIN_LABELS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_explain_html",
+     "name": "_explain_html",
+     "line": 368,
+     "end": 370,
+     "args": [
+      "sec"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_intro_html",
+     "name": "_intro_html",
+     "line": 371,
+     "end": 373,
+     "args": [],
+     "lines": 3,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
      "function": "_sections_v5",
      "name": "_sections_v5",
-     "line": 356,
-     "end": 362,
+     "line": 375,
+     "end": 382,
      "args": [
       "o"
      ],
-     "lines": 7,
+     "lines": 8,
      "doc": "",
      "constants": [
       "E"
@@ -2398,8 +2465,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "build",
      "name": "build",
-     "line": 364,
-     "end": 395,
+     "line": 384,
+     "end": 415,
      "args": [
       "o",
       "out",
@@ -4352,7 +4419,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_pdf_v4.py",
-   "lines": 107,
+   "lines": 114,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_pdf_v4.py",
@@ -4437,10 +4504,26 @@
     },
     {
      "file": "MethylPhys_Interface/report_pdf_v4.py",
+     "function": "_explain",
+     "name": "_explain",
+     "line": 50,
+     "end": 53,
+     "args": [
+      "R",
+      "sec"
+     ],
+     "lines": 4,
+     "doc": "The section's explanation, from the same generated source as the HTML report (report_v4.explain).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_pdf_v4.py",
      "function": "build_pdfs",
      "name": "build_pdfs",
-     "line": 50,
-     "end": 106,
+     "line": 55,
+     "end": 113,
      "args": [
       "o",
       "F",
@@ -4448,7 +4531,7 @@
       "sid",
       "when"
      ],
-     "lines": 57,
+     "lines": 59,
      "doc": "",
      "constants": [],
      "data_files": [],
@@ -4461,8 +4544,8 @@
      "file": "MethylPhys_Interface/report_pdf_v4.py",
      "function": "build_pdfs.doc",
      "name": "doc",
-     "line": 53,
-     "end": 55,
+     "line": 58,
+     "end": 60,
      "args": [
       "path",
       "story"
@@ -7697,5 +7780,5 @@
   }
  ],
  "n_files": 33,
- "n_functions": 393
+ "n_functions": 398
 }

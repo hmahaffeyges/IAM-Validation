@@ -34,7 +34,7 @@ th{background:#f4f6fa;font-weight:600}.chip{display:inline-block;padding:2px 8px
 .pair{display:flex;gap:10px;flex-wrap:wrap}.pair figure{flex:1 1 440px;margin:0}.pair figcaption{font-size:12.5px;color:#556;margin-top:2px}
 .plain p.say{font-size:15.5px;margin:4px 0 18px}
 @media print{.vbar{display:none}.plain,.research{display:block!important}.plain{page-break-before:always}}
-</style>"""
+.explain{background:#f5f7fa;border-left:3px solid #8a96a8;padding:6px 12px;margin:10px 0 18px}.explain p{margin:5px 0;font-size:14px}</style>"""
 def _uri(path): return "data:image/png;base64," + base64.b64encode(open(path, "rb").read()).decode() if path and os.path.exists(path) else None
 def _H(p): return 0.0 if p <= 0 or p >= 1 else -(p * math.log2(p) + (1 - p) * math.log2(1 - p))
 def _sci(v):
@@ -353,12 +353,32 @@ def detail_tables(o):
               (DEV + ". Page: " + os.path.basename(str(sp.get("html") or "")) + ".") if sp.get("territories_read") else "Not drawn: " + str(sp.get("reason") or "") + "."))
     return T
 
+REPORT_TEXT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Runtime Matrices", "Report", "report_text.json")
+EXPLAIN_LABELS = (("measures", "What it measures"), ("source", "Where it comes from"), ("compares", "What it is compared to"),
+                  ("physics", "The physics"), ("significance", "Why it matters"), ("sky", "From the sky"), ("status", "Status"))
+_RT = []
+def report_text():
+    """The report's explanations, generated from CANON/catalogue.json by CANON/report_text.py (one source; never written in this file)."""
+    if not _RT: _RT.append(json.load(open(REPORT_TEXT, encoding="utf-8")))
+    return _RT[0]
+def explain(sec):
+    """[(label, text)] for one report section, in the fixed order of EXPLAIN_LABELS; empty when the section has no entry."""
+    x = report_text()["sections"].get(sec) or {}
+    return [(lab, x[k]) for k, lab in EXPLAIN_LABELS if x.get(k)]
+def _explain_html(sec):
+    e = explain(sec)
+    return ("<div class='explain'>" + "".join(f"<p><b>{E(l)}.</b> {E(t)}</p>" for l, t in e) + "</div>") if e else ""
+def _intro_html():
+    i = report_text()["intro"]
+    return f"<h2 id='v4-intro'>{E(i['title'])}</h2>" + "".join(f"<p>{E(t)}</p>" for t in i["paragraphs"])
+
 def _sections_v5(o):
     h = []
     for i, title, intro, head, rows, note in detail_tables(o):
         h.append(f"<h2 id='{i}'>{E(title)}</h2><p>{E(intro)}</p>")
         if rows: h.append("<table><tr>" + "".join(f"<th>{E(x)}</th>" for x in head) + "</tr>" + "".join("<tr>" + "".join(f"<td>{E(str(x))}</td>" for x in r) + "</tr>" for r in rows) + "</table>")
         if note: h.append(f"<p class='note'>{E(note)}</p>")
+        h.append(_explain_html(i))
     return "".join(h)
 
 def build(o, out, sid):
@@ -376,7 +396,7 @@ def build(o, out, sid):
              "<i>commissioned</i> means it passed a test sealed before its data was seen; a reading outside what an instrument was tested on is still shown, and says so.</p>",
              "<div class='views'><input type='radio' name='v' id='vr' checked><input type='radio' name='v' id='vp'>"
              "<div class='vbar'><label for='vr'>Researcher</label><label for='vp'>Plain</label></div>",
-             "<div class='research'>", "<h2 id='v4-glance'>At a glance</h2>", _glance(o), _physics(o), _shares(o), _sections_v5(o), _meta(o), _cscore(o), _iama(o), "</div>",
+             "<div class='research'>", "<h2 id='v4-glance'>At a glance</h2>", _glance(o), _intro_html(), _physics(o), _shares(o), _explain_html("v4-shares"), _sections_v5(o), _meta(o), _cscore(o), _iama(o), "</div>",
              "<div class='plain'>", _plain(o, F), "</div></div>"]
     prose = re.sub(r"<[^>]+>", " ", re.sub(r"src='data:[^']+'", "", re.sub(r"<!--GAUGE-->.*?<!--/GAUGE-->", " ", "\n".join(front), flags=re.S)))   # as report_v3: the gauge's fixed legend is a scale, not prose
     if re.search(CLAIM_SCAN, prose, re.I): raise ValueError("report_v4: front prose carries a word the report may not print: " + re.search(CLAIM_SCAN, prose, re.I).group(0))

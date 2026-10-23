@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **33 Python files** holding **393 functions** (nested ones included); 393 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **33 Python files** holding **398 functions** (nested ones included); 398 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -12,7 +12,7 @@ Read from the code at build time: the one command can load **33 Python files** h
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
 | `conductor_v3.py` | 317 | 20 | 18 | 0 |
 | `stage_m_met_a.py` | 81 | 6 | 3 | 0 |
-| `MethylPhys_Interface/report_v4.py` | 396 | 24 | 17 | 17 |
+| `MethylPhys_Interface/report_v4.py` | 416 | 28 | 17 | 17 |
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
 | `MethylPhys_Interface/report_figs_v4.py` | 157 | 8 | 6 | 2 |
 | `dev_stages.py` | 339 | 27 | 1 | 0 |
@@ -20,7 +20,7 @@ Read from the code at build time: the one command can load **33 Python files** h
 | `stage_deconv_v21.py` | 200 | 6 | 4 | 0 |
 | `stage_q2_selfref.py` | 270 | 29 | 0 | 11 |
 | `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
-| `MethylPhys_Interface/report_pdf_v4.py` | 107 | 6 | 6 | 6 |
+| `MethylPhys_Interface/report_pdf_v4.py` | 114 | 7 | 6 | 6 |
 | `MethylPhys_Interface/info_sphere_viewer.py` | 176 | 5 | 0 | 0 |
 | `stage_t_selftare.py` | 54 | 4 | 0 | 0 |
 | `stage_seq_values.py` | 114 | 6 | 0 | 0 |
@@ -2038,7 +2038,7 @@ The plain view: one gauge and one sentence per reading.
 
 Builds the whole page: the technical record from `report_v3.build`, the figures, both views, and the two PDFs.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 364 (32 lines) · arguments: o, out, sid · calls: array run 1, bam run 1 · constants read: `CSS`, `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 384 (32 lines) · arguments: o, out, sid · calls: array run 1, bam run 1 · constants read: `CSS`, `E`
 
 ### `report_v3.py::_gauge`
 
@@ -2176,13 +2176,13 @@ A PDF table.
 
 The researcher and plain PDFs, from the same rows and pictures as the page.
 
-*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 50 (57 lines) · arguments: o, F, out, sid, when · calls: array run 1, bam run 1
+*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 55 (59 lines) · arguments: o, F, out, sid, when · calls: array run 1, bam run 1
 
 ### `report_pdf_v4.py::build_pdfs.doc`
 
 Writes one PDF.
 
-*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 53 (3 lines) · arguments: path, story · calls: array run 2, bam run 2
+*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 58 (3 lines) · arguments: path, story · calls: array run 2, bam run 2
 
 ## 14b. The report's globe: `report_globe_v4.py`
 
@@ -2815,11 +2815,41 @@ Prints a number to a fixed number of decimals, or the value as text.
 
 *Code:* `MethylPhys_Interface/report_v4.py` line 282 (1 lines) · arguments: v, d · calls: not called on the traced runs
 
+### `report_v4.py::report_text`
+
+Loads the report's explanations from Runtime Matrices/Report/report_text.json, which CANON/report_text.py generates from CANON/catalogue.json (the one source); read once per run.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 360 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `REPORT_TEXT`, `_RT` · files named: `generated from CANON/catalogue.json`
+
+### `report_v4.py::explain`
+
+The explanation of one report section as (label, text) pairs, in a fixed order: what it measures, where it comes from, what it is compared to, the physics, why it matters, the link to the sky where there is one, and its status.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 364 (4 lines) · arguments: sec · calls: not called on the traced runs · constants read: `EXPLAIN_LABELS`
+
+### `report_v4.py::_explain_html`
+
+Draws one section's explanation as a shaded block under its table in the HTML report.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 368 (3 lines) · arguments: sec · calls: not called on the traced runs · constants read: `E`
+
+### `report_v4.py::_intro_html`
+
+Draws the report's 'How to read this report' section (the law, the ratio to healthy, the person's own reference, AstroGenetics, and what each status means) from the same source.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 371 (3 lines) · arguments: none · calls: not called on the traced runs · constants read: `E`
+
+### `report_pdf_v4.py::_explain`
+
+Draws one section's explanation in the researcher PDF, from the same source as the HTML report.
+
+*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 50 (4 lines) · arguments: R, sec · calls: not called on the traced runs
+
 ### `report_v4.py::_sections_v5`
 
 All the new sections in their order, after the cell shares.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 356 (7 lines) · arguments: o · calls: not called on the traced runs · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 375 (8 lines) · arguments: o · calls: not called on the traced runs · constants read: `E`
 
 ### `stage_t_selftare.py::ruler_map`
 

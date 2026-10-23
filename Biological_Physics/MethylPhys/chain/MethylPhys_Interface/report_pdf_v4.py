@@ -47,6 +47,11 @@ def _tbl(rows, widths, head=True):
                            ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#f4f6fa") if head else colors.white),
                            ("LEFTPADDING", (0, 0), (-1, -1), 4), ("RIGHTPADDING", (0, 0), (-1, -1), 4)])); return t
 
+def _explain(R, sec):
+    """The section's explanation, from the same generated source as the HTML report (report_v4.explain)."""
+    e = R.explain(sec)
+    return [Spacer(1, 3)] + [P(f"<b>{html.escape(l)}.</b> {html.escape(x)}", "small") for l, x in e] + [Spacer(1, 6)] if e else []
+
 def build_pdfs(o, F, out, sid, when):
     import report_v4 as R
     base = os.path.splitext(os.path.abspath(out))[0]; res = {}
@@ -57,6 +62,7 @@ def build_pdfs(o, F, out, sid, when):
     st = _head(o, sid, when, "Researcher") + [P("At a glance", "h2")]
     st.append(_tbl([[P("<b>Instrument</b>"), P("<b>Question it answers</b>"), P("<b>Reading</b>"), P("<b>State</b>"), P("<b>Status</b>")]]
                    + [[P(f"<b>{a}</b>"), P(b), P(f"<b>{v}</b>"), P(s_, "small"), P(x, "small")] for a, b, v, s_, x in R.glance_rows(o)], [1.35, 1.45, 1.25, 1.55, 1.7]))
+    _ri = R.report_text()["intro"]; st += [P(html.escape(_ri["title"]), "h2")] + [y for x in _ri["paragraphs"] for y in (P(html.escape(x), "small"), Spacer(1, 5))]
     ph = R.physics_rows(o)
     if ph:
         st += [P("AstroGenetics: the physics behind each reading", "h2"), P(R.PHYS_INTRO), Spacer(1, 4),
@@ -67,13 +73,14 @@ def build_pdfs(o, F, out, sid, when):
                _tbl([[P("<b>Cell</b>"), P("<b>Share</b>"), P("<b>Range (information)</b>"), P("<b>Status</b>")]]
                     + [[P(R.cellname(r["cell"])), P(f"<b>{100 * r['share']:.1f} %</b>"), P(f"{100 * r['interval_95'][0]:.1f} to {100 * r['interval_95'][1]:.1f} %"),
                         P(r["status"] if r["status"] != "development" else R.untested(r["cell"], "the IAM-Deconvolver", noun="shares"), "small")]
-                       for r in sorted(sh["cells"], key=lambda r: -r["share"])], [1.9, 1.0, 1.7, 2.7])]
+                       for r in sorted(sh["cells"], key=lambda r: -r["share"])], [1.9, 1.0, 1.7, 2.7])] + _explain(R, "v4-shares")
     for _i, _t, _in, _hd, _rw, _nt in R.detail_tables(o):   # 2026-10-23: every instrument, from the same source as the HTML report
         blk = [P(html.escape(_t), "h2"), P(html.escape(_in), "small")]
         if _rw:
             n = len(_hd); wd = [7.2 / n] * n
             blk.append(_tbl([[P(f"<b>{html.escape(str(x))}</b>") for x in _hd]] + [[P(html.escape(str(x)), "small") for x in r] for r in _rw], wd))
         if _nt: blk.append(P(html.escape(_nt), "small"))
+        blk += _explain(R, _i)
         st += [KeepTogether(blk)] if len(_rw) < 12 else blk
     for k, t_ in (("met_a", "Met-A on its gauge"), ("iam_a", "IAM-A on its gauge"), ("cscore", "C-Score on its bar")):
         i = _img(F.get(k))
