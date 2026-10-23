@@ -223,6 +223,13 @@
      "status": "open",
      "what": "The Researcher Challenge (author: 'challenge researchers to run their own chip or IDAT and find out if the chain agrees with what they know'): three routes that never put a patient's arrays in public (a private copy of the repository with my_samples.yml; GEO accession numbers read by the chain itself; the one command on their own computer); the report says what the chain found without their labels; an opt-in scoreboard in CANON/blind_studies.json",
      "next": "the website page and a GEO-accession input to my_samples.yml, after wave 1 shows agreement"
+    },
+    {
+     "id": "43.6",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "IAM-Chain, a small mirror of only what the chain needs (chain, IAM-Atlas v2.1, runtime matrices, requirements, the researcher workflow; about 540 MB against the full repository's 3.2 GB), rebuilt by a workflow on every push, never edited by hand; its first step checks every file against the chain manifest's SHA-256 fingerprints and stops naming any file that differs; a versioned zip of the same on each release and on Zenodo (author: 'create a copy of the chain files ... mirrored via code so nothing ever differs')",
+     "next": "after GSE149282 shows the tissue route end to end"
     }
    ]
   },

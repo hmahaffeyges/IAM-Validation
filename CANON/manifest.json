@@ -28071,12 +28071,12 @@
    "status": "planned",
    "runs": [],
    "next_step": "GSE149282 through the series workflow, pass 1 (the first real tissue arrays end to end); then the rest of wave 1",
-   "cost": "GitHub machines only",
-   "impact": "replication across laboratories; the rehearsal for a researcher's own blind run",
+   "cost": "laptop",
+   "impact": 5,
    "legacy_ids": [],
    "id": "OTH-081",
    "sources_of_row": [],
-   "notes": "2026-10-23: protocol, question for each study and verdict rule committed before any study is read (author: 'find as many studies as we can that have already been analyzed and blindly test them')."
+   "notes": "2026-10-23: protocol, question for each study and verdict rule committed before any study is read (author: 'find as many studies as we can that have already been analyzed and blindly test them'). Impact: replication across laboratories; the rehearsal for a researcher's own blind run. Cost: GitHub machines only."
   }
  ],
  "not_tests": {
