@@ -1010,7 +1010,7 @@
      "date": "2026-10-22",
      "status": "running",
      "what": "Smallest share each instrument reads at each depth",
-     "next": "10 reads recorded (liver from 0.5 %, vessel read high, colon missed below 5 %); 30 and 60 running; list only tissues outside the blood as 'not added'",
+     "next": "10 and 60 reads recorded: small shares (below about 0.02) move with the draw and do not improve with depth; 30 running; then repeated draws at each depth to measure that spread (the split's own limit), tied to 39.12",
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/constructed_draw_05.py"
     },
     {
@@ -1056,7 +1056,7 @@
      "date": "2026-10-22",
      "status": "running",
      "what": "Met-A on sequencing: the chemistry offset (0.757 at full depth against the array-built atlas) and the loss of sensitivity at few reads",
-     "next": "10 and 30 reads recorded (CD4 T 5 %: 6.2 and 8.7 of its own error); 3 and 60 running; then a tare against healthy sequencing samples",
+     "next": "3, 10 and 30 reads recorded (CD4 T 5 %: 4.6, 6.2, 8.7 of its own error); 60 running; then a tare against healthy sequencing samples",
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/seq_plant_06.py"
     }
    ]

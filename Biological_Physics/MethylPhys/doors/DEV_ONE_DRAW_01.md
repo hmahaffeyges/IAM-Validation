@@ -104,3 +104,11 @@ added at shares 0.005, 0.01, 0.02 and 0.05 is found at 0.0049, 0.0082, 0.0197 an
 3 %) is a cell of the blood itself, which the constructed plasma carries; the line should list only tissues outside the blood, and is
 corrected in the next runs' summaries. Reading: at plasma-like depth the full-atlas split finds liver DNA from 0.5 % and puts it at the right
 size; vessel lining is found but read high; colon is missed at small shares, which is what the known mixtures showed on arrays as well.
+
+**Exploration 6 at 3 reads (explore run 39904694167):** CD4 T cells 5 % moves 4.6 of its own error, 20 % 16.8; NK cells 20 % 6.1. Even at 3 reads
+per site a 5 % loss in one cell stands clear (`run_06/seq_plant_06_depth3_summary.txt`).
+
+**Exploration 5 at 60 reads (explore run 39904662144):** `run_05/constructed_draw_05_depth60_summary.txt`. More depth did NOT make the small
+shares better: hepatocyte added at 0.005 is found at 0.0008 (at 10 reads: 0.0049), and vascular endothelium reads 0.0047 with none added. Each
+depth draws its reads with its own seed, so the small shares move with the draw. Reading: below about 0.02 the limit is the split itself, not
+the counting; the Deconvolver's resampled range (too narrow; a plan branch of step 39) must say so before any small share is reported.
