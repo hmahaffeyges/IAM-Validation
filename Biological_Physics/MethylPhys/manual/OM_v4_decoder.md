@@ -36,7 +36,7 @@ Read from the code at build time: the one command can load **32 Python files** h
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 111 | 10 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 155 | 8 | 0 | 0 |
-| `MethylPhys_Interface/run_series.py` | 124 | 6 | 0 | 0 |
+| `MethylPhys_Interface/run_series.py` | 126 | 6 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
 
 ## How to read the Decoder
@@ -3155,13 +3155,13 @@ One bundle's numbers for the table: Met-A, its tare, the C-Score, atlas Met-A an
 One shard of a pass, as described above; with `--plant`, the constructed loss is planted in the array's own saved values and read by the one
 command with the same references (Group-A's design: the planted and unplanted halves both by the values route).
 
-*Code:* `MethylPhys_Interface/run_series.py` line 56 (51 lines) · arguments: a, extra · calls: not called on the traced runs · constants read: `HERE` · files named: `_betas.parquet`, `_planted.csv`, `_planted.json`, `_values.csv`, `_values.json`
+*Code:* `MethylPhys_Interface/run_series.py` line 56 (53 lines) · arguments: a, extra · calls: not called on the traced runs · constants read: `HERE` · files named: `_betas.parquet`, `_planted.csv`, `_planted.json`, `_values.csv`, `_values.json`
 
 ### `run_series.py::table`
 
 One row per bundle, for the scorer.
 
-*Code:* `MethylPhys_Interface/run_series.py` line 108 (7 lines) · arguments: a · calls: not called on the traced runs · files named: `rows.csv`
+*Code:* `MethylPhys_Interface/run_series.py` line 110 (7 lines) · arguments: a · calls: not called on the traced runs · files named: `rows.csv`
 
 ## 20. One blood draw: `run_draw.py` (development, to-do step 40)
 

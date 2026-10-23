@@ -13,11 +13,13 @@ on:
       scorer:   {description: "optional script run on rows.csv (repo path), or none", required: true, default: "none"}
       nshards:  {description: "machines per pass (10 or 20)", required: true, default: "10"}
       rsflags:  {description: "extra run_sample.py flags for every reading (e.g. --cell-panel atlas), or none", required: true, default: "none"}
-permissions: {contents: read, issues: write}
+      pass1from: {description: "none (both passes here), only (pass 1 only), or comma-separated run ids whose pass-1 bundles pass 2 reads", required: true, default: "none"}
+permissions: {contents: read, issues: write, actions: read}
 env:
   RS: Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_series.py
 jobs:
   pass1:
+    if: inputs.pass1from == 'none' || inputs.pass1from == 'only'
     runs-on: ubuntu-24.04
     timeout-minutes: 350
     strategy: {fail-fast: false, matrix: {shard: "${{ fromJSON(inputs.nshards == '20' && '[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]' || '[0,1,2,3,4,5,6,7,8,9]') }}"}}
@@ -35,6 +37,7 @@ jobs:
         with: {name: "pass1-${{ matrix.shard }}", path: out/pass1/, if-no-files-found: ignore}
   pass2:
     needs: pass1
+    if: ${{ !cancelled() && inputs.pass1from != 'only' && needs.pass1.result != 'failure' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 350
     strategy: {fail-fast: false, matrix: {shard: "${{ fromJSON(inputs.nshards == '20' && '[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]' || '[0,1,2,3,4,5,6,7,8,9]') }}", scope: "${{ fromJSON(inputs.scopes) }}"}}
@@ -47,6 +50,13 @@ jobs:
       - uses: actions/download-artifact@v4
         continue-on-error: true
         with: {pattern: "pass1-*", path: out/pass1, merge-multiple: true}
+      - name: Pass-1 bundles from earlier runs (batched series, 2026-10-23)
+        if: inputs.pass1from != 'none' && inputs.pass1from != 'only'
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: |
+          mkdir -p out/pass1 p1tmp
+          for id in $(echo "${{ inputs.pass1from }}" | tr ',' ' '); do gh run download "$id" -R "$GITHUB_REPOSITORY" -p 'pass1-*' -D "p1tmp/$id" || echo "run $id: no pass-1 bundles"; done
+          find p1tmp -type f -exec cp -n {} out/pass1/ \; ; echo "pass-1 bundles: $(ls out/pass1/*.json 2>/dev/null | wc -l)"
       - run: |
           P=""; [ "${{ inputs.plant }}" != "none" ] && P="--plant ${{ inputs.plant }}"
           X=""; [ "${{ inputs.rsflags }}" != "none" ] && X="-- ${{ inputs.rsflags }}"
@@ -54,7 +64,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with: {name: "pass2-${{ matrix.scope }}-${{ matrix.shard }}", path: "out/pass2_${{ matrix.scope }}/", if-no-files-found: ignore}
   table:
-    needs: pass2
+    needs: [pass1, pass2]
     if: always()
     runs-on: ubuntu-24.04
     timeout-minutes: 60
@@ -76,6 +86,13 @@ jobs:
       - uses: actions/download-artifact@v4
         continue-on-error: true
         with: {pattern: "pass2-slide_else_series-*", path: out/pass2_slide_else_series, merge-multiple: true}
+      - name: Pass-1 bundles from earlier runs (batched series, 2026-10-23)
+        if: inputs.pass1from != 'none' && inputs.pass1from != 'only'
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: |
+          mkdir -p out/pass1 p1tmp
+          for id in $(echo "${{ inputs.pass1from }}" | tr ',' ' '); do gh run download "$id" -R "$GITHUB_REPOSITORY" -p 'pass1-*' -D "p1tmp/$id" || echo "run $id: no pass-1 bundles"; done
+          find p1tmp -type f -exec cp -n {} out/pass1/ \; ; echo "pass-1 bundles: $(ls out/pass1/*.json 2>/dev/null | wc -l)"
       - run: python3 $RS table out
       - if: inputs.scorer != 'none'
         run: python3 "${{ inputs.scorer }}" out/rows.csv "${{ inputs.samples }}" out 2>&1 | tee out/scorer.log

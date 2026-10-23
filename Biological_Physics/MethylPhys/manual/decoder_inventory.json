@@ -7052,7 +7052,7 @@
   },
   {
    "file": "MethylPhys_Interface/run_series.py",
-   "lines": 124,
+   "lines": 126,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_series.py",
@@ -7128,12 +7128,12 @@
      "function": "read",
      "name": "read",
      "line": 56,
-     "end": 106,
+     "end": 108,
      "args": [
       "a",
       "extra"
      ],
-     "lines": 51,
+     "lines": 53,
      "doc": "",
      "constants": [
       "HERE"
@@ -7151,8 +7151,8 @@
      "file": "MethylPhys_Interface/run_series.py",
      "function": "table",
      "name": "table",
-     "line": 108,
-     "end": 114,
+     "line": 110,
+     "end": 116,
      "args": [
       "a"
      ],

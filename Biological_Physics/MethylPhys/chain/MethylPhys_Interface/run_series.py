@@ -54,7 +54,9 @@ def bundle_row(p):
                 intake=(b.get("intake") or {}).get("stage0_verdict"), reason=d.get("reason") or m.get("reason") or b.get("refusal"))
 
 def read(a, extra):
-    S = pd.read_csv(a.samples, dtype={"slide": str}); S = S.iloc[a.shard::a.nshards]
+    S = pd.read_csv(a.samples, dtype={"slide": str, "read": str})
+    if "read" in S.columns: S = S[S["read"].astype(str).str.lower().isin(("yes", "1", "true"))]   # 2026-10-23: a batch reads only its own rows; the whole list still gives references and slides
+    S = S.iloc[a.shard::a.nshards]
     if S.empty: print(f"shard {a.shard} of {a.nshards}: no arrays in this shard"); return
     out = os.path.abspath(a.out); d1, d2, W = (os.path.join(out, x) for x in ("pass1", f"pass2_{a.scope}", f"work_{a.scope}_{a.shard}")); [os.makedirs(x, exist_ok=True) for x in (d1, d2, W)]
     P1 = P1v = None

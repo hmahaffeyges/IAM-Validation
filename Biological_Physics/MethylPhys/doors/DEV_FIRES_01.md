@@ -16,7 +16,7 @@ commissioned Met-A and C-Score are refused by the chain (no 450K neutrophil refe
 **Smoke run first:** four arrays from one slide (two controls, one breast and one colorectal case; `smoke_samples.csv`): does a 450K IDAT pass
 Stage 0 and Stage 1, and does every atlas reader fire. This is also plan branch 27.1 (a real 450K array with raw IDATs through Stage 1).
 
-**Then:** the whole series in batches across the GitHub machines; per person, each cell's share, Met-A, and the C-Scores as they are built
+**Then:** the whole series in four batches (`gse51032_batch1.csv` to `batch4.csv`: every row listed, so the references and slides are the whole series; the `read` column marks the quarter each batch reads, every fourth array in the list's order). Pass 1 of each batch on 20 machines (`series.yml` with `pass1from only`); then pass 2 of each batch reads its quarter tared against the 424 cancer-free references, from all four pass-1 runs (`pass1from` the four run ids); per person, each cell's share, Met-A, and the C-Scores as they are built
 (plan step 41), set against the years to diagnosis.
 
 ## What the earlier instrument saw, written before the chain reads the whole series

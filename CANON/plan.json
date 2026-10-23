@@ -155,7 +155,7 @@
      "status": "running",
      "what": "GSE51032 (EPIC-Italy, 845 whole bloods, 450K IDATs, breast and colorectal cases 0.02 to 14.4 years before diagnosis; spent): smoke run of 4 arrays",
      "record": "Biological_Physics/MethylPhys/doors/DEV_FIRES_01.md",
-     "next": "the smoke run; then the whole series in batches"
+     "next": "the smoke run (queued behind Group-A); then pass 1 of the four batches (gse51032_batch1-4.csv, pass1from only), then pass 2 of each from all four"
     },
     {
      "id": "42.2",
