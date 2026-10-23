@@ -4,10 +4,10 @@ saves its values; run_sample.py --build constructed-draw --dev-plant CELL:LOSS p
 reads are counted, then counts them at the depth given; run_sample.py --dev-seq-beta reads the buffy-coat half. Draws: healthy; CD4 T cells
 5 % and 20 %; NK cells 20 %. Reported: each planted cell's Met-A healthy and planted, the move, and the move in the reading's own error over
 sites. Nothing scored: the instrument tells what a loss moves at each depth. Usage: python3 seq_plant_06.py OUTDIR DEPTH"""
+# 2026-10-22: OUTDIR is made absolute, because the chain's builds run from their own folder
 import os, sys, json, re, subprocess, urllib.request, time
 H = os.path.dirname(os.path.abspath(__file__)); RS = os.path.abspath(os.path.join(H, "..", "..", "..", "chain", "MethylPhys_Interface", "run_sample.py"))
-out = os.path.abspath(sys.argv[1]);   # 2026-10-22: absolute, because the chain's builds run from its own folder
- DEPTH = int(sys.argv[2]); os.makedirs(out, exist_ok=True); G = "GSM7508429"
+out = os.path.abspath(sys.argv[1]); DEPTH = int(sys.argv[2]); os.makedirs(out, exist_ok=True); G = "GSM7508429"
 CH = os.path.abspath(os.path.join(H, "..", "..", "..", "chain", "MethylPhys_Interface"))
 base = f"https://ftp.ncbi.nlm.nih.gov/geo/samples/{G[:7]}nnn/{G}/suppl/"; files = {}
 for k in range(5):

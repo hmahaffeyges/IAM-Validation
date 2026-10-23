@@ -6,10 +6,10 @@ epithelium, each at share S, read as k of n reads per site); run_draw.py reads b
 0.5, 1, 2, 5 %; buffy coat at 30 reads per site, plasma at the depth given. Reported per draw: each added tissue's share found against the
 truth, and the largest share found for any tissue that was NOT added (the noise floor at that depth). Nothing scored: the instrument tells the
 smallest share it reads at each depth. Usage: python3 constructed_draw_05.py OUTDIR PLASMA_DEPTH"""
+# 2026-10-22: OUTDIR is made absolute, because the chain's builds run from their own folder
 import os, sys, json, re, subprocess, urllib.request, time
 H = os.path.dirname(os.path.abspath(__file__)); RS = os.path.abspath(os.path.join(H, "..", "..", "..", "chain", "MethylPhys_Interface", "run_sample.py"))
-out = os.path.abspath(sys.argv[1]);   # 2026-10-22: absolute, because the chain's builds run from its own folder
- DEPTH = int(sys.argv[2]); os.makedirs(out, exist_ok=True); G = "GSM7508429"
+out = os.path.abspath(sys.argv[1]); DEPTH = int(sys.argv[2]); os.makedirs(out, exist_ok=True); G = "GSM7508429"
 CH = os.path.abspath(os.path.join(H, "..", "..", "..", "chain", "MethylPhys_Interface")); RD = os.path.join(CH, "run_draw.py")
 base = f"https://ftp.ncbi.nlm.nih.gov/geo/samples/{G[:7]}nnn/{G}/suppl/"; files = {}
 for k in range(5):
