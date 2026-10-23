@@ -297,7 +297,16 @@
    ],
    "status": "open",
    "done_date": "",
-   "record": ""
+   "record": "",
+   "branches": [
+    {
+     "id": "14.1",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "THE TOP PHYSICS ITEM (author 2026-10-22: 'the firm rate derivation is a bit more important than I realized. That could be the thing that makes MET-A not require all the extra calibrations'): with the firm rate derived, the healthy disorder at each site follows from IAM's Law (M = 20.94, E_hold = phi M), so healthy samples confirm the schedule rather than set it; the same-run tare or self-tare still zeros each laboratory's meter",
+     "next": "the recount of the five DEV-ERASE-01 primaries on the commissioned counter (this step), on a machine large enough; then predict Met-A's healthy expectation from it and compare with the atlas on spent healthy samples"
+    }
+   ]
   },
   {
    "task": "When AWS returns: the mouse reproduction's per-number detail copied from its verdict file in S3 (results/REPRODUCE_V1/run13/out/mice/) into reproduce/verified.json | 2026-10-21 (author: push it to Zenodo for replication?): the mouse run stays an AWS job run as committed (16 threads, 64 GB; a 1-thread GitHub run may place reads differently and break 'every number identical'). Once AWS is back: (a) copy the run's verdict detail into verified.json; (b) upload the mouse intermediates (per-sample .pat files, with the full aligned files' SHA-256) to a Zenodo draft, each file checked, for the author to publish; (c) add a second mouse reproduction, 'from the Zenodo files', that recounts and rescores on GitHub, so all ten results are checkable without AWS (nine from raw public data, the mouse from its published intermediates), and the raw-data route stays for anyone with the machine. | 2026-10-21 later the same evening: the 1-thread memory test fit (peak 12.5 GB) and its SRR3111449 counts equal the committed 16-thread run's to the last digit (the test's tolerance of 0.0005 per run was written for thread-count differences), so the mouse reproduction runs on GitHub: mice_split.yml (13 jobs). The Zenodo copy of the mouse .pat files stays useful (a recount in minutes instead of a day of alignment). | 2026-10-22: the whole mouse reproduction now runs on GitHub (mice_split.yml, 19 jobs of two read sets on 1 thread, then the committed scorer and comparison; run 39751763935). When it passes it records every number itself and this step closes without AWS; the first split run lost 4 of 13 jobs to the time limit and was rebalanced | 2026-10-22: done on GitHub instead (mice_split.yml run 39751763935, 19 machines, 1 thread): 38 of 38 read sets, every read set's error rate identical to the committed 16-thread run, the sealed window met, PASS; verified.json holds the checks. The 1-thread worry did not happen. Zenodo intermediates (b, c) moved to step 19",
