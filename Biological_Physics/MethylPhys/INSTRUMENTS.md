@@ -61,7 +61,7 @@ Reads a mixed sample against IAM-Atlas v2.1 and reports each cell's share with i
 
 **The question:** How far has a tissue's tagging level drifted toward the ceiling?
 
-Reads the methylation level at sites a healthy cell holds firmly, against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils.
+Reads the methylation level at sites a healthy cell holds firmly, against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils. Each cell is read at its own identity sites, the sites it holds (where a loss can raise disorder) and healthy people agree on; reading every site is more sensitive but cannot say which cell is losing hold (DEV-EACH-CELL-01 exploration 4).
 
 **Reads:** arrays. **Where it stands:** commissioned (isolated neutrophils).
 

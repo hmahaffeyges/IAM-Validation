@@ -906,9 +906,9 @@
     {
      "id": "39.11",
      "date": "2026-10-22",
-     "status": "open",
+     "status": "done",
      "what": "Write why Met-A reads these sites in the book's Met-A chapter and INSTRUMENTS.md (the Decoder section is written)",
-     "next": "carry the Decoder's 'Why these sites' section, with exploration 4's numbers, into both"
+     "record": "docs/book/part6/p6_07_meta.tex (sec:meta_whysites); CANON/catalogue.json (Met-A); Decoder 'Why these sites'"
     }
    ]
   },
