@@ -44,10 +44,15 @@ thinned fractions of its molecules (`--dev-thin`, `--dev-seq-values 1`).
   computed exactly from n (a binomial sum, derived, nothing fitted) and used as the expectation at each site's own depth; then a same-chemistry
   healthy tare. Not sealed.
 
-## Exploration 4, written before it runs (2026-10-22; to-do 40.10): one draw, both halves, real healthy donors
+## Exploration 4, written before it runs (2026-10-22; plan step 40): one draw, both halves, real healthy donors
 GSE186888 holds whole-genome bisulfite sequencing (85x) of white blood cells and the matched plasma cell-free DNA of 23 healthy donors, as
 per-CpG count files (.beta). The chain now reads those (`run_sample.py --dev-seq-beta`). Under the scarce-data rule, only the first three donors
 by number are read here, declared spent in CANON/data_spent.csv before reading (`data/DEV_ONE_DRAW_01/gse186888_explore_samples.csv`); the other
 20 stay unread for the one-draw test that counts. `data/DEV_ONE_DRAW_01/one_draw_04.py` runs the one-draw runner on each donor's two files.
 Reported, nothing scored: each half's cells and shares, Met-A for each cell (untared), and what the plasma holds beyond the person's own
 white cells. IAM-A is not read: count files carry no molecules.
+
+**Exploration 4 withdrawn before any reading (2026-10-22).** The scarce-data rule reserves matched white cells and plasma from one person for
+the test that counts and never explores on them; declaring three donors spent did not satisfy it. The run was cancelled while still queued, so no
+GSE186888 file was downloaded or read, and the series is again wholly unread (removed from CANON/data_spent.csv). The `.beta` reader stays,
+checked on a constructed file.
