@@ -21,7 +21,7 @@ Read from the code at build time: the one command can load **33 Python files** h
 | `stage_q2_selfref.py` | 270 | 29 | 0 | 11 |
 | `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
 | `MethylPhys_Interface/report_pdf_v4.py` | 114 | 7 | 6 | 6 |
-| `MethylPhys_Interface/info_sphere_viewer.py` | 176 | 5 | 0 | 0 |
+| `MethylPhys_Interface/info_sphere_viewer.py` | 194 | 5 | 0 | 0 |
 | `stage_t_selftare.py` | 54 | 4 | 0 | 0 |
 | `stage_seq_values.py` | 114 | 6 | 0 | 0 |
 | `dev_comp_methods.py` | 216 | 17 | 0 | 0 |
@@ -3254,7 +3254,7 @@ Where to write each family's name: up to two directions where it is most enriche
 
 Writes the information sphere as one page with everything inside it: every site's direction, cell, sign, size and margin; the territory
 picture; the labels; and the page's own drawing code. The drawing turns the sphere, shows the territories, the sites as points, a wire
-graticule for depth, and reads which family's territory is under the pointer.
+graticule for depth, and reads which family's territory is under the pointer. Its page (2026-10-23, checked control by control): redraws only while turning or after a control changes; a family shown alone or one cell type chosen turns the sphere to face it and stops the turn; the readout states how strongly a family's sites gather, how many sites a chosen cell has at the slider's setting, and, on a sample with no changed territory, why nothing remains at full fade.
 
 *Code:* `MethylPhys_Interface/info_sphere_viewer.py` line 51 (34 lines) · arguments: path, X, cell, sgn, size, margin, cells, cell_family, families, title, about, sample · calls: not called on the traced runs · constants read: `CLEAR`, `PAGE`
 

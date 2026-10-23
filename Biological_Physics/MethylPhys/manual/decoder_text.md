@@ -2093,7 +2093,7 @@ Where to write each family's name: up to two directions where it is most enriche
 ### info_sphere_viewer.py::write
 Writes the information sphere as one page with everything inside it: every site's direction, cell, sign, size and margin; the territory
 picture; the labels; and the page's own drawing code. The drawing turns the sphere, shows the territories, the sites as points, a wire
-graticule for depth, and reads which family's territory is under the pointer.
+graticule for depth, and reads which family's territory is under the pointer. Its page (2026-10-23, checked control by control): redraws only while turning or after a control changes; a family shown alone or one cell type chosen turns the sphere to face it and stops the turn; the readout states how strongly a family's sites gather, how many sites a chosen cell has at the slider's setting, and, on a sample with no changed territory, why nothing remains at full fade.
 
 ### stage_info_sphere.py::build
 The layout and its report: variance kept, sky covered and masked, distance agreement on 5,000 seeded pairs, edge ratio, and for each named

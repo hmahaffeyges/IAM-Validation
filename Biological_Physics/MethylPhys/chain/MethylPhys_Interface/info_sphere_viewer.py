@@ -101,8 +101,9 @@ PAGE = r"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>__T
 <div class="stage"><canvas id="c" width="720" height="720"></canvas></div>
 <div class="side"><h1>__TITLE__<span class="dev">development</span></h1>
 <div class="sub">Drag to turn. Each point of light is a site of the genome, placed by how it behaves across IAM-Atlas v2.1's 79 healthy cell types.</div>
-<div class="row"><button id="all">Show every family</button><button id="far">Far side</button><button id="spin" class="on">Turning</button><button id="lab" class="on">Labels</button><button id="ter" class="on">Territories</button><button id="dst">Every site</button></div>
-<div class="row"><button id="d2" class="on">Both sides</button><button id="d0">Unmethylated in their cell</button><button id="d1">Methylated in their cell</button></div>
+<div class="row"><button title="Bring back every family after showing one alone" id="all">Show every family</button><button title="Also draw the sites on the far side of the sphere, faintly, through it" id="far">Far side</button><button title="Start or stop the slow turn" id="spin" class="on">Turning</button><button title="Show or hide the family names on the territories" id="lab" class="on">Labels</button><button title="Show or hide the colored territories behind the sites" id="ter" class="on">Territories</button><button title="Also draw the sites that do not stand apart, as faint dust" id="dst">Every site</button></div>
+<div class="row"><button title="Sites of both kinds" id="d2" class="on">Both sides</button><button title="Only sites a cell keeps unmarked where others mark them" id="d0">Unmethylated in their cell</button><button title="Only sites a cell keeps marked where others leave them unmarked" id="d1">Methylated in their cell</button></div>
+<div class="sub" style="margin:6px 0">How to use: drag the sphere to turn it. Click a family below to show it alone (the sphere turns to face it); click it again, or <i>Show every family</i>, to bring all back. Choose one cell type to light only its sites. The slider sets how strongly a site must stand apart in one cell to be colored. Hover over a territory to read it.</div>
 <div class="legend" id="lg"></div>
 <label>Light one cell type's sites</label><select id="one"><option value="-1">every cell type</option></select>
 <label>Color a site when it stands apart in one cell by at least: <span id="mv"></span></label><input id="mgn" type="range" min="0" max="100" value="25">
@@ -118,12 +119,13 @@ const hex=h=>[parseInt(h.slice(1,3),16)/255,parseInt(h.slice(3,5),16)/255,parseI
 const UPA=dec(D.up,Uint8Array),FC=D.fam.map(f=>hex(f[1])),CF=D.cf,on=D.fam.map(()=>true);let one=-1,far=false,spin=true,mth=D.clear,layer='role',dir=2,lab=true;
 const lg=document.getElementById('lg');
 D.fam.forEach((f,k)=>{const e=document.createElement('div');e.className='lg';e.innerHTML='<span class="sw" style="color:'+f[1]+'"></span>'+f[0]+'<span class="n">'+D.ccounts[k].toLocaleString()+'</span>';
- e.onclick=()=>{const solo=on.every((v,j)=>j===k?v:!v);if(solo){on.fill(true)}else{on.fill(false);on[k]=true}upd()};lg.appendChild(e)});
+ e.onclick=()=>{const solo=on.every((v,j)=>j===k?v:!v);if(solo){on.fill(true)}else{on.fill(false);on[k]=true;faceFamily(k)}upd()};lg.appendChild(e)});
 function upd(){[...lg.children].forEach((e,k)=>e.classList.toggle('off',!on[k]));}
-const sel=document.getElementById('one');D.cells.map((c,i)=>[c,i]).sort().forEach(([c,i])=>{const o=document.createElement('option');o.value=i;o.textContent=c;sel.appendChild(o)});
-sel.onchange=()=>{one=+sel.value};document.getElementById('all').onclick=()=>{on.fill(true);upd()};
+const sel=document.getElementById('one');const CNT=new Int32Array(D.cells.length);for(let i=0;i<N;i++){if(MG[i]/255*0.4>=D.clear)CNT[CE[i]]++}
+D.cells.map((c,i)=>[c,i]).sort().forEach(([c,i])=>{const o=document.createElement('option');o.value=i;o.textContent=c+' ('+CNT[i].toLocaleString()+' sites)';sel.appendChild(o)});
+sel.onchange=()=>{one=+sel.value;if(one>=0){const n=faceTo(i=>CE[i]===one&&MG[i]/255*0.4>=mth);oneN=n}};let oneN=0;document.getElementById('all').onclick=()=>{on.fill(true);solo=-1;upd()};
 const fb=document.getElementById('far');fb.onclick=()=>{far=!far;fb.classList.toggle('on',far)};const sb=document.getElementById('spin');sb.onclick=()=>{spin=!spin;sb.classList.toggle('on',spin)};
-const mr=document.getElementById('mgn'),mv=document.getElementById('mv');const mset=()=>{mth=+mr.value/100*0.4;mv.textContent=mth.toFixed(2)+' more than in any other cell'+(mth?'; the rest drawn as dust':'')};mr.oninput=mset;mset();
+const mr=document.getElementById('mgn'),mv=document.getElementById('mv');const mset=()=>{mth=+mr.value/100*0.4;mv.textContent=mth.toFixed(2)+' more than in any other cell'+(mth?'; the rest drawn as dust':'')};mr.oninput=()=>{mset();if(one>=0){const was=oneN;let n=0;for(let i=0;i<N;i++)if(CE[i]===one&&MG[i]/255*0.4>=mth)n++;oneN=n;if(was===0&&n>0)faceTo(i=>CE[i]===one&&MG[i]/255*0.4>=mth)}};mset();
 const dB=[0,1,2].map(k=>document.getElementById('d'+k));dB.forEach((b,k)=>b.onclick=()=>{dir=k;dB.forEach((x,j)=>x.classList.toggle('on',j===k))});
 const tb=document.getElementById('ter');tb.onclick=()=>{terr=!terr;tb.classList.toggle('on',terr)};const db=document.getElementById('dst');db.onclick=()=>{dust=!dust;db.classList.toggle('on',dust)};
 const lb=document.getElementById('lab');lb.onclick=()=>{lab=!lab;lb.classList.toggle('on',lab)};
@@ -131,20 +133,35 @@ let fade=0;const LT=D.lit?dec(D.lit,Uint8Array):null,CHT=D.chg?dec(D.chg,Uint8Ar
 if(SM){layer='smp';document.getElementById('lay').style.display='';document.getElementById('layer').onchange=e=>{layer=e.target.value};document.getElementById('fx').textContent=D.smpfix||'';
  const fd=document.getElementById('fd'),fv=document.getElementById('fv');const fs=()=>{fade=+fd.value/100;fv.textContent=fade===0?'the whole sphere':fade===1?'only the change':'the rest fading to dark'};fd.oninput=fs;fs()}
 const TX=dec(D.tex,Uint8Array),TT=dec(D.ttop,Uint8Array),TE=dec(D.ten,Uint8Array),TH=D.th,TW=D.tw;let terr=true,dust=false,mx=-1,my=-1;
-function texAt(x,y,z){const la=Math.asin(Math.max(-1,Math.min(1,y))),lo=Math.atan2(z,x);let v=(0.5-la/Math.PI)*TH-0.5,u=((lo+Math.PI)/(2*Math.PI))*TW-0.5;
- const v0=Math.max(0,Math.min(TH-1,Math.floor(v))),v1=Math.min(TH-1,v0+1),fv=Math.max(0,Math.min(1,v-v0));const u0=((Math.floor(u)%TW)+TW)%TW,u1=(u0+1)%TW,fu=u-Math.floor(u);
- const o=[0,0,0];for(const [vv,wv] of[[v0,1-fv],[v1,fv]])for(const [uu,wu] of[[u0,1-fu],[u1,fu]]){const k=(vv*TW+uu)*3,w=wv*wu;o[0]+=TX[k]*w;o[1]+=TX[k+1]*w;o[2]+=TX[k+2]*w}
- return[o,TT[v0*TW+u0],TE[v0*TW+u0]/20]}
+let T0=0,T1=0,T2=0,TTo=0,TEo=0,TV=0,TU=0;
+function texAt(x,y,z){const la=Math.asin(y<-1?-1:y>1?1:y),lo=Math.atan2(z,x);const v=(0.5-la/Math.PI)*TH-0.5,u=((lo+Math.PI)/(2*Math.PI))*TW-0.5;
+ let v0=Math.floor(v);const fv=v-v0;v0=v0<0?0:v0>TH-1?TH-1:v0;const v1=v0+1>TH-1?TH-1:v0+1;let u0=Math.floor(u);const fu=u-u0;u0=((u0%TW)+TW)%TW;const u1=(u0+1)%TW;
+ const a=(v0*TW+u0)*3,b=(v0*TW+u1)*3,c=(v1*TW+u0)*3,d=(v1*TW+u1)*3,wa=(1-fv)*(1-fu),wb=(1-fv)*fu,wc=fv*(1-fu),wd=fv*fu;
+ T0=TX[a]*wa+TX[b]*wb+TX[c]*wc+TX[d]*wd;T1=TX[a+1]*wa+TX[b+1]*wb+TX[c+1]*wc+TX[d+1]*wd;T2=TX[a+2]*wa+TX[b+2]*wb+TX[c+2]*wc+TX[d+2]*wd;
+ TTo=TT[v0*TW+u0];TEo=TE[v0*TW+u0]/20;TV=Math.max(0,Math.min(TH-1,((0.5-la/Math.PI)*TH)|0));TU=Math.max(0,Math.min(TW-1,(((lo+Math.PI)/(2*Math.PI))*TW)|0))}
 const cv=document.getElementById('c'),cx=cv.getContext('2d'),W=cv.width,H=cv.height,R=W*0.45,C0=W/2;
 const img=cx.createImageData(W,H),acc=new Float32Array(W*H*3);
+const PU=new Float32Array(W*H),PV=new Float32Array(W*H),PZ=new Float32Array(W*H),PIN=new Uint8Array(W*H),PBR=new Float32Array(W*H);
+for(let p=0;p<W*H;p++){const xx=(p%W)-C0,yy=(p/W|0)-C0,rr=Math.sqrt(xx*xx+yy*yy)/R;PBR[p]=rr<1?0.018+0.03*(1-rr):Math.max(0,0.05*(1-(rr-1)*12));
+ if(rr<1){PIN[p]=1;PU[p]=xx/R;PV[p]=-yy/R;PZ[p]=Math.sqrt(Math.max(0,1-PU[p]*PU[p]-PV[p]*PV[p]))}}
+const TONE=new Uint8Array(4096);for(let i=0;i<4096;i++)TONE[i]=Math.round(255*(1-Math.exp(-i/512)));
+const tone=t=>t>=7.99?255:TONE[(t*512)|0];
+let dirty=true;document.addEventListener('click',()=>{dirty=true},true);document.addEventListener('input',()=>{dirty=true},true);document.addEventListener('change',()=>{dirty=true},true);
 let ry=0.6,rx=-0.35,drag=null;
 cv.onpointerdown=e=>{drag=[e.clientX,e.clientY,ry,rx];cv.setPointerCapture(e.pointerId);cv.style.cursor='grabbing'};
-cv.onpointermove=e=>{if(!drag)return;ry=drag[2]+(e.clientX-drag[0])*0.008;rx=Math.max(-1.5,Math.min(1.5,drag[3]+(e.clientY-drag[1])*0.008))};
-cv.onpointerup=()=>{drag=null;cv.style.cursor='grab'};cv.onmouseleave=()=>{mx=-1};cv.addEventListener('mousemove',e=>{const b=cv.getBoundingClientRect();mx=(e.clientX-b.left)*W/b.width;my=(e.clientY-b.top)*H/b.height});
+cv.onpointermove=e=>{if(!drag)return;dirty=true;ry=drag[2]+(e.clientX-drag[0])*0.008;rx=Math.max(-1.5,Math.min(1.5,drag[3]+(e.clientY-drag[1])*0.008))};
+cv.onpointerup=()=>{drag=null;cv.style.cursor='grab'};cv.onmouseleave=()=>{mx=-1};cv.addEventListener('mousemove',e=>{const b=cv.getBoundingClientRect();mx=(e.clientX-b.left)*W/b.width;my=(e.clientY-b.top)*H/b.height;dirty=true});
+function faceVec(x,y,z){const h=Math.hypot(x,z);ry=Math.atan2(-x,z);rx=Math.max(-1.5,Math.min(1.5,Math.atan2(y,h)));spin=false;sb.classList.toggle('on',false);dirty=true}
+let solo=-1,soloE=0;
+function faceFamily(k){let best=-1,bi=-1;for(let j=0;j<TH*TW;j++){if(TT[j]===k&&TE[j]>best){best=TE[j];bi=j}}   // the family's most concentrated place on its territory map
+ solo=k;soloE=best/20;if(bi<0){faceTo(i=>CF[CE[i]]===k&&MG[i]/255*0.4>=mth);return}const v=(bi/TW|0)+0.5,u=(bi%TW)+0.5,la=(0.5-v/TH)*Math.PI,lo=u/TW*2*Math.PI-Math.PI;
+ faceVec(Math.cos(la)*Math.cos(lo),Math.sin(la),Math.cos(la)*Math.sin(lo))}
+function faceTo(m){let x=0,y=0,z=0,n=0;const s=1/32767;for(let i=0;i<N;i++){if(!m(i))continue;x+=P[3*i]*s;y+=P[3*i+1]*s;z+=P[3*i+2]*s;n++}
+ if(n<5)return n;const h=Math.hypot(x,z);ry=Math.atan2(-x,z);rx=Math.max(-1.5,Math.min(1.5,Math.atan2(y,h)));spin=false;sb.classList.toggle('on',false);dirty=true;return n}
 function rot(){const cy=Math.cos(ry),sy=Math.sin(ry),cxx=Math.cos(rx),sx=Math.sin(rx);return[cy,0,sy, sx*sy,cxx,-sx*cy, -cxx*sy,sx,cxx*cy]}
 function put(x,y,r,g,b,w){const i=x|0,j=y|0;if(i<1||j<1||i>=W-1||j>=H-1)return;let k=(j*W+i)*3;acc[k]+=r*w;acc[k+1]+=g*w;acc[k+2]+=b*w;const h=w*0.35;
  for(const d of[3,-3,W*3,-W*3]){acc[k+d]+=r*h;acc[k+d+1]+=g*h;acc[k+d+2]+=b*h}}
-function frame(){if(spin&&!drag)ry+=0.0035;acc.fill(0);const M=rot();
+function frame(){if(!(spin&&!drag)&&!dirty){requestAnimationFrame(frame);return}dirty=false;if(spin&&!drag)ry+=0.0035;acc.fill(0);const M=rot();
  for(let a=0;a<6;a++){const ph=a*Math.PI/6;for(let t=0;t<200;t++){const th=t/200*2*Math.PI,x0=Math.cos(th)*Math.cos(ph),z0=Math.cos(th)*Math.sin(ph),y0=Math.sin(th);
   const X=M[0]*x0+M[1]*y0+M[2]*z0,Y=M[3]*x0+M[4]*y0+M[5]*z0,Z=M[6]*x0+M[7]*y0+M[8]*z0;put(C0+R*X,C0-R*Y,.35,.42,.75,Z>0?.10:.035)}}
  for(let a=1;a<6;a++){const la=-Math.PI/2+a*Math.PI/6,cl=Math.cos(la),sl=Math.sin(la);for(let t=0;t<220;t++){const th=t/220*2*Math.PI,x0=cl*Math.cos(th),z0=cl*Math.sin(th),y0=sl;
@@ -153,23 +170,24 @@ function frame(){if(spin&&!drag)ry+=0.0035;acc.fill(0);const M=rot();
  for(let i=0;i<N;i++){const c=CE[i],f=CF[c];if(f<0)continue;const clear=MG[i]/255*0.4>=mth,match=on[f]&&(dir===2||UPA[i]===dir);
   const x0=P[3*i]*s,y0=P[3*i+1]*s,z0=P[3*i+2]*s,Z=M[6]*x0+M[7]*y0+M[8]*z0;if(Z<0&&!far)continue;
   const X=M[0]*x0+M[1]*y0+M[2]*z0,Y=M[3]*x0+M[4]*y0+M[5]*z0;let r,g,b,w;
-  if(layer==='smp'&&SM){const v=SM[i],l=LT?LT[i]:0;if(l){r=l===1?1:.2;g=.25;b=l===2?1:.2;w=.6}else if(v===-128){if(!dust)continue;r=g=b=.3;w=.01*(1-fade)}else{const a=v/127;r=a>0?1:.4;g=.45;b=a<0?1:.4;w=(.015+.12*Math.abs(a))*(1-fade)}}
-  else if(clear&&match){const col=FC[f];r=col[0];g=col[1];b=col[2];w=(terr?.09:.16)+(terr?.32:.6)*ST[i]/255;if(one>=0){if(c===one)w=.95;else w*=.06}}
-  else{if(!dust)continue;r=.55;g=.6;b=.85;w=.018}
+  if(layer==='smp'&&SM){const v=SM[i],l=LT?LT[i]:0;if(l){r=l===1?1:.2;g=.25;b=l===2?1:.2;w=1.4}else if(v===-128){if(!dust)continue;r=g=b=.3;w=.01*(1-fade)}else{const a=v/127;r=a>0?1:.35;g=.4;b=a<0?1:.35;w=(.03+.42*Math.abs(a))*(1-fade)}}
+  else if(clear&&match){const col=FC[f];r=col[0];g=col[1];b=col[2];w=((terr?.09:.16)+(terr?.32:.6)*ST[i]/255)*(solo>=0&&on.filter(x=>x).length===1?2:1);if(one>=0&&oneN>0){if(c===one)w=1.6;else w*=.04}}
+  else{if(!dust)continue;r=.55;g=.6;b=.85;w=.06}
   if(Z<0)w*=.25;else w*=.55+.45*Z;put(C0+R*X,C0-R*Y,r,g,b,w);if(clear&&match)shown++}
- const d=img.data;let hov=null;for(let p=0,k=0;p<W*H;p++,k+=3){const xx=(p%W)-C0,yy=(p/W|0)-C0,rr=Math.sqrt(xx*xx+yy*yy)/R;
-  let br=rr<1?0.018+0.03*(1-rr):Math.max(0,0.05*(1-(rr-1)*12));const q=p*4;
-  if(terr&&rr<1){const u=xx/R,v=-yy/R,z=Math.sqrt(Math.max(0,1-u*u-v*v));const wx=M[0]*u+M[3]*v+M[6]*z,wy=M[1]*u+M[4]*v+M[7]*z,wz=M[2]*u+M[5]*v+M[8]*z;
-   const [o,tt,te]=texAt(wx,wy,wz);const sh=0.55+0.45*z,bg=layer==='smp'?0.55*(1-fade):0.9;acc[k]+=o[0]/255*sh*bg;acc[k+1]+=o[1]/255*sh*bg;acc[k+2]+=o[2]/255*sh*bg;
-   if(layer==='smp'&&CHT){const la=Math.asin(Math.max(-1,Math.min(1,wy))),lo=Math.atan2(wz,wx),vv=Math.max(0,Math.min(TH-1,((0.5-la/Math.PI)*TH)|0)),uu=Math.max(0,Math.min(TW-1,(((lo+Math.PI)/(2*Math.PI))*TW)|0)),q3=(vv*TW+uu)*3;
-    acc[k]+=CHT[q3]/255*sh*1.3;acc[k+1]+=CHT[q3+1]/255*sh*1.3;acc[k+2]+=CHT[q3+2]/255*sh*1.3}
-   if(mx>=0&&Math.abs((p%W)-mx)<0.5&&Math.abs((p/W|0)-my)<0.5)hov=[tt,te]}
-  d[q]=255*(1-Math.exp(-(acc[k]*1.6+br*0.5)));d[q+1]=255*(1-Math.exp(-(acc[k+1]*1.6+br*0.6)));d[q+2]=255*(1-Math.exp(-(acc[k+2]*1.6+br*1.4)));d[q+3]=255}
+ const d=img.data;let hov=null;const bg=layer==='smp'?0.3*(1-fade):0.9,chg=layer==='smp'&&CHT,hp=mx>=0?((my|0)*W+(mx|0)):-1;
+ for(let p=0,k=0,q=0;p<W*H;p++,k+=3,q+=4){const br=PBR[p];
+  if(terr&&PIN[p]){const u=PU[p],v=PV[p],z=PZ[p];texAt(M[0]*u+M[3]*v+M[6]*z,M[1]*u+M[4]*v+M[7]*z,M[2]*u+M[5]*v+M[8]*z);const sh=0.55+0.45*z,f=sh*bg*(on[TTo]?1:0.08)*(one>=0&&oneN>0?0.15:dir!==2?0.45:1)/255;
+   acc[k]+=T0*f;acc[k+1]+=T1*f;acc[k+2]+=T2*f;
+   if(chg){const q3=(TV*TW+TU)*3,g=sh*1.3/255;acc[k]+=CHT[q3]*g;acc[k+1]+=CHT[q3+1]*g;acc[k+2]+=CHT[q3+2]*g}
+   if(p===hp)hov=[TTo,TEo]}
+  d[q]=tone(acc[k]*1.6+br*0.5);d[q+1]=tone(acc[k+1]*1.6+br*0.6);d[q+2]=tone(acc[k+2]*1.6+br*1.4);d[q+3]=255}
  cx.putImageData(img,0,0);
  if(lab){cx.font='12px -apple-system,Helvetica,Arial,sans-serif';cx.textAlign='center';for(const t of D.peaks){const [k,x0,y0,z0]=t;const up=-1;if(!on[k])continue;
   const X=M[0]*x0+M[1]*y0+M[2]*z0,Y=M[3]*x0+M[4]*y0+M[5]*z0,Z=M[6]*x0+M[7]*y0+M[8]*z0;if(Z<0.15)continue;const px=C0+R*X*0.97,py=C0-R*Y*0.97;
   cx.globalAlpha=Math.min(1,(Z-0.15)*2.2);cx.fillStyle='rgba(3,4,10,.55)';const txt=D.fam[k][0];const tw=cx.measureText(txt).width;cx.fillRect(px-tw/2-4,py-9,tw+8,16);
   cx.fillStyle=D.fam[k][1];cx.fillText(txt,px,py+3)}cx.globalAlpha=1}
- document.getElementById('rd').textContent=(hov&&hov[1]>1.2?'Pointer: '+D.fam[hov[0]][0]+' territory, '+hov[1].toFixed(1)+' times its share. ':'')+shown.toLocaleString()+' sites colored in view'+(far?' (both sides)':' (the near side)')+'; \u25BC unmethylated in their cell, \u25B2 methylated';requestAnimationFrame(frame)}
+ const nLit=LT?LT.reduce((a,v)=>a+(v?1:0),0):0;
+ if(SM)document.getElementById('fx').textContent=(D.smpfix||'')+(layer==='smp'&&fade>0.5&&nLit===0?' No territory changed in this sample, so nothing remains as the rest fades: this sample matches its own expected healthy self.':'');
+ document.getElementById('rd').textContent=(solo>=0&&on.filter(x=>x).length===1?D.fam[solo][0]+' alone: its sites gather at most '+soloE.toFixed(1)+' times their share'+(soloE<3?', so they are spread over the sphere rather than in one territory. ':' (the bright territory). '):'')+(one>=0?(oneN>0?D.cells[one]+': '+oneN.toLocaleString()+' sites stand apart in this cell, lit bright. ':'No site of '+D.cells[one]+' stands apart at this setting: move the slider left to see more. '):'')+(hov&&hov[1]>1.2?'Pointer: '+D.fam[hov[0]][0]+' territory, '+hov[1].toFixed(1)+' times its share. ':'')+shown.toLocaleString()+' sites colored in view'+(far?' (both sides)':' (the near side)')+'; \u25BC unmethylated in their cell, \u25B2 methylated';requestAnimationFrame(frame)}
 upd();frame();
 </script></body></html>"""
