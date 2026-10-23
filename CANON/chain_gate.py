@@ -32,6 +32,9 @@ OWN_PAT = re.compile(r"\\\.pat\\\.gz|\.pat\.gz")
 OWN_FETCH = re.compile(r"urlopen|urlretrieve|requests\.get|curl |wget ")
 def own_pat_refusal(f, text):
     """Rule 23b-g: a .pat file downloaded by the script instead of by the chain."""
+    # 2026-10-22: a script that MAKES its .pat from raw reads (wgbstools bam2pat; the chain has no aligner) and then counts it with the one
+    # command is not fetching a .pat; it must still hand the file to run_sample.py
+    if re.search(r"wgbstools bam2pat", text) and ONE_COMMAND.search(text): return None
     if OWN_PAT.search(text) and OWN_FETCH.search(text) and not re.search(r"geo_pat|--geo-pat|--prior-geo-pat", text):
         return f"{f}: downloads a .pat file itself; let the chain fetch it on the build it reads (run_sample.py --geo-pat GSM, or stage_q0_intake.geo_pat) (rule 23b-g)"
     return None

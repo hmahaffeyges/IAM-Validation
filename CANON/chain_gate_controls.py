@@ -14,7 +14,9 @@ tree and feeds the gate the mistakes it must refuse, plus one correct test it mu
  C11 a test script that runs the one command                                                                -> ACCEPT
  C12 a website picture script calling the globe code directly                                               -> REFUSE
  C13 a test script downloading a .pat file itself (the lesson C34 pattern), even though it runs the one command -> REFUSE
- C14 a test script letting the chain fetch the .pat (--geo-pat)                                            -> ACCEPT"""
+ C14 a test script letting the chain fetch the .pat (--geo-pat)                                            -> ACCEPT
+ C15 a script that makes its .pat from raw reads (wgbstools bam2pat) and counts it with the one command       -> ACCEPT
+ C16 the same, counting it with chain pieces instead of the one command                                       -> REFUSE"""
 import os, sys, json, tempfile, hashlib, importlib.util
 H = os.path.dirname(os.path.abspath(__file__)); spec = importlib.util.spec_from_file_location("cg", os.path.join(H, "chain_gate.py")); CG = importlib.util.module_from_spec(spec); spec.loader.exec_module(CG)
 def tree():
@@ -56,7 +58,11 @@ r = tree(); w(r, S1, "import subprocess, urllib.request, re\nn = re.findall(r'GS
 res["C13 own .pat download"] = CG.check([S1], {}, root=r, known={CG.chain_sha(r)})
 r = tree(); w(r, S1, "import subprocess\nsubprocess.run(['python3', 'chain/MethylPhys_Interface/run_sample.py', '--geo-pat', 'GSM1'])   # the .pat.gz is fetched by the chain\n")
 res["C14 chain fetches the .pat"] = CG.check([S1], {}, root=r, known={CG.chain_sha(r)})
-want = {k: (k.startswith(("C7", "C9", "C11", "C14"))) for k in res}
+r = tree(); w(r, S1, "import subprocess\nsubprocess.run('curl -o g.fa.gz https://x/ && wgbstools bam2pat s.bam -o pat', shell=True)\nsubprocess.run(['python3', 'chain/MethylPhys_Interface/run_sample.py', '--pat', 'pat/s.pat.gz', '--dev-count-only'])\n")
+res["C15 .pat made from reads, counted by the one command"] = CG.check([S1], {}, root=r, known={CG.chain_sha(r)})
+r = tree(); w(r, S1, "import subprocess\nsubprocess.run('curl -o g.fa.gz https://x/ && wgbstools bam2pat s.bam -o pat', shell=True)\nimport stage_q2_selfref as Q2\nQ2.count_pat(open('pat/s.pat.gz'), {})\n")
+res["C16 .pat made from reads, counted by chain pieces"] = CG.check([S1], {}, root=r, known={CG.chain_sha(r)})
+want = {k: (k.startswith(("C7", "C9", "C11", "C14", "C15"))) for k in res}
 bad = [k for k, F in res.items() if (len(F) == 0) != want[k]]
 for k, F in res.items(): print(f"  {k}: {'ACCEPTED' if not F else 'REFUSED'} (want {'ACCEPT' if want[k] else 'REFUSE'})" + ("" if not F else f" - {F[0][-110:]}"))
 print("chain_gate_controls: " + (f"ok ({len(res)} of {len(res)})" if not bad else "FAILED: " + ", ".join(bad))); sys.exit(1 if bad else 0)

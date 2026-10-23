@@ -339,6 +339,9 @@ def main():
     ap.add_argument("--build-construction", default=None, choices=("v1", "v5"), help="--build info-sphere: v1 (default) or v5, the level taken out (DEV-SPHERE-01, development)")
     ap.add_argument("--build-mix", default=None, metavar="TISSUE:SHARE,...", help="--build constructed-draw: atlas tissues added to the plasma half and their shares (tests only)")
     ap.add_argument("--build-depth", default=None, metavar="BUFFY,PLASMA", help="--build constructed-draw: reads per site in each half (default 30,15)")
+    ap.add_argument("--dev-count-only", action="store_true",
+                    help="DEVELOPMENT (to-do 14): with --pat, record Stage Q2's count (held error and opportunities) even where Stage Q0 refuses an IAM-A reading, flagged; for tests on samples without a healthy reference (cell lines, mouse)")
+    ap.add_argument("--dev-count-genome", default="hg19", choices=("hg19", "mm10"), help="--dev-count-only: the genome the .pat was made on (recorded)")
     ap.add_argument("--dev-metaa-specific", default=None, metavar="DELTA[,DELTA]",
                     help="DEVELOPMENT (39.9): also read Met-A for each cell on sites held by that cell and differing by at least DELTA from every other cell of the panel")
     ap.add_argument("--dev-seq-beta", default=None, metavar="FILE.beta[.gz]",
@@ -853,6 +856,13 @@ def main():
                                  "sample-shape check refuses a cell type with no healthy reference"}
             print("Stage Q0: not run on a BAM (its checks are for .pat files); Stage Q2 records conversion and substitution rates", flush=True)
         qi = o.get("iam_a_intake") or {}
+        if a.dev_count_only and a.pat:   # 2026-10-22 (to-do 14; read and flag): Stage Q2's count recorded even where intake refuses a reading
+            print("Stage Q2: counting only (development, --dev-count-only): held error and its opportunities, flagged", flush=True)
+            _c0 = V4.count_sequencing(pat=a.pat)
+            o["iam_a_count_only"] = dict(stage="Q2 count (development)", flag="DEVELOPMENT, NOT COMMISSIONED: Stage Q2's count only; no IAM-A reading",
+                                         genome=a.dev_count_genome, intake_decision=qi.get("decision"), intake_refusal=qi.get("refusal"),
+                                         count={k: _c0.get(k) for k in ("held_err", "held_opp", "loose_share", "tiles")},
+                                         note=(None if a.dev_count_genome == "hg19" else "the loose share uses hg19 tiles and has no meaning on " + a.dev_count_genome + "; the held error does not depend on the genome"))
         if qi.get("refusal_code"):
             o["iam_a"] = {"stage": "Q2", "reading": "IAM-A", "cell": a.seq_cell, "A": None, "refusal_code": qi["refusal_code"], "refusal": f"Stage Q0 stopped the file: {qi['refusal']}", "input": src}
         else:

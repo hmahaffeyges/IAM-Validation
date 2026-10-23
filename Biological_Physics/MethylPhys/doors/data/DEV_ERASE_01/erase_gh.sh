@@ -18,13 +18,28 @@ MM="$S/bin/micromamba -r $S/mamba"; log(){ echo "$(date -u +%H:%M:%S) $*"; }
 export PATH=$S/e_st19/bin:$S/e_wgbs/bin:$S/e_bm/bin:$S/e_sbb/bin:$S/e_sra/bin:$S/wgbs_tools:$PATH
 { bwameth.py --version 2>&1 | head -1; samtools --version | head -1; sambamba 2>&1 | grep -m1 sambamba; fastq-dump --version | grep -m1 dump; echo "wgbstools $(git -C $S/wgbs_tools describe --tags)"; } | tee $OUT/versions.txt
 gen=$(awk -F, -v g=$GSM '$3==g{print $5; exit}' $E/erase_samples.csv); [ -n "$gen" ] || { echo "$GSM not in erase_samples.csv"; exit 19; }
-[ "$gen" = "mm10" ] || { echo "hg19 with lambda and pUC19: not yet built for GitHub"; exit 20; }
-REF=$S/ref/mm10.fa; T0=$(date +%s)
-if [ ! -s $REF.bwameth.c2t.sa ]; then
-  /usr/bin/curl -fsSL --retry 5 --retry-delay 30 -o $S/ref/mm10.fa.gz https://hgdownload.soe.ucsc.edu/goldenPath/mm10/bigZips/mm10.fa.gz || exit 18
-  gunzip -f $S/ref/mm10.fa.gz && bgzip -@ 4 -c $REF > $S/ref/mm10.fa.gz || exit 23
-  wgbstools init_genome mm10 --fasta_path $S/ref/mm10.fa.gz -@ 4 -f > $S/logs/init_genome.log 2>&1 || exit 25
-  bwameth.py index $REF > $S/logs/index.log 2>&1 || exit 26
+T0=$(date +%s)
+if [ "$gen" = "mm10" ]; then
+  REF=$S/ref/mm10.fa
+  if [ ! -s $REF.bwameth.c2t.sa ]; then
+    /usr/bin/curl -fsSL --retry 5 --retry-delay 30 -o $S/ref/mm10.fa.gz https://hgdownload.soe.ucsc.edu/goldenPath/mm10/bigZips/mm10.fa.gz || exit 18
+    gunzip -f $S/ref/mm10.fa.gz && bgzip -@ 4 -c $REF > $S/ref/mm10.fa.gz || exit 23
+    wgbstools init_genome mm10 --fasta_path $S/ref/mm10.fa.gz -@ 4 -f > $S/logs/init_genome.log 2>&1 || exit 25
+    bwameth.py index $REF > $S/logs/index.log 2>&1 || exit 26
+  fi
+else   # 2026-10-22: hg19 with lambda and pUC19, built as the committed pipeline built it (boxruns/run2/session1.sh: UCSC hg19, NCBI NC_001416.1, L09137.2)
+  REF=$S/ref/hg19_lambda_puc19.fa
+  if [ ! -s $REF.bwameth.c2t.sa ]; then
+    /usr/bin/curl -fsSL --retry 5 --retry-delay 30 -o $S/ref/hg19.fa.gz https://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz || exit 18
+    gunzip -f $S/ref/hg19.fa.gz && bgzip -@ 4 -f $S/ref/hg19.fa || exit 23
+    wgbstools init_genome hg19 --fasta_path $S/ref/hg19.fa.gz -@ 4 -f > $S/logs/init_genome.log 2>&1 || exit 25
+    N=$(zcat $S/wgbs_tools/references/hg19/CpG.bed.gz | wc -l); log "CpG sites in the hg19 dictionary: $N (must be 28217448)"; [ "$N" = 28217448 ] || exit 27
+    EU="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&rettype=fasta&id"
+    { /usr/bin/curl -fsSL --retry 5 "$EU=NC_001416.1" | sed 's/^>.*/>lambda/'; /usr/bin/curl -fsSL --retry 5 "$EU=L09137.2" | sed 's/^>.*/>pUC19/'; } > $S/ref/spikes.fa
+    [ "$(grep -c '>' $S/ref/spikes.fa)" = 2 ] || exit 28
+    zcat $S/ref/hg19.fa.gz > $REF && cat $S/ref/spikes.fa >> $REF
+    bwameth.py index $REF > $S/logs/index.log 2>&1 || exit 26
+  fi
 fi
 TI=$(date +%s); log "index ready after $((TI-T0)) s"; df -h $S | tail -1
 python3 $E/erase_blocks.py $E/erase_samples.csv $GSM > $S/${GSM}_blocks.txt; rm -rf $S/fq/*; i=0
@@ -40,7 +55,11 @@ sambamba markdup -l 1 -t $T --sort-buffer-size 4000 --overflow-list-size 1000000
 samtools index $S/bam/$GSM.bam; samtools flagstat $S/bam/$GSM.bam > $OUT/${GSM}_flagstat.txt
 wgbstools bam2pat $S/bam/$GSM.bam -o $S/pat --genome $gen -@ $T > $S/logs/${GSM}_bam2pat.log 2>&1 || exit 34
 PAT=$(ls $S/pat/$GSM*.pat.gz | head -1); rm -f $S/bam/$GSM.bam*; cp $PAT $OUT/; TP=$(date +%s); log "pat in $((TP-TA)) s"
-( cd $MP/chain && python3 $E/erase_read_one.py $PAT $GSM > /dev/null && mv ${GSM}_stageq.json $OUT/ ) || exit 35
-python3 $E/erase_q2_one.py $PAT $GSM $OUT $gen || exit 36
+# 2026-10-22 (author: "if the chain didnt do it, it didnt happen"): the count is the one command's, run_sample.py --dev-count-only, flagged; the
+# older Stage Q cross-check (erase_read_one.py) called chain pieces directly and is no longer run; the .pat file is kept, so it can be rerun
+( cd $MP/chain/MethylPhys_Interface && python3 run_sample.py --pat $PAT --specimen "cultured cells" --seq-cell "$GSM" --id $GSM --dev-count-only \
+    --dev-count-genome $gen --out $OUT/${GSM}_report.html --bundle $OUT/${GSM}_bundle.json > $OUT/${GSM}_run_sample.log 2>&1 ) || exit 35
+python3 -c "import json,sys; B=json.load(open(sys.argv[1])); c=B['iam_a_count_only']; json.dump(dict(gsm=sys.argv[2], genome=c['genome'], counter='run_sample.py --dev-count-only (chain Stage Q2)', **c['count']), open(sys.argv[3], 'w'), indent=1)" \
+    $OUT/${GSM}_bundle.json $GSM $OUT/${GSM}_q2.json || exit 36
 echo "{\"gsm\": \"$GSM\", \"pairs\": $n1, \"index_s\": $((TI-T0)), \"fetch_s\": $((TF-TI)), \"align_s\": $((TA-TF)), \"to_pat_s\": $((TP-TA)), \"threads\": $T, \"genome\": \"$gen\"}" > $OUT/${GSM}_timing.json
-cat $OUT/${GSM}_timing.json; cat $OUT/${GSM}_stageq.json; cat $OUT/${GSM}_q2.json
+cat $OUT/${GSM}_timing.json; cat $OUT/${GSM}_q2.json

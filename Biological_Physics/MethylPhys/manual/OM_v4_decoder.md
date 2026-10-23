@@ -6,7 +6,7 @@ Read from the code at build time: the one command can load **32 Python files** h
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 953 | 17 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 963 | 17 | 11 | 10 |
 | `stage_0_intake.py` | 1,177 | 41 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -213,6 +213,11 @@ its hash, so neither the bundle nor the ledger carries the typed name. The print
 
 The recursive step of `_redact`: a string gets the replacement, a dictionary and a list are walked, anything else is returned as is.
 
+**`--dev-count-only` (development, to-do 14).** With `--pat`, Stage Q2's count (the held error and its opportunities) is recorded in the
+bundle as `iam_a_count_only`, flagged not commissioned, even where Stage Q0 refuses an IAM-A reading (a cell line, a mouse sample: no healthy
+reference). IAM-A itself stays refused. The firm-rate recount reads the held error this way, so its count is the one command's. The held error
+does not depend on the genome; the loose share uses hg19 tiles and is marked meaningless on another genome (`--dev-count-genome`).
+
 *Code:* `MethylPhys_Interface/run_sample.py` line 189 (5 lines) · arguments: v · calls: array run 865, bam run 359
 
 ### `run_sample.py::_metaa_atlas`
@@ -255,14 +260,14 @@ The orchestration described above, from parsing the command to writing the ledge
 exit code 2 or 3 at the stops listed, carries the same-run references (columns A and C) into the conductor, adds the v4 stages, and
 hands everything to the report.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 322 (629 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `sequencing_values.csv`
+*Code:* `MethylPhys_Interface/run_sample.py` line 322 (639 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `sequencing_values.csv`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 737 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 740 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -270,13 +275,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 510 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 513 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 894 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 904 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 

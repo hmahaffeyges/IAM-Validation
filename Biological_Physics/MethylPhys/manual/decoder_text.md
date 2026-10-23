@@ -155,6 +155,11 @@ its hash, so neither the bundle nor the ledger carries the typed name. The print
 ### run_sample.py::_redact.f
 The recursive step of `_redact`: a string gets the replacement, a dictionary and a list are walked, anything else is returned as is.
 
+**`--dev-count-only` (development, to-do 14).** With `--pat`, Stage Q2's count (the held error and its opportunities) is recorded in the
+bundle as `iam_a_count_only`, flagged not commissioned, even where Stage Q0 refuses an IAM-A reading (a cell line, a mouse sample: no healthy
+reference). IAM-A itself stays refused. The firm-rate recount reads the held error this way, so its count is the one command's. The held error
+does not depend on the genome; the loose share uses hg19 tiles and is marked meaningless on another genome (`--dev-count-genome`).
+
 ### run_sample.py::_metaa_atlas
 `--dev-metaa-atlas CELL` (development, not commissioned): maps the values by Stage T step 1 (the self-tare the commissioned Met-A reads), refuses
 unless both designs were mapped, reads Met-A against CELL in IAM-Atlas v2.1 (`stage_metaa_atlas.read`) and, with `--metaa-atlas-ref-A` (at least
