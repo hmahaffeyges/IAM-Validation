@@ -1555,6 +1555,14 @@ A color texture as base64 JPEG, for the sample and reference layers.
 The healthy reference for a specimen: the matching atlas cell, or for blood the six panel cells weighted by the Stage D21 shares and scaled
 to 1; refuses with the reason when there are no shares or no specimen.
 
+### report_globe_v4.py::_cell_change
+One cell's change layer on the globe (development, 2026-10-22): the departure behind Met-A for that cell
+(`stage_metaa_atlas.departure_in_mix`), in the sample's own spread at that cell's identity sites, read in blocks of 10 of those sites in genome
+order; a block changed beyond the 5 % family-wise line is lit, drawn as dots. Each cell the IAM-Deconvolver read gets one, in the group
+"each cell's change". It shows a loss that clusters along the genome; a loss spread evenly over every site of a cell is canceled by the
+sample's own centering and shows in that cell's Met-A number instead (the example blood with a 5 % even CD4 T loss: 2 of 597 blocks
+before and after).
+
 ### report_globe_v4.py::build
 Checks the frozen layout against the atlas site list, builds the four layers, the shares above each size, and the page fragment (canvas,
 controls and script, no outside library). Returns the record kept in the bundle, marked `scored: False`.
@@ -1754,6 +1762,10 @@ predicts there. A held site sits near 0 or 1; a loss moves it toward 0.5, where 
 spread combined with the atlas's own uncertainty, half its 95 % range over 1.96), and a best value from 0.75 to 0.95 (methylated side) or 0.05
 to 0.25 (unmethylated side); where more than 3,000 qualify on a side, the 3,000 of smallest width. A reading needs at least 90 % of them
 measured. The tare is a median of at least 3 same-run healthy references, as Stage T step 2; never the sample itself.
+
+### stage_metaa_atlas.py::departure_in_mix
+The per-site departure behind Met-A for one cell of a mixed sample: at the cell's identity sites,
+H(β) − H(e), e the atlas mixed in the sample's own shares by `read_in_mix`'s rule; by site id. Used by the globe's layer for each cell.
 
 ### stage_metaa_atlas.py::_H
 The entropy of a beta value in bits, clipped to [10⁻⁶, 1 − 10⁻⁶].

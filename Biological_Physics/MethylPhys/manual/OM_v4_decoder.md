@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **32 Python files** holding **356 functions** (nested ones included); 354 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **32 Python files** holding **356 functions** (nested ones included); 356 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -2337,6 +2337,17 @@ to 1; refuses with the reason when there are no shares or no specimen.
 
 *Code:* `MethylPhys_Interface/report_globe_v4.py` line 119 (10 lines) · arguments: specimen, shares · calls: not called on the traced runs · constants read: `BLOOD`, `PANEL`
 
+### `report_globe_v4.py::_cell_change`
+
+One cell's change layer on the globe (development, 2026-10-22): the departure behind Met-A for that cell
+(`stage_metaa_atlas.departure_in_mix`), in the sample's own spread at that cell's identity sites, read in blocks of 10 of those sites in genome
+order; a block changed beyond the 5 % family-wise line is lit, drawn as dots. Each cell the IAM-Deconvolver read gets one, in the group
+"each cell's change". It shows a loss that clusters along the genome; a loss spread evenly over every site of a cell is canceled by the
+sample's own centering and shows in that cell's Met-A number instead (the example blood with a 5 % even CD4 T loss: 2 of 597 blocks
+before and after).
+
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 148 (18 lines) · arguments: d, ids_ordered, npix, look · calls: not called on the traced runs · constants read: `BLOCK`, `R_DOT`
+
 ### `report_globe_v4.py::build`
 
 Checks the frozen layout against the atlas site list, builds the four layers, the shares above each size, and the page fragment (canvas,
@@ -2697,6 +2708,13 @@ predicts there. A held site sits near 0 or 1; a loss moves it toward 0.5, where 
 spread combined with the atlas's own uncertainty, half its 95 % range over 1.96), and a best value from 0.75 to 0.95 (methylated side) or 0.05
 to 0.25 (unmethylated side); where more than 3,000 qualify on a side, the 3,000 of smallest width. A reading needs at least 90 % of them
 measured. The tare is a median of at least 3 same-run healthy references, as Stage T step 2; never the sample itself.
+
+### `stage_metaa_atlas.py::departure_in_mix`
+
+The per-site departure behind Met-A for one cell of a mixed sample: at the cell's identity sites,
+H(β) − H(e), e the atlas mixed in the sample's own shares by `read_in_mix`'s rule; by site id. Used by the globe's layer for each cell.
+
+*Code:* `stage_metaa_atlas.py` line 129 (12 lines) · arguments: beta, shares, cell · calls: not called on the traced runs · constants read: `MIX_COVER`
 
 ### `stage_metaa_atlas.py::_H`
 
