@@ -308,8 +308,8 @@ level-matched line; C3 distance agreement at least 0.7. Same data, pool, groups 
 `website/art/out/information_sphere.html`, its build record `data/DEV_SPHERE_01/picture_01/information_sphere_build.json`; on the site, `atlas/information_sphere.html`).
 Each site is colored by the cell family whose identity it carries (stage_info_sphere.roles: the cell where it departs most from its own
 level). Seen while building it, measured: (1) a cell's methylated and unmethylated sites gather on opposite sides (T cells, among their clearly marking sites: methylated there 0.88, unmethylated there 0.86,
-the family as a whole 0.14; the build record's concentration_by_family), as taking the level out predicts; (2) about half the sites carry no single cell's identity (median margin
-0.036), so the picture colors only the 41,241 with a margin of at least 0.10 and draws the rest as faint dust; (3) colored point by point the
+the family as a whole 0.14; the build record's concentration_by_family), as taking the level out predicts; (2) most sites carry no clear single-cell identity: only 41,241 of the
+191,458 stand apart in one cell by a margin of at least 0.10 (the median margin is 0.036), so the picture colors those and draws the rest as faint dust; (3) colored point by point the
 families overlap in three directions, so each direction is colored by the family most over-represented there (territory_texture). The blood
 lineages (bone marrow progenitors, B and NK cells, T cells, myeloid cells) lie side by side, and the tissues hold their own regions,
 from the methylation alone.
