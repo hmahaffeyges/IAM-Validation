@@ -28,7 +28,7 @@ jobs:
         with: {sparse-checkout: Biological_Physics}
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
-      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
       - run: |
           P1=""; [ "${{ inputs.plant }}" = "neutrophil" ] && P1="--plant neutrophil"
           X=""; [ "${{ inputs.rsflags }}" != "none" ] && X="-- ${{ inputs.rsflags }}"
@@ -46,7 +46,7 @@ jobs:
         with: {sparse-checkout: Biological_Physics}
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
-      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
       - uses: actions/download-artifact@v4
         continue-on-error: true
         with: {pattern: "pass1-*", path: out/pass1, merge-multiple: true}

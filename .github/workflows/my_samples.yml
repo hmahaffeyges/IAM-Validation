@@ -32,7 +32,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
-      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
       - run: |
           N=${{ strategy.job-total }}; i=0; mkdir -p reports; RS=Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py
           REF=""; [ "${{ inputs.refs }}" != "none" ] && REF="--ref-table ${{ inputs.refs }}"

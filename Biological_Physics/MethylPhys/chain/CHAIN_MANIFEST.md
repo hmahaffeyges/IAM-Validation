@@ -13,6 +13,7 @@ The LIVE column is computed by walking imports from the commissioned entry point
 | `dev_stages.py` | yes | live |
 | `nilc_celltype_deconvolver.py` | no | class_era |
 | `pat_eps_fast.py` | no | tool |
+| `preflight.py` | no | tool |
 | `release_check_v3.py` | no | tool |
 | `release_check_v4.py` | no | tool |
 | `serial_mode.py` | no | tool |

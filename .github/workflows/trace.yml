@@ -16,7 +16,7 @@ jobs:
         with: {sparse-checkout: Biological_Physics}
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
-      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
       - name: Fetch the four arrays and read the three references (as report_examples_v4.sh does)
         if: inputs.route == 'array'
         run: |

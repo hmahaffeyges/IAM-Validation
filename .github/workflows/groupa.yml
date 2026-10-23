@@ -23,7 +23,7 @@ jobs:
         with: {sparse-checkout: Biological_Physics}
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
-      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
       - run: python3 $G/diag_ctrl.py $G/rehearsal_samples.csv diag_ctrl.csv 2>&1 | grep -v -i warning | tee diag.log
       - name: Results to issue 31
         if: always()
@@ -44,7 +44,7 @@ jobs:
         with: {sparse-checkout: Biological_Physics}
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
-      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
       - run: python3 $G/read_groupa.py smoke out
       - if: always()
         uses: actions/upload-artifact@v4
@@ -63,7 +63,7 @@ jobs:
         with: {sparse-checkout: Biological_Physics}
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
-      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
       - run: python3 $G/read_groupa.py read $G/$SAMPLES out ${{ matrix.shard }} 10
       - if: always()
         uses: actions/upload-artifact@v4
@@ -77,7 +77,7 @@ jobs:
         with: {sparse-checkout: Biological_Physics}
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
-      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
       - uses: actions/download-artifact@v4
         with: {pattern: "rows-*", path: rows, merge-multiple: true}
       - uses: actions/download-artifact@v4

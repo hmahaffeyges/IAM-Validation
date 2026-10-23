@@ -15,7 +15,7 @@ jobs:
         with: {sparse-checkout: "Biological_Physics/MethylPhys\nwebsite/art/data"}
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
-      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt requests
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt requests && python3 Biological_Physics/MethylPhys/chain/preflight.py
       - name: Average the draws
         run: |
           HI=$(printf "%05d" $((10#${{ matrix.lo }} + 69)))
@@ -31,7 +31,7 @@ jobs:
         with: {sparse-checkout: "Biological_Physics/MethylPhys\nwebsite/art/data"}
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
-      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt requests
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt requests && python3 Biological_Physics/MethylPhys/chain/preflight.py
       - uses: actions/download-artifact@v4
         with: {pattern: "noise-*", path: parts, merge-multiple: true}
       - run: python3 Biological_Physics/MethylPhys/atlas/tools/noise_maps_v21.py combine parts out 2>&1 | tee out.log

@@ -18,6 +18,9 @@ MM="$S/bin/micromamba -r $S/mamba"; log(){ echo "$(date -u +%H:%M:%S) $*"; }
 export PATH=$S/e_st19/bin:$S/e_wgbs/bin:$S/e_bm/bin:$S/e_sbb/bin:$S/e_sra/bin:$S/wgbs_tools:$PATH
 { bwameth.py --version 2>&1 | head -1; samtools --version | head -1; sambamba 2>&1 | grep -m1 sambamba; fastq-dump --version | grep -m1 dump; echo "wgbstools $(git -C $S/wgbs_tools describe --tags)"; } | tee $OUT/versions.txt
 gen=$(awk -F, -v g=$GSM '$3==g{print $5; exit}' $E/erase_samples.csv); [ -n "$gen" ] || { echo "$GSM not in erase_samples.csv"; exit 19; }
+if [ -n "${PATFILE:-}" ]; then   # 2026-10-23: count the molecules an earlier run saved, without aligning again
+  [ -s "$PATFILE" ] || { echo "PATFILE $PATFILE missing"; exit 20; }; PAT=$PATFILE; n1=0; T0=$(date +%s); TI=$T0; TF=$T0; TA=$T0; TP=$T0; log "count only, on the saved molecules $PAT"
+else
 T0=$(date +%s)
 if [ "$gen" = "mm10" ]; then
   REF=$S/ref/mm10.fa
@@ -55,6 +58,7 @@ sambamba markdup -l 1 -t $T --sort-buffer-size 4000 --overflow-list-size 1000000
 samtools index $S/bam/$GSM.bam; samtools flagstat $S/bam/$GSM.bam > $OUT/${GSM}_flagstat.txt
 wgbstools bam2pat $S/bam/$GSM.bam -o $S/pat --genome $gen -@ $T > $S/logs/${GSM}_bam2pat.log 2>&1 || exit 34
 PAT=$(ls $S/pat/$GSM*.pat.gz | head -1); rm -f $S/bam/$GSM.bam*; cp $PAT $OUT/; TP=$(date +%s); log "pat in $((TP-TA)) s"
+fi
 # 2026-10-22 (author: "if the chain didnt do it, it didnt happen"): the count is the one command's, run_sample.py --dev-count-only, flagged; the
 # older Stage Q cross-check (erase_read_one.py) called chain pieces directly and is no longer run; the .pat file is kept, so it can be rerun
 ( cd $MP/chain/MethylPhys_Interface && python3 run_sample.py --pat $PAT --specimen "cultured cells" --seq-cell "$GSM" --id $GSM --dev-count-only \

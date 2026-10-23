@@ -6,7 +6,8 @@ on:
     inputs:
       gsm: {description: "sample (erase_samples.csv)", required: true, default: "GSM1372649"}
       threads: {description: "aligner threads", required: true, default: "2"}
-permissions: {contents: read, issues: write}
+      patfrom: {description: "none, or the run id of an earlier erase_test run whose saved molecules (.pat) to count without aligning again", required: true, default: "none"}
+permissions: {contents: read, issues: write, actions: read}
 jobs:
   one:
     runs-on: ubuntu-latest
@@ -14,10 +15,15 @@ jobs:
     steps:
       - run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost || true; df -h / | tail -1
       - uses: actions/checkout@v4
+      - name: Saved molecules from an earlier run (2026-10-23)
+        if: inputs.patfrom != 'none'
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: gh run download "${{ inputs.patfrom }}" -R "$GITHUB_REPOSITORY" -n "erase-${{ inputs.gsm }}" -D prev && ls -la prev/eout && echo "PATFILE=$PWD/prev/eout/${{ inputs.gsm }}.pat.gz" >> $GITHUB_ENV
       - name: One sample, SRA to both counts
         run: |
           sudo fallocate -l 8G /swapfile && sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile
           pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt   # 2026-10-23: the one command needs the chain's own requirements (run 39911507208 stopped on matplotlib)
+          python3 Biological_Physics/MethylPhys/chain/preflight.py || exit 1   # stops in seconds if a package is missing (2026-10-23)
           ( while true; do echo "MEM $(date -u +%H:%M:%S) used $(free -m | awk '/Mem:/{print $3}') MB swap $(free -m | awk '/Swap:/{print $3}') MB disk $(df -h / | awk 'NR==2{print $3}')"; sleep 300; done ) &
           set +e; export MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=${{ inputs.threads }}
           bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh ${{ inputs.gsm }} > run.log 2>&1; echo $? > rc.txt; tail -30 run.log; true

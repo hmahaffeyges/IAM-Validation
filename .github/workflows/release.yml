@@ -11,7 +11,7 @@ jobs:
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
-      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
       - run: pip install -q playwright && python -m playwright install --with-deps chromium   # V13: the globe as a browser draws it (lesson C32)
       - name: Release check
         run: |
