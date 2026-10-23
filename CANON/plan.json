@@ -914,7 +914,7 @@
      "date": "2026-10-22",
      "status": "open",
      "what": "Depth test on real plasma (short fragments, low input, bisulfite damage)",
-     "next": "find a spent plasma WGBS sample in CANON/data_spent.csv (scarce-data rule), then the same thinning through the chain"
+     "next": "plasma molecules still needed for IAM-A's depth test; GSE186888 (40.10) gives per-site counts only, enough for Met-A's k-of-n depth test on real plasma"
     },
     {
      "id": "40.5",
@@ -928,7 +928,7 @@
      "date": "2026-10-22",
      "status": "open",
      "what": "Open, matched buffy coat and plasma sequencing from the same person",
-     "next": "keep searching GEO, ENCODE and SRA; GSE118690 reads only narrow sites; the large matched sets are controlled access"
+     "next": "GSE186888 found (40.10, every instrument but IAM-A); keep searching for matched pairs with molecules (.pat or reads) for IAM-A"
     },
     {
      "id": "40.7",
@@ -952,6 +952,13 @@
      "status": "open",
      "what": "What a departure predicts: GSE51032 is spent (usable for testing, not commissioning)",
      "next": "find another series of blood drawn before diagnosis, kept unread, for the commissioning test; meanwhile GSE51032 may be read through the chain as a test"
+    },
+    {
+     "id": "40.10",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "GSE186888: whole-genome bisulfite sequencing (85x) of white blood cells and matched plasma cell-free DNA from the same 23 healthy donors; per-CpG counts (.beta files), no molecules, so every instrument but IAM-A. Unread (only the description and file names seen); rare kind, reserved",
+     "next": "a .beta reader in the one command (synthetic file first); then 3 donors explored through run_draw.py, declared spent before reading; the other 20 kept unread for the one-draw test that counts"
     }
    ]
   }
