@@ -953,6 +953,13 @@
      "status": "open",
      "what": "IAM-Atlas v2.1 as the ruler for every array (author: 'a standard, a ruler, something to calibrate each sample to'): Stage T's self-tare keeps its map (the array's own low and high anchors per probe design, nothing fitted) but its targets become the atlas's values at anchor sites that read the same in all 79 healthy cell types and are on 450K, EPIC v1 and EPIC v2, instead of the frozen reference arrays' scale (selftare_typeII_EPIC_v1.json); the anchor shift before the map is reported as a reading and flagged when large (a laboratory offset or a whole-genome change must never be silently tared away)",
      "next": "synthetic first; then the same person's buffy coat on EPIC v1 and EPIC v2 (AK0005) must read alike after the map; then the many-labs test (35.6)"
+    },
+    {
+     "id": "35.15",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "Anchors cancer does not move (author: 'cancer chooses its sites for a reason too ... they could be accounted for and still keep the calibration'). Early cancer methylation changes are known to concentrate in two places: loss in partially methylated domains (late-replicating, gene-poor, low CpG density; lose with each division) and gain at Polycomb-target CpG islands (developmental genes, unmethylated in every healthy cell). Anchors avoid both: high anchors only in tiles that are firm (not loose) in all 79 atlas cell types, low anchors only at islands outside Polycomb targets; the excluded sets are read as their own readings (loss in loose-prone domains, gain at Polycomb islands)",
+     "next": "exploration on spent tumor and normal arrays (GSE287331, DEV-FIELD-01): do the chosen anchors stay put while the excluded sets move? Then the ruler (35.14) uses them"
     }
    ]
   },
