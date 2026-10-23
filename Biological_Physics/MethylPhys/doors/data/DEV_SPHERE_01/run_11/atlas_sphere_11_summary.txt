@@ -1,0 +1,18 @@
+DEV-SPHERE-01 test 11 (real data, IAM-Atlas v2.1, 79 healthy cell types; exploratory, not sealed; the globe and every R by run_sample.py --build info-sphere, v5)
+191458 pool sites x 79 cell types; sky covered 55.3% (reported); lines: 99th percentile of 1000 level-matched groups per marker group
+  neutrophils: below every other blood cell: R 0.4501 | level-matched line 0.2802 | together
+  neutrophils: above every other blood cell: R 0.7467 | level-matched line 0.3134 | together
+  monocytes: below every other blood cell: R 0.4227 | level-matched line 0.3347 | together
+  monocytes: above every other blood cell: R 0.7359 | level-matched line 0.3426 | together
+  b cells: below every other blood cell: R 0.2483 | level-matched line 0.2965 | not together
+  b cells: above every other blood cell: R 0.8011 | level-matched line 0.3322 | together
+  cd4 t cells: below every other blood cell: R 0.5178 | level-matched line 0.3117 | together
+  cd4 t cells: above every other blood cell: R 0.8044 | level-matched line 0.3233 | together
+  cd8 t cells: below every other blood cell: R 0.6161 | level-matched line 0.3319 | together
+  cd8 t cells: above every other blood cell: R 0.7862 | level-matched line 0.4681 | together
+  nk cells: below every other blood cell: R 0.536 | level-matched line 0.2950 | together
+  nk cells: above every other blood cell: R 0.6557 | level-matched line 0.3359 | together
+C1 marker groups together beyond their level: 11 of 12 (bar at least 10) -> MET
+C2 level-matched twins past their level-matched line: 0 of 100 (bar at most 4) -> MET
+C3 distance agreement rho 0.8065 (bar at least 0.7) -> MET
+TEST 11 PASSED (C1-C3)

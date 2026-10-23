@@ -118,6 +118,36 @@
       "CAN-007"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_FIRES_01.md"
+    },
+    {
+     "title": "The information sphere passes on the real atlas: test 11 (ATL-046)",
+     "status": "development",
+     "what": "Construction v5, IAM-Atlas v2.1's 79 healthy cell types, each line from 1,000 level-matched groups (explore run 39913125753): C1 11 of 12 marker groups together beyond their level, C2 0 of 100 twins, C3 rho 0.8065. PASSED. The sphere places together sites that behave alike across cells, beyond their level, and invents nothing. Next: one person against their own healthy cells.",
+     "outcome": null,
+     "rows": [
+      "ATL-046"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md"
+    },
+    {
+     "title": "Depth: a planted loss at 60 reads, and constructed draws at 30 (GRP-016, DEV-ONE-DRAW-01)",
+     "status": "development",
+     "what": "At 60 reads per site a 5 % CD4 T loss moves 11.0 of its error (4.6, 6.2, 8.7 at 3, 10, 30). At 30 reads, hepatocyte DNA from 0.01 is found near its size (0.0067 at 0.01, 0.0192 at 0.02); colon from 0.02; below about 0.02 shares move with the draw at every depth.",
+     "outcome": null,
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "The firm rate's one-sample human timing test (PHY-006)",
+     "status": "development",
+     "what": "GSM2387332 on one GitHub machine: index 6,814 s, 10 million pairs aligned in 6,827 s, molecules in 306 s; the count stopped because the workflow lacked the chain's requirements (fixed).",
+     "outcome": null,
+     "rows": [
+      "PHY-006"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
     }
    ]
   },
@@ -189,6 +219,14 @@
      "title": "Notes written on the wrong manifest row, and logs behind their records",
      "status": null,
      "what": "The firm-rate recount notes sat on PHY-049 instead of PHY-006 (moved). The development log carried 2 of 16 results for 2026-10-22; the author asked for a check of every report, and the entries were added from each record's numbers.",
+     "outcome": null,
+     "rows": [],
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Four finished runs left unread overnight (OTH-072)",
+     "status": null,
+     "what": "The run watcher followed a hand-typed list of runs; four started before it (sphere test 11, the timing test, two depth runs) finished unread for several hours. The watcher now reads every run from GitHub against a ledger of runs already read, and reports idle machines.",
      "outcome": null,
      "rows": [],
      "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"

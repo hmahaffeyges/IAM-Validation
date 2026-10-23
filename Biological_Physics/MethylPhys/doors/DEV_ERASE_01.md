@@ -115,3 +115,5 @@ as recorded above, and the side arms, which carry no bar:
 | S2 | GSE174047 | eraser removed (secondary set) | 0.9181 |
 
 The secondary removals read like the primary units (a small fall, not a halving). Freeing or boosting the eraser did not lower the held error.
+
+**The one-sample human timing test (2026-10-23; erase_test run 39911507208, commit 09c50ab3; GSM2387332; `data/DEV_ERASE_01/timing_01/timing_01_log.txt`).** On one GitHub machine: the hg19 index built in 6,814 s, 10,000,000 read pairs fetched in 135 s and aligned in 6,827 s, molecules written in 306 s. The count did not run: the workflow installed only numpy, pandas and scipy, and run_sample.py stopped on a missing plotting package. Fixed (the workflow installs the chain's requirements.txt). So 10 million pairs fit one machine in about 4 hours, the index being half of it; a sample's full read count decides whether it needs splitting (plan 14.2).

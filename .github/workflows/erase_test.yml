@@ -17,7 +17,7 @@ jobs:
       - name: One sample, SRA to both counts
         run: |
           sudo fallocate -l 8G /swapfile && sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile
-          pip install -q numpy pandas scipy
+          pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt   # 2026-10-23: the one command needs the chain's own requirements (run 39911507208 stopped on matplotlib)
           ( while true; do echo "MEM $(date -u +%H:%M:%S) used $(free -m | awk '/Mem:/{print $3}') MB swap $(free -m | awk '/Swap:/{print $3}') MB disk $(df -h / | awk 'NR==2{print $3}')"; sleep 300; done ) &
           set +e; export MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=${{ inputs.threads }}
           bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh ${{ inputs.gsm }} > run.log 2>&1; echo $? > rc.txt; tail -30 run.log; true

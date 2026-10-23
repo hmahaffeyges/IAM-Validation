@@ -112,3 +112,7 @@ per site a 5 % loss in one cell stands clear (`run_06/seq_plant_06_depth3_summar
 shares better: hepatocyte added at 0.005 is found at 0.0008 (at 10 reads: 0.0049), and vascular endothelium reads 0.0047 with none added. Each
 depth draws its reads with its own seed, so the small shares move with the draw. Reading: below about 0.02 the limit is the split itself, not
 the counting; the Deconvolver's resampled range (too narrow; a plan branch of step 39) must say so before any small share is reported.
+
+**Exploration 6 at 60 reads (explore run 39904799192):** CD4 T cells 5 % moves 11.0 of its own error, 20 % 43.0; NK cells 20 % 14.2; the closest relative 17 to 26 % as much (`run_06/seq_plant_06_depth60_summary.txt`). Over 3, 10, 30 and 60 reads, a 5 % CD4 T loss moves 4.6, 6.2, 8.7 and 11.0 of its error.
+
+**Exploration 5 at 30 reads (explore run 39904630856):** `run_05/constructed_draw_05_depth30_summary.txt`. Hepatocyte added at 0.005, 0.01, 0.02 and 0.05 found at 0.0013, 0.0067, 0.0192 and 0.0507; vascular endothelium found at 0.0028 with none added; colon epithelium found from 0.02 (0.0047) and at 0.05 (0.0326). As at 10 and 60 reads: below about 0.02 the small shares move with the draw. The largest share not added is a blood cell the constructed plasma carries (naive CD8 T cells, basophils, eosinophils), not a tissue.

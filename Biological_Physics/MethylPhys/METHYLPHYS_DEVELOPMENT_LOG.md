@@ -3089,3 +3089,16 @@ Exploration 7 (the self-tare before atlas Met-A) called chain pieces and was nev
 
 ### 2026-10-23 · Records checked against the logs (OTH-072)
 Every result of 2026-10-22 and 2026-10-23 was checked against the development log, the day logs, the manifest and the plan; the development log had 2 entries for 2026-10-22 where 24 results and changes stood in their records and commits; each was added from its record's own numbers. Record: [DEV_EACH_CELL_01.md](../Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md).
+
+### 2026-10-23 · The information sphere passes on the real atlas: test 11 (ATL-046)
+Construction v5, IAM-Atlas v2.1's 79 healthy cell types, each line from 1,000 level-matched groups (explore run 39913125753): C1 11 of 12 marker groups together beyond their level, C2 0 of 100 twins, C3 rho 0.8065. PASSED. The sphere places together sites that behave alike across cells, beyond their level, and invents nothing. Next: one person against their own healthy cells. Record: [DEV_SPHERE_01.md](../Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md).
+
+### 2026-10-23 · Depth: a planted loss at 60 reads, and constructed draws at 30 (GRP-016, DEV-ONE-DRAW-01)
+At 60 reads per site a 5 % CD4 T loss moves 11.0 of its error (4.6, 6.2, 8.7 at 3, 10, 30). At 30 reads, hepatocyte DNA from 0.01 is found near its size (0.0067 at 0.01, 0.0192 at 0.02); colon from 0.02; below about 0.02 shares move with the draw at every depth. Record: [DEV_ONE_DRAW_01.md](../Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md).
+
+### 2026-10-23 · The firm rate's one-sample human timing test (PHY-006)
+GSM2387332 on one GitHub machine: index 6,814 s, 10 million pairs aligned in 6,827 s, molecules in 306 s; the count stopped because the workflow lacked the chain's requirements (fixed). Record: [DEV_ERASE_01.md](../Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md).
+
+### 2026-10-23 · Four finished runs left unread overnight (OTH-072)
+The run watcher followed a hand-typed list of runs; four started before it (sphere test 11, the timing test, two depth runs) finished unread for several hours. The watcher now reads every run from GitHub against a ledger of runs already read, and reports idle machines. Record: [DEV_EACH_CELL_01.md](../Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md).
+
