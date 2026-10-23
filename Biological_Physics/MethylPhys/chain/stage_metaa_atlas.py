@@ -60,7 +60,20 @@ def identity_sites(cell):
         out += list(s.index[:RULE["per_side"]])
     _cache[k] = out; return out
 
-def read(beta, cell, specimen="isolated"):
+N_EXACT = 400   # expected_H_counts: above this many reads the k-of-n bias is below 0.2 % of H and H(p) is used (stated)
+def expected_H_counts(p, n):
+    """The exact expected entropy of a level measured as k of n reads when the true level is p (2026-10-22, to-do 40.3; derived, nothing fitted):
+    E[H(k/n)] = sum_k C(n, k) p^k (1 - p)^(n - k) H(k/n), k ~ Binomial(n, p). A level made from few reads is 0 or 1 more often than p, and H(0) =
+    H(1) = 0, so the measured disorder of a healthy site at depth n is this, not H(p). p, n: arrays by site. Above N_EXACT reads, H(p)."""
+    from scipy.stats import binom
+    p = np.clip(np.asarray(p, dtype="float64"), 1e-6, 1 - 1e-6); n = np.asarray(n, dtype="int64"); out = np.full(p.shape, np.nan)
+    big = n > N_EXACT; out[big] = np.asarray(_H(pd.Series(p[big])), dtype="float64") if big.any() else out[big]
+    for m in np.unique(n[(n >= 1) & ~big]):
+        i = n == m; k = np.arange(m + 1); hk = np.asarray(_H(pd.Series(k / m)), dtype="float64")
+        out[i] = binom.pmf(k[None, :], m, p[i][:, None]) @ hk
+    return out
+
+def read(beta, cell, specimen="isolated", counts=None):
     """Met-A against the atlas cell (untared). beta: Series probe -> beta from Stage 1."""
     S = identity_sites(cell); rec = dict(stage="M-atlas", reading="Met-A against IAM-Atlas v2.1", cell=cell, specimen=specimen, flag=FLAG,
                                          rule=RULE, n_identity_sites=len(S), A=None)
@@ -68,7 +81,11 @@ def read(beta, cell, specimen="isolated"):
     x = beta.reindex(S); mu = _col("mu", cell).reindex(S); ok = x.notna() & mu.notna()
     if ok.sum() < RULE["coverage_min"] * len(S):
         rec["reason"] = f"only {int(ok.sum())} of {len(S)} identity sites measured (at least {RULE['coverage_min']:.0%} needed)"; return rec
-    href = float(_H(mu[ok]).mean()); A = float(_H(x[ok]).mean() / href)
+    href = float(_H(mu[ok]).mean())
+    if counts is not None:   # sequencing: the healthy expectation at each site's own read count (40.3)
+        _n = pd.Series(counts).reindex(mu[ok].index).fillna(0).astype("int64").to_numpy(); href = float(np.nanmean(expected_H_counts(mu[ok].to_numpy(), _n)))
+        rec["expectation"] = "k of n reads at each site's own depth (expected_H_counts)"
+    A = float(_H(x[ok]).mean() / href)
     xd = (x[ok] + 0.01 * (0.5 - mu[ok]))   # a 1 % loss of the cell's pattern: every identity site moved 1 % of the way to 0.5
     rec.update(A=round(A, 5), n_sites=int(ok.sum()), H_ref_atlas=round(href, 5),
                shift_per_1pct_loss=round(float(_H(xd).mean() / _H(x[ok]).mean() * A - A), 5),
@@ -100,7 +117,7 @@ def plant(beta, cell, loss=0.01):
 
 
 MIX_COVER = 0.99   # read_in_mix: a site counts when the cells with an atlas value there hold at least this share of the sample (operational, stated)
-def read_in_mix(beta, shares):
+def read_in_mix(beta, shares, counts=None):
     """Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written
     2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21).
     For each cell c: its identity sites (identity_sites, Met-A's rule on the atlas); the healthy expectation e = sum_k f_k mu_k at those sites,
@@ -125,7 +142,10 @@ def read_in_mix(beta, shares):
         ok = x.notna() & e.notna() & mu.notna() & (cover >= MIX_COVER)
         if ok.sum() < RULE["coverage_min"] * len(S):
             r["reason"] = f"only {int(ok.sum())} of {len(S)} identity sites measured (at least {RULE['coverage_min']:.0%} needed)"; out["cells"].append(r); continue
-        he = float(_H(e[ok]).mean()); A = float(_H(x[ok]).mean() / he); xd = (x[ok] + float(shares[c]) * 0.01 * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6)
+        he = float(_H(e[ok]).mean())
+        if counts is not None:   # sequencing: the expectation at each site's own read count (40.3)
+            _n = pd.Series(counts).reindex(e[ok].index).fillna(0).astype("int64").to_numpy(); he = float(np.nanmean(expected_H_counts(e[ok].to_numpy(), _n)))
+        A = float(_H(x[ok]).mean() / he); xd = (x[ok] + float(shares[c]) * 0.01 * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6)
         _hx = np.asarray(_H(x[ok]), dtype="float64"); _he = np.asarray(_H(e[ok]), dtype="float64")
         r["se_over_sites"] = round(float(np.sqrt(((_hx - A * _he) ** 2).sum()) / _he.sum()), 6)   # 2026-10-22: for the all-site comparison
         r.update(A=round(A, 5), n_sites=int(ok.sum()), H_expectation=round(he, 5), expectation_rule=f"mixed over the cells with an atlas value; site kept at >= {MIX_COVER:.0%} of the shares",

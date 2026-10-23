@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **32 Python files** holding **358 functions** (nested ones included); 358 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **32 Python files** holding **359 functions** (nested ones included); 359 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -32,7 +32,7 @@ Read from the code at build time: the one command can load **32 Python files** h
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 402 | 20 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
-| `stage_metaa_atlas.py` | 181 | 11 | 0 | 0 |
+| `stage_metaa_atlas.py` | 201 | 12 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 95 | 9 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 155 | 8 | 0 | 0 |
@@ -2716,14 +2716,14 @@ of that cell would make there, share × |0.5 − μ| (the chain's own shift rule
 loss, its standard error over sites and its effective number of sites. The standard error is within one sample; how much healthy people
 differ is measured on many healthy samples, not here.
 
-*Code:* `stage_metaa_atlas.py` line 151 (30 lines) · arguments: beta, shares · calls: not called on the traced runs · constants read: `FLAG`, `MIX_COVER`
+*Code:* `stage_metaa_atlas.py` line 171 (30 lines) · arguments: beta, shares · calls: not called on the traced runs · constants read: `FLAG`, `MIX_COVER`
 
 ### `stage_metaa_atlas.py::departure_in_mix`
 
 The per-site departure behind Met-A for one cell of a mixed sample: at the cell's identity sites,
 H(β) − H(e), e the atlas mixed in the sample's own shares by `read_in_mix`'s rule; by site id. Used by the globe's layer for each cell.
 
-*Code:* `stage_metaa_atlas.py` line 137 (12 lines) · arguments: beta, shares, cell · calls: not called on the traced runs · constants read: `MIX_COVER`
+*Code:* `stage_metaa_atlas.py` line 157 (12 lines) · arguments: beta, shares, cell · calls: not called on the traced runs · constants read: `MIX_COVER`
 
 ### `stage_metaa_atlas.py::_H`
 
@@ -2749,18 +2749,28 @@ The cell's identity sites by the rule above (up to 3,000 per side): methylated s
 
 *Code:* `stage_metaa_atlas.py` line 52 (10 lines) · arguments: cell · calls: not called on the traced runs · constants read: `RULE`
 
+### `stage_metaa_atlas.py::expected_H_counts`
+
+**Label: from IAM's physics (counting).** On sequencing, a site's level is k of the n reads that cover it. With few reads the level is 0 or 1
+far more often than the true level p, and the disorder of 0 or 1 is zero, so a healthy site's measured disorder at depth n is not H(p) but
+E[H(k/n)] = Σₖ C(n,k) pᵏ(1−p)ⁿ⁻ᵏ H(k/n). Met-A's healthy expectation on sequencing values is this sum at each site's own read count, with the
+atlas value as p; nothing is fitted. Checked against a 200,000-draw simulation (2026-10-22). Above 400 reads H(p) is used (the bias there is
+negligible). It was added after the depth test (DEV-ONE-DRAW-01 exploration 1) found Met-A on sequencing values reading lower as depth fell.
+
+*Code:* `stage_metaa_atlas.py` line 64 (11 lines) · arguments: p, n · calls: not called on the traced runs · constants read: `N_EXACT`
+
 ### `stage_metaa_atlas.py::read`
 
 Met-A against the atlas cell, untared, on the values given (the one command passes the self-tared values), with the shift a 1 % loss would
 make; refuses, with the reason, a cell with no qualifying site or a sample measuring under 90 % of them.
 
-*Code:* `stage_metaa_atlas.py` line 63 (14 lines) · arguments: beta, cell, specimen · calls: not called on the traced runs · constants read: `FLAG`, `RULE`
+*Code:* `stage_metaa_atlas.py` line 76 (18 lines) · arguments: beta, cell, specimen, counts · calls: not called on the traced runs · constants read: `FLAG`, `RULE`
 
 ### `stage_metaa_atlas.py::tare`
 
 A_rel = A over the median of at least 3 same-run healthy references (never the sample), the references' spread and the detection limit.
 
-*Code:* `stage_metaa_atlas.py` line 78 (10 lines) · arguments: A, refs · calls: not called on the traced runs · constants read: `FLAG`, `RULE`
+*Code:* `stage_metaa_atlas.py` line 95 (10 lines) · arguments: A, refs · calls: not called on the traced runs · constants read: `FLAG`, `RULE`
 
 ### `stage_metaa_atlas.py::read_in_mix`
 
@@ -2775,21 +2785,21 @@ On a wide panel (`--cell-panel atlas`) the expectation at each site is mixed ove
 site counts when those cells hold at least `MIX_COVER` (99 %) of the sample's shares: before this rule (2026-10-22), one small cell without a
 value dropped the site, and on the 79-cell panel most cells lost about half their identity sites.
 
-*Code:* `stage_metaa_atlas.py` line 103 (32 lines) · arguments: beta, shares · calls: not called on the traced runs · constants read: `FLAG`, `MIX_COVER`, `RULE`
+*Code:* `stage_metaa_atlas.py` line 120 (35 lines) · arguments: beta, shares, counts · calls: not called on the traced runs · constants read: `FLAG`, `MIX_COVER`, `RULE`
 
 ### `stage_metaa_atlas.py::plant_all`
 
 TESTS ONLY: a constructed loss of a cell's whole pattern, every atlas site the array measured where the cell has a value moved the given share of
 the way to 0.5 (`run_sample.py --dev-plant CELL:LOSS:all`). A real loss of hold reaches every held site, not only the identity sites.
 
-*Code:* `stage_metaa_atlas.py` line 89 (5 lines) · arguments: beta, cell, loss · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 106 (5 lines) · arguments: beta, cell, loss · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::plant`
 
 A constructed loss for tests: every identity site the array measured moved 1 % of the way to 0.5, the shift `read` predicts. Used by the
 series runner's `--plant metaa_atlas`; never by a reading.
 
-*Code:* `stage_metaa_atlas.py` line 95 (5 lines) · arguments: beta, cell, loss · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 112 (5 lines) · arguments: beta, cell, loss · calls: not called on the traced runs
 
 ## 17. The whole-genome globe (development): `stage_q2_globe.py`
 

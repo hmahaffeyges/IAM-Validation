@@ -199,7 +199,7 @@ def _metaa_atlas(a, b):
     commissioned Met-A reads), then the same-run tare when >= 3 references are given. Development; the reading, gauge and tare are untouched."""
     import dev_stages as DV, stage_metaa_atlas as SA
     if getattr(a, "_seqv", None):   # 2026-10-22 (step 40): sequencing values; the self-tare maps the two array designs, so it does not apply
-        r = SA.read(b, a.dev_metaa_atlas, specimen=a.specimen)
+        r = SA.read(b, a.dev_metaa_atlas, specimen=a.specimen, counts=getattr(a, "_seqc", None))
         rec = {"label": DV.DEV_LABEL, "status": "OK" if r.get("A") is not None else "NOT_READ", **r, "values": "sequencing values (stage_seq_values); no self-tare (arrays only)"}
         if a.metaa_atlas_ref_A: rec["tare"] = SA.tare(r.get("A"), [float(x) for x in a.metaa_atlas_ref_A.split(",") if x.strip()])
         return rec
@@ -417,7 +417,7 @@ def main():
             print(f"  {_r['name']} ({_r['size']:,} bytes; also on GEO: {', '.join(_r['other_files']) or 'nothing else'})", flush=True)
         a._geo_fetch = _geo
     seq = bool(a.pat or a.site_table or a.bam)
-    a._seqv = None; a._thin = None
+    a._seqv = None; a._thin = None; a._seqc = None
     if a.dev_thin is not None:   # 2026-10-22 (step 40): a deep sample thinned by the chain itself
         if not a.pat: ap.error("--dev-thin needs --pat (or --geo-pat)")
         import stage_seq_values as _SVt, tempfile as _tft
@@ -430,7 +430,7 @@ def main():
         if a.betas or a.grn: ap.error("--dev-seq-values makes the values from --pat; do not also give --betas or IDATs")
         import stage_seq_values as _SV, tempfile as _tf
         print(f"Sequencing values: counting {os.path.basename(a.pat)} at IAM-Atlas v2.1's sites (at least {a.dev_seq_values} calls)", flush=True)
-        _vb, _vc, a._seqv = _SV.values_from_pat(a.pat, a.dev_seq_values)
+        _vb, _vc, a._seqv = _SV.values_from_pat(a.pat, a.dev_seq_values); a._seqc = _vc   # read counts per site, for Met-A's k-of-n expectation (40.3)
         a.betas = os.path.join(_tf.mkdtemp(), "sequencing_values.csv"); _vb.rename("beta").to_frame().to_csv(a.betas)
         print(f"  {a._seqv['sites_with_value']:,} of {a._seqv['atlas_sites']:,} sites with a value; median {a._seqv['calls_per_site_median']:.0f} calls per site", flush=True)
     if a.build: sys.exit(_build(a))
@@ -782,7 +782,7 @@ def main():
                 import stage_metaa_atlas as SA, stage_t_selftare as _ST
                 _bs, _inf = (None, None) if a._seqv else _ST.selftare_map(_pd.Series(beta, dtype="float64"))   # the self-tare maps array designs; not sequencing
                 o["met_a_each_cell"] = SA.read_in_mix(_bs if _bs is not None else _pd.Series(beta, dtype="float64"),
-                                                      {r["cell"]: r["share"] for r in o["cell_shares"]["cells"]})
+                                                      {r["cell"]: r["share"] for r in o["cell_shares"]["cells"]}, counts=getattr(a, "_seqc", None))
                 o["met_a_each_cell"]["values"] = "Stage 1, then Stage T step 1 (self-tare II)" if _bs is not None else "Stage 1 (Stage T step 1 could not run)"
                 _vals = _bs if _bs is not None else _pd.Series(beta, dtype="float64"); _shr = {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or [] if r.get("share")}
                 a._cell_dep = {r["cell"]: SA.departure_in_mix(_vals, _shr, r["cell"]) for r in o["met_a_each_cell"].get("cells", []) if r.get("A") is not None}   # for the globe (2026-10-22)

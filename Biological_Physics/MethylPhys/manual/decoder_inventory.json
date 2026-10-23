@@ -6016,7 +6016,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 181,
+   "lines": 201,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -6089,16 +6089,35 @@
     },
     {
      "file": "stage_metaa_atlas.py",
+     "function": "expected_H_counts",
+     "name": "expected_H_counts",
+     "line": 64,
+     "end": 74,
+     "args": [
+      "p",
+      "n"
+     ],
+     "lines": 11,
+     "doc": "The exact expected entropy of a level measured as k of n reads when the true level is p (2026-10-22, to-do 40.3; derived, nothing fitted): E[H(k/n)] = sum_k C(n, k) p^k (1 - p)^(n - k) H(k/n), k ~ Binomial(n, p). A level made from few reads is 0 or 1 more often than p, and H(0) = H(1) = 0, so the measured disorder of a healthy site at depth n is this, not H(p). p, n: arrays by site. Above N_EXACT ",
+     "constants": [
+      "N_EXACT"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
      "function": "read",
      "name": "read",
-     "line": 63,
-     "end": 76,
+     "line": 76,
+     "end": 93,
      "args": [
       "beta",
       "cell",
-      "specimen"
+      "specimen",
+      "counts"
      ],
-     "lines": 14,
+     "lines": 18,
      "doc": "Met-A against the atlas cell (untared). beta: Series probe -> beta from Stage 1.",
      "constants": [
       "FLAG",
@@ -6111,8 +6130,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "tare",
      "name": "tare",
-     "line": 78,
-     "end": 87,
+     "line": 95,
+     "end": 104,
      "args": [
       "A",
       "refs"
@@ -6130,8 +6149,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_all",
      "name": "plant_all",
-     "line": 89,
-     "end": 93,
+     "line": 106,
+     "end": 110,
      "args": [
       "beta",
       "cell",
@@ -6147,8 +6166,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant",
      "name": "plant",
-     "line": 95,
-     "end": 99,
+     "line": 112,
+     "end": 116,
      "args": [
       "beta",
       "cell",
@@ -6164,13 +6183,14 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix",
      "name": "read_in_mix",
-     "line": 103,
-     "end": 134,
+     "line": 120,
+     "end": 154,
      "args": [
       "beta",
-      "shares"
+      "shares",
+      "counts"
      ],
-     "lines": 32,
+     "lines": 35,
      "doc": "Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written 2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21). For each cell c: its identity sites (identity_sites, Met-A's rule on the atlas); the healthy expectation e = sum_k f_k mu_k at t",
      "constants": [
       "FLAG",
@@ -6184,8 +6204,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "departure_in_mix",
      "name": "departure_in_mix",
-     "line": 137,
-     "end": 148,
+     "line": 157,
+     "end": 168,
      "args": [
       "beta",
       "shares",
@@ -6203,8 +6223,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix_allsites",
      "name": "read_in_mix_allsites",
-     "line": 151,
-     "end": 180,
+     "line": 171,
+     "end": 200,
      "args": [
       "beta",
       "shares"
@@ -7021,5 +7041,5 @@
   }
  ],
  "n_files": 32,
- "n_functions": 358
+ "n_functions": 359
 }

@@ -904,9 +904,10 @@
     {
      "id": "40.3",
      "date": "2026-10-22",
-     "status": "open",
+     "status": "built",
      "what": "Met-A on sequencing values reads low (few reads per site give 0 or 1)",
-     "next": "the exact expected entropy of a k-of-n value at each site's own depth (derived, binomial), then a same-chemistry healthy tare; rerun the depth test"
+     "next": "rerun the depth test (seq_depth_01.py) on GitHub with the correction; then a same-chemistry healthy tare",
+     "record": "chain/stage_metaa_atlas.py (expected_H_counts)"
     },
     {
      "id": "40.4",
