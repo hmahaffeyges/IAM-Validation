@@ -276,3 +276,11 @@ after scoring, not a bar (`atlas_sphere_08_twins.txt`): every marker group is ti
 so the sphere carries behavior beyond level, but level dominates the place. Next, written before it runs: a construction that takes the level
 out (each site's profile across the cell types centered on its own mean before the square-root geometry's directions are taken), with the
 level-matched twins as the null.
+
+## Construction v5 and tests 9 and 10, written before they run (2026-10-22)
+Test 8 found that on real cells a site's place is set mostly by its methylation level. Construction v5 (`chain/stage_info_sphere.level_free`,
+`run_sample.py --build info-sphere --build-construction v5`) takes the level out: each site's square-root vector minus the square-root vector of a
+flat profile at the site's own mean level, scaled to length 1, then v1's three leading directions. Nothing is tuned. C3 is then measured against
+the full-space angles of these level-free vectors (the space the globe is meant to show); the agreement with the original Fisher-Rao angles is
+reported beside it. Test 9 (`data/DEV_SPHERE_01/planted_sphere_09.py`) is test 7 with v5, synthetic first. Test 10
+(`data/DEV_SPHERE_01/atlas_sphere_10.py`) is test 8 with v5, on IAM-Atlas v2.1's 79 healthy cell types, and runs only if test 9 passes.

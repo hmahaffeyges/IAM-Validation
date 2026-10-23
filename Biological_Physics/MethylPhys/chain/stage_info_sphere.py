@@ -27,6 +27,15 @@ def globe(U):
     X = C @ V[:, :3]; n = np.linalg.norm(X, axis=1, keepdims=True); n[n == 0] = 1.0
     return X / n, float(w[:3].sum() / w.sum())
 
+def level_free(B, U):
+    """Construction v5 (2026-10-22, written before it runs; DEV-SPHERE-01 test 8 found a site's place set mostly by its level): each site's
+    square-root vector minus the square-root vector of a flat profile at the site's own mean level, b_s = mean over the cell types, then scaled
+    to length 1. What remains is only how the site departs from its own level across the cell types; nothing is tuned. A site with no departure
+    has no direction (returned as zeros and reported)."""
+    m = np.clip(np.asarray(B, float).mean(1, keepdims=True), 0.0, 1.0); S = np.asarray(B).shape[1]
+    D = U - info_vectors(np.repeat(m, S, axis=1)); n = np.linalg.norm(D, axis=1, keepdims=True); flat = (n[:, 0] == 0)
+    n[n == 0] = 1.0; return D / n, int(flat.sum())
+
 _JRLL = np.array([2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4]); _JPLL = np.array([1, 3, 5, 7, 0, 2, 4, 6, 1, 3, 5, 7])
 def _spread(v):   # interleave the bits of v (x -> even bits)
     v = np.asarray(v, np.int64) & 0xFFFFFFFF; r = np.zeros_like(v)
@@ -72,16 +81,23 @@ def edge_ratio(mb, nside=NSIDE):
     s, f = np.concatenate(same), np.concatenate(diff)
     return float(np.mean(f) / np.mean(s)) if len(s) and len(f) else None
 
-def build(B, groups=None, n_random=500, seed=20261013, nside=NSIDE):
+def build(B, groups=None, n_random=500, seed=20261013, nside=NSIDE, construction="v1"):
     """The layout of a reference matrix B (sites x cell types) and its report. groups: {name: site indices}; for each, the concentration R and
     the 99th percentile of n_random random groups of the same size drawn from groups['pool'] if given, else from all sites."""
-    rng = np.random.default_rng(seed); U = info_vectors(B); X, kept = globe(U); pix = to_pixels(X, nside); npix = 12 * nside * nside
+    rng = np.random.default_rng(seed); U0 = info_vectors(B); flat = 0
+    U = U0 if construction == "v1" else level_free(B, U0)[0]
+    if construction == "v5": flat = level_free(B, U0)[1]
+    X, kept = globe(U); pix = to_pixels(X, nside); npix = 12 * nside * nside
     cnt = np.bincount(pix, minlength=npix).astype(float); mb = np.full(npix, np.nan); s = np.bincount(pix, weights=np.asarray(B, float).mean(1), minlength=npix)
     mb[cnt > 0] = s[cnt > 0] / cnt[cnt > 0]
     i, j = rng.integers(0, len(U), 5000), rng.integers(0, len(U), 5000)
     from scipy.stats import spearmanr
-    rho = float(spearmanr(fr_angle(U, i, j), np.arccos(np.clip(np.einsum("ij,ij->i", X[i], X[j]), -1, 1))).correlation)
-    rep = dict(stage="information sphere (development)", construction="v1: three leading principal directions of the square-root vectors, scaled to 1",
+    gl = np.arccos(np.clip(np.einsum("ij,ij->i", X[i], X[j]), -1, 1))
+    rho = float(spearmanr(fr_angle(U, i, j), gl).correlation)   # v1: against the Fisher-Rao angles; v5: against the full-space angles of the level-free vectors
+    rho_fr = float(spearmanr(fr_angle(U0, i, j), gl).correlation)
+    rep = dict(stage="information sphere (development)", construction=("v1: three leading principal directions of the square-root vectors, scaled to 1" if construction == "v1" else
+               "v5: v1 on each site's square-root vector minus that of a flat profile at its own mean level, scaled to 1 (the level taken out)"),
+               distance_rho_fisher_rao=round(rho_fr, 4), sites_without_direction=flat,
                sites=int(len(U)), cell_types=int(np.asarray(B).shape[1]), variance_kept=round(kept, 4), nside=nside,
                sky_covered=round(float((cnt > 0).mean()), 4), sky_masked=round(float((cnt == 0).mean()), 4), distance_rho=round(rho, 4),
                edge_ratio=(round(e, 3) if (e := edge_ratio(mb, nside)) is not None else None), groups={})

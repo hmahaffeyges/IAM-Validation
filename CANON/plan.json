@@ -738,7 +738,17 @@
    ],
    "status": "open",
    "done_date": "",
-   "record": ""
+   "record": "",
+   "branches": [
+    {
+     "id": "35.1",
+     "date": "2026-10-22",
+     "status": "running",
+     "what": "Test 8 (real atlas cells) met C1 and C3 and failed C2: a site's level dominates its place. Construction v5 takes the level out",
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_SPHERE_01/planted_sphere_09.py",
+     "next": "test 9 (synthetic, v5); if it passes, test 10 on the real atlas (atlas_sphere_10.py)"
+    }
+   ]
   },
   {
    "task": "Salmon: IAM-A on hatchery and wild coho (author 2026-10-22, for the fisheries biologists): public RRBS of 39 coho salmon smolts, white muscle, 20 hatchery-reared and 19 wild (SRA PRJNA389610, single-end, about 29 million reads each; labels from each sample's record: treatment hatchery or wild). Aligned to the coho genome, read by chain Stage Q2's counter unchanged; each fish against its own prediction, and hatchery against wild on the whole-genome globe. Synthetic first; exploratory before any seal; after the current list, on GitHub",

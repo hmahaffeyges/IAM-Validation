@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 952,
+   "lines": 953,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -263,9 +263,9 @@
      "function": "main",
      "name": "main",
      "line": 322,
-     "end": 949,
+     "end": 950,
      "args": [],
-     "lines": 628,
+     "lines": 629,
      "doc": "",
      "constants": [
       "BIO",
@@ -287,8 +287,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 509,
-     "end": 513,
+     "line": 510,
+     "end": 514,
      "args": [
       "r"
      ],
@@ -304,8 +304,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 736,
-     "end": 743,
+     "line": 737,
+     "end": 744,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -317,8 +317,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 893,
-     "end": 894,
+     "line": 894,
+     "end": 895,
      "args": [
       "b",
       "it",
@@ -6600,7 +6600,7 @@
   },
   {
    "file": "stage_info_sphere.py",
-   "lines": 95,
+   "lines": 111,
    "functions": [
     {
      "file": "stage_info_sphere.py",
@@ -6651,10 +6651,26 @@
     },
     {
      "file": "stage_info_sphere.py",
+     "function": "level_free",
+     "name": "level_free",
+     "line": 30,
+     "end": 37,
+     "args": [
+      "B",
+      "U"
+     ],
+     "lines": 8,
+     "doc": "Construction v5 (2026-10-22, written before it runs; DEV-SPHERE-01 test 8 found a site's place set mostly by its level): each site's square-root vector minus the square-root vector of a flat profile at the site's own mean level, b_s = mean over the cell types, then scaled to length 1. What remains is only how the site departs from its own level across the cell types; nothing is tuned. A site with ",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_info_sphere.py",
      "function": "_spread",
      "name": "_spread",
-     "line": 31,
-     "end": 34,
+     "line": 40,
+     "end": 43,
      "args": [
       "v"
      ],
@@ -6668,8 +6684,8 @@
      "file": "stage_info_sphere.py",
      "function": "ang2pix_nest",
      "name": "ang2pix_nest",
-     "line": 35,
-     "end": 51,
+     "line": 44,
+     "end": 60,
      "args": [
       "nside",
       "theta",
@@ -6685,8 +6701,8 @@
      "file": "stage_info_sphere.py",
      "function": "to_pixels",
      "name": "to_pixels",
-     "line": 53,
-     "end": 54,
+     "line": 62,
+     "end": 63,
      "args": [
       "X",
       "nside"
@@ -6703,8 +6719,8 @@
      "file": "stage_info_sphere.py",
      "function": "concentration",
      "name": "concentration",
-     "line": 56,
-     "end": 58,
+     "line": 65,
+     "end": 67,
      "args": [
       "X",
       "idx"
@@ -6719,8 +6735,8 @@
      "file": "stage_info_sphere.py",
      "function": "edge_ratio",
      "name": "edge_ratio",
-     "line": 60,
-     "end": 73,
+     "line": 69,
+     "end": 82,
      "args": [
       "mb",
       "nside"
@@ -6737,16 +6753,17 @@
      "file": "stage_info_sphere.py",
      "function": "build",
      "name": "build",
-     "line": 75,
-     "end": 94,
+     "line": 84,
+     "end": 110,
      "args": [
       "B",
       "groups",
       "n_random",
       "seed",
-      "nside"
+      "nside",
+      "construction"
      ],
-     "lines": 20,
+     "lines": 27,
      "doc": "The layout of a reference matrix B (sites x cell types) and its report. groups: {name: site indices}; for each, the concentration R and the 99th percentile of n_random random groups of the same size drawn from groups['pool'] if given, else from all sites.",
      "constants": [
       "NSIDE"
@@ -7134,5 +7151,5 @@
   }
  ],
  "n_files": 32,
- "n_functions": 363
+ "n_functions": 364
 }

@@ -2,11 +2,11 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **32 Python files** holding **363 functions** (nested ones included); 363 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **32 Python files** holding **364 functions** (nested ones included); 364 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 952 | 17 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 953 | 17 | 11 | 10 |
 | `stage_0_intake.py` | 1,177 | 41 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -34,7 +34,7 @@ Read from the code at build time: the one command can load **32 Python files** h
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
 | `stage_metaa_atlas.py` | 233 | 14 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
-| `stage_info_sphere.py` | 95 | 9 | 0 | 0 |
+| `stage_info_sphere.py` | 111 | 10 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 155 | 8 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 123 | 6 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
@@ -255,14 +255,14 @@ The orchestration described above, from parsing the command to writing the ledge
 exit code 2 or 3 at the stops listed, carries the same-run references (columns A and C) into the conductor, adds the v4 stages, and
 hands everything to the report.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 322 (628 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `sequencing_values.csv`
+*Code:* `MethylPhys_Interface/run_sample.py` line 322 (629 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `sequencing_values.csv`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 736 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 737 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -270,13 +270,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 509 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 510 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 893 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 894 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -2995,19 +2995,27 @@ Construction v1: centered, projected on the three leading directions, scaled to 
 
 Interleaves the bits of a pixel coordinate, for the NESTED pixel number.
 
-*Code:* `stage_info_sphere.py` line 31 (4 lines) · arguments: v · calls: not called on the traced runs
+*Code:* `stage_info_sphere.py` line 40 (4 lines) · arguments: v · calls: not called on the traced runs
+
+### `stage_info_sphere.py::level_free`
+
+Construction v5 (development): each site's square-root vector minus that of a flat profile at the site's own mean level, scaled to length 1, so
+the globe places sites by how they depart from their own level across the cell types, not by the level itself (DEV-SPHERE-01 test 8 found the
+level dominates on real cells). Sites with no departure have no direction and are counted.
+
+*Code:* `stage_info_sphere.py` line 30 (8 lines) · arguments: B, U · calls: not called on the traced runs
 
 ### `stage_info_sphere.py::ang2pix_nest`
 
 The standard HEALPix NESTED angle to pixel; checked by a round trip through `stage_v4.nest_pix2ang` on all 196,608 pixels at NSIDE 128.
 
-*Code:* `stage_info_sphere.py` line 35 (17 lines) · arguments: nside, theta, phi · calls: not called on the traced runs
+*Code:* `stage_info_sphere.py` line 44 (17 lines) · arguments: nside, theta, phi · calls: not called on the traced runs
 
 ### `stage_info_sphere.py::to_pixels`
 
 The pixel of each globe point.
 
-*Code:* `stage_info_sphere.py` line 53 (2 lines) · arguments: X, nside · calls: not called on the traced runs · constants read: `NSIDE`
+*Code:* `stage_info_sphere.py` line 62 (2 lines) · arguments: X, nside · calls: not called on the traced runs · constants read: `NSIDE`
 
 ### `stage_info_sphere.py::concentration`
 
@@ -3016,20 +3024,20 @@ How tightly a group of sites lands together: the length of the mean of its globe
 sphere are; it is not ours. What the information sphere adds is where the points come from (the square-root map of each site's methylation
 across cell types) and the tools that read the map.
 
-*Code:* `stage_info_sphere.py` line 56 (3 lines) · arguments: X, idx · calls: not called on the traced runs
+*Code:* `stage_info_sphere.py` line 65 (3 lines) · arguments: X, idx · calls: not called on the traced runs
 
 ### `stage_info_sphere.py::edge_ratio`
 
 The mean jump of the mean-level map across HEALPix base-face edges over the jump within a face (about 1: no grid edges).
 
-*Code:* `stage_info_sphere.py` line 60 (14 lines) · arguments: mb, nside · calls: not called on the traced runs · constants read: `NSIDE`
+*Code:* `stage_info_sphere.py` line 69 (14 lines) · arguments: mb, nside · calls: not called on the traced runs · constants read: `NSIDE`
 
 ### `stage_info_sphere.py::build`
 
 The layout and its report: variance kept, sky covered and masked, distance agreement on 5,000 seeded pairs, edge ratio, and for each named
 group its concentration against the 99th percentile of 500 random groups of the same size.
 
-*Code:* `stage_info_sphere.py` line 75 (20 lines) · arguments: B, groups, n_random, seed, nside · calls: not called on the traced runs · constants read: `NSIDE`
+*Code:* `stage_info_sphere.py` line 84 (27 lines) · arguments: B, groups, n_random, seed, nside, construction · calls: not called on the traced runs · constants read: `NSIDE`
 
 ## 19. The reference globes and the series runner: `reference_globes.py`, `run_series.py`
 

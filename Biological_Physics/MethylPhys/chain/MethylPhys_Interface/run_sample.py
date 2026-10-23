@@ -226,7 +226,7 @@ def _build(a):
         if a.build_groups:
             G = {n: [pos[str(x)] for x in v if str(x) in pos] for n, v in json.load(open(a.build_groups)).items()}
         print(f"Build: information sphere from {os.path.basename(a.build_input)} ({B.shape[0]:,} sites x {B.shape[1]} cell types)", flush=True)
-        L, rep = IS.build(B.values, G, n_random=a.build_random)
+        L, rep = IS.build(B.values, G, n_random=a.build_random, construction=a.build_construction or "v1")
         _np.savez_compressed(a.build_out, sites=_np.array(B.index.astype(str)), cells=_np.array(B.columns.astype(str)), **L)
         rep.update(input=os.path.basename(a.build_input), groups_file=os.path.basename(a.build_groups) if a.build_groups else None, output=os.path.basename(a.build_out),
                    command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (DEV-SPHERE-01)")
@@ -336,6 +336,7 @@ def main():
                     help="the cells the IAM-Deconvolver splits the sample into: 'blood' (the six blood cells it is commissioned on, the default), 'atlas' (all of "
                          "IAM-Atlas v2.1's cell types, development: every share flagged), or a comma-separated list of atlas cell names (development); Met-A for "
                          "each cell reads every cell the panel finds (2026-10-22)")
+    ap.add_argument("--build-construction", default=None, choices=("v1", "v5"), help="--build info-sphere: v1 (default) or v5, the level taken out (DEV-SPHERE-01, development)")
     ap.add_argument("--build-mix", default=None, metavar="TISSUE:SHARE,...", help="--build constructed-draw: atlas tissues added to the plasma half and their shares (tests only)")
     ap.add_argument("--build-depth", default=None, metavar="BUFFY,PLASMA", help="--build constructed-draw: reads per site in each half (default 30,15)")
     ap.add_argument("--dev-metaa-specific", default=None, metavar="DELTA[,DELTA]",

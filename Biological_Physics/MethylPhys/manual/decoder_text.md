@@ -1949,6 +1949,11 @@ Construction v1: centered, projected on the three leading directions, scaled to 
 ### stage_info_sphere.py::_spread
 Interleaves the bits of a pixel coordinate, for the NESTED pixel number.
 
+### stage_info_sphere.py::level_free
+Construction v5 (development): each site's square-root vector minus that of a flat profile at the site's own mean level, scaled to length 1, so
+the globe places sites by how they depart from their own level across the cell types, not by the level itself (DEV-SPHERE-01 test 8 found the
+level dominates on real cells). Sites with no departure have no direction and are counted.
+
 ### stage_info_sphere.py::ang2pix_nest
 The standard HEALPix NESTED angle to pixel; checked by a round trip through `stage_v4.nest_pix2ang` on all 196,608 pixels at NSIDE 128.
 
