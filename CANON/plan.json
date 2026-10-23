@@ -797,9 +797,9 @@
     {
      "id": "38.2",
      "date": "2026-10-22",
-     "status": "open",
-     "what": "The report's flat sky picture is titled 'laid over healthy neutrophils' for a whole blood",
-     "next": "title it by the reference actually used (the person's own mix of healthy cells)"
+     "status": "done",
+     "what": "The report's flat sky pictures: their reference was right (Met-A's 6,000 neutrophil sites against healthy neutrophils, the C-Score's own sites); the titles now name the sites so no reader takes them for the whole blood",
+     "record": "chain/MethylPhys_Interface/report_figs_v4.py, run_sample.py (titles)"
     },
     {
      "id": "38.3",

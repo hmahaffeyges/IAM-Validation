@@ -798,7 +798,7 @@ def main():
             import report_figs_v4 as RF
             try: o["atlas_sky"] = RF.atlas_sky_png(os.path.splitext(os.path.abspath(a.out))[0] + "_atlas_sky.png", list(_z.index), "neutrophils",
                                                     os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "atlas", "v2.1"), V4.nest_pix2ang,
-                                                    title="Healthy neutrophils, IAM-Atlas v2.1: the same sites on the same sphere")
+                                                    title="Healthy neutrophils, IAM-Atlas v2.1, at Met-A's 6,000 neutrophil sites (the C-Score's sites)")
             except Exception as e: o["atlas_sky"] = {"drawn": False, "reason": f"{type(e).__name__}: {e}"[:200]}
             try: o["changes_sky"] = RF.changes_sky_png(os.path.splitext(os.path.abspath(a.out))[0] + "_changes_sky.png", _z, "neutrophils",   # the overlay (2026-10-18)
                                                        os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "atlas", "v2.1"), V4.nest_pix2ang, readings=_rd)
