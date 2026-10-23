@@ -6,6 +6,7 @@
 # counters on the same .pat: Stage Q (pat_site_table, the count the committed verdict used, as a check that the pipeline is the same) and
 # the commissioned counter, chain Stage Q2 (count_pat). Writes $OUT/<gsm>_stageq.json, <gsm>_q2.json, <gsm>_timing.json and the .pat.
 # Environment: MP (the MethylPhys folder), WORK, OUT, NW (aligner threads).
+CHAINPY=$(command -v python3)   # 2026-10-23: the chain's own Python (the one preflight checked), fixed before the tools' environments go on PATH
 set -uo pipefail; GSM=$1; S=$WORK; T=${NW:-2}; mkdir -p $S/fq $S/bam $S/pat $S/ref $S/logs $OUT; E=$MP/doors/data/DEV_ERASE_01
 MM="$S/bin/micromamba -r $S/mamba"; log(){ echo "$(date -u +%H:%M:%S) $*"; }
 [ -x $S/bin/micromamba ] || /usr/bin/curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xj -C $S bin/micromamba || exit 11
@@ -61,7 +62,7 @@ PAT=$(ls $S/pat/$GSM*.pat.gz | head -1); rm -f $S/bam/$GSM.bam*; cp $PAT $OUT/; 
 fi
 # 2026-10-22 (author: "if the chain didnt do it, it didnt happen"): the count is the one command's, run_sample.py --dev-count-only, flagged; the
 # older Stage Q cross-check (erase_read_one.py) called chain pieces directly and is no longer run; the .pat file is kept, so it can be rerun
-( cd $MP/chain/MethylPhys_Interface && python3 run_sample.py --pat $PAT --specimen "cultured cells" --seq-cell "$GSM" --id $GSM --dev-count-only \
+( cd $MP/chain/MethylPhys_Interface && "$CHAINPY" run_sample.py --pat $PAT --specimen "cultured cells" --seq-cell "$GSM" --id $GSM --dev-count-only \
     --dev-count-genome $gen --out $OUT/${GSM}_report.html --bundle $OUT/${GSM}_bundle.json > $OUT/${GSM}_run_sample.log 2>&1 ) || exit 35
 python3 -c "import json,sys; B=json.load(open(sys.argv[1])); c=B['iam_a_count_only']; json.dump(dict(gsm=sys.argv[2], genome=c['genome'], counter='run_sample.py --dev-count-only (chain Stage Q2)', **c['count']), open(sys.argv[3], 'w'), indent=1)" \
     $OUT/${GSM}_bundle.json $GSM $OUT/${GSM}_q2.json || exit 36

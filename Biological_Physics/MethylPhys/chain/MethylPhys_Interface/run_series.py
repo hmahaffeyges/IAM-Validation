@@ -62,7 +62,9 @@ def read(a, extra):
     P1 = P1v = None
     if a.pass_ == 2:
         sl = pd.read_csv(a.samples, dtype={"slide": str, "ref": str}); sl = sl[[k for k in ("gsm", "slide", "ref") if k in sl.columns]]
-        P1 = pd.DataFrame([dict(gsm=os.path.basename(p)[:-5], **bundle_row(p)) for p in glob.glob(os.path.join(d1, "*.json")) if not p.endswith(("_planted.json", "_values.json"))]).merge(sl, on="gsm")
+        _rows = [dict(gsm=os.path.basename(p)[:-5], **bundle_row(p)) for p in glob.glob(os.path.join(d1, "*.json")) if not p.endswith(("_planted.json", "_values.json"))]
+        if not _rows: sys.exit(f"pass 2, shard {a.shard}: no pass-1 readings in {d1}; pass 2 needs pass 1's bundles")   # 2026-10-23: a clear stop, not a KeyError
+        P1 = pd.DataFrame(_rows).merge(sl, on="gsm")
         PV = [dict(gsm=os.path.basename(p)[:-12], **bundle_row(p)) for p in glob.glob(os.path.join(d1, "*_values.json"))]
         P1v = pd.DataFrame(PV).merge(sl, on="gsm") if PV else None   # the values route's references: the unplanted half read from its saved values
     for k, r in enumerate(S.itertuples()):
