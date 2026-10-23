@@ -175,8 +175,8 @@
      "id": "42.4",
      "date": "2026-10-23",
      "status": "open",
-     "what": "Stool: is there public human stool DNA methylation data the chain can read (arrays or sequencing)?",
-     "next": "metadata search"
+     "what": "Stool (author: 'Stool samples? That is what I would like to run through the chain just to see what is possible'). Metadata search: the only public human stool DNA methylation set found is GSE212997 (newborns, necrotizing enterocolitis; bisulfite sequencing of human DNA from stool, per-site counts; stool from infants who stayed healthy, infants with the disease, and infants recorded as 'control turns to NEC', taken before they fell ill; matched colon tissue). Per-site counts: the atlas, the IAM-Deconvolver and Met-A on sequencing values can read it, IAM-A cannot. RARE: the stools taken before illness are held unread for a sealed test",
+     "next": "the one command's intake for per-site count files (Bismark coverage); then the stools of infants who stayed healthy, read and flagged: does the Deconvolver find colon cells in stool, and in what share"
     }
    ]
   },
