@@ -728,9 +728,10 @@
     {
      "id": "33.2",
      "date": "2026-10-22",
-     "status": "open",
+     "status": "running",
      "what": "The sealed test of the same-slide tare",
-     "next": "search for an unread series of healthy purified cells with at least 3 healthy arrays on most slides; declare before opening; seal the bars"
+     "next": "read once on GitHub (series run); score; if all three bars are met, commission Met-A against the atlas for purified monocytes on EPIC v1 with the same-slide tare",
+     "record": "Biological_Physics/MethylPhys/doors/METAA_ATLAS_SEAL_02.md"
     }
    ]
   },

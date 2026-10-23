@@ -16,7 +16,8 @@
      "outcome": "A clustered loss lights its own cell's layer once loss times share is a few percent of the DNA; other cells' layers barely move.",
      "rows": [
       "GRP-015"
-     ]
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md"
     },
     {
      "title": "Sites held by one cell alone (GRP-015, DEV-EACH-CELL-01 exploration 7)",
@@ -25,7 +26,18 @@
      "outcome": "Specific sites do not place a whole-pattern loss on one cell; a joint reading of all cells is the next idea (plan 39.17).",
      "rows": [
       "GRP-015"
-     ]
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md"
+    },
+    {
+     "title": "Met-A against the atlas: the second sealed test's synthetic run through the one command (GRP-014)",
+     "status": "development",
+     "what": "36 constructed monocyte arrays laid out like the declared list, each slide with its own offset, read and tared by the one command and scored by the sealed scorer.",
+     "outcome": "Running; the seal follows it.",
+     "rows": [
+      "GRP-014"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/data/METAA_ATLAS_SEAL_02/synthetic_02.py"
     }
    ]
   },
@@ -40,7 +52,8 @@
      "outcome": "Counts unchanged; drawing only.",
      "rows": [
       "ATL-063"
-     ]
+     ],
+     "record": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_globe_v4.py"
     },
     {
      "title": "The instrument catalogue corrected line by line at its sources; a status-claim check and a no-dates check in the push gate",
@@ -49,7 +62,8 @@
      "outcome": "Pushed.",
      "rows": [
       "OTH-072"
-     ]
+     ],
+     "record": "Biological_Physics/MethylPhys/INSTRUMENTS.md"
     },
     {
      "title": "One build command for every generated document (CANON/build_all.py)",
@@ -58,7 +72,8 @@
      "outcome": "Pushed.",
      "rows": [
       "OTH-072"
-     ]
+     ],
+     "record": "CANON/build_all.py"
     }
    ]
   }

@@ -206,3 +206,5 @@ GSE318173,"partly spent (the 278 healthy controls read once, 2026-10-20)","Group
 GSE166844,"not read (declared, then found to have no IDATs on GEO)","DEV-METAA-ATLAS-01 exploration 5 was declared on its 141 sorted arrays, 2026-10-21; GEO holds no IDATs for this series (signal tables only, without the control probes chain Stage 1 needs), so nothing was read and the exploration was withdrawn",GEO
 GSE168779,spent (declared before reading),"DEV-METAA-ATLAS-01 exploration 6: all 130 monocyte arrays (doors/data/DEV_METAA_ATLAS_01/gse168779_monocyte_samples.csv), 2026-10-21",GEO
 GSE267660,partly spent (declared before reading),"METAA-ATLAS-SEAL-01: the 31 healthy donors' CD14 monocytes only (doors/data/METAA_ATLAS_SEAL_01/seal_samples.csv); the multiple sclerosis arrays and dendritic cells not opened, 2026-10-22",GEO
+GSE157611,partly spent,"METAA-ATLAS-SEAL-02: the 24 healthy monocyte arrays (the 8 malaria-episode arrays unread)",METAA_ATLAS_SEAL_02.md 2026-10-23
+GSE196007,partly spent,"METAA-ATLAS-SEAL-02: the 12 healthy controls (the systemic sclerosis arrays unread)",METAA_ATLAS_SEAL_02.md 2026-10-23

@@ -6,9 +6,9 @@ Candidates found by search are metadata only and their counts are provisional un
 
 ## Totals
 
-- data sets: 486; in S3: 89; chain-readable in S3 (IDAT): 39
+- data sets: 488; in S3: 89; chain-readable in S3 (IDAT): 39
 - public, not downloaded: 187
-- read before (spent or partly spent): 206
+- read before (spent or partly spent): 208
 - by test status: scored 12, sealed 0, not suitable 4, designed 0, candidate 0
 - by use (gold-mine map): atlas build 28, held-out test 35, truth set 2, research 17, not usable 87
 

@@ -16,7 +16,7 @@ STEPS = [("CANON/chain_events.py", False), ("CANON/manifest.py", False), ("CANON
          ("docs/book/build_repro_chapter.py", True), ("docs/book/figscripts/make_app_E.py", True), (MP + "manual/decoder_inventory.py", True),
          (MP + "manual/build_decoder.py", True), (MP + "sop/build_sop_v4.py", True), ("CANON/daylog.py", False), ("CANON/plan_md.py", True),
          ("CANON/status_md.py", True), ("CANON/master_inventory.py", False)]
-CHECKS = ["CANON/no_dates.py --check", "CANON/status_claims.py --check", "CANON/doc_audit.py --check", "CANON/number_trace.py --check",
+CHECKS = ["website/build/build_home.py --check", "CANON/no_dates.py --check", "CANON/status_claims.py --check", "CANON/doc_audit.py --check", "CANON/number_trace.py --check",
           "CANON/compile_check.py", "CANON/commissioning_check.py"]
 def run(cmd):
     r = subprocess.run([sys.executable] + cmd.split(), cwd=ROOT, capture_output=True, text=True)

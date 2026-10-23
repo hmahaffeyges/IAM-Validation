@@ -133,6 +133,7 @@ GSE155952,,,,,spent,,,COMMISSIONING_NOTE_CSCORE,,,,,,
 GSE156792,,,,,,,,,atlas build,t cells cd3,yes,IDAT listed for 109/109 samples,Genome-epigenome interactions associated with Myalgic Encephalomyelitis/Chronic Fatigue Syndrome,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE157131,downloads/D_ageing/GSE157131/,9.69,,,unspent,,,,,,,,Ageing blood arrays,S3 register
 GSE157341,,,,,,,,DEV_TISSUE_LIVER_01,,,,,DNA methylation signatures reveal the diversity of processes remodeling liver cancer methylomes,candidates DEV_FINGERPRINT_03
+GSE157611,,,,,partly spent,,,,,,,,,
 GSE157651,,,,,,,,,not usable (cultured with no uncultured comparison),lung fibroblast,yes,IDAT listed for 40/40 samples,DNA methylation in airway and parenchymal fibroblasts isloated by from individuals with and without asthma,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE158422,,,,,,,,DEV_FINGERPRINT_03,,,,,,
 GSE159474,,,,,,,,,held-out test,monocytes,yes,SRA run links for 72/72 samples,DNA methylation profiling of circulatory monocytes in community-acquired pneumonia,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
@@ -184,6 +185,7 @@ GSE190164,,,,,,,,,not usable (not purified),,yes,IDAT listed for 48/48 samples,D
 GSE191200,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,microglia,yes,IDAT listed for 56/56 samples,"Contribution of Age, Brain Region, Mood Disorder Pathology, and Interindividual Factors on the Methylome of Human Microglia",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE191297,,,,,spent,,,DEV_INTAKE_02,,,,,,
 GSE195869,,,,,,,,DEV_XSPECIES_TEMP_01,,,,,,
+GSE196007,,,,,partly spent,,,,,,,,,
 GSE196148,,,,,,,,,not usable (too few donors),ad-dermal fibroblasts,yes,IDAT listed for 7/7 samples,DNA methylation of fibroblasts from one HGPS patient,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE197512,,,,,,,,DEV_ATLAS_V21_01,research,ad-dermal fibroblasts | vascular endothelium | smooth muscle | keratinocyte,yes,IDAT listed for 372/372 samples,Cell division drives DNA methylation loss in late-replicating domains in primary human cells [methylation array],gold-mine map
 GSE198972,,,,,,,,,not usable (cultured with no uncultured comparison (likely)),keratinocyte,yes,IDAT listed for 12/12 samples,Hippo pathway component WWC1 is a key regulator of apoptosis and photosensitivity in lupus keratinocytes,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
