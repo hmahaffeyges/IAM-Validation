@@ -29,7 +29,7 @@ def undate(t):
     def hold(m): keep.append(m.group(0)); return f"\x00{len(keep) - 1}\x00"
     u = KEEP.sub(hold, t); cap = u[:1].isupper()
     for p, r in RULES: u = re.sub(p, r, u)
-    u = re.sub(r"\(\s*\)", "", re.sub(r"[ \t]{2,}", " ", u)).replace(" ,", ",").replace(" )", ")")
+    u = re.sub(r"\(\s*\)", "", re.sub(r"(?<=\S)[ \t]{2,}", " ", u)).replace(" ,", ",").replace(" )", ")")
     u = re.sub(r" \.(?=\s|$)", ".", u); u = re.sub(r"(?<!\.)\.\.(?!\.)", ".", u)
     u = re.sub(r"(^|(?<=[.!?]\s))([a-z])", lambda m: m.group(1) + m.group(2).upper(), u) if cap else u
     return re.sub("\x00(\\d+)\x00", lambda m: keep[int(m.group(1))], u)
