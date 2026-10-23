@@ -716,7 +716,7 @@
      "status": "running",
      "what": "Exploration 8 on both monocyte series through the one command",
      "run": "series runs chain08_gse168779, chain08_gse267660",
-     "next": "record; then the fresh sealed test"
+     "next": "adult monocytes recorded (same-slide tare 100 % Normal, 4.09 spreads; laboratory tare 1.45); children's monocytes (GSE168779) still running; then a sealed test on a series with at least 3 healthy arrays on most slides"
     }
    ]
   },

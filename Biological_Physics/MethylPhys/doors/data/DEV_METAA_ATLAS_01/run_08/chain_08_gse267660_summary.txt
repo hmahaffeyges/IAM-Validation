@@ -1,0 +1,4 @@
+DEV-METAA-ATLAS-01 exploration 8 (exploratory, not sealed), chain_08_gse267660.csv: 31 arrays listed
+pass 1: 31 bundles | Stage 0 verdicts {'PROCEED': 30, 'PROCEED_WITH_PENALTY': 1} | atlas Met-A read 31
+tare series: tared 31 of 31 | Normal 0.903 | median 0.9995 | spread 0.0401 | planted 1 % moves +0.0582 (n 31) = 1.45 spreads
+tare slide : tared 9 of 31 | Normal 1.000 | median 0.9979 | spread 0.0145 | planted 1 % moves +0.0593 (n 9) = 4.09 spreads

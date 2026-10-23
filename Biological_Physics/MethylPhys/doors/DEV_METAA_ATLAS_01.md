@@ -153,3 +153,11 @@ Scorer `data/DEV_METAA_ATLAS_01/chain_08_score.py` reads only the table of bundl
 (`chain_08_gse168779.csv`) and GSE267660's 31 healthy donors (`chain_08_gse267660.csv`), each its own run; first a 4-array smoke run
 (`chain_08_smoke.csv`, one slide). Chain changes for it: intake accepts isolated, sorted or purified cells of any IAM-Atlas v2.1 type and
 reads them by Met-A against the atlas, flagged not commissioned (`stage_0_intake.atlas_cell_of`); the commissioned Met-A is not applied to them.
+
+## Exploration 8, adult monocytes, run once through the one command (2026-10-22; series run 39834679796)
+Output: `data/DEV_METAA_ATLAS_01/run_08/chain_08_gse267660_summary.txt` and `_rows.csv` (31 healthy adult monocyte arrays of GSE267660, every
+reading and tare by run_sample.py). Stage 0 admitted all 31 (one with a penalty). Tared against the rest of the laboratory's healthy arrays:
+31 tared, 90.3 % Normal, spread 0.0401, a planted 1 % loss moves the reading 1.45 spreads. Tared against healthy arrays on the same slide
+(the chain's Stage T rule): 9 of 31 had at least 3 on their slide, 100 % Normal, spread 0.0145, a planted 1 % loss 4.09 spreads. The withdrawn
+sealed test's pattern holds through the chain: the laboratory-wide tare is too loose for a 1 % loss; the same-slide tare is tight enough.
+The children's monocytes (GSE168779) are still running.
