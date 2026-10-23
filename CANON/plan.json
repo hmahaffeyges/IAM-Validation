@@ -956,9 +956,9 @@
     {
      "id": "40.10",
      "date": "2026-10-22",
-     "status": "built",
+     "status": "running",
      "what": "GSE186888: whole-genome bisulfite sequencing (85x) of white blood cells and matched plasma cell-free DNA from the same 23 healthy donors; per-CpG counts (.beta files), no molecules, so every instrument but IAM-A. Unread (only the description and file names seen); rare kind, reserved",
-     "next": "declare 3 donors spent, then read their white cells and plasma through run_draw.py on GitHub; the other 20 stay unread",
+     "next": "record exploration 4 (one_draw_04.py); then the same-chemistry tare from healthy plasma and white cells read the same way",
      "record": "chain/stage_seq_values.py (values_from_beta), run_sample.py --dev-seq-beta, run_draw.py --*-seqbeta"
     }
    ]
