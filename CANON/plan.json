@@ -946,6 +946,13 @@
      "status": "open",
      "what": "The sphere's territory reading misses a loss across a whole cell program (sample test 1, CD4: 0 of 27 lit at 50 %) because each territory is judged against the sample's other territories; judge each against its expectation from the atlas in the sample's own mix instead, with a separate check for a laboratory offset",
      "next": "write it and its synthetic test (the same plants as sample test 1)"
+    },
+    {
+     "id": "35.14",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "IAM-Atlas v2.1 as the ruler for every array (author: 'a standard, a ruler, something to calibrate each sample to'): Stage T's self-tare keeps its map (the array's own low and high anchors per probe design, nothing fitted) but its targets become the atlas's values at anchor sites that read the same in all 79 healthy cell types and are on 450K, EPIC v1 and EPIC v2, instead of the frozen reference arrays' scale (selftare_typeII_EPIC_v1.json); the anchor shift before the map is reported as a reading and flagged when large (a laboratory offset or a whole-genome change must never be silently tared away)",
+     "next": "synthetic first; then the same person's buffy coat on EPIC v1 and EPIC v2 (AK0005) must read alike after the map; then the many-labs test (35.6)"
     }
    ]
   },
