@@ -768,7 +768,7 @@
      "status": "running",
      "what": "Group-A's 278 bloods through the one command",
      "run": "series run groupa_chain (series_runs.json)",
-     "next": "pass 1 shard 17 lost its machine: rerun failed jobs when the pass completes, then pass 2 and the number-by-number comparison"
+     "next": "pass 1 shard 17 rerun (attempt 2, 2026-10-22 10:30 PM); then pass 2 and score_groupa_chain.py's comparison with the committed scoring; record"
     },
     {
      "id": "37.2",
