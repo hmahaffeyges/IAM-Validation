@@ -941,10 +941,9 @@
     {
      "id": "40.3",
      "date": "2026-10-22",
-     "status": "built",
-     "what": "Met-A on sequencing values reads low (few reads per site give 0 or 1)",
-     "next": "rerun the depth test (seq_depth_01.py) on GitHub with the correction; then a same-chemistry healthy tare",
-     "record": "chain/stage_metaa_atlas.py (expected_H_counts)"
+     "status": "done",
+     "what": "Met-A on sequencing: the k-of-n expectation (expected_H_counts); depth test 2: no downward slide (0.757, 0.798, 0.897 at 31, 9, 3 reads; before 0.673, 0.542, 0.343)",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md (exploration 1 again, run 39892463332)"
     },
     {
      "id": "40.4",
@@ -998,6 +997,13 @@
      "what": "GSE186888: whole-genome bisulfite sequencing (85x) of white blood cells and matched plasma from the same 23 healthy donors (per-CpG counts, no molecules). WHOLLY UNREAD and reserved for the one-draw test that counts (scarce-data rule); an exploration on 3 donors was withdrawn before any reading",
      "next": "explore the one-draw path on constructed or other spent data first; read GSE186888 only in the sealed one-draw test, or if the author chooses otherwise",
      "record": "chain/stage_seq_values.py (values_from_beta, checked on a constructed file)"
+    },
+    {
+     "id": "40.11",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "Met-A on sequencing: the chemistry offset (0.757 at full depth against the array-built atlas) and the loss of sensitivity at few reads",
+     "next": "a planted loss at each depth through the chain (--dev-thin with --dev-plant) to measure what a loss still moves; then a tare against healthy sequencing samples of the same cell, read the same way"
     }
    ]
   }

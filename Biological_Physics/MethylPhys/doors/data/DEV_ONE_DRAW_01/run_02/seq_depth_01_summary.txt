@@ -1,0 +1,7 @@
+DEV-ONE-DRAW-01 exploration 1: GSM5652282 (healthy CD8 T cells, WGBS, spent) read by run_sample.py at seeded thinned depths
+fraction 1: molecules all | IAM-A 0.9518 Normal | sites with a value 813943, median calls 31.0 | Met-A vs atlas CD8 0.75742 (6000 sites) | shares cd8 t cells 1.0, nk cells 0.0, neutrophils 0.0
+fraction 0.3: molecules 112138581 | IAM-A 0.9514 Normal | sites with a value 812487, median calls 9.0 | Met-A vs atlas CD8 0.79758 (5979 sites) | shares cd8 t cells 1.0, nk cells 0.0, neutrophils 0.0
+fraction 0.1: molecules 37378326 | IAM-A 0.9474 Normal | sites with a value 758532, median calls 3.0 | Met-A vs atlas CD8 0.89712 (5489 sites) | shares cd8 t cells 1.0, nk cells 0.0, neutrophils 0.0
+fraction 0.03: molecules 11210058 | IAM-A 0.9471 Normal | sites with a value 478706, median calls 1.0 | Met-A vs atlas CD8 None ( sites; only 3334 of 6000 identity sites measured (at least 90% needed)) | shares cd8 t cells 0.9946, neutrophils 0.0054, nk cells 0.0
+fraction 0.01: molecules 3734811 | IAM-A 0.9318 Normal | sites with a value 212601, median calls 1.0 | Met-A vs atlas CD8 None ( sites; only 1493 of 6000 identity sites measured (at least 90% needed)) | shares 
+fraction 0.003: molecules 1121634 | IAM-A 0.7651 below Normal | sites with a value 71751, median calls 1.0 | Met-A vs atlas CD8 None ( sites; only 528 of 6000 identity sites measured (at least 90% needed)) | shares 

@@ -63,3 +63,13 @@ from the spent example blood: hepatocyte, vascular endothelium and colon epithel
 plasma read at 10, 30 and 60 reads per site (one GitHub run each), buffy coat at 30. `data/DEV_ONE_DRAW_01/constructed_draw_05.py` reports each
 added tissue's share found against the truth and the largest share found for a tissue not added (the noise floor at that depth). A first local
 check at 15 reads (5 % hepatocyte and 5 % vascular endothelium) found 4.8 % and 5.2 %, with tissues not added up to 1.9 %.
+
+## Exploration 1 again, with the read-count correction (2026-10-22; explore run 39892463332, commit 82c9105f)
+Output: `data/DEV_ONE_DRAW_01/run_02/seq_depth_01_summary.txt`. Met-A against the atlas's CD8 T cells, at all, 30 % and 10 % of the
+molecules (median 31, 9 and 3 reads per site): 0.757, 0.798, 0.897 (before the correction 0.673, 0.542, 0.343). Below that, too few identity
+sites have a read, as before. IAM-A and the Deconvolver are unchanged (IAM-A Normal down to 1 % of the molecules).
+Reading: the correction removed the slide downward as reads fall. Two things remain. (1) At full depth the reading is 0.757, not 1: that is
+the gap between sequencing and the array-built atlas, a chemistry offset, which only a tare against healthy samples read the same way can
+cancel (same chemistry, same depth). (2) As reads fall, the reading moves toward 1, because with few reads both the measured disorder and its
+expectation are made mostly of counting; the reading is not wrong there, but it carries less of the sample. How much a loss still moves it at
+each depth is for a planted loss at each depth to show.
