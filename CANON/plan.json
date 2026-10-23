@@ -229,6 +229,37 @@
    ]
   },
   {
+   "status": "open",
+   "rows": [
+    "GRP-014"
+   ],
+   "task": "Reading cancer's own territories (author: 'if we are missing a lot of the signal, that is wonderful news ... we can find it and increase the sensitivity of our instruments'). The commissioned Met-A, the C-Score and Group-A read the 6,000 identity sites of a cell (healthy 0.05-0.25 or 0.75-0.95), so none reads the two places early cancer acts: the 66,986 atlas sites unmarked in every cell type (where Polycomb-island gains fall; median healthy level 0.037) and the loosely held methylated domains (where early losses fall). The retired class gauge read larger panels by their mean level (29,181 to 42,134 loci per class), which is one likely reason its cohort signals were strong, though it was also open to the cell mix. Two new readings, each against IAM-Atlas v2.1 in the person's own Deconvolver mix, flagged development: island gain, and domain loss",
+   "done_when": "both readings built in the one command, passed a synthetic test (planted island gains and planted domain loss found; healthy reads Normal), and explored on spent tumor and normal arrays",
+   "branches": [
+    {
+     "id": "48.1",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "Island gain reading: mean H(beta) at the 0-of-79 islands over the atlas expectation in the person's mix; Polycomb targets reported apart",
+     "next": "build in stage_metaa_atlas; synthetic test first"
+    },
+    {
+     "id": "48.2",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "Domain loss reading: at methylated sites in tiles loose in any healthy cell type (the loose-prone domains), the same form",
+     "next": "build after 48.1"
+    },
+    {
+     "id": "48.3",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "Whiteboard check, the healthy offset at the unmarked islands: healthy cells hold them at a median 0.037, above what stray gain errors alone would give (an earlier count of the gain-side rate, on a superseded counter, gave 0.009-0.016). Compute the gain-side rate on the commissioned counter and compare; a derived healthy level below the measured one would make the difference a reading of accumulated drift",
+     "next": "the gain-side count on Stage Q2's molecules (unmethylated molecules, isolated methylated calls)"
+    }
+   ]
+  },
+  {
    "task": "Showcase scenario 4: the three healthy colon samples (GSE151732: GSM4589141, GSM4589144, GSM4589145) through IAM-Atlas v2.1's commissioned tissue scorer, once, by the sealed rule",
    "done_when": "their reports and the scorer's reading committed in doors/data/SHOWCASE_V4, and its README section written",
    "rows": [
