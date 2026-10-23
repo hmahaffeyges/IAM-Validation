@@ -79,3 +79,6 @@ each depth is for a planted loss at each depth to show.
 scaled by the cell's share as the one command scales a plant. `data/DEV_ONE_DRAW_01/seq_plant_06.py` builds a healthy draw and draws with CD4 T
 cells at 5 and 20 % and NK cells at 20 %, counts them at 3, 10, 30 and 60 reads per site (one GitHub run each), and reads the buffy-coat half by
 the one command. Reported: each planted cell's Met-A move, in the reading's own error over sites, and the largest move in another cell.
+
+Explorations 5 and 6, first dispatch: stopped by a path bug in the test files (a relative output folder, while the chain's builds run from
+their own folder); no draw was read. Fixed (absolute folder); nothing else changed; run again.

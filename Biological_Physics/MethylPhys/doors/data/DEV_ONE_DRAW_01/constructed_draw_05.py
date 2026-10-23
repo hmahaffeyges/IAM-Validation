@@ -8,7 +8,8 @@ truth, and the largest share found for any tissue that was NOT added (the noise 
 smallest share it reads at each depth. Usage: python3 constructed_draw_05.py OUTDIR PLASMA_DEPTH"""
 import os, sys, json, re, subprocess, urllib.request, time
 H = os.path.dirname(os.path.abspath(__file__)); RS = os.path.abspath(os.path.join(H, "..", "..", "..", "chain", "MethylPhys_Interface", "run_sample.py"))
-out = sys.argv[1]; DEPTH = int(sys.argv[2]); os.makedirs(out, exist_ok=True); G = "GSM7508429"
+out = os.path.abspath(sys.argv[1]);   # 2026-10-22: absolute, because the chain's builds run from its own folder
+ DEPTH = int(sys.argv[2]); os.makedirs(out, exist_ok=True); G = "GSM7508429"
 CH = os.path.abspath(os.path.join(H, "..", "..", "..", "chain", "MethylPhys_Interface")); RD = os.path.join(CH, "run_draw.py")
 base = f"https://ftp.ncbi.nlm.nih.gov/geo/samples/{G[:7]}nnn/{G}/suppl/"; files = {}
 for k in range(5):

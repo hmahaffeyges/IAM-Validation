@@ -132,7 +132,7 @@ def changes_sky_png(out, z, cell, atlas_dir, nest_pix2ang, readings="", thr=2.0,
     im = ax.imshow(rgb, origin="lower", interpolation="nearest", extent=(-2, 2, -1, 1))
     e = Ellipse((0, 0), 4, 2, transform=ax.transData, fc="none", ec="#555555", lw=0.5); ax.add_patch(e); im.set_clip_path(e)
     ax.set_xlim(-2.02, 2.02); ax.set_ylim(-1.02, 1.02); ax.set_aspect("equal"); ax.set_axis_off()
-    ax.set_title(title or f"What changed at Met-A's {len(z):,} {cell} sites: this sample laid over healthy {cell}", loc="left", fontsize=9.5)
+    ax.set_title(title or f"What changed at Met-A's {len(z):,} identity sites of {cell}: this sample laid over healthy {cell}", loc="left", fontsize=9.5)
     nch = int((np.isfinite(D) & (np.abs(D) > thr)).sum()); nd = int(np.isfinite(D).sum())
     ax.legend(handles=[Patch(color="#c8c8c8", label="matches healthy (gray shade: the healthy cell's tagging)"),
                        Patch(color=cm(0.92), label=f"more disorder than healthy: pattern lost (beyond +{thr:g} of its own spread)"),
