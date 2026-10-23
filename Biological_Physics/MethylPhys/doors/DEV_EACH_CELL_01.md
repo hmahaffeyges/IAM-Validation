@@ -97,3 +97,6 @@ loss across a whole pattern; the per-cell globe (exploration 5) does for a clust
 `data/DEV_EACH_CELL_01/spread_08_score.py` on every fifth of Group-A's 278 healthy bloods (`spread_08_samples.csv`, 56 arrays, one laboratory series),
 read by run_sample.py with `--cell-panel atlas --dev-metaa-allsites`: for each cell and each reading, the spread between healthy people and what a
 1 % loss moves in units of it. The scorer only summarizes the bundles.
+
+## Synthetic C-Score test 1, written and committed before it runs (plan 41.2, 41.3)
+`data/DEV_EACH_CELL_01/cscore_cell_01.py`: the C-Score for each cell and for the whole genome (`chain/stage_metaa_atlas.cscore_in_mix`, the commissioned statistic on each cell's departure map), by run_sample.py on GSM7508429 (spent), healthy and with clustered and spread losses planted by the chain in CD4 T cells, neutrophils, NK cells and monocytes. Expected before it runs: a clustered loss raises the planted cell's C well above healthy, and more than a spread loss does.

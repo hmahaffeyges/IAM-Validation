@@ -9,8 +9,8 @@ had stayed cancer-free, 235 had developed breast cancer and 166 colorectal cance
 draw to the diagnosis (0.02 to 14.4, median 5.4). The series is spent (CANON/data_spent.csv): an earlier, different instrument read its cases
 against its controls. It is used here to explore, never to commission. List: `data/DEV_FIRES_01/gse51032_samples.csv` (from the sample labels).
 
-**The reading.** Every array by the one command (`chain/MethylPhys_Interface/run_series.py`, workflow `series.yml`) with `--cell-panel atlas`
-(the IAM-Deconvolver on all 79 atlas cells; Met-A for each cell found) and `--dev-metaa-allsites` (the every-site reading). On a 450K array the
+**The reading.** References for every tare: only the 424 who stayed cancer-free (the `ref` column; run_series.py uses only those). Every array by the one command (`chain/MethylPhys_Interface/run_series.py`, workflow `series.yml`) with `--cell-panel atlas`
+(the IAM-Deconvolver on all 79 atlas cells; Met-A for each cell found) and `--dev-metaa-allsites` (the every-site reading), and the C-Score for each cell and the whole genome (`stage_metaa_atlas.cscore_in_mix`, flagged; plan 41.2, 41.3). On a 450K array the
 commissioned Met-A and C-Score are refused by the chain (no 450K neutrophil reference) and the atlas readers run, flagged.
 
 **Smoke run first:** four arrays from one slide (two controls, one breast and one colorectal case; `smoke_samples.csv`): does a 450K IDAT pass

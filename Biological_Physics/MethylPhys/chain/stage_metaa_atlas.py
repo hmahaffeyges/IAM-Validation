@@ -230,3 +230,50 @@ def read_in_mix_allsites(beta, shares):
         r.update(A=round(A, 5), shift_per_1pct_loss=round(sh, 5), se_over_sites=round(se, 6), effective_sites=int(neff), state="untared")
         out["cells"].append(r)
     return out
+
+
+CS_BLOCK = 10   # the commissioned C-Score's block: 10 neighboring sites (conductor_v3, clustering_block)
+CS_MIN_SHARE = 0.01   # a cell below 1 % of the sample is not given a C-Score (its departure map is mostly the other cells'); stated, not derived
+
+def _clustering(z, w=CS_BLOCK):
+    """The commissioned C-Score's statistic (conductor_v3._clustering), unchanged: the departures in genome order, the variance of the means of
+    blocks of w neighboring sites (x sqrt(w)) over the variance of the sites. Departures independent from site to site give 1; departures that run
+    along the genome give more. It does not depend on the size of the departures, only on how they are laid out."""
+    o = np.asarray(z, dtype="float64"); o = o[np.isfinite(o)]; nb = len(o) // w
+    if nb < 10 or float(np.var(o)) == 0.0: return None
+    b = o[:nb * w].reshape(nb, w).mean(1) * np.sqrt(w); return float(np.var(b) / np.var(o))
+
+def _genome_order(ids):
+    """Site ids sorted in genome order: the order of IAM-Atlas v2.1's sites.parquet, the order plant_runs and the globe use."""
+    import pyarrow.parquet as pq
+    if "ids" not in _cache: _cache["ids"] = pq.read_table(os.path.join(ATLAS, "sites.parquet")).column("cpg").to_pylist()
+    if "pos" not in _cache: _cache["pos"] = pd.Series(np.arange(len(_cache["ids"])), index=_cache["ids"])
+    p = _cache["pos"].reindex(pd.Index(ids)); k = p.notna().to_numpy(); return list(pd.Index(ids)[k][np.argsort(p.to_numpy()[k])])
+
+def cscore_in_mix(beta, shares, deps=None):
+    """The C-Score for each cell found in a mixed sample, and for the whole genome (development, written 2026-10-23 before it runs; plan 41.2,
+    41.3; author: 'I wish we had the C-Scores wired in ... they could potentially shine here'). For each cell c with a share of at least
+    CS_MIN_SHARE: its departure map at its identity sites (departure_in_mix: H(beta) - H(e), e the atlas mixed in this sample's own shares, the map
+    the globe's layer for c draws), in genome order, read by the commissioned C-Score's statistic (_clustering, blocks of 10). Whole genome: the
+    same at every atlas site the sample measured, e mixed by read_in_mix's rule. Untared: the commissioned C-Score reads after a same-run tare
+    against healthy samples; here healthy samples of the same series are the comparison until a tare for these readings is built."""
+    cells = [c for c, f in shares.items() if f is not None]
+    out = dict(stage="C-atlas-mix", reading="C-Score for each cell and for the whole genome, against IAM-Atlas v2.1 in this sample's own shares",
+               flag=FLAG, block_sites=CS_BLOCK, min_share=CS_MIN_SHARE, cells=[], note="untared; healthy samples of the same series are the comparison")
+    if not cells: out["reason"] = "no cell shares"; return out
+    for c in cells:
+        f = float(shares[c]); r = dict(cell=c, share=round(f, 4), C=None)
+        if f < CS_MIN_SHARE: r["reason"] = f"share below {CS_MIN_SHARE}"; out["cells"].append(r); continue
+        d = (deps or {}).get(c)
+        if d is None: d = departure_in_mix(beta, shares, c)
+        d = None if d is None else pd.Series(d, dtype="float64").dropna()
+        if d is None or len(d) < 10 * CS_BLOCK: r["reason"] = "too few identity sites with a departure"; out["cells"].append(r); continue
+        C = _clustering(d.reindex(_genome_order(d.index)).to_numpy()); r.update(C=None if C is None else round(C, 4), n_sites=int(len(d))); out["cells"].append(r)
+    x = pd.Series(beta, dtype="float64").dropna(); idx = x.index
+    MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
+    have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12)
+    e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); ok = e.notna() & (cover >= MIX_COVER)
+    dw = pd.Series(np.asarray(_H(x[ok]), dtype="float64") - np.asarray(_H(e[ok]), dtype="float64"), index=x[ok].index)
+    C = _clustering(dw.reindex(_genome_order(dw.index)).to_numpy()) if len(dw) >= 10 * CS_BLOCK else None
+    out["whole_genome"] = dict(C=None if C is None else round(C, 4), n_sites=int(len(dw)))
+    return out

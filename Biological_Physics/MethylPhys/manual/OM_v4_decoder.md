@@ -2,11 +2,11 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **32 Python files** holding **367 functions** (nested ones included); 367 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **32 Python files** holding **370 functions** (nested ones included); 370 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 963 | 17 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 965 | 17 | 11 | 10 |
 | `stage_0_intake.py` | 1,177 | 41 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -32,11 +32,11 @@ Read from the code at build time: the one command can load **32 Python files** h
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 432 | 22 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
-| `stage_metaa_atlas.py` | 233 | 14 | 0 | 0 |
+| `stage_metaa_atlas.py` | 280 | 17 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 111 | 10 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 155 | 8 | 0 | 0 |
-| `MethylPhys_Interface/run_series.py` | 123 | 6 | 0 | 0 |
+| `MethylPhys_Interface/run_series.py` | 124 | 6 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
 
 ## How to read the Decoder
@@ -260,7 +260,7 @@ The orchestration described above, from parsing the command to writing the ledge
 exit code 2 or 3 at the stops listed, carries the same-run references (columns A and C) into the conductor, adds the v4 stages, and
 hands everything to the report.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 322 (639 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `sequencing_values.csv`
+*Code:* `MethylPhys_Interface/run_sample.py` line 322 (641 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `sequencing_values.csv`
 
 ### `run_sample.py::main._panel`
 
@@ -281,7 +281,7 @@ mismatch was reported as a detection failure).
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 904 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 906 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -3142,26 +3142,26 @@ Runs the one command with the given flags and keeps its log.
 The pass-1 readings of the other arrays of the scope (series, slide, or slide when it holds at least 3 others, else series), as the one
 command's reference inputs; never the array itself.
 
-*Code:* `MethylPhys_Interface/run_series.py` line 40 (7 lines) · arguments: gsm, slide, P1, scope, out · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_series.py` line 40 (8 lines) · arguments: gsm, slide, P1, scope, out · calls: not called on the traced runs
 
 ### `run_series.py::bundle_row`
 
 One bundle's numbers for the table: Met-A, its tare, the C-Score, atlas Met-A and its tare, the intake verdict, the reason when not read.
 
-*Code:* `MethylPhys_Interface/run_series.py` line 48 (6 lines) · arguments: p · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_series.py` line 49 (6 lines) · arguments: p · calls: not called on the traced runs
 
 ### `run_series.py::read`
 
 One shard of a pass, as described above; with `--plant`, the constructed loss is planted in the array's own saved values and read by the one
 command with the same references (Group-A's design: the planted and unplanted halves both by the values route).
 
-*Code:* `MethylPhys_Interface/run_series.py` line 55 (51 lines) · arguments: a, extra · calls: not called on the traced runs · constants read: `HERE` · files named: `_betas.parquet`, `_planted.csv`, `_planted.json`, `_values.csv`, `_values.json`
+*Code:* `MethylPhys_Interface/run_series.py` line 56 (51 lines) · arguments: a, extra · calls: not called on the traced runs · constants read: `HERE` · files named: `_betas.parquet`, `_planted.csv`, `_planted.json`, `_values.csv`, `_values.json`
 
 ### `run_series.py::table`
 
 One row per bundle, for the scorer.
 
-*Code:* `MethylPhys_Interface/run_series.py` line 107 (7 lines) · arguments: a · calls: not called on the traced runs · files named: `rows.csv`
+*Code:* `MethylPhys_Interface/run_series.py` line 108 (7 lines) · arguments: a · calls: not called on the traced runs · files named: `rows.csv`
 
 ## 20. One blood draw: `run_draw.py` (development, to-do step 40)
 
@@ -3201,3 +3201,21 @@ plasma's sources the person's own buffy coat does not explain: every non-blood s
 its buffy-coat share by more than its 95 % interval.
 
 *Code:* `MethylPhys_Interface/run_draw.py` line 48 (41 lines) · arguments: none · calls: not called on the traced runs · files named: `draw.json`, `draw_summary.txt`
+
+### `stage_metaa_atlas.py::_clustering`
+
+The commissioned C-Score's statistic, unchanged: the departures in genome order, the variance of the means of blocks of 10 neighboring sites (times the square root of 10) over the variance of the sites. Departures independent from site to site give 1; departures that run along the genome give more. Only the layout counts, not the size. *Derived* (the variance of a mean of independent values).
+
+*Code:* `stage_metaa_atlas.py` line 238 (7 lines) · arguments: z, w · calls: not called on the traced runs · constants read: `CS_BLOCK`
+
+### `stage_metaa_atlas.py::_genome_order`
+
+Sorts site ids into genome order, the order of IAM-Atlas v2.1's site list, which the planted runs and the globe use.
+
+*Code:* `stage_metaa_atlas.py` line 246 (6 lines) · arguments: ids · calls: not called on the traced runs · constants read: `ATLAS` · files named: `import pyarrow.parquet`, `s sites.parquet`, `sites.parquet`
+
+### `stage_metaa_atlas.py::cscore_in_mix`
+
+The C-Score for each cell found in a mixed sample and for the whole genome (development, flagged). For each cell holding at least 1 % of the sample: its departure map at its identity sites (the map its globe layer draws), read by the commissioned statistic. The whole-genome version reads the same at every atlas site the sample measured. Untared: healthy samples of the same series are the comparison until a tare for these readings is built. The 1 % share floor is *stated*: below it a cell's departure map is mostly the other cells'.
+
+*Code:* `stage_metaa_atlas.py` line 253 (27 lines) · arguments: beta, shares, deps · calls: not called on the traced runs · constants read: `CS_BLOCK`, `CS_MIN_SHARE`, `FLAG`, `MIX_COVER`

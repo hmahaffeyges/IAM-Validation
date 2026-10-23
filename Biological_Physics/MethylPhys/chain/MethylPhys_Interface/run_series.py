@@ -39,6 +39,7 @@ def run(args, log):
 
 def refs_for(gsm, slide, P1, scope, out):
     """The pass-1 readings of the other arrays of the scope, as run_sample.py's reference inputs (a table for Met-A and the C-Score; a list for atlas Met-A)."""
+    if "ref" in P1.columns: P1 = P1[P1["ref"].astype(str).str.lower().isin(("1", "yes", "true"))]   # 2026-10-23: a ref column names the references (DEV-FIRES-01: only those who stayed cancer-free)
     same = P1[(P1.gsm != gsm) & (P1.slide == slide)]
     R = same if scope == "slide" or (scope == "slide_else_series" and same.A.notna().sum() >= 3) else P1[P1.gsm != gsm]
     t = os.path.join(out, f"refs_{gsm}.csv"); R[["gsm", "A", "C"]].rename(columns={"gsm": "id"}).dropna(subset=["A"]).to_csv(t, index=False)
@@ -58,7 +59,7 @@ def read(a, extra):
     out = os.path.abspath(a.out); d1, d2, W = (os.path.join(out, x) for x in ("pass1", f"pass2_{a.scope}", f"work_{a.scope}_{a.shard}")); [os.makedirs(x, exist_ok=True) for x in (d1, d2, W)]
     P1 = P1v = None
     if a.pass_ == 2:
-        sl = pd.read_csv(a.samples, dtype={"slide": str})[["gsm", "slide"]]
+        sl = pd.read_csv(a.samples, dtype={"slide": str, "ref": str}); sl = sl[[k for k in ("gsm", "slide", "ref") if k in sl.columns]]
         P1 = pd.DataFrame([dict(gsm=os.path.basename(p)[:-5], **bundle_row(p)) for p in glob.glob(os.path.join(d1, "*.json")) if not p.endswith(("_planted.json", "_values.json"))]).merge(sl, on="gsm")
         PV = [dict(gsm=os.path.basename(p)[:-12], **bundle_row(p)) for p in glob.glob(os.path.join(d1, "*_values.json"))]
         P1v = pd.DataFrame(PV).merge(sl, on="gsm") if PV else None   # the values route's references: the unplanted half read from its saved values

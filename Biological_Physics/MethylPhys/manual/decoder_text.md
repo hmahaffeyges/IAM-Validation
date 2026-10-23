@@ -2069,3 +2069,12 @@ A bundle's sources: each cell type's share with its 95 % interval, and its Met-A
 Reads both halves and writes `draw.json` and `draw_summary.txt`: each half's sources and Met-A, IAM-A with its counting range, and the
 plasma's sources the person's own buffy coat does not explain: every non-blood source, and every blood source whose plasma share is above
 its buffy-coat share by more than its 95 % interval.
+
+### stage_metaa_atlas.py::_clustering
+The commissioned C-Score's statistic, unchanged: the departures in genome order, the variance of the means of blocks of 10 neighboring sites (times the square root of 10) over the variance of the sites. Departures independent from site to site give 1; departures that run along the genome give more. Only the layout counts, not the size. *Derived* (the variance of a mean of independent values).
+
+### stage_metaa_atlas.py::_genome_order
+Sorts site ids into genome order, the order of IAM-Atlas v2.1's site list, which the planted runs and the globe use.
+
+### stage_metaa_atlas.py::cscore_in_mix
+The C-Score for each cell found in a mixed sample and for the whole genome (development, flagged). For each cell holding at least 1 % of the sample: its departure map at its identity sites (the map its globe layer draws), read by the commissioned statistic. The whole-genome version reads the same at every atlas site the sample measured. Untared: healthy samples of the same series are the comparison until a tare for these readings is built. The 1 % share floor is *stated*: below it a cell's departure map is mostly the other cells'.

@@ -1163,16 +1163,18 @@
     {
      "id": "41.2",
      "date": "2026-10-23",
-     "status": "open",
+     "status": "built",
      "what": "The whole-genome C-Score against IAM-Atlas v2.1 on arrays: the globe's block departures (every atlas site, blocks of 10 neighbors) against the sample's own spread",
-     "next": "read off exploration 8's 56 healthy bloods once it lands; clustered plants through --dev-plant"
+     "next": "synthetic C-Score test 1 through the one command (cscore_cell_01.py); then GSE51032 (DEV-FIRES-01)",
+     "record": "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py (cscore_in_mix)"
     },
     {
      "id": "41.3",
      "date": "2026-10-23",
-     "status": "open",
+     "status": "built",
      "what": "Each cell's C-Score in a mix: the same rule on each cell's own identity sites and its globe layer (exploration 5 shows the layer works)",
-     "next": "healthy spread from exploration 8's bloods; clustered plants per cell as in exploration 5"
+     "next": "synthetic C-Score test 1 through the one command (cscore_cell_01.py); then GSE51032 (DEV-FIRES-01)",
+     "record": "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py (cscore_in_mix)"
     }
    ]
   }

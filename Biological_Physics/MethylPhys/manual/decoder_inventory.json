@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 963,
+   "lines": 965,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -263,9 +263,9 @@
      "function": "main",
      "name": "main",
      "line": 322,
-     "end": 960,
+     "end": 962,
      "args": [],
-     "lines": 639,
+     "lines": 641,
      "doc": "",
      "constants": [
       "BIO",
@@ -317,8 +317,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 904,
-     "end": 905,
+     "line": 906,
+     "end": 907,
      "args": [
       "b",
       "it",
@@ -6114,7 +6114,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 233,
+   "lines": 280,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -6376,6 +6376,67 @@
      "lines": 30,
      "doc": "Met-A for each cell over EVERY IAM-Atlas v2.1 site (development, written 2026-10-22 before any comparison is run; author: \"Met-A should be able to read 800K sites so long as they correspond to the cells in the atlas\"). For cell c, each site s counts by how much a loss of c's pattern would move it, the chain's own shift rule (conductor_v3.stage_m_blood): w_s = f_c x |0.5 - mu_c,s|. Nothing is chose",
      "constants": [
+      "FLAG",
+      "MIX_COVER"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "_clustering",
+     "name": "_clustering",
+     "line": 238,
+     "end": 244,
+     "args": [
+      "z",
+      "w"
+     ],
+     "lines": 7,
+     "doc": "The commissioned C-Score's statistic (conductor_v3._clustering), unchanged: the departures in genome order, the variance of the means of blocks of w neighboring sites (x sqrt(w)) over the variance of the sites. Departures independent from site to site give 1; departures that run along the genome give more. It does not depend on the size of the departures, only on how they are laid out.",
+     "constants": [
+      "CS_BLOCK"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "_genome_order",
+     "name": "_genome_order",
+     "line": 246,
+     "end": 251,
+     "args": [
+      "ids"
+     ],
+     "lines": 6,
+     "doc": "Site ids sorted in genome order: the order of IAM-Atlas v2.1's sites.parquet, the order plant_runs and the globe use.",
+     "constants": [
+      "ATLAS"
+     ],
+     "data_files": [
+      "import pyarrow.parquet",
+      "s sites.parquet",
+      "sites.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "cscore_in_mix",
+     "name": "cscore_in_mix",
+     "line": 253,
+     "end": 279,
+     "args": [
+      "beta",
+      "shares",
+      "deps"
+     ],
+     "lines": 27,
+     "doc": "The C-Score for each cell found in a mixed sample, and for the whole genome (development, written 2026-10-23 before it runs; plan 41.2, 41.3; author: 'I wish we had the C-Scores wired in ... they could potentially shine here'). For each cell c with a share of at least CS_MIN_SHARE: its departure map at its identity sites (departure_in_mix: H(beta) - H(e), e the atlas mixed in this sample's own sha",
+     "constants": [
+      "CS_BLOCK",
+      "CS_MIN_SHARE",
       "FLAG",
       "MIX_COVER"
      ],
@@ -6991,7 +7052,7 @@
   },
   {
    "file": "MethylPhys_Interface/run_series.py",
-   "lines": 123,
+   "lines": 124,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_series.py",
@@ -7033,7 +7094,7 @@
      "function": "refs_for",
      "name": "refs_for",
      "line": 40,
-     "end": 46,
+     "end": 47,
      "args": [
       "gsm",
       "slide",
@@ -7041,7 +7102,7 @@
       "scope",
       "out"
      ],
-     "lines": 7,
+     "lines": 8,
      "doc": "The pass-1 readings of the other arrays of the scope, as run_sample.py's reference inputs (a table for Met-A and the C-Score; a list for atlas Met-A).",
      "constants": [],
      "data_files": [],
@@ -7051,8 +7112,8 @@
      "file": "MethylPhys_Interface/run_series.py",
      "function": "bundle_row",
      "name": "bundle_row",
-     "line": 48,
-     "end": 53,
+     "line": 49,
+     "end": 54,
      "args": [
       "p"
      ],
@@ -7066,8 +7127,8 @@
      "file": "MethylPhys_Interface/run_series.py",
      "function": "read",
      "name": "read",
-     "line": 55,
-     "end": 105,
+     "line": 56,
+     "end": 106,
      "args": [
       "a",
       "extra"
@@ -7090,8 +7151,8 @@
      "file": "MethylPhys_Interface/run_series.py",
      "function": "table",
      "name": "table",
-     "line": 107,
-     "end": 113,
+     "line": 108,
+     "end": 114,
      "args": [
       "a"
      ],
@@ -7202,5 +7263,5 @@
   }
  ],
  "n_files": 32,
- "n_functions": 367
+ "n_functions": 370
 }
