@@ -1992,6 +1992,25 @@ The mean jump of the mean-level map across HEALPix base-face edges over the jump
 ### run_sample.py::_build._R
 With --build info-globe: the concentration R of a set of sites on the information sphere (the length of their mean direction, 0 spread evenly, 1 all in one place), reported for each family and each direction in the build record; at least 20 sites, else none.
 
+### stage_info_sphere.py::save_layout
+Freezes the information sphere's layout (every site's id, direction and role, and the atlas file's fingerprint) in Runtime Matrices/Info_Sphere,
+written by `--build info-globe`, so every sample is placed on the same sphere.
+
+### stage_info_sphere.py::load_layout
+Reads the frozen layout back.
+
+### stage_info_sphere.py::groups_of
+The territories a sample is read on: each family's clearly marking sites (margin at least 0.10), split by direction (methylated there, or
+unmethylated there), the same groups the picture colors.
+
+### stage_info_sphere.py::sample_reading
+One sample on the information sphere. It takes the change the address globe already read at each site (the site's difference from the
+sample's own expected healthy self, in that site's healthy width and the sample's own spread), so both globes read the same change. Each
+territory's mean change is put in standard errors, then in the sample's own spread of territories (median and spread over the territories
+read, as the address globe reads its blocks in its own block spread). A territory has changed beyond the line chance crosses less than once
+in 20 samples (5 % family-wise over the territories read). Also the Fisher-Rao angle between the sample and its expectation at each site, and
+its root mean square: the sample's distance from its own expected healthy self. Nothing fitted.
+
 ### stage_info_sphere.py::roles
 What groups a site with its neighbors on the information sphere. With each site's own level taken out (construction v5), a site's direction
 is set by how it departs from that level across the cell types, so the cell where it departs most is the identity it carries: returned with

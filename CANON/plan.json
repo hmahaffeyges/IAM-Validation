@@ -805,9 +805,10 @@
     {
      "id": "35.2",
      "date": "2026-10-23",
-     "status": "open",
+     "status": "built",
      "what": "One person's information sphere against their own healthy cells, wired into the one command (author: 'the blind spot we didnt know we had')",
-     "next": "write it, synthetic first (a planted group of co-moving sites in one sample against its healthy reference), through run_sample.py"
+     "next": "sample test 1 (35.4) on GitHub; then the null on real healthy bloods",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md"
     },
     {
      "id": "35.3",
@@ -815,7 +816,63 @@
      "status": "built",
      "what": "The information sphere as a picture, by the one command (run_sample.py --build info-globe): territories colored by the cell family each site's identity belongs to; on the Globe Explorer",
      "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md",
-     "next": "the browser check on GitHub (globe_audit.py); then 35.2, one person's sample as a layer on it, and the two spheres linked side by side"
+     "next": "the browser check on GitHub (globe_audit.py)"
+    },
+    {
+     "id": "35.4",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "The five uses of the information sphere, simulated through the one command (sample_sphere_01.py): distance from one's own healthy self, drift, a program failing together; uses 4 (cell-free DNA origin) and 5 (lab offset) need a pair reading and constructed arrays",
+     "next": "write the pair reading and constructed arrays into the one command; run sample test 1 on GitHub"
+    },
+    {
+     "id": "35.5",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "The seven microwave-sky tools on the information sphere (masked power spectrum, cross-spectrum of two readings, component separation with cell types as frequencies, dipole, needlets and matched filters, Minkowski functionals, stacking), and a fourth C-Score: clustering over neighbors on the information sphere instead of the DNA",
+     "next": "each synthetic first, after 35.4"
+    },
+    {
+     "id": "35.6",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "The atlas as the one ruler: healthy bloods from many laboratories read on the information sphere with no same-lab references stay dark (author: 'use the atlas as our standard or ruler that everything else aligns to'); synthetic first with a planted probe-type lab offset",
+     "next": "synthetic lab-offset test, then healthy bloods from several public series"
+    },
+    {
+     "id": "35.7",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "Which instruments catch which genome-wide change: a domain-style loss (long stretches, the cancer pattern) and an even shift, planted by the chain; expected: C-Score and the address globe see domains, Met-A and the distance see both, the sphere's territories neither",
+     "next": "add a domain plant to --dev-plant; run on the healthy example blood"
+    },
+    {
+     "id": "35.8",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "The address globe and the information sphere linked side by side in the report: selecting a patch on one shows where its sites land on the other",
+     "next": "after 35.4 and the null on real healthy bloods"
+    },
+    {
+     "id": "35.9",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "A book chapter for the information sphere (what it is, the math, how it differs from the address globe, the sky tools, the old mathematics it builds on), drafted now and finished in the book pass",
+     "next": "draft from DEV_SPHERE_01.md"
+    },
+    {
+     "id": "35.10",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "Gene function on the information sphere: each site labeled by its gene's function (public gene sets: growth brakes, cell cycle, developmental switches, immune signaling), and the sample's change stacked over every site of one function, so a function moving as a whole shows though no single site does (author: 'which genes are turned on and off in blocks not based upon their address but upon their function')",
+     "next": "synthetic first: a small loss planted across one function's sites, read by stacking"
+    },
+    {
+     "id": "35.11",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "The information sphere on EPIC-Italy (DEV-FIRES-01): every person read with --dev-info-sphere, so each has a distance from their own expected healthy self and lit territories; asks whether those who later had cancer had drifted years before (exploration, spent series)",
+     "next": "add --dev-info-sphere to the series run's flags once sample test 1 passes"
     }
    ]
   },

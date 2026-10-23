@@ -82,7 +82,7 @@ function IAMExplorer(root, specs) { const q = c => root.querySelector(c), G = IA
       rv.textContent = t === 0 ? 'the full healthy map, with the change on it' : t === 100 ? 'only the change' : t < 50 ? 'background draining to gray' : 'background fading to dark'; nt.textContent = L.note || '';
       // the background quiets as the slider moves right: the healthy map in its own colors (left), drained to gray (middle), dark (right)
       const toGray = Math.min(1, t / 50), toDark = Math.max(0, (t - 50) / 50);
-      G.set(k => { const c = T.d[k]; if (c < 24) { const q = 30 * (1 - toDark); return [q, q, q + 8 * (1 - toDark)]; } if (Math.abs(c - 128) < 24) {   // bands, not exact values: a browser may shift them
+      G.set(k => { const c = T.d[k]; if (c < 24 && !B) { const q = 30 * (1 - toDark); return [q, q, q + 8 * (1 - toDark)]; } if (c < 24 || Math.abs(c - 128) < 24) {   // bands, not exact values: a browser may shift them; 2026-10-23: a pixel with no site of this layer shows the base map, fading as the background does
           let r = 120, gg = 120, bb = 120; if (B) { r = B.d[k]; gg = B.d[k + 1]; bb = B.d[k + 2]; }
           const y = 0.3 * r + 0.59 * gg + 0.11 * bb, mix = (v) => { const g1 = v + (y - v) * toGray; return g1 * (1 - toDark); };   // to pure black at the right end
           return [mix(r), mix(gg), mix(bb)]; }

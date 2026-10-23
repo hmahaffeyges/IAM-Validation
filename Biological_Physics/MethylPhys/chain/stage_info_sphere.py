@@ -144,3 +144,55 @@ def roles(B, cells):
     fam = {c: k for k, (_, _, cs) in enumerate(FAMILIES) for c in cs}
     cf = np.array([fam.get(str(c), -1) for c in cells], dtype=int)
     return top.astype(int), sgn, size, margin, cf
+
+
+# ---- one sample on the information sphere (2026-10-23; DEVELOPMENT, plan 35.2; author: "Create its own normal from the sample and show the changes")
+LAYOUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Info_Sphere", "layout_v5.npz")
+CLEAR = 0.10        # a site carries one cell's identity when it departs from its own level in that cell by at least this much more than in any other (stated)
+MIN_GROUP = 100     # a territory is read when at least this many of its clearly marking sites are measured (stated)
+
+def save_layout(path, ids, X, cell, sgn, size, margin, cells, cell_family, atlas_sha):
+    """The information sphere's frozen layout: every site's id, direction and role, so a sample is placed on the same sphere every time."""
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    np.savez_compressed(path, ids=np.asarray(ids, dtype="U32"), X=np.asarray(X, "float16"), cell=np.asarray(cell, "uint8"), sgn=np.asarray(sgn, "int8"),
+                        size=np.asarray(size, "float16"), margin=np.asarray(margin, "float16"), cells=np.asarray(cells, dtype="U64"),
+                        cell_family=np.asarray(cell_family, "int16"), atlas_sha=str(atlas_sha), construction="v5")
+
+def load_layout(path=LAYOUT):
+    z = np.load(path, allow_pickle=False); return {k: z[k] for k in z.files}
+
+def groups_of(lay):
+    """The territories: each family's clearly marking sites, split by direction (methylated there, or unmethylated), as the picture shows them."""
+    fam = lay["cell_family"][lay["cell"]]; clear = lay["margin"].astype(float) >= CLEAR; up = lay["sgn"] > 0
+    return [(int(k), int(u), clear & (fam == k) & (up == bool(u))) for k in range(int(fam.max()) + 1) for u in (0, 1)]
+
+def sample_reading(x_by_id, lay, families, b_by_id=None, e_by_id=None):
+    """One sample on the information sphere. x_by_id: each site's change from the sample's own expected healthy self, in that site's healthy
+    width and the sample's own spread (report_globe_v4.build's zg: the number the address globe reads, so both globes read the same change).
+    Each territory's mean change t_g = mean / (sd / sqrt(n)) over its measured sites, then in the sample's own spread of territories (median and
+    MAD x 1.4826 over all territories read, as the address globe reads its blocks in its own block spread); a territory has CHANGED beyond the
+    line pure chance crosses less than once in 20 samples (5 % family-wise over the territories read). Nothing fitted.
+    Also, when b_by_id and e_by_id (the sample and its expectation, 0 to 1) are given: the Fisher-Rao angle between them at each measured site,
+    theta = arccos(sqrt(b e) + sqrt((1 - b)(1 - e))), and its root mean square over the sphere's sites: the sample's distance from its own
+    healthy expectation, from the same mathematics as relative entropy."""
+    import pandas as pd
+    from scipy.stats import norm
+    ids = pd.Index(lay["ids"].astype(str)); x = pd.Series(x_by_id, dtype="float64").reindex(ids).to_numpy(); meas = np.isfinite(x)
+    mu, sd = float(np.mean(x[meas])), float(np.std(x[meas])) or 1.0
+    G = []
+    for k, u, m in groups_of(lay):
+        mm = m & meas; n = int(mm.sum())
+        if n >= MIN_GROUP: G.append(dict(family=families[k][0], k=k, methylated_there=bool(u), sites=n, mean=round(float(x[mm].mean()), 4), t=float((x[mm].mean() - mu) / (sd / np.sqrt(n)))))
+    t = np.array([g["t"] for g in G]); c = float(np.median(t)); s_ = float(np.median(np.abs(t - c))) * 1.4826 or 1.0; line = float(norm.isf(0.05 / max(len(G), 1) / 2))
+    for g in G: g["z"] = round((g["t"] - c) / s_, 2); g["changed"] = bool(abs(g["z"]) > line); g["t"] = round(g["t"], 2)
+    rec = dict(stage="information sphere: one sample (development)", construction=str(lay.get("construction", "v5")), sites_on_sphere=int(len(ids)),
+               sites_measured=int(meas.sum()), territories_read=len(G), line=round(line, 2), territories_changed=int(sum(g["changed"] for g in G)), territories=G,
+               rule="each territory's mean change (sites in their healthy width, in the sample's own spread) in the sample's own spread of territories, beyond the 5 % family-wise line")
+    if b_by_id is not None and e_by_id is not None:
+        b = pd.Series(b_by_id, dtype="float64").reindex(ids).to_numpy(); e = pd.Series(e_by_id, dtype="float64").reindex(ids).to_numpy(); ok = np.isfinite(b) & np.isfinite(e)
+        b, e = np.clip(b[ok], 0, 1), np.clip(e[ok], 0, 1); th = np.arccos(np.clip(np.sqrt(b * e) + np.sqrt((1 - b) * (1 - e)), -1, 1))
+        rec["fisher_rao_rms_rad"] = round(float(np.sqrt(np.mean(th ** 2))), 5); rec["fisher_rao_median_rad"] = round(float(np.median(th)), 5)
+    lit = np.zeros(len(ids), bool); sign = np.zeros(len(ids), "int8")
+    for (k, u, m), g in zip([q for q in groups_of(lay) if int((q[2] & meas).sum()) >= MIN_GROUP], G):
+        if g["changed"]: lit |= m & meas; sign[m & meas] = 1 if g["z"] > 0 else -1
+    return rec, x, lit, sign

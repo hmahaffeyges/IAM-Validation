@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 991,
+   "lines": 1011,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -208,17 +208,18 @@
      "function": "_build",
      "name": "_build",
      "line": 221,
-     "end": 278,
+     "end": 281,
      "args": [
       "a"
      ],
-     "lines": 58,
+     "lines": 61,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [
       "_ISV_ABOUT"
      ],
      "data_files": [
       "import pyarrow.parquet",
+      "sites.parquet",
       "truth.json"
      ],
      "traced_calls": {}
@@ -227,8 +228,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 251,
-     "end": 251,
+     "line": 254,
+     "end": 254,
      "args": [
       "m"
      ],
@@ -242,8 +243,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 281,
-     "end": 301,
+     "line": 284,
+     "end": 304,
      "args": [
       "a",
       "cnt",
@@ -259,8 +260,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 304,
-     "end": 344,
+     "line": 307,
+     "end": 347,
      "args": [
       "a",
       "o",
@@ -280,14 +281,15 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 347,
-     "end": 988,
+     "line": 350,
+     "end": 1008,
      "args": [],
-     "lines": 642,
+     "lines": 659,
      "doc": "",
      "constants": [
       "BIO",
-      "ENG"
+      "ENG",
+      "_ISV_ABOUT"
      ],
      "data_files": [
       "MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json",
@@ -305,8 +307,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 539,
-     "end": 543,
+     "line": 543,
+     "end": 547,
      "args": [
       "r"
      ],
@@ -322,8 +324,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 766,
-     "end": 773,
+     "line": 770,
+     "end": 777,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -335,8 +337,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 932,
-     "end": 933,
+     "line": 952,
+     "end": 953,
      "args": [
       "b",
       "it",
@@ -4401,7 +4403,7 @@
   },
   {
    "file": "MethylPhys_Interface/info_sphere_viewer.py",
-   "lines": 165,
+   "lines": 176,
    "functions": [
     {
      "file": "MethylPhys_Interface/info_sphere_viewer.py",
@@ -4480,7 +4482,7 @@
      "function": "write",
      "name": "write",
      "line": 51,
-     "end": 78,
+     "end": 84,
      "args": [
       "path",
       "X",
@@ -4495,7 +4497,7 @@
       "about",
       "sample"
      ],
-     "lines": 28,
+     "lines": 34,
      "doc": "X: unit vectors (n x 3); cell, sgn, size, margin: stage_info_sphere.roles; cells: cell type names; cell_family: family index of each cell type; families: [(name, color, members)]. sample (optional): per-site departure of one reading from its healthy expectation, the sample layer (red: higher than expected, blue: lower; NaN where not measured).",
      "constants": [
       "CLEAR",
@@ -5693,7 +5695,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 434,
+   "lines": 435,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
@@ -5998,7 +6000,7 @@
      "function": "build",
      "name": "build",
      "line": 192,
-     "end": 363,
+     "end": 364,
      "args": [
       "beta",
       "specimen",
@@ -6009,7 +6011,7 @@
       "sex",
       "cell_departures"
      ],
-     "lines": 172,
+     "lines": 173,
      "doc": "",
      "constants": [
       "ABOUT",
@@ -6068,8 +6070,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair",
      "name": "build_pair",
-     "line": 380,
-     "end": 423,
+     "line": 381,
+     "end": 424,
      "args": [
       "beta",
       "ref_beta",
@@ -6099,8 +6101,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair.rgb",
      "name": "rgb",
-     "line": 402,
-     "end": 403,
+     "line": 403,
+     "end": 404,
      "args": [
       "m"
      ],
@@ -6838,7 +6840,7 @@
   },
   {
    "file": "stage_info_sphere.py",
-   "lines": 147,
+   "lines": 199,
    "functions": [
     {
      "file": "stage_info_sphere.py",
@@ -7023,6 +7025,85 @@
      "doc": "For each site: the cell type it departs most from its own mean level in (the identity it carries), the sign (+1: higher there than its level, -1: lower), the size of that departure, and how clearly that one cell stands apart (its departure minus the next largest, the margin). Returns arrays cell index, sign, size, margin, and the family index of each cell type (FAMILIES order; -1 if unlisted).",
      "constants": [
       "FAMILIES"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_info_sphere.py",
+     "function": "save_layout",
+     "name": "save_layout",
+     "line": 154,
+     "end": 159,
+     "args": [
+      "path",
+      "ids",
+      "X",
+      "cell",
+      "sgn",
+      "size",
+      "margin",
+      "cells",
+      "cell_family",
+      "atlas_sha"
+     ],
+     "lines": 6,
+     "doc": "The information sphere's frozen layout: every site's id, direction and role, so a sample is placed on the same sphere every time.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_info_sphere.py",
+     "function": "load_layout",
+     "name": "load_layout",
+     "line": 161,
+     "end": 162,
+     "args": [
+      "path"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [
+      "LAYOUT"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_info_sphere.py",
+     "function": "groups_of",
+     "name": "groups_of",
+     "line": 164,
+     "end": 167,
+     "args": [
+      "lay"
+     ],
+     "lines": 4,
+     "doc": "The territories: each family's clearly marking sites, split by direction (methylated there, or unmethylated), as the picture shows them.",
+     "constants": [
+      "CLEAR"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_info_sphere.py",
+     "function": "sample_reading",
+     "name": "sample_reading",
+     "line": 169,
+     "end": 198,
+     "args": [
+      "x_by_id",
+      "lay",
+      "families",
+      "b_by_id",
+      "e_by_id"
+     ],
+     "lines": 30,
+     "doc": "One sample on the information sphere. x_by_id: each site's change from the sample's own expected healthy self, in that site's healthy width and the sample's own spread (report_globe_v4.build's zg: the number the address globe reads, so both globes read the same change). Each territory's mean change t_g = mean / (sd / sqrt(n)) over its measured sites, then in the sample's own spread of territories ",
+     "constants": [
+      "MIN_GROUP"
      ],
      "data_files": [],
      "traced_calls": {}
@@ -7407,5 +7488,5 @@
   }
  ],
  "n_files": 33,
- "n_functions": 377
+ "n_functions": 381
 }

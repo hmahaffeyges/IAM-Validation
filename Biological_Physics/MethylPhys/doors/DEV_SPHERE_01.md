@@ -314,3 +314,14 @@ families overlap in three directions, so each direction is colored by the family
 lineages (bone marrow progenitors, B and NK cells, T cells, myeloid cells) lie side by side, and the tissues hold their own regions,
 from the methylation alone.
 
+**One sample on the information sphere (development; plan 35.2).** `run_sample.py --dev-info-sphere` reads the sample on the frozen layout
+(`chain/Runtime Matrices/Info_Sphere/layout_v5.npz`, written by `--build info-globe`) with `stage_info_sphere.sample_reading`: the same
+site-by-site change the address globe reads (against the sample's own expected healthy self, the atlas mixed at its Deconvolver shares),
+averaged over each territory and judged against the sample's own other territories beyond the 5 % family-wise line; and the Fisher-Rao
+distance from that expectation. Page: OUT_info_sphere.html, where the slider fades everything but the changed territories to dark.
+On the example bloods (`data/DEV_SPHERE_01/sample_00/`): the healthy blood, 0 of 27 territories changed (line 3.11), distance 0.06317 rad;
+the same blood with a clustered loss planted along stretches of DNA, 0 of 27 territories changed, distance 0.0632 rad, while the address
+globe's Met-A layer lit 44 of its 597 blocks for it. A loss along the DNA belongs to the address globe, as the two spheres' difference
+predicts. Sample test 1 (`data/DEV_SPHERE_01/sample_sphere_01.py`, written before it runs) plants losses across each cell's whole program
+and along stretches, at three sizes, through the one command.
+

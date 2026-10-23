@@ -194,6 +194,26 @@
       "ATL-046"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md"
+    },
+    {
+     "title": "One sample on the information sphere (ATL-046)",
+     "status": "development",
+     "what": "The one command reads a sample's change on the information sphere; the example healthy blood lights no territory.",
+     "outcome": null,
+     "rows": [
+      "ATL-046"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md"
+    },
+    {
+     "title": "The 6,000-site globe layers on the full healthy map (ATL-063)",
+     "status": "development",
+     "what": "Met-A's layer and each cell's layer fade the full healthy map instead of gray; counts unchanged.",
+     "outcome": null,
+     "rows": [
+      "ATL-063"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md"
     }
    ]
   },

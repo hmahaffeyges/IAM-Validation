@@ -3104,3 +3104,9 @@ The run watcher followed a hand-typed list of runs; four started before it (sphe
 
 ### 2026-10-23 · The information sphere as a picture (ATL-046, plan 35.3)
 The one command draws it from IAM-Atlas v2.1 (run_sample.py --build info-globe): 191,458 sites, colored by the cell family whose identity each carries. A cell's methylated and unmethylated sites gather on opposite sides; only 41,241 of the 191,458 sites carry one cell's identity clearly (margin at least 0.10), the rest drawn as faint dust; colored by over-representation, the blood lineages lie side by side and the tissues hold their own regions. Record: [DEV_SPHERE_01.md](../Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md).
+
+### 2026-10-23 · One sample on the information sphere (ATL-046, plan 35.2)
+The one command reads a sample on the frozen sphere (run_sample.py --dev-info-sphere): each territory's change against the sample's own expected healthy self, judged against its own other territories. Example healthy blood: 0 of 27 territories changed; the clustered plant along the DNA: 0 of 27, while the address globe's Met-A layer lit 44 of 597. Record: [DEV_SPHERE_01.md](../Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md).
+
+### 2026-10-23 · The 6,000-site globe layers drawn on the full healthy map (ATL-063)
+The Met-A layer and each cell's change layer now fade the full healthy map (the person's own mix; each cell's own atlas map) instead of a flat gray, as the whole-genome layer does. Drawing only; counts unchanged.

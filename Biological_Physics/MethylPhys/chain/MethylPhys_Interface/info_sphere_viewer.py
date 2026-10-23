@@ -72,8 +72,14 @@ def write(path, X, cell, sgn, size, margin, cells, cell_family, families, title,
     D["peaks"] = territory_peaks(E, ttop)
     D.update(tex=_b64(tex), ttop=_b64(ttop), ten=_b64(ten), th=TEX_H, tw=TEX_W, sigma=SIGMA_DEG)
     D["ctr"] = ctr; D["clear"] = CLEAR; D["ccounts"] = np.bincount(fam_of[clear], minlength=len(families)).tolist()
-    if sample is not None:
-        s = np.asarray(sample, float); D["smp"] = _b64(np.where(np.isfinite(s), np.clip(np.round(s * 127 / 0.3), -127, 127), -128).astype("i1"))
+    if sample is not None:   # 2026-10-23 (plan 35.2): one sample against its own expected healthy self (stage_info_sphere.sample_reading)
+        x = np.asarray(sample["x"], float); lit = np.asarray(sample["lit"], bool); sg = np.asarray(sample["sign"], int)
+        D["smp"] = _b64(np.where(np.isfinite(x), np.clip(np.round(x * 127 / 4.0), -127, 127), -128).astype("i1"))
+        D["lit"] = _b64(np.where(lit, np.where(sg > 0, 1, 2), 0).astype("u1")); D["smpfix"] = sample["fixed"]
+        if lit.any():
+            Tc = territories(Xa[lit], (sg[lit] < 0).astype(int), 2); Tc = Tc / max(float(Tc.max()), 1e-9)
+            pos, neg = Tc[..., 0], Tc[..., 1]; ch = np.stack([pos + 0.15 * neg, 0.2 * (pos + neg), neg + 0.15 * pos], -1)
+            D["chg"] = _b64((np.clip(ch, 0, 1) * 255).astype("u1"))
     html = PAGE.replace("__TITLE__", title).replace("__ABOUT__", about).replace("__DATA__", json.dumps(D))
     open(path, "w", encoding="utf-8").write(html); return dict(sites=int(len(q)), bytes=len(html))
 
@@ -90,7 +96,7 @@ PAGE = r"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>__T
  .lg .n{margin-left:auto;color:#6f779c;font-size:12px} label{font-size:13px;color:#a9b0d0} select,input[type=range]{width:100%;margin:3px 0 10px;accent-color:#7aa2ff}
  select{background:#0c1022;color:#d8dcef;border:1px solid #262c4a;border-radius:5px;padding:4px} .row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
  button{background:#0f1430;color:#cdd3f0;border:1px solid #2a3260;border-radius:5px;padding:4px 10px;cursor:pointer} button.on{background:#1f2c66;border-color:#4a5cc0}
- .about{color:#aab0cf;font-size:13.5px;border-top:1px solid #1b2040;margin-top:10px;padding-top:10px} .about p{margin:0 0 8px} .read{font-size:12.5px;color:#8f96b8;min-height:1.4em}
+ .about{color:#aab0cf;font-size:13.5px;border-top:1px solid #1b2040;margin-top:10px;padding-top:10px} .about p{margin:0 0 8px} .about h2{font-size:14.5px;color:#dfe3ff;margin:16px 0 6px} .about ol,.about ul{margin:0 0 8px;padding-left:20px} .about li{margin:0 0 5px} .about table{border-collapse:collapse;margin:4px 0 10px;font-size:12.5px} .about td,.about th{border:1px solid #232a52;padding:4px 6px;vertical-align:top;text-align:left} .about th{color:#dfe3ff} .read{font-size:12.5px;color:#8f96b8;min-height:1.4em}
 </style></head><body><div class="wrap">
 <div class="stage"><canvas id="c" width="720" height="720"></canvas></div>
 <div class="side"><h1>__TITLE__<span class="dev">development</span></h1>
@@ -100,7 +106,8 @@ PAGE = r"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>__T
 <div class="legend" id="lg"></div>
 <label>Light one cell type's sites</label><select id="one"><option value="-1">every cell type</option></select>
 <label>Color a site when it stands apart in one cell by at least: <span id="mv"></span></label><input id="mgn" type="range" min="0" max="100" value="25">
-<div id="lay" style="display:none"><label>Layer</label><select id="layer"><option value="role">What groups the sites (cell identity)</option><option value="smp">This sample against its healthy reference</option></select></div>
+<div id="lay" style="display:none"><label>Layer</label><select id="layer"><option value="smp">This sample against its own expected healthy self</option><option value="role">What groups the sites (cell identity)</option></select>
+<label>Slide right to quiet everything but the change: <span id="fv"></span></label><input id="fd" type="range" min="0" max="100" value="0"><div class="read" id="fx"></div></div>
 <div class="read" id="rd"></div>
 <div class="about">__ABOUT__</div></div></div>
 <script>
@@ -120,7 +127,9 @@ const mr=document.getElementById('mgn'),mv=document.getElementById('mv');const m
 const dB=[0,1,2].map(k=>document.getElementById('d'+k));dB.forEach((b,k)=>b.onclick=()=>{dir=k;dB.forEach((x,j)=>x.classList.toggle('on',j===k))});
 const tb=document.getElementById('ter');tb.onclick=()=>{terr=!terr;tb.classList.toggle('on',terr)};const db=document.getElementById('dst');db.onclick=()=>{dust=!dust;db.classList.toggle('on',dust)};
 const lb=document.getElementById('lab');lb.onclick=()=>{lab=!lab;lb.classList.toggle('on',lab)};
-if(SM){document.getElementById('lay').style.display='';document.getElementById('layer').onchange=e=>{layer=e.target.value}}
+let fade=0;const LT=D.lit?dec(D.lit,Uint8Array):null,CHT=D.chg?dec(D.chg,Uint8Array):null;
+if(SM){layer='smp';document.getElementById('lay').style.display='';document.getElementById('layer').onchange=e=>{layer=e.target.value};document.getElementById('fx').textContent=D.smpfix||'';
+ const fd=document.getElementById('fd'),fv=document.getElementById('fv');const fs=()=>{fade=+fd.value/100;fv.textContent=fade===0?'the whole sphere':fade===1?'only the change':'the rest fading to dark'};fd.oninput=fs;fs()}
 const TX=dec(D.tex,Uint8Array),TT=dec(D.ttop,Uint8Array),TE=dec(D.ten,Uint8Array),TH=D.th,TW=D.tw;let terr=true,dust=false,mx=-1,my=-1;
 function texAt(x,y,z){const la=Math.asin(Math.max(-1,Math.min(1,y))),lo=Math.atan2(z,x);let v=(0.5-la/Math.PI)*TH-0.5,u=((lo+Math.PI)/(2*Math.PI))*TW-0.5;
  const v0=Math.max(0,Math.min(TH-1,Math.floor(v))),v1=Math.min(TH-1,v0+1),fv=Math.max(0,Math.min(1,v-v0));const u0=((Math.floor(u)%TW)+TW)%TW,u1=(u0+1)%TW,fu=u-Math.floor(u);
@@ -144,14 +153,16 @@ function frame(){if(spin&&!drag)ry+=0.0035;acc.fill(0);const M=rot();
  for(let i=0;i<N;i++){const c=CE[i],f=CF[c];if(f<0)continue;const clear=MG[i]/255*0.4>=mth,match=on[f]&&(dir===2||UPA[i]===dir);
   const x0=P[3*i]*s,y0=P[3*i+1]*s,z0=P[3*i+2]*s,Z=M[6]*x0+M[7]*y0+M[8]*z0;if(Z<0&&!far)continue;
   const X=M[0]*x0+M[1]*y0+M[2]*z0,Y=M[3]*x0+M[4]*y0+M[5]*z0;let r,g,b,w;
-  if(layer==='smp'&&SM){const v=SM[i];if(v===-128){r=g=b=.25;w=.04}else{const a=v/127;r=a>0?1:.15;g=.18;b=a<0?1:.15;w=.03+.5*Math.abs(a)}}
+  if(layer==='smp'&&SM){const v=SM[i],l=LT?LT[i]:0;if(l){r=l===1?1:.2;g=.25;b=l===2?1:.2;w=.6}else if(v===-128){if(!dust)continue;r=g=b=.3;w=.01*(1-fade)}else{const a=v/127;r=a>0?1:.4;g=.45;b=a<0?1:.4;w=(.015+.12*Math.abs(a))*(1-fade)}}
   else if(clear&&match){const col=FC[f];r=col[0];g=col[1];b=col[2];w=(terr?.09:.16)+(terr?.32:.6)*ST[i]/255;if(one>=0){if(c===one)w=.95;else w*=.06}}
   else{if(!dust)continue;r=.55;g=.6;b=.85;w=.018}
   if(Z<0)w*=.25;else w*=.55+.45*Z;put(C0+R*X,C0-R*Y,r,g,b,w);if(clear&&match)shown++}
  const d=img.data;let hov=null;for(let p=0,k=0;p<W*H;p++,k+=3){const xx=(p%W)-C0,yy=(p/W|0)-C0,rr=Math.sqrt(xx*xx+yy*yy)/R;
   let br=rr<1?0.018+0.03*(1-rr):Math.max(0,0.05*(1-(rr-1)*12));const q=p*4;
   if(terr&&rr<1){const u=xx/R,v=-yy/R,z=Math.sqrt(Math.max(0,1-u*u-v*v));const wx=M[0]*u+M[3]*v+M[6]*z,wy=M[1]*u+M[4]*v+M[7]*z,wz=M[2]*u+M[5]*v+M[8]*z;
-   const [o,tt,te]=texAt(wx,wy,wz);const sh=0.55+0.45*z;acc[k]+=o[0]/255*sh*0.9;acc[k+1]+=o[1]/255*sh*0.9;acc[k+2]+=o[2]/255*sh*0.9;
+   const [o,tt,te]=texAt(wx,wy,wz);const sh=0.55+0.45*z,bg=layer==='smp'?0.55*(1-fade):0.9;acc[k]+=o[0]/255*sh*bg;acc[k+1]+=o[1]/255*sh*bg;acc[k+2]+=o[2]/255*sh*bg;
+   if(layer==='smp'&&CHT){const la=Math.asin(Math.max(-1,Math.min(1,wy))),lo=Math.atan2(wz,wx),vv=Math.max(0,Math.min(TH-1,((0.5-la/Math.PI)*TH)|0)),uu=Math.max(0,Math.min(TW-1,(((lo+Math.PI)/(2*Math.PI))*TW)|0)),q3=(vv*TW+uu)*3;
+    acc[k]+=CHT[q3]/255*sh*1.3;acc[k+1]+=CHT[q3+1]/255*sh*1.3;acc[k+2]+=CHT[q3+2]/255*sh*1.3}
    if(mx>=0&&Math.abs((p%W)-mx)<0.5&&Math.abs((p/W|0)-my)<0.5)hov=[tt,te]}
   d[q]=255*(1-Math.exp(-(acc[k]*1.6+br*0.5)));d[q+1]=255*(1-Math.exp(-(acc[k+1]*1.6+br*0.6)));d[q+2]=255*(1-Math.exp(-(acc[k+2]*1.6+br*1.4)));d[q+3]=255}
  cx.putImageData(img,0,0);

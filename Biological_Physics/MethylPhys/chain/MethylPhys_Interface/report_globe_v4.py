@@ -298,7 +298,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
          dict(name="the healthy reference", kind="image", src=R_, mask=_vmask(ref_s[look].reshape(HT, W)), **MV, note=f"{name}, 0 to 1.")]
     if zcode is not None:
         L.append(dict(name="the change at Met-A's 6,000 sites (against its purified reference)", kind="change", src=P_(_png_b64(zcode, "RGB")), full=10,
-                      hint="Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
+                      hint="Slide right to quiet the healthy map behind the change: its colors drain to gray, then to dark, until only the changed blocks are left lit. Slide left to bring the full map back.",
                       fixed=f"Changed: {zabove[0]:,} of {zabove[1]:,} blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
                       note=("The C-Score's departure map against Met-A's commissioned purified-array reference, read as the C-Score reads it: in blocks "
                             "of 10 neighboring sites along the genome, a block changed beyond the line pure chance crosses less than once in 20 genomes. "
@@ -307,23 +307,25 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
                             "genome; where those sites lie far apart, the patch is large though only 10 measured sites stand behind it.")))
     if pcode is not None:
         Pr = J(_jpg_b64(prgb))
-        for x in L:   # the Met-A layer fades Met-A's purified reference map, not a flat gray (audit 2026-10-21)
-            if "Met-A" in x["name"] and x["kind"] == "change": x["base"] = Pr
+        for x in L:   # 2026-10-23 (author: the 6,000-site layers looked gray beside the atlas globe): the Met-A layer is drawn on the full healthy map
+            if "Met-A" in x["name"] and x["kind"] == "change": x["base"] = R_
         L += [dict(name="Met-A's purified-array reference", kind="image", src=Pr, mask=_vmask(pt), **MV, note="Met-A's own healthy reference at its 6,000 sites, weighted by this blood's Stage A fractions; the change against it is the layer above.")]
     groups = [dict(name="this sample against its references", layers=L)]
     if cellmaps: groups.append(dict(name="the cells the IAM-Deconvolver read", layers=[dict(name="healthy " + c["name"], kind="image", src=J(c["t"]), mask=c["m"], **MV,
                                      note="This cell's healthy map in IAM-Atlas v2.1; the share is the IAM-Deconvolver's reading of this sample.") for c in cellmaps]))
     if cell_departures:   # 2026-10-22: a change layer for each cell the IAM-Deconvolver read (development, flagged)
         CL, CR = [], {}
+        cmaps = _mu([PANEL.get(c, c) for c in cell_departures])   # 2026-10-23: each cell's change drawn on that cell's own full healthy map in IAM-Atlas v2.1
         for c, dd in cell_departures.items():
             r = _cell_change(dd, ids[order], npix, look)
             if r is None: continue
+            cm_ = cmaps.get(PANEL.get(c, c)); cbase = J(_jpg_b64(rgb(_to_sky(cm_[order], npix)))) if cm_ is not None else R_
             CR[c] = {"changed": r[1], "blocks": r[2]}
-            CL.append(dict(name=f"{c}: the change at its identity sites (development)", kind="change", src=P_(_png_b64(r[0], "RGB")), full=10, id="cell-" + c.replace(" ", "-"),
+            CL.append(dict(name=f"{c}: the change at its identity sites (development)", kind="change", src=P_(_png_b64(r[0], "RGB")), base=cbase, full=10, id="cell-" + c.replace(" ", "-"),
                            ref_word="this sample's own mix of healthy cells",
                            key_up="Red: more disorder (entropy) here than this sample's own mix of healthy cells holds: this cell's pattern is being lost",
                            key_down="Blue: less disorder than the healthy mix (rare)",
-                           hint="Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
+                           hint="Slide right to quiet the healthy map behind the change: its colors drain to gray, then to dark, until only the changed blocks are left lit. Slide left to bring the full map back.",
                            fixed=f"Changed: {r[1]:,} of {r[2]:,} blocks of 10 of this cell's identity sites. This count is fixed; the slider never changes it. "
                                  "DEVELOPMENT: not commissioned by our own standards.",
                            note=("Met-A's departure for this cell: at the cell's identity sites, the sample's disorder against the disorder of IAM-Atlas v2.1 "
@@ -358,6 +360,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
     if out_html: open(out_html, "w", encoding="utf-8").write(page([spec], "The sample on the globe")); rec["html"] = os.path.abspath(out_html)
     rec["prose"] = " ".join([spec["about"]] + [g["name"] for g in groups] + [x.get(k, "") for g in groups for x in g["layers"] for k in ("name", "note", "share_text")])
     rec["spec"] = spec
+    rec["_sites"] = (ids[order], zg, smp[order], ref[order])   # 2026-10-23: the change the globe read, site by site, for the information sphere (popped by run_sample.py)
     return rec
 
 ABOUT = ("Every site of IAM-Atlas v2.1 has one fixed place on this globe, the same as on the atlas's cell pages. Drag to turn it. The healthy "
