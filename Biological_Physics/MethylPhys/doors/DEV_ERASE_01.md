@@ -120,3 +120,20 @@ The secondary removals read like the primary units (a small fall, not a halving)
 
 **The count, from the saved molecules (erase_test run 39988716983; `data/DEV_ERASE_01/timing_01/count_01_q2.json`).** run_sample.py --dev-count-only on the molecules run 39911507208 saved, with no second alignment: held error 0.04198 over 343,973 chances, loose share 0.0765, 11,263 tiles. IAM-A's intake refused a reading, as it should (cultured cells have no healthy shape reference), and the count is recorded, flagged. So a human sequencing sample now goes from raw reads to its count through the one command on GitHub's machines: about 4 hours to align 10 million pairs, then the count. Two reruns before it stopped at setup (lesson C39: preflight, the pinned Python version, healpy, the chain's own Python).
 
+## The recount on the commissioned counter
+
+Each sample's molecules counted by `run_sample.py` (Stage Q2) on GitHub's machines (erase_test runs 39994306888 to 39994446012, commit 23daa9f4;
+counts in `data/DEV_ERASE_01/recount_01/`, the units in `recount_01/recount_units.csv`), pooled per genotype as the sealed rule pools them
+(errors summed over chances). The sealed rule's bands applied to the new ratios; the earlier verdict stands, sealed, as recorded above.
+
+| unit | eraser removed / control, recount | earlier count | the rule on the recount |
+|---|---|---|---|
+| U1 (first pair only: GSM2387332, GSM2387333) | 0.9925 | 0.9608 | NOT MET |
+| U2 | 0.7911 | 0.7930 | INCONCLUSIVE |
+| U3 | 0.8642 | 0.8560 | NOT MET |
+| U4 | 0.9027 | 0.8938 | NOT MET |
+| U5 | 0.8518 | 0.8514 | NOT MET |
+
+U1's second pair (GSM3618718, GSM3618720) stopped at the machines' 6-hour limit while aligning, nothing saved; it waits on a split run (plan
+14.5). **In plain words.** On the commissioned counter the result is the same: removing the eraser lowers the held error by a tenth to a fifth,
+never by half, so the half-and-half rule is not supported where we count. The derivation of the firm rate needs another route.

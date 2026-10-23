@@ -1,0 +1,9 @@
+{
+ "gsm": "GSM1372647",
+ "genome": "mm10",
+ "counter": "run_sample.py --dev-count-only (chain Stage Q2)",
+ "held_err": 0.05525041164381092,
+ "held_opp": 249609,
+ "loose_share": 0.42896425297891844,
+ "tiles": 1091
+}

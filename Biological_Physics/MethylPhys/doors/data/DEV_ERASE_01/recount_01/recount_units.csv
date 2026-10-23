@@ -1,0 +1,6 @@
+unit,wt_counted,ko_counted,held_err_wt,held_err_ko,ratio_recount,ratio_earlier,rule_on_recount,earlier_verdict
+U1,1 of 2,1 of 2,0.04198,0.04167,0.9925,0.9608,NOT MET,NOT MET
+U2,3 of 3,3 of 3,0.09085,0.07187,0.7911,0.793,INCONCLUSIVE,INCONCLUSIVE
+U3,1 of 1,1 of 1,0.04352,0.03761,0.8642,0.856,NOT MET,NOT MET
+U4,1 of 1,1 of 1,0.03583,0.03234,0.9027,0.8938,NOT MET,NOT MET
+U5,1 of 1,1 of 1,0.05525,0.04706,0.8518,0.8514,NOT MET,NOT MET

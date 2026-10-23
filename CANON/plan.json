@@ -514,7 +514,15 @@
      "status": "open",
      "what": "GSM3618718 in the firm-rate recount stopped at GitHub's 6-hour limit while downloading and aligning (run 39994316396, nothing saved): one machine is too small for it. It needs its read sets spread over machines, as the mouse test's were (mice_split.yml), with the human index built once and shared",
      "run": "39994316396",
-     "next": "a general split workflow for one human sample (index once, read sets in parallel, counts gathered by the one command); then rerun GSM3618718"
+     "next": "a general split workflow for one human sample (index once, read sets in parallel, counts gathered by the one command); then rerun GSM3618718 and GSM3618720 (U1's second pair)"
+    },
+    {
+     "id": "14.6",
+     "date": "2026-10-23",
+     "status": "done",
+     "what": "The five DEV-ERASE-01 primary units recounted on the commissioned counter: U2-U5 complete, U1 first pair; every ratio within 0.04 of the earlier count (0.79 to 0.99), so the half-and-half rule is not supported on the commissioned counter either",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
+     "run": "39994306888"
     }
    ]
   },
