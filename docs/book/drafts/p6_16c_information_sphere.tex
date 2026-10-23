@@ -1,0 +1,119 @@
+% DRAFT (plan 35.9). Not loaded by main.tex until the information sphere passes its tests on real healthy bloods (plan 35.4, 35.6).
+% Every number below is printed by the chain itself in a committed file:
+%   website/art/out/information_sphere_build.json and doors/data/DEV_SPHERE_01/picture_01/information_sphere_build.json
+%     (run_sample.py --build info-globe: sites, variance_kept, sky_masked, sites_clear, margin_median, concentration_by_family)
+%   doors/data/DEV_SPHERE_01/sample_00/{healthy,planted_clustered}.json (run_sample.py --dev-info-sphere)
+%   doors/DEV_SPHERE_01.md, test 11 (11 of 12 marker groups; 0 of 100 look-alike groups)
+% Still to write before it goes into the book: sample test 1 (35.4), the null on real healthy bloods, the many-labs ruler test (35.6),
+% the sky tools (35.5), gene function (35.10), figures from the chain's own pages (release check V13 screenshots).
+
+\chapter{The Information Sphere}\label{ch:infosphere}
+
+\section{Two ways to put a genome on a sphere}
+
+The address globe of Chapter~\ref{ch:explorer} places every site by where it sits on the DNA: neighbors on the globe are neighbors on a
+chromosome. The information sphere places every site by how it behaves: its methylation across the 79 healthy cell types of IAM-Atlas
+v2.1. Neighbors on it are sites that do the same job in the same cells, wherever they sit in the genome. The two answer different
+questions about the same sample, and each sees what the other cannot.
+
+\begin{center}
+\begin{tabular}{p{0.24\linewidth}p{0.33\linewidth}p{0.33\linewidth}}
+ & \textbf{Address globe} & \textbf{Information sphere}\\\hline
+A site's place & where it sits on the DNA & how it behaves across the 79 cell types\\
+Neighbors are & sites next to each other on a chromosome & sites that act alike, wherever they are\\
+It answers & where on the genome a change is & what kind of change it is, and in which cell's program\\
+It cannot tell & that distant sites belong to one program & where on a chromosome a change is\\
+\end{tabular}
+\end{center}
+
+A loss along one stretch of a chromosome is one patch on the address globe and scattered points on the information sphere. A cell's
+whole program failing at sites spread over every chromosome is scattered dots on the address globe and one territory on the information
+sphere.
+
+\section{Nobody places the sites; the mathematics does}
+
+No person and no program chooses where any site, cell or tissue lands. Each of the 191{,}458 sites (those the atlas measured in all 79
+cell types and that vary between them) is placed from its 79 measured levels alone, by four fixed steps applied to every site the same way.
+
+\paragraph{1. Each site becomes a point on a sphere.} A site's level in cell type $c$ is a probability $b_c$. Its square-root vector
+\begin{equation}
+u = \frac{1}{\sqrt{79}}\left(\sqrt{b_1},\dots,\sqrt{b_{79}},\ \sqrt{1-b_1},\dots,\sqrt{1-b_{79}}\right)
+\end{equation}
+has length exactly one, because $b_c + (1-b_c) = 1$ in every cell type. Every site therefore lies on the surface of a sphere. The sphere
+is not a drawing choice; it is where probabilities naturally live.
+
+\paragraph{2. The angle between two sites is their true distance.} The angle $\theta = \arccos(u_1\cdot u_2)$ is the Fisher--Rao
+distance of information geometry. For nearby states, the relative entropy between them is, to leading order, proportional to $\theta^2$.
+Relative entropy is the quantity IAM's instruments measure as disorder against a physical floor, so the instruments and the sphere
+measure in one currency.
+
+\paragraph{3. Each site's own level is taken out.} Without this step a site's average level decides where it lands, and sites that are
+mostly methylated simply crowd together. The level is removed by subtracting the square-root vector of a flat profile at the site's own
+mean level and scaling the remainder to length one. A site is then placed only by how it departs from its own level across the cells.
+
+\paragraph{4. The three leading directions are drawn.} They keep 39\,\% of the differences between sites. The positions are then frozen,
+and every sample is read on the same sphere.
+
+\paragraph{Only then are labels added.} Each site is labeled with the cell type where it departs most from its own level, and the 79
+cell types are grouped into 15 families by tissue and lineage. That grouping is a stated labeling; nothing is computed from it, and the
+positions were fixed before any label existed.
+
+\section{What the geometry found by itself}
+
+\begin{itemize}
+\item \textbf{Lineages fall together.} The blood lineages lie side by side: bone-marrow progenitors, B and NK cells, T cells and myeloid
+cells. Gut, pancreas, lung and airway, kidney, brain and muscle each hold their own region. Cells that share a developmental origin share
+regulatory programs, and the methylation alone put them next to each other.
+\item \textbf{Each cell has two poles.} A cell's methylated sites and its unmethylated sites gather on opposite sides of the sphere. For T
+cells, each side gathers tightly (a concentration of 0.88 and 0.86, where 1 is all in one place) while both together give 0.14. Taking
+each site's level out turns ``higher in this cell'' and ``lower in this cell'' into opposite directions.
+\item \textbf{Most sites carry no single identity.} Only 41{,}241 of the 191{,}458 sites stand apart in one cell type by at least 0.10
+more than in any other (the median margin is 0.036). The picture colors those and draws the rest as faint dust.
+\item \textbf{The sky is partly empty.} 45\,\% of the sphere holds no sites. It is masked, as the microwave-sky maps mask our galaxy,
+rather than stretched to fill the sphere, because stretching would falsify the distances.
+\end{itemize}
+
+On the atlas's real healthy cells, 11 of 12 groups of cell-marking sites land together beyond what their methylation level alone would
+give, and look-alike groups with the same levels do not (0 of 100).
+
+\section{Reading one sample}
+
+A sample is read against its own expected healthy self: the atlas mixed at the cell shares the IAM-Deconvolver found in that sample, with
+no other person's sample involved. Each site's change is the one the address globe already reads (its difference from that expectation,
+in the site's healthy width and in the sample's own spread). On the information sphere the change is averaged over each territory (one
+family's clearly marking sites, methylated or unmethylated there) and judged against the sample's own other territories: a territory has
+changed when it stands beyond the line pure chance crosses less than once in 20 samples. The count is fixed by the measurement; the
+slider only fades the rest of the sphere to dark. The sample's distance from its own expected healthy self is the root-mean-square
+Fisher--Rao angle.
+
+The example healthy blood lights 0 of its 27 territories. The same blood with a clustered loss planted along stretches of DNA also
+lights 0, while the address globe's Met-A layer lights 44 of its 597 blocks for it: a loss along the DNA belongs to the address globe,
+as the two spheres' difference predicts.
+
+\section{What it is for}
+
+These are uses to test, synthetic first, not results.
+\begin{itemize}
+\item \textbf{Distance from one's own healthy state}, as an angle rather than a score we define.
+\item \textbf{Tracking one person over time}: repeated draws trace a path, and a slow drift could show before any single reading leaves
+Normal.
+\item \textbf{Programs that fail together}, found with no list given in advance.
+\item \textbf{Where cell-free DNA came from}, by the territory it lands in.
+\item \textbf{Quality control}: an array or laboratory sitting off the healthy map stands out on its own.
+\item \textbf{Gene function}: sites labeled by their genes' functions, and a sample's change stacked over every site of one function.
+\end{itemize}
+
+\section{The sky tools}
+
+Because the information sphere is a masked sky, the methods built for the microwave background apply directly: the masked angular power
+spectrum (at what scale the variation lives); the cross-spectrum of two independent readings, in which noise drops out; component
+separation, with cell types in the role of frequencies, to separate ``the mix changed'' from ``the cells changed''; the dipole, as the net
+direction a person's state has moved; spherical wavelets and matched filters; shape statistics; and stacking. Each is tested synthetic
+first.
+
+\section{What is old and what is new}
+
+The square-root geometry is decades-old mathematics, used for distances between probability distributions and between populations. The
+closest work in biology places single cells on a sphere with a learned model. What is new here is treating a whole methylome as a sky: a
+fixed construction rather than a fitted one, placing sites rather than cells, read with the microwave-sky tools, and with one individual
+compared against itself.
