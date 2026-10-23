@@ -57,7 +57,7 @@ null tests on split data & held-out reference arrays, repeat specimens & develop
 
 HEALPix~\cite{Gorski2005} divides the sphere into $12N_{\rm side}^2$ pixels of equal area, arranged on rings of constant latitude. The chain lays CpGs on it in
 genome order, chromosome 1 to chromosome Y and by position within each, filling the pixels ring by ring from the north pole
-(Figure~\ref{fig:genomesphere}). The C-Score sky that chain v4 prints on every array report (2026-10-17) uses the \emph{nested} ordering of the same
+(Figure~\ref{fig:genomesphere}). The C-Score sky that chain v4 prints on every array report uses the \emph{nested} ordering of the same
 sphere instead: consecutive pixel numbers fill compact patches, so a run of neighboring departures, which is what the C-score scores, shows as one
 patch, and scattered departures show as speckle. Ring order spreads the same run along a thin band. The drawing is a picture of the
 commissioned reading; nothing is scored from it. On EPIC this places 865,873 CpGs on 49,152 pixels ($N_{\rm side}=64$), 17.6 per pixel; the atlas map uses
@@ -88,7 +88,7 @@ At each site $i$ the residual is
 \end{equation}
 where $\overline{H}_i$ is the mean of $H(\beta)$ over the healthy reference arrays and $s_i$ their spread, shrunk toward the pooled spread as in
 the chain. Two numbers summarize the sky. Met-A is its monopole, the mean of $H(\beta)$ over the 6,000 identity sites divided by the healthy
-reference. The C-score asks whether the departures sit together along the genome: take $z$ in genome order, average it in blocks of 50 sites (this construction; the chain reads blocks of 10 since 2026-10-09, Chapter~\ref{ch:cscore}),
+reference. The C-score asks whether the departures sit together along the genome: take $z$ in genome order, average it in blocks of 50 sites (this construction; the chain now reads blocks of 10, Chapter~\ref{ch:cscore}),
 and compare the variance of the block means (times 50) with the variance of $z$. Independent scatter gives 1; a pattern in which every 50-site
 block moves as one gives 50. Divided by the healthy baseline 1.1104, the healthy arrays read 0.70--1.23 and the far end is 45 (Chapter~\ref{ch:cscore}). \derived{} (construction) \calibrated{} (baseline)
 
@@ -251,7 +251,7 @@ and the habit of scoring an anomaly against a null rather than against intuition
 methylome is the same kind of object and can be read with the same instruments.
 
 \paragraph{Precedence, as a bounded search.} We know of no earlier work that lays a methylome on a sphere and applies component-separation
-and sky statistics to it. The search behind that sentence was run on 2 October 2026. In Europe PMC, \emph{spherical harmonic} with \emph{methylome},
+and sky statistics to it. The search behind that sentence was run before this edition. In Europe PMC, \emph{spherical harmonic} with \emph{methylome},
 \emph{angular power spectrum} with \emph{methylation} or \emph{epigenome}, and \emph{needlet} with \emph{genome} or \emph{methylation}
 returned no records; \emph{HEALPix} with \emph{methylation} returned 2 and with \emph{genome} 4, all structural-biology papers by title.
 In arXiv, five query forms (HEALPix and methylation; power spectrum and methylome; cosmic microwave background and epigenome; needlet and

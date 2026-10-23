@@ -868,6 +868,13 @@
      "status": "open",
      "what": "One source per fact (author 2026-10-23: 'we are not hand updating things like this because that is how we end up with all kinds of stale information'): (1) INTRODUCTION.md's per-instrument 'Commissioned' lines generated from CANON/catalogue.json into a marked block, checked by the push gate; (2) the information sphere described once in the canon and drawn into the book's AstroGenetics chapter, the atlas story and the Q&A; (3) a status-claim check over every public document, built from the catalogue, refusing 'X is not commissioned' or 'once X is commissioned' for a commissioned instrument, naming file and line",
      "next": "build (1)-(3); then push the line-by-line catalogue corrections (39.13) through them"
+    },
+    {
+     "id": "39.15",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "No dates in public prose (author 2026-10-23: 'dates belong nowhere except the logs ... NEVER in the book or webpage or anywhere in prose'): CANON/no_dates.py lists 348 dates in 41 of 136 public documents; fix at the sources (four_domains.json, catalogue.json, instruments.json, the manifest status lines, verified.json, the README and website generators), then the hand-written chapters; the check joins the push gate at zero",
+     "next": "generators and canon files first; then chapters line by line; with 39.13 and 39.14 in one push"
     }
    ]
   },

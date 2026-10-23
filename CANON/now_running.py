@@ -4,6 +4,7 @@ the allowed set; an update without a date or with a record that does not exist; 
 status is 'result'; hype words; the wrong voice (the notes are ours, written as "we"); Biological_Physics/MethylPhys/FIELD_NOTES.md differing from the file; and (append-only, author 2026-10-12) any update published on
 origin/main that is now edited or missing. The board shows the newest three updates per story; Biological_Physics/MethylPhys/FIELD_NOTES.md keeps every update with its note.
 Usage: python3 CANON/now_running.py [--check]"""
+import sys as _sud, os as _oud; _sud.path.insert(0, _oud.path.dirname(_oud.path.abspath(__file__))); from undate import undate as _undate   # plan 39.15
 import sys as _s, os as _o; _s.path.insert(0, _o.path.join(_o.path.dirname(_o.path.abspath(__file__)), "CANON") if _o.path.basename(_o.path.dirname(_o.path.abspath(__file__))) != "CANON" else _o.path.dirname(_o.path.abspath(__file__))); import relink as _rl
 import subprocess
 import os, re, sys, json, datetime
@@ -34,7 +35,7 @@ def block(J, rel):
         U = sorted(enumerate(s["updates"]), key=lambda t: (t[1]["date"], t[0]), reverse=True)[:3]
         L += ["| date | update |", "|---|---|"] + [f"| {u['date']} | {u['text']} [record]({rel}{u['record']}) |" for _, u in U]
         L += ["", f"*The full story so far, every update in plain words: [field notes]({rel}Biological_Physics/MethylPhys/FIELD_NOTES.md#{s['id'].replace('_', '-')}).*", ""]
-    return "\n".join(L + [E])
+    return _undate("\n".join(L + [E]))
 def compact(J):
     """README form (author 2026-10-15: the front README should be short): one line per story, its newest update; the full board is FOLLOW.md."""
     L = [B, "", "## Now running", "", "*Each line is the newest update in plain words; the full board is [FOLLOW.md](FOLLOW.md), every update in [Biological_Physics/MethylPhys/FIELD_NOTES.md](Biological_Physics/MethylPhys/FIELD_NOTES.md).*", "",
@@ -42,7 +43,7 @@ def compact(J):
     for s in J["stories"]:
         u = sorted(enumerate(s["updates"]), key=lambda t: (t[1]["date"], t[0]))[-1][1]
         L.append(f"| {s['headline']} | {STATUS[s['status']]} | {u['date']}: {u['text'].split('. ')[0].rstrip('.')}. [record]({u['record']}) |")
-    return "\n".join(L + ["", E])
+    return _undate("\n".join(L + ["", E]))
 def notes(J):
     L = ["# Field notes", "", "*Every update to every experiment on the Now running board, in plain words, oldest first. Notes are never edited or removed;",
          "a correction is a new note. Generated from CANON/now_running.json by CANON/now_running.py; do not edit by hand.*", ""]
@@ -50,7 +51,7 @@ def notes(J):
         L += [f'<a id="{s["id"].replace("_", "-")}"></a>', f"## {s['headline']}", "", f"*{STATUS[s['status']]}.* {s['why']}", ""]
         for i, u in sorted(enumerate(s["updates"]), key=lambda t: (t[1]["date"], t[0])):
             L += [f"### {u['date']} · {u['text']}", ""] + ([u["note"], ""] if u.get("note") else []) + [f"Record: [{os.path.basename(u['record'])}]({u['record']})", ""]
-    return "\n".join(L)
+    return _undate("\n".join(L))
 def published():
     r = subprocess.run(["git", "-C", ROOT, "show", "origin/main:CANON/now_running.json"], capture_output=True, text=True)
     return json.loads(r.stdout) if r.returncode == 0 else {"stories": []}

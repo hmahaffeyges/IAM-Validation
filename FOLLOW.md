@@ -20,9 +20,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
-| 2026-10-17 | Commissioned. IAM-Atlas v2.1 met its sealed tests, and it outperformed both published reference atlases of human cell types on the jobs each was built for. [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md) |
-| 2026-10-15 | The fit is running. It started at 11:26 PM Pacific on October 14 on a rented 128-core machine, and 164 of its 700 blocks are done. Every block so far has passed the sampler's own health checks: no divergent draws, and in every block 99 percent of sites show an R-hat (agreement between independent chains) of 1.009 or less. It is expected to finish Friday October 16, about 9 AM Pacific, and the live count is on the front page. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
-| 2026-10-13 | Not running. The fit itself needs a rented 128-core machine with 246 GB of memory - the same kind that built version 2 - so it is queued behind the free work. What moved instead: the four laboratories we had planned to TEST the new map against turned out to have been read already, so they can help build it but cannot judge it. One unread laboratory has been chosen as the test, with its two weaknesses written down first. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
+| | Commissioned. IAM-Atlas v2.1 met its sealed tests, and it outperformed both published reference atlases of human cell types on the jobs each was built for. [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md) |
+| | The fit is running. It started at 11:26 PM Pacific on a rented 128-core machine, and 164 of its 700 blocks are done. Every block so far has passed the sampler's own health checks: no divergent draws, and in every block 99 percent of sites show an R-hat (agreement between independent chains) of 1.009 or less. It is expected to finish Friday about 9 AM Pacific, and the live count is on the front page. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
+| | Not running. The fit itself needs a rented 128-core machine with 246 GB of memory - the same kind that built version 2 - so it is queued behind the free work. What moved instead: the four laboratories we had planned to TEST the new map against turned out to have been read already, so they can help build it but cannot judge it. One unread laboratory has been chosen as the test, with its two weaknesses written down first. [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#atlas-v21).*
 
@@ -35,9 +35,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
-| 2026-10-17 | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
-| 2026-10-13 | The cause of the failed laboratory check is now known, and it was not the laboratories. The reading had been taken from the very beginning of each sequencing file, and the beginning reads differently - the three disagreeing libraries sit 11 to 14 percent below the controls read at the same spot, while both controls read flat. Our first fix, reading several places and averaging, failed its own test on made-up data: averaging shrinks a bad measurement, it does not remove it. The replacement skips the unsettled beginning, and how much to skip is decided by the sequencing chemistry itself rather than by whether our answer improves. It passed six tests on made-up files, including recovering a planted 12 percent error to within a fifth of a percent. Nothing real has been trimmed yet. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_TRIM_01.md) |
-| 2026-10-12 | The cause test is running on a rented computer: the three low files and two normal ones, each read from its start, middle and end. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md) |
+| | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
+| | The cause of the failed laboratory check is now known, and it was not the laboratories. The reading had been taken from the very beginning of each sequencing file, and the beginning reads differently - the three disagreeing libraries sit 11 to 14 percent below the controls read at the same spot, while both controls read flat. Our first fix, reading several places and averaging, failed its own test on made-up data: averaging shrinks a bad measurement, it does not remove it. The replacement skips the unsettled beginning, and how much to skip is decided by the sequencing chemistry itself rather than by whether our answer improves. It passed six tests on made-up files, including recovering a planted 12 percent error to within a fifth of a percent. Nothing real has been trimmed yet. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_TRIM_01.md) |
+| | The cause test is running on a rented computer: the three low files and two normal ones, each read from its start, middle and end. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#iama-commission).*
 
@@ -50,9 +50,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
-| 2026-10-17 | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
-| 2026-10-13 | The rule for what counts as a healthy brain-cell reference is now sealed: cleanly sorted cells only. That was a decision made after looking at the data, so it is labeled as one, and it was sealed before either independent laboratory was opened. Neither has been read. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md) |
-| 2026-10-12 | Healthy brain-cell reference built by its rule, from seven samples of five donors. Cleanly sorted cells read tightly together; unsorted cells read higher. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md) |
+| | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
+| | The rule for what counts as a healthy brain-cell reference is now sealed: cleanly sorted cells only. That was a decision made after looking at the data, so it is labeled as one, and it was sealed before either independent laboratory was opened. Neither has been read. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md) |
+| | Healthy brain-cell reference built by its rule, from seven samples of five donors. Cleanly sorted cells read tightly together; unsorted cells read higher. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#neurons).*
 
@@ -65,9 +65,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
-| 2026-10-17 | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
-| 2026-10-13 | Still on hold, and now with a named condition for coming off hold: measured lung support cells in the map. Four lung attempts failed for one reason - a healthy lung whose cell mixture leans one way can imitate the signal - and in three of the four no tumor was ever opened. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md) |
-| 2026-10-12 | Four lung sets tried: one read with no clear cancer signal; three stopped by their made-up tests before any tumor was opened, so none was wasted. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_04.md) |
+| | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
+| | Still on hold, and now with a named condition for coming off hold: measured lung support cells in the map. Four lung attempts failed for one reason - a healthy lung whose cell mixture leans one way can imitate the signal - and in three of the four no tumor was ever opened. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md) |
+| | Four lung sets tried: one read with no clear cancer signal; three stopped by their made-up tests before any tumor was opened, so none was wasted. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_04.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#lung).*
 
@@ -80,8 +80,8 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
-| 2026-10-17 | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
-| 2026-10-13 | First test done, and it is the honesty test rather than the detection one. Two groups of HEALTHY people, read in two different laboratories: in the raw reading they differ by 3.69 percent - as much as a tumor would - and after the chain's correction, which compares each person against healthy people measured in the same run, they agree to 0.16 percent. The rule this forces, written before any patient data is opened: patients and their healthy comparisons must be measured in the same run, or the comparison is measuring the laboratories. [record](Biological_Physics/MethylPhys/doors/DEV_GROUP_01.md) |
+| | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
+| | First test done, and it is the honesty test rather than the detection one. Two groups of HEALTHY people, read in two different laboratories: in the raw reading they differ by 3.69 percent - as much as a tumor would - and after the chain's correction, which compares each person against healthy people measured in the same run, they agree to 0.16 percent. The rule this forces, written before any patient data is opened: patients and their healthy comparisons must be measured in the same run, or the comparison is measuring the laboratories. [record](Biological_Physics/MethylPhys/doors/DEV_GROUP_01.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#blood-group).*
 
@@ -94,9 +94,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
-| 2026-10-17 | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
-| 2026-10-15 | A healthy cell can be its own reference. Across 56 kinds of healthy human cells, the rate of tagging mistakes follows one straight line set by how loosely the cell holds its own DNA (r 0.87; 53 of 56 cells within 0.003 of the line). That means a sample's expected healthy reading can come from the sample itself, instead of from a library of other people's cells. [record](development/loose_end_2026-10-15/loose_end_line.py) |
-| 2026-10-13 | The three-channel test came back: a cell has three jobs at a methylation site - copy the pattern, write a new mark, remove a mark - and we asked whether our readings can tell which one has been damaged. Damaging the removal job is the only one that makes the reading go DOWN, so that one is identifiable on its own. The other two both push it up and can only be told apart if the damage size is already known, which in a patient it would not be. That limit is why a third reading is being built. All of this is on made-up data; no lever has yet been read against the world except one mouse result. [record](Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md) |
+| | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
+| | A healthy cell can be its own reference. Across 56 kinds of healthy human cells, the rate of tagging mistakes follows one straight line set by how loosely the cell holds its own DNA (r 0.87; 53 of 56 cells within 0.003 of the line). That means a sample's expected healthy reading can come from the sample itself, instead of from a library of other people's cells. [record](development/loose_end_2026-10-15/loose_end_line.py) |
+| | The three-channel test came back: a cell has three jobs at a methylation site - copy the pattern, write a new mark, remove a mark - and we asked whether our readings can tell which one has been damaged. Damaging the removal job is the only one that makes the reading go DOWN, so that one is identifiable on its own. The other two both push it up and can only be told apart if the damage size is already known, which in a patient it would not be. That limit is why a third reading is being built. All of this is on made-up data; no lever has yet been read against the world except one mouse result. [record](Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#levers).*
 
@@ -129,95 +129,95 @@ To help: **[Help fund early cancer detection research, built in public](https://
 Each result says what was tested and what it means; the record behind it has every number. Generated from the results register, the same source as the READMEs and the book, so this list cannot fall behind.
 
 <!-- FOLLOW_RESULTS:BEGIN (generated by CANON/results_to_tex.py from CANON/results_register.json; do not edit by hand) -->
-**2026-10-20 · Group-A commissioned for groups of whole bloods** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_GROUPA.md)
+**Group-A commissioned for groups of whole bloods** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_GROUPA.md)
 
 One blood sample cannot show a 1 % change, but a group can. Group-A reads each person with the same command as every report, centers each reading on healthy people run the same way, and compares the groups. On 278 healthy people from a laboratory we had never read, women and men came out the same, and a 1 % loss planted into half of them was found at more than seven times the noise. It ran on free public computers, from a rule written before any of the data was opened.
 
-**2026-10-17 · The IAM-Deconvolver commissioned for blood-cell shares** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md)
+**The IAM-Deconvolver commissioned for blood-cell shares** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md)
 
 Given a blood sample read on an array, the tool says how much of it came from each kind of blood cell. On mixtures made from healthy cells of a laboratory it had never seen, it was off by 1.6 percentage points on average, and it refused the samples it could not read instead of guessing.
 
-**2026-10-17 · IAM-A commissioned: each sample read against its own reference** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md)
+**IAM-A commissioned: each sample read against its own reference** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md)
 
 IAM-A reads how well each DNA molecule kept its marks and compares that with what the same sample's own loose share predicts, so it needs no outside reference. On healthy immune cells from a new laboratory, 7 of the 8 samples it read came out Normal, as sealed in advance.
 
-**2026-10-16 · IAM-Atlas v2.1 against the published array reference atlas of human cell types, on the jobs a reference atlas is used for** · [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_01.md)
+**IAM-Atlas v2.1 against the published array reference atlas of human cell types, on the jobs a reference atlas is used for** · [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_01.md)
 
 A reference atlas is used for two jobs: finding the DNA spots that mark each cell type, and working out which cells a mixed sample came from. On healthy cells from laboratories that never helped build either atlas, v2.1 was scored against the published array reference atlas of human cell types by bars sealed before v2.1 existed. It found as many reliable markers, split blood-cell mixtures with a smaller error, and, when brain cells that reference does not hold were mixed in, recovered them and cut the error by more than half.
 
-**2026-10-16 · IAM-Atlas v2.1 commissioned** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)
+**IAM-Atlas v2.1 commissioned** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)
 
 Commissioned means a use of the atlas is allowed to report results. Healthy cells from laboratories that never helped build the atlas were read against it, by bars fixed before it existed. Three cell types, brain neurons, airway lining and naive helper T cells, landed inside the atlas's predicted range, and the sites the colon and lung cancer tests depend on held steady in every cell type that could be checked. Its blood-composition use and its other cell references stay in development.
 
-**2026-10-16 · IAM-Atlas v2.1 against the published sequencing atlas of human cell types, on the jobs a reference atlas is used for** · [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_02.md)
+**IAM-Atlas v2.1 against the published sequencing atlas of human cell types, on the jobs a reference atlas is used for** · [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_USE_02.md)
 
 The published sequencing atlas was rebuilt for arrays exactly as its paper builds it, from its 205 public samples, and scored against v2.1 by the same sealed bars v2.1 met against the published array reference. On 731 healthy arrays from laboratories that never helped build either atlas, v2.1's markers held more often (0.998 against 0.938), it split mixtures with a smaller error (0.020 against 0.025), and with brain cells that atlas does not hold mixed in, it cut the error by half (0.023 against 0.048).
 
-**2026-10-15 · Every healthy cell follows the same simple rule** · [record](development/loose_end_2026-10-15/loose_end_line.py)
+**Every healthy cell follows the same simple rule** · [record](development/loose_end_2026-10-15/loose_end_line.py)
 
 Your cells put tiny chemical tags on their DNA. The tags tell each cell what kind of cell it is. Some stretches of DNA are tagged firmly and some loosely, and every cell makes a few tagging mistakes. We looked at 56 kinds of healthy human cells and found that the number of mistakes depends on one thing: how much of its DNA the cell keeps loosely tagged. Plotted, all 56 fall on one straight line. So we can tell what a healthy cell should look like from that cell's own sample, without comparing it to a library of other cells. Early result, from one laboratory's data. Next, we check it in a second lab.
 
-**2026-10-15 · The clustering meter passes its last check: the same person reads the same** · [record](Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md)
+**The clustering meter passes its last check: the same person reads the same** · [record](Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md)
 
 Our second meter reads the shape of the damage: clumps, as a tumor leaves, or scattered, as ordinary wear leaves. Its last open check was whether one person measured twice reads the same. We found a public study, never touched by this work, in which 14 healthy adults were measured twice on different chips. The bar, set before the arrays were read, allowed a spread of 0.125; the meter's spread was 0.038, about a third of that. The same 173 arrays were also a third laboratory for its healthy range, and 172 read inside it. Every check in its plan is now met, and it is proposed for commissioning on whole blood. Its detection of clumped damage has been shown on changes planted into real arrays, not yet on real tumors.
 
-**2026-10-15 · The C-Score commissioned on whole blood** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md)
+**The C-Score commissioned on whole blood** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md)
 
 Commissioned means a reading is allowed to report results, not just development readings. The clustering meter reads the shape of the damage: clumps, as a tumor leaves, or scattered, as ordinary wear leaves. Every test written for it before its data were read was met: its healthy range held in three laboratories that never helped set it, the same person measured twice reads the same, and clumped damage planted into real healthy arrays was caught every time while scattered damage never set it off. It is our second commissioned instrument, on whole blood; purified white cells are its next scope step. It has not yet read real tumors with a sealed bar; that is its next test.
 
-**2026-10-13 · The clustering meter's healthy range holds in two new laboratories** · [record](Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md)
+**The clustering meter's healthy range holds in two new laboratories** · [record](Biological_Physics/MethylPhys/doors/CSCORE_COMMISSIONING_PLAN.md)
 
 Our second meter, the clustering meter, reads the shape of the damage: whether errors clump together, as they do when a whole region is wiped, or stay scattered, as ordinary errors do. Its healthy range was set on other laboratories' arrays and committed before two new laboratories' healthy blood was read. In both, at least 95 percent of healthy people had to read inside the range, and they did. The second laboratory passed by a single array, and both are whole blood rather than the purified cells the meter is being commissioned on, so this is development, not commissioning.
 
-**2026-10-12 · Met-A on patients' liver tumors against their own normal liver** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md)
+**Met-A on patients' liver tumors against their own normal liver** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LIVER_01_OUTCOME.md)
 
 Real patients with liver cancer. Each patient's liver tumor was compared with that same patient's healthy liver, processed on the same plate, reading only places on the DNA that a change in the mix of tissue types cannot move. Before any tumor was opened, we also checked that no realistic change in the mix of cells could fake a result. The bar was strict: healthy liver crosses it only about one time in twenty. Far more tumors crossed it than chance could produce, and nearly every tumor read above the patient's own healthy liver. This shows the measurement sees liver cancer in patients as a group; flagging each individual patient reliably, and seeing it in blood, are the next steps.
 
-**2026-10-12 · IAM-Atlas v2 is public, with a DOI** · [record](Biological_Physics/MethylPhys/atlas/v2/README.md)
+**IAM-Atlas v2 is public, with a DOI** · [record](Biological_Physics/MethylPhys/atlas/v2/README.md)
 
 Our reference of healthy human cell types, built from two leading public atlases and fitted with full uncertainty, is deposited on Zenodo with a permanent DOI and an open license. Every file was checked after upload, one script downloads and verifies it, and the build files in the repository rebuild it.
 
-**2026-10-11 · Met-A on patients' breast tumors against their own normal tissue** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md)
+**Met-A on patients' breast tumors against their own normal tissue** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_BREAST_01_OUTCOME.md)
 
 Real patients, not lab cells. Each woman's breast tumor was compared with her own healthy breast tissue, processed on the same plate, reading only places on the DNA that a change in the mix of tissue types cannot move, so a different mix cannot fake a result. The bar was strict: healthy tissue crosses it only about one time in twenty. Far more tumors crossed it than chance could produce, and most tumors read above the patient's own healthy tissue. This shows the measurement sees breast cancer in patients as a group; flagging each individual patient reliably is the next step.
 
-**2026-10-11 · Met-A on patients' colorectal tumors against their own adjacent normal** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md)
+**Met-A on patients' colorectal tumors against their own adjacent normal** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_COLON_01_OUTCOME.md)
 
 The same design as the breast test, in colorectal cancer: each patient's tumor against the same patient's healthy colon from next to it, on the same processing slide, at places the tissue mix cannot move, with a strict bar fixed in advance. Far more tumors crossed it than chance would give, and nearly every tumor read above the patient's own healthy tissue.
 
-**2026-10-11 · Cancer fingerprint replicated: prostate, a second laboratory, different cells** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_02_OUTCOME.md)
+**Cancer fingerprint replicated: prostate, a second laboratory, different cells** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_02_OUTCOME.md)
 
 The same prostate test, repeated on data from a different laboratory, with different normal prostate cells as the comparison. Every cancer sample again carried the fingerprint (whole passages of the switch pattern wiped out), and even the weakest one stood well clear of the difference between two healthy people. A result that repeats in a second laboratory, on different cells, is much harder to explain away.
 
-**2026-10-11 · Cancer fingerprint in breast cancer cell lines** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_02_OUTCOME.md)
+**Cancer fingerprint in breast cancer cell lines** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_02_OUTCOME.md)
 
 Two breast cancer cell lines, each compared with two kinds of normal breast cells, one comparison at a time, each sealed before it was read. Cancer can damage the pattern in two directions: switches lost where they should be on, and switches added where they should be off. The meter for added switches found the breast cancer fingerprint in every comparison; the meter for lost switches found it in most, and one was undecided.
 
-**2026-10-11 · The commissioned instrument rebuilt from scratch on a clean machine** · [record](Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/cleanroom_2026-10-11.md)
+**The commissioned instrument rebuilt from scratch on a clean machine** · [record](Biological_Physics/MethylPhys/doors/data/MET_A_FLOOR_V13_REPRO/cleanroom_2026-10-11.md)
 
 We started from nothing, the way a stranger would: a fresh copy of the repository on a clean folder, public data only, and the four commands the commissioning note lists. Every number our commissioned instrument uses came out identical. The rebuild also found two hidden inputs (an unpinned software version and the chip maker's files), which are now pinned and checked on every run.
 
-**2026-10-10 · Cancer fingerprint: prostate, both instruments on the same cells** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_01_OUTCOME.md)
+**Cancer fingerprint: prostate, both instruments on the same cells** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_01_OUTCOME.md)
 
 Our two instruments look at DNA's switch pattern in two different ways. One counts scattered single errors, like typos in a book. The other checks whether the pattern as a whole is still intact. If cancer only made a cell sloppier, both readings would rise together, in a proportion physics sets in advance. A fingerprint is when the pattern is damaged far more than the typos explain: whole passages are gone, not just letters. Here we compared prostate cancer cells with normal prostate cells, with the rule for calling a fingerprint written down before any cancer data were opened, and every cancer sample carried it.
 
-**2026-10-10 · IAM-A, first physics lever: cutting the methyl supply** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_SAM_LEVER_01_OUTCOME.md)
+**IAM-A, first physics lever: cutting the methyl supply** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_SAM_LEVER_01_OUTCOME.md)
 
 A test of the physics itself, in living animals. The cell needs a chemical supply to keep its DNA switches set. In mice that cannot make that supply in the liver, the physics predicts how much faithfulness the liver's DNA pattern should lose. That window was calculated and sealed on a healthy mouse before any of these mice were read, and the mice landed inside it. Giving the supply back moved them back toward healthy.
 
-**2026-10-10 · Met-A reproduces across laboratories on identical DNA** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_EPIQC_ARRAY_01_OUTCOME.md)
+**Met-A reproduces across laboratories on identical DNA** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_EPIQC_ARRAY_01_OUTCOME.md)
 
 Can anyone trust the number? Exactly the same DNA was measured in three different laboratories. Our reading came out the same in all three, within a small fraction of a percent, before any correction. A measurement that changes from lab to lab is useless; this one does not.
 
-**2026-10-10 · Met-A raises no false alarm when foreign DNA is mixed in** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_CSCORE_MOSS_01_OUTCOME.md)
+**Met-A raises no false alarm when foreign DNA is mixed in** *(development)* · [record](Biological_Physics/MethylPhys/doors/DEV_CSCORE_MOSS_01_OUTCOME.md)
 
 A false-alarm test. Small amounts of DNA from other organs (liver, lung, colon, brain) were mixed into blood DNA in known amounts. Healthy foreign DNA should not look like disease, and it did not: every mixed sample read healthy.
 
-**2026-10-10 · Everything the commissioned chain reads rebuilds from public data** · [record](Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md)
+**Everything the commissioned chain reads rebuilds from public data** · [record](Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md)
 
 Nothing here depends on trusting us. Every value the instrument uses was rebuilt from scratch from public data by committed code, and came out identical. Anyone can run the same code and get the same numbers.
 
-**2026-10-09 · Met-A on isolated neutrophils (EPIC v1) commissioned, with its detection limit printed on every report** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)
+**Met-A on isolated neutrophils (EPIC v1) commissioned, with its detection limit printed on every report** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)
 
 Commissioned means a reading is allowed to report results, not just development readings. For Met-A on purified white blood cells (neutrophils), the tests for repeatability, agreement between laboratories, no false alarms on healthy samples, refusing what it cannot read, and responding to known damage by the predicted amount were all met. Its sensitivity to the very smallest damage fell short of the bar, so instead of hiding that, every report prints its measured detection limit: the smallest damage it reliably sees.
 <!-- FOLLOW_RESULTS:END -->

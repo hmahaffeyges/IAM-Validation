@@ -1,6 +1,7 @@
 """The book's toolbox chapter (author 2026-10-15: a chapter that explains every tool in the toolbox, commissioned, in development or a
 candidate; not a real-time report). Generated from CANON/catalogue.json (instruments and support tools; stage computed by catalogue.py from
 the manifest) and CANON/instruments.json (candidates). Writes docs/book/part6/p6_06b_toolbox.tex. --check refuses drift."""
+import sys as _sud, os as _oud; _sud.path.insert(0, _oud.path.join(_oud.path.dirname(_oud.path.dirname(_oud.path.abspath(__file__))), 'CANON')) if _oud.path.basename(_oud.path.dirname(_oud.path.abspath(__file__))) != 'CANON' else _sud.path.insert(0, _oud.path.dirname(_oud.path.abspath(__file__))); from undate import undate as _undate   # no dates in public prose (plan 39.15)
 import os, sys, json, re, importlib.util
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 OUT = os.path.join(ROOT, "docs", "book", "part6", "p6_06b_toolbox.tex")
@@ -42,7 +43,7 @@ def build():
     L += [r"\end{itemize}", "", r"\section{Why several}", "", tex(C["together"]) if isinstance(C.get("together"), str) else tex(" ".join(C.get("together", []))) , ""]
     return "\n".join(L) + "\n"
 if __name__ == "__main__":
-    t = build()
+    t = _undate(build())
     if "--check" in sys.argv:
         ok = os.path.exists(OUT) and open(OUT, encoding="utf-8").read() == t
         print("book_toolbox: " + ("ok" if ok else "REFUSED: docs/book/part6/p6_06b_toolbox.tex differs (run python3 CANON/book_toolbox.py)")); sys.exit(0 if ok else 1)

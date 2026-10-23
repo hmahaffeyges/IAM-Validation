@@ -1,11 +1,11 @@
 {
  "date": "2026-10-22",
- "title": "Met-A reads healthy cells Normal against the atlas",
+ "title": "Every reproduction passes on GitHub, and every reading goes through the one command",
  "_convention": "see 2026-10-13.json",
  "check_completeness": false,
  "set_out": "Test Met-A against IAM-Atlas v2.1 with the chain's same-run tare on an independent laboratory's healthy cells, and finish the open GitHub runs.",
- "open_at_turnover": "Open: the release check on the corrected V13; the mouse reproduction in 13 parallel jobs (OTH-076); a sealed Met-A atlas test on a new series (GRP-014).",
- "closing": "",
+ "open_at_turnover": "Open: Group-A's reproduction through the one command (GRP-004); the human timing sample for the firm rate (PHY-049); information sphere test 11 (ATL-046); the catalogue corrections (no dates in prose, one source per fact).",
+ "closing": "A long day of making the work replicable: if the chain did not produce it, it did not happen.",
  "sections": [
   {
    "kind": "ran",
@@ -17,6 +17,80 @@
      "what": "An independent laboratory's healthy children's monocytes, read against the atlas's adult monocytes and tared against healthy monocytes run on the same slide: all 67 read Normal, and a planted 1 % loss of their pattern stands out at 3.6 times the healthy spread. Children given BCG at birth read Normal too.",
      "why": "Met-A read against the atlas lets any cell type in the atlas be read, not only the ones with a purified-array reference; the same-run tare cancels the laboratory and age gaps.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_01.md"
+    },
+    {
+     "title": "All ten reproductions pass on GitHub's machines (OTH-076)",
+     "status": "audit",
+     "what": "The mouse reproduction ran across 19 GitHub machines and every read set came out identical to the committed run, so every reproduction a researcher can run now passes on GitHub's free machines, without the AWS account. One workflow runs all of them from a researcher's own copy of the repository.",
+     "why": "A result counts only when someone else can produce it again from the repository alone.",
+     "record": "Biological_Physics/MethylPhys/reproduce/verified.json"
+    },
+    {
+     "title": "The C-Score's band test, rerun through the one command (COM-CSCORE-011)",
+     "status": "audit",
+     "what": "Every reading and tare by run_sample.py from the raw arrays: the band holds again. One array fewer is scored, because Stage 0's bisulfite limit, set after the first scoring, now stops it.",
+     "why": "Everything is rerun through the one command, so a researcher replicates exactly what we ran.",
+     "record": "Biological_Physics/MethylPhys/doors/data/CSCORE_COMMISSIONING/run_chain_01/band_chain_summary.txt"
+    },
+    {
+     "title": "Met-A against the atlas through the one command, two independent monocyte series (GRP-014)",
+     "status": "development",
+     "what": "Healthy monocytes of two independent laboratories, read against IAM-Atlas v2.1 and tared against healthy monocytes on their own slide, all read Normal, and a planted 1 % loss stands out in both.",
+     "why": "Met-A against the atlas would let one reference serve every cell type.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_01.md"
+    },
+    {
+     "title": "Every cell in a mix, and one blood draw (GRP-015, GRP-016)",
+     "status": "development",
+     "what": "The one command now reads every cell type of the atlas in one run, scores Met-A for each cell it finds, reads sequencing values with a read-count correction, and reads a whole blood draw (white cells and plasma) as one record. Nine known mixtures of tissue DNA in blood were found at the right sizes.",
+     "why": "A single blood draw read for every cell in it is the goal the instruments were built toward.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "The information sphere, with each site's level taken out (ATL-046)",
+     "status": "synthetic only",
+     "what": "A construction that removes each site's methylation level before the geometry passed its synthetic test; on the real atlas it met two of three checks, and the next test asks the right question with level-matched lines.",
+     "why": "A map of how sites behave, not where they sit, is the second sphere.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md"
+    },
+    {
+     "title": "Every globe layer has a working slider: the audit after the fix (ATL-063)",
+     "status": "audit",
+     "what": "A browser audit of every layer of every globe on the live site: every layer has a working slider, and every change layer goes dark at the right end on a healthy blood. The release check now tests every layer.",
+     "why": "A picture a researcher cannot trust is worse than none.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md"
+    },
+    {
+     "title": "The X and Y in IAM-A's held error (OTH-080, DEV-IAMA-SEX-01)",
+     "status": "audit",
+     "what": "Counting IAM-A's held error with the X and Y left out moves IAM-A by a fraction of a percent, well inside the band; the line and band are kept.",
+     "why": "A reader may assume the X was not handled; this shows it was.",
+     "record": "Biological_Physics/MethylPhys/manual/decoder_text.md"
+    },
+    {
+     "title": "Colon's controls matched on the slide (ATL-070, DEV-TISSUE-GLOBE-01 run 3)",
+     "status": "development",
+     "what": "Matching colon controls on the same slide changes nothing: two healthy people's colon differs nearly as much as a tumor differs from its own normal, which is why the person's own normal tissue is the reference that counts.",
+     "why": "It says which reference a tissue reading needs.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_GLOBE_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "mistakes",
+   "heading": "Our own mistakes, and what caught each",
+   "entries": [
+    {
+     "title": "Work that called chain pieces instead of the one command (lesson C33)",
+     "what": "Several tests and pictures called chain stages directly. By the author's rule they do not count; they were withdrawn and are being rerun through run_sample.py, and the push gate now refuses a test script that does not run it.",
+     "why": "The chain did not produce it, so it did not happen.",
+     "record": "CANON/chain_gate.py"
+    },
+    {
+     "title": "A test script pushed that did not compile (lesson C36)",
+     "what": "Seven GitHub runs failed before reading any data; the push gate now compiles every Python file first.",
+     "why": "",
+     "record": "CANON/compile_check.py"
     }
    ]
   }

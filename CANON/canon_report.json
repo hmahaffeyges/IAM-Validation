@@ -24,7 +24,7 @@
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
-"text": "| 2026-10-10 | **Everything the commissioned chain reads rebuilds from public data**, identical: the holding energy and \u03b5\u2080 (153 public samples; then 3.41 k_BT a"
+"text": "| **Everything the commissioned chain reads rebuilds from public data**, identical: the holding energy and \u03b5\u2080 (153 public samples; then 3.41 k_BT and 0.032 on t"
 },
 {
 "file": "MANIFEST.md",
@@ -366,7 +366,7 @@
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
 "status": "RECORD",
-"text": "| 2026-10-10 | **Everything the commissioned chain reads rebuilds from public data**, identical: the holding energy and \u03b5\u2080 (153 public samples; then 3.41 k_BT a"
+"text": "| **Everything the commissioned chain reads rebuilds from public data**, identical: the holding energy and \u03b5\u2080 (153 public samples; then 3.41 k_BT and 0.032 on t"
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
@@ -424,7 +424,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 146,
+"line": 150,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",

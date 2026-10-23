@@ -2,6 +2,7 @@
 report as a visual"). Section 1 shows a real chain v4 report page by page (images rendered from the committed researcher PDFs in
 doors/data/REPORT_EXAMPLES_V4/final). Section 2 lists every test in Biological_Physics/MethylPhys/reproduce/tests.json with its fresh-clone result from
 Biological_Physics/MethylPhys/reproduce/verified.json. Nothing is typed by hand: rerun after either file changes. --check: refuse if the chapter differs."""
+import sys as _sud, os as _oud; _sud.path.insert(0, _oud.path.join(_oud.path.dirname(_oud.path.dirname(_oud.path.dirname(_oud.path.abspath(__file__)))), 'CANON')); from undate import undate as _undate   # no dates in public prose (plan 39.15)
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.abspath(os.path.join(HERE, "..", ".."))
 OUT = os.path.join(HERE, "part6", "p6_20c_reproduced.tex"); FIG = os.path.join(HERE, "figures", "part6")
@@ -76,9 +77,9 @@ def text():
 if __name__ == "__main__":
     t = text()
     if "--check" in sys.argv:
-        ok = os.path.exists(OUT) and open(OUT, encoding="utf-8").read() == t and all(os.path.exists(os.path.join(FIG, p[2] + ".png")) for p in PAGES)
+        ok = os.path.exists(OUT) and open(OUT, encoding="utf-8").read() == _undate(t) and all(os.path.exists(os.path.join(FIG, p[2] + ".png")) for p in PAGES)
         import re as _re   # 2026-10-19: a raw underscore outside math, a comment or a url broke the book build
         _b = _re.sub(r"\\(url|includegraphics|label|ref)(\[[^]]*\])?\{[^}]*\}", "", _re.sub(r"(?m)(?<!\\)%.*$", "", t))
         if _re.search(r"(?<!\\)_", _re.sub(r"\$[^$]*\$", "", _b)): ok = False; print("repro_chapter: an unescaped underscore would break the book build")
         print("repro_chapter: " + ("ok" if ok else "REFUSED: the reproduced chapter differs (run python3 docs/book/build_repro_chapter.py)")); sys.exit(0 if ok else 1)
-    render(); open(OUT, "w", encoding="utf-8").write(t); print("repro_chapter: written")
+    render(); open(OUT, "w", encoding="utf-8").write(_undate(t)); print("repro_chapter: written")

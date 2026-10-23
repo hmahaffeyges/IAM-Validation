@@ -9,37 +9,37 @@ Every reading in this part comes from one of a small set of tools. Each answers 
 \textbf{The question.} Whose DNA is this? Which cells are in a sample, and in what shares?\par
 \textbf{How it reads.} A map of 79 kinds of healthy human cells, built from 21 public sources on arrays and sequencing, fitted as one model so every spot on the genome carries its value and its uncertainty. Like a state estimator across the whole interconnection: many utilities' meters, each weighted by how far it can be trusted.\par
 \textbf{Its specialty.} It is the map every other instrument reads against: for 79 healthy cell types, the expected tagging at every site with its range of error, so a sample can be split into its cells and each cell compared with its own healthy kind. (Chapter~\ref{ch:atlas})\par
-\textbf{Reads from.} arrays or sequencing. \textbf{Status.} Commissioned (79 cell types; met all three sealed bars against both published reference atlases, 2026-10-16; commissioned for three cell references and the colon and lung tissue tests).\par
+\textbf{Reads from.} arrays or sequencing. \textbf{Status.} Commissioned (79 cell types; met all three sealed bars against both published reference atlases; commissioned for three cell references and the colon and lung tissue tests).\par
 
 \subsection*{IAM-Deconvolver}
 \textbf{The question.} How much of each cell is in a mixed sample?\par
 \textbf{How it reads.} Reads a mixed sample against IAM-Atlas v2.1 and reports each cell's share with its range, after a sample check that refuses arrays it cannot read. On 200 fresh mixtures from a laboratory the atlas never saw, the shares came back within 0.016 of the truth (mean absolute error).\par
 \textbf{Its specialty.} It turns a whole-blood array into its cells, so each instrument reads the cell it was built for and a change in the mix is not mistaken for a change in the cells. (Chapter~\ref{ch:atlas})\par
-\textbf{Reads from.} arrays. \textbf{Status.} Commissioned (blood-cell shares on arrays, tested on neutrophils, monocytes, CD4 T and CD8 T cells, 2026-10-17).\par
+\textbf{Reads from.} arrays. \textbf{Status.} Commissioned (blood-cell shares on arrays, tested on neutrophils, monocytes, CD4 T and CD8 T cells).\par
 
 \subsection*{Met-A}
 \textbf{The question.} How far has a tissue's tagging level drifted toward the ceiling?\par
 \textbf{How it reads.} Reads the methylation level at sites a healthy cell holds firmly, against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils. Each cell is read at its own identity sites, the sites it holds (where a loss can raise disorder) and healthy people agree on; reading every site is more sensitive but cannot say which cell is losing hold (DEV-EACH-CELL-01 exploration 4).\par
 \textbf{Its specialty.} Cost and reach: a single array, the most common methylation measurement in the world, read on the gauge against the same cell type's healthy reference, with its detection limit printed. (Chapter~\ref{ch:meta})\par
-\textbf{Reads from.} arrays. \textbf{Status.} Commissioned (tested and commissioned on isolated neutrophils, EPIC v1, 2026-10-09).\par
+\textbf{Reads from.} arrays. \textbf{Status.} Commissioned (tested and commissioned on isolated neutrophils, EPIC v1).\par
 
 \subsection*{C-Score (the clustering meter)}
 \textbf{The question.} Has the pattern started to clump?\par
 \textbf{How it reads.} Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping against a healthy band. The band held in three laboratories that never helped set it, and one person measured twice reads the same.\par
 \textbf{Its specialty.} The shape of a change, not its size: whether a sample's departures from healthy are scattered like ordinary wear or packed together in stretches, the way a tumor that silences or loses a region leaves them. It is the clustering step of the cosmic microwave background analysis chain, carried over to the genome. (Chapter~\ref{ch:cscore})\par
-\textbf{Reads from.} arrays. \textbf{Status.} Commissioned (tested and commissioned on whole blood, EPIC v1, 2026-10-15).\par
+\textbf{Reads from.} arrays. \textbf{Status.} Commissioned (tested and commissioned on whole blood, EPIC v1).\par
 
 \subsection*{IAM-A}
 \textbf{The question.} Is each mark still held at its own healthy rate?\par
-\textbf{How it reads.} Counts tagging mistakes one DNA molecule at a time, the most direct reading of informational fidelity we have, and reads them against the sample's own line. The physics end of the catalogue: the floor and ceiling are derived, and since 2026-10-15 the healthy middle comes from the sample itself.\par
+\textbf{How it reads.} Counts tagging mistakes one DNA molecule at a time, the most direct reading of informational fidelity we have, and reads them against the sample's own line. The physics end of the catalogue: the floor and ceiling are derived, and the healthy middle comes from the sample itself.\par
 \textbf{Its specialty.} That it reads single molecules and carries its own reference: how well each molecule held its marks, compared with the healthy level set by the cell's own loose share, with no library of other people's cells. (Chapter~\ref{ch:iama})\par
-\textbf{Reads from.} single-molecule sequencing (bisulfite, EM-seq; nanopore next). \textbf{Status.} Commissioned (each sample against its own reference; sealed test on healthy blood CD8 T cells, whole-genome bisulfite, 2026-10-17).\par
+\textbf{Reads from.} single-molecule sequencing (bisulfite, EM-seq; nanopore next). \textbf{Status.} Commissioned (each sample against its own reference; sealed test on healthy blood CD8 T cells, whole-genome bisulfite).\par
 
 \subsection*{Group-A}
 \textbf{The question.} Has a whole group moved (a trial arm, an exposure, a cohort)?\par
 \textbf{How it reads.} Single blood readings are too noisy for one person on arrays, but a group average is not. Group-A reads each person with the one command, tares each reading against healthy arrays run the same way, and compares the groups. On 278 healthy people from a laboratory it had never read, women and men came out 0.36 \% apart, and a 1 \% loss planted into half of them was found at 7.253 standard errors.\par
 \textbf{Its specialty.} Groups: whether a whole cohort, trial arm or exposure has moved, read as one, with patients and healthy comparisons run in the same laboratory series. (Chapter~\ref{ch:groupa})\par
-\textbf{Reads from.} arrays. \textbf{Status.} Commissioned (groups of whole bloods run in one series, EPIC v1, 2026-10-20).\par
+\textbf{Reads from.} arrays. \textbf{Status.} Commissioned (groups of whole bloods run in one series, EPIC v1).\par
 
 \section{The tools the instruments run on}
 

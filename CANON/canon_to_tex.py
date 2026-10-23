@@ -3,6 +3,7 @@
 Run by canon_check.py --glossary, so GLOSSARY.md and the book appendix always come from the same file. Output: docs/book/appendices/app_A_canon.tex.
 Carried into the book: constants; names with status current / informal; retired names (as a table), except block-severity names, which never appear in the book. Not carried: entries marked
 'issue text (not a term)' and 'current (unverified)' Issue 002 glossary prose (kept in the canon file as record)."""
+import sys as _sud, os as _oud; _sud.path.insert(0, _oud.path.join(_oud.path.dirname(_oud.path.dirname(_oud.path.abspath(__file__))), 'CANON')) if _oud.path.basename(_oud.path.dirname(_oud.path.abspath(__file__))) != 'CANON' else _sud.path.insert(0, _oud.path.dirname(_oud.path.abspath(__file__))); from undate import undate as _undate   # no dates in public prose (plan 39.15)
 import os, re, json
 HERE=os.path.dirname(os.path.abspath(__file__)); ROOT=os.path.dirname(HERE)
 C=json.load(open(os.path.join(HERE,"iam_canon.json"),encoding="utf-8"))
@@ -54,7 +55,7 @@ def main():
         if keep(v): L.append(esc(k)+" & "+esc(v['definition'])+note+"\\\\\\iamrowrule")
     # retired names are kept in iam_canon.json for the repo record; the book carries only the names in use
     L+=[r"\bottomrule\end{longtable}}"]
-    s="\n".join(L)+"\n"; s=s.replace("\\iamrowrule\n\\bottomrule","\n\\bottomrule"); bad=s.count("?")
+    s=_undate("\n".join(L)+"\n"); s=s.replace("\\iamrowrule\n\\bottomrule","\n\\bottomrule"); bad=s.count("?")
     o=os.path.join(ROOT,"docs","book","appendices"); os.makedirs(o,exist_ok=True)
     open(os.path.join(o,"app_A_canon.tex"),"w",encoding="utf-8").write(s)
     print("app_canon.tex written:", sum(1 for v in C["names"].values() if keep(v)), "names,", len(C["constants"]), "constants; unmapped chars:", bad)

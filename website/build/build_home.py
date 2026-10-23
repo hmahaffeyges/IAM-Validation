@@ -538,6 +538,12 @@ def _moved(p):
     except Exception: return False
 NOT_ON_SITE = {"Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md"} | {os.path.relpath(os.path.join(r, f), REPO).replace(os.sep, "/") for r, _, fs in os.walk(REPO)
               if "/.git" not in r for f in fs if f.endswith(".md") and _moved(os.path.relpath(os.path.join(r, f), REPO))}
+def _nodates(h):   # 2026-10-23 (plan 39.15; author: dates belong in the logs): every date leaves the page's prose; the day-log section (its
+    # buttons are the logs' own names) and the generated "As of" line keep theirs. CANON/undate.py is the one rule every generator uses.
+    sys.path.insert(0, os.path.join(REPO, "CANON")); from undate import undate
+    keep = re.compile(r'<section class="wrap" id="daylogs">.*?</section>|<b>As of[^<]*</b>|<[^>]+>', re.S); out, i = [], 0
+    for m in keep.finditer(h): out += [undate(h[i:m.start()]), m.group(0)]; i = m.end()
+    return "".join(out) + undate(h[i:])
 def off_site(h):   # a link to a NOT_ON_SITE document (GitHub path or its rendered page) keeps only its text (author 2026-10-18; LESSONS C25)
     forms = [re.escape(GH + p) for p in NOT_ON_SITE] + [r"(?:\.\./)?(?:docs/)?" + re.escape(p.replace("/", "__")[:-3] + ".html") for p in NOT_ON_SITE]
     return re.sub(r'<a href="(?:' + "|".join(forms) + r')(?:#[^"]*)?"[^>]*>(.*?)</a>', r"\1", h, flags=re.S)
@@ -623,16 +629,16 @@ if __name__ == "__main__":
         themes = open(os.path.join(REPO, "website", "static", "themes.css"), encoding="utf-8").read()
         doc, b = full(b64, f"<style>{themes}</style>"); P = problems(b)
         if P: raise SystemExit("build_home: " + "; ".join(P))
-        open(sys.argv[2], "w", encoding="utf-8").write(off_site(doc)); print("build_home: standalone written", sys.argv[2]); sys.exit(0)
+        open(sys.argv[2], "w", encoding="utf-8").write(_nodates(off_site(doc))); print("build_home: standalone written", sys.argv[2]); sys.exit(0)
     site = sys.argv[1]
     live = "--preview" not in sys.argv              # live since 2026-10-13 (author approved): the project front page IS the site root
     out = site if live else os.path.join(site, "preview"); os.makedirs(out, exist_ok=True)
     pre = "" if live else "../"
     doc, b = full(lambda n: pre + "art/" + n, f'<link rel="stylesheet" href="{pre}static/themes.css">'); P = problems(b)
     if P: raise SystemExit("build_home: " + "; ".join(P))
-    open(os.path.join(out, "index.html"), "w", encoding="utf-8").write(off_site(doc)); print("build_home: " + ("index.html" if live else "preview/index.html") + " written")
+    open(os.path.join(out, "index.html"), "w", encoding="utf-8").write(_nodates(off_site(doc))); print("build_home: " + ("index.html" if live else "preview/index.html") + " written")
     os.makedirs(os.path.join(out, "docs"), exist_ok=True); _css = f'<link rel="stylesheet" href="{pre}../static/themes.css">'
-    for q in DOCS: open(os.path.join(out, docname(q)), "w", encoding="utf-8").write(off_site(doc_page(q, _css, DOCS)))
+    for q in DOCS: open(os.path.join(out, docname(q)), "w", encoding="utf-8").write(_nodates(off_site(doc_page(q, _css, DOCS))))
     import atlas_pages   # IAM-Atlas v2.1: every cell on its own page (author 2026-10-18)
     print("build_home:", atlas_pages.write(out, pre + "../art/", f'<link rel="stylesheet" href="{pre}../static/themes.css">', CSS, "../index.html"), "atlas cell pages written")
     print("build_home:", len(DOCS), "document pages written")

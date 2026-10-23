@@ -92,13 +92,13 @@ $A_{\rm rel}$, and each reading states the smallest loss of the cell's pattern t
 \paragraph{IAM-A} (single molecules) reads the held error directly: $\varepsilon$ is the rate of an isolated unmethylated call between two
 methylated calls, on molecules with at least 6 CpGs and at least 80\,\% methylated, on the methylated channel only. The sample is read against its own reference: its loose share $L$ (the share of 2,000-CpG tiles below 70\,\% methylated) predicts, on the healthy self-reference line, the held error it should carry.
 \begin{equation}\text{IAM-A}=\frac{\varepsilon}{\varepsilon_{\rm pred}(L)},\qquad \varepsilon_{\rm pred}(L)=0.0403+0.0346\,L,\end{equation}
-measured on 56 healthy cell types and frozen (Chapter~\ref{ch:iama}); commissioned 2026-10-17 on healthy blood CD8 T cells. The earlier form, $H(\varepsilon)/(P_{\rm cell}H(\varepsilon_0))$ with a frozen per-cell position, is now a development flag.
+measured on 56 healthy cell types and frozen (Chapter~\ref{ch:iama}); commissioned on healthy blood CD8 T cells. The earlier form, $H(\varepsilon)/(P_{\rm cell}H(\varepsilon_0))$ with a frozen per-cell position, is now a development flag.
 \begin{itemize}
 \item $A=1$: errors at the rate the sample's own state predicts; Normal is band v1, $0.779$--$1.055$ (Met-A's band is not borrowed).
 \item $A>1$: more error; the pattern is blurring.
 \item $A<1$: less error than the standard; the pattern is locking tighter than normal.
 \end{itemize}
-Met-A has a C-score (commissioned 2026-10-15 on whole blood, read one-sided against the band 0.877--1.152; the IAM-A C-score is defined, not built): the clustering of the person's residual map along the genome, over the healthy baseline, so healthy reads 1 on the same
+Met-A has a C-score (commissioned on whole blood, read one-sided against the band 0.877--1.152; the IAM-A C-score is defined, not built): the clustering of the person's residual map along the genome, over the healthy baseline, so healthy reads 1 on the same
 gauge. $A$ says how much error there is; the C-score says whether it is spread out or concentrated in regions.
 
 Met-A is commissioned on isolated neutrophils (EPIC v1) and IAM-A on healthy CD8 T cells read by whole-genome sequencing; other cells are added one at a time, each after its own sealed test.

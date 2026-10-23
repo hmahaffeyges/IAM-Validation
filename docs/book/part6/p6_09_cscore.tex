@@ -20,7 +20,7 @@ $H(e_i)$ (whole blood), and $s_i$ the shrunken standard deviation of $H$ across 
 
 \section{The score}
 
-Consecutive runs of 10 sites are averaged (blocks of 50 until 2026-10-09). If the departures are scattered at random, the block means vary as $1/\sqrt{10}$
+Consecutive runs of 10 sites are averaged (blocks of 50 in the first construction). If the departures are scattered at random, the block means vary as $1/\sqrt{10}$
 of the site values; if they cluster, the block means vary more. The clustering statistic is
 \begin{equation}
   c=\frac{\mathrm{var}\left(\sqrt{10}\;\overline{z}_{\rm block}\right)}{\mathrm{var}(z)},\qquad
@@ -35,13 +35,13 @@ Figure~\ref{fig:p4_cscore_construction} shows the construction on two simulated 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.95\textwidth]{figures/part6/fig_p4_09_construction.pdf}
 \caption{The C-score construction on two simulated residual maps of 6,000 sites (fixed seed). Top: every site moved by $+0.5$ healthy SD.
-Bottom: the same total departure placed in one tenth of the genome order. Drawn with the construction as it stood before 2026-10-09 (50-site block means, healthy baseline 1.1104); the commissioned score uses blocks of 10 and the baseline 1.0103.
+Bottom: the same total departure placed in one tenth of the genome order. Drawn with the construction as it first stood (50-site block means, healthy baseline 1.1104); the commissioned score uses blocks of 10 and the baseline 1.0103.
 \calc{} (illustration; no specimen).}
 \label{fig:p4_cscore_construction}
 \end{figure}
 
 \begin{keybox}[title=Status]
-The Met-A C-score is \textbf{commissioned on whole blood} (EPIC v1, 2026-10-15). Blocks of 10 sites; healthy baseline 1.0103 (six
+The Met-A C-score is \textbf{commissioned on whole blood} (EPIC v1). Blocks of 10 sites; healthy baseline 1.0103 (six
 reference arrays, leave one out). The healthy band, 0.877--1.152, was set on 617 healthy arrays from 19 studies (17 institutions) (\texttt{DEV\_CSCORE\_TARE\_01\_arrays.csv}) and is read
 one-sided: above 1.152 is a clustered departure, below 0.877 is less clustered than healthy and is not a departure. Three laboratories
 that had no part in setting it read 34 of 35, 22 of 23 and 172 of 173 healthy bloods not above it; one person measured twice reads the
@@ -59,7 +59,7 @@ Orange: the acceptance run. Both at blocks of 50, before the band was set; the c
 \label{fig:p4_cscore_readings}
 \end{figure}
 \begin{table}[htbp]\centering\small
-\caption{Met-A C-scores in the records of chain v3 before the band was set (blocks of 50, 2026-10-04); the commissioning tests are in the Status box.}\label{tab:p4_cscore}
+\caption{Met-A C-scores in the records of chain v3 before the band was set (blocks of 50); the commissioning tests are in the Status box.}\label{tab:p4_cscore}
 \begin{tabular}{@{}p{0.48\textwidth}rrl@{}}\toprule
 set & $n$ & $C$ & status \\\midrule
 healthy reference arrays, each against the other five & 6 & 0.70--1.23 & \calibrated \\

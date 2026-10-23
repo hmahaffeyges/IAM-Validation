@@ -1,7 +1,7 @@
 \chapter{IAM-A: held error on single molecules}\label{ch:iama}
 
 
-\textbf{IAM-A is commissioned on healthy blood CD8 T cells} (2026-10-17): read against each sample's own loose share, 7 of 8 healthy CD8 T-cell samples from a laboratory it had never seen (GSE144691) read Normal on the sealed test (bar 0.75, at least 8 read); the sample-shape check declined five, as the rule allows (\texttt{COMMISSIONING\_NOTE\_IAMA.md}). Every other specimen is development. \measured
+\textbf{IAM-A is commissioned on healthy blood CD8 T cells}: read against each sample's own loose share, 7 of 8 healthy CD8 T-cell samples from a laboratory it had never seen (GSE144691) read Normal on the sealed test (bar 0.75, at least 8 read); the sample-shape check declined five, as the rule allows (\texttt{COMMISSIONING\_NOTE\_IAMA.md}). Every other specimen is development. \measured
 
 \section{What a molecule shows that an array cannot}
 
@@ -67,14 +67,14 @@ Before reading, a sample-shape check compares the sample's tile distribution wit
 a sample whose shape lies outside them; a refused sample is listed with its reason and not read. The healthy band, v1, is
 $0.779$--$1.055$, set on healthy samples only.
 
-\textbf{Commissioned 2026-10-17} on healthy blood CD8 T cells, whole-genome bisulfite: on a rule sealed before any of the data was
+\textbf{Commissioned} on healthy blood CD8 T cells, whole-genome bisulfite: on a rule sealed before any of the data was
 downloaded, 7 of the 8 samples it read, from a laboratory it had never seen, read Normal; the shape check refused five (all four naive
 samples and one central-memory sample). The counts, the line and the shape reference were rebuilt identically from public data on a clean
 machine (158 of 158). Other cell types and chemistries are development.
 
 \subsection*{The earlier form: a frozen position (retired to a development flag)}
 
-Its numbers are kept as they were measured, on the earlier counter (superseded 2026-10-19). Before the self-reference line, each healthy cell type was given its own position $P$ relative to the healthy reference, measured once
+Its numbers are kept as they were measured, on the earlier counter (superseded). Before the self-reference line, each healthy cell type was given its own position $P$ relative to the healthy reference, measured once
 per cell type and per read pipeline, and frozen. This form is kept in the chain behind a development flag only:
 \begin{equation}
   \text{IAM-A}_{\rm position}=\frac{H(\varepsilon)}{P_{\rm cell}\,H(\varepsilon_0)},\qquad P_{\rm neutrophil}=1.149 .
@@ -110,7 +110,7 @@ with 2~\% held error added. The line is the floor $1/P$. \measured}
 \end{figure}
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.6\textwidth]{figures/part6/fig_p4_08_curve.pdf}
-\caption{$H(\varepsilon)/(P\,H(\varepsilon_0))$ against held error, with $P=1.149$ and $\varepsilon_0$ from the holding energy as measured on the earlier counter (superseded 2026-10-19). Square: the healthy reference $\Href$. Circles and
+\caption{$H(\varepsilon)/(P\,H(\varepsilon_0))$ against held error, with $P=1.149$ and $\varepsilon_0$ from the holding energy as measured on the earlier counter (superseded). Square: the healthy reference $\Href$. Circles and
 triangles: the donors' held error and the same molecules with 2~\% added. A 2~\% rise moves the reading by about 0.3. \calc{} curve;
 \measured{} points.}
 \label{fig:p4_iamacurve}

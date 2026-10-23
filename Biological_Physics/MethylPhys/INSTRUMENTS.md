@@ -4,7 +4,7 @@
 
 ## Why a self-reference matters
 
-Until now every instrument needed a reference: healthy cells of the same kind, often from the same laboratory, to say what normal looks like. That reference is the hardest thing in this field to get, and it is why most tests work in one lab and stumble in the next. On 2026-10-15 we found that across 56 kinds of healthy human cells, a cell's tagging mistakes follow one straight line set by how loosely it holds its own DNA. So a healthy cell's expected reading can come from its own sample. An instrument that carries its own reference does not need a library of other people's cells, does not inherit another lab's quirks, and can be pointed at any tissue, any lab, even any species that tags its DNA. That step is now commissioned: IAM-A reads each sample against its own reference (2026-10-17).
+Until now every instrument needed a reference: healthy cells of the same kind, often from the same laboratory, to say what normal looks like. That reference is the hardest thing in this field to get, and it is why most tests work in one lab and stumble in the next. we found that across 56 kinds of healthy human cells, a cell's tagging mistakes follow one straight line set by how loosely it holds its own DNA. So a healthy cell's expected reading can come from its own sample. An instrument that carries its own reference does not need a library of other people's cells, does not inherit another lab's quirks, and can be pointed at any tissue, any lab, even any species that tags its DNA. That step is now commissioned: IAM-A reads each sample against its own reference.
 
 ## How they work together
 
@@ -32,11 +32,11 @@ DNA's sequence is the same in every cell; the methyl tags are not, and a sequenc
 
 A map of 79 kinds of healthy human cells, built from 21 public sources on arrays and sequencing, fitted as one model so every spot on the genome carries its value and its uncertainty. Like a state estimator across the whole interconnection: many utilities' meters, each weighted by how far it can be trusted.
 
-**Reads:** arrays or sequencing. **Where it stands:** commissioned (79 cell types; met all three sealed bars against both published reference atlases, 2026-10-16; commissioned for three cell references and the colon and lung tissue tests).
+**Reads:** arrays or sequencing. **Where it stands:** commissioned (79 cell types; met all three sealed bars against both published reference atlases; commissioned for three cell references and the colon and lung tissue tests).
 
-- ATL-005 Atlas v2.1 joint fit: run; last run 2026-10-16: not met
-- ATL-060 Head to head: atlas v2.1 against the source atlases' own references, on their own job: run; last run 2026-10-16: met
-- ATL-001 Atlas commissioning as a source of healthy references: run; last run 2026-10-16: met
+- ATL-005 Atlas v2.1 joint fit: run; last run: not met
+- ATL-060 Head to head: atlas v2.1 against the source atlases' own references, on their own job: run; last run: met
+- ATL-001 Atlas commissioning as a source of healthy references: run; last run: met
 
 **Record:** [COMMISSIONING_NOTE_ATLAS_V21.md](doors/COMMISSIONING_NOTE_ATLAS_V21.md)
 
@@ -48,10 +48,10 @@ A map of 79 kinds of healthy human cells, built from 21 public sources on arrays
 
 Reads a mixed sample against IAM-Atlas v2.1 and reports each cell's share with its range, after a sample check that refuses arrays it cannot read. On 200 fresh mixtures from a laboratory the atlas never saw, the shares came back within 0.016 of the truth (mean absolute error).
 
-**Reads:** arrays. **Where it stands:** commissioned (blood-cell shares on arrays, tested on neutrophils, monocytes, CD4 T and CD8 T cells, 2026-10-17).
+**Reads:** arrays. **Where it stands:** commissioned (blood-cell shares on arrays, tested on neutrophils, monocytes, CD4 T and CD8 T cells).
 
-- ATL-065 Deconvolution tool on atlas v2.1: run; last run 2026-10-17: not met
-- ATL-066 Deconvolution tool version 2 on fresh mixtures: run; last run 2026-10-16: not met
+- ATL-065 Deconvolution tool on atlas v2.1: run; last run: not met
+- ATL-066 Deconvolution tool version 2 on fresh mixtures: run; last run: not met
 
 **Record:** [COMMISSIONING_NOTE_DECONV_V21.md](doors/COMMISSIONING_NOTE_DECONV_V21.md)
 
@@ -65,8 +65,8 @@ Reads the methylation level at sites a healthy cell holds firmly, against a heal
 
 **Reads:** arrays. **Where it stands:** commissioned (isolated neutrophils).
 
-- COM-METAA-003 Met-A commissioning on isolated neutrophils, EPIC v1: run; last run 2026-10-11: progressed
-- COM-METAA-039 Met-A read against the sample's own line: run; last run 2026-10-15: not met
+- COM-METAA-003 Met-A commissioning on isolated neutrophils, EPIC v1: run; last run: progressed
+- COM-METAA-039 Met-A read against the sample's own line: run; last run: not met
 - COM-METAA-032 Whole blood back into Met-A scope: designed
 
 **Record:** [COMMISSIONING_NOTE_METAA_NEUTROPHILS.md](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)
@@ -79,10 +79,10 @@ Reads the methylation level at sites a healthy cell holds firmly, against a heal
 
 Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping against a healthy band. The band held in three laboratories that never helped set it, and one person measured twice reads the same.
 
-**Reads:** arrays. **Where it stands:** commissioned (tested and commissioned on whole blood, EPIC v1, 2026-10-15).
+**Reads:** arrays. **Where it stands:** commissioned (tested and commissioned on whole blood, EPIC v1).
 
-- COM-CSCORE-011 C-score healthy band test: run; last run 2026-10-13: met
-- COM-CSCORE-012 C-score last check: same-person repeatability on unspent replicate arrays: run; last run 2026-10-15: met
+- COM-CSCORE-011 C-score healthy band test: run; last run: met
+- COM-CSCORE-012 C-score last check: same-person repeatability on unspent replicate arrays: run; last run: met
 
 **Record:** [COMMISSIONING_NOTE_CSCORE.md](doors/COMMISSIONING_NOTE_CSCORE.md)
 
@@ -92,15 +92,15 @@ Cancer does not only shift tagging levels; it clumps them into runs. The C-Score
 
 **The question:** Is each mark still held at its own healthy rate?
 
-Counts tagging mistakes one DNA molecule at a time, the most direct reading of informational fidelity we have, and reads them against the sample's own line. The physics end of the catalogue: the floor and ceiling are derived, and since 2026-10-15 the healthy middle comes from the sample itself.
+Counts tagging mistakes one DNA molecule at a time, the most direct reading of informational fidelity we have, and reads them against the sample's own line. The physics end of the catalogue: the floor and ceiling are derived, and the healthy middle comes from the sample itself.
 
-**Reads:** single-molecule sequencing (bisulfite, EM-seq; nanopore next). **Where it stands:** commissioned (each sample against its own reference; sealed test on healthy blood CD8 T cells, whole-genome bisulfite, 2026-10-17).
+**Reads:** single-molecule sequencing (bisulfite, EM-seq; nanopore next). **Where it stands:** commissioned (each sample against its own reference; sealed test on healthy blood CD8 T cells, whole-genome bisulfite).
 
-- PHY-045 The loose rate read off the line: every healthy cell's held error from its own loose share: run; last run 2026-10-15: met
-- PHY-048 The loose-end line at the one-Landauer-bit cut: run; last run 2026-10-15: met
-- PHY-049 The loose share from each sample's own molecules: run; last run 2026-10-15: not met
-- PHY-043 Tumor backbone against the writer's nameplate: run; last run 2026-10-15: progressed
-- COM-IAMA-052 IAM-A atlas-free commissioning: one grand sealed test on fresh data: run; last run 2026-10-17: met
+- PHY-045 The loose rate read off the line: every healthy cell's held error from its own loose share: run; last run: met
+- PHY-048 The loose-end line at the one-Landauer-bit cut: run; last run: met
+- PHY-049 The loose share from each sample's own molecules: run; last run: not met
+- PHY-043 Tumor backbone against the writer's nameplate: run; last run: progressed
+- COM-IAMA-052 IAM-A atlas-free commissioning: one grand sealed test on fresh data: run; last run: met
 
 **Record:** [COMMISSIONING_NOTE_IAMA.md](doors/COMMISSIONING_NOTE_IAMA.md)
 
@@ -112,7 +112,7 @@ Counts tagging mistakes one DNA molecule at a time, the most direct reading of i
 
 Single blood readings are too noisy for one person on arrays, but a group average is not. Group-A reads each person with the one command, tares each reading against healthy arrays run the same way, and compares the groups. On 278 healthy people from a laboratory it had never read, women and men came out 0.36 % apart, and a 1 % loss planted into half of them was found at 7.253 standard errors.
 
-**Reads:** arrays. **Where it stands:** commissioned (groups of whole bloods run in one series, EPIC v1, 2026-10-20).
+**Reads:** arrays. **Where it stands:** commissioned (groups of whole bloods run in one series, EPIC v1).
 
 - GRP-004 DEV-GROUP-01 step 2: group comparison, one cancer at a time, patients and healthy controls in the same series: run
 
@@ -148,7 +148,7 @@ Candidate instruments: every reading we could build on the methylation channel, 
 
 - **Reads:** whether losses are CLUSTERED (whole stretches) rather than scattered; the shape of the loss, not its size
 - **Substrate:** arrays (EPIC v1 now; 450K and EPIC v2 later) · **Cost:** free (a metadata search, then one laptop read)
-- **Where it stands:** DONE 2026-10-15: last check met (same person twice, SD 0.038 against 0.125; third laboratory 172/173); commissioned on whole blood. test (a) MET in two laboratories that had no part in setting the band (34/35 and 22/23 healthy, 95 % bar)
+- **Where it stands:** DONE: last check met (same person twice, SD 0.038 against 0.125; third laboratory 172/173); commissioned on whole blood. test (a) MET in two laboratories that had no part in setting the band (34/35 and 22/23 healthy, 95 % bar)
 - **Still open:** new SAME-PERSON replicate arrays, from a set that did not help build the band, to confirm the repeatability bar
 - **Advantage:** clustering is the cancer fingerprint; ordinary aging and inflammation scatter errors instead. Most specific thing we have
 - **Blind spot:** whole blood so far, while the meter it rides on is commissioned on sorted cells; that scope gap must be reconciled before any detection claim; and one array decided the second test (22/23 = 95.65 % against 95 %)
@@ -160,7 +160,7 @@ Candidate instruments: every reading we could build on the methylation channel, 
 
 - **Reads:** WHERE the loss happens first; a sustained energy shortfall should take the late-replicating, solo-WCGW territory before it touches housekeeping promoters
 - **Substrate:** arrays (works today, no new data) · **Cost:** free (design, synthetic test, then existing arrays)
-- **Where it stands:** RUN ONCE 2026-10-13 (DEV-TERRITORY-01): the balance equation's parameter-free prediction of the response ratio, 4.158 from healthy baselines alone, was met to 1 % (measured 4.12-4.20 at shortfalls of 2-20 %), and the declared blind spot was confirmed; but the NUISANCE bar FAILED
+- **Where it stands:** RUN ONCE (DEV-TERRITORY-01): the balance equation's parameter-free prediction of the response ratio, 4.158 from healthy baselines alone, was met to 1 % (measured 4.12-4.20 at shortfalls of 2-20 %), and the declared blind spot was confirmed; but the NUISANCE bar FAILED
 - **Still open:** v2: report both the difference and the normalized difference (one cancels each nuisance type), measure the beta-ceiling effect from fully held sites and subtract it, and leave composition to the mixture-predicted denominator the chain already uses
 - **Advantage:** SELF-TARING; a ratio inside one array, so plate, batch and much of the composition effect cancel because numerator and denominator see the same cell mixture. It addresses the laboratory-to-laboratory spread that limits single whole-blood readings
 - **Blind spot:** says nothing about absolute fidelity; a loss uniform across territories is invisible (confirmed, 0.1 % of the signal). And the practical failure: a difference cancels an ADDITIVE plate offset exactly but cannot cancel a MULTIPLICATIVE one; a 10 % composition change moves it about 5x what a 2 % shortfall does; while the beta = 1 ceiling makes offsets and noise one-sided
@@ -172,7 +172,7 @@ Candidate instruments: every reading we could build on the methylation channel, 
 
 - **Reads:** total disorder above what the estimated cell mixture explains; the existing composition-aware reading, in a tube of blood
 - **Substrate:** arrays · **Cost:** free (one laptop read of arrays already on disk)
-- **Where it stands:** MEASURED on real healthy arrays, corrected 2026-10-20: read by the chain itself (run_neutrophil, in the C-score band test), healthy people differ by 2.01 % (relative SD; 95th percentile +3.33 %), and the chain's leverage is 2.12 % of the reading per 1 % pattern loss, so about a 1.57 % loss clears the healthy 95th percentile. The first measurement (2026-10-13, 6.36 %) skipped the chain's self-tare step (Stage T step 1) and is withdrawn. GROUP ARM 2026-10-13 (DEV-GROUP-01): the sham passes; two healthy groups from two laboratories agree to 0.16 % after taring, but differ by 3.69 % UNTARED, at 6.5 standard errors. A group study is admissible only when patients and healthy comparisons are run in the SAME series
+- **Where it stands:** MEASURED on real healthy arrays, Corrected: read by the chain itself (run_neutrophil, in the C-score band test), healthy people differ by 2.01 % (relative SD; 95th percentile +3.33 %), and the chain's leverage is 2.12 % of the reading per 1 % pattern loss, so about a 1.57 % loss clears the healthy 95th percentile. The first measurement (6.36 %) skipped the chain's self-tare step (Stage T step 1) and is withdrawn. GROUP ARM (DEV-GROUP-01): the sham passes; two healthy groups from two laboratories agree to 0.16 % after taring, but differ by 3.69 % UNTARED, at 6.5 standard errors. A group study is admissible only when patients and healthy comparisons are run in the SAME series
 - **Still open:** per-person detection in whole blood, now open: the corrected spread is one laboratory's 23 arrays and one leverage array; a sealed per-person test across laboratories decides it
 - **Advantage:** group comparisons are within reach NOW: with 50 people a mean loss of about 0.27 % separates the group from healthy, and the function already exists in the chain
 - **Blind spot:** an array averages molecules before anyone reads them, so one cell type can never be isolated. Across laboratories without a shared series the raw reading carries a 3.7 % offset, which is inside the tumor range, so every comparison needs the same-series tare
@@ -184,7 +184,7 @@ Candidate instruments: every reading we could build on the methylation channel, 
 
 - **Reads:** how close a sample sits to the derived entropy ceiling; the right-hand mark of the gauge, past which the reading stops rising with further loss
 - **Substrate:** arrays and sequencing · **Cost:** free (arithmetic on readings we already have)
-- **Where it stands:** the ceiling is in the foundation as derived. AUDIT DONE 2026-10-13 (DEV-CEILING-AUDIT-01): of 7,681 readings that record the flag, none is past the ceiling; the composition-aware path never recorded it, so the three sealed tissue results cannot be audited from saved files, and that gap could only have cost detections
+- **Where it stands:** the ceiling is in the foundation as derived. AUDIT DONE (DEV-CEILING-AUDIT-01): of 7,681 readings that record the flag, none is past the ceiling; the composition-aware path never recorded it, so the three sealed tissue results cannot be audited from saved files, and that gap could only have cost detections
 - **Still open:** re-read the three sealed tissue sets with the flag recorded (free, arrays on disk, reported as an audit that cannot change their sealed verdicts); and the reading itself; distance to the ceiling has still never been reported as a number
 - **Advantage:** derived with no free parameter, and it answers how far from the ceiling a tumor arrives
 - **Blind spot:** only informative for samples near the ceiling; says nothing about a healthy-range sample

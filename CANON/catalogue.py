@@ -3,6 +3,7 @@ CANON/catalogue.json; every status line is computed from the Master Testing Mani
 catalogue section from the same functions. --check refuses: a block or file that differs from the source, a named row that does not exist,
 a hype word or the wrong voice.
 Usage: python3 CANON/catalogue.py [--check]"""
+import sys as _sud, os as _oud; _sud.path.insert(0, _oud.path.join(_oud.path.dirname(_oud.path.dirname(_oud.path.abspath(__file__))), 'CANON')) if _oud.path.basename(_oud.path.dirname(_oud.path.abspath(__file__))) != 'CANON' else _sud.path.insert(0, _oud.path.dirname(_oud.path.abspath(__file__))); from undate import undate as _undate   # no dates in public prose (plan 39.15)
 import sys as _s, os as _o; _s.path.insert(0, _o.path.join(_o.path.dirname(_o.path.abspath(__file__)), "CANON") if _o.path.basename(_o.path.dirname(_o.path.abspath(__file__))) != "CANON" else _o.path.dirname(_o.path.abspath(__file__))); import relink as _rl
 import os, sys, json, re
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
@@ -54,7 +55,7 @@ def problems(C, M):
     if NR.VOICE.search(txt): P.append(f"voice '{NR.VOICE.search(txt).group(0)}' (write as we)")
     return P
 if __name__ == "__main__":
-    C, M = load(); P = problems(C, M); md = markdown(C, M) + "\n"; tb = table(C, M)
+    C, M = load(); P = problems(C, M); md = _undate(markdown(C, M) + "\n"); tb = _undate(table(C, M))
     rp = os.path.join(ROOT, "README.md"); r = open(rp, encoding="utf-8").read()
     if "--check" in sys.argv:
         if open(os.path.join(ROOT, "Biological_Physics/MethylPhys/INSTRUMENTS.md"), encoding="utf-8").read() != _rl.fix(md, os.path.join(ROOT, "Biological_Physics/MethylPhys/INSTRUMENTS.md")): P.append("Biological_Physics/MethylPhys/INSTRUMENTS.md differs: run python3 CANON/catalogue.py")

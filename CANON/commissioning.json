@@ -79,7 +79,7 @@
     {
      "kind": "intro",
      "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-     "pattern": "### Met-A:[^#]*?\\*\\*Commissioned\\*\\* 2026-10-09"
+     "pattern": "### Met-A:[^#]*?\\*\\*Commissioned\\*\\*"
     },
     {
      "kind": "qa",
@@ -149,7 +149,7 @@
     {
      "kind": "book_status",
      "file": "docs/book/part6/p6_24_status.tex",
-     "pattern": "commissioned on whole blood 2026-10-15"
+     "pattern": "commissioned on whole blood"
     },
     {
      "kind": "catalogue",
@@ -164,7 +164,7 @@
     {
      "kind": "intro",
      "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-     "pattern": "### C-Score:[^#]*?\\*\\*Commissioned\\*\\* 2026-10-15"
+     "pattern": "### C-Score:[^#]*?\\*\\*Commissioned\\*\\*"
     },
     {
      "kind": "qa",
@@ -293,7 +293,7 @@
     {
      "kind": "book_status",
      "file": "docs/book/part6/p6_24_status.tex",
-     "pattern": "IAM-Atlas v2.1, 79 cells: commissioned 2026-10-16"
+     "pattern": "IAM-Atlas v2.1, 79 cells: commissioned"
     },
     {
      "kind": "catalogue",
@@ -308,7 +308,7 @@
     {
      "kind": "intro",
      "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-     "pattern": "### IAM-Atlas v2\\.1:[^#]*?\\*\\*Commissioned\\*\\* 2026-10-16"
+     "pattern": "### IAM-Atlas v2\\.1:[^#]*?\\*\\*Commissioned\\*\\*"
     },
     {
      "kind": "qa",
@@ -371,7 +371,7 @@
     {
      "kind": "book_status",
      "file": "docs/book/part6/p6_24_status.tex",
-     "pattern": "Deconvolution tool \\(atlas v2.1\\): commissioned 2026-10-17 for blood-cell shares"
+     "pattern": "Deconvolution tool \\(atlas v2.1\\): commissioned for blood-cell shares"
     },
     {
      "kind": "catalogue",
@@ -386,7 +386,7 @@
     {
      "kind": "intro",
      "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-     "pattern": "### IAM-Deconvolver:[^#]*?\\*\\*Commissioned\\*\\* 2026-10-17"
+     "pattern": "### IAM-Deconvolver:[^#]*?\\*\\*Commissioned\\*\\*"
     },
     {
      "kind": "qa",
@@ -450,7 +450,7 @@
     {
      "kind": "book_status",
      "file": "docs/book/part6/p6_24_status.tex",
-     "pattern": "IAM-A \\(sequencing, its own reference\\): commissioned 2026-10-17"
+     "pattern": "IAM-A \\(sequencing, its own reference\\): commissioned"
     },
     {
      "kind": "catalogue",
@@ -465,7 +465,7 @@
     {
      "kind": "intro",
      "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-     "pattern": "### IAM-A:[^#]*?\\*\\*Commissioned\\*\\* 2026-10-17"
+     "pattern": "### IAM-A:[^#]*?\\*\\*Commissioned\\*\\*"
     },
     {
      "kind": "qa",
@@ -535,7 +535,7 @@
     {
      "kind": "book_status",
      "file": "docs/book/part6/p6_24_status.tex",
-     "pattern": "Group-A \\(groups of whole bloods in one series\\): commissioned 2026-10-20"
+     "pattern": "Group-A \\(groups of whole bloods in one series\\): commissioned"
     },
     {
      "kind": "catalogue",
@@ -550,7 +550,7 @@
     {
      "kind": "intro",
      "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-     "pattern": "### Group-A:[^#]*?\\*\\*Commissioned\\*\\* 2026-10-20"
+     "pattern": "### Group-A:[^#]*?\\*\\*Commissioned\\*\\*"
     },
     {
      "kind": "qa",

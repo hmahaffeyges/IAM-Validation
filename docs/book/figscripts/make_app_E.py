@@ -281,6 +281,8 @@ def main():
     a = ap.parse_args()
     nwarn = []
     txt, info, chap_no_disp = build(lambda s: (nwarn.append(s), print("WARNING:", s, file=sys.stderr)))
+    sys.path.insert(0, str(BOOK.parent.parent / "CANON")); from undate import undate   # no dates in public prose (plan 39.15)
+    txt = "\n".join(l if l.lstrip().startswith("%") else undate(l) for l in txt.split("\n"))
     if nwarn:
         info += f"; {len(nwarn)} warnings"
     if a.check:

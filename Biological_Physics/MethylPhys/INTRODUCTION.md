@@ -80,7 +80,7 @@ was tested on.
 Every cell type keeps a set of identity sites: places that are firmly marked, or firmly unmarked, in that cell. Met-A reads how much
 those sites have drifted toward a coin flip, as entropy in bits, against the cell's own healthy profile, on a scale from the physics
 floor to saturation. A healthy sample reads 1.
-**Commissioned** 2026-10-09 on isolated neutrophils, EPIC v1 arrays. The six reference arrays each read Normal against the other five;
+**Commissioned** on isolated neutrophils, EPIC v1 arrays. The six reference arrays each read Normal against the other five;
 it detects a 2 % change ([commissioning note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)).
 **Different because** it reads the state of the record itself, in physical units, instead of a difference from a control group's
 average at single sites.
@@ -89,7 +89,7 @@ average at single sites.
 
 Healthy aging wears marks away here and there. Tumors break whole stretches. The C-Score reads how clustered a sample's departures are
 across the genome's map.
-**Commissioned** 2026-10-15 on whole blood. Its healthy range, upper limit 1.152, was set on 617 arrays from 19 laboratories, and then
+**Commissioned** on whole blood. Its healthy range, upper limit 1.152, was set on 617 arrays from 19 laboratories, and then
 held in two laboratories that played no part in setting it: 34 of 35 and 22 of 23 healthy people inside. The same person measured twice
 reads the same (spread 0.0379 over 13 pairs). It detects a change on only 5 % of sites when they cluster, and planted scattered losses
 never read as a departure: 0 of 120 ([commissioning note](doors/COMMISSIONING_NOTE_CSCORE.md)).
@@ -101,7 +101,7 @@ thousands of sites at once, so it sees far smaller changes, and it tells ordinar
 IAM-A counts, on single DNA molecules from sequencing, how often a held mark has been lost where its neighbors kept theirs, and compares
 that with what the same sample's own loose share predicts on the healthy line. Its middle mark, the healthy 1 on the gauge, is computed
 from the sample itself, so no control group enters the reading.
-**Commissioned** 2026-10-17. The self-reference line comes from 56 healthy cell types. On a sealed test with healthy CD8 T cells from a
+**Commissioned**. The self-reference line comes from 56 healthy cell types. On a sealed test with healthy CD8 T cells from a
 laboratory it had never seen, 7 of 8 read Normal (band 0.779 to 1.055). The one command a researcher runs reproduces the reading of
 a test sample exactly, 0.9083 ([commissioning note](doors/COMMISSIONING_NOTE_IAMA.md)).
 **Different because** a healthy baseline in the field is the average of a control group, and everyone has a different baseline.
@@ -112,7 +112,7 @@ reference is inside the sample.
 
 The atlas holds the healthy methylation profile of 79 purified human cell types, fitted at once from 21 public sources as one
 hierarchical model, with a posterior, so every value carries its own uncertainty.
-**Commissioned** 2026-10-16. On 731 held-out arrays it beat both published reference atlases on the three jobs an atlas is used for:
+**Commissioned**. On 731 held-out arrays it beat both published reference atlases on the three jobs an atlas is used for:
 telling cells apart, splitting mixtures, and handling cells a reference does not hold. Against the published sequencing atlas of human
 cell types, built the way that atlas's own paper builds it: 0.998 against 0.938 for telling cells apart, a median mixture error of 0.0200
 against 0.0248, and 0.0232 against 0.0484 with cells it does not hold mixed in ([commissioning note](doors/COMMISSIONING_NOTE_ATLAS_V21.md),
@@ -125,7 +125,7 @@ uncertainty. This atlas says how sure it is, site by site and cell by cell, and 
 
 Whole-blood differences mostly reflect how many of each cell type a sample holds. The Deconvolver reads the mix against the atlas and
 gives each cell's share with its range.
-**Commissioned** 2026-10-17 on blood-cell shares from arrays: on 200 mixtures from a laboratory the atlas never saw, the mean share error
+**Commissioned** on blood-cell shares from arrays: on 200 mixtures from a laboratory the atlas never saw, the mean share error
 was 0.016 ([commissioning note](doors/COMMISSIONING_NOTE_DECONV_V21.md)).
 **Different because** composition is usually removed as a nuisance by statistics. Here it is measured, with its uncertainty, and the
 chain declines a sample whose mix it cannot trust instead of reading a cell-mix shift as biology.
@@ -134,7 +134,7 @@ chain declines a sample whose mix it cannot trust instead of reading a cell-mix 
 
 One person's whole-blood reading cannot show a 1 % change, but a group can. Group-A reads each person with the same command as every
 report, centers each reading on healthy people run the same way, and compares the two groups' averages.
-**Commissioned** 2026-10-20 on groups of whole bloods run in one series: on 278 healthy people from a laboratory it had never read, women
+**Commissioned** on groups of whole bloods run in one series: on 278 healthy people from a laboratory it had never read, women
 and men came out 0.36 % apart, and a 1 % loss planted into half of them was found at 7.253 standard errors
 ([commissioning note](doors/COMMISSIONING_NOTE_GROUPA.md)).
 **Different because** group studies usually fit a statistical model across thousands of sites between cohorts. Group-A compares one

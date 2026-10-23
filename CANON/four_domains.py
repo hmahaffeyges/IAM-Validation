@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """CANON/four_domains.json -> FOUR_DOMAINS.md: the four-domain schematic and its gap map (author, 2026-10-14).
 --check: refuse a slot missing a domain, an unknown status, or a FOUR_DOMAINS.md that differs from what this script writes."""
+import sys as _sud, os as _oud; _sud.path.insert(0, _oud.path.join(_oud.path.dirname(_oud.path.dirname(_oud.path.abspath(__file__))), 'CANON')) if _oud.path.basename(_oud.path.dirname(_oud.path.abspath(__file__))) != 'CANON' else _sud.path.insert(0, _oud.path.dirname(_oud.path.abspath(__file__))); from undate import undate as _undate   # no dates in public prose (plan 39.15)
 import json, os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 J = json.load(open(os.path.join(ROOT, "CANON", "four_domains.json"), encoding="utf-8"))
@@ -39,6 +40,7 @@ if MX:
     L += ["## Boxes with mixed tags in the book (weakest shown; confirm by hand)", ""] + [f"- {n}, {d}: shown as {st}; the book tags it {', '.join(t)}" for n, d, st, t in MX] + [""]
 txt = "\n".join(L) + "\n"
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import bit_tables as _BT; txt = txt.rstrip("\n") + "\n\n" + _BT.render()   # IAM in bits, merged 2026-10-16
+txt = _undate(txt)
 if "--check" in sys.argv:
     if not os.path.exists(OUT) or open(OUT, encoding="utf-8").read() != txt: P.append("FOUR_DOMAINS.md differs (run python3 CANON/four_domains.py)")
     print("four_domains: " + ("REFUSED\n  " + "\n  ".join(P) if P else f"ok ({len(J['slots'])} slots)")); sys.exit(1 if P else 0)

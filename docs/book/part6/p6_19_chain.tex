@@ -3,7 +3,7 @@
 \section{What the chain is}
 
 The Cellular Performance Gauge is a chain of stages that takes a specimen's raw array files and returns a reading on the one gauge of
-Chapter~\ref{ch:gauge}. Chain v4, the first commissioned chain, carries five instruments, each commissioned for its own scope: Met-A on isolated neutrophils (EPIC v1, 2026-10-09), the C-score on whole blood (2026-10-15), IAM-Atlas v2.1 for three cell references and the colon and lung tissue tests (2026-10-16), the IAM-Deconvolver for the shares of neutrophils, monocytes, CD4 and CD8 T cells (2026-10-17), and IAM-A on healthy CD8 T cells, read by whole-genome sequencing against each sample's own reference (2026-10-17). A reading outside an instrument's tested scope is printed with a plain note saying so. It is a research instrument, not a diagnostic test; its scope grows one cell type and one specimen at a time, each after it passes its own sealed test. The
+Chapter~\ref{ch:gauge}. Chain v4, the first commissioned chain, carries five instruments, each commissioned for its own scope: Met-A on isolated neutrophils (EPIC v1), the C-score on whole blood, IAM-Atlas v2.1 for three cell references and the colon and lung tissue tests, the IAM-Deconvolver for the shares of neutrophils, monocytes, CD4 and CD8 T cells, and IAM-A on healthy CD8 T cells, read by whole-genome sequencing against each sample's own reference. A reading outside an instrument's tested scope is printed with a plain note saying so. It is a research instrument, not a diagnostic test; its scope grows one cell type and one specimen at a time, each after it passes its own sealed test. The
 procedure is the SOP and the operations manual.
 Where a document and the code differ, the code is what runs. This chapter walks through the stages (Figure~\ref{fig:chain}).
 
@@ -95,12 +95,12 @@ The operating procedure is in the operations manual.
 
 Single-molecule input (a read-level \texttt{.pat} file or an aligned whole-genome bisulfite BAM) passes the intake checks of Stage Q0,
 is counted once for its held error and its loose share, passes the sample-shape check, and is read as IAM-A, Eq.~\eqref{eq:iama}, on
-band v1. Commissioned 2026-10-17 on healthy blood CD8 T cells; every other cell type is read and printed with the note that it has not yet been tested with this instrument. The earlier position
+band v1. Commissioned on healthy blood CD8 T cells; every other cell type is read and printed with the note that it has not yet been tested with this instrument. The earlier position
 reading (Stage Q, Eq.~\eqref{eq:iamapos}) runs only behind a development flag.
 
 \section{Chain v4: the commissioned instruments in one run}
 
-Chain v4 (2026-10-17) keeps every stage of chain v3 and adds three. After the array reading, the IAM-Deconvolver reads the cell shares
+Chain v4 keeps every stage of chain v3 and adds three. After the array reading, the IAM-Deconvolver reads the cell shares
 against IAM-Atlas v2.1 (commissioned for neutrophils, monocytes, CD4 and CD8 T cells), and the C-score's departures are drawn on a
 HEALPix sphere in nested order, where neighboring sites fill compact patches; the drawing is a picture of the reading and nothing is
 scored from it. Sequencing input goes to Stage Q2 above. One command, \texttt{release\_check\_v4.py}, runs every check of the chain
