@@ -5693,7 +5693,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 432,
+   "lines": 434,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
@@ -5998,7 +5998,7 @@
      "function": "build",
      "name": "build",
      "line": 192,
-     "end": 361,
+     "end": 363,
      "args": [
       "beta",
       "specimen",
@@ -6009,7 +6009,7 @@
       "sex",
       "cell_departures"
      ],
-     "lines": 170,
+     "lines": 172,
      "doc": "",
      "constants": [
       "ABOUT",
@@ -6068,8 +6068,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair",
      "name": "build_pair",
-     "line": 378,
-     "end": 421,
+     "line": 380,
+     "end": 423,
      "args": [
       "beta",
       "ref_beta",
@@ -6099,8 +6099,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair.rgb",
      "name": "rgb",
-     "line": 400,
-     "end": 401,
+     "line": 402,
+     "end": 403,
      "args": [
       "m"
      ],

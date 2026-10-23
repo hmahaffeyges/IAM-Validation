@@ -8,8 +8,10 @@ scipy==1.17.1
 pytz
 python-dateutil
 # chain v4 (2026-10-17): the C-Score sky is drawn with matplotlib; the IAM-Atlas v2.1 tables are parquet (pyarrow).
-# reportlab builds the operations manual (manual/build_manual_v3.py). healpy is not needed (the chain carries its own HEALPix NESTED layout).
+# reportlab builds the operations manual (manual/build_manual_v3.py). The chain carries its own HEALPix NESTED layout; healpy is needed only by
+# sky_statistics.py's angular power spectrum (the microwave-sky tools), and is listed since 2026-10-23 so chain/preflight.py passes on every machine.
 matplotlib==3.9.2
 pyarrow==17.0.0
 reportlab>=3.6
 pysam==0.24.1   # chain v4 Stage Q2 reads aligned BAM files (--bam); missing until 2026-10-18 (LESSONS C28)
+healpy==1.16.6   # sky_statistics.py power spectrum (2026-10-23)
