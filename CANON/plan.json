@@ -220,18 +220,11 @@
      "next": "after wave 1; needs the outreach step"
     },
     {
-     "id": "43.5",
+     "id": "43.7",
      "date": "2026-10-23",
      "status": "open",
-     "what": "The Researcher Challenge (author: 'challenge researchers to run their own chip or IDAT and find out if the chain agrees with what they know'): three routes that never put a patient's arrays in public (a private copy of the repository with my_samples.yml; GEO accession numbers read by the chain itself; the one command on their own computer); the report says what the chain found without their labels; an opt-in scoreboard in CANON/blind_studies.json",
-     "next": "the website page and a GEO-accession input to my_samples.yml, after wave 1 shows agreement"
-    },
-    {
-     "id": "43.6",
-     "date": "2026-10-23",
-     "status": "open",
-     "what": "IAM-Chain, a small mirror of only what the chain needs (chain, IAM-Atlas v2.1, runtime matrices, requirements, the researcher workflow; about 540 MB against the full repository's 3.2 GB), rebuilt by a workflow on every push, never edited by hand; its first step checks every file against the chain manifest's SHA-256 fingerprints and stops naming any file that differs; a versioned zip of the same on each release and on Zenodo (author: 'create a copy of the chain files ... mirrored via code so nothing ever differs')",
-     "next": "after GSE149282 shows the tissue route end to end"
+     "what": "Each blind study's readings deposited on Zenodo before unblinding, so the date they were stated is public and cannot change",
+     "next": "after GSE149282's readings are committed"
     }
    ]
   },
@@ -1311,6 +1304,46 @@
      "what": "Each cell's C-Score in a mix: the same rule on each cell's own identity sites and its globe layer (exploration 5 shows the layer works)",
      "next": "synthetic C-Score test 1 through the one command (cscore_cell_01.py); then GSE51032 (DEV-FIRES-01)",
      "record": "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py (cscore_in_mix)"
+    }
+   ]
+  },
+  {
+   "status": "open",
+   "rows": [
+    "OTH-081"
+   ],
+   "task": "The readiness map: every specimen (whole blood, buffy coat, plasma cfDNA, tissue, isolated cells, unnamed) against every platform (EPIC v1, EPIC v2, 450K, sequencing), one column per instrument; each cell commissioned, read and flagged, or refused, backed by a real run of the one command on a file of that kind (lesson C40); generated from one source; it becomes the challenge page's 'what you can bring'",
+   "done_when": "no blank cell: every specimen and platform has a real run behind its verdict",
+   "branches": []
+  },
+  {
+   "status": "open",
+   "rows": [
+    "OTH-081"
+   ],
+   "task": "The Researcher Challenge, the last step of the researcher campaign (author 2026-10-23: 'I just need to give them a website and a challenge ... THEY can choose the samples'): opens only when the physics derivation, Met-A against the full atlas, the specimens, full deconvolution, the C-Score family, the globes, sphere and report, the blind studies and the readiness map are done",
+   "done_when": "the website section, the IAM-Chain mirror and its Zenodo DOI, and the scoreboard are live",
+   "branches": [
+    {
+     "id": "43.5",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "The Researcher Challenge (author: 'challenge researchers to run their own chip or IDAT and find out if the chain agrees with what they know'): three routes that never put a patient's arrays in public (a private copy of the repository with my_samples.yml; GEO accession numbers read by the chain itself; the one command on their own computer); the report says what the chain found without their labels; an opt-in scoreboard in CANON/blind_studies.json",
+     "next": "the website page and a GEO-accession input to my_samples.yml, after wave 1 shows agreement"
+    },
+    {
+     "id": "43.6",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "IAM-Chain, a small mirror of only what the chain needs (chain, IAM-Atlas v2.1, runtime matrices, requirements, the researcher workflow; about 540 MB against the full repository's 3.2 GB), rebuilt by a workflow on every push, never edited by hand; its first step checks every file against the chain manifest's SHA-256 fingerprints and stops naming any file that differs; a versioned zip of the same on each release and on Zenodo (author: 'create a copy of the chain files ... mirrored via code so nothing ever differs')",
+     "next": "after GSE149282 shows the tissue route end to end"
+    },
+    {
+     "id": "43.8",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "Each IAM-Chain release archived on Zenodo with a DOI (GitHub release linked to Zenodo), so the exact instrument a result used can be cited and fetched permanently",
+     "next": "with 43.6"
     }
    ]
   }
