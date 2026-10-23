@@ -158,6 +158,16 @@
       "PHY-006"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "title": "The information sphere's first sample test, CD4 T cells (ATL-046)",
+     "status": "synthetic only",
+     "what": "Losses planted by the one command in CD4 T cells, read on the information sphere beside the address globe.",
+     "outcome": "The distance rises with the loss; the territory reading lit none, so its rule is next.",
+     "rows": [
+      "ATL-046"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md"
     }
    ]
   },

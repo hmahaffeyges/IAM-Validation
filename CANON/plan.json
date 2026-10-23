@@ -872,7 +872,7 @@
      "date": "2026-10-23",
      "status": "running",
      "what": "The five uses of the information sphere, simulated through the one command (sample_sphere_01.py): distance from one's own healthy self, drift, a program failing together; uses 4 (cell-free DNA origin) and 5 (lab offset) need a pair reading and constructed arrays",
-     "next": "write the pair reading and constructed arrays into the one command; run sample test 1 on GitHub",
+     "next": "the three other cells' runs; then the territory rule against the atlas expectation (35.13), synthetic first",
      "run": "explore 39987465076, 39987450045, 39987434887, 39987420140"
     },
     {
@@ -932,6 +932,13 @@
      "what": "GSE287331 (breast: healthy donors, the patient's other breast, other quadrant, adjacent, tumor; spent, DEV-FIELD-01) read again through the one command, each array against the atlas as its ruler (no same-lab healthy donors needed) and on the information sphere: do patients' other breasts still sit above the donors, and do the same territories move as in the tumor? Age and collection still confound; exploration only",
      "record": "Biological_Physics/MethylPhys/doors/DEV_FIELD_01.md",
      "next": "after sample test 1 (35.4) and the many-labs ruler test (35.6): the series run with --dev-info-sphere"
+    },
+    {
+     "id": "35.13",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "The sphere's territory reading misses a loss across a whole cell program (sample test 1, CD4: 0 of 27 lit at 50 %) because each territory is judged against the sample's other territories; judge each against its expectation from the atlas in the sample's own mix instead, with a separate check for a laboratory offset",
+     "next": "write it and its synthetic test (the same plants as sample test 1)"
     }
    ]
   },

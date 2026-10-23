@@ -1,0 +1,286 @@
+{
+ "stage": "information sphere: one sample (development)",
+ "construction": "v5",
+ "sites_on_sphere": 191458,
+ "sites_measured": 191165,
+ "territories_read": 27,
+ "line": 3.11,
+ "territories_changed": 0,
+ "territories": [
+  {
+   "family": "T cells",
+   "k": 0,
+   "methylated_there": false,
+   "sites": 376,
+   "mean": 0.1041,
+   "t": 2.42,
+   "z": 0.0,
+   "changed": false
+  },
+  {
+   "family": "T cells",
+   "k": 0,
+   "methylated_there": true,
+   "sites": 242,
+   "mean": 0.5386,
+   "t": 8.77,
+   "z": 0.26,
+   "changed": false
+  },
+  {
+   "family": "B and NK cells",
+   "k": 1,
+   "methylated_there": false,
+   "sites": 1243,
+   "mean": 0.2512,
+   "t": 9.65,
+   "z": 0.29,
+   "changed": false
+  },
+  {
+   "family": "Myeloid cells",
+   "k": 2,
+   "methylated_there": false,
+   "sites": 1904,
+   "mean": -0.6656,
+   "t": -28.46,
+   "z": -1.25,
+   "changed": false
+  },
+  {
+   "family": "Bone marrow progenitors",
+   "k": 3,
+   "methylated_there": false,
+   "sites": 1541,
+   "mean": -0.3317,
+   "t": -12.37,
+   "z": -0.6,
+   "changed": false
+  },
+  {
+   "family": "Liver",
+   "k": 4,
+   "methylated_there": false,
+   "sites": 1654,
+   "mean": -0.578,
+   "t": -22.93,
+   "z": -1.03,
+   "changed": false
+  },
+  {
+   "family": "Liver",
+   "k": 4,
+   "methylated_there": true,
+   "sites": 703,
+   "mean": 0.8146,
+   "t": 22.34,
+   "z": 0.81,
+   "changed": false
+  },
+  {
+   "family": "Digestive tract",
+   "k": 5,
+   "methylated_there": false,
+   "sites": 1352,
+   "mean": -0.4024,
+   "t": -14.21,
+   "z": -0.67,
+   "changed": false
+  },
+  {
+   "family": "Digestive tract",
+   "k": 5,
+   "methylated_there": true,
+   "sites": 1267,
+   "mean": 0.5937,
+   "t": 22.05,
+   "z": 0.8,
+   "changed": false
+  },
+  {
+   "family": "Pancreas",
+   "k": 6,
+   "methylated_there": false,
+   "sites": 3436,
+   "mean": -0.3992,
+   "t": -22.47,
+   "z": -1.01,
+   "changed": false
+  },
+  {
+   "family": "Pancreas",
+   "k": 6,
+   "methylated_there": true,
+   "sites": 872,
+   "mean": 0.7823,
+   "t": 23.92,
+   "z": 0.87,
+   "changed": false
+  },
+  {
+   "family": "Lung and airway",
+   "k": 7,
+   "methylated_there": false,
+   "sites": 963,
+   "mean": -0.4375,
+   "t": -13.09,
+   "z": -0.63,
+   "changed": false
+  },
+  {
+   "family": "Lung and airway",
+   "k": 7,
+   "methylated_there": true,
+   "sites": 107,
+   "mean": 0.5812,
+   "t": 6.28,
+   "z": 0.16,
+   "changed": false
+  },
+  {
+   "family": "Kidney, bladder, prostate",
+   "k": 8,
+   "methylated_there": false,
+   "sites": 1077,
+   "mean": -0.4074,
+   "t": -12.85,
+   "z": -0.62,
+   "changed": false
+  },
+  {
+   "family": "Kidney, bladder, prostate",
+   "k": 8,
+   "methylated_there": true,
+   "sites": 287,
+   "mean": 0.6479,
+   "t": 11.42,
+   "z": 0.36,
+   "changed": false
+  },
+  {
+   "family": "Breast and reproductive",
+   "k": 9,
+   "methylated_there": false,
+   "sites": 3674,
+   "mean": -0.4842,
+   "t": -28.43,
+   "z": -1.25,
+   "changed": false
+  },
+  {
+   "family": "Breast and reproductive",
+   "k": 9,
+   "methylated_there": true,
+   "sites": 1021,
+   "mean": 0.7267,
+   "t": 24.09,
+   "z": 0.88,
+   "changed": false
+  },
+  {
+   "family": "Squamous and thyroid",
+   "k": 10,
+   "methylated_there": false,
+   "sites": 2306,
+   "mean": -0.5002,
+   "t": -23.3,
+   "z": -1.04,
+   "changed": false
+  },
+  {
+   "family": "Squamous and thyroid",
+   "k": 10,
+   "methylated_there": true,
+   "sites": 282,
+   "mean": 0.675,
+   "t": 11.78,
+   "z": 0.38,
+   "changed": false
+  },
+  {
+   "family": "Blood vessels",
+   "k": 11,
+   "methylated_there": false,
+   "sites": 444,
+   "mean": -0.5011,
+   "t": -10.24,
+   "z": -0.51,
+   "changed": false
+  },
+  {
+   "family": "Blood vessels",
+   "k": 11,
+   "methylated_there": true,
+   "sites": 170,
+   "mean": 0.7436,
+   "t": 10.05,
+   "z": 0.31,
+   "changed": false
+  },
+  {
+   "family": "Muscle, heart, fat, fibroblasts",
+   "k": 12,
+   "methylated_there": false,
+   "sites": 4714,
+   "mean": -0.4703,
+   "t": -31.25,
+   "z": -1.37,
+   "changed": false
+  },
+  {
+   "family": "Muscle, heart, fat, fibroblasts",
+   "k": 12,
+   "methylated_there": true,
+   "sites": 357,
+   "mean": 0.6103,
+   "t": 12.02,
+   "z": 0.39,
+   "changed": false
+  },
+  {
+   "family": "Brain",
+   "k": 13,
+   "methylated_there": false,
+   "sites": 4562,
+   "mean": -0.5654,
+   "t": -37.22,
+   "z": -1.61,
+   "changed": false
+  },
+  {
+   "family": "Brain",
+   "k": 13,
+   "methylated_there": true,
+   "sites": 2081,
+   "mean": 0.7909,
+   "t": 37.35,
+   "z": 1.42,
+   "changed": false
+  },
+  {
+   "family": "Embryonic stem cells",
+   "k": 14,
+   "methylated_there": false,
+   "sites": 241,
+   "mean": -0.3963,
+   "t": -5.9,
+   "z": -0.34,
+   "changed": false
+  },
+  {
+   "family": "Embryonic stem cells",
+   "k": 14,
+   "methylated_there": true,
+   "sites": 4215,
+   "mean": 0.7317,
+   "t": 49.27,
+   "z": 1.9,
+   "changed": false
+  }
+ ],
+ "rule": "each territory's mean change (sites in their healthy width, in the sample's own spread) in the sample's own spread of territories, beyond the 5 % family-wise line",
+ "fisher_rao_rms_rad": 0.06317,
+ "fisher_rao_median_rad": 0.03258,
+ "html": "healthy_info_sphere.html",
+ "label": "DEVELOPMENT - not commissioned (DEV-SPHERE-01)"
+}

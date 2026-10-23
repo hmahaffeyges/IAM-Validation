@@ -446,7 +446,8 @@ def main():
     ap.add_argument("--prior-pat", default=None, help="with --dev-genome-globe: a .pat file of an earlier reading of the same person or specimen")
     ap.add_argument("--prior-name", default="the earlier reading", help="with --prior-pat: what the other file is, as the globe names it")
     ap.add_argument("--genome-region", type=int, default=1000, help="with --dev-genome-globe: CpGs per region (default 1000)")
-    ap.add_argument("--dev-info-sphere", action="store_true", help="DEVELOPMENT - not commissioned (DEV-SPHERE-01): the sample's change on the information sphere (page OUT_info_sphere.html; needs the layout from --build info-globe)")
+    ap.add_argument("--dev-info-sphere", action="store_true", default=True, help="DEVELOPMENT - not commissioned (DEV-SPHERE-01): the sample's change on the information sphere (page OUT_info_sphere.html; needs the layout from --build info-globe). On by default since 2026-10-23 (author: 'it still gets created by the chain and we learn each time it does')")
+    ap.add_argument("--no-info-sphere", dest="dev_info_sphere", action="store_false", help="skip the information sphere reading")
     ap.add_argument("--dev-metaa-atlas", default=None, metavar="CELL",
                     help="DEVELOPMENT - not commissioned (DEV-METAA-ATLAS-01, 2026-10-22): Met-A of an isolated CELL (an IAM-Atlas v2.1 cell name, e.g. monocytes) "
                          "against that cell in IAM-Atlas v2.1, read on the self-tared values (Stage T step 1, the same map the commissioned Met-A reads); "

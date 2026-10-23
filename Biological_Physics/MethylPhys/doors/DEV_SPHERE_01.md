@@ -325,3 +325,12 @@ globe's Met-A layer lit 44 of its 597 blocks for it. A loss along the DNA belong
 predicts. Sample test 1 (`data/DEV_SPHERE_01/sample_sphere_01.py`, written before it runs) plants losses across each cell's whole program
 and along stretches, at three sizes, through the one command.
 
+**Sample test 1, CD4 T cells (explore run 39987420140; `data/DEV_SPHERE_01/sample_test_01/sample_sphere_01_cd4-t-cells_summary.txt`).**
+Against what was written before it ran: **use 1, distance, as predicted**: the Fisher-Rao distance rises with the planted loss across CD4 T
+cells' whole program (healthy 0.06317 rad; 5 %, 0.06564; 20 %, 0.07585; 50 %, 0.10198), and a loss along stretches of DNA barely moves it
+(0.06317 to 0.0632). **Use 3, a failing program lights its territory, not met**: 0 of 27 territories lit at every size. Each territory is
+judged against the sample's own other territories, and a loss across everything a cell carries moves many territories together, so the
+self-scaling cancels it, the blind spot the two readings were expected to split. Next: judge each territory against its expectation from the
+atlas in the sample's own mix (keeping a check for a laboratory offset), with its own synthetic test first. The information sphere is read by
+default for every sample since this commit (`--no-info-sphere` skips it), with a row in the report.
+

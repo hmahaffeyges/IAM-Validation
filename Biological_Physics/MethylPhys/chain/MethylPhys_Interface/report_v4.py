@@ -85,6 +85,12 @@ def glance_rows(o):
         rows.append(("Met-A, each cell", "How far each blood cell's tagging level has moved (against IAM-Atlas v2.1 in this person's own cell mix)",
                      ", ".join(f"{cellname(x['cell'])} {x['A']:.3f}" for x in rd) + (" (untared)" if rd else ""), "",
                      untested("each blood cell in whole blood", "Met-A")))
+    sp = o.get("info_sphere") or {}
+    if sp.get("territories_read"):   # 2026-10-23: the information sphere, on by default (development, flagged)
+        rows.append(("Information sphere", "Which cell programs moved, and how far the sample sits from its own expected healthy self",
+                     f"{sp.get('territories_changed')} of {sp.get('territories_read')} territories changed; distance {sp.get('fisher_rao_rms_rad')} rad", "",
+                     "development, not commissioned (page " + str(sp.get("html") or "") + ")"))
+    elif sp.get("reason"): rows.append(("Information sphere", "Which cell programs moved", "", "", "not drawn: " + str(sp.get("reason"))[:120]))
     if c.get("C") is not None:
         val = f"C_rel {c['C_rel']}" if c.get("C_rel") is not None else f"C {c['C']} (untared)"
         st = ("commissioned" if c.get("commissioning") else "not tared: needs 3 same-run healthy references" if c.get("C_rel") is None and o.get("specimen") == "whole blood"

@@ -1,0 +1,8 @@
+DEV-SPHERE-01 sample test 1: the sample on the information sphere beside the address globe (losses planted by run_sample.py)
+healthy                            | sphere: 0 of 27 territories lit, distance 0.06317 rad | address globe: 45 of 77355 blocks; Met-A sites 0 blocks
+cd4 t cells all 5%                 | sphere: 0 of 27 territories lit, distance 0.06564 rad | address globe: 33 of 77355 blocks; Met-A sites 0 blocks
+cd4 t cells all 20%                | sphere: 0 of 27 territories lit, distance 0.07585 rad | address globe: 27 of 77355 blocks; Met-A sites 4 blocks
+cd4 t cells all 50%                | sphere: 0 of 27 territories lit, distance 0.10198 rad | address globe: 70 of 77355 blocks; Met-A sites 12 blocks
+cd4 t cells runs 5%                | sphere: 0 of 27 territories lit, distance 0.06317 rad | address globe: 45 of 77355 blocks; Met-A sites 0 blocks
+cd4 t cells runs 20%               | sphere: 0 of 27 territories lit, distance 0.06318 rad | address globe: 46 of 77355 blocks; Met-A sites 0 blocks
+cd4 t cells runs 50%               | sphere: 0 of 27 territories lit, distance 0.0632 rad | address globe: 51 of 77355 blocks; Met-A sites 0 blocks

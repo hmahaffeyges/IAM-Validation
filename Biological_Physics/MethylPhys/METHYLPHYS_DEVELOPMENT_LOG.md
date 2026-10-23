@@ -3113,3 +3113,6 @@ The Met-A layer and each cell's change layer now fade the full healthy map (the 
 
 ### 2026-10-23 · A human sequencing sample from raw reads to its count on GitHub (PHY-006, DEV-ERASE-01)
 The count from the saved molecules completed through the one command: held error 0.04198 over 343,973 chances, loose share 0.0765 (flagged; cultured cells). With the alignment earlier, a human sample now runs end to end on GitHub's machines. Record: [DEV_ERASE_01.md](../Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md).
+
+### 2026-10-23 · The information sphere's first sample test, CD4 T cells (ATL-046, DEV-SPHERE-01)
+The distance from the sample's own expected healthy self rises with a planted whole-program loss (0.06317 rad healthy to 0.10198 at 50 %); the territories lit none (0 of 27), because each is judged against the others. The sphere is now read by default for every sample. Record: [DEV_SPHERE_01.md](../Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md).
