@@ -788,6 +788,25 @@ once and never fitted to the sample.
 above 0.5. Every reading records the mean β of the cell's methylated sites and flags `past_entropy_ceiling` when it has fallen below 0.5,
 because past that point further loss lowers Met-A.
 
+### Why these sites: Met-A's site rule
+
+Met-A reads each cell at that cell's own identity sites. The rule is fixed (`stage_m_met_a.py`; for every atlas cell,
+`stage_metaa_atlas.identity_sites`): healthy spread at most 0.05, healthy level 0.75 to 0.95 (held methylated) or 0.05 to 0.25 (held
+unmethylated), at most 3,000 a side, the tightest first. Each part of it is one of three kinds:
+
+- **Held sites. Label: from IAM's physics.** Disorder H(β) is lowest where a mark is held and highest at 0.5. A loss of hold moves a held
+  site toward 0.5, so its disorder rises; a site already near 0.5 is at the ceiling, where a loss cannot show (the ceiling caveat above). So
+  Met-A reads the sites a cell holds, on both sides: held methylated and held unmethylated, because a loss moves either toward 0.5.
+- **A small healthy spread. Label: from the reading itself.** Where healthy people differ, their ordinary differences look like a loss. Sites
+  where healthy people agree keep the healthy reading tight, so a loss stands out against it.
+- **The window's ends (0.95 and 0.05) and the count (3,000 a side). Label: operational, stated.** Neither is derived. The ends are part of the
+  rule as first written, and no reason for them is recorded; the count gives a stable reading. Both are tested rather than defended: the count
+  against every site weighted by its shift (DEV-EACH-CELL-01 exploration 4, to-do 39.4), the ends against windows reaching 1 and 0 (to-do 39.8).
+
+**Each cell has its own set.** On the atlas, every cell's sites come from its own column by the same rule, so the CD4 T cells' sites differ
+from the neutrophils'. Sets overlap where cells hold the same sites, and that overlap is why a loss in one cell moves its relatives a little:
+in a whole blood, up to 26 % of the planted cell's move (DEV-EACH-CELL-01 synthetic test 2).
+
 ### Stage A, the cell mix (whole blood)
 
 **Label: standard method** (reference-based deconvolution by non-negative least squares, used in the field for over a decade).

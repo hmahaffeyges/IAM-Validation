@@ -859,7 +859,7 @@
      "status": "running",
      "what": "Exploration 4: Met-A on each cell's 6,000 identity sites against every atlas site weighted by its shift",
      "run": "explore run 39885755066",
-     "next": "record; then write why the sites are chosen (derived vs operational) in the Decoder, the book's Met-A chapter and INSTRUMENTS.md"
+     "next": "record; add the measured comparison to the Decoder's 'Why these sites' section (written 2026-10-22), then the book's Met-A chapter and INSTRUMENTS.md"
     },
     {
      "id": "39.5",
@@ -881,6 +881,13 @@
      "status": "done",
      "what": "IAM-A states its own counting error on every reading (finding F38)",
      "record": "CANON/plan.json (step 25, F38)"
+    },
+    {
+     "id": "39.8",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "Met-A's site-rule window stops at 0.95 and 0.05; no reason is recorded with the rule (operational)",
+     "next": "test windows reaching 1 and 0 against the current ones, by the same planted losses through the chain, after 39.4"
     }
    ]
   },
