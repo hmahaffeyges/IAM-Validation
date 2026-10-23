@@ -1,0 +1,14 @@
+DEV-EACH-CELL-01 exploration 5: clustered losses (10 runs of 30 identity sites) planted by run_sample.py; each cell's globe layer, changed blocks
+healthy: neutrophils 5 of 591, monocytes 2 of 567, b cells 4 of 599, cd4 t cells 2 of 597, cd8 t cells 0 of 591, nk cells 2 of 591
+planted monocytes    (share 0.0627) loss 5%: monocytes 2 -> 2 of 567 blocks | largest rise elsewhere nk cells +0
+planted monocytes    (share 0.0627) loss 20%: monocytes 2 -> 3 of 567 blocks | largest rise elsewhere nk cells +1
+planted monocytes    (share 0.0627) loss 50%: monocytes 2 -> 9 of 567 blocks | largest rise elsewhere nk cells +1
+planted cd4 t cells  (share 0.233) loss 5%: cd4 t cells 2 -> 3 of 597 blocks | largest rise elsewhere b cells +1
+planted cd4 t cells  (share 0.233) loss 20%: cd4 t cells 2 -> 29 of 597 blocks | largest rise elsewhere nk cells +1
+planted cd4 t cells  (share 0.233) loss 50%: cd4 t cells 2 -> 30 of 597 blocks | largest rise elsewhere b cells +7
+planted b cells      (share 0.0565) loss 5%: b cells 4 -> 4 of 599 blocks | largest rise elsewhere nk cells +0
+planted b cells      (share 0.0565) loss 20%: b cells 4 -> 5 of 599 blocks | largest rise elsewhere nk cells +1
+planted b cells      (share 0.0565) loss 50%: b cells 4 -> 11 of 599 blocks | largest rise elsewhere nk cells +1
+planted nk cells     (share 0.0807) loss 5%: nk cells 2 -> 3 of 591 blocks | largest rise elsewhere neutrophils +0
+planted nk cells     (share 0.0807) loss 20%: nk cells 2 -> 3 of 591 blocks | largest rise elsewhere neutrophils +0
+planted nk cells     (share 0.0807) loss 50%: nk cells 2 -> 18 of 591 blocks | largest rise elsewhere neutrophils +0

@@ -1,0 +1,14 @@
+DEV-EACH-CELL-01 exploration 7: a 5 % loss at every site a cell holds, read on identity sites and on sites specific to each cell; all by run_sample.py on GSM7508429
+sites used: identity: neutrophils 5912, monocytes 5670, b cells 5995, cd4 t cells 5973, cd8 t cells 5914, nk cells 5911 | specific 0.1: neutrophils 4624, monocytes 1791, b cells 3778, cd4 t cells 618, cd8 t cells 246, nk cells 2522 | specific 0.2: neutrophils 2432, monocytes 356, b cells 2410, cd4 t cells 66, cd8 t cells 25, nk cells 527
+plant monocytes    | identity     : moved +0.01255 = +5.6 of its own error | largest other move cd4 t cells 121% of it
+plant monocytes    | specific 0.1 : not read (only 1581 of 1791 identity sites measured (at least 90% needed))
+plant monocytes    | specific 0.2 : not read (only 279 of 356 identity sites measured (at least 90% needed))
+plant cd4 t cells  | identity     : moved +0.05599 = +29.9 of its own error | largest other move cd8 t cells 92% of it
+plant cd4 t cells  | specific 0.1 : moved +0.00438 = +1.5 of its own error | largest other move nk cells 112% of it
+plant cd4 t cells  | specific 0.2 : not read (66 sites meet the site rule with 0.2 from every other cell (at least 200 needed))
+plant b cells      | identity     : moved +0.01208 = +6.1 of its own error | largest other move cd4 t cells 114% of it
+plant b cells      | specific 0.1 : moved +0.00051 = +0.4 of its own error | largest other move nk cells 251% of it
+plant b cells      | specific 0.2 : moved +0.00020 = +0.1 of its own error | largest other move nk cells 60% of it
+plant nk cells     | identity     : moved +0.01736 = +9.1 of its own error | largest other move cd4 t cells 113% of it
+plant nk cells     | specific 0.1 : moved +0.00165 = +0.9 of its own error | largest other move cd4 t cells 104% of it
+plant nk cells     | specific 0.2 : moved -0.00037 = -0.1 of its own error | largest other move neutrophils 57% of it

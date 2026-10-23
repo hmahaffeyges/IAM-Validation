@@ -822,10 +822,9 @@
     {
      "id": "38.1",
      "date": "2026-10-22",
-     "status": "built",
+     "status": "done",
      "what": "A change layer for each cell on the globe (healthy example blood: 0-5 of ~590 blocks per cell)",
-     "record": "Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md",
-     "next": "exploration 5 (globe_cell_05.py): clustered losses of 5, 20 and 50 % in four cells, read on each cell's layer; record"
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_EACH_CELL_01/run_05/globe_cell_05_summary.txt"
     },
     {
      "id": "38.2",
@@ -938,9 +937,9 @@
     {
      "id": "39.5",
      "date": "2026-10-22",
-     "status": "open",
+     "status": "running",
      "what": "Each cell's healthy spread in whole blood (its detection limit)",
-     "next": "read Group-A's 278 healthy bloods with Met-A for each cell, through the chain (after 37.1)"
+     "next": "exploration 8 (series run on 56 of Group-A's bloods); record the spreads"
     },
     {
      "id": "39.6",
@@ -966,17 +965,16 @@
     {
      "id": "39.9",
      "date": "2026-10-22",
-     "status": "running",
+     "status": "done",
      "what": "Identity sites specific to each cell (held by the cell and not by its relatives), for attribution in a mix",
-     "next": "record whether specific sites put a whole-pattern loss on the right cell; the T cells may need to be read as one group",
-     "record": "Biological_Physics/MethylPhys/doors/data/DEV_EACH_CELL_01/specific_07.py"
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_EACH_CELL_01/run_07/specific_07_summary.txt"
     },
     {
      "id": "39.10",
      "date": "2026-10-22",
-     "status": "open",
+     "status": "running",
      "what": "The every-site weighted reading as a whole-sample disorder reading (very sensitive, not cell-specific)",
-     "next": "its healthy spread across people (Group-A's 278 bloods) before deciding its use"
+     "next": "exploration 8 (series run on 56 of Group-A's bloods); record the spreads"
     },
     {
      "id": "39.11",
@@ -991,6 +989,13 @@
      "status": "open",
      "what": "The Deconvolver's resampled range holds the known amount in 10 of 15 (too narrow for a 95 % range)",
      "next": "a widening rule written before it runs (for example resampling the atlas's own uncertainty as well as the sites), tested on the 9 known mixtures; until then reported as the fit's spread"
+    },
+    {
+     "id": "39.17",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "Placing a loss across a whole pattern on the right cell: identity sites spread it over relatives (exploration 4, 7) and cell-specific sites lose the signal (exploration 7). Idea: read all cells together, each cell's predicted shift pattern at every site (its share times its pattern) as one column, the sample's departure as the target, solved by the same non-negative least squares the Deconvolver uses",
+     "next": "write it, synthetic first (plants in one cell, then two at once), through the one command"
     }
    ]
   },
@@ -1091,7 +1096,7 @@
    ]
   },
   {
-   "task": "The book, before outreach (author: 'the book is going to need some special attention once we get everything commissioned and the chain fully operational, before the outreach begins to researchers'): after commissioning and the chain settle, one pass over the whole book: (1) line by line, the actual book, every error reported to the author as found; (2) nothing that changes is hand-written: every number, status and result filled from the canon by the build; (3) every claim labeled derived, measured and frozen, or open, as the Decoder labels the chain; (4) one story and one notation from cosmology to cells, matching FOUR_DOMAINS.md; (5) the public rules: no dates, no names as endorsement, no exploratory results, American English, computer and qubit analogies; (6) every citation checked in Crossref or arXiv; (7) the full PDF built from a fresh clone on GitHub, every figure drawn by the chain",
+   "task": "The book, before outreach (author: 'the book is going to need some special attention once we get everything commissioned and the chain fully operational, before the outreach begins to researchers'): after commissioning and the chain settle, one pass over the whole book: (1) line by line, the actual book, every error reported to the author as found; (2) nothing that changes is hand-written: every number, status and result filled from the canon by the build; (3) every claim labeled derived, measured and frozen, or open, as the Decoder labels the chain; (4) one story and one notation from cosmology to cells, matching FOUR_DOMAINS.md; (5) the public rules: no dates, no names as endorsement, no exploratory results, American English, computer and qubit analogies; (6) every citation checked in Crossref or arXiv; (7) the full PDF built from a fresh clone on GitHub, every figure drawn by the chain | Starts only when (author: 'I want to make sure we have the physics and the instruments solidified before even bothering'): the firm rate derived again on the commissioned counter (step 14); Met-A against the atlas through its sealed test (step 33); every reproduction through the one command (step 37); every document generated from its one source (39.16)",
    "done_when": "every chapter reviewed line by line and its corrections pushed; build_all, no_dates, status_claims and the book build pass from a fresh clone",
    "rows": [
     "OTH-072"

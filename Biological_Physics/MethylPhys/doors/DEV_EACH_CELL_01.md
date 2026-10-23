@@ -80,3 +80,20 @@ every other cell of the panel (`run_sample.py --dev-metaa-specific`). On the six
 5,001 and 2,658; monocytes 1,791 and 356; B cells 3,952 and 2,505; CD4 T 672 and 66; CD8 T 273 and 25; NK 2,616 and 553 (of 6,000). CD4 and
 CD8 T cells hold nearly the same sites. `data/DEV_EACH_CELL_01/specific_07.py` plants exploration 4's hard case, a 5 % loss at every site a cell
 holds, and reads it on identity sites and on both specific sets.
+
+## Exploration 5, run once (explore run 39893275546; output `data/DEV_EACH_CELL_01/run_05/globe_cell_05_summary.txt`)
+Clustered losses (10 runs of 30 identity sites) planted by run_sample.py, read on each cell's globe layer. Healthy: 0 to 5 changed blocks per cell.
+A clustered loss lights its own cell's layer once loss times share is a few percent of the DNA: CD4 T cells (share 0.233) 2 to 29 blocks at 20 %;
+NK cells (0.0807) 2 to 18 at 50 %; B cells (0.0565) 4 to 11 at 50 %; monocytes (0.0627) 2 to 9 at 50 %. Other cells' layers rise by at most 7.
+At 5 % no cell's layer lights. The per-cell layer places a clustered loss on the right cell; its reach is set by the cell's share.
+
+## Exploration 7, run once (explore run 39905743359; output `data/DEV_EACH_CELL_01/run_07/specific_07_summary.txt`)
+A 5 % loss at every site a cell holds. On the identity sites the planted cell moves 5.6 to 29.9 of its own error, but its relatives move 92 to 121 %
+as much: the loss cannot be put on one cell. On sites held by one cell alone the planted cell barely moves (0.1 to 1.5 of its error) and the others
+still move as much or more; at a difference of 0.2 too few sites remain for CD4 T. Sites held by one cell alone do NOT solve attribution of a
+loss across a whole pattern; the per-cell globe (exploration 5) does for a clustered loss.
+
+## Exploration 8, written and committed before it runs
+`data/DEV_EACH_CELL_01/spread_08_score.py` on every fifth of Group-A's 278 healthy bloods (`spread_08_samples.csv`, 56 arrays, one laboratory series),
+read by run_sample.py with `--cell-panel atlas --dev-metaa-allsites`: for each cell and each reading, the spread between healthy people and what a
+1 % loss moves in units of it. The scorer only summarizes the bundles.

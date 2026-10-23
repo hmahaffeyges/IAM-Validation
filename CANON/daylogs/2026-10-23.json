@@ -1,0 +1,73 @@
+{
+ "date": "2026-10-23",
+ "title": "One source for every fact, and the globe draws change as patches",
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "set_out": "Make every document come from one source, finish the catalogue line by line, and keep the GitHub machines full.",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Each cell's change layer on the globe, with clustered losses (GRP-015, DEV-EACH-CELL-01 exploration 5)",
+     "status": "development",
+     "what": "Clustered losses planted by the one command in four blood cells, read on each cell's own layer.",
+     "outcome": "A clustered loss lights its own cell's layer once loss times share is a few percent of the DNA; other cells' layers barely move.",
+     "rows": [
+      "GRP-015"
+     ]
+    },
+    {
+     "title": "Sites held by one cell alone (GRP-015, DEV-EACH-CELL-01 exploration 7)",
+     "status": "development",
+     "what": "A loss across a cell's whole pattern, read on identity sites and on sites specific to each cell.",
+     "outcome": "Specific sites do not place a whole-pattern loss on one cell; a joint reading of all cells is the next idea (plan 39.17).",
+     "rows": [
+      "GRP-015"
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "built",
+   "heading": "What was built",
+   "entries": [
+    {
+     "title": "The flat picture and the globe count change the same way, and the globe draws changed blocks as patches (ATL-063)",
+     "status": "development",
+     "what": "Blocks of 10 neighboring sites beyond the 5 % family-wise line on both; each changed block painted over its stretch of genome.",
+     "outcome": "Counts unchanged; drawing only.",
+     "rows": [
+      "ATL-063"
+     ]
+    },
+    {
+     "title": "The instrument catalogue corrected line by line at its sources; a status-claim check and a no-dates check in the push gate",
+     "status": "done",
+     "what": "Every fix made in CANON/catalogue.json and CANON/instruments.json, which rebuild the page, the README table, the website and the book's toolbox chapter.",
+     "outcome": "Pushed.",
+     "rows": [
+      "OTH-072"
+     ]
+    },
+    {
+     "title": "One build command for every generated document (CANON/build_all.py)",
+     "status": "done",
+     "what": "28 generators in data-flow order, then the cross-document checks; the push gate runs it first.",
+     "outcome": "Pushed.",
+     "rows": [
+      "OTH-072"
+     ]
+    }
+   ]
+  }
+ ],
+ "open_at_turnover": "Open: Group-A's reproduction through the one command (GRP-004); the plasma arrays (GRP-016); the firm-rate human timing sample (PHY-006); information sphere test 11 (ATL-046); each cell's healthy spread (GRP-015, exploration 8).",
+ "closing": "",
+ "off_page_rows": [],
+ "compute": {
+  "pending": "AWS billing could not be read from 2026-10-20; this block is filled by CANON/day_compute.py once it can be",
+  "since": "2026-10-20"
+ }
+}
