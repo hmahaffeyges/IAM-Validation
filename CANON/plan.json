@@ -390,9 +390,10 @@
     {
      "id": "14.1",
      "date": "2026-10-22",
-     "status": "open",
+     "status": "running",
      "what": "THE TOP PHYSICS ITEM (author 2026-10-22: 'the firm rate derivation is a bit more important than I realized. That could be the thing that makes MET-A not require all the extra calibrations'): with the firm rate derived, the healthy disorder at each site follows from IAM's Law (M = 20.94, E_hold = phi M), so healthy samples confirm the schedule rather than set it; the same-run tare or self-tare still zeros each laboratory's meter",
-     "next": "rerun the one-sample timing test with the workflow fix (the count stopped on a missing package; alignment took about 4 hours for 10 million pairs); then all 16 samples on 16 machines, then the sealed ratio rule once"
+     "next": "score the five primary units once all 16 counts land, by the sealed ratio rule (erase_verdict.py), and record it",
+     "run": "erase_test, 15 runs from 39994306888 (GSM2387332 counted in run 39988716983)"
     },
     {
      "id": "14.2",
@@ -1314,7 +1315,15 @@
    ],
    "task": "The readiness map: every specimen (whole blood, buffy coat, plasma cfDNA, tissue, isolated cells, unnamed) against every platform (EPIC v1, EPIC v2, 450K, sequencing), one column per instrument; each cell commissioned, read and flagged, or refused, backed by a real run of the one command on a file of that kind (lesson C40); generated from one source; it becomes the challenge page's 'what you can bring'",
    "done_when": "no blank cell: every specimen and platform has a real run behind its verdict",
-   "branches": []
+   "branches": [
+    {
+     "id": "45.1",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "readiness.yml: one fixed public file of each kind (EPIC v1 whole blood, buffy coat, isolated neutrophils, plasma, tissue, unnamed, 450K, EPIC v2, sequencing; PBMC and saliva to confirm their refusals), each read by the one command; for every instrument, fired or not, its status (commissioned, flagged, refused) and the reason, written to CANON/readiness.json and generated into READINESS.md; rerun on every release, so it doubles as a regression test. Only 29 bundles are committed; run artifacts expire after 90 days, so the map cannot rest on old runs",
+     "next": "choose the fixed file of each kind (public, spent or reference files only); write readiness.yml once the blind study frees machines"
+    }
+   ]
   },
   {
    "status": "open",
